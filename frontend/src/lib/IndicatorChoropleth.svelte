@@ -373,12 +373,14 @@
 
   let _fetch_token = 0;
 
-  /** Synthesise a BoundaryEntry pointing at the loader's basename for the
-   *  current drill level. Reuses MapChoropleth's existing geojson_local_path
-   *  resolution path — no contract change required. */
+  /** Synthesise a BoundaryEntry pointing at the loader's relative path for
+   *  the current drill level. Reuses MapChoropleth's existing
+   *  geojson_local_path resolution path — no contract change required.
+   *  Post-T.0d the loader returns a Hive-relative path (per ADR-0031
+   *  Amendment 2026-05-22) so we just prefix `boundaries/in/`. */
   function synthesiseEntry(state: DrillState): BoundaryEntry {
     if (state.level === "state") return INDIA_STATES;
-    const basename = boundaryBasename(
+    const relpath = boundaryBasename(
       state.level,
       state.parentDistrictLgd,
       state.stateLgd,
@@ -387,7 +389,7 @@
     return {
       id: `drill-${state.level}-${state.parentDistrictLgd ?? "_"}-${state.stateLgd ?? "_"}`,
       label: `${state.level} (drill)`,
-      geojson_local_path: `boundaries/in/geojson/${basename}`,
+      geojson_local_path: `boundaries/in/${relpath}`,
       geojson_url: "",
       join_property,
       attribution: INDIA_STATES.attribution,

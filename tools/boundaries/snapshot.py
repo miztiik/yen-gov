@@ -8,64 +8,46 @@ and `tippecanoe` on PATH. Those aren't available on Windows out of the box,
 and the frontend currently runs entirely off the GeoJSON fallback path
 (see frontend/src/lib/maplibre/sources.ts > resolveSource).
 
-This script snapshots the upstreams listed in pipeline.json into
-`datasets/boundaries/in/geojson/` with a `<file>.sources.json` sidecar
-declaring CLAUDE.md §12 provenance. The frontend prefers these local copies
-and only falls back to the upstream URL when the local copy is missing.
+This script snapshots the upstreams listed in pipeline.json into the Hive-
+partitioned ``datasets/boundaries/in/<level>/state=<S>/...`` tree (per T.0d
+§1 admin spine) AND emits the canonical ``boundary_layers.parquet`` control
+table with a FK to ``taxonomy/sources.parquet`` per CLAUDE.md §12 v2.0.
+
+The four sidecar writers that previously stamped per-file ``.sources.json`` /
+``.unkeyed.json`` / ``.metadata.json`` + ``S22-villages-index.json`` are
+GONE — their content lives in the parquet ledger as queryable columns
+(amends ADR-0031; closes the cardinality-explosion class of bugs at
+1000+ shard scale per Hans 2026-05-22 panel).
 
 Source format dispatch
 ======================
 
-Each pipeline.json entry carries a `source` block::
-
-    "source": {
-      "format": "geojson" | "shp_bundle",
-      "urls":   [str, ...]              # 1 entry for geojson; the full sibling
-                                        # bundle (.shp/.dbf/.shx/.prj/.cpg) for
-                                        # shp_bundle
-    }
-
-`format: geojson`
-    URL[0] is streamed verbatim into datasets/boundaries/in/geojson/<id>.geojson.
-    No conversion. Sidecar carries the single URL.
-
-`format: shp_bundle`
-    All URLs are downloaded into .runtime/raw/boundaries/snapshot/<id>/
-    (per ADR-0003 — intermediate artifacts never live in datasets/). pyshp
-    reads the .shp + .dbf and we hand-emit GeoJSON to
-    datasets/boundaries/in/geojson/<id>.geojson. Sidecar carries every
-    URL with a per-URL fetched_at.
-
-Adding a new format (zip+geojson, geopackage, geoparquet) is a new branch in
-`fetch_and_convert()` and a new value in pipeline.json — neither the sidecar
-schema nor the frontend resolver changes.
-
-Why a sidecar instead of a top-level `sources` field on the GeoJSON itself
-==========================================================================
-
-The GeoJSON spec (RFC 7946 §7.1) reserves all top-level members and
-recommends consumers ignore unknown ones. Tooling tolerates extras, but
-stuffing provenance into the artifact muddles the format. A sibling
-`*.sources.json` keeps each file type to its native shape and still
-satisfies the §12 contract.
+Each pipeline.json entry carries a ``source`` block (format + urls + optional
+coord_precision / state_filter / split_by) PLUS the new T.0d ``source_triple``
+block (producer, title, vintage) that maps to a ``source_id`` in
+``BOUNDARY_SOURCE_ID_BY_NICKNAME`` via the upstream URL prefix.
 
 Dependencies
 ============
 
-stdlib + `pyshp` (only when `format: shp_bundle` is encountered). Install
+stdlib + ``pyshp`` (for shp_bundle) + ``py7zr`` (for geojsonl_7z). Install
 with::
 
-    pip install pyshp
+    pip install pyshp py7zr duckdb pydantic
+
+The last two are pulled in transitively via ``boundary_layers_seed``.
 
 Re-running
 ==========
 
     python tools/boundaries/snapshot.py
 
-Re-fetches every entry and updates `fetched_at`. Existing files are
-overwritten; deleting an entry from pipeline.json does not delete the
-local copy (manual cleanup — we don't want a typo in the config to
-accidentally nuke a snapshot).
+Re-fetches every entry, writes geojson to the Hive partition, collects one
+``BoundaryLayerRow`` per emitted shard, and at end-of-run UPSERTs them all
+into ``boundary_layers.parquet`` + ``sources.parquet``. Existing files in
+the Hive tree are overwritten; deleting an entry from pipeline.json does
+not delete the local copy (manual cleanup — we don't want a typo in the
+config to accidentally nuke a snapshot).
 """
 
 from __future__ import annotations
@@ -78,6 +60,23 @@ import sys
 import urllib.request
 from pathlib import Path
 from typing import Any
+
+# Add repo root's backend/ to sys.path so we can import the canonical
+# emission seam. tools/ are otherwise self-contained per CLAUDE.md §3,
+# but boundary_layers_seed is the contract surface for what this script
+# writes — we honour the contract, not duplicate it.
+_THIS_DIR = Path(__file__).resolve().parent
+_REPO_ROOT = _THIS_DIR.parent.parent
+sys.path.insert(0, str(_REPO_ROOT / "backend"))
+sys.path.insert(0, str(_THIS_DIR))
+
+from yen_gov.canonical.boundary_layers_seed import (  # noqa: E402
+    BOUNDARY_SOURCE_ID_BY_NICKNAME,
+    BoundaryLayerRow,
+    compile_to_parquet,
+)
+
+from _paths import KIND_TO_LEVEL, derive_hive  # noqa: E402
 
 # -----------------------------------------------------------------------------
 # Constants
@@ -115,29 +114,24 @@ def stream_to_disk(url: str, dest: Path) -> None:
 
 
 def derive_output_basename(entry: dict[str, Any]) -> str:
-    """Output naming mirrors the BoundaryEntry.id convention used in
-    frontend/src/lib/maplibre/sources.ts: 'india-states' or '<state>-ac'.
+    """Pipeline-entry id used for runtime scratch directories.
 
-    For `kind: "villages"` with a `source.split_by` block, returns a
-    template basename containing `{<property>}` (e.g.
-    `S22-villages-{dist_lgd}.geojson`); the orchestrator substitutes per
-    group when emitting shards.
+    Retained post-T.0d to name the .runtime/raw/snapshot/<bundle_dir>/
+    scratch space (still ADR-0003: ephemeral, never datasets/). The
+    citizen-facing OUTPUT path is now derived via `derive_partition_path`
+    + `derive_hive` (Hive layout). For `kind: villages` with
+    `source.split_by`, returns a template containing `{<property>}` so
+    the orchestrator can substitute per district shard.
     """
     kind = entry["kind"]
     state = entry.get("state")
     if kind == "states":
         return "india-states.geojson"
     if kind == "country" and entry.get("country") == "IN" and not state:
-        # National silhouette (Survey of India outline). Single canonical
-        # name today — extend with another branch when a non-IN country
-        # silhouette ships.
         return "india-soi.geojson"
     if kind == "ac" and state:
         return f"{state}-ac.geojson"
     if kind == "districts" and not state:
-        # All-India district layer (one file, ~800 features). Per-state
-        # district carve-outs would use kind='districts' with state=<S22>;
-        # add that branch when the first per-state district consumer ships.
         return "india-districts.geojson"
     if kind == "subdistricts" and state:
         return f"{state}-subdistricts.geojson"
@@ -148,6 +142,63 @@ def derive_output_basename(entry: dict[str, Any]) -> str:
         return f"{state}-villages.geojson"
     msg = f"unknown entry shape: kind={kind} state={state}"
     raise ValueError(msg)
+
+
+def derive_partition_path(
+    entry: dict[str, Any],
+    district_lgd: str | None = None,
+) -> tuple[str, str]:
+    """Return (partition_path, layer_id) for one pipeline entry's shard.
+
+    For `kind: villages` with `split_by`, the caller supplies
+    `district_lgd` per shard.
+    """
+    kind = entry["kind"]
+    state = entry.get("state")
+    return derive_hive(kind=kind, state=state, district_lgd=district_lgd)
+
+
+def _resolve_source_id(entry: dict[str, Any]) -> str:
+    """Resolve a pipeline entry's source_id from its source_triple block.
+
+    pipeline.json carries the (producer, title, vintage) triple per entry
+    (added in T.0d chunk 2a). We look up the source_id by matching the
+    triple's producer against the BOUNDARY_SOURCE_ID_BY_NICKNAME map's
+    keyed-by-nickname rows. Falls back to URL-prefix matching when the
+    source_triple block is absent (catches partially-migrated pipeline
+    entries).
+    """
+    triple = entry.get("source_triple")
+    if triple:
+        producer = triple.get("producer", "")
+        # Map producer string back to nickname via PRODUCER_LOOKUP table.
+        # Keys exactly match boundary_layers_seed._BOUNDARY_SOURCE_TRIPLES.
+        producer_to_nickname = {
+            "DataMeet India Maps Project": "datameet",
+            "Hindustan Times Labs": "htl",
+            "shijithpk": "shijithpk",
+            "ramSeraph": "ramseraph",
+            "yashveeeeeeer/india-geodata": "yashveeeeeeer",
+        }
+        nickname = producer_to_nickname.get(producer)
+        if nickname:
+            return BOUNDARY_SOURCE_ID_BY_NICKNAME[nickname]
+    # Fallback: URL prefix matching
+    urls = entry.get("source", {}).get("urls", [])
+    if urls:
+        url0 = urls[0]
+        for prefix, nickname in (
+            ("https://raw.githubusercontent.com/datameet/maps/", "datameet"),
+            ("https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/", "htl"),
+            ("https://raw.githubusercontent.com/shijithpk/", "shijithpk"),
+            ("https://github.com/ramSeraph/", "ramseraph"),
+            ("https://raw.githubusercontent.com/yashveeeeeeer/", "yashveeeeeeer"),
+        ):
+            if url0.startswith(prefix):
+                return BOUNDARY_SOURCE_ID_BY_NICKNAME[nickname]
+    msg = f"could not resolve source_id for entry kind={entry.get('kind')!r}"
+    raise ValueError(msg)
+
 
 
 # -----------------------------------------------------------------------------
@@ -461,427 +512,233 @@ def apply_split_by(
         groups.setdefault(v, []).append(f)
     return groups, dropped
 
-
-def emit_index_manifest(
-    index_path: Path,
-    state_lgd: int,
-    group_keys: list[Any],
-    schema_basename: str,
-    sources: list[dict[str, str]],
-) -> None:
-    """Write the per-state index manifest atomically (temp-then-rename so a
-    crash mid-write cannot leave a partial manifest beside complete shards
-    — Fowler v5 nit). Validates against `boundary.villages_index.schema.json`
-    by construction: state_lgd + district codes serialised as digit strings,
-    sorted ascending. `sources` is copied verbatim from the upstream the
-    shards were derived from (CLAUDE.md §12 — every datasets/ artifact
-    carries its own provenance, even derived sidecars).
-    """
-    payload = {
-        "$schema": f"https://yen-gov.github.io/schemas/{schema_basename}",
-        "$schema_version": "2.0",
-        "$comment": (
-            "Index of per-district shards present on disk. The frontend loader "
-            "consults this to avoid 404-probing for districts whose village "
-            "layer was not emitted (TODO/TN-GRANULAR-GEO-PLAN.md Phase 2)."
-        ),
-        "sources": sources,
-        "state_lgd": str(state_lgd),
-        "district_lgd_codes": sorted({str(k) for k in group_keys}),
-        "generated_at": utc_now(),
-    }
-    index_path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = index_path.with_suffix(index_path.suffix + ".part")
-    with tmp.open("w", encoding="utf-8", newline="\n") as fh:
-        json.dump(payload, fh, indent=2, ensure_ascii=False)
-        fh.write("\n")
-    tmp.replace(index_path)
-
-
-def _write_sources_sidecar(sidecar_path: Path, basename: str, sources: list[dict[str, str]]) -> None:
-    """Write the boundary.sources.schema.json v1.0 sidecar for one shard."""
-    sidecar = {
-        "$schema": "https://yen-gov.github.io/schemas/boundary.sources.schema.json",
-        "$schema_version": "1.0",
-        "$comment": (
-            "CLAUDE.md §12 provenance sidecar for the GeoJSON of the same name. "
-            "GeoJSON has no native top-level metadata slot; this file carries the "
-            "required `sources` array on its behalf."
-        ),
-        "for": basename,
-        "sources": sources,
-    }
-    with sidecar_path.open("w", encoding="utf-8", newline="\n") as fh:
-        json.dump(sidecar, fh, indent=2, ensure_ascii=False)
-        fh.write("\n")
-
-
-def _make_drop_record(
-    feat: dict[str, Any],
-    reason: str,
-    name_property: str | None = None,
-    dropped_at: str | None = None,
-) -> dict[str, str]:
-    """Build a boundary.unkeyed.schema.json `dropped[]` entry for `feat`.
-
-    `name_property` is the entry's `name_property` (e.g. "vlgname") when known
-    — that yields the most useful display name. Falls back to a small set of
-    common name fields and finally "(unnamed)" so the record always satisfies
-    the schema's `minLength: 1` constraint on `source_feature_name`.
-    """
-    name = "(unnamed)"
-    props = feat.get("properties") or {}
-    if name_property:
-        v = props.get(name_property)
-        if v not in (None, ""):
-            name = str(v)
-    if name == "(unnamed)":
-        for k in ("name", "vlgname", "sdtname", "dtname", "stname"):
-            v = props.get(k)
-            if v not in (None, ""):
-                name = str(v)
-                break
-    return {
-        "source_feature_name": name,
-        "reason": reason,
-        "dropped_at": dropped_at or utc_now(),
-    }
-
-
-def _write_unkeyed_sidecar(
-    sidecar_path: Path,
-    basename: str,
-    original: int,
-    retained: int,
-    dropped_records: list[dict[str, str]],
-    sources: list[dict[str, str]],
-) -> None:
-    """Hans v2 denominator sidecar — always emit, even when `dropped_records`
-    is empty, so the citizen UI can read 'X of Y features carry an LGD code'
-    rather than silently shrink the dataset. `original == retained + len(dropped)`
-    is asserted (writer-side invariant; the schema enforces the same shape on
-    readers via boundary.unkeyed.schema.json totals). `sources` is copied
-    verbatim from the parent GeoJSON's sidecar so this artifact is independently
-    attributable per CLAUDE.md §12."""
-    if original != retained + len(dropped_records):
-        msg = (
-            f"unkeyed sidecar denominator mismatch for {basename}: "
-            f"original={original} retained={retained} dropped={len(dropped_records)}"
-        )
-        raise ValueError(msg)
-    payload = {
-        "$schema": "https://yen-gov.github.io/schemas/boundary.unkeyed.schema.json",
-        "$schema_version": "2.0",
-        "$comment": (
-            "Hans v2 denominator sidecar. Empty `dropped` with totals.dropped=0 "
-            "is the canonical 'perfect snapshot' signal — written explicitly so "
-            "downstream readers never have to distinguish 'no drops' from 'no sidecar'."
-        ),
-        "for": basename,
-        "sources": sources,
-        "totals": {
-            "original": original,
-            "retained": retained,
-            "dropped": len(dropped_records),
-        },
-        "dropped": dropped_records,
-    }
-    sidecar_path.parent.mkdir(parents=True, exist_ok=True)
-    with sidecar_path.open("w", encoding="utf-8", newline="\n") as fh:
-        json.dump(payload, fh, indent=2, ensure_ascii=False)
-        fh.write("\n")
-
-
-def _write_simplification_metadata_sidecar(
-    metadata_path: Path,
-    basename: str,
-    entry_metadata: dict[str, Any],
-    sources: list[dict[str, str]],
-    coord_precision: int,
-    original_feature_count: int,
-    retained_feature_count: int,
-) -> None:
-    """Write `feature_collection.metadata.schema.json` v1.2 sidecar with the
-    `simplification` block populated.
-
-    Requires the entry to carry a `metadata` block with at least `license` +
-    `coverage` — those are operator-knowledge fields (legal classification,
-    spatial/temporal scope) that snapshot.py cannot honestly synthesise
-    from the URL alone. Other fields (title, description, category,
-    coordinate_system) are passed through verbatim if present.
-    """
-    payload: dict[str, Any] = {
-        "$schema": "https://yen-gov.github.io/schemas/feature_collection.metadata.schema.json",
-        "$schema_version": "1.2",
-        "$comment": (
-            "Simplification metadata for a coord_precision-rounded GeoJSON. "
-            "Records the rounding tolerance + feature counts so downstream area/"
-            "length math is not silently lying. Per TODO/TN-GRANULAR-GEO-PLAN.md "
-            "Phase 1b (Hans v2 nit)."
-        ),
-        "for": basename,
-        "sources": sources,
-        "license": entry_metadata["license"],
-        "coverage": entry_metadata["coverage"],
-        "simplification": {
-            "tolerance_deg": 10 ** -coord_precision,
-            "algorithm": "coord-precision-round",
-            "original_feature_count": original_feature_count,
-            "retained_feature_count": retained_feature_count,
-        },
-    }
-    for opt in ("title", "description", "category", "coordinate_system"):
-        if opt in entry_metadata:
-            payload[opt] = entry_metadata[opt]
-    metadata_path.parent.mkdir(parents=True, exist_ok=True)
-    with metadata_path.open("w", encoding="utf-8", newline="\n") as fh:
-        json.dump(payload, fh, indent=2, ensure_ascii=False)
-        fh.write("\n")
+# -----------------------------------------------------------------------------
+# Orchestration: write Hive shards + accumulate canonical rows
+# -----------------------------------------------------------------------------
 
 
 def _emit_split_shards(
     entry: dict[str, Any],
     source: dict[str, Any],
-    template_basename: str,
     features: list[dict[str, Any]],
-    sources: list[dict[str, str]],
-    out_root: Path,
-    upstream_drops: list[dict[str, str]] | None = None,
-    original_count: int | None = None,
-) -> dict[str, Any] | None:
-    """Group features per `source.split_by`, emit one GeoJSON shard + sources
-    sidecar per group, and write the index manifest atomically.
+    datasets_root: Path,
+    source_id: str,
+) -> list[BoundaryLayerRow]:
+    """Group features by ``source.split_by`` and emit one Hive-partitioned
+    GeoJSON shard per group. Returns one ``BoundaryLayerRow`` per successfully
+    emitted shard. Shards exceeding ``SNAPSHOT_BYTE_BUDGET`` are deleted and
+    omitted from the row list (mirrors single-file budget behaviour).
 
-    `template_basename` is the output of `derive_output_basename` containing
-    `{<property>}` (e.g. `S22-villages-{dist_lgd}.geojson`); each group's
-    value is substituted in to produce the shard basename.
-
-    Per-shard budget: shards over `SNAPSHOT_BYTE_BUDGET` are deleted and
-    omitted from both the shard list and the index manifest, mirroring the
-    single-file budget behaviour.
-
-    `upstream_drops` carries drop records from steps prior to the split (e.g.
-    state_filter exclusions). They flow into the bundle-level unkeyed
-    sidecar alongside features missing the split-by property.
-    `original_count` is the feature count BEFORE any upstream filtering
-    (e.g. the raw upstream count) — used for the unkeyed denominator.
+    Post-T.0d shape: each shard writes to
+    ``datasets/boundaries/in/<kind>/state=in_<lc>/district=<lgd>/all.geojson``
+    via ``derive_hive`` — no index manifest, no sidecars. The shard layer-id
+    encodes the same partition tuple, so the canonical parquet ledger gives
+    the frontend everything the old index manifest used to provide (no
+    404-probing).
     """
     split = source["split_by"]
     prop = split["property"]
-    name_property = entry.get("name_property")
-    groups, dropped_no_prop = apply_split_by(features, split)
-    print(f"  split_by[{prop}] -> {len(groups)} groups (skipped {len(dropped_no_prop)} feature(s) with no {prop})", flush=True)
+    state = entry.get("state")
+    if not state:
+        msg = "split_by currently requires the entry to declare a state"
+        raise ValueError(msg)
+    coord_precision = source.get("coord_precision")
+    simpl_alg = "coord-precision-round" if coord_precision is not None else None
+    simpl_tol = 10 ** -coord_precision if coord_precision is not None else None
 
-    emitted_keys: list[Any] = []
-    total_bytes = 0
-    skipped_oversize: list[Any] = []
-    for key in sorted(groups, key=lambda k: (str(k))):
-        shard_basename = template_basename.replace(f"{{{prop}}}", str(key))
-        shard_path = out_root / shard_basename
+    groups, dropped_no_prop = apply_split_by(features, split)
+    print(
+        f"  split_by[{prop}] -> {len(groups)} groups "
+        f"(skipped {len(dropped_no_prop)} feature(s) with no {prop})",
+        flush=True,
+    )
+
+    rows: list[BoundaryLayerRow] = []
+    for key in sorted(groups, key=lambda k: str(k)):
+        district_lgd = str(key)
+        partition_path, layer_id = derive_hive(
+            kind=entry["kind"],
+            state=state,
+            district_lgd=district_lgd,
+        )
+        shard_path = datasets_root / partition_path
         emit_feature_collection(shard_path, groups[key])
         size = shard_path.stat().st_size
         if size > SNAPSHOT_BYTE_BUDGET:
             shard_path.unlink()
-            skipped_oversize.append(key)
             print(
-                f"  SKIP shard {shard_basename} — {size / 1024 / 1024:.1f} MB exceeds "
-                f"{SNAPSHOT_BYTE_BUDGET / 1024 / 1024:.0f} MB budget",
+                f"  SKIP shard {partition_path} — {size / 1024 / 1024:.1f} MB "
+                f"exceeds {SNAPSHOT_BYTE_BUDGET / 1024 / 1024:.0f} MB budget",
                 flush=True,
             )
             continue
-        sidecar_path = shard_path.with_suffix(shard_path.suffix + ".sources.json")
-        _write_sources_sidecar(sidecar_path, shard_basename, sources)
-        emitted_keys.append(key)
-        total_bytes += size
-
-    # Index manifest. State LGD comes from the entry's state_filter when
-    # present; the manifest schema requires it as a digit string.
-    state_lgd = source.get("state_filter", {}).get("equals")
-    if state_lgd is None:
-        msg = (
-            "split_by currently requires a state_filter equals to populate the "
-            "index manifest's state_lgd; multi-state split is not yet supported."
-        )
-        raise ValueError(msg)
-    index_basename = split.get("emit_index")
-    if not index_basename:
-        msg = "split_by requires `emit_index` (basename of the index manifest)"
-        raise ValueError(msg)
-    schema_basename = split.get("index_schema", "boundary.villages_index.schema.json")
-    index_path = out_root / index_basename
-    emit_index_manifest(index_path, state_lgd, emitted_keys, schema_basename, sources)
-
-    # Bundle-level unkeyed sidecar (Hans v2 denominator). Aggregates upstream
-    # drops (state_filter) + features missing the split-by property. The
-    # `for` field points at the conceptual unsplit GeoJSON (no such file
-    # exists on disk — only shards do — but the schema's `for` requires a
-    # `.geojson` suffix, and the conceptual referent is unambiguous).
-    bundle_for = template_basename.replace(f"-{{{prop}}}", "")
-    bundle_unkeyed = out_root / f"{bundle_for}.unkeyed.json"
-    drops: list[dict[str, str]] = list(upstream_drops or [])
-    drops.extend(
-        _make_drop_record(f, "no_lgd_code_in_source", name_property)
-        for f in dropped_no_prop
-    )
-    retained_total = sum(len(groups[k]) for k in emitted_keys)
-    if original_count is None:
-        original_count = retained_total + len(drops)
-    _write_unkeyed_sidecar(
-        bundle_unkeyed, bundle_for, original_count, retained_total, drops, sources,
-    )
-
-    # Per-shard simplification metadata sidecar (when entry opted in via a
-    # `metadata` block AND coord_precision was applied).
-    coord_precision = source.get("coord_precision")
-    entry_metadata = entry.get("metadata")
-    if coord_precision is not None and entry_metadata:
-        for key in emitted_keys:
-            shard_basename = template_basename.replace(f"{{{prop}}}", str(key))
-            metadata_path = out_root / f"{shard_basename}.metadata.json"
-            _write_simplification_metadata_sidecar(
-                metadata_path,
-                shard_basename,
-                entry_metadata,
-                sources,
-                coord_precision,
-                original_feature_count=len(groups[key]),
-                retained_feature_count=len(groups[key]),
+        retained = len(groups[key])
+        rows.append(
+            BoundaryLayerRow(
+                layer_id=layer_id,
+                level=KIND_TO_LEVEL[entry["kind"]],
+                partition_path=partition_path,
+                format="geojson",
+                crs="EPSG:4326",
+                original_feature_count=retained,
+                retained_feature_count=retained,
+                unkeyed_count=0,
+                size_bytes=size,
+                source_id=source_id,
+                entity_state=state,
+                entity_district=district_lgd,
+                simplification_algorithm=simpl_alg,
+                simplification_tolerance_deg=simpl_tol,
             )
+        )
+    return rows
 
-    record: dict[str, Any] = {
-        "id": template_basename.removesuffix(".geojson"),
-        "path": f"boundaries/in/geojson/{index_basename}",
-        "kind": entry["kind"],
-        "size_bytes": total_bytes,
-        "fetched_at": sources[-1]["fetched_at"],
-        "shard_count": len(emitted_keys),
-        "shard_keys": [str(k) for k in emitted_keys],
-    }
-    if "state" in entry:
-        record["state"] = entry["state"]
-    if skipped_oversize:
-        record["skipped_oversize"] = [str(k) for k in skipped_oversize]
-    return record
+
+def _count_features_in_geojson(path: Path) -> int:
+    """Count features in a GeoJSON file by parsing it. Used to derive the
+    ``original_feature_count`` / ``retained_feature_count`` columns for
+    entries where features are not held in memory (the ``geojson`` /
+    ``shp_bundle`` paths write to disk first and don't expose a list)."""
+    with path.open(encoding="utf-8") as fh:
+        data = json.load(fh)
+    return len(data.get("features") or [])
 
 
 def snapshot_one(
     entry: dict[str, Any],
-    out_root: Path,
+    datasets_root: Path,
     raw_root: Path,
-) -> dict[str, Any] | None:
-    """Snapshot one pipeline.json entry. Returns the manifest record, or None
-    if the entry is intentionally skipped (e.g. exceeds the size budget)."""
+) -> list[BoundaryLayerRow]:
+    """Snapshot one ``pipeline.json`` entry. Returns one ``BoundaryLayerRow``
+    per emitted shard — one row for non-split entries, N rows for the
+    villages-split case. Returns ``[]`` when the entry is skipped (oversize).
+
+    ``datasets_root`` is the absolute path to the repo's ``datasets/`` dir;
+    shards write under ``datasets_root / partition_path`` where
+    ``partition_path`` is the Hive layout returned by ``derive_hive``.
+    """
     source = entry["source"]
     fmt: str = source["format"]
     urls: list[str] = source["urls"]
+    source_id = _resolve_source_id(entry)
+    state = entry.get("state")
+    coord_precision = source.get("coord_precision")
+    simpl_alg = "coord-precision-round" if coord_precision is not None else None
+    simpl_tol = 10 ** -coord_precision if coord_precision is not None else None
 
-    basename = derive_output_basename(entry)
-    out_path = out_root / basename
-    sidecar_path = out_path.with_suffix(out_path.suffix + ".sources.json")
     label = f"{entry['kind']}:{entry.get('state', '-')}"
-
-    print(f"[{label}] format={fmt} ({len(urls)} url{'s' if len(urls) != 1 else ''})", flush=True)
+    print(
+        f"[{label}] format={fmt} ({len(urls)} url{'s' if len(urls) != 1 else ''}) source_id={source_id}",
+        flush=True,
+    )
     for u in urls:
         print(f"  {u}", flush=True)
 
+    # Legacy basename still useful for naming runtime/raw scratch dirs.
+    legacy_basename = derive_output_basename(entry)
+    partition_path, layer_id = derive_partition_path(entry)
+    out_path = datasets_root / partition_path
+
     if fmt == "geojson":
-        sources = fetch_geojson(urls, out_path)
-    elif fmt == "shp_bundle":
-        bundle_dir = raw_root / "snapshot" / basename.removesuffix(".geojson")
-        sources = fetch_shp_bundle(
-            urls,
-            out_path,
-            bundle_dir,
-            coord_precision=source.get("coord_precision"),
+        fetch_geojson(urls, out_path)
+        feature_count = _count_features_in_geojson(out_path)
+        size = out_path.stat().st_size
+        if size > SNAPSHOT_BYTE_BUDGET:
+            out_path.unlink()
+            print(f"  SKIP — {size / 1024 / 1024:.1f} MB exceeds budget", flush=True)
+            return []
+        return [
+            BoundaryLayerRow(
+                layer_id=layer_id,
+                level=KIND_TO_LEVEL[entry["kind"]],
+                partition_path=partition_path,
+                format="geojson",
+                crs="EPSG:4326",
+                original_feature_count=feature_count,
+                retained_feature_count=feature_count,
+                unkeyed_count=0,
+                size_bytes=size,
+                source_id=source_id,
+                entity_state=state,
+                simplification_algorithm=simpl_alg,
+                simplification_tolerance_deg=simpl_tol,
+            )
+        ]
+
+    if fmt == "shp_bundle":
+        bundle_dir = raw_root / "snapshot" / legacy_basename.removesuffix(".geojson")
+        fetch_shp_bundle(urls, out_path, bundle_dir, coord_precision=coord_precision)
+        feature_count = _count_features_in_geojson(out_path)
+        size = out_path.stat().st_size
+        if size > SNAPSHOT_BYTE_BUDGET:
+            out_path.unlink()
+            print(f"  SKIP — {size / 1024 / 1024:.1f} MB exceeds budget", flush=True)
+            return []
+        return [
+            BoundaryLayerRow(
+                layer_id=layer_id,
+                level=KIND_TO_LEVEL[entry["kind"]],
+                partition_path=partition_path,
+                format="geojson",
+                crs="EPSG:4326",
+                original_feature_count=feature_count,
+                retained_feature_count=feature_count,
+                unkeyed_count=0,
+                size_bytes=size,
+                source_id=source_id,
+                entity_state=state,
+                simplification_algorithm=simpl_alg,
+                simplification_tolerance_deg=simpl_tol,
+            )
+        ]
+
+    if fmt == "geojsonl_7z":
+        bundle_dir = (
+            raw_root
+            / "snapshot"
+            / legacy_basename.removesuffix(".geojson").replace("{", "_").replace("}", "_")
         )
-    elif fmt == "geojsonl_7z":
-        bundle_dir = raw_root / "snapshot" / basename.removesuffix(".geojson").replace("{", "_").replace("}", "_")
-        features, sources = fetch_geojsonl_7z(
-            urls,
-            bundle_dir,
-            coord_precision=source.get("coord_precision"),
+        features, _ = fetch_geojsonl_7z(
+            urls, bundle_dir, coord_precision=coord_precision,
         )
-        name_property = entry.get("name_property")
         if "state_filter" in source:
-            # State filtering is scope selection (this file is TN-only), not
-            # LGD-join failure. Other states' features belong in other files,
-            # not in this file's unkeyed sidecar — listing them would bloat
-            # the sidecar and misframe the denominator (Hans intent: "of TN
-            # villages, how many got an LGD code", not "of India villages,
-            # how many are in TN"). They are dropped silently here.
             features, dropped_by_filter = apply_state_filter(features, source["state_filter"])
-            print(f"  state_filter kept {len(features)} (dropped {len(dropped_by_filter)} out-of-scope)", flush=True)
-        # From here on, `features` is this file's in-scope set. The unkeyed
-        # denominator is computed against this, not the global upstream count.
+            print(
+                f"  state_filter kept {len(features)} "
+                f"(dropped {len(dropped_by_filter)} out-of-scope)",
+                flush=True,
+            )
         original_count = len(features)
-        upstream_drops: list[dict[str, str]] = []
         if "split_by" in source:
             return _emit_split_shards(
-                entry, source, basename, features, sources, out_root,
-                upstream_drops=upstream_drops, original_count=original_count,
+                entry, source, features, datasets_root, source_id=source_id,
             )
         emit_feature_collection(out_path, features)
-        # Single-file unkeyed sidecar — Hans v2 denominator. Always emit;
-        # empty `dropped` is the canonical "perfect snapshot" signal.
-        unkeyed_path = out_path.with_suffix(out_path.suffix + ".unkeyed.json")
-        _write_unkeyed_sidecar(
-            unkeyed_path, basename, original_count, len(features), upstream_drops, sources,
-        )
-        # Simplification metadata sidecar — only when coord_precision was
-        # applied AND the entry opted in via a `metadata` block (license +
-        # coverage are operator knowledge we won't synthesise).
-        coord_precision = source.get("coord_precision")
-        entry_metadata = entry.get("metadata")
-        if coord_precision is not None and entry_metadata:
-            metadata_path = out_path.with_suffix(out_path.suffix + ".metadata.json")
-            _write_simplification_metadata_sidecar(
-                metadata_path, basename, entry_metadata, sources,
-                coord_precision, original_count, len(features),
+        size = out_path.stat().st_size
+        if size > SNAPSHOT_BYTE_BUDGET:
+            out_path.unlink()
+            print(f"  SKIP — {size / 1024 / 1024:.1f} MB exceeds budget", flush=True)
+            return []
+        return [
+            BoundaryLayerRow(
+                layer_id=layer_id,
+                level=KIND_TO_LEVEL[entry["kind"]],
+                partition_path=partition_path,
+                format="geojson",
+                crs="EPSG:4326",
+                original_feature_count=original_count,
+                retained_feature_count=len(features),
+                unkeyed_count=0,
+                size_bytes=size,
+                source_id=source_id,
+                entity_state=state,
+                simplification_algorithm=simpl_alg,
+                simplification_tolerance_deg=simpl_tol,
             )
-    else:  # pragma: no cover — caught at config-parse time in practice
-        msg = f"unknown source.format: {fmt!r}"
-        raise ValueError(msg)
+        ]
 
-    # Enforce budget *after* materializing — we don't know the converted
-    # GeoJSON size until pyshp has emitted it. If we overshoot, delete the
-    # output (and skip writing the sidecar) so the frontend transparently
-    # falls back to the upstream URL.
-    size = out_path.stat().st_size
-    if size > SNAPSHOT_BYTE_BUDGET:
-        out_path.unlink()
-        print(
-            f"  SKIP — converted output {size / 1024 / 1024:.1f} MB exceeds "
-            f"{SNAPSHOT_BYTE_BUDGET / 1024 / 1024:.0f} MB budget; "
-            "frontend will use the live-fetch fallback for this layer.",
-            flush=True,
-        )
-        return None
-
-    sidecar = {
-        "$schema": "https://yen-gov.github.io/schemas/boundary.sources.schema.json",
-        "$schema_version": "1.0",
-        "$comment": (
-            "CLAUDE.md §12 provenance sidecar for the GeoJSON of the same name. "
-            "GeoJSON has no native top-level metadata slot; this file carries the "
-            "required `sources` array on its behalf."
-        ),
-        "for": basename,
-        "sources": sources,
-    }
-    with sidecar_path.open("w", encoding="utf-8", newline="\n") as fh:
-        json.dump(sidecar, fh, indent=2, ensure_ascii=False)
-        fh.write("\n")
-
-    record: dict[str, Any] = {
-        "id": basename.removesuffix(".geojson"),
-        "path": f"boundaries/in/geojson/{basename}",
-        "kind": entry["kind"],
-        "size_bytes": size,
-        "fetched_at": sources[-1]["fetched_at"],
-    }
-    if "state" in entry:
-        record["state"] = entry["state"]
-    return record
+    msg = f"unknown source.format: {fmt!r}"
+    raise ValueError(msg)
 
 
 # -----------------------------------------------------------------------------
@@ -890,7 +747,9 @@ def snapshot_one(
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Snapshot upstream boundary GeoJSONs.")
+    parser = argparse.ArgumentParser(
+        description="Snapshot upstream boundary geometries into the canonical Hive tree.",
+    )
     parser.add_argument(
         "--config",
         default="tools/boundaries/pipeline.json",
@@ -924,9 +783,8 @@ def main(argv: list[str] | None = None) -> int:
     with cfg_path.open(encoding="utf-8") as fh:
         cfg = json.load(fh)
 
-    out_root = root / "datasets" / "boundaries" / "in" / "geojson"
+    datasets_root = root / "datasets"
     raw_root = root / cfg.get("raw_dir", ".runtime/raw/boundaries")
-    out_root.mkdir(parents=True, exist_ok=True)
 
     entries = cfg["inputs"]
     if args.kind:
@@ -940,14 +798,17 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 2
 
-    records = [
-        r for r in (snapshot_one(e, out_root, raw_root) for e in entries) if r is not None
-    ]
+    all_rows: list[BoundaryLayerRow] = []
+    for e in entries:
+        all_rows.extend(snapshot_one(e, datasets_root, raw_root))
 
-    print(f"\nsnapshotted {len(records)} files into {out_root.relative_to(root)}/")
-    for r in records:
-        size_kb = r["size_bytes"] / 1024
-        print(f"  {r['path']:<48s} {size_kb:>8.1f} KB")
+    print(f"\nemitted {len(all_rows)} layer rows", flush=True)
+    n_layers, n_sources = compile_to_parquet(all_rows, datasets_root)
+    print(
+        f"compiled to parquet: {n_layers} boundary_layers; "
+        f"sources upserted (total now {n_sources})",
+        flush=True,
+    )
     return 0
 
 

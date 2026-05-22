@@ -1,61 +1,76 @@
 // Unit tests for the pure path resolver. No I/O.
+//
+// Post-T.0d (2026-05-22): `boundaryBasename` now returns the Hive-layout
+// relative path (per ADR-0031 Amendment), aliased to `boundaryRelPath`.
+// Test names + assertions updated accordingly.
 import { describe, it, expect } from "vitest";
-import { boundaryBasename, joinKeyFor } from "./boundaries";
+import { boundaryRelPath, boundaryBasename, joinKeyFor } from "./boundaries";
 
-describe("boundaryBasename", () => {
-  it("country → india-soi.geojson", () => {
-    expect(boundaryBasename("country")).toBe("india-soi.geojson");
+describe("boundaryRelPath (Hive layout)", () => {
+  it("country → country/all.geojson", () => {
+    expect(boundaryRelPath("country")).toBe("country/all.geojson");
   });
 
-  it("state → india-states.geojson", () => {
-    expect(boundaryBasename("state")).toBe("india-states.geojson");
+  it("state → states/all.geojson", () => {
+    expect(boundaryRelPath("state")).toBe("states/all.geojson");
   });
 
-  it("district → india-districts.geojson", () => {
-    expect(boundaryBasename("district")).toBe("india-districts.geojson");
+  it("district → districts/all.geojson", () => {
+    expect(boundaryRelPath("district")).toBe("districts/all.geojson");
   });
 
-  it("subdistrict for TN → S22-subdistricts.geojson", () => {
-    expect(boundaryBasename("subdistrict", undefined, "33")).toBe(
-      "S22-subdistricts.geojson",
+  it("subdistrict for TN → subdistricts/state=in_s22/all.geojson", () => {
+    expect(boundaryRelPath("subdistrict", undefined, "33")).toBe(
+      "subdistricts/state=in_s22/all.geojson",
     );
   });
 
-  it("village for TN district 603 → S22-villages-603.geojson", () => {
-    expect(boundaryBasename("village", "603", "33")).toBe(
-      "S22-villages-603.geojson",
+  it("village for TN district 603 → villages/state=in_s22/district=603/all.geojson", () => {
+    expect(boundaryRelPath("village", "603", "33")).toBe(
+      "villages/state=in_s22/district=603/all.geojson",
     );
   });
 
-  it("postal for TN → ../postal/IN-pincodes-chennai.geojson (Phase 4 §160)", () => {
-    expect(boundaryBasename("postal", undefined, "33")).toBe(
-      "../postal/IN-pincodes-chennai.geojson",
+  it("postal for TN → postal/IN-pincodes-chennai.geojson (Phase 4 §160)", () => {
+    expect(boundaryRelPath("postal", undefined, "33")).toBe(
+      "postal/IN-pincodes-chennai.geojson",
     );
   });
 
   it("postal without stateLgd throws (caller bug)", () => {
-    expect(() => boundaryBasename("postal")).toThrow(/stateLgd/);
+    expect(() => boundaryRelPath("postal")).toThrow(/stateLgd/);
   });
 
   it("postal for an unmapped state throws (Chennai-only today)", () => {
-    expect(() => boundaryBasename("postal", undefined, "27")).toThrow(
+    expect(() => boundaryRelPath("postal", undefined, "27")).toThrow(
       /no postal boundaries/,
     );
   });
 
   it("subdistrict without stateLgd throws (caller bug)", () => {
-    expect(() => boundaryBasename("subdistrict")).toThrow(/stateLgd/);
+    expect(() => boundaryRelPath("subdistrict")).toThrow(/stateLgd/);
   });
 
   it("village without parentDistrictLgd throws (caller bug)", () => {
-    expect(() => boundaryBasename("village", undefined, "33")).toThrow(
+    expect(() => boundaryRelPath("village", undefined, "33")).toThrow(
       /parentDistrictLgd/,
     );
   });
 
   it("subdistrict for an unmapped state throws", () => {
-    expect(() => boundaryBasename("subdistrict", undefined, "27")).toThrow(
+    expect(() => boundaryRelPath("subdistrict", undefined, "27")).toThrow(
       /no per-state subdistricts/,
+    );
+  });
+});
+
+describe("boundaryBasename (deprecated alias)", () => {
+  // Retained as a thin alias for one release so callers that stored the
+  // symbol have time to migrate. Returns whatever boundaryRelPath returns.
+  it("forwards to boundaryRelPath", () => {
+    expect(boundaryBasename("country")).toBe(boundaryRelPath("country"));
+    expect(boundaryBasename("village", "603", "33")).toBe(
+      boundaryRelPath("village", "603", "33"),
     );
   });
 });

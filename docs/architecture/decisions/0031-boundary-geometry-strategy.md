@@ -1,10 +1,10 @@
 # ADR-0031 — Boundary geometry as a sibling family (GeoJSON + PMTiles), not in the canonical Parquet store
 
-**Status**: Accepted
-**Last Updated**: 2026-05-18
+**Status**: Amended (2026-05-22, T.0d — disk layout + provenance plumbing; core decisions unchanged)
+**Last Updated**: 2026-05-22
 **Deciders**: User; Jony (UX, owns map rendering surface); Gregor (contracts, sibling-family stance)
 **Supersedes**: nothing — first ADR to formalise the boundary tree as canonical store sibling
-**Related**: [ADR-0030](0030-canonical-store-duckdb-wasm.md) (canonical observation store); [boundaries.md](../data/boundaries.md) (operational spec); [canonical-store.md §17](../data/canonical-store.md)
+**Related**: [ADR-0030](0030-canonical-store-duckdb-wasm.md) (canonical observation store); [ADR-0032](0032-sources-citation-ledger.md) (sources citation ledger v2.0 — the FK target tightened by T.0d); [boundaries.md](../data/boundaries.md) (operational spec); [canonical-store.md §17](../data/canonical-store.md)
 
 ## Context
 
@@ -148,6 +148,55 @@ Operational rendering rules (Lakshadweep displayed at true geographic position w
 | B6 | Vector tile server (Tippecanoe + tile server in production) | Violates static-first (Holy Law #1) — needs a running server. PMTiles is the static-hostable equivalent and is what we adopt. |
 | B7 | Reuse `taxonomy/entities.parquet` for geometry by adding a `geometry: BLOB` column | Same as B1; entities table becomes mixed-concern and grows by 1–2 orders of magnitude in size for no query win. |
 | B8 | Embed PMTiles inside the Parquet manifest as base64 | Defeats HTTP Range — would force full-archive download. PMTiles' value is range-fetching tile slices. |
+| B9 | Keep the per-shard `.sources.json` sidecars and just rewrite them into the v2.0 §12 citation triple shape (T.0d alternative) | Rejected during T.0d as a half-measure dressed as a contract fix. Two problems: (a) the same RBI Handbook cited by 200 shards reproduces the per-shard smear the v2.0 ledger exists to eliminate (§12 ledger is a TABLE keyed on the triple, not a per-shard array); (b) the boundary tree would diverge from the rest of `datasets/` where provenance is parquet-FK-only — frontend / backend / tooling now have to special-case boundary provenance reads. The right shape is one row per `(producer, title, vintage)` in `taxonomy/sources.parquet` joined to `boundary_layers.parquet` rows by `source_id` FK. |
+| B10 | Fold ONLY `.sources.json` to the parquet ledger and keep `.metadata.json` + `.unkeyed.json` sidecars (half-measure) | Rejected during T.0d. The three sidecar files (provenance + simplification metadata + dropped-feature denominator) all describe one boundary layer. Splitting them across two homes (parquet for provenance, sidecar for the other two) creates a join the consumer has to do at runtime against a non-parquet format — worse ergonomics than today. The 10 columns of `BoundaryLayerRow` carry all three concerns in one parquet row; the parquet ledger is the natural single home. |
+| B11 | Put `boundary_layers.parquet` under `datasets/taxonomy/` alongside `sources.parquet` and `entities.parquet` | Rejected during T.0d. The taxonomy tree carries reference vocabularies that span every family (sources, indicators, election events, state tiers, topic catalogue). Boundary layers are FAMILY-LEVEL inventory — same altitude as a hypothetical `elections/election_layers.parquet`, not the same altitude as `entities.parquet`. The right home is `datasets/boundaries/boundary_layers.parquet` (sibling to the geojson shards it inventories). Keeps the taxonomy tree generic and the boundary family self-contained. |
+
+## Amendment 2026-05-22 (T.0d boundaries consolidation)
+
+The core decisions of this ADR (sibling-family, GeoJSON+PMTiles split, manifest discovery, no-move rule) are unchanged. Two operational seams that were under-specified at original drafting got formalised during T.0d:
+
+### 1. On-disk layout is Hive-partitioned
+
+Pre-T.0d the boundary tree carried a flat `boundaries/in/geojson/` directory mixing every layer plus per-state AC files (`S22-ac.geojson`) and per-district village files (`S22-villages-603.geojson`) at the same depth, with an ad-hoc `<eci>-villages-index.json` per state that listed which districts had been ingested. That worked for the 8–10 layers that existed pre-pivot but did not scale to national rollout (national villages would put ~700 files in one directory).
+
+T.0d migrates the tree to Hive partitioning, matching the convention already in use under `datasets/elections/`, `datasets/energy/`, etc.:
+
+```
+datasets/boundaries/in/
+├── country/all.geojson
+├── states/all.geojson
+├── districts/all.geojson
+├── subdistricts/state=in_<lc>/all.geojson           # one per state
+├── villages/state=in_<lc>/district=<lgd>/all.geojson # one per (state, district)
+├── ac/state=in_<lc>/all.geojson                     # one per state (37 today)
+└── postal/IN-pincodes-<city>.geojson                # not LGD, segregated by city
+```
+
+The partition keys are the entity hierarchy keys already in `taxonomy/entities.parquet`: `state=in_<lower-case-iso>` and `district=<lgd>`. Frontend resolves a layer to a path via `boundaryRelPath(level, parentDistrictLgd?, stateLgd?)` (in `frontend/src/lib/boundaries.ts`); village lookups no longer probe a per-state index manifest — they fetch the partition path directly and let 404 = "not yet ingested" propagate as `null` (graceful degradation).
+
+### 2. Provenance + simplification metadata + dropped-feature counts move to `boundary_layers.parquet`
+
+The per-shard sidecars (`*.sources.json`, `*.metadata.json`, `*.unkeyed.json`) and the per-state `<eci>-villages-index.json` manifests retire. Their content folds into a single parquet ledger at `datasets/boundaries/boundary_layers.parquet`, one row per shard, schema in `datasets/schemas/boundary-layers.schema.json`:
+
+- `layer_id` (PK) — dot-grammar matching the Hive path (`boundaries.in.ac.state=in_s22`, `boundaries.in.villages.state=in_s22.district=603`)
+- `family` / `country` / `kind` / `state_eci` / `state_lgd` / `district_lgd` — partition keys
+- `source_id` — FK to `taxonomy/sources.parquet` (ADR-0032 v2.0 citation triple shape)
+- `original_feature_count` / `retained_feature_count` / `unkeyed_count` — denominator + dropped-feature accounting (was `*.unkeyed.json`)
+- `simplification_tolerance` / `simplification_algorithm` / `crs` — was `*.metadata.json`
+- `bbox` / `notes` — optional
+
+Frontend has zero direct readers of this parquet today (the renderer never needed provenance metadata at runtime). The parquet is the operator + citizen-citation surface; the geojsons remain the renderer's input.
+
+Three retired schemas (`boundary.sources.schema.json`, `boundary.unkeyed.schema.json`, `boundary.villages_index.schema.json`) are deleted in the T.0d Tier-A commit. `feature_collection.metadata.schema.json` stays — still consumed by `backend/yen_gov/sources/india_geodata/power_plants.py`.
+
+### 3. Enforcement: Tier-B forbidden-path gate
+
+A new `tier_b_legacy_boundary_sidecars(root)` check in `backend/yen_gov/validate.py` rejects any future `*.sources.json` / `*.metadata.json` / `*.unkeyed.json` / `*-index.json` under `datasets/boundaries/`. Companion allowlist at `datasets/_ops/legacy-boundary-sidecars.txt` ships empty by design; it exists only to support short-lived overrides during follow-up PRs (with PR-body justification required). Same enforcement pattern as `tier_b_legacy_folded_indicator_shards`.
+
+### 4. Manifest format key tightening
+
+`datasets/manifest.json` boundary entries keep their `format: "geojson" | "pmtiles"` discriminator (D21 unchanged). New entries follow the Hive path layout above.
 
 ## Consequences
 

@@ -5,6 +5,11 @@
   "inputs": [
     {
       "kind": "states",
+      "source_triple": {
+        "producer": "DataMeet India Maps Project",
+        "title": "datameet/maps Admin2 boundary bundle",
+        "vintage": ""
+      },
       "country": "IN",
       "out": "india-states.pmtiles",
       "source": {
@@ -32,6 +37,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S22",
       "out": "ac/S22-ac.pmtiles",
@@ -53,6 +63,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S11",
       "out": "ac/S11-ac.pmtiles",
@@ -74,6 +89,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S25",
       "out": "ac/S25-ac.pmtiles",
@@ -95,6 +115,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S03",
       "out": "ac/S03-ac.pmtiles",
@@ -117,6 +142,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "U07",
       "out": "ac/U07-ac.pmtiles",
@@ -138,6 +168,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "shijithpk",
+        "title": "J&K Assembly New Borders (georeferenced)",
+        "vintage": "2024"
+      },
       "country": "IN",
       "state": "U08",
       "out": "ac/U08-ac.pmtiles",
@@ -160,6 +195,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S01",
       "out": "ac/S01-ac.pmtiles",
@@ -182,6 +222,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S02",
       "out": "ac/S02-ac.pmtiles",
@@ -204,6 +249,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S04",
       "out": "ac/S04-ac.pmtiles",
@@ -226,6 +276,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S05",
       "out": "ac/S05-ac.pmtiles",
@@ -248,6 +303,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S06",
       "out": "ac/S06-ac.pmtiles",
@@ -270,6 +330,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S07",
       "out": "ac/S07-ac.pmtiles",
@@ -292,6 +357,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S08",
       "out": "ac/S08-ac.pmtiles",
@@ -314,6 +384,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S10",
       "out": "ac/S10-ac.pmtiles",
@@ -336,6 +411,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S12",
       "out": "ac/S12-ac.pmtiles",
@@ -358,6 +438,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S13",
       "out": "ac/S13-ac.pmtiles",
@@ -380,6 +465,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S14",
       "out": "ac/S14-ac.pmtiles",
@@ -402,6 +492,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S15",
       "out": "ac/S15-ac.pmtiles",
@@ -424,6 +519,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S16",
       "out": "ac/S16-ac.pmtiles",
@@ -446,6 +546,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S17",
       "out": "ac/S17-ac.pmtiles",
@@ -468,6 +573,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S18",
       "out": "ac/S18-ac.pmtiles",
@@ -490,6 +600,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S19",
       "out": "ac/S19-ac.pmtiles",
@@ -512,6 +627,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S20",
       "out": "ac/S20-ac.pmtiles",
@@ -534,6 +654,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S21",
       "out": "ac/S21-ac.pmtiles",
@@ -556,6 +681,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S23",
       "out": "ac/S23-ac.pmtiles",
@@ -578,6 +708,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S24",
       "out": "ac/S24-ac.pmtiles",
@@ -600,6 +735,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S26",
       "out": "ac/S26-ac.pmtiles",
@@ -622,6 +762,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S27",
       "out": "ac/S27-ac.pmtiles",
@@ -644,6 +789,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S28",
       "out": "ac/S28-ac.pmtiles",
@@ -666,6 +816,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "S29",
       "out": "ac/S29-ac.pmtiles",
@@ -688,6 +843,11 @@
     },
     {
       "kind": "ac",
+      "source_triple": {
+        "producer": "Hindustan Times Labs",
+        "title": "HTL state-AC shapefile bundle",
+        "vintage": "2008 Delimitation"
+      },
       "country": "IN",
       "state": "U05",
       "out": "ac/U05-ac.pmtiles",
@@ -711,6 +871,11 @@
     {
       "$comment": "GAP-FILL (active): India district polygons keyed by LGD code. Sourced from ramSeraph's LGD_Districts release (BharatMaps/LGD lineage), shipped as 7z-compressed GeoJSONL. snapshot.py handles source.format='geojsonl_7z' (py7zr extraction, NDJSON->FeatureCollection wrap). Frontend join target: district.lgd_code field per ADR-0015. Source catalogue + per-component verdict: docs/reference/lgd-opendata.md and docs/reference/boundary-data-sources.md.",
       "kind": "districts",
+      "source_triple": {
+        "producer": "ramSeraph",
+        "title": "Indian Admin Boundaries (LGD-keyed)",
+        "vintage": "lgd-latest-extra1"
+      },
       "country": "IN",
       "out": "districts/india-districts.pmtiles",
       "source": {
@@ -737,6 +902,11 @@
     {
       "$comment": "GAP-FILL: Survey-of-India national silhouette (single polygon, no admin codes). Used as the canonical India outline at country zoom in lieu of GADM-style derivatives; matches ECI/MoSPI cartographic convention. Separate license blanket from the ramSeraph layers below — yashveeeeeeer/india-geodata states CC-BY-4.0 derivative of SoI under National Geospatial Policy 2022 (Fowler v4 nit 3, TODO/TN-GRANULAR-GEO-PLAN.md Phase 1b).",
       "kind": "country",
+      "source_triple": {
+        "producer": "yashveeeeeeer/india-geodata",
+        "title": "India national silhouette (SoI-derived)",
+        "vintage": ""
+      },
       "country": "IN",
       "out": "geojson/india-soi.geojson",
       "source": {
@@ -752,6 +922,11 @@
     {
       "$comment": "GAP-FILL (TN): per-subdistrict (taluk) polygons keyed by LGD code, sliced from the national LGD_Subdistricts release. Same upstream pipeline as the existing districts entry above (ramSeraph/indian_admin_boundaries, geojsonl_7z format, coord_precision-based budget). Filtered to state_lgd=33 (Tamil Nadu) at write time via the new source.state_filter block (TODO/TN-GRANULAR-GEO-PLAN.md Phase 1b commit 2). Frontend join target: subdistrict.lgd_code field per ADR-0019 amendment.",
       "kind": "subdistricts",
+      "source_triple": {
+        "producer": "ramSeraph",
+        "title": "Indian Admin Boundaries (LGD-keyed)",
+        "vintage": "lgd-latest-extra1"
+      },
       "country": "IN",
       "state": "S22",
       "out": "geojson/S22-subdistricts.geojson",
@@ -793,6 +968,11 @@
     {
       "$comment": "GAP-FILL (TN): per-village polygons keyed by LGD code, sliced from the national LGD_Villages release and split per-district. Same upstream pipeline as the districts/subdistricts entries (ramSeraph, geojsonl_7z). state_filter slices to state_lgd=33 first; split_by emits one shard per dist_lgd plus an index manifest so the frontend loader (Phase 2) does not 404-probe per district. Frontend join target: village.lgd_code field per ADR-0019 amendment.",
       "kind": "villages",
+      "source_triple": {
+        "producer": "ramSeraph",
+        "title": "Indian Admin Boundaries (LGD-keyed)",
+        "vintage": "lgd-latest-extra1"
+      },
       "country": "IN",
       "state": "S22",
       "out": "geojson/S22-villages-{dist_lgd}.geojson",

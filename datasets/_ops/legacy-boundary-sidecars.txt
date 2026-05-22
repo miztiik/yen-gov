@@ -1,0 +1,3 @@
+# T.0d legacy boundary sidecar allowlist — empty by design (sidecars retired
+# in ADR-0031 Amendment 2026-05-22). If a future PR temporarily re-introduces
+# one, add its repo-relative POSIX path here AND call it out in the PR body.

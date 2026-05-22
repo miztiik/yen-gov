@@ -4,9 +4,12 @@
 //   1. datasets/boundaries/in/manifest.json (produced by tools/boundaries/
 //      build.py in CI — see docs/architecture/frontend/map.md). When present,
 //      use the packed PMTiles via the pmtiles:// protocol.
-//   2. Local GeoJSON snapshot under datasets/boundaries/in/geojson/ (produced
-//      by tools/boundaries/snapshot.py and committed to the repo). Loads in
-//      a single same-origin request, no public network hop required.
+//   2. Local GeoJSON snapshot under datasets/boundaries/in/<kind>/... in
+//      the Hive partition layout (per ADR-0031 Amendment 2026-05-22 —
+//      T.0d boundaries consolidation). Produced by tools/boundaries/
+//      snapshot.py + emitted via the boundary_layers.parquet ledger.
+//      Loads in a single same-origin request, no public network hop
+//      required.
 //   3. Direct upstream GeoJSON URL (raw.githubusercontent.com or similar).
 //      Last-resort fallback when no snapshot exists — used only during
 //      development before snapshot.py has been run for a new layer.
@@ -27,9 +30,10 @@ export interface BoundaryEntry {
   label: string;
   /**
    * Optional same-origin GeoJSON snapshot path under DATA_BASE (e.g.
-   * "boundaries/in/geojson/S22-ac.geojson"). Preferred over the upstream
-   * URL when present — it's an order of magnitude faster and works
-   * offline. Populated by tools/boundaries/snapshot.py.
+   * "boundaries/in/ac/state=in_s22/all.geojson"). Preferred over the
+   * upstream URL when present — it's an order of magnitude faster and
+   * works offline. Populated by tools/boundaries/snapshot.py; Hive
+   * partition layout per ADR-0031 Amendment 2026-05-22.
    */
   geojson_local_path?: string;
   /** Direct upstream GeoJSON URL (last-resort fallback). */
@@ -47,7 +51,7 @@ export interface BoundaryEntry {
 export const INDIA_STATES: BoundaryEntry = {
   id: "india-states",
   label: "India — states",
-  geojson_local_path: "boundaries/in/geojson/india-states.geojson",
+  geojson_local_path: "boundaries/in/states/all.geojson",
   geojson_url:
     "https://raw.githubusercontent.com/datameet/maps/master/States/Admin2.shp",
   join_property: "ST_NM",
@@ -61,7 +65,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S22: {
     id: "S22-ac",
     label: "Tamil Nadu — Assembly constituencies",
-    geojson_local_path: "boundaries/in/geojson/S22-ac.geojson",
+    geojson_local_path: "boundaries/in/ac/state=in_s22/all.geojson",
     geojson_url:
       "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/tamilnadu/assembly/tamilnadu_AC.json",
     join_property: "AC_NO",
@@ -71,7 +75,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S11: {
     id: "S11-ac",
     label: "Kerala — Assembly constituencies",
-    geojson_local_path: "boundaries/in/geojson/S11-ac.geojson",
+    geojson_local_path: "boundaries/in/ac/state=in_s11/all.geojson",
     geojson_url:
       "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/kerala/assembly/kerala_AC.json",
     join_property: "AC_NO",
@@ -81,7 +85,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S25: {
     id: "S25-ac",
     label: "West Bengal — Assembly constituencies",
-    geojson_local_path: "boundaries/in/geojson/S25-ac.geojson",
+    geojson_local_path: "boundaries/in/ac/state=in_s25/all.geojson",
     geojson_url:
       "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/westbengal/assembly/westbengal_AC.json",
     join_property: "AC_NO",
@@ -91,7 +95,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S03: {
     id: "S03-ac",
     label: "Assam — Assembly constituencies (pre-2026 delimitation)",
-    geojson_local_path: "boundaries/in/geojson/S03-ac.geojson",
+    geojson_local_path: "boundaries/in/ac/state=in_s03/all.geojson",
     geojson_url:
       "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/assam/assembly/assam_AC.json",
     join_property: "AC_NO",
@@ -101,7 +105,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   U07: {
     id: "U07-ac",
     label: "Puducherry — Assembly constituencies",
-    geojson_local_path: "boundaries/in/geojson/U07-ac.geojson",
+    geojson_local_path: "boundaries/in/ac/state=in_u07/all.geojson",
     geojson_url:
       "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/puducherry/assembly/puducherry_AC.json",
     join_property: "AC_NO",
@@ -119,7 +123,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   U08: {
     id: "U08-ac",
     label: "Jammu & Kashmir — Assembly constituencies (post-2022 delimitation)",
-    geojson_local_path: "boundaries/in/geojson/U08-ac.geojson",
+    geojson_local_path: "boundaries/in/ac/state=in_u08/all.geojson",
     geojson_url:
       "https://raw.githubusercontent.com/shijithpk/2024_maps_supplement/main/j_and_k_assembly_new_borders.geojson",
     join_property: "seat_id",
@@ -236,8 +240,9 @@ export async function resolveSource(entry: BoundaryEntry): Promise<ResolvedSourc
     }
   }
   if (entry.geojson_local_path) {
-    // We trust the path was wired up alongside a real snapshot in
-    // datasets/boundaries/in/geojson/. The dev server middleware (and the
+    // We trust the path was wired up alongside a real snapshot under
+    // datasets/boundaries/in/ in the Hive partition layout (ADR-0031
+    // Amendment 2026-05-22). The dev server middleware (and the
     // production Pages deploy) both serve datasets/ at /data/. If the file
     // is missing, the map will surface a load error rather than silently
     // fall through to the upstream URL — surfaceable bugs are better than
