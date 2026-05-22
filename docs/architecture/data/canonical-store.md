@@ -1063,9 +1063,11 @@ Forced-failure end-to-end harness (404 / timeout / bad-schema-Parquet against a 
 
 ## 17. Boundary geometry (D25)
 
-Boundary geometry lives outside the canonical observation store in a sibling family `datasets/boundaries/in/`. Observations reference geometry via `entity_id` → `taxonomy/entities.json` → `(entity_level, entity_code)` → file path resolved through `datasets/manifest.json`. Format split by size: GeoJSON for small layers, PMTiles for large layers (district / AC / PC / village).
+Boundary geometry lives outside the canonical observation store in a sibling family `datasets/boundaries/in/`, Hive-partitioned by entity hierarchy: `country/all.geojson`, `states/all.geojson`, `districts/all.geojson`, `subdistricts/state=in_<lc>/all.geojson`, `villages/state=in_<lc>/district=<lgd>/all.geojson`, `ac/state=in_<lc>/all.geojson`, `postal/IN-pincodes-<city>.geojson` (T.0d, 2026-05-22). Observations reference geometry via `entity_id` → `taxonomy/entities.json` → `(entity_level, entity_code)` → path computed by `frontend/src/lib/boundaries.ts::boundaryRelPath(level, parentDistrictLgd?, stateLgd?)`. Format split by size: GeoJSON for small layers, PMTiles for large layers (district / AC / PC / village).
 
-`datasets/boundaries/` is NEVER moved into `_old/` (§0c of THE PLAN, R25). Full spec: [boundaries.md](boundaries.md) + [ADR-0031](../decisions/0031-boundary-geometry-strategy.md) (to be authored Phase 0.14).
+Provenance + simplification metadata + dropped-feature denominator live in `datasets/boundaries/boundary_layers.parquet` (schema `boundary-layers.schema.json` v1.0), one row per shard, with `source_id` FK to `datasets/taxonomy/sources.parquet` (ADR-0032 v2.0 triple shape). The pre-T.0d per-shard sidecars (`*.sources.json` / `*.metadata.json` / `*.unkeyed.json`) and per-state `<eci>-villages-index.json` manifests are retired; a Tier-B forbidden-path gate (`tier_b_legacy_boundary_sidecars` in `backend/yen_gov/validate.py`) rejects them.
+
+`datasets/boundaries/` is NEVER moved into `_old/` (§0c of THE PLAN, R25). Full spec: [boundaries.md](boundaries.md) + [ADR-0031 + Amendment 2026-05-22](../decisions/0031-boundary-geometry-strategy.md).
 
 ---
 

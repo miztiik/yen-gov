@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./boundary-layers.schema.json",
+  "title": "Boundary layers control table",
+  "description": "Canonical control table for every boundary geometry shard on disk under datasets/boundaries/. One row per (level, partition) — e.g. one row for the national states outline, one row per state's AC layer, one row per (state, district) village shard. Replaces the per-file .sources.json + .metadata.json + .unkeyed.json + per-state -index.json sidecars that pre-dated T.0d (115 files retired in the T.0d fused atomic commit). FK source_id resolves to taxonomy/sources.parquet (citation triple per ADR-0032 §12 v2.0). Authored shape JSON (D18 — this schema documents the parquet column contract; the parquet itself is COMPILED by tools/boundaries/snapshot.py which calls boundary_layers_seed.compile_to_parquet, not hand-authored). Hive-partitioned discovery path matches elections/state=in_<S>/... grammar (T.0d §1). Amends ADR-0031 (Status: Accepted → Amended 2026-05-22).",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-22",
+      "description": "Initial canonical boundary-layers control table schema (T.0d of TODO/20260517-canonical-long-format-pivot.md §0e.7). 17 columns: 10 required (layer_id PK + level + partition_path + format + crs + original_feature_count + retained_feature_count + unkeyed_count + size_bytes + source_id FK) + 7 nullable (entity_state, entity_district, entity_city, simplification_algorithm, simplification_tolerance_deg, unkeyed_keys_json, notes). Spec text in TODO/20260522-t0d-boundaries-consolidation-spec.md §2 said '12 required + 3 optional = 15' which counted from an earlier iteration; the §2 column listing carried the 17-column shape that landed. Replaces boundary.sources.schema.json + boundary.unkeyed.schema.json + boundary.villages_index.schema.json (all retired in this T.0d commit). feature_collection.metadata.schema.json is preserved (still used by backend/yen_gov/sources/india_geodata/power_plants.py for the non-boundary power-plants feature collection)."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "boundary_layers"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "boundary_layers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "layer_id",
+          "level",
+          "partition_path",
+          "format",
+          "crs",
+          "original_feature_count",
+          "retained_feature_count",
+          "unkeyed_count",
+          "size_bytes",
+          "source_id"
+        ],
+        "properties": {
+          "layer_id": {
+            "type": "string",
+            "pattern": "^boundaries\\.in\\.[a-z]+(\\.[a-z]+=[a-z0-9_]+)*$",
+            "minLength": 1,
+            "description": "PK. Dot-separated handle derived from partition_path; e.g. 'boundaries.in.states' for the national outline, 'boundaries.in.ac.state=in_s22' for TN ACs, 'boundaries.in.villages.state=in_s22.district=603' for a per-district village shard. Stable across rebuilds; the renderer + manifest.json table_id column both key on this."
+          },
+          "level": {
+            "enum": ["country", "state", "district", "ac", "pc", "subdistrict", "village", "postal"],
+            "description": "Admin-spine level per T.0d §1. country = national outline; state = state polygon; district = LGD district carve-outs; ac/pc = ECI assembly/parliamentary constituencies; subdistrict = LGD subdistrict; village = LGD village; postal = pincode (orthogonal — NOT in the LGD admin spine; sits as a peer alongside the admin levels per ADR-0031)."
+          },
+          "entity_state": {
+            "type": ["string", "null"],
+            "description": "ECI state code (S22, U07, ...) when this layer is per-state; null for national layers. Used by the renderer to filter to the active state."
+          },
+          "entity_district": {
+            "type": ["string", "null"],
+            "description": "LGD district code (numeric string) when this layer is per-district (today: only village shards); null otherwise."
+          },
+          "entity_city": {
+            "type": ["string", "null"],
+            "description": "City slug when this layer is per-city (today: postal only, no entries yet — pincode geometries not ingested); null otherwise. NOT an LGD code because pincode geometry is orthogonal to LGD admin spine."
+          },
+          "partition_path": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^boundaries/in/",
+            "description": "Relative path under datasets/ to the geometry file. Hive-partitioned per T.0d §1: 'boundaries/in/states/all.geojson', 'boundaries/in/ac/state=in_s22/all.geojson', 'boundaries/in/villages/state=in_s22/district=603/all.geojson'. Always POSIX separators (CLAUDE.md §2). The format column says whether the file is .geojson or .pmtiles."
+          },
+          "format": {
+            "enum": ["geojson", "pmtiles"],
+            "description": "Container format for the geometry. geojson = RFC 7946 FeatureCollection (today's default — frontend loads via maplibre-gl GeoJSON source). pmtiles = ADR-0031 PMTiles archive (range-requestable; used when a layer trips the 10 MB cutover threshold). The loader switches read paths off this column — no separate pmtiles/ subtree."
+          },
+          "crs": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Coordinate reference system identifier (e.g. 'EPSG:4326' = WGS84 lat/lon, the GeoJSON default per RFC 7946). All current boundary files are EPSG:4326; the column exists so a future projected layer (UTM, Lambert) can be carried without a schema bump."
+          },
+          "simplification_algorithm": {
+            "enum": [
+              "douglas-peucker",
+              "visvalingam",
+              "shapely-preserve-topology",
+              "coord-precision-round",
+              "none"
+            ],
+            "type": ["string", "null"],
+            "description": "Geometry simplification algorithm applied during snapshot (per boundaries.md). douglas-peucker / visvalingam = standard topology-preserving thinning. shapely-preserve-topology = Shapely.simplify with preserve_topology=True. coord-precision-round = no thinning, just coordinate-precision rounding. 'none' = raw upstream geometry copied verbatim. Null = unknown / pre-T.0d artifact."
+          },
+          "simplification_tolerance_deg": {
+            "type": ["number", "null"],
+            "minimum": 0,
+            "description": "Algorithm-specific tolerance in decimal degrees (or precision digits for coord-precision-round). Null when simplification_algorithm is 'none' or null."
+          },
+          "original_feature_count": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Number of features in the upstream geometry BEFORE simplification / unkeyed-drop. Citizen-trust signal: the denominator for what we started with. Denominator-transparency invariant: original = retained + unkeyed (asserted at compile time)."
+          },
+          "retained_feature_count": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Number of features in the published partition_path artifact AFTER simplification + unkeyed drop. Numerator of the denominator-transparency invariant."
+          },
+          "unkeyed_count": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Number of upstream features dropped because they had no usable join key (no AC_NO, no LGD code, no ST_NM match). Citizen-trust signal: the 'we lost N features and here are their names' tail. Lives on the citizen-facing row (not in .runtime/) so users can ask 'why is my village missing'."
+          },
+          "unkeyed_keys_json": {
+            "type": ["string", "null"],
+            "description": "Operator-detail companion to unkeyed_count. Small JSON array of name strings (typically <50) identifying which features were dropped. Stored as a JSON-encoded string column for parquet portability; the renderer decodes when surfacing operator diagnostics. Null when unkeyed_count = 0."
+          },
+          "size_bytes": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Byte size of the published partition_path artifact. Used by the renderer to choose loader (>10MB triggers PMTiles consideration per ADR-0031) and by the operator to flag size regressions."
+          },
+          "source_id": {
+            "type": "string",
+            "pattern": "^src-[a-z0-9]{12}$",
+            "description": "FK to taxonomy/sources.parquet. The citation triple (producer, title, vintage) for this geometry. T.0d seeds 4 boundary sources: DataMeet India Maps (state outlines), Hindustan Times Labs (AC layers from 2008 Delimitation), shijithpk (J&K 2024 AC re-georeferencing), ramSeraph (LGD-keyed admin boundaries). Postal sources NOT seeded — no pincode geojson exists today; postal subtree is forward-looking only."
+          },
+          "notes": {
+            "type": ["string", "null"],
+            "description": "Operator-visible free-text note (e.g. 'upstream MIT applied to data; treated as attribution-only', 'J&K 2024 re-georef from shijithpk; supersedes pre-2019 boundary'). Optional; NOT citizen-facing."
+          }
+        }
+      }
+    }
+  }
+}

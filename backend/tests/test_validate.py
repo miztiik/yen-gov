@@ -4,12 +4,14 @@ from pathlib import Path
 import pytest
 
 from yen_gov.validate import (
+    LEGACY_BOUNDARY_SIDECARS_ALLOWLIST,
     LEGACY_INDICATOR_SHARDS_ALLOWLIST,
     LEGACY_INDICATOR_SHARDS_DIR,
     load_schemas,
     run,
     tier_a,
     tier_b,
+    tier_b_legacy_boundary_sidecars,
     tier_b_legacy_folded_indicator_shards,
 )
 
@@ -304,6 +306,163 @@ def test_legacy_shards_check_chained_into_run(tmp_path: Path):
     ]
     assert len(forbidden) == 1, \
         f"run() must chain tier_b_legacy_folded_indicator_shards, got: {fails}"
+
+
+# ---------------------------------------------------------------------------
+# Tier-B: forbid legacy boundary sidecars (ADR-0031 Amendment 2026-05-22, T.0d)
+# ---------------------------------------------------------------------------
+
+def _seed_boundary_tree(
+    tmp_path: Path,
+    *,
+    files: list[str] | None = None,
+    allowlist_entries: list[str] | None = None,
+    write_allowlist: bool = True,
+) -> None:
+    """Seed a tmp repo with files under datasets/boundaries/ and an allowlist.
+
+    `files`: relative paths under tmp_path (typically *.sources.json /
+             *.unkeyed.json / *.metadata.json / *-index.json /
+             *.geojson). All get a stub body.
+    """
+    if files is not None:
+        for rel in files:
+            p = tmp_path / rel
+            p.parent.mkdir(parents=True, exist_ok=True)
+            if rel.endswith(".geojson"):
+                p.write_text(
+                    json.dumps({"type": "FeatureCollection", "features": []}),
+                    encoding="utf-8",
+                )
+            else:
+                p.write_text(json.dumps({"stub": True}), encoding="utf-8")
+    if write_allowlist:
+        allow_path = tmp_path / LEGACY_BOUNDARY_SIDECARS_ALLOWLIST
+        allow_path.parent.mkdir(parents=True, exist_ok=True)
+        entries = allowlist_entries if allowlist_entries is not None else []
+        body = "# Test fixture allowlist\n" + "\n".join(entries) + "\n"
+        allow_path.write_text(body, encoding="utf-8")
+
+
+def test_legacy_boundary_sidecars_check_passes_when_only_geojson(tmp_path: Path):
+    """Steady state post-T.0d: boundaries/ contains only *.geojson + the
+    parquet ledger; no sidecars; the check returns zero failures."""
+    _seed_boundary_tree(
+        tmp_path,
+        files=["datasets/boundaries/in/states/all.geojson"],
+    )
+    fails = tier_b_legacy_boundary_sidecars(tmp_path)
+    assert fails == [], f"expected no failures, got: {fails}"
+
+
+def test_legacy_boundary_sidecars_check_rejects_sources_json(tmp_path: Path):
+    """A *.sources.json sidecar surviving under boundaries/ must fail."""
+    _seed_boundary_tree(
+        tmp_path,
+        files=[
+            "datasets/boundaries/in/states/all.geojson",
+            "datasets/boundaries/in/states/all.geojson.sources.json",
+        ],
+    )
+    fails = tier_b_legacy_boundary_sidecars(tmp_path)
+    forbidden = [f for f in fails if "forbidden legacy boundary sidecar" in f.message]
+    assert len(forbidden) == 1, f"expected one forbidden failure, got: {fails}"
+    assert forbidden[0].file == "datasets/boundaries/in/states/all.geojson.sources.json"
+    assert forbidden[0].tier == "B"
+
+
+def test_legacy_boundary_sidecars_check_rejects_metadata_and_unkeyed(tmp_path: Path):
+    """*.metadata.json and *.unkeyed.json patterns are both gated."""
+    _seed_boundary_tree(
+        tmp_path,
+        files=[
+            "datasets/boundaries/in/districts/all.geojson.metadata.json",
+            "datasets/boundaries/in/districts/all.geojson.unkeyed.json",
+        ],
+    )
+    fails = tier_b_legacy_boundary_sidecars(tmp_path)
+    paths = sorted(f.file for f in fails if "forbidden legacy boundary sidecar" in f.message)
+    assert paths == [
+        "datasets/boundaries/in/districts/all.geojson.metadata.json",
+        "datasets/boundaries/in/districts/all.geojson.unkeyed.json",
+    ], f"got: {paths}"
+
+
+def test_legacy_boundary_sidecars_check_rejects_per_state_index_manifest(tmp_path: Path):
+    """The per-state `<eci>-villages-index.json` family is gated via the
+    `*-index.json` pattern."""
+    _seed_boundary_tree(
+        tmp_path,
+        files=["datasets/boundaries/in/villages/state=in_s22/S22-villages-index.json"],
+    )
+    fails = tier_b_legacy_boundary_sidecars(tmp_path)
+    forbidden = [f for f in fails if "forbidden legacy boundary sidecar" in f.message]
+    assert len(forbidden) == 1
+    assert "S22-villages-index.json" in forbidden[0].file
+
+
+def test_legacy_boundary_sidecars_check_honours_allowlist(tmp_path: Path):
+    """An allowlisted sidecar is permitted (short-lived override path)."""
+    _seed_boundary_tree(
+        tmp_path,
+        files=["datasets/boundaries/in/states/all.geojson.sources.json"],
+        allowlist_entries=["datasets/boundaries/in/states/all.geojson.sources.json"],
+    )
+    fails = tier_b_legacy_boundary_sidecars(tmp_path)
+    assert fails == [], f"expected no failures, got: {fails}"
+
+
+def test_legacy_boundary_sidecars_check_flags_orphan_allowlist_entry(tmp_path: Path):
+    """An allowlist entry whose file is absent must surface as an orphan."""
+    _seed_boundary_tree(
+        tmp_path,
+        files=["datasets/boundaries/in/states/all.geojson"],
+        allowlist_entries=["datasets/boundaries/in/states/gone.geojson.sources.json"],
+    )
+    fails = tier_b_legacy_boundary_sidecars(tmp_path)
+    orphans = [f for f in fails if "orphan allowlist entry" in f.message]
+    assert len(orphans) == 1, f"expected one orphan failure, got: {fails}"
+    assert orphans[0].file == LEGACY_BOUNDARY_SIDECARS_ALLOWLIST.as_posix()
+
+
+def test_legacy_boundary_sidecars_check_is_noop_when_dir_absent(tmp_path: Path):
+    """If datasets/boundaries/ does not exist, the check is a no-op and
+    does NOT require the allowlist file."""
+    fails = tier_b_legacy_boundary_sidecars(tmp_path)
+    assert fails == [], f"expected no failures when boundaries dir absent, got: {fails}"
+
+
+def test_legacy_boundary_sidecars_check_requires_allowlist_when_dir_present(tmp_path: Path):
+    """If boundaries/ exists but the allowlist file is missing, fail loudly."""
+    _seed_boundary_tree(
+        tmp_path,
+        files=["datasets/boundaries/in/states/all.geojson"],
+        write_allowlist=False,
+    )
+    fails = tier_b_legacy_boundary_sidecars(tmp_path)
+    missing = [f for f in fails if "missing allowlist file" in f.message]
+    assert len(missing) == 1
+    assert missing[0].file == LEGACY_BOUNDARY_SIDECARS_ALLOWLIST.as_posix()
+
+
+def test_legacy_boundary_sidecars_check_chained_into_run(tmp_path: Path):
+    """Regression guard: tier_b_legacy_boundary_sidecars must be called by
+    run(). Without this, a future refactor could remove the chain and
+    silently re-allow boundary sidecars."""
+    _seed_repo(tmp_path)  # populates datasets/schemas/
+    _seed_boundary_tree(
+        tmp_path,
+        files=["datasets/boundaries/in/states/all.geojson.sources.json"],
+        allowlist_entries=[],
+    )
+    fails = run(tmp_path)
+    forbidden = [
+        f for f in fails
+        if "forbidden legacy boundary sidecar" in f.message
+        and f.file == "datasets/boundaries/in/states/all.geojson.sources.json"
+    ]
+    assert len(forbidden) == 1, \
+        f"run() must chain tier_b_legacy_boundary_sidecars, got: {fails}"
 
 
 

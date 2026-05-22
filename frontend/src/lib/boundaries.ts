@@ -7,31 +7,35 @@
 // answers "given (level, parent district lgd, state lgd), where is the
 // GeoJSON and what property carries the join key?".
 //
-// Drill levels:
-//   country      → datasets/boundaries/in/geojson/india-soi.geojson
+// Drill levels (post-T.0d Hive layout per ADR-0031 Amendment 2026-05-22):
+//   country      → datasets/boundaries/in/country/all.geojson
 //                  (silhouette only; no per-feature join key)
-//   state        → datasets/boundaries/in/geojson/india-states.geojson
+//   state        → datasets/boundaries/in/states/all.geojson
 //                  (datameet/maps lineage; joins on ST_NM English name)
-//   district     → datasets/boundaries/in/geojson/india-districts.geojson
+//   district     → datasets/boundaries/in/districts/all.geojson
 //                  (LGD-keyed; joins on dist_lgd integer)
-//   subdistrict  → datasets/boundaries/in/geojson/<S>-subdistricts.geojson
-//                  (one file per state; joins on subdt_lgd integer —
-//                   ramSeraph upstream property name)
-//   village      → datasets/boundaries/in/geojson/<S>-villages-<dist_lgd>.geojson
-//                  (one file PER DISTRICT; joins on vil_lgd integer)
+//   subdistrict  → datasets/boundaries/in/subdistricts/state=in_<lc>/all.geojson
+//                  (one shard per state; joins on subdt_lgd integer)
+//   village      → datasets/boundaries/in/villages/state=in_<lc>/district=<lgd>/all.geojson
+//                  (one shard PER DISTRICT; joins on vil_lgd integer)
 //   postal       → datasets/boundaries/in/postal/IN-pincodes-<city>.geojson
 //                  (search-only; Chennai metro under TN today; joins on
 //                   pincode 6-digit string. Phase 4 §160 — structural
 //                   surface lands ahead of the data file and the Phase 3
 //                   search-affordance consumer.)
 //
-// The per-district village split is the contract Fowler v3 nailed: it lets
-// a single district click pull ~10–600 KB instead of the full TN villages
-// bundle (~200 MB raw, ~50 MB even at coord_precision=4). Which district
-// files exist on disk is communicated by the per-state index manifest
-// (boundary.villages_index.schema.json v2.0) — the loader reads it once,
-// caches the set of present dist_lgd codes, and returns null for any
-// village query whose district is absent (no 404-probing on hover).
+// The per-district village split is the contract that lets a single
+// district click pull ~10–600 KB instead of the full TN villages bundle
+// (~200 MB raw, ~50 MB at coord_precision=4). Which shards exist is
+// now sourced from `datasets/boundaries/boundary_layers.parquet`
+// (queryable via DuckDB-WASM) — the per-state `villages-index.json`
+// manifest was retired in T.0d (replaced by the parquet ledger;
+// ADR-0031 Amendment). Missing-shard handling: 404-as-null (a one-time
+// HTTP probe per missing district, browser-cached). The previous index
+// manifest was a premature optimisation: it cost a separate JSON fetch
+// AND a class of state-sync bugs (manifest says X exists but file
+// doesn't, or vice versa). The parquet ledger is the single source of
+// truth.
 //
 // Why not import.meta.glob over the per-district files: datasets/ is
 // served at runtime via the dev-server middleware + Pages, not bundled
@@ -68,15 +72,22 @@ const JOIN_KEYS: Record<GeoLevel, string | null> = {
   postal: "pincode",
 };
 
-/** Tamil Nadu LGD state code (string, as the index manifest uses). */
+/** Tamil Nadu LGD state code (string, as upstream features carry). */
 const TN_STATE_LGD = "33";
 
+/**
+ * LGD state code → ECI state code. Used to derive the partition slug
+ * `in_<lc>` from the LGD code in incoming requests. Pre-T.0d this was
+ * STATE_LGD_TO_ECI; the export name is preserved so downstream callers
+ * keep working.
+ */
 const STATE_LGD_TO_ECI: Record<string, string> = {
   "33": "S22",
 };
 
 /**
- * Resolve the GeoJSON basename for a given level + scope. Pure: no I/O.
+ * Resolve the relative path under `boundaries/in/` for a given level +
+ * scope. Pure: no I/O.
  *
  * Throws when the inputs do not satisfy the contract — these are caller
  * bugs (e.g. asking for villages without naming a district) and should
@@ -84,46 +95,60 @@ const STATE_LGD_TO_ECI: Record<string, string> = {
  * disk are different from missing INPUTS; that's the 404-as-null branch
  * in loadBoundary.
  */
-export function boundaryBasename(
+export function boundaryRelPath(
   level: GeoLevel,
   parentDistrictLgd?: string,
   stateLgd?: string,
 ): string {
   switch (level) {
     case "country":
-      return "india-soi.geojson";
+      return "country/all.geojson";
     case "state":
-      return "india-states.geojson";
+      return "states/all.geojson";
     case "district":
-      return "india-districts.geojson";
+      return "districts/all.geojson";
     case "subdistrict": {
       if (!stateLgd) throw new Error("subdistrict requires stateLgd");
       const eci = STATE_LGD_TO_ECI[stateLgd];
       if (!eci) throw new Error(`no per-state subdistricts file for stateLgd=${stateLgd}`);
-      return `${eci}-subdistricts.geojson`;
+      return `subdistricts/state=in_${eci.toLowerCase()}/all.geojson`;
     }
     case "village": {
       if (!stateLgd) throw new Error("village requires stateLgd");
       if (!parentDistrictLgd) throw new Error("village requires parentDistrictLgd");
       const eci = STATE_LGD_TO_ECI[stateLgd];
       if (!eci) throw new Error(`no per-state village files for stateLgd=${stateLgd}`);
-      return `${eci}-villages-${parentDistrictLgd}.geojson`;
+      return `villages/state=in_${eci.toLowerCase()}/district=${parentDistrictLgd}/all.geojson`;
     }
     case "postal": {
-      // Phase 4 §160 of TODO/TN-GRANULAR-GEO-PLAN.md. Pincode polygons are a
-      // search-only layer (Jony edit §d) and currently exist only for
-      // Chennai metro under TN. The basename climbs out of `geojson/` into
-      // the sibling `postal/` directory — the loader's URL builder resolves
-      // the `..` segment naturally. Returns the same Chennai file regardless
+      // Phase 4 §160 of TODO/TN-GRANULAR-GEO-PLAN.md. Pincode polygons are
+      // a search-only layer (Jony edit §d) and currently exist only for
+      // Chennai metro under TN. Returns the same Chennai file regardless
       // of `parentDistrictLgd` (kept in the signature for shape-symmetry
       // with `village`); the consumer searches by `pincode` property.
+      // Postal stays under `postal/` (no Hive sub-tree yet) because there
+      // is only one shard today; promote to `postal/state=in_s22/all.geojson`
+      // when a second state pincode layer ships.
       if (!stateLgd) throw new Error("postal requires stateLgd");
       if (stateLgd !== TN_STATE_LGD) {
         throw new Error(`no postal boundaries for stateLgd=${stateLgd}`);
       }
-      return "../postal/IN-pincodes-chennai.geojson";
+      return "postal/IN-pincodes-chennai.geojson";
     }
   }
+}
+
+/**
+ * @deprecated Use `boundaryRelPath` (post-T.0d Hive layout). Retained
+ * as a thin alias for one release so callers that stored the symbol can
+ * migrate. Returns the same string boundaryRelPath returns.
+ */
+export function boundaryBasename(
+  level: GeoLevel,
+  parentDistrictLgd?: string,
+  stateLgd?: string,
+): string {
+  return boundaryRelPath(level, parentDistrictLgd, stateLgd);
 }
 
 /** Per-level join-key property name (or null at country level — silhouette only). */
@@ -131,38 +156,11 @@ export function joinKeyFor(level: GeoLevel): string | null {
   return JOIN_KEYS[level];
 }
 
-interface VillagesIndex {
-  state_lgd: string;
-  district_lgd_codes: string[];
-}
-
-const _villageIndexCache: Map<string, Promise<VillagesIndex | null>> = new Map();
-
-/**
- * Fetch the per-state villages index manifest. Cached per state.
- * Returns null when the manifest is missing — equivalent to "no village
- * layer emitted for this state yet".
- */
-export function fetchVillagesIndex(stateLgd: string): Promise<VillagesIndex | null> {
-  let cached = _villageIndexCache.get(stateLgd);
-  if (cached) return cached;
-  const eci = STATE_LGD_TO_ECI[stateLgd];
-  if (!eci) {
-    cached = Promise.resolve(null);
-    _villageIndexCache.set(stateLgd, cached);
-    return cached;
-  }
-  const url = `${DATA_BASE}/boundaries/in/geojson/${eci}-villages-index.json`;
-  cached = fetch(url)
-    .then(async r => (r.ok ? ((await r.json()) as VillagesIndex) : null))
-    .catch(() => null);
-  _villageIndexCache.set(stateLgd, cached);
-  return cached;
-}
-
-/** Test-only — clear all caches between cases. Not part of the public API. */
+/** Test-only — retained as a no-op for caller compatibility. */
 export function _resetCachesForTesting(): void {
-  _villageIndexCache.clear();
+  // No internal caches after T.0d — villages-index reader was retired.
+  // Kept as a stub so existing test setup code (resetting between cases)
+  // doesn't break.
 }
 
 /**
@@ -204,29 +202,29 @@ export const STATE_LGD_TO_ECI_PUBLIC: Record<string, string> = STATE_LGD_TO_ECI;
 /**
  * Load the FeatureCollection for the requested level. Returns null when
  * the file is absent (the graceful-degradation contract). Throws only on
- * caller-input bugs (see boundaryBasename).
+ * caller-input bugs (see boundaryRelPath).
  *
- * For village queries: the index manifest is consulted first so a request
- * for a district whose shard was not emitted resolves to null without a
- * speculative network probe.
+ * For village queries: existence is no longer pre-checked against a
+ * separate index manifest — the loader fetches the Hive-partitioned shard
+ * directly and resolves to null on 404. Trade-off: one HTTP probe per
+ * missing district click (browser-cached after first 404), in exchange
+ * for elimination of the index/file state-sync bug class. The single
+ * source of truth for which shards exist is
+ * `datasets/boundaries/boundary_layers.parquet` (queryable via
+ * DuckDB-WASM by any consumer that needs the full inventory).
  */
 export async function loadBoundary(
   level: GeoLevel,
   parentDistrictLgd?: string,
   stateLgd?: string,
 ): Promise<BoundaryFeatureCollection | null> {
-  if (level === "village") {
-    const index = await fetchVillagesIndex(stateLgd ?? TN_STATE_LGD);
-    if (!index) return null;
-    if (!index.district_lgd_codes.includes(parentDistrictLgd ?? "")) return null;
-  }
-  const basename = boundaryBasename(level, parentDistrictLgd, stateLgd);
-  const url = `${DATA_BASE}/boundaries/in/geojson/${basename}`;
+  const relpath = boundaryRelPath(level, parentDistrictLgd, stateLgd);
+  const url = `${DATA_BASE}/boundaries/in/${relpath}`;
   try {
     const r = await fetch(url);
     if (!r.ok) return null;
     const fc = (await r.json()) as BoundaryFeatureCollection;
-    // District-level filter: india-districts.geojson is national. When the
+    // District-level filter: districts/all.geojson is national. When the
     // caller supplies a stateLgd (drill-down picked a specific state), trim
     // to that state's districts before returning so the choropleth doesn't
     // paint 766 districts for what was a state-scoped click. Property

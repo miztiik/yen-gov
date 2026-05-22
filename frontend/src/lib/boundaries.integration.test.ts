@@ -1,13 +1,11 @@
 // Integration tests for the loader. fetch is mocked (the loader's contract
-// IS the fetch boundary — Holy Law #7 carve-out). Index manifest reads
-// + per-district file fetches are exercised end-to-end through the public
-// loadBoundary surface.
+// IS the fetch boundary — Holy Law #7 carve-out). Post-T.0d (ADR-0031
+// Amendment) URLs use the Hive layout under `boundaries/in/<kind>/...`
+// and the per-state villages-index manifest is gone (replaced by
+// `boundaries/boundary_layers.parquet` queryable via DuckDB-WASM).
+// Missing village shards now resolve to null via the 404-as-null branch.
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
-import {
-  loadBoundary,
-  fetchVillagesIndex,
-  _resetCachesForTesting,
-} from "./boundaries";
+import { loadBoundary, _resetCachesForTesting } from "./boundaries";
 
 const BASE = "/data";
 
@@ -39,53 +37,56 @@ const FC = (n: number) => ({
   })),
 });
 
-const INDEX_FIXTURE = {
-  $schema: "https://yen-gov.github.io/schemas/boundary.villages_index.schema.json",
-  $schema_version: "2.0",
-  sources: [{ url: "https://example/x.7z", fetched_at: "2026-05-15T00:00:00Z" }],
-  state_lgd: "33",
-  district_lgd_codes: ["568", "603"],
-  generated_at: "2026-05-15T00:00:00Z",
-};
-
-describe("loadBoundary — composition", () => {
-  it("country resolves to india-soi.geojson", async () => {
+describe("loadBoundary — composition (Hive paths)", () => {
+  it("country resolves to country/all.geojson", async () => {
     fetchSpy.mockResolvedValueOnce(jsonResponse(FC(1)));
     const out = await loadBoundary("country");
-    expect(fetchSpy).toHaveBeenCalledWith(`${BASE}/boundaries/in/geojson/india-soi.geojson`);
+    expect(fetchSpy).toHaveBeenCalledWith(`${BASE}/boundaries/in/country/all.geojson`);
     expect(out?.features.length).toBe(1);
   });
 
-  it("subdistrict for TN composes the per-state file path", async () => {
+  it("state resolves to states/all.geojson", async () => {
+    fetchSpy.mockResolvedValueOnce(jsonResponse(FC(36)));
+    const out = await loadBoundary("state");
+    expect(fetchSpy).toHaveBeenCalledWith(`${BASE}/boundaries/in/states/all.geojson`);
+    expect(out?.features.length).toBe(36);
+  });
+
+  it("district resolves to districts/all.geojson", async () => {
+    fetchSpy.mockResolvedValueOnce(jsonResponse(FC(766)));
+    const out = await loadBoundary("district");
+    expect(fetchSpy).toHaveBeenCalledWith(`${BASE}/boundaries/in/districts/all.geojson`);
+    expect(out?.features.length).toBe(766);
+  });
+
+  it("subdistrict for TN composes the per-state Hive shard path", async () => {
     fetchSpy.mockResolvedValueOnce(jsonResponse(FC(300)));
     const out = await loadBoundary("subdistrict", undefined, "33");
     expect(fetchSpy).toHaveBeenCalledWith(
-      `${BASE}/boundaries/in/geojson/S22-subdistricts.geojson`,
+      `${BASE}/boundaries/in/subdistricts/state=in_s22/all.geojson`,
     );
     expect(out?.features.length).toBe(300);
   });
 
-  it("village for present district fetches the index then the shard", async () => {
-    fetchSpy.mockResolvedValueOnce(jsonResponse(INDEX_FIXTURE));
+  it("village for present district fetches the per-district Hive shard", async () => {
     fetchSpy.mockResolvedValueOnce(jsonResponse(FC(42)));
     const out = await loadBoundary("village", "603", "33");
-    expect(fetchSpy).toHaveBeenNthCalledWith(
-      1,
-      `${BASE}/boundaries/in/geojson/S22-villages-index.json`,
-    );
-    expect(fetchSpy).toHaveBeenNthCalledWith(
-      2,
-      `${BASE}/boundaries/in/geojson/S22-villages-603.geojson`,
+    // Post-T.0d: no index probe; one direct fetch to the partitioned shard.
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    expect(fetchSpy).toHaveBeenCalledWith(
+      `${BASE}/boundaries/in/villages/state=in_s22/district=603/all.geojson`,
     );
     expect(out?.features.length).toBe(42);
   });
 
-  it("village for an absent district returns null without probing the shard URL", async () => {
-    fetchSpy.mockResolvedValueOnce(jsonResponse(INDEX_FIXTURE));
+  it("village for an absent district returns null via 404-as-null", async () => {
+    fetchSpy.mockResolvedValueOnce(new Response("nope", { status: 404 }));
     const out = await loadBoundary("village", "999", "33");
     expect(out).toBeNull();
-    // Only the index was fetched — the shard URL was NOT probed (Fowler v4 nit 1).
     expect(fetchSpy).toHaveBeenCalledTimes(1);
+    expect(fetchSpy).toHaveBeenCalledWith(
+      `${BASE}/boundaries/in/villages/state=in_s22/district=999/all.geojson`,
+    );
   });
 });
 
@@ -101,28 +102,21 @@ describe("loadBoundary — graceful degradation", () => {
     const out = await loadBoundary("state");
     expect(out).toBeNull();
   });
-
-  it("missing index manifest collapses any village query for that state to null", async () => {
-    fetchSpy.mockResolvedValueOnce(new Response("nope", { status: 404 }));
-    const out = await loadBoundary("village", "603", "33");
-    expect(out).toBeNull();
-    // Only the index probe — never the shard.
-    expect(fetchSpy).toHaveBeenCalledTimes(1);
-  });
 });
 
-describe("fetchVillagesIndex caching", () => {
-  it("calls fetch only once for repeated queries to the same state", async () => {
-    fetchSpy.mockResolvedValueOnce(jsonResponse(INDEX_FIXTURE));
-    const first = await fetchVillagesIndex("33");
-    const second = await fetchVillagesIndex("33");
-    expect(first).toEqual(second);
-    expect(fetchSpy).toHaveBeenCalledTimes(1);
-  });
-
-  it("returns null synchronously for a state with no per-state shard set", async () => {
-    const out = await fetchVillagesIndex("99");
-    expect(out).toBeNull();
-    expect(fetchSpy).not.toHaveBeenCalled();
+describe("loadBoundary — district-level filter", () => {
+  it("trims national districts file to the requested state", async () => {
+    const national = {
+      type: "FeatureCollection" as const,
+      features: [
+        { type: "Feature" as const, properties: { dist_lgd: 603, state_lgd: 33 }, geometry: { type: "Point", coordinates: [80, 13] } },
+        { type: "Feature" as const, properties: { dist_lgd: 555, state_lgd: 33 }, geometry: { type: "Point", coordinates: [80, 13] } },
+        { type: "Feature" as const, properties: { dist_lgd: 11, state_lgd: 24 }, geometry: { type: "Point", coordinates: [72, 23] } },
+      ],
+    };
+    fetchSpy.mockResolvedValueOnce(jsonResponse(national));
+    const out = await loadBoundary("district", undefined, "33");
+    expect(out?.features.length).toBe(2);
+    expect(out?.features.every(f => Number(f.properties?.state_lgd) === 33)).toBe(true);
   });
 });

@@ -62,7 +62,7 @@ const FC = (n: number, props: Record<string, unknown> = {}) => ({
 });
 
 describe("IndicatorChoropleth drill — TN state click", () => {
-  it("state-level click on Tamil Nadu drills to district and fetches india-districts.geojson", async () => {
+  it("state-level click on Tamil Nadu drills to district and fetches districts/all.geojson", async () => {
     // Mirror the component's onSelect for a state-level click: ECI "S22"
     // resolved to LGD "33", then drillTo, then loadBoundary with the LGD.
     let state = initialDrillState("state");
@@ -79,7 +79,7 @@ describe("IndicatorChoropleth drill — TN state click", () => {
     const fc = await loadBoundary(lvl, parent, stateLgd);
 
     expect(fetchSpy).toHaveBeenCalledWith(
-      `${BASE}/boundaries/in/geojson/india-districts.geojson`,
+      `${BASE}/boundaries/in/districts/all.geojson`,
     );
     expect(fc?.features.length).toBe(38);
   });
@@ -105,7 +105,7 @@ describe("IndicatorChoropleth drill — TN state click", () => {
     expect(fc?.features.every(f => f.properties?.state_lgd === 33)).toBe(true);
   });
 
-  it("district click then village click composes the per-district shard URL", async () => {
+  it("district click then village click composes the per-district Hive shard URL", async () => {
     let state = initialDrillState("state");
     state = drillTo(state, { key: "Tamil Nadu", label: "Tamil Nadu", stateLgd: TN_LGD }, undefined);
     state = drillTo(state, { key: "603", label: "Coimbatore" }, undefined);
@@ -114,17 +114,14 @@ describe("IndicatorChoropleth drill — TN state click", () => {
     expect(state.level).toBe("village");
     expect(state.parentDistrictLgd).toBe("603");
 
-    // village queries hit the index first (per loader contract).
-    fetchSpy.mockResolvedValueOnce(jsonResponse({
-      $schema: "x", $schema_version: "2.0", sources: [],
-      state_lgd: "33", district_lgd_codes: ["603"], generated_at: "x",
-    }));
+    // Post-T.0d: no index probe; one direct fetch to the partitioned shard.
     fetchSpy.mockResolvedValueOnce(jsonResponse(FC(12)));
 
     const [lvl, parent, stateLgd] = loadBoundaryArgs(state);
     const fc = await loadBoundary(lvl, parent, stateLgd);
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
     expect(fetchSpy).toHaveBeenLastCalledWith(
-      `${BASE}/boundaries/in/geojson/S22-villages-603.geojson`,
+      `${BASE}/boundaries/in/villages/state=in_s22/district=603/all.geojson`,
     );
     expect(fc?.features.length).toBe(12);
   });

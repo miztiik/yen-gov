@@ -1,10 +1,10 @@
 # tools/boundaries
 
-**Last Updated**: 2026-05-15
+**Last Updated**: 2026-05-22
 
-Builds vector-tile boundary files (`datasets/boundaries/in/*.pmtiles`) consumed by the frontend [map](../../docs/architecture/frontend/map.md). The pipeline downloads upstream GeoJSON, simplifies with [mapshaper](https://github.com/mbloch/mapshaper), and packs to [PMTiles](https://github.com/protomaps/PMTiles) with [tippecanoe](https://github.com/felt/tippecanoe).
+Builds the boundary tree at `datasets/boundaries/in/` consumed by the frontend [map](../../docs/architecture/frontend/map.md), plus the parquet ledger at `datasets/boundaries/boundary_layers.parquet` that carries provenance + simplification metadata + dropped-feature counts (T.0d, 2026-05-22 — see [ADR-0031 Amendment](../../docs/architecture/decisions/0031-boundary-geometry-strategy.md)). The pipeline downloads upstream GeoJSON / SHP / 7z-archived GeoJSONL, simplifies via `coord_precision` rounding (and for PMTiles outputs, [mapshaper](https://github.com/mbloch/mapshaper) + [tippecanoe](https://github.com/felt/tippecanoe)), and emits to Hive-partitioned paths.
 
-This tool is **local-only** by design (see [Why local-only](#why-local-only)). Run it from a Linux/macOS shell (or WSL2 on Windows) when boundaries need refreshing — typically once per delimitation cycle — then commit the regenerated `datasets/boundaries/in/` through a normal PR.
+This tool is **local-only** by design (see [Why local-only](#why-local-only)). Run it from a Linux/macOS shell (or WSL2 on Windows) when boundaries need refreshing — typically once per delimitation cycle — then commit the regenerated `datasets/boundaries/in/` (and the regenerated `boundary_layers.parquet`) through a normal PR.
 
 ## Layout
 
@@ -16,17 +16,19 @@ This tool is **local-only** by design (see [Why local-only](#why-local-only)). R
 ## Outputs
 
 ```
-datasets/boundaries/in/
-├── india-states.pmtiles            ← India state outlines (z 0–6)
-├── ac/
-│   ├── S22-ac.pmtiles              ← Tamil Nadu AC boundaries (z 4–10)
-│   ├── S11-ac.pmtiles              ← Kerala
-│   ├── S25-ac.pmtiles              ← West Bengal
-│   └── S03-ac.pmtiles              ← Assam (see warning below)
-└── manifest.json                   ← provenance + metadata for every file
+datasets/boundaries/
+├── boundary_layers.parquet                     # one row per shard (T.0d ledger)
+└── in/
+    ├── country/all.geojson                     # IN outline
+    ├── states/all.geojson                      # 36 states/UTs
+    ├── districts/all.geojson                   # all districts
+    ├── subdistricts/state=in_<lc>/all.geojson  # per-state
+    ├── villages/state=in_<lc>/district=<lgd>/all.geojson  # per-(state, district)
+    ├── ac/state=in_<lc>/all.geojson            # per-state AC layer (37 states/UTs)
+    └── postal/IN-pincodes-<city>.geojson       # orthogonal; NOT LGD
 ```
 
-`manifest.json` is the CLAUDE.md §12 provenance carrier: PMTiles files cannot embed a `sources` field, so the manifest carries one record per packed file with `{ url, fetched_at }`, plus the source license and the property name (e.g. `AC_NO`) the frontend joins on.
+`datasets/boundaries/boundary_layers.parquet` is the CLAUDE.md §12 provenance carrier post-T.0d: PMTiles files cannot embed a `sources` field and per-shard sidecars are retired, so the ledger carries one row per shard with `source_id` (FK to `datasets/taxonomy/sources.parquet`), denominator (`original_feature_count == retained_feature_count + unkeyed_count`), simplification metadata, CRS, and the property name (e.g. `AC_NO`) the frontend joins on (via `notes` or future structured field).
 
 ## Sources
 
@@ -73,11 +75,11 @@ Three `source` keys are optional opt-ins added during the TN granular-geo expans
 
 | Key | Shape | Effect |
 | --- | --- | --- |
-| `state_filter` | `{ "property": "state_lgd", "equals": "33" }` | Scope filter: features whose property doesn't match are silently dropped (they belong in another state's file, not in an LGD-join failure log). The post-filter count becomes the unkeyed-sidecar denominator. |
-| `split_by` | `{ "property": "dist_lgd", "emit_index": "S22-villages-index.json" }` | Shards the FeatureCollection by the named property and writes one GeoJSON per group. The `{prop}` placeholder in `derive_output_basename` is substituted with the group key (e.g. `S22-villages-568.geojson`). When `emit_index` is set, an index manifest of present group keys is written next to the shards so the frontend loader can avoid 404-probing. |
-| `metadata` (entry-level, not under `source`) | `{ title, description, category, license, coverage, coordinate_system }` | When present *and* `coord_precision` is set, a `<basename>.metadata.json` sibling is written conforming to [`feature_collection.metadata.schema.json`](../../datasets/schemas/feature_collection.metadata.schema.json) v1.2 with a `simplification` block (`algorithm: "coord-precision-round"`, `tolerance_deg = 10**-coord_precision`, original/retained feature counts). Surfaces simplification so downstream area/length math doesn't silently lie. |
+| `state_filter` | `{ "property": "state_lgd", "equals": "33" }` | Scope filter: features whose property doesn't match are silently dropped (they belong in another state's file, not in an LGD-join failure log). The post-filter count becomes the unkeyed-count denominator on the ledger row. |
+| `split_by` | `{ "property": "dist_lgd" }` | Shards the FeatureCollection by the named property and writes one GeoJSON per group into the matching Hive partition (e.g. `villages/state=in_s22/district=<dist_lgd>/all.geojson`). On-disk presence is self-describing under Hive partitioning, so no `emit_index` manifest is written (retired in T.0d). |
+| `metadata` (entry-level, not under `source`) | `{ title, description, category, license, coverage, coordinate_system }` | Folded into the row written to `datasets/boundaries/boundary_layers.parquet`. `coord_precision` populates `simplification_tolerance` (= `10**-coord_precision`) + `simplification_algorithm = "coord-round"`. Surfaces simplification so downstream area/length math doesn't silently lie. |
 
-A `<basename>.unkeyed.json` sidecar conforming to [`boundary.unkeyed.schema.json`](../../datasets/schemas/boundary.unkeyed.schema.json) is always emitted for `geojsonl_7z` entries — even when `dropped` is empty (the canonical "perfect snapshot" signal, written explicitly so consumers never have to distinguish "no drops" from "no sidecar").
+Unkeyed counts (features dropped because they didn't join to the LGD registry) and source provenance (FK to `datasets/taxonomy/sources.parquet`) are written to the matching row in `boundary_layers.parquet`. The pre-T.0d per-shard sidecars (`*.sources.json` / `*.metadata.json` / `*.unkeyed.json`) are retired — a Tier-B forbidden-path gate (`tier_b_legacy_boundary_sidecars`) rejects them.
 
 ### CLI filters
 

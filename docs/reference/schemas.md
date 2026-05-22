@@ -1,6 +1,6 @@
 # Schemas
 
-**Last Updated**: 2026-05-14
+**Last Updated**: 2026-05-22
 
 All schemas live in [`datasets/schemas/`](../../datasets/schemas/). Each is a JSON Schema 2020-12 document carrying its own version and changelog (CLAUDE.md §11).
 
@@ -17,7 +17,7 @@ All schemas live in [`datasets/schemas/`](../../datasets/schemas/). Each is a JS
 | `result.constituency.schema.json`     | Per-constituency result            | 3.0       | Top-N candidates + NOTA + others bucket + winner + margin for one AC/PC. |
 | `result.summary.schema.json`          | Per-event-per-state result summary | 3.0       | State-level rollup of party totals, seats, turnout.                      |
 | `processing.schema.json`              | Pipeline processing knobs          | 3.0       | Tunable runtime config (fetch, result aggregation).                      |
-| `boundary.sources.schema.json`        | Boundary GeoJSON provenance sidecar| 1.0       | `<file>.geojson.sources.json` for electoral/admin boundary GeoJSONs.     |
+| `boundary-layers.schema.json`         | Boundary layers parquet ledger     | 1.0       | One row per boundary shard (`layer_id` PK, `source_id` FK, denominator, simplification metadata). Backs `datasets/boundaries/boundary_layers.parquet` (T.0d, 2026-05-22). Replaces the per-shard `boundary.sources` / `boundary.unkeyed` / `boundary.villages_index` sidecars (retired in same Tier-A commit). |
 
 ### Socio-economic / non-election (Phase A, 2026-05-10)
 

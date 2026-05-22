@@ -44,6 +44,19 @@ DATA_ROOTS = (Path("datasets"), Path("config"))
 LEGACY_INDICATOR_SHARDS_DIR = Path("datasets/indicators/in")
 LEGACY_INDICATOR_SHARDS_ALLOWLIST = Path("datasets/_ops/legacy-folded-indicator-shards.txt")
 
+# Legacy boundary sidecar tree (CLAUDE.md §10 anti-pattern, ADR-0031
+# Amendment 2026-05-22 -- T.0d boundaries consolidation). Pre-T.0d every
+# `*.geojson` carried sibling `*.sources.json` / `*.metadata.json` /
+# `*.unkeyed.json` and per-state `*-index.json` manifests. Provenance,
+# simplification metadata, and shard inventory now live in
+# `datasets/boundaries/boundary_layers.parquet` (FK to
+# `datasets/taxonomy/sources.parquet`). New sidecars are forbidden; the
+# allowlist exists only to permit short-lived temporary overrides during
+# a follow-up PR (none today — file ships empty). The Tier-B check
+# `tier_b_legacy_boundary_sidecars` enforces the doctrine.
+LEGACY_BOUNDARY_SIDECARS_DIR = Path("datasets/boundaries")
+LEGACY_BOUNDARY_SIDECARS_ALLOWLIST = Path("datasets/_ops/legacy-boundary-sidecars.txt")
+
 # Path segments under DATA_ROOTS whose entire subtree is exempt from
 # Tier-B conformance. Adding to this set is a doctrine decision -- see
 # `_iter_data_files` and docs/architecture/backend/validator.md.
@@ -304,6 +317,107 @@ def tier_b_legacy_folded_indicator_shards(root: Path) -> list[Failure]:
     return failures
 
 
+# Glob patterns that match the pre-T.0d boundary sidecar / index shapes.
+# Any file under `datasets/boundaries/` matching one of these names is a
+# legacy artifact and must be either deleted (the T.0d normal case) or
+# allowlisted (only for short-lived overrides during a follow-up PR).
+_LEGACY_BOUNDARY_SIDECAR_SUFFIXES: tuple[str, ...] = (
+    ".sources.json",
+    ".unkeyed.json",
+    ".metadata.json",
+)
+
+
+def _is_legacy_boundary_sidecar(p: Path) -> bool:
+    name = p.name
+    if any(name.endswith(s) for s in _LEGACY_BOUNDARY_SIDECAR_SUFFIXES):
+        return True
+    # Per-state villages-index manifests: e.g. `S22-villages-index.json`.
+    # Match the `<eci>-villages-index.json` family without false-positiving
+    # the `boundary_layers.parquet` ledger or future contract surfaces.
+    if name.endswith("-index.json"):
+        return True
+    return False
+
+
+def tier_b_legacy_boundary_sidecars(root: Path) -> list[Failure]:
+    """Forbid pre-T.0d boundary sidecars and index manifests.
+
+    Per ADR-0031 Amendment 2026-05-22 (T.0d boundaries consolidation) the
+    per-shard sidecar files (`*.sources.json`, `*.metadata.json`,
+    `*.unkeyed.json`) and the per-state villages-index manifests
+    (`<eci>-villages-index.json`) were retired in favour of a single
+    parquet ledger at `datasets/boundaries/boundary_layers.parquet` (with
+    `source_id` FK to `datasets/taxonomy/sources.parquet`).
+
+    Two symmetric failure modes (mirroring
+    `tier_b_legacy_folded_indicator_shards`):
+      1. Forbidden sidecar: file on disk under `datasets/boundaries/`
+         matching a legacy pattern, not listed in the allowlist.
+      2. Orphan allowlist entry: path listed in the allowlist but not
+         present on disk.
+
+    The allowlist file ships empty under normal operation. Re-introducing
+    a sidecar requires either a doctrine amendment (delete this check) or
+    an explicit short-lived allowlist entry called out in the PR body.
+
+    If `datasets/boundaries/` does not exist, the check is a no-op.
+    """
+    failures: list[Failure] = []
+    boundaries_dir = root / LEGACY_BOUNDARY_SIDECARS_DIR
+    allowlist_path = root / LEGACY_BOUNDARY_SIDECARS_ALLOWLIST
+    allowlist_rel = LEGACY_BOUNDARY_SIDECARS_ALLOWLIST.as_posix()
+
+    if not boundaries_dir.exists():
+        return failures
+
+    if not allowlist_path.exists():
+        failures.append(
+            Failure(
+                allowlist_rel,
+                "B",
+                "missing allowlist file while datasets/boundaries/ still exists "
+                "(required by tier_b_legacy_boundary_sidecars; see "
+                "docs/architecture/decisions/0031-boundary-geometry-strategy.md "
+                "Amendment 2026-05-22).",
+            )
+        )
+        return failures
+
+    allowed = _load_allowlist(allowlist_path)
+    on_disk: set[str] = {
+        _posix(p, root)
+        for p in boundaries_dir.rglob("*.json")
+        if _is_legacy_boundary_sidecar(p)
+    }
+
+    for sidecar in sorted(on_disk - allowed):
+        failures.append(
+            Failure(
+                sidecar,
+                "B",
+                "forbidden legacy boundary sidecar: per ADR-0031 Amendment "
+                "2026-05-22 (T.0d), provenance + simplification metadata + "
+                "shard inventory live in datasets/boundaries/boundary_layers.parquet. "
+                "Delete the sidecar (the normal case), or add the path to "
+                "datasets/_ops/legacy-boundary-sidecars.txt for a short-lived "
+                "override and explain in the PR body.",
+            )
+        )
+
+    for orphan in sorted(allowed - on_disk):
+        failures.append(
+            Failure(
+                allowlist_rel,
+                "B",
+                f"orphan allowlist entry {orphan!r}: file no longer exists on disk. "
+                f"Remove the line from {allowlist_rel}.",
+            )
+        )
+
+    return failures
+
+
 def run(root: Path) -> list[Failure]:
     """Run Tier A then Tier B against a repo root."""
     schemas, parse_failures = load_schemas(root / SCHEMAS_SUBDIR)
@@ -312,4 +426,5 @@ def run(root: Path) -> list[Failure]:
         + tier_a(schemas)
         + tier_b(schemas, root)
         + tier_b_legacy_folded_indicator_shards(root)
+        + tier_b_legacy_boundary_sidecars(root)
     )

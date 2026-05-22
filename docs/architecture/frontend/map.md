@@ -159,17 +159,17 @@ A single typed entry point — `loadBoundary(level, parentDistrictLgd?, stateLgd
 
 | Level | URL | Join key |
 | --- | --- | --- |
-| `country` | `india-soi.geojson` | none (silhouette only) |
-| `state` | `india-states.geojson` | `ST_NM` (datameet lineage — English name) |
-| `district` | `india-districts.geojson` | `dist_lgd` (LGD numeric) |
-| `subdistrict` | `<S>-subdistricts.geojson` (one file per state) | `subdt_lgd` (ramSeraph upstream property) |
-| `village` | `<S>-villages-<dist_lgd>.geojson` (one file per district) | `vil_lgd` (ramSeraph upstream property) |
+| `country` | `country/all.geojson` | none (silhouette only) |
+| `state` | `states/all.geojson` | `ST_NM` (datameet lineage — English name) |
+| `district` | `districts/all.geojson` | `dist_lgd` (LGD numeric) |
+| `subdistrict` | `subdistricts/state=in_<lc>/all.geojson` (one file per state) | `subdt_lgd` (ramSeraph upstream property) |
+| `village` | `villages/state=in_<lc>/district=<dist_lgd>/all.geojson` (one file per district) | `vil_lgd` (ramSeraph upstream property) |
 
 Property names match what ramSeraph's upstream actually emits — `subdt_lgd` / `vil_lgd` (not `subdist_lgd` / `village_lgd`). The plan referenced the longer names; the loader honours the disk shape, since renaming on the upstream feeds would mean shipping a parallel write pipeline (Holy Law #5: structural fixes only — and "use what's actually on disk" is the structural fix).
 
-### Per-district village split + index manifest
+### Per-district village split — no index manifest (post-T.0d)
 
-The per-district village split is the contract Phase 1b nailed: a single district click pulls ~10–600 KB instead of the full TN villages bundle (~200 MB raw, ~50 MB even at `coord_precision=4`). Which district shards exist on disk is communicated by the per-state index manifest (`<S>-villages-index.json`, schema `boundary.villages_index.schema.json` v2.0). The loader reads it once, caches the set of present `dist_lgd` codes, and returns `null` for any village query whose district is absent — never speculatively probes a 404 on hover.
+The per-district village split is the contract Phase 1b nailed: a single district click pulls ~10–600 KB instead of the full TN villages bundle (~200 MB raw, ~50 MB even at `coord_precision=4`). Under T.0d (2026-05-22) the per-state `<S>-villages-index.json` manifest is retired — Hive partitioning makes the on-disk presence of a shard at `villages/state=in_s22/district=<lgd>/all.geojson` self-describing. The loader fetches the partition path directly and lets a 404 propagate as `null` (graceful degradation — see below). One fewer manifest to keep in sync; one fewer pre-flight round-trip per village query.
 
 ### 404-as-null contract
 
@@ -181,18 +181,17 @@ Vite's `import.meta.glob` would let the bundler see the per-district shards at b
 
 ### Test coverage (CLAUDE.md §15)
 
-Four files in `frontend/src/lib/`:
+Five files in `frontend/src/lib/` + one in `frontend/src/contracts/`:
 
-- `boundaries.path.test.ts` (unit, 13 tests) — pure resolver, no I/O.
-- `boundaries.integration.test.ts` (integration, 9 tests) — `fetch` mocked at the loader's contract boundary (Holy Law #7 carve-out: the loader's contract IS the fetch boundary). Exercises path composition, 404-as-null, network-error-as-null, missing-index degradation, and per-state index caching.
-- `boundaries.contract.test.ts` (contract, 156 tests) — sibling-`sources.json` presence per `*.geojson`, join-key property presence on every LGD-keyed feature (sampled at first/middle/last to bound runtime), index→shard one-to-one consistency, orphan-file detector against the loader's path table.
-- `boundaries.budget.test.ts` (contract, 44 tests) — per-shard byte ceilings (4 MB village / 8 MB subdistrict / 16 MB national) and a chunk-count ratchet at 80 `*.geojson` files.
-
-The orphan-boundary check lives next to the loader (in `boundaries.contract.test.ts`) rather than in `frontend/src/contracts/catalogue-coverage.test.ts`, because the catalogue test is concerned with **indicator** artifacts referenced by `topic-catalogue.json`. Boundary files are not indicators and the catalogue has no concept of them. The loader's path table IS the boundary equivalent of the catalogue, so the orphan check belongs at the same layer that produces the contract.
+- `boundaries.path.test.ts` (unit, ~18 tests) — pure resolver, no I/O. Asserts Hive-relative paths.
+- `boundaries.integration.test.ts` (integration, 9 tests) — `fetch` mocked at the loader's contract boundary (Holy Law #7 carve-out: the loader's contract IS the fetch boundary). Exercises path composition, 404-as-null, network-error-as-null, single-fetch-no-index-probe for villages.
+- `boundaries.contract.test.ts` (contract, ~46 tests) — round-trips `boundaryRelPath` against the on-disk TN village shards; samples first/middle/last features for join-key property presence.
+- `boundaries.budget.test.ts` (contract, ~44 tests) — per-shard byte ceilings (4 MB village / 8 MB subdistrict / 16 MB national) and a chunk-count ratchet at 80 `**/all.geojson` files.
+- `boundaries-conform.test.ts` in `frontend/src/contracts/` (T.0d, ~7 tests) — every `**/*.geojson` under `boundaries/in/` matches one of seven Hive-shape patterns; legacy sidecar / index manifest survivors are gated to zero; `datasets/boundaries/boundary_layers.parquet` exists.
 
 ### Caching
 
-The per-state villages index is memoised in a `Map<stateLgd, Promise<VillagesIndex | null>>` for the lifetime of the page. The GeoJSON shards themselves are not memoised by the loader — the browser HTTP cache + Pages' `Cache-Control` already do that, and a JS-side cache for ~50 MB of geometry is the wrong allocator. A test-only `_resetCachesForTesting()` is exported to keep vitest cases isolated; it is not part of the public API.
+The browser HTTP cache + Pages' `Cache-Control` handle GeoJSON shard caching. There is no JS-side cache for the ~50 MB of geometry — wrong allocator. A test-only `_resetCachesForTesting()` is exported (now a no-op after T.0d retired the per-state index cache) to keep vitest cases isolated; it is not part of the public API.
 
 ## Drill-down UX (Phase 3 of TN-GRANULAR-GEO-PLAN)
 
