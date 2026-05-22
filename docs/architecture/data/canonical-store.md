@@ -347,7 +347,7 @@ datasets/
 
 | Old path | Replacement | Retired by |
 | --- | --- | --- |
-| `datasets/_test/` | (deleted) | T.1 |
+| `datasets/_test/` | `datasets/_ops/` (operational assets like `range-mime-probe.parquet`) + `backend/tests/fixtures/` (cross-language shared fixtures); subtree itself deleted | T.1 (DONE 2026-05-22) |
 | `datasets/reference/in/` | `datasets/taxonomy/` (editorial) or `datasets/_ops/` (telemetry) | T.2 |
 | `datasets/indicators/in/<topic>/` | per-family Parquet at `datasets/<family>/<family>_<role>.parquet` | P.\* (per family) |
 | `datasets/people/AcGenApr2021/` | bio columns lifted onto `datasets/elections/dim_candidates.parquet` v1.2 (six nullable cols: `sex`, `age`, `education`, `profession`, `constituency_type`, `party_type`) | S.1 (lift), S.2 (frontend switch + JSON retirement) — DONE 2026-05-20 |

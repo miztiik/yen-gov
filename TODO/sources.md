@@ -8,3 +8,6 @@ https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=23454
 https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=23456
 https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=23465
 https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=23466
+https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=23736
+https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=23746
+https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=23736

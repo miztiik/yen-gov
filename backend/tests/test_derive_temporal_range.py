@@ -305,10 +305,12 @@ def test_cadence_mirror_present_when_set() -> None:
 import json as _json  # noqa: E402  (intentionally below the main block)
 from pathlib import Path as _Path  # noqa: E402
 
-_FIXTURES_PATH = (
-    _Path(__file__).resolve().parents[2]
-    / "datasets" / "_test" / "temporal-range-fixtures" / "cases.json"
-)
+# Shared fixture lives under `backend/tests/fixtures/` (Python-owned
+# single source of truth). The TS mirror in
+# `frontend/src/lib/indicators.test.ts` references the same file via
+# a relative path. Relocated by T.1 (TODO/20260517 §0e.7) — was
+# previously `datasets/_test/temporal-range-fixtures/cases.json`.
+_FIXTURES_PATH = _Path(__file__).resolve().parent / "fixtures" / "temporal-range-cases.json"
 
 
 def _load_fixture_cases() -> list[dict]:

@@ -506,7 +506,7 @@ export function formatCompact(value: number): string {
 // -- Temporal range derivation -----------------------------------------------
 // TS mirror of backend/yen_gov/inventory/derive.py::derive_temporal_range.
 // Shared-fixture parity test in indicators.test.ts asserts both sides agree
-// on every case under datasets/_test/temporal-range-fixtures/cases.json.
+// on every case under backend/tests/fixtures/temporal-range-cases.json.
 
 export interface TemporalRange {
   min_time: string;

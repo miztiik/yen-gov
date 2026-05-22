@@ -61,6 +61,7 @@ In-memory `Path` objects for local I/O may stay platform-native. The rule applie
 | `README.md`     | created    | Entry point                                          |
 | `CLAUDE.md`     | created    | This file                                            |
 | `datasets/`     | created    | Canonical store + schemas + reference data + upstream snapshots. Hive-partitioned Parquet per family (`elections/`, `energy/`, `demography/`, …) read by DuckDB-WASM in the browser. Sole writer is `backend/`. Sole reader at runtime is the static frontend via the Pages domain. See [`docs/architecture/data/canonical-store.md`](docs/architecture/data/canonical-store.md). |
+| `datasets/_ops/`| created    | Operator state — operational assets that are NOT citizen-facing fact tables and NOT contract surfaces with their own JSON Schema. Currently holds `range-mime-probe.parquet` (363-byte Pages MIME / Range header probe per [`docs/architecture/deployment.md`](docs/architecture/deployment.md)). NOT inventoried by the admin Inventory panel (`backend/yen_gov/admin/inventory.py:_SKIP_DIR_PREFIXES`). JSON under `_ops/` still requires `$schema`. See [`datasets/_ops/README.md`](datasets/_ops/README.md). |
 | `config/`       | created    | Human-edited tunable knobs only (e.g. fetch concurrency, top-N cutoff). Schemas live in `datasets/schemas/`, not here. |
 | `backend/`      | created    | Local Python pipeline (fetch / parse / validate / emit). FastAPI admin wrapper at `backend/yen_gov/admin/` (Phase 4 v0 — Inventory only). |
 | `frontend/`     | created    | Static GitHub Pages app (Svelte 5 + Vite 6 + Tailwind + d3 + maplibre-gl). UI code only — never commits data files. |
@@ -170,6 +171,7 @@ A change is not done until ALL hold:
 - Pre-create empty modules "for later".
 - Skip the docs update.
 - Edit a `package.json` without running `bun install` and staging the resulting `bun.lock` in the same commit. The deploy workflow uses `--frozen-lockfile`; a desync silently stops the site from updating until someone notices and pushes a lockfile-only commit.
+- Create new indicator artifact files under `datasets/indicators/in/<topic>/<id>.json`. Per [TODO/20260517-canonical-long-format-pivot.md](TODO/20260517-canonical-long-format-pivot.md) §0e.7 P.* the 110 existing per-indicator JSON shards retire family-by-family onto the canonical Parquet store (`datasets/<family>/<family>_<role>.parquet` + `datasets/taxonomy/indicators.parquet`). Any new shard added before the family's P.* PR is debt that has to migrate twice and silently re-anchors the `backend/yen_gov/legacy/folded_indicator_writer.py` retirement gate. New indicator data lands directly on the canonical Parquet store via the P.* pivot for its family (Hans + Max + Gregor panel pending for the indicator-contract specifics per §0a authority assignment).
 
 ## 11. Schema Versioning (Mandatory)
 
