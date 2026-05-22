@@ -3,7 +3,7 @@
   "$id": "./entity.schema.json",
   "title": "Entities table (canonical taxonomy)",
   "description": "Hand-authored entity catalogue. Every observation row's entity_id is an FK into this table. Carries entity_type enum per D27 (single entity_id discriminated by type, OWID-precedent), validity windows per D23 (Telangana 2014, J&K/Ladakh 2019 etc.), and parent_entity_id for hierarchy traversal. Authoring shape JSON (D18); pipeline compiles to taxonomy/entities.parquet.",
-  "x-version": "1.1",
+  "x-version": "1.2",
   "x-changelog": [
     {
       "version": "1.0",
@@ -14,6 +14,11 @@
       "version": "1.1",
       "date": "2026-05-20",
       "description": "Additive: 'legacy_id' (nullable string). Carries the upstream id the entity historically was published under — e.g. Wikipedia slugs for districts (ARI/CHN/COI for Tamil Nadu) — when the canonical entity_id is derived from a different authority (LGD numeric code for districts). Lets the citizen-facing search/lookup path resolve old URLs and externally cited identifiers without contaminating entity_code (which is and remains the issuing authority's own code). Bump driven by T.0a-ii district lift (TODO/20260517-canonical-long-format-pivot.md §0e Phase 0 closeout)."
+    },
+    {
+      "version": "1.2",
+      "date": "2026-05-22",
+      "description": "Additive: 'office_bearer' added to entity_type enum. Carries elected / appointed political office identities (today: 31 state Chief Minister offices, e.g. 'IN-S22-CM' = Chief Minister of Tamil Nadu). Distinct from union_govt / state_govt (the institution) and ministry (a bureau within an institution); office_bearer is the SEAT itself, modelled per §0e.6 (Plan §0e.7 G.1). Office occupancy (which person held the seat when) is a separate FACT table at 'governments/governments_office_holdings.parquet'; office identity (the seat itself) is taxonomy here. entity_level uses existing 'fiscal_actor' for offices (no geometry, render as table only). entity_code carries the role abbreviation (e.g. 'CM' for Chief Minister); parent_entity_id points at the governing entity (the state). Bump driven by G.1.a entity-lift (TODO/20260522-g1-cm-terms-retirement-handover.md)."
     }
   ],
   "type": "object",
@@ -56,9 +61,10 @@
               "state_govt",
               "discom",
               "psu",
-              "ministry"
+              "ministry",
+              "office_bearer"
             ],
-            "description": "Per D27. Discriminator for what kind of thing this row represents. Geographic entities (country/state/ut/district/subdistrict/village/constituency_*) join to boundary files (ADR-0031); fiscal actors (union_govt/state_govt/discom/psu/ministry) do not. ULB = urban local body."
+            "description": "Per D27. Discriminator for what kind of thing this row represents. Geographic entities (country/state/ut/district/subdistrict/village/constituency_*) join to boundary files (ADR-0031); fiscal actors (union_govt/state_govt/discom/psu/ministry/office_bearer) do not. ULB = urban local body. office_bearer = an elected or appointed seat (e.g. Chief Minister of a state), one row per office identity; tenure facts live in governments/governments_office_holdings.parquet."
           },
           "entity_level": {
             "enum": [
