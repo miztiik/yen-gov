@@ -1,13 +1,29 @@
-# T.3 indicator-catalogue widening — READY but MERGE-BLOCKED on P.1.A
+# T.3 indicator-catalogue widening — STACKED PR opened (T.3 → feat/p1-energy-pivot)
 
-**Date**: 2026-05-22
-**Branch**: [`feat/t3-indicator-catalogue-v1.1-topic-tags-and-aliases`](https://github.com/miztiik/yen-gov/tree/feat/t3-indicator-catalogue-v1.1-topic-tags-and-aliases) @ commit landing in this session (push pending)
+**Date**: 2026-05-22 (revised — Path E adopted after rebase-attempt discovered hard P.1.A dependency)
+**Branch**: [`feat/t3-indicator-catalogue-v1.1-topic-tags-and-aliases`](https://github.com/miztiik/yen-gov/tree/feat/t3-indicator-catalogue-v1.1-topic-tags-and-aliases) @ `f22f2552` (pushed)
 **Stacked on**: [`feat/p1-energy-pivot`](https://github.com/miztiik/yen-gov/tree/feat/p1-energy-pivot) @ `624852ff`
-**Status**: ALL implementation gates green. Cannot open PR → `main` until **P.1.A merges first**.
+**Status**: PR opened against `feat/p1-energy-pivot` (NOT main). GitHub will auto-retarget to `main` when P.1.A merges. Reviewer sees only the 3 T.3 commits cleanly; no scope contamination.
 
 ---
 
-## 1. Why this is blocked (the load-bearing constraint)
+## 0. Critical discovery — 2026-05-22 rebase attempt
+
+**The earlier "ready to rebase onto post-P.1.A main" plan in §6 was incomplete.** A live rebase attempt (`git rebase --onto main 624852ff feat/t3-indicator-catalogue-v1.1-topic-tags-and-aliases`) surfaced **three** conflicts, not the predicted one:
+
+| Conflict | Type | Significance |
+|---|---|---|
+| `backend/yen_gov/canonical/indicators_seed.py` | DU (deleted-in-HEAD, updated-in-T.3) | **File introduced by P.1.A C3** (`624852ff`); does not exist on `main` |
+| `backend/tests/test_indicators_seed.py` | DU | Same — added by P.1.A C3 |
+| `datasets/taxonomy/indicators.json` | UU (content) | 29 energy-row hunks (expected per §1) |
+
+The two DU conflicts mean T.3 has a **hard CODE dependency** on P.1.A, not just the data-row dependency originally documented. The Pydantic `IndicatorRow` widening + 33-col DDL + paired-semantic gate ALL live in `indicators_seed.py`, which P.1.A C3 introduced. Path 2 from §1 below ("carve to elections-only") would require LIFTING `indicators_seed.py` from P.1.A INTO T.3's first commit — that steals authorship from the other agent AND directly violates the original prompt's "DO NOT TOUCH `feat/p1-energy-pivot`" rule.
+
+**Resolution**: rebase aborted (`git rebase --abort`); branch restored to `f22f2552`. New path **E** adopted: open PR with `--base feat/p1-energy-pivot` (stacked PR pattern). GitHub auto-retargets to `main` on the source branch merge. Reviewer of T.3 PR sees a clean 3-commit diff. P.1.A author's review of P.1.A is unaffected.
+
+---
+
+## 1. Why a direct `→ main` PR is blocked (the load-bearing constraint)
 
 The 2 T.3 commits sit on top of `feat/p1-energy-pivot` (commits `4c87b85e` → `f13708df` parented at `624852ff`). The T.3 changeset modifies [datasets/taxonomy/indicators.json](datasets/taxonomy/indicators.json) to carry 59 catalogue rows — **30 elections + 29 energy** — and `topic_tags[]` populated on every row. The 29 energy rows came in via P.1.A C1 (commit `6f2c1cf2`); they are NOT on `main` yet.
 
@@ -91,29 +107,41 @@ Per `/memories/session/plan.md` "T.3 decisions" block — applied verbatim by th
 
 When `feat/p1-energy-pivot` merges to `main` (currently no PR open; expected PR-route per repo convention):
 
+## 6. Action plan — **Path E: stacked PR** (adopted 2026-05-22 after §0 discovery)
+
+T.3 PR has been opened against `feat/p1-energy-pivot` (NOT `main`). GitHub auto-retargets the PR base to `main` when `feat/p1-energy-pivot` merges. Reviewer sees a clean 3-commit diff that ONLY contains T.3's contribution.
+
+**For the next agent picking this up after P.1.A merges**:
+
 ```powershell
 Set-Location c:\Users\kumarsnaveen\Downloads\NawiN\personal\gitrepos\yen-gov
 git fetch origin
-git checkout feat/t3-indicator-catalogue-v1.1-topic-tags-and-aliases
 
-# Rebase onto post-P.1.A main. Expected: clean rebase because
-# T.3 only ADDS columns to indicators.json (topic_tags / id_aliases /
-# deprecated_in); P.1.A only ADDS rows. No same-row collisions.
+# Check whether GitHub auto-retargeted T.3 PR to main
+gh pr view <T.3 PR number> --json baseRefName
+
+# If still pointing at feat/p1-energy-pivot (rare; GitHub usually retargets),
+# manually retarget:
+gh pr edit <T.3 PR number> --base main
+
+# Optional clean-history rebase on top of post-P.1.A main
+# (only if reviewer wants the topology flattened; otherwise GitHub squash-merge
+#  is sufficient — the 3 T.3 commits squash to one):
+git checkout feat/t3-indicator-catalogue-v1.1-topic-tags-and-aliases
 git rebase origin/main
 
-# If conflicts appear on indicators.json (unexpected):
-#   - resolve by KEEPING all rows from both sides
-#   - re-populate topic_tags = ["energy"] on the 29 energy rows
-#   - confirm indicator-catalogue.schema.json stays at v1.1
+# Conflict expected on datasets/taxonomy/indicators.json (29 energy rows):
+#   - resolve by KEEPING all rows from both sides (T.3 + P.1.A)
+#   - confirm topic_tags = ["energy"] is on all 29 energy rows
+#   - confirm $schema_version stays "1.1"
 #   - re-run python -m yen_gov emit-taxonomy --root . to refresh parquet
 
-# Force-push with explicit lease (per /memories/lessons.md 2026-05-22
-# "force-push polish discovery" — needs user approval per CLAUDE.md §8)
+# Force-push with explicit lease (CLAUDE.md §8 — needs user approval first)
 git rev-parse origin/feat/t3-indicator-catalogue-v1.1-topic-tags-and-aliases
 git push --force-with-lease=feat/t3-indicator-catalogue-v1.1-topic-tags-and-aliases:<that-sha> origin feat/t3-indicator-catalogue-v1.1-topic-tags-and-aliases
 
 # Re-run all 4 gates on the rebased branch
-cd backend; python -m pytest -q 2>&1 > pb-t3-rebased.log; Get-Content pb-t3-rebased.log -Tail 5
+cd backend; python -m pytest -q 2>&1 > ..\pb-t3-rebased.log; Get-Content ..\pb-t3-rebased.log -Tail 5
 cd ..; python -m yen_gov validate --root . 2>&1 | Select-Object -Last 3
 cd frontend; bun run test --run 2>&1 > ..\vt-t3-rebased.log; Get-Content ..\vt-t3-rebased.log -Tail 5
 
@@ -122,8 +150,8 @@ cd ..\frontend; bun run dev   # in a background terminal
 # In another terminal / browser: open localhost:5173/, /t/elections,
 # /indicator/<one elections id> — confirm zero console errors, parquet load works
 
-# Open PR
-gh pr create --base main --head feat/t3-indicator-catalogue-v1.1-topic-tags-and-aliases --body-file pr-body.md
+# PR already exists — once base auto-retargets to main and gates re-pass,
+# it can be squash-merged via gh pr merge <num> --squash
 ```
 
 ---
@@ -133,15 +161,23 @@ gh pr create --base main --head feat/t3-indicator-catalogue-v1.1-topic-tags-and-
 1. **Stash-led-summary trap (2026-05-22 top of /memories/lessons.md)** — the prior conversation's summary suggested Q1/Q2/Q3 were unanswered, but `/memories/session/plan.md` had them locked. Re-asking would have violated CLAUDE.md §0a "do not re-debate". `git branch --show-current` + `git status` at session start saved a re-ask round-trip.
 2. **PowerShell pipeline buffering trap (re-confirmed ~6th time)** — `python -m pytest -q 2>&1 | Select-Object -Last 15` buffers ALL output until pytest exits; for a 199-second run that looks hung. Workaround held: `python -m pytest -q 2>&1 > pb-t3.log; Get-Content pb-t3.log -Tail 15`. Log file size grew incrementally; `Get-Item pb-t3.log` showed `Length` ticking up which proved progress.
 3. **Stale-working-tree-on-wrong-branch** — at session start I was on `feat/p1-energy-pivot` with `M CLAUDE.md`. The diff was a REVERSAL (working tree was OLDER than HEAD), not new work. `git restore CLAUDE.md` cleared it safely. No T.3 work was in that stale diff.
-4. **Rebase-onto-different-base risk** — T.3 commits sit on `feat/p1-energy-pivot`. Rebasing them onto `main` (which lacks P.1.A's 29-row append) is path 2 from §1 above — strictly worse than path 1. Documented explicitly here so the next agent doesn't take the shortcut.
+4. **Cross-branch code dependency hidden in stacked work (NEW 2026-05-22 Path E discovery)** — when stacked-PR's predecessor introduces a NEW FILE that the stacked PR enhances, a `git rebase --onto <new-base> <old-base>` surfaces as a **DU conflict** (Deleted-in-HEAD, Updated-in-incoming). The cumulative file lives only in the predecessor's history. Carving the stacked PR away from its predecessor would require lifting the file into the stacked PR's first commit, which steals authorship. The clean fix: open the stacked PR with `--base <predecessor-branch>` (NOT `--base main`); GitHub auto-retargets to main on predecessor merge; the diff stays clean throughout. **Generalised rule for future audits**: before promising a stacked PR can carve to a different base, check `git log --all --oneline -- <file>` for every file the stacked PR modifies — if any first appears in the predecessor's commits, the stacked PR has a hard dependency and Path E is the only honest option.
 
 ---
 
-## 8. Why not just merge T.3 to main as-is (without rebase)
+## 8. Why this PR's base is `feat/p1-energy-pivot`, not `main` (the §0 finding restated for reviewers)
 
-A merge commit from T.3 → main would pull in **all of feat/p1-energy-pivot's C0-C3 commits** as part of the merge (because they're in T.3's ancestry and not in main's). That contaminates the T.3 PR scope with energy indicator catalogue rows, methodology breaks parquet, energy sources rows, etc. — the C4 PR (Energy lift adapter) would then have a much smaller diff because the prerequisites already landed via T.3.
+A direct `→ main` PR is impossible without scope contamination because:
 
-Per CLAUDE.md §0a authority routing and the prior T.3 commit's explicit framing, T.3 ships **independently**. The clean separation requires P.1.A to merge first, then T.3 rebases.
+1. **Code dependency**: `backend/yen_gov/canonical/indicators_seed.py` and `backend/tests/test_indicators_seed.py` were introduced by P.1.A C3 (`624852ff`). T.3's Pydantic widening + Tier-B alias-window rule both MODIFY these files. They do not exist on `main` yet.
+2. **Data dependency**: `datasets/taxonomy/indicators.json` has 29 energy rows added by P.1.A C1 (`6f2c1cf2`) that don't exist on `main`. T.3's `topic_tags` widening covers all 59 rows; the 29 energy-row hunks would conflict on rebase.
+
+A merge-commit `T.3 → main` would force-merge P.1.A C0-C3 through T.3's PR, violating the original "DO NOT TOUCH `feat/p1-energy-pivot`" prompt instruction. A carve-rebase would steal P.1.A's `indicators_seed.py` authorship into T.3's first commit. Path E (stacked PR with `--base feat/p1-energy-pivot`) is the only path that respects all constraints AND makes forward progress today.
+
+When P.1.A merges to `main`:
+- GitHub auto-retargets the T.3 PR base from `feat/p1-energy-pivot` to `main`.
+- The PR diff updates to show only T.3's 3 commits' contribution (the P.1.A ancestry is now in main).
+- Reviewer can merge as a squash.
 
 ---
 
