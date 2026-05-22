@@ -18,6 +18,16 @@ any divergence between them surfaces in the "Inconsistencies" section.
 Path moved in T.0c (Phase 0 closeout) from ``reference/in/election-events.json``
 to ``taxonomy/election_events.json`` and from ``reference/in/topic-catalogue.json``
 to ``taxonomy/topics.json``. See TODO/20260517-canonical-long-format-pivot.md §0e.
+
+The state/UT registry was repointed from ``reference/in/states.json`` to the
+canonical ``taxonomy/entities.json`` in Phase B of the states.json port
+(TODO/20260521-states-json-port-blocker-entities-ut-gap.md). The
+``_load_states_from_entities`` helper below projects the current
+state+UT slice of ``entities.json`` back into the legacy
+``{eci_code, name, kind}`` shape this module already consumed, so
+downstream logic (in particular the ``kind == "union_territory"`` UT-
+without-assembly filter) is unchanged. ``states.json`` is left on disk
+by Phase B; deletion follows in Phase C with the frontend port.
 """
 
 from __future__ import annotations
@@ -30,7 +40,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 CATALOGUE_REL = "datasets/taxonomy/election_events.json"
-STATES_REL = "datasets/reference/in/states.json"
+STATES_REL = "datasets/taxonomy/entities.json"
 ELECTIONS_REL = "datasets/elections"
 ELECTION_RESULTS_PARQUET_REL = "datasets/elections/election_results.parquet"
 INDICATORS_REL = "datasets/indicators/in"
@@ -224,6 +234,51 @@ def _election_slices_from_canonical(
     }
 
 
+# entities.json `entity_type` values mapped to the legacy states.json `kind`
+# field that this module's downstream logic (the
+# ``kind == "union_territory"`` UT-without-assembly filter below) already
+# consumes. Kept private to this module so the projection rule is co-located
+# with the only consumer that cares about it.
+_ENTITY_TYPE_TO_LEGACY_KIND: dict[str, str] = {
+    "state": "state",
+    "ut": "union_territory",
+}
+
+
+def _load_states_from_entities(entities_path: Path) -> list[dict[str, str]]:
+    """Project current state+UT rows from ``taxonomy/entities.json`` into the
+    legacy ``states.json`` row shape consumed by ``compute_coverage``.
+
+    Filter: ``entity_type IN ('state', 'ut') AND entity_valid_to IS NULL``
+    (i.e. current rows only; historic predecessors such as ``IN-S09``
+    pre-2019 J&K state and ``IN-U06`` pre-2020 Daman & Diu are excluded).
+
+    Returns dicts carrying the two fields this module actually consumes:
+    ``eci_code`` and ``name``, plus ``kind`` mapped through
+    ``_ENTITY_TYPE_TO_LEGACY_KIND`` so the UT filter below still works.
+    """
+    doc = json.loads(entities_path.read_text(encoding="utf-8"))
+    out: list[dict[str, str]] = []
+    for e in doc.get("entities", []):
+        et = e.get("entity_type")
+        if et not in _ENTITY_TYPE_TO_LEGACY_KIND:
+            continue
+        if e.get("entity_valid_to") is not None:
+            continue
+        code = e.get("entity_code")
+        name = e.get("display_name")
+        if not code or not name:
+            continue
+        out.append(
+            {
+                "eci_code": code,
+                "name": name,
+                "kind": _ENTITY_TYPE_TO_LEGACY_KIND[et],
+            }
+        )
+    return out
+
+
 def compute_coverage(root: Path) -> CoverageReport:
     """Reconcile the catalogue with the canonical election Parquet store.
 
@@ -245,7 +300,7 @@ def compute_coverage(root: Path) -> CoverageReport:
     state_names: dict[str, str] = {}
     state_kinds: dict[str, str] = {}
     if states_path.exists():
-        for st in json.loads(states_path.read_text(encoding="utf-8")).get("states", []):
+        for st in _load_states_from_entities(states_path):
             code = st.get("eci_code")
             name = st.get("name")
             kind = st.get("kind")

@@ -111,8 +111,17 @@ def _seed_election_parquet(
 def test_coverage_reconciles_catalogue_and_disk(tmp_path: Path) -> None:
     """Catalogue + on-disk should produce one slice per (event, state)."""
     _write(
-        tmp_path / "datasets/reference/in/states.json",
-        {"states": [{"eci_code": "S22", "name": "Tamil Nadu"}]},
+        tmp_path / "datasets/taxonomy/entities.json",
+        {
+            "entities": [
+                {
+                    "entity_code": "S22",
+                    "entity_type": "state",
+                    "display_name": "Tamil Nadu",
+                    "entity_valid_to": None,
+                }
+            ]
+        },
     )
     _write(
         tmp_path / "datasets/taxonomy/election_events.json",
@@ -161,7 +170,7 @@ def test_coverage_flags_undeclared_and_pending(tmp_path: Path) -> None:
     """On-disk-but-undeclared and declared-but-missing both surface as issues
     (except `pending_upstream`, which is the canonical 'awaiting publication'
     state and must NOT be reported as an inconsistency)."""
-    _write(tmp_path / "datasets/reference/in/states.json", {"states": []})
+    _write(tmp_path / "datasets/taxonomy/entities.json", {"entities": []})
     _write(
         tmp_path / "datasets/taxonomy/election_events.json",
         {
@@ -285,8 +294,17 @@ def test_scan_indicators_emits_meter(tmp_path: Path) -> None:
 
 def test_render_includes_indicators_and_state_first(tmp_path: Path) -> None:
     _write(
-        tmp_path / "datasets/reference/in/states.json",
-        {"states": [{"eci_code": "S03", "name": "Assam"}]},
+        tmp_path / "datasets/taxonomy/entities.json",
+        {
+            "entities": [
+                {
+                    "entity_code": "S03",
+                    "entity_type": "state",
+                    "display_name": "Assam",
+                    "entity_valid_to": None,
+                }
+            ]
+        },
     )
     _write(
         tmp_path / "datasets/taxonomy/election_events.json",
@@ -363,8 +381,17 @@ def test_render_markdown_includes_frontend_wiring_section(tmp_path: Path) -> Non
     (Holy Law #6 risk) and ~half the inventory was silently absent from the
     IA before this section existed."""
     _write(
-        tmp_path / "datasets/reference/in/states.json",
-        {"states": [{"eci_code": "S22", "name": "Tamil Nadu"}]},
+        tmp_path / "datasets/taxonomy/entities.json",
+        {
+            "entities": [
+                {
+                    "entity_code": "S22",
+                    "entity_type": "state",
+                    "display_name": "Tamil Nadu",
+                    "entity_valid_to": None,
+                }
+            ]
+        },
     )
     _write(
         tmp_path / "datasets/taxonomy/election_events.json",

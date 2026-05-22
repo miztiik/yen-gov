@@ -1,7 +1,7 @@
 """tools/lgd/backfill_lgd_codes.py — fill `lgd_code` on every district item.
 
 Reads:
-  datasets/reference/in/states.json                    (eci_code -> English name)
+  datasets/taxonomy/entities.json                      (entity_code -> display_name)
   datasets/taxonomy/lgd/states-latest.csv              (LGD State Code -> English name)
   datasets/taxonomy/lgd/districts-latest.csv           (LGD District Code, State Code, name)
   datasets/reference/in/states/<S>/districts.json      (per-state collections)
@@ -18,6 +18,13 @@ For each districts.json:
 Run from repo root:
   .venv\\Scripts\\python.exe tools\\lgd\\backfill_lgd_codes.py
 Add --apply to write; without it the script is a dry-run preview.
+
+The state registry was repointed from ``reference/in/states.json`` to
+``taxonomy/entities.json`` in Phase B of the states.json port
+(TODO/20260521-states-json-port-blocker-entities-ut-gap.md); the
+``_iter_states_from_entities`` helper below projects the current
+state+UT slice of ``entities.json`` into the ``(eci_code, name)`` pairs
+this tool consumes.
 """
 
 from __future__ import annotations
@@ -31,7 +38,7 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-STATES_JSON = REPO / "datasets" / "reference" / "in" / "states.json"
+STATES_JSON = REPO / "datasets" / "taxonomy" / "entities.json"
 LGD_STATES_CSV = REPO / "datasets" / "taxonomy" / "lgd" / "states-latest.csv"
 LGD_DISTRICTS_CSV = REPO / "datasets" / "taxonomy" / "lgd" / "districts-latest.csv"
 DISTRICTS_ROOT = REPO / "datasets" / "reference" / "in" / "states"
@@ -72,9 +79,30 @@ def _norm(s: str) -> str:
     return re.sub(r"[^a-z0-9]", "", s.lower())
 
 
+def _iter_states_from_entities(entities_path: Path) -> list[dict[str, str]]:
+    """Project current state+UT rows from ``taxonomy/entities.json`` into
+    ``[{"eci_code": ..., "name": ...}]`` shape for the LGD name->code bridge.
+
+    Filter: ``entity_type IN ('state', 'ut') AND entity_valid_to IS NULL``.
+    """
+    doc = json.loads(entities_path.read_text(encoding="utf-8"))
+    out: list[dict[str, str]] = []
+    for e in doc.get("entities", []):
+        if e.get("entity_type") not in ("state", "ut"):
+            continue
+        if e.get("entity_valid_to") is not None:
+            continue
+        code = e.get("entity_code")
+        name = e.get("display_name")
+        if not code or not name:
+            continue
+        out.append({"eci_code": code, "name": name})
+    return out
+
+
 def load_state_lgd_bridge() -> dict[str, str]:
     """eci_code -> LGD State Code (string) via canonical English name match."""
-    states = json.loads(STATES_JSON.read_text(encoding="utf-8"))["states"]
+    states = _iter_states_from_entities(STATES_JSON)
     name_to_eci = {_norm(s["name"]): s["eci_code"] for s in states}
 
     bridge: dict[str, str] = {}
