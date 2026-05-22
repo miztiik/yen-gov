@@ -144,7 +144,7 @@ The two siblings of `ramSeraph/indian_admin_boundaries` are tracked here so the 
 
 ### LGD identifier registry — [`ramseraph.github.io/opendata/lgd/`](https://ramseraph.github.io/opendata/lgd/)
 
-Daily 7z archives of every Local Government Directory entity table (37 components — states, districts, sub-districts, blocks, ACs, PCs, PRI/ULB bodies and wards, villages, pincode mappings, etc.). The mirror's tables side, sibling to the geometry-side `ramSeraph/indian_admin_boundaries` catalogued above. **Not a boundary source — no geometry — but the canonical issuer of `lgd_code`** which our [`district.schema.json`](../../datasets/schemas/district.schema.json) and [ADR-0015](../architecture/decisions/0015-constituency-hierarchy-fields.md) treat as the preferred district id.
+Daily 7z archives of every Local Government Directory entity table (37 components — states, districts, sub-districts, blocks, ACs, PCs, PRI/ULB bodies and wards, villages, pincode mappings, etc.). The mirror's tables side, sibling to the geometry-side `ramSeraph/indian_admin_boundaries` catalogued above. **Not a boundary source — no geometry — but the canonical issuer of `lgd_code`** which our [`datasets/taxonomy/entities.json`](../../datasets/taxonomy/entities.json) district rows and [ADR-0015](../architecture/decisions/0015-constituency-hierarchy-fields.md) treat as the preferred district id.
 
 Full component catalogue, URL pattern, archive lifecycle, and per-component adoption verdict: **[lgd-opendata.md](lgd-opendata.md)**. Ingestion will live under `tools/lgd/`, not `tools/boundaries/`; out of scope for `pipeline.json`. Listed here because the user-facing question ("what about ramSeraph?") spans both.
 

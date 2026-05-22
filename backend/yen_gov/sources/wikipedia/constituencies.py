@@ -12,8 +12,9 @@ fixed position so the parser handles both the TN layout (#|Constituency|
 Reserved) and the Kerala layout (No.|Name|Reservation|District|Lok Sabha|
 Electorate). District / PC name columns, when present, are not currently
 mapped into the schema's `district_id` / `pc_id` — that requires cross-file
-resolution (district name → districts.json id, PC name → PC eci_no), which
-docs/architecture/backend/sources-wikipedia.md leaves to a follow-up "promote to status=complete" step.
+resolution (district name → entities.json district legacy_id, PC name → PC
+eci_no), which docs/architecture/backend/sources-wikipedia.md leaves to a
+follow-up "promote to status=complete" step.
 
 Reservation cell encoding observed on en.wikipedia.org:
 

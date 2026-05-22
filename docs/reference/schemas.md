@@ -11,7 +11,6 @@ All schemas live in [`datasets/schemas/`](../../datasets/schemas/). Each is a JS
 | File                                  | Title                              | x-version | Describes                                                                |
 | ------------------------------------- | ---------------------------------- | :-------: | ------------------------------------------------------------------------ |
 | `state.schema.json`                   | States collection                  | 3.3       | Top-level division list for one country. v3.3 (2026-05-11) adds optional `tier` enum (general_category / special_category_neh / special_category_hill / ut_with_legislature / ut_without_legislature / nct_delhi) so cross-state ranked tables can default-filter to comparable entities. |
-| `district.schema.json`                | Districts collection (per state)   | 3.0       | District list for one state.                                             |
 | `constituency.schema.json`            | Constituencies collection          | 3.0       | AC or PC list for one (state, body) pair.                                |
 | `party.schema.json`                   | Parties snapshot (per election)    | 3.0       | Party catalog scoped to one election event.                              |
 | `election.schema.json`                | Election event metadata            | 3.0       | Event id, scope, body, year, covered states, dates.                      |

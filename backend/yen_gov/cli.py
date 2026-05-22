@@ -107,8 +107,10 @@ def emit_taxonomy(
       election events (kind, polled_on, default flag) from
       ``election_events.json`` (T.0a-ii)
     - ``datasets/taxonomy/entities.parquet`` — country/state/UT rows
-      from ``entities.json`` plus hand-authored district rows lifted
-      from ``datasets/reference/in/states/<S>/districts.json`` (T.0a-ii)
+      plus hand-authored district rows projected from
+      ``datasets/taxonomy/entities.json`` (T.0a-ii Phase A folded the 145
+      hand-authored districts in; the per-state ``districts.json`` files
+      that originally seeded those rows were retired in T.0c-iii Phase D.3)
     - ``datasets/governments/dim_offices.parquet`` +
       ``datasets/governments/governments_office_holdings.parquet`` —
       CM offices + 359 CM term holdings from per-state

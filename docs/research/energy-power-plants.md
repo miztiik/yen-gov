@@ -57,7 +57,7 @@ We need point locations and per-state installed-capacity rollups for power plant
 ## Open follow-ups
 
 - Confirm fuel-type taxonomy (`coal`, `diesel`, `hydro`, `gas`, `nuclear`, `solar`, `wind`, `biomass`) before emitting v1 — derive from the actual GeoJSON properties, do not guess.
-- District matching: india-geodata records district names as strings, not LGD codes. Backfill LGD codes through our existing district reference (`datasets/reference/in/states/<S>/districts.json`).
+- District matching: india-geodata records district names as strings, not LGD codes. Backfill LGD codes through our canonical district roster (`datasets/taxonomy/entities.json` district rows; `lgd_code` is the join key).
 - "Installed MW per capita" choropleth needs a population indicator — flag for the People pillar (Phase D dependency).
 
 ## References

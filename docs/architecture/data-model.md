@@ -65,7 +65,7 @@ When a future event reuses a party, it gets a new snapshot. ECI's numeric code t
 
 Districts belong to a state by definition. Constituencies (for a given body — Assembly or Lok Sabha) are also numbered within a state.
 
-Districts now live as `entity_type='district'` rows on `datasets/taxonomy/entities.json` (LGD-sourced; see [ADR-0033](decisions/0033-retire-wikipedia-districts-adapter.md) for the wikipedia districts adapter retirement). The 6 per-state `datasets/reference/in/states/<S>/districts.json` files remain on disk pending Phase D.3 deletion but have zero readers.
+Districts now live as `entity_type='district'` rows on `datasets/taxonomy/entities.json` (LGD-sourced; see [ADR-0033](decisions/0033-retire-wikipedia-districts-adapter.md) for the wikipedia districts adapter retirement). The 6 per-state `datasets/reference/in/states/<S>/districts.json` files and `datasets/schemas/district.schema.json` were deleted in T.0c-iii Phase D.3 once the adapter (D.1) + LGD backfill tool (D.2) had been retired and no code path referenced them.
 
 Constituencies stay state-scoped on disk; the `(state, body)` partition keeps file sizes manageable and makes the path itself self-describing:
 

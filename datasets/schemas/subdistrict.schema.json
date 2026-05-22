@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://yen-gov.github.io/schemas/subdistrict.schema.json",
   "title": "Subdistricts collection (per state)",
-  "description": "All subdistricts (taluks / tehsils / mandals — the unit varies by state) within a single state, keyed by LGD numeric code. Analogous to district.schema.json. One file per state at datasets/reference/in/states/<S>/subdistricts.json. Joined to datasets/boundaries/in/geojson/<S>-subdistricts.geojson via lgd_code (matches the GeoJSON feature property `subdist_lgd`). Per TODO/TN-GRANULAR-GEO-PLAN.md Phase 0 and ADR-0019 amendment promoting subdistrict_lgd_code to first-class canonical column.",
+  "description": "All subdistricts (taluks / tehsils / mandals — the unit varies by state) within a single state, keyed by LGD numeric code. One file per state at datasets/reference/in/states/<S>/subdistricts.json. Joined to datasets/boundaries/in/geojson/<S>-subdistricts.geojson via lgd_code (matches the GeoJSON feature property `subdist_lgd`). Per TODO/TN-GRANULAR-GEO-PLAN.md Phase 0 and ADR-0019 amendment promoting subdistrict_lgd_code to first-class canonical column.",
   "x-version": "1.1",
   "x-changelog": [
     {

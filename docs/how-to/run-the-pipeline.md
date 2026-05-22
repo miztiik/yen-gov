@@ -12,11 +12,10 @@ The yen-gov pipeline has two operator-facing CLI commands. Both live in `backend
 
 ## `yen-gov reference <state>` — one-shot Wikipedia scrape
 
-Populates the per-state reference triple (district list + AC list with reservation status) under `datasets/reference/in/states/<state>/`.
+Populates the per-state constituency reference (AC list with reservation status) under `datasets/reference/in/states/<state>/`. (Districts are NOT re-emitted; district identity lives on `datasets/taxonomy/entities.json` since T.0c-iii Phase A — see [ADR-0033](../architecture/decisions/0033-retire-wikipedia-districts-adapter.md).)
 
 ```sh
 python -m yen_gov reference S22
-# → datasets/reference/in/states/S22/districts.json       (38 districts)
 # → datasets/reference/in/states/S22/constituencies.json  (234 ACs)
 ```
 

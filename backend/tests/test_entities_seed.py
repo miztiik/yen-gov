@@ -7,7 +7,9 @@ is gone; ``entities.json`` is the sole input. Tests cover the
 post-Phase-B contract — that ``compile_to_parquet`` projects every
 entities.json row (including the ``entity_type='district'`` rows that
 Phase A folded in) through to ``entities.parquet`` with deterministic
-ordering and PK uniqueness enforcement.
+ordering and PK uniqueness enforcement. The 6 per-state
+``districts.json`` files and ``district.schema.json`` were deleted in
+Phase D.3 (ADR-0033) once the loader removal had soaked on main.
 """
 
 from __future__ import annotations
