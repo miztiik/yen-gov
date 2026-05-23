@@ -11,6 +11,7 @@
     type PartiesPaletteViewModel,
   } from "../lib/view-models/parties-palette";
   import type { LoaderResult } from "../lib/loader-result";
+  import TopicIcon from "../lib/TopicIcon.svelte";
 
   let result = $state<LoaderResult<PartiesPaletteViewModel>>({
     status: "loading",
@@ -51,7 +52,10 @@
 
 <main class="max-w-3xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
-    <h1 class="text-2xl font-bold">Settings</h1>
+    <h1 class="text-2xl font-bold flex items-center gap-2">
+      <TopicIcon name="settings" cls="w-6 h-6 text-slate-500 shrink-0" />
+      <span>Settings</span>
+    </h1>
     <p class="text-sm text-slate-500">
       Party color overrides. Saved per-browser; cleared when you reset all.
     </p>

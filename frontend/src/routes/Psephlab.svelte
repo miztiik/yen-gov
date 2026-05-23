@@ -35,6 +35,7 @@
   import SwingSankey from "../lib/SwingSankey.svelte";
   import { states } from "../lib/states.svelte";
   import { url } from "../lib/url";
+  import TopicIcon from "../lib/TopicIcon.svelte";
   import { docsUrl } from "../lib/repo";
   import { majorityFor } from "../lib/electoral";
 
@@ -199,7 +200,10 @@
   <header class="space-y-1">
     <p class="text-xs"><a class="text-slate-500 hover:underline" href={state_code ? url.state(state_code) : url.home()}>← {states.name(state_code)} overview</a></p>
     <div class="flex items-baseline justify-between gap-4 flex-wrap">
-      <h1 class="text-2xl font-bold">Psephlab — {states.name(state_code)}</h1>
+      <h1 class="text-2xl font-bold flex items-center gap-2">
+        <TopicIcon name="flask" cls="w-6 h-6 text-slate-500 shrink-0" />
+        <span>Psephlab — {states.name(state_code)}</span>
+      </h1>
       <p class="text-xs text-slate-500">
         Counting rule: <code class="font-mono">{scenario.rule}</code> · {scenario.mutations.length} mutation(s)
       </p>

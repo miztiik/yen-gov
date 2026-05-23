@@ -26,6 +26,7 @@
 
   import { onMount } from "svelte";
   import { url } from "../lib/url";
+  import TopicIcon from "../lib/TopicIcon.svelte";
   import {
     fetchTopicCatalogue,
     type TopicCatalogue,
@@ -199,7 +200,10 @@
       </ol>
     </nav>
     <div class="flex items-baseline justify-between gap-3 flex-wrap">
-      <h1 class="text-2xl font-bold">Compare states</h1>
+      <h1 class="text-2xl font-bold flex items-center gap-2">
+        <TopicIcon name="bar-chart" cls="w-6 h-6 text-slate-500 shrink-0" />
+        <span>Compare states</span>
+      </h1>
     </div>
     <p class="text-sm text-slate-600 max-w-prose">
       Pick an indicator and pin the states you want to compare side by side. The URL

@@ -16,6 +16,7 @@
   // index so the page loads instantly.
   import { onMount } from "svelte";
   import { DATA_BASE } from "../lib/paths";
+  import TopicIcon from "../lib/TopicIcon.svelte";
 
   interface IndicatorRow {
     id: string;
@@ -108,7 +109,10 @@
 </script>
 
 <div class="max-w-5xl mx-auto px-4 py-6">
-  <h1 class="text-2xl font-semibold text-slate-900">Data completeness</h1>
+  <h1 class="text-2xl font-semibold text-slate-900 flex items-center gap-2">
+    <TopicIcon name="check" cls="w-6 h-6 text-slate-500 shrink-0" />
+    <span>Data completeness</span>
+  </h1>
   <p class="mt-2 text-sm text-slate-600 max-w-3xl">
     Every indicator yen-gov publishes, with its editorial documentation status and
     collection status. <strong>Stub</strong> indicators are auto-derived from observed rows

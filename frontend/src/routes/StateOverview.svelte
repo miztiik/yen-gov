@@ -36,6 +36,7 @@
   import StateAcMap from "../lib/maplibre/StateAcMap.svelte";
   import IndicatorCard from "../lib/IndicatorCard.svelte";
   import ElectionSeatsTrend from "../lib/ElectionSeatsTrend.svelte";
+  import TopicIcon from "../lib/TopicIcon.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
   import { colors } from "../lib/colors/store.svelte";
@@ -493,7 +494,10 @@
          welfare visible first. -->
     {#each indicator_topics as topic (topic.id)}
       <section class="space-y-3">
-        <h2 class="text-sm font-semibold uppercase text-slate-500">{topic.title}</h2>
+        <h2 class="text-sm font-semibold uppercase text-slate-500 flex items-center gap-2">
+          <TopicIcon name={topic.icon} cls="w-4 h-4 text-slate-500 shrink-0" />
+          <span>{topic.title}</span>
+        </h2>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {#each topic.artifacts.filter(a => a.kind === "indicator") as artifact (artifact.id)}
             {@const path = indicatorPathForArtifact(artifact)}

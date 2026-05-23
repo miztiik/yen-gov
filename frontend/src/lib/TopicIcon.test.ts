@@ -81,14 +81,26 @@ describe("TopicIcon helpers", () => {
       // Phase 1.3b shipped 8 (car, cloud, heart-pulse, landmark,
       // trending-up, users, vote, zap). Phase 1.3d added 5 more
       // (trending-down, flame, sun, wind, activity) to cover the
-      // state-hub indicator-card corpus.
+      // state-hub indicator-card corpus. Phase 1.3f added 8 chrome /
+      // identity glyphs (bar-chart, check, compass, flag, flask, info,
+      // settings, shield) for the state-hub topic chips, Constituency,
+      // Party, Compare, CompareIndicator, Psephlab, Explore, About,
+      // Disclaimer, Settings, DataCompleteness routes.
       expect(names).toEqual([
         "activity",
+        "bar-chart",
         "car",
+        "check",
         "cloud",
+        "compass",
+        "flag",
         "flame",
+        "flask",
         "heart-pulse",
+        "info",
         "landmark",
+        "settings",
+        "shield",
         "sun",
         "trending-down",
         "trending-up",

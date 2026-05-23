@@ -222,4 +222,52 @@ test.describe("extended routes", () => {
     expect(seen).toContain("zap");
     expect(seen).toContain("flame");
   });
+
+  // Phase 1.3f — icon rollout sub-5 (state-hub chips + leaf pages + chrome).
+  //
+  // Final wave of the icon-rollout series. Covers:
+  //   1. State hub section chips (h2 per topic on /s/<state>) — wires
+  //      `topic.icon` against the same TopicIcon registry already proven
+  //      on TopicIndex / TopicLanding (1.3b–1.3c).
+  //   2. Identity icons on the 10 chrome / leaf routes: Constituency,
+  //      Party, Compare (state event), CompareIndicator (generic), Psephlab,
+  //      Explore, About, Disclaimer, Settings, DataCompleteness. Each h1
+  //      now flexes a 6×6 (or 7×7 for the lighter About/Disclaimer)
+  //      slate icon.
+  //
+  // Plan calls for one Playwright smoke on an election surface and one
+  // on a chrome surface. We pin /lab/tamil-nadu/ae-2021 (Psephlab,
+  // dynamic h1 + named ECI election) and /about (static h1, copy-only)
+  // to cover the two ends of the chrome spectrum.
+  test("state hub /s/tamil-nadu renders TopicIcon on section chips", async ({ page }) => {
+    await page.goto("/s/tamil-nadu");
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible({ timeout: 15_000 });
+    // Section chips come from catalogue.topics → render synchronously
+    // with the page (no fetch). Wait briefly to allow the catalogue
+    // store to settle if it hasn't already.
+    await page.waitForSelector('h2 svg[data-icon-name]', { timeout: 15_000 });
+    const chipIcons = page.locator('h2 svg[data-icon-name]');
+    const count = await chipIcons.count();
+    expect(count, "≥5 section chips should render an icon on /s/tamil-nadu").toBeGreaterThanOrEqual(5);
+    const seen = await chipIcons.evaluateAll((els) =>
+      Array.from(new Set(els.map((e) => e.getAttribute("data-icon-name")))).sort(),
+    );
+    // The Tamil Nadu state hub always shows fiscal + energy at minimum.
+    expect(seen).toContain("landmark");
+    expect(seen).toContain("zap");
+  });
+
+  test("election surface /lab/tamil-nadu/ae-2021 renders flask identity icon", async ({ page }) => {
+    await page.goto("/lab/tamil-nadu/ae-2021");
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible({ timeout: 15_000 });
+    const flask = page.locator('h1 svg[data-icon-name="flask"]').first();
+    await expect(flask).toHaveAttribute("data-icon-name", "flask");
+  });
+
+  test("chrome surface /about renders info identity icon", async ({ page }) => {
+    await page.goto("/about");
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible({ timeout: 15_000 });
+    const info = page.locator('h1 svg[data-icon-name="info"]').first();
+    await expect(info).toHaveAttribute("data-icon-name", "info");
+  });
 });

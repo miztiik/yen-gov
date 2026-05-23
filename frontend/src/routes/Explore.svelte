@@ -3,6 +3,7 @@
   import { buildExploreViews } from "../lib/explore/duckdb-views";
   import { states } from "../lib/states.svelte";
   import { url } from "../lib/url";
+  import TopicIcon from "../lib/TopicIcon.svelte";
   import {
     ALL_PRESETS,
     PRESET_GROUPS,
@@ -134,8 +135,9 @@
       </a>
     </p>
     <div class="flex items-baseline justify-between gap-4 flex-wrap">
-      <h1 class="text-2xl font-bold tracking-tight">
-        Data explorer <span class="text-slate-400 font-normal">— {states.name(state_code)}</span>
+      <h1 class="text-2xl font-bold tracking-tight flex items-center gap-2">
+        <TopicIcon name="compass" cls="w-6 h-6 text-slate-500 shrink-0" />
+        <span>Data explorer <span class="text-slate-400 font-normal">— {states.name(state_code)}</span></span>
       </h1>
       <p class="text-xs text-slate-500">
         Ad-hoc queries against this state's results for
