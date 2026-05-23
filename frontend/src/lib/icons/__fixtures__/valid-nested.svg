@@ -1,0 +1,8 @@
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <!-- valid icon with a comment, nested group, and self-closing primitive -->
+  <g transform="translate(0,0)">
+    <path d="M12 2L4 8v12h16V8z" stroke-linecap="round" />
+    <line x1="2" y1="22" x2="22" y2="22" />
+  </g>
+  <circle cx="12" cy="12" r="3" />
+</svg>

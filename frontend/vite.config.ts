@@ -3,7 +3,8 @@ import { defineConfig } from "vite";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import { fileURLToPath } from "node:url";
 import { resolve, extname, sep } from "node:path";
-import { readFileSync, statSync, existsSync, writeFileSync } from "node:fs";
+import { readFileSync, readdirSync, statSync, existsSync, writeFileSync } from "node:fs";
+import { parseIcon, ICON_FILENAME_REGEX, type Icon } from "./src/lib/icons";
 
 // Repo root = parent of frontend/. Used by both the dev middleware (which
 // serves datasets/ in place — per CLAUDE.md §4 the frontend MUST NOT commit
@@ -66,6 +67,73 @@ function serveDatasets() {
 // is a deployment concern, not a source-code one (CLAUDE.md §6).
 const BASE_URL = process.env.BASE_URL ?? "/";
 
+// Build-time icon registry. Walks frontend/src/lib/icons/*.svg, parses each
+// file through the strict allowlist parser in
+// frontend/src/lib/icons/parse.ts, and exposes the result as the virtual
+// module `virtual:icon-registry`. The parser never runs in the browser —
+// only the structured `IconRegistry` object reaches the bundle.
+//
+// Rejections fail the build LOUDLY with a precise `<file>:<line>:<col>
+// <reason>` message. See frontend/src/lib/icons/README.md for the
+// contributor-facing contract.
+function iconRegistryPlugin() {
+  const VIRTUAL_ID = "virtual:icon-registry";
+  const RESOLVED_ID = "\0" + VIRTUAL_ID;
+  const iconsDir = resolve(fileURLToPath(new URL(".", import.meta.url)), "src", "lib", "icons");
+
+  function loadAll(): Record<string, Icon> {
+    const out: Record<string, Icon> = {};
+    if (!existsSync(iconsDir)) return out;
+    const entries = readdirSync(iconsDir, { withFileTypes: true });
+    for (const entry of entries) {
+      if (!entry.isFile()) continue;
+      if (!entry.name.endsWith(".svg")) continue;
+      if (entry.name.startsWith("_")) continue;
+      const stem = entry.name.slice(0, -4);
+      if (!ICON_FILENAME_REGEX.test(stem)) {
+        throw new Error(
+          `icon filename '${entry.name}' violates ICON_FILENAME_REGEX (kebab-case, no leading digit-only group). See frontend/src/lib/icons/README.md.`
+        );
+      }
+      const src = readFileSync(resolve(iconsDir, entry.name), "utf8");
+      // parseIcon throws IconParseError on rejection; the unwrapped message
+      // already carries the file:line:col format.
+      out[stem] = parseIcon(src, entry.name, stem);
+    }
+    return out;
+  }
+
+  return {
+    name: "yen-gov-icon-registry",
+    enforce: "pre" as const,
+    resolveId(id: string) {
+      if (id === VIRTUAL_ID) return RESOLVED_ID;
+      return null;
+    },
+    load(id: string) {
+      if (id !== RESOLVED_ID) return null;
+      const registry = loadAll();
+      // Emit the registry as a frozen object literal. JSON.stringify is
+      // safe here because every value is a plain Icon (strings + numbers
+      // + arrays + objects) with no functions or undefined holes.
+      return `export const iconRegistry = Object.freeze(${JSON.stringify(registry)});`;
+    },
+    configureServer(server: any) {
+      // Hot-reload: when a contributor adds/edits an SVG in dev, invalidate
+      // the virtual module so the next import re-parses the folder.
+      const handler = (file: string) => {
+        if (file.startsWith(iconsDir) && file.endsWith(".svg")) {
+          const mod = server.moduleGraph.getModuleById(RESOLVED_ID);
+          if (mod) server.moduleGraph.invalidateModule(mod);
+        }
+      };
+      server.watcher.on("add", handler);
+      server.watcher.on("change", handler);
+      server.watcher.on("unlink", handler);
+    },
+  };
+}
+
 // Templating for the SPA 404.html shim. Vite copies public/* verbatim, so
 // %BASE_URL% in 404.html would otherwise survive into the dist output and
 // break the redirect on project Pages (where base is e.g. /yen-gov/). This
@@ -86,7 +154,7 @@ function template404Plugin() {
 
 export default defineConfig({
   base: BASE_URL,
-  plugins: [svelte(), serveDatasets(), template404Plugin()],
+  plugins: [svelte(), serveDatasets(), iconRegistryPlugin(), template404Plugin()],
   // Vite 6's default condition list doesn't always include "browser" for
   // SSR-aware packages (svelte 5's exports map falls back to its server
   // entry without it, which throws lifecycle_function_unavailable on
