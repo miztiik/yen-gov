@@ -251,12 +251,12 @@ Every change is classified before work begins. Higher levels require more rigor 
 | :---: | --- | --- | --- |
 | 0 | Super Minor | Comments, typos, logs (no behavior change) | Direct fix |
 | 1 | Minor | 1 file, ~50 lines, isolated bug | Direct fix |
-| 2 | Medium Single | 1–2 files, ~100 lines, explicit behavior change | Plan → Approve → Execute |
+| 2 | Medium Single | 1–2 files, ~100 lines, explicit behavior change | Plan → execute once scope is clear |
 | 3 | Multiple Files | 2–3 files, cross-cutting (UI + logic, config + code) | Plan → Phased execution |
 | 4 | Large Scale | 4+ files, structural changes | Propose breakdown first |
 | 5 | Fundamental | Core design, data model, or runtime change | Design consultation only — pause execution |
 
-Rule of thumb: when uncertain, default to a higher (safer) level. Levels 2+ require explicit user approval before any code changes.
+Rule of thumb: when uncertain, default to a higher (safer) level. Levels 2+ require an explicit plan before code changes; execute once scope is clear unless a git stop condition or unresolved design decision applies.
 
 ## 9. Debug Workflow
 
@@ -346,28 +346,35 @@ Practical level policy:
 - **Atomic writes** for state files and version pointers.
 - **Rollback/rebuild operations** are explicit, auditable, and documented before first production deploy.
 
-## 12. Git Safety (Mandatory for Agentic Workflows)
+## 12. Git Hygiene for Agentic Workflows
 
-When AI agents and humans share a repository, careless git commands destroy untracked work.
+When AI agents and humans share a repository, git is the rollback ledger. Keep operations scoped, reversible, and inspectable.
 
-### 12.1 Forbidden Commands by Default
+### 12.1 Autonomous Workflow
 
-- `git stash` — loses untracked files when popped/dropped.
+A user's finish/ship/merge instruction authorizes the normal reversible git workflow: inspect state, use a named branch, stage exact paths, commit, push, run gates, and merge or enable automerge when green.
+
+Stop only when the next action would discard or overwrite unrelated work, rewrite published history, broadly mutate the working tree, or when ownership is ambiguous after inspection.
+
+### 12.2 Commands to Avoid in Autonomous Flow
+
+- `git stash` — parks work outside the branch/commit ledger.
 - `git reset --hard` — destroys uncommitted changes.
 - `git clean -fd` — deletes untracked files permanently.
-- `git checkout .` / `git restore .` — reverts all tracked changes.
+- `git checkout .` / broad `git restore .` — reverts tracked changes outside scope.
 - `git add .` / `git add -A` — stages files outside the agent's scope.
+- `git push --force` / `git push --force-with-lease` — rewrites published history.
 
-### 12.2 Safe Workflow
+### 12.3 Safe Workflow
 
-1. Inspect untracked files before any git operation: `git status --porcelain | grep "^??"`.
-2. Stage only the specific files the change touched.
-3. Verify staged set: `git diff --cached --name-only`.
-4. Commit on a feature branch.
-5. Merge with `--no-ff` for traceable history.
-6. Ask the user before switching branches with uncommitted work.
+1. Inspect `git status --porcelain`, current branch, recent commits, relevant PRs/branches, and untracked files.
+2. Leave unrelated dirty files alone.
+3. Stage only explicit paths the change intentionally touched.
+4. Verify staged set: `git diff --cached --name-only`.
+5. Commit small reversible units on a named branch.
+6. Push and merge or enable automerge after required gates pass.
 
-### 12.3 Commit Hygiene
+### 12.4 Commit Hygiene
 
 - No co-author or attribution tags for AI agents.
 - Commit messages describe the change, not the agent.
@@ -424,7 +431,7 @@ Generic don't-do list to copy into a new project's `CLAUDE.md`:
 - Swallowing exceptions or silently coercing invalid input.
 - Mocking in tests unless explicitly requested.
 - Skipping logs, skipping docs, skipping schema bumps.
-- Using `git stash` / `git reset --hard` / `git add .`.
+- Using broad, lossy, or history-rewriting git commands instead of the scoped workflow.
 - Letting `TODO/` or chat logs become the source of truth.
 - Assuming context — ask first when uncertain.
 

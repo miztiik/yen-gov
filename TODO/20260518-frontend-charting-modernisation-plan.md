@@ -46,7 +46,7 @@ If you are reading this plan with no prior conversation context, read in this or
 - View-model loaders MUST resolve their Parquet target via `datasets/manifest.json` `tables[].files[].path` matching on `table_id`. Hardcoded paths are forbidden. Pattern reference: `frontend/src/lib/view-models/state-overview.ts` (PR-F). Copy the pattern; don't reinvent it.
 - Citizen-facing footer chrome reads the sources v2.0 citation ledger triple — `producer, title, vintage` + `license, confidence_tier, is_issuing_authority, verification_method, url_main` (optional `citation_full`, `notes`). NEVER `first_fetched_at` / `last_seen_at` / `content_hash` / `date_accessed`. Those are `.runtime/<adapter>/<source_id>.json` sidecar fields and are NOT a chart-footer surface (ADR-0032 + R-24).
 - Forbidden output: do NOT emit any new JSON projection of canonical Parquet "for chart rendering convenience". CLAUDE.md §10 anti-pattern; the canonical store is the contract (R-27).
-- Forbidden git: do NOT run `git stash`, `git reset --hard`, `git clean -fd`, `git add .`, `git add -A`, or `git push --force` (CLAUDE.md §8).
+- Git hygiene: avoid `git stash`, `git reset --hard`, `git clean -fd`, `git add .`, `git add -A`, and `git push --force`; use the scoped reversible workflow in CLAUDE.md §8.
 
 If any of the above is unclear after reading the linked files, STOP and ask the user — do not guess. Most stalls in this plan have come from agents guessing about a pivot-row gating condition.
 
