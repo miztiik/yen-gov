@@ -1,0 +1,88 @@
+{
+  "$schema_version": "1.0",
+  "experiment_id": "chart-composition-bar-election-seats",
+  "feature_key": "chart.composition-bar.election-seats.enabled",
+  "name": "CompositionBar — election seats (Phase 3.6)",
+  "description": "A/B experiment shipping the new single-entity 100%-stacked CompositionBar primitive on the state-hub elections card. Treatment shows CompositionBar alongside the existing SeatDonut; control sees SeatDonut alone (existing behaviour). URL stays canonical (place-first per ADR-0028); bucket is sticky via a first-party cookie keyed on a stable visitor id. Phase 3.6 of TODO/20260518-frontend-charting-modernisation-plan.md.",
+  "owner": "frontend-charting-modernisation",
+  "tags": [
+    "chart-modernisation",
+    "phase-3.6",
+    "composition-bar",
+    "election-seats"
+  ],
+  "hash_attribute": "visitor_id",
+  "stickiness": "cookie",
+  "variations": [
+    {
+      "id": "control",
+      "key": "0",
+      "name": "Control — SeatDonut only (current production)",
+      "weight": 0.5,
+      "description": "Existing state-overview render: <SeatDonut /> as the sole composition chart. No new component mounted."
+    },
+    {
+      "id": "treatment",
+      "key": "1",
+      "name": "Treatment — CompositionBar alongside SeatDonut",
+      "weight": 0.5,
+      "description": "Render <CompositionBar model={...} sources={...} /> immediately after <SeatDonut /> in the elections card. Both charts visible at once, same data binding, no URL toggle."
+    }
+  ],
+  "phase": "production",
+  "status": "running",
+  "starts_at": "2026-05-25T00:00:00Z",
+  "ends_at": null,
+  "targeting": {
+    "namespace": null,
+    "rules": [
+      {
+        "id": "single-party-dominant-states",
+        "description": "Per plan resolution R-02 — mount only on single-party-dominant state-hub routes. TN is excluded because the verdict is alliance-led and a party-only chart misframes it.",
+        "condition": {
+          "state_code": {
+            "$in": [
+              "S05",
+              "S07",
+              "S29",
+              "S10"
+            ]
+          }
+        },
+        "enabled": true
+      }
+    ]
+  },
+  "metrics": {
+    "primary": [
+      {
+        "id": "elections-card-scroll-depth",
+        "kind": "non-binomial",
+        "description": "Median scroll depth on the elections card. Hypothesis: a more legible composition encoding shortens the time to verdict and reduces scroll past the card."
+      }
+    ],
+    "guardrails": [
+      {
+        "id": "elections-card-bounce-rate",
+        "kind": "binomial",
+        "description": "Bounce rate from the elections card. Guardrail: treatment must NOT increase bounce by more than 2 percentage points."
+      }
+    ]
+  },
+  "rollback_contract": {
+    "description": "Removal is git revert of the (c) mount commit. The CompositionBar renderer + adapter remain in the repo as Phase 3.5 inventory but with no live mount. No URL parser change, no analytics event to clean up, no schema rollback.",
+    "files_touched_by_mount": [
+      "frontend/src/routes/StateOverview.svelte"
+    ]
+  },
+  "review_gates": {
+    "jony": "Visual hierarchy on the elections card — does CompositionBar earn its keep next to SeatDonut, or does it duplicate the donut without adding clarity?",
+    "hans": "Summary-copy dominance-verb suppression — does the new bar prompt unrelated verb drift? Are vote-share + seat-share twins consistent?",
+    "max": "Single-entity scope discipline — does the treatment tempt a multi-entity comparison? If yes, escalate to Phase 0.75 guard rule."
+  },
+  "doctrine_ties": [
+    "R-08 Branch by Abstraction: SeatDonut continues to ship; CompositionBar mounts alongside, never in place of.",
+    "R-16 three-PR split: experiment definition ships in (b); mount ships in (c).",
+    "R-24 / R-28: adapter resolves Parquet path via manifest-registered table_id; no fetch telemetry."
+  ]
+}

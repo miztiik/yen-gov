@@ -70,11 +70,21 @@ Migration of hot paths from `for` to `forSet` is queued in Phase 6A — see PLAN
 Indicator chropoleths use a sequential OkLCh ramp parameterised by hue:
 
 ```ts
-sequentialSwatch(t, hue)   // t ∈ [0, 1] → hex
-// L: 0.94 → 0.44   (very pale → mid-dark)
-// C: 0.04 → 0.17   (low chroma → moderate chroma)
+sequentialSwatch(t, hue)        // t ∈ [0, 1] → hex
+sequentialSwatchOkLCh(t, hue)   // t ∈ [0, 1] → { l, c, h } (pre gamut-map)
+// L: 0.94 → 0.44   (SEQUENTIAL_RAMP_L_START → SEQUENTIAL_RAMP_L_END)
+// C: 0.04 → 0.17   (SEQUENTIAL_RAMP_C_START → SEQUENTIAL_RAMP_C_END)
 // h: constant
 ```
+
+The endpoints are exported as named constants from [`indicators.ts`](../../../frontend/src/lib/indicators.ts) so changes are explicit. A ramp-monotonicity test (Phase 5, May 2026) locks the contract:
+
+- L decreases strictly across 11 stops at hue 160 (`higher_is_better`).
+- C increases strictly across 11 stops at hue 25 (`lower_is_better`).
+- Hex output is unique across 5 evenly-spaced stops at hue 250 (`neutral`).
+- Constants stay within the OkLCh safe band (L_start ∈ [0.85, 0.97], L_end ∈ [0.30, 0.50], C_start ∈ [0.0, 0.06], C_end ∈ [0.12, 0.22]).
+
+Any future tuning must (a) keep the monotonicity test green AND (b) be reviewed on a real citizen route with screenshots — chroma drift past ~0.20 starts to read as a different hue at the dark end.
 
 Hue is selected by the indicator's declared `direction`:
 

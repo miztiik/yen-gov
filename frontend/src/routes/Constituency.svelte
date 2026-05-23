@@ -16,6 +16,7 @@
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
   import { url } from "../lib/url";
+  import TopicIcon from "../lib/TopicIcon.svelte";
 
   // params.state is a slug; params.eci_no is the parsed AC number from
   // the AC slug (e.g. `167-mylapore` → 167). When the prefix is missing
@@ -94,8 +95,9 @@
 <main class="max-w-4xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
     <p class="text-xs"><a class="text-slate-500 hover:underline" href={state_code ? url.state(state_code) : url.home()}>← {states.name(state_code)} overview</a></p>
-    <h1 class="text-2xl font-bold">
-      {#if result}{result.constituency_name ?? `AC ${result.eci_no}`}{:else}AC {params.eci_no}{/if}
+    <h1 class="text-2xl font-bold flex items-center gap-2">
+      <TopicIcon name="vote" cls="w-6 h-6 text-slate-500 shrink-0" />
+      <span>{#if result}{result.constituency_name ?? `AC ${result.eci_no}`}{:else}AC {params.eci_no}{/if}</span>
     </h1>
     <p class="text-sm text-slate-500">
       {states.name(state_code)} · constituency #{params.eci_no}

@@ -10,6 +10,11 @@ import {
   hueForDirection,
   normalise,
   sequentialSwatch,
+  sequentialSwatchOkLCh,
+  SEQUENTIAL_RAMP_L_START,
+  SEQUENTIAL_RAMP_L_END,
+  SEQUENTIAL_RAMP_C_START,
+  SEQUENTIAL_RAMP_C_END,
   fillForValue,
   formatValue,
   formatCompact,
@@ -123,6 +128,56 @@ describe("sequentialSwatch", () => {
   it("clamps t outside 0..1", () => {
     expect(sequentialSwatch(-1, 160)).toBe(sequentialSwatch(0, 160));
     expect(sequentialSwatch(2, 160)).toBe(sequentialSwatch(1, 160));
+  });
+});
+
+describe("sequentialSwatch ramp monotonicity", () => {
+  // Per plan §5: lock the ramp contract so accidental edits are
+  // caught at test time. Both L (luminance) and C (chroma) must
+  // change strictly monotonically across the ramp.
+  it("L decreases strictly across 11 stops at hue 160 (higher_is_better)", () => {
+    const ls: number[] = [];
+    for (let i = 0; i <= 10; i++) {
+      ls.push(sequentialSwatchOkLCh(i / 10, 160).l);
+    }
+    for (let i = 1; i < ls.length; i++) {
+      expect(ls[i]).toBeLessThan(ls[i - 1]);
+    }
+    expect(ls[0]).toBeCloseTo(SEQUENTIAL_RAMP_L_START, 6);
+    expect(ls[ls.length - 1]).toBeCloseTo(SEQUENTIAL_RAMP_L_END, 6);
+  });
+
+  it("C increases strictly across 11 stops at hue 25 (lower_is_better)", () => {
+    const cs: number[] = [];
+    for (let i = 0; i <= 10; i++) {
+      cs.push(sequentialSwatchOkLCh(i / 10, 25).c);
+    }
+    for (let i = 1; i < cs.length; i++) {
+      expect(cs[i]).toBeGreaterThan(cs[i - 1]);
+    }
+    expect(cs[0]).toBeCloseTo(SEQUENTIAL_RAMP_C_START, 6);
+    expect(cs[cs.length - 1]).toBeCloseTo(SEQUENTIAL_RAMP_C_END, 6);
+  });
+
+  it("hex output is unique across at least 5 evenly-spaced stops", () => {
+    const hexes = new Set<string>();
+    for (let i = 0; i <= 4; i++) {
+      hexes.add(sequentialSwatch(i / 4, 250));
+    }
+    expect(hexes.size).toBe(5);
+  });
+
+  it("constants stay within the OkLCh safe band the plan vetted", () => {
+    expect(SEQUENTIAL_RAMP_L_START).toBeGreaterThanOrEqual(0.85);
+    expect(SEQUENTIAL_RAMP_L_START).toBeLessThanOrEqual(0.97);
+    expect(SEQUENTIAL_RAMP_L_END).toBeGreaterThanOrEqual(0.30);
+    expect(SEQUENTIAL_RAMP_L_END).toBeLessThanOrEqual(0.50);
+    expect(SEQUENTIAL_RAMP_C_START).toBeGreaterThanOrEqual(0.0);
+    expect(SEQUENTIAL_RAMP_C_START).toBeLessThanOrEqual(0.06);
+    expect(SEQUENTIAL_RAMP_C_END).toBeGreaterThanOrEqual(0.12);
+    // Cap chroma at 0.22 — beyond this the dark stops drift hue
+    // visibly on sRGB displays. Plan §5 review note.
+    expect(SEQUENTIAL_RAMP_C_END).toBeLessThanOrEqual(0.22);
   });
 });
 

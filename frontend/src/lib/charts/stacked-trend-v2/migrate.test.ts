@@ -1,0 +1,224 @@
+// Unit tests for the v1 → v2 migration adapter (Track-D D10).
+//
+// The adapter is pure / sync / no side effects. These tests exercise:
+//   - schema_version literal stamping
+//   - verbatim pass-through of every shape v1 and v2 share
+//   - sources replacement (v1 dropped entirely; v2 ledger rows copied)
+//   - immutability (input arrays not mutated)
+//   - parsing the resulting object through the v2 zod model
+
+import { describe, expect, it } from "vitest";
+import { stackedTrendModelToV2 } from "./migrate";
+import { StackedTrendV2Model, type StackedTrendV2Source } from "./types";
+import type { StackedTrendModel } from "../stacked-trend/types";
+
+// A minimal but representative v1 model — one category, two bars, full
+// honesty + headline, retired-shape sources.
+const V1_MODEL: StackedTrendModel = Object.freeze({
+  unit: { id: "seats", label: "Seats won", value_kind: "count" },
+  x_axis_label: "Year",
+  bar_sort: "by_order_ascending",
+  categories: [
+    { id: "dmk", label: "DMK", fill: "#cc0000", order: 1 },
+    { id: "aiadmk", label: "AIADMK", fill: "#006633", order: 2 },
+  ],
+  bars: [
+    {
+      period_id: "AcGenApr2021",
+      period_label: "Apr 2021",
+      order: 1,
+      segments: [
+        { category_id: "dmk", value: 125, availability: "present" },
+        { category_id: "aiadmk", value: 75, availability: "present" },
+      ],
+    },
+    {
+      period_id: "AcGenMay2026",
+      period_label: "May 2026",
+      order: 2,
+      segments: [
+        { category_id: "dmk", value: 133, availability: "present" },
+        { category_id: "aiadmk", value: 66, availability: "present" },
+      ],
+    },
+  ],
+  headline: {
+    rule: "max_latest_with_streak",
+    text: "DMK leads in 2026",
+    highlight_category_id: "dmk",
+  },
+  honesty: {
+    comparability: "comparable_across_states",
+    methodology_vintage: "ECI Statistical Report Section 10",
+    notes: "Vote-share rounded to 0.1pp.",
+  },
+  sources: [
+    {
+      url: "https://eci.gov.in/results/tn-2026.xlsx",
+      fetched_at: "2026-05-20T10:00:00Z",
+    },
+  ],
+  dimension: "party",
+  default_mode: "percent",
+}) as StackedTrendModel;
+
+// V2 ledger rows resolved by a view-model JOIN against taxonomy.sources.
+const V2_SOURCES: readonly StackedTrendV2Source[] = Object.freeze([
+  Object.freeze({
+    source_id: "src-eci123456789",
+    producer: "Election Commission of India",
+    title: "Statistical Report Section 10 (Detailed Results) — Tamil Nadu",
+    vintage: "AcGenMay2026",
+    license: "OGL-IN-1.0" as const,
+    confidence_tier: "gold" as const,
+    is_issuing_authority: true,
+    verification_method: "live-fetch" as const,
+    url_main: "https://eci.gov.in/statistical-reports",
+    citation_full: null,
+    notes: null,
+  }),
+  Object.freeze({
+    source_id: "src-eci987654321",
+    producer: "Election Commission of India",
+    title: "Statistical Report Section 10 (Detailed Results) — Tamil Nadu",
+    vintage: "AcGenApr2021",
+    license: "OGL-IN-1.0" as const,
+    confidence_tier: "gold" as const,
+    is_issuing_authority: true,
+    verification_method: "archived-snapshot" as const,
+    url_main: "https://eci.gov.in/statistical-reports",
+    citation_full: null,
+    notes: null,
+  }),
+]);
+
+describe("stackedTrendModelToV2 — schema_version stamping", () => {
+  it("stamps schema_version: \"2.0\" on the output", () => {
+    const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
+    expect(out.schema_version).toBe("2.0");
+  });
+});
+
+describe("stackedTrendModelToV2 — verbatim pass-through", () => {
+  it("copies unit verbatim", () => {
+    const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
+    expect(out.unit).toEqual(V1_MODEL.unit);
+  });
+
+  it("copies x_axis_label verbatim", () => {
+    const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
+    expect(out.x_axis_label).toBe(V1_MODEL.x_axis_label);
+  });
+
+  it("copies bar_sort verbatim", () => {
+    const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
+    expect(out.bar_sort).toBe(V1_MODEL.bar_sort);
+  });
+
+  it("copies categories verbatim (preserves order, fill, label)", () => {
+    const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
+    expect(out.categories).toEqual(V1_MODEL.categories);
+  });
+
+  it("copies bars verbatim (preserves segments, period_id, period_label)", () => {
+    const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
+    expect(out.bars).toEqual(V1_MODEL.bars);
+  });
+
+  it("copies headline verbatim", () => {
+    const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
+    expect(out.headline).toEqual(V1_MODEL.headline);
+  });
+
+  it("copies honesty verbatim", () => {
+    const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
+    expect(out.honesty).toEqual(V1_MODEL.honesty);
+  });
+
+  it("copies dimension verbatim", () => {
+    const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
+    expect(out.dimension).toBe(V1_MODEL.dimension);
+  });
+
+  it("copies default_mode verbatim", () => {
+    const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
+    expect(out.default_mode).toBe(V1_MODEL.default_mode);
+  });
+});
+
+describe("stackedTrendModelToV2 — sources replacement (R-24)", () => {
+  it("drops v1 sources entirely (no url, no fetched_at on output)", () => {
+    const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
+    for (const src of out.sources) {
+      expect(src).not.toHaveProperty("url");
+      expect(src).not.toHaveProperty("fetched_at");
+    }
+  });
+
+  it("copies v2 ledger rows verbatim onto output.sources", () => {
+    const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
+    expect(out.sources).toEqual(V2_SOURCES);
+    expect(out.sources).toHaveLength(V2_SOURCES.length);
+  });
+
+  it("handles zero v2 sources (hand-authored / no ledger lookup)", () => {
+    const out = stackedTrendModelToV2(V1_MODEL, []);
+    expect(out.sources).toEqual([]);
+  });
+
+  it("preserves ledger row order", () => {
+    const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
+    expect(out.sources[0].source_id).toBe("src-eci123456789");
+    expect(out.sources[1].source_id).toBe("src-eci987654321");
+  });
+});
+
+describe("stackedTrendModelToV2 — immutability", () => {
+  it("does not mutate the input v2 sources array", () => {
+    const arr: StackedTrendV2Source[] = [...V2_SOURCES];
+    const before = arr.length;
+    stackedTrendModelToV2(V1_MODEL, arr);
+    expect(arr).toHaveLength(before);
+  });
+
+  it("returns a fresh sources array (not aliased to input)", () => {
+    const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
+    // Reference inequality — copying via [...x] gives a new array
+    expect(out.sources).not.toBe(V2_SOURCES);
+  });
+});
+
+describe("stackedTrendModelToV2 — zod round-trip", () => {
+  it("output parses cleanly through StackedTrendV2Model", () => {
+    const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
+    const parsed = StackedTrendV2Model.safeParse(out);
+    const message = parsed.success
+      ? ""
+      : JSON.stringify(parsed.error.issues, null, 2);
+    expect(parsed.success, message).toBe(true);
+  });
+
+  it("output parses cleanly with bronze tier + editorial verification", () => {
+    const editorialSources: StackedTrendV2Source[] = [
+      {
+        source_id: "src-yengov000001",
+        producer: "yen-gov",
+        title: "Editorial — TN cohort framing",
+        vintage: "",
+        license: "internal",
+        confidence_tier: "bronze",
+        is_issuing_authority: false,
+        verification_method: "editorial",
+        url_main: null,
+        citation_full: null,
+        notes: null,
+      },
+    ];
+    const out = stackedTrendModelToV2(V1_MODEL, editorialSources);
+    const parsed = StackedTrendV2Model.safeParse(out);
+    const message = parsed.success
+      ? ""
+      : JSON.stringify(parsed.error.issues, null, 2);
+    expect(parsed.success, message).toBe(true);
+  });
+});

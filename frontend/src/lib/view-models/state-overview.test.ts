@@ -74,10 +74,43 @@ const stateScopeRows = [
 
 const sourceRows = [
   {
+    source_id: "src-eci000000a1",
+    producer: "Election Commission of India",
+    title: "Statistical Report Section 10 (Detailed Results) \u2014 TN",
+    vintage: "AcGenApr2021",
+    license: "OGL-IN-1.0",
+    confidence_tier: "gold",
+    is_issuing_authority: true,
+    verification_method: "live-fetch",
     url_main: "https://eci.gov.in/results/tn-2021.xlsx",
+    citation_full: null,
+    notes: null,
   },
   {
+    source_id: "src-eci000000b2",
+    producer: "Election Commission of India",
+    title: "Party-wise summary \u2014 TN",
+    vintage: "AcGenApr2021",
+    license: "OGL-IN-1.0",
+    confidence_tier: "gold",
+    is_issuing_authority: true,
+    verification_method: "archived-snapshot",
     url_main: "https://eci.gov.in/results/tn-2021-parties.xlsx",
+    citation_full: null,
+    notes: null,
+  },
+  {
+    source_id: "src-eci000000c3",
+    producer: "yen-gov",
+    title: "Editorial allocation note \u2014 TN",
+    vintage: "AcGenApr2021",
+    license: "internal",
+    confidence_tier: "bronze",
+    is_issuing_authority: false,
+    verification_method: "editorial",
+    url_main: null,
+    citation_full: "yen-gov, Editorial allocation note \u2014 TN (AcGenApr2021)",
+    notes: "Hand-authored override; see commit history",
   },
 ];
 
@@ -157,6 +190,58 @@ describe("loadStateOverview — happy path", () => {
         fetched_at: "",
       },
     ]);
+    // Phase 1.4 — v2 ledger projection. Carries every v2.0 column the
+    // SourceListV2 surface needs. Sorted by verification_method trust
+    // ordering: live-fetch (rank 0) → archived-snapshot (1) → editorial (3).
+    // The editorial row has null url_main; the legacy `sources` array
+    // above dropped it, but `sources_v2` keeps it (a valid v2.0 citation).
+    expect(res.data.sources_v2).toHaveLength(3);
+    expect(res.data.sources_v2.map((s) => s.source_id)).toEqual([
+      "src-eci000000a1",
+      "src-eci000000b2",
+      "src-eci000000c3",
+    ]);
+    expect(res.data.sources_v2[0]).toEqual({
+      source_id: "src-eci000000a1",
+      producer: "Election Commission of India",
+      title: "Statistical Report Section 10 (Detailed Results) \u2014 TN",
+      vintage: "AcGenApr2021",
+      license: "OGL-IN-1.0",
+      confidence_tier: "gold",
+      is_issuing_authority: true,
+      verification_method: "live-fetch",
+      url_main: "https://eci.gov.in/results/tn-2021.xlsx",
+      citation_full: null,
+      notes: null,
+    });
+    // The editorial row — url_main null, citation_full present, license
+    // internal — survives in sources_v2 even though it was dropped by
+    // the legacy SourceRef[] projection.
+    expect(res.data.sources_v2[2]).toMatchObject({
+      source_id: "src-eci000000c3",
+      url_main: null,
+      license: "internal",
+      confidence_tier: "bronze",
+      verification_method: "editorial",
+      citation_full:
+        "yen-gov, Editorial allocation note \u2014 TN (AcGenApr2021)",
+    });
+    // R-24 enforcement — no fetch-telemetry field leaks into the v2 row
+    // shape carried by the view-model. Asserting at the loader boundary
+    // catches drift before the citizen surface ever mounts the data.
+    for (const row of res.data.sources_v2) {
+      for (const forbidden of [
+        "url",
+        "fetched_at",
+        "first_fetched_at",
+        "last_seen_at",
+        "date_accessed",
+        "content_hash",
+        "url_download",
+      ]) {
+        expect(row).not.toHaveProperty(forbidden);
+      }
+    }
     expect(res.data.ac_winners).toEqual([
       {
         ac_eci_no: 1,
@@ -202,6 +287,7 @@ describe("loadStateOverview — partial / not_published", () => {
     expect(res.reason).toBe("not_published");
     expect(res.data.party_totals).toEqual([]);
     expect(res.data.sources).toEqual([]);
+    expect(res.data.sources_v2).toEqual([]);
     expect(res.data.totals).toBeNull();
     expect(res.data.total_seats).toBe(0);
     expect(res.data.election).toBe("AcGenMay2099");

@@ -12,6 +12,7 @@
   // mount and on popstate.
   import { onMount } from "svelte";
   import { url } from "../lib/url";
+  import TopicIcon from "../lib/TopicIcon.svelte";
 
   function focus_section(): void {
     const params = new URLSearchParams(window.location.search);
@@ -30,7 +31,10 @@
 
 <main class="max-w-3xl mx-auto p-6 space-y-8 leading-relaxed text-slate-800">
   <header class="space-y-2">
-    <h1 class="text-3xl font-light">About yen-gov</h1>
+    <h1 class="text-3xl font-light flex items-center gap-3">
+      <TopicIcon name="info" cls="w-7 h-7 text-slate-400 shrink-0" />
+      <span>About yen-gov</span>
+    </h1>
     <p class="text-sm text-slate-500">
       What this site is, what it does — and what it deliberately does not do.
     </p>

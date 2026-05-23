@@ -443,13 +443,38 @@ export function normalise(
   return (value - min) / (max - min);
 }
 
+/** Sequential ramp endpoints in OkLCh space. Pinned as exported
+ *  constants so the contract is explicit and the monotonicity test
+ *  can lock the relationship.
+ *
+ *  Plan §5 review rule: any change to these endpoints must be paired
+ *  with a passing monotonicity test AND a screenshot review on a real
+ *  citizen route. Do NOT widen the C range without confirming that
+ *  the dark end still reads as one colour (chroma drift past ~0.20
+ *  starts to look like a different hue). */
+export const SEQUENTIAL_RAMP_L_START = 0.94;
+export const SEQUENTIAL_RAMP_L_END   = 0.44;
+export const SEQUENTIAL_RAMP_C_START = 0.04;
+export const SEQUENTIAL_RAMP_C_END   = 0.17;
+
+/** Sequential OkLCh ramp evaluated at `t` ∈ [0,1] — returns the raw
+ *  `{l, c, h}` triple BEFORE hex conversion. Useful for tests that
+ *  need to lock monotonicity in the colour space rather than in sRGB
+ *  (where two adjacent dark stops can collide after gamut mapping). */
+export function sequentialSwatchOkLCh(
+  t: number,
+  hue: number,
+): { l: number; c: number; h: number } {
+  const clamped = Math.max(0, Math.min(1, t));
+  const l = SEQUENTIAL_RAMP_L_START + (SEQUENTIAL_RAMP_L_END - SEQUENTIAL_RAMP_L_START) * clamped;
+  const c = SEQUENTIAL_RAMP_C_START + (SEQUENTIAL_RAMP_C_END - SEQUENTIAL_RAMP_C_START) * clamped;
+  return { l, c, h: hue };
+}
+
 /** Sequential OkLCh ramp swatch: light (high L, low C) at t=0 -> dark
  *  (low L, moderate C) at t=1, all at the same hue. */
 export function sequentialSwatch(t: number, hue: number): string {
-  const clamped = Math.max(0, Math.min(1, t));
-  const l = 0.94 - 0.50 * clamped; // 0.94 .. 0.44
-  const c = 0.04 + 0.13 * clamped; // 0.04 .. 0.17
-  return oklchToHex({ l, c, h: hue });
+  return oklchToHex(sequentialSwatchOkLCh(t, hue));
 }
 
 /** End-to-end fill resolver. Returns hex `#rrggbb` or a fallback grey when

@@ -19,6 +19,7 @@
 import { describeFailure, type LoaderResult } from "../loader-result";
 import { query, registerTable } from "../duckdb";
 import type { PartyTotals, SourceRef } from "../data";
+import type { StackedTrendV2Source } from "../charts/stacked-trend-v2";
 
 export interface ElectionSeatsTrendEvent {
   event_id: string;
@@ -29,7 +30,22 @@ export interface ElectionSeatsTrendEvent {
 export interface ElectionSeatsTrendViewModel {
   state: string;
   events: ElectionSeatsTrendEvent[];
+  /**
+   * Legacy v1 SourceRef projection — `{ url, fetched_at: "" }`. Kept
+   * for back-compat with the v1 `electionsToStackedTrend` adapter that
+   * still ships under `frontend/src/lib/charts/stacked-trend/`. Will
+   * retire alongside `frontend/src/lib/charts/StackedTrend.svelte` v1
+   * once every caller migrates to v2 (Track-D D13).
+   */
   sources: SourceRef[];
+  /**
+   * Citation-ledger v2.0 rows resolved from `taxonomy.sources` by
+   * `source_id` (R-28 manifest-registered table, R-24 zero fetch
+   * telemetry). Consumed by the StackedTrendV2 migration adapter
+   * `stackedTrendModelToV2(model, sources_v2)`. Empty array when
+   * the per-state cohort yielded no rows.
+   */
+  sources_v2: StackedTrendV2Source[];
 }
 
 function sqlString(s: string): string {
@@ -49,7 +65,17 @@ interface PartyRow {
 }
 
 interface SourceJoinRow {
+  source_id: string;
+  producer: string;
+  title: string;
+  vintage: string;
+  license: string;
+  confidence_tier: string;
+  is_issuing_authority: boolean;
+  verification_method: string;
   url_main: string | null;
+  citation_full: string | null;
+  notes: string | null;
 }
 
 const num = (v: unknown): number => (v == null ? 0 : Number(v));
@@ -94,14 +120,23 @@ async function runQueries(
   const parties = await query<PartyRow>(partySql);
 
   const sources = await query<SourceJoinRow>(`
-    SELECT DISTINCT s.url_main
+    SELECT DISTINCT
+      s.source_id          AS source_id,
+      s.producer           AS producer,
+      s.title              AS title,
+      s.vintage            AS vintage,
+      s.license            AS license,
+      s.confidence_tier    AS confidence_tier,
+      s.is_issuing_authority AS is_issuing_authority,
+      s.verification_method AS verification_method,
+      s.url_main           AS url_main,
+      s.citation_full      AS citation_full,
+      s.notes              AS notes
     FROM election_results o
     JOIN sources s ON s.source_id = o.source_id
     WHERE o.period_label IN (${eventList})
       AND o.entity_id LIKE ${partyPrefix} || '%'
-      AND s.url_main IS NOT NULL
-      AND s.url_main <> ''
-    ORDER BY s.url_main
+    ORDER BY s.source_id
   `);
 
   return { parties, sources };
@@ -144,11 +179,34 @@ function assembleResult(
       fetched_at: "",
     }));
 
-  return { state: state_code, events, sources };
+  // v2.0 ledger projection — every column the StackedTrendV2 renderer
+  // needs lands here verbatim from `taxonomy.sources` (R-24 + ADR-0032).
+  // DuckDB-WASM returns license/confidence_tier/verification_method as
+  // unrestricted strings; the zod schema on StackedTrendV2Source enforces
+  // the locked enums at the consumer boundary. Casting here is the
+  // narrowest typed seam between SQL and zod.
+  const sources_v2: StackedTrendV2Source[] = rows.sources.map(
+    (s) =>
+      ({
+        source_id: s.source_id,
+        producer: s.producer,
+        title: s.title,
+        vintage: s.vintage,
+        license: s.license,
+        confidence_tier: s.confidence_tier,
+        is_issuing_authority: Boolean(s.is_issuing_authority),
+        verification_method: s.verification_method,
+        url_main: s.url_main,
+        citation_full: s.citation_full,
+        notes: s.notes,
+      }) as StackedTrendV2Source,
+  );
+
+  return { state: state_code, events, sources, sources_v2 };
 }
 
 function notPublishedSkeleton(state_code: string): ElectionSeatsTrendViewModel {
-  return { state: state_code, events: [], sources: [] };
+  return { state: state_code, events: [], sources: [], sources_v2: [] };
 }
 
 export async function loadElectionSeatsTrend(

@@ -1,15 +1,36 @@
 <script lang="ts">
   // Self-fetching wrapper that turns an indicator artifact path into a
-  // rendered StackedTrend. Used by topic / state pages to render any
+  // rendered StackedTrendV2. Used by topic / state pages to render any
   // indicator whose `chart_type === "stacked-trend"`.
+  //
+  // Track-D D11..D12 (TODO/20260518-frontend-charting-modernisation-plan.md):
+  // second (LAST) caller migration v1 `StackedTrend` → v2 `StackedTrendV2`.
+  // After this PR merges, PR-17 (D13) can delete v1 — zero callers will
+  // remain.
+  //
+  // Indicator artifacts carry their own inline `sources` array
+  // (Array<{ url, fetched_at, name?, authority? }>), NOT a `source_id` FK
+  // into taxonomy.sources. So we cannot JOIN the canonical v2.0 citation
+  // ledger here the way `ElectionSeatsTrend.svelte` does (PR-15 / D10).
+  // We migrate the RENDERER only and pass `sources_v2 = []` to the
+  // migrate adapter. The legacy `<SourceList sources={v1_model.sources} />`
+  // continues to render the citizen-visible "Sources (N)" disclosure
+  // from the indicator's inline sources — same parity strategy as D10.
+  // True v2.0 ledger wiring for indicator artifacts is deferred to the
+  // Phase 1.4 SourceListV2 caller-migration track (separate plan).
 
   import { fetchIndicator } from "./indicators";
-  import StackedTrend from "./charts/StackedTrend.svelte";
+  import StackedTrendV2 from "./charts/StackedTrendV2.svelte";
+  import SourceList from "./SourceList.svelte";
   import {
     indicatorToStackedTrend,
     type IndicatorDoc,
   } from "./charts/stacked-trend/adapter-indicator";
   import type { StackedTrendModel } from "./charts/stacked-trend/types";
+  import {
+    stackedTrendModelToV2,
+    type StackedTrendV2Model,
+  } from "./charts/stacked-trend-v2";
   import { loadStates, type StateRow } from "./view-models/states";
   import { humanise } from "./humanise";
 
@@ -83,7 +104,7 @@
     return out;
   });
 
-  const model = $derived.by<StackedTrendModel | null>(() => {
+  const v1_model = $derived.by<StackedTrendModel | null>(() => {
     if (!doc) return null;
     if (mode === "spatial") {
       const times = [...new Set(doc.rows.map(r => r.time))].sort();
@@ -104,6 +125,16 @@
       category_labels: resolved_labels,
     });
   });
+
+  // v2 model — bridges the v1 adapter through the migration shim. Indicator
+  // artifacts do NOT carry source_id FKs into taxonomy.sources (unlike the
+  // election view-model in D10), so we pass an empty v2 ledger array. The
+  // citizen-visible "Sources (N)" disclosure stays on the page via the
+  // legacy <SourceList> render below.
+  const v2_model = $derived.by<StackedTrendV2Model | null>(() => {
+    if (!v1_model) return null;
+    return stackedTrendModelToV2(v1_model, []);
+  });
 </script>
 
 {#if load_error}
@@ -112,8 +143,19 @@
   </div>
 {:else if !doc}
   <p class="text-sm text-slate-500">Loading…</p>
-{:else if model}
-  <StackedTrend {model} />
+{:else if v2_model && v1_model}
+  <StackedTrendV2 model={v2_model} />
+  <!--
+    Provenance footer — preserved verbatim from v1 (StackedTrend.svelte
+    rendered <SourceList> inline). Indicator artifact carries inline
+    `sources: Array<{url, fetched_at, name?, authority?}>` per the
+    v1 IndicatorDoc contract; we keep rendering it through the legacy
+    SourceList until the Phase 1.4 SourceListV2 caller-migration track
+    wires the v2.0 ledger reader for indicator artifacts.
+  -->
+  {#if v1_model.sources.length > 0}
+    <SourceList sources={v1_model.sources} />
+  {/if}
 {:else}
   <p class="text-sm text-slate-500">No data to render.</p>
 {/if}

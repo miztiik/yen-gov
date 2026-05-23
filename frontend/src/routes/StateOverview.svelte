@@ -30,12 +30,34 @@
   } from "../lib/catalogue";
   import PartyBar from "../lib/PartyBar.svelte";
   import SeatDonut from "../lib/SeatDonut.svelte";
+  // Phase 3.6 (c) — CompositionBar A/B mount. Per plan resolution R-16
+  // the new primitive ships behind a sticky-cookie A/B bucket; removal
+  // is `git revert` of this PR (touches only this file). See
+  // frontend/src/lib/charts/composition-bar/experiment-definition.json.
+  import CompositionBar from "../lib/CompositionBar.svelte";
+  import {
+    loadCompositionBarElectionSeats,
+    type LoadedCompositionBar,
+  } from "../lib/charts/composition-bar/adapter-elections-seats";
+  import compositionBarExperiment from "../lib/charts/composition-bar/experiment-definition.json";
+  import {
+    buildCopyLinkActionSpec,
+    buildViewDataActionSpec,
+  } from "../lib/charts/chart-shell/action-builders";
+  import type { ChartShellActionSpec } from "../lib/charts/chart-shell/types";
+  import { parseElectionEventId } from "../lib/charts/stacked-trend/adapter-elections";
+  import {
+    bucketForWithOverride,
+    ensureVisitorId,
+    type ExperimentDefinition,
+  } from "../lib/experiments/bucket";
   import MarginHistogram from "../lib/MarginHistogram.svelte";
   import RacesBoard from "../lib/RacesBoard.svelte";
-  import SourceList from "../lib/SourceList.svelte";
+  import SourceListV2 from "../lib/SourceListV2.svelte";
   import StateAcMap from "../lib/maplibre/StateAcMap.svelte";
   import IndicatorCard from "../lib/IndicatorCard.svelte";
   import ElectionSeatsTrend from "../lib/ElectionSeatsTrend.svelte";
+  import TopicIcon from "../lib/TopicIcon.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
   import { colors } from "../lib/colors/store.svelte";
@@ -127,6 +149,16 @@
   let summaryResult = $state<LoaderResult<StateOverviewViewModel>>({ status: "loading" });
   const summary = $derived(summaryResult.status === "ok" ? summaryResult.data : null);
   let acs = $state<ConstituencyEntry[] | null>(null);
+  // Three-state discriminator for the constituency-reference load:
+  //   "loading" → fetch in flight; show a spinner, NOT the bootstrap notice
+  //   "failed"  → fetch threw (404, parse error); show the bootstrap notice
+  //   "ready"   → constituencies populated; render the AC directory
+  // Without this, `acs === null` covered BOTH "in flight" and "failed", and
+  // because the summary loader (DuckDB-WASM) often resolves before the
+  // JSON fetch, the page briefly flashed the "needs bootstrap" message even
+  // when the reference file existed and was about to load — a citizen-
+  // visible regression that read as if the state were broken.
+  let acs_status = $state<"loading" | "ready" | "failed">("loading");
   let districts = $state<District[] | null>(null);
   let catalogue = $state<TopicCatalogue | null>(null);
 
@@ -162,6 +194,7 @@
   $effect(() => {
     summaryResult = { status: "loading" };
     acs = null;
+    acs_status = "loading";
     districts = null;
     const sc = state_code;
     const ev = event;
@@ -194,10 +227,22 @@
         reason: "not_published",
       };
     }
-    const acs_p = fetchConstituencies(sc).then(c => c.constituencies).catch(() => null);
-    const districts_p = loadDistricts(sc).catch(() => null);
-    Promise.all([acs_p, districts_p])
-      .then(([c, d]) => { acs = c; districts = d; });
+    // Track acs success/failure explicitly via `acs_status`. Reference-data
+    // 404s remain non-fatal (the rest of the page still renders), but we
+    // distinguish "in flight" from "failed" so the bootstrap notice fires
+    // only on real failure. The status flips synchronously with the
+    // success/error handler so the late-arriving render is unambiguous.
+    const acs_p = fetchConstituencies(sc).then(
+      c => { if (state_code === sc) { acs = c.constituencies; acs_status = "ready"; } },
+      () => { if (state_code === sc) { acs = null; acs_status = "failed"; } },
+    );
+    const districts_p = loadDistricts(sc).then(
+      d => { if (state_code === sc) districts = d; },
+      () => { if (state_code === sc) districts = null; },
+    );
+    // Awaited only to keep the existing fire-and-forget shape; per-promise
+    // handlers above already mutated `acs`/`districts`/`acs_status`.
+    void Promise.all([acs_p, districts_p]);
   });
 
   // Map<eci_no, AcWinner> derived from the view-model. Keeps the template
@@ -256,6 +301,110 @@
   const zero_seat_count = $derived(ranked_parties.length - winners_count);
   const visible_parties = $derived(
     show_zero_seat ? ranked_parties : ranked_parties.filter(p => p.seats_won > 0),
+  );
+
+  // ----- Phase 3.6 (c) CompositionBar A/B mount -----
+  //
+  // Sticky-cookie bucket on `visitor_id`; targeting list restricted to
+  // single-party-dominant states per plan resolution R-02 (TN is
+  // explicitly excluded — alliance-led verdict misframes party-only
+  // composition). When the visitor is in the treatment bucket AND the
+  // state is in the rollout list, we render `<CompositionBar />`
+  // adjacent to `<SeatDonut />` in the house-composition card; control
+  // bucket renders SeatDonut only (current production behaviour).
+  //
+  // Removal contract: this entire block + the markup mount below + the
+  // imports above is the whole footprint. `git revert` of this commit
+  // restores the pre-experiment behaviour with zero side effects.
+  const composition_bar_experiment = $derived(
+    compositionBarExperiment as unknown as ExperimentDefinition,
+  );
+  const composition_bar_variant = $derived.by<string | null>(() => {
+    if (!state_code) return null;
+    const visitor_id = ensureVisitorId();
+    return bucketForWithOverride(
+      composition_bar_experiment,
+      { state_code },
+      visitor_id,
+    );
+  });
+  const composition_bar_in_treatment = $derived(
+    composition_bar_variant === "treatment",
+  );
+  let composition_bar_result =
+    $state<LoaderResult<LoadedCompositionBar> | null>(null);
+  $effect(() => {
+    composition_bar_result = null;
+    const sc = state_code;
+    const ev = event;
+    const row = event_row;
+    if (!sc || !ev || !row) return;
+    if (!composition_bar_in_treatment) return;
+    if (event_status === "pending_upstream") return;
+    const parsed = parseElectionEventId(row.event_id);
+    loadCompositionBarElectionSeats(sc, row.event_id, {
+      state_label: states.name(sc),
+      event_label: parsed.period_label,
+    }).then(r => {
+      if (state_code === sc && event === ev) composition_bar_result = r;
+    });
+  });
+  const composition_bar_loaded = $derived(
+    composition_bar_result?.status === "ok" ? composition_bar_result.data : null,
+  );
+
+  // Phase 1.4 task 4 — footer action slots wired on the CompositionBar
+  // mount. Built lazily as a `$derived` so the spec captures the
+  // current `composition_bar_loaded.model.segments` at click time (not
+  // at mount time). View-model gates are the same as the mount itself:
+  // both actions are only attached when we have a loaded model.
+  //
+  //   - `copy_link`  — copies the visitor's current URL (sticky-cookie
+  //                    bucket + URL `?yg_variant=` override mean two
+  //                    visitors hitting the same shared link see the
+  //                    same chart). No telemetry — R-24.
+  //
+  //   - `view_data`  — downloads the **currently visible window** as
+  //                    a CSV (plan rule line ~1080: "show the
+  //                    currently visible chart/window first, not the
+  //                    whole indicator corpus"). Filename baked from
+  //                    the dimension + state slug + event_id so a
+  //                    curator can diff two downloads cleanly.
+  const composition_bar_actions = $derived.by<readonly ChartShellActionSpec[]>(
+    () => {
+      const loaded = composition_bar_loaded;
+      const sc = state_code;
+      const row = event_row;
+      if (!loaded || !sc || !row) return [];
+      const slug = states.slug(sc);
+      const filename = `composition-bar_${loaded.model.dimension}_${slug}_${row.event_id}.csv`;
+      return [
+        buildCopyLinkActionSpec(),
+        buildViewDataActionSpec({
+          filename,
+          resolve_rows: () => ({
+            header: [
+              "rank",
+              "id",
+              "label",
+              "value",
+              "unit",
+              "is_tail",
+              "swatch_role",
+            ],
+            rows: loaded.model.segments.map((s, i) => [
+              i + 1,
+              s.id,
+              s.label,
+              s.value,
+              loaded.model.total_unit,
+              s.is_tail,
+              s.swatch_role,
+            ]),
+          }),
+        }),
+      ];
+    },
   );
 
   // ----- Phase 2: search + deselect -----
@@ -470,7 +619,10 @@
          welfare visible first. -->
     {#each indicator_topics as topic (topic.id)}
       <section class="space-y-3">
-        <h2 class="text-sm font-semibold uppercase text-slate-500">{topic.title}</h2>
+        <h2 class="text-sm font-semibold uppercase text-slate-500 flex items-center gap-2">
+          <TopicIcon name={topic.icon} cls="w-4 h-4 text-slate-500 shrink-0" />
+          <span>{topic.title}</span>
+        </h2>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {#each topic.artifacts.filter(a => a.kind === "indicator") as artifact (artifact.id)}
             {@const path = indicatorPathForArtifact(artifact)}
@@ -531,7 +683,15 @@
       </section>
     {:else if event_row && summaryResult.status === "loading"}
       <div class="text-slate-500">Loading election data…</div>
-    {:else if event_row && summary && !acs}
+    {:else if event_row && summary && acs_status === "loading"}
+      <!-- Election summary has resolved (DuckDB-WASM JOIN is fast) but the
+           per-state constituencies.json fetch is still in flight. Without
+           this branch the page falls into the `acs_status === "failed"`
+           arm below and flashes the "needs bootstrap" notice for a few
+           hundred ms before the JSON arrives — looks identical to a real
+           failure to the citizen. Render a neutral loading line instead. -->
+      <div class="text-slate-500">Loading constituency directory…</div>
+    {:else if event_row && summary && acs_status === "failed"}
       <section class="bg-white rounded-lg shadow-sm p-6 text-sm text-slate-600">
         <p class="font-medium text-slate-700 mb-1">Election results loaded.</p>
         <p>
@@ -570,6 +730,19 @@
             {hidden_parties}
             onToggleHidden={toggleHidden}
           />
+          {#if composition_bar_in_treatment && composition_bar_loaded}
+            <!-- Phase 3.6 (c) CompositionBar A/B mount — sticky-cookie
+                 bucket, removal contract = revert this PR; touches only
+                 StateOverview.svelte. Phase 1.4 task 4 footer actions
+                 (`copy_link`, `view_data`) are attached when loaded. -->
+            <div class="mt-5 pt-5 border-t border-slate-200/60">
+              <CompositionBar
+                model={composition_bar_loaded.model}
+                sources={composition_bar_loaded.sources_v2}
+                actions={composition_bar_actions}
+              />
+            </div>
+          {/if}
         </div>
         <!-- KPI strip: three tiles. Numbers centered, single thin bottom
              border in slate. The previous coloured top accents (emerald /
@@ -594,7 +767,7 @@
               </div>
             </div>
           </div>
-          <SourceList sources={summary.sources} />
+          <SourceListV2 sources={summary.sources_v2} />
         </div>
       </div>
     </section>

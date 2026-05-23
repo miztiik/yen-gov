@@ -169,6 +169,37 @@ test.describe("golden path", () => {
       .toBeVisible({ timeout: 15_000 });
   });
 
+  test("state overview never flashes the bootstrap notice during slow constituencies load (race-condition guard)", async ({ page }) => {
+    // Regression for the 2026-05-23 bug where /s/tamil-nadu briefly showed
+    // "Per-constituency directory for Tamil Nadu Assembly · May 2026 isn't
+    // available yet — the constituencies reference file for this state still
+    // needs to be bootstrapped" even though the JSON existed on disk and was
+    // about to load. Root cause: StateOverview's empty-state branch fired
+    // on `acs === null`, which is true BOTH while the fetch is in flight
+    // AND on failure — the DuckDB-WASM summary loader routinely beat the
+    // JSON fetch, exposing the wrong branch for a few hundred ms.
+    //
+    // Fix: a 3-state `acs_status` discriminator (loading / ready / failed).
+    // This test throttles the JSON fetch to a 1.5s delay so the race window
+    // is wide and deterministic; the bootstrap copy must NOT appear at any
+    // point during that window, and the AC list must still arrive.
+    await page.route("**/data/reference/in/states/S22/constituencies.json", async (route) => {
+      await new Promise((r) => setTimeout(r, 1500));
+      await route.continue();
+    });
+    await page.goto("/s/tamil-nadu");
+    // Summary should land first (DuckDB-WASM JOIN against the canonical
+    // store), establishing the race window.
+    await expect(page.getByText(/Most recent assembly election/i)).toBeVisible({ timeout: 15_000 });
+    // Pre-fix: the bootstrap notice rendered here for ~1.5s. Post-fix the
+    // page shows "Loading constituency directory…" instead.
+    await expect(page.getByText(/isn't available yet/i)).toHaveCount(0);
+    await expect(page.getByText(/bootstrap_constituencies_from_results/)).toHaveCount(0);
+    // And the directory eventually renders (proves the fix didn't break
+    // the success arm — `acs_status` transitions through "ready").
+    await expect(page.locator('a[href*="/ac/"]').first()).toBeVisible({ timeout: 15_000 });
+  });
+
   test("constituency page renders top-N candidates via DuckDB-WASM loader", async ({ page }) => {
     // PR-E (Phase 1.3a): /ac/* now reads through the canonical Parquet
     // store via DuckDB-WASM (`lib/view-models/constituency.ts`) rather

@@ -32,6 +32,7 @@
   import ParliamentArc from "../lib/ParliamentArc.svelte";
   import { states } from "../lib/states.svelte";
   import { url } from "../lib/url";
+  import TopicIcon from "../lib/TopicIcon.svelte";
 
   interface Props { params: { state: string; event: string } }
   let { params }: Props = $props();
@@ -174,7 +175,10 @@
       <a class="text-slate-500 hover:underline" href={state_code ? url.state(state_code) : url.home()}>← {states.name(state_code)} overview</a>
     </p>
     <div class="flex items-baseline justify-between gap-4 flex-wrap">
-      <h1 class="text-2xl font-bold">Compare — {states.name(state_code)}</h1>
+      <h1 class="text-2xl font-bold flex items-center gap-2">
+        <TopicIcon name="bar-chart" cls="w-6 h-6 text-slate-500 shrink-0" />
+        <span>Compare — {states.name(state_code)}</span>
+      </h1>
       <div class="flex items-center gap-2 text-xs">
         <div class="inline-flex rounded border border-slate-300 overflow-hidden">
           <button
