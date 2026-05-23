@@ -18,7 +18,7 @@
   // and D13 deletes v1.
 
   import StackedTrendV2 from "./charts/StackedTrendV2.svelte";
-  import SourceList from "./SourceList.svelte";
+  import SourceListV2 from "./SourceListV2.svelte";
   import {
     electionsToStackedTrend,
     type ResultSummaryDoc,
@@ -136,15 +136,16 @@
 {:else}
   <StackedTrendV2 model={v2_model} />
   <!--
-    Provenance footer — preserved verbatim from v1 (StackedTrend.svelte
-    rendered `<SourceList sources={model.sources} />` inline). StackedTrendV2
-    doesn't carry an internal source list yet (its sources slot is reserved
-    for the Phase 1.4 SourceListV2 wiring), so we render the legacy footer
-    from the caller to keep the citizen-visible "Sources (N)" disclosure
-    on the page. The legacy SourceRef[] back-compat array on the view-model
-    is filtered by `url_main` truthiness, matching v1 semantics exactly.
+    Provenance footer — SourceListV2 reads the full v2.0 `taxonomy.sources`
+    ledger row (producer / title / vintage / license / confidence_tier /
+    verification_method / url_main / citation_full / notes) per ADR-0032.
+    The view-model's `sources_v2` field is `StackedTrendV2Source[]`, which
+    is structurally identical to the `SourceV2Row` shape SourceListV2
+    consumes (the zod schema in `stacked-trend-v2/types.ts` documents this
+    deliberate mirror; the contract test `sources-v2-shape.test.ts`
+    enforces both sides stay in sync). Phase 1.4 step C of the chart-plan.
   -->
-  {#if (result.status === "ok" || result.status === "partial") && result.data.sources.length > 0}
-    <SourceList sources={result.data.sources} />
+  {#if (result.status === "ok" || result.status === "partial") && result.data.sources_v2.length > 0}
+    <SourceListV2 sources={result.data.sources_v2} />
   {/if}
 {/if}
