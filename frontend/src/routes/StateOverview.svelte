@@ -127,6 +127,16 @@
   let summaryResult = $state<LoaderResult<StateOverviewViewModel>>({ status: "loading" });
   const summary = $derived(summaryResult.status === "ok" ? summaryResult.data : null);
   let acs = $state<ConstituencyEntry[] | null>(null);
+  // Three-state discriminator for the constituency-reference load:
+  //   "loading" → fetch in flight; show a spinner, NOT the bootstrap notice
+  //   "failed"  → fetch threw (404, parse error); show the bootstrap notice
+  //   "ready"   → constituencies populated; render the AC directory
+  // Without this, `acs === null` covered BOTH "in flight" and "failed", and
+  // because the summary loader (DuckDB-WASM) often resolves before the
+  // JSON fetch, the page briefly flashed the "needs bootstrap" message even
+  // when the reference file existed and was about to load — a citizen-
+  // visible regression that read as if the state were broken.
+  let acs_status = $state<"loading" | "ready" | "failed">("loading");
   let districts = $state<District[] | null>(null);
   let catalogue = $state<TopicCatalogue | null>(null);
 
@@ -162,6 +172,7 @@
   $effect(() => {
     summaryResult = { status: "loading" };
     acs = null;
+    acs_status = "loading";
     districts = null;
     const sc = state_code;
     const ev = event;
@@ -194,10 +205,22 @@
         reason: "not_published",
       };
     }
-    const acs_p = fetchConstituencies(sc).then(c => c.constituencies).catch(() => null);
-    const districts_p = loadDistricts(sc).catch(() => null);
-    Promise.all([acs_p, districts_p])
-      .then(([c, d]) => { acs = c; districts = d; });
+    // Track acs success/failure explicitly via `acs_status`. Reference-data
+    // 404s remain non-fatal (the rest of the page still renders), but we
+    // distinguish "in flight" from "failed" so the bootstrap notice fires
+    // only on real failure. The status flips synchronously with the
+    // success/error handler so the late-arriving render is unambiguous.
+    const acs_p = fetchConstituencies(sc).then(
+      c => { if (state_code === sc) { acs = c.constituencies; acs_status = "ready"; } },
+      () => { if (state_code === sc) { acs = null; acs_status = "failed"; } },
+    );
+    const districts_p = loadDistricts(sc).then(
+      d => { if (state_code === sc) districts = d; },
+      () => { if (state_code === sc) districts = null; },
+    );
+    // Awaited only to keep the existing fire-and-forget shape; per-promise
+    // handlers above already mutated `acs`/`districts`/`acs_status`.
+    void Promise.all([acs_p, districts_p]);
   });
 
   // Map<eci_no, AcWinner> derived from the view-model. Keeps the template
@@ -531,7 +554,15 @@
       </section>
     {:else if event_row && summaryResult.status === "loading"}
       <div class="text-slate-500">Loading election data…</div>
-    {:else if event_row && summary && !acs}
+    {:else if event_row && summary && acs_status === "loading"}
+      <!-- Election summary has resolved (DuckDB-WASM JOIN is fast) but the
+           per-state constituencies.json fetch is still in flight. Without
+           this branch the page falls into the `acs_status === "failed"`
+           arm below and flashes the "needs bootstrap" notice for a few
+           hundred ms before the JSON arrives — looks identical to a real
+           failure to the citizen. Render a neutral loading line instead. -->
+      <div class="text-slate-500">Loading constituency directory…</div>
+    {:else if event_row && summary && acs_status === "failed"}
       <section class="bg-white rounded-lg shadow-sm p-6 text-sm text-slate-600">
         <p class="font-medium text-slate-700 mb-1">Election results loaded.</p>
         <p>
