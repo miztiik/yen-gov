@@ -5,17 +5,16 @@
 // the last caller migrates. Consumers should import from this `index.ts`
 // (not from the individual files) so the internal layout stays
 // refactorable while v2 is incomplete.
+//
+// Phase 2.1b (PR-6) adds the component shell at
+// `frontend/src/lib/charts/StackedTrendV2.svelte` (one level up so it
+// sits next to v1's `StackedTrend.svelte`). The shell is intentionally
+// NOT re-exported here — Svelte components are imported by their
+// `.svelte` path directly, not through a barrel.
 
-export type {
-  StackedTrendV2Bar,
-  StackedTrendV2Category,
-  StackedTrendV2Headline,
-  StackedTrendV2Honesty,
-  StackedTrendV2Model,
-  StackedTrendV2Segment,
-  StackedTrendV2Source,
-} from "./types";
-
+// Re-export the runtime zod schemas (which carry their inferred types
+// via z.infer<typeof X>). A separate `export type { ... }` block would
+// duplicate the identifiers and break svelte-check.
 export {
   OTHER_CATEGORY_FILL_V2,
   OTHER_CATEGORY_ID_V2,

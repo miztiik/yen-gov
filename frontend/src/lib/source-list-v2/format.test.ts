@@ -171,7 +171,10 @@ describe("formatExpandedDisclosure — sources v2.0 ledger fields only", () => {
   it("never surfaces fetch-telemetry fields (R-24 structural guarantee)", () => {
     // This is a type-level guarantee — the test is here to document intent
     // and fail loud if a future refactor sneaks one back.
-    const out = formatExpandedDisclosure(HAND_AUTHORED) as Record<string, unknown>;
+    const out = formatExpandedDisclosure(HAND_AUTHORED) as unknown as Record<
+      string,
+      unknown
+    >;
     expect(out).not.toHaveProperty("fetched_at");
     expect(out).not.toHaveProperty("first_fetched_at");
     expect(out).not.toHaveProperty("last_seen_at");

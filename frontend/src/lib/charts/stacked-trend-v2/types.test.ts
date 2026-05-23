@@ -63,7 +63,7 @@ describe("StackedTrendV2Model — shipped fixture round-trips through zod", () =
 });
 
 describe("StackedTrendV2Source — v2 ledger discipline (R-24)", () => {
-  const VALID: unknown = Object.freeze({
+  const VALID: Readonly<Record<string, unknown>> = Object.freeze({
     source_id: "src-abcdef123456",
     producer: "Election Commission of India",
     title: "Statistical Report Section 10 (Detailed Results) — Tamil Nadu",

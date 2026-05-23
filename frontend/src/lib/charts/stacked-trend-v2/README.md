@@ -2,9 +2,22 @@
 
 Structural-only foundation for Phase 2 of
 [TODO/20260518-frontend-charting-modernisation-plan.md](../../../../../TODO/20260518-frontend-charting-modernisation-plan.md).
-This package ships the **v2 contract** (zod schema + types + fixture).
-The render shell, behavioural changes, and caller migration land in
-subsequent Track-D commits (D2…D13).
+This package ships the **v2 contract** (zod schema + types + fixture) and
+the **inert component shell** (`StackedTrendV2.svelte` at the parent
+`charts/` level — type-check green, no caller mounts it yet).
+Behavioural changes (segmented mode, pinned readout, inline labels,
+missing-hatch, motion, export) and caller migration land in subsequent
+Track-D commits (Phases 2.2…2.7 and D10…D13).
+
+## Phase 2.1 split (R-09)
+
+- **2.1a** (PR #105 — DONE): types + zod model + fixture (this directory).
+- **2.1b** (PR-6 — this PR): component shell at
+  [`../StackedTrendV2.svelte`](../StackedTrendV2.svelte) consuming the v2
+  types, returning headline + honesty chrome + an empty `<svg><g/></svg>`
+  bar-layer placeholder. **Type-check green; zero render coverage; no
+  caller mounts it yet.** Phases 2.2..2.7 layer behaviour onto this seam
+  one PR at a time.
 
 ## Branch by Abstraction (R-08)
 
@@ -63,7 +76,7 @@ renderer self-contained.
 | Rule | Where it lives |
 |---|---|
 | R-08 (Branch by Abstraction) | this module ships alongside v1 |
-| R-09 (split 2.1a / 2.1b) | this PR is 2.1a — types only, zero render |
+| R-09 (split 2.1a / 2.1b) | 2.1a = types only (this dir); 2.1b = shell at [`../StackedTrendV2.svelte`](../StackedTrendV2.svelte), zero render |
 | R-24 (citation-ledger fields only) | `StackedTrendV2Source` zod schema |
 | R-25 (coordination gate) | per-PR body, four-facts |
 | R-27 (no JSON projections of canonical Parquet) | this module reads no parquet at all |
