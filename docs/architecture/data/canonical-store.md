@@ -1,8 +1,8 @@
 # Canonical store — target architecture
 
-**Last Updated**: 2026-05-20
+**Last Updated**: 2026-05-23
 **Owner**: data layer (Hans + Max own shape; Gregor owns contracts; Fowler owns write seam)
-**ADR**: [ADR-0030](../decisions/0030-canonical-store-duckdb-wasm.md) (full rationale + rejected alternatives)
+**ADR**: [ADR-0030](../decisions/0030-canonical-store-duckdb-wasm.md) (canonical store rationale + rejected alternatives); [ADR-0036](../decisions/0036-state-identity-and-slice-registration.md) (state aliases + slice registration)
 **Plan**: [`TODO/20260517-canonical-long-format-pivot.md`](../../../TODO/20260517-canonical-long-format-pivot.md) (THE PLAN, R11)
 
 This doc is the operational spec for the canonical long-format store. ADR-0030 records *why*; this doc records *what* and *where*. When the two disagree this doc wins on operational detail; the ADR wins on whether a decision is open or closed (Holy Law #4).
@@ -398,6 +398,14 @@ Writer invariants (enforced at emit, FK-checked per D22):
 
 Election artefacts (ACs, parties, candidates) need entity IDs that are stable, citizen-comprehensible, and honest about India's boundary and identity churn. OWID precedent: opaque-stable ID in the data, display name as a field. Decided 2026-05-18 (Hans governance pass + Max indicator-scout pass + user sign-off).
 
+### State and UT identity aliases (ADR-0036)
+
+State and UT rows are canonical entity rows with authority-specific aliases. Existing `entity_id` values such as `IN-S22` remain the row keys until a separate identity-migration ADR says otherwise. The row also carries `entity_code` (today's ECI-shaped code for current state/UT rows), `lgd_code` (GoI/LGD administrative join key), `iso_3166_2` (public current-state alias), display name, and validity windows.
+
+`entity_code = S22` is not universal state identity. It is the ECI-facing projection that elections ingest and existing election partitions use. GoI/admin datasets should join through `lgd_code`; public state-level physical partition tokens should prefer `iso_3166_2` if a future socio-economic family earns state partitioning. YENASK and any future SemanticCatalogue resolve citizen mentions to `entity_id` first, then select the table-specific alias required by the query or partition.
+
+No immediate rename from `IN-S22` to `IN-TN` is planned. Such a rename would touch observation FKs, URLs/resolvers, map helpers, tests, and archived docs; it requires its own expand-migrate-contract plan.
+
 **AC entity_id** — ECI-native, delimitation-stamped: `IN-<state_code>-AC-<delim_year>-<eci_no>`.
 
 Examples: `IN-S22-AC-2008-167` (Mylapore as numbered since the 2008 delimitation); `IN-S22-AC-1976-138` (the constituency that occupied roughly that geography in 1991). `state_code` matches the existing ECI form used in `entities.json` (`S22`, not `TN`). `eci_no` is the integer ECI publishes on every results PDF. Display names live in `acs.parquet` columns, never in the ID.
@@ -696,12 +704,13 @@ Adding a new partitioned family is a one-line edit plus the SQL-derivation expre
 
 **Never partition by `year`** (rejected as R18 — destroys time-series query performance; every series scan fans out to N partitions).
 
-### 10.1 Locked partition grammar for `elections.state` (§0e.10 lock B, 2026-05-20)
+### 10.1 Locked partition grammar for `elections.state` (§0e.10 lock B, 2026-05-20; clarified by ADR-0036)
 
 Hive-style directory segment: `state=in_<two-char-lower>`.
 
-- `in_` prefix: country-scoped, mirrors the `IN-S22-…` entity-id identity (R29 / D29).
-- Two-char-lower body: the LGD-issued state/UT short code lowercased (`s01`, `s22`, `u05`, `u07`, `u08`, …). Underscore-only separator — no hyphens in partition segments because Hive convention treats `=` as the only delimiter and downstream globbers tokenise on `/`.
+- `in_` prefix: country-scoped, mirrors the `IN-S22-...` entity-id identity used by the current election store (R29 / D29).
+- Two-char-lower body: the ECI state/UT code lowercased (`s01`, `s22`, `u05`, `u07`, `u08`, ...). Underscore-only separator — no hyphens in partition segments because Hive convention treats `=` as the only delimiter and downstream globbers tokenise on `/`.
+- This is the **current elections-only physical partition contract**, not a universal state-code policy. Future state-level socio-economic partitions, if needed, prefer ISO-like values such as `state=in_tn`; lower administrative partitions prefer LGD codes.
 - The mapping `entity_id → state_partition` is a deterministic SQL expression in the writer (single source of truth, no Python-side helper to drift against):
 
   ```sql
@@ -715,7 +724,7 @@ Hive-style directory segment: `state=in_<two-char-lower>`.
 
   Examples: `IN-S22` → `in_s22`. `IN-S22-AC-2024-001` → `in_s22`. `IN-U05` → `in_u05`. `IN-U05-AC-2024-001` → `in_u05`.
 
-The grammar is closed for the lifetime of the canonical store. Re-debating requires both Hans+Max (data identity) and Gregor (contract impact on frontend Hive globbers).
+The elections grammar is closed for current election shards. Re-debating or physically renaming it requires both Hans+Max (data identity), Gregor (contract impact on manifest/readers), and a consumer audit. New non-election partition grammars do not inherit `in_s22` by default.
 
 ### 10.2 On-disk layout (post T.0a, 2026-05-20)
 
@@ -776,14 +785,14 @@ The control-plane `datasets/manifest.json` already supports partition reporting 
 
 `row_count_total` sums every file's `row_count`. The reader is free to fetch a single partition file (HTTP Range against the listed `path`) or glob the partition root — both are supported because the writer guarantees per-file Parquet KV metadata + sort order match the family-wide contract.
 
-### 10.5 Frontend reading (forward pointer)
+### 10.5 Frontend reading (ADR-0036)
 
-Updating the DuckDB-WASM loader to consume the partition layout ships in **PR T.0b** (separate branch, §0e.10.3 row 2). The reader options:
+Frontend readers use two seams:
 
-- **Path-glob** (preferred): `read_parquet('datasets/elections/state=*/election_results.parquet', hive_partitioning=true)` — DuckDB synthesises the `state` column from the path segment, queries can `WHERE state = 'in_s22'` to pushdown-fetch one shard.
-- **Manifest-directed**: read `manifest.json` first, then issue one `read_parquet(<path>)` per listed file — slightly more bandwidth-deterministic but more roundtrips. Used when the citizen page knows up-front which states it needs.
+- **`registerTable(tableId)`**: full-table registration for Explore, Compare, and other explicit broad modes.
+- **`registerSlice(tableId, partitionFilter)`**: manifest-directed registration of only the files whose `partition_values` match an exact partition filter. Used when a citizen route knows the physical slice it needs, for example `{ state: "in_s22" }` for the current Tamil Nadu election shard.
 
-The choice is per view-model; both are valid and the writer's contract supports both.
+`registerSlice` is deliberately physical and manifest-native. Unknown partition keys fail loud. Filtering an unpartitioned table fails unless the caller explicitly allows full-table fallback. Logical alias resolution (`tamil-nadu` route slug -> `entity_id` -> ECI/LGD/ISO alias) lives above this seam in route/view-model helpers today and in SemanticCatalogue later. The frontend must not guess paths.
 
 ### 10.6 Sizing rationale (Tamil Nadu canary)
 
