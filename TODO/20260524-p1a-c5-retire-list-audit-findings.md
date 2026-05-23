@@ -1,10 +1,10 @@
 # P.1.A C5+C6 retire-list audit — design lock vs on-disk reality
 
-**Last Updated**: 2026-05-24 (continuation)
-**Status**: 🛑 BLOCKING. Audit of the 16-shard retire-list in [`20260524-p1a-c5-c6-canonical-reader-design.md`](20260524-p1a-c5-c6-canonical-reader-design.md) §4 / §6 against on-disk canonical reality reveals **8 of 16 shards cannot safely retire as planned**. C5 reader + C6 retire is DESCOPED until the data-mismatch is resolved. This doc lists per-shard verdict + recommends 3 paths forward.
+**Last Updated**: 2026-05-24 (Path A CHOSEN)
+**Status**: ◧ DESCOPE-AND-PIVOT. Audit of the 16-shard retire-list in [`20260524-p1a-c5-c6-canonical-reader-design.md`](20260524-p1a-c5-c6-canonical-reader-design.md) §4 / §6 against on-disk canonical reality reveals **8 of 16 shards cannot safely retire as planned**. C5 reader + C6 retire is DESCOPED until the data-mismatch is resolved. **Path A (§3 below) CHOSEN 2026-05-24**: retire the 8 SAFE shards now, defer the 8 unsafe into 4 follow-up lift PRs. The re-acquisition schedule for those 4 lift PRs is at [`20260524-p1a-data-reacquisition-plan.md`](20260524-p1a-data-reacquisition-plan.md).
 **Doc class**: plan-doc handover per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md).
 **Authority routing**: Hans + Max (data fidelity) for what's actually retire-able, Gregor (read-seam contract) for the partial-retire shape, Fowler (strangler-fig discipline) for the canonical-lift-first ordering.
-**Cites**: [P.1 energy pivot plan-doc](20260522-phase-2-p1-energy-pivot.md) §4 + §6 (the retire-list that this audit invalidates) + [C5+C6 design doc](20260524-p1a-c5-c6-canonical-reader-design.md) (the planning doc this audit pauses) + `/memories/lessons.md` 2026-05-22 PR #88 G.1 descope (the procedural precedent for this kind of mid-execution pivot).
+**Cites**: [P.1 energy pivot plan-doc](20260522-phase-2-p1-energy-pivot.md) §4 + §6 (the retire-list that this audit invalidates) + [C5+C6 design doc](20260524-p1a-c5-c6-canonical-reader-design.md) (the planning doc this audit pauses) + [`20260524-p1a-data-reacquisition-plan.md`](20260524-p1a-data-reacquisition-plan.md) (the Path A re-acquisition schedule) + `/memories/lessons.md` 2026-05-22 PR #88 G.1 descope (the procedural precedent for this kind of mid-execution pivot).
 
 ---
 
@@ -66,13 +66,15 @@ Inspector tool: `tools/inspect_c5_full_audit.py` (kept in this PR as a regressio
 
 ## §3. Three forward paths
 
-### Path A — Retire the 8 safe shards, defer the 8 unsafe (recommended)
+### Path A — Retire the 8 safe shards, defer the 8 unsafe (CHOSEN 2026-05-24)
+
+**Status**: ✅ CHOSEN. Re-acquisition plan for the deferred 8 + the 1 SAFE-retired shard losing FY25 data: [`20260524-p1a-data-reacquisition-plan.md`](20260524-p1a-data-reacquisition-plan.md).
 
 **Scope**: Smaller C6 PR retiring the 8 §2.A shards + scrubbing their 8 allowlist entries + amending `canonical-store.md` §2b (the §2b amend is data-shape, not retire-list-dependent). C5 reader infrastructure ships in the same fused-atomic commit BUT path-router only handles the 8 retired paths + a catch-all for the 8 deferred paths that falls through to legacy.
 
 **Why**: Honest. Ships real value (8 file deletions). Forces the Hans+Max design decision on the deferred 8 via a separate handover. Splits a 16-file commit into two 8-file commits, each independently reviewable.
 
-**Risk**: The reader-switch design is somewhat awkward when only HALF the family is canonical-backed. Worth eating today vs an "all 16" commit that ships data loss.
+**Risk**: The reader-switch design is somewhat awkward when only HALF the family is canonical-backed. Worth eating today vs an "all 16" commit that ships data loss. The 1 SAFE-retired shard with a single-window FY25 loss is restored in the very next PR per the re-acquisition plan §3 C4.7 (~1 day, additive lift, no decisions needed).
 
 ### Path B — Pause C5+C6 entirely, ship a "lift CEA snapshot" PR first (P.1.A C4.5)
 
@@ -93,6 +95,8 @@ Inspector tool: `tools/inspect_c5_full_audit.py` (kept in this PR as a regressio
 **Path A** ships honest value today with explicit honesty about deferrals. Path B is also acceptable if Hans prefers single-PR completeness over phased delivery. Path C is doctrinally wrong per §0a.
 
 The two paths share **THIS PR's deliverable**: doc-only descope, amend the planning doc + the prior C5+C6 design doc to mark the retire-list INVALIDATED, ship this finding doc as the binding artifact for the next agent / future session to resume from.
+
+**Verdict (2026-05-24)**: Path A CHOSEN. Re-acquisition schedule for the deferred 8 + lost FY25 single window lives at [`20260524-p1a-data-reacquisition-plan.md`](20260524-p1a-data-reacquisition-plan.md). 4 follow-up sub-PRs (C4.7 / C4.5 / C4.6 / C4.8) sequenced behind the Path A retire PR.
 
 ## §5. Sub-PR shape (THIS PR — doc-only descope)
 

@@ -126,6 +126,8 @@ These are factual corrections; lifting them to Parquet under the old labels woul
 ## §6. Hard drops
 
 > **2026-05-24 retire-list audit annotation**: per-row audit run via `tools/inspect_c5_full_audit.py` shows **3 of these 9 hard-drop shards hold data the canonical does NOT carry**. Cannot retire as-listed below; see [20260524-p1a-c5-retire-list-audit-findings.md](20260524-p1a-c5-retire-list-audit-findings.md) §2.A (safe) vs §2.C (needs review).
+>
+> **2026-05-24 Path A CHOSEN**: re-acquisition schedule for the 3 ⚠️ NEEDS-REVIEW rows + the 1 SAFE-retired-but-FY25-lost row (`state_peak_electricity_demand_mw.json` row 2) lives at [`20260524-p1a-data-reacquisition-plan.md`](20260524-p1a-data-reacquisition-plan.md) §3 (C4.5 / C4.6 / C4.7 / C4.8 follow-up lifts).
 
 | Shard | Reason | 2026-05-24 audit verdict |
 | --- | --- | --- |
