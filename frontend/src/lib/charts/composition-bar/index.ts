@@ -20,3 +20,20 @@ export {
   CompositionBarModel,
   CompositionBarSegment,
 } from "./types";
+
+export {
+  CAPTION_FPTP,
+  DEFAULT_TOP_N,
+  assembleCompositionBar,
+  loadCompositionBarElectionSeats,
+  projectSourcesV2,
+  reduceToTopNWithTail,
+  resolvePartyFill,
+  sortPartiesBySeats,
+  type CompositionBarLoadedRows,
+  type CompositionBarPartyRow,
+  type CompositionBarSourceJoinRow,
+  type CompositionBarV2Source,
+  type LoadCompositionBarOptions,
+  type LoadedCompositionBar,
+} from "./adapter-elections-seats";

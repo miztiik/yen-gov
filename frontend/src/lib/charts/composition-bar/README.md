@@ -17,8 +17,8 @@ only**. R-16's three-PR sequence:
 
 | Slice | Branch | Status |
 |---|---|---|
-| (a) Renderer + view-model contract + pure helpers | `feat/composition-bar-primitive-2026-05-24` | **THIS PR** |
-| (b) `adapter-elections-seats.ts` + GrowthBook experiment definition | `feat/composition-bar-elections-adapter` | follow-up |
+| (a) Renderer + view-model contract + pure helpers | `feat/composition-bar-primitive-2026-05-24` | shipped (PR #142) |
+| (b) `adapter-elections-seats.ts` + GrowthBook experiment definition | `feat/composition-bar-elections-adapter-2026-05-24` | **THIS PR** |
 | (c) Mount on chosen state-hub route + Playwright | `feat/composition-bar-mount-<state>` | follow-up |
 
 ## Surfaces
@@ -29,6 +29,10 @@ only**. R-16's three-PR sequence:
 | [`helpers.ts`](./helpers.ts) | Pure: `totalSegmentValue`, `shareOfTotalPct`, `projectSegments`, `formatSegmentReadout`, `segmentsSumMatchesTotal`. |
 | [`helpers.test.ts`](./helpers.test.ts) | 22 vitest cases on the geometry / share / lift / sum-check math. |
 | [`types.test.ts`](./types.test.ts) | 18 vitest cases on the zod contract + fixture round-trip + tail / dominant-segment assertions. |
+| [`adapter-elections-seats.ts`](./adapter-elections-seats.ts) | Pure assembler + async DuckDB-WASM loader. Top-N=8 with visible Others tail; NOTA via existing anchor; FPTP caption verbatim. |
+| [`adapter-elections-seats.test.ts`](./adapter-elections-seats.test.ts) | 24 vitest cases — sort / top-N edge cases (N=2/5/8 + degenerate) / NOTA / FPTP caption / loader registerTable contract. |
+| [`experiment-definition.json`](./experiment-definition.json) | GrowthBook OSS experiment: control (SeatDonut only) vs treatment (CompositionBar + SeatDonut); 50/50; cookie-sticky on `visitor_id`. |
+| [`experiment-definition.test.ts`](./experiment-definition.test.ts) | 14 vitest cases — experiment shape + R-28 manifest contract on the adapter. |
 | [`__fixtures__/gujarat-2022-seats.json`](./__fixtures__/gujarat-2022-seats.json) | Single-party-dominant fixture (BJP 156 / 182 = 85.7%). Drives the round-trip + sum-check tests. |
 | [`index.ts`](./index.ts) | Barrel. |
 | [`../../CompositionBar.svelte`](../../CompositionBar.svelte) | The Svelte 5 renderer — composes inside `<ChartShell>`. |
@@ -90,12 +94,8 @@ only**. R-16's three-PR sequence:
 
 | Out of scope | Where it lands |
 |---|---|
-| Elections adapter (`adapter-elections-seats.ts`). | Phase 3.6 (b). |
-| GrowthBook experiment definition JSON. | Phase 3.6 (b). |
-| Mount on any route. | Phase 3.6 (c). |
-| Playwright on the rendered DOM. | Phase 3.6 (c). |
-| Top-N + tail aggregation. | Phase 1.6 / Phase 3.6 (b) adapter. |
-| Summary copy / dominance-verb rules. | Phase 3.6 (b) adapter. |
-| NOTA-specific colour anchor. | Phase 3.6 (b) adapter — uses existing NOTA anchor. |
-| Vote-share twin. | Phase 3.6 (b/c) — second `<CompositionBar>` instance on the same card. |
-| Alliance binding. | DEFERRED-A (separate workstream; needs `dim_alliances.parquet`). |
+| Mount on any route | Phase 3.6 (c) |
+| Playwright on the rendered DOM | Phase 3.6 (c) |
+| Summary-copy dominance-verb suppression test | Phase 3.6 (c) |
+| Vote-share twin (`adapter-elections-votes.ts`) | Phase 3.6 (c) — second `<CompositionBar>` instance on the same card |
+| Alliance binding | DEFERRED-A (separate workstream; needs `dim_alliances.parquet`). |
