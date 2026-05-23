@@ -1,7 +1,7 @@
 # DuckDB Slicing And State Identity Sequence
 
 **Last Updated**: 2026-05-23
-**Status**: P0 contract freeze DONE via PR #165. P1 `registerSlice` implementation is complete in this sequence; P2 generalisation is queued. Later phases stay queued until their prerequisites are on `main`.
+**Status**: P0 contract freeze DONE via PR #165. P1 `registerSlice` implementation DONE via PR #167. P2 generalisation is complete in this sequence; later phases stay queued until their prerequisites are on `main`.
 **Scope**: Frontend DuckDB-WASM slice registration, manifest-directed file selection, state-code alias doctrine, and later YENASK/SemanticCatalogue alignment.
 **Spec**: [frontend/data-loading.md](../docs/architecture/frontend/data-loading.md), [canonical-store.md](../docs/architecture/data/canonical-store.md)
 **Decision rationale**: [ADR-0036](../docs/architecture/decisions/0036-state-identity-and-slice-registration.md), [ADR-0030](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md), [ADR-0028](../docs/architecture/decisions/0028-url-scheme-place-first-flat-indicator-slug.md)
@@ -46,9 +46,9 @@ P1 uses `state=in_s22` only because that is the current election partition. It m
 
 | Row | Task | Status | Verification |
 | --- | --- | :-: | --- |
-| P2.1 | Move remaining state-scoped election consumers to slice registration. | QUEUED | Route matrix smoke; loader tests. |
-| P2.2 | Leave Explore/Compare intentionally broad. | QUEUED | Docs say broad registration is mode-owned. |
-| P2.3 | Record current `/s/...` smoke targets with legacy labels until route migration. | QUEUED | No future-facing row treats `/s/...` as target grammar. |
+| P2.1 | Move remaining state-scoped election consumers to slice registration. | DONE | Constituency + Psephlab actuals loader tests; route smoke. |
+| P2.2 | Leave Explore/Compare intentionally broad. | DONE | Broad-mode readers still use `registerTable`. |
+| P2.3 | Record current `/s/...` smoke targets with legacy labels until route migration. | DONE | Current smoke targets stay labelled legacy/current. |
 
 ### P3 - Energy / Socio-Economic Pilot
 

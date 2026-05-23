@@ -25,7 +25,8 @@ import {
   describeFailure,
   type LoaderResult,
 } from "../loader-result";
-import { query, registerTable } from "../duckdb";
+import { query, registerSlice, registerTable } from "../duckdb";
+import { electionStatePartition } from "../election-partitions";
 import type {
   CandidateResult,
   ConstituencyResult,
@@ -107,7 +108,7 @@ async function runQueries(
 }> {
   // Register every Parquet view we need (idempotent per session).
   await Promise.all([
-    registerTable("elections.election_results"),
+    registerSlice("elections.election_results", { state: electionStatePartition(state_code) }),
     registerTable("elections.dim_candidates"),
     registerTable("elections.dim_acs"),
     registerTable("elections.dim_parties"),

@@ -1,7 +1,7 @@
 // Unit tests for the Constituency view-model loader (PR-E / Phase 1.3a).
 //
 // Per CLAUDE.md §15: the loader's contract IS the SQL boundary — mocking
-// `query`/`registerTable` is the explicit carve-out from Holy Law #7. We
+// `query`/`registerSlice`/`registerTable` is the explicit carve-out from Holy Law #7. We
 // don't boot DuckDB-WASM here; the round-trip is asserted in Playwright
 // against a real Parquet shard.
 //
@@ -15,15 +15,17 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("../duckdb", () => ({
+  registerSlice: vi.fn(async () => "noop"),
   registerTable: vi.fn(async () => "noop"),
   query: vi.fn(),
 }));
 
-import { query, registerTable } from "../duckdb";
+import { query, registerSlice, registerTable } from "../duckdb";
 import { loadConstituencyResult } from "./constituency";
 
 const mockedQuery = vi.mocked(query);
 const mockedRegister = vi.mocked(registerTable);
+const mockedRegisterSlice = vi.mocked(registerSlice);
 
 const candidateRows = [
   {
@@ -84,7 +86,9 @@ const sourceRows = [
 beforeEach(() => {
   mockedQuery.mockReset();
   mockedRegister.mockReset();
+  mockedRegisterSlice.mockReset();
   mockedRegister.mockResolvedValue("noop");
+  mockedRegisterSlice.mockResolvedValue("noop");
 });
 
 describe("loadConstituencyResult — happy path", () => {
@@ -133,18 +137,21 @@ describe("loadConstituencyResult — happy path", () => {
     });
   });
 
-  it("registers all five canonical tables before querying", async () => {
+  it("registers the state fact slice and supporting tables before querying", async () => {
     mockedQuery
       .mockResolvedValueOnce(candidateRows)
       .mockResolvedValueOnce(acScopeRows)
       .mockResolvedValueOnce(sourceRows);
     await loadConstituencyResult("AcGenApr2021", "S22", 1);
+    expect(mockedRegisterSlice).toHaveBeenCalledWith(
+      "elections.election_results",
+      { state: "in_s22" },
+    );
     const registered = mockedRegister.mock.calls.map((c) => c[0]).sort();
     expect(registered).toEqual([
       "elections.dim_acs",
       "elections.dim_candidates",
       "elections.dim_parties",
-      "elections.election_results",
       "taxonomy.sources",
     ]);
   });
@@ -199,7 +206,7 @@ describe("loadConstituencyResult — failed arm", () => {
   });
 
   it("maps a manifest fetch failure to the catalogue-unavailable copy", async () => {
-    mockedRegister.mockRejectedValueOnce(new Error("manifest fetch failed: 404"));
+    mockedRegisterSlice.mockRejectedValueOnce(new Error("manifest fetch failed: 404"));
     const res = await loadConstituencyResult("AcGenApr2021", "S22", 1);
     expect(res.status).toBe("failed");
     if (res.status !== "failed") return;

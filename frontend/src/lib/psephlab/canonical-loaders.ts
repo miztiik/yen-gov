@@ -28,14 +28,15 @@
 // `ac-votes-polled`, `ac-nota-votes`, `candidate-votes-polled` from the
 // `election_results` long-format fact table.
 //
-// Test seam: the loader closes over `query` + `registerTable` from
+// Test seam: the loader closes over `query` + manifest registration from
 // `../duckdb`. Tests `vi.mock("../duckdb", ...)` per the
 // `view-models/constituency.test.ts` precedent — that IS the IO boundary
 // per CLAUDE.md §15 carve-out (vitest cannot boot DuckDB-WASM; the real
 // round-trip is asserted by Playwright in PR-R.2 against a real Parquet
 // shard).
 
-import { query, registerTable } from "../duckdb";
+import { query, registerSlice, registerTable } from "../duckdb";
+import { electionStatePartition } from "../election-partitions";
 import type { AcTally, CandidateTally, Tallies } from "./types";
 
 // ---------- Cache: identical-shape mirror of legacy actuals.ts ------------
@@ -183,7 +184,7 @@ export function loadActuals(event: string, state: string): Promise<Tallies> {
   const p = (async (): Promise<Tallies> => {
     // Register every Parquet view we need (idempotent per session).
     await Promise.all([
-      registerTable("elections.election_results"),
+      registerSlice("elections.election_results", { state: electionStatePartition(state) }),
       registerTable("elections.dim_acs"),
       registerTable("elections.dim_candidates"),
       registerTable("elections.dim_parties"),
