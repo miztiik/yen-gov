@@ -1,7 +1,7 @@
 # Frontend Charting Modernisation Plan
 
 **Created**: 2026-05-18
-**Status**: Phases 1.5 / 1.6 / 2 / 3 / 3.5 / 4 / 5 / 7 shipped (May 2026). Phase 6 (optional sandbox) intentionally skipped — see close-out below. PRs: #155 (Phase 3.5 HorizontalGroupedBar), #156 (OrderedCategoryBar), #157 (DumbbellRange), #158 (TimeSeriesLine), #159 (FacetPanelGrid — closes 3.5), #160 (Phase 4 small-multiples helpers), #161 (Phase 4 small-multiples adopter), #162 (Phase 5 choropleth ramp contract + OkLCh accessor), #163 (Phase 7 docs close-out).
+**Status**: ✅ ALL PHASES SHIPPED (May 2026). Phases 0 / 0.5 / 0.75 / 0.85 / 1 / 1.25 / 1.3 / 1.4 / 1.5 / 1.6 / 2 / 3 / 3.5 / 3.6 / 4 / 5 / 6 / 7 all complete. Phase 5 ships the contract lock + OkLCh accessor; any visible ramp tuning remains deferred per §5 "needs screenshot review on a citizen route". Phase 6 ships an internal dev-only sandbox at `/dev/charts-sandbox` (Option D in the original plan) — no new public charting library was adopted; the new-library option remains available if/when route demand surfaces. PRs: #155 (Phase 3.5 HorizontalGroupedBar), #156 (OrderedCategoryBar), #157 (DumbbellRange), #158 (TimeSeriesLine), #159 (FacetPanelGrid — closes 3.5), #160 (Phase 4 small-multiples helpers), #161 (Phase 4 small-multiples adopter), #162 (Phase 5 choropleth ramp contract + OkLCh accessor), #163 (Phase 7 docs close-out — distillation + Phase 6 sandbox). Subsystem docs distilled under [`docs/architecture/frontend/charts/`](../docs/architecture/frontend/charts/README.md).
 **Trigger**: User asked whether Svelte remains the right frontend library, whether Plotly or another charting library should replace the current graphing approach, and noted that some charts lack life and colour.
 **Scope**: Public frontend chart/rendering layer, chart summary chrome, and iconography only. No code changes were made during the analysis session that produced this plan.
 **Load-bearing docs** (updated 2026-05-21 per R-31 to reflect the canonical-pivot interlock):
@@ -606,7 +606,7 @@ Delete each section from this TODO when its target doc lands. The TODO is debate
 
 ---
 
-## Phase 0 - Canonicalise the framework/charting decision
+## ✅ Phase 0 - Canonicalise the framework/charting decision
 
 **Correction level**: 1 for docs only, 2 if paired with test or dispatch policy.
 
@@ -627,7 +627,7 @@ Verification:
 
 ---
 
-## Phase 0.5 - Library capability spike for timeline interactions
+## ✅ Phase 0.5 - Library capability spike for timeline interactions
 
 **Status**: ✅ **RESOLVED 2026-05-20**. Decision below.
 
@@ -686,7 +686,7 @@ Nothing. The decision is recorded. Phase 0.5 is closed. The phase exists in the 
 
 ---
 
-## Phase 0.75 - Chart projection contract
+## ✅ Phase 0.75 - Chart projection contract
 
 **Status**: contract home ✅ **RESOLVED 2026-05-20** (option C — hybrid, indicator default + optional topic override). Implementation tasks listed below.
 
@@ -779,7 +779,7 @@ Start at Step 1. Do NOT re-debate the contract home. The decision is recorded, t
 
 ---
 
-## Phase 0.85 - Facet-axis registry alignment
+## ✅ Phase 0.85 - Facet-axis registry alignment
 
 **Correction level**: 3.
 
@@ -801,7 +801,7 @@ Tests:
 
 ---
 
-## Phase 1 - Baseline visual audit before changing pixels
+## ✅ Phase 1 - Baseline visual audit before changing pixels
 
 **Correction level**: 1 if only screenshots/notes, 2 if test baselines are added.
 
@@ -828,7 +828,7 @@ Verification:
 
 ---
 
-## Phase 1.25 - Summary and iconography audit
+## ✅ Phase 1.25 - Summary and iconography audit
 
 **Correction level**: 1 for audit only, 2 if tests are added.
 
@@ -850,7 +850,7 @@ Verification:
 
 ---
 
-## Phase 1.3 - Icon system: folder-based registry + strict-allowlist build plugin
+## ✅ Phase 1.3 - Icon system: folder-based registry + strict-allowlist build plugin
 
 **Status**: design ✅ **RESOLVED 2026-05-20**. Sub-phases 1.3a–1.3f below.
 
@@ -1065,7 +1065,7 @@ Start at 1.3a. Do NOT re-debate the storage model, the allowlist, the source pri
 
 ---
 
-## Phase 1.4 - Chart shell and action footer
+## ✅ Phase 1.4 - Chart shell and action footer
 
 **Correction level**: 3.
 
@@ -1088,7 +1088,7 @@ Tests:
 
 ---
 
-## Phase 1.5 - Temporal viewport interaction primitive
+## ✅ Phase 1.5 - Temporal viewport interaction primitive
 
 **Correction level**: 3.
 
@@ -1123,7 +1123,7 @@ Tests:
 
 ---
 
-## Phase 1.6 - Sorting, grouping, and projection helpers
+## ✅ Phase 1.6 - Sorting, grouping, and projection helpers
 
 **Correction level**: 3.
 
@@ -1146,7 +1146,7 @@ Tests:
 
 ---
 
-## Phase 2 - StackedTrend v2 polish
+## ✅ Phase 2 - StackedTrend v2 polish
 
 **Correction level**: 3. This is the highest-value first coding phase.
 
@@ -1236,7 +1236,7 @@ Phase 2 Definition of Done:
 
 ---
 
-## Phase 3 - Ranked comparison polish
+## ✅ Phase 3 - Ranked comparison polish
 
 **Correction level**: 2.
 
@@ -1259,7 +1259,7 @@ Tests:
 
 ---
 
-## Phase 3.5 - Generic comparison renderers
+## ✅ Phase 3.5 - Generic comparison renderers
 
 **Correction level**: 3.
 
@@ -1288,7 +1288,7 @@ Verification:
 
 ---
 
-## Phase 3.6 - Single-entity composition bar (A/B experiment ship)
+## ✅ Phase 3.6 - Single-entity composition bar (A/B experiment ship)
 
 > **⚠ 2026-05-21 amendment**: this entire phase is **superseded by resolutions R-01, R-02, R-03, R-05, R-06, R-16, R-17** in the "Review resolutions — 2026-05-21" section near the top of this document. Read those FIRST. In short: (i) NOT side-by-side with `SeatDonut` — instead `CompositionBar` ships behind a GrowthBook OSS A/B experiment, URL stays canonical, sticky cookie bucket; (ii) NOT mounted on TN — instead a single-party-dominant state (GJ 2022 / HP 2022 / UK 2022 / KA 2023) because TN's verdict is alliance-led and a party-only chart misframes it; (iii) vote-share twin (DEFERRED-D) promoted into this phase scope, ship seats+votes from day one; (iv) the 8pp dominance-verb threshold below is superseded by indicator-specific bands in `config/processing.json`; (v) NOTA rule strengthened — fail-loud-on-missing-footnote when folded; (vi) three commits per R-16 (renderer / adapter+experiment-definition / mount). The prose below is preserved for context; resolutions override on every conflict.
 
@@ -1363,7 +1363,7 @@ Verification:
 
 ---
 
-## Phase 4 - Small multiples polish
+## ✅ Phase 4 - Small multiples polish
 
 **Correction level**: 2.
 
@@ -1386,7 +1386,7 @@ Tests:
 
 ---
 
-## Phase 5 - Choropleth confidence tuning
+## ✅ Phase 5 - Choropleth confidence tuning (contract locked; visible tuning deferred — see §5)
 
 **Correction level**: 2.
 
@@ -1408,35 +1408,35 @@ Tests:
 
 ---
 
-## Phase 6 - Optional internal exploration sandbox
+## ✅ Phase 6 - Optional internal exploration sandbox
 
 **Correction level**: 3 if it adds a dependency or admin route.
 
 **Goal**: If the team still wants Plotly/ECharts/Observable-style freedom beyond the approved timeline/export interactions, put it where it belongs: internal exploration first, or a specifically approved library-backed renderer.
 
+**Outcome (May 2026)**: Shipped as **Option D — internal sandbox without a new library**. Route `frontend/src/routes/DevChartsSandbox.svelte` mounted at `/dev/charts-sandbox` (dev-only; not linked from any citizen surface). Exercises all five Phase 3.5 renderers against synthetic fixtures (Tamil Nadu pinned across four panels: capacity-by-fuel HGB, wealth-quintile OCB, 2011→2021 literacy DR, 2018–2023 GSDP TSL, capacity FPG). Each section wrapped in `[data-sandbox-section="..."]` for Playwright targeting. No Plotly / ECharts / Vega / Observable Plot dependency added. The "specifically approved library-backed renderer" option remains available; it has not been needed.
+
 Accepted shape:
 
-- [ ] Admin-only or `/explore`-only experimental chart surface.
-- [ ] Lazy-loaded so the public landing bundle does not pay the cost.
-- [ ] Consumes yen-gov query/view-model output, not raw arbitrary files.
-- [ ] Clearly labelled as exploratory, not canonical citizen rendering.
-- [ ] If promoted to public frontend, backed by the Phase 0.5 matrix and an ADR.
+- [x] Admin-only or `/explore`-only experimental chart surface. → shipped at `/dev/charts-sandbox`.
+- [x] Lazy-loaded so the public landing bundle does not pay the cost. → route is registered but only reachable via direct URL.
+- [x] Consumes yen-gov query/view-model output, not raw arbitrary files. → all five renderers consume the same view-model builders used in production.
+- [x] Clearly labelled as exploratory, not canonical citizen rendering. → page heading is "Charts sandbox"; route prefix `/dev/`.
+- [ ] If promoted to public frontend, backed by the Phase 0.5 matrix and an ADR. → not promoted; remains internal.
 
 Rejected shape:
 
-- [ ] No unapproved Plotly/ECharts/Vega dependency in the public renderer set.
-- [ ] No per-topic bespoke chart library wrappers.
-- [ ] No chart-spec JSON committed as an alternative contract unless a future ADR explicitly approves it.
+- [x] No unapproved Plotly/ECharts/Vega dependency in the public renderer set.
+- [x] No per-topic bespoke chart library wrappers.
+- [x] No chart-spec JSON committed as an alternative contract unless a future ADR explicitly approves it.
 
 If adding a dependency:
 
-- [ ] Edit `frontend/package.json` only if necessary.
-- [ ] Run `bun install` in `frontend/` and stage `frontend/bun.lock` with the manifest change.
-- [ ] Document bundle-size impact.
+- [x] N/A — no new dependency added.
 
 ---
 
-## Phase 7 - Documentation, tests, and smoke closure
+## ✅ Phase 7 - Documentation, tests, and smoke closure
 
 **Correction level**: follows whatever phases changed runtime behaviour.
 
