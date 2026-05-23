@@ -36,6 +36,7 @@ export {
 export {
   DEFAULT_LABEL_THRESHOLD_PCT,
   MODE_LABELS,
+  STV2_TWEEN_DURATION_MS,
   UNKNOWN_STRIPE_HEIGHT_PCT,
   barTotal,
   inkForFill,

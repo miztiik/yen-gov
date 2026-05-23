@@ -1,10 +1,11 @@
 <script lang="ts">
   // StackedTrendV2 — component with wired geometry, segmented mode
-  // control, pinned readout panel, inline labels, and missing /
-  // not_applicable hatch (Phases 2.1c + 2.2 + 2.3 + 2.4 + 2.5).
+  // control, pinned readout panel, inline labels, missing /
+  // not_applicable hatch, and subtle 200ms motion (Phases 2.1c + 2.2
+  // + 2.3 + 2.4 + 2.5 + 2.6).
   //
   // Per TODO/20260518-frontend-charting-modernisation-plan.md Phases
-  // 2.1..2.5.
+  // 2.1..2.6.
   //
   // Behaviour delivered so far:
   //
@@ -15,24 +16,26 @@
   //  - Phase 2.3: pinned readout panel on bar tap. R-12: no
   //    hover-as-state. Initial pin = LAST bar.
   //  - Phase 2.4: inline labels overlay (HTML on top of SVG) with
-  //    YIQ-based `inkForFill` per segment. Segments ≥
-  //    `DEFAULT_LABEL_THRESHOLD_PCT` (8%) get an inline
-  //    `<short-label>` + `<value>` pair; smaller segments fall back
-  //    to the legend + readout.
-  //  - Phase 2.5 (this PR): missing / not_applicable hatch. Segments
-  //    that are not `present` are no longer silently elided — each
-  //    surfaces as a thin hatched stripe (height =
-  //    `UNKNOWN_STRIPE_HEIGHT_PCT`, default 4% of canvas) stacked
-  //    above the present segments. Diagonal hatch for `missing`,
-  //    dotted hatch for `not_applicable` — two distinct SVG
-  //    `<pattern>`s in `<defs>` so the citizen can tell "we didn't
-  //    measure this" apart from "this category doesn't apply to this
-  //    period". The pinned readout panel from Phase 2.3 already
-  //    explains the difference in plain language.
+  //    YIQ-based `inkForFill` per segment.
+  //  - Phase 2.5: missing / not_applicable hatch — slim hatched
+  //    stripes (diagonal for missing, dotted for not_applicable)
+  //    stacked above the present rects so absence is visible at a
+  //    glance.
+  //  - Phase 2.6 (this PR): subtle 200ms motion on mode + data
+  //    changes. CSS-only — `transition: y/height/left/top
+  //    var(--stv2-tween-duration) ease` on segments, stripes, and
+  //    HTML labels. Wrapped in `@media (prefers-reduced-motion:
+  //    no-preference)` so reduced-motion users see no animation. No
+  //    entrance animation: CSS transitions only fire on property
+  //    changes, so initial paint renders fully present. The single
+  //    source of truth for the duration is the pure constant
+  //    `STV2_TWEEN_DURATION_MS = 200` from `./stacked-trend-v2/helpers.ts`
+  //    (unit-pinned in `helpers.test.ts`) — the component projects
+  //    it onto the root as a CSS custom property so the CSS rule
+  //    cannot drift from the constant.
   //
   // What's STILL out of scope (each ships in its own PR):
   //
-  //  - Motion / 200ms tween (Phase 2.6).
   //  - Export control (Phase 2.7).
   //
   // Per R-08 Branch by Abstraction: v2 ships ALONGSIDE
@@ -71,6 +74,7 @@
   import {
     DEFAULT_LABEL_THRESHOLD_PCT,
     MODE_LABELS,
+    STV2_TWEEN_DURATION_MS,
     UNKNOWN_STRIPE_HEIGHT_PCT,
     barTotal,
     inkForFill,
@@ -256,6 +260,7 @@
   class="stacked-trend-v2 space-y-3"
   data-chart="stacked-trend-v2"
   data-mode={currentMode}
+  style:--stv2-tween-duration={`${STV2_TWEEN_DURATION_MS}ms`}
 >
   {#if model.headline?.text}
     <div class="rounded border border-slate-200 bg-slate-50 p-3 text-sm">
@@ -348,7 +353,7 @@
           <circle cx="1" cy="1" r="0.35" fill="#94a3b8" />
         </pattern>
       </defs>
-      <g class="stacked-trend-v2__bars" data-phase="2.5-hatch">
+      <g class="stacked-trend-v2__bars" data-phase="2.6-motion">
         {#each model.bars as bar, i (bar.period_id)}
           {@const total = barTotal(bar)}
           {@const rects = rectsForBar(bar.segments, total)}
@@ -582,3 +587,37 @@
     <p class="text-[11px] text-slate-500">Methodology · {model.honesty.methodology_vintage}</p>
   {/if}
 </div>
+
+<style>
+  /*
+   * Phase 2.6 — subtle motion on mode + data changes.
+   *
+   * The transition fires whenever a segment's `y` / `height` (SVG) or
+   * a label's `left` / `top` (HTML overlay) change — i.e. on mode
+   * toggles and on data updates — so the redistribution is legible
+   * rather than a snap. Initial paint does NOT animate because CSS
+   * transitions only fire on property changes (not the first render).
+   *
+   * Wrapped in `prefers-reduced-motion: no-preference` so reduced-
+   * motion users get the snap behaviour with zero JS — the browser
+   * honours their OS-level preference natively.
+   *
+   * Duration sourced from `STV2_TWEEN_DURATION_MS` via the
+   * `--stv2-tween-duration` custom property projected onto the chart
+   * root, so the constant in `./stacked-trend-v2/helpers.ts` is the
+   * single source of truth (unit-pinned in `helpers.test.ts`).
+   */
+  @media (prefers-reduced-motion: no-preference) {
+    :global(.stacked-trend-v2__segment),
+    :global(.stacked-trend-v2__stripe) {
+      transition:
+        y var(--stv2-tween-duration, 200ms) ease,
+        height var(--stv2-tween-duration, 200ms) ease;
+    }
+    :global(.stacked-trend-v2__label) {
+      transition:
+        left var(--stv2-tween-duration, 200ms) ease,
+        top var(--stv2-tween-duration, 200ms) ease;
+    }
+  }
+</style>

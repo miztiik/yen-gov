@@ -15,6 +15,7 @@ import { describe, expect, it } from "vitest";
 import {
   DEFAULT_LABEL_THRESHOLD_PCT,
   MODE_LABELS,
+  STV2_TWEEN_DURATION_MS,
   UNKNOWN_STRIPE_HEIGHT_PCT,
   barTotal,
   inkForFill,
@@ -656,5 +657,25 @@ describe("unknownStripesForBar", () => {
     // intent explicit.
     expect(UNKNOWN_STRIPE_HEIGHT_PCT).toBeGreaterThan(0);
     expect(UNKNOWN_STRIPE_HEIGHT_PCT).toBeLessThanOrEqual(10);
+  });
+});
+
+describe("STV2_TWEEN_DURATION_MS", () => {
+  it("matches the 200ms target from the plan (Phase 2.6)", () => {
+    expect(STV2_TWEEN_DURATION_MS).toBe(200);
+  });
+
+  it("is a positive integer (CSS transition durations must be non-negative)", () => {
+    expect(STV2_TWEEN_DURATION_MS).toBeGreaterThan(0);
+    expect(Number.isInteger(STV2_TWEEN_DURATION_MS)).toBe(true);
+  });
+
+  it("sits within the citizen-perceived motion window (~80ms..~500ms)", () => {
+    // Below ~80ms the motion is too fast to register as a transition
+    // (looks like a snap); above ~500ms it starts feeling sluggish on
+    // a mode-toggle. The constant is the single source of truth for
+    // the CSS rule + adapter-driven sequence animations.
+    expect(STV2_TWEEN_DURATION_MS).toBeGreaterThanOrEqual(80);
+    expect(STV2_TWEEN_DURATION_MS).toBeLessThanOrEqual(500);
   });
 });

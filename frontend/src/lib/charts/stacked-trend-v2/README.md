@@ -67,7 +67,7 @@ Track-D commits (Phases 2.2…2.7 and D10…D13).
   white-on-dark, slate-on-light, the v2 `__OTHER__` grey, 6-digit /
   3-digit hex, no-hash, case-insensitive, and malformed-input
   fallback.
-- **2.5** (PR-12 — THIS PR): missing / not_applicable hatch.
+- **2.5** (PR-12 — DONE): missing / not_applicable hatch.
   Segments with `availability !== "present"` are no longer silently
   elided — each surfaces as a thin hatched stripe (height =
   `UNKNOWN_STRIPE_HEIGHT_PCT`, default 4% of canvas) stacked above
@@ -79,8 +79,21 @@ Track-D commits (Phases 2.2…2.7 and D10…D13).
   Phase 2.3 already carries the plain-language explanation. New
   pure helper `unknownStripesForBar(bar, stripeHeightPct?)` returns
   one stripe per non-present segment in input order — 10 new unit
-  cases in `helpers.test.ts`. **Still zero callers; v1 still ships
-  untouched.**
+  cases in `helpers.test.ts`.
+- **2.6** (PR-13 — THIS PR): subtle 200ms motion on mode + data
+  changes. CSS-only — `transition: y/height/left/top
+  var(--stv2-tween-duration) ease` on segments, stripes, and HTML
+  labels. Wrapped in `@media (prefers-reduced-motion: no-preference)`
+  so reduced-motion users see no animation; the browser honours
+  their OS-level preference natively (zero JS). No entrance
+  animation: CSS transitions only fire on property changes, so the
+  initial paint renders fully present. The single source of truth
+  for the duration is the new pure constant
+  `STV2_TWEEN_DURATION_MS = 200` — the component projects it onto
+  the root as `--stv2-tween-duration` so the CSS rule cannot drift
+  from the constant. 3 new unit cases in `helpers.test.ts` pin the
+  value + sanity-check the citizen-perceived motion window
+  (~80ms..~500ms). **Still zero callers; v1 still ships untouched.**
 
 ## R-11 deferral (Phase 2.2 contract test)
 

@@ -380,3 +380,26 @@ export function unknownStripesForBar(
   }
   return result;
 }
+
+/**
+ * Tween duration (milliseconds) for StackedTrendV2 height / position
+ * transitions on mode + data changes (Phase 2.6).
+ *
+ * Single source of truth: the value is exposed as a CSS custom
+ * property (`--stv2-tween-duration`) on the chart root, so the unit
+ * test pins the number and the CSS rules read the same value.
+ *
+ * Per the plan: "No entrance animation. Add a 200ms height tween only
+ * on mode changes or data changes. Respect reduced-motion preference."
+ * The 200ms target sits in the citizen-perceived range — fast enough
+ * not to feel sluggish on a mode toggle, slow enough that the change
+ * is legible (eye can follow the height redistribution rather than
+ * snapping).
+ *
+ * Entrance is intentionally NOT animated: CSS transitions only fire
+ * on property changes, so the initial paint renders fully present.
+ * Reduced motion is honoured by wrapping the transition rules in
+ * `@media (prefers-reduced-motion: no-preference)` — no JS check, no
+ * extra state, browsers handle it natively.
+ */
+export const STV2_TWEEN_DURATION_MS = 200;
