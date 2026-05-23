@@ -73,7 +73,17 @@ const partyRows = [
 
 const sourceRows = [
   {
+    source_id: "src-eci2021000001",
+    producer: "Election Commission of India",
+    title: "Statistical Report Section 10 — Tamil Nadu",
+    vintage: "AcGenApr2021",
+    license: "OGL-IN-1.0",
+    confidence_tier: "gold",
+    is_issuing_authority: true,
+    verification_method: "live-fetch",
     url_main: "https://eci.gov.in/results/tn-2021.xlsx",
+    citation_full: null,
+    notes: null,
   },
 ];
 
@@ -107,6 +117,24 @@ describe("loadElectionSeatsTrend — happy path", () => {
         fetched_at: "",
       },
     ]);
+    // v2.0 ledger projection lives alongside the legacy SourceRef[]
+    // back-compat array. Mirrors the full 11-column citation ledger
+    // per ADR-0032 + R-24 (no fetch telemetry).
+    expect(res.data.sources_v2).toEqual([
+      {
+        source_id: "src-eci2021000001",
+        producer: "Election Commission of India",
+        title: "Statistical Report Section 10 — Tamil Nadu",
+        vintage: "AcGenApr2021",
+        license: "OGL-IN-1.0",
+        confidence_tier: "gold",
+        is_issuing_authority: true,
+        verification_method: "live-fetch",
+        url_main: "https://eci.gov.in/results/tn-2021.xlsx",
+        citation_full: null,
+        notes: null,
+      },
+    ]);
   });
 
   it("registers all three canonical tables before querying", async () => {
@@ -130,6 +158,7 @@ describe("loadElectionSeatsTrend — partial arms", () => {
     if (res.status !== "partial") return;
     expect(res.reason).toBe("not_published");
     expect(res.data.events).toEqual([]);
+    expect(res.data.sources_v2).toEqual([]);
     expect(mockedQuery).not.toHaveBeenCalled();
     expect(mockedRegister).not.toHaveBeenCalled();
   });
@@ -141,6 +170,7 @@ describe("loadElectionSeatsTrend — partial arms", () => {
     if (res.status !== "partial") return;
     expect(res.reason).toBe("not_published");
     expect(res.data.events).toEqual([]);
+    expect(res.data.sources_v2).toEqual([]);
   });
 });
 

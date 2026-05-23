@@ -1,15 +1,33 @@
 <script lang="ts">
   // Self-fetching wrapper that pulls every available party-totals event for
   // one state from the canonical Parquet store (one DuckDB-WASM JOIN) and
-  // renders the chronological seat-composition timeline as a StackedTrend.
-  // Migrated off per-shard result.summary.json in PR-G (Phase 1.3c).
+  // renders the chronological seat-composition timeline as a StackedTrendV2.
+  //
+  // Track-D D10 (TODO/20260518-frontend-charting-modernisation-plan.md):
+  // first caller migration from v1 `StackedTrend.svelte` →
+  // v2 `StackedTrendV2.svelte`. The view-model loader already JOINs
+  // `taxonomy.sources` (R-28) — D10 extends it to emit the full
+  // v2.0 ledger row alongside the legacy `SourceRef[]` for back-compat.
+  // The migrate adapter `stackedTrendModelToV2(model, sourcesV2)` is the
+  // bridge — pure / sync / no DOM, unit-tested in
+  // `frontend/src/lib/charts/stacked-trend-v2/migrate.test.ts`.
+  //
+  // R-08: v1 `StackedTrend.svelte` STILL ships untouched. Two other
+  // callers (`StackedTrendArtifact.svelte`, plus v1's internal direct
+  // imports) keep the v1 component alive until D11..D12 migrate them
+  // and D13 deletes v1.
 
-  import StackedTrend from "./charts/StackedTrend.svelte";
+  import StackedTrendV2 from "./charts/StackedTrendV2.svelte";
+  import SourceList from "./SourceList.svelte";
   import {
     electionsToStackedTrend,
     type ResultSummaryDoc,
   } from "./charts/stacked-trend/adapter-elections";
   import type { StackedTrendModel } from "./charts/stacked-trend/types";
+  import {
+    stackedTrendModelToV2,
+    type StackedTrendV2Model,
+  } from "./charts/stacked-trend-v2";
   import {
     loadElectionSeatsTrend,
     type ElectionSeatsTrendViewModel,
@@ -83,12 +101,22 @@
     }));
   });
 
-  const model = $derived.by<StackedTrendModel | null>(() => {
+  const v1_model = $derived.by<StackedTrendModel | null>(() => {
     if (!summaries || summaries.length === 0) return null;
     return electionsToStackedTrend(summaries, {
       value,
       config: { coverage_ceiling, max_named_categories },
     });
+  });
+
+  // v2 model — bridges the v1 adapter through the migration shim,
+  // injecting the v2.0 ledger rows the view-model resolved from
+  // `taxonomy.sources`. The adapter `electionsToStackedTrend` is
+  // unchanged (still v1) — Phase 2 polish is at the renderer seam.
+  const v2_model = $derived.by<StackedTrendV2Model | null>(() => {
+    if (!v1_model) return null;
+    if (result.status !== "ok" && result.status !== "partial") return null;
+    return stackedTrendModelToV2(v1_model, result.data.sources_v2);
   });
 </script>
 
@@ -103,8 +131,20 @@
   </div>
 {:else if result.status === "loading"}
   <p class="text-sm text-slate-500">Loading election history…</p>
-{:else if !model}
+{:else if !v2_model}
   <p class="text-sm text-slate-500">No election summaries available for this state yet.</p>
 {:else}
-  <StackedTrend {model} />
+  <StackedTrendV2 model={v2_model} />
+  <!--
+    Provenance footer — preserved verbatim from v1 (StackedTrend.svelte
+    rendered `<SourceList sources={model.sources} />` inline). StackedTrendV2
+    doesn't carry an internal source list yet (its sources slot is reserved
+    for the Phase 1.4 SourceListV2 wiring), so we render the legacy footer
+    from the caller to keep the citizen-visible "Sources (N)" disclosure
+    on the page. The legacy SourceRef[] back-compat array on the view-model
+    is filtered by `url_main` truthiness, matching v1 semantics exactly.
+  -->
+  {#if (result.status === "ok" || result.status === "partial") && result.data.sources.length > 0}
+    <SourceList sources={result.data.sources} />
+  {/if}
 {/if}

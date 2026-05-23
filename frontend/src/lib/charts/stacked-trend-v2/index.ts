@@ -50,3 +50,7 @@ export {
   visibleCategoryIds,
 } from "./helpers";
 export type { ReadoutRow, UnknownStripe } from "./helpers";
+
+// Track-D D10 — v1 → v2 migration adapter. Pure / sync. Consumed by
+// callers as they switch their <StackedTrend> mounts to <StackedTrendV2>.
+export { stackedTrendModelToV2 } from "./migrate";
