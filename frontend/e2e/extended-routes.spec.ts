@@ -125,4 +125,24 @@ test.describe("extended routes", () => {
     expect(seen).toContain("vote");     // elections
     expect(seen).toContain("users");    // demography / human dev
   });
+
+  // Phase 1.3c — icon rollout sub-2 (topic landings).
+  //
+  // /t/<topic>            → TopicLanding.svelte (1.3c part A)
+  // /s/<state>/t/<topic>  → StateTopic.svelte    (1.3c part B)
+  // Each surface inherits the visual identity the citizen tapped on the
+  // /t index — the icon prefixes the `<h1>` topic title.
+  test("topic landing /t/fiscal renders TopicIcon in <h1>", async ({ page }) => {
+    await page.goto("/t/fiscal");
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible({ timeout: 15_000 });
+    const h1Icon = page.locator('h1 svg[data-icon-name]').first();
+    await expect(h1Icon).toHaveAttribute("data-icon-name", "landmark");
+  });
+
+  test("state topic /s/tamil-nadu/t/energy renders TopicIcon in <h1>", async ({ page }) => {
+    await page.goto("/s/tamil-nadu/t/energy");
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible({ timeout: 15_000 });
+    const h1Icon = page.locator('h1 svg[data-icon-name]').first();
+    await expect(h1Icon).toHaveAttribute("data-icon-name", "zap");
+  });
 });

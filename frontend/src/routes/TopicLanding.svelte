@@ -29,6 +29,7 @@
   import StackedTrendArtifact from "../lib/StackedTrendArtifact.svelte";
   import { renderKindForArtifact } from "../lib/topic-dispatch";
   import ListBadge from "../lib/ListBadge.svelte";
+  import TopicIcon from "../lib/TopicIcon.svelte";
   import UnionListBanner from "../lib/UnionListBanner.svelte";
   import PeerSetFilter from "../lib/PeerSetFilter.svelte";
   import {
@@ -147,7 +148,10 @@
         </ol>
       </nav>
       <div class="flex items-baseline gap-3 flex-wrap">
-        <h1 class="text-2xl font-semibold">{topic.title}</h1>
+        <h1 class="text-2xl font-semibold flex items-center gap-2">
+          <TopicIcon name={topic.icon} cls="w-6 h-6 text-slate-500 shrink-0" />
+          <span>{topic.title}</span>
+        </h1>
         <ListBadge list={topic.list} />
       </div>
       <p class="text-sm text-slate-600 max-w-3xl">{topic.summary}</p>
