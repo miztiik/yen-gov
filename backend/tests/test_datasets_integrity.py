@@ -105,7 +105,8 @@ def test_results_cover_reference_constituency_numbers():
     # ``datasets/elections/<event>/<state>/results/<ac>.json`` shards this
     # test walked have been deleted; canonical Parquet
     # (``election_results.parquet`` + ``dim_acs.parquet`` +
-    # ``dim_candidates.parquet``) is now the single source of truth.
+    # ``elections_candidacies.parquet`` + ``dim_persons.parquet``) is now
+    # the single source of truth.
     # Walking thousands of files inside pytest was the CLAUDE.md §10
     # corpus-walker anti-pattern in the first place (see
     # /memories/lessons.md, 2026-05-16 validator descope). The replacement

@@ -165,7 +165,7 @@ def _write_canonical_slice(
     period = parse_period_label(event_id)
     party_lookup = load_party_lookup(datasets_root)
 
-    rows, sources_by_id, _unresolved, candidate_dims, ac_dims = build_slice_envelope(
+    rows, sources_by_id, _unresolved, person_dims, candidacies, ac_dims = build_slice_envelope(
         constituencies=constituencies,
         state_code=state_code,
         period=period,
@@ -192,7 +192,8 @@ def _write_canonical_slice(
         schema_version="1.0",
         source_rows=sorted(sources_by_id.values(), key=lambda s: s.source_id),
         observation_rows=rows,
-        candidate_dim_rows=candidate_dims,
+        person_dim_rows=person_dims,
+        candidacy_rows=candidacies,
         ac_dim_rows=ac_dims,
         party_dim_rows=party_dim_payload,
         party_alliance_dim_rows=party_alliance_payload,

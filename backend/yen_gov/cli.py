@@ -128,6 +128,9 @@ def emit_taxonomy(
       the 6 P.1.A energy citation rows (CEA Monthly IC + 3 ICED APIs +
       2 RBI Handbook table-142 series) after office_holdings has
       written the wiki rows. Idempotent across re-runs.
+        - ``datasets/taxonomy/persons.parquet`` -- ADR-0035 S.1 person
+            registry compiled from ``person_aliases.json`` and dim_persons
+            self-alias rows.
 
     The facet-axes emit also runs automatically inside every canonical
     ``write_batch`` call as a belt-and-suspenders refresh; the other
@@ -158,9 +161,13 @@ def emit_taxonomy(
     from yen_gov.canonical.methodology_breaks_seed import (
         compile_to_parquet as _compile_methodology_breaks,
     )
+    from yen_gov.canonical.persons_seed import (
+        compile_to_parquet as _compile_persons,
+    )
     from yen_gov.canonical.energy_sources_seed import (
         upsert_energy_sources_to_parquet as _upsert_energy_sources,
     )
+    from yen_gov.canonical.writer import _regenerate_manifest
 
     taxonomy_dir = root / "datasets" / "taxonomy"
     governments_dir = root / "datasets" / "governments"
@@ -261,6 +268,42 @@ def emit_taxonomy(
     typer.echo(
         f"emit-taxonomy: upserted {n_energy} energy citation rows into "
         f"datasets/taxonomy/sources.parquet"
+    )
+
+    # 10) persons registry (S.1 / ADR-0035): compile hand-authored merge
+    # overlay plus dim_persons self-alias rows.
+    rows = _compile_persons(
+        person_aliases_json=taxonomy_dir / "person_aliases.json",
+        dim_persons_parquet=root / "datasets" / "elections" / "dim_persons.parquet",
+        persons_out=taxonomy_dir / "persons.parquet",
+    )
+    typer.echo(
+        f"emit-taxonomy: wrote {rows} rows to datasets/taxonomy/persons.parquet"
+    )
+    _regenerate_manifest(root / "datasets")
+
+
+@app.command("s1-persons-fork")
+def s1_persons_fork(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory). Migrates dim_candidates to S.1 person tables.",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Run the ADR-0035 S.1 one-shot migration on the current corpus."""
+    from yen_gov.canonical.persons_fork import migrate_dim_candidates_to_persons
+
+    result = migrate_dim_candidates_to_persons(root / "datasets")
+    typer.echo(
+        "s1-persons-fork: wrote "
+        f"{result.persons} dim_persons rows, "
+        f"{result.candidacies} elections_candidacies rows, "
+        f"{result.persons_taxonomy} taxonomy persons rows"
     )
 
 
@@ -1540,12 +1583,12 @@ def ingest_people_panel(
         help="Re-ingest even if the inventory already records this triple.",
     ),
 ) -> None:
-    """Ingest a panel CSV into the canonical dim_candidates.parquet.
+    """Ingest a panel CSV into the canonical person/candidacy tables.
 
     PR-S.2 (canonical pivot 1.8f) replaced the per-person JSON sidecar
     emit (datasets/people/<event>/<ac>/<slug>.json) with an UPSERT of the
     biographic columns (sex/age/education/profession/constituency_type)
-    onto dim_candidates v1.2. Source authority is ECI; the CSV is a
+    onto dim_persons + elections_candidacies. Source authority is ECI; the CSV is a
     frozen input the operator obtains once. Vote totals are compared
     against the canonical election_results.parquet; discrepancy
     thresholds in config/elections.json decide halt vs warn. On success,

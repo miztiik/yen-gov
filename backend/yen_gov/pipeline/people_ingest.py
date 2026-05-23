@@ -2,7 +2,8 @@
 
 Composes the pure adapter (``yen_gov.sources.eci.people_panel``) with the
 canonical-store writer (UPSERTs biographic columns into
-``datasets/elections/dim_candidates.parquet`` schema v1.2), the elections
+``datasets/elections/dim_persons.parquet`` plus candidacy attributes into
+``datasets/elections/elections_candidacies.parquet``), the elections
 inventory (declarative "done and tested" gate), and the discrepancy
 report (per-AC vote comparison against the canonical observations).
 
@@ -11,7 +12,7 @@ thin wrapper around it.
 
 PR-S.2 (canonical pivot 1.8f) replaced the per-candidate JSON sidecar
 emit (3,983 files under ``datasets/people/<event>/<ac>/<slug>.json``) with
-an UPSERT into ``dim_candidates``. The discrepancy gate
+an UPSERT into the canonical person/candidacy tables. The discrepancy gate
 (``compare_winner_votes``) is preserved verbatim — it already reads the
 canonical Parquet (PR-O.3b-main) and remains the named non-negotiable QA
 gate for this adapter.
@@ -43,7 +44,8 @@ CONFIG_SCHEMA_FILE = "elections-config.schema.json"
 INVENTORY_PATH_REL = ("datasets", "elections", "_inventory.json")
 CONFIG_PATH_REL = ("config", "elections.json")
 REPORTS_DIR_REL = (".runtime", "reports")
-DIM_CANDIDATES_PATH_REL = ("datasets", "elections", "dim_candidates.parquet")
+DIM_PERSONS_PATH_REL = ("datasets", "elections", "dim_persons.parquet")
+CANDIDACIES_PATH_REL = ("datasets", "elections", "elections_candidacies.parquet")
 
 # ac_id format: "IN-S22-AC-2008-167" -> state="S22", ac_eci_no=167
 _AC_ID_RE = re.compile(r"^IN-([SU]\d{2})-AC-\d+-(\d+)$")
@@ -271,14 +273,14 @@ def upsert_candidate_bios(
     *,
     repo_root: Path,
 ) -> int:
-    """Lift biographic fields from the panel into ``dim_candidates.parquet``.
+    """Lift biographic fields from the panel into S.1 person/candidacy tables.
 
-    For each panel ``PersonRow``, looks up the matching ``dim_candidates``
+    For each panel ``PersonRow``, looks up the matching candidacy/person
     row by ``(state, election_id, ac_eci_no, slugify(name))`` and UPSERTs
     the row with bio columns populated. Long-tail panel rows that have no
-    matching dim row (rank > top-N cutoff, NOTA, AC not yet ingested via
-    a Section-10 adapter) are silently skipped — by design,
-    ``dim_candidates`` only carries the top-N candidates per AC per
+    matching candidacy row (rank > top-N cutoff, NOTA, AC not yet ingested
+    via a Section-10 adapter) are silently skipped — by design,
+    ``elections_candidacies`` only carries the top-N candidates per AC per
     ``docs/architecture/data/elections-indicators.md``. The bio enrichment
     is therefore additive on the existing canonical roster, never the
     creator of new candidate rows.
@@ -297,15 +299,17 @@ def upsert_candidate_bios(
     # tool this refactor supersedes).
     import duckdb
 
-    from yen_gov.canonical.envelope import CandidateDimRow
+    from yen_gov.canonical.envelope import CandidacyRow, PersonDimRow
     from yen_gov.canonical.writer import (
         _DIM_SPECS,
+        _FAMILY_WIDE_TABLE_SPECS,
         _regenerate_manifest,
         _upsert_dim,
     )
 
-    dim_parquet = repo_root.joinpath(*DIM_CANDIDATES_PATH_REL)
-    if not dim_parquet.is_file():
+    persons_parquet = repo_root.joinpath(*DIM_PERSONS_PATH_REL)
+    candidacies_parquet = repo_root.joinpath(*CANDIDACIES_PATH_REL)
+    if not (persons_parquet.is_file() and candidacies_parquet.is_file()):
         # No canonical roster yet; bio has nothing to enrich. Caller may
         # treat this as a soft no-op (the inventory entry still records
         # the ingest as done so re-runs short-circuit).
@@ -319,59 +323,77 @@ def upsert_candidate_bios(
     for r in rows:
         bio_by_key[(r.state, r.election_id, r.ac_code, r.candidate_slug)] = r
 
-    # Load existing dim rows; project all v1.2 columns explicitly so a
+    # Load existing person + candidacy rows; project all columns explicitly so a
     # downstream Pydantic validation surfaces any column drift as a hard
     # failure rather than a silent KeyError.
     con = duckdb.connect(":memory:")
     try:
-        dim_rel = con.execute(
-            f"SELECT * FROM read_parquet('{dim_parquet.as_posix()}') ORDER BY candidate_id"
+        person_rel = con.execute(
+            f"SELECT * FROM read_parquet('{persons_parquet.as_posix()}') ORDER BY person_id"
         )
-        cols = [d[0] for d in dim_rel.description]
-        dim_rows_all = [dict(zip(cols, row)) for row in dim_rel.fetchall()]
+        person_cols = [d[0] for d in person_rel.description]
+        persons_all = [dict(zip(person_cols, row)) for row in person_rel.fetchall()]
+        candidacy_rel = con.execute(
+            f"SELECT * FROM read_parquet('{candidacies_parquet.as_posix()}') ORDER BY candidacy_key"
+        )
+        candidacy_cols = [d[0] for d in candidacy_rel.description]
+        candidacies_all = [dict(zip(candidacy_cols, row)) for row in candidacy_rel.fetchall()]
     finally:
         con.close()
 
-    BIO_COLS = (
-        "sex", "age", "education", "profession", "constituency_type",
-    )
-    matched_payloads: list[dict] = []
-    for r in dim_rows_all:
+    persons_by_id = {r["person_id"]: r for r in persons_all}
+    person_payloads: list[dict] = []
+    candidacy_payloads: list[dict] = []
+    for r in candidacies_all:
+        person = persons_by_id.get(r["person_id"])
+        if person is None:
+            continue
         m = _AC_ID_RE.match(r["ac_id"])
-        if not m or not r["name"]:
+        display_name = person.get("display_name")
+        if not m or not display_name:
             continue
         state, ac_eci_no = m.group(1), int(m.group(2))
-        key = (state, r["period_label"], ac_eci_no, slugify(r["name"]))
+        key = (state, r["election_id"], ac_eci_no, slugify(display_name))
         pr = bio_by_key.get(key)
         if pr is None:
             continue
-        payload = {
-            "candidate_id": r["candidate_id"],
-            "ac_id": r["ac_id"],
-            "period_label": r["period_label"],
-            "ballot_serial": r["ballot_serial"],
-            "name": r["name"],
-            "party_id": r["party_id"],
-            "rank": r["rank"],
-            "source_id": r["source_id"],
-            "party_short_raw": r.get("party_short_raw"),
-            **{c: getattr(pr, c) for c in BIO_COLS},
-            # party_type is not derived from the panel CSV; left NULL.
-            "party_type": None,
+        person_payload = {
+            "person_id": person["person_id"],
+            "display_name": display_name,
+            "source_id": person["source_id"],
+            "sex": pr.sex,
+            "age": pr.age,
+            "education": pr.education,
+            "profession": pr.profession,
+        }
+        candidacy_payload = {
+            **r,
+            "constituency_type": pr.constituency_type,
+            # party_type is not derived from the current panel parser; left NULL.
+            "party_type": r.get("party_type"),
         }
         # Validate (raises if any enum/range constraint trips).
-        CandidateDimRow(**payload)
-        matched_payloads.append(payload)
+        PersonDimRow(**person_payload)
+        CandidacyRow(**candidacy_payload)
+        person_payloads.append(person_payload)
+        candidacy_payloads.append(candidacy_payload)
 
-    if not matched_payloads:
+    if not person_payloads:
         return 0
 
-    spec = _DIM_SPECS["candidate"]
+    spec = _DIM_SPECS["person"]
     n = _upsert_dim(
-        out_path=dim_parquet,
-        rows=matched_payloads,
+        out_path=persons_parquet,
+        rows=person_payloads,
         spec=spec,
-        table_id="elections.dim_candidates",
+        table_id="elections.dim_persons",
+    )
+    c_spec = _FAMILY_WIDE_TABLE_SPECS[("elections", "candidacy")]
+    _upsert_dim(
+        out_path=candidacies_parquet,
+        rows=candidacy_payloads,
+        spec=c_spec,
+        table_id="elections.elections_candidacies",
     )
     _regenerate_manifest(repo_root / "datasets")
     return n
@@ -539,7 +561,7 @@ def run_people_ingest(
         else datetime.now(timezone.utc).replace(microsecond=0)
     )
     # source_name/source_authority are reserved for a later enrichment of
-    # the canonical sources row; this slice writes bio into dim_candidates
+    # the canonical sources row; this slice writes bio into dim_persons
     # without minting a new SourceRow (the candidate row already carries
     # the source_id from the Section-10 ingest that created the dim row).
     _ = (source_name, source_authority, source_url, fetched)

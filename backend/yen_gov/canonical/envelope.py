@@ -126,40 +126,49 @@ def compute_observation_id(row: ObservationRow) -> str:
     return hashlib.sha256(key.encode("utf-8")).hexdigest()
 
 
-class CandidateDimRow(BaseModel):
-    """A row destined for ``datasets/elections/dim_candidates.parquet``.
+class PersonDimRow(BaseModel):
+    """A row destined for ``datasets/elections/dim_persons.parquet``.
 
-    Mirrors datasets/schemas/dim-candidates.schema.json. PK = candidate_id
-    (matches observations.entity_id for candidate-* rows).
+    Mirrors datasets/schemas/dim-persons.schema.json. PK = person_id.
+    Day-one ADR-0035 identity is Layer 1: one person per candidacy row.
     """
 
     model_config = ConfigDict(extra="forbid")
 
-    candidate_id: str = Field(
-        pattern=r"^IN-[SU]\d{2}-AC-\d{4}-\d+-(?:AcGen|LsGen|AcBye|LsBye)"
-        r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}-C\d{2}$"
-    )
-    ac_id: str = Field(pattern=r"^IN-[SU]\d{2}-AC-\d{4}-\d+$")
-    period_label: str = Field(min_length=1)
-    ballot_serial: int = Field(ge=1, le=99)
-    name: str | None = None
-    party_id: str = Field(pattern=r"^parties\.IN\.[A-Z][A-Z0-9_]*$")
-    rank: int = Field(ge=1)
+    person_id: str = Field(pattern=r"^[0-9a-f]{16}$")
+    display_name: str | None = None
     source_id: str = Field(min_length=1)
-    # v1.1 (additive): verbatim ECI party_short from the upstream candidate row.
-    # Citizen UI falls back to this when party_id == 'parties.IN.UNK' so the
-    # chip never shows the literal sentinel. Nullable for NOTA / missing.
-    party_short_raw: str | None = None
-    # v1.2 (additive, PR-S.1): biographic fields lifted from the per-candidate
-    # JSON sidecars formerly under datasets/people/<event>/<ac>/<slug>.json
-    # into inline columns on dim_candidates. Enums mirror dim-candidates schema
-    # v1.2 (copied verbatim from people.entity.schema.json v1.0). Nullable on
-    # every field — biographic data is only populated for the subset of events
-    # where an ECI Statistical Report adapter has run (currently TN AcGenApr2021).
     sex: str | None = Field(default=None)
     age: int | None = Field(default=None, ge=18, le=120)
     education: str | None = Field(default=None)
     profession: str | None = Field(default=None)
+
+
+class CandidacyRow(BaseModel):
+    """A row destined for ``datasets/elections/elections_candidacies.parquet``.
+
+    The PK, candidacy_key, is the old per-contest candidate entity_id. It
+    remains byte-equal to election_results.entity_id for candidate-* rows,
+    while person_id points at dim_persons.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    candidacy_key: str = Field(
+        pattern=r"^IN-[SU]\d{2}-AC-\d{4}-\d+-(?:AcGen|LsGen|AcBye|LsBye)"
+        r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}-C\d{2}$"
+    )
+    person_id: str = Field(pattern=r"^[0-9a-f]{16}$")
+    ac_id: str = Field(pattern=r"^IN-[SU]\d{2}-AC-\d{4}-\d+$")
+    election_id: str = Field(min_length=1)
+    ballot_serial: int = Field(ge=1, le=99)
+    party_id: str = Field(pattern=r"^parties\.IN\.[A-Z][A-Z0-9_]*$")
+    rank: int = Field(ge=1)
+    votes_polled: float | None = None
+    vote_share_pct: float | None = None
+    won: bool
+    source_id: str = Field(min_length=1)
+    party_short_raw: str | None = None
     constituency_type: str | None = Field(default=None)
     party_type: str | None = Field(default=None)
 
@@ -226,9 +235,9 @@ class BatchEnvelope(BaseModel):
     ``schema_version`` is the writer-contract version (not a row-schema
     version). Bump when this envelope's own shape changes.
 
-    Dimension lists are optional. Each is UPSERTed on its own PK and emits a
-    sibling Parquet under datasets/<target_family>/dim_*.parquet. Empty lists
-    are a no-op (existing dim Parquet untouched).
+    Dimension / sibling fact lists are optional. Each is UPSERTed on its own
+    PK and emits a sibling Parquet under datasets/<target_family>/. Empty
+    lists are a no-op (existing Parquet untouched).
     """
 
     model_config = ConfigDict(extra="forbid")
@@ -253,7 +262,8 @@ class BatchEnvelope(BaseModel):
     replacement_semantics: ReplacementSemantics = ReplacementSemantics.upsert
     source_rows: list[SourceRow] = Field(default_factory=list)
     observation_rows: list[ObservationRow]
-    candidate_dim_rows: list[CandidateDimRow] = Field(default_factory=list)
+    person_dim_rows: list[PersonDimRow] = Field(default_factory=list)
+    candidacy_rows: list[CandidacyRow] = Field(default_factory=list)
     ac_dim_rows: list[AcDimRow] = Field(default_factory=list)
     party_dim_rows: list[PartyDimRow] = Field(default_factory=list)
     party_alliance_dim_rows: list[PartyAllianceDimRow] = Field(default_factory=list)

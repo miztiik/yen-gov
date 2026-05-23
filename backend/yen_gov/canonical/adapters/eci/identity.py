@@ -6,6 +6,7 @@ and the rest of the adapter does not hand-format identifier strings.
 
 from __future__ import annotations
 
+import hashlib
 import re
 from dataclasses import dataclass
 
@@ -80,6 +81,35 @@ def candidate_entity_id(ac_id: str, period_label: str, ballot_serial: int) -> st
         # NOTA; ballot serials beyond two digits never appear in practice.
         raise ValueError(f"Implausible ballot serial: {ballot_serial}")
     return f"{ac_id}-{period_label}-C{ballot_serial:02d}"
+
+
+_PERSON_NAME_RE = re.compile(r"[^a-z0-9]+")
+
+
+def normalise_person_name(name: str) -> str:
+    """Normalise a printed candidate/person name for Layer-1 person ids."""
+    return _PERSON_NAME_RE.sub("-", name.lower()).strip("-")
+
+
+def layer1_person_id(
+    *,
+    state_code: str,
+    ac_id: str,
+    election_id: str,
+    candidate_name: str | None,
+) -> str:
+    """Default ADR-0035 person_id: one person per candidacy row."""
+    if not re.fullmatch(r"[SU]\d{2}", state_code):
+        raise ValueError(f"Invalid ECI state code: {state_code!r}")
+    normalised = normalise_person_name(candidate_name or "")
+    key = f"{state_code}|{ac_id}|{election_id}|{normalised}"
+    return hashlib.sha256(key.encode("utf-8")).hexdigest()[:16]
+
+
+def layer1_person_id_collision_tiebreak(base_person_id: str, candidacy_key: str) -> str:
+    """Deterministic tiebreak when the Layer-1 formula repeats in one contest."""
+    key = f"{base_person_id}|{candidacy_key}"
+    return hashlib.sha256(key.encode("utf-8")).hexdigest()[:16]
 
 
 def state_rollup_entity_id(state_code: str, period_label: str) -> str:

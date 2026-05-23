@@ -13,8 +13,8 @@
 // is just the view DDL itself.
 //
 // NOTA handling: the canonical store keeps NOTA at AC scope only
-// (`ac-nota-votes`, `ac-nota-pct`) — there is no per-candidate NOTA row in
-// `dim_candidates`. The `candidates` view synthesises one NOTA row per AC
+// (`ac-nota-votes`, `ac-nota-pct`) — there is no per-candidacy NOTA row in
+// `elections_candidacies`. The `candidates` view synthesises one NOTA row per AC
 // from those AC-scope observations so legacy presets (`WHERE is_nota = 1`)
 // continue to work.
 
@@ -23,7 +23,8 @@ import { getConnection, registerTable } from "../duckdb";
 const REQUIRED_TABLES = [
   "elections.election_results",
   "elections.dim_acs",
-  "elections.dim_candidates",
+  "elections.elections_candidacies",
+  "elections.dim_persons",
   "elections.dim_parties",
 ] as const;
 
@@ -93,20 +94,25 @@ export async function buildExploreViews(
     )
     SELECT
       da.eci_no                                       AS ac_eci_no,
-      dc.rank                                         AS rank,
-      dc.name                                         AS name,
+      ec.rank                                         AS rank,
+      p.display_name                                  AS name,
       dp.eci_code                                     AS party_eci_code,
-      dp.short_name                                   AS party_short,
+      CASE
+        WHEN ec.party_id = 'parties.IN.UNK'
+          THEN COALESCE(ec.party_short_raw, dp.short_name, 'UNK')
+        ELSE dp.short_name
+      END                                             AS party_short,
       CAST(co.votes AS BIGINT)                        AS votes,
       co.vote_share_pct                               AS vote_share_pct,
-      CASE WHEN aw.winner_candidate_id = dc.candidate_id THEN 1 ELSE 0 END AS is_winner,
+      CASE WHEN aw.winner_candidate_id = ec.candidacy_key THEN 1 ELSE 0 END AS is_winner,
       0                                               AS is_nota
-    FROM dim_candidates dc
-    JOIN dim_acs da       ON da.ac_id = dc.ac_id
-    LEFT JOIN dim_parties dp ON dp.party_id = dc.party_id
-    LEFT JOIN cand_obs co   ON co.candidate_id = dc.candidate_id
-    LEFT JOIN ac_winner aw  ON aw.ac_id = dc.ac_id
-    WHERE dc.period_label = ${evt}
+    FROM elections_candidacies ec
+    JOIN dim_persons p    ON p.person_id = ec.person_id
+    JOIN dim_acs da       ON da.ac_id = ec.ac_id
+    LEFT JOIN dim_parties dp ON dp.party_id = ec.party_id
+    LEFT JOIN cand_obs co   ON co.candidate_id = ec.candidacy_key
+    LEFT JOIN ac_winner aw  ON aw.ac_id = ec.ac_id
+    WHERE ec.election_id = ${evt}
       AND da.state_code   = ${sc}
 
     UNION ALL

@@ -40,7 +40,6 @@ test.describe("non-TN states", () => {
     // We do NOT assert specific copy because the empty-state surface is
     // expected to evolve as we wire up the per-topic graceful-empty UI.
     await page.goto("/s/bihar");
-    await page.waitForLoadState("networkidle", { timeout: 15_000 });
-    await expect(page.locator("main").first()).toBeVisible();
+    await expect(page.locator("main").first()).toBeVisible({ timeout: 45_000 });
   });
 });

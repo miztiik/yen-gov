@@ -40,6 +40,12 @@ const candidateRows = [
     party_eci_code: "1234",
     votes: 126_452,
     vote_share_pct: 56.94,
+    sex: null,
+    age: null,
+    education: null,
+    profession: null,
+    constituency_type: null,
+    party_type: null,
   },
   {
     candidate_id: "IN-S22-AC-2008-1-AcGenApr2021-C02",
@@ -53,6 +59,12 @@ const candidateRows = [
     party_eci_code: "742",
     votes: 75_514,
     vote_share_pct: 34.0,
+    sex: null,
+    age: null,
+    education: null,
+    profession: null,
+    constituency_type: null,
+    party_type: null,
   },
 ];
 
@@ -150,15 +162,16 @@ describe("loadConstituencyResult — happy path", () => {
     const registered = mockedRegister.mock.calls.map((c) => c[0]).sort();
     expect(registered).toEqual([
       "elections.dim_acs",
-      "elections.dim_candidates",
       "elections.dim_parties",
+      "elections.dim_persons",
+      "elections.elections_candidacies",
       "taxonomy.sources",
     ]);
   });
 });
 
 describe("loadConstituencyResult — partial / not_published", () => {
-  it("returns partial when dim_candidates has zero rows for (state, eci, event)", async () => {
+  it("returns partial when candidacies has zero rows for (state, eci, event)", async () => {
     mockedQuery.mockResolvedValueOnce([]); // candidates query returns nothing
     const res = await loadConstituencyResult("AcGenApr2021", "S22", 999);
     expect(res.status).toBe("partial");

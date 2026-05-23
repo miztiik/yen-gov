@@ -20,7 +20,7 @@ export interface PartyTotals {
 }
 
 export interface CandidateBio {
-  // dim_candidates v1.2 (PR-S.1) biographic columns. Each field is nullable;
+  // dim_persons / elections_candidacies biographic columns. Each field is nullable;
   // citizen UI renders the populated subset and shows “Not declared” when
   // every field is null (handled by the renderer, not by replacing nulls).
   sex: string | null;
@@ -39,7 +39,7 @@ export interface CandidateResult {
   votes: number;
   vote_share_pct: number;
   is_winner?: boolean;
-  /** Inline biographic row from dim_candidates.parquet (v1.2). `null` when
+  /** Inline biographic row from the canonical person/candidacy join. `null` when
    *  no Statistical Report adapter has populated bio for this candidate.
    *  Replaces the retired `fetchPersonEntity()` JSON sidecar fetch path
    *  (PR-S.2, canonical pivot 1.8f). */
@@ -204,7 +204,7 @@ export function fetchConstituencies(state: string): Promise<ConstituenciesCollec
 
 // people.entity sidecar (PersonEntity, fetchPersonEntity, slugifyCandidate,
 // ProvenanceGrade, FieldProvenance) was retired in PR-S.2 (canonical pivot
-// 1.8f). Biographic fields now live as columns on dim_candidates.parquet
+// 1.8f / S.1). Biographic fields now live on dim_persons/elections_candidacies
 // (schema v1.2) and surface on `CandidateResult.bio`. The 3,983 per-candidate
 // JSON sidecars under datasets/people/ were deleted in the same PR; the
 // frontend never refetches a separate URL for bio.

@@ -123,11 +123,11 @@ describe("fetchPersonEntity / slugifyCandidate — deleted in PR-S.2 (Phase 1.8f
   // Per-candidate JSON sidecars under datasets/people/<event>/<ac>/<slug>.json
   // (3,983 files) and the people.entity.schema.json contract were retired
   // in PR-S.2. Biographic fields (sex/age/education/profession/
-  // constituency_type/party_type) are now columns on dim_candidates.parquet
+  // constituency_type/party_type) are now canonical person/candidacy columns
   // (schema v1.2) and surface via `loadConstituencyResult` ->
   // `CandidateResult.bio`. The view-model unit suite
   // (view-models/constituency.test.ts) covers the SQL projection; the
   // Constituency route exercises the render path.
-  it.skip("legacy fetcher + slug helper replaced by canonical dim_candidates bio columns", () => {});
+  it.skip("legacy fetcher + slug helper replaced by canonical person bio columns", () => {});
 });
 

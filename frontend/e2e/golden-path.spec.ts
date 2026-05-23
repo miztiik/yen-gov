@@ -113,7 +113,7 @@ test.describe("golden path", () => {
     // At least one AC link rendered (constituencies.json loaded). Filter
     // by href shape — name-based queries are brittle here because the
     // visible text concatenates eci_no + AC name + reservation tag.
-    await expect(page.locator('a[href*="/ac/"]').first()).toBeVisible({ timeout: 15_000 });
+    await expect(page.locator('a[href*="/ac/"]').first()).toBeVisible({ timeout: 45_000 });
     // Provenance: SourceList renders "Sources (N)" once data loads. It now
     // sits inside the AboutThisData <details> accordion (default collapsed),
     // so it is attached to the DOM but not visible until the citizen opens

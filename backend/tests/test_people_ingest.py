@@ -3,16 +3,16 @@
 Uses a tmp_path-rooted fake corpus (CLAUDE.md §10 — never walk the real
 on-disk corpus from a pytest test). Asserts:
 
-  - panel rows UPSERT into datasets/elections/dim_candidates.parquet
-    (biographic columns sex/age/education/profession/constituency_type
-    populated for matched rows; party_type stays NULL)
+    - panel rows UPSERT into datasets/elections/dim_persons.parquet and
+        datasets/elections/elections_candidacies.parquet (person bio columns
+        plus candidacy constituency_type populated for matched rows)
   - inventory entry is upserted with discrepancy summary
   - discrepancy report is written under .runtime/reports/
   - re-running with the same inputs is a no-op (inventory short-circuit;
-    dim_candidates parquet mtime unchanged)
+    dim_persons parquet mtime unchanged)
   - --force re-runs but _upsert_dim's sorted-COPY emit keeps the parquet
     bytes AND mtime untouched (idempotent on identical inputs)
-  - halt threshold aborts BEFORE the bio UPSERT runs (dim_candidates
+    - halt threshold aborts BEFORE the bio UPSERT runs (dim_persons
     parquet stays at its pre-ingest mtime; no inventory entry written)
 
 PR-S.2 (canonical pivot 1.8f) replaced the per-candidate JSON sidecar
@@ -91,7 +91,7 @@ def _seed_canonical_winner(
         con.close()
 
 
-def _seed_canonical_dim_candidates(
+def _seed_canonical_person_candidacies(
     *,
     root: Path,
     election_id: str,
@@ -99,48 +99,63 @@ def _seed_canonical_dim_candidates(
     delim_year: int,
     eci_no: int,
 ) -> None:
-    """Seed datasets/elections/dim_candidates.parquet with the two
-    candidates the panel CSV ships. The bio UPSERT joins on
-    (state, period_label, ac_eci_no, slugify(name)); we pre-seed
-    name='WINNER A' / 'RUNNERUP B' so slugify yields the panel's
-    candidate_slug values. All v1.2 bio columns are NULL on seed;
-    upsert_candidate_bios will populate them post-run."""
-    parquet_path = root / "datasets" / "elections" / "dim_candidates.parquet"
-    parquet_path.parent.mkdir(parents=True, exist_ok=True)
+    """Seed S.1 person/candidacy parquets with the two panel candidates."""
+    persons_path = root / "datasets" / "elections" / "dim_persons.parquet"
+    candidacies_path = root / "datasets" / "elections" / "elections_candidacies.parquet"
+    persons_path.parent.mkdir(parents=True, exist_ok=True)
     ac_id = f"IN-{state_code}-AC-{delim_year}-{eci_no}"
-    rows = [
-        # All 15 v1.2 columns in _DIM_SPECS['candidate']['columns'] order.
+    person_rows = [
+        ("1111111111111111", "WINNER A", "src-fixture", None, None, None, None),
+        ("2222222222222222", "RUNNERUP B", "src-fixture", None, None, None, None),
+    ]
+    candidacy_rows = [
         (
-            f"{ac_id}-{election_id}-C01", ac_id, election_id, 1,
-            "WINNER A", "parties.IN.DMK", 1, "src-fixture",
-            "DMK", None, None, None, None, None, None,
+            f"{ac_id}-{election_id}-C01", "1111111111111111", ac_id, election_id,
+            1, "parties.IN.DMK", 1, 126000.0, 56.7, True, "src-fixture",
+            "DMK", None, None,
         ),
         (
-            f"{ac_id}-{election_id}-C02", ac_id, election_id, 2,
-            "RUNNERUP B", "parties.IN.PMK", 2, "src-fixture",
-            "PMK", None, None, None, None, None, None,
+            f"{ac_id}-{election_id}-C02", "2222222222222222", ac_id, election_id,
+            2, "parties.IN.PMK", 2, 75000.0, 33.8, False, "src-fixture",
+            "PMK", None, None,
         ),
     ]
     con = duckdb.connect(":memory:")
     try:
         con.execute(
             """
-            CREATE TABLE dim (
-                candidate_id VARCHAR, ac_id VARCHAR, period_label VARCHAR,
-                ballot_serial INTEGER, name VARCHAR, party_id VARCHAR,
-                rank INTEGER, source_id VARCHAR, party_short_raw VARCHAR,
-                sex VARCHAR, age INTEGER, education VARCHAR, profession VARCHAR,
+            CREATE TABLE persons (
+                person_id VARCHAR, display_name VARCHAR, source_id VARCHAR,
+                sex VARCHAR, age INTEGER, education VARCHAR, profession VARCHAR
+            )
+            """
+        )
+        con.executemany(
+            "INSERT INTO persons VALUES (?, ?, ?, ?, ?, ?, ?)",
+            person_rows,
+        )
+        con.execute(
+            f"COPY (SELECT * FROM persons ORDER BY person_id) TO "
+            f"'{persons_path.as_posix()}' (FORMAT PARQUET)"
+        )
+        con.execute(
+            """
+            CREATE TABLE candidacies (
+                candidacy_key VARCHAR, person_id VARCHAR, ac_id VARCHAR,
+                election_id VARCHAR, ballot_serial INTEGER, party_id VARCHAR,
+                rank INTEGER, votes_polled DOUBLE, vote_share_pct DOUBLE,
+                won BOOLEAN, source_id VARCHAR, party_short_raw VARCHAR,
                 constituency_type VARCHAR, party_type VARCHAR
             )
             """
         )
         con.executemany(
-            "INSERT INTO dim VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-            rows,
+            "INSERT INTO candidacies VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            candidacy_rows,
         )
         con.execute(
-            f"COPY (SELECT * FROM dim ORDER BY candidate_id) TO "
-            f"'{parquet_path.as_posix()}' (FORMAT PARQUET)"
+            f"COPY (SELECT * FROM candidacies ORDER BY candidacy_key) TO "
+            f"'{candidacies_path.as_posix()}' (FORMAT PARQUET)"
         )
     finally:
         con.close()
@@ -154,7 +169,7 @@ def _seed_corpus(tmp_path: Path) -> Path:
     (root / "config").mkdir(parents=True)
 
     # Schemas the orchestrator touches. (people.entity.schema.json is gone
-    # in PR-S.2 — bio rides on dim_candidates v1.2 columns.)
+    # in PR-S.2 — bio rides on canonical person/candidacy columns.)
     for name in (
         "elections-inventory.schema.json",
         "elections-config.schema.json",
@@ -176,25 +191,25 @@ def _seed_corpus(tmp_path: Path) -> Path:
         root=root, election_id="AcGenApr2021", state_code="S22",
         delim_year=2008, eci_no=1, winner_votes=126000, votes_polled=222069,
     )
-    # Pre-seed dim_candidates with the two candidate rows the panel CSV
+    # Pre-seed S.1 person/candidacy rows the panel CSV
     # will enrich. PR-S.2: upsert_candidate_bios only enriches existing
-    # dim rows (it never creates new ones — top-N + NOTA cutoff is the
+    # canonical rows (it never creates new ones — top-N + NOTA cutoff is the
     # canonical roster).
-    _seed_canonical_dim_candidates(
+    _seed_canonical_person_candidacies(
         root=root, election_id="AcGenApr2021", state_code="S22",
         delim_year=2008, eci_no=1,
     )
     return root
 
 
-def _read_dim_candidates(root: Path) -> list[dict]:
-    """Read all dim_candidates rows as dicts (ordered by candidate_id)."""
-    parquet_path = root / "datasets" / "elections" / "dim_candidates.parquet"
+def _read_dim_persons(root: Path) -> list[dict]:
+    """Read all dim_persons rows as dicts (ordered by person_id)."""
+    parquet_path = root / "datasets" / "elections" / "dim_persons.parquet"
     con = duckdb.connect(":memory:")
     try:
         rel = con.execute(
             f"SELECT * FROM read_parquet('{parquet_path.as_posix()}') "
-            f"ORDER BY candidate_id"
+            f"ORDER BY person_id"
         )
         cols = [d[0] for d in rel.description]
         return [dict(zip(cols, r)) for r in rel.fetchall()]
@@ -237,21 +252,30 @@ def test_run_people_ingest_upserts_bios_inventory_and_report(tmp_path: Path):
     # No JSON sidecar tree exists (PR-S.2: datasets/people/ is dead).
     assert not (root / "datasets" / "people").exists()
 
-    # dim_candidates.parquet now carries bio for both rows.
-    dim_rows = _read_dim_candidates(root)
+    # dim_persons.parquet now carries bio for both rows.
+    dim_rows = _read_dim_persons(root)
     assert len(dim_rows) == 2
-    winner = next(r for r in dim_rows if r["candidate_id"].endswith("C01"))
-    runnerup = next(r for r in dim_rows if r["candidate_id"].endswith("C02"))
-    assert winner["name"] == "WINNER A"
+    winner = next(r for r in dim_rows if r["display_name"] == "WINNER A")
+    runnerup = next(r for r in dim_rows if r["display_name"] == "RUNNERUP B")
+    assert winner["display_name"] == "WINNER A"
     assert winner["sex"] == "Male"
     assert winner["age"] == 60
     assert winner["education"] == "10th Pass"
     assert winner["profession"] == "Business"
-    assert winner["constituency_type"] == "GEN"
-    # party_type is not derived from the panel CSV; stays NULL.
-    assert winner["party_type"] is None
     assert runnerup["sex"] == "Female"
     assert runnerup["age"] == 50
+
+    con = duckdb.connect(":memory:")
+    try:
+        [(constituency_type, party_type)] = con.execute(
+            f"SELECT constituency_type, party_type FROM read_parquet('"
+            f"{(root / 'datasets' / 'elections' / 'elections_candidacies.parquet').as_posix()}') "
+            f"WHERE person_id = '1111111111111111'"
+        ).fetchall()
+    finally:
+        con.close()
+    assert constituency_type == "GEN"
+    assert party_type is None
 
     inv_path = root / "datasets" / "elections" / "_inventory.json"
     assert inv_path.is_file()
@@ -274,7 +298,7 @@ def test_inventory_short_circuits_rerun(tmp_path: Path):
         state="S22", year=2021, source_input="tn_ae_panel_test",
         source_url="https://eci.gov.in/statistical-report/tn-2021", run_id="r1",
     )
-    dim_parquet = root / "datasets" / "elections" / "dim_candidates.parquet"
+    dim_parquet = root / "datasets" / "elections" / "dim_persons.parquet"
     mtime_before = dim_parquet.stat().st_mtime_ns
 
     # Re-run without --force: inventory short-circuit, no work done.
@@ -297,7 +321,7 @@ def test_force_rerun_is_byte_idempotent(tmp_path: Path):
         state="S22", year=2021, source_input="tn_ae_panel_test",
         source_url="https://eci.gov.in/statistical-report/tn-2021", run_id="r1",
     )
-    dim_parquet = root / "datasets" / "elections" / "dim_candidates.parquet"
+    dim_parquet = root / "datasets" / "elections" / "dim_persons.parquet"
     bytes_before = dim_parquet.read_bytes()
 
     # --force re-runs the adapter. _upsert_dim emits sorted COPY output
@@ -319,7 +343,7 @@ def test_halt_threshold_aborts_and_writes_no_artifacts(tmp_path: Path):
     # 60k vote delta on 222k votes_polled = 27pp; halt threshold is 0.5pp.
     _write_panel_csv(csv_path, winner_votes=66000)
 
-    dim_parquet = root / "datasets" / "elections" / "dim_candidates.parquet"
+    dim_parquet = root / "datasets" / "elections" / "dim_persons.parquet"
     mtime_before = dim_parquet.stat().st_mtime_ns
     bytes_before = dim_parquet.read_bytes()
 

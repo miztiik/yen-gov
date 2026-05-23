@@ -17,7 +17,9 @@ from __future__ import annotations
 
 from yen_gov.canonical.envelope import (
     BatchEnvelope,
+    CandidacyRow,
     ObservationRow,
+    PersonDimRow,
     ReplacementSemantics,
     SourceRow,
 )
@@ -25,7 +27,9 @@ from yen_gov.canonical.writer import WriteResult, write_batch
 
 __all__ = [
     "BatchEnvelope",
+    "CandidacyRow",
     "ObservationRow",
+    "PersonDimRow",
     "ReplacementSemantics",
     "SourceRow",
     "WriteResult",

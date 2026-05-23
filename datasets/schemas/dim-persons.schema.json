@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./dim-persons.schema.json",
+  "title": "Person dimension row (canonical)",
+  "description": "Logical contract for one row of datasets/elections/dim_persons.parquet. ADR-0035 S.1 renames dim_candidates to dim_persons and moves per-contest fields to elections_candidacies.parquet. Day-one person_id is Layer 1: one person per candidacy row, derived as sha256(state_code|ac_id|election_id|normalised_candidate_name)[:16], with a deterministic candidacy-key tiebreak when that base id repeats inside the corpus.",
+  "x-version": "2.0",
+  "id_aliases": ["./dim-candidates.schema.json"],
+  "deprecated_in": "2026-05-23",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-18",
+      "description": "Initial dim_candidates schema (Phase 1.2b). Columns: candidate_id PK, ac_id, period_label, ballot_serial, name, party_id, rank, source_id. Historical entry retained here because v2.0 is a schema rename."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-05-19",
+      "description": "Additive dim_candidates bump adding optional party_short_raw for unresolved-party display fallback. Historical entry retained for migration trace."
+    },
+    {
+      "version": "1.2",
+      "date": "2026-05-20",
+      "description": "Additive dim_candidates bump adding optional biographic columns: sex, age, education, profession, constituency_type, party_type. Historical entry retained for migration trace."
+    },
+    {
+      "version": "2.0",
+      "date": "2026-05-23",
+      "description": "Breaking ADR-0035 S.1 persons fork. Rename dim_candidates to dim_persons, replace candidate_id PK with person_id PK, keep person-level display and biographic fields, and move per-contest fields to elections-candidacies.schema.json. id_aliases carries the retired dim-candidates schema id for one release window."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["person_id", "display_name", "source_id"],
+  "properties": {
+    "person_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{16}$",
+      "description": "PK. ADR-0035 Layer-1 id for day one; future merge-overlay rows keep this stable when evidence is promoted."
+    },
+    "display_name": {
+      "type": ["string", "null"],
+      "minLength": 1,
+      "description": "Citizen-facing person name, verbatim from the issuing election row for Layer-1 identities. Null only when the upstream omitted a candidate name."
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "FK -> taxonomy/sources.parquet. Same ECI citation row that supports the candidacy row."
+    },
+    "sex": {
+      "type": ["string", "null"],
+      "enum": ["Male", "Female", "Other", null],
+      "description": "Optional person-level biographic field. Null when not declared."
+    },
+    "age": {
+      "type": ["integer", "null"],
+      "minimum": 18,
+      "maximum": 120,
+      "description": "Optional candidate age at nomination. Lower bound follows the existing canonical bio contract. Null when not declared."
+    },
+    "education": {
+      "type": ["string", "null"],
+      "enum": [
+        "Illiterate",
+        "Literate",
+        "5th Pass",
+        "8th Pass",
+        "10th Pass",
+        "12th Pass",
+        "Graduate",
+        "Graduate Professional",
+        "Post Graduate",
+        "Doctorate",
+        "Others",
+        null
+      ],
+      "description": "Optional Indian credential ladder. Null when blank."
+    },
+    "profession": {
+      "type": ["string", "null"],
+      "enum": [
+        "Agriculture",
+        "Agricultural Labour",
+        "Business",
+        "Education",
+        "Former Government",
+        "Labourer or Daily Wage",
+        "Liberal Profession or Professional",
+        "Other",
+        "Politics",
+        "Religious Occupation",
+        "Retired or Pension",
+        "Salaried Work or Employed",
+        "Small Business or Self-employed",
+        "Social Work",
+        "Student",
+        "Traditional Occupation",
+        "Unemployed",
+        null
+      ],
+      "description": "Optional profession category. Class distinctions such as Agriculture vs Agricultural Labour are preserved."
+    }
+  }
+}

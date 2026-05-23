@@ -51,15 +51,19 @@ import duckdb
 from yen_gov.canonical.envelope import (
     AcDimRow,
     BatchEnvelope,
-    CandidateDimRow,
+    CandidacyRow,
     ObservationRow,
     PartyAllianceDimRow,
     PartyDimRow,
+    PersonDimRow,
     ReplacementSemantics,
     SourceRow,
 )
 from yen_gov.canonical.facet_axes_seed import (
     compile_to_parquet as _compile_facet_axes_to_parquet,
+)
+from yen_gov.canonical.persons_seed import (
+    compile_to_parquet as _compile_persons_to_parquet,
 )
 from yen_gov.core.schema_registry import schema_id, schema_version
 
@@ -217,6 +221,11 @@ _DEPRECATIONS: list[dict[str, str]] = [
         "new_path": "elections/election_results.parquet",
         "deprecated_at": "2026-05-18",
     },
+    {
+        "old_path": "elections/dim_candidates.parquet",
+        "new_path": "elections/dim_persons.parquet",
+        "deprecated_at": "2026-05-23",
+    },
 ]
 
 
@@ -286,6 +295,8 @@ def write_batch(envelope: BatchEnvelope, datasets_root: Path) -> WriteResult:
     _emit_facet_axes(taxonomy_dir)
 
     dim_written = _write_dimensions(envelope, family_dir)
+    if envelope.target_family == "elections":
+        _emit_persons_taxonomy(datasets_root)
 
     manifest_path = _regenerate_manifest(datasets_root)
 
@@ -731,38 +742,34 @@ def _emit_facet_axes(taxonomy_dir: Path) -> int:
     return _compile_facet_axes_to_parquet(out_path)
 
 
+def _emit_persons_taxonomy(datasets_root: Path) -> int:
+    taxonomy_dir = datasets_root / "taxonomy"
+    return _compile_persons_to_parquet(
+        person_aliases_json=taxonomy_dir / "person_aliases.json",
+        dim_persons_parquet=datasets_root / "elections" / "dim_persons.parquet",
+        persons_out=taxonomy_dir / "persons.parquet",
+    )
+
+
 # ---------------------------------------------------------------------------
 # Dimension tables (Phase 1.2b)
 # ---------------------------------------------------------------------------
 
 # (table_stem, pk_col, schema_file, sort_cols, ddl)
 _DIM_SPECS: dict[str, dict] = {
-    "candidate": {
-        "stem": "dim_candidates",
-        "pk": "candidate_id",
-        "schema_file": "dim-candidates.schema.json",
-        "sort_cols": ["candidate_id"],
+    "person": {
+        "stem": "dim_persons",
+        "pk": "person_id",
+        "schema_file": "dim-persons.schema.json",
+        "sort_cols": ["person_id"],
         "columns": [
-            ("candidate_id", "VARCHAR NOT NULL"),
-            ("ac_id", "VARCHAR NOT NULL"),
-            ("period_label", "VARCHAR NOT NULL"),
-            ("ballot_serial", "INTEGER NOT NULL"),
-            ("name", "VARCHAR"),
-            ("party_id", "VARCHAR NOT NULL"),
-            ("rank", "INTEGER NOT NULL"),
+            ("person_id", "VARCHAR NOT NULL"),
+            ("display_name", "VARCHAR"),
             ("source_id", "VARCHAR NOT NULL"),
-            # v1.1 (additive, nullable): verbatim ECI party_short from the
-            # upstream candidate row. UI fallback when party_id == parties.IN.UNK.
-            ("party_short_raw", "VARCHAR"),
-            # v1.2 (additive, nullable, PR-S.1): biographic fields lifted from
-            # per-candidate JSON sidecars under datasets/people/. INSERT BY NAME
-            # in _upsert_dim fills NULL for pre-existing rows automatically.
             ("sex", "VARCHAR"),
             ("age", "INTEGER"),
             ("education", "VARCHAR"),
             ("profession", "VARCHAR"),
-            ("constituency_type", "VARCHAR"),
-            ("party_type", "VARCHAR"),
         ],
     },
     "ac": {
@@ -811,6 +818,32 @@ _DIM_SPECS: dict[str, dict] = {
 }
 
 
+_FAMILY_WIDE_TABLE_SPECS: dict[tuple[str, str], dict] = {
+    ("elections", "candidacy"): {
+        "stem": "elections_candidacies",
+        "pk": "candidacy_key",
+        "schema_file": "elections-candidacies.schema.json",
+        "sort_cols": ["election_id", "ac_id", "rank", "candidacy_key"],
+        "columns": [
+            ("candidacy_key", "VARCHAR NOT NULL"),
+            ("person_id", "VARCHAR NOT NULL"),
+            ("ac_id", "VARCHAR NOT NULL"),
+            ("election_id", "VARCHAR NOT NULL"),
+            ("ballot_serial", "INTEGER NOT NULL"),
+            ("party_id", "VARCHAR NOT NULL"),
+            ("rank", "INTEGER NOT NULL"),
+            ("votes_polled", "DOUBLE"),
+            ("vote_share_pct", "DOUBLE"),
+            ("won", "BOOLEAN NOT NULL"),
+            ("source_id", "VARCHAR NOT NULL"),
+            ("party_short_raw", "VARCHAR"),
+            ("constituency_type", "VARCHAR"),
+            ("party_type", "VARCHAR"),
+        ],
+    },
+}
+
+
 def _write_dimensions(envelope: BatchEnvelope, family_dir: Path) -> dict[str, int]:
     """Emit dim_*.parquet siblings for each non-empty dim list.
 
@@ -820,7 +853,7 @@ def _write_dimensions(envelope: BatchEnvelope, family_dir: Path) -> dict[str, in
     """
     written: dict[str, int] = {}
     dim_payloads = {
-        "candidate": [r.model_dump() for r in envelope.candidate_dim_rows],
+        "person": [r.model_dump() for r in envelope.person_dim_rows],
         "ac": [r.model_dump() for r in envelope.ac_dim_rows],
         "party": [r.model_dump() for r in envelope.party_dim_rows],
         "party_alliance": [r.model_dump() for r in envelope.party_alliance_dim_rows],
@@ -836,6 +869,20 @@ def _write_dimensions(envelope: BatchEnvelope, family_dir: Path) -> dict[str, in
             spec=spec,
             table_id=f"{envelope.target_family}.{spec['stem']}",
         )
+    wide_payloads = {
+        "candidacy": [r.model_dump() for r in envelope.candidacy_rows],
+    }
+    for kind, rows in wide_payloads.items():
+        if not rows:
+            continue
+        spec = _FAMILY_WIDE_TABLE_SPECS[(envelope.target_family, kind)]
+        out_path = family_dir / f"{spec['stem']}.parquet"
+        written[spec["stem"]] = _upsert_dim(
+            out_path=out_path,
+            rows=rows,
+            spec=spec,
+            table_id=f"{envelope.target_family}.{spec['stem']}",
+        )
     return written
 
 
@@ -844,9 +891,10 @@ def _upsert_dim(*, out_path: Path, rows: list[dict], spec: dict, table_id: str) 
     try:
         col_defs = ", ".join(f"{name} {typ}" for name, typ in spec["columns"])
         con.execute(f"CREATE TABLE dim ({col_defs})")
-        if out_path.is_file():
+        has_existing = out_path.is_file()
+        if has_existing:
             # BY NAME: match by column name, filling missing source cols with
-            # NULL. Lets us additively extend a dim schema (e.g. dim_candidates
+            # NULL. Lets us additively extend a dim schema (e.g. dim_persons
             # v1.0 -> v1.1 added party_short_raw) without rebuilding from
             # scratch — old rows keep their values; new column is NULL until
             # the next UPSERT carries a payload that includes it.
@@ -862,14 +910,14 @@ def _upsert_dim(*, out_path: Path, rows: list[dict], spec: dict, table_id: str) 
         for r in rows:
             deduped[tuple(r[c] for c in pk_cols)] = r
         env_rows = list(deduped.values())
-        if len(pk_cols) == 1:
+        if has_existing and len(pk_cols) == 1:
             (pk_col,) = pk_cols
             env_pks = [r[pk_col] for r in env_rows]
             placeholders = ", ".join(["?"] * len(env_pks))
             con.execute(
                 f"DELETE FROM dim WHERE {pk_col} IN ({placeholders})", env_pks
             )
-        else:
+        elif has_existing:
             # Composite PK: (col1, col2) IN ((?,?), (?,?), ...)
             tuple_placeholders = ", ".join(
                 ["(" + ", ".join(["?"] * len(pk_cols)) + ")"] * len(env_rows)
@@ -883,12 +931,7 @@ def _upsert_dim(*, out_path: Path, rows: list[dict], spec: dict, table_id: str) 
                 f"DELETE FROM dim WHERE ({cols_csv}) IN ({tuple_placeholders})",
                 flat,
             )
-        col_names = [c[0] for c in spec["columns"]]
-        ph = ", ".join(["?"] * len(col_names))
-        con.executemany(
-            f"INSERT INTO dim VALUES ({ph})",
-            [tuple(r[c] for c in col_names) for r in env_rows],
-        )
+        _bulk_insert_dim(con, env_rows, spec)
         select_sql = (
             f"SELECT * FROM dim ORDER BY " + ", ".join(spec["sort_cols"])
         )
@@ -902,6 +945,54 @@ def _upsert_dim(*, out_path: Path, rows: list[dict], spec: dict, table_id: str) 
         )
     finally:
         con.close()
+
+
+def _bulk_insert_dim(con: duckdb.DuckDBPyConnection, rows: list[dict], spec: dict) -> None:
+    """Bulk-load wide table rows into the in-memory dim table.
+
+    DuckDB executemany is fine for tiny tables but too slow for the S.1
+    35k-row person/candidacy migration. Mirror _bulk_load_observations:
+    temp CSV -> read_csv -> INSERT BY NAME.
+    """
+    tmpf = tempfile.NamedTemporaryFile(
+        mode="w", suffix=".csv", delete=False, newline="", encoding="utf-8"
+    )
+    try:
+        import csv as _csv
+
+        col_names = [c[0] for c in spec["columns"]]
+        writer = _csv.writer(tmpf, lineterminator="\n")
+        writer.writerow(col_names)
+        for row in rows:
+            writer.writerow(["" if row[c] is None else row[c] for c in col_names])
+        tmpf.close()
+
+        columns_sql = ",\n                    ".join(
+            f"'{name}': '{_csv_type(sql_type)}'" for name, sql_type in spec["columns"]
+        )
+        csv_path = Path(tmpf.name).as_posix()
+        con.execute(f"""
+            CREATE TEMP TABLE staging_dim AS
+            SELECT * FROM read_csv('{csv_path}',
+                header=true,
+                delim=',',
+                quote='"',
+                escape='"',
+                columns={{
+                    {columns_sql}
+                }})
+        """)
+        con.execute("INSERT INTO dim BY NAME SELECT * FROM staging_dim")
+        con.execute("DROP TABLE staging_dim")
+    finally:
+        try:
+            os.unlink(tmpf.name)
+        except OSError:
+            pass
+
+
+def _csv_type(sql_type: str) -> str:
+    return sql_type.replace(" NOT NULL", "")
 
 
 def _emit_table(
@@ -1020,7 +1111,7 @@ def _regenerate_manifest(datasets_root: Path) -> Path:
         family = parquet_path.parent.name
         if family in {"taxonomy", "boundaries", "_old", "ephemeral", "schemas"}:
             continue
-        stem = parquet_path.stem  # e.g. "dim_candidates"
+        stem = parquet_path.stem  # e.g. "dim_persons"
         schema_file = _dim_schema_file(stem)
         if schema_file is None:
             continue
@@ -1030,6 +1121,19 @@ def _regenerate_manifest(datasets_root: Path) -> Path:
             table_id=f"{family}.{stem}",
             family=family,
             row_schema_file=schema_file,
+        ))
+
+    # Other family-local wide tables (non-observation facts).
+    for (family, _kind), spec in sorted(_FAMILY_WIDE_TABLE_SPECS.items()):
+        parquet_path = datasets_root / family / f"{spec['stem']}.parquet"
+        if not parquet_path.is_file():
+            continue
+        tables.append(_describe_parquet_table(
+            datasets_root=datasets_root,
+            parquet_path=parquet_path,
+            table_id=f"{family}.{spec['stem']}",
+            family=family,
+            row_schema_file=spec["schema_file"],
         ))
 
     taxonomy_dir = datasets_root / "taxonomy"
@@ -1191,6 +1295,7 @@ def _taxonomy_schema_file(stem: str) -> str | None:
         "sources": "source.schema.json",
         "entities": "entity.schema.json",
         "indicators": "indicator-catalogue.schema.json",
+        "persons": "persons.schema.json",
         "operator_state": "operator-state.schema.json",
         "caveats": "caveat.schema.json",
         "methodology_breaks": "methodology-break.schema.json",
@@ -1200,7 +1305,7 @@ def _taxonomy_schema_file(stem: str) -> str | None:
 
 def _dim_schema_file(stem: str) -> str | None:
     mapping = {
-        "dim_candidates": "dim-candidates.schema.json",
+        "dim_persons": "dim-persons.schema.json",
         "dim_acs": "dim-acs.schema.json",
         "dim_parties": "dim-parties.schema.json",
         "dim_party_alliances": "dim-party-alliances.schema.json",

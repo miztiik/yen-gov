@@ -14,6 +14,8 @@ from yen_gov.canonical.adapters.eci.identity import (
     Period,
     ac_entity_id,
     candidate_entity_id,
+    layer1_person_id_collision_tiebreak,
+    layer1_person_id,
 )
 from yen_gov.canonical.adapters.eci.party_lookup import PartyLookup
 from yen_gov.canonical.envelope import ObservationRow
@@ -270,41 +272,46 @@ def dim_rows_from_constituency(
     party_lookup: PartyLookup,
     source_id: str,
 ) -> dict[str, list[dict]]:
-    """Emit candidate + AC dim rows for one AC contest (Phase 1.2b).
-
-    Returns plain dicts to avoid the canonical->adapter import cycle. The
-    driver wraps these in CandidateDimRow / AcDimRow before envelope construction.
-
-    - dim_candidates: one row per CandidateResult; PK matches the per-contest
-      entity_id used by observations_from_constituency (so a JOIN on
-      observations.entity_id = dim_candidates.candidate_id reconstructs the
-      citizen-facing candidate name + party_id).
-    - dim_acs: one row per AC, carrying constituency_name. Period-stable; the
-      writer UPSERT keeps the first observed name across re-emit.
-    """
+    """Emit person, candidacy, and AC rows for one AC contest."""
     ac_id = ac_entity_id(result.state, delim_year, result.eci_no)
 
-    candidate_rows: list[dict] = []
+    person_rows: list[dict] = []
+    candidacy_rows: list[dict] = []
+    seen_person_ids: set[str] = set()
     for cand in result.candidates:
         cand_id = candidate_entity_id(ac_id, period.period_label, cand.rank)
+        person_id = layer1_person_id(
+            state_code=result.state,
+            ac_id=ac_id,
+            election_id=period.period_label,
+            candidate_name=cand.name,
+        )
+        if person_id in seen_person_ids:
+            person_id = layer1_person_id_collision_tiebreak(person_id, cand_id)
+        seen_person_ids.add(person_id)
         is_ind = cand.party_short.strip().lower() in {"ind", "independent"}
         party_id = party_lookup.resolve(
             party_short=cand.party_short,
             eci_code=str(cand.party_eci_code) if cand.party_eci_code else None,
             is_independent=is_ind,
         )
-        # v1.1 dim_candidates: keep the verbatim upstream short string so the
-        # citizen UI can fall back to it when party_id collapses to
-        # parties.IN.UNK (long-tail fringe parties not yet in taxonomy).
         raw_short = cand.party_short.strip() if cand.party_short else None
-        candidate_rows.append({
-            "candidate_id": cand_id,
+        person_rows.append({
+            "person_id": person_id,
+            "display_name": cand.name,
+            "source_id": source_id,
+        })
+        candidacy_rows.append({
+            "candidacy_key": cand_id,
+            "person_id": person_id,
             "ac_id": ac_id,
-            "period_label": period.period_label,
+            "election_id": period.period_label,
             "ballot_serial": cand.rank,
-            "name": cand.name,
             "party_id": party_id,
             "rank": cand.rank,
+            "votes_polled": float(cand.votes),
+            "vote_share_pct": float(cand.vote_share_pct),
+            "won": cand.rank == _winner_rank(result),
             "source_id": source_id,
             "party_short_raw": raw_short or None,
         })
@@ -318,4 +325,4 @@ def dim_rows_from_constituency(
         "source_id": source_id,
     }]
 
-    return {"candidate": candidate_rows, "ac": ac_rows}
+    return {"person": person_rows, "candidacy": candidacy_rows, "ac": ac_rows}
