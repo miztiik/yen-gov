@@ -42,7 +42,7 @@ Track-D commits (Phases 2.2…2.7 and D10…D13).
   (5 new unit cases in `helpers.test.ts`); subsequent changes flow
   from button clicks. Citizen-readable labels live in `MODE_LABELS`
   ("Share" / "Total") rather than the internal token names.
-- **2.3** (PR-10 — THIS PR): pinned readout panel on bar tap. R-12 no
+- **2.3** (PR-10 — DONE): pinned readout panel on bar tap. R-12 no
   hover-as-state — every readout is committed by an explicit click.
   Each bar gets a full-slot transparent click target so the citizen
   does not have to land on a specific segment to pin the bar; the
@@ -51,8 +51,22 @@ Track-D commits (Phases 2.2…2.7 and D10…D13).
   share% + colour chip + value, driven by the existing pure
   `readoutRows` helper. Initial pin is the last (most recent) bar so
   the panel is populated immediately. Click the same bar (or the
-  panel's × button) to clear. **Still zero callers; v1 still ships
-  untouched.**
+  panel's × button) to clear.
+- **2.4** (PR-11 — THIS PR): inline labels overlay. Segments at or
+  above `DEFAULT_LABEL_THRESHOLD_PCT` (8% of canvas height) render a
+  citizen-readable `<short-label> / <value>` pair stacked vertically
+  inside the segment; smaller segments fall back to the legend + the
+  pinned readout. Ink colour is picked per-segment by the new pure
+  `inkForFill(fillHex)` helper (YIQ perceived-brightness, threshold
+  128) so dark fills get white ink and light fills get slate-900 ink
+  — labels stay legible on every category colour without per-category
+  overrides. Labels render in an HTML overlay (`pointer-events: none`)
+  pinned to the SVG canvas with percent positioning, because SVG
+  `<text>` would be stretched by `preserveAspectRatio="none"` and
+  become illegible. 13 new unit cases in `helpers.test.ts` cover
+  white-on-dark, slate-on-light, the v2 `__OTHER__` grey, 6-digit /
+  3-digit hex, no-hash, case-insensitive, and malformed-input
+  fallback. **Still zero callers; v1 still ships untouched.**
 
 ## R-11 deferral (Phase 2.2 contract test)
 

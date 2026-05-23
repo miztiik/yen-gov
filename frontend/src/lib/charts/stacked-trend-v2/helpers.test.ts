@@ -16,6 +16,7 @@ import {
   DEFAULT_LABEL_THRESHOLD_PCT,
   MODE_LABELS,
   barTotal,
+  inkForFill,
   isLabelEligible,
   maxBarTotal,
   readoutRows,
@@ -514,5 +515,47 @@ describe("resolveInitialMode", () => {
     // Sanity: no defensive lowercasing, no falsy coercion. The function
     // exists to make the precedence rule unit-testable, not to validate.
     expect(resolveInitialMode("percent", "absolute")).toBe("percent");
+  });
+});
+
+describe("inkForFill", () => {
+  it("returns white ink on dark backgrounds", () => {
+    expect(inkForFill("#000000")).toBe("#ffffff");
+    expect(inkForFill("#0f172a")).toBe("#ffffff"); // slate-900
+    expect(inkForFill("#1e293b")).toBe("#ffffff"); // slate-800
+    expect(inkForFill("#7f1d1d")).toBe("#ffffff"); // red-900
+  });
+
+  it("returns slate-900 ink on light backgrounds", () => {
+    expect(inkForFill("#ffffff")).toBe("#0f172a");
+    expect(inkForFill("#f1f5f9")).toBe("#0f172a"); // slate-100
+    expect(inkForFill("#fef3c7")).toBe("#0f172a"); // amber-100
+  });
+
+  it("returns slate-900 on the v2 __OTHER__ grey (light enough to read dark text)", () => {
+    expect(inkForFill("#9ca3af")).toBe("#0f172a");
+  });
+
+  it("accepts both 6-digit and 3-digit hex", () => {
+    expect(inkForFill("#fff")).toBe("#0f172a");
+    expect(inkForFill("#000")).toBe("#ffffff");
+    expect(inkForFill("#abc")).toBe("#0f172a"); // light blueish
+  });
+
+  it("accepts hex without the leading hash", () => {
+    expect(inkForFill("000000")).toBe("#ffffff");
+    expect(inkForFill("ffffff")).toBe("#0f172a");
+  });
+
+  it("is case-insensitive", () => {
+    expect(inkForFill("#FFFFFF")).toBe("#0f172a");
+    expect(inkForFill("#AbCdEf")).toBe("#0f172a");
+  });
+
+  it("falls back to slate-900 on malformed input rather than rendering invisible", () => {
+    expect(inkForFill("not-a-color")).toBe("#0f172a");
+    expect(inkForFill("#zzz")).toBe("#0f172a");
+    expect(inkForFill("#12345")).toBe("#0f172a");
+    expect(inkForFill("")).toBe("#0f172a");
   });
 });

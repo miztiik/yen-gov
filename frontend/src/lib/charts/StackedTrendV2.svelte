@@ -1,31 +1,32 @@
 <script lang="ts">
   // StackedTrendV2 — component with wired geometry, segmented mode
-  // control, and pinned readout panel (Phases 2.1c + 2.2 + 2.3).
+  // control, pinned readout panel, and inline labels (Phases 2.1c +
+  // 2.2 + 2.3 + 2.4).
   //
   // Per TODO/20260518-frontend-charting-modernisation-plan.md Phases
-  // 2.1 + 2.2 + 2.3.
+  // 2.1..2.4.
   //
   // Behaviour delivered so far:
   //
   //  - Phase 2.1c: bar/segment <rect> geometry driven by the pure
   //    helpers shipped in PR #110, plus baseline axis, period-label
   //    row, and a legend strip listing only `visibleCategoryIds`.
-  //  - Phase 2.2: live segmented mode toggle. The citizen flips
-  //    between "Share" (percent of bar) and "Total" (absolute height
-  //    vs. max bar) without losing scroll or focus. R-12: button
-  //    group, NOT select.
-  //  - Phase 2.3 (this PR): pinned readout panel on bar tap. R-12: no
-  //    hover-as-state, the readout is committed by a click. Each bar
-  //    gets a full-slot transparent click target so the citizen does
-  //    not have to land on a specific segment to pin the bar. The
-  //    pinned bar gets a thin outline ring; the readout panel renders
-  //    below the chart, listing every segment (including missing /
-  //    not_applicable rows) with share% + colour chip + value. Initial
-  //    pin is the LAST bar so the panel is populated immediately.
+  //  - Phase 2.2: live segmented mode toggle. R-12: button, not select.
+  //  - Phase 2.3: pinned readout panel on bar tap. R-12: no
+  //    hover-as-state. Initial pin = LAST bar.
+  //  - Phase 2.4 (this PR): inline labels overlay. Segments at or above
+  //    `DEFAULT_LABEL_THRESHOLD_PCT` (8% of canvas height) render a
+  //    citizen-readable label + value pair stacked vertically inside
+  //    the segment. Ink colour is chosen per-segment via `inkForFill`
+  //    (white on dark, slate-900 on light) so the label stays legible
+  //    on every category colour. Smaller segments fall back to the
+  //    legend + the pinned readout. Labels render in an HTML overlay
+  //    layer (`pointer-events: none`) on top of the SVG canvas — SVG
+  //    `<text>` would be stretched by `preserveAspectRatio=none` and
+  //    become illegible.
   //
   // What's STILL out of scope (each ships in its own PR):
   //
-  //  - Inline + leader labels (Phase 2.4).
   //  - Missing / not_applicable hatch (Phase 2.5).
   //  - Motion / 200ms tween (Phase 2.6).
   //  - Export control (Phase 2.7).
@@ -64,8 +65,11 @@
 
   import { categoryFill } from "../colors/category-colour";
   import {
+    DEFAULT_LABEL_THRESHOLD_PCT,
     MODE_LABELS,
     barTotal,
+    inkForFill,
+    isLabelEligible,
     maxBarTotal,
     readoutRows,
     resolveInitialMode,
@@ -199,6 +203,7 @@
     height: number;
     fill: string;
     value: number;
+    eligibleForLabel: boolean;
   }
 
   function rectsForBar(
@@ -224,6 +229,10 @@
         height,
         fill: fillFor(seg.category_id),
         value: seg.value,
+        eligibleForLabel: isLabelEligible(
+          height,
+          DEFAULT_LABEL_THRESHOLD_PCT,
+        ),
       });
     }
     return result;
@@ -297,7 +306,7 @@
       viewBox="0 0 100 100"
       preserveAspectRatio="none"
     >
-      <g class="stacked-trend-v2__bars" data-phase="2.3-readout">
+      <g class="stacked-trend-v2__bars" data-phase="2.4-labels">
         {#each model.bars as bar, i (bar.period_id)}
           {@const total = barTotal(bar)}
           {@const rects = rectsForBar(bar.segments, total)}
@@ -369,6 +378,54 @@
         vector-effect="non-scaling-stroke"
       />
     </svg>
+
+    <!--
+      Phase 2.4 — inline labels. HTML overlay positioned over the chart
+      viewport using percent coords (which align with the SVG's 0..100
+      viewBox because `preserveAspectRatio=none` makes 1 viewBox unit =
+      1% of width / height). SVG `<text>` would be stretched by the
+      preserveAspectRatio rule and become illegible; HTML labels stay
+      crisp at any container size.
+
+      Citizen-readable rules (R-12 3-tier label):
+        - Tier 1 (inline): segment height >= DEFAULT_LABEL_THRESHOLD_PCT
+          (8% of canvas) → render `<short-label>` + `<value-with-unit>`
+          stacked.
+        - Tier 2 (legend fallback): everything else lives in the legend
+          strip below the chart + the readout panel when pinned.
+
+      Ink colour comes from `inkForFill(rect.fill)` so the label stays
+      legible on both light and dark category colours.
+
+      Labels are non-interactive (`pointer-events-none`) so clicks pass
+      through to the bar hit target underneath.
+    -->
+    <div
+      class="stacked-trend-v2__labels absolute inset-0 pointer-events-none"
+      data-overlay="inline-labels"
+    >
+      {#each model.bars as bar, i (bar.period_id)}
+        {@const total = barTotal(bar)}
+        {@const rects = rectsForBar(bar.segments, total)}
+        {#each rects as r (r.category_id)}
+          {#if r.eligibleForLabel}
+            <div
+              class="stacked-trend-v2__label absolute flex flex-col items-center justify-center text-center leading-tight"
+              style:left={`${barX(i) + barWidth / 2}%`}
+              style:top={`${r.y + r.height / 2}%`}
+              style:width={`${barWidth}%`}
+              style:transform="translate(-50%, -50%)"
+              style:color={inkForFill(r.fill)}
+              data-category-id={r.category_id}
+              data-period-id={bar.period_id}
+            >
+              <span class="text-[10px] font-medium truncate w-full px-0.5">{labelFor(r.category_id)}</span>
+              <span class="text-[9px] opacity-90 tabular-nums truncate w-full px-0.5">{fmtValue(r.value)}</span>
+            </div>
+          {/if}
+        {/each}
+      {/each}
+    </div>
   </div>
 
   <div class="flex w-full text-[10px] text-slate-500">

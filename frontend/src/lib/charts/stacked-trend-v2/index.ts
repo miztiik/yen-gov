@@ -37,6 +37,7 @@ export {
   DEFAULT_LABEL_THRESHOLD_PCT,
   MODE_LABELS,
   barTotal,
+  inkForFill,
   isLabelEligible,
   maxBarTotal,
   readoutRows,

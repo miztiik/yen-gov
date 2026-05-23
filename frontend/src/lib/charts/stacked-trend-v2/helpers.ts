@@ -48,6 +48,41 @@ import type {
 export const DEFAULT_LABEL_THRESHOLD_PCT = 8;
 
 /**
+ * Pick a citizen-readable ink colour for text laid on top of a coloured
+ * bar segment. Returns `#0f172a` (slate-900) on light fills and `#ffffff`
+ * on dark fills. Decision uses the YIQ perceived-brightness formula
+ * (`(R·299 + G·587 + B·114) / 1000`) with threshold 128 — this matches
+ * what designers and contrast pickers (e.g. the canonical
+ * "yiq-color-contrast" rule used across CSS-in-JS toolkits) produce on
+ * mid-grey + light-pastel fills, which a strict WCAG-luminance rule
+ * (threshold 0.5) misclassifies as dark and labels in unreadable
+ * white-on-grey. CLAUDE.md §0 a11y descoped — kept here purely for
+ * visual clarity, NOT compliance: an unreadable label is no label.
+ *
+ * Accepts a hex string in either `#rgb` or `#rrggbb` form, with or
+ * without the leading hash, case-insensitive. Unknown / malformed
+ * strings fall back to slate-900 so a mis-typed fill never renders
+ * invisible white-on-white.
+ */
+export function inkForFill(fillHex: string): string {
+  const hex = fillHex.startsWith("#") ? fillHex.slice(1) : fillHex;
+  const norm =
+    hex.length === 3
+      ? hex
+          .split("")
+          .map((c) => c + c)
+          .join("")
+      : hex;
+  if (norm.length !== 6 || /[^0-9a-f]/i.test(norm)) return "#0f172a";
+  const r = parseInt(norm.slice(0, 2), 16);
+  const g = parseInt(norm.slice(2, 4), 16);
+  const b = parseInt(norm.slice(4, 6), 16);
+  // YIQ perceived brightness — Rec. 601 weights, threshold 128.
+  const yiq = (r * 299 + g * 587 + b * 114) / 1000;
+  return yiq >= 128 ? "#0f172a" : "#ffffff";
+}
+
+/**
  * Citizen-readable label per chart mode (R-12, Phase 2.2).
  *
  * Kept as plain English so the segmented control reads naturally
