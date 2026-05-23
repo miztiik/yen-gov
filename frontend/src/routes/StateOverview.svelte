@@ -32,7 +32,7 @@
   import SeatDonut from "../lib/SeatDonut.svelte";
   import MarginHistogram from "../lib/MarginHistogram.svelte";
   import RacesBoard from "../lib/RacesBoard.svelte";
-  import SourceList from "../lib/SourceList.svelte";
+  import SourceListV2 from "../lib/SourceListV2.svelte";
   import StateAcMap from "../lib/maplibre/StateAcMap.svelte";
   import IndicatorCard from "../lib/IndicatorCard.svelte";
   import ElectionSeatsTrend from "../lib/ElectionSeatsTrend.svelte";
@@ -629,7 +629,7 @@
               </div>
             </div>
           </div>
-          <SourceList sources={summary.sources} />
+          <SourceListV2 sources={summary.sources_v2} />
         </div>
       </div>
     </section>

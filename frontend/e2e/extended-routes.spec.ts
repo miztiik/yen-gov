@@ -270,4 +270,51 @@ test.describe("extended routes", () => {
     const info = page.locator('h1 svg[data-icon-name="info"]').first();
     await expect(info).toHaveAttribute("data-icon-name", "info");
   });
+
+  // ------------------------------------------------------------------
+  // Phase 1.4 — SourceList v2 caller migration
+  // ------------------------------------------------------------------
+  //
+  // PR-27 swaps the StateOverview totals-card footer from the legacy
+  // SourceList (which consumed SourceRef with `url` + `fetched_at`) to
+  // SourceListV2 (which consumes the full v2.0 ledger row from
+  // taxonomy.sources per ADR-0032). The render contract:
+  //
+  //   • The v2 root mounts with `data-component="source-list-v2"`.
+  //   • The triangle disclosure is closed by default; the collapsed
+  //     line shows "Sources (N)" exactly like v1 (so the existing
+  //     `SOURCE_LIST_TEXT` regex in golden-path remains green).
+  //   • Once expanded, each row carries `data-confidence-tier` (one of
+  //     gold / silver / bronze) and `data-verification-method` (one of
+  //     live-fetch / archived-snapshot / transcribed / editorial).
+  //
+  // R-24 — no fetch-telemetry fields appear in the expanded panel. The
+  // contract test `frontend/src/contracts/sources-v2-shape.test.ts`
+  // covers the type-system seam; this spec is the citizen-surface seam.
+
+  test("state hub /s/tamil-nadu mounts SourceListV2 with citizen-visible trust signals", async ({ page }) => {
+    await page.goto("/s/tamil-nadu");
+
+    const footer = page.locator('[data-component="source-list-v2"]').first();
+    await expect(footer).toBeAttached({ timeout: 15_000 });
+    // Collapsed "Sources (N)" label preserved verbatim from v1.
+    await expect(footer.getByText(/Sources \(\d+\)/).first()).toBeVisible({ timeout: 15_000 });
+
+    // Open the disclosure. The button is the only <button> child of the
+    // v2 root — the rest of the panel is plain text + anchors.
+    await footer.locator("button").first().click();
+
+    // At least one expanded row must carry the v2.0 trust signals as
+    // data attributes. These are the citizen-visible structured surfaces
+    // SourceListV2 ships, and they're proof the loader-side v2 projection
+    // reached the DOM end-to-end.
+    const firstRow = footer.locator("[data-confidence-tier]").first();
+    await expect(firstRow).toBeVisible({ timeout: 15_000 });
+    const tier = await firstRow.getAttribute("data-confidence-tier");
+    expect(["gold", "silver", "bronze"]).toContain(tier);
+
+    const method = await firstRow.getAttribute("data-verification-method");
+    expect(["live-fetch", "archived-snapshot", "transcribed", "editorial"])
+      .toContain(method);
+  });
 });
