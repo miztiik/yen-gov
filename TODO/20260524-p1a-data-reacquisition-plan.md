@@ -80,14 +80,22 @@ Four follow-up PRs, ordered by reviewability. Each is a fused-atomic per CLAUDE.
 
 **Phase A descope rationale (consumer-audit finding)**: §13 browser smoke on `/s/tamil-nadu` revealed the frontend state-hub indicator-widget loader fetches both shards by slug (`/indicators/in/energy/state_*.json`). Deleting them — as the original C4.7 scope item 5 said — produces 404s on every state page and breaks the citizen "Peak demand" card. The backend adapter `_shared.load_shard` also reads them at lift-time (3 backend tests fail). Retirement was therefore deferred to a 4-phase strangler fig:
 
-- **Phase A (this PR, SHIPPED)**: additive FY25 lift on canonical; both legacy shards kept.
-- **Phase B (next)**: frontend reader-switch — point the state-hub indicator-widget loader at the canonical `energy_demand_supply.parquet` for this indicator (via DuckDB-WASM); legacy shard 404 becomes non-fatal.
-- **Phase C**: rewrite this lift function to drop block 4 and read FY25 directly from the canonical parquet path (eliminate the `load_shard` dependency).
-- **Phase D**: `git rm` both shards + scrub allowlist (`datasets/_ops/legacy-folded-indicator-shards.txt` lines 79 + 87) + drop the 2 rows in `docs/reference/data-inventory.md` + the 1 row in `docs/concepts/long-coverage-indicators.md`.
+- **Phase A (PR #119, SHIPPED 2026-05-24)**: additive FY25 lift on canonical; both legacy shards kept.
+- **Phase B (this PR, SHIPPED 2026-05-24/25)**: frontend `IndicatorCard` reader-switch for `state-peak-electricity-demand-mw` — DuckDB-WASM canonical query against `energy_demand_supply.parquet`; legacy shard `state_peak_electricity_demand_mw.json` no longer fetched by `IndicatorCard`.
+- **Phase C (next, backend, Level-3)**: rewrite `lift_demand_supply` block 4 to drop the `load_shard` dependency and read FY25 directly from the canonical parquet path.
+- **Phase D (final)**: `git rm` both shards + scrub allowlist (`datasets/_ops/legacy-folded-indicator-shards.txt` lines 79 + 87) + drop the 2 rows in `docs/reference/data-inventory.md` + the 1 row in `docs/concepts/long-coverage-indicators.md`.
 
-Phases B–D are tracked in a new follow-on TODO (filed under the same C4.7 slug). Phase A delivers the citizen value (FY25 shows on every state page peak-demand widget) without the retire-blocker work that Hans-grade audit reveals.
+**Phase B status (2026-05-24/25 — SHIPPED)**: introduced a frontend canonical-reader seam targeting ONE indicator (`state-peak-electricity-demand-mw`). 3 new files + 1 modified:
+- `frontend/src/lib/canonical/indicator-allowlist.ts` — hand-authored `CanonicalIndicatorDescriptor` allowlist (one entry today) mapping legacy artifact id → canonical indicator id + DuckDB table id + `IndicatorMeta`. Designed for additive growth one indicator at a time.
+- `frontend/src/lib/canonical/indicator-from-canonical.ts` — pure mapper (`buildIndicatorArtifact`) + adapter (`loadIndicatorFromCanonical`) + dispatch (`loadIndicatorIfCanonical`). Composes `registerTable` + `query<T>` from `frontend/src/lib/duckdb.ts`. Canonical entity ids stripped of `IN-` prefix to match legacy artifact entity-id shape. Synthesises stub methodology block (publisher from `implementing_authority`, definition from `meta.description`, citation `OGL-IN-1.0`, schema `v4.4`). Sources are second JOIN query against `taxonomy.sources` view; `fetched_at` left empty (citation-ledger v2.0 doctrine; `SourceList.svelte`'s `fmt()` tolerates).
+- `frontend/src/lib/canonical/indicator-from-canonical.test.ts` — 24 vitest tests / 5 describe blocks (allowlist invariants, entity translation, builder edge cases, loader SQL shape, dispatch). DuckDB-WASM mocked per CLAUDE.md §15 carve-out.
+- `frontend/src/lib/IndicatorCard.svelte` — single-line `$effect` branch: call `loadIndicatorIfCanonical(legacy_id)`, use canonical artifact if returned, else fall through to existing `fetchIndicator(path)`. Zero behaviour change for non-allowlisted indicators.
 
-**Estimated (revised)**: Phase A: ~½ day actual (now shipped). Phases B+C+D: ~2 days combined (frontend reader-switch is the single design point).
+**Phase B acceptance gates (all GREEN)**: svelte-check (0 errors / 7 pre-existing warnings) · vitest (24/24 new + 1613/1619 full, 6 pre-existing skipped) · pytest (876 passed / 44 skipped / 0 failed; backend untouched but full suite re-run) · `python -m yen_gov validate` ("OK (0 issues)") · §13 browser smoke across `/s/tamil-nadu` (20,211 MW, 5th of 34, 2025-04), `/s/kerala` (5,861 MW, 18th of 34), `/s/bihar` (8,741 MW, 14th of 34) — all show ZERO fetches of `state_peak_electricity_demand_mw.json` and ONE fetch of `energy_demand_supply.parquet` from `IndicatorCard`; 0 console errors / 0 failed requests (pre-existing benign `/data/boundaries/in/manifest.json` 404 on state pages noted).
+
+**Phase B scope boundary (important)**: only `IndicatorCard.svelte` was switched. Topic-grid pages like `/t/energy` use a DIFFERENT renderer that still fetches the legacy shard directly by slug — INTENTIONAL preservation; that's why both legacy shards stay on disk until Phase D. The sister shard `state_electricity_peak_demand_mw.json` (used by cards #43/#44 on every state page — "supplied" + a second "demand" series) is NOT in this PR's allowlist and continues to be fetched as before.
+
+**Estimated (revised)**: Phase A: ~½ day actual (PR #119). Phase B: ~½ day actual (this PR). Phase C: ~1 day (backend lift rewrite, Level-3). Phase D: ~½ day (file rm + allowlist + doc scrub, Level-2).
 
 ### P.1.A C4.5 — CEA per-state per-fuel snapshot lift (3 days; Hans+Max Q1 needed)
 

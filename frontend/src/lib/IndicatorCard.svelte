@@ -38,6 +38,13 @@
   import ListBadge from "./ListBadge.svelte";
   import TopicIcon from "./TopicIcon.svelte";
   import { url } from "./url";
+  // Phase B reader-switch: per-artifact branch between the legacy
+  // `/data/indicators/in/<topic>/<id>.json` shard fetch and a DuckDB-WASM
+  // query against the canonical Parquet store. The allowlist in
+  // `./canonical/indicator-allowlist` is the single-source-of-truth for
+  // which artifacts have been migrated (one entry today: peak demand MW).
+  // See TODO/20260524-p1a-data-reacquisition-plan.md §3 C4.7 Phase B.
+  import { loadIndicatorIfCanonical } from "./canonical/indicator-from-canonical";
 
   interface Props {
     /** Catalogue topic this card belongs to (drives header + "See all states" link). */
@@ -58,9 +65,19 @@
   $effect(() => {
     data = null;
     load_error = null;
-    fetchIndicator(indicator_path)
-      .then(a => (data = a))
-      .catch(e => (load_error = String(e)));
+    // Snapshot the artifact id so closures captured below are stable
+    // across re-renders (Svelte 5 $effect re-runs on prop changes).
+    const legacy_id = artifact.id;
+    const path = indicator_path;
+    loadIndicatorIfCanonical(legacy_id)
+      .then((canonical_artifact) => {
+        if (canonical_artifact !== null) {
+          data = canonical_artifact;
+          return;
+        }
+        return fetchIndicator(path).then((a) => (data = a));
+      })
+      .catch((e) => (load_error = String(e)));
   });
 
   const meta = $derived(data?.indicator ?? null);
