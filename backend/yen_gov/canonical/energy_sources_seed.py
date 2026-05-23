@@ -89,10 +89,21 @@ _TRIPLES: dict[str, tuple[str, str, str]] = {
 
 
 # Per-source license / confidence_tier / verification_method / authority /
-# url_main / notes. CEA + RBI are issuing authorities (gold tier); ICED
-# is the federal aggregator over CEA-published station-level data
-# (silver tier -- republisher). All energy upstreams publish under
-# OGL-IN-1.0 (Open Government Licence India).
+# url_main / notes. CEA is the issuing authority for installed-capacity
+# data (gold tier). ICED is the federal aggregator over CEA-published
+# station-level data (silver tier -- republisher). RBI Handbook is the
+# silver-tier longitudinal republisher of CEA peak-demand series per
+# plan-doc §3 Q-d (Hans 2026-05-22): "RBI is the issuing authority for
+# its own analytical Handbook but NOT for the underlying electricity
+# capacity numbers -- every affected file under datasets/indicators/in/
+# energy/ carries the disclosure 'Originating data: Central Electricity
+# Authority, Ministry of Power' verbatim. Promoting longitudinal
+# republishers to gold would silently inflate every aggregator in the
+# future corpus and the tier loses signal." verification_method is
+# archived-snapshot because the RBI Handbook is published as a PDF
+# annually; we extract the table and archive it, not poll a live API.
+# All energy upstreams publish under OGL-IN-1.0 (Open Government Licence
+# India).
 _BY_NICKNAME: dict[str, tuple[str, str, str, bool, str, str | None]] = {
     "cea_monthly_ic": (
         "OGL-IN-1.0",
@@ -128,19 +139,19 @@ _BY_NICKNAME: dict[str, tuple[str, str, str, bool, str, str | None]] = {
     ),
     "rbi_hbk_142_peak_demand": (
         "OGL-IN-1.0",
-        "gold",
-        "live-fetch",
-        True,
+        "silver",
+        "archived-snapshot",
+        False,
         "https://rbi.org.in/Scripts/PublicationsView.aspx?id=22512",
-        "RBI Handbook of Statistics on Indian States Table 142: 12-year state-wise peak demand series.",
+        "RBI Handbook of Statistics on Indian States Table 142: 12-year state-wise peak demand series. Originating data: Central Electricity Authority, Ministry of Power (per the file disclosure). RBI is the longitudinal republisher; not the issuing authority for the underlying fact (plan-doc §3 Q-d).",
     ),
     "rbi_hbk_142_peak_met": (
         "OGL-IN-1.0",
-        "gold",
-        "live-fetch",
-        True,
+        "silver",
+        "archived-snapshot",
+        False,
         "https://rbi.org.in/Scripts/PublicationsView.aspx?id=22512",
-        "RBI Handbook of Statistics on Indian States Table 142: 12-year state-wise peak-supplied series.",
+        "RBI Handbook of Statistics on Indian States Table 142: 12-year state-wise peak-supplied series. Originating data: Central Electricity Authority, Ministry of Power (per the file disclosure). RBI is the longitudinal republisher; not the issuing authority for the underlying fact (plan-doc §3 Q-d).",
     ),
 }
 

@@ -48,12 +48,21 @@ def test_source_id_hashes_match_catalogue_fks():
 
 
 def test_license_tier_authority_invariants():
-    """CEA + RBI are gold issuing authorities; ICED is silver republisher.
-    All publish under OGL-IN-1.0."""
+    """CEA is the gold issuing authority for installed capacity; ICED + RBI
+    Handbook are silver republishers per plan-doc §3 Q-d (Hans verdict,
+    2026-05-22): RBI republishes CEA peak-demand/peak-met series in its
+    longitudinal Handbook ("Originating data: Central Electricity
+    Authority, Ministry of Power" verbatim on every affected file), so
+    it is NOT the issuing authority for the underlying fact. Promoting
+    longitudinal republishers to gold would silently inflate every
+    aggregator in the future corpus and the tier loses signal. All
+    publish under OGL-IN-1.0.
+    """
     by_nick = {nick: row for nick, row in zip(SOURCE_NICKNAMES, ENERGY_SOURCES)}
     cea = by_nick["cea_monthly_ic"]
     assert cea.confidence_tier == "gold"
     assert cea.is_issuing_authority is True
+    assert cea.verification_method == "live-fetch"
 
     for nick in (
         "iced_capacity_metatable",
@@ -63,11 +72,17 @@ def test_license_tier_authority_invariants():
         row = by_nick[nick]
         assert row.confidence_tier == "silver", nick
         assert row.is_issuing_authority is False, nick
+        assert row.verification_method == "live-fetch", nick
 
+    # RBI Handbook entries: silver / not-authority / archived-snapshot per
+    # plan-doc §3 Q-d (Hans verdict 2026-05-22, REJECTING Max's gold
+    # recommendation). Underlying fact published by CEA; RBI is the
+    # longitudinal republisher with annual PDF archival cadence.
     for nick in ("rbi_hbk_142_peak_demand", "rbi_hbk_142_peak_met"):
         row = by_nick[nick]
-        assert row.confidence_tier == "gold", nick
-        assert row.is_issuing_authority is True, nick
+        assert row.confidence_tier == "silver", nick
+        assert row.is_issuing_authority is False, nick
+        assert row.verification_method == "archived-snapshot", nick
 
     # All energy upstreams publish under OGL-IN-1.0.
     for row in ENERGY_SOURCES:
