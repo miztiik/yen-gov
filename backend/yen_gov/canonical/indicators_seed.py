@@ -4,7 +4,7 @@
 The hand-authored catalogue lives in JSON (operator-friendly authoring,
 git-diff-friendly review). The parquet is the canonical wire format read
 by the static frontend via DuckDB-WASM per ADR-0030. Mirrors
-``indicator-catalogue.schema.json`` v1.0 column-for-column with two
+``indicator-catalogue.schema.json`` v1.1 column-for-column with two
 deliberate denormalisations:
 
 1. ``dimension_values`` (dict[str,str]) and ``funding_split`` (struct)
@@ -23,7 +23,17 @@ D29 contract is enforced here at compile time (failing closed):
 - child row (parent_indicator_id non-null) MUST carry dimension_values
   AND a per-child source_id
 
-P.1.A C3 seed (2026-05-22).
+v1.1 (T.3 2026-05-22) adds two optional fields with a compile-time
+semantic-pairing rule:
+- id_aliases: legacy indicator_id slugs (D30 kebab OR pre-pivot
+  '<topic>/<snake_case_id>') that resolve to this row.
+- deprecated_in: ISO 'YYYY-MM-DD' date the alias chain was introduced.
+Non-empty ``id_aliases`` REQUIRES ``deprecated_in`` (paired or omitted;
+never orphan). The 60-day expiry window is enforced separately by
+``validate.tier_b_indicator_alias_window`` (out of compile scope --
+operators may carry expired aliases briefly inside one ingest cycle).
+
+P.1.A C3 seed (2026-05-22). v1.1 widening 2026-05-22 (T.3).
 """
 
 from __future__ import annotations
@@ -56,7 +66,7 @@ class IndicatorRow(BaseModel):
     """One row of taxonomy/indicators.parquet.
 
     PK = ``indicator_id``. Mirrors ``indicator-catalogue.schema.json``
-    item shape v1.0. ``dimension_values`` and ``funding_split`` are kept
+    item shape v1.1. ``dimension_values`` and ``funding_split`` are kept
     as native types here for Pydantic validation; the parquet
     serialiser converts them to JSON strings.
     """
@@ -126,10 +136,24 @@ class IndicatorRow(BaseModel):
     coverage_year_max: int | None = None
     coverage_density: float | None = Field(default=None, ge=0, le=1)
     renderer_rules: list[str] = Field(default_factory=list)
+    # v1.1 (T.3 2026-05-22) -- one-release back-compat dereferencer.
+    # Each alias is EITHER D30 kebab (rename history) OR legacy
+    # ``<topic>/<snake_case_id>`` (pre-canonical-pivot folded-shard form).
+    # Pattern validation is delegated to the JSON Schema layer (single
+    # source of truth -- no DRY violation with the schema regex). When
+    # non-empty, ``deprecated_in`` MUST be set; enforced by the paired
+    # check inside ``compile_to_parquet`` and again at the validator gate
+    # (``yen_gov.validate.tier_b_indicator_alias_window``).
+    id_aliases: list[str] = Field(default_factory=list)
+    # ISO ``YYYY-MM-DD`` date the alias chain was introduced. Anchors
+    # the 60-day expiry window enforced by Tier-B. Optional in isolation
+    # (declaring an anchor date without any aliases is harmless).
+    deprecated_in: str | None = Field(default=None, pattern=r"^\d{4}-\d{2}-\d{2}$")
 
 
-# 31 columns, flat. Lists kept as VARCHAR[]; dicts/structs serialised to
-# JSON-string for DuckDB-WASM friendliness.
+# 33 columns, flat. Lists kept as VARCHAR[]; dicts/structs serialised to
+# JSON-string for DuckDB-WASM friendliness. id_aliases + deprecated_in
+# added in v1.1 (T.3 2026-05-22) for one-release back-compat dereferencing.
 _DDL = """
 CREATE TABLE indicators (
     indicator_id VARCHAR PRIMARY KEY,
@@ -162,7 +186,9 @@ CREATE TABLE indicators (
     coverage_year_min INTEGER,
     coverage_year_max INTEGER,
     coverage_density DOUBLE,
-    renderer_rules VARCHAR[]
+    renderer_rules VARCHAR[],
+    id_aliases VARCHAR[],
+    deprecated_in VARCHAR
 )
 """
 
@@ -212,6 +238,8 @@ def _row_to_tuple(row: IndicatorRow) -> tuple:
         row.coverage_year_max,
         row.coverage_density,
         list(row.renderer_rules),
+        list(row.id_aliases),
+        row.deprecated_in,
     )
 
 
@@ -248,6 +276,18 @@ def compile_to_parquet(json_in: Path, parquet_out: Path) -> int:
                     "(per D29 -- siblings can have different upstreams)."
                 )
 
+        # v1.1 (T.3) paired-semantic rule. ``id_aliases`` non-empty
+        # requires ``deprecated_in`` set so Tier-B can anchor the 60-day
+        # expiry window. Reverse pairing (deprecated_in set, no aliases)
+        # is legal -- harmless on its own.
+        if r.id_aliases and r.deprecated_in is None:
+            raise ValueError(
+                f"indicator {r.indicator_id!r}: id_aliases non-empty requires "
+                "deprecated_in to be set (per indicator-catalogue.schema.json "
+                "v1.1 paired-semantic rule). Set deprecated_in to today's ISO "
+                "date or remove the id_aliases entries."
+            )
+
     # Deterministic order: by indicator_id (PK).
     rows.sort(key=lambda r: r.indicator_id)
 
@@ -257,7 +297,7 @@ def compile_to_parquet(json_in: Path, parquet_out: Path) -> int:
         if rows:
             con.executemany(
                 "INSERT INTO indicators VALUES ("
-                + ", ".join(["?"] * 31)
+                + ", ".join(["?"] * 33)
                 + ")",
                 [_row_to_tuple(r) for r in rows],
             )
