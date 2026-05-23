@@ -1,6 +1,6 @@
 # Agent Guardrails
 
-**Last Updated**: 2026-05-18
+**Last Updated**: 2026-05-23
 
 This is the rules-only digest every persona must honour. It restates `CLAUDE.md` constraints in one place so an agent can scan the constraints quickly and so other docs (ADRs, agent files, code reviews) can link to specific rules. The authoritative source remains [`CLAUDE.md`](../../CLAUDE.md); if this doc and `CLAUDE.md` disagree, `CLAUDE.md` wins and this digest gets updated.
 
@@ -39,15 +39,13 @@ Loaded by [`bootstrap.md`](bootstrap.md) as part of every persona's startup ritu
 - **Accessibility (a11y / ARIA / WCAG / axe-core / contrast / keyboard-nav / screen-reader).** Descoped 2026-05-12. Visual-clarity rules (legend has numbers, colour is one signal) stand on their own merits, not as a11y compliance.
 - **Production backend.** Same as Holy Law #1 — listed for emphasis.
 
-## Forbidden git operations (without explicit user approval)
+## Git hygiene for autonomous work
 
-- `git stash`
-- `git reset --hard`
-- `git clean -fd`
-- `git checkout .` / `git restore .`
-- `git add .` / `git add -A`
-- `git push --force` (any form)
-- Amending commits that have been pushed
+A user's finish/ship/merge instruction authorizes the reversible git workflow: inspect state, stage explicit paths, commit, push, run gates, and merge or enable automerge when green.
+
+Stop only when the next action would discard or overwrite unrelated work, rewrite published history, broadly mutate the working tree, or when ownership is ambiguous after inspection.
+
+Avoid stash, hard reset, clean, broad restore, add-all, force push, and amending pushed commits in autonomous flow.
 
 Commit messages describe the change. **No AI co-author / attribution tags.**
 
@@ -94,7 +92,7 @@ Per `CLAUDE.md §13`: agent uses integrated browser tools (`open_browser_page`, 
 
 ## Correction levels (escalation rule)
 
-When in doubt, choose the higher level. Level 2 and above require explicit approval before code changes (`CLAUDE.md §6`).
+When in doubt, choose the higher level. Level 2 and above require an explicit plan before code changes; execute once scope is clear unless a `CLAUDE.md §8` stop condition or unresolved design decision applies.
 
 ## Anti-patterns (do NOT)
 
@@ -109,7 +107,7 @@ When in doubt, choose the higher level. Level 2 and above require explicit appro
 - Run CI that processes `datasets/**` — publish is plain static-file copy.
 - Use `datetime.now()` as input to artifact content (use upstream content-hash + `first_fetched_at` / `last_seen_at` from `sources.parquet`).
 - Propose byte-compare write seams (`write_text_if_changed` shapes). Canonical writer uses UPSERT-into-DuckDB.
-- Use forbidden git commands.
+- Use broad, lossy, or history-rewriting git commands instead of the `CLAUDE.md §8` workflow.
 - Let `TODO/` or chat logs become the source of truth.
 - Pre-create empty modules "for later".
 - Skip the docs update.

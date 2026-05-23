@@ -9,7 +9,7 @@ This is the *what to load*. The companion doc [`guardrails.md`](guardrails.md) i
 ## The ritual (in order)
 
 1. **Read [`CLAUDE.md`](../../CLAUDE.md) end-to-end.** It is the engineering contract. Identify which Holy Laws (#1–#10) are load-bearing for the current task and be ready to cite them by number.
-2. **Read [`guardrails.md`](guardrails.md).** Holy Laws restated, project-level non-goals, forbidden git operations, escalation rules. These constrain every recommendation you make.
+2. **Read [`guardrails.md`](guardrails.md).** Holy Laws restated, project-level non-goals, git hygiene and stop conditions, escalation rules. These constrain every recommendation you make.
 3. **Read the relevant subsystem doc(s) under `docs/architecture/<area>/`.** Pick the area that matches the task surface — e.g. `docs/architecture/ingest/` for a new source adapter, `docs/architecture/schemas/` for a contract change, `docs/architecture/frontend/` for a UI change. Don't critique what you haven't read.
 4. **Read the relevant ADR(s) under `docs/architecture/decisions/`** if one is cited from the subsystem doc or referenced in the task.
 5. **Read the relevant concept doc(s) under `docs/concepts/`.** Especially [`citizen-first.md`](../concepts/citizen-first.md) for any citizen-facing work, and the pillar / domain concept doc that matches.

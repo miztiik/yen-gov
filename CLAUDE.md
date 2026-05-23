@@ -1,6 +1,6 @@
 # CLAUDE.md — yen-gov Engineering Contract
 
-**Last Updated**: 2026-05-22
+**Last Updated**: 2026-05-23
 
 This file is the non-negotiable contract for any human or AI agent working in this repository. The full standard it derives from lives in [docs/reference/documentation-structure.md](docs/reference/documentation-structure.md). When the two disagree, **this file wins for yen-gov**; the standard is generic.
 
@@ -107,12 +107,12 @@ Classify every change before starting:
 | :---: | ------------------------------------ | ------------------------------------- |
 |  0    | Comments, typos, log strings         | Direct fix                            |
 |  1    | 1 file, ~50 lines, isolated bug      | Direct fix                            |
-|  2    | 1–2 files, explicit behavior change  | Plan → approve → execute              |
+|  2    | 1–2 files, explicit behavior change  | Plan → execute once scope is clear    |
 |  3    | 2–3 files, cross-cutting             | Plan → phased execution               |
 |  4    | 4+ files, structural                 | Propose breakdown first               |
 |  5    | Core design / data model / runtime   | Design consultation only — pause work |
 
-When in doubt, choose the higher level. Level 2 and above require explicit approval before code changes.
+When in doubt, choose the higher level. Level 2 and above require an explicit plan before code changes; execute once scope is clear unless a §8 stop condition or unresolved design decision applies.
 
 ## 7. Debug Logging
 
@@ -120,19 +120,25 @@ When in doubt, choose the higher level. Level 2 and above require explicit appro
 - Before finalizing any change: grep for `[DEBUG]` and remove every match.
 - Re-run tests after cleanup.
 
-## 8. Git Safety (Forbidden by Default)
+## 8. Git Hygiene for Autonomous Merge Work
 
-Do not run any of these without explicit user approval:
+When the user says finish, ship, or merge, that authorizes the normal reversible git workflow: inspect state, use a named branch, stage exact paths, commit, push, run gates, and merge or enable automerge when green.
 
-- `git stash` (loses untracked files on pop/drop)
+Do not pause merely because git is involved. Pause only when the next action would discard or overwrite unrelated work, rewrite published history, broadly mutate the working tree, or when file/branch ownership is ambiguous after inspection.
+
+Avoid these in autonomous work because they are broad, lossy, or history-rewriting:
+
+- `git stash`
 - `git reset --hard`
 - `git clean -fd`
-- `git checkout .` / `git restore .`
+- `git checkout .` / broad `git restore .`
 - `git add .` / `git add -A`
-- `git push --force` (any form)
+- `git push --force` / `git push --force-with-lease`
 - Amending commits that have been pushed
 
-Safe workflow: inspect untracked (`git status --porcelain | grep "^??"`), stage only the specific files you touched, verify with `git diff --cached --name-only`, commit on a feature branch, merge with `--no-ff`.
+Safe workflow: inspect `git status --porcelain`, current branch, recent commits, relevant PRs/branches, and untracked files; leave unrelated dirty files alone; stage only explicit paths you intentionally touched; verify with `git diff --cached --name-only`; commit small reversible units on a named branch; push; merge or enable automerge after gates pass. If touched files overlap with someone else's edits, integrate deliberately or stop with a precise ownership question.
+
+Git is the rollback ledger. Prefer branches, small commits, PRs, and merge/automerge over stash parking or broad cleanup.
 
 Commit messages describe the change. **No AI co-author / attribution tags.**
 
@@ -170,7 +176,7 @@ A change is not done until ALL hold:
 - Walk the real on-disk corpus (`datasets/**`, `config/**`) from a `pytest` test, or from an HTTP smoke test that hits a live FastAPI route which itself walks the corpus. That is Tier-B conformance (§11), which is local-only via `python -m yen_gov validate --root .`. Pytest tests assert CODE correctness against `tmp_path` fixtures; they MUST NOT assert DATA quality against the real repo. Symptoms: a single test takes >5s; the fix is "add the missing file" not "change the code"; the test fails on a teammate's machine after they pull a corpus-only change. Doctrine fix pattern: inject the root via a `_repo_root()` helper reading an env var (e.g. `YEN_GOV_REPO_ROOT`), default to the real repo at runtime, in tests `monkeypatch.setenv(...)` to point at a `tmp_path` fixture corpus. Reference fix: commit `7d407d0`. Doctrine: [`docs/architecture/backend/validator.md`](docs/architecture/backend/validator.md).
 - Emit JSON projections of canonical data for the citizen frontend. Under the canonical pivot, frontend reads Parquet via DuckDB-WASM only. No precomputed per-shard JSON, no parallel projection tree, no JSON shadow of the Parquet rows. Pre-pivot per-shard JSON (per-event `datasets/elections/<event>/<state>/{results/<ac>.json,parties.json,result.summary.json,_inventory.json}`) is superseded by the canonical store but still sits on disk pending per-family cleanup (TODO `20260517-canonical-long-format-pivot.md` rows 1.8b–1.8f); no new readers are allowed against that shape.
 - Run CI that processes `datasets/**`. The publish pipeline is plain static-file copy via GitHub Pages from `main`. The only CI gates are lint, type-check, pytest, frontend build, Playwright — none of which touch `datasets/` contents.
-- Use forbidden git commands (Section 8).
+- Use broad, lossy, or history-rewriting git commands instead of the §8 workflow.
 - Let `TODO/` or chat logs become the source of truth for architecture.
 - Let `AGENTS.md` or `/memories/` become a shadow source of truth instead of linking back to `docs/`.
 - Pre-create empty modules "for later".
