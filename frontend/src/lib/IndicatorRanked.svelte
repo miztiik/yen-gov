@@ -26,6 +26,19 @@
   import { axisUnitLabel, legendCaption } from "./indicator-render";
   import { loadStates, type StateRow } from "./view-models/states";
   import TopicIcon from "./TopicIcon.svelte";
+  // Phase 3 — ranked-comparison polish:
+  //   computePeerBand       → median / IQR / p10_p90 over the visible numeric
+  //                           values; powers the inline median tick.
+  //   projectPeerBandMarker → projects the band's median onto [0, 1] relative
+  //                           to `max_abs`, so the tick lines up with the bar.
+  //   computeGapLine        → direction-aware "TN is X above/below KA"
+  //                           wording; honesty rule: never says better/worse,
+  //                           the verdict is on a separate badge.
+  import {
+    computeGapLine,
+    computePeerBand,
+    projectPeerBandMarker,
+  } from "./charts/ranked-comparison";
 
   interface Props {
     /** Path under DATA_BASE, e.g. "/indicators/in/energy/installed_mw_by_state.json". */
@@ -230,12 +243,27 @@
     artifact?.indicator.comparability !== "not_comparable_across_states",
   );
 
+  // Phase 3 — peer-band marker over the ranked rows (peer set + home/compare
+  // pins). Median is the lightest-touch marker; the renderer only paints the
+  // median tick on the distribution bar (NOT the IQR shading) to stay quiet.
+  // Suppressed entirely when rank is suppressed (honesty: no median tick on
+  // a non-comparable indicator).
+  const peer_band = $derived.by(() => {
+    if (!can_rank) return null;
+    const vals = rows.map(r => r.value);
+    return computePeerBand(vals, "median");
+  });
+  const peer_band_marker = $derived(
+    peer_band ? projectPeerBandMarker(peer_band, max_abs) : null,
+  );
+
   // Per-row lookups for the header compare strip.
   const home_row = $derived(rows.find(r => r.is_home) ?? null);
   const compare_row = $derived(rows.find(r => r.is_compare) ?? null);
   // Gap calculation honours the indicator's direction: positive `gap` means
   // home is doing BETTER than compare (more of the good thing, or less of
-  // the bad thing). Null when either side is missing.
+  // the bad thing). Null when either side is missing. Retained for the
+  // legacy "ahead/behind" wording in the header strip.
   const gap = $derived.by(() => {
     if (!artifact || !home_row || !compare_row) return null;
     if (home_row.value === null || compare_row.value === null) return null;
@@ -243,6 +271,22 @@
     const raw = home_row.value - compare_row.value;
     if (dir === "lower_is_better") return -raw;
     return raw;
+  });
+  // Phase 3 — direction-aware gap line (citizen-readable wording + verdict
+  // badge). Computed via the pure `computeGapLine` helper; renderer maps the
+  // closed-enum `verdict` to a colour swatch and keeps `wording` factual
+  // (never says better/worse — that's the badge's job).
+  const gap_line = $derived.by(() => {
+    if (!artifact || !home_row || !compare_row) return null;
+    const indicator_meta = artifact.indicator;
+    return computeGapLine({
+      home_name: home_row.name,
+      home_value: home_row.value,
+      compare_name: compare_row.name,
+      compare_value: compare_row.value,
+      direction: indicator_meta.direction,
+      format_gap: (v: number) => formatValue(v, indicator_meta),
+    });
   });
 
   // States offered in the picker: every state EXCEPT home, sorted by name.
@@ -306,7 +350,8 @@
       {#if home_row && compare_row && gap !== null && artifact.indicator.comparability !== "not_comparable_across_states"}
         {@const better = gap > 0}
         {@const equal = gap === 0}
-        <div class="text-xs px-2.5 py-1.5 rounded border flex items-center gap-2 flex-wrap"
+        <div
+          class="text-xs px-2.5 py-1.5 rounded border flex items-center gap-2 flex-wrap"
           class:bg-emerald-50={better}
           class:border-emerald-200={better}
           class:text-emerald-900={better}
@@ -316,18 +361,39 @@
           class:bg-slate-50={equal}
           class:border-slate-200={equal}
           class:text-slate-700={equal}
+          data-testid="indicator-ranked-gap-line"
         >
           <span class="font-semibold">{home_row.name}</span>
           <span class="tabular-nums">{formatValue(home_row.value as number, artifact.indicator)}</span>
           <span class="text-slate-400">vs</span>
           <span class="font-semibold">{compare_row.name}</span>
           <span class="tabular-nums">{formatValue(compare_row.value as number, artifact.indicator)}</span>
-          <span class="ml-auto">
-            {#if equal}equal{:else}{home_row.name} is
-              <strong>{better ? "ahead" : "behind"}</strong>
-              by {formatValue(Math.abs((home_row.value as number) - (compare_row.value as number)), artifact.indicator)}
-            {/if}
-          </span>
+          {#if gap_line}
+            <span class="ml-auto flex items-center gap-1.5">
+              {#if gap_line.verdict === "better"}
+                <span
+                  class="inline-block px-1.5 py-0.5 text-[10px] uppercase tracking-wide rounded bg-emerald-100 text-emerald-800 font-semibold"
+                  data-testid="indicator-ranked-gap-verdict"
+                >ahead</span>
+              {:else if gap_line.verdict === "worse"}
+                <span
+                  class="inline-block px-1.5 py-0.5 text-[10px] uppercase tracking-wide rounded bg-rose-100 text-rose-800 font-semibold"
+                  data-testid="indicator-ranked-gap-verdict"
+                >behind</span>
+              {:else if gap_line.verdict === "equal"}
+                <span
+                  class="inline-block px-1.5 py-0.5 text-[10px] uppercase tracking-wide rounded bg-slate-200 text-slate-700 font-semibold"
+                  data-testid="indicator-ranked-gap-verdict"
+                >equal</span>
+              {:else if gap_line.verdict === "neutral"}
+                <span
+                  class="inline-block px-1.5 py-0.5 text-[10px] uppercase tracking-wide rounded bg-sky-100 text-sky-800 font-semibold"
+                  data-testid="indicator-ranked-gap-verdict"
+                >differs</span>
+              {/if}
+              <span data-testid="indicator-ranked-gap-wording">{gap_line.wording}</span>
+            </span>
+          {/if}
         </div>
       {/if}
 
@@ -376,7 +442,7 @@
               </td>
               <td class="py-1.5 pr-3">
                 {#if r.value !== null}
-                  <div class="h-2 bg-slate-100 rounded-sm overflow-hidden">
+                  <div class="relative h-2 bg-slate-100 rounded-sm overflow-hidden">
                     <div
                       class="h-full"
                       class:bg-amber-500={r.is_home}
@@ -384,6 +450,16 @@
                       class:bg-sky-400={!r.is_home && !r.is_compare}
                       style:width="{Math.min(100, (Math.abs(r.value) / max_abs) * 100)}%"
                     ></div>
+                    {#if peer_band_marker && peer_band_marker.median_pct_of_max !== null && artifact}
+                      {@const median_value = peer_band_marker.median as number}
+                      {@const indicator_meta = artifact.indicator}
+                      <div
+                        class="absolute top-[-2px] bottom-[-2px] w-px bg-slate-500"
+                        style:left="{(peer_band_marker.median_pct_of_max * 100).toFixed(3)}%"
+                        title="Peer median: {formatValue(median_value, indicator_meta)}"
+                        data-testid="indicator-ranked-median-tick"
+                      ></div>
+                    {/if}
                   </div>
                 {/if}
               </td>
