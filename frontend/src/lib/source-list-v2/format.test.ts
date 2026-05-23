@@ -1,6 +1,6 @@
 // SourceList v2 — vitest for pure formatters.
 //
-// Per Phase 1.4 of TODO/20260518-frontend-charting-modernisation-plan.md:
+// Per Phase 1.4 of docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md:
 //   "Unit tests for source summary formatting: producer/authority/vintage
 //    fallback, host fallback, empty hand-authored source case."
 //

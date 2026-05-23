@@ -4,7 +4,7 @@
 // `taxonomy.sources` (the manifest-registered v2.0 citation ledger per
 // ADR-0032). This file is the boundary between the canonical store and
 // the chart-shell / footer chrome (Phase 1.4 of
-// TODO/20260518-frontend-charting-modernisation-plan.md).
+// docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md).
 //
 // R-24 — citizen-facing footer chrome reads ONLY the v2.0 ledger fields.
 // Fetch telemetry (`first_fetched_at`, `last_seen_at`, `date_accessed`,

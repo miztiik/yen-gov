@@ -1,6 +1,6 @@
 // StackedTrendV2 helpers — unit tests (Phase 2.1).
 //
-// Per TODO/20260518-frontend-charting-modernisation-plan.md Phase 2.1:
+// Per docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md Phase 2.1:
 //
 // > Unit tests cover percent and absolute modes, zero totals,
 // > `__OTHER__`, missing values, and `not_applicable`.

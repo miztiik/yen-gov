@@ -1,6 +1,6 @@
 // Playwright — CompositionBar A/B mount on the state-hub elections card.
 //
-// Phase 3.6 (c) of TODO/20260518-frontend-charting-modernisation-plan.md.
+// Phase 3.6 (c) of docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md.
 // Verifies the three contract surfaces of the experiment:
 //
 //   1. Treatment bucket on Karnataka (S10, in the rollout list) renders

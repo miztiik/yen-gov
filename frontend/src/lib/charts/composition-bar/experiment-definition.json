@@ -3,7 +3,7 @@
   "experiment_id": "chart-composition-bar-election-seats",
   "feature_key": "chart.composition-bar.election-seats.enabled",
   "name": "CompositionBar — election seats (Phase 3.6)",
-  "description": "A/B experiment shipping the new single-entity 100%-stacked CompositionBar primitive on the state-hub elections card. Treatment shows CompositionBar alongside the existing SeatDonut; control sees SeatDonut alone (existing behaviour). URL stays canonical (place-first per ADR-0028); bucket is sticky via a first-party cookie keyed on a stable visitor id. Phase 3.6 of TODO/20260518-frontend-charting-modernisation-plan.md.",
+  "description": "A/B experiment shipping the new single-entity 100%-stacked CompositionBar primitive on the state-hub elections card. Treatment shows CompositionBar alongside the existing SeatDonut; control sees SeatDonut alone (existing behaviour). URL stays canonical (place-first per ADR-0028); bucket is sticky via a first-party cookie keyed on a stable visitor id. Phase 3.6 of docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md.",
   "owner": "frontend-charting-modernisation",
   "tags": [
     "chart-modernisation",

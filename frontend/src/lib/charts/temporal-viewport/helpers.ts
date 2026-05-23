@@ -1,6 +1,6 @@
 // Temporal viewport — pure helpers. No DOM, no Svelte, no state.
 //
-// Per Phase 1.5 of TODO/20260518-frontend-charting-modernisation-plan.md.
+// Per Phase 1.5 of docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md.
 // The brush component (later PR) and the temporal-aware renderers
 // (StackedTrendV2, ministerial Gantt, fiscal lines) consume these.
 //

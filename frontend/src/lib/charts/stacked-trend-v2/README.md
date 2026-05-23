@@ -1,7 +1,7 @@
 # StackedTrendV2 — citation-ledger-aligned stacked-trend model
 
 Structural-only foundation for Phase 2 of
-[TODO/20260518-frontend-charting-modernisation-plan.md](../../../../../TODO/20260518-frontend-charting-modernisation-plan.md).
+[docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md](../../../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md).
 This package ships the **v2 contract** (zod schema + types + fixture) and
 the **inert component shell** (`StackedTrendV2.svelte` at the parent
 `charts/` level — type-check green, no caller mounts it yet).

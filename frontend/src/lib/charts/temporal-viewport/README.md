@@ -2,7 +2,7 @@
 
 Pure helper module for the temporal viewport (brush + presets) that
 lands across the chart family in Phase 1.5 of
-[`TODO/20260518-frontend-charting-modernisation-plan.md`](../../../../TODO/20260518-frontend-charting-modernisation-plan.md).
+[`docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md`](../../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md).
 
 ## Contract
 

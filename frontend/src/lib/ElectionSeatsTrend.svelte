@@ -3,7 +3,7 @@
   // one state from the canonical Parquet store (one DuckDB-WASM JOIN) and
   // renders the chronological seat-composition timeline as a StackedTrendV2.
   //
-  // Track-D D10 (TODO/20260518-frontend-charting-modernisation-plan.md):
+  // Track-D D10 (docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md):
   // first caller migration from v1 `StackedTrend.svelte` →
   // v2 `StackedTrendV2.svelte`. The view-model loader already JOINs
   // `taxonomy.sources` (R-28) — D10 extends it to emit the full

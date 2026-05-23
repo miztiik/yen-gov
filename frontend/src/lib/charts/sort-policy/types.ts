@@ -1,7 +1,7 @@
 // Sort policies — closed-enum type contract for Phase 1.6 chart
 // view-model sorting helpers.
 //
-// Per `TODO/20260518-frontend-charting-modernisation-plan.md` Phase 1.6:
+// Per `docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md` Phase 1.6:
 // "Move chart sorting/grouping decisions out of Svelte templates and
 // into tested view-model helpers."
 //

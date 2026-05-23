@@ -1,6 +1,6 @@
 // CompositionBar — view-model contract.
 //
-// Per `TODO/20260518-frontend-charting-modernisation-plan.md` Phase 3.6
+// Per `docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md` Phase 3.6
 // — single-entity, single-period horizontal 100%-stacked bar. Generic;
 // NOT election-specific. Domain bindings (party seats, fuel mix, age
 // bands, …) live in adapters; the renderer takes a typed view-model.

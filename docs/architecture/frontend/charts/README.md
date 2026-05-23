@@ -23,4 +23,4 @@ The `docs/architecture/frontend/charts/` directory holds per-primitive subsystem
 - [`../overview.md`](../overview.md) — frontend architecture overview with the renderer catalog (one-line summary per renderer).
 - [`../colours.md`](../colours.md) — colour-system subsystem (links to `choropleth-ramp.md` for the ramp contract).
 - [`../../../how-to/distill.md`](../../../how-to/distill.md) — the seven-step citizen-first distill runbook.
-- [TODO/20260518-frontend-charting-modernisation-plan.md](../../../../TODO/20260518-frontend-charting-modernisation-plan.md) — the master plan these docs distil.
+- [docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md](../../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md) — the master plan these docs distil.

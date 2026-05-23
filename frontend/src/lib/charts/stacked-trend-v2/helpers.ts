@@ -1,6 +1,6 @@
 // StackedTrendV2 — pure view-model helpers (Phase 2.1, R-09).
 //
-// Per TODO/20260518-frontend-charting-modernisation-plan.md Phase 2.1.
+// Per docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md Phase 2.1.
 // These helpers extract the math previously inlined in v1
 // `frontend/src/lib/charts/StackedTrend.svelte` (`barTotal`, `segHeight`,
 // `maxTotal`) into typed, testable pure functions, plus the new helpers

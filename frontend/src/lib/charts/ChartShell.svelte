@@ -1,7 +1,7 @@
 <script lang="ts">
   // ChartShell — shared chart shell and action footer (Phase 1.4 task 1).
   //
-  // Per TODO/20260518-frontend-charting-modernisation-plan.md Phase 1.4.
+  // Per docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md Phase 1.4.
   //
   // Responsibilities:
   //

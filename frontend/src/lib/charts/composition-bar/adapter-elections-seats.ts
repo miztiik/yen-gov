@@ -1,6 +1,6 @@
 // CompositionBar — elections (party seats won) adapter (Phase 3.6 (b)).
 //
-// Per TODO/20260518-frontend-charting-modernisation-plan.md Phase 3.6
+// Per docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md Phase 3.6
 // (b). Turns one `(state, election_event)` pair into a typed
 // CompositionBarModel by JOINing `elections.election_results` +
 // `elections.dim_parties` + `taxonomy.sources` via the manifest-

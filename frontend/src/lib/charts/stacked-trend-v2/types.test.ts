@@ -1,6 +1,6 @@
 // StackedTrendV2 — zod-model conformance tests.
 //
-// Per TODO/20260518-frontend-charting-modernisation-plan.md Track-D D1
+// Per docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md Track-D D1
 // (Phase 2.1a / R-09). Structural only — zero render coverage. The
 // component shell + behavioural tests land in subsequent commits.
 

@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-05-25
 
-Locks the existing sequential-choropleth ramp's contract without changing visible math. Promotes ramp endpoints to exported constants, adds an OkLCh-space accessor for future tuning work, and pins monotonicity via tests. Any actual tuning (visible math changes) requires screenshot review on a citizen route per the [plan §5](../../../../TODO/20260518-frontend-charting-modernisation-plan.md).
+Locks the existing sequential-choropleth ramp's contract without changing visible math. Promotes ramp endpoints to exported constants, adds an OkLCh-space accessor for future tuning work, and pins monotonicity via tests. Any actual tuning (visible math changes) requires screenshot review on a citizen route per the [plan §5](../../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md).
 
 ## What it is
 
@@ -35,7 +35,7 @@ In [`frontend/src/lib/indicators.ts`](../../../../frontend/src/lib/indicators.ts
 
 - [`../colours.md`](../colours.md) — the colour-system subsystem doc that surfaces `sequentialSwatchOkLCh` and the ramp contract.
 - [`overview.md`](../overview.md) — visualization catalog (choropleth row).
-- [TODO/20260518-frontend-charting-modernisation-plan.md §5](../../../../TODO/20260518-frontend-charting-modernisation-plan.md) — plan's "needs screenshot review" rule.
+- [docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md §5](../../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md) — plan's "needs screenshot review" rule.
 
 ## Historical citations
 

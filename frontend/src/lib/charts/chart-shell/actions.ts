@@ -22,7 +22,7 @@ import type {
  *   2. This array (and its `as const` literal types stay in sync via
  *      TypeScript's `satisfies` clause below).
  *   3. The Phase 1.4 plan task list in
- *      `TODO/20260518-frontend-charting-modernisation-plan.md`.
+ *      `docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md`.
  */
 export const ALLOWED_ACTIONS = Object.freeze([
   "view_data",

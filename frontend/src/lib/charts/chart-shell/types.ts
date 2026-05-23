@@ -1,6 +1,6 @@
 // ChartShell — typed contract for the shared chart shell/footer primitive
 // shipped in Phase 1.4 task 1 of
-// `TODO/20260518-frontend-charting-modernisation-plan.md`.
+// `docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md`.
 //
 // This file is the **contract** — types only, no runtime, no Svelte.
 // The renderer (`frontend/src/lib/charts/ChartShell.svelte`) imports

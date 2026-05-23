@@ -1,7 +1,7 @@
 # ChartShell — shared chart shell and action footer
 
 Phase 1.4 task 1 of
-[`TODO/20260518-frontend-charting-modernisation-plan.md`](../../../../../TODO/20260518-frontend-charting-modernisation-plan.md).
+[`docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md`](../../../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md).
 
 ## What this is
 

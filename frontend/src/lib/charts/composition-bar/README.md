@@ -1,7 +1,7 @@
 # CompositionBar — single-entity 100%-stacked horizontal bar
 
 Phase 3.6 (a) renderer slice of
-[`TODO/20260518-frontend-charting-modernisation-plan.md`](../../../../../TODO/20260518-frontend-charting-modernisation-plan.md).
+[`docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md`](../../../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md).
 
 ## What this is
 

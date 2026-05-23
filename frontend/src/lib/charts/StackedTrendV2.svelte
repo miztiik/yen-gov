@@ -4,7 +4,7 @@
   // not_applicable hatch, and subtle 200ms motion (Phases 2.1c + 2.2
   // + 2.3 + 2.4 + 2.5 + 2.6).
   //
-  // Per TODO/20260518-frontend-charting-modernisation-plan.md Phases
+  // Per docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md Phases
   // 2.1..2.6.
   //
   // Behaviour delivered so far:

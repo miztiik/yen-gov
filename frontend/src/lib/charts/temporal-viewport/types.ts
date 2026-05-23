@@ -1,6 +1,6 @@
 // Temporal viewport — typed contract for the temporal viewport
 // primitive that lands across the chart family in Phase 1.5 of
-// `TODO/20260518-frontend-charting-modernisation-plan.md`.
+// `docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md`.
 //
 // This file is the **contract** — types only, no runtime, no Svelte,
 // no DOM. The pure helpers in `./helpers.ts` operate on these types;

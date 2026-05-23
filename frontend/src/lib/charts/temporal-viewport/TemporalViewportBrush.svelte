@@ -20,7 +20,7 @@
   // TemporalViewportBrush — preset + per-period strip selection
   // primitive (Phase 1.5 component slice).
   //
-  // Per `TODO/20260518-frontend-charting-modernisation-plan.md`
+  // Per `docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md`
   // Phase 1.5 — "below the chart, a compact overview strip … allows
   // dragging/resizing the visible window" + "Presets: All, Recent,
   // 10y, 25y".
