@@ -134,7 +134,24 @@
 {:else if !v2_model}
   <p class="text-sm text-slate-500">No election summaries available for this state yet.</p>
 {:else}
-  <StackedTrendV2 model={v2_model} />
+  <!--
+    Phase 1.5 first renderer adopter — temporal viewport brush.
+    Enabled here because state-level election histories often span
+    1952..2024 (15+ elections for legacy states like Tamil Nadu,
+    West Bengal) and the brush gives citizens a way to zoom into a
+    political-era window without losing the full domain context.
+
+    `temporal_domain_kind="month"` matches the period_id shape
+    `"YYYY-MM"` emitted by `parseElectionEventId` in
+    `frontend/src/lib/charts/stacked-trend/adapter-elections.ts` —
+    the helper's `parseLeadingYear` matches "year-followed-by-separator",
+    keeping the 5y/10y/25y presets active alongside "All" / "Recent 5".
+  -->
+  <StackedTrendV2
+    model={v2_model}
+    enable_temporal_brush={true}
+    temporal_domain_kind="month"
+  />
   <!--
     Provenance footer — SourceListV2 reads the full v2.0 `taxonomy.sources`
     ledger row (producer / title / vintage / license / confidence_tier /

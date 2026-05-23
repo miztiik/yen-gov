@@ -110,10 +110,23 @@
     OTHER_CATEGORY_FILL_V2,
     OTHER_CATEGORY_ID_V2,
   } from "./stacked-trend-v2/types";
+  import TemporalViewportBrush from "./temporal-viewport/TemporalViewportBrush.svelte";
+  import {
+    buildDomain,
+    filterItemsToWindow,
+    fullWindow,
+  } from "./temporal-viewport/helpers";
+  import type {
+    TemporalDomainKind,
+    TemporalWindow,
+  } from "./temporal-viewport/types";
 
   let {
     model,
     mode_override,
+    enable_temporal_brush = false,
+    temporal_domain_kind = "year",
+    temporal_recent_count = 5,
   }: {
     model: StackedTrendV2Model;
     /**
@@ -124,6 +137,27 @@
      * own default — never as a permanent lock.
      */
     mode_override?: "percent" | "absolute";
+    /**
+     * Phase 1.5 — first renderer adopter for the temporal viewport
+     * brush. Default `false` keeps every existing caller bit-identical;
+     * routes opt in by passing `enable_temporal_brush={true}`. Window
+     * state stays LOCAL to the component (R-07 — URL grammar is
+     * route-owned, not renderer-owned).
+     */
+    enable_temporal_brush?: boolean;
+    /**
+     * Domain kind used when building the brush's temporal domain. The
+     * renderer can't sniff this from `model.bars[].period_id` alone
+     * (a four-digit prefix could be a calendar year, fiscal year, or
+     * the start of an election cycle), so the caller declares the
+     * dimension. Defaults to `"year"` because StackedTrendV2 today is
+     * mostly mounted on yearly economy/energy series.
+     */
+    temporal_domain_kind?: TemporalDomainKind;
+    /**
+     * Window size for the brush's `recent` preset. Default 5.
+     */
+    temporal_recent_count?: number;
   } = $props();
 
   // Live mode state (Phase 2.2 / R-12). Initial value resolved via the
@@ -137,6 +171,70 @@
   let currentMode = $state<"percent" | "absolute">(
     resolveInitialMode(mode_override, model.default_mode),
   );
+
+  // Phase 1.5 — temporal viewport brush wiring (first renderer adopter).
+  //
+  // Domain is derived from the current model's bars; window state is
+  // LOCAL to this component (R-07 — URL grammar is route-owned).
+  // Initialised to `null` and lazy-seeded in $effect so a model swap
+  // (e.g. route change between two energy series) reseeds to the full
+  // window of the NEW domain rather than holding the previous one.
+  //
+  // When `enable_temporal_brush={false}` (the default), the window
+  // collapses to `fullWindow(domain)` and `visibleBars === model.bars`
+  // — zero behaviour change for existing callers.
+  const temporal_domain = $derived(
+    buildDomain(
+      model.bars.map((b) => b.period_id),
+      temporal_domain_kind,
+    ),
+  );
+
+  let temporal_window: TemporalWindow | null = $state(null);
+
+  $effect(() => {
+    // Re-seed when the brush window references a period_id that no
+    // longer exists in the current domain (model swap). Helpers will
+    // clamp defensively, but the visible state should mirror the
+    // intent (full window after a swap).
+    if (temporal_window === null) {
+      temporal_window = fullWindow(temporal_domain);
+      return;
+    }
+    const ids = new Set(temporal_domain.ordered_period_ids);
+    if (
+      !ids.has(temporal_window.from_period_id) ||
+      !ids.has(temporal_window.to_period_id)
+    ) {
+      temporal_window = fullWindow(temporal_domain);
+    }
+  });
+
+  const effective_window = $derived(
+    temporal_window ?? fullWindow(temporal_domain),
+  );
+
+  const visibleBars = $derived(
+    enable_temporal_brush
+      ? filterItemsToWindow(
+          model.bars,
+          (b) => b.period_id,
+          effective_window,
+          temporal_domain,
+        )
+      : model.bars,
+  );
+
+  // Period label map for the brush strip cells. Keyed by period_id,
+  // value is the human-facing `period_label` already used in the
+  // chart's axis row — keeps both views consistent.
+  const temporal_period_labels = $derived.by(() => {
+    const out: Record<string, string> = {};
+    for (const bar of model.bars) {
+      out[bar.period_id] = bar.period_label;
+    }
+    return out;
+  });
 
   // Pinned readout state (Phase 2.3 / R-12 — no-hover-as-state). The
   // initial pin is the last (most recent) bar so the citizen sees a
@@ -153,7 +251,7 @@
 
   const pinnedBar = $derived(
     pinnedPeriod != null
-      ? (model.bars.find((b) => b.period_id === pinnedPeriod) ?? null)
+      ? (visibleBars.find((b) => b.period_id === pinnedPeriod) ?? null)
       : null,
   );
 
@@ -199,7 +297,7 @@
   }
 
   const visibleIds = $derived(visibleCategoryIds(model));
-  const maxTotal = $derived(maxBarTotal(model.bars));
+  const maxTotal = $derived(maxBarTotal(visibleBars));
 
   /**
    * Stable lookup for a segment's fill colour. Uses the model's explicit
@@ -242,7 +340,7 @@
   // 3-bar series breathes and a 30-bar series stays dense but legible.
 
   const BAR_GAP_RATIO = 0.15; // 15% of pitch reserved for inter-bar gap
-  const pitch = $derived(100 / Math.max(1, model.bars.length));
+  const pitch = $derived(100 / Math.max(1, visibleBars.length));
   const barWidth = $derived(pitch * (1 - BAR_GAP_RATIO));
   const barX = (i: number): number => i * pitch + (pitch - barWidth) / 2;
 
@@ -427,7 +525,7 @@
         </pattern>
       </defs>
       <g class="stacked-trend-v2__bars" data-phase="2.6-motion">
-        {#each model.bars as bar, i (bar.period_id)}
+        {#each visibleBars as bar, i (bar.period_id)}
           {@const total = barTotal(bar)}
           {@const rects = rectsForBar(bar.segments, total)}
           {@const stripes = unknownStripesForBar(bar)}
@@ -560,7 +658,7 @@
       class="stacked-trend-v2__labels absolute inset-0 pointer-events-none"
       data-overlay="inline-labels"
     >
-      {#each model.bars as bar, i (bar.period_id)}
+      {#each visibleBars as bar, i (bar.period_id)}
         {@const total = barTotal(bar)}
         {@const rects = rectsForBar(bar.segments, total)}
         {#each rects as r (r.category_id)}
@@ -585,7 +683,7 @@
   </div>
 
   <div class="flex w-full text-[10px] text-slate-500">
-    {#each model.bars as bar (bar.period_id)}
+    {#each visibleBars as bar (bar.period_id)}
       <div
         class="flex-1 min-w-0 text-center truncate"
         title={bar.period_label}
@@ -594,6 +692,27 @@
       </div>
     {/each}
   </div>
+
+  {#if enable_temporal_brush}
+    <!--
+      Phase 1.5 first renderer adopter — temporal viewport brush.
+      Sits below the period-label row so the citizen can see which
+      bars they're selecting / dropping. Uncontrolled mode: the
+      component owns its window state; we surface the same state via
+      `effective_window` so the chart's geometry stays in sync.
+
+      Strip cells receive `period_labels` keyed by `period_id` so the
+      brush displays the same human-facing period label used in the
+      chart axis above (no duplicate formatting).
+    -->
+    <TemporalViewportBrush
+      domain={temporal_domain}
+      window={effective_window}
+      recent_count={temporal_recent_count}
+      period_labels={temporal_period_labels}
+      on_window_change={(next) => (temporal_window = next)}
+    />
+  {/if}
 
   {#if pinnedBar && pinnedRows && pinnedRows.length > 0}
     <div
