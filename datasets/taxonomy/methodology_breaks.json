@@ -1,0 +1,24 @@
+{
+  "$schema": "../schemas/methodology-break.schema.json",
+  "$schema_version": "1.0",
+  "methodology_breaks": [
+    {
+      "methodology_version": "mnre-offgrid-inclusion-2021-08",
+      "at_year": 2021,
+      "at_period_seq": 5,
+      "kind": "definition_change",
+      "note": "From August 2021, MNRE began counting off-grid renewable installations (rooftop solar < 1 MW, small-scale wind, biogas) in the all-India installed-capacity total. Earlier vintages reported only grid-connected plants >= 25 MW. The series jump is approximately +12 GW in the renewable-capacity total nationally; comparing pre-2021-08 to post-2021-08 figures overstates the growth rate. See ADR-0030 D33.8 for the compute-on-read parent invariant — yen-gov does NOT emit a `_total_mw` parent that would mask this break inside an aggregate.",
+      "publisher_url": "https://mnre.gov.in/the-ministry/physical-progress",
+      "supersedes_methodology_version": null
+    },
+    {
+      "methodology_version": "cea-coal-aggregate-proxy-fy22",
+      "at_year": 2022,
+      "at_period_seq": 1,
+      "kind": "frame_change",
+      "note": "From FY 2021-22 (April 2021 onwards), CEA's per-state coal-capacity column folds in bagasse cogeneration plants below 25 MW that were previously reported under 'renewable - biomass'. State-level coal totals for sugar-belt states (UP, Maharashtra, Karnataka, Tamil Nadu) may be 1-3% higher from FY22 onwards than pre-FY22 figures, with a matching deduction from renewable-biomass. This is a reclassification, not a real capacity change. Sister rule to mnre-offgrid-inclusion-2021-08 but at a different (CEA, not MNRE) seam.",
+      "publisher_url": "https://cea.nic.in/installed-capacity-report/?lang=en",
+      "supersedes_methodology_version": null
+    }
+  ]
+}

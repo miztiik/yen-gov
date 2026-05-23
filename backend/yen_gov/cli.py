@@ -119,6 +119,15 @@ def emit_taxonomy(
       G.1.c consolidation, 2026-05-22). Also UPSERTs the 31 Wikipedia
       "List of CMs" citation rows into
       ``datasets/taxonomy/sources.parquet``.
+    - ``datasets/taxonomy/indicators.parquet`` -- the canonical
+      indicator catalogue from ``indicators.json`` (P.1.A C3, 2026-05-22).
+    - ``datasets/taxonomy/methodology_breaks.parquet`` -- the
+      versioned methodology-break ledger from
+      ``methodology_breaks.json`` (P.1.A C3, 2026-05-22).
+    - ``datasets/taxonomy/sources.parquet`` -- (further UPSERTed) with
+      the 6 P.1.A energy citation rows (CEA Monthly IC + 3 ICED APIs +
+      2 RBI Handbook table-142 series) after office_holdings has
+      written the wiki rows. Idempotent across re-runs.
 
     The facet-axes emit also runs automatically inside every canonical
     ``write_batch`` call as a belt-and-suspenders refresh; the other
@@ -142,6 +151,15 @@ def emit_taxonomy(
     )
     from yen_gov.canonical.office_holdings_seed import (
         compile_to_parquet as _compile_office_holdings,
+    )
+    from yen_gov.canonical.indicators_seed import (
+        compile_to_parquet as _compile_indicators,
+    )
+    from yen_gov.canonical.methodology_breaks_seed import (
+        compile_to_parquet as _compile_methodology_breaks,
+    )
+    from yen_gov.canonical.energy_sources_seed import (
+        upsert_energy_sources_to_parquet as _upsert_energy_sources,
     )
 
     taxonomy_dir = root / "datasets" / "taxonomy"
@@ -214,6 +232,35 @@ def emit_taxonomy(
     typer.echo(
         f"emit-taxonomy: wrote {holdings_count} rows to "
         f"datasets/governments/governments_office_holdings.parquet"
+    )
+
+    # 7) indicators catalogue (P.1.A C3)
+    rows = _compile_indicators(
+        taxonomy_dir / "indicators.json",
+        taxonomy_dir / "indicators.parquet",
+    )
+    typer.echo(
+        f"emit-taxonomy: wrote {rows} rows to datasets/taxonomy/indicators.parquet"
+    )
+
+    # 8) methodology_breaks (P.1.A C3)
+    rows = _compile_methodology_breaks(
+        taxonomy_dir / "methodology_breaks.json",
+        taxonomy_dir / "methodology_breaks.parquet",
+    )
+    typer.echo(
+        f"emit-taxonomy: wrote {rows} rows to "
+        f"datasets/taxonomy/methodology_breaks.parquet"
+    )
+
+    # 9) energy sources UPSERT (P.1.A C3) -- must run AFTER step 6 so
+    #    the wiki citation rows are already on disk; we read-modify-
+    #    write the same sources.parquet to add the 6 energy citation
+    #    rows (1 CEA + 3 ICED + 2 RBI). Idempotent.
+    n_energy = _upsert_energy_sources(taxonomy_dir / "sources.parquet")
+    typer.echo(
+        f"emit-taxonomy: upserted {n_energy} energy citation rows into "
+        f"datasets/taxonomy/sources.parquet"
     )
 
 
