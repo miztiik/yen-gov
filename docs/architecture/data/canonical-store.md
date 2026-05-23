@@ -240,12 +240,14 @@ datasets/
     fiscal_state_own_revenue.parquet
     dim_fiscal_heads.parquet
 
-  energy/                             # P.*
-    energy_installed_capacity.parquet
-    energy_generation.parquet
-    energy_distribution_performance.parquet   # ATC losses, billing/collection efficiency
-    dim_plants.parquet
-    dim_discoms.parquet
+  energy/                             # P.1.A (2026-05-22) — 5 fact-tables locked
+    energy_installed_capacity.parquet         # CEA per-fuel + ICED geographical + ICED allocated
+    energy_generation.parquet                 # ICED state generation + per-fuel breakdown
+    energy_demand_supply.parquet              # RBI Hbk Table 142 peak demand + supplied + ICED per-capita
+    energy_distribution_performance.parquet   # ATC losses + sales-MU (PFC ACS-ARR + RPO in P.1.B/C)
+    energy_fuel_consumption.parquet           # primary energy (Coal Controller + PPAC + IEA) — P.1.C populates
+    dim_plants.parquet                        # P.1.C — NPP plant identity
+    dim_discoms.parquet                       # P.1.B — Forum of Regulators DISCOM identity
 
   health/                             # NEW (T.2 split out of human_development per Max Q2)
     health_births_deaths.parquet              # CRS/SRS
@@ -354,11 +356,12 @@ datasets/
 | `datasets/governments/in/states/` | `datasets/governments/governments_office_holdings.parquet` + `taxonomy/entities.parquet` (`entity_type='office_bearer'`) | G.1 (3-PR strangler-fig G.1.a/b/c per [`TODO/20260522-g1-cm-terms-retirement-handover.md`](../../../TODO/20260522-g1-cm-terms-retirement-handover.md)) |
 | `datasets/features/` | KEEP (citizen geometry layer; see [`datasets/features/README.md`](../../../datasets/features/README.md)); retires when boundaries become a P.\* family | T.1 (audited 2026-05-22, decision: KEEP) |
 
-### §2b.4 — Three rules to evaluate yourself against
+### §2b.4 — Four rules to evaluate yourself against
 
 1. **Single-parent file system, faceted topic metadata.** Every Parquet has ONE physical home (its publisher family); topic membership is M:N via `taxonomy/indicator_topic_tags.parquet`. If a file is duplicated across topic dirs, that's a smell — collapse to one home, add topic tags.
 2. **Identity vs occupancy split.** Office *identity* (PM-IN, CM-S22) is taxonomy; office *occupancy* (Modi was PM 2014–) is a fact in `governments/`. Person identity is taxonomy (`persons.parquet`); person candidacy is a fact in `elections/`. If a file mixes both, split it.
 3. **Hand-authored is text + compiled Parquet** (D18 + §8.3). If a `.json` exists in `taxonomy/` without a sibling `.parquet`, the compile step is missing. If a `.parquet` exists in `taxonomy/` without a sibling `.json` (and isn't adapter-generated like `sources.parquet`), there is no editorial trail — that's a smell.
+4. **A new fact-table within a family is justified when** (a) the citizen question is distinct, AND (b) co-locating would force every chart on the smaller-question to scan unrelated indicator rows, OR (c) the FK-graph diverges (different `dim_*` joins). Same row-shape across files is expected, not a smell — `indicator_id` is the within-file discriminator (D5). Worked example: `energy/` splits to 5 fact-tables (P.1.A, 2026-05-22) because "what plants exist" (`installed_capacity`), "what fuel ran" (`generation`), "did we get power" (`demand_supply`), "is the DISCOM solvent" (`distribution_performance`), and "what fuel/oil did we burn" (`fuel_consumption`) are five different citizen questions with three different `dim_*` joins (`dim_plants` vs `dim_discoms` vs neither). Authority: Hans + Max for citizen-question separability; Gregor for FK-graph + naming. See [`TODO/20260522-phase-2-p1-energy-pivot.md` §2](../../../TODO/20260522-phase-2-p1-energy-pivot.md) for the lock-extension rationale.
 
 ---
 
