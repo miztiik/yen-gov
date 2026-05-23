@@ -1,26 +1,30 @@
 <script lang="ts">
-  // StackedTrendV2 — component with wired geometry + segmented mode
-  // control (Phase 2.1c + Phase 2.2).
+  // StackedTrendV2 — component with wired geometry, segmented mode
+  // control, and pinned readout panel (Phases 2.1c + 2.2 + 2.3).
   //
   // Per TODO/20260518-frontend-charting-modernisation-plan.md Phases
-  // 2.1 + 2.2.
+  // 2.1 + 2.2 + 2.3.
   //
   // Behaviour delivered so far:
   //
   //  - Phase 2.1c: bar/segment <rect> geometry driven by the pure
   //    helpers shipped in PR #110, plus baseline axis, period-label
   //    row, and a legend strip listing only `visibleCategoryIds`.
-  //  - Phase 2.2 (this PR): live segmented mode toggle. The citizen
-  //    flips between "Share" (percent of bar) and "Total" (absolute
-  //    height vs. max bar) without losing scroll or focus. Initial
-  //    mode comes from `resolveInitialMode(mode_override,
-  //    model.default_mode)`. R-12: this is a `<button>` group, NOT a
-  //    `<select>`, so the citizen sees the alternative without
-  //    opening a menu.
+  //  - Phase 2.2: live segmented mode toggle. The citizen flips
+  //    between "Share" (percent of bar) and "Total" (absolute height
+  //    vs. max bar) without losing scroll or focus. R-12: button
+  //    group, NOT select.
+  //  - Phase 2.3 (this PR): pinned readout panel on bar tap. R-12: no
+  //    hover-as-state, the readout is committed by a click. Each bar
+  //    gets a full-slot transparent click target so the citizen does
+  //    not have to land on a specific segment to pin the bar. The
+  //    pinned bar gets a thin outline ring; the readout panel renders
+  //    below the chart, listing every segment (including missing /
+  //    not_applicable rows) with share% + colour chip + value. Initial
+  //    pin is the LAST bar so the panel is populated immediately.
   //
   // What's STILL out of scope (each ships in its own PR):
   //
-  //  - Pinned readout panel on bar tap (Phase 2.3 / R-12, no hover-as-state).
   //  - Inline + leader labels (Phase 2.4).
   //  - Missing / not_applicable hatch (Phase 2.5).
   //  - Motion / 200ms tween (Phase 2.6).
@@ -46,17 +50,24 @@
   //  - Colours come from the existing `categoryFill` helper plus the v2
   //    `OTHER_CATEGORY_FILL_V2` constant — same palette discipline as
   //    v1, so cross-chart consistency is preserved during migration.
+  //  - Per-bar hit targets are full-slot transparent `<rect>`s with
+  //    `pointer-events="none"` on the segment fills so the click always
+  //    lands on the hit target (no z-ordering surprises). The pinned
+  //    bar gets an outlined `<rect>` overlay so the citizen sees what
+  //    drives the readout panel below.
   //
   // CLAUDE.md S0 (a11y descoped): no aria-label, no role attribute.
-  // The mode buttons carry `data-mode-value` + `data-active` for
-  // Playwright; they are real `<button>` elements (keyboard- and
-  // pointer-navigable for free) but no aria-pressed is set.
+  // The mode buttons + bar hit targets + close button carry `data-*`
+  // attributes for Playwright; they are real `<button>` / `<rect>`
+  // elements (keyboard- and pointer-navigable for free for buttons)
+  // but no aria-pressed / aria-expanded is set.
 
   import { categoryFill } from "../colors/category-colour";
   import {
     MODE_LABELS,
     barTotal,
     maxBarTotal,
+    readoutRows,
     resolveInitialMode,
     segmentVisualHeightPct,
     visibleCategoryIds,
@@ -96,6 +107,37 @@
   let currentMode = $state<"percent" | "absolute">(
     resolveInitialMode(mode_override, model.default_mode),
   );
+
+  // Pinned readout state (Phase 2.3 / R-12 — no-hover-as-state). The
+  // initial pin is the last (most recent) bar so the citizen sees a
+  // populated panel immediately rather than an empty placeholder.
+  // Click a bar to switch the pin; click the same bar (or the panel's
+  // close button) to clear it.
+  //
+  // svelte-ignore state_referenced_locally — same rationale as
+  // currentMode: prop changes must not silently overwrite the citizen's
+  // selection.
+  const initialPinnedPeriod =
+    model.bars[model.bars.length - 1]?.period_id ?? null;
+  let pinnedPeriod = $state<string | null>(initialPinnedPeriod);
+
+  const pinnedBar = $derived(
+    pinnedPeriod != null
+      ? (model.bars.find((b) => b.period_id === pinnedPeriod) ?? null)
+      : null,
+  );
+
+  const pinnedRows = $derived(
+    pinnedBar != null ? readoutRows(pinnedBar, model.categories) : null,
+  );
+
+  const pinnedBarTotal = $derived(
+    pinnedBar != null ? barTotal(pinnedBar) : 0,
+  );
+
+  function togglePin(period_id: string): void {
+    pinnedPeriod = pinnedPeriod === period_id ? null : period_id;
+  }
 
   const visibleIds = $derived(visibleCategoryIds(model));
   const maxTotal = $derived(maxBarTotal(model.bars));
@@ -255,10 +297,11 @@
       viewBox="0 0 100 100"
       preserveAspectRatio="none"
     >
-      <g class="stacked-trend-v2__bars" data-phase="2.1c-wired">
+      <g class="stacked-trend-v2__bars" data-phase="2.3-readout">
         {#each model.bars as bar, i (bar.period_id)}
           {@const total = barTotal(bar)}
           {@const rects = rectsForBar(bar.segments, total)}
+          {@const isPinned = pinnedPeriod === bar.period_id}
           <g class="stacked-trend-v2__bar" transform="translate({barX(i)} 0)">
             {#each rects as r (r.category_id)}
               <rect
@@ -268,10 +311,49 @@
                 height={r.height}
                 fill={r.fill}
                 class="stacked-trend-v2__segment"
+                pointer-events="none"
               >
                 <title>{labelFor(r.category_id)}: {fmtValue(r.value)}</title>
               </rect>
             {/each}
+            <!-- Full-slot transparent hit target. Sized to the entire
+                 100-unit-tall slot so the citizen does not have to land
+                 on a specific segment to pin the bar; clicking the gap
+                 above the bar also works. -->
+            <!-- svelte-ignore a11y_click_events_have_key_events -->
+            <!-- svelte-ignore a11y_no_static_element_interactions -->
+            <rect
+              x="0"
+              y="0"
+              width={barWidth}
+              height="100"
+              fill="transparent"
+              class="stacked-trend-v2__hit cursor-pointer"
+              data-period-id={bar.period_id}
+              data-pinned={isPinned}
+              onclick={() => togglePin(bar.period_id)}
+            >
+              <title>{bar.period_label}</title>
+            </rect>
+            {#if isPinned}
+              <!-- Visual ring around the pinned bar so the citizen sees
+                   which bar drives the readout panel below. Outline
+                   only — fill stays transparent so the segments below
+                   remain visible. `vector-effect=non-scaling-stroke`
+                   keeps the ring 1px regardless of the canvas's CSS
+                   scale. -->
+              <rect
+                x="0"
+                y="0"
+                width={barWidth}
+                height="100"
+                fill="none"
+                stroke="#1e293b"
+                stroke-width="0.6"
+                vector-effect="non-scaling-stroke"
+                class="stacked-trend-v2__pin-ring pointer-events-none"
+              />
+            {/if}
           </g>
         {/each}
       </g>
@@ -299,6 +381,52 @@
       </div>
     {/each}
   </div>
+
+  {#if pinnedBar && pinnedRows && pinnedRows.length > 0}
+    <div
+      class="stacked-trend-v2__readout rounded border border-slate-300 bg-white p-3 text-xs"
+      data-readout="pinned"
+      data-period-id={pinnedBar.period_id}
+    >
+      <div class="flex items-baseline gap-2 mb-2">
+        <div class="font-semibold text-slate-900 text-sm">{pinnedBar.period_label}</div>
+        {#if pinnedBarTotal > 0}
+          <div class="text-slate-500">Total · {fmtValue(pinnedBarTotal)}</div>
+        {/if}
+        <button
+          type="button"
+          class="ml-auto text-slate-400 hover:text-slate-700 px-1.5 py-0.5 rounded"
+          data-readout-action="clear"
+          onclick={() => (pinnedPeriod = null)}
+          title="Clear selection"
+        >
+          ×
+        </button>
+      </div>
+      <ul class="space-y-1">
+        {#each pinnedRows as row (row.category_id)}
+          <li
+            class="flex items-center gap-2"
+            data-category-id={row.category_id}
+            data-availability={row.availability}
+          >
+            <span
+              class="inline-block w-2.5 h-2.5 rounded-sm flex-shrink-0"
+              style:background-color={fillFor(row.category_id)}
+              class:opacity-30={row.availability !== "present"}
+            ></span>
+            <span class="font-medium text-slate-800 truncate">{row.label}</span>
+            {#if row.availability === "present" && row.value != null}
+              <span class="text-slate-600 tabular-nums ml-auto">{fmtValue(row.value)}</span>
+              <span class="text-slate-400 tabular-nums w-12 text-right">{row.share_pct.toFixed(1)}%</span>
+            {:else}
+              <span class="text-slate-400 italic ml-auto">{row.availability_label ?? (row.availability === "missing" ? "Not reported" : "Not applicable")}</span>
+            {/if}
+          </li>
+        {/each}
+      </ul>
+    </div>
+  {/if}
 
   <ul class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-600">
     {#each visibleIds as id (id)}

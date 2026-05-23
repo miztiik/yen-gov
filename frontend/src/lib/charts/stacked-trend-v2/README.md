@@ -34,15 +34,25 @@ Track-D commits (Phases 2.2…2.7 and D10…D13).
   `visibleCategoryIds`. A baseline axis line + period-label row +
   flat legend strip render below the chart so the chart is
   interpretable standalone.
-- **2.2** (PR-9 — THIS PR): segmented mode control. Live `<button>`
+- **2.2** (PR-9 — DONE): segmented mode control. Live `<button>`
   group (R-12: button, not select) flips the chart between
   "Share" (percent of bar) and "Total" (absolute height vs. max bar)
   without losing scroll or focus. Initial mode resolved via the new
   pure `resolveInitialMode(mode_override, model.default_mode)` helper
   (5 new unit cases in `helpers.test.ts`); subsequent changes flow
   from button clicks. Citizen-readable labels live in `MODE_LABELS`
-  ("Share" / "Total") rather than the internal token names. **Still
-  zero callers; v1 still ships untouched.**
+  ("Share" / "Total") rather than the internal token names.
+- **2.3** (PR-10 — THIS PR): pinned readout panel on bar tap. R-12 no
+  hover-as-state — every readout is committed by an explicit click.
+  Each bar gets a full-slot transparent click target so the citizen
+  does not have to land on a specific segment to pin the bar; the
+  pinned bar gets a thin outlined ring; the readout panel below the
+  chart lists every segment (present + missing + not_applicable) with
+  share% + colour chip + value, driven by the existing pure
+  `readoutRows` helper. Initial pin is the last (most recent) bar so
+  the panel is populated immediately. Click the same bar (or the
+  panel's × button) to clear. **Still zero callers; v1 still ships
+  untouched.**
 
 ## R-11 deferral (Phase 2.2 contract test)
 
