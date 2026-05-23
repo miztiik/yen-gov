@@ -106,6 +106,24 @@ All views reuse a small set of components from `src/lib/`. The catalog is fixed;
 | `MarginHistogram.svelte` | StateOverview | Margin-of-victory distribution per election. |
 | `AcStackedBar.svelte` | Constituency | Top-5 + NOTA + collapsed Others, per AC. |
 
+### Generic chart renderers — Phase 1.6 / 3.5 / 4 / 5
+
+Per [TODO/20260518-frontend-charting-modernisation-plan.md](../../../TODO/20260518-frontend-charting-modernisation-plan.md), the chart layer split into pure **builders** (`frontend/src/lib/charts/*/builders.ts`) and dimension-agnostic **renderers** that consume the resulting view-models. Builders enforce sort policy, missing-value visibility, label-eligibility thresholds, and shared-vs-per-panel scale decisions; renderers do not re-derive any of that.
+
+| Renderer | Builder source | Used for |
+| --- | --- | --- |
+| `charts/ChartShell.svelte` | n/a (frame) | Shared title/subtitle/honesty banner/sources/schema-version frame around every chart. |
+| `charts/StackedTrendV2.svelte` | `time-view-models/builders.ts` | Stacked share-over-time with citizen-controlled mode (share/total/spotlight), unknown-stripes for hatched missing periods, export-as-SVG. |
+| `charts/HorizontalGroupedBar.svelte` | `multi-dim-view-models/builders.ts` (`buildHorizontalGroupedBarViewModel`) | One row per entity × N grouped bars (party seats, fuel mix, age cohorts). Module-exported `legendColour()` for colour fallback. |
+| `charts/OrderedCategoryBar.svelte` | `bar-view-models/builders.ts` (`buildOrderedCategoryBarViewModel`) | Categories with a natural order (deciles, age bands, education levels). Builder enforces `axis_order` or `alphabetical` only — no value-sort. |
+| `charts/DumbbellRange.svelte` | `time-view-models/builders.ts` (`buildDumbbellRangeViewModel`) | Two-endpoint change-since (2011→2021, before/after policy windows). Direction colours: up=green, down=red, flat=slate, missing=hatch. |
+| `charts/TimeSeriesLine.svelte` | `time-view-models/builders.ts` (`buildTimeSeriesLineViewModel`) | Multi-series lines. Honours `suppress_breaks` (break vs dashed bridge), `show_direct_end_label`, pinned-thick-stroke. |
+| `charts/FacetPanelGrid.svelte` | `multi-dim-view-models/builders.ts` (`buildFacetPanelGridViewModel`) | Small-multiples panel grid with explicit `shared_scale` flag. Each panel owns its own `max_abs_value`; renderer picks global vs per-panel based on the flag. |
+| `CompositionBar.svelte` | (dimension-agnostic) | Single-entity share composition (party seats in one state, fuel mix in one state). Stacked horizontal bar with verdict caption. |
+| `IndicatorRanked.svelte` | `charts/ranked-comparison/helpers.ts` | Per-state ranking against peers with peer-band median tick + verdict badge + gap-line wording (never says better/worse — the badge does). |
+| `IndicatorSmallMultiples.svelte` | `charts/small-multiples/helpers.ts` | One mini-sparkline per state. **Phase 4 polish (May 2026):** signed y-domain (no more `Math.abs` collapse), segmented paths around missing values, optional zero baseline when domain straddles zero, stronger latest-value chip + colour-matched ring on home/compare cards. |
+| `IndicatorChoropleth.svelte` | `indicators.ts` (`sequentialSwatchOkLCh`, `sequentialSwatch`, exported `SEQUENTIAL_RAMP_*` constants) | State-level choropleth with continuous-gradient legend + 3-tick min/mid/max axis + time slider. Ramp endpoints locked by monotonicity tests (Phase 5). |
+
 Animations use **`svelte/motion`** spring physics (rich animation budget per design): bars settle, map fills tween between scenarios, parliament dots stagger in. d3 stays as a math library for scales and arc generators; chart DOM is authored in Svelte.
 
 ### Color scheme

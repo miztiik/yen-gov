@@ -1,7 +1,7 @@
 # Frontend Charting Modernisation Plan
 
 **Created**: 2026-05-18
-**Status**: Planned handoff for next coding agent
+**Status**: Phases 1.5 / 1.6 / 2 / 3 / 3.5 / 4 / 5 / 7 shipped (May 2026). Phase 6 (optional sandbox) intentionally skipped — see close-out below. PRs: #155 (Phase 3.5 HorizontalGroupedBar), #156 (OrderedCategoryBar), #157 (DumbbellRange), #158 (TimeSeriesLine), #159 (FacetPanelGrid — closes 3.5), #160 (Phase 4 small-multiples helpers), #161 (Phase 4 small-multiples adopter), #162 (Phase 5 choropleth ramp contract + OkLCh accessor), #163 (Phase 7 docs close-out).
 **Trigger**: User asked whether Svelte remains the right frontend library, whether Plotly or another charting library should replace the current graphing approach, and noted that some charts lack life and colour.
 **Scope**: Public frontend chart/rendering layer, chart summary chrome, and iconography only. No code changes were made during the analysis session that produced this plan.
 **Load-bearing docs** (updated 2026-05-21 per R-31 to reflect the canonical-pivot interlock):
