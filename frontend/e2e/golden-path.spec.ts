@@ -109,6 +109,7 @@ test.describe("golden path", () => {
     // ("Most recent assembly election: …") and a downstream chart caption
     // ("Each bar = one assembly election …"), which trips strict mode.
     await expect(page.getByText(/Most recent assembly election/i)).toBeVisible({ timeout: 15_000 });
+    await expect(page.getByTestId("event-picker")).toHaveValue("AcGenMay2026");
     // At least one AC link rendered (constituencies.json loaded). Filter
     // by href shape — name-based queries are brittle here because the
     // visible text concatenates eci_no + AC name + reservation tag.
