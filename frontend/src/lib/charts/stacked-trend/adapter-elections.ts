@@ -8,6 +8,8 @@
 
 import { applyGlobalUnion, buildCategories, type RollupConfig, type RollupInputBar } from "./rollup";
 import { computeHeadline, type HeadlineContext, type HeadlineRule } from "./headline";
+import { partyColour } from "../../colors/party-colour";
+import { OTHER_CATEGORY_ID } from "./types";
 import {
   StackedTrendModel,
   type StackedTrendBar,
@@ -29,6 +31,7 @@ export interface ResultSummaryDoc {
   };
   party_totals: Array<{
     party_short: string;
+    party_eci_code?: string | null;
     seats_contested: number;
     seats_won: number;
     votes: number;
@@ -118,6 +121,32 @@ export function electionsToStackedTrend(
     opts.party_labels ?? {},
     rolled.other_present,
   );
+
+  // Bind the canonical party-colour anchors so this chart's swatches
+  // agree with SeatsByParty and MarginHistogram. The ANCHORS table is
+  // keyed by ECI numeric code (e.g. AIADMK = "75"), NOT by party_short,
+  // so we build a short→eci map from the summaries and pass the eci
+  // code as the first arg to partyColour. Without the eci lookup the
+  // anchors all miss and the chart falls through to the hash palette
+  // (visually random vs the other two state-page charts). OTHER is
+  // left untouched so the v2 renderer applies its fixed grey via
+  // OTHER_CATEGORY_FILL_V2.
+  const eciByShort = new Map<string, string>();
+  for (const s of summaries) {
+    for (const p of s.party_totals) {
+      if (p.party_eci_code && !eciByShort.has(p.party_short)) {
+        eciByShort.set(p.party_short, p.party_eci_code);
+      }
+    }
+  }
+  const namedCodes = rolled.named_category_ids.map(
+    (id) => eciByShort.get(id) ?? id,
+  );
+  for (const cat of categories) {
+    if (cat.id === OTHER_CATEGORY_ID) continue;
+    const code = eciByShort.get(cat.id) ?? cat.id;
+    cat.fill = partyColour(code, namedCodes).fill;
+  }
 
   const value_kind = MAP_VALUE_KIND[opts.value];
   const unit = UNIT[opts.value];

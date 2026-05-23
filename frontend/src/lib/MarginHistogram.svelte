@@ -53,12 +53,16 @@
     return i === BUCKETS - 1 ? "50%+" : `${i * 5}–${(i + 1) * 5}%`;
   }
 
-  // Stack segments per bucket, party-colored. We compute a darker shade
-  // here too — the bar stack uses a vertical gradient (light at the top of
-  // each segment, base at the bottom) so the histogram matches the visual
-  // language of SeatDonut + PartyBar.
+  // Stack segments per bucket, party-colored. Order is GLOBAL — biggest
+  // total-seat party renders at the bottom of every bar so the eye can
+  // track a party horizontally across margin bins. Without this, segment
+  // order would shift per bar and the same colour would jump around
+  // vertically between adjacent bins.
   function segments(b: { acs: Row[]; by_party: Map<string, number> }): { color: string; color_dark: string; n: number; party: string; eci_code: string | null }[] {
-    const entries = [...b.by_party.entries()].sort((a, b) => b[1] - a[1]);
+    const entries = [...b.by_party.entries()].sort(
+      (a, b) => (party_rank.get(a[0]) ?? Number.MAX_SAFE_INTEGER)
+              - (party_rank.get(b[0]) ?? Number.MAX_SAFE_INTEGER),
+    );
     return entries.map(([k, n]) => {
       // k is either an ECI code or a short name; colors.fill handles both.
       const sample = b.acs.find(a => (a.winner_party_eci_code ?? a.winner_party_short) === k);
@@ -138,6 +142,23 @@
     }
     return out;
   });
+  // Global stack order: party_key → rank (0 = biggest total seats across
+  // visible buckets). Used by segments() so every bar stacks parties in
+  // the same vertical order — biggest at the baseline, smallest at the
+  // top. Keeps a colour anchored to one band across bins; without this
+  // each bar would re-sort by its own segment sizes and the eye would
+  // lose the cross-bar trace.
+  const party_rank = $derived.by<Map<string, number>>(() => {
+    const totals = new Map<string, number>();
+    for (const b of visible_buckets) {
+      for (const [k, n] of b.by_party) {
+        totals.set(k, (totals.get(k) ?? 0) + n);
+      }
+    }
+    const sorted = [...totals.entries()].sort((a, b) => b[1] - a[1]);
+    return new Map(sorted.map(([k], i) => [k, i]));
+  });
+
   // visible_max_padded reserves ~10 % headroom on top of the tallest
   // bucket so the bar's count label (drawn 4 px above the bar) never
   // sits against the chart's top edge — the tallest bar gets at least
@@ -353,7 +374,7 @@
           {#each segs as seg, si}
             {@const prev = segs.slice(0, si).reduce((a, s) => a + s.n, 0)}
             {@const seg_h = (seg.n / b.acs.length) * total_h}
-            {@const y = PAD_T + inner_h - total_h + (prev / b.acs.length) * total_h}
+            {@const y = PAD_T + inner_h - ((prev + seg.n) / b.acs.length) * total_h}
             <rect
               x={x + 1.5}
               y={y}

@@ -811,14 +811,17 @@
       />
     </section>
 
-    {#if all_events.length > 1}
+    {#if all_events.length > 0}
       <section class="bg-white rounded-lg shadow-sm p-5">
         <div class="flex items-baseline justify-between mb-1 gap-2 flex-wrap">
           <h2 class="text-sm font-semibold uppercase text-slate-500">Seat composition over time</h2>
-          <span class="text-xs text-slate-400">{all_events.length} elections on record</span>
+          <span class="text-xs text-slate-400">{all_events.length} {all_events.length === 1 ? "election" : "elections"} on record</span>
         </div>
         <p class="text-xs text-slate-500 mb-3">
           Each bar = one assembly election. Segment height = seats won by that party.
+          {#if all_events.length === 1}
+            Only one election is published for this state so far; future elections will extend the series.
+          {/if}
         </p>
         <ElectionSeatsTrend state_code={state_code} value="seats_won" />
       </section>
