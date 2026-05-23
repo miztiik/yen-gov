@@ -25,6 +25,7 @@
   } from "./indicators";
   import { legendCaption } from "./indicator-render";
   import { loadStates, type StateRow } from "./view-models/states";
+  import TopicIcon from "./TopicIcon.svelte";
 
   interface Props {
     /** Path under DATA_BASE, e.g. "/indicators/in/energy/installed_mw_by_state.json". */
@@ -152,8 +153,9 @@
     <header class="px-4 pt-4 pb-3 border-b border-slate-100 space-y-2">
       <div class="flex justify-between items-baseline gap-3 flex-wrap">
         <div class="min-w-0">
-          <h3 class="text-base font-semibold">
-            {artifact.indicator.title}
+          <h3 class="text-base font-semibold flex items-center gap-2 flex-wrap">
+            <TopicIcon name={artifact.indicator.icon} cls="w-4 h-4 text-slate-500 shrink-0" />
+            <span>{artifact.indicator.title}</span>
             <span class="text-xs font-normal text-slate-500">· small multiples</span>
           </h3>
           {#if artifact.indicator.description || artifact.indicator.description_short}

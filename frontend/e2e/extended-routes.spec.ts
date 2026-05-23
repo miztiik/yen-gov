@@ -173,4 +173,53 @@ test.describe("extended routes", () => {
     expect(seen).toContain("landmark");
     expect(seen).toContain("trending-down");
   });
+
+  // Phase 1.3e — icon rollout sub-4 (chart headers).
+  //
+  // Topic landing /t/<topic> renders IndicatorChoropleth (when an
+  // artifact's `presentation_id === "indicator-choropleth"`),
+  // IndicatorRanked, and IndicatorSmallMultiples for every catalogued
+  // indicator. Each chart's `<h3>` is now prefixed with the indicator's
+  // `meta.icon`. The IndicatorChoropleth header was already wiring the
+  // legacy `IndicatorIcon` (hardcoded component-local REGISTRY) — this
+  // phase swaps that callsite to `TopicIcon` backed by the build-time
+  // virtual:icon-registry, unifying with the rest of the rollout.
+  //
+  // The smoke loads /t/fiscal (every indicator carries icon=landmark in
+  // taxonomy) and asserts ≥30 chart headers render with the landmark
+  // glyph. Each fiscal indicator emits three headers (choropleth,
+  // ranked, small-multiples), so 10+ fiscal indicators → ≥30 icons.
+  test("topic landing /t/fiscal renders TopicIcon on chart headers", async ({ page }) => {
+    await page.goto("/t/fiscal");
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible({ timeout: 15_000 });
+    // Wait for at least one chart header icon (proxy for "≥1 artifact
+    // has streamed in and rendered its h3").
+    await page.waitForSelector('h3 svg[data-icon-name="landmark"]', { timeout: 25_000 });
+    await page.waitForTimeout(3500); // settle in for ranked + small-multiples
+    const icons = page.locator("h3 svg[data-icon-name]");
+    const total = await icons.count();
+    expect(total, "≥30 chart headers should render an icon on /t/fiscal").toBeGreaterThanOrEqual(30);
+    const seen = await icons.evaluateAll((els) =>
+      Array.from(new Set(els.map((e) => e.getAttribute("data-icon-name")))).sort(),
+    );
+    // Fiscal corpus → every artifact carries icon=landmark.
+    expect(seen).toContain("landmark");
+  });
+
+  test("topic landing /t/energy renders TopicIcon on chart headers across multiple ids", async ({ page }) => {
+    await page.goto("/t/energy");
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible({ timeout: 15_000 });
+    await page.waitForSelector("h3 svg[data-icon-name]", { timeout: 25_000 });
+    await page.waitForTimeout(3500);
+    const icons = page.locator("h3 svg[data-icon-name]");
+    const total = await icons.count();
+    expect(total, "≥30 chart headers should render an icon on /t/energy").toBeGreaterThanOrEqual(30);
+    const seen = await icons.evaluateAll((els) =>
+      Array.from(new Set(els.map((e) => e.getAttribute("data-icon-name")))).sort(),
+    );
+    // Energy corpus mixes thermal (flame), renewable (sun, wind), and
+    // generation (zap) per the taxonomy.
+    expect(seen).toContain("zap");
+    expect(seen).toContain("flame");
+  });
 });

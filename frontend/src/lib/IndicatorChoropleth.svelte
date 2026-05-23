@@ -42,6 +42,7 @@
   import type { BoundaryEntry } from "./maplibre/sources";
   import SourceList from "./SourceList.svelte";
   import IndicatorIcon from "./IndicatorIcon.svelte";
+  import TopicIcon from "./TopicIcon.svelte";
   import RebaseBanner from "./honesty/RebaseBanner.svelte";
   import DirectionLegendCue from "./honesty/DirectionLegendCue.svelte";
   import {
@@ -688,19 +689,16 @@
           <h3 class="text-base font-semibold flex items-baseline gap-2">
             {#if artifact.indicator.icon}
               <!--
-                Decorative icon next to a visible heading saying the same
-                thing. The icon must NOT carry `title` here: IndicatorIcon
-                renders the prop as <svg><title>...</title></svg>, which
-                Element.textContent walks into, duplicating the indicator
-                title in the H3 (e.g. "Outstanding liabilities (% of GSDP)
-                Outstanding liabilities (% of GSDP)"). Omitting `title`
-                triggers the component's `aria-hidden="true"` default,
-                which is what we want for a decorative icon.
-                See e2e regression assertion in
-                frontend/e2e/golden-path.spec.ts ("no H3 contains its own
-                title twice"). Fix 2026-05-15.
+                Phase 1.3e migration: swap legacy IndicatorIcon (hardcoded
+                REGISTRY in the component) for TopicIcon backed by the
+                build-time virtual:icon-registry. TopicIcon is silent on
+                miss and always emits `aria-hidden="true"`, so the old
+                duplicate-title bug (svg <title> walked into h3.textContent)
+                cannot reappear here. The IndicatorIcon import remains
+                until all other call sites migrate; deletion lands in the
+                Phase 1.3 cleanup PR.
               -->
-              <IndicatorIcon
+              <TopicIcon
                 name={artifact.indicator.icon}
                 cls="w-4 h-4 text-slate-500 self-center"
               />
