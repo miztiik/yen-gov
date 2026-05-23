@@ -19,6 +19,7 @@ import TopicLanding from "./routes/TopicLanding.svelte";
 import StateTopic from "./routes/StateTopic.svelte";
 import DataCompleteness from "./routes/DataCompleteness.svelte";
 import DuckDbHarness from "./routes/DuckDbHarness.svelte";
+import DevChartsSandbox from "./routes/DevChartsSandbox.svelte";
 import NotFound from "./routes/NotFound.svelte";
 
 // Mount the persistent shell once. The router replaces the contents of
@@ -81,6 +82,10 @@ startRouter({
     // Phase 0.11 — DuckDB-WASM failure-state UX harness. Not a citizen
     // route; driven by frontend/e2e/duckdb-harness.spec.ts.
     { pattern: "/dev/duckdb-harness", component: DuckDbHarness },
+    // Phase 6 (charting modernisation plan) — dev sandbox that mounts
+    // every Phase 1.6 / 3.5 generic renderer against synthetic fixture
+    // data. Not citizen-discoverable; not linked from the left rail.
+    { pattern: "/dev/charts-sandbox", component: DevChartsSandbox },
   ],
   notFound: { pattern: "*", component: NotFound },
 });
