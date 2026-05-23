@@ -1,7 +1,7 @@
 # ADR-0028: URL scheme — place-first cascade, flat indicator slug, path routing
 
-**Last Updated**: 2026-05-17
-**Status**: accepted
+**Last Updated**: 2026-05-25
+**Status**: accepted (amended by [ADR-0037](0037-url-grammar-drop-india-prefix.md) on the country-prefix question — the `/india/<state>` segment is dropped; the state slug sits at the URL root. Everything else below — place-first cascade doctrine, flat indicator slug, path routing on Pages, no-vintage-in-URL, collision-contract framing — stands.)
 **Supersedes**: [ADR-0016 (hash routing)](0016-frontend-hash-routing.md) — on routing-mode only. ADR-0016's reasoning (YAGNI for a 4-route SPA) was correct at the time; the present scale (~50 routes growing to ~5,400 once indicator-in-path lands) and the shareability contract make path routing the load-bearing choice.
 
 ## Context
