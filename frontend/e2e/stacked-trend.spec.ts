@@ -27,13 +27,17 @@ test.describe("stacked-trend on /t/energy", () => {
       timeout: 15_000,
     });
 
-    // Mode chip is rendered by StackedTrend.svelte once the model resolves.
-    // CSS uppercases it visually, but the DOM text remains lowercase.
-    // /t/energy now mounts multiple StackedTrend charts (one per fuel
-    // breakdown) plus table column headers also named "percent"/"absolute",
-    // so the bare regex matches many elements; .first() honours the
-    // "at least one mode chip rendered" intent.
-    await expect(page.getByText(/^percent$|^absolute$/).first()).toBeVisible({ timeout: 15_000 });
+    // Mode chip is rendered by StackedTrendV2 once the model resolves.
+    // Phase 2.7 (commit 1742eba7) introduced MODE_LABELS — the visible
+    // button copy is now "Share"/"Total" while the stable enum token
+    // stays "percent"/"absolute" on `data-mode-value`. Anchor the
+    // assertion to the stable attribute so future copy tweaks don't
+    // re-break this test. /t/energy mounts multiple StackedTrendV2
+    // instances (one per fuel breakdown) so .first() honours the
+    // "at least one mode toggle rendered" intent.
+    await expect(
+      page.locator('[data-control="mode-toggle"] [data-mode-value="percent"]').first(),
+    ).toBeVisible({ timeout: 15_000 });
 
     // Legend includes at least one of the known fuel labels.
     await expect(page.getByText("Coal").first()).toBeVisible();
