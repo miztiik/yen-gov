@@ -36,7 +36,19 @@
   //
   // What's STILL out of scope (each ships in its own PR):
   //
-  //  - Export control (Phase 2.7).
+  //  - (none — Phase 2 polish list complete)
+  //
+  // Phase 2.7 (this PR): standalone SVG export. A single explicit
+  // download button sits in the toolbar row next to the segmented mode
+  // toggle (R-12: one icon/button near the chart title, no multi-icon
+  // modebar). Clicking serialises the current model + mode through the
+  // pure helper `buildExportSvg` from
+  // `./stacked-trend-v2/export.ts` (unit-tested) and triggers a
+  // browser download via Blob + `<a download>`. The exported SVG
+  // includes title, mode label, period window, all bars, legend, and
+  // a provenance footer line citing the highest-confidence source —
+  // Holy Law #9 (no anonymous data ships) extends to the downloaded
+  // artifact.
   //
   // Per R-08 Branch by Abstraction: v2 ships ALONGSIDE
   // `frontend/src/lib/charts/StackedTrend.svelte` (v1). v1 is NOT
@@ -71,6 +83,10 @@
   // but no aria-pressed / aria-expanded is set.
 
   import { categoryFill } from "../colors/category-colour";
+  import {
+    buildExportFilename,
+    buildExportSvg,
+  } from "./stacked-trend-v2/export";
   import {
     DEFAULT_LABEL_THRESHOLD_PCT,
     MODE_LABELS,
@@ -151,6 +167,35 @@
 
   function togglePin(period_id: string): void {
     pinnedPeriod = pinnedPeriod === period_id ? null : period_id;
+  }
+
+  /**
+   * Phase 2.7 — trigger a citizen-initiated SVG download of the chart
+   * as it currently appears (current mode; pin state intentionally
+   * NOT serialised — the export captures data, not interactive UI
+   * overlays). Uses `URL.createObjectURL` + an in-DOM `<a download>`
+   * click rather than a `data:` URI so the SVG payload (~3 KB to
+   * many-KB) doesn't bloat the URL bar; revokes the object URL after
+   * the click to release the in-memory blob.
+   *
+   * Guarded against the SSR / test-runner environment by an existence
+   * check on `document` — the function is a no-op in node so the
+   * component still mounts in vitest without an `instanceof Window`
+   * stub. Browser smoke is the gate (R-12, CLAUDE.md §13).
+   */
+  function downloadSvg(): void {
+    if (typeof document === "undefined") return;
+    const svg = buildExportSvg(model, { mode: currentMode });
+    const filename = buildExportFilename(model, currentMode);
+    const blob = new Blob([svg], { type: "image/svg+xml;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
   }
 
   const visibleIds = $derived(visibleCategoryIds(model));
@@ -308,6 +353,34 @@
         </button>
       {/each}
     </div>
+    <button
+      type="button"
+      class="stacked-trend-v2__download-svg ml-2 inline-flex items-center gap-1 rounded border border-slate-300 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 hover:bg-slate-100"
+      data-action="download-svg"
+      title="Download this chart as an SVG image"
+      onclick={downloadSvg}
+    >
+      <!-- Inline download glyph: 12x12 viewBox, stroke-only so it
+           inherits the button's `currentColor`. No icon-registry hookup
+           in v2.7 — single use-site; the iconography pass (Phase 1.3b-f)
+           wires the registry across the broader UI. -->
+      <svg
+        viewBox="0 0 12 12"
+        width="12"
+        height="12"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M6 1.5v7" />
+        <path d="M3 5.75 6 8.75l3-3" />
+        <path d="M2 10.5h8" />
+      </svg>
+      <span>SVG</span>
+    </button>
     <span class="ml-auto text-slate-500">{model.x_axis_label}</span>
   </div>
 
