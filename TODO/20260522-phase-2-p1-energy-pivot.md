@@ -107,7 +107,7 @@ Each PR is fused-atomic per CLAUDE.md §15 paired-test discipline (schema bump +
 - [ ] §3.1 follow-up 8 (canonical `indicators-catalogue.schema.json` v1.0 authoring scope decision)
 - [ ] New facet-axes registered in `backend/yen_gov/canonical/facet_axes_seed.py` per §8.3 — `fuel_type` enum (`coal, gas, hydro, nuclear, renewable, lignite, diesel`) + extras for P.1.B/C as that PR opens
 - [ ] 9 new `(producer, title, vintage)` triples authored for `taxonomy/sources.parquet` via `backend.yen_gov.canonical.citation.derive_source_id` (8 gold + 1 silver RBI + IEA) — never hand-author the id (CLAUDE.md §10 + ADR-0032)
-- [ ] Pre-stage grep for the 41 legacy filenames across `backend/`, `frontend/`, `tools/`, `admin/`, `docs/` — quoted file references in frontend loaders ARE production consumers (lesson 2026-05-21 G.1.c)
+- [x] Pre-stage grep for the 41 legacy filenames across `backend/`, `frontend/`, `tools/`, `admin/`, `docs/` — quoted file references in frontend loaders ARE production consumers (lesson 2026-05-21 G.1.c) — **report at [`TODO/20260523-p1a-preflight-grep-report.md`](20260523-p1a-preflight-grep-report.md); 521 hits across 41 shards; re-run via [`tools/preflight_grep_energy_shards.py`](../tools/preflight_grep_energy_shards.py) before opening `feat/p1-energy-pivot`**
 - [ ] `canonical-store.md §2b` amended (extension to 5 + new Rule #4) in the SAME commit as P.1.A (Holy Law #4 + Gregor Q-b5)
 - [ ] `methodology_breaks.parquet` seeded with B3 + B7 rows (Hans Q-e citizen text verbatim) in the SAME commit
 
