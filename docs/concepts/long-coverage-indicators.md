@@ -50,7 +50,6 @@ Ship socio-economic indicators with **as much historical coverage as the source 
 | `energy/state_installed_capacity_with_alloc_mw` | energy | FY16–FY26 (11y) per state | NITI Aayog ICED | `iced_state_wise` | Allocated-shares variant. |
 | `energy/state_rooftop_solar_capacity_mw` | energy | FY18–FY26 (9y) per state | NITI Aayog ICED (← MNRE) | `iced_state_wise` | |
 | `energy/state_electricity_generation_mu` | energy | FY16–FY26 (11y) per state | NITI Aayog ICED (← CEA) | `iced_state_wise` | |
-| `energy/state_electricity_peak_demand_mw` | energy | FY18–FY26 (9y) per state | NITI Aayog ICED (← CEA) | `iced_state_wise` | |
 | `energy/state_electricity_sales_mu` | energy | FY17–FY26 (10y) per state | NITI Aayog ICED (← PFC) | `iced_state_wise` | |
 | `energy/state_atc_losses_pct` | energy | FY17–FY26 (10y) per state | NITI Aayog ICED (← PFC) | `iced_state_wise` | UDAY/RDSS headline distribution-utility metric. |
 | `energy/state_acs_arr_gap_inr_per_kwh` | energy | FY17–FY26 (10y) per state | NITI Aayog ICED (← PFC) | `iced_state_wise` | Negative = surplus. |

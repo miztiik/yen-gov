@@ -22,7 +22,6 @@
   // indicators (series < 2) suppress the sparkline, same rule
   // IndicatorSmallMultiples applies.
   import {
-    fetchIndicator,
     formatValue,
     type IndicatorArtifact,
   } from "./indicators";
@@ -43,8 +42,12 @@
   // query against the canonical Parquet store. The allowlist in
   // `./canonical/indicator-allowlist` is the single-source-of-truth for
   // which artifacts have been migrated (one entry today: peak demand MW).
-  // See TODO/20260524-p1a-data-reacquisition-plan.md §3 C4.7 Phase B.
-  import { loadIndicatorIfCanonical } from "./canonical/indicator-from-canonical";
+  // Phase B-extension (PR #176): the same routing is now used by every
+  // indicator widget via the shared `loadIndicator(path)` helper, so
+  // canonical-backed artifacts work consistently across Card, Choropleth,
+  // Ranked, and SmallMultiples renderers.
+  // See TODO/20260524-p1a-data-reacquisition-plan.md §3 C4.7 Phase B / D.
+  import { loadIndicator } from "./canonical/indicator-from-canonical";
 
   interface Props {
     /** Catalogue topic this card belongs to (drives header + "See all states" link). */
@@ -65,18 +68,11 @@
   $effect(() => {
     data = null;
     load_error = null;
-    // Snapshot the artifact id so closures captured below are stable
-    // across re-renders (Svelte 5 $effect re-runs on prop changes).
-    const legacy_id = artifact.id;
+    // Snapshot the path so the closure captured below is stable across
+    // re-renders (Svelte 5 $effect re-runs on prop changes).
     const path = indicator_path;
-    loadIndicatorIfCanonical(legacy_id)
-      .then((canonical_artifact) => {
-        if (canonical_artifact !== null) {
-          data = canonical_artifact;
-          return;
-        }
-        return fetchIndicator(path).then((a) => (data = a));
-      })
+    loadIndicator(path)
+      .then((a) => (data = a))
       .catch((e) => (load_error = String(e)));
   });
 

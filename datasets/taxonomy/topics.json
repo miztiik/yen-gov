@@ -276,13 +276,6 @@
         },
         {
           "kind": "indicator",
-          "id": "energy/state_electricity_peak_demand_mw",
-          "default": false,
-          "featured": false,
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
           "id": "energy/state_electricity_sales_mu",
           "default": false,
           "featured": false,

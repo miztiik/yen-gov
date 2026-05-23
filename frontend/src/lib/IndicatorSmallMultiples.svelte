@@ -23,6 +23,7 @@
     formatValue,
     type IndicatorArtifact,
   } from "./indicators";
+  import { loadIndicator } from "./canonical/indicator-from-canonical";
   import { legendCaption } from "./indicator-render";
   import { loadStates, type StateRow } from "./view-models/states";
   import TopicIcon from "./TopicIcon.svelte";
@@ -60,7 +61,7 @@
   $effect(() => {
     artifact = null;
     load_error = null;
-    fetchIndicator(indicator_path)
+    loadIndicator(indicator_path)
       .then(a => (artifact = a))
       .catch(e => (load_error = String(e)));
   });

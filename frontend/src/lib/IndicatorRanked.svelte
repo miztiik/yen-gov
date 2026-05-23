@@ -23,6 +23,7 @@
     formatValue,
     type IndicatorArtifact,
   } from "./indicators";
+  import { loadIndicator } from "./canonical/indicator-from-canonical";
   import { axisUnitLabel, legendCaption } from "./indicator-render";
   import { loadStates, type StateRow } from "./view-models/states";
   import TopicIcon from "./TopicIcon.svelte";
@@ -103,7 +104,7 @@
     load_error = null;
     selected_time = null;
     show_all = false;
-    fetchIndicator(indicator_path)
+    loadIndicator(indicator_path)
       .then(a => {
         artifact = a;
         const ts = uniqueTimes(a.rows);

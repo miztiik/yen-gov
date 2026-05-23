@@ -57,6 +57,7 @@
     buildTemporalCaption,
     type IndicatorArtifact,
   } from "./indicators";
+  import { loadIndicator } from "./canonical/indicator-from-canonical";
   import { axisUnitLabel, legendCaption } from "./indicator-render";
 
   interface Props {
@@ -132,7 +133,7 @@
     load_error = null;
     selected_time = null;
     const path = indicator_path;
-    fetchIndicator(path)
+    loadIndicator(path)
       .then(a => {
         artifact = a;
         const times = uniqueTimes(a.rows);

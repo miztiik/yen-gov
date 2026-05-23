@@ -15,10 +15,26 @@ vi.mock("../duckdb", () => ({
   query: vi.fn(),
 }));
 
+vi.mock("../indicators", async () => {
+  // Pull in the real module so we re-export every helper the production
+  // code path expects (uniqueTimes, seriesByEntity, ...). Only the
+  // network-touching `fetchIndicator` gets a vi.fn() stub so the
+  // Phase B-extension `loadIndicator(path)` legacy fall-through can be
+  // asserted without hitting fetch().
+  const actual = await vi.importActual<typeof import("../indicators")>("../indicators");
+  return {
+    ...actual,
+    fetchIndicator: vi.fn(),
+  };
+});
+
 import { query, registerTable } from "../duckdb";
+import { fetchIndicator } from "../indicators";
 import {
   buildIndicatorArtifact,
   canonicalEntityToLegacy,
+  legacyArtifactIdFromPath,
+  loadIndicator,
   loadIndicatorFromCanonical,
   loadIndicatorIfCanonical,
 } from "./indicator-from-canonical";
@@ -31,11 +47,13 @@ import {
 
 const mockedQuery = vi.mocked(query);
 const mockedRegister = vi.mocked(registerTable);
+const mockedFetch = vi.mocked(fetchIndicator);
 
 beforeEach(() => {
   mockedQuery.mockReset();
   mockedRegister.mockReset();
   mockedRegister.mockResolvedValue("noop");
+  mockedFetch.mockReset();
 });
 
 // Test fixture mirrors the on-disk shape of the C4.7 Phase A canonical row.
@@ -255,5 +273,70 @@ describe("loadIndicatorIfCanonical — single dispatch entry-point", () => {
     expect(out).not.toBeNull();
     expect(out!.indicator.id).toBe("state-peak-electricity-demand-mw");
     expect(out!.rows[0].entity_id).toBe("S22");
+  });
+});
+
+describe("legacyArtifactIdFromPath — DATA_BASE path → catalogue artifact id", () => {
+  it("extracts <topic>/<id> from a well-formed legacy path", () => {
+    expect(legacyArtifactIdFromPath("/indicators/in/energy/state_peak_electricity_demand_mw.json"))
+      .toBe("energy/state_peak_electricity_demand_mw");
+    expect(legacyArtifactIdFromPath("/indicators/in/demography/state_population_lakhs.json"))
+      .toBe("demography/state_population_lakhs");
+  });
+
+  it("returns the empty string for paths outside the indicators tree", () => {
+    expect(legacyArtifactIdFromPath("/data/indicators/in/energy/foo.json")).toBe("");
+    expect(legacyArtifactIdFromPath("/indicators/us/energy/foo.json")).toBe("");
+    expect(legacyArtifactIdFromPath("/indicators/in/energy/foo.csv")).toBe("");
+    expect(legacyArtifactIdFromPath("")).toBe("");
+    expect(legacyArtifactIdFromPath("nonsense")).toBe("");
+  });
+});
+
+describe("loadIndicator — universal entry-point (Phase B-extension)", () => {
+  it("returns the canonical artifact for an allowlisted path (no fetchIndicator call)", async () => {
+    mockedQuery
+      .mockResolvedValueOnce([
+        { entity_id: "IN-S22", period_label: "2025-04", value_numeric: 20211, source_id: "src-iced" },
+      ])
+      .mockResolvedValueOnce([
+        { source_id: "src-iced", producer: "NITI", title: "ICED", vintage: "FY25", url_main: "https://example/" },
+      ]);
+    const out = await loadIndicator("/indicators/in/energy/state_peak_electricity_demand_mw.json");
+    expect(out.indicator.id).toBe("state-peak-electricity-demand-mw");
+    expect(out.rows[0].entity_id).toBe("S22");
+    expect(mockedFetch).not.toHaveBeenCalled();
+  });
+
+  it("falls through to fetchIndicator for a non-allowlisted legacy path", async () => {
+    const legacy: import("../indicators").IndicatorArtifact = {
+      $schema_version: "4.4",
+      indicator: {
+        id: "state-population-lakhs",
+        title: "Population (lakhs)",
+        unit: "lakhs",
+        entity_kind: "state",
+        time_grain: "annual",
+      } as any,
+      coverage: { temporal: "2011" } as any,
+      license: { id: "OGL-IN-1.0", redistributable: true } as any,
+      methodology: {} as any,
+      sources: [],
+      rows: [],
+    } as any;
+    mockedFetch.mockResolvedValueOnce(legacy);
+    const out = await loadIndicator("/indicators/in/demography/state_population_lakhs.json");
+    expect(mockedFetch).toHaveBeenCalledTimes(1);
+    expect(mockedFetch).toHaveBeenCalledWith("/indicators/in/demography/state_population_lakhs.json");
+    expect(out).toBe(legacy);
+    expect(mockedQuery).not.toHaveBeenCalled();
+  });
+
+  it("falls through to fetchIndicator for a path that doesn't match the indicators shape", async () => {
+    const legacy: import("../indicators").IndicatorArtifact = { rows: [] } as any;
+    mockedFetch.mockResolvedValueOnce(legacy);
+    const out = await loadIndicator("/data/elections/in/le/maharashtra/2024-11/results.json");
+    expect(mockedFetch).toHaveBeenCalledTimes(1);
+    expect(out).toBe(legacy);
   });
 });

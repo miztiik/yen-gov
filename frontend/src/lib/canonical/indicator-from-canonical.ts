@@ -36,11 +36,12 @@
 //    contract for these fields.
 
 import { query, registerTable } from "../duckdb";
-import type {
-  IndicatorArtifact,
-  IndicatorMethodology,
-  IndicatorRow,
-  IndicatorSource,
+import {
+  fetchIndicator,
+  type IndicatorArtifact,
+  type IndicatorMethodology,
+  type IndicatorRow,
+  type IndicatorSource,
 } from "../indicators";
 import {
   getCanonicalDescriptor,
@@ -197,4 +198,31 @@ export async function loadIndicatorIfCanonical(
   if (!isCanonicalBacked(legacy_artifact_id)) return null;
   const descriptor = getCanonicalDescriptor(legacy_artifact_id)!;
   return loadIndicatorFromCanonical(descriptor);
+}
+
+/** Derive the catalogue artifact id (e.g. ``energy/state_peak_electricity_demand_mw``)
+ *  from a DATA_BASE-relative path of the form ``/indicators/in/<topic>/<id>.json``.
+ *  Returns the empty string for paths that don't match the legacy shape — the
+ *  caller will then short-circuit straight to the legacy fetcher. */
+export function legacyArtifactIdFromPath(path: string): string {
+  const m = path.match(/^\/indicators\/in\/(.+)\.json$/);
+  return m ? m[1] : "";
+}
+
+/** Universal indicator loader (Phase B-extension of P.1.A C4.7). Derives the
+ *  legacy artifact id from ``path``, consults the canonical allowlist, and
+ *  returns either the canonical-backed artifact or the legacy-shard fetch
+ *  result. Drop-in replacement for ``fetchIndicator(path)`` — non-allowlisted
+ *  paths take the legacy fetch path with zero behavioural change.
+ *
+ *  Use this from every IndicatorCard / IndicatorChoropleth / IndicatorRanked /
+ *  IndicatorSmallMultiples call site so that allowlist-routed artifacts never
+ *  trigger a 404 against a deleted legacy shard. */
+export async function loadIndicator(path: string): Promise<IndicatorArtifact> {
+  const legacy_id = legacyArtifactIdFromPath(path);
+  if (legacy_id !== "") {
+    const canonical = await loadIndicatorIfCanonical(legacy_id);
+    if (canonical !== null) return canonical;
+  }
+  return fetchIndicator(path);
 }
