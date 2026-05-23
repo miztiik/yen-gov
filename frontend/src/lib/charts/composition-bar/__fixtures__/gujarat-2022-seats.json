@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "label": "Gujarat — 2022 Assembly",
+  "subtitle": "All 182 seats; FPTP winners only",
+  "total_value": 182,
+  "total_unit": "seats",
+  "dimension": "party",
+  "caption_fptp": "First-past-the-post: each seat is won outright by the constituency leader. Seat shares can diverge sharply from vote shares.",
+  "honesty_banners": [
+    {
+      "kind": "comparability",
+      "text": "Comparable across years for Gujarat only — boundary delimitation has not changed since 2008."
+    }
+  ],
+  "segments": [
+    {
+      "id": "BJP",
+      "label": "BJP",
+      "value": 156,
+      "fill": "#ffb236",
+      "swatch_role": "party",
+      "is_tail": false
+    },
+    {
+      "id": "INC",
+      "label": "INC",
+      "value": 17,
+      "fill": "#19aaed",
+      "swatch_role": "party",
+      "is_tail": false
+    },
+    {
+      "id": "AAP",
+      "label": "AAP",
+      "value": 5,
+      "fill": "#1c4e80",
+      "swatch_role": "party",
+      "is_tail": false
+    },
+    {
+      "id": "IND",
+      "label": "Independent",
+      "value": 3,
+      "fill": "#94a3b8",
+      "swatch_role": "independent",
+      "is_tail": false
+    },
+    {
+      "id": "OTHERS",
+      "label": "Others",
+      "value": 1,
+      "fill": "#cbd5e1",
+      "swatch_role": "others",
+      "is_tail": true
+    }
+  ]
+}
