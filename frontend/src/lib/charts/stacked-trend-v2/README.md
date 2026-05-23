@@ -12,12 +12,42 @@ Track-D commits (Phases 2.2…2.7 and D10…D13).
 ## Phase 2.1 split (R-09)
 
 - **2.1a** (PR #105 — DONE): types + zod model + fixture (this directory).
-- **2.1b** (PR-6 — this PR): component shell at
+- **2.1b** (PR-6 / #108 — DONE): component shell at
   [`../StackedTrendV2.svelte`](../StackedTrendV2.svelte) consuming the v2
   types, returning headline + honesty chrome + an empty `<svg><g/></svg>`
   bar-layer placeholder. **Type-check green; zero render coverage; no
   caller mounts it yet.** Phases 2.2..2.7 layer behaviour onto this seam
   one PR at a time.
+- **2.1 helpers** (PR-7 — this PR): pure view-model helpers
+  ([`./helpers.ts`](./helpers.ts)) extracted from v1's inline math —
+  `barTotal`, `maxBarTotal`, `segmentSharePct`, `segmentVisualHeightPct`,
+  `visibleCategoryIds`, `isLabelEligible`, `readoutRows` — plus the
+  `ReadoutRow` interface used by the future pinned-readout panel
+  (Phase 2.3). All helpers are pure, exhaustively unit-tested
+  ([`./helpers.test.ts`](./helpers.test.ts), 41 cases) for percent /
+  absolute modes, zero totals, `__OTHER__`, missing, not_applicable,
+  null values, and `bar.total` overrides. **The shell does NOT consume
+  these helpers yet** — the wiring slice is Phase 2.1c.
+
+## R-11 deferral (Phase 2.2 contract test)
+
+The plan's R-11 resolution asks for "a contract-tier test under
+`frontend/src/contracts/` per Phase 2.2: loads a real fixture Parquet
+shard via DuckDB-WASM, runs the helper, asserts output validates
+against the v2 props zod schema." This belongs to Phase 2.2 (segmented
+mode control + citizen-visible behaviour), not Phase 2.1.
+
+It is also infeasible inside vitest — `frontend/src/lib/canonical/manifest.test.ts`
+documents the convention:
+
+> The DuckDB-WASM round-trip lives in Playwright (Phase 1+) since vitest
+> can't load DuckDB-WASM in node env.
+
+The R-11 round-trip will therefore land as a Playwright spec under
+`frontend/e2e/` once a caller migrates and the helpers run inside a
+mounted page (Track-D D10). The pure unit coverage in
+`./helpers.test.ts` is the Phase 2.1 tier — fast, deterministic, every
+edge case in §15's "unit" tier.
 
 ## Branch by Abstraction (R-08)
 

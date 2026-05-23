@@ -28,3 +28,19 @@ export {
   StackedTrendV2Source,
   StackedTrendV2UnitChange,
 } from "./types";
+
+// Phase 2.1 pure view-model helpers. These are plain functions and the
+// `ReadoutRow` interface — exporting them by name (not via `*`) keeps
+// the public surface explicit. Importers can also reach into
+// `./helpers` directly when they want only one symbol.
+export {
+  DEFAULT_LABEL_THRESHOLD_PCT,
+  barTotal,
+  isLabelEligible,
+  maxBarTotal,
+  readoutRows,
+  segmentSharePct,
+  segmentVisualHeightPct,
+  visibleCategoryIds,
+} from "./helpers";
+export type { ReadoutRow } from "./helpers";
