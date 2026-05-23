@@ -11,15 +11,17 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("../duckdb", () => ({
+  registerSlice: vi.fn(async () => "noop"),
   registerTable: vi.fn(async () => "noop"),
   query: vi.fn(),
 }));
 
-import { query, registerTable } from "../duckdb";
+import { query, registerSlice, registerTable } from "../duckdb";
 import { __resetForTests, loadActuals } from "./canonical-loaders";
 
 const mockedQuery = vi.mocked(query);
 const mockedRegister = vi.mocked(registerTable);
+const mockedRegisterSlice = vi.mocked(registerSlice);
 
 // Fixture: 2 ACs, 5 candidate rows total, 1 NOTA row per AC.
 const constituencyRows = [
@@ -80,7 +82,9 @@ const candidateRows = [
 beforeEach(() => {
   mockedQuery.mockReset();
   mockedRegister.mockReset();
+  mockedRegisterSlice.mockReset();
   mockedRegister.mockResolvedValue("noop");
+  mockedRegisterSlice.mockResolvedValue("noop");
   __resetForTests();
 });
 
@@ -151,19 +155,23 @@ describe("loadActuals — happy path", () => {
     expect(Object.isFrozen(t.acs)).toBe(true);
   });
 
-  it("registers all four canonical tables before querying", async () => {
+  it("registers the state fact slice and supporting tables before querying", async () => {
     mockedQuery
       .mockResolvedValueOnce(constituencyRows)
       .mockResolvedValueOnce(candidateRows);
 
     await loadActuals("AcGenApr2021", "S22");
 
+    expect(mockedRegisterSlice).toHaveBeenCalledWith(
+      "elections.election_results",
+      { state: "in_s22" },
+    );
+
     const registered = mockedRegister.mock.calls.map(c => c[0]).sort();
     expect(registered).toEqual([
       "elections.dim_acs",
       "elections.dim_candidates",
       "elections.dim_parties",
-      "elections.election_results",
     ]);
   });
 });
