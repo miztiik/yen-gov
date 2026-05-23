@@ -43,6 +43,10 @@ import {
 } from "../loader-result";
 import { query, registerTable } from "../duckdb";
 import type { PartyTotals, SourceRef } from "../data";
+import {
+  verificationMethodRank,
+  type SourceV2Row,
+} from "../source-list-v2";
 
 // View-model shape. Distinct from the legacy `ResultSummary` (which other
 // routes still consume): `body` is elided — StateOverview never reads it.
@@ -69,7 +73,20 @@ export interface StateOverviewViewModel {
   } | null;
   party_totals: PartyTotals[];
   ac_winners: AcWinner[];
+  /** Legacy provenance shape — fetch-telemetry-bearing `SourceRef` for the
+   *  v1 `SourceList.svelte` consumer. Filtered to rows that publish a live
+   *  `url_main` (the only field v1 renders). Empty `fetched_at` per
+   *  ADR-0032 P.0e — fetch telemetry left the canonical contract. */
   sources: SourceRef[];
+  /** v2.0 ledger rows (`taxonomy.sources` per ADR-0032). Carries the full
+   *  citizen-facing citation identity + trust signals. Includes rows with
+   *  null `url_main` (archived-snapshot / transcribed / editorial) which
+   *  the legacy `sources` array drops by design. Consumed by the v2
+   *  `SourceListV2.svelte` render surface (Phase 1.4 of the chart-plan).
+   *  R-24: NO fetch-telemetry fields are carried here. R-28: the JOIN
+   *  resolves `taxonomy.sources` via `registerTable`, never a hardcoded
+   *  literal path. */
+  sources_v2: SourceV2Row[];
 }
 
 function sqlString(s: string): string {
@@ -95,7 +112,17 @@ interface StateScopeRow {
 }
 
 interface SourceJoinRow {
+  source_id: string;
+  producer: string;
+  title: string;
+  vintage: string;
+  license: SourceV2Row["license"];
+  confidence_tier: SourceV2Row["confidence_tier"];
+  is_issuing_authority: boolean;
+  verification_method: SourceV2Row["verification_method"];
   url_main: string | null;
+  citation_full: string | null;
+  notes: string | null;
 }
 
 interface AcWinnerRow {
@@ -182,15 +209,33 @@ async function runQueries(
       )
   `);
 
+  // Pull the FULL v2.0 ledger row, not just url_main — so the v2 footer
+  // surface (SourceListV2.svelte) can read producer / title / vintage /
+  // license / confidence_tier / verification_method / etc. without a
+  // second round-trip. The `WHERE s.url_main IS NOT NULL` filter that v1
+  // carried is intentionally DROPPED — v2.0 rows with null url_main
+  // (archived-snapshot / transcribed / editorial per ADR-0032) are valid
+  // citations that the v2 surface renders fully. The legacy `sources:
+  // SourceRef[]` assembly downstream still filters by url_main truthiness
+  // so the v1 surface keeps its existing semantics.
   const sources = await query<SourceJoinRow>(`
-    SELECT DISTINCT s.url_main
+    SELECT DISTINCT
+      s.source_id,
+      s.producer,
+      s.title,
+      s.vintage,
+      s.license,
+      s.confidence_tier,
+      s.is_issuing_authority,
+      s.verification_method,
+      s.url_main,
+      s.citation_full,
+      s.notes
     FROM election_results o
     JOIN sources s ON s.source_id = o.source_id
     WHERE o.period_label = ${evt}
       AND o.entity_id LIKE ${statePrefix} || '%'
-      AND s.url_main IS NOT NULL
-      AND s.url_main <> ''
-    ORDER BY s.url_main
+    ORDER BY s.source_id
   `);
 
   const acWinners = await queryAcWinners(evt, sc);
@@ -293,6 +338,19 @@ function assembleResult(
       fetched_at: "",
     }));
 
+  // The full v2.0 ledger projection. Same JOIN, no url_main filter, sorted
+  // by trust ordering so the citizen sees the strongest evidence first
+  // (live-fetch > archived-snapshot > transcribed > editorial). Stable
+  // secondary sort on source_id to keep snapshots reproducible. The
+  // upstream SQL already does DISTINCT + ORDER BY s.source_id; we only
+  // re-sort here for trust ordering.
+  const sources_v2: SourceV2Row[] = [...rows.sources]
+    .sort((a, b) => {
+      const r = verificationMethodRank(a.verification_method) - verificationMethodRank(b.verification_method);
+      return r !== 0 ? r : a.source_id.localeCompare(b.source_id);
+    })
+    .map(toSourceV2Row);
+
   const ac_winners = toAcWinners(rows.acWinners);
 
   return {
@@ -307,6 +365,27 @@ function assembleResult(
     party_totals,
     ac_winners,
     sources,
+    sources_v2,
+  };
+}
+
+// Pure mapper — collapses a SourceJoinRow into the v2 row shape the chart
+// shell consumes. Kept module-local so the column-by-column copy reads as
+// one block; if a second loader grows the same need we can lift it into
+// `frontend/src/lib/source-list-v2/`.
+function toSourceV2Row(row: SourceJoinRow): SourceV2Row {
+  return {
+    source_id: row.source_id,
+    producer: row.producer,
+    title: row.title,
+    vintage: row.vintage,
+    license: row.license,
+    confidence_tier: row.confidence_tier,
+    is_issuing_authority: row.is_issuing_authority,
+    verification_method: row.verification_method,
+    url_main: row.url_main,
+    citation_full: row.citation_full,
+    notes: row.notes,
   };
 }
 
@@ -322,6 +401,7 @@ function notPublishedSkeleton(
     party_totals: [],
     ac_winners: [],
     sources: [],
+    sources_v2: [],
   };
 }
 
