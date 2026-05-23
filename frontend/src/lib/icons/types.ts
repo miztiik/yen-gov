@@ -1,6 +1,6 @@
 // Public types for the icon registry. Both the build-time Vite plugin (which
 // parses SVG files at build/dev and emits a typed registry) and the runtime
-// consumer (IndicatorIcon.svelte and any future icon renderer) import from
+// consumer (TopicIcon.svelte and any future icon renderer) import from
 // here. Keeping the shape in one file prevents the parallel-grammar drift
 // the chart plan rejects.
 //

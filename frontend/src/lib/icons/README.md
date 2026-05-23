@@ -7,8 +7,8 @@ the build if it contains anything disallowed, and expose it through the
 virtual module `virtual:icon-registry` as a typed [`Icon`](./types.ts)
 structure.
 
-The runtime consumer ([`IndicatorIcon.svelte`](../IndicatorIcon.svelte) and
-future icon renderers) imports `iconRegistry` from that virtual module and
+The runtime consumer ([`TopicIcon.svelte`](../TopicIcon.svelte) and any
+future icon renderer) imports `iconRegistry` from that virtual module and
 renders the structured shape — never a raw SVG string. Two layers of
 defence: forbidden bytes are rejected at build, AND the runtime has no
 slot to emit `<script>` even if the parser ever regressed.

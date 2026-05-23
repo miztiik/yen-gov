@@ -41,7 +41,6 @@
   } from "./drilldown";
   import type { BoundaryEntry } from "./maplibre/sources";
   import SourceList from "./SourceList.svelte";
-  import IndicatorIcon from "./IndicatorIcon.svelte";
   import TopicIcon from "./TopicIcon.svelte";
   import RebaseBanner from "./honesty/RebaseBanner.svelte";
   import DirectionLegendCue from "./honesty/DirectionLegendCue.svelte";
@@ -689,14 +688,13 @@
           <h3 class="text-base font-semibold flex items-baseline gap-2">
             {#if artifact.indicator.icon}
               <!--
-                Phase 1.3e migration: swap legacy IndicatorIcon (hardcoded
-                REGISTRY in the component) for TopicIcon backed by the
-                build-time virtual:icon-registry. TopicIcon is silent on
-                miss and always emits `aria-hidden="true"`, so the old
-                duplicate-title bug (svg <title> walked into h3.textContent)
-                cannot reappear here. The IndicatorIcon import remains
-                until all other call sites migrate; deletion lands in the
-                Phase 1.3 cleanup PR.
+                Decorative icon backed by the build-time virtual:icon-registry
+                (TopicIcon, Phase 1.3b). TopicIcon hardcodes
+                `aria-hidden="true"` and never emits an svg <title> child,
+                so the 2026-05-15 duplicate-title bug (svg <title> walked
+                into h3.textContent) cannot reappear here. The legacy
+                IndicatorIcon component was deleted in Phase 1.3g once
+                this was the last caller.
               -->
               <TopicIcon
                 name={artifact.indicator.icon}
