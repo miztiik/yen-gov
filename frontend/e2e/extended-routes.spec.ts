@@ -62,6 +62,22 @@ test.describe("extended routes", () => {
     await page.goto("/no-such-route-here");
     await expect(page.getByRole("heading", { level: 1, name: "404" })).toBeVisible();
     await expect(page.getByText(/No route matches/i)).toBeVisible();
+    // Post-IA-reset copy + recovery links (§7 of the URL grammar
+    // handover). "This page has moved" frames the 404 for citizens who
+    // followed a stale link from before the reorganisation; the topics
+    // index is offered as a discovery surface alongside Home.
+    //
+    // Scope link assertions to the 404 page's <main>: the chrome's
+    // brand wordmark also matches `name: /Home/i` via its
+    // `aria-label="Yen Gov home"`, so a page-wide locator would be
+    // strict-mode-ambiguous.
+    const fourOhFour = page.locator("main");
+    await expect(fourOhFour.getByText(/This page has moved/i)).toBeVisible();
+    await expect(fourOhFour.getByRole("link", { name: /Home/i })).toBeVisible();
+    await expect(fourOhFour.getByRole("link", { name: /Browse topics/i })).toHaveAttribute(
+      "href",
+      /\/t$/,
+    );
   });
 
   test("party page renders for DMK in Tamil Nadu", async ({ page }) => {
