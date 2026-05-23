@@ -1,7 +1,7 @@
 # DuckDB Slicing And State Identity Sequence
 
 **Last Updated**: 2026-05-23
-**Status**: Accepted by user for autonomous execution. P0 contract freeze is the current PR; P1 `registerSlice` implementation follows after P0 merges. Later phases stay queued until their prerequisites are on `main`.
+**Status**: P0 contract freeze DONE via PR #165. P1 `registerSlice` implementation is complete in this sequence; P2 generalisation is queued. Later phases stay queued until their prerequisites are on `main`.
 **Scope**: Frontend DuckDB-WASM slice registration, manifest-directed file selection, state-code alias doctrine, and later YENASK/SemanticCatalogue alignment.
 **Spec**: [frontend/data-loading.md](../docs/architecture/frontend/data-loading.md), [canonical-store.md](../docs/architecture/data/canonical-store.md)
 **Decision rationale**: [ADR-0036](../docs/architecture/decisions/0036-state-identity-and-slice-registration.md), [ADR-0030](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md), [ADR-0028](../docs/architecture/decisions/0028-url-scheme-place-first-flat-indicator-slug.md)
@@ -27,18 +27,18 @@
 
 | Row | Task | Status | Verification |
 | --- | --- | :-: | --- |
-| P0.1 | Accept the consultation plan and promote decisions out of TODO. | ACTIVE | User request to implement sequence. |
-| P0.2 | Add ADR for state aliases + partition token policy + `registerSlice`. | ACTIVE | ADR-0036 indexed. |
-| P0.3 | Update canonical-store and frontend data-loading subsystem docs. | ACTIVE | Docs point to ADR-0036. |
-| P0.4 | Replace this TODO with a phase ledger only. | ACTIVE | No rationale lives here after P0. |
+| P0.1 | Accept the consultation plan and promote decisions out of TODO. | DONE | User request to implement sequence. |
+| P0.2 | Add ADR for state aliases + partition token policy + `registerSlice`. | DONE | ADR-0036 indexed. |
+| P0.3 | Update canonical-store and frontend data-loading subsystem docs. | DONE | Docs point to ADR-0036. |
+| P0.4 | Replace this TODO with a phase ledger only. | DONE | No rationale lives here after P0. |
 
 ### P1 - Slice Seam On Existing Election Partitions
 
 | Row | Task | Current smoke route | Target route note | Verification |
 | --- | --- | --- | --- | --- |
-| P1.1 | Add `registerSlice` in `frontend/src/lib/duckdb.ts`. | none | n/a | Vitest fake-manifest coverage: partition match, no match, unknown key, unpartitioned table. |
-| P1.2 | Add or update the DuckDB harness slice check. | `/dev/duckdb-harness` | n/a | Browser verifies only `elections/state=in_s22/election_results.parquet` is selected for TN slice. |
-| P1.3 | Switch one state-scoped election loader to `registerSlice`. | `/s/tamil-nadu` (current legacy runtime) | `/india/tamil-nadu` after route migration | Same values/sources; state route works; no all-election-partition registration. |
+| P1.1 | Add `registerSlice` in `frontend/src/lib/duckdb.ts`. | none | n/a | DONE: vitest fake-manifest coverage for match, no match, unknown key, unpartitioned table. |
+| P1.2 | Add or update the DuckDB harness slice check. | `/dev/duckdb-harness` | n/a | DONE: browser verifies only `elections/state=in_s22/election_results.parquet` is selected for TN slice. |
+| P1.3 | Switch the state-hub election loaders mounted on `/s/tamil-nadu` to `registerSlice`. | `/s/tamil-nadu` (current legacy runtime) | `/india/tamil-nadu` after route migration | DONE: same values/sources; state route only requests the TN election partition. |
 
 P1 uses `state=in_s22` only because that is the current election partition. It must not promote ECI partition grammar as future socio-economic state grammar.
 

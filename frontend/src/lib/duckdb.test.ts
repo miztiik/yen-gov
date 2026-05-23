@@ -13,6 +13,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   __resetForTests,
   defaultViewName,
+  filesForSlice,
   fileUrls,
   loadManifest,
   tableFromManifest,
@@ -30,11 +31,22 @@ const SAMPLE_MANIFEST: Manifest = {
       kind: "observations",
       format: "parquet",
       schema_version: "1.1",
-      partition_columns: [],
+      partition_columns: ["state"],
       files: [
-        { path: "elections/election_results.parquet", size_bytes: 13_472_657, row_count: 179_746 },
+        {
+          path: "elections/state=in_s11/election_results.parquet",
+          size_bytes: 508_781,
+          row_count: 11_860,
+          partition_values: { state: "in_s11" },
+        },
+        {
+          path: "elections/state=in_s22/election_results.parquet",
+          size_bytes: 1_456_891,
+          row_count: 20_040,
+          partition_values: { state: "in_s22" },
+        },
       ],
-      row_count_total: 179_746,
+      row_count_total: 31_900,
     },
     {
       table_id: "taxonomy.sources",
@@ -94,7 +106,7 @@ describe("manifest helpers", () => {
 
   it("tableFromManifest returns the matching table", () => {
     const t = tableFromManifest(SAMPLE_MANIFEST, "elections.election_results");
-    expect(t.row_count_total).toBe(179_746);
+    expect(t.row_count_total).toBe(31_900);
   });
 
   it("tableFromManifest throws on unknown table_id", () => {
@@ -106,8 +118,45 @@ describe("manifest helpers", () => {
   it("fileUrls prepends DATA_BASE to each manifest path", () => {
     const t = tableFromManifest(SAMPLE_MANIFEST, "elections.election_results");
     const urls = fileUrls(t);
-    expect(urls).toHaveLength(1);
-    expect(urls[0].endsWith("/data/elections/election_results.parquet")).toBe(true);
+    expect(urls).toHaveLength(2);
+    expect(urls[0].endsWith("/data/elections/state=in_s11/election_results.parquet")).toBe(true);
+    expect(urls[1].endsWith("/data/elections/state=in_s22/election_results.parquet")).toBe(true);
+  });
+
+  it("filesForSlice returns only files whose partition values match", () => {
+    const t = tableFromManifest(SAMPLE_MANIFEST, "elections.election_results");
+    const files = filesForSlice(t, { state: "in_s22" });
+    expect(files).toHaveLength(1);
+    expect(files[0].path).toBe("elections/state=in_s22/election_results.parquet");
+  });
+
+  it("filesForSlice throws on an unknown partition key", () => {
+    const t = tableFromManifest(SAMPLE_MANIFEST, "elections.election_results");
+    expect(() => filesForSlice(t, { state_code: "S22" })).toThrow(
+      /unknown partition key "state_code".*partition_columns: state/,
+    );
+  });
+
+  it("filesForSlice throws when no files match the requested slice", () => {
+    const t = tableFromManifest(SAMPLE_MANIFEST, "elections.election_results");
+    expect(() => filesForSlice(t, { state: "in_s99" })).toThrow(
+      /no files match elections\.election_results partition state=in_s99/,
+    );
+  });
+
+  it("filesForSlice throws for unpartitioned tables unless fallback is explicit", () => {
+    const t = tableFromManifest(SAMPLE_MANIFEST, "taxonomy.sources");
+    expect(() => filesForSlice(t, { state: "in_s22" })).toThrow(
+      /table taxonomy\.sources is unpartitioned/,
+    );
+    expect(filesForSlice(t, { state: "in_s22" }, { allowFullTableFallback: true })).toEqual(
+      t.files,
+    );
+  });
+
+  it("filesForSlice throws on an empty partition filter", () => {
+    const t = tableFromManifest(SAMPLE_MANIFEST, "elections.election_results");
+    expect(() => filesForSlice(t, {})).toThrow(/slice filter.*is empty/);
   });
 });
 

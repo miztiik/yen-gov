@@ -4,7 +4,7 @@
   // Lives at /dev/duckdb-harness. NOT a citizen route. Its job is to prove,
   // end-to-end in a real browser, that:
   //   1. The Phase 0.8 loader can boot DuckDB-WASM, register the canonical
-  //      elections.election_results Parquet via HTTP, and run a query.
+  //      Tamil Nadu elections.election_results slice via HTTP, and run a query.
   //   2. The D17 failure-state contract holds — forced failures render
   //      plain-language copy with a retry, no stack traces.
   //
@@ -12,10 +12,10 @@
   // frontend/e2e/duckdb-harness.spec.ts.
 
   import { onMount } from "svelte";
-  import { __resetForTests, loadManifest, query, registerTable } from "../lib/duckdb";
+  import { __resetForTests, loadManifest, query, registerSlice, registerTable } from "../lib/duckdb";
   import { describeFailure, type LoaderResult } from "../lib/loader-result";
 
-  type Reading = { row_count: number; event_count: number };
+  type Reading = { row_count: number; event_count: number; state_partition: string };
 
   let result: LoaderResult<Reading> = $state({ status: "loading" });
 
@@ -24,14 +24,14 @@
     try {
       // Force a fresh manifest fetch each run so "Force 404" recovers cleanly.
       await loadManifest();
-      await registerTable("elections.election_results");
+      await registerSlice("elections.election_results", { state: "in_s22" });
       const rows = await query<{ n: bigint; events: bigint }>(
         "SELECT COUNT(*) AS n, COUNT(DISTINCT period_label) AS events FROM election_results",
       );
       const r = rows[0];
       result = {
         status: "ok",
-        data: { row_count: Number(r.n), event_count: Number(r.events) },
+        data: { row_count: Number(r.n), event_count: Number(r.events), state_partition: "in_s22" },
       };
     } catch (err) {
       result = { status: "failed", reason: describeFailure(err), retry: runRealQuery };
@@ -138,7 +138,8 @@
       <div data-testid="state-ok" class="space-y-1">
         <p class="text-sm font-medium text-emerald-700">Query OK</p>
         <p class="text-sm">
-          <span data-testid="row-count">{result.data.row_count}</span> rows across
+          <span data-testid="row-count">{result.data.row_count}</span> rows in
+          <span data-testid="state-partition">{result.data.state_partition}</span> across
           <span data-testid="event-count">{result.data.event_count}</span> election events.
         </p>
       </div>

@@ -16,7 +16,7 @@ This PR ships the **renderer + view-model contract + pure helpers
 only**. R-16's three-PR sequence:
 
 | Slice | Branch | Status |
-|---|---|---|
+| --- | --- | --- |
 | (a) Renderer + view-model contract + pure helpers | `feat/composition-bar-primitive-2026-05-24` | shipped (PR #142) |
 | (b) `adapter-elections-seats.ts` + GrowthBook experiment definition | `feat/composition-bar-elections-adapter-2026-05-24` | **THIS PR** |
 | (c) Mount on chosen state-hub route + Playwright | `feat/composition-bar-mount-<state>` | follow-up |
@@ -24,13 +24,13 @@ only**. R-16's three-PR sequence:
 ## Surfaces
 
 | Path | Role |
-|---|---|
+| --- | --- |
 | [`types.ts`](./types.ts) | Zod contract: `CompositionBarModel`, `CompositionBarSegment`, `CompositionBarHonestyBanner`. |
 | [`helpers.ts`](./helpers.ts) | Pure: `totalSegmentValue`, `shareOfTotalPct`, `projectSegments`, `formatSegmentReadout`, `segmentsSumMatchesTotal`. |
 | [`helpers.test.ts`](./helpers.test.ts) | 22 vitest cases on the geometry / share / lift / sum-check math. |
 | [`types.test.ts`](./types.test.ts) | 18 vitest cases on the zod contract + fixture round-trip + tail / dominant-segment assertions. |
 | [`adapter-elections-seats.ts`](./adapter-elections-seats.ts) | Pure assembler + async DuckDB-WASM loader. Top-N=8 with visible Others tail; NOTA via existing anchor; FPTP caption verbatim. |
-| [`adapter-elections-seats.test.ts`](./adapter-elections-seats.test.ts) | 24 vitest cases — sort / top-N edge cases (N=2/5/8 + degenerate) / NOTA / FPTP caption / loader registerTable contract. |
+| [`adapter-elections-seats.test.ts`](./adapter-elections-seats.test.ts) | 24 vitest cases — sort / top-N edge cases (N=2/5/8 + degenerate) / NOTA / FPTP caption / loader manifest-registration contract. |
 | [`experiment-definition.json`](./experiment-definition.json) | GrowthBook OSS experiment: control (SeatDonut only) vs treatment (CompositionBar + SeatDonut); 50/50; cookie-sticky on `visitor_id`. |
 | [`experiment-definition.test.ts`](./experiment-definition.test.ts) | 14 vitest cases — experiment shape + R-28 manifest contract on the adapter. |
 | [`__fixtures__/gujarat-2022-seats.json`](./__fixtures__/gujarat-2022-seats.json) | Single-party-dominant fixture (BJP 156 / 182 = 85.7%). Drives the round-trip + sum-check tests. |
@@ -46,10 +46,9 @@ only**. R-16's three-PR sequence:
   Each commit ships and reviews independently.
 - **R-24 / R-28** — the footer slot delegates to `<SourceListV2>` via
   `<ChartShell>`. No fetch telemetry, no parquet path literal.
-- **R-27** — no JSON projection of canonical parquet. The adapter (in
-  the (b) follow-up PR) reads `elections.election_results` +
-  `elections.dim_parties` via the manifest-registered `table_id` and
-  emits this view-model directly.
+- **R-27** — no JSON projection of canonical parquet. The adapter reads
+  the state-scoped `elections.election_results` slice and supporting
+  tables via manifest registration and emits this view-model directly.
 
 ## Renderer rules (per plan lines 1308-1314)
 
@@ -93,7 +92,7 @@ only**. R-16's three-PR sequence:
 ## What is intentionally NOT in this PR
 
 | Out of scope | Where it lands |
-|---|---|
+| --- | --- |
 | Mount on any route | Phase 3.6 (c) |
 | Playwright on the rendered DOM | Phase 3.6 (c) |
 | Summary-copy dominance-verb suppression test | Phase 3.6 (c) |

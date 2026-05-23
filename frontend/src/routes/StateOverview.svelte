@@ -223,6 +223,7 @@
           party_totals: [],
           ac_winners: [],
           sources: [],
+          sources_v2: [],
         },
         reason: "not_published",
       };

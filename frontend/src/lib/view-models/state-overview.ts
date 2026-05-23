@@ -41,7 +41,8 @@ import {
   describeFailure,
   type LoaderResult,
 } from "../loader-result";
-import { query, registerTable } from "../duckdb";
+import { query, registerSlice, registerTable } from "../duckdb";
+import { electionStatePartition } from "../election-partitions";
 import type { PartyTotals, SourceRef } from "../data";
 import {
   verificationMethodRank,
@@ -147,7 +148,7 @@ async function runQueries(
   acWinners: AcWinnerRow[];
 }> {
   await Promise.all([
-    registerTable("elections.election_results"),
+    registerSlice("elections.election_results", { state: electionStatePartition(state_code) }),
     registerTable("elections.dim_parties"),
     registerTable("elections.dim_party_alliances"),
     registerTable("elections.dim_acs"),
@@ -439,7 +440,7 @@ export async function loadStateAcWinners(
 ): Promise<LoaderResult<AcWinner[]>> {
   try {
     await Promise.all([
-      registerTable("elections.election_results"),
+      registerSlice("elections.election_results", { state: electionStatePartition(state_code) }),
       registerTable("elections.dim_parties"),
       registerTable("elections.dim_acs"),
     ]);

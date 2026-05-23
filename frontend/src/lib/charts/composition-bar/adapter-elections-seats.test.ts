@@ -1,18 +1,19 @@
 // Vitest — Phase 3.6 (b) elections adapter (pure + loader).
 //
 // Per CLAUDE.md §15: the loader's contract IS the SQL boundary —
-// mocking `query`/`registerTable` is the explicit carve-out from Holy
+// mocking `query`/`registerSlice`/`registerTable` is the explicit carve-out from Holy
 // Law #7. We don't boot DuckDB-WASM here; the round-trip is asserted
 // in Playwright against a real Parquet shard in Phase 3.6 (c).
 
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("../../duckdb", () => ({
+  registerSlice: vi.fn(async () => "noop"),
   registerTable: vi.fn(async () => "noop"),
   query: vi.fn(),
 }));
 
-import { query, registerTable } from "../../duckdb";
+import { query, registerSlice, registerTable } from "../../duckdb";
 import {
   CAPTION_FPTP,
   DEFAULT_TOP_N,
@@ -29,11 +30,14 @@ import {
 
 const mockedQuery = vi.mocked(query);
 const mockedRegister = vi.mocked(registerTable);
+const mockedRegisterSlice = vi.mocked(registerSlice);
 
 beforeEach(() => {
   mockedQuery.mockReset();
   mockedRegister.mockReset();
+  mockedRegisterSlice.mockReset();
   mockedRegister.mockResolvedValue("noop");
+  mockedRegisterSlice.mockResolvedValue("noop");
 });
 
 function party(
@@ -378,8 +382,8 @@ describe("projectSourcesV2", () => {
   });
 });
 
-describe("loadCompositionBarElectionSeats — async loader (R-28 registerTable)", () => {
-  it("registers manifest tables before querying (R-28 contract)", async () => {
+describe("loadCompositionBarElectionSeats — async loader (R-28 manifest registration)", () => {
+  it("registers the state fact slice and supporting tables before querying", async () => {
     // Stub both queries with empty arrays — we only care about the
     // registerTable calls here.
     mockedQuery.mockResolvedValue([]);
@@ -387,8 +391,11 @@ describe("loadCompositionBarElectionSeats — async loader (R-28 registerTable)"
       state_label: "Gujarat",
       event_label: "2022",
     });
+    expect(mockedRegisterSlice).toHaveBeenCalledWith(
+      "elections.election_results",
+      { state: "in_s05" },
+    );
     const calledWith = mockedRegister.mock.calls.map(c => c[0]);
-    expect(calledWith).toContain("elections.election_results");
     expect(calledWith).toContain("elections.dim_parties");
     expect(calledWith).toContain("taxonomy.sources");
   });

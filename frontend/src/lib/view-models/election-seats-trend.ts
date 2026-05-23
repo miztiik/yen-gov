@@ -17,7 +17,8 @@
 //   failed   — DuckDB-WASM / fetch / SQL error.
 
 import { describeFailure, type LoaderResult } from "../loader-result";
-import { query, registerTable } from "../duckdb";
+import { query, registerSlice, registerTable } from "../duckdb";
+import { electionStatePartition } from "../election-partitions";
 import type { PartyTotals, SourceRef } from "../data";
 import type { StackedTrendV2Source } from "../charts/stacked-trend-v2";
 
@@ -85,7 +86,7 @@ async function runQueries(
   event_ids: string[],
 ): Promise<{ parties: PartyRow[]; sources: SourceJoinRow[] }> {
   await Promise.all([
-    registerTable("elections.election_results"),
+    registerSlice("elections.election_results", { state: electionStatePartition(state_code) }),
     registerTable("elections.dim_parties"),
     registerTable("taxonomy.sources"),
   ]);
