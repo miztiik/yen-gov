@@ -48,6 +48,39 @@ import type {
 export const DEFAULT_LABEL_THRESHOLD_PCT = 8;
 
 /**
+ * Citizen-readable label per chart mode (R-12, Phase 2.2).
+ *
+ * Kept as plain English so the segmented control reads naturally
+ * ("Share" / "Total") rather than as engineering jargon
+ * ("Percent" / "Absolute"). The internal mode token stays
+ * `percent` / `absolute` so existing helper signatures and the
+ * `model.default_mode` field don't move.
+ */
+export const MODE_LABELS: Readonly<Record<"percent" | "absolute", string>> = {
+  percent: "Share",
+  absolute: "Total",
+};
+
+/**
+ * Resolve the chart's INITIAL mode at mount time (R-12, Phase 2.2).
+ *
+ * Precedence: caller's optional `mode_override` wins, otherwise the
+ * model's `default_mode` (which zod has already defaulted to
+ * `"percent"` when the adapter omitted it). The citizen can override
+ * either choice via the segmented control once the chart is mounted;
+ * the override prop is the INITIAL state, not a permanent lock.
+ *
+ * Extracted from the component so the resolution rule is unit-testable
+ * without mounting Svelte.
+ */
+export function resolveInitialMode(
+  modeOverride: "percent" | "absolute" | undefined,
+  modelDefault: "percent" | "absolute",
+): "percent" | "absolute" {
+  return modeOverride ?? modelDefault;
+}
+
+/**
  * Sum of present, non-null segment values on a bar.
  *
  * If `bar.total` is explicitly set on the bar, that wins — the adapter

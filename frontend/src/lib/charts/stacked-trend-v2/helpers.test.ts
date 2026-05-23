@@ -14,10 +14,12 @@ import { describe, expect, it } from "vitest";
 
 import {
   DEFAULT_LABEL_THRESHOLD_PCT,
+  MODE_LABELS,
   barTotal,
   isLabelEligible,
   maxBarTotal,
   readoutRows,
+  resolveInitialMode,
   segmentSharePct,
   segmentVisualHeightPct,
   visibleCategoryIds,
@@ -478,5 +480,39 @@ describe("readoutRows", () => {
       12.5,
       5,
     );
+  });
+});
+
+describe("MODE_LABELS", () => {
+  it("maps every mode to a citizen-readable label", () => {
+    expect(MODE_LABELS.percent).toBe("Share");
+    expect(MODE_LABELS.absolute).toBe("Total");
+  });
+
+  it("covers every member of the mode union (compile-time exhaustiveness)", () => {
+    // If a future PR adds a third mode token, this assertion forces the
+    // dictionary to grow alongside it. Iterating Object.keys is the
+    // cheapest run-time stand-in for an exhaustive `satisfies` check on
+    // the dictionary value type.
+    const keys = Object.keys(MODE_LABELS).sort();
+    expect(keys).toEqual(["absolute", "percent"]);
+  });
+});
+
+describe("resolveInitialMode", () => {
+  it("returns the override when one is provided", () => {
+    expect(resolveInitialMode("absolute", "percent")).toBe("absolute");
+    expect(resolveInitialMode("percent", "absolute")).toBe("percent");
+  });
+
+  it("falls back to the model default when no override is given", () => {
+    expect(resolveInitialMode(undefined, "percent")).toBe("percent");
+    expect(resolveInitialMode(undefined, "absolute")).toBe("absolute");
+  });
+
+  it("does not coerce or normalise — the union types pre-constrain the inputs", () => {
+    // Sanity: no defensive lowercasing, no falsy coercion. The function
+    // exists to make the precedence rule unit-testable, not to validate.
+    expect(resolveInitialMode("percent", "absolute")).toBe("percent");
   });
 });

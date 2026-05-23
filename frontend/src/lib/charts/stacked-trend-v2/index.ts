@@ -35,10 +35,12 @@ export {
 // `./helpers` directly when they want only one symbol.
 export {
   DEFAULT_LABEL_THRESHOLD_PCT,
+  MODE_LABELS,
   barTotal,
   isLabelEligible,
   maxBarTotal,
   readoutRows,
+  resolveInitialMode,
   segmentSharePct,
   segmentVisualHeightPct,
   visibleCategoryIds,

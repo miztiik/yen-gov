@@ -27,15 +27,22 @@ Track-D commits (Phases 2.2…2.7 and D10…D13).
   ([`./helpers.test.ts`](./helpers.test.ts), 47 cases) for percent /
   absolute modes, zero totals, `__OTHER__`, missing, not_applicable,
   null values, and `bar.total` overrides.
-- **2.1c** (PR-8 — THIS PR): wire the helpers into the shell. The
+- **2.1c** (PR-8 — DONE): wire the helpers into the shell. The
   shell's empty `<g/>` is now populated by one `<rect>` per present
   segment per bar; segment geometry comes from `segmentVisualHeightPct`,
   bar scale from `maxBarTotal`, legend membership from
   `visibleCategoryIds`. A baseline axis line + period-label row +
   flat legend strip render below the chart so the chart is
-  interpretable standalone. **Still no segmented mode toggle, no
-  pinned readout, no inline labels, no hatch, no motion** — those land
-  in Phases 2.2..2.6. **Still zero callers; v1 still ships untouched.**
+  interpretable standalone.
+- **2.2** (PR-9 — THIS PR): segmented mode control. Live `<button>`
+  group (R-12: button, not select) flips the chart between
+  "Share" (percent of bar) and "Total" (absolute height vs. max bar)
+  without losing scroll or focus. Initial mode resolved via the new
+  pure `resolveInitialMode(mode_override, model.default_mode)` helper
+  (5 new unit cases in `helpers.test.ts`); subsequent changes flow
+  from button clicks. Citizen-readable labels live in `MODE_LABELS`
+  ("Share" / "Total") rather than the internal token names. **Still
+  zero callers; v1 still ships untouched.**
 
 ## R-11 deferral (Phase 2.2 contract test)
 

@@ -1,23 +1,25 @@
 <script lang="ts">
-  // StackedTrendV2 — component shell with wired bar geometry (Phase 2.1c).
+  // StackedTrendV2 — component with wired geometry + segmented mode
+  // control (Phase 2.1c + Phase 2.2).
   //
-  // Per TODO/20260518-frontend-charting-modernisation-plan.md Phase 2.1.
+  // Per TODO/20260518-frontend-charting-modernisation-plan.md Phases
+  // 2.1 + 2.2.
   //
-  // What changed from PR #108 (the 2.1b shell):
+  // Behaviour delivered so far:
   //
-  //  - The empty `<g class="stacked-trend-v2__bars"/>` placeholder is now
-  //    populated with one `<rect>` per present segment per bar, geometry
-  //    driven entirely by the pure helpers shipped in PR #110.
-  //  - A horizontal axis baseline + period labels render below the bars
-  //    so the chart is interpretable without a caller-side legend.
-  //  - A flat legend strip renders below the chart, listing only
-  //    `visibleCategoryIds(model)` (categories that contribute at least
-  //    one non-zero present value somewhere in the series — invisible
-  //    categories would only confuse a citizen).
+  //  - Phase 2.1c: bar/segment <rect> geometry driven by the pure
+  //    helpers shipped in PR #110, plus baseline axis, period-label
+  //    row, and a legend strip listing only `visibleCategoryIds`.
+  //  - Phase 2.2 (this PR): live segmented mode toggle. The citizen
+  //    flips between "Share" (percent of bar) and "Total" (absolute
+  //    height vs. max bar) without losing scroll or focus. Initial
+  //    mode comes from `resolveInitialMode(mode_override,
+  //    model.default_mode)`. R-12: this is a `<button>` group, NOT a
+  //    `<select>`, so the citizen sees the alternative without
+  //    opening a menu.
   //
   // What's STILL out of scope (each ships in its own PR):
   //
-  //  - Segmented mode toggle (Phase 2.2 / R-12 — a real `<button>` group).
   //  - Pinned readout panel on bar tap (Phase 2.3 / R-12, no hover-as-state).
   //  - Inline + leader labels (Phase 2.4).
   //  - Missing / not_applicable hatch (Phase 2.5).
@@ -25,11 +27,9 @@
   //  - Export control (Phase 2.7).
   //
   // Per R-08 Branch by Abstraction: v2 ships ALONGSIDE
-  // `frontend/src/lib/charts/StackedTrend.svelte` (v1). v1 is NOT modified,
-  // NOT deprecated. Caller migration is one PR per caller; v1 is deleted
-  // in a single final PR after the last caller migrates. ZERO callers
-  // consume v2 today, so this PR is still inert from the citizen's
-  // perspective.
+  // `frontend/src/lib/charts/StackedTrend.svelte` (v1). v1 is NOT
+  // modified. Caller migration runs in Track-D D10..D12; v1 deletion
+  // in D13. ZERO callers consume v2 today.
   //
   // SVG layout choices:
   //
@@ -38,26 +38,26 @@
   //    to a pixel-grid. The height is constrained by the wrapping div
   //    (`h-72` = 18rem ≈ 288 px on desktop) so the citizen never sees a
   //    1px-tall chart on narrow viewports.
-  //  - Bars are positioned at `x = i * BAR_PITCH` with width `BAR_WIDTH`
+  //  - Bars are positioned at `x = i * pitch` with width `barWidth`
   //    so the bar count stays self-evident even when bars are short.
   //  - Segments stack from the bottom (`y = 100 - cumulativeHeight`)
   //    using `segmentVisualHeightPct` from the helpers (which mirrors v1
-  //    geometry — toggling modes doesn't bounce the visual).
+  //    geometry — toggling modes does not bounce the visual).
   //  - Colours come from the existing `categoryFill` helper plus the v2
-  //    `OTHER_CATEGORY_FILL_V2` constant — same palette discipline as v1,
-  //    so cross-chart consistency is preserved during migration.
+  //    `OTHER_CATEGORY_FILL_V2` constant — same palette discipline as
+  //    v1, so cross-chart consistency is preserved during migration.
   //
-  // CLAUDE.md S0 (a11y descoped): no aria-label, no role attribute. The
-  // honesty-banner copy + headline copy + colour discipline carry meaning
-  // visually for sighted citizens; the pattern is retained on visual-
-  // clarity grounds, not WCAG grounds. The `<title>` tooltip on each
-  // `<rect>` is the browser-native hover-text; it costs nothing and helps
-  // citizens identify segments before Phase 2.3 ships the pinned readout.
+  // CLAUDE.md S0 (a11y descoped): no aria-label, no role attribute.
+  // The mode buttons carry `data-mode-value` + `data-active` for
+  // Playwright; they are real `<button>` elements (keyboard- and
+  // pointer-navigable for free) but no aria-pressed is set.
 
   import { categoryFill } from "../colors/category-colour";
   import {
+    MODE_LABELS,
     barTotal,
     maxBarTotal,
+    resolveInitialMode,
     segmentVisualHeightPct,
     visibleCategoryIds,
   } from "./stacked-trend-v2/helpers";
@@ -76,16 +76,25 @@
   }: {
     model: StackedTrendV2Model;
     /**
-     * Optional caller override of `model.default_mode`. Wired through to
-     * the segmented mode control in Phase 2.2 (still TODO). Today the
-     * caller's only knob is the model's `default_mode` plus this
-     * optional one-way override.
+     * Optional caller override of `model.default_mode`. Sets the
+     * INITIAL mode at mount; the citizen can still toggle via the
+     * segmented control after mount. Use this when a specific route
+     * needs to land on "Total" (or "Share") regardless of the model's
+     * own default — never as a permanent lock.
      */
     mode_override?: "percent" | "absolute";
   } = $props();
 
-  const mode = $derived<"percent" | "absolute">(
-    mode_override ?? model.default_mode,
+  // Live mode state (Phase 2.2 / R-12). Initial value resolved via the
+  // pure `resolveInitialMode` helper (unit-tested in
+  // `stacked-trend-v2/helpers.test.ts`); subsequent changes flow from
+  // the segmented control's <button> clicks below.
+  //
+  // svelte-ignore state_referenced_locally — initial-only-at-mount is
+  // INTENTIONAL: the citizen's click is the source of truth after mount,
+  // a prop change must not silently overwrite the citizen's choice.
+  let currentMode = $state<"percent" | "absolute">(
+    resolveInitialMode(mode_override, model.default_mode),
   );
 
   const visibleIds = $derived(visibleCategoryIds(model));
@@ -163,7 +172,7 @@
         seg,
         totalForBar,
         maxTotal,
-        mode,
+        currentMode,
       );
       if (height <= 0) continue;
       cursorY -= height;
@@ -189,7 +198,7 @@
 <div
   class="stacked-trend-v2 space-y-3"
   data-chart="stacked-trend-v2"
-  data-mode={mode}
+  data-mode={currentMode}
 >
   {#if model.headline?.text}
     <div class="rounded border border-slate-200 bg-slate-50 p-3 text-sm">
@@ -215,8 +224,28 @@
   {/if}
 
   <div class="flex items-center gap-3 text-xs">
-    <span class="text-slate-500">Mode</span>
-    <span class="font-medium text-slate-800 uppercase tracking-wide">{mode}</span>
+    <span class="text-slate-500">Show as</span>
+    <div
+      class="stacked-trend-v2__mode-control inline-flex rounded border border-slate-300 overflow-hidden"
+      data-control="mode-toggle"
+    >
+      {#each ["percent", "absolute"] as const as m (m)}
+        <button
+          type="button"
+          class="px-2.5 py-1 text-xs font-medium transition-colors"
+          class:bg-slate-800={currentMode === m}
+          class:text-white={currentMode === m}
+          class:bg-white={currentMode !== m}
+          class:text-slate-700={currentMode !== m}
+          class:hover:bg-slate-100={currentMode !== m}
+          data-mode-value={m}
+          data-active={currentMode === m}
+          onclick={() => (currentMode = m)}
+        >
+          {MODE_LABELS[m]}
+        </button>
+      {/each}
+    </div>
     <span class="ml-auto text-slate-500">{model.x_axis_label}</span>
   </div>
 
