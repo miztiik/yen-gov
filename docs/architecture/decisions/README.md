@@ -1,6 +1,6 @@
 # Architecture Decision Records (ADRs)
 
-**Last Updated**: 2026-05-22
+**Last Updated**: 2026-05-23
 
 This directory holds the **few** decisions that earn an immutable, append-only record of their own:
 
@@ -37,6 +37,7 @@ Keep ADRs short. They are immutable once accepted; a later ADR supersedes (and t
 | [0033](0033-retire-wikipedia-districts-adapter.md) | Retire the Wikipedia districts adapter entirely | accepted |
 | [0034](0034-documentation-routing-contract.md) | Documentation routing contract (four doc classes) | accepted |
 | [0035](0035-persons-fork-option-b.md) | Persons fork: rename `dim_candidates` to `dim_persons` in one shot (Option B) | accepted |
+| [0036](0036-state-identity-and-slice-registration.md) | State identity aliases and manifest-directed slice registration | accepted |
 
 ## Absorbed ADRs (2026-05-09)
 
@@ -62,7 +63,7 @@ The following ADR numbers used to live in this directory and were absorbed into 
 | 0017 | `/explore` page uses `sql.js` (superseded 2026-05-19 by ADR-0030; `/explore` now runs on DuckDB-WASM) | [0017-explore-page-uses-sql-js.md](0017-explore-page-uses-sql-js.md) |
 | 0018 | Wikipedia AC-table district name resolution | [backend/sources-wikipedia.md](../backend/sources-wikipedia.md#district-name-resolution-for-ac-tables) |
 
-The next new ADR will be numbered **0019** (continuing the original sequence; we do **not** reuse the duplicate 0016 slot, the gaps left by the absorbed ADRs, or renumber the survivors). The duplicate-0016 collision is recorded here so future archaeology has the answer.
+The next new ADR will be numbered **0037**. We do **not** reuse the duplicate 0016 slot, the gaps left by the absorbed ADRs, or renumber the survivors. The duplicate-0016 collision is recorded here so future archaeology has the answer.
 
 ## Why this directory is small
 

@@ -1,6 +1,6 @@
 # Frontend Data Loading
 
-**Last Updated**: 2026-05-19
+**Last Updated**: 2026-05-23
 
 How the frontend bundle reads `datasets/` artifacts. Covers the dev-time Vite middleware, the production CI staging step, and the `/explore` page's in-browser SQL via DuckDB-WASM.
 
@@ -75,6 +75,28 @@ Vite config stays UI-only. The dev middleware (`serveDatasets()`) and the deploy
 - **Commit `datasets/` into a separate `gh-pages` branch via a build script.** Works, but conflates "where data lives" with "what gets deployed", and makes it tempting to hand-edit the `gh-pages` branch. Rejected.
 - **Two Pages sites (one for app, one for data) with CORS.** Doubles infrastructure and adds a cross-origin failure mode that doesn't exist today. Rejected.
 - **Inline the data into `index.html` as JSON.** Fine for the 12-row party totals, fails the moment the per-AC pages need 234 files. Rejected as a general pattern.
+
+## DuckDB-WASM registration seams
+
+ADR-0030 makes DuckDB-WASM the browser SQL engine over canonical Parquet. ADR-0036 adds the slice seam that lets citizen routes avoid registering every partition when the route already knows the physical slice it needs.
+
+Both seams are implemented in [`frontend/src/lib/duckdb.ts`](../../../frontend/src/lib/duckdb.ts):
+
+| Seam | Use | Contract |
+| --- | --- | --- |
+| `registerTable(tableId)` | Full canonical table registration. Use for Explore, Compare, and other explicit broad modes. | Loads `datasets/manifest.json`, resolves `tableId`, registers every file listed for that table, and returns the DuckDB view name. |
+| `registerSlice(tableId, partitionFilter)` | Route-scoped registration. Use when a citizen page knows a required physical partition, such as the current Tamil Nadu election shard. | Filters `manifest.tables[].files` by `partition_values`, registers only matching file URLs, and returns the DuckDB view name. |
+
+`registerSlice` is **manifest-native**, not semantic. Callers pass physical partition values that already exist in `manifest.json`, e.g. `{ state: "in_s22" }` for the existing election partition. The translation from route slug or `entity_id` to that physical value is table-specific and stays in the caller layer until SemanticCatalogue exists.
+
+Failure rules:
+
+- Unknown partition key fails loud.
+- Empty match fails loud for required route slices.
+- Filtering an unpartitioned table fails unless the caller explicitly allows full-table fallback.
+- The first implementation supports scalar exact-match filters only. Multi-value filters are deferred until a concrete multi-state caller earns the API surface.
+
+No manifest schema bump is required for the first slice seam because the existing manifest already exposes `partition_columns` and each file's `partition_values`. The manifest remains a physical inventory; future SemanticCatalogue work is a separate control-plane artifact and must not contain observation values.
 
 ## The `/explore` page uses DuckDB-WASM (Phase 1.6b — PR-L)
 
