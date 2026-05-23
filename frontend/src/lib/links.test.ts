@@ -8,7 +8,7 @@
 // `links.ts` module. Both contracts coexist through Phase 4; once Phase 4
 // deletes `url.ts`, this file becomes the only URL-shape contract.
 //
-// See ADR-0037 + TODO/20260525-url-grammar-grammar-a-migration.md.
+// See ADR-0037 for the binding decision and the four-phase plan.
 
 import { describe, it, expect } from "vitest";
 import { link, RESERVED_PATH_TOKENS } from "./links";

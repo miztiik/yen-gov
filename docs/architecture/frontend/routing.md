@@ -6,7 +6,7 @@
 
 The operational form of the URL scheme decided in [ADR-0028](../decisions/0028-url-scheme-place-first-flat-indicator-slug.md), as amended by [ADR-0037](../decisions/0037-url-grammar-drop-india-prefix.md). This doc is for the engineer wiring the router; the ADRs are for the reviewer asking "why this shape."
 
-> **Phase 1 status (2026-05-25).** Grammar A end-state is documented here but not yet wired into `frontend/src/main.ts`. The live code currently routes Grammar B (`/s/<state>/...`); see [TODO/20260525-url-grammar-grammar-a-migration.md](../../../TODO/20260525-url-grammar-grammar-a-migration.md) for the four-phase strangler-fig. Phase 1 (this PR) ships `frontend/src/lib/links.ts` (Grammar A builders, zero call-sites) plus the three Tier-A contract tests. Phase 2 adds the route table; Phase 3 lands the legacy redirect; Phase 4 deletes Grammar B.
+> **Phase 1 status (2026-05-25).** Grammar A end-state is documented here but not yet wired into `frontend/src/main.ts`. The live code currently routes Grammar B (`/s/<state>/...`); see [ADR-0037](../decisions/0037-url-grammar-drop-india-prefix.md) for the binding decision, the three-voice digest, the four-phase strangler-fig, and the open user-gate questions blocking Phase 2/3/4. Phase 1 shipped `frontend/src/lib/links.ts` (Grammar A builders, zero call-sites) plus the three Tier-A contract tests in PR #173. Phase 2 adds the route table; Phase 3 lands the legacy redirect; Phase 4 deletes Grammar B.
 
 ## Mode
 
@@ -159,7 +159,6 @@ The `RootResolver` consults RESERVED + state-registry + indicator-registry to de
 ## See also
 
 - [ADR-0028 — URL scheme](../decisions/0028-url-scheme-place-first-flat-indicator-slug.md) — amended on the country-prefix question.
-- [ADR-0037 — drop /india/ prefix](../decisions/0037-url-grammar-drop-india-prefix.md) — the binding 2026-05-25 amendment.
+- [ADR-0037 — drop /india/ prefix](../decisions/0037-url-grammar-drop-india-prefix.md) — the binding 2026-05-25 amendment; carries the three-voice digest, the four-phase plan, and the open user-gate questions.
 - [ADR-0016 — hash routing](../decisions/0016-frontend-hash-routing.md) — superseded.
 - [docs/concepts/owid-alignment.md](../../concepts/owid-alignment.md) — the fallback doctrine this scheme exemplifies.
-- [TODO/20260525-url-grammar-grammar-a-migration.md](../../../TODO/20260525-url-grammar-grammar-a-migration.md) — debate transcript, phase plan, open user-gate questions.

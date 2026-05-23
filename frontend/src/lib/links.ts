@@ -21,8 +21,8 @@
 //     A new test file (`links.test.ts`) tests Grammar A independently.
 //
 // See also:
-//   * ADR-0037 — the binding decision.
-//   * TODO/20260525-url-grammar-grammar-a-migration.md — the four-phase plan.
+//   * ADR-0037 — the binding decision, the three-voice digest, the
+//     four-phase strangler-fig, and the open user-gate questions.
 //   * frontend/src/lib/url.ts — the Grammar B builders being superseded.
 //   * frontend/src/lib/slug.ts — the slugify primitive shared with url.ts.
 //   * frontend/src/lib/paths.ts — the (unrelated) DATA_BASE prefix module.
