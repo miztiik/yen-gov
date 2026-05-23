@@ -76,17 +76,18 @@ Four follow-up PRs, ordered by reviewability. Each is a fused-atomic per CLAUDE.
 
 **Why first**: smallest, no Hans-decision, restores the only Path A DATA-LOST item.
 
-**Scope**:
-1. Extend `backend/yen_gov/canonical/adapters/energy/demand_supply.py` to lift FY25 rows from both `state_peak_electricity_demand_mw.json` (33 entities) and `state_electricity_peak_demand_mw.json` (34 entities). Keep the existing FY13-FY24 lift unchanged.
-2. Canonical: `state-peak-electricity-demand-mw` grows from 396 → ~430 rows (entities × +1 FY); `state-peak-electricity-supplied-mw` similarly.
-3. source_id already in ledger (`src-be6a6d5d6493`).
-4. Catalogue rows already exist (`state-peak-electricity-demand-mw` + `-supplied-mw` per `inspect_canonical_energy.py` output).
-5. Retire both legacy shards + scrub `datasets/_ops/legacy-folded-indicator-shards.txt` for both filenames.
-6. Tier-A: extend the existing adapter unit tests with FY25 parity cells.
-7. Tier-B: validator clean.
-8. §13 smoke: `/topic/energy` + 1 state hub (e.g. TN) — confirm peak-demand chart now reads through 2025-04.
+**Phase A status (2026-05-24 — SHIPPED, DESCOPED)**: extended `backend/yen_gov/canonical/adapters/energy/demand_supply.py` with lift block 4 reading FY25-only rows (`r["time"] == "2025-04"`) from `state_electricity_peak_demand_mw.json` (34 entities incl. `IN` national aggregate, value 245 416 MW). Shard 1 (`state_peak_electricity_demand_mw.json`, 33 state rows) is a strict byte-subset of shard 2's FY25 slice and was NOT lifted (would just deduplicate to the same UPSERT key). Canonical `state-peak-electricity-demand-mw` grew 396 → 430 rows (FY13–FY25, 35 entities incl. IN national). FY18–FY24 overlap between RBI (block 1) and ICED (this block) was **dropped** because 192/221 cells differ; RBI Handbook Table 142 is the gold authority per Hans D33. The mixed `source_id` on the same indicator is contract-clean per writer D7 (`source_id` is per-row, NOT in the dedup key). 4 new Tier-A parity tests pinned TN/IN FY25 cells + source_id boundary + total rowcount.
 
-**Estimated**: ~1 day. Pure additive.
+**Phase A descope rationale (consumer-audit finding)**: §13 browser smoke on `/s/tamil-nadu` revealed the frontend state-hub indicator-widget loader fetches both shards by slug (`/indicators/in/energy/state_*.json`). Deleting them — as the original C4.7 scope item 5 said — produces 404s on every state page and breaks the citizen "Peak demand" card. The backend adapter `_shared.load_shard` also reads them at lift-time (3 backend tests fail). Retirement was therefore deferred to a 4-phase strangler fig:
+
+- **Phase A (this PR, SHIPPED)**: additive FY25 lift on canonical; both legacy shards kept.
+- **Phase B (next)**: frontend reader-switch — point the state-hub indicator-widget loader at the canonical `energy_demand_supply.parquet` for this indicator (via DuckDB-WASM); legacy shard 404 becomes non-fatal.
+- **Phase C**: rewrite this lift function to drop block 4 and read FY25 directly from the canonical parquet path (eliminate the `load_shard` dependency).
+- **Phase D**: `git rm` both shards + scrub allowlist (`datasets/_ops/legacy-folded-indicator-shards.txt` lines 79 + 87) + drop the 2 rows in `docs/reference/data-inventory.md` + the 1 row in `docs/concepts/long-coverage-indicators.md`.
+
+Phases B–D are tracked in a new follow-on TODO (filed under the same C4.7 slug). Phase A delivers the citizen value (FY25 shows on every state page peak-demand widget) without the retire-blocker work that Hans-grade audit reveals.
+
+**Estimated (revised)**: Phase A: ~½ day actual (now shipped). Phases B+C+D: ~2 days combined (frontend reader-switch is the single design point).
 
 ### P.1.A C4.5 — CEA per-state per-fuel snapshot lift (3 days; Hans+Max Q1 needed)
 
@@ -135,7 +136,7 @@ Four follow-up PRs, ordered by reviewability. Each is a fused-atomic per CLAUDE.
 
 1. **Now** (this PR): ship THIS doc-only re-acquisition plan.
 2. **Next** (autonomous-doable): ship Path A retire PR — 8 SAFE shards including the `state_peak_electricity_demand_mw.json` FY25 loss; PR body cites this re-acquisition plan §3 C4.7 as the FY25-restore commitment.
-3. **Then** (1 day; no decisions needed): P.1.A C4.7 ICED peak-demand FY25 extension; restores the FY25 data lost in step 2 + retires both peak-demand legacy shards.
+3. **Then** (1 day; no decisions needed): P.1.A C4.7 ICED peak-demand FY25 extension; restores the FY25 data lost in step 2. **Update 2026-05-24**: Phase A SHIPPED additive (FY25 on canonical); shard retirement deferred to Phases B–D pending frontend reader-switch — see §3 C4.7 descope note.
 4. **Then (parallel)**: P.1.A C4.5 (3 days; Hans+Max Q1 needed) + P.1.A C4.6 (3-4 days; Hans Q2 needed for renderer).
 5. **Then**: Hans+Max Q3 decision → P.1.A C4.8 execute.
 6. **Last**: P.1.A C5+C6 full reader-switch + final retire pass when all 8 deferred shards are no longer deferred (the rejected-fully-fused approach from PR #116 becomes ship-able).
