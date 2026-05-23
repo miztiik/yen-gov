@@ -1,0 +1,110 @@
+{
+  "$comment": "Minimal-but-valid StackedTrendV2Model fixture. Energy share by fuel for a single hypothetical state, three periods (FY 2022-23 → FY 2024-25). Sources block exercises the v2.0 citation ledger (1 issuing-authority row, 1 republisher row). MUST round-trip through StackedTrendV2Model.parse() cleanly; the round-trip is enforced by frontend/src/lib/charts/stacked-trend-v2/types.test.ts.",
+  "schema_version": "2.0",
+  "dimension": "fuel_type",
+  "default_mode": "percent",
+  "x_axis_label": "Financial year",
+  "bar_sort": "by_order_ascending",
+  "unit": {
+    "id": "twh",
+    "label": "TWh",
+    "value_kind": "raw"
+  },
+  "categories": [
+    { "id": "coal", "label": "Coal", "fill": "#374151", "order": 1 },
+    { "id": "solar", "label": "Solar", "fill": "#f59e0b", "order": 2 },
+    { "id": "wind", "label": "Wind", "fill": "#10b981", "order": 3 },
+    { "id": "hydro", "label": "Hydro", "fill": "#3b82f6", "order": 4 },
+    { "id": "__OTHER__", "label": "Other", "fill": "#9ca3af", "order": 5 }
+  ],
+  "bars": [
+    {
+      "period_id": "FY2022-23",
+      "period_label": "2022-23",
+      "order": 1,
+      "kind": "actual",
+      "segments": [
+        { "category_id": "coal", "value": 62.4, "availability": "present" },
+        { "category_id": "solar", "value": 11.2, "availability": "present" },
+        { "category_id": "wind", "value": 8.1, "availability": "present" },
+        { "category_id": "hydro", "value": 14.7, "availability": "present" },
+        { "category_id": "__OTHER__", "value": 3.6, "availability": "present" }
+      ],
+      "total": 100.0
+    },
+    {
+      "period_id": "FY2023-24",
+      "period_label": "2023-24",
+      "order": 2,
+      "kind": "actual",
+      "segments": [
+        { "category_id": "coal", "value": 58.7, "availability": "present" },
+        { "category_id": "solar", "value": 14.3, "availability": "present" },
+        { "category_id": "wind", "value": 9.2, "availability": "present" },
+        { "category_id": "hydro", "value": 14.1, "availability": "present" },
+        { "category_id": "__OTHER__", "value": 3.7, "availability": "present" }
+      ],
+      "total": 100.0
+    },
+    {
+      "period_id": "FY2024-25",
+      "period_label": "2024-25",
+      "order": 3,
+      "kind": "provisional",
+      "segments": [
+        { "category_id": "coal", "value": 55.1, "availability": "present" },
+        { "category_id": "solar", "value": 17.9, "availability": "present" },
+        { "category_id": "wind", "value": 10.4, "availability": "present" },
+        { "category_id": "hydro", "value": null, "availability": "missing", "availability_label": "Hydro disclosure pending" },
+        { "category_id": "__OTHER__", "value": 4.0, "availability": "present" }
+      ]
+    }
+  ],
+  "headline": {
+    "rule": "max_latest_with_streak",
+    "text": "Coal share falls below 60% for the first time in the visible window.",
+    "so_what": "Solar + wind together cross 28% of mix in 2024-25.",
+    "highlight_category_id": "solar"
+  },
+  "honesty": {
+    "comparability": "comparable_with_normalisation",
+    "attribution_geography": "where_produced",
+    "methodology_vintage": "CEA Monthly Generation 2024-25 methodology",
+    "series_breaks": [
+      {
+        "at_period_id": "FY2023-24",
+        "kind": "methodology_revision",
+        "note": "CEA switched to revised plant-load-factor weights in May 2024."
+      }
+    ],
+    "notes": "Fixture for StackedTrendV2 contract test only — not citizen-facing."
+  },
+  "sources": [
+    {
+      "source_id": "src-abcdef123456",
+      "producer": "Central Electricity Authority",
+      "title": "Executive Summary on Power Sector",
+      "vintage": "Monthly 2024-25",
+      "license": "OGL-IN-1.0",
+      "confidence_tier": "gold",
+      "is_issuing_authority": true,
+      "verification_method": "live-fetch",
+      "url_main": "https://cea.nic.in/executive-summary-of-the-power-sector",
+      "citation_full": null,
+      "notes": null
+    },
+    {
+      "source_id": "src-fedcba654321",
+      "producer": "Indiastat Reference Library",
+      "title": "Power Generation Statistics India",
+      "vintage": "2024 release",
+      "license": "unknown-public",
+      "confidence_tier": "silver",
+      "is_issuing_authority": false,
+      "verification_method": "archived-snapshot",
+      "url_main": "https://www.indiastat.com",
+      "citation_full": "Indiastat, Power Generation Statistics India (2024 release).",
+      "notes": "Republisher of CEA primary; used only when CEA monthly is delayed."
+    }
+  ]
+}
