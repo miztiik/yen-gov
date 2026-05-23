@@ -58,6 +58,7 @@
 import { describeFailure, type LoaderResult } from "../../loader-result";
 import { query, registerTable } from "../../duckdb";
 import { partyColour } from "../../colors/party-colour";
+import type { SourceV2Row } from "../../source-list-v2/types";
 import type {
   CompositionBarModel,
   CompositionBarSegment,
@@ -376,20 +377,15 @@ export function assembleCompositionBar(
  * Mirrors the projection in `election-seats-trend.ts:178-196` so the
  * SourceListV2 footer sees the same v2.0 ledger shape regardless of
  * which chart adapter loads the rows.
+ *
+ * Aliased to the canonical `SourceV2Row` interface so the per-chart
+ * footer (ChartShell / SourceListV2) receives the exact contract type
+ * without a structural-widening dance at the mount site. The DuckDB
+ * cast at the boundary (in `projectSourcesV2`) is the only place that
+ * narrows the raw stringly-typed row to the locked enums (license,
+ * confidence_tier, verification_method).
  */
-export interface CompositionBarV2Source {
-  source_id: string;
-  producer: string;
-  title: string;
-  vintage: string;
-  license: string;
-  confidence_tier: string;
-  is_issuing_authority: boolean;
-  verification_method: string;
-  url_main: string | null;
-  citation_full: string | null;
-  notes: string | null;
-}
+export type CompositionBarV2Source = SourceV2Row;
 
 export function projectSourcesV2(
   rows: readonly CompositionBarSourceJoinRow[],
@@ -399,10 +395,11 @@ export function projectSourcesV2(
     producer: s.producer,
     title: s.title,
     vintage: s.vintage,
-    license: s.license,
-    confidence_tier: s.confidence_tier,
+    license: s.license as SourceV2Row["license"],
+    confidence_tier: s.confidence_tier as SourceV2Row["confidence_tier"],
     is_issuing_authority: Boolean(s.is_issuing_authority),
-    verification_method: s.verification_method,
+    verification_method:
+      s.verification_method as SourceV2Row["verification_method"],
     url_main: s.url_main,
     citation_full: s.citation_full,
     notes: s.notes,

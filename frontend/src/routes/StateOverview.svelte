@@ -30,6 +30,22 @@
   } from "../lib/catalogue";
   import PartyBar from "../lib/PartyBar.svelte";
   import SeatDonut from "../lib/SeatDonut.svelte";
+  // Phase 3.6 (c) — CompositionBar A/B mount. Per plan resolution R-16
+  // the new primitive ships behind a sticky-cookie A/B bucket; removal
+  // is `git revert` of this PR (touches only this file). See
+  // frontend/src/lib/charts/composition-bar/experiment-definition.json.
+  import CompositionBar from "../lib/CompositionBar.svelte";
+  import {
+    loadCompositionBarElectionSeats,
+    type LoadedCompositionBar,
+  } from "../lib/charts/composition-bar/adapter-elections-seats";
+  import compositionBarExperiment from "../lib/charts/composition-bar/experiment-definition.json";
+  import { parseElectionEventId } from "../lib/charts/stacked-trend/adapter-elections";
+  import {
+    bucketForWithOverride,
+    ensureVisitorId,
+    type ExperimentDefinition,
+  } from "../lib/experiments/bucket";
   import MarginHistogram from "../lib/MarginHistogram.svelte";
   import RacesBoard from "../lib/RacesBoard.svelte";
   import SourceListV2 from "../lib/SourceListV2.svelte";
@@ -280,6 +296,56 @@
   const zero_seat_count = $derived(ranked_parties.length - winners_count);
   const visible_parties = $derived(
     show_zero_seat ? ranked_parties : ranked_parties.filter(p => p.seats_won > 0),
+  );
+
+  // ----- Phase 3.6 (c) CompositionBar A/B mount -----
+  //
+  // Sticky-cookie bucket on `visitor_id`; targeting list restricted to
+  // single-party-dominant states per plan resolution R-02 (TN is
+  // explicitly excluded — alliance-led verdict misframes party-only
+  // composition). When the visitor is in the treatment bucket AND the
+  // state is in the rollout list, we render `<CompositionBar />`
+  // adjacent to `<SeatDonut />` in the house-composition card; control
+  // bucket renders SeatDonut only (current production behaviour).
+  //
+  // Removal contract: this entire block + the markup mount below + the
+  // imports above is the whole footprint. `git revert` of this commit
+  // restores the pre-experiment behaviour with zero side effects.
+  const composition_bar_experiment = $derived(
+    compositionBarExperiment as unknown as ExperimentDefinition,
+  );
+  const composition_bar_variant = $derived.by<string | null>(() => {
+    if (!state_code) return null;
+    const visitor_id = ensureVisitorId();
+    return bucketForWithOverride(
+      composition_bar_experiment,
+      { state_code },
+      visitor_id,
+    );
+  });
+  const composition_bar_in_treatment = $derived(
+    composition_bar_variant === "treatment",
+  );
+  let composition_bar_result =
+    $state<LoaderResult<LoadedCompositionBar> | null>(null);
+  $effect(() => {
+    composition_bar_result = null;
+    const sc = state_code;
+    const ev = event;
+    const row = event_row;
+    if (!sc || !ev || !row) return;
+    if (!composition_bar_in_treatment) return;
+    if (event_status === "pending_upstream") return;
+    const parsed = parseElectionEventId(row.event_id);
+    loadCompositionBarElectionSeats(sc, row.event_id, {
+      state_label: states.name(sc),
+      event_label: parsed.period_label,
+    }).then(r => {
+      if (state_code === sc && event === ev) composition_bar_result = r;
+    });
+  });
+  const composition_bar_loaded = $derived(
+    composition_bar_result?.status === "ok" ? composition_bar_result.data : null,
   );
 
   // ----- Phase 2: search + deselect -----
@@ -605,6 +671,17 @@
             {hidden_parties}
             onToggleHidden={toggleHidden}
           />
+          {#if composition_bar_in_treatment && composition_bar_loaded}
+            <!-- Phase 3.6 (c) CompositionBar A/B mount — sticky-cookie
+                 bucket, removal contract = revert this PR; touches only
+                 StateOverview.svelte. -->
+            <div class="mt-5 pt-5 border-t border-slate-200/60">
+              <CompositionBar
+                model={composition_bar_loaded.model}
+                sources={composition_bar_loaded.sources_v2}
+              />
+            </div>
+          {/if}
         </div>
         <!-- KPI strip: three tiles. Numbers centered, single thin bottom
              border in slate. The previous coloured top accents (emerald /
