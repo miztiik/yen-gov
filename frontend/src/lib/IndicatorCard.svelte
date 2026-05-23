@@ -36,6 +36,7 @@
   import type { CatalogueTopic, CatalogueArtifact } from "./catalogue";
   import AboutThisData from "./AboutThisData.svelte";
   import ListBadge from "./ListBadge.svelte";
+  import TopicIcon from "./TopicIcon.svelte";
   import { url } from "./url";
 
   interface Props {
@@ -140,7 +141,10 @@
     <div class="text-sm text-slate-500">Loading…</div>
   {:else}
     <header class="flex items-baseline gap-2 flex-wrap">
-      <h3 class="text-sm font-semibold text-slate-800">{meta.title}</h3>
+      <h3 class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+        <TopicIcon name={meta.icon} cls="w-4 h-4 text-slate-500 shrink-0" />
+        <span>{meta.title}</span>
+      </h3>
       {#if artifact.display && artifact.display !== meta.title}
         <span class="text-xs text-slate-400">· {artifact.display}</span>
       {/if}

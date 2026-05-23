@@ -145,4 +145,32 @@ test.describe("extended routes", () => {
     const h1Icon = page.locator('h1 svg[data-icon-name]').first();
     await expect(h1Icon).toHaveAttribute("data-icon-name", "zap");
   });
+
+  // Phase 1.3d — icon rollout sub-3 (indicator cards).
+  //
+  // State hub `/s/<state>` renders IndicatorCard.svelte for every
+  // catalogued artifact across every topic — typically ≥80 cards. Each
+  // card's `<h3>` is now prefixed with the indicator's `meta.icon`
+  // (silent on miss). The smoke asserts ≥20 distinct cards carry an
+  // icon glyph; this is well under the 83 observed in dev (Tamil Nadu)
+  // but high enough to prove the wiring, while leaving headroom for the
+  // taxonomy author to remove indicators without forcing this test to
+  // be rebaselined.
+  test("state hub /s/tamil-nadu renders TopicIcon on IndicatorCard headers", async ({ page }) => {
+    await page.goto("/s/tamil-nadu");
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible({ timeout: 15_000 });
+    // IndicatorCards load via fetchIndicator() — wait for the first
+    // sparkline path (proxy for "≥1 card has data").
+    await page.waitForSelector("svg[data-icon-name]", { timeout: 20_000 });
+    await page.waitForTimeout(3000); // allow more cards to settle in
+    const icons = page.locator("h3 svg[data-icon-name]");
+    const count = await icons.count();
+    expect(count, "≥20 IndicatorCards should render an icon on /s/tamil-nadu").toBeGreaterThanOrEqual(20);
+    const seen = await icons.evaluateAll((els) =>
+      Array.from(new Set(els.map((e) => e.getAttribute("data-icon-name")))).sort(),
+    );
+    // At minimum the fiscal corpus should produce these.
+    expect(seen).toContain("landmark");
+    expect(seen).toContain("trending-down");
+  });
 });

@@ -75,17 +75,26 @@ describe("TopicIcon helpers", () => {
 
     it("includes every icon shipped in frontend/src/lib/icons/*.svg", () => {
       const names = registeredIconNames();
-      // The 8 icons currently shipped — keeps this assertion tight so a
+      // Icons currently shipped — keeps this assertion tight so a
       // contributor deleting an icon WITHOUT updating the test sees the
       // failure here, not on a citizen-visible regression elsewhere.
+      // Phase 1.3b shipped 8 (car, cloud, heart-pulse, landmark,
+      // trending-up, users, vote, zap). Phase 1.3d added 5 more
+      // (trending-down, flame, sun, wind, activity) to cover the
+      // state-hub indicator-card corpus.
       expect(names).toEqual([
+        "activity",
         "car",
         "cloud",
+        "flame",
         "heart-pulse",
         "landmark",
+        "sun",
+        "trending-down",
         "trending-up",
         "users",
         "vote",
+        "wind",
         "zap",
       ]);
     });
