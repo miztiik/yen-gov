@@ -24,3 +24,6 @@ export {
   presetWindow,
   type PresetWindowOptions,
 } from "./helpers";
+
+export { default as TemporalViewportBrush } from "./TemporalViewportBrush.svelte";
+export { presetLabel } from "./TemporalViewportBrush.svelte";
