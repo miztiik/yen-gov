@@ -69,6 +69,37 @@ test.describe("CompositionBar A/B mount (Phase 3.6 c)", () => {
     // model-loaded-but-empty render.
     const segments = bar.locator("[data-segment-id]");
     expect(await segments.count()).toBeGreaterThan(0);
+
+    // Phase 1.4 task 4 footer actions — `copy_link` + `view_data` are
+    // attached by StateOverview when CompositionBar mounts. The action
+    // footer is rendered by `<ChartShell>` (sibling of the
+    // composition-bar div within the shared shell wrapper), not inside
+    // the bar itself. Scope the locator to the shell that hosts the
+    // CompositionBar via `:has` so we pick the right instance and not a
+    // sibling chart's footer.
+    const shell = page.locator(
+      '[data-component="chart-shell"]:has([data-component="composition-bar"])',
+    );
+    const actionsRoot = shell.locator('[data-slot="actions"]');
+    await expect(actionsRoot).toBeVisible({ timeout: 15_000 });
+    await expect(actionsRoot.locator('[data-action="copy_link"]')).toBeVisible();
+    await expect(actionsRoot.locator('[data-action="view_data"]')).toBeVisible();
+    // Unapproved ids must NEVER appear — closed-enum gate is enforced
+    // in `chart-shell/actions.ts` `filterAllowedActions`, but this
+    // covers the case where a future caller adds an ad-hoc spec.
+    const actionIds = await actionsRoot
+      .locator("[data-action]")
+      .evaluateAll(nodes => nodes.map(n => n.getAttribute("data-action")));
+    for (const id of actionIds) {
+      expect([
+        "view_data",
+        "download",
+        "copy_link",
+        "share",
+        "reset_view",
+        "full_range",
+      ]).toContain(id);
+    }
   });
 
   test("control bucket on Karnataka renders SeatDonut only — no CompositionBar", async ({ page }) => {

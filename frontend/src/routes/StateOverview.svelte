@@ -40,6 +40,11 @@
     type LoadedCompositionBar,
   } from "../lib/charts/composition-bar/adapter-elections-seats";
   import compositionBarExperiment from "../lib/charts/composition-bar/experiment-definition.json";
+  import {
+    buildCopyLinkActionSpec,
+    buildViewDataActionSpec,
+  } from "../lib/charts/chart-shell/action-builders";
+  import type { ChartShellActionSpec } from "../lib/charts/chart-shell/types";
   import { parseElectionEventId } from "../lib/charts/stacked-trend/adapter-elections";
   import {
     bucketForWithOverride,
@@ -346,6 +351,60 @@
   });
   const composition_bar_loaded = $derived(
     composition_bar_result?.status === "ok" ? composition_bar_result.data : null,
+  );
+
+  // Phase 1.4 task 4 — footer action slots wired on the CompositionBar
+  // mount. Built lazily as a `$derived` so the spec captures the
+  // current `composition_bar_loaded.model.segments` at click time (not
+  // at mount time). View-model gates are the same as the mount itself:
+  // both actions are only attached when we have a loaded model.
+  //
+  //   - `copy_link`  — copies the visitor's current URL (sticky-cookie
+  //                    bucket + URL `?yg_variant=` override mean two
+  //                    visitors hitting the same shared link see the
+  //                    same chart). No telemetry — R-24.
+  //
+  //   - `view_data`  — downloads the **currently visible window** as
+  //                    a CSV (plan rule line ~1080: "show the
+  //                    currently visible chart/window first, not the
+  //                    whole indicator corpus"). Filename baked from
+  //                    the dimension + state slug + event_id so a
+  //                    curator can diff two downloads cleanly.
+  const composition_bar_actions = $derived.by<readonly ChartShellActionSpec[]>(
+    () => {
+      const loaded = composition_bar_loaded;
+      const sc = state_code;
+      const row = event_row;
+      if (!loaded || !sc || !row) return [];
+      const slug = states.slug(sc);
+      const filename = `composition-bar_${loaded.model.dimension}_${slug}_${row.event_id}.csv`;
+      return [
+        buildCopyLinkActionSpec(),
+        buildViewDataActionSpec({
+          filename,
+          resolve_rows: () => ({
+            header: [
+              "rank",
+              "id",
+              "label",
+              "value",
+              "unit",
+              "is_tail",
+              "swatch_role",
+            ],
+            rows: loaded.model.segments.map((s, i) => [
+              i + 1,
+              s.id,
+              s.label,
+              s.value,
+              loaded.model.total_unit,
+              s.is_tail,
+              s.swatch_role,
+            ]),
+          }),
+        }),
+      ];
+    },
   );
 
   // ----- Phase 2: search + deselect -----
@@ -674,11 +733,13 @@
           {#if composition_bar_in_treatment && composition_bar_loaded}
             <!-- Phase 3.6 (c) CompositionBar A/B mount — sticky-cookie
                  bucket, removal contract = revert this PR; touches only
-                 StateOverview.svelte. -->
+                 StateOverview.svelte. Phase 1.4 task 4 footer actions
+                 (`copy_link`, `view_data`) are attached when loaded. -->
             <div class="mt-5 pt-5 border-t border-slate-200/60">
               <CompositionBar
                 model={composition_bar_loaded.model}
                 sources={composition_bar_loaded.sources_v2}
+                actions={composition_bar_actions}
               />
             </div>
           {/if}
