@@ -519,8 +519,13 @@
         <label for="event-picker" class="font-medium text-slate-700">Election:</label>
         <select
           id="event-picker"
+          data-testid="event-picker"
           class="border border-slate-300 rounded px-2 py-0.5 text-xs bg-white"
-          bind:value={selected_event_id}
+          value={event ?? ""}
+          onchange={(e) => {
+            const value = (e.currentTarget as HTMLSelectElement).value;
+            selected_event_id = value || null;
+          }}
         >
           {#each all_events as row (row.event_id)}
             <option value={row.event_id}>

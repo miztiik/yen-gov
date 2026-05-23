@@ -52,29 +52,29 @@ P1 uses `state=in_s22` only because that is the current election partition. It m
 
 ### P3 - Energy / Socio-Economic Pilot
 
-| Row | Task | Status | Verification |
-| --- | --- | :-: | --- |
-| P3.1 | Pick one Energy canonical fact table after P.1 Energy stabilises. | QUEUED | Hans + Max data-shape signoff. |
-| P3.2 | Decide partition axis from file size and route story. | QUEUED | Manifest stats and shard-size audit. |
-| P3.3 | Join through canonical entity rows and aliases. | QUEUED | Tests prove no hardcoded ECI state code in new Energy loader. |
-| P3.4 | Mount one Energy-facing canonical route. | QUEUED | Source/unit/period/comparison visible at rest; browser smoke. |
+| Row | Task | Status | Trigger | Verification |
+| --- | --- | :-: | --- | --- |
+| P3.1 | Pick one Energy canonical fact table after P.1 Energy stabilises. | QUEUED | Start when Energy P.1 lands on `main` with its canonical Parquet, manifest entries, and reader-switch blockers closed. | Hans + Max data-shape signoff. |
+| P3.2 | Decide partition axis from file size and route story. | QUEUED | Start immediately after P3.1 names the table and route; use current manifest stats, not assumptions. | Manifest stats and shard-size audit. |
+| P3.3 | Join through canonical entity rows and aliases. | QUEUED | Start with the first socio-economic loader that needs state identity translation. | Tests prove no hardcoded ECI state code in new Energy loader. |
+| P3.4 | Mount one Energy-facing canonical route. | QUEUED | Start only after P3.1-P3.3 are signed off and the target route has data for at least Tamil Nadu. | Source/unit/period/comparison visible at rest; browser smoke. |
 
 ### P4 - SemanticCatalogue / YENASK Control Plane
 
-| Row | Task | Status | Verification |
-| --- | --- | :-: | --- |
-| P4.1 | Keep YENASK lab-local until real consumer pressure. | QUEUED | No manifest bump just to reserve space. |
-| P4.2 | Promote SemanticCatalogue only when needed. | QUEUED | Schema/version tests; no observation values. |
-| P4.3 | Update InsightIntent identity to `entity_id` + aliases. | QUEUED | Zod rejects ambiguous/unknown state aliases. |
-| P4.4 | Keep model runtime explicit. | QUEUED | No model load on initial paint. |
+| Row | Task | Status | Trigger | Verification |
+| --- | --- | :-: | --- | --- |
+| P4.1 | Keep YENASK lab-local until real consumer pressure. | QUEUED | Revisit when a second non-election analytical route or lab flow needs the same semantic lookup. | No manifest bump just to reserve space. |
+| P4.2 | Promote SemanticCatalogue only when needed. | QUEUED | Start when at least two consumers need shared concept/entity/indicator lookup beyond manifest physical inventory. | Schema/version tests; no observation values. |
+| P4.3 | Update InsightIntent identity to `entity_id` + aliases. | QUEUED | Start with the first model-backed intent compiler over state-scoped data. | Zod rejects ambiguous/unknown state aliases. |
+| P4.4 | Keep model runtime explicit. | QUEUED | Start only after the model runtime spike is approved separately. | No model load on initial paint. |
 
 ### P5 - Optional Identity Migration
 
-| Candidate | Status |
-| --- | --- |
-| Rename state entity IDs from ECI-shaped `IN-S22` to ISO-shaped IDs. | Open; requires ADR + migration plan + consumer audit. |
-| Rename election partitions from `state=in_s22`. | Open; probably unnecessary. |
-| Add normalized `taxonomy.entity_aliases` table. | Strong additive candidate; separate structural PR. |
+| Candidate | Status | Trigger |
+| --- | --- | --- |
+| Rename state entity IDs from ECI-shaped `IN-S22` to ISO-shaped IDs. | Open; requires ADR + migration plan + consumer audit. | Trigger only if a concrete downstream consumer cannot tolerate alias-based state identity. |
+| Rename election partitions from `state=in_s22`. | Open; probably unnecessary. | Trigger only if manifest deprecations plus current election paths become a real operational burden. |
+| Add normalized `taxonomy.entity_aliases` table. | Strong additive candidate; separate structural PR. | Trigger when the second source family needs alias lookup beyond fields already on `taxonomy.entities`. |
 
 ---
 
