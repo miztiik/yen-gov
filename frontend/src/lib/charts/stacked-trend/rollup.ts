@@ -53,35 +53,38 @@ export function applyGlobalUnion(
   }
 
   const cap = config.max_named_categories;
-  let namedIds: string[];
-  if (union.size <= cap) {
-    namedIds = Array.from(union);
-  } else {
-    const sumByCategory = new Map<string, number>();
-    for (const b of bars) {
-      for (const s of b.segments) {
-        if (!union.has(s.category_id)) continue;
-        if (s.availability !== "present" || s.value == null) continue;
-        sumByCategory.set(s.category_id, (sumByCategory.get(s.category_id) ?? 0) + s.value);
-      }
+  // Always rank named categories by their global sum descending, so the
+  // biggest-overall category sits at index 0 (which the renderer places
+  // at the baseline). Without this, ordering was insertion-order — a
+  // category's vertical band could shift between adjacent bars when the
+  // local leader changed, making cross-bar comparison hard.
+  const sumByCategory = new Map<string, number>();
+  for (const b of bars) {
+    for (const s of b.segments) {
+      if (!union.has(s.category_id)) continue;
+      if (s.availability !== "present" || s.value == null) continue;
+      sumByCategory.set(
+        s.category_id,
+        (sumByCategory.get(s.category_id) ?? 0) + s.value,
+      );
     }
-    namedIds = Array.from(union)
-      .sort((a, b) => (sumByCategory.get(b) ?? 0) - (sumByCategory.get(a) ?? 0))
-      .slice(0, cap);
   }
+  const namedIds: string[] = Array.from(union)
+    .sort((a, b) => (sumByCategory.get(b) ?? 0) - (sumByCategory.get(a) ?? 0))
+    .slice(0, cap);
 
   const namedSet = new Set(namedIds);
   let otherPresent = false;
 
   const outBars: StackedTrendBar[] = bars.map((b) => {
-    const named: StackedTrendSegment[] = [];
+    const segmentByCat = new Map<string, StackedTrendSegment>();
     let otherValue = 0;
     let otherHasPresent = false;
     const naCarry: StackedTrendSegment[] = [];
 
     for (const s of b.segments) {
       if (namedSet.has(s.category_id)) {
-        named.push(s);
+        segmentByCat.set(s.category_id, s);
         continue;
       }
       if (s.availability === "not_applicable") {
@@ -92,6 +95,14 @@ export function applyGlobalUnion(
         otherValue += s.value;
         otherHasPresent = true;
       }
+    }
+
+    // Iterate namedIds (global order) so every bar stacks parties in
+    // the same vertical order — biggest at the baseline.
+    const named: StackedTrendSegment[] = [];
+    for (const id of namedIds) {
+      const s = segmentByCat.get(id);
+      if (s) named.push(s);
     }
 
     const segments: StackedTrendSegment[] = [...named];

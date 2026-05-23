@@ -93,6 +93,7 @@
       total_seats: e.total_seats,
       party_totals: e.party_totals.map((p) => ({
         party_short: p.party_short,
+        party_eci_code: p.party_eci_code,
         seats_contested: p.seats_contested ?? 0,
         seats_won: p.seats_won,
         votes: p.votes,
