@@ -902,26 +902,6 @@
       "gap_count_within_range": 0
     },
     {
-      "id": "energy/state_electricity_peak_demand_mw",
-      "topic": "energy",
-      "path": "datasets/indicators/in/energy/state_electricity_peak_demand_mw.json",
-      "title": "Annual peak electricity demand (by state)",
-      "documentation_status": "stub",
-      "inventory_status": "complete",
-      "frozen": false,
-      "last_polled_at": "2026-05-14T07:51:49Z",
-      "observed_count": 9,
-      "pending_count": 0,
-      "unavailable_count": 0,
-      "min_time": "2017-04",
-      "max_time": "2025-04",
-      "min_period_label": "2017-04",
-      "max_period_label": "2025-04",
-      "time_grain": "fiscal_year",
-      "observed_periods_within_range": 9,
-      "gap_count_within_range": 0
-    },
-    {
       "id": "energy/state_electricity_sales_mu",
       "topic": "energy",
       "path": "datasets/indicators/in/energy/state_electricity_sales_mu.json",
@@ -1059,26 +1039,6 @@
       "max_period_label": "2024-04",
       "time_grain": "fiscal_year",
       "observed_periods_within_range": 12,
-      "gap_count_within_range": 0
-    },
-    {
-      "id": "energy/state_peak_electricity_demand_mw",
-      "topic": "energy",
-      "path": "datasets/indicators/in/energy/state_peak_electricity_demand_mw.json",
-      "title": "State peak electricity demand (MW, latest year snapshot)",
-      "documentation_status": "stub",
-      "inventory_status": "complete",
-      "frozen": false,
-      "last_polled_at": "2026-05-14T22:53:29Z",
-      "observed_count": 1,
-      "pending_count": 0,
-      "unavailable_count": 0,
-      "min_time": "2025-04",
-      "max_time": "2025-04",
-      "min_period_label": "2025-04",
-      "max_period_label": "2025-04",
-      "time_grain": "fiscal_year",
-      "observed_periods_within_range": 1,
       "gap_count_within_range": 0
     },
     {

@@ -13,7 +13,6 @@
 | energy | `energy/state_installed_capacity_with_alloc_mw` | 11 FY |
 | energy | `energy/state_rooftop_solar_capacity_mw` | 9 FY (FY18 onward) |
 | energy | `energy/state_electricity_generation_mu` | 11 FY |
-| energy | `energy/state_electricity_peak_demand_mw` | 9 FY |
 | energy | `energy/state_electricity_sales_mu` | 10 FY |
 | energy | `energy/state_atc_losses_pct` | 10 FY |
 | energy | `energy/state_acs_arr_gap_inr_per_kwh` | 10 FY |

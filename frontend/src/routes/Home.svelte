@@ -3,7 +3,7 @@
   import { fade } from "svelte/transition";
   import { fetchStates, type StateEntry } from "../lib/data";
   import { fetchTopicCatalogue, indicatorPathForArtifact, type TopicCatalogue } from "../lib/catalogue";
-  import { fetchIndicator } from "../lib/indicators";
+  import { loadIndicator } from "../lib/canonical/indicator-from-canonical";
   import IndiaMap from "../lib/maplibre/IndiaMap.svelte";
   import IndicatorChoropleth from "../lib/IndicatorChoropleth.svelte";
   import { loadStates, type StateRow } from "../lib/view-models/states";
@@ -83,7 +83,7 @@
     }
     const results = await Promise.all(
       targets.map(({ id, path }) =>
-        fetchIndicator(path)
+        loadIndicator(path)
           .then(art => ({ id, title: art.indicator?.title ?? null }))
           .catch(() => ({ id, title: null as string | null })),
       ),
