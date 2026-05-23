@@ -1,7 +1,7 @@
 <script lang="ts">
   // CompositionBar — single-entity 100%-stacked horizontal bar (Phase 3.6 (a)).
   //
-  // Per TODO/20260518-frontend-charting-modernisation-plan.md Phase 3.6.
+  // Per docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md Phase 3.6.
   //
   // Generic; NOT election-specific. Renders any single-entity,
   // single-period composition as a horizontal 100%-stacked bar. Domain

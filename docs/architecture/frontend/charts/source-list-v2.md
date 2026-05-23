@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-05-25
 
-Phase 1.4 of the [charting modernisation plan](../../../../TODO/20260518-frontend-charting-modernisation-plan.md). Replaces the v1 SourceList which read fields ([ADR-0032](../../decisions/0032-sources-citation-ledger.md)) removed in the v2.0 citation-ledger contract (`url`, `fetched_at`, `content_hash`).
+Phase 1.4 of the [charting modernisation plan](../../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md). Replaces the v1 SourceList which read fields ([ADR-0032](../../decisions/0032-sources-citation-ledger.md)) removed in the v2.0 citation-ledger contract (`url`, `fetched_at`, `content_hash`).
 
 ## What it is
 

@@ -1,6 +1,6 @@
 // ChartShell — concrete action-builder factories.
 //
-// Per TODO/20260518-frontend-charting-modernisation-plan.md Phase 1.4
+// Per docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md Phase 1.4
 // task 4 ("Add footer action slots for `view_data`, `download`,
 // `copy_link/share`, `reset_view`, and `full_range`; actions appear
 // only when the view-model says they are useful").

@@ -32,7 +32,7 @@ Build-time SVG icon pipeline that replaces the legacy `IndicatorIcon.svelte`. St
 ## See also
 
 - [`overview.md`](../overview.md) — visualization catalog.
-- [Phase 1.3 plan section](../../../../TODO/20260518-frontend-charting-modernisation-plan.md) — rollout sequence 1.3a (foundation) through 1.3g (legacy `IndicatorIcon.svelte` deletion).
+- [Phase 1.3 plan section](../../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md) — rollout sequence 1.3a (foundation) through 1.3g (legacy `IndicatorIcon.svelte` deletion).
 
 ## Historical citations
 

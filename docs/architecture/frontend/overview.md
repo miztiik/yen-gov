@@ -108,7 +108,7 @@ All views reuse a small set of components from `src/lib/`. The catalog is fixed;
 
 ### Generic chart renderers — Phase 1.6 / 3.5 / 4 / 5
 
-Per [TODO/20260518-frontend-charting-modernisation-plan.md](../../../TODO/20260518-frontend-charting-modernisation-plan.md), the chart layer split into pure **builders** (`frontend/src/lib/charts/*/builders.ts`) and dimension-agnostic **renderers** that consume the resulting view-models. Builders enforce sort policy, missing-value visibility, label-eligibility thresholds, and shared-vs-per-panel scale decisions; renderers do not re-derive any of that.
+Per [docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md](../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md), the chart layer split into pure **builders** (`frontend/src/lib/charts/*/builders.ts`) and dimension-agnostic **renderers** that consume the resulting view-models. Builders enforce sort policy, missing-value visibility, label-eligibility thresholds, and shared-vs-per-panel scale decisions; renderers do not re-derive any of that.
 
 | Renderer | Builder source | Used for |
 | --- | --- | --- |

@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-05-25
 
-Phase 1.4 task 1 of the [charting modernisation plan](../../../../TODO/20260518-frontend-charting-modernisation-plan.md). The shared frame every yen-gov chart eventually mounts inside, so title, subtitle, honesty banners, sources, and action buttons follow consistent rules.
+Phase 1.4 task 1 of the [charting modernisation plan](../../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md). The shared frame every yen-gov chart eventually mounts inside, so title, subtitle, honesty banners, sources, and action buttons follow consistent rules.
 
 ## What it is
 
@@ -12,7 +12,7 @@ Phase 1.4 task 1 of the [charting modernisation plan](../../../../TODO/20260518-
 
 ## Doctrinal rules
 
-- **Action vocabulary is CLOSED** (CLAUDE.md §10 three-place lock). Adding a new action requires editing `types.ts` + `actions.ts` + the [plan doc](../../../../TODO/20260518-frontend-charting-modernisation-plan.md) in lockstep. Build will pass without the doc edit, so the lock is procedural; the closed `ChartShellAction` union enforces the code half.
+- **Action vocabulary is CLOSED** (CLAUDE.md §10 three-place lock). Adding a new action requires editing `types.ts` + `actions.ts` + the [plan doc](../../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md) in lockstep. Build will pass without the doc edit, so the lock is procedural; the closed `ChartShellAction` union enforces the code half.
 - **Shell never fetches.** ChartShell receives `readonly SourceV2Row[]` from upstream (R-28). It does not know dataset paths, manifest URLs, or any I/O. Loaders run before mount; rows arrive resolved.
 - **Sources rendering is delegated.** ChartShell forwards rows to [`SourceListV2`](source-list-v2.md); the shell adds no new telemetry surface and cannot smuggle `url` or `fetched_at` because the type system forbids them.
 - **No aria/role attributes** (CLAUDE.md §0a — a11y descoped). Visible affordances only. `<button>` elements remain real so keyboard activation works for free.

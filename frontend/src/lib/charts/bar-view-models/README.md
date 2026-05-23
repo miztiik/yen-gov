@@ -1,7 +1,7 @@
 # `charts/bar-view-models/` — single-dimension bar builders (Phase 1.6)
 
 Pure builders for the `ranked_bar` and `ordered_category_bar` chart
-candidates from `TODO/20260518-frontend-charting-modernisation-plan.md`.
+candidates from `docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md`.
 Both take a renderer-agnostic `rows + toItem(row)` projection and
 return a view-model ready for a Svelte renderer.
 

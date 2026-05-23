@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-05-25
 
-Phase 2 of the [charting modernisation plan](../../../../TODO/20260518-frontend-charting-modernisation-plan.md). Successor to the v1 [`stacked-trend.md`](stacked-trend.md) design draft. The v1 doc remains as the original 2026-05-14 plan; this file documents what actually shipped (PRs #134–#148, May 2026).
+Phase 2 of the [charting modernisation plan](../../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md). Successor to the v1 [`stacked-trend.md`](stacked-trend.md) design draft. The v1 doc remains as the original 2026-05-14 plan; this file documents what actually shipped (PRs #134–#148, May 2026).
 
 ## What it is
 

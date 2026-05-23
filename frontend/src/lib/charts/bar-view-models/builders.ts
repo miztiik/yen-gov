@@ -1,6 +1,6 @@
 // View-model builders for single-dimension bar candidates: `ranked_bar`
 // and `ordered_category_bar` (per the renderer enum vocabulary in
-// `TODO/20260518-frontend-charting-modernisation-plan.md`).
+// `docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md`).
 //
 // Doctrine ties:
 //

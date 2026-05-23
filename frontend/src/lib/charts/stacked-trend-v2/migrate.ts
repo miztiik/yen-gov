@@ -1,6 +1,6 @@
 // StackedTrend v1 → v2 migration adapter (Track-D D10 shim).
 //
-// Phase 2 of TODO/20260518-frontend-charting-modernisation-plan.md is
+// Phase 2 of docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md is
 // shipping the v2 component (StackedTrendV2.svelte) alongside v1
 // (StackedTrend.svelte) under R-08 Branch by Abstraction. The Track-D
 // D10..D13 sequence migrates callers one at a time.

@@ -1,7 +1,7 @@
 # Ranked-comparison helpers
 
 Pure helpers for ranked-comparison renderers (Phase 3 of
-`TODO/20260518-frontend-charting-modernisation-plan.md`).
+`docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md`).
 
 ## Exports
 

@@ -1,6 +1,6 @@
 // StackedTrendV2 — zod model + types (structural only; zero render).
 //
-// Per TODO/20260518-frontend-charting-modernisation-plan.md Phase 2.1a
+// Per docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md Phase 2.1a
 // (R-09 split). This file ships ONLY the v2 contract: types + zod model +
 // fixture. Behavioural change starts at Phase 2.3.
 //

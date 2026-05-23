@@ -1,6 +1,6 @@
 // StackedTrendV2 — standalone SVG export (Phase 2.7).
 //
-// Per TODO/20260518-frontend-charting-modernisation-plan.md Phase 2.7.
+// Per docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md Phase 2.7.
 // Produces a single self-contained SVG string that a citizen can save,
 // share, or paste into a document. No external font, no external CSS,
 // no `<image>` reference — everything needed to render is inline so

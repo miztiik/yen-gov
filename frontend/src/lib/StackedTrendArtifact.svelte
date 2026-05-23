@@ -3,7 +3,7 @@
   // rendered StackedTrendV2. Used by topic / state pages to render any
   // indicator whose `chart_type === "stacked-trend"`.
   //
-  // Track-D D11..D12 (TODO/20260518-frontend-charting-modernisation-plan.md):
+  // Track-D D11..D12 (docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md):
   // second (LAST) caller migration v1 `StackedTrend` → v2 `StackedTrendV2`.
   // After this PR merges, PR-17 (D13) can delete v1 — zero callers will
   // remain.

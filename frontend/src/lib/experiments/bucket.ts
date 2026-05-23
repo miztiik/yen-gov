@@ -1,6 +1,6 @@
 // Local OSS-style A/B experiment bucket helper.
 //
-// Per TODO/20260518-frontend-charting-modernisation-plan.md Phase 3.6
+// Per docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md Phase 3.6
 // (c) + resolution R-16 ("ships behind a GrowthBook OSS A/B
 // experiment, URL stays canonical, sticky cookie bucket"). The repo
 // does NOT depend on the @growthbook/growthbook NPM package; this

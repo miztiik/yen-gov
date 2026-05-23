@@ -6,7 +6,7 @@
   // helpers + format.test.ts, 19 cases). The contract is the
   // 11-column citation ledger per ADR-0032 (taxonomy.sources v2.0).
   //
-  // Phase 1.4 of TODO/20260518-frontend-charting-modernisation-plan.md.
+  // Phase 1.4 of docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md.
   //
   // R-08 — Branch-by-Abstraction. **Zero callers** in this PR. The
   // existing v1 `SourceList.svelte` (consuming `SourceRef` with
