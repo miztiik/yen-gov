@@ -69,13 +69,21 @@ When a citizen visits `/tamil-nadu/<indicator>` for an indicator that exists in 
 
 Lives on the indicator page itself, not at `/compare/<indicator>`. OWID precedent: `/grapher/co2-emissions-per-capita` IS the compare surface — the country-picker is a control on the chart, not a separate URL. The existing election-compare surface at `/compare/<state>/<event>` is a different beast (compares one event outcome across many states) and stays. The cross-state indicator-compare lands in Phase 3+ as a compare-mode tab on the indicator page.
 
-## Five-voice digest
+## Three-voice digest
 
-Sequential debate on 2026-05-25 (transcript and binding synthesis in [TODO/20260525-url-grammar-grammar-a-migration.md](../../../TODO/20260525-url-grammar-grammar-a-migration.md)). Convergence and dissent:
+Sequential debate on 2026-05-25 (Jony → Hans → Max, each voice seeing the previous binding output). Convergence and dissent:
 
-- **Jony (UI/UX, §0a authority on URL grammar):** chose Grammar A. Read-aloud test: "Tamil Nadu, Mylapore, installed capacity" — three nouns, zero scaffolding. ADR-0028's `/india/` was scaffolding for never-built country-multi-tenancy on a `.in` domain.
-- **Hans (Governance):** ratified A. Added full-name slug invariant (Wikipedia + data.gov.in are the trained precedents; ECI codes + MoSPI abbreviations are negative precedents). Added entity-type badge constraint on page chrome. Methodology-break survival (Telangana from AP, 2014) is mildly better under A because URL carries the semantic mismatch.
-- **Max (Indicator Scout, swing voice on OWID precedent):** ratified A with one amendment — strengthen the collision invariant to include `acSlugs` (largest namespace, was missing from ADR-0028). Missing-scope = stub-not-redirect-not-404 per OWID precedent. Cross-state compare collapses into indicator page per OWID precedent. 10k-indicator scaling = collision-safe today but test signals when `/i/<slug>` marker retrofit is due.
+- **Jony (UI/UX, §0a authority on URL grammar):** chose Grammar A. Read-aloud test: "Tamil Nadu, Mylapore, installed capacity" — three nouns, zero scaffolding. ADR-0028's `/india/` was scaffolding for never-built country-multi-tenancy on a `.in` domain. Self-objection on link-rot blast radius was deemed acceptable: yen-gov has ≈zero external citations today; cost of change grows monotonically with every shared link, so do it now.
+- **Hans (Governance — Rosling + Rathin Roy + Pramit Bhattacharya):** ratified A. Added full-name slug invariant (Wikipedia + data.gov.in are the trained precedents; ECI codes + MoSPI abbreviations are negative precedents). Added entity-type badge constraint on page chrome. WhatsApp-forward citizen test (a Karnataka district health officer reading `yen-gov.in/tamil-nadu/mylapore/installed-capacity` the way she reads `wikipedia.org/wiki/Mylapore`): URL names what the page IS, not how the site is organised. Methodology-break survival (Telangana from AP, 2014) is mildly better under A because URL carries the semantic mismatch.
+- **Max (Indicator Scout — OWID precedent):** ratified A with one amendment — strengthen the collision invariant to include `acSlugs` (largest namespace at ~4,123 names, was missing from ADR-0028; common nouns like `central`, `north`, `south`, `kalyan` collide silently with future indicator slugs). Missing-scope = stub-not-redirect-not-404 per OWID precedent. Cross-state compare collapses into indicator page per OWID precedent (`/grapher/co2-emissions-per-capita` IS the compare surface). 10k-indicator scaling estimate: collision-safe today (~60 indicators × 4,123 ACs × 36 states = 0 hits) but fragile at OWID scale; threshold for the `/i/<slug>` reserved-marker retrofit is empirical, estimated `N = 800 to 2000` indicator slugs. Do NOT pre-ship the marker; ship the Tier-A disjointness test that signals when retrofit is due.
+
+## Open questions for follow-up phases
+
+These belong to Phase 2/3/4. Phase 1 ships without committing to any of them; the follow-up PR opening each phase MUST resolve the matching question first.
+
+1. **Per-state topic URL shape** (blocks **Phase 2** route-table change). `/<state>/t/<topic>` (collision-isolation parity with top-level `/t/`) vs `/<state>/<topic>` (flatter; consumes one of the 3 single-slug positions under a state) vs `/<state>?topic=<id>` (query-string mode). Phase 1 `links.ts` ships `/<state>/t/<topic>` as the default but is single-line-edit reversible.
+2. **Redirect window length** (blocks **Phase 4b** deletion). How long does `RedirectLegacyUrl.svelte` rewrite `/s/<state>*` to Grammar A before retiring? Jony default: one release cycle. May need extension or permanence if external citations accumulate during the Phase 2/3 window.
+3. **`url_slug` field shape** (blocks **Phase 3** indicator-disjointness wiring). Add a deterministic hand-editable `url_slug` column to `taxonomy/indicators.parquet`, or derive at registry-build time from `indicator_id`? Field-on-row gives override capacity (the operator can rename a URL slug without renaming the canonical id); derived eliminates one drift point. Authority: Hans + Max per §0a (indicator-naming).
 
 ## Alternatives considered
 
@@ -83,7 +91,7 @@ Sequential debate on 2026-05-25 (transcript and binding synthesis in [TODO/20260
 2. **Keep the shipped `/s/<state>/...` grammar (Grammar B).** Rejected — `/s/` and `/ac/` are positional markers that don't disambiguate (state slugs ⊥ AC slugs by construction); markers that don't disambiguate read as scaffolding.
 3. **Hive partition form `/s/in_s33/167/...`** (original rip-and-replace prompt §2). Rejected — Hive partition keys are a filesystem dialect, not a citizen sentence; already rejected by [slug.ts L3-5](../../../frontend/src/lib/slug.ts) and not re-litigated.
 4. **Topic landing at root (`/energy` not `/t/energy`).** Rejected — even when topic slugs don't collide with state slugs today (they don't: `energy`, `fiscal`, `health` vs `tamil-nadu`, `gujarat`), dropping `/t/` forces the root resolver to consult three registries per navigation AND makes every future topic-name addition a state-collision audit. The 2 characters of `/t/` buy permanent topic-namespace freedom.
-5. **Per-state topic at `/<state>/<topic>` (flattening the per-state `/t/`).** Deferred — pending user direction; current Phase 1 paths.ts ships `/<state>/t/<topic>` for collision-isolation parity with the top-level topic landing. Decision needed before Phase 2 route-table change.
+5. **Per-state topic at `/<state>/<topic>` (flattening the per-state `/t/`).** Deferred — see Open Questions §1; Phase 1 `links.ts` ships `/<state>/t/<topic>`. Decision needed before Phase 2 route-table change.
 
 ## Consequences
 
@@ -104,9 +112,9 @@ Sequential debate on 2026-05-25 (transcript and binding synthesis in [TODO/20260
 
 ## Migration
 
-Four-phase strangler-fig per [TODO/20260525-url-grammar-grammar-a-migration.md](../../../TODO/20260525-url-grammar-grammar-a-migration.md):
+Four-phase strangler-fig:
 
-- **Phase 1** (this PR): create `links.ts` with Grammar A builders + three Tier-A tests. Zero call-site migration. PR #172's 42-test contract stays green. The `paths.ts` module name is already taken by the runtime `DATA_BASE` prefix helper (unrelated concern); the new route-URL builders live in `links.ts` so the two responsibilities stay separated.
+- **Phase 1** (shipped PR #173 as `bc0fef96`): create `links.ts` with Grammar A builders + three Tier-A tests (links shape, 3-way namespace disjointness, full-name state-slug invariant). Zero call-site migration. PR #172's 42-test contract stays green. The `paths.ts` module name is already taken by the runtime `DATA_BASE` prefix helper (unrelated concern); the new route-URL builders live in `links.ts` so the two responsibilities stay separated.
 - **Phase 2**: add Grammar A routes alongside `/s/*` in `main.ts`. Internal `<a href>` callers migrate component-by-component from `url.ts` to `links.ts`. AC slug shape change ships here. AC namespace (4,112 names) joins the disjointness contract.
 - **Phase 3**: `RedirectLegacyUrl.svelte` rewrites `/s/<state>*` to Grammar A. Cross-state compare collapses into indicator page. `url_slug` field on `taxonomy/indicators.parquet` lands here (per Max §3i). Indicator slugs join the disjointness contract — the 5-way invariant becomes fully asserted.
 - **Phase 4**: delete `/s/*` routes, `url.ts` legacy builders, PR #172's 42-test contract. Replace with Grammar A equivalents. Redirect retained one release cycle then deleted in 4b.
@@ -118,5 +126,4 @@ Four-phase strangler-fig per [TODO/20260525-url-grammar-grammar-a-migration.md](
 - [ADR-0016](0016-frontend-hash-routing.md) — superseded by ADR-0028; routing-mode decision still stands.
 - [docs/concepts/owid-alignment.md](../../concepts/owid-alignment.md) — fallback doctrine; this ADR is the second application.
 - [docs/architecture/frontend/routing.md](../frontend/routing.md) — operational route grammar (updated in this PR).
-- [TODO/20260525-url-grammar-grammar-a-migration.md](../../../TODO/20260525-url-grammar-grammar-a-migration.md) — debate transcript, phase plan, open user-gate questions.
 - [frontend/src/lib/links.ts](../../../frontend/src/lib/links.ts) — Grammar A builders (Phase 1 of this ADR).
