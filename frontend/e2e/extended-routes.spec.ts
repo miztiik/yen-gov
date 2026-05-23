@@ -92,4 +92,37 @@ test.describe("extended routes", () => {
     await page.waitForLoadState("networkidle", { timeout: 30_000 });
     await expect(page.locator("main").first()).toBeVisible();
   });
+
+  // Phase 1.3b — icon rollout sub-1 (topic cards).
+  //
+  // /t mounts TopicIndex.svelte. Each topic card now carries a TopicIcon
+  // glyph next to the title, sourced from the build-time icon registry
+  // (virtual:icon-registry). The contract test in
+  // src/lib/TopicIcon.test.ts already asserts that every topic.icon
+  // referenced in datasets/taxonomy/topics.json has a registry entry —
+  // this smoke proves the registry's data ACTUALLY renders into the DOM
+  // at the citizen surface, and that the renderer doesn't trip on the
+  // structural icon shape (recursive `{@render}` snippet).
+  test("topic index /t renders TopicIcon glyphs on every topic card", async ({ page }) => {
+    await page.goto("/t");
+    await expect(page.getByRole("heading", { level: 1, name: "Topics" })).toBeVisible({
+      timeout: 15_000,
+    });
+    // The 10 topic.icon refs in topics.json (with duplicates: users x2,
+    // trending-up x2) emit 10 SVGs tagged `data-icon-name=<id>`. We
+    // assert ≥8 to leave headroom if the taxonomy adds a topic-without-icon
+    // before the test is rebaselined.
+    const icons = page.locator("svg[data-icon-name]");
+    const count = await icons.count();
+    expect(count, "TopicIndex should render at least one icon per topic card").toBeGreaterThanOrEqual(8);
+    // At least one of each shipped icon id should be present (proves the
+    // virtual registry is loaded, not just one icon hardcoded).
+    const seen = await icons.evaluateAll((els) =>
+      Array.from(new Set(els.map((e) => e.getAttribute("data-icon-name")))).sort(),
+    );
+    expect(seen).toContain("landmark"); // governance
+    expect(seen).toContain("zap");      // energy
+    expect(seen).toContain("vote");     // elections
+    expect(seen).toContain("users");    // demography / human dev
+  });
 });

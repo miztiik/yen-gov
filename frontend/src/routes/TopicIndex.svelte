@@ -20,6 +20,7 @@
     type SeventhScheduleList,
   } from "../lib/catalogue";
   import ListBadge from "../lib/ListBadge.svelte";
+  import TopicIcon from "../lib/TopicIcon.svelte";
   import { url } from "../lib/url";
 
   let catalogue = $state<TopicCatalogue | null>(null);
@@ -110,7 +111,10 @@
                   href={url.topic(topic.id)}
                   class="block h-full rounded-lg border border-slate-200 bg-white p-4 hover:border-sky-400 hover:shadow-sm transition"
                 >
-                  <h3 class="text-sm font-semibold mb-1">{topic.title}</h3>
+                  <h3 class="text-sm font-semibold mb-1 flex items-center gap-2">
+                    <TopicIcon name={topic.icon} cls="w-4 h-4 text-slate-500 shrink-0" />
+                    <span>{topic.title}</span>
+                  </h3>
                   <p class="text-xs text-slate-600 line-clamp-3 mb-2">{topic.summary}</p>
                   <p class="text-[0.65rem] uppercase tracking-wide text-slate-500 tabular-nums">
                     {#if ind > 0}{ind} indicator{ind === 1 ? "" : "s"}{/if}
