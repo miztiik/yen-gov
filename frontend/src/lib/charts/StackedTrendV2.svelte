@@ -1,10 +1,10 @@
 <script lang="ts">
   // StackedTrendV2 — component with wired geometry, segmented mode
-  // control, pinned readout panel, and inline labels (Phases 2.1c +
-  // 2.2 + 2.3 + 2.4).
+  // control, pinned readout panel, inline labels, and missing /
+  // not_applicable hatch (Phases 2.1c + 2.2 + 2.3 + 2.4 + 2.5).
   //
   // Per TODO/20260518-frontend-charting-modernisation-plan.md Phases
-  // 2.1..2.4.
+  // 2.1..2.5.
   //
   // Behaviour delivered so far:
   //
@@ -14,20 +14,24 @@
   //  - Phase 2.2: live segmented mode toggle. R-12: button, not select.
   //  - Phase 2.3: pinned readout panel on bar tap. R-12: no
   //    hover-as-state. Initial pin = LAST bar.
-  //  - Phase 2.4 (this PR): inline labels overlay. Segments at or above
-  //    `DEFAULT_LABEL_THRESHOLD_PCT` (8% of canvas height) render a
-  //    citizen-readable label + value pair stacked vertically inside
-  //    the segment. Ink colour is chosen per-segment via `inkForFill`
-  //    (white on dark, slate-900 on light) so the label stays legible
-  //    on every category colour. Smaller segments fall back to the
-  //    legend + the pinned readout. Labels render in an HTML overlay
-  //    layer (`pointer-events: none`) on top of the SVG canvas — SVG
-  //    `<text>` would be stretched by `preserveAspectRatio=none` and
-  //    become illegible.
+  //  - Phase 2.4: inline labels overlay (HTML on top of SVG) with
+  //    YIQ-based `inkForFill` per segment. Segments ≥
+  //    `DEFAULT_LABEL_THRESHOLD_PCT` (8%) get an inline
+  //    `<short-label>` + `<value>` pair; smaller segments fall back
+  //    to the legend + readout.
+  //  - Phase 2.5 (this PR): missing / not_applicable hatch. Segments
+  //    that are not `present` are no longer silently elided — each
+  //    surfaces as a thin hatched stripe (height =
+  //    `UNKNOWN_STRIPE_HEIGHT_PCT`, default 4% of canvas) stacked
+  //    above the present segments. Diagonal hatch for `missing`,
+  //    dotted hatch for `not_applicable` — two distinct SVG
+  //    `<pattern>`s in `<defs>` so the citizen can tell "we didn't
+  //    measure this" apart from "this category doesn't apply to this
+  //    period". The pinned readout panel from Phase 2.3 already
+  //    explains the difference in plain language.
   //
   // What's STILL out of scope (each ships in its own PR):
   //
-  //  - Missing / not_applicable hatch (Phase 2.5).
   //  - Motion / 200ms tween (Phase 2.6).
   //  - Export control (Phase 2.7).
   //
@@ -67,6 +71,7 @@
   import {
     DEFAULT_LABEL_THRESHOLD_PCT,
     MODE_LABELS,
+    UNKNOWN_STRIPE_HEIGHT_PCT,
     barTotal,
     inkForFill,
     isLabelEligible,
@@ -74,6 +79,7 @@
     readoutRows,
     resolveInitialMode,
     segmentVisualHeightPct,
+    unknownStripesForBar,
     visibleCategoryIds,
   } from "./stacked-trend-v2/helpers";
   import type {
@@ -306,10 +312,48 @@
       viewBox="0 0 100 100"
       preserveAspectRatio="none"
     >
-      <g class="stacked-trend-v2__bars" data-phase="2.4-labels">
+      <!--
+        Phase 2.5 hatch patterns. Both patterns use a fixed userSpace
+        size (2x2 viewBox units) so the hatch density stays stable
+        regardless of bar width — wider bars get more stripes / dots,
+        not bigger ones. Light slate background so the hatch reads as
+        "incomplete data" without competing with category colours.
+
+          - `stv2-hatch-missing`: diagonal lines → "we expected a
+            number, none was reported".
+          - `stv2-hatch-na`: dots → "this category doesn't apply to
+            this period" (a different absence than missing).
+
+        The pinned-readout panel from Phase 2.3 carries the plain-
+        language explanation; the hatch is the visual entry point.
+      -->
+      <defs>
+        <pattern
+          id="stv2-hatch-missing"
+          patternUnits="userSpaceOnUse"
+          width="2"
+          height="2"
+          patternTransform="rotate(45)"
+        >
+          <rect width="2" height="2" fill="#f1f5f9" />
+          <line x1="0" y1="0" x2="0" y2="2" stroke="#94a3b8" stroke-width="0.5" />
+        </pattern>
+        <pattern
+          id="stv2-hatch-na"
+          patternUnits="userSpaceOnUse"
+          width="2"
+          height="2"
+        >
+          <rect width="2" height="2" fill="#f8fafc" />
+          <circle cx="1" cy="1" r="0.35" fill="#94a3b8" />
+        </pattern>
+      </defs>
+      <g class="stacked-trend-v2__bars" data-phase="2.5-hatch">
         {#each model.bars as bar, i (bar.period_id)}
           {@const total = barTotal(bar)}
           {@const rects = rectsForBar(bar.segments, total)}
+          {@const stripes = unknownStripesForBar(bar)}
+          {@const presentTopY = rects.length > 0 ? rects[rects.length - 1].y : 100}
           {@const isPinned = pinnedPeriod === bar.period_id}
           <g class="stacked-trend-v2__bar" transform="translate({barX(i)} 0)">
             {#each rects as r (r.category_id)}
@@ -323,6 +367,40 @@
                 pointer-events="none"
               >
                 <title>{labelFor(r.category_id)}: {fmtValue(r.value)}</title>
+              </rect>
+            {/each}
+            <!--
+              Phase 2.5 hatched stripes for missing / not_applicable
+              segments. Stacked ABOVE the present rects (smaller y) so
+              the present geometry is unaffected by toggling modes —
+              the citizen sees the cap and understands the bar has
+              incomplete data; the readout panel breaks down which
+              categories are missing vs not-applicable.
+            -->
+            {#each stripes as s, sIdx (s.category_id)}
+              {@const stripeY = presentTopY - (sIdx + 1) * s.height}
+              <rect
+                x="0"
+                y={stripeY}
+                width={barWidth}
+                height={s.height}
+                fill={s.availability === "missing"
+                  ? "url(#stv2-hatch-missing)"
+                  : "url(#stv2-hatch-na)"}
+                stroke="#cbd5e1"
+                stroke-width="0.2"
+                vector-effect="non-scaling-stroke"
+                class="stacked-trend-v2__stripe"
+                data-availability={s.availability}
+                data-category-id={s.category_id}
+                pointer-events="none"
+              >
+                <title
+                  >{labelFor(s.category_id)}: {s.availability_label ??
+                    (s.availability === "missing"
+                      ? "Not reported"
+                      : "Not applicable")}</title
+                >
               </rect>
             {/each}
             <!-- Full-slot transparent hit target. Sized to the entire

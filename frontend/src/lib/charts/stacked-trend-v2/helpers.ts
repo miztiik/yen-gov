@@ -316,3 +316,67 @@ export function readoutRows(
 
   return rows;
 }
+
+/**
+ * Fixed visual height (canvas %) of an "unknown" stripe — a missing or
+ * not_applicable segment rendered as a hatched cap above the present
+ * stack. Chosen small enough that the hatch does not visually compete
+ * with present data, large enough that a citizen scanning the chart
+ * notices the cap and understands "this bar has incomplete data".
+ *
+ * Matches the no-data hatch convention on the choropleth map
+ * (`frontend/src/lib/IndicatorChoropleth.svelte`) so the citizen reads
+ * the same visual idiom across surfaces.
+ */
+export const UNKNOWN_STRIPE_HEIGHT_PCT = 4;
+
+/**
+ * One non-present segment surfaced as a hatched stripe on the bar.
+ *
+ * Distinct from a `SegmentRect` because stripes have a FIXED height
+ * (they do not represent a measurable quantity) and carry the
+ * `availability` discriminator so the renderer can pick the correct
+ * hatch pattern (`missing` vs `not_applicable`).
+ */
+export interface UnknownStripe {
+  category_id: string;
+  height: number;
+  availability: "missing" | "not_applicable";
+  availability_label?: string;
+}
+
+/**
+ * Build the hatched-stripe layer for one bar (Phase 2.5).
+ *
+ * Returns one stripe per non-present segment in INPUT order so the
+ * renderer's stacking is deterministic and adapter-controlled. Each
+ * stripe has a fixed height of `stripeHeightPct` (default
+ * `UNKNOWN_STRIPE_HEIGHT_PCT`); present segments are NOT touched here
+ * — the stripe layer renders ABOVE the present stack from the
+ * renderer's perspective, so present geometry stays untouched as the
+ * citizen toggles modes.
+ *
+ * An empty array means the bar's data is complete — no hatch cap
+ * needed and no `<defs>` pattern reference is paid for in the DOM.
+ *
+ * Per CLAUDE.md §0 a11y is descoped: the hatch is a visual signal
+ * (citizen sees a slim grey cap rather than a flat bar) reinforced by
+ * the pinned-readout panel from Phase 2.3 which already lists every
+ * missing / not_applicable segment in plain language.
+ */
+export function unknownStripesForBar(
+  bar: StackedTrendV2Bar,
+  stripeHeightPct: number = UNKNOWN_STRIPE_HEIGHT_PCT,
+): readonly UnknownStripe[] {
+  const result: UnknownStripe[] = [];
+  for (const seg of bar.segments) {
+    if (seg.availability === "present") continue;
+    result.push({
+      category_id: seg.category_id,
+      height: stripeHeightPct,
+      availability: seg.availability,
+      availability_label: seg.availability_label,
+    });
+  }
+  return result;
+}

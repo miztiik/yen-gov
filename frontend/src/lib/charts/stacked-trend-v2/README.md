@@ -52,7 +52,7 @@ Track-D commits (Phases 2.2…2.7 and D10…D13).
   `readoutRows` helper. Initial pin is the last (most recent) bar so
   the panel is populated immediately. Click the same bar (or the
   panel's × button) to clear.
-- **2.4** (PR-11 — THIS PR): inline labels overlay. Segments at or
+- **2.4** (PR-11 — DONE): inline labels overlay. Segments at or
   above `DEFAULT_LABEL_THRESHOLD_PCT` (8% of canvas height) render a
   citizen-readable `<short-label> / <value>` pair stacked vertically
   inside the segment; smaller segments fall back to the legend + the
@@ -66,7 +66,21 @@ Track-D commits (Phases 2.2…2.7 and D10…D13).
   become illegible. 13 new unit cases in `helpers.test.ts` cover
   white-on-dark, slate-on-light, the v2 `__OTHER__` grey, 6-digit /
   3-digit hex, no-hash, case-insensitive, and malformed-input
-  fallback. **Still zero callers; v1 still ships untouched.**
+  fallback.
+- **2.5** (PR-12 — THIS PR): missing / not_applicable hatch.
+  Segments with `availability !== "present"` are no longer silently
+  elided — each surfaces as a thin hatched stripe (height =
+  `UNKNOWN_STRIPE_HEIGHT_PCT`, default 4% of canvas) stacked above
+  the present segments. Two distinct SVG `<pattern>`s live in the
+  canvas `<defs>`: diagonal slate lines for `missing` ("we expected
+  a number, none was reported"), dotted slate for `not_applicable`
+  ("this category doesn't apply to this period"). The citizen sees
+  the visual difference at a glance; the pinned-readout panel from
+  Phase 2.3 already carries the plain-language explanation. New
+  pure helper `unknownStripesForBar(bar, stripeHeightPct?)` returns
+  one stripe per non-present segment in input order — 10 new unit
+  cases in `helpers.test.ts`. **Still zero callers; v1 still ships
+  untouched.**
 
 ## R-11 deferral (Phase 2.2 contract test)
 

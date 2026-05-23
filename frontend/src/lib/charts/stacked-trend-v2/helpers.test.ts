@@ -15,6 +15,7 @@ import { describe, expect, it } from "vitest";
 import {
   DEFAULT_LABEL_THRESHOLD_PCT,
   MODE_LABELS,
+  UNKNOWN_STRIPE_HEIGHT_PCT,
   barTotal,
   inkForFill,
   isLabelEligible,
@@ -23,6 +24,7 @@ import {
   resolveInitialMode,
   segmentSharePct,
   segmentVisualHeightPct,
+  unknownStripesForBar,
   visibleCategoryIds,
 } from "./helpers";
 import type {
@@ -557,5 +559,102 @@ describe("inkForFill", () => {
     expect(inkForFill("#zzz")).toBe("#0f172a");
     expect(inkForFill("#12345")).toBe("#0f172a");
     expect(inkForFill("")).toBe("#0f172a");
+  });
+});
+
+describe("unknownStripesForBar", () => {
+  it("returns an empty array when every segment is present", () => {
+    const b = bar("2024", [
+      seg("coal", 100),
+      seg("gas", 30),
+      seg("solar", 20),
+    ]);
+    expect(unknownStripesForBar(b)).toEqual([]);
+  });
+
+  it("returns one stripe per missing segment", () => {
+    const b = bar("2024", [
+      seg("coal", 100),
+      seg("gas", null, "missing"),
+    ]);
+    const stripes = unknownStripesForBar(b);
+    expect(stripes).toHaveLength(1);
+    expect(stripes[0].category_id).toBe("gas");
+    expect(stripes[0].availability).toBe("missing");
+    expect(stripes[0].height).toBe(UNKNOWN_STRIPE_HEIGHT_PCT);
+  });
+
+  it("returns one stripe per not_applicable segment", () => {
+    const b = bar("2024", [
+      seg("coal", 100),
+      seg("nuclear", null, "not_applicable"),
+    ]);
+    const stripes = unknownStripesForBar(b);
+    expect(stripes).toHaveLength(1);
+    expect(stripes[0].category_id).toBe("nuclear");
+    expect(stripes[0].availability).toBe("not_applicable");
+  });
+
+  it("returns one stripe per non-present segment in input order", () => {
+    const b = bar("2024", [
+      seg("coal", 100),
+      seg("nuclear", null, "not_applicable"),
+      seg("gas", null, "missing"),
+      seg("solar", 20),
+    ]);
+    const stripes = unknownStripesForBar(b);
+    expect(stripes.map((s) => s.category_id)).toEqual(["nuclear", "gas"]);
+    expect(stripes.map((s) => s.availability)).toEqual([
+      "not_applicable",
+      "missing",
+    ]);
+  });
+
+  it("preserves availability_label when set on the segment", () => {
+    const b = bar("2024", [
+      seg("coal", 100),
+      seg("gas", null, "missing", "No data this year"),
+    ]);
+    const stripes = unknownStripesForBar(b);
+    expect(stripes[0].availability_label).toBe("No data this year");
+  });
+
+  it("leaves availability_label undefined when the segment omits it", () => {
+    const b = bar("2024", [
+      seg("coal", 100),
+      seg("gas", null, "missing"),
+    ]);
+    const stripes = unknownStripesForBar(b);
+    expect(stripes[0].availability_label).toBeUndefined();
+  });
+
+  it("returns stripes for every segment when the whole bar is missing", () => {
+    const b = bar("2024", [
+      seg("coal", null, "missing"),
+      seg("gas", null, "missing"),
+    ]);
+    expect(unknownStripesForBar(b)).toHaveLength(2);
+  });
+
+  it("returns an empty array for a bar with no segments", () => {
+    const b = bar("2024", []);
+    expect(unknownStripesForBar(b)).toEqual([]);
+  });
+
+  it("honours a custom stripeHeightPct (route-specific tuning)", () => {
+    const b = bar("2024", [
+      seg("coal", 100),
+      seg("gas", null, "missing"),
+    ]);
+    const stripes = unknownStripesForBar(b, 2);
+    expect(stripes[0].height).toBe(2);
+  });
+
+  it("UNKNOWN_STRIPE_HEIGHT_PCT is small enough not to dominate the canvas", () => {
+    // Sanity guard: future tuning that lifts the default above ~10% would
+    // start competing with present data visually. A test makes the
+    // intent explicit.
+    expect(UNKNOWN_STRIPE_HEIGHT_PCT).toBeGreaterThan(0);
+    expect(UNKNOWN_STRIPE_HEIGHT_PCT).toBeLessThanOrEqual(10);
   });
 });

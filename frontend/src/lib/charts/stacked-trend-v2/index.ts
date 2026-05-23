@@ -36,6 +36,7 @@ export {
 export {
   DEFAULT_LABEL_THRESHOLD_PCT,
   MODE_LABELS,
+  UNKNOWN_STRIPE_HEIGHT_PCT,
   barTotal,
   inkForFill,
   isLabelEligible,
@@ -44,6 +45,7 @@ export {
   resolveInitialMode,
   segmentSharePct,
   segmentVisualHeightPct,
+  unknownStripesForBar,
   visibleCategoryIds,
 } from "./helpers";
-export type { ReadoutRow } from "./helpers";
+export type { ReadoutRow, UnknownStripe } from "./helpers";
