@@ -18,16 +18,24 @@ Track-D commits (Phases 2.2…2.7 and D10…D13).
   bar-layer placeholder. **Type-check green; zero render coverage; no
   caller mounts it yet.** Phases 2.2..2.7 layer behaviour onto this seam
   one PR at a time.
-- **2.1 helpers** (PR-7 — this PR): pure view-model helpers
+- **2.1 helpers** (PR-7 / #110 — DONE): pure view-model helpers
   ([`./helpers.ts`](./helpers.ts)) extracted from v1's inline math —
   `barTotal`, `maxBarTotal`, `segmentSharePct`, `segmentVisualHeightPct`,
   `visibleCategoryIds`, `isLabelEligible`, `readoutRows` — plus the
   `ReadoutRow` interface used by the future pinned-readout panel
   (Phase 2.3). All helpers are pure, exhaustively unit-tested
-  ([`./helpers.test.ts`](./helpers.test.ts), 41 cases) for percent /
+  ([`./helpers.test.ts`](./helpers.test.ts), 47 cases) for percent /
   absolute modes, zero totals, `__OTHER__`, missing, not_applicable,
-  null values, and `bar.total` overrides. **The shell does NOT consume
-  these helpers yet** — the wiring slice is Phase 2.1c.
+  null values, and `bar.total` overrides.
+- **2.1c** (PR-8 — THIS PR): wire the helpers into the shell. The
+  shell's empty `<g/>` is now populated by one `<rect>` per present
+  segment per bar; segment geometry comes from `segmentVisualHeightPct`,
+  bar scale from `maxBarTotal`, legend membership from
+  `visibleCategoryIds`. A baseline axis line + period-label row +
+  flat legend strip render below the chart so the chart is
+  interpretable standalone. **Still no segmented mode toggle, no
+  pinned readout, no inline labels, no hatch, no motion** — those land
+  in Phases 2.2..2.6. **Still zero callers; v1 still ships untouched.**
 
 ## R-11 deferral (Phase 2.2 contract test)
 
