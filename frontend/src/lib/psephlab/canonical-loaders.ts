@@ -16,7 +16,8 @@
 //
 // What is JOINed:
 //   elections.dim_acs           — AC identity + display name
-//   elections.dim_candidates    — per-contest candidate rows
+//   elections.elections_candidacies — per-contest candidacy rows
+//   elections.dim_persons       — person names
 //   elections.dim_parties       — party_eci_code + party_short
 //   elections.election_results  — votes_polled (AC scope), candidate votes,
 //                                 NOTA votes (synthesised as candidate rows
@@ -100,7 +101,7 @@ function buildCandidateSql(event: string, state_code: string): string {
   const evt = sqlString(event);
   const sc = sqlString(state_code);
   // The candidate SELECT is a UNION ALL of:
-  //   (a) real candidates from dim_candidates × dim_parties × election_results
+  //   (a) real candidates from candidacies × dim_persons × dim_parties × election_results
   //   (b) synthesised NOTA rows from ac-nota-votes (one per AC, when present)
   // Ordering ensures the legacy ORDER BY (ac_eci_no, rank) holds: NOTA rows
   // have rank NULL which sorts LAST per DuckDB ASC NULLS LAST default. The
@@ -118,12 +119,12 @@ function buildCandidateSql(event: string, state_code: string): string {
     )
     SELECT
       da.eci_no                                       AS ac_eci_no,
-      dc.rank                                         AS rank,
-      dc.name                                         AS name,
+      ec.rank                                         AS rank,
+      p.display_name                                  AS name,
       dp.eci_code                                     AS party_eci_code,
       -- party_short fallback chain (no-UNK-regression, PR-R.2):
       --   1. dim_parties.short_name when party_id is resolved to a real party
-      --   2. dim_candidates.party_short_raw — verbatim ECI short — when
+      --   2. elections_candidacies.party_short_raw — verbatim ECI short — when
       --      party_id is the sentinel parties.IN.UNK (long-tail party not yet
       --      in canonical taxonomy). Citizens see "JNSRJP" not "UNK".
       --   3. literal 'UNK' as a last resort (should be unreachable —
@@ -131,17 +132,18 @@ function buildCandidateSql(event: string, state_code: string): string {
       --      adapter at v1.1; this branch defends against pre-v1.1 rows
       --      that might survive a partial-corpus backfill).
       CASE
-        WHEN dc.party_id = 'parties.IN.UNK'
-          THEN COALESCE(dc.party_short_raw, dp.short_name, 'UNK')
+        WHEN ec.party_id = 'parties.IN.UNK'
+          THEN COALESCE(ec.party_short_raw, dp.short_name, 'UNK')
         ELSE dp.short_name
       END                                             AS party_short,
       CAST(cv.votes AS BIGINT)                        AS votes,
       0                                               AS is_nota
-    FROM dim_candidates dc
-    JOIN dim_acs da          ON da.ac_id = dc.ac_id
-    LEFT JOIN dim_parties dp ON dp.party_id = dc.party_id
-    LEFT JOIN cand_votes cv  ON cv.candidate_id = dc.candidate_id
-    WHERE dc.period_label = ${evt}
+    FROM elections_candidacies ec
+    JOIN dim_persons p       ON p.person_id = ec.person_id
+    JOIN dim_acs da          ON da.ac_id = ec.ac_id
+    LEFT JOIN dim_parties dp ON dp.party_id = ec.party_id
+    LEFT JOIN cand_votes cv  ON cv.candidate_id = ec.candidacy_key
+    WHERE ec.election_id = ${evt}
       AND da.state_code   = ${sc}
 
     UNION ALL
@@ -186,7 +188,8 @@ export function loadActuals(event: string, state: string): Promise<Tallies> {
     await Promise.all([
       registerSlice("elections.election_results", { state: electionStatePartition(state) }),
       registerTable("elections.dim_acs"),
-      registerTable("elections.dim_candidates"),
+      registerTable("elections.elections_candidacies"),
+      registerTable("elections.dim_persons"),
       registerTable("elections.dim_parties"),
     ]);
 

@@ -110,13 +110,14 @@ def period():
     return Period("AcGenMay2026", 2026, 5)
 
 
-class TestCandidateDims:
+class TestPersonAndCandidacyDims:
     def test_one_row_per_candidate(self, lookup, period):
         dims = dim_rows_from_constituency(
             result=_result(), period=period, delim_year=2008,
             party_lookup=lookup, source_id=SOURCE,
         )
-        assert len(dims["candidate"]) == 3
+        assert len(dims["person"]) == 3
+        assert len(dims["candidacy"]) == 3
 
     def test_candidate_pk_matches_observations_entity_id(self, lookup, period):
         """The JOIN that unblocks PR-E rides on this equality."""
@@ -128,7 +129,7 @@ class TestCandidateDims:
             result=_result(), period=period, delim_year=2008,
             party_lookup=lookup, source_id=SOURCE,
         )
-        cand_pks = {d["candidate_id"] for d in dims["candidate"]}
+        cand_pks = {d["candidacy_key"] for d in dims["candidacy"]}
         obs_entity_ids = {
             r.entity_id for r in obs if r.indicator_id == "candidate-votes-polled"
         }
@@ -139,8 +140,9 @@ class TestCandidateDims:
             result=_result(), period=period, delim_year=2008,
             party_lookup=lookup, source_id=SOURCE,
         )
-        rows = sorted(dims["candidate"], key=lambda r: r["rank"])
-        assert rows[0]["name"] == "A. Alpha"
+        people = {r["person_id"]: r for r in dims["person"]}
+        rows = sorted(dims["candidacy"], key=lambda r: r["rank"])
+        assert people[rows[0]["person_id"]]["display_name"] == "A. Alpha"
         assert rows[0]["party_id"] == "parties.IN.DMK"
         assert rows[0]["rank"] == 1
         assert rows[0]["ballot_serial"] == 1
@@ -151,7 +153,8 @@ class TestCandidateDims:
             result=_result(), period=period, delim_year=2008,
             party_lookup=lookup, source_id=SOURCE,
         )
-        assert all(r["source_id"] == SOURCE for r in dims["candidate"])
+        assert all(r["source_id"] == SOURCE for r in dims["person"])
+        assert all(r["source_id"] == SOURCE for r in dims["candidacy"])
         assert all(r["source_id"] == SOURCE for r in dims["ac"])
 
 

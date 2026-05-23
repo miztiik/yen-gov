@@ -72,10 +72,11 @@ from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.envelope import (
     AcDimRow,
     BatchEnvelope,
-    CandidateDimRow,
+    CandidacyRow,
     ObservationRow,
     PartyAllianceDimRow,
     PartyDimRow,
+    PersonDimRow,
     SourceRow,
 )
 from yen_gov.canonical.writer import WriteResult, write_batch
@@ -204,7 +205,8 @@ def backfill_elections(
 
         event_obs: list[ObservationRow] = []
         event_sources: dict[str, SourceRow] = {}
-        event_candidate_dims: list[CandidateDimRow] = []
+        event_person_dims: list[PersonDimRow] = []
+        event_candidacies: list[CandidacyRow] = []
         event_ac_dims: dict[str, AcDimRow] = {}  # ac_id -> row (UPSERT-dedupe)
 
         state_dirs = sorted(
@@ -218,7 +220,7 @@ def backfill_elections(
             if not results_dir.is_dir():
                 continue
             try:
-                rows, sources, ac_count, slice_unresolved, cand_dims, ac_dims = _process_slice(
+                rows, sources, ac_count, slice_unresolved, person_dims, candidacies, ac_dims = _process_slice(
                     results_dir=results_dir,
                     state_code=state_code,
                     period=period,
@@ -240,7 +242,8 @@ def backfill_elections(
             event_obs.extend(rows)
             for sid, srow in sources.items():
                 event_sources.setdefault(sid, srow)
-            event_candidate_dims.extend(cand_dims)
+            event_person_dims.extend(person_dims)
+            event_candidacies.extend(candidacies)
             for ad in ac_dims:
                 event_ac_dims.setdefault(ad.ac_id, ad)
             for short, n in slice_unresolved.items():
@@ -290,7 +293,8 @@ def backfill_elections(
             schema_version="1.0",
             source_rows=sorted(event_sources.values(), key=lambda s: s.source_id),
             observation_rows=event_obs,
-            candidate_dim_rows=event_candidate_dims,
+            person_dim_rows=event_person_dims,
+            candidacy_rows=event_candidacies,
             ac_dim_rows=list(event_ac_dims.values()),
             party_dim_rows=party_dim_payload,
             party_alliance_dim_rows=party_alliance_payload,
@@ -339,7 +343,7 @@ def _process_slice(
     party_lookup: PartyLookup,
 ) -> tuple[
     list[ObservationRow], dict[str, SourceRow], int, dict[str, int],
-    list[CandidateDimRow], list[AcDimRow],
+    list[PersonDimRow], list[CandidacyRow], list[AcDimRow],
 ]:
     """Process one (event, state) slice → observations + sources + dims + AC count.
 
@@ -364,7 +368,7 @@ def _process_slice(
             log.warning("skipping unreadable %s: %s", ac_path, exc)
             continue
 
-    rows, sources, unresolved, candidate_dims, ac_dims = build_slice_envelope(
+    rows, sources, unresolved, person_dims, candidacies, ac_dims = build_slice_envelope(
         constituencies=constituencies,
         state_code=state_code,
         period=period,
@@ -376,7 +380,7 @@ def _process_slice(
     # on-disk corpus so progress reporting stays honest.
     return (
         rows, sources, len(ac_files), unresolved,
-        candidate_dims, ac_dims,
+        person_dims, candidacies, ac_dims,
     )
 
 
@@ -388,7 +392,7 @@ def build_slice_envelope(
     party_lookup: PartyLookup,
 ) -> tuple[
     list[ObservationRow], dict[str, SourceRow], dict[str, int],
-    list[CandidateDimRow], list[AcDimRow],
+    list[PersonDimRow], list[CandidacyRow], list[AcDimRow],
 ]:
     """Build the per-slice canonical rows from in-memory ConstituencyResults.
 
@@ -406,8 +410,8 @@ def build_slice_envelope(
         party_lookup: shared resolver from
             ``yen_gov.canonical.adapters.eci.party_lookup``.
 
-    Returns the 5-tuple ``(observations, sources, unresolved, candidate_dims,
-    ac_dims)`` — matches ``_process_slice``'s shape minus the
+    Returns the tuple ``(observations, sources, unresolved, person_dims,
+    candidacies, ac_dims)`` — matches ``_process_slice``'s shape minus the
     ``ac_count`` (which is a property of the on-disk corpus, not of the
     in-memory data; callers compute it themselves).
     """
@@ -415,7 +419,8 @@ def build_slice_envelope(
     sources: dict[str, SourceRow] = {}
     summaries: list[ACContestSummary] = []
     unresolved: dict[str, int] = defaultdict(int)
-    candidate_dims: list[CandidateDimRow] = []
+    person_dims: list[PersonDimRow] = []
+    candidacies: list[CandidacyRow] = []
     ac_dims_by_id: dict[str, AcDimRow] = {}
 
     for cr in constituencies:
@@ -439,7 +444,8 @@ def build_slice_envelope(
             party_lookup=proxy_lookup,
             source_id=source_id,
         )
-        candidate_dims.extend(CandidateDimRow(**d) for d in dims["candidate"])
+        person_dims.extend(PersonDimRow(**d) for d in dims["person"])
+        candidacies.extend(CandidacyRow(**d) for d in dims["candidacy"])
         for d in dims["ac"]:
             ac_dims_by_id.setdefault(d["ac_id"], AcDimRow(**d))
 
@@ -455,7 +461,7 @@ def build_slice_envelope(
 
     return (
         rows, sources, dict(unresolved),
-        candidate_dims, list(ac_dims_by_id.values()),
+        person_dims, candidacies, list(ac_dims_by_id.values()),
     )
 
 

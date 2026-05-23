@@ -50,7 +50,7 @@
 
   // Biographic columns (sex/age/education/profession/constituency_type/
   // party_type) now ride on `result.candidates[i].bio` directly from
-  // dim_candidates.parquet v1.2 (PR-S.2 / canonical pivot 1.8f). No more
+  // dim_persons + elections_candidacies (ADR-0035 S.1). No more
   // per-candidate JSON fan-out; one DuckDB query already projected them.
 
   // State-map context for the "Location in {state}" panel. Lean loader —
@@ -192,7 +192,7 @@
                   row" so the citizen sees an honest "Not declared" rather
                   than the entire field disappearing. Conditional rendering
                   also defeats the e2e visibility assertion that protects the
-                  dim_candidates v1.2 -> CandidateResult.bio projection path.
+                  dim_persons/elections_candidacies -> CandidateResult.bio projection path.
                 -->
                 <div class="text-xs text-slate-500 mt-0.5" data-testid="candidate-biographics">
                   {#if bio}{bio}{:else}Not declared{/if}

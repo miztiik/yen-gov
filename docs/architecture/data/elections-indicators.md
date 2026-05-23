@@ -77,11 +77,12 @@ Candidate dim attributes (name, party_id, gender, age, education, profession, cr
 
 ## Dimension tables (Phase 1.2b — denormalised strings, not observations)
 
-Per [canonical-store §11.5](canonical-store.md#115-dimension-tables-phase-12b): citizen-facing strings (candidate name, AC name, party labels) live in sibling Parquets, NOT in `observations.parquet`. PKs are byte-equal to the `entity_id`s on the corresponding observation rows so a single `LEFT JOIN` reconstructs the citizen shape.
+Per [canonical-store §11.5](canonical-store.md#115-dimension-tables-phase-12b): citizen-facing strings (person name, AC name, party labels) live in sibling Parquets, NOT in `observations.parquet`. `elections_candidacies.candidacy_key` is byte-equal to candidate-scope `observations.entity_id`, so the frontend reconstructs the citizen shape through `election_results → elections_candidacies → dim_persons`.
 
 | Table | PK | Columns | Source |
 | --- | --- | --- | --- |
-| `elections.dim_candidates` | `candidate_id` (= per-contest `entity_id`) | `ac_id`, `period_label`, `ballot_serial`, `name`, `party_id`, `rank`, `source_id` | per-AC ECI source |
+| `elections.dim_persons` | `person_id` | `display_name`, `source_id`, nullable `sex`, `age`, `education`, `profession` | per-AC ECI source |
+| `elections.elections_candidacies` | `candidacy_key` (= per-contest `entity_id`) | `person_id`, `ac_id`, `election_id`, `ballot_serial`, `party_id`, `rank`, `votes_polled`, `vote_share_pct`, `won`, `source_id`, `party_short_raw`, nullable `constituency_type`, `party_type` | per-AC ECI source |
 | `elections.dim_acs` | `ac_id` | `state_code`, `delim_year`, `eci_no`, `name`, `source_id` | per-AC ECI source |
 | `elections.dim_parties` | `party_id` | `eci_code`, `short_name`, `full_name`, `recognition`, `source_id` | `datasets/taxonomy/parties.json` registry |
 

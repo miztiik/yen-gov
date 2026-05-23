@@ -17,7 +17,7 @@ restoring the legacy SQLites first and is explicitly out of scope for any
 ingest / backfill PR.
 
 Why: PR-R.2 swapped Psephlab routes from the legacy SQLite-via-XHR loader
-to ``canonical-loaders.ts`` reading ``dim_candidates × election_results``
+to ``canonical-loaders.ts`` reading ``elections_candidacies × dim_persons × election_results``
 joined in DuckDB-WASM. If a future canonical-store rebuild ever silently
 scrambles per-AC winners — wrong party_id, wrong vote, ranked order
 off-by-one — the UI's "Top candidate" chip lies to the citizen. This test
@@ -40,7 +40,8 @@ import pytest
 REPO_ROOT = Path(__file__).resolve().parents[2]
 ELECTIONS_ROOT = REPO_ROOT / "datasets" / "elections"
 PARQUET = ELECTIONS_ROOT / "election_results.parquet"
-DIM_CANDIDATES = ELECTIONS_ROOT / "dim_candidates.parquet"
+CANDIDACIES = ELECTIONS_ROOT / "elections_candidacies.parquet"
+DIM_PERSONS = ELECTIONS_ROOT / "dim_persons.parquet"
 DIM_ACS = ELECTIONS_ROOT / "dim_acs.parquet"
 FIXTURE = REPO_ROOT / "backend" / "tests" / "fixtures" / "canonical_winners_2026_05_19.json"
 
@@ -72,7 +73,7 @@ SLICES = sorted(_FIXTURE.keys())
 
 
 @pytest.mark.skipif(
-    not (PARQUET.is_file() and DIM_CANDIDATES.is_file() and DIM_ACS.is_file()),
+    not (PARQUET.is_file() and CANDIDACIES.is_file() and DIM_PERSONS.is_file() and DIM_ACS.is_file()),
     reason="canonical Parquet not on disk in this checkout",
 )
 @pytest.mark.skipif(not SLICES, reason="parity fixture not on disk")
@@ -87,7 +88,7 @@ def test_per_ac_fptp_winner_matches_fixture(event_id: str, state_code: str) -> N
 
     party_short is NOT compared between fixture and Parquet here: the
     legacy SQLite carried the verbatim ECI string, the canonical Parquet
-    carries the curated party_id with the verbatim short on
+    carries the curated party_id with the verbatim short on the candidacy row
     ``party_short_raw``. Name + votes uniquely identify the winner;
     the party-label fallback chain (CASE WHEN party_id = 'parties.IN.UNK'
     THEN COALESCE(party_short_raw, ...)) is covered by the pinned vitest
@@ -111,13 +112,15 @@ def test_per_ac_fptp_winner_matches_fixture(event_id: str, state_code: str) -> N
         cand_rows AS (
             SELECT
                 da.eci_no AS ac_eci_no,
-                dc.name   AS name,
+                                p.display_name AS name,
                 cv.votes  AS votes
-            FROM read_parquet('{DIM_CANDIDATES.as_posix()}') dc
+                        FROM read_parquet('{CANDIDACIES.as_posix()}') ec
+                        JOIN read_parquet('{DIM_PERSONS.as_posix()}') p
+                            ON p.person_id = ec.person_id
             JOIN read_parquet('{DIM_ACS.as_posix()}') da
-              ON da.ac_id = dc.ac_id
-            JOIN cand_votes cv ON cv.candidate_id = dc.candidate_id
-            WHERE dc.period_label = '{event_id}'
+                            ON da.ac_id = ec.ac_id
+                        JOIN cand_votes cv ON cv.candidate_id = ec.candidacy_key
+                        WHERE ec.election_id = '{event_id}'
               AND da.state_code   = '{state_code}'
         ),
         ranked AS (

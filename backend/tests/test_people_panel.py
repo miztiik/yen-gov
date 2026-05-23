@@ -127,7 +127,7 @@ def test_parse_panel_unknown_state_raises(tmp_path: Path):
 # The function emitted the body of the per-candidate people.entity JSON
 # sidecar (datasets/people/<event>/<ac>/<slug>.json); both the function
 # and the JSON contract are gone. Biographic fields are now UPSERTed into
-# dim_candidates.parquet v1.2 by
+# dim_persons.parquet by
 # ``yen_gov.pipeline.people_ingest.upsert_candidate_bios`` and are covered
 # by ``backend/tests/test_people_ingest.py``
 # (test_run_people_ingest_upserts_bios_inventory_and_report). The

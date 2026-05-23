@@ -102,7 +102,7 @@ def test_build_slice_envelope_happy_path(party_lookup_in) -> None:
     period = parse_period_label("AcGenMay2026")
     constituencies = _emit_fixtures.constituency_models()
 
-    rows, sources, unresolved, candidate_dims, ac_dims = build_slice_envelope(
+    rows, sources, unresolved, person_dims, candidacies, ac_dims = build_slice_envelope(
         constituencies=constituencies,
         state_code="S22",
         period=period,
@@ -115,7 +115,7 @@ def test_build_slice_envelope_happy_path(party_lookup_in) -> None:
     # What we DO pin: rows is non-empty, sources has 1 entry (all 3 fixture
     # ACs share the same producer/title/vintage triple under v2.0 citation
     # ledger — ADR-0032), 3 AC dim rows, 5 unique candidates × 3 ACs = 15
-    # candidate dim rows, no unresolved.
+    # person + candidacy rows, no unresolved.
     assert len(rows) > 0
     assert len(sources) == 1, (
         f"expected ONE citation row for the slice (v2.0 citation ledger — "
@@ -123,9 +123,13 @@ def test_build_slice_envelope_happy_path(party_lookup_in) -> None:
         f"state×event), got {len(sources)}: {sorted(sources.keys())}"
     )
     assert len(ac_dims) == 3, f"expected 3 AC dim rows, got {len(ac_dims)}"
-    assert len(candidate_dims) == 15, (
-        f"expected 5 candidates × 3 ACs = 15 candidate dim rows, got "
-        f"{len(candidate_dims)}"
+    assert len(person_dims) == 15, (
+        f"expected 5 candidates × 3 ACs = 15 person dim rows, got "
+        f"{len(person_dims)}"
+    )
+    assert len(candidacies) == 15, (
+        f"expected 5 candidates × 3 ACs = 15 candidacy rows, got "
+        f"{len(candidacies)}"
     )
     assert unresolved == {}, f"unexpected unresolved parties: {unresolved}"
 
@@ -133,7 +137,7 @@ def test_build_slice_envelope_happy_path(party_lookup_in) -> None:
 def test_build_slice_envelope_empty_constituencies(party_lookup_in) -> None:
     """No constituencies → empty rows, empty sources, no unresolved."""
     period = parse_period_label("AcGenMay2026")
-    rows, sources, unresolved, candidate_dims, ac_dims = build_slice_envelope(
+    rows, sources, unresolved, person_dims, candidacies, ac_dims = build_slice_envelope(
         constituencies=[],
         state_code="S22",
         period=period,
@@ -142,7 +146,8 @@ def test_build_slice_envelope_empty_constituencies(party_lookup_in) -> None:
     assert rows == []
     assert sources == {}
     assert unresolved == {}
-    assert candidate_dims == []
+    assert person_dims == []
+    assert candidacies == []
     assert ac_dims == []
 
 
@@ -158,7 +163,7 @@ def test_disk_wrapper_matches_in_memory(tmp_path: Path, party_lookup_in) -> None
     constituencies = _emit_fixtures.constituency_models()
 
     # --- in-memory path: the new primary API
-    mem_rows, mem_sources, mem_unresolved, mem_cand_dims, mem_ac_dims = (
+    mem_rows, mem_sources, mem_unresolved, mem_person_dims, mem_candidacies, mem_ac_dims = (
         build_slice_envelope(
             constituencies=constituencies,
             state_code="S22",
@@ -181,7 +186,7 @@ def test_disk_wrapper_matches_in_memory(tmp_path: Path, party_lookup_in) -> None
             json.dumps(payload, ensure_ascii=False), encoding="utf-8",
         )
 
-    disk_rows, disk_sources, disk_ac_count, disk_unresolved, disk_cand_dims, disk_ac_dims = (
+    disk_rows, disk_sources, disk_ac_count, disk_unresolved, disk_person_dims, disk_candidacies, disk_ac_dims = (
         _process_slice(
             results_dir=results_dir,
             state_code="S22",
@@ -196,5 +201,6 @@ def test_disk_wrapper_matches_in_memory(tmp_path: Path, party_lookup_in) -> None
     assert disk_rows == mem_rows, "observation rows diverged between paths"
     assert disk_sources == mem_sources, "source rows diverged between paths"
     assert disk_unresolved == mem_unresolved
-    assert disk_cand_dims == mem_cand_dims
+    assert disk_person_dims == mem_person_dims
+    assert disk_candidacies == mem_candidacies
     assert disk_ac_dims == mem_ac_dims

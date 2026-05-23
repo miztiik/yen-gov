@@ -7,14 +7,15 @@
 //
 // What is JOINed:
 //   elections.dim_acs           — AC identity + display name
-//   elections.dim_candidates    — per-contest candidate rows (PK = entity_id)
+//   elections.elections_candidacies — per-contest candidacy rows (PK = entity_id)
+//   elections.dim_persons       — person identity + biographic fields
 //   elections.dim_parties       — party labels (short / full / eci_code)
 //   elections.election_results  — numeric facts (votes, share, AC totals)
 //   taxonomy.sources            — provenance URLs (citation-ledger v2.0)
 //
 // LoaderResult arms:
 //   ok       — JOIN produced 1+ candidate rows; full ConstituencyResult built.
-//   partial  — dim_candidates has zero rows for (state, eci_no, event) — the
+//   partial  — candidacies has zero rows for (state, eci_no, event) — the
 //              ECI did not publish a result (countermanded / postponed AC).
 //              Returns a skeleton result + reason="not_published" so the
 //              existing amber pane copy still renders.
@@ -37,7 +38,7 @@ import type {
 // canonical observations so the view-model can reconstruct the real `others`
 // bucket (count = total - kept) and expose the full field size on
 // `candidates_total`. `top_n_cutoff` reflects the number of rows actually
-// kept in dim_candidates.
+// kept in elections_candidacies.
 function buildOthersBucket(
   candidates: CandidateResult[],
   totalContested: number,
@@ -109,7 +110,8 @@ async function runQueries(
   // Register every Parquet view we need (idempotent per session).
   await Promise.all([
     registerSlice("elections.election_results", { state: electionStatePartition(state_code) }),
-    registerTable("elections.dim_candidates"),
+    registerTable("elections.elections_candidacies"),
+    registerTable("elections.dim_persons"),
     registerTable("elections.dim_acs"),
     registerTable("elections.dim_parties"),
     registerTable("taxonomy.sources"),
@@ -121,38 +123,43 @@ async function runQueries(
   // Candidate JOIN: rank-ordered rows ready to fold into CandidateResult[].
   const candidateSql = `
     SELECT
-      dc.candidate_id   AS candidate_id,
-      dc.ac_id          AS ac_id,
+      ec.candidacy_key  AS candidate_id,
+      ec.ac_id          AS ac_id,
       da.name           AS constituency_name,
-      dc.name           AS candidate_name,
-      dc.rank           AS rank,
-      dc.party_id       AS party_id,
-      dp.short_name     AS party_short,
+      p.display_name    AS candidate_name,
+      ec.rank           AS rank,
+      ec.party_id       AS party_id,
+      CASE
+        WHEN ec.party_id = 'parties.IN.UNK'
+          THEN COALESCE(ec.party_short_raw, dp.short_name, 'UNK')
+        ELSE dp.short_name
+      END               AS party_short,
       dp.full_name      AS party_full,
       dp.eci_code       AS party_eci_code,
       obs_v.value_numeric AS votes,
       obs_s.value_numeric AS vote_share_pct,
-      dc.sex            AS sex,
-      dc.age            AS age,
-      dc.education      AS education,
-      dc.profession     AS profession,
-      dc.constituency_type AS constituency_type,
-      dc.party_type     AS party_type
-    FROM dim_candidates dc
-    JOIN dim_acs da ON da.ac_id = dc.ac_id
-    LEFT JOIN dim_parties dp ON dp.party_id = dc.party_id
+      p.sex             AS sex,
+      p.age             AS age,
+      p.education       AS education,
+      p.profession      AS profession,
+      ec.constituency_type AS constituency_type,
+      ec.party_type     AS party_type
+    FROM elections_candidacies ec
+    JOIN dim_persons p ON p.person_id = ec.person_id
+    JOIN dim_acs da ON da.ac_id = ec.ac_id
+    LEFT JOIN dim_parties dp ON dp.party_id = ec.party_id
     LEFT JOIN election_results obs_v
-      ON obs_v.entity_id = dc.candidate_id
+      ON obs_v.entity_id = ec.candidacy_key
      AND obs_v.indicator_id = 'candidate-votes-polled'
-     AND obs_v.period_label = dc.period_label
+     AND obs_v.period_label = ec.election_id
     LEFT JOIN election_results obs_s
-      ON obs_s.entity_id = dc.candidate_id
+      ON obs_s.entity_id = ec.candidacy_key
      AND obs_s.indicator_id = 'candidate-vote-share-pct'
-     AND obs_s.period_label = dc.period_label
+     AND obs_s.period_label = ec.election_id
     WHERE da.state_code = ${sc}
       AND da.eci_no = ${eci_no}
-      AND dc.period_label = ${evt}
-    ORDER BY dc.rank
+      AND ec.election_id = ${evt}
+    ORDER BY ec.rank
   `;
   const candidates = await query<CandidateRow>(candidateSql);
 

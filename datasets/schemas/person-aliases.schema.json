@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./person-aliases.schema.json",
+  "title": "Person alias merge overlay",
+  "description": "Hand-authored merge overlay for ADR-0035 person identity. The canonical compiler combines these clusters with dim_persons self-aliases to emit datasets/taxonomy/persons.parquet. Empty clusters[] is valid for S.1 because no cross-candidacy merges are asserted yet.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-23",
+      "description": "Initial S.1 merge-overlay schema. Defines cluster_id, candidacy_keys, display_name, source_id, evidence_note_md, and confidence_tier."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "sources", "clusters"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "sources": {
+      "type": "array",
+      "items": { "type": "object" },
+      "description": "Top-level provenance array required by the JSON artifact contract. Empty for S.1 because no merge clusters are asserted yet; per-cluster source_id is required once clusters exist."
+    },
+    "clusters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "cluster_id",
+          "candidacy_keys",
+          "display_name",
+          "source_id",
+          "evidence_note_md",
+          "confidence_tier"
+        ],
+        "properties": {
+          "cluster_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_/-]*$",
+            "description": "Stable hand-authored cluster id."
+          },
+          "candidacy_keys": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^IN-[SU][0-9]{2}-AC-[0-9]{4}-[0-9]+-(?:AcGen|LsGen|AcBye|LsBye)(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[0-9]{4}-C[0-9]{2}$"
+            },
+            "description": "Candidacy keys this cluster merges."
+          },
+          "display_name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Citizen-facing display name for the merged person."
+          },
+          "source_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "FK -> taxonomy/sources.parquet naming the evidence for the merge."
+          },
+          "evidence_note_md": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Human-readable rationale for the merge."
+          },
+          "confidence_tier": {
+            "enum": ["gold", "silver", "bronze"],
+            "description": "Confidence in the merge assertion."
+          }
+        }
+      }
+    }
+  }
+}

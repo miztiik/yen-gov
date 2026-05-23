@@ -170,8 +170,9 @@ describe("loadActuals — happy path", () => {
     const registered = mockedRegister.mock.calls.map(c => c[0]).sort();
     expect(registered).toEqual([
       "elections.dim_acs",
-      "elections.dim_candidates",
       "elections.dim_parties",
+      "elections.dim_persons",
+      "elections.elections_candidacies",
     ]);
   });
 });
@@ -232,7 +233,7 @@ describe("loadActuals — SQL composition", () => {
     expect(candSql).toContain("'S22'");
 
     // AC query selects from dim_acs LEFT JOIN election_results filtering
-    // on ac-votes-polled. Candidate query has both the dim_candidates JOIN
+    // on ac-votes-polled. Candidate query has both the candidacy/person JOIN
     // and the NOTA UNION ALL.
     expect(acSql).toContain("ac-votes-polled");
     expect(candSql).toContain("ac-nota-votes");
@@ -253,10 +254,10 @@ describe("loadActuals — SQL composition", () => {
   });
 
   it("emits the no-UNK-regression CASE fallback in the candidate SELECT", async () => {
-    // PR-R.2 structural fix: when dim_candidates.party_id resolves to the
+    // PR-R.2 structural fix: when the candidacy party_id resolves to the
     // sentinel parties.IN.UNK (long-tail party not yet in canonical
     // taxonomy), the loader must surface the verbatim ECI short from
-    // dim_candidates.party_short_raw — never the literal "UNK" — so
+    // elections_candidacies.party_short_raw — never the literal "UNK" — so
     // citizen-visible chips stay honest. Pin the CASE expression so a
     // future refactor that re-introduces a bare `dp.short_name` would
     // fail this test.
@@ -268,8 +269,8 @@ describe("loadActuals — SQL composition", () => {
 
     const [, [candSql]] = mockedQuery.mock.calls;
     expect(candSql).toContain("parties.IN.UNK");
-    expect(candSql).toContain("dc.party_short_raw");
-    expect(candSql).toContain("COALESCE(dc.party_short_raw");
+    expect(candSql).toContain("ec.party_short_raw");
+    expect(candSql).toContain("COALESCE(ec.party_short_raw");
   });
 });
 

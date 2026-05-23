@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./persons.schema.json",
+  "title": "Compiled person registry row",
+  "description": "Logical contract for one row of datasets/taxonomy/persons.parquet. Compiled from taxonomy/person_aliases.json plus dim_persons self-aliases. This registry is the person-identity surface shared by elections and governments.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-23",
+      "description": "Initial S.1 compiled person registry schema. Day-one rows are self-aliases from dim_persons; future merge clusters add cluster_id and merged_candidacy_count > 1."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "person_id",
+    "display_name",
+    "source_id",
+    "confidence_tier",
+    "evidence_note_md",
+    "merged_candidacy_count"
+  ],
+  "properties": {
+    "person_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{16}$",
+      "description": "PK. Layer-1 or merged ADR-0035 person id."
+    },
+    "display_name": {
+      "type": ["string", "null"],
+      "minLength": 1,
+      "description": "Citizen-facing person display name."
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "FK -> taxonomy/sources.parquet supporting the identity row."
+    },
+    "confidence_tier": {
+      "enum": ["gold", "silver", "bronze"],
+      "description": "Confidence in the identity assertion."
+    },
+    "evidence_note_md": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable evidence note."
+    },
+    "cluster_id": {
+      "type": ["string", "null"],
+      "pattern": "^[a-z][a-z0-9_/-]*$",
+      "description": "Source merge-overlay cluster id, or null for Layer-1 self-alias rows."
+    },
+    "merged_candidacy_count": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of candidacy keys represented by this identity row."
+    }
+  }
+}

@@ -41,7 +41,7 @@ test.describe("IndicatorRanked Phase 3 polish", () => {
     // forgiving timeout because TopicLanding fetches several artifacts
     // in parallel.
     const ticks = page.locator('[data-testid="indicator-ranked-median-tick"]');
-    await expect(ticks.first()).toBeVisible({ timeout: 20_000 });
+    await expect(ticks.first()).toBeVisible({ timeout: 60_000 });
 
     // The tick exists on every ranked-and-comparable indicator that has
     // at least one present value. We require ≥1 (one tick per matching

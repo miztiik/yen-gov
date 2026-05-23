@@ -253,8 +253,7 @@ def parse_panel(
 
 # to_people_payload was retired in PR-S.2 (canonical pivot 1.8f). The
 # per-candidate JSON sidecar (people.entity v1.0) and its schema were
-# deleted; biographic fields now ride on dim_candidates.parquet v1.2
-# columns and are UPSERTed by
+# deleted; biographic fields now ride on dim_persons.parquet and are UPSERTed by
 # ``yen_gov.pipeline.people_ingest.upsert_candidate_bios``. ``ADAPTER_ID``
 # above is retained only as a documentation token for the source authority.
 

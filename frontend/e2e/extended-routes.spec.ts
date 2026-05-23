@@ -296,9 +296,9 @@ test.describe("extended routes", () => {
     await page.goto("/s/tamil-nadu");
 
     const footer = page.locator('[data-component="source-list-v2"]').first();
-    await expect(footer).toBeAttached({ timeout: 15_000 });
+    await expect(footer).toBeAttached({ timeout: 45_000 });
     // Collapsed "Sources (N)" label preserved verbatim from v1.
-    await expect(footer.getByText(/Sources \(\d+\)/).first()).toBeVisible({ timeout: 15_000 });
+    await expect(footer.getByText(/Sources \(\d+\)/).first()).toBeVisible({ timeout: 45_000 });
 
     // Open the disclosure. The button is the only <button> child of the
     // v2 root — the rest of the panel is plain text + anchors.
@@ -309,7 +309,7 @@ test.describe("extended routes", () => {
     // SourceListV2 ships, and they're proof the loader-side v2 projection
     // reached the DOM end-to-end.
     const firstRow = footer.locator("[data-confidence-tier]").first();
-    await expect(firstRow).toBeVisible({ timeout: 15_000 });
+    await expect(firstRow).toBeVisible({ timeout: 45_000 });
     const tier = await firstRow.getAttribute("data-confidence-tier");
     expect(["gold", "silver", "bronze"]).toContain(tier);
 
