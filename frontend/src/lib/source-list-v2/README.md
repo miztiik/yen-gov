@@ -12,10 +12,16 @@ chrome that renders it.
 | `types.ts` | `SourceV2Row`, `CollapsedSummary`, `ExpandedDisclosure`, locked enums (`SourceLicense`, `ConfidenceTier`, `VerificationMethod`), `FORBIDDEN_SOURCE_FIELDS`. |
 | `format.ts` | `formatCollapsedSummary`, `formatExpandedDisclosure`, `composeDefaultCitation`, `verificationMethodRank`. All pure, all sync, zero dependencies. |
 | `format.test.ts` | Vitest coverage for the four helpers + the empty-vintage / hand-authored / overridden-citation edge cases. |
+| `../SourceListV2.svelte` | Render surface. Triangle-disclosure footer that consumes `SourceV2Row[]`. **Zero callers** today — see R-08 below. |
 
-The render surface (`SourceList.svelte` v2) is a follow-up PR — this
-package ships only the contract + helpers so the next slice can be
-reviewed in isolation.
+The render surface (`SourceListV2.svelte` at the parent `lib/` level)
+exists alongside the v1 `SourceList.svelte` per R-08 Branch-by-Abstraction.
+V1 continues to ship to every citizen page (it still consumes the
+retired `SourceRef { url, fetched_at }` shape that `frontend/src/lib/data.ts`
+loaders emit). Per-caller migration to v2 happens once the data layer
+emits `SourceV2Row[]` end-to-end (or behind a typed adapter shim) — a
+follow-up PR per caller, each carrying its own CLAUDE.md §13 browser
+smoke. V1 is deleted only after every caller has migrated.
 
 ## Hard constraints
 
