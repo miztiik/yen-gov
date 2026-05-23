@@ -9,7 +9,7 @@
 // Module shape mirrors `frontend/src/lib/view-models/election-seats-trend.ts`:
 //
 //   - `runQueries`               — async DuckDB-WASM SQL with
-//                                   `registerTable` (R-28 contract).
+//                                   manifest registration (R-28 contract).
 //   - `assembleCompositionBar`   — pure transformer (exported for
 //                                   vitest; takes already-loaded rows
 //                                   and emits a CompositionBarModel).
@@ -56,7 +56,8 @@
 //     misframe it.
 
 import { describeFailure, type LoaderResult } from "../../loader-result";
-import { query, registerTable } from "../../duckdb";
+import { query, registerSlice, registerTable } from "../../duckdb";
+import { electionStatePartition } from "../../election-partitions";
 import { partyColour } from "../../colors/party-colour";
 import type { SourceV2Row } from "../../source-list-v2/types";
 import type {
@@ -159,7 +160,7 @@ const num = (v: unknown): number => (v == null ? 0 : Number(v));
 
 /**
  * DuckDB-WASM SQL — JOIN election_results + dim_parties + sources for
- * one (state, event). Uses `registerTable` (R-28); never a parquet
+ * one (state, event). Uses manifest registration (R-28); never a parquet
  * literal.
  */
 async function runQueries(
@@ -167,7 +168,7 @@ async function runQueries(
   event_id: string,
 ): Promise<CompositionBarLoadedRows> {
   await Promise.all([
-    registerTable("elections.election_results"),
+    registerSlice("elections.election_results", { state: electionStatePartition(state_code) }),
     registerTable("elections.dim_parties"),
     registerTable("taxonomy.sources"),
   ]);

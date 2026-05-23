@@ -32,6 +32,7 @@ export interface ManifestFile {
   path: string;
   size_bytes: number;
   row_count: number;
+  partition_values?: Record<string, string>;
 }
 
 export interface ManifestTable {
@@ -78,7 +79,54 @@ export function tableFromManifest(m: Manifest, table_id: string): ManifestTable 
 }
 
 export function fileUrls(table: ManifestTable): string[] {
-  return table.files.map(f => `${DATA_BASE}/${f.path}`);
+  return fileUrlsForFiles(table.files);
+}
+
+function fileUrlsForFiles(files: readonly ManifestFile[]): string[] {
+  return files.map(f => `${DATA_BASE}/${f.path}`);
+}
+
+export type PartitionFilter = Record<string, string>;
+
+export function filesForSlice(
+  table: ManifestTable,
+  partitionFilter: PartitionFilter,
+  opts: { allowFullTableFallback?: boolean } = {},
+): ManifestFile[] {
+  const entries = Object.entries(partitionFilter);
+  if (entries.length === 0) {
+    throw new Error(`manifest: slice filter for ${table.table_id} is empty`);
+  }
+
+  if (table.partition_columns.length === 0) {
+    if (opts.allowFullTableFallback) return table.files;
+    throw new Error(
+      `manifest: table ${table.table_id} is unpartitioned; use registerTable ` +
+        `or pass allowFullTableFallback`,
+    );
+  }
+
+  const partitionColumns = new Set(table.partition_columns);
+  for (const [key] of entries) {
+    if (!partitionColumns.has(key)) {
+      const known = table.partition_columns.length > 0
+        ? table.partition_columns.join(", ")
+        : "none";
+      throw new Error(
+        `manifest: unknown partition key "${key}" for ${table.table_id}; ` +
+          `partition_columns: ${known}`,
+      );
+    }
+  }
+
+  const files = table.files.filter(file =>
+    entries.every(([key, value]) => file.partition_values?.[key] === value),
+  );
+  if (files.length === 0) {
+    const rendered = entries.map(([key, value]) => `${key}=${value}`).join(", ");
+    throw new Error(`manifest: no files match ${table.table_id} partition ${rendered}`);
+  }
+  return files;
 }
 
 /**
@@ -102,7 +150,7 @@ export function defaultViewName(table: ManifestTable, table_id: string): string 
 
 let dbPromise: Promise<duckdb.AsyncDuckDB> | null = null;
 let connPromise: Promise<duckdb.AsyncDuckDBConnection> | null = null;
-const registeredTables = new Set<string>();
+const registeredViews = new Map<string, string>();
 
 // One-shot warning latch for deprecated legacy paths. Surfaces in the
 // browser console the first time the loader sees a URL pointing at a
@@ -180,25 +228,52 @@ export async function registerTable(
   ]);
   const table = tableFromManifest(manifest, table_id);
   const viewName = opts.viewName ?? defaultViewName(table, table_id);
-  const key = `${table_id}::${viewName}`;
-  if (registeredTables.has(key)) return viewName;
+  await registerFilesAsView(db, conn, viewName, table_id, fileUrls(table));
+  return viewName;
+}
+
+export async function registerSlice(
+  table_id: string,
+  partitionFilter: PartitionFilter,
+  opts: { viewName?: string; allowFullTableFallback?: boolean } = {},
+): Promise<string> {
+  const [db, conn, manifest] = await Promise.all([
+    dbPromise ?? (dbPromise = bootDB()),
+    getConnection(),
+    loadManifest(),
+  ]);
+  const table = tableFromManifest(manifest, table_id);
+  const viewName = opts.viewName ?? defaultViewName(table, table_id);
+  const files = filesForSlice(table, partitionFilter, opts);
+  await registerFilesAsView(db, conn, viewName, table_id, fileUrlsForFiles(files));
+  return viewName;
+}
+
+async function registerFilesAsView(
+  db: duckdb.AsyncDuckDB,
+  conn: duckdb.AsyncDuckDBConnection,
+  viewName: string,
+  table_id: string,
+  urls: string[],
+): Promise<void> {
+  const key = `${table_id}::${urls.join("|")}`;
+  if (registeredViews.get(viewName) === key) return;
 
   // Register each Parquet file by its URL so DuckDB-WASM can issue HTTP Range
   // reads. We DON'T pre-buffer the bytes — partitioned tables can be large
   // and DuckDB-WASM's read_parquet over HTTP is exactly the right path.
-  for (const url of fileUrls(table)) {
+  for (const url of urls) {
     warnIfLegacyPath(url);
     await db.registerFileURL(url, url, duckdb.DuckDBDataProtocol.HTTP, false);
   }
 
-  const urlList = fileUrls(table)
+  const urlList = urls
     .map(u => `'${u.replace(/'/g, "''")}'`)
     .join(", ");
   await conn.query(
     `CREATE OR REPLACE VIEW "${viewName}" AS SELECT * FROM read_parquet([${urlList}])`,
   );
-  registeredTables.add(key);
-  return viewName;
+  registeredViews.set(viewName, key);
 }
 
 // -----------------------------------------------------------------------------
@@ -225,6 +300,6 @@ export function __resetForTests(): void {
   manifestPromise = null;
   dbPromise = null;
   connPromise = null;
-  registeredTables.clear();
+  registeredViews.clear();
   warnedLegacyMarkers.clear();
 }

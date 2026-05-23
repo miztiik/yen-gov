@@ -6,7 +6,7 @@
 //   1. `experiment-definition.json` is well-formed (id + key shape,
 //      variations, weights, hash_attribute, rollback contract).
 //
-//   2. The adapter uses `registerTable("elections.election_results")`
+//   2. The adapter uses `registerSlice("elections.election_results", ...)`
 //      + `registerTable("elections.dim_parties")` rather than any
 //      hardcoded parquet path literal. Per plan line 1346: "Contract
 //      test: the Phase 3.6 elections adapter resolves its Parquet
@@ -83,15 +83,15 @@ describe("experiment-definition.json — Phase 3.6 (b)", () => {
   });
 });
 
-describe("R-28 manifest discipline — adapter uses registerTable", () => {
+describe("R-28 manifest discipline — adapter uses manifest registration", () => {
   const adapterPath = resolve(
     __dirname,
     "adapter-elections-seats.ts",
   );
   const src = readFileSync(adapterPath, "utf-8");
 
-  it("calls registerTable for elections.election_results", () => {
-    expect(src).toMatch(/registerTable\("elections\.election_results"\)/);
+  it("calls registerSlice for elections.election_results", () => {
+    expect(src).toMatch(/registerSlice\("elections\.election_results"/);
   });
 
   it("calls registerTable for elections.dim_parties", () => {

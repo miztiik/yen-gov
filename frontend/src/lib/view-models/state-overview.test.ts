@@ -2,14 +2,14 @@
 //
 // Per CLAUDE.md §15 + Holy Law #7 carve-out (established by PR-E): the
 // loader's contract IS the DuckDB-WASM boundary, so mocking `query` /
-// `registerTable` at `../duckdb` is the sanctioned pattern. The real
+// `registerSlice` / `registerTable` at `../duckdb` is the sanctioned pattern. The real
 // Parquet round-trip is asserted by the Playwright golden-path spec
 // (frontend/e2e/golden-path.spec.ts) against the live TN shard.
 //
 // Coverage:
 //   - happy path: assembles StateOverviewViewModel from party pivot +
 //     state-scope facts + sources (DMK / AIADMK fixture).
-//   - registerTable: all three canonical tables registered once.
+//   - registerSlice/registerTable: state fact slice + supporting tables registered once.
 //   - partial / not_published: zero party rows -> skeleton.
 //   - failed: thrown SQL error -> citizen copy + callable retry.
 //   - retry: re-invokes the loader; second attempt can succeed.
@@ -17,15 +17,17 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("../duckdb", () => ({
+  registerSlice: vi.fn(async () => "noop"),
   registerTable: vi.fn(async () => "noop"),
   query: vi.fn(),
 }));
 
-import { query, registerTable } from "../duckdb";
+import { query, registerSlice, registerTable } from "../duckdb";
 import { loadStateOverview } from "./state-overview";
 
 const mockedQuery = vi.mocked(query);
 const mockedRegister = vi.mocked(registerTable);
+const mockedRegisterSlice = vi.mocked(registerSlice);
 
 const partyRows = [
   {
@@ -134,7 +136,9 @@ const acWinnerRows = [
 beforeEach(() => {
   mockedQuery.mockReset();
   mockedRegister.mockReset();
+  mockedRegisterSlice.mockReset();
   mockedRegister.mockResolvedValue("noop");
+  mockedRegisterSlice.mockResolvedValue("noop");
 });
 
 describe("loadStateOverview — happy path", () => {
@@ -260,19 +264,22 @@ describe("loadStateOverview — happy path", () => {
     ]);
   });
 
-  it("registers all five canonical tables before querying", async () => {
+  it("registers the election fact slice and the four supporting tables before querying", async () => {
     mockedQuery
       .mockResolvedValueOnce(partyRows)
       .mockResolvedValueOnce(stateScopeRows)
       .mockResolvedValueOnce(sourceRows)
       .mockResolvedValueOnce(acWinnerRows);
     await loadStateOverview("AcGenApr2021", "S22");
+    expect(mockedRegisterSlice).toHaveBeenCalledWith(
+      "elections.election_results",
+      { state: "in_s22" },
+    );
     const registered = mockedRegister.mock.calls.map((c) => c[0]).sort();
     expect(registered).toEqual([
       "elections.dim_acs",
       "elections.dim_parties",
       "elections.dim_party_alliances",
-      "elections.election_results",
       "taxonomy.sources",
     ]);
   });
@@ -324,12 +331,13 @@ describe("loadStateOverview — failed arm", () => {
       .mockResolvedValueOnce(sourceRows)
       .mockResolvedValueOnce(acWinnerRows);
     if (first.status !== "failed" || !first.retry) throw new Error("no retry");
-    const second = await first.retry();
+    const retry = first.retry as () => ReturnType<typeof loadStateOverview>;
+    const second = await retry();
     expect(second.status).toBe("ok");
   });
 
   it("maps a manifest fetch failure to the catalogue-unavailable copy", async () => {
-    mockedRegister.mockRejectedValueOnce(new Error("manifest fetch failed: 404"));
+    mockedRegisterSlice.mockRejectedValueOnce(new Error("manifest fetch failed: 404"));
     const res = await loadStateOverview("AcGenApr2021", "S22");
     expect(res.status).toBe("failed");
     if (res.status !== "failed") return;

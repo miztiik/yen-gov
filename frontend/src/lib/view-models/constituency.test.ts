@@ -193,7 +193,8 @@ describe("loadConstituencyResult — failed arm", () => {
       .mockResolvedValueOnce(acScopeRows)
       .mockResolvedValueOnce(sourceRows);
     if (first.status !== "failed" || !first.retry) throw new Error("no retry");
-    const second = await first.retry();
+    const retry = first.retry as () => ReturnType<typeof loadConstituencyResult>;
+    const second = await retry();
     expect(second.status).toBe("ok");
   });
 

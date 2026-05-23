@@ -17,7 +17,7 @@ export type LoaderResult<T> =
   | { status: "loading" }
   | { status: "ok"; data: T }
   | { status: "partial"; data: T; reason: string }
-  | { status: "failed"; reason: string; retry?: () => void };
+  | { status: "failed"; reason: string; retry?: () => LoaderResult<T> | Promise<LoaderResult<T>> | void | Promise<void> };
 
 /**
  * Map a thrown Error from a loader to citizen-readable failure copy.

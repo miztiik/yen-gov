@@ -1,6 +1,6 @@
 // Unit tests for the ElectionSeatsTrend view-model loader (PR-G / Phase 1.3c).
 //
-// Mocks `query` / `registerTable` at the `../duckdb` boundary per Holy Law #7
+// Mocks `query` / `registerSlice` / `registerTable` at the `../duckdb` boundary per Holy Law #7
 // carve-out (established by PR-E, validated by PR-F). The actual Parquet
 // round-trip is asserted by the Playwright golden-path spec against TN.
 //
@@ -14,15 +14,17 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("../duckdb", () => ({
+  registerSlice: vi.fn(async () => "noop"),
   registerTable: vi.fn(async () => "noop"),
   query: vi.fn(),
 }));
 
-import { query, registerTable } from "../duckdb";
+import { query, registerSlice, registerTable } from "../duckdb";
 import { loadElectionSeatsTrend } from "./election-seats-trend";
 
 const mockedQuery = vi.mocked(query);
 const mockedRegister = vi.mocked(registerTable);
+const mockedRegisterSlice = vi.mocked(registerSlice);
 
 const partyRows = [
   {
@@ -90,7 +92,9 @@ const sourceRows = [
 beforeEach(() => {
   mockedQuery.mockReset();
   mockedRegister.mockReset();
+  mockedRegisterSlice.mockReset();
   mockedRegister.mockResolvedValue("noop");
+  mockedRegisterSlice.mockResolvedValue("noop");
 });
 
 describe("loadElectionSeatsTrend — happy path", () => {
@@ -137,15 +141,18 @@ describe("loadElectionSeatsTrend — happy path", () => {
     ]);
   });
 
-  it("registers all three canonical tables before querying", async () => {
+  it("registers the state fact slice and supporting tables before querying", async () => {
     mockedQuery
       .mockResolvedValueOnce(partyRows)
       .mockResolvedValueOnce(sourceRows);
     await loadElectionSeatsTrend("S22", ["AcGenMay2026"]);
+    expect(mockedRegisterSlice).toHaveBeenCalledWith(
+      "elections.election_results",
+      { state: "in_s22" },
+    );
     const registered = mockedRegister.mock.calls.map((c) => c[0]).sort();
     expect(registered).toEqual([
       "elections.dim_parties",
-      "elections.election_results",
       "taxonomy.sources",
     ]);
   });
@@ -161,6 +168,7 @@ describe("loadElectionSeatsTrend — partial arms", () => {
     expect(res.data.sources_v2).toEqual([]);
     expect(mockedQuery).not.toHaveBeenCalled();
     expect(mockedRegister).not.toHaveBeenCalled();
+    expect(mockedRegisterSlice).not.toHaveBeenCalled();
   });
 
   it("returns partial when SQL returns zero party rows", async () => {
