@@ -115,6 +115,25 @@ export const url = {
     return withBase(`/s/${slug}/t/${encodeURIComponent(topicId)}`);
   },
   /**
+   * Per-state per-event election landing — `/s/<state-slug>/elections/<event-id>`.
+   *
+   * Citizen-readable deep link to a specific election cohort for a state
+   * (e.g. `/s/tamil-nadu/elections/AcGenMay2026`). The route is the shareable
+   * permalink for "this state's results for THIS election" and the natural
+   * link target from the `/s/<state>/t/elections` topic page's default-event
+   * card. Distinct from `lab(state, event)` (analyst surface) and
+   * `compare(state, event)` (cross-state results compare): this is the
+   * neutral citizen landing that doesn't pre-commit to either tool.
+   *
+   * The event id is the ECI cohort code from `taxonomy/election_events.json`
+   * (e.g. `AcGenMay2026`, `LsGen2024`) — opaque to citizens but stable and
+   * already used as the URL token on `/lab/` and `/compare/`.
+   */
+  stateElection(stateCode: string, eventId: string): string {
+    const slug = states.slug(stateCode) || stateCode.toLowerCase();
+    return withBase(`/s/${slug}/elections/${encodeURIComponent(eventId)}`);
+  },
+  /**
    * Generic indicator Compare — `/compare?i=<id>&states=<csv>&peer=<peer>`.
    * (P4, ADR-0022.) Distinct from `compare(state, event)` which is the
    * election-results compare under `/compare/:state/:event`. All three

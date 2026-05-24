@@ -77,6 +77,22 @@ The citizen's primary question on `/s/<state>` is the *state*: who governs Odish
 
 This doctrine is recorded in [docs/concepts/government-vs-election.md](../../concepts/government-vs-election.md) for renderer authors and indexed from [CLAUDE.md](../../../CLAUDE.md).
 
+## Updates
+
+### 2026-05-24 — `default: true` field retired; per-state default derived from `max(polled_on)`
+
+The §Decision/1 entry for `default: true` (a hand-authored boolean, at most one per state, defining what `/s/<state>/elections` resolves to) and the §Decision/4 entry for `test_election_events_default_uniqueness_and_data_status_alignment` (the Tier-A test asserting the at-most-one-default invariant) are retired by this PR. The split-out half of the original test (the data_status ↔ result.summary.json alignment side) was already retired in PR-O.3b-main; this update retires the surviving uniqueness half.
+
+Rationale: PR #191 (2026-05-24) made `defaultEventForState()` resolve via `max(polled_on)` rather than the hand-flagged boolean, after eight states (Meghalaya, Tripura, UP, Uttarakhand, Punjab, Goa, Gujarat, Karnataka) silently rendered the wrong default event because their on-disk rows had no `default: true` set and the selector fell through to `rows[0]` (= the oldest event, since the catalogue happened to be authored oldest-first). A computable, deterministic fact (`max(polled_on)`) replaces a hand-authored, redundant fact (`default: true`); the on-disk schema, the row type, the 23 on-disk entries, the Pydantic seed (`_Event.default`, `is_default` Parquet column, the at-most-one-default raise), and the uniqueness Tier-A test all retire in lockstep in the follow-up PR (2026-05-24).
+
+Replacement gates:
+
+- `backend/tests/test_election_events_seed.py::test_compile_rejects_unknown_default_field` — symmetric Tier-A guard against any legacy fixture (in-tree or downstream) re-introducing the dead field via `pydantic.ValidationError` on `extra="forbid"`.
+- `frontend/src/lib/election-events.ts::defaultEventForState` docstring + tests — encode the `max(polled_on)` rule and document the OLDEST-fallback bug it replaced.
+- `datasets/schemas/election-events.schema.json` v1.1 changelog — the breaking-bump entry with full rationale and reversal path.
+
+The §Decision/1 bullet for `default: true` and the §Decision/4 bullet for the uniqueness test should be read as historical: they describe the implementation that shipped 2026-05-13 → 2026-05-24, not the current state. The decision itself (per-state election event identity) is unchanged and stands. Reversal cost is low: re-adding the field would mean another breaking schema bump, re-emitting Parquet, and migrating the 23 entries — but the bug the field caused (OLDEST-fallback for unflagged states) would also return, so reversal is unmotivated.
+
 ## Consequences
 
 ### Acceptable / wanted

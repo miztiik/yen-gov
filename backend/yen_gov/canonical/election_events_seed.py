@@ -14,8 +14,11 @@ belong. Lifting them into a reference table re-introduces the smear
 the canonical pivot exists to remove.
 
 Input contract: ``datasets/taxonomy/election_events.json`` validated
-against ``datasets/schemas/election-events.schema.json`` (v1.0). The
-JSON groups events nested under ``states.<S22>: [...]``; the Parquet
+against ``datasets/schemas/election-events.schema.json`` (v1.1; the
+``default`` boolean was removed in v1.1 because the per-state default
+event is derived from ``max(polled_on)`` at read time rather than
+hand-flagged — see PR #191 and the Q1+PR-2 cleanup PR). The JSON
+groups events nested under ``states.<S22>: [...]``; the Parquet
 denormalises that to one row per event with ``state_code`` as a
 column so the table is queryable by either axis without unnesting a
 map column.
@@ -34,6 +37,12 @@ Rejected designs (do NOT re-propose):
        (state, year). Multiple events can poll in the same calendar
        year (state assembly + state bye-election + national LS slice
        — see S04 Bihar 2024); event_id is the only unique key.
+    4. Re-introduce ``is_default`` as a Parquet column derived from
+       max(polled_on). The reader composes "which is default" at query
+       time — materialising it in the dim duplicates the fact and
+       makes every re-ingest a no-op write that nonetheless touches
+       every cell. Reference tables stay reference; derivations stay
+       derivations.
 """
 
 from __future__ import annotations
@@ -45,7 +54,7 @@ from typing import Literal
 import duckdb
 from pydantic import BaseModel, ConfigDict, Field
 
-ELECTION_EVENTS_ROW_SCHEMA_VERSION = "1.0"
+ELECTION_EVENTS_ROW_SCHEMA_VERSION = "1.1"
 
 
 EventKind = Literal["assembly", "lok_sabha", "by_election"]
@@ -60,7 +69,6 @@ class _Event(BaseModel):
     display: str = Field(min_length=1)
     polled_on: str = Field(min_length=10, max_length=10)
     term_end_estimated: str | None = None
-    default: bool = False
     data_status: DataStatus
     notes: str | None = None
 
@@ -74,16 +82,13 @@ class _ElectionEventsFile(BaseModel):
 def _rows(
     states: dict[str, list[_Event]],
 ) -> list[
-    tuple[str, str, str, str, str, str | None, bool, str, str | None]
+    tuple[str, str, str, str, str, str | None, str, str | None]
 ]:
     out: list[
-        tuple[str, str, str, str, str, str | None, bool, str, str | None]
+        tuple[str, str, str, str, str, str | None, str, str | None]
     ] = []
     for state_code, events in states.items():
-        defaults_seen = 0
         for ev in events:
-            if ev.default:
-                defaults_seen += 1
             out.append(
                 (
                     state_code,
@@ -92,21 +97,9 @@ def _rows(
                     ev.display,
                     ev.polled_on,
                     ev.term_end_estimated,
-                    ev.default,
                     ev.data_status,
                     ev.notes,
                 )
-            )
-        # Defensive: catalogue schema says "at most one default per
-        # state" — flag bad inputs cleanly here rather than letting the
-        # consumer pick arbitrarily. Per Plan §0e.10.2-E this is a
-        # citizen-facing field (drives /s/<state>/elections default
-        # route resolution); a silent dupe would mis-route citizens to
-        # whichever event sorted last.
-        if defaults_seen > 1:
-            raise ValueError(
-                f"state {state_code!r} declares {defaults_seen} default "
-                "events; at most one may set default: true"
             )
     out.sort(key=lambda row: (row[0], row[1]))
     return out
@@ -131,7 +124,6 @@ def compile_to_parquet(json_in: Path, parquet_out: Path) -> int:
                 display VARCHAR NOT NULL,
                 polled_on DATE NOT NULL,
                 term_end_estimated DATE,
-                is_default BOOLEAN NOT NULL,
                 data_status VARCHAR NOT NULL,
                 notes VARCHAR
             )
@@ -139,7 +131,7 @@ def compile_to_parquet(json_in: Path, parquet_out: Path) -> int:
         )
         if rows:
             con.executemany(
-                "INSERT INTO election_events VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                "INSERT INTO election_events VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
                 rows,
             )
         con.execute(

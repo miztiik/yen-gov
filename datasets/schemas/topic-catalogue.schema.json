@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/topic-catalogue.schema.json",
   "title": "Topic catalogue (IA spine)",
   "description": "The hand-authored taxonomy that powers yen-gov's Topic Front Door (`/t`, `/t/:topic`) and the section list inside each state hub (`/s/:state`). Topic membership of an artifact is declared HERE, not on the artifact itself \u2014 keeping `indicator.schema.json` free of IA leakage (per ADR-0022). Each topic carries its Seventh Schedule list (`state` / `union` / `concurrent` / `na`) so cross-state surfaces can render the constitutional honesty banner without per-renderer logic. Each topic points to one or more artifacts via a polymorphic `kind`+`id` reference; the renderer dispatches on `kind` so election artifacts (different schema family) coexist with indicator artifacts under the same catalogue.",
-  "x-version": "1.3",
+  "x-version": "1.4",
   "x-changelog": [
     {
       "version": "1.0",
@@ -24,6 +24,11 @@
       "version": "1.3",
       "date": "2026-05-24",
       "description": "Additive: `topics.items.properties.artifacts.minItems` lowered from 1 to 0 so structural placeholder topics can land before their first P.* ingestion ships any artifacts. Per TODO/20260517-canonical-long-format-pivot.md \u00a70e.4, the 9 new top-level topics (`governance`, `schemes`, `local_govt_finance`, `work`, `judiciary`, `crime`, `education`, `amenities`, `technology`) are the structural IA skeleton: each opens with an empty `artifacts: []` array and gets populated when its dedicated P.* ingestion PR lands. The frontend renderers (TopicLanding, StateTopic) already handle `indicator_artifacts.length === 0` via a 'no indicator artifacts catalogued for this topic yet' empty state, so empty topics render cleanly without UI work. Backwards-compatible: every existing topic still has its non-empty artifacts array."
+    },
+    {
+      "version": "1.4",
+      "date": "2026-05-24",
+      "description": "Additive: `topics.items.properties.artifacts.items.properties.id` is no longer required \u2014 it stays required for `kind: \"indicator\"` (where the id resolves to a concrete indicator artifact) and for `kind: \"feature_collection\"`, but is now optional for `kind: \"election\"`. Rationale: per Jony's read-aloud review of `/s/:state/t/elections`, an elections-topic artifact reference should resolve the per-state default event at render time via `defaultEventForState(state_code)` (see ADR-0023) rather than encoding a single state's cohort code in the catalogue. The pre-v1.4 shape (TN-specific `id: \"AcGenMay2026\"`) silently rendered as empty for every non-TN state and forced manual catalogue edits on every new election cohort. The new shape (`{ kind: \"election\", scope: \"state\" }` with no `id`) is fully state-agnostic and works for every state with an entry in `taxonomy/election_events.json`. Backwards-compatible because `required: [\"kind\", \"id\"]` becomes `required: [\"kind\"]` \u2014 every pre-v1.4 artifact still validates. Enforcement that `id` must be present when `kind: \"indicator\"` or `\"feature_collection\"` is added via an `oneOf` constraint on the items shape."
     }
   ],
   "type": "object",
@@ -112,8 +117,15 @@
             "description": "Polymorphic references to the data artifacts this topic exposes. The renderer dispatches on `kind`. Order is the in-topic rendering order; `default: true` marks the artifact shown on `/t/:topic` before any user picks one. Empty array is permitted for structural placeholder topics whose first P.* ingestion has not yet landed \u2014 the frontend renderers (TopicLanding, StateTopic) handle the empty case with an explicit 'no indicator artifacts catalogued for this topic yet' message rather than failing.",
             "items": {
               "type": "object",
-              "required": ["kind", "id"],
+              "required": ["kind"],
               "additionalProperties": false,
+              "allOf": [
+                {
+                  "description": "v1.4: `id` is required for `kind: \"indicator\"` and `kind: \"feature_collection\"` (those reference a concrete on-disk artifact). It is optional for `kind: \"election\"` where the renderer resolves the per-state default event at render time via defaultEventForState(state_code).",
+                  "if": { "properties": { "kind": { "enum": ["indicator", "feature_collection"] } } },
+                  "then": { "required": ["id"] }
+                }
+              ],
               "properties": {
                 "kind": {
                   "type": "string",
@@ -123,7 +135,7 @@
                 "id": {
                   "type": "string",
                   "minLength": 1,
-                  "description": "For `indicator`: the indicator's `id` from its artifact (e.g. `fiscal/outstanding_debt_pct_gsdp`). For `election`: the ECI event code (e.g. `AcGenMay2026`). For `feature_collection`: TBD."
+                  "description": "For `indicator`: the indicator's `id` from its artifact (e.g. `fiscal/outstanding_debt_pct_gsdp`) \u2014 REQUIRED. For `feature_collection`: REQUIRED, names the on-disk GeoJSON+metadata bundle. For `election`: OPTIONAL since v1.4 \u2014 when omitted, the renderer resolves the per-state default event at render time via `defaultEventForState(state_code)` (see ADR-0023); when present, it pins a specific cohort code (e.g. `AcGenMay2026`) and the renderer will display only that event regardless of state. Per Jony's read-aloud review, the omitted-id shape is the right default for the elections topic because every state has a different cohort timeline and pinning one state's cohort code in the catalogue silently empties the surface for every other state."
                 },
                 "display": {
                   "type": "string",

@@ -174,28 +174,20 @@ def test_election_events_catalogue_matches_backend_registry():
     )
 
 
-def test_election_events_default_uniqueness():
-    """Per state: at most one event has `default: true` so
-    /s/<state>/elections has a deterministic landing event.
-
-    The data_status ↔ result.summary.json alignment assertion that used
-    to live alongside this one retired in PR-O.3b-main (TODO row
-    ``1.8b-writers-b-main``): per-event ``result.summary.json`` shards
-    are no longer written — the canonical store
-    (``datasets/elections/election_results.parquet``) is the single
-    source of truth, and the frontend e2e suite catches any 404 caused
-    by a status-vs-data drift. Walking the real on-disk corpus from a
-    pytest test also violated CLAUDE.md §10.
-    """
-    catalogue = _load_json(ELECTION_EVENTS_PATH)
-
-    for state_code, entries in catalogue["states"].items():
-        defaults = [e for e in entries if e.get("default") is True]
-        assert len(defaults) <= 1, (
-            f"state {state_code}: more than one event marked default=true "
-            f"({[e['event_id'] for e in defaults]}); /s/<state>/elections "
-            f"would not have a deterministic landing event."
-        )
+# NOTE (2026-05-24): test_election_events_default_uniqueness was REMOVED in
+# the Q1+PR-2 cleanup PR. It asserted "at most one event per state has
+# `default: true`" — that invariant existed because the frontend selector
+# fell through to `rows[0]` (the OLDEST event) when no default was flagged
+# and to "whichever default sorted last" when two were flagged. PR #191
+# made `defaultEventForState()` resolve via `max(polled_on)` instead, which
+# is deterministic without any flag. The follow-up PR removed the `default`
+# field from the schema, the on-disk JSON, the Pydantic seed and the
+# Parquet column entirely; the uniqueness assertion now has no field to
+# assert against and is permanently dead. See ADR-0023 §latest, election-
+# events.schema.json v1.1, election_events_seed.py docstring, and the
+# tier-A test `test_compile_rejects_unknown_default_field`
+# (backend/tests/test_election_events_seed.py) which is the new symmetric
+# gate against legacy fixtures sneaking the dead field back in.
 
 
 # ---------------------------------------------------------------------------

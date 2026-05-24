@@ -17,6 +17,7 @@ import Disclaimer from "./routes/Disclaimer.svelte";
 import TopicIndex from "./routes/TopicIndex.svelte";
 import TopicLanding from "./routes/TopicLanding.svelte";
 import StateTopic from "./routes/StateTopic.svelte";
+import StateElection from "./routes/StateElection.svelte";
 import DataCompleteness from "./routes/DataCompleteness.svelte";
 import DuckDbHarness from "./routes/DuckDbHarness.svelte";
 import DevChartsSandbox from "./routes/DevChartsSandbox.svelte";
@@ -66,6 +67,12 @@ startRouter({
     // pattern-distinct from /s/:state (different segment count), so order
     // here is not load-bearing.
     { pattern: "/s/:state/t/:topic", component: StateTopic },
+    // Per-state per-event election landing (ADR-0023, Q1 2026-05-24).
+    // Distinct from /lab/ (analyst surface) and /compare/ (cross-state
+    // results compare) — this is the neutral citizen permalink for a
+    // specific cohort's results in a specific state. Linked from the
+    // `/s/<state>/t/elections` topic page's default-event card.
+    { pattern: "/s/:state/elections/:event", component: StateElection },
     { pattern: "/lab/:state/:event", component: Psephlab },
     { pattern: "/compare/:state/:event", component: Compare },
     // Generic indicator Compare (P4) — sits alongside the more-specific
