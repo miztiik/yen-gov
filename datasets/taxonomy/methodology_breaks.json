@@ -37,6 +37,15 @@
       "note": "state-installed-capacity-allocated-mw splices two publishers across FY15. Pre-FY15 rows (FY05-FY14) come from RBI Handbook of Statistics on Indian States, Table 140 (silver tier; RBI republishes CEA originals). Post-FY15 rows (FY15-FY25) come from NITI Aayog ICED state-wise deep-dive (silver tier; gold-tier upstream is CEA). Two distinct discontinuities apply: (1) basis change — RBI Table 140 publishes a single state-wise installed-capacity total without distinguishing geographical vs allocated shares of central/joint-sector plants, so pre-FY15 rows should be read as 'best available state-attributed total' rather than the strict allocation basis the ICED-sourced FY15+ rows carry; (2) fuel-split absence — RBI Table 140 publishes ONLY the publisher total without the per-fuel breakdown that ICED carries from FY15 onwards, so the per-fuel children (state-installed-capacity-allocated-mw-{coal,gas,hydro,nuclear,renewable}) remain unpopulated for pre-FY15 years even though their parent is. Renderers showing the parent series across the FY15 seam MUST display the methodology break marker and the 'pre-FY15: aggregate only, no fuel split' caveat.",
       "publisher_url": "https://rbi.org.in/Scripts/PublicationsView.aspx?id=22512",
       "supersedes_methodology_version": null
+    },
+    {
+      "methodology_version": "energy-installed-capacity-5-bucket-fuel-axis-collapse",
+      "at_year": 2015,
+      "at_period_seq": 4,
+      "kind": "reclassification",
+      "note": "Energy installed-capacity indicators in yen-gov use a closed five-bucket fuel axis: coal, gas, hydro, nuclear, renewable. From FY15 onwards (when NITI Aayog ICED becomes the per-fuel data source) upstream publishers carry finer sub-fuel detail — large-hydro vs small-hydro, bio-power vs waste-to-energy, wind vs utility-solar vs rooftop-solar. yen-gov collapses these sub-fuels into the parent buckets at lift time (small-hydro → hydro; bio-power + waste-to-energy + wind + utility-solar + rooftop-solar → renewable; derivation=sum on emit so the precision loss is auditable) per ADR-0030 D33.8 to maintain a single comparable fuel taxonomy across charts and time. The 5-bucket axis is a yen-gov design choice, not a data limitation; the upstream sub-fuel detail remains available in the publisher documents linked from each indicator's source row. Pre-FY15 rows (from RBI Handbook Table 140) publish only the publisher total with no per-fuel split at all, so the collapse rule does not apply there — the parent indicator carries the aggregate and the per-fuel children are unpopulated for pre-FY15 years (see sister break rbi-handbook-aggregate-no-fuel-split-pre-fy15).",
+      "publisher_url": "https://iced.niti.gov.in/",
+      "supersedes_methodology_version": null
     }
   ]
 }

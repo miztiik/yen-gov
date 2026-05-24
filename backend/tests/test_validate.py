@@ -4,6 +4,7 @@ from pathlib import Path
 import pytest
 
 from yen_gov.validate import (
+    ENERGY_INDICATOR_DIR,
     LEGACY_BOUNDARY_SIDECARS_ALLOWLIST,
     LEGACY_INDICATOR_SHARDS_ALLOWLIST,
     LEGACY_INDICATOR_SHARDS_DIR,
@@ -13,6 +14,7 @@ from yen_gov.validate import (
     tier_b,
     tier_b_legacy_boundary_sidecars,
     tier_b_legacy_folded_indicator_shards,
+    tier_b_no_new_sub_fuel_shards,
 )
 
 REPO = Path(__file__).resolve().parents[2]
@@ -463,6 +465,158 @@ def test_legacy_boundary_sidecars_check_chained_into_run(tmp_path: Path):
     ]
     assert len(forbidden) == 1, \
         f"run() must chain tier_b_legacy_boundary_sidecars, got: {fails}"
+
+
+# ---------------------------------------------------------------------------
+# tier_b_no_new_sub_fuel_shards (P.1.A C4.8 2026-05-24, Hans+Max Q3 verdict
+# Option B per TODO/20260524-p1a-data-reacquisition-plan.md §5). Closed
+# 5-bucket fuel axis (ADR-0030 D33.8) enforced via filename regex on
+# `<state_>?installed_capacity_<X>_mw.json` shards under
+# `datasets/indicators/in/energy/`. Tests use tmp_path fixtures only --
+# never walk the real corpus (CLAUDE.md §10).
+# ---------------------------------------------------------------------------
+
+
+def _seed_energy_indicator_tree(tmp_path: Path, files: list[str]) -> None:
+    """Seed a tmp repo with stub JSON files under datasets/indicators/in/energy/."""
+    for rel in files:
+        p = tmp_path / rel
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(json.dumps({"stub": True}), encoding="utf-8")
+
+
+def test_no_new_sub_fuel_shards_check_passes_on_current_fuel_set(tmp_path: Path):
+    """The on-disk fuel + attribution-axis set as of 2026-05-24 (the suffixes
+    pinned in _INSTALLED_CAPACITY_ALLOWED_SUFFIXES) MUST all pass cleanly.
+
+    Failure here = the allowlist drifted out of sync with the corpus and
+    real shards will start tripping the fence on the next CI run.
+    """
+    _seed_energy_indicator_tree(
+        tmp_path,
+        files=[
+            # 5-bucket canonical fuels (Hans D33.8)
+            "datasets/indicators/in/energy/installed_capacity_coal_mw.json",
+            "datasets/indicators/in/energy/installed_capacity_gas_mw.json",
+            "datasets/indicators/in/energy/installed_capacity_hydro_mw.json",
+            "datasets/indicators/in/energy/installed_capacity_nuclear_mw.json",
+            "datasets/indicators/in/energy/installed_capacity_renewable_mw.json",
+            # Pre-D33.8 composite (legacy)
+            "datasets/indicators/in/energy/installed_capacity_thermal_mw.json",
+            # Aggregate markers
+            "datasets/indicators/in/energy/installed_capacity_total_mw.json",
+            "datasets/indicators/in/energy/installed_capacity_by_source_mw.json",
+            # state-prefixed aggregate markers
+            "datasets/indicators/in/energy/state_installed_capacity_by_source_mw.json",
+            "datasets/indicators/in/energy/state_installed_capacity_total_mw.json",
+            # state-prefixed attribution-axis variants
+            "datasets/indicators/in/energy/state_installed_capacity_geographical_mw.json",
+            "datasets/indicators/in/energy/state_installed_capacity_with_alloc_mw.json",
+        ],
+    )
+    fails = tier_b_no_new_sub_fuel_shards(tmp_path)
+    assert fails == [], f"expected no failures on current fuel set, got: {fails}"
+
+
+def test_no_new_sub_fuel_shards_check_rejects_rooftop_solar(tmp_path: Path):
+    """A new sub-fuel breakout (rooftop-solar) MUST be rejected.
+
+    This is the canonical example called out in the C4.8 plan-doc §3:
+    upstream MNRE publishes rooftop-solar separately, but the canonical
+    5-bucket axis collapses it into `renewable` at lift time.
+    """
+    _seed_energy_indicator_tree(
+        tmp_path,
+        files=["datasets/indicators/in/energy/installed_capacity_rooftop_solar_mw.json"],
+    )
+    fails = tier_b_no_new_sub_fuel_shards(tmp_path)
+    forbidden = [f for f in fails if "forbidden new sub-fuel" in f.message]
+    assert len(forbidden) == 1, f"expected one forbidden failure, got: {fails}"
+    assert forbidden[0].file == \
+        "datasets/indicators/in/energy/installed_capacity_rooftop_solar_mw.json"
+    assert forbidden[0].tier == "B"
+    assert "'rooftop_solar'" in forbidden[0].message
+    assert "ADR-0030 D33.8" in forbidden[0].message
+
+
+def test_no_new_sub_fuel_shards_check_rejects_small_hydro_and_bio_power(tmp_path: Path):
+    """Multi-shard reject: small-hydro and bio-power both collapse into
+    distinct canonical buckets (hydro, renewable) at lift time per
+    SUB_FUEL_TO_CANONICAL; neither is a citizen-surface indicator."""
+    _seed_energy_indicator_tree(
+        tmp_path,
+        files=[
+            "datasets/indicators/in/energy/installed_capacity_small_hydro_mw.json",
+            "datasets/indicators/in/energy/installed_capacity_bio_power_mw.json",
+            # state-prefixed sub-fuel variant -- regex must match both shapes
+            "datasets/indicators/in/energy/state_installed_capacity_waste_to_energy_mw.json",
+        ],
+    )
+    fails = tier_b_no_new_sub_fuel_shards(tmp_path)
+    forbidden_files = sorted(f.file for f in fails if "forbidden new sub-fuel" in f.message)
+    assert forbidden_files == [
+        "datasets/indicators/in/energy/installed_capacity_bio_power_mw.json",
+        "datasets/indicators/in/energy/installed_capacity_small_hydro_mw.json",
+        "datasets/indicators/in/energy/state_installed_capacity_waste_to_energy_mw.json",
+    ], f"expected three forbidden failures, got: {fails}"
+
+
+def test_no_new_sub_fuel_shards_check_ignores_other_filename_shapes(tmp_path: Path):
+    """The fence is scoped to `<state_>?installed_capacity_<X>_mw.json` only.
+
+    Other energy shards (e.g. `state_rooftop_solar_capacity_mw.json`,
+    `india_thermal_capacity_retired_mw.json`, generation / consumption shards)
+    are governed by `tier_b_legacy_folded_indicator_shards`, NOT this fence.
+    Confirms scope-boxing per the C4.8 design note.
+    """
+    _seed_energy_indicator_tree(
+        tmp_path,
+        files=[
+            # Different filename family -- not matched by the regex
+            "datasets/indicators/in/energy/state_rooftop_solar_capacity_mw.json",
+            "datasets/indicators/in/energy/india_thermal_capacity_retired_mw.json",
+            "datasets/indicators/in/energy/state_electricity_generation_by_source_gwh.json",
+            "datasets/indicators/in/energy/state_peak_electricity_demand_mw.json",
+        ],
+    )
+    fails = tier_b_no_new_sub_fuel_shards(tmp_path)
+    assert fails == [], \
+        f"expected no failures for non-installed_capacity_<X>_mw shapes, got: {fails}"
+
+
+def test_no_new_sub_fuel_shards_check_is_noop_when_dir_absent(tmp_path: Path):
+    """If `datasets/indicators/in/energy/` does not exist (the energy
+    family has fully retired to canonical), the check is a no-op."""
+    fails = tier_b_no_new_sub_fuel_shards(tmp_path)
+    assert fails == [], f"expected no failures when energy dir absent, got: {fails}"
+
+
+def test_no_new_sub_fuel_shards_check_chained_into_run(tmp_path: Path):
+    """Regression guard: tier_b_no_new_sub_fuel_shards must be called by
+    run(). Without this, a future refactor could remove the chain and
+    silently re-allow sub-fuel shards."""
+    _seed_repo(tmp_path)  # populates datasets/schemas/
+    _seed_energy_indicator_tree(
+        tmp_path,
+        files=["datasets/indicators/in/energy/installed_capacity_rooftop_solar_mw.json"],
+    )
+    fails = run(tmp_path)
+    forbidden = [
+        f for f in fails
+        if "forbidden new sub-fuel" in f.message
+        and f.file == "datasets/indicators/in/energy/installed_capacity_rooftop_solar_mw.json"
+    ]
+    assert len(forbidden) == 1, \
+        f"run() must chain tier_b_no_new_sub_fuel_shards, got: {fails}"
+
+
+def test_no_new_sub_fuel_shards_constants_exported(tmp_path: Path):
+    """Sanity: the module-level constants are exported and have the
+    expected shape. Guards against a refactor accidentally moving them
+    behind a leading-underscore private name (which would break the test
+    suite's import + any downstream tooling that needs the dir path)."""
+    assert ENERGY_INDICATOR_DIR.as_posix() == "datasets/indicators/in/energy"
+
 
 
 

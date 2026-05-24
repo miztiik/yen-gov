@@ -17,6 +17,13 @@ Tier B — data conformance:
     pinned to the allowlist datasets/_ops/legacy-folded-indicator-shards.txt
     (CLAUDE.md §10 anti-pattern computationally enforced). New shards are
     rejected; allowlist entries with no on-disk file are reported as orphans.
+  * Energy installed-capacity shards under datasets/indicators/in/energy/
+    matching `<state_>?installed_capacity_<X>_mw.json` are pinned to a
+    closed enum of fuel + attribution-axis suffixes (the 5-bucket fuel
+    axis per ADR-0030 D33.8 plus the on-disk aggregate / attribution
+    variants). New sub-fuel breakouts (e.g. `installed_capacity_rooftop_solar_mw.json`,
+    `installed_capacity_small_hydro_mw.json`) are rejected -- sub-fuel
+    detail collapses at lift time per `backend/yen_gov/canonical/adapters/energy/_shared.py:SUB_FUEL_TO_CANONICAL`.
 """
 
 from __future__ import annotations
@@ -68,6 +75,60 @@ LEGACY_BOUNDARY_SIDECARS_ALLOWLIST = Path("datasets/_ops/legacy-boundary-sidecar
 # `deprecated_in` null (mirrors the compile-time check in indicators_seed.py).
 INDICATOR_CATALOGUE_JSON = Path("datasets/taxonomy/indicators.json")
 INDICATOR_ALIAS_WINDOW_DAYS = 60
+
+# Energy installed-capacity sub-fuel fence (P.1.A C4.8 2026-05-24, Hans+Max
+# Q3 verdict Option B per TODO/20260524-p1a-data-reacquisition-plan.md §5).
+# Hans's D33.8 ruling locks the canonical fuel axis to five buckets:
+# {coal, gas, hydro, nuclear, renewable}. Upstream publishers (ICED Capacity
+# Metatable, MNRE Physical Progress) carry finer sub-fuel detail (small-hydro,
+# bio-power, wind, utility-solar, rooftop-solar, waste-to-energy) which the
+# C4 lift adapter collapses to the 5-bucket axis at emit time per
+# `backend/yen_gov/canonical/adapters/energy/_shared.py:SUB_FUEL_TO_CANONICAL`
+# (derivation=sum so the precision loss is auditable). The methodology break
+# `energy-installed-capacity-5-bucket-fuel-axis-collapse` in
+# `datasets/taxonomy/methodology_breaks.json` documents the rationale for
+# the citizen.
+#
+# This Tier-B check makes the doctrine computationally enforced: any NEW
+# JSON shard under `datasets/indicators/in/energy/` matching the
+# `<state_>?installed_capacity_<X>_mw.json` shape with `<X>` outside the
+# closed allowed-suffix set is rejected. Future sub-fuel shards
+# (`installed_capacity_rooftop_solar_mw.json`,
+# `installed_capacity_small_hydro_mw.json`,
+# `installed_capacity_bio_power_mw.json` etc.) cannot regress the
+# 5-bucket axis without an explicit doctrine amendment.
+#
+# The allowed suffix set covers the 5 fuels (Hans D33.8) plus the on-disk
+# aggregate / attribution-axis variants currently in the corpus:
+#   * Fuels: coal, gas, hydro, nuclear, renewable (also `thermal` -- the
+#     pre-D33.8 coal+gas+oil composite, still on disk as a legacy total)
+#   * Aggregate markers: total (publisher total, no fuel split),
+#     by_source (rolled-up multi-fuel artifact)
+#   * Attribution-axis variants: geographical (where the plant sits),
+#     with_alloc (state's allocated share of central / joint-sector plants)
+ENERGY_INDICATOR_DIR = Path("datasets/indicators/in/energy")
+_INSTALLED_CAPACITY_FILE_RE = re.compile(
+    r"^(?P<prefix>state_)?installed_capacity_(?P<suffix>[a-z][a-z0-9_]*)_mw\.json$"
+)
+_INSTALLED_CAPACITY_ALLOWED_SUFFIXES: frozenset[str] = frozenset(
+    {
+        # 5-bucket canonical fuels (Hans D33.8)
+        "coal",
+        "gas",
+        "hydro",
+        "nuclear",
+        "renewable",
+        # Pre-D33.8 composite fuel (legacy; still on disk as total composite)
+        "thermal",
+        # Aggregate markers
+        "total",
+        "by_source",
+        # Attribution-axis variants (not fuels)
+        "geographical",
+        "with_alloc",
+    }
+)
+
 
 # Path segments under DATA_ROOTS whose entire subtree is exempt from
 # Tier-B conformance. Adding to this set is a doctrine decision -- see
@@ -536,6 +597,85 @@ def tier_b_indicator_alias_window(
     return failures
 
 
+def tier_b_no_new_sub_fuel_shards(root: Path) -> list[Failure]:
+    """Forbid new sub-fuel installed-capacity shards under datasets/indicators/in/energy/.
+
+    Per ADR-0030 D33.8 (Hans's ruling) the canonical energy fuel axis is
+    a closed 5-bucket enum {coal, gas, hydro, nuclear, renewable}. The
+    C4 lift adapter collapses upstream sub-fuels (small-hydro, bio-power,
+    wind, utility-solar, rooftop-solar, waste-to-energy) at emit time per
+    `backend/yen_gov/canonical/adapters/energy/_shared.py:SUB_FUEL_TO_CANONICAL`
+    with derivation=sum on the per-fuel observation rows so the precision
+    loss is auditable. The companion methodology break
+    `energy-installed-capacity-5-bucket-fuel-axis-collapse` in
+    `datasets/taxonomy/methodology_breaks.json` documents the rationale
+    for the citizen.
+
+    This fence makes the doctrine computationally enforced: ANY new JSON
+    shard under `datasets/indicators/in/energy/` matching the
+    `<state_>?installed_capacity_<X>_mw.json` shape with `<X>` outside
+    the closed allowed-suffix set (5 fuels + `thermal` legacy composite +
+    `total`/`by_source` aggregate markers + `geographical`/`with_alloc`
+    attribution-axis variants) is rejected. Future sub-fuel breakouts
+    (`installed_capacity_rooftop_solar_mw.json`,
+    `installed_capacity_small_hydro_mw.json`,
+    `installed_capacity_bio_power_mw.json` etc.) cannot regress the
+    5-bucket axis without an explicit doctrine amendment that updates
+    this allowlist and rewrites the lift adapter.
+
+    Scope-boxing: this check ONLY fences the
+    `<state_>?installed_capacity_<X>_mw.json` filename family. Other
+    energy-shard shapes (e.g. `state_rooftop_solar_capacity_mw.json`)
+    fall under `tier_b_legacy_folded_indicator_shards` (any new file
+    under `datasets/indicators/in/` must be in the legacy allowlist).
+    Sub-fuel preservation as canonical citizen-surface indicators
+    requires a Hans+Max doctrine amendment routed via CLAUDE.md §0a;
+    see TODO/20260524-p1a-data-reacquisition-plan.md §5 Q3 for the
+    rejected Option A.
+
+    If `datasets/indicators/in/energy/` does not exist (the family has
+    fully retired to canonical), the check is a no-op.
+    """
+    failures: list[Failure] = []
+    energy_dir = root / ENERGY_INDICATOR_DIR
+
+    if not energy_dir.exists():
+        return failures
+
+    for p in sorted(energy_dir.glob("*.json")):
+        if p.name.endswith(".schema.json"):
+            continue
+        m = _INSTALLED_CAPACITY_FILE_RE.match(p.name)
+        if m is None:
+            continue
+        suffix = m.group("suffix")
+        if suffix in _INSTALLED_CAPACITY_ALLOWED_SUFFIXES:
+            continue
+        rel = _posix(p, root)
+        allowed = ", ".join(sorted(_INSTALLED_CAPACITY_ALLOWED_SUFFIXES))
+        failures.append(
+            Failure(
+                rel,
+                "B",
+                f"forbidden new sub-fuel installed-capacity shard: suffix "
+                f"{suffix!r} is not in the closed allowed-suffix set "
+                f"({allowed}). Per ADR-0030 D33.8 the canonical energy "
+                f"fuel axis is the 5-bucket enum {{coal, gas, hydro, nuclear, "
+                f"renewable}} and the C4 lift adapter collapses sub-fuels at "
+                f"emit time (see backend/yen_gov/canonical/adapters/energy/"
+                f"_shared.py:SUB_FUEL_TO_CANONICAL and the methodology break "
+                f"'energy-installed-capacity-5-bucket-fuel-axis-collapse' in "
+                f"datasets/taxonomy/methodology_breaks.json). Sub-fuel "
+                f"preservation as a citizen-surface indicator requires a "
+                f"Hans+Max doctrine amendment routed via CLAUDE.md §0a; see "
+                f"TODO/20260524-p1a-data-reacquisition-plan.md §5 Q3 for the "
+                f"rejected Option A and the Tier-B fence design decision.",
+            )
+        )
+
+    return failures
+
+
 def run(root: Path) -> list[Failure]:
     """Run Tier A then Tier B against a repo root."""
     schemas, parse_failures = load_schemas(root / SCHEMAS_SUBDIR)
@@ -546,4 +686,5 @@ def run(root: Path) -> list[Failure]:
         + tier_b_legacy_folded_indicator_shards(root)
         + tier_b_legacy_boundary_sidecars(root)
         + tier_b_indicator_alias_window(root)
+        + tier_b_no_new_sub_fuel_shards(root)
     )

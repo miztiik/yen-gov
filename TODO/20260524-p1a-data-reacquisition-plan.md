@@ -166,7 +166,9 @@ The lift block 4 iterates `_FY25_PEAK_DEMAND_ROWS` verbatim, calls `parse_iso_pe
 
 **Estimated**: ~3-4 days. RBI XLSX parsing has Indian-tabular quirks (merged-cell headers, "P" provisional markers, footnote rows in body). openpyxl + fixture-based test is the cheapest shape (Q4 in §5).
 
-### P.1.A C4.8 — Sub-fuel preservation (1 day under Option B; 3 days under Option A; BLOCKED on Hans+Max Q3)
+### P.1.A C4.8 — Sub-fuel preservation (✅ DONE 2026-05-24 additive — methodology_breaks + Tier-B fence; shard retire descoped to follow-up)
+
+**Status (2026-05-24 — SHIPPED, descoped)**: This PR ships ONLY the methodology_breaks row + Tier-B fence per Option B (Hans+Max Q3 verdict). The `state_installed_capacity_by_source_mw.json` shard retire is **descoped to a follow-up PR** because `datasets/taxonomy/topics.json:300` still references it (PR #177 strangler-fig lesson — reader-switch must precede shard retire). Future sub-fuel breakouts cannot regress D33.8's 5-bucket axis without an explicit doctrine amendment.
 
 **Scope**:
 1. **Q3 decision (Hans+Max, MUST resolve before code)**: do we want sub-fuel granularity (large-hydro vs small-hydro; bio-power vs waste-to-energy; wind vs solar-utility vs solar-rooftop) as citizen-surface indicators?
@@ -177,7 +179,7 @@ The lift block 4 iterates `_FY25_PEAK_DEMAND_ROWS` verbatim, calls `parse_iso_pe
 3. Under Option B: retire `state_installed_capacity_by_source_mw.json` directly (no canonical change) + author a `methodology_breaks` row explaining the 5-bucket collapse + scrub allowlist.
 4. Tier-A + Tier-B + §13 smoke per option.
 
-**Estimated**: ~1 day under Option B, ~3 days under Option A. **BLOCKED on Hans+Max Q3.**
+**Estimated**: ~1 day under Option B, ~3 days under Option A. ~~**BLOCKED on Hans+Max Q3.**~~ ✅ Q3 RESOLVED 2026-05-24 — Option B adopted (additive ship — methodology_breaks row + Tier-B fence; legacy-shard retire descoped to follow-up).
 
 ## §4. Sequencing summary
 
@@ -185,7 +187,7 @@ The lift block 4 iterates `_FY25_PEAK_DEMAND_ROWS` verbatim, calls `parse_iso_pe
 2. **Next** (autonomous-doable): ship Path A retire PR — 8 SAFE shards including the `state_peak_electricity_demand_mw.json` FY25 loss; PR body cites this re-acquisition plan §3 C4.7 as the FY25-restore commitment.
 3. **Then** (1 day; no decisions needed): P.1.A C4.7 ICED peak-demand FY25 extension; restores the FY25 data lost in step 2. **Update 2026-05-24**: Phase A SHIPPED additive (FY25 on canonical); shard retirement deferred to Phases B–D pending frontend reader-switch — see §3 C4.7 descope note.
 4. **Then (parallel)**: ~~P.1.A C4.5 (3 days; Hans+Max Q1 needed)~~ ✅ DONE 2026-05-24 (lift-only; reader-switch deferred) + ~~P.1.A C4.6 (3-4 days; Hans Q2 needed for renderer)~~ ✅ DONE 2026-05-24 (SHIP-LIFT-ONLY; reader-switch + legacy-shard retire deferred to follow-up).
-5. **Then**: Hans+Max Q3 decision → P.1.A C4.8 execute.
+5. ~~**Then**: Hans+Max Q3 decision → P.1.A C4.8 execute.~~ ✅ DONE 2026-05-24 (additive — Option B; methodology_breaks row + Tier-B fence; legacy-shard retire descoped to follow-up).
 6. **Last**: P.1.A C5+C6 full reader-switch + final retire pass when all 8 deferred shards are no longer deferred (the rejected-fully-fused approach from PR #116 becomes ship-able).
 
 ## §5. Open decisions (route via §0a)
@@ -194,7 +196,7 @@ The lift block 4 iterates `_FY25_PEAK_DEMAND_ROWS` verbatim, calls `parse_iso_pe
 | --- | --- | --- | --- | --- |
 | Q1 | `_snapshot_` infix grammar (Option α) vs extend orphan `state-installed-capacity-allocated-mw-{fuel}` (Option β) for CEA per-state per-fuel | Hans + Max | Option α (snapshot ≠ allocated; OWID separate-indicators-for-distinct-methodologies precedent) | ✅ RESOLVED 2026-05-24 — Option α adopted (C4.5 shipped) |
 | Q2 | Does the renderer's NULL-fuel "unresolved aggregate" grey band already exist on `stacked-trend` / choropleth? Or must C4.6 ship the renderer too? | Hans (verdict) + Jony (renderer audit) | Audit renderer; if missing, split C4.6 into back-end parquet ship + front-end render PR | C4.6 retire-step |
-| Q3 | Sub-fuel preservation: Option A (widen catalogue) vs Option B (collapse + Tier-B fence + methodology_breaks row) | Hans + Max | Option B (preserves D33.8 5-bucket ruling) | C4.8 entirely |
+| Q3 | Sub-fuel preservation: Option A (widen catalogue) vs Option B (collapse + Tier-B fence + methodology_breaks row) | Hans + Max | Option B (preserves D33.8 5-bucket ruling) | ✅ RESOLVED 2026-05-24 — Option B adopted (additive ship: methodology_breaks + Tier-B fence; shard retire descoped to follow-up) |
 | Q4 | RBI XLSX parsing: openpyxl with fixture test, or pre-stage CSV via `tools/`? | Fowler | openpyxl with fixture-based unit test (no live RBI fetch in tests per Holy Law #7) | C4.6 implementation shape |
 | Q5 | Coordinated tier-promotion lifts (P.1 plan-doc §3.1 #11): 3 missing triples (CEA AGR, IEA India Energy Outlook, Coal Controller Provisional Coal Statistics) — bundle into C4.5/C4.6, or keep as a separate UX-upgrade PR? | Hans + Max | Defer; tier promotion is citizen-trust UX, not data correctness; per ADR-0032 the current silver attribution is doctrinally correct | None — C4.5/C4.6 ship without |
 
