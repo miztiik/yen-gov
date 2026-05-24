@@ -19,7 +19,7 @@ This is the *what to load*. The companion doc [`guardrails.md`](guardrails.md) i
 
 ## When bootstrap is mandatory
 
-- Any persona invocation (Citizen, Hans, Max, Gregor, Fowler, Jony) — they all start here.
+- Any persona invocation (Citizen, Hans, Max, Gregor, Fowler, Jony, Andre) — they all start here, with one carve-out: Andre may skip the ritual for generic LLM-app design questions that do not touch yen-gov code. The moment Andre is asked about YENASK, an in-bundle SLM, or any other yen-gov surface, the ritual is mandatory.
 - Any default-agent task that crosses a subsystem boundary (touches ≥ 2 of: `backend/`, `frontend/`, `datasets/`, `admin/`, `tools/`, schemas).
 - Any task escalated to Correction Level 2 or higher (`CLAUDE.md §6`).
 

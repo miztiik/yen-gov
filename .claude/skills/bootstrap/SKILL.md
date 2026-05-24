@@ -1,6 +1,6 @@
 ---
 name: bootstrap
-description: Load yen-gov project context before answering. Reads CLAUDE.md, guardrails, the relevant subsystem and concept docs, and the umbrella plan. Every persona (Citizen, Hans, Max, Gregor, Fowler, Jony) and every default-agent task crossing a subsystem boundary runs this first. Skip only for Level-0 / Level-1 single-file changes.
+description: Load yen-gov project context before answering. Reads CLAUDE.md, guardrails, the relevant subsystem and concept docs, and the umbrella plan. Every persona (Citizen, Hans, Max, Gregor, Fowler, Jony, Andre) and every default-agent task crossing a subsystem boundary runs this first. Skip only for Level-0 / Level-1 single-file changes (and for generic LLM-app questions to Andre that don't touch yen-gov code).
 ---
 
 # bootstrap
