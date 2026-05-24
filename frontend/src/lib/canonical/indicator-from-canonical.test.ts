@@ -80,7 +80,12 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
   it("resolves the descriptor for the seed artifact and null otherwise", () => {
     const d = getCanonicalDescriptor("energy/state_peak_electricity_demand_mw");
     expect(d).not.toBeNull();
-    expect(d!.canonical_indicator_id).toBe("state-peak-electricity-demand-mw");
+    // Seed descriptor is the kind:"single" shape — narrow before accessing
+    // the single-variant canonical_indicator_id field.
+    expect(d!.kind).toBe("single");
+    if (d!.kind === "single") {
+      expect(d!.canonical_indicator_id).toBe("state-peak-electricity-demand-mw");
+    }
     expect(d!.table_id).toBe("energy.energy_demand_supply");
     expect(getCanonicalDescriptor("nope")).toBeNull();
   });
@@ -159,7 +164,12 @@ describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
     for (const row of PR_7A) {
       const d = getCanonicalDescriptor(row.legacy_id);
       expect(d, `descriptor missing for ${row.legacy_id}`).not.toBeNull();
-      expect(d!.canonical_indicator_id).toBe(row.canonical_id);
+      // PR 7a entries are all kind:"single" — narrow before accessing the
+      // single-variant canonical_indicator_id field.
+      expect(d!.kind, `descriptor for ${row.legacy_id} must be kind:single`).toBe("single");
+      if (d!.kind === "single") {
+        expect(d!.canonical_indicator_id).toBe(row.canonical_id);
+      }
       expect(d!.table_id).toBe(row.table_id);
     }
   });

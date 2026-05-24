@@ -16,6 +16,42 @@
 // to the allowlist one at a time as each P.* phase ships its FE
 // reader-switch sub-PR.
 //
+// Two descriptor shapes (PR 7c.5)
+// -------------------------------
+// 1. `kind: "single"` — the legacy shard maps 1:1 to a single canonical
+//    `indicator_id` in one fact-table. The adapter issues one SQL query
+//    filtered by `indicator_id = '<canonical_indicator_id>'` and emits
+//    one row per (entity, period). This is the PR 7a / 7c.5-simple shape.
+//
+// 2. `kind: "facet-multiplexed"` — the legacy shard emitted ONE artifact
+//    file with a `rows[].facet` field discriminating N citizen-readable
+//    segments (e.g. RPO compliance with `solar` / `non-solar` / `total`).
+//    The canonical store materialises each segment as a separate
+//    `indicator_id` child of a compute-on-read parent (e.g.
+//    `state-rpo-compliance-pct-solar` etc., parented by
+//    `state-rpo-compliance-pct` which carries `source_id = null` per
+//    indicator-naming.md D29). The adapter issues ONE SQL query
+//    `WHERE indicator_id IN (<child_1>, <child_2>, …)`, fuses the rows
+//    into one `IndicatorArtifact` with `rows[].facet =
+//    <legacy_facet_label>` (the legacy hyphenated display form, NOT the
+//    canonical snake_case `value_id`), and reports `indicator.id =
+//    canonical_parent_indicator_id`. Provenance and temporal coverage
+//    derive from the CHILD rows; the parent row carries no observations
+//    and no source_id.
+//
+//    Gregor note (canonical-rename slugs): the legacy `topics.json`
+//    artifact slug is the unmigrated kebab-snake hybrid (e.g.
+//    `energy/state_rpo_compliance_pct`); the canonical store names
+//    differ both in shape (kebab `state-rpo-compliance-pct`) and
+//    sometimes in unit-suffix or basis-suffix (e.g.
+//    `state_electricity_generation_mu` -> `state-electricity-generation-gwh`,
+//    `state_distribution_billing_efficiency_pct` ->
+//    `state-distribution-efficiency-pct-billing` flips the modifier
+//    order). The allowlist is the single source of truth for these
+//    renames; until the catalogue regenerates topics.json against the
+//    canonical taxonomy (a Level-5 chore deferred behind the canonical
+//    reader ADR), this file is the rename ledger.
+//
 // Adding a new entry
 // ------------------
 // 1. Verify the canonical fact-table carries the indicator: query
@@ -35,23 +71,59 @@
 
 import type { IndicatorMeta } from "../indicators";
 
-export interface CanonicalIndicatorDescriptor {
+interface CanonicalIndicatorDescriptorBase {
   /** Legacy catalogue artifact id (e.g. `energy/state_peak_electricity_demand_mw`). */
   legacy_artifact_id: string;
-  /** Canonical fact-table `indicator_id` (kebab-case per indicator-naming.md D30). */
-  canonical_indicator_id: string;
   /** Manifest table id (e.g. `energy.energy_demand_supply`). */
   table_id: string;
   /** Static IndicatorMeta block — what the citizen sees as the card header.
-   *  Source: `datasets/taxonomy/indicators.parquet` row for `canonical_indicator_id`. */
+   *  Source: `datasets/taxonomy/indicators.parquet` row for the descriptor's
+   *  canonical (single) or parent (facet-multiplexed) `indicator_id`. */
   meta: IndicatorMeta;
 }
+
+export interface CanonicalSingleIndicatorDescriptor
+  extends CanonicalIndicatorDescriptorBase {
+  kind: "single";
+  /** Canonical fact-table `indicator_id` (kebab-case per indicator-naming.md D30). */
+  canonical_indicator_id: string;
+}
+
+/** One legacy-shard facet → one canonical child indicator_id mapping.
+ *  `legacy_facet_label` MUST be the legacy hyphenated display form (e.g.
+ *  `"non-solar"`), NOT the canonical snake_case `value_id` from
+ *  `taxonomy/facet-axes.parquet` (`"non_solar"`). The IndicatorCard's
+ *  facet-picker reads the legacy label verbatim. */
+export interface CanonicalFacetMapping {
+  canonical_child_id: string;
+  legacy_facet_label: string;
+}
+
+export interface CanonicalFacetMultiplexedDescriptor
+  extends CanonicalIndicatorDescriptorBase {
+  kind: "facet-multiplexed";
+  /** Parent indicator_id in `taxonomy/indicators.parquet` (compute-on-read;
+   *  `source_id = null` per indicator-naming.md D29). The renderer reports
+   *  this as `indicator.id` on the fused artifact. */
+  canonical_parent_indicator_id: string;
+  /** Facet-axis id from `taxonomy/facet-axes.parquet` (e.g. `rpo_segment`).
+   *  Carried for downstream tooling — the adapter itself ignores it
+   *  because the facet label is already pre-baked on each mapping row. */
+  facet_axis_id: string;
+  /** Ordered list of child indicator_ids and their legacy facet labels. */
+  facet_values: ReadonlyArray<CanonicalFacetMapping>;
+}
+
+export type CanonicalIndicatorDescriptor =
+  | CanonicalSingleIndicatorDescriptor
+  | CanonicalFacetMultiplexedDescriptor;
 
 export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescriptor> = [
   // C4.7 Phase B — peak electricity demand (RBI Handbook Table 142 FY13–FY24
   // + NITI ICED state-wise deep-dive FY25 extension; 430 rows, 35 entities).
   // See TODO/20260524-p1a-data-reacquisition-plan.md §3 C4.7 Phase A status.
   {
+    kind: "single",
     legacy_artifact_id: "energy/state_peak_electricity_demand_mw",
     canonical_indicator_id: "state-peak-electricity-demand-mw",
     table_id: "energy.energy_demand_supply",
@@ -107,6 +179,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
 
   // --- 1: National capacity, Coal (CEA monthly snapshot, per-state) ---
   {
+    kind: "single",
     legacy_artifact_id: "energy/installed_capacity_coal_mw",
     canonical_indicator_id: "state-installed-capacity-snapshot-mw-coal",
     table_id: "energy.energy_installed_capacity",
@@ -132,6 +205,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
 
   // --- 2: National capacity, Gas (CEA monthly snapshot, per-state) ---
   {
+    kind: "single",
     legacy_artifact_id: "energy/installed_capacity_gas_mw",
     canonical_indicator_id: "state-installed-capacity-snapshot-mw-gas",
     table_id: "energy.energy_installed_capacity",
@@ -157,6 +231,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
 
   // --- 3: National capacity, Hydro (CEA monthly snapshot, per-state) ---
   {
+    kind: "single",
     legacy_artifact_id: "energy/installed_capacity_hydro_mw",
     canonical_indicator_id: "state-installed-capacity-snapshot-mw-hydro",
     table_id: "energy.energy_installed_capacity",
@@ -182,6 +257,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
 
   // --- 4: National capacity, Nuclear (CEA monthly snapshot, per-state) ---
   {
+    kind: "single",
     legacy_artifact_id: "energy/installed_capacity_nuclear_mw",
     canonical_indicator_id: "state-installed-capacity-snapshot-mw-nuclear",
     table_id: "energy.energy_installed_capacity",
@@ -207,6 +283,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
 
   // --- 5: National capacity, Renewable (CEA monthly snapshot, per-state) ---
   {
+    kind: "single",
     legacy_artifact_id: "energy/installed_capacity_renewable_mw",
     canonical_indicator_id: "state-installed-capacity-snapshot-mw-renewable",
     table_id: "energy.energy_installed_capacity",
@@ -232,6 +309,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
 
   // --- 6: State installed capacity, geographical-location basis (FY15-FY25) ---
   {
+    kind: "single",
     legacy_artifact_id: "energy/state_installed_capacity_geographical_mw",
     canonical_indicator_id: "state-installed-capacity-geographical-mw",
     table_id: "energy.energy_installed_capacity",
@@ -259,6 +337,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
 
   // --- 7: State installed capacity, allocated-shares basis (FY05-FY25 long-arc) ---
   {
+    kind: "single",
     legacy_artifact_id: "energy/state_installed_capacity_with_alloc_mw",
     canonical_indicator_id: "state-installed-capacity-allocated-mw",
     table_id: "energy.energy_installed_capacity",
@@ -294,6 +373,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
 
   // --- 8: State electricity generation, FY15-FY25 (MU == GWh unit alias) ---
   {
+    kind: "single",
     legacy_artifact_id: "energy/state_electricity_generation_mu",
     canonical_indicator_id: "state-electricity-generation-gwh",
     table_id: "energy.energy_generation",
