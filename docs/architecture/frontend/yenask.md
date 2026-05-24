@@ -234,14 +234,17 @@ Rationale: plan-doc §17 [D-11](../../../TODO/20260518-browser-governance-insigh
 | `repo_id` | HuggingFace repo id (e.g. `"HuggingFaceTB/SmolLM2-135M-Instruct"`). |
 | `dtype` | Quantisation tag (`"q4f16"`, `"q8"`, `"fp16"`, `"fp32"`, ...). |
 | `device` | `"wasm"` (stable, slower) \| `"webgpu"` (fast, currently crashes on q4f16) \| `"auto"`. |
-| `estimated_download_mb` | Used for the Prepare-assistant panel's expectation copy. |
+| `estimated_download_mb` | Used for the picker's expectation copy. Citizens see `"Download · ~N MB"` (or `"~N.N GB"` once ≥1024 MB per [D-24](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-24--graduated-download-friction-by-size-tier-recommended-rejected-size-driven-row-tinting-rejected-per-jony-slice-c)). Values >1024 MB also trigger the Large-tier two-step inline confirm. |
+| `estimated_ram_mb` (optional) | Peak-RAM estimate. When present, picker renders `"Needs ~N MB RAM"` (or `"~N.N GB"`). When absent, picker renders nothing. Added per [D-24](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-24--graduated-download-friction-by-size-tier-recommended-rejected-size-driven-row-tinting-rejected-per-jony-slice-c). |
 | `notes` | Operator-facing free text shown in the picker helper. |
 
 **Swap the default**: change `DEFAULT_MODEL_ID` in the same file. No other code edit needed.
 
-**Add an alternative**: append a new `ModelEntry` to the array. The picker (PR-2 UI scaffold) already iterates over the registry. New providers (e.g. `"litert-mediapipe"`) need a new dispatch arm in `createAdapter()` in [`model-adapter.ts`](../../../frontend/src/lib/yenask/model-adapter.ts) — rule of three; don't pre-create empty providers.
+**Add an alternative**: append a new `ModelEntry` to the array. The picker (Slice B + Slice C) already iterates over the registry and applies tier-aware friction automatically. New providers (e.g. `"litert-mediapipe"`) need a new dispatch arm in `createAdapter()` in [`model-adapter.ts`](../../../frontend/src/lib/yenask/model-adapter.ts) — rule of three; don't pre-create empty providers.
 
-**Today's seed**: `smollm2-135m-instruct`, `dtype: "q4f16"`, `device: "wasm"`, ~88 MB cold-load. Pinned to wasm because `onnxruntime-web` WebGPU crashes on q4f16 SmolLM2 with `Mapping WebGPU buffer failed: Invalid buffer`. Rationale: plan-doc §17 [D-19](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-19--seed-model-device-pinned-to-wasm-webgpu-stays-opt-in-until-upstream-is-stable).
+**Today's seed**: `smollm2-135m-instruct`, `dtype: "q4f16"`, `device: "wasm"`, ~118 MB cold-load (corrected from the stale 88 figure per [D-26](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-26--default-model-upgrade-smollm2-135m--smollm2-360m-smollm2-135m-size-corrected-88--118-mb-per-max-slice-d-1)). Pinned to wasm because `onnxruntime-web` WebGPU crashes on q4f16 SmolLM2 with `Mapping WebGPU buffer failed: Invalid buffer`. Rationale: plan-doc §17 [D-19](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-19--seed-model-device-pinned-to-wasm-webgpu-stays-opt-in-until-upstream-is-stable).
+
+**Slice C registry expansion**: per [D-24](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-24--graduated-download-friction-by-size-tier-recommended-rejected-size-driven-row-tinting-rejected-per-jony-slice-c), the registry now ships four entries: `smollm2-135m-instruct` (118 MB, small tier), `tinyllama-1-1b-chat` (600 MB, medium tier), `qwen2-5-1-5b-instruct` (1.2 GB, large tier, two-step confirm), `phi-3-5-mini-instruct` (2.3 GB, large tier, two-step confirm). Size-tier classification + label formatting + OOM-error detection live in [`size-tier.ts`](../../../frontend/src/lib/yenask/size-tier.ts) (pure helpers; vitest-covered).
 
 ## Observability surface (PR-3)
 
