@@ -134,7 +134,25 @@ The lift block 4 iterates `_FY25_PEAK_DEMAND_ROWS` verbatim, calls `parse_iso_pe
 
 **Estimated**: ~3 days under Option α; Hans+Max sign-off on Q1 is the only gate.
 
-### P.1.A C4.6 — RBI Handbook Table 140 FY05-FY14 splice (3-4 days; XLSX-parsing unknowns)
+### P.1.A C4.6 — RBI Handbook Table 140 FY05-FY14 splice (✅ MERGED 2026-05-24, SHIP-LIFT-ONLY)
+
+**Status**: SHIPPED — additive lift block 5 in `installed_capacity.py`; FY05-FY14 long-arc rows now on canonical `state-installed-capacity-allocated-mw` carrying RBI Handbook Table 140 source_id (`src-3d1d55f8a94b`); legacy shard NOT retired this PR (Fowler pre-impl: SHIP-LIFT-ONLY pattern — additive, no retire, no allowlist extension, no `frontend/indicator-allowlist.ts` change). Legacy shard retirement deferred to a follow-up (mirrors C4.5 sequencing).
+
+**Shipped**:
+1. ~~Author NEW lift adapter `backend/yen_gov/canonical/adapters/energy/installed_capacity_long_arc.py` that parses the RBI XLSX Table 140~~ — **DESCOPED**: data already in-hand via `datasets/indicators/in/energy/state_installed_capacity_total_mw.json` (374 pre-FY15 rows). No XLSX parse needed; lifted directly from the existing shard via block 5 in `installed_capacity.py` (filter `r["time"] < "2015-04"`). Q4 (openpyxl path) is moot until a future re-acquisition wants RBI's per-fuel breakdown.
+2. ✅ NEW source-triple via `derive_source_id("Reserve Bank of India", "Handbook of Statistics on Indian States — Table 140: State-wise Installed Capacity of Power", "2024-25")` → `src-3d1d55f8a94b`. Seeded in `energy_sources_seed.py` (7 rows now, was 6); written to `taxonomy/sources.parquet` via `emit-taxonomy`. Confidence tier: `silver` per Q-d (RBI republisher; CEA upstream).
+3. ✅ Q2 verdict (Hans, this PR): NULL-fuel "unresolved aggregate" rows are NOT emitted because ObservationRow has no `fuel_type` column — fuel granularity lives in `indicator_id` only. Block 5 emits to the parent indicator-id `state-installed-capacity-allocated-mw` (no fuel suffix), which is the OWID-correct representation of "aggregate, no fuel split" semantics. The renderer's existing time-series widgets already render this parent indicator correctly.
+4. **Legacy shard retirement DEFERRED**: `state_installed_capacity_total_mw.json` stays on disk; reader-switch + `git rm` + `_ops` allowlist scrub batched into a future follow-up (mirrors C4.5 lift-only / reader-switch deferred / retire deferred sequencing — see C4.7 footnote in §4).
+5. ✅ methodology_breaks: NEW row `rbi-handbook-aggregate-no-fuel-split-pre-fy15` (at_year=2015, kind=`definition_change`) documents BOTH the basis change at FY15 (RBI Handbook → ICED Deep Dive) AND the publisher's choice to NOT break out per-fuel in the long-arc tail. Cited from the parent indicator row via `methodology_break_ids[]`.
+6. ✅ Tier-A: 7 new C4.6 longarc parity tests + `test_energy_sources_seed.py` bumped 6→7 throughout. All 38/38 targeted pass.
+7. ✅ Tier-B: validator clean (0 issues).
+8. ✅ §13 smoke: `/t/energy` + `/s/tamil-nadu/t/energy` — 0 console errors, 0 stuck loaders; RBI Handbook source attribution + 2014 year markers verified in topic-page snapshot.
+
+**Row delta**: `energy_installed_capacity.parquet` 2120 → 2494 rows (+374 = 11 FY × 34 states/UTs).
+
+**Determinism**: SHA256 byte-identical across 2 consecutive lifts (`E7934B39...0662E`).
+
+### P.1.A C4.6 — RBI Handbook Table 140 FY05-FY14 splice (original scope, kept for history)
 
 **Scope**:
 1. Author NEW lift adapter `backend/yen_gov/canonical/adapters/energy/installed_capacity_long_arc.py` that parses the RBI XLSX Table 140 and emits FY05-FY14 rows into `state-installed-capacity-allocated-mw` with `fuel_type IS NULL` per Q-c verdict (RBI publishes the aggregate, not the per-fuel split). Renderer treats NULL-fuel rows as a single grey "unresolved aggregate" band (Q-c citizen text).
@@ -166,7 +184,7 @@ The lift block 4 iterates `_FY25_PEAK_DEMAND_ROWS` verbatim, calls `parse_iso_pe
 1. **Now** (this PR): ship THIS doc-only re-acquisition plan.
 2. **Next** (autonomous-doable): ship Path A retire PR — 8 SAFE shards including the `state_peak_electricity_demand_mw.json` FY25 loss; PR body cites this re-acquisition plan §3 C4.7 as the FY25-restore commitment.
 3. **Then** (1 day; no decisions needed): P.1.A C4.7 ICED peak-demand FY25 extension; restores the FY25 data lost in step 2. **Update 2026-05-24**: Phase A SHIPPED additive (FY25 on canonical); shard retirement deferred to Phases B–D pending frontend reader-switch — see §3 C4.7 descope note.
-4. **Then (parallel)**: ~~P.1.A C4.5 (3 days; Hans+Max Q1 needed)~~ ✅ DONE 2026-05-24 (lift-only; reader-switch deferred) + P.1.A C4.6 (3-4 days; Hans Q2 needed for renderer).
+4. **Then (parallel)**: ~~P.1.A C4.5 (3 days; Hans+Max Q1 needed)~~ ✅ DONE 2026-05-24 (lift-only; reader-switch deferred) + ~~P.1.A C4.6 (3-4 days; Hans Q2 needed for renderer)~~ ✅ DONE 2026-05-24 (SHIP-LIFT-ONLY; reader-switch + legacy-shard retire deferred to follow-up).
 5. **Then**: Hans+Max Q3 decision → P.1.A C4.8 execute.
 6. **Last**: P.1.A C5+C6 full reader-switch + final retire pass when all 8 deferred shards are no longer deferred (the rejected-fully-fused approach from PR #116 becomes ship-able).
 

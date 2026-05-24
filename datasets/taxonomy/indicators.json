@@ -764,10 +764,11 @@
       "attribution_geography": "where_allocated",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "methodology_vintage": "NITI Aayog ICED state-wise deep-dive API; covers fiscal years 2015-16 onwards.",
+      "methodology_vintage": "NITI Aayog ICED state-wise deep-dive API for FY15-FY25 (fiscal years 2015-16 onwards); RBI Handbook of Statistics on Indian States, Table 140 (silver tier; republishes CEA originals) for the pre-FY15 splice (fiscal years 2004-05 to 2013-14). Per plan-doc 20260522 §3 Q-c Option 1 SPLICE: methodology break at FY15 (basis change + RBI portion carries no per-fuel breakdown).",
       "revision_tier": "mixed",
       "parent_indicator_id": null,
-      "source_id": "src-be6a6d5d6493"
+      "source_id": "src-be6a6d5d6493",
+      "methodology_break_ids": ["rbi-handbook-aggregate-no-fuel-split-pre-fy15"]
     },
     {
       "indicator_id": "state-installed-capacity-allocated-mw-coal",

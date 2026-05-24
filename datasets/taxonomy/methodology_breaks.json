@@ -28,6 +28,15 @@
       "note": "From FY22 onwards, the Coal Controller's Organisation stopped publishing per-state coal consumption. Rows for FY22 and later are estimated by yen-gov as the national total scaled by each state's share of thermal generation capacity — not a publisher-direct measurement.",
       "publisher_url": null,
       "supersedes_methodology_version": null
+    },
+    {
+      "methodology_version": "rbi-handbook-aggregate-no-fuel-split-pre-fy15",
+      "at_year": 2015,
+      "at_period_seq": 4,
+      "kind": "definition_change",
+      "note": "state-installed-capacity-allocated-mw splices two publishers across FY15. Pre-FY15 rows (FY05-FY14) come from RBI Handbook of Statistics on Indian States, Table 140 (silver tier; RBI republishes CEA originals). Post-FY15 rows (FY15-FY25) come from NITI Aayog ICED state-wise deep-dive (silver tier; gold-tier upstream is CEA). Two distinct discontinuities apply: (1) basis change — RBI Table 140 publishes a single state-wise installed-capacity total without distinguishing geographical vs allocated shares of central/joint-sector plants, so pre-FY15 rows should be read as 'best available state-attributed total' rather than the strict allocation basis the ICED-sourced FY15+ rows carry; (2) fuel-split absence — RBI Table 140 publishes ONLY the publisher total without the per-fuel breakdown that ICED carries from FY15 onwards, so the per-fuel children (state-installed-capacity-allocated-mw-{coal,gas,hydro,nuclear,renewable}) remain unpopulated for pre-FY15 years even though their parent is. Renderers showing the parent series across the FY15 seam MUST display the methodology break marker and the 'pre-FY15: aggregate only, no fuel split' caveat.",
+      "publisher_url": "https://rbi.org.in/Scripts/PublicationsView.aspx?id=22512",
+      "supersedes_methodology_version": null
     }
   ]
 }
