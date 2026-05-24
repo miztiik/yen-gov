@@ -53,6 +53,8 @@ The pipeline is the same regardless of how the intent was produced (model-extrac
 
 The SQL, raw model output, and per-attempt token timing are NOT in the citizen turn — they live in the always-visible Debug log section below the chat (D-21). See [Observability surface (PR-3)](#observability-surface-pr-3).
 
+**Why one model, not two?** The pipeline runs ONE call to the model per turn (`extractIntent`) followed by a deterministic pure-TypeScript `compileIntent` that constructs the DuckDB SQL pair. A two-stage LLM pipeline (classifier + reasoner, or extractor + code-tuned SQL generator) was evaluated in three architectural cuts during a four-persona panel and rejected — see [ADR-0038](../decisions/0038-yenask-two-stage-llm-pipeline-rejected.md) for full rationale, four rejected alternatives, and the deferred deterministic-router option preserved against future evidence.
+
 ## Module layout
 
 ```text
