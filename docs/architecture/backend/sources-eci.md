@@ -204,6 +204,12 @@ Confirmed 2026-05-13 against all 15 hand-imports: Assam-2016=126, Kerala-2016=14
 
 For state assembly panels that are already transcribed from ECI Statistical Reports, the canonical path is `python -m yen_gov ingest-eci-ae-panel <csv> --state <S##>`. The adapter reads the CSV as an operator input, filters to one ECI state code, and emits directly through the canonical `BatchEnvelope` writer. It does not create per-person JSON sidecars or legacy election-result JSON projections.
 
+For the all-states AE panel at `datasets/ephemeral/All_States_AE.csv`, ingestion proceeds state-by-state, never across states in one write. The approved 2026-05-24 rollout admits only `DelimID=3` and `DelimID=4` rows: `DelimID=3` maps to the current pre-2008 `delim_year=1976` entity cycle, and `DelimID=4` maps to `delim_year=2008`. `DelimID=1` / `DelimID=2`, pre-1977 national rows, and `Goa_Daman_&_Diu` are deferred until a dedicated historical-entity/delimitation contract exists. Operators must run the read-only preflight first:
+
+`python -m yen_gov ingest-eci-ae-panel --input datasets/ephemeral/All_States_AE.csv --state <S##> --delim-id 3 --delim-id 4 --dry-run`
+
+The dry-run reports rows by delimitation, registered/missing events, unresolved party tokens, and skipped rows without writing Parquet or inventory. Actual state PRs then ingest exactly one state, merge that state, and only then move to the next state. The state PR sequence and gates live in [`TODO/20260524-ae-panel-statewise-delim3-4-plan.md`](../../../TODO/20260524-ae-panel-statewise-delim3-4-plan.md).
+
 The event identity comes from `backend/yen_gov/sources/eci/events.py`, not from local string synthesis in the adapter. This keeps the backend registry, `datasets/taxonomy/election_events.json`, and frontend event picker in one contract: if the citizen can select an event, the backend knows the same `(state, year) -> event_id` pair.
 
 Rows emitted by this path use ECI citation-ledger provenance (`producer = "Election Commission of India"`, `verification_method = "transcribed"`, `confidence_tier = "gold"`, `is_issuing_authority = true`). The adapter writes `dim_persons`, `elections_candidacies`, `dim_acs`, party dims, election observations, and inventory rows in the same transaction-shaped writer envelope, then records discrepancy counts for operator review.
