@@ -139,6 +139,22 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     # Dec-2017 Gujarat (polled 9 & 14 Dec 2017).
     ("S06", 2017): EventInfo("AcGenDec2017", False),  # Gujarat
 
+    # Maharashtra historical AE panel backfill (ECI Statistical Report
+    # transcriptions). Polling month comes from the panel month column.
+    ("S13", 1962): EventInfo("AcGenFeb1962", False),  # Maharashtra
+    ("S13", 1967): EventInfo("AcGenFeb1967", False),  # Maharashtra
+    ("S13", 1972): EventInfo("AcGenMar1972", False),  # Maharashtra
+    ("S13", 1978): EventInfo("AcGenFeb1978", False),  # Maharashtra
+    ("S13", 1980): EventInfo("AcGenMay1980", False),  # Maharashtra
+    ("S13", 1985): EventInfo("AcGenFeb1985", False),  # Maharashtra
+    ("S13", 1990): EventInfo("AcGenFeb1990", False),  # Maharashtra
+    ("S13", 1995): EventInfo("AcGenMar1995", False),  # Maharashtra
+    ("S13", 1999): EventInfo("AcGenOct1999", False),  # Maharashtra
+    ("S13", 2004): EventInfo("AcGenOct2004", False),  # Maharashtra
+    ("S13", 2009): EventInfo("AcGenOct2009", False),  # Maharashtra
+    ("S13", 2014): EventInfo("AcGenOct2014", False),  # Maharashtra
+    ("S13", 2019): EventInfo("AcGenOct2019", False),  # Maharashtra
+
     # Feb-2018 cohort: Tripura, Meghalaya, Nagaland.
     # NULL-cell handling added in statistical_report_detailed._to_int /
     # _to_float / _to_float_or_none: pre-2019 Section-10 XLSX use the
