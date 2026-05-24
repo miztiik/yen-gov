@@ -43,6 +43,7 @@ CATALOGUE_REL = "datasets/taxonomy/election_events.json"
 STATES_REL = "datasets/taxonomy/entities.json"
 ELECTIONS_REL = "datasets/elections"
 ELECTION_RESULTS_PARQUET_REL = "datasets/elections/election_results.parquet"
+ELECTION_RESULTS_PARTITION_GLOB_REL = "datasets/elections/state=*/election_results.parquet"
 INDICATORS_REL = "datasets/indicators/in"
 TOPIC_CATALOGUE_REL = "datasets/taxonomy/topics.json"
 INVENTORY_REL = "docs/reference/data-inventory.md"
@@ -159,14 +160,15 @@ def _election_slices_from_canonical(
     root: Path,
 ) -> dict[tuple[str, str], tuple[int, bool, bool]]:
     """Return ``{(event_id, state_code): (ac_count, has_summary, has_parties)}``
-    derived from ``datasets/elections/election_results.parquet``.
+    derived from canonical election-results Parquet. The current store is
+    Hive-partitioned at ``datasets/elections/state=*/election_results.parquet``;
+    the retired monolith path is still accepted for old tests and snapshots.
 
     Coverage was historically computed by walking
     ``datasets/elections/<event>/<state>/`` for ``results/<n>.json`` +
-    ``result.summary.json`` + ``parties.json``. Under the canonical pivot
-    (TODO/20260517-canonical-long-format-pivot.md row 1.8b, PR-O.2-minimal)
-    the citizen-frontend reads only the canonical Parquet, so coverage now
-    reads the same source-of-truth. Mapping:
+    ``result.summary.json`` + ``parties.json``. Under the canonical pivot the
+    citizen-frontend reads only the canonical Parquet, so coverage now reads
+    the same source-of-truth. Mapping:
 
     - ``ac_count``    : ``COUNT(DISTINCT entity_id)`` matching the AC entity
       pattern ``^IN-<state>-AC-<delim>-<eci_no>$`` for this ``period_label``.
@@ -185,8 +187,14 @@ def _election_slices_from_canonical(
     function returns an empty mapping, matching the prior "no files on
     disk" behaviour.
     """
-    parquet_path = root / ELECTION_RESULTS_PARQUET_REL
-    if not parquet_path.exists():
+    monolith_path = root / ELECTION_RESULTS_PARQUET_REL
+    partition_glob = root / ELECTION_RESULTS_PARTITION_GLOB_REL
+    partition_files = list((root / ELECTIONS_REL).glob("state=*/election_results.parquet"))
+    if monolith_path.exists():
+        read_target = monolith_path.as_posix()
+    elif partition_files:
+        read_target = partition_glob.as_posix()
+    else:
         return {}
 
     import duckdb
@@ -200,7 +208,7 @@ def _election_slices_from_canonical(
                 CASE
                     WHEN regexp_matches(entity_id, '^IN-[SU][0-9]{2}-AC-[0-9]+-[0-9]+$')
                         THEN 'ac'
-                    WHEN regexp_matches(entity_id, '^IN-[SU][0-9]{2}-PARTY-')
+                    WHEN regexp_matches(entity_id, '^IN-[SU][0-9]{2}-[A-Za-z]+[A-Za-z0-9]*-PARTY-')
                         THEN 'party'
                     WHEN regexp_matches(entity_id, '^IN-[SU][0-9]{2}-[A-Za-z]+[A-Za-z0-9]*$')
                         THEN 'state_rollup'
@@ -220,7 +228,7 @@ def _election_slices_from_canonical(
     """
     conn = duckdb.connect(database=":memory:")
     try:
-        rows = conn.execute(sql, [str(parquet_path)]).fetchall()
+        rows = conn.execute(sql, [read_target]).fetchall()
     finally:
         conn.close()
 
