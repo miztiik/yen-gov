@@ -111,6 +111,161 @@ def test_state_geographical_renewable_facet_is_sum_of_collapsed_subfuels() -> No
 
 
 # ---------------------------------------------------------------------------
+# C4.5 parity oracle — state-installed-capacity-snapshot-mw-{fuel}
+#
+# 3 cells per fuel = 15 raw 1:1 assertions. The CEA Monthly IC sheet is a
+# per-state per-fuel snapshot (single period, time="2026-03"), so each
+# canonical row is a verbatim copy of one shard row with no aggregation —
+# a mismatch unambiguously means the adapter or writer corrupted the value.
+# ---------------------------------------------------------------------------
+
+
+def test_c45_snapshot_coal_in_s24_2026() -> None:
+    """state-installed-capacity-snapshot-mw-coal, IN-S24 2026-03 = 25550.906."""
+    val = _query_value("IN-S24", 2026, "state-installed-capacity-snapshot-mw-coal")
+    assert val == pytest.approx(25550.906, abs=0.01), (
+        f"IN-S24 2026 ...-snapshot-mw-coal expected 25550.906, got {val!r}"
+    )
+
+
+def test_c45_snapshot_coal_in_s13_2026() -> None:
+    """state-installed-capacity-snapshot-mw-coal, IN-S13 2026-03 = 24714.238."""
+    val = _query_value("IN-S13", 2026, "state-installed-capacity-snapshot-mw-coal")
+    assert val == pytest.approx(24714.238, abs=0.01), (
+        f"IN-S13 2026 ...-snapshot-mw-coal expected 24714.238, got {val!r}"
+    )
+
+
+def test_c45_snapshot_coal_in_s06_2026() -> None:
+    """state-installed-capacity-snapshot-mw-coal, IN-S06 2026-03 = 16735.582."""
+    val = _query_value("IN-S06", 2026, "state-installed-capacity-snapshot-mw-coal")
+    assert val == pytest.approx(16735.582, abs=0.01), (
+        f"IN-S06 2026 ...-snapshot-mw-coal expected 16735.582, got {val!r}"
+    )
+
+
+def test_c45_snapshot_gas_in_s06_2026() -> None:
+    """state-installed-capacity-snapshot-mw-gas, IN-S06 2026-03 = 5615.72."""
+    val = _query_value("IN-S06", 2026, "state-installed-capacity-snapshot-mw-gas")
+    assert val == pytest.approx(5615.72, abs=0.01), (
+        f"IN-S06 2026 ...-snapshot-mw-gas expected 5615.72, got {val!r}"
+    )
+
+
+def test_c45_snapshot_gas_in_s13_2026() -> None:
+    """state-installed-capacity-snapshot-mw-gas, IN-S13 2026-03 = 3124.73."""
+    val = _query_value("IN-S13", 2026, "state-installed-capacity-snapshot-mw-gas")
+    assert val == pytest.approx(3124.73, abs=0.01), (
+        f"IN-S13 2026 ...-snapshot-mw-gas expected 3124.73, got {val!r}"
+    )
+
+
+def test_c45_snapshot_gas_in_u05_2026() -> None:
+    """state-installed-capacity-snapshot-mw-gas, IN-U05 2026-03 = 2007.414434."""
+    val = _query_value("IN-U05", 2026, "state-installed-capacity-snapshot-mw-gas")
+    assert val == pytest.approx(2007.414434, abs=0.000001), (
+        f"IN-U05 2026 ...-snapshot-mw-gas expected 2007.414434, got {val!r}"
+    )
+
+
+def test_c45_snapshot_hydro_in_s19_2026() -> None:
+    """state-installed-capacity-snapshot-mw-hydro, IN-S19 2026-03 = 3827.435354."""
+    val = _query_value("IN-S19", 2026, "state-installed-capacity-snapshot-mw-hydro")
+    assert val == pytest.approx(3827.435354, abs=0.000001), (
+        f"IN-S19 2026 ...-snapshot-mw-hydro expected 3827.435354, got {val!r}"
+    )
+
+
+def test_c45_snapshot_hydro_in_s08_2026() -> None:
+    """state-installed-capacity-snapshot-mw-hydro, IN-S08 2026-03 = 3706.8698620."""
+    val = _query_value("IN-S08", 2026, "state-installed-capacity-snapshot-mw-hydro")
+    assert val == pytest.approx(3706.8698620, abs=0.000001), (
+        f"IN-S08 2026 ...-snapshot-mw-hydro expected 3706.8698620, got {val!r}"
+    )
+
+
+def test_c45_snapshot_hydro_in_s24_2026() -> None:
+    """state-installed-capacity-snapshot-mw-hydro, IN-S24 2026-03 = 3652.222272."""
+    val = _query_value("IN-S24", 2026, "state-installed-capacity-snapshot-mw-hydro")
+    assert val == pytest.approx(3652.222272, abs=0.000001), (
+        f"IN-S24 2026 ...-snapshot-mw-hydro expected 3652.222272, got {val!r}"
+    )
+
+
+def test_c45_snapshot_nuclear_in_s22_2026() -> None:
+    """state-installed-capacity-snapshot-mw-nuclear, IN-S22 2026-03 = 1448.0."""
+    val = _query_value("IN-S22", 2026, "state-installed-capacity-snapshot-mw-nuclear")
+    assert val == pytest.approx(1448.0, abs=0.01), (
+        f"IN-S22 2026 ...-snapshot-mw-nuclear expected 1448.0, got {val!r}"
+    )
+
+
+def test_c45_snapshot_nuclear_in_s13_2026() -> None:
+    """state-installed-capacity-snapshot-mw-nuclear, IN-S13 2026-03 = 1068.66."""
+    val = _query_value("IN-S13", 2026, "state-installed-capacity-snapshot-mw-nuclear")
+    assert val == pytest.approx(1068.66, abs=0.01), (
+        f"IN-S13 2026 ...-snapshot-mw-nuclear expected 1068.66, got {val!r}"
+    )
+
+
+def test_c45_snapshot_nuclear_in_s06_2026() -> None:
+    """state-installed-capacity-snapshot-mw-nuclear, IN-S06 2026-03 = 1034.89."""
+    val = _query_value("IN-S06", 2026, "state-installed-capacity-snapshot-mw-nuclear")
+    assert val == pytest.approx(1034.89, abs=0.01), (
+        f"IN-S06 2026 ...-snapshot-mw-nuclear expected 1034.89, got {val!r}"
+    )
+
+
+def test_c45_snapshot_renewable_in_s20_2026() -> None:
+    """state-installed-capacity-snapshot-mw-renewable, IN-S20 2026-03 = 46608.04."""
+    val = _query_value("IN-S20", 2026, "state-installed-capacity-snapshot-mw-renewable")
+    assert val == pytest.approx(46608.04, abs=0.01), (
+        f"IN-S20 2026 ...-snapshot-mw-renewable expected 46608.04, got {val!r}"
+    )
+
+
+def test_c45_snapshot_renewable_in_s06_2026() -> None:
+    """state-installed-capacity-snapshot-mw-renewable, IN-S06 2026-03 = 45188.33."""
+    val = _query_value("IN-S06", 2026, "state-installed-capacity-snapshot-mw-renewable")
+    assert val == pytest.approx(45188.33, abs=0.01), (
+        f"IN-S06 2026 ...-snapshot-mw-renewable expected 45188.33, got {val!r}"
+    )
+
+
+def test_c45_snapshot_renewable_in_s13_2026() -> None:
+    """state-installed-capacity-snapshot-mw-renewable, IN-S13 2026-03 = 28933.63."""
+    val = _query_value("IN-S13", 2026, "state-installed-capacity-snapshot-mw-renewable")
+    assert val == pytest.approx(28933.63, abs=0.01), (
+        f"IN-S13 2026 ...-snapshot-mw-renewable expected 28933.63, got {val!r}"
+    )
+
+
+def test_c45_snapshot_row_count_per_fuel_is_35() -> None:
+    """Every CEA fuel emits exactly 35 per-state snapshot rows (one per
+    state/UT) in year=2026. Guards against the upstream-truncation case the
+    adapter's ``assert len(shard_rows) >= 30`` was placed to catch — and
+    pins the row-count delta (175 new rows = 5 fuels x 35 states) for
+    sprint accounting."""
+    con = duckdb.connect(":memory:")
+    try:
+        rows = con.execute(
+            f"SELECT indicator_id, COUNT(*) AS n FROM read_parquet('{PARQUET.as_posix()}') "
+            f"WHERE indicator_id LIKE 'state-installed-capacity-snapshot-mw-%' "
+            f"AND year = 2026 GROUP BY indicator_id ORDER BY indicator_id"
+        ).fetchall()
+    finally:
+        con.close()
+    counts = {row[0]: row[1] for row in rows}
+    expected = {
+        f"state-installed-capacity-snapshot-mw-{fuel}": 35
+        for fuel in ("coal", "gas", "hydro", "nuclear", "renewable")
+    }
+    assert counts == expected, (
+        f"snapshot-mw per-fuel row counts off: expected {expected!r}, got {counts!r}"
+    )
+
+
+# ---------------------------------------------------------------------------
 # D33.8 negative assert (per plan-doc §3.1 follow-up 6)
 # ---------------------------------------------------------------------------
 
