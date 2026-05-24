@@ -499,6 +499,87 @@
     ],
     "S21": [
       {
+        "event_id": "AcGenOct1979",
+        "kind": "assembly",
+        "display": "Sikkim Assembly · October 1979",
+        "polled_on": "1979-10-12",
+        "term_end_estimated": "1984-10-11",
+        "data_status": "complete",
+        "notes": "32 ACs. Public page records polling on 12 October 1979; event id follows the public polling month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay1985",
+        "kind": "assembly",
+        "display": "Sikkim Assembly · May 1985",
+        "polled_on": "1985-05-03",
+        "term_end_estimated": "1990-05-02",
+        "data_status": "complete",
+        "notes": "32 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov1989",
+        "kind": "assembly",
+        "display": "Sikkim Assembly · November 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1994-11-25",
+        "data_status": "complete",
+        "notes": "32 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov1994",
+        "kind": "assembly",
+        "display": "Sikkim Assembly · November 1994",
+        "polled_on": "1994-11-16",
+        "term_end_estimated": "1999-11-15",
+        "data_status": "complete",
+        "notes": "32 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenOct1999",
+        "kind": "assembly",
+        "display": "Sikkim Assembly · October 1999",
+        "polled_on": "1999-10-03",
+        "term_end_estimated": "2004-10-02",
+        "data_status": "complete",
+        "notes": "32 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay2004",
+        "kind": "assembly",
+        "display": "Sikkim Assembly · May 2004",
+        "polled_on": "2004-05-10",
+        "term_end_estimated": "2009-05-09",
+        "data_status": "complete",
+        "notes": "28 contested ACs reported in the panel slice; public results include 32 assembly seats with several unopposed returns. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenApr2009",
+        "kind": "assembly",
+        "display": "Sikkim Assembly · April 2009",
+        "polled_on": "2009-04-30",
+        "term_end_estimated": "2014-04-29",
+        "data_status": "complete",
+        "notes": "32 ACs. Public page records polling on 30 April 2009; event id follows the public polling month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenApr2014",
+        "kind": "assembly",
+        "display": "Sikkim Assembly · April 2014",
+        "polled_on": "2014-04-12",
+        "term_end_estimated": "2019-04-11",
+        "data_status": "complete",
+        "notes": "32 ACs. Public page records polling on 12 April 2014; event id follows the public polling month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenApr2019",
+        "kind": "assembly",
+        "display": "Sikkim Assembly · April 2019",
+        "polled_on": "2019-04-11",
+        "term_end_estimated": "2024-04-10",
+        "data_status": "complete",
+        "notes": "32 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenJun2024",
         "kind": "assembly",
         "display": "Sikkim Assembly · April 2024",

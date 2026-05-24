@@ -258,6 +258,18 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     ("U07", 2006): EventInfo("AcGenMay2006", False),  # Puducherry
     ("U07", 2011): EventInfo("AcGenApr2011", False),  # Puducherry
 
+    # Sikkim historical AE panel backfill (ECI Statistical Report
+    # transcriptions). Existing 2024 Section-10 slice remains the authority.
+    ("S21", 1979): EventInfo("AcGenOct1979", False),  # Sikkim
+    ("S21", 1985): EventInfo("AcGenMay1985", False),  # Sikkim
+    ("S21", 1989): EventInfo("AcGenNov1989", False),  # Sikkim
+    ("S21", 1994): EventInfo("AcGenNov1994", False),  # Sikkim
+    ("S21", 1999): EventInfo("AcGenOct1999", False),  # Sikkim
+    ("S21", 2004): EventInfo("AcGenMay2004", False),  # Sikkim
+    ("S21", 2009): EventInfo("AcGenApr2009", False),  # Sikkim
+    ("S21", 2014): EventInfo("AcGenApr2014", False),  # Sikkim
+    ("S21", 2019): EventInfo("AcGenApr2019", False),  # Sikkim
+
     # Nov-2023 Rajasthan (joins existing Nov-2023 four-state cohort).
     ("S20", 2023): EventInfo("AcGenNov2023", False),  # Rajasthan
 }
