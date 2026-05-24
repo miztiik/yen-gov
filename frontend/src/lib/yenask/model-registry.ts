@@ -40,13 +40,25 @@ export interface ModelEntry {
   readonly dtype: string;
   /**
    * Target device. "auto" lets the runtime pick (usually webgpu when
-   * available, falling back to wasm). The seed entry is pinned to
-   * "wasm" because onnxruntime-web's WebGPU backend currently crashes
-   * on q4f16 SmolLM2 (`Failed to download data from buffer: Mapping
-   * WebGPU buffer failed: Invalid buffer`) on multiple GPUs/drivers.
-   * Wasm is slower (~1-2 tok/s vs ~10-15 tok/s on WebGPU) but produces
-   * stable output. Future entries can opt back into "webgpu" or
-   * "auto" once the upstream bug is fixed. See plan-doc §17 D-19.
+   * available, falling back to wasm).
+   *
+   * Per-entry policy:
+   * - SmolLM2-360M / SmolLM2-135M are pinned to "wasm" because
+   *   onnxruntime-web's WebGPU backend reproducibly crashes on q4f16
+   *   SmolLM2 (`Failed to download data from buffer: Mapping WebGPU
+   *   buffer failed: Invalid buffer`) on multiple GPUs/drivers. Wasm
+   *   is slower (~1-2 tok/s vs ~10-15 tok/s on WebGPU) but stable.
+   *   See plan-doc §17 D-19.
+   * - TinyLlama / Qwen2.5-1.5B / Phi-3.5-mini are set to "auto". The
+   *   transformers.js-examples gallery ships WebGPU demos for Phi-3.5
+   *   and Qwen builds; we let the runtime pick WebGPU when supported
+   *   (10× speedup) and fall back to wasm on failure. The earlier
+   *   blanket "wasm" pin on these three was inherited copy-paste
+   *   discipline, not a verified bug — corrected per user direction
+   *   2026-05-24.
+   * - Re-pin to "wasm" on any entry where attempts_log records a
+   *   reproducible WebGPU runtime failure; add the symptom to the
+   *   `notes` field so the next reviewer doesn't undo it.
    */
   readonly device: ModelDevice;
   /**
@@ -143,7 +155,7 @@ export const MODEL_REGISTRY: readonly ModelEntry[] = [
     provider: "transformers-js",
     repo_id: "Xenova/TinyLlama-1.1B-Chat-v1.0",
     dtype: "q4",
-    device: "wasm",
+    device: "auto",
     estimated_download_mb: 600,
     estimated_ram_mb: 1500,
     notes:
@@ -151,7 +163,10 @@ export const MODEL_REGISTRY: readonly ModelEntry[] = [
       "ONNX build — project frozen since 2023; weaker instruction-" +
       "following than SmolLM2 despite ~3× the params (D-26 reason c). " +
       "Included for citizens who explicitly want a 1B-class model on " +
-      "a modest device.",
+      "a modest device. Device \"auto\" (not the D-19 wasm pin): the " +
+      "q4 build is a different quantisation from SmolLM2 q4f16 and " +
+      "the WebGPU crash is q4f16-SmolLM2 specific — let the runtime " +
+      "pick WebGPU when supported (corrected 2026-05-24).",
   },
   {
     // Added per D-24. The onnx-community repo publishes q4f16 builds
@@ -162,13 +177,18 @@ export const MODEL_REGISTRY: readonly ModelEntry[] = [
     provider: "transformers-js",
     repo_id: "onnx-community/Qwen2.5-1.5B-Instruct",
     dtype: "q4f16",
-    device: "wasm",
+    device: "auto",
     estimated_download_mb: 1220,
     estimated_ram_mb: 2300,
     notes:
       "Added per D-24 (Slice C registry expansion). Crosses the >1024 " +
       "MB Large-tier threshold so the picker shows the D-24 two-step " +
-      "confirm. Multilingual; strong on Indic prompts per Qwen2.5 card.",
+      "confirm. Multilingual; strong on Indic prompts per Qwen2.5 card. " +
+      "Device \"auto\" (not the D-19 wasm pin): Qwen2.5 has shipped " +
+      "WebGPU demos in the transformers.js-examples gallery; the " +
+      "q4f16-SmolLM2 WebGPU crash does not generalise to other model " +
+      "families. Let the runtime pick WebGPU when supported (corrected " +
+      "2026-05-24).",
   },
   {
     // Added per D-24. The `-onnx-web` suffix is the canonical
@@ -179,14 +199,19 @@ export const MODEL_REGISTRY: readonly ModelEntry[] = [
     provider: "transformers-js",
     repo_id: "onnx-community/Phi-3.5-mini-instruct-onnx-web",
     dtype: "q4f16",
-    device: "wasm",
+    device: "auto",
     estimated_download_mb: 2320,
     estimated_ram_mb: 4500,
     notes:
       "Added per D-24 (Slice C registry expansion). Largest registry " +
       "entry — D-24 Large-tier two-step confirm applies. May OOM on " +
       "phones / low-RAM laptops; the picker surfaces the D-24 OOM-class " +
-      "copy on failure. Strong instruction-following for its tier.",
+      "copy on failure. Strong instruction-following for its tier. " +
+      "Device \"auto\" (not the D-19 wasm pin): the upstream repo is " +
+      "literally named `-onnx-web` and Phi-3.5 ships in the " +
+      "transformers.js-examples WebGPU gallery. The q4f16-SmolLM2 " +
+      "WebGPU crash does not generalise to Phi-3.5. Let the runtime " +
+      "pick WebGPU when supported (corrected 2026-05-24).",
   },
 ] as const;
 
