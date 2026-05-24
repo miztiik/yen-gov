@@ -489,3 +489,280 @@ describe("loadIndicator — universal entry-point (Phase B-extension)", () => {
     expect(out).toBe(legacy);
   });
 });
+
+describe("PR 7c.5 — additive reader-switch for 7 P.1.B simple energy descriptors", () => {
+  // Contract tests for the 7 simple `kind: "single"` descriptors wired in
+  // PR 7c.5. Same shape as PR 7a invariants — catches accidental future
+  // edits to the wrong row or a typo'd table_id.
+
+  const PR_7C5_SIMPLE: ReadonlyArray<{
+    legacy_id: string;
+    canonical_id: string;
+    table_id: string;
+  }> = [
+    {
+      legacy_id: "energy/state_power_requirement_mu",
+      canonical_id: "state-electricity-requirement-mu",
+      table_id: "energy.energy_demand_supply",
+    },
+    {
+      legacy_id: "energy/state_power_availability_mu",
+      canonical_id: "state-electricity-availability-mu",
+      table_id: "energy.energy_demand_supply",
+    },
+    {
+      legacy_id: "energy/state_per_capita_availability_kwh",
+      canonical_id: "state-per-capita-electricity-availability-kwh",
+      table_id: "energy.energy_demand_supply",
+    },
+    {
+      legacy_id: "energy/state_acs_arr_gap_inr_per_kwh",
+      canonical_id: "state-acs-arr-gap-inr-per-kwh",
+      table_id: "energy.energy_distribution_performance",
+    },
+    {
+      legacy_id: "energy/state_distribution_billing_efficiency_pct",
+      canonical_id: "state-distribution-efficiency-pct-billing",
+      table_id: "energy.energy_distribution_performance",
+    },
+    {
+      legacy_id: "energy/state_distribution_collection_efficiency_pct",
+      canonical_id: "state-distribution-efficiency-pct-collection",
+      table_id: "energy.energy_distribution_performance",
+    },
+    {
+      legacy_id: "energy/state_distribution_td_loss_pct",
+      canonical_id: "state-distribution-efficiency-pct-td-loss",
+      table_id: "energy.energy_distribution_performance",
+    },
+  ];
+
+  it("registers all 7 PR 7c.5 simple descriptors as canonical-backed", () => {
+    for (const row of PR_7C5_SIMPLE) {
+      expect(isCanonicalBacked(row.legacy_id), `not allowlisted: ${row.legacy_id}`).toBe(true);
+    }
+  });
+
+  it("wires every PR 7c.5 simple slug to the expected canonical id + table (kind:single)", () => {
+    for (const row of PR_7C5_SIMPLE) {
+      const d = getCanonicalDescriptor(row.legacy_id);
+      expect(d, `descriptor missing for ${row.legacy_id}`).not.toBeNull();
+      expect(d!.kind, `descriptor for ${row.legacy_id} must be kind:single`).toBe("single");
+      if (d!.kind === "single") {
+        expect(d!.canonical_indicator_id).toBe(row.canonical_id);
+      }
+      expect(d!.table_id).toBe(row.table_id);
+    }
+  });
+
+  it("every PR 7c.5 simple meta block declares entity_kind=state + a citizen-readable unit", () => {
+    for (const row of PR_7C5_SIMPLE) {
+      const d = getCanonicalDescriptor(row.legacy_id)!;
+      expect(d.meta.id).toBe(row.canonical_id);
+      expect(d.meta.entity_kind).toBe("state");
+      expect(d.meta.time_grain).toBe("fiscal_year");
+      expect(d.meta.attribution_geography).toBe("where_administered");
+      expect(d.meta.unit.length).toBeGreaterThan(0);
+      expect(d.meta.title.length).toBeGreaterThan(0);
+    }
+  });
+
+  it("ACS-ARR descriptor flags both sign convention and policy goal in description (Jony)", () => {
+    const d = getCanonicalDescriptor("energy/state_acs_arr_gap_inr_per_kwh")!;
+    // The brief calls out the sign-convention copy fix: positive = loses
+    // money + closed by tariff hike / loss reduction / state subsidy.
+    expect(d.meta.description).toMatch(/positive/i);
+    expect(d.meta.description).toMatch(/tariff|subsidy|loss reduction/i);
+  });
+});
+
+describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
+  // The first kind:"facet-multiplexed" descriptor. Verifies the
+  // discriminated-union dispatch, hyphenated legacy facet labels,
+  // single-SQL fan-in, and child-sourced provenance.
+
+  const RPO_DESCRIPTOR = getCanonicalDescriptor("energy/state_rpo_compliance_pct")!;
+
+  it("registers the RPO legacy slug as canonical-backed", () => {
+    expect(isCanonicalBacked("energy/state_rpo_compliance_pct")).toBe(true);
+  });
+
+  it("descriptor is kind:facet-multiplexed with parent + 3 children", () => {
+    expect(RPO_DESCRIPTOR.kind).toBe("facet-multiplexed");
+    if (RPO_DESCRIPTOR.kind === "facet-multiplexed") {
+      expect(RPO_DESCRIPTOR.canonical_parent_indicator_id).toBe("state-rpo-compliance-pct");
+      expect(RPO_DESCRIPTOR.table_id).toBe("energy.energy_distribution_performance");
+      expect(RPO_DESCRIPTOR.facet_axis_id).toBe("rpo_segment");
+      expect(RPO_DESCRIPTOR.facet_values).toHaveLength(3);
+      const child_ids = RPO_DESCRIPTOR.facet_values.map((fv) => fv.canonical_child_id);
+      expect(child_ids).toEqual([
+        "state-rpo-compliance-pct-solar",
+        "state-rpo-compliance-pct-non-solar",
+        "state-rpo-compliance-pct-total",
+      ]);
+    }
+  });
+
+  it("uses HYPHENATED legacy facet labels (citizen-readable, NOT snake_case canonical value_id)", () => {
+    if (RPO_DESCRIPTOR.kind !== "facet-multiplexed") {
+      throw new Error("RPO descriptor must be facet-multiplexed");
+    }
+    const labels = RPO_DESCRIPTOR.facet_values.map((fv) => fv.legacy_facet_label);
+    expect(labels).toEqual(["solar", "non-solar", "total"]);
+    // Defensive: explicitly assert non-solar is hyphenated, NOT underscored
+    // (the canonical dimension_values.rpo_segment uses "non_solar"; the
+    // legacy shard + frontend renderer use "non-solar"). Easy regression
+    // to introduce by copy-paste from the catalogue row.
+    expect(labels).toContain("non-solar");
+    expect(labels).not.toContain("non_solar");
+  });
+
+  it("[mandatory] adapter fuses 3 child rows into one artifact with hyphenated facet labels", async () => {
+    mockedQuery
+      .mockResolvedValueOnce([
+        // 3 children × 1 state × 1 FY
+        {
+          indicator_id: "state-rpo-compliance-pct-solar",
+          entity_id: "IN-S22",
+          period_label: "2024-04",
+          value_numeric: 95.5,
+          source_id: "src-rpo",
+        },
+        {
+          indicator_id: "state-rpo-compliance-pct-non-solar",
+          entity_id: "IN-S22",
+          period_label: "2024-04",
+          value_numeric: 88.2,
+          source_id: "src-rpo",
+        },
+        {
+          indicator_id: "state-rpo-compliance-pct-total",
+          entity_id: "IN-S22",
+          period_label: "2024-04",
+          value_numeric: 92.1,
+          source_id: "src-rpo",
+        },
+      ])
+      .mockResolvedValueOnce([
+        {
+          source_id: "src-rpo",
+          producer: "NITI Aayog",
+          title: "India Climate & Energy Dashboard — RPO",
+          vintage: "FY 2024-25",
+          url_main: "https://iced.niti.gov.in/",
+        },
+      ]);
+    const result = await loadIndicatorFromCanonical(RPO_DESCRIPTOR);
+    // (1) hyphenated facet label survives end-to-end:
+    expect(result.rows.some((r) => r.facet === "non-solar"), "row.facet must be hyphenated 'non-solar'").toBe(true);
+    expect(result.rows.some((r) => r.facet === "solar")).toBe(true);
+    expect(result.rows.some((r) => r.facet === "total")).toBe(true);
+    // No row should accidentally carry the snake-case canonical value_id:
+    expect(result.rows.some((r) => r.facet === "non_solar")).toBe(false);
+  });
+
+  it("[mandatory] issues ONE SQL with `indicator_id IN (` covering all 3 children", async () => {
+    mockedQuery.mockResolvedValueOnce([]); // no observations, sources query is skipped
+    await loadIndicatorFromCanonical(RPO_DESCRIPTOR);
+    // Exactly one query (sources skipped because no source_ids harvested):
+    expect(mockedQuery).toHaveBeenCalledTimes(1);
+    const sql = mockedQuery.mock.calls[0][0] as string;
+    expect(sql).toMatch(/indicator_id\s+IN\s*\(/);
+    expect(sql).toMatch(/'state-rpo-compliance-pct-solar'/);
+    expect(sql).toMatch(/'state-rpo-compliance-pct-non-solar'/);
+    expect(sql).toMatch(/'state-rpo-compliance-pct-total'/);
+    expect(sql).toMatch(/FROM\s+energy_distribution_performance/);
+  });
+
+  it("[mandatory] aggregates sources from CHILD rows (parent has source_id=null per D29)", async () => {
+    mockedQuery
+      .mockResolvedValueOnce([
+        {
+          indicator_id: "state-rpo-compliance-pct-solar",
+          entity_id: "IN-S22",
+          period_label: "2024-04",
+          value_numeric: 95.5,
+          source_id: "src-rpo",
+        },
+        {
+          indicator_id: "state-rpo-compliance-pct-non-solar",
+          entity_id: "IN-S22",
+          period_label: "2024-04",
+          value_numeric: 88.2,
+          source_id: "src-rpo",
+        },
+      ])
+      .mockResolvedValueOnce([
+        {
+          source_id: "src-rpo",
+          producer: "NITI Aayog",
+          title: "ICED RPO",
+          vintage: "FY 2024-25",
+          url_main: "https://iced.niti.gov.in/",
+        },
+      ]);
+    const result = await loadIndicatorFromCanonical(RPO_DESCRIPTOR);
+    expect(result.sources).toHaveLength(1);
+    expect(result.sources[0].name).toBe("ICED RPO (FY 2024-25)");
+    // Sources SQL was the second call and queried by harvested child
+    // source_ids — not by parent (which has source_id=null and would
+    // produce zero rows).
+    const sourcesSql = mockedQuery.mock.calls[1][0] as string;
+    expect(sourcesSql).toMatch(/'src-rpo'/);
+  });
+
+  it("[mandatory] derives coverage.temporal from min/max across ALL fused child rows", async () => {
+    mockedQuery
+      .mockResolvedValueOnce([
+        // Different children cover different FYs — the parent's coverage
+        // must be the UNION (min across children → max across children).
+        {
+          indicator_id: "state-rpo-compliance-pct-solar",
+          entity_id: "IN-S22",
+          period_label: "2018-04",
+          value_numeric: 70.0,
+          source_id: "src-rpo",
+        },
+        {
+          indicator_id: "state-rpo-compliance-pct-non-solar",
+          entity_id: "IN-S22",
+          period_label: "2020-04",
+          value_numeric: 80.0,
+          source_id: "src-rpo",
+        },
+        {
+          indicator_id: "state-rpo-compliance-pct-total",
+          entity_id: "IN-S22",
+          period_label: "2024-04",
+          value_numeric: 92.0,
+          source_id: "src-rpo",
+        },
+      ])
+      .mockResolvedValueOnce([
+        {
+          source_id: "src-rpo",
+          producer: "NITI",
+          title: "ICED",
+          vintage: "FY25",
+          url_main: "https://example/",
+        },
+      ]);
+    const result = await loadIndicatorFromCanonical(RPO_DESCRIPTOR);
+    expect(result.coverage.temporal).toBe("2018-04 to 2024-04");
+  });
+
+  it("artifact's indicator.id is the parent (NOT any child); meta block carries parent fields", async () => {
+    mockedQuery.mockResolvedValueOnce([]);
+    const result = await loadIndicatorFromCanonical(RPO_DESCRIPTOR);
+    expect(result.indicator.id).toBe("state-rpo-compliance-pct");
+    expect(result.indicator.unit).toBe("%");
+    expect(result.indicator.entity_kind).toBe("state");
+  });
+
+  it("loadIndicatorIfCanonical dispatches the facet-multiplexed slug to the canonical path", async () => {
+    mockedQuery.mockResolvedValueOnce([]);
+    const out = await loadIndicatorIfCanonical("energy/state_rpo_compliance_pct");
+    expect(out).not.toBeNull();
+    expect(out!.indicator.id).toBe("state-rpo-compliance-pct");
+  });
+});
