@@ -503,6 +503,24 @@ def _ac_dim() -> AcDimRow:
     )
 
 
+def test_candidacy_row_accepts_large_historical_ballot_serial():
+    row = CandidacyRow(
+        candidacy_key="IN-S10-AC-1976-197-AcGenMay1985-C301",
+        person_id="1111111111111111",
+        ac_id="IN-S10-AC-1976-197",
+        election_id="AcGenMay1985",
+        ballot_serial=301,
+        party_id="parties.IN.IND",
+        rank=301,
+        votes_polled=1.0,
+        vote_share_pct=0.0,
+        won=False,
+        source_id="src-test00000001",
+    )
+
+    assert row.candidacy_key.endswith("-C301")
+
+
 def _party_dim() -> PartyDimRow:
     return PartyDimRow(
         party_id="parties.IN.DMK",

@@ -420,7 +420,7 @@ Rejected: `IN-S22-AC-MYLAPORE` (renames silently rewrite history); LGD codes (LG
 
 Rejected: `parties.IN.<eci_code>` (ECI codes are internal serials that mutate).
 
-**Candidate entity_id** — per-contest only: `<AC_ID>-<period_label>-C<eci_serial>`, e.g. `IN-S22-AC-2008-167-AcGenMay2026-C03`. The `C<NN>` suffix is the per-AC ECI serial (the order candidates appear on the ballot). Cross-election person identity is explicitly NOT a Phase 1.1 capability — yen-gov has no signal to solve it today (no affidavit fingerprinting, no Aadhaar mapping). Querying "every contest S. Vijayakumar fought" is flagged as open follow-up under §14.
+**Candidate entity_id** — per-contest only: `<AC_ID>-<period_label>-C<eci_serial>`, e.g. `IN-S22-AC-2008-167-AcGenMay2026-C03`. The `C<serial>` suffix is the per-AC ECI serial (the order candidates appear on the ballot); it is zero-padded to two digits for ordinary fields but may widen to three digits for large historical fields such as Karnataka 1985 Belgaum. Cross-election person identity is explicitly NOT a Phase 1.1 capability — yen-gov has no signal to solve it today (no affidavit fingerprinting, no Aadhaar mapping). Querying "every contest S. Vijayakumar fought" is flagged as open follow-up under §14.
 
 Candidate attributes (name, party_id, gender, age, education, profession) live in a sibling dim table `datasets/elections/candidates.parquet`, joined on candidate `entity_id`. Observations.parquet stays one-fact-per-row.
 

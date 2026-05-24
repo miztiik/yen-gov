@@ -76,9 +76,9 @@ def candidate_entity_id(ac_id: str, period_label: str, ballot_serial: int) -> st
         >>> candidate_entity_id("IN-S22-AC-2008-167", "AcGenMay2026", 3)
         'IN-S22-AC-2008-167-AcGenMay2026-C03'
     """
-    if ballot_serial < 1 or ballot_serial > 99:
-        # 99 is a generous ceiling — ACs typically have <40 candidates including
-        # NOTA; ballot serials beyond two digits never appear in practice.
+    if ballot_serial < 1 or ballot_serial > 999:
+        # Karnataka 1985 Belgaum has 301 candidates, so historical ballots need
+        # a three-digit ceiling while still rejecting obvious parse corruption.
         raise ValueError(f"Implausible ballot serial: {ballot_serial}")
     return f"{ac_id}-{period_label}-C{ballot_serial:02d}"
 
