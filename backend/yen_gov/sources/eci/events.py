@@ -125,6 +125,18 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     ("S16", 2013): EventInfo("AcGenNov2013", False),  # Mizoram
     ("S16", 2018): EventInfo("AcGenNov2018", False),  # Mizoram
 
+    # Nagaland statewise AE panel backfill. 1974 stays deferred as pre-1977;
+    # 2018/2023 stay on existing Section-10 sources.
+    ("S17", 1977): EventInfo("AcGenNov1977", False),  # Nagaland
+    ("S17", 1982): EventInfo("AcGenNov1982", False),  # Nagaland
+    ("S17", 1987): EventInfo("AcGenNov1987", False),  # Nagaland
+    ("S17", 1989): EventInfo("AcGenJan1989", False),  # Nagaland
+    ("S17", 1993): EventInfo("AcGenFeb1993", False),  # Nagaland
+    ("S17", 1998): EventInfo("AcGenFeb1998", False),  # Nagaland
+    ("S17", 2003): EventInfo("AcGenFeb2003", False),  # Nagaland
+    ("S17", 2008): EventInfo("AcGenMar2008", False),  # Nagaland
+    ("S17", 2013): EventInfo("AcGenFeb2013", False),  # Nagaland
+
     # Historical hand-imports (2016-2023) from old.eci.gov.in Section 10
     # XLSX dumps. No live-results portal; no Statistical Report API.
     # Polling-month event_ids researched against Wikipedia/ECI archives.
