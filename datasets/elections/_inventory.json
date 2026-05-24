@@ -1187,6 +1187,32 @@
       }
     },
     {
+      "election_id": "AcGenApr2014",
+      "state": "S29",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 119,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenDec2018",
+      "state": "S29",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 119,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
       "election_id": "AcGenApr1996",
       "state": "U07",
       "source_input": "eci_ae_panel",
