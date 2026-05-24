@@ -1,7 +1,7 @@
 # ADR-0024: Backend Aggregator (not frontend adapter) for facetted indicators
 
-**Last Updated**: 2026-05-14
-**Status**: accepted
+**Last Updated**: 2026-05-25
+**Status**: superseded by PR 7b (2026-05-25) — the per-state `state_installed_capacity_by_source_mw` shard, lifted by the canonical-store pivot, carries the facetted shape natively; the backend composer and the composed `installed_capacity_by_source_mw.json` artifact were retired. The Pipes-and-Filters / Aggregator-vs-frontend-Adapter reasoning recorded below remains the doctrine for any future facetted composition need where a single upstream shard cannot satisfy the chart.
 
 ## Context
 

@@ -505,7 +505,6 @@ def test_no_new_sub_fuel_shards_check_passes_on_current_fuel_set(tmp_path: Path)
             "datasets/indicators/in/energy/installed_capacity_thermal_mw.json",
             # Aggregate markers
             "datasets/indicators/in/energy/installed_capacity_total_mw.json",
-            "datasets/indicators/in/energy/installed_capacity_by_source_mw.json",
             # state-prefixed aggregate markers
             "datasets/indicators/in/energy/state_installed_capacity_by_source_mw.json",
             "datasets/indicators/in/energy/state_installed_capacity_total_mw.json",

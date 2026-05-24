@@ -33,9 +33,11 @@ DELIBERATELY NOT LIFTED:
 * ``installed_capacity_{thermal,total}_mw.json`` — D33.8 hard drop, the
   catalogue does NOT define a ``-total-mw`` / ``-thermal-mw`` indicator.
   Totals compute on-read from per-fuel children.
-* ``installed_capacity_by_source_mw.json``, ``installed_mw_by_state.json``
-  — superseded by per-fuel CEA shards; both are HARD DROPs per plan-doc
-  TODO row 0e.7 P.1.A scope list.
+* ``installed_mw_by_state.json`` — superseded by per-fuel CEA shards;
+  HARD DROP per plan-doc TODO row 0e.7 P.1.A scope list. (The legacy
+  facetted composite ``installed_capacity_by_source_mw.json`` was
+  retired in PR 7b alongside the composer that produced it; see
+  ADR-0024 "Superseded" note.)
 * ``state-installed-capacity-allocated-mw-{fuel}`` children — the per-fuel
   ALLOCATED data does not exist in the lifted shards at FY granularity
   (ICED Deep Dive is per-FY publisher total only, no per-fuel breakdown).

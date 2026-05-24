@@ -1,6 +1,6 @@
 # Indicator system
 
-> **Status**: live as of 2026-05-14. Schema `indicator.schema.json` v1.2; renderers `IndicatorChoropleth.svelte` (default trio) and `StackedTrend.svelte` (facetted). First consumers: `energy/installed_mw_by_state` (choropleth on TN/KL/AS/WB state hubs) and `energy/installed_capacity_by_source_mw` (stacked-trend on `/t/energy`, composed by `backend/yen_gov/composers/energy_capacity_by_source.py` per ADR-0024).
+> **Status**: live as of 2026-05-14. Schema `indicator.schema.json` v1.2; renderers `IndicatorChoropleth.svelte` (default trio) and `StackedTrend.svelte` (facetted). First consumer: `energy/installed_mw_by_state` (choropleth on TN/KL/AS/WB state hubs). The `energy/installed_capacity_by_source_mw` stacked-trend artifact composed by `backend/yen_gov/composers/energy_capacity_by_source.py` per ADR-0024 was retired in PR 7b; the StackedTrend adapter contract still exists (tested via inline synthetic fixture in `frontend/src/lib/charts/stacked-trend/adapter-indicator.test.ts`) and is reachable from `stacked-trend-v2/migrate.ts`.
 >
 > v1.2 additive fields (2026-05-14): optional `chart_type` (`choropleth` / `ranked` / `stacked-trend`) and `default_mode` (`absolute` / `percent`). Topic-catalogue v1.2 mirrors `chart_type` + `dimension` at the artifact entry level so `TopicLanding.svelte` can dispatch the right renderer without peeking at every indicator JSON. See [`charts/stacked-trend.md`](./charts/stacked-trend.md) for the chart's contract.
 

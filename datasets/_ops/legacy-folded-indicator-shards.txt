@@ -56,7 +56,6 @@ datasets/indicators/in/economy/state_sectoral_gva_constant_2011_12_inr_lakh_cror
 datasets/indicators/in/economy/state_sectoral_gva_current_inr_lakh_crore.json
 datasets/indicators/in/energy/india_capacity_pipeline_gw.json
 datasets/indicators/in/energy/india_thermal_capacity_retired_mw.json
-datasets/indicators/in/energy/installed_capacity_by_source_mw.json
 datasets/indicators/in/energy/installed_capacity_coal_mw.json
 datasets/indicators/in/energy/installed_capacity_gas_mw.json
 datasets/indicators/in/energy/installed_capacity_hydro_mw.json

@@ -190,15 +190,6 @@
       "artifacts": [
         {
           "kind": "indicator",
-          "id": "energy/installed_capacity_by_source_mw",
-          "default": true,
-          "featured": true,
-          "scope": "national",
-          "chart_type": "stacked-trend",
-          "dimension": "power_source"
-        },
-        {
-          "kind": "indicator",
           "id": "energy/installed_capacity_total_mw",
           "default": false,
           "featured": true,
@@ -365,8 +356,8 @@
         {
           "kind": "indicator",
           "id": "energy/state_per_capita_availability_kwh",
-          "default": false,
-          "featured": false,
+          "default": true,
+          "featured": true,
           "scope": "state"
         },
         {

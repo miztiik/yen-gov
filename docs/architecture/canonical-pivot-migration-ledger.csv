@@ -54,7 +54,6 @@ datasets/elections/AcGenMay2026,elections,migrate,1,elections,,TN 2026 + KL 2026
 #
 # ----- ENERGY (Phase 2) — 41 legacy artifacts; heavy consolidation via D26 facet-explode.
 # ----- See D33.2 (distribution losses), D33.8 (fuel_type=total → compute-on-read).
-datasets/indicators/in/energy/installed_capacity_by_source_mw.json,energy,consolidate,2,state-installed-capacity-mw,{},Parent indicator. Facet-explode children carry fuel_type. See D33.8: fuel_type=total is computed at read time not stored.
 datasets/indicators/in/energy/installed_capacity_coal_mw.json,energy,consolidate,2,state-installed-capacity-mw,"{""fuel_type"":""coal""}",Facet-explode child of state-installed-capacity-mw.
 datasets/indicators/in/energy/installed_capacity_gas_mw.json,energy,consolidate,2,state-installed-capacity-mw,"{""fuel_type"":""gas""}",Facet-explode child.
 datasets/indicators/in/energy/installed_capacity_hydro_mw.json,energy,consolidate,2,state-installed-capacity-mw,"{""fuel_type"":""hydro""}",Facet-explode child.
