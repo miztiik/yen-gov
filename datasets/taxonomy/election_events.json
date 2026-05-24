@@ -26,6 +26,96 @@
     ],
     "S02": [
       {
+        "event_id": "AcGenFeb1978",
+        "kind": "assembly",
+        "display": "Arunachal Pradesh Assembly · February 1978",
+        "polled_on": "1978-02-25",
+        "term_end_estimated": "1983-02-24",
+        "data_status": "complete",
+        "notes": "30 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenJan1980",
+        "kind": "assembly",
+        "display": "Arunachal Pradesh Assembly · January 1980",
+        "polled_on": "1980-01-03",
+        "term_end_estimated": "1985-01-02",
+        "data_status": "complete",
+        "notes": "30 ACs. Public page records polling on 3 January 1980; event id follows the public polling month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenDec1984",
+        "kind": "assembly",
+        "display": "Arunachal Pradesh Assembly · December 1984",
+        "polled_on": "1984-12-01",
+        "term_end_estimated": "1989-11-30",
+        "data_status": "complete",
+        "notes": "30 ACs. Poll day recorded as first of month because the public page does not expose a specific poll day in fetched content. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMar1990",
+        "kind": "assembly",
+        "display": "Arunachal Pradesh Assembly · March 1990",
+        "polled_on": "1990-03-01",
+        "term_end_estimated": "1995-02-28",
+        "data_status": "complete",
+        "notes": "60 ACs. Poll day recorded as first of month because the public page does not expose a specific poll day in fetched content. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMar1995",
+        "kind": "assembly",
+        "display": "Arunachal Pradesh Assembly · March 1995",
+        "polled_on": "1995-03-01",
+        "term_end_estimated": "2000-02-29",
+        "data_status": "complete",
+        "notes": "60 ACs. Poll day recorded as first of month because the public page does not expose a specific poll day in fetched content. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenOct1999",
+        "kind": "assembly",
+        "display": "Arunachal Pradesh Assembly · October 1999",
+        "polled_on": "1999-10-03",
+        "term_end_estimated": "2004-10-02",
+        "data_status": "complete",
+        "notes": "59 contested ACs reported in the panel slice; public results include 60 assembly seats with at least one unopposed return. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenOct2004",
+        "kind": "assembly",
+        "display": "Arunachal Pradesh Assembly · October 2004",
+        "polled_on": "2004-10-07",
+        "term_end_estimated": "2009-10-06",
+        "data_status": "complete",
+        "notes": "57 contested ACs reported in the panel slice; public results include 60 assembly seats with unopposed returns. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenOct2009",
+        "kind": "assembly",
+        "display": "Arunachal Pradesh Assembly · October 2009",
+        "polled_on": "2009-10-13",
+        "term_end_estimated": "2014-10-12",
+        "data_status": "complete",
+        "notes": "60 ACs. Public page records polling on 13 October 2009; event id follows the public polling month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenApr2014",
+        "kind": "assembly",
+        "display": "Arunachal Pradesh Assembly · April 2014",
+        "polled_on": "2014-04-09",
+        "term_end_estimated": "2019-04-08",
+        "data_status": "complete",
+        "notes": "60 ACs. Public page records polling on 9 April 2014; event id follows the public polling month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenApr2019",
+        "kind": "assembly",
+        "display": "Arunachal Pradesh Assembly · April 2019",
+        "polled_on": "2019-04-11",
+        "term_end_estimated": "2024-04-10",
+        "data_status": "complete",
+        "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenJun2024",
         "kind": "assembly",
         "display": "Arunachal Pradesh Assembly · April 2024",
