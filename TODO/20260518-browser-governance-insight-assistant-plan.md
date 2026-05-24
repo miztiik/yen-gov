@@ -1,8 +1,8 @@
 # YENASK browser governance insight assistant plan
 
-**Last Updated**: 2026-05-19
-**Status**: Planning scratchpad. User approved `labs/yenask/` and Phase 1 model-free Parquet assistant shell; model runtime implementation remains unapproved pending Phase 2 spike.
-**User direction captured here**: explore only; if a scratch note is needed, keep it in `TODO/`; no production code changes in this pass.
+**Last Updated**: 2026-05-24
+**Status**: **IN IMPLEMENTATION (autonomous)**. User approved autonomous delivery on 2026-05-24. Phase 1 (model-free shell) in PR-1; Phase 2 (smallest-viable SLM with config-driven swappable adapter) in PR-2.
+**User direction captured here (2026-05-24)**: Implement the full plan autonomously. Smallest model first; config-driven so models are swappable. Reuse existing `frontend/` assets (do not rebuild). Lab lives INSIDE `frontend/` as a dev route (NOT a standalone Vite app under `labs/`) — pattern mirrors `/dev/charts-sandbox` and `/dev/duckdb-harness`. Removal contract: lab → main is allowed; main → lab is forbidden; deleting the lab leaves the main app intact. Consult custom agents on doubts; defer to their judgement. Track every implementation decision + trade-off in §17 below so the design knowledge can be decomposed into ADRs / subsystem docs once delivery is done.
 
 ## 1. One-line summary
 
@@ -684,3 +684,218 @@ Proceed only after user approval of these choices:
 3. Treat Phase 2 as a runtime spike, not a settled runtime commitment.
 4. Try Transformers.js/Gemma 4 ONNX first for the lab because its remote-first/browser-cache workflow fits the lab bootstrap better; keep LiteRT/MediaPipe as the serious comparison path if Transformers.js fails or underperforms.
 5. Do not start Phase 2 free-text model work until readiness, cache/storage, and compiler-owned provenance/methodology contracts are accepted.
+
+## 17. Design decisions log (implementation, 2026-05-24 onward)
+
+This section is the **running journal of every implementation decision**, with rationale and trade-offs, recorded as the autonomous implementation lands. Each entry is dated and ID'd. When PR-N closes, the relevant entries here become candidate source material for either (a) promotion into an ADR under `docs/architecture/decisions/` if they meet Holy Law #4 (credible rejected alternative + non-trivial reversal cost + genuinely cross-cutting), or (b) absorption into the relevant subsystem doc under `docs/architecture/<area>/` for current-shape narrative.
+
+This is not a chat log. Each entry MUST capture: (1) what was decided, (2) what was rejected and why, (3) what the trade-off was, (4) where in the codebase the decision binds.
+
+### D-01 — Lab lives INSIDE `frontend/` as a dev route, NOT as a standalone `labs/yenask/` Vite app
+
+**Date**: 2026-05-24. **PR**: PR-1. **Source**: user direction overriding Gregor's Q1.
+
+**What was decided**: YENASK ships as `frontend/src/routes/Yenask.svelte` mounted at `/dev/yenask`, with lab-internal libs under `frontend/src/lib/yenask/`. No new top-level `labs/` directory; CLAUDE.md §3 unchanged.
+
+**What was rejected**: standalone Vite app at `labs/yenask/` with its own package.json, lockfile, dev port (5175), and `serveDatasets()` middleware duplication. This was the original plan §10 and Gregor's locked Q1 + Q4.
+
+**Why rejected**: (a) The user pointed out that an existing pattern already serves this exact need — see `frontend/src/routes/Psephlab.svelte` (+ `frontend/src/lib/psephlab/`), `frontend/src/routes/DevChartsSandbox.svelte`, `frontend/src/routes/DuckDbHarness.svelte`. All three are dev-only routes inside `frontend/`, reuse the production seam (`lib/duckdb.ts`, `lib/charts/*`, `lib/colors/*`), and are not citizen-discoverable (no `LeftRail` entry). (b) "Reuse, don't rebuild" — duplicating the DuckDB seam into `labs/yenask/src/lib/duckdb-client.ts` would have been ~150 lines of redundant code that would drift from the production seam over time. (c) "Removing the lab must leave main intact" can be achieved with a one-way import rule (lab → main allowed; main → lab forbidden) without physical app separation. (d) Lab eventually graduates INTO the project; isolation creates a costly merge later.
+
+**Trade-off accepted**: tighter coupling to `frontend/`'s build, test, and lint pipeline (one broken `frontend/` build breaks the lab too). Justified because the production seam is the contract surface the lab needs to validate against; coupling it forces alignment from day one.
+
+**Removal contract (binds the decision)**: ONLY `frontend/src/lib/yenask/` and `frontend/src/routes/Yenask.svelte` may import yenask-internal symbols. Removing the lab = `git rm` those two paths + delete two lines from `frontend/src/main.ts` (import + route registration). No other `frontend/` code touches yenask. Enforced informally by code review for now; formal enforcement (boundary contract test) deferred to PR-3+ if needed.
+
+**Where it binds**: `frontend/src/main.ts` (route registration), `frontend/src/lib/yenask/` (lab-internal libs), `frontend/src/routes/Yenask.svelte` (lab UI shell).
+
+### D-02 — Reuse existing `frontend/` primitives instead of rebuilding
+
+**Date**: 2026-05-24. **PR**: PR-1. **Source**: user direction.
+
+**What was decided**: The lab imports directly from production `frontend/src/lib/`:
+- `lib/duckdb.ts` — DuckDB-WASM singleton + manifest-driven view registration
+- `lib/charts/*` — chart primitives (ChartShell, TimeSeriesLine, OrderedCategoryBar, HorizontalGroupedBar, etc.)
+- `lib/SourceListV2.svelte` + `lib/source-list-v2/` — provenance strip (Holy Law #9 surface)
+- `lib/colors/*` — color tokens
+- `lib/format`, `lib/url`, `lib/states.svelte`, `lib/electoral` — utilities
+
+**What was rejected**: duplicating any of these into `frontend/src/lib/yenask/`. The "rule of three" (Fowler) is moot when the SAME consumer pattern (dev route reusing prod libs) is already proven in three places (Psephlab, DevChartsSandbox, DuckDbHarness).
+
+**Trade-off accepted**: lab tracks production refactors. A breaking change to e.g. `lib/duckdb.ts`'s `query()` signature would break yenask too. Justified because the lab IS the testbed for "is the production seam good enough to support a new consumer with novel demands?"; co-evolution is the point.
+
+**Where it binds**: every `import` in `frontend/src/lib/yenask/**/*.ts` and `frontend/src/routes/Yenask.svelte` that targets `../<production-lib>` or `../../lib/<production-lib>`.
+
+### D-03 — InsightIntent contract is TS-Zod only; no `datasets/schemas/` JSON Schema mirror
+
+**Date**: 2026-05-24. **PR**: PR-1. **Source**: Gregor Q2 (preserved verbatim from the original roundtable; only the path changes per D-01).
+
+**What was decided**: `InsightIntent` lives at `frontend/src/lib/yenask/contracts/insight-intent.ts` as a Zod schema. The schema carries `version: z.literal("insight.intent.v0")` as a REQUIRED discriminator. v1 would be a new file, not a silent bump.
+
+**What was rejected**: (a) mirror to `datasets/schemas/insight-intent.schema.json` — conflates lab-internal in-process types with on-disk data contracts that ship in `datasets/`; falsely subjects the schema to §11 versioning ceremony; pollutes `datasets-conform.test.ts` ajv pass. (b) auto-emit a JSON Schema artifact from the Zod via `zod-to-json-schema` — YAGNI; add the day a non-lab consumer exists.
+
+**Trade-off accepted**: the InsightIntent is invisible to ajv-based dataset validation. Justified because it never persists, never enters Parquet, never ships in `datasets/`. The Zod parse at the model→compiler boundary is the only enforcement that matters.
+
+**Where it binds**: `frontend/src/lib/yenask/contracts/insight-intent.ts`; vitest tests assert Zod-rejection on unknown enums / out-of-range limits / unsupported concepts.
+
+### D-04 — SemanticCatalogue derived from manifest + taxonomy parquets at startup; concepts hand-authored
+
+**Date**: 2026-05-24. **PR**: PR-1. **Source**: Gregor Q3.
+
+**What was decided**: `frontend/src/lib/yenask/semantic-catalogue.ts` exports `loadSemanticCatalogue(): Promise<SemanticCatalogue>`. Implementation derives `tables / states / election_periods / parties / sources` from `datasets/manifest.json` + `taxonomy.sources` + `elections.dim_acs` + `elections.dim_parties`. The `concepts[]` array (citizen-question → query-template mapping) is hand-authored as a TS const in a sibling file `frontend/src/lib/yenask/concepts.ts`.
+
+**What was rejected**: (a) hardcoded TS const for the entire catalogue — contradicts "defaults from discovered values, not schema literals"; forecloses Phase 5+ swap to a generated control-plane artifact. (b) JSON fixture — same problem as (a) with extra dishonesty about async I/O.
+
+**Trade-off accepted**: a small startup cost for the lab (~3 DuckDB queries against small dim tables; 4,112 row `dim_acs`, 32 row `dim_parties`, 84 row `sources`). Justified because the interface is what matters for evolution — same `loadSemanticCatalogue()` signature swaps source from "derive at startup" → "fetch generated control-plane artifact" in Phase 5+ with zero caller change.
+
+**Hard rule**: the catalogue loader MUST NOT issue any `FROM elections.election_results` or any `FROM <family>_<role>` query at startup. Fact-table scans are forbidden. Enforced by `frontend/src/lib/yenask/semantic-catalogue.no-fact-scan.test.ts` which spies on the mocked `query()` and asserts every SQL string matches an allowlist (taxonomy + dim tables only).
+
+**Where it binds**: `frontend/src/lib/yenask/semantic-catalogue.ts`, `frontend/src/lib/yenask/concepts.ts`, the no-fact-scan vitest.
+
+### D-05 — Compiler is a pure function; reuses `lib/duckdb.ts` directly (user override of Gregor Q4)
+
+**Date**: 2026-05-24. **PR**: PR-1. **Source**: Gregor Q4 reasoning preserved; the "no `frontend/src/` import" rule REVERSED by user direction per D-01.
+
+**What was decided**: `frontend/src/lib/yenask/compile-intent.ts` exports `compileIntent(intent: InsightIntent, catalogue: SemanticCatalogue): DuckDBPlan` as a pure function (no I/O, no DuckDB import). Execution lives in `frontend/src/lib/yenask/execute-plan.ts` which calls `query()` from `../duckdb` (production seam, no duplication).
+
+**What was rejected**: (a) one fused `compileAndExecute()` function — fuses two concerns (SQL composition + DB call) making the compiler untestable without WASM. (b) extracting `duckdb.ts` into a shared `frontend/src/lib/shared/` package — premature (rule of three not yet met for the seam itself; only the test-mock pattern is repeated).
+
+**Trade-off accepted**: two-step pipeline (compile → execute) adds one function-call hop. Justified because the compiler is now testable in vitest without booting DuckDB-WASM (asserts SQL strings against snapshot), and the executor is a thin wrapper that's covered by Playwright e2e.
+
+**Where it binds**: `frontend/src/lib/yenask/compile-intent.ts` (pure), `frontend/src/lib/yenask/execute-plan.ts` (impure), `frontend/src/lib/yenask/types.ts` (DuckDBPlan + AnswerViewModel types).
+
+### D-06 — Provenance is REQUIRED non-empty at the Zod type level; 3 test cases enforce
+
+**Date**: 2026-05-24. **PR**: PR-1. **Source**: Gregor Q5 + Holy Law #9.
+
+**What was decided**: `AnswerViewModelSchema` has `source_strip: z.array(SourceRowSchema).min(1)` (non-empty REQUIRED) and `provenance_status: z.enum(["joined", "missing"])` (REQUIRED). Three vitest cases enforce the invariant.
+
+**What was rejected**: (a) optional `source_strip` with runtime "if (sources.length) render strip" — silent failure path; the citizen can be shown a result with no source visible. (b) synthesise an "unknown source" row silently — band-aid (Holy Law #5); citizen must SEE the "unattested" notice or the gate is theatre.
+
+**Trade-off accepted**: the compiler now MUST join `taxonomy.sources` for every result. If the join finds zero rows, the compiler MUST emit a synthesised placeholder row tagged `confidence_tier: "bronze"` + `verification_method: "editorial"` + `producer: "yen-gov"` + `notes: "source unattested — data corruption suspected"` AND set `provenance_status: "missing"`. The renderer then surfaces a visible "source unattested — do not cite" notice. Slight verbosity in the loader for citizen-honesty guarantee.
+
+**Where it binds**: `frontend/src/lib/yenask/contracts/answer-viewmodel.ts`, `frontend/src/lib/yenask/compile-intent.ts` (provenance JOIN), `frontend/src/lib/yenask/Yenask.svelte` (renderer surfaces the notice), three vitest files (`answer-viewmodel-type.test.ts`, `compile-attaches-provenance.test.ts`, `provenance-miss-surfaces-notice.test.ts`).
+
+### D-07 — Phase 1 ships as ONE PR with two commits inside
+
+**Date**: 2026-05-24. **PR**: PR-1. **Source**: Gregor Q6.
+
+**What was decided**: PR-1 = scaffold + working shell in a single PR, two commits inside for review clarity:
+- Commit 1: route registration in `main.ts` + `lib/yenask/` skeleton (types, contracts/, empty modules) + this design-log section + `lib/yenask/AGENTS.md`
+- Commit 2: working shell (semantic-catalogue + compile-intent + execute-plan + 4 canned intents + Yenask.svelte + tests + 1 Playwright e2e + §13 browser-smoke evidence in commit body)
+
+**What was rejected**: two PRs (topology+scaffold; then compiler+UI+tests) — would have shipped an empty stub in PR-1a (violates CLAUDE.md §3 "no empty stubs"), doubles review cost, creates reversal hazard if PR-1b is delayed, halves the walking-skeleton proof.
+
+**Trade-off accepted**: PR-1 is ~20 files / ~800 lines. Reviewable in one sitting; one `git revert` rolls back cleanly.
+
+**Where it binds**: this PR.
+
+### D-08 — Test seam: `vi.mock("../duckdb")` for vitest; Playwright e2e owns real DuckDB-WASM round-trip
+
+**Date**: 2026-05-24. **PR**: PR-1. **Source**: Fowler test-tier matrix (mirrors `lib/psephlab/canonical-loaders.test.ts` and `lib/view-models/constituency.test.ts`).
+
+**What was decided**: Unit + contract + integration tests in vitest mock `../duckdb` via `vi.mock("../duckdb", () => ({ query: vi.fn(), registerSlice: vi.fn(), registerTable: vi.fn() }))` per CLAUDE.md §15 carve-out (the loader's contract IS the IO boundary). The real DuckDB-WASM round-trip is asserted by ONE Playwright e2e at `frontend/e2e/yenask.spec.ts` that navigates to `/dev/yenask`, triggers one canned intent, and asserts the rendered DOM has rows + source strip.
+
+**What was rejected**: (a) booting DuckDB-WASM under jsdom in vitest — slow (~30s init), unreliable across CI runs. (b) running everything under Playwright — slow feedback loop kills TDD. (c) abstracting DuckDB behind a new interface and mocking that — premature; the existing `vi.mock("../duckdb", ...)` pattern is already proven in two places.
+
+**Trade-off accepted**: SQL composition is asserted via string match in vitest (precise but brittle to whitespace); the real query correctness is asserted only in Playwright (slow but real). Justified — SQL strings change rarely; when they do, the snapshot diff makes intent obvious.
+
+**Where it binds**: every `frontend/src/lib/yenask/*.test.ts` file uses `vi.mock("../duckdb", ...)`; `frontend/e2e/yenask.spec.ts` is the e2e gate.
+
+### D-09 — Plan-doc design-log is the source of truth until decomposition
+
+**Date**: 2026-05-24. **PR**: PR-1. **Source**: user direction "track every decision in the plan itself; documentation is a must".
+
+**What was decided**: Every implementation decision lands here as a numbered `D-NN` entry. After Phase 2 ships (PR-2 merged), a follow-up housekeeping PR decomposes these entries into:
+- Holy Law #4 candidates → new ADRs under `docs/architecture/decisions/00NN-yenask-*.md`
+- Subsystem-current-state material → `docs/architecture/frontend/yenask.md` (new subsystem doc)
+- Cross-cutting glossary → `docs/concepts/insight-intent.md`, `docs/concepts/semantic-catalogue.md`, `docs/concepts/yenask-model-adapter.md`
+
+The plan-doc design-log then carries forward only entries still in flight; closed entries are deleted from the plan-doc and survive only in their decomposed homes (single SSOT per CLAUDE.md §5).
+
+**What was rejected**: (a) writing ADRs as we go — risks ADR-bloat for decisions that will collapse on review (e.g. "use SmolLM2-135M as the smallest first" is a runtime parameter, not an architectural decision worth a permanent ADR). (b) committing nothing during implementation and writing all docs at the end — loses the in-the-moment rationale that's the most valuable part of the record.
+
+**Trade-off accepted**: the plan-doc grows long during active implementation. Justified — it's a working document; growth signals progress. Decomposition is the cleanup phase, not a per-entry burden.
+
+**Where it binds**: this section §17; every new PR appends a new D-NN entry citing the PR number.
+
+### D-10 — Smallest-first SLM picked at PR-2 boundary; PR-1 ships zero model code
+
+**Date**: 2026-05-24. **PR**: PR-1 (decision binds PR-2 scope). **Source**: user direction "let us start with a smaller model, some million parameters".
+
+**What was decided**: PR-1 ships ZERO model code. The QuestionBox UI in PR-1 only executes canned `InsightIntent` fixtures (clickable buttons; no free-text input wired to a model). PR-2 introduces the model adapter, the config-driven model registry, the readiness state machine, and the free-text input.
+
+**What was rejected**: bundling a "tiny test model" into PR-1 to prove the adapter shape works — adds runtime dependency + browser-cache concerns + readiness UI to a PR that should be proving only the data path. Lessons.md says "never bundle two risk classes in one PR".
+
+**Trade-off accepted**: free-text input is locked / hidden in PR-1; only canned intents work. Justified — Phase 1's whole point per the plan is "build the model-free Parquet assistant shell with canned intents". Adding a model in PR-1 would re-introduce the very risk the plan was designed to defer.
+
+**Model candidate for PR-2 default** (NOT locked yet; deferred to PR-2 design): the smallest-viable browser SLM under Transformers.js is currently believed to be **SmolLM2-135M-Instruct** (135M params; ONNX q4f16 ≈ ~88 MB; HuggingFace `HuggingFaceTB/SmolLM2-135M-Instruct` has community ONNX builds). To be confirmed during PR-2 design with a follow-up roundtable that considers Qwen2.5-0.5B, Llama-3.2-1B, and any newer micro-model that surfaces. Whatever model lands, the choice is a config entry — see D-11.
+
+**Where it binds**: PR-1 = `frontend/src/lib/yenask/` contains NO `model-adapter/` subfolder. PR-2 = the adapter and the registry land together.
+
+### D-11 — Model registry is config-driven; multiple models are first-class
+
+**Date**: 2026-05-24. **PR**: PR-2 (decision binds PR-2 design). **Source**: user direction "config-driven flexible interface; not hardcoded; so we can swap out the model".
+
+**What was decided** (sketch — to be locked in PR-2 design): the model registry lives at `frontend/src/lib/yenask/model-registry.ts` as a typed config array, ONE entry per supported model. Each entry carries: `id` (slug), `display_name`, `params_label` ("135M"), `provider` (`"transformers-js" | "litert-mediapipe" | "future"`), `repo_id` (HuggingFace), `dtype` (e.g. `"q4f16"`), `device` (e.g. `"webgpu"`), `estimated_download_bytes`, `notes`. The UI exposes a model picker; selection is persisted in localStorage. The adapter dispatches on `provider`. New models = new array entry + occasionally a new provider — the adapter contract is `Promise<string>` raw text; the Zod parse + compile pipeline downstream is provider-agnostic.
+
+**What was rejected** (preview): (a) compile-time selection via env var — invalidates the "swap at runtime" requirement; rebuilds for every model swap. (b) full JSON schema at `datasets/schemas/yenask-model-registry.schema.json` — same conflation pattern as D-03; the registry is lab-internal config. (c) a per-model `model-adapters/<slug>.ts` polymorphic class hierarchy — over-engineered for the 2-3 provider count we'll have in PR-2 + PR-3.
+
+**Trade-off accepted**: adding a model that needs a NEW provider (e.g. LiteRT/MediaPipe vs Transformers.js) requires touching `frontend/src/lib/yenask/model-adapter.ts` (the dispatch). Justified — provider count grows slowly; the discriminated-union pattern in TS keeps the dispatch type-safe.
+
+**Where it binds**: PR-2 lands `frontend/src/lib/yenask/model-registry.ts` + `frontend/src/lib/yenask/model-adapter.ts` + the picker UI in `Yenask.svelte`.
+
+### D-12 — `DuckDBPlan.concept_id` is a REQUIRED first field; executor reads it directly
+
+**Date**: 2026-05-24. **PR**: PR-1 (commit 2). **Source**: Fowler "make the contract carry its own identity" during executor design.
+
+**What was decided**: `DuckDBPlan` (in `frontend/src/lib/yenask/types.ts`) declares `readonly concept_id: string` as its first field. Each concept handler in `concepts.ts` injects `concept_id: intent.concept_id` into its returned plan. `executePlan()` reads `plan.concept_id` directly when populating `AnswerViewModel.concept_id` and the computation-disclosure block.
+
+**What was rejected**: a `deriveConceptId(plan)` fallback that inspected `plan.main_sql` for sentinel substrings (e.g. presence of `"GROUP BY p.party_short"` → "party_totals"). Initially drafted as a "robust" fallback; was a band-aid (Holy Law #5) — couples the executor to handler-internal SQL details, breaks silently the moment two handlers share a similar SQL shape, and re-introduces the very "infer-then-trust" pattern Zod is supposed to eliminate.
+
+**Trade-off accepted**: every handler must remember to set `concept_id`. Justified — the field is REQUIRED at the type level, so the TypeScript compiler refuses any plan without it; "remember to set it" reduces to "the code compiles".
+
+**Where it binds**: `frontend/src/lib/yenask/types.ts` (interface); `frontend/src/lib/yenask/concepts.ts` (4 handlers each inject `concept_id`); `frontend/src/lib/yenask/execute-plan.ts` (reads `plan.concept_id`); `frontend/src/lib/yenask/execute-plan.provenance.test.ts` (asserts threading).
+
+### D-13 — 4 concept handlers cover the canned-intent surface; single-quote SQL escaping via `sqlString()`
+
+**Date**: 2026-05-24. **PR**: PR-1 (commit 2). **Source**: Hans + Max — what citizen questions are answerable from the TN AC General May 2026 slice with the current canonical store.
+
+**What was decided**: `frontend/src/lib/yenask/concepts.ts` ships 4 `ConceptHandler` entries in `CONCEPT_REGISTRY`:
+
+| concept_id | SQL shape | Joins |
+| --- | --- | --- |
+| `party_totals` | `SELECT party_short FROM observations WHERE indicator_id IN (party-seats-won, party-votes-polled, party-vote-share-pct) GROUP BY party_short ORDER BY seats DESC LIMIT N` | `regexp_extract(entity_id, '-PARTY-(.+)$', 1)` → `dim_parties` |
+| `closest_contests` | `SELECT ac_no, margin_pp FROM observations WHERE indicator_id = 'ac-margin-pp' ORDER BY value ASC LIMIT 10` | → `dim_acs` for display name |
+| `constituency_result` | `SELECT candidate, party, votes, share_pct FROM elections_candidacies WHERE da.eci_no = <ac_no>` | → `dim_persons` + `dim_parties` + `dim_acs` |
+| `turnout_extremes` | `(SELECT … band='highest' ORDER BY value DESC LIMIT 10) UNION ALL (SELECT … band='lowest' ORDER BY value ASC LIMIT 10)` | → `dim_acs` |
+
+Every handler ends with a LEFT JOIN to `taxonomy.sources` keyed on the observation's `source_id`, returning the per-observation source row as a separate `provenance_sql` query (executor runs both in parallel via `Promise.all`).
+
+User-supplied string filters (`state_partition_id`, `period_label`, `party_short_code`, `ac_no`) are injected via a `sqlString(s: string): string` helper that doubles single quotes. No template-literal interpolation of unescaped user input. Numeric filters are coerced through `Number()` and the Zod schema's `.int().min().max()` bounds before reaching the SQL composer.
+
+**What was rejected**: (a) one mega-`buildPlan(intent)` switch — would have made adding a 5th concept a 50-line diff in one function; the per-handler dispatch table makes adding a concept = add one entry. (b) DuckDB prepared statements with `$1, $2` parameters — DuckDB-WASM's parameter binding for `SELECT` returns rows with bigint columns in different positions vs literal interpolation; the difference doesn't matter for safety (both prevent injection) but the literal-interpolation path matches the rest of the codebase (`lib/psephlab/canonical-loaders.ts` does the same).
+
+**Trade-off accepted**: SQL strings carry literal values, which makes EXPLAIN output noisier. Justified — the executor logs the assembled SQL into the computation-disclosure UI block; literal-with-values is exactly what a debugging operator wants to see, vs `$1, $2` with a separate params array.
+
+**Where it binds**: `frontend/src/lib/yenask/concepts.ts` (handlers + `sqlString`); `frontend/src/lib/yenask/compile-intent.test.ts` (10 tests covering all 4 concepts + filter validation + SQL escaping).
+
+### D-14 — Catalogue loader registers ONLY dim/taxonomy tables; fact-table registration is per-plan
+
+**Date**: 2026-05-24. **PR**: PR-1 (commit 2). **Source**: D-04 hard rule made concrete.
+
+**What was decided**: `loadSemanticCatalogue()` calls `registerTable()` for exactly 4 tables: `taxonomy.sources`, `elections.dim_acs`, `elections.dim_parties`, `elections.elections_candidacies`. The `CATALOGUE_QUERY_ALLOWLIST: readonly string[]` exports `["sources", "dim_acs", "dim_parties", "elections_candidacies", "entities"]`. `election_results` is NEVER in this list. Fact-table registration happens lazily per-plan via `executePlan()`, which calls `registerSlice("elections.election_results", { state: <state_partition_id> })` only when a user clicks a canned intent or submits a free-text question.
+
+**What was rejected**: (a) registering all known fact tables (`election_results`, `energy_*`, `health_*`) at startup "to make queries faster on the first click" — would download every Parquet shard at page-load, undoing the entire premise of slice-on-demand canonical loading. (b) eager registration of even ONE fact table at startup — opens the door to creep ("just one more").
+
+**Trade-off accepted**: first-click latency includes the slice fetch (~200-500 ms for `election_results` partition `state=in_s22`). Justified — the catalogue load itself is fast (~50 ms for 4 small tables); the per-question slice load is the place where latency is honest and the user knows a question is being answered.
+
+**Enforced by**: `frontend/src/lib/yenask/semantic-catalogue.no-fact-scan.test.ts` (2 tests using word-boundary regex `\b<table>\b` against every catalogue SQL string; asserts both "every table referenced is in the allowlist" AND "never `election_results` / `energy_*`").
+
+**Where it binds**: `frontend/src/lib/yenask/semantic-catalogue.ts` (loader + allowlist); `frontend/src/lib/yenask/execute-plan.ts` (lazy slice registration per plan); the no-fact-scan vitest.
+
+### Decision-log conventions
+
+- New entries append at the END of this section with the next `D-NN` ID.
+- An entry is RETIRED when its content has been promoted into an ADR or a subsystem doc; retirement = the entry is deleted here in the same commit that introduces the promoted home, with a `git blame` trail.
+- Open questions DURING implementation that block decisions live in §15; once answered, the answer lands as a new `D-NN` entry here AND §15 deletes the question.
+- The plan-doc itself remains the only place where the **rationale-as-it-was-made** is recorded. Subsystem docs after decomposition carry the current shape; ADRs carry the locked decision; this log carried the why-at-the-time.
+
