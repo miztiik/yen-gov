@@ -84,8 +84,3 @@ if p.exists():
     yrs = sorted(indicator_years(p))
     print(f"  years: {yrs[0]} ... {yrs[-1]}  ({len(yrs)})")
 
-section("EXISTING: installed_capacity_by_source_mw.json")
-p = IND / "energy" / "installed_capacity_by_source_mw.json"
-if p.exists():
-    yrs = sorted(indicator_years(p))
-    print(f"  years: {yrs[0]} ... {yrs[-1]}  ({len(yrs)})")

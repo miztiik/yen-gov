@@ -503,26 +503,6 @@
       "gap_count_within_range": 0
     },
     {
-      "id": "energy/installed_capacity_by_source_mw",
-      "topic": "energy",
-      "path": "datasets/indicators/in/energy/installed_capacity_by_source_mw.json",
-      "title": "Installed capacity by source (fuel mix)",
-      "documentation_status": "stub",
-      "inventory_status": "complete",
-      "frozen": false,
-      "last_polled_at": "2026-05-13T21:54:16Z",
-      "observed_count": 1,
-      "pending_count": 0,
-      "unavailable_count": 0,
-      "min_time": "2026-03",
-      "max_time": "2026-03",
-      "min_period_label": "2026-03",
-      "max_period_label": "2026-03",
-      "time_grain": "month",
-      "observed_periods_within_range": 1,
-      "gap_count_within_range": 0
-    },
-    {
       "id": "energy/installed_capacity_coal_mw",
       "topic": "energy",
       "path": "datasets/indicators/in/energy/installed_capacity_coal_mw.json",

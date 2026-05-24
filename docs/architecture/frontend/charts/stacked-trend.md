@@ -45,11 +45,16 @@ datasets/schemas/
   dimensions.schema.json              # validates dimensions registry
 datasets/reference/
   dimensions.json                     # registry of every dimension key the chart accepts
-backend/yen_gov/composers/
-  energy_capacity_by_source.py        # NEW backend Aggregator (per ADR-0024)
-datasets/indicators/in/energy/
-  installed_capacity_by_source_mw.json  # NEW composed indicator (facetted)
 ```
+
+> **Historical note (PR 7b, 2026-05-25)**: the energy proof-of-value originally
+> shipped with a backend Aggregator at
+> `backend/yen_gov/composers/energy_capacity_by_source.py` emitting
+> `datasets/indicators/in/energy/installed_capacity_by_source_mw.json`. Both
+> were retired in PR 7b once the per-state shard
+> (`state_installed_capacity_by_source_mw`) became the canonical-store source
+> of truth. The chart contract below is unchanged — the StackedTrend adapter
+> still consumes single facetted indicator artifacts.
 
 The new docs page (this file) lives at `docs/architecture/frontend/charts/stacked-trend.md`. Sibling subsystem docs at `docs/architecture/frontend/colours.md`, `indicators.md`, `map.md`. Adding `charts/` as a sub-folder mirrors the new code subfolder.
 
@@ -191,7 +196,7 @@ indicator.json (1 file,    ─┘     │                                 │
                                      in dev/test
 ```
 
-For the energy proof-of-value, **no multi-file adapter is shipped**. The backend composer (`backend/yen_gov/composers/energy_capacity_by_source.py`) emits a single `installed_capacity_by_source_mw.json` artifact with `facet` rows; the indicator-adapter reads ONE file. See [ADR-0024](../../decisions/0024-backend-aggregator-for-facetted-indicators.md) (created with this change) for the full rationale on why this is backend Aggregator territory, not adapter territory.
+For the energy proof-of-value, **no multi-file adapter is shipped**. Originally a backend composer (`backend/yen_gov/composers/energy_capacity_by_source.py`) emitted a single `installed_capacity_by_source_mw.json` artifact with `facet` rows; the indicator-adapter read ONE file. That composer + artifact were retired in PR 7b (the per-state `state_installed_capacity_by_source_mw` shard now carries the same facetted shape from canonical store). See [ADR-0024](../../decisions/0024-backend-aggregator-for-facetted-indicators.md) (status: superseded by PR 7b) for the historical rationale on why this was backend Aggregator territory, not adapter territory.
 
 ## Dimensions registry (per Gregor S2)
 
@@ -453,9 +458,9 @@ Each `ConstituencyResult` becomes a bar (`period_id = result.election`, `kind = 
 
 | Path | What |
 |---|---|
-| `backend/yen_gov/composers/energy_capacity_by_source.py` | Aggregator merging the 8 fuel files into one facetted indicator. |
-| `backend/tests/test_energy_capacity_composer.py` | Pytest against real fixture. |
-| `datasets/indicators/in/energy/installed_capacity_by_source_mw.json` | Composed output (facetted, indicator schema v1.2 with `chart_type: "stacked-trend"`, `default_mode: "percent"`). |
+| ~~`backend/yen_gov/composers/energy_capacity_by_source.py`~~ | Retired in PR 7b. |
+| ~~`backend/tests/test_energy_capacity_composer.py`~~ | Retired in PR 7b. |
+| ~~`datasets/indicators/in/energy/installed_capacity_by_source_mw.json`~~ | Retired in PR 7b; per-state `state_installed_capacity_by_source_mw` carries the facetted shape via canonical store. |
 
 **New (config + reference):**
 
@@ -491,7 +496,7 @@ Each `ConstituencyResult` becomes a bar (`period_id = result.election`, `kind = 
 - Honesty layer (banner / coverage / notes / methodology / unit-change / license / provenance).
 - `availability` (3-state) with hatched-rectangle treatment.
 - Per Gregor: `headline_rule` enum (one rule implemented: `max_latest_with_streak`).
-- Backend Aggregator emitting `installed_capacity_by_source_mw.json`.
+- ~~Backend Aggregator emitting `installed_capacity_by_source_mw.json`.~~ (Retired in PR 7b.)
 - Indicator schema bump 1.1 → 1.2.
 - ADR-0024.
 - One citizen route wired with elections; one with energy.
@@ -520,11 +525,11 @@ Per CLAUDE.md §15:
 - **Unit (`rollup.test.ts`)**: ~10 cases (single bar, two bars, ceiling exact-hit, max-cap binds before ceiling, empty bar, all-other, ties at cutoff, non-monotonic across bars, all-not-applicable, mixed availability).
 - **Unit (`headline.test.ts`)**: per-rule cases including `none` empty-string output.
 - **Unit (`types.test.ts`)**: zod accepts canonical fixtures, rejects malformed (missing dimension, bad hex, value+availability mismatch).
-- **Unit (`adapter-indicator.test.ts`)**: against the real composed `installed_capacity_by_source_mw.json` fixture; asserts model shape AND that ALL `indicator.indicator.*` honesty fields flow through.
+- **Unit (`adapter-indicator.test.ts`)**: against an inline synthetic IndicatorDoc fixture (PR 7b retired the real composed `installed_capacity_by_source_mw.json` artifact this previously read from disk); asserts model shape AND that ALL `indicator.indicator.*` honesty fields flow through.
 - **Unit (`adapter-elections.test.ts`)**: against two real Tamil Nadu constituency-result fixtures; asserts global-union behaviour, `not_applicable` correctness, and `kind` propagation.
 - **Component (`StackedTrend.test.ts`)**: vitest-svelte rendering smoke cases — initial render, mode-toggle, legend toggle (URL bound), hover snap.
-- **Contract**: `datasets-conform.test.ts` validates the new composed indicator against schema 1.2; the new config and dimensions registry against their schemas.
-- **Backend (`test_energy_capacity_composer.py`)**: pytest against real fuel-file fixtures, asserts composed indicator validates against schema 1.2.
+- **Contract**: `datasets-conform.test.ts` validates indicator artifacts against schema 1.2; the new config and dimensions registry against their schemas.
+- ~~**Backend (`test_energy_capacity_composer.py`)**~~: retired in PR 7b alongside the composer.
 - **End-to-end (`stacked-trend.spec.ts`)**: route loads, no `pageerror`, headline + chart + legend + SourceList present, mode toggle changes Y-axis label, legend swatch click hides a series.
 
 ## Decisions journal

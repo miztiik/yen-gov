@@ -47,7 +47,6 @@ RETIRE_LIST = [
     ("state_electricity_generation_mu.json", "HARD-DROP", "MU = GWh alias; lives as id_aliases[] on canonical row"),
     ("installed_capacity_total_mw.json", "HARD-DROP", "D33.8 aggregate; compute-on-read"),
     ("installed_capacity_thermal_mw.json", "HARD-DROP", "D33.8 aggregate; compute-on-read"),
-    ("installed_capacity_by_source_mw.json", "HARD-DROP", "composer (pipeline UNION); writer rebuilds at emit"),
     ("state_installed_capacity_total_mw.json", "HARD-DROP", "D33.8 aggregate; FY04-14 spliced into _allocated_mw"),
     ("state_installed_capacity_with_alloc_mw.json", "HARD-DROP", "total-row of _allocated_mw"),
     # 7 reader-replaceable

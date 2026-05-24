@@ -226,7 +226,6 @@
     "known_caveats": [],
     "notes": [],
     "related_indicators": [
-      "energy/installed_capacity_by_source_mw",
       "energy/state_renewable_grid_capacity_mw",
       "energy/state_rooftop_solar_capacity_mw",
       "energy/state_rpo_compliance_pct",
