@@ -54,8 +54,8 @@ Annex 5 directly.
 
 ## How catalogue and tiers bind
 
-[`topic-catalogue.json`](../../datasets/reference/in/topic-catalogue.json)
-(schema v1.1) declares `peer_set_default` at two levels:
+[`topics.json`](../../datasets/taxonomy/topics.json)
+(schema v1.3) declares `peer_set_default` at two levels:
 
 - **Topic level** (`topics[].peer_set_default`): the default for every
   artifact under this topic. Example: the `fiscal` topic defaults to

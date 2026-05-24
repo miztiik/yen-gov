@@ -8,7 +8,7 @@ Two ingests are about to fire in parallel — ICED NO2/SO2/PM10 ([TODO/20260515-
 
 This doc is the convention. It is binding for new ids; existing ids that violate it are listed in §8 and are NOT migrated by this commit. The schema (`datasets/schemas/indicator.schema.json`, currently at `x-version: 1.5`) already locks the regex; this doc locks what humans should put inside it.
 
-Per [ADR-0022](../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md): topic membership lives on `datasets/reference/in/topic-catalogue.json`, NOT on the indicator artifact. This doc does not re-open that decision. It only RECOMMENDS that the `<scope>` segment of the id match a catalogue topic-id, as a navigation aid for grep — a soft convention, not a schema-enforced field.
+Per [ADR-0022](../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md): topic membership lives on `datasets/taxonomy/topics.json`, NOT on the indicator artifact. This doc does not re-open that decision. It only RECOMMENDS that the `<scope>` segment of the id match a catalogue topic-id, as a navigation aid for grep — a soft convention, not a schema-enforced field.
 
 **Schema v1.5 (2026-05-15) is the binding floor for new artifacts.** New ingests MUST author against v1.5 (Hans's 4-level `comparability` ladder, the `denominator` object form, `revision_tier_by_period`, `excludes`, `renderer_rules`). The 4 dissents this doc surfaced in its v1 draft are pinned in §9.
 
@@ -28,7 +28,7 @@ Lowercase, snake_case, single `/` separator (NOT `.`). Already enforced by `data
 <scope>/<entity_prefix>_<noun>_<aggregate?>_<unit?>
 ```
 
-- **`<scope>`** — exactly one segment. By convention, MUST be a topic-id from `datasets/reference/in/topic-catalogue.json` (`fiscal`, `energy`, `environment`, `health`, `economy`, `prices`, `demography`, `transport`, `elections`, `human_development`, …). The catalogue is the source of truth for the legal set; this doc deliberately does not enumerate them. Adding a new scope means adding a topic to the catalogue first.
+- **`<scope>`** — exactly one segment. By convention, MUST be a topic-id from `datasets/taxonomy/topics.json` (`fiscal`, `energy`, `environment`, `health`, `economy`, `prices`, `demography`, `transport`, `elections`, `human_development`, …). The catalogue is the source of truth for the legal set; this doc deliberately does not enumerate them. Adding a new scope means adding a topic to the catalogue first.
 - **`<entity_prefix>`** — `national_`, `state_`, `district_`, `constituency_`, `city_`, `ward_`. **Mandatory** for state-and-below; **mandatory** for national/all-India aggregates too (use `national_`, NOT `india_`). Spatial scope is part of the indicator's identity, not just metadata — Hans's rule: "two artifacts measuring the same noun at different geographies are different facts."
 - **`<noun>`** — what is being measured. Snake_case. Use the most specific concrete noun that survives across vintages (`outstanding_debt`, `birth_rate`, `installed_capacity`, `pm25_annual_mean`, `health_expenditure_share`).
 - **`<aggregate>`** (optional) — the verb of aggregation when the noun does not already imply it. Canonical vocabulary, ban synonyms:
@@ -249,4 +249,4 @@ The schema validates the slug shape (`^[a-z][a-z0-9_]*$`) but does NOT enumerate
 - [`../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md`](../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md) — topic membership lives on the catalogue, not the artifact.
 - [`../architecture/decisions/0002-provenance-as-sources-list.md`](../architecture/decisions/0002-provenance-as-sources-list.md) — why source authority does not belong in the id.
 - [`../../datasets/schemas/indicator.schema.json`](../../datasets/schemas/indicator.schema.json) — the regex and field shapes this doc decorates.
-- [`../../datasets/reference/in/topic-catalogue.json`](../../datasets/reference/in/topic-catalogue.json) — the source of truth for the legal `<scope>` set.
+- [`../../datasets/taxonomy/topics.json`](../../datasets/taxonomy/topics.json) — the source of truth for the legal `<scope>` set.

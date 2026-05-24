@@ -74,26 +74,34 @@ def test_compile_emits_topics_and_tags(tmp_path):
     assert by_id["debt"] == 2
 
 
-def test_compile_rejects_topic_without_artifacts(tmp_path):
-    """artifacts is required and non-empty (min_length=1) — Jony rule:
-    a topic with no artifacts is not a topic."""
+def test_compile_accepts_topic_without_artifacts(tmp_path):
+    """artifacts is permitted to be empty (topic-catalogue.schema.json v1.3
+    lowered minItems from 1→0). Structural placeholder topics whose first
+    P.* ingestion has not yet landed open with an empty artifacts[] array
+    and gain entries when the P.* PR wires them up. Per TODO/20260517 §0e.4."""
     payload = {
         "topics": [
             {
                 "id": "empty",
                 "title": "Empty",
                 "list": "state",
-                "summary": "x",
+                "summary": "Placeholder topic — no artifacts wired yet.",
                 "artifacts": [],
             }
         ]
     }
-    with pytest.raises(Exception):
-        compile_to_parquet(
-            _write_catalogue(tmp_path, payload),
-            tmp_path / "t.parquet",
-            tmp_path / "tags.parquet",
-        )
+    topics_out = tmp_path / "t.parquet"
+    tags_out = tmp_path / "tags.parquet"
+    n_topics, n_tags = compile_to_parquet(
+        _write_catalogue(tmp_path, payload), topics_out, tags_out
+    )
+    assert n_topics == 1
+    assert n_tags == 0
+    trows = _rows(topics_out)
+    assert trows[0][0] == "empty"
+    # Tags parquet exists but is empty.
+    tagrows = _rows(tags_out)
+    assert tagrows == []
 
 
 def test_compile_is_deterministic(tmp_path):
