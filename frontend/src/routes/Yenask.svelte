@@ -41,6 +41,14 @@
   } from "../lib/yenask/model-registry";
   import type { ModelAdapter, ReadinessStatus } from "../lib/yenask/model-adapter";
   import { createAdapter } from "../lib/yenask/model-adapter";
+  import type { ModelEntry } from "../lib/yenask/model-registry";
+  import {
+    clearAllCache,
+    deleteModel as deleteModelFromCache,
+    estimateModelSizeBytes,
+    formatCacheSize,
+    listCachedRepoIds,
+  } from "../lib/yenask/model-cache";
   import { extractIntent } from "../lib/yenask/extract-intent";
   import type { ExtractAttempt } from "../lib/yenask/extract-intent";
   import { untrackedDelta } from "../lib/yenask/timing";
@@ -108,6 +116,20 @@
   // `modelStatus` so the timeline is supplementary, not primary.
   let statusHistory: StatusEvent[] = $state([]);
 
+  // -------- cache state (Slice B) -----------------------------------------------
+  //
+  // Per the Jony AMEND verdict (D-22): the picker shows per-model cache
+  // state, a per-model "Delete from cache" secondary, and a single
+  // "Clear all cached models" footer with two-step inline confirm. The
+  // confirm pattern uses transient `*Confirm` state set by the first
+  // click; the second click within 4s commits; otherwise the state
+  // auto-reverts so a stale confirm prompt never lingers.
+  let cachedRepoIds: readonly string[] = $state([]);
+  let cacheSizes: Record<string, number> = $state({});
+  let deleteConfirmRepoId: string | null = $state(null);
+  let clearAllConfirm = $state(false);
+  const CONFIRM_TIMEOUT_MS = 4000;
+
   const selectedModel = $derived(
     getModelById(selectedModelId) ?? getDefaultModel(),
   );
@@ -162,6 +184,7 @@
         catalogueLoading = false;
       }
     })();
+    void refreshCacheState();
   });
 
   // -------- helpers -------------------------------------------------------------
@@ -352,7 +375,19 @@
 
   // -------- model preparation ---------------------------------------------------
 
-  async function prepareModel(): Promise<void> {
+  /**
+   * Prepares a specific model entry. When `entry` differs from the
+   * currently-selected model, `selectedModelId` is updated FIRST so
+   * the persisted localStorage pick reflects the user's intent even
+   * if `prepare()` fails or the user navigates away mid-download.
+   *
+   * Defaults to the currently-selected model so legacy call sites
+   * (e.g. a future "Re-prepare" button) keep working.
+   */
+  async function prepareModel(entry: ModelEntry = selectedModel): Promise<void> {
+    if (entry.id !== selectedModelId) {
+      selectedModelId = entry.id;
+    }
     pushStatus({
       kind: "downloading",
       file: "",
@@ -361,7 +396,7 @@
       total: 0,
     });
     try {
-      const a = createAdapter(selectedModel);
+      const a = createAdapter(entry);
       adapter = a;
       await a.prepare((s) => {
         pushStatus(s);
@@ -369,6 +404,84 @@
     } catch {
       // The listener already wrote a `failed` status; nothing more to do.
     }
+    // Refresh cache state regardless of outcome — a partial download
+    // may have left bytes on disk worth reflecting in the UI.
+    await refreshCacheState();
+  }
+
+  // -------- cache management (Slice B) ------------------------------------------
+
+  /**
+   * Re-reads cache state from the browser and updates `cachedRepoIds` /
+   * `cacheSizes`. Called on mount, after each `prepare()` call, after
+   * each cache mutation, and never on a render hot-path. Safe to call
+   * when Cache Storage is unavailable (SSR, jsdom) — falls through
+   * with empty state and no error.
+   */
+  async function refreshCacheState(): Promise<void> {
+    try {
+      const repos = await listCachedRepoIds();
+      const sizes: Record<string, number> = {};
+      for (const repo of repos) {
+        sizes[repo] = await estimateModelSizeBytes(repo);
+      }
+      cachedRepoIds = repos;
+      cacheSizes = sizes;
+    } catch {
+      // Cache Storage API unavailable or threw; leave state empty so
+      // the picker falls through to "Download" buttons for every model.
+      cachedRepoIds = [];
+      cacheSizes = {};
+    }
+  }
+
+  /**
+   * Two-step inline confirm for "Delete from cache". First click sets
+   * the pending repo_id; second click within `CONFIRM_TIMEOUT_MS` ms
+   * commits. The timer auto-clears the prompt so a stale "Click again
+   * to confirm" never lingers.
+   */
+  async function handleDeleteModel(entry: ModelEntry): Promise<void> {
+    if (deleteConfirmRepoId !== entry.repo_id) {
+      deleteConfirmRepoId = entry.repo_id;
+      setTimeout(() => {
+        if (deleteConfirmRepoId === entry.repo_id) deleteConfirmRepoId = null;
+      }, CONFIRM_TIMEOUT_MS);
+      return;
+    }
+    deleteConfirmRepoId = null;
+    await deleteModelFromCache(entry.repo_id);
+    await refreshCacheState();
+  }
+
+  /**
+   * Two-step inline confirm for "Clear all cached models". Same shape
+   * as `handleDeleteModel` but operates on the whole transformers-cache.
+   * Does NOT touch the active adapter — the model in memory continues
+   * to serve generate() calls until the page reloads.
+   */
+  async function handleClearAllCache(): Promise<void> {
+    if (!clearAllConfirm) {
+      clearAllConfirm = true;
+      setTimeout(() => {
+        clearAllConfirm = false;
+      }, CONFIRM_TIMEOUT_MS);
+      return;
+    }
+    clearAllConfirm = false;
+    await clearAllCache();
+    await refreshCacheState();
+  }
+
+  /**
+   * Returns the cache state for a given model entry. "active" wins
+   * over "cached" so the Active pill is shown for the loaded model
+   * even though its cache footprint is non-zero.
+   */
+  function modelCardState(entry: ModelEntry): "active" | "cached" | "not-downloaded" {
+    if (modelReady && entry.id === selectedModelId) return "active";
+    if (cachedRepoIds.includes(entry.repo_id)) return "cached";
+    return "not-downloaded";
   }
 
   /**
@@ -450,39 +563,120 @@
       >{modelStatus.kind}</span>
     </div>
 
-    <div class="grid gap-3 sm:grid-cols-[1fr_auto] sm:items-end">
-      <label class="block text-sm">
-        <span class="text-neutral-700">Model</span>
-        <select
-          class="mt-1 block w-full rounded border border-neutral-300 px-2 py-1.5 text-sm disabled:cursor-not-allowed disabled:opacity-60"
-          bind:value={selectedModelId}
-          disabled={modelBusy}
-          data-testid="yenask-model-picker"
+    <!--
+      Model picker (Slice B — D-22 Jony AMEND verdict):
+
+      Per-model cards replace the single <select> + Prepare button. Each
+      card declares its cache state via `data-state` for tests + as a
+      visual cue (active card has the emerald border). The primary
+      action label varies by state:
+
+        not-downloaded  →  "Download · ~88 MB"      (sets expectation)
+        cached          →  "Prepare"                (loads from cache, fast)
+        active          →  "Active" pill, no button (model is in memory)
+
+      A secondary "Delete from cache" link appears for any non-active
+      cached entry; it uses the same two-step inline confirm as the
+      footer "Clear all cached models" link. The Active model's cache
+      entry is intentionally NOT deletable from this UI — Jony: forcing
+      the operator to unload first prevents the foot-gun where the
+      adapter is mid-generate against bytes the cache layer just
+      evicted. (The Clear-all footer DOES delete the active model's
+      cache because it's an explicit two-step nuclear option.)
+    -->
+    <ul class="space-y-2" data-testid="yenask-model-list">
+      {#each MODEL_REGISTRY as m (m.id)}
+        {@const state = modelCardState(m)}
+        {@const cacheBytes = cacheSizes[m.repo_id] ?? 0}
+        {@const isConfirmingDelete = deleteConfirmRepoId === m.repo_id}
+        <li
+          class="flex flex-col gap-2 rounded border p-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4 {state === 'active'
+            ? 'border-emerald-500 bg-emerald-50'
+            : 'border-neutral-200'}"
+          data-testid="yenask-model-card"
+          data-model-id={m.id}
+          data-state={state}
         >
-          {#each MODEL_REGISTRY as m (m.id)}
-            <option value={m.id}>
-              {m.display_name} · {m.params_label} · ~{m.estimated_download_mb} MB
-            </option>
-          {/each}
-        </select>
-        <span class="mt-1 block text-xs text-neutral-500">{selectedModel.notes}</span>
-      </label>
-      <button
-        type="button"
-        class="rounded bg-neutral-900 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-60"
-        onclick={prepareModel}
-        disabled={modelBusy || modelReady}
-        data-testid="yenask-prepare-button"
-      >
-        {#if modelReady}
-          Assistant ready
-        {:else if modelBusy}
-          Preparing…
-        {:else}
-          Prepare assistant
-        {/if}
-      </button>
-    </div>
+          <div class="min-w-0 flex-1">
+            <div class="flex items-baseline gap-2">
+              <h3 class="text-sm font-semibold">{m.display_name}</h3>
+              <span class="text-xs text-neutral-500">{m.params_label}</span>
+            </div>
+            <p class="mt-1 text-xs text-neutral-600">
+              {#if state === "cached" || state === "active"}
+                Cached locally: {formatCacheSize(cacheBytes)}
+              {:else}
+                Download size: ~{m.estimated_download_mb} MB
+              {/if}
+            </p>
+            <p class="mt-1 text-xs text-neutral-500">{m.notes}</p>
+          </div>
+          <div class="flex flex-col items-stretch gap-1 sm:items-end">
+            {#if state === "active"}
+              <span
+                class="inline-flex items-center justify-center rounded bg-emerald-600 px-2 py-1 text-xs font-medium text-white"
+                data-testid="yenask-model-active-pill"
+                data-model-id={m.id}
+              >Active</span>
+            {:else if state === "cached"}
+              <button
+                type="button"
+                class="rounded bg-neutral-900 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-60"
+                onclick={() => prepareModel(m)}
+                disabled={modelBusy}
+                data-testid="yenask-model-prepare-button"
+                data-model-id={m.id}
+              >Prepare</button>
+            {:else}
+              <button
+                type="button"
+                class="rounded bg-neutral-900 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-60"
+                onclick={() => prepareModel(m)}
+                disabled={modelBusy}
+                data-testid="yenask-model-download-button"
+                data-model-id={m.id}
+              >Download · ~{m.estimated_download_mb} MB</button>
+            {/if}
+            {#if state === "cached"}
+              <button
+                type="button"
+                class="text-xs text-neutral-600 underline decoration-dotted hover:text-rose-700 disabled:cursor-not-allowed disabled:no-underline disabled:opacity-50"
+                onclick={() => handleDeleteModel(m)}
+                disabled={modelBusy}
+                data-testid="yenask-model-delete-button"
+                data-model-id={m.id}
+                data-confirm-pending={isConfirmingDelete}
+              >
+                {#if isConfirmingDelete}
+                  Click again to confirm
+                {:else}
+                  Delete from cache
+                {/if}
+              </button>
+            {/if}
+          </div>
+        </li>
+      {/each}
+    </ul>
+
+    {#if cachedRepoIds.length > 0}
+      <div class="flex justify-end">
+        <button
+          type="button"
+          class="text-xs text-neutral-600 underline decoration-dotted hover:text-rose-700 disabled:cursor-not-allowed disabled:no-underline disabled:opacity-50"
+          onclick={handleClearAllCache}
+          disabled={modelBusy}
+          data-testid="yenask-clear-cache-button"
+          data-confirm-pending={clearAllConfirm}
+        >
+          {#if clearAllConfirm}
+            Click again to clear ALL cached models
+          {:else}
+            Clear all cached models
+          {/if}
+        </button>
+      </div>
+    {/if}
 
     {#if modelStatus.kind === "downloading"}
       <div class="space-y-1">
@@ -733,7 +927,7 @@
       </summary>
       {#if statusHistory.length === 0}
         <p class="mt-2 text-xs text-neutral-500">
-          No status changes yet. Click <em>Prepare assistant</em> above to start.
+          No status changes yet. Click <em>Download</em> or <em>Prepare</em> on a model above to start.
         </p>
       {:else}
         <ul class="mt-2 space-y-1 font-mono text-[11px] leading-snug text-neutral-700">
