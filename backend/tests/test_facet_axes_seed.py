@@ -26,7 +26,7 @@ from yen_gov.canonical.facet_axes_seed import (
 
 
 def test_module_imports_without_validation_error() -> None:
-    """FACET_AXES literal validates as 13 well-formed axes.
+    """FACET_AXES literal validates as 15 well-formed axes.
 
     If a future edit introduces a typo (wrong field name, invalid value_id
     pattern, empty values list, label shorter than 1 char), the import at
@@ -34,7 +34,7 @@ def test_module_imports_without_validation_error() -> None:
     The assertion is a sanity check that the import path is wired.
     """
     assert isinstance(FACET_AXES, list)
-    assert len(FACET_AXES) == 13
+    assert len(FACET_AXES) == 15
     assert all(isinstance(axis, FacetAxis) for axis in FACET_AXES)
 
 
@@ -52,7 +52,7 @@ def test_all_value_ids_unique_within_each_axis() -> None:
 
 
 def test_expected_axes_present() -> None:
-    """Hard-coded snapshot of the 13 axes shipping in 1.0.
+    """Hard-coded snapshot of the 15 axes shipping at P.1.B.
 
     Bumping this list is intentional friction — adding a new axis means
     updating this assertion AND the migration ledger AND the indicator-
@@ -72,6 +72,9 @@ def test_expected_axes_present() -> None:
         "cpi_category",
         "loss_type",
         "allocation_basis",
+        # P.1.B (DISCOM finance + demand/supply lift).
+        "efficiency_dimension",
+        "rpo_segment",
     }
     actual = {axis.axis_id for axis in FACET_AXES}
     assert actual == expected

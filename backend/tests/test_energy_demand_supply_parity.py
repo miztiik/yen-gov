@@ -67,10 +67,12 @@ def test_state_per_capita_consumption_matches_shard_u01_2009() -> None:
     )
 
 
-def test_parquet_has_three_distinct_indicators() -> None:
-    """Sanity: the demand-supply table carries the 3 P.1.A indicators
-    (peak demand + peak supplied + per-capita consumption); P.1.B will
-    extend with requirement / availability."""
+def test_parquet_has_six_distinct_indicators_after_p1b() -> None:
+    """P.1.A (3) + P.1.B (3) = 6 indicators on this table. P.1.A: peak
+    demand (FY13-FY25, RBI+ICED), peak supplied (FY13-FY24, RBI),
+    per-capita consumption (FY09-FY24, ICED). P.1.B: requirement,
+    availability, per-capita availability (all RBI Handbook, long-arc
+    FY05-FY24)."""
     con = duckdb.connect(":memory:")
     try:
         indicators = sorted({
@@ -82,14 +84,88 @@ def test_parquet_has_three_distinct_indicators() -> None:
     finally:
         con.close()
     expected = {
+        # P.1.A
         "state-peak-electricity-demand-mw",
         "state-peak-electricity-supplied-mw",
         "state-per-capita-electricity-consumption-kwh",
+        # P.1.B
+        "state-electricity-requirement-mu",
+        "state-electricity-availability-mu",
+        "state-per-capita-electricity-availability-kwh",
     }
     actual = set(indicators)
     assert actual == expected, (
         f"energy_demand_supply.parquet indicator set drift: expected {expected!r}, got {actual!r}"
     )
+
+
+# ---------------------------------------------------------------------------
+# P.1.B pinned-cell parity asserts.
+# Plan: TODO/20260522-phase-2-p1-energy-pivot.md §3 P.1.B.
+# Cells lifted from RBI Handbook Tables 138 / 139 / 141 shards under
+# datasets/indicators/in/energy/state_power_*.json + state_per_capita_*.
+# Pinned to catch regressions where the lift accidentally drops rows,
+# mis-routes source FKs, or applies an unintended numeric transform.
+# ---------------------------------------------------------------------------
+
+
+def test_p1b_power_requirement_s01_2004() -> None:
+    """state-electricity-requirement-mu, IN-S01 2004-04 = 5042.0
+    (raw, RBI Hbk Table 141; CEA originating data)."""
+    val = _query_value("IN-S01", 2004, "state-electricity-requirement-mu")
+    assert val == pytest.approx(5042.0, abs=0.01), (
+        f"IN-S01 2004 power requirement expected 5042.0, got {val!r}"
+    )
+
+
+def test_p1b_power_availability_s01_2004() -> None:
+    """state-electricity-availability-mu, IN-S01 2004-04 = 5006.0
+    (raw, RBI Hbk Table 139; CEA originating data)."""
+    val = _query_value("IN-S01", 2004, "state-electricity-availability-mu")
+    assert val == pytest.approx(5006.0, abs=0.01), (
+        f"IN-S01 2004 power availability expected 5006.0, got {val!r}"
+    )
+
+
+def test_p1b_per_capita_availability_s01_2004() -> None:
+    """state-per-capita-electricity-availability-kwh, IN-S01 2004-04 =
+    656.9 (raw, RBI Hbk Table 138; CEA originating data)."""
+    val = _query_value(
+        "IN-S01", 2004, "state-per-capita-electricity-availability-kwh"
+    )
+    assert val == pytest.approx(656.9, abs=0.01), (
+        f"IN-S01 2004 per-capita availability expected 656.9, got {val!r}"
+    )
+
+
+def test_p1b_source_id_routing() -> None:
+    """Each P.1.B RBI Handbook indicator MUST carry the source_id for
+    its Table number. T141 / T139 / T138 are three DIFFERENT source
+    rows (one per Handbook table) per the v2.0 citation ledger; the
+    triples differ on the title field. Catches a regression where the
+    lift accidentally cross-wires source FKs between blocks."""
+    cases = {
+        "state-electricity-requirement-mu":              "src-f7ce9960caba",  # T141
+        "state-electricity-availability-mu":             "src-97a3c47d092f",  # T139
+        "state-per-capita-electricity-availability-kwh": "src-9a38005d8713",  # T138
+    }
+    con = duckdb.connect(":memory:")
+    try:
+        for indicator_id, expected_src in cases.items():
+            srcs = {
+                row[0]
+                for row in con.execute(
+                    f"SELECT DISTINCT source_id FROM read_parquet('{PARQUET.as_posix()}') "
+                    f"WHERE indicator_id = ?",
+                    [indicator_id],
+                ).fetchall()
+            }
+            assert srcs == {expected_src}, (
+                f"source_id drift on {indicator_id}: expected exclusive "
+                f"{{{expected_src!r}}}, got {srcs!r}"
+            )
+    finally:
+        con.close()
 
 
 # ---------------------------------------------------------------------------

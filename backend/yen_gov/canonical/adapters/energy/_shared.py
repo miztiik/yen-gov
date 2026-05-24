@@ -27,7 +27,9 @@ from pathlib import Path
 
 
 # 6 source_ids verified at P.1.A C3 (`624852ff`) + 1 added at P.1.A C4.6
-# (RBI Handbook Table 140 long-arc splice). DO NOT re-derive these in the
+# (RBI Handbook Table 140 long-arc splice) + 5 added at P.1.B (DISCOM
+# finance + demand/supply lift: 2 ICED distribution endpoints + 3 RBI
+# Handbook tables 138 / 139 / 141). DO NOT re-derive these in the
 # adapter — the citation ledger is the source of truth, and the writer's
 # FK gate verifies each appears in ``datasets/taxonomy/sources.parquet``
 # before observation rows touch disk. If a future PR changes the source
@@ -45,6 +47,23 @@ SOURCE_IDS: dict[str, str] = {
     # "Handbook of Statistics on Indian States — Table 140: State-wise
     # Installed Capacity of Power", "2024-25").
     "rbi_hbk_140_installed_capacity": "src-3d1d55f8a94b",
+    # P.1.B (DISCOM finance + demand/supply lift). Distinct citation
+    # triples for the two ICED distribution endpoints (operational
+    # performance — billing eff / collection eff / T&D loss — and RPO
+    # compliance) and three RBI Handbook tables not previously cited
+    # (141 power requirement, 139 power availability, 138 per-capita
+    # availability). All five paired into the same `taxonomy/sources.
+    # parquet` UPSERT via `energy_sources_seed.py` (12 nicknames at
+    # P.1.B). The ICED Deep Dive row (`iced_deep_dive` above) continues
+    # to cover the ACS-ARR gap shard (sourced from `/analytics/state-
+    # wise-deep-dive`); the distribution-dashboard endpoints are
+    # genuinely distinct upstream products and earn their own ledger
+    # rows per ADR-0032 citation identity = (producer, title, vintage).
+    "iced_distribution_perf":            "src-cead8f51df6f",
+    "iced_distribution_rpo":             "src-ca061b1b0adf",
+    "rbi_hbk_141_power_requirement":     "src-f7ce9960caba",
+    "rbi_hbk_139_power_availability":    "src-97a3c47d092f",
+    "rbi_hbk_138_per_capita_availability": "src-9a38005d8713",
 }
 
 

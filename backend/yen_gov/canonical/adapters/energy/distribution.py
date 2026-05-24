@@ -1,6 +1,10 @@
 """Distribution-performance envelope — ``energy_distribution_performance.parquet``.
 
-Lifts 2 legacy shards (DISCOM ledger surface):
+P.1.A (2 indicators) + P.1.B (8 indicators: 4 efficiency + 1 ACS-ARR
++ 3 RPO compliance segments + 1 parent each for efficiency and RPO)
+= 10 lifted observation-emitting indicators.
+
+P.1.A — Lifts 2 legacy shards (DISCOM ledger surface):
 
 * ``state_atc_losses_pct.json`` (344 rows)
   → ``state-atc-losses-pct``.
@@ -12,10 +16,29 @@ indicator (UDAY target was <15% by FY19). Sales-MU is the volume of
 energy DISCOMs billed end-consumers for; pairs with the ATC% to triangulate
 revenue leakage.
 
-Reserved for P.1.B (DISCOM finance pivot): ACS-ARR gap, billing
-efficiency, collection efficiency, T&D losses-pct. Those indicators
-exist as legacy shards under ``datasets/indicators/in/energy/`` but the
-catalogue does not enumerate them yet — Hans + Max review pending.
+P.1.B — Lifts 5 additional legacy shards (DISCOM finance + RPO):
+
+* ``state_distribution_billing_efficiency_pct.json`` →
+  ``state-distribution-efficiency-pct-billing`` (efficiency_dimension =
+  billing).
+* ``state_distribution_collection_efficiency_pct.json`` →
+  ``state-distribution-efficiency-pct-collection`` (efficiency_dimension =
+  collection).
+* ``state_distribution_td_loss_pct.json`` →
+  ``state-distribution-efficiency-pct-td-loss`` (efficiency_dimension =
+  td_loss).
+* ``state_acs_arr_gap_inr_per_kwh.json`` →
+  ``state-acs-arr-gap-inr-per-kwh`` (standalone; ICED Deep Dive source).
+* ``state_rpo_compliance_pct.json`` (natively 3-faceted on
+  ``solar`` / ``non-solar`` / ``total``) → 3 child indicator_ids of
+  ``state-rpo-compliance-pct`` (rpo_segment = solar / non_solar / total).
+
+The two efficiency-percentage families (billing × collection) decompose
+the commercial half of AT&C losses; ``td-loss`` is the technical half.
+ACS-ARR is the per-unit revenue gap. RPO compliance is the renewable-
+procurement obligation tracker. All five use ICED-published methodology
+(`distribution-dashboard` for the three efficiency dimensions and RPO;
+``deep-dive`` for ACS-ARR).
 """
 
 from __future__ import annotations
@@ -25,6 +48,19 @@ from pathlib import Path
 from yen_gov.canonical.envelope import BatchEnvelope, ObservationRow
 
 from ._shared import SOURCE_IDS, load_shard, parse_iso_period, to_entity_id
+
+
+# Map the RPO shard's `facet` field (legacy hyphenated form on the wire)
+# to the canonical child indicator_id suffix AND the rpo_segment value_id
+# (snake_case per facet-axes value_id regex). The tuple-of-tuples form is
+# explicit and order-stable; iterating maps avoids dict-ordering churn in
+# the emitted parquet's row order.
+_RPO_FACET_DISPATCH: tuple[tuple[str, str, str], ...] = (
+    # (legacy_facet, indicator_id_suffix, rpo_segment_value_id)
+    ("solar",     "solar",     "solar"),
+    ("non-solar", "non-solar", "non_solar"),
+    ("total",     "total",     "total"),
+)
 
 
 def build_envelope(repo_root: Path) -> BatchEnvelope:
@@ -57,6 +93,76 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             indicator_id="state-electricity-sales-mu",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["iced_deep_dive"],
+            derivation="raw",
+        ))
+
+    # 3. P.1.B — Distribution efficiency triple (billing / collection /
+    #    td-loss). Three shards collapse into three CHILD indicator_ids of
+    #    ``state-distribution-efficiency-pct`` (compute-on-read parent
+    #    holds no rows; per Hans D29 child rows carry source_id +
+    #    dimension_values, parent does not).
+    _EFFICIENCY_DISPATCH: tuple[tuple[str, str], ...] = (
+        ("state_distribution_billing_efficiency_pct.json",    "state-distribution-efficiency-pct-billing"),
+        ("state_distribution_collection_efficiency_pct.json", "state-distribution-efficiency-pct-collection"),
+        ("state_distribution_td_loss_pct.json",               "state-distribution-efficiency-pct-td-loss"),
+    )
+    for shard_name, indicator_id in _EFFICIENCY_DISPATCH:
+        shard = load_shard(repo_root, shard_name)
+        for r in shard["rows"]:
+            period_label, year, period_seq = parse_iso_period(r["time"])
+            rows.append(ObservationRow(
+                entity_id=to_entity_id(r["entity_id"]),
+                year=year,
+                period_label=period_label,
+                period_seq=period_seq,
+                indicator_id=indicator_id,
+                value_numeric=float(r["value"]),
+                source_id=SOURCE_IDS["iced_distribution_perf"],
+                derivation="raw",
+            ))
+
+    # 4. P.1.B — ACS-ARR gap (per-unit revenue gap, ICED deep-dive
+    #    source). Standalone indicator; same `iced_deep_dive` source the
+    #    P.1.A AT&C losses + sales-MU rows use.
+    shard = load_shard(repo_root, "state_acs_arr_gap_inr_per_kwh.json")
+    for r in shard["rows"]:
+        period_label, year, period_seq = parse_iso_period(r["time"])
+        rows.append(ObservationRow(
+            entity_id=to_entity_id(r["entity_id"]),
+            year=year,
+            period_label=period_label,
+            period_seq=period_seq,
+            indicator_id="state-acs-arr-gap-inr-per-kwh",
+            value_numeric=float(r["value"]),
+            source_id=SOURCE_IDS["iced_deep_dive"],
+            derivation="raw",
+        ))
+
+    # 5. P.1.B — RPO compliance (natively 3-facet shard). Dispatches each
+    #    shard row to ONE of the three child indicator_ids by the row's
+    #    `facet` field. Unknown facet values are a SHARD bug — fail fast
+    #    rather than silently drop.
+    shard = load_shard(repo_root, "state_rpo_compliance_pct.json")
+    legacy_to_indicator: dict[str, str] = {
+        legacy: f"state-rpo-compliance-pct-{suffix}"
+        for legacy, suffix, _value_id in _RPO_FACET_DISPATCH
+    }
+    for r in shard["rows"]:
+        legacy_facet = r.get("facet")
+        if legacy_facet not in legacy_to_indicator:
+            raise ValueError(
+                f"state_rpo_compliance_pct.json carried unexpected facet "
+                f"{legacy_facet!r}; expected one of {set(legacy_to_indicator)}"
+            )
+        period_label, year, period_seq = parse_iso_period(r["time"])
+        rows.append(ObservationRow(
+            entity_id=to_entity_id(r["entity_id"]),
+            year=year,
+            period_label=period_label,
+            period_seq=period_seq,
+            indicator_id=legacy_to_indicator[legacy_facet],
+            value_numeric=float(r["value"]),
+            source_id=SOURCE_IDS["iced_distribution_rpo"],
             derivation="raw",
         ))
 

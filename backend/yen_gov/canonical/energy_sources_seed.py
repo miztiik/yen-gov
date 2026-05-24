@@ -1,10 +1,18 @@
-"""Seed the 7 energy citation rows into ``taxonomy/sources.parquet``.
+"""Seed the 12 energy citation rows into ``taxonomy/sources.parquet``.
 
-P.1.A consumes 7 distinct upstreams (1 CEA + 3 ICED endpoints + 3 RBI
-Handbook tables: Table 142 peak-demand + Table 142 peak-met + Table 140
-installed-capacity long-arc added at C4.6). Each gets a citation row in
-the sources ledger so every emitted observation in P.1.A can FK to a
-real ``source_id`` per Holy Law #9 + ADR-0032.
+P.1.A (7 sources) + P.1.B (5 sources) = 12 distinct upstreams.
+
+P.1.A: 1 CEA + 3 ICED endpoints + 3 RBI Handbook tables (Table 142
+peak-demand + Table 142 peak-met + Table 140 installed-capacity long-arc
+added at C4.6).
+
+P.1.B: 2 ICED distribution-dashboard endpoints (operational performance
+and RPO compliance) + 3 RBI Handbook tables (141 power requirement,
+139 power availability, 138 per-capita availability).
+
+Each gets a citation row in the sources ledger so every emitted
+observation in P.1.A and P.1.B can FK to a real ``source_id`` per
+Holy Law #9 + ADR-0032.
 
 Pattern mirrors ``boundary_layers_seed.upsert_boundary_sources`` (T.0d):
 INSERT-OR-REPLACE keyed on ``source_id`` so multiple subsystems can
@@ -12,14 +20,14 @@ upsert their rows into the same in-memory ``sources`` table before the
 final COPY to parquet.
 
 ``derive_source_id(producer, title, vintage)`` is the only way to compute
-``source_id`` -- NEVER hand-author (CLAUDE.md §10 + ADR-0032). The 7
+``source_id`` -- NEVER hand-author (CLAUDE.md §10 + ADR-0032). The 12
 expected hashes are baked into ``datasets/taxonomy/indicators.json`` at
-C1 commit (6 rows) + C4.6 commit (7th, RBI Table 140); if a triple is
-edited here, those FKs go dangling and the catalogue compile fails
-closed.
+C1 commit (6 rows) + C4.6 commit (7th, RBI Table 140) + P.1.B commit
+(8th-12th); if a triple is edited here, those FKs go dangling and the
+catalogue compile fails closed.
 
 P.1.A C3 seed (2026-05-22); RBI Table 140 long-arc citation added at
-P.1.A C4.6 (2026-05-24).
+P.1.A C4.6 (2026-05-24); P.1.B 5-row extension (2026-05-25).
 """
 
 from __future__ import annotations
@@ -40,10 +48,11 @@ __all__ = [
 ]
 
 
-# Operator nicknames for the 7 energy P.1.A sources. Adapters look up
-# the materialised source_id by nickname rather than rebuilding the
-# triple-hash each time.
+# Operator nicknames for the 12 energy sources (7 P.1.A + 5 P.1.B).
+# Adapters look up the materialised source_id by nickname rather than
+# rebuilding the triple-hash each time.
 SOURCE_NICKNAMES: tuple[str, ...] = (
+    # --- P.1.A (7) -------------------------------------------------
     "cea_monthly_ic",
     "iced_capacity_metatable",
     "iced_deep_dive",
@@ -51,6 +60,19 @@ SOURCE_NICKNAMES: tuple[str, ...] = (
     "rbi_hbk_142_peak_demand",
     "rbi_hbk_142_peak_met",
     "rbi_hbk_140_installed_capacity",
+    # --- P.1.B (5) -------------------------------------------------
+    # 2 ICED distribution-dashboard endpoints (distinct upstream
+    # products from the analytics deep-dive surface; earn their own
+    # ledger rows per ADR-0032 citation identity = (producer, title,
+    # vintage)).
+    "iced_distribution_perf",
+    "iced_distribution_rpo",
+    # 3 RBI Handbook tables not previously cited (state-level demand /
+    # supply / per-capita-availability long-arc — CEA-originated,
+    # RBI-republished, archived snapshot).
+    "rbi_hbk_141_power_requirement",
+    "rbi_hbk_139_power_availability",
+    "rbi_hbk_138_per_capita_availability",
 )
 
 
@@ -92,6 +114,32 @@ _TRIPLES: dict[str, tuple[str, str, str]] = {
     "rbi_hbk_140_installed_capacity": (
         "Reserve Bank of India",
         "Handbook of Statistics on Indian States \u2014 Table 140: State-wise Installed Capacity of Power",
+        "2024-25",
+    ),
+    # --- P.1.B (5) -----------------------------------------------------
+    "iced_distribution_perf": (
+        "NITI Aayog India Climate & Energy Dashboard",
+        "Distribution Operational Performance API (state-wise billing efficiency, collection efficiency, T&D losses)",
+        "",
+    ),
+    "iced_distribution_rpo": (
+        "NITI Aayog India Climate & Energy Dashboard",
+        "Distribution RPO Compliance API (state-wise Renewable Purchase Obligation compliance, by segment)",
+        "",
+    ),
+    "rbi_hbk_141_power_requirement": (
+        "Reserve Bank of India",
+        "Handbook of Statistics on Indian States \u2014 Table 141: State-wise Power Requirement",
+        "2024-25",
+    ),
+    "rbi_hbk_139_power_availability": (
+        "Reserve Bank of India",
+        "Handbook of Statistics on Indian States \u2014 Table 139: State-wise Availability of Power",
+        "2024-25",
+    ),
+    "rbi_hbk_138_per_capita_availability": (
+        "Reserve Bank of India",
+        "Handbook of Statistics on Indian States \u2014 Table 138: State-wise Per Capita Availability of Power",
         "2024-25",
     ),
 }
@@ -170,6 +218,47 @@ _BY_NICKNAME: dict[str, tuple[str, str, str, bool, str, str | None]] = {
         "https://rbi.org.in/Scripts/PublicationsView.aspx?id=22512",
         "RBI Handbook of Statistics on Indian States Table 140: long-arc state-wise installed-capacity series (FY05 onwards). Originating data: Central Electricity Authority, Ministry of Power (per the file disclosure). RBI is the longitudinal republisher; not the issuing authority for the underlying fact (plan-doc §3 Q-d). Used at P.1.A C4.6 to splice FY05-FY14 history onto state-installed-capacity-allocated-mw, whose ICED source (`iced_deep_dive`) only covers FY15-FY25.",
     ),
+    # --- P.1.B (5) -----------------------------------------------------
+    "iced_distribution_perf": (
+        "OGL-IN-1.0",
+        "silver",
+        "live-fetch",
+        False,
+        "https://icedapi.niti.gov.in/energy/electricity/distribution/operationalPerformanceStates",
+        "ICED distribution-dashboard endpoint covering three operational-performance series: billing efficiency, collection efficiency, T&D loss (state-wise FY09-FY24). Originating data: PFC State Distribution Utilities reports. ICED is the federal aggregator; not the issuing authority for the underlying fact (plan-doc §3 Q-d).",
+    ),
+    "iced_distribution_rpo": (
+        "OGL-IN-1.0",
+        "silver",
+        "live-fetch",
+        False,
+        "https://icedapi.niti.gov.in/energy/electricity/distribution/rpo",
+        "ICED distribution-dashboard endpoint covering state-wise Renewable Purchase Obligation compliance (three facets: solar, non-solar, total; FY19-FY21). Originating data: MNRE / state regulators. ICED is the federal aggregator; not the issuing authority for the underlying fact (plan-doc §3 Q-d).",
+    ),
+    "rbi_hbk_141_power_requirement": (
+        "OGL-IN-1.0",
+        "silver",
+        "archived-snapshot",
+        False,
+        "https://rbi.org.in/Scripts/PublicationsView.aspx?id=22512",
+        "RBI Handbook of Statistics on Indian States Table 141: state-wise annual energy requirement (MU = GWh, FY05-FY25). Originating data: Central Electricity Authority, Ministry of Power (per the file disclosure). RBI is the longitudinal republisher; not the issuing authority for the underlying fact (plan-doc §3 Q-d).",
+    ),
+    "rbi_hbk_139_power_availability": (
+        "OGL-IN-1.0",
+        "silver",
+        "archived-snapshot",
+        False,
+        "https://rbi.org.in/Scripts/PublicationsView.aspx?id=22512",
+        "RBI Handbook of Statistics on Indian States Table 139: state-wise annual energy availability (MU = GWh, FY05-FY25). Originating data: Central Electricity Authority, Ministry of Power (per the file disclosure). Companion to Table 141 -- requirement minus availability gives the energy-not-supplied deficit. RBI is the longitudinal republisher; not the issuing authority for the underlying fact (plan-doc §3 Q-d).",
+    ),
+    "rbi_hbk_138_per_capita_availability": (
+        "OGL-IN-1.0",
+        "silver",
+        "archived-snapshot",
+        False,
+        "https://rbi.org.in/Scripts/PublicationsView.aspx?id=22512",
+        "RBI Handbook of Statistics on Indian States Table 138: state-wise per-capita electricity availability (kWh per person per year, FY05-FY25). Originating data: Central Electricity Authority, Ministry of Power (per the file disclosure). Population denominator from Census 2011 + linear projection. RBI is the longitudinal republisher; not the issuing authority for the underlying fact (plan-doc §3 Q-d).",
+    ),
 }
 
 
@@ -204,12 +293,12 @@ ENERGY_SOURCE_ID_BY_NICKNAME: dict[str, str] = {
 
 
 def upsert_energy_sources(con: duckdb.DuckDBPyConnection) -> int:
-    """Idempotent INSERT-OR-REPLACE of the 7 energy citation rows into the
+    """Idempotent INSERT-OR-REPLACE of the 12 energy citation rows into the
     in-memory ``sources`` DuckDB table.
 
     Caller is responsible for creating the ``sources`` table first and
     for emitting the table back to ``taxonomy/sources.parquet`` after.
-    Returns the number of rows upserted (always 7 today).
+    Returns the number of rows upserted (always 12 today: 7 P.1.A + 5 P.1.B).
     """
     upserted = 0
     for row in ENERGY_SOURCES:
@@ -263,13 +352,13 @@ def upsert_energy_sources_to_parquet(sources_parquet: Path) -> int:
     """Read-modify-write wrapper around :func:`upsert_energy_sources`.
 
     Opens an in-memory DuckDB, loads the existing
-    ``taxonomy/sources.parquet`` (if any), upserts the 7 energy
+    ``taxonomy/sources.parquet`` (if any), upserts the 12 energy
     citation rows, writes the parquet back. Used by the
     ``emit-taxonomy`` orchestrator after office_holdings_seed has
     already written the wiki citation rows for the CM offices.
 
-    Returns the number of rows upserted (always 7 today). Idempotent --
-    re-running yields byte-identical output.
+    Returns the number of rows upserted (always 12 today: 7 P.1.A +
+    5 P.1.B). Idempotent -- re-running yields byte-identical output.
     """
     sources_parquet = Path(sources_parquet)
     sources_parquet.parent.mkdir(parents=True, exist_ok=True)
