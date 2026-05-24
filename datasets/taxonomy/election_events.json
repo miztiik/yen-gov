@@ -805,6 +805,42 @@
     ],
     "S26": [
       {
+        "event_id": "AcGenDec2003",
+        "kind": "assembly",
+        "display": "Chhattisgarh Assembly · December 2003",
+        "polled_on": "2003-12-01",
+        "term_end_estimated": "2008-11-30",
+        "data_status": "complete",
+        "notes": "90 ACs. First Chhattisgarh Assembly election after state formation; poll held on 1 December 2003. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov2008",
+        "kind": "assembly",
+        "display": "Chhattisgarh Assembly · November 2008",
+        "polled_on": "2008-11-20",
+        "term_end_estimated": "2013-11-19",
+        "data_status": "complete",
+        "notes": "90 ACs. Two-phase poll on 14 and 20 November 2008; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenNov2013",
+        "kind": "assembly",
+        "display": "Chhattisgarh Assembly · November 2013",
+        "polled_on": "2013-11-19",
+        "term_end_estimated": "2018-11-18",
+        "data_status": "complete",
+        "notes": "90 ACs. Two-phase poll on 11 and 19 November 2013; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenNov2018",
+        "kind": "assembly",
+        "display": "Chhattisgarh Assembly · November 2018",
+        "polled_on": "2018-11-20",
+        "term_end_estimated": "2023-11-19",
+        "data_status": "complete",
+        "notes": "90 ACs. Two-phase poll on 12 and 20 November 2018; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenNov2023",
         "kind": "assembly",
         "display": "Chhattisgarh Assembly · November 2023",

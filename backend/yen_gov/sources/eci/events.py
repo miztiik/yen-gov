@@ -81,6 +81,13 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     # are eligible here; pre-2014 undivided Andhra Pradesh stays deferred.
     ("S01", 2014): EventInfo("AcGenMay2014", False),  # Andhra Pradesh
 
+    # Chhattisgarh statewise AE panel backfill. 2008/2013/2018 are November
+    # polls even though the panel's month column records December counting.
+    ("S26", 2003): EventInfo("AcGenDec2003", False),  # Chhattisgarh
+    ("S26", 2008): EventInfo("AcGenNov2008", False),  # Chhattisgarh
+    ("S26", 2013): EventInfo("AcGenNov2013", False),  # Chhattisgarh
+    ("S26", 2018): EventInfo("AcGenNov2018", False),  # Chhattisgarh
+
     # Historical hand-imports (2016-2023) from old.eci.gov.in Section 10
     # XLSX dumps. No live-results portal; no Statistical Report API.
     # Polling-month event_ids researched against Wikipedia/ECI archives.

@@ -1,7 +1,7 @@
 # AE Panel Statewise DelimID 3/4 Ingestion Plan
 
 **Last Updated**: 2026-05-24
-**Status**: ACTIVE — tooling through Telangana (`S29`) merged; current Andhra Pradesh (`S01`, 2014-only slice) state PR in progress.
+**Status**: ACTIVE — tooling through Andhra Pradesh (`S01`, 2014-only slice) merged; Chhattisgarh (`S26`) state PR in progress.
 **Scope**: `datasets/ephemeral/All_States_AE.csv` statewise ingestion through the canonical elections Parquet writer.
 **Spec**: [`docs/architecture/backend/sources-eci.md`](../docs/architecture/backend/sources-eci.md), [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md), [`docs/architecture/data/elections-indicators.md`](../docs/architecture/data/elections-indicators.md).
 **Decision rationale**: [ADR-0030](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md), [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md), [ADR-0036](../docs/architecture/decisions/0036-state-identity-and-slice-registration.md).
@@ -39,8 +39,9 @@ Every state PR must be merged to `main` before the next state starts. This keeps
 | 7 | Frontend default-event fix | `defaultEventForState` now chooses max `polled_on` rather than catalogue order / stale flags, preventing historical backfills from becoming the default event. | DONE — PR #191 |
 | 8 | Arunachal Pradesh (`S02`) | State-only dry-run, event registration for missing `S02` rows, `DelimID=3` and `DelimID=4` ingest, inventory/provenance/coverage updates. | DONE — PR #192 |
 | 9 | Telangana (`S29`) | State-only dry-run, event registration for missing `S29` rows, `DelimID=4` ingest, inventory/provenance/coverage updates. | DONE — PR #194 |
-| 10 | Andhra Pradesh (`S01`, 2014 current-state slice) | State-only dry-run with `--min-year 2014 --max-year 2014`, event registration for `AcGenMay2014`, `DelimID=4` ingest, inventory/provenance/coverage updates. Pre-2014 undivided Andhra Pradesh remains deferred. | ACTIVE — this PR |
-| 11+ | Remaining states | Proceed from small/low-risk states to medium states, then large/reorganisation-heavy states. | QUEUED |
+| 10 | Andhra Pradesh (`S01`, 2014 current-state slice) | State-only dry-run with `--min-year 2014 --max-year 2014`, event registration for `AcGenMay2014`, `DelimID=4` ingest, inventory/provenance/coverage updates. Pre-2014 undivided Andhra Pradesh remains deferred. | DONE — PR #195 |
+| 11 | Chhattisgarh (`S26`) | State-only dry-run, event registration for missing `S26` rows, `DelimID=3` and `DelimID=4` ingest, inventory/provenance/coverage updates. | ACTIVE — this PR |
+| 12+ | Remaining states | Proceed from small/low-risk states to medium states, then large/reorganisation-heavy states. | QUEUED |
 
 Already-merged panel states are out of the first wave: Tamil Nadu (`S22`, PR #178), Gujarat (`S06`, PR #179), and Maharashtra (`S13`, PR #180).
 
@@ -73,13 +74,38 @@ Telangana dry-run found 3,728 approved rows (`DelimID=4`: 3,728) across 2 missin
 
 Andhra Pradesh 2014 dry-run found 2,416 approved rows (`DelimID=4`: 2,416) across 1 missing current-state event. The state PR writes only 2014 with `--min-year 2014 --max-year 2014`, preserving existing 2019/2024 Section-10 slices and leaving pre-2014 undivided Andhra Pradesh out of scope. Post-ingest verification showed 18,850 Andhra Pradesh observation rows, 3 S01 events on disk, 175 ACs in every event, 377 newly added candidacies mapped to `parties.IN.UNK` with `party_short_raw` preserved, and zero dangling Andhra Pradesh `source_id` values.
 
+Chhattisgarh dry-run found 4,320 writeable approved rows (`DelimID=3`: 819; `DelimID=4`: 3,501) across 4 missing events after skipping 142 blank-month rows. The state PR writes 2003 (`AcGenDec2003`), 2008 (`AcGenNov2008`), 2013 (`AcGenNov2013`), and 2018 (`AcGenNov2018`), preserving the existing 2023 Section-10 slice. Post-ingest verification showed 19,245 Chhattisgarh observation rows, 5 S26 events on disk, 90 ACs in every event, 397 newly added candidacies mapped to `parties.IN.UNK` with `party_short_raw` preserved, and zero dangling Chhattisgarh `source_id` values.
+
 ## Remaining State Classes
 
 The normal queue remains state-by-state, but not every pending token is equally safe:
 
-- **Straight current-state queue**: Chhattisgarh (`S26`), Jharkhand (`S27`), Uttarakhand (`S28`), Manipur (`S14`), Mizoram (`S16`), Nagaland (`S17`), Delhi (`U05`), Haryana (`S07`), Kerala (`S11`), Punjab (`S19`), Rajasthan (`S20`), Karnataka (`S10`), Assam (`S03`), Odisha (`S18`), West Bengal (`S25`), Bihar (`S04`), Madhya Pradesh (`S12`), Uttar Pradesh (`S24`).
-- **Filterable split-state queue**: Andhra Pradesh (`S01`) post-2014 only; the 2014 current-state slice is active in this PR. Pre-2014 Andhra rows describe undivided Andhra Pradesh and need a historical entity decision.
+- **Straight current-state queue**: Chhattisgarh (`S26`, active), Jharkhand (`S27`), Uttarakhand (`S28`), Manipur (`S14`), Mizoram (`S16`), Nagaland (`S17`), Delhi (`U05`), Haryana (`S07`), Kerala (`S11`), Punjab (`S19`), Rajasthan (`S20`), Karnataka (`S10`), Assam (`S03`), Odisha (`S18`), West Bengal (`S25`), Bihar (`S04`), Madhya Pradesh (`S12`), Uttar Pradesh (`S24`).
+- **Filterable split-state queue**: Andhra Pradesh (`S01`) post-2014 only; the 2014 current-state slice is done in PR #195. Pre-2014 Andhra rows describe undivided Andhra Pradesh and need a historical entity decision.
 - **Deferred/problem tokens**: `Goa_Daman_&_Diu`, `Madras`, `Mysore`, and `Jammu_&_Kashmir`. `Madras`/`Mysore` are legacy predecessor names; `Goa_Daman_&_Diu` is a predecessor UT; `Jammu_&_Kashmir` needs a post-2019 state/UT split plan.
+
+## Normal-State Execution Queue
+
+| # | State token | Code | Approved rows | `DelimID=3` | `DelimID=4` | Status |
+| ---: | --- | --- | ---: | ---: | ---: | --- |
+| 1 | `Chhattisgarh` | `S26` | 4,462 | 886 | 3,576 | ACTIVE — verified in this PR |
+| 2 | `Jharkhand` | `S27` | 5,636 | 1,428 | 4,208 | QUEUED |
+| 3 | `Uttarakhand` | `S28` | 4,002 | 1,755 | 2,247 | QUEUED |
+| 4 | `Manipur` | `S14` | 3,739 | 2,781 | 958 | QUEUED |
+| 5 | `Mizoram` | `S16` | 1,978 | 1,311 | 667 | QUEUED |
+| 6 | `Nagaland` | `S17` | 2,482 | 1,543 | 939 | QUEUED |
+| 7 | `Delhi` | `U05` | 6,929 | 3,651 | 3,278 | QUEUED |
+| 8 | `Haryana` | `S07` | 13,758 | 9,727 | 4,031 | QUEUED |
+| 9 | `Kerala` | `S11` | 10,489 | 6,955 | 3,534 | QUEUED |
+| 10 | `Punjab` | `S19` | 9,474 | 5,618 | 3,856 | QUEUED |
+| 11 | `Rajasthan` | `S20` | 19,867 | 12,782 | 7,085 | QUEUED |
+| 12 | `Karnataka` | `S10` | 23,719 | 12,289 | 11,430 | QUEUED |
+| 13 | `Assam` | `S03` | 10,817 | 7,470 | 3,347 | QUEUED |
+| 14 | `Odisha` | `S18` | 11,209 | 7,034 | 4,175 | QUEUED |
+| 15 | `West_Bengal` | `S25` | 18,607 | 11,918 | 6,689 | QUEUED |
+| 16 | `Bihar` | `S04` | 46,942 | 35,453 | 11,489 | QUEUED |
+| 17 | `Madhya_Pradesh` | `S12` | 29,305 | 19,521 | 9,784 | QUEUED |
+| 18 | `Uttar_Pradesh` | `S24` | 76,120 | 58,652 | 17,468 | QUEUED |
 
 ## Per-State Loop
 
