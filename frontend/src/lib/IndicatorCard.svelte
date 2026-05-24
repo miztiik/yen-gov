@@ -77,14 +77,52 @@
   });
 
   const meta = $derived(data?.indicator ?? null);
+
+  // PR 7b — facet-multiplexed guard. When the artifact carries multi-facet
+  // rows (e.g. RPO compliance ships {solar, non-solar, total} per state per
+  // year, ICED capacity-by-source ships {coal, hydro, ...}), the existing
+  // big-number + sparkline + rank block would sum across facets via
+  // latestForEntity / seriesForEntity / rankForEntity — producing
+  // meaningless aggregates ("RPO compliance: 287%" because solar 47 +
+  // non-solar 76 + total 164 sum to 287). The honest one-card surface for
+  // a faceted indicator needs a per-facet picker (FacetPicker primitive),
+  // which is the scope of PR 7b.1. Until that lands, this card renders a
+  // small placeholder block instead, naming the facets and pointing at the
+  // /t/<topic> page where the per-facet drill-down will live.
+  //
+  // Detection is permissive: ANY row with a non-empty facet flips the
+  // guard. False positives (single-facet rows that nonetheless carry a
+  // facet label) render the placeholder — that is the correct outcome,
+  // because the renderer cannot tell from data shape alone whether
+  // summing is safe; the catalogue/schema does not yet carry an explicit
+  // is_facet_multiplexed flag.
+  const is_facet_multiplexed = $derived<boolean>(
+    data?.rows?.some(r => r.facet != null && r.facet !== "") ?? false,
+  );
+  const unique_facets = $derived<string[]>(
+    is_facet_multiplexed && data
+      ? Array.from(
+          new Set(
+            data.rows
+              .map(r => r.facet)
+              .filter((f): f is string => f != null && f !== ""),
+          ),
+        )
+      : [],
+  );
+
   const home_latest = $derived(
-    data && home_state ? latestForEntity(data.rows, home_state) : null,
+    data && home_state && !is_facet_multiplexed
+      ? latestForEntity(data.rows, home_state)
+      : null,
   );
   const series = $derived(
-    data && home_state ? seriesForEntity(data.rows, home_state) : [],
+    data && home_state && !is_facet_multiplexed
+      ? seriesForEntity(data.rows, home_state)
+      : [],
   );
   const rank_info = $derived(
-    data && home_state && meta
+    data && home_state && meta && !is_facet_multiplexed
       ? rankForEntity(data.rows, home_state, meta.direction, canShowRank(meta))
       : null,
   );
@@ -164,52 +202,75 @@
     </header>
 
     <!-- Big number + sparkline row. On narrow viewports they stack; the
-         sparkline is decorative when home data is missing. -->
-    <div class="flex items-end justify-between gap-4 flex-wrap">
-      <div class="min-w-0">
-        {#if home_latest}
-          <div class="text-3xl font-bold tabular-nums text-slate-900 leading-none">
-            {formatValue(home_latest.value, meta)}
-          </div>
-          <div class="text-[11px] uppercase tracking-[0.1em] text-slate-500 mt-1">
-            {home_latest.time}
-          </div>
-        {:else}
-          <div class="text-sm text-slate-400 italic">No data for this state yet.</div>
+         sparkline is decorative when home data is missing. The whole
+         block is suppressed for facet-multiplexed artifacts (see
+         is_facet_multiplexed in the script) — summing across facets
+         would render meaningless aggregates; a per-facet picker is the
+         scope of PR 7b.1. -->
+    {#if is_facet_multiplexed}
+      <div
+        class="text-sm bg-amber-50 border border-amber-200 text-amber-900 rounded px-3 py-3 space-y-1"
+        data-testid="indicator-card-facet-placeholder"
+      >
+        <p class="font-medium">Faceted indicator — {unique_facets.length} segments.</p>
+        <p class="text-xs text-amber-800">
+          {unique_facets.join(" · ")}
+        </p>
+        <p class="text-xs text-amber-800">
+          Per-segment view coming on its own page. For now, see <a
+            href={see_all_href}
+            class="underline hover:text-amber-900"
+            data-testid="indicator-card-facet-link">all states on this topic →</a
+          >
+        </p>
+      </div>
+    {:else}
+      <div class="flex items-end justify-between gap-4 flex-wrap">
+        <div class="min-w-0">
+          {#if home_latest}
+            <div class="text-3xl font-bold tabular-nums text-slate-900 leading-none">
+              {formatValue(home_latest.value, meta)}
+            </div>
+            <div class="text-[11px] uppercase tracking-[0.1em] text-slate-500 mt-1">
+              {home_latest.time}
+            </div>
+          {:else}
+            <div class="text-sm text-slate-400 italic">No data for this state yet.</div>
+          {/if}
+        </div>
+
+        {#if sparkline_path}
+          <svg
+            viewBox="0 0 {W} {H}"
+            class="w-40 h-12 flex-shrink-0"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+            data-testid="indicator-card-sparkline"
+          >
+            <path
+              d={sparkline_path}
+              fill="none"
+              stroke={stroke}
+              stroke-width="1.5"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+            />
+            {#if sparkline_dot}
+              <circle cx={sparkline_dot.cx} cy={sparkline_dot.cy} r="2" fill={stroke} />
+            {/if}
+          </svg>
         {/if}
       </div>
 
-      {#if sparkline_path}
-        <svg
-          viewBox="0 0 {W} {H}"
-          class="w-40 h-12 flex-shrink-0"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-          data-testid="indicator-card-sparkline"
-        >
-          <path
-            d={sparkline_path}
-            fill="none"
-            stroke={stroke}
-            stroke-width="1.5"
-            stroke-linejoin="round"
-            stroke-linecap="round"
-          />
-          {#if sparkline_dot}
-            <circle cx={sparkline_dot.cx} cy={sparkline_dot.cy} r="2" fill={stroke} />
-          {/if}
-        </svg>
+      <!-- Rank line. Suppressed when the indicator is not comparable across
+           states or carries renderer_rules: [no_rank_table] (canShowRank
+           encapsulates both). When only one state has data, rank is "1 of 1"
+           which is meaningless — suppress total=1 too. -->
+      {#if rank_info && rank_info.total > 1}
+        <p class="text-xs text-slate-600">
+          {ordinal(rank_info.rank)} of {rank_info.total} states, {rank_info.time}.
+        </p>
       {/if}
-    </div>
-
-    <!-- Rank line. Suppressed when the indicator is not comparable across
-         states or carries renderer_rules: [no_rank_table] (canShowRank
-         encapsulates both). When only one state has data, rank is "1 of 1"
-         which is meaningless — suppress total=1 too. -->
-    {#if rank_info && rank_info.total > 1}
-      <p class="text-xs text-slate-600">
-        {ordinal(rank_info.rank)} of {rank_info.total} states, {rank_info.time}.
-      </p>
     {/if}
 
     <footer class="flex items-center justify-between gap-3 pt-1 border-t border-slate-100">
