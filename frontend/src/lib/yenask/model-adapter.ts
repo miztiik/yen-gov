@@ -63,6 +63,27 @@ export interface GenerateOptions {
   readonly top_p?: number;
 }
 
+/**
+ * Result of one `generate()` call. Per D-19 / D-20 the adapter exposes
+ * token counts + wall-clock time so the UI can show a per-turn footer
+ * ("~32 in / ~87 out / 2.1s") and the debug panel can render the raw
+ * model output for inspection. Token counts use the pipeline's own
+ * tokenizer when available (exact) and fall back to a chars/4
+ * approximation when not (marked `tokens_approximate=true`).
+ */
+export interface GenerateResult {
+  /** Assistant text, normalised from whatever shape the runtime returned. */
+  readonly text: string;
+  /** Input token count (system + few-shot + user). 0 when unknown. */
+  readonly tokens_in: number;
+  /** Output token count (just the assistant reply). 0 when unknown. */
+  readonly tokens_out: number;
+  /** True when token counts are char-length approximations, not exact. */
+  readonly tokens_approximate: boolean;
+  /** Wall-clock time spent inside the generate() call, milliseconds. */
+  readonly wall_ms: number;
+}
+
 // -----------------------------------------------------------------------------
 // Adapter interface.
 // -----------------------------------------------------------------------------
@@ -84,9 +105,15 @@ export interface ModelAdapter {
   prepare(onProgress?: ProgressListener): Promise<void>;
   /**
    * Runs one inference. Throws if `prepare()` has not resolved.
-   * Returns the raw assistant text — JSON extraction is the caller's job.
+   * Returns `GenerateResult` (text + token counts + wall_ms) so the UI
+   * can render observability — JSON extraction is still the caller's
+   * job. Per D-20 token counts are exact when the pipeline exposes a
+   * tokenizer, otherwise approximate (`tokens_approximate=true`).
    */
-  generate(messages: readonly ChatMessage[], opts?: GenerateOptions): Promise<string>;
+  generate(
+    messages: readonly ChatMessage[],
+    opts?: GenerateOptions,
+  ): Promise<GenerateResult>;
 }
 
 // -----------------------------------------------------------------------------
@@ -102,6 +129,10 @@ export interface ModelAdapter {
  * types at module top-level (which would force the SDK into the main
  * chunk). The real type is `TextGenerationPipeline`; this subset captures
  * what `generate()` calls.
+ *
+ * `tokenizer.encode(text)` is the transformers.js stable surface we use
+ * for exact token counting; when it's absent (older builds, mocked
+ * pipelines in tests) we fall back to a chars/4 approximation.
  */
 interface TextGenPipeline {
   (
@@ -114,6 +145,9 @@ interface TextGenPipeline {
       return_full_text: boolean;
     },
   ): Promise<unknown>;
+  readonly tokenizer?: {
+    encode?(text: string): readonly number[] | number[];
+  };
 }
 
 /**
@@ -201,7 +235,7 @@ class TransformersJsAdapter implements ModelAdapter {
   async generate(
     messages: readonly ChatMessage[],
     opts: GenerateOptions = {},
-  ): Promise<string> {
+  ): Promise<GenerateResult> {
     if (this._status.kind !== "ready" || !this._pipeline) {
       throw new Error(
         `[yenask] generate() called before prepare() resolved; ` +
@@ -209,6 +243,7 @@ class TransformersJsAdapter implements ModelAdapter {
       );
     }
     const temperature = opts.temperature ?? 0.2;
+    const t0 = nowMs();
     const result = await this._pipeline(messages, {
       max_new_tokens: opts.max_new_tokens ?? 256,
       do_sample: temperature > 0,
@@ -216,8 +251,78 @@ class TransformersJsAdapter implements ModelAdapter {
       top_p: opts.top_p ?? 0.95,
       return_full_text: false,
     });
-    return extractAssistantText(result);
+    const wall_ms = Math.max(0, Math.round(nowMs() - t0));
+    const text = extractAssistantText(result);
+    const { tokens_in, tokens_out, tokens_approximate } = countTokens(
+      this._pipeline,
+      messages,
+      text,
+    );
+    return { text, tokens_in, tokens_out, tokens_approximate, wall_ms };
   }
+}
+
+// -----------------------------------------------------------------------------
+// Internal helpers.
+// -----------------------------------------------------------------------------
+
+function nowMs(): number {
+  if (
+    typeof performance !== "undefined" &&
+    typeof performance.now === "function"
+  ) {
+    return performance.now();
+  }
+  return Date.now();
+}
+
+/**
+ * Approximate-when-needed token counter. Prefers the pipeline's own
+ * tokenizer (exact); falls back to a chars/4 approximation (rough but
+ * matches the rule-of-thumb most citizens see in playgrounds).
+ *
+ * Returned `tokens_approximate` lets the UI render "~32 in" vs "32 in"
+ * so we don't pretend the approximation is precise.
+ */
+function countTokens(
+  pipeline: TextGenPipeline,
+  messages: readonly ChatMessage[],
+  responseText: string,
+): { tokens_in: number; tokens_out: number; tokens_approximate: boolean } {
+  // Concatenate the messages the same way the runtime would feed them
+  // to the tokenizer. We don't replicate the chat template exactly
+  // (model-specific) but for a rough count the role-prefixed form is
+  // close enough — and we surface `tokens_approximate=true` when the
+  // tokenizer isn't available so the UI doesn't claim precision.
+  const inputText = messages.map((m) => `${m.role}: ${m.content}`).join("\n");
+  const tokenizer = pipeline.tokenizer;
+  if (tokenizer && typeof tokenizer.encode === "function") {
+    try {
+      const inIds = tokenizer.encode(inputText);
+      const outIds = tokenizer.encode(responseText);
+      const tokens_in = Array.isArray(inIds)
+        ? inIds.length
+        : (inIds as readonly number[]).length;
+      const tokens_out = Array.isArray(outIds)
+        ? outIds.length
+        : (outIds as readonly number[]).length;
+      return { tokens_in, tokens_out, tokens_approximate: false };
+    } catch {
+      // Fall through to approximation — tokenizer threw (e.g. unicode
+      // edge case). Better to surface a rough number than zero.
+    }
+  }
+  return {
+    tokens_in: approxTokens(inputText),
+    tokens_out: approxTokens(responseText),
+    tokens_approximate: true,
+  };
+}
+
+/** Common chars/4 heuristic. Off by ~20% on Indic scripts; honest about it. */
+function approxTokens(text: string): number {
+  if (!text) return 0;
+  return Math.max(1, Math.round(text.length / 4));
 }
 
 // -----------------------------------------------------------------------------

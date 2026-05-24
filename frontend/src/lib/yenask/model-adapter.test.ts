@@ -128,7 +128,62 @@ describe("generate", () => {
     const a = createAdapter(MODEL);
     await a.prepare();
     const out = await a.generate([{ role: "user", content: "hi" }]);
-    expect(out).toBe("hello world");
+    expect(out.text).toBe("hello world");
+    expect(out.wall_ms).toBeGreaterThanOrEqual(0);
+  });
+
+  it("reports exact token counts when the pipeline exposes a tokenizer (D-20)", async () => {
+    const encode = vi.fn((text: string) =>
+      // Simple word-split tokenizer surrogate; lets us assert exact counts.
+      text.split(/\s+/).filter(Boolean).map((_, i) => i),
+    );
+    const innerFn = vi.fn().mockResolvedValueOnce([
+      { generated_text: "reply text here" },
+    ]);
+    const pipelineWithTokenizer = Object.assign(innerFn, {
+      tokenizer: { encode },
+    });
+    handles.pipelineFactory.mockResolvedValueOnce(pipelineWithTokenizer);
+    const a = createAdapter(MODEL);
+    await a.prepare();
+    const out = await a.generate([
+      { role: "user", content: "hello there world" },
+    ]);
+    expect(out.text).toBe("reply text here");
+    expect(out.tokens_approximate).toBe(false);
+    // input = "user: hello there world" → 4 tokens; output = 3 tokens.
+    expect(out.tokens_in).toBe(4);
+    expect(out.tokens_out).toBe(3);
+    expect(encode).toHaveBeenCalledTimes(2);
+  });
+
+  it("falls back to chars/4 approximation when no tokenizer is present (D-20)", async () => {
+    const innerFn = vi.fn().mockResolvedValueOnce([{ generated_text: "ABCDEFGH" }]);
+    handles.pipelineFactory.mockResolvedValueOnce(innerFn);
+    const a = createAdapter(MODEL);
+    await a.prepare();
+    const out = await a.generate([{ role: "user", content: "hi" }]);
+    expect(out.tokens_approximate).toBe(true);
+    expect(out.tokens_in).toBeGreaterThan(0);
+    // "ABCDEFGH" is 8 chars → ~2 tokens.
+    expect(out.tokens_out).toBe(2);
+  });
+
+  it("falls back to approximation when tokenizer.encode throws (D-20)", async () => {
+    const innerFn = vi.fn().mockResolvedValueOnce([{ generated_text: "out" }]);
+    const pipelineWithBadTokenizer = Object.assign(innerFn, {
+      tokenizer: {
+        encode: () => {
+          throw new Error("unicode oops");
+        },
+      },
+    });
+    handles.pipelineFactory.mockResolvedValueOnce(pipelineWithBadTokenizer);
+    const a = createAdapter(MODEL);
+    await a.prepare();
+    const out = await a.generate([{ role: "user", content: "in" }]);
+    expect(out.tokens_approximate).toBe(true);
+    expect(out.tokens_in).toBeGreaterThan(0);
   });
 
   it("passes options through to the pipeline call", async () => {

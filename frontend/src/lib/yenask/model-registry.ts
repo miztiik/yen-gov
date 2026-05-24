@@ -40,8 +40,13 @@ export interface ModelEntry {
   readonly dtype: string;
   /**
    * Target device. "auto" lets the runtime pick (usually webgpu when
-   * available, falling back to wasm). For the seed entry we lock to
-   * "auto" so first-run users on hardware without WebGPU still work.
+   * available, falling back to wasm). The seed entry is pinned to
+   * "wasm" because onnxruntime-web's WebGPU backend currently crashes
+   * on q4f16 SmolLM2 (`Failed to download data from buffer: Mapping
+   * WebGPU buffer failed: Invalid buffer`) on multiple GPUs/drivers.
+   * Wasm is slower (~1-2 tok/s vs ~10-15 tok/s on WebGPU) but produces
+   * stable output. Future entries can opt back into "webgpu" or
+   * "auto" once the upstream bug is fixed. See plan-doc §17 D-19.
    */
   readonly device: ModelDevice;
   /**
@@ -76,13 +81,15 @@ export const MODEL_REGISTRY: readonly ModelEntry[] = [
     provider: "transformers-js",
     repo_id: "HuggingFaceTB/SmolLM2-135M-Instruct",
     dtype: "q4f16",
-    device: "auto",
+    device: "wasm",
     estimated_download_mb: 88,
     notes:
       "Seed candidate per D-10 (smallest viable first). Swap by editing " +
       "DEFAULT_MODEL_ID or this entry. q4f16 ONNX is the smallest variant " +
-      "the HuggingFaceTB repo publishes; falls back to wasm when WebGPU " +
-      "is unavailable.",
+      "the HuggingFaceTB repo publishes. Device pinned to \"wasm\" per " +
+      "D-19 — WebGPU backend in onnxruntime-web currently crashes on " +
+      "q4f16 SmolLM2 with `Invalid buffer` mapping errors; wasm is " +
+      "slower but stable.",
   },
 ] as const;
 

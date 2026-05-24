@@ -14,6 +14,7 @@ import type { SemanticCatalogue } from "./types";
 import type {
   ChatMessage,
   GenerateOptions,
+  GenerateResult,
   ModelAdapter,
   ReadinessStatus,
 } from "./model-adapter";
@@ -45,10 +46,21 @@ const MODEL: ModelEntry = {
   provider: "transformers-js",
   repo_id: "test/repo",
   dtype: "q4f16",
-  device: "auto",
+  device: "wasm",
   estimated_download_mb: 1,
   notes: "",
 };
+
+/** Build a synthetic GenerateResult around a raw text. */
+function asResult(text: string): GenerateResult {
+  return {
+    text,
+    tokens_in: Math.max(1, Math.round(text.length / 4)),
+    tokens_out: Math.max(1, Math.round(text.length / 4)),
+    tokens_approximate: true,
+    wall_ms: 1,
+  };
+}
 
 function fakeAdapter(
   responses: readonly string[],
@@ -60,12 +72,15 @@ function fakeAdapter(
     model: MODEL,
     status: () => status,
     prepare: async () => undefined,
-    generate: async (messages: readonly ChatMessage[], _opts?: GenerateOptions) => {
+    generate: async (
+      messages: readonly ChatMessage[],
+      _opts?: GenerateOptions,
+    ): Promise<GenerateResult> => {
       calls.push([...messages]);
       if (i >= responses.length) {
         throw new Error("fakeAdapter exhausted");
       }
-      return responses[i++]!;
+      return asResult(responses[i++]!);
     },
   };
   return { adapter, calls };
@@ -197,8 +212,11 @@ describe("extractIntent", () => {
 
   it("calls generate with temperature 0.1 for stable extraction", async () => {
     const generateSpy = vi.fn<
-      (messages: readonly ChatMessage[], opts?: GenerateOptions) => Promise<string>
-    >(async () => VALID_RAW);
+      (
+        messages: readonly ChatMessage[],
+        opts?: GenerateOptions,
+      ) => Promise<GenerateResult>
+    >(async () => asResult(VALID_RAW));
     const adapter: ModelAdapter = {
       model: MODEL,
       status: () => ({ kind: "ready" }),
@@ -209,5 +227,40 @@ describe("extractIntent", () => {
     expect(generateSpy).toHaveBeenCalledTimes(1);
     const opts = generateSpy.mock.calls[0]![1];
     expect(opts?.temperature).toBe(0.1);
+  });
+
+  it("records per-attempt diagnostics (D-20)", async () => {
+    const { adapter } = fakeAdapter(["not json", VALID_RAW]);
+    const r = await extractIntent("Q?", CATALOGUE, adapter);
+    expect(r.diagnostics.attempts_log.length).toBe(2);
+    const [first, second] = r.diagnostics.attempts_log;
+    expect(first!.attempt).toBe(1);
+    expect(first!.parse_status).toBe("json_error");
+    expect(first!.tokens_in).toBeGreaterThan(0);
+    expect(first!.tokens_approximate).toBe(true);
+    expect(first!.parse_error).toBeTruthy();
+    expect(second!.attempt).toBe(2);
+    expect(second!.parse_status).toBe("ok");
+    expect(second!.parse_error).toBeUndefined();
+  });
+
+  it("records generate_error attempts when the adapter throws", async () => {
+    const adapter: ModelAdapter = {
+      model: MODEL,
+      status: () => ({ kind: "ready" }),
+      prepare: async () => undefined,
+      generate: async () => {
+        throw new Error("WebGPU boom");
+      },
+    };
+    const r = await extractIntent("Q?", CATALOGUE, adapter, { max_retries: 0 });
+    expect(r.ok).toBe(false);
+    expect(r.diagnostics.attempts_log.length).toBe(1);
+    const att = r.diagnostics.attempts_log[0]!;
+    expect(att.parse_status).toBe("generate_error");
+    expect(att.parse_error).toMatch(/WebGPU boom/);
+    expect(att.tokens_in).toBe(0);
+    expect(att.tokens_out).toBe(0);
+    expect(att.raw_output).toBe("");
   });
 });
