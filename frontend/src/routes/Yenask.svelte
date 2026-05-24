@@ -34,10 +34,10 @@
   import SourceListV2 from "../lib/SourceListV2.svelte";
   import type { SourceV2Row } from "../lib/source-list-v2";
   import {
-    MODEL_REGISTRY,
     DEFAULT_MODEL_ID,
     getModelById,
     getDefaultModel,
+    listTextGenerationModels,
   } from "../lib/yenask/model-registry";
   import type { ModelAdapter, ReadinessStatus } from "../lib/yenask/model-adapter";
   import { createAdapter } from "../lib/yenask/model-adapter";
@@ -637,7 +637,7 @@
       cache because it's an explicit two-step nuclear option.)
     -->
     <ul class="space-y-2" data-testid="yenask-model-list">
-      {#each MODEL_REGISTRY as m (m.id)}
+      {#each listTextGenerationModels() as m (m.id)}
         {@const state = modelCardState(m)}
         {@const cacheBytes = cacheSizes[m.repo_id] ?? 0}
         {@const isConfirmingDelete = deleteConfirmRepoId === m.repo_id}

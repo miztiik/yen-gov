@@ -1,0 +1,143 @@
+{
+  "$comment": [
+    "YENASK Slice E.2 (ADR-0039) intent-extraction evaluation set.",
+    "",
+    "20 labelled citizen-style questions covering the 4 PR-1 concepts (5 per concept).",
+    "Authored 2026-05-24 for the eval-set-as-contract lock (Andre + Hamel + Fowler).",
+    "",
+    "Used by:",
+    "  - catalogue-embed.test.ts (regression: top-1 concept_id must match expected_intent",
+    "    for >= 80% of fixtures against a stub embedder; the stub deliberately picks the",
+    "    expected concept so the test asserts plumbing, not model accuracy)",
+    "  - extract-intent.test.ts (Slice E.2) — full pipeline regression with a live or mocked",
+    "    SmolLM2 + MiniLM stack; ≥5pp drop fails the build",
+    "",
+    "Adding a new concept = at least 3 new entries here (Andre's rule: an eval set that",
+    "doesn't cover every dispatch path is a band-aid). Edits to expected_intent require",
+    "panel review since they retroactively shift the regression baseline."
+  ],
+  "version": "yenask.intent-eval.v0",
+  "authored": "2026-05-24",
+  "fixtures": [
+    {
+      "id": "pt-01",
+      "question": "Which parties won the most seats in Tamil Nadu 2026?",
+      "expected_intent": "party_totals",
+      "notes": "Direct party-totals phrasing with state + year."
+    },
+    {
+      "id": "pt-02",
+      "question": "How many seats did DMK win this time?",
+      "expected_intent": "party_totals",
+      "notes": "Single-party seat count — still party_totals (filter by party in compile)."
+    },
+    {
+      "id": "pt-03",
+      "question": "Vote share breakdown by party in Bihar 2025",
+      "expected_intent": "party_totals",
+      "notes": "Vote share is one of the party_totals output columns."
+    },
+    {
+      "id": "pt-04",
+      "question": "BJP seat count and vote share in UP",
+      "expected_intent": "party_totals",
+      "notes": "Single-party + vote share — same concept as above."
+    },
+    {
+      "id": "pt-05",
+      "question": "Compare AIADMK and DMK across all seats",
+      "expected_intent": "party_totals",
+      "notes": "Comparison framing — party_totals returns both, citizen reads the diff."
+    },
+    {
+      "id": "cc-01",
+      "question": "Which seats were decided by the narrowest margins?",
+      "expected_intent": "closest_contests",
+      "notes": "Canonical closest-contests phrasing."
+    },
+    {
+      "id": "cc-02",
+      "question": "What were the tightest contests in TN 2026?",
+      "expected_intent": "closest_contests",
+      "notes": "'Tightest' is a synonym for narrowest margin."
+    },
+    {
+      "id": "cc-03",
+      "question": "Knife-edge constituencies in Bihar 2025",
+      "expected_intent": "closest_contests",
+      "notes": "Idiom — 'knife-edge' was a stretch goal for MiniLM."
+    },
+    {
+      "id": "cc-04",
+      "question": "Seats won by less than 1000 votes",
+      "expected_intent": "closest_contests",
+      "notes": "Concrete threshold framing of the same concept."
+    },
+    {
+      "id": "cc-05",
+      "question": "Photo-finish results in Tamil Nadu",
+      "expected_intent": "closest_contests",
+      "notes": "Another idiom; tests embedding robustness to figurative language."
+    },
+    {
+      "id": "cr-01",
+      "question": "What happened in Mylapore in 2026?",
+      "expected_intent": "constituency_result",
+      "notes": "Named AC + year — canonical constituency_result phrasing."
+    },
+    {
+      "id": "cr-02",
+      "question": "Who won from Coimbatore South?",
+      "expected_intent": "constituency_result",
+      "notes": "'Who won from' is a strong constituency-result signal."
+    },
+    {
+      "id": "cr-03",
+      "question": "Show me the result for AC 167",
+      "expected_intent": "constituency_result",
+      "notes": "AC number reference — same concept."
+    },
+    {
+      "id": "cr-04",
+      "question": "Top candidates in Madurai East",
+      "expected_intent": "constituency_result",
+      "notes": "Single-constituency candidate breakdown."
+    },
+    {
+      "id": "cr-05",
+      "question": "Constituency breakdown for Anna Nagar in TN 2026",
+      "expected_intent": "constituency_result",
+      "notes": "'Constituency breakdown' is the gloss verbatim."
+    },
+    {
+      "id": "te-01",
+      "question": "Highest and lowest turnout seats in Bihar",
+      "expected_intent": "turnout_extremes",
+      "notes": "Canonical turnout-extremes phrasing."
+    },
+    {
+      "id": "te-02",
+      "question": "Where did voters turn out the most?",
+      "expected_intent": "turnout_extremes",
+      "notes": "'Turn out' / 'turnout' — tests embedding tokenization."
+    },
+    {
+      "id": "te-03",
+      "question": "Worst voter participation constituencies",
+      "expected_intent": "turnout_extremes",
+      "notes": "'Voter participation' is a turnout synonym."
+    },
+    {
+      "id": "te-04",
+      "question": "Top 10 turnout constituencies in TN",
+      "expected_intent": "turnout_extremes",
+      "notes": "'Top 10' framing — turnout is the ranking key."
+    },
+    {
+      "id": "te-05",
+      "question": "Which seats had the most voting and which had the least?",
+      "expected_intent": "turnout_extremes",
+      "notes": "Both-extremes phrasing — same concept, single answer."
+    }
+  ]
+}

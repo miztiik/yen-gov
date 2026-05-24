@@ -13,6 +13,11 @@ Phase 1 (current) ships zero model code — only canned `InsightIntent`
 fixtures are clickable. Phase 2 adds a config-driven SLM model adapter
 (plan-doc §17 D-10, D-11).
 
+The CITIZEN-FACING brand is **Y-Ask** (logo, page title). All MODULE
+identifiers stay as `yenask` (directory name, route path, LS key, testids,
+ADR titles). Don't unify them — see ADR-0039 §"Y-Ask brand split rationale"
+and plan-doc §17 D-31.
+
 ## Layout
 
 | File | Role | Phase |
@@ -25,8 +30,10 @@ fixtures are clickable. Phase 2 adds a config-driven SLM model adapter
 | `compile-intent.ts` | PURE: `(intent, catalogue) -> DuckDBPlan`. No I/O. Joins `taxonomy.sources` to enforce Holy Law #9. | 1 |
 | `execute-plan.ts` | IMPURE: `(plan) -> Promise<AnswerViewModel>`. Calls `query()` from `../duckdb`. | 1 |
 | `fixtures/canned-intents.ts` | The four PR-1 canned intents (party_totals, closest_contests, constituency_result, turnout_extremes). | 1 |
-| `model-registry.ts` | TS config array, one entry per supported SLM. | 2 |
+| `fixtures/intent-eval.json` | 20 labelled citizen-style questions (5 per concept) — Slice E.2 regression alarm (Andre + Hamel + Fowler eval-as-contract lock; ADR-0039 + plan-doc D-32). | 3 (E.1) |
+| `model-registry.ts` | TS config array, one entry per supported model. Discriminated union on `task: "text-generation" \| "embeddings"`; picker UI uses `listTextGenerationModels()`; Slice E uses `listEmbeddingsModels()`. | 2, expanded in 3 (E.1) |
 | `model-adapter.ts` | Dispatches by `provider` (Transformers.js \| LiteRT \| ...). | 2 |
+| `catalogue-embed.ts` | Slice E.1 retrieval surface. Hand-authored `CONCEPT_CATALOGUE` + pure-math helpers (`cosineSimilarity`, `rankByCosine`) + `findTopKConcepts(question, k, embed)`. EmbedFn is dependency-injected; module never imports transformers.js directly. ADR-0039. | 3 (E.1) |
 
 ## Removal contract (D-01)
 

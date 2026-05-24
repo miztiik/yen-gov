@@ -41,6 +41,7 @@ const CATALOGUE: SemanticCatalogue = {
 
 const MODEL: ModelEntry = {
   id: "test-model",
+  task: "text-generation",
   display_name: "Test",
   params_label: "10M",
   provider: "transformers-js",

@@ -20,7 +20,30 @@ export type ModelProvider = "transformers-js";
 
 export type ModelDevice = "webgpu" | "wasm" | "auto";
 
-export interface ModelEntry {
+/**
+ * Model task — what the model is FOR.
+ *
+ * Slice E.1 (ADR-0039) introduces this discriminator so registry entries
+ * can declare whether they're text-generation models (the SmolLM2
+ * extractor + future LLMs) or embedding models (MiniLM-L6-v2 for catalogue
+ * retrieval). The model-adapter dispatches on `task` in PR C — text-gen
+ * entries get a `pipeline("text-generation", ...)`, embedding entries get
+ * a `pipeline("feature-extraction", ...)`. Adding a third task (e.g.
+ * `"reranker"`) = new arm here + new adapter dispatch arm + new helper.
+ *
+ * The discriminated-union shape is intentional. Both variants reuse the
+ * ModelEntryBase fields (id, display_name, dtype, device, etc.); only
+ * the task tag distinguishes them at the type level. This stops the
+ * extract-intent.ts code from accidentally `generate()`-ing on an
+ * embeddings entry — a compile error fires before the runtime explodes.
+ */
+export type ModelTask = "text-generation" | "embeddings";
+
+/**
+ * Fields shared by every registry entry regardless of task. Kept private
+ * to the module — consumers always see the discriminated `ModelEntry`.
+ */
+interface ModelEntryBase {
   /** Stable kebab-case slug. Persisted in localStorage as the user pick. */
   readonly id: string;
   /** Citizen-facing model name shown in the picker. */
@@ -84,6 +107,40 @@ export interface ModelEntry {
 }
 
 /**
+ * Text-generation model entry — the LLM doing intent extraction or chat.
+ * All five Slice A–D registry entries (SmolLM2-360M, SmolLM2-135M,
+ * TinyLlama, Qwen2.5-1.5B, Phi-3.5-mini) are this variant.
+ */
+export interface TextGenerationModelEntry extends ModelEntryBase {
+  readonly task: "text-generation";
+}
+
+/**
+ * Embedding model entry — produces a fixed-dim vector per input string.
+ * Slice E.1 (ADR-0039) adds the first such entry, MiniLM-L6-v2, for
+ * catalogue retrieval. The model-adapter dispatch in PR C loads these
+ * via the `"feature-extraction"` pipeline (transformers.js convention).
+ *
+ * `embedding_dim` is declared explicitly so callers can size buffers
+ * before the first generate() call; matches the model's output dim.
+ */
+export interface EmbeddingsModelEntry extends ModelEntryBase {
+  readonly task: "embeddings";
+  /** Output vector dimensionality (e.g. 384 for MiniLM-L6-v2). */
+  readonly embedding_dim: number;
+}
+
+/**
+ * Discriminated union over `task`. Consumers narrow with a type guard:
+ *
+ *   if (entry.task === "embeddings") { entry.embedding_dim ... }
+ *
+ * which makes it a compile error to call generate() on an embeddings
+ * entry, or to read `embedding_dim` off a text-gen entry.
+ */
+export type ModelEntry = TextGenerationModelEntry | EmbeddingsModelEntry;
+
+/**
  * Seed registry. Order matters: the first entry whose id matches
  * DEFAULT_MODEL_ID becomes the default.
  *
@@ -107,6 +164,7 @@ export const MODEL_REGISTRY: readonly ModelEntry[] = [
     // Stays under the D-24 Small-tier 500-MB threshold so no
     // download friction for the default citizen flow.
     id: "smollm2-360m-instruct",
+    task: "text-generation",
     display_name: "SmolLM2-360M-Instruct",
     params_label: "360M",
     provider: "transformers-js",
@@ -124,6 +182,7 @@ export const MODEL_REGISTRY: readonly ModelEntry[] = [
   },
   {
     id: "smollm2-135m-instruct",
+    task: "text-generation",
     display_name: "SmolLM2-135M-Instruct",
     params_label: "135M",
     provider: "transformers-js",
@@ -150,6 +209,7 @@ export const MODEL_REGISTRY: readonly ModelEntry[] = [
     // candidate (D-26 reason c: project frozen since 2023, weaker
     // instruction-following). Citizens who explicitly pick it get it.
     id: "tinyllama-1-1b-chat",
+    task: "text-generation",
     display_name: "TinyLlama-1.1B-Chat-v1.0",
     params_label: "1.1B",
     provider: "transformers-js",
@@ -172,6 +232,7 @@ export const MODEL_REGISTRY: readonly ModelEntry[] = [
     // Added per D-24. The onnx-community repo publishes q4f16 builds
     // that transformers.js v4.x loads cleanly on the WASM backend.
     id: "qwen2-5-1-5b-instruct",
+    task: "text-generation",
     display_name: "Qwen2.5-1.5B-Instruct",
     params_label: "1.5B",
     provider: "transformers-js",
@@ -194,6 +255,7 @@ export const MODEL_REGISTRY: readonly ModelEntry[] = [
     // Added per D-24. The `-onnx-web` suffix is the canonical
     // onnx-community repo for browser-side Phi-3.5 deployment.
     id: "phi-3-5-mini-instruct",
+    task: "text-generation",
     display_name: "Phi-3.5-mini-Instruct",
     params_label: "3.8B",
     provider: "transformers-js",
@@ -212,6 +274,52 @@ export const MODEL_REGISTRY: readonly ModelEntry[] = [
       "transformers.js-examples WebGPU gallery. The q4f16-SmolLM2 " +
       "WebGPU crash does not generalise to Phi-3.5. Let the runtime " +
       "pick WebGPU when supported (corrected 2026-05-24).",
+  },
+  {
+    // Slice E.1 (ADR-0039): first embeddings entry. Sentence-transformers'
+    // all-MiniLM-L6-v2 — the de-facto small embedding model. 23 MB q8,
+    // 384-dim, Apache-2.0, WebGPU-capable, ~30 ms cold per query on a
+    // mid-tier laptop CPU and sub-10 ms on WebGPU. Loaded ONCE per lab
+    // session via the model-adapter "feature-extraction" dispatch
+    // (added in Slice E.2 / PR C). Catalogue concept embeddings are
+    // pre-computed at first use in catalogue-embed.ts; per-question
+    // embedding fires inside extract-intent.ts before the SmolLM2 call
+    // so the LLM receives a top-K constraint list instead of the full
+    // catalogue gloss.
+    //
+    // The entry is NOT a default-flip candidate — it does not produce
+    // text. The picker UI in Slice C/D ignores entries where
+    // `task !== "text-generation"`; the embeddings model is loaded
+    // implicitly by the lab pipeline, not picked by the citizen.
+    //
+    // Size is well under the D-24 Small-tier 500-MB threshold so no
+    // friction copy applies; size-tier helpers are text-gen-shaped
+    // anyway and don't run on embeddings entries.
+    id: "minilm-l6-v2-embeddings",
+    task: "embeddings",
+    display_name: "all-MiniLM-L6-v2",
+    params_label: "22M",
+    provider: "transformers-js",
+    repo_id: "Xenova/all-MiniLM-L6-v2",
+    dtype: "q8",
+    // "auto" — no analogue of the D-19 q4f16-SmolLM2 WebGPU crash on
+    // MiniLM. The Xenova MiniLM build is the canonical transformers.js
+    // example for browser embeddings; WebGPU works on supported
+    // browsers and the wasm fallback is fast enough for ~130 catalogue
+    // entries + 1 query per turn.
+    device: "auto",
+    estimated_download_mb: 23,
+    estimated_ram_mb: 90,
+    embedding_dim: 384,
+    notes:
+      "Added per Slice E.1 (ADR-0039) — catalogue retrieval for the " +
+      "LLM-OS shape. Pre-computes concept embeddings at first " +
+      "findTopKConcepts() call, then runs once per citizen question to " +
+      "narrow the LLM's constraint surface. Sentence-transformers' " +
+      "all-MiniLM-L6-v2 (Apache-2.0, 384-dim, 22M params). The model " +
+      "is loaded implicitly by the pipeline, NOT selected by the " +
+      "citizen via the picker — entries where task !== " +
+      "\"text-generation\" are filtered out of the picker UI.",
   },
 ] as const;
 
@@ -248,4 +356,36 @@ export function getDefaultModel(): ModelEntry {
     );
   }
   return entry;
+}
+
+/**
+ * Returns only the text-generation entries — what the picker UI should
+ * show as user-selectable choices. Embedding-model entries (Slice E.1)
+ * are loaded implicitly by the lab pipeline and never listed in the
+ * picker; surfacing them would invite "I picked the wrong model" bug
+ * reports from citizens who chose MiniLM expecting it to chat.
+ *
+ * Narrowed by the discriminated-union tag so callers get
+ * `TextGenerationModelEntry[]` (not `ModelEntry[]`) — the extra type
+ * precision lets the picker code reason about text-gen-only fields
+ * without re-checking the tag.
+ */
+export function listTextGenerationModels(): readonly TextGenerationModelEntry[] {
+  return MODEL_REGISTRY.filter(
+    (m): m is TextGenerationModelEntry => m.task === "text-generation",
+  );
+}
+
+/**
+ * Returns only the embeddings entries. Catalogue-embed.ts calls this
+ * to pick the embedding model (today there's exactly one — MiniLM-L6-v2;
+ * a future PR might add multilingual-e5-small for Indic queries).
+ *
+ * Returns `EmbeddingsModelEntry[]` so callers can read `embedding_dim`
+ * without narrowing.
+ */
+export function listEmbeddingsModels(): readonly EmbeddingsModelEntry[] {
+  return MODEL_REGISTRY.filter(
+    (m): m is EmbeddingsModelEntry => m.task === "embeddings",
+  );
 }
