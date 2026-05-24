@@ -42,12 +42,27 @@
   import type { ModelAdapter, ReadinessStatus } from "../lib/yenask/model-adapter";
   import { createAdapter } from "../lib/yenask/model-adapter";
   import { extractIntent } from "../lib/yenask/extract-intent";
+  import type { ExtractAttempt } from "../lib/yenask/extract-intent";
 
   // -------- chat turn discriminated union -----------------------------------
 
+  /**
+   * Per-turn debug payload. Per D-21 the SQL + raw model output stay
+   * OUT of the citizen-facing turn body and move into the bottom
+   * "Debug log" section. The turn keeps a compact summary footer
+   * (attempts + tokens + wall_ms); the full breakdown is rendered
+   * once per turn inside the debug panel.
+   */
   interface ExtractDebug {
     readonly attempts: number;
     readonly raw: string;
+    readonly attempts_log: readonly ExtractAttempt[];
+  }
+
+  /** One entry in the assistant readiness timeline (D-20). */
+  interface StatusEvent {
+    readonly ts: number;
+    readonly status: ReadinessStatus;
   }
 
   type ChatTurn =
@@ -87,6 +102,10 @@
   let selectedModelId = $state<string>(initialModelId());
   let adapter: ModelAdapter | null = $state(null);
   let modelStatus = $state<ReadinessStatus>({ kind: "idle" });
+  // Running tail of every readiness transition since page load. Capped
+  // at 50 to keep the DOM small; the most recent kind is also in
+  // `modelStatus` so the timeline is supplementary, not primary.
+  let statusHistory: StatusEvent[] = $state([]);
 
   const selectedModel = $derived(
     getModelById(selectedModelId) ?? getDefaultModel(),
@@ -170,6 +189,49 @@
     return `${(b / 1024 / 1024).toFixed(1)} MB`;
   }
 
+  /** "~32" when approximate, "32" when exact. Keeps the UI honest. */
+  function fmtTokens(n: number, approximate: boolean): string {
+    if (!Number.isFinite(n) || n < 0) return "–";
+    return `${approximate ? "~" : ""}${n.toLocaleString("en-IN")}`;
+  }
+
+  function fmtMs(ms: number): string {
+    if (!Number.isFinite(ms) || ms < 0) return "–";
+    if (ms < 1000) return `${ms}ms`;
+    return `${(ms / 1000).toFixed(1)}s`;
+  }
+
+  function fmtClock(ts: number): string {
+    const d = new Date(ts);
+    const hh = String(d.getHours()).padStart(2, "0");
+    const mm = String(d.getMinutes()).padStart(2, "0");
+    const ss = String(d.getSeconds()).padStart(2, "0");
+    return `${hh}:${mm}:${ss}`;
+  }
+
+  /** Aggregate per-turn totals from attempts_log for the footer. */
+  function turnTotals(
+    log: readonly ExtractAttempt[],
+  ): {
+    attempts: number;
+    tokens_in: number;
+    tokens_out: number;
+    wall_ms: number;
+    approximate: boolean;
+  } {
+    let tokens_in = 0;
+    let tokens_out = 0;
+    let wall_ms = 0;
+    let approximate = false;
+    for (const a of log) {
+      tokens_in += a.tokens_in;
+      tokens_out += a.tokens_out;
+      wall_ms += a.wall_ms;
+      if (a.tokens_approximate) approximate = true;
+    }
+    return { attempts: log.length, tokens_in, tokens_out, wall_ms, approximate };
+  }
+
   async function scrollToBottom(): Promise<void> {
     await tick();
     if (chatScroll) {
@@ -216,6 +278,7 @@
       debug = {
         attempts: result.diagnostics.attempts,
         raw: result.diagnostics.last_raw_output,
+        attempts_log: result.diagnostics.attempts_log,
       };
       if (!result.ok) {
         replaceLastTurn({
@@ -277,21 +340,48 @@
   // -------- model preparation ---------------------------------------------------
 
   async function prepareModel(): Promise<void> {
-    modelStatus = {
+    pushStatus({
       kind: "downloading",
       file: "",
       percent: 0,
       loaded: 0,
       total: 0,
-    };
+    });
     try {
       const a = createAdapter(selectedModel);
       adapter = a;
       await a.prepare((s) => {
-        modelStatus = s;
+        pushStatus(s);
       });
     } catch {
       // The listener already wrote a `failed` status; nothing more to do.
+    }
+  }
+
+  /**
+   * Update `modelStatus` AND append to `statusHistory` for the debug
+   * timeline. Coalesces consecutive `downloading` percent updates for
+   * the same `file` so the timeline doesn't get spammed by hundreds of
+   * progress ticks — only the LAST progress event per file is kept.
+   */
+  function pushStatus(s: ReadinessStatus): void {
+    modelStatus = s;
+    const last = statusHistory.at(-1);
+    const isProgress = s.kind === "downloading";
+    const lastIsSameProgress =
+      last?.status.kind === "downloading" &&
+      s.kind === "downloading" &&
+      last.status.file === s.file;
+    if (isProgress && lastIsSameProgress) {
+      statusHistory = [
+        ...statusHistory.slice(0, -1),
+        { ts: Date.now(), status: s },
+      ];
+    } else {
+      statusHistory = [...statusHistory, { ts: Date.now(), status: s }];
+    }
+    if (statusHistory.length > 50) {
+      statusHistory = statusHistory.slice(-50);
     }
   }
 </script>
@@ -514,49 +604,29 @@
                         <SourceListV2 sources={a.source_strip as readonly SourceV2Row[]} />
                       </div>
 
-                      <details class="rounded border border-neutral-200 p-2 text-xs" data-testid="yenask-computation">
-                        <summary class="cursor-pointer font-medium text-neutral-700">How was this computed?</summary>
-                        <div class="mt-2 space-y-2">
-                          <div>
-                            <span class="text-neutral-600">Concept:</span>
-                            <code class="ml-1 rounded bg-neutral-100 px-1.5 py-0.5">{a.computation.concept_id}</code>
-                            {#if turn.skipped_extract}
-                              <span class="ml-1 rounded bg-neutral-100 px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-neutral-600">canned</span>
-                            {:else}
-                              <span class="ml-1 rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-emerald-700">model</span>
-                            {/if}
-                          </div>
-                          <div>
-                            <span class="text-neutral-600">Slices registered:</span>
-                            <ul class="mt-1 list-disc pl-5">
-                              {#each a.computation.slice_registrations as s}
-                                <li>
-                                  <code>{s.table_id}</code>
-                                  <span class="text-neutral-500">
-                                    where {Object.entries(s.partition_filter)
-                                      .map(([k, v]) => `${k}="${v}"`)
-                                      .join(", ")}
-                                  </span>
-                                </li>
-                              {/each}
-                            </ul>
-                          </div>
-                          <div>
-                            <span class="text-neutral-600">Main SQL:</span>
-                            <pre class="mt-1 overflow-x-auto rounded bg-neutral-900 p-2 font-mono text-[10px] leading-snug text-neutral-100">{a.computation.main_sql}</pre>
-                          </div>
-                          <div>
-                            <span class="text-neutral-600">Provenance SQL:</span>
-                            <pre class="mt-1 overflow-x-auto rounded bg-neutral-900 p-2 font-mono text-[10px] leading-snug text-neutral-100">{a.computation.provenance_sql}</pre>
-                          </div>
-                          {#if turn.debug}
-                            <div>
-                              <span class="text-neutral-600">Model output (attempts: {turn.debug.attempts}):</span>
-                              <pre class="mt-1 overflow-x-auto whitespace-pre-wrap break-words rounded bg-neutral-50 p-2 font-mono text-[10px] leading-snug text-neutral-700">{turn.debug.raw}</pre>
-                            </div>
-                          {/if}
-                        </div>
-                      </details>
+                      <!--
+                        Per-turn footer. Per D-21 the SQL + raw model
+                        output are NOT a citizen surface; they live in
+                        the Debug log section below the chat. This
+                        footer is the compact at-a-glance summary
+                        (attempts + tokens + wall_ms).
+                      -->
+                      <p
+                        class="text-[11px] text-neutral-500"
+                        data-testid="yenask-turn-footer"
+                      >
+                        {#if turn.skipped_extract}
+                          Canned starter prompt — no model used.
+                        {:else if turn.debug && turn.debug.attempts_log.length > 0}
+                          {@const t = turnTotals(turn.debug.attempts_log)}
+                          Answered with {selectedModel.display_name}: {t.attempts}× attempt ·
+                          {fmtTokens(t.tokens_in, t.approximate)} tokens in ·
+                          {fmtTokens(t.tokens_out, t.approximate)} out ·
+                          {fmtMs(t.wall_ms)} total. See <em>Debug log</em> below for details.
+                        {:else if turn.debug}
+                          Model output captured but no attempts recorded — see <em>Debug log</em> below.
+                        {/if}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -622,5 +692,209 @@
         {/if}
       </div>
     </div>
+  </section>
+
+  <!--
+    Debug log section. Per D-21 the SQL + raw model output stay OUT of
+    the citizen-facing turn body and live here. Per D-20 every model
+    call's attempts_log (tokens in/out + wall_ms + parse status) is
+    rendered as well so the reader who hit the WebGPU bug can watch
+    what the assistant is actually doing. Always-visible while we
+    stabilise the lab — collapse later if it becomes noise.
+  -->
+  <section
+    class="space-y-4 rounded-lg border border-dashed border-neutral-300 bg-neutral-50/60 p-4"
+    data-testid="yenask-debug-panel"
+  >
+    <header class="space-y-1">
+      <h2 class="text-sm font-semibold text-neutral-700">Debug log</h2>
+      <p class="text-xs text-neutral-500">
+        Dev observability — assistant lifecycle events + per-turn SQL +
+        per-attempt model trace. Not a citizen surface (see plan-doc §17 D-21).
+      </p>
+    </header>
+
+    <details open data-testid="yenask-debug-status-timeline">
+      <summary class="cursor-pointer text-xs font-medium text-neutral-700">
+        Assistant status timeline ({statusHistory.length})
+      </summary>
+      {#if statusHistory.length === 0}
+        <p class="mt-2 text-xs text-neutral-500">
+          No status changes yet. Click <em>Prepare assistant</em> above to start.
+        </p>
+      {:else}
+        <ul class="mt-2 space-y-1 font-mono text-[11px] leading-snug text-neutral-700">
+          {#each statusHistory as ev, i (i)}
+            <li>
+              <span class="text-neutral-500">[{fmtClock(ev.ts)}]</span>
+              <span class="font-semibold">{ev.status.kind}</span>
+              {#if ev.status.kind === "downloading"}
+                <span class="text-neutral-600">
+                  {ev.status.file || "(boot)"} — {ev.status.percent.toFixed(1)}%
+                  {#if ev.status.total > 0}
+                    ({formatBytes(ev.status.loaded)} / {formatBytes(ev.status.total)})
+                  {/if}
+                </span>
+              {:else if ev.status.kind === "failed"}
+                <span class="text-rose-700">— {ev.status.error}</span>
+              {/if}
+            </li>
+          {/each}
+        </ul>
+      {/if}
+    </details>
+
+    {#if conversation.some((t) => t.kind === "assistant-answer" || t.kind === "assistant-failure")}
+      <div class="space-y-3" data-testid="yenask-debug-turns">
+        <h3 class="text-xs font-semibold uppercase tracking-wide text-neutral-600">
+          Per-turn details
+        </h3>
+        {#each conversation as turn (turn.id)}
+          {#if turn.kind === "assistant-answer"}
+            {@const a = turn.answer}
+            <details
+              open
+              class="rounded border border-neutral-200 bg-white p-2 text-xs"
+              data-testid="yenask-computation"
+            >
+              <summary class="cursor-pointer font-medium text-neutral-700">
+                Turn {turn.id} — {a.question}
+                {#if turn.skipped_extract}
+                  <span class="ml-1 rounded bg-neutral-100 px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-neutral-600">canned</span>
+                {:else}
+                  <span class="ml-1 rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-emerald-700">model</span>
+                {/if}
+              </summary>
+              <div class="mt-2 space-y-2">
+                <div>
+                  <span class="text-neutral-600">Concept:</span>
+                  <code class="ml-1 rounded bg-neutral-100 px-1.5 py-0.5">{a.computation.concept_id}</code>
+                </div>
+                <div>
+                  <span class="text-neutral-600">Slices registered:</span>
+                  <ul class="mt-1 list-disc pl-5">
+                    {#each a.computation.slice_registrations as s}
+                      <li>
+                        <code>{s.table_id}</code>
+                        <span class="text-neutral-500">
+                          where {Object.entries(s.partition_filter)
+                            .map(([k, v]) => `${k}="${v}"`)
+                            .join(", ")}
+                        </span>
+                      </li>
+                    {/each}
+                  </ul>
+                </div>
+                <div>
+                  <span class="text-neutral-600">Main SQL:</span>
+                  <pre class="mt-1 overflow-x-auto rounded bg-neutral-900 p-2 font-mono text-[10px] leading-snug text-neutral-100">{a.computation.main_sql}</pre>
+                </div>
+                <div>
+                  <span class="text-neutral-600">Provenance SQL:</span>
+                  <pre class="mt-1 overflow-x-auto rounded bg-neutral-900 p-2 font-mono text-[10px] leading-snug text-neutral-100">{a.computation.provenance_sql}</pre>
+                </div>
+                {#if turn.debug && turn.debug.attempts_log.length > 0}
+                  <div>
+                    <span class="text-neutral-600">
+                      Extract attempts ({turn.debug.attempts_log.length}):
+                    </span>
+                    <table class="mt-1 w-full text-[11px]" data-testid="yenask-debug-attempts">
+                      <thead class="bg-neutral-50 text-left text-[10px] uppercase tracking-wide text-neutral-600">
+                        <tr>
+                          <th class="px-2 py-1 font-medium">#</th>
+                          <th class="px-2 py-1 font-medium">prompt chars</th>
+                          <th class="px-2 py-1 font-medium">tokens in</th>
+                          <th class="px-2 py-1 font-medium">tokens out</th>
+                          <th class="px-2 py-1 font-medium">wall</th>
+                          <th class="px-2 py-1 font-medium">status</th>
+                        </tr>
+                      </thead>
+                      <tbody class="divide-y divide-neutral-100">
+                        {#each turn.debug.attempts_log as att (att.attempt)}
+                          <tr>
+                            <td class="px-2 py-1 tabular-nums">{att.attempt}</td>
+                            <td class="px-2 py-1 tabular-nums">{att.prompt_chars.toLocaleString("en-IN")}</td>
+                            <td class="px-2 py-1 tabular-nums">{fmtTokens(att.tokens_in, att.tokens_approximate)}</td>
+                            <td class="px-2 py-1 tabular-nums">{fmtTokens(att.tokens_out, att.tokens_approximate)}</td>
+                            <td class="px-2 py-1 tabular-nums">{fmtMs(att.wall_ms)}</td>
+                            <td class="px-2 py-1">
+                              <span
+                                class="rounded px-1.5 py-0.5 text-[10px] uppercase tracking-wide {att.parse_status === 'ok' ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}"
+                              >
+                                {att.parse_status}
+                              </span>
+                              {#if att.parse_error}
+                                <span class="ml-1 text-rose-700">{att.parse_error}</span>
+                              {/if}
+                            </td>
+                          </tr>
+                        {/each}
+                      </tbody>
+                    </table>
+                    <details class="mt-2">
+                      <summary class="cursor-pointer text-[11px] text-neutral-600">
+                        Raw model output (last attempt)
+                      </summary>
+                      <pre class="mt-1 overflow-x-auto whitespace-pre-wrap break-words rounded bg-neutral-50 p-2 font-mono text-[10px] leading-snug text-neutral-700">{turn.debug.raw}</pre>
+                    </details>
+                  </div>
+                {/if}
+              </div>
+            </details>
+          {:else if turn.kind === "assistant-failure"}
+            <details
+              class="rounded border border-rose-200 bg-rose-50 p-2 text-xs"
+              data-testid="yenask-debug-failure"
+            >
+              <summary class="cursor-pointer font-medium text-rose-900">
+                Turn {turn.id} — failure
+              </summary>
+              <div class="mt-2 space-y-2">
+                <p class="text-rose-900">{turn.reason}</p>
+                {#if turn.debug && turn.debug.attempts_log.length > 0}
+                  <table class="w-full text-[11px]" data-testid="yenask-debug-failure-attempts">
+                    <thead class="bg-white/60 text-left text-[10px] uppercase tracking-wide text-neutral-600">
+                      <tr>
+                        <th class="px-2 py-1 font-medium">#</th>
+                        <th class="px-2 py-1 font-medium">tokens in</th>
+                        <th class="px-2 py-1 font-medium">tokens out</th>
+                        <th class="px-2 py-1 font-medium">wall</th>
+                        <th class="px-2 py-1 font-medium">status</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-rose-100">
+                      {#each turn.debug.attempts_log as att (att.attempt)}
+                        <tr>
+                          <td class="px-2 py-1 tabular-nums">{att.attempt}</td>
+                          <td class="px-2 py-1 tabular-nums">{fmtTokens(att.tokens_in, att.tokens_approximate)}</td>
+                          <td class="px-2 py-1 tabular-nums">{fmtTokens(att.tokens_out, att.tokens_approximate)}</td>
+                          <td class="px-2 py-1 tabular-nums">{fmtMs(att.wall_ms)}</td>
+                          <td class="px-2 py-1">
+                            <span class="rounded bg-rose-200 px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-rose-900">
+                              {att.parse_status}
+                            </span>
+                            {#if att.parse_error}
+                              <span class="ml-1 text-rose-800">{att.parse_error}</span>
+                            {/if}
+                          </td>
+                        </tr>
+                      {/each}
+                    </tbody>
+                  </table>
+                  {#if turn.debug.raw}
+                    <details>
+                      <summary class="cursor-pointer text-[11px] text-rose-900">
+                        Raw model output (last attempt)
+                      </summary>
+                      <pre class="mt-1 overflow-x-auto whitespace-pre-wrap break-words rounded bg-white p-2 font-mono text-[10px] leading-snug text-neutral-800">{turn.debug.raw}</pre>
+                    </details>
+                  {/if}
+                {/if}
+              </div>
+            </details>
+          {/if}
+        {/each}
+      </div>
+    {/if}
   </section>
 </section>

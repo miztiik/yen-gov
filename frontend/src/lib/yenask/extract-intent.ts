@@ -183,11 +183,45 @@ export interface ExtractOptions {
   readonly max_retries?: number;
 }
 
+/**
+ * One model call's observability record. Per D-20 every attempt is
+ * captured so the debug panel can render the full trace (prompt size,
+ * token in/out, wall time, parse status). When the model itself threw
+ * before returning text, `parse_status` is `"generate_error"` and
+ * `raw_output` is empty.
+ */
+export interface ExtractAttempt {
+  /** 1-based attempt index. */
+  readonly attempt: number;
+  /** Approximate character count of the prompt fed to the model. */
+  readonly prompt_chars: number;
+  /** Input token count reported by the adapter (0 if unknown). */
+  readonly tokens_in: number;
+  /** Output token count reported by the adapter (0 if unknown). */
+  readonly tokens_out: number;
+  /** True when tokens_* are approximations (chars/4). */
+  readonly tokens_approximate: boolean;
+  /** Wall-clock time inside the generate() call, milliseconds. */
+  readonly wall_ms: number;
+  /** Raw assistant text on this attempt (empty on generate error). */
+  readonly raw_output: string;
+  /** Outcome of the parse step for this attempt. */
+  readonly parse_status:
+    | "ok"
+    | "json_error"
+    | "zod_error"
+    | "generate_error";
+  /** Error message when parse_status !== "ok". */
+  readonly parse_error?: string;
+}
+
 export interface ExtractDiagnostics {
   /** Number of attempts that ran (1 + retries actually used). */
   readonly attempts: number;
   /** Raw model output on the LAST attempt — exposed for debugging. */
   readonly last_raw_output: string;
+  /** Per-attempt observability records for the debug panel. */
+  readonly attempts_log: readonly ExtractAttempt[];
 }
 
 export interface ExtractSuccess {
@@ -220,6 +254,7 @@ export async function extractIntent(
   const fewShot = buildFewShot();
   let lastRaw = "";
   let lastError = "no attempts ran";
+  const attempts_log: ExtractAttempt[] = [];
 
   for (let attempt = 0; attempt <= maxRetries; attempt++) {
     const messages: ChatMessage[] = [
@@ -236,31 +271,92 @@ export async function extractIntent(
           `Do not add prose.`,
       });
     }
+    const prompt_chars = messages.reduce(
+      (n, m) => n + m.role.length + 2 + m.content.length,
+      0,
+    );
     try {
-      lastRaw = await adapter.generate(messages, {
+      const gen = await adapter.generate(messages, {
         temperature: 0.1,
         max_new_tokens: 256,
       });
-      const parsed = extractJsonObject(lastRaw);
-      const result = safeParseInsightIntent(parsed);
-      if (result.success) {
-        return {
-          ok: true,
-          intent: result.data,
-          diagnostics: { attempts: attempt + 1, last_raw_output: lastRaw },
-        };
+      lastRaw = gen.text;
+      try {
+        const parsed = extractJsonObject(lastRaw);
+        const result = safeParseInsightIntent(parsed);
+        if (result.success) {
+          attempts_log.push({
+            attempt: attempt + 1,
+            prompt_chars,
+            tokens_in: gen.tokens_in,
+            tokens_out: gen.tokens_out,
+            tokens_approximate: gen.tokens_approximate,
+            wall_ms: gen.wall_ms,
+            raw_output: lastRaw,
+            parse_status: "ok",
+          });
+          return {
+            ok: true,
+            intent: result.data,
+            diagnostics: {
+              attempts: attempt + 1,
+              last_raw_output: lastRaw,
+              attempts_log,
+            },
+          };
+        }
+        lastError = result.error.issues
+          .map((i) => `${i.path.join(".") || "<root>"}: ${i.message}`)
+          .join("; ");
+        attempts_log.push({
+          attempt: attempt + 1,
+          prompt_chars,
+          tokens_in: gen.tokens_in,
+          tokens_out: gen.tokens_out,
+          tokens_approximate: gen.tokens_approximate,
+          wall_ms: gen.wall_ms,
+          raw_output: lastRaw,
+          parse_status: "zod_error",
+          parse_error: lastError,
+        });
+      } catch (parseErr) {
+        lastError =
+          parseErr instanceof Error ? parseErr.message : String(parseErr);
+        attempts_log.push({
+          attempt: attempt + 1,
+          prompt_chars,
+          tokens_in: gen.tokens_in,
+          tokens_out: gen.tokens_out,
+          tokens_approximate: gen.tokens_approximate,
+          wall_ms: gen.wall_ms,
+          raw_output: lastRaw,
+          parse_status: "json_error",
+          parse_error: lastError,
+        });
       }
-      lastError = result.error.issues
-        .map((i) => `${i.path.join(".") || "<root>"}: ${i.message}`)
-        .join("; ");
     } catch (err) {
       lastError = err instanceof Error ? err.message : String(err);
+      attempts_log.push({
+        attempt: attempt + 1,
+        prompt_chars,
+        tokens_in: 0,
+        tokens_out: 0,
+        tokens_approximate: true,
+        wall_ms: 0,
+        raw_output: "",
+        parse_status: "generate_error",
+        parse_error: lastError,
+      });
     }
   }
 
   return {
     ok: false,
     error: lastError,
-    diagnostics: { attempts: maxRetries + 1, last_raw_output: lastRaw },
+    diagnostics: {
+      attempts: maxRetries + 1,
+      last_raw_output: lastRaw,
+      attempts_log,
+    },
   };
 }
