@@ -2,7 +2,7 @@
 // the other `frontend/src/contracts/*-conform.test.ts` consumers of the
 // committed dataset corpus.
 //
-// Two invariants enforced here that schemas can't:
+// Three invariants enforced here that schemas can't:
 //
 //   1. **Hive-tree shape**: every `*.geojson` under `datasets/boundaries/in/`
 //      sits at a well-formed Hive path. The contract paths the loader uses
@@ -15,6 +15,14 @@
 //      `boundary_layers.parquet`. The Tier-B validator carries the same
 //      gate; this file is the front-end-side mirror so the contract is
 //      enforced in the same suite as the boundary loader.
+//   3. **Per-layer gzipped-size ceiling** (Phase 0.4 of the boundary-
+//      coverage expansion plan, 2026-05-24): every shipped GeoJSON shard
+//      gzips below the per-layer budget asserted in `LAYER_GZIP_CEILING_KB`.
+//      The publish pipeline serves these shards as gzipped HTTP responses
+//      from GitHub Pages — the citizen pays this byte cost on every map
+//      load. The ceiling is the regression gate against an ingest re-emit
+//      that silently re-inflates a geometry (e.g. mapshaper not run, a
+//      higher-resolution upstream landed without a `simplify.py` re-run).
 //
 // Per-row schema validation (column types, layer_id grammar, source_id
 // pattern, denominator invariant) is owned by the backend Tier-A pytest
@@ -24,7 +32,8 @@
 // drift detector.
 
 import { describe, it, expect } from "vitest";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
+import { gzipSync } from "node:zlib";
 import { resolve, sep, posix } from "node:path";
 import { fileURLToPath } from "node:url";
 import { globSync } from "glob";
@@ -64,6 +73,38 @@ function isWellFormedHivePath(relPath: string): boolean {
   return HIVE_SHAPES.some(s => s.pattern.test(relPath));
 }
 
+// Per-layer gzipped-size ceiling in KB. MUST stay in lockstep with
+// `tools/boundaries/simplify.py:LAYER_TUNING` — the simplifier produces
+// these sizes; this contract enforces them on every CI run. A future PR
+// that bumps the simplifier ceiling without bumping this constant (or
+// vice-versa) is the drift class this pair is designed to catch.
+//
+// Keys are the Hive top-level segment (matches the `kind` field above).
+// A new layer added without an entry here is flagged by the
+// "every kind has a ceiling entry" sanity check below.
+const LAYER_GZIP_CEILING_KB: Record<string, number> = {
+  country: 100,
+  states: 200,
+  districts: 500,
+  subdistricts: 300,
+  villages: 500,
+  ac: 500,
+  pc: 500,
+  postal: 500,
+};
+
+function hiveKindOf(relPath: string): string | null {
+  // Strip everything past the top-level segment and look up.
+  const top = relPath.split("/")[0];
+  if (top in LAYER_GZIP_CEILING_KB) return top;
+  return null;
+}
+
+function gzipKB(absPath: string): number {
+  const raw = readFileSync(absPath);
+  return gzipSync(raw, { level: 6 }).byteLength / 1024;
+}
+
 describe("boundaries-conform — every shipped *.geojson is at a well-formed Hive path", () => {
   it("at least one shard present (sanity)", () => {
     expect(ALL_GEOJSON.length).toBeGreaterThan(0);
@@ -76,6 +117,39 @@ describe("boundaries-conform — every shipped *.geojson is at a well-formed Hiv
       `unrecognised boundary paths (post-T.0d every *.geojson must match a Hive shape): ${orphans.join(", ")}`,
     ).toEqual([]);
   });
+});
+
+describe("boundaries-conform — per-layer gzipped-size ceiling (Phase 0.4)", () => {
+  // The seven Hive shapes above all classify their files to one of
+  // LAYER_GZIP_CEILING_KB's eight keys (postal currently has no on-disk
+  // shard). A future kind added to HIVE_SHAPES without a ceiling entry
+  // would let an arbitrarily fat geometry land unchecked.
+  it("every Hive kind has a gzip-size ceiling entry", () => {
+    const kindsInPaths = new Set(HIVE_SHAPES.map(s => s.kind));
+    const kindsWithCeiling = new Set(Object.keys(LAYER_GZIP_CEILING_KB));
+    const missing = [...kindsInPaths].filter(k => !kindsWithCeiling.has(k));
+    expect(
+      missing,
+      `Hive kinds without a LAYER_GZIP_CEILING_KB entry: ${missing.join(", ")} — add the kind to LAYER_GZIP_CEILING_KB and bump tools/boundaries/simplify.py LAYER_TUNING in lockstep`,
+    ).toEqual([]);
+  });
+
+  // The actual ceiling assertion. One test per file so the failure
+  // surface is precise — vitest will list every breaching shard by
+  // name with its actual gzipped size.
+  for (const rel of ALL_GEOJSON) {
+    const kind = hiveKindOf(rel);
+    if (kind === null) continue; // orphan detector above handles this
+    const ceilingKB = LAYER_GZIP_CEILING_KB[kind];
+    it(`${rel} gzips to <= ${ceilingKB} KB`, () => {
+      const abs = resolve(boundariesRoot, rel);
+      const actualKB = gzipKB(abs);
+      expect(
+        actualKB,
+        `${rel} is ${actualKB.toFixed(1)} KB gzipped (ceiling ${ceilingKB} KB). Re-run tools/boundaries/simplify.py to thin the geometry, or bump LAYER_TUNING + LAYER_GZIP_CEILING_KB together if the citizen-byte budget is being deliberately raised.`,
+      ).toBeLessThanOrEqual(ceilingKB);
+    });
+  }
 });
 
 describe("boundaries-conform — legacy sidecars are gone (T.0d)", () => {
