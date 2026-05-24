@@ -2015,6 +2015,105 @@
     ],
     "S24": [
       {
+        "event_id": "AcGenFeb1974",
+        "kind": "assembly",
+        "display": "Uttar Pradesh Assembly · February 1974",
+        "polled_on": "1974-02-24",
+        "term_end_estimated": "1979-02-23",
+        "data_status": "complete",
+        "notes": "424 ACs. Public page records polling on 24 and 26 February 1974; event id follows the public polling month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenJun1977",
+        "kind": "assembly",
+        "display": "Uttar Pradesh Assembly · June 1977",
+        "polled_on": "1977-06-10",
+        "term_end_estimated": "1982-06-09",
+        "data_status": "complete",
+        "notes": "425 ACs. Poll held on 10 June 1977 after the post-Emergency dissolution of the Assembly; event id follows the public polling month rather than the panel's October grouping. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay1980",
+        "kind": "assembly",
+        "display": "Uttar Pradesh Assembly · May 1980",
+        "polled_on": "1980-05-28",
+        "term_end_estimated": "1985-05-27",
+        "data_status": "complete",
+        "notes": "425 ACs. Public page records polling on 28 and 31 May 1980. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb1985",
+        "kind": "assembly",
+        "display": "Uttar Pradesh Assembly · February-May 1985",
+        "polled_on": "1985-02-03",
+        "term_end_estimated": "1990-02-02",
+        "data_status": "complete",
+        "notes": "425 ACs. Public page records polling on 3 February and 3 May 1985; event id follows the first public polling month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov1989",
+        "kind": "assembly",
+        "display": "Uttar Pradesh Assembly · November 1989",
+        "polled_on": "1989-11-22",
+        "term_end_estimated": "1994-11-21",
+        "data_status": "complete",
+        "notes": "425 ACs. Public page records polling on 22 November 1989. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay1991",
+        "kind": "assembly",
+        "display": "Uttar Pradesh Assembly · May 1991",
+        "polled_on": "1991-05-01",
+        "term_end_estimated": "1996-04-30",
+        "data_status": "complete",
+        "notes": "419 contested ACs in the panel. Public page records year-level polling context; event id retains the panel month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov1993",
+        "kind": "assembly",
+        "display": "Uttar Pradesh Assembly · November 1993",
+        "polled_on": "1993-11-01",
+        "term_end_estimated": "1998-10-31",
+        "data_status": "complete",
+        "notes": "423 contested ACs in the panel. Public page records polling in November 1993; event id follows that month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenSep1996",
+        "kind": "assembly",
+        "display": "Uttar Pradesh Assembly · September-October 1996",
+        "polled_on": "1996-09-30",
+        "term_end_estimated": "2001-09-29",
+        "data_status": "complete",
+        "notes": "424 contested ACs in the panel. Public page records polling on 30 September and 7 October 1996, with one constituency postponed after a candidate death; event id follows the first public polling month rather than the panel's July grouping. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb2002",
+        "kind": "assembly",
+        "display": "Uttar Pradesh Assembly · February-March 2002",
+        "polled_on": "2002-02-01",
+        "term_end_estimated": "2007-01-31",
+        "data_status": "complete",
+        "notes": "403 ACs. First Uttar Pradesh Assembly election after the creation of Uttarakhand; public page records a February-March 2002 polling window. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenApr2007",
+        "kind": "assembly",
+        "display": "Uttar Pradesh Assembly · April-May 2007",
+        "polled_on": "2007-04-07",
+        "term_end_estimated": "2012-04-06",
+        "data_status": "complete",
+        "notes": "403 ACs. Seven-phase poll from 7 April to 8 May 2007. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb2012",
+        "kind": "assembly",
+        "display": "Uttar Pradesh Assembly · February-March 2012",
+        "polled_on": "2012-02-08",
+        "term_end_estimated": "2017-02-07",
+        "data_status": "complete",
+        "notes": "403 ACs. Seven-phase poll from 8 February to 3 March 2012. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenFeb2017",
         "kind": "assembly",
         "display": "Uttar Pradesh Assembly · February-March 2017",
