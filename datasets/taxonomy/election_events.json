@@ -1308,6 +1308,96 @@
     ],
     "S25": [
       {
+        "event_id": "AcGenJun1977",
+        "kind": "assembly",
+        "display": "West Bengal Assembly · June 1977",
+        "polled_on": "1977-06-14",
+        "term_end_estimated": "1982-06-13",
+        "data_status": "complete",
+        "notes": "294 ACs. Poll held on 14 June 1977 after the post-Emergency dissolution of the Assembly. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay1982",
+        "kind": "assembly",
+        "display": "West Bengal Assembly · May 1982",
+        "polled_on": "1982-05-19",
+        "term_end_estimated": "1987-05-18",
+        "data_status": "complete",
+        "notes": "294 ACs. Poll held on 19 May 1982. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenApr1987",
+        "kind": "assembly",
+        "display": "West Bengal Assembly · April 1987",
+        "polled_on": "1987-04-10",
+        "term_end_estimated": "1992-04-09",
+        "data_status": "complete",
+        "notes": "294 ACs. Poll held on 10 April 1987; event id follows the public polling month rather than the panel's March month token. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenApr1991",
+        "kind": "assembly",
+        "display": "West Bengal Assembly · April 1991",
+        "polled_on": "1991-04-24",
+        "term_end_estimated": "1996-04-23",
+        "data_status": "complete",
+        "notes": "294 ACs. Poll held on 24 April 1991; event id follows the public polling month rather than the panel's February month token. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay1996",
+        "kind": "assembly",
+        "display": "West Bengal Assembly · May 1996",
+        "polled_on": "1996-05-13",
+        "term_end_estimated": "2001-05-12",
+        "data_status": "complete",
+        "notes": "294 ACs. Poll held on 13 May 1996; event id follows the public polling month rather than the panel's February month token. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay2001",
+        "kind": "assembly",
+        "display": "West Bengal Assembly · May 2001",
+        "polled_on": "2001-05-10",
+        "term_end_estimated": "2006-05-09",
+        "data_status": "complete",
+        "notes": "294 ACs. Poll held on 10 May 2001. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay2006",
+        "kind": "assembly",
+        "display": "West Bengal Assembly · April-May 2006",
+        "polled_on": "2006-05-08",
+        "term_end_estimated": "2011-05-07",
+        "data_status": "complete",
+        "notes": "294 ACs. Poll held in five phases from 17 April to 8 May 2006; event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay2011",
+        "kind": "assembly",
+        "display": "West Bengal Assembly · April-May 2011",
+        "polled_on": "2011-05-10",
+        "term_end_estimated": "2016-05-09",
+        "data_status": "complete",
+        "notes": "294 ACs. Poll held in six phases from 18 April to 10 May 2011; event date uses the final polling day and event id follows the public polling month rather than the panel's February month token. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenMay2016",
+        "kind": "assembly",
+        "display": "West Bengal Assembly · April-May 2016",
+        "polled_on": "2016-05-05",
+        "term_end_estimated": "2021-05-04",
+        "data_status": "complete",
+        "notes": "294 ACs. Poll held across seven voting dates from 4 April to 5 May 2016; event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenApr2021",
+        "kind": "assembly",
+        "display": "West Bengal Assembly · March-April 2021",
+        "polled_on": "2021-04-29",
+        "term_end_estimated": "2026-04-28",
+        "data_status": "complete",
+        "notes": "294 ACs in the final panel. Regular polling covered 292 seats across eight phases from 27 March to 29 April 2021; Samserganj and Jangipur polled later on 30 September after candidate deaths. Event id follows the regular election's final April polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenMay2026",
         "kind": "assembly",
         "display": "West Bengal Assembly · April-May 2026",
