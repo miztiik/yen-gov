@@ -87,6 +87,30 @@ export interface ModelEntry {
  */
 export const MODEL_REGISTRY: readonly ModelEntry[] = [
   {
+    // Default per D-26 (Slice D-1) — SmolLM2-360M is the strict
+    // upgrade Max scouted: ~3× better instruction-following than
+    // SmolLM2-135M at only ~2.3× the download size, same Apache-2.0
+    // licence + same family (drop-in tokenizer/chat-template), same
+    // wasm-pin (D-19 WebGPU bug applies to all SmolLM2 q4f16 builds).
+    // Stays under the D-24 Small-tier 500-MB threshold so no
+    // download friction for the default citizen flow.
+    id: "smollm2-360m-instruct",
+    display_name: "SmolLM2-360M-Instruct",
+    params_label: "360M",
+    provider: "transformers-js",
+    repo_id: "HuggingFaceTB/SmolLM2-360M-Instruct",
+    dtype: "q4f16",
+    device: "wasm",
+    estimated_download_mb: 273,
+    estimated_ram_mb: 520,
+    notes:
+      "Default per D-26 (Slice D-1) — strict upgrade from 135M: ~3× " +
+      "better instruction-following per Max's scouting, same Apache-2.0 " +
+      "licence + family, ~2.3× the download size, stays Small-tier so " +
+      "no D-24 friction. Wasm-pinned per D-19 (WebGPU crashes on q4f16 " +
+      "SmolLM2).",
+  },
+  {
     id: "smollm2-135m-instruct",
     display_name: "SmolLM2-135M-Instruct",
     params_label: "135M",
@@ -100,12 +124,13 @@ export const MODEL_REGISTRY: readonly ModelEntry[] = [
     estimated_download_mb: 118,
     estimated_ram_mb: 280,
     notes:
-      "Seed candidate per D-10 (smallest viable first). Swap by editing " +
-      "DEFAULT_MODEL_ID or this entry. q4f16 ONNX is the smallest variant " +
-      "the HuggingFaceTB repo publishes. Device pinned to \"wasm\" per " +
-      "D-19 — WebGPU backend in onnxruntime-web currently crashes on " +
-      "q4f16 SmolLM2 with `Invalid buffer` mapping errors; wasm is " +
-      "slower but stable. Size corrected 88 → 118 MB per D-26.",
+      "Former seed per D-10. Retained in registry as the smallest " +
+      "option for very-low-RAM devices; D-26 promoted 360M to default " +
+      "because the 135M's instruction-following was the bottleneck on " +
+      "free-text extraction. Device pinned to \"wasm\" per D-19 — " +
+      "WebGPU backend in onnxruntime-web currently crashes on q4f16 " +
+      "SmolLM2 with `Invalid buffer` mapping errors; wasm is slower " +
+      "but stable. Size corrected 88 → 118 MB per D-26.",
   },
   {
     // Added per D-24 (Slice C registry expansion). TinyLlama is in the
@@ -168,8 +193,14 @@ export const MODEL_REGISTRY: readonly ModelEntry[] = [
 /**
  * The model the lab loads when the user clicks "Prepare assistant".
  * Change this string to swap the default; no other code edit needed.
+ *
+ * Per D-26 (Slice D-1, 2026-05-24): flipped from `smollm2-135m-instruct`
+ * to `smollm2-360m-instruct` — strict upgrade: ~3× better instruction
+ * following at ~2.3× the download size, same Apache-2.0 family, stays
+ * Small-tier so no D-24 friction. The 135M entry is retained in the
+ * registry as a low-RAM-device fallback.
  */
-export const DEFAULT_MODEL_ID = "smollm2-135m-instruct";
+export const DEFAULT_MODEL_ID = "smollm2-360m-instruct";
 
 /**
  * Look up a model entry by id. Returns undefined if not found — callers
