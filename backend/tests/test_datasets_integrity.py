@@ -147,7 +147,7 @@ def test_election_events_catalogue_matches_backend_registry():
     have data for a state that's never been ingested. Either way, this
     test fails LOUDLY at CI rather than silently in production.
     """
-    from yen_gov.sources.eci.events import EVENTS  # local import: keeps stdlib-only top of file
+    from yen_gov.sources.eci.events import EVENTS, EVENTS_BY_MONTH  # local import: keeps stdlib-only top of file
 
     catalogue = _load_json(ELECTION_EVENTS_PATH)
     catalogue_pairs: set[tuple[str, str]] = {
@@ -158,6 +158,9 @@ def test_election_events_catalogue_matches_backend_registry():
     backend_pairs: set[tuple[str, str]] = {
         (state_code, info.event_id) for (state_code, _year), info in EVENTS.items()
     }
+    backend_pairs.update(
+        (state_code, info.event_id) for (state_code, _year, _month), info in EVENTS_BY_MONTH.items()
+    )
 
     only_in_backend = sorted(backend_pairs - catalogue_pairs)
     only_in_catalogue = sorted(catalogue_pairs - backend_pairs)

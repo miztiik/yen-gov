@@ -248,6 +248,18 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     ("S25", 2016): EventInfo("AcGenMay2016", False),  # West Bengal
     ("S25", 2021): EventInfo("AcGenApr2021", False),  # West Bengal
 
+    # Bihar statewise AE panel backfill. 2025 stays on the existing Section-10
+    # source; this slice writes 1977-2020. Bihar 2005 has two elections in one
+    # year and is registered in EVENTS_BY_MONTH below instead of EVENTS.
+    ("S04", 1977): EventInfo("AcGenOct1977", False),  # Bihar
+    ("S04", 1980): EventInfo("AcGenMay1980", False),  # Bihar
+    ("S04", 1985): EventInfo("AcGenMar1985", False),  # Bihar
+    ("S04", 1990): EventInfo("AcGenFeb1990", False),  # Bihar
+    ("S04", 1995): EventInfo("AcGenMar1995", False),  # Bihar
+    ("S04", 2000): EventInfo("AcGenFeb2000", False),  # Bihar
+    ("S04", 2010): EventInfo("AcGenNov2010", False),  # Bihar
+    ("S04", 2015): EventInfo("AcGenNov2015", False),  # Bihar
+
     # Historical hand-imports (2016-2023) from old.eci.gov.in Section 10
     # XLSX dumps. No live-results portal; no Statistical Report API.
     # Polling-month event_ids researched against Wikipedia/ECI archives.
@@ -465,26 +477,46 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
 }
 
 
-def event_info_for(state_code: str, year: int) -> EventInfo:
+# Rare duplicate same-state/same-year elections need month to disambiguate.
+# Bihar 2005 had a February election that produced no government, then a
+# fresh October-November election later the same year. Keep ordinary callers
+# on EVENTS; month-aware callers such as the AE panel adapter pass month.
+EVENTS_BY_MONTH: dict[tuple[str, int, int], EventInfo] = {
+    ("S04", 2005, 2): EventInfo("AcGenFeb2005", False),  # Bihar
+    ("S04", 2005, 11): EventInfo("AcGenNov2005", False),  # Bihar
+}
+
+
+def event_info_for(state_code: str, year: int, month: int | None = None) -> EventInfo:
     """Return EventInfo for (state, year), or raise a directive KeyError.
 
     Adding a new (state, year) is a code change because the polling month
     that drives event_id naming + the has_partywise observation both
     require human judgement.
     """
+    if month is not None:
+        by_month = EVENTS_BY_MONTH.get((state_code, year, month))
+        if by_month is not None:
+            return by_month
     try:
         return EVENTS[(state_code, year)]
     except KeyError as exc:
+        coordinate = (
+            f"({state_code!r}, {year}, month={month})"
+            if month is not None
+            else f"({state_code!r}, {year})"
+        )
         raise KeyError(
-            f"no event registered for ({state_code!r}, {year}); "
+            f"no event registered for {coordinate}; "
             f"extend EVENTS in backend/yen_gov/sources/eci/events.py "
-            f"with the polling month + partywise availability."
+            f"with the polling month + partywise availability. Use EVENTS_BY_MONTH "
+            f"when one state has multiple elections in the same year."
         ) from exc
 
 
-def event_id_for(state_code: str, year: int) -> str:
+def event_id_for(state_code: str, year: int, month: int | None = None) -> str:
     """Convenience accessor for just the on-disk event_id."""
-    return event_info_for(state_code, year).event_id
+    return event_info_for(state_code, year, month).event_id
 
 
 # Back-compat for code reading the old flat shape (admin/eci_recon.py).

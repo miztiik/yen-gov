@@ -159,7 +159,7 @@ class _LenientPartyLookup:
 
 
 def event_id_for(state_code: str, year: int, month: int) -> str:
-    return registered_event_id_for(state_code, year)
+    return registered_event_id_for(state_code, year, month)
 
 
 def delim_year_for(raw: str, year: int) -> int:
