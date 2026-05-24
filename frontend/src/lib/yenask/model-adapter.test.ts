@@ -132,6 +132,28 @@ describe("generate", () => {
     expect(out.wall_ms).toBeGreaterThanOrEqual(0);
   });
 
+  // D-22 (Slice A): the transformers.js adapter MUST return `null` for all
+  // four finer-grained timing fields because the pipeline is a black-box
+  // round-trip (no streaming, no first-token callback, no encode/decode
+  // observability). The Debug log UI renders `null` as `—` to make this
+  // visible to the operator. Future provider seams (WebLLM, future SDK
+  // versions with streaming) can populate these without changing the
+  // contract.
+  it("returns null for encode/generate/decode/ttft timings (transformers-js is black-box)", async () => {
+    handles.pipelineFactory.mockResolvedValueOnce(handles.generateFn);
+    handles.generateFn.mockResolvedValueOnce([{ generated_text: "ok" }]);
+    const a = createAdapter(MODEL);
+    await a.prepare();
+    const out = await a.generate([{ role: "user", content: "hi" }]);
+    expect(out.encode_ms).toBeNull();
+    expect(out.generate_ms).toBeNull();
+    expect(out.decode_ms).toBeNull();
+    expect(out.ttft_ms).toBeNull();
+    // The aggregate wall_ms remains measurable — only the finer breakdown
+    // is unobservable.
+    expect(out.wall_ms).toBeGreaterThanOrEqual(0);
+  });
+
   it("reports exact token counts when the pipeline exposes a tokenizer (D-20)", async () => {
     const encode = vi.fn((text: string) =>
       // Simple word-split tokenizer surrogate; lets us assert exact counts.

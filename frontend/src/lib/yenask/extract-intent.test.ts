@@ -59,6 +59,13 @@ function asResult(text: string): GenerateResult {
     tokens_out: Math.max(1, Math.round(text.length / 4)),
     tokens_approximate: true,
     wall_ms: 1,
+    // D-22 (Slice A): transformers-js provider returns null for the
+    // four finer-grained phase timings. Tests faithfully mirror the
+    // shape so plumbing assertions remain meaningful.
+    encode_ms: null,
+    generate_ms: null,
+    decode_ms: null,
+    ttft_ms: null,
   };
 }
 
@@ -262,5 +269,56 @@ describe("extractIntent", () => {
     expect(att.tokens_in).toBe(0);
     expect(att.tokens_out).toBe(0);
     expect(att.raw_output).toBe("");
+    // D-22 (Slice A): generate_error attempts MUST set all four phase
+    // timings to null — there is no SDK response from which to derive
+    // them. Renderer shows em-dash; sum-invariant row is hidden.
+    expect(att.encode_ms).toBeNull();
+    expect(att.generate_ms).toBeNull();
+    expect(att.decode_ms).toBeNull();
+    expect(att.ttft_ms).toBeNull();
+  });
+
+  // D-22 (Slice A): the four finer-grained phase timings on
+  // GenerateResult MUST plumb through to ExtractAttempt verbatim, so
+  // the Debug log can render whatever the SDK reported. The current
+  // transformers-js adapter always returns null; this test mirrors
+  // that AND covers the forward-looking case where a future SDK
+  // populates real numbers.
+  it("plumbs encode/generate/decode/ttft timings from GenerateResult to ExtractAttempt", async () => {
+    // Case 1: nulls (current transformers-js shape)
+    const { adapter: nullAdapter } = fakeAdapter([VALID_RAW]);
+    const r1 = await extractIntent("Q?", CATALOGUE, nullAdapter);
+    expect(r1.diagnostics.attempts_log.length).toBe(1);
+    const att1 = r1.diagnostics.attempts_log[0]!;
+    expect(att1.encode_ms).toBeNull();
+    expect(att1.generate_ms).toBeNull();
+    expect(att1.decode_ms).toBeNull();
+    expect(att1.ttft_ms).toBeNull();
+
+    // Case 2: populated values (forward-looking — when an SDK reports
+    // real phase timings, ExtractAttempt MUST preserve them verbatim).
+    const populatedAdapter: ModelAdapter = {
+      model: MODEL,
+      status: () => ({ kind: "ready" }),
+      prepare: async () => undefined,
+      generate: async (): Promise<GenerateResult> => ({
+        text: VALID_RAW,
+        tokens_in: 10,
+        tokens_out: 20,
+        tokens_approximate: false,
+        wall_ms: 1500,
+        encode_ms: 80,
+        generate_ms: 1300,
+        decode_ms: 120,
+        ttft_ms: 350,
+      }),
+    };
+    const r2 = await extractIntent("Q?", CATALOGUE, populatedAdapter);
+    expect(r2.diagnostics.attempts_log.length).toBe(1);
+    const att2 = r2.diagnostics.attempts_log[0]!;
+    expect(att2.encode_ms).toBe(80);
+    expect(att2.generate_ms).toBe(1300);
+    expect(att2.decode_ms).toBe(120);
+    expect(att2.ttft_ms).toBe(350);
   });
 });

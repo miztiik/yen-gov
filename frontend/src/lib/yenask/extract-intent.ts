@@ -189,6 +189,12 @@ export interface ExtractOptions {
  * token in/out, wall time, parse status). When the model itself threw
  * before returning text, `parse_status` is `"generate_error"` and
  * `raw_output` is empty.
+ *
+ * Per D-22 (Slice A) every attempt also carries four optional
+ * finer-grained timing fields mirrored from `GenerateResult`. They are
+ * `number | null` — never `0` for "unknown". The transformers-js
+ * adapter reports all four as `null`; a future streaming provider may
+ * populate them. The Debug log surface renders `null` as `—`.
  */
 export interface ExtractAttempt {
   /** 1-based attempt index. */
@@ -203,6 +209,14 @@ export interface ExtractAttempt {
   readonly tokens_approximate: boolean;
   /** Wall-clock time inside the generate() call, milliseconds. */
   readonly wall_ms: number;
+  /** Encode (tokenize+prepare) wall time, ms. NULL when SDK opaque. */
+  readonly encode_ms: number | null;
+  /** Generate (token-by-token) wall time, ms. NULL when SDK opaque. */
+  readonly generate_ms: number | null;
+  /** Decode (detokenize) wall time, ms. NULL when SDK opaque. */
+  readonly decode_ms: number | null;
+  /** Time to first token, ms. NULL on non-streaming runtimes. */
+  readonly ttft_ms: number | null;
   /** Raw assistant text on this attempt (empty on generate error). */
   readonly raw_output: string;
   /** Outcome of the parse step for this attempt. */
@@ -292,6 +306,10 @@ export async function extractIntent(
             tokens_out: gen.tokens_out,
             tokens_approximate: gen.tokens_approximate,
             wall_ms: gen.wall_ms,
+            encode_ms: gen.encode_ms,
+            generate_ms: gen.generate_ms,
+            decode_ms: gen.decode_ms,
+            ttft_ms: gen.ttft_ms,
             raw_output: lastRaw,
             parse_status: "ok",
           });
@@ -315,6 +333,10 @@ export async function extractIntent(
           tokens_out: gen.tokens_out,
           tokens_approximate: gen.tokens_approximate,
           wall_ms: gen.wall_ms,
+          encode_ms: gen.encode_ms,
+          generate_ms: gen.generate_ms,
+          decode_ms: gen.decode_ms,
+          ttft_ms: gen.ttft_ms,
           raw_output: lastRaw,
           parse_status: "zod_error",
           parse_error: lastError,
@@ -329,6 +351,10 @@ export async function extractIntent(
           tokens_out: gen.tokens_out,
           tokens_approximate: gen.tokens_approximate,
           wall_ms: gen.wall_ms,
+          encode_ms: gen.encode_ms,
+          generate_ms: gen.generate_ms,
+          decode_ms: gen.decode_ms,
+          ttft_ms: gen.ttft_ms,
           raw_output: lastRaw,
           parse_status: "json_error",
           parse_error: lastError,
@@ -343,6 +369,10 @@ export async function extractIntent(
         tokens_out: 0,
         tokens_approximate: true,
         wall_ms: 0,
+        encode_ms: null,
+        generate_ms: null,
+        decode_ms: null,
+        ttft_ms: null,
         raw_output: "",
         parse_status: "generate_error",
         parse_error: lastError,
