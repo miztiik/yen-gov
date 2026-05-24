@@ -234,6 +234,20 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     ("S18", 2014): EventInfo("AcGenApr2014", False),  # Odisha
     ("S18", 2019): EventInfo("AcGenApr2019", False),  # Odisha
 
+    # West Bengal statewise AE panel backfill. 2026 stays on existing live rows;
+    # this slice writes 1977-2021. The 2021 event id follows the regular
+    # Mar-Apr polling window even though two seats polled later in September.
+    ("S25", 1977): EventInfo("AcGenJun1977", False),  # West Bengal
+    ("S25", 1982): EventInfo("AcGenMay1982", False),  # West Bengal
+    ("S25", 1987): EventInfo("AcGenApr1987", False),  # West Bengal
+    ("S25", 1991): EventInfo("AcGenApr1991", False),  # West Bengal
+    ("S25", 1996): EventInfo("AcGenMay1996", False),  # West Bengal
+    ("S25", 2001): EventInfo("AcGenMay2001", False),  # West Bengal
+    ("S25", 2006): EventInfo("AcGenMay2006", False),  # West Bengal
+    ("S25", 2011): EventInfo("AcGenMay2011", False),  # West Bengal
+    ("S25", 2016): EventInfo("AcGenMay2016", False),  # West Bengal
+    ("S25", 2021): EventInfo("AcGenApr2021", False),  # West Bengal
+
     # Historical hand-imports (2016-2023) from old.eci.gov.in Section 10
     # XLSX dumps. No live-results portal; no Statistical Report API.
     # Polling-month event_ids researched against Wikipedia/ECI archives.
