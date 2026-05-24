@@ -30,7 +30,7 @@
   // and passes them in here; MarginHistogram does the same. No `getDb`,
   // no SQL, no fetch — failure / loading arms live on the parent's
   // `LoaderResult`.
-  let { rows: input_rows, state: state_code }: { rows: AcWinner[] | null; state: string } = $props();
+  let { rows: input_rows, state: state_code, event = null }: { rows: AcWinner[] | null; state: string; event?: string | null } = $props();
 
   interface Row {
     eci_no: number;
@@ -223,7 +223,7 @@
               {@const mc = marginColor(r.margin_pct ?? 0)}
               <li>
                 <a
-                  href={url.acByNo(state_code, r.eci_no)}
+                  href={url.acByNo(state_code, r.eci_no, event)}
                   class="flex items-center gap-2 px-3 py-1.5 hover:bg-white transition-colors"
                   title="{r.name} (#{r.eci_no}) — {r.winner_party_short} won by {r.margin_pct?.toFixed(2) ?? '—'} pp"
                 >

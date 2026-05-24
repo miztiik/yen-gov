@@ -9,6 +9,7 @@
   import {
     fetchElectionEvents,
     defaultEventForState,
+    findEvent,
     type ElectionEventsCatalogue,
   } from "../lib/election-events";
   import AcStackedBar from "../lib/AcStackedBar.svelte";
@@ -33,7 +34,11 @@
     .catch(() => (election_catalogue = null));
 
   const state_code = $derived(states.codeFromSlug(params.state));
-  const event_row = $derived(defaultEventForState(election_catalogue, state_code));
+  const event_param = $derived(new URLSearchParams(location.search).get("event"));
+  const event_row = $derived(
+    (event_param ? findEvent(election_catalogue, state_code, event_param) : null)
+      ?? defaultEventForState(election_catalogue, state_code),
+  );
   const event = $derived(event_row?.event_id ?? null);
 
   // PR-E (Phase 1.3a): the canonical view-model loader fronts DuckDB-WASM.
@@ -153,7 +158,7 @@
     {#if event && state_code && STATE_AC[state_code]}
       <section class="bg-white rounded-lg shadow-sm p-4">
         <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Location in {states.name(state_code)}</h2>
-        <StateAcMap state={state_code} rows={ac_winners} highlight_eci_no={params.eci_no} height="360px" />
+        <StateAcMap state={state_code} rows={ac_winners} highlight_eci_no={params.eci_no} height="360px" {event} />
         <p class="text-xs text-slate-400 mt-2">
           Highlighted: AC #{params.eci_no}. Other constituencies are dimmed for context. Click any to drill in.
         </p>

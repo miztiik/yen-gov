@@ -715,7 +715,7 @@
       {#if event && STATE_AC[state_code]}
         <div class="bg-white rounded-lg shadow-sm p-4 min-w-0">
           <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Constituency map</h2>
-          <StateAcMap state={state_code} rows={summary?.ac_winners ?? null} />
+          <StateAcMap state={state_code} rows={summary?.ac_winners ?? null} {event} />
           <p class="text-xs text-slate-400 mt-2">
             Hover for winner & margin · click an AC to drill in. Darker fill = larger winning margin.
           </p>
@@ -840,7 +840,7 @@
            column heights are themselves the headline. -->
       <section class="bg-white rounded-lg shadow-sm p-5">
         <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Races by competitiveness</h2>
-        <RacesBoard state={state_code} rows={summary?.ac_winners ?? null} />
+        <RacesBoard state={state_code} rows={summary?.ac_winners ?? null} {event} />
       </section>
     {/if}
 
@@ -946,7 +946,7 @@
                 {#each g.acs as ac}
                   {@const w = winners.get(ac.eci_no)}
                   <li>
-                    <a class="hover:underline flex items-center gap-1.5" href={url.ac(state_code, ac.eci_no, ac.name)}>
+                    <a class="hover:underline flex items-center gap-1.5" href={url.ac(state_code, ac.eci_no, ac.name, event)}>
                       <span class="text-slate-400 inline-block w-8 text-right pr-1">{ac.eci_no}</span>
                       {#if w}
                         <span
