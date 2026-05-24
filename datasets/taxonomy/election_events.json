@@ -1049,6 +1049,78 @@
     ],
     "S15": [
       {
+        "event_id": "AcGenFeb1978",
+        "kind": "assembly",
+        "display": "Meghalaya Assembly · February 1978",
+        "polled_on": "1978-02-25",
+        "term_end_estimated": "1983-02-24",
+        "data_status": "complete",
+        "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb1983",
+        "kind": "assembly",
+        "display": "Meghalaya Assembly · February 1983",
+        "polled_on": "1983-02-17",
+        "term_end_estimated": "1988-02-16",
+        "data_status": "complete",
+        "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb1988",
+        "kind": "assembly",
+        "display": "Meghalaya Assembly · February 1988",
+        "polled_on": "1988-02-02",
+        "term_end_estimated": "1993-02-01",
+        "data_status": "complete",
+        "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb1993",
+        "kind": "assembly",
+        "display": "Meghalaya Assembly · February 1993",
+        "polled_on": "1993-02-19",
+        "term_end_estimated": "1998-02-18",
+        "data_status": "complete",
+        "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb1998",
+        "kind": "assembly",
+        "display": "Meghalaya Assembly · February 1998",
+        "polled_on": "1998-02-16",
+        "term_end_estimated": "2003-02-15",
+        "data_status": "complete",
+        "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb2003",
+        "kind": "assembly",
+        "display": "Meghalaya Assembly · February 2003",
+        "polled_on": "2003-02-26",
+        "term_end_estimated": "2008-02-25",
+        "data_status": "complete",
+        "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMar2008",
+        "kind": "assembly",
+        "display": "Meghalaya Assembly · March 2008",
+        "polled_on": "2008-03-03",
+        "term_end_estimated": "2013-03-02",
+        "data_status": "complete",
+        "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb2013",
+        "kind": "assembly",
+        "display": "Meghalaya Assembly · February 2013",
+        "polled_on": "2013-02-23",
+        "term_end_estimated": "2018-02-22",
+        "data_status": "complete",
+        "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenFeb2018",
         "kind": "assembly",
         "display": "Meghalaya Assembly · February 2018",
