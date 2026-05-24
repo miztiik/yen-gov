@@ -121,6 +121,21 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     # Mar-2017 Manipur (polled 4 & 8 Mar 2017).
     ("S14", 2017): EventInfo("AcGenMar2017", False),  # Manipur
 
+    # Gujarat historical AE panel backfill (ECI Statistical Report
+    # transcriptions). Polling month comes from the panel month column.
+    ("S06", 1962): EventInfo("AcGenFeb1962", False),  # Gujarat
+    ("S06", 1967): EventInfo("AcGenFeb1967", False),  # Gujarat
+    ("S06", 1972): EventInfo("AcGenMar1972", False),  # Gujarat
+    ("S06", 1975): EventInfo("AcGenJun1975", False),  # Gujarat
+    ("S06", 1980): EventInfo("AcGenMay1980", False),  # Gujarat
+    ("S06", 1985): EventInfo("AcGenMay1985", False),  # Gujarat
+    ("S06", 1990): EventInfo("AcGenFeb1990", False),  # Gujarat
+    ("S06", 1995): EventInfo("AcGenFeb1995", False),  # Gujarat
+    ("S06", 1998): EventInfo("AcGenMar1998", False),  # Gujarat
+    ("S06", 2002): EventInfo("AcGenDec2002", False),  # Gujarat
+    ("S06", 2007): EventInfo("AcGenDec2007", False),  # Gujarat
+    ("S06", 2012): EventInfo("AcGenDec2012", False),  # Gujarat
+
     # Dec-2017 Gujarat (polled 9 & 14 Dec 2017).
     ("S06", 2017): EventInfo("AcGenDec2017", False),  # Gujarat
 
