@@ -5,6 +5,15 @@
   "states": {
     "S01": [
       {
+        "event_id": "AcGenMay2014",
+        "kind": "assembly",
+        "display": "Andhra Pradesh Assembly · May 2014",
+        "polled_on": "2014-05-07",
+        "term_end_estimated": "2019-05-06",
+        "data_status": "complete",
+        "notes": "175 ACs. Residual Andhra Pradesh phase of the combined 2014 Andhra Pradesh/Telangana election; pre-2014 undivided Andhra Pradesh rows remain deferred. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenApr2019",
         "kind": "assembly",
         "display": "Andhra Pradesh Assembly · April 2019",
