@@ -68,6 +68,7 @@ KIND_TO_LEVEL: dict[Kind, Level] = {
 def derive_hive(
     *,
     kind: str,
+    delim: str | None = None,
     state: str | None = None,
     district_lgd: str | None = None,
     ext: str = "geojson",
@@ -76,6 +77,13 @@ def derive_hive(
 
     Args:
         kind: pipeline.json ``kind`` value (plural form, e.g. ``villages``).
+        delim: 4-digit year of the Delimitation Commission Order this
+            boundary set reflects (``"2024"``, ``"2008"``). Used by
+            electoral-constituency layers (``kind in {"ac", "pc"}``) to
+            disambiguate pre/post-Delim geometries; None for non-electoral
+            layers. Inserted as a ``delim=<year>`` Hive segment immediately
+            after the kind segment so per-state/per-district sub-partitions
+            still nest below it.
         state: ECI state code (``S22``, ``U08``); lowercased + prefixed
             with ``in_`` for the Hive key (``state=in_s22``).
         district_lgd: LGD district code as digit string (``603``); only
@@ -86,11 +94,13 @@ def derive_hive(
         ``(partition_path, layer_id)`` where:
 
         * ``partition_path`` is repo-relative POSIX (e.g.
-          ``boundaries/in/villages/state=in_s22/district=603/all.geojson``).
+          ``boundaries/in/villages/state=in_s22/district=603/all.geojson``,
+          ``boundaries/in/pc/delim=2024/all.geojson``).
           Matches the JSON Schema ``partition_path`` regex
           (``^boundaries/in/``).
         * ``layer_id`` is the dot-grammar equivalent (e.g.
-          ``boundaries.in.villages.state=in_s22.district=603``).
+          ``boundaries.in.villages.state=in_s22.district=603``,
+          ``boundaries.in.pc.delim=2024``).
           Matches ``boundary-layers.schema.json:properties.layer_id.pattern``.
 
     Raises:
@@ -102,6 +112,9 @@ def derive_hive(
         raise ValueError(msg)
     parts_path: list[str] = [f"boundaries/in/{kind}"]
     parts_id: list[str] = [f"boundaries.in.{kind}"]
+    if delim is not None:
+        parts_path.append(f"delim={delim}")
+        parts_id.append(f"delim={delim}")
     if state is not None:
         state_key = f"in_{state.lower()}"
         parts_path.append(f"state={state_key}")

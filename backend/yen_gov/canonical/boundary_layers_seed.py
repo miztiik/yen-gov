@@ -137,7 +137,7 @@ class BoundaryLayerRow(BaseModel):
     size_bytes: int = Field(ge=0)
     source_id: str = Field(pattern=r"^src-[a-z0-9]{12}$")
 
-    # --- nullable (7) ---
+    # --- nullable (8) ---
     entity_state: str | None = None
     entity_district: str | None = None
     entity_city: str | None = None
@@ -145,6 +145,15 @@ class BoundaryLayerRow(BaseModel):
     simplification_tolerance_deg: float | None = Field(default=None, ge=0)
     unkeyed_keys_json: str | None = None
     notes: str | None = None
+    # Added in schema v1.1 (2026-05-24, PC layer ingest). 4-digit year of the
+    # Delimitation Commission Order this geometry reflects. Required for
+    # electoral-constituency layers (ac/pc) to disambiguate pre/post-Delim
+    # geometries when both coexist; null for non-electoral layers (country/
+    # state/district/subdistrict/village/postal admin spine).
+    delimitation_vintage: str | None = Field(
+        default=None,
+        pattern=r"^[0-9]{4}$",
+    )
 
 
 # ----------------------------------------------------------------------
@@ -170,6 +179,7 @@ SOURCE_NICKNAMES: tuple[str, ...] = (
     "datameet",
     "htl",
     "shijithpk",
+    "shijithpk_pc_2024",
     "ramseraph",
     "yashveeeeeeer",
 )
@@ -187,19 +197,30 @@ _BOUNDARY_SOURCE_TRIPLES: dict[str, tuple[str, str, str]] = {
         "HTL state-AC shapefile bundle",
         "2008 Delimitation",
     ),
-    # 3. shijithpk (J&K 2024 AC re-georeferencing)
+    # 3. shijithpk — J&K 2024 AC re-georeferencing
     "shijithpk": (
         "shijithpk",
         "J&K Assembly New Borders (georeferenced)",
         "2024",
     ),
-    # 4. ramSeraph (LGD-keyed admin boundaries — districts/subdistricts/villages)
+    # 4. shijithpk — India LS PC 545-feature map (georeferenced from ECI
+    #    Press Note No. 23). Second shijithpk source row: different
+    #    publication, different geographic scope, different document. The
+    #    citation triple (producer, title, vintage) distinguishes them per
+    #    ADR-0032; collapsing both under a single "shijithpk" key would
+    #    lose per-document citation precision (rejected design A).
+    "shijithpk_pc_2024": (
+        "shijithpk",
+        "India Lok Sabha Parliamentary Constituency boundaries (georeferenced)",
+        "2024",
+    ),
+    # 5. ramSeraph (LGD-keyed admin boundaries — districts/subdistricts/villages)
     "ramseraph": (
         "ramSeraph",
         "Indian Admin Boundaries (LGD-keyed)",
         "lgd-latest-extra1",
     ),
-    # 5. yashveeeeeeer/india-geodata (national silhouette — Survey of India)
+    # 6. yashveeeeeeer/india-geodata (national silhouette — Survey of India)
     "yashveeeeeeer": (
         "yashveeeeeeer/india-geodata",
         "India national silhouette (SoI-derived)",
@@ -249,6 +270,14 @@ def _build_boundary_source_rows() -> tuple[SourceRow, ...]:
             "https://github.com/shijithpk/2024_maps_supplement",
             "Unlicense per upstream LICENSE file; treated as public-domain dedication. Author note: 'maps may not be research quality, but good enough for visualising on websites'.",
         ),
+        "shijithpk_pc_2024": (
+            "public-domain",
+            "bronze",
+            "transcribed",
+            False,
+            "https://github.com/shijithpk/2024_maps_supplement",
+            "Boundary decisions issued by Election Commission of India via Press Note No. 23 for the 2024 General Election (https://elections24.eci.gov.in/docs/press-note-no-23.pdf); geometry digitised by shijithpk via QGIS georeferencing of the press-note PDF images and republished at github.com/shijithpk/2024_maps_supplement under The Unlicense. Researcher-quality, NOT survey-grade — upstream README warns 'international borders will be off, use at your own risk'. Suitable for choropleth visualisation; NOT for area/distance calculation. 2 features with ls_seat_code=999 cover J&K territory claimed by India but administered by Pakistan/China — must be rendered with a distinct treatment (e.g. diagonal hatch) and never tinted with election colours. Underlying Delimitation Commission Orders: 1976 baseline + 2008 amendment + 2022 J&K Delimitation Commission Order + 2023 Assam Delimitation Commission Order.",
+        ),
         "ramseraph": (
             "CC-BY-4.0",
             "silver",
@@ -295,6 +324,15 @@ def _build_boundary_source_rows() -> tuple[SourceRow, ...]:
 BOUNDARY_SOURCES: tuple[SourceRow, ...] = _build_boundary_source_rows()
 BOUNDARY_SOURCE_ID_BY_NICKNAME: dict[str, str] = {
     nickname: row.source_id for nickname, row in zip(SOURCE_NICKNAMES, BOUNDARY_SOURCES, strict=True)
+}
+# Triple-keyed lookup for the snapshot tool's per-entry source_id
+# resolution. Built once at import. Disambiguates within a single
+# producer (e.g. "shijithpk" has two source rows for two different
+# publications). snapshot.py prefers this over the producer-only
+# mapping that was added in T.0d chunk 2a.
+BOUNDARY_SOURCE_ID_BY_TRIPLE: dict[tuple[str, str, str], str] = {
+    _BOUNDARY_SOURCE_TRIPLES[nickname]: BOUNDARY_SOURCE_ID_BY_NICKNAME[nickname]
+    for nickname in SOURCE_NICKNAMES
 }
 
 
@@ -350,8 +388,10 @@ def upsert_boundary_sources(con: duckdb.DuckDBPyConnection) -> int:
 
 
 # DuckDB DDL mirrors the JSON Schema additionalProperties:false shape.
-# 17 columns -- 10 NOT NULL + 7 nullable. PK on layer_id; FK on source_id
+# 18 columns -- 10 NOT NULL + 8 nullable. PK on layer_id; FK on source_id
 # is enforced at compile time by an EXISTS lookup against sources.parquet.
+# 18th column `delimitation_vintage` added in schema v1.1 (2026-05-24,
+# PC layer ingest).
 _BOUNDARY_LAYERS_DDL = """
 CREATE TABLE boundary_layers (
     layer_id VARCHAR NOT NULL,
@@ -370,7 +410,8 @@ CREATE TABLE boundary_layers (
     unkeyed_keys_json VARCHAR,
     size_bytes BIGINT NOT NULL,
     source_id VARCHAR NOT NULL,
-    notes VARCHAR
+    notes VARCHAR,
+    delimitation_vintage VARCHAR
 )
 """
 
@@ -399,12 +440,102 @@ def _row_to_tuple(row: BoundaryLayerRow) -> tuple:
         row.size_bytes,
         row.source_id,
         row.notes,
+        row.delimitation_vintage,
     )
+
+
+# Column projection used by the merge path. Pre-v1.1 parquets lack
+# `delimitation_vintage`; we project NULL for that column so they
+# rehydrate cleanly. Keeping the literal SQL alongside the DDL keeps
+# the schema bump and the back-compat read in one place.
+_BOUNDARY_LAYERS_SELECT_COLS = [
+    "layer_id",
+    "level",
+    "entity_state",
+    "entity_district",
+    "entity_city",
+    "partition_path",
+    "format",
+    "crs",
+    "simplification_algorithm",
+    "simplification_tolerance_deg",
+    "original_feature_count",
+    "retained_feature_count",
+    "unkeyed_count",
+    "unkeyed_keys_json",
+    "size_bytes",
+    "source_id",
+    "notes",
+    "delimitation_vintage",
+]
+
+
+def _read_existing_boundary_layers(datasets_root: Path) -> list[BoundaryLayerRow]:
+    """Rehydrate the on-disk boundary_layers.parquet into BoundaryLayerRow
+    objects so a merge-mode emit can preserve rows the current run did
+    not touch. Returns [] when the parquet does not exist (initial
+    bootstrap) so callers can use ``merge_with_existing=True``
+    unconditionally without an explicit existence guard.
+
+    Back-compat: pre-v1.1 parquets have no ``delimitation_vintage``
+    column. We DESCRIBE the on-disk schema once and substitute
+    ``NULL AS delimitation_vintage`` when the column is absent. The
+    rehydrated BoundaryLayerRow defaults to None, which the v1.1
+    Pydantic shape accepts and which the v1.1 DDL stores as NULL.
+    The first merge-mode emit after the bump re-stamps the parquet
+    with the new column for every preserved row.
+    """
+    parquet_path = datasets_root / "boundaries" / "boundary_layers.parquet"
+    if not parquet_path.is_file():
+        return []
+    con = duckdb.connect()
+    try:
+        on_disk_cols = {
+            r[0]
+            for r in con.execute(
+                f"DESCRIBE SELECT * FROM read_parquet('{parquet_path.as_posix()}')"
+            ).fetchall()
+        }
+        select_clauses = [
+            col if col in on_disk_cols else f"NULL AS {col}"
+            for col in _BOUNDARY_LAYERS_SELECT_COLS
+        ]
+        select_sql = ", ".join(select_clauses)
+        raw_rows = con.execute(
+            f"SELECT {select_sql} FROM read_parquet('{parquet_path.as_posix()}')"
+        ).fetchall()
+    finally:
+        con.close()
+    return [
+        BoundaryLayerRow(
+            layer_id=r[0],
+            level=r[1],
+            entity_state=r[2],
+            entity_district=r[3],
+            entity_city=r[4],
+            partition_path=r[5],
+            format=r[6],
+            crs=r[7],
+            simplification_algorithm=r[8],
+            simplification_tolerance_deg=r[9],
+            original_feature_count=r[10],
+            retained_feature_count=r[11],
+            unkeyed_count=r[12],
+            unkeyed_keys_json=r[13],
+            size_bytes=r[14],
+            source_id=r[15],
+            notes=r[16],
+            delimitation_vintage=r[17],
+        )
+        for r in raw_rows
+    ]
 
 
 def compile_to_parquet(
     layer_rows: list[BoundaryLayerRow] | tuple[BoundaryLayerRow, ...],
     datasets_root: Path,
+    *,
+    merge_with_existing: bool = False,
 ) -> tuple[int, int]:
     """Emit boundary_layers.parquet + UPSERT taxonomy/sources.parquet.
 
@@ -412,16 +543,26 @@ def compile_to_parquet(
         layer_rows: BoundaryLayerRow instances, one per boundary geometry
             shard on disk. Caller builds the list (snapshot.py during a
             fetch run; migrate_to_hive_layout.py during initial migration).
-            Empty list is permitted (writes a 0-row parquet + UPSERTs the 5
+            Empty list is permitted (writes a 0-row parquet + UPSERTs the 6
             boundary sources, which is itself a valid contract surface --
             consumers should not assume the file always has rows).
         datasets_root: path to ``datasets/``. The function writes:
             * ``boundaries/boundary_layers.parquet``
-            * ``taxonomy/sources.parquet`` (UPSERT of the 5 boundary
+            * ``taxonomy/sources.parquet`` (UPSERT of the 6 boundary
               citation rows + preservation of all other adapter sources).
+        merge_with_existing: when True, rows already present in the
+            on-disk ``boundary_layers.parquet`` whose ``layer_id`` is NOT
+            in ``layer_rows`` are preserved and re-emitted. Rows in
+            ``layer_rows`` take precedence on PK conflict. Default False
+            preserves the original "snapshot.py rebuilds everything in
+            one shot" semantics; the flag exists so the tool can be used
+            incrementally (e.g. add the PC layer without re-fetching the
+            other 6 URLs).
 
     Returns:
         ``(layer_count, source_count)`` for orchestrator logging.
+        ``layer_count`` reflects the final on-disk row count (i.e.
+        includes preserved rows when ``merge_with_existing=True``).
 
     Invariants enforced at compile time:
         * Denominator transparency: every row's
@@ -441,7 +582,19 @@ def compile_to_parquet(
           data).
     """
     datasets_root = Path(datasets_root)
-    rows = list(layer_rows)
+    new_rows = list(layer_rows)
+
+    # ----- merge with existing parquet (opt-in) ----------------------
+    if merge_with_existing:
+        new_layer_ids = {row.layer_id for row in new_rows}
+        preserved = [
+            row
+            for row in _read_existing_boundary_layers(datasets_root)
+            if row.layer_id not in new_layer_ids
+        ]
+        rows = new_rows + preserved
+    else:
+        rows = new_rows
 
     # ----- pre-emit invariants ---------------------------------------
     seen_layer_ids: set[str] = set()
@@ -460,7 +613,7 @@ def compile_to_parquet(
             )
 
     # ----- FK pre-check ----------------------------------------------
-    # Every layer's source_id must be one of the 5 BOUNDARY_SOURCES or
+    # Every layer's source_id must be one of the 6 BOUNDARY_SOURCES or
     # an existing source from another adapter. Pre-check against the
     # known-boundary set first (cheap); the writer's downstream
     # parquet-level FK check (across the union with existing sources)
@@ -489,7 +642,7 @@ def compile_to_parquet(
         con.execute(_BOUNDARY_LAYERS_DDL)
         if rows:
             con.executemany(
-                "INSERT INTO boundary_layers VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                "INSERT INTO boundary_layers VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 [_row_to_tuple(r) for r in rows],
             )
         con.execute(
@@ -542,6 +695,7 @@ __all__ = [
     "BOUNDARY_LAYERS_SCHEMA_FILENAME",
     "BOUNDARY_SOURCES",
     "BOUNDARY_SOURCE_ID_BY_NICKNAME",
+    "BOUNDARY_SOURCE_ID_BY_TRIPLE",
     "BoundaryLayerRow",
     "Format",
     "Level",

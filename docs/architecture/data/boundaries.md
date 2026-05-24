@@ -11,7 +11,7 @@ This doc captures the rationale behind every design choice that touched the boun
 
 ```
 datasets/boundaries/
-├── boundary_layers.parquet                          # 73 rows; one per shard; the ledger
+├── boundary_layers.parquet                          # 74 rows; one per shard; the ledger
 └── in/
     ├── country/all.geojson                          # IN outline (was india-soi.geojson)
     ├── states/all.geojson                           # all 36 states/UTs; property `state_lgd`
@@ -19,6 +19,7 @@ datasets/boundaries/
     ├── subdistricts/state=in_<lc>/all.geojson       # per-state (TN today); property `subdist_lgd`
     ├── villages/state=in_<lc>/district=<lgd>/all.geojson  # per-(state, district); property `village_lgd`
     ├── ac/state=in_<lc>/all.geojson                 # 37 states/UTs; property keyed to ECI ac code
+    ├── pc/delim=<YYYY>/all.geojson                  # national; delim partition mandatory (ECI cycles)
     └── postal/IN-pincodes-<city>.geojson            # orthogonal; NOT LGD; keyed by pincode
 ```
 
@@ -33,7 +34,7 @@ One row per shard. Schema in `datasets/schemas/boundary-layers.schema.json`. The
 | `layer_id` (PK) | Dot-grammar matching the Hive path (e.g. `boundaries.in.villages.state=in_s22.district=603`) |
 | `family` | always `"boundaries"` |
 | `country` | always `"in"` |
-| `kind` | `"country" \| "states" \| "districts" \| "subdistricts" \| "villages" \| "ac" \| "postal"` |
+| `kind` | `"country" \| "states" \| "districts" \| "subdistricts" \| "villages" \| "ac" \| "pc" \| "postal"` |
 | `path` | repo-relative POSIX path to the geojson |
 | `source_id` | FK to `datasets/taxonomy/sources.parquet` (ADR-0032 v2.0 triple shape) |
 | `crs` | EPSG identifier (e.g. `"EPSG:4326"`) |
@@ -43,7 +44,7 @@ One row per shard. Schema in `datasets/schemas/boundary-layers.schema.json`. The
 
 Denominator invariant: `original_feature_count == retained_feature_count + unkeyed_count` (enforced by `BoundaryLayerRow` Pydantic validator in `backend/yen_gov/canonical/boundary_layers_seed.py`).
 
-7 optional nullable columns: `state_eci`, `state_lgd`, `district_lgd`, `simplification_tolerance`, `simplification_algorithm`, `bbox`, `notes`.
+7 optional nullable columns: `state_eci`, `state_lgd`, `district_lgd`, `simplification_tolerance`, `simplification_algorithm`, `bbox`, `notes`. As of schema v1.1 (2026-05-24), `delimitation_vintage` (nullable, `^[0-9]{4}$`) is added: required on PC rows (and on future AC rows once delimitation history backfills land), null elsewhere. See [ADR-0031 Amendment 2026-05-24](../decisions/0031-boundary-geometry-strategy.md#amendment-2026-05-24-pc-layer-ingest--delimyyyy-partition-key).
 
 Frontend has zero direct readers of this parquet today (renderer never needed metadata at runtime). The ledger is the **operator + citizen-citation surface**; the geojsons remain the renderer's input.
 

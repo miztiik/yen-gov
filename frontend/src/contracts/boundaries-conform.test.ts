@@ -49,6 +49,13 @@ const HIVE_SHAPES: { kind: string; pattern: RegExp }[] = [
   // the `boundaries.ts` loader; included here so the orphan detector
   // doesn't flag them as legacy.
   { kind: "ac", pattern: /^ac\/state=in_[a-z0-9]+\/all\.geojson$/ },
+  // Parliamentary Constituencies. Single-file national layout keyed on
+  // delimitation_vintage (each delimitation order published by ECI/the
+  // Delimitation Commission gets its own partition; the current ingest
+  // is the 2024 General Election delimitation). The `delim=YYYY/` Hive
+  // segment is mandatory because pre-2008 LS data will need pre-2008
+  // boundaries when historical seats are added in a future PR.
+  { kind: "pc", pattern: /^pc\/delim=\d{4}\/all\.geojson$/ },
   // Postal Chennai: pre-Hive single-file layout; promote when a second state lands.
   { kind: "postal", pattern: /^postal\/IN-pincodes-[a-z0-9-]+\.geojson$/ },
 ];
