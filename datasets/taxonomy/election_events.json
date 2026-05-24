@@ -478,6 +478,87 @@
     ],
     "S11": [
       {
+        "event_id": "AcGenMar1977",
+        "kind": "assembly",
+        "display": "Kerala Assembly · March 1977",
+        "polled_on": "1977-03-19",
+        "term_end_estimated": "1982-03-18",
+        "data_status": "complete",
+        "notes": "140 ACs. Poll held on 19 March 1977. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenJan1980",
+        "kind": "assembly",
+        "display": "Kerala Assembly · January 1980",
+        "polled_on": "1980-01-05",
+        "term_end_estimated": "1985-01-04",
+        "data_status": "complete",
+        "notes": "140 ACs. Two-phase poll on 3 and 5 January 1980; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay1982",
+        "kind": "assembly",
+        "display": "Kerala Assembly · May 1982",
+        "polled_on": "1982-05-19",
+        "term_end_estimated": "1987-05-18",
+        "data_status": "complete",
+        "notes": "140 ACs. Poll held on 19 May 1982. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMar1987",
+        "kind": "assembly",
+        "display": "Kerala Assembly · March 1987",
+        "polled_on": "1987-03-23",
+        "term_end_estimated": "1992-03-22",
+        "data_status": "complete",
+        "notes": "140 ACs. Main poll held on 23 March 1987; two constituencies were delayed until 2 June 1987 after countermanding. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenJun1991",
+        "kind": "assembly",
+        "display": "Kerala Assembly · June 1991",
+        "polled_on": "1991-06-18",
+        "term_end_estimated": "1996-06-17",
+        "data_status": "complete",
+        "notes": "140 ACs. Poll held on 18 June 1991; event id follows the public polling month rather than the panel's month value. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenApr1996",
+        "kind": "assembly",
+        "display": "Kerala Assembly · April 1996",
+        "polled_on": "1996-04-27",
+        "term_end_estimated": "2001-04-26",
+        "data_status": "complete",
+        "notes": "140 ACs. Poll held on 27 April 1996; event id follows the public polling month rather than the panel's month value. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay2001",
+        "kind": "assembly",
+        "display": "Kerala Assembly · May 2001",
+        "polled_on": "2001-05-10",
+        "term_end_estimated": "2006-05-09",
+        "data_status": "complete",
+        "notes": "140 ACs. Poll held on 10 May 2001. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay2006",
+        "kind": "assembly",
+        "display": "Kerala Assembly · May 2006",
+        "polled_on": "2006-05-03",
+        "term_end_estimated": "2011-05-02",
+        "data_status": "complete",
+        "notes": "140 ACs. Three-phase poll on 22 April, 29 April, and 3 May 2006; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenApr2011",
+        "kind": "assembly",
+        "display": "Kerala Assembly · April 2011",
+        "polled_on": "2011-04-13",
+        "term_end_estimated": "2016-04-12",
+        "data_status": "complete",
+        "notes": "140 ACs. Poll held on 13 April 2011; event id follows the public polling month rather than the panel's month value. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenMay2016",
         "kind": "assembly",
         "display": "Kerala Assembly · May 2016",

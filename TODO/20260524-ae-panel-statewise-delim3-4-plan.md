@@ -1,7 +1,7 @@
 # AE Panel Statewise DelimID 3/4 Ingestion Plan
 
 **Last Updated**: 2026-05-24
-**Status**: ACTIVE — tooling through Delhi (`U05`) merged; Haryana (`S07`) state PR in progress.
+**Status**: ACTIVE — tooling through Haryana (`S07`) merged; Kerala (`S11`) state PR in progress.
 **Scope**: `datasets/ephemeral/All_States_AE.csv` statewise ingestion through the canonical elections Parquet writer.
 **Spec**: [`docs/architecture/backend/sources-eci.md`](../docs/architecture/backend/sources-eci.md), [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md), [`docs/architecture/data/elections-indicators.md`](../docs/architecture/data/elections-indicators.md).
 **Decision rationale**: [ADR-0030](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md), [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md), [ADR-0036](../docs/architecture/decisions/0036-state-identity-and-slice-registration.md).
@@ -47,8 +47,9 @@ Every state PR must be merged to `main` before the next state starts. This keeps
 | 15 | Mizoram (`S16`) | State-only dry-run, event registration for missing `S16` rows, `DelimID=3` and `DelimID=4` ingest through 2018, inventory/provenance/coverage updates. | DONE — PR #201 |
 | 16 | Nagaland (`S17`) | State-only dry-run, event registration for missing `S17` rows, scoped ingest from 1977 through 2013 to preserve existing 2018/2023 Section-10 slices and defer pre-1977 rows, inventory/provenance/coverage updates. | DONE — PR #202 |
 | 17 | Delhi (`U05`) | State-only dry-run, event registration for missing `U05` rows, scoped ingest from 1977 through 2015 to preserve existing 2020/2025 rows, inventory/provenance/coverage updates. | DONE — PR #203 |
-| 18 | Haryana (`S07`) | State-only dry-run, event registration for missing `S07` rows, scoped ingest from 1977 through 2014 to preserve existing 2019/2024 rows, inventory/provenance/coverage updates. | ACTIVE — this PR |
-| 19+ | Remaining states | Proceed from small/low-risk states to medium states, then large/reorganisation-heavy states. | QUEUED |
+| 18 | Haryana (`S07`) | State-only dry-run, event registration for missing `S07` rows, scoped ingest from 1977 through 2014 to preserve existing 2019/2024 rows, inventory/provenance/coverage updates. | DONE — PR #204 |
+| 19 | Kerala (`S11`) | State-only dry-run, event registration for missing `S11` rows, scoped ingest from 1977 through 2011 to preserve existing 2016/2021/2026 rows, inventory/provenance/coverage updates. | ACTIVE — this PR |
+| 20+ | Remaining states | Proceed from small/low-risk states to medium states, then large/reorganisation-heavy states. | QUEUED |
 
 Already-merged panel states are out of the first wave: Tamil Nadu (`S22`, PR #178), Gujarat (`S06`, PR #179), and Maharashtra (`S13`, PR #180).
 
@@ -97,11 +98,13 @@ Delhi dry-run found 6,830 writeable approved rows (`DelimID=3`: 3,590; `DelimID=
 
 Haryana dry-run found 13,334 writeable approved rows (`DelimID=3`: 9,412; `DelimID=4`: 3,922) across 10 events after skipping 424 blank-month rows and 1,281 non-D3/D4 rows. The state PR writes 1977 through 2014 and preserves the existing 2019/2024 rows. Post-ingest verification showed 49,597 Haryana observation rows, 11 S07 events on disk, 90 ACs in every event, 920 newly added candidacies mapped to `parties.IN.UNK` with `party_short_raw` preserved, and zero dangling Haryana `source_id` values.
 
+Kerala dry-run found 10,152 writeable approved rows (`DelimID=3`: 6,741; `DelimID=4`: 3,411) across 11 events after skipping 337 blank-month rows and 1,506 non-D3/D4 rows. The state PR writes 1977 through 2011 and preserves the existing 2016/2021/2026 rows. Post-ingest verification showed 47,329 Kerala observation rows, 12 S11 events on disk, 140 ACs in every event, 135 newly added candidacies mapped to `parties.IN.UNK` with `party_short_raw` preserved, and zero dangling Kerala `source_id` values.
+
 ## Remaining State Classes
 
 The normal queue remains state-by-state, but not every pending token is equally safe:
 
-- **Straight current-state queue**: Haryana (`S07`, active), Kerala (`S11`), Punjab (`S19`), Rajasthan (`S20`), Karnataka (`S10`), Assam (`S03`), Odisha (`S18`), West Bengal (`S25`), Bihar (`S04`), Madhya Pradesh (`S12`), Uttar Pradesh (`S24`). Delhi's 1977/1983 rows are the Metropolitan Council caveat documented in the source adapter spec.
+- **Straight current-state queue**: Kerala (`S11`, active), Punjab (`S19`), Rajasthan (`S20`), Karnataka (`S10`), Assam (`S03`), Odisha (`S18`), West Bengal (`S25`), Bihar (`S04`), Madhya Pradesh (`S12`), Uttar Pradesh (`S24`). Delhi's 1977/1983 rows are the Metropolitan Council caveat documented in the source adapter spec.
 - **Filterable split-state queue**: Andhra Pradesh (`S01`) post-2014 only; the 2014 current-state slice is done in PR #195. Pre-2014 Andhra rows describe undivided Andhra Pradesh and need a historical entity decision.
 - **Deferred/problem tokens**: `Goa_Daman_&_Diu`, `Madras`, `Mysore`, and `Jammu_&_Kashmir`. `Madras`/`Mysore` are legacy predecessor names; `Goa_Daman_&_Diu` is a predecessor UT; `Jammu_&_Kashmir` needs a post-2019 state/UT split plan.
 
@@ -116,8 +119,8 @@ The normal queue remains state-by-state, but not every pending token is equally 
 | 5 | `Mizoram` | `S16` | 1,978 | 1,311 | 667 | DONE — PR #201 |
 | 6 | `Nagaland` | `S17` | 2,482 | 1,543 | 939 | DONE — PR #202 |
 | 7 | `Delhi` | `U05` | 6,929 | 3,651 | 3,278 | DONE — PR #203 |
-| 8 | `Haryana` | `S07` | 13,758 | 9,727 | 4,031 | ACTIVE — verified in this PR |
-| 9 | `Kerala` | `S11` | 10,489 | 6,955 | 3,534 | QUEUED |
+| 8 | `Haryana` | `S07` | 13,758 | 9,727 | 4,031 | DONE — PR #204 |
+| 9 | `Kerala` | `S11` | 10,489 | 6,955 | 3,534 | ACTIVE — verified in this PR |
 | 10 | `Punjab` | `S19` | 9,474 | 5,618 | 3,856 | QUEUED |
 | 11 | `Rajasthan` | `S20` | 19,867 | 12,782 | 7,085 | QUEUED |
 | 12 | `Karnataka` | `S10` | 23,719 | 12,289 | 11,430 | QUEUED |
