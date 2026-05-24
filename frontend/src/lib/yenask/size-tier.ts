@@ -15,7 +15,7 @@
 // fields. The 1024-MB boundary is the unit-promotion threshold; the
 // 500-MB boundary is the medium/small split (chosen so SmolLM2-360M
 // at ~273 MB stays "small" — Jony D-24: friction kicks in only when
-// the download would genuinely surprise a citizen on /dev/yenask).
+// the download would genuinely surprise a citizen on /lab/yenask).
 
 /**
  * Tier classification for the model picker's Download button friction.

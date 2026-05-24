@@ -1,10 +1,10 @@
 # YENASK — browser governance insight assistant (dev preview)
 
-**Last Updated**: 2026-05-24 (Slice E architecture approved per [ADR-0039](../decisions/0039-yenask-retrieval-augmented-intent-extraction.md); on-screen brand-mark refreshed to **Y-Ask** while module / route / class names remain `yenask`)
+**Last Updated**: 2026-05-24 (Slice E.2 wired per PR #240; brand-mark refreshed to **Yen-Ask** and route moved to `/lab/yenask` per [ADR-0040](../decisions/0040-yenask-brand-and-lab-route.md), superseding the earlier "Y-Ask" label + `/dev/yenask` route locked in [ADR-0039 §D-33](../decisions/0039-yenask-retrieval-augmented-intent-extraction.md#y-ask-brand-mark-refresh-d-33))
 
-YENASK is a dev-only browser lab mounted at `/dev/yenask`. It turns a citizen governance question into a validated `InsightIntent`, then runs DuckDB-WASM directly against the canonical Parquet store to produce an `AnswerViewModel`. No backend at runtime — the lab obeys Holy Law #1 (static-first production).
+YENASK is a dev-only browser lab mounted at `/lab/yenask`. It turns a citizen governance question into a validated `InsightIntent`, then runs DuckDB-WASM directly against the canonical Parquet store to produce an `AnswerViewModel`. No backend at runtime — the lab obeys Holy Law #1 (static-first production).
 
-**Display name vs identifier**: the citizen-visible logo and `<title>` reads **Y-Ask** (with hyphen) per [ADR-0039 §D-33](../decisions/0039-yenask-retrieval-augmented-intent-extraction.md#y-ask-brand-mark-refresh-d-33). The library / module / route / LS-key identifier is `yenask` (unchanged). The two are separately tunable: the brand-mark is a citizen-facing affordance, the identifier is an engineering affordance. Do not rename `frontend/src/lib/yenask/`, `Yenask.svelte`, `/dev/yenask`, `yenask.model.id.v1`, or `data-route="yenask"` — only the on-screen display strings change.
+**Display name vs identifier**: the citizen-visible logo and `<title>` reads **Yen-Ask** (with hyphen) per [ADR-0040](../decisions/0040-yenask-brand-and-lab-route.md). The library / module / route-slug / LS-key identifier is `yenask` (unchanged). The two are separately tunable: the brand-mark is a citizen-facing affordance, the identifier is an engineering affordance. Do not rename `frontend/src/lib/yenask/`, `Yenask.svelte`, the `/yenask` URL slug, `yenask.model.id.v1`, or `data-route="yenask"` — only the on-screen display strings change.
 
 This page covers **what is currently on disk** as of the ABCD sprint (PRs #225 / #227 / #228 / #229, all merged onto `main` 2026-05-24): the module layout, the contracts the modules pass between each other, the readiness state machine, the observability surface, the per-row picker, the graduated download friction by size tier, and the test seams. It does **not** cover rationale-as-it-was-made — that lives in the plan-doc [`TODO/20260518-browser-governance-insight-assistant-plan.md`](../../../TODO/20260518-browser-governance-insight-assistant-plan.md) §17 (entries D-01 through D-33) and in the relevant ADRs: [ADR-0038](../decisions/0038-yenask-two-stage-llm-pipeline-rejected.md) (two-LLM pipeline rejection, still in force) and [ADR-0039](../decisions/0039-yenask-retrieval-augmented-intent-extraction.md) (Slice E LLM-OS shape, approved evolution). Every section here cites the relevant D-NN entry or the ADR instead of restating it (per CLAUDE.md §5 doc-class routing contract).
 
@@ -14,7 +14,7 @@ For the lab's removal contract and the "what lives where" map, see [`frontend/sr
 
 ## Why it lives inside `frontend/`
 
-The lab ships as `frontend/src/routes/Yenask.svelte` mounted at `/dev/yenask`, with lab-internal libs under `frontend/src/lib/yenask/`. There is **no** standalone `labs/yenask/` Vite app, no separate dev port, no duplicated `serveDatasets()` middleware. The lab reads from the same `/data/` URLs production reads from, runs the same DuckDB-WASM init the production app runs, and is gated only by the dev-only route under `/dev/`.
+The lab ships as `frontend/src/routes/Yenask.svelte` mounted at `/lab/yenask`, with lab-internal libs under `frontend/src/lib/yenask/`. There is **no** standalone `labs/yenask/` Vite app, no separate dev port, no duplicated `serveDatasets()` middleware. The lab reads from the same `/data/` URLs production reads from, runs the same DuckDB-WASM init the production app runs, and shares the `/lab/` namespace with the analyst routes (`/lab/:state/:event` = Psephlab) — the patterns are segment-distinct (2 vs 3 segments) so route order is not load-bearing. Per [ADR-0040](../decisions/0040-yenask-brand-and-lab-route.md), `/lab/` is the canonical namespace for analyst + research surfaces; `/dev/` is reserved for narrow runtime-failure harnesses (`/dev/duckdb-harness`, `/dev/charts-sandbox`).
 
 Removing the lab is `git rm` of `frontend/src/routes/Yenask.svelte` + `frontend/src/lib/yenask/` + two lines from `frontend/src/main.ts`. Nothing in the production surface imports from `lib/yenask/`. The reverse is encouraged: `lib/yenask/` imports freely from production helpers (`../duckdb`, `../charts/*`, `../SourceListV2`, `../format`, `../url`).
 
@@ -110,7 +110,7 @@ What does NOT change:
 - `executePlan` is untouched. DuckDB-WASM round-trip is the same.
 - No second LLM. ADR-0038 unaffected.
 - No new framework. No vector DB. No agent orchestrator. ~150 lines of TypeScript.
-- Citizen-visible UI is unchanged except for the Y-Ask brand-mark refresh (see header).
+- Citizen-visible UI is unchanged except for the Yen-Ask brand-mark refresh (see header).
 
 Rationale: [ADR-0039](../decisions/0039-yenask-retrieval-augmented-intent-extraction.md) for the six-persona panel verdict (Andre + Citizen + Hans + Max + Gregor + Fowler + Jony), four rejected alternatives, and reversal-cost analysis.
 
@@ -364,7 +364,7 @@ The Playwright spec asserts the `yenask-computation` testid is visible and conta
 
 | Surface | Status |
 | --- | --- |
-| `/dev/yenask` route + chat surface + composer + starter chips | ✅ Shipped (PR-2) |
+| `/lab/yenask` route + chat surface + composer + starter chips | ✅ Shipped (PR-2; route moved from `/dev/yenask` per [ADR-0040](../decisions/0040-yenask-brand-and-lab-route.md)) |
 | 4 canned intents (party_totals, closest_contests, constituency_result, turnout_extremes) | ✅ Shipped (PR-1) |
 | Real model load (`SmolLM2-360M-Instruct` via Transformers.js — default) | ✅ Shipped (PR-2, default flipped from 135M to 360M in Slice D-1 / PR #229) |
 | Free-text question → InsightIntent extraction with validate-or-retry | ✅ Shipped (PR-2) |

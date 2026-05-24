@@ -1,7 +1,7 @@
 <script lang="ts">
   // YENASK browser governance insight assistant — dev-only route.
   //
-  // Lives at /dev/yenask. See plan-doc
+  // Lives at /lab/yenask (ADR-0040). See plan-doc
   // TODO/20260518-browser-governance-insight-assistant-plan.md §17
   // for the design decision log (D-01..D-18).
   //
@@ -556,12 +556,12 @@
 </script>
 
 <svelte:head>
-  <title>Y-Ask — dev preview</title>
+  <title>Yen-Ask — dev preview</title>
 </svelte:head>
 
 <section class="mx-auto flex max-w-5xl flex-col gap-4 p-6" data-route="yenask">
   <header class="space-y-1">
-    <h1 class="text-2xl font-bold tracking-tight">Y-Ask</h1>
+    <h1 class="text-2xl font-bold tracking-tight">Yen-Ask</h1>
     <p class="text-sm text-neutral-600">
       Browser governance insight assistant. Dev-only route — not a citizen
       surface. See

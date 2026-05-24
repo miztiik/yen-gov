@@ -1,6 +1,7 @@
-// YENASK dev-route end-to-end smoke (PR-1).
+// YENASK dev-route end-to-end smoke (PR-1; route moved to /lab/yenask
+// per ADR-0040).
 //
-// Drives /dev/yenask through the full pipeline:
+// Drives /lab/yenask through the full pipeline:
 //   1. Catalogue loads from canonical manifest + dim queries.
 //   2. Click a canned intent button.
 //   3. Compiler produces a DuckDBPlan; executor runs main + provenance SQL.
@@ -29,10 +30,10 @@ test.describe("yenask dev route", () => {
   test("loads catalogue and answers the TN party-totals canned intent", async ({
     page,
   }) => {
-    await page.goto("/dev/yenask");
+    await page.goto("/lab/yenask");
 
     await expect(
-      page.getByRole("heading", { name: /Y-Ask/i }),
+      page.getByRole("heading", { name: /Yen-Ask/i }),
     ).toBeVisible();
 
     // The catalogue boots DuckDB-WASM, registers 4 dim/taxonomy tables,
