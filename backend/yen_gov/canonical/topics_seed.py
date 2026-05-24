@@ -103,7 +103,11 @@ class _Topic(BaseModel):
     featured: bool = False
     peer_set_default: PeerSetDefault | None = None
     notes: str | None = None
-    artifacts: list[_Artifact] = Field(min_length=1)
+    # Empty array permitted for structural placeholder topics whose first
+    # P.* ingestion has not yet landed (TODO/20260517-canonical-long-format-pivot.md
+    # §0e.4). topic-catalogue.schema.json v1.3 lowered minItems from 1→0; this
+    # constraint mirrors the schema. Frontend renderers handle the empty case.
+    artifacts: list[_Artifact] = Field(default_factory=list)
 
 
 class _TopicCatalogueFile(BaseModel):

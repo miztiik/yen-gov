@@ -119,7 +119,7 @@ If CEA adds (e.g.) a separate "Battery Storage" column or you want to ship the c
 
 1. Append a `FuelColumn(indicator_id, column_index, title)` entry to `SHIPPED_COLUMNS` in `parsers.py`.
 2. Add a matching `IndicatorMeta` entry (title / description / icon / fuel-specific notes) to `INDICATOR_META` in `ingest.py`.
-3. Add the indicator to the `energy` topic in `datasets/reference/in/topic-catalogue.json`.
+3. Add the indicator to the `energy` topic in `datasets/taxonomy/topics.json`.
 4. Re-run ingest + validate. Add a parser test asserting the new column emits expected values.
 
 ## Tests

@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/topic-catalogue.schema.json",
-  "$schema_version": "1.2",
+  "$schema_version": "1.3",
   "$comment": "Hand-authored taxonomy. Powers the Topic Front Door (/t, /t/:topic) and the section list inside each state hub (/s/:state). See ADR-0022 and TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md. DOCTRINE (user-mandated 2026-05-11): elections are ONE indicator family among many. Social-welfare topics (fiscal, education, health, livelihood) are first-class; elections are not the spine and not the default theme. Order in this array IS the rendering order on /t and inside the state hub.",
   "sources": [],
   "topics": [
@@ -884,6 +884,87 @@
         }
       ],
       "notes": "Vital rates from the Sample Registration System (SRS) — the official continuous demographic survey run by the Office of the Registrar General of India. SRS publishes annual state-level estimates roughly two years in arrears. Crude birth and death rates are population-weighted — they fall partly because states age and birth-cohorts shrink, not only because of public-health gains; read alongside TFR. IMR (Infant Mortality Rate, deaths under 1 per 1,000 live births) is the cleanest health-system indicator: lower is better, and small states with strong primary care (Kerala, Tamil Nadu) sit near OECD lows while large EAG states still post double-digit rates. Public health expenditure ships in absolute ₹Crore — the per-capita view (Phase 5 derived) is the honest comparison; large states will dominate the absolute table but spend less per capita."
+    },
+    {
+      "id": "governance",
+      "title": "Measuring the government",
+      "list": "concurrent",
+      "summary": "How well institutions of government perform: audits, transparency, vacancies, court pendency. The 'how' behind every other number on yen-gov.",
+      "featured": false,
+      "artifacts": [],
+      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md §0e.4. First ingestion (CAG audit findings / RTI compliance / CGA monthly accounts) lands via a dedicated P.* PR; until then this topic is a navigational slot only. Seventh Schedule placement (`concurrent`) reflects that government accountability spans CAG audits (Union body covering both Centre and states), RTI (concurrent civil-rights statute), and CGA monthly accounts (Centre) — flag for Hans review when the first artifact arrives."
+    },
+    {
+      "id": "schemes",
+      "title": "Where the money goes",
+      "list": "concurrent",
+      "summary": "Welfare delivery: MGNREGA, PMAY, PM-KISAN, ICDS, PM-POSHAN, NFSA — what the state's flagship programs actually reach on the ground.",
+      "featured": false,
+      "artifacts": [],
+      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md §0e.4. First ingestion (MGNREGA / PMAY / PM-KISAN dashboards) lands via a dedicated P.* PR. Seventh Schedule placement (`concurrent`) reflects that CSS/CS scheme design sits with the Centre but implementation responsibility is shared with states — flag for Hans review when the first artifact arrives."
+    },
+    {
+      "id": "local_govt_finance",
+      "title": "Panchayats & ULBs",
+      "list": "state",
+      "summary": "Money flowing through panchayats and urban local bodies: Finance Commission grants, own revenue, scheme delivery at the third tier.",
+      "featured": false,
+      "artifacts": [],
+      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md §0e.4. First ingestion (15FC PRI/ULB grant releases, MoPR/MoHUA reports) lands via a dedicated P.* PR. Local government is constitutionally a state subject (73rd/74th amendments) so `list: state` is correct; title shortened from 'Panchayats & local bodies' (25 chars) to 'Panchayats & ULBs' (17 chars) to fit the 24-char rail budget — flag for Jony if the acronym is too cryptic for the citizen."
+    },
+    {
+      "id": "work",
+      "title": "Work & jobs",
+      "list": "concurrent",
+      "summary": "Employment, wages, labour force participation. PLFS quarterly + annual, NSS-EUS for the long historical run.",
+      "featured": false,
+      "artifacts": [],
+      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md §0e.4. First ingestion (PLFS quarterly bulletins from MoSPI) lands via a dedicated P.* PR. Labour & employment is concurrent (Entries 22–24 of the Concurrent List)."
+    },
+    {
+      "id": "judiciary",
+      "title": "Courts",
+      "list": "concurrent",
+      "summary": "Case pendency and disposal across India's court system. NJDG metrics from district courts up.",
+      "featured": false,
+      "artifacts": [],
+      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md §0e.4. First ingestion (NJDG case-pendency monthly snapshots) lands via a dedicated P.* PR. Seventh Schedule placement reflects that administration of justice is split: Concurrent List Entry 11A (constitution and organisation of all courts except Supreme Court and High Courts) covers most of what citizens see — flag for Hans if the framing should sit on `state` instead."
+    },
+    {
+      "id": "crime",
+      "title": "Crime",
+      "list": "state",
+      "summary": "Reported crime under IPC and special/local laws; prison populations; chargesheet ratios. NCRB Crime in India + Prison Statistics India.",
+      "featured": false,
+      "artifacts": [],
+      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md §0e.4. First ingestion (NCRB Crime in India annual + Prison Statistics India) lands via a dedicated P.* PR. Police and public order are State List Entries 1–2."
+    },
+    {
+      "id": "education",
+      "title": "Education",
+      "list": "concurrent",
+      "summary": "School and higher-education metrics: UDISE+ enrolment, AISHE, ASER learning outcomes, literacy rates from the Census.",
+      "featured": false,
+      "artifacts": [],
+      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md §0e.4. First ingestion (UDISE+ school report cards, AISHE all-India enrolment) lands via a dedicated P.* PR. Education moved to the Concurrent List (Entry 25) under the 42nd Amendment in 1976."
+    },
+    {
+      "id": "amenities",
+      "title": "Household amenities",
+      "list": "state",
+      "summary": "Household access to water, sanitation, electricity and clean cooking fuel; housing under PMAY-G/U.",
+      "featured": false,
+      "artifacts": [],
+      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md §0e.4. First ingestion (Jal Jeevan Mission dashboard, Swachh Bharat reports, NFHS-5 household tables) lands via a dedicated P.* PR. Water supply (State List Entry 17), sanitation (State List Entry 6) sit primarily with states — `list: state` is the honest framing; electricity (Concurrent List Entry 38) is the edge case to flag for Hans when the energy/amenities overlap surfaces."
+    },
+    {
+      "id": "technology",
+      "title": "Telecom & internet",
+      "list": "union",
+      "summary": "Telecom and internet penetration: broadband subscribers, mobile coverage, ICT access from NFHS.",
+      "featured": false,
+      "artifacts": [],
+      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md §0e.4. First ingestion (TRAI monthly subscriber reports) lands via a dedicated P.* PR. Telegraphs, telephones, wireless and broadcasting are Union List Entry 31."
     }
   ]
 }

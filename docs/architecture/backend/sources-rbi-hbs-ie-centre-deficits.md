@@ -129,6 +129,6 @@ Each artifact carries:
 
 ## Topic catalogue
 
-The four ids are registered under the `fiscal` topic in `datasets/reference/in/topic-catalogue.json`, with `union_gross_fiscal_deficit` marked `featured: true` (mirroring the states-combined GFD as the headline of each actor family). The catalogue note for the `fiscal` topic is updated to call out the symmetric pairing and the chart-trap warning.
+The four ids are registered under the `fiscal` topic in `datasets/taxonomy/topics.json`, with `union_gross_fiscal_deficit` marked `featured: true` (mirroring the states-combined GFD as the headline of each actor family). The catalogue note for the `fiscal` topic is updated to call out the symmetric pairing and the chart-trap warning.
 
 `datasets/reference/in/upstream-sources.json` adds an `rbi.hbs_ie_t89_centre_deficits` entry citing the listing URL and all four shipped indicator ids.

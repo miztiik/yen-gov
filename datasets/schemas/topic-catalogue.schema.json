@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/topic-catalogue.schema.json",
   "title": "Topic catalogue (IA spine)",
   "description": "The hand-authored taxonomy that powers yen-gov's Topic Front Door (`/t`, `/t/:topic`) and the section list inside each state hub (`/s/:state`). Topic membership of an artifact is declared HERE, not on the artifact itself \u2014 keeping `indicator.schema.json` free of IA leakage (per ADR-0022). Each topic carries its Seventh Schedule list (`state` / `union` / `concurrent` / `na`) so cross-state surfaces can render the constitutional honesty banner without per-renderer logic. Each topic points to one or more artifacts via a polymorphic `kind`+`id` reference; the renderer dispatches on `kind` so election artifacts (different schema family) coexist with indicator artifacts under the same catalogue.",
-  "x-version": "1.2",
+  "x-version": "1.3",
   "x-changelog": [
     {
       "version": "1.0",
@@ -19,6 +19,11 @@
       "version": "1.2",
       "date": "2026-05-14",
       "description": "Additive: optional per-artifact `chart_type` and `dimension` fields. `chart_type` mirrors the indicator artifact's chart_type (`choropleth`/`ranked`/`stacked-trend`) so the catalogue itself can drive renderer dispatch on `/t/:topic` without the page having to peek at every indicator JSON before deciding which component to mount. `dimension` carries the categorical dimension name (e.g. `power_source`, `expenditure_head`) needed to resolve mnemonic colours through `dimensionAnchors()`. Both fields are pure UI hints \u2014 the source of truth remains the indicator artifact (per ADR-0024) \u2014 but lifting the dispatcher out of every page keeps TopicLanding/StateOverview free of per-artifact id-string switches."
+    },
+    {
+      "version": "1.3",
+      "date": "2026-05-24",
+      "description": "Additive: `topics.items.properties.artifacts.minItems` lowered from 1 to 0 so structural placeholder topics can land before their first P.* ingestion ships any artifacts. Per TODO/20260517-canonical-long-format-pivot.md \u00a70e.4, the 9 new top-level topics (`governance`, `schemes`, `local_govt_finance`, `work`, `judiciary`, `crime`, `education`, `amenities`, `technology`) are the structural IA skeleton: each opens with an empty `artifacts: []` array and gets populated when its dedicated P.* ingestion PR lands. The frontend renderers (TopicLanding, StateTopic) already handle `indicator_artifacts.length === 0` via a 'no indicator artifacts catalogued for this topic yet' empty state, so empty topics render cleanly without UI work. Backwards-compatible: every existing topic still has its non-empty artifacts array."
     }
   ],
   "type": "object",
@@ -103,8 +108,8 @@
           },
           "artifacts": {
             "type": "array",
-            "minItems": 1,
-            "description": "Polymorphic references to the data artifacts this topic exposes. The renderer dispatches on `kind`. Order is the in-topic rendering order; `default: true` marks the artifact shown on `/t/:topic` before any user picks one.",
+            "minItems": 0,
+            "description": "Polymorphic references to the data artifacts this topic exposes. The renderer dispatches on `kind`. Order is the in-topic rendering order; `default: true` marks the artifact shown on `/t/:topic` before any user picks one. Empty array is permitted for structural placeholder topics whose first P.* ingestion has not yet landed \u2014 the frontend renderers (TopicLanding, StateTopic) handle the empty case with an explicit 'no indicator artifacts catalogued for this topic yet' message rather than failing.",
             "items": {
               "type": "object",
               "required": ["kind", "id"],

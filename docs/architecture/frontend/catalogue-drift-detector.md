@@ -4,7 +4,7 @@
 
 ## What this is
 
-A contract test, [`frontend/src/contracts/catalogue-coverage.test.ts`](../../../frontend/src/contracts/catalogue-coverage.test.ts), that fails the build whenever an indicator artifact under `datasets/indicators/in/` is on disk but neither wired into [`datasets/reference/in/topic-catalogue.json`](../../../datasets/reference/in/topic-catalogue.json) nor justified in [`frontend/src/contracts/catalogue-coverage.allowlist.json`](../../../frontend/src/contracts/catalogue-coverage.allowlist.json).
+A contract test, [`frontend/src/contracts/catalogue-coverage.test.ts`](../../../frontend/src/contracts/catalogue-coverage.test.ts), that fails the build whenever an indicator artifact under `datasets/indicators/in/` is on disk but neither wired into [`datasets/taxonomy/topics.json`](../../../datasets/taxonomy/topics.json) nor justified in [`frontend/src/contracts/catalogue-coverage.allowlist.json`](../../../frontend/src/contracts/catalogue-coverage.allowlist.json).
 
 ## Why it exists
 

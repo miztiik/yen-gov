@@ -116,7 +116,7 @@ Same publication, different table shape, different entity kind (`country` vs `st
 
 1. Add an `AppendixSpec` entry to `SHIPPED_SPECS` in [`parsers.py`](../../../backend/yen_gov/sources/rbi_appendix_national/parsers.py).
 2. Add a matching `IndicatorMeta` to `INDICATOR_META` in [`ingest.py`](../../../backend/yen_gov/sources/rbi_appendix_national/ingest.py).
-3. Add a catalogue entry under the relevant topic in [`datasets/reference/in/topic-catalogue.json`](../../../datasets/reference/in/topic-catalogue.json).
+3. Add a catalogue entry under the relevant topic in [`datasets/taxonomy/topics.json`](../../../datasets/taxonomy/topics.json).
 4. Run `python -m yen_gov ingest-fiscal-rbi-appendix --root .` then `python -m yen_gov validate --root .`
 5. Update the indicator catalog table above.
 
