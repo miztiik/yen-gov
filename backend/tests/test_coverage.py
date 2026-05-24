@@ -38,8 +38,8 @@ def _seed_election_parquet(
       (``IN-<state>-AC-2008-<n>`` for ``n in 1..ac_count``).
     - ``has_summary`` : ``bool`` — emit a state-rollup row
       (``IN-<state>-<event_id>``) per ``canonical.adapters.eci.identity``.
-    - ``has_parties`` : ``bool`` — emit a party-rollup row
-      (``IN-<state>-PARTY-<slug>``).
+        - ``has_parties`` : ``bool`` — emit a party-rollup row
+            (``IN-<state>-<event_id>-PARTY-<slug>``).
 
     All rows carry the minimum NOT-NULL columns required by the canonical
     writer (``observation_id``, ``entity_id``, ``year``, ``period_label``,
@@ -73,7 +73,7 @@ def _seed_election_parquet(
                 None, None, None, "src-test",
             ))
         if has_parties:
-            entity_id = f"IN-{state_code}-PARTY-TST"
+            entity_id = f"IN-{state_code}-{event_id}-PARTY-TST"
             rows.append((
                 f"obs-prollup-{event_id}-{state_code}",
                 entity_id, 2026, event_id, 1, "party-seats-won",
