@@ -1108,6 +1108,33 @@
     ],
     "S28": [
       {
+        "event_id": "AcGenFeb2002",
+        "kind": "assembly",
+        "display": "Uttarakhand Assembly · February 2002",
+        "polled_on": "2002-02-14",
+        "term_end_estimated": "2007-02-13",
+        "data_status": "complete",
+        "notes": "70 ACs. First Assembly election for the state, then named Uttaranchal. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb2007",
+        "kind": "assembly",
+        "display": "Uttarakhand Assembly · February 2007",
+        "polled_on": "2007-02-21",
+        "term_end_estimated": "2012-02-20",
+        "data_status": "complete",
+        "notes": "69 contested ACs in the panel slice. Single-phase poll on 21 February 2007. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenJan2012",
+        "kind": "assembly",
+        "display": "Uttarakhand Assembly · January 2012",
+        "polled_on": "2012-01-30",
+        "term_end_estimated": "2017-01-29",
+        "data_status": "complete",
+        "notes": "70 ACs. Single-phase poll on 30 January 2012. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenFeb2017",
         "kind": "assembly",
         "display": "Uttarakhand Assembly · February 2017",
