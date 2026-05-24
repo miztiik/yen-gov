@@ -691,9 +691,11 @@ This section is the **running journal of every implementation decision**, with r
 
 This is not a chat log. Each entry MUST capture: (1) what was decided, (2) what was rejected and why, (3) what the trade-off was, (4) where in the codebase the decision binds.
 
-### Sprint status — 2026-05-24 (ABCD complete; handoff snapshot)
+### Sprint status — 2026-05-24 (ABCDE — Slice E architecture APPROVED per ADR-0039; implementation queued)
 
-This snapshot is the LEAN view for the next planner. The detailed `D-NN` entries below are the git-blame trail; this block tells you what's done, what's left, what trade-offs are locked, and where each decision now lives.
+This snapshot is the LEAN view for the next planner. The detailed `D-NN` entries below are the git-blame trail; this block tells you what's done, what's approved-but-pending, what's rejected, what's parked, and where each decision lives.
+
+**Slice E status update**: on 2026-05-24 the user reframed the two-stage question (*"feature extraction, text generation, intent classification — these are different model capabilities and we are trying to do all of them in the same model"*) and Andre + a six-persona panel approved a retrieval-augmented intent-extraction architecture (MiniLM-L6-v2 embeddings + SmolLM2-360M extraction + deterministic compile). This is **NOT** a second LLM — ADR-0038's two-LLM rejection remains in force. ADR-0039 freezes the new shape; Slice E.1 (embeddings module + eval fixture) and Slice E.2 (integration + observability + browser smoke) are the active rollout PRs.
 
 #### ✅ DONE (shipped on `main` 2026-05-24)
 
@@ -707,9 +709,11 @@ This snapshot is the LEAN view for the next planner. The detailed `D-NN` entries
 | **Slice C** — graduated download friction by size tier; registry expansion to 5 entries | **#228** | (see git log) | `size-tier.ts` (classify/format/OOM-detect) — Small <500 MB silent, Medium ≥500 MB confirm, Large ≥1024 MB two-step (41 test cases); TinyLlama-1.1B, Qwen2.5-1.5B, Phi-3.5-mini added to registry | D-24 → [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) (Slice C registry expansion paragraph) |
 | **Slice D-1** — default-model strict upgrade SmolLM2-135M → SmolLM2-360M | **#229** | `4f7c909c` | `DEFAULT_MODEL_ID = "smollm2-360m-instruct"`; 360M entry added (273 MB cold-load, 520 MB peak RAM); 135M `estimated_download_mb` corrected 88 → 118 MB (post-GQA size); IFEval 19.8 → 31.6 (+60% instruction-following lift at 2.3× cold-load) | D-26 → [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) (Today's seed callout) |
 
-#### ❌ REJECTED (Slice D-2 / two-stage LLM pipeline)
+#### ❌ REJECTED (Slice D-2 / two-stage LLM pipeline — STILL IN FORCE per ADR-0038)
 
 Three architectural cuts were proposed by the Slice D roundtable (Cut 1 = tiny classifier + medium reasoner; Cut 2 = intent extractor + code-tuned SQL generator replacing `compile-intent.ts`; Cut 3 = classifier-first hybrid with code-fallback). **All three rejected** by Gregor + Fowler + Max + Jony convergent panel.
+
+> **Scope of rejection**: ADR-0038 rejects two **LLMs** in sequence. ADR-0039's Slice E adds an embeddings model as a retrieval-augmentation TOOL (similarity scores over a closed catalogue, no generation, no JSON output) — a different shape, separately reviewed by a six-persona panel including Andre. The two ADRs do not conflict.
 
 | Reviewer | Verdict |
 | --- | --- |
@@ -721,6 +725,33 @@ Three architectural cuts were proposed by the Slice D roundtable (Cut 1 = tiny c
 **Locked in**: single-stage pipeline (one model call + deterministic pure-TS compile). **Trade-off**: free-text questions that fall outside the 4-concept closed enum get a polite "I can't answer that yet" rather than degraded-into-wrong answers — citizen-honesty over coverage-by-handwaving. **Reversal cost**: re-opening requires new evidence (attempts_log failure-mode counts, named regression set) cited in a follow-up ADR amending or superseding ADR-0038.
 
 Full rationale + four rejected alternatives (A=Cut 1, B=Cut 2, C=Cut 3, D=server-hosted LLM) live in **[ADR-0038](../docs/architecture/decisions/0038-yenask-two-stage-llm-pipeline-rejected.md)**.
+
+#### 🛠 APPROVED — implementation queued (Slice E / ADR-0039)
+
+On 2026-05-24, after the user reframed the question around capability decomposition, a six-persona panel (Andre + Citizen + Hans + Max + Gregor + Fowler + Jony) approved a **retrieval-augmented intent-extraction** shape that is structurally distinct from what ADR-0038 rejected.
+
+| Reviewer | Verdict |
+| --- | --- |
+| **Andre (AI/LLM, supreme on this topic per user direction)** | Catalogue resolution is a retrieval problem; cosine-similarity over pre-computed concept embeddings is the 50-year-old IR primitive. Embeddings produce scores, not generated text — NOT a second LLM. Locks in MiniLM-L6-v2 (Apache-2.0, ~23 MB q8, WebGPU-capable). Reserves LLM compute for what only LLMs do well (slot-filling entities + period + narration). Eval-first discipline (Hamel): 20-question labelled set ships in Slice E.2 PR; top-1 accuracy + entity extraction recall as metrics; ≥5pp drop = regression alarm. |
+| **Gregor** | Approved with confidence-threshold lock: `top-1 cosine < 0.6` falls back to substring-match resolver. Embeddings produce *candidates*; canonical `concept_id ↔ source_id` mapping read from `manifest.json` is unchanged. Holy Law #9 strengthened, not weakened. |
+| **Fowler** | Approved with eval-set-as-contract condition (must ship IN Slice E.2 PR, not as a follow-up). Reversal cost low (delete one file + revert ~30-line `extract-intent.ts` modification). Not a rule-of-three abstraction trigger — embeddings-for-retrieval is a 50-year-old IR pattern, not a new abstraction. |
+| **Max** | MiniLM-L6-v2 is the obvious right choice. Cold-load economics fine (273 MB → 296 MB total, stays under D-24 Small-tier 500 MB threshold; no picker change). Indic promote path (`multilingual-e5-small`, ~118 MB) preserved as parametric swap, deferred until `attempts_log` evidence. |
+| **Jony** | Approved — embeddings are a silent companion. No new picker, no new toggle, no new modal. New `embed_ms` Debug-log row gives operator the right visibility. Y-Ask brand-mark refresh (D-33) lands here. |
+| **Citizen** | Faster answers + "did you mean A or B?" honesty when uncertain = clear improvement. No new UI to learn. Approved. |
+| **Hans (Governance)** | Doesn't change what data the citizen sees; doesn't change what indicators exist. Holy Law #9 stays intact. Indifferent to the embedding layer. Approved. |
+
+**Convergent verdict**: ACCEPTED with two locks — (i) `cosine < 0.6 → substring fallback`, (ii) 20-question labelled eval set ships in Slice E.2 PR.
+
+Full rationale + four rejected alternatives (E-Alt 1 = embeddings replace SmolLM2; E-Alt 2 = defer until 100+ attempts_log entries; E-Alt 3 = hosted embeddings API; E-Alt 4 = multilingual-e5-small day-one default) + reversal cost in **[ADR-0039](../docs/architecture/decisions/0039-yenask-retrieval-augmented-intent-extraction.md)**.
+
+**Implementation slicing**:
+
+| Slice | What ships | PR | Status |
+| --- | --- | --- | --- |
+| **Slice E architecture lock** | ADR-0039 + subsystem doc forward pointer + plan-doc Sprint status update + Y-Ask brand-mark refresh on `/dev/yenask` | This PR | 🟢 IN FLIGHT |
+| **Slice E.1** | `catalogue-embed.ts` (~150 lines), `model-registry.ts` entry for `minilm-l6-v2-embeddings` with new `task: "embeddings"` discriminated-union variant, `fixtures/intent-eval.json` (20 labelled questions), vitest unit tests | Next PR | ⏳ QUEUED |
+| **Slice E.2** | `extract-intent.ts` integration with top-K injection + cosine-threshold fallback, `embed_ms` Debug log row, eval-set regression alarm in `bun run test`, §13 browser smoke | Following PR | ⏳ QUEUED |
+| **Slice E.3** | Deterministic intent-router (ADR-0038 D-27); **DEFERRED** — blocked on `attempts_log` evidence from Slice E.2 deployment | n/a | 🟡 DEFERRED |
 
 #### ⏳ PARKED (preserved future options)
 
@@ -1209,6 +1240,68 @@ Size unit promotes at 1 GB (one decimal: `~1.4 GB` not `~1400 MB`); mixed units 
 **Where it landed**: `frontend/src/lib/yenask/model-registry.ts` (DEFAULT_MODEL_ID flip + 360M entry + 135M size correction) + `frontend/src/lib/yenask/model-registry.test.ts` (3-value contract assertion). Decomposed into [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) (Today's seed callout).
 
 **Status as of this entry**: ABCD sprint COMPLETE. Slice D-2 (deterministic intent-router) DEFERRED — see D-25 + ADR-0038. Sprint status header (this §17 top) is the lean handoff index for the next planner.
+
+### D-31 — User reframe: "different model capabilities in the same model" — opens the embeddings-as-tool architectural space
+
+**Date**: 2026-05-24. **PR**: this PR (architecture lock). **Source**: user direction in chat 2026-05-24 ~18:00 IST, after PR #229 (Slice D-1) merged.
+
+**What was said** (verbatim): *"what you are describing is a capability for multiple different models — feature extraction, text generation, intent classification. These are different model capabilities and we are trying to do all of them in the same model."*
+
+**Why it matters**: ADR-0038 (D-25) rejected "two LLMs in sequence" on grounds of premature architecture + cold-load economics + Holy Law #9 (Cut 2). The user's reframe is structurally different — it identifies that the YENASK pipeline is asking ONE generative LLM (SmolLM2-360M) to do three distinct ML capabilities: catalogue resolution (which indicator?), classification (which verb?), and slot-filling (which state / period / metric?). Generative LLMs are best at the third and bad at the first. The reframe opens an architectural space ADR-0038 did not consider: replace ONE capability with a different model class (embeddings for retrieval), keep the LLM for what only LLMs do.
+
+**Initial Karpathy-voice stress-test** (5-reviewer panel run earlier the same day): Karpathy + Gregor + Max + Fowler + Jony reached convergent verdict — embeddings-as-tool ≠ second LLM; ADR-0038 unaffected; LLM-OS shape (one LLM + one embedding model + deterministic compiler) is the simplest thing that could work.
+
+**User authority elevation**: same chat turn, user committed `.github/agents/andre.agent.md` (PR #232 → merge SHA `e0445aee` per PR #236) and assigned Andre supreme authority on LLM/AI/SLM topics: *"Andre's opinion is supreme. In the topic of LLMS and AIS and SLMS and consult with all the other agents and go ahead and deliver this."* This makes Andre's panel verdict (rather than the earlier Karpathy stand-in voice) the authoritative call on the Slice E shape.
+
+**Trade-off**: opening this architectural space costs (a) one new ADR-0039 to lock the direction, (b) ~150 lines of TypeScript in Slice E.1, (c) ~30 lines of integration in Slice E.2, (d) a 20-question labelled eval set as the regression alarm. Not opening it costs continued operator friction with single-stage extraction's known weakness on free-text catalogue resolution + brittle substring fallback.
+
+**Where it landed**: feeds D-32 (Slice E architecture lock) below.
+
+### D-32 — Slice E architecture lock: retrieval-augmented intent extraction (LLM-OS pattern) APPROVED
+
+**Date**: 2026-05-24. **PR**: this PR (architecture lock). **Source**: six-persona panel (Andre + Citizen + Hans + Max + Gregor + Fowler + Jony) acting on D-31's reframe.
+
+**What was decided**: YENASK's pipeline evolves to a three-component LLM-OS shape:
+
+1. **MiniLM-L6-v2 embeddings** (`Xenova/all-MiniLM-L6-v2`, Apache-2.0, ~23 MB q8, 384-dim, WebGPU-capable) — pre-compute embeddings for every topic + indicator description at lab-startup; expose `findTopKConcepts(question, k=5): Promise<Array<{concept_id, cosine_score}>>`.
+2. **SmolLM2-360M-Instruct extraction** (UNCHANGED from Slice D-1) — receives `question` + top-K candidate list as constraints in system prompt; emits `InsightIntent` JSON, picking `concept_id` from top-K and slot-filling entities + period from free text.
+3. **Deterministic compile + execute** (UNCHANGED) — existing `compile-intent.ts` → `execute-plan.ts` → DuckDB-WASM with Holy Law #9 provenance JOIN constructed in TypeScript.
+
+**Two locks** (panel-imposed):
+
+- **Confidence-threshold fallback** (Gregor): when `top-1 cosine < 0.6`, fall back to the existing substring-match catalogue resolver; pass NO top-K constraint to extractIntent. Graceful degradation when embeddings are silent or unsure; Holy Law #9 unaffected.
+- **Eval-set-as-contract** (Andre + Hamel + Fowler): 20-question labelled eval set ships IN Slice E.2 PR (NOT as follow-up). Vitest covers top-1 accuracy regression alarm (≥5pp drop on `top_concept_id` accuracy fails the gate).
+
+**What was rejected** (panel-considered alternatives):
+
+- **E-Alt 1**: embeddings model REPLACES SmolLM2 — embeddings can't slot-fill; collapses into "no LLM at all" with no narration.
+- **E-Alt 2**: defer Slice E until `attempts_log` has 100+ entries — substring-match's brittleness is *known*, not hypothetical; rule-of-three doesn't fire for a 50-year-old IR pattern.
+- **E-Alt 3**: hosted embeddings API (OpenAI text-embedding-3-small etc.) — Holy Law #1 (no backend, no API key in static bundle).
+- **E-Alt 4**: `multilingual-e5-small` (~118 MB) on day one — pre-emptive cold-load; substring fallback covers Indic misses today; defer promote until evidence.
+
+**Trade-off**: +23 MB cold-load (273 → 296 MB total, stays Small-tier under D-24's 500 MB threshold). Cosine threshold `0.6` is a magic number; revisit in 30 days against `attempts_log` data; substring fallback keeps contract intact in the meantime. One new failure surface (embeddings model load) but same readiness state machine pattern as existing SLM, with substring-match as the final fallback.
+
+**Reversal cost**: delete one file (`catalogue-embed.ts`), remove one registry entry, revert ~30-line `extract-intent.ts` modification, mark ADR-0039 superseded. < 30 minutes within a week; < 2 hours after attempts_log integration matures. No data migration, no schema bump, no breaking contract change.
+
+**Where it landed**: **[ADR-0039](../docs/architecture/decisions/0039-yenask-retrieval-augmented-intent-extraction.md)** (full panel verdict, four rejected alternatives, reversal cost). Subsystem doc [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) gains "Approved evolution — Slice E pipeline (ADR-0039)" section + updated header citing both ADR-0038 and ADR-0039.
+
+### D-33 — Y-Ask brand-mark refresh (LOGO ONLY, library / route / class identifiers unchanged)
+
+**Date**: 2026-05-24. **PR**: this PR (architecture lock). **Source**: user direction in chat 2026-05-24: *"The branding and logo is should be Y and dash ask not one word. This is only for the logo not for library names or anything... Just if you are having a logo or anything in the top left or top right or anywhere we need to use it in that way."*
+
+**What was decided**: the on-screen logo on the dev-only `/dev/yenask` route renames from "YENASK" to "**Y-Ask**" (with hyphen) in exactly two places: the `<svelte:head><title>` element and the `<h1>` mark in the header. All other instances of "YENASK" / "yenask" are explicitly preserved.
+
+**What was rejected**:
+
+- **Renaming `frontend/src/lib/yenask/`** — would break ~25 import paths across the lab; module identifier ≠ brand-mark; risks scope creep into a 25-file rename PR.
+- **Renaming the `/dev/yenask` route URL to `/dev/y-ask`** — would invalidate any operator bookmarks + the existing Playwright e2e `yenask.spec.ts` selectors; route is an engineering affordance, not a citizen-facing surface.
+- **Renaming the `yenask.model.id.v1` LS key** — would lose every operator's model preference on first visit after deploy; LS key is internal.
+- **Renaming `data-route="yenask"` testid attribute** — would silently break e2e selectors; testid is an internal engineering affordance.
+- **Renaming code comments, ADR titles, plan-doc § titles, subsystem doc title, agent persona files, citation strings, GitHub PR titles, commit-message subjects** — all engineering affordances; renaming would create a multi-PR scope explosion with no citizen benefit.
+
+**Trade-off**: brand-mark / identifier divergence is now permanent; future agents must check ADR-0039 §D-33 to know that `yenask` (identifier) ≠ `Y-Ask` (logo). Mitigation: subsystem doc header makes the distinction explicit + cites ADR-0039 §D-33.
+
+**Where it landed**: `frontend/src/routes/Yenask.svelte` (2 string replacements at lines 559 + 564). Documented in subsystem doc header + ADR-0039 §"Y-Ask brand-mark refresh".
 
 ### Decision-log conventions
 

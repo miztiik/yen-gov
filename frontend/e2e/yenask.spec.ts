@@ -32,7 +32,7 @@ test.describe("yenask dev route", () => {
     await page.goto("/dev/yenask");
 
     await expect(
-      page.getByRole("heading", { name: /YENASK/i }),
+      page.getByRole("heading", { name: /Y-Ask/i }),
     ).toBeVisible();
 
     // The catalogue boots DuckDB-WASM, registers 4 dim/taxonomy tables,
