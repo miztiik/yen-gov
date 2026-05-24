@@ -31,6 +31,7 @@ import {
 } from "./catalogue-embed";
 import type { ConceptId } from "./contracts/insight-intent";
 import intentEval from "./fixtures/intent-eval.json";
+import { substringFallback } from "./extract-intent";
 
 // -----------------------------------------------------------------------------
 // Stub embedder
@@ -319,6 +320,39 @@ describe("intent-eval.json fixture coverage", () => {
         }
       }
       expect(wrong, JSON.stringify(wrong, null, 2)).toHaveLength(0);
+    },
+  );
+
+  // Slice E.2 (PR-C) regression alarm per Andre + Hamel + Fowler lock
+  // (ADR-0039 / D-32): "Vitest covers top-1 accuracy regression alarm
+  // (≥5pp drop on top_concept_id accuracy fails the gate)". The
+  // Gregor-locked substring fallback IS the deterministic ground-truth
+  // surface — when the embedder is unavailable or the cosine is below
+  // threshold, substringFallback picks the concept. If THAT regresses,
+  // the production fallback path silently degrades.
+  //
+  // Baseline measured 2026-05-24 against 20 fixtures: 19/20 = 95.0%
+  // (only `cc-05 "Photo-finish results in Tamil Nadu"` misses, falling
+  // into party_totals because of the "results" token vs no "closest" or
+  // "narrow" token in the question). The −5pp floor is 90.0% — any
+  // regression below that breaks the gate.
+  it(
+    "substringFallback top-1 accuracy on 20-fixture eval set is ≥90% (5pp tolerance under 95% baseline)",
+    () => {
+      let correct = 0;
+      const wrong: { id: string; expected: ConceptId; got: ConceptId | "<empty>" }[] = [];
+      for (const row of FIXTURE_ROWS) {
+        const top = substringFallback(row.question, 1);
+        const got = top[0] ?? ("<empty>" as const);
+        if (got === row.expected_intent) {
+          correct++;
+        } else {
+          wrong.push({ id: row.id, expected: row.expected_intent, got });
+        }
+      }
+      const accuracy = correct / FIXTURE_ROWS.length;
+      const message = `\nsubstringFallback baseline: ${correct}/${FIXTURE_ROWS.length} = ${(accuracy * 100).toFixed(1)}%\nwrong:\n${JSON.stringify(wrong, null, 2)}`;
+      expect(accuracy, message).toBeGreaterThanOrEqual(0.9);
     },
   );
 });

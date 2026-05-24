@@ -4,12 +4,18 @@
 // D-17. The model adapter is mocked end-to-end: we hand-feed the raw
 // strings the adapter would return and assert the parse + retry contract.
 
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it, vi, beforeEach } from "vitest";
 import {
   extractJsonObject,
   buildSystemPrompt,
   extractIntent,
+  substringFallback,
 } from "./extract-intent";
+import {
+  CONCEPT_CATALOGUE,
+  __resetConceptEmbeddingsForTests,
+} from "./catalogue-embed";
+import type { EmbedFn } from "./catalogue-embed";
 import type { SemanticCatalogue } from "./types";
 import type {
   ChatMessage,
@@ -321,5 +327,209 @@ describe("extractIntent", () => {
     expect(att2.generate_ms).toBe(1300);
     expect(att2.decode_ms).toBe(120);
     expect(att2.ttft_ms).toBe(350);
+  });
+});
+
+// ----- substringFallback (Slice E.2 / D-32) ----------------------------------
+
+describe("substringFallback", () => {
+  it("returns the requested number of concept ids", () => {
+    const picks = substringFallback("party seats won", 2);
+    expect(picks.length).toBeLessThanOrEqual(2);
+    expect(picks.length).toBeGreaterThanOrEqual(1);
+    for (const id of picks) {
+      expect(CONCEPT_CATALOGUE.map((c) => c.concept_id)).toContain(id);
+    }
+  });
+
+  it("ranks party_totals first for a 'party seats' question", () => {
+    const picks = substringFallback("party seats won by parties", 1);
+    expect(picks[0]).toBe("party_totals");
+  });
+
+  it("ranks turnout_extremes first for a 'turnout' question", () => {
+    const picks = substringFallback("which constituency had highest turnout", 1);
+    expect(picks[0]).toBe("turnout_extremes");
+  });
+
+  it("returns at least one entry even for an empty / nonsense question", () => {
+    const picks = substringFallback("xxx yyy zzz", 2);
+    expect(picks.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("returns empty when k <= 0", () => {
+    expect(substringFallback("anything", 0)).toEqual([]);
+  });
+});
+
+// ----- extractIntent + embed (Slice E.2 / D-32) ------------------------------
+
+describe("extractIntent with embed (D-32)", () => {
+  // The concept-embedding cache in catalogue-embed.ts is module-level
+  // (so production code embeds the 4 passages once per page-load). Reset
+  // it between tests so each test's stub embedder gets re-asked for
+  // concept vectors instead of inheriting whichever shape ran first.
+  beforeEach(() => {
+    __resetConceptEmbeddingsForTests();
+  });
+
+  /** Count "- " prefixed lines AFTER the "Concepts:" header. */
+  function countConceptLines(prompt: string): number {
+    const lines = prompt.split("\n");
+    const start = lines.indexOf("Concepts:");
+    if (start < 0) return 0;
+    let count = 0;
+    for (let i = start + 1; i < lines.length; i++) {
+      const l = lines[i]!;
+      if (l.startsWith("- ")) count += 1;
+      else if (l.trim() === "") break;
+    }
+    return count;
+  }
+
+  const VALID_RAW = JSON.stringify({
+    version: "insight.intent.v0",
+    question: "Who won TN 2026?",
+    concept_id: "party_totals",
+    filters: {
+      state_partition_id: "in_s22",
+      period_label: "AcGenMay2026",
+    },
+    reasoning: "Seat totals for a state event.",
+  });
+
+  /**
+   * Stub embedder returning fixed vectors. The first vector (for the
+   * question) is engineered to be ALIGNED with the second vector (the
+   * first concept passage) so cosine ~ 1.0 — comfortably above the
+   * 0.6 threshold.
+   */
+  function highCosineEmbedder(): EmbedFn {
+    let call = 0;
+    return async (texts: readonly string[]) => {
+      call += 1;
+      // Concept-embedding precompute pass: one vector per CONCEPT_CATALOGUE entry.
+      if (call === 1) {
+        return CONCEPT_CATALOGUE.map((_, i) => {
+          // Concept 0 gets [1,0,0,0,...]; concept 1 gets [0,1,0,0,...]; etc.
+          const v = new Array<number>(CONCEPT_CATALOGUE.length).fill(0);
+          v[i] = 1;
+          return v;
+        });
+      }
+      // Question pass: align with concept 0 → top-1 cosine = 1.0.
+      return texts.map(() => {
+        const v = new Array<number>(CONCEPT_CATALOGUE.length).fill(0);
+        v[0] = 1;
+        return v;
+      });
+    };
+  }
+
+  /**
+   * Stub embedder where the question's vector is the ZERO vector. The
+   * cosine of zero vs anything is 0 (per the catalogue-embed contract,
+   * which short-circuits zero-norm to 0.0), which is below the 0.6
+   * COSINE_THRESHOLD and triggers the Gregor D-32 substring fallback.
+   */
+  function lowCosineEmbedder(): EmbedFn {
+    let call = 0;
+    return async (texts: readonly string[]) => {
+      call += 1;
+      if (call === 1) {
+        // Concept passages: orthogonal unit vectors as before.
+        return CONCEPT_CATALOGUE.map((_, i) => {
+          const v = new Array<number>(CONCEPT_CATALOGUE.length).fill(0);
+          v[i] = 1;
+          return v;
+        });
+      }
+      // Question pass: zero vector → cosine = 0 against every concept.
+      return texts.map(() =>
+        new Array<number>(CONCEPT_CATALOGUE.length).fill(0),
+      );
+    };
+  }
+
+  it("back-compat: when embed is omitted, no top_concepts surfaced", async () => {
+    const { adapter } = fakeAdapter([VALID_RAW]);
+    const r = await extractIntent("Who won TN 2026?", CATALOGUE, adapter);
+    expect(r.ok).toBe(true);
+    expect(r.diagnostics.top_concepts).toBeUndefined();
+    expect(r.diagnostics.concept_selection).toBe("none");
+    expect(r.diagnostics.selected_concept_ids).toBeUndefined();
+    expect(r.diagnostics.attempts_log[0]!.embed_ms).toBeNull();
+  });
+
+  it("embed path with high cosine: concept_selection='embed', prompt narrowed", async () => {
+    const { adapter, calls } = fakeAdapter([VALID_RAW]);
+    const r = await extractIntent("Show me party seat totals", CATALOGUE, adapter, {
+      embed: highCosineEmbedder(),
+      top_k: 2,
+    });
+    expect(r.ok).toBe(true);
+    expect(r.diagnostics.concept_selection).toBe("embed");
+    expect(r.diagnostics.top_concepts).toBeDefined();
+    expect(r.diagnostics.top_concepts!.length).toBe(2);
+    expect(r.diagnostics.top_concepts![0]!.cosine_score).toBeCloseTo(1, 5);
+    expect(r.diagnostics.selected_concept_ids!.length).toBe(2);
+    // System prompt was narrowed: only the 2 selected concept ids appear
+    // in the Concepts: block.
+    const systemMsg = calls[0]!.find((m) => m.role === "system")!;
+    const conceptLineCount = countConceptLines(systemMsg.content);
+    expect(conceptLineCount).toBe(2);
+    expect(r.diagnostics.attempts_log[0]!.embed_ms).not.toBeNull();
+    expect(r.diagnostics.attempts_log[0]!.embed_ms).toBeGreaterThanOrEqual(0);
+  });
+
+  it("embed path with low cosine: concept_selection='substring' (Gregor D-32)", async () => {
+    const { adapter } = fakeAdapter([VALID_RAW]);
+    const r = await extractIntent("party seats", CATALOGUE, adapter, {
+      embed: lowCosineEmbedder(),
+      top_k: 2,
+    });
+    expect(r.ok).toBe(true);
+    expect(r.diagnostics.concept_selection).toBe("substring");
+    // top_concepts is still surfaced (the embed call succeeded; the
+    // cosine just wasn't confident enough).
+    expect(r.diagnostics.top_concepts).toBeDefined();
+    expect(r.diagnostics.top_concepts![0]!.cosine_score).toBeLessThan(0.6);
+    // Substring fallback picked the concept ids; selected_concept_ids
+    // came from substringFallback, not from top_concepts.
+    expect(r.diagnostics.selected_concept_ids!.length).toBeGreaterThanOrEqual(1);
+    expect(r.diagnostics.attempts_log[0]!.embed_ms).not.toBeNull();
+  });
+
+  it("embed throws: silently degrades to no narrowing", async () => {
+    const { adapter, calls } = fakeAdapter([VALID_RAW]);
+    const brokenEmbedder: EmbedFn = async () => {
+      throw new Error("WebGPU embeddings boom");
+    };
+    const r = await extractIntent("party seats", CATALOGUE, adapter, {
+      embed: brokenEmbedder,
+    });
+    expect(r.ok).toBe(true);
+    expect(r.diagnostics.concept_selection).toBe("none");
+    expect(r.diagnostics.top_concepts).toBeUndefined();
+    expect(r.diagnostics.selected_concept_ids).toBeUndefined();
+    // System prompt was NOT narrowed: all 4 concepts appear.
+    const systemMsg = calls[0]!.find((m) => m.role === "system")!;
+    const conceptLineCount = countConceptLines(systemMsg.content);
+    expect(conceptLineCount).toBe(4);
+    // embed_ms is still recorded even when embedder threw.
+    expect(r.diagnostics.attempts_log[0]!.embed_ms).not.toBeNull();
+  });
+
+  it("embed_ms mirrors across retries (embedding runs once per question)", async () => {
+    const { adapter } = fakeAdapter(["not json", VALID_RAW]);
+    const r = await extractIntent("party seats", CATALOGUE, adapter, {
+      embed: highCosineEmbedder(),
+      top_k: 2,
+    });
+    expect(r.ok).toBe(true);
+    expect(r.diagnostics.attempts_log.length).toBe(2);
+    const [first, second] = r.diagnostics.attempts_log;
+    expect(first!.embed_ms).toBe(second!.embed_ms);
+    expect(first!.embed_ms).not.toBeNull();
   });
 });
