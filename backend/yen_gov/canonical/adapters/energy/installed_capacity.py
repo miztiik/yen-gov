@@ -4,7 +4,11 @@ Lifts 7 legacy shards into a single BatchEnvelope:
 
 * 5 CEA per-fuel per-state shards
   (``installed_capacity_{coal,gas,hydro,nuclear,renewable}_mw.json``)
-  → ``national-installed-capacity-mw-{fuel}`` (5 IN rows, derivation=sum).
+  → ``national-installed-capacity-mw-{fuel}`` (5 IN rows, derivation=sum)
+  AND ``state-installed-capacity-snapshot-mw-{fuel}`` (35 per-state rows
+  per fuel, derivation=raw) — added P.1.A C4.5 to surface CEA's monthly
+  per-state per-fuel allocation snapshot. The snapshot family is
+  comparable_across_states_snapshot_only (NOT a time series).
 * ``state_installed_capacity_geographical_mw.json`` (407 rows)
   → ``state-installed-capacity-geographical-mw`` (parent, publisher total).
 * ``state_installed_capacity_by_source_mw.json`` (~1815 rows)
@@ -21,12 +25,13 @@ DELIBERATELY NOT LIFTED:
   — superseded by per-fuel CEA shards; both are HARD DROPs per plan-doc
   TODO row 0e.7 P.1.A scope list.
 * ``state-installed-capacity-allocated-mw-{fuel}`` children — the per-fuel
-  ALLOCATED data does not exist in the lifted shards (CEA Monthly is
-  per-fuel ``where_allocated`` but only one snapshot; ICED Deep Dive is
-  per-FY publisher total only, no per-fuel breakdown). The 5 catalogue
-  rows for allocated-mw children stay orphan in C4; a future PR earns
-  them when a multi-FY per-fuel allocated source lands. Documented in
-  plan-doc TODO row 0e.7 P.1 §0e.7.5 "Known scope gap".
+  ALLOCATED data does not exist in the lifted shards at FY granularity
+  (ICED Deep Dive is per-FY publisher total only, no per-fuel breakdown).
+  C4.5 fills the per-fuel allocated gap at MONTHLY granularity via the
+  CEA Monthly snapshot family above; the ICED-sourced multi-FY per-fuel
+  allocated children remain orphan in the catalogue and earn rows when
+  a multi-FY per-fuel allocated source lands. Documented in plan-doc
+  TODO row 0e.7 P.1 §0e.7.5 "Known scope gap".
 """
 
 from __future__ import annotations
@@ -49,10 +54,16 @@ from ._shared import (
 def build_envelope(repo_root: Path) -> BatchEnvelope:
     rows: list[ObservationRow] = []
 
-    # 1. CEA per-fuel shards → national-installed-capacity-mw-{fuel}
-    #    (single snapshot, IN rollup only). Per-state-per-fuel allocated
-    #    NOT lifted to state-installed-capacity-allocated-mw-{fuel} in
-    #    C4 (see module docstring "Known scope gap").
+    # 1. CEA per-fuel shards →
+    #    - national-installed-capacity-mw-{fuel} (IN rollup, derivation=sum)
+    #    - state-installed-capacity-snapshot-mw-{fuel} (35 per-state rows
+    #      per fuel, derivation=raw). P.1.A C4.5: the CEA Monthly IC sheet
+    #      is published per-state per-fuel already; ICED state allocated
+    #      tracks the same allocation basis at FY granularity but lacks a
+    #      per-fuel breakdown (see "Known scope gap" above). The snapshot
+    #      children fill that gap with the most recent month of CEA truth.
+    #      Single-snapshot, comparable_across_states_snapshot_only — NOT a
+    #      time series; restate on each fresh CEA monthly drop.
     for fuel in CANONICAL_FUELS:
         shard = load_shard(repo_root, f"installed_capacity_{fuel}_mw.json")
         shard_rows = shard["rows"]
@@ -61,6 +72,8 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
         # Single-snapshot shards — all rows share the same ``time``.
         snapshot_time = shard_rows[0]["time"]
         period_label, year, period_seq = parse_iso_period(snapshot_time)
+
+        # IN rollup (pre-existing emit; kept byte-equivalent).
         per_state_sum = sum(float(r["value"]) for r in shard_rows)
         rows.append(ObservationRow(
             entity_id="IN",
@@ -72,6 +85,25 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             source_id=SOURCE_IDS["cea_monthly_ic"],
             derivation="sum",
         ))
+
+        # C4.5: per-state per-fuel snapshot rows. Guard catches a shard
+        # truncated upstream (CEA occasionally publishes a partial sheet
+        # mid-month) — fail loud rather than silently emit 5 rows.
+        assert len(shard_rows) >= 30, (
+            f"CEA {fuel} shard truncated: {len(shard_rows)} rows; "
+            f"expected ~35 (all states/UTs)"
+        )
+        for r in shard_rows:
+            rows.append(ObservationRow(
+                entity_id=to_entity_id(r["entity_id"]),
+                year=year,
+                period_label=period_label,
+                period_seq=period_seq,
+                indicator_id=f"state-installed-capacity-snapshot-mw-{fuel}",
+                value_numeric=float(r["value"]),
+                source_id=SOURCE_IDS["cea_monthly_ic"],
+                derivation="raw",
+            ))
 
     # 2. state_installed_capacity_geographical_mw.json
     #    → state-installed-capacity-geographical-mw (parent, publisher total)

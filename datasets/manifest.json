@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.3",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-24T14:03:42Z",
+  "generated_at": "2026-05-24T17:58:37Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -257,7 +257,7 @@
         },
         {
           "path": "elections/state=in_u08/election_results.parquet",
-          "size_bytes": 192725,
+          "size_bytes": 119646,
           "row_count": 2575,
           "partition_values": {
             "state": "in_u08"
@@ -277,11 +277,11 @@
       "files": [
         {
           "path": "energy/energy_installed_capacity.parquet",
-          "size_bytes": 143899,
-          "row_count": 1945
+          "size_bytes": 156980,
+          "row_count": 2120
         }
       ],
-      "row_count_total": 1945
+      "row_count_total": 2120
     },
     {
       "table_id": "energy.energy_generation",
@@ -447,11 +447,11 @@
       "files": [
         {
           "path": "taxonomy/indicators.parquet",
-          "size_bytes": 18939,
-          "row_count": 59
+          "size_bytes": 19679,
+          "row_count": 65
         }
       ],
-      "row_count_total": 59
+      "row_count_total": 65
     },
     {
       "table_id": "taxonomy.methodology_breaks",
@@ -498,11 +498,11 @@
       "files": [
         {
           "path": "taxonomy/sources.parquet",
-          "size_bytes": 16411,
-          "row_count": 350
+          "size_bytes": 17538,
+          "row_count": 351
         }
       ],
-      "row_count_total": 350
+      "row_count_total": 351
     }
   ],
   "deprecations": [
