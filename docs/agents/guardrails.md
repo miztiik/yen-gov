@@ -18,6 +18,7 @@ Loaded by [`bootstrap.md`](bootstrap.md) as part of every persona's startup ritu
 | Contract / integration (schema versioning, write seams, layer boundaries, pipes-and-filters) | **Gregor** |
 | Engineering craft (refactor safety, test tiers, module structure, deletion) | **Fowler** |
 | UX (URL grammar, visual bounds, copy, gestures, citizen framing) | **Jony + Citizen** |
+| AI / LLM app design (model selection, prompt strategy, RAG vs fine-tune, agent topology, evals, tokenizer/context gotchas) | **Andre** (synthesised from Karpathy + Willison + Husain + Howard) |
 
 **User approval supersedes every agent and every rule.**
 
