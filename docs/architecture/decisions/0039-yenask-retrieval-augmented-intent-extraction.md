@@ -1,10 +1,11 @@
 # ADR-0039: YENASK retrieval-augmented intent extraction (LLM-OS pattern) — Accepted
 
 **Last Updated**: 2026-05-24
-**Status**: accepted
+**Status**: accepted (§D-33 brand-mark refresh + the `/dev/yenask` route choice partially superseded by [ADR-0040](0040-yenask-brand-and-lab-route.md) on 2026-05-24 — the LLM-OS pipeline shape, MiniLM-L6-v2 retrieval lock, cosine-threshold fallback, and eval-set-as-contract conditions all remain in force)
 **Supersedes**: none
 **Amends**: none — ADR-0038 (single-stage LLM rejection of *two-LLM* shapes) remains in force
-**Related**: [yenask subsystem doc](../frontend/yenask.md), plan-doc [TODO/20260518-browser-governance-insight-assistant-plan.md](../../../TODO/20260518-browser-governance-insight-assistant-plan.md) §17 D-31..D-33, [ADR-0038](0038-yenask-two-stage-llm-pipeline-rejected.md)
+**Partially superseded by**: [ADR-0040](0040-yenask-brand-and-lab-route.md) for the brand label (Y-Ask → **Yen-Ask**) and the route URL (`/dev/yenask` → **`/lab/yenask`**) only
+**Related**: [yenask subsystem doc](../frontend/yenask.md), plan-doc [TODO/20260518-browser-governance-insight-assistant-plan.md](../../../TODO/20260518-browser-governance-insight-assistant-plan.md), [ADR-0038](0038-yenask-two-stage-llm-pipeline-rejected.md), [ADR-0040](0040-yenask-brand-and-lab-route.md)
 
 ## Context
 

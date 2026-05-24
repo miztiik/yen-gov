@@ -5,18 +5,17 @@
 
 ## What lives here
 
-YENASK is a dev-only browser lab mounted at `/dev/yenask`. It turns a citizen
-governance question into a validated `InsightIntent`, then runs DuckDB-WASM
-against the canonical Parquet store to produce an `AnswerViewModel`.
+YENASK is a dev-only browser lab mounted at `/lab/yenask` (route moved
+from `/dev/yenask` per [ADR-0040](../../../../docs/architecture/decisions/0040-yenask-brand-and-lab-route.md)).
+It turns a citizen governance question into a validated `InsightIntent`,
+then runs DuckDB-WASM against the canonical Parquet store to produce an
+`AnswerViewModel`.
 
-Phase 1 (current) ships zero model code — only canned `InsightIntent`
-fixtures are clickable. Phase 2 adds a config-driven SLM model adapter
-(plan-doc §17 D-10, D-11).
-
-The CITIZEN-FACING brand is **Y-Ask** (logo, page title). All MODULE
-identifiers stay as `yenask` (directory name, route path, LS key, testids,
-ADR titles). Don't unify them — see ADR-0039 §"Y-Ask brand split rationale"
-and plan-doc §17 D-31.
+The CITIZEN-FACING brand is **Yen-Ask** (logo + page title only). All
+MODULE identifiers stay as `yenask` (directory name, route slug, LS key,
+testids, ADR titles). Don't unify them — see ADR-0040 §"Brand vs
+identifier separation" (supersedes ADR-0039 §D-33's earlier "Y-Ask"
+label).
 
 ## Layout
 

@@ -94,11 +94,15 @@ startRouter({
     // every Phase 1.6 / 3.5 generic renderer against synthetic fixture
     // data. Not citizen-discoverable; not linked from the left rail.
     { pattern: "/dev/charts-sandbox", component: DevChartsSandbox },
-    // YENASK browser governance insight assistant (TODO/20260518-...).
-    // Dev-only route — see plan doc §17 D-01..D-11. Not citizen-
-    // discoverable; not linked from the left rail. Removal = git rm of
-    // routes/Yenask.svelte + lib/yenask/ + these two lines (D-01).
-    { pattern: "/dev/yenask", component: Yenask },
+    // YENASK (display name Yen-Ask) — browser governance insight
+    // assistant. Mounted under /lab/ alongside the analyst lab routes
+    // (/lab/:state/:event). Dev-only — not citizen-discoverable, not
+    // linked from the left rail. See ADR-0040 (brand + lab-route
+    // placement) and ADR-0039 (Slice E LLM-OS architecture).
+    // Pattern-distinct from /lab/:state/:event (2 vs 3 segments) so
+    // route order is not load-bearing. Removal = git rm of
+    // routes/Yenask.svelte + lib/yenask/ + this entry.
+    { pattern: "/lab/yenask", component: Yenask },
   ],
   notFound: { pattern: "*", component: NotFound },
 });
