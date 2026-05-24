@@ -4,6 +4,175 @@
   "sources": [],
   "ingested": [
     {
+      "election_id": "AcGenDec2002",
+      "state": "S06",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 182,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenDec2007",
+      "state": "S06",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 182,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenDec2012",
+      "state": "S06",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 182,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenDec2017",
+      "state": "S06",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 182,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1962",
+      "state": "S06",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 154,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1967",
+      "state": "S06",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 168,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1990",
+      "state": "S06",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 182,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1995",
+      "state": "S06",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 182,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJun1975",
+      "state": "S06",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 181,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMar1972",
+      "state": "S06",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 168,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMar1998",
+      "state": "S06",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 182,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1980",
+      "state": "S06",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 182,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1985",
+      "state": "S06",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 182,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
       "election_id": "AcGenApr2021",
       "state": "S22",
       "source_input": "eci_ae_panel",
