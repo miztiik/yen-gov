@@ -260,6 +260,19 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     ("S04", 2010): EventInfo("AcGenNov2010", False),  # Bihar
     ("S04", 2015): EventInfo("AcGenNov2015", False),  # Bihar
 
+    # Madhya Pradesh statewise AE panel backfill. Existing 2023 Section-10
+    # slice remains the authority; this sequence fills 1977-2018.
+    ("S12", 1977): EventInfo("AcGenOct1977", False),  # Madhya Pradesh
+    ("S12", 1980): EventInfo("AcGenMay1980", False),  # Madhya Pradesh
+    ("S12", 1985): EventInfo("AcGenFeb1985", False),  # Madhya Pradesh
+    ("S12", 1990): EventInfo("AcGenFeb1990", False),  # Madhya Pradesh
+    ("S12", 1993): EventInfo("AcGenNov1993", False),  # Madhya Pradesh
+    ("S12", 1998): EventInfo("AcGenNov1998", False),  # Madhya Pradesh
+    ("S12", 2003): EventInfo("AcGenNov2003", False),  # Madhya Pradesh
+    ("S12", 2008): EventInfo("AcGenNov2008", False),  # Madhya Pradesh
+    ("S12", 2013): EventInfo("AcGenNov2013", False),  # Madhya Pradesh
+    ("S12", 2018): EventInfo("AcGenNov2018", False),  # Madhya Pradesh
+
     # Historical hand-imports (2016-2023) from old.eci.gov.in Section 10
     # XLSX dumps. No live-results portal; no Statistical Report API.
     # Polling-month event_ids researched against Wikipedia/ECI archives.
