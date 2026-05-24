@@ -2065,6 +2065,96 @@
     ],
     "S20": [
       {
+        "event_id": "AcGenJun1977",
+        "kind": "assembly",
+        "display": "Rajasthan Assembly · June 1977",
+        "polled_on": "1977-06-10",
+        "term_end_estimated": "1982-06-09",
+        "data_status": "complete",
+        "notes": "200 ACs. Poll held on 10 June 1977; event id follows the public polling month rather than the panel's month value. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay1980",
+        "kind": "assembly",
+        "display": "Rajasthan Assembly · May 1980",
+        "polled_on": "1980-05-31",
+        "term_end_estimated": "1985-05-30",
+        "data_status": "complete",
+        "notes": "200 ACs. Two-phase poll on 28 and 31 May 1980; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay1985",
+        "kind": "assembly",
+        "display": "Rajasthan Assembly · May 1985",
+        "polled_on": "1985-05-03",
+        "term_end_estimated": "1990-05-02",
+        "data_status": "complete",
+        "notes": "200 ACs. Poll held on 3 May 1985. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb1990",
+        "kind": "assembly",
+        "display": "Rajasthan Assembly · February 1990",
+        "polled_on": "1990-02-27",
+        "term_end_estimated": "1995-02-26",
+        "data_status": "complete",
+        "notes": "200 ACs. Poll held on 27 February 1990. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov1993",
+        "kind": "assembly",
+        "display": "Rajasthan Assembly · November 1993",
+        "polled_on": "1993-11-11",
+        "term_end_estimated": "1998-11-10",
+        "data_status": "complete",
+        "notes": "199 contested ACs. Poll held on 11 November 1993; Rajakhera was postponed after a candidate death. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov1998",
+        "kind": "assembly",
+        "display": "Rajasthan Assembly · November 1998",
+        "polled_on": "1998-11-25",
+        "term_end_estimated": "2003-11-24",
+        "data_status": "complete",
+        "notes": "200 ACs. Poll held on 25 November 1998. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenDec2003",
+        "kind": "assembly",
+        "display": "Rajasthan Assembly · December 2003",
+        "polled_on": "2003-12-01",
+        "term_end_estimated": "2008-11-30",
+        "data_status": "complete",
+        "notes": "200 ACs. Poll held on 1 December 2003. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenDec2008",
+        "kind": "assembly",
+        "display": "Rajasthan Assembly · December 2008",
+        "polled_on": "2008-12-04",
+        "term_end_estimated": "2013-12-03",
+        "data_status": "complete",
+        "notes": "200 ACs. Poll held on 4 December 2008. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenDec2013",
+        "kind": "assembly",
+        "display": "Rajasthan Assembly · December 2013",
+        "polled_on": "2013-12-13",
+        "term_end_estimated": "2018-12-12",
+        "data_status": "complete",
+        "notes": "200 ACs. Main poll held on 1 December 2013; Churu was postponed to 13 December 2013 after a candidate death, and the event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenDec2018",
+        "kind": "assembly",
+        "display": "Rajasthan Assembly · December 2018",
+        "polled_on": "2018-12-07",
+        "term_end_estimated": "2023-12-06",
+        "data_status": "complete",
+        "notes": "199 contested ACs. Poll held on 7 December 2018; Ramgarh was adjourned and held on 28 January 2019. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenNov2023",
         "kind": "assembly",
         "display": "Rajasthan Assembly · November 2023",
