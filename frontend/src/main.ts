@@ -21,6 +21,7 @@ import StateElection from "./routes/StateElection.svelte";
 import DataCompleteness from "./routes/DataCompleteness.svelte";
 import DuckDbHarness from "./routes/DuckDbHarness.svelte";
 import DevChartsSandbox from "./routes/DevChartsSandbox.svelte";
+import Yenask from "./routes/Yenask.svelte";
 import NotFound from "./routes/NotFound.svelte";
 
 // Mount the persistent shell once. The router replaces the contents of
@@ -93,6 +94,11 @@ startRouter({
     // every Phase 1.6 / 3.5 generic renderer against synthetic fixture
     // data. Not citizen-discoverable; not linked from the left rail.
     { pattern: "/dev/charts-sandbox", component: DevChartsSandbox },
+    // YENASK browser governance insight assistant (TODO/20260518-...).
+    // Dev-only route — see plan doc §17 D-01..D-11. Not citizen-
+    // discoverable; not linked from the left rail. Removal = git rm of
+    // routes/Yenask.svelte + lib/yenask/ + these two lines (D-01).
+    { pattern: "/dev/yenask", component: Yenask },
   ],
   notFound: { pattern: "*", component: NotFound },
 });
