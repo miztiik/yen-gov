@@ -7,6 +7,7 @@ from textwrap import dedent
 from yen_gov.canonical.adapters.eci_ae_panel import (
     PanelFilters,
     build_envelope,
+    event_id_for,
     inspect_panel,
     parse_panel_csv,
 )
@@ -154,3 +155,8 @@ def test_inspect_panel_reports_events_and_unresolved_parties(tmp_path: Path) -> 
     assert report["missing_events"] == []
     assert report["unresolved_party_rows"] == 1
     assert report["unresolved_parties"] == [{"party": "FRINGE", "rows": 1}]
+
+
+def test_event_lookup_uses_month_for_duplicate_state_year() -> None:
+    assert event_id_for("S04", 2005, 2) == "AcGenFeb2005"
+    assert event_id_for("S04", 2005, 11) == "AcGenNov2005"

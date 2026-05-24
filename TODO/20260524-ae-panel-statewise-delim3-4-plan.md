@@ -1,7 +1,7 @@
 # AE Panel Statewise DelimID 3/4 Ingestion Plan
 
 **Last Updated**: 2026-05-24
-**Status**: ACTIVE — tooling through Odisha (`S18`) merged; West Bengal (`S25`) state PR in progress.
+**Status**: ACTIVE — tooling through West Bengal (`S25`) merged; Bihar (`S04`) state PR in progress.
 **Scope**: `datasets/ephemeral/All_States_AE.csv` statewise ingestion through the canonical elections Parquet writer.
 **Spec**: [`docs/architecture/backend/sources-eci.md`](../docs/architecture/backend/sources-eci.md), [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md), [`docs/architecture/data/elections-indicators.md`](../docs/architecture/data/elections-indicators.md).
 **Decision rationale**: [ADR-0030](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md), [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md), [ADR-0036](../docs/architecture/decisions/0036-state-identity-and-slice-registration.md).
@@ -54,8 +54,9 @@ Every state PR must be merged to `main` before the next state starts. This keeps
 | 22 | Karnataka (`S10`) | State-only dry-run, event registration for missing `S10` rows, scoped ingest from 1978 through 2013 to preserve existing 2018/2023 rows, inventory/provenance/coverage updates. | DONE — PR #208 |
 | 23 | Assam (`S03`) | State-only dry-run, event registration for missing `S03` rows, scoped ingest from 1978 through 2011 to preserve existing 2016/2021/2026 rows, inventory/provenance/coverage updates. | DONE — PR #209 |
 | 24 | Odisha (`S18`) | State-only dry-run, event registration for missing `S18` rows, scoped ingest from 1974 through 2019 to preserve existing 2024 rows, inventory/provenance/coverage updates. | DONE — PR #211 |
-| 25 | West Bengal (`S25`) | State-only dry-run, event registration for missing `S25` rows, scoped ingest from 1977 through 2021 to preserve existing 2026 rows, inventory/provenance/coverage updates. | ACTIVE — this PR |
-| 26+ | Remaining states | Proceed from medium states to large/reorganisation-heavy states. | QUEUED |
+| 25 | West Bengal (`S25`) | State-only dry-run, event registration for missing `S25` rows, scoped ingest from 1977 through 2021 to preserve existing 2026 rows, inventory/provenance/coverage updates. | DONE — PR #213 |
+| 26 | Bihar (`S04`) | State-only dry-run, month-aware event registration for the two 2005 elections, scoped ingest from 1977 through 2020 to preserve existing 2025 rows, inventory/provenance/coverage updates. | ACTIVE — this PR |
+| 27+ | Remaining states | Proceed from medium states to large/reorganisation-heavy states. | QUEUED |
 
 Already-merged panel states are out of the first wave: Tamil Nadu (`S22`, PR #178), Gujarat (`S06`, PR #179), and Maharashtra (`S13`, PR #180).
 
@@ -118,11 +119,13 @@ Odisha dry-run found 10,986 writeable approved rows (`DelimID=3`: 6,858; `DelimI
 
 West Bengal dry-run found 18,014 writeable approved rows (`DelimID=3`: 11,541; `DelimID=4`: 6,473) across 10 missing events after skipping 593 blank-month rows and 5,310 non-D3/D4 rows. The state PR writes 1977 through 2021 and preserves the existing 2026 live slice. Post-ingest verification showed 89,622 West Bengal observation rows, 11 S25 events on disk, 294 ACs in every newly written event, the existing 2026 live slice still at 293 ACs because one countermanded seat has no result row, 1,069 newly added candidacies mapped to `parties.IN.UNK` with `party_short_raw` preserved, and zero dangling West Bengal `source_id` values. The 2021 final panel carries all 294 ACs; Samserganj and Jangipur polled later on 30 September after candidate deaths, while the event id follows the regular election's final April polling day.
 
+Bihar dry-run found 45,618 writeable approved rows (`DelimID=3`: 34,426; `DelimID=4`: 11,192) across 11 event slices after skipping 1,324 blank-month rows and 7,725 non-D3/D4 rows. The state PR writes 1977 through 2020 and preserves the existing 2025 Section-10 slice. Bihar 2005 is the structural edge case: February 2005 (`AcGenFeb2005`) and October-November 2005 (`AcGenNov2005`) are distinct Assembly elections in the same calendar year, so the backend registry uses the month-aware `EVENTS_BY_MONTH` override for those two rows instead of collapsing them into the ordinary `(state, year)` map. Post-ingest verification showed 174,456 Bihar observation rows, 12 S04 events on disk, 324 ACs in every newly written event through 2000, 243 ACs from 2005 onward including the existing 2025 slice, 2,927 newly unresolved candidacies mapped to `parties.IN.UNK` with `party_short_raw` preserved, and zero dangling Bihar observation `source_id` values.
+
 ## Remaining State Classes
 
 The normal queue remains state-by-state, but not every pending token is equally safe:
 
-- **Straight current-state queue**: West Bengal (`S25`, active), Bihar (`S04`), Madhya Pradesh (`S12`), Uttar Pradesh (`S24`). Delhi's 1977/1983 rows are the Metropolitan Council caveat documented in the source adapter spec.
+- **Straight current-state queue**: Bihar (`S04`, active), Madhya Pradesh (`S12`), Uttar Pradesh (`S24`). Delhi's 1977/1983 rows are the Metropolitan Council caveat documented in the source adapter spec.
 - **Filterable split-state queue**: Andhra Pradesh (`S01`) post-2014 only; the 2014 current-state slice is done in PR #195. Pre-2014 Andhra rows describe undivided Andhra Pradesh and need a historical entity decision.
 - **Deferred/problem tokens**: `Goa_Daman_&_Diu`, `Madras`, `Mysore`, and `Jammu_&_Kashmir`. `Madras`/`Mysore` are legacy predecessor names; `Goa_Daman_&_Diu` is a predecessor UT; `Jammu_&_Kashmir` needs a post-2019 state/UT split plan.
 
@@ -144,8 +147,8 @@ The normal queue remains state-by-state, but not every pending token is equally 
 | 12 | `Karnataka` | `S10` | 23,719 | 12,289 | 11,430 | DONE — PR #208 |
 | 13 | `Assam` | `S03` | 10,817 | 7,470 | 3,347 | DONE — PR #209 |
 | 14 | `Odisha` | `S18` | 11,209 | 7,034 | 4,175 | DONE — PR #211 |
-| 15 | `West_Bengal` | `S25` | 18,607 | 11,918 | 6,689 | ACTIVE — this PR |
-| 16 | `Bihar` | `S04` | 46,942 | 35,453 | 11,489 | QUEUED |
+| 15 | `West_Bengal` | `S25` | 18,607 | 11,918 | 6,689 | DONE — PR #213 |
+| 16 | `Bihar` | `S04` | 45,618 | 34,426 | 11,192 | ACTIVE — this PR |
 | 17 | `Madhya_Pradesh` | `S12` | 29,305 | 19,521 | 9,784 | QUEUED |
 | 18 | `Uttar_Pradesh` | `S24` | 76,120 | 58,652 | 17,468 | QUEUED |
 

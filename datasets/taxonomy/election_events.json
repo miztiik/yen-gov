@@ -235,6 +235,96 @@
     ],
     "S04": [
       {
+        "event_id": "AcGenOct1977",
+        "kind": "assembly",
+        "display": "Bihar Assembly · October 1977",
+        "polled_on": "1977-10-01",
+        "term_end_estimated": "1982-09-30",
+        "data_status": "complete",
+        "notes": "324 ACs. Public page gives only year-level polling context, so the event id retains the panel month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay1980",
+        "kind": "assembly",
+        "display": "Bihar Assembly · May 1980",
+        "polled_on": "1980-05-31",
+        "term_end_estimated": "1985-05-30",
+        "data_status": "complete",
+        "notes": "324 ACs. Public page records polling on 31 May 1980; event date uses the public polling date rather than the panel's June month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMar1985",
+        "kind": "assembly",
+        "display": "Bihar Assembly · March 1985",
+        "polled_on": "1985-03-05",
+        "term_end_estimated": "1990-03-04",
+        "data_status": "complete",
+        "notes": "324 ACs. Poll held on 2 and 5 March 1985; event date uses the final polling day rather than the panel's February month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb1990",
+        "kind": "assembly",
+        "display": "Bihar Assembly · February 1990",
+        "polled_on": "1990-02-27",
+        "term_end_estimated": "1995-02-26",
+        "data_status": "complete",
+        "notes": "324 ACs. Poll held on 27 February 1990. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMar1995",
+        "kind": "assembly",
+        "display": "Bihar Assembly · March 1995",
+        "polled_on": "1995-03-28",
+        "term_end_estimated": "2000-03-27",
+        "data_status": "complete",
+        "notes": "324 ACs. Poll held on 25 and 28 March 1995; event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb2000",
+        "kind": "assembly",
+        "display": "Bihar Assembly · February 2000",
+        "polled_on": "2000-02-22",
+        "term_end_estimated": "2005-02-21",
+        "data_status": "complete",
+        "notes": "324 ACs. Poll held from 12 to 22 February 2000; event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb2005",
+        "kind": "assembly",
+        "display": "Bihar Assembly · February 2005",
+        "polled_on": "2005-02-23",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "243 ACs. Three-phase poll on 3, 15, and 23 February 2005. The result was fractured and no government was formed; Bihar returned to polls in October-November 2005. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov2005",
+        "kind": "assembly",
+        "display": "Bihar Assembly · October-November 2005",
+        "polled_on": "2005-11-19",
+        "term_end_estimated": "2010-11-18",
+        "data_status": "complete",
+        "notes": "243 ACs. Fresh election after the February 2005 fractured verdict; four-phase poll on 18 and 26 October, 13 and 19 November 2005. Event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov2010",
+        "kind": "assembly",
+        "display": "Bihar Assembly · October-November 2010",
+        "polled_on": "2010-11-20",
+        "term_end_estimated": "2015-11-19",
+        "data_status": "complete",
+        "notes": "243 ACs. Six-phase poll from 21 October to 20 November 2010; event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenNov2015",
+        "kind": "assembly",
+        "display": "Bihar Assembly · October-November 2015",
+        "polled_on": "2015-11-05",
+        "term_end_estimated": "2020-11-04",
+        "data_status": "complete",
+        "notes": "243 ACs. Five-phase poll from 12 October to 5 November 2015; event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenNov2020",
         "kind": "assembly",
         "display": "Bihar Assembly · October-November 2020",
