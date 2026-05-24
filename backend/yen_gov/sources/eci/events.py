@@ -94,6 +94,12 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     ("S27", 2009): EventInfo("AcGenDec2009", False),  # Jharkhand
     ("S27", 2014): EventInfo("AcGenDec2014", False),  # Jharkhand
 
+    # Uttarakhand statewise AE panel backfill. 2017/2022 stay on existing
+    # Section-10 sources; this slice writes 2002/2007/2012 only.
+    ("S28", 2002): EventInfo("AcGenFeb2002", False),  # Uttarakhand
+    ("S28", 2007): EventInfo("AcGenFeb2007", False),  # Uttarakhand
+    ("S28", 2012): EventInfo("AcGenJan2012", False),  # Uttarakhand
+
     # Historical hand-imports (2016-2023) from old.eci.gov.in Section 10
     # XLSX dumps. No live-results portal; no Statistical Report API.
     # Polling-month event_ids researched against Wikipedia/ECI archives.
