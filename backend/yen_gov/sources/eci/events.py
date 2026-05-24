@@ -160,6 +160,18 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     ("S07", 2009): EventInfo("AcGenOct2009", False),  # Haryana
     ("S07", 2014): EventInfo("AcGenOct2014", False),  # Haryana
 
+    # Kerala statewise AE panel backfill. 2016/2021/2026 stay on existing rows;
+    # this slice writes 1977-2011.
+    ("S11", 1977): EventInfo("AcGenMar1977", False),  # Kerala
+    ("S11", 1980): EventInfo("AcGenJan1980", False),  # Kerala
+    ("S11", 1982): EventInfo("AcGenMay1982", False),  # Kerala
+    ("S11", 1987): EventInfo("AcGenMar1987", False),  # Kerala
+    ("S11", 1991): EventInfo("AcGenJun1991", False),  # Kerala
+    ("S11", 1996): EventInfo("AcGenApr1996", False),  # Kerala
+    ("S11", 2001): EventInfo("AcGenMay2001", False),  # Kerala
+    ("S11", 2006): EventInfo("AcGenMay2006", False),  # Kerala
+    ("S11", 2011): EventInfo("AcGenApr2011", False),  # Kerala
+
     # Historical hand-imports (2016-2023) from old.eci.gov.in Section 10
     # XLSX dumps. No live-results portal; no Statistical Report API.
     # Polling-month event_ids researched against Wikipedia/ECI archives.
