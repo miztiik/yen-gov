@@ -93,6 +93,145 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
   });
 });
 
+describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
+  // Registry-shape invariants for every PR 7a descriptor. Per CLAUDE.md §15
+  // these are CONTRACT tests: they assert the allowlist's published surface
+  // (legacy slug → canonical indicator id + table_id + meta) matches the
+  // expected wiring for each of the 8 shards reader-switched in this PR.
+  // Catches accidental future edits to the wrong row or a typo'd table_id
+  // (which would silently fall through to legacy fetch and 404 once Phase D
+  // git-rm's the underlying shard).
+
+  const PR_7A: ReadonlyArray<{
+    legacy_id: string;
+    canonical_id: string;
+    table_id: string;
+  }> = [
+    {
+      legacy_id: "energy/installed_capacity_coal_mw",
+      canonical_id: "state-installed-capacity-snapshot-mw-coal",
+      table_id: "energy.energy_installed_capacity",
+    },
+    {
+      legacy_id: "energy/installed_capacity_gas_mw",
+      canonical_id: "state-installed-capacity-snapshot-mw-gas",
+      table_id: "energy.energy_installed_capacity",
+    },
+    {
+      legacy_id: "energy/installed_capacity_hydro_mw",
+      canonical_id: "state-installed-capacity-snapshot-mw-hydro",
+      table_id: "energy.energy_installed_capacity",
+    },
+    {
+      legacy_id: "energy/installed_capacity_nuclear_mw",
+      canonical_id: "state-installed-capacity-snapshot-mw-nuclear",
+      table_id: "energy.energy_installed_capacity",
+    },
+    {
+      legacy_id: "energy/installed_capacity_renewable_mw",
+      canonical_id: "state-installed-capacity-snapshot-mw-renewable",
+      table_id: "energy.energy_installed_capacity",
+    },
+    {
+      legacy_id: "energy/state_installed_capacity_geographical_mw",
+      canonical_id: "state-installed-capacity-geographical-mw",
+      table_id: "energy.energy_installed_capacity",
+    },
+    {
+      legacy_id: "energy/state_installed_capacity_with_alloc_mw",
+      canonical_id: "state-installed-capacity-allocated-mw",
+      table_id: "energy.energy_installed_capacity",
+    },
+    {
+      legacy_id: "energy/state_electricity_generation_mu",
+      canonical_id: "state-electricity-generation-gwh",
+      table_id: "energy.energy_generation",
+    },
+  ];
+
+  it("registers all 8 PR 7a descriptors as canonical-backed", () => {
+    for (const row of PR_7A) {
+      expect(isCanonicalBacked(row.legacy_id)).toBe(true);
+    }
+  });
+
+  it("wires every PR 7a legacy slug to the expected canonical id + table", () => {
+    for (const row of PR_7A) {
+      const d = getCanonicalDescriptor(row.legacy_id);
+      expect(d, `descriptor missing for ${row.legacy_id}`).not.toBeNull();
+      expect(d!.canonical_indicator_id).toBe(row.canonical_id);
+      expect(d!.table_id).toBe(row.table_id);
+    }
+  });
+
+  it("every PR 7a meta block declares entity_kind=state + unit=MW|GWh", () => {
+    for (const row of PR_7A) {
+      const d = getCanonicalDescriptor(row.legacy_id)!;
+      expect(d.meta.id).toBe(row.canonical_id);
+      expect(d.meta.entity_kind).toBe("state");
+      expect(["MW", "GWh"]).toContain(d.meta.unit);
+      // Title must be non-empty (rail-budget compliance is asserted by
+      // topic-titles-rail-fit elsewhere; here we only require presence).
+      expect(d.meta.title.length).toBeGreaterThan(0);
+    }
+  });
+
+  it("snapshot-fuel descriptors (#1-#5) carry time_grain=month + comparability=snapshot_only", () => {
+    const snapshot_ids = PR_7A.filter((r) =>
+      r.canonical_id.startsWith("state-installed-capacity-snapshot-mw-"),
+    );
+    expect(snapshot_ids).toHaveLength(5);
+    for (const row of snapshot_ids) {
+      const d = getCanonicalDescriptor(row.legacy_id)!;
+      expect(d.meta.time_grain).toBe("month");
+      expect(d.meta.comparability).toBe("comparable_across_states_snapshot_only");
+      expect(d.meta.attribution_geography).toBe("where_allocated");
+    }
+  });
+
+  it("time-series descriptors (#6-#8) carry time_grain=fiscal_year + comparability=across_states_and_time", () => {
+    const fy_ids = PR_7A.filter((r) =>
+      [
+        "state-installed-capacity-geographical-mw",
+        "state-installed-capacity-allocated-mw",
+        "state-electricity-generation-gwh",
+      ].includes(r.canonical_id),
+    );
+    expect(fy_ids).toHaveLength(3);
+    for (const row of fy_ids) {
+      const d = getCanonicalDescriptor(row.legacy_id)!;
+      expect(d.meta.time_grain).toBe("fiscal_year");
+      expect(d.meta.comparability).toBe("comparable_across_states_and_time");
+    }
+  });
+
+  it("allocated-shares descriptor (#7) declares FY15 series_break for the RBI splice", () => {
+    const d = getCanonicalDescriptor("energy/state_installed_capacity_with_alloc_mw")!;
+    expect(d.meta.series_breaks).toBeDefined();
+    expect(d.meta.series_breaks!.length).toBeGreaterThanOrEqual(1);
+    const fy15 = d.meta.series_breaks!.find((b) => b.at_time === "2015-04");
+    expect(fy15, "FY15 series_break missing").toBeDefined();
+    expect(fy15!.kind).toBe("definition_change");
+    expect(fy15!.note).toMatch(/RBI/i);
+  });
+
+  it("generation descriptor (#8) keeps GWh unit (NOT MU) per ADR-0030 unit normalisation", () => {
+    const d = getCanonicalDescriptor("energy/state_electricity_generation_mu")!;
+    expect(d.meta.unit).toBe("GWh");
+    expect(d.meta.notes).toMatch(/MU/);
+  });
+
+  it("every PR 7a legacy_id is a distinct entry in CANONICAL_BACKED_INDICATORS (no duplicates)", () => {
+    const slugs = CANONICAL_BACKED_INDICATORS.map((d) => d.legacy_artifact_id);
+    const uniq = new Set(slugs);
+    expect(uniq.size).toBe(slugs.length);
+    // And: every PR 7a slug is present at least once.
+    for (const row of PR_7A) {
+      expect(slugs).toContain(row.legacy_id);
+    }
+  });
+});
+
 describe("canonicalEntityToLegacy — entity-id translation", () => {
   it("strips IN- prefix from state ids", () => {
     expect(canonicalEntityToLegacy("IN-S22")).toBe("S22");
