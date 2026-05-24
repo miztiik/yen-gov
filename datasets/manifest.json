@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.3",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-24T12:14:24Z",
+  "generated_at": "2026-05-24T12:24:54Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -33,8 +33,8 @@
         },
         {
           "path": "elections/state=in_s03/election_results.parquet",
-          "size_bytes": 440201,
-          "row_count": 10245,
+          "size_bytes": 3322271,
+          "row_count": 44862,
           "partition_values": {
             "state": "in_s03"
           }
@@ -264,7 +264,7 @@
           }
         }
       ],
-      "row_count_total": 961465
+      "row_count_total": 996082
     },
     {
       "table_id": "energy.energy_installed_capacity",
@@ -345,11 +345,11 @@
       "files": [
         {
           "path": "elections/dim_acs.parquet",
-          "size_bytes": 84336,
-          "row_count": 6418
+          "size_bytes": 85664,
+          "row_count": 6544
         }
       ],
-      "row_count_total": 6418
+      "row_count_total": 6544
     },
     {
       "table_id": "elections.dim_parties",
@@ -396,11 +396,11 @@
       "files": [
         {
           "path": "elections/dim_persons.parquet",
-          "size_bytes": 6974477,
-          "row_count": 215613
+          "size_bytes": 7233400,
+          "row_count": 223934
         }
       ],
-      "row_count_total": 215613
+      "row_count_total": 223934
     },
     {
       "table_id": "elections.elections_candidacies",
@@ -413,11 +413,11 @@
       "files": [
         {
           "path": "elections/elections_candidacies.parquet",
-          "size_bytes": 7872760,
-          "row_count": 215610
+          "size_bytes": 8149421,
+          "row_count": 223931
         }
       ],
-      "row_count_total": 215610
+      "row_count_total": 223931
     },
     {
       "table_id": "taxonomy.entities",
@@ -481,11 +481,11 @@
       "files": [
         {
           "path": "taxonomy/persons.parquet",
-          "size_bytes": 6719316,
-          "row_count": 215613
+          "size_bytes": 6967362,
+          "row_count": 223934
         }
       ],
-      "row_count_total": 215613
+      "row_count_total": 223934
     },
     {
       "table_id": "taxonomy.sources",
@@ -498,11 +498,11 @@
       "files": [
         {
           "path": "taxonomy/sources.parquet",
-          "size_bytes": 14459,
-          "row_count": 290
+          "size_bytes": 14891,
+          "row_count": 298
         }
       ],
-      "row_count_total": 290
+      "row_count_total": 298
     }
   ],
   "deprecations": [

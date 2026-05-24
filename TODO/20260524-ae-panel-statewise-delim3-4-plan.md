@@ -1,7 +1,7 @@
 # AE Panel Statewise DelimID 3/4 Ingestion Plan
 
 **Last Updated**: 2026-05-24
-**Status**: ACTIVE — tooling through Rajasthan (`S20`) merged; Karnataka (`S10`) state PR in progress.
+**Status**: ACTIVE — tooling through Karnataka (`S10`) merged; Assam (`S03`) state PR in progress.
 **Scope**: `datasets/ephemeral/All_States_AE.csv` statewise ingestion through the canonical elections Parquet writer.
 **Spec**: [`docs/architecture/backend/sources-eci.md`](../docs/architecture/backend/sources-eci.md), [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md), [`docs/architecture/data/elections-indicators.md`](../docs/architecture/data/elections-indicators.md).
 **Decision rationale**: [ADR-0030](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md), [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md), [ADR-0036](../docs/architecture/decisions/0036-state-identity-and-slice-registration.md).
@@ -51,8 +51,9 @@ Every state PR must be merged to `main` before the next state starts. This keeps
 | 19 | Kerala (`S11`) | State-only dry-run, event registration for missing `S11` rows, scoped ingest from 1977 through 2011 to preserve existing 2016/2021/2026 rows, inventory/provenance/coverage updates. | DONE — PR #205 |
 | 20 | Punjab (`S19`) | State-only dry-run, event registration for missing `S19` rows, scoped ingest from 1977 through 2012 to preserve existing 2017/2022 rows, inventory/provenance/coverage updates. | DONE — PR #206 |
 | 21 | Rajasthan (`S20`) | State-only dry-run, event registration for missing `S20` rows, scoped ingest from 1977 through 2018 to preserve existing 2023 rows, inventory/provenance/coverage updates. | DONE — PR #207 |
-| 22 | Karnataka (`S10`) | State-only dry-run, event registration for missing `S10` rows, scoped ingest from 1978 through 2013 to preserve existing 2018/2023 rows, inventory/provenance/coverage updates. | ACTIVE — this PR |
-| 23+ | Remaining states | Proceed from small/low-risk states to medium states, then large/reorganisation-heavy states. | QUEUED |
+| 22 | Karnataka (`S10`) | State-only dry-run, event registration for missing `S10` rows, scoped ingest from 1978 through 2013 to preserve existing 2018/2023 rows, inventory/provenance/coverage updates. | DONE — PR #208 |
+| 23 | Assam (`S03`) | State-only dry-run, event registration for missing `S03` rows, scoped ingest from 1978 through 2011 to preserve existing 2016/2021/2026 rows, inventory/provenance/coverage updates. | ACTIVE — this PR |
+| 24+ | Remaining states | Proceed from small/low-risk states to medium states, then large/reorganisation-heavy states. | QUEUED |
 
 Already-merged panel states are out of the first wave: Tamil Nadu (`S22`, PR #178), Gujarat (`S06`, PR #179), and Maharashtra (`S13`, PR #180).
 
@@ -109,11 +110,13 @@ Rajasthan dry-run found 19,523 writeable approved rows (`DelimID=3`: 12,560; `De
 
 Karnataka dry-run found 17,111 writeable approved rows (`DelimID=3`: 11,921; `DelimID=4`: 5,190) across 9 missing events after skipping 526 blank-month rows, 6,082 year-filtered rows, and 2,266 non-D3/D4 rows. The state PR writes 1978 through 2013 and preserves the existing 2018/2023 rows. The adapter reports `Mysore` as a state alias, but the approved rows in this scoped slice are all `State_Name=Karnataka`. Post-ingest verification showed 83,719 Karnataka observation rows, 11 S10 events on disk, 224 ACs in every newly written event, 1,267 newly added candidacies mapped to `parties.IN.UNK` with `party_short_raw` preserved, a 301-candidate 1985 Belgaum field represented by three-digit candidate serials, and zero dangling Karnataka `source_id` values.
 
+Assam dry-run found 8,321 writeable approved rows (`DelimID=3`: 7,340; `DelimID=4`: 981) across 8 missing events after skipping 130 blank-month rows, 2,366 year-filtered rows, and 1,399 non-D3/D4 rows. The state PR writes 1978 through 2011 and preserves the existing 2016/2021/2026 rows. Post-ingest verification showed 44,862 Assam observation rows, 11 S03 events on disk, 126 ACs in every newly written event except the 1983 slice's 109 ACs and the 1996 slice's 122 ACs, 536 newly added candidacies mapped to `parties.IN.UNK` with `party_short_raw` preserved, and zero dangling Assam `source_id` values.
+
 ## Remaining State Classes
 
 The normal queue remains state-by-state, but not every pending token is equally safe:
 
-- **Straight current-state queue**: Karnataka (`S10`, active), Assam (`S03`), Odisha (`S18`), West Bengal (`S25`), Bihar (`S04`), Madhya Pradesh (`S12`), Uttar Pradesh (`S24`). Delhi's 1977/1983 rows are the Metropolitan Council caveat documented in the source adapter spec.
+- **Straight current-state queue**: Assam (`S03`, active), Odisha (`S18`), West Bengal (`S25`), Bihar (`S04`), Madhya Pradesh (`S12`), Uttar Pradesh (`S24`). Delhi's 1977/1983 rows are the Metropolitan Council caveat documented in the source adapter spec.
 - **Filterable split-state queue**: Andhra Pradesh (`S01`) post-2014 only; the 2014 current-state slice is done in PR #195. Pre-2014 Andhra rows describe undivided Andhra Pradesh and need a historical entity decision.
 - **Deferred/problem tokens**: `Goa_Daman_&_Diu`, `Madras`, `Mysore`, and `Jammu_&_Kashmir`. `Madras`/`Mysore` are legacy predecessor names; `Goa_Daman_&_Diu` is a predecessor UT; `Jammu_&_Kashmir` needs a post-2019 state/UT split plan.
 
@@ -132,8 +135,8 @@ The normal queue remains state-by-state, but not every pending token is equally 
 | 9 | `Kerala` | `S11` | 10,489 | 6,955 | 3,534 | DONE — PR #205 |
 | 10 | `Punjab` | `S19` | 9,474 | 5,618 | 3,856 | DONE — PR #206 |
 | 11 | `Rajasthan` | `S20` | 19,867 | 12,782 | 7,085 | DONE — PR #207 |
-| 12 | `Karnataka` | `S10` | 23,719 | 12,289 | 11,430 | ACTIVE — this PR |
-| 13 | `Assam` | `S03` | 10,817 | 7,470 | 3,347 | QUEUED |
+| 12 | `Karnataka` | `S10` | 23,719 | 12,289 | 11,430 | DONE — PR #208 |
+| 13 | `Assam` | `S03` | 10,817 | 7,470 | 3,347 | ACTIVE — this PR |
 | 14 | `Odisha` | `S18` | 11,209 | 7,034 | 4,175 | QUEUED |
 | 15 | `West_Bengal` | `S25` | 18,607 | 11,918 | 6,689 | QUEUED |
 | 16 | `Bihar` | `S04` | 46,942 | 35,453 | 11,489 | QUEUED |
