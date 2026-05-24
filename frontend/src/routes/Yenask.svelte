@@ -43,6 +43,7 @@
   import { createAdapter } from "../lib/yenask/model-adapter";
   import { extractIntent } from "../lib/yenask/extract-intent";
   import type { ExtractAttempt } from "../lib/yenask/extract-intent";
+  import { untrackedDelta } from "../lib/yenask/timing";
 
   // -------- chat turn discriminated union -----------------------------------
 
@@ -231,6 +232,18 @@
     }
     return { attempts: log.length, tokens_in, tokens_out, wall_ms, approximate };
   }
+
+  /**
+   * Per D-22 (Slice A): renders a `number | null` timing field. `null` =
+   * "the SDK didn't tell us"; rendered as an em-dash so the operator can
+   * distinguish missing data from a measured `0`.
+   */
+  function fmtMsOrDash(ms: number | null): string {
+    if (ms === null) return "—";
+    return fmtMs(ms);
+  }
+
+  // untrackedDelta() lives in $lib/yenask/timing — pure helper, see D-22.
 
   async function scrollToBottom(): Promise<void> {
     await tick();
@@ -798,6 +811,9 @@
                     <span class="text-neutral-600">
                       Extract attempts ({turn.debug.attempts_log.length}):
                     </span>
+                    <p class="mt-1 text-[10px] text-neutral-500" data-testid="yenask-debug-attempts-caption">
+                      Per-attempt timing — TTFT is recorded only when the runtime streams; current adapter round-trips, so TTFT shows — for now.
+                    </p>
                     <table class="mt-1 w-full text-[11px]" data-testid="yenask-debug-attempts">
                       <thead class="bg-neutral-50 text-left text-[10px] uppercase tracking-wide text-neutral-600">
                         <tr>
@@ -806,17 +822,26 @@
                           <th class="px-2 py-1 font-medium">tokens in</th>
                           <th class="px-2 py-1 font-medium">tokens out</th>
                           <th class="px-2 py-1 font-medium">wall</th>
+                          <th class="px-2 py-1 font-medium">encode (ms)</th>
+                          <th class="px-2 py-1 font-medium">generate (ms)</th>
+                          <th class="px-2 py-1 font-medium">decode (ms)</th>
+                          <th class="px-2 py-1 font-medium">TTFT (ms)</th>
                           <th class="px-2 py-1 font-medium">status</th>
                         </tr>
                       </thead>
                       <tbody class="divide-y divide-neutral-100">
                         {#each turn.debug.attempts_log as att (att.attempt)}
+                          {@const untracked = untrackedDelta(att)}
                           <tr>
                             <td class="px-2 py-1 tabular-nums">{att.attempt}</td>
                             <td class="px-2 py-1 tabular-nums">{att.prompt_chars.toLocaleString("en-IN")}</td>
                             <td class="px-2 py-1 tabular-nums">{fmtTokens(att.tokens_in, att.tokens_approximate)}</td>
                             <td class="px-2 py-1 tabular-nums">{fmtTokens(att.tokens_out, att.tokens_approximate)}</td>
                             <td class="px-2 py-1 tabular-nums">{fmtMs(att.wall_ms)}</td>
+                            <td class="px-2 py-1 tabular-nums text-neutral-500">{fmtMsOrDash(att.encode_ms)}</td>
+                            <td class="px-2 py-1 tabular-nums text-neutral-500">{fmtMsOrDash(att.generate_ms)}</td>
+                            <td class="px-2 py-1 tabular-nums text-neutral-500">{fmtMsOrDash(att.decode_ms)}</td>
+                            <td class="px-2 py-1 tabular-nums text-neutral-500">{fmtMsOrDash(att.ttft_ms)}</td>
                             <td class="px-2 py-1">
                               <span
                                 class="rounded px-1.5 py-0.5 text-[10px] uppercase tracking-wide {att.parse_status === 'ok' ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}"
@@ -828,6 +853,15 @@
                               {/if}
                             </td>
                           </tr>
+                          {#if untracked !== null}
+                            <tr class="text-neutral-500" data-testid="yenask-debug-attempt-untracked">
+                              <td class="px-2 py-1" colspan="5">↳ sum-invariant</td>
+                              <td class="px-2 py-1 tabular-nums" colspan="4">
+                                untracked: {fmtMs(Math.abs(untracked))}{untracked < 0 ? " (sum exceeds wall)" : ""}
+                              </td>
+                              <td class="px-2 py-1"></td>
+                            </tr>
+                          {/if}
                         {/each}
                       </tbody>
                     </table>

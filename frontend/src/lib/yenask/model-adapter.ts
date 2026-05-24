@@ -70,6 +70,22 @@ export interface GenerateOptions {
  * model output for inspection. Token counts use the pipeline's own
  * tokenizer when available (exact) and fall back to a chars/4
  * approximation when not (marked `tokens_approximate=true`).
+ *
+ * Per D-22 (Slice A) the adapter also exposes four optional finer-grained
+ * timing fields. They are `number | null` — never `0` for "unknown":
+ *
+ * - `encode_ms` — tokenize+prepare-input wall time when the SDK exposes it.
+ * - `generate_ms` — token-generation wall time when the SDK exposes it.
+ * - `decode_ms` — output-detokenize wall time when the SDK exposes it.
+ * - `ttft_ms` — time to first token when the runtime streams. NULL on
+ *   round-trip runtimes (current transformers.js path is non-streaming).
+ *
+ * The transformers.js pipeline is a black-box `Promise<unknown>` — none
+ * of the four phases are observable today. Every transformers-js call
+ * therefore reports all four as `null`. The fields ship forward-compatible
+ * so a future streaming provider (litert-mediapipe, llama.cpp-wasm) can
+ * populate them without a contract change. The Debug log surface shows
+ * `null` as `—`; the citizen footer never renders these (per D-22).
  */
 export interface GenerateResult {
   /** Assistant text, normalised from whatever shape the runtime returned. */
@@ -82,6 +98,14 @@ export interface GenerateResult {
   readonly tokens_approximate: boolean;
   /** Wall-clock time spent inside the generate() call, milliseconds. */
   readonly wall_ms: number;
+  /** Encode (tokenize+prepare) wall time, ms. NULL when SDK opaque. */
+  readonly encode_ms: number | null;
+  /** Generate (token-by-token) wall time, ms. NULL when SDK opaque. */
+  readonly generate_ms: number | null;
+  /** Decode (detokenize) wall time, ms. NULL when SDK opaque. */
+  readonly decode_ms: number | null;
+  /** Time to first token, ms. NULL on non-streaming runtimes. */
+  readonly ttft_ms: number | null;
 }
 
 // -----------------------------------------------------------------------------
@@ -258,7 +282,22 @@ class TransformersJsAdapter implements ModelAdapter {
       messages,
       text,
     );
-    return { text, tokens_in, tokens_out, tokens_approximate, wall_ms };
+    // Per D-22: transformers.js does not expose encode/generate/decode
+    // breakdown or TTFT — the pipeline is a black-box round-trip Promise.
+    // All four fields are NULL (never 0 — 0 is a measurement, null is
+    // "the SDK didn't tell us"). A future streaming provider can populate
+    // these without a contract change.
+    return {
+      text,
+      tokens_in,
+      tokens_out,
+      tokens_approximate,
+      wall_ms,
+      encode_ms: null,
+      generate_ms: null,
+      decode_ms: null,
+      ttft_ms: null,
+    };
   }
 }
 
