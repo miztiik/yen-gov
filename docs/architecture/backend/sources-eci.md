@@ -1,6 +1,6 @@
 # Backend `sources/eci/` — ECI Source Adapter
 
-**Last Updated**: 2026-05-23
+**Last Updated**: 2026-05-24
 
 `backend/yen_gov/sources/eci/` is the adapter for the Election Commission of India's surfaces. It owns URL conventions for both the live results portal (`results.eci.gov.in`) and the Statistical Reports hub (`eci.gov.in/statistical-report/...`), the HTML and XLSX parsers, and the per-page commitment about which artifact each ECI page can produce.
 
@@ -204,11 +204,17 @@ Confirmed 2026-05-13 against all 15 hand-imports: Assam-2016=126, Kerala-2016=14
 
 For state assembly panels that are already transcribed from ECI Statistical Reports, the canonical path is `python -m yen_gov ingest-eci-ae-panel <csv> --state <S##>`. The adapter reads the CSV as an operator input, filters to one ECI state code, and emits directly through the canonical `BatchEnvelope` writer. It does not create per-person JSON sidecars or legacy election-result JSON projections.
 
-For the all-states AE panel at `datasets/ephemeral/All_States_AE.csv`, ingestion proceeds state-by-state, never across states in one write. The approved 2026-05-24 rollout admits only `DelimID=3` and `DelimID=4` rows: `DelimID=3` maps to the current pre-2008 `delim_year=1976` entity cycle, and `DelimID=4` maps to `delim_year=2008`. `DelimID=1` / `DelimID=2`, pre-1977 national rows, and `Goa_Daman_&_Diu` are deferred until a dedicated historical-entity/delimitation contract exists. Operators must run the read-only preflight first:
+For the all-states AE panel at `datasets/ephemeral/All_States_AE.csv`, ingestion proceeds state-by-state, never across states in one write. The approved 2026-05-24 rollout admits only `DelimID=3` and `DelimID=4` rows: `DelimID=3` maps to the current pre-2008 `delim_year=1976` entity cycle, and `DelimID=4` maps to `delim_year=2008`. Operators must run the read-only preflight first:
 
 `python -m yen_gov ingest-eci-ae-panel --input datasets/ephemeral/All_States_AE.csv --state <S##> --delim-id 3 --delim-id 4 --dry-run`
 
 The dry-run reports rows by delimitation, registered/missing events, unresolved party tokens, and skipped rows without writing Parquet or inventory. Actual state PRs then ingest exactly one state, merge that state, and only then move to the next state. The state PR sequence and gates live in [`TODO/20260524-ae-panel-statewise-delim3-4-plan.md`](../../../TODO/20260524-ae-panel-statewise-delim3-4-plan.md).
+
+The rollout has three explicit state-token classes:
+
+- **Straight current-state tokens** are eligible for the normal one-state PR loop when the dry-run shows only the current state's rows. Telangana (`State_Name=Telangana`) is in this class: its 2014/2018 rows are already scoped to the post-formation state, while `State_Name=Andhra_Pradesh` remains separate.
+- **Filterable split-state tokens** can be ingested only for the current-state era until a historical entity exists. Andhra Pradesh is the anchor: post-2014 `State_Name=Andhra_Pradesh` rows are a valid current `S01` slice; pre-2014 rows describe undivided Andhra Pradesh and must not be written into current Andhra Pradesh or Telangana partitions.
+- **Deferred/problem tokens** are not part of the normal loop. `Madras` and `Mysore` are legacy pre-renaming tokens with no `DelimID=3/4` rows in the approved window; their successor current states are `Tamil_Nadu` and `Karnataka`. `Goa_Daman_&_Diu` is a predecessor UT, not current Goa, and needs a historical entity/delimitation contract. `Jammu_&_Kashmir` needs a separate post-2019 state/UT split decision before writing historical rows into current `U08` / Ladakh-era taxonomy.
 
 The event identity comes from `backend/yen_gov/sources/eci/events.py`, not from local string synthesis in the adapter. This keeps the backend registry, `datasets/taxonomy/election_events.json`, and frontend event picker in one contract: if the citizen can select an event, the backend knows the same `(state, year) -> event_id` pair.
 

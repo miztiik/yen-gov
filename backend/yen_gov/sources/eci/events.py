@@ -71,6 +71,12 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     ("S16", 2023): EventInfo("AcGenNov2023", False),  # Mizoram
     ("S29", 2023): EventInfo("AcGenNov2023", False),  # Telangana
 
+    # Telangana statewise AE panel backfill. The 2014 rows are already scoped
+    # to the post-formation Telangana token; undivided Andhra rows stay out of
+    # this current-state slice.
+    ("S29", 2014): EventInfo("AcGenApr2014", False),  # Telangana
+    ("S29", 2018): EventInfo("AcGenDec2018", False),  # Telangana
+
     # Historical hand-imports (2016-2023) from old.eci.gov.in Section 10
     # XLSX dumps. No live-results portal; no Statistical Report API.
     # Polling-month event_ids researched against Wikipedia/ECI archives.
