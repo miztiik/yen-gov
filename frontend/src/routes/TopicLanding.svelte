@@ -67,6 +67,25 @@
     topic ? topic.artifacts.filter(a => a.kind === "indicator") : [],
   );
 
+  // PR 7b — honor the catalogue's `default: true` flag on /t/<topic>.
+  // The headline artifact (at most one per topic per schema v1.4) is
+  // hoisted out of the grid and rendered first as a single full-width
+  // choropleth so the citizen reads the topic's "answer in one map"
+  // before the long tail of supporting indicators. The remaining
+  // artifacts render in the grid below in catalogue order, unchanged.
+  // When no artifact carries `default: true` the headline is omitted and
+  // the grid renders the full list — back-compat with pre-default-flag
+  // topics. Ties (multiple defaults) are broken by array order per the
+  // schema's "SHOULD be at most one" wording.
+  const headline_artifact = $derived<CatalogueArtifact | null>(
+    indicator_artifacts.find(a => a.default === true) ?? null,
+  );
+  const grid_artifacts = $derived<CatalogueArtifact[]>(
+    headline_artifact
+      ? indicator_artifacts.filter(a => a !== headline_artifact)
+      : indicator_artifacts,
+  );
+
   // Per-artifact peer-set state, identical pattern to StateOverview.
   // Initial values come from `?peer=<id>` (P3.3d) when present — it
   // overrides the catalogue's per-artifact default for EVERY artifact on
@@ -170,7 +189,43 @@
       </p>
     {:else}
       <div class="space-y-8">
-        {#each indicator_artifacts as artifact (artifact.id)}
+        {#if headline_artifact}
+          {@const headline_path = indicatorPathForArtifact(headline_artifact)}
+          {#if headline_path}
+            {@const headline_peer_set = peer_set_for(topic, headline_artifact)}
+            {@const headline_peer_members = resolvePeerSet(state_tiers, headline_peer_set)}
+            <section
+              class="space-y-3 pb-6 border-b border-slate-200"
+              data-testid="topic-headline-artifact"
+            >
+              <div class="flex items-center gap-2 flex-wrap">
+                <h2 class="text-lg font-semibold">{displayForArtifact(headline_artifact)}</h2>
+                <span class="ml-auto">
+                  <PeerSetFilter
+                    value={headline_peer_set}
+                    tiers={state_tiers}
+                    onChange={(next) => set_peer_set(topic, headline_artifact, next)}
+                    id_prefix={`peerset-${topic.id}-${headline_artifact.id}`}
+                  />
+                </span>
+              </div>
+              {#if renderKindForArtifact(headline_artifact) === "stacked-trend"}
+                <StackedTrendArtifact
+                  indicator_path={headline_path}
+                  mode="spatial"
+                  dimension={headline_artifact.dimension ?? "generic"}
+                />
+              {:else}
+                <IndicatorChoropleth
+                  indicator_path={headline_path}
+                  peer_set_members={headline_peer_members}
+                  height="520px"
+                />
+              {/if}
+            </section>
+          {/if}
+        {/if}
+        {#each grid_artifacts as artifact (artifact.id)}
           {@const path = indicatorPathForArtifact(artifact)}
           {#if path}
             {@const current_peer_set = peer_set_for(topic, artifact)}
