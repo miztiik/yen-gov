@@ -135,6 +135,78 @@
     ],
     "S03": [
       {
+        "event_id": "AcGenFeb1978",
+        "kind": "assembly",
+        "display": "Assam Assembly · February 1978",
+        "polled_on": "1978-02-25",
+        "term_end_estimated": "1983-02-24",
+        "data_status": "complete",
+        "notes": "126 ACs. Poll held on 25 February 1978. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb1983",
+        "kind": "assembly",
+        "display": "Assam Assembly · February 1983",
+        "polled_on": "1983-02-20",
+        "term_end_estimated": "1988-02-19",
+        "data_status": "complete",
+        "notes": "Panel carries 109 ACs for the 14-20 February 1983 election; public summaries report 114 contested seats amid Assam Movement boycott calls and violence. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenDec1985",
+        "kind": "assembly",
+        "display": "Assam Assembly · December 1985",
+        "polled_on": "1985-12-01",
+        "term_end_estimated": "1990-11-30",
+        "data_status": "complete",
+        "notes": "126 ACs. Poll held in December 1985 after the Assam Accord; public page does not expose an exact polling day, so the month-first date is used. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenJun1991",
+        "kind": "assembly",
+        "display": "Assam Assembly · June 1991",
+        "polled_on": "1991-06-08",
+        "term_end_estimated": "1996-06-07",
+        "data_status": "complete",
+        "notes": "126 ACs. Two-phase poll on 6 and 8 June 1991; event date records the final polling day rather than the panel's May month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenApr1996",
+        "kind": "assembly",
+        "display": "Assam Assembly · April 1996",
+        "polled_on": "1996-04-27",
+        "term_end_estimated": "2001-04-26",
+        "data_status": "complete",
+        "notes": "122 ACs. Poll held on 27 April 1996. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay2001",
+        "kind": "assembly",
+        "display": "Assam Assembly · May 2001",
+        "polled_on": "2001-05-10",
+        "term_end_estimated": "2006-05-09",
+        "data_status": "complete",
+        "notes": "126 ACs. Poll held on 10 May 2001. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenApr2006",
+        "kind": "assembly",
+        "display": "Assam Assembly · April 2006",
+        "polled_on": "2006-04-10",
+        "term_end_estimated": "2011-04-09",
+        "data_status": "complete",
+        "notes": "126 ACs. Two-phase poll on 3 and 10 April 2006; event date records the final polling day rather than the panel's May month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenApr2011",
+        "kind": "assembly",
+        "display": "Assam Assembly · April 2011",
+        "polled_on": "2011-04-11",
+        "term_end_estimated": "2016-04-10",
+        "data_status": "complete",
+        "notes": "126 ACs. Two-phase poll on 4 and 11 April 2011; event date records the final polling day rather than the panel's May month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenApr2016",
         "kind": "assembly",
         "display": "Assam Assembly · April 2016",
