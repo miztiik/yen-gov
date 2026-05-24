@@ -26,19 +26,25 @@ import json
 from pathlib import Path
 
 
-# 6 source_ids verified at P.1.A C3 (`624852ff`). DO NOT re-derive these
-# in the adapter — the citation ledger is the source of truth, and the
-# writer's FK gate verifies each appears in ``datasets/taxonomy/sources.parquet``
+# 6 source_ids verified at P.1.A C3 (`624852ff`) + 1 added at P.1.A C4.6
+# (RBI Handbook Table 140 long-arc splice). DO NOT re-derive these in the
+# adapter — the citation ledger is the source of truth, and the writer's
+# FK gate verifies each appears in ``datasets/taxonomy/sources.parquet``
 # before observation rows touch disk. If a future PR changes the source
 # triple (`producer | title | vintage`) for any of these, the hash will
 # rotate and BOTH the catalogue + this constant must update together.
 SOURCE_IDS: dict[str, str] = {
-    "cea_monthly_ic":          "src-092a5dc7af3f",
-    "iced_capacity_metatable": "src-ba5c6fa6acfe",
-    "iced_deep_dive":          "src-be6a6d5d6493",
-    "iced_gen_metatable":      "src-b60ed70f19d8",
-    "rbi_hbk_142_peak_demand": "src-99ac1fee8a50",
-    "rbi_hbk_142_peak_met":    "src-9c02616a7166",
+    "cea_monthly_ic":                "src-092a5dc7af3f",
+    "iced_capacity_metatable":       "src-ba5c6fa6acfe",
+    "iced_deep_dive":                "src-be6a6d5d6493",
+    "iced_gen_metatable":            "src-b60ed70f19d8",
+    "rbi_hbk_142_peak_demand":       "src-99ac1fee8a50",
+    "rbi_hbk_142_peak_met":          "src-9c02616a7166",
+    # P.1.A C4.6 (RBI Handbook Table 140 long-arc FY05-FY14 splice).
+    # Derived via derive_source_id("Reserve Bank of India",
+    # "Handbook of Statistics on Indian States — Table 140: State-wise
+    # Installed Capacity of Power", "2024-25").
+    "rbi_hbk_140_installed_capacity": "src-3d1d55f8a94b",
 }
 
 

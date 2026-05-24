@@ -1,9 +1,10 @@
-"""Seed the 6 energy citation rows into ``taxonomy/sources.parquet``.
+"""Seed the 7 energy citation rows into ``taxonomy/sources.parquet``.
 
-P.1.A consumes 6 distinct upstreams (1 CEA + 3 ICED endpoints + 2 RBI
-Handbook tables). Each gets a citation row in the sources ledger so
-every emitted observation in P.1.A can FK to a real ``source_id`` per
-Holy Law #9 + ADR-0032.
+P.1.A consumes 7 distinct upstreams (1 CEA + 3 ICED endpoints + 3 RBI
+Handbook tables: Table 142 peak-demand + Table 142 peak-met + Table 140
+installed-capacity long-arc added at C4.6). Each gets a citation row in
+the sources ledger so every emitted observation in P.1.A can FK to a
+real ``source_id`` per Holy Law #9 + ADR-0032.
 
 Pattern mirrors ``boundary_layers_seed.upsert_boundary_sources`` (T.0d):
 INSERT-OR-REPLACE keyed on ``source_id`` so multiple subsystems can
@@ -11,12 +12,14 @@ upsert their rows into the same in-memory ``sources`` table before the
 final COPY to parquet.
 
 ``derive_source_id(producer, title, vintage)`` is the only way to compute
-``source_id`` -- NEVER hand-author (CLAUDE.md §10 + ADR-0032). The 6
+``source_id`` -- NEVER hand-author (CLAUDE.md §10 + ADR-0032). The 7
 expected hashes are baked into ``datasets/taxonomy/indicators.json`` at
-C1 commit; if a triple is edited here, those FKs go dangling and the
-catalogue compile fails closed.
+C1 commit (6 rows) + C4.6 commit (7th, RBI Table 140); if a triple is
+edited here, those FKs go dangling and the catalogue compile fails
+closed.
 
-P.1.A C3 seed (2026-05-22).
+P.1.A C3 seed (2026-05-22); RBI Table 140 long-arc citation added at
+P.1.A C4.6 (2026-05-24).
 """
 
 from __future__ import annotations
@@ -37,7 +40,7 @@ __all__ = [
 ]
 
 
-# Operator nicknames for the 6 energy P.1.A sources. Adapters look up
+# Operator nicknames for the 7 energy P.1.A sources. Adapters look up
 # the materialised source_id by nickname rather than rebuilding the
 # triple-hash each time.
 SOURCE_NICKNAMES: tuple[str, ...] = (
@@ -47,6 +50,7 @@ SOURCE_NICKNAMES: tuple[str, ...] = (
     "iced_gen_metatable",
     "rbi_hbk_142_peak_demand",
     "rbi_hbk_142_peak_met",
+    "rbi_hbk_140_installed_capacity",
 )
 
 
@@ -83,6 +87,11 @@ _TRIPLES: dict[str, tuple[str, str, str]] = {
     "rbi_hbk_142_peak_met": (
         "Reserve Bank of India",
         "Handbook of Statistics on Indian States \u2014 Table 142: State-wise Actual Power Supply Position \u2014 Peak Met",
+        "2024-25",
+    ),
+    "rbi_hbk_140_installed_capacity": (
+        "Reserve Bank of India",
+        "Handbook of Statistics on Indian States \u2014 Table 140: State-wise Installed Capacity of Power",
         "2024-25",
     ),
 }
@@ -153,6 +162,14 @@ _BY_NICKNAME: dict[str, tuple[str, str, str, bool, str, str | None]] = {
         "https://rbi.org.in/Scripts/PublicationsView.aspx?id=22512",
         "RBI Handbook of Statistics on Indian States Table 142: 12-year state-wise peak-supplied series. Originating data: Central Electricity Authority, Ministry of Power (per the file disclosure). RBI is the longitudinal republisher; not the issuing authority for the underlying fact (plan-doc §3 Q-d).",
     ),
+    "rbi_hbk_140_installed_capacity": (
+        "OGL-IN-1.0",
+        "silver",
+        "archived-snapshot",
+        False,
+        "https://rbi.org.in/Scripts/PublicationsView.aspx?id=22512",
+        "RBI Handbook of Statistics on Indian States Table 140: long-arc state-wise installed-capacity series (FY05 onwards). Originating data: Central Electricity Authority, Ministry of Power (per the file disclosure). RBI is the longitudinal republisher; not the issuing authority for the underlying fact (plan-doc §3 Q-d). Used at P.1.A C4.6 to splice FY05-FY14 history onto state-installed-capacity-allocated-mw, whose ICED source (`iced_deep_dive`) only covers FY15-FY25.",
+    ),
 }
 
 
@@ -187,12 +204,12 @@ ENERGY_SOURCE_ID_BY_NICKNAME: dict[str, str] = {
 
 
 def upsert_energy_sources(con: duckdb.DuckDBPyConnection) -> int:
-    """Idempotent INSERT-OR-REPLACE of the 6 energy citation rows into the
+    """Idempotent INSERT-OR-REPLACE of the 7 energy citation rows into the
     in-memory ``sources`` DuckDB table.
 
     Caller is responsible for creating the ``sources`` table first and
     for emitting the table back to ``taxonomy/sources.parquet`` after.
-    Returns the number of rows upserted (always 6 today).
+    Returns the number of rows upserted (always 7 today).
     """
     upserted = 0
     for row in ENERGY_SOURCES:
@@ -246,12 +263,12 @@ def upsert_energy_sources_to_parquet(sources_parquet: Path) -> int:
     """Read-modify-write wrapper around :func:`upsert_energy_sources`.
 
     Opens an in-memory DuckDB, loads the existing
-    ``taxonomy/sources.parquet`` (if any), upserts the 6 energy
+    ``taxonomy/sources.parquet`` (if any), upserts the 7 energy
     citation rows, writes the parquet back. Used by the
     ``emit-taxonomy`` orchestrator after office_holdings_seed has
     already written the wiki citation rows for the CM offices.
 
-    Returns the number of rows upserted (always 6 today). Idempotent --
+    Returns the number of rows upserted (always 7 today). Idempotent --
     re-running yields byte-identical output.
     """
     sources_parquet = Path(sources_parquet)

@@ -1,6 +1,6 @@
 """Installed capacity envelope — ``energy_installed_capacity.parquet``.
 
-Lifts 7 legacy shards into a single BatchEnvelope:
+Lifts 8 legacy shards into a single BatchEnvelope:
 
 * 5 CEA per-fuel per-state shards
   (``installed_capacity_{coal,gas,hydro,nuclear,renewable}_mw.json``)
@@ -15,7 +15,19 @@ Lifts 7 legacy shards into a single BatchEnvelope:
   → ``state-installed-capacity-geographical-mw-{fuel}`` (after sub-fuel
   collapse to canonical 5).
 * ``state_installed_capacity_with_alloc_mw.json`` (396 rows)
-  → ``state-installed-capacity-allocated-mw`` (parent, publisher total).
+  → ``state-installed-capacity-allocated-mw`` (parent, publisher total,
+  FY15-FY25, source_id=iced_deep_dive).
+* ``state_installed_capacity_total_mw.json`` (374 pre-FY15 rows)
+  → ``state-installed-capacity-allocated-mw`` (parent, RBI Handbook
+  Table 140 long-arc splice, FY05-FY14, source_id=rbi_hbk_140_installed_capacity).
+  Added P.1.A C4.6 per plan-doc 20260522 §3 Q-c verdict (Option 1 SPLICE).
+  Pre-FY15 rows have no fuel_type field in the ObservationRow (the
+  schema has no such field; fuel granularity is encoded in indicator_id,
+  and the parent ``state-installed-capacity-allocated-mw`` is the
+  publisher-total indicator that carries both ICED post-FY15 and RBI
+  pre-FY15 rows). methodology_break row
+  ``rbi-handbook-aggregate-no-fuel-split-pre-fy15`` documents the basis
+  change at FY15 and the absence of per-fuel splits in the RBI portion.
 
 DELIBERATELY NOT LIFTED:
 * ``installed_capacity_{thermal,total}_mw.json`` — D33.8 hard drop, the
@@ -164,6 +176,39 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             indicator_id="state-installed-capacity-allocated-mw",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["iced_deep_dive"],
+            derivation="raw",
+        ))
+
+    # 5. state_installed_capacity_total_mw.json (RBI Handbook Table 140
+    #    long-arc splice, pre-FY15 only).
+    #    → state-installed-capacity-allocated-mw (parent, FY05-FY14)
+    #    P.1.A C4.6: extends the publisher-total indicator backward 11
+    #    fiscal years. Per plan-doc 20260522 §3 Q-c verdict, RBI Handbook
+    #    Table 140 is the long-arc canonical for pre-FY15 state
+    #    installed-capacity history. The shard carries 712 rows spanning
+    #    2004-04..2024-04; we accept ONLY rows with time < "2015-04" here
+    #    to avoid double-counting against block 4 (ICED Deep Dive, which
+    #    already covers FY15 onwards). Citation row
+    #    rbi_hbk_140_installed_capacity carries the silver tier (Q-d:
+    #    RBI republishes CEA's underlying numbers); the methodology break
+    #    row rbi-handbook-aggregate-no-fuel-split-pre-fy15 documents BOTH
+    #    the basis transition at FY15 and the absence of per-fuel splits
+    #    in the RBI portion. Shard has NO "IN" national-aggregate row
+    #    (verified by inspection 2026-05-24 at lift-prep); the parent
+    #    indicator carries only state/UT rows in this slice.
+    shard = load_shard(repo_root, "state_installed_capacity_total_mw.json")
+    for r in shard["rows"]:
+        if r["time"] >= "2015-04":
+            continue  # ICED Deep Dive (block 4) owns FY15+ rows.
+        period_label, year, period_seq = parse_iso_period(r["time"])
+        rows.append(ObservationRow(
+            entity_id=to_entity_id(r["entity_id"]),
+            year=year,
+            period_label=period_label,
+            period_seq=period_seq,
+            indicator_id="state-installed-capacity-allocated-mw",
+            value_numeric=float(r["value"]),
+            source_id=SOURCE_IDS["rbi_hbk_140_installed_capacity"],
             derivation="raw",
         ))
 
