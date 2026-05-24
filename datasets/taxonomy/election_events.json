@@ -1658,6 +1658,87 @@
     ],
     "S17": [
       {
+        "event_id": "AcGenNov1977",
+        "kind": "assembly",
+        "display": "Nagaland Assembly · November 1977",
+        "polled_on": "1977-11-18",
+        "term_end_estimated": "1982-11-17",
+        "data_status": "complete",
+        "notes": "60 ACs. Poll held on 18 November 1977. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov1982",
+        "kind": "assembly",
+        "display": "Nagaland Assembly · November 1982",
+        "polled_on": "1982-11-10",
+        "term_end_estimated": "1987-11-09",
+        "data_status": "complete",
+        "notes": "60 ACs. Poll held on 10 November 1982. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov1987",
+        "kind": "assembly",
+        "display": "Nagaland Assembly · November 1987",
+        "polled_on": "1987-11-18",
+        "term_end_estimated": "1992-11-17",
+        "data_status": "complete",
+        "notes": "60 ACs. Poll held on 18 November 1987. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenJan1989",
+        "kind": "assembly",
+        "display": "Nagaland Assembly · January 1989",
+        "polled_on": "1989-01-21",
+        "term_end_estimated": "1994-01-20",
+        "data_status": "complete",
+        "notes": "60 ACs. Public source records polling on 21 January 1989; event id follows the public polling month rather than the panel's counting-month value. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb1993",
+        "kind": "assembly",
+        "display": "Nagaland Assembly · February 1993",
+        "polled_on": "1993-02-15",
+        "term_end_estimated": "1998-02-14",
+        "data_status": "complete",
+        "notes": "60 ACs. Poll held on 15 February 1993. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb1998",
+        "kind": "assembly",
+        "display": "Nagaland Assembly · February 1998",
+        "polled_on": "1998-02-23",
+        "term_end_estimated": "2003-02-22",
+        "data_status": "complete",
+        "notes": "60 ACs. Poll held on 23 February 1998; many candidates were elected unopposed. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb2003",
+        "kind": "assembly",
+        "display": "Nagaland Assembly · February 2003",
+        "polled_on": "2003-02-26",
+        "term_end_estimated": "2008-02-25",
+        "data_status": "complete",
+        "notes": "60 ACs. Poll held on 26 February 2003. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMar2008",
+        "kind": "assembly",
+        "display": "Nagaland Assembly · March 2008",
+        "polled_on": "2008-03-05",
+        "term_end_estimated": "2013-03-04",
+        "data_status": "complete",
+        "notes": "60 ACs. Poll held on 5 March 2008. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenFeb2013",
+        "kind": "assembly",
+        "display": "Nagaland Assembly · February 2013",
+        "polled_on": "2013-02-23",
+        "term_end_estimated": "2018-02-22",
+        "data_status": "complete",
+        "notes": "60 ACs. Poll held on 23 February 2013. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenFeb2018",
         "kind": "assembly",
         "display": "Nagaland Assembly · February 2018",
