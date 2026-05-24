@@ -9,6 +9,10 @@ How the bundle finds its data is covered in [data loading](data-loading.md). The
 - [Psephlab](psephlab.md) — what-if simulator (vote mutations + pluggable counting rules).
 - [Map](map.md) — MapLibre GL cartography (state / district / AC choropleths, future socio-economic overlays).
 
+Dev-only labs (mounted under `/dev/`, not part of the citizen IA):
+
+- [Yenask](yenask.md) — browser governance insight assistant. Citizen question → InsightIntent (model-extracted) → DuckDB-WASM query → AnswerViewModel. Runs entirely in-browser; no backend.
+
 The dev/ops surface is its own application, not part of the public bundle: see [admin overview](../admin/overview.md).
 
 This page covers personas, information architecture, the visualization catalog, the stack, and routing.
