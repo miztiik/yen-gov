@@ -417,6 +417,94 @@ FACET_AXES: list[FacetAxis] = [
             ),
         ],
     ),
+    # ------------------------------------------------------------------
+    # P.1.B (DISCOM finance + demand/supply lift).
+    # ------------------------------------------------------------------
+    FacetAxis(
+        axis_id="efficiency_dimension",
+        label="Distribution efficiency dimension",
+        description=(
+            "Decomposes overall distribution efficiency into its three "
+            "ICED-published sub-indicators: billing efficiency, collection "
+            "efficiency, and T&D loss. The first two multiply (after "
+            "rescaling) to give the commercial half of AT&C losses; the "
+            "third is the technical half. allow_compute_on_read_total is "
+            "False because percentages are not additive across dimensions."
+        ),
+        allow_compute_on_read_total=False,
+        values=[
+            FacetAxisValue(
+                value_id="billing",
+                label="Billing efficiency",
+                description=(
+                    "Share of energy actually billed to a consumer, out of "
+                    "total energy input to the distribution system. "
+                    "100% = every kWh that enters the grid was billed."
+                ),
+            ),
+            FacetAxisValue(
+                value_id="collection",
+                label="Collection efficiency",
+                description=(
+                    "Share of billed revenue actually collected from "
+                    "consumers. 100% = every rupee billed was paid."
+                ),
+            ),
+            FacetAxisValue(
+                value_id="td_loss",
+                label="T&D loss",
+                description=(
+                    "Transmission and Distribution loss as % of energy "
+                    "input -- the technical half of AT&C losses (heat / "
+                    "ageing / unmetered consumption losses on the wires)."
+                ),
+            ),
+        ],
+    ),
+    FacetAxis(
+        axis_id="rpo_segment",
+        label="RPO compliance segment",
+        description=(
+            "Three-segment decomposition of state Renewable Purchase "
+            "Obligation compliance: solar (solar-specific RPO target), "
+            "non-solar (other-renewables RPO target), total (combined). "
+            "Targets and compliance are reported separately by ICED for "
+            "each segment; the total is NOT the sum of the parts (it is "
+            "the combined-target compliance ratio), so "
+            "allow_compute_on_read_total is False."
+        ),
+        allow_compute_on_read_total=False,
+        values=[
+            FacetAxisValue(
+                value_id="solar",
+                label="Solar RPO",
+                description=(
+                    "Compliance with the solar-specific portion of the "
+                    "state's Renewable Purchase Obligation target."
+                ),
+            ),
+            FacetAxisValue(
+                value_id="non_solar",
+                label="Non-solar RPO",
+                description=(
+                    "Compliance with the non-solar (wind + biomass + "
+                    "small-hydro) portion of the state's RPO target. "
+                    "Legacy shard uses the hyphenated label 'non-solar' "
+                    "on its `facet` field; the canonical value_id uses "
+                    "snake_case per the facet-axes value_id regex."
+                ),
+            ),
+            FacetAxisValue(
+                value_id="total",
+                label="Total RPO",
+                description=(
+                    "Combined-target RPO compliance (NOT the sum of solar "
+                    "+ non-solar -- the combined target is its own "
+                    "regulatory ratio)."
+                ),
+            ),
+        ],
+    ),
 ]
 
 

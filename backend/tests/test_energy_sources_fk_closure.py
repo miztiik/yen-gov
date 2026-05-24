@@ -67,17 +67,25 @@ def test_every_observation_source_id_resolves(stem: str) -> None:
     )
 
 
-def test_all_six_p1a_energy_source_ids_present() -> None:
-    """Sanity: the 6 energy citation triples seeded at P.1.A C3 all made it
-    into sources.parquet. If this fails, ``emit-taxonomy`` did not run
+def test_all_p1a_p1b_energy_source_ids_present() -> None:
+    """Sanity: the 12 energy citation triples (7 P.1.A + 5 P.1.B) all made
+    it into sources.parquet. If this fails, ``emit-taxonomy`` did not run
     ``_upsert_energy_sources`` or the citation hashes drifted upstream."""
     expected = {
+        # P.1.A (7)
         "src-092a5dc7af3f",  # CEA Monthly Executive Summary on Power Sector
         "src-ba5c6fa6acfe",  # ICED capacity-metatable-data
-        "src-be6a6d5d6493",  # ICED Deep Dive (per-capita + ATC + sales)
+        "src-be6a6d5d6493",  # ICED Deep Dive (per-capita + ATC + sales + ACS-ARR)
         "src-b60ed70f19d8",  # ICED gen-metatable-data
         "src-99ac1fee8a50",  # RBI Hbk Table 142 — Peak Demand
         "src-9c02616a7166",  # RBI Hbk Table 142 — Peak Met
+        "src-3d1d55f8a94b",  # RBI Hbk Table 140 — Installed Capacity
+        # P.1.B (5) — DISCOM finance + demand/supply lift.
+        "src-cead8f51df6f",  # ICED distribution-perf (billing/collection/td-loss)
+        "src-ca061b1b0adf",  # ICED distribution-RPO (solar/non-solar/total)
+        "src-f7ce9960caba",  # RBI Hbk Table 141 — Power Requirement
+        "src-97a3c47d092f",  # RBI Hbk Table 139 — Power Availability
+        "src-9a38005d8713",  # RBI Hbk Table 138 — Per-Capita Availability
     }
     con = duckdb.connect(":memory:")
     try:
@@ -92,6 +100,7 @@ def test_all_six_p1a_energy_source_ids_present() -> None:
         con.close()
     missing = expected - present
     assert not missing, (
-        f"taxonomy/sources.parquet missing {len(missing)} of the 6 P.1.A energy "
-        f"citation rows: {sorted(missing)!r}. Re-run `python -m yen_gov emit-taxonomy --root .`"
+        f"taxonomy/sources.parquet missing {len(missing)} of the 12 P.1.A+P.1.B "
+        f"energy citation rows: {sorted(missing)!r}. Re-run "
+        f"`python -m yen_gov emit-taxonomy --root .`"
     )

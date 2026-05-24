@@ -1,9 +1,9 @@
 """Tier-A tests for ``yen_gov.canonical.energy_sources_seed``.
 
 Per CLAUDE.md §15: operates on ``tmp_path`` (or builds in-memory DuckDB).
-Asserts the 7 source_id hashes match the values baked into
-``datasets/taxonomy/indicators.json`` at C1 commit (6 rows) + the C4.6
-long-arc splice commit (7th, RBI Table 140) + the UPSERT idempotency.
+Asserts the 12 source_id hashes (7 P.1.A + 5 P.1.B) match the values
+baked into ``datasets/taxonomy/indicators.json`` and the UPSERT
+idempotency.
 """
 
 from __future__ import annotations
@@ -21,19 +21,20 @@ from yen_gov.canonical.energy_sources_seed import (
 )
 
 
-def test_seven_sources_built():
-    """Exactly 7 sources: 1 CEA + 3 ICED + 3 RBI (peak-demand + peak-met +
-    installed-capacity long-arc added at C4.6)."""
-    assert len(ENERGY_SOURCES) == 7
-    assert len(SOURCE_NICKNAMES) == 7
+def test_twelve_sources_built():
+    """Exactly 12 sources: 7 P.1.A (1 CEA + 3 ICED + 3 RBI) +
+    5 P.1.B (2 ICED distribution + 3 RBI Handbook)."""
+    assert len(ENERGY_SOURCES) == 12
+    assert len(SOURCE_NICKNAMES) == 12
     assert set(ENERGY_SOURCE_ID_BY_NICKNAME) == set(SOURCE_NICKNAMES)
 
 
 def test_source_id_hashes_match_catalogue_fks():
-    """The 7 derive_source_id outputs MUST match the values C1 + C4.6 baked
-    into indicators.json as the per-child source_id FKs. If a triple
-    drifts here, every energy catalogue row's FK goes dangling."""
+    """The 12 derive_source_id outputs MUST match the values baked into
+    indicators.json as the per-child source_id FKs. If a triple drifts
+    here, every energy catalogue row's FK goes dangling."""
     expected = {
+        # P.1.A (7)
         "cea_monthly_ic": "src-092a5dc7af3f",
         "iced_capacity_metatable": "src-ba5c6fa6acfe",
         "iced_deep_dive": "src-be6a6d5d6493",
@@ -41,11 +42,17 @@ def test_source_id_hashes_match_catalogue_fks():
         "rbi_hbk_142_peak_demand": "src-99ac1fee8a50",
         "rbi_hbk_142_peak_met": "src-9c02616a7166",
         "rbi_hbk_140_installed_capacity": "src-3d1d55f8a94b",
+        # P.1.B (5) — DISCOM finance + demand/supply lift.
+        "iced_distribution_perf": "src-cead8f51df6f",
+        "iced_distribution_rpo": "src-ca061b1b0adf",
+        "rbi_hbk_141_power_requirement": "src-f7ce9960caba",
+        "rbi_hbk_139_power_availability": "src-97a3c47d092f",
+        "rbi_hbk_138_per_capita_availability": "src-9a38005d8713",
     }
     for nickname, src_id in expected.items():
         assert ENERGY_SOURCE_ID_BY_NICKNAME[nickname] == src_id, (
             f"source_id drift for {nickname!r}: producer/title/vintage triple "
-            f"changed since C1 commit. Either roll back the triple change or "
+            f"changed since seed. Either roll back the triple change or "
             f"re-derive and update indicators.json source_id FKs same-commit."
         )
 
@@ -71,6 +78,12 @@ def test_license_tier_authority_invariants():
         "iced_capacity_metatable",
         "iced_deep_dive",
         "iced_gen_metatable",
+        # P.1.B ICED endpoints — same silver / not-authority / live-fetch
+        # classification as the P.1.A ICED rows. The distribution-perf +
+        # RPO-compliance APIs republish state-regulator data, not the
+        # issuing authority's primary record.
+        "iced_distribution_perf",
+        "iced_distribution_rpo",
     ):
         row = by_nick[nick]
         assert row.confidence_tier == "silver", nick
@@ -88,6 +101,14 @@ def test_license_tier_authority_invariants():
         "rbi_hbk_142_peak_demand",
         "rbi_hbk_142_peak_met",
         "rbi_hbk_140_installed_capacity",
+        # P.1.B RBI Handbook tables — same silver / not-authority /
+        # archived-snapshot classification as the P.1.A RBI rows. Tables
+        # 138 / 139 / 141 republish CEA originating data ("Originating
+        # data: Central Electricity Authority, Ministry of Power"
+        # verbatim on every affected file).
+        "rbi_hbk_138_per_capita_availability",
+        "rbi_hbk_139_power_availability",
+        "rbi_hbk_141_power_requirement",
     ):
         row = by_nick[nick]
         assert row.confidence_tier == "silver", nick
@@ -119,27 +140,27 @@ def _create_sources_table(con: duckdb.DuckDBPyConnection) -> None:
     )
 
 
-def test_upsert_into_empty_table_writes_seven_rows():
+def test_upsert_into_empty_table_writes_twelve_rows():
     con = duckdb.connect(":memory:")
     try:
         _create_sources_table(con)
         n = upsert_energy_sources(con)
-        assert n == 7
+        assert n == 12
         count = con.execute("SELECT COUNT(*) FROM sources").fetchone()[0]
-        assert count == 7
+        assert count == 12
     finally:
         con.close()
 
 
 def test_upsert_is_idempotent():
-    """Running twice yields the same 7 rows (not 14)."""
+    """Running twice yields the same 12 rows (not 24)."""
     con = duckdb.connect(":memory:")
     try:
         _create_sources_table(con)
         upsert_energy_sources(con)
         upsert_energy_sources(con)
         count = con.execute("SELECT COUNT(*) FROM sources").fetchone()[0]
-        assert count == 7
+        assert count == 12
     finally:
         con.close()
 
@@ -148,7 +169,7 @@ def test_upsert_to_parquet_creates_file_when_absent(tmp_path: Path):
     target = tmp_path / "sources.parquet"
     assert not target.exists()
     n = upsert_energy_sources_to_parquet(target)
-    assert n == 7
+    assert n == 12
     assert target.is_file()
     con = duckdb.connect()
     try:
@@ -157,7 +178,7 @@ def test_upsert_to_parquet_creates_file_when_absent(tmp_path: Path):
         ).fetchone()[0]
     finally:
         con.close()
-    assert count == 7
+    assert count == 12
 
 
 def test_upsert_to_parquet_preserves_existing_rows(tmp_path: Path):
@@ -191,7 +212,7 @@ def test_upsert_to_parquet_preserves_existing_rows(tmp_path: Path):
         pre.close()
 
     n = upsert_energy_sources_to_parquet(target)
-    assert n == 7
+    assert n == 12
 
     con = duckdb.connect()
     try:
@@ -203,11 +224,11 @@ def test_upsert_to_parquet_preserves_existing_rows(tmp_path: Path):
 
     src_ids = [r[0] for r in rows]
     assert "src-aaaaaaaaaaaa" in src_ids
-    assert len(src_ids) == 8  # 1 pre-existing + 7 energy
+    assert len(src_ids) == 13  # 1 pre-existing + 12 energy
 
 
 def test_upsert_to_parquet_is_idempotent(tmp_path: Path):
-    """Two consecutive calls yield the same 7-row parquet (byte-identical)."""
+    """Two consecutive calls yield the same 12-row parquet (byte-identical)."""
     target = tmp_path / "sources.parquet"
     upsert_energy_sources_to_parquet(target)
     bytes_a = target.read_bytes()

@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.3",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-24T18:28:23Z",
+  "generated_at": "2026-05-24T20:04:17Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -311,11 +311,11 @@
       "files": [
         {
           "path": "energy/energy_demand_supply.parquet",
-          "size_bytes": 97117,
-          "row_count": 1351
+          "size_bytes": 242308,
+          "row_count": 3369
         }
       ],
-      "row_count_total": 1351
+      "row_count_total": 3369
     },
     {
       "table_id": "energy.energy_distribution_performance",
@@ -328,11 +328,11 @@
       "files": [
         {
           "path": "energy/energy_distribution_performance.parquet",
-          "size_bytes": 52273,
-          "row_count": 700
+          "size_bytes": 207879,
+          "row_count": 2889
         }
       ],
-      "row_count_total": 700
+      "row_count_total": 2889
     },
     {
       "table_id": "elections.dim_acs",
@@ -447,11 +447,11 @@
       "files": [
         {
           "path": "taxonomy/indicators.parquet",
-          "size_bytes": 19963,
-          "row_count": 65
+          "size_bytes": 24565,
+          "row_count": 77
         }
       ],
-      "row_count_total": 65
+      "row_count_total": 77
     },
     {
       "table_id": "taxonomy.methodology_breaks",
@@ -464,11 +464,11 @@
       "files": [
         {
           "path": "taxonomy/methodology_breaks.parquet",
-          "size_bytes": 4471,
-          "row_count": 4
+          "size_bytes": 5236,
+          "row_count": 5
         }
       ],
-      "row_count_total": 4
+      "row_count_total": 5
     },
     {
       "table_id": "taxonomy.persons",
@@ -498,11 +498,11 @@
       "files": [
         {
           "path": "taxonomy/sources.parquet",
-          "size_bytes": 17757,
-          "row_count": 352
+          "size_bytes": 18698,
+          "row_count": 357
         }
       ],
-      "row_count_total": 352
+      "row_count_total": 357
     }
   ],
   "deprecations": [
