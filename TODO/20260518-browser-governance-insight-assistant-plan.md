@@ -1076,6 +1076,28 @@ Size unit promotes at 1 GB (one decimal: `~1.4 GB` not `~1400 MB`); mixed units 
 
 **Where it binds**: `frontend/src/lib/yenask/model-registry.ts` (`DEFAULT_MODEL_ID` flip; 135M `estimated_download_mb` correction; 360M new entry — entry shape unchanged), `frontend/src/lib/yenask/model-registry.test.ts` (asserts the three values above), `docs/architecture/frontend/yenask.md` (Model registry section's "Current seed" callout updated to 360M with cross-link to D-26).
 
+### D-27 — Slice A SHIPPED (PR #225, merge `04cbbad2`): per-attempt timing observability landed; transformers.js returns null for all 4 phases (black-box round-trip)
+
+**Date**: 2026-05-24. **PR**: #225 (merged `04cbbad2` at 2026-05-24T19:18:26Z). **Source**: execution of D-22 Jony AMEND verdict.
+
+**What was decided** (now history): the four optional `number | null` phase-timing fields (`encode_ms`, `generate_ms`, `decode_ms`, `ttft_ms`) added to `GenerateResult` AND `ExtractAttempt`; transformers.js adapter returns `null` for all four (black-box round-trip — no streaming, no first-token callback, no per-phase observability in the SDK); Debug log table on `/dev/yenask` gained 4 new columns + caption (verbatim Jony copy: *"Per-attempt timing — TTFT is recorded only when the runtime streams; current adapter round-trips, so TTFT shows — for now."*) + sum-invariant footer row rendering `untracked: <N>ms` when `(wall_ms - sum) ≥ max(5ms, 10% of wall_ms)`.
+
+**Implementation decisions made during execution** (not in the original D-22 brief):
+- `untrackedDelta()` extracted to new `frontend/src/lib/yenask/timing.ts` (pure-function module, no I/O) so it can be unit-tested in isolation — 11 vitest cases cover null inputs, threshold floor (5ms), threshold ceiling (10% of wall), positive delta, negative delta (phases overlap exceeding wall), measured-zero-is-not-null.
+- Failure-table (`yenask-debug-failure-attempts`) intentionally left at 5 columns — failure rows have all-null phase timings by definition (no SDK response to derive from); the `parse_status` + `parse_error` are the operator signal there.
+- Generate-error attempts (adapter `throw`) set all 4 phase fields to `null` (mirrors the success path's null-for-transformers-js shape).
+- `extract-intent.test.ts` `asResult()` test helper extended with all 4 nulls (faithful to the contract — TS didn't require it but mirroring shape makes plumbing assertions meaningful).
+- New `model-adapter.test.ts` case asserts the four are null on the transformers-js path; new `extract-intent.test.ts` case asserts plumb-through for BOTH null and populated SDK responses (forward-looking — when a future provider seam reports real numbers, the existing call sites already preserve them).
+
+**Gates that proved it green**:
+- vitest: 102 files / 1826 passed / 6 skipped / 0 failed (+14 new cases: 11 timing, 1 model-adapter, 2 extract-intent).
+- svelte-check: 1 error / 7 warnings — ALL PRE-EXISTING (verified via stash + re-run at HEAD; the error is the known `@huggingface/transformers` dynamic-import type-resolution pattern; runtime resolves fine post-`bun install`).
+- §13 browser smoke on `http://localhost:5173/dev/yenask`: page loads cleanly; canned starter prompt renders answer table + Per-turn details (concept/slices/SQL/provenance); no new console errors. New Debug log columns + footer only render for free-text turns (canned intents skip extract by design); vitest covers the rendering logic.
+
+**Where it landed**: `frontend/src/lib/yenask/{model-adapter,extract-intent,timing}.ts` + 3 test files + `frontend/src/routes/Yenask.svelte`. 7 files changed, +379 / -1.
+
+**Status as of this entry**: Slice A SHIPPED. Slice B (PR-5), Slice C (PR-6), Slice D-1 (PR-7) remain queued in the same convergent-panel verdict from D-22..D-26. Slice D-2 (deterministic intent-router) remains DEFERRED per Fowler — needs published `attempts_log` evidence of single-stage extraction failures on free text before architecting a second stage; rule-of-three-before-abstraction fires hard at 4 concepts and zero failure-mode data.
+
 ### Decision-log conventions
 
 - New entries append at the END of this section with the next `D-NN` ID.
