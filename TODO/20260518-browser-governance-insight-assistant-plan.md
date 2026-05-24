@@ -691,6 +691,77 @@ This section is the **running journal of every implementation decision**, with r
 
 This is not a chat log. Each entry MUST capture: (1) what was decided, (2) what was rejected and why, (3) what the trade-off was, (4) where in the codebase the decision binds.
 
+### Sprint status — 2026-05-24 (ABCD complete; handoff snapshot)
+
+This snapshot is the LEAN view for the next planner. The detailed `D-NN` entries below are the git-blame trail; this block tells you what's done, what's left, what trade-offs are locked, and where each decision now lives.
+
+#### ✅ DONE (shipped on `main` 2026-05-24)
+
+| Slice | PR | Merge SHA | What it shipped | Decomposed home |
+| --- | --- | --- | --- | --- |
+| Phase 1 (compile pipeline + 4 canned intents + Holy Law #9 source-strip) | PR #209..#216 | various | `compileIntent` pure function, `executePlan`, Zod contracts, semantic-catalogue loader, 4 canned intents | [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) (Module layout, Contracts, Pipeline sections) |
+| Phase 2 PR-2 (chat surface + real model load) | PR-2 | — | `/dev/yenask` chat surface, transformers.js adapter, validate-or-retry loop, `SmolLM2-135M` seed | [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) (Model adapter readiness state machine) |
+| Phase 2 PR-3 (debug surface + token observability) | PR-3 (`63a62a4e`) | `63a62a4e` | Token in/out + wall_ms per attempt; Debug log section; SQL/raw-output moved out of citizen turn | [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) (Observability surface) |
+| **Slice A** — per-attempt phase timing observability (encode / generate / decode / TTFT) | **#225** | **`04cbbad2`** | 4 nullable phase-timing fields plumbed through `GenerateResult` + `ExtractAttempt`; `untrackedDelta()` invariant; Debug-log columns; transformers.js returns `null` for all 4 (black-box round-trip) | D-22, D-27 → [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) (Observability surface) |
+| **Slice B** — per-row model picker + Cache Storage API cleanup | **#227** | (see git log) | Persistent `localStorage` model selection; per-row "Remove from cache" with two-step inline confirm; `model-cache.ts` wrapper around Cache Storage API with optional `CacheStorageLike` injection (33 test cases) | D-23 → [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) (Model registry section + Observability "What is NOT exposed" callout) |
+| **Slice C** — graduated download friction by size tier; registry expansion to 5 entries | **#228** | (see git log) | `size-tier.ts` (classify/format/OOM-detect) — Small <500 MB silent, Medium ≥500 MB confirm, Large ≥1024 MB two-step (41 test cases); TinyLlama-1.1B, Qwen2.5-1.5B, Phi-3.5-mini added to registry | D-24 → [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) (Slice C registry expansion paragraph) |
+| **Slice D-1** — default-model strict upgrade SmolLM2-135M → SmolLM2-360M | **#229** | `4f7c909c` | `DEFAULT_MODEL_ID = "smollm2-360m-instruct"`; 360M entry added (273 MB cold-load, 520 MB peak RAM); 135M `estimated_download_mb` corrected 88 → 118 MB (post-GQA size); IFEval 19.8 → 31.6 (+60% instruction-following lift at 2.3× cold-load) | D-26 → [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) (Today's seed callout) |
+
+#### ❌ REJECTED (Slice D-2 / two-stage LLM pipeline)
+
+Three architectural cuts were proposed by the Slice D roundtable (Cut 1 = tiny classifier + medium reasoner; Cut 2 = intent extractor + code-tuned SQL generator replacing `compile-intent.ts`; Cut 3 = classifier-first hybrid with code-fallback). **All three rejected** by Gregor + Fowler + Max + Jony convergent panel.
+
+| Reviewer | Verdict |
+| --- | --- |
+| **Gregor** | Cut 2 frontally breaks Holy Law #9 (provenance JOIN moves from CONSTRUCTED to GENERATED — `EXPLAIN` + sqlglot allowlist verify SQL is parseable, not that it answers the right question with the right provenance). Cut 2 is the same band-aid pattern as `deriveConceptId` (D-12 rejected). Cut 3 inherits Cut 2's fallback-path failures AND re-introduces `concept_id = "unknown"` sentinel (D-12 violation). Cut 1's "50M neural classifier for a 4-element closed enum" is over-engineering by an order of magnitude vs deterministic keyword routing. |
+| **Fowler** | PREMATURE. Pipeline has 4 concepts registered and **ZERO** published `attempts_log` evidence of single-stage extraction failures on free text. PR-3 shipped the `ExtractAttempt` + `parse_status` observability for exactly this reason — identify which failure modes are real BEFORE architecting around them. Rule-of-three-before-abstraction fires hard at 4 concepts with no failure-mode data. Cut 2 deletes a 91-line safety seam (`compile-intent.ts`) and replaces it with a 250+-line SQL validator that has worse properties (validates-after vs constructs-safely). |
+| **Max** | Cold-load economics hostile. Phi-3.5-mini @ q4f16 = 2.32 GB (20× current 118 MB); Qwen2.5-3B has no verified ONNX port; Llama-3.2-1B has restrictive Meta license; Gemma-2-2B unverified. Only Apache-2.0 + verified-available reasoner candidate in the 1B–2B band is Qwen2.5-1.5B-Instruct @ 1.22 GB — still 14× the current cold-load. The economics make a second model citizen-hostile until evidence of necessity. |
+| **Jony** | The Debug-log surface (Slice A) and graduated-friction picker (Slices B+C) deliver the operator visibility the panel would otherwise paper over with a second model. Ship the defensible smaller win (D-26 / SmolLM2-360M strict upgrade); evidence-gather; revisit only on `attempts_log` data. |
+
+**Locked in**: single-stage pipeline (one model call + deterministic pure-TS compile). **Trade-off**: free-text questions that fall outside the 4-concept closed enum get a polite "I can't answer that yet" rather than degraded-into-wrong answers — citizen-honesty over coverage-by-handwaving. **Reversal cost**: re-opening requires new evidence (attempts_log failure-mode counts, named regression set) cited in a follow-up ADR amending or superseding ADR-0038.
+
+Full rationale + four rejected alternatives (A=Cut 1, B=Cut 2, C=Cut 3, D=server-hosted LLM) live in **[ADR-0038](../docs/architecture/decisions/0038-yenask-two-stage-llm-pipeline-rejected.md)**.
+
+#### ⏳ PARKED (preserved future options)
+
+| Item | Why parked | Unblock condition |
+| --- | --- | --- |
+| **Deterministic TS intent-router** (NOT a second model — a small keyword/regex router that fans the question to one of 4 concept handlers before invoking the model) | Rule-of-three-before-abstraction not yet fired. Single-stage extraction has zero published failures on the canned-chip + 4-concept surface. Building a router pre-emptively is the same speculative abstraction Fowler warned against. | Publish ≥3 distinct `attempts_log` failure modes on free-text questions that a deterministic router would have caught. Cite the evidence in a new D-NN entry, then implement. |
+| **WebGPU runtime** (vs current wasm-pin on q4f16) | Upstream `onnxruntime-web` crashes on q4f16 SmolLM2 with `Mapping WebGPU buffer failed: Invalid buffer`. | Wait for upstream fix; flip `device: "auto"` per model entry on a one-line change once verified stable. D-19 captures the wasm-pin contract. |
+| **LiteRT / MediaPipe provider** (alternative ONNX runtime) | YAGNI; transformers.js path is working. Adding a second provider before the first one shows a measurable bottleneck is rule-of-three violation. | Verified transformers.js cold-load / inference bottleneck that LiteRT meaningfully improves (e.g. ≥50% TTFT reduction on Q4 quantisation, verified on representative free-text question). `createAdapter()` already dispatches by provider — add a new arm + new registry entry. |
+| **Speech-to-text / text-to-speech** (citizen audio surface) | Out of scope for the lab. The chat composer is the bounded surface. | Explicit user direction + scope expansion. |
+| **Multi-turn context awareness** ("what about Kerala?") | D-18 locks per-turn extraction as STATELESS in v0. State management adds latent failure modes (which prior turn shadows the new one?) before the stateless surface is even validated. | Demonstrated need from real usage (specifically: ≥3 attempts_log entries where the user clearly tried a follow-up question that failed extraction because state was missing). |
+
+#### 📋 TRADE-OFFS ACCEPTED (registry of compromises locked in this sprint)
+
+| Trade-off | Cost | Why accepted |
+| --- | --- | --- |
+| Default-model cold-load grew 118 MB → 273 MB on first visit | First-load is 2.3× larger; subsequent loads free via Cache Storage | Lab is /dev-only — audience is engineers + curious citizens, NOT the median Indian mobile user. The +60% IFEval lift directly reduces D-17 retry frequency. (D-26 trade-off section.) |
+| 4 phase-timing columns render as `—` for every transformers.js attempt | Looks empty; reviewers may think instrumentation is broken | Adapter is black-box round-trip — there is no per-phase split to record. Plumbing in place so future streaming-capable provider populates real numbers with no UI change. Verbatim Jony copy in the Debug log caption explains the dash. (D-22 / D-27.) |
+| InsightIntent contract is TS-Zod only; no `datasets/schemas/` JSON Schema mirror | ajv-based dataset validation doesn't see the contract | InsightIntent never persists, never enters Parquet, never ships in `datasets/`. The Zod parse at the model→compiler boundary is the only enforcement that matters. (D-03.) |
+| `source_strip` is REQUIRED non-empty at the Zod type level (compiler MUST synthesise placeholder + set `provenance_status: "missing"` if join finds zero rows) | Compiler verbosity for the citizen-honesty guarantee | Without this, a corrupted dataset path silently renders an answer with no source visible — Holy Law #9 violation. Three vitest cases enforce. (D-06.) |
+| Two-step inline confirm on Large-tier (≥1024 MB) downloads | Extra click for Phi-3.5-mini / Qwen2.5-1.5B selection | Cold-load is 1.2–2.3 GB; the friction is honest. Small + Medium tiers download silently / one-step. (D-24.) |
+| Per-`repo_id` cache delete is per-row in the picker (not a bulk "clear all" button) | Operator needs to delete each model separately | Bulk-clear is destructive; per-row is intentional + reversible. DevTools → Cache Storage remains the manual escape hatch for bulk ops. (D-23.) |
+
+#### 🗂 DECOMPOSITION STATUS (per D-09 contract)
+
+Per D-09's retirement policy: closed entries are deleted from the plan-doc once promoted into a permanent home. **This sprint chose the LIGHTER variant**: keep the `D-NN` entries below as the git-blame trail of in-the-moment rationale (Holy Law #4 records the *current shape* in subsystem doc + ADR; the plan-doc is the *historical why*), and use this Sprint status header as the lean handoff index. Entries below stay until a future agent finds them redundant.
+
+| D-NN range | Decomposed home | Action |
+| --- | --- | --- |
+| D-01..D-06 (lab placement, contracts, compiler purity) | [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) sections "Why it lives inside `frontend/`", "Contracts", "Module layout" | ✅ Subsystem doc cites each D-NN inline; entries retained as rationale-trail |
+| D-07..D-08 (Phase 1 PR shape, test seam) | Plan history; absorbed into testing convention via doc-level citations | ✅ No further action; retain as git-blame-trail |
+| D-09 (this decomposition contract) | Self-referential; this Sprint status section IS the application | ✅ Retain |
+| D-10..D-21 (model bootstrap, registry, adapter, extract loop, chat surface, debug log) | [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) sections "Model adapter readiness state machine", "Model registry", "Observability surface" | ✅ Subsystem doc cites; entries retained |
+| D-22 (granular timing scope per Jony) | [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) Per-attempt debug details + "What is NOT exposed" callout | ✅ Cited in subsystem doc |
+| D-23 (model-picker rejected variants) | [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) Model registry section | ✅ Cited |
+| D-24 (graduated friction tier thresholds) | [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) Slice C registry expansion paragraph | ✅ Cited |
+| D-25 (two-stage rejection panel verdict) | **[ADR-0038](../docs/architecture/decisions/0038-yenask-two-stage-llm-pipeline-rejected.md)** (the locked ADR with 4 rejected alternatives + reversal cost) | ✅ Promoted to ADR; D-25 entry retained as the panel-verdict record |
+| D-26 (default flip + 135M size correction) | [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) Today's seed callout | ✅ Cited |
+| D-27 (Slice A ship event) | Subsystem doc Observability surface + this Sprint status DONE table | ✅ Captured |
+
+**Net result**: no D-NN entry is orphaned; every shipped slice has a permanent home in the subsystem doc or ADR-0038; this Sprint status header replaces "scrolling 1100 lines to figure out what's done" with one tabular block.
+
 ### D-01 — Lab lives INSIDE `frontend/` as a dev route, NOT as a standalone `labs/yenask/` Vite app
 
 **Date**: 2026-05-24. **PR**: PR-1. **Source**: user direction overriding Gregor's Q1.
@@ -1097,6 +1168,47 @@ Size unit promotes at 1 GB (one decimal: `~1.4 GB` not `~1400 MB`); mixed units 
 **Where it landed**: `frontend/src/lib/yenask/{model-adapter,extract-intent,timing}.ts` + 3 test files + `frontend/src/routes/Yenask.svelte`. 7 files changed, +379 / -1.
 
 **Status as of this entry**: Slice A SHIPPED. Slice B (PR-5), Slice C (PR-6), Slice D-1 (PR-7) remain queued in the same convergent-panel verdict from D-22..D-26. Slice D-2 (deterministic intent-router) remains DEFERRED per Fowler — needs published `attempts_log` evidence of single-stage extraction failures on free text before architecting a second stage; rule-of-three-before-abstraction fires hard at 4 concepts and zero failure-mode data.
+
+### D-28 — Slice B SHIPPED (PR #227): per-row model picker + Cache Storage API cleanup with two-step inline confirm
+
+**Date**: 2026-05-24. **PR**: #227 (merged). **Source**: execution of D-23 Jony verdict.
+
+**What was decided** (now history): per-row model picker landed with persistent `localStorage` model selection (key: `yenask:selected-model-id`); per-row "Remove from cache" affordance with two-step inline confirm (first click → button text flips to "Confirm remove?" with 3-second timeout; second click → cache delete + status banner); `frontend/src/lib/yenask/model-cache.ts` shipped as a Cache Storage API wrapper (cacheName `"transformers-cache"`) with 7 exports (`hasCachedModel`, `deleteCachedModel`, `listCachedModels`, plus helpers) and optional `CacheStorageLike` injection so tests can pass a stub. 33 vitest cases cover hits / misses / partial caches / quota errors / injected stubs. The picker iterates the registry and renders one row per `ModelEntry` — no hardcoded model list in the UI.
+
+**Implementation decisions made during execution**:
+- Cache Storage API (not IndexedDB) — transformers.js writes model weights through `fetch()` + Service Worker pattern, intercepted by the Cache Storage API. Direct IndexedDB inspection would require knowing transformers.js's internal storage schema.
+- `CacheStorageLike` injection (not `vi.mock("global", ...)`) — keeps the tests pure and the production module observable in DevTools.
+- Two-step confirm INLINE in the same button (not a modal) — Jony: "modals are heavy ceremony for a destructive-but-reversible action; inline confirm with timeout is the right friction shape".
+
+**Where it landed**: `frontend/src/lib/yenask/model-cache.ts` + `frontend/src/lib/yenask/model-cache.test.ts` + `frontend/src/routes/Yenask.svelte` (picker render + handlers). Decomposed into [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) (Model registry section + "What is NOT exposed" cache-management callout).
+
+### D-29 — Slice C SHIPPED (PR #228): graduated download friction by size tier + registry expansion to 5 entries
+
+**Date**: 2026-05-24. **PR**: #228 (merged). **Source**: execution of D-24 Jony verdict.
+
+**What was decided** (now history): `frontend/src/lib/yenask/size-tier.ts` shipped as pure helpers: `classifySizeTier(mb)` → `"small" | "medium" | "large"` with thresholds `MEDIUM_THRESHOLD_MB = 500` / `LARGE_THRESHOLD_MB = 1024`; `formatModelSize(mb)` → human "273 MB" or "1.2 GB"; `formatRamLabel(mb)` for the optional `estimated_ram_mb` field; `isOutOfMemoryError(message)` for tier-aware OOM friction copy; `OOM_FAILURE_COPY` constant for citizen-readable fail messages. 41 vitest cases. Registry expanded from 1 entry to 5: `smollm2-135m-instruct` (Small), `tinyllama-1-1b-chat` (Medium, 600 MB), `qwen2-5-1-5b-instruct` (Large, 1.22 GB, two-step), `phi-3-5-mini-instruct` (Large, 2.32 GB, two-step). All Apache-2.0; HuggingFace ONNX availability verified per Max.
+
+**Implementation decisions made during execution**:
+- `recommended: true` flag REJECTED — Jony: "we don't have evidence for which model citizens should pick; promoting one as 'recommended' is editorialising without data".
+- Size-driven row tinting REJECTED — Jony: "tinting big models red is moralising; the size label + friction tier already communicates cost honestly".
+- TinyLlama-1.1B-Chat included DESPITE Max's "abandoned project" caveat — operator-only escape hatch for "I want to see the medium tier in action without paying Qwen's 1.22 GB price"; the picker helper text flags the Last-Updated date so operators see the abandonment signal.
+
+**Where it landed**: `frontend/src/lib/yenask/size-tier.ts` + `frontend/src/lib/yenask/size-tier.test.ts` + 4 new entries in `frontend/src/lib/yenask/model-registry.ts` + picker copy in `frontend/src/routes/Yenask.svelte`. Decomposed into [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) (Slice C registry expansion paragraph + Model registry section).
+
+### D-30 — Slice D-1 SHIPPED (PR #229, merge `4f7c909c`): default-model strict upgrade SmolLM2-135M → SmolLM2-360M
+
+**Date**: 2026-05-24. **PR**: #229 (merged `4f7c909c` at 2026-05-24T19:44:42Z). **Source**: execution of D-26 Max verdict; companion to D-25's panel rejection of the broader two-stage cuts.
+
+**What was decided** (now history): `DEFAULT_MODEL_ID` flipped from `"smollm2-135m-instruct"` to `"smollm2-360m-instruct"`. 360M entry added with `estimated_download_mb: 273` and `estimated_ram_mb: 520`; 135M entry's `estimated_download_mb` corrected from 88 → 118 (post-GQA HuggingFace file-tree size). Same SDK, same Apache-2.0 license, same `device: "wasm"` pin (D-19), same `dtype: "q4f16"`. IFEval lifts from 19.8 → 31.6 (+60% per the SmolLM2 model card) at 2.3× the cold-load.
+
+**Implementation decisions made during execution**:
+- 135M retained in the registry as low-RAM-device fallback (not deleted) — preserves the operator's escape hatch for a 118 MB cold-load on constrained devices.
+- Vitest contract test added: asserts `DEFAULT_MODEL_ID === "smollm2-360m-instruct"` AND 360M entry has `estimated_download_mb: 273` AND 135M entry has `estimated_download_mb: 118` (the corrected value). Locks the registry shape so a future PR that accidentally bumps the default or re-introduces the 88-MB bug fails immediately.
+- §13 browser smoke verified the readiness banner reports `SmolLM2-360M-Instruct` and the canned-chip + free-text round-trips still work end-to-end with the larger seed.
+
+**Where it landed**: `frontend/src/lib/yenask/model-registry.ts` (DEFAULT_MODEL_ID flip + 360M entry + 135M size correction) + `frontend/src/lib/yenask/model-registry.test.ts` (3-value contract assertion). Decomposed into [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md) (Today's seed callout).
+
+**Status as of this entry**: ABCD sprint COMPLETE. Slice D-2 (deterministic intent-router) DEFERRED — see D-25 + ADR-0038. Sprint status header (this §17 top) is the lean handoff index for the next planner.
 
 ### Decision-log conventions
 

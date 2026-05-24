@@ -1,10 +1,10 @@
 # YENASK — browser governance insight assistant (dev preview)
 
-**Last Updated**: 2026-05-24 (PR-3 shipped — WebGPU fix, token observability, debug panel)
+**Last Updated**: 2026-05-24 (ABCD sprint shipped — per-attempt timing, model picker, graduated download friction, default-model strict upgrade)
 
 YENASK is a dev-only browser lab mounted at `/dev/yenask`. It turns a citizen governance question into a validated `InsightIntent`, then runs DuckDB-WASM directly against the canonical Parquet store to produce an `AnswerViewModel`. No backend at runtime — the lab obeys Holy Law #1 (static-first production).
 
-This page covers **what is currently on disk** as of PR-3 (merge `63a62a4e`): the module layout, the contracts the modules pass between each other, the readiness state machine, the observability surface that ships with PR-3, and the test seams. It does **not** cover rationale-as-it-was-made — that lives in the plan-doc [`TODO/20260518-browser-governance-insight-assistant-plan.md`](../../../TODO/20260518-browser-governance-insight-assistant-plan.md) §17 (entries D-01 through D-21). Every section here cites the relevant D-NN entry instead of restating it (per CLAUDE.md §5 doc-class routing contract).
+This page covers **what is currently on disk** as of the ABCD sprint (PRs #225 / #227 / #228 / #229, all merged onto `main` 2026-05-24): the module layout, the contracts the modules pass between each other, the readiness state machine, the observability surface, the per-row picker, the graduated download friction by size tier, and the test seams. It does **not** cover rationale-as-it-was-made — that lives in the plan-doc [`TODO/20260518-browser-governance-insight-assistant-plan.md`](../../../TODO/20260518-browser-governance-insight-assistant-plan.md) §17 (entries D-01 through D-30) and in [ADR-0038](../decisions/0038-yenask-two-stage-llm-pipeline-rejected.md) for the two-stage pipeline rejection. Every section here cites the relevant D-NN entry or the ADR instead of restating it (per CLAUDE.md §5 doc-class routing contract).
 
 For the lab's removal contract and the "what lives where" map, see [`frontend/src/lib/yenask/AGENTS.md`](../../../frontend/src/lib/yenask/AGENTS.md).
 
@@ -49,7 +49,7 @@ The pipeline is the same regardless of how the intent was produced (model-extrac
 
 - **The answer table** — `<table data-testid="yenask-answer-table">`.
 - **The sources accordion** — `<div data-testid="yenask-source-strip">`. Citizen-relevant: who published, what licence.
-- **The per-turn footer** — one line of observability ("Answered with SmolLM2-135M-Instruct: 1× attempt · ~248 tokens in · ~87 out · 2.1s total. See Debug log below for details." OR "Canned starter prompt — no model used.").
+- **The per-turn footer** — one line of observability ("Answered with SmolLM2-360M-Instruct: 1× attempt · ~248 tokens in · ~87 out · 2.1s total. See Debug log below for details." OR "Canned starter prompt — no model used.").
 
 The SQL, raw model output, and per-attempt token timing are NOT in the citizen turn — they live in the always-visible Debug log section below the chat (D-21). See [Observability surface (PR-3)](#observability-surface-pr-3).
 
@@ -254,7 +254,7 @@ The lab exposes three operator-readable signals — all of them OUT of the citiz
 
 One line inside each assistant-answer bubble:
 
-- **Model-extracted turn**: `Answered with SmolLM2-135M-Instruct: 1× attempt · ~248 tokens in · ~87 out · 2.1s total. See Debug log below for details.`
+- **Model-extracted turn**: `Answered with SmolLM2-360M-Instruct: 1× attempt · ~248 tokens in · ~87 out · 2.1s total. See Debug log below for details.`
 - **Canned-chip turn**: `Canned starter prompt — no model used.`
 
 Approximate token counts (chars/4 fallback when the SDK doesn't expose `tokenizer.encode`) are prefixed with `~`. Exact counts have no prefix.
@@ -283,8 +283,8 @@ Testids: `yenask-debug-turns`, `yenask-debug-attempts`, `yenask-computation` (re
 ### What is NOT exposed
 
 - The full prompt sent to the model — sensitive surface (system prompt + few-shot is hand-tuned); kept inside `extract-intent.ts` and not surfaced to the UI. If you need to inspect it during dev, hardcode a `console.log` in `extract-intent.ts` and remove before commit (per CLAUDE.md §7).
-- Per-token streaming. Transformers.js supports streaming via `TextStreamer`; the current adapter does not subscribe. Generate is one round-trip.
-- Cache management. transformers.js writes to IndexedDB (`transformers-cache` DB) automatically; there is no UI affordance to delete a cached model. Operators can clear via DevTools → Application → IndexedDB.
+- Per-token streaming. Transformers.js supports streaming via `TextStreamer`; the current adapter does not subscribe. Generate is one round-trip — which is why the four per-attempt phase-timing columns (`encode_ms`, `generate_ms`, `decode_ms`, `ttft_ms`) all render as `—` for the current adapter, per [D-27](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-27--slice-a-shipped-pr-225-merge-04cbbad2-per-attempt-timing-observability-landed-transformersjs-returns-null-for-all-4-phases-black-box-round-trip). A future provider that streams (LiteRT/MediaPipe, or transformers.js with `TextStreamer`) populates the columns with real numbers and the rendering path already plumbs them through.
+- Per-row cache-management UI is shipped (per [D-23](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-23--model-picker-is-a-list-with-per-row-actions-remove-from-dropdown-rejected-cache-clear-is-per-repo_id-with-two-step-inline-confirm), Slice B / PR #227): each row in the picker exposes a per-`repo_id` cache delete with two-step inline confirm. Implemented against the Cache Storage API (`caches.open("transformers-cache")`) — see [`model-cache.ts`](../../../frontend/src/lib/yenask/model-cache.ts). DevTools → Application → Cache Storage remains the manual escape hatch.
 
 ## Test seam
 
@@ -307,21 +307,26 @@ The Playwright spec asserts the `yenask-computation` testid is visible and conta
 | --- | --- |
 | `/dev/yenask` route + chat surface + composer + starter chips | ✅ Shipped (PR-2) |
 | 4 canned intents (party_totals, closest_contests, constituency_result, turnout_extremes) | ✅ Shipped (PR-1) |
-| Real model load (`SmolLM2-135M-Instruct` via Transformers.js) | ✅ Shipped (PR-2) |
+| Real model load (`SmolLM2-360M-Instruct` via Transformers.js — default) | ✅ Shipped (PR-2, default flipped from 135M to 360M in Slice D-1 / PR #229) |
 | Free-text question → InsightIntent extraction with validate-or-retry | ✅ Shipped (PR-2) |
 | Source-strip (Holy Law #9 provenance) on every answer | ✅ Shipped (PR-1) |
 | Token in/out + wall_ms observability + per-attempt diagnostics | ✅ Shipped (PR-3) |
+| Per-attempt phase timing columns (encode/generate/decode/TTFT — null for non-streaming adapter, plumbing in place) | ✅ Shipped (Slice A / PR #225) |
 | Debug log section below chat (status timeline + per-turn details) | ✅ Shipped (PR-3) |
-| Multiple models in the registry (picker UI ready, only 1 entry) | ⏳ Registry supports it; UI shows the picker but only SmolLM2-135M is currently registered |
-| Model-download / delete / cache-management UI | ❌ Not built (transformers.js caches automatically; no UI to inspect or delete) |
-| Two-stage architecture (intent extractor + SQL generator) | ❌ Not built — current pipeline is single-stage (one extract call, then PURE compile) |
+| Multiple models in the registry (5 entries: 360M default, 135M, TinyLlama-1.1B, Qwen2.5-1.5B, Phi-3.5-mini) | ✅ Shipped (Slice C / PR #228) |
+| Model picker UI with per-row actions, persistent `localStorage` selection | ✅ Shipped (Slice B / PR #227) |
+| Graduated download friction by size tier (Small <500 MB silent · Medium ≥500 MB confirm · Large ≥1024 MB two-step) | ✅ Shipped (Slice C / PR #228) |
+| Per-`repo_id` cache delete from the picker (Cache Storage API, two-step inline confirm) | ✅ Shipped (Slice B / PR #227) |
+| Two-stage architecture (intent extractor + SQL generator) | ❌ **REJECTED** by Gregor + Fowler + Max + Jony panel — see [ADR-0038](../decisions/0038-yenask-two-stage-llm-pipeline-rejected.md). Single-stage pipeline (one extract call + pure compile) is the locked decision. |
+| Deterministic TS intent-router (preserved future option from Slice D-2) | ⏳ Parked — needs published `attempts_log` failure-mode evidence before justifying the second-stage abstraction (per Fowler's rule-of-three-before-abstraction). |
 | Speech-to-text / text-to-speech | ❌ Not built |
 | WebGPU runtime (vs current wasm) | ❌ Blocked on upstream `onnxruntime-web` WebGPU q4f16 crash |
 | Multi-turn context awareness ("what about Kerala?") | ❌ Not built — every turn is extracted stateless (D-18) |
 
 ## See also
 
-- Plan-doc with full design-decision log (D-01 through D-21): [`TODO/20260518-browser-governance-insight-assistant-plan.md`](../../../TODO/20260518-browser-governance-insight-assistant-plan.md)
+- Plan-doc with full design-decision log (D-01 through D-30) + sprint status header: [`TODO/20260518-browser-governance-insight-assistant-plan.md`](../../../TODO/20260518-browser-governance-insight-assistant-plan.md)
+- [ADR-0038 — Two-stage LLM pipeline rejected](../decisions/0038-yenask-two-stage-llm-pipeline-rejected.md) (the Slice D-2 / two-model rejection, with four rejected alternatives and reversal cost)
 - Internal map of `lib/yenask/`: [`frontend/src/lib/yenask/AGENTS.md`](../../../frontend/src/lib/yenask/AGENTS.md)
 - Holy Law #1 (static-first): [CLAUDE.md](../../../CLAUDE.md)
 - Holy Law #9 (provenance is mandatory): [`docs/concepts/data-provenance.md`](../../concepts/data-provenance.md)
