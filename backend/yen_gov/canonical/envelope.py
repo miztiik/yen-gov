@@ -156,12 +156,12 @@ class CandidacyRow(BaseModel):
 
     candidacy_key: str = Field(
         pattern=r"^IN-[SU]\d{2}-AC-\d{4}-\d+-(?:AcGen|LsGen|AcBye|LsBye)"
-        r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}-C\d{2}$"
+        r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}-C\d{2,3}$"
     )
     person_id: str = Field(pattern=r"^[0-9a-f]{16}$")
     ac_id: str = Field(pattern=r"^IN-[SU]\d{2}-AC-\d{4}-\d+$")
     election_id: str = Field(min_length=1)
-    ballot_serial: int = Field(ge=1, le=99)
+    ballot_serial: int = Field(ge=1, le=999)
     party_id: str = Field(pattern=r"^parties\.IN\.[A-Z][A-Z0-9_]*$")
     rank: int = Field(ge=1)
     votes_polled: float | None = None

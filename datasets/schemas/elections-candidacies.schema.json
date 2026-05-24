@@ -3,12 +3,17 @@
   "$id": "./elections-candidacies.schema.json",
   "title": "Election candidacy fact row",
   "description": "Logical contract for one row of datasets/elections/elections_candidacies.parquet. ADR-0035 S.1 splits per-contest candidacy facts away from dim_persons while keeping candidacy_key byte-equal to election_results.entity_id for candidate-* observations.",
-  "x-version": "1.0",
+  "x-version": "1.1",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-23",
       "description": "Initial S.1 candidacy fact schema. Adds candidacy_key -> person_id bridge plus per-contest party, rank, vote, and reservation/party-type attributes moved out of dim_candidates."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-05-24",
+      "description": "Widen candidacy_key and ballot_serial to three digits for large historical candidate fields, anchored by Karnataka 1985 Belgaum."
     }
   ],
   "type": "object",
@@ -27,7 +32,7 @@
   "properties": {
     "candidacy_key": {
       "type": "string",
-      "pattern": "^IN-[SU][0-9]{2}-AC-[0-9]{4}-[0-9]+-(?:AcGen|LsGen|AcBye|LsBye)(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[0-9]{4}-C[0-9]{2}$",
+      "pattern": "^IN-[SU][0-9]{2}-AC-[0-9]{4}-[0-9]+-(?:AcGen|LsGen|AcBye|LsBye)(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[0-9]{4}-C[0-9]{2,3}$",
       "description": "PK. The retired candidate_id / current election_results.entity_id for candidate-* observation rows."
     },
     "person_id": {
@@ -48,7 +53,7 @@
     "ballot_serial": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 99,
+      "maximum": 999,
       "description": "Position on the ballot when available; current Section-10 path uses rank as a stand-in."
     },
     "party_id": {

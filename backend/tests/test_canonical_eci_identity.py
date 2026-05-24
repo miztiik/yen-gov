@@ -69,7 +69,11 @@ class TestCandidateEntityId:
         cid = candidate_entity_id("IN-S22-AC-2008-167", "AcGenMay2026", 27)
         assert cid.endswith("-C27")
 
-    @pytest.mark.parametrize("bad", [0, -1, 100, 999])
+    def test_three_digit_serial_for_large_historical_candidate_fields(self):
+        cid = candidate_entity_id("IN-S10-AC-1976-197", "AcGenMay1985", 301)
+        assert cid.endswith("-C301")
+
+    @pytest.mark.parametrize("bad", [0, -1, 1000])
     def test_rejects_out_of_range_serial(self, bad: int):
         with pytest.raises(ValueError):
             candidate_entity_id("IN-S22-AC-2008-167", "AcGenMay2026", bad)

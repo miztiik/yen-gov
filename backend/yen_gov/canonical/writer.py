@@ -391,7 +391,7 @@ def _load_taxonomy_ids(path: Path, top_key: str, id_field: str) -> set[str]:
 _DERIVED_ENTITY_PATTERNS = (
     re.compile(r"^IN-[SU]\d{2}-AC-\d{4}-\d+$"),
     re.compile(r"^IN-[SU]\d{2}-AC-\d{4}-\d+-(?:AcGen|LsGen|AcBye|LsBye)"
-               r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}-C\d{2}$"),
+               r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}-C\d{2,3}$"),
     re.compile(r"^IN-[SU]\d{2}-(?:AcGen|LsGen|AcBye|LsBye)"
                r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}$"),
     re.compile(r"^IN-[SU]\d{2}-(?:AcGen|LsGen|AcBye|LsBye)"

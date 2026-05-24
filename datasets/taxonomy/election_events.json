@@ -458,6 +458,87 @@
     ],
     "S10": [
       {
+        "event_id": "AcGenFeb1978",
+        "kind": "assembly",
+        "display": "Karnataka Assembly · February 1978",
+        "polled_on": "1978-02-01",
+        "term_end_estimated": "1983-01-31",
+        "data_status": "complete",
+        "notes": "224 ACs. Panel month is February 1978; public election page exposes the year and ECI report but not an exact polling day, so the month-first date is used. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay1983",
+        "kind": "assembly",
+        "display": "Karnataka Assembly · May 1983",
+        "polled_on": "1983-05-01",
+        "term_end_estimated": "1988-04-30",
+        "data_status": "complete",
+        "notes": "224 ACs. Panel month is May 1983; public election page exposes the year and ECI report but not an exact polling day, so the month-first date is used. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay1985",
+        "kind": "assembly",
+        "display": "Karnataka Assembly · May 1985",
+        "polled_on": "1985-05-01",
+        "term_end_estimated": "1990-04-30",
+        "data_status": "complete",
+        "notes": "224 ACs. Panel month is May 1985; public election page exposes the year and ECI report but not an exact polling day, so the month-first date is used. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov1989",
+        "kind": "assembly",
+        "display": "Karnataka Assembly · November 1989",
+        "polled_on": "1989-11-01",
+        "term_end_estimated": "1994-10-31",
+        "data_status": "complete",
+        "notes": "224 ACs. Panel month is November 1989; public election page exposes the year and ECI report but not an exact polling day, so the month-first date is used. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenDec1994",
+        "kind": "assembly",
+        "display": "Karnataka Assembly · December 1994",
+        "polled_on": "1994-12-01",
+        "term_end_estimated": "1999-11-30",
+        "data_status": "complete",
+        "notes": "224 ACs. Two-phase poll on 26 November and 1 December 1994; event date records the final polling day rather than the panel's November month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenSep1999",
+        "kind": "assembly",
+        "display": "Karnataka Assembly · September 1999",
+        "polled_on": "1999-09-11",
+        "term_end_estimated": "2004-09-10",
+        "data_status": "complete",
+        "notes": "224 ACs. Two-phase poll on 5 and 11 September 1999; event date records the final polling day rather than the panel's October month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenApr2004",
+        "kind": "assembly",
+        "display": "Karnataka Assembly · April 2004",
+        "polled_on": "2004-04-26",
+        "term_end_estimated": "2009-04-25",
+        "data_status": "complete",
+        "notes": "224 ACs. Two-phase poll on 20 and 26 April 2004; event date records the final polling day rather than the panel's May month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay2008",
+        "kind": "assembly",
+        "display": "Karnataka Assembly · May 2008",
+        "polled_on": "2008-05-22",
+        "term_end_estimated": "2013-05-21",
+        "data_status": "complete",
+        "notes": "224 ACs. Three-phase poll on 10, 16, and 22 May 2008; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenMay2013",
+        "kind": "assembly",
+        "display": "Karnataka Assembly · May 2013",
+        "polled_on": "2013-05-05",
+        "term_end_estimated": "2018-05-04",
+        "data_status": "complete",
+        "notes": "224 ACs. Main poll held on 5 May 2013; Periyapatna was postponed to 28 May 2013 after a candidate death. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenMay2018",
         "kind": "assembly",
         "display": "Karnataka Assembly · May 2018",
