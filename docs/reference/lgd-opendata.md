@@ -1,8 +1,18 @@
 # LGD opendata source catalogue
 
-**Last Updated**: 2026-05-13
+**Last Updated**: 2026-05-24
 
 Catalogue + adoption stance for the **Local Government Directory (LGD)** mirror at [`ramseraph.github.io/opendata/lgd/`](https://ramseraph.github.io/opendata/lgd/). Companion to [boundary-data-sources.md](boundary-data-sources.md) — that doc is geometry, this one is the *registry tables* that issue the identifiers (LGD codes) the rest of yen-gov pivots on.
+
+For the current production inventory of boundary geometry shards (74 GeoJSONs across 6 producers) and the cross-walk to the LGD ⇔ Census ⇔ Constituency ⇔ PIN code alignment matrix, see [boundary-data-sources.md §"Current inventory"](boundary-data-sources.md#current-inventory-74-shards-on-disk) and [§"Cross-walk to the alignment matrix"](boundary-data-sources.md#cross-walk-to-the-lgd--census--constituency--pin-code-alignment-matrix). The phased plan for filling the sub-district / village / AC-consolidation / pincode / census-2011 gaps lives in [TODO/20260524-boundary-coverage-expansion-plan.md](../../TODO/20260524-boundary-coverage-expansion-plan.md).
+
+## Terminology recap
+
+Same as boundary-data-sources.md — reproduced here so the LGD table verdicts below read cleanly:
+
+- **Assembly Constituency (AC)** = the electoral district that elects one MLA to a state legislative assembly. The LGD component is `assembly_constituencies`; the geometry layer is `kind=ac`.
+- **Parliamentary Constituency (PC)** = the electoral district that elects one MP to the national lower house. The LGD component is `parliament_constituencies`; the geometry layer is `kind=pc`.
+- **LGD code** = the numeric identifier issued by LGD for every administrative unit below the state — stable across name changes, the canonical join key for non-electoral layers (district / subdistrict / village / block / ULB / ward).
 
 ## What it is
 
@@ -42,13 +52,13 @@ Grouped by yen-gov decision verdict. The **Verdict** column is binding: do not i
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
 | `states`                   | LGD numeric code ↔ canonical English state name. Bridge table for joining LGD entities to our ECI `S22`/`U05`-style codes (match by name).           | **Adopt.** Required to backfill anything else. |
 | `districts`                | LGD numeric district code + state code + canonical district name + Census 2001/2011 codes.                                                          | **Adopted.** District identity lives on `datasets/taxonomy/entities.json` (`entity_type='district'` rows) with `lgd_code` as the join key per [ADR-0015](../architecture/decisions/0015-constituency-hierarchy-fields.md). |
-| `assembly_constituencies`  | LGD AC code + name + state. Lets us cross-check our ECI `acN`-prefixed IDs against the LGD-issued ones.                                              | **Adopt when first multi-source AC reconciliation panel ships.** Until then, *catalogue only* — ECI's own AC codes already join HTL boundaries cleanly. |
-| `parliament_constituencies`| LGD PC code + name + state. Same role as ACs but for Lok Sabha.                                                                                      | **Adopt when a Lok Sabha cycle enters scope.** Currently *catalogue only.*  |
-| `subdistricts`             | LGD sub-district (tehsil/taluk/mandal) numeric code under each district.                                                                            | **Adopt when first sub-district indicator ships.** Currently *catalogue only.* |
+| `assembly_constituencies`  | LGD AC code + name + state. The CSV-side counterpart to the `LGD_Assembly_Constituencies` geometry release used in the [AC consolidation plan](../../TODO/20260524-boundary-coverage-expansion-plan.md#phase-d--ac-consolidation-onto-ramseraph). Lets us cross-check our ECI `acN`-prefixed IDs against the LGD-issued ones during per-state parity verification. | **Adopt alongside geometry consolidation (Phase D of the plan).** Until the first AC swap promotes, *catalogue only* — ECI's own AC codes already join HTL boundaries cleanly. |
+| `parliament_constituencies`| LGD PC code + name + state. Same role as ACs but at the national level (Members of Parliament).                                                       | **Adopt when a national-election cycle enters scope.** Currently *catalogue only.*  |
+| `subdistricts`             | LGD sub-district (tehsil/taluk/mandal) numeric code under each district.                                                                            | **Adopted (TN only); national lift in [Phase B of the plan](../../TODO/20260524-boundary-coverage-expansion-plan.md#phase-b--subdistrict-national-lift).** |
 
 ### Adopt when scope expands (PRI / urban / scheme-delivery panels)
 
-These become required the moment yen-gov ships a citizen surface that pivots on local bodies, schemes, or pincode-level coverage. Until then they are *catalogue only* — listed so the next "is there a source?" question has a recorded yes.
+Most rows below are *catalogue only* — they become required the moment yen-gov ships a citizen surface that pivots on local bodies or schemes. Three rows (`villages`, `pincode_urban`, `pincode_villages`) are **already promoted** to the [boundary coverage-expansion plan](../../TODO/20260524-boundary-coverage-expansion-plan.md) and are called out in their cells.
 
 | Component                                | Pulls in                                                                                  |
 | ---------------------------------------- | ----------------------------------------------------------------------------------------- |
@@ -62,12 +72,12 @@ These become required the moment yen-gov ships a citizen surface that pivots on 
 | `statewise_ulbs_coverage`                | Coverage roll-up: which ULBs cover which territory per state.                              |
 | `traditional_local_bodies`               | Sixth Schedule / customary bodies (esp. NE states).                                       |
 | `tlb_villages`                           | Village ↔ Traditional Local Body mapping.                                                 |
-| `villages`                               | LGD village code (the leaf node of the rural hierarchy). Large file — verify size before ingestion. |
+| `villages`                               | LGD village code (the leaf node of the rural hierarchy). Large file — verify size before ingestion. The CSV-side counterpart to the `LGD_Villages` geometry release used in [Phase C of the plan](../../TODO/20260524-boundary-coverage-expansion-plan.md#phase-c--village-national-lift). |
 | `villages_by_blocks`                     | Village ↔ block mapping (alternate slice of `villages`).                                  |
 | `invalidated_census_villages`            | Census 2011 villages that LGD has since retired (deduplicated, merged, etc.).             |
 | `nofn_panchayats`                        | Panchayats covered by the National Optical Fibre Network rollout. Useful if a digital-infrastructure indicator ships. |
-| `pincode_urban`                          | India Post pincode ↔ ULB mapping.                                                          |
-| `pincode_villages`                       | India Post pincode ↔ village mapping.                                                     |
+| `pincode_urban`                          | India Post pincode ↔ ULB mapping. **Adopt as Phase A lookup table** (the search-affordance unlock; runs ahead of pincode polygons). See [Phase A of the plan](../../TODO/20260524-boundary-coverage-expansion-plan.md#phase-a--pincode-lookup-table--then-polygons). |
+| `pincode_villages`                       | India Post pincode ↔ village mapping. Phase A companion to `pincode_urban`. |
 | `constituencies_mapping_pri`             | AC/PC ↔ PRI local body coverage (which panchayats fall in which constituency).            |
 | `constituencies_mapping_urban`           | AC/PC ↔ ULB coverage.                                                                     |
 | `constituency_coverage`                  | Combined (rural + urban) coverage roll-up per constituency.                               |
