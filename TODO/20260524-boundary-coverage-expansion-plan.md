@@ -16,10 +16,10 @@
 
 | Phase | PR | Status | Merged SHA | Notes / blockers |
 | --- | :---: | --- | :---: | --- |
-| **0.1** Subdistrict CSV ingest (re-run `tools/lgd/snapshot.py`) | _pending_ | In review | — | Snapshot run 2026-05-24 token landed 7,090 subdistricts (36 states); incidental states/districts refresh to 24May token included. |
+| **0.1** Subdistrict CSV ingest (re-run `tools/lgd/snapshot.py`) | #235 | Merged | 18b8a69c | Snapshot run 2026-05-24 token landed 7,090 subdistricts (36 states); incidental states/districts refresh to 24May token included. |
 | **0.2** District backfill (639 rows → `entities.json`) | — | Not started | — | Independent of 0.1; needs `tools/lgd/backfill_entities_districts.py` (NEW) |
 | **0.3** Subdistrict entity seed | — | Deferred → Phase B.1 | — | Folded into Phase B ingest |
-| **0.4** Simplify existing national boundary files (D-P) | — | Not started | — | **Blocks D.0 and D.6** — must ship before survey-grade swaps; needs `tools/boundaries/simplify.py` (NEW) |
+| **0.4** Simplify existing national boundary files (D-P) | _pending_ | In progress | — | **Blocks D.0 and D.6** — `tools/boundaries/simplify.py` (NEW) wraps mapshaper; 74 shards re-simplified in-place; 71% gz byte reduction (26.8 MB → 7.6 MB); contract test `boundaries-conform.test.ts` extended with per-layer ceiling. |
 | **A.1** Pincode directory CSV (~165k rows) | — | Not started | — | Use existing `datagovin_ogd` adapter — DO NOT build new HTTP client |
 | **A.2** Pincode polygons (national) | — | Not started | — | After A.1 |
 | **B** Subdistrict national lift (TN → 36 states/UTs) | — | Not started | — | After **0.1** (needs subdistricts CSV on disk) |
