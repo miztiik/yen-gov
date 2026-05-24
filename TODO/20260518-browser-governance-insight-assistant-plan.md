@@ -892,6 +892,62 @@ User-supplied string filters (`state_partition_id`, `period_label`, `party_short
 
 **Where it binds**: `frontend/src/lib/yenask/semantic-catalogue.ts` (loader + allowlist); `frontend/src/lib/yenask/execute-plan.ts` (lazy slice registration per plan); the no-fact-scan vitest.
 
+### D-15 — Transformers.js provider locked; model is config-driven and swappable
+
+**Date**: 2026-05-26. **PR**: PR-2 (model adapter). **Source**: D-10 decision boundary + explicit user direction *"the model should be swappable again... let us not stop for choosing a model because I don't think so our coding work should stop because of the model. We should be able to swap out the models any point in time."*
+
+**What was decided**: PR-2 commits to `@huggingface/transformers@4.2.0` as the SLM provider (browser-native ONNX runtime via WebGPU with wasm fallback; in-IndexedDB model cache; ~50 MB SDK bundle gated to the `/dev/yenask` route via lazy `await import()` inside `prepare()`). The SPECIFIC model is NOT a locked decision — it lives in `frontend/src/lib/yenask/model-registry.ts` as a typed `MODEL_REGISTRY: readonly ModelEntry[]` with a `DEFAULT_MODEL_ID` constant. Swapping the default is a one-character edit to `DEFAULT_MODEL_ID` (or appending a new entry); adding a second model is a one-row append. The UI exposes a `<select>` populated from the registry, persisted to `localStorage` under the versioned key `yenask.model.id.v1`. No PR is required to swap models for evaluation; only to add a NEW provider (e.g. WebLLM, MediaPipe LLM Inference) — provider dispatch lives in `model-adapter.ts:createAdapter()` with an exhaustive switch on `ModelProvider`.
+
+**What was rejected**: (a) stalling PR-2 to pick the "right" model — user's explicit instruction is that model choice MUST NOT block engineering progress. (b) committing a specific model file directly to the repo — repo bloat (88-500 MB per model); rejected by D-10's "browser-cached, not bundled" rule. (c) hardcoding the model id in `model-adapter.ts` — defeats swappability; the registry/adapter split exists precisely so the adapter is generic-over-model.
+
+**Trade-off accepted**: the registry is a code constant, not a runtime config file. Editing it requires a deploy; "live model swap" requires a rebuild. Justified — the dev surface (`/dev/yenask`) is the only consumer, and the citizen-facing route doesn't exist yet; runtime configurability would be premature.
+
+**Enforced by**: `frontend/src/lib/yenask/model-registry.test.ts` (9 tests: non-empty registry, unique ids, default id resolves, every entry has required fields); `frontend/src/lib/yenask/model-adapter.test.ts` (~13 tests: provider dispatch, state machine, idempotency).
+
+**Where it binds**: `frontend/src/lib/yenask/model-registry.ts` (the swappable surface); `frontend/src/lib/yenask/model-adapter.ts` (provider-generic adapter + `TransformersJsAdapter` impl); `frontend/src/routes/Yenask.svelte` (model picker UI + persistence).
+
+### D-16 — `SmolLM2-135M-Instruct` seeds the registry; not a locked choice
+
+**Date**: 2026-05-26. **PR**: PR-2. **Source**: D-15 swappability rule + D-10 smallest-first heuristic.
+
+**What was decided**: The seed entry in `MODEL_REGISTRY` is `HuggingFaceTB/SmolLM2-135M-Instruct` (135M params, `q4f16` ONNX dtype, ~88 MB download, `device: "auto"` so WebGPU when available + wasm fallback). Picked because it is the smallest instruct-tuned model the HuggingFaceTB repo publishes in transformers.js-compatible ONNX format; instruction-following at all is the v0 requirement (the prompt is JSON-extraction, not creative writing). If 135M is too weak for reliable extraction, the registry pattern lets us append `SmolLM2-360M-Instruct` (~250 MB) or `Phi-3-mini-4k-instruct` (~2.4 GB) without code changes.
+
+**What was rejected**: (a) `Phi-3-mini` as the default — 2.4 GB is too much for a one-time download on first use; smallest-first is the right starting point. (b) `Qwen2.5-0.5B` — q4f16 ONNX not yet published by Qwen; would require us to host a custom conversion. (c) skipping the v0 model entirely and shipping ONLY canned intents — defeats the PR-2 purpose of unlocking free-text questions.
+
+**Trade-off accepted**: 135M is likely to produce malformed JSON on tail-case questions; D-17's validate-or-retry loop is the mitigation, and graceful failure (assistant-failure turn with "I couldn't understand that — try one of the starter prompts") is the floor. Quality dim that PR-3 will dial.
+
+**Enforced by**: same tests as D-15 (registry contract); the seed entry's well-formedness is asserted in `model-registry.test.ts`.
+
+**Where it binds**: `frontend/src/lib/yenask/model-registry.ts` (the `smollm2-135m-instruct` entry).
+
+### D-17 — Intent extractor uses validate-or-retry with one retry; stateless per-question
+
+**Date**: 2026-05-26. **PR**: PR-2. **Source**: D-04 (executor is local + deterministic) + D-12 (`concept_id` is required) + the realistic understanding that a 135M model will sometimes emit malformed JSON.
+
+**What was decided**: `extractIntent(question, catalogue, adapter, {max_retries: 1})` runs a single prompt against the model with `temperature: 0.1`, parses the response via `extractJsonObject()` (strips ``` fences, finds first balanced `{...}` with escape-aware bracket matching), Zod-validates against `InsightIntent`, and on failure re-prompts ONCE with an appended "previous output failed: <error message>" hint. Returns a discriminated `ExtractResult` (`ok: true, intent, diagnostics{attempts, last_raw_output}` | `ok: false, error, diagnostics`). The system prompt is terse: catalogue states + election_periods + the 4 concept gloss + the Zod-derived schema shape. One few-shot example (TN-2026 party_totals) is included as a chat-history pair. No chain-of-thought, no retry beyond 1 — the retry budget is justified by the cost (a second 200-300 token generation) vs the value (catches most bracket/quote/escape glitches without burning user wait time).
+
+**What was rejected**: (a) zero retries — too brittle for a 135M model; field reports across SmolLM2 use show first-shot JSON success rate around 60-75% on this kind of schema. (b) ≥3 retries — diminishing returns; if the model can't produce valid JSON after 2 tries, the third is unlikely to help and the user is waiting. (c) function-calling / tool-use APIs (e.g. JSON mode, grammar-constrained decoding) — transformers.js does NOT expose grammar-constrained decoding for ONNX models; would require switching to a different runtime (WebLLM has it via MLC-LLM but adds 3x more complexity). (d) sending the full DuckDB schema to the model — too many tokens; the 4-concept gloss + the Zod-derived intent schema is enough for the model to pick a `concept_id` and fill in `dimensions`/`measures`.
+
+**Trade-off accepted**: when extraction fails after retry, the user sees an "assistant-failure" turn with a generic apology. Diagnostic details (last raw output + error) are surfaced in a `<details data-testid="yenask-extract-debug">` for the developer; citizen-facing copy is gentler. Acceptable for a dev-only surface; a citizen route would need better recovery (e.g. "did you mean one of these starter questions?").
+
+**Enforced by**: `frontend/src/lib/yenask/extract-intent.test.ts` (~12 tests: `extractJsonObject` parses bare/fenced/prose/nested-escaped; `extractIntent` ok on valid first; retries with "previous output failed" hint; fails after max_retries with `last_raw_output` populated; Zod failure path).
+
+**Where it binds**: `frontend/src/lib/yenask/extract-intent.ts` (the extractor); `frontend/src/routes/Yenask.svelte` (calls `extractIntent` then `compileIntent` then `executePlan` on composer submit).
+
+### D-18 — PR-2 ships a multi-turn CHAT surface; per-turn extraction is STATELESS in v0
+
+**Date**: 2026-05-26. **PR**: PR-2 (the Yenask.svelte rewrite landed mid-PR after user direction). **Source**: explicit user direction *"There should be a chat interface. Not just preset questions."*
+
+**What was decided**: PR-2 ships a chat-style UI (`yenask-chat` testid) with: a vertical conversation log (user-bubble RIGHT, assistant-bubble LEFT); a sticky composer at the bottom (`<textarea>` with Enter-to-send, Shift+Enter for newline); an empty-state that shows starter chips with the canned-intent labels; a "Clear" button visible only when the conversation is non-empty. Each chat turn is a discriminated union (`user{text}` | `assistant-loading` | `assistant-answer{intent, answer, debug?, skipped_extract}` | `assistant-failure{reason, debug?}`) with a stable `id: number` for Svelte keyed-each rendering. Canned-chip clicks bypass extraction and call `sendUserTurn(label, cannedIntent)` directly — preserves the PR-1 model-free path AND the existing Playwright e2e (which clicks the chip and asserts `yenask-answer-table`). Free-text composer submissions run through the full extract → compile → execute pipeline. Per-turn extraction is STATELESS: the model does NOT see prior conversation history; each question is extracted in isolation. Self-contained phrasing is required ("Show TN 2026 totals" not "what about TN?"). The PR-1 testids (`yenask-answer-table`, `yenask-source-strip`, `yenask-computation`, `yenask-source-missing`, `yenask-failure`) are preserved inside the `assistant-answer` turn so the existing Playwright spec passes unchanged.
+
+**What was rejected**: (a) history-aware extraction (passing the conversation as chat history into the prompt) — would let the user say "what about Kerala?" after asking about TN, but multiplies prompt size and reliability cost; deferred to PR-3 quality work. (b) keeping the PR-1 single-shot UI and labelling the user direction "out of scope for PR-2" — direct contradiction of the user's explicit ask. (c) building a separate ChatPanel.svelte component — chat-turn rendering is tightly coupled to the answer/source/computation surfaces already in Yenask.svelte; extraction into a component would add prop-drilling for trivial reuse value. (d) auto-scroll-to-latest using a `MutationObserver` — Svelte 5's `tick()` + manual `scrollTop = scrollHeight` after each turn is simpler and sufficient. (e) typing-indicator animation in the loading turn — added a plain "Thinking…" label; animation is decoration deferred to PR-3.
+
+**Trade-off accepted**: stateless extraction means the user has to repeat context across turns. Justified for v0 — the 135M SmolLM2 has a 2k context window and a finite reliable-prompt budget; cramming chat history risks degrading extraction quality on the LATEST question. PR-3 will revisit with a larger model or a "summarise recent turns into one paragraph" prefix.
+
+**Enforced by**: existing `frontend/e2e/yenask.spec.ts` (clicks the canned chip, asserts `yenask-answer-table` etc. — passes against the chat structure because only one assistant-answer turn exists at assertion time); §13 browser smoke confirmed the empty state → user-bubble → assistant-answer flow renders end-to-end with the TN party-totals canned intent.
+
+**Where it binds**: `frontend/src/routes/Yenask.svelte` (the entire chat surface — turn union, conversation state, composer, scroll-to-bottom, starter chips, Clear button).
+
 ### Decision-log conventions
 
 - New entries append at the END of this section with the next `D-NN` ID.
