@@ -233,6 +233,18 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     ("S23", 2008): EventInfo("AcGenFeb2008", False),  # Tripura
     ("S23", 2013): EventInfo("AcGenFeb2013", False),  # Tripura
 
+    # Meghalaya historical AE panel backfill (ECI Statistical Report
+    # transcriptions). Existing 2018/2023 Section-10 slices remain the
+    # authority; this sequence fills only missing 1978-2013 events.
+    ("S15", 1978): EventInfo("AcGenFeb1978", False),  # Meghalaya
+    ("S15", 1983): EventInfo("AcGenFeb1983", False),  # Meghalaya
+    ("S15", 1988): EventInfo("AcGenFeb1988", False),  # Meghalaya
+    ("S15", 1993): EventInfo("AcGenFeb1993", False),  # Meghalaya
+    ("S15", 1998): EventInfo("AcGenFeb1998", False),  # Meghalaya
+    ("S15", 2003): EventInfo("AcGenFeb2003", False),  # Meghalaya
+    ("S15", 2008): EventInfo("AcGenMar2008", False),  # Meghalaya
+    ("S15", 2013): EventInfo("AcGenFeb2013", False),  # Meghalaya
+
     # Nov-2023 Rajasthan (joins existing Nov-2023 four-state cohort).
     ("S20", 2023): EventInfo("AcGenNov2023", False),  # Rajasthan
 }

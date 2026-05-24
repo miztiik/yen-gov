@@ -1,7 +1,7 @@
 # AE Panel Statewise DelimID 3/4 Ingestion Plan
 
 **Last Updated**: 2026-05-24
-**Status**: ACTIVE — tooling, Goa, and Himachal Pradesh PRs merged; Tripura (`S23`) state PR in progress.
+**Status**: ACTIVE — tooling, Goa, Himachal Pradesh, and Tripura PRs merged; Meghalaya (`S15`) state PR in progress.
 **Scope**: `datasets/ephemeral/All_States_AE.csv` statewise ingestion through the canonical elections Parquet writer.
 **Spec**: [`docs/architecture/backend/sources-eci.md`](../docs/architecture/backend/sources-eci.md), [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md), [`docs/architecture/data/elections-indicators.md`](../docs/architecture/data/elections-indicators.md).
 **Decision rationale**: [ADR-0030](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md), [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md), [ADR-0036](../docs/architecture/decisions/0036-state-identity-and-slice-registration.md).
@@ -32,8 +32,8 @@ Every state PR must be merged to `main` before the next state starts. This keeps
 | 0 | Tooling and plan | Dry-run/report surface, bounded `--delim-id` filters, plan-doc, source-doc update, adapter tests. No Parquet data writes. | DONE — PR #181 |
 | 1 | Goa (`S05`) | State-only dry-run, event registration for missing `S05` rows, `DelimID=3` and `DelimID=4` ingest, inventory/provenance/coverage updates. | DONE — PR #185 |
 | 2 | Himachal Pradesh (`S08`) | State-only dry-run, event registration for missing `S08` rows, `DelimID=3` and only missing `DelimID=4` event (`2012`) ingest, inventory/provenance/coverage updates. | DONE — PR #186 |
-| 3 | Tripura (`S23`) | State-only dry-run, event registration for missing `S23` rows, `DelimID=3` and only missing `DelimID=4` event (`2013`) ingest, inventory/provenance/coverage updates. | ACTIVE — this PR |
-| 4 | Meghalaya (`S15`) | Same state-only loop. | QUEUED |
+| 3 | Tripura (`S23`) | State-only dry-run, event registration for missing `S23` rows, `DelimID=3` and only missing `DelimID=4` event (`2013`) ingest, inventory/provenance/coverage updates. | DONE — PR #187 |
+| 4 | Meghalaya (`S15`) | State-only dry-run, event registration for missing `S15` rows, `DelimID=3` and only missing `DelimID=4` event (`2013`) ingest, inventory/provenance/coverage updates. | ACTIVE — this PR |
 | 5 | Puducherry (`U07`) | Same state-only loop. | QUEUED |
 | 6+ | Remaining states | Proceed from small/low-risk states to medium states, then large/reorganisation-heavy states. | QUEUED |
 
@@ -55,6 +55,8 @@ Goa write verification after the state PR emit: 9,620 observation rows, 8 events
 Himachal Pradesh dry-run found 4,385 approved rows (`DelimID=3`: 3,040; `DelimID=4`: 1,345) across 11 events. The state PR writes 1977-2007 plus 2012 only; 2017 and 2022 remain on their existing Section-10 source because the panel disagreed with prior canonical turnout totals while winner votes matched. The scoped write adds 1977, 1982, 1985, 1990, 1993, 1998, 2003, 2007, and 2012.
 
 Tripura dry-run found 2,923 approved rows (`DelimID=3`: 1,998; `DelimID=4`: 925) across 10 events. The state PR writes 1977-2008 plus 2013 only; 2018 and 2023 remain on their existing Section-10 source unless a later parity check deliberately promotes them. The scoped write adds 1977, 1983, 1988, 1993, 1998, 2003, 2008, and 2013. Post-ingest verification showed 14,913 Tripura observation rows, 10 events, 60 ACs in every event, 253 candidacies mapped to `parties.IN.UNK` with `party_short_raw` preserved, and zero dangling Tripura `source_id` values.
+
+Meghalaya dry-run found 3,322 approved rows (`DelimID=3`: 2,119; `DelimID=4`: 1,203) across 10 events. The state PR writes 1978-2008 plus 2013 only; 2018 and 2023 remain on their existing Section-10 source because both have countermanded-seat handling already represented in the canonical slice. The scoped write adds 1978, 1983, 1988, 1993, 1998, 2003, 2008 (`AcGenMar2008`), and 2013. Post-ingest verification showed 15,554 Meghalaya observation rows, 10 events, 60 ACs in every newly added event, 615 newly added candidacies mapped to `parties.IN.UNK` with `party_short_raw` preserved, and zero dangling Meghalaya `source_id` values.
 
 ## Per-State Loop
 
