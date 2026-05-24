@@ -830,6 +830,96 @@
     ],
     "S12": [
       {
+        "event_id": "AcGenOct1977",
+        "kind": "assembly",
+        "display": "Madhya Pradesh Assembly · October 1977",
+        "polled_on": "1977-10-06",
+        "term_end_estimated": "1982-10-05",
+        "data_status": "complete",
+        "notes": "320 ACs. Poll held on 6 October 1977. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay1980",
+        "kind": "assembly",
+        "display": "Madhya Pradesh Assembly · May 1980",
+        "polled_on": "1980-05-31",
+        "term_end_estimated": "1985-05-30",
+        "data_status": "complete",
+        "notes": "320 ACs. Poll held on 28 and 31 May 1980; event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb1985",
+        "kind": "assembly",
+        "display": "Madhya Pradesh Assembly · February 1985",
+        "polled_on": "1985-02-03",
+        "term_end_estimated": "1990-02-02",
+        "data_status": "complete",
+        "notes": "320 ACs. Poll held on 3 February 1985. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb1990",
+        "kind": "assembly",
+        "display": "Madhya Pradesh Assembly · February 1990",
+        "polled_on": "1990-02-27",
+        "term_end_estimated": "1995-02-26",
+        "data_status": "complete",
+        "notes": "320 ACs. Poll held on 27 February 1990. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov1993",
+        "kind": "assembly",
+        "display": "Madhya Pradesh Assembly · November 1993",
+        "polled_on": "1993-11-24",
+        "term_end_estimated": "1998-11-23",
+        "data_status": "complete",
+        "notes": "320 ACs. Poll held on 24 November 1993. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov1998",
+        "kind": "assembly",
+        "display": "Madhya Pradesh Assembly · November 1998",
+        "polled_on": "1998-11-27",
+        "term_end_estimated": "2003-11-26",
+        "data_status": "complete",
+        "notes": "320 ACs. Last election before the Madhya Pradesh Reorganisation Act carved out Chhattisgarh; poll held on 27 November 1998. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov2003",
+        "kind": "assembly",
+        "display": "Madhya Pradesh Assembly · November 2003",
+        "polled_on": "2003-11-27",
+        "term_end_estimated": "2008-11-26",
+        "data_status": "complete",
+        "notes": "230 ACs. First post-Chhattisgarh-split Madhya Pradesh Assembly election; poll held on 27 November 2003. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov2008",
+        "kind": "assembly",
+        "display": "Madhya Pradesh Assembly · November 2008",
+        "polled_on": "2008-11-27",
+        "term_end_estimated": "2013-11-26",
+        "data_status": "complete",
+        "notes": "230 ACs. Poll held on 27 November 2008; event date records the public polling day rather than the panel's December month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenNov2013",
+        "kind": "assembly",
+        "display": "Madhya Pradesh Assembly · November 2013",
+        "polled_on": "2013-11-25",
+        "term_end_estimated": "2018-11-24",
+        "data_status": "complete",
+        "notes": "230 ACs. Poll held on 25 November 2013; event date records the public polling day rather than the panel's December month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenNov2018",
+        "kind": "assembly",
+        "display": "Madhya Pradesh Assembly · November 2018",
+        "polled_on": "2018-11-28",
+        "term_end_estimated": "2023-11-27",
+        "data_status": "complete",
+        "notes": "230 ACs. Poll held on 28 November 2018; event date records the public polling day rather than the panel's December month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenNov2023",
         "kind": "assembly",
         "display": "Madhya Pradesh Assembly · November 2023",
