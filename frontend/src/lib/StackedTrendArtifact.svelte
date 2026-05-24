@@ -19,7 +19,7 @@
   // True v2.0 ledger wiring for indicator artifacts is deferred to the
   // Phase 1.4 SourceListV2 caller-migration track (separate plan).
 
-  import { fetchIndicator } from "./indicators";
+  import { loadIndicator } from "./canonical/indicator-from-canonical";
   import StackedTrendV2 from "./charts/StackedTrendV2.svelte";
   import SourceList from "./SourceList.svelte";
   import {
@@ -76,7 +76,7 @@
   $effect(() => {
     doc = null;
     load_error = null;
-    fetchIndicator(indicator_path)
+    loadIndicator(indicator_path)
       .then(a => (doc = a as unknown as IndicatorDoc))
       .catch(e => (load_error = String(e)));
   });
