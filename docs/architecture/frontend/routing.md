@@ -1,6 +1,6 @@
 # Frontend routing
 
-**Last Updated**: 2026-05-25
+**Last Updated**: 2026-05-26
 
 ## What this is
 
@@ -32,6 +32,7 @@ The fallback file is regenerated as part of the Vite build (`postbuild` step cop
 
 /<state-slug>/explore                           state SQL explorer
 /<state-slug>/party/<party-slug>                party-in-state surface
+/<state-slug>/elections/<event>                 per-state per-event landing (shipped Grammar B, PR #193)
 
 /lab/<state-slug>/<event>                       election lab (existing surface, retained)
 /compare/<state-slug>/<event>                   election compare (existing surface, retained)
@@ -73,8 +74,11 @@ For a path `/<a>/<b>/<c>`:
 
 5. (Once a state matched at step 2) If `b` exists:
    a. Look up `b` in {districts(a) ∪ ACs(a)}. If present, current node = district/AC.
-   b. Else if `b` is in RESERVED_PATH_TOKENS (`t`, `explore`, `party`),
-      dispatch to the sub-namespace handler keyed by `b`.
+   b. Else if `b` is in RESERVED_PATH_TOKENS (`t`, `explore`, `party`, `elections`),
+      dispatch to the sub-namespace handler keyed by `b`. (`elections` dispatches
+      `/<state-slug>/elections/<event>` to [StateElection.svelte](../../../frontend/src/routes/StateElection.svelte),
+      per the elections-renderer Q1+PR-2 work in PR #193 — see
+      [indicators.md §Decisions-journal-2026-05-24](indicators.md).)
    c. Else look up `b` in the indicator-slug registry. If present, render
       {state=a, indicator=b}.
    d. Else render the missing-scope stub (per ADR-0037 §missing-scope):
