@@ -3,12 +3,17 @@
   "$id": "./boundary-layers.schema.json",
   "title": "Boundary layers control table",
   "description": "Canonical control table for every boundary geometry shard on disk under datasets/boundaries/. One row per (level, partition) — e.g. one row for the national states outline, one row per state's AC layer, one row per (state, district) village shard. Replaces the per-file .sources.json + .metadata.json + .unkeyed.json + per-state -index.json sidecars that pre-dated T.0d (115 files retired in the T.0d fused atomic commit). FK source_id resolves to taxonomy/sources.parquet (citation triple per ADR-0032 §12 v2.0). Authored shape JSON (D18 — this schema documents the parquet column contract; the parquet itself is COMPILED by tools/boundaries/snapshot.py which calls boundary_layers_seed.compile_to_parquet, not hand-authored). Hive-partitioned discovery path matches elections/state=in_<S>/... grammar (T.0d §1). Amends ADR-0031 (Status: Accepted → Amended 2026-05-22).",
-  "x-version": "1.0",
+  "x-version": "1.1",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-22",
       "description": "Initial canonical boundary-layers control table schema (T.0d of TODO/20260517-canonical-long-format-pivot.md §0e.7). 17 columns: 10 required (layer_id PK + level + partition_path + format + crs + original_feature_count + retained_feature_count + unkeyed_count + size_bytes + source_id FK) + 7 nullable (entity_state, entity_district, entity_city, simplification_algorithm, simplification_tolerance_deg, unkeyed_keys_json, notes). Spec text in TODO/20260522-t0d-boundaries-consolidation-spec.md §2 said '12 required + 3 optional = 15' which counted from an earlier iteration; the §2 column listing carried the 17-column shape that landed. Replaces boundary.sources.schema.json + boundary.unkeyed.schema.json + boundary.villages_index.schema.json (all retired in this T.0d commit). feature_collection.metadata.schema.json is preserved (still used by backend/yen_gov/sources/india_geodata/power_plants.py for the non-boundary power-plants feature collection)."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-05-24",
+      "description": "Add optional nullable `delimitation_vintage` column to the per-layer row shape (4-digit year string e.g. '2024', '2008'). Required for electoral-constituency layers (level='ac' or 'pc') to disambiguate which Delimitation Commission Order the geometry reflects; pre-2008 elections need pre-Delim boundaries, 2009–2024 elections use the 2008 Delim with state-specific overrides (J&K 2022, Assam 2023). Null for non-electoral layers (country/state/district/subdistrict/village/postal). This enables Hive-partitioning by `delim=<year>` under `boundaries/in/<level>/delim=<year>/...` so pre-2019 LS data can coexist with the 2024-Delim PC layer without overwriting; the partition segment matches the existing layer_id grammar regex without further change. Additive: existing rows get null; no migration needed. Lands in the same commit as the first PC layer ingest (shijithpk/2024_maps_supplement, georeferenced from ECI Press Note No. 23)."
     }
   ],
   "type": "object",
@@ -120,6 +125,11 @@
           "notes": {
             "type": ["string", "null"],
             "description": "Operator-visible free-text note (e.g. 'upstream MIT applied to data; treated as attribution-only', 'J&K 2024 re-georef from shijithpk; supersedes pre-2019 boundary'). Optional; NOT citizen-facing."
+          },
+          "delimitation_vintage": {
+            "type": ["string", "null"],
+            "pattern": "^[0-9]{4}$",
+            "description": "4-digit year of the Delimitation Commission Order that this boundary set reflects. Used for electoral-constituency layers only (level='ac' or 'pc') to disambiguate which boundary generation a shard belongs to. Examples: '2024' for the 2024 LS map incorporating J&K 2022 + Assam 2023 reorganisations; '2008' for the post-2008 Delim baseline; '1976' for the pre-2008 boundaries needed by pre-2009 elections. Null for non-electoral layers (country/state/district/subdistrict/village/postal admin spine). When set, the partition_path is expected to carry a `delim=<year>` Hive segment (e.g. boundaries/in/pc/delim=2024/all.geojson)."
           }
         }
       }

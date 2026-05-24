@@ -151,17 +151,21 @@ def test_boundary_layer_row_negative_counts_rejected():
 # ---------------------------------------------------------------------------
 
 
-def test_boundary_sources_count_is_five():
-    """Per spec §2 + 2026-05-22 chunk-1 correction: 5 boundary producers
-    seeded today (datameet, htl, shijithpk, ramseraph, yashveeeeeeer).
-    The spec text said '4' but missed yashveeeeeeer/india-geodata (SoI
-    national silhouette) which is already on disk via the
-    `kind: country` entry. Postal/India Post still NOT seeded —
-    pincode geojson doesn't exist yet. Adding a 6th producer requires
-    a co-bumped citizen-facing change AND addition to SOURCE_NICKNAMES."""
-    assert len(BOUNDARY_SOURCES) == 5
-    assert len(SOURCE_NICKNAMES) == 5
-    assert len(BOUNDARY_SOURCE_ID_BY_NICKNAME) == 5
+def test_boundary_sources_count_is_six():
+    """6 boundary producers seeded today (datameet, htl, shijithpk J&K AC,
+    shijithpk PC 2024, ramseraph, yashveeeeeeer). Was 5 before the
+    PC layer ingest landed -- the second shijithpk row exists because
+    the J&K AC layer and the India PC layer are DIFFERENT publications
+    by the same producer with distinct (producer, title, vintage)
+    triples; collapsing them onto one source_id would lose per-document
+    citation precision (ADR-0032 Rejected A). Postal/India Post still
+    NOT seeded -- pincode geojson doesn't exist yet. Adding a 7th
+    producer requires a co-bumped citizen-facing change AND addition
+    to SOURCE_NICKNAMES + _BOUNDARY_SOURCE_TRIPLES + by_nickname in
+    the same commit."""
+    assert len(BOUNDARY_SOURCES) == 6
+    assert len(SOURCE_NICKNAMES) == 6
+    assert len(BOUNDARY_SOURCE_ID_BY_NICKNAME) == 6
 
 
 def test_boundary_sources_have_deterministic_ids():
@@ -199,8 +203,9 @@ def test_boundary_sources_all_have_required_v2_fields():
 
 
 def test_boundary_sources_all_are_republishers():
-    """All 5 current boundary seeds are republishers (ECI / SoI / LGD are
-    the upstream-upstream authorities). If a future PR seeds a
+    """All 6 current boundary seeds are republishers (ECI / SoI / LGD are
+    the upstream-upstream authorities -- the shijithpk PC row cites
+    ECI Press Note No. 23 as its source). If a future PR seeds a
     direct-from-issuing-authority source (e.g. ECI raw shapefile),
     that row's is_issuing_authority will be True and this assertion
     will need updating in the same PR."""
@@ -256,11 +261,11 @@ def _sources_con() -> duckdb.DuckDBPyConnection:
         con.close()
 
 
-def test_upsert_boundary_sources_inserts_five_rows(_sources_con):
+def test_upsert_boundary_sources_inserts_six_rows(_sources_con):
     n = upsert_boundary_sources(_sources_con)
-    assert n == 5
+    assert n == 6
     [(count,)] = _sources_con.execute("SELECT COUNT(*) FROM sources").fetchall()
-    assert count == 5
+    assert count == 6
 
 
 def test_upsert_boundary_sources_is_idempotent(_sources_con):
@@ -268,7 +273,7 @@ def test_upsert_boundary_sources_is_idempotent(_sources_con):
     upsert_boundary_sources(_sources_con)
     upsert_boundary_sources(_sources_con)
     [(count,)] = _sources_con.execute("SELECT COUNT(*) FROM sources").fetchall()
-    assert count == 5
+    assert count == 6
 
 
 def test_upsert_boundary_sources_populates_expected_ids(_sources_con):
@@ -335,7 +340,7 @@ def test_compile_to_parquet_emits_both_outputs(tmp_path):
     ]
     n_layers, n_sources = compile_to_parquet(rows, tmp_path)
     assert n_layers == 1
-    assert n_sources == 5  # all 5 BOUNDARY_SOURCES upserted regardless of which are referenced
+    assert n_sources == 6  # all 6 BOUNDARY_SOURCES upserted regardless of which are referenced
     assert (tmp_path / "boundaries" / "boundary_layers.parquet").is_file()
     assert (tmp_path / "taxonomy" / "sources.parquet").is_file()
 
@@ -386,7 +391,7 @@ def test_compile_to_parquet_unknown_source_id_rejects(tmp_path):
 
     fake_src = "src-deadbeef0000"
     row = _layer_row("boundaries.in.states", fake_src)
-    with pytest.raises(ValueError, match="not one of the 5 BOUNDARY_SOURCES"):
+    with pytest.raises(ValueError, match="not one of the 6 BOUNDARY_SOURCES"):
         compile_to_parquet([row], tmp_path)
 
 
@@ -486,7 +491,7 @@ def test_compile_to_parquet_empty_input_writes_zero_row_table(tmp_path):
 
     n_layers, n_sources = compile_to_parquet([], tmp_path)
     assert n_layers == 0
-    assert n_sources == 5
+    assert n_sources == 6
     assert (tmp_path / "boundaries" / "boundary_layers.parquet").is_file()
     # Round-trip read confirms zero rows
     import duckdb
@@ -499,3 +504,110 @@ def test_compile_to_parquet_empty_input_writes_zero_row_table(tmp_path):
     finally:
         con.close()
     assert count == 0
+
+
+# ---------------------------------------------------------------------------
+# PC layer + delimitation_vintage partitioning (PR-1 contract)
+# ---------------------------------------------------------------------------
+
+
+def test_two_shijithpk_sources_have_distinct_ids():
+    """ADR-0032 Rejected A: same producer + different title/vintage =
+    different source_id. The J&K AC layer and the India PC 2024 layer
+    are TWO distinct shijithpk publications; collapsing them would
+    lose per-document citation precision."""
+    jk_id = BOUNDARY_SOURCE_ID_BY_NICKNAME["shijithpk"]
+    pc_id = BOUNDARY_SOURCE_ID_BY_NICKNAME["shijithpk_pc_2024"]
+    assert jk_id != pc_id, (
+        "shijithpk J&K AC and shijithpk PC 2024 share a source_id; "
+        "the citation triple should disambiguate them"
+    )
+    # Both come from same producer string
+    by_id = {row.source_id: row for row in BOUNDARY_SOURCES}
+    assert by_id[jk_id].producer == by_id[pc_id].producer == "shijithpk"
+    # But titles differ (vintages happen to both be '2024' here -- the
+    # disambiguator that gives them distinct source_ids is the title)
+    assert by_id[jk_id].title != by_id[pc_id].title
+
+
+def test_shijithpk_pc_2024_v2_field_profile():
+    """The PC 2024 row's classification reflects what was actually
+    verified: public-domain (Unlicense, equivalent to a dedication),
+    bronze (a single individual's georeferencing of an ECI bitmap,
+    not the ECI authoritative shapefile), transcribed (not a
+    live-fetched authoritative feed), is_issuing_authority=False
+    (ECI is the upstream-upstream authority, shijithpk is republisher).
+    A future PR that ingests ECI's authoritative shapefile would add
+    a DIFFERENT row with is_issuing_authority=True; this row stays
+    as-is."""
+    by_id = {row.source_id: row for row in BOUNDARY_SOURCES}
+    row = by_id[BOUNDARY_SOURCE_ID_BY_NICKNAME["shijithpk_pc_2024"]]
+    assert row.license == "public-domain"
+    assert row.confidence_tier == "bronze"
+    assert row.verification_method == "transcribed"
+    assert row.is_issuing_authority is False
+    assert row.url_main == "https://github.com/shijithpk/2024_maps_supplement"
+
+
+def test_pc_layer_row_delim_partition_via_compile(tmp_path):
+    """End-to-end: write + read parquet, confirm delimitation_vintage
+    column round-trips for the PC row."""
+    import duckdb
+
+    pc_src = BOUNDARY_SOURCE_ID_BY_NICKNAME["shijithpk_pc_2024"]
+    row = BoundaryLayerRow(
+        layer_id="boundaries.in.pc.delim=2024",
+        level="pc",
+        partition_path="boundaries/in/pc/delim=2024/all.geojson",
+        format="geojson",
+        crs="EPSG:4326",
+        original_feature_count=545,
+        retained_feature_count=545,
+        unkeyed_count=0,
+        size_bytes=8769142,
+        source_id=pc_src,
+        delimitation_vintage="2024",
+    )
+    n_layers, _ = compile_to_parquet([row], tmp_path)
+    assert n_layers == 1
+
+    con = duckdb.connect()
+    try:
+        result = con.execute(
+            f"SELECT layer_id, level, delimitation_vintage FROM read_parquet("
+            f"'{(tmp_path / 'boundaries' / 'boundary_layers.parquet').as_posix()}'"
+            f") WHERE level='pc'"
+        ).fetchall()
+    finally:
+        con.close()
+    assert result == [("boundaries.in.pc.delim=2024", "pc", "2024")]
+
+
+def test_delim_vintage_pattern_enforced():
+    """Pydantic regex on delimitation_vintage: must be 4 digits or None.
+    Catches accidental empty string, ISO date, or free-form vintage text."""
+    pc_src = BOUNDARY_SOURCE_ID_BY_NICKNAME["shijithpk_pc_2024"]
+    base = dict(
+        layer_id="boundaries.in.pc.delim=2024",
+        level="pc",
+        partition_path="boundaries/in/pc/delim=2024/all.geojson",
+        format="geojson",
+        crs="EPSG:4326",
+        original_feature_count=1,
+        retained_feature_count=1,
+        unkeyed_count=0,
+        size_bytes=1,
+        source_id=pc_src,
+    )
+    # None is the documented default (e.g. for non-delimited bodies like states)
+    BoundaryLayerRow(**base, delimitation_vintage=None)
+    # Empty string violates the ^[0-9]{4}$ pattern
+    with pytest.raises(ValidationError):
+        BoundaryLayerRow(**base, delimitation_vintage="")
+    # ISO date violates
+    with pytest.raises(ValidationError):
+        BoundaryLayerRow(**base, delimitation_vintage="2024-05-01")
+    # Free-form text violates
+    with pytest.raises(ValidationError):
+        BoundaryLayerRow(**base, delimitation_vintage="post-2024")
+

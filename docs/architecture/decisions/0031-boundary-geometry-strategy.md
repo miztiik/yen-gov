@@ -36,7 +36,7 @@ This ADR exists because the answer is **cross-cutting** (data layer + frontend r
 | State (national, all 36) | GeoJSON | stays GeoJSON |
 | District (national, all) | GeoJSON now | → PMTiles when single file exceeds ~10 MB gzipped OR when zoom-level tiling becomes a perf win |
 | AC per state (`S<NN>-ac.geojson`) | GeoJSON | stays GeoJSON per-state (one file per state stays under budget) |
-| PC national | not yet ingested | PMTiles from day one (election cycles need zoom in; one national file > budget at full resolution) |
+| PC national (2024 delimitation) | GeoJSON (545 features, ~8.4 MB) | stays GeoJSON for now; promote to PMTiles when a second delimitation vintage lands and the combined per-delim files exceed the budget. See Amendment 2026-05-24. |
 | Sub-district / taluk | GeoJSON now (TN only) | → PMTiles when national rollout, same trigger as districts |
 | Village per state | GeoJSON now (TN partial) | → PMTiles per state when state coverage exceeds budget |
 | Postal (pincode, orthogonal — not LGD) | GeoJSON per city | stays GeoJSON per city (segregated under `postal/` — see boundaries.md) |
@@ -197,6 +197,43 @@ A new `tier_b_legacy_boundary_sidecars(root)` check in `backend/yen_gov/validate
 ### 4. Manifest format key tightening
 
 `datasets/manifest.json` boundary entries keep their `format: "geojson" | "pmtiles"` discriminator (D21 unchanged). New entries follow the Hive path layout above.
+
+## Amendment 2026-05-24 (PC layer ingest + `delim=YYYY/` partition key)
+
+The first Parliamentary Constituency layer ships in this PR: 545 PCs covering the 2024 General Election delimitation, sourced from [`github.com/shijithpk/2024_maps_supplement`](https://github.com/shijithpk/2024_maps_supplement) (Unlicense, treated as public-domain dedication). The underlying boundary decisions are issued by the Election Commission of India via [Press Note No. 23](https://elections24.eci.gov.in/docs/press-note-no-23.pdf), reflecting the Delimitation Commission Orders of 1976 (baseline), 2008 (amendment), 2022 (J&K), and 2023 (Assam).
+
+### 1. PC sits as a sibling kind, NOT as an `ac` partition
+
+Per §0a authority assignment (Hans + Max), and per Citizen-user mental-model testing, AC (Assembly Constituency) and PC (Parliamentary Constituency) are **different electoral surfaces** — they elect different bodies (state legislative assemblies vs the national Lok Sabha), they aggregate at different scales (one PC typically contains 5–10 ACs), and they follow independent delimitation cycles. The boundaries tree treats them as sibling families under `boundaries/in/pc/` and `boundaries/in/ac/`, never as parent/child.
+
+### 2. Mandatory `delim=YYYY/` partition key on PC (and on AC going forward)
+
+Indian electoral boundaries change at delimitation cycles. The current PC ingest reflects the 2024 General Election delimitation (which itself layers 1976 + 2008 + 2022 J&K + 2023 Assam). Any pre-2009 Lok Sabha analysis (1952–2004 cycles) needs the pre-2008 boundaries; any future delimitation (next is expected ~2026 after the next Census) ships as a new partition.
+
+The Hive partition key `delim=<YYYY>` makes the vintage explicit on disk and on the layer_id:
+
+```
+datasets/boundaries/in/pc/delim=2024/all.geojson
+```
+
+corresponds to `layer_id = boundaries.in.pc.delim=2024` and to a `BoundaryLayerRow.delimitation_vintage = "2024"` column added in v1.1 of the `boundary-layers.schema.json` (additive, nullable — pre-existing AC layers carry `null` until a follow-up PR backfills their delimitation vintage). Pattern is `^[0-9]{4}$` so accidental ISO dates or free-form text are rejected at the Pydantic boundary.
+
+The AC layers already on disk (37 per-state shards under `boundaries/in/ac/state=in_*/all.geojson`) are NOT in scope for this PR — they keep their existing path. When the next AC delimitation lands or when pre-2008 AC layers are added, those PRs will move them under `boundaries/in/ac/delim=<YYYY>/state=in_*/all.geojson` and bump this ADR. `_paths.derive_hive` already accepts `delim` as an optional segment, so the migration is mechanical.
+
+### 3. Citizen-rendering: 2 J&K-territory placeholders carry `ls_seat_code=999`
+
+The 545 PC dataset contains 2 features with `ls_seat_code=999` covering Pakistan-administered Kashmir + China-administered Aksai Chin — territory claimed by India but not currently delimited as Lok Sabha seats. Renderers MUST treat these as "claimed but unrepresented" (e.g. diagonal hatch overlay, never tinted with election colours). This is a citizen-trust gate: a flat blue choropleth implying ECI conducted elections there would be wrong.
+
+### 4. Citation surface
+
+`taxonomy/sources.parquet` now carries 6 boundary citation rows (was 5). The shijithpk producer publishes two distinct publications cited by yen-gov:
+
+- `("shijithpk", "J&K Assembly New Borders (georeferenced)", "2024")` → `src-68ad69e02476` — pre-existing
+- `("shijithpk", "India Lok Sabha Parliamentary Constituency boundaries (georeferenced)", "2024")` → `src-2af556fe59e0` — new in this PR
+
+These are distinct source_ids by design (ADR-0032 Rejected A: collapsing on producer alone loses per-document citation precision). Both rows mark `is_issuing_authority = false` because ECI is the upstream-upstream authority; both mark `confidence_tier = "bronze"` because shijithpk's own README warns the maps are "researcher-quality, not survey-grade — international borders will be off, use at your own risk". Suitable for choropleth visualisation; NOT for area/distance calculation.
+
+When ECI publishes an authoritative shapefile (or when an LGD-keyed equivalent lands), a future PR will add a DIFFERENT source row with `is_issuing_authority = true` and the existing bronze row stays as-is for back-compat.
 
 ## Consequences
 

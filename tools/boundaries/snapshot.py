@@ -72,6 +72,7 @@ sys.path.insert(0, str(_THIS_DIR))
 
 from yen_gov.canonical.boundary_layers_seed import (  # noqa: E402
     BOUNDARY_SOURCE_ID_BY_NICKNAME,
+    BOUNDARY_SOURCE_ID_BY_TRIPLE,
     BoundaryLayerRow,
     compile_to_parquet,
 )
@@ -129,6 +130,14 @@ def derive_output_basename(entry: dict[str, Any]) -> str:
         return "india-states.geojson"
     if kind == "country" and entry.get("country") == "IN" and not state:
         return "india-soi.geojson"
+    if kind == "pc" and not state:
+        # National-scope PC layer. The delim segment (e.g. ``2024``) is
+        # carried in the partition_path / layer_id; the legacy basename
+        # is only used to name ``.runtime/raw/<basename>`` scratch
+        # directories for fetch formats and never appears on the
+        # citizen path, so a stable basename suffices.
+        delim = entry.get("delimitation_vintage")
+        return f"india-pc-{delim}.geojson" if delim else "india-pc.geojson"
     if kind == "ac" and state:
         return f"{state}-ac.geojson"
     if kind == "districts" and not state:
@@ -155,35 +164,51 @@ def derive_partition_path(
     """
     kind = entry["kind"]
     state = entry.get("state")
-    return derive_hive(kind=kind, state=state, district_lgd=district_lgd)
+    # ``delimitation_vintage`` is a top-level pipeline.json field on
+    # electoral-constituency entries (kind in {ac, pc}); None for
+    # admin-spine layers. derive_hive inserts it as a ``delim=<year>``
+    # Hive segment immediately after the kind segment so per-state /
+    # per-district sub-partitions still nest below it.
+    delim = entry.get("delimitation_vintage")
+    return derive_hive(
+        kind=kind,
+        delim=delim,
+        state=state,
+        district_lgd=district_lgd,
+    )
 
 
 def _resolve_source_id(entry: dict[str, Any]) -> str:
     """Resolve a pipeline entry's source_id from its source_triple block.
 
     pipeline.json carries the (producer, title, vintage) triple per entry
-    (added in T.0d chunk 2a). We look up the source_id by matching the
-    triple's producer against the BOUNDARY_SOURCE_ID_BY_NICKNAME map's
-    keyed-by-nickname rows. Falls back to URL-prefix matching when the
-    source_triple block is absent (catches partially-migrated pipeline
-    entries).
+    (added in T.0d chunk 2a). We look up the source_id by hashing the
+    triple in ``BOUNDARY_SOURCE_ID_BY_TRIPLE`` so multiple publications
+    by the same producer (e.g. shijithpk's J&K AC layer and India PC
+    layer) route to distinct ``source_id`` values. Falls back to
+    URL-prefix matching when the source_triple block is absent (catches
+    partially-migrated pipeline entries).
     """
     triple = entry.get("source_triple")
     if triple:
-        producer = triple.get("producer", "")
-        # Map producer string back to nickname via PRODUCER_LOOKUP table.
-        # Keys exactly match boundary_layers_seed._BOUNDARY_SOURCE_TRIPLES.
-        producer_to_nickname = {
-            "DataMeet India Maps Project": "datameet",
-            "Hindustan Times Labs": "htl",
-            "shijithpk": "shijithpk",
-            "ramSeraph": "ramseraph",
-            "yashveeeeeeer/india-geodata": "yashveeeeeeer",
-        }
-        nickname = producer_to_nickname.get(producer)
-        if nickname:
-            return BOUNDARY_SOURCE_ID_BY_NICKNAME[nickname]
-    # Fallback: URL prefix matching
+        triple_key = (
+            triple.get("producer", ""),
+            triple.get("title", ""),
+            triple.get("vintage", ""),
+        )
+        source_id = BOUNDARY_SOURCE_ID_BY_TRIPLE.get(triple_key)
+        if source_id is not None:
+            return source_id
+        msg = (
+            f"source_triple {triple_key!r} on entry kind={entry.get('kind')!r} "
+            f"does not match any of the {len(BOUNDARY_SOURCE_ID_BY_TRIPLE)} "
+            "known boundary citation rows. Adding a new boundary source "
+            "requires extending boundary_layers_seed.SOURCE_NICKNAMES + "
+            "_BOUNDARY_SOURCE_TRIPLES + by_nickname dict in the same commit."
+        )
+        raise ValueError(msg)
+    # Fallback: URL prefix matching (legacy entries pre source_triple).
+    # local_file entries have no urls; they MUST carry source_triple.
     urls = entry.get("source", {}).get("urls", [])
     if urls:
         url0 = urls[0]
@@ -214,6 +239,45 @@ def fetch_geojson(urls: list[str], out_path: Path) -> list[dict[str, str]]:
     fetched_at = utc_now()
     stream_to_disk(urls[0], out_path)
     return [{"url": urls[0], "fetched_at": fetched_at}]
+
+
+def fetch_local_file(src: Path, out_path: Path) -> None:
+    """Copy a repo-local GeoJSON FeatureCollection to the canonical Hive
+    output path. Used when the upstream snapshot was hand-delivered to
+    ``datasets/ephemeral/`` (no live URL to re-fetch from). The source
+    file MUST exist and MUST be a valid GeoJSON FeatureCollection; we
+    validate the top-level shape before copying so a malformed drop is
+    caught loudly at snapshot time, not silently propagated.
+
+    The ``fetched_at`` timestamp that the live-fetch path returns is
+    intentionally NOT recorded here: under ADR-0032 v2.0 the citation
+    triple (producer, title, vintage) IS the identity, and live-fetch
+    telemetry belongs in ``.runtime/`` sidecars. A locally-delivered
+    file shares the SAME source_id as the live-fetch path would (same
+    triple = same row), differing only in
+    ``verification_method='transcribed'`` on the sources row.
+    """
+    if not src.is_file():
+        msg = (
+            f"format=local_file source path does not exist: {src}. "
+            "local_file entries reference a repo-relative path under "
+            "datasets/ephemeral/ that MUST be present in the working tree "
+            "before snapshot runs. There is no fallback fetch."
+        )
+        raise FileNotFoundError(msg)
+    with src.open(encoding="utf-8") as fh:
+        data = json.load(fh)
+    if not isinstance(data, dict) or data.get("type") != "FeatureCollection":
+        msg = (
+            f"format=local_file source is not a GeoJSON FeatureCollection: {src} "
+            f"(top-level type={data.get('type') if isinstance(data, dict) else type(data).__name__!r})"
+        )
+        raise ValueError(msg)
+    if not isinstance(data.get("features"), list):
+        msg = f"format=local_file source has no 'features' array: {src}"
+        raise ValueError(msg)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(src, out_path)
 
 
 def fetch_shp_bundle(
@@ -589,6 +653,7 @@ def _emit_split_shards(
                 entity_district=district_lgd,
                 simplification_algorithm=simpl_alg,
                 simplification_tolerance_deg=simpl_tol,
+                delimitation_vintage=entry.get("delimitation_vintage"),
             )
         )
     return rows
@@ -619,7 +684,7 @@ def snapshot_one(
     """
     source = entry["source"]
     fmt: str = source["format"]
-    urls: list[str] = source["urls"]
+    urls: list[str] = source.get("urls", [])
     source_id = _resolve_source_id(entry)
     state = entry.get("state")
     coord_precision = source.get("coord_precision")
@@ -633,6 +698,8 @@ def snapshot_one(
     )
     for u in urls:
         print(f"  {u}", flush=True)
+    if fmt == "local_file":
+        print(f"  local-file path: {source.get('path')!r}", flush=True)
 
     # Legacy basename still useful for naming runtime/raw scratch dirs.
     legacy_basename = derive_output_basename(entry)
@@ -662,6 +729,45 @@ def snapshot_one(
                 entity_state=state,
                 simplification_algorithm=simpl_alg,
                 simplification_tolerance_deg=simpl_tol,
+                delimitation_vintage=entry.get("delimitation_vintage"),
+            )
+        ]
+
+    if fmt == "local_file":
+        # Repo-relative path resolved against datasets_root's parent
+        # (i.e. the repo root). pipeline.json carries
+        # e.g. ``datasets/ephemeral/india_ls_seats_545.geojson`` directly.
+        # No fetched_at timestamp recorded: the citation triple is the
+        # identity per ADR-0032 v2.0; verification_method on the source
+        # row is ``transcribed``.
+        rel = source.get("path")
+        if not rel:
+            msg = f"format=local_file requires source.path on entry kind={entry['kind']!r}"
+            raise ValueError(msg)
+        src = (datasets_root.parent / rel).resolve()
+        fetch_local_file(src, out_path)
+        feature_count = _count_features_in_geojson(out_path)
+        size = out_path.stat().st_size
+        if size > SNAPSHOT_BYTE_BUDGET:
+            out_path.unlink()
+            print(f"  SKIP — {size / 1024 / 1024:.1f} MB exceeds budget", flush=True)
+            return []
+        return [
+            BoundaryLayerRow(
+                layer_id=layer_id,
+                level=KIND_TO_LEVEL[entry["kind"]],
+                partition_path=partition_path,
+                format="geojson",
+                crs="EPSG:4326",
+                original_feature_count=feature_count,
+                retained_feature_count=feature_count,
+                unkeyed_count=0,
+                size_bytes=size,
+                source_id=source_id,
+                entity_state=state,
+                simplification_algorithm=simpl_alg,
+                simplification_tolerance_deg=simpl_tol,
+                delimitation_vintage=entry.get("delimitation_vintage"),
             )
         ]
 
@@ -689,6 +795,7 @@ def snapshot_one(
                 entity_state=state,
                 simplification_algorithm=simpl_alg,
                 simplification_tolerance_deg=simpl_tol,
+                delimitation_vintage=entry.get("delimitation_vintage"),
             )
         ]
 
@@ -734,6 +841,7 @@ def snapshot_one(
                 entity_state=state,
                 simplification_algorithm=simpl_alg,
                 simplification_tolerance_deg=simpl_tol,
+                delimitation_vintage=entry.get("delimitation_vintage"),
             )
         ]
 
@@ -772,6 +880,19 @@ def main(argv: list[str] | None = None) -> int:
         default=None,
         help="Run only entries whose `state` matches (repeatable). Default: all.",
     )
+    parser.add_argument(
+        "--preserve-existing",
+        action="store_true",
+        help=(
+            "Preserve boundary_layers rows already on disk that the current "
+            "run does not re-emit. Use when running with --kind / --state "
+            "filters to add or refresh a subset of layers without rebuilding "
+            "everything (e.g. ingesting a new PC layer without re-fetching "
+            "the other 6 upstream URLs). Without this flag the writer "
+            "replaces all rows with the current run's emissions, which is "
+            "the right behaviour for a full rebuild only."
+        ),
+    )
     args = parser.parse_args(argv)
 
     root = Path(args.root).resolve()
@@ -803,7 +924,11 @@ def main(argv: list[str] | None = None) -> int:
         all_rows.extend(snapshot_one(e, datasets_root, raw_root))
 
     print(f"\nemitted {len(all_rows)} layer rows", flush=True)
-    n_layers, n_sources = compile_to_parquet(all_rows, datasets_root)
+    n_layers, n_sources = compile_to_parquet(
+        all_rows,
+        datasets_root,
+        merge_with_existing=args.preserve_existing,
+    )
     print(
         f"compiled to parquet: {n_layers} boundary_layers; "
         f"sources upserted (total now {n_sources})",
