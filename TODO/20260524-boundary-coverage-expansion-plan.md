@@ -16,7 +16,7 @@
 
 | Phase | PR | Status | Merged SHA | Notes / blockers |
 | --- | :---: | --- | :---: | --- |
-| **0.1** Subdistrict CSV ingest (re-run `tools/lgd/snapshot.py`) | — | Not started | — | Re-run snapshot tool first; manual portal fallback documented in §0.1 |
+| **0.1** Subdistrict CSV ingest (re-run `tools/lgd/snapshot.py`) | _pending_ | In review | — | Snapshot run 2026-05-24 token landed 7,090 subdistricts (36 states); incidental states/districts refresh to 24May token included. |
 | **0.2** District backfill (639 rows → `entities.json`) | — | Not started | — | Independent of 0.1; needs `tools/lgd/backfill_entities_districts.py` (NEW) |
 | **0.3** Subdistrict entity seed | — | Deferred → Phase B.1 | — | Folded into Phase B ingest |
 | **0.4** Simplify existing national boundary files (D-P) | — | Not started | — | **Blocks D.0 and D.6** — must ship before survey-grade swaps; needs `tools/boundaries/simplify.py` (NEW) |
