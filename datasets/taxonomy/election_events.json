@@ -257,6 +257,87 @@
     ],
     "S07": [
       {
+        "event_id": "AcGenOct1977",
+        "kind": "assembly",
+        "display": "Haryana Assembly · October 1977",
+        "polled_on": "1977-10-06",
+        "term_end_estimated": "1982-10-05",
+        "data_status": "complete",
+        "notes": "90 ACs. Poll held on 6 October 1977. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay1982",
+        "kind": "assembly",
+        "display": "Haryana Assembly · May 1982",
+        "polled_on": "1982-05-19",
+        "term_end_estimated": "1987-05-18",
+        "data_status": "complete",
+        "notes": "90 ACs. Poll held on 19 May 1982. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenJun1987",
+        "kind": "assembly",
+        "display": "Haryana Assembly · June 1987",
+        "polled_on": "1987-06-17",
+        "term_end_estimated": "1992-06-16",
+        "data_status": "complete",
+        "notes": "90 ACs. ECI statistical-report text records poll date 17 June 1987. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay1991",
+        "kind": "assembly",
+        "display": "Haryana Assembly · May 1991",
+        "polled_on": "1991-05-20",
+        "term_end_estimated": "1996-05-19",
+        "data_status": "complete",
+        "notes": "90 ACs. ECI statistical-report text records poll date 20 May 1991. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay1996",
+        "kind": "assembly",
+        "display": "Haryana Assembly · May 1996",
+        "polled_on": "1996-05-01",
+        "term_end_estimated": "2001-04-30",
+        "data_status": "complete",
+        "notes": "90 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3). Poll day recorded as first of month because the public page gives year-level date context."
+      },
+      {
+        "event_id": "AcGenFeb2000",
+        "kind": "assembly",
+        "display": "Haryana Assembly · February 2000",
+        "polled_on": "2000-02-22",
+        "term_end_estimated": "2005-02-21",
+        "data_status": "complete",
+        "notes": "90 ACs. Poll held on 22 February 2000. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb2005",
+        "kind": "assembly",
+        "display": "Haryana Assembly · February 2005",
+        "polled_on": "2005-02-03",
+        "term_end_estimated": "2010-02-02",
+        "data_status": "complete",
+        "notes": "90 ACs. Poll held on 3 February 2005. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenOct2009",
+        "kind": "assembly",
+        "display": "Haryana Assembly · October 2009",
+        "polled_on": "2009-10-13",
+        "term_end_estimated": "2014-10-12",
+        "data_status": "complete",
+        "notes": "90 ACs. Poll held on 13 October 2009. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenOct2014",
+        "kind": "assembly",
+        "display": "Haryana Assembly · October 2014",
+        "polled_on": "2014-10-15",
+        "term_end_estimated": "2019-10-14",
+        "data_status": "complete",
+        "notes": "90 ACs. Poll held on 15 October 2014. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenOct2019",
         "kind": "assembly",
         "display": "Haryana Assembly · October 2019",
