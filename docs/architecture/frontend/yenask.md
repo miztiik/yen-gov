@@ -1,10 +1,14 @@
 # YENASK — browser governance insight assistant (dev preview)
 
-**Last Updated**: 2026-05-24 (ABCD sprint shipped — per-attempt timing, model picker, graduated download friction, default-model strict upgrade)
+**Last Updated**: 2026-05-24 (Slice E architecture approved per [ADR-0039](../decisions/0039-yenask-retrieval-augmented-intent-extraction.md); on-screen brand-mark refreshed to **Y-Ask** while module / route / class names remain `yenask`)
 
 YENASK is a dev-only browser lab mounted at `/dev/yenask`. It turns a citizen governance question into a validated `InsightIntent`, then runs DuckDB-WASM directly against the canonical Parquet store to produce an `AnswerViewModel`. No backend at runtime — the lab obeys Holy Law #1 (static-first production).
 
-This page covers **what is currently on disk** as of the ABCD sprint (PRs #225 / #227 / #228 / #229, all merged onto `main` 2026-05-24): the module layout, the contracts the modules pass between each other, the readiness state machine, the observability surface, the per-row picker, the graduated download friction by size tier, and the test seams. It does **not** cover rationale-as-it-was-made — that lives in the plan-doc [`TODO/20260518-browser-governance-insight-assistant-plan.md`](../../../TODO/20260518-browser-governance-insight-assistant-plan.md) §17 (entries D-01 through D-30) and in [ADR-0038](../decisions/0038-yenask-two-stage-llm-pipeline-rejected.md) for the two-stage pipeline rejection. Every section here cites the relevant D-NN entry or the ADR instead of restating it (per CLAUDE.md §5 doc-class routing contract).
+**Display name vs identifier**: the citizen-visible logo and `<title>` reads **Y-Ask** (with hyphen) per [ADR-0039 §D-33](../decisions/0039-yenask-retrieval-augmented-intent-extraction.md#y-ask-brand-mark-refresh-d-33). The library / module / route / LS-key identifier is `yenask` (unchanged). The two are separately tunable: the brand-mark is a citizen-facing affordance, the identifier is an engineering affordance. Do not rename `frontend/src/lib/yenask/`, `Yenask.svelte`, `/dev/yenask`, `yenask.model.id.v1`, or `data-route="yenask"` — only the on-screen display strings change.
+
+This page covers **what is currently on disk** as of the ABCD sprint (PRs #225 / #227 / #228 / #229, all merged onto `main` 2026-05-24): the module layout, the contracts the modules pass between each other, the readiness state machine, the observability surface, the per-row picker, the graduated download friction by size tier, and the test seams. It does **not** cover rationale-as-it-was-made — that lives in the plan-doc [`TODO/20260518-browser-governance-insight-assistant-plan.md`](../../../TODO/20260518-browser-governance-insight-assistant-plan.md) §17 (entries D-01 through D-33) and in the relevant ADRs: [ADR-0038](../decisions/0038-yenask-two-stage-llm-pipeline-rejected.md) (two-LLM pipeline rejection, still in force) and [ADR-0039](../decisions/0039-yenask-retrieval-augmented-intent-extraction.md) (Slice E LLM-OS shape, approved evolution). Every section here cites the relevant D-NN entry or the ADR instead of restating it (per CLAUDE.md §5 doc-class routing contract).
+
+**Slice E status**: ADR-0039 locks the direction; Slice E.1 (embeddings module + registry entry + eval fixture) and Slice E.2 (integration + `embed_ms` observability + browser smoke) are the active rollout PRs that follow this freeze. Until those land, the [Pipeline](#pipeline) section below describes the on-disk single-stage shape. The [Approved evolution — Slice E pipeline](#approved-evolution--slice-e-pipeline-adr-0039) section describes what those PRs will change.
 
 For the lab's removal contract and the "what lives where" map, see [`frontend/src/lib/yenask/AGENTS.md`](../../../frontend/src/lib/yenask/AGENTS.md).
 
@@ -54,6 +58,61 @@ The pipeline is the same regardless of how the intent was produced (model-extrac
 The SQL, raw model output, and per-attempt token timing are NOT in the citizen turn — they live in the always-visible Debug log section below the chat (D-21). See [Observability surface (PR-3)](#observability-surface-pr-3).
 
 **Why one model, not two?** The pipeline runs ONE call to the model per turn (`extractIntent`) followed by a deterministic pure-TypeScript `compileIntent` that constructs the DuckDB SQL pair. A two-stage LLM pipeline (classifier + reasoner, or extractor + code-tuned SQL generator) was evaluated in three architectural cuts during a four-persona panel and rejected — see [ADR-0038](../decisions/0038-yenask-two-stage-llm-pipeline-rejected.md) for full rationale, four rejected alternatives, and the deferred deterministic-router option preserved against future evidence.
+
+**Embedding-as-tool ≠ second LLM.** ADR-0039 (approved 2026-05-24) adds a MiniLM-L6-v2 embeddings model as a retrieval-augmentation stage in front of the existing SmolLM2-360M extraction. This is a different shape from what ADR-0038 rejected: embeddings produce similarity scores over a closed catalogue, not generated text. The LLM still runs once per turn; it just receives the top-K cosine-ranked candidates as constraints in its system prompt. ADR-0038's two-LLM rejection remains in force; ADR-0039 expands the toolkit, not the LLM count. See [Approved evolution — Slice E pipeline](#approved-evolution--slice-e-pipeline-adr-0039) below.
+
+## Approved evolution — Slice E pipeline (ADR-0039)
+
+Approved direction per [ADR-0039](../decisions/0039-yenask-retrieval-augmented-intent-extraction.md), pending Slice E.1 (embeddings module + eval fixture) and Slice E.2 (integration + observability) PRs. Once those land this section is promoted into the [Pipeline](#pipeline) section above and the current single-stage shape is moved to the [`docs/archive/`](../../archive/) record.
+
+```text
+user question (free text OR canned starter chip)
+   │
+   ├── canned chip ──→ skip extract; intent is already validated
+   │
+   ▼
+findTopKConcepts(question, k=5)                     (impure — MiniLM cosine, ~200 ms)
+   │   - loaded once per session from Xenova/all-MiniLM-L6-v2 (~23 MB q8)
+   │   - pre-computed concept embeddings cached in IndexedDB (~130 entries × 384 dims)
+   │   - returns Array<{ concept_id, cosine_score }> sorted desc
+   │
+   ├── top-1 cosine < 0.6 ──→ fall back to substring-match catalogue resolver;
+   │                          pass NO top-K constraint to extractIntent (Gregor lock)
+   │
+   ▼
+extractIntent(question, catalogue, adapter, topK)   (impure — calls SmolLM2-360M)
+   │   - buildSystemPrompt(catalogue, topK) injects top-K as constraints
+   │   - one validate-or-retry loop (max_retries=1)
+   │   - returns ExtractResult { ok, intent | error, diagnostics }
+   │
+   ▼
+compileIntent(intent, catalogue)                    (PURE — UNCHANGED from Slice D)
+   │   - validates intent against the SemanticCatalogue (entities, indicators)
+   │   - emits DuckDBPlan { concept_id, main_sql, provenance_sql, slices[] }
+   │   - JOINs taxonomy.sources implicitly — Holy Law #9 still constructed not generated
+   │
+   ▼
+executePlan(plan)                                   (impure — UNCHANGED from Slice D)
+```
+
+What changes:
+
+- **New module**: `frontend/src/lib/yenask/catalogue-embed.ts` (Slice E.1) — exports `findTopKConcepts(question, k=5): Promise<Array<{concept_id, cosine_score}>>`. ~150 lines including embedding pre-compute + cosine loop + threshold check.
+- **New registry entry**: `minilm-l6-v2-embeddings` in `model-registry.ts` (Slice E.1) with a new discriminated-union variant `task: "embeddings"`. `Xenova/all-MiniLM-L6-v2`, dtype `q8`, device `auto`, Apache-2.0, ~23 MB cold-load.
+- **New eval fixture**: `frontend/src/lib/yenask/fixtures/intent-eval.json` (Slice E.1) — 20 labelled citizen-style questions with expected `top_concept_id` and `expected_intent`. Vitest covers top-1 accuracy regression alarm (Andre + Hamel discipline).
+- **Modified `extract-intent.ts`** (Slice E.2): calls `findTopKConcepts` BEFORE the LLM round-trip; passes top-K into the system prompt; falls back to substring-match resolver when `top-1 cosine < 0.6`.
+- **New `embed_ms` Debug log row** (Slice E.2): `Yenask.svelte` Debug section gains an `embed_ms` field alongside `extract_ms` so the operator can see which component is slow.
+- **No schema migration**: all five frozen Zod contracts (`InsightIntent`, `DuckDBPlan`, `AnswerViewModel`, `GenerateResult`, `ExtractAttempt`) stay frozen. `ExtractAttempt` gains an optional `embed_ms` field that defaults to `null` for the canned-chip path.
+
+What does NOT change:
+
+- `compileIntent` stays pure and TypeScript-only — provenance JOIN is still constructed, not generated. Holy Law #9 strengthened, not weakened.
+- `executePlan` is untouched. DuckDB-WASM round-trip is the same.
+- No second LLM. ADR-0038 unaffected.
+- No new framework. No vector DB. No agent orchestrator. ~150 lines of TypeScript.
+- Citizen-visible UI is unchanged except for the Y-Ask brand-mark refresh (see header).
+
+Rationale: [ADR-0039](../decisions/0039-yenask-retrieval-augmented-intent-extraction.md) for the six-persona panel verdict (Andre + Citizen + Hans + Max + Gregor + Fowler + Jony), four rejected alternatives, and reversal-cost analysis.
 
 ## Module layout
 

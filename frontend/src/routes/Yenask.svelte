@@ -556,12 +556,12 @@
 </script>
 
 <svelte:head>
-  <title>YENASK — dev preview</title>
+  <title>Y-Ask — dev preview</title>
 </svelte:head>
 
 <section class="mx-auto flex max-w-5xl flex-col gap-4 p-6" data-route="yenask">
   <header class="space-y-1">
-    <h1 class="text-2xl font-bold tracking-tight">YENASK</h1>
+    <h1 class="text-2xl font-bold tracking-tight">Y-Ask</h1>
     <p class="text-sm text-neutral-600">
       Browser governance insight assistant. Dev-only route — not a citizen
       surface. See
