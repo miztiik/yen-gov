@@ -843,6 +843,55 @@ The plan-doc design-log then carries forward only entries still in flight; close
 
 **Where it binds**: PR-2 lands `frontend/src/lib/yenask/model-registry.ts` + `frontend/src/lib/yenask/model-adapter.ts` + the picker UI in `Yenask.svelte`.
 
+### D-12 — `DuckDBPlan.concept_id` is a REQUIRED first field; executor reads it directly
+
+**Date**: 2026-05-24. **PR**: PR-1 (commit 2). **Source**: Fowler "make the contract carry its own identity" during executor design.
+
+**What was decided**: `DuckDBPlan` (in `frontend/src/lib/yenask/types.ts`) declares `readonly concept_id: string` as its first field. Each concept handler in `concepts.ts` injects `concept_id: intent.concept_id` into its returned plan. `executePlan()` reads `plan.concept_id` directly when populating `AnswerViewModel.concept_id` and the computation-disclosure block.
+
+**What was rejected**: a `deriveConceptId(plan)` fallback that inspected `plan.main_sql` for sentinel substrings (e.g. presence of `"GROUP BY p.party_short"` → "party_totals"). Initially drafted as a "robust" fallback; was a band-aid (Holy Law #5) — couples the executor to handler-internal SQL details, breaks silently the moment two handlers share a similar SQL shape, and re-introduces the very "infer-then-trust" pattern Zod is supposed to eliminate.
+
+**Trade-off accepted**: every handler must remember to set `concept_id`. Justified — the field is REQUIRED at the type level, so the TypeScript compiler refuses any plan without it; "remember to set it" reduces to "the code compiles".
+
+**Where it binds**: `frontend/src/lib/yenask/types.ts` (interface); `frontend/src/lib/yenask/concepts.ts` (4 handlers each inject `concept_id`); `frontend/src/lib/yenask/execute-plan.ts` (reads `plan.concept_id`); `frontend/src/lib/yenask/execute-plan.provenance.test.ts` (asserts threading).
+
+### D-13 — 4 concept handlers cover the canned-intent surface; single-quote SQL escaping via `sqlString()`
+
+**Date**: 2026-05-24. **PR**: PR-1 (commit 2). **Source**: Hans + Max — what citizen questions are answerable from the TN AC General May 2026 slice with the current canonical store.
+
+**What was decided**: `frontend/src/lib/yenask/concepts.ts` ships 4 `ConceptHandler` entries in `CONCEPT_REGISTRY`:
+
+| concept_id | SQL shape | Joins |
+| --- | --- | --- |
+| `party_totals` | `SELECT party_short FROM observations WHERE indicator_id IN (party-seats-won, party-votes-polled, party-vote-share-pct) GROUP BY party_short ORDER BY seats DESC LIMIT N` | `regexp_extract(entity_id, '-PARTY-(.+)$', 1)` → `dim_parties` |
+| `closest_contests` | `SELECT ac_no, margin_pp FROM observations WHERE indicator_id = 'ac-margin-pp' ORDER BY value ASC LIMIT 10` | → `dim_acs` for display name |
+| `constituency_result` | `SELECT candidate, party, votes, share_pct FROM elections_candidacies WHERE da.eci_no = <ac_no>` | → `dim_persons` + `dim_parties` + `dim_acs` |
+| `turnout_extremes` | `(SELECT … band='highest' ORDER BY value DESC LIMIT 10) UNION ALL (SELECT … band='lowest' ORDER BY value ASC LIMIT 10)` | → `dim_acs` |
+
+Every handler ends with a LEFT JOIN to `taxonomy.sources` keyed on the observation's `source_id`, returning the per-observation source row as a separate `provenance_sql` query (executor runs both in parallel via `Promise.all`).
+
+User-supplied string filters (`state_partition_id`, `period_label`, `party_short_code`, `ac_no`) are injected via a `sqlString(s: string): string` helper that doubles single quotes. No template-literal interpolation of unescaped user input. Numeric filters are coerced through `Number()` and the Zod schema's `.int().min().max()` bounds before reaching the SQL composer.
+
+**What was rejected**: (a) one mega-`buildPlan(intent)` switch — would have made adding a 5th concept a 50-line diff in one function; the per-handler dispatch table makes adding a concept = add one entry. (b) DuckDB prepared statements with `$1, $2` parameters — DuckDB-WASM's parameter binding for `SELECT` returns rows with bigint columns in different positions vs literal interpolation; the difference doesn't matter for safety (both prevent injection) but the literal-interpolation path matches the rest of the codebase (`lib/psephlab/canonical-loaders.ts` does the same).
+
+**Trade-off accepted**: SQL strings carry literal values, which makes EXPLAIN output noisier. Justified — the executor logs the assembled SQL into the computation-disclosure UI block; literal-with-values is exactly what a debugging operator wants to see, vs `$1, $2` with a separate params array.
+
+**Where it binds**: `frontend/src/lib/yenask/concepts.ts` (handlers + `sqlString`); `frontend/src/lib/yenask/compile-intent.test.ts` (10 tests covering all 4 concepts + filter validation + SQL escaping).
+
+### D-14 — Catalogue loader registers ONLY dim/taxonomy tables; fact-table registration is per-plan
+
+**Date**: 2026-05-24. **PR**: PR-1 (commit 2). **Source**: D-04 hard rule made concrete.
+
+**What was decided**: `loadSemanticCatalogue()` calls `registerTable()` for exactly 4 tables: `taxonomy.sources`, `elections.dim_acs`, `elections.dim_parties`, `elections.elections_candidacies`. The `CATALOGUE_QUERY_ALLOWLIST: readonly string[]` exports `["sources", "dim_acs", "dim_parties", "elections_candidacies", "entities"]`. `election_results` is NEVER in this list. Fact-table registration happens lazily per-plan via `executePlan()`, which calls `registerSlice("elections.election_results", { state: <state_partition_id> })` only when a user clicks a canned intent or submits a free-text question.
+
+**What was rejected**: (a) registering all known fact tables (`election_results`, `energy_*`, `health_*`) at startup "to make queries faster on the first click" — would download every Parquet shard at page-load, undoing the entire premise of slice-on-demand canonical loading. (b) eager registration of even ONE fact table at startup — opens the door to creep ("just one more").
+
+**Trade-off accepted**: first-click latency includes the slice fetch (~200-500 ms for `election_results` partition `state=in_s22`). Justified — the catalogue load itself is fast (~50 ms for 4 small tables); the per-question slice load is the place where latency is honest and the user knows a question is being answered.
+
+**Enforced by**: `frontend/src/lib/yenask/semantic-catalogue.no-fact-scan.test.ts` (2 tests using word-boundary regex `\b<table>\b` against every catalogue SQL string; asserts both "every table referenced is in the allowlist" AND "never `election_results` / `energy_*`").
+
+**Where it binds**: `frontend/src/lib/yenask/semantic-catalogue.ts` (loader + allowlist); `frontend/src/lib/yenask/execute-plan.ts` (lazy slice registration per plan); the no-fact-scan vitest.
+
 ### Decision-log conventions
 
 - New entries append at the END of this section with the next `D-NN` ID.

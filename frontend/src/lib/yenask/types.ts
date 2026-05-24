@@ -93,6 +93,12 @@ export interface DuckDBTableRegistration {
 }
 
 export interface DuckDBPlan {
+  /**
+   * The originating intent's concept_id. Carried on the plan so the
+   * executor can write it into the AnswerViewModel.computation block
+   * without re-deriving it from SQL string shape.
+   */
+  readonly concept_id: string;
   /** Partition-scoped views to register before the main query. */
   readonly slice_registrations: readonly DuckDBSliceRegistration[];
   /** Full-table views to register (e.g. taxonomy.sources). */
