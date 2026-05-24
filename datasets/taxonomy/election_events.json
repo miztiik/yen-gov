@@ -212,6 +212,123 @@
     ],
     "S13": [
       {
+        "event_id": "AcGenFeb1962",
+        "kind": "assembly",
+        "display": "Maharashtra Assembly · February 1962",
+        "polled_on": "1962-02-01",
+        "term_end_estimated": "1967-01-31",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenFeb1967",
+        "kind": "assembly",
+        "display": "Maharashtra Assembly · February 1967",
+        "polled_on": "1967-02-01",
+        "term_end_estimated": "1972-02-29",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenMar1972",
+        "kind": "assembly",
+        "display": "Maharashtra Assembly · March 1972",
+        "polled_on": "1972-03-01",
+        "term_end_estimated": "1978-01-31",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenFeb1978",
+        "kind": "assembly",
+        "display": "Maharashtra Assembly · February 1978",
+        "polled_on": "1978-02-01",
+        "term_end_estimated": "1980-04-30",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenMay1980",
+        "kind": "assembly",
+        "display": "Maharashtra Assembly · May 1980",
+        "polled_on": "1980-05-01",
+        "term_end_estimated": "1985-01-31",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenFeb1985",
+        "kind": "assembly",
+        "display": "Maharashtra Assembly · February 1985",
+        "polled_on": "1985-02-01",
+        "term_end_estimated": "1990-01-31",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenFeb1990",
+        "kind": "assembly",
+        "display": "Maharashtra Assembly · February 1990",
+        "polled_on": "1990-02-01",
+        "term_end_estimated": "1995-02-28",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenMar1995",
+        "kind": "assembly",
+        "display": "Maharashtra Assembly · March 1995",
+        "polled_on": "1995-03-01",
+        "term_end_estimated": "1999-09-30",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenOct1999",
+        "kind": "assembly",
+        "display": "Maharashtra Assembly · October 1999",
+        "polled_on": "1999-10-01",
+        "term_end_estimated": "2004-09-30",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenOct2004",
+        "kind": "assembly",
+        "display": "Maharashtra Assembly · October 2004",
+        "polled_on": "2004-10-01",
+        "term_end_estimated": "2009-09-30",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenOct2009",
+        "kind": "assembly",
+        "display": "Maharashtra Assembly · October 2009",
+        "polled_on": "2009-10-01",
+        "term_end_estimated": "2014-09-30",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenOct2014",
+        "kind": "assembly",
+        "display": "Maharashtra Assembly · October 2014",
+        "polled_on": "2014-10-01",
+        "term_end_estimated": "2019-09-30",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenOct2019",
+        "kind": "assembly",
+        "display": "Maharashtra Assembly · October 2019",
+        "polled_on": "2019-10-01",
+        "term_end_estimated": "2024-11-19",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
         "event_id": "AcGenNov2024",
         "kind": "assembly",
         "display": "Maharashtra Assembly · November 2024",

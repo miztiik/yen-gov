@@ -56,6 +56,22 @@
       "predecessor_party_id": null
     },
     {
+      "party_id": "parties.IN.AAPP",
+      "short_name": "AAPP",
+      "full_name": "AAPP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.ABCD_A",
       "short_name": "ABCD(A)",
       "full_name": "ABCD(A)",
@@ -63,6 +79,22 @@
       "eci_codes": [],
       "state_scope": [
         "S06"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.ABEP",
+      "short_name": "ABEP",
+      "full_name": "ABEP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -88,6 +120,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.ABHS",
+      "short_name": "ABHS",
+      "full_name": "ABHS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.ABJS",
       "short_name": "ABJS",
       "full_name": "ABJS",
@@ -95,6 +143,22 @@
       "eci_codes": [],
       "state_scope": [
         "S06"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.ABMP",
+      "short_name": "ABMP",
+      "full_name": "ABMP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -130,6 +194,22 @@
       "eci_codes": [],
       "state_scope": [
         "S06"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.ABS",
+      "short_name": "ABS",
+      "full_name": "ABS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -271,6 +351,22 @@
       "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
     },
     {
+      "party_id": "parties.IN.AHF_R",
+      "short_name": "AHF(R)",
+      "full_name": "AHF(R)",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.AHIMSA_SOCIALIST_PARTY",
       "short_name": "Ahimsa Socialist Party",
       "full_name": "Ahimsa Socialist Party",
@@ -278,6 +374,22 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.AHNP",
+      "short_name": "AHNP",
+      "full_name": "AHNP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -380,6 +492,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.AIKC",
+      "short_name": "AIKC",
+      "full_name": "AIKC",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.AIMEP",
       "short_name": "AIMEP",
       "full_name": "All India Mahila Empowerment Party",
@@ -426,6 +554,22 @@
       "successor_party_id": null,
       "predecessor_party_id": null,
       "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.AIMPP",
+      "short_name": "AimPP",
+      "full_name": "AimPP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
       "party_id": "parties.IN.AINHCP",
@@ -741,6 +885,22 @@
       "successor_party_id": null,
       "predecessor_party_id": null,
       "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=registered_unrecognised)."
+    },
+    {
+      "party_id": "parties.IN.AKBRP",
+      "short_name": "AKBRP",
+      "full_name": "AKBRP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
       "party_id": "parties.IN.AKD",
@@ -1066,6 +1226,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.ANC",
+      "short_name": "ANC",
+      "full_name": "ANC",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.ANNA_DRAVIDAR_KAZHAGAM",
       "short_name": "Anna Dravidar Kazhagam",
       "full_name": "Anna Dravidar Kazhagam",
@@ -1178,6 +1354,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.APOI",
+      "short_name": "APoI",
+      "full_name": "APoI",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.APP",
       "short_name": "APP",
       "full_name": "APP",
@@ -1185,6 +1377,22 @@
       "eci_codes": [],
       "state_scope": [
         "S06"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.ARP",
+      "short_name": "ARP",
+      "full_name": "ARP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -1257,6 +1465,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.AUDF",
+      "short_name": "AUDF",
+      "full_name": "AUDF",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.AUK",
       "short_name": "AUK",
       "full_name": "AUK",
@@ -1273,6 +1497,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.AWVP",
+      "short_name": "AWVP",
+      "full_name": "AWVP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.BAHUJAN_DRAVIDA_PARTY",
       "short_name": "Bahujan Dravida Party",
       "full_name": "Bahujan Dravida Party",
@@ -1280,6 +1520,38 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.BAHUMP",
+      "short_name": "BAHUMP",
+      "full_name": "BAHUMP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.BALP",
+      "short_name": "BALP",
+      "full_name": "BALP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -1321,6 +1593,54 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.BBM",
+      "short_name": "BBM",
+      "full_name": "BBM",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.BBMS",
+      "short_name": "BBMS",
+      "full_name": "BBMS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.BDC",
+      "short_name": "BDC",
+      "full_name": "BDC",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.BDJS",
       "short_name": "BDJS",
       "full_name": "Bharath Dharma Jana Sena",
@@ -1343,6 +1663,54 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.BDNP",
+      "short_name": "BDNP",
+      "full_name": "BDNP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.BHABHAPA",
+      "short_name": "BHABHAPA",
+      "full_name": "BHABHAPA",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.BHAPRAP",
+      "short_name": "BHAPRAP",
+      "full_name": "BHAPRAP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -1384,6 +1752,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.BHCP",
+      "short_name": "BHCP",
+      "full_name": "BHCP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.BHDC",
       "short_name": "BhDC",
       "full_name": "BhDC",
@@ -1407,6 +1791,38 @@
       "eci_codes": [],
       "state_scope": [
         "S06"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.BHJSRP",
+      "short_name": "BHJSRP",
+      "full_name": "BHJSRP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.BHYS",
+      "short_name": "BHYS",
+      "full_name": "BHYS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -1503,6 +1919,38 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.BJSP",
+      "short_name": "BJSP",
+      "full_name": "BJSP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.BKD",
+      "short_name": "BKD",
+      "full_name": "BKD",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.BKUS",
       "short_name": "BKUS",
       "full_name": "BKUS",
@@ -1551,6 +1999,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.BMFP",
+      "short_name": "BMFP",
+      "full_name": "BMFP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.BMSM",
       "short_name": "BMSM",
       "full_name": "BMSM",
@@ -1558,6 +2022,22 @@
       "eci_codes": [],
       "state_scope": [
         "S06"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.BMSP",
+      "short_name": "BMSP",
+      "full_name": "BMSP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -1615,6 +2095,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.BNS",
+      "short_name": "BNS",
+      "full_name": "BNS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.BOPF",
       "short_name": "BOPF",
       "full_name": "Bodoland People's Front",
@@ -1632,6 +2128,102 @@
       "successor_party_id": null,
       "predecessor_party_id": null,
       "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.BPI",
+      "short_name": "BPI",
+      "full_name": "BPI",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.BPP",
+      "short_name": "BPP",
+      "full_name": "BPP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.BPSJP",
+      "short_name": "BPSJP",
+      "full_name": "BPSJP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.BRAP",
+      "short_name": "BRAP",
+      "full_name": "BRAP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.BRC",
+      "short_name": "BRC",
+      "full_name": "BRC",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.BREM",
+      "short_name": "BREM",
+      "full_name": "BREM",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
       "party_id": "parties.IN.BRP",
@@ -1666,6 +2258,38 @@
       "successor_party_id": null,
       "predecessor_party_id": null,
       "notes": "Renamed from TRS to BRS in 2022."
+    },
+    {
+      "party_id": "parties.IN.BRSCP",
+      "short_name": "BRSCP",
+      "full_name": "BRSCP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.BRSS",
+      "short_name": "BRSS",
+      "full_name": "BRSS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
       "party_id": "parties.IN.BSAP",
@@ -1714,6 +2338,22 @@
       "predecessor_party_id": null
     },
     {
+      "party_id": "parties.IN.BSP_A",
+      "short_name": "BSP(A)",
+      "full_name": "BSP(A)",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.BTP",
       "short_name": "BTP",
       "full_name": "Bharatiya Tribal Party",
@@ -1727,6 +2367,22 @@
       "successor_party_id": null,
       "predecessor_party_id": null,
       "notes": "Tribal rights party in Gujarat and Rajasthan."
+    },
+    {
+      "party_id": "parties.IN.BVA",
+      "short_name": "BVA",
+      "full_name": "BVA",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
       "party_id": "parties.IN.CDF",
@@ -1867,6 +2523,22 @@
       "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
     },
     {
+      "party_id": "parties.IN.CSM",
+      "short_name": "CSM",
+      "full_name": "CSM",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.DBSP",
       "short_name": "DBSP",
       "full_name": "DBSP",
@@ -1931,6 +2603,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.DESEP",
+      "short_name": "DESEP",
+      "full_name": "DESEP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.DESIYA_MAKKAL_SAKTHI_KATCHI",
       "short_name": "Desiya Makkal Sakthi Katchi",
       "full_name": "Desiya Makkal Sakthi Katchi",
@@ -1986,6 +2674,22 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.DJHP",
+      "short_name": "DJHP",
+      "full_name": "DJHP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -2090,6 +2794,38 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.DONP",
+      "short_name": "DONP",
+      "full_name": "DONP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.DPI",
+      "short_name": "DPI",
+      "full_name": "DPI",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.DRAVIDA_MURPOKKU_MAKKAL_KATCHI",
       "short_name": "Dravida Murpokku Makkal Katchi",
       "full_name": "Dravida Murpokku Makkal Katchi",
@@ -2177,6 +2913,22 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.GAAP",
+      "short_name": "GAAP",
+      "full_name": "GAAP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -2345,6 +3097,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.GMS",
+      "short_name": "GMS",
+      "full_name": "GMS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.GOKMK",
       "short_name": "GOKMK",
       "full_name": "GOKMK",
@@ -2425,6 +3193,54 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.HAPA",
+      "short_name": "HAPa",
+      "full_name": "HAPa",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.HBP",
+      "short_name": "HBP",
+      "full_name": "HBP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.HEAP",
+      "short_name": "HEAP",
+      "full_name": "HEAP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.HINDUSTAN_JANTA_PARTY",
       "short_name": "Hindustan Janta Party",
       "full_name": "Hindustan Janta Party",
@@ -2432,6 +3248,54 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.HIPPA",
+      "short_name": "HIPPA",
+      "full_name": "HIPPA",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.HISWP",
+      "short_name": "HISWP",
+      "full_name": "HISWP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.HJP",
+      "short_name": "HJP",
+      "full_name": "HJP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -2915,6 +3779,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.INNP",
+      "short_name": "INNP",
+      "full_name": "INNP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.INPT",
       "short_name": "INPT",
       "full_name": "Indigenous Nationalist Party of Twipra",
@@ -3003,6 +3883,54 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.JAC",
+      "short_name": "JAC",
+      "full_name": "JAC",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.JALOP",
+      "short_name": "JALOP",
+      "full_name": "JALOP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.JANADIP",
+      "short_name": "JANADIP",
+      "full_name": "JANADIP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -3180,6 +4108,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.JJJKP",
+      "short_name": "JJJKP",
+      "full_name": "JJJKP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.JJP",
       "short_name": "JJP",
       "full_name": "Jannayak Janta Party",
@@ -3243,6 +4187,22 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null
+    },
+    {
+      "party_id": "parties.IN.JMBP",
+      "short_name": "JMBP",
+      "full_name": "JMBP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
       "party_id": "parties.IN.JMM",
@@ -3405,6 +4365,38 @@
       "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
     },
     {
+      "party_id": "parties.IN.JSS",
+      "short_name": "JSS",
+      "full_name": "JSS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.JUVJANP",
+      "short_name": "JUVJANP",
+      "full_name": "JUVJANP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.JVM",
       "short_name": "JVM",
       "full_name": "Jharkhand Vikas Morcha (Prajatantrik)",
@@ -3508,6 +4500,38 @@
       "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
     },
     {
+      "party_id": "parties.IN.KISP",
+      "short_name": "KiSP",
+      "full_name": "KiSP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.KKJHS",
+      "short_name": "KKJHS",
+      "full_name": "KKJHS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.KLP",
       "short_name": "KLP",
       "full_name": "KLP",
@@ -3602,6 +4626,54 @@
       "notes": "Karnataka regional party founded by Ravi Krishna Reddy."
     },
     {
+      "party_id": "parties.IN.KTSTP",
+      "short_name": "KTSTP",
+      "full_name": "KTSTP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.LAP",
+      "short_name": "LAP",
+      "full_name": "LAP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.LB",
+      "short_name": "LB",
+      "full_name": "LB",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.LCOP",
       "short_name": "LCOP",
       "full_name": "LCOP",
@@ -3609,6 +4681,54 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.LD",
+      "short_name": "LD",
+      "full_name": "LD",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.LJD",
+      "short_name": "LJD",
+      "full_name": "LJD",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.LJGP",
+      "short_name": "LJGP",
+      "full_name": "LJGP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -3747,6 +4867,54 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.LKSGM",
+      "short_name": "LKSGM",
+      "full_name": "LKSGM",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.LKSNP",
+      "short_name": "LKSNP",
+      "full_name": "LKSNP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.LMD",
+      "short_name": "LMD",
+      "full_name": "LMD",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.LOGAP",
       "short_name": "LOGAP",
       "full_name": "LOGAP",
@@ -3795,6 +4963,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.LPI",
+      "short_name": "LPI",
+      "full_name": "LPI",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.LPSP",
       "short_name": "LPSP",
       "full_name": "LPSP",
@@ -3802,6 +4986,22 @@
       "eci_codes": [],
       "state_scope": [
         "S06"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.LRP",
+      "short_name": "LRP",
+      "full_name": "LRP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -3914,6 +5114,22 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.MAHKRS",
+      "short_name": "MAHKRS",
+      "full_name": "MAHKRS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -4115,6 +5331,38 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.MARP",
+      "short_name": "MARP",
+      "full_name": "MARP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.MBT",
+      "short_name": "MBT",
+      "full_name": "MBT",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.MDMK",
       "short_name": "MDMK",
       "full_name": "Marumalarchi Dravida Munnetra Kazhagam",
@@ -4142,6 +5390,22 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.MEP",
+      "short_name": "MEP",
+      "full_name": "MEP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -4246,6 +5510,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.MHBHVCAG",
+      "short_name": "MHBHVCAG",
+      "full_name": "MHBHVCAG",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.MKAT",
       "short_name": "MKAT",
       "full_name": "MKAT",
@@ -4253,6 +5533,22 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.MLPOIRF",
+      "short_name": "MLPOIRF",
+      "full_name": "MLPOIRF",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -4285,6 +5581,22 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.MNDP",
+      "short_name": "MNDP",
+      "full_name": "MNDP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -4371,6 +5683,70 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.MPS_T",
+      "short_name": "MPS(T)",
+      "full_name": "MPS(T)",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.MRC",
+      "short_name": "MRC",
+      "full_name": "MRC",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.MRRC",
+      "short_name": "MRRC",
+      "full_name": "MRRC",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.MSF",
+      "short_name": "MSF",
+      "full_name": "MSF",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.MSK",
       "short_name": "MSK",
       "full_name": "MSK",
@@ -4410,6 +5786,38 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.MVA",
+      "short_name": "MVA",
+      "full_name": "MVA",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.MVC",
+      "short_name": "MVC",
+      "full_name": "MVC",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -4515,6 +5923,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.NAP",
+      "short_name": "NAP",
+      "full_name": "NAP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.NATIONAL_DEMOCRATIC_PARTY_OF_SOUTH_INDIA",
       "short_name": "National Democratic Party of South India",
       "full_name": "National Democratic Party of South India",
@@ -4554,6 +5978,38 @@
       "eci_codes": [],
       "state_scope": [
         "S06"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.NBNP",
+      "short_name": "NBNP",
+      "full_name": "NBNP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.NBPP",
+      "short_name": "NBPP",
+      "full_name": "NBPP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -4629,6 +6085,22 @@
       "notes": "Recognised state party in Nagaland."
     },
     {
+      "party_id": "parties.IN.NELU",
+      "short_name": "NELU",
+      "full_name": "NELU",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.NEW_GENERATION_PEOPLE_S_PARTY",
       "short_name": "New Generation People’s Party",
       "full_name": "New Generation People’s Party",
@@ -4663,6 +6135,22 @@
       "notes": "UP-based party representing Nishad (Mallah) community."
     },
     {
+      "party_id": "parties.IN.NJANP",
+      "short_name": "NJANP",
+      "full_name": "NJANP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.NJP",
       "short_name": "NJP",
       "full_name": "NJP",
@@ -4670,6 +6158,22 @@
       "eci_codes": [],
       "state_scope": [
         "S06"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.NLHP",
+      "short_name": "NLHP",
+      "full_name": "NLHP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -4702,6 +6206,22 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.NMP",
+      "short_name": "NMP",
+      "full_name": "NMP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -4761,6 +6281,54 @@
       "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=national)."
     },
     {
+      "party_id": "parties.IN.NRP",
+      "short_name": "NRP",
+      "full_name": "NRP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.NRSP",
+      "short_name": "NRSP",
+      "full_name": "NRSP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.NSAMP",
+      "short_name": "NSAMP",
+      "full_name": "NSAMP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.NSCP",
       "short_name": "NSCP",
       "full_name": "NSCP",
@@ -4809,6 +6377,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.NSPU",
+      "short_name": "NSPU",
+      "full_name": "NSPU",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.NTK",
       "short_name": "NTK",
       "full_name": "Naam Tamilar Katchi",
@@ -4829,6 +6413,22 @@
       ]
     },
     {
+      "party_id": "parties.IN.NVAS",
+      "short_name": "NVAS",
+      "full_name": "NVAS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.NVMK",
       "short_name": "NVMK",
       "full_name": "NVMK",
@@ -4836,6 +6436,22 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.NVPP",
+      "short_name": "NVPP",
+      "full_name": "NVPP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -4860,6 +6476,22 @@
       "successor_party_id": null,
       "predecessor_party_id": null,
       "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=registered_unrecognised)."
+    },
+    {
+      "party_id": "parties.IN.NYP",
+      "short_name": "NYP",
+      "full_name": "NYP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
       "party_id": "parties.IN.PAP",
@@ -4894,6 +6526,54 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.PBI",
+      "short_name": "PBI",
+      "full_name": "PBI",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.PBPA",
+      "short_name": "pbpa",
+      "full_name": "pbpa",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.PECP",
+      "short_name": "PECP",
+      "full_name": "PECP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.PEOPLE_S_PARTY_OF_INDIA_SECULAR",
       "short_name": "People's Party of India(secular)",
       "full_name": "People's Party of India(secular)",
@@ -4901,6 +6581,38 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.PHJSP",
+      "short_name": "PHJSP",
+      "full_name": "PHJSP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.PHSP",
+      "short_name": "PHSP",
+      "full_name": "PHSP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -4981,6 +6693,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.POUI",
+      "short_name": "POUI",
+      "full_name": "POUI",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.PPA",
       "short_name": "PPA",
       "full_name": "People's Party of Arunachal",
@@ -4994,6 +6722,22 @@
       "successor_party_id": null,
       "predecessor_party_id": null,
       "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.PPID",
+      "short_name": "PPID",
+      "full_name": "PPID",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
       "party_id": "parties.IN.PPIS",
@@ -5028,6 +6772,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.PRBHPRP",
+      "short_name": "PRBHPRP",
+      "full_name": "PRBHPRP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.PRBP",
       "short_name": "PRBP",
       "full_name": "PRBP",
@@ -5044,6 +6804,54 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.PRCP",
+      "short_name": "PRCP",
+      "full_name": "PRCP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.PREP",
+      "short_name": "PREP",
+      "full_name": "PREP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.PRPI",
+      "short_name": "PRPI",
+      "full_name": "PRPI",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.PSP",
       "short_name": "PSP",
       "full_name": "PSP",
@@ -5051,6 +6859,38 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.PSPU",
+      "short_name": "PSPU",
+      "full_name": "PSPU",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.PSSS",
+      "short_name": "PSSS",
+      "full_name": "PSSS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -5091,6 +6931,54 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.PTSS",
+      "short_name": "PTSS",
+      "full_name": "PTSS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.PWP",
+      "short_name": "PWP",
+      "full_name": "PWP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.PWPI",
+      "short_name": "PWPI",
+      "full_name": "PWPI",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.RAJPA",
       "short_name": "RAJPA",
       "full_name": "RAJPA",
@@ -5107,6 +6995,38 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.RAPA",
+      "short_name": "RAPA",
+      "full_name": "RAPA",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.RAS",
+      "short_name": "RAS",
+      "full_name": "RAS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.RASHTRIYA_ULAMA_COUNCIL",
       "short_name": "Rashtriya Ulama Council",
       "full_name": "Rashtriya Ulama Council",
@@ -5114,6 +7034,70 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.RASMARP",
+      "short_name": "RASMARP",
+      "full_name": "RASMARP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.RBCP",
+      "short_name": "RBCP",
+      "full_name": "RBCP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.RBS",
+      "short_name": "RBS",
+      "full_name": "RBS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.RBSP",
+      "short_name": "RBSP",
+      "full_name": "RBSP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -5204,6 +7188,38 @@
       "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
     },
     {
+      "party_id": "parties.IN.RJANPTY",
+      "short_name": "RJanPty",
+      "full_name": "RJanPty",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.RJBP",
+      "short_name": "RJBP",
+      "full_name": "RJBP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.RJD",
       "short_name": "RJD",
       "full_name": "Rashtriya Janata Dal",
@@ -5236,6 +7252,38 @@
       "successor_party_id": null,
       "predecessor_party_id": null,
       "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=registered_unrecognised)."
+    },
+    {
+      "party_id": "parties.IN.RKBP",
+      "short_name": "RKBP",
+      "full_name": "RKBP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.RKCGP",
+      "short_name": "RKCGP",
+      "full_name": "RKCGP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
       "party_id": "parties.IN.RKEP",
@@ -5386,6 +7434,22 @@
       "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=registered_unrecognised)."
     },
     {
+      "party_id": "parties.IN.RP_K",
+      "short_name": "RP(K)",
+      "full_name": "RP(K)",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.RPI",
       "short_name": "RPI",
       "full_name": "RPI",
@@ -5466,6 +7530,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.RPI_KM",
+      "short_name": "RPI(KM)",
+      "full_name": "RPI(KM)",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.RPI_S",
       "short_name": "RPI(S)",
       "full_name": "RPI(S)",
@@ -5499,6 +7579,22 @@
       "notes": "Athawale faction of RPI."
     },
     {
+      "party_id": "parties.IN.RPIE",
+      "short_name": "RPIE",
+      "full_name": "RPIE",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.RPIR",
       "short_name": "RPIR",
       "full_name": "RPIR",
@@ -5506,6 +7602,22 @@
       "eci_codes": [],
       "state_scope": [
         "S06"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.RPIS",
+      "short_name": "RPIS",
+      "full_name": "RPIS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -5538,6 +7650,22 @@
       "eci_codes": [],
       "state_scope": [
         "S06"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.RPPI",
+      "short_name": "RPPI",
+      "full_name": "RPPI",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -5601,6 +7729,22 @@
       "eci_codes": [],
       "state_scope": [
         "S06"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.RSNP",
+      "short_name": "RSNP",
+      "full_name": "RSNP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -5675,6 +7819,54 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.RSSD",
+      "short_name": "RSSD",
+      "full_name": "RSSD",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.RSSDP",
+      "short_name": "RSSDP",
+      "full_name": "RSSDP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.RTORP",
+      "short_name": "RTORP",
+      "full_name": "RTORP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.RTRJP",
       "short_name": "RTRJP",
       "full_name": "RTRJP",
@@ -5691,6 +7883,38 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.RUC",
+      "short_name": "RUC",
+      "full_name": "RUC",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.RVNP",
+      "short_name": "RVNP",
+      "full_name": "RVNP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.RVZP",
       "short_name": "RVZP",
       "full_name": "RVZP",
@@ -5698,6 +7922,22 @@
       "eci_codes": [],
       "state_scope": [
         "S06"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.RWS",
+      "short_name": "RWS",
+      "full_name": "RWS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -5787,6 +8027,38 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.SANS",
+      "short_name": "SanS",
+      "full_name": "SanS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.SAOI",
+      "short_name": "SAOI",
+      "full_name": "SAOI",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.SAP",
       "short_name": "SAP",
       "full_name": "SAP",
@@ -5794,6 +8066,22 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.SARAPA",
+      "short_name": "SARAPA",
+      "full_name": "SARAPA",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -5835,6 +8123,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.SBBGP",
+      "short_name": "SBBGP",
+      "full_name": "SBBGP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.SBD",
       "short_name": "SBD",
       "full_name": "SBD",
@@ -5842,6 +8146,22 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.SBHP",
+      "short_name": "SBHP",
+      "full_name": "SBHP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -5912,6 +8232,22 @@
       "notes": "Registered unrecognised; active across Karnataka, Kerala, Tamil Nadu."
     },
     {
+      "party_id": "parties.IN.SERSNMH",
+      "short_name": "SERSNMH",
+      "full_name": "SERSNMH",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.SHS",
       "short_name": "SHS",
       "full_name": "Shiv Sena",
@@ -5927,6 +8263,22 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null
+    },
+    {
+      "party_id": "parties.IN.SJP_M",
+      "short_name": "SJP(M)",
+      "full_name": "SJP(M)",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
       "party_id": "parties.IN.SJP_R",
@@ -5960,6 +8312,22 @@
       "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
     },
     {
+      "party_id": "parties.IN.SMFB",
+      "short_name": "SMFB",
+      "full_name": "SMFB",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.SMK",
       "short_name": "SMK",
       "full_name": "SMK",
@@ -5967,6 +8335,22 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.SNS",
+      "short_name": "SNS",
+      "full_name": "SNS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -6134,6 +8518,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.SRS",
+      "short_name": "SRS",
+      "full_name": "SRS",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.SS_UBT",
       "short_name": "SHSUBT",
       "full_name": "Shiv Sena (Uddhav Balasaheb Thackeray)",
@@ -6152,6 +8552,22 @@
       "notes": "2022 split of Shiv Sena; Election Commission allotted the Shiv Sena name+symbol to the Eknath Shinde faction. The Uddhav-led faction is registered under this name."
     },
     {
+      "party_id": "parties.IN.SSD",
+      "short_name": "SSD",
+      "full_name": "SSD",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.SSP",
       "short_name": "SSP",
       "full_name": "SSP",
@@ -6159,6 +8575,38 @@
       "eci_codes": [],
       "state_scope": [
         "S06"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.SSRD",
+      "short_name": "SSRD",
+      "full_name": "SSRD",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.STBP",
+      "short_name": "STBP",
+      "full_name": "STBP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -6234,6 +8682,38 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.SVRP",
+      "short_name": "SVRP",
+      "full_name": "SVRP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.SVSP",
+      "short_name": "SVSP",
+      "full_name": "SVSP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.SWA",
       "short_name": "SWA",
       "full_name": "SWA",
@@ -6241,6 +8721,70 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.SWARAJ",
+      "short_name": "SWARAJ",
+      "full_name": "SWARAJ",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.SWJP",
+      "short_name": "SWJP",
+      "full_name": "SWJP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.SWP",
+      "short_name": "SWP",
+      "full_name": "SWP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.SYP",
+      "short_name": "SYP",
+      "full_name": "SYP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -6448,6 +8992,22 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.THPI",
+      "short_name": "THPI",
+      "full_name": "THPI",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -6712,6 +9272,38 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.TPSTP",
+      "short_name": "TPSTP",
+      "full_name": "TPSTP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.TRPK",
+      "short_name": "TRPK",
+      "full_name": "TRPK",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.TSC",
       "short_name": "TSC",
       "full_name": "TSC",
@@ -6873,6 +9465,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.UNCP",
+      "short_name": "UnCP",
+      "full_name": "UnCP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.UNITED_STATES_OF_INDIA_PARTY",
       "short_name": "United States of India Party",
       "full_name": "United States of India Party",
@@ -6951,6 +9559,22 @@
       "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
     },
     {
+      "party_id": "parties.IN.USCPI",
+      "short_name": "USCPI",
+      "full_name": "USCPI",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.VAK",
       "short_name": "VAK",
       "full_name": "VAK",
@@ -6983,6 +9607,22 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.VBA",
+      "short_name": "VBA",
+      "full_name": "VBA",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.VBMP",
       "short_name": "VBMP",
       "full_name": "VBMP",
@@ -6990,6 +9630,22 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.VBP",
+      "short_name": "VBP",
+      "full_name": "VBP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
@@ -7064,6 +9720,54 @@
       "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
+      "party_id": "parties.IN.VINPA",
+      "short_name": "VINPA",
+      "full_name": "VINPA",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.VJC",
+      "short_name": "VJC",
+      "full_name": "VJC",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.VMP",
+      "short_name": "VMP",
+      "full_name": "VMP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
       "party_id": "parties.IN.VPP",
       "short_name": "VPP",
       "full_name": "Voice of the People Party",
@@ -7077,6 +9781,38 @@
       "successor_party_id": null,
       "predecessor_party_id": null,
       "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.VRA",
+      "short_name": "VRA",
+      "full_name": "VRA",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.VRP",
+      "short_name": "VRP",
+      "full_name": "VRP",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
     },
     {
       "party_id": "parties.IN.VTIP",
@@ -7118,6 +9854,22 @@
       "eci_codes": [],
       "state_scope": [
         "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "alliance_history": [],
+      "notes": "Seeded from ECI Assembly Election panel import."
+    },
+    {
+      "party_id": "parties.IN.WPI",
+      "short_name": "WPI",
+      "full_name": "WPI",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
       ],
       "founded_year": null,
       "dissolved_year": null,
