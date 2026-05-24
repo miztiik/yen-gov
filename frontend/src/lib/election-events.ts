@@ -60,10 +60,18 @@ export function fetchElectionEvents(): Promise<ElectionEventsCatalogue> {
 }
 
 /**
- * The default event for a state is the row marked `default: true`. If no
- * row is so marked, falls back to the first row (catalogue convention is
- * most-recent-first). Returns null when the state has no entries — the
- * caller renders the "no election data" UI rather than a 404.
+ * The default event for a state is the one with the most recent `polled_on`
+ * date. Returns null when the state has no entries — the caller renders the
+ * "no election data" UI rather than a 404.
+ *
+ * Previously this read a hand-authored `default: true` flag with a `rows[0]`
+ * fallback. That fallback returned the OLDEST event whenever a backfill
+ * forgot to set the flag (Meghalaya showed 1978-02-25 instead of 2023-02-27,
+ * Tripura 1977-12-31 instead of 2023-02-16, plus 5 other states off by 5
+ * years each). `polled_on` is the canonical fact — using it directly
+ * auto-corrects on every new ingest. The `default` field on the row type is
+ * kept (now ignored) so the on-disk schema stays permissive; cleanup of the
+ * dead field is tracked as a follow-up to this PR.
  */
 export function defaultEventForState(
   catalogue: ElectionEventsCatalogue | null,
@@ -72,16 +80,30 @@ export function defaultEventForState(
   if (!catalogue || !stateCode) return null;
   const rows = catalogue.states[stateCode];
   if (!rows || rows.length === 0) return null;
-  return rows.find(r => r.default === true) ?? rows[0];
+  // polled_on is ISO YYYY-MM-DD so lexicographic max == chronological max.
+  return rows.reduce((latest, r) =>
+    r.polled_on > latest.polled_on ? r : latest,
+  );
 }
 
-/** All known events for a state (most recent first per catalogue order). */
+/**
+ * All known events for a state, sorted most-recent-first by `polled_on`.
+ *
+ * The on-disk catalogue is hand-authored and is not guaranteed to be
+ * pre-sorted (in practice the AE-panel backfills landed S15 / S23 etc.
+ * oldest-first). Sorting here gives every consumer a stable order: the
+ * StateOverview picker leads with the most-recent event; downstream
+ * adapters (ElectionSeatsTrend, etc.) re-sort by their own axis.
+ */
 export function listEventsForState(
   catalogue: ElectionEventsCatalogue | null,
   stateCode: string | null,
 ): ElectionEventRow[] {
   if (!catalogue || !stateCode) return [];
-  return catalogue.states[stateCode] ?? [];
+  const rows = catalogue.states[stateCode];
+  if (!rows) return [];
+  // Copy before sort — never mutate the cached catalogue.
+  return [...rows].sort((a, b) => b.polled_on.localeCompare(a.polled_on));
 }
 
 /** Lookup a specific event in a state — used by routes that take an event_id segment. */
