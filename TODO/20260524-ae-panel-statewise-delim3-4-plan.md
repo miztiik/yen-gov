@@ -1,7 +1,7 @@
 # AE Panel Statewise DelimID 3/4 Ingestion Plan
 
 **Last Updated**: 2026-05-24
-**Status**: ACTIVE — tooling through Madhya Pradesh (`S12`) merged; Uttar Pradesh (`S24`) state PR in progress.
+**Status**: COMPLETE — normal current-state queue exhausted; predecessor/split-state tokens remain deferred.
 **Scope**: `datasets/ephemeral/All_States_AE.csv` statewise ingestion through the canonical elections Parquet writer.
 **Spec**: [`docs/architecture/backend/sources-eci.md`](../docs/architecture/backend/sources-eci.md), [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md), [`docs/architecture/data/elections-indicators.md`](../docs/architecture/data/elections-indicators.md).
 **Decision rationale**: [ADR-0030](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md), [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md), [ADR-0036](../docs/architecture/decisions/0036-state-identity-and-slice-registration.md).
@@ -57,7 +57,7 @@ Every state PR must be merged to `main` before the next state starts. This keeps
 | 25 | West Bengal (`S25`) | State-only dry-run, event registration for missing `S25` rows, scoped ingest from 1977 through 2021 to preserve existing 2026 rows, inventory/provenance/coverage updates. | DONE — PR #213 |
 | 26 | Bihar (`S04`) | State-only dry-run, month-aware event registration for the two 2005 elections, scoped ingest from 1977 through 2020 to preserve existing 2025 rows, inventory/provenance/coverage updates. | DONE — PR #214 |
 | 27 | Madhya Pradesh (`S12`) | State-only dry-run, event registration for missing `S12` rows, scoped ingest from 1977 through 2018 to preserve existing 2023 rows, inventory/provenance/coverage updates. | DONE — PR #215 |
-| 28 | Uttar Pradesh (`S24`) | State-only dry-run, event registration for missing `S24` rows, scoped ingest from 1974 through 2012 to preserve existing 2017/2022 rows, inventory/provenance/coverage updates. | ACTIVE — this PR |
+| 28 | Uttar Pradesh (`S24`) | State-only dry-run, event registration for missing `S24` rows, scoped ingest from 1974 through 2012 to preserve existing 2017/2022 rows, inventory/provenance/coverage updates. | DONE — PR #216 |
 
 Already-merged panel states are out of the first wave: Tamil Nadu (`S22`, PR #178), Gujarat (`S06`, PR #179), and Maharashtra (`S13`, PR #180).
 
@@ -130,7 +130,7 @@ Uttar Pradesh dry-run found 64,113 scoped writeable approved rows (`DelimID=3`: 
 
 The normal queue remains state-by-state, but not every pending token is equally safe:
 
-- **Straight current-state queue**: Uttar Pradesh (`S24`, active). Delhi's 1977/1983 rows are the Metropolitan Council caveat documented in the source adapter spec. After Uttar Pradesh merges, the normal current-state queue is exhausted.
+- **Straight current-state queue**: exhausted. Delhi's 1977/1983 rows are the Metropolitan Council caveat documented in the source adapter spec.
 - **Filterable split-state queue**: Andhra Pradesh (`S01`) post-2014 only; the 2014 current-state slice is done in PR #195. Pre-2014 Andhra rows describe undivided Andhra Pradesh and need a historical entity decision.
 - **Deferred/problem tokens**: `Goa_Daman_&_Diu`, `Madras`, `Mysore`, and `Jammu_&_Kashmir`. `Madras`/`Mysore` are legacy predecessor names; `Goa_Daman_&_Diu` is a predecessor UT; `Jammu_&_Kashmir` needs a post-2019 state/UT split plan.
 
@@ -155,7 +155,7 @@ The normal queue remains state-by-state, but not every pending token is equally 
 | 15 | `West_Bengal` | `S25` | 18,607 | 11,918 | 6,689 | DONE — PR #213 |
 | 16 | `Bihar` | `S04` | 45,618 | 34,426 | 11,192 | DONE — PR #214 |
 | 17 | `Madhya_Pradesh` | `S12` | 28,189 | 19,068 | 9,121 | DONE — PR #215 |
-| 18 | `Uttar_Pradesh` | `S24` | 64,113 | 57,275 | 6,838 | ACTIVE — this PR |
+| 18 | `Uttar_Pradesh` | `S24` | 64,113 | 57,275 | 6,838 | DONE — PR #216 |
 
 ## Per-State Loop
 
