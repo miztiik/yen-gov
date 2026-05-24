@@ -137,6 +137,17 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     ("S17", 2008): EventInfo("AcGenMar2008", False),  # Nagaland
     ("S17", 2013): EventInfo("AcGenFeb2013", False),  # Nagaland
 
+    # Delhi statewise AE panel backfill. 1977/1983 are Metropolitan Council
+    # elections in the ECI panel; 2020/2025 stay on existing Section-10 rows.
+    ("U05", 1977): EventInfo("AcGenOct1977", False),  # NCT of Delhi
+    ("U05", 1983): EventInfo("AcGenMay1983", False),  # NCT of Delhi
+    ("U05", 1993): EventInfo("AcGenNov1993", False),  # NCT of Delhi
+    ("U05", 1998): EventInfo("AcGenNov1998", False),  # NCT of Delhi
+    ("U05", 2003): EventInfo("AcGenDec2003", False),  # NCT of Delhi
+    ("U05", 2008): EventInfo("AcGenNov2008", False),  # NCT of Delhi
+    ("U05", 2013): EventInfo("AcGenDec2013", False),  # NCT of Delhi
+    ("U05", 2015): EventInfo("AcGenFeb2015", False),  # NCT of Delhi
+
     # Historical hand-imports (2016-2023) from old.eci.gov.in Section 10
     # XLSX dumps. No live-results portal; no Statistical Report API.
     # Polling-month event_ids researched against Wikipedia/ECI archives.

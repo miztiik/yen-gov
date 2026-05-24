@@ -1,7 +1,7 @@
 # AE Panel Statewise DelimID 3/4 Ingestion Plan
 
 **Last Updated**: 2026-05-24
-**Status**: ACTIVE — tooling through Mizoram (`S16`) merged; Nagaland (`S17`) state PR in progress.
+**Status**: ACTIVE — tooling through Nagaland (`S17`) merged; Delhi (`U05`) state PR in progress.
 **Scope**: `datasets/ephemeral/All_States_AE.csv` statewise ingestion through the canonical elections Parquet writer.
 **Spec**: [`docs/architecture/backend/sources-eci.md`](../docs/architecture/backend/sources-eci.md), [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md), [`docs/architecture/data/elections-indicators.md`](../docs/architecture/data/elections-indicators.md).
 **Decision rationale**: [ADR-0030](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md), [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md), [ADR-0036](../docs/architecture/decisions/0036-state-identity-and-slice-registration.md).
@@ -45,8 +45,9 @@ Every state PR must be merged to `main` before the next state starts. This keeps
 | 13 | Uttarakhand (`S28`) | State-only dry-run, event registration for missing `S28` rows, scoped ingest through 2012 to preserve existing 2017/2022 Section-10 slices, inventory/provenance/coverage updates. | DONE — PR #199 |
 | 14 | Manipur (`S14`) | State-only dry-run, event registration for missing `S14` rows, scoped ingest from 1980 through 2012 to preserve existing 2017/2022 Section-10 slices and defer pre-1977 rows, inventory/provenance/coverage updates. | DONE — PR #200 |
 | 15 | Mizoram (`S16`) | State-only dry-run, event registration for missing `S16` rows, `DelimID=3` and `DelimID=4` ingest through 2018, inventory/provenance/coverage updates. | DONE — PR #201 |
-| 16 | Nagaland (`S17`) | State-only dry-run, event registration for missing `S17` rows, scoped ingest from 1977 through 2013 to preserve existing 2018/2023 Section-10 slices and defer pre-1977 rows, inventory/provenance/coverage updates. | ACTIVE — this PR |
-| 17+ | Remaining states | Proceed from small/low-risk states to medium states, then large/reorganisation-heavy states. | QUEUED |
+| 16 | Nagaland (`S17`) | State-only dry-run, event registration for missing `S17` rows, scoped ingest from 1977 through 2013 to preserve existing 2018/2023 Section-10 slices and defer pre-1977 rows, inventory/provenance/coverage updates. | DONE — PR #202 |
+| 17 | Delhi (`U05`) | State-only dry-run, event registration for missing `U05` rows, scoped ingest from 1977 through 2015 to preserve existing 2020/2025 rows, inventory/provenance/coverage updates. | ACTIVE — this PR |
+| 18+ | Remaining states | Proceed from small/low-risk states to medium states, then large/reorganisation-heavy states. | QUEUED |
 
 Already-merged panel states are out of the first wave: Tamil Nadu (`S22`, PR #178), Gujarat (`S06`, PR #179), and Maharashtra (`S13`, PR #180).
 
@@ -91,11 +92,13 @@ Mizoram dry-run found 1,916 writeable approved rows (`DelimID=3`: 1,279; `DelimI
 
 Nagaland dry-run found 2,410 writeable approved rows (`DelimID=3`: 1,506; `DelimID=4`: 904) across 12 events after skipping 72 blank-month rows and 244 non-D3/D4 rows. The state PR excludes the pre-1977 1974 slice, writes 1977 through 2013, and preserves the existing 2018/2023 Section-10 slices. Post-ingest verification showed 12,959 Nagaland observation rows, 11 S17 events on disk, 60 ACs in every newly written event, 364 newly added candidacies mapped to `parties.IN.UNK` with `party_short_raw` preserved, and zero dangling Nagaland `source_id` values.
 
+Delhi dry-run found 6,830 writeable approved rows (`DelimID=3`: 3,590; `DelimID=4`: 3,240) across 9 events after skipping 99 blank-month rows and 270 non-D3/D4 rows. The state PR writes 1977 through 2015 and preserves the existing 2020/2025 rows. The 1977 and 1983 rows are Delhi Metropolitan Council elections carried by the ECI AE panel; the event notes mark that the Council had an advisory role and no legislative powers. Post-ingest verification showed 28,406 Delhi observation rows, 10 U05 events on disk, 56/55 contested seats for the 1977/1983 Metropolitan Council rows and 70 ACs in every Assembly event, 512 newly added candidacies mapped to `parties.IN.UNK` with `party_short_raw` preserved, and zero dangling Delhi `source_id` values.
+
 ## Remaining State Classes
 
 The normal queue remains state-by-state, but not every pending token is equally safe:
 
-- **Straight current-state queue**: Nagaland (`S17`, active), Delhi (`U05`), Haryana (`S07`), Kerala (`S11`), Punjab (`S19`), Rajasthan (`S20`), Karnataka (`S10`), Assam (`S03`), Odisha (`S18`), West Bengal (`S25`), Bihar (`S04`), Madhya Pradesh (`S12`), Uttar Pradesh (`S24`).
+- **Straight current-state queue**: Delhi (`U05`, active), Haryana (`S07`), Kerala (`S11`), Punjab (`S19`), Rajasthan (`S20`), Karnataka (`S10`), Assam (`S03`), Odisha (`S18`), West Bengal (`S25`), Bihar (`S04`), Madhya Pradesh (`S12`), Uttar Pradesh (`S24`). Delhi's 1977/1983 rows are the Metropolitan Council caveat documented in the source adapter spec.
 - **Filterable split-state queue**: Andhra Pradesh (`S01`) post-2014 only; the 2014 current-state slice is done in PR #195. Pre-2014 Andhra rows describe undivided Andhra Pradesh and need a historical entity decision.
 - **Deferred/problem tokens**: `Goa_Daman_&_Diu`, `Madras`, `Mysore`, and `Jammu_&_Kashmir`. `Madras`/`Mysore` are legacy predecessor names; `Goa_Daman_&_Diu` is a predecessor UT; `Jammu_&_Kashmir` needs a post-2019 state/UT split plan.
 
@@ -108,8 +111,8 @@ The normal queue remains state-by-state, but not every pending token is equally 
 | 3 | `Uttarakhand` | `S28` | 4,002 | 1,755 | 2,247 | DONE — PR #199 |
 | 4 | `Manipur` | `S14` | 3,739 | 2,781 | 958 | DONE — PR #200 |
 | 5 | `Mizoram` | `S16` | 1,978 | 1,311 | 667 | DONE — PR #201 |
-| 6 | `Nagaland` | `S17` | 2,482 | 1,543 | 939 | ACTIVE — verified in this PR |
-| 7 | `Delhi` | `U05` | 6,929 | 3,651 | 3,278 | QUEUED |
+| 6 | `Nagaland` | `S17` | 2,482 | 1,543 | 939 | DONE — PR #202 |
+| 7 | `Delhi` | `U05` | 6,929 | 3,651 | 3,278 | ACTIVE — verified in this PR |
 | 8 | `Haryana` | `S07` | 13,758 | 9,727 | 4,031 | QUEUED |
 | 9 | `Kerala` | `S11` | 10,489 | 6,955 | 3,534 | QUEUED |
 | 10 | `Punjab` | `S19` | 9,474 | 5,618 | 3,856 | QUEUED |

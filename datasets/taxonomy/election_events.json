@@ -1026,6 +1026,78 @@
     ],
     "U05": [
       {
+        "event_id": "AcGenOct1977",
+        "kind": "assembly",
+        "display": "Delhi Metropolitan Council · October 1977",
+        "polled_on": "1977-10-06",
+        "term_end_estimated": "1982-10-05",
+        "data_status": "complete",
+        "notes": "56 contested seats in the Delhi Metropolitan Council. The Council had an advisory role and no legislative powers; stored in the elections family because the ECI AE panel carries the contest. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay1983",
+        "kind": "assembly",
+        "display": "Delhi Metropolitan Council · May 1983",
+        "polled_on": "1983-05-02",
+        "term_end_estimated": "1988-05-01",
+        "data_status": "complete",
+        "notes": "56 contested seats in the Delhi Metropolitan Council. The Council had an advisory role and no legislative powers; stored in the elections family because the ECI AE panel carries the contest. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov1993",
+        "kind": "assembly",
+        "display": "NCT of Delhi Assembly · November 1993",
+        "polled_on": "1993-11-06",
+        "term_end_estimated": "1998-11-05",
+        "data_status": "complete",
+        "notes": "70 ACs. First Legislative Assembly election after Delhi was formally declared the National Capital Territory; event id follows the public polling month rather than the panel's month value. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov1998",
+        "kind": "assembly",
+        "display": "NCT of Delhi Assembly · November 1998",
+        "polled_on": "1998-11-25",
+        "term_end_estimated": "2003-11-24",
+        "data_status": "complete",
+        "notes": "70 ACs. Poll held on 25 November 1998. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenDec2003",
+        "kind": "assembly",
+        "display": "NCT of Delhi Assembly · December 2003",
+        "polled_on": "2003-12-01",
+        "term_end_estimated": "2008-11-30",
+        "data_status": "complete",
+        "notes": "70 ACs. Poll held on 1 December 2003. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov2008",
+        "kind": "assembly",
+        "display": "NCT of Delhi Assembly · November 2008",
+        "polled_on": "2008-11-29",
+        "term_end_estimated": "2013-11-28",
+        "data_status": "complete",
+        "notes": "70 ACs. Poll held on 29 November 2008; event id follows the public polling month rather than the panel's counting-month value. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenDec2013",
+        "kind": "assembly",
+        "display": "NCT of Delhi Assembly · December 2013",
+        "polled_on": "2013-12-04",
+        "term_end_estimated": "2018-12-03",
+        "data_status": "complete",
+        "notes": "70 ACs. Poll held on 4 December 2013. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenFeb2015",
+        "kind": "assembly",
+        "display": "NCT of Delhi Assembly · February 2015",
+        "polled_on": "2015-02-07",
+        "term_end_estimated": "2020-02-06",
+        "data_status": "complete",
+        "notes": "70 ACs. Poll held on 7 February 2015. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenFeb2020",
         "kind": "assembly",
         "display": "NCT of Delhi Assembly · February 2020",
