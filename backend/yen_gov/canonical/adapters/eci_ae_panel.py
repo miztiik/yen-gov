@@ -11,7 +11,7 @@ from __future__ import annotations
 import csv
 import json
 import re
-from collections import defaultdict
+from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
@@ -26,6 +26,7 @@ from yen_gov.canonical.adapters.eci.identity import (
 )
 from yen_gov.canonical.adapters.eci.party_lookup import (
     PartyLookup,
+    UnknownPartyError,
     load_party_lookup,
     party_alliance_dim_rows,
     party_dim_rows,
@@ -52,16 +53,19 @@ MONTH_ABBR = {
     7: "Jul", 8: "Aug", 9: "Sep", 10: "Oct", 11: "Nov", 12: "Dec",
 }
 
-STATE_NAME_BY_CODE = {
-    "S22": "Tamil_Nadu",
-    "S06": "Gujarat",
-    "S13": "Maharashtra",
+FALLBACK_STATE_INFO_BY_CODE = {
+    "S06": ("Gujarat", ("Gujarat",)),
+    "S13": ("Maharashtra", ("Maharashtra",)),
+    "S22": ("Tamil Nadu", ("Tamil_Nadu", "Madras")),
 }
 
-STATE_TITLE_BY_CODE = {
-    "S22": "Tamil Nadu",
-    "S06": "Gujarat",
-    "S13": "Maharashtra",
+PANEL_STATE_ALIASES_BY_CODE = {
+    "S10": ("Karnataka", "Mysore"),
+    "S22": ("Tamil_Nadu", "Madras"),
+    "U05": ("Delhi", "NCT_of_Delhi"),
+    "S09": ("Jammu_&_Kashmir",),
+    "U08": ("Jammu_&_Kashmir",),
+    "S18": ("Odisha", "Orissa"),
 }
 
 POLL_DATE_OVERRIDES = {
@@ -109,6 +113,51 @@ class PanelIngestResult:
     skipped: bool = False
 
 
+@dataclass(frozen=True)
+class PanelStateInfo:
+    title: str
+    tokens: frozenset[str]
+
+
+@dataclass(frozen=True)
+class PanelFilters:
+    min_year: int | None = None
+    max_year: int | None = None
+    delim_ids: frozenset[str] | None = None
+
+    def include_year(self, year: int) -> bool:
+        if self.min_year is not None and year < self.min_year:
+            return False
+        if self.max_year is not None and year > self.max_year:
+            return False
+        return True
+
+    def include_delim_id(self, raw: str) -> bool:
+        if self.delim_ids is None:
+            return True
+        return (raw or "").strip() in self.delim_ids
+
+
+class _LenientPartyLookup:
+    """Party lookup wrapper for panel-scale dry runs and backfills.
+
+    Unknown long-tail parties fall back to the canonical sentinel while the
+    original upstream short label remains on elections_candidacies.party_short_raw.
+    """
+
+    def __init__(self, inner: PartyLookup, miss_counter: Counter[str]):
+        self._inner = inner
+        self._misses = miss_counter
+
+    def resolve(self, **kwargs) -> str:
+        try:
+            return self._inner.resolve(**kwargs)
+        except UnknownPartyError:
+            short = kwargs.get("party_short") or kwargs.get("party_full") or "<empty>"
+            self._misses[str(short)] += 1
+            return "parties.IN.UNK"
+
+
 def event_id_for(state_code: str, year: int, month: int) -> str:
     return registered_event_id_for(state_code, year)
 
@@ -120,19 +169,28 @@ def delim_year_for(raw: str, year: int) -> int:
     return 1976
 
 
-def parse_panel_csv(csv_path: Path, *, state_code: str) -> list[PanelCandidate]:
-    state_name = STATE_NAME_BY_CODE[state_code]
+def parse_panel_csv(
+    csv_path: Path,
+    *,
+    state_code: str,
+    datasets_root: Path | None = None,
+    filters: PanelFilters | None = None,
+) -> list[PanelCandidate]:
+    filters = filters or PanelFilters()
+    state_names = state_names_for_code(state_code, datasets_root=datasets_root)
     rows: list[PanelCandidate] = []
     with csv_path.open(encoding="utf-8", newline="") as fh:
         for raw in csv.DictReader(fh):
-            if raw.get("State_Name") != state_name:
+            if raw.get("State_Name") not in state_names:
                 continue
             if not (raw.get("month") or "").strip():
                 continue
             year = _as_int(raw["Year"])
-            month = _as_int(raw["month"])
-            if year > 2021:
+            if not filters.include_year(year):
                 continue
+            if not filters.include_delim_id(raw.get("DelimID", "")):
+                continue
+            month = _as_int(raw["month"])
             name = (raw.get("Candidate") or "").strip()
             party_short = (raw.get("Party") or "").strip() or "IND"
             rows.append(PanelCandidate(
@@ -164,9 +222,14 @@ def build_envelope(
     datasets_root: Path,
     csv_path: Path,
     state_code: str,
+    filters: PanelFilters | None = None,
+    allow_unknown_parties: bool = False,
 ) -> tuple[BatchEnvelope, tuple[str, ...], dict]:
-    panel_rows = parse_panel_csv(csv_path, state_code=state_code)
-    lookup = load_party_lookup(datasets_root)
+    filters = filters or PanelFilters()
+    panel_rows = parse_panel_csv(csv_path, state_code=state_code, datasets_root=datasets_root, filters=filters)
+    unresolved_parties: Counter[str] = Counter()
+    base_lookup = load_party_lookup(datasets_root)
+    lookup = _LenientPartyLookup(base_lookup, unresolved_parties) if allow_unknown_parties else base_lookup
     by_event: dict[tuple[int, int], list[PanelCandidate]] = defaultdict(list)
     for row in panel_rows:
         by_event[(row.year, row.month)].append(row)
@@ -176,13 +239,13 @@ def build_envelope(
     persons: list[PersonDimRow] = []
     candidacies: list[CandidacyRow] = []
     ac_dims: dict[str, AcDimRow] = {}
-    discrepancy_report: dict = {"events": []}
+    discrepancy_report: dict = {"events": [], "unresolved_parties": {}}
 
     existing = _existing_ac_totals(datasets_root, state_code)
 
     for (year, month), event_rows in sorted(by_event.items()):
         period = Period(event_id_for(state_code, year, month), year, month)
-        source_row = source_row_for(state_code=state_code, year=year)
+        source_row = source_row_for(state_code=state_code, year=year, datasets_root=datasets_root)
         sources[source_row.source_id] = source_row
         event_discrepancies = []
         summaries: list[ACContestSummary] = []
@@ -330,7 +393,117 @@ def build_envelope(
             PartyAllianceDimRow(**r) for r in party_alliance_dim_rows(lookup, source_id=first_source_id)
         ],
     )
+    discrepancy_report["unresolved_parties"] = dict(sorted(unresolved_parties.items()))
     return envelope, tuple(sorted({event_id_for(state_code, y, m) for y, m in by_event})), discrepancy_report
+
+
+def inspect_panel(
+    *,
+    datasets_root: Path,
+    csv_path: Path,
+    state_code: str,
+    filters: PanelFilters | None = None,
+) -> dict:
+    """Read-only preflight report for one state and bounded panel slice."""
+    filters = filters or PanelFilters()
+    state_names = state_names_for_code(state_code, datasets_root=datasets_root)
+    lookup = load_party_lookup(datasets_root)
+    rows_total = 0
+    rows_state = 0
+    rows_included = 0
+    skipped_blank_month = 0
+    skipped_year = 0
+    skipped_delim = 0
+    by_delim: Counter[str] = Counter()
+    by_event: Counter[tuple[int, int]] = Counter()
+    acs_by_event: dict[tuple[int, int], set[int]] = defaultdict(set)
+    delim_by_event: dict[tuple[int, int], set[str]] = defaultdict(set)
+    unresolved: Counter[str] = Counter()
+    missing_events: Counter[tuple[int, int]] = Counter()
+
+    with csv_path.open(encoding="utf-8", newline="") as fh:
+        for raw in csv.DictReader(fh):
+            rows_total += 1
+            if raw.get("State_Name") not in state_names:
+                continue
+            rows_state += 1
+            year = _as_int(raw["Year"])
+            if not filters.include_year(year):
+                skipped_year += 1
+                continue
+            raw_delim = (raw.get("DelimID") or "").strip()
+            if not filters.include_delim_id(raw_delim):
+                skipped_delim += 1
+                continue
+            if not (raw.get("month") or "").strip():
+                skipped_blank_month += 1
+                continue
+            month = _as_int(raw["month"])
+            rows_included += 1
+            by_delim[raw_delim] += 1
+            key = (year, month)
+            by_event[key] += 1
+            acs_by_event[key].add(_as_int(raw["Constituency_No"]))
+            delim_by_event[key].add(raw_delim)
+            try:
+                event_id_for(state_code, year, month)
+            except KeyError:
+                missing_events[key] += 1
+            candidate = (raw.get("Candidate") or "").strip()
+            party_short = (raw.get("Party") or "").strip() or "IND"
+            try:
+                lookup.resolve(
+                    party_short=party_short,
+                    is_independent=party_short.strip().upper() in {"IND", "INDEPENDENT"},
+                    is_nota=_is_nota(candidate, party_short),
+                )
+            except UnknownPartyError:
+                unresolved[party_short] += 1
+
+    events = []
+    for (year, month), row_count in sorted(by_event.items()):
+        try:
+            event_id = event_id_for(state_code, year, month)
+            registered = True
+        except KeyError:
+            event_id = None
+            registered = False
+        events.append({
+            "year": year,
+            "month": month,
+            "event_id": event_id,
+            "registered": registered,
+            "rows": row_count,
+            "acs": len(acs_by_event[(year, month)]),
+            "delim_ids": sorted(delim_by_event[(year, month)]),
+        })
+
+    return {
+        "state_code": state_code,
+        "state_tokens": sorted(state_names),
+        "filters": {
+            "min_year": filters.min_year,
+            "max_year": filters.max_year,
+            "delim_ids": sorted(filters.delim_ids) if filters.delim_ids is not None else None,
+        },
+        "rows_total": rows_total,
+        "rows_state": rows_state,
+        "rows_included": rows_included,
+        "skipped_blank_month": skipped_blank_month,
+        "skipped_year": skipped_year,
+        "skipped_delim": skipped_delim,
+        "rows_by_delim_id": dict(sorted(by_delim.items())),
+        "events": events,
+        "missing_events": [
+            {"year": year, "month": month, "rows": count}
+            for (year, month), count in sorted(missing_events.items())
+        ],
+        "unresolved_party_rows": sum(unresolved.values()),
+        "unresolved_parties": [
+            {"party": party, "rows": count}
+            for party, count in unresolved.most_common(100)
+        ],
+    }
 
 
 def ingest_panel(
@@ -340,12 +513,16 @@ def ingest_panel(
     state_code: str,
     force: bool = False,
     ingested_at: str = "2026-05-24",
+    filters: PanelFilters | None = None,
+    allow_unknown_parties: bool = False,
 ) -> PanelIngestResult:
     datasets_root = repo_root / "datasets"
     envelope, events, report = build_envelope(
         datasets_root=datasets_root,
         csv_path=csv_path,
         state_code=state_code,
+        filters=filters,
+        allow_unknown_parties=allow_unknown_parties,
     )
     inventory_path = repo_root.joinpath(*INVENTORY_PATH_REL)
     if not force and inventory_has_entries(
@@ -458,8 +635,8 @@ def obs(entity_id: str, period: Period, indicator_id: str, source_id: str, deriv
     )
 
 
-def source_row_for(*, state_code: str, year: int) -> SourceRow:
-    state_title = STATE_TITLE_BY_CODE[state_code]
+def source_row_for(*, state_code: str, year: int, datasets_root: Path | None = None) -> SourceRow:
+    state_title = state_info_for_code(state_code, datasets_root=datasets_root).title
     title = f"Statistical Report on General Election to the Legislative Assembly of {state_title}, {year}"
     source_id = derive_source_id("Election Commission of India", title, str(year))
     return SourceRow(
@@ -475,6 +652,47 @@ def source_row_for(*, state_code: str, year: int) -> SourceRow:
         citation_full=None,
         notes=None,
     )
+
+
+def state_info_for_code(state_code: str, *, datasets_root: Path | None = None) -> PanelStateInfo:
+    title: str | None = None
+    tokens: set[str] = set(PANEL_STATE_ALIASES_BY_CODE.get(state_code, ()))
+    if datasets_root is not None:
+        entities_path = datasets_root / "taxonomy" / "entities.json"
+        if entities_path.is_file():
+            raw = json.loads(entities_path.read_text(encoding="utf-8"))
+            for row in raw.get("entities", []):
+                if row.get("entity_code") != state_code:
+                    continue
+                display = str(row["display_name"])
+                title = display
+                tokens.add(_csv_state_token(display))
+                tokens.add(_csv_state_token(_strip_parenthetical(display)))
+                break
+    fallback = FALLBACK_STATE_INFO_BY_CODE.get(state_code)
+    if fallback is not None:
+        fallback_title, fallback_tokens = fallback
+        title = title or fallback_title
+        tokens.update(fallback_tokens)
+    tokens = {token for token in tokens if token}
+    if title is None or not tokens:
+        raise KeyError(
+            f"no All_States_AE.csv state token registered for {state_code!r}; "
+            "ensure datasets/taxonomy/entities.json has the entity and add any historical CSV alias to PANEL_STATE_ALIASES_BY_CODE"
+        )
+    return PanelStateInfo(title=title, tokens=frozenset(tokens))
+
+
+def state_names_for_code(state_code: str, *, datasets_root: Path | None = None) -> set[str]:
+    return set(state_info_for_code(state_code, datasets_root=datasets_root).tokens)
+
+
+def _csv_state_token(display_name: str) -> str:
+    return _strip_parenthetical(display_name).replace(" ", "_")
+
+
+def _strip_parenthetical(value: str) -> str:
+    return re.sub(r"\s*\([^)]*\)\s*$", "", value).strip()
 
 
 def resolve_party(lookup: PartyLookup, row: PanelCandidate) -> str:
@@ -651,4 +869,12 @@ def _value_by_prefix(row: dict[str, str], prefix: str) -> str:
     return ""
 
 
-__all__ = ["PanelIngestResult", "build_envelope", "ingest_panel", "parse_panel_csv"]
+__all__ = [
+    "PanelFilters",
+    "PanelIngestResult",
+    "PanelStateInfo",
+    "build_envelope",
+    "ingest_panel",
+    "inspect_panel",
+    "parse_panel_csv",
+]

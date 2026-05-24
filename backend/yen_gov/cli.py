@@ -331,6 +331,31 @@ def ingest_eci_ae_panel(
         "--state",
         help="ECI state code (for example S22).",
     ),
+    min_year: int | None = typer.Option(
+        None,
+        "--min-year",
+        help="Only include panel rows from this year onward.",
+    ),
+    max_year: int | None = typer.Option(
+        None,
+        "--max-year",
+        help="Only include panel rows up to this year.",
+    ),
+    delim_id: list[str] | None = typer.Option(
+        None,
+        "--delim-id",
+        help="Panel DelimID to include. Repeat for multiple values; approved statewise path uses 3 and 4.",
+    ),
+    dry_run: bool = typer.Option(
+        False,
+        "--dry-run",
+        help="Print a read-only preflight report and do not write Parquet or inventory.",
+    ),
+    allow_unknown_parties: bool = typer.Option(
+        False,
+        "--allow-unknown-parties",
+        help="Map unresolved parties to parties.IN.UNK while preserving party_short_raw and report counts.",
+    ),
     force: bool = typer.Option(
         False,
         "--force",
@@ -338,9 +363,32 @@ def ingest_eci_ae_panel(
     ),
 ) -> None:
     """Ingest a frozen ECI Assembly Election panel CSV into canonical Parquet."""
-    from yen_gov.canonical.adapters.eci_ae_panel import ingest_panel
+    from yen_gov.canonical.adapters.eci_ae_panel import PanelFilters, ingest_panel, inspect_panel
 
-    result = ingest_panel(repo_root=root, csv_path=input_csv, state_code=state, force=force)
+    filters = PanelFilters(
+        min_year=min_year,
+        max_year=max_year,
+        delim_ids=frozenset(delim_id) if delim_id else None,
+    )
+
+    if dry_run:
+        report = inspect_panel(
+            datasets_root=root / "datasets",
+            csv_path=input_csv,
+            state_code=state,
+            filters=filters,
+        )
+        typer.echo(json.dumps(report, indent=2, ensure_ascii=False))
+        return
+
+    result = ingest_panel(
+        repo_root=root,
+        csv_path=input_csv,
+        state_code=state,
+        force=force,
+        filters=filters,
+        allow_unknown_parties=allow_unknown_parties,
+    )
     if result.skipped:
         typer.echo(
             "ingest-eci-ae-panel: skipped; inventory already records "
