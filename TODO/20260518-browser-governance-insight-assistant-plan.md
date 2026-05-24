@@ -1,7 +1,7 @@
 # YENASK browser governance insight assistant — plan-doc (lean handoff)
 
-**Last Updated**: 2026-05-24
-**Status**: **DECOMPOSED**. Phase 1 (compile pipeline + 4 canned intents) shipped; Phase 2 (chat surface + real model load + Debug log) shipped; Sprint ABCDE (per-attempt observability + per-row picker + graduated download friction + default-model upgrade + Slice E retrieval-augmented intent extraction) shipped; ADR-0040 brand-mark "Yen-Ask" + lab route `/lab/yenask` shipped. **Slice E.3 (deterministic intent-router) deferred pending `attempts_log` evidence.** **Cache-hit UX fix queued (PR F per Andre diagnosis 2026-05-24).** Everything else lives in [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md), [ADR-0038](../docs/architecture/decisions/0038-yenask-two-stage-llm-pipeline-rejected.md), [ADR-0039](../docs/architecture/decisions/0039-yenask-retrieval-augmented-intent-extraction.md), and [ADR-0040](../docs/architecture/decisions/0040-yenask-brand-and-lab-route.md).
+**Last Updated**: 2026-05-25
+**Status**: **DECOMPOSED**. Phase 1 (compile pipeline + 4 canned intents) shipped; Phase 2 (chat surface + real model load + Debug log) shipped; Sprint ABCDE (per-attempt observability + per-row picker + graduated download friction + default-model upgrade + Slice E retrieval-augmented intent extraction) shipped; ADR-0040 brand-mark "Yen-Ask" + lab route `/lab/yenask` shipped; **PR F cache-hit UX fix shipped (PR #243, `6c9f3021`, 2026-05-24)**. **Slice E.3 (deterministic intent-router) deferred pending `attempts_log` evidence.** Everything else lives in [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md), [ADR-0038](../docs/architecture/decisions/0038-yenask-two-stage-llm-pipeline-rejected.md), [ADR-0039](../docs/architecture/decisions/0039-yenask-retrieval-augmented-intent-extraction.md), and [ADR-0040](../docs/architecture/decisions/0040-yenask-brand-and-lab-route.md).
 
 This file is now a **lean handoff stub** per CLAUDE.md §5 doc-class routing: plan-docs cite ADR + subsystem doc and carry no rationale once decomposition is complete. The pre-decomposition history (~913 lines of D-01..D-33 entries, Sprint status tables, contracts, directory layout, phases, test plan, public references) is in `git log -p` against this file's prior revisions if a future agent needs it.
 
@@ -72,12 +72,29 @@ Pointer-only — full state lives in [`docs/architecture/frontend/yenask.md`](..
 - Slice E.1 (PR #238, `e5591543`) — MiniLM-L6-v2 embeddings entry + `catalogue-embed.ts` + `intent-eval.json` 20-question labelled fixture
 - Slice E.2 (PR #240, `8a216f8b`) — `extract-intent.ts` wires retrieval seam; `embed_ms` Debug-log row; cosine-threshold fallback enforced; substring fallback measured at 19/20 = 95% on intent-eval baseline
 - Brand + lab route (PR #241, `e4b01b0c`) — `Yen-Ask` display + `/lab/yenask` route + [ADR-0040](../docs/architecture/decisions/0040-yenask-brand-and-lab-route.md)
+- Plan-doc decomposition (PR #242, `919093f7`) — this file 913→158 lines; Andre-shaped Slice-E mermaid + D-NN anchor appendix
+- Cache-hit UX fix (PR #243, `6c9f3021`) — `loading-from-cache` ReadinessStatus discriminant + `_sawRealDownload` latch in `TransformersJsAdapter.prepare()` + `navigator.storage.persist()` call in `prepareModel()`; 4 files / +209 / -34; gates green; live browser smoke pending (see next-agent handoff below)
+
+## Next-agent handoff (pick this up first)
+
+**Verification step that did NOT run in the PR F session** (gates passed, but the live cold/warm cache behaviour was not eyeballed against a real browser by the author):
+
+1. Start dev server in a free worker (`bun run dev -- --port 5186` from a sibling worktree to avoid colliding with parallel-agent servers on 5180-5185), open `/lab/yenask`.
+2. **Cold-cache pass**: DevTools → Application → Storage → Clear site data → reload page → click model load. Expect status pill `Downloading… 17% … 100%` → `Compiling…` → `Ready`. Capture timeline.
+3. **Warm-cache pass**: reload page (do NOT clear storage) → click model load. Expect status pill `Loading from cache (no network)…` per asset (briefly) → `Compiling…` → `Ready`. **No `Downloading…` pill at all.** This is the bug fix being verified.
+4. **Persisted probe**: in DevTools console run `await navigator.storage.persisted()` — should return `true` on Chrome/Edge desktop on the deployed origin. Returns `false` on http://localhost in some configurations (browser policy); not a regression — only block if it returns `false` on a `https://` origin.
+5. If anything diverges from expected, file a follow-up PR-G with the diagnostic — do NOT revert PR F (it shipped 18/18 unit tests + 46/46 boundaries-in-isolation green, so any divergence is a live-browser issue the unit tests didn't capture).
+
+**Parallel cleanup tasks** (low priority, can be batched):
+
+- Sibling worktree `..\yen-gov-yenask-brand` (PR F worker, branch `fix/yenask-cache-hit-ux-and-persist`) is now stale — `git worktree remove ..\yen-gov-yenask-brand` from master after killing any node/bun processes (`Get-Process node, bun, esbuild | Stop-Process -Force` IF none are owned by parallel agents). Branch was deleted remote-side post-merge.
+- Sibling worktree `..\yen-gov-slice-e-docs` — verify with `git worktree list` whether the slice-E parallel agent has wrapped (HEAD = `af054341` on `feat/yenask-slice-e2-wire-extract` per last list). If owner has shipped + cleaned, remove; if not, leave alone.
 
 ## What's queued
 
 | Item | Why it's queued (not shipped) | Unblock condition |
 |---|---|---|
-| **Cache-hit UX fix** (per Andre 2026-05-24 diagnosis) | Cache-hit currently renders as "Downloading…" because `progress_callback` from `@huggingface/transformers` fires `progress: 100` with no download-bytes-flowed signal. Cache itself works (no network); the UI lies. `navigator.storage.persist()` is also never called → browser MAY evict the 273 MB cache under storage pressure. | Open PR F: add `loading-from-cache` ReadinessStatus discriminant; in `model-adapter.ts` add `_sawRealDownload` flag (`progress < 100` → downloading + set flag; `progress === 100 && !_sawRealDownload` → loading-from-cache); drop the unconditional placeholder on `model-adapter.ts:213`; in `Yenask.svelte` call `navigator.storage.persist()` once in `prepareModel` + add render arm for `loading-from-cache` ("Loading from cache (no network)…"); fix docstring lines 12-15 ("IndexedDB" → "Cache Storage API"); 3 vitest cases (Andre §D.1–D.2); §13 browser smoke (cold cache / warm no-UI / warm prepare / persisted probe). |
+| **PR-G — cold-cache asset-level timing pill** (Andre §D.4 nice-to-have) | Cold-cache pill currently shows ONE "Downloading…" progress with a single total — doesn't surface which of the ~6 model assets is currently flowing. Low-priority polish; Andre flagged as §D.4 (not §D.1/D.2 which were the actual bugs PR F fixed). | Open PR-G: change `ReadinessStatus.downloading` to optionally surface `file` + `assets_total` + `asset_index`; thread through `progress_callback` (transformers.js v3 fires `file` field already). Status pill renders `Downloading model.onnx (3 of 6)…`. Pure cosmetic — no test-tier change. |
 | **Slice E.3 — deterministic intent-router** ([ADR-0038 D-27](../docs/architecture/decisions/0038-yenask-two-stage-llm-pipeline-rejected.md) preserved option) | Rule-of-three not fired. Single-stage extraction has zero published `attempts_log` failures on the canned-chip + 4-concept surface. Building the router pre-emptively is the same speculative abstraction Fowler warned against in Slice D rejection. | Publish ≥3 distinct `attempts_log` failure modes on free-text questions that a deterministic router would have caught. Cite the evidence in a new ADR amending ADR-0038, then implement. |
 
 ## What's parked (preserved future options)
