@@ -563,6 +563,105 @@
     ],
     "S16": [
       {
+        "event_id": "AcGenMay1978",
+        "kind": "assembly",
+        "display": "Mizoram Assembly · May 1978",
+        "polled_on": "1978-05-20",
+        "term_end_estimated": "1983-05-19",
+        "data_status": "complete",
+        "notes": "30 ACs. Two-phase poll on 17 and 20 May 1978; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenApr1979",
+        "kind": "assembly",
+        "display": "Mizoram Assembly · April 1979",
+        "polled_on": "1979-04-27",
+        "term_end_estimated": "1984-04-26",
+        "data_status": "complete",
+        "notes": "30 ACs. Two-phase poll on 24 and 27 April 1979; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenApr1984",
+        "kind": "assembly",
+        "display": "Mizoram Assembly · April 1984",
+        "polled_on": "1984-04-25",
+        "term_end_estimated": "1989-04-24",
+        "data_status": "complete",
+        "notes": "30 ACs. Poll held on 25 April 1984. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb1987",
+        "kind": "assembly",
+        "display": "Mizoram Assembly · February 1987",
+        "polled_on": "1987-02-16",
+        "term_end_estimated": "1992-02-15",
+        "data_status": "complete",
+        "notes": "40 ACs. First statehood-era Mizoram Assembly election; poll held on 16 February 1987. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov1989",
+        "kind": "assembly",
+        "display": "Mizoram Assembly · November 1989",
+        "polled_on": "1989-11-22",
+        "term_end_estimated": "1994-11-21",
+        "data_status": "complete",
+        "notes": "40 ACs. Poll held on 22 November 1989 after President's Rule. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov1993",
+        "kind": "assembly",
+        "display": "Mizoram Assembly · November 1993",
+        "polled_on": "1993-11-30",
+        "term_end_estimated": "1998-11-29",
+        "data_status": "complete",
+        "notes": "40 ACs. Poll held on 30 November 1993. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov1998",
+        "kind": "assembly",
+        "display": "Mizoram Assembly · November 1998",
+        "polled_on": "1998-11-25",
+        "term_end_estimated": "2003-11-24",
+        "data_status": "complete",
+        "notes": "40 ACs. Poll held on 25 November 1998. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov2003",
+        "kind": "assembly",
+        "display": "Mizoram Assembly · November 2003",
+        "polled_on": "2003-11-20",
+        "term_end_estimated": "2008-11-19",
+        "data_status": "complete",
+        "notes": "40 ACs. Poll held on 20 November 2003. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenDec2008",
+        "kind": "assembly",
+        "display": "Mizoram Assembly · December 2008",
+        "polled_on": "2008-12-02",
+        "term_end_estimated": "2013-12-01",
+        "data_status": "complete",
+        "notes": "40 ACs. Poll held on 2 December 2008. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenNov2013",
+        "kind": "assembly",
+        "display": "Mizoram Assembly · November 2013",
+        "polled_on": "2013-11-25",
+        "term_end_estimated": "2018-11-24",
+        "data_status": "complete",
+        "notes": "40 ACs. Poll held on 25 November 2013. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenNov2018",
+        "kind": "assembly",
+        "display": "Mizoram Assembly · November 2018",
+        "polled_on": "2018-11-28",
+        "term_end_estimated": "2023-11-27",
+        "data_status": "complete",
+        "notes": "40 ACs. Poll held on 28 November 2018. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenNov2023",
         "kind": "assembly",
         "display": "Mizoram Assembly · November 2023",
