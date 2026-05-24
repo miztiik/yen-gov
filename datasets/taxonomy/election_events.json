@@ -1401,6 +1401,78 @@
     ],
     "S19": [
       {
+        "event_id": "AcGenOct1977",
+        "kind": "assembly",
+        "display": "Punjab Assembly · October 1977",
+        "polled_on": "1977-10-01",
+        "term_end_estimated": "1982-09-30",
+        "data_status": "complete",
+        "notes": "117 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3). Poll day recorded as first of month because the public page gives year-level date context."
+      },
+      {
+        "event_id": "AcGenMay1980",
+        "kind": "assembly",
+        "display": "Punjab Assembly · May 1980",
+        "polled_on": "1980-05-01",
+        "term_end_estimated": "1985-04-30",
+        "data_status": "complete",
+        "notes": "117 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3). Poll day recorded as first of month because the public page gives year-level date context."
+      },
+      {
+        "event_id": "AcGenSep1985",
+        "kind": "assembly",
+        "display": "Punjab Assembly · September 1985",
+        "polled_on": "1985-09-26",
+        "term_end_estimated": "1990-09-25",
+        "data_status": "complete",
+        "notes": "117 ACs. Poll held on 26 September 1985; event id follows the public polling month rather than the panel's month value. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb1992",
+        "kind": "assembly",
+        "display": "Punjab Assembly · February 1992",
+        "polled_on": "1992-02-01",
+        "term_end_estimated": "1997-01-31",
+        "data_status": "complete",
+        "notes": "117 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3). Poll day recorded as first of month because the public page gives year-level date context."
+      },
+      {
+        "event_id": "AcGenFeb1997",
+        "kind": "assembly",
+        "display": "Punjab Assembly · February 1997",
+        "polled_on": "1997-02-07",
+        "term_end_estimated": "2002-02-06",
+        "data_status": "complete",
+        "notes": "117 ACs. Poll held on 7 February 1997. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb2002",
+        "kind": "assembly",
+        "display": "Punjab Assembly · February 2002",
+        "polled_on": "2002-02-13",
+        "term_end_estimated": "2007-02-12",
+        "data_status": "complete",
+        "notes": "117 ACs. Poll held on 13 February 2002. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenJan2007",
+        "kind": "assembly",
+        "display": "Punjab Assembly · January 2007",
+        "polled_on": "2007-01-30",
+        "term_end_estimated": "2012-01-29",
+        "data_status": "complete",
+        "notes": "116 contested ACs in the panel slice. Poll held on 30 January 2007. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenJan2012",
+        "kind": "assembly",
+        "display": "Punjab Assembly · January 2012",
+        "polled_on": "2012-01-30",
+        "term_end_estimated": "2017-01-29",
+        "data_status": "complete",
+        "notes": "117 ACs. Poll held on 30 January 2012; event id follows the public polling month rather than the panel's counting-month value. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenFeb2017",
         "kind": "assembly",
         "display": "Punjab Assembly · February 2017",
