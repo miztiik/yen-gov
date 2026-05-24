@@ -3,12 +3,17 @@
   "$id": "https://yen-gov.github.io/schemas/election-events.schema.json",
   "title": "Per-state election event inventory",
   "description": "The frontend-readable catalogue of which election events exist for each state. The backend's events.py registry is the source of truth at backend-build time; this JSON is the static-app view, hand-authored and kept consistent via CI test (backend/tests/test_election_events_consistency.py). Per-state arrays let route components resolve `defaultEventForState(stateCode)` without bundling Python. National events (e.g. LsGenApr2024) appear in every relevant state's array as a 'slice' — same event_id, same artifact directory, the per-state read just selects the right row. Per ADR-0023.",
-  "x-version": "1.0",
+  "x-version": "1.1",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-11",
-      "description": "Initial schema. Per-state event inventory keyed by ECI state code. Each event entry: event_id, kind (assembly/lok_sabha/by_election), display, polled_on, optional default flag (at most one default per state — defines what /s/<state>/elections resolves to)."
+      "description": "Initial schema. Per-state event inventory keyed by ECI state code. Each event entry: event_id, kind (assembly/lok_sabha/by_election), display, polled_on, optional default flag (at most one default per state \u2014 defines what /s/<state>/elections resolves to)."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-05-24",
+      "description": "Breaking: removed the `default` boolean property. The per-state default event is now derived from `max(polled_on)` in `defaultEventForState()` (frontend/src/lib/election-events.ts) and in the backend's election-events Parquet writer; the hand-authored flag was a shadow of a computable fact and backfills routinely forgot to set it, causing Meghalaya/Tripura/UP/etc. to fall through to the rows[0] = oldest-event fallback. PR #191 fixed the rendering by making polled_on canonical; this PR retires the now-dead field across the schema, the 23 on-disk entries, the Pydantic seed (`_Event.default`, `is_default` Parquet column, the at-most-one-default raise), and the Tier-A test `test_election_events_default_uniqueness`. Adapter and reader code that touched `default` was updated in the same commit; readers that ignored the field are unaffected. See ADR-0023 \u00a7latest and TODO/20260524-elections-topic-and-default-cleanup-plan.md (if filed) for the full rationale."
     }
   ],
   "type": "object",
@@ -69,10 +74,6 @@
                 "type": ["string", "null"],
                 "format": "date",
                 "description": "Estimated term-end (typically polled_on + 5 years per Article 172). Null for Lok Sabha slices and by-elections. Used to surface 'next election due' chrome in the final year of term."
-              },
-              "default": {
-                "type": "boolean",
-                "description": "At most one event per state may set default: true. Defines what /s/<state>/elections (no event_id segment) resolves to, and which event the StateOverview's 'last election' card pulls from. Convention: the most recent assembly election."
               },
               "data_status": {
                 "enum": ["complete", "partial", "pending_upstream"],

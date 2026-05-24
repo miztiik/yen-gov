@@ -42,7 +42,6 @@ def test_compile_emits_one_row_per_event(tmp_path):
                     "kind": "assembly",
                     "display": "TN Assembly Election 2026",
                     "polled_on": "2026-05-01",
-                    "default": True,
                     "data_status": "complete",
                 },
                 {
@@ -50,7 +49,6 @@ def test_compile_emits_one_row_per_event(tmp_path):
                     "kind": "assembly",
                     "display": "TN Assembly Election 2021",
                     "polled_on": "2021-04-06",
-                    "default": False,
                     "data_status": "complete",
                 },
             ]
@@ -61,14 +59,17 @@ def test_compile_emits_one_row_per_event(tmp_path):
     assert n == 2
     rows = _rows(out)
     assert [r[1] for r in rows] == ["AcGenMay2021", "AcGenMay2026"]
-    # is_default flag preserved
-    by_id = {r[1]: r[6] for r in rows}  # event_id -> is_default
-    assert by_id["AcGenMay2026"] is True
-    assert by_id["AcGenMay2021"] is False
+    # 8-column shape post v1.1 (no is_default): state_code, event_id, kind,
+    # display, polled_on, term_end_estimated, data_status, notes.
+    assert len(rows[0]) == 8
 
 
-def test_compile_rejects_two_defaults_per_state(tmp_path):
-    """Plan §0e.10.2-E LOCKED: at most one default event per state."""
+def test_compile_rejects_unknown_default_field(tmp_path):
+    """v1.1: the `default` field was removed. A payload that still carries it
+    must be rejected by Pydantic `extra="forbid"` rather than silently
+    ignored — silent acceptance would let stale fixtures and stale on-disk
+    JSON drift past the seed boundary forever.
+    """
     payload = {
         "states": {
             "S22": [
@@ -77,22 +78,14 @@ def test_compile_rejects_two_defaults_per_state(tmp_path):
                     "kind": "assembly",
                     "display": "x",
                     "polled_on": "2026-05-01",
-                    "default": True,
+                    "default": True,  # removed in v1.1 — must raise
                     "data_status": "complete",
-                },
-                {
-                    "event_id": "AcGenMay2021",
-                    "kind": "assembly",
-                    "display": "x",
-                    "polled_on": "2021-04-06",
-                    "default": True,  # second default — must fail
-                    "data_status": "complete",
-                },
+                }
             ]
         }
     }
     out = tmp_path / "x.parquet"
-    with pytest.raises(ValueError, match="default"):
+    with pytest.raises(Exception):  # pydantic.ValidationError
         compile_to_parquet(_write(tmp_path, payload), out)
 
 
@@ -106,7 +99,6 @@ def test_compile_passes_nullable_term_end(tmp_path):
                     "display": "x",
                     "polled_on": "2026-05-01",
                     "term_end_estimated": "2031-05-01",
-                    "default": True,
                     "data_status": "complete",
                 }
             ]
@@ -115,9 +107,9 @@ def test_compile_passes_nullable_term_end(tmp_path):
     out = tmp_path / "out.parquet"
     compile_to_parquet(_write(tmp_path, payload), out)
     rows = _rows(out)
-    # term_end_estimated -> column index 5
+    # term_end_estimated -> column index 5 (8-column post-v1.1 shape)
     assert rows[0][5] is not None
 
 
 def test_schema_version_constant():
-    assert ELECTION_EVENTS_ROW_SCHEMA_VERSION == "1.0"
+    assert ELECTION_EVENTS_ROW_SCHEMA_VERSION == "1.1"

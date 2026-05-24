@@ -27,7 +27,6 @@ export interface ElectionEventRow {
   display: string;
   polled_on: string;        // ISO date (YYYY-MM-DD)
   term_end_estimated?: string | null;
-  default?: boolean;
   data_status?: DataStatus;
   notes?: string;
 }
@@ -69,9 +68,10 @@ export function fetchElectionEvents(): Promise<ElectionEventsCatalogue> {
  * forgot to set the flag (Meghalaya showed 1978-02-25 instead of 2023-02-27,
  * Tripura 1977-12-31 instead of 2023-02-16, plus 5 other states off by 5
  * years each). `polled_on` is the canonical fact — using it directly
- * auto-corrects on every new ingest. The `default` field on the row type is
- * kept (now ignored) so the on-disk schema stays permissive; cleanup of the
- * dead field is tracked as a follow-up to this PR.
+ * auto-corrects on every new ingest. PR #191 made polled_on canonical in
+ * this helper; the follow-up Q1+PR-2 PR (2026-05-24) removed the now-dead
+ * `default` field from the schema, the row type, the 23 on-disk entries,
+ * the Pydantic seed, and the at-most-one-default invariant Tier-A test.
  */
 export function defaultEventForState(
   catalogue: ElectionEventsCatalogue | null,

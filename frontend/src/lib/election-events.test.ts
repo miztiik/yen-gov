@@ -9,31 +9,36 @@ import {
 
 const CATALOGUE: ElectionEventsCatalogue = {
   $schema: "https://example.invalid/schemas/election-events.schema.json",
-  $schema_version: "1.0",
+  $schema_version: "1.1",
   sources: [{ url: "https://example.invalid/source", fetched_at: "2026-05-01T00:00:00Z" }],
   states: {
-    // Multi-event, default:true on the latest — the well-behaved historical shape.
-    // Defaults are now ignored; max(polled_on) selects the same row.
+    // Multi-event — max(polled_on) selects the latest.
     S22: [
-      { event_id: "AcGenMay2026", kind: "assembly", display: "TN AC May 2026", polled_on: "2026-05-06", default: true },
+      { event_id: "AcGenMay2026", kind: "assembly", display: "TN AC May 2026", polled_on: "2026-05-06" },
       { event_id: "AcGenApr2021", kind: "assembly", display: "TN AC Apr 2021", polled_on: "2021-04-06" },
     ],
     // Single event — degenerate case.
     S25: [
       { event_id: "AcGenMar2021", kind: "assembly", display: "WB AC Mar 2021", polled_on: "2021-03-27" },
     ],
-    // The Meghalaya/Tripura bug shape: multi-event, NO default flag anywhere,
-    // oldest-first array order (how the AE-panel backfills landed). The old
-    // function returned rows[0]=1978 (45-year regression); the new function
-    // returns max(polled_on)=2023.
+    // The Meghalaya/Tripura bug shape: multi-event in oldest-first array order
+    // (how the AE-panel backfills landed). The original (`rows[0]`) selector
+    // returned 1978 (a 45-year regression); the current `max(polled_on)`
+    // selector returns 2023. v1.1 of the schema removed the `default` field
+    // entirely so the array order is the only thing left to mis-rely on —
+    // this test guards against any future re-introduction of order-coupling.
     S15: [
       { event_id: "AcGenFeb1978", kind: "assembly", display: "ML AC Feb 1978", polled_on: "1978-02-25" },
       { event_id: "AcGenFeb2023", kind: "assembly", display: "ML AC Feb 2023", polled_on: "2023-02-27" },
     ],
-    // Stale-flag shape: default:true on the OLDER event. max(polled_on) must
-    // still win — flag drift cannot override the canonical date fact.
+    // Historical case: pre-v1.1 some on-disk rows carried a hand-authored
+    // `default: true` flag pointed at an older event (stale-flag drift).
+    // The flag is now gone from the type system and the on-disk schema;
+    // this regression case is preserved with the flag REMOVED so the
+    // "max(polled_on) wins regardless of array order" invariant remains
+    // explicitly tested for the Himachal-Pradesh-style ordering.
     S08: [
-      { event_id: "AcGenNov2017", kind: "assembly", display: "HP AC Nov 2017", polled_on: "2017-11-09", default: true },
+      { event_id: "AcGenNov2017", kind: "assembly", display: "HP AC Nov 2017", polled_on: "2017-11-09" },
       { event_id: "AcGenNov2022", kind: "assembly", display: "HP AC Nov 2022", polled_on: "2022-11-12" },
     ],
     S04: [], // empty array — explicit "no data" signal
@@ -49,11 +54,11 @@ describe("defaultEventForState", () => {
     expect(defaultEventForState(CATALOGUE, "S25")?.event_id).toBe("AcGenMar2021");
   });
 
-  it("regression: returns max(polled_on) when no row carries default:true and the array is oldest-first (Meghalaya/Tripura bug)", () => {
+  it("regression: returns max(polled_on) when the array is oldest-first (Meghalaya/Tripura bug)", () => {
     expect(defaultEventForState(CATALOGUE, "S15")?.event_id).toBe("AcGenFeb2023");
   });
 
-  it("regression: ignores a stale default:true flag pointed at an older event", () => {
+  it("regression: returns max(polled_on) regardless of array order (Himachal Pradesh shape)", () => {
     expect(defaultEventForState(CATALOGUE, "S08")?.event_id).toBe("AcGenNov2022");
   });
 

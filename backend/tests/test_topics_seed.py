@@ -126,4 +126,10 @@ def test_compile_is_deterministic(tmp_path):
 
 def test_schema_version_constants():
     assert TOPICS_ROW_SCHEMA_VERSION == "1.0"
-    assert INDICATOR_TOPIC_TAGS_ROW_SCHEMA_VERSION == "1.0"
+    # 1.1 because artifact_id is now NULLABLE in the Parquet schema
+    # (and `str | None` in the pydantic row type). Bumped in lockstep
+    # with topic-catalogue.schema.json v1.4 (which made the source-side
+    # `id` field optional for `election`-kind artifacts) so consumers
+    # that read indicator_topic_tags.parquet can opt in to the wider
+    # column type via the row-schema-version probe before reading.
+    assert INDICATOR_TOPIC_TAGS_ROW_SCHEMA_VERSION == "1.1"

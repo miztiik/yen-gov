@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/topic-catalogue.schema.json",
-  "$schema_version": "1.3",
+  "$schema_version": "1.4",
   "$comment": "Hand-authored taxonomy. Powers the Topic Front Door (/t, /t/:topic) and the section list inside each state hub (/s/:state). See ADR-0022 and TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md. DOCTRINE (user-mandated 2026-05-11): elections are ONE indicator family among many. Social-welfare topics (fiscal, education, health, livelihood) are first-class; elections are not the spine and not the default theme. Order in this array IS the rendering order on /t and inside the state hub.",
   "sources": [],
   "topics": [
@@ -469,20 +469,16 @@
       "id": "elections",
       "title": "Elections",
       "list": "na",
-      "summary": "Who governs. State Assembly and Lok Sabha results, candidate-level detail, party totals, margins. One indicator family among many — not the spine of the site.",
+      "summary": "Who governs. State Assembly and Lok Sabha results, candidate-level detail, party totals, margins. One indicator family among many \u2014 not the spine of the site.",
       "icon": "vote",
       "featured": false,
       "artifacts": [
         {
           "kind": "election",
-          "id": "AcGenMay2026",
-          "display": "Tamil Nadu Assembly · May 2026",
-          "default": true,
-          "featured": false,
+          "display": "Latest assembly election",
           "scope": "state"
         }
-      ],
-      "notes": "Per ADR-0022 doctrine: elections are NOT the default home-page theme and NOT a featured topic. Social-welfare topics (fiscal, future: education, health, livelihood) are first-class; elections are one of many. Election artifacts have a different schema family (result.summary.schema.json) than indicators — the catalogue's polymorphic `kind` lets them coexist without being demoted in capability or promoted in IA prominence."
+      ]
     },
     {
       "id": "economy",

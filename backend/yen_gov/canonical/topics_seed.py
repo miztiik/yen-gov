@@ -49,13 +49,16 @@ from pathlib import Path
 from typing import Literal
 
 import duckdb
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 # Row-schema-version constants. Independent of the input catalogue
 # ``topic-catalogue.schema.json`` x-version; bump when the Parquet row
 # shape changes.
 TOPICS_ROW_SCHEMA_VERSION = "1.0"
-INDICATOR_TOPIC_TAGS_ROW_SCHEMA_VERSION = "1.0"
+# Bumped 2026-05-24 in lockstep with topic-catalogue.schema.json v1.4:
+# artifact_id is now NULLABLE because election artifacts may omit `id`
+# (the renderer resolves the per-state default event at read time).
+INDICATOR_TOPIC_TAGS_ROW_SCHEMA_VERSION = "1.1"
 
 
 SeventhScheduleList = Literal["state", "union", "concurrent", "na"]
@@ -82,7 +85,15 @@ class _Artifact(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
     kind: ArtifactKind
-    id: str = Field(min_length=1)
+    # v1.4 (2026-05-24): `id` is REQUIRED for `kind: "indicator"` and
+    # `kind: "feature_collection"` (those reference a concrete on-disk
+    # artifact). It is OPTIONAL for `kind: "election"` where the renderer
+    # resolves the per-state default event at read time via
+    # defaultEventForState(state_code) (see ADR-0023, frontend/src/lib/
+    # election-events.ts). The conditional requirement is enforced by the
+    # `_require_id_for_concrete_kinds` validator below and mirrors the
+    # `allOf/if/then` constraint in topic-catalogue.schema.json v1.4.
+    id: str | None = Field(default=None, min_length=1)
     display: str | None = None
     default: bool = False
     featured: bool = False
@@ -90,6 +101,19 @@ class _Artifact(BaseModel):
     chart_type: ChartType | None = None
     dimension: str | None = None
     peer_set_default: PeerSetDefault | None = None
+
+    @model_validator(mode="after")
+    def _require_id_for_concrete_kinds(self) -> "_Artifact":
+        # Indicator + feature_collection artifacts reference concrete
+        # on-disk targets and CANNOT resolve without `id`. Election
+        # artifacts MAY omit `id`, in which case the renderer resolves
+        # the per-state default event at render time.
+        if self.kind in ("indicator", "feature_collection") and self.id is None:
+            raise ValueError(
+                f"artifact kind={self.kind!r} requires `id` "
+                "(only kind='election' may omit it)"
+            )
+        return self
 
 
 class _Topic(BaseModel):
@@ -146,7 +170,7 @@ def _tag_rows(
     topics: list[_Topic],
 ) -> list[
     tuple[
-        str, str, str, str | None, bool, bool, str | None, str | None, str | None, str | None, int
+        str, str, str | None, str | None, bool, bool, str | None, str | None, str | None, str | None, int
     ]
 ]:
     """One row per (topic_id, artifact_kind, artifact_id, in_topic_order).
@@ -157,12 +181,19 @@ def _tag_rows(
     without collision. Per-topic order within the artifacts[] array is
     preserved as a 1-based integer so the consumer can render them in
     the catalogue's chosen order without a separate sort hint.
+
+    Post-v1.4 the artifact_id may be NULL when kind='election' (the
+    catalogue references "the per-state default election" without
+    pinning a specific cohort code; the renderer resolves it at read
+    time via max(polled_on) in election_events). The column is
+    therefore NULLABLE in the emitted Parquet; SQL consumers MUST
+    handle the NULL on election rows.
     """
     out: list[
         tuple[
             str,
             str,
-            str,
+            str | None,
             str | None,
             bool,
             bool,
@@ -190,7 +221,9 @@ def _tag_rows(
                     idx,
                 )
             )
-    out.sort(key=lambda row: (row[0], row[1], row[2]))
+    # NULL artifact_id sorts before any string in DuckDB; this is fine
+    # for the rare election rows that have it.
+    out.sort(key=lambda row: (row[0], row[1], row[2] or ""))
     return out
 
 
@@ -242,7 +275,7 @@ def compile_to_parquet(json_in: Path, topics_out: Path, tags_out: Path) -> tuple
             CREATE TABLE indicator_topic_tags (
                 topic_id VARCHAR NOT NULL,
                 artifact_kind VARCHAR NOT NULL,
-                artifact_id VARCHAR NOT NULL,
+                artifact_id VARCHAR,
                 display VARCHAR,
                 is_default BOOLEAN NOT NULL,
                 featured BOOLEAN NOT NULL,
