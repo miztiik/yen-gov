@@ -100,6 +100,17 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     ("S28", 2007): EventInfo("AcGenFeb2007", False),  # Uttarakhand
     ("S28", 2012): EventInfo("AcGenJan2012", False),  # Uttarakhand
 
+    # Manipur statewise AE panel backfill. 1974 stays deferred as pre-1977;
+    # 2017/2022 stay on existing Section-10 sources.
+    ("S14", 1980): EventInfo("AcGenJan1980", False),  # Manipur
+    ("S14", 1984): EventInfo("AcGenDec1984", False),  # Manipur
+    ("S14", 1990): EventInfo("AcGenFeb1990", False),  # Manipur
+    ("S14", 1995): EventInfo("AcGenFeb1995", False),  # Manipur
+    ("S14", 2000): EventInfo("AcGenFeb2000", False),  # Manipur
+    ("S14", 2002): EventInfo("AcGenFeb2002", False),  # Manipur
+    ("S14", 2007): EventInfo("AcGenFeb2007", False),  # Manipur
+    ("S14", 2012): EventInfo("AcGenJan2012", False),  # Manipur
+
     # Historical hand-imports (2016-2023) from old.eci.gov.in Section 10
     # XLSX dumps. No live-results portal; no Statistical Report API.
     # Polling-month event_ids researched against Wikipedia/ECI archives.

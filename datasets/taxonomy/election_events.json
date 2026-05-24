@@ -1155,6 +1155,78 @@
     ],
     "S14": [
       {
+        "event_id": "AcGenJan1980",
+        "kind": "assembly",
+        "display": "Manipur Assembly · January 1980",
+        "polled_on": "1980-01-06",
+        "term_end_estimated": "1985-01-05",
+        "data_status": "complete",
+        "notes": "60 ACs. Two-phase poll on 3 and 6 January 1980; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenDec1984",
+        "kind": "assembly",
+        "display": "Manipur Assembly · December 1984-May 1985",
+        "polled_on": "1984-12-27",
+        "term_end_estimated": "1989-12-26",
+        "data_status": "complete",
+        "notes": "60 ACs. Election began on 27 December 1984 with residual polling on 3 May 1985; event id follows the panel year/month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb1990",
+        "kind": "assembly",
+        "display": "Manipur Assembly · February 1990",
+        "polled_on": "1990-02-12",
+        "term_end_estimated": "1995-02-11",
+        "data_status": "complete",
+        "notes": "54 contested ACs in the panel slice. Single-phase poll on 12 February 1990. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb1995",
+        "kind": "assembly",
+        "display": "Manipur Assembly · February 1995",
+        "polled_on": "1995-02-19",
+        "term_end_estimated": "2000-02-18",
+        "data_status": "complete",
+        "notes": "60 ACs. Two-phase poll on 16 and 19 February 1995; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb2000",
+        "kind": "assembly",
+        "display": "Manipur Assembly · February 2000",
+        "polled_on": "2000-02-22",
+        "term_end_estimated": "2005-02-21",
+        "data_status": "complete",
+        "notes": "60 ACs. Two-phase poll on 12 and 22 February 2000; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb2002",
+        "kind": "assembly",
+        "display": "Manipur Assembly · February 2002",
+        "polled_on": "2002-02-21",
+        "term_end_estimated": "2007-02-20",
+        "data_status": "complete",
+        "notes": "60 ACs. Two-phase poll on 14 and 21 February 2002; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb2007",
+        "kind": "assembly",
+        "display": "Manipur Assembly · February 2007",
+        "polled_on": "2007-02-23",
+        "term_end_estimated": "2012-02-22",
+        "data_status": "complete",
+        "notes": "60 ACs. Multi-phase poll from 8 to 23 February 2007; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenJan2012",
+        "kind": "assembly",
+        "display": "Manipur Assembly · January 2012",
+        "polled_on": "2012-01-28",
+        "term_end_estimated": "2017-01-27",
+        "data_status": "complete",
+        "notes": "60 ACs. Single-phase poll on 28 January 2012. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenMar2017",
         "kind": "assembly",
         "display": "Manipur Assembly · March 2017",
