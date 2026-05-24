@@ -322,7 +322,7 @@ Testid: `data-testid="yenask-turn-footer"`.
 
 ### Assistant status timeline (Debug log)
 
-The `statusHistory` ring buffer renders as a list of events with HH:MM:SS timestamps. Consecutive `downloading` events against the same file coalesce so a 100-frame progress sweep displays as one row instead of 100.
+The `statusHistory` ring buffer renders as a list of events with HH:MM:SS timestamps. Consecutive `downloading` events against the same file coalesce so a 100-frame progress sweep displays as one row instead of 100. Consecutive `loading-from-cache` events against the same file coalesce the same way (one row per cached asset).
 
 Testid: `data-testid="yenask-debug-status-timeline"`.
 

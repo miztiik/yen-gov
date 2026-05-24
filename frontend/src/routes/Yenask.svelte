@@ -149,7 +149,9 @@
 
   const modelReady = $derived(modelStatus.kind === "ready");
   const modelBusy = $derived(
-    modelStatus.kind === "downloading" || modelStatus.kind === "compiling",
+    modelStatus.kind === "downloading" ||
+      modelStatus.kind === "loading-from-cache" ||
+      modelStatus.kind === "compiling",
   );
   const isThinking = $derived(
     conversation.at(-1)?.kind === "assistant-loading",
@@ -405,13 +407,29 @@
     if (downloadConfirmModelId && downloadConfirmModelId !== entry.id) {
       downloadConfirmModelId = null;
     }
-    pushStatus({
-      kind: "downloading",
-      file: "",
-      percent: 0,
-      loaded: 0,
-      total: 0,
-    });
+    // Andre 2026-05-24: request persistent storage so the browser does NOT
+    // evict the 273 MB model cache under storage pressure. Best-effort —
+    // browsers may silently deny on private/incognito modes; that is fine,
+    // the next prepare() call will try again. Idempotent at the API level.
+    try {
+      if (
+        typeof navigator !== "undefined" &&
+        navigator.storage?.persist &&
+        !(await navigator.storage.persisted?.())
+      ) {
+        await navigator.storage.persist();
+      }
+    } catch {
+      // Permission denied / private mode — the lab still works, the cache
+      // is just evictable under memory pressure. No UI required.
+    }
+    // NOTE (Andre 2026-05-24): we deliberately do NOT push a placeholder
+    // `downloading 0%` status here. On a cache hit, the adapter emits
+    // `loading-from-cache` for every per-file event — the placeholder
+    // would lie ("Downloading…") for a frame before the real status
+    // arrives. The first real event from the adapter is the first status
+    // the UI sees; until then `modelStatus.kind` stays at its previous
+    // value (typically `idle` on first prepare).
     try {
       const a = createAdapter(entry);
       adapter = a;
@@ -529,19 +547,20 @@
 
   /**
    * Update `modelStatus` AND append to `statusHistory` for the debug
-   * timeline. Coalesces consecutive `downloading` percent updates for
-   * the same `file` so the timeline doesn't get spammed by hundreds of
-   * progress ticks — only the LAST progress event per file is kept.
+   * timeline. Coalesces consecutive `downloading` or `loading-from-cache`
+   * events against the same `file` so the timeline doesn't get spammed by
+   * hundreds of progress ticks — only the LAST event per file is kept.
    */
   function pushStatus(s: ReadinessStatus): void {
     modelStatus = s;
     const last = statusHistory.at(-1);
-    const isProgress = s.kind === "downloading";
-    const lastIsSameProgress =
-      last?.status.kind === "downloading" &&
-      s.kind === "downloading" &&
-      last.status.file === s.file;
-    if (isProgress && lastIsSameProgress) {
+    const isCoalescable =
+      s.kind === "downloading" || s.kind === "loading-from-cache";
+    const lastSameFile =
+      isCoalescable &&
+      last?.status.kind === s.kind &&
+      (last.status as { file: string }).file === (s as { file: string }).file;
+    if (isCoalescable && lastSameFile) {
       statusHistory = [
         ...statusHistory.slice(0, -1),
         { ts: Date.now(), status: s },
@@ -768,6 +787,14 @@
           {/if}
         </p>
       </div>
+    {:else if modelStatus.kind === "loading-from-cache"}
+      <p
+        class="text-xs text-neutral-600"
+        data-testid="yenask-cache-loading-label"
+      >
+        Loading from cache (no network)…
+        {#if modelStatus.file}<code class="rounded bg-neutral-100 px-1">{modelStatus.file}</code>{/if}
+      </p>
     {:else if modelStatus.kind === "compiling"}
       <p class="text-xs text-neutral-600">Compiling model into the runtime…</p>
     {:else if modelStatus.kind === "failed"}
@@ -1018,6 +1045,10 @@
                   {#if ev.status.total > 0}
                     ({formatBytes(ev.status.loaded)} / {formatBytes(ev.status.total)})
                   {/if}
+                </span>
+              {:else if ev.status.kind === "loading-from-cache"}
+                <span class="text-neutral-600">
+                  {ev.status.file || "(boot)"} — cached
                 </span>
               {:else if ev.status.kind === "failed"}
                 <span class="text-rose-700">— {ev.status.error}</span>

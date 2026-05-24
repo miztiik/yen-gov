@@ -9,10 +9,16 @@
 // providers later (litert-mediapipe, llama.cpp-wasm, etc.) is a new
 // dispatch arm here + a new entry in model-registry — never a UI change.
 //
-// Browser-cache strategy: transformers.js caches model assets in
-// IndexedDB automatically (via the `transformers-cache` DB). On second
-// load the `prepare()` call streams "loading from cache" progress events
-// and resolves in seconds. We do not duplicate that cache layer here.
+// Browser-cache strategy: transformers.js (v3+) caches model assets via
+// the Cache Storage API under the `transformers-cache` bucket — NOT
+// IndexedDB (an earlier version did; the v3 migration moved to Cache
+// Storage for byte-range support). On second load the `prepare()` call
+// streams `progress: 100` events for each cached file with NO bytes
+// flowing over the network. The adapter distinguishes a real download
+// (some `progress < 100` event seen first) from a cache replay (only
+// `progress === 100` events) and emits `loading-from-cache` for the
+// latter so the UI doesn't lie with a phantom "Downloading…" banner.
+// See `_sawRealDownload` in the adapter below.
 
 import type { ModelEntry } from "./model-registry";
 
@@ -34,6 +40,15 @@ export type ReadinessStatus =
       /** Bytes total for the current file (best-effort; may be 0). */
       readonly total: number;
     }
+  /**
+   * Emitted when transformers.js fires `progress: 100` events without
+   * any prior `progress < 100` tick — i.e. assets are served from the
+   * Cache Storage API with NO network bytes flowing. Keeps the UI honest:
+   * users see "Loading from cache (no network)…" instead of a phantom
+   * "Downloading…" banner. Per file because transformers.js still streams
+   * per-asset events on cache replay.
+   */
+  | { readonly kind: "loading-from-cache"; readonly file: string }
   | { readonly kind: "compiling" }
   | { readonly kind: "ready" }
   | { readonly kind: "failed"; readonly error: string };
@@ -191,6 +206,17 @@ class TransformersJsAdapter implements ModelAdapter {
   private _status: ReadinessStatus = { kind: "idle" };
   private _pipeline: TextGenPipeline | null = null;
   private _preparePromise: Promise<void> | null = null;
+  /**
+   * Cache-hit detection (Andre 2026-05-24). Flipped to `true` on the
+   * FIRST `progress` event with `progress < 100` (= bytes are actually
+   * flowing). Stays `false` across a full prepare() when every progress
+   * event arrives at exactly `progress: 100` (= Cache Storage replay,
+   * no network). The progress_callback uses this flag to decide whether
+   * a `progress: 100` event means "final tick of a real download" or
+   * "per-file cache replay". Reset at the start of every prepare() call
+   * so a failed-then-retried prepare doesn't inherit stale state.
+   */
+  private _sawRealDownload = false;
 
   constructor(model: ModelEntry) {
     this.model = model;
@@ -205,14 +231,19 @@ class TransformersJsAdapter implements ModelAdapter {
     if (this._preparePromise) return this._preparePromise;
 
     this._preparePromise = (async () => {
+      // Reset cache-hit detection for every prepare() invocation so a
+      // failed-then-retried run starts fresh.
+      this._sawRealDownload = false;
       try {
         const update = (s: ReadinessStatus) => {
           this._status = s;
           onProgress?.(s);
         };
-        // Default to a downloading state with 0% so the UI immediately
-        // shows the file panel instead of waiting for the first event.
-        update({ kind: "downloading", file: "", percent: 0, loaded: 0, total: 0 });
+        // NOTE (Andre 2026-05-24): we deliberately do NOT emit a placeholder
+        // `downloading 0%` status here. On a cache hit, every progress event
+        // arrives at exactly `progress: 100` and the placeholder would lie
+        // ("Downloading…") even though no network bytes flow. The first real
+        // event the runtime fires is the first thing the UI sees.
 
         const transformers = await import("@huggingface/transformers");
         // pipeline returns a callable; we widen the type because the SDK's
@@ -228,13 +259,29 @@ class TransformersJsAdapter implements ModelAdapter {
           device: this.model.device,
           progress_callback: (ev: RuntimeProgressEvent) => {
             if (ev.status === "progress") {
-              update({
-                kind: "downloading",
-                file: ev.file ?? "",
-                percent: typeof ev.progress === "number" ? ev.progress : 0,
-                loaded: ev.loaded ?? 0,
-                total: ev.total ?? 0,
-              });
+              const pct =
+                typeof ev.progress === "number" ? ev.progress : 0;
+              // Real download seen: ANY tick with progress < 100 means
+              // bytes are flowing over the network. Latch the flag so the
+              // closing `progress: 100` tick is correctly classified.
+              if (pct < 100) this._sawRealDownload = true;
+              if (this._sawRealDownload) {
+                update({
+                  kind: "downloading",
+                  file: ev.file ?? "",
+                  percent: pct,
+                  loaded: ev.loaded ?? 0,
+                  total: ev.total ?? 0,
+                });
+              } else {
+                // Pure cache replay path: every per-file event arrives at
+                // progress: 100 with no preceding < 100 tick. UI shows
+                // "Loading from cache (no network)…" instead of lying.
+                update({
+                  kind: "loading-from-cache",
+                  file: ev.file ?? "",
+                });
+              }
             } else if (ev.status === "done" || ev.status === "ready") {
               update({ kind: "compiling" });
             }

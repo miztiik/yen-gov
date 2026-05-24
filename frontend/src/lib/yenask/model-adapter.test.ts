@@ -71,13 +71,15 @@ describe("ReadinessStatus state machine", () => {
     const a = createAdapter(MODEL);
     await a.prepare((s) => events.push(s));
 
+    // PR F (Andre 2026-05-24): the placeholder `downloading 0%` push
+    // was removed from prepare(). The first real event from the runtime
+    // is the first status the UI sees. Here that is the 42% progress tick.
     expect(events.map((e) => e.kind)).toEqual([
-      "downloading",
       "downloading",
       "compiling",
       "ready",
     ]);
-    const dlEvent = events[1] as Extract<ReadinessStatus, { kind: "downloading" }>;
+    const dlEvent = events[0] as Extract<ReadinessStatus, { kind: "downloading" }>;
     expect(dlEvent.file).toBe("model.onnx");
     expect(dlEvent.percent).toBe(42);
     expect(a.status().kind).toBe("ready");
@@ -105,6 +107,101 @@ describe("ReadinessStatus state machine", () => {
     await a.prepare();
     await a.prepare();
     expect(handles.pipelineFactory).toHaveBeenCalledTimes(1);
+  });
+
+  // PR F (Andre 2026-05-24): cache-hit detection. Transformers.js v3+
+  // caches model assets in the Cache Storage API. On a cache hit every
+  // `progress` event arrives at exactly `progress: 100` with no preceding
+  // `progress < 100` tick — there are no network bytes to count. The
+  // adapter must emit `loading-from-cache` for these so the UI does not
+  // lie with a phantom "Downloading…" banner.
+  it("emits loading-from-cache when every progress event arrives at progress:100 (warm cache)", async () => {
+    handles.pipelineFactory.mockImplementationOnce(
+      async (_task: string, _id: string, opts: Record<string, unknown>) => {
+        const cb = opts.progress_callback as ((ev: { status: string; file?: string; progress?: number }) => void) | undefined;
+        // Warm cache: per-file replay tick at 100% only, no prior < 100 tick.
+        cb?.({ status: "progress", file: "model.onnx", progress: 100 });
+        cb?.({ status: "progress", file: "tokenizer.json", progress: 100 });
+        cb?.({ status: "done" });
+        return handles.generateFn;
+      },
+    );
+    const events: ReadinessStatus[] = [];
+    const a = createAdapter(MODEL);
+    await a.prepare((s) => events.push(s));
+    const kinds = events.map((e) => e.kind);
+    // No `downloading` for the warm-cache path — Andre's UI-lies fix.
+    expect(kinds).toEqual([
+      "loading-from-cache",
+      "loading-from-cache",
+      "compiling",
+      "ready",
+    ]);
+    const firstCache = events[0] as Extract<ReadinessStatus, { kind: "loading-from-cache" }>;
+    expect(firstCache.file).toBe("model.onnx");
+  });
+
+  // PR F: real-download path is unchanged. ANY `progress < 100` tick latches
+  // `_sawRealDownload = true` so the trailing `progress: 100` tick is correctly
+  // classified as the final frame of a real download, not a cache replay.
+  it("emits downloading throughout when bytes flow (cold cache, including the closing 100% tick)", async () => {
+    handles.pipelineFactory.mockImplementationOnce(
+      async (_task: string, _id: string, opts: Record<string, unknown>) => {
+        const cb = opts.progress_callback as ((ev: { status: string; file?: string; progress?: number; loaded?: number; total?: number }) => void) | undefined;
+        // Cold cache: bytes flow, then the final 100% tick.
+        cb?.({ status: "progress", file: "model.onnx", progress: 42, loaded: 42, total: 100 });
+        cb?.({ status: "progress", file: "model.onnx", progress: 100, loaded: 100, total: 100 });
+        cb?.({ status: "done" });
+        return handles.generateFn;
+      },
+    );
+    const events: ReadinessStatus[] = [];
+    const a = createAdapter(MODEL);
+    await a.prepare((s) => events.push(s));
+    expect(events.map((e) => e.kind)).toEqual([
+      "downloading",
+      "downloading",
+      "compiling",
+      "ready",
+    ]);
+    // The closing 100% tick is `downloading`, NOT `loading-from-cache`,
+    // because `_sawRealDownload` was latched by the 42% tick.
+    const last = events[1] as Extract<ReadinessStatus, { kind: "downloading" }>;
+    expect(last.percent).toBe(100);
+  });
+
+  // PR F: the cache-hit flag is reset per prepare() call so a failed-then-
+  // retried prepare doesn't inherit stale state from the prior run.
+  it("resets _sawRealDownload between prepare() calls (warm cache after a failed cold prepare)", async () => {
+    // First prepare: bytes flow, then explode.
+    handles.pipelineFactory.mockImplementationOnce(
+      async (_task: string, _id: string, opts: Record<string, unknown>) => {
+        const cb = opts.progress_callback as ((ev: { status: string; file?: string; progress?: number }) => void) | undefined;
+        cb?.({ status: "progress", file: "model.onnx", progress: 30 });
+        throw new Error("network died mid-download");
+      },
+    );
+    const a = createAdapter(MODEL);
+    await expect(a.prepare()).rejects.toThrow("network died");
+
+    // Second prepare: warm cache (100% only). Without the per-call reset
+    // the prior latched `_sawRealDownload` would mis-classify these as
+    // `downloading`. With the reset, they correctly emit `loading-from-cache`.
+    handles.pipelineFactory.mockImplementationOnce(
+      async (_task: string, _id: string, opts: Record<string, unknown>) => {
+        const cb = opts.progress_callback as ((ev: { status: string; file?: string; progress?: number }) => void) | undefined;
+        cb?.({ status: "progress", file: "model.onnx", progress: 100 });
+        cb?.({ status: "done" });
+        return handles.generateFn;
+      },
+    );
+    const events: ReadinessStatus[] = [];
+    await a.prepare((s) => events.push(s));
+    expect(events.map((e) => e.kind)).toEqual([
+      "loading-from-cache",
+      "compiling",
+      "ready",
+    ]);
   });
 });
 
