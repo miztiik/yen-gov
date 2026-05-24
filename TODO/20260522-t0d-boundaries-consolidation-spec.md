@@ -1,10 +1,10 @@
 # T.0d — Boundaries consolidation execution spec
 
-**Last Updated**: 2026-05-22
-**Status**: READY for execution — awaiting user sign-off on §1 directory layout before any file is moved or schema is bumped.
+**Last Updated**: 2026-05-24
+**Status**: MERGED 2026-05-22 (`9e2ee3db`). All six chunks landed as one fused atomic commit per CLAUDE.md §15. Frontend repoint + ADR-0031 amendment + Tier-B `tier_b_boundary_layer_invariants` validator all in scope.
 **Authors**: Gregor (Architect — contract design), voicing Hans (Governance) on hierarchy + Max (OWID-style coverage strategist) on global precedent, per CLAUDE.md §0a authority routing.
 **Scope**: replace the flat `boundaries/in/geojson/*` topology + per-file `.sources.json` / `.metadata.json` / `.unkeyed.json` sidecars with a Hive-partitioned tree plus one canonical `boundary_layers.parquet` control table FK-bound to `taxonomy/sources.parquet`.
-**Amends**: [ADR-0031](../docs/architecture/decisions/0031-boundary-geometry-strategy.md) (Status: Accepted → Amended in the T.0d commit). Conforms to [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md) §12 v2.0.
+**Amends**: [ADR-0031](../docs/architecture/decisions/0031-boundary-geometry-strategy.md) (Status: Accepted → Amended 2026-05-22 in T.0d commit `9e2ee3db`). Conforms to [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md) §12 v2.0.
 **Doc-class routing**: plan-doc per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md); rationale lives in ADR-0031 amendment (in the same commit as execution); current shape lives in `docs/architecture/data/boundaries.md` (rewritten same commit).
 
 ---
