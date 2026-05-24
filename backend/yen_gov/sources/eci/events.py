@@ -183,6 +183,19 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     ("S19", 2007): EventInfo("AcGenJan2007", False),  # Punjab
     ("S19", 2012): EventInfo("AcGenJan2012", False),  # Punjab
 
+    # Rajasthan statewise AE panel backfill. 2023 stays on existing
+    # Section-10 rows; this slice writes 1977-2018.
+    ("S20", 1977): EventInfo("AcGenJun1977", False),  # Rajasthan
+    ("S20", 1980): EventInfo("AcGenMay1980", False),  # Rajasthan
+    ("S20", 1985): EventInfo("AcGenMay1985", False),  # Rajasthan
+    ("S20", 1990): EventInfo("AcGenFeb1990", False),  # Rajasthan
+    ("S20", 1993): EventInfo("AcGenNov1993", False),  # Rajasthan
+    ("S20", 1998): EventInfo("AcGenNov1998", False),  # Rajasthan
+    ("S20", 2003): EventInfo("AcGenDec2003", False),  # Rajasthan
+    ("S20", 2008): EventInfo("AcGenDec2008", False),  # Rajasthan
+    ("S20", 2013): EventInfo("AcGenDec2013", False),  # Rajasthan
+    ("S20", 2018): EventInfo("AcGenDec2018", False),  # Rajasthan
+
     # Historical hand-imports (2016-2023) from old.eci.gov.in Section 10
     # XLSX dumps. No live-results portal; no Statistical Report API.
     # Polling-month event_ids researched against Wikipedia/ECI archives.
