@@ -307,6 +307,57 @@ def s1_persons_fork(
     )
 
 
+@app.command("ingest-eci-ae-panel")
+def ingest_eci_ae_panel(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+    input_csv: Path = typer.Option(
+        ...,
+        "--input",
+        "-i",
+        help="Panel CSV path.",
+        exists=True,
+        dir_okay=False,
+    ),
+    state: str = typer.Option(
+        ...,
+        "--state",
+        help="ECI state code (for example S22).",
+    ),
+    force: bool = typer.Option(
+        False,
+        "--force",
+        help="Re-ingest even when datasets/elections/_inventory.json already records every event.",
+    ),
+) -> None:
+    """Ingest a frozen ECI Assembly Election panel CSV into canonical Parquet."""
+    from yen_gov.canonical.adapters.eci_ae_panel import ingest_panel
+
+    result = ingest_panel(repo_root=root, csv_path=input_csv, state_code=state, force=force)
+    if result.skipped:
+        typer.echo(
+            "ingest-eci-ae-panel: skipped; inventory already records "
+            f"{len(result.events)} events for state={state}. Pass --force to re-ingest."
+        )
+        return
+    assert result.write_result is not None
+    typer.echo(
+        "ingest-eci-ae-panel: wrote "
+        f"{result.write_result.observation_rows_written} election observation rows, "
+        f"{result.write_result.dim_rows_written.get('dim_persons', 0)} person rows, "
+        f"{result.write_result.dim_rows_written.get('elections_candidacies', 0)} candidacy rows"
+    )
+    typer.echo(f"ingest-eci-ae-panel: events={','.join(result.events)}")
+    typer.echo(f"ingest-eci-ae-panel: report={result.report_path.as_posix()}")
+
+
 @app.command()
 def coverage(
     root: Path = typer.Option(

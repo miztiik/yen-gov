@@ -99,6 +99,20 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     ("U07", 2016): EventInfo("AcGenMay2016", False),  # Puducherry
     ("S22", 2016): EventInfo("AcGenMay2016", False),  # Tamil Nadu
 
+    # Tamil Nadu historical AE panel backfill (ECI Statistical Report
+    # transcriptions). The frontend catalogue exposes the full sequence;
+    # keeping it here preserves the backend/frontend event contract.
+    ("S22", 1971): EventInfo("AcGenMar1971", False),  # Tamil Nadu
+    ("S22", 1977): EventInfo("AcGenOct1977", False),  # Tamil Nadu
+    ("S22", 1980): EventInfo("AcGenJun1980", False),  # Tamil Nadu
+    ("S22", 1984): EventInfo("AcGenDec1984", False),  # Tamil Nadu
+    ("S22", 1989): EventInfo("AcGenJan1989", False),  # Tamil Nadu
+    ("S22", 1991): EventInfo("AcGenFeb1991", False),  # Tamil Nadu
+    ("S22", 1996): EventInfo("AcGenFeb1996", False),  # Tamil Nadu
+    ("S22", 2001): EventInfo("AcGenMay2001", False),  # Tamil Nadu
+    ("S22", 2006): EventInfo("AcGenMay2006", False),  # Tamil Nadu
+    ("S22", 2011): EventInfo("AcGenMay2011", False),  # Tamil Nadu
+
     # Feb-2017 cohort (Punjab/Goa polled 4 Feb; UK 15 Feb; UP 7-phase Feb-Mar).
     ("S19", 2017): EventInfo("AcGenFeb2017", False),  # Punjab
     ("S28", 2017): EventInfo("AcGenFeb2017", False),  # Uttarakhand

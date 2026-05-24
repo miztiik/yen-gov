@@ -1,6 +1,6 @@
 # Backend `sources/eci/` — ECI Source Adapter
 
-**Last Updated**: 2026-05-15
+**Last Updated**: 2026-05-23
 
 `backend/yen_gov/sources/eci/` is the adapter for the Election Commission of India's surfaces. It owns URL conventions for both the live results portal (`results.eci.gov.in`) and the Statistical Reports hub (`eci.gov.in/statistical-report/...`), the HTML and XLSX parsers, and the per-page commitment about which artifact each ECI page can produce.
 
@@ -199,6 +199,14 @@ Because Section 10 across 2016-2023 ships in three structurally different sheet 
 All three flows produce the same `DetailedResultsRaw` shape, so `to_constituency_results` is layout-agnostic. The schema bumped from 3.1 → 3.2 to carry the optional gender/age/category fields surfaced by Layouts B and C (Layout A's 2024+ files also carry them; older Layout A files just leave them `None`). Anchor tests in [`backend/tests/test_sources_eci_historical_imports.py`](../../../backend/tests/test_sources_eci_historical_imports.py) pin one known winner per layout against the emitted artifacts.
 
 Confirmed 2026-05-13 against all 15 hand-imports: Assam-2016=126, Kerala-2016=140, Goa-2017=40, HP-2017=68, Karnataka-2018=223, AP-2019=175, Haryana-2019=90, Jharkhand-2019=81, Bihar-2020=243, Delhi-2020=70, Assam-2021=126, Kerala-2021=140, Goa-2022=40, HP-2022=68, Karnataka-2023=224. All artifacts schema-valid; Assam+Kerala 2021 share `AcGenApr2021`.
+
+#### Historical AE panel CSV path (`ingest-eci-ae-panel`)
+
+For state assembly panels that are already transcribed from ECI Statistical Reports, the canonical path is `python -m yen_gov ingest-eci-ae-panel <csv> --state <S##>`. The adapter reads the CSV as an operator input, filters to one ECI state code, and emits directly through the canonical `BatchEnvelope` writer. It does not create per-person JSON sidecars or legacy election-result JSON projections.
+
+The event identity comes from `backend/yen_gov/sources/eci/events.py`, not from local string synthesis in the adapter. This keeps the backend registry, `datasets/taxonomy/election_events.json`, and frontend event picker in one contract: if the citizen can select an event, the backend knows the same `(state, year) -> event_id` pair.
+
+Rows emitted by this path use ECI citation-ledger provenance (`producer = "Election Commission of India"`, `verification_method = "transcribed"`, `confidence_tier = "gold"`, `is_issuing_authority = true`). The adapter writes `dim_persons`, `elections_candidacies`, `dim_acs`, party dims, election observations, and inventory rows in the same transaction-shaped writer envelope, then records discrepancy counts for operator review.
 
 #### Ingestion test gate (mandatory)
 

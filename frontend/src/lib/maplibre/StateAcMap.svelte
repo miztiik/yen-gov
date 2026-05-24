@@ -31,8 +31,9 @@
     /** Override map height. Defaults to a tall canvas suitable for the state
      * overview; the per-AC page can pass a shorter value. */
     height?: string;
+    event?: string | null;
   }
-  let { state: state_code, rows: input_rows, highlight_eci_no, height = "520px" }: Props = $props();
+  let { state: state_code, rows: input_rows, highlight_eci_no, height = "520px", event = null }: Props = $props();
 
   interface Row {
     eci_no: number;
@@ -121,7 +122,7 @@
 
   function on_select(sel: { key: string | number }): void {
     const eci_no = Number(sel.key);
-    if (Number.isFinite(eci_no)) navigate(url.acByNo(state_code, eci_no));
+    if (Number.isFinite(eci_no)) navigate(url.acByNo(state_code, eci_no, event));
   }
 </script>
 

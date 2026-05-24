@@ -74,12 +74,14 @@ export const url = {
   state(stateCode: string): string {
     return withBase(`/s/${states.slug(stateCode) || stateCode.toLowerCase()}`);
   },
-  ac(stateCode: string, eci_no: number, name: string): string {
-    return withBase(`/s/${states.slug(stateCode) || stateCode.toLowerCase()}/ac/${acSlug(eci_no, name)}`);
+  ac(stateCode: string, eci_no: number, name: string, event?: string | null): string {
+    const base = `/s/${states.slug(stateCode) || stateCode.toLowerCase()}/ac/${acSlug(eci_no, name)}`;
+    return withBase(event ? `${base}?event=${encodeURIComponent(event)}` : base);
   },
   // AC link without a name (used by callers that don't have one to hand).
-  acByNo(stateCode: string, eci_no: number): string {
-    return withBase(`/s/${states.slug(stateCode) || stateCode.toLowerCase()}/ac/${eci_no}`);
+  acByNo(stateCode: string, eci_no: number, event?: string | null): string {
+    const base = `/s/${states.slug(stateCode) || stateCode.toLowerCase()}/ac/${eci_no}`;
+    return withBase(event ? `${base}?event=${encodeURIComponent(event)}` : base);
   },
   party(stateCode: string, partyEciCode: string, shortName: string): string {
     const slug = partySlug(shortName, partyEciCode);

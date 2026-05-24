@@ -259,11 +259,101 @@
     ],
     "S22": [
       {
+        "event_id": "AcGenMar1971",
+        "kind": "assembly",
+        "display": "Tamil Nadu Assembly · March 1971",
+        "polled_on": "1971-03-01",
+        "term_end_estimated": "1977-09-30",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenOct1977",
+        "kind": "assembly",
+        "display": "Tamil Nadu Assembly · October 1977",
+        "polled_on": "1977-10-01",
+        "term_end_estimated": "1980-05-31",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenJun1980",
+        "kind": "assembly",
+        "display": "Tamil Nadu Assembly · June 1980",
+        "polled_on": "1980-06-01",
+        "term_end_estimated": "1984-11-30",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenDec1984",
+        "kind": "assembly",
+        "display": "Tamil Nadu Assembly · December 1984",
+        "polled_on": "1984-12-01",
+        "term_end_estimated": "1988-12-31",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenJan1989",
+        "kind": "assembly",
+        "display": "Tamil Nadu Assembly · January 1989",
+        "polled_on": "1989-01-01",
+        "term_end_estimated": "1991-01-31",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenFeb1991",
+        "kind": "assembly",
+        "display": "Tamil Nadu Assembly · February 1991",
+        "polled_on": "1991-02-01",
+        "term_end_estimated": "1996-01-31",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenFeb1996",
+        "kind": "assembly",
+        "display": "Tamil Nadu Assembly · February 1996",
+        "polled_on": "1996-02-01",
+        "term_end_estimated": "2001-04-30",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenMay2001",
+        "kind": "assembly",
+        "display": "Tamil Nadu Assembly · May 2001",
+        "polled_on": "2001-05-01",
+        "term_end_estimated": "2006-04-30",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenMay2006",
+        "kind": "assembly",
+        "display": "Tamil Nadu Assembly · May 2006",
+        "polled_on": "2006-05-01",
+        "term_end_estimated": "2011-04-30",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
+        "event_id": "AcGenMay2011",
+        "kind": "assembly",
+        "display": "Tamil Nadu Assembly · May 2011",
+        "polled_on": "2011-05-01",
+        "term_end_estimated": "2016-05-15",
+        "data_status": "complete",
+        "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription."
+      },
+      {
         "event_id": "AcGenMay2016",
         "kind": "assembly",
         "display": "Tamil Nadu Assembly · May 2016",
         "polled_on": "2016-05-16",
-        "term_end_estimated": "2021-05-15",
+        "term_end_estimated": "2021-04-05",
         "data_status": "complete",
         "notes": "Single-phase poll on 16 May 2016. 232 ACs (Aravakurichi and Thanjavur countermanded; held 19 Nov 2016). Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
       },
@@ -272,7 +362,7 @@
         "kind": "assembly",
         "display": "Tamil Nadu Assembly · April 2021",
         "polled_on": "2021-04-06",
-        "term_end_estimated": "2026-04-05",
+        "term_end_estimated": "2026-05-07",
         "data_status": "complete",
         "notes": "Single-phase poll on 6 April 2021. 234 ACs. Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
       },
