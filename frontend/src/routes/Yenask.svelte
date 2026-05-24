@@ -49,6 +49,13 @@
     formatCacheSize,
     listCachedRepoIds,
   } from "../lib/yenask/model-cache";
+  import {
+    classifySizeTier,
+    formatModelSize,
+    formatRamLabel,
+    isOutOfMemoryError,
+    OOM_FAILURE_COPY,
+  } from "../lib/yenask/size-tier";
   import { extractIntent } from "../lib/yenask/extract-intent";
   import type { ExtractAttempt } from "../lib/yenask/extract-intent";
   import { untrackedDelta } from "../lib/yenask/timing";
@@ -128,6 +135,12 @@
   let cacheSizes: Record<string, number> = $state({});
   let deleteConfirmRepoId: string | null = $state(null);
   let clearAllConfirm = $state(false);
+  // Per-model id whose Download button is currently in the "Click again
+  // to confirm <N> GB download" pending state (D-24 Large-tier two-step
+  // confirm). At most one model can be pending at a time — starting a
+  // different model's download (or letting CONFIRM_TIMEOUT_MS elapse)
+  // clears the previous pending state.
+  let downloadConfirmModelId: string | null = $state(null);
   const CONFIRM_TIMEOUT_MS = 4000;
 
   const selectedModel = $derived(
@@ -388,6 +401,10 @@
     if (entry.id !== selectedModelId) {
       selectedModelId = entry.id;
     }
+    // Starting a download clears any other model's pending confirm.
+    if (downloadConfirmModelId && downloadConfirmModelId !== entry.id) {
+      downloadConfirmModelId = null;
+    }
     pushStatus({
       kind: "downloading",
       file: "",
@@ -407,6 +424,32 @@
     // Refresh cache state regardless of outcome — a partial download
     // may have left bytes on disk worth reflecting in the UI.
     await refreshCacheState();
+  }
+
+  /**
+   * Click handler for the Download button on a not-downloaded entry.
+   * Per D-24 (Slice C): Small / Medium tiers fire `prepareModel`
+   * immediately; Large tier (>1 GB) requires a two-step inline
+   * confirm — first click sets the pending state, second click within
+   * `CONFIRM_TIMEOUT_MS` ms commits.
+   */
+  function handleDownloadClick(entry: ModelEntry): void {
+    const tier = classifySizeTier(entry.estimated_download_mb);
+    if (tier !== "large") {
+      void prepareModel(entry);
+      return;
+    }
+    if (downloadConfirmModelId !== entry.id) {
+      downloadConfirmModelId = entry.id;
+      setTimeout(() => {
+        if (downloadConfirmModelId === entry.id) {
+          downloadConfirmModelId = null;
+        }
+      }, CONFIRM_TIMEOUT_MS);
+      return;
+    }
+    downloadConfirmModelId = null;
+    void prepareModel(entry);
   }
 
   // -------- cache management (Slice B) ------------------------------------------
@@ -564,16 +607,25 @@
     </div>
 
     <!--
-      Model picker (Slice B — D-22 Jony AMEND verdict):
+      Model picker (Slice B — D-22 Jony AMEND verdict; Slice C — D-24):
 
       Per-model cards replace the single <select> + Prepare button. Each
       card declares its cache state via `data-state` for tests + as a
       visual cue (active card has the emerald border). The primary
       action label varies by state:
 
-        not-downloaded  →  "Download · ~88 MB"      (sets expectation)
-        cached          →  "Prepare"                (loads from cache, fast)
+        not-downloaded  →  "Download · ~118 MB" (Small/Medium tier)
+                            "Download · ~2.3 GB"  (Large tier, first click)
+                            "Click again to confirm 2.3 GB download" (Large tier, second)
+        cached          →  "Prepare"   (loads from cache, fast)
         active          →  "Active" pill, no button (model is in memory)
+
+      Slice C (D-24): the Large-tier (>1 GB) two-step confirm prevents
+      a citizen from accidentally kicking off a multi-GB cellular
+      download. Auto-revert after CONFIRM_TIMEOUT_MS so a stale pending
+      state never lingers. `data-size-tier` exposes the tier for tests +
+      future analytics; the `data-confirm-pending` attribute on the
+      Large-tier button mirrors the Delete/Clear-all confirm pattern.
 
       A secondary "Delete from cache" link appears for any non-active
       cached entry; it uses the same two-step inline confirm as the
@@ -589,6 +641,9 @@
         {@const state = modelCardState(m)}
         {@const cacheBytes = cacheSizes[m.repo_id] ?? 0}
         {@const isConfirmingDelete = deleteConfirmRepoId === m.repo_id}
+        {@const sizeTier = classifySizeTier(m.estimated_download_mb)}
+        {@const isConfirmingDownload = downloadConfirmModelId === m.id}
+        {@const ramLabel = formatRamLabel(m.estimated_ram_mb)}
         <li
           class="flex flex-col gap-2 rounded border p-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4 {state === 'active'
             ? 'border-emerald-500 bg-emerald-50'
@@ -596,6 +651,7 @@
           data-testid="yenask-model-card"
           data-model-id={m.id}
           data-state={state}
+          data-size-tier={sizeTier}
         >
           <div class="min-w-0 flex-1">
             <div class="flex items-baseline gap-2">
@@ -606,9 +662,16 @@
               {#if state === "cached" || state === "active"}
                 Cached locally: {formatCacheSize(cacheBytes)}
               {:else}
-                Download size: ~{m.estimated_download_mb} MB
+                Download size: ~{formatModelSize(m.estimated_download_mb)}
               {/if}
             </p>
+            {#if ramLabel}
+              <p
+                class="mt-0.5 text-xs text-neutral-500"
+                data-testid="yenask-model-ram"
+                data-model-id={m.id}
+              >{ramLabel}</p>
+            {/if}
             <p class="mt-1 text-xs text-neutral-500">{m.notes}</p>
           </div>
           <div class="flex flex-col items-stretch gap-1 sm:items-end">
@@ -630,12 +693,21 @@
             {:else}
               <button
                 type="button"
-                class="rounded bg-neutral-900 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-60"
-                onclick={() => prepareModel(m)}
+                class="rounded px-3 py-1.5 text-sm font-medium text-white transition disabled:cursor-not-allowed disabled:opacity-60 {isConfirmingDownload
+                  ? 'bg-amber-700 hover:bg-amber-800'
+                  : 'bg-neutral-900 hover:bg-neutral-700'}"
+                onclick={() => handleDownloadClick(m)}
                 disabled={modelBusy}
                 data-testid="yenask-model-download-button"
                 data-model-id={m.id}
-              >Download · ~{m.estimated_download_mb} MB</button>
+                data-confirm-pending={isConfirmingDownload}
+              >
+                {#if isConfirmingDownload}
+                  Click again to confirm {formatModelSize(m.estimated_download_mb)} download
+                {:else}
+                  Download · ~{formatModelSize(m.estimated_download_mb)}
+                {/if}
+              </button>
             {/if}
             {#if state === "cached"}
               <button
@@ -702,8 +774,13 @@
       <p
         class="rounded bg-rose-50 px-3 py-2 text-xs text-rose-900"
         data-testid="yenask-model-error"
+        data-failure-class={isOutOfMemoryError(modelStatus.error) ? "oom" : "other"}
       >
-        <strong>Model failed to load.</strong> {modelStatus.error}
+        {#if isOutOfMemoryError(modelStatus.error)}
+          <strong>Model failed to load.</strong> {OOM_FAILURE_COPY}
+        {:else}
+          <strong>Model failed to load.</strong> {modelStatus.error}
+        {/if}
       </p>
     {:else if modelStatus.kind === "ready"}
       <p class="text-xs text-emerald-700">
