@@ -852,6 +852,33 @@
     ],
     "S27": [
       {
+        "event_id": "AcGenFeb2005",
+        "kind": "assembly",
+        "display": "Jharkhand Assembly · February 2005",
+        "polled_on": "2005-02-23",
+        "term_end_estimated": "2010-02-22",
+        "data_status": "complete",
+        "notes": "81 ACs. First Jharkhand Assembly election after state formation; three-phase poll from 3 to 23 February 2005. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenDec2009",
+        "kind": "assembly",
+        "display": "Jharkhand Assembly · November-December 2009",
+        "polled_on": "2009-12-18",
+        "term_end_estimated": "2014-12-17",
+        "data_status": "complete",
+        "notes": "81 ACs. Five-phase poll from 25 November to 18 December 2009; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenDec2014",
+        "kind": "assembly",
+        "display": "Jharkhand Assembly · November-December 2014",
+        "polled_on": "2014-12-20",
+        "term_end_estimated": "2019-12-19",
+        "data_status": "complete",
+        "notes": "81 ACs. Five-phase poll from 25 November to 20 December 2014; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenDec2019",
         "kind": "assembly",
         "display": "Jharkhand Assembly · November-December 2019",
