@@ -100,6 +100,20 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     ("S05", 2007): EventInfo("AcGenJun2007", False),  # Goa
     ("S05", 2012): EventInfo("AcGenMar2012", False),  # Goa
 
+    # Himachal Pradesh historical AE panel backfill (ECI Statistical Report
+    # transcriptions). Event ids use the polling month when known; for 1977
+    # and 1985 the panel month is retained because the public page only gives
+    # year-level date context.
+    ("S08", 1977): EventInfo("AcGenOct1977", False),  # Himachal Pradesh
+    ("S08", 1982): EventInfo("AcGenMay1982", False),  # Himachal Pradesh
+    ("S08", 1985): EventInfo("AcGenMay1985", False),  # Himachal Pradesh
+    ("S08", 1990): EventInfo("AcGenFeb1990", False),  # Himachal Pradesh
+    ("S08", 1993): EventInfo("AcGenSep1993", False),  # Himachal Pradesh
+    ("S08", 1998): EventInfo("AcGenFeb1998", False),  # Himachal Pradesh
+    ("S08", 2003): EventInfo("AcGenFeb2003", False),  # Himachal Pradesh
+    ("S08", 2007): EventInfo("AcGenNov2007", False),  # Himachal Pradesh
+    ("S08", 2012): EventInfo("AcGenNov2012", False),  # Himachal Pradesh
+
     # 2026-05-17 ephemeral backfill — XLSX dumps held in datasets/ephemeral/
     # for hand-ingest via `eci-statreport-emit-local`. Polling months sourced
     # from Wikipedia/ECI archives; documented in

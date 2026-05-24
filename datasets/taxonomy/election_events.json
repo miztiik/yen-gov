@@ -183,6 +183,87 @@
     ],
     "S08": [
       {
+        "event_id": "AcGenOct1977",
+        "kind": "assembly",
+        "display": "Himachal Pradesh Assembly · October 1977",
+        "polled_on": "1977-10-01",
+        "term_end_estimated": "1982-09-30",
+        "data_status": "complete",
+        "notes": "68 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3). Poll day recorded as first of month because the public page gives year-level date context."
+      },
+      {
+        "event_id": "AcGenMay1982",
+        "kind": "assembly",
+        "display": "Himachal Pradesh Assembly · May 1982",
+        "polled_on": "1982-05-19",
+        "term_end_estimated": "1987-05-18",
+        "data_status": "complete",
+        "notes": "68 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMay1985",
+        "kind": "assembly",
+        "display": "Himachal Pradesh Assembly · May 1985",
+        "polled_on": "1985-05-01",
+        "term_end_estimated": "1990-04-30",
+        "data_status": "complete",
+        "notes": "68 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3). Poll day recorded as first of month because the public page gives year-level date context."
+      },
+      {
+        "event_id": "AcGenFeb1990",
+        "kind": "assembly",
+        "display": "Himachal Pradesh Assembly · February 1990",
+        "polled_on": "1990-02-27",
+        "term_end_estimated": "1995-02-26",
+        "data_status": "complete",
+        "notes": "67 ACs reported in the panel slice. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenSep1993",
+        "kind": "assembly",
+        "display": "Himachal Pradesh Assembly · September 1993",
+        "polled_on": "1993-09-11",
+        "term_end_estimated": "1998-09-10",
+        "data_status": "complete",
+        "notes": "68 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb1998",
+        "kind": "assembly",
+        "display": "Himachal Pradesh Assembly · February-June 1998",
+        "polled_on": "1998-06-03",
+        "term_end_estimated": "2003-06-02",
+        "data_status": "complete",
+        "notes": "68 ACs. Public page records polling on 28 February and 3 June 1998; event id follows the first polling month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb2003",
+        "kind": "assembly",
+        "display": "Himachal Pradesh Assembly · February 2003",
+        "polled_on": "2003-02-26",
+        "term_end_estimated": "2008-02-25",
+        "data_status": "complete",
+        "notes": "68 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov2007",
+        "kind": "assembly",
+        "display": "Himachal Pradesh Assembly · November-December 2007",
+        "polled_on": "2007-12-19",
+        "term_end_estimated": "2012-12-18",
+        "data_status": "complete",
+        "notes": "68 ACs. Public page records polling on 14 November and 19 December 2007; event id follows the first polling month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenNov2012",
+        "kind": "assembly",
+        "display": "Himachal Pradesh Assembly · November 2012",
+        "polled_on": "2012-11-04",
+        "term_end_estimated": "2017-11-03",
+        "data_status": "complete",
+        "notes": "68 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenNov2017",
         "kind": "assembly",
         "display": "Himachal Pradesh Assembly · November 2017",

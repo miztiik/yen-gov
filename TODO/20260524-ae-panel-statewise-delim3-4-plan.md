@@ -1,7 +1,7 @@
 # AE Panel Statewise DelimID 3/4 Ingestion Plan
 
 **Last Updated**: 2026-05-24
-**Status**: ACTIVE — tooling PR merged; Goa (`S05`) state PR in progress.
+**Status**: ACTIVE — tooling and Goa PRs merged; Himachal Pradesh (`S08`) state PR in progress.
 **Scope**: `datasets/ephemeral/All_States_AE.csv` statewise ingestion through the canonical elections Parquet writer.
 **Spec**: [`docs/architecture/backend/sources-eci.md`](../docs/architecture/backend/sources-eci.md), [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md), [`docs/architecture/data/elections-indicators.md`](../docs/architecture/data/elections-indicators.md).
 **Decision rationale**: [ADR-0030](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md), [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md), [ADR-0036](../docs/architecture/decisions/0036-state-identity-and-slice-registration.md).
@@ -30,8 +30,8 @@ Every state PR must be merged to `main` before the next state starts. This keeps
 | Step | PR | Contents | Status |
 | --- | --- | --- | :-: |
 | 0 | Tooling and plan | Dry-run/report surface, bounded `--delim-id` filters, plan-doc, source-doc update, adapter tests. No Parquet data writes. | DONE — PR #181 |
-| 1 | Goa (`S05`) | State-only dry-run, event registration for missing `S05` rows, `DelimID=3` and `DelimID=4` ingest, inventory/provenance/coverage updates. | ACTIVE — this PR |
-| 2 | Himachal Pradesh (`S08`) | Same state-only loop. | QUEUED |
+| 1 | Goa (`S05`) | State-only dry-run, event registration for missing `S05` rows, `DelimID=3` and `DelimID=4` ingest, inventory/provenance/coverage updates. | DONE — PR #185 |
+| 2 | Himachal Pradesh (`S08`) | State-only dry-run, event registration for missing `S08` rows, `DelimID=3` and only missing `DelimID=4` event (`2012`) ingest, inventory/provenance/coverage updates. | ACTIVE — this PR |
 | 3 | Tripura (`S23`) | Same state-only loop. | QUEUED |
 | 4 | Meghalaya (`S15`) | Same state-only loop. | QUEUED |
 | 5 | Puducherry (`U07`) | Same state-only loop. | QUEUED |
@@ -51,6 +51,8 @@ The tooling PR ran read-only preflights against the first two candidate states:
 Goa's missing event registrations: 1989-11, 1994-11, 1999-06, 2002-06, 2007-06, and 2012-03. Its already-registered events in this slice are 2017-03 (`AcGenFeb2017`) and 2022-03 (`AcGenFeb2022`).
 
 Goa write verification after the state PR emit: 9,620 observation rows, 8 events, 80 AC dimension rows across `delim_year` 1976/2008, 181 candidacies mapped to `parties.IN.UNK` with `party_short_raw` preserved, and zero dangling Goa `source_id` values.
+
+Himachal Pradesh dry-run found 4,385 approved rows (`DelimID=3`: 3,040; `DelimID=4`: 1,345) across 11 events. The state PR writes 1977-2007 plus 2012 only; 2017 and 2022 remain on their existing Section-10 source because the panel disagreed with prior canonical turnout totals while winner votes matched. The scoped write adds 1977, 1982, 1985, 1990, 1993, 1998, 2003, 2007, and 2012.
 
 ## Per-State Loop
 
