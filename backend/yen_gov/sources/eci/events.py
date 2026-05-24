@@ -219,6 +219,21 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     ("S03", 2006): EventInfo("AcGenApr2006", False),  # Assam
     ("S03", 2011): EventInfo("AcGenApr2011", False),  # Assam
 
+    # Odisha statewise AE panel backfill. 2024 stays on existing Section-10
+    # rows; this slice writes 1974-2019. Early 1974/1977/1980 public pages
+    # only expose year-level context, so their event ids retain the panel month.
+    ("S18", 1974): EventInfo("AcGenFeb1974", False),  # Odisha
+    ("S18", 1977): EventInfo("AcGenOct1977", False),  # Odisha
+    ("S18", 1980): EventInfo("AcGenJun1980", False),  # Odisha
+    ("S18", 1985): EventInfo("AcGenMar1985", False),  # Odisha
+    ("S18", 1990): EventInfo("AcGenFeb1990", False),  # Odisha
+    ("S18", 1995): EventInfo("AcGenMar1995", False),  # Odisha
+    ("S18", 2000): EventInfo("AcGenFeb2000", False),  # Odisha
+    ("S18", 2004): EventInfo("AcGenApr2004", False),  # Odisha
+    ("S18", 2009): EventInfo("AcGenApr2009", False),  # Odisha
+    ("S18", 2014): EventInfo("AcGenApr2014", False),  # Odisha
+    ("S18", 2019): EventInfo("AcGenApr2019", False),  # Odisha
+
     # Historical hand-imports (2016-2023) from old.eci.gov.in Section 10
     # XLSX dumps. No live-results portal; no Statistical Report API.
     # Polling-month event_ids researched against Wikipedia/ECI archives.

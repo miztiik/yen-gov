@@ -988,6 +988,105 @@
     ],
     "S18": [
       {
+        "event_id": "AcGenFeb1974",
+        "kind": "assembly",
+        "display": "Odisha Assembly · February 1974",
+        "polled_on": "1974-02-01",
+        "term_end_estimated": "1979-01-31",
+        "data_status": "complete",
+        "notes": "146 contested ACs in the panel; public page gives only year-level polling context, so the event id retains the panel month. Chilka had no nomination filed. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenOct1977",
+        "kind": "assembly",
+        "display": "Odisha Assembly · October 1977",
+        "polled_on": "1977-10-01",
+        "term_end_estimated": "1982-09-30",
+        "data_status": "complete",
+        "notes": "147 ACs. Public page gives only year-level polling context, so the event id retains the panel month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenJun1980",
+        "kind": "assembly",
+        "display": "Odisha Assembly · June 1980",
+        "polled_on": "1980-06-01",
+        "term_end_estimated": "1985-05-31",
+        "data_status": "complete",
+        "notes": "147 ACs. Public page gives only year-level polling context, so the event id retains the panel month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMar1985",
+        "kind": "assembly",
+        "display": "Odisha Assembly · March 1985",
+        "polled_on": "1985-03-05",
+        "term_end_estimated": "1990-03-04",
+        "data_status": "complete",
+        "notes": "147 ACs in the panel. Public page records polling on 5 March 1985 and notes that Kakatpur and Keonjhar were affected by candidate deaths in the initial poll. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb1990",
+        "kind": "assembly",
+        "display": "Odisha Assembly · February 1990",
+        "polled_on": "1990-02-27",
+        "term_end_estimated": "1995-02-26",
+        "data_status": "complete",
+        "notes": "147 ACs. Poll held on 27 February 1990. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenMar1995",
+        "kind": "assembly",
+        "display": "Odisha Assembly · March 1995",
+        "polled_on": "1995-03-09",
+        "term_end_estimated": "2000-03-08",
+        "data_status": "complete",
+        "notes": "147 ACs. Poll held on 7 and 9 March 1995; event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenFeb2000",
+        "kind": "assembly",
+        "display": "Odisha Assembly · February 2000",
+        "polled_on": "2000-02-22",
+        "term_end_estimated": "2005-02-21",
+        "data_status": "complete",
+        "notes": "147 ACs. Poll held on 17 and 22 February 2000; event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenApr2004",
+        "kind": "assembly",
+        "display": "Odisha Assembly · April 2004",
+        "polled_on": "2004-04-26",
+        "term_end_estimated": "2009-04-25",
+        "data_status": "complete",
+        "notes": "147 ACs. Poll held on 20 and 26 April 2004; event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3)."
+      },
+      {
+        "event_id": "AcGenApr2009",
+        "kind": "assembly",
+        "display": "Odisha Assembly · April 2009",
+        "polled_on": "2009-04-23",
+        "term_end_estimated": "2014-04-22",
+        "data_status": "complete",
+        "notes": "147 ACs. Poll held on 16 and 23 April 2009 alongside Lok Sabha 2009; event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenApr2014",
+        "kind": "assembly",
+        "display": "Odisha Assembly · April 2014",
+        "polled_on": "2014-04-17",
+        "term_end_estimated": "2019-04-16",
+        "data_status": "complete",
+        "notes": "147 ACs. Poll held on 10 and 17 April 2014 alongside Lok Sabha 2014; event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
+        "event_id": "AcGenApr2019",
+        "kind": "assembly",
+        "display": "Odisha Assembly · April 2019",
+        "polled_on": "2019-04-29",
+        "term_end_estimated": "2024-04-28",
+        "data_status": "complete",
+        "notes": "146 regular ACs in the panel. Poll held in four phases on 11, 18, 23, and 29 April 2019 alongside Lok Sabha 2019; event date uses the final regular polling day. Patkura (AC 96) was postponed after a candidate death and later delayed by Cyclone Fani, so it is absent from this April panel slice. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=4)."
+      },
+      {
         "event_id": "AcGenJun2024",
         "kind": "assembly",
         "display": "Odisha Assembly · May-June 2024",
