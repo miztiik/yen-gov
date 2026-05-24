@@ -50,6 +50,20 @@ KNOWN_RESOURCES: dict[str, ResourceMeta] = {
             "Receipts and Centre Transfers (FY17-FY23, Actuals)"
         ),
     ),
+    # Reference table (not an indicator) — flat lookup, one row per Post
+    # Office, no time axis. Emits to ``datasets/reference/in/pincodes/``
+    # in Phase A.1.b after the operator captcha-fetches the CSV. The key
+    # uses the ``reference/<leaf>`` namespace to make it visually distinct
+    # from indicator keys (``fiscal/...``, etc.) in this dict.
+    "reference/pincode_directory": ResourceMeta(
+        uuid="5c2f62fe-5afa-4119-a499-fec9d604d5bd",
+        portal_page_url=(
+            "https://www.data.gov.in/resource/"
+            "all-india-pincode-directory-till-last-month"
+        ),
+        authority_page_url="https://www.indiapost.gov.in/",
+        title="All India Pincode Directory",
+    ),
 }
 
 
