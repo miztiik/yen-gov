@@ -147,7 +147,11 @@
     "publisher_methodology_url": null,
     "documentation_status": "stub",
     "methodology_breaks": [],
-    "known_caveats": [],
+    "known_caveats": [
+      "Compositional shifts: State Plan Schemes collapsed after FY15 (Planning Commission abolition); CSS share rose; Finance Commission Grants split out FY21+. Bihar's FY10 'grants' and FY24 'grants' bundle different instruments - totals comparable, sub-structure NOT.",
+      "Includes Centrally Sponsored Schemes (state-implemented, Centre+state matching) but NOT Central Sector schemes (Centre-implemented like PM-KISAN). For Uttar Pradesh this line understates total central scheme spending in the state.",
+      "Finance Commission Grants are time-bound to each 5-year FC window. Kerala + Punjab + West Bengal lose 15th FC's revenue-deficit grants in FY26; the 16th FC (FY27 onwards) resets the entire grant menu."
+    ],
     "notes": []
   },
   "divergence": null

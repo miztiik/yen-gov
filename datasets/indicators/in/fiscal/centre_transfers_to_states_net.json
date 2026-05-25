@@ -147,7 +147,11 @@
     "publisher_methodology_url": null,
     "documentation_status": "stub",
     "methodology_breaks": [],
-    "known_caveats": [],
+    "known_caveats": [
+      "'Net' = gross transfers minus loan repayments + interest states pay back to Centre. The wedge narrowed sharply after FY15 (14th FC converted legacy loans to grants). Bihar's pre-FY15 'net' is a different beast than its FY24 'net'.",
+      "Excludes off-budget channels (NABARD-routed loans, special bank-recap, RIDF) - material for Uttar Pradesh, Madhya Pradesh, Telangana that route capex through special vehicles. Headline understates total Centre-State resource flow for these states.",
+      "Pair with 'Devolution of central taxes' + 'Grants from Centre' on this page - those two sum to gross transfers; this card is gross MINUS loan repayments. Together they show what Maharashtra or Karnataka actually keep each year."
+    ],
     "notes": [],
     "related_indicators": [
       "fiscal/centre_transfers_to_states_gross",
