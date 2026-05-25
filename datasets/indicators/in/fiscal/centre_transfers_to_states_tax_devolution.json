@@ -147,7 +147,11 @@
     "publisher_methodology_url": null,
     "documentation_status": "stub",
     "methodology_breaks": [],
-    "known_caveats": [],
+    "known_caveats": [
+      "Cesses + surcharges sit OUTSIDE the divisible pool; their share of Centre's tax receipts rose ~10% (FY12) to ~20%+ (FY24). Devolution rises in rupees while Tamil Nadu's share of Centre's tax revenue falls.",
+      "The 14th FC set devolution at 42% of the divisible pool (FY16-FY20); the 15th FC dropped it to 41% (FY21-FY26). The 1pp cut is J&K's UT-isation, not a real reduction to Bihar or UP's per-rupee share.",
+      "15th FC's horizontal-share formula weights 15% by 2011 population, penalising Tamil Nadu, Kerala, Karnataka for successful demographic transition. The 16th FC (FY27-FY31) will revisit this; politically charged."
+    ],
     "notes": []
   },
   "divergence": null
