@@ -1,7 +1,7 @@
 # ADR-0031 — Boundary geometry as a sibling family (GeoJSON + PMTiles), not in the canonical Parquet store
 
-**Status**: Amended (2026-05-22, T.0d — disk layout + provenance plumbing; core decisions unchanged)
-**Last Updated**: 2026-05-22
+**Status**: Amended (2026-05-25, D.6 — PC swap closes KEEP-CURRENT; core decisions unchanged)
+**Last Updated**: 2026-05-25
 **Deciders**: User; Jony (UX, owns map rendering surface); Gregor (contracts, sibling-family stance)
 **Supersedes**: nothing — first ADR to formalise the boundary tree as canonical store sibling
 **Related**: [ADR-0030](0030-canonical-store-duckdb-wasm.md) (canonical observation store); [ADR-0032](0032-sources-citation-ledger.md) (sources citation ledger v2.0 — the FK target tightened by T.0d); [boundaries.md](../data/boundaries.md) (operational spec); [canonical-store.md §17](../data/canonical-store.md)
@@ -284,6 +284,40 @@ D.2 therefore shipped the additive `apply_exclude_filter` capability in `tools/b
 ### 5. What this amendment does NOT change
 
 The "boundaries-are-a-sibling-family" decision (D25 / R24 / R25 in section 1) is unchanged. The `delim=YYYY/` partition key from the 2026-05-24 amendment is unchanged (AC layers still carry `delimitation_vintage = null` pending a separate follow-up that backfills 2008 / 1976 / etc. per state). The Tier-B forbidden-path gate is unchanged. The two-format policy (GeoJSON below ~10 MB; PMTiles above) is unchanged.
+
+## Amendment 2026-05-25 (Phase D.6 PC swap - KEEP-CURRENT verdict)
+
+Phase D.6 of the [boundary coverage-expansion plan](../../../TODO/20260524-boundary-coverage-expansion-plan.md) proposed swapping the PC layer source from `shijithpk` (Unlicense, QGIS-traced from the 2024 ECI delim PDF, 545 features) to ramSeraph `LGD_Parliament_Constituencies.geojsonl.7z` (CC0-1.0, BharatMaps-lineage survey-grade). Recon (`tools/boundaries/recon_d6_pc.py`, full audit in [notes/2026-05-25-d6-pc-recon.md](../../../notes/2026-05-25-d6-pc-recon.md)) produced four structural NO-GO findings; D.6 closes KEEP-CURRENT.
+
+### 1. The four blockers
+
+1. **Feature count = 543** (plan-doc gate required 545 +/- 1). 543 is the post-2019 constitutional Lok Sabha elected-seat count (the 104th Amendment abolished 2 nominated Anglo-Indian seats); shijithpk preserves the historical 545. The count alone is borderline.
+2. **Six entire states have ZERO active features** in the ramSeraph release; 39 features carry `status="Pre delimitation"` and the rest of those states are absent: J&K (6/6 pre-delim), Arunachal Pradesh (2/2), Nagaland (1/1), Manipur (2/2), Assam (14/14), Jharkhand (14/14). Adopting would silently strip ~78 current-delim active PCs from the citizen-facing map.
+3. **No `lgd_pc_code` property** present in the feature schema. The two PC-id candidates (`pc_id`, `pc_no`) are not LGD codes; CLAUDE.md section 3 identifier discipline requires LGD codes for non-elections identifiers.
+4. **`pc_id` is an unstable legacy frozen key**. Telangana (17 PCs, st_code=36) uses Andhra Pradesh's pre-2014 `28xx` prefix instead of TS `36xx`; 44 of 543 features fail the obvious `st_code*100 + pc_no` derivation. A join on `pc_id` would silently mis-attribute Telangana data to Andhra Pradesh.
+
+### 2. The decision
+
+`tools/boundaries/pipeline.json` PC entry is unchanged; `datasets/ephemeral/india_ls_seats_545.geojson` remains the PC source-of-truth; `datasets/boundaries/in/pc/delim=2024/all.geojson` and the `src-2af556fe59e0` sources row (shijithpk PC, 2024) stay in place. No data, ledger, schema, frontend, or code changes ship in this PR.
+
+### 3. What this amendment overrides
+
+The 2026-05-24 amendment (section 4 "Citation surface") anticipated a future PR that would "add a DIFFERENT source row with `is_issuing_authority = true`" once an LGD-keyed equivalent landed. D.6 confirms the LGD-keyed equivalent (ramSeraph `LGD_Parliament_Constituencies`) is NOT yet a viable replacement; the upstream that exists today is structurally drifted (vintage mix + missing identifier + legacy state-code aliasing). The bronze shijithpk row remains the only citation surface for PC geometry; no new sources row is added.
+
+### 4. Re-evaluation triggers
+
+Re-run `tools/boundaries/recon_d6_pc.py` and re-open D.6 when ANY of:
+
+- ramSeraph publishes a release where the six structural-gap states (J&K, Arunachal, Nagaland, Manipur, Assam, Jharkhand) all have `status=" "` (active) features.
+- An `lgd_pc_code` property (or the documented LGD-portal PC code under any name) is added to the upstream schema.
+- The Telangana `pc_id` block is rewritten to use a state-correct prefix (`36xx` for TS) so the synthetic key derivation holds across the whole national set.
+- ECI directly publishes a survey-grade post-2019-Amendment GeoJSON of the 543 active PCs (would be `is_issuing_authority = true`, gold-tier).
+
+Independent of upstream: re-evaluate when a frontend PC consumer is proposed (today `frontend/src/lib/boundaries.ts` `GeoLevel` union has no `"pc"` member and no view-model joins on PC). At that point the citizen-facing risk of the current bronze-tier shijithpk layer must be re-weighed against whatever ramSeraph drift remains; an interim "shard ramSeraph's 504 active features + retain shijithpk's pre-delim states" composite is on the table but out of scope until a real consumer exists.
+
+### 5. Recon driver kept in-tree
+
+Per the D.1 precedent (`tools/boundaries/recon_d1_ac.py` retired in the D.5 wrap-up PR after D.2 promoted), `tools/boundaries/recon_d6_pc.py` would normally retire in the D.6 promote PR. Because D.6 closes KEEP-CURRENT, there is no follow-up promote PR scheduled; the recon driver is kept in-tree as the explicit re-evaluation trigger. Cost: one ~250-line tool (pure stdlib + `py7zr`); benefit: a future agent reopening D.6 has the exact recon harness at hand, with the four-gate verdict logic, the per-state status breakdown, and the `pc_id` derivation check ready to re-run against a future upstream release.
 
 ## Consequences
 
