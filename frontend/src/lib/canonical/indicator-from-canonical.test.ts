@@ -655,6 +655,63 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.caveats![2]).toMatch(/cumulative/i);
     expect(d!.caveats![2]).toMatch(/annual|year/i);
   });
+
+  // PR-S (Row 6 P.1.C 3/9, 2026-05-25): thermal capacity retired lift. First
+  // Pattern A-facet in the P.1.C cohort. National-only (entity_kind="country"),
+  // 2 facets after SUB_FUEL_TO_CANONICAL collapse ("oil-gas" -> "gas" per
+  // Hans D33.8). Joins the existing `energy_installed_capacity` parquet stem.
+  it("PR-S india_thermal_capacity_retired_mw descriptor routes to facet-multiplexed parent", () => {
+    const d = getCanonicalDescriptor("energy/india_thermal_capacity_retired_mw");
+    expect(d).not.toBeNull();
+    expect(d!.kind).toBe("facet-multiplexed");
+    if (d!.kind === "facet-multiplexed") {
+      expect(d!.canonical_parent_indicator_id).toBe("india-thermal-capacity-retired-mw");
+      expect(d!.facet_axis_id).toBe("fuel_type");
+      // Exactly 2 children: coal + gas (oil-gas collapsed). No "oil-gas",
+      // no "diesel", no "oil" -- the canonical fuel_type axis only has 5
+      // buckets and only coal + gas appear for retired thermal.
+      expect(d!.facet_values.length).toBe(2);
+      const childIds = d!.facet_values.map((fv) => fv.canonical_child_id).sort();
+      expect(childIds).toEqual([
+        "india-thermal-capacity-retired-mw-coal",
+        "india-thermal-capacity-retired-mw-gas",
+      ]);
+      const labels = d!.facet_values.map((fv) => fv.legacy_facet_label).sort();
+      expect(labels).toEqual(["coal", "gas"]);
+      // CRITICAL: legacy_facet_label is the CANONICAL bucket name, NOT the
+      // raw publisher label "oil-gas". The collapse must surface to the
+      // citizen-facing axis.
+      expect(labels).not.toContain("oil-gas");
+      expect(labels).not.toContain("oil_gas");
+    }
+    expect(d!.table_id).toBe("energy.energy_installed_capacity");
+    expect(d!.meta.title).toMatch(/thermal capacity retired/i);
+    expect(d!.meta.unit).toBe("MW");
+    expect(d!.meta.entity_kind).toBe("country");
+    expect(d!.meta.time_grain).toBe("fiscal_year");
+    expect(d!.meta.direction).toBe("neutral");
+    expect(d!.meta.attribution_geography).toBe("where_produced");
+    expect(d!.meta.implementing_authority).toBe("joint");
+    expect(d!.meta.icon).toBe("trash-2");
+  });
+
+  it("PR-S thermal-retired descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor("energy/india_thermal_capacity_retired_mw");
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: national-only grain; cannot rank a state on this card.
+    expect(d!.caveats![0]).toMatch(/national/i);
+    expect(d!.caveats![0]).toMatch(/state-level|state level|cannot be ranked/i);
+    expect(d!.caveats![0]).toMatch(/CEA|Central Electricity Authority/);
+    // 2: gas bucket bundles oil + diesel + gas; not pure natural-gas exit.
+    expect(d!.caveats![1]).toMatch(/gas/i);
+    expect(d!.caveats![1]).toMatch(/oil-fired|oil fired|diesel/i);
+    expect(d!.caveats![1]).toMatch(/oil-gas|publisher label/i);
+    // 3: retirements != exit; pair with additions to read net.
+    expect(d!.caveats![2]).toMatch(/coal retirements|≠|not.*exit|exit\b/i);
+    expect(d!.caveats![2]).toMatch(/installed-capacity|additions|net/i);
+  });
 });
 
 describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {

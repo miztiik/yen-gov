@@ -84,6 +84,16 @@ SOURCE_IDS: dict[str, str] = {
     # complementing utility-scale solar already tracked under
     # state-installed-capacity-snapshot-mw-renewable).
     "iced_rooftop_solar":                "src-018bb42f9519",
+    # P.1.C PR-S (thermal capacity retired lift, 2026-05-25). Derived via
+    # derive_source_id("NITI Aayog India Climate & Energy Dashboard",
+    # "Retired Thermal Capacity Plants Dashboard (national fiscal-year
+    # retired generating capacity by fuel)", "2024-25"). First Pattern
+    # A-facet in P.1.C cohort: national-grain entity_id=IN only;
+    # 2-facet axis fuel_type ∈ {coal, gas} after SUB_FUEL_TO_CANONICAL
+    # collapse (publisher "oil-gas" → canonical "gas"). Lifts onto the
+    # existing ``energy_installed_capacity`` table stem (retired
+    # capacity is the inverse measurement of installed; same axis).
+    "iced_thermal_retired":              "src-fd152bd3c6c6",
 }
 
 
