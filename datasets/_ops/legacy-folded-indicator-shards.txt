@@ -73,14 +73,8 @@ datasets/indicators/in/energy/state_installed_capacity_geographical_mw.json
 datasets/indicators/in/energy/state_installed_capacity_total_mw.json
 datasets/indicators/in/energy/state_installed_capacity_with_alloc_mw.json
 datasets/indicators/in/energy/state_oil_product_consumption_kt.json
-datasets/indicators/in/energy/state_peak_demand_mw.json
-datasets/indicators/in/energy/state_peak_met_mw.json
-datasets/indicators/in/energy/state_per_capita_availability_kwh.json
-datasets/indicators/in/energy/state_per_capita_electricity_consumption_kwh.json
 datasets/indicators/in/energy/state_plant_load_factor_pct.json
-datasets/indicators/in/energy/state_power_availability_mu.json
 datasets/indicators/in/energy/state_power_purchase_share_pct.json
-datasets/indicators/in/energy/state_power_requirement_mu.json
 datasets/indicators/in/energy/state_renewable_grid_capacity_mw.json
 datasets/indicators/in/energy/state_rooftop_solar_capacity_mw.json
 datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json
