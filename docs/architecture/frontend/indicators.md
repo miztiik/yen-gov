@@ -128,6 +128,29 @@ A previous draft had per-category component files (`PowerMap`, `HealthIndex`, `E
 
 Per-indicator overrides are still possible later (e.g. a custom small-multiples view for vote-swing indicators) but they should be the exception.
 
+## Canonical -> legacy `admin_level` dispatch (PR B.02)
+
+The canonical pivot ([data/canonical-store.md](../data/canonical-store.md)) types `IndicatorMeta.entity_kind` as a `country | state | district | subdistrict | constituency | city | ward` union; the legacy `IndicatorCoverage.admin_level` field is a free-form `string | null` populated by `"country"` / `"state"` / `"national"` / `null` on disk. The canonical-to-legacy adapter ([`frontend/src/lib/canonical/indicator-from-canonical.ts`](../../../frontend/src/lib/canonical/indicator-from-canonical.ts)) translates between the two via one dispatch helper:
+
+```ts
+export function entityKindToAdminLevel(kind: EntityKind | undefined): string | null {
+  if (kind === undefined) return null;
+  switch (kind) {
+    case "country":      return "country";
+    case "state":        return "state";
+    case "district":     return "district";
+    case "subdistrict":  return "subdistrict";
+    case "constituency":
+    case "city":
+    case "ward":         return null; // no canonical consumer yet
+  }
+}
+```
+
+The helper is the single seam: both `buildIndicatorArtifact()` (single descriptors) and `loadFacetMultiplexedFromCanonical()` (RPO-style fused artifacts) read `admin_level` from it instead of hard-coding `"state"`. A load-bearing contract test asserts the round-trip for every entry in `CANONICAL_BACKED_INDICATORS`. This retires the regression class introduced by [ADR-0043](../decisions/0043-auto-rollup-at-canonical-write-time.md) — once a single canonical adapter started emitting BOTH state-grain (SUM rollup) AND district-grain (source-of-truth) rows under different `entity_kind`s, every state-only literal in the reader path became a bug waiting for the first district descriptor.
+
+Companion translation: `canonicalEntityToLegacy()` strips `IN-` from every shape (`IN` -> `IN`, `IN-S22` -> `S22`, `IN-S03-D280` -> `S03-D280`). The legacy district code form `S<n>-D<lgd>` (resp. `U<n>-D<lgd>` for UT districts) is what AboutThisData.svelte and the district choropleth boundary picker consume; no per-shape branch is required because `slice(3)` handles every length uniformly.
+
 ## Decisions journal
 
 - **2026-05-11 — Schema bumped 1.0 → 1.1**: added `attribution_geography`, `comparability`, `funding_split`, `implementing_authority`, `methodology_vintage`, `series_breaks`, `icon`. All optional; existing artifacts remain valid. Driven by Governance Strategist agent review which surfaced the comparability fallacy ("installed MW is a siting statistic, not a service statistic") that v1.0 silently allowed.
