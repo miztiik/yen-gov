@@ -1057,6 +1057,11 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       notes:
         "Tagged count is NOT a livestock census. NDLM rollout coverage varies by state — Karnataka, Andhra Pradesh, Tamil Nadu lead via active vet-camp programmes; North-East coverage is partial. Read alongside the 20th Livestock Census (next ingestion PR) for the denominator. State-grain values are auto-summed from district children at canonical-write time (derivation='sum'); the district-grain series is the source-of-truth.",
     },
+    caveats: [
+      "Pashu Aadhaar counts ANIMALS TAGGED, not cattle owned. A state with 8M tagged cattle may have 12M cattle - the gap is uncovered villages, not missing animals. Read alongside the 20th Livestock Census 2019 for the denominator (40-60% coverage typical).",
+      "Karnataka and Andhra Pradesh lead via state-funded vet-camp programmes; Manipur and Mizoram trail on terrain and staffing. A 'KA tags more cattle than Bihar' ranking measures programme effort, not herd size - Bihar's cattle population is larger.",
+      "Each tag is a 12-digit RFID; lost or damaged tags get re-issued. The cumulative count drifts above the live herd as replacement events accumulate. Officials reconcile via the Indus Database snapshot - take FY-end (Mar) values, not mid-year.",
+    ],
   },
 
   {
@@ -1086,6 +1091,11 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       notes:
         "Tagged count is NOT a livestock census. Read alongside the 20th Livestock Census for the denominator. State-grain values are auto-summed from district children at canonical-write time (derivation='sum').",
     },
+    caveats: [
+      "Buffalo tagging tracks the milk-dairy workforce. UP, Punjab, Haryana hold ~50% of India's buffaloes (Murrah breed); 'Kerala has few tagged buffaloes' reflects breed economics, not programme failure. Cattle:buffalo ratio varies sharply by state.",
+      "Same coverage gap as cattle: tagged COUNT, not buffalo population. 2019 Livestock Census put Indian buffalo at ~110M; mid-2025 tagged is ~half that. Read with the 'cattle tagged' card - gap structures match but state ranks differ.",
+      "Gujarat (Amul) and Maharashtra route tagging through dairy cooperatives; non-coop states use vet camps. Coop coverage is faster on milkers but slower on draught animals. The metric is honest about animals; less honest about WHICH buffaloes get tagged first.",
+    ],
   },
 
   {
@@ -1115,6 +1125,11 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       notes:
         "Tagged count is NOT a livestock census. State-grain values auto-summed from district children at canonical-write time.",
     },
+    caveats: [
+      "Goats are pastoral - Rajasthan's Bhopa and MP's Banjara herders move with seasons. A 'tagged in Rajasthan' count under-represents migratory herds - the same goat may winter in Rajasthan, summer in Punjab. Tagging happens at vet camps.",
+      "Same coverage gap as cattle and buffalo: tagged COUNT, not goat population. 2019 Livestock Census put Indian goats at ~149M (largest livestock category); goats sit lowest in vet-camp triage, so coverage trails cattle by a wide margin.",
+      "Goat meat economy is largely INFORMAL - slaughter happens locally, not via abattoirs. Andhra and Telangana tag more via state mutton-trader registration; Bihar trails as goat-meat trade is informal. Metric measures formalisation, not herd.",
+    ],
   },
 
   {
