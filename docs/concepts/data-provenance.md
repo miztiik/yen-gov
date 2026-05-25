@@ -1,8 +1,8 @@
 # Data Provenance
 
-**Last Updated**: 2026-05-20
+**Last Updated**: 2026-05-26
 
-> Every observation yen-gov publishes carries a `source_id` foreign key to one row in `datasets/taxonomy/sources.parquet`. This is non-negotiable (CLAUDE.md Holy Law #9, §12). The mechanism is the canonical sources table — a **citation ledger** keyed on `(producer, title, vintage)`, adopted from OWID `origin.*` (CLAUDE.md §0a "The One Rule") plus four yen-gov extensions for confidence + verifiability.
+> Every observation yen-gov publishes carries a `source_id` foreign key to one row in `datasets/taxonomy/sources.parquet`. This is non-negotiable (CLAUDE.md Holy Law #9, §12). The mechanism is the canonical sources table — a **citation ledger** keyed on `(producer, title, vintage)`, adopted from OWID `origin.*` (CLAUDE.md §0a "The One Rule") plus four yen-gov extensions for confidence + verifiability. Schema is at v3.0 per [ADR-0042](../architecture/decisions/0042-sources-schema-v3-vintage-as-period-anchor.md) (2026-05-26).
 
 ## The contract
 
@@ -22,7 +22,16 @@ source_id = "src-" + sha256(f"{producer}|{title}|{vintage}".encode("utf-8")).hex
 
 The same triple yields the same `source_id` anywhere in the codebase — across cold starts, across machines, across ingest paths. When the live HTTP fetcher and the hand-imported transcription path both populate observations for the same ECI Statistical Report, they BOTH derive the same `source_id` and collapse to one citation row.
 
-This is the v2.0 shape, established in [ADR-0032](../architecture/decisions/0032-sources-citation-ledger.md) (2026-05-20). v1.0 was a fetch ledger keyed on `(url, content_hash)`; that shape conflated citations with fetch events and is removed from the contract.
+This is the v2.0 shape, established in [ADR-0032](../architecture/decisions/0032-sources-citation-ledger.md) (2026-05-20) and sharpened on `vintage` semantics by [ADR-0042](../architecture/decisions/0042-sources-schema-v3-vintage-as-period-anchor.md) (2026-05-26, schema v3.0). v1.0 was a fetch ledger keyed on `(url, content_hash)`; that shape conflated citations with fetch events and is removed from the contract.
+
+### What `vintage` means (v3.0)
+
+`vintage` is the **strongest period anchor available** for the citation:
+
+- **Publisher edition when the upstream publishes one.** RBI Handbook of Statistics on Indian States ships an edition tag `"2024-25"`; CEA Monthly Executive Reports ship `"2026-03"`; NFHS ships `"NFHS-5"`. Use the publisher's verbatim string.
+- **Operator snapshot window when the publisher publishes no edition tag.** NITI Aayog ICED APIs are continuously-updated and carry no edition tag; the operator records `"2024-25"` to mean "snapshotted in FY 2024-25." The snapshot window matches the meadow-tier path (`datasets/<family>/_meadow/<source>/<vintage>/`) per [ADR-0041](../architecture/decisions/0041-meadow-tier.md) §non-negotiable #4.
+
+`vintage` is required and non-empty (v3.0 schema sets `minLength: 1`). v2.0 permitted `""` when the publisher published no tag; v3.0 retires that loophole because the meadow path always encodes an operator-chosen vintage and the citation row must anchor to it. The 3-arg hash signature `(producer, title, vintage)` is unchanged — only the field MEANING is sharpened.
 
 ## The 11 columns
 
@@ -82,7 +91,9 @@ Treating provenance as a hard contract — enforced by the writer, surfaced in `
 
 - `CLAUDE.md` Holy Law #9, §12 — authoritative statement.
 - [`docs/architecture/data/canonical-store.md` §5](../architecture/data/canonical-store.md#5-sources-schema-d5) — full sources schema with column-by-column rationale.
-- [ADR-0032 — Sources table v2.0: citation ledger keyed on (producer, title, vintage)](../architecture/decisions/0032-sources-citation-ledger.md) — the design decision that established this contract; includes the four rejected designs.
+- [ADR-0032 — Sources table v2.0: citation ledger keyed on (producer, title, vintage)](../architecture/decisions/0032-sources-citation-ledger.md) — the design decision that established this contract; includes the four rejected designs. Superseded on `vintage` semantics by ADR-0042.
+- [ADR-0042 — Sources schema v3.0: `vintage` as strongest period anchor available](../architecture/decisions/0042-sources-schema-v3-vintage-as-period-anchor.md) — sharpens `vintage` to enable meadow-tier path enforcement; identity contract unchanged.
+- [ADR-0041 — Meadow tier (`datasets/<family>/_meadow/<source>/<vintage>/`)](../architecture/decisions/0041-meadow-tier.md) — the canonical-input contract whose §non-negotiable #4 is now structurally enforceable thanks to ADR-0042.
 - [ADR-0030 — Canonical store on Hive-partitioned Parquet read by DuckDB-WASM](../architecture/decisions/0030-canonical-store-duckdb-wasm.md) — established the canonical store + sources.parquet table; v1.0 of this schema lived there.
 - [ADR-0003 — No HTTP cache layer; intermediates live in `.runtime/raw/`](../architecture/decisions/0003-no-fetch-cache.md) — why intermediates are excluded.
 - [`docs/concepts/owid-alignment.md`](owid-alignment.md) — OWID is the canonical reference (§0a).
