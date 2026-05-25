@@ -712,6 +712,73 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.caveats![2]).toMatch(/coal retirements|≠|not.*exit|exit\b/i);
     expect(d!.caveats![2]).toMatch(/installed-capacity|additions|net/i);
   });
+
+  // PR-T (Row 6 P.1.C 4/9, 2026-05-25): state oil-product consumption lift.
+  // Second Pattern A-facet in the P.1.C cohort, on the NEW `oil_product`
+  // axis (no SUB_FUEL_TO_CANONICAL collapse -- 1:1 publisher-to-canonical
+  // for the 7 product children). Joins the `energy_fuel_consumption`
+  // parquet stem (also used by PR-Q coal-consumption).
+  it("PR-T state_oil_product_consumption_kt descriptor routes to facet-multiplexed parent", () => {
+    const d = getCanonicalDescriptor("energy/state_oil_product_consumption_kt");
+    expect(d).not.toBeNull();
+    expect(d!.kind).toBe("facet-multiplexed");
+    if (d!.kind === "facet-multiplexed") {
+      expect(d!.canonical_parent_indicator_id).toBe("state-oil-product-consumption-kt");
+      expect(d!.facet_axis_id).toBe("oil_product");
+      // Exactly 7 children: diesel-hsd, petrol, lpg, kerosene, naphtha,
+      // petroleum-coke, others. Publisher labels are 1:1 with canonical
+      // value_ids (no SUB_FUEL_TO_CANONICAL collapse).
+      expect(d!.facet_values.length).toBe(7);
+      const childIds = d!.facet_values.map((fv) => fv.canonical_child_id).sort();
+      expect(childIds).toEqual([
+        "state-oil-product-consumption-kt-diesel-hsd",
+        "state-oil-product-consumption-kt-kerosene",
+        "state-oil-product-consumption-kt-lpg",
+        "state-oil-product-consumption-kt-naphtha",
+        "state-oil-product-consumption-kt-others",
+        "state-oil-product-consumption-kt-petrol",
+        "state-oil-product-consumption-kt-petroleum-coke",
+      ]);
+      const labels = d!.facet_values.map((fv) => fv.legacy_facet_label).sort();
+      expect(labels).toEqual([
+        "diesel-hsd",
+        "kerosene",
+        "lpg",
+        "naphtha",
+        "others",
+        "petrol",
+        "petroleum-coke",
+      ]);
+    }
+    expect(d!.table_id).toBe("energy.energy_fuel_consumption");
+    expect(d!.meta.title).toMatch(/oil-product consumption/i);
+    expect(d!.meta.unit).toBe("kt");
+    expect(d!.meta.entity_kind).toBe("state");
+    expect(d!.meta.time_grain).toBe("fiscal_year");
+    expect(d!.meta.direction).toBe("neutral");
+    expect(d!.meta.attribution_geography).toBe("where_consumed");
+    expect(d!.meta.implementing_authority).toBe("centre");
+    expect(d!.meta.icon).toBe("fuel");
+  });
+
+  it("PR-T oil-product-consumption descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor("energy/state_oil_product_consumption_kt");
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: where-consumed not where-refined; Gujarat/Jamnagar refinery anchor.
+    expect(d!.caveats![0]).toMatch(/where-?CONSUMED|consumed.*not.*refined/i);
+    expect(d!.caveats![0]).toMatch(/Gujarat|Jamnagar/);
+    expect(d!.caveats![0]).toMatch(/Punjab|Haryana|agricultural/i);
+    // 2: LPG tracks PMUY rollout, not wealth; Bihar/UP/MP anchor.
+    expect(d!.caveats![1]).toMatch(/LPG/);
+    expect(d!.caveats![1]).toMatch(/PMUY|Ujjwala/);
+    expect(d!.caveats![1]).toMatch(/Bihar|UP|MP|Rajasthan/);
+    // 3: petroleum-coke air-quality regulation; NCR/Supreme Court anchor.
+    expect(d!.caveats![2]).toMatch(/pet[ -]?coke|petroleum-?coke/i);
+    expect(d!.caveats![2]).toMatch(/NCR|Supreme Court|air[ -]?quality|emissions/i);
+    expect(d!.caveats![2]).toMatch(/cement|glass|industrial/i);
+  });
 });
 
 describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {

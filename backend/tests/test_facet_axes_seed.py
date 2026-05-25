@@ -26,7 +26,7 @@ from yen_gov.canonical.facet_axes_seed import (
 
 
 def test_module_imports_without_validation_error() -> None:
-    """FACET_AXES literal validates as 17 well-formed axes.
+    """FACET_AXES literal validates as 18 well-formed axes.
 
     If a future edit introduces a typo (wrong field name, invalid value_id
     pattern, empty values list, label shorter than 1 char), the import at
@@ -34,7 +34,7 @@ def test_module_imports_without_validation_error() -> None:
     The assertion is a sanity check that the import path is wired.
     """
     assert isinstance(FACET_AXES, list)
-    assert len(FACET_AXES) == 17
+    assert len(FACET_AXES) == 18
     assert all(isinstance(axis, FacetAxis) for axis in FACET_AXES)
 
 
@@ -52,7 +52,7 @@ def test_all_value_ids_unique_within_each_axis() -> None:
 
 
 def test_expected_axes_present() -> None:
-    """Hard-coded snapshot of the 17 axes shipping at Path A PR 4 (Phase 2.A).
+    """Hard-coded snapshot of the 18 axes shipping at PR-T (Row 6 / P.1.C).
 
     Bumping this list is intentional friction - adding a new axis means
     updating this assertion AND the migration ledger AND the indicator-
@@ -79,6 +79,8 @@ def test_expected_axes_present() -> None:
         "species",
         # Path A PR 4 / Phase 2.A (livestock NDLM Owner Registration lift).
         "landholding",
+        # P.1.C PR-T (Row 6 / 4/9) - ICED state oil-product-consumption lift.
+        "oil_product",
     }
     actual = {axis.axis_id for axis in FACET_AXES}
     assert actual == expected
