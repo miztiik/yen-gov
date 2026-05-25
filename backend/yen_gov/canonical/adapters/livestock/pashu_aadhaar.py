@@ -65,32 +65,11 @@ from pathlib import Path
 
 from yen_gov.canonical.envelope import BatchEnvelope, ObservationRow
 
-from ._shared import SOURCE_IDS, SPECIES, load_meadow, parse_ndlm_period
+from ._shared import SOURCE_IDS, SPECIES, load_meadow, parse_ndlm_period, state_prefix
 
 # Meadow-path vintage segment - matches the source citation seeded in
 # PR #276. The row-level ``time`` field carries the CY-vs-FY distinction.
 MEADOW_VINTAGE = "2024-25"
-
-
-def _state_prefix(district_entity_id: str) -> str:
-    """Derive the state-grain entity_id from a district entity_id.
-
-    Examples:
-        ``IN-S01-D502`` -> ``IN-S01``
-        ``IN-U08-D640`` -> ``IN-U08``
-
-    Strips the trailing ``-D<n>`` segment via rsplit. Raises if the
-    input doesn't match the district shape (defensive — meadow rows
-    are pre-validated but the rollup contract is load-bearing per
-    ADR-0043 and a silent miss here would undercount the state).
-    """
-    if "-D" not in district_entity_id:
-        raise ValueError(
-            f"Expected district entity_id of shape 'IN-S<n>-D<n>' or "
-            f"'IN-U<n>-D<n>'; got {district_entity_id!r}"
-        )
-    prefix, _district_suffix = district_entity_id.rsplit("-D", 1)
-    return prefix
 
 
 def build_envelope(repo_root: Path) -> BatchEnvelope:
@@ -143,7 +122,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
         # Every species slug is the trailing kebab segment.
         species_slug = row.indicator_id.rsplit("-", 1)[-1]
         key = (
-            _state_prefix(row.entity_id),
+            state_prefix(row.entity_id),
             species_slug,
             row.period_label,
             row.year,
@@ -151,10 +130,10 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
         )
         sums[key] += row.value_numeric
 
-    for (state_prefix, species_slug, period_label, year, period_seq), total in sums.items():
+    for (state_id, species_slug, period_label, year, period_seq), total in sums.items():
         rows.append(
             ObservationRow(
-                entity_id=state_prefix,
+                entity_id=state_id,
                 year=year,
                 period_label=period_label,
                 period_seq=period_seq,

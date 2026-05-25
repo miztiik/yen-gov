@@ -288,7 +288,7 @@ def test_state_rollup_sum_matches_district_sum_per_landholding() -> None:
     (b) dropped a district row, (c) double-counted, or (d) state_prefix
     derivation broke.
     """
-    from yen_gov.canonical.adapters.livestock.owner_reg import _state_prefix
+    from yen_gov.canonical.adapters.livestock._shared import state_prefix
 
     env = _owner_reg_envelope()
 
@@ -298,7 +298,7 @@ def test_state_rollup_sum_matches_district_sum_per_landholding() -> None:
         if not r.indicator_id.startswith("district-livestock-owner-reg-count-"):
             continue
         slug = r.indicator_id.split("count-", 1)[-1]
-        key = (_state_prefix(r.entity_id), slug, r.period_label)
+        key = (state_prefix(r.entity_id), slug, r.period_label)
         expected[key] = expected.get(key, 0.0) + float(r.value_numeric)
 
     # Actual: state-rollup rows keyed by (entity_id, slug, period_label)
@@ -355,26 +355,27 @@ def test_state_rollup_inherits_period_axes() -> None:
 
 
 def test_state_prefix_helper_raises_on_non_district_entity() -> None:
-    """ADR-0043 helper invariant: ``owner_reg._state_prefix`` MUST raise
+    """ADR-0043 helper invariant: ``_shared.state_prefix`` MUST raise
     ValueError on a non-district entity_id. The helper is load-bearing:
     a silent pass-through on a malformed id would emit a malformed
     state-rollup row.
 
-    This mirrors the pashu_aadhaar helper test; the duplication is
-    intentional (Fowler "rule of three" - the third copy in NAIP IV
-    triggers extraction to backend/yen_gov/canonical/rollup.py).
+    Pre-rule-of-three (PR #281 + PR #303) each adapter carried its own
+    ``_state_prefix`` copy; the NAIP IV adapter (PR #_pending_) was the
+    third consumer and triggered extraction to
+    ``backend/yen_gov/canonical/adapters/livestock/_shared.py``.
     """
-    from yen_gov.canonical.adapters.livestock.owner_reg import _state_prefix
+    from yen_gov.canonical.adapters.livestock._shared import state_prefix
 
     # Valid district shapes
-    assert _state_prefix("IN-S01-D5") == "IN-S01"
-    assert _state_prefix("IN-U08-D12") == "IN-U08"
+    assert state_prefix("IN-S01-D5") == "IN-S01"
+    assert state_prefix("IN-U08-D12") == "IN-U08"
 
     # Invalid: state-grain id, no -D segment
     with pytest.raises(ValueError, match="-D"):
-        _state_prefix("IN-S01")
+        state_prefix("IN-S01")
     with pytest.raises(ValueError, match="-D"):
-        _state_prefix("IN-U08")
+        state_prefix("IN-U08")
 
 
 @pytest.mark.skipif(

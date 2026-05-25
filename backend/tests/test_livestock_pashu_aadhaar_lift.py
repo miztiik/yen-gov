@@ -298,7 +298,7 @@ def test_state_rollup_sum_matches_district_sum_per_species() -> None:
     pass either (a) used a wrong derivation, (b) dropped a district row,
     (c) double-counted, or (d) state_prefix derivation broke.
     """
-    from yen_gov.canonical.adapters.livestock.pashu_aadhaar import _state_prefix
+    from yen_gov.canonical.adapters.livestock._shared import state_prefix
 
     env = _pashu_aadhaar_envelope()
 
@@ -308,7 +308,7 @@ def test_state_rollup_sum_matches_district_sum_per_species() -> None:
         if not r.indicator_id.startswith("district-pashu-aadhaar-count-"):
             continue
         species = r.indicator_id.rsplit("-", 1)[-1]
-        key = (_state_prefix(r.entity_id), species, r.period_label)
+        key = (state_prefix(r.entity_id), species, r.period_label)
         expected[key] = expected.get(key, 0.0) + float(r.value_numeric)
 
     # Actual: state-rollup rows keyed by (entity_id, species, period_label)
@@ -388,20 +388,20 @@ def test_state_rollup_inherits_period_axes() -> None:
 
 
 def test_state_prefix_helper_raises_on_non_district_entity() -> None:
-    """ADR-0043 helper invariant: _state_prefix MUST raise ValueError
+    """ADR-0043 helper invariant: state_prefix MUST raise ValueError
     on a non-district entity_id. The helper is load-bearing: a silent
     pass-through on a malformed id would emit a malformed state-rollup
     row (entity_id == the original district id minus a non-existent
     suffix == itself).
     """
-    from yen_gov.canonical.adapters.livestock.pashu_aadhaar import _state_prefix
+    from yen_gov.canonical.adapters.livestock._shared import state_prefix
 
     # Valid district shapes
-    assert _state_prefix("IN-S01-D5") == "IN-S01"
-    assert _state_prefix("IN-U08-D12") == "IN-U08"
+    assert state_prefix("IN-S01-D5") == "IN-S01"
+    assert state_prefix("IN-U08-D12") == "IN-U08"
 
     # Invalid: state-grain id, no -D segment
     with pytest.raises(ValueError, match="-D"):
-        _state_prefix("IN-S01")
+        state_prefix("IN-S01")
     with pytest.raises(ValueError, match="-D"):
-        _state_prefix("IN-U08")
+        state_prefix("IN-U08")

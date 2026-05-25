@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.3",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-25T19:06:45Z",
+  "generated_at": "2026-05-25T20:42:21Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -369,6 +369,23 @@
       "row_count_total": 3223
     },
     {
+      "table_id": "livestock.livestock_naip_iv",
+      "family": "livestock",
+      "table_name": "livestock_naip_iv",
+      "kind": "observations",
+      "format": "parquet",
+      "schema_version": "1.1",
+      "partition_columns": [],
+      "files": [
+        {
+          "path": "livestock/livestock_naip_iv.parquet",
+          "size_bytes": 179850,
+          "row_count": 2464
+        }
+      ],
+      "row_count_total": 2464
+    },
+    {
       "table_id": "elections.dim_acs",
       "family": "elections",
       "table_name": "dim_acs",
@@ -481,11 +498,11 @@
       "files": [
         {
           "path": "taxonomy/indicators.parquet",
-          "size_bytes": 30871,
-          "row_count": 113
+          "size_bytes": 33514,
+          "row_count": 121
         }
       ],
-      "row_count_total": 113
+      "row_count_total": 121
     },
     {
       "table_id": "taxonomy.methodology_breaks",
@@ -532,7 +549,7 @@
       "files": [
         {
           "path": "taxonomy/sources.parquet",
-          "size_bytes": 22562,
+          "size_bytes": 22414,
           "row_count": 399
         }
       ],
