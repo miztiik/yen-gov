@@ -126,7 +126,9 @@ def emit_taxonomy(
     - ``datasets/taxonomy/sources.parquet`` -- (further UPSERTed) with
       the 6 P.1.A energy citation rows (CEA Monthly IC + 3 ICED APIs +
       2 RBI Handbook table-142 series) after office_holdings has
-      written the wiki rows. Idempotent across re-runs.
+      written the wiki rows, then with the 5 P.2 livestock citation
+      rows (NDLM Owner Reg + Pashu Aadhaar + NADCP + Breeding +
+      NAIP IV) after the energy upsert. Idempotent across re-runs.
         - ``datasets/taxonomy/persons.parquet`` -- ADR-0035 S.1 person
             registry compiled from ``person_aliases.json`` and dim_persons
             self-alias rows.
@@ -165,6 +167,9 @@ def emit_taxonomy(
     )
     from yen_gov.canonical.energy_sources_seed import (
         upsert_energy_sources_to_parquet as _upsert_energy_sources,
+    )
+    from yen_gov.canonical.livestock_sources_seed import (
+        upsert_livestock_sources_to_parquet as _upsert_livestock_sources,
     )
     from yen_gov.canonical.writer import _regenerate_manifest
 
@@ -263,6 +268,16 @@ def emit_taxonomy(
     n_energy = _upsert_energy_sources(taxonomy_dir / "sources.parquet")
     typer.echo(
         f"emit-taxonomy: upserted {n_energy} energy citation rows into "
+        f"datasets/taxonomy/sources.parquet"
+    )
+
+    # 9b) livestock sources UPSERT (P.2 Phase 0, 2026-05-25) -- 5 NDLM
+    #    citation rows (Owner Reg + Pashu Aadhaar + NADCP + Breeding +
+    #    NAIP IV). Same read-modify-write pattern as step 9. The
+    #    observation parquets that FK to these rows land in PR 3+.
+    n_livestock = _upsert_livestock_sources(taxonomy_dir / "sources.parquet")
+    typer.echo(
+        f"emit-taxonomy: upserted {n_livestock} livestock citation rows into "
         f"datasets/taxonomy/sources.parquet"
     )
 

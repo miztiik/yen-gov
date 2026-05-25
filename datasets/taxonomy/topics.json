@@ -943,6 +943,15 @@
       "featured": false,
       "artifacts": [],
       "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md §0e.4. First ingestion (TRAI monthly subscriber reports) lands via a dedicated P.* PR. Telegraphs, telephones, wireless and broadcasting are Union List Entry 31."
+    },
+    {
+      "id": "agriculture",
+      "title": "Farming & livestock",
+      "list": "state",
+      "summary": "Crop production, livestock holdings, dairy, breeding programmes and animal vaccination. India's agrarian base, captured through the Bharat Pashudhan portal and DAHD programme dashboards.",
+      "featured": false,
+      "artifacts": [],
+      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md section 0e.4 and TODO/20260525-livestock-ndlm-ingest-plan.md section 9 Phase 0 (this PR). First citizen-facing artifact is Pashu Aadhaar (livestock/lvs_pashu_aadhaar_count) landing in PR 3 of the umbrella, then NADCP vaccination, Owner Registration, Breeding ABIP+RGM, NAIP IV via PRs 5-7. Animal husbandry, dairying and veterinary services are State List Entry 15 - `list: state` is the honest framing; the centre coordinates via DAHD programmes (NADCP, NAIP, RGM) but the operational unit is the state department."
     }
   ]
 }
