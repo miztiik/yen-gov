@@ -235,6 +235,56 @@ These are distinct source_ids by design (ADR-0032 Rejected A: collapsing on prod
 
 When ECI publishes an authoritative shapefile (or when an LGD-keyed equivalent lands), a future PR will add a DIFFERENT source row with `is_issuing_authority = true` and the existing bronze row stays as-is for back-compat.
 
+## Amendment 2026-05-25 (Phase D AC consolidation + state polygon swap outcomes)
+
+Phase D of the [boundary coverage-expansion plan](../../../TODO/20260524-boundary-coverage-expansion-plan.md) ran D.0 (state polygons) and D.1 to D.4 (AC consolidation snapshot + promote + per-state mixed-verdict carve-outs) across PRs #263, #270, and #273 on 2026-05-25. This amendment records the concrete per-state outcomes so the next agent reading this ADR can see the authority-by-state table without re-reading the plan-doc.
+
+### 1. State polygon swap (D.0) - DataMeet to ramSeraph `LGD_States`
+
+PR #263 (`b2742582`) repointed `boundaries/in/states/all.geojson` from DataMeet `Admin2` to ramSeraph `LGD_States` (single national file, 36 polygons, 406 KB raw / 84.1 KB gzipped). All 36 features carry `State_LGD` (2-digit LGD code, integer) as the join key. The frontend's `boundary_join_name` override map collapsed from three overrides (A&N, Delhi, J&K) to one because the LGD-int join eliminates the legal-form vs idiomatic-form discrepancy that name-keyed joins suffered.
+
+Ledger: `boundaries.in.states` row in `boundary_layers.parquet` carries `source_id = src-a1dd899f902d` (ramSeraph `Indian Admin Boundaries (LGD-keyed)`, `lgd-latest-extra1` vintage, CC-BY-4.0 attribution chain, silver confidence tier).
+
+### 2. AC consolidation (D.1 to D.4) - per-state authority post-Phase-D
+
+PR #273 (`fcd481cf`) bundled the D.2 promote (10 eligible states) + the D.3 Assam keep-current + D.4 J&K keep-current verdicts into a single ship. Authority-by-state today:
+
+| State / UT | ECI code | Authority | Producer | `source_id` | Phase |
+| --- | --- | --- | --- | --- | --- |
+| Bihar | S04 | ramSeraph `LGD_Assembly_Constituencies` (243 ACs, 99% name parity) | ramSeraph | `src-a1dd899f902d` | D.2 promote |
+| Haryana | S07 | ramSeraph (90 ACs, 97% name parity) | ramSeraph | `src-a1dd899f902d` | D.2 promote |
+| Himachal Pradesh | S08 | ramSeraph (68 ACs, 99% name parity) | ramSeraph | `src-a1dd899f902d` | D.2 promote |
+| Nagaland | S17 | ramSeraph (60 ACs, 100% name parity) | ramSeraph | `src-a1dd899f902d` | D.2 promote |
+| Odisha | S18 | ramSeraph (147 ACs, 97% name parity) | ramSeraph | `src-a1dd899f902d` | D.2 promote |
+| Punjab | S19 | ramSeraph (117 ACs, 100% name parity) | ramSeraph | `src-a1dd899f902d` | D.2 promote |
+| Tripura | S23 | ramSeraph (60 ACs, 100% name parity) | ramSeraph | `src-a1dd899f902d` | D.2 promote |
+| Chhattisgarh | S26 | ramSeraph (90 ACs, 99% name parity) | ramSeraph | `src-a1dd899f902d` | D.2 promote |
+| Uttarakhand | S28 | ramSeraph (70 ACs, 100% name parity) | ramSeraph | `src-a1dd899f902d` | D.2 promote |
+| NCT of Delhi | U05 | ramSeraph (70 ACs, 97% name parity) | ramSeraph | `src-a1dd899f902d` | D.2 promote |
+| Assam | S03 | HTL `assam_AC.json` keep-current (LGD count 134 vs SoT 126; 1% name parity) | HTL | `src-4ad56b409556` | D.3 keep-current |
+| Jammu and Kashmir (UT) | U08 | shijithpk `j_and_k_assembly_new_borders` keep-current (LGD count 101 vs SoT 90; 6% name parity) | shijithpk | `src-68ad69e02476` | D.4 keep-current |
+| Other 19 states/UTs with assemblies (S01, S02, S05, S06, S10, S11, S12, S13, S14, S15, S16, S20, S21, S22, S24, S25, S27, S29, U07) | various | HTL per-state geojson (keep-current; outside D.2 promote set) | HTL | `src-4ad56b409556` | pre-Phase-D |
+
+Total ledger rows at `level='ac'`: 31 (10 ramSeraph + 20 HTL + 1 shijithpk), one per elective state/UT.
+
+### 3. S17 Nagaland Article 371A empirical correction
+
+D.1 recon `notes/2026-05-25-d1-ac-consolidation-recon.md` section 4 originally hypothesised that any `status == 'Pre delimitation'` rows in the ramSeraph upstream should be filtered before promote. Empirical inspection during the D.2 snapshot proved this wrong for the current LGD release: 9 of the 10 D.2-eligible states carry zero `Pre delimitation` rows, and S17 Nagaland carries 100% (all 60 ACs tagged Pre-delim). Reason: Article 371A constitutionally exempts Nagaland from the 2008 Delimitation, so the 1976-vintage 60-AC layout IS the canonical layout used by ECI for current Nagaland elections. Filtering Pre-delim would have erased Nagaland entirely.
+
+D.2 therefore shipped the additive `apply_exclude_filter` capability in `tools/boundaries/snapshot.py` (with 6 unit tests, general-purpose for future per-state slices) but did NOT invoke it from any of the 10 `pipeline.json` entries. Future D.x promotes that include S03 Assam, S22 Tamil Nadu, or U07 Puducherry should measure per-state Pre-delim distribution before deciding whether to filter. Recorded in the recon note's section 4 "Empirical correction" block and section 7 item 2 update.
+
+### 4. Cross-links
+
+- [Phase 0.0 status table](../../../TODO/20260524-boundary-coverage-expansion-plan.md#phase-00--status-ready-reckoner-update-after-every-pr) - rows D.0 / D.1 / D.2 / D.3 / D.4 / D.5
+- [D.1 recon note](../../../notes/2026-05-25-d1-ac-consolidation-recon.md) - per-state property schema, parity invariants, Article 371A empirical correction
+- [PR #263](https://github.com/miztiik/yen-gov/pull/263) (D.0 state polygons), [PR #270](https://github.com/miztiik/yen-gov/pull/270) (D.1 recon), [PR #273](https://github.com/miztiik/yen-gov/pull/273) (D.2/D.3/D.4 bundle)
+- [boundary-data-sources.md](../../reference/boundary-data-sources.md) - full per-state inventory + producer/license catalogue
+- [tools/boundaries/verify_ac_parity.py](../../../tools/boundaries/verify_ac_parity.py) - permanent post-snapshot parity re-assertion (kept for any future D.2-style promotion); the one-shot `recon_d1_ac.py` retires in the D.5 PR per CLAUDE.md section 10
+
+### 5. What this amendment does NOT change
+
+The "boundaries-are-a-sibling-family" decision (D25 / R24 / R25 in section 1) is unchanged. The `delim=YYYY/` partition key from the 2026-05-24 amendment is unchanged (AC layers still carry `delimitation_vintage = null` pending a separate follow-up that backfills 2008 / 1976 / etc. per state). The Tier-B forbidden-path gate is unchanged. The two-format policy (GeoJSON below ~10 MB; PMTiles above) is unchanged.
+
 ## Consequences
 
 ### Positive
