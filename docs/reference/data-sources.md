@@ -159,6 +159,7 @@ CEA publishes a monthly XLSX of All-India + per-state nameplate installed capaci
 **Search**: <https://www.data.gov.in/search?title=rbi&type=resources&sortby=_score>
 **Resource page grammar**: `https://www.data.gov.in/resource/<slug>`
 **API endpoint** (rate-limited demo key): `https://api.data.gov.in/resource/<uuid>?api-key=<key>&format=json&limit=N`
+**Agent runbook**: [backend/sources-datagovin-ogd.md](../architecture/backend/sources-datagovin-ogd.md)
 
 data.gov.in aggregates ministry-supplied datasets, most of which are **Rajya Sabha question dumps** (snapshots tabulating an answer to a specific parliamentary question). The public demo key (`579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b`) caps records at 10/request and 429s after a few pages; a production key requires SMS-OTP registration with PII (declined per user direction 2026-05-14). The working pattern (recon: 2026-05-14):
 
