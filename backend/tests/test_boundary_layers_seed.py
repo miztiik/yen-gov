@@ -151,21 +151,23 @@ def test_boundary_layer_row_negative_counts_rejected():
 # ---------------------------------------------------------------------------
 
 
-def test_boundary_sources_count_is_six():
-    """6 boundary producers seeded today (datameet, htl, shijithpk J&K AC,
-    shijithpk PC 2024, ramseraph, yashveeeeeeer). Was 5 before the
-    PC layer ingest landed -- the second shijithpk row exists because
-    the J&K AC layer and the India PC layer are DIFFERENT publications
-    by the same producer with distinct (producer, title, vintage)
-    triples; collapsing them onto one source_id would lose per-document
-    citation precision (ADR-0032 Rejected A). Postal/India Post still
-    NOT seeded -- pincode geojson doesn't exist yet. Adding a 7th
-    producer requires a co-bumped citizen-facing change AND addition
-    to SOURCE_NICKNAMES + _BOUNDARY_SOURCE_TRIPLES + by_nickname in
-    the same commit."""
-    assert len(BOUNDARY_SOURCES) == 6
-    assert len(SOURCE_NICKNAMES) == 6
-    assert len(BOUNDARY_SOURCE_ID_BY_NICKNAME) == 6
+def test_boundary_sources_count_is_seven():
+    """7 boundary producers seeded today (datameet, htl, shijithpk J&K AC,
+    shijithpk PC 2024, ramseraph, yashveeeeeeer, datagovin_post_pincode_polygons_2025).
+    Was 6 before the postal polygons ingest landed (Phase A.2) -- the
+    7th row is India Post (Department of Posts, Government of India)
+    via the data.gov.in OGD KMZ catalogue, the FIRST issuing-authority
+    boundary source (others all republish ECI/SoI/LGD upstream). The
+    second shijithpk row exists because the J&K AC layer and the India
+    PC layer are DIFFERENT publications by the same producer with
+    distinct (producer, title, vintage) triples; collapsing them onto
+    one source_id would lose per-document citation precision (ADR-0032
+    Rejected A). Adding an 8th producer requires a co-bumped
+    citizen-facing change AND addition to SOURCE_NICKNAMES +
+    _BOUNDARY_SOURCE_TRIPLES + by_nickname in the same commit."""
+    assert len(BOUNDARY_SOURCES) == 7
+    assert len(SOURCE_NICKNAMES) == 7
+    assert len(BOUNDARY_SOURCE_ID_BY_NICKNAME) == 7
 
 
 def test_boundary_sources_have_deterministic_ids():
@@ -202,30 +204,49 @@ def test_boundary_sources_all_have_required_v2_fields():
         assert row.source_id.startswith("src-") and len(row.source_id) == 16
 
 
-def test_boundary_sources_all_are_republishers():
-    """All 6 current boundary seeds are republishers (ECI / SoI / LGD are
-    the upstream-upstream authorities -- the shijithpk PC row cites
-    ECI Press Note No. 23 as its source). If a future PR seeds a
-    direct-from-issuing-authority source (e.g. ECI raw shapefile),
-    that row's is_issuing_authority will be True and this assertion
-    will need updating in the same PR."""
-    for row in BOUNDARY_SOURCES:
-        assert row.is_issuing_authority is False, (
-            f"{row.source_id} ({row.producer}) marked as issuing authority; "
-            "boundary seeds are all republishers today"
-        )
+def test_boundary_sources_republisher_split():
+    """Post Phase A.2 (postal polygons), 6 of 7 boundary seeds are
+    republishers (ECI / SoI / LGD are the upstream-upstream authorities)
+    and exactly 1 is an issuing-authority seed: India Post (Department
+    of Posts, Government of India) via the data.gov.in OGD catalogue.
+    India Post IS the upstream authority for pincode definitions; no
+    other party publishes the canonical pincode-to-polygon mapping. If
+    a future PR seeds a second issuing-authority source (e.g. ECI raw
+    shapefile), the count below shifts accordingly."""
+    issuing_rows = [r for r in BOUNDARY_SOURCES if r.is_issuing_authority]
+    republisher_rows = [r for r in BOUNDARY_SOURCES if not r.is_issuing_authority]
+    assert len(issuing_rows) == 1, (
+        f"expected exactly 1 issuing-authority boundary source today; "
+        f"got {[r.source_id for r in issuing_rows]}"
+    )
+    assert len(republisher_rows) == 6
+    # The one issuing-authority row is India Post (Phase A.2 pincode polygons)
+    only_issuing = issuing_rows[0]
+    assert "post" in only_issuing.producer.lower(), (
+        f"the issuing-authority seed should be India Post; got {only_issuing.producer!r}"
+    )
 
 
-def test_boundary_sources_have_no_postal_seed():
-    """Per spec §2 (locked 2026-05-22): no pincode geojson exists on disk
-    today; postal subtree is forward-looking only. If the first postal
-    layer ingests in a future PR, that PR adds the 5th source row in
-    the same atomic commit as the geometry file + boundary_layers row."""
-    for row in BOUNDARY_SOURCES:
-        lowered = (row.producer + " " + row.title).lower()
-        assert "postal" not in lowered and "pincode" not in lowered, (
-            f"{row.source_id} appears postal-related; check spec §2"
-        )
+def test_boundary_sources_postal_seed_is_india_post():
+    """Post Phase A.2: the postal/pincode source row is seeded by
+    Department of Posts via data.gov.in OGD. Catches accidental
+    drift (e.g. someone removing the postal seed, or a future
+    PR adding a second postal source without bumping this test)."""
+    postal_rows = [
+        row
+        for row in BOUNDARY_SOURCES
+        if "postal" in (row.producer + " " + row.title).lower()
+        or "pincode" in (row.producer + " " + row.title).lower()
+        or "post" in row.producer.lower()
+    ]
+    assert len(postal_rows) == 1, (
+        f"expected exactly one postal/pincode boundary seed today; got {len(postal_rows)}"
+    )
+    row = postal_rows[0]
+    assert "Department of Posts" in row.producer
+    assert row.is_issuing_authority is True
+    assert row.license == "OGL-IN-1.0"
+    assert row.verification_method == "transcribed"
 
 
 # ---------------------------------------------------------------------------
@@ -261,11 +282,11 @@ def _sources_con() -> duckdb.DuckDBPyConnection:
         con.close()
 
 
-def test_upsert_boundary_sources_inserts_six_rows(_sources_con):
+def test_upsert_boundary_sources_inserts_seven_rows(_sources_con):
     n = upsert_boundary_sources(_sources_con)
-    assert n == 6
+    assert n == 7
     [(count,)] = _sources_con.execute("SELECT COUNT(*) FROM sources").fetchall()
-    assert count == 6
+    assert count == 7
 
 
 def test_upsert_boundary_sources_is_idempotent(_sources_con):
@@ -273,7 +294,7 @@ def test_upsert_boundary_sources_is_idempotent(_sources_con):
     upsert_boundary_sources(_sources_con)
     upsert_boundary_sources(_sources_con)
     [(count,)] = _sources_con.execute("SELECT COUNT(*) FROM sources").fetchall()
-    assert count == 6
+    assert count == 7
 
 
 def test_upsert_boundary_sources_populates_expected_ids(_sources_con):
@@ -340,7 +361,7 @@ def test_compile_to_parquet_emits_both_outputs(tmp_path):
     ]
     n_layers, n_sources = compile_to_parquet(rows, tmp_path)
     assert n_layers == 1
-    assert n_sources == 6  # all 6 BOUNDARY_SOURCES upserted regardless of which are referenced
+    assert n_sources == 7  # all 7 BOUNDARY_SOURCES upserted regardless of which are referenced
     assert (tmp_path / "boundaries" / "boundary_layers.parquet").is_file()
     assert (tmp_path / "taxonomy" / "sources.parquet").is_file()
 
@@ -391,7 +412,7 @@ def test_compile_to_parquet_unknown_source_id_rejects(tmp_path):
 
     fake_src = "src-deadbeef0000"
     row = _layer_row("boundaries.in.states", fake_src)
-    with pytest.raises(ValueError, match="not one of the 6 BOUNDARY_SOURCES"):
+    with pytest.raises(ValueError, match="not one of the 7 BOUNDARY_SOURCES"):
         compile_to_parquet([row], tmp_path)
 
 
@@ -491,7 +512,7 @@ def test_compile_to_parquet_empty_input_writes_zero_row_table(tmp_path):
 
     n_layers, n_sources = compile_to_parquet([], tmp_path)
     assert n_layers == 0
-    assert n_sources == 6
+    assert n_sources == 7
     assert (tmp_path / "boundaries" / "boundary_layers.parquet").is_file()
     # Round-trip read confirms zero rows
     import duckdb
