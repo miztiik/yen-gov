@@ -802,6 +802,53 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     },
   },
 
+  // --- PR-Q (Row 6 P.1.C first canonical fuel-consumption lift, 2026-05-25) ---
+  // ICED `/energy/fuel-sources/coal/consumption-domestic-state` -> 450 obs rows
+  // (states x fiscal-years FY06-FY25) into the long-reserved
+  // `energy_fuel_consumption` parquet stem. Adapter:
+  //   * fuel_consumption.py block 1 emits state-coal-consumption-mt
+  // ICED publishes 5 grade rows per (state, FY): raw + washed + middlings +
+  // lignite + TOTAL COAL. The adapter sums the 4 component grades and DROPS
+  // the publisher's TOTAL COAL row to avoid double-counting. Hans + Max
+  // signed off this aggregation as a documented `derivation="raw"` row
+  // (we're reading 4 rows and writing 1 sum; not imputing).
+  {
+    kind: "single",
+    legacy_artifact_id: "energy/state_coal_consumption_mt",
+    canonical_indicator_id: "state-coal-consumption-mt",
+    table_id: "energy.energy_fuel_consumption",
+    meta: {
+      id: "state-coal-consumption-mt",
+      title: "State coal consumption (Mt, by fiscal year)",
+      description:
+        "Million tonnes of coal actually burned in the state per fiscal year — summed across raw, washed, middlings and lignite grades. High values typically indicate either large thermal generation fleets (Maharashtra, UP, MP, Chhattisgarh) or heavy industrial heat demand (steel, cement, sponge-iron clusters).",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "Mt",
+      short_unit: "Mt",
+      icon: "flame",
+      attribution_geography: "where_consumed",
+      comparability: "comparable_across_states_and_time",
+      implementing_authority: "joint",
+      methodology_vintage:
+        "NITI Aayog ICED /energy/fuel-sources/coal/consumption-domestic-state (Coal Controller's Office / Ministry of Coal upstream). Aggregated by SUM of the 4 component grades (raw + washed + middlings + lignite); the precomputed TOTAL COAL rows are dropped to avoid double-counting.",
+      notes:
+        "Read with state-installed-capacity-allocated-mw (coal facet) and state-electricity-generation-gwh (coal facet) on the same /t/energy page: a state with high coal consumption but low coal generation is using coal for industrial heat (steel/cement/sponge-iron) rather than power. attribution_geography = where_consumed, NOT where_mined — coal mined in Jharkhand and Odisha but burned in deficit states.",
+    },
+    // PR-Q (Row 6 P.1.C commit 1): Hans-curated caveats for the first canonical
+    // fuel-consumption indicator. The 4-grade SUM methodology, the thermal-vs-
+    // industrial bifurcation, and the where_consumed attribution are the three
+    // honesty cues a citizen needs before reading a state's level.
+    caveats: [
+      "ICED reports 4 coal grades (raw + washed + middlings + lignite); we sum them and drop the publisher's TOTAL COAL row to avoid double-counting. Read this as a derived total, not as a single published figure.",
+      "Heavy-industry states dominate the level: Maharashtra, UP, MP and Chhattisgarh burn most coal in thermal fleets; Gujarat and Odisha add steel and sponge-iron kilns on top. A services-tilted state like Karnataka stays low despite a top-10 GSDP.",
+      "Coal is mined in Jharkhand and Odisha but consumed wherever the thermal plant or kiln sits. A low-consumption state is not a low-coal-dependence state if its grid imports coal-fired power — pair with state-power-purchase-share-pct to see imported reliance.",
+    ],
+  },
+
   // --- 12: ACS-ARR gap on electricity sales (₹/kWh), NITI ICED ---
   {
     kind: "single",

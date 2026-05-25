@@ -68,9 +68,10 @@ def test_every_observation_source_id_resolves(stem: str) -> None:
 
 
 def test_all_p1a_p1b_energy_source_ids_present() -> None:
-    """Sanity: the 12 energy citation triples (7 P.1.A + 5 P.1.B) all made
-    it into sources.parquet. If this fails, ``emit-taxonomy`` did not run
-    ``_upsert_energy_sources`` or the citation hashes drifted upstream."""
+    """Sanity: the 13 energy citation triples (7 P.1.A + 5 P.1.B + 1 P.1.C
+    PR-Q) all made it into sources.parquet. If this fails, ``emit-taxonomy``
+    did not run ``_upsert_energy_sources`` or the citation hashes drifted
+    upstream."""
     expected = {
         # P.1.A (7) — 3 ICED ids rotated under ADR-0042 (vintage "" → "2024-25").
         "src-092a5dc7af3f",  # CEA Monthly Executive Summary on Power Sector
@@ -87,6 +88,8 @@ def test_all_p1a_p1b_energy_source_ids_present() -> None:
         "src-f7ce9960caba",  # RBI Hbk Table 141 — Power Requirement
         "src-97a3c47d092f",  # RBI Hbk Table 139 — Power Availability
         "src-9a38005d8713",  # RBI Hbk Table 138 — Per-Capita Availability
+        # P.1.C PR-Q (1) — first canonical fuel-consumption lift.
+        "src-c222a8e2cd61",  # ICED state-coal-consumption-mt
     }
     con = duckdb.connect(":memory:")
     try:
@@ -101,7 +104,7 @@ def test_all_p1a_p1b_energy_source_ids_present() -> None:
         con.close()
     missing = expected - present
     assert not missing, (
-        f"taxonomy/sources.parquet missing {len(missing)} of the 12 P.1.A+P.1.B "
+        f"taxonomy/sources.parquet missing {len(missing)} of the 13 P.1.A+P.1.B+P.1.C "
         f"energy citation rows: {sorted(missing)!r}. Re-run "
         f"`python -m yen_gov emit-taxonomy --root .`"
     )

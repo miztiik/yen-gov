@@ -1660,6 +1660,29 @@
       "source_id": "src-9a38005d8713"
     },
     {
+      "indicator_id": "state-coal-consumption-mt",
+      "label_short": "Coal consumption",
+      "label_long": "State coal consumption (Mt, by fiscal year)",
+      "description_short": "Per-state domestic coal consumption in million tonnes per fiscal year, summed across all coal grades (raw + washed + middlings + lignite). High values typically indicate hosting large thermal generation fleets (Maharashtra, UP, MP, Chhattisgarh) or heavy industry (steel, cement).",
+      "description_long": "Where coal is burned, not where it is mined. Companion to state-installed-capacity-allocated-mw (coal facet) and state-electricity-generation-gwh (coal facet): a state with high coal consumption but low coal generation is using coal for industrial heat rather than power. The ``TOTAL COAL`` ICED rows are dropped to avoid double-counting; the lift sums the 4 grade-level rows (raw + washed + middlings + lignite) directly.",
+      "unit": "Mt",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "joint",
+      "methodology_vintage": "NITI Aayog ICED ``/energy/fuel-sources/coal/consumption-domestic-state`` (Coal Controller's Office / Ministry of Coal upstream). Aggregated by SUM of the 4 component grades (raw, washed, middlings, lignite); the precomputed ``TOTAL COAL`` rows are dropped to avoid double-counting.",
+      "revision_tier": "revised",
+      "parent_indicator_id": null,
+      "source_id": "src-c222a8e2cd61"
+    },
+    {
       "indicator_id": "district-pashu-aadhaar-count",
       "label_short": "Pashu Aadhaar tagged",
       "label_long": "Animals tagged with Pashu Aadhaar (NDLM)",

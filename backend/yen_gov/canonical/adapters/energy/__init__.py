@@ -1,7 +1,8 @@
 """Energy adapter — lifts legacy ``datasets/indicators/in/energy/*.json``
 shards into BatchEnvelopes for the canonical Parquet store.
 
-P.1.A C4 first-cut: 4 fact-tables emit data (plan-doc TODO row 0e.7 P.1):
+P.1.A C4 first-cut + P.1.B + P.1.C PR-Q: 5 fact-tables emit data
+(plan-doc TODO row 0e.7 P.1 + P.1.C row 6):
 
 * ``energy_installed_capacity``      — CEA per-fuel + ICED geographical +
                                        ICED allocated (parent totals).
@@ -9,10 +10,12 @@ P.1.A C4 first-cut: 4 fact-tables emit data (plan-doc TODO row 0e.7 P.1):
                                        (publisher total + per-fuel breakdown).
 * ``energy_demand_supply``           — RBI peak demand / peak met +
                                        ICED per-capita consumption.
-* ``energy_distribution_performance`` — ICED ATC losses + sales-MU.
-
-A 5th planned stem ``energy_fuel_consumption`` is reserved for P.1.C and
-ships empty (no P.1.A indicators sit on it yet).
+* ``energy_distribution_performance`` — ICED ATC losses + sales-MU + 4 efficiency
+                                       triplet children + ACS-ARR + RPO 3-segment.
+* ``energy_fuel_consumption``        — P.1.C PR-Q: ICED state-coal-consumption-mt
+                                       (first canonical fuel-consumption lift;
+                                       subsequent P.1.C PRs will extend with
+                                       oil-product / primary / final / etc.).
 
 D33.8 invariant (compute-on-read totals): the adapter NEVER emits an
 observation row whose ``indicator_id`` matches ``*-total-mw`` or
@@ -50,21 +53,26 @@ from yen_gov.canonical.envelope import BatchEnvelope
 
 from .demand_supply import build_envelope as _build_demand_supply
 from .distribution import build_envelope as _build_distribution
+from .fuel_consumption import build_envelope as _build_fuel_consumption
 from .generation import build_envelope as _build_generation
 from .installed_capacity import build_envelope as _build_installed_capacity
 
 
 def build_envelopes(repo_root: Path) -> list[BatchEnvelope]:
-    """Build the 4 P.1.A envelopes in canonical write-order.
+    """Build the 5 P.1.A+B+C envelopes in canonical write-order.
 
     Write-order is alphabetical-by-stem (matches manifest enumeration
-    order) and has no FK dependency between envelopes — each emits to a
+    order) and has no FK dependency between envelopes -- each emits to a
     distinct ``energy_*`` parquet and shares only the cross-family
     ``sources.parquet`` (which C3 already seeded via `_upsert_energy_sources`).
+    The 5th stem ``energy_fuel_consumption`` is now populated by P.1.C
+    PR-Q (state-coal-consumption-mt); the docstring promise from P.1.A is
+    fulfilled.
     """
     return [
         _build_demand_supply(repo_root),
         _build_distribution(repo_root),
+        _build_fuel_consumption(repo_root),
         _build_generation(repo_root),
         _build_installed_capacity(repo_root),
     ]
