@@ -399,6 +399,96 @@ Every phase PR must pass:
 
 ---
 
+## Handover prompt for next coding agent (copy-paste-ready)
+
+**Last updated**: 2026-05-25 (after PR #260 merged at `f2da01ef`).
+
+This is a multi-agent codebase. The block below is the literal prompt to drop into the next coding agent's first message so it can pick up the sprint without human input. Keep it in sync with the Phase 0.0 status table above (single source of truth for what is merged).
+
+> # yen-gov boundary expansion sprint — agent handover
+>
+> ## What this sprint is (one paragraph)
+>
+> yen-gov is a static GitHub Pages site for Indian socio-economic + election data. There is no production backend. This sprint adds administrative-boundary geometry (polygons) at every level — country → state → district → subdistrict → AC → PC → village → pincode — so citizen-facing choropleths can render correctly. The full plan lives at [`TODO/20260524-boundary-coverage-expansion-plan.md`](../TODO/20260524-boundary-coverage-expansion-plan.md). **Read its Phase 0.0 status table first** — it is the source of truth for what is merged and what is next.
+>
+> ## What is DONE (do NOT re-do)
+>
+> | Phase | What shipped | PR | SHA |
+> |---|---|---|---|
+> | 0.1 | LGD state-code seed | #235 | `18b8a69c` |
+> | 0.4 | Boundary file simplifier (`tools/boundaries/simplify.py`) | #244 | `a0f34911` |
+> | A.1.a | Pincode CSV parser + ResourceMeta plumbing | #247 | `f46b02ca` |
+> | A.1.b | Pincode CSV emit + sources row | _earlier_ | _see plan-doc_ |
+> | A.2 | Pincode polygons (national) | #254 | `39932f09` |
+> | B | Subdistrict national lift (TN-only → 36 states/UTs) | #257 | `011a9764` |
+> | C | Village national lift (TN-only → 27 states/UTs, 645 per-district shards) | #259 | `7308121a` |
+> | C-doc | Plan-doc reconcile (close Phase C row) | #260 | `f2da01ef` |
+>
+> ## What is NEXT (in dependency order — one PR at a time)
+>
+> 1. **Phase D.0** — State polygon swap (DataMeet → ramSeraph `LGD_States`). Survey-grade upgrade. Small surgical PR (~5 files + 1 GeoJSON + 1 parquet regen). **Detailed 8-step kickoff kit lives in `/memories/session/boundary-coverage-sprint-resume.md` — read it before touching code.** Independent of D.1+; ship first.
+> 2. **Phase D.1** — AC consolidation snapshot recon (one-shot recon note in `notes/`, NOT a code PR). Gates D.2–D.5.
+> 3. **Phase D.2** — Promote ~28 states from HTL to ramSeraph LGD (after D.1 confirms parity per state).
+> 4. **Phase D.3** — Assam special-case (after D.1 confirms 2023 re-delim status).
+> 5. **Phase D.4** — J&K special-case (after D.1 confirms 90-AC layout).
+> 6. **Phase D.5** — AC consolidation wrap-up (docs + ledger + ADR amend).
+> 7. **Phase D.6** — PC polygon swap (shijithpk → ramSeraph). Independent of D.0–D.5; can ship before or after.
+>
+> ## What is DEFERRED (do NOT start)
+>
+> - **Phase E** — Census-2011 polygons. User-mandated descope on 2026-05-24 because `Census_Villages` is points-not-polygons (we are a choropleth-first site). The Phase B cross-check use is at-need, not a permanent shard. **Do not start any Phase E work without an explicit unblock.**
+>
+> ## Known runtime issue (do NOT try to fix)
+>
+> **DuckDB on Python 3.14 + Windows segfaults inside three specific tests.** This is a runtime fragility, not a test-code bug. ALWAYS run backend pytest with this exact deselect line:
+>
+> ```powershell
+> pytest -q --deselect=backend/tests/test_canonical_writer.py::test_empty_dim_lists_do_not_touch_existing_dim_files --deselect=backend/tests/test_topics_seed.py::test_compile_accepts_topic_without_artifacts --deselect=backend/tests/test_canonical_writer_partition.py::test_pre_existing_monolith_swept_after_partitioned_emit
+> ```
+>
+> Expected: **998 passed / 44 skipped / 3 deselected** (baseline as of 2026-05-25). Full detail in `/memories/repo/yen-gov-architecture.md` "Test flakes (Python 3.14 + Windows)" section. Do NOT edit any of the three tests. Do NOT block a PR on them. Track upstream DuckDB / Python 3.14 fixes for the runtime, not the tests.
+>
+> ## Discipline (mandatory; multi-agent codebase)
+>
+> 1. **Read [`CLAUDE.md`](../CLAUDE.md) front-to-back** before any code change. Holy laws #1–#10 and §15 test policy are non-negotiable.
+> 2. **Use a worker worktree** for substantive code work — never edit on master worktree while another agent is using it. Create with: `git worktree add ../yen-gov-d0-state-swap origin/main -b feat/state-polygon-swap-ramseraph`.
+> 3. **Every PowerShell command in worker MUST be wrapped**: `Push-Location <worker-abs>; $env:PYTHONPATH=(Resolve-Path backend).Path; <cmd>; Pop-Location`. This pins which checkout's code runs (`python -m yen_gov` otherwise imports from the master editable install).
+> 4. **Never touch parallel-agent worktrees**. `git worktree list` shows who's where. Stay in your own worker. Master worktree may have dirty parallel-agent files — leave them alone; stage only YOUR files when committing.
+> 5. **Use sub-agents for task execution** — when you need codebase exploration, hand it to the `Explore` sub-agent (read-only, safe to call in parallel). When you need a persona viewpoint, hand it to that persona (`Fowler` for engineering craft, `Jony` for UI/UX, `Hans` for governance framing, `Max` for indicator-scout decisions, `Gregor` for architecture/contracts, `Citizen` for citizen-experience sanity check, `Andre` for any LLM/AI/SLM topic).
+> 6. **Work autonomously** — the user is not available to respond. Do NOT wait for human input. Make good decisions per the plan-doc; document deviations in the commit body or a `notes/` file.
+> 7. **Update the Phase 0.0 status table IN THE SAME COMMIT** as the code work — never a separate docs-only PR. The one carve-out: a self-PR-number race forces a one-line follow-up PR (the #260 pattern). Keep it to one file, one row.
+> 8. **§13 browser smoke** is MANDATORY for any change touching `frontend/` or `admin/` runtime behaviour. Phase D.0 touches `frontend/src/lib/maps/sources.ts` — §13 applies. Phase D.1 is pure recon (no UI) — §13 not applicable.
+> 9. **`gh pr merge --squash --delete-branch --auto`** from a worker is clean when master is on a feature branch; may print a cosmetic local-cleanup error when master is on `main`. Either way the server-side merge succeeds — verify with `gh pr view <#> --json state,mergedAt,mergeCommit`.
+> 10. **Never use** `git stash`, `git reset --hard`, `git clean -fd`, `git checkout .`, `git add .`, `git push --force`, or amend pushed commits. See CLAUDE.md §8.
+>
+> ## Where to look up anything
+>
+> - **Project contract**: [`CLAUDE.md`](../CLAUDE.md) — Holy laws, schema versioning, provenance, test tiers, anti-patterns.
+> - **Boundary subsystem doc**: [`docs/architecture/data/boundaries.md`](../docs/architecture/data/boundaries.md) — disk layout, identifier discipline, methodology-break rules.
+> - **Boundary source catalogue**: [`docs/reference/boundary-data-sources.md`](../docs/reference/boundary-data-sources.md) — every upstream provider + license + selection policy.
+> - **Decision history**: [`docs/architecture/decisions/0031-boundary-geometry-strategy.md`](../docs/architecture/decisions/0031-boundary-geometry-strategy.md) (amended 2026-05-24 for PC layer + delim partition).
+> - **§12 provenance contract**: [`docs/architecture/decisions/0032-sources-citation-ledger.md`](../docs/architecture/decisions/0032-sources-citation-ledger.md) — every new sources row uses v2.0 shape.
+> - **Repo memory**: `/memories/repo/yen-gov-architecture.md` — derived cheat-sheet (canonical docs win when they disagree).
+> - **Session memory**: `/memories/session/boundary-coverage-sprint-resume.md` — sprint-scoped status + Phase D.0 kickoff kit.
+>
+> ## Your first three commands (literally)
+>
+> ```powershell
+> # 1. Read the plan-doc status table + the Phase D.0 spec
+> Get-Content TODO\20260524-boundary-coverage-expansion-plan.md -TotalCount 60
+> Select-String -Path TODO\20260524-boundary-coverage-expansion-plan.md -Pattern "^### D\.0" -Context 0, 40
+>
+> # 2. Read the session memory Phase D.0 kickoff kit
+> # (use the memory tool: command=view, path=/memories/session/boundary-coverage-sprint-resume.md)
+>
+> # 3. Create your worker worktree
+> git worktree add ..\yen-gov-d0-state-swap origin/main -b feat/state-polygon-swap-ramseraph
+> ```
+>
+> Then proceed per the Phase D.0 kickoff kit. Work autonomously. Ship the PR. Update the Phase 0.0 status table in the same commit. Open the next agent's handover trail by editing this section's "Last updated" date + table when D.0 lands.
+
+---
+
 ## Not in this plan (descoped)
 
 - **GADM as a source**: hard NO. Disputed-territory polygons (5 of 41 features carry China/Pakistan-claimed slice IDs), non-commercial license blocking static-bundle redistribution, uses HASC codes not LGD/ECI, and is stale (no Ladakh split). Documented in [`boundary-data-sources.md` §"Why not GADM"](../docs/reference/boundary-data-sources.md) — do not re-litigate.
