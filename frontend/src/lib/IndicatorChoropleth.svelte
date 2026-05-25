@@ -12,7 +12,11 @@
 
   import MapChoropleth from "./maplibre/MapChoropleth.svelte";
   import { INDIA_STATES } from "./maplibre/sources";
-  import { loadStates, type StateRow } from "./view-models/states";
+  import {
+    entityContextForGrain,
+    type EntityRow,
+    type ChoroplethGrain,
+  } from "./charts/choropleth-entity-context";
   import {
     joinKeyFor,
     boundaryBasename,
@@ -103,41 +107,64 @@
   let artifact = $state<IndicatorArtifact | null>(null);
   let load_error = $state<string | null>(null);
   let selected_time = $state<string | null>(null);
-  // Currently-valid Indian states+UTs from taxonomy.entities. Iterated to
-  // build the reverse name lookup, fill table, tooltip table, coverage
-  // summary, and to resolve the boundary join-key in handleSelect. Replaces
-  // STATE_NAME_TO_ECI per T.0e.
-  let states_taxonomy = $state<StateRow[] | null>(null);
-  loadStates()
-    .then(s => (states_taxonomy = s))
-    .catch(e => (load_error = String(e)));
+  // Choropleth grain — hardcoded to "state" by PR B.05 C2 (Tidy-First S
+  // — extract the entity-context seam while keeping the state branch
+  // byte-identical). PR B.05 C3 flips this to derive from
+  // `artifact.indicator.coverage.admin_level` so district-grain
+  // indicators render against the district polygon layer.
+  const grain: ChoroplethGrain = "state";
+  const ctx = $derived(entityContextForGrain(grain));
+  // Currently-valid entities at this grain (states+UTs at "state",
+  // districts at "district") in unified shape. Iterated to build the
+  // reverse name lookup, fill table, tooltip table, coverage summary,
+  // and to resolve the boundary join-key in handleSelect. Replaces the
+  // grain-specific StateRow[] loader (per T.0e for states; lifted to
+  // grain-agnostic per B.05 C2).
+  let entities_taxonomy = $state<EntityRow[] | null>(null);
+  $effect(() => {
+    // Re-load when the grain (and therefore the ctx) changes. At C2 the
+    // grain is constant so this fires exactly once.
+    const loader = ctx.load_entities;
+    let cancelled = false;
+    loader()
+      .then(e => {
+        if (cancelled) return;
+        entities_taxonomy = e;
+      })
+      .catch(e => {
+        if (cancelled) return;
+        load_error = String(e);
+      });
+    return () => {
+      cancelled = true;
+    };
+  });
 
-  // Reverse map: ECI code -> boundary join KEY (LGD code string used by the
-  // map layer's join-property post-D.0). Used to derive `highlight_key` for
+  // Reverse map: entity code -> boundary join KEY (LGD code string used
+  // by the map layer's join-property). Used to derive `highlight_key` for
   // MapChoropleth's filter expression and to translate other code-system
   // requests (e.g. URL state codes) into the value the layer expects.
-  const ECI_TO_KEY = $derived.by(() => {
+  const CODE_TO_KEY = $derived.by(() => {
     const out: Record<string, string> = {};
-    for (const s of states_taxonomy ?? []) out[s.eci_code] = s.boundary_join_key;
+    for (const e of entities_taxonomy ?? []) out[e.code] = e.boundary_join_key;
     return out;
   });
 
-  // Reverse map: ECI code -> citizen-display shortform. Used by handleSelect
-  // to label the breadcrumb entry the user just drilled into (Delhi vs NCT
-  // of Delhi reads better in a breadcrumb chip).
-  const ECI_TO_DISPLAY = $derived.by(() => {
+  // Reverse map: entity code -> citizen-display shortform. Used by
+  // handleSelect to label the breadcrumb entry the user just drilled
+  // into (Delhi vs NCT of Delhi reads better in a breadcrumb chip).
+  const CODE_TO_DISPLAY = $derived.by(() => {
     const out: Record<string, string> = {};
-    for (const s of states_taxonomy ?? []) out[s.eci_code] = s.boundary_join_name;
+    for (const e of entities_taxonomy ?? []) out[e.code] = e.display_name;
     return out;
   });
 
-  // Reverse map: boundary join KEY -> ECI code. Used by handleSelect to
-  // resolve the LGD code carried on the clicked feature into an ECI code.
-  // Pre-D.0 this was keyed on the DataMeet ST_NM English name; post-D.0
-  // it is keyed on the ramSeraph State_LGD numeric code (as a string).
-  const KEY_TO_ECI = $derived.by(() => {
+  // Reverse map: boundary join KEY -> entity code. Used by handleSelect
+  // to resolve the LGD code carried on the clicked feature into the
+  // canonical code (ECI at state grain, entity_id at district grain).
+  const KEY_TO_CODE = $derived.by(() => {
     const out: Record<string, string> = {};
-    for (const s of states_taxonomy ?? []) out[s.boundary_join_key] = s.eci_code;
+    for (const e of entities_taxonomy ?? []) out[e.boundary_join_key] = e.code;
     return out;
   });
 
@@ -183,22 +210,22 @@
     return { min, max };
   });
 
-  // join-property (State_LGD post-D.0) -> fill hex. Only states currently
-  // valid in taxonomy.entities get a colour; the rest fall through to
-  // MapChoropleth's default grey. When peer_set_members is set, non-members
-  // also fall through (greyed).
+  // join-property (LGD code post-D.0) -> fill hex. Only entities currently
+  // valid in taxonomy.entities at this grain get a colour; the rest fall
+  // through to MapChoropleth's default grey. When peer_set_members is set,
+  // non-members also fall through (greyed).
   const fills = $derived.by(() => {
     const out: Record<string, string> = {};
     if (!artifact) return out;
     const dir = artifact.indicator.direction;
     const scale = artifact.indicator.scale_hint ?? "linear";
     const member_set = peer_set_members ? new Set(peer_set_members) : null;
-    for (const s of states_taxonomy ?? []) {
-      const code = s.eci_code;
+    for (const e of entities_taxonomy ?? []) {
+      const code = e.code;
       if (member_set && !member_set.has(code)) continue;
       const v = values.get(code);
       if (v === undefined) continue;
-      out[s.boundary_join_key] = fillForValue(v, domain.min, domain.max, dir, scale);
+      out[e.boundary_join_key] = fillForValue(v, domain.min, domain.max, dir, scale);
     }
     return out;
   });
@@ -207,10 +234,10 @@
     const out: Record<string, string> = {};
     if (!artifact) return out;
     const meta = artifact.indicator;
-    for (const s of states_taxonomy ?? []) {
-      const code = s.eci_code;
-      const display = s.boundary_join_name;
-      const join_key = s.boundary_join_key;
+    for (const e of entities_taxonomy ?? []) {
+      const code = e.code;
+      const display = e.display_name;
+      const join_key = e.boundary_join_key;
       const v = values.get(code);
       if (v === undefined) {
         out[join_key] = `<div class="font-semibold">${escape_html(display)}</div>` +
@@ -234,25 +261,32 @@
     return out;
   });
 
-  const highlight_key = $derived(highlight_state ? ECI_TO_KEY[highlight_state] : undefined);
+  const highlight_key = $derived(highlight_state ? CODE_TO_KEY[highlight_state] : undefined);
 
   // Loader-exposed join-key for the current geoLevel. At "state" this resolves
-  // to "State_LGD" — the same value INDIA_STATES.join_property carries post-D.0
-  // — so the state branch is unchanged. The `current_join_key` derivation is
-  // the seam c3 will use to dispatch on level (district → "dist_lgd",
-  // subdistrict → "subdt_lgd", village → "vil_lgd"); commit 2 only introduces
-  // the dependency and a dev-only consistency check.
+  // to "State_LGD"; at "district" to "dist_lgd" — matching the boundary
+  // entry's `join_property` carried by the entity-context helper. The
+  // dev-only invariant below catches drift between the two SSOTs.
   const current_join_key = $derived(joinKeyFor(geoLevel));
 
-  // Dev-only invariant: the join-key the loader names for `geoLevel === "state"`
-  // MUST match the one the v1 BoundaryEntry hardcodes — otherwise a future
-  // edit to one without the other would silently produce blank polygons. Fires
-  // only in dev (drops out of the prod bundle via the dead-code branch).
+  // Dev-only invariant: the join-key `joinKeyFor` names for the active
+  // grain MUST match the one the entity-context's BoundaryEntry carries —
+  // otherwise a future edit to one without the other would silently
+  // produce blank polygons. Fires only in dev (drops out of the prod
+  // bundle via the dead-code branch). Gated on `geoLevel === grain` for
+  // C2: while grain is hardcoded to "state", callers passing
+  // `geoLevel="district"` would otherwise trigger a spurious warning
+  // since the state branch silently no-ops on deeper levels. C3 lifts
+  // this gate by flipping grain to derive from coverage.admin_level.
   $effect(() => {
-    if (import.meta.env.DEV && geoLevel === "state" && current_join_key !== INDIA_STATES.join_property) {
+    if (
+      import.meta.env.DEV &&
+      geoLevel === grain &&
+      current_join_key !== ctx.boundary_entry.join_property
+    ) {
       // eslint-disable-next-line no-console
       console.warn(
-        `[IndicatorChoropleth] join-key drift: loader says ${current_join_key}, INDIA_STATES says ${INDIA_STATES.join_property}`,
+        `[IndicatorChoropleth] join-key drift: loader says ${current_join_key}, entity-context says ${ctx.boundary_entry.join_property}`,
       );
     }
   });
@@ -490,7 +524,7 @@
     let label = String(sel.key);
     let stateLgd: string | undefined;
     if (drill_state.level === "state") {
-      const eci = KEY_TO_ECI[String(sel.key)];
+      const eci = KEY_TO_CODE[String(sel.key)];
       if (eci !== TN_ECI) {
         // Only TN has deeper boundaries on disk at v0.
         deeper_fetch_error = "deeper boundaries available for Tamil Nadu only";
@@ -500,7 +534,7 @@
       // Breadcrumb label is the citizen-display name, not the raw LGD
       // code carried on the clicked feature (post-D.0 the join key is
       // numeric, so falling back to String(sel.key) would print "33").
-      label = ECI_TO_DISPLAY[eci] ?? String(sel.key);
+      label = CODE_TO_DISPLAY[eci] ?? String(sel.key);
     } else {
       // For deeper levels, prefer the human name carried on the feature.
       const props = sel.properties ?? {};
@@ -605,7 +639,7 @@
   const coverage_summary = $derived.by(() => {
     if (!artifact) return null;
     const member_set = peer_set_members ? new Set(peer_set_members) : null;
-    const all_codes = (states_taxonomy ?? []).map(s => s.eci_code);
+    const all_codes = (entities_taxonomy ?? []).map(e => e.code);
     const peer_codes = member_set
       ? all_codes.filter(c => member_set.has(c))
       : all_codes;
