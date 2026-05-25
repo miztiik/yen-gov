@@ -13,7 +13,7 @@ from yen_gov.validate import (
     tier_a,
     tier_b,
     tier_b_legacy_boundary_sidecars,
-    tier_b_legacy_folded_indicator_shards,
+    tier_b_meadow_shard_contract,
     tier_b_no_new_sub_fuel_shards,
 )
 
@@ -210,7 +210,7 @@ def test_legacy_shards_check_passes_when_allowlisted(tmp_path: Path):
         "datasets/indicators/in/energy/bar.json",
     ]
     _seed_indicator_tree(tmp_path, shards=shards)
-    fails = tier_b_legacy_folded_indicator_shards(tmp_path)
+    fails = tier_b_meadow_shard_contract(tmp_path)
     assert fails == [], f"expected no failures, got: {fails}"
 
 
@@ -226,7 +226,7 @@ def test_legacy_shards_check_rejects_new_shard(tmp_path: Path):
         ],
         allowlist_entries=["datasets/indicators/in/economy/known.json"],
     )
-    fails = tier_b_legacy_folded_indicator_shards(tmp_path)
+    fails = tier_b_meadow_shard_contract(tmp_path)
     forbidden = [f for f in fails if "forbidden new indicator shard" in f.message]
     assert len(forbidden) == 1, f"expected one forbidden-new failure, got: {fails}"
     assert forbidden[0].file == "datasets/indicators/in/economy/sneaky_new.json"
@@ -255,7 +255,7 @@ def test_legacy_shards_check_rejects_orphan_allowlist_entry(tmp_path: Path):
         "datasets/indicators/in/economy/gone.json\n",
         encoding="utf-8",
     )
-    fails = tier_b_legacy_folded_indicator_shards(tmp_path)
+    fails = tier_b_meadow_shard_contract(tmp_path)
     orphans = [f for f in fails if "orphan allowlist entry" in f.message]
     assert len(orphans) == 1, f"expected one orphan failure, got: {fails}"
     assert orphans[0].file == LEGACY_INDICATOR_SHARDS_ALLOWLIST.as_posix()
@@ -268,7 +268,7 @@ def test_legacy_shards_check_is_noop_when_indicators_dir_absent(tmp_path: Path):
     the retirement contract — the directory, the allowlist, and the check
     all disappear together; the check must not fail mid-retirement."""
     # No indicators dir, no allowlist — both absent.
-    fails = tier_b_legacy_folded_indicator_shards(tmp_path)
+    fails = tier_b_meadow_shard_contract(tmp_path)
     assert fails == [], f"expected no failures when indicators dir absent, got: {fails}"
 
 
@@ -281,7 +281,7 @@ def test_legacy_shards_check_requires_allowlist_when_indicators_dir_present(tmp_
         shards=["datasets/indicators/in/economy/foo.json"],
         write_allowlist=False,
     )
-    fails = tier_b_legacy_folded_indicator_shards(tmp_path)
+    fails = tier_b_meadow_shard_contract(tmp_path)
     missing = [f for f in fails if "missing allowlist file" in f.message]
     assert len(missing) == 1, f"expected one missing-allowlist failure, got: {fails}"
     assert missing[0].file == LEGACY_INDICATOR_SHARDS_ALLOWLIST.as_posix()
@@ -289,7 +289,7 @@ def test_legacy_shards_check_requires_allowlist_when_indicators_dir_present(tmp_
 
 
 def test_legacy_shards_check_chained_into_run(tmp_path: Path):
-    """Regression guard: tier_b_legacy_folded_indicator_shards must be
+    """Regression guard: tier_b_meadow_shard_contract must be
     called by run(). Without this, a future refactor could remove the
     chain and silently re-allow new shards. Seeds a real schemas dir
     (run() loads them) plus a forbidden new shard, then asserts run()
@@ -307,7 +307,7 @@ def test_legacy_shards_check_chained_into_run(tmp_path: Path):
         and f.file == "datasets/indicators/in/economy/forbidden_new.json"
     ]
     assert len(forbidden) == 1, \
-        f"run() must chain tier_b_legacy_folded_indicator_shards, got: {fails}"
+        f"run() must chain tier_b_meadow_shard_contract, got: {fails}"
 
 
 # ---------------------------------------------------------------------------
@@ -565,7 +565,7 @@ def test_no_new_sub_fuel_shards_check_ignores_other_filename_shapes(tmp_path: Pa
 
     Other energy shards (e.g. `state_rooftop_solar_capacity_mw.json`,
     `india_thermal_capacity_retired_mw.json`, generation / consumption shards)
-    are governed by `tier_b_legacy_folded_indicator_shards`, NOT this fence.
+    are governed by `tier_b_meadow_shard_contract`, NOT this fence.
     Confirms scope-boxing per the C4.8 design note.
     """
     _seed_energy_indicator_tree(

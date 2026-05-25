@@ -1,6 +1,6 @@
 # Indicator system
 
-> **Status**: live as of 2026-05-14. Schema `indicator.schema.json` v1.2; renderers `IndicatorChoropleth.svelte` (default trio) and `StackedTrend.svelte` (facetted). First consumer: `energy/installed_mw_by_state` (choropleth on TN/KL/AS/WB state hubs). The `energy/installed_capacity_by_source_mw` stacked-trend artifact composed by `backend/yen_gov/composers/energy_capacity_by_source.py` per ADR-0024 was retired in PR 7b; the StackedTrend adapter contract still exists (tested via inline synthetic fixture in `frontend/src/lib/charts/stacked-trend/adapter-indicator.test.ts`) and is reachable from `stacked-trend-v2/migrate.ts`.
+> **Status**: live as of 2026-05-14. Schema `indicator.schema.json` v1.2; renderers `IndicatorChoropleth.svelte` (default trio) and `StackedTrend.svelte` (facetted). The first consumer was `energy/installed_mw_by_state` (choropleth on TN/KL/AS/WB state hubs) — retired in PR-A 2026-05-25 once the per-fuel CEA capacity family (`installed_capacity_{coal,gas,nuclear,hydro,renewable,total,thermal}_mw`) shipped with all-states coverage. The `energy/installed_capacity_by_source_mw` stacked-trend artifact composed by `backend/yen_gov/composers/energy_capacity_by_source.py` per ADR-0024 was retired in PR 7b; the StackedTrend adapter contract still exists (tested via inline synthetic fixture in `frontend/src/lib/charts/stacked-trend/adapter-indicator.test.ts`) and is reachable from `stacked-trend-v2/migrate.ts`.
 >
 > v1.2 additive fields (2026-05-14): optional `chart_type` (`choropleth` / `ranked` / `stacked-trend`) and `default_mode` (`absolute` / `percent`). Topic-catalogue v1.2 mirrors `chart_type` + `dimension` at the artifact entry level so `TopicLanding.svelte` can dispatch the right renderer without peeking at every indicator JSON. See [`charts/stacked-trend.md`](./charts/stacked-trend.md) for the chart's contract.
 
@@ -81,15 +81,15 @@ Every field on the `indicator` block is metadata that drives rendering. The fron
 
 ## What honesty metadata looks like in practice
 
-The `energy/installed_mw_by_state` artifact is the canonical *cautionary tale*:
-- It rolls plant nameplate capacity by the state in whose polygon the plant sits.
+The original `energy/installed_mw_by_state` artifact (retired in PR-A 2026-05-25) was the canonical *cautionary tale* — the lesson it taught lives on as the rationale for the `attribution_geography` + `comparability` fields on every indicator:
+- It rolled plant nameplate capacity by the state in whose polygon the plant sat.
 - Much of TN's capacity (e.g. Kudankulam) feeds the southern grid and serves multiple states.
 - Therefore: `attribution_geography: "where_produced"` and `comparability: "not_comparable_across_states"`.
-- The renderer surfaces an amber banner above the map: *"Read this carefully · This map shows where the asset is sited, not who uses it. Ranking states by this number is misleading."*
-- The footer surfaces the methodology vintage: *"OpenStreetMap-derived plant inventory snapshot, community-curated; cross-referenced against CEA broad-strokes only."*
-- The notes paragraph promotes the v1 limitation explicitly: *"v1: rollup is restricted to TN, KL, AS, WB. Of 35 states/UTs, only 4 render on this map; the other 31 appear grey because we lack data, not because they have zero capacity."*
+- The renderer surfaced an amber banner above the map: *"Read this carefully · This map shows where the asset is sited, not who uses it. Ranking states by this number is misleading."*
+- The footer surfaced the methodology vintage: *"OpenStreetMap-derived plant inventory snapshot, community-curated; cross-referenced against CEA broad-strokes only."*
+- The notes paragraph promoted the v1 limitation explicitly: *"v1: rollup is restricted to TN, KL, AS, WB. Of 35 states/UTs, only 4 render on this map; the other 31 appear grey because we lack data, not because they have zero capacity."*
 
-A v2 ingest (CEA monthly Installed Capacity report → all states + proper methodology) is documented in [`docs/research/energy-power-plants.md`](../../research/energy-power-plants.md). The schema and renderer are ready for that swap with no UI changes.
+The successor `energy/installed_capacity_*_mw` per-fuel family (CEA monthly Executive Summary, all 35 states/UTs) is the v2 that the original was a placeholder for — the schema and renderer needed no UI changes for the swap, exactly as the original methodology note predicted.
 
 ## Adding a new indicator
 

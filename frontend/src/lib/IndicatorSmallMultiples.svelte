@@ -37,7 +37,7 @@
   } from "./charts/small-multiples";
 
   interface Props {
-    /** Path under DATA_BASE, e.g. "/indicators/in/energy/installed_mw_by_state.json". */
+    /** Path under DATA_BASE, e.g. "/indicators/in/energy/state_per_capita_electricity_consumption_kwh.json". */
     indicator_path: string;
     /** Optional ECI code to highlight (amber). */
     home_state?: string;

@@ -14,7 +14,7 @@ Original status (pre-audit): ◻ DESIGN-OPEN. Authoring Q1–Q6 below. C5+C6 is 
 Two deliverables, ONE commit:
 
 - **C5 — Canonical reader-switch**: ship `frontend/src/lib/canonical/indicator-reader.ts` exposing `fetchIndicatorFromCanonical(canonicalId)` that reconstructs a legacy-shaped `IndicatorArtifact` (`frontend/src/lib/indicators.ts:310`) from the 4 canonical Parquets (`taxonomy/indicators.parquet`, `taxonomy/sources.parquet`, `taxonomy/methodology_breaks.parquet`, `energy/<fact-table>.parquet`) via DuckDB-WASM (`canonical/duckdb.ts`). Wire it as an interceptor at the existing `fetchIndicator(path)` seam (`indicators.ts:328`) so the **7 consumer call-sites** do not change.
-- **C6 — Legacy shard retire**: `git rm` 16 P.1.A-consumed shards from `datasets/indicators/in/energy/`; scrub the 16 matching entries from `datasets/_ops/legacy-folded-indicator-shards.txt`; amend `docs/architecture/data/canonical-store.md` §2b (3→5 fact-tables + new Rule #4 per [P.1 plan-doc §2 Q-b verdict](20260522-phase-2-p1-energy-pivot.md)); migrate the 1 vitest fixture that reads a retired shard via `fs.readFileSync`.
+- **C6 — Legacy shard retire**: `git rm` 16 P.1.A-consumed shards from `datasets/indicators/in/energy/`; scrub the 16 matching entries from `datasets/_ops/meadow-shard-contract.txt`; amend `docs/architecture/data/canonical-store.md` §2b (3→5 fact-tables + new Rule #4 per [P.1 plan-doc §2 Q-b verdict](20260522-phase-2-p1-energy-pivot.md)); migrate the 1 vitest fixture that reads a retired shard via `fs.readFileSync`.
 
 Same commit per Holy Law #4 — citizen-surface atomic-revert preserved. Mid-step states are illegal: (a) retire without reader = 404s in production, (b) reader without retire = dead code + Tier-B allowlist drift, (c) §2b amend without code = doc lies about reality.
 
@@ -110,11 +110,11 @@ Hard-drop paths gain a HARD-DROP entry in the path-routing map that throws a typ
 
 Replaceable paths route through `fetchIndicatorFromCanonical(canonicalId)` transparently.
 
-**Counter-check**: every retired path MUST appear in the current `datasets/_ops/legacy-folded-indicator-shards.txt` allowlist. Verified via `Get-Content datasets\_ops\legacy-folded-indicator-shards.txt | Select-String -SimpleMatch energy` returning 41 hits; the 16 retired files are a strict subset.
+**Counter-check**: every retired path MUST appear in the current `datasets/_ops/meadow-shard-contract.txt` allowlist. Verified via `Get-Content datasets\_ops\meadow-shard-contract.txt | Select-String -SimpleMatch energy` returning 41 hits; the 16 retired files are a strict subset.
 
 ### Q5. Tier-B allowlist atomic-removal
 
-**Verdict (Fowler)**: same commit removes 16 entries from `datasets/_ops/legacy-folded-indicator-shards.txt`. The Tier-B `tier_b_legacy_folded_indicator_shards` validator (`backend/yen_gov/validate.py`) enforces (a) every allowlist entry has a matching file on disk (no orphans), (b) every file under `datasets/indicators/in/energy/` is allowlisted (no rogues). Removing both the file AND the allowlist entry in the SAME commit keeps both invariants green.
+**Verdict (Fowler)**: same commit removes 16 entries from `datasets/_ops/meadow-shard-contract.txt`. The Tier-B `tier_b_meadow_shard_contract` validator (`backend/yen_gov/validate.py`) enforces (a) every allowlist entry has a matching file on disk (no orphans), (b) every file under `datasets/indicators/in/energy/` is allowlisted (no rogues). Removing both the file AND the allowlist entry in the SAME commit keeps both invariants green.
 
 Pattern verified against `/memories/lessons.md` 2026-05-22 PR1 (allowlist-based forbidden-path fence): retirement = `git rm` + allowlist scrub in one go; never one without the other.
 
@@ -140,7 +140,7 @@ Update the §2b "Currently locked families" enumeration to reflect 5 energy fact
 | Tier-A vitest contract | Existing `frontend/src/contracts/datasets-conform.test.ts` | After `git rm`, the 16 deleted shards disappear from the contract test's discovered file set; remaining 25 energy shards continue to validate |
 | Tier-A backend pytest | Existing `backend/tests/test_legacy_folded_indicator_shards_tier_b.py` | After allowlist scrub, the validator finds 0 orphans + 0 rogues for the energy family |
 | Tier-A backend pytest | New `backend/tests/test_canonical_indicator_reader_parity.py` | For each of the 7 reader-replaceable paths, query the canonical Parquet directly via duckdb-py and assert: (rowcount matches the pre-retire shard's `rows[]` length) AND (sample 5 (entity, time, value) tuples match byte-for-byte) |
-| Tier-B | `python -m yen_gov validate --root .` | Clean — no schema violations, no Tier-B forbidden-path matches on the legacy-folded-indicator-shards allowlist after scrub |
+| Tier-B | `python -m yen_gov validate --root .` | Clean — no schema violations, no Tier-B forbidden-path matches on the meadow-shard-contract allowlist after scrub |
 | §13 browser smoke | Playwright: `/` home + `/topic/energy` + `/state/IN-S22` (Tamil Nadu, energy-heavy producer) + `/state/IN-S04` (Bihar, AT&C-loss DISCOM story) | Per-route: 0 console errors, 0 network 404s on `datasets/indicators/in/energy/*.json`, ≥1 canonical-parquet read in the network trace, screenshots match pre-commit baseline on the energy stacked-trend visual |
 
 **Golden-file diff strategy (Fowler — strangler-fig "phase B" rigour per /memories/lessons.md 2026-05-22 G.1.b)**: BEFORE staging the retire, snapshot each of the 16 retired `*.json` files to `.c5-baseline/`. AFTER `fetchIndicator(path)` is wired through the canonical reader, run the in-browser reader for each replaceable path AND emit a serialised `IndicatorArtifact` via the test harness, diff against `.c5-baseline/<file>.json`. Acceptable diffs: any field listed in Q1 column "default / NO". Unacceptable diffs: `rows[]` content, `indicator.label_long`, `sources[].url`, `methodology.methodology_breaks[].kind`. `.c5-baseline/` is a `.gitignore`-style work-artifact directory — DELETE before staging per CLAUDE.md §8.
@@ -158,7 +158,7 @@ This pattern is STRONGER than parity-oracle alone because it asserts byte-for-by
 | `frontend/src/lib/charts/stacked-trend/__fixtures__/installed_capacity_by_source_mw.snapshot.json` (new) | CREATE | Frozen snapshot of the retired artifact, so adapter-indicator.test.ts keeps testing real shape |
 | `frontend/src/lib/charts/stacked-trend/adapter-indicator.test.ts` | EDIT | Switch `readFileSync` source from `datasets/indicators/in/...` to `__fixtures__/...snapshot.json`; identical assertion body |
 | `datasets/indicators/in/energy/<16 files>.json` | DELETE (`git rm`) | The retire |
-| `datasets/_ops/legacy-folded-indicator-shards.txt` | EDIT | Remove the 16 corresponding lines |
+| `datasets/_ops/meadow-shard-contract.txt` | EDIT | Remove the 16 corresponding lines |
 | `docs/architecture/data/canonical-store.md` | EDIT | §2b: bump energy from 3 to 5 fact-tables; add Rule #4 wording per Q6 |
 | `TODO/20260522-phase-2-p1-energy-pivot.md` | EDIT | Flip §4 final unchecked item `[ ] canonical-store.md §2b amended` → `[x]`; update status banner to mark P.1.A DONE |
 | `tools/snapshot_energy_artifact.py` (new, ~30 LOC) | CREATE | One-shot snapshot script for the adapter-indicator fixture migration (kept for future fixture refreshes; usable on other families' adapter-tests) |

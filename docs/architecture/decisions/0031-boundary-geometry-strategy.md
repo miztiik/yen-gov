@@ -192,7 +192,7 @@ Three retired schemas (`boundary.sources.schema.json`, `boundary.unkeyed.schema.
 
 ### 3. Enforcement: Tier-B forbidden-path gate
 
-A new `tier_b_legacy_boundary_sidecars(root)` check in `backend/yen_gov/validate.py` rejects any future `*.sources.json` / `*.metadata.json` / `*.unkeyed.json` / `*-index.json` under `datasets/boundaries/`. Companion allowlist at `datasets/_ops/legacy-boundary-sidecars.txt` ships empty by design; it exists only to support short-lived overrides during follow-up PRs (with PR-body justification required). Same enforcement pattern as `tier_b_legacy_folded_indicator_shards`.
+A new `tier_b_legacy_boundary_sidecars(root)` check in `backend/yen_gov/validate.py` rejects any future `*.sources.json` / `*.metadata.json` / `*.unkeyed.json` / `*-index.json` under `datasets/boundaries/`. Companion allowlist at `datasets/_ops/legacy-boundary-sidecars.txt` ships empty by design; it exists only to support short-lived overrides during follow-up PRs (with PR-body justification required). Same enforcement pattern as `tier_b_meadow_shard_contract`.
 
 ### 4. Manifest format key tightening
 

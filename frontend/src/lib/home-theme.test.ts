@@ -43,8 +43,8 @@ const catalogue: TopicCatalogue = {
       artifacts: [
         {
           kind: "indicator",
-          id: "energy/installed_mw_by_state",
-          display: "Installed generation capacity (MW)",
+          id: "energy/installed_capacity_renewable_mw",
+          display: "Installed renewable capacity (MW)",
           // scope omitted ⇒ defaults to national
         },
         {
@@ -232,7 +232,7 @@ describe("homeThemeOptions", () => {
     expect(opts.map(o => o.value)).toEqual([
       "election",
       "indicator/fiscal/outstanding_debt_pct_gsdp",
-      "indicator/energy/installed_mw_by_state",
+      "indicator/energy/installed_capacity_renewable_mw",
     ]);
   });
 
@@ -266,11 +266,11 @@ describe("homeThemeOptions", () => {
     it("prefers titleMap entry over artifact.display and id", () => {
       const titles = new Map<string, string>([
         ["fiscal/outstanding_debt_pct_gsdp", "Outstanding debt"],
-        ["energy/installed_mw_by_state", "Installed capacity"],
+        ["energy/installed_capacity_renewable_mw", "Installed capacity"],
       ]);
       const opts = homeThemeOptions(catalogue, titles);
       const fiscal = opts.find(o => o.value === "indicator/fiscal/outstanding_debt_pct_gsdp");
-      const energy = opts.find(o => o.value === "indicator/energy/installed_mw_by_state");
+      const energy = opts.find(o => o.value === "indicator/energy/installed_capacity_renewable_mw");
       expect(fiscal?.label).toBe("Outstanding debt");
       expect(fiscal?.caption).toBe("Outstanding debt");
       expect(energy?.label).toBe("Installed capacity");

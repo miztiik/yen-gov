@@ -8,7 +8,6 @@
     { "id": "economy/state_per_capita_nsdp_current_inr",                            "reason": "permanent-allowlist: superseded by state_per_capita_nsdp_current_inr_long (RBI-spliced longer history). Kept on disk as diff-check artifact only — do not wire." },
 
     { "id": "energy/national_final_energy_consumption_by_sector_mtoe",              "reason": "phase4-pending (energy national-series renderer): country-entity, sector-faceted; needs stacked-area." },
-    { "id": "energy/national_primary_energy_supply_mtoe",                           "reason": "phase4-pending (energy national-series renderer): country-entity supply mix; needs stacked-area." },
-    { "id": "energy/national_renewable_potential_vs_installed_mw",                  "reason": "phase4-pending (energy national-series renderer): country-entity paired comparison; needs paired-bar component." }
+    { "id": "energy/national_primary_energy_supply_mtoe",                           "reason": "phase4-pending (energy national-series renderer): country-entity supply mix; needs stacked-area." }
   ]
 }

@@ -1,16 +1,15 @@
 """india-geodata energy/power-plants source adapter.
 
 Fetches the upstream GeoJSON + metadata.json from
-yashveeeeeeer/india-geodata and emits two yen-gov artifacts:
+yashveeeeeeer/india-geodata and emits one yen-gov artifact pair:
 
-  1. datasets/features/in/energy/power-plants.geojson  (raw points, all India)
-     + power-plants.geojson.metadata.json  (sidecar per
-       feature_collection.metadata.schema.json — sources, license, coverage,
-       coordinate_system).
+  datasets/features/in/energy/power-plants.geojson  (raw points, all India)
+  + power-plants.geojson.metadata.json  (sidecar per
+    feature_collection.metadata.schema.json — sources, license, coverage,
+    coordinate_system).
 
-  2. datasets/indicators/in/energy/installed_mw_by_state.json  (long-form
-     rows per indicator.schema.json — only for states whose ECI code is in
-     datasets/taxonomy/entities.json; others are documented in `notes`).
+Consumer: the frontend energy-hub map. This module is the sole writer for
+both files; provenance lives in the sidecar.
 
 Per docs/research/energy-power-plants.md (v1 plan):
     upstream  = india-geodata raw GeoJSON (CC BY 4.0, attribution surfaced)
@@ -18,25 +17,22 @@ Per docs/research/energy-power-plants.md (v1 plan):
     license   = "Unspecified" verbatim per D9 (CLAUDE.md does not let us
                 upgrade a license claim without written permission upstream).
 
-The state-name normaliser maps the raw GeoJSON `state` field (which is a
-mess: 64 distinct strings ranging from "AP" to "ANDHRA PRADESH" to
-"Arunachal Pradesh") to canonical English names; the canonical names are
-joined to taxonomy/entities.json by exact match. State strings we don't
-recognise become rows in the indicator output's `notes` so a reader can
-see what got dropped.
-
-The name->ECI bridge was repointed from ``reference/in/states.json`` to
-``taxonomy/entities.json`` in Phase B of the states.json port
-(TODO/20260521-states-json-port-blocker-entities-ut-gap.md); the
-``_state_eci_lookup`` helper below projects the current state+UT slice of
-``entities.json`` (``entity_type IN ('state','ut') AND entity_valid_to IS NULL``)
-into the same ``name -> eci_code`` mapping the prior reader produced.
+History: this adapter also emitted a derived indicator artifact
+``datasets/indicators/in/energy/installed_mw_by_state.json`` (state-level
+rollup of installed MW by fuel, restricted to the TN/KL/AS/WB subset
+where ECI codes resolved). Retired in PR-A of the energy-residue triage
+(2026-05-25) — the indicator was widely cited as a *cautionary tale* in
+the indicators system (Wikipedia-derived, 4-state-only subset, ECI-code
+gated) but never grew beyond that subset; the canonical
+``energy/state_installed_capacity_by_source_mw`` series (ICED, 36 states,
+FY16-FY26) is the right successor. The state-name normaliser + the
+ECI-lookup helper that supported the rollup were removed alongside the
+indicator emission.
 """
 
 from __future__ import annotations
 
 import json
-from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -55,155 +51,11 @@ UPSTREAM_METADATA_URL = (
 UPSTREAM_AUTHORITY_URL = "https://cea.nic.in/"
 
 
-# Canonical English-name lookup for the upstream's messy `state` field.
-# Keys lowercased, whitespace collapsed. Values match the `display_name`
-# field on current state+UT rows in datasets/taxonomy/entities.json so the
-# join is by exact equality.
-#
-# This is presentation/normalisation, not a contract surface — it stays here
-# rather than going under datasets/. When entities.json grows, this map grows
-# alongside it (additive only).
-_STATE_NAME_NORMALISER: dict[str, str] = {
-    # Tamil Nadu — the only state we have an ECI code for at v1.
-    "tn": "Tamil Nadu",
-    "tamil nadu": "Tamil Nadu",
-    # Other entries kept for human readability of the fallout list, even
-    # though they don't currently resolve to ECI codes.
-    "ap": "Andhra Pradesh",
-    "andhra pradesh": "Andhra Pradesh",
-    "arunachal pradesh": "Arunachal Pradesh",
-    "ar.  pradesh": "Arunachal Pradesh",
-    "ar. pradesh": "Arunachal Pradesh",
-    "assam": "Assam",
-    "bihar": "Bihar",
-    "chattisgarh": "Chhattisgarh",
-    "chhattisgarh": "Chhattisgarh",
-    "delhi": "Delhi",
-    "goa": "Goa",
-    "gujarat": "Gujarat",
-    "haryana": "Haryana",
-    "himachal pradesh": "Himachal Pradesh",
-    "j&k": "Jammu and Kashmir (UT)",
-    "jammu & kashmir": "Jammu and Kashmir (UT)",
-    "jammu and kashmir": "Jammu and Kashmir (UT)",
-    "jharkhand": "Jharkhand",
-    "karnataka": "Karnataka",
-    "kerala": "Kerala",
-    "madhya pradesh": "Madhya Pradesh",
-    "maharashtra": "Maharashtra",
-    "manipur": "Manipur",
-    "meghalaya": "Meghalaya",
-    "mizoram": "Mizoram",
-    "nagaland": "Nagaland",
-    "odisha": "Odisha",
-    "orissa": "Odisha",
-    "punjab": "Punjab",
-    "rajasthan": "Rajasthan",
-    "sikkim": "Sikkim",
-    "telangana": "Telangana",
-    "tripura": "Tripura",
-    "uttar pradesh": "Uttar Pradesh",
-    "uttarakhand": "Uttarakhand",
-    "uttaranchal": "Uttarakhand",
-    "west bengal": "West Bengal",
-    "a&n islands": "Andaman and Nicobar Islands",
-    "andaman and nicobar islands": "Andaman and Nicobar Islands",
-    "chandigarh": "Chandigarh",
-    "dadra & nagar haveli": "Dadra and Nagar Haveli and Daman and Diu",
-    "daman & diu": "Dadra and Nagar Haveli and Daman and Diu",
-    "lakshadweep": "Lakshadweep",
-    "puducherry": "Puducherry",
-    "ladakh": "Ladakh",
-}
-
-
 @dataclass(frozen=True)
 class IngestPaths:
     """POSIX-relative paths the ingest will write."""
     geojson: Path
     sidecar: Path
-    indicator: Path
-
-
-def _normalise_state(raw: str | None) -> str | None:
-    """Return canonical English name or None if the raw string is unknown."""
-    if not raw:
-        return None
-    key = " ".join(raw.strip().lower().split())
-    return _STATE_NAME_NORMALISER.get(key)
-
-
-def _to_mw(raw: Any) -> float | None:
-    """Coerce upstream `inst_cap` to MW float; None on missing/garbage."""
-    if raw is None:
-        return None
-    try:
-        v = float(str(raw).strip())
-    except (TypeError, ValueError):
-        return None
-    return v if v > 0 else None
-
-
-def _state_eci_lookup(states_json_path: Path) -> dict[str, str]:
-    """Return name → ECI code map from datasets/taxonomy/entities.json.
-
-    Filter: ``entity_type IN ('state', 'ut') AND entity_valid_to IS NULL``
-    (current state+UT slice). Keys are the canonical ``display_name`` values
-    that the upstream normaliser map targets; values are ``entity_code``.
-    """
-    doc = json.loads(states_json_path.read_text(encoding="utf-8"))
-    out: dict[str, str] = {}
-    for e in doc.get("entities", []):
-        if e.get("entity_type") not in ("state", "ut"):
-            continue
-        if e.get("entity_valid_to") is not None:
-            continue
-        code = e.get("entity_code")
-        name = e.get("display_name")
-        if not code or not name:
-            continue
-        out[name] = code
-    return out
-
-
-@dataclass(frozen=True)
-class _RollupRow:
-    eci: str
-    fuel: str
-    mw: float
-
-
-def _rollup_by_state_fuel(
-    geojson: dict,
-    state_to_eci: dict[str, str],
-) -> tuple[list[_RollupRow], list[str]]:
-    """Aggregate plant-level capacities to (state, fuel) totals.
-
-    Returns:
-        rows: one row per (eci_code, fuel_type), sorted deterministically.
-        unresolved: distinct raw `state` strings we could not map to ECI codes.
-    """
-    bucket: dict[tuple[str, str], float] = defaultdict(float)
-    unresolved_raws: set[str] = set()
-    for feat in geojson.get("features", []):
-        props = feat.get("properties") or {}
-        raw_state = props.get("state")
-        canonical = _normalise_state(raw_state)
-        eci = state_to_eci.get(canonical) if canonical else None
-        if not eci:
-            if raw_state:
-                unresolved_raws.add(raw_state)
-            continue
-        fuel = (props.get("type") or "unknown").strip().lower() or "unknown"
-        mw = _to_mw(props.get("inst_cap"))
-        if mw is None:
-            continue
-        bucket[(eci, fuel)] += mw
-    rows = [
-        _RollupRow(eci=eci, fuel=fuel, mw=round(mw, 3))
-        for (eci, fuel), mw in sorted(bucket.items())
-    ]
-    return rows, sorted(unresolved_raws)
 
 
 def _write_geojson_payload(path: Path, geojson: dict) -> None:
@@ -224,10 +76,10 @@ def ingest(
     repo_root: Path,
     schema_dir: Path,
 ) -> IngestPaths:
-    """Fetch india-geodata energy/power-plants and emit the three artifacts.
+    """Fetch india-geodata energy/power-plants and emit geojson + sidecar.
 
     Network-bound. Idempotent: re-runs overwrite the artifacts (and re-stamp
-    fetched_at timestamps in the sidecar / indicator).
+    fetched_at timestamps in the sidecar).
     """
 
     # 1. Fetch upstream GeoJSON + metadata.
@@ -240,7 +92,6 @@ def ingest(
     paths = IngestPaths(
         geojson=repo_root / "datasets" / "features" / "in" / "energy" / "power-plants.geojson",
         sidecar=repo_root / "datasets" / "features" / "in" / "energy" / "power-plants.geojson.metadata.json",
-        indicator=repo_root / "datasets" / "indicators" / "in" / "energy" / "installed_mw_by_state.json",
     )
 
     # 3. Write the GeoJSON verbatim.
@@ -281,97 +132,4 @@ def ingest(
         schema_for_validation=sidecar_schema,
     )
 
-    # 5. Roll up to state-level installed MW by fuel and emit indicator.
-    states_json = repo_root / "datasets" / "taxonomy" / "entities.json"
-    state_to_eci = _state_eci_lookup(states_json)
-    rollup, unresolved = _rollup_by_state_fuel(geojson, state_to_eci)
-
-    indicator_schema_path = schema_dir / "indicator.schema.json"
-    indicator_schema = json.loads(indicator_schema_path.read_text(encoding="utf-8"))
-    notes = (
-        "v1: rollup is restricted to current state+UT rows in "
-        "datasets/taxonomy/entities.json (currently TN, KL, AS, WB). "
-        "Upstream covers all India; "
-        f"{len(unresolved)} distinct upstream state labels were not mapped to "
-        "ECI codes in this run and their plants are excluded from this indicator. "
-        "See docs/research/energy-power-plants.md for v2 plans (CEA direct + "
-        "expanded entities coverage)."
-    )
-    indicator_payload: dict[str, Any] = {
-        "license": {
-            "id": "Unspecified",
-            "name": "Unspecified",
-            "url": None,
-            "redistributable": None,
-        },
-        "coverage": {
-            "spatial": "Subset of India (states with ECI codes resolved at emit time)",
-            "temporal": (upstream_meta.get("coverage") or {}).get("temporal") or "unknown",
-            "admin_level": "state",
-        },
-        "indicator": {
-            "id": "energy/installed_mw_by_state",
-            "title": "Installed power capacity by state",
-            "description": (
-                "Total installed electricity-generation capacity in megawatts, "
-                "rolled up by state and faceted by fuel type. Source data is a "
-                "snapshot — see `coverage.temporal`."
-            ),
-            "entity_kind": "state",
-            "time_grain": "year",
-            "value_kind": "raw",
-            "direction": "neutral",
-            "scale_hint": "linear",
-            "unit": "MW",
-            "denominator": None,
-            "notes": notes,
-        },
-        "rows": [
-            {
-                "entity_id": r.eci,
-                "time": _temporal_to_year(
-                    (upstream_meta.get("coverage") or {}).get("temporal"),
-                    default_year=str(meta_res.fetched_at.year),
-                ),
-                "value": r.mw,
-                "facet": r.fuel,
-            }
-            for r in rollup
-        ],
-    }
-    if not indicator_payload["rows"]:
-        # Schema requires minItems: 1. Surface a single null-valued sentinel
-        # row so the artifact still ships with provenance + license.
-        indicator_payload["rows"] = [
-            {"entity_id": "S22", "time": "2019", "value": None, "facet": None}
-        ]
-    write_artifact(
-        path=paths.indicator,
-        schema_id=indicator_schema["$id"],
-        schema_version=indicator_schema["x-version"],
-        payload=indicator_payload,
-        sources=[
-            Source(url=geo_res.url, fetched_at=geo_res.fetched_at),
-            Source(url=meta_res.url, fetched_at=meta_res.fetched_at),
-            Source(url=UPSTREAM_AUTHORITY_URL, fetched_at=meta_res.fetched_at),
-        ],
-        schema_for_validation=indicator_schema,
-    )
-
     return paths
-
-
-def _temporal_to_year(temporal: str | None, *, default_year: str) -> str:
-    """Best-effort extraction of a YYYY string from upstream's free-form temporal coverage.
-
-    ``default_year`` is required and must be derived from a source-related
-    timestamp (typically ``meta_res.fetched_at.year``); using
-    ``datetime.now().year`` here would leak operator wall-clock into
-    artifact content (CLAUDE.md §10 anti-pattern).
-    """
-    if not temporal:
-        return default_year
-    digits = "".join(ch for ch in temporal if ch.isdigit())
-    if len(digits) >= 4 and digits[:4].isdigit():
-        return digits[:4]
-    return default_year

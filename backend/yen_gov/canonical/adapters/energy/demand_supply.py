@@ -63,7 +63,7 @@ Phase A (PR #119 — additive FY25 on canonical via shard fetch),
 Phase B (PR #171 — frontend ``IndicatorCard`` reader-switch to
 canonical Parquet via DuckDB-WASM allowlist seam), Phase C (this PR —
 backend lift drops the shard dependency), Phase D (``git rm`` shards
-+ scrub ``datasets/_ops/legacy-folded-indicator-shards.txt`` lines 79
++ scrub ``datasets/_ops/meadow-shard-contract.txt`` lines 79
 + 87 + drop docs rows). See plan-doc §3 C4.7 for the descope
 narrative and the four-phase rollout.
 """

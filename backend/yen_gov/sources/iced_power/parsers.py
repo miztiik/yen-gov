@@ -1,6 +1,6 @@
 """Pure parsers for the ICED power-sector adapter.
 
-Five parsers, one per emitted indicator. Each consumes one already-
+Four parsers, one per emitted indicator. Each consumes one already-
 fetched response (decrypted dict for the AES endpoints,
 already-JSON-parsed list/dict for the v1 JSON-direct endpoints) and
 returns ``list[dict]`` of canonical indicator rows ready for
@@ -9,9 +9,7 @@ returns ``list[dict]`` of canonical indicator rows ready for
 ICED-specific quirks every parser handles:
 
 * Year format is ``"YYYY-YY"`` (Indian fiscal year) for the per-state
-  state-wise feeds, and ``"YYYY"`` (calendar year) for the pipeline
-  feed. We normalise to ``YYYY-04`` for fiscal_year indicators and
-  bare ``YYYY`` for the year-grain indicator.
+  state-wise feeds. We normalise to ``YYYY-04`` for fiscal_year indicators.
 * State names that don't map to any ECI code (e.g. legacy spellings
   not yet in :data:`ENTITY_MAP`, or aggregate rows like "All India"
   on a state-only feed) are dropped silently with a counter so the
@@ -201,50 +199,4 @@ def parse_retired_capacity(decrypted: Any) -> list[dict[str, Any]]:
         if cap is None:
             continue
         rows.append(parser_kit.row(entity_id="IN", time=period, value=cap, facet=source))
-    return parser_kit.dedup_sort(rows)
-
-
-# ---------------------------------------------------------------------------
-# 5. plantPipelineInfo â†’ india_capacity_pipeline_gw
-# ---------------------------------------------------------------------------
-
-
-def parse_pipeline(decrypted: Any) -> list[dict[str, Any]]:
-    """Parse ``/v1/plantPipelineInfo`` â†’ national rows (entity_id="IN").
-
-    Expected shape: ``{"category": ["YYYY", ...], "seriesData": [{"name": str, "data": [num, ...]}, ...]}``.
-    Time grain is calendar year. Faceted by series name (e.g.
-    ``"Under Construction and likely to be commissioned"`` vs
-    ``"Under Construction but on Hold"``).
-    """
-    if not isinstance(decrypted, dict):
-        raise ICEDShapeError(
-            f"plantPipelineInfo: expected top-level dict, got {type(decrypted).__name__}"
-        )
-    category = decrypted.get("category")
-    series = decrypted.get("seriesData")
-    if not isinstance(category, list) or not isinstance(series, list):
-        raise ICEDShapeError(
-            "plantPipelineInfo: missing 'category' or 'seriesData' arrays"
-        )
-
-    years = [parser_kit.fy_to_period(y, time_grain="year") for y in category]
-    rows: list[dict[str, Any]] = []
-    for s in series:
-        if not isinstance(s, dict):
-            continue
-        name = s.get("name")
-        data = s.get("data")
-        if not isinstance(name, str) or not isinstance(data, list):
-            continue
-        for i, raw in enumerate(data):
-            if i >= len(years):
-                break
-            period = years[i]
-            if period is None:
-                continue
-            value = coerce_numeric(raw)
-            if value is None:
-                continue
-            rows.append(parser_kit.row(entity_id="IN", time=period, value=value, facet=name))
     return parser_kit.dedup_sort(rows)

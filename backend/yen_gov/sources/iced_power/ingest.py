@@ -3,7 +3,7 @@
 Fetches each upstream once (some live on the bare host, some under
 ``/v1``; a couple are AES-encrypted, two are JSON-direct), routes each
 response through the matching pure parser in :mod:`.parsers`, and emits
-five schema-conformant indicator artifacts under
+four schema-conformant indicator artifacts under
 ``datasets/indicators/in/energy/``.
 """
 from __future__ import annotations
@@ -19,7 +19,6 @@ from yen_gov.sources.iced_common import IcedClient
 
 from .parsers import (
     parse_capacity_metatable,
-    parse_pipeline,
     parse_power_statistics,
     parse_retired_capacity,
 )
@@ -224,43 +223,6 @@ def _indicator_india_retired_capacity() -> dict[str, Any]:
     }
 
 
-def _indicator_india_pipeline() -> dict[str, Any]:
-    return {
-        "id": "energy/india_capacity_pipeline_gw",
-        "title": "India under-construction electricity capacity pipeline (GW per year)",
-        "description": (
-            "National total of generating capacity that is either under "
-            "construction and on track, or under construction but on hold, "
-            "by year of expected commissioning. Reads forward in time as "
-            "well as backward — the citizen sees what is in the pipeline "
-            "for the rest of the decade, not just what already exists."
-        ),
-        "entity_kind": "country",
-        "time_grain": "year",
-        "value_kind": "count",
-        "direction": "neutral",
-        "scale_hint": "linear",
-        "unit": "GW",
-        "icon": "construction",
-        "attribution_geography": "where_produced",
-        "comparability": "comparable_across_states",
-        "implementing_authority": "joint",
-        "methodology_vintage": (
-            "ICED plantPipelineInfo endpoint (CEA monthly status review). "
-            "Forward-year values are expectations and revise frequently."
-        ),
-        "chart_type": "stacked-trend",
-        "default_mode": "absolute",
-        "notes": (
-            "National only. Faceted by status — 'Under Construction and "
-            "likely to be commissioned' vs 'Under Construction but on "
-            "Hold'. Forward-year values move month to month as projects "
-            "slip schedule; treat anything beyond CY+2 as planning, not "
-            "forecast."
-        ),
-    }
-
-
 # ---------------------------------------------------------------------------
 # Build descriptors — one per indicator
 # ---------------------------------------------------------------------------
@@ -333,18 +295,6 @@ def _all_builds() -> tuple[_IndicatorBuild, ...]:
             source_name="ICED — Retired Capacity Plants (NITI Aayog / CEA)",
             extract=lambda d: parse_retired_capacity(d),
         ),
-        _IndicatorBuild(
-            out_leaf="india_capacity_pipeline_gw",
-            indicator=_indicator_india_pipeline(),
-            coverage_spatial="India (national)",
-            coverage_admin_level=None,
-            api_host=API_HOST_V1,
-            api_path="/plantPipelineInfo",
-            decrypt=True,
-            page_url="https://iced.niti.gov.in/energy/electricity/capacity/upcoming",
-            source_name="ICED — Plant Pipeline Info (NITI Aayog / CEA)",
-            extract=lambda d: parse_pipeline(d),
-        ),
     )
 
 
@@ -359,7 +309,7 @@ def ingest_iced_power(
     client_v0: IcedClient | None = None,
     client_v1: IcedClient | None = None,
 ) -> IngestSummary:
-    """Fetch + emit all five energy indicator artifacts."""
+    """Fetch + emit all four energy indicator artifacts."""
     if client_v0 is None:
         client_v0 = IcedClient(host=API_HOST, runtime_root=repo_root)
     if client_v1 is None:

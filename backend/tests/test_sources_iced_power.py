@@ -13,7 +13,6 @@ import pytest
 from yen_gov.sources.iced_common import ICEDShapeError
 from yen_gov.sources.iced_power.parsers import (
     parse_capacity_metatable,
-    parse_pipeline,
     parse_power_statistics,
     parse_retired_capacity,
 )
@@ -137,35 +136,3 @@ def test_retired_capacity_accepts_bare_list_too():
         {"totalCapacity": 100, "year": "2020-21", "source": "coal"},
     ])
     assert rows == [{"entity_id": "IN", "time": "2020-04", "value": 100, "facet": "coal"}]
-
-
-# ---------------------------------------------------------------------------
-# parse_pipeline
-# ---------------------------------------------------------------------------
-
-
-def test_pipeline_zips_category_with_each_seriesData():
-    decrypted = {
-        "category": ["2024", "2025", "2026"],
-        "seriesData": [
-            {"name": "Under Construction and likely to be commissioned",
-             "data": [6.5, 3.58, 8.52]},
-            {"name": "Under Construction but on Hold",
-             "data": [0, 0, 0.5]},
-        ],
-    }
-    rows = parse_pipeline(decrypted)
-    quads = {(r["entity_id"], r["time"], r["facet"], r["value"]) for r in rows}
-    assert quads == {
-        ("IN", "2024", "Under Construction and likely to be commissioned", 6.5),
-        ("IN", "2025", "Under Construction and likely to be commissioned", 3.58),
-        ("IN", "2026", "Under Construction and likely to be commissioned", 8.52),
-        ("IN", "2024", "Under Construction but on Hold", 0),
-        ("IN", "2025", "Under Construction but on Hold", 0),
-        ("IN", "2026", "Under Construction but on Hold", 0.5),
-    }
-
-
-def test_pipeline_rejects_missing_arrays():
-    with pytest.raises(ICEDShapeError):
-        parse_pipeline({"category": ["2024"]})  # missing seriesData

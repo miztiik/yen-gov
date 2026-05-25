@@ -1311,7 +1311,7 @@ def ingest_energy_power_plants(
         help="Path to processing.json. Defaults to <root>/config/processing.json.",
     ),
 ) -> None:
-    """Ingest india-geodata energy/power-plants → features + indicator artifacts.
+    """Ingest india-geodata energy/power-plants → geojson + sidecar.
 
     Phase B of TODO/SOCIO-ECONOMIC-EXPANSION.md. See
     docs/research/energy-power-plants.md for source rationale.
@@ -1340,8 +1340,7 @@ def ingest_energy_power_plants(
     typer.echo(
         "ingest-energy-power-plants: OK\n"
         f"  geojson:   {paths.geojson}\n"
-        f"  sidecar:   {paths.sidecar}\n"
-        f"  indicator: {paths.indicator}"
+        f"  sidecar:   {paths.sidecar}"
     )
 
 

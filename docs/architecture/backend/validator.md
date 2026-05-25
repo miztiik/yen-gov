@@ -217,7 +217,7 @@ corpus walks per CLAUDE.md §10 anti-pattern).
 
 | Function | What it forbids | Allowlist input | Tests |
 | --- | --- | --- | --- |
-| `tier_b_legacy_folded_indicator_shards` | New `*.json` files under `datasets/indicators/in/`. The 110 legacy folded-indicator shards (pre-canonical-pivot artifacts) retire family-by-family per TODO/20260517 §0e.7 P.*. New content must land on the canonical Parquet store. | `datasets/_ops/legacy-folded-indicator-shards.txt` (one POSIX path per line; `#`-comments + blank lines ignored). | 6 cases — passes when allowlisted, rejects new shard, rejects orphan allowlist entry, no-op when indicators dir absent, requires allowlist when indicators dir present, regression guard that `run()` chains the check. |
+| `tier_b_meadow_shard_contract` | New `*.json` files under `datasets/indicators/in/`. The 110 legacy folded-indicator shards (pre-canonical-pivot artifacts) retire family-by-family per TODO/20260517 §0e.7 P.*. New content must land on the canonical Parquet store. | `datasets/_ops/meadow-shard-contract.txt` (one POSIX path per line; `#`-comments + blank lines ignored). | 6 cases — passes when allowlisted, rejects new shard, rejects orphan allowlist entry, no-op when indicators dir absent, requires allowlist when indicators dir present, regression guard that `run()` chains the check. |
 
 ### Shape of a forbidden-path check
 
@@ -272,7 +272,7 @@ Alternative homes considered and rejected:
    alongside `LEGACY_INDICATOR_SHARDS_*` (one DIR constant, one ALLOWLIST
    constant).
 3. Add a `tier_b_<name>(root: Path) -> list[Failure]` function modelled
-   on `tier_b_legacy_folded_indicator_shards` (see "Shape of a
+   on `tier_b_meadow_shard_contract` (see "Shape of a
    forbidden-path check" above).
 4. Chain the function into `run()`.
 5. Mirror the six Tier-A test cases in `backend/tests/test_validate.py`,
