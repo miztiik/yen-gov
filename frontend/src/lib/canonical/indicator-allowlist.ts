@@ -290,6 +290,14 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       notes:
         "Read alongside generation (state-electricity-generation-gwh): generation MINUS sales = absolute AT&C loss. 1 MU (million unit) = 1 GWh; the unit relabel is dimensionally identical.",
     },
+    // PR-I (Row 5 PR-1): Hans-curated caveats for the AT&C-decomposition cohort.
+    // Sales-MU is the absolute-MU denominator; 3 distribution-efficiency cards
+    // (billing / collection / T&D loss) decompose AT&C into commercial + technical halves.
+    caveats: [
+      "Sales is the absolute MU billed; Generation MINUS Sales = absolute AT&C loss. A state at 80,000 MU sales with 100,000 MU generation has 20% AT&C; pair with generation on this topic to read the gap, not the level.",
+      "1 MU = 1 GWh; the unit relabel is dimensionally identical. State energy department dashboards quote MU; CEA quotes GWh; treat as the same number when reconciling Punjab or Tamil Nadu state-PR figures against CEA national tables.",
+      "Sales includes intra-state imports, so consumption can exceed in-state generation; Delhi, Goa and Punjab buy heavily from the central pool. Don't read high sales as a proxy for high in-state generation capacity.",
+    ],
   },
 
   // --- PR-G 2: Aggregate Technical & Commercial losses (%), ICED state-wise deep-dive ---
@@ -848,6 +856,14 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       notes:
         "Complement of billing-side losses (theft, unmetered consumption, under-billing). Together with collection efficiency, decomposes the commercial half of AT&C losses: AT&C loss ≈ 1 − (billing × collection / 100).",
     },
+    // PR-I (Row 5 PR-1): Hans-curated caveats. Billing efficiency is the first
+    // commercial half of the AT&C decomposition; pair with collection efficiency
+    // and T&D loss below to recover the full AT&C loss identity.
+    caveats: [
+      "This is the COMMERCIAL half of AT&C decomposition: AT&C loss approx 1 - (billing x collection / 100). A state at 85% billing and 95% collection still leaks ~19% AT&C; pair with collection efficiency and T&D loss on this topic to see the full leak.",
+      "The gap below 100% bundles theft, unmetered consumption, unauthorised connections, and under-billing of subsidised categories. Punjab's agricultural pumping is largely unmetered and shown as 'assessed' load; treat Punjab's low billing as policy choice, not enforcement failure.",
+      "Higher is better, but a state at 92% may have ring-fenced industrial feeders (high metering) while rural and agricultural feeders stay unmetered. Split by consumer category before ranking Gujarat against Bihar on the same scale.",
+    ],
   },
 
   // --- 14: Distribution collection efficiency (%), NITI ICED operational performance ---
@@ -876,6 +892,14 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       notes:
         "Captures how much of the energy that WAS billed got paid for. Low collection often reflects high accounts-receivable days on government / agricultural / municipal consumer categories.",
     },
+    // PR-I (Row 5 PR-1): Hans-curated caveats. Collection efficiency is the second
+    // commercial half of the AT&C decomposition; reads as a weighted average and
+    // often hides government-departmental arrears spikes.
+    caveats: [
+      "This is the second COMMERCIAL half of AT&C: of every rupee billed, what share got paid. A state at 95% headline collection can be effectively below 80% if government-departmental arrears (PWD, municipal corporations) are separated from retail.",
+      "Bihar and Uttar Pradesh have a history of settling municipal and state-department overdues via state-government bond issuances; collection can JUMP in a single year on settlement, not behaviour. Annotate the methodology break before reading the trend.",
+      "Low collection often concentrates in agricultural, government and municipal consumer categories rather than domestic/commercial; treat a state's collection as a weighted average and ask the discom for the per-category breakdown before drawing policy conclusions.",
+    ],
   },
 
   // --- 15: Distribution T&D loss (%), NITI ICED operational performance ---
@@ -904,6 +928,13 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       notes:
         "T&D loss + commercial-loss = AT&C loss. Where AT&C is a comprehensive ledger of revenue leakage, T&D isolates the part attributable to physical infrastructure (line losses, transformer inefficiency). Older meters and longer rural feeders correlate with higher T&D loss; sub-station upgrades and HVDS rollout drive it down.",
     },
+    // PR-I (Row 5 PR-1): Hans-curated caveats. T&D loss is the TECHNICAL half of AT&C;
+    // can fall while AT&C stays high if commercial losses dominate (the Bihar mid-2010s case).
+    caveats: [
+      "This is the TECHNICAL half of AT&C: line heat, transformer inefficiency, ageing wires. AT&C loss = T&D loss + commercial loss; pair with billing efficiency and collection efficiency on this topic to isolate whether the problem is wires or revenue.",
+      "Rural-feeder length is the dominant technical predictor; Rajasthan and Madhya Pradesh carry high T&D partly from long radial feeders to dispersed villages. Compare T&D loss with feeder length or rural electrification share, not just with peer-state level.",
+      "T&D loss can FALL while AT&C stays high if commercial losses dominate; Bihar mid-2010s saw HVDS and feeder bifurcation cut T&D while billing/collection lagged. Treat a T&D improvement as necessary but not sufficient for AT&C turnaround.",
+    ],
   },
 
   // --- 16: RPO compliance (3 facets: solar / non-solar / total) — FIRST FACET-MULTIPLEXED ENTRY ---
