@@ -1276,6 +1276,60 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
         "Equine tagging is at the early-rollout stage; very low absolute counts. Tagged count is NOT a livestock census.",
     },
   },
+
+  // PR B.03 (2026-05-25) — first district-grain allowlist entry. SMOKE
+  // PROOF of the B.01 (ADR-0043 auto-rollup writer) + B.02
+  // (entityKindToAdminLevel dispatch helper) pipeline. The district
+  // canonical rows are the SOURCE-OF-TRUTH per ADR-0043; the state-grain
+  // descriptor above is the SUM aggregate auto-emitted by the same
+  // adapter run. With this descriptor, `loadIndicator()` returns an
+  // IndicatorArtifact whose `coverage.admin_level === "district"` (via
+  // the B.02 dispatch helper) and whose `rows[].entity_id` carries the
+  // legacy `S<n>-D<lgd>` / `U<n>-D<lgd>` district-id form (via
+  // `canonicalEntityToLegacy`'s `slice(3)`).
+  //
+  // NOT YET WIRED into `topics.json` — `IndicatorChoropleth.svelte` only
+  // supports `entity_kind === "state"` today (the only national boundary
+  // layer in production). A national district-grain choropleth (or a
+  // district-grain extension to IndicatorChoropleth) is the next
+  // architectural PR in the livestock B-series. Until that lands, this
+  // descriptor proves the data plumbing end-to-end through unit tests
+  // (see "buildIndicatorArtifact — district-grain (PR B.03 smoke
+  // proof)" describe block in indicator-from-canonical.test.ts) without
+  // introducing a broken citizen surface.
+  //
+  // Cattle is the first district species because it has the highest
+  // district coverage at 758 districts (PR 3 / 281 lift summary), the
+  // clearest choropleth signal, and matches the state-grain default
+  // species on /t/agriculture — the same indicator at two grains.
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/district_pashu_aadhaar_count_cattle",
+    canonical_indicator_id: "district-pashu-aadhaar-count-cattle",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "district-pashu-aadhaar-count-cattle",
+      title: "Cattle tagged with Pashu Aadhaar (district)",
+      description:
+        "District total of cattle issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
+      entity_kind: "district",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 758 districts with non-zero counts).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Tagged count is NOT a livestock census. Coverage varies by district within a state — even within Karnataka or Andhra Pradesh (national leaders), rollout reaches some districts before others. Read alongside the 20th Livestock Census for the denominator. This is the source-of-truth grain; state values are the SUM rollup.",
+    },
+  },
 ];
 
 const BY_LEGACY_ID = new Map(
