@@ -1440,20 +1440,26 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   // legacy `S<n>-D<lgd>` / `U<n>-D<lgd>` district-id form (via
   // `canonicalEntityToLegacy`'s `slice(3)`).
   //
-  // NOT YET WIRED into `topics.json` — `IndicatorChoropleth.svelte` only
-  // supports `entity_kind === "state"` today (the only national boundary
-  // layer in production). A national district-grain choropleth (or a
-  // district-grain extension to IndicatorChoropleth) is the next
-  // architectural PR in the livestock B-series. Until that lands, this
-  // descriptor proves the data plumbing end-to-end through unit tests
-  // (see "buildIndicatorArtifact — district-grain (PR B.03 smoke
-  // proof)" describe block in indicator-from-canonical.test.ts) without
-  // introducing a broken citizen surface.
+  // PR B.05 (#294, 2026-05-25) extended `IndicatorChoropleth.svelte` to
+  // dispatch on `artifact.coverage.admin_level`: "district" routes to the
+  // national LGD-keyed district polygon layer (INDIA_DISTRICTS, 784 rows);
+  // anything else falls through to the state layer (INDIA_STATES, 36 rows).
+  // PR B.05.f (#295) mounted the cattle district-grain card on
+  // `/t/agriculture` as the hero choropleth. Phase 3.B (this PR) extends
+  // the same pattern to the 9 other species that ship in the same
+  // `livestock_pashu_aadhaar` canonical Parquet: buffalo / goat / sheep /
+  // pig / mithun / yak / horse / donkey / mule. Each district descriptor
+  // is the source-of-truth grain (per ADR-0043); the state-grain sibling
+  // above is the SUM rollup auto-emitted in the same adapter run.
   //
-  // Cattle is the first district species because it has the highest
-  // district coverage at 758 districts (PR 3 / 281 lift summary), the
-  // clearest choropleth signal, and matches the state-grain default
-  // species on /t/agriculture — the same indicator at two grains.
+  // Cattle remains the hero (default + featured on `/t/agriculture`)
+  // because it has the highest district coverage at 758 districts and
+  // the clearest choropleth signal. The other 9 species ship at district
+  // grain on the same chapter without `default: true` / `featured: true`;
+  // a citizen drills in by clicking the species card. Sparse-coverage
+  // species (horse 6, donkey 1, mule 1) carry an explicit honesty note:
+  // the choropleth is mostly grey because the tagging programme has
+  // barely begun for these animals, not because the animals are absent.
   {
     kind: "single",
     legacy_artifact_id: "agriculture/district_pashu_aadhaar_count_cattle",
@@ -1479,7 +1485,617 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
         "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 758 districts with non-zero counts).",
       renderer_rules: ["no_rank_table"],
       notes:
-        "Tagged count is NOT a livestock census. Coverage varies by district within a state — even within Karnataka or Andhra Pradesh (national leaders), rollout reaches some districts before others. Read alongside the 20th Livestock Census for the denominator. This is the source-of-truth grain; state values are the SUM rollup.",
+        "Tagged count is NOT a livestock census. Coverage varies by district within a state -- even within Karnataka or Andhra Pradesh (national leaders), rollout reaches some districts before others. Read alongside the 20th Livestock Census for the denominator. This is the source-of-truth grain; state values are the SUM rollup.",
+    },
+  },
+
+  // --- Phase 3.B (2026-05-25) --- district-grain fan-out to 9 more species
+  // on the same `livestock_pashu_aadhaar` canonical Parquet. Each entry
+  // is the source-of-truth grain (ADR-0043); the state-grain sibling
+  // above is the SUM rollup auto-emitted in the same adapter run.
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/district_pashu_aadhaar_count_buffalo",
+    canonical_indicator_id: "district-pashu-aadhaar-count-buffalo",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "district-pashu-aadhaar-count-buffalo",
+      title: "Buffaloes tagged with Pashu Aadhaar (district)",
+      description:
+        "District total of buffaloes issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
+      entity_kind: "district",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 698 districts with non-zero counts).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Tagged count is NOT a livestock census. Buffalo tagging concentrates in the dairy belt (UP, Punjab, Haryana, Andhra Pradesh, Gujarat); North-East and tribal districts may show zero because the programme has not reached them yet, not because buffaloes are absent. Read alongside the 20th Livestock Census for the denominator. State values are the SUM rollup.",
+    },
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/district_pashu_aadhaar_count_goat",
+    canonical_indicator_id: "district-pashu-aadhaar-count-goat",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "district-pashu-aadhaar-count-goat",
+      title: "Goats tagged with Pashu Aadhaar (district)",
+      description:
+        "District total of goats issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
+      entity_kind: "district",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 598 districts with non-zero counts).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Tagged count is NOT a livestock census. Goats are a smallholder species; tagging coverage follows extension-worker presence, not goat presence. Rajasthan, West Bengal, UP lead by absolute count; districts in arid Maharashtra and Karnataka may under-report despite large goat populations. Read alongside the 20th Livestock Census for the denominator.",
+    },
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/district_pashu_aadhaar_count_sheep",
+    canonical_indicator_id: "district-pashu-aadhaar-count-sheep",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "district-pashu-aadhaar-count-sheep",
+      title: "Sheep tagged with Pashu Aadhaar (district)",
+      description:
+        "District total of sheep issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
+      entity_kind: "district",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 426 districts with non-zero counts).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Tagged count is NOT a livestock census. Sheep concentrate in Rajasthan, Karnataka, Andhra Pradesh, Tamil Nadu, and Jammu and Kashmir; districts outside these belts may show zero because the species is genuinely scarce there, not because tagging is missing. Read alongside the 20th Livestock Census for the denominator.",
+    },
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/district_pashu_aadhaar_count_pig",
+    canonical_indicator_id: "district-pashu-aadhaar-count-pig",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "district-pashu-aadhaar-count-pig",
+      title: "Pigs tagged with Pashu Aadhaar (district)",
+      description:
+        "District total of pigs issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
+      entity_kind: "district",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 428 districts with non-zero counts).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Tagged count is NOT a livestock census. Pig tagging concentrates in the North-East (Assam, Nagaland, Meghalaya) and Kerala; mainland districts often show zero because pig farming is genuinely small-scale there. Read alongside the 20th Livestock Census for the denominator.",
+    },
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/district_pashu_aadhaar_count_mithun",
+    canonical_indicator_id: "district-pashu-aadhaar-count-mithun",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "district-pashu-aadhaar-count-mithun",
+      title: "Mithun tagged with Pashu Aadhaar (district)",
+      description:
+        "District total of mithun issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
+      entity_kind: "district",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 232 districts with non-zero counts).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Tagged count is NOT a livestock census. Mithun (Bos frontalis) is a North-East-only species; near-total district coverage shows only in Arunachal Pradesh, Nagaland, Manipur, Mizoram. Mainland districts show zero because the species is absent, not because tagging failed. Read alongside the 20th Livestock Census for the denominator.",
+    },
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/district_pashu_aadhaar_count_yak",
+    canonical_indicator_id: "district-pashu-aadhaar-count-yak",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "district-pashu-aadhaar-count-yak",
+      title: "Yak tagged with Pashu Aadhaar (district)",
+      description:
+        "District total of yak issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
+      entity_kind: "district",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 235 districts with non-zero counts).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Tagged count is NOT a livestock census. Yak is a high-Himalayan species; coverage is concentrated in Ladakh, Himachal Pradesh, Sikkim, Arunachal Pradesh. Lower-altitude districts show zero because the species is absent, not because tagging failed. Read alongside the 20th Livestock Census for the denominator.",
+    },
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/district_pashu_aadhaar_count_horse",
+    canonical_indicator_id: "district-pashu-aadhaar-count-horse",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "district-pashu-aadhaar-count-horse",
+      title: "Horses tagged with Pashu Aadhaar (district)",
+      description:
+        "District total of horses (including ponies) issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
+      entity_kind: "district",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 6 districts with non-zero counts).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Equine tagging is at the early-rollout stage; only 6 districts nationwide report any horses tagged. The choropleth is mostly grey because the programme has barely begun for equines, not because horses are absent. Tagged count is NOT a livestock census.",
+    },
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/district_pashu_aadhaar_count_donkey",
+    canonical_indicator_id: "district-pashu-aadhaar-count-donkey",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "district-pashu-aadhaar-count-donkey",
+      title: "Donkeys tagged with Pashu Aadhaar (district)",
+      description:
+        "District total of donkeys issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
+      entity_kind: "district",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 1 district with non-zero count).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Equine tagging is at the early-rollout stage; only 1 district nationwide reports any donkeys tagged. The choropleth is almost entirely grey because the programme has barely begun for equines, not because donkeys are absent. Tagged count is NOT a livestock census.",
+    },
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/district_pashu_aadhaar_count_mule",
+    canonical_indicator_id: "district-pashu-aadhaar-count-mule",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "district-pashu-aadhaar-count-mule",
+      title: "Mules tagged with Pashu Aadhaar (district)",
+      description:
+        "District total of mules issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
+      entity_kind: "district",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 1 district with non-zero count).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Equine tagging is at the early-rollout stage; only 1 district nationwide reports any mules tagged. The choropleth is almost entirely grey because the programme has barely begun for equines, not because mules are absent. Tagged count is NOT a livestock census.",
+    },
+  },
+
+  // --- Phase 3.C-partial Owner Reg (2026-05-25) --- 2 facet-multiplexed
+  // parents (one per grain) fanning out to 6 landholding-bracket children
+  // each. Catalogue parent is compute-on-read (parent_indicator_id=null,
+  // zero canonical rows); the renderer SUMs children to materialise the
+  // parent value. Landholding brackets aligned with Agriculture Census
+  // 2015-16. `not_specified` aggregates rows where the owner did not
+  // self-declare a holding size. The composite gender axis was collapsed
+  // at adapter time (Phase 2.A) per Hans honest-renderer rule.
+  // State-grain auto-summed from district children per ADR-0043.
+  {
+    kind: "facet-multiplexed",
+    legacy_artifact_id: "agriculture/state_livestock_owner_reg_count",
+    canonical_parent_indicator_id: "state-livestock-owner-reg-count",
+    table_id: "livestock.livestock_owner_registration",
+    facet_axis_id: "landholding",
+    facet_values: [
+      {
+        canonical_child_id: "state-livestock-owner-reg-count-landless-marginal",
+        legacy_facet_label: "landless_marginal",
+      },
+      {
+        canonical_child_id: "state-livestock-owner-reg-count-small",
+        legacy_facet_label: "small",
+      },
+      {
+        canonical_child_id: "state-livestock-owner-reg-count-semi-medium",
+        legacy_facet_label: "semi_medium",
+      },
+      {
+        canonical_child_id: "state-livestock-owner-reg-count-medium",
+        legacy_facet_label: "medium",
+      },
+      {
+        canonical_child_id: "state-livestock-owner-reg-count-large",
+        legacy_facet_label: "large",
+      },
+      {
+        canonical_child_id: "state-livestock-owner-reg-count-not-specified",
+        legacy_facet_label: "not_specified",
+      },
+    ],
+    meta: {
+      id: "state-livestock-owner-reg-count",
+      title: "Registered livestock owners, by landholding (state)",
+      description:
+        "Number of livestock owners registered under NDLM Bharat Pashudhan, broken out by landholding bracket. State-grain SUM rollup auto-emitted from district children per ADR-0043. Landholding bracket is the citizen-meaningful axis: landless / marginal smallholders are the dominant register; large landholders the smallest cohort.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "owners",
+      short_unit: "owners",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getOwnerRegLandHoldingDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). Landholding brackets aligned with Agriculture Census 2015-16. `not_specified` aggregates rows where the owner did not self-declare a holding size.",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Registered owners is NOT total owners. The bulk of the register is `not_specified` because the registration form does not require a holding declaration; do not read the 5 named brackets as the only owners. Composite gender axis collapsed at Phase 2.A adapter time. State-grain auto-summed from district children per ADR-0043.",
+    },
+  },
+  {
+    kind: "facet-multiplexed",
+    legacy_artifact_id: "agriculture/district_livestock_owner_reg_count",
+    canonical_parent_indicator_id: "district-livestock-owner-reg-count",
+    table_id: "livestock.livestock_owner_registration",
+    facet_axis_id: "landholding",
+    facet_values: [
+      {
+        canonical_child_id: "district-livestock-owner-reg-count-landless-marginal",
+        legacy_facet_label: "landless_marginal",
+      },
+      {
+        canonical_child_id: "district-livestock-owner-reg-count-small",
+        legacy_facet_label: "small",
+      },
+      {
+        canonical_child_id: "district-livestock-owner-reg-count-semi-medium",
+        legacy_facet_label: "semi_medium",
+      },
+      {
+        canonical_child_id: "district-livestock-owner-reg-count-medium",
+        legacy_facet_label: "medium",
+      },
+      {
+        canonical_child_id: "district-livestock-owner-reg-count-large",
+        legacy_facet_label: "large",
+      },
+      {
+        canonical_child_id: "district-livestock-owner-reg-count-not-specified",
+        legacy_facet_label: "not_specified",
+      },
+    ],
+    meta: {
+      id: "district-livestock-owner-reg-count",
+      title: "Registered livestock owners, by landholding (district)",
+      description:
+        "District total of livestock owners registered under NDLM Bharat Pashudhan, broken out by landholding bracket. Source-of-truth grain per ADR-0043; the state-grain sibling is the SUM rollup auto-emitted in the same canonical adapter run.",
+      entity_kind: "district",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "owners",
+      short_unit: "owners",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getOwnerRegLandHoldingDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). Landholding brackets aligned with Agriculture Census 2015-16. `not_specified` aggregates rows where the owner did not self-declare a holding size. 741 districts with non-zero counts.",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Registered owners is NOT total owners. The bulk of the register is `not_specified` because the registration form does not require a holding declaration; do not read the 5 named brackets as the only owners. Composite gender axis collapsed at Phase 2.A adapter time. This is the source-of-truth grain; state values are the SUM rollup.",
+    },
+  },
+
+  // --- Phase 3.C-partial NAIP IV (2026-05-25) --- 8 single descriptors,
+  // one per metric family per grain. No parent indicator (units differ
+  // across families: events vs calves vs farmers). NAIP IV is a SELECT-
+  // DISTRICT programme: 8 states/UTs report zero coverage upstream
+  // (Kerala, Punjab, Puducherry, Chandigarh, Delhi, Lakshadweep, A&N,
+  // D&NH+D&D); this is NOT a defect. For `calves_born`, the sex axis was
+  // collapsed via SUM at Phase 2.C adapter time. State-grain auto-summed
+  // from district children per ADR-0043.
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/state_livestock_naip_iv_inseminations",
+    canonical_indicator_id: "state-livestock-naip-iv-inseminations",
+    table_id: "livestock.livestock_naip_iv",
+    meta: {
+      id: "state-livestock-naip-iv-inseminations",
+      title: "NAIP IV: artificial inseminations done (state)",
+      description:
+        "Number of artificial inseminations delivered under the National Artificial Insemination Programme IV. State-grain SUM rollup auto-emitted from district children per ADR-0043. Counts the procedure event, not unique animals.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "inseminations",
+      short_unit: "AIs",
+      icon: "activity",
+      attribution_geography: "where_administered",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan NAIP IV endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). 588 districts in 28 reporting states/UTs.",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "NAIP IV is a SELECT-DISTRICT programme; 8 states/UTs report zero coverage upstream (Kerala, Punjab, Puducherry, Chandigarh, Delhi, Lakshadweep, A&N, D&NH+D&D). This is NOT a defect. Counts events, not animals: one cow may receive multiple AIs in a season. State-grain auto-summed from district children per ADR-0043.",
+    },
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/district_livestock_naip_iv_inseminations",
+    canonical_indicator_id: "district-livestock-naip-iv-inseminations",
+    table_id: "livestock.livestock_naip_iv",
+    meta: {
+      id: "district-livestock-naip-iv-inseminations",
+      title: "NAIP IV: artificial inseminations done (district)",
+      description:
+        "District total of artificial inseminations delivered under the National Artificial Insemination Programme IV. Source-of-truth grain per ADR-0043; the state-grain sibling is the SUM rollup auto-emitted in the same canonical adapter run.",
+      entity_kind: "district",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "inseminations",
+      short_unit: "AIs",
+      icon: "activity",
+      attribution_geography: "where_administered",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan NAIP IV endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). 588 districts with non-zero counts.",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "NAIP IV is a SELECT-DISTRICT programme; 8 states/UTs report zero coverage upstream (Kerala, Punjab, Puducherry, Chandigarh, Delhi, Lakshadweep, A&N, D&NH+D&D). The choropleth is grey across those states because the programme is absent there, not because districts failed to report. Counts events, not animals.",
+    },
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/state_livestock_naip_iv_pregnancy_diagnoses",
+    canonical_indicator_id: "state-livestock-naip-iv-pregnancy-diagnoses",
+    table_id: "livestock.livestock_naip_iv",
+    meta: {
+      id: "state-livestock-naip-iv-pregnancy-diagnoses",
+      title: "NAIP IV: pregnancy diagnoses (state)",
+      description:
+        "Number of pregnancy diagnoses performed on inseminated animals under the National Artificial Insemination Programme IV. State-grain SUM rollup auto-emitted from district children per ADR-0043. The intermediate outcome between insemination and calf-born.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "diagnoses",
+      short_unit: "PDs",
+      icon: "activity",
+      attribution_geography: "where_administered",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan NAIP IV endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). 588 districts in 28 reporting states/UTs.",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "NAIP IV is a SELECT-DISTRICT programme; 8 states/UTs report zero coverage upstream. The diagnosis-to-insemination ratio is usually ~10% (only a fraction of AIs result in pregnancy, and not all are diagnosed); cross-state ratios reflect both biology and field-staff diligence. State-grain auto-summed from district children per ADR-0043.",
+    },
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/district_livestock_naip_iv_pregnancy_diagnoses",
+    canonical_indicator_id: "district-livestock-naip-iv-pregnancy-diagnoses",
+    table_id: "livestock.livestock_naip_iv",
+    meta: {
+      id: "district-livestock-naip-iv-pregnancy-diagnoses",
+      title: "NAIP IV: pregnancy diagnoses (district)",
+      description:
+        "District total of pregnancy diagnoses performed on inseminated animals under the National Artificial Insemination Programme IV. Source-of-truth grain per ADR-0043; the state-grain sibling is the SUM rollup auto-emitted in the same canonical adapter run.",
+      entity_kind: "district",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "diagnoses",
+      short_unit: "PDs",
+      icon: "activity",
+      attribution_geography: "where_administered",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan NAIP IV endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). 588 districts with non-zero counts.",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "NAIP IV is a SELECT-DISTRICT programme; 8 states/UTs report zero coverage upstream. The diagnosis-to-insemination ratio is usually ~10%; cross-district ratios reflect both biology and field-staff diligence. This is the source-of-truth grain.",
+    },
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/state_livestock_naip_iv_calves_born",
+    canonical_indicator_id: "state-livestock-naip-iv-calves-born",
+    table_id: "livestock.livestock_naip_iv",
+    meta: {
+      id: "state-livestock-naip-iv-calves-born",
+      title: "NAIP IV: calves born (state)",
+      description:
+        "Number of calves born from NAIP IV inseminations. State-grain SUM rollup auto-emitted from district children per ADR-0043. The final outcome of the programme chain (insemination -> pregnancy diagnosis -> calf born).",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "calves",
+      short_unit: "calves",
+      icon: "users",
+      attribution_geography: "where_administered",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan NAIP IV endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). Sex axis (male/female) collapsed via SUM at Phase 2.C adapter time. 588 districts in 28 reporting states/UTs.",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "NAIP IV is a SELECT-DISTRICT programme; 8 states/UTs report zero coverage upstream. Calf count reports both sexes; sex-disaggregated lift deferred to a future Phase. The calf-to-insemination ratio is usually well under 5% (most AIs do not result in a born calf within FY). State-grain auto-summed from district children per ADR-0043.",
+    },
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/district_livestock_naip_iv_calves_born",
+    canonical_indicator_id: "district-livestock-naip-iv-calves-born",
+    table_id: "livestock.livestock_naip_iv",
+    meta: {
+      id: "district-livestock-naip-iv-calves-born",
+      title: "NAIP IV: calves born (district)",
+      description:
+        "District total of calves born from NAIP IV inseminations. Source-of-truth grain per ADR-0043; the state-grain sibling is the SUM rollup auto-emitted in the same canonical adapter run.",
+      entity_kind: "district",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "calves",
+      short_unit: "calves",
+      icon: "users",
+      attribution_geography: "where_administered",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan NAIP IV endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). Sex axis (male/female) collapsed via SUM at Phase 2.C adapter time. 588 districts with non-zero counts.",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "NAIP IV is a SELECT-DISTRICT programme; 8 states/UTs report zero coverage upstream. Calf count reports both sexes; sex-disaggregated lift deferred. This is the source-of-truth grain.",
+    },
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/state_livestock_naip_iv_farmers_benefitted",
+    canonical_indicator_id: "state-livestock-naip-iv-farmers-benefitted",
+    table_id: "livestock.livestock_naip_iv",
+    meta: {
+      id: "state-livestock-naip-iv-farmers-benefitted",
+      title: "NAIP IV: farmers benefitted (state)",
+      description:
+        "Number of distinct farmers who availed at least one NAIP IV insemination service. State-grain SUM rollup auto-emitted from district children per ADR-0043. Counts farmers (people), not animals or events.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "farmers",
+      short_unit: "farmers",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan NAIP IV endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). 588 districts in 28 reporting states/UTs.",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "NAIP IV is a SELECT-DISTRICT programme; 8 states/UTs report zero coverage upstream. Counts distinct farmers per district per FY; a farmer counted in multiple districts (rare) inflates the SUM rollup. State-grain auto-summed from district children per ADR-0043 with that small caveat.",
+    },
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/district_livestock_naip_iv_farmers_benefitted",
+    canonical_indicator_id: "district-livestock-naip-iv-farmers-benefitted",
+    table_id: "livestock.livestock_naip_iv",
+    meta: {
+      id: "district-livestock-naip-iv-farmers-benefitted",
+      title: "NAIP IV: farmers benefitted (district)",
+      description:
+        "District total of distinct farmers who availed at least one NAIP IV insemination service. Source-of-truth grain per ADR-0043; the state-grain sibling is the SUM rollup auto-emitted in the same canonical adapter run.",
+      entity_kind: "district",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "farmers",
+      short_unit: "farmers",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan NAIP IV endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). 588 districts with non-zero counts.",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "NAIP IV is a SELECT-DISTRICT programme; 8 states/UTs report zero coverage upstream. Counts distinct farmers per district per FY. This is the source-of-truth grain.",
     },
   },
 ];
