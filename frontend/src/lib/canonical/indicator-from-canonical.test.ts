@@ -1614,3 +1614,229 @@ describe("PR B.01 — livestock NDLM Pashu Aadhaar state-grain (10 species)", ()
     }
   });
 });
+
+describe("Phase 3.B - district-grain Pashu Aadhaar fan-out (9 species)", () => {
+  // Phase 3.B extends the cattle district descriptor (PR B.03 / B.05.f) to
+  // the 9 other species that ship in the same `livestock_pashu_aadhaar`
+  // canonical Parquet. Each district descriptor is the source-of-truth
+  // grain per ADR-0043; the state-grain sibling is the SUM rollup
+  // auto-emitted in the same canonical adapter run (PR B.01).
+
+  const PR_3B: ReadonlyArray<{
+    legacy_id: string;
+    canonical_id: string;
+    species: string;
+  }> = [
+    { legacy_id: "agriculture/district_pashu_aadhaar_count_buffalo", canonical_id: "district-pashu-aadhaar-count-buffalo", species: "buffalo" },
+    { legacy_id: "agriculture/district_pashu_aadhaar_count_goat",    canonical_id: "district-pashu-aadhaar-count-goat",    species: "goat"    },
+    { legacy_id: "agriculture/district_pashu_aadhaar_count_sheep",   canonical_id: "district-pashu-aadhaar-count-sheep",   species: "sheep"   },
+    { legacy_id: "agriculture/district_pashu_aadhaar_count_pig",     canonical_id: "district-pashu-aadhaar-count-pig",     species: "pig"     },
+    { legacy_id: "agriculture/district_pashu_aadhaar_count_mithun",  canonical_id: "district-pashu-aadhaar-count-mithun",  species: "mithun"  },
+    { legacy_id: "agriculture/district_pashu_aadhaar_count_yak",     canonical_id: "district-pashu-aadhaar-count-yak",     species: "yak"     },
+    { legacy_id: "agriculture/district_pashu_aadhaar_count_horse",   canonical_id: "district-pashu-aadhaar-count-horse",   species: "horse"   },
+    { legacy_id: "agriculture/district_pashu_aadhaar_count_donkey",  canonical_id: "district-pashu-aadhaar-count-donkey",  species: "donkey"  },
+    { legacy_id: "agriculture/district_pashu_aadhaar_count_mule",    canonical_id: "district-pashu-aadhaar-count-mule",    species: "mule"    },
+  ];
+
+  it("registers all 9 Phase 3.B district descriptors as canonical-backed", () => {
+    for (const row of PR_3B) {
+      expect(isCanonicalBacked(row.legacy_id)).toBe(true);
+    }
+  });
+
+  it("wires every Phase 3.B district slug to the expected canonical id + livestock table", () => {
+    for (const row of PR_3B) {
+      const d = getCanonicalDescriptor(row.legacy_id);
+      expect(d).not.toBeNull();
+      expect(d!.kind).toBe("single");
+      if (d!.kind === "single") {
+        expect(d!.canonical_indicator_id).toBe(row.canonical_id);
+      }
+      expect(d!.table_id).toBe("livestock.livestock_pashu_aadhaar");
+    }
+  });
+
+  it("every Phase 3.B descriptor declares district grain + Hans honest-renderer doctrine", () => {
+    for (const row of PR_3B) {
+      const d = getCanonicalDescriptor(row.legacy_id)!;
+      expect(d.meta.entity_kind).toBe("district");
+      expect(d.meta.time_grain).toBe("fiscal_year");
+      expect(d.meta.unit).toBe("animals");
+      expect(d.meta.value_kind).toBe("count");
+      expect(d.meta.comparability).toBe("directional_only");
+      expect(d.meta.renderer_rules).toContain("no_rank_table");
+      expect(d.meta.attribution_geography).toBe("where_resident");
+      expect(d.meta.title).toMatch(/district/);
+      expect(d.meta.notes).toMatch(/NOT a livestock census|early-rollout/);
+    }
+  });
+
+  it("district descriptors are distinct from their state-grain siblings", () => {
+    for (const row of PR_3B) {
+      const district = getCanonicalDescriptor(row.legacy_id)!;
+      const state = getCanonicalDescriptor(
+        row.legacy_id.replace("district_", "state_"),
+      )!;
+      expect(district.meta.id).not.toBe(state.meta.id);
+      expect(district.meta.entity_kind).toBe("district");
+      expect(state.meta.entity_kind).toBe("state");
+      expect(district.table_id).toBe(state.table_id);
+    }
+  });
+});
+
+describe("Phase 3.C-partial - Owner Registration (2 facet-multiplexed parents)", () => {
+  // Phase 3.C-partial wires the NDLM Owner Registration series. The
+  // parent indicators are zero-row in canonical (compute-on-read parents:
+  // parent_indicator_id is null in the catalogue); the renderer SUMs the
+  // 6 landholding-bracket children to materialise the parent value.
+  // Landholding brackets aligned with Agriculture Census 2015-16.
+
+  const OWNER_REG_PARENTS: ReadonlyArray<{
+    legacy_id: string;
+    canonical_parent_id: string;
+    entity_kind: "state" | "district";
+  }> = [
+    {
+      legacy_id: "agriculture/state_livestock_owner_reg_count",
+      canonical_parent_id: "state-livestock-owner-reg-count",
+      entity_kind: "state",
+    },
+    {
+      legacy_id: "agriculture/district_livestock_owner_reg_count",
+      canonical_parent_id: "district-livestock-owner-reg-count",
+      entity_kind: "district",
+    },
+  ];
+
+  const LANDHOLDING_BRACKETS: ReadonlyArray<string> = [
+    "landless_marginal",
+    "small",
+    "semi_medium",
+    "medium",
+    "large",
+    "not_specified",
+  ];
+
+  it("registers both Owner Reg parents as canonical-backed", () => {
+    for (const row of OWNER_REG_PARENTS) {
+      expect(isCanonicalBacked(row.legacy_id)).toBe(true);
+    }
+  });
+
+  it("every Owner Reg parent is a facet-multiplexed descriptor on the landholding axis", () => {
+    for (const row of OWNER_REG_PARENTS) {
+      const d = getCanonicalDescriptor(row.legacy_id);
+      expect(d).not.toBeNull();
+      expect(d!.kind).toBe("facet-multiplexed");
+      if (d!.kind === "facet-multiplexed") {
+        expect(d!.canonical_parent_indicator_id).toBe(row.canonical_parent_id);
+        expect(d!.facet_axis_id).toBe("landholding");
+        expect(d!.facet_values).toHaveLength(6);
+        const labels = d!.facet_values.map((f) => f.legacy_facet_label);
+        for (const bracket of LANDHOLDING_BRACKETS) {
+          expect(labels).toContain(bracket);
+        }
+      }
+      expect(d!.table_id).toBe("livestock.livestock_owner_registration");
+    }
+  });
+
+  it("every Owner Reg parent meta carries Hans honest-renderer doctrine", () => {
+    for (const row of OWNER_REG_PARENTS) {
+      const d = getCanonicalDescriptor(row.legacy_id)!;
+      expect(d.meta.entity_kind).toBe(row.entity_kind);
+      expect(d.meta.time_grain).toBe("fiscal_year");
+      expect(d.meta.value_kind).toBe("count");
+      expect(d.meta.unit).toBe("owners");
+      expect(d.meta.comparability).toBe("directional_only");
+      expect(d.meta.renderer_rules).toContain("no_rank_table");
+      expect(d.meta.title).toMatch(/landholding/);
+      expect(d.meta.notes).toMatch(/not_specified/);
+    }
+  });
+
+  it("Owner Reg district descriptor is distinct from state sibling but shares the fact table", () => {
+    const district = getCanonicalDescriptor(
+      "agriculture/district_livestock_owner_reg_count",
+    )!;
+    const state = getCanonicalDescriptor(
+      "agriculture/state_livestock_owner_reg_count",
+    )!;
+    expect(district.meta.id).not.toBe(state.meta.id);
+    expect(district.meta.entity_kind).toBe("district");
+    expect(state.meta.entity_kind).toBe("state");
+    expect(district.table_id).toBe(state.table_id);
+  });
+});
+
+describe("Phase 3.C-partial - NAIP IV (8 single descriptors across 4 metric families)", () => {
+  // NAIP IV is a SELECT-DISTRICT programme; 8 states/UTs report zero
+  // coverage upstream and that absence is honesty signal, not a defect.
+  // Each metric family ships at both grains (district source-of-truth +
+  // state SUM rollup per ADR-0043); units differ across families so they
+  // ship as 8 single descriptors rather than a facet-multiplexed parent.
+
+  const NAIP_IV: ReadonlyArray<{
+    legacy_id: string;
+    canonical_id: string;
+    entity_kind: "state" | "district";
+    unit: string;
+  }> = [
+    { legacy_id: "agriculture/state_livestock_naip_iv_inseminations",        canonical_id: "state-livestock-naip-iv-inseminations",        entity_kind: "state",    unit: "inseminations" },
+    { legacy_id: "agriculture/district_livestock_naip_iv_inseminations",     canonical_id: "district-livestock-naip-iv-inseminations",     entity_kind: "district", unit: "inseminations" },
+    { legacy_id: "agriculture/state_livestock_naip_iv_pregnancy_diagnoses",  canonical_id: "state-livestock-naip-iv-pregnancy-diagnoses",  entity_kind: "state",    unit: "diagnoses"     },
+    { legacy_id: "agriculture/district_livestock_naip_iv_pregnancy_diagnoses", canonical_id: "district-livestock-naip-iv-pregnancy-diagnoses", entity_kind: "district", unit: "diagnoses"     },
+    { legacy_id: "agriculture/state_livestock_naip_iv_calves_born",          canonical_id: "state-livestock-naip-iv-calves-born",          entity_kind: "state",    unit: "calves"        },
+    { legacy_id: "agriculture/district_livestock_naip_iv_calves_born",       canonical_id: "district-livestock-naip-iv-calves-born",       entity_kind: "district", unit: "calves"        },
+    { legacy_id: "agriculture/state_livestock_naip_iv_farmers_benefitted",   canonical_id: "state-livestock-naip-iv-farmers-benefitted",   entity_kind: "state",    unit: "farmers"       },
+    { legacy_id: "agriculture/district_livestock_naip_iv_farmers_benefitted", canonical_id: "district-livestock-naip-iv-farmers-benefitted", entity_kind: "district", unit: "farmers"       },
+  ];
+
+  it("registers all 8 NAIP IV descriptors as canonical-backed", () => {
+    for (const row of NAIP_IV) {
+      expect(isCanonicalBacked(row.legacy_id)).toBe(true);
+    }
+  });
+
+  it("wires every NAIP IV slug to the expected canonical id + livestock_naip_iv table", () => {
+    for (const row of NAIP_IV) {
+      const d = getCanonicalDescriptor(row.legacy_id);
+      expect(d).not.toBeNull();
+      expect(d!.kind).toBe("single");
+      if (d!.kind === "single") {
+        expect(d!.canonical_indicator_id).toBe(row.canonical_id);
+      }
+      expect(d!.table_id).toBe("livestock.livestock_naip_iv");
+    }
+  });
+
+  it("every NAIP IV descriptor carries Hans honest-renderer doctrine + select-district honesty note", () => {
+    for (const row of NAIP_IV) {
+      const d = getCanonicalDescriptor(row.legacy_id)!;
+      expect(d.meta.entity_kind).toBe(row.entity_kind);
+      expect(d.meta.time_grain).toBe("fiscal_year");
+      expect(d.meta.value_kind).toBe("count");
+      expect(d.meta.unit).toBe(row.unit);
+      expect(d.meta.comparability).toBe("directional_only");
+      expect(d.meta.renderer_rules).toContain("no_rank_table");
+      expect(d.meta.title).toMatch(/NAIP IV/);
+      expect(d.meta.notes).toMatch(/SELECT-DISTRICT/);
+    }
+  });
+
+  it("each NAIP IV metric family has matched district + state descriptors sharing the fact table", () => {
+    const families = ["inseminations", "pregnancy_diagnoses", "calves_born", "farmers_benefitted"];
+    for (const family of families) {
+      const district = getCanonicalDescriptor(`agriculture/district_livestock_naip_iv_${family}`)!;
+      const state = getCanonicalDescriptor(`agriculture/state_livestock_naip_iv_${family}`)!;
+      expect(district).not.toBeNull();
+      expect(state).not.toBeNull();
+      expect(district.meta.id).not.toBe(state.meta.id);
+      expect(district.meta.entity_kind).toBe("district");
+      expect(state.meta.entity_kind).toBe("state");
+      expect(district.table_id).toBe(state.table_id);
+      expect(district.table_id).toBe("livestock.livestock_naip_iv");
+    }
+  });
+});
