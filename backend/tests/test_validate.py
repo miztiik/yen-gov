@@ -797,12 +797,17 @@ def test_meadow_vintage_check_chained_into_run(tmp_path: Path):
 
 
 def test_meadow_producer_registry_shape(tmp_path: Path):
-    """Sanity: registry has the 3 expected energy producers and they map
-    to the canonical full producer strings used in derive_source_id."""
+    """Sanity: registry has the 3 energy producers + the 1 livestock producer,
+    each mapping to the canonical full producer strings used in derive_source_id."""
     assert MEADOW_PRODUCER_REGISTRY == {
         "cea": "Central Electricity Authority",
         "iced": "NITI Aayog India Climate & Energy Dashboard",
         "rbi": "Reserve Bank of India",
+        "ndlm": (
+            "Department of Animal Husbandry & Dairying, "
+            "Ministry of Fisheries, Animal Husbandry & Dairying, "
+            "Government of India"
+        ),
     }
 
 

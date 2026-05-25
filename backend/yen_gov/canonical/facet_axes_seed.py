@@ -505,6 +505,33 @@ FACET_AXES: list[FacetAxis] = [
             ),
         ],
     ),
+    FacetAxis(
+        axis_id="species",
+        label="Livestock species",
+        description=(
+            "Animal species axis for NDLM (National Digital Livestock "
+            "Mission, Bharat Pashudhan) indicators. Closed enum of 10 "
+            "species NDLM publishes per district per vintage. The parent "
+            "indicator (e.g. ``district-pashu-aadhaar-count``) is "
+            "compute-on-read: its value is the sum of all 10 species "
+            "children, per Hans D33.8 convention. A future vintage that "
+            "adds an 11th species MUST extend this enum AND the indicator "
+            "catalogue in lockstep."
+        ),
+        allow_compute_on_read_total=True,
+        values=[
+            FacetAxisValue(value_id="cattle",  label="Cattle"),
+            FacetAxisValue(value_id="buffalo", label="Buffalo"),
+            FacetAxisValue(value_id="yak",     label="Yak"),
+            FacetAxisValue(value_id="mithun",  label="Mithun"),
+            FacetAxisValue(value_id="sheep",   label="Sheep"),
+            FacetAxisValue(value_id="goat",    label="Goat"),
+            FacetAxisValue(value_id="pig",     label="Pig"),
+            FacetAxisValue(value_id="horse",   label="Horse"),
+            FacetAxisValue(value_id="donkey",  label="Donkey"),
+            FacetAxisValue(value_id="mule",    label="Mule"),
+        ],
+    ),
 ]
 
 

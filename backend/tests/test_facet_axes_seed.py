@@ -26,7 +26,7 @@ from yen_gov.canonical.facet_axes_seed import (
 
 
 def test_module_imports_without_validation_error() -> None:
-    """FACET_AXES literal validates as 15 well-formed axes.
+    """FACET_AXES literal validates as 16 well-formed axes.
 
     If a future edit introduces a typo (wrong field name, invalid value_id
     pattern, empty values list, label shorter than 1 char), the import at
@@ -34,7 +34,7 @@ def test_module_imports_without_validation_error() -> None:
     The assertion is a sanity check that the import path is wired.
     """
     assert isinstance(FACET_AXES, list)
-    assert len(FACET_AXES) == 15
+    assert len(FACET_AXES) == 16
     assert all(isinstance(axis, FacetAxis) for axis in FACET_AXES)
 
 
@@ -75,6 +75,8 @@ def test_expected_axes_present() -> None:
         # P.1.B (DISCOM finance + demand/supply lift).
         "efficiency_dimension",
         "rpo_segment",
+        # Path A PR 3 (livestock NDLM Pashu Aadhaar lift).
+        "species",
     }
     actual = {axis.axis_id for axis in FACET_AXES}
     assert actual == expected

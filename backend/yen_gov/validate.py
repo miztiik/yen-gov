@@ -151,6 +151,11 @@ MEADOW_PRODUCER_REGISTRY: dict[str, str] = {
     "cea": "Central Electricity Authority",
     "iced": "NITI Aayog India Climate & Energy Dashboard",
     "rbi": "Reserve Bank of India",
+    "ndlm": (
+        "Department of Animal Husbandry & Dairying, "
+        "Ministry of Fisheries, Animal Husbandry & Dairying, "
+        "Government of India"
+    ),
 }
 
 
