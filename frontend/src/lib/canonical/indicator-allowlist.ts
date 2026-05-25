@@ -226,6 +226,213 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     },
   },
 
+  // PR-G (2026-05-25) — close the 5 remaining /t/energy 404s discovered
+  // during PR-F's §13 smoke. The legacy energy topics.json block lists
+  // 5 shards with no allowlist route:
+  //   1. state_electricity_sales_mu        → state-electricity-sales-mu (single)
+  //   2. state_atc_losses_pct              → state-atc-losses-pct (single)
+  //   3. state_installed_capacity_by_source_mw      → state-installed-capacity-geographical-mw (facet-multiplexed by fuel_type)
+  //   4. state_electricity_generation_by_source_gwh → state-electricity-generation-gwh (facet-multiplexed by fuel_type)
+  //   5. state_installed_capacity_total_mw → Pattern B duplicate of
+  //      state_installed_capacity_with_alloc_mw (already routes to
+  //      state-installed-capacity-allocated-mw via entry #7). PR #222
+  //      spliced both legacy shards into one canonical FY05-FY25 series;
+  //      having two topics.json cards for the same data is citizen-noise.
+  //      This PR PRUNES (5) from topics.json rather than aliasing it,
+  //      matching the PR-F precedent (state_peak_demand_mw prune).
+  //
+  // Adapter wiring confirmed:
+  //   * distribution.py block 1 (line 87) emits state-atc-losses-pct
+  //   * distribution.py block 2 (line 102) emits state-electricity-sales-mu
+  //   * generation.py block 2 (line 77) emits state-electricity-generation-gwh-{fuel}
+  //   * installed_capacity.py block 3 (line 144) emits state-installed-capacity-geographical-mw + -{fuel} children
+  //
+  // Meta blocks sourced verbatim from datasets/taxonomy/indicators.json
+  // per the allowlist authoring doctrine (lines 47-75). Children for the
+  // two facet-multiplexed parents enumerate the 5 canonical fuel buckets
+  // (coal/gas/hydro/nuclear/renewable) that the backend adapter collapses
+  // each ICED sub-fuel category into.
+
+  // --- PR-G 1: Annual electricity sales (MU), ICED state-wise deep-dive ---
+  {
+    kind: "single",
+    legacy_artifact_id: "energy/state_electricity_sales_mu",
+    canonical_indicator_id: "state-electricity-sales-mu",
+    table_id: "energy.energy_distribution_performance",
+    meta: {
+      id: "state-electricity-sales-mu",
+      title: "Annual electricity sales (by state, MU)",
+      description:
+        "Total electricity actually billed to end-consumers (domestic + commercial + industrial + agricultural + public-lighting) in the state, in million units (MU). The gap between Generation and Sales is the absolute AT&C loss.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "MU",
+      short_unit: "MU",
+      icon: "receipt",
+      attribution_geography: "where_billed",
+      comparability: "comparable_across_states_and_time",
+      implementing_authority: "state",
+      methodology_vintage:
+        "NITI Aayog ICED state-wise deep-dive; underlying figures from PFC State Distribution Utilities report. Includes intra-state imports — consumption can exceed in-state generation.",
+      notes:
+        "Read alongside generation (state-electricity-generation-gwh): generation MINUS sales = absolute AT&C loss. 1 MU (million unit) = 1 GWh; the unit relabel is dimensionally identical.",
+    },
+  },
+
+  // --- PR-G 2: Aggregate Technical & Commercial losses (%), ICED state-wise deep-dive ---
+  {
+    kind: "single",
+    legacy_artifact_id: "energy/state_atc_losses_pct",
+    canonical_indicator_id: "state-atc-losses-pct",
+    table_id: "energy.energy_distribution_performance",
+    meta: {
+      id: "state-atc-losses-pct",
+      title: "Aggregate Technical & Commercial losses (%, by state)",
+      description:
+        "Combined technical (transmission + distribution heat / ageing losses) and commercial (theft + uncollected billing) losses as % of energy input to the distribution system. Headline discom-health metric: lower is better.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "share",
+      direction: "lower_is_better",
+      scale_hint: "linear",
+      unit: "%",
+      icon: "activity",
+      attribution_geography: "where_administered",
+      comparability: "comparable_across_states_and_time",
+      implementing_authority: "state",
+      methodology_vintage:
+        "NITI Aayog ICED state-wise deep-dive API row 'AT&C Losses'. Calculation method: PFC. Vintage updated annually with PFC report release (typically Q3 FY+1).",
+      notes:
+        "UDAY (2015) targeted all-India AT&C below 15% by 2018-19; the actual all-India figure has hovered around 15% since then. State-level dispersion is wide — Gujarat / Andhra at ~6-10%, Bihar / J&K at ~25-40%. AT&C = T&D loss + commercial loss; the three sub-components (billing / collection / T&D) are surfaced separately under state-distribution-efficiency-pct.",
+    },
+  },
+
+  // --- PR-G 3: State installed capacity by fuel (geographical basis) — facet-multiplexed ---
+  //   * Legacy shard `state_installed_capacity_by_source_mw.json` carries
+  //     ~1815 rows (state × fuel × FY16-FY26). Backend adapter
+  //     `installed_capacity.py` block 3 (line 151) collapses ICED's
+  //     sub-fuel granularity into 5 canonical buckets keyed on
+  //     `dimension_values.fuel_type ∈ {coal,gas,hydro,nuclear,renewable}`.
+  //   * Parent `state-installed-capacity-geographical-mw` carries the sum
+  //     (entry #6 above already routes the totals-only legacy slug
+  //     `state_installed_capacity_geographical_mw` to the SAME parent —
+  //     a single big-number card; this faceted entry adds the per-fuel
+  //     breakdown view via the FacetPicker primitive shipped in PR-D #277).
+  {
+    kind: "facet-multiplexed",
+    legacy_artifact_id: "energy/state_installed_capacity_by_source_mw",
+    canonical_parent_indicator_id: "state-installed-capacity-geographical-mw",
+    table_id: "energy.energy_installed_capacity",
+    facet_axis_id: "fuel_type",
+    facet_values: [
+      {
+        canonical_child_id: "state-installed-capacity-geographical-mw-coal",
+        legacy_facet_label: "coal",
+      },
+      {
+        canonical_child_id: "state-installed-capacity-geographical-mw-gas",
+        legacy_facet_label: "gas",
+      },
+      {
+        canonical_child_id: "state-installed-capacity-geographical-mw-hydro",
+        legacy_facet_label: "hydro",
+      },
+      {
+        canonical_child_id: "state-installed-capacity-geographical-mw-nuclear",
+        legacy_facet_label: "nuclear",
+      },
+      {
+        canonical_child_id: "state-installed-capacity-geographical-mw-renewable",
+        legacy_facet_label: "renewable",
+      },
+    ],
+    meta: {
+      id: "state-installed-capacity-geographical-mw",
+      title: "State installed electricity capacity, by fuel (MW, geographical basis)",
+      description:
+        "Total installed capacity physically located in the state, broken out by fuel type. 'Geographical' means every plant counts toward the state where it sits, regardless of who owns it or where the power is dispatched. Read this as 'where the steel-and-concrete sits' — NOT 'where the electricity flows to'.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "MW",
+      short_unit: "MW",
+      icon: "factory",
+      attribution_geography: "where_produced",
+      comparability: "comparable_across_states_and_time",
+      implementing_authority: "joint",
+      methodology_vintage:
+        "NITI Aayog ICED capacity-metatable rollup of CEA-published station-level capacity; harmonised across fiscal years 2015-16 onwards. Sub-fuels collapsed into 5 canonical buckets (coal / gas / hydro / nuclear / renewable) per indicator-naming.md.",
+      notes:
+        "For the share-allocated counterpart (rights to output via central-sector PPAs), see state-installed-capacity-allocated-mw. The all-India total equals the allocated total (as it must) but the per-state breakdown diverges sharply for states that import or export power through central PPAs.",
+    },
+  },
+
+  // --- PR-G 4: State electricity generation by fuel (GWh) — facet-multiplexed ---
+  //   * Legacy shard `state_electricity_generation_by_source_gwh.json` carries
+  //     ~1685 rows (state × fuel × FY16-FY26). Backend adapter `generation.py`
+  //     block 2 (line 77) collapses ICED sub-fuels into 5 canonical buckets
+  //     keyed on `dimension_values.fuel_type`.
+  //   * Parent `state-electricity-generation-gwh` carries the sum (entry
+  //     #8 from PR 7a already routes the totals-only legacy slug
+  //     `state_electricity_generation_mu` to the SAME parent — single
+  //     big-number card; this faceted entry adds the per-fuel breakdown
+  //     view via the FacetPicker primitive).
+  {
+    kind: "facet-multiplexed",
+    legacy_artifact_id: "energy/state_electricity_generation_by_source_gwh",
+    canonical_parent_indicator_id: "state-electricity-generation-gwh",
+    table_id: "energy.energy_generation",
+    facet_axis_id: "fuel_type",
+    facet_values: [
+      {
+        canonical_child_id: "state-electricity-generation-gwh-coal",
+        legacy_facet_label: "coal",
+      },
+      {
+        canonical_child_id: "state-electricity-generation-gwh-gas",
+        legacy_facet_label: "gas",
+      },
+      {
+        canonical_child_id: "state-electricity-generation-gwh-hydro",
+        legacy_facet_label: "hydro",
+      },
+      {
+        canonical_child_id: "state-electricity-generation-gwh-nuclear",
+        legacy_facet_label: "nuclear",
+      },
+      {
+        canonical_child_id: "state-electricity-generation-gwh-renewable",
+        legacy_facet_label: "renewable",
+      },
+    ],
+    meta: {
+      id: "state-electricity-generation-gwh",
+      title: "State electricity generation, by fuel (GWh)",
+      description:
+        "Per-state actual electricity generated, broken out by fuel type. The delivered counterpart to installed capacity — capacity is potential, generation is what plants actually produced. 1 MU (million unit) = 1 GWh; the unit relabel is dimensionally identical.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "GWh",
+      short_unit: "GWh",
+      icon: "zap",
+      attribution_geography: "where_produced",
+      comparability: "comparable_across_states_and_time",
+      implementing_authority: "joint",
+      methodology_vintage:
+        "NITI Aayog ICED /v1/gen-metatable-data (CEA-sourced upstream). Sub-fuels collapsed into 5 canonical buckets (coal / gas / hydro / nuclear / renewable) per indicator-naming.md.",
+      notes:
+        "Most-recent fiscal year is partial-year-actuals + forecast and may revise; treat the most-recent two FYs as preliminary. ICED's 'Others' bucket (interstate/central plants pre-allocation) is dropped because it cannot be mapped to a state choropleth honestly. Capacity-generation gap = PLF — coal capacity dominates but generation share is higher (~70%); gas is capacity-rich, generation-poor due to fuel-supply constraints.",
+    },
+  },
+
   // ---------------------------------------------------------------------------
   // PR 7a (P.1.A C5 additive reader-switch) — 8 energy descriptors.
   //
