@@ -920,57 +920,6 @@
       "license_note": "yashveeeeeeer/india-geodata states CC-BY-4.0; the underlying SoI master is governed by India's National Geospatial Policy 2022. Separate license blanket from the ramSeraph mirrors used for LGD-keyed administrative layers."
     },
     {
-      "$comment": "GAP-FILL (TN): per-village polygons keyed by LGD code, sliced from the national LGD_Villages release and split per-district. Same upstream pipeline as the districts/subdistricts entries (ramSeraph, geojsonl_7z). state_filter slices to state_lgd=33 first; split_by emits one shard per dist_lgd plus an index manifest so the frontend loader (Phase 2) does not 404-probe per district. Frontend join target: village.lgd_code field per ADR-0019 amendment.",
-      "kind": "villages",
-      "source_triple": {
-        "producer": "ramSeraph",
-        "title": "Indian Admin Boundaries (LGD-keyed)",
-        "vintage": "lgd-latest-extra1"
-      },
-      "country": "IN",
-      "state": "S22",
-      "out": "geojson/S22-villages-{dist_lgd}.geojson",
-      "source": {
-        "format": "geojsonl_7z",
-        "urls": [
-          "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/villages/LGD_Villages.geojsonl.7z"
-        ],
-        "coord_precision": 4,
-        "state_filter": {
-          "property": "state_lgd",
-          "equals": 33
-        },
-        "split_by": {
-          "property": "dist_lgd",
-          "emit_index": "S22-villages-index.json",
-          "index_schema": "boundary.villages_index.schema.json"
-        }
-      },
-      "license": "CC0-1.0",
-      "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
-      "license_note": "CC0 1.0 with requested attribution to datameet and the original government publisher (LGD/Bharatmaps). Same blanket as the existing LGD_Districts entry.",
-      "id_property": "village_lgd",
-      "name_property": "vlgname",
-      "id_property_note": "Confirm exact property names on first snapshot. coord_precision=4 (~11 m) — villages are smaller than taluks/districts so precision=3 (~110 m) would over-simplify. Per-shard byte budget enforced at write time; oversize shards are listed in the manifest record's `skipped_oversize`.",
-      "metadata": {
-        "title": "Tamil Nadu villages (per district), LGD-keyed",
-        "description": "Per-village polygons for Tamil Nadu, split per district. Geometries coordinate-rounded to 4 decimal places (~11 m) at emit time. The companion S22-villages-index.json lists which districts have a shard on disk so the frontend loader can skip 404-probing.",
-        "category": "boundaries",
-        "license": {
-          "id": "CC0-1.0",
-          "name": "Creative Commons Zero v1.0 Universal",
-          "url": "https://creativecommons.org/publicdomain/zero/1.0/",
-          "redistributable": true
-        },
-        "coverage": {
-          "spatial": "Tamil Nadu",
-          "temporal": "snapshot 2026-05-15",
-          "admin_level": "village"
-        },
-        "coordinate_system": "EPSG:4326"
-      }
-    },
-    {
       "$comment": "Lok Sabha Parliamentary Constituency boundaries for the 2024 General Election (543 numbered + 2 J&K-territory placeholders with ls_seat_code=999 = 545 features total). Boundary decisions issued by Election Commission of India (Press Note No. 23, https://elections24.eci.gov.in/docs/press-note-no-23.pdf); geometry digitised by shijithpk from the press-note PDF images via QGIS and republished at github.com/shijithpk/2024_maps_supplement under The Unlicense. Researcher-quality, NOT survey-grade -- upstream README warns 'international borders will be off, use at your own risk' so this layer is suitable for choropleth visualisation but NOT for area/distance calculation. Underlying Delimitation Commission Orders: 1976 baseline + 2008 amendment + 2022 J&K Delimitation Commission Order + 2023 Assam Delimitation Commission Order. The 2 ls_seat_code=999 features cover J&K territory claimed by India but administered by Pakistan/China -- frontend MUST render them with a distinct treatment (e.g. diagonal hatch) and never tint them with election colours; this is a cartography contract, not just a rendering preference. Delivered as a local file under datasets/ephemeral/ rather than fetched live because the upstream repo has no permalinked release artifact for the consolidated 545-feature collection (only per-state shapefiles + reconstruction scripts). The local path is the snapshot we accept; replacing it requires deliberate operator action.",
       "kind": "pc",
       "source_triple": {

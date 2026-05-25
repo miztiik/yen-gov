@@ -23,8 +23,8 @@
 | **A.1.a** Pincode directory — structural surface (no real data) | #247 | Merged | f46b02ca | Pure parser (`pincode_directory.py`) + `ResourceMeta` entry (UUID `5c2f62fe-5afa-4119-a499-fec9d604d5bd`) + Tier-A test against inline 5-col fixtures. Sufficient to unblock A.1.b; parser amended in A.1.b to handle the real 11-col upstream shape. |
 | **A.1.b** Pincode directory — ingest + emit | _pending_ | In progress | — | Operator captcha-fetched the 11-col CSV (165627 rows) into `datasets/ephemeral/all_india_pincode_directory_2025.csv`. Parser amended (5 → 11 cols; 6 new fields optional, back-compat preserved). Ingest module (`ingest_pincode.py`) parses + sorts by (pincode, officename) + writes deterministic CSV intermediate + DuckDB `read_csv` multi-thread COPY → Parquet (3.75 MB, 165627 rows, 92.6% with WGS84 lat/long, 261 invalid coord cells skipped). UPSERTs `src-8d139f840009` (Department of Posts, "All India Pincode Directory", 2025; OGL-IN-1.0; gold; issuing-authority; transcribed). Wall-time 12s on 165k rows; byte-identical across re-runs (verified SHA-256). 14 parser tests + 10 ingest tests; backend pytest 943 passed / 44 skipped / 0 failed. |
 | **A.2** Pincode polygons (national) | #254 | Merged | 39932f09 | Operator-supplied KMZ at `datasets/ephemeral/dd7bfd69-143e-462b-bfa3-2ac35d931342.kmz` (data.gov.in OGD All-India Pincode Boundary, Department of Posts, 2025). Pure stdlib KML 2.2 parser (`pincode_polygons.py`) + ingest (`ingest_pincode_polygons.py`) emit 36 per-state shards (`boundaries/in/postal/state=in_<sNN>/all.geojson`) + 1 synthetic `scope=unkeyed` shard for 17 pincodes whose state cannot be resolved via `MIN(statename) GROUP BY pincode` against the A.1.b directory parquet. 19,312 placemarks parsed; 19,295 keyed (99.91%); 17 unkeyed; largest shard TN at 5.2 MB uncompressed (well under 8 MB-gzipped PMTiles cutover). Byte-determinism verified across re-runs (SHA-256 identical for all 37 shards + boundary_layers.parquet + sources.parquet). 7th boundary source seeded (`datagovin_post_pincode_polygons_2025`, OGL-IN-1.0, gold, **issuing-authority** — first non-republisher boundary source) via `BOUNDARY_SOURCES` extension; `boundary_layers_seed.py` count assertions bumped 6→7 in lockstep. 16 parser tests + 14 ingest tests; backend pytest 973 passed / 44 skipped / 0 failed. No UI consumer yet — §13 smoke deferred per A.2 acceptance gate. |
-| **B** Subdistrict national lift (TN → 36 states/UTs) | _pending_ | In progress | — | 0.1 (#235) already supplied the subdistricts CSV. New `tools/boundaries/lift_subdistricts_national.py` (one-shot orchestrator, ~330 lines, pure stdlib + DuckDB writer) reads cached `LGD_Subdistricts.geojsonl` (6,471 features), groups by `state_lgd` property, maps to ECI state code via new `backend.yen_gov.canonical.state_lgd_resolver` (entities.json → `{state_lgd_int: ECI_code}` map; pure logic; 10 unit tests), and emits 36 per-state shards under `boundaries/in/subdistricts/state=in_<sNN>/all.geojson`. Largest shard S12 (Maharashtra) at 9,974 KB, well under 12 MB SNAPSHOT_BYTE_BUDGET. 0 unkeyed features (every `state_lgd` resolves to a current state/UT). TN partition_path identical to legacy entry (same layer_id) — merge_with_existing semantics replace the row; ledger goes from 110 → 146 rows (+36 subdistrict). Legacy TN-only pipeline.json entry (`kind=subdistricts, state=S22, state_filter=state_lgd=33`) **deleted** — the orchestrator supersedes it; running snapshot.py never re-creates the obsolete TN slice. 0.3 (subdistrict entity seed) intentionally deferred from this PR — needs district backfill (0.2, 639 missing district entities) as prerequisite; not yet started. 19/19 unit tests pass; `python -m yen_gov validate --root .` OK. |
-| **C** Village national lift (TN → national minus 8 states) | — | Not started | — | After **B** (proves LGD ingest pattern at smaller cardinality) |
+| **B** Subdistrict national lift (TN → 36 states/UTs) | #257 | Merged | 011a9764 | 0.1 (#235) already supplied the subdistricts CSV. New `tools/boundaries/lift_subdistricts_national.py` (one-shot orchestrator, ~330 lines, pure stdlib + DuckDB writer) reads cached `LGD_Subdistricts.geojsonl` (6,471 features), groups by `state_lgd` property, maps to ECI state code via new `backend.yen_gov.canonical.state_lgd_resolver` (entities.json → `{state_lgd_int: ECI_code}` map; pure logic; 10 unit tests), and emits 36 per-state shards under `boundaries/in/subdistricts/state=in_<sNN>/all.geojson`. Largest shard S12 (Maharashtra) at 9,974 KB, well under 12 MB SNAPSHOT_BYTE_BUDGET. 0 unkeyed features (every `state_lgd` resolves to a current state/UT). TN partition_path identical to legacy entry (same layer_id) — merge_with_existing semantics replace the row; ledger goes from 110 → 146 rows (+36 subdistrict). Legacy TN-only pipeline.json entry (`kind=subdistricts, state=S22, state_filter=state_lgd=33`) **deleted** — the orchestrator supersedes it; running snapshot.py never re-creates the obsolete TN slice. 0.3 (subdistrict entity seed) intentionally deferred from this PR — needs district backfill (0.2, 639 missing district entities) as prerequisite; not yet started. 19/19 unit tests pass; `python -m yen_gov validate --root .` OK. |
+| **C** Village national lift (TN → 27 states/UTs; 9-state upstream gap) | _pending_ | In progress | — | New `tools/boundaries/lift_villages_national.py` (one-shot orchestrator, ~370 lines, pure stdlib + DuckDB writer) reads cached `LGD_Villages.geojsonl` (1.8 GB / 584,615 features), groups by `(state_lgd, dist_lgd)` tuple, maps state_lgd → ECI via the shared `state_lgd_resolver` from Phase B, and emits per-(state, district) Hive shards under `boundaries/in/villages/state=in_<sNN>/district=<lgd>/all.geojson` (two-level partition). 9/9 unit tests green (grouping + sort determinism + end-to-end emit + byte-determinism + unknown-state warning + stale-shard cleanup). Result: 645 village shards across 27 states/UTs; 0 unkeyed features; 0 oversize-skip; ledger goes from 108 → 753 rows (+645 village). Pre-existing 38 TN shards REPLACED in place (same partition_path keys → merge_with_existing semantics retire the legacy rows); NET new = 607. Legacy TN-only pipeline.json entry (`kind=villages, state=S22, state_filter=state_lgd=33`) **deleted** — the orchestrator supersedes it. **9 states missing villages from upstream**: S02 Arunachal Pradesh, S08 Himachal Pradesh, S14 Manipur, S15 Meghalaya, S16 Mizoram, S17 Nagaland, S21 Sikkim, U08 J&K, U09 Ladakh (one more than the plan's 8-state estimate — Ladakh U09 had been counted within "J&K" in the plan; both are now confirmed separately gone). Coverage recon documented in `notes/2026-05-25-village-coverage-gap-9-states.md`; bhuvan fall-back remains OUT OF SCOPE per the plan. Memory peak ~11 GB during the JSON-parse phase (acceptable on dev machines; documented in module docstring); wall-clock ~10 min end-to-end on the cached extract. `python -m yen_gov validate --root .` OK. |
 | **D.0** State polygon swap (DataMeet → ramSeraph `LGD_States`) | — | Not started | — | After **0.4**; survey-grade upgrade per user override 2026-05-24 |
 | **D.1** AC consolidation snapshot recon (one-shot, gating) | — | Not started | — | Independent of 0.4 |
 | **D.2** AC consolidation promote 28 states | — | Not started | — | After **D.1** |
@@ -238,6 +238,46 @@
   - Tier-B corpus conformance passes.
   - File-size budget: every shard ≤ 8 MB gzipped (the binding constraint here).
   - No frontend smoke required unless a village-aware consumer ships in the same PR.
+
+### Delivered (2026-05-25, see ledger row above for the merge PR + SHA once it lands)
+
+- **Orchestrator**: [`tools/boundaries/lift_villages_national.py`](../tools/boundaries/lift_villages_national.py) — one-shot, ~370 lines. Pure-logic helpers (`group_features_by_state_and_district`, `sort_features_deterministically`) covered by 9/9 unit tests in [`backend/tests/test_lift_villages_national.py`](../backend/tests/test_lift_villages_national.py). Reuses the snapshot.py primitives (`fetch_geojsonl_7z`, `emit_feature_collection`, `_round_coords_geom`, `SNAPSHOT_BYTE_BUDGET`) so output byte format stays identical to the legacy TN entry. Reuses the `state_lgd_resolver` shipped in Phase B (no new state-mapping code).
+- **Run output (cached `--skip-fetch`)**: 584,615 features parsed → 645 (state, district) buckets → 645 shards emitted across 27 states/UTs. 0 unkeyed features (every feature carries both `state_lgd` and `dist_lgd`); 0 unknown-state warnings; 0 oversize-skip (largest shard well below the 12 MB byte budget). Wall-clock ~10 min on the cached 1.8 GB extract; peak RSS ~11 GB during JSON parse (documented as acceptable on dev machines; if it becomes a constraint a two-pass streaming refactor is straightforward).
+- **Per-state coverage** (27 emitted, sorted by ECI code):
+
+  | ECI | State / UT | Districts | Villages |
+  | --- | --- | ---: | ---: |
+  | S01 | Andhra Pradesh | 26 | 15,443 |
+  | S03 | Assam | 35 | 20,998 |
+  | S04 | Bihar | 38 | 43,332 |
+  | S05 | Goa | 2 | 385 |
+  | S06 | Gujarat | 33 | 18,763 |
+  | S07 | Haryana | 22 | 6,838 |
+  | S10 | Karnataka | 31 | 30,416 |
+  | S11 | Kerala | 14 | 1,623 |
+  | S12 | Madhya Pradesh | 52 | 47,571 |
+  | S13 | Maharashtra | 36 | 48,610 |
+  | S18 | Odisha | 30 | 52,663 |
+  | S19 | Punjab | 23 | 12,832 |
+  | S20 | Rajasthan | 33 | 40,102 |
+  | S22 | Tamil Nadu | 38 | 18,159 |
+  | S23 | Tripura | 8 | 880 |
+  | S24 | Uttar Pradesh | 75 | 101,729 |
+  | S25 | West Bengal | 23 | 40,890 |
+  | S26 | Chhattisgarh | 33 | 20,761 |
+  | S27 | Jharkhand | 24 | 32,931 |
+  | S28 | Uttarakhand | 13 | 17,501 |
+  | S29 | Telangana | 33 | 10,738 |
+  | U01 | Andaman and Nicobar Islands | 3 | 799 |
+  | U02 | Chandigarh | 1 | 22 |
+  | U03 | Dadra and Nagar Haveli and Daman and Diu | 3 | 90 |
+  | U04 | Lakshadweep | 1 | 27 |
+  | U05 | NCT of Delhi | 11 | 382 |
+  | U07 | Puducherry | 4 | 130 |
+
+- **Upstream coverage gap (9 states/UTs)**: S02 Arunachal Pradesh, S08 Himachal Pradesh, S14 Manipur, S15 Meghalaya, S16 Mizoram, S17 Nagaland, S21 Sikkim, U08 J&K, U09 Ladakh. One more than the plan's 8-state estimate — Ladakh (U09) had been counted within "J&K" in the plan; both are now confirmed separately gone (J&K became 3 entities post-2019: state J&K → UT J&K (U08) + UT Ladakh (U09), and the upstream ramSeraph LGD_Villages extract has neither). Documented in [`notes/2026-05-25-village-coverage-gap-9-states.md`](../notes/2026-05-25-village-coverage-gap-9-states.md). Bhuvan fall-back deferred until a citizen surface actually consumes village geometry for one of those states; the recon note records the pivot decision logic.
+- **pipeline.json**: the legacy TN-only `kind=villages` entry (state-filtered to `state_lgd=33`, split-by `dist_lgd`, `emit_index=S22-villages-index.json`) is deleted in the same commit as the orchestrator + lift output. snapshot.py running for any other purpose will not regenerate the obsolete TN slice.
+- **Pre-flight policy on shard sizes**: every emitted shard is well below the 12 MB SNAPSHOT_BYTE_BUDGET (largest is the TN district 593 file at ~2.7 MB raw / ~0.5 MB gzipped — same value carried forward from the legacy TN run). The `simplification_algorithm="coord-precision-round"` + `simplification_tolerance_deg=1e-4` (=4dp coord rounding, ~11 m) is identical to the legacy TN entry. No frontend consumer migration required (single per-district file pattern stays unchanged).
 
 ---
 
