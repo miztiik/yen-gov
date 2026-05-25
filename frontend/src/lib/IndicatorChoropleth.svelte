@@ -1,23 +1,31 @@
 <script lang="ts">
   // Generic indicator choropleth: drop in any indicator artifact under
-  // `datasets/indicators/`, get a state-level map with time slider, legend,
-  // tooltips, and source / license attribution. Driven entirely by the
-  // metadata in the artifact's `indicator` block (value_kind, direction,
-  // scale_hint, unit) — no per-indicator code required.
+  // `datasets/indicators/`, get a state OR district-level map with time
+  // slider, legend, tooltips, and source / license attribution. Driven
+  // entirely by the metadata in the artifact's `indicator` block
+  // (value_kind, direction, scale_hint, unit) — no per-indicator code
+  // required.
   //
-  // Only `entity_kind === "state"` is supported in this version (the only
-  // boundary layer in production that joins by ECI state code). District
-  // and constituency variants are a follow-up: swap `INDIA_STATES` for the
-  // appropriate BoundaryEntry and use a corresponding lookup table.
+  // Grain dispatch (PR B.05 C3): the choropleth grain is derived from
+  // `artifact.coverage.admin_level`. "district" routes to the national
+  // LGD-keyed district polygon layer (INDIA_DISTRICTS) and uses the
+  // 784-row districts view-model as the entity universe; anything else
+  // (default) routes to the state polygon layer (INDIA_STATES) using
+  // the 36-row states view-model. Both grains share the same legend,
+  // coverage caption, tooltip scaffold and source card. The per-grain
+  // wiring lives in ./charts/choropleth-entity-context.ts (PR B.05 C2).
 
   import MapChoropleth from "./maplibre/MapChoropleth.svelte";
   import { INDIA_STATES } from "./maplibre/sources";
-  import { loadStates, type StateRow } from "./view-models/states";
+  import {
+    entityContextForGrain,
+    type EntityRow,
+    type ChoroplethGrain,
+  } from "./charts/choropleth-entity-context";
   import {
     joinKeyFor,
     boundaryBasename,
     loadBoundary,
-    type GeoLevel,
     type BoundaryFeatureCollection,
   } from "./boundaries";
   import {
@@ -78,18 +86,6 @@
      * tells an honest within-peer story, not a softly-clipped national one.
      */
     peer_set_members?: string[] | null;
-    /**
-     * Geographic level to render. Default `"state"` preserves the v1 behaviour
-     * (national choropleth keyed by ECI state code). Phase 3 of
-     * TODO/TN-GRANULAR-GEO-PLAN.md introduces this prop as the seam for
-     * district / subdistrict / village drill-downs; deeper levels are wired
-     * in subsequent commits (commit 2: loader-exposed join key; commit 3:
-     * loadBoundary fetch + drill click). At this commit the prop is accepted
-     * but only the `"state"` branch has behaviour — passing anything else
-     * still renders the state-level map (no-op), which keeps the structural
-     * change reversible.
-     */
-    geoLevel?: GeoLevel;
   }
 
   let {
@@ -97,47 +93,72 @@
     highlight_state,
     height = "440px",
     peer_set_members = null,
-    geoLevel = "state",
   }: Props = $props();
 
   let artifact = $state<IndicatorArtifact | null>(null);
   let load_error = $state<string | null>(null);
   let selected_time = $state<string | null>(null);
-  // Currently-valid Indian states+UTs from taxonomy.entities. Iterated to
-  // build the reverse name lookup, fill table, tooltip table, coverage
-  // summary, and to resolve the boundary join-key in handleSelect. Replaces
-  // STATE_NAME_TO_ECI per T.0e.
-  let states_taxonomy = $state<StateRow[] | null>(null);
-  loadStates()
-    .then(s => (states_taxonomy = s))
-    .catch(e => (load_error = String(e)));
+  // Choropleth grain — derived from `artifact.coverage.admin_level`
+  // (PR B.05 C3). "district" routes to INDIA_DISTRICTS + the
+  // 784-row districts view-model. Any other value (or null / a
+  // not-yet-loaded artifact) falls through to the state branch —
+  // the historical default which keeps every pre-B.05 indicator
+  // byte-identical to its prior render.
+  const grain: ChoroplethGrain = $derived(
+    artifact?.coverage.admin_level === "district" ? "district" : "state",
+  );
+  const ctx = $derived(entityContextForGrain(grain));
+  // Currently-valid entities at this grain (states+UTs at "state",
+  // districts at "district") in unified shape. Iterated to build the
+  // reverse name lookup, fill table, tooltip table, coverage summary,
+  // and to resolve the boundary join-key in handleSelect. Replaces the
+  // grain-specific StateRow[] loader (per T.0e for states; lifted to
+  // grain-agnostic per B.05 C2).
+  let entities_taxonomy = $state<EntityRow[] | null>(null);
+  $effect(() => {
+    // Re-load when the grain (and therefore the ctx) changes. At C2 the
+    // grain is constant so this fires exactly once.
+    const loader = ctx.load_entities;
+    let cancelled = false;
+    loader()
+      .then(e => {
+        if (cancelled) return;
+        entities_taxonomy = e;
+      })
+      .catch(e => {
+        if (cancelled) return;
+        load_error = String(e);
+      });
+    return () => {
+      cancelled = true;
+    };
+  });
 
-  // Reverse map: ECI code -> boundary join KEY (LGD code string used by the
-  // map layer's join-property post-D.0). Used to derive `highlight_key` for
+  // Reverse map: entity code -> boundary join KEY (LGD code string used
+  // by the map layer's join-property). Used to derive `highlight_key` for
   // MapChoropleth's filter expression and to translate other code-system
   // requests (e.g. URL state codes) into the value the layer expects.
-  const ECI_TO_KEY = $derived.by(() => {
+  const CODE_TO_KEY = $derived.by(() => {
     const out: Record<string, string> = {};
-    for (const s of states_taxonomy ?? []) out[s.eci_code] = s.boundary_join_key;
+    for (const e of entities_taxonomy ?? []) out[e.code] = e.boundary_join_key;
     return out;
   });
 
-  // Reverse map: ECI code -> citizen-display shortform. Used by handleSelect
-  // to label the breadcrumb entry the user just drilled into (Delhi vs NCT
-  // of Delhi reads better in a breadcrumb chip).
-  const ECI_TO_DISPLAY = $derived.by(() => {
+  // Reverse map: entity code -> citizen-display shortform. Used by
+  // handleSelect to label the breadcrumb entry the user just drilled
+  // into (Delhi vs NCT of Delhi reads better in a breadcrumb chip).
+  const CODE_TO_DISPLAY = $derived.by(() => {
     const out: Record<string, string> = {};
-    for (const s of states_taxonomy ?? []) out[s.eci_code] = s.boundary_join_name;
+    for (const e of entities_taxonomy ?? []) out[e.code] = e.display_name;
     return out;
   });
 
-  // Reverse map: boundary join KEY -> ECI code. Used by handleSelect to
-  // resolve the LGD code carried on the clicked feature into an ECI code.
-  // Pre-D.0 this was keyed on the DataMeet ST_NM English name; post-D.0
-  // it is keyed on the ramSeraph State_LGD numeric code (as a string).
-  const KEY_TO_ECI = $derived.by(() => {
+  // Reverse map: boundary join KEY -> entity code. Used by handleSelect
+  // to resolve the LGD code carried on the clicked feature into the
+  // canonical code (ECI at state grain, entity_id at district grain).
+  const KEY_TO_CODE = $derived.by(() => {
     const out: Record<string, string> = {};
-    for (const s of states_taxonomy ?? []) out[s.boundary_join_key] = s.eci_code;
+    for (const e of entities_taxonomy ?? []) out[e.boundary_join_key] = e.code;
     return out;
   });
 
@@ -183,22 +204,22 @@
     return { min, max };
   });
 
-  // join-property (State_LGD post-D.0) -> fill hex. Only states currently
-  // valid in taxonomy.entities get a colour; the rest fall through to
-  // MapChoropleth's default grey. When peer_set_members is set, non-members
-  // also fall through (greyed).
+  // join-property (LGD code post-D.0) -> fill hex. Only entities currently
+  // valid in taxonomy.entities at this grain get a colour; the rest fall
+  // through to MapChoropleth's default grey. When peer_set_members is set,
+  // non-members also fall through (greyed).
   const fills = $derived.by(() => {
     const out: Record<string, string> = {};
     if (!artifact) return out;
     const dir = artifact.indicator.direction;
     const scale = artifact.indicator.scale_hint ?? "linear";
     const member_set = peer_set_members ? new Set(peer_set_members) : null;
-    for (const s of states_taxonomy ?? []) {
-      const code = s.eci_code;
+    for (const e of entities_taxonomy ?? []) {
+      const code = e.code;
       if (member_set && !member_set.has(code)) continue;
       const v = values.get(code);
       if (v === undefined) continue;
-      out[s.boundary_join_key] = fillForValue(v, domain.min, domain.max, dir, scale);
+      out[e.boundary_join_key] = fillForValue(v, domain.min, domain.max, dir, scale);
     }
     return out;
   });
@@ -207,13 +228,21 @@
     const out: Record<string, string> = {};
     if (!artifact) return out;
     const meta = artifact.indicator;
-    for (const s of states_taxonomy ?? []) {
-      const code = s.eci_code;
-      const display = s.boundary_join_name;
-      const join_key = s.boundary_join_key;
+    for (const e of entities_taxonomy ?? []) {
+      const code = e.code;
+      const display = e.display_name;
+      const join_key = e.boundary_join_key;
+      // Header anchor (Jony B.05): at district grain the citizen-place
+      // anchor is the parent state name ("Coimbatore · Tamil Nadu");
+      // at state grain we keep the existing ECI code suffix because
+      // the audience already knows the state codes and a numeric LGD
+      // would read as noise.
+      const header_html = e.parent_display_name
+        ? `<div class="font-semibold">${escape_html(display)} <span class="text-slate-500 font-normal text-xs">· ${escape_html(e.parent_display_name)}</span></div>`
+        : `<div class="font-semibold">${escape_html(display)} <span class="text-slate-400 font-mono text-[10px]">${escape_html(code)}</span></div>`;
       const v = values.get(code);
       if (v === undefined) {
-        out[join_key] = `<div class="font-semibold">${escape_html(display)}</div>` +
+        out[join_key] = header_html +
                     `<div class="text-slate-500">no data for ${escape_html(selected_time ?? "")}</div>`;
         continue;
       }
@@ -227,32 +256,43 @@
           ).join("")
         : "";
       out[join_key] =
-        `<div class="font-semibold">${escape_html(display)} <span class="text-slate-400 font-mono text-[10px]">${code}</span></div>` +
+        header_html +
         `<div class="tabular-nums">${escape_html(formatted)}</div>` +
         (rows_html ? `<div class="text-slate-600 mt-1 text-xs">${rows_html}</div>` : "");
     }
     return out;
   });
 
-  const highlight_key = $derived(highlight_state ? ECI_TO_KEY[highlight_state] : undefined);
+  // Highlight: at state grain, the parent route may pass an ECI state
+  // code to outline (e.g. "S22" on /s/tamil-nadu); we look up the
+  // corresponding boundary join-key. At district grain, single-key
+  // highlight does not have a clean meaning (the parent would need to
+  // pass an LGD district code OR a multi-key selector for "all
+  // districts in state X"); we leave it undefined for B.05 and revisit
+  // in a follow-up if a district detail route ever needs it.
+  const highlight_key = $derived(
+    grain === "state" && highlight_state ? CODE_TO_KEY[highlight_state] : undefined,
+  );
 
-  // Loader-exposed join-key for the current geoLevel. At "state" this resolves
-  // to "State_LGD" — the same value INDIA_STATES.join_property carries post-D.0
-  // — so the state branch is unchanged. The `current_join_key` derivation is
-  // the seam c3 will use to dispatch on level (district → "dist_lgd",
-  // subdistrict → "subdt_lgd", village → "vil_lgd"); commit 2 only introduces
-  // the dependency and a dev-only consistency check.
-  const current_join_key = $derived(joinKeyFor(geoLevel));
+  // Loader-exposed join-key for the active grain (resolves to
+  // "State_LGD" at state, "dist_lgd" at district). The dev-only
+  // invariant below catches drift between this loader contract and
+  // the entity-context's BoundaryEntry.join_property — a future edit
+  // to one without the other would silently produce blank polygons.
+  const current_join_key = $derived(joinKeyFor(grain));
 
-  // Dev-only invariant: the join-key the loader names for `geoLevel === "state"`
-  // MUST match the one the v1 BoundaryEntry hardcodes — otherwise a future
-  // edit to one without the other would silently produce blank polygons. Fires
-  // only in dev (drops out of the prod bundle via the dead-code branch).
+  // Dev-only invariant: the join-key `joinKeyFor` names for the active
+  // grain MUST match the one the entity-context's BoundaryEntry carries.
+  // Fires only in dev (drops out of the prod bundle via the dead-code
+  // branch).
   $effect(() => {
-    if (import.meta.env.DEV && geoLevel === "state" && current_join_key !== INDIA_STATES.join_property) {
+    if (
+      import.meta.env.DEV &&
+      current_join_key !== ctx.boundary_entry.join_property
+    ) {
       // eslint-disable-next-line no-console
       console.warn(
-        `[IndicatorChoropleth] join-key drift: loader says ${current_join_key}, INDIA_STATES says ${INDIA_STATES.join_property}`,
+        `[IndicatorChoropleth] join-key drift: loader says ${current_join_key}, entity-context says ${ctx.boundary_entry.join_property}`,
       );
     }
   });
@@ -283,7 +323,9 @@
 
   const TN_ECI = "S22";
   const TN_LGD = "33";
-  const drill_enabled = $derived(highlight_state === TN_ECI);
+  // Drill is a state-grain feature only (Tamil-Nadu pilot). At district
+  // grain the choropleth IS the deepest level — no further drilling.
+  const drill_enabled = $derived(grain === "state" && highlight_state === TN_ECI);
 
   let drill_state = $state<DrillState>(initialDrillState("state"));
   // Reset when the indicator path changes.
@@ -414,9 +456,16 @@
    *  the current drill level. Reuses MapChoropleth's existing
    *  geojson_local_path resolution path — no contract change required.
    *  Post-T.0d the loader returns a Hive-relative path (per ADR-0031
-   *  Amendment 2026-05-22) so we just prefix `boundaries/in/`. */
+   *  Amendment 2026-05-22) so we just prefix `boundaries/in/`.
+   *
+   *  At the top of the drill (state-level for a state-grain indicator,
+   *  national-districts for a district-grain indicator) we return the
+   *  entity-context's `boundary_entry` so the choropleth grain follows
+   *  `artifact.coverage.admin_level`. Deeper drill branches are
+   *  state-grain-only (the TN pilot subdistricts/villages) and remain
+   *  unchanged. */
   function synthesiseEntry(state: DrillState): BoundaryEntry {
-    if (state.level === "state") return INDIA_STATES;
+    if (state.level === "state") return ctx.boundary_entry;
     const relpath = boundaryBasename(
       state.level,
       state.parentDistrictLgd,
@@ -490,7 +539,7 @@
     let label = String(sel.key);
     let stateLgd: string | undefined;
     if (drill_state.level === "state") {
-      const eci = KEY_TO_ECI[String(sel.key)];
+      const eci = KEY_TO_CODE[String(sel.key)];
       if (eci !== TN_ECI) {
         // Only TN has deeper boundaries on disk at v0.
         deeper_fetch_error = "deeper boundaries available for Tamil Nadu only";
@@ -500,7 +549,7 @@
       // Breadcrumb label is the citizen-display name, not the raw LGD
       // code carried on the clicked feature (post-D.0 the join key is
       // numeric, so falling back to String(sel.key) would print "33").
-      label = ECI_TO_DISPLAY[eci] ?? String(sel.key);
+      label = CODE_TO_DISPLAY[eci] ?? String(sel.key);
     } else {
       // For deeper levels, prefer the human name carried on the feature.
       const props = sel.properties ?? {};
@@ -605,7 +654,7 @@
   const coverage_summary = $derived.by(() => {
     if (!artifact) return null;
     const member_set = peer_set_members ? new Set(peer_set_members) : null;
-    const all_codes = (states_taxonomy ?? []).map(s => s.eci_code);
+    const all_codes = (entities_taxonomy ?? []).map(e => e.code);
     const peer_codes = member_set
       ? all_codes.filter(c => member_set.has(c))
       : all_codes;
@@ -613,7 +662,10 @@
     let covered = 0;
     for (const c of peer_codes) if (values.has(c)) covered++;
     if (covered === total) return null;
-    return { covered, total };
+    // `coverage_noun` from the entity-context ("states/UTs" at state
+    // grain, "districts" at district grain) so the caption reads
+    // correctly for either grain ("X of N districts have data…").
+    return { covered, total, coverage_noun: ctx.coverage_noun };
   });
 
   // Stale-data chip (UX P0-2): if the only year is more than ~2 years stale,
@@ -770,7 +822,7 @@
         {#if coverage_summary}
           <span class="text-amber-800">
             <strong class="font-semibold tabular-nums">{coverage_summary.covered} of {coverage_summary.total}</strong>
-            states/UTs have data on this map. The rest are grey because data is missing, not because they have zero.
+            {coverage_summary.coverage_noun} have data on this map. The rest are grey because data is missing, not because they have zero.
           </span>
         {:else}
           <span class="text-slate-500">{artifact.coverage.spatial}</span>
@@ -886,8 +938,11 @@
              restores the historical behaviour byte-identically. The chip
              subsystem (ADR-0029) supersedes this: the 80×80 polygon's fill
              is sub-pixel and cannot communicate a legend bucket; the chip
-             on the legend strip does. -->
-        {#if !unmapped_chips_enabled && drill_state.level === "state" && lakshadweep_path}
+             on the legend strip does.
+             At district grain (PR B.05 C3) the callout is hidden — the
+             district polygons for Lakshadweep are visible at national
+             zoom and don't need the inset. -->
+        {#if !unmapped_chips_enabled && grain === "state" && drill_state.level === "state" && lakshadweep_path}
           <div
             class="absolute bottom-2 left-2 pointer-events-none flex flex-col items-stretch"
             style:width="84px"
@@ -963,7 +1018,7 @@
           <span>{legend_stops[2]?.label ?? ""}</span>
           <span>{legend_stops[4]?.label ?? ""}</span>
         </div>
-        {#if unmapped_chips_enabled && drill_state.level === "state" && artifact}
+        {#if unmapped_chips_enabled && grain === "state" && drill_state.level === "state" && artifact}
           {@const ind = artifact.indicator}
           {@const scale = ind.scale_hint ?? "linear"}
           <!-- Unmapped-region chip strip (ADR-0029). Surfaces sub-pixel UTs
