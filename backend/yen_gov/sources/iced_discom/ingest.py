@@ -290,7 +290,7 @@ def ingest_iced_discom(*, repo_root: Path, client: IcedClient | None = None) -> 
         indicator_meta=_indicator_td_loss(),
         rows=by_cat["transmission-and-distribution-loss"],
         sources=op_sources,
-        out_rel="datasets/indicators/in/energy/state_distribution_td_loss_pct.json",
+        out_rel="datasets/energy/_meadow/iced/2024-25/state_distribution_td_loss_pct.json",
         spatial="India (states + UTs)", skipped_unmapped=op_skipped,
     ))
     results.append(_emit(
@@ -299,7 +299,7 @@ def ingest_iced_discom(*, repo_root: Path, client: IcedClient | None = None) -> 
         indicator_meta=_indicator_billing_efficiency(),
         rows=by_cat["billing-efficiency"],
         sources=op_sources,
-        out_rel="datasets/indicators/in/energy/state_distribution_billing_efficiency_pct.json",
+        out_rel="datasets/energy/_meadow/iced/2024-25/state_distribution_billing_efficiency_pct.json",
         spatial="India (states + UTs)",
     ))
     results.append(_emit(
@@ -308,7 +308,7 @@ def ingest_iced_discom(*, repo_root: Path, client: IcedClient | None = None) -> 
         indicator_meta=_indicator_collection_efficiency(),
         rows=by_cat["collection-efficiency"],
         sources=op_sources,
-        out_rel="datasets/indicators/in/energy/state_distribution_collection_efficiency_pct.json",
+        out_rel="datasets/energy/_meadow/iced/2024-25/state_distribution_collection_efficiency_pct.json",
         spatial="India (states + UTs)",
     ))
 
@@ -320,7 +320,7 @@ def ingest_iced_discom(*, repo_root: Path, client: IcedClient | None = None) -> 
         schema_id_str=sid, schema_version_str=sver,
         indicator_meta=_indicator_rpo_compliance(), rows=rpo_rows,
         sources=[Source(url=rpo_resp.url, fetched_at=rpo_resp.fetched_at)],
-        out_rel="datasets/indicators/in/energy/state_rpo_compliance_pct.json",
+        out_rel="datasets/energy/_meadow/iced/2024-25/state_rpo_compliance_pct.json",
         spatial="India (states + UTs)", skipped_unmapped=rpo_skipped,
     ))
 
