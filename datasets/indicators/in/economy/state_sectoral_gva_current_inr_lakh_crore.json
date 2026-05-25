@@ -1717,7 +1717,11 @@
     "publisher_methodology_url": null,
     "documentation_status": "stub",
     "methodology_breaks": [],
-    "known_caveats": [],
+    "known_caveats": [
+      "Sectoral GVA shows the RUPEE share each sector contributes, NOT the JOBS share. Punjab's agriculture is ~25% of GVA but employs ~55% of workers; services are the opposite (capital-intensive, ~50% GVA, ~30% jobs). Pair with PLFS for employment.",
+      "ICED follows NIC: 'industry' bundles manufacturing + construction + mining + utilities. Bihar's industry share at 25% likely means construction-heavy (real-estate + roads), not factories. Sub-sector split not surfaced here - drill into source for the breakdown.",
+      "Services share at 60%+ (Karnataka, Maharashtra, Kerala) can be IT-export-led (high-margin) or retail/personal-services (low-wage). Aggregate share doesn't distinguish - pair with per-capita NSDP to see if services growth is raising household incomes."
+    ],
     "notes": []
   },
   "divergence": null
