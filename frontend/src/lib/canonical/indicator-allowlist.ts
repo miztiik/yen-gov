@@ -211,7 +211,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "energy.energy_demand_supply",
     meta: {
       id: "state-per-capita-electricity-consumption-kwh",
-      title: "State per-capita electricity consumption (kWh/year)",
+      title: "Electricity used per person (kWh/year)",
       description:
         "Electricity consumption per person per year, in kilowatt-hours. Proxy for BOTH energy access (electrified homes) AND industrial intensity (heavy-industry load) — read alongside per-capita income to disambiguate.",
       entity_kind: "state",
@@ -230,7 +230,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
         "A high value can mean many electrified domestic consumers (Kerala) OR a heavy-industry economy (Chhattisgarh, Odisha) OR both (Gujarat). A low value can mean a rural agrarian economy (Bihar, Assam) OR poor access (UP). The denominator (population) is Census 2011 + projection, so values for the 2020s are subject to mid-decade re-basing once Census 2027 data lands. Note: distinct from per-capita availability (RBI Handbook T138) — availability is power DELIVERED to the state (including T&D + commercial losses); consumption is power actually BILLED to end-users.",
     },
     caveats: [
-      "A high value can mean universal household electrification (Kerala) or a heavy-industry economy (Chhattisgarh, Odisha) — the headline number cannot tell you which, and the policy implications are opposite.",
+      "'Per person' includes industrial + agricultural pumping, not just households. Gujarat's high number is Surat-Vapi industrial corridors; Punjab's is subsidised tubewell electricity. Household-only readings are 2-3x lower.",
       "Denominator is Census 2011 population projected forward. Values for the 2020s will be re-based once Census 2027 lands; expect a downward revision for high-migration states.",
       "This is electricity BILLED to end-users, not electricity DELIVERED to the state. Power lost to theft and unbilled use (the AT&C gap) is excluded from the numerator.",
     ],
@@ -300,9 +300,9 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "energy.energy_distribution_performance",
     meta: {
       id: "state-atc-losses-pct",
-      title: "Aggregate Technical & Commercial losses (%, by state)",
+      title: "Power lost to leaks and theft (%)",
       description:
-        "Combined technical (transmission + distribution heat / ageing losses) and commercial (theft + uncollected billing) losses as % of energy input to the distribution system. Headline discom-health metric: lower is better.",
+        "How much of the power that entered your state's grid never reached a paying meter. 'Technical' losses = grid heat and ageing wires; 'Commercial' losses = theft and uncollected bills. The floor for any future tariff hike.",
       entity_kind: "state",
       time_grain: "fiscal_year",
       value_kind: "share",
@@ -322,6 +322,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       "AT&C losses bundle technical losses (transmission heat, ageing lines) with commercial losses (theft, unbilled use). A 20% state may be losing mostly to old infrastructure or mostly to theft — the policy fixes differ.",
       "The UDAY reform target was 15% by FY19; the FY25 national average is still around 16%, and only a handful of states (Gujarat, Andhra, Kerala, Himachal) sit consistently below the target.",
       "Reported figures depend on discom metering and billing data. States with weak feeder metering can under-report losses by classifying unmetered agricultural supply as 'consumption' rather than as loss.",
+      "Pre-FY18 numbers are UDAY-era self-reports; FY18+ are PFC integrated ratings with stricter denominators. Bihar's drop from 38% to 28% across FY17-FY19 is partly the methodology shift, not the turnaround.",
     ],
   },
 
@@ -366,7 +367,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     ],
     meta: {
       id: "state-installed-capacity-geographical-mw",
-      title: "State installed electricity capacity, by fuel (MW, geographical basis)",
+      title: "Power plants built, by fuel (MW)",
       description:
         "Total installed capacity physically located in the state, broken out by fuel type. 'Geographical' means every plant counts toward the state where it sits, regardless of who owns it or where the power is dispatched. Read this as 'where the steel-and-concrete sits' — NOT 'where the electricity flows to'.",
       entity_kind: "state",
@@ -385,6 +386,11 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       notes:
         "For the share-allocated counterpart (rights to output via central-sector PPAs), see state-installed-capacity-allocated-mw. The all-India total equals the allocated total (as it must) but the per-state breakdown diverges sharply for states that import or export power through central PPAs.",
     },
+    caveats: [
+      "MW = nameplate peak, not energy delivered. Pair with 'Where your state's power comes from' on this page — a 1GW solar plant delivers energy like 200MW of coal would. Compare RUN, not just BUILT.",
+      "A plant in Madhya Pradesh may serve Maharashtra under PPAs — 'installed in state' is not 'available to state'. UP draws on Rihand (MP-located); Delhi pulls from Dadri (UP-located).",
+      "CEA collapses lignite into 'coal'; solar+wind+biomass into 'renewable'. Tamil Nadu coal absorbs Neyveli lignite; Karnataka renewable bundles wind + solar + biomass. Disaggregated comparison hides the real mix.",
+    ],
   },
 
   // --- PR-G 4: State electricity generation by fuel (GWh) — facet-multiplexed ---
@@ -427,7 +433,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     ],
     meta: {
       id: "state-electricity-generation-gwh",
-      title: "State electricity generation, by fuel (GWh)",
+      title: "Where your state's power comes from (GWh)",
       description:
         "Per-state actual electricity generated, broken out by fuel type. The delivered counterpart to installed capacity — capacity is potential, generation is what plants actually produced. 1 MU (million unit) = 1 GWh; the unit relabel is dimensionally identical.",
       entity_kind: "state",
@@ -446,6 +452,11 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       notes:
         "Most-recent fiscal year is partial-year-actuals + forecast and may revise; treat the most-recent two FYs as preliminary. ICED's 'Others' bucket (interstate/central plants pre-allocation) is dropped because it cannot be mapped to a state choropleth honestly. Capacity-generation gap = PLF — coal capacity dominates but generation share is higher (~70%); gas is capacity-rich, generation-poor due to fuel-supply constraints.",
     },
+    caveats: [
+      "ICED collapses lignite into 'coal' and solar+wind+biomass into 'renewable'. Tamil Nadu's coal line absorbs Neyveli lignite; Karnataka's renewable bundles wind + solar. Disaggregated cross-year compares are unsafe.",
+      "CEA and ICED use different cut-off conventions (CEA month-end snapshots vs ICED financial-year-end). A 2% Gujarat coal-share rise between FY19 and FY22 may be a cut-off shift, not new plants.",
+      "GWh = energy delivered (capacity x hours run). Pair with 'Power plants built, by fuel' on this page — high coal generation may be many coal plants or few plants run hard. The policy fixes differ.",
+    ],
   },
 
   // ---------------------------------------------------------------------------
@@ -929,9 +940,9 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     ],
     meta: {
       id: "state-rpo-compliance-pct",
-      title: "Renewable Purchase Obligation compliance (%, by state)",
+      title: "Clean-energy purchase targets met (%)",
       description:
-        "Three citizen-readable segments of state RPO compliance — solar, non-solar, and combined-target. Each measures share of the regulatory RPO target met. The 'total' segment is NOT the sum of solar + non-solar; it's the combined-target compliance ratio (its own regulatory denominator). Values above 100% indicate over-compliance.",
+        "Share of each clean-energy purchase obligation your state's discoms met. RPO = a legal % of power discoms must buy from renewables. Three facets — solar, non-solar, combined-target. 'Total' is NOT solar+non-solar; it's the combined-target ratio. >100% = over-compliance (often via REC trades).",
       entity_kind: "state",
       time_grain: "fiscal_year",
       value_kind: "share",
@@ -950,6 +961,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     caveats: [
       "The 'total' segment is NOT the sum of solar + non-solar — it measures compliance against a separate combined-target regulatory denominator. Values above 100% indicate over-compliance.",
       "RPO targets vary by state and rise over time. 95% compliance in one year may represent more renewables than 105% in an earlier year; cross-year and cross-state comparisons must consider the underlying target movement.",
+      "RPO is the obligation MET, not the state's clean-energy share. Gujarat over-complies and sells RECs; Bihar under-complies and buys them. 60% means met 60% of an aspirational target — not 60% renewable.",
     ],
   },
 

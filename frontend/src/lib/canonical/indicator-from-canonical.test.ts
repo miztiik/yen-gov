@@ -110,17 +110,18 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(PEAK_DEMAND_DESCRIPTOR.meta.time_grain).toBe("fiscal_year");
   });
 
-  // PR-E (AboutThisData RPO caveat surfacing): the RPO descriptor is the
-  // first canonical-backed entry to populate `caveats[]`; this contract
-  // test locks the citizen-honesty bullets so a future descriptor edit
-  // can't silently drop them without breaking the suite. Both bullets
-  // are surfaced verbatim in AboutThisData's "Known caveats" section.
-  it("RPO descriptor carries the two citizen-honesty caveats (PR-E)", () => {
+  // PR-E (AboutThisData RPO caveat surfacing) extended by Row 4 IA pass
+  // (2026-05-25, this PR): the RPO descriptor now carries THREE citizen-
+  // honesty bullets — PR-E's original two plus the Row-4 obligation-MET
+  // vs share clarification authored by Hans. Surfaced verbatim in the
+  // AboutThisData "Known caveats" section under Card 5 ("Clean-energy
+  // purchase targets met (%)") on /s/<state>/t/energy.
+  it("RPO descriptor carries the three citizen-honesty caveats (PR-E + Row 4)", () => {
     const rpo = getCanonicalDescriptor("energy/state_rpo_compliance_pct");
     expect(rpo).not.toBeNull();
     expect(rpo!.kind).toBe("facet-multiplexed");
     expect(rpo!.caveats).toBeDefined();
-    expect(rpo!.caveats!.length).toBe(2);
+    expect(rpo!.caveats!.length).toBe(3);
     // Caveat 1: the "total" semantics warning (primary citizen-honesty
     // cue; complements the FacetPicker primitive shipped in PR-D #277).
     expect(rpo!.caveats![0]).toMatch(/NOT the sum of solar/);
@@ -128,6 +129,14 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     // Caveat 2: the temporal-comparability warning (RPO targets rise
     // over time + vary by state).
     expect(rpo!.caveats![1]).toMatch(/targets vary by state and rise over time/i);
+    // Caveat 3 (Row 4 / Hans): obligation MET vs state's clean-energy share
+    // — over-compliance via REC trades is real (Gujarat 130%); under-
+    // compliance is buying RECs (Bihar). Defuses the "60% means 60%
+    // renewable" misread the heading rewrite amplifies.
+    expect(rpo!.caveats![2]).toMatch(/obligation MET/);
+    expect(rpo!.caveats![2]).toMatch(/Gujarat/);
+    expect(rpo!.caveats![2]).toMatch(/Bihar/);
+    expect(rpo!.caveats![2]).toMatch(/RECs?/);
   });
 
   // PR-H (2026-05-25): Hans-curated caveats land on 3 additional canonical
@@ -162,10 +171,15 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d).not.toBeNull();
     expect(d!.caveats).toBeDefined();
     expect(d!.caveats!.length).toBe(3);
-    // 1: Kerala-vs-Chhattisgarh "same number, opposite stories" guard.
-    expect(d!.caveats![0]).toMatch(/Kerala/);
-    expect(d!.caveats![0]).toMatch(/Chhattisgarh|Odisha/);
-    expect(d!.caveats![0]).toMatch(/policy implications are opposite/i);
+    // 1: Gujarat-industrial + Punjab-pumping "per person includes more
+    // than households" anchor. Row 4 IA pass (2026-05-25) replaced PR-H's
+    // Kerala/Chhattisgarh framing with this version after the heading
+    // rewrite to "Electricity used per person (kWh/year)" amplified the
+    // household-only misreading risk (Hans verdict).
+    expect(d!.caveats![0]).toMatch(/'Per person'/);
+    expect(d!.caveats![0]).toMatch(/Gujarat/);
+    expect(d!.caveats![0]).toMatch(/Punjab/);
+    expect(d!.caveats![0]).toMatch(/2-3x lower/);
     // 2: Census 2011 + projection denominator staleness flag.
     expect(d!.caveats![1]).toMatch(/Census 2011/);
     expect(d!.caveats![1]).toMatch(/Census 2027/);
@@ -174,11 +188,15 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.caveats![2]).toMatch(/DELIVERED/);
   });
 
-  it("PR-H atc-losses descriptor carries the 3 Hans-curated caveats", () => {
+  it("PR-H atc-losses descriptor carries the 4 Hans-curated caveats (PR-H + Row 4 break-marker)", () => {
     const d = getCanonicalDescriptor("energy/state_atc_losses_pct");
     expect(d).not.toBeNull();
     expect(d!.caveats).toBeDefined();
-    expect(d!.caveats!.length).toBe(3);
+    // Row 4 IA pass (2026-05-25): 4th caveat APPENDED to PR-H's 3 bullets
+    // to surface the UDAY → PFC FY18 methodology break (Hans non-negotiable
+    // #7 interim disclosure until methodology-breaks sparkline primitive
+    // lands as a Level-4 follow-up).
+    expect(d!.caveats!.length).toBe(4);
     // 1: technical-vs-commercial bundling (Pramit's 'one number, two
     // phenomena' editorial flag).
     expect(d!.caveats![0]).toMatch(/technical losses/i);
@@ -192,6 +210,76 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     // 3: reporting-integrity caveat (feeder-metering under-reporting).
     expect(d!.caveats![2]).toMatch(/feeder metering/i);
     expect(d!.caveats![2]).toMatch(/agricultural/i);
+    // 4 (Row 4 / Hans): UDAY → PFC FY18 hard methodology break. Bihar
+    // 38→28% across FY17-FY19 is partly the denominator shift, not the
+    // turnaround. Defuses the smooth-line misreading that the post-FY18
+    // PFC integrated rating denominators tighten the reported number.
+    expect(d!.caveats![3]).toMatch(/UDAY/);
+    expect(d!.caveats![3]).toMatch(/PFC/);
+    expect(d!.caveats![3]).toMatch(/FY18/);
+    expect(d!.caveats![3]).toMatch(/Bihar/);
+  });
+
+  // Row 4 IA pass (2026-05-25): NEW caveats arrays land on the two
+  // facet-multiplexed survivors of the /t/energy chapter prune (cards 2
+  // and 3 in Jony's scroll order). Each carries 3 Hans-curated bullets
+  // sourced from the methodology-break + cross-card audit. The pair is
+  // coordinated: card-2 bullet 3 explicitly points to card 3 and vice
+  // versa, so the cognitive trap (GWh delivered vs MW nameplate) is
+  // surfaced symmetrically from both ends.
+  it("Row 4: generation-by-source descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor(
+      "energy/state_electricity_generation_by_source_gwh",
+    );
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: ICED SUB_FUEL_TO_CANONICAL collapse (lignite-into-coal,
+    // solar+wind+biomass-into-renewable). Tamil Nadu coal absorbs
+    // Neyveli lignite; Karnataka renewable bundles wind + solar.
+    expect(d!.caveats![0]).toMatch(/ICED/);
+    expect(d!.caveats![0]).toMatch(/lignite/i);
+    expect(d!.caveats![0]).toMatch(/Tamil Nadu|Karnataka/);
+    // 2: CEA vs ICED cut-off convention drift (month-end snapshots vs
+    // financial-year-end). Gujarat coal-share micro-shifts may be
+    // cut-off artifacts, not new plants.
+    expect(d!.caveats![1]).toMatch(/CEA/);
+    expect(d!.caveats![1]).toMatch(/ICED/);
+    expect(d!.caveats![1]).toMatch(/cut-off/i);
+    expect(d!.caveats![1]).toMatch(/Gujarat/);
+    // 3: coordinated cross-card pointer to card 3 (GWh delivered vs
+    // MW built). High coal generation may be many coal plants or few
+    // plants run hard — the policy fixes differ.
+    expect(d!.caveats![2]).toMatch(/GWh/);
+    expect(d!.caveats![2]).toMatch(/Power plants built/i);
+    expect(d!.caveats![2]).toMatch(/policy fixes differ/i);
+  });
+
+  it("Row 4: installed-capacity-by-source descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor(
+      "energy/state_installed_capacity_by_source_mw",
+    );
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: coordinated cross-card pointer to card 2 (MW nameplate vs GWh
+    // delivered). 1GW solar delivers like 200MW of coal would — RUN vs
+    // BUILT distinction.
+    expect(d!.caveats![0]).toMatch(/MW.*nameplate/i);
+    expect(d!.caveats![0]).toMatch(/Where your state's power comes from/i);
+    expect(d!.caveats![0]).toMatch(/RUN/);
+    expect(d!.caveats![0]).toMatch(/BUILT/);
+    // 2: inter-state PPA trap ("installed in state" not "available to
+    // state"). Rihand (MP) serves UP; Dadri (UP) serves Delhi.
+    expect(d!.caveats![1]).toMatch(/Madhya Pradesh|MP/);
+    expect(d!.caveats![1]).toMatch(/Maharashtra/);
+    expect(d!.caveats![1]).toMatch(/PPAs?/);
+    expect(d!.caveats![1]).toMatch(/Rihand/);
+    expect(d!.caveats![1]).toMatch(/Dadri/);
+    // 3: CEA SUB_FUEL_TO_CANONICAL collapse mirror of card 2 bullet 1.
+    expect(d!.caveats![2]).toMatch(/CEA/);
+    expect(d!.caveats![2]).toMatch(/lignite/i);
+    expect(d!.caveats![2]).toMatch(/Tamil Nadu|Karnataka/);
   });
 
   // PR-F (2026-05-25): 2 new allowlist entries close /t/energy 404s flagged
@@ -220,7 +308,10 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
       expect(d!.canonical_indicator_id).toBe("state-per-capita-electricity-consumption-kwh");
     }
     expect(d!.table_id).toBe("energy.energy_demand_supply");
-    expect(d!.meta.title).toMatch(/per-capita electricity consumption/i);
+    // Row 4 IA pass (2026-05-25): heading rewritten from "State per-capita
+    // electricity consumption (kWh/year)" to citizen-anchored "Electricity
+    // used per person (kWh/year)" per Citizen subagent verdict.
+    expect(d!.meta.title).toMatch(/electricity used per person/i);
     expect(d!.meta.unit).toBe("kWh per person per year");
     // Distinct from per-capita AVAILABILITY (RBI T138) — consumption is
     // billed end-use, availability is delivered-to-state (incl. T&D losses).
@@ -257,7 +348,10 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
       expect(d!.canonical_indicator_id).toBe("state-atc-losses-pct");
     }
     expect(d!.table_id).toBe("energy.energy_distribution_performance");
-    expect(d!.meta.title).toMatch(/aggregate technical.*commercial/i);
+    // Row 4 IA pass (2026-05-25): heading rewritten from "Aggregate Technical
+    // & Commercial losses (%, by state)" to citizen-anchored "Power lost to
+    // leaks and theft (%)" per Citizen + Hans verdicts.
+    expect(d!.meta.title).toMatch(/power lost.*leaks.*theft/i);
     expect(d!.meta.unit).toBe("%");
     // Discom-health metric: lower is better (UDAY target was <15%).
     expect(d!.meta.direction).toBe("lower_is_better");
@@ -297,7 +391,10 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
       expect(renewable?.canonical_child_id).toBe("state-electricity-generation-gwh-renewable");
     }
     expect(d!.table_id).toBe("energy.energy_generation");
-    expect(d!.meta.title).toMatch(/generation, by fuel/i);
+    // Row 4 IA pass (2026-05-25): heading rewritten from "State electricity
+    // generation, by fuel (GWh)" to citizen-anchored "Where your state's
+    // power comes from (GWh)" per Citizen subagent verdict.
+    expect(d!.meta.title).toMatch(/where your state.*power comes from/i);
     expect(d!.meta.unit).toBe("GWh");
   });
 });
