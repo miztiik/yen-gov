@@ -194,7 +194,7 @@ Each PR:
 | Slice | Status | Notes |
 | --- | :-: | --- |
 | Phase 0 (topic + family seed) | ◻ NEXT | Single structural PR. |
-| Phase 1.A (Owner Reg snapshot + meadow) | ◐ IN PROGRESS | PR #_pending_. Meadow lift `datasets/livestock/_meadow/ndlm/2024-25/owner_reg_land_holding_district.json` (35 states / 741 districts / 4986 rows; FY 2024-25 only). CY 2024 deferred (would break FROZEN 5-row sources seed); Uttarakhand state-5 absent (upstream HTTP 500); per-row `source_id` deferred to Phase 2.A canonical adapter per ADR-0032 (schema `additionalProperties: false`). Composite `facet = "<landholding>|<gender>"` encoding (12 facets) — Phase 2.A adapter will split. |
+| Phase 1.A (Owner Reg snapshot + meadow) | ◐ IN PROGRESS | PR #298. Meadow lift `datasets/livestock/_meadow/ndlm/2024-25/owner_reg_land_holding_district.json` (35 states / 741 districts / 4986 rows; FY 2024-25 only). CY 2024 deferred (would break FROZEN 5-row sources seed); Uttarakhand state-5 absent (upstream HTTP 500); per-row `source_id` deferred to Phase 2.A canonical adapter per ADR-0032 (schema `additionalProperties: false`). Composite `facet = "<landholding>|<gender>"` encoding (12 facets) — Phase 2.A adapter will split. |
 | Phase 1.B (Pashu Aadhaar snapshot + meadow) | ◻ QUEUED | Depends on Phase 0. Hans framing call resolved (see [pashu-aadhaar plan](20260525-pashu-aadhaar-ingest-plan.md)). |
 | Phase 1.C (NAIP IV snapshot + meadow) | ◻ QUEUED | Depends on Phase 0. |
 | Phase 1.D (NADCP snapshot + meadow) | 🔒 BLOCKED | Block: disease enumeration unknown (open question #2). Andre + Max to recon. |
