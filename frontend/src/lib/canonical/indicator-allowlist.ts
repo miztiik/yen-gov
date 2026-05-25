@@ -849,6 +849,53 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     ],
   },
 
+  // --- PR-R (Row 6 P.1.C 2/9, rooftop solar capacity lift, 2026-05-25) ---
+  // ICED `/energy/renewable/solar/rooftop/state` -> 321 obs rows (states x
+  // fiscal-years FY18-FY25) joined into the existing `energy_installed_capacity`
+  // parquet stem. Adapter:
+  //   * installed_capacity.py block 6 emits state-rooftop-solar-capacity-mw
+  // Rooftop is a sub-fuel measurement of installed MW; complements utility-scale
+  // solar tracked under state-installed-capacity-snapshot-mw-renewable. The
+  // total state solar fleet = utility-scale + rooftop. No facets; one row per
+  // (state, fiscal_year). Hans + Max signed off non-faceted lift (the rooftop
+  // category itself IS the facet — no further breakdown by residential /
+  // commercial / industrial published per-state).
+  {
+    kind: "single",
+    legacy_artifact_id: "energy/state_rooftop_solar_capacity_mw",
+    canonical_indicator_id: "state-rooftop-solar-capacity-mw",
+    table_id: "energy.energy_installed_capacity",
+    meta: {
+      id: "state-rooftop-solar-capacity-mw",
+      title: "State rooftop solar installed capacity (MW)",
+      description:
+        "Cumulative installed rooftop solar PV in megawatts — residential + commercial + industrial + public buildings. Owned by the building owner, NOT by a utility. Complements (does not replace) utility-scale solar, which lives under state-installed-capacity-snapshot-mw-renewable.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "higher_is_better",
+      scale_hint: "linear",
+      unit: "MW",
+      short_unit: "MW",
+      icon: "sun",
+      attribution_geography: "where_administered",
+      comparability: "comparable_across_states_and_time",
+      implementing_authority: "state",
+      methodology_vintage:
+        "NITI Aayog ICED /energy/renewable/solar/rooftop/state. Originating data: MNRE / state nodal agencies via the National Rooftop Solar Programme. ICED is the federal aggregator; not the issuing authority.",
+      notes:
+        "A state's TOTAL solar fleet = utility-scale + rooftop. Gujarat dominates rooftop by absolute MW thanks to a decade of state co-funding plus the SURYA Gujarat residential push; Rajasthan and Karnataka lead utility-scale but lag rooftop because rooftop economics depend on retail tariff structure (favouring high commercial-tariff states like Maharashtra and Tamil Nadu) more than insolation.",
+    },
+    // PR-R (Row 6 P.1.C commit 1): Hans-curated caveats. The utility-vs-rooftop
+    // mental model, the tariff-economics vs insolation distinction, and the
+    // cumulative-vs-annual nuance are the three honesty cues citizens need.
+    caveats: [
+      "This is rooftop ONLY — building-mounted PV owned by the building owner. The state's TOTAL solar fleet = rooftop + utility-scale (utility-scale lives under the installed-capacity-renewable card on this page). A state can be a solar superstar by either path; Karnataka is utility-led, Gujarat is rooftop-strong.",
+      "Tariff structure drives rooftop economics more than sunshine. Maharashtra and Tamil Nadu host commercial buildings paying high retail tariffs (₹8-12/kWh), so rooftop's payback is fast there even with merely good insolation. Rajasthan has the best insolation but its commercial tariffs are lower, so rooftop lags despite being a solar leader overall.",
+      "These are CUMULATIVE MW installed to-date, not new MW added in the year. A flat line in a state means the rollout has slowed, not that capacity was lost. Compare consecutive fiscal years to see the actual annual deployment pace.",
+    ],
+  },
+
   // --- 12: ACS-ARR gap on electricity sales (₹/kWh), NITI ICED ---
   {
     kind: "single",

@@ -1,6 +1,6 @@
 """Installed capacity envelope — ``energy_installed_capacity.parquet``.
 
-Lifts 8 legacy shards into a single BatchEnvelope:
+Lifts 9 legacy shards into a single BatchEnvelope:
 
 * 5 CEA per-fuel per-state shards
   (``installed_capacity_{coal,gas,hydro,nuclear,renewable}_mw.json``)
@@ -28,6 +28,12 @@ Lifts 8 legacy shards into a single BatchEnvelope:
   pre-FY15 rows). methodology_break row
   ``rbi-handbook-aggregate-no-fuel-split-pre-fy15`` documents the basis
   change at FY15 and the absence of per-fuel splits in the RBI portion.
+* ``state_rooftop_solar_capacity_mw.json`` (321 rows, P.1.C PR-R)
+  → ``state-rooftop-solar-capacity-mw`` (per-state cumulative rooftop
+  PV MW, FY18-FY25, source_id=iced_rooftop_solar). Complements (does
+  NOT replace) utility-scale solar tracked under
+  ``state-installed-capacity-snapshot-mw-renewable``; the total state
+  solar fleet = utility-scale + rooftop.
 
 DELIBERATELY NOT LIFTED:
 * ``installed_capacity_{thermal,total}_mw.json`` — D33.8 hard drop, the
@@ -223,6 +229,31 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             indicator_id="state-installed-capacity-allocated-mw",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["rbi_hbk_140_installed_capacity"],
+            derivation="raw",
+        ))
+
+    # 6. state_rooftop_solar_capacity_mw.json (P.1.C PR-R)
+    #    → state-rooftop-solar-capacity-mw
+    #    Cumulative MW of building-mounted PV across residential /
+    #    commercial / industrial / public categories. COMPLEMENTS (does
+    #    NOT replace) utility-scale solar tracked under
+    #    state-installed-capacity-snapshot-mw-renewable; the total state
+    #    solar fleet = utility-scale + rooftop. ICED publishes one row
+    #    per (state, fiscal_year) with cumulative MW; no facets, no
+    #    sub-fuel collapse needed. Originating data: MNRE / state nodal
+    #    agencies via the National Rooftop Solar Programme. Includes
+    #    IN national rollup as a publisher-supplied row.
+    shard = _load_iced_meadow(repo_root, "state_rooftop_solar_capacity_mw.json")
+    for r in shard["rows"]:
+        period_label, year, period_seq = parse_iso_period(r["time"])
+        rows.append(ObservationRow(
+            entity_id=to_entity_id(r["entity_id"]),
+            year=year,
+            period_label=period_label,
+            period_seq=period_seq,
+            indicator_id="state-rooftop-solar-capacity-mw",
+            value_numeric=float(r["value"]),
+            source_id=SOURCE_IDS["iced_rooftop_solar"],
             derivation="raw",
         ))
 

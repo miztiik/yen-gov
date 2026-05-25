@@ -75,6 +75,15 @@ SOURCE_IDS: dict[str, str] = {
     # establishes the new ``energy_fuel_consumption`` table stem reserved
     # in __init__.py docstring as the P.1.C target.
     "iced_consumption_coal":             "src-c222a8e2cd61",
+    # P.1.C PR-R (rooftop solar capacity lift, 2026-05-25). Derived via
+    # derive_source_id("NITI Aayog India Climate & Energy Dashboard",
+    # "Rooftop Solar Capacity (MW) State-wise API (per-state cumulative
+    # rooftop solar installed capacity)", "2024-25"). Adds state-rooftop-
+    # solar-capacity-mw to the existing ``energy_installed_capacity``
+    # table stem (rooftop is a sub-fuel measurement of installed MW,
+    # complementing utility-scale solar already tracked under
+    # state-installed-capacity-snapshot-mw-renewable).
+    "iced_rooftop_solar":                "src-018bb42f9519",
 }
 
 
