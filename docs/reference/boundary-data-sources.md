@@ -49,7 +49,7 @@ The administrative-hierarchy matrix that civic-data work usually starts from (LG
 | **Ward (GP ward / ULB ward)** | — | ❌ gap | ramSeraph `urban`: `SBM_Wards` (national, gaps in WB/TR/MZ/MN) + `LivingAtlas_Wards` + `WB_AMRUT_Wards` + `Shillong_Wards` |
 | **Village (rural land unit, LGD-coded)** | `village` | ⚠️ TN only | ramSeraph `LGD_Villages` (national-minus-8: HP, J&K, Sikkim, ML, MZ, MN, NL, AR are missing upstream) — Phase C of the plan |
 | **Town (urban land unit, Census 2011)** | — | ❌ gap | ramSeraph census-2011 `PC11_TV_DIR.csv.7z` (town + village directory, CSV-only) |
-| **Assembly Constituency (AC)** | `ac` | ✅ 30 of 31 elective states/UTs (10 ramSeraph LGD post-Phase-D.2 + 19 HTL + 1 J&K shijithpk) | mixed (HTL + ramSeraph + shijithpk J&K); ramSeraph `LGD_Assembly_Constituencies` is the consolidation target for the remaining HTL states **where D.1 recon authorises** — Phase D of the plan |
+| **Assembly Constituency (AC)** | `ac` | ✅ 31 of 31 elective states/UTs (10 ramSeraph LGD post-Phase-D.2 + 20 HTL + 1 J&K shijithpk) | mixed (HTL + ramSeraph + shijithpk J&K); ramSeraph `LGD_Assembly_Constituencies` is the consolidation target for the remaining HTL states **where D.1 recon authorises** — Phase D of the plan |
 | **Parliamentary Constituency (PC)** | `pc` | ✅ national, 1 file | shijithpk 2024 delim today; ramSeraph `LGD_Parliament_Constituencies` is the upgrade candidate when survey-grade geometry is needed |
 | **PIN code (postal zone)** | `postal` | ❌ gap | ramSeraph [`PincodeBoundaries`](https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/postal) (PostalGIS, missing 8 NE/HP/J&K states) or `Datagov_Pincode_Boundaries` (data.gov.in, GODL, all-India) — Phase A of the plan |
 | **Census 2011 District / Sub-district / Village** | indirect — `entities.json` district rows carry `census_2011_code` | ⚠️ no polygons | ramSeraph census-2011: `Districts_2011` + `SubDistricts_2011` (CC0-1.0 polygons), `Census_Villages` (CC0 **points**, not polygons). SHRUG variants are **CC-BY-NC-SA — non-commercial, NOT safe for our static-site redistribution**. See Phase E. |
@@ -82,7 +82,7 @@ Three numbers govern district-level reasoning and routinely confuse new agents �
 | **district entity rows** (`taxonomy/entities.json`) | **145/784** ⚠️ | **639 missing** — every state except S03/S06/S11/S22/S25/U07 needs its districts curated in | **Plan Phase 0.2** (hand-curation; LGD CSV → generator → operator review → JSON patch) |
 | subdistrict | 36/36 states ✅ (national lift in PR #257) | — | — |
 | village | 27/36 states ✅ (PR #259, 645 per-(state, district) shards) | **9 states/UTs missing upstream** — see table below | bhuvan fall-back (per-state, gated on first village-keyed indicator); not in active sprint |
-| AC | 30/31 elective states ✅ (10 ramSeraph LGD + 19 HTL + 1 J&K shijithpk) | survey-grade consolidation onto ramSeraph `LGD_Assembly_Constituencies` for the remaining HTL states where D.1 recon authorises | **Plan Phase D.2 partial (10 states landed 2026-05-25)**; D.5 wrap-up pending. S03 Assam + U08 J&K remain on HTL/shijithpk per D.1 §4 Outcome-3 mixed verdicts (LGD upstream does not cleanly reflect the post-2023 Assam or post-2022 J&K re-delim layouts). |
+| AC | 31/31 elective states ✅ (10 ramSeraph LGD + 20 HTL + 1 J&K shijithpk) | survey-grade consolidation onto ramSeraph `LGD_Assembly_Constituencies` for the remaining HTL states where D.1 recon authorises | **Plan Phase D.2 partial (10 states landed 2026-05-25); D.5 wrap-up closes the loop**. S03 Assam + U08 J&K remain on HTL/shijithpk per D.1 §4 Outcome-3 mixed verdicts (LGD upstream does not cleanly reflect the post-2023 Assam or post-2022 J&K re-delim layouts). |
 | PC | 545 features ✅ (shijithpk, 2024 delim) | survey-grade `LGD_Parliament_Constituencies` is the upgrade target | **Plan Phase D.6** |
 | pincode polygons | 36 per-state shards ✅ (PR #254) | — | — |
 | pincode directory CSV | 165,627 rows ✅ (PR pending) | — | — |
@@ -127,7 +127,7 @@ Why this matters for citizen choropleths: financial-inclusion data (banks per pi
 
 ## In use today (per-state AC catalogue)
 
-The current inventory above gives the high-level shape. This table is the per-state AC catalogue for the 30 states (10 ramSeraph LGD + 19 HTL + 1 J&K shijithpk) that actually ship an Assembly Constituency layer today (the remainder of `boundary_layers.parquet` is summarised in the inventory above).
+The current inventory above gives the high-level shape. This table is the per-state AC catalogue for the 31 elective states/UTs (10 ramSeraph LGD + 20 HTL + 1 J&K shijithpk) that actually ship an Assembly Constituency layer today (the remainder of `boundary_layers.parquet` is summarised in the inventory above).
 
 | Layer | Upstream | License | Notes |
 | --- | --- | --- | --- |
