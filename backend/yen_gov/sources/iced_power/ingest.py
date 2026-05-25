@@ -375,6 +375,11 @@ def ingest_iced_power(
             repo_root / "datasets" / "energy" / "_meadow" / "iced" / "2024-25"
             / "state_electricity_generation_by_source_gwh.json"
         ),
+        # PR 7c-4 (installed_capacity family, iced_power side):
+        "state_installed_capacity_by_source_mw": (
+            repo_root / "datasets" / "energy" / "_meadow" / "iced" / "2024-25"
+            / "state_installed_capacity_by_source_mw.json"
+        ),
     }
 
     fetched_at_overall = datetime.now(timezone.utc)

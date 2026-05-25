@@ -59,10 +59,22 @@ from ._shared import (
     CANONICAL_FUELS,
     SOURCE_IDS,
     SUB_FUEL_TO_CANONICAL,
-    load_shard,
+    load_meadow,
     parse_iso_period,
     to_entity_id,
 )
+
+
+def _load_cea_meadow(repo_root: Path, file: str) -> dict:
+    return load_meadow(repo_root, "energy", "cea", "2024-25", file)
+
+
+def _load_iced_meadow(repo_root: Path, file: str) -> dict:
+    return load_meadow(repo_root, "energy", "iced", "2024-25", file)
+
+
+def _load_rbi_meadow(repo_root: Path, file: str) -> dict:
+    return load_meadow(repo_root, "energy", "rbi", "2024-25", file)
 
 
 def build_envelope(repo_root: Path) -> BatchEnvelope:
@@ -79,7 +91,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
     #      Single-snapshot, comparable_across_states_snapshot_only — NOT a
     #      time series; restate on each fresh CEA monthly drop.
     for fuel in CANONICAL_FUELS:
-        shard = load_shard(repo_root, f"installed_capacity_{fuel}_mw.json")
+        shard = _load_cea_meadow(repo_root, f"installed_capacity_{fuel}_mw.json")
         shard_rows = shard["rows"]
         if not shard_rows:
             continue
@@ -121,7 +133,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
 
     # 2. state_installed_capacity_geographical_mw.json
     #    → state-installed-capacity-geographical-mw (parent, publisher total)
-    shard = load_shard(repo_root, "state_installed_capacity_geographical_mw.json")
+    shard = _load_iced_meadow(repo_root, "state_installed_capacity_geographical_mw.json")
     for r in shard["rows"]:
         period_label, year, period_seq = parse_iso_period(r["time"])
         rows.append(ObservationRow(
@@ -138,7 +150,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
     # 3. state_installed_capacity_by_source_mw.json
     #    → state-installed-capacity-geographical-mw-{fuel}
     #    Sub-fuel collapse: aggregate per (entity_id, time, canonical_fuel).
-    shard = load_shard(repo_root, "state_installed_capacity_by_source_mw.json")
+    shard = _load_iced_meadow(repo_root, "state_installed_capacity_by_source_mw.json")
     agg: dict[tuple[str, str, str], list[float]] = defaultdict(list)
     for r in shard["rows"]:
         sub_fuel = r["facet"]
@@ -167,7 +179,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
 
     # 4. state_installed_capacity_with_alloc_mw.json
     #    → state-installed-capacity-allocated-mw (parent, publisher total)
-    shard = load_shard(repo_root, "state_installed_capacity_with_alloc_mw.json")
+    shard = _load_iced_meadow(repo_root, "state_installed_capacity_with_alloc_mw.json")
     for r in shard["rows"]:
         period_label, year, period_seq = parse_iso_period(r["time"])
         rows.append(ObservationRow(
@@ -198,7 +210,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
     #    in the RBI portion. Shard has NO "IN" national-aggregate row
     #    (verified by inspection 2026-05-24 at lift-prep); the parent
     #    indicator carries only state/UT rows in this slice.
-    shard = load_shard(repo_root, "state_installed_capacity_total_mw.json")
+    shard = _load_rbi_meadow(repo_root, "state_installed_capacity_total_mw.json")
     for r in shard["rows"]:
         if r["time"] >= "2015-04":
             continue  # ICED Deep Dive (block 4) owns FY15+ rows.

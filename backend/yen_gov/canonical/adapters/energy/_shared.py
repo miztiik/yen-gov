@@ -154,24 +154,6 @@ def to_entity_id(state_code: str) -> str:
     return f"IN-{state_code}"
 
 
-def load_shard(repo_root: Path, name: str) -> dict:
-    """Load a legacy indicator shard from
-    ``datasets/indicators/in/energy/<name>``.
-
-    Returns the raw parsed JSON; the adapter is responsible for
-    transforming ``rows[]`` into ``ObservationRow``. Path is
-    explicitly POSIX so the error messages stay portable.
-
-    Per ADR-0041 the legacy `datasets/indicators/in/<topic>/<id>.json`
-    path is being renamed family-by-family to the meadow tier
-    `datasets/<family>/_meadow/<source>/<vintage>/<file>.json`. New code
-    MUST call ``load_meadow()`` below; this loader retires in PR 7c-4
-    once all 23 energy shards have moved.
-    """
-    p = repo_root / "datasets" / "indicators" / "in" / "energy" / name
-    return json.loads(p.read_text(encoding="utf-8"))
-
-
 def load_meadow(
     repo_root: Path,
     family: str,

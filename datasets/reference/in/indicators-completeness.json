@@ -505,7 +505,7 @@
     {
       "id": "energy/installed_capacity_coal_mw",
       "topic": "energy",
-      "path": "datasets/indicators/in/energy/installed_capacity_coal_mw.json",
+      "path": "datasets/energy/_meadow/cea/2024-25/installed_capacity_coal_mw.json",
       "title": "Installed coal-fired capacity",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -525,7 +525,7 @@
     {
       "id": "energy/installed_capacity_gas_mw",
       "topic": "energy",
-      "path": "datasets/indicators/in/energy/installed_capacity_gas_mw.json",
+      "path": "datasets/energy/_meadow/cea/2024-25/installed_capacity_gas_mw.json",
       "title": "Installed gas-based capacity",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -545,7 +545,7 @@
     {
       "id": "energy/installed_capacity_hydro_mw",
       "topic": "energy",
-      "path": "datasets/indicators/in/energy/installed_capacity_hydro_mw.json",
+      "path": "datasets/energy/_meadow/cea/2024-25/installed_capacity_hydro_mw.json",
       "title": "Installed hydro capacity",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -565,7 +565,7 @@
     {
       "id": "energy/installed_capacity_nuclear_mw",
       "topic": "energy",
-      "path": "datasets/indicators/in/energy/installed_capacity_nuclear_mw.json",
+      "path": "datasets/energy/_meadow/cea/2024-25/installed_capacity_nuclear_mw.json",
       "title": "Installed nuclear capacity",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -585,7 +585,7 @@
     {
       "id": "energy/installed_capacity_renewable_mw",
       "topic": "energy",
-      "path": "datasets/indicators/in/energy/installed_capacity_renewable_mw.json",
+      "path": "datasets/energy/_meadow/cea/2024-25/installed_capacity_renewable_mw.json",
       "title": "Installed renewable capacity (RES MNRE)",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -904,7 +904,7 @@
     {
       "id": "energy/state_installed_capacity_by_source_mw",
       "topic": "energy",
-      "path": "datasets/indicators/in/energy/state_installed_capacity_by_source_mw.json",
+      "path": "datasets/energy/_meadow/iced/2024-25/state_installed_capacity_by_source_mw.json",
       "title": "State installed electricity capacity, by fuel source (MW)",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -924,7 +924,7 @@
     {
       "id": "energy/state_installed_capacity_geographical_mw",
       "topic": "energy",
-      "path": "datasets/indicators/in/energy/state_installed_capacity_geographical_mw.json",
+      "path": "datasets/energy/_meadow/iced/2024-25/state_installed_capacity_geographical_mw.json",
       "title": "Installed electricity capacity (geographical, by state)",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -944,7 +944,7 @@
     {
       "id": "energy/state_installed_capacity_total_mw",
       "topic": "energy",
-      "path": "datasets/indicators/in/energy/state_installed_capacity_total_mw.json",
+      "path": "datasets/energy/_meadow/rbi/2024-25/state_installed_capacity_total_mw.json",
       "title": "State-wise installed capacity of power (MW)",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -964,7 +964,7 @@
     {
       "id": "energy/state_installed_capacity_with_alloc_mw",
       "topic": "energy",
-      "path": "datasets/indicators/in/energy/state_installed_capacity_with_alloc_mw.json",
+      "path": "datasets/energy/_meadow/iced/2024-25/state_installed_capacity_with_alloc_mw.json",
       "title": "Installed electricity capacity (with allocated shares, by state)",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -1164,7 +1164,7 @@
     {
       "id": "energy/state_renewable_grid_capacity_mw",
       "topic": "energy",
-      "path": "datasets/indicators/in/energy/state_renewable_grid_capacity_mw.json",
+      "path": "datasets/energy/_meadow/rbi/2024-25/state_renewable_grid_capacity_mw.json",
       "title": "State-wise installed grid-interactive renewable capacity (MW)",
       "documentation_status": "stub",
       "inventory_status": "complete",

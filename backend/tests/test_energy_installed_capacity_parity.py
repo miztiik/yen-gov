@@ -28,6 +28,9 @@ import pytest
 REPO_ROOT = Path(__file__).resolve().parents[2]
 PARQUET = REPO_ROOT / "datasets" / "energy" / "energy_installed_capacity.parquet"
 SHARD_DIR = REPO_ROOT / "datasets" / "indicators" / "in" / "energy"
+# PR 7c-4: installed-capacity shards promoted to the meadow tier per ADR-0041.
+MEADOW_ICED = REPO_ROOT / "datasets" / "energy" / "_meadow" / "iced" / "2024-25"
+MEADOW_RBI = REPO_ROOT / "datasets" / "energy" / "_meadow" / "rbi" / "2024-25"
 
 
 pytestmark = pytest.mark.skipif(
@@ -94,7 +97,7 @@ def test_state_geographical_renewable_facet_is_sum_of_collapsed_subfuels() -> No
     Verifies the sub-fuel collapse against an independently computed expected
     value from the source shard."""
     shard = json.loads(
-        (SHARD_DIR / "state_installed_capacity_by_source_mw.json").read_text(encoding="utf-8")
+        (MEADOW_ICED / "state_installed_capacity_by_source_mw.json").read_text(encoding="utf-8")
     )
     renewable_subs = {"bio-power", "biomass", "small-hydro", "solar", "wind", "waste-to-energy"}
     expected = sum(
@@ -358,7 +361,7 @@ def test_c46_longarc_s22_2005() -> None:
     rather than hand-typing it: a drift between shard and Parquet here is
     a writer/adapter bug, not a stale-test bug."""
     shard = json.loads(
-        (SHARD_DIR / "state_installed_capacity_total_mw.json").read_text(encoding="utf-8")
+        (MEADOW_RBI / "state_installed_capacity_total_mw.json").read_text(encoding="utf-8")
     )
     expected_rows = [r for r in shard["rows"] if r["entity_id"] == "S22" and r["time"] == "2005-04"]
     assert len(expected_rows) == 1, (
