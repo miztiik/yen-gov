@@ -1,6 +1,6 @@
 # Canonical long-format pivot — handover plan
 
-**Last Updated**: 2026-05-24
+**Last Updated**: 2026-05-25
 **Status**: Phase 0 ✅ + Phase 1 elections deletion sweep ✅ + T.1 (`_test/`→`_ops/` hygiene) ✅ + G.1 (office-bearers consolidation) ✅ + **T.0d (boundaries consolidation — Hive partitioning + parquet ledger) ✅ MERGED 2026-05-22 (`9e2ee3db`)** + **T.0e (`STATE_NAME_TO_ECI` retirement → states view-model via taxonomy.entities) ✅ MERGED 2026-05-22 (PR #96, `de463eca`)** + **T.2 (topic-catalogue schema bump v1.2→v1.3 + 9 placeholder topics + doc-ref scrub) ✅ MERGED 2026-05-24 (PR #182, `39f42b9c`)** + **T.3 (indicator catalogue v1.1) ✅ MERGED 2026-05-23** (PR #107, `0a8d8e83`). **Phase 2 P.1 = Energy** is the active phase; sub-commits C0-C4 + **C4.5 CEA per-state per-fuel snapshot lift (lift-only — reader-switch deferred per PR #177 strangler-fig lesson)** + **C4.6 RBI Handbook Table 140 FY05-FY14 long-arc splice (SHIP-LIFT-ONLY — reader-switch + legacy-shard retire deferred to follow-up)** + **C4.8 sub-fuel preservation (Option B additive — methodology_breaks row + Tier-B fence; shard retire descoped to follow-up)** + **P.1.B DISCOM finance + demand/supply extension (SHIP-LIFT-ONLY, this PR — 6 new canonical indicators on `energy_distribution_performance.parquet` + `energy_demand_supply.parquet`; +5 source ledger rows; +2 facet axes `efficiency_dimension` + `rpo_segment`; frontend allowlist + topics.json retire-edits + legacy-shard `git rm` deferred to subsequent PRs mirroring the P.1.A C5+C6 pattern)** MERGED to main (PR #101 umbrella `4f79e319` + PR #106 C4 replay `e04f85a6` + C4.5 PR + C4.6 PR + C4.8 PR + this PR); **C5+C6 (reader-switch + legacy retire) is the next PR and remains DEFERRED pending Hans+Max+Gregor design pass for `fetchIndicatorFromCanonical(id)` shape**. Planning + design lives at [`TODO/20260522-phase-2-p1-energy-pivot.md`](20260522-phase-2-p1-energy-pivot.md). Other Phase 2 pre-flight rows still in-flight: S.1 (persons fork rename — ready).
 **Spec**: [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md) (disk layout, write/read paths, schemas).
 **Decision rationale**: [ADR-0030](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md) (canonical store + DuckDB-WASM, D1–D36 verbatim) + [ADR-0031](../docs/architecture/decisions/0031-boundary-geometry-strategy.md) (boundaries) + [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md) (sources citation ledger) + [ADR-0035](../docs/architecture/decisions/0035-persons-fork-option-b.md) (persons fork).
@@ -59,6 +59,65 @@ Each PR independently mergeable, each reversible. Two-hat discipline: purely str
 | `datasets/people/AcGenApr2021/` | `datasets/elections/dim_persons.parquet` + `taxonomy/persons.parquet` | S.1 | ◻ READY |
 | `datasets/boundaries/in/geojson/*.{sources,metadata,unkeyed}.json` (115 sidecars) + `S22-villages-index.json` | `datasets/boundaries/boundary_layers.parquet` + FK to `taxonomy/sources.parquet` | T.0d | ✅ DONE 2026-05-22 (`9e2ee3db`) |
 | Flat `datasets/boundaries/in/geojson/*.geojson` (73 files) | Hive-partitioned `datasets/boundaries/in/{country,states,districts,ac,pc,subdistricts,villages,postal}/state=<S>/...` per [T.0d spec §1](20260522-t0d-boundaries-consolidation-spec.md) | T.0d | ✅ DONE 2026-05-22 (`9e2ee3db`) |
+
+## §0e.8a. Pending-work tracker (compact)
+
+User-requested 2026-05-25 — single-glance enumeration of what's NOT done. Updated as PRs ship. Done work intentionally omitted; this is a **pending-only** view.
+
+| Slice | Status | Why pending |
+| --- | :-: | --- |
+| **S.1** Persons fork (Option B) | ◻ READY | Independent of energy; queued behind 7c-N + C5+C6 per user direction 2026-05-25. |
+| **P.1 Energy — 7c-N sequence** (Phase-C `meadow` tier rollout, supersedes the old single PR 7c) | ⏳ ACTIVE | Hans+Max+Gregor consult 2026-05-25 ratified **Strategy F (meadow-tier rename)** per §0e.8b. Sequenced as 5 PRs below. |
+| ↳ 7c-0 ADR + docs (zero code/data moves) | ⏳ ACTIVE | Captures ADR-0041 + concept doc + CLAUDE.md §4/§10 + canonical-store.md §2 amend. Tiny, low-risk. **THIS PR.** |
+| ↳ 7c-1 generation.py (2 shards) | ◻ READY after 7c-0 | Introduces `load_meadow()` helper in `_shared.py`. |
+| ↳ 7c-2 distribution.py (6 shards) | ◻ READY after 7c-1 | Parallel-safe with 7c-3. |
+| ↳ 7c-3 demand_supply.py (7 shards) | ◻ READY after 7c-1 | PR #174 inline-literal block stays as-is. |
+| ↳ 7c-4 installed_capacity.py (8 shards) + finalisation | ◻ READY after 7c-2 + 7c-3 | Retires `load_shard()`, renames Tier-B fence, deletes `datasets/indicators/in/energy/`. |
+| **C5+C6** (reader-switch + legacy retire for C0-C4) | ✅ DISSOLVED into 7c-N | Same architectural question; each 7c-N PR's `git mv` is the forcing-function for its slice. No separate C5+C6 PR needed. |
+| **C4.5 / C4.6 / C4.8** retired-shard deferrals | ✅ DISSOLVED into 7c-N | Same — each adapter's 7c-N PR covers its slice. |
+| **P.1 Energy — PR 7b.1** FacetPicker primitive + IndicatorCard facet awareness | ◻ READY | Unblocks RPO citizen render (placeholder currently shown). Independent of 7c-N. |
+| **P.1 Energy — PR 7d** IA editorial pass | ◻ READY | Prune 36-card wall, ACS-ARR copy rewrite per Citizen, scroll-narrative cascade. Independent of 7c-N. |
+| **Citizen-1 panel** Hans+Gregor §10 carve-out for <2s mobile first-paint vs DuckDB-WASM warm-up | ◻ OPEN ARCHITECTURE | Design question; not a PR yet. |
+| **P.1 Energy — P.1.C + P.1.D** (remaining energy sub-pivots) | ◻ QUEUED | Sequenced after 7c-N closes. |
+| **Phase 2 P.2+** (~10 more families: NFHS-5, PLFS, UDISE+, AISHE, NCRB, HCES, IMD, e-GramSwaraj-PFMS, TRAI, CAG) | ◻ QUEUED | Bulk of remaining Phase 2. Each adopts the meadow-tier authoring path from day one — no Phase-C debate per family. |
+| **Phase 3** Demography/Fiscal/Education/Health backfill | Sketch only | Opens when Phase 2 closes. |
+| **Phase 4** SLM dispatcher | Sketch only | Opens when Phase 3 closes. |
+| **Phase 5** Admin app rewrite (Schemas/Pipeline/Patches panels) | Sketch only | Inventory v0 shipped; rest waits on Phase 4. |
+| **Open** `taxonomy/topics.parquet` rollout scheduling for 9 new placeholder topics | OPEN | Needs Max indicator-priority ordering. |
+| **Open** `facet-axes` extensions as families need new axes | OPEN per-family | Each new axis needs Max sign-off when its family ingests. |
+
+**Rough completion estimate**: ~15-20% of the full canonical pivot. Phase 1 done; 1 of ~11 families (Energy) partially shipped; Phases 3-5 are sketches.
+
+## §0e.8b. Strategy F — Meadow-tier rename (ratified 2026-05-25 by Hans + Max + Gregor)
+
+**Decision**: The shards currently under `datasets/indicators/in/<topic>/<id>.json` ARE OWID's `meadow` tier — parsed publisher rows, deterministic, schema-validated, FK-bearing, but pre-canonical. They live at a misleading path (looks citizen-facing; is backend-only). The fix is to **rename** them to `datasets/<family>/_meadow/<source>/<vintage>/<file>.json` — NOT `git rm` them.
+
+Five OWID-aligned tiers (per §0a "The One Rule"): `upstream → snapshots (ephemeral, `.runtime/raw/`) → meadow (committed, `datasets/<family>/_meadow/`) → canonical (committed, `datasets/<family>/<family>_<role>.parquet`) → grapher (frontend view-models)`.
+
+**Why F not Hans's (c)** (reframe-in-place): the path lie persists; Tier-B validator becomes ceremony; no forcing function for Phase B allowlist completion.
+
+**Why F not Max's (b)/α** (`datasets/_raw/<source>/` committed): Max picked the wrong OWID tier; `etl/snapshots/` is bytes-in-git (different from meadow). yen-gov already HAS the meadow tier (typed, parsed); promoting `.runtime/raw/` adds a NEW layer at high repo-size cost (~550 MB ICED alone) when the typed layer already does the job.
+
+**Forcing function**: each per-adapter `git mv` simultaneously (a) repoints the backend canonical adapter, (b) breaks any legacy frontend `fetch('/data/indicators/in/...')` URL → forces Phase B allowlist to be the only path, (c) deletes the old path. Phase-C + Phase-D + C5 unified per slice.
+
+**Completion criterion**: `datasets/indicators/in/` does not exist on `main`. Single `git ls-tree` query.
+
+**Doc impact** (lands in PR 7c-0):
+- NEW: [`docs/concepts/meadow-tier.md`](../docs/concepts/meadow-tier.md) — define meadow vocabulary, meadow→canonical contract, OWID precedent, "no frontend fetch from `_meadow/`" rule.
+- NEW: [ADR-0041 "Meadow tier — parsed publisher rows as canonical input"](../docs/architecture/decisions/0041-meadow-tier.md) — captures F-vs-(a/b/c/d) tradeoff with rejected alternatives.
+- AMEND: CLAUDE.md §4 — add "`datasets/<family>/_meadow/` is backend-internal. Frontend MUST NOT fetch from it."
+- AMEND: CLAUDE.md §10 — replace "Create new indicator artifact files under `datasets/indicators/in/<topic>/<id>.json`" entry with "Write parsed publisher rows anywhere except `datasets/<family>/_meadow/<source>/<vintage>/<file>.json`."
+- AMEND: [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md) §2 — add `_meadow/` to per-family directory invariant + backend-only consumer constraint.
+- DEFERRED to PR 7c-4: rename `datasets/_ops/legacy-folded-indicator-shards.txt` → `meadow-shard-contract.txt`; rewrite header from "countdown to retirement" → "perimeter for canonical-input contract."
+
+**Non-negotiables** (Gregor + Hans):
+1. No backend writes outside `datasets/<family>/_meadow/<source>/<vintage>/` for staging.
+2. CLAUDE.md §4 layer rule MUST land in 7c-0.
+3. No network at lift, ever; `.runtime/raw/` stays gitignored ephemeral.
+4. Vintage in meadow path MUST match `vintage` field of citation row the FK resolves to.
+5. Sequencing: 7c-1 introduces `load_meadow`; 7c-4 retires `load_shard` atomically.
+6. No editorial creep into 7c-N PRs — structural rename + adapter switch + allowlist + smoke only.
+7. Methodology breaks (RBI Table 140 ↔ 142 splice etc) render visibly on chart, not just in `methodology_breaks.parquet` (Hans non-negotiable).
 
 ## §0e.9. Cross-refs
 
