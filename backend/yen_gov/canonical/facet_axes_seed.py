@@ -532,6 +532,55 @@ FACET_AXES: list[FacetAxis] = [
             FacetAxisValue(value_id="mule",    label="Mule"),
         ],
     ),
+    FacetAxis(
+        axis_id="landholding",
+        label="Land-holding bracket",
+        description=(
+            "Self-declared agricultural land holding axis for NDLM Owner "
+            "Registration (Bharat Pashudhan). Closed enum of 6 brackets "
+            "the publisher emits per district per vintage: "
+            "landless_marginal (<1 Ha), small (1.0-1.99 Ha), semi_medium "
+            "(2.0-3.99 Ha), medium (4.0-9.99 Ha), large (>=10 Ha), and "
+            "not_specified (registrations without a declared bracket). "
+            "The parent indicator (``district-livestock-owner-reg-count``) "
+            "is compute-on-read per Hans D33.8 - its value is the SUM of "
+            "all 6 brackets. Bracket definitions follow the Agriculture "
+            "Census 2015-16 categorisation; a future vintage that rebases "
+            "the brackets MUST extend this enum AND mark the prior set "
+            "deprecated rather than mutating in place."
+        ),
+        allow_compute_on_read_total=True,
+        values=[
+            FacetAxisValue(
+                value_id="landless_marginal",
+                label="Landless / marginal (<1 Ha)",
+            ),
+            FacetAxisValue(
+                value_id="small",
+                label="Small (1.0-1.99 Ha)",
+            ),
+            FacetAxisValue(
+                value_id="semi_medium",
+                label="Semi-medium (2.0-3.99 Ha)",
+            ),
+            FacetAxisValue(
+                value_id="medium",
+                label="Medium (4.0-9.99 Ha)",
+            ),
+            FacetAxisValue(
+                value_id="large",
+                label="Large (>=10 Ha)",
+            ),
+            FacetAxisValue(
+                value_id="not_specified",
+                label="Not specified",
+                description=(
+                    "Registrations without a declared land-holding "
+                    "bracket; preserved verbatim rather than imputed."
+                ),
+            ),
+        ],
+    ),
 ]
 
 
