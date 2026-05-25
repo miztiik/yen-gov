@@ -1,0 +1,75 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "4.4",
+  "sources": [
+    {
+      "url": "https://bharatpashudhan-api.ndlm.co.in/epashu/v1/homepage/getNaipHeaderCount",
+      "fetched_at": "2026-05-25T18:00:17Z"
+    }
+  ],
+  "license": {
+    "id": "GoI-Open",
+    "name": "Government of India open publication",
+    "url": "https://data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "1 country (India)",
+    "temporal": "2024-25",
+    "admin_level": "country"
+  },
+  "indicator": {
+    "id": "livestock/naip_header_cumulative_count",
+    "title": "Bharat Pashudhan header cumulative rollup (count)",
+    "description": "Cumulative national rollup of breeding-programme outcomes (artificial-insemination events) reported by the Bharat Pashudhan header endpoint. Values are CUMULATIVE since programme inception across all years; the upstream endpoint accepts a year parameter but returns the same numbers across years 2022-2025. Reported per programme: NAIP IV (National AI Programme phase IV), ABIP (Accelerated Breed Improvement Programme), and Others (residual). Serves as a sanity-check cross-reference for the district-grain naip_iv_district.json; not routed to the Phase 2 catalogue indicator slugs.",
+    "entity_kind": "country",
+    "time_grain": "fiscal_year",
+    "value_kind": "raw",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "count",
+    "short_unit": "count",
+    "attribution_geography": "where_administered",
+    "comparability": "directional_only",
+    "implementing_authority": "centre",
+    "methodology_vintage": "NDLM Bharat Pashudhan header endpoint; raw vintages ['2024-25']; snapshot 2026-05-25T18:00:17Z",
+    "notes": "Each row's `facet` encodes the programme as `<programme>|none` (3 values: naip_iv, abip, others). Sanity-check fixture: the NAIP IV programme total here is the cumulative all-years rollup and should EXCEED the FY 2024-25 sum of district `inseminations` rows in naip_iv_district.json (which is a single fiscal year). Not routed to the Phase 2 catalogue indicator slugs."
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "2024-25",
+      "value": 934798,
+      "facet": "abip|none"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-25",
+      "value": 99746722,
+      "facet": "naip_iv|none"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-25",
+      "value": 52285099,
+      "facet": "others|none"
+    }
+  ],
+  "series_spec": {
+    "description": "Cumulative national rollup of breeding-programme outcomes (artificial-insemination events) reported by the Bharat Pashudhan header endpoint. Values are CUMULATIVE since programme inception across all years; the upstream endpoint accepts a year parameter but returns the same numbers across years 2022-2025. Reported per programme: NAIP IV (National AI Programme phase IV), ABIP (Accelerated Breed Improvement Programme), and Others (residual). Serves as a sanity-check cross-reference for the district-grain naip_iv_district.json; not routed to the Phase 2 catalogue indicator slugs."
+  },
+  "methodology": {
+    "definition": "Cumulative national rollup of breeding-programme outcomes (artificial-insemination events) reported by the Bharat Pashudhan header endpoint. Values are CUMULATIVE since programme inception across all years; the upstream endpoint accepts a year parameter but returns the same numbers across years 2022-2025. Reported per programme: NAIP IV (National AI Programme phase IV), ABIP (Accelerated Breed Improvement Programme), and Others (residual). Serves as a sanity-check cross-reference for the district-grain naip_iv_district.json; not routed to the Phase 2 catalogue indicator slugs.",
+    "publisher": "Department of Animal Husbandry & Dairying, Ministry of Fisheries, Animal Husbandry & Dairying, Government of India",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [
+      "Values are CUMULATIVE national rollups since programme inception; the upstream year parameter is accepted but the response is verified static across years 2022-2025.",
+      "The 'Others' bucket is a residual category and is NOT methodologically equivalent to the named programmes (NAIP IV, ABIP); treat it as 'all other AI events reported through Bharat Pashudhan'.",
+      "Serves as a national sanity-check ONLY; the Phase 2 canonical adapter does NOT route this indicator to any of the 8 catalogue slugs and the cumulative semantics make it unsuitable for year-over-year comparison."
+    ],
+    "notes": []
+  },
+  "divergence": null
+}
