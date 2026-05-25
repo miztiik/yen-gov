@@ -87,7 +87,10 @@ function sqlString(s: string): string {
 }
 
 /** Synthetic methodology block — matches the legacy shard's "stub" shape
- *  so AboutThisData.svelte renders an identical surface. */
+ *  so AboutThisData.svelte renders an identical surface. The optional
+ *  `descriptor.caveats` field (allowlist-authored, citizen-readable) is
+ *  surfaced verbatim as `known_caveats[]`; see PR-E (AboutThisData RPO
+ *  caveat surfacing) for the doctrine and the RPO seed entry. */
 function buildMethodology(descriptor: CanonicalIndicatorDescriptor): IndicatorMethodology {
   return {
     definition: descriptor.meta.description ?? descriptor.meta.title,
@@ -95,7 +98,7 @@ function buildMethodology(descriptor: CanonicalIndicatorDescriptor): IndicatorMe
     publisher_methodology_url: null,
     documentation_status: "stub",
     methodology_breaks: [],
-    known_caveats: [],
+    known_caveats: descriptor.caveats ? [...descriptor.caveats] : [],
     notes: [],
   };
 }

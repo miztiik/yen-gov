@@ -80,6 +80,13 @@ interface CanonicalIndicatorDescriptorBase {
    *  Source: `datasets/taxonomy/indicators.parquet` row for the descriptor's
    *  canonical (single) or parent (facet-multiplexed) `indicator_id`. */
   meta: IndicatorMeta;
+  /** Optional citizen-readable caveats surfaced by `AboutThisData.svelte`'s
+   *  "Known caveats" section. One bullet per entry; keep each <= ~180 chars.
+   *  Use this to lift mid-paragraph honesty cues out of `meta.description`
+   *  / `meta.notes` into a discrete, scannable list (e.g. the RPO `total`
+   *  segment is NOT the sum of solar + non-solar). Adapter copies these
+   *  into the rebuilt artifact's `methodology.known_caveats[]`. */
+  caveats?: ReadonlyArray<string>;
 }
 
 export interface CanonicalSingleIndicatorDescriptor
@@ -649,6 +656,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       notes:
         "Targets themselves vary by state and rise over time, so a 95% compliance in FY21 may represent more renewables than 105% in FY19. Compute-on-read parent: rows fuse from the 3 child indicator_ids materialised in the canonical store.",
     },
+    caveats: [
+      "The 'total' segment is NOT the sum of solar + non-solar — it measures compliance against a separate combined-target regulatory denominator. Values above 100% indicate over-compliance.",
+      "RPO targets vary by state and rise over time. 95% compliance in one year may represent more renewables than 105% in an earlier year; cross-year and cross-state comparisons must consider the underlying target movement.",
+    ],
   },
 ];
 

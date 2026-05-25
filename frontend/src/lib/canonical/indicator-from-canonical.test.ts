@@ -96,6 +96,26 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(PEAK_DEMAND_DESCRIPTOR.meta.entity_kind).toBe("state");
     expect(PEAK_DEMAND_DESCRIPTOR.meta.time_grain).toBe("fiscal_year");
   });
+
+  // PR-E (AboutThisData RPO caveat surfacing): the RPO descriptor is the
+  // first canonical-backed entry to populate `caveats[]`; this contract
+  // test locks the citizen-honesty bullets so a future descriptor edit
+  // can't silently drop them without breaking the suite. Both bullets
+  // are surfaced verbatim in AboutThisData's "Known caveats" section.
+  it("RPO descriptor carries the two citizen-honesty caveats (PR-E)", () => {
+    const rpo = getCanonicalDescriptor("energy/state_rpo_compliance_pct");
+    expect(rpo).not.toBeNull();
+    expect(rpo!.kind).toBe("facet-multiplexed");
+    expect(rpo!.caveats).toBeDefined();
+    expect(rpo!.caveats!.length).toBe(2);
+    // Caveat 1: the "total" semantics warning (primary citizen-honesty
+    // cue; complements the FacetPicker primitive shipped in PR-D #277).
+    expect(rpo!.caveats![0]).toMatch(/NOT the sum of solar/);
+    expect(rpo!.caveats![0]).toMatch(/combined-target/);
+    // Caveat 2: the temporal-comparability warning (RPO targets rise
+    // over time + vary by state).
+    expect(rpo!.caveats![1]).toMatch(/targets vary by state and rise over time/i);
+  });
 });
 
 describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
@@ -341,6 +361,44 @@ describe("buildIndicatorArtifact — canonical rows → legacy IndicatorArtifact
     expect(a.methodology!.definition.length).toBeGreaterThan(0);
     expect(a.methodology!.publisher_methodology_url).toBeNull();
     expect(a.methodology!.methodology_breaks).toEqual([]);
+  });
+
+  // PR-E (AboutThisData RPO caveat surfacing): `descriptor.caveats` is the
+  // allowlist-authored bullet list lifted into `methodology.known_caveats[]`
+  // so AboutThisData.svelte's "Known caveats" section can render it.
+  // Descriptors without `caveats` populated keep the legacy empty-array
+  // behaviour (no surface change for the ~30 non-caveat-carrying entries).
+  it("emits an empty known_caveats array when the descriptor declares no caveats", () => {
+    // PEAK_DEMAND_DESCRIPTOR carries no `caveats` field (commit-1 baseline).
+    expect(PEAK_DEMAND_DESCRIPTOR.caveats).toBeUndefined();
+    const a = buildIndicatorArtifact(PEAK_DEMAND_DESCRIPTOR, OBS_ROWS, SRC_ROWS);
+    expect(a.methodology!.known_caveats).toEqual([]);
+  });
+
+  it("copies descriptor.caveats verbatim into methodology.known_caveats", () => {
+    const with_caveats: CanonicalIndicatorDescriptor = {
+      ...PEAK_DEMAND_DESCRIPTOR,
+      caveats: [
+        "First caveat — top of the bullet list.",
+        "Second caveat — preserves declaration order.",
+      ],
+    } as CanonicalIndicatorDescriptor;
+    const a = buildIndicatorArtifact(with_caveats, OBS_ROWS, SRC_ROWS);
+    expect(a.methodology!.known_caveats).toEqual([
+      "First caveat — top of the bullet list.",
+      "Second caveat — preserves declaration order.",
+    ]);
+  });
+
+  it("treats descriptor.caveats as defensive-copy (mutating the artifact does not back-mutate the descriptor)", () => {
+    const original_caveats = ["caveat A", "caveat B"];
+    const with_caveats: CanonicalIndicatorDescriptor = {
+      ...PEAK_DEMAND_DESCRIPTOR,
+      caveats: original_caveats,
+    } as CanonicalIndicatorDescriptor;
+    const a = buildIndicatorArtifact(with_caveats, OBS_ROWS, SRC_ROWS);
+    a.methodology!.known_caveats.push("post-build mutation");
+    expect(original_caveats).toEqual(["caveat A", "caveat B"]);
   });
 
   it("declares schema v4.4 + OGL-IN-1.0 license", () => {
