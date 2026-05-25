@@ -155,6 +155,11 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       notes:
         "Read alongside Peak Supplied (state-peak-electricity-supplied-mw) — the gap is the unmet peak demand, more operationally critical than the energy-deficit % because shortages force load-shedding. RBI Handbook relabelled 'Surplus / Deficit' to 'Demand Not Met' from FY 2019-20 onwards; underlying definition is unchanged.",
     },
+    caveats: [
+      "Peak demand is the highest single-instant load observed — a one-hour summer evening spike, not an average. A state can have a high peak yet a moderate annual energy requirement.",
+      "Read against state-peak-electricity-supplied-mw: the gap is unmet demand that forced load-shedding. A rising peak with a rising gap is a worse signal than a rising peak alone.",
+      "RBI Handbook relabelled 'Surplus/Deficit' to 'Demand Not Met' from FY 2019-20; the column name changes but the underlying definition does not — do not read the rename as a methodology break.",
+    ],
   },
 
   // PR-F (2026-05-25) — close 4 /t/energy 404s flagged by user smoke.
@@ -224,6 +229,11 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       notes:
         "A high value can mean many electrified domestic consumers (Kerala) OR a heavy-industry economy (Chhattisgarh, Odisha) OR both (Gujarat). A low value can mean a rural agrarian economy (Bihar, Assam) OR poor access (UP). The denominator (population) is Census 2011 + projection, so values for the 2020s are subject to mid-decade re-basing once Census 2027 data lands. Note: distinct from per-capita availability (RBI Handbook T138) — availability is power DELIVERED to the state (including T&D + commercial losses); consumption is power actually BILLED to end-users.",
     },
+    caveats: [
+      "A high value can mean universal household electrification (Kerala) or a heavy-industry economy (Chhattisgarh, Odisha) — the headline number cannot tell you which, and the policy implications are opposite.",
+      "Denominator is Census 2011 population projected forward. Values for the 2020s will be re-based once Census 2027 lands; expect a downward revision for high-migration states.",
+      "This is electricity BILLED to end-users, not electricity DELIVERED to the state. Power lost to theft and unbilled use (the AT&C gap) is excluded from the numerator.",
+    ],
   },
 
   // PR-G (2026-05-25) — close the 5 remaining /t/energy 404s discovered
@@ -308,6 +318,11 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       notes:
         "UDAY (2015) targeted all-India AT&C below 15% by 2018-19; the actual all-India figure has hovered around 15% since then. State-level dispersion is wide — Gujarat / Andhra at ~6-10%, Bihar / J&K at ~25-40%. AT&C = T&D loss + commercial loss; the three sub-components (billing / collection / T&D) are surfaced separately under state-distribution-efficiency-pct.",
     },
+    caveats: [
+      "AT&C losses bundle technical losses (transmission heat, ageing lines) with commercial losses (theft, unbilled use). A 20% state may be losing mostly to old infrastructure or mostly to theft — the policy fixes differ.",
+      "The UDAY reform target was 15% by FY19; the FY25 national average is still around 16%, and only a handful of states (Gujarat, Andhra, Kerala, Himachal) sit consistently below the target.",
+      "Reported figures depend on discom metering and billing data. States with weak feeder metering can under-report losses by classifying unmetered agricultural supply as 'consumption' rather than as loss.",
+    ],
   },
 
   // --- PR-G 3: State installed capacity by fuel (geographical basis) — facet-multiplexed ---

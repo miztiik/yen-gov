@@ -62,6 +62,15 @@ const PEAK_DEMAND_DESCRIPTOR: CanonicalIndicatorDescriptor = getCanonicalDescrip
   "energy/state_peak_electricity_demand_mw",
 )!;
 
+// PR-H (2026-05-25) — after Hans-curated caveats landed on PEAK_DEMAND_DESCRIPTOR
+// + per-capita-consumption + atc-losses, we need a real allowlist descriptor
+// that DOES NOT carry `caveats[]` for the "default behavior" test below.
+// state-peak-electricity-supplied-mw (the PR-F sibling) is the cleanest
+// analog: same family, same shape, no Hans caveats authored yet.
+const NO_CAVEATS_DESCRIPTOR: CanonicalIndicatorDescriptor = getCanonicalDescriptor(
+  "energy/state_peak_met_mw",
+)!;
+
 describe("indicator-allowlist (Phase B registry invariants)", () => {
   it("exports at least one descriptor (the C4.7 Phase B seed)", () => {
     expect(CANONICAL_BACKED_INDICATORS.length).toBeGreaterThan(0);
@@ -118,6 +127,70 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     // Caveat 2: the temporal-comparability warning (RPO targets rise
     // over time + vary by state).
     expect(rpo!.caveats![1]).toMatch(/targets vary by state and rise over time/i);
+  });
+
+  // PR-H (2026-05-25): Hans-curated caveats land on 3 additional canonical
+  // descriptors (peak-demand + per-capita-consumption + atc-losses).
+  // Each test asserts: (a) caveats[] is populated, (b) the count matches
+  // the authored bullet count, (c) a key phrase from each bullet survives
+  // a regex match so a future content edit that breaks the citizen-honesty
+  // intent (e.g. silently dropping a bullet) trips the suite.
+  //
+  // These tests pin the AUTHORED INTENT, not the verbatim text — so cosmetic
+  // copy-editing (punctuation, em-dash polishing) does NOT break them, but
+  // a wholesale rewrite or deletion does.
+  it("PR-H peak-demand descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor("energy/state_peak_electricity_demand_mw");
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: instantaneous-vs-average misread (Rosling 'Size' instinct guard).
+    expect(d!.caveats![0]).toMatch(/highest single-instant load/i);
+    // 2: supplied-gap framing (load-shedding signal).
+    expect(d!.caveats![1]).toMatch(/state-peak-electricity-supplied-mw/);
+    expect(d!.caveats![1]).toMatch(/unmet demand/i);
+    // 3: FY20 RBI rename-not-methodology-break clarification.
+    expect(d!.caveats![2]).toMatch(/Demand Not Met/);
+    expect(d!.caveats![2]).toMatch(/FY 2019-20/);
+  });
+
+  it("PR-H per-capita-consumption descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor(
+      "energy/state_per_capita_electricity_consumption_kwh",
+    );
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: Kerala-vs-Chhattisgarh "same number, opposite stories" guard.
+    expect(d!.caveats![0]).toMatch(/Kerala/);
+    expect(d!.caveats![0]).toMatch(/Chhattisgarh|Odisha/);
+    expect(d!.caveats![0]).toMatch(/policy implications are opposite/i);
+    // 2: Census 2011 + projection denominator staleness flag.
+    expect(d!.caveats![1]).toMatch(/Census 2011/);
+    expect(d!.caveats![1]).toMatch(/Census 2027/);
+    // 3: billed-vs-delivered (AT&C gap excluded from numerator).
+    expect(d!.caveats![2]).toMatch(/BILLED/);
+    expect(d!.caveats![2]).toMatch(/DELIVERED/);
+  });
+
+  it("PR-H atc-losses descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor("energy/state_atc_losses_pct");
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: technical-vs-commercial bundling (Pramit's 'one number, two
+    // phenomena' editorial flag).
+    expect(d!.caveats![0]).toMatch(/technical losses/i);
+    expect(d!.caveats![0]).toMatch(/commercial losses/i);
+    expect(d!.caveats![0]).toMatch(/policy fixes differ/i);
+    // 2: UDAY target + league-table exemplars (Hans Rosling
+    // "name the best entity" framing).
+    expect(d!.caveats![1]).toMatch(/UDAY/);
+    expect(d!.caveats![1]).toMatch(/15%/);
+    expect(d!.caveats![1]).toMatch(/Gujarat|Andhra|Kerala|Himachal/);
+    // 3: reporting-integrity caveat (feeder-metering under-reporting).
+    expect(d!.caveats![2]).toMatch(/feeder metering/i);
+    expect(d!.caveats![2]).toMatch(/agricultural/i);
   });
 
   // PR-F (2026-05-25): 2 new allowlist entries close /t/energy 404s flagged
@@ -479,9 +552,13 @@ describe("buildIndicatorArtifact — canonical rows → legacy IndicatorArtifact
   // Descriptors without `caveats` populated keep the legacy empty-array
   // behaviour (no surface change for the ~30 non-caveat-carrying entries).
   it("emits an empty known_caveats array when the descriptor declares no caveats", () => {
-    // PEAK_DEMAND_DESCRIPTOR carries no `caveats` field (commit-1 baseline).
-    expect(PEAK_DEMAND_DESCRIPTOR.caveats).toBeUndefined();
-    const a = buildIndicatorArtifact(PEAK_DEMAND_DESCRIPTOR, OBS_ROWS, SRC_ROWS);
+    // PR-H (2026-05-25): swapped from PEAK_DEMAND_DESCRIPTOR to
+    // NO_CAVEATS_DESCRIPTOR (= state-peak-electricity-supplied-mw)
+    // because PEAK_DEMAND now carries Hans-curated caveats[]. The
+    // "no-caveats default → empty array" invariant is unchanged; only
+    // the canary descriptor moved.
+    expect(NO_CAVEATS_DESCRIPTOR.caveats).toBeUndefined();
+    const a = buildIndicatorArtifact(NO_CAVEATS_DESCRIPTOR, OBS_ROWS, SRC_ROWS);
     expect(a.methodology!.known_caveats).toEqual([]);
   });
 
