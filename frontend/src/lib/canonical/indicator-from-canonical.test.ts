@@ -96,6 +96,26 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(PEAK_DEMAND_DESCRIPTOR.meta.entity_kind).toBe("state");
     expect(PEAK_DEMAND_DESCRIPTOR.meta.time_grain).toBe("fiscal_year");
   });
+
+  // PR-E (AboutThisData RPO caveat surfacing): the RPO descriptor is the
+  // first canonical-backed entry to populate `caveats[]`; this contract
+  // test locks the citizen-honesty bullets so a future descriptor edit
+  // can't silently drop them without breaking the suite. Both bullets
+  // are surfaced verbatim in AboutThisData's "Known caveats" section.
+  it("RPO descriptor carries the two citizen-honesty caveats (PR-E)", () => {
+    const rpo = getCanonicalDescriptor("energy/state_rpo_compliance_pct");
+    expect(rpo).not.toBeNull();
+    expect(rpo!.kind).toBe("facet-multiplexed");
+    expect(rpo!.caveats).toBeDefined();
+    expect(rpo!.caveats!.length).toBe(2);
+    // Caveat 1: the "total" semantics warning (primary citizen-honesty
+    // cue; complements the FacetPicker primitive shipped in PR-D #277).
+    expect(rpo!.caveats![0]).toMatch(/NOT the sum of solar/);
+    expect(rpo!.caveats![0]).toMatch(/combined-target/);
+    // Caveat 2: the temporal-comparability warning (RPO targets rise
+    // over time + vary by state).
+    expect(rpo!.caveats![1]).toMatch(/targets vary by state and rise over time/i);
+  });
 });
 
 describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
