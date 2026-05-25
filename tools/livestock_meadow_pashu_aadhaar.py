@@ -93,7 +93,15 @@ ENTITIES_JSON = REPO_ROOT / "datasets" / "taxonomy" / "entities.json"
 
 
 def _load_district_lookup() -> dict[str, str]:
-    """Map LGD district code (string) -> yen-gov entity_id."""
+    """Map LGD district code (string) -> yen-gov entity_id.
+
+    Mirrors ``yen_gov.canonical.lgd.load_district_lookup`` (extracted
+    in PR #_pending_, plan-doc Q#4 / Gregor verdict E). This tool keeps
+    its own copy to remain runnable as a standalone script without a
+    backend import path; future NDLM meadow tools (owner_reg, naip_iv,
+    nadcp, breeding) MUST import the canonical resolver instead of
+    inlining a third copy (rule-of-three trigger).
+    """
     data = json.loads(ENTITIES_JSON.read_text(encoding="utf-8"))
     return {
         e["lgd_code"]: e["entity_id"]
