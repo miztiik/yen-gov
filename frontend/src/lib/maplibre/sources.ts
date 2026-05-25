@@ -17,11 +17,13 @@
 // When PMTiles arrive, only `resolveSource()` changes; the map components
 // don't care which tier wins.
 //
-// State-name → ECI code map: datameet/maps Admin2 tags features with ST_NM
-// (post-2014 Telangana split, post-2019 Ladakh split, merged DNH-DD UT — all
-// included). We need the ECI state code (S22, S25, ...) to look up per-state
-// result summaries. Hand-maintained because state names are stable English
-// forms and we control which state codes ship in datasets/.
+// LGD-keyed state polygons: ramSeraph's LGD_States release tags features
+// with State_LGD (numeric LGD code, e.g. 33 for Tamil Nadu) per BharatMaps
+// lineage — post-2014 Telangana split, post-2019 Ladakh split, merged
+// DNH-DD UT all included. Joins to taxonomy.entities.lgd_code via
+// MapChoropleth's `to-number` coercion (string-key/int-property bridge).
+// Replaces the DataMeet ST_NM name-string join retired in Phase D.0
+// (TODO/20260524-boundary-coverage-expansion-plan.md).
 
 export interface BoundaryEntry {
   /** Stable id used in URL paths and join keys. */
@@ -44,19 +46,22 @@ export interface BoundaryEntry {
   attribution: string;
 }
 
-// India-wide states layer. Property ST_NM = English state name (datameet).
-// Snapshotted locally; the upstream URL points at the .shp (the snapshot
-// script converts datameet's shapefile bundle into GeoJSON — the URL is
-// kept for the manifest/sidecar and as a documentation pointer).
+// India-wide states layer. Property State_LGD = LGD numeric state code
+// (e.g. 33 for Tamil Nadu, 7 for Delhi) per ramSeraph's LGD_States release
+// (BharatMaps lineage). Snapshotted locally; the upstream URL points at
+// the .geojsonl.7z bundle that tools/boundaries/snapshot.py extracts
+// into the GeoJSON feature collection on disk. State-name joining via
+// the legacy DataMeet ST_NM property retired in Phase D.0 — see
+// TODO/20260524-boundary-coverage-expansion-plan.md.
 export const INDIA_STATES: BoundaryEntry = {
   id: "india-states",
   label: "India — states",
   geojson_local_path: "boundaries/in/states/all.geojson",
   geojson_url:
-    "https://raw.githubusercontent.com/datameet/maps/master/States/Admin2.shp",
-  join_property: "ST_NM",
+    "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/states/LGD_States.geojsonl.7z",
+  join_property: "State_LGD",
   attribution:
-    '<a href="https://github.com/datameet/maps" target="_blank" rel="noreferrer">DataMeet India Maps</a> (CC BY 4.0)',
+    '<a href="https://github.com/ramSeraph/indian_admin_boundaries" target="_blank" rel="noreferrer">ramSeraph LGD-keyed admin boundaries</a> (CC0 1.0; sourced from LGD / BharatMaps)',
 };
 
 // Per-state AC layers. Property AC_NO = 1-based per-state constituency number,
@@ -137,9 +142,10 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
 // long-format-pivot.md §0e.7). Both are now served by the view-model under
 // `frontend/src/lib/view-models/states.ts`, which reads the canonical
 // `taxonomy.entities` Parquet via DuckDB-WASM and exposes all three code
-// systems (ECI / LGD / ISO 3166-2) alongside the citizen-readable name and
-// the DataMeet `ST_NM`-compatible boundary join name.
-export { eciFromStateName } from "../view-models/states";
+// systems (ECI / LGD / ISO 3166-2) alongside the citizen-readable name,
+// the citizen-display shortform (`boundary_join_name`), and the
+// `boundary_join_key` projection used for map joining post-D.0.
+export { eciFromStateName, lgdCodeToEci } from "../view-models/states";
 
 export interface ResolvedSource {
   /** Either 'pmtiles' (production) or 'geojson' (fallback). */
