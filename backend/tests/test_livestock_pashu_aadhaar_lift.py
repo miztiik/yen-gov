@@ -54,6 +54,27 @@ MEADOW_VINTAGE_DIR = "2024-25"
 PASHU_AADHAAR_SOURCE_ID = "src-7e5d4aac4995"
 
 
+def _pashu_aadhaar_envelope():
+    """Pick the pashu_aadhaar envelope from the livestock package output.
+
+    ``build_envelopes`` returns multiple envelopes (pashu_aadhaar +
+    owner_registration as of PR #_pending_); this helper isolates the
+    pashu_aadhaar one so the tests are robust to ordering changes.
+    """
+    from yen_gov.canonical.adapters.livestock import build_envelopes
+
+    envelopes = build_envelopes(REPO_ROOT)
+    matching = [
+        e for e in envelopes
+        if e.target_table_stem == "livestock_pashu_aadhaar"
+    ]
+    assert len(matching) == 1, (
+        f"expected exactly one livestock_pashu_aadhaar envelope; "
+        f"got {len(matching)} (out of {len(envelopes)} total)"
+    )
+    return matching[0]
+
+
 @pytest.mark.skipif(
     not MEADOW_DIR.is_dir(),
     reason="livestock meadow shards not on disk in this checkout",
@@ -62,9 +83,19 @@ def test_build_envelope_returns_one_with_correct_stem() -> None:
     from yen_gov.canonical.adapters.livestock import build_envelopes
 
     envelopes = build_envelopes(REPO_ROOT)
-    assert len(envelopes) == 1
+    # Multiple livestock envelopes ship in the livestock package
+    # (pashu_aadhaar + owner_registration as of PR #_pending_); this
+    # test isolates the pashu_aadhaar one by target_table_stem.
+    matching = [
+        e for e in envelopes
+        if e.target_table_stem == "livestock_pashu_aadhaar"
+    ]
+    assert len(matching) == 1, (
+        f"expected exactly one livestock_pashu_aadhaar envelope; "
+        f"got {len(matching)} (out of {len(envelopes)} total)"
+    )
 
-    env = envelopes[0]
+    env = matching[0]
     assert isinstance(env, BatchEnvelope)
     assert env.target_family == "livestock"
     assert env.target_table_stem == "livestock_pashu_aadhaar"
@@ -81,9 +112,7 @@ def test_all_ten_species_facet_children_emit_rows() -> None:
     A missing species at either grain = lift bug (district = meadow gap
     or adapter species-loop drop; state = rollup pass dropped or skipped).
     """
-    from yen_gov.canonical.adapters.livestock import build_envelopes
-
-    env = build_envelopes(REPO_ROOT)[0]
+    env = _pashu_aadhaar_envelope()
     emitted_indicator_ids = {row.indicator_id for row in env.observation_rows}
 
     expected = {
@@ -109,9 +138,7 @@ def test_parent_indicator_has_no_observation_rows() -> None:
     adapter accidentally lifted parent values - that breaks the
     compute-on-read contract (frontend would double-count parent +
     sum(children))."""
-    from yen_gov.canonical.adapters.livestock import build_envelopes
-
-    env = build_envelopes(REPO_ROOT)[0]
+    env = _pashu_aadhaar_envelope()
     parent_ids = {
         "district-pashu-aadhaar-count",
         "state-pashu-aadhaar-count",
@@ -135,9 +162,7 @@ def test_all_rows_carry_pashu_aadhaar_source_id() -> None:
     gate would catch this at write time; this test catches the
     regression at adapter-build time with a clearer message.
     """
-    from yen_gov.canonical.adapters.livestock import build_envelopes
-
-    env = build_envelopes(REPO_ROOT)[0]
+    env = _pashu_aadhaar_envelope()
     bad = [
         r for r in env.observation_rows
         if r.source_id != PASHU_AADHAAR_SOURCE_ID
@@ -158,9 +183,7 @@ def test_period_labels_are_cy_or_fy_only() -> None:
     inventory deriver rejects heterogeneous `time` vocabularies within
     one indicator. Any other period_label = adapter parse_ndlm_period bug.
     """
-    from yen_gov.canonical.adapters.livestock import build_envelopes
-
-    env = build_envelopes(REPO_ROOT)[0]
+    env = _pashu_aadhaar_envelope()
     labels = {r.period_label for r in env.observation_rows}
     assert labels == VINTAGES, (
         f"expected period_labels == {VINTAGES!r}; got {labels!r}"
@@ -177,9 +200,7 @@ def test_derivation_matches_grain() -> None:
     children (derivation='sum' per ADR-0043). Any other derivation =
     adapter regression.
     """
-    from yen_gov.canonical.adapters.livestock import build_envelopes
-
-    env = build_envelopes(REPO_ROOT)[0]
+    env = _pashu_aadhaar_envelope()
     by_grain: dict[str, set[str]] = {}
     for r in env.observation_rows:
         grain = "district" if r.indicator_id.startswith("district-") else "state"
@@ -202,15 +223,13 @@ def test_entity_id_fk_closure_for_both_grains() -> None:
     Citation: PR #267 grew the district roster to 784 entities. State
     entities have been in the catalogue since v0 of the project.
     """
-    from yen_gov.canonical.adapters.livestock import build_envelopes
-
     entities_path = REPO_ROOT / "datasets" / "taxonomy" / "entities.json"
     entities_by_id = {
         e["entity_id"]: e for e in
         json.loads(entities_path.read_text(encoding="utf-8"))["entities"]
     }
 
-    env = build_envelopes(REPO_ROOT)[0]
+    env = _pashu_aadhaar_envelope()
     grain_mismatches: list[str] = []
     orphans: list[str] = []
     for r in env.observation_rows:
@@ -279,10 +298,9 @@ def test_state_rollup_sum_matches_district_sum_per_species() -> None:
     pass either (a) used a wrong derivation, (b) dropped a district row,
     (c) double-counted, or (d) state_prefix derivation broke.
     """
-    from yen_gov.canonical.adapters.livestock import build_envelopes
     from yen_gov.canonical.adapters.livestock.pashu_aadhaar import _state_prefix
 
-    env = build_envelopes(REPO_ROOT)[0]
+    env = _pashu_aadhaar_envelope()
 
     # Expected: sum district rows by (state_prefix, species, period_label)
     expected: dict[tuple[str, str, str], float] = {}
@@ -328,9 +346,7 @@ def test_state_rollup_reuses_district_source_id() -> None:
     on (producer, title, vintage), NOT per-derivation events. Minting a
     new source_id for the rollup = ledger duplication.
     """
-    from yen_gov.canonical.adapters.livestock import build_envelopes
-
-    env = build_envelopes(REPO_ROOT)[0]
+    env = _pashu_aadhaar_envelope()
     bad = [
         r for r in env.observation_rows
         if r.indicator_id.startswith("state-pashu-aadhaar-count-")
@@ -353,9 +369,7 @@ def test_state_rollup_inherits_period_axes() -> None:
     time axis). If period_label differs, the rollup pass crossed a
     period boundary and corrupted the aggregate.
     """
-    from yen_gov.canonical.adapters.livestock import build_envelopes
-
-    env = build_envelopes(REPO_ROOT)[0]
+    env = _pashu_aadhaar_envelope()
     district_periods = {
         (r.period_label, r.year, r.period_seq)
         for r in env.observation_rows

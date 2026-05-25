@@ -2290,6 +2290,406 @@
       "renderer_rules": [
         "no_rank_table"
       ]
+    },
+    {
+      "indicator_id": "district-livestock-owner-reg-count",
+      "label_short": "Livestock owners registered",
+      "label_long": "Livestock owners registered (NDLM Bharat Pashudhan)",
+      "description_short": "Count of livestock owners completed Bharat Pashudhan registration in each district. Registered count, NOT all owning households.",
+      "description_long": "Owner Registration is the Bharat Pashudhan workflow that records a livestock-owner profile (name + landholding bracket + gender) before any Pashu Aadhaar tag can be issued to that owner's animals. The count here is the number of REGISTERED owners in each district per the National Digital Livestock Mission (NDLM), NOT an estimate of the total livestock-owning households - coverage varies by state as the rollout is in progress. Compute-on-read parent: the value is the sum of the 6 atomic land-holding bracket children (landless_marginal + small + semi_medium + medium + large + not_specified). No observation rows exist on disk for this id (per Hans D33.8 convention); the frontend sums the children at read time. The publisher also disaggregates by gender (male/female); this slice collapses the gender axis via SUM at write time and lifts on landholding only (gender retained in the meadow for a follow-up PR). The catalogue carries comparability=directional_only and renderer_rules=[no_rank_table] - the renderer suppresses rank-table views and labels the choropleth illustrative, not a ranking.",
+      "unit": "owners",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; vintage FY 2024-25",
+      "revision_tier": "first_release",
+      "parent_indicator_id": null,
+      "source_id": null,
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-livestock-owner-reg-count-landless-marginal",
+      "label_short": "Landless / marginal (<1 Ha)",
+      "label_long": "Livestock owners registered - Landless / marginal (<1 Ha)",
+      "description_short": "Owners in the landless / marginal bracket (<1 Ha) registered on Bharat Pashudhan in each district. Registered count, NOT all owning households.",
+      "description_long": "Per-landholding cut of district-livestock-owner-reg-count for the landless / marginal bracket (<1 Ha self-declared). Same Hans honest-renderer caveat applies: registered count is NOT an estimate of all owning households in this bracket; coverage varies by state. The gender axis (male/female on the publisher row) is collapsed via SUM at write time (derivation=sum); the un-collapsed split is retained in the meadow for a follow-up PR. Vintage: FY 2024-25 from NDLM Bharat Pashudhan owner-registration district endpoint snapshot 2026-05-25.",
+      "unit": "owners",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; vintage FY 2024-25 (gender collapsed via SUM)",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "district-livestock-owner-reg-count",
+      "dimension_values": {
+        "landholding": "landless_marginal"
+      },
+      "source_id": "src-d98dc531ef7e",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-livestock-owner-reg-count-small",
+      "label_short": "Small (1.0-1.99 Ha)",
+      "label_long": "Livestock owners registered - Small (1.0-1.99 Ha)",
+      "description_short": "Owners in the small-holding bracket (1.0-1.99 Ha) registered on Bharat Pashudhan in each district. Registered count, NOT all owning households.",
+      "description_long": "Per-landholding cut of district-livestock-owner-reg-count for the small-holding bracket (1.0-1.99 Ha self-declared). Same Hans honest-renderer caveat applies: registered count is NOT an estimate of all owning households in this bracket; coverage varies by state. The gender axis (male/female on the publisher row) is collapsed via SUM at write time (derivation=sum); the un-collapsed split is retained in the meadow for a follow-up PR. Vintage: FY 2024-25 from NDLM Bharat Pashudhan owner-registration district endpoint snapshot 2026-05-25.",
+      "unit": "owners",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; vintage FY 2024-25 (gender collapsed via SUM)",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "district-livestock-owner-reg-count",
+      "dimension_values": {
+        "landholding": "small"
+      },
+      "source_id": "src-d98dc531ef7e",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-livestock-owner-reg-count-semi-medium",
+      "label_short": "Semi-medium (2.0-3.99 Ha)",
+      "label_long": "Livestock owners registered - Semi-medium (2.0-3.99 Ha)",
+      "description_short": "Owners in the semi-medium bracket (2.0-3.99 Ha) registered on Bharat Pashudhan in each district. Registered count, NOT all owning households.",
+      "description_long": "Per-landholding cut of district-livestock-owner-reg-count for the semi-medium bracket (2.0-3.99 Ha self-declared). Same Hans honest-renderer caveat applies: registered count is NOT an estimate of all owning households in this bracket; coverage varies by state. The gender axis (male/female on the publisher row) is collapsed via SUM at write time (derivation=sum); the un-collapsed split is retained in the meadow for a follow-up PR. Vintage: FY 2024-25 from NDLM Bharat Pashudhan owner-registration district endpoint snapshot 2026-05-25.",
+      "unit": "owners",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; vintage FY 2024-25 (gender collapsed via SUM)",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "district-livestock-owner-reg-count",
+      "dimension_values": {
+        "landholding": "semi_medium"
+      },
+      "source_id": "src-d98dc531ef7e",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-livestock-owner-reg-count-medium",
+      "label_short": "Medium (4.0-9.99 Ha)",
+      "label_long": "Livestock owners registered - Medium (4.0-9.99 Ha)",
+      "description_short": "Owners in the medium bracket (4.0-9.99 Ha) registered on Bharat Pashudhan in each district. Registered count, NOT all owning households.",
+      "description_long": "Per-landholding cut of district-livestock-owner-reg-count for the medium bracket (4.0-9.99 Ha self-declared). Same Hans honest-renderer caveat applies: registered count is NOT an estimate of all owning households in this bracket; coverage varies by state. The gender axis (male/female on the publisher row) is collapsed via SUM at write time (derivation=sum); the un-collapsed split is retained in the meadow for a follow-up PR. Vintage: FY 2024-25 from NDLM Bharat Pashudhan owner-registration district endpoint snapshot 2026-05-25.",
+      "unit": "owners",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; vintage FY 2024-25 (gender collapsed via SUM)",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "district-livestock-owner-reg-count",
+      "dimension_values": {
+        "landholding": "medium"
+      },
+      "source_id": "src-d98dc531ef7e",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-livestock-owner-reg-count-large",
+      "label_short": "Large (>=10 Ha)",
+      "label_long": "Livestock owners registered - Large (>=10 Ha)",
+      "description_short": "Owners in the large-holding bracket (>=10 Ha) registered on Bharat Pashudhan in each district. Registered count, NOT all owning households.",
+      "description_long": "Per-landholding cut of district-livestock-owner-reg-count for the large-holding bracket (>=10 Ha self-declared). Same Hans honest-renderer caveat applies: registered count is NOT an estimate of all owning households in this bracket; coverage varies by state. The gender axis (male/female on the publisher row) is collapsed via SUM at write time (derivation=sum); the un-collapsed split is retained in the meadow for a follow-up PR. Vintage: FY 2024-25 from NDLM Bharat Pashudhan owner-registration district endpoint snapshot 2026-05-25.",
+      "unit": "owners",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; vintage FY 2024-25 (gender collapsed via SUM)",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "district-livestock-owner-reg-count",
+      "dimension_values": {
+        "landholding": "large"
+      },
+      "source_id": "src-d98dc531ef7e",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-livestock-owner-reg-count-not-specified",
+      "label_short": "Not specified",
+      "label_long": "Livestock owners registered - Land-holding not specified",
+      "description_short": "Owners who did not declare a land-holding bracket while registering on Bharat Pashudhan in each district. Preserved verbatim, not imputed.",
+      "description_long": "Per-landholding cut of district-livestock-owner-reg-count for registrations where the owner did NOT declare a land-holding bracket. The publisher preserves this bucket verbatim rather than imputing; this lift follows the same discipline. Same Hans honest-renderer caveat applies: registered count is NOT an estimate of all owning households; coverage varies by state. The gender axis (male/female on the publisher row) is collapsed via SUM at write time (derivation=sum); the un-collapsed split is retained in the meadow for a follow-up PR. Vintage: FY 2024-25 from NDLM Bharat Pashudhan owner-registration district endpoint snapshot 2026-05-25.",
+      "unit": "owners",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; vintage FY 2024-25 (gender collapsed via SUM)",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "district-livestock-owner-reg-count",
+      "dimension_values": {
+        "landholding": "not_specified"
+      },
+      "source_id": "src-d98dc531ef7e",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-owner-reg-count",
+      "label_short": "Livestock owners registered (state)",
+      "label_long": "Livestock owners registered (NDLM Bharat Pashudhan), aggregated to state",
+      "description_short": "State total of livestock owners registered on Bharat Pashudhan, summed from district rows. Registered count, NOT all owning households.",
+      "description_long": "State aggregate of district-livestock-owner-reg-count: each value is the SUM of the 6 atomic land-holding bracket children for all districts belonging to the state. Compute-on-read parent per Hans D33.8 - no observation rows on disk for this id; the frontend sums the 6 state-grain children at read time. Per ADR-0043 (auto-rollup at canonical-write time), the state-grain landholding children are materialised inside the livestock_owner_registration adapter at write time (derivation=sum, same source_id as the underlying district rows). Same Hans honest-renderer caveat as the district family applies: registered count is NOT an estimate of total livestock-owning households; NDLM rollout coverage varies by state. Catalogue carries comparability=directional_only + renderer_rules=[no_rank_table].",
+      "unit": "owners",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; FY 2024-25 (state aggregate of districts)",
+      "revision_tier": "first_release",
+      "parent_indicator_id": null,
+      "source_id": null,
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-owner-reg-count-landless-marginal",
+      "label_short": "Landless / marginal (state)",
+      "label_long": "Livestock owners registered - Landless / marginal (<1 Ha) (state aggregate)",
+      "description_short": "State total of owners in the landless / marginal bracket (<1 Ha) registered on Bharat Pashudhan, summed from districts.",
+      "description_long": "State-grain aggregate of district-livestock-owner-reg-count-landless-marginal. Each value is the SUM of district counts for districts belonging to this state (a second SUM atop the gender-collapsed district rows; both derivations are honest per ADR-0043). Materialised at canonical-write time (derivation=sum, same source_id as the district rows). Same Hans honest-renderer caveat: registered count is NOT an estimate of all owning households in this bracket; coverage varies by state. Vintage: FY 2024-25 from NDLM Bharat Pashudhan owner-registration district endpoint snapshot 2026-05-25.",
+      "unit": "owners",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; FY 2024-25 (state aggregate; gender collapsed via SUM at district)",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "state-livestock-owner-reg-count",
+      "dimension_values": {
+        "landholding": "landless_marginal"
+      },
+      "source_id": "src-d98dc531ef7e",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-owner-reg-count-small",
+      "label_short": "Small (state)",
+      "label_long": "Livestock owners registered - Small (1.0-1.99 Ha) (state aggregate)",
+      "description_short": "State total of owners in the small-holding bracket (1.0-1.99 Ha) registered on Bharat Pashudhan, summed from districts.",
+      "description_long": "State-grain aggregate of district-livestock-owner-reg-count-small. Each value is the SUM of district counts for districts belonging to this state (a second SUM atop the gender-collapsed district rows; both derivations are honest per ADR-0043). Materialised at canonical-write time (derivation=sum, same source_id as the district rows). Same Hans honest-renderer caveat: registered count is NOT an estimate of all owning households in this bracket; coverage varies by state. Vintage: FY 2024-25 from NDLM Bharat Pashudhan owner-registration district endpoint snapshot 2026-05-25.",
+      "unit": "owners",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; FY 2024-25 (state aggregate; gender collapsed via SUM at district)",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "state-livestock-owner-reg-count",
+      "dimension_values": {
+        "landholding": "small"
+      },
+      "source_id": "src-d98dc531ef7e",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-owner-reg-count-semi-medium",
+      "label_short": "Semi-medium (state)",
+      "label_long": "Livestock owners registered - Semi-medium (2.0-3.99 Ha) (state aggregate)",
+      "description_short": "State total of owners in the semi-medium bracket (2.0-3.99 Ha) registered on Bharat Pashudhan, summed from districts.",
+      "description_long": "State-grain aggregate of district-livestock-owner-reg-count-semi-medium. Each value is the SUM of district counts for districts belonging to this state (a second SUM atop the gender-collapsed district rows; both derivations are honest per ADR-0043). Materialised at canonical-write time (derivation=sum, same source_id as the district rows). Same Hans honest-renderer caveat: registered count is NOT an estimate of all owning households in this bracket; coverage varies by state. Vintage: FY 2024-25 from NDLM Bharat Pashudhan owner-registration district endpoint snapshot 2026-05-25.",
+      "unit": "owners",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; FY 2024-25 (state aggregate; gender collapsed via SUM at district)",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "state-livestock-owner-reg-count",
+      "dimension_values": {
+        "landholding": "semi_medium"
+      },
+      "source_id": "src-d98dc531ef7e",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-owner-reg-count-medium",
+      "label_short": "Medium (state)",
+      "label_long": "Livestock owners registered - Medium (4.0-9.99 Ha) (state aggregate)",
+      "description_short": "State total of owners in the medium bracket (4.0-9.99 Ha) registered on Bharat Pashudhan, summed from districts.",
+      "description_long": "State-grain aggregate of district-livestock-owner-reg-count-medium. Each value is the SUM of district counts for districts belonging to this state (a second SUM atop the gender-collapsed district rows; both derivations are honest per ADR-0043). Materialised at canonical-write time (derivation=sum, same source_id as the district rows). Same Hans honest-renderer caveat: registered count is NOT an estimate of all owning households in this bracket; coverage varies by state. Vintage: FY 2024-25 from NDLM Bharat Pashudhan owner-registration district endpoint snapshot 2026-05-25.",
+      "unit": "owners",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; FY 2024-25 (state aggregate; gender collapsed via SUM at district)",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "state-livestock-owner-reg-count",
+      "dimension_values": {
+        "landholding": "medium"
+      },
+      "source_id": "src-d98dc531ef7e",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-owner-reg-count-large",
+      "label_short": "Large (state)",
+      "label_long": "Livestock owners registered - Large (>=10 Ha) (state aggregate)",
+      "description_short": "State total of owners in the large-holding bracket (>=10 Ha) registered on Bharat Pashudhan, summed from districts.",
+      "description_long": "State-grain aggregate of district-livestock-owner-reg-count-large. Each value is the SUM of district counts for districts belonging to this state (a second SUM atop the gender-collapsed district rows; both derivations are honest per ADR-0043). Materialised at canonical-write time (derivation=sum, same source_id as the district rows). Same Hans honest-renderer caveat: registered count is NOT an estimate of all owning households in this bracket; coverage varies by state. Vintage: FY 2024-25 from NDLM Bharat Pashudhan owner-registration district endpoint snapshot 2026-05-25.",
+      "unit": "owners",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; FY 2024-25 (state aggregate; gender collapsed via SUM at district)",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "state-livestock-owner-reg-count",
+      "dimension_values": {
+        "landholding": "large"
+      },
+      "source_id": "src-d98dc531ef7e",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-owner-reg-count-not-specified",
+      "label_short": "Not specified (state)",
+      "label_long": "Livestock owners registered - Land-holding not specified (state aggregate)",
+      "description_short": "State total of owners who did not declare a land-holding bracket while registering on Bharat Pashudhan, summed from districts.",
+      "description_long": "State-grain aggregate of district-livestock-owner-reg-count-not-specified for registrations without a declared land-holding bracket. Each value is the SUM of district counts for districts belonging to this state (a second SUM atop the gender-collapsed district rows; both derivations are honest per ADR-0043). Materialised at canonical-write time (derivation=sum, same source_id as the district rows). The bucket is preserved verbatim rather than imputed. Same Hans honest-renderer caveat: registered count is NOT an estimate of all owning households; coverage varies by state. Vintage: FY 2024-25 from NDLM Bharat Pashudhan owner-registration district endpoint snapshot 2026-05-25.",
+      "unit": "owners",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; FY 2024-25 (state aggregate; gender collapsed via SUM at district)",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "state-livestock-owner-reg-count",
+      "dimension_values": {
+        "landholding": "not_specified"
+      },
+      "source_id": "src-d98dc531ef7e",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
     }
   ]
 }

@@ -29,18 +29,20 @@ from pathlib import Path
 
 from yen_gov.canonical.envelope import BatchEnvelope
 
+from .owner_reg import build_envelope as _build_owner_reg
 from .pashu_aadhaar import build_envelope as _build_pashu_aadhaar
 
 
 def build_envelopes(repo_root: Path) -> list[BatchEnvelope]:
     """Build all livestock envelopes in canonical write-order.
 
-    First slice ships 1 envelope (pashu_aadhaar). Follow-up PRs in the
-    Path A sprint will add owner_registration, nadcp_vaccination, and
+    First slice ships 2 envelopes (pashu_aadhaar, owner_registration).
+    Follow-up PRs in the Path A sprint will add nadcp_vaccination and
     naip_iv envelopes here; each emits to its own ``livestock_*``
     parquet and shares only the cross-family ``sources.parquet``
     (already seeded by PR #276).
     """
     return [
         _build_pashu_aadhaar(repo_root),
+        _build_owner_reg(repo_root),
     ]
