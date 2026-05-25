@@ -60,8 +60,8 @@ __all__ = [
 ]
 
 
-# Operator nicknames for the 15 energy sources (7 P.1.A + 5 P.1.B + 1 P.1.C
-# PR-Q + 1 P.1.C PR-R + 1 P.1.C PR-S).
+# Operator nicknames for the 16 energy sources (7 P.1.A + 5 P.1.B + 1 P.1.C
+# PR-Q + 1 P.1.C PR-R + 1 P.1.C PR-S + 1 P.1.C PR-T).
 # Adapters look up the materialised source_id by nickname rather than
 # rebuilding the triple-hash each time.
 SOURCE_NICKNAMES: tuple[str, ...] = (
@@ -111,6 +111,15 @@ SOURCE_NICKNAMES: tuple[str, ...] = (
     # First Pattern A-facet indicator in P.1.C cohort. Originating
     # data: CEA-published station-level retirement records.
     "iced_thermal_retired",
+    # --- P.1.C PR-T (1; fourth canonical lift, oil-product consumption) -
+    # ICED oil-product consumption state-wise endpoint. Per-state per-
+    # fiscal-year refined-petroleum consumption (kt), faceted on a NEW
+    # ``oil_product`` axis (7 products: diesel-hsd, petrol, lpg,
+    # kerosene, naphtha, petroleum-coke, others). Unlike fuel_type's
+    # publisher-sub-bucket collapse, oil_product labels map 1:1 onto
+    # canonical value_ids -- no SUB_FUEL_TO_CANONICAL-style step.
+    # Originating data: PPAC / Ministry of Petroleum & Natural Gas.
+    "iced_consumption_oil",
 )
 
 
@@ -199,6 +208,12 @@ _TRIPLES: dict[str, tuple[str, str, str]] = {
     "iced_thermal_retired": (
         "NITI Aayog India Climate & Energy Dashboard",
         "Retired Thermal Capacity Plants Dashboard (national fiscal-year retired generating capacity by fuel)",
+        "2024-25",
+    ),
+    # --- P.1.C PR-T (1) ------------------------------------------------
+    "iced_consumption_oil": (
+        "NITI Aayog India Climate & Energy Dashboard",
+        "Oil Product Consumption State-wise API (per-state fiscal-year refined-petroleum-product consumption, by product)",
         "2024-25",
     ),
 }
@@ -344,6 +359,15 @@ _BY_NICKNAME: dict[str, tuple[str, str, str, bool, str, str | None]] = {
         False,
         "https://icedapi.niti.gov.in/v1/retired-capacity-plants",
         "ICED retired-capacity-plants endpoint for national fiscal-year retired thermal generating capacity by fuel (coal + oil-gas; FY05-FY25). Originating data: Central Electricity Authority station-level retirement records. ICED is the federal aggregator; not the issuing authority for the underlying fact (plan-doc §3 Q-d). National-only -- ICED does NOT publish state-level retired capacity.",
+    ),
+    # --- P.1.C PR-T (1) ------------------------------------------------
+    "iced_consumption_oil": (
+        "OGL-IN-1.0",
+        "silver",
+        "live-fetch",
+        False,
+        "https://icedapi.niti.gov.in/energy/fuel-sources/oil/consumptionStateProductTrend",
+        "ICED fuel-sources endpoint for state-wise oil-product consumption (7 refined-petroleum products: diesel-hsd, petrol, lpg, kerosene, naphtha, petroleum-coke, others; FY11-FY25). Originating data: PPAC / Ministry of Petroleum & Natural Gas. ICED is the federal aggregator; not the issuing authority for the underlying fact (plan-doc §3 Q-d). First indicator on the NEW ``oil_product`` facet axis.",
     ),
 }
 

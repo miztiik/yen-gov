@@ -94,6 +94,15 @@ SOURCE_IDS: dict[str, str] = {
     # existing ``energy_installed_capacity`` table stem (retired
     # capacity is the inverse measurement of installed; same axis).
     "iced_thermal_retired":              "src-fd152bd3c6c6",
+    # P.1.C PR-T (oil-product consumption lift, 2026-05-26). Derived via
+    # derive_source_id("NITI Aayog India Climate & Energy Dashboard",
+    # "Oil Product Consumption State-wise API (per-state fiscal-year
+    # refined-petroleum-product consumption, by product)", "2024-25").
+    # Pattern A-facet on the NEW ``oil_product`` axis (7 publisher
+    # labels map 1:1 to canonical value_ids: diesel-hsd, petrol, lpg,
+    # kerosene, naphtha, petroleum-coke, others). Lifts onto the
+    # existing ``energy_fuel_consumption`` table stem reserved by PR-Q.
+    "iced_consumption_oil":              "src-cba8334fedc5",
 }
 
 

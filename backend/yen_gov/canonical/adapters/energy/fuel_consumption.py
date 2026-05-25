@@ -5,10 +5,18 @@ P.1.C PR-Q (1 indicator; first canonical fuel-consumption lift):
 * ``state_coal_consumption_mt.json`` (450 rows, no facet)
   -> ``state-coal-consumption-mt``.
 
+P.1.C PR-T (1 indicator; second canonical fuel-consumption lift):
+
+* ``state_oil_product_consumption_kt.json`` (2901 rows, 7-facet on
+  the NEW ``oil_product`` axis: diesel-hsd, petrol, lpg, kerosene,
+  naphtha, petroleum-coke, others)
+  -> ``state-oil-product-consumption-kt-{product}`` (7 child indicators
+  + 1 compute-on-read parent).
+
 Establishes the new ``energy_fuel_consumption`` table stem that the
 P.1.A ``__init__.py`` docstring reserved but never populated. Subsequent
-P.1.C PRs (oil-product consumption, national primary/final energy
-supply) will land additional indicators on this same stem.
+P.1.C PRs (national primary/final energy supply) will land additional
+indicators on this same stem.
 
 Coal-consumption methodology: the ICED endpoint publishes 4 grade-level
 rows per (state, FY) -- raw + washed + middlings + lignite -- AND a
@@ -19,11 +27,24 @@ ingest time, so the rows arriving here are pre-aggregated state x FY
 totals with NO facet field. The adapter just emits 1 ObservationRow
 per shard row.
 
+Oil-product methodology: the ICED endpoint publishes 7 product-level
+rows per (state, FY); meadow drops the ``OTHERS`` state bucket and the
+``IN`` national-aggregate row at ingest time. The 7 publisher labels
+(DIESEL/HSD, PETROL, LPG, SKO, NAPHTHA, PETROLEUM COKE, OTHERS) are
+already normalised by the ingest parser to lowercase-hyphen slugs that
+match the canonical ``oil_product`` axis 1:1 (NO collapse step needed;
+contrast with fuel_type's SUB_FUEL_TO_CANONICAL).
+
 Coal-consumption is a *consumption* statistic (where coal is burned,
 not where it is mined). Companions for cross-read: the coal facet of
 ``state-installed-capacity-allocated-mw`` (siting) and the coal facet of
 ``state-electricity-generation-gwh`` (gen-from-coal). Industrial heat
 use (cement, steel) is the gap between consumption and gen-from-coal.
+
+Oil-product consumption is also a *where-consumed* statistic. Diesel
+and petrol track economic activity (transport, agriculture); LPG tracks
+household-policy coverage (PMUY scheme); petroleum coke tracks
+industrial heat use (cement, glass).
 
 Hans+Max (data shape) + Gregor (contract) authorities apply per
 CLAUDE.md S0a.
@@ -60,6 +81,32 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             indicator_id="state-coal-consumption-mt",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["iced_consumption_coal"],
+            derivation="raw",
+        ))
+
+    # 2. state_oil_product_consumption_kt.json (P.1.C PR-T)
+    #    -> state-oil-product-consumption-kt-{product} (7 children).
+    #    7-facet Pattern A-facet on the NEW ``oil_product`` axis.
+    #    Publisher labels (already normalised by the ICED ingest parser
+    #    at backend/yen_gov/sources/iced_fuel/parsers.py _OIL_PRODUCT_SLUG)
+    #    map 1:1 onto canonical value_ids -- no SUB_FUEL_TO_CANONICAL-style
+    #    collapse step. Each emitted row is derivation="raw" because the
+    #    publisher emits a single value per (state, FY, product); no
+    #    aggregation happens at canonical lift time. The meadow has already
+    #    dropped the ``OTHERS`` state bucket and the ``IN`` national row at
+    #    ingest time, so every row arriving here resolves to a real ECI
+    #    sub-national entity_id.
+    shard = _load_fuel_consumption_meadow(repo_root, "state_oil_product_consumption_kt.json")
+    for r in shard["rows"]:
+        period_label, year, period_seq = parse_iso_period(r["time"])
+        rows.append(ObservationRow(
+            entity_id=to_entity_id(r["entity_id"]),
+            year=year,
+            period_label=period_label,
+            period_seq=period_seq,
+            indicator_id=f"state-oil-product-consumption-kt-{r['facet']}",
+            value_numeric=float(r["value"]),
+            source_id=SOURCE_IDS["iced_consumption_oil"],
             derivation="raw",
         ))
 
