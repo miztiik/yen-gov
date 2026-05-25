@@ -88,7 +88,7 @@ Create folders only when real code is about to land. Identifier convention: use 
 - Max depth: `docs/<tier>/<topic>/<file>.md`.
 - Every doc: H1 title, `Last Updated: YYYY-MM-DD`, "See also" cross-links.
 - One concept defined once; everywhere else links to it.
-- ASCII-only in agent/customization markdown (use `-`, `->`, `>=`, "section", "INR").
+- ASCII-only in all repo text: commit messages, docs, code comments, log strings, agent markdown, CLI output (use `-`, `->`, `>=`, "section", "INR"). No curly quotes, em-dashes, or non-ASCII symbols. Applies going forward; no retroactive fixing.
 - **Doc-class routing:** ADR / subsystem doc / concept doc / plan-doc - each has one valid home. See [ADR-0034](docs/architecture/decisions/0034-documentation-routing-contract.md).
 - Agent memory (`AGENTS.md`, `/memories/repo/`) is derived, not authoritative; if it disagrees with `docs/`, docs win.
 - Personas live under `docs/agents/`; each loads [docs/agents/bootstrap.md](docs/agents/bootstrap.md) before answering. New citizen-facing features follow [docs/how-to/distill.md](docs/how-to/distill.md). Doctrine: [docs/concepts/citizen-first.md](docs/concepts/citizen-first.md).
