@@ -144,6 +144,18 @@ python -m yen_gov validate --root .
 
 Not gated in CI ([CLAUDE.md §11](../../CLAUDE.md)). Run before committing changes to [`datasets/**`](../../datasets), [`config/**`](../../config), or [`datasets/schemas/**`](../../datasets/schemas). The publish workflow ([`deploy-site.yml`](../../.github/workflows/deploy-site.yml)) copies `datasets/` into `_site/data/` as static bytes and never re-validates them; the runtime-shape gate is the consumer-side ajv contract test ([`datasets-conform.test.ts`](../../frontend/src/contracts/datasets-conform.test.ts)).
 
+### Boundary gzip budget check
+
+Boundary GeoJSON byte budgets are data-pipeline validation, not everyday frontend contract tests. The frontend suite keeps cheap consumer contracts (Hive path shape, no legacy sidecars, ledger presence, join-key shape); it does not gzip every shipped boundary shard on every vitest run.
+
+Run the full boundary size check from the repo root whenever a PR changes `datasets/boundaries/in/**`, `datasets/boundaries/boundary_layers.parquet`, or `tools/boundaries/simplify.py`:
+
+```sh
+python tools/boundaries/simplify.py --dry-run --skip-parquet
+```
+
+This command reads `tools/boundaries/simplify.py:LAYER_TUNING`, reports every shard sorted by gzipped size, and exits non-zero if any file exceeds its configured ceiling. If a shard fails, either re-run simplification as a data PR or document and implement a finer partition strategy; do not silently raise the ceiling from a frontend test.
+
 ## Fixture conventions
 
 - **`tmp_path`** for any test that needs a filesystem corpus. Per [CLAUDE.md §10](../../CLAUDE.md) and [docs/architecture/backend/validator.md](backend/validator.md), pytest tests MUST NOT walk the real `datasets/**`.

@@ -181,13 +181,14 @@ Vite's `import.meta.glob` would let the bundler see the per-district shards at b
 
 ### Test coverage (CLAUDE.md §15)
 
-Five files in `frontend/src/lib/` + one in `frontend/src/contracts/`:
+Four files in `frontend/src/lib/` + one in `frontend/src/contracts/`:
 
 - `boundaries.path.test.ts` (unit, ~18 tests) — pure resolver, no I/O. Asserts Hive-relative paths.
 - `boundaries.integration.test.ts` (integration, 9 tests) — `fetch` mocked at the loader's contract boundary (Holy Law #7 carve-out: the loader's contract IS the fetch boundary). Exercises path composition, 404-as-null, network-error-as-null, single-fetch-no-index-probe for villages.
 - `boundaries.contract.test.ts` (contract, ~46 tests) — round-trips `boundaryRelPath` against the on-disk TN village shards; samples first/middle/last features for join-key property presence.
-- `boundaries.budget.test.ts` (contract, ~44 tests) — per-shard byte ceilings (4 MB village / 8 MB subdistrict / 16 MB national) and a chunk-count ratchet at 80 `**/all.geojson` files.
-- `boundaries-conform.test.ts` in `frontend/src/contracts/` (T.0d, ~7 tests) — every `**/*.geojson` under `boundaries/in/` matches one of seven Hive-shape patterns; legacy sidecar / index manifest survivors are gated to zero; `datasets/boundaries/boundary_layers.parquet` exists.
+- `boundaries-conform.test.ts` in `frontend/src/contracts/` (T.0d) - every `**/*.geojson` under `boundaries/in/` matches a known Hive-shape pattern; legacy sidecar / index manifest survivors are gated to zero; `datasets/boundaries/boundary_layers.parquet` exists; the states layer carries its `State_LGD` join key.
+
+Full boundary gzip-budget checks live at the boundary tooling seam, not in frontend vitest. Run `python tools/boundaries/simplify.py --dry-run --skip-parquet` whenever a PR changes boundary geometry or simplification policy.
 
 ### Caching
 

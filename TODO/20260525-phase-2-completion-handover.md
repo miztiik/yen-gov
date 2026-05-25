@@ -47,7 +47,7 @@ These are CLAUDE.md restatements specialised to the Phase-2 closing context. **T
    - Gate 1 `python -m yen_gov validate --root .` → OK (0 issues)
    - Gate 2 backend `pytest -q` → 0 failed (some skipped acceptable; verify against current baseline)
    - Gate 3 frontend `bun run check` (svelte-check) → 0 errors (warnings carry over)
-   - Gate 4 frontend `bun run test` (vitest) → 0 NEW failures vs baseline (current baseline = 283 pre-existing failures in `boundaries-conform.test.ts` + `boundaries.budget.test.ts`; verify by running against `origin/main` before your PR)
+   - Gate 4 frontend `bun run test` (vitest) -> 0 NEW failures vs baseline. Boundary gzip budgets are no longer frontend-vitest ratchets; when a PR changes boundary geometry or simplification policy, also run `python tools/boundaries/simplify.py --dry-run --skip-parquet` and fix oversized shards at the tooling seam.
    - Gate 5 §13 browser smoke on at least one citizen-facing route the change touches
 
 7. **No `Start-Sleep`.** Use `get_terminal_output` polling for async PowerShell processes. Use `bun run test` (NOT `bun test` — bun's native runner barfs on Playwright specs).

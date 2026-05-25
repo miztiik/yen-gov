@@ -21,11 +21,10 @@
 //                  (one shard per state; joins on subdt_lgd integer)
 //   village      → datasets/boundaries/in/villages/state=in_<lc>/district=<lgd>/all.geojson
 //                  (one shard PER DISTRICT; joins on vil_lgd integer)
-//   postal       → datasets/boundaries/in/postal/IN-pincodes-<city>.geojson
-//                  (search-only; Chennai metro under TN today; joins on
-//                   pincode 6-digit string. Phase 4 §160 — structural
-//                   surface lands ahead of the data file and the Phase 3
-//                   search-affordance consumer.)
+//   postal       → datasets/boundaries/in/postal/state=in_<lc>/all.geojson
+//                  (search-only; joins on pincode 6-digit string. Unkeyed
+//                   pincode polygons sit in postal/scope=unkeyed/all.geojson
+//                   and are not resolved by this state-scoped helper.)
 //
 // The per-district village split is the contract that lets a single
 // district click pull ~10–600 KB instead of the full TN villages bundle
@@ -75,9 +74,6 @@ const JOIN_KEYS: Record<GeoLevel, string | null> = {
   postal: "pincode",
 };
 
-/** Tamil Nadu LGD state code (string, as upstream features carry). */
-const TN_STATE_LGD = "33";
-
 /**
  * LGD state code → ECI state code. Used to derive the partition slug
  * `in_<lc>` from the LGD code in incoming requests. Pre-T.0d this was
@@ -113,30 +109,21 @@ export function boundaryRelPath(
     case "subdistrict": {
       if (!stateLgd) throw new Error("subdistrict requires stateLgd");
       const eci = STATE_LGD_TO_ECI[stateLgd];
-      if (!eci) throw new Error(`no per-state subdistricts file for stateLgd=${stateLgd}`);
+      if (!eci) throw new Error(`no frontend state-code mapping for stateLgd=${stateLgd}`);
       return `subdistricts/state=in_${eci.toLowerCase()}/all.geojson`;
     }
     case "village": {
       if (!stateLgd) throw new Error("village requires stateLgd");
       if (!parentDistrictLgd) throw new Error("village requires parentDistrictLgd");
       const eci = STATE_LGD_TO_ECI[stateLgd];
-      if (!eci) throw new Error(`no per-state village files for stateLgd=${stateLgd}`);
+      if (!eci) throw new Error(`no frontend state-code mapping for stateLgd=${stateLgd}`);
       return `villages/state=in_${eci.toLowerCase()}/district=${parentDistrictLgd}/all.geojson`;
     }
     case "postal": {
-      // Phase 4 §160 of TODO/TN-GRANULAR-GEO-PLAN.md. Pincode polygons are
-      // a search-only layer (Jony edit §d) and currently exist only for
-      // Chennai metro under TN. Returns the same Chennai file regardless
-      // of `parentDistrictLgd` (kept in the signature for shape-symmetry
-      // with `village`); the consumer searches by `pincode` property.
-      // Postal stays under `postal/` (no Hive sub-tree yet) because there
-      // is only one shard today; promote to `postal/state=in_s22/all.geojson`
-      // when a second state pincode layer ships.
       if (!stateLgd) throw new Error("postal requires stateLgd");
-      if (stateLgd !== TN_STATE_LGD) {
-        throw new Error(`no postal boundaries for stateLgd=${stateLgd}`);
-      }
-      return "postal/IN-pincodes-chennai.geojson";
+      const eci = STATE_LGD_TO_ECI[stateLgd];
+      if (!eci) throw new Error(`no frontend state-code mapping for stateLgd=${stateLgd}`);
+      return `postal/state=in_${eci.toLowerCase()}/all.geojson`;
     }
   }
 }

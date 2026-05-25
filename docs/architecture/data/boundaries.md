@@ -11,19 +11,20 @@ This doc captures the rationale behind every design choice that touched the boun
 
 ```
 datasets/boundaries/
-├── boundary_layers.parquet                          # 74 rows; one per shard; the ledger
+├── boundary_layers.parquet                          # 753 rows; one per shard; the ledger
 └── in/
     ├── country/all.geojson                          # IN outline (was india-soi.geojson)
-    ├── states/all.geojson                           # all 36 states/UTs; property `state_lgd`
+    ├── states/all.geojson                           # all 36 states/UTs; property `State_LGD`
     ├── districts/all.geojson                        # all districts; property `dist_lgd`
-    ├── subdistricts/state=in_<lc>/all.geojson       # per-state (TN today); property `subdist_lgd`
-    ├── villages/state=in_<lc>/district=<lgd>/all.geojson  # per-(state, district); property `village_lgd`
-    ├── ac/state=in_<lc>/all.geojson                 # 37 states/UTs; property keyed to ECI ac code
+    ├── subdistricts/state=in_<lc>/all.geojson       # 36 states/UTs; property `subdist_lgd`
+    ├── villages/state=in_<lc>/district=<lgd>/all.geojson  # 27 states/UTs; per-(state, district); property `village_lgd`
+    ├── ac/state=in_<lc>/all.geojson                 # 31 elective states/UTs; property keyed to ECI ac code
     ├── pc/delim=<YYYY>/all.geojson                  # national; delim partition mandatory (ECI cycles)
-    └── postal/IN-pincodes-<city>.geojson            # orthogonal; NOT LGD; keyed by pincode
+    └── postal/state=in_<lc>/all.geojson             # 36 state shards; orthogonal; keyed by pincode
+        postal/scope=unkeyed/all.geojson             # unresolved pincode polygons
 ```
 
-Partition keys (`state=in_<lc>`, `district=<lgd>`) match the conventions in `datasets/elections/`, `datasets/energy/`, etc., so the same tooling that resolves observation Parquet paths resolves boundary paths.
+Partition keys (`state=in_<lc>`, `district=<lgd>`, and the postal-only `scope=unkeyed`) match the conventions in `datasets/elections/`, `datasets/energy/`, etc., so the same tooling that resolves observation Parquet paths resolves boundary paths.
 
 ### `boundary_layers.parquet` (the ledger)
 
@@ -32,19 +33,19 @@ One row per shard. Schema in `datasets/schemas/boundary-layers.schema.json`. The
 | Column | Meaning |
 | --- | --- |
 | `layer_id` (PK) | Dot-grammar matching the Hive path (e.g. `boundaries.in.villages.state=in_s22.district=603`) |
-| `family` | always `"boundaries"` |
-| `country` | always `"in"` |
-| `kind` | `"country" \| "states" \| "districts" \| "subdistricts" \| "villages" \| "ac" \| "pc" \| "postal"` |
-| `path` | repo-relative POSIX path to the geojson |
-| `source_id` | FK to `datasets/taxonomy/sources.parquet` (ADR-0032 v2.0 triple shape) |
+| `level` | `"country" \| "state" \| "district" \| "subdistrict" \| "village" \| "ac" \| "pc" \| "postal"` |
+| `partition_path` | repo-relative POSIX path under `datasets/` to the geometry file |
+| `format` | `"geojson" \| "pmtiles"` |
 | `crs` | EPSG identifier (e.g. `"EPSG:4326"`) |
 | `original_feature_count` | features in the source before any filtering / simplification |
 | `retained_feature_count` | features in the emitted geojson |
-| `unkeyed_count` | features dropped because they did not join to the LGD registry |
+| `unkeyed_count` | features dropped because they did not join to the relevant registry |
+| `size_bytes` | byte size of the published geometry file |
+| `source_id` | FK to `datasets/taxonomy/sources.parquet` (ADR-0032 v2.0 triple shape) |
 
 Denominator invariant: `original_feature_count == retained_feature_count + unkeyed_count` (enforced by `BoundaryLayerRow` Pydantic validator in `backend/yen_gov/canonical/boundary_layers_seed.py`).
 
-7 optional nullable columns: `state_eci`, `state_lgd`, `district_lgd`, `simplification_tolerance`, `simplification_algorithm`, `bbox`, `notes`. As of schema v1.1 (2026-05-24), `delimitation_vintage` (nullable, `^[0-9]{4}$`) is added: required on PC rows (and on future AC rows once delimitation history backfills land), null elsewhere. See [ADR-0031 Amendment 2026-05-24](../decisions/0031-boundary-geometry-strategy.md#amendment-2026-05-24-pc-layer-ingest--delimyyyy-partition-key).
+8 optional nullable columns: `entity_state`, `entity_district`, `entity_city`, `simplification_algorithm`, `simplification_tolerance_deg`, `unkeyed_keys_json`, `notes`, and `delimitation_vintage`. As of schema v1.1 (2026-05-24), `delimitation_vintage` (nullable, `^[0-9]{4}$`) is added: required on PC rows (and on future AC rows once delimitation history backfills land), null elsewhere. See [ADR-0031 Amendment 2026-05-24](../decisions/0031-boundary-geometry-strategy.md#amendment-2026-05-24-pc-layer-ingest--delimyyyy-partition-key).
 
 Frontend has zero direct readers of this parquet today (renderer never needed metadata at runtime). The ledger is the **operator + citizen-citation surface**; the geojsons remain the renderer's input.
 
@@ -60,7 +61,7 @@ Hive partitioning solves both:
 
 ### Why postal stays segregated under `postal/`
 
-Pincodes are **postal delivery zones**, not administrative units. They cross block / village / taluk lines. Mixing them under the LGD-keyed Hive tree would imply they participate in the same hierarchy and the same join — they don't, and pretending they do is a citizen-trust killer. The `postal/` subtree is intentional: a different visual layer in the UI, a different join key (`pincode` not `*_lgd`), and the rendering label "postal zone, not administrative". No `state=...` partition because the pincode IS the identifier (one or more cities per file).
+Pincodes are **postal delivery zones**, not administrative units. They cross block / village / taluk lines. Mixing them under the LGD-keyed Hive tree would imply they participate in the same hierarchy and the same join - they don't, and pretending they do is a citizen-trust killer. The `postal/` subtree is intentional: a different visual layer in the UI, a different join key (`pincode` not `*_lgd`), and the rendering label "postal zone, not administrative". The current `postal/state=in_<lc>/all.geojson` partition is a storage/cache boundary for pincode polygons whose state can be resolved; it does NOT make pincode an administrative child of the state. Unresolved pincode polygons live under `postal/scope=unkeyed/all.geojson`.
 
 ## Identifier discipline
 
@@ -69,7 +70,7 @@ Pincodes are **postal delivery zones**, not administrative units. They cross blo
 Two distinct things:
 
 - **LGD = registry**: the Local Government Directory CSVs (`datasets/taxonomy/lgd/{states,districts,subdistricts,villages}-latest.csv` plus dated immutable snapshots `<role>-YYYY-MM-DD.csv` per plan TODO/20260517-canonical-long-format-pivot.md §0e.10.2-C; moved from `datasets/reference/in/lgd/` in T.0c-ii closeout, 2026-05-21). These are *codes + hierarchy + names*, no geometry. Maintained by `tools/lgd/snapshot.py` from `ramSeraph/opendata` release `lgd-latest-extra1`.
-- **LGD-keyed geometry**: the Hive-partitioned GeoJSONs above. Each feature carries the **same LGD code** as the registry, so the join is one column (`state_lgd` / `dist_lgd` / `subdist_lgd` / `village_lgd`).
+- **LGD-keyed geometry**: the Hive-partitioned GeoJSONs above. Each feature carries the **same LGD code** as the registry, so the join is one column (`State_LGD` / `dist_lgd` / `subdist_lgd` / `village_lgd`).
 
 This split lets us (a) refresh the registry independently of geometry, (b) detect drift (any feature whose LGD code is not in the current registry → increments `unkeyed_count` on the ledger row), and (c) carry name changes without re-emitting geometry (the registry has the new name; the polygon is unchanged).
 
@@ -90,9 +91,9 @@ Names drift (Thoothukudi/Tuticorin, Kanyakumari/Kanniyakumari, Chennai/Madras) a
 
 ## File-size budget
 
-Per-file budget: **8 MB gzipped**. Enforced by `boundaries.budget.test.ts` (frontend vitest). Beyond this, mid-tier Android phones on 4G start to feel the chunk download.
+Per-fetch budget: the active target is the per-layer gzip ceiling in `tools/boundaries/simplify.py:LAYER_TUNING` (100-500 KB depending on layer). The full corpus check is `python tools/boundaries/simplify.py --dry-run --skip-parquet`; it belongs at the boundary-pipeline seam, not in everyday frontend vitest. Beyond this, mid-tier Android phones on 4G start to feel the chunk download.
 
-For TN villages this means simplification at write time. The simplification metadata (tolerance, algorithm, original/retained feature counts) lives in the `boundary_layers.parquet` row (`simplification_tolerance`, `simplification_algorithm`, `original_feature_count`, `retained_feature_count`). Without that record, downstream area/length math from the simplified geometry would silently lie.
+For village and subdistrict rollouts this means simplification at write time. The simplification metadata (tolerance, algorithm, original/retained feature counts) lives in the `boundary_layers.parquet` row (`simplification_tolerance_deg`, `simplification_algorithm`, `original_feature_count`, `retained_feature_count`). Without that record, downstream area/length math from the simplified geometry would silently lie.
 
 ## Coverage gaps (live)
 
@@ -129,15 +130,15 @@ Pincode polygons are an India Post artifact, not LGD. Two design consequences:
 
 The frontend treats `postal` as a search-only orthogonal layer (Jony edit §d of TN-GRANULAR-GEO-PLAN): typed pincode → zoom to its polygon when present, otherwise fall back to district. Pincode is **never a clickable choropleth layer** and **never a drill rung** — the drill state machine (`frontend/src/lib/drilldown.ts`) carries `postal` as a sentinel rank `-1` so `nextLevel("postal") === null` and the function table stays total without forcing every caller to narrow first.
 
-Disk layout sits OUTSIDE the LGD Hive tree to make the orthogonality visible at the path level: `datasets/boundaries/in/postal/IN-pincodes-<city>.geojson`. `boundaryRelPath("postal")` returns `postal/IN-pincodes-chennai.geojson` and the loader fetches it via the same `${DATA_BASE}/boundaries/in/${relpath}` URL builder — keeps the code one-arm.
+Disk layout sits OUTSIDE the LGD administrative tree to make the orthogonality visible at the path level: `datasets/boundaries/in/postal/state=in_<lc>/all.geojson` for state-resolved pincode polygons and `datasets/boundaries/in/postal/scope=unkeyed/all.geojson` for unresolved polygons. The same `${DATA_BASE}/boundaries/in/${relpath}` URL builder can fetch the shard once a postal search consumer is wired.
 
-**Status (Phase 4 §160 of TN-GRANULAR-GEO-PLAN, structural surface landed 2026-05-15)**: schema v1.0 + loader + tests are in place; the actual Chennai pincode geojson, the per-state registry data file, and the search-affordance UI consumer follow in subsequent commits gated on the Phase 3 search affordance landing first (Fowler YAGNI — structural surface ahead of the data and consumer). T.0d wired postal into `boundaryRelPath` so when the geojson lands it will be served via the same loader.
+**Status (Phase A.2, 2026-05-25)**: pincode polygons now ship as 36 per-state shards plus one `scope=unkeyed` shard. The search-affordance UI consumer remains future work; until then, postal stays a data-ready search layer rather than a clickable choropleth rung.
 
 ## Enforcement
 
 A Tier-B forbidden-path gate (`tier_b_legacy_boundary_sidecars` in `backend/yen_gov/validate.py`) rejects any future `*.sources.json` / `*.metadata.json` / `*.unkeyed.json` / `*-index.json` under `datasets/boundaries/`. The companion allowlist at `datasets/_ops/legacy-boundary-sidecars.txt` ships empty by design; it exists only to support short-lived overrides during follow-up PRs (with PR-body justification required). Same pattern as `tier_b_meadow_shard_contract`.
 
-Frontend has a paired contract test at `frontend/src/contracts/boundaries-conform.test.ts` that asserts every `**/*.geojson` under `datasets/boundaries/in/` matches one of the seven Hive-shape patterns AND that no legacy sidecar / index manifest survives.
+Frontend has a paired contract test at `frontend/src/contracts/boundaries-conform.test.ts` that asserts every `**/*.geojson` under `datasets/boundaries/in/` matches a known Hive-shape pattern AND that no legacy sidecar / index manifest survives.
 
 ## See also
 

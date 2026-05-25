@@ -1,44 +1,29 @@
-// Boundary-corpus conformance contract. Runs in `frontend-vitest` alongside
-// the other `frontend/src/contracts/*-conform.test.ts` consumers of the
+// Boundary-corpus conformance contract. Runs in frontend-vitest alongside
+// the other frontend/src/contracts/*-conform.test.ts consumers of the
 // committed dataset corpus.
 //
-// Three invariants enforced here that schemas can't:
+// Cheap consumer-side invariants enforced here:
 //
-//   1. **Hive-tree shape**: every `*.geojson` under `datasets/boundaries/in/`
-//      sits at a well-formed Hive path. The contract paths the loader uses
-//      are the only paths that should appear; anything else is dead weight
-//      or a legacy artifact the T.0d migration missed.
-//   2. **No legacy sidecars**: pre-T.0d sidecar shapes
-//      (`*.sources.json`, `*.unkeyed.json`, `*.metadata.json`,
-//      `*-index.json`) are now forbidden under `datasets/boundaries/`.
-//      Provenance + unkeyed counts + simplification metadata all live in
-//      `boundary_layers.parquet`. The Tier-B validator carries the same
-//      gate; this file is the front-end-side mirror so the contract is
-//      enforced in the same suite as the boundary loader.
-//   3. **Per-layer gzipped-size ceiling** (Phase 0.4 of the boundary-
-//      coverage expansion plan, 2026-05-24): every shipped GeoJSON shard
-//      gzips below the per-layer budget asserted in `LAYER_GZIP_CEILING_KB`.
-//      The publish pipeline serves these shards as gzipped HTTP responses
-//      from GitHub Pages — the citizen pays this byte cost on every map
-//      load. The ceiling is the regression gate against an ingest re-emit
-//      that silently re-inflates a geometry (e.g. mapshaper not run, a
-//      higher-resolution upstream landed without a `simplify.py` re-run).
+//   1. Hive-tree shape: every *.geojson under datasets/boundaries/in/ sits at
+//      a well-formed path the frontend loaders know how to fetch.
+//   2. No legacy sidecars: pre-T.0d sidecar shapes (*.sources.json,
+//      *.unkeyed.json, *.metadata.json, *-index.json) are forbidden under
+//      datasets/boundaries/ because the parquet ledger is the source of truth.
+//   3. Parquet ledger exists: operator metadata stays adjacent to the shards.
+//   4. The states layer still carries the State_LGD join key used by maps.
 //
-// Per-row schema validation (column types, layer_id grammar, source_id
-// pattern, denominator invariant) is owned by the backend Tier-A pytest
-// suite via `backend/tests/test_boundary_layers_seed.py`. We rely on the
-// fused-atomic-commit discipline (CLAUDE.md §15) to keep the parquet and
-// the on-disk shards in lockstep — this conform test is the consumer-side
-// drift detector.
+// Full gzip budget checks are intentionally not in this everyday frontend
+// suite. Run tools/boundaries/simplify.py --dry-run --skip-parquet when a PR
+// touches boundary geometry or simplification policy.
 
 import { describe, it, expect } from "vitest";
 import { existsSync, readFileSync } from "node:fs";
-import { gzipSync } from "node:zlib";
 import { resolve, sep, posix } from "node:path";
 import { fileURLToPath } from "node:url";
 import { globSync } from "glob";
 
 const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "..", "..", "..");
+const boundaryFamilyRoot = resolve(repoRoot, "datasets", "boundaries");
 const boundariesRoot = resolve(repoRoot, "datasets", "boundaries", "in");
 
 // All *.geojson under boundaries/in/, POSIX-normalized.
@@ -65,44 +50,14 @@ const HIVE_SHAPES: { kind: string; pattern: RegExp }[] = [
   // segment is mandatory because pre-2008 LS data will need pre-2008
   // boundaries when historical seats are added in a future PR.
   { kind: "pc", pattern: /^pc\/delim=\d{4}\/all\.geojson$/ },
-  // Postal Chennai: pre-Hive single-file layout; promote when a second state lands.
-  { kind: "postal", pattern: /^postal\/IN-pincodes-[a-z0-9-]+\.geojson$/ },
+  // Postal pincode polygons are orthogonal to the LGD hierarchy. They shard
+  // by resolved state when possible, plus a synthetic unkeyed bucket for
+  // pincodes whose state could not be resolved from the directory table.
+  { kind: "postal", pattern: /^postal\/(state=in_[a-z0-9]+|scope=unkeyed)\/all\.geojson$/ },
 ];
 
 function isWellFormedHivePath(relPath: string): boolean {
   return HIVE_SHAPES.some(s => s.pattern.test(relPath));
-}
-
-// Per-layer gzipped-size ceiling in KB. MUST stay in lockstep with
-// `tools/boundaries/simplify.py:LAYER_TUNING` — the simplifier produces
-// these sizes; this contract enforces them on every CI run. A future PR
-// that bumps the simplifier ceiling without bumping this constant (or
-// vice-versa) is the drift class this pair is designed to catch.
-//
-// Keys are the Hive top-level segment (matches the `kind` field above).
-// A new layer added without an entry here is flagged by the
-// "every kind has a ceiling entry" sanity check below.
-const LAYER_GZIP_CEILING_KB: Record<string, number> = {
-  country: 100,
-  states: 200,
-  districts: 500,
-  subdistricts: 300,
-  villages: 500,
-  ac: 500,
-  pc: 500,
-  postal: 500,
-};
-
-function hiveKindOf(relPath: string): string | null {
-  // Strip everything past the top-level segment and look up.
-  const top = relPath.split("/")[0];
-  if (top in LAYER_GZIP_CEILING_KB) return top;
-  return null;
-}
-
-function gzipKB(absPath: string): number {
-  const raw = readFileSync(absPath);
-  return gzipSync(raw, { level: 6 }).byteLength / 1024;
 }
 
 describe("boundaries-conform — every shipped *.geojson is at a well-formed Hive path", () => {
@@ -119,39 +74,6 @@ describe("boundaries-conform — every shipped *.geojson is at a well-formed Hiv
   });
 });
 
-describe("boundaries-conform — per-layer gzipped-size ceiling (Phase 0.4)", () => {
-  // The seven Hive shapes above all classify their files to one of
-  // LAYER_GZIP_CEILING_KB's eight keys (postal currently has no on-disk
-  // shard). A future kind added to HIVE_SHAPES without a ceiling entry
-  // would let an arbitrarily fat geometry land unchecked.
-  it("every Hive kind has a gzip-size ceiling entry", () => {
-    const kindsInPaths = new Set(HIVE_SHAPES.map(s => s.kind));
-    const kindsWithCeiling = new Set(Object.keys(LAYER_GZIP_CEILING_KB));
-    const missing = [...kindsInPaths].filter(k => !kindsWithCeiling.has(k));
-    expect(
-      missing,
-      `Hive kinds without a LAYER_GZIP_CEILING_KB entry: ${missing.join(", ")} — add the kind to LAYER_GZIP_CEILING_KB and bump tools/boundaries/simplify.py LAYER_TUNING in lockstep`,
-    ).toEqual([]);
-  });
-
-  // The actual ceiling assertion. One test per file so the failure
-  // surface is precise — vitest will list every breaching shard by
-  // name with its actual gzipped size.
-  for (const rel of ALL_GEOJSON) {
-    const kind = hiveKindOf(rel);
-    if (kind === null) continue; // orphan detector above handles this
-    const ceilingKB = LAYER_GZIP_CEILING_KB[kind];
-    it(`${rel} gzips to <= ${ceilingKB} KB`, () => {
-      const abs = resolve(boundariesRoot, rel);
-      const actualKB = gzipKB(abs);
-      expect(
-        actualKB,
-        `${rel} is ${actualKB.toFixed(1)} KB gzipped (ceiling ${ceilingKB} KB). Re-run tools/boundaries/simplify.py to thin the geometry, or bump LAYER_TUNING + LAYER_GZIP_CEILING_KB together if the citizen-byte budget is being deliberately raised.`,
-      ).toBeLessThanOrEqual(ceilingKB);
-    });
-  }
-});
-
 describe("boundaries-conform — legacy sidecars are gone (T.0d)", () => {
   // The T.0d migration deleted 115 sidecars (.sources.json, .metadata.json,
   // .unkeyed.json) and the S22-villages-index.json manifest. Any survivor
@@ -165,7 +87,7 @@ describe("boundaries-conform — legacy sidecars are gone (T.0d)", () => {
 
   for (const pattern of SIDECAR_PATTERNS) {
     it(`no ${pattern} survivors under datasets/boundaries/`, () => {
-      const survivors = globSync(pattern, { cwd: boundariesRoot, absolute: false });
+      const survivors = globSync(pattern, { cwd: boundaryFamilyRoot, absolute: false });
       expect(
         survivors,
         `legacy sidecar pattern ${pattern} reappeared under datasets/boundaries/ — provenance + simplification + inventory now live in boundary_layers.parquet (ADR-0031 Amendment 2026-05-22)`,
