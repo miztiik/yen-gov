@@ -152,6 +152,80 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     // billed end-use, availability is delivered-to-state (incl. T&D losses).
     expect(d!.meta.attribution_geography).toBe("where_consumed");
   });
+
+  // PR-G (2026-05-25): 4 new allowlist entries close the 5 remaining
+  // /t/energy 404s discovered during PR-F's §13 smoke. Two singles route
+  // to ICED-sourced distribution-performance canonicals; two faceted
+  // entries route to fuel_type-multiplexed parents already wired by
+  // PR 7a for their totals-only sibling slugs. The 5th 404
+  // (state_installed_capacity_total_mw) is resolved by a topics.json
+  // prune (Pattern B duplicate of state_installed_capacity_with_alloc_mw),
+  // not an allowlist add.
+  it("PR-G state_electricity_sales_mu descriptor routes to state-electricity-sales-mu", () => {
+    const d = getCanonicalDescriptor("energy/state_electricity_sales_mu");
+    expect(d).not.toBeNull();
+    expect(d!.kind).toBe("single");
+    if (d!.kind === "single") {
+      expect(d!.canonical_indicator_id).toBe("state-electricity-sales-mu");
+    }
+    expect(d!.table_id).toBe("energy.energy_distribution_performance");
+    expect(d!.meta.title).toMatch(/electricity sales/i);
+    expect(d!.meta.unit).toBe("MU");
+    // ICED end-consumer billing attribution (distinct from where-administered).
+    expect(d!.meta.attribution_geography).toBe("where_billed");
+  });
+
+  it("PR-G state_atc_losses_pct descriptor routes to state-atc-losses-pct", () => {
+    const d = getCanonicalDescriptor("energy/state_atc_losses_pct");
+    expect(d).not.toBeNull();
+    expect(d!.kind).toBe("single");
+    if (d!.kind === "single") {
+      expect(d!.canonical_indicator_id).toBe("state-atc-losses-pct");
+    }
+    expect(d!.table_id).toBe("energy.energy_distribution_performance");
+    expect(d!.meta.title).toMatch(/aggregate technical.*commercial/i);
+    expect(d!.meta.unit).toBe("%");
+    // Discom-health metric: lower is better (UDAY target was <15%).
+    expect(d!.meta.direction).toBe("lower_is_better");
+  });
+
+  it("PR-G state_installed_capacity_by_source_mw descriptor routes to state-installed-capacity-geographical-mw with 5 fuel children", () => {
+    const d = getCanonicalDescriptor("energy/state_installed_capacity_by_source_mw");
+    expect(d).not.toBeNull();
+    expect(d!.kind).toBe("facet-multiplexed");
+    if (d!.kind === "facet-multiplexed") {
+      expect(d!.canonical_parent_indicator_id).toBe("state-installed-capacity-geographical-mw");
+      expect(d!.facet_axis_id).toBe("fuel_type");
+      expect(d!.facet_values).toHaveLength(5);
+      const fuels = d!.facet_values.map((fv) => fv.legacy_facet_label);
+      expect(fuels).toEqual(["coal", "gas", "hydro", "nuclear", "renewable"]);
+      // Spot-check one child mapping (coal): canonical_child_id encodes
+      // the parent + fuel suffix per indicator-naming.md D30.
+      const coal = d!.facet_values.find((fv) => fv.legacy_facet_label === "coal");
+      expect(coal?.canonical_child_id).toBe("state-installed-capacity-geographical-mw-coal");
+    }
+    expect(d!.table_id).toBe("energy.energy_installed_capacity");
+    expect(d!.meta.title).toMatch(/by fuel/i);
+    expect(d!.meta.unit).toBe("MW");
+  });
+
+  it("PR-G state_electricity_generation_by_source_gwh descriptor routes to state-electricity-generation-gwh with 5 fuel children", () => {
+    const d = getCanonicalDescriptor("energy/state_electricity_generation_by_source_gwh");
+    expect(d).not.toBeNull();
+    expect(d!.kind).toBe("facet-multiplexed");
+    if (d!.kind === "facet-multiplexed") {
+      expect(d!.canonical_parent_indicator_id).toBe("state-electricity-generation-gwh");
+      expect(d!.facet_axis_id).toBe("fuel_type");
+      expect(d!.facet_values).toHaveLength(5);
+      const fuels = d!.facet_values.map((fv) => fv.legacy_facet_label);
+      expect(fuels).toEqual(["coal", "gas", "hydro", "nuclear", "renewable"]);
+      const renewable = d!.facet_values.find((fv) => fv.legacy_facet_label === "renewable");
+      expect(renewable?.canonical_child_id).toBe("state-electricity-generation-gwh-renewable");
+    }
+    expect(d!.table_id).toBe("energy.energy_generation");
+    expect(d!.meta.title).toMatch(/generation, by fuel/i);
+    expect(d!.meta.unit).toBe("GWh");
+  });
 });
 
 describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
