@@ -11,7 +11,10 @@
 //   country      → datasets/boundaries/in/country/all.geojson
 //                  (silhouette only; no per-feature join key)
 //   state        → datasets/boundaries/in/states/all.geojson
-//                  (datameet/maps lineage; joins on ST_NM English name)
+//                  (ramSeraph LGD-keyed lineage post-D.0; joins on
+//                  State_LGD integer per BharatMaps. Pre-D.0 the layer
+//                  was DataMeet/maps and joined on ST_NM English name
+//                  — see TODO/20260524-boundary-coverage-expansion-plan.md.)
 //   district     → datasets/boundaries/in/districts/all.geojson
 //                  (LGD-keyed; joins on dist_lgd integer)
 //   subdistrict  → datasets/boundaries/in/subdistricts/state=in_<lc>/all.geojson
@@ -65,7 +68,7 @@ export interface BoundaryFeatureCollection {
 /** Per-level property name on each Feature that carries the join key. */
 const JOIN_KEYS: Record<GeoLevel, string | null> = {
   country: null,
-  state: "ST_NM",
+  state: "State_LGD",
   district: "dist_lgd",
   subdistrict: "subdt_lgd",
   village: "vil_lgd",

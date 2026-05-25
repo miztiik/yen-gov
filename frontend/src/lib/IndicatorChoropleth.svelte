@@ -112,19 +112,32 @@
     .then(s => (states_taxonomy = s))
     .catch(e => (load_error = String(e)));
 
-  // Reverse map: ECI code -> boundary join name (for the join layer's join-property).
-  const ECI_TO_NAME = $derived.by(() => {
+  // Reverse map: ECI code -> boundary join KEY (LGD code string used by the
+  // map layer's join-property post-D.0). Used to derive `highlight_key` for
+  // MapChoropleth's filter expression and to translate other code-system
+  // requests (e.g. URL state codes) into the value the layer expects.
+  const ECI_TO_KEY = $derived.by(() => {
+    const out: Record<string, string> = {};
+    for (const s of states_taxonomy ?? []) out[s.eci_code] = s.boundary_join_key;
+    return out;
+  });
+
+  // Reverse map: ECI code -> citizen-display shortform. Used by handleSelect
+  // to label the breadcrumb entry the user just drilled into (Delhi vs NCT
+  // of Delhi reads better in a breadcrumb chip).
+  const ECI_TO_DISPLAY = $derived.by(() => {
     const out: Record<string, string> = {};
     for (const s of states_taxonomy ?? []) out[s.eci_code] = s.boundary_join_name;
     return out;
   });
 
-  // Reverse map: boundary join name -> ECI code (replacement for the old
-  // STATE_NAME_TO_ECI constant; used by handleSelect to resolve the state
-  // clicked on the choropleth into an ECI code).
-  const NAME_TO_ECI = $derived.by(() => {
+  // Reverse map: boundary join KEY -> ECI code. Used by handleSelect to
+  // resolve the LGD code carried on the clicked feature into an ECI code.
+  // Pre-D.0 this was keyed on the DataMeet ST_NM English name; post-D.0
+  // it is keyed on the ramSeraph State_LGD numeric code (as a string).
+  const KEY_TO_ECI = $derived.by(() => {
     const out: Record<string, string> = {};
-    for (const s of states_taxonomy ?? []) out[s.boundary_join_name] = s.eci_code;
+    for (const s of states_taxonomy ?? []) out[s.boundary_join_key] = s.eci_code;
     return out;
   });
 
@@ -170,10 +183,10 @@
     return { min, max };
   });
 
-  // join-property (state-name) -> fill hex. Only states currently valid in
-  // taxonomy.entities get a colour; the rest fall through to MapChoropleth's
-  // default grey. When peer_set_members is set, non-members also fall
-  // through (greyed).
+  // join-property (State_LGD post-D.0) -> fill hex. Only states currently
+  // valid in taxonomy.entities get a colour; the rest fall through to
+  // MapChoropleth's default grey. When peer_set_members is set, non-members
+  // also fall through (greyed).
   const fills = $derived.by(() => {
     const out: Record<string, string> = {};
     if (!artifact) return out;
@@ -185,7 +198,7 @@
       if (member_set && !member_set.has(code)) continue;
       const v = values.get(code);
       if (v === undefined) continue;
-      out[s.boundary_join_name] = fillForValue(v, domain.min, domain.max, dir, scale);
+      out[s.boundary_join_key] = fillForValue(v, domain.min, domain.max, dir, scale);
     }
     return out;
   });
@@ -196,10 +209,11 @@
     const meta = artifact.indicator;
     for (const s of states_taxonomy ?? []) {
       const code = s.eci_code;
-      const name = s.boundary_join_name;
+      const display = s.boundary_join_name;
+      const join_key = s.boundary_join_key;
       const v = values.get(code);
       if (v === undefined) {
-        out[name] = `<div class="font-semibold">${escape_html(name)}</div>` +
+        out[join_key] = `<div class="font-semibold">${escape_html(display)}</div>` +
                     `<div class="text-slate-500">no data for ${escape_html(selected_time ?? "")}</div>`;
         continue;
       }
@@ -212,20 +226,20 @@
             `<span class="tabular-nums text-slate-500">${escape_html(formatValue(f.value, meta))}</span></div>`,
           ).join("")
         : "";
-      out[name] =
-        `<div class="font-semibold">${escape_html(name)} <span class="text-slate-400 font-mono text-[10px]">${code}</span></div>` +
+      out[join_key] =
+        `<div class="font-semibold">${escape_html(display)} <span class="text-slate-400 font-mono text-[10px]">${code}</span></div>` +
         `<div class="tabular-nums">${escape_html(formatted)}</div>` +
         (rows_html ? `<div class="text-slate-600 mt-1 text-xs">${rows_html}</div>` : "");
     }
     return out;
   });
 
-  const highlight_key = $derived(highlight_state ? ECI_TO_NAME[highlight_state] : undefined);
+  const highlight_key = $derived(highlight_state ? ECI_TO_KEY[highlight_state] : undefined);
 
   // Loader-exposed join-key for the current geoLevel. At "state" this resolves
-  // to "ST_NM" — the same value INDIA_STATES.join_property carries — so the
-  // state branch is unchanged. The `current_join_key` derivation is the seam
-  // c3 will use to dispatch on level (district → "dist_lgd",
+  // to "State_LGD" — the same value INDIA_STATES.join_property carries post-D.0
+  // — so the state branch is unchanged. The `current_join_key` derivation is
+  // the seam c3 will use to dispatch on level (district → "dist_lgd",
   // subdistrict → "subdt_lgd", village → "vil_lgd"); commit 2 only introduces
   // the dependency and a dev-only consistency check.
   const current_join_key = $derived(joinKeyFor(geoLevel));
@@ -465,8 +479,9 @@
     return out;
   });
 
-  // Click handler — drill or no-op. State-level click resolves ECI → LGD
-  // (TN-only at v0; other states fall through to no-op + toast).
+  // Click handler — drill or no-op. State-level click resolves clicked
+  // feature's State_LGD → ECI code (post-D.0 LGD-keyed join). TN-only drill
+  // at v0; other states fall through to no-op + toast.
   function handleSelect(sel: { key: string | number; properties: Record<string, unknown>; at?: [number, number] }): void {
     if (!drill_enabled) return;
     const min_grain = artifact?.indicator.min_grain;
@@ -475,14 +490,17 @@
     let label = String(sel.key);
     let stateLgd: string | undefined;
     if (drill_state.level === "state") {
-      const eci = NAME_TO_ECI[String(sel.key)];
+      const eci = KEY_TO_ECI[String(sel.key)];
       if (eci !== TN_ECI) {
         // Only TN has deeper boundaries on disk at v0.
         deeper_fetch_error = "deeper boundaries available for Tamil Nadu only";
         return;
       }
       stateLgd = TN_LGD;
-      label = String(sel.key);
+      // Breadcrumb label is the citizen-display name, not the raw LGD
+      // code carried on the clicked feature (post-D.0 the join key is
+      // numeric, so falling back to String(sel.key) would print "33").
+      label = ECI_TO_DISPLAY[eci] ?? String(sel.key);
     } else {
       // For deeper levels, prefer the human name carried on the feature.
       const props = sel.properties ?? {};
