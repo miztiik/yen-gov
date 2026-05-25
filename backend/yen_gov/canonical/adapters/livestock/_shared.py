@@ -124,3 +124,30 @@ def load_meadow(repo_root: Path, source: str, vintage: str, file: str) -> dict:
         / file
     )
     return json.loads(p.read_text(encoding="utf-8"))
+
+
+def state_prefix(district_entity_id: str) -> str:
+    """Derive the state-grain entity_id from a district entity_id.
+
+    Examples:
+        ``IN-S01-D502`` -> ``IN-S01``
+        ``IN-U08-D640`` -> ``IN-U08``
+
+    Strips the trailing ``-D<n>`` segment via rsplit. Raises
+    ``ValueError`` if the input doesn't match the district shape -
+    meadow rows are pre-validated but the ADR-0043 rollup contract is
+    load-bearing and a silent miss here would undercount the state.
+
+    Extracted to ``_shared`` per Fowler rule-of-three: pashu_aadhaar
+    (PR #281), owner_reg (PR #303), and naip_iv (this PR) all need the
+    same shape. Future livestock adapters wire here; future
+    cross-family adapters with the same district pattern may eventually
+    promote this to ``yen_gov.canonical.rollup``.
+    """
+    if "-D" not in district_entity_id:
+        raise ValueError(
+            f"Expected district entity_id of shape 'IN-S<n>-D<n>' or "
+            f"'IN-U<n>-D<n>'; got {district_entity_id!r}"
+        )
+    prefix, _district_suffix = district_entity_id.rsplit("-D", 1)
+    return prefix

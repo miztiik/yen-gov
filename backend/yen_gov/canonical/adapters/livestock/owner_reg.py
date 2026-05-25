@@ -63,7 +63,7 @@ from pathlib import Path
 
 from yen_gov.canonical.envelope import BatchEnvelope, ObservationRow
 
-from ._shared import SOURCE_IDS, load_meadow, parse_ndlm_period
+from ._shared import SOURCE_IDS, load_meadow, parse_ndlm_period, state_prefix
 
 # Meadow-path vintage segment - matches src-d98dc531ef7e seeded by
 # PR #276. The row-level ``time`` field carries the vintage label
@@ -98,29 +98,6 @@ LANDHOLDING_TO_SLUG: dict[str, str] = {
     "large": "large",
     "not_specified": "not-specified",
 }
-
-
-def _state_prefix(district_entity_id: str) -> str:
-    """Derive the state-grain entity_id from a district entity_id.
-
-    Examples:
-        ``IN-S01-D502`` -> ``IN-S01``
-        ``IN-U08-D640`` -> ``IN-U08``
-
-    Mirrors ``pashu_aadhaar._state_prefix`` exactly. Inline (not shared
-    via a rollup helper) per Fowler "rule of three" - extract to
-    backend/yen_gov/canonical/rollup.py only after the THIRD adapter
-    duplicates this; premature abstraction locks in a shape the next
-    consumer may not fit. The NAIP IV adapter (Phase 2.C) is consumer #3
-    and is the natural extraction point.
-    """
-    if "-D" not in district_entity_id:
-        raise ValueError(
-            f"Expected district entity_id of shape 'IN-S<n>-D<n>' or "
-            f"'IN-U<n>-D<n>'; got {district_entity_id!r}"
-        )
-    prefix, _district_suffix = district_entity_id.rsplit("-D", 1)
-    return prefix
 
 
 def build_envelope(repo_root: Path) -> BatchEnvelope:
@@ -192,7 +169,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
         # The landholding-slug is whatever follows the "count-" prefix.
         slug = row.indicator_id.split("count-", 1)[-1]
         key = (
-            _state_prefix(row.entity_id),
+            state_prefix(row.entity_id),
             slug,
             row.period_label,
             row.year,
@@ -200,10 +177,10 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
         )
         sums[key] += row.value_numeric
 
-    for (state_prefix, slug, period_label, year, period_seq), total in sums.items():
+    for (state_id, slug, period_label, year, period_seq), total in sums.items():
         rows.append(
             ObservationRow(
-                entity_id=state_prefix,
+                entity_id=state_id,
                 year=year,
                 period_label=period_label,
                 period_seq=period_seq,

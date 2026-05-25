@@ -2690,6 +2690,214 @@
       "renderer_rules": [
         "no_rank_table"
       ]
+    },
+    {
+      "indicator_id": "district-livestock-naip-iv-inseminations",
+      "label_short": "AI events (district)",
+      "label_long": "NAIP IV artificial-insemination events per district",
+      "description_short": "Count of artificial-insemination EVENTS performed in each district under NAIP IV. Repeat inseminations on the same animal are counted multiple times.",
+      "description_long": "NAIP IV (National Artificial Insemination Programme, phase IV) is a select-district programme administered by the Department of Animal Husbandry & Dairying (DAHD). Each row counts artificial-insemination EVENTS performed in the district during FY 2024-25 - NOT unique animals inseminated. Repeat inseminations on the same dam are counted multiple times (an animal may need 2-3 cycles before conception). 8 states/UTs (Kerala, Punjab, Puducherry, Chandigarh, Delhi, Lakshadweep, A&N, D&NH+D&D) report zero coverage upstream and are GENUINELY ABSENT from this fact-table - that is correct, not a defect: NAIP IV is select-district, and a missing state means out-of-scope, not zero-result. Catalogue carries comparability=directional_only and renderer_rules=[no_rank_table] - the renderer suppresses rank-table views and labels the choropleth illustrative.",
+      "unit": "events",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_administered",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan NAIP IV district endpoint; vintage FY 2024-25 snapshot 2026-05-25",
+      "revision_tier": "first_release",
+      "parent_indicator_id": null,
+      "source_id": "src-93a2a72db482",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-livestock-naip-iv-pregnancy-diagnoses",
+      "label_short": "Pregnancy diagnoses (district)",
+      "label_long": "NAIP IV pregnancy-diagnosis events per district",
+      "description_short": "Count of pregnancy-diagnosis EVENTS performed in each district under NAIP IV. A single dam may be diagnosed multiple times in the same year.",
+      "description_long": "NAIP IV pregnancy-diagnosis events recorded per district during FY 2024-25. EVENTS, not unique animals: a single dam may be diagnosed multiple times in the same vintage if previous diagnoses returned negative. 8 zero-coverage states (Kerala, Punjab, Puducherry, Chandigarh, Delhi, Lakshadweep, A&N, D&NH+D&D) are genuinely absent (NAIP IV is select-district; missing = out-of-scope, not zero). Catalogue carries comparability=directional_only + renderer_rules=[no_rank_table].",
+      "unit": "events",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_administered",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan NAIP IV district endpoint; vintage FY 2024-25 snapshot 2026-05-25",
+      "revision_tier": "first_release",
+      "parent_indicator_id": null,
+      "source_id": "src-93a2a72db482",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-livestock-naip-iv-calves-born",
+      "label_short": "Calves born (district)",
+      "label_long": "NAIP IV calves born per district",
+      "description_short": "Count of calves born per district from NAIP IV inseminations during FY 2024-25. Publisher reports sex split (male/female); this lift collapses sex via SUM.",
+      "description_long": "Calves born per district from NAIP IV artificial-insemination programmes during FY 2024-25. The publisher splits this metric by sex (male/female calves); this lift collapses sex via SUM at write time (derivation=sum). Sex-stratified children are deferred to a follow-up PR after Hans audits citizen copy. Counts are biological outputs of completed pregnancies from NAIP IV inseminations (not all calves born in the district from any programme). 8 zero-coverage states (Kerala, Punjab, Puducherry, Chandigarh, Delhi, Lakshadweep, A&N, D&NH+D&D) are genuinely absent. Catalogue carries comparability=directional_only + renderer_rules=[no_rank_table].",
+      "unit": "calves",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_administered",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan NAIP IV district endpoint; vintage FY 2024-25 snapshot 2026-05-25 (sex collapsed via SUM)",
+      "revision_tier": "first_release",
+      "parent_indicator_id": null,
+      "source_id": "src-93a2a72db482",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-livestock-naip-iv-farmers-benefitted",
+      "label_short": "Farmers benefitted (district)",
+      "label_long": "NAIP IV farmers benefitted per district",
+      "description_short": "Count of unique farmers in each district reached by NAIP IV inseminations during FY 2024-25.",
+      "description_long": "Unique farmers reached by NAIP IV artificial-insemination programmes per district during FY 2024-25. This metric counts farmers (people), not inseminations performed - a farmer who has 5 dams inseminated counts once. 8 zero-coverage states (Kerala, Punjab, Puducherry, Chandigarh, Delhi, Lakshadweep, A&N, D&NH+D&D) are genuinely absent (select-district programme). Catalogue carries comparability=directional_only + renderer_rules=[no_rank_table].",
+      "unit": "farmers",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_administered",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan NAIP IV district endpoint; vintage FY 2024-25 snapshot 2026-05-25",
+      "revision_tier": "first_release",
+      "parent_indicator_id": null,
+      "source_id": "src-93a2a72db482",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-naip-iv-inseminations",
+      "label_short": "AI events (state)",
+      "label_long": "NAIP IV artificial-insemination events (state aggregate)",
+      "description_short": "State total of artificial-insemination EVENTS performed under NAIP IV, summed from district rows. Repeat inseminations counted multiple times.",
+      "description_long": "State-grain aggregate of district-livestock-naip-iv-inseminations: each value is the SUM of district event-counts for districts belonging to this state. Materialised at canonical-write time per ADR-0043 (derivation=sum, same source_id as district rows). NAIP IV is select-district; 8 states/UTs (Kerala, Punjab, Puducherry, Chandigarh, Delhi, Lakshadweep, A&N, D&NH+D&D) report zero coverage upstream and are GENUINELY ABSENT from this fact-table (not zero-rendered). The renderer must not infer 'low' from absence at state grain; choose the no_rank_table renderer rule and call out missing states as out-of-scope.",
+      "unit": "events",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_administered",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan NAIP IV; FY 2024-25 (state aggregate of district events)",
+      "revision_tier": "first_release",
+      "parent_indicator_id": null,
+      "source_id": "src-93a2a72db482",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-naip-iv-pregnancy-diagnoses",
+      "label_short": "Pregnancy diagnoses (state)",
+      "label_long": "NAIP IV pregnancy-diagnosis events (state aggregate)",
+      "description_short": "State total of pregnancy-diagnosis EVENTS performed under NAIP IV, summed from districts. A single dam may be diagnosed multiple times.",
+      "description_long": "State-grain aggregate of district-livestock-naip-iv-pregnancy-diagnoses. Sum of district event-counts; materialised at canonical-write time per ADR-0043. Same select-district honesty applies: 8 states report zero coverage upstream and are absent from this fact-table (not zero). Catalogue carries comparability=directional_only + renderer_rules=[no_rank_table].",
+      "unit": "events",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_administered",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan NAIP IV; FY 2024-25 (state aggregate of district events)",
+      "revision_tier": "first_release",
+      "parent_indicator_id": null,
+      "source_id": "src-93a2a72db482",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-naip-iv-calves-born",
+      "label_short": "Calves born (state)",
+      "label_long": "NAIP IV calves born (state aggregate)",
+      "description_short": "State total of calves born from NAIP IV inseminations, summed from districts. Sex split collapsed via SUM at district lift.",
+      "description_long": "State-grain aggregate of district-livestock-naip-iv-calves-born. Sum of district calf-counts; materialised at canonical-write time per ADR-0043 (a second SUM atop the already sex-collapsed district rows; both derivations are honest). Same select-district honesty applies: 8 states report zero NAIP IV coverage upstream and are genuinely absent. Catalogue carries comparability=directional_only + renderer_rules=[no_rank_table].",
+      "unit": "calves",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_administered",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan NAIP IV; FY 2024-25 (state aggregate; sex collapsed via SUM at district)",
+      "revision_tier": "first_release",
+      "parent_indicator_id": null,
+      "source_id": "src-93a2a72db482",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-naip-iv-farmers-benefitted",
+      "label_short": "Farmers benefitted (state)",
+      "label_long": "NAIP IV farmers benefitted (state aggregate)",
+      "description_short": "State total of unique farmers reached by NAIP IV inseminations, summed from districts.",
+      "description_long": "State-grain aggregate of district-livestock-naip-iv-farmers-benefitted. Sum of district farmer-counts; materialised at canonical-write time per ADR-0043. Note: this sum may double-count farmers operating across multiple districts in the same state (the underlying meadow rows are district-scoped without a cross-district farmer-uid). Hans honest-renderer: treat as upper bound on unique farmers in the state. 8 zero-coverage states genuinely absent. Catalogue carries comparability=directional_only + renderer_rules=[no_rank_table].",
+      "unit": "farmers",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_administered",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan NAIP IV; FY 2024-25 (state aggregate; may double-count farmers across districts)",
+      "revision_tier": "first_release",
+      "parent_indicator_id": null,
+      "source_id": "src-93a2a72db482",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
     }
   ]
 }
