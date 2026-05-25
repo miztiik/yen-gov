@@ -76,10 +76,13 @@ SOURCE_NICKNAMES: tuple[str, ...] = (
 )
 
 
-# (producer, title, vintage) triples. Vintage="" is permitted per
-# source.schema.json when the publisher publishes no vintage (ICED APIs
-# are continuously-updated; the RBI Handbook table-142 explicitly carries
-# the 2024-25 edition tag; CEA Monthly is the March-2026 snapshot).
+# (producer, title, vintage) triples. Per ADR-0042 (source schema v3.0),
+# vintage MUST be non-empty ("strongest period anchor available"):
+# publisher edition when published, operator snapshot window when not.
+# CEA Monthly is the March-2026 snapshot; ICED APIs are continuously
+# updated by NITI Aayog so we tag the federal fiscal-year snapshot
+# window ("2024-25") of when this corpus was harvested; RBI Handbook
+# tables carry their explicit 2024-25 edition tag.
 _TRIPLES: dict[str, tuple[str, str, str]] = {
     "cea_monthly_ic": (
         "Central Electricity Authority",
@@ -89,17 +92,17 @@ _TRIPLES: dict[str, tuple[str, str, str]] = {
     "iced_capacity_metatable": (
         "NITI Aayog India Climate & Energy Dashboard",
         "Capacity Metatable API (state-wise installed capacity, by fuel)",
-        "",
+        "2024-25",
     ),
     "iced_deep_dive": (
         "NITI Aayog India Climate & Energy Dashboard",
         "State-wise Deep Dive API",
-        "",
+        "2024-25",
     ),
     "iced_gen_metatable": (
         "NITI Aayog India Climate & Energy Dashboard",
         "Generation Metatable API (state-wise electricity generation, by fuel)",
-        "",
+        "2024-25",
     ),
     "rbi_hbk_142_peak_demand": (
         "Reserve Bank of India",
@@ -120,12 +123,12 @@ _TRIPLES: dict[str, tuple[str, str, str]] = {
     "iced_distribution_perf": (
         "NITI Aayog India Climate & Energy Dashboard",
         "Distribution Operational Performance API (state-wise billing efficiency, collection efficiency, T&D losses)",
-        "",
+        "2024-25",
     ),
     "iced_distribution_rpo": (
         "NITI Aayog India Climate & Energy Dashboard",
         "Distribution RPO Compliance API (state-wise Renewable Purchase Obligation compliance, by segment)",
-        "",
+        "2024-25",
     ),
     "rbi_hbk_141_power_requirement": (
         "Reserve Bank of India",

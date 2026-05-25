@@ -72,17 +72,18 @@ def test_all_p1a_p1b_energy_source_ids_present() -> None:
     it into sources.parquet. If this fails, ``emit-taxonomy`` did not run
     ``_upsert_energy_sources`` or the citation hashes drifted upstream."""
     expected = {
-        # P.1.A (7)
+        # P.1.A (7) — 3 ICED ids rotated under ADR-0042 (vintage "" → "2024-25").
         "src-092a5dc7af3f",  # CEA Monthly Executive Summary on Power Sector
-        "src-ba5c6fa6acfe",  # ICED capacity-metatable-data
-        "src-be6a6d5d6493",  # ICED Deep Dive (per-capita + ATC + sales + ACS-ARR)
-        "src-b60ed70f19d8",  # ICED gen-metatable-data
+        "src-1240f07df0ac",  # ICED capacity-metatable-data
+        "src-bb1d7bec8b34",  # ICED Deep Dive (per-capita + ATC + sales + ACS-ARR)
+        "src-ddbfadd51428",  # ICED gen-metatable-data
         "src-99ac1fee8a50",  # RBI Hbk Table 142 — Peak Demand
         "src-9c02616a7166",  # RBI Hbk Table 142 — Peak Met
         "src-3d1d55f8a94b",  # RBI Hbk Table 140 — Installed Capacity
         # P.1.B (5) — DISCOM finance + demand/supply lift.
-        "src-cead8f51df6f",  # ICED distribution-perf (billing/collection/td-loss)
-        "src-ca061b1b0adf",  # ICED distribution-RPO (solar/non-solar/total)
+        # 2 ICED ids rotated under ADR-0042 (vintage "" → "2024-25").
+        "src-650b1c25d1f7",  # ICED distribution-perf (billing/collection/td-loss)
+        "src-0ea63ed47704",  # ICED distribution-RPO (solar/non-solar/total)
         "src-f7ce9960caba",  # RBI Hbk Table 141 — Power Requirement
         "src-97a3c47d092f",  # RBI Hbk Table 139 — Power Availability
         "src-9a38005d8713",  # RBI Hbk Table 138 — Per-Capita Availability

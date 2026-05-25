@@ -197,8 +197,9 @@ def test_c47_fy25_peak_demand_national_aggregate() -> None:
 
 
 def test_c47_fy25_peak_demand_source_id_is_iced() -> None:
-    """All FY25 rows carry source_id = src-be6a6d5d6493 (ICED Deep Dive
-    Energy Database). FY13-FY24 rows must remain RBI = src-99ac1fee8a50.
+    """All FY25 rows carry source_id = src-bb1d7bec8b34 (ICED Deep Dive
+    Energy Database; rotated under ADR-0042 when ICED vintage flipped
+    from "" → "2024-25"). FY13-FY24 rows must remain RBI = src-99ac1fee8a50.
     Catches a regression where the FY25 lift accidentally writes the
     wrong source FK or backfills onto RBI years."""
     con = duckdb.connect(":memory:")
@@ -219,8 +220,8 @@ def test_c47_fy25_peak_demand_source_id_is_iced() -> None:
         }
     finally:
         con.close()
-    assert fy25_sources == {"src-be6a6d5d6493"}, (
-        f"FY25 source_id set drift: expected {{'src-be6a6d5d6493'}}, got {fy25_sources!r}"
+    assert fy25_sources == {"src-bb1d7bec8b34"}, (
+        f"FY25 source_id set drift: expected {{'src-bb1d7bec8b34'}}, got {fy25_sources!r}"
     )
     assert pre_fy25_sources == {"src-99ac1fee8a50"}, (
         f"FY13-FY24 source_id set drift (RBI should be exclusive): "

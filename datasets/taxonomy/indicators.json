@@ -639,7 +639,7 @@
       "methodology_vintage": "NITI Aayog ICED capacity-metatable rollup of CEA-published station-level capacity; harmonised across fiscal years 2015-16 onwards.",
       "revision_tier": "mixed",
       "parent_indicator_id": null,
-      "source_id": "src-ba5c6fa6acfe"
+      "source_id": "src-1240f07df0ac"
     },
     {
       "indicator_id": "state-installed-capacity-geographical-mw-coal",
@@ -660,7 +660,7 @@
       "dimension_values": {
         "fuel_type": "coal"
       },
-      "source_id": "src-ba5c6fa6acfe",
+      "source_id": "src-1240f07df0ac",
       "methodology_break_ids": ["cea-coal-aggregate-proxy-fy22"]
     },
     {
@@ -682,7 +682,7 @@
       "dimension_values": {
         "fuel_type": "gas"
       },
-      "source_id": "src-ba5c6fa6acfe"
+      "source_id": "src-1240f07df0ac"
     },
     {
       "indicator_id": "state-installed-capacity-geographical-mw-hydro",
@@ -703,7 +703,7 @@
       "dimension_values": {
         "fuel_type": "hydro"
       },
-      "source_id": "src-ba5c6fa6acfe"
+      "source_id": "src-1240f07df0ac"
     },
     {
       "indicator_id": "state-installed-capacity-geographical-mw-nuclear",
@@ -724,7 +724,7 @@
       "dimension_values": {
         "fuel_type": "nuclear"
       },
-      "source_id": "src-ba5c6fa6acfe"
+      "source_id": "src-1240f07df0ac"
     },
     {
       "indicator_id": "state-installed-capacity-geographical-mw-renewable",
@@ -745,7 +745,7 @@
       "dimension_values": {
         "fuel_type": "renewable"
       },
-      "source_id": "src-ba5c6fa6acfe",
+      "source_id": "src-1240f07df0ac",
       "methodology_break_ids": ["mnre-offgrid-inclusion-2021-08"]
     },
     {
@@ -767,7 +767,7 @@
       "methodology_vintage": "NITI Aayog ICED state-wise deep-dive API for FY15-FY25 (fiscal years 2015-16 onwards); RBI Handbook of Statistics on Indian States, Table 140 (silver tier; republishes CEA originals) for the pre-FY15 splice (fiscal years 2004-05 to 2013-14). Per plan-doc 20260522 §3 Q-c Option 1 SPLICE: methodology break at FY15 (basis change + RBI portion carries no per-fuel breakdown).",
       "revision_tier": "mixed",
       "parent_indicator_id": null,
-      "source_id": "src-be6a6d5d6493",
+      "source_id": "src-bb1d7bec8b34",
       "methodology_break_ids": ["rbi-handbook-aggregate-no-fuel-split-pre-fy15"]
     },
     {
@@ -789,7 +789,7 @@
       "dimension_values": {
         "fuel_type": "coal"
       },
-      "source_id": "src-be6a6d5d6493"
+      "source_id": "src-bb1d7bec8b34"
     },
     {
       "indicator_id": "state-installed-capacity-allocated-mw-gas",
@@ -810,7 +810,7 @@
       "dimension_values": {
         "fuel_type": "gas"
       },
-      "source_id": "src-be6a6d5d6493"
+      "source_id": "src-bb1d7bec8b34"
     },
     {
       "indicator_id": "state-installed-capacity-allocated-mw-hydro",
@@ -831,7 +831,7 @@
       "dimension_values": {
         "fuel_type": "hydro"
       },
-      "source_id": "src-be6a6d5d6493"
+      "source_id": "src-bb1d7bec8b34"
     },
     {
       "indicator_id": "state-installed-capacity-allocated-mw-nuclear",
@@ -852,7 +852,7 @@
       "dimension_values": {
         "fuel_type": "nuclear"
       },
-      "source_id": "src-be6a6d5d6493"
+      "source_id": "src-bb1d7bec8b34"
     },
     {
       "indicator_id": "state-installed-capacity-allocated-mw-renewable",
@@ -873,7 +873,7 @@
       "dimension_values": {
         "fuel_type": "renewable"
       },
-      "source_id": "src-be6a6d5d6493"
+      "source_id": "src-bb1d7bec8b34"
     },
     {
       "indicator_id": "state-installed-capacity-snapshot-mw",
@@ -1024,7 +1024,7 @@
       "methodology_vintage": "NITI Aayog ICED /v1/gen-metatable-data (CEA-sourced upstream).",
       "revision_tier": "mixed",
       "parent_indicator_id": null,
-      "source_id": "src-b60ed70f19d8"
+      "source_id": "src-ddbfadd51428"
     },
     {
       "indicator_id": "state-electricity-generation-gwh-coal",
@@ -1045,7 +1045,7 @@
       "dimension_values": {
         "fuel_type": "coal"
       },
-      "source_id": "src-b60ed70f19d8"
+      "source_id": "src-ddbfadd51428"
     },
     {
       "indicator_id": "state-electricity-generation-gwh-gas",
@@ -1066,7 +1066,7 @@
       "dimension_values": {
         "fuel_type": "gas"
       },
-      "source_id": "src-b60ed70f19d8"
+      "source_id": "src-ddbfadd51428"
     },
     {
       "indicator_id": "state-electricity-generation-gwh-hydro",
@@ -1087,7 +1087,7 @@
       "dimension_values": {
         "fuel_type": "hydro"
       },
-      "source_id": "src-b60ed70f19d8"
+      "source_id": "src-ddbfadd51428"
     },
     {
       "indicator_id": "state-electricity-generation-gwh-nuclear",
@@ -1108,7 +1108,7 @@
       "dimension_values": {
         "fuel_type": "nuclear"
       },
-      "source_id": "src-b60ed70f19d8"
+      "source_id": "src-ddbfadd51428"
     },
     {
       "indicator_id": "state-electricity-generation-gwh-renewable",
@@ -1129,7 +1129,7 @@
       "dimension_values": {
         "fuel_type": "renewable"
       },
-      "source_id": "src-b60ed70f19d8"
+      "source_id": "src-ddbfadd51428"
     },
     {
       "indicator_id": "state-electricity-sales-mu",
@@ -1149,7 +1149,7 @@
       "methodology_vintage": "NITI Aayog ICED state-wise deep-dive; underlying figures from PFC State Distribution Utilities report. Includes intra-state imports — consumption can exceed in-state generation.",
       "revision_tier": "mixed",
       "parent_indicator_id": null,
-      "source_id": "src-be6a6d5d6493"
+      "source_id": "src-bb1d7bec8b34"
     },
     {
       "indicator_id": "state-atc-losses-pct",
@@ -1170,7 +1170,7 @@
       "methodology_vintage": "NITI Aayog ICED state-wise deep-dive API row 'AT&C Losses'. Calculation method: PFC. Vintage updated annually with PFC report release (typically Q3 FY+1).",
       "revision_tier": "revised",
       "parent_indicator_id": null,
-      "source_id": "src-be6a6d5d6493"
+      "source_id": "src-bb1d7bec8b34"
     },
     {
       "indicator_id": "state-peak-electricity-demand-mw",
@@ -1233,7 +1233,7 @@
       "methodology_vintage": "ICED composition: state electricity sales (CEA) divided by state population (Census 2011 + linear projection).",
       "revision_tier": "mixed",
       "parent_indicator_id": null,
-      "source_id": "src-be6a6d5d6493"
+      "source_id": "src-bb1d7bec8b34"
     },
     {
       "indicator_id": "state-distribution-efficiency-pct",
@@ -1276,7 +1276,7 @@
       "dimension_values": {
         "efficiency_dimension": "billing"
       },
-      "source_id": "src-cead8f51df6f"
+      "source_id": "src-650b1c25d1f7"
     },
     {
       "indicator_id": "state-distribution-efficiency-pct-collection",
@@ -1298,7 +1298,7 @@
       "dimension_values": {
         "efficiency_dimension": "collection"
       },
-      "source_id": "src-cead8f51df6f"
+      "source_id": "src-650b1c25d1f7"
     },
     {
       "indicator_id": "state-distribution-efficiency-pct-td-loss",
@@ -1320,7 +1320,7 @@
       "dimension_values": {
         "efficiency_dimension": "td_loss"
       },
-      "source_id": "src-cead8f51df6f"
+      "source_id": "src-650b1c25d1f7"
     },
     {
       "indicator_id": "state-acs-arr-gap-inr-per-kwh",
@@ -1341,7 +1341,7 @@
       "methodology_vintage": "NITI Aayog ICED state-wise deep-dive row 'ACS-ARR (Electricity Sales) Gap'. Calculated by PFC from utility tariff orders + audited accounts.",
       "revision_tier": "revised",
       "parent_indicator_id": null,
-      "source_id": "src-be6a6d5d6493"
+      "source_id": "src-bb1d7bec8b34"
     },
     {
       "indicator_id": "state-rpo-compliance-pct",
@@ -1383,7 +1383,7 @@
       "dimension_values": {
         "rpo_segment": "solar"
       },
-      "source_id": "src-ca061b1b0adf"
+      "source_id": "src-0ea63ed47704"
     },
     {
       "indicator_id": "state-rpo-compliance-pct-non-solar",
@@ -1404,7 +1404,7 @@
       "dimension_values": {
         "rpo_segment": "non_solar"
       },
-      "source_id": "src-ca061b1b0adf"
+      "source_id": "src-0ea63ed47704"
     },
     {
       "indicator_id": "state-rpo-compliance-pct-total",
@@ -1425,7 +1425,7 @@
       "dimension_values": {
         "rpo_segment": "total"
       },
-      "source_id": "src-ca061b1b0adf"
+      "source_id": "src-0ea63ed47704"
     },
     {
       "indicator_id": "state-electricity-requirement-mu",

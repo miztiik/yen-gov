@@ -37,9 +37,9 @@ from pathlib import Path
 # rotate and BOTH the catalogue + this constant must update together.
 SOURCE_IDS: dict[str, str] = {
     "cea_monthly_ic":                "src-092a5dc7af3f",
-    "iced_capacity_metatable":       "src-ba5c6fa6acfe",
-    "iced_deep_dive":                "src-be6a6d5d6493",
-    "iced_gen_metatable":            "src-b60ed70f19d8",
+    "iced_capacity_metatable":       "src-1240f07df0ac",
+    "iced_deep_dive":                "src-bb1d7bec8b34",
+    "iced_gen_metatable":            "src-ddbfadd51428",
     "rbi_hbk_142_peak_demand":       "src-99ac1fee8a50",
     "rbi_hbk_142_peak_met":          "src-9c02616a7166",
     # P.1.A C4.6 (RBI Handbook Table 140 long-arc FY05-FY14 splice).
@@ -59,8 +59,12 @@ SOURCE_IDS: dict[str, str] = {
     # wise-deep-dive`); the distribution-dashboard endpoints are
     # genuinely distinct upstream products and earn their own ledger
     # rows per ADR-0032 citation identity = (producer, title, vintage).
-    "iced_distribution_perf":            "src-cead8f51df6f",
-    "iced_distribution_rpo":             "src-ca061b1b0adf",
+    # ICED ids rotated under ADR-0042 (source schema v3.0): vintage
+    # flipped from "" → "2024-25" so the 5 ICED hashes are now distinct
+    # from each other AND match their meadow-path vintage segment per
+    # ADR-0041 §nn4 (Tier-B rule, enforced in validate.py).
+    "iced_distribution_perf":            "src-650b1c25d1f7",
+    "iced_distribution_rpo":             "src-0ea63ed47704",
     "rbi_hbk_141_power_requirement":     "src-f7ce9960caba",
     "rbi_hbk_139_power_availability":    "src-97a3c47d092f",
     "rbi_hbk_138_per_capita_availability": "src-9a38005d8713",
