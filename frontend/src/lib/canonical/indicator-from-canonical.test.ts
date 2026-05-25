@@ -33,6 +33,7 @@ import { fetchIndicator } from "../indicators";
 import {
   buildIndicatorArtifact,
   canonicalEntityToLegacy,
+  entityKindToAdminLevel,
   legacyArtifactIdFromPath,
   loadIndicator,
   loadIndicatorFromCanonical,
@@ -465,6 +466,72 @@ describe("canonicalEntityToLegacy — entity-id translation", () => {
   it("passes unrecognised shapes through (no throw)", () => {
     expect(canonicalEntityToLegacy("foo")).toBe("foo");
     expect(canonicalEntityToLegacy("")).toBe("");
+  });
+
+  // PR B.02 — district-grain entity_id translation. The legacy district
+  // code form is `S<n>-D<lgd>` / `U<n>-D<lgd>`; the canonical form
+  // prepends `IN-`. `slice(3)` handles the longer shape natively (no
+  // code change vs PR B.01); these contract tests lock the behaviour so
+  // PR B.03's first district allowlist entry can rely on it.
+  it("strips IN- prefix from district ids (state-parent)", () => {
+    expect(canonicalEntityToLegacy("IN-S03-D280")).toBe("S03-D280");
+    expect(canonicalEntityToLegacy("IN-S22-D640")).toBe("S22-D640");
+  });
+
+  it("strips IN- prefix from district ids (UT-parent)", () => {
+    expect(canonicalEntityToLegacy("IN-U05-D640")).toBe("U05-D640");
+    expect(canonicalEntityToLegacy("IN-U07-D003")).toBe("U07-D003");
+  });
+});
+
+describe("entityKindToAdminLevel — PR B.02 dispatch helper", () => {
+  // The single seam mapping canonical `IndicatorMeta.entity_kind`
+  // (typed union: country | state | district | subdistrict |
+  // constituency | city | ward) onto the legacy
+  // `IndicatorCoverage.admin_level` string consumed by AboutThisData
+  // and the choropleth boundary picker. Per ADR-0043 sub-state-grain
+  // adapters now emit BOTH grains (district SoT + state SUM rollup);
+  // each grain reaches the renderer through its own allowlist
+  // descriptor whose `meta.entity_kind` decides `admin_level` via this
+  // helper.
+
+  it("maps state -> 'state' (preserves legacy state-grain behaviour)", () => {
+    expect(entityKindToAdminLevel("state")).toBe("state");
+  });
+
+  it("maps district -> 'district' (B.03 first district descriptor lands here)", () => {
+    expect(entityKindToAdminLevel("district")).toBe("district");
+  });
+
+  it("maps country -> 'country' (matches legacy national_*.json admin_level)", () => {
+    expect(entityKindToAdminLevel("country")).toBe("country");
+  });
+
+  it("maps subdistrict -> 'subdistrict' (future grain, no surface yet)", () => {
+    expect(entityKindToAdminLevel("subdistrict")).toBe("subdistrict");
+  });
+
+  it("returns null for constituency / city / ward (no boundary surface yet)", () => {
+    expect(entityKindToAdminLevel("constituency")).toBeNull();
+    expect(entityKindToAdminLevel("city")).toBeNull();
+    expect(entityKindToAdminLevel("ward")).toBeNull();
+  });
+
+  it("returns null for undefined input (defensive — descriptor missing meta)", () => {
+    expect(entityKindToAdminLevel(undefined)).toBeNull();
+  });
+
+  // Load-bearing contract test: every CANONICAL_BACKED_INDICATORS
+  // descriptor MUST round-trip through the dispatch helper consistently
+  // with the artifact built by buildIndicatorArtifact. Catches the
+  // regression class where a new descriptor ships with
+  // `entity_kind: "district"` while buildIndicatorArtifact hard-codes
+  // `"state"` (the exact PR B.01-shaped trap this helper retires).
+  it("every CANONICAL_BACKED_INDICATORS descriptor passes through the dispatch consistently", () => {
+    for (const d of CANONICAL_BACKED_INDICATORS) {
+      const built = buildIndicatorArtifact(d, [], []);
+      expect(built.coverage.admin_level).toBe(entityKindToAdminLevel(d.meta.entity_kind));
+    }
   });
 });
 

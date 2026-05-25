@@ -38,6 +38,7 @@
 import { query, registerTable } from "../duckdb";
 import {
   fetchIndicator,
+  type EntityKind,
   type IndicatorArtifact,
   type IndicatorMethodology,
   type IndicatorRow,
@@ -52,11 +53,62 @@ import {
 } from "./indicator-allowlist";
 
 /** Strip `IN-` prefix from canonical entity_ids; pass bare `IN` (national
- *  aggregate) and any unrecognised shape through unchanged. */
+ *  aggregate) and any unrecognised shape through unchanged. Works for
+ *  every canonical entity shape currently in use:
+ *   - `IN`              -> `IN`        (national aggregate)
+ *   - `IN-S22`          -> `S22`       (state)
+ *   - `IN-U03`          -> `U03`       (union territory)
+ *   - `IN-S03-D280`     -> `S03-D280`  (district; the second-segment
+ *                                       `D<lgd>` token is preserved
+ *                                       as the legacy district code)
+ *   - `IN-U05-D640`     -> `U05-D640`  (UT district; same shape)
+ *  Note: PR B.02 added the explicit district documentation; no code
+ *  change was needed because `slice(3)` already handles the longer
+ *  district shape correctly. The legacy district code form
+ *  `S<n>-D<lgd>` is what AboutThisData.svelte + the district
+ *  choropleth boundary picker (PR B.03) consume downstream. */
 export function canonicalEntityToLegacy(canonical_entity_id: string): string {
   if (canonical_entity_id === "IN") return "IN";
   if (canonical_entity_id.startsWith("IN-")) return canonical_entity_id.slice(3);
   return canonical_entity_id;
+}
+
+/** Translate a canonical `IndicatorMeta.entity_kind` into the legacy
+ *  `IndicatorCoverage.admin_level` string consumed by AboutThisData.svelte
+ *  and the choropleth boundary picker.
+ *
+ *  The legacy `admin_level` field is `string | null` (see
+ *  `IndicatorCoverage` in [../indicators.ts](../indicators.ts)); on-disk
+ *  artifacts populate it with `"country"`, `"national"`, `"state"`, or
+ *  `null`. The canonical pivot uses the typed `EntityKind` union
+ *  (`country | state | district | subdistrict | constituency | city |
+ *  ward`); this dispatch is the single seam that maps the typed canonical
+ *  enum onto the legacy string surface so downstream readers stay
+ *  unchanged. Per ADR-0043, sub-state-grain adapters now emit BOTH grains
+ *  (district source-of-truth + state SUM rollup); each grain reaches the
+ *  renderer through its own allowlist descriptor whose `meta.entity_kind`
+ *  decides its `admin_level` via this helper.
+ *
+ *  Returns `null` for `constituency` / `city` / `ward` (no canonical
+ *  consumer yet); pass-through downstream is unchanged from the legacy
+ *  "unspecified" treatment.
+ */
+export function entityKindToAdminLevel(kind: EntityKind | undefined): string | null {
+  if (kind === undefined) return null;
+  switch (kind) {
+    case "country":
+      return "country";
+    case "state":
+      return "state";
+    case "district":
+      return "district";
+    case "subdistrict":
+      return "subdistrict";
+    case "constituency":
+    case "city":
+    case "ward":
+      return null;
+  }
 }
 
 interface CanonicalObsRow {
@@ -152,7 +204,7 @@ export function buildIndicatorArtifact(
     coverage: {
       spatial: "India (states + UTs)",
       temporal,
-      admin_level: "state",
+      admin_level: entityKindToAdminLevel(descriptor.meta.entity_kind),
     },
     indicator: descriptor.meta,
     rows,
@@ -306,7 +358,7 @@ async function loadFacetMultiplexedFromCanonical(
     coverage: {
       spatial: "India (states + UTs)",
       temporal,
-      admin_level: "state",
+      admin_level: entityKindToAdminLevel(descriptor.meta.entity_kind),
     },
     indicator: {
       ...descriptor.meta,
