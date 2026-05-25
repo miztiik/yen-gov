@@ -30,6 +30,8 @@ Lowercase, snake_case, single `/` separator (NOT `.`). Already enforced by `data
 
 - **`<scope>`** — exactly one segment. By convention, MUST be a topic-id from `datasets/taxonomy/topics.json` (`fiscal`, `energy`, `environment`, `health`, `economy`, `prices`, `demography`, `transport`, `elections`, `human_development`, …). The catalogue is the source of truth for the legal set; this doc deliberately does not enumerate them. Adding a new scope means adding a topic to the catalogue first.
 - **`<entity_prefix>`** — `national_`, `state_`, `district_`, `constituency_`, `city_`, `ward_`. **Mandatory** for state-and-below; **mandatory** for national/all-India aggregates too (use `national_`, NOT `india_`). Spatial scope is part of the indicator's identity, not just metadata — Hans's rule: "two artifacts measuring the same noun at different geographies are different facts."
+
+  > **Open question (deferred)** — whether to retire the `<entity_prefix>` axis in favour of OWID-style "one id, entity-kind dispatched at the renderer" is documented in [`docs/research/indicator-id-grain-axis.md`](../research/indicator-id-grain-axis.md). Status: deferred — input for a future Hans + Max ADR consult. While that ADR is pending, the rule above is binding.
 - **`<noun>`** — what is being measured. Snake_case. Use the most specific concrete noun that survives across vintages (`outstanding_debt`, `birth_rate`, `installed_capacity`, `pm25_annual_mean`, `health_expenditure_share`).
 - **`<aggregate>`** (optional) — the verb of aggregation when the noun does not already imply it. Canonical vocabulary, ban synonyms:
 
