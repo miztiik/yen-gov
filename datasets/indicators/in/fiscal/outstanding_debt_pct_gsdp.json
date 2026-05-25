@@ -3074,7 +3074,11 @@
     "publisher_methodology_url": null,
     "documentation_status": "stub",
     "methodology_breaks": [],
-    "known_caveats": [],
+    "known_caveats": [
+      "Off-budget borrowings and state-PSU debt (unless explicitly guaranteed) are excluded, so headline ratios understate true liabilities for states that route capex through SPVs and discoms.",
+      "States that restored the Old Pension Scheme post-2022 (Rajasthan, Chhattisgarh, Jharkhand, Punjab, HP) carry a pay-as-you-go pension liability that does not appear in this stock at all.",
+      "COVID relaxations lifted the fiscal-deficit ceiling to 5% in FY21 and 4% in FY22 — the kink visible across every state's line in FY21 is a rule change, not a state-level borrowing decision."
+    ],
     "notes": [],
     "related_indicators": [
       "fiscal/states_combined_gross_fiscal_deficit",
