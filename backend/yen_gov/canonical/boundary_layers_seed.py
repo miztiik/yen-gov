@@ -11,8 +11,8 @@ Outputs:
 - ``datasets/boundaries/boundary_layers.parquet`` -- one row per boundary
   geometry shard on disk (15 columns; see ``boundary-layers.schema.json``
   v1.0). FK ``source_id`` resolves to ``taxonomy/sources.parquet``.
-- Side effect: UPSERT 4 boundary citation rows into
-  ``datasets/taxonomy/sources.parquet`` so every boundary row's
+- Side effect: UPSERT every row in ``BOUNDARY_SOURCES`` (7 today)
+  into ``datasets/taxonomy/sources.parquet`` so every boundary row's
   ``source_id`` resolves to a real ledger entry.
 
 T.0d role (2026-05-22, fused atomic): consolidates 115 sidecar files
@@ -24,12 +24,17 @@ fetch timestamps. Per ADR-0031 amendment: directory layout switches
 from flat ``boundaries/in/geojson/*`` to Hive-partitioned
 ``boundaries/in/<level>/state=<S>/...`` matching the elections grammar.
 
-Postal sources deliberately NOT seeded (user 2026-05-22): no pincode
-geojson exists in ``datasets/boundaries/in/geojson/`` today and
-``tools/boundaries/pipeline.json`` has zero postal entries; postal
-subtree is forward-looking only. When the first postal layer ingests,
-that PR adds the 5th source row with the actual license discovered at
-ingest time.
+Postal sources seeded 2026-05-25 (Phase A.2 of
+TODO/20260524-boundary-coverage-expansion-plan.md) — the
+``datagovin_post_pincode_polygons_2025`` nickname covers the all-India
+pincode KMZ published by the Department of Posts via data.gov.in
+(Open Government Data Licence India 1.0). Pre-A.2 the postal subtree
+was forward-looking only ("no pincode geojson exists in
+datasets/boundaries/in/geojson/ today"); A.2 lands the first 36+
+postal layer rows alongside the citation seed. ``ingest_pincode_polygons``
+is the canonical writer for those layers and references
+``BOUNDARY_SOURCE_ID_BY_NICKNAME['datagovin_post_pincode_polygons_2025']``
+verbatim.
 
 Methodology breaks NOT carried as a column here (user 2026-05-22):
 break is a property of the ENTITY (district row on
@@ -182,6 +187,7 @@ SOURCE_NICKNAMES: tuple[str, ...] = (
     "shijithpk_pc_2024",
     "ramseraph",
     "yashveeeeeeer",
+    "datagovin_post_pincode_polygons_2025",
 )
 
 _BOUNDARY_SOURCE_TRIPLES: dict[str, tuple[str, str, str]] = {
@@ -226,15 +232,32 @@ _BOUNDARY_SOURCE_TRIPLES: dict[str, tuple[str, str, str]] = {
         "India national silhouette (SoI-derived)",
         "",  # vintage: rolling — derivative of SoI under National Geospatial Policy 2022
     ),
+    # 7. Department of Posts via data.gov.in — pincode polygon boundaries
+    #    (Phase A.2 seed, 2026-05-25). 19,312 placemarks; per-pincode
+    #    polygon-or-multipolygon geometry. Licence: Open Government Data
+    #    Licence India 1.0 (data.gov.in default for Department of Posts
+    #    publications). is_issuing_authority is true here because the
+    #    Department of Posts IS the publishing authority for pincode
+    #    boundaries (unlike most of the boundary tree, which is
+    #    second-party republishing of SoI / LGD / ECI source data).
+    "datagovin_post_pincode_polygons_2025": (
+        "Department of Posts, Government of India",
+        "All India Pincode Boundaries (KMZ)",
+        "2025",
+    ),
 }
 
 
 def _build_boundary_source_rows() -> tuple[SourceRow, ...]:
-    """Build the 4 boundary SourceRow seeds.
+    """Build the BOUNDARY_SOURCES tuple.
 
-    All four are republishers (false ``is_issuing_authority``); ECI / SoI /
-    LGD are the upstream-upstream authorities. The fetched bytes come from
-    these republisher URLs, so they get the citation row.
+    Six of the seven are second-party republishers (false
+    ``is_issuing_authority``); ECI / SoI / LGD are the upstream-upstream
+    authorities for those rows. The seventh
+    (``datagovin_post_pincode_polygons_2025``) is the Department of
+    Posts itself, the issuing authority for pincode geometry. The
+    fetched bytes for the republisher rows come from their republisher
+    URLs, so they get the citation row.
     """
     # url_main / license / tier / verification_method tabulated alongside the
     # triple for compactness. License enum-locked per ADR-0032 §12.
@@ -294,6 +317,14 @@ def _build_boundary_source_rows() -> tuple[SourceRow, ...]:
             "https://github.com/yashveeeeeeer/india-geodata",
             "Republishes Survey of India national silhouette under National Geospatial Policy 2022.",
         ),
+        "datagovin_post_pincode_polygons_2025": (
+            "OGL-IN-1.0",
+            "gold",
+            "transcribed",
+            True,
+            "https://www.data.gov.in/catalog/all-india-pincode-boundary",
+            "All India pincode boundary KMZ published by the Department of Posts via the Government of India Open Data portal (data.gov.in). 19,312 per-pincode polygon features keyed by 6-digit pincode. Department of Posts is the issuing authority for pincode boundaries (true is_issuing_authority); verification method 'transcribed' because the KMZ is hand-downloaded from the portal rather than fetched live by an automated adapter (the portal gates downloads behind a captcha — same blocker as the A.1.a/A.1.b directory ingest, resolved by the user staging the file under datasets/ephemeral/). Geometry coordinate-rounded to 4 decimal places (~11 m) at emit time to fit the per-shard byte budget; original WGS84 lon,lat precision preserved upstream in the KMZ itself.",
+        ),
     }
 
     rows: list[SourceRow] = []
@@ -342,7 +373,7 @@ BOUNDARY_SOURCE_ID_BY_TRIPLE: dict[tuple[str, str, str], str] = {
 
 
 def upsert_boundary_sources(con: duckdb.DuckDBPyConnection) -> int:
-    """Idempotent INSERT-OR-REPLACE of the 4 boundary citation rows into the
+    """Idempotent INSERT-OR-REPLACE of every BOUNDARY_SOURCES row into the
     in-memory ``sources`` DuckDB table.
 
     Mirrors the office_holdings_seed pattern. Caller is responsible for
@@ -350,9 +381,9 @@ def upsert_boundary_sources(con: duckdb.DuckDBPyConnection) -> int:
     ``_load_existing_sources`` step) and for emitting the table back to
     ``taxonomy/sources.parquet`` via ``_emit_sources`` afterwards.
 
-    Returns the number of rows upserted (always len(BOUNDARY_SOURCES) =
-    4 today; the count is returned for orchestrator logging parity with
-    office_holdings_seed.compile_to_parquet).
+    Returns the number of rows upserted (= ``len(BOUNDARY_SOURCES)``,
+    7 today); the count is returned for orchestrator logging parity
+    with office_holdings_seed.compile_to_parquet.
     """
     upserted = 0
     for row in BOUNDARY_SOURCES:
@@ -543,12 +574,12 @@ def compile_to_parquet(
         layer_rows: BoundaryLayerRow instances, one per boundary geometry
             shard on disk. Caller builds the list (snapshot.py during a
             fetch run; migrate_to_hive_layout.py during initial migration).
-            Empty list is permitted (writes a 0-row parquet + UPSERTs the 6
+            Empty list is permitted (writes a 0-row parquet + UPSERTs the 7
             boundary sources, which is itself a valid contract surface --
             consumers should not assume the file always has rows).
         datasets_root: path to ``datasets/``. The function writes:
             * ``boundaries/boundary_layers.parquet``
-            * ``taxonomy/sources.parquet`` (UPSERT of the 6 boundary
+            * ``taxonomy/sources.parquet`` (UPSERT of the 7 boundary
               citation rows + preservation of all other adapter sources).
         merge_with_existing: when True, rows already present in the
             on-disk ``boundary_layers.parquet`` whose ``layer_id`` is NOT
@@ -557,7 +588,7 @@ def compile_to_parquet(
             preserves the original "snapshot.py rebuilds everything in
             one shot" semantics; the flag exists so the tool can be used
             incrementally (e.g. add the PC layer without re-fetching the
-            other 6 URLs).
+            other 7 URLs).
 
     Returns:
         ``(layer_count, source_count)`` for orchestrator logging.
@@ -613,7 +644,7 @@ def compile_to_parquet(
             )
 
     # ----- FK pre-check ----------------------------------------------
-    # Every layer's source_id must be one of the 6 BOUNDARY_SOURCES or
+    # Every layer's source_id must be one of the 7 BOUNDARY_SOURCES or
     # an existing source from another adapter. Pre-check against the
     # known-boundary set first (cheap); the writer's downstream
     # parquet-level FK check (across the union with existing sources)
