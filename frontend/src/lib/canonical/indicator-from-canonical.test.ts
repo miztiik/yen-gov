@@ -535,6 +535,119 @@ describe("entityKindToAdminLevel — PR B.02 dispatch helper", () => {
   });
 });
 
+describe("buildIndicatorArtifact — district-grain (PR B.03 smoke proof)", () => {
+  // PR B.03 (2026-05-25) — end-to-end smoke proof of the B.01
+  // (ADR-0043 auto-rollup writer) + B.02 (entityKindToAdminLevel
+  // dispatch helper) pipeline against the first district-grain
+  // allowlist entry. Verifies:
+  //  - The dispatch helper translates `entity_kind: "district"` to
+  //    `admin_level: "district"` for a REAL allowlist descriptor
+  //    (not a synthesised one in a unit test).
+  //  - `canonicalEntityToLegacy` strips `IN-` from real district id
+  //    shapes (state-parent `IN-S03-D280` -> `S03-D280` and UT-parent
+  //    `IN-U05-D640` -> `U05-D640`).
+  //  - The legacy `IndicatorArtifact` carries one row per
+  //    (district, period) with `value_numeric` mapped to `value` and
+  //    `period_label` mapped to `time`.
+  //  - The descriptor is NOT a state-grain duplicate of the existing
+  //    `state-pashu-aadhaar-count-cattle` — same canonical fact-table
+  //    but different `indicator_id` and different `entity_kind`.
+  const DISTRICT_CATTLE_DESCRIPTOR: CanonicalIndicatorDescriptor =
+    getCanonicalDescriptor("agriculture/district_pashu_aadhaar_count_cattle")!;
+
+  // Real-shape district obs rows from livestock_pashu_aadhaar.parquet
+  // (Karnataka district 280 + UT district 640 + state-parent district
+  // 7 for shape coverage). Values are illustrative; the lift contract
+  // is tested separately in backend/tests/test_livestock_pashu_aadhaar_lift.py.
+  const DISTRICT_OBS_ROWS = [
+    {
+      entity_id: "IN-S03-D280",
+      period_label: "2024-04",
+      value_numeric: 12345,
+      source_id: "src-7e5d4aac4995",
+    },
+    {
+      entity_id: "IN-S03-D281",
+      period_label: "2024-04",
+      value_numeric: 9876,
+      source_id: "src-7e5d4aac4995",
+    },
+    {
+      entity_id: "IN-U05-D640",
+      period_label: "2024-04",
+      value_numeric: 543,
+      source_id: "src-7e5d4aac4995",
+    },
+  ];
+  const NDLM_SRC_ROW = [
+    {
+      source_id: "src-7e5d4aac4995",
+      producer: "Department of Animal Husbandry & Dairying",
+      title: "NDLM Bharat Pashudhan — animal registration",
+      vintage: "FY 2024-25",
+      url_main: "https://bpa.dahd.gov.in/",
+    },
+  ];
+
+  it("descriptor exists in the allowlist with district entity_kind", () => {
+    expect(DISTRICT_CATTLE_DESCRIPTOR).toBeDefined();
+    expect(DISTRICT_CATTLE_DESCRIPTOR.kind).toBe("single");
+    if (DISTRICT_CATTLE_DESCRIPTOR.kind === "single") {
+      expect(DISTRICT_CATTLE_DESCRIPTOR.canonical_indicator_id).toBe(
+        "district-pashu-aadhaar-count-cattle",
+      );
+    }
+    expect(DISTRICT_CATTLE_DESCRIPTOR.table_id).toBe("livestock.livestock_pashu_aadhaar");
+    expect(DISTRICT_CATTLE_DESCRIPTOR.meta.entity_kind).toBe("district");
+  });
+
+  it("buildIndicatorArtifact emits admin_level='district' (B.02 dispatch end-to-end)", () => {
+    const a = buildIndicatorArtifact(DISTRICT_CATTLE_DESCRIPTOR, DISTRICT_OBS_ROWS, NDLM_SRC_ROW);
+    expect(a.coverage.admin_level).toBe("district");
+    // Helper output MUST equal the artifact's admin_level for this
+    // real district descriptor — that's the B.02 contract surface.
+    expect(a.coverage.admin_level).toBe(
+      entityKindToAdminLevel(DISTRICT_CATTLE_DESCRIPTOR.meta.entity_kind),
+    );
+  });
+
+  it("strips IN- from district entity_ids (state-parent and UT-parent shapes)", () => {
+    const a = buildIndicatorArtifact(DISTRICT_CATTLE_DESCRIPTOR, DISTRICT_OBS_ROWS, NDLM_SRC_ROW);
+    const entities = new Set(a.rows.map((r) => r.entity_id));
+    expect(entities.has("S03-D280")).toBe(true);
+    expect(entities.has("S03-D281")).toBe(true);
+    expect(entities.has("U05-D640")).toBe(true);
+    // Originals MUST be gone (no IN- prefix leak).
+    expect(entities.has("IN-S03-D280")).toBe(false);
+    expect(entities.has("IN-U05-D640")).toBe(false);
+  });
+
+  it("maps period_label -> time and value_numeric -> value for district rows", () => {
+    const a = buildIndicatorArtifact(DISTRICT_CATTLE_DESCRIPTOR, DISTRICT_OBS_ROWS, NDLM_SRC_ROW);
+    const district_280 = a.rows.find((r) => r.entity_id === "S03-D280" && r.time === "2024-04");
+    expect(district_280?.value).toBe(12345);
+    const ut_district = a.rows.find((r) => r.entity_id === "U05-D640" && r.time === "2024-04");
+    expect(ut_district?.value).toBe(543);
+  });
+
+  it("does NOT duplicate the state-grain sibling descriptor (distinct indicator_id, same table)", () => {
+    const state_d = getCanonicalDescriptor("agriculture/state_pashu_aadhaar_count_cattle")!;
+    expect(state_d.kind).toBe("single");
+    if (state_d.kind === "single" && DISTRICT_CATTLE_DESCRIPTOR.kind === "single") {
+      // Same fact-table — the auto-rollup writer (ADR-0043) ships
+      // both grains in a single parquet via different indicator_ids.
+      expect(state_d.table_id).toBe(DISTRICT_CATTLE_DESCRIPTOR.table_id);
+      // Distinct indicator_id (the grain prefix differs).
+      expect(state_d.canonical_indicator_id).not.toBe(
+        DISTRICT_CATTLE_DESCRIPTOR.canonical_indicator_id,
+      );
+      // Distinct entity_kind (the dispatch contract).
+      expect(state_d.meta.entity_kind).toBe("state");
+      expect(DISTRICT_CATTLE_DESCRIPTOR.meta.entity_kind).toBe("district");
+    }
+  });
+});
+
 describe("buildIndicatorArtifact — canonical rows → legacy IndicatorArtifact", () => {
   const OBS_ROWS = [
     { entity_id: "IN", period_label: "2013-04", value_numeric: 135453, source_id: "src-rbi" },
