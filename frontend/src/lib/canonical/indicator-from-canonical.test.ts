@@ -343,6 +343,44 @@ describe("buildIndicatorArtifact — canonical rows → legacy IndicatorArtifact
     expect(a.methodology!.methodology_breaks).toEqual([]);
   });
 
+  // PR-E (AboutThisData RPO caveat surfacing): `descriptor.caveats` is the
+  // allowlist-authored bullet list lifted into `methodology.known_caveats[]`
+  // so AboutThisData.svelte's "Known caveats" section can render it.
+  // Descriptors without `caveats` populated keep the legacy empty-array
+  // behaviour (no surface change for the ~30 non-caveat-carrying entries).
+  it("emits an empty known_caveats array when the descriptor declares no caveats", () => {
+    // PEAK_DEMAND_DESCRIPTOR carries no `caveats` field (commit-1 baseline).
+    expect(PEAK_DEMAND_DESCRIPTOR.caveats).toBeUndefined();
+    const a = buildIndicatorArtifact(PEAK_DEMAND_DESCRIPTOR, OBS_ROWS, SRC_ROWS);
+    expect(a.methodology!.known_caveats).toEqual([]);
+  });
+
+  it("copies descriptor.caveats verbatim into methodology.known_caveats", () => {
+    const with_caveats: CanonicalIndicatorDescriptor = {
+      ...PEAK_DEMAND_DESCRIPTOR,
+      caveats: [
+        "First caveat — top of the bullet list.",
+        "Second caveat — preserves declaration order.",
+      ],
+    } as CanonicalIndicatorDescriptor;
+    const a = buildIndicatorArtifact(with_caveats, OBS_ROWS, SRC_ROWS);
+    expect(a.methodology!.known_caveats).toEqual([
+      "First caveat — top of the bullet list.",
+      "Second caveat — preserves declaration order.",
+    ]);
+  });
+
+  it("treats descriptor.caveats as defensive-copy (mutating the artifact does not back-mutate the descriptor)", () => {
+    const original_caveats = ["caveat A", "caveat B"];
+    const with_caveats: CanonicalIndicatorDescriptor = {
+      ...PEAK_DEMAND_DESCRIPTOR,
+      caveats: original_caveats,
+    } as CanonicalIndicatorDescriptor;
+    const a = buildIndicatorArtifact(with_caveats, OBS_ROWS, SRC_ROWS);
+    a.methodology!.known_caveats.push("post-build mutation");
+    expect(original_caveats).toEqual(["caveat A", "caveat B"]);
+  });
+
   it("declares schema v4.4 + OGL-IN-1.0 license", () => {
     const a = buildIndicatorArtifact(PEAK_DEMAND_DESCRIPTOR, OBS_ROWS, SRC_ROWS);
     expect(a.$schema_version).toBe("4.4");

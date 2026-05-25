@@ -80,6 +80,13 @@ interface CanonicalIndicatorDescriptorBase {
    *  Source: `datasets/taxonomy/indicators.parquet` row for the descriptor's
    *  canonical (single) or parent (facet-multiplexed) `indicator_id`. */
   meta: IndicatorMeta;
+  /** Optional citizen-readable caveats surfaced by `AboutThisData.svelte`'s
+   *  "Known caveats" section. One bullet per entry; keep each <= ~180 chars.
+   *  Use this to lift mid-paragraph honesty cues out of `meta.description`
+   *  / `meta.notes` into a discrete, scannable list (e.g. the RPO `total`
+   *  segment is NOT the sum of solar + non-solar). Adapter copies these
+   *  into the rebuilt artifact's `methodology.known_caveats[]`. */
+  caveats?: ReadonlyArray<string>;
 }
 
 export interface CanonicalSingleIndicatorDescriptor
