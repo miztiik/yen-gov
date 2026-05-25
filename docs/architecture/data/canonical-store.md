@@ -373,6 +373,38 @@ TCPD office-bearer CSVs are seed/QA checklists only while official sources exist
 3. **Hand-authored is text + compiled Parquet** (D18 + §8.3). If a `.json` exists in `taxonomy/` without a sibling `.parquet`, the compile step is missing. If a `.parquet` exists in `taxonomy/` without a sibling `.json` (and isn't adapter-generated like `sources.parquet`), there is no editorial trail — that's a smell.
 4. **A new fact-table within a family is justified when** (a) the citizen question is distinct, AND (b) co-locating would force every chart on the smaller-question to scan unrelated indicator rows, OR (c) the FK-graph diverges (different `dim_*` joins). Same row-shape across files is expected, not a smell — `indicator_id` is the within-file discriminator (D5). Worked example: `energy/` splits to 5 fact-tables (P.1.A, 2026-05-22) because "what plants exist" (`installed_capacity`), "what fuel ran" (`generation`), "did we get power" (`demand_supply`), "is the DISCOM solvent" (`distribution_performance`), and "what fuel/oil did we burn" (`fuel_consumption`) are five different citizen questions with three different `dim_*` joins (`dim_plants` vs `dim_discoms` vs neither). Authority: Hans + Max for citizen-question separability; Gregor for FK-graph + naming. See [`TODO/20260522-phase-2-p1-energy-pivot.md` §2](../../../TODO/20260522-phase-2-p1-energy-pivot.md) for the lock-extension rationale.
 
+### §2b.5 — Per-family `_meadow/` directory invariant (added 2026-05-25 per ADR-0041)
+
+Adopted from OWID's `etl/meadow/` tier per CLAUDE.md §0a "The One Rule." A per-family `_meadow/` directory holds **typed, schema-validated, deterministic JSON rows parsed from upstream — pre-canonical, backend-internal, NOT citizen-facing**. The underscore-prefix follows the CLAUDE.md §2 "private" convention so it sorts alongside `_ops/` and is visually obvious to a contributor as backend-only.
+
+```
+datasets/<family>/_meadow/<source>/<vintage>/<file>.json
+```
+
+| Segment | Meaning | Example |
+| --- | --- | --- |
+| `<family>` | matches the canonical Parquet family name | `energy`, `demography`, `fiscal` |
+| `<source>` | short producer identifier, snake_case | `rbi`, `cea`, `iced`, `nfhs`, `pfms` |
+| `<vintage>` | source's own period label; MUST match the `vintage` field on the citation-ledger row the row's `source_id` resolves to | `2024-25`, `2011`, `march-2024` |
+| `<file>` | descriptor, snake_case `.json` | `installed_capacity.json`, `hbk_table_142_peak_demand.json` |
+
+Worked examples:
+
+```
+datasets/energy/_meadow/rbi/2024-25/hbk_table_142_peak_demand.json
+datasets/energy/_meadow/cea/2024-25/state_electricity_generation_mu.json
+datasets/energy/_meadow/iced/2024-25/installed_capacity_coal_mw.json
+datasets/demography/_meadow/nfhs/round-5/state_summary_indicators.json
+```
+
+**Consumer constraint** (Gregor non-negotiable, [ADR-0041](../decisions/0041-meadow-tier.md)): only the per-family backend canonical adapter under `backend/yen_gov/canonical/adapters/<family>/*.py` reads meadow files. The frontend MUST NOT `fetch()` any path under `_meadow/`. Citizen reads route through the Phase B canonical allowlist (`frontend/src/lib/canonical/indicator-from-canonical.ts` `loadIndicator()`) to `datasets/<family>/<family>_<role>.parquet` via DuckDB-WASM. The Tier-B validator (renamed to `tier_b_meadow_shard_contract` in PR 7c-4) is the enforcement perimeter.
+
+**Meadow contract** (per [`docs/concepts/meadow-tier.md`](../../concepts/meadow-tier.md)): schema-valid (reuses existing per-family schemas under `datasets/schemas/`), deterministic (identical upstream bytes → identical meadow bytes), `source_id` FK-bearing per CLAUDE.md §12, vintage-anchored against the citation ledger, backend-internal.
+
+**Migration into `_meadow/`** happens family-by-family via the 7c-N PR sequence (energy: 7c-1 → 7c-4 per [ADR-0041](../decisions/0041-meadow-tier.md); Phase 2 P.2+ adopts meadow authoring from day one). Each per-adapter `git mv` simultaneously closes Phase C (adapter input migrated), Phase D (legacy `datasets/indicators/in/<topic>/<id>.json` path deleted), and Phase B-remainder (any consumer hand-fetching legacy URL 404s). Completion criterion: `git ls-tree origin/main -- datasets/indicators/in/` returns empty.
+
+**Rule auto-extends** to Phase 2 P.2+ families. No per-family Phase-C debate; the meadow path IS the answer.
+
 ---
 
 ## 3. Canonical observation row
