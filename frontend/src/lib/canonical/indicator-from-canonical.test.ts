@@ -483,6 +483,85 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.meta.title).toMatch(/where your state.*power comes from/i);
     expect(d!.meta.unit).toBe("GWh");
   });
+
+  // PR-P (Row 5 PR-4, 2026-05-25): Hans-curated caveats land on the 3
+  // livestock Pashu Aadhaar species canonical descriptors (cattle +
+  // buffalo + goat). Closes Row 5 Tier-1 4/4 of the §1 long-format
+  // pivot. Each card carries 3 Hans bullets with named-state anchors
+  // and the tagged-COUNT-vs-population framing Hans non-negotiably
+  // demands for the Pashu Aadhaar surface (per PR B.01 comment block,
+  // a state's tagging rank does not equal its livestock-population rank).
+  // Authored-intent regex assertions over verbatim text per the PR-H /
+  // PR-I test-resilience pattern.
+  it("PR-P cattle Pashu Aadhaar descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor("agriculture/state_pashu_aadhaar_count_cattle");
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: Tagged-vs-owned framing; Livestock Census 2019 as denominator.
+    expect(d!.caveats![0]).toMatch(/ANIMALS TAGGED/);
+    expect(d!.caveats![0]).toMatch(/not cattle owned/i);
+    expect(d!.caveats![0]).toMatch(/20th Livestock Census/);
+    expect(d!.caveats![0]).toMatch(/40-60% coverage/);
+    // 2: Programme-effort-vs-herd-size confound; KA + AP lead, NE trail.
+    expect(d!.caveats![1]).toMatch(/Karnataka/);
+    expect(d!.caveats![1]).toMatch(/Andhra Pradesh/);
+    expect(d!.caveats![1]).toMatch(/Manipur|Mizoram/);
+    expect(d!.caveats![1]).toMatch(/Bihar/);
+    expect(d!.caveats![1]).toMatch(/programme effort/i);
+    // 3: RFID replacement-tag inflation; FY-end snapshot convention.
+    expect(d!.caveats![2]).toMatch(/12-digit RFID/);
+    expect(d!.caveats![2]).toMatch(/Indus Database/);
+    expect(d!.caveats![2]).toMatch(/FY-end/);
+  });
+
+  it("PR-P buffalo Pashu Aadhaar descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor("agriculture/state_pashu_aadhaar_count_buffalo");
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: Milk-belt concentration; UP/Punjab/Haryana hold ~50% of buffaloes.
+    expect(d!.caveats![0]).toMatch(/milk-dairy/i);
+    expect(d!.caveats![0]).toMatch(/UP, Punjab, Haryana/);
+    expect(d!.caveats![0]).toMatch(/Murrah/);
+    expect(d!.caveats![0]).toMatch(/Kerala/);
+    expect(d!.caveats![0]).toMatch(/breed economics/i);
+    // 2: Coverage-gap pointer to cattle card; Livestock Census 110M denom.
+    expect(d!.caveats![1]).toMatch(/Same coverage gap as cattle/);
+    expect(d!.caveats![1]).toMatch(/~110M/);
+    expect(d!.caveats![1]).toMatch(/cattle tagged/);
+    // 3: Dairy-coop confounder (Gujarat Amul vs vet-camp states).
+    expect(d!.caveats![2]).toMatch(/Gujarat/);
+    expect(d!.caveats![2]).toMatch(/Amul/);
+    expect(d!.caveats![2]).toMatch(/Maharashtra/);
+    expect(d!.caveats![2]).toMatch(/dairy cooperatives/i);
+    expect(d!.caveats![2]).toMatch(/draught/i);
+  });
+
+  it("PR-P goat Pashu Aadhaar descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor("agriculture/state_pashu_aadhaar_count_goat");
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: Pastoral-nomadic herding; cross-state migration confound.
+    expect(d!.caveats![0]).toMatch(/pastoral/i);
+    expect(d!.caveats![0]).toMatch(/Rajasthan/);
+    expect(d!.caveats![0]).toMatch(/Bhopa/);
+    expect(d!.caveats![0]).toMatch(/Banjara/);
+    expect(d!.caveats![0]).toMatch(/migratory/i);
+    // 2: Coverage-gap pointer to cattle+buffalo; vet-camp triage priority.
+    expect(d!.caveats![1]).toMatch(/Same coverage gap as cattle and buffalo/);
+    expect(d!.caveats![1]).toMatch(/~149M/);
+    expect(d!.caveats![1]).toMatch(/largest livestock category/);
+    expect(d!.caveats![1]).toMatch(/vet-camp triage/);
+    // 3: Informal-meat-economy confounder (AP + TS lead, Bihar trails).
+    expect(d!.caveats![2]).toMatch(/INFORMAL/);
+    expect(d!.caveats![2]).toMatch(/Andhra/);
+    expect(d!.caveats![2]).toMatch(/Telangana/);
+    expect(d!.caveats![2]).toMatch(/mutton-trader/);
+    expect(d!.caveats![2]).toMatch(/Bihar/);
+    expect(d!.caveats![2]).toMatch(/formalisation/i);
+  });
 });
 
 describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
