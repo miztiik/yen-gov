@@ -80,8 +80,8 @@ describe("joinKeyFor", () => {
     expect(joinKeyFor("country")).toBeNull();
   });
 
-  it("state joins on ST_NM (datameet lineage)", () => {
-    expect(joinKeyFor("state")).toBe("ST_NM");
+  it("state joins on State_LGD (ramSeraph LGD-keyed lineage post-D.0)", () => {
+    expect(joinKeyFor("state")).toBe("State_LGD");
   });
 
   it("district joins on dist_lgd (LGD numeric)", () => {
