@@ -1859,6 +1859,26 @@
       "gap_count_within_range": 5
     },
     {
+      "id": "livestock/owner_registration_count",
+      "topic": "livestock",
+      "path": "datasets/livestock/_meadow/ndlm/2024-25/owner_reg_land_holding_district.json",
+      "title": "Registered livestock owners (count)",
+      "documentation_status": "stub",
+      "inventory_status": "complete",
+      "frozen": false,
+      "last_polled_at": "2026-05-25T17:34:12Z",
+      "observed_count": 1,
+      "pending_count": 0,
+      "unavailable_count": 0,
+      "min_time": "2024-25",
+      "max_time": "2024-25",
+      "min_period_label": "2024-25",
+      "max_period_label": "2024-25",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 1,
+      "gap_count_within_range": 0
+    },
+    {
       "id": "livestock/pashu_aadhaar_count_buffalo",
       "topic": "livestock",
       "path": "datasets/livestock/_meadow/ndlm/2024-25/district-pashu-aadhaar-count-buffalo.json",
