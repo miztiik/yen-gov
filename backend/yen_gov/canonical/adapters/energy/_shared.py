@@ -161,8 +161,57 @@ def load_shard(repo_root: Path, name: str) -> dict:
     Returns the raw parsed JSON; the adapter is responsible for
     transforming ``rows[]`` into ``ObservationRow``. Path is
     explicitly POSIX so the error messages stay portable.
+
+    Per ADR-0041 the legacy `datasets/indicators/in/<topic>/<id>.json`
+    path is being renamed family-by-family to the meadow tier
+    `datasets/<family>/_meadow/<source>/<vintage>/<file>.json`. New code
+    MUST call ``load_meadow()`` below; this loader retires in PR 7c-4
+    once all 23 energy shards have moved.
     """
     p = repo_root / "datasets" / "indicators" / "in" / "energy" / name
+    return json.loads(p.read_text(encoding="utf-8"))
+
+
+def load_meadow(
+    repo_root: Path,
+    family: str,
+    source: str,
+    vintage: str,
+    file: str,
+) -> dict:
+    """Load a meadow-tier shard from
+    ``datasets/<family>/_meadow/<source>/<vintage>/<file>``.
+
+    Meadow tier per ADR-0041: typed, schema-validated, deterministic,
+    `source_id`-bearing JSON parsed from upstream but pre-canonical.
+    Backend-internal — frontend MUST NOT fetch these paths (Phase B
+    allowlist routes citizen reads to canonical Parquet).
+
+    Returns the raw parsed JSON; the adapter is responsible for
+    transforming ``rows[]`` into ``ObservationRow``. Path is
+    explicitly POSIX so the error messages stay portable.
+
+    Args:
+        family: indicator family, matches canonical Parquet family name
+            (``"energy"``, ``"fiscal"``, ``"demography"``, ...).
+        source: short producer identifier, snake_case (``"iced"``,
+            ``"rbi"``, ``"cea"``, ...).
+        vintage: source's own period label (publisher-native), matches
+            the ``vintage`` field of the citation-ledger row in
+            ``datasets/taxonomy/sources.parquet`` (Tier-B check lands
+            in PR 7c-4).
+        file: descriptor with ``.json`` suffix (e.g.
+            ``"state_electricity_generation_mu.json"``).
+    """
+    p = (
+        repo_root
+        / "datasets"
+        / family
+        / "_meadow"
+        / source
+        / vintage
+        / file
+    )
     return json.loads(p.read_text(encoding="utf-8"))
 
 

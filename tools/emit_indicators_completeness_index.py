@@ -85,12 +85,13 @@ def _max_fetched_at(sources: list) -> str | None:
     return max(stamps) if stamps else None
 
 
-def _index_row(path: Path, doc: dict, op_state: dict[str, dict]) -> dict:
+def _index_row(path: Path, doc: dict, op_state: dict[str, dict], topic: str | None = None) -> dict:
     ind = doc.get("indicator") or {}
     methodology = doc.get("methodology") or {}
     rows = doc.get("rows") or []
     sources = doc.get("sources") or []
-    topic = path.relative_to(INDICATORS_ROOT).parts[0]
+    if topic is None:
+        topic = path.relative_to(INDICATORS_ROOT).parts[0]
 
     ind_id = ind.get("id", "")
     op = op_state.get(ind_id) or {}
@@ -143,6 +144,23 @@ def build_index() -> dict:
         rows.append(_index_row(path, doc, op_state))
         # generated_at is derived from input *content* not file mtime
         # (git clone does not preserve mtimes; see module docstring).
+        doc_max = _max_fetched_at(doc.get("sources") or [])
+        if doc_max and (max_fetched_at is None or doc_max > max_fetched_at):
+            max_fetched_at = doc_max
+
+    # Also walk meadow-tier shards per ADR-0041.
+    # Path shape: datasets/<family>/_meadow/<source>/<vintage>/<file>.json
+    # Topic == family (first path part after datasets/).
+    datasets_root = REPO_ROOT / "datasets"
+    for path in sorted(datasets_root.glob("*/_meadow/**/*.json")):
+        if path.name.endswith(".notes.json"):
+            continue
+        try:
+            doc = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        family = path.relative_to(datasets_root).parts[0]
+        rows.append(_index_row(path, doc, op_state, topic=family))
         doc_max = _max_fetched_at(doc.get("sources") or [])
         if doc_max and (max_fetched_at is None or doc_max > max_fetched_at):
             max_fetched_at = doc_max

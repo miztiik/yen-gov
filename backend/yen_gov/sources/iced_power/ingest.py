@@ -367,6 +367,15 @@ def ingest_iced_power(
 
     builds = _all_builds()
     out_root = repo_root / "datasets" / "indicators" / "in" / "energy"
+    # Per ADR-0041, energy indicators promoted to meadow tier write to
+    # `datasets/<family>/_meadow/<source>/<vintage>/<file>.json`. The set
+    # grows PR-by-PR until C4.7 finalisation; then the legacy branch dies.
+    meadow_promoted: dict[str, Path] = {
+        "state_electricity_generation_by_source_gwh": (
+            repo_root / "datasets" / "energy" / "_meadow" / "iced" / "2024-25"
+            / "state_electricity_generation_by_source_gwh.json"
+        ),
+    }
 
     fetched_at_overall = datetime.now(timezone.utc)
     results: list[IndicatorEmitResult] = []
@@ -410,7 +419,8 @@ def ingest_iced_power(
             Source(url=f"{b.api_host}{b.api_path}", fetched_at=fetched_at),
         ]
 
-        out_path = out_root / f"{b.out_leaf}.json"
+        out_path = meadow_promoted.get(b.out_leaf) or (out_root / f"{b.out_leaf}.json")
+        out_path.parent.mkdir(parents=True, exist_ok=True)
         write_artifact(
             path=out_path,
             schema_id=schema_id("indicator.schema.json"),

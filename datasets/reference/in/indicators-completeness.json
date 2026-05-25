@@ -844,7 +844,7 @@
     {
       "id": "energy/state_electricity_generation_by_source_gwh",
       "topic": "energy",
-      "path": "datasets/indicators/in/energy/state_electricity_generation_by_source_gwh.json",
+      "path": "datasets/energy/_meadow/iced/2024-25/state_electricity_generation_by_source_gwh.json",
       "title": "State electricity generation, by fuel source (GWh, FY16–FY26)",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -864,7 +864,7 @@
     {
       "id": "energy/state_electricity_generation_mu",
       "topic": "energy",
-      "path": "datasets/indicators/in/energy/state_electricity_generation_mu.json",
+      "path": "datasets/energy/_meadow/iced/2024-25/state_electricity_generation_mu.json",
       "title": "Annual electricity generation (by state)",
       "documentation_status": "stub",
       "inventory_status": "complete",
