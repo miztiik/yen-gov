@@ -724,7 +724,7 @@
     {
       "id": "energy/state_acs_arr_gap_inr_per_kwh",
       "topic": "energy",
-      "path": "datasets/indicators/in/energy/state_acs_arr_gap_inr_per_kwh.json",
+      "path": "datasets/energy/_meadow/iced/2024-25/state_acs_arr_gap_inr_per_kwh.json",
       "title": "ACS-ARR gap on electricity sales (Rs/kWh, by state)",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -744,7 +744,7 @@
     {
       "id": "energy/state_atc_losses_pct",
       "topic": "energy",
-      "path": "datasets/indicators/in/energy/state_atc_losses_pct.json",
+      "path": "datasets/energy/_meadow/iced/2024-25/state_atc_losses_pct.json",
       "title": "Aggregate Technical & Commercial losses (%, by state)",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -784,7 +784,7 @@
     {
       "id": "energy/state_distribution_billing_efficiency_pct",
       "topic": "energy",
-      "path": "datasets/indicators/in/energy/state_distribution_billing_efficiency_pct.json",
+      "path": "datasets/energy/_meadow/iced/2024-25/state_distribution_billing_efficiency_pct.json",
       "title": "Distribution billing efficiency (%, by state)",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -804,7 +804,7 @@
     {
       "id": "energy/state_distribution_collection_efficiency_pct",
       "topic": "energy",
-      "path": "datasets/indicators/in/energy/state_distribution_collection_efficiency_pct.json",
+      "path": "datasets/energy/_meadow/iced/2024-25/state_distribution_collection_efficiency_pct.json",
       "title": "Distribution collection efficiency (%, by state)",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -824,7 +824,7 @@
     {
       "id": "energy/state_distribution_td_loss_pct",
       "topic": "energy",
-      "path": "datasets/indicators/in/energy/state_distribution_td_loss_pct.json",
+      "path": "datasets/energy/_meadow/iced/2024-25/state_distribution_td_loss_pct.json",
       "title": "Transmission & Distribution losses (%, by state)",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -884,7 +884,7 @@
     {
       "id": "energy/state_electricity_sales_mu",
       "topic": "energy",
-      "path": "datasets/indicators/in/energy/state_electricity_sales_mu.json",
+      "path": "datasets/energy/_meadow/iced/2024-25/state_electricity_sales_mu.json",
       "title": "Annual electricity sales (by state)",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -1204,7 +1204,7 @@
     {
       "id": "energy/state_rpo_compliance_pct",
       "topic": "energy",
-      "path": "datasets/indicators/in/energy/state_rpo_compliance_pct.json",
+      "path": "datasets/energy/_meadow/iced/2024-25/state_rpo_compliance_pct.json",
       "title": "Renewable Purchase Obligation compliance (%, by state)",
       "documentation_status": "stub",
       "inventory_status": "complete",

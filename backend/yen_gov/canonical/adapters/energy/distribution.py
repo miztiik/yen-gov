@@ -47,7 +47,16 @@ from pathlib import Path
 
 from yen_gov.canonical.envelope import BatchEnvelope, ObservationRow
 
-from ._shared import SOURCE_IDS, load_shard, parse_iso_period, to_entity_id
+from ._shared import SOURCE_IDS, load_meadow, parse_iso_period, to_entity_id
+
+
+# All 7 distribution-performance shards are ICED-sourced with the same
+# meadow vintage (2024-25). Single helper centralises the path tuple.
+_ICED_2024_25 = ("energy", "iced", "2024-25")
+
+
+def _load_distribution_meadow(repo_root: Path, file: str) -> dict:
+    return load_meadow(repo_root, *_ICED_2024_25, file)
 
 
 # Map the RPO shard's `facet` field (legacy hyphenated form on the wire)
@@ -67,7 +76,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
     rows: list[ObservationRow] = []
 
     # 1. state_atc_losses_pct.json → state-atc-losses-pct
-    shard = load_shard(repo_root, "state_atc_losses_pct.json")
+    shard = _load_distribution_meadow(repo_root, "state_atc_losses_pct.json")
     for r in shard["rows"]:
         period_label, year, period_seq = parse_iso_period(r["time"])
         rows.append(ObservationRow(
@@ -82,7 +91,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
         ))
 
     # 2. state_electricity_sales_mu.json → state-electricity-sales-mu
-    shard = load_shard(repo_root, "state_electricity_sales_mu.json")
+    shard = _load_distribution_meadow(repo_root, "state_electricity_sales_mu.json")
     for r in shard["rows"]:
         period_label, year, period_seq = parse_iso_period(r["time"])
         rows.append(ObservationRow(
@@ -107,7 +116,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
         ("state_distribution_td_loss_pct.json",               "state-distribution-efficiency-pct-td-loss"),
     )
     for shard_name, indicator_id in _EFFICIENCY_DISPATCH:
-        shard = load_shard(repo_root, shard_name)
+        shard = _load_distribution_meadow(repo_root, shard_name)
         for r in shard["rows"]:
             period_label, year, period_seq = parse_iso_period(r["time"])
             rows.append(ObservationRow(
@@ -124,7 +133,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
     # 4. P.1.B — ACS-ARR gap (per-unit revenue gap, ICED deep-dive
     #    source). Standalone indicator; same `iced_deep_dive` source the
     #    P.1.A AT&C losses + sales-MU rows use.
-    shard = load_shard(repo_root, "state_acs_arr_gap_inr_per_kwh.json")
+    shard = _load_distribution_meadow(repo_root, "state_acs_arr_gap_inr_per_kwh.json")
     for r in shard["rows"]:
         period_label, year, period_seq = parse_iso_period(r["time"])
         rows.append(ObservationRow(
@@ -142,7 +151,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
     #    shard row to ONE of the three child indicator_ids by the row's
     #    `facet` field. Unknown facet values are a SHARD bug — fail fast
     #    rather than silently drop.
-    shard = load_shard(repo_root, "state_rpo_compliance_pct.json")
+    shard = _load_distribution_meadow(repo_root, "state_rpo_compliance_pct.json")
     legacy_to_indicator: dict[str, str] = {
         legacy: f"state-rpo-compliance-pct-{suffix}"
         for legacy, suffix, _value_id in _RPO_FACET_DISPATCH

@@ -601,10 +601,20 @@ def ingest(
     # Per ADR-0041, energy indicators promoted to meadow tier write to
     # `datasets/<family>/_meadow/<source>/<vintage>/<file>.json`. The set
     # grows PR-by-PR until C4.7 finalisation; then the legacy branch dies.
+    _meadow_root = repo_root / "datasets" / "energy" / "_meadow" / "iced" / "2024-25"
     meadow_promoted: dict[str, Path] = {
         "energy/state_electricity_generation_mu": (
-            repo_root / "datasets" / "energy" / "_meadow" / "iced" / "2024-25"
-            / "state_electricity_generation_mu.json"
+            _meadow_root / "state_electricity_generation_mu.json"
+        ),
+        # PR 7c-2 (distribution family, iced_state_wise side):
+        "energy/state_electricity_sales_mu": (
+            _meadow_root / "state_electricity_sales_mu.json"
+        ),
+        "energy/state_atc_losses_pct": (
+            _meadow_root / "state_atc_losses_pct.json"
+        ),
+        "energy/state_acs_arr_gap_inr_per_kwh": (
+            _meadow_root / "state_acs_arr_gap_inr_per_kwh.json"
         ),
     }
     results: list[IndicatorIngestResult] = []

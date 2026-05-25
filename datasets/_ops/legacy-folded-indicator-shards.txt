@@ -67,13 +67,7 @@ datasets/indicators/in/energy/installed_mw_by_state.json
 datasets/indicators/in/energy/national_final_energy_consumption_by_sector_mtoe.json
 datasets/indicators/in/energy/national_primary_energy_supply_mtoe.json
 datasets/indicators/in/energy/national_renewable_potential_vs_installed_mw.json
-datasets/indicators/in/energy/state_acs_arr_gap_inr_per_kwh.json
-datasets/indicators/in/energy/state_atc_losses_pct.json
 datasets/indicators/in/energy/state_coal_consumption_mt.json
-datasets/indicators/in/energy/state_distribution_billing_efficiency_pct.json
-datasets/indicators/in/energy/state_distribution_collection_efficiency_pct.json
-datasets/indicators/in/energy/state_distribution_td_loss_pct.json
-datasets/indicators/in/energy/state_electricity_sales_mu.json
 datasets/indicators/in/energy/state_installed_capacity_by_source_mw.json
 datasets/indicators/in/energy/state_installed_capacity_geographical_mw.json
 datasets/indicators/in/energy/state_installed_capacity_total_mw.json
@@ -89,7 +83,6 @@ datasets/indicators/in/energy/state_power_purchase_share_pct.json
 datasets/indicators/in/energy/state_power_requirement_mu.json
 datasets/indicators/in/energy/state_renewable_grid_capacity_mw.json
 datasets/indicators/in/energy/state_rooftop_solar_capacity_mw.json
-datasets/indicators/in/energy/state_rpo_compliance_pct.json
 datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json
 datasets/indicators/in/environment/india_ghg_emissions_mtco2e_by_sector.json
 datasets/indicators/in/environment/state_no2_annual_mean_ug_m3.json
