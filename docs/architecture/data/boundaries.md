@@ -1,6 +1,6 @@
 # Boundaries — disk topology, identifier discipline, ledger
 
-**Last Updated**: 2026-05-22
+**Last Updated**: 2026-05-25
 **Owner**: data layer (`backend/yen_gov/pipelines/boundaries_*` + `tools/lgd/` + `tools/boundaries/`)
 
 This doc captures the rationale behind every design choice that touched the boundary stack as it evolved from "one `india.geojson` outline" through "LGD-coded states + districts" to TN-granular sub-district + village layers (TODO/TN-GRANULAR-GEO-PLAN.md), and through the T.0d consolidation (2026-05-22) that moved the tree to Hive partitioning and retired the per-shard sidecars. When the plan and this doc disagree, **this doc wins** (Holy Law #4 — docs are agent memory; the plan is a working artifact).
@@ -93,6 +93,16 @@ Names drift (Thoothukudi/Tuticorin, Kanyakumari/Kanniyakumari, Chennai/Madras) a
 Per-file budget: **8 MB gzipped**. Enforced by `boundaries.budget.test.ts` (frontend vitest). Beyond this, mid-tier Android phones on 4G start to feel the chunk download.
 
 For TN villages this means simplification at write time. The simplification metadata (tolerance, algorithm, original/retained feature counts) lives in the `boundary_layers.parquet` row (`simplification_tolerance`, `simplification_algorithm`, `original_feature_count`, `retained_feature_count`). Without that record, downstream area/length math from the simplified geometry would silently lie.
+
+## Coverage gaps (live)
+
+The live, per-level coverage status — what we have, what we don't have, and what closes each gap — lives in [`docs/reference/boundary-data-sources.md` §"Coverage status — what we have, what we don't have"](../../reference/boundary-data-sources.md#coverage-status--what-we-have-what-we-dont-have). One canonical home, edited in the same PR as the ingest that moves a number. Per the doc-routing contract (CLAUDE.md §5 / [ADR-0034](../decisions/0034-documentation-routing-contract.md)): this subsystem doc describes the **disk + identifier shape**; the reference doc describes the **catalogue + coverage**.
+
+Three gap categories matter today and are tracked there:
+
+1. **District entity backfill** — 145/784 districts curated in `entities.json`; 639 missing. Closed by [Plan Phase 0.2](../../../TODO/20260524-boundary-coverage-expansion-plan.md) via LGD master + Census-2011 cross-enrichment.
+2. **Village upstream gap** — 9 of 36 states/UTs (S02 / S08 / S14 / S15 / S16 / S17 / S21 / U08 / U09) have no village polygons from `LGD_Villages`. Closed per-state via the bhuvan fall-back ONLY when a village-keyed citizen indicator demands it; not in the active sprint.
+3. **Survey-grade swaps** — state polygon (DataMeet → ramSeraph `LGD_States`), PC polygon (shijithpk → ramSeraph `LGD_Parliament_Constituencies`), and AC consolidation (HTL+shijithpk → ramSeraph `LGD_Assembly_Constituencies`) are upgrade tracks, not coverage gaps. Plan Phases D.0 / D.6 / D.1→D.5.
 
 ## Methodology breaks
 

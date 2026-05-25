@@ -1,6 +1,6 @@
 # Boundary Data Sources
 
-**Last Updated**: 2026-05-24
+**Last Updated**: 2026-05-25
 
 This is the catalogue and decision record for **geographic boundary data** — country / state / district / sub-district / village / Assembly Constituency / Parliamentary Constituency / postal polygons — that the frontend renders as choropleth maps. It is the boundary-data counterpart to [`data-sources.md`](data-sources.md) (which covers election *results* sources). The LGD identifier tables (the registry that issues `lgd_code` for the boundaries to join on) live in [`lgd-opendata.md`](lgd-opendata.md).
 
@@ -56,6 +56,74 @@ The administrative-hierarchy matrix that civic-data work usually starts from (LG
 | **DIGIPIN (4 m × 4 m grid)** | — | out of scope | Not a polygon family — needs a separate point/grid handler. Not on the roadmap. |
 
 For the historical / methodology-break dimension (state + district boundaries 1941–2001 decadal series, plus the District_Timeseries_1951-2024 CSV that records every split, merger, and carve-out), ramSeraph's [`historical`](https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/historical) release is the candidate. Not currently adopted — relevant when a methodology-break-aware trend visualisation ships (see [`docs/architecture/data/boundaries.md` §"Methodology breaks"](../architecture/data/boundaries.md#methodology-breaks)).
+
+## Coverage status — what we have, what we don't have
+
+This section is the **canonical, live ledger** for boundary-coverage gaps. It supersedes any one-off `notes/` files on the same subject (the 2026-05-25 9-state village gap note was folded in here). When a gap closes, edit this section in the same PR as the ingest.
+
+Three numbers govern district-level reasoning and routinely confuse new agents — resolve them once, here:
+
+| Source | Count | What it represents |
+| --- | :---: | --- |
+| [`datasets/taxonomy/lgd/districts-latest.csv`](../../datasets/taxonomy/lgd/districts-latest.csv) | **784 districts** | Current modern district list per LGD master, refreshed via `tools/lgd/snapshot.py`. Carries `Census 2001 Code` + `Census 2011 Code` columns — i.e. the LGD CSV ALREADY cross-enriches each modern district with its Census-2011 ancestor. |
+| [`datasets/boundaries/in/districts/all.geojson`](../../datasets/boundaries/in/districts/all.geojson) | 785 polygons | One row per shard in [`boundary_layers.parquet`](../../datasets/boundaries/boundary_layers.parquet); polygons keyed by `dist_lgd`. The +1 over the LGD CSV is a known cosmetic delta we will reconcile in the same PR that ships Phase 0.2 (likely a bifurcation-bookkeeping row). |
+| [`datasets/taxonomy/entities.parquet`](../../datasets/taxonomy/entities.parquet) (where `entity_type='district' AND entity_valid_to IS NULL`) | **145 districts** | The subset hand-curated into `entities.json` so far — Assam (35), Haryana (33), Kerala (14), TN (38), West Bengal (23), Puducherry (2). Every district in this list has a confirmed display name + parent + `entity_valid_from`. |
+| Census 2011 (frozen vintage) | ~640 districts | Historical anchor; ~144 modern districts (Telangana split 2014, Ladakh split 2019, Mayiladuthurai 2020, Tenkasi/Tirupathur/Chengalpattu/Kallakurichi/Ranipet 2019, plus ~140 more nationally) did NOT exist in 2011. Useful as a methodology-break oracle, NOT as a substitute for the modern LGD list. |
+
+**Gap: 784 − 145 = 639 modern districts have polygons + LGD codes on disk but no curated entity row.** Closing this gap is **Phase 0.2** of the [boundary-coverage-expansion plan](../../TODO/20260524-boundary-coverage-expansion-plan.md) — see that doc's §0.2 for the cross-enrichment plan (combine LGD master + Census-2011 cross-references already on the LGD CSV + entities.json conventions).
+
+### Per-level gaps
+
+| Level | What ships today | What is missing | Closes via |
+| --- | --- | --- | --- |
+| country | 1 IND outline ✅ | — | — |
+| state / UT | 36/36 ✅ | DataMeet curated source today; survey-grade ramSeraph `LGD_States` is the upgrade target | **Plan Phase D.0** |
+| district polygons | 785/784 ✅ (1 cosmetic delta) | the 1 row reconcile | rolls in with **Phase 0.2** |
+| **district entity rows** (`taxonomy/entities.json`) | **145/784** ⚠️ | **639 missing** — every state except S03/S06/S11/S22/S25/U07 needs its districts curated in | **Plan Phase 0.2** (hand-curation; LGD CSV → generator → operator review → JSON patch) |
+| subdistrict | 36/36 states ✅ (national lift in PR #257) | — | — |
+| village | 27/36 states ✅ (PR #259, 645 per-(state, district) shards) | **9 states/UTs missing upstream** — see table below | bhuvan fall-back (per-state, gated on first village-keyed indicator); not in active sprint |
+| AC | 30/31 elective states ✅ (HTL + shijithpk J&K) | survey-grade consolidation onto ramSeraph `LGD_Assembly_Constituencies` | **Plan Phase D.1 → D.5** |
+| PC | 545 features ✅ (shijithpk, 2024 delim) | survey-grade `LGD_Parliament_Constituencies` is the upgrade target | **Plan Phase D.6** |
+| pincode polygons | 36 per-state shards ✅ (PR #254) | — | — |
+| pincode directory CSV | 165,627 rows ✅ (PR pending) | — | — |
+
+### Village gap — the 9 states/UTs missing from upstream `LGD_Villages`
+
+The ramSeraph `LGD_Villages.geojsonl` upstream extract (used by Phase C) carries village polygons for 27 of India's 36 states/UTs. The 9 missing states:
+
+| ECI | State / UT | Notes |
+| --- | --- | --- |
+| S02 | Arunachal Pradesh | Upstream absent |
+| S08 | Himachal Pradesh | Upstream absent |
+| S14 | Manipur | Upstream absent |
+| S15 | Meghalaya | Upstream absent |
+| S16 | Mizoram | Upstream absent |
+| S17 | Nagaland | Upstream absent |
+| S21 | Sikkim | Upstream absent |
+| U08 | Jammu and Kashmir (UT) | Upstream absent. `Bhuvan_JK_Villages.geojsonl.7z` exists as a J&K-specific fall-back. |
+| U09 | Ladakh | Upstream absent. In the post-2019 entity geometry J&K and Ladakh are two separate UTs; both need geometry. |
+
+**Today this is NOT citizen-visible** — no citizen surface in the codebase currently consumes village-level geometry beyond Tamil Nadu's smoke pages. The gap becomes visible only when (a) a village-keyed indicator ships AND (b) the frontend renders that indicator on a village-drilled choropleth for a gap state.
+
+**Decision logic when (if) a village-keyed indicator ships for a gap state**:
+
+1. **First check**: does the surface render at district zoom, NOT village zoom? If yes, the existing district polygons (all 9 gap states have those) are sufficient and no fall-back is needed.
+2. **If village zoom is unavoidable**: open a follow-up PR that adopts the bhuvan fall-back for ONLY the requested gap state(s), with explicit `boundary_layers.parquet` rows carrying a separate `source_id` (so the citation panel is honest about provenance: "bhuvan, not LGD"). Add a join-discipline test asserting the village-keyed indicator's join logic handles BOTH `village_lgd` (canonical) and `bhuvan_village_id` (fall-back) without ambiguity.
+3. **Only adopt bhuvan for the specific gap states** — do NOT replace the 27 LGD-keyed states. Mixing is acceptable per-state; mixing within a state is not.
+
+Why bhuvan is NOT pre-emptively adopted: it uses bhuvan-internal village identifiers, not `village_lgd`. Pivoting before a concrete consumer ships would introduce a mixed-key ledger that would propagate into every village-keyed indicator's join logic — a join-discipline change with downstream blast radius, deferred until justified. See [ADR-0031](../architecture/decisions/0031-boundary-geometry-strategy.md).
+
+### District entity backfill — the cross-enrichment plan (Phase 0.2)
+
+The 639 missing district entity rows are hand-curated, but the hand-curation is **assisted** — three sources already carry the raw data and we cross-enrich at write time:
+
+1. **LGD master CSV** (`datasets/taxonomy/lgd/districts-latest.csv`) supplies the `District Code` (LGD), `District Name (In English)`, parent state code, AND already carries `Census 2001 Code` + `Census 2011 Code` columns. So the LGD CSV is itself a pre-joined LGD ⇔ Census table.
+2. **Census-2011 polygons** (`Districts_2011` from ramSeraph; CC0-1.0) provide an independent name + geometry cross-check for any district that existed in 2011. ~640 of the 784 modern districts have a Census-2011 ancestor row; the remaining ~144 are post-2011 carve-outs (Mayiladuthurai 2020, Telangana split 2014, Ladakh 2019, etc.) and need `entity_valid_from` set to the gazette date rather than 1947.
+3. **`entities.json` conventions** define the row shape (`entity_id` = `IN-S{nn}-D{lgd_code}`, `entity_type="district"`, `parent_entity_id`, `legacy_id` NULL for non-ECI-mapped districts).
+
+The generator script (`tools/lgd/backfill_entities_districts.py`, NEW) reads the LGD CSV, diffs against `entities.json#/entities`, emits a JSON patch with all three cross-references populated. The operator hand-reviews for (a) display-name casing/hyphenation quirks, (b) `entity_valid_from` for post-2011 carve-outs, (c) any LGD ↔ Census name mismatches that flag a real entity event vs a transliteration drift. Per ADR-0033, `entities.json` is hand-curated; the generator suggests, the operator confirms.
+
+Why this matters for citizen choropleths: financial-inclusion data (banks per pincode rolled up by district), agricultural data (rainfall/water/soil rolled up by district), social-sector tracker data (PMAY/JJM coverage) all key by district LGD code. Without 784 district entity rows, choropleth views for those families cannot label, tooltip, or hub-link the missing 639 districts — the polygon paints but no metadata-driven UI hangs off it.
 
 ## In use today (per-state AC catalogue)
 
