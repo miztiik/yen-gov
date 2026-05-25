@@ -554,6 +554,43 @@ def apply_state_filter(
     return kept, dropped
 
 
+def apply_exclude_filter(
+    features: list[dict[str, Any]],
+    filter_spec: dict[str, Any],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Drop features whose property matches the exclude spec; keep the rest.
+
+    Inverse of `apply_state_filter`. `filter_spec` shape (one of):
+        {"property": "status", "equals": "Pre delimitation"}    # single
+        {"property": "status", "one_of": ["a", "b"]}             # multi
+
+    Returns `(kept, dropped)`. Empty `kept` IS a valid outcome here
+    (the exclude can legitimately drop everything when the caller
+    knows what they are doing); empty `dropped` is ALSO valid (no
+    matches = no-op, common when filtering for vintage tags that
+    only appear in some upstream slices).
+
+    Used by Phase D.2 AC promotion to drop `status="Pre delimitation"`
+    features from the ramSeraph LGD national release (D.1 recon §4).
+    """
+    prop = filter_spec["property"]
+    if "equals" in filter_spec:
+        target = filter_spec["equals"]
+        match = lambda f: f.get("properties", {}).get(prop) == target  # noqa: E731
+    elif "one_of" in filter_spec:
+        targets = set(filter_spec["one_of"])
+        match = lambda f: f.get("properties", {}).get(prop) in targets  # noqa: E731
+    else:
+        msg = f"exclude_filter {filter_spec!r} requires `equals` or `one_of`"
+        raise ValueError(msg)
+
+    kept: list[dict[str, Any]] = []
+    dropped: list[dict[str, Any]] = []
+    for f in features:
+        (dropped if match(f) else kept).append(f)
+    return kept, dropped
+
+
 def apply_split_by(
     features: list[dict[str, Any]],
     split_spec: dict[str, Any],
@@ -813,6 +850,13 @@ def snapshot_one(
             print(
                 f"  state_filter kept {len(features)} "
                 f"(dropped {len(dropped_by_filter)} out-of-scope)",
+                flush=True,
+            )
+        if "exclude_filter" in source:
+            features, dropped_by_exclude = apply_exclude_filter(features, source["exclude_filter"])
+            print(
+                f"  exclude_filter kept {len(features)} "
+                f"(dropped {len(dropped_by_exclude)} matching)",
                 flush=True,
             )
         original_count = len(features)
