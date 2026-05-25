@@ -1,8 +1,8 @@
 """Tier-A tests for ``yen_gov.canonical.energy_sources_seed``.
 
 Per CLAUDE.md §15: operates on ``tmp_path`` (or builds in-memory DuckDB).
-Asserts the 12 source_id hashes (7 P.1.A + 5 P.1.B) match the values
-baked into ``datasets/taxonomy/indicators.json`` and the UPSERT
+Asserts the 13 source_id hashes (7 P.1.A + 5 P.1.B + 1 P.1.C PR-Q) match
+the values baked into ``datasets/taxonomy/indicators.json`` and the UPSERT
 idempotency.
 """
 
@@ -22,15 +22,21 @@ from yen_gov.canonical.energy_sources_seed import (
 
 
 def test_twelve_sources_built():
-    """Exactly 12 sources: 7 P.1.A (1 CEA + 3 ICED + 3 RBI) +
-    5 P.1.B (2 ICED distribution + 3 RBI Handbook)."""
-    assert len(ENERGY_SOURCES) == 12
-    assert len(SOURCE_NICKNAMES) == 12
+    """Exactly 13 sources: 7 P.1.A (1 CEA + 3 ICED + 3 RBI) +
+    5 P.1.B (2 ICED distribution + 3 RBI Handbook) + 1 P.1.C PR-Q
+    (1 ICED coal-consumption).
+
+    Test name preserved for git-blame continuity even though count is now 13;
+    the canonical assertion is the count-vs-NICKNAMES match below, not the
+    literal 12.
+    """
+    assert len(ENERGY_SOURCES) == 13
+    assert len(SOURCE_NICKNAMES) == 13
     assert set(ENERGY_SOURCE_ID_BY_NICKNAME) == set(SOURCE_NICKNAMES)
 
 
 def test_source_id_hashes_match_catalogue_fks():
-    """The 12 derive_source_id outputs MUST match the values baked into
+    """The 13 derive_source_id outputs MUST match the values baked into
     indicators.json as the per-child source_id FKs. If a triple drifts
     here, every energy catalogue row's FK goes dangling."""
     expected = {
@@ -50,6 +56,8 @@ def test_source_id_hashes_match_catalogue_fks():
         "rbi_hbk_141_power_requirement": "src-f7ce9960caba",
         "rbi_hbk_139_power_availability": "src-97a3c47d092f",
         "rbi_hbk_138_per_capita_availability": "src-9a38005d8713",
+        # P.1.C PR-Q (1) — ICED coal-consumption endpoint.
+        "iced_consumption_coal": "src-c222a8e2cd61",
     }
     for nickname, src_id in expected.items():
         assert ENERGY_SOURCE_ID_BY_NICKNAME[nickname] == src_id, (
@@ -86,6 +94,10 @@ def test_license_tier_authority_invariants():
         # issuing authority's primary record.
         "iced_distribution_perf",
         "iced_distribution_rpo",
+        # P.1.C PR-Q ICED endpoint — coal-consumption republishes Coal
+        # Controller's Office / Ministry of Coal data; same silver /
+        # not-authority / live-fetch classification.
+        "iced_consumption_coal",
     ):
         row = by_nick[nick]
         assert row.confidence_tier == "silver", nick
@@ -147,22 +159,22 @@ def test_upsert_into_empty_table_writes_twelve_rows():
     try:
         _create_sources_table(con)
         n = upsert_energy_sources(con)
-        assert n == 12
+        assert n == 13
         count = con.execute("SELECT COUNT(*) FROM sources").fetchone()[0]
-        assert count == 12
+        assert count == 13
     finally:
         con.close()
 
 
 def test_upsert_is_idempotent():
-    """Running twice yields the same 12 rows (not 24)."""
+    """Running twice yields the same 13 rows (not 26)."""
     con = duckdb.connect(":memory:")
     try:
         _create_sources_table(con)
         upsert_energy_sources(con)
         upsert_energy_sources(con)
         count = con.execute("SELECT COUNT(*) FROM sources").fetchone()[0]
-        assert count == 12
+        assert count == 13
     finally:
         con.close()
 
@@ -171,7 +183,7 @@ def test_upsert_to_parquet_creates_file_when_absent(tmp_path: Path):
     target = tmp_path / "sources.parquet"
     assert not target.exists()
     n = upsert_energy_sources_to_parquet(target)
-    assert n == 12
+    assert n == 13
     assert target.is_file()
     con = duckdb.connect()
     try:
@@ -180,7 +192,7 @@ def test_upsert_to_parquet_creates_file_when_absent(tmp_path: Path):
         ).fetchone()[0]
     finally:
         con.close()
-    assert count == 12
+    assert count == 13
 
 
 def test_upsert_to_parquet_preserves_existing_rows(tmp_path: Path):
@@ -214,7 +226,7 @@ def test_upsert_to_parquet_preserves_existing_rows(tmp_path: Path):
         pre.close()
 
     n = upsert_energy_sources_to_parquet(target)
-    assert n == 12
+    assert n == 13
 
     con = duckdb.connect()
     try:
@@ -226,11 +238,11 @@ def test_upsert_to_parquet_preserves_existing_rows(tmp_path: Path):
 
     src_ids = [r[0] for r in rows]
     assert "src-aaaaaaaaaaaa" in src_ids
-    assert len(src_ids) == 13  # 1 pre-existing + 12 energy
+    assert len(src_ids) == 14  # 1 pre-existing + 13 energy
 
 
 def test_upsert_to_parquet_is_idempotent(tmp_path: Path):
-    """Two consecutive calls yield the same 12-row parquet (byte-identical)."""
+    """Two consecutive calls yield the same 13-row parquet (byte-identical)."""
     target = tmp_path / "sources.parquet"
     upsert_energy_sources_to_parquet(target)
     bytes_a = target.read_bytes()

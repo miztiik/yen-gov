@@ -562,6 +562,53 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.caveats![2]).toMatch(/Bihar/);
     expect(d!.caveats![2]).toMatch(/formalisation/i);
   });
+
+  // PR-Q (Row 6 P.1.C, 2026-05-25): first canonical fuel-consumption lift.
+  // Establishes the long-reserved `energy_fuel_consumption` parquet stem
+  // and ships state-coal-consumption-mt with 3 Hans-curated caveats. The
+  // adapter sums ICED's 4 grade rows (raw + washed + middlings + lignite)
+  // and drops the publisher's TOTAL COAL row to avoid double-counting.
+  it("PR-Q state_coal_consumption_mt descriptor routes to state-coal-consumption-mt", () => {
+    const d = getCanonicalDescriptor("energy/state_coal_consumption_mt");
+    expect(d).not.toBeNull();
+    expect(d!.kind).toBe("single");
+    if (d!.kind === "single") {
+      expect(d!.canonical_indicator_id).toBe("state-coal-consumption-mt");
+    }
+    expect(d!.table_id).toBe("energy.energy_fuel_consumption");
+    expect(d!.meta.title).toMatch(/coal consumption/i);
+    expect(d!.meta.unit).toBe("Mt");
+    // where_consumed -- coal is burned in the attributed state, not mined there.
+    expect(d!.meta.attribution_geography).toBe("where_consumed");
+    // Joint-implementation cue: ICED (NITI) federally aggregates; Coal
+    // Controller's Office / Ministry of Coal upstream; states host the
+    // generating + industrial demand.
+    expect(d!.meta.implementing_authority).toBe("joint");
+    expect(d!.meta.icon).toBe("flame");
+    expect(d!.meta.entity_kind).toBe("state");
+    expect(d!.meta.time_grain).toBe("fiscal_year");
+  });
+
+  it("PR-Q coal-consumption descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor("energy/state_coal_consumption_mt");
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: 4-grade SUM methodology + TOTAL COAL dropped to avoid double-counting.
+    expect(d!.caveats![0]).toMatch(/4 coal grades|four coal grades|4-grade/i);
+    expect(d!.caveats![0]).toMatch(/raw.*washed.*middlings.*lignite/i);
+    expect(d!.caveats![0]).toMatch(/TOTAL COAL/);
+    expect(d!.caveats![0]).toMatch(/double-counting/i);
+    // 2: Heavy-industry-state anchors (Maharashtra, UP, MP, Chhattisgarh).
+    expect(d!.caveats![1]).toMatch(/Maharashtra/);
+    expect(d!.caveats![1]).toMatch(/UP|Uttar Pradesh/);
+    expect(d!.caveats![1]).toMatch(/Chhattisgarh|MP|Madhya Pradesh/);
+    expect(d!.caveats![1]).toMatch(/thermal|industrial|kiln/i);
+    // 3: where_consumed clarification + companion-card pointer.
+    expect(d!.caveats![2]).toMatch(/Jharkhand/);
+    expect(d!.caveats![2]).toMatch(/Odisha/);
+    expect(d!.caveats![2]).toMatch(/where_consumed|burned|consumed/i);
+  });
 });
 
 describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {

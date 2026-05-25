@@ -68,6 +68,13 @@ SOURCE_IDS: dict[str, str] = {
     "rbi_hbk_141_power_requirement":     "src-f7ce9960caba",
     "rbi_hbk_139_power_availability":    "src-97a3c47d092f",
     "rbi_hbk_138_per_capita_availability": "src-9a38005d8713",
+    # P.1.C PR-Q (coal consumption lift, 2026-05-25). Derived via
+    # derive_source_id("NITI Aayog India Climate & Energy Dashboard",
+    # "Coal Consumption (Domestic) State-wise API (per-state fiscal-year
+    # coal consumption, by grade)", "2024-25"). First P.1.C source seed;
+    # establishes the new ``energy_fuel_consumption`` table stem reserved
+    # in __init__.py docstring as the P.1.C target.
+    "iced_consumption_coal":             "src-c222a8e2cd61",
 }
 
 

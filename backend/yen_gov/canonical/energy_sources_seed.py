@@ -1,6 +1,7 @@
-"""Seed the 12 energy citation rows into ``taxonomy/sources.parquet``.
+"""Seed the 13 energy citation rows into ``taxonomy/sources.parquet``.
 
-P.1.A (7 sources) + P.1.B (5 sources) = 12 distinct upstreams.
+P.1.A (7 sources) + P.1.B (5 sources) + P.1.C PR-Q (1 source) = 13
+distinct upstreams.
 
 P.1.A: 1 CEA + 3 ICED endpoints + 3 RBI Handbook tables (Table 142
 peak-demand + Table 142 peak-met + Table 140 installed-capacity long-arc
@@ -10,9 +11,13 @@ P.1.B: 2 ICED distribution-dashboard endpoints (operational performance
 and RPO compliance) + 3 RBI Handbook tables (141 power requirement,
 139 power availability, 138 per-capita availability).
 
+P.1.C PR-Q: 1 ICED state-coal-consumption-mt endpoint (first canonical
+fuel-consumption lift; originating data: Coal Controller's Office /
+Ministry of Coal; ICED is the federal aggregator, not issuing authority).
+
 Each gets a citation row in the sources ledger so every emitted
-observation in P.1.A and P.1.B can FK to a real ``source_id`` per
-Holy Law #9 + ADR-0032.
+observation in P.1.A, P.1.B, and P.1.C PR-Q can FK to a real
+``source_id`` per Holy Law #9 + ADR-0032.
 
 Pattern mirrors ``boundary_layers_seed.upsert_boundary_sources`` (T.0d):
 INSERT-OR-REPLACE keyed on ``source_id`` so multiple subsystems can
@@ -48,7 +53,7 @@ __all__ = [
 ]
 
 
-# Operator nicknames for the 12 energy sources (7 P.1.A + 5 P.1.B).
+# Operator nicknames for the 13 energy sources (7 P.1.A + 5 P.1.B + 1 P.1.C PR-Q).
 # Adapters look up the materialised source_id by nickname rather than
 # rebuilding the triple-hash each time.
 SOURCE_NICKNAMES: tuple[str, ...] = (
@@ -73,6 +78,15 @@ SOURCE_NICKNAMES: tuple[str, ...] = (
     "rbi_hbk_141_power_requirement",
     "rbi_hbk_139_power_availability",
     "rbi_hbk_138_per_capita_availability",
+    # --- P.1.C PR-Q (1; first canonical fuel-consumption lift) ----
+    # ICED state-coal-consumption-mt endpoint (4-grade SUM lift:
+    # raw + washed + middlings + lignite; FY06-FY25; TOTAL COAL rows
+    # dropped to avoid double-counting). Originating data: Coal
+    # Controller's Office / Ministry of Coal. ICED is the federal
+    # aggregator; not the issuing authority for the underlying fact
+    # (plan-doc §3 Q-d). Same silver / not-authority / live-fetch
+    # classification as other ICED endpoints.
+    "iced_consumption_coal",
 )
 
 
@@ -143,6 +157,12 @@ _TRIPLES: dict[str, tuple[str, str, str]] = {
     "rbi_hbk_138_per_capita_availability": (
         "Reserve Bank of India",
         "Handbook of Statistics on Indian States \u2014 Table 138: State-wise Per Capita Availability of Power",
+        "2024-25",
+    ),
+    # --- P.1.C PR-Q (1) ------------------------------------------------
+    "iced_consumption_coal": (
+        "NITI Aayog India Climate & Energy Dashboard",
+        "Coal Consumption (Domestic) State-wise API (per-state fiscal-year coal consumption, by grade)",
         "2024-25",
     ),
 }
@@ -262,6 +282,15 @@ _BY_NICKNAME: dict[str, tuple[str, str, str, bool, str, str | None]] = {
         "https://rbi.org.in/Scripts/PublicationsView.aspx?id=22512",
         "RBI Handbook of Statistics on Indian States Table 138: state-wise per-capita electricity availability (kWh per person per year, FY05-FY25). Originating data: Central Electricity Authority, Ministry of Power (per the file disclosure). Population denominator from Census 2011 + linear projection. RBI is the longitudinal republisher; not the issuing authority for the underlying fact (plan-doc §3 Q-d).",
     ),
+    # --- P.1.C PR-Q (1) ------------------------------------------------
+    "iced_consumption_coal": (
+        "OGL-IN-1.0",
+        "silver",
+        "live-fetch",
+        False,
+        "https://icedapi.niti.gov.in/energy/fuel-sources/coal/consumption-domestic-state",
+        "ICED fuel-sources endpoint for state-wise domestic coal consumption (4 grades: raw + washed + middlings + lignite; FY06-FY25). Originating data: Coal Controller's Office / Ministry of Coal. ICED is the federal aggregator; not the issuing authority for the underlying fact (plan-doc §3 Q-d).",
+    ),
 }
 
 
@@ -296,13 +325,13 @@ ENERGY_SOURCE_ID_BY_NICKNAME: dict[str, str] = {
 
 
 def upsert_energy_sources(con: duckdb.DuckDBPyConnection) -> int:
-    """Idempotent scope-authoritative emit of the 12 energy citation rows
+    """Idempotent scope-authoritative emit of the 13 energy citation rows
     into the in-memory ``sources`` DuckDB table.
 
     First DELETEs every row whose ``(producer, title)`` pair is owned by
-    this seed (i.e. one of the 12 ``_TRIPLES`` keys); then INSERTs the
-    12 current rows. This makes the seed structurally authoritative for
-    its 12 ``(producer, title)`` slots: when a vintage rotates (as in
+    this seed (i.e. one of the 13 ``_TRIPLES`` keys); then INSERTs the
+    13 current rows. This makes the seed structurally authoritative for
+    its 13 ``(producer, title)`` slots: when a vintage rotates (as in
     ADR-0042 + the 5 ICED rotations of PR-B Commit 2), the previous
     ``source_id`` (derived from the previous vintage) is purged rather
     than orphaned. INSERT-OR-REPLACE alone would NOT achieve this
@@ -310,7 +339,7 @@ def upsert_energy_sources(con: duckdb.DuckDBPyConnection) -> int:
 
     Caller is responsible for creating the ``sources`` table first and
     for emitting the table back to ``taxonomy/sources.parquet`` after.
-    Returns the number of rows upserted (always 12 today: 7 P.1.A + 5 P.1.B).
+    Returns the number of rows upserted (always 13 today: 7 P.1.A + 5 P.1.B + 1 P.1.C PR-Q).
     """
     owned_keys = sorted({(producer, title) for producer, title, _ in _TRIPLES.values()})
     for producer, title in owned_keys:
@@ -370,13 +399,14 @@ def upsert_energy_sources_to_parquet(sources_parquet: Path) -> int:
     """Read-modify-write wrapper around :func:`upsert_energy_sources`.
 
     Opens an in-memory DuckDB, loads the existing
-    ``taxonomy/sources.parquet`` (if any), upserts the 12 energy
+    ``taxonomy/sources.parquet`` (if any), upserts the 13 energy
     citation rows, writes the parquet back. Used by the
     ``emit-taxonomy`` orchestrator after office_holdings_seed has
     already written the wiki citation rows for the CM offices.
 
-    Returns the number of rows upserted (always 12 today: 7 P.1.A +
-    5 P.1.B). Idempotent -- re-running yields byte-identical output.
+    Returns the number of rows upserted (always 13 today: 7 P.1.A +
+    5 P.1.B + 1 P.1.C PR-Q). Idempotent -- re-running yields byte-identical
+    output.
     """
     sources_parquet = Path(sources_parquet)
     sources_parquet.parent.mkdir(parents=True, exist_ok=True)
