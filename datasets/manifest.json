@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.3",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-25T06:00:26Z",
+  "generated_at": "2026-05-25T10:18:53Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -430,11 +430,11 @@
       "files": [
         {
           "path": "taxonomy/entities.parquet",
-          "size_bytes": 13424,
-          "row_count": 218
+          "size_bytes": 30497,
+          "row_count": 857
         }
       ],
-      "row_count_total": 218
+      "row_count_total": 857
     },
     {
       "table_id": "taxonomy.indicators",
@@ -498,11 +498,11 @@
       "files": [
         {
           "path": "taxonomy/sources.parquet",
-          "size_bytes": 19239,
-          "row_count": 361
+          "size_bytes": 20129,
+          "row_count": 363
         }
       ],
-      "row_count_total": 361
+      "row_count_total": 363
     }
   ],
   "deprecations": [
