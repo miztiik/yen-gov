@@ -44,6 +44,7 @@ Keep ADRs short. They are immutable once accepted; a later ADR supersedes (and t
 | [0040](0040-yenask-brand-and-lab-route.md) | YENASK brand `Yen-Ask` + `/lab/yenask` route | accepted |
 | [0041](0041-meadow-tier.md) | Meadow tier (`datasets/<family>/_meadow/<source>/<vintage>/`) | accepted |
 | [0042](0042-sources-schema-v3-vintage-as-period-anchor.md) | Sources schema v3.0 — `vintage` as strongest period anchor available | accepted |
+| [0043](0043-auto-rollup-at-canonical-write-time.md) | Auto-rollup at canonical-write time for sub-state grains (SUM/COUNT only, same `source_id`) | accepted |
 
 ## Absorbed ADRs (2026-05-09)
 

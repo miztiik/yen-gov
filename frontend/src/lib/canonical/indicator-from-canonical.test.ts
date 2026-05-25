@@ -934,3 +934,71 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
     expect(out!.indicator.id).toBe("state-rpo-compliance-pct");
   });
 });
+
+describe("PR B.01 — livestock NDLM Pashu Aadhaar state-grain (10 species)", () => {
+  // Registry-shape invariants for the 10 state-grain species descriptors
+  // shipped by PR B.01. Per ADR-0043 the canonical writer auto-emits
+  // `state-pashu-aadhaar-count-<species>` SUM-rollup rows alongside the
+  // source-of-truth district rows; this PR wires those state rows through
+  // the existing state-pipeline frontend (entity_kind: "state",
+  // canonical_entity → "S<n>" / "U<n>" via the same canonicalEntityToLegacy
+  // helper as every other state-grain canonical indicator).
+  //
+  // District-grain wiring follows in PR B.02 (entityKindToAdminLevel
+  // dispatch helper, district code support in canonicalEntityToLegacy) +
+  // PR B.03 (first district allowlist entry).
+
+  const PR_B01: ReadonlyArray<{
+    legacy_id: string;
+    canonical_id: string;
+    species: string;
+  }> = [
+    { legacy_id: "agriculture/state_pashu_aadhaar_count_cattle",  canonical_id: "state-pashu-aadhaar-count-cattle",  species: "cattle"  },
+    { legacy_id: "agriculture/state_pashu_aadhaar_count_buffalo", canonical_id: "state-pashu-aadhaar-count-buffalo", species: "buffalo" },
+    { legacy_id: "agriculture/state_pashu_aadhaar_count_goat",    canonical_id: "state-pashu-aadhaar-count-goat",    species: "goat"    },
+    { legacy_id: "agriculture/state_pashu_aadhaar_count_sheep",   canonical_id: "state-pashu-aadhaar-count-sheep",   species: "sheep"   },
+    { legacy_id: "agriculture/state_pashu_aadhaar_count_pig",     canonical_id: "state-pashu-aadhaar-count-pig",     species: "pig"     },
+    { legacy_id: "agriculture/state_pashu_aadhaar_count_mithun",  canonical_id: "state-pashu-aadhaar-count-mithun",  species: "mithun"  },
+    { legacy_id: "agriculture/state_pashu_aadhaar_count_yak",     canonical_id: "state-pashu-aadhaar-count-yak",     species: "yak"     },
+    { legacy_id: "agriculture/state_pashu_aadhaar_count_horse",   canonical_id: "state-pashu-aadhaar-count-horse",   species: "horse"   },
+    { legacy_id: "agriculture/state_pashu_aadhaar_count_donkey",  canonical_id: "state-pashu-aadhaar-count-donkey",  species: "donkey"  },
+    { legacy_id: "agriculture/state_pashu_aadhaar_count_mule",    canonical_id: "state-pashu-aadhaar-count-mule",    species: "mule"    },
+  ];
+
+  it("registers all 10 PR B.01 descriptors as canonical-backed", () => {
+    for (const row of PR_B01) {
+      expect(isCanonicalBacked(row.legacy_id)).toBe(true);
+    }
+  });
+
+  it("wires every PR B.01 legacy slug to the expected canonical id + livestock table", () => {
+    for (const row of PR_B01) {
+      const d = getCanonicalDescriptor(row.legacy_id);
+      expect(d).not.toBeNull();
+      expect(d!.kind).toBe("single");
+      if (d!.kind === "single") {
+        expect(d!.canonical_indicator_id).toBe(row.canonical_id);
+      }
+      expect(d!.table_id).toBe("livestock.livestock_pashu_aadhaar");
+    }
+  });
+
+  it("every PR B.01 meta block declares state grain + directional-only comparability + no_rank_table", () => {
+    // ADR-0043 + Hans honest-renderer doctrine: tagged-animal counts are
+    // not a livestock census; rank tables would mislead citizens. Each
+    // descriptor MUST carry comparability='directional_only' AND
+    // renderer_rules=['no_rank_table'] to suppress the ranked-table view.
+    for (const row of PR_B01) {
+      const d = getCanonicalDescriptor(row.legacy_id)!;
+      expect(d.meta.entity_kind).toBe("state");
+      expect(d.meta.time_grain).toBe("fiscal_year");
+      expect(d.meta.unit).toBe("animals");
+      expect(d.meta.value_kind).toBe("count");
+      expect(d.meta.comparability).toBe("directional_only");
+      expect(d.meta.renderer_rules).toContain("no_rank_table");
+      expect(d.meta.attribution_geography).toBe("where_resident");
+      expect(d.meta.title).toMatch(/Pashu Aadhaar/);
+      expect(d.meta.notes).toMatch(/NOT a livestock census/);
+    }
+  });
+});
