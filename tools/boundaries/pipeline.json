@@ -247,26 +247,29 @@
       }
     },
     {
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S04-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 99% name parity for Bihar (243 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
-        "producer": "Hindustan Times Labs",
-        "title": "HTL state-AC shapefile bundle",
-        "vintage": "2008 Delimitation"
+        "producer": "ramSeraph",
+        "title": "Indian Admin Boundaries (LGD-keyed)",
+        "vintage": "lgd-latest-extra1"
       },
       "country": "IN",
       "state": "S04",
       "out": "ac/S04-ac.pmtiles",
       "source": {
-        "format": "geojson",
+        "format": "geojsonl_7z",
         "urls": [
-          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/bihar/assembly/bihar_AC.json"
-        ]
+          "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z"
+        ],
+        "state_filter": { "property": "State_LGD", "equals": 10 },
+        "coord_precision": 2
       },
-      "license": "MIT",
-      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
-      "ac_no_property": "AC_NO",
-      "name_property": "AC_NAME",
-      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S04/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "license": "CC0-1.0",
+      "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
+      "license_note": "CC0 1.0 with requested attribution to datameet and the original government publisher (LGD/BharatMaps). Underlying upstream service: https://mapservice.gov.in/gismapservice/rest/services/BharatMapService/AC_PC/MapServer/2",
+      "id_property": "AC_ID",
+      "name_property": "ac_name",
       "tippecanoe": {
         "minzoom": 4,
         "maxzoom": 10,
@@ -328,26 +331,29 @@
       }
     },
     {
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S07-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 97% name parity for Haryana (90 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
-        "producer": "Hindustan Times Labs",
-        "title": "HTL state-AC shapefile bundle",
-        "vintage": "2008 Delimitation"
+        "producer": "ramSeraph",
+        "title": "Indian Admin Boundaries (LGD-keyed)",
+        "vintage": "lgd-latest-extra1"
       },
       "country": "IN",
       "state": "S07",
       "out": "ac/S07-ac.pmtiles",
       "source": {
-        "format": "geojson",
+        "format": "geojsonl_7z",
         "urls": [
-          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/haryana/assembly/haryana_AC.json"
-        ]
+          "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z"
+        ],
+        "state_filter": { "property": "State_LGD", "equals": 6 },
+        "coord_precision": 2
       },
-      "license": "MIT",
-      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
-      "ac_no_property": "AC_NO",
-      "name_property": "AC_NAME",
-      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S07/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "license": "CC0-1.0",
+      "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
+      "license_note": "CC0 1.0 with requested attribution to datameet and the original government publisher (LGD/BharatMaps). Underlying upstream service: https://mapservice.gov.in/gismapservice/rest/services/BharatMapService/AC_PC/MapServer/2",
+      "id_property": "AC_ID",
+      "name_property": "ac_name",
       "tippecanoe": {
         "minzoom": 4,
         "maxzoom": 10,
@@ -355,26 +361,29 @@
       }
     },
     {
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S08-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 99% name parity for Himachal Pradesh (68 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
-        "producer": "Hindustan Times Labs",
-        "title": "HTL state-AC shapefile bundle",
-        "vintage": "2008 Delimitation"
+        "producer": "ramSeraph",
+        "title": "Indian Admin Boundaries (LGD-keyed)",
+        "vintage": "lgd-latest-extra1"
       },
       "country": "IN",
       "state": "S08",
       "out": "ac/S08-ac.pmtiles",
       "source": {
-        "format": "geojson",
+        "format": "geojsonl_7z",
         "urls": [
-          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/himachalpradesh/assembly/himachalpradesh_AC.json"
-        ]
+          "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z"
+        ],
+        "state_filter": { "property": "State_LGD", "equals": 2 },
+        "coord_precision": 2
       },
-      "license": "MIT",
-      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
-      "ac_no_property": "AC_NO",
-      "name_property": "AC_NAME",
-      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S08/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "license": "CC0-1.0",
+      "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
+      "license_note": "CC0 1.0 with requested attribution to datameet and the original government publisher (LGD/BharatMaps). Underlying upstream service: https://mapservice.gov.in/gismapservice/rest/services/BharatMapService/AC_PC/MapServer/2",
+      "id_property": "AC_ID",
+      "name_property": "ac_name",
       "tippecanoe": {
         "minzoom": 4,
         "maxzoom": 10,
@@ -544,26 +553,29 @@
       }
     },
     {
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S17-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 100% name parity for Nagaland (60 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
-        "producer": "Hindustan Times Labs",
-        "title": "HTL state-AC shapefile bundle",
-        "vintage": "2008 Delimitation"
+        "producer": "ramSeraph",
+        "title": "Indian Admin Boundaries (LGD-keyed)",
+        "vintage": "lgd-latest-extra1"
       },
       "country": "IN",
       "state": "S17",
       "out": "ac/S17-ac.pmtiles",
       "source": {
-        "format": "geojson",
+        "format": "geojsonl_7z",
         "urls": [
-          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/nagaland/assembly/nagaland_AC.json"
-        ]
+          "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z"
+        ],
+        "state_filter": { "property": "State_LGD", "equals": 13 },
+        "coord_precision": 2
       },
-      "license": "MIT",
-      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
-      "ac_no_property": "AC_NO",
-      "name_property": "AC_NAME",
-      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S17/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "license": "CC0-1.0",
+      "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
+      "license_note": "CC0 1.0 with requested attribution to datameet and the original government publisher (LGD/BharatMaps). Underlying upstream service: https://mapservice.gov.in/gismapservice/rest/services/BharatMapService/AC_PC/MapServer/2",
+      "id_property": "AC_ID",
+      "name_property": "ac_name",
       "tippecanoe": {
         "minzoom": 4,
         "maxzoom": 10,
@@ -571,26 +583,29 @@
       }
     },
     {
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S18-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 97% name parity for Odisha (147 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
-        "producer": "Hindustan Times Labs",
-        "title": "HTL state-AC shapefile bundle",
-        "vintage": "2008 Delimitation"
+        "producer": "ramSeraph",
+        "title": "Indian Admin Boundaries (LGD-keyed)",
+        "vintage": "lgd-latest-extra1"
       },
       "country": "IN",
       "state": "S18",
       "out": "ac/S18-ac.pmtiles",
       "source": {
-        "format": "geojson",
+        "format": "geojsonl_7z",
         "urls": [
-          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/odisha/assembly/odisha_AC.json"
-        ]
+          "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z"
+        ],
+        "state_filter": { "property": "State_LGD", "equals": 21 },
+        "coord_precision": 2
       },
-      "license": "MIT",
-      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
-      "ac_no_property": "AC_NO",
-      "name_property": "AC_NAME",
-      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S18/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "license": "CC0-1.0",
+      "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
+      "license_note": "CC0 1.0 with requested attribution to datameet and the original government publisher (LGD/BharatMaps). Underlying upstream service: https://mapservice.gov.in/gismapservice/rest/services/BharatMapService/AC_PC/MapServer/2",
+      "id_property": "AC_ID",
+      "name_property": "ac_name",
       "tippecanoe": {
         "minzoom": 4,
         "maxzoom": 10,
@@ -598,26 +613,29 @@
       }
     },
     {
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S19-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 100% name parity for Punjab (117 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
-        "producer": "Hindustan Times Labs",
-        "title": "HTL state-AC shapefile bundle",
-        "vintage": "2008 Delimitation"
+        "producer": "ramSeraph",
+        "title": "Indian Admin Boundaries (LGD-keyed)",
+        "vintage": "lgd-latest-extra1"
       },
       "country": "IN",
       "state": "S19",
       "out": "ac/S19-ac.pmtiles",
       "source": {
-        "format": "geojson",
+        "format": "geojsonl_7z",
         "urls": [
-          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/punjab/assembly/punjab_AC.json"
-        ]
+          "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z"
+        ],
+        "state_filter": { "property": "State_LGD", "equals": 3 },
+        "coord_precision": 2
       },
-      "license": "MIT",
-      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
-      "ac_no_property": "AC_NO",
-      "name_property": "AC_NAME",
-      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S19/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "license": "CC0-1.0",
+      "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
+      "license_note": "CC0 1.0 with requested attribution to datameet and the original government publisher (LGD/BharatMaps). Underlying upstream service: https://mapservice.gov.in/gismapservice/rest/services/BharatMapService/AC_PC/MapServer/2",
+      "id_property": "AC_ID",
+      "name_property": "ac_name",
       "tippecanoe": {
         "minzoom": 4,
         "maxzoom": 10,
@@ -679,26 +697,29 @@
       }
     },
     {
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S23-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 100% name parity for Tripura (60 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
-        "producer": "Hindustan Times Labs",
-        "title": "HTL state-AC shapefile bundle",
-        "vintage": "2008 Delimitation"
+        "producer": "ramSeraph",
+        "title": "Indian Admin Boundaries (LGD-keyed)",
+        "vintage": "lgd-latest-extra1"
       },
       "country": "IN",
       "state": "S23",
       "out": "ac/S23-ac.pmtiles",
       "source": {
-        "format": "geojson",
+        "format": "geojsonl_7z",
         "urls": [
-          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/tripura/assembly/tripura_AC.json"
-        ]
+          "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z"
+        ],
+        "state_filter": { "property": "State_LGD", "equals": 16 },
+        "coord_precision": 2
       },
-      "license": "MIT",
-      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
-      "ac_no_property": "AC_NO",
-      "name_property": "AC_NAME",
-      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S23/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "license": "CC0-1.0",
+      "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
+      "license_note": "CC0 1.0 with requested attribution to datameet and the original government publisher (LGD/BharatMaps). Underlying upstream service: https://mapservice.gov.in/gismapservice/rest/services/BharatMapService/AC_PC/MapServer/2",
+      "id_property": "AC_ID",
+      "name_property": "ac_name",
       "tippecanoe": {
         "minzoom": 4,
         "maxzoom": 10,
@@ -733,26 +754,29 @@
       }
     },
     {
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S26-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 99% name parity for Chhattisgarh (90 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
-        "producer": "Hindustan Times Labs",
-        "title": "HTL state-AC shapefile bundle",
-        "vintage": "2008 Delimitation"
+        "producer": "ramSeraph",
+        "title": "Indian Admin Boundaries (LGD-keyed)",
+        "vintage": "lgd-latest-extra1"
       },
       "country": "IN",
       "state": "S26",
       "out": "ac/S26-ac.pmtiles",
       "source": {
-        "format": "geojson",
+        "format": "geojsonl_7z",
         "urls": [
-          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/chhattisgarh/assembly/chhattisgarh_AC.json"
-        ]
+          "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z"
+        ],
+        "state_filter": { "property": "State_LGD", "equals": 22 },
+        "coord_precision": 2
       },
-      "license": "MIT",
-      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
-      "ac_no_property": "AC_NO",
-      "name_property": "AC_NAME",
-      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S26/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "license": "CC0-1.0",
+      "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
+      "license_note": "CC0 1.0 with requested attribution to datameet and the original government publisher (LGD/BharatMaps). Underlying upstream service: https://mapservice.gov.in/gismapservice/rest/services/BharatMapService/AC_PC/MapServer/2",
+      "id_property": "AC_ID",
+      "name_property": "ac_name",
       "tippecanoe": {
         "minzoom": 4,
         "maxzoom": 10,
@@ -787,26 +811,29 @@
       }
     },
     {
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S28-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 100% name parity for Uttarakhand (70 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
-        "producer": "Hindustan Times Labs",
-        "title": "HTL state-AC shapefile bundle",
-        "vintage": "2008 Delimitation"
+        "producer": "ramSeraph",
+        "title": "Indian Admin Boundaries (LGD-keyed)",
+        "vintage": "lgd-latest-extra1"
       },
       "country": "IN",
       "state": "S28",
       "out": "ac/S28-ac.pmtiles",
       "source": {
-        "format": "geojson",
+        "format": "geojsonl_7z",
         "urls": [
-          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/uttarakhand/assembly/uttarakhand_AC.json"
-        ]
+          "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z"
+        ],
+        "state_filter": { "property": "State_LGD", "equals": 5 },
+        "coord_precision": 2
       },
-      "license": "MIT",
-      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
-      "ac_no_property": "AC_NO",
-      "name_property": "AC_NAME",
-      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S28/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "license": "CC0-1.0",
+      "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
+      "license_note": "CC0 1.0 with requested attribution to datameet and the original government publisher (LGD/BharatMaps). Underlying upstream service: https://mapservice.gov.in/gismapservice/rest/services/BharatMapService/AC_PC/MapServer/2",
+      "id_property": "AC_ID",
+      "name_property": "ac_name",
       "tippecanoe": {
         "minzoom": 4,
         "maxzoom": 10,
@@ -841,26 +868,29 @@
       }
     },
     {
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL U05-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 97% name parity for NCT of Delhi (70 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
-        "producer": "Hindustan Times Labs",
-        "title": "HTL state-AC shapefile bundle",
-        "vintage": "2008 Delimitation"
+        "producer": "ramSeraph",
+        "title": "Indian Admin Boundaries (LGD-keyed)",
+        "vintage": "lgd-latest-extra1"
       },
       "country": "IN",
       "state": "U05",
       "out": "ac/U05-ac.pmtiles",
       "source": {
-        "format": "geojson",
+        "format": "geojsonl_7z",
         "urls": [
-          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/delhi/assembly/delhi_AC.json"
-        ]
+          "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z"
+        ],
+        "state_filter": { "property": "State_LGD", "equals": 7 },
+        "coord_precision": 2
       },
-      "license": "MIT",
-      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
-      "ac_no_property": "AC_NO",
-      "name_property": "AC_NAME",
-      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/U05/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "license": "CC0-1.0",
+      "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
+      "license_note": "CC0 1.0 with requested attribution to datameet and the original government publisher (LGD/BharatMaps). Underlying upstream service: https://mapservice.gov.in/gismapservice/rest/services/BharatMapService/AC_PC/MapServer/2",
+      "id_property": "AC_ID",
+      "name_property": "ac_name",
       "tippecanoe": {
         "minzoom": 4,
         "maxzoom": 10,
