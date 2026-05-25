@@ -122,9 +122,10 @@ Every file currently under `datasets/boundaries/in/` stays exactly where it is. 
 - `boundaries/in/geojson/S<NN>-subdistricts.geojson` (TN today; other states as ingested)
 - `boundaries/in/geojson/S<NN>-villages-<dist_lgd>.geojson` (TN today; other states as ingested)
 - All `.sources.json`, `.metadata.json`, `.unkeyed.json` sidecars (preserved by convention)
-- `boundaries/in/postal/IN-pincodes-<city>.geojson` (Chennai today)
+- `boundaries/in/postal/state=in_<lc>/all.geojson` (state-resolved pincode polygons)
+- `boundaries/in/postal/scope=unkeyed/all.geojson` (unresolved pincode polygons)
 
-Future additions (PCs, taluks national rollout, villages national rollout) follow the same `boundaries/in/{geojson|pmtiles}/` layout under the format-per-level table above.
+Future additions (PCs, taluks countrywide rollout, villages countrywide rollout) follow the same `boundaries/in/{geojson|pmtiles}/` layout under the format-per-level table above.
 
 ### Migration / deletion exclusion (R25)
 
@@ -169,11 +170,12 @@ datasets/boundaries/in/
 ├── districts/all.geojson
 ├── subdistricts/state=in_<lc>/all.geojson           # one per state
 ├── villages/state=in_<lc>/district=<lgd>/all.geojson # one per (state, district)
-├── ac/state=in_<lc>/all.geojson                     # one per state (37 today)
-└── postal/IN-pincodes-<city>.geojson                # not LGD, segregated by city
+├── ac/state=in_<lc>/all.geojson                     # one per state/UT with an AC layer
+├── postal/state=in_<lc>/all.geojson                 # pincode polygons resolved to a state
+└── postal/scope=unkeyed/all.geojson                 # unresolved pincode polygons
 ```
 
-The partition keys are the entity hierarchy keys already in `taxonomy/entities.parquet`: `state=in_<lower-case-iso>` and `district=<lgd>`. Frontend resolves a layer to a path via `boundaryRelPath(level, parentDistrictLgd?, stateLgd?)` (in `frontend/src/lib/boundaries.ts`); village lookups no longer probe a per-state index manifest — they fetch the partition path directly and let 404 = "not yet ingested" propagate as `null` (graceful degradation).
+The partition keys are the entity hierarchy keys already in `taxonomy/entities.parquet`: `state=in_<lower-case-iso>` and `district=<lgd>`. Postal also uses `scope=unkeyed` for pincode polygons whose state could not be resolved. Frontend resolves a layer to a path via `boundaryRelPath(level, parentDistrictLgd?, stateLgd?)` (in `frontend/src/lib/boundaries.ts`); village lookups no longer probe a per-state index manifest — they fetch the partition path directly and let 404 = "not yet ingested" propagate as `null` (graceful degradation).
 
 ### 2. Provenance + simplification metadata + dropped-feature counts move to `boundary_layers.parquet`
 

@@ -31,9 +31,9 @@ describe("boundaryRelPath (Hive layout)", () => {
     );
   });
 
-  it("postal for TN → postal/IN-pincodes-chennai.geojson (Phase 4 §160)", () => {
+  it("postal for TN resolves to the state-sharded pincode file", () => {
     expect(boundaryRelPath("postal", undefined, "33")).toBe(
-      "postal/IN-pincodes-chennai.geojson",
+      "postal/state=in_s22/all.geojson",
     );
   });
 
@@ -41,9 +41,9 @@ describe("boundaryRelPath (Hive layout)", () => {
     expect(() => boundaryRelPath("postal")).toThrow(/stateLgd/);
   });
 
-  it("postal for an unmapped state throws (Chennai-only today)", () => {
+  it("postal for an unmapped state throws", () => {
     expect(() => boundaryRelPath("postal", undefined, "27")).toThrow(
-      /no postal boundaries/,
+      /no frontend state-code mapping/,
     );
   });
 
@@ -59,7 +59,7 @@ describe("boundaryRelPath (Hive layout)", () => {
 
   it("subdistrict for an unmapped state throws", () => {
     expect(() => boundaryRelPath("subdistrict", undefined, "27")).toThrow(
-      /no per-state subdistricts/,
+      /no frontend state-code mapping/,
     );
   });
 });

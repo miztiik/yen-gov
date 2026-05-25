@@ -163,7 +163,7 @@
 - **Acceptance gates**:
   - Run on existing `country`, `states`, `districts`, `pc/delim=2024`, `subdistricts/state=in_s22`, all AC per-state, all village per-district files.
   - Every resulting file ≤ 500 KB gzipped (measure with `gzip -c | wc -c`).
-  - Vitest contract: extend [`frontend/src/contracts/boundaries-conform.test.ts`](../frontend/src/contracts/boundaries-conform.test.ts) to fail the build if any boundary file exceeds the per-layer gzipped ceiling.
+  - Boundary tooling contract: run `python tools/boundaries/simplify.py --dry-run --skip-parquet` and fail the PR if any boundary file exceeds the per-layer gzipped ceiling. Frontend vitest stays focused on cheap loader-facing contracts.
   - **§13 browser smoke**: home choropleth + 3 state hubs (TN/KL/BR) + 1 district drill (TN district 568) all render visually indistinguishable at India / state / district zoom levels. Pixel-level diffs at coastlines are expected and acceptable at the simplification tolerance; missing polygons or visible jagged edges at viewport zoom are not.
   - Tier-A + Tier-B + svelte-check pass.
 - **Independent of 0.1 + 0.2**: can ship as its own PR before or after the LGD CSV ingest.
@@ -193,9 +193,9 @@
   - Provenance: emitted CSV row count = sum across `circlename` partitions = same as upstream CSV row count modulo deduplication on `(officename, pincode)`.
   - **No frontend consumer in this sub-phase** — A.1 is a backend-only data drop. §13 browser smoke not required.
 
-### A.2 — National pincode polygons
+### A.2 - Countrywide pincode polygons
 
-- **What ships**: `datasets/boundaries/in/postal/IN-pincodes-<region>.geojson` shards conforming to the existing `postal` schema; ledger row(s) in `boundary_layers.parquet`.
+- **What ships**: `datasets/boundaries/in/postal/state=in_<sNN>/all.geojson` shards plus `datasets/boundaries/in/postal/scope=unkeyed/all.geojson`; ledger rows in `boundary_layers.parquet`.
 - **Source candidates** (pick one per first-snapshot recon):
   1. ramSeraph [`indian_cadastrals#postal`](https://github.com/ramSeraph/indian_cadastrals/releases/tag/postal) — `PincodeBoundaries.geojsonl.7z` (PostalGIS lineage, CC0-1.0). **Coverage gap**: missing HP, J&K, Sikkim, ML, MZ, MN, NL, AR (8 states/UTs).
   2. Same release — `Datagov_Pincode_Boundaries.geojsonl.7z` (data.gov.in lineage, GODL-IN). **All-India coverage**, but lower granularity in some urban areas.
@@ -205,7 +205,7 @@
 - **Acceptance gates**:
   - Tier-A schema sanity: pincode `postal` geometry validates against the existing schema.
   - Tier-B corpus conformance: ledger row(s) carry `level=postal`, valid `source_id` FK.
-  - File-size budget: per-shard ≤ 8 MB gzipped (boundaries.budget.test.ts). If the national pincode file exceeds, split by state-prefix (pincode 6 → first digit gives region) into 9 shards.
+  - File-size budget: run `python tools/boundaries/simplify.py --dry-run --skip-parquet`; if a postal shard exceeds its ceiling, simplify or split it in the boundary data PR.
   - Frontend boundaries contract test (`frontend/src/contracts/boundaries-conform.test.ts`) passes.
   - §13 browser smoke: ONLY if a consumer surface exists. A.2 alone has no UI consumer — defer §13 smoke until the search affordance lands as a separate PR.
 
@@ -457,7 +457,7 @@ This is a multi-agent codebase. The block below is the literal prompt to drop in
 >
 > **Follow-up debt (separate small PR, NOT part of Track 1 or 2)**:
 >
-> - **Village/national budget-ceiling bump** — `frontend/src/lib/boundaries.budget.test.ts` + `frontend/src/contracts/boundaries-conform.test.ts` Phase 0.4 carry 487 PRE-EXISTING failures since PR #257 (subdistrict national lift, chunks 110 → 462) and PR #259 (village national lift, chunks 462 → 753 + village shard sizes exceeding `VILLAGE_SHARD_MAX_BYTES=4MB` and `LAYER_GZIP_CEILING_KB=500`). Bump ceilings to match current corpus reality (or split largest shards). Single-file scope; full-suite vitest goes green; CI on `main` recovers.
+> - **Boundary gzip budget enforcement** - the stale frontend ratchets (`frontend/src/lib/boundaries.budget.test.ts` raw byte/chunk count and `frontend/src/contracts/boundaries-conform.test.ts` full-corpus gzip loop) have outgrown the countrywide rollout. The structural fix is to keep frontend vitest focused on cheap loader-facing contracts and run `python tools/boundaries/simplify.py --dry-run --skip-parquet` at the boundary tooling seam whenever geometry changes. If that command reports overweight shards, fix them in a data PR via simplification or finer partitioning; do not silently raise a frontend ceiling.
 >
 > **Track 2 — Phase 0.2 (district entity backfill, parallel to Track 1)**:
 >

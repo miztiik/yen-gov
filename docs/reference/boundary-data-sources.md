@@ -15,21 +15,21 @@ The pipeline that consumes these sources lives in [`tools/boundaries/`](../../to
 | **LGD code** | The numeric identifier issued by the [Local Government Directory](https://lgdirectory.gov.in) for every administrative unit below the state — district, sub-district, block, gram panchayat, ULB, ward, village, AC, PC. The yen-gov join key for all non-electoral layers (district/subdistrict/village). See [identifiers.md](identifiers.md). |
 | **HASC / ISO** | International coding schemes (`IN.TN`, `IN.AP`) used by some upstream sources (GADM, OSM). We do **not** use these as identifiers — name-normalisation would be required and they don't carry below state level cleanly. |
 
-## Current inventory (74 shards on disk)
+## Current inventory (753 shards on disk)
 
-Resolved from the ledger ([`datasets/boundaries/boundary_layers.parquet`](../../datasets/boundaries/boundary_layers.parquet)) + producer/license join against [`datasets/taxonomy/sources.parquet`](../../datasets/taxonomy/sources.parquet) as of 2026-05-24.
+Resolved from the ledger ([`datasets/boundaries/boundary_layers.parquet`](../../datasets/boundaries/boundary_layers.parquet)) + producer/license join against [`datasets/taxonomy/sources.parquet`](../../datasets/taxonomy/sources.parquet) as of 2026-05-25.
 
 | Level | Coverage | Producer | License | Join key | Vintage |
 | --- | --- | --- | --- | --- | --- |
 | `country` | 1 IND outline | [yashveeeeeeer/india-geodata](https://github.com/yashveeeeeeer/india-geodata) (SoI-derived) | CC-BY-4.0 | — | current (post-Telangana, post-Ladakh, post-DNH/DD) |
-| `state` | 36 states + UTs | [datameet/maps](https://github.com/datameet/maps) `States/Admin2` | CC-BY-4.0 | `ST_NM` (name) | post-2014 Telangana, post-2019 Ladakh, post-2020 DNH/DD merger |
-| `district` | 785 districts (national) | ramSeraph [`LGD_Districts`](https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/districts) | CC-BY-4.0¹ | `dist_lgd` | LGD `lgd-latest-extra1` (rolling ~3 mo) |
-| `subdistrict` | **TN only** (300) | ramSeraph [`LGD_Subdistricts`](https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/subdistricts) | CC-BY-4.0¹ | `subdist_lgd` | LGD `lgd-latest-extra1` |
-| `village` | **TN only**, 38 districts (~17k feats) | ramSeraph [`LGD_Villages`](https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/villages) | CC-BY-4.0¹ | `village_lgd` | LGD `lgd-latest-extra1` |
+| `state` | 36 states + UTs | ramSeraph [`LGD_States`](https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/states) | CC0-1.0 | `State_LGD` | LGD `lgd-latest-extra1` |
+| `district` | 785 districts (national) | ramSeraph [`LGD_Districts`](https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/districts) | CC-BY-4.0 (see note) | `dist_lgd` | LGD `lgd-latest-extra1` (rolling ~3 mo) |
+| `subdistrict` | 36 states + UTs (36 per-state shards) | ramSeraph [`LGD_Subdistricts`](https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/subdistricts) | CC-BY-4.0 (see note) | `subdist_lgd` | LGD `lgd-latest-extra1` |
+| `village` | 27/36 states + UTs (645 per-(state, district) shards) | ramSeraph [`LGD_Villages`](https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/villages) | CC-BY-4.0 (see note) | `village_lgd` | LGD `lgd-latest-extra1` |
 | `ac` (Assembly Constituency) | 10 states from [ramSeraph/indian_admin_boundaries](https://github.com/ramSeraph/indian_admin_boundaries) `LGD_Assembly_Constituencies` (BharatMaps/LGD lineage; Phase D.2 promote, 2026-05-25) + 20 states from [HindustanTimesLabs/shapefiles](https://github.com/HindustanTimesLabs/shapefiles) | ramSeraph (CC0-1.0) for 10; HTL (MIT, treated as `unknown-public` in sources ledger) for 20 | `AC_ID` (5-digit LGD code) on ramSeraph; `AC_NO` on HTL | LGD rolling vintage on ramSeraph; 2008 Delimitation Order on HTL |
 | `ac` — J&K (U08) | 1 file (90 ACs) | [shijithpk/2024_maps_supplement](https://github.com/shijithpk/2024_maps_supplement) `j_and_k_assembly_new_borders` | Unlicense | `seat_id` | 2022 J&K Delimitation Commission |
 | `pc` (Parliamentary Constituency) | 545 features (national, 1 file) | [shijithpk/2024_maps_supplement](https://github.com/shijithpk/2024_maps_supplement) `india_ls_seats_545` | Unlicense | `ls_seat_code` | 2024 General Election delimitation |
-| `postal` | **none yet** (schema + loader landed; data pending) | — (planned: ramSeraph [`PincodeBoundaries`](https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/postal) or data.gov.in GODL) | TBD | 6-digit pincode | — |
+| `postal` | 36 per-state shards + 1 `scope=unkeyed` shard | Department of Posts via data.gov.in OGD All-India Pincode Boundary | GODL-IN | 6-digit pincode | 2025 |
 
 ¹ ramSeraph upstream license is CC0-1.0 with attribution requested for datameet + the original government publisher. We record it as CC-BY-4.0 in the sources ledger because the attribution chain is the binding constraint. See [`indianopenmaps/DATA_LICENSE.md`](https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md).
 
@@ -42,16 +42,16 @@ The administrative-hierarchy matrix that civic-data work usually starts from (LG
 | **National** | `country` | ✅ live | yashveeeeeeer/india-geodata (SoI-derived) |
 | **State / UT** | `state` | ✅ live | datameet `Admin2` |
 | **District (LGD revenue district / Census 2011 district)** | `district` | ✅ live | ramSeraph `LGD_Districts` |
-| **Sub-district (Tehsil / Taluk / Mandal / Block — LGD revenue unit)** | `subdistrict` | ⚠️ TN only | ramSeraph `LGD_Subdistricts` (already in pipeline.json; `state_filter` lift is the work — see Phase B of the [coverage-expansion plan](../../TODO/20260524-boundary-coverage-expansion-plan.md)) |
+| **Sub-district (Tehsil / Taluk / Mandal / Block - LGD revenue unit)** | `subdistrict` | live | ramSeraph `LGD_Subdistricts`; countrywide rollout ships one shard per state/UT under `subdistricts/state=in_<sNN>/all.geojson` |
 | **LGD Block (rural development block — distinct from sub-district)** | — | ❌ gap | ramSeraph [`blocks`](https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/blocks) release (catalogued, not adopted) |
 | **Rural local body — Zila / Block / Gram Panchayat** | — | ❌ gap | ramSeraph [`panchayats`](https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/panchayats) release (catalogued, not adopted) |
 | **Urban local body — Municipal Corp / Municipality / Town Panchayat** | — | ❌ gap | ramSeraph [`urban`](https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/urban) release: `SBM_ULBs` (national; gaps in TR/MZ/MN) + `WB_AMRUT_ULBs` (WB) |
 | **Ward (GP ward / ULB ward)** | — | ❌ gap | ramSeraph `urban`: `SBM_Wards` (national, gaps in WB/TR/MZ/MN) + `LivingAtlas_Wards` + `WB_AMRUT_Wards` + `Shillong_Wards` |
-| **Village (rural land unit, LGD-coded)** | `village` | ⚠️ TN only | ramSeraph `LGD_Villages` (national-minus-8: HP, J&K, Sikkim, ML, MZ, MN, NL, AR are missing upstream) — Phase C of the plan |
+| **Village (rural land unit, LGD-coded)** | `village` | partial: 27/36 states + UTs | ramSeraph `LGD_Villages`; countrywide rollout ships one shard per `(state, district)` under `villages/state=in_<sNN>/district=<lgd>/all.geojson`; 9 states/UTs are missing upstream (table below) |
 | **Town (urban land unit, Census 2011)** | — | ❌ gap | ramSeraph census-2011 `PC11_TV_DIR.csv.7z` (town + village directory, CSV-only) |
 | **Assembly Constituency (AC)** | `ac` | ✅ 31 of 31 elective states/UTs (10 ramSeraph LGD post-Phase-D.2 + 20 HTL + 1 J&K shijithpk) | mixed (HTL + ramSeraph + shijithpk J&K); ramSeraph `LGD_Assembly_Constituencies` is the consolidation target for the remaining HTL states **where D.1 recon authorises** — Phase D of the plan |
 | **Parliamentary Constituency (PC)** | `pc` | ✅ national, 1 file | shijithpk 2024 delim today; ramSeraph `LGD_Parliament_Constituencies` is the upgrade candidate when survey-grade geometry is needed |
-| **PIN code (postal zone)** | `postal` | ❌ gap | ramSeraph [`PincodeBoundaries`](https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/postal) (PostalGIS, missing 8 NE/HP/J&K states) or `Datagov_Pincode_Boundaries` (data.gov.in, GODL, all-India) — Phase A of the plan |
+| **PIN code (postal zone)** | `postal` | live | Department of Posts via data.gov.in OGD All-India Pincode Boundary; 36 `postal/state=in_<sNN>/all.geojson` shards plus `postal/scope=unkeyed/all.geojson` |
 | **Census 2011 District / Sub-district / Village** | indirect — `entities.json` district rows carry `census_2011_code` | ⚠️ no polygons | ramSeraph census-2011: `Districts_2011` + `SubDistricts_2011` (CC0-1.0 polygons), `Census_Villages` (CC0 **points**, not polygons). SHRUG variants are **CC-BY-NC-SA — non-commercial, NOT safe for our static-site redistribution**. See Phase E. |
 | **DIGIPIN (4 m × 4 m grid)** | — | out of scope | Not a polygon family — needs a separate point/grid handler. Not on the roadmap. |
 
@@ -76,16 +76,16 @@ Three numbers govern district-level reasoning and routinely confuse new agents �
 
 | Level | What ships today | What is missing | Closes via |
 | --- | --- | --- | --- |
-| country | 1 IND outline ✅ | — | — |
-| state / UT | 36/36 ✅ | DataMeet curated source today; survey-grade ramSeraph `LGD_States` is the upgrade target | **Plan Phase D.0** |
-| district polygons | 785/784 ✅ (1 cosmetic delta) | the 1 row reconcile | rolls in with **Phase 0.2** |
-| **district entity rows** (`taxonomy/entities.json`) | **145/784** ⚠️ | **639 missing** — every state except S03/S06/S11/S22/S25/U07 needs its districts curated in | **Plan Phase 0.2** (hand-curation; LGD CSV → generator → operator review → JSON patch) |
-| subdistrict | 36/36 states ✅ (national lift in PR #257) | — | — |
-| village | 27/36 states ✅ (PR #259, 645 per-(state, district) shards) | **9 states/UTs missing upstream** — see table below | bhuvan fall-back (per-state, gated on first village-keyed indicator); not in active sprint |
-| AC | 31/31 elective states ✅ (10 ramSeraph LGD + 20 HTL + 1 J&K shijithpk) | survey-grade consolidation onto ramSeraph `LGD_Assembly_Constituencies` for the remaining HTL states where D.1 recon authorises | **Plan Phase D.2 partial (10 states landed 2026-05-25); D.5 wrap-up closes the loop**. S03 Assam + U08 J&K remain on HTL/shijithpk per D.1 §4 Outcome-3 mixed verdicts (LGD upstream does not cleanly reflect the post-2023 Assam or post-2022 J&K re-delim layouts). |
-| PC | 545 features ✅ (shijithpk, 2024 delim) | survey-grade `LGD_Parliament_Constituencies` is the upgrade target | **Plan Phase D.6** |
-| pincode polygons | 36 per-state shards ✅ (PR #254) | — | — |
-| pincode directory CSV | 165,627 rows ✅ (PR pending) | — | — |
+| country | 1 IND outline live | - | - |
+| state / UT | 36/36 live | - | D.0 ramSeraph `LGD_States` swap landed |
+| district polygons | 785 polygons (1 cosmetic over the 784-row LGD master) | 1 row reconcile | follow-up data cleanup |
+| **district entity rows** (`taxonomy/entities.json`) | **784/784 live** | - | Phase 0.2 landed in PR #267 |
+| subdistrict | 36/36 states + UTs live (countrywide rollout in PR #257) | - | - |
+| village | 27/36 states + UTs live (PR #259, 645 per-(state, district) shards) | **9 states/UTs missing upstream** - see table below | bhuvan fall-back (per-state, gated on first village-keyed indicator); not in active sprint |
+| AC | 31/31 elective states live (10 ramSeraph LGD + 20 HTL + 1 J&K shijithpk) | survey-grade consolidation onto ramSeraph `LGD_Assembly_Constituencies` for the remaining HTL states where D.1 recon authorises | **Plan Phase D.2 partial (10 states landed 2026-05-25); D.5 wrap-up closes the loop**. S03 Assam + U08 J&K remain on HTL/shijithpk per D.1 section 4 Outcome-3 mixed verdicts (LGD upstream does not cleanly reflect the post-2023 Assam or post-2022 J&K re-delim layouts). |
+| PC | 545 features live (shijithpk, 2024 delim) | survey-grade `LGD_Parliament_Constituencies` is the upgrade target | **Plan Phase D.6** |
+| pincode polygons | 36 per-state shards + 1 unkeyed shard live (PR #254) | - | - |
+| pincode directory CSV | 165,627 rows live (PR #250) | - | - |
 
 ### Village gap — the 9 states/UTs missing from upstream `LGD_Villages`
 
@@ -185,12 +185,12 @@ Decision per release tag, applying the gap-fill policy above:
 | `states` (`LGD_States`, `bhuvan_states`, `SOI_States`) | LGD/BharatMaps (survey-grade), Bhuvan, Survey of India | datameet `Admin2` today | **Phase D.0 swap target (user-approved override 2026-05-24).** ramSeraph `LGD_States` is survey-grade BharatMaps lineage vs DataMeet's curated GIS lineage — the upgrade is a citizen-visible quality lift at coastlines + disputed borders and aligns the state layer with the LGD code system used everywhere else (districts, subdistricts, villages). Mechanically `~1 hour`: `taxonomy.entities` already carries all three code systems (`legacy_id`=ECI `S22`, `lgd_code`=`33`, `iso_3166_2`=`IN-TN`) per the T.0e port, so the swap is property repoint (`join_property` `ST_NM` → whatever `LGD_States` carries) + add `lgdCodeToEci` view-model helper + re-validate the 3-entry `boundary_join_name` override map (expect most/all to drop). See Phase D.0 of [the coverage-expansion plan](../../TODO/20260524-boundary-coverage-expansion-plan.md). |
 | `districts` (`LGD_Districts`, `bhuvan_districts`, `SOI_Districts`) | same three lineages | **none — no district polygon layer in `pipeline.json`** | **Adopt to fill the gap.** `LGD_Districts` is the natural pick (carries LGD codes — joins directly to our `district.lgd_code` field per [ADR-0015](../architecture/decisions/0015-constituency-hierarchy-fields.md)). Staged entry in `pipeline.json#staged_inputs`; activate when the first district choropleth ships. |
 | `constituencies` (`LGD_Assembly_Constituencies`, `LGD_Parliament_Constituencies`, Susewind 2014 AC/PC) | BharatMaps `mapservice.gov.in/.../AC_PC/MapServer/2` (AC) + `/MapServer/1` (PC) for LGD; Susewind 2014 academic dataset | 29 states from HTL per-state files; J&K from shijithpk; PC national from shijithpk (2024 delimitation) | **Adopt — AC + PC consolidation targets.** `LGD_Assembly_Constituencies.geojsonl.7z` (CC0-1.0, BharatMaps lineage) is the canonical AC source going forward (Phase D.1–D.5; per-state parity-gated promotion). `LGD_Parliament_Constituencies` is the **survey-grade swap target for `pc`** (Phase D.6, user-approved override 2026-05-24) — replaces today's GIS-traced shijithpk file (where a person digitised polygons manually in QGIS, an open-source desktop GIS tool, over the 2024 delimitation PDF). Recon gate: verify the LGD file reflects the 2024 General Election delim (post-J&K UT + post-Telangana, 545 PCs); if pre-2024, defer. **Susewind 2014 files are CC-BY-SA-NC 4.0 (non-commercial) — NOT safe for our static-site redistribution; tracked for reference only.** |
-| `subdistricts` | LGD/Bharatmaps | TN only today | **Adopt — national expansion in Phase B of the plan.** Source is already in `pipeline.json#inputs[]` with `state_filter` scoping to S22; lifting `state_filter` is the work. |
-| `villages` | LGD/Bharatmaps | TN only today (38 of 38 TN districts) | **Adopt — national expansion in Phase C of the plan.** Upstream notes: missing 8 states (HP, J&K, Sikkim, ML, MZ, MN, NL, AR). For those, fall back to `bhuvan_villages.geojsonl.7z` or `Bhuvan_JK_Villages.geojsonl.7z` (J&K specifically). Per-state file-size watch — village geometry is the largest layer; budget per partition is 8 MB gzipped (boundaries.budget.test.ts). |
+| `subdistricts` | LGD/Bharatmaps | 36 states/UTs live | Adopted in Phase B. Countrywide rollout ships one shard per state/UT under `subdistricts/state=in_<sNN>/all.geojson`. |
+| `villages` | LGD/Bharatmaps | 27/36 states/UTs live | Adopted in Phase C. Countrywide rollout ships 645 per-(state, district) shards under `villages/state=in_<sNN>/district=<lgd>/all.geojson`. The 9 missing states/UTs are tracked in the village gap table above. Run `python tools/boundaries/simplify.py --dry-run --skip-parquet` for the gzip budget check. |
 | `blocks` / `panchayats` / `habitations` | LGD/Bharatmaps | none | **Catalogue only.** Adopt when first PRI / scheme-delivery panel ships. |
 | `urban` (`SBM_ULBs`, `WB_AMRUT_ULBs`, `SBM_Wards`, `LivingAtlas_Wards`, `WB_AMRUT_Wards`, `Shillong_Wards`, plus slum subtree) | Swachh Bharat Mission, WB AMRUT, ESRI LivingAtlas | none | **Catalogue only.** ULB-level governance data is the natural unlock — adopt when first such indicator ships. Note SBM gaps: TR, MZ, MN missing; WB missing on wards specifically. |
 | `forests` / `coastal` / `goa_crz` | Forest Survey of India, MoEFCC CRZ, Goa CRZ georef | none | **Out of scope** for the governance-indicators surface. |
-| `postal` | India Post / BharatMaps pincode polygons — see [§ Postal (pincode) sources](#postal-pincode-sources) | none | **Adopt — Phase A of the plan** (lookup table first, polygons gated on a search-affordance consumer shipping). |
+| `postal` | India Post / BharatMaps pincode polygons - see [§ Postal (pincode) sources](#postal-pincode-sources) | 36 state shards + 1 unkeyed shard live | Adopted in Phase A.2 from Department of Posts via data.gov.in OGD; search-affordance UI remains future work. |
 | `police` | State police jurisdictions | none | **Out of scope.** |
 | `census-2011` (`Districts_2011`, `SubDistricts_2011`, `Census_Villages`, `PC11_TV_DIR.csv`) | LGD/BharatMaps Population_Density layer + Census India TV directory | none today | **Catalogue.** Polygons are CC0-1.0 (safe) — `Districts_2011` and `SubDistricts_2011` are usable polygons; `Census_Villages` is **points**, not polygons. **SHRUG variants (`shrug-district-pc11`, `shrug-subdistrict-pc11`, `shrug-village-pc11`) are CC-BY-NC-SA 4.0 (non-commercial) — NOT safe for redistribution; do not adopt.** Phase E of the plan ships when the first Census-2011 indicator needs polygon joins. |
 | `historical` | India State Stories — decadal state + district series 1941, 1951, 1961, 1971, 1981, 1991, 2001 + `District_Timeseries_1951-2024.csv` + `District_name_changes_1951_to_2021.csv` + `District_splits_and_carveouts_1951_to_2024.csv` + `New_districts_created_1951_to_2024.csv` | none | **Catalogue (high value, latent).** The four CSV timeseries files are the canonical record of every district split/merger/rename 1951→2024 — once a methodology-break-aware trend visualisation ships ([`docs/architecture/data/boundaries.md` §"Methodology breaks"](../architecture/data/boundaries.md#methodology-breaks)), these are the joinable source. License attribution chain: India State Stories → CC0-1.0 via ramSeraph. |
@@ -265,19 +265,21 @@ Pincode ingest splits into **two independent shapes** — a directory CSV (table
 
 Ingest reuses the existing [`backend/yen_gov/sources/datagovin_ogd/`](../../backend/yen_gov/sources/datagovin_ogd/) adapter (operator-CSV-cache pattern proven on `fiscal/centre_transfers_gross`). UUID discovery via [`tools/datagovin_recon.py`](../../tools/datagovin_recon.py). One-time captcha-solve by the operator → cached CSV → emit reference table. **The OGD JSON API was probed and rejected for production** (demo key 10-rows/request + 429s; real keys gated on SMS-OTP); see [`urls.py` docstring](../../backend/yen_gov/sources/datagovin_ogd/urls.py).
 
-### Polygons (choropleth — DEFERRED, Phase A.2)
+### Polygons (search geometry - live data, no UI consumer yet, Phase A.2)
 
-Polygons live in a **sibling repo to `indian_admin_boundaries`** — [`ramSeraph/indian_cadastrals`](https://github.com/ramSeraph/indian_cadastrals/releases/tag/postal). The catalogue index for that data also surfaces via the `postal` tag on `indian_admin_boundaries/releases/tag/postal`.
+The live yen-gov polygon source is the Department of Posts All-India Pincode Boundary dataset from data.gov.in OGD, ingested in Phase A.2. It emits 36 per-state shards under `datasets/boundaries/in/postal/state=in_<sNN>/all.geojson` plus `datasets/boundaries/in/postal/scope=unkeyed/all.geojson` for the 17 pincode polygons whose state could not be resolved from the pincode directory table. These are data-ready search geometries; no citizen UI consumes them yet.
+
+Alternative polygon sources remain useful catalogue entries for future quality comparisons:
 
 | File | Producer | License | Coverage | Verdict |
 | --- | --- | --- | --- | --- |
-| [`PincodeBoundaries.geojsonl.7z`](https://github.com/ramSeraph/indian_cadastrals/releases/download/postal/PincodeBoundaries.geojsonl.7z) | India Post — PostalGIS (`post.nic.in/postalgis/master.aspx`) | CC0-1.0¹ | National **minus 8 states**: HP, J&K, Sikkim, ML, MZ, MN, NL, AR. Upstream notes: many polygons missing pincode value; urban polygons not granular enough. | **Adopt as polygon source if Phase A.2 fires.** Cleanest pan-India option even with the NE/HP/J&K gap (those states fall back to district polygons for the search affordance). |
+| [`PincodeBoundaries.geojsonl.7z`](https://github.com/ramSeraph/indian_cadastrals/releases/download/postal/PincodeBoundaries.geojsonl.7z) | India Post - PostalGIS (`post.nic.in/postalgis/master.aspx`) | CC0-1.0 (see note) | National **minus 8 states**: HP, J&K, Sikkim, ML, MZ, MN, NL, AR. Upstream notes: many polygons missing pincode value; urban polygons not granular enough. | Catalogue alternative. Compare against the live data.gov.in source only if pincode search quality requires a second geometry lineage. |
 | [`Datagov_Pincode_Boundaries.geojsonl.7z`](https://github.com/ramSeraph/indian_admin_boundaries/releases/download/postal/Datagov_Pincode_Boundaries.geojsonl.7z) | data.gov.in (`catalog/all-india-pincode-boundary-geo-json`) | [GODL-IN](https://www.data.gov.in/Godl) | All-India | **Catalogue / alternative.** GODL-IN is a permitted license under our `sources.parquet` enum, so this is usable as a tiebreaker if PostalGIS quality issues bite. |
-| [`GSDL_Pincodes.geojsonl.7z`](https://github.com/ramSeraph/indian_cadastrals/releases/download/postal/GSDL_Pincodes.geojsonl.7z) | Geospatial Delhi Limited (`gsdl.org.in`) | CC0-1.0¹ | Delhi only | **Adopt for Delhi if Phase A.2 fires.** Higher granularity than PostalGIS for the NCT — typical pincode-level data is per-sub-locality here. |
+| [`GSDL_Pincodes.geojsonl.7z`](https://github.com/ramSeraph/indian_cadastrals/releases/download/postal/GSDL_Pincodes.geojsonl.7z) | Geospatial Delhi Limited (`gsdl.org.in`) | CC0-1.0 (see note) | Delhi only | Catalogue alternative for Delhi if the live all-India source is too coarse for the NCT search experience. |
 
 ¹ CC0-1.0 with attribution requested for datameet + the original government publisher.
 
-The yen-gov design treats pincode as an **orthogonal search-only layer** (per [`docs/architecture/data/boundaries.md` §"Postal"](../architecture/data/boundaries.md#postal-pincode--search-only-orthogonal-layer)). Pincode is **never** a clickable choropleth layer and **never** a drill rung. Polygons are gated on a Jony + Citizen search-affordance UI shipping; the directory CSV above unblocks that work without polygons.
+The yen-gov design treats pincode as an **orthogonal search-only layer** (per [`docs/architecture/data/boundaries.md` §"Postal"](../architecture/data/boundaries.md#postal-pincode--search-only-orthogonal-layer)). Pincode is **never** a clickable choropleth layer and **never** a drill rung. The data is now present; the Jony + Citizen search-affordance UI is the remaining consumer-side work.
 
 ## Adding a new boundary source — the bar
 
