@@ -28,10 +28,31 @@ the raw NDLM responses (``.runtime/raw/ndlm/``) and may lift to a
 generator script (``tools/livestock_meadow_pashu_aadhaar.py``) is
 prepared to extend without re-downloading raw data.
 
-Hans honest-renderer doctrine applies to ALL Pashu Aadhaar indicators:
-the count is animals issued a 12-digit Pashu Aadhaar TAG, NOT an
-estimate of the actual livestock population. Coverage varies by state
-(rollout in progress). Catalogue carries
+**State-grain rollup rows** (per ADR-0043, 2026-05-25). After lifting
+all district rows, this adapter SUMs district rows by
+``(state_prefix, species, period_label)`` and emits 10 NEW state-grain
+indicators (``state-pashu-aadhaar-count-<species>``) carrying:
+
+* ``entity_id`` = state-grain prefix (e.g. ``IN-S01`` from
+  ``IN-S01-D502``); the trailing ``-D<n>`` is stripped.
+* ``value_numeric`` = SUM of district values for that (state, species,
+  period).
+* ``source_id`` = SAME source as the district rows (ADR-0032 citation
+  ledger semantics — rollup is the same producer's data summed, not a
+  new fetch event).
+* ``derivation = "sum"`` (already legal per ``observation.schema.json``
+  v1.1 lines 76-92).
+* ``period_label`` / ``year`` / ``period_seq`` inherited verbatim from
+  the district rows.
+
+The state-grain PARENT (``state-pashu-aadhaar-count``) is also
+compute-on-read; no observation rows emitted (mirrors the district
+parent's shape exactly per Hans D33.8).
+
+Hans honest-renderer doctrine applies to ALL Pashu Aadhaar indicators
+(district + state grains alike): the count is animals issued a 12-digit
+Pashu Aadhaar TAG, NOT an estimate of the actual livestock population.
+Coverage varies by state (rollout in progress). Catalogue carries
 ``comparability="directional_only"`` + ``renderer_rules=["no_rank_table"]``
 on every indicator in this lift; the renderer suppresses rank-table
 views and labels the choropleth "illustrative, not a ranking".
@@ -39,6 +60,7 @@ views and labels the choropleth "illustrative, not a ranking".
 
 from __future__ import annotations
 
+from collections import defaultdict
 from pathlib import Path
 
 from yen_gov.canonical.envelope import BatchEnvelope, ObservationRow
@@ -50,11 +72,34 @@ from ._shared import SOURCE_IDS, SPECIES, load_meadow, parse_ndlm_period
 MEADOW_VINTAGE = "2024-25"
 
 
+def _state_prefix(district_entity_id: str) -> str:
+    """Derive the state-grain entity_id from a district entity_id.
+
+    Examples:
+        ``IN-S01-D502`` -> ``IN-S01``
+        ``IN-U08-D640`` -> ``IN-U08``
+
+    Strips the trailing ``-D<n>`` segment via rsplit. Raises if the
+    input doesn't match the district shape (defensive — meadow rows
+    are pre-validated but the rollup contract is load-bearing per
+    ADR-0043 and a silent miss here would undercount the state).
+    """
+    if "-D" not in district_entity_id:
+        raise ValueError(
+            f"Expected district entity_id of shape 'IN-S<n>-D<n>' or "
+            f"'IN-U<n>-D<n>'; got {district_entity_id!r}"
+        )
+    prefix, _district_suffix = district_entity_id.rsplit("-D", 1)
+    return prefix
+
+
 def build_envelope(repo_root: Path) -> BatchEnvelope:
     rows: list[ObservationRow] = []
 
     source_id = SOURCE_IDS["ndlm_pashu_aadhaar"]
 
+    # First pass: lift district-grain rows verbatim (one ObservationRow
+    # per meadow row across all 10 species shards).
     for _sp_cd, sp_slug, _sp_display, _sp_noun in SPECIES:
         shard = load_meadow(
             repo_root,
@@ -78,8 +123,51 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
                 )
             )
 
+    # Second pass: write-time auto-rollup per ADR-0043. SUM district
+    # rows by (state_prefix, species, period_label, year, period_seq);
+    # emit one state-grain ObservationRow per group. SAME source_id,
+    # SAME period anchors, derivation="sum".
+    #
+    # Inline (~25 lines incl. dict shaping) per Fowler's "rule of three"
+    # verdict on ADR-0043: extract to backend/yen_gov/canonical/rollup.py
+    # only after the SECOND district family lands and the duplication
+    # is visible. Premature abstraction would lock in a shape (group_by
+    # axes, NaN handling, source_id inheritance, period alignment) the
+    # second consumer may not fit.
+    sums: dict[
+        tuple[str, str, str, int, int],  # (state_prefix, species, period_label, year, period_seq)
+        float,
+    ] = defaultdict(float)
+    for row in rows:
+        # rows[] currently only contains district-grain district-* ids.
+        # Every species slug is the trailing kebab segment.
+        species_slug = row.indicator_id.rsplit("-", 1)[-1]
+        key = (
+            _state_prefix(row.entity_id),
+            species_slug,
+            row.period_label,
+            row.year,
+            row.period_seq,
+        )
+        sums[key] += row.value_numeric
+
+    for (state_prefix, species_slug, period_label, year, period_seq), total in sums.items():
+        rows.append(
+            ObservationRow(
+                entity_id=state_prefix,
+                year=year,
+                period_label=period_label,
+                period_seq=period_seq,
+                indicator_id=f"state-pashu-aadhaar-count-{species_slug}",
+                value_numeric=total,
+                source_id=source_id,
+                derivation="sum",
+            )
+        )
+
     return BatchEnvelope(
         target_family="livestock",
         target_table_stem="livestock_pashu_aadhaar",
         observation_rows=rows,
     )
+

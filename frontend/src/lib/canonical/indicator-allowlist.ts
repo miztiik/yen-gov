@@ -952,6 +952,330 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       "RPO targets vary by state and rise over time. 95% compliance in one year may represent more renewables than 105% in an earlier year; cross-year and cross-state comparisons must consider the underlying target movement.",
     ],
   },
+
+  // ---------------------------------------------------------------------------
+  // PR B.01 (2026-05-25) — livestock NDLM Pashu Aadhaar, state-grain.
+  //
+  // First citizen-facing /t/agriculture surface; first canonical-backed
+  // indicator from a sub-state-grain adapter that auto-emits state-rollup
+  // siblings per ADR-0043 (auto-rollup at canonical-write time).
+  //
+  // Pipeline shape:
+  //   * District rows are the source-of-truth (~3383 rows, FY 2024-25 only),
+  //     materialised by backend/yen_gov/canonical/adapters/livestock/pashu_aadhaar.py
+  //     as `district-pashu-aadhaar-count-<species>` (10 species enum).
+  //   * State-rollup rows (~211) are auto-emitted in the SAME envelope as
+  //     `state-pashu-aadhaar-count-<species>` (derivation='sum', reusing
+  //     src-7e5d4aac4995 per ADR-0032 sources-as-citation-ledger).
+  //   * Both parents (district + state) carry source_id=null and zero
+  //     observation rows (compute-on-read per Hans D33.8).
+  //
+  // This allowlist covers the 10 state-grain species children. District-
+  // grain wiring waits for PR B.02 (entityKindToAdminLevel dispatch
+  // helper) + PR B.03 (first district allowlist entry as smoke-proof).
+  //
+  // Hans-honest framing (mirrored in every meta block below): NDLM
+  // Pashu Aadhaar is a TAGGED-ANIMAL COUNT, not a livestock census.
+  // Coverage varies by state — places with active vet-camp programmes
+  // (KA, AP, TN) lead; rollout in NE states is partial. Always read
+  // alongside the Livestock Census denominator (next PR after the 5-PR
+  // NDLM sprint completes).
+  //
+  // Per ADR-0030 §11.4 + ADR-0043: each species is a closed-vocabulary
+  // facet child. comparability='directional_only' + renderer_rules=
+  // ['no_rank_table'] suppress the ranked-table view (a "Bihar > Tamil
+  // Nadu in cattle tags" rank order would be a citizen-misleading number
+  // — Bihar tags more cattle because Bihar HAS more cattle).
+
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/state_pashu_aadhaar_count_cattle",
+    canonical_indicator_id: "state-pashu-aadhaar-count-cattle",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "state-pashu-aadhaar-count-cattle",
+      title: "Cattle tagged with Pashu Aadhaar (state)",
+      description:
+        "State total of cattle issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan, summed from district rows. Tagged COUNT, not actual cattle population — coverage varies by state programme rollout.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (state aggregate of districts per ADR-0043).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Tagged count is NOT a livestock census. NDLM rollout coverage varies by state — Karnataka, Andhra Pradesh, Tamil Nadu lead via active vet-camp programmes; North-East coverage is partial. Read alongside the 20th Livestock Census (next ingestion PR) for the denominator. State-grain values are auto-summed from district children at canonical-write time (derivation='sum'); the district-grain series is the source-of-truth.",
+    },
+  },
+
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/state_pashu_aadhaar_count_buffalo",
+    canonical_indicator_id: "state-pashu-aadhaar-count-buffalo",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "state-pashu-aadhaar-count-buffalo",
+      title: "Buffaloes tagged with Pashu Aadhaar (state)",
+      description:
+        "State total of buffaloes issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan, summed from district rows. Tagged COUNT, not actual buffalo population — coverage varies by state programme rollout.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (state aggregate of districts per ADR-0043).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Tagged count is NOT a livestock census. Read alongside the 20th Livestock Census for the denominator. State-grain values are auto-summed from district children at canonical-write time (derivation='sum').",
+    },
+  },
+
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/state_pashu_aadhaar_count_goat",
+    canonical_indicator_id: "state-pashu-aadhaar-count-goat",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "state-pashu-aadhaar-count-goat",
+      title: "Goats tagged with Pashu Aadhaar (state)",
+      description:
+        "State total of goats issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan, summed from district rows. Tagged COUNT, not actual goat population.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (state aggregate of districts per ADR-0043).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Tagged count is NOT a livestock census. State-grain values auto-summed from district children at canonical-write time.",
+    },
+  },
+
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/state_pashu_aadhaar_count_sheep",
+    canonical_indicator_id: "state-pashu-aadhaar-count-sheep",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "state-pashu-aadhaar-count-sheep",
+      title: "Sheep tagged with Pashu Aadhaar (state)",
+      description:
+        "State total of sheep issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan, summed from district rows. Tagged COUNT, not actual sheep population.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (state aggregate of districts per ADR-0043).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Tagged count is NOT a livestock census. State-grain values auto-summed from district children at canonical-write time.",
+    },
+  },
+
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/state_pashu_aadhaar_count_pig",
+    canonical_indicator_id: "state-pashu-aadhaar-count-pig",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "state-pashu-aadhaar-count-pig",
+      title: "Pigs tagged with Pashu Aadhaar (state)",
+      description:
+        "State total of pigs issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan, summed from district rows. Tagged COUNT, not actual pig population.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (state aggregate of districts per ADR-0043).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Tagged count is NOT a livestock census. State-grain values auto-summed from district children at canonical-write time.",
+    },
+  },
+
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/state_pashu_aadhaar_count_mithun",
+    canonical_indicator_id: "state-pashu-aadhaar-count-mithun",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "state-pashu-aadhaar-count-mithun",
+      title: "Mithun tagged with Pashu Aadhaar (state)",
+      description:
+        "State total of mithun (Bos frontalis, the semi-domesticated bovid of the North-East hills) issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan, summed from district rows.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (state aggregate of districts per ADR-0043).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Mithun is a North-East species (Arunachal Pradesh, Nagaland, Manipur, Mizoram); zero presence in most other states is honest, not missing. Tagged count is NOT a livestock census.",
+    },
+  },
+
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/state_pashu_aadhaar_count_yak",
+    canonical_indicator_id: "state-pashu-aadhaar-count-yak",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "state-pashu-aadhaar-count-yak",
+      title: "Yaks tagged with Pashu Aadhaar (state)",
+      description:
+        "State total of yaks issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan, summed from district rows. Yaks are Himalayan species (Ladakh, Sikkim, Arunachal, Himachal); zero counts elsewhere are honest.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (state aggregate of districts per ADR-0043).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Yak distribution is climatically constrained to high-altitude Himalayan states; zero in the plains is honest. Tagged count is NOT a livestock census.",
+    },
+  },
+
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/state_pashu_aadhaar_count_horse",
+    canonical_indicator_id: "state-pashu-aadhaar-count-horse",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "state-pashu-aadhaar-count-horse",
+      title: "Horses tagged with Pashu Aadhaar (state)",
+      description:
+        "State total of horses issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan, summed from district rows. Tagged COUNT, not actual equine population.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (state aggregate of districts per ADR-0043).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Equine tagging is at the early-rollout stage; very low absolute counts. Tagged count is NOT a livestock census.",
+    },
+  },
+
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/state_pashu_aadhaar_count_donkey",
+    canonical_indicator_id: "state-pashu-aadhaar-count-donkey",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "state-pashu-aadhaar-count-donkey",
+      title: "Donkeys tagged with Pashu Aadhaar (state)",
+      description:
+        "State total of donkeys issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan, summed from district rows. Tagged COUNT, not actual donkey population.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (state aggregate of districts per ADR-0043).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Equine tagging is at the early-rollout stage; very low absolute counts. Tagged count is NOT a livestock census.",
+    },
+  },
+
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/state_pashu_aadhaar_count_mule",
+    canonical_indicator_id: "state-pashu-aadhaar-count-mule",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "state-pashu-aadhaar-count-mule",
+      title: "Mules tagged with Pashu Aadhaar (state)",
+      description:
+        "State total of mules issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan, summed from district rows. Tagged COUNT, not actual mule population.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (state aggregate of districts per ADR-0043).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Equine tagging is at the early-rollout stage; very low absolute counts. Tagged count is NOT a livestock census.",
+    },
+  },
 ];
 
 const BY_LEGACY_ID = new Map(

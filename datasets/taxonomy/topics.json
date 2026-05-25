@@ -928,9 +928,61 @@
       "title": "Farming & livestock",
       "list": "state",
       "summary": "Crop production, livestock holdings, dairy, breeding programmes and animal vaccination. India's agrarian base, captured through the Bharat Pashudhan portal and DAHD programme dashboards.",
-      "featured": false,
-      "artifacts": [],
-      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md section 0e.4 and TODO/20260525-livestock-ndlm-ingest-plan.md section 9 Phase 0 (this PR). First citizen-facing artifact is Pashu Aadhaar (livestock/lvs_pashu_aadhaar_count) landing in PR 3 of the umbrella, then NADCP vaccination, Owner Registration, Breeding ABIP+RGM, NAIP IV via PRs 5-7. Animal husbandry, dairying and veterinary services are State List Entry 15 - `list: state` is the honest framing; the centre coordinates via DAHD programmes (NADCP, NAIP, RGM) but the operational unit is the state department."
+      "featured": true,
+      "artifacts": [
+        {
+          "kind": "indicator",
+          "id": "agriculture/state_pashu_aadhaar_count_cattle",
+          "scope": "state",
+          "default": true
+        },
+        {
+          "kind": "indicator",
+          "id": "agriculture/state_pashu_aadhaar_count_buffalo",
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "agriculture/state_pashu_aadhaar_count_goat",
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "agriculture/state_pashu_aadhaar_count_sheep",
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "agriculture/state_pashu_aadhaar_count_pig",
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "agriculture/state_pashu_aadhaar_count_mithun",
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "agriculture/state_pashu_aadhaar_count_yak",
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "agriculture/state_pashu_aadhaar_count_horse",
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "agriculture/state_pashu_aadhaar_count_donkey",
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "agriculture/state_pashu_aadhaar_count_mule",
+          "scope": "state"
+        }
+      ],
+      "notes": "First citizen-facing surface is Pashu Aadhaar (NDLM Bharat Pashudhan) state-grain across 10 species, landing via PR B.01 (auto-rollup at canonical-write time per ADR-0043 — district-grain rows are source-of-truth, state-grain rows are SUM aggregates auto-emitted in the same envelope). District-grain rendering follows in PR B.02 (entityKindToAdminLevel dispatch helper) + PR B.03 (first district allowlist entry as smoke-proof). Then NADCP vaccination, Owner Registration, Breeding ABIP+RGM, NAIP IV via PRs 5-7. Animal husbandry, dairying and veterinary services are State List Entry 15 - `list: state` is the honest framing; the centre coordinates via DAHD programmes (NADCP, NAIP, RGM) but the operational unit is the state department. Cattle is the default artifact (highest district coverage at 758 districts; clearest national choropleth)."
     }
   ]
 }
