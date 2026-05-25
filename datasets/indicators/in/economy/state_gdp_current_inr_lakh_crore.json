@@ -2380,7 +2380,11 @@
     "publisher_methodology_url": null,
     "documentation_status": "stub",
     "methodology_breaks": [],
-    "known_caveats": [],
+    "known_caveats": [
+      "Current-price GSDP rises even when state output is flat - inflation alone adds 5-7%/year. Maharashtra's GSDP up 8% YoY in current prices may be 2% real growth + 6% inflation. Use the constant-price companion for honest year-on-year comparison.",
+      "GSDP credits output to the state where goods are PRODUCED, not where they are consumed. IT services billed from Gurugram (Haryana) but done in Bangalore inflate Karnataka's GSDP relative to the cash that actually lands in Karnataka's tax base.",
+      "CSO last rebased GSDP to 2011-12 base; a future revision (2017-18 or 2022-23) may follow. Pre-2011 back-series is spliced approximately - Bihar's growth narrative since 2005 crosses 1 base-year break, read as directional not precise."
+    ],
     "notes": []
   },
   "divergence": null
