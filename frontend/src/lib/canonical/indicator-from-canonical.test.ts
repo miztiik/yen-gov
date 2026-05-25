@@ -357,6 +357,92 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.meta.direction).toBe("lower_is_better");
   });
 
+  // PR-I (Row 5 PR-1, 2026-05-25): Hans-curated caveats land on the 4
+  // indicators that decompose the AT&C ledger. Sales-MU is the absolute-MU
+  // denominator; billing + collection + T&D loss decompose AT&C into
+  // commercial + technical halves per the identity
+  //   AT&C loss approx 1 - (billing x collection / 100) + T&D loss.
+  // Each card carries 3 Hans bullets with named-state anchors + cross-card
+  // pointers (by indicator title, not canonical id, so the cross-reference
+  // survives heading rewrites). Authored-intent regex assertions over
+  // verbatim text per the PR-H test-resilience pattern.
+  it("PR-I sales-mu descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor("energy/state_electricity_sales_mu");
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: Generation MINUS Sales = absolute AT&C loss; pair with generation.
+    expect(d!.caveats![0]).toMatch(/Generation MINUS Sales/);
+    expect(d!.caveats![0]).toMatch(/AT&C/);
+    // 2: 1 MU = 1 GWh unit equivalence; state-PR vs CEA reconciliation.
+    expect(d!.caveats![1]).toMatch(/1 MU = 1 GWh/);
+    expect(d!.caveats![1]).toMatch(/Punjab|Tamil Nadu/);
+    expect(d!.caveats![1]).toMatch(/CEA/);
+    // 3: Intra-state imports; Delhi/Goa/Punjab buy from central pool.
+    expect(d!.caveats![2]).toMatch(/intra-state imports/i);
+    expect(d!.caveats![2]).toMatch(/Delhi/);
+    expect(d!.caveats![2]).toMatch(/Goa|Punjab/);
+  });
+
+  it("PR-I billing-efficiency descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor("energy/state_distribution_billing_efficiency_pct");
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: Decomposition-identity anchor (commercial half of AT&C).
+    expect(d!.caveats![0]).toMatch(/COMMERCIAL half of AT&C/);
+    expect(d!.caveats![0]).toMatch(/billing x collection/);
+    expect(d!.caveats![0]).toMatch(/collection efficiency/i);
+    expect(d!.caveats![0]).toMatch(/T&D loss/);
+    // 2: Punjab agricultural pumping unmetered ("assessed" load).
+    expect(d!.caveats![1]).toMatch(/Punjab/);
+    expect(d!.caveats![1]).toMatch(/unmetered/i);
+    expect(d!.caveats![1]).toMatch(/assessed/i);
+    // 3: Industrial-feeder ring-fencing vs rural; Gujarat vs Bihar.
+    expect(d!.caveats![2]).toMatch(/Gujarat/);
+    expect(d!.caveats![2]).toMatch(/Bihar/);
+    expect(d!.caveats![2]).toMatch(/consumer category/i);
+  });
+
+  it("PR-I collection-efficiency descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor("energy/state_distribution_collection_efficiency_pct");
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: Government-departmental arrears hidden in headline collection.
+    expect(d!.caveats![0]).toMatch(/COMMERCIAL half of AT&C/);
+    expect(d!.caveats![0]).toMatch(/government-departmental arrears|government.*arrears/i);
+    expect(d!.caveats![0]).toMatch(/PWD|municipal corporation/i);
+    // 2: Bihar/UP bond-settlement methodology-break warning.
+    expect(d!.caveats![1]).toMatch(/Bihar/);
+    expect(d!.caveats![1]).toMatch(/Uttar Pradesh|UP/);
+    expect(d!.caveats![1]).toMatch(/bond/i);
+    expect(d!.caveats![1]).toMatch(/methodology break/i);
+    // 3: Per-category breakdown / weighted-average framing.
+    expect(d!.caveats![2]).toMatch(/agricultural/i);
+    expect(d!.caveats![2]).toMatch(/weighted average/i);
+  });
+
+  it("PR-I td-loss descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor("energy/state_distribution_td_loss_pct");
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: Decomposition-identity anchor (technical half of AT&C).
+    expect(d!.caveats![0]).toMatch(/TECHNICAL half of AT&C/);
+    expect(d!.caveats![0]).toMatch(/AT&C loss = T&D loss \+ commercial loss/);
+    expect(d!.caveats![0]).toMatch(/billing efficiency/i);
+    expect(d!.caveats![0]).toMatch(/collection efficiency/i);
+    // 2: Rural-feeder length predictor; Rajasthan + MP.
+    expect(d!.caveats![1]).toMatch(/Rajasthan/);
+    expect(d!.caveats![1]).toMatch(/Madhya Pradesh|MP/);
+    expect(d!.caveats![1]).toMatch(/feeder/i);
+    // 3: Bihar mid-2010s: T&D fell while AT&C stayed high.
+    expect(d!.caveats![2]).toMatch(/Bihar/);
+    expect(d!.caveats![2]).toMatch(/HVDS/);
+    expect(d!.caveats![2]).toMatch(/necessary but not sufficient/i);
+  });
+
   it("PR-G state_installed_capacity_by_source_mw descriptor routes to state-installed-capacity-geographical-mw with 5 fuel children", () => {
     const d = getCanonicalDescriptor("energy/state_installed_capacity_by_source_mw");
     expect(d).not.toBeNull();
