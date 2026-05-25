@@ -100,13 +100,23 @@ const CONCEPT_GLOSS: Record<ConceptId, string> = {
 };
 
 /**
- * Builds the system prompt. The prompt is intentionally TERSE because
- * the seed model (SmolLM2-135M) has a 2048-token context window.
+ * Builds the system prompt. The prompt is intentionally TERSE — not
+ * just because SmolLM2 has a 2048-token context window, but because
+ * onnxruntime-web's WASM kernel-planner pre-allocates attention scratch
+ * proportional to `O(seq_len^2 * heads * layers)` BEFORE the first
+ * matmul runs. PR-G1 (2026-05-25) trimmed the catalogue serialization
+ * from a JSON-object listing (display_name on every entry, full braces
+ * / quotes) to a compact partition_id-only comma-separated listing
+ * after empirical browser smoke proved the longer prompt 0ms-bad_alloc'd
+ * identically on 135M and 360M models — root cause was prompt size, NOT
+ * model size or `max_new_tokens` cap. See Andre's verdict in plan-doc
+ * §17 "What's shipped" -> PR-G1.
  *
- * The catalogue is included as a compact JSON object listing only the
- * fields the model is allowed to reference. We do NOT include the full
- * tables / parties / sources — only the discriminators the compiler
- * accepts as filter values.
+ * The catalogue is included as bare partition_ids + period labels;
+ * display_names are dropped (the model can recover them from ids via
+ * the few-shot exemplar). We do NOT include the full tables / parties /
+ * sources — only the discriminators the compiler accepts as filter
+ * values.
  *
  * Slice E.2 (ADR-0039 / D-32): when `allowedConceptIds` is provided, the
  * "Concepts:" block lists ONLY those ids — the LLM picks from a narrowed
@@ -121,15 +131,26 @@ export function buildSystemPrompt(
     allowedConceptIds && allowedConceptIds.length > 0
       ? allowedConceptIds
       : (Object.keys(CONCEPT_GLOSS) as ConceptId[]);
-  const states = catalogue.states.map((s) => ({
-    state_partition_id: s.partition_id,
-    display_name: s.display_name,
-  }));
-  const periods = catalogue.election_periods.map((p) => ({
-    period_label: p.period_label,
-    state_partition_id: p.state_partition_id,
-    display_name: p.display_name,
-  }));
+  // PR-G1 (2026-05-25) trim per Andre's revised verdict after empirical
+  // smoke proved the cap-only fix did not unblock OrtRun std::bad_alloc:
+  // the JSON-object serialization of every state + every period
+  // (with display_name on each entry, plus JSON braces / quotes /
+  // colons) inflated this prompt to ~1500 tokens, and ORT's WASM
+  // kernel-planner pre-allocates O(seq_len^2 * heads * layers)
+  // attention scratch BEFORE the first matmul runs. At seq=1500 that
+  // exceeds the 32-bit WASM heap on the user's environment and 0ms-
+  // bad_alloc's identically on both 360M and 135M. The compact
+  // partition_id-only listing drops the catalogue block from ~6000
+  // chars to ~1000 chars (~250-300 tokens total prompt), which cuts
+  // attention scratch by ~25x (quadratic in seq_len). The model can
+  // recover display_name from the id ("in_s22" -> "Tamil Nadu") — that
+  // mapping is well within a 135M instruct model's capability and is
+  // demonstrated in the few-shot. See plan-doc TODO/20260518-browser-
+  // governance-insight-assistant-plan.md "What's shipped" -> PR-G1.
+  const stateIds = catalogue.states.map((s) => s.partition_id).join(", ");
+  const periodLabels = catalogue.election_periods
+    .map((p) => `${p.period_label} (${p.state_partition_id})`)
+    .join(", ");
   return [
     `You translate citizen questions about Indian election results into a STRICT JSON object called InsightIntent.`,
     ``,
@@ -157,8 +178,8 @@ export function buildSystemPrompt(
     `Concepts:`,
     ...conceptIds.map((id) => `- ${id}: ${CONCEPT_GLOSS[id]}`),
     ``,
-    `Catalogue (only these values are valid):`,
-    JSON.stringify({ states, election_periods: periods }),
+    `Valid state_partition_id values: ${stateIds}`,
+    `Valid period_label values: ${periodLabels}`,
   ].join("\n");
 }
 
@@ -428,7 +449,15 @@ export async function extractIntent(
     try {
       const gen = await adapter.generate(messages, {
         temperature: 0.1,
-        max_new_tokens: 256,
+        // PR-G1 (2026-05-25) defensive guardrail on decode-loop length.
+        // InsightIntent JSON is ~30 tokens; 96 is 3x headroom. The
+        // primary fix for OrtRun std::bad_alloc on free-text questions
+        // ("who won most seats tamil nadu 2026" / "india capital") was
+        // the catalogue trim in buildSystemPrompt above (prompt size
+        // drives ORT prefill scratch allocation, not max_new_tokens);
+        // this cap is retained as a harmless decode-loop guardrail so
+        // the model never runs away past the legal output size.
+        max_new_tokens: 96,
       });
       lastRaw = gen.text;
       try {
