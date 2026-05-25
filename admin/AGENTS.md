@@ -4,6 +4,8 @@
 
 Canonical admin-console rationale lives in [docs/architecture/admin/overview.md](../docs/architecture/admin/overview.md); this file is only a fast module map for agents.
 
+ASCII only: use plain keyboard characters; write "-", "->", ">=", "section", and "INR" instead of fancy symbols.
+
 ## Invariants
 
 - Dev-only Svelte app on port 5174; never deployed publicly.

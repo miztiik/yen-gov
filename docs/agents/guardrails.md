@@ -6,7 +6,9 @@ This is the rules-only digest every persona must honour. It restates `CLAUDE.md`
 
 Loaded by [`bootstrap.md`](bootstrap.md) as part of every persona's startup ritual.
 
-## The One Rule (CLAUDE.md §0a)
+Agent/customization Markdown is ASCII-only: write "-", "->", ">=", "section", and "INR" instead of fancy symbols.
+
+## The One Rule (CLAUDE.md section 0a)
 
 **OWID is the canonical reference for socio-economic data modelling.** When any data-shape question arises, first check OWID. If OWID has solved it, adopt verbatim. Deviations must be explicitly documented in [`docs/architecture/data/canonical-store.md`](../architecture/data/canonical-store.md) with Hans + Max sign-off.
 
@@ -33,12 +35,12 @@ Loaded by [`bootstrap.md`](bootstrap.md) as part of every persona's startup ritu
 7. **No mocks unless asked.** Real fixtures.
 8. **Open source first.** Mature OSS over custom builds.
 9. **Provenance is mandatory.** Every observation row carries a `source_id` FK to `datasets/taxonomy/sources.parquet`.
-10. **Tests ship with the feature.** Unit / contract / integration / e2e — pick the tier that matches the surface (`CLAUDE.md §15`). Full suite green at merge.
+10. **Tests ship with the feature.** Unit / contract / integration / e2e - pick the tier that matches the surface (`CLAUDE.md section 15`). Full suite green at merge.
 
 ## Project-level non-goals (do NOT raise these)
 
 - **Accessibility (a11y / ARIA / WCAG / axe-core / contrast / keyboard-nav / screen-reader).** Descoped 2026-05-12. Visual-clarity rules (legend has numbers, colour is one signal) stand on their own merits, not as a11y compliance.
-- **Production backend.** Same as Holy Law #1 — listed for emphasis.
+- **Production backend.** Same as Holy Law #1 - listed for emphasis.
 
 ## Git hygiene for autonomous work
 
@@ -74,26 +76,26 @@ Never invent IDs when an issuing authority publishes one. ISO 3166 for countries
 - `tools/` MUST NOT import from `backend/` runtime modules.
 - Domain/core MUST NOT import adapters/infrastructure.
 
-## Schema versioning (rules only — see `CLAUDE.md §11` for full spec)
+## Schema versioning (rules only - see `CLAUDE.md section 11` for full spec)
 
 - `x-version` is `<major>.<minor>`. No patch.
 - Minor = additive, backwards-compatible.
 - Major = breaking.
 - Every bump adds a new `x-changelog` entry in the same commit.
 - Code never hand-types schema-version literals; use `yen_gov.core.schema_registry`.
-- `$id` is the schema file's **relative path** (`./<name>.schema.json`) — local, not URL. Lets IDE JSON-Schema plugins validate offline.
+- `$id` is the schema file's **relative path** (`./<name>.schema.json`) - local, not URL. Lets IDE JSON-Schema plugins validate offline.
 
-## Data provenance (rules only — see `CLAUDE.md §12` and [`docs/concepts/data-provenance.md`](../concepts/data-provenance.md))
+## Data provenance (rules only - see `CLAUDE.md section 12` and [`docs/concepts/data-provenance.md`](../concepts/data-provenance.md))
 
 Per [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md), `datasets/taxonomy/sources.parquet` is the single sources table for the whole repo. It adopts OWID `origin.*` fields (`url_main`, `url_download`, `producer`, `citation_full`, `date_accessed`, `license`, `vintage`) plus yen-gov extensions (`source_id` PK, `content_hash`, `first_fetched_at` immutable + citizen-facing, `last_seen_at` mutable telemetry, `confidence_tier`, `is_issuing_authority`). Every observation row carries a `source_id` FK to one row in this table. No per-shard sources array. No embedded URL on the observation row.
 
 ## UI verification (for `frontend/` or `admin/` runtime changes)
 
-Per `CLAUDE.md §13`: agent uses integrated browser tools (`open_browser_page`, `read_page`, `screenshot_page`) to confirm the change rendered, no new console errors, no new 404s. Build-clean is necessary but NOT sufficient.
+Per `CLAUDE.md section 13`: agent uses integrated browser tools (`open_browser_page`, `read_page`, `screenshot_page`) to confirm the change rendered, no new console errors, no new 404s. Build-clean is necessary but NOT sufficient.
 
 ## Correction levels (escalation rule)
 
-When in doubt, choose the higher level. Level 2 and above require an explicit plan before code changes; execute once scope is clear unless a `CLAUDE.md §8` stop condition or unresolved design decision applies.
+When in doubt, choose the higher level. Level 2 and above require an explicit plan before code changes; execute once scope is clear unless a `CLAUDE.md section 8` stop condition or unresolved design decision applies.
 
 ## Anti-patterns (do NOT)
 
@@ -104,11 +106,11 @@ When in doubt, choose the higher level. Level 2 and above require an explicit pl
 - Build custom HTTP / retry / parsing / validation when OSS exists.
 - Swallow exceptions or silently coerce invalid input.
 - Mock by default.
-- Emit JSON projections of canonical data for the frontend — DuckDB-WASM reads Parquet directly (ADR-0030).
-- Run CI that processes `datasets/**` — publish is plain static-file copy.
+- Emit JSON projections of canonical data for the frontend - DuckDB-WASM reads Parquet directly (ADR-0030).
+- Run CI that processes `datasets/**` - publish is plain static-file copy.
 - Use `datetime.now()` as input to artifact content (use upstream content-hash + `first_fetched_at` / `last_seen_at` from `sources.parquet`).
 - Propose byte-compare write seams (`write_text_if_changed` shapes). Canonical writer uses UPSERT-into-DuckDB.
-- Use broad, lossy, or history-rewriting git commands instead of the `CLAUDE.md §8` workflow.
+- Use broad, lossy, or history-rewriting git commands instead of the `CLAUDE.md section 8` workflow.
 - Let `TODO/` or chat logs become the source of truth.
 - Pre-create empty modules "for later".
 - Skip the docs update.
@@ -116,6 +118,6 @@ When in doubt, choose the higher level. Level 2 and above require an explicit pl
 
 ## See also
 
-- [`bootstrap.md`](bootstrap.md) — what to load before answering.
-- [`../../CLAUDE.md`](../../CLAUDE.md) — the authoritative engineering contract.
-- [`../concepts/data-provenance.md`](../concepts/data-provenance.md) — provenance design rationale.
+- [`bootstrap.md`](bootstrap.md) - what to load before answering.
+- [`../../CLAUDE.md`](../../CLAUDE.md) - the authoritative engineering contract.
+- [`../concepts/data-provenance.md`](../concepts/data-provenance.md) - provenance design rationale.
