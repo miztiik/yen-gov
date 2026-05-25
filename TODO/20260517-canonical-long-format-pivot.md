@@ -55,7 +55,7 @@ Each PR independently mergeable, each reversible. Two-hat discipline: purely str
 | `datasets/reference/in/topic-catalogue.json` | `datasets/taxonomy/topics.parquet` (compiled from `taxonomy/topics.json`) | T.2 | ✅ DONE 2026-05-24 (path lift completed in T.0b; T.2 ships schema v1.3 + 9 placeholder topics + doc-ref scrub) |
 | `datasets/reference/in/election-events.json` | `datasets/taxonomy/election_events.parquet` (pure-reference table — see snapshot §0e.10.2.E) | T.2 | ◻ QUEUED |
 | `datasets/reference/in/states/<S>/districts.json` | already DONE per [ADR-0033](../docs/architecture/decisions/0033-retire-wikipedia-districts-adapter.md) — districts folded into `taxonomy/entities.parquet` as `entity_type='district'` | T.0c (PR #68) | ✅ DONE 2026-05-21 |
-| `datasets/indicators/in/<topic>/` | per-family Parquet at `datasets/<family>/<family>_<role>.parquet` + `datasets/taxonomy/indicators.parquet` row | P.\* (per family) | ⏳ ACTIVE (Energy first) |
+| `datasets/indicators/in/energy/` | per-family Parquet at `datasets/<family>/<family>_<role>.parquet` + `datasets/taxonomy/indicators.parquet` row | P.\* (per family) | ⏳ ACTIVE (Energy: 4 active adapters migrated to `datasets/energy/_meadow/<source>/<vintage>/` via 7c-N PRs #249/#251/#252/#253/#255, 2026-05-25; 13 residue shards await per-shard triage per §0e.8a) |
 | `datasets/people/AcGenApr2021/` | `datasets/elections/dim_persons.parquet` + `taxonomy/persons.parquet` | S.1 | ✅ DONE 2026-05-23 (PR #176 `8d11c376`) |
 | `datasets/boundaries/in/geojson/*.{sources,metadata,unkeyed}.json` (115 sidecars) + `S22-villages-index.json` | `datasets/boundaries/boundary_layers.parquet` + FK to `taxonomy/sources.parquet` | T.0d | ✅ DONE 2026-05-22 (`9e2ee3db`) |
 | Flat `datasets/boundaries/in/geojson/*.geojson` (73 files) | Hive-partitioned `datasets/boundaries/in/{country,states,districts,ac,pc,subdistricts,villages,postal}/state=<S>/...` per [T.0d spec §1](20260522-t0d-boundaries-consolidation-spec.md) | T.0d | ✅ DONE 2026-05-22 (`9e2ee3db`) |
@@ -64,21 +64,17 @@ Each PR independently mergeable, each reversible. Two-hat discipline: purely str
 
 User-requested 2026-05-25 — single-glance enumeration of what's NOT done. Updated as PRs ship. Done work intentionally omitted; this is a **pending-only** view.
 
+**Recently shipped (since prior snapshot — removed from this table per the pending-only rule)**: S.1 persons fork via PR #176 (`8d11c376`, 2026-05-23 — `dim_persons` + `elections_candidacies` + compiled `taxonomy/persons.parquet`; ledger row flipped via PR #256 `de6c4774`); 7c-N meadow-tier energy migration for the 4 active adapters via PR #249 `c98ed0e2` (7c-0 ADR-0041) + PR #251 `b071fffd` (7c-1 generation) + PR #252 `dc989509` (7c-2 distribution) + PR #253 `a5a1f3d0` (7c-3 demand_supply) + PR #255 `6a57efd8` (7c-4 installed_capacity + `load_shard()` retirement). 23 energy shards now live under `datasets/energy/_meadow/<source>/<vintage>/`; `_shared.load_shard()` deleted from `backend/yen_gov/canonical/adapters/energy/_shared.py`.
+
 | Slice | Status | Why pending |
 | --- | :-: | --- |
-| **S.1** Persons fork (Option B) | ◻ READY | Independent of energy; queued behind 7c-N + C5+C6 per user direction 2026-05-25. |
-| **P.1 Energy — 7c-N sequence** (Phase-C `meadow` tier rollout, supersedes the old single PR 7c) | ⏳ ACTIVE | Hans+Max+Gregor consult 2026-05-25 ratified **Strategy F (meadow-tier rename)** per §0e.8b. Sequenced as 5 PRs below. |
-| ↳ 7c-0 ADR + docs (zero code/data moves) | ⏳ ACTIVE | Captures ADR-0041 + concept doc + CLAUDE.md §4/§10 + canonical-store.md §2 amend. Tiny, low-risk. **THIS PR.** |
-| ↳ 7c-1 generation.py (2 shards) | ◻ READY after 7c-0 | Introduces `load_meadow()` helper in `_shared.py`. |
-| ↳ 7c-2 distribution.py (6 shards) | ◻ READY after 7c-1 | Parallel-safe with 7c-3. |
-| ↳ 7c-3 demand_supply.py (7 shards) | ◻ READY after 7c-1 | PR #174 inline-literal block stays as-is. |
-| ↳ 7c-4 installed_capacity.py (8 shards) + finalisation | ◻ READY after 7c-2 + 7c-3 | Retires `load_shard()`, renames Tier-B fence, deletes `datasets/indicators/in/energy/`. |
-| **C5+C6** (reader-switch + legacy retire for C0-C4) | ✅ DISSOLVED into 7c-N | Same architectural question; each 7c-N PR's `git mv` is the forcing-function for its slice. No separate C5+C6 PR needed. |
-| **C4.5 / C4.6 / C4.8** retired-shard deferrals | ✅ DISSOLVED into 7c-N | Same — each adapter's 7c-N PR covers its slice. |
+| **P.1 Energy — 7c-N residue triage** (13 shards still in `datasets/indicators/in/energy/` after 7c-N closed the 4 active adapters) | ◻ NEXT | Inventory + classify the 13 leftovers as one of: (a) composer/aggregate (`installed_capacity_total_mw`, `installed_capacity_thermal_mw` — compute-on-read per D33.8); (b) input to a NON-energy/installed-capacity adapter (search `load_shard` / `load_meadow` call sites in `backend/yen_gov/canonical/adapters/`); (c) dead — no consumer (forward to P.1.C/P.1.D as future-canonical input or `git rm`). Per-shard `git mv` or `git rm` once classified. Completion criterion (ADR-0041): `git ls-tree origin/main -- datasets/indicators/in/energy/` returns empty. |
+| **P.1 Energy — Tier-B fence file rename** (`datasets/_ops/legacy-folded-indicator-shards.txt` → `datasets/_ops/meadow-shard-contract.txt`) | ◻ READY | DEFERRED from PR 7c-4 per ADR-0041 §Doc-impact. Rename + rewrite header from "countdown to retirement" → "perimeter for canonical-input contract" + update `backend/yen_gov/validate.py` `tier_b_legacy_folded_indicator_shards` symbol + every doc reference. Safe to fold into the 7c-residue PR. |
+| **P.1 Energy — sources.parquet vintage backfill + Tier-B vintage check** | ◻ READY | The meadow path encodes `<vintage>` (e.g. `2024-25`); the citation-ledger row the shard's `source_id` resolves to MUST carry the same string in its `vintage` field. Backfill the ICED + RBI 2024-25 rows where the vintage was empty pre-7c; add Tier-B rule `tier_b_meadow_vintage_matches_source_id` that walks `_meadow/*/`, derives `(source, vintage)` from the path, and asserts the lift output's `source_id` resolves to a row with `producer = <source>` AND `vintage = <vintage>` per ADR-0041 non-negotiable #4. |
 | **P.1 Energy — PR 7b.1** FacetPicker primitive + IndicatorCard facet awareness | ◻ READY | Unblocks RPO citizen render (placeholder currently shown). Independent of 7c-N. |
 | **P.1 Energy — PR 7d** IA editorial pass | ◻ READY | Prune 36-card wall, ACS-ARR copy rewrite per Citizen, scroll-narrative cascade. Independent of 7c-N. |
 | **Citizen-1 panel** Hans+Gregor §10 carve-out for <2s mobile first-paint vs DuckDB-WASM warm-up | ◻ OPEN ARCHITECTURE | Design question; not a PR yet. |
-| **P.1 Energy — P.1.C + P.1.D** (remaining energy sub-pivots) | ◻ QUEUED | Sequenced after 7c-N closes. |
+| **P.1 Energy — P.1.C + P.1.D** (remaining energy sub-pivots) | ◻ QUEUED | Sequenced after 7c-N residue triage closes. |
 | **Phase 2 P.2+** (~10 more families: NFHS-5, PLFS, UDISE+, AISHE, NCRB, HCES, IMD, e-GramSwaraj-PFMS, TRAI, CAG) | ◻ QUEUED | Bulk of remaining Phase 2. Each adopts the meadow-tier authoring path from day one — no Phase-C debate per family. |
 | **Phase 3** Demography/Fiscal/Education/Health backfill | Sketch only | Opens when Phase 2 closes. |
 | **Phase 4** SLM dispatcher | Sketch only | Opens when Phase 3 closes. |
@@ -86,7 +82,7 @@ User-requested 2026-05-25 — single-glance enumeration of what's NOT done. Upda
 | **Open** `taxonomy/topics.parquet` rollout scheduling for 9 new placeholder topics | OPEN | Needs Max indicator-priority ordering. |
 | **Open** `facet-axes` extensions as families need new axes | OPEN per-family | Each new axis needs Max sign-off when its family ingests. |
 
-**Rough completion estimate**: ~15-20% of the full canonical pivot. Phase 1 done; 1 of ~11 families (Energy) partially shipped; Phases 3-5 are sketches.
+**Rough completion estimate**: ~18-22% of the full canonical pivot. Phase 1 done; 1 of ~11 families (Energy) with 4 of N adapters on meadow + canonical (residue triage still open); Phases 3-5 are sketches.
 
 ## §0e.8b. Strategy F — Meadow-tier rename (ratified 2026-05-25 by Hans + Max + Gregor)
 
