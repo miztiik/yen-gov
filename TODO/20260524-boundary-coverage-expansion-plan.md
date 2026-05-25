@@ -25,7 +25,7 @@
 | **A.2** Pincode polygons (national) | #254 | Merged | 39932f09 | Operator-supplied KMZ at `datasets/ephemeral/dd7bfd69-143e-462b-bfa3-2ac35d931342.kmz` (data.gov.in OGD All-India Pincode Boundary, Department of Posts, 2025). Pure stdlib KML 2.2 parser (`pincode_polygons.py`) + ingest (`ingest_pincode_polygons.py`) emit 36 per-state shards (`boundaries/in/postal/state=in_<sNN>/all.geojson`) + 1 synthetic `scope=unkeyed` shard for 17 pincodes whose state cannot be resolved via `MIN(statename) GROUP BY pincode` against the A.1.b directory parquet. 19,312 placemarks parsed; 19,295 keyed (99.91%); 17 unkeyed; largest shard TN at 5.2 MB uncompressed (well under 8 MB-gzipped PMTiles cutover). Byte-determinism verified across re-runs (SHA-256 identical for all 37 shards + boundary_layers.parquet + sources.parquet). 7th boundary source seeded (`datagovin_post_pincode_polygons_2025`, OGL-IN-1.0, gold, **issuing-authority** — first non-republisher boundary source) via `BOUNDARY_SOURCES` extension; `boundary_layers_seed.py` count assertions bumped 6→7 in lockstep. 16 parser tests + 14 ingest tests; backend pytest 973 passed / 44 skipped / 0 failed. No UI consumer yet — §13 smoke deferred per A.2 acceptance gate. |
 | **B** Subdistrict national lift (TN → 36 states/UTs) | #257 | Merged | 011a9764 | 0.1 (#235) already supplied the subdistricts CSV. New `tools/boundaries/lift_subdistricts_national.py` (one-shot orchestrator, ~330 lines, pure stdlib + DuckDB writer) reads cached `LGD_Subdistricts.geojsonl` (6,471 features), groups by `state_lgd` property, maps to ECI state code via new `backend.yen_gov.canonical.state_lgd_resolver` (entities.json → `{state_lgd_int: ECI_code}` map; pure logic; 10 unit tests), and emits 36 per-state shards under `boundaries/in/subdistricts/state=in_<sNN>/all.geojson`. Largest shard S12 (Maharashtra) at 9,974 KB, well under 12 MB SNAPSHOT_BYTE_BUDGET. 0 unkeyed features (every `state_lgd` resolves to a current state/UT). TN partition_path identical to legacy entry (same layer_id) — merge_with_existing semantics replace the row; ledger goes from 110 → 146 rows (+36 subdistrict). Legacy TN-only pipeline.json entry (`kind=subdistricts, state=S22, state_filter=state_lgd=33`) **deleted** — the orchestrator supersedes it; running snapshot.py never re-creates the obsolete TN slice. 0.3 (subdistrict entity seed) intentionally deferred from this PR — needs district backfill (0.2, 639 missing district entities) as prerequisite; not yet started. 19/19 unit tests pass; `python -m yen_gov validate --root .` OK. |
 | **C** Village national lift (TN → 27 states/UTs; 9-state upstream gap) | #259 | Merged | 7308121a | New `tools/boundaries/lift_villages_national.py` (one-shot orchestrator, ~370 lines, pure stdlib + DuckDB writer) reads cached `LGD_Villages.geojsonl` (1.8 GB / 584,615 features), groups by `(state_lgd, dist_lgd)` tuple, maps state_lgd → ECI via the shared `state_lgd_resolver` from Phase B, and emits per-(state, district) Hive shards under `boundaries/in/villages/state=in_<sNN>/district=<lgd>/all.geojson` (two-level partition). 9/9 unit tests green (grouping + sort determinism + end-to-end emit + byte-determinism + unknown-state warning + stale-shard cleanup). Result: 645 village shards across 27 states/UTs; 0 unkeyed features; 0 oversize-skip; ledger goes from 108 → 753 rows (+645 village). Pre-existing 38 TN shards REPLACED in place (same partition_path keys → merge_with_existing semantics retire the legacy rows); NET new = 607. Legacy TN-only pipeline.json entry (`kind=villages, state=S22, state_filter=state_lgd=33`) **deleted** — the orchestrator supersedes it. **9 states missing villages from upstream**: S02 Arunachal Pradesh, S08 Himachal Pradesh, S14 Manipur, S15 Meghalaya, S16 Mizoram, S17 Nagaland, S21 Sikkim, U08 J&K, U09 Ladakh (one more than the plan's 8-state estimate — Ladakh U09 had been counted within "J&K" in the plan; both are now confirmed separately gone). Coverage recon documented in [`docs/reference/boundary-data-sources.md` §"Coverage status"](../docs/reference/boundary-data-sources.md#coverage-status--what-we-have-what-we-dont-have); bhuvan fall-back remains OUT OF SCOPE per the plan. Memory peak ~11 GB during the JSON-parse phase (acceptable on dev machines; documented in module docstring); wall-clock ~10 min end-to-end on the cached extract. `python -m yen_gov validate --root .` OK. |
-| **D.0** State polygon swap (DataMeet → ramSeraph `LGD_States`) | #263 | In review | — | Worker `yen-gov-d0-state-swap` on `feat/state-polygon-swap-ramseraph`. `pipeline.json` swapped (single ramSeraph URL, `id_property=State_LGD`, `name_property=STNAME`, `coord_precision=2`). 36 polygons, gz 84.1 KB (well under 200 KB ceiling). All 36 LGDs FK-resolve to taxonomy. `view-models/states.ts` adds `boundary_join_key` projection + `lgdCodeToEci()` helper; `boundary_join_name` semantics shifted to "citizen-display shortform" (Delhi / Andaman & Nicobar / J&K shortform overrides retained). Consumers (`IndicatorChoropleth.svelte`, `maplibre/IndiaMap.svelte`, `boundaries.ts` JOIN_KEYS) re-wired to use LGD-keyed join. |
+| **D.0** State polygon swap (DataMeet → ramSeraph `LGD_States`) | #263 | Merged | b2742582 | Survey-grade upgrade landed. `tools/boundaries/pipeline.json` swapped to single ramSeraph URL with `id_property=State_LGD` (int), `name_property=STNAME`, `coord_precision=2`. `datasets/boundaries/in/states/all.geojson` = 36 polygons, 406 KB raw / 84.1 KB gz (well under 16 MB national ceiling). All 36 LGDs FK-resolve to `taxonomy/sources.parquet` row `src-a1dd899f902d` (CC0 1.0, issuing-authority). Frontend consumers re-wired: `view-models/states.ts` adds `boundary_join_key` string-keyed projection + `lgdCodeToEci()` helper + widened `eciFromStateName`; `IndicatorChoropleth.svelte` + `maplibre/IndiaMap.svelte` switch fills/tooltips to `boundary_join_key`; `maplibre/sources.ts` + `boundaries.ts` `JOIN_KEYS.state` = `"State_LGD"` with MapChoropleth `keys_are_numeric` + `to-number` int-bridge. Tests: NEW Phase D.0 invariants block in `boundaries-conform.test.ts` (4 invariants); overhauled `view-models/states.test.ts` (22 tests); updated `boundaries.path.test.ts`. Gates: validate OK, pytest 1001 passed / 44 skipped / 3 deselected, svelte-check 0 errors, D.0-scope vitest 44/44, §13 browser smoke 7 routes incl. choropleth-join verified on `/t/fiscal` (Punjab dark red, regional differentiation). Pre-existing 487 vitest failures on `boundaries.budget.test.ts` + `boundaries-conform.test.ts` Phase 0.4 (PR #257 / #259 budget-ceiling debt) NOT caused by D.0; follow-up ceiling-bump PR queued separately. |
 | **D.1** AC consolidation snapshot recon (one-shot, gating) | — | Not started | — | Independent of 0.4 |
 | **D.2** AC consolidation promote 28 states | — | Not started | — | After **D.1** |
 | **D.3** AC consolidation — Assam carve-out | — | Not started | — | After **D.1** |
@@ -408,7 +408,7 @@ Every phase PR must pass:
 
 ## Handover prompt for next coding agent (copy-paste-ready)
 
-**Last updated**: 2026-05-25 (after docs-only PR for boundary-coverage status + DuckDB-flake doctrine + Phase 0.2 promotion).
+**Last updated**: 2026-05-25 (after Phase D.0 — state polygon swap DataMeet → ramSeraph `LGD_States`).
 
 This is a multi-agent codebase. The block below is the literal prompt to drop into the next coding agent's first message so it can pick up the sprint without human input. Keep it in sync with the Phase 0.0 status table above (single source of truth for what is merged).
 
@@ -430,6 +430,7 @@ This is a multi-agent codebase. The block below is the literal prompt to drop in
 > | B | Subdistrict national lift (TN-only → 36 states/UTs) | #257 | `011a9764` |
 > | C | Village national lift (TN-only → 27 states/UTs, 645 per-district shards) | #259 | `7308121a` |
 > | C-doc | Plan-doc reconcile (close Phase C row) | #260 | `f2da01ef` |
+> | D.0 | State polygon swap (DataMeet → ramSeraph `LGD_States`, LGD-int join) | #263 | `b2742582` |
 >
 > ## What is NEXT (in dependency order — one PR at a time)
 >
@@ -437,13 +438,16 @@ This is a multi-agent codebase. The block below is the literal prompt to drop in
 >
 > **Track 1 — Phase D (boundary geometry upgrades + AC consolidation)**:
 >
-> 1. **Phase D.0** — State polygon swap (DataMeet → ramSeraph `LGD_States`). Survey-grade upgrade. Small surgical PR (~5 files + 1 GeoJSON + 1 parquet regen). **Detailed 8-step kickoff kit lives in `/memories/session/boundary-coverage-sprint-resume.md` — read it before touching code.** Independent of D.1+; ship first within Track 1.
-> 2. **Phase D.1** — AC consolidation snapshot recon (one-shot recon note in `notes/`, NOT a code PR). Gates D.2–D.5.
-> 3. **Phase D.2** — Promote ~28 states from HTL to ramSeraph LGD (after D.1 confirms parity per state).
-> 4. **Phase D.3** — Assam special-case (after D.1 confirms 2023 re-delim status).
-> 5. **Phase D.4** — J&K special-case (after D.1 confirms 90-AC layout).
-> 6. **Phase D.5** — AC consolidation wrap-up (docs + ledger + ADR amend).
-> 7. **Phase D.6** — PC polygon swap (shijithpk → ramSeraph). Independent of D.0–D.5; can ship before or after.
+> 1. **Phase D.1** — AC consolidation snapshot recon (one-shot recon note in `notes/`, NOT a code PR). Gates D.2–D.5.
+> 2. **Phase D.2** — Promote ~28 states from HTL to ramSeraph LGD (after D.1 confirms parity per state).
+> 3. **Phase D.3** — Assam special-case (after D.1 confirms 2023 re-delim status).
+> 4. **Phase D.4** — J&K special-case (after D.1 confirms 90-AC layout).
+> 5. **Phase D.5** — AC consolidation wrap-up (docs + ledger + ADR amend).
+> 6. **Phase D.6** — PC polygon swap (shijithpk → ramSeraph). Independent of D.0–D.5; can ship before or after.
+>
+> **Follow-up debt (separate small PR, NOT part of Track 1 or 2)**:
+>
+> - **Village/national budget-ceiling bump** — `frontend/src/lib/boundaries.budget.test.ts` + `frontend/src/contracts/boundaries-conform.test.ts` Phase 0.4 carry 487 PRE-EXISTING failures since PR #257 (subdistrict national lift, chunks 110 → 462) and PR #259 (village national lift, chunks 462 → 753 + village shard sizes exceeding `VILLAGE_SHARD_MAX_BYTES=4MB` and `LAYER_GZIP_CEILING_KB=500`). Bump ceilings to match current corpus reality (or split largest shards). Single-file scope; full-suite vitest goes green; CI on `main` recovers.
 >
 > **Track 2 — Phase 0.2 (district entity backfill, parallel to Track 1)**:
 >
@@ -485,24 +489,28 @@ This is a multi-agent codebase. The block below is the literal prompt to drop in
 > - **§12 provenance contract**: [`docs/architecture/decisions/0032-sources-citation-ledger.md`](../docs/architecture/decisions/0032-sources-citation-ledger.md) — every new sources row uses v2.0 shape.
 > - **Test policy + runtime fragility**: [`docs/architecture/testing.md`](../docs/architecture/testing.md) — four-tier matrix + canonical DuckDB-flake doctrine + reversal triggers.
 > - **Repo memory**: `/memories/repo/yen-gov-architecture.md` — derived cheat-sheet (canonical docs win when they disagree).
-> - **Session memory**: `/memories/session/boundary-coverage-sprint-resume.md` — sprint-scoped status + Phase D.0 kickoff kit.
-> - **Session memory**: `/memories/session/boundary-coverage-sprint-resume.md` — sprint-scoped status + Phase D.0 kickoff kit.
+> - **Session memory**: `/memories/session/boundary-coverage-sprint-resume.md` — sprint-scoped status (Phase D.0 kickoff kit superseded; D.0 merged via PR #263).
 >
 > ## Your first three commands (literally)
 >
 > ```powershell
-> # 1. Read the plan-doc status table + the Phase D.0 spec
+> # 1. Read the plan-doc status table + the next-phase spec (pick a track first)
 > Get-Content TODO\20260524-boundary-coverage-expansion-plan.md -TotalCount 60
-> Select-String -Path TODO\20260524-boundary-coverage-expansion-plan.md -Pattern "^### D\.0" -Context 0, 40
+> # Track 1: Phase D.1 (AC consolidation recon, gating)
+> Select-String -Path TODO\20260524-boundary-coverage-expansion-plan.md -Pattern "^### D\.1" -Context 0, 40
+> # Track 2: Phase 0.2 (district entity backfill, parallel to Track 1)
+> Select-String -Path TODO\20260524-boundary-coverage-expansion-plan.md -Pattern "^### 0\.2" -Context 0, 40
 >
-> # 2. Read the session memory Phase D.0 kickoff kit
+> # 2. Read the session memory sprint resume
 > # (use the memory tool: command=view, path=/memories/session/boundary-coverage-sprint-resume.md)
 >
-> # 3. Create your worker worktree
-> git worktree add ..\yen-gov-d0-state-swap origin/main -b feat/state-polygon-swap-ramseraph
+> # 3. Create your worker worktree (name = phase you're picking)
+> git worktree add ..\yen-gov-d1-ac-recon origin/main -b feat/ac-consolidation-recon  # Track 1 example
+> # OR
+> git worktree add ..\yen-gov-0-2-districts origin/main -b feat/district-entity-backfill  # Track 2 example
 > ```
 >
-> Then proceed per the Phase D.0 kickoff kit. Work autonomously. Ship the PR. Update the Phase 0.0 status table in the same commit. Open the next agent's handover trail by editing this section's "Last updated" date + table when D.0 lands.
+> Then proceed per the phase spec. Work autonomously. Ship the PR. Update the Phase 0.0 status table in the same commit. Open the next agent's handover trail by editing this section's "Last updated" date + table when your phase lands.
 
 ---
 
