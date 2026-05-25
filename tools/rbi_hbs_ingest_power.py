@@ -50,6 +50,30 @@ setup_utf8_stdout()
 STATES_CACHE = Path(".runtime/raw/rbi/handbook_states_2024_25")
 OUT = Path("datasets/indicators/in")
 
+# Per ADR-0041, the 5 RBI Handbook power shards consumed by
+# ``canonical/adapters/energy/demand_supply.py`` are promoted to the
+# meadow tier at ``datasets/energy/_meadow/rbi/2024-25/<file>``. The
+# remaining 2 (``state_installed_capacity_total_mw``,
+# ``state_renewable_grid_capacity_mw``) ride the legacy path until
+# they're picked up by PR 7c-4 alongside ``installed_capacity.py``.
+MEADOW_PROMOTED: dict[str, Path] = {
+    "energy/state_per_capita_availability_kwh.json": Path(
+        "datasets/energy/_meadow/rbi/2024-25/state_per_capita_availability_kwh.json"
+    ),
+    "energy/state_power_availability_mu.json": Path(
+        "datasets/energy/_meadow/rbi/2024-25/state_power_availability_mu.json"
+    ),
+    "energy/state_power_requirement_mu.json": Path(
+        "datasets/energy/_meadow/rbi/2024-25/state_power_requirement_mu.json"
+    ),
+    "energy/state_peak_demand_mw.json": Path(
+        "datasets/energy/_meadow/rbi/2024-25/state_peak_demand_mw.json"
+    ),
+    "energy/state_peak_met_mw.json": Path(
+        "datasets/energy/_meadow/rbi/2024-25/state_peak_met_mw.json"
+    ),
+}
+
 FETCHED_AT = datetime(2026, 5, 14, 19, 30, 0, tzinfo=timezone.utc).isoformat().replace("+00:00", "Z")
 
 
@@ -447,7 +471,9 @@ def _build_artifact(spec: dict, rows: list[dict]) -> dict:
 
 
 def _write(spec: dict, art: dict) -> None:
-    write_artifact(OUT / spec["out_path"], art)
+    meadow_path = MEADOW_PROMOTED.get(spec["out_path"])
+    target = meadow_path if meadow_path is not None else OUT / spec["out_path"]
+    write_artifact(target, art)
 
 
 def main() -> None:

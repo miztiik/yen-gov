@@ -74,7 +74,19 @@ from pathlib import Path
 
 from yen_gov.canonical.envelope import BatchEnvelope, ObservationRow
 
-from ._shared import SOURCE_IDS, load_shard, parse_iso_period, to_entity_id
+from ._shared import SOURCE_IDS, load_meadow, parse_iso_period, to_entity_id
+
+
+# Per ADR-0041, the 5 RBI Handbook power shards (Tables 138/139/141/142)
+# live at `datasets/energy/_meadow/rbi/2024-25/<file>.json`; the 1
+# legacy ICED shard (`state_per_capita_electricity_consumption_kwh`)
+# lives at `datasets/energy/_meadow/iced/2024-25/<file>.json`.
+def _load_rbi_meadow(repo_root: Path, file: str) -> dict:
+    return load_meadow(repo_root, "energy", "rbi", "2024-25", file)
+
+
+def _load_iced_meadow(repo_root: Path, file: str) -> dict:
+    return load_meadow(repo_root, "energy", "iced", "2024-25", file)
 
 
 # FY25 peak electricity demand by state — 34 rows: IN national
@@ -152,7 +164,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
     rows: list[ObservationRow] = []
 
     # 1. state_peak_demand_mw.json → state-peak-electricity-demand-mw
-    shard = load_shard(repo_root, "state_peak_demand_mw.json")
+    shard = _load_rbi_meadow(repo_root, "state_peak_demand_mw.json")
     for r in shard["rows"]:
         period_label, year, period_seq = parse_iso_period(r["time"])
         rows.append(ObservationRow(
@@ -167,7 +179,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
         ))
 
     # 2. state_peak_met_mw.json → state-peak-electricity-supplied-mw
-    shard = load_shard(repo_root, "state_peak_met_mw.json")
+    shard = _load_rbi_meadow(repo_root, "state_peak_met_mw.json")
     for r in shard["rows"]:
         period_label, year, period_seq = parse_iso_period(r["time"])
         rows.append(ObservationRow(
@@ -182,7 +194,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
         ))
 
     # 3. state_per_capita_electricity_consumption_kwh.json
-    shard = load_shard(repo_root, "state_per_capita_electricity_consumption_kwh.json")
+    shard = _load_iced_meadow(repo_root, "state_per_capita_electricity_consumption_kwh.json")
     for r in shard["rows"]:
         period_label, year, period_seq = parse_iso_period(r["time"])
         rows.append(ObservationRow(
@@ -218,7 +230,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
     # 5. P.1.B — state_power_requirement_mu.json → state-electricity-requirement-mu
     #    RBI Handbook Table 141 (long-arc state-wise annual energy
     #    requirement, MU = GWh; CEA-originated).
-    shard = load_shard(repo_root, "state_power_requirement_mu.json")
+    shard = _load_rbi_meadow(repo_root, "state_power_requirement_mu.json")
     for r in shard["rows"]:
         period_label, year, period_seq = parse_iso_period(r["time"])
         rows.append(ObservationRow(
@@ -235,7 +247,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
     # 6. P.1.B — state_power_availability_mu.json → state-electricity-availability-mu
     #    RBI Handbook Table 139 (long-arc state-wise annual energy
     #    availability, MU = GWh; CEA-originated). Companion to T141 above.
-    shard = load_shard(repo_root, "state_power_availability_mu.json")
+    shard = _load_rbi_meadow(repo_root, "state_power_availability_mu.json")
     for r in shard["rows"]:
         period_label, year, period_seq = parse_iso_period(r["time"])
         rows.append(ObservationRow(
@@ -254,7 +266,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
     #    RBI Handbook Table 138 (state-wise per-capita electricity
     #    availability, kWh/year; CEA-originated; Census 2011-projection
     #    denominator).
-    shard = load_shard(repo_root, "state_per_capita_availability_kwh.json")
+    shard = _load_rbi_meadow(repo_root, "state_per_capita_availability_kwh.json")
     for r in shard["rows"]:
         period_label, year, period_seq = parse_iso_period(r["time"])
         rows.append(ObservationRow(
