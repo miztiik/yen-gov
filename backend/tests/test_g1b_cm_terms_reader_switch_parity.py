@@ -1,16 +1,17 @@
 """G.1.b reader-switch parity oracle (Holy Law #7 — real on-disk data).
 
 After the G.1.b reader-switch (2026-05-22), the tenure seed sources office
-IDENTITY from `entities.parquet WHERE entity_type='office_bearer'` (the 31
-office_bearer rows G.1.a lifted in). Since G.1.c (2026-05-22) tenure facts
-come from the consolidated long-form `datasets/taxonomy/office_holdings.json`
-emitted by `office_holdings_seed.compile_to_parquet`.
+IDENTITY from `entities.parquet WHERE entity_type='office_bearer'`. Since
+G.1.c (2026-05-22) tenure facts come from the consolidated long-form
+`datasets/taxonomy/office_holdings.json` emitted by
+`office_holdings_seed.compile_to_parquet`.
 
 This oracle binds the canonical Parquet outputs on disk to the contract:
 1. Every dim_offices row's identity columns (office_id/entity_id/role/label)
    MUST equal the matching office_bearer entity in entities.parquet.
 2. Every holdings row's office_id MUST resolve to an office_bearer entity.
-3. Row counts must match the pre-G.1.b expectations: 31 offices, 359 holdings.
+3. The CM baseline must stay at 31 offices / 359 holdings, with the
+    2026-05-25 President/VP slice adding 2 offices / 5 holdings.
 
 Runs only when the canonical parquets exist on disk; skips cleanly when the
 corpus is absent (per Holy Law #7 — real data, not fixtures). The earlier
@@ -128,23 +129,54 @@ def test_every_holding_office_id_resolves_to_office_bearer_entity() -> None:
     not (DIM_OFFICES_PARQUET.is_file() and HOLDINGS_PARQUET.is_file()),
     reason="governments parquets not on disk (Holy Law #7)",
 )
-def test_row_counts_stable_at_31_offices_359_holdings() -> None:
-    """Belt-and-suspenders: row counts at the G.1.b boundary must equal
-    the pre-G.1.b counts. Any drift means a state's CM holdings were
-    added/removed in `office_holdings.json` or the reader-switch lost
-    rows silently.
+def test_row_counts_preserve_cm_baseline_plus_national_slice() -> None:
+    """Belt-and-suspenders: the old CM baseline remains stable while
+    the official President/VP slice adds exactly two office identities
+    and five tenure rows.
     """
     con = _con()
     try:
         (offices_count,) = con.execute(
             f"SELECT COUNT(*) FROM read_parquet('{DIM_OFFICES_PARQUET.as_posix()}')"
         ).fetchone()
+        (cm_offices_count,) = con.execute(
+            f"""
+            SELECT COUNT(*)
+            FROM read_parquet('{DIM_OFFICES_PARQUET.as_posix()}')
+            WHERE role = 'CM'
+            """
+        ).fetchone()
+        (national_offices_count,) = con.execute(
+            f"""
+            SELECT COUNT(*)
+            FROM read_parquet('{DIM_OFFICES_PARQUET.as_posix()}')
+            WHERE office_id IN ('IN-PRES', 'IN-VPRES')
+            """
+        ).fetchone()
         (holdings_count,) = con.execute(
             f"SELECT COUNT(*) FROM read_parquet('{HOLDINGS_PARQUET.as_posix()}')"
         ).fetchone()
+        (cm_holdings_count,) = con.execute(
+            f"""
+            SELECT COUNT(*)
+            FROM read_parquet('{HOLDINGS_PARQUET.as_posix()}')
+            WHERE RIGHT(office_id, 3) = '-CM'
+            """
+        ).fetchone()
+        (national_holdings_count,) = con.execute(
+            f"""
+            SELECT COUNT(*)
+            FROM read_parquet('{HOLDINGS_PARQUET.as_posix()}')
+            WHERE office_id IN ('IN-PRES', 'IN-VPRES')
+            """
+        ).fetchone()
     finally:
         con.close()
-    assert offices_count == 31, f"expected 31 dim_offices rows; got {offices_count}"
-    assert holdings_count == 359, (
-        f"expected 359 governments_office_holdings rows; got {holdings_count}"
+    assert offices_count == 33, f"expected 33 dim_offices rows; got {offices_count}"
+    assert cm_offices_count == 31
+    assert national_offices_count == 2
+    assert holdings_count == 364, (
+        f"expected 364 governments_office_holdings rows; got {holdings_count}"
     )
+    assert cm_holdings_count == 359
+    assert national_holdings_count == 5
