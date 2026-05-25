@@ -72,7 +72,10 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
   });
 
   it("treats unrelated artifacts as legacy-backed (false)", () => {
-    expect(isCanonicalBacked("energy/state_per_capita_electricity_consumption_kwh")).toBe(false);
+    // PR-F (2026-05-25): `energy/state_per_capita_electricity_consumption_kwh`
+    // moved into the allowlist this PR (closes 1 of 4 /t/energy 404s);
+    // replaced here with a synthetic id that has no real shard surface.
+    expect(isCanonicalBacked("energy/this_id_does_not_exist_in_allowlist")).toBe(false);
     expect(isCanonicalBacked("does/not/exist")).toBe(false);
     expect(isCanonicalBacked("")).toBe(false);
   });
@@ -115,6 +118,39 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     // Caveat 2: the temporal-comparability warning (RPO targets rise
     // over time + vary by state).
     expect(rpo!.caveats![1]).toMatch(/targets vary by state and rise over time/i);
+  });
+
+  // PR-F (2026-05-25): 2 new allowlist entries close /t/energy 404s flagged
+  // by user smoke. Both entries map legacy short-name shards to existing
+  // canonical indicators in `energy.energy_demand_supply`; meta blocks
+  // sourced from datasets/taxonomy/indicators.json per the allowlist
+  // authoring doctrine (lines 47-75).
+  it("PR-F peak_met descriptor routes to state-peak-electricity-supplied-mw", () => {
+    const d = getCanonicalDescriptor("energy/state_peak_met_mw");
+    expect(d).not.toBeNull();
+    expect(d!.kind).toBe("single");
+    if (d!.kind === "single") {
+      expect(d!.canonical_indicator_id).toBe("state-peak-electricity-supplied-mw");
+    }
+    expect(d!.table_id).toBe("energy.energy_demand_supply");
+    expect(d!.meta.title).toMatch(/peak power supplied/i);
+    expect(d!.meta.unit).toBe("MW");
+    expect(d!.meta.direction).toBe("higher_is_better");
+  });
+
+  it("PR-F per_capita_consumption descriptor routes to state-per-capita-electricity-consumption-kwh", () => {
+    const d = getCanonicalDescriptor("energy/state_per_capita_electricity_consumption_kwh");
+    expect(d).not.toBeNull();
+    expect(d!.kind).toBe("single");
+    if (d!.kind === "single") {
+      expect(d!.canonical_indicator_id).toBe("state-per-capita-electricity-consumption-kwh");
+    }
+    expect(d!.table_id).toBe("energy.energy_demand_supply");
+    expect(d!.meta.title).toMatch(/per-capita electricity consumption/i);
+    expect(d!.meta.unit).toBe("kWh per person per year");
+    // Distinct from per-capita AVAILABILITY (RBI T138) — consumption is
+    // billed end-use, availability is delivered-to-state (incl. T&D losses).
+    expect(d!.meta.attribution_geography).toBe("where_consumed");
   });
 });
 

@@ -320,13 +320,6 @@
         },
         {
           "kind": "indicator",
-          "id": "energy/state_peak_demand_mw",
-          "default": false,
-          "featured": false,
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
           "id": "energy/state_peak_met_mw",
           "default": false,
           "featured": false,
@@ -358,13 +351,6 @@
           "id": "energy/state_per_capita_electricity_consumption_kwh",
           "default": false,
           "featured": true,
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "energy/state_renewable_grid_capacity_mw",
-          "default": false,
-          "featured": false,
           "scope": "state"
         },
         {

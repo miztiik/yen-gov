@@ -157,6 +157,75 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     },
   },
 
+  // PR-F (2026-05-25) — close 4 /t/energy 404s flagged by user smoke.
+  // The legacy topics.json energy block references THREE short-name shards
+  // that have no allowlist route + ONE meadow-only orphan; this PR adds 2
+  // allowlist entries (peak_met → state-peak-electricity-supplied-mw,
+  // per_capita_consumption_kwh → state-per-capita-electricity-consumption-kwh)
+  // and the matching topics.json prune drops 2 entries (state_peak_demand_mw
+  // duplicate of state_peak_electricity_demand_mw, state_renewable_grid_capacity_mw
+  // subsumed-by-renewable-child orphan).
+  //
+  // Meta blocks sourced verbatim from datasets/taxonomy/indicators.json
+  // rows 1337-1366 per the allowlist authoring doctrine (lines 47-75).
+
+  // --- Peak supplied (Peak Met, RBI Handbook Table 142 Peak Met column) ---
+  {
+    kind: "single",
+    legacy_artifact_id: "energy/state_peak_met_mw",
+    canonical_indicator_id: "state-peak-electricity-supplied-mw",
+    table_id: "energy.energy_demand_supply",
+    meta: {
+      id: "state-peak-electricity-supplied-mw",
+      title: "State-wise peak power supplied (MW)",
+      description:
+        "Maximum instantaneous power actually supplied in the state during the fiscal year (MW). The pair (peak_demand, peak_supplied) tells the load-shedding story: supplied < demand in any year means the grid dropped load to keep frequency stable.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "higher_is_better",
+      scale_hint: "linear",
+      unit: "MW",
+      short_unit: "MW",
+      icon: "zap",
+      attribution_geography: "where_administered",
+      comparability: "comparable_across_states_and_time",
+      implementing_authority: "joint",
+      methodology_vintage:
+        "RBI Handbook of Statistics on Indian States 2024-25 edition, Table 142 (Peak Met column). Originating data: Central Electricity Authority.",
+      notes:
+        "India's all-India peak deficit fell from ~12% in FY05 to under 1% from FY18 onwards, but state-level shortfalls persist — Bihar, UP, Punjab, J&K, and Andhra Pradesh routinely under-met their own peak in the FY13-FY25 window.",
+    },
+  },
+
+  // --- Per-capita consumption (ICED state-wise composition; distinct from Per-capita availability) ---
+  {
+    kind: "single",
+    legacy_artifact_id: "energy/state_per_capita_electricity_consumption_kwh",
+    canonical_indicator_id: "state-per-capita-electricity-consumption-kwh",
+    table_id: "energy.energy_demand_supply",
+    meta: {
+      id: "state-per-capita-electricity-consumption-kwh",
+      title: "State per-capita electricity consumption (kWh/year)",
+      description:
+        "Electricity consumption per person per year, in kilowatt-hours. Proxy for BOTH energy access (electrified homes) AND industrial intensity (heavy-industry load) — read alongside per-capita income to disambiguate.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "rate",
+      direction: "higher_is_better",
+      scale_hint: "linear",
+      unit: "kWh per person per year",
+      icon: "zap",
+      attribution_geography: "where_consumed",
+      comparability: "comparable_across_states_and_time",
+      implementing_authority: "state",
+      methodology_vintage:
+        "ICED composition: state electricity sales (CEA) divided by state population (Census 2011 + linear projection).",
+      notes:
+        "A high value can mean many electrified domestic consumers (Kerala) OR a heavy-industry economy (Chhattisgarh, Odisha) OR both (Gujarat). A low value can mean a rural agrarian economy (Bihar, Assam) OR poor access (UP). The denominator (population) is Census 2011 + projection, so values for the 2020s are subject to mid-decade re-basing once Census 2027 data lands. Note: distinct from per-capita availability (RBI Handbook T138) — availability is power DELIVERED to the state (including T&D + commercial losses); consumption is power actually BILLED to end-users.",
+    },
+  },
+
   // ---------------------------------------------------------------------------
   // PR 7a (P.1.A C5 additive reader-switch) — 8 energy descriptors.
   //
