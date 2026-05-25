@@ -867,9 +867,15 @@
       "artifacts": [
         {
           "kind": "indicator",
+          "id": "agriculture/district_pashu_aadhaar_count_cattle",
+          "scope": "national",
+          "default": true,
+          "featured": true
+        },
+        {
+          "kind": "indicator",
           "id": "agriculture/state_pashu_aadhaar_count_cattle",
-          "scope": "state",
-          "default": true
+          "scope": "state"
         },
         {
           "kind": "indicator",
@@ -917,7 +923,7 @@
           "scope": "state"
         }
       ],
-      "notes": "First citizen-facing surface is Pashu Aadhaar (NDLM Bharat Pashudhan) state-grain across 10 species, landing via PR B.01 (auto-rollup at canonical-write time per ADR-0043 — district-grain rows are source-of-truth, state-grain rows are SUM aggregates auto-emitted in the same envelope). District-grain rendering follows in PR B.02 (entityKindToAdminLevel dispatch helper) + PR B.03 (first district allowlist entry as smoke-proof). Then NADCP vaccination, Owner Registration, Breeding ABIP+RGM, NAIP IV via PRs 5-7. Animal husbandry, dairying and veterinary services are State List Entry 15 - `list: state` is the honest framing; the centre coordinates via DAHD programmes (NADCP, NAIP, RGM) but the operational unit is the state department. Cattle is the default artifact (highest district coverage at 758 districts; clearest national choropleth)."
+      "notes": "First citizen-facing surface is Pashu Aadhaar (NDLM Bharat Pashudhan). PR B.05 (this mount) lands the district-grain cattle choropleth (758 districts) as the headline, with the state-grain SUM rollup and 9 other species cards in the grid below — district is the source-of-truth grain per ADR-0043 (write-time auto-rollup). Two stacked cards (district + state for cattle) per Jony's B.05 verdict; remaining species ship state-grain only until B.05's IndicatorChoropleth dispatch covers the rest. Then NADCP vaccination, Owner Registration, Breeding ABIP+RGM, NAIP IV via PRs 5-7. Animal husbandry, dairying and veterinary services are State List Entry 15 - `list: state` is the honest framing; the centre coordinates via DAHD programmes (NADCP, NAIP, RGM) but the operational unit is the state department."
     }
   ]
 }
