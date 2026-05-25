@@ -457,11 +457,11 @@ def lift_energy(
         exists=True,
     ),
 ) -> None:
-    """Lift legacy energy JSON shards to canonical fact-table Parquets.
+    """Lift meadow-tier energy JSON shards to canonical fact-table Parquets.
 
-    P.1.A C4 (plan-doc TODO row 0e.7 P.1). Reads
-    ``datasets/indicators/in/energy/*.json`` and writes 4 canonical
-    fact-table Parquets under ``datasets/energy/``:
+    P.1.A C4 (plan-doc TODO row 0e.7 P.1). Reads meadow-tier shards under
+    ``datasets/energy/_meadow/<source>/<vintage>/*.json`` (ADR-0041) and
+    writes 4 canonical fact-table Parquets under ``datasets/energy/``:
 
     * ``energy_installed_capacity.parquet``      — 5 CEA per-fuel national
       rows + ICED state geographical (parent + 5 fuel children) + ICED
@@ -476,8 +476,7 @@ def lift_energy(
 
     The 6 energy citation rows on ``datasets/taxonomy/sources.parquet``
     are UPSERTed by ``emit-taxonomy`` (P.1.A C3); this command requires
-    that step has already run. C6 will retire the legacy shards once
-    parity is verified.
+    that step has already run.
     """
     from yen_gov.canonical.adapters.energy import build_envelopes
     from yen_gov.canonical.writer import write_batch

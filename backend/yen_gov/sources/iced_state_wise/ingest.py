@@ -616,6 +616,13 @@ def ingest(
         "energy/state_acs_arr_gap_inr_per_kwh": (
             _meadow_root / "state_acs_arr_gap_inr_per_kwh.json"
         ),
+        # PR 7c-4 (installed_capacity family, iced_state_wise side):
+        "energy/state_installed_capacity_geographical_mw": (
+            _meadow_root / "state_installed_capacity_geographical_mw.json"
+        ),
+        "energy/state_installed_capacity_with_alloc_mw": (
+            _meadow_root / "state_installed_capacity_with_alloc_mw.json"
+        ),
     }
     results: list[IndicatorIngestResult] = []
     for meta in INDICATOR_SPECS:
