@@ -21,7 +21,8 @@ import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 PARQUET = REPO_ROOT / "datasets" / "energy" / "energy_generation.parquet"
-SHARD_DIR = REPO_ROOT / "datasets" / "indicators" / "in" / "energy"
+# Per ADR-0041, the 2 ICED generation shards live in the meadow tier.
+MEADOW_DIR = REPO_ROOT / "datasets" / "energy" / "_meadow" / "iced" / "2024-25"
 
 
 pytestmark = pytest.mark.skipif(
@@ -68,7 +69,7 @@ def test_state_generation_renewable_facet_is_sum_of_collapsed_subfuels() -> None
     """state-electricity-generation-gwh-renewable for IN-S01 2015-04 must equal
     sum of renewable sub-fuels (bio-power + small-hydro + solar + wind ...)."""
     shard = json.loads(
-        (SHARD_DIR / "state_electricity_generation_by_source_gwh.json").read_text(encoding="utf-8")
+        (MEADOW_DIR / "state_electricity_generation_by_source_gwh.json").read_text(encoding="utf-8")
     )
     renewable_subs = {"bio-power", "biomass", "small-hydro", "solar", "wind", "waste-to-energy"}
     expected = sum(

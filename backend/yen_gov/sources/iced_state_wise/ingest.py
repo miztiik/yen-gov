@@ -598,6 +598,15 @@ def ingest(
             rows_by_indicator[meta.spec.indicator_id].extend(year.rows)
 
     out_root = repo_root / "datasets" / "indicators" / "in"
+    # Per ADR-0041, energy indicators promoted to meadow tier write to
+    # `datasets/<family>/_meadow/<source>/<vintage>/<file>.json`. The set
+    # grows PR-by-PR until C4.7 finalisation; then the legacy branch dies.
+    meadow_promoted: dict[str, Path] = {
+        "energy/state_electricity_generation_mu": (
+            repo_root / "datasets" / "energy" / "_meadow" / "iced" / "2024-25"
+            / "state_electricity_generation_mu.json"
+        ),
+    }
     results: list[IndicatorIngestResult] = []
     for meta in INDICATOR_SPECS:
         rows = rows_by_indicator[meta.spec.indicator_id]
@@ -612,9 +621,14 @@ def ingest(
         rows.sort(key=lambda r: (r.entity_id, r.time))
         payload = _build_payload(meta=meta, rows=rows, fetched_at=latest_fetch)
 
-        topic_dir = out_root / meta.topic
-        topic_dir.mkdir(parents=True, exist_ok=True)
-        path = topic_dir / f"{meta.leaf}.json"
+        meadow_path = meadow_promoted.get(meta.spec.indicator_id)
+        if meadow_path is not None:
+            path = meadow_path
+            path.parent.mkdir(parents=True, exist_ok=True)
+        else:
+            topic_dir = out_root / meta.topic
+            topic_dir.mkdir(parents=True, exist_ok=True)
+            path = topic_dir / f"{meta.leaf}.json"
         write_artifact(
             path=path,
             schema_id=indicator_schema["$id"],

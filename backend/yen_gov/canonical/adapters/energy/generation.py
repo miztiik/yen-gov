@@ -1,17 +1,16 @@
 """Generation envelope — ``energy_generation.parquet``.
 
-Lifts 2 legacy shards:
+Lifts 2 meadow shards (per ADR-0041, ``datasets/energy/_meadow/iced/2024-25/``):
 
 * ``state_electricity_generation_mu.json`` (407 publisher totals)
   → ``state-electricity-generation-gwh`` (1 MU = 1 GWh; same numeric).
 * ``state_electricity_generation_by_source_gwh.json`` (~1685 per-fuel)
   → ``state-electricity-generation-gwh-{fuel}`` (after sub-fuel collapse).
 
-The unit-name change (MU on the legacy shard label vs GWh on the
+The unit-name change (MU on the meadow shard label vs GWh on the
 catalogue label) is purely cosmetic — 1 Million Unit = 1 GigaWatt-hour.
 The catalogue's GWh is the citizen-honest unit (the OWID convention);
-the legacy shard label is preserved verbatim in the deletion ledger
-when C6 retires it.
+the meadow shard label is preserved verbatim for provenance.
 """
 
 from __future__ import annotations
@@ -24,7 +23,7 @@ from yen_gov.canonical.envelope import BatchEnvelope, ObservationRow
 from ._shared import (
     SOURCE_IDS,
     SUB_FUEL_TO_CANONICAL,
-    load_shard,
+    load_meadow,
     parse_iso_period,
     to_entity_id,
 )
@@ -35,7 +34,10 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
 
     # 1. state_electricity_generation_mu.json (publisher total)
     #    → state-electricity-generation-gwh (parent). 1 MU = 1 GWh.
-    shard = load_shard(repo_root, "state_electricity_generation_mu.json")
+    shard = load_meadow(
+        repo_root, "energy", "iced", "2024-25",
+        "state_electricity_generation_mu.json",
+    )
     for r in shard["rows"]:
         period_label, year, period_seq = parse_iso_period(r["time"])
         rows.append(ObservationRow(
@@ -51,7 +53,10 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
 
     # 2. state_electricity_generation_by_source_gwh.json
     #    → state-electricity-generation-gwh-{fuel} (sub-fuel collapse).
-    shard = load_shard(repo_root, "state_electricity_generation_by_source_gwh.json")
+    shard = load_meadow(
+        repo_root, "energy", "iced", "2024-25",
+        "state_electricity_generation_by_source_gwh.json",
+    )
     agg: dict[tuple[str, str, str], list[float]] = defaultdict(list)
     for r in shard["rows"]:
         sub_fuel = r["facet"]
