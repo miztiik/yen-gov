@@ -142,7 +142,7 @@
         "id": {
           "type": "string",
           "pattern": "^[a-z][a-z0-9_]*(/[a-z][a-z0-9_]*)*$",
-          "description": "Stable namespaced id (e.g. \"energy/installed_mw_by_state\", \"economy/gsdp_constant_prices_2011_12\"). Used for cross-references and URL slugs."
+          "description": "Stable namespaced id (e.g. \"energy/state_per_capita_electricity_consumption_kwh\", \"economy/gsdp_constant_prices_2011_12\"). Used for cross-references and URL slugs."
         },
         "title": {
           "type": "string",

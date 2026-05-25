@@ -327,7 +327,7 @@ export interface IndicatorArtifact {
 
 export async function fetchIndicator(path: string): Promise<IndicatorArtifact> {
   // `path` is the relative POSIX path under DATA_BASE, e.g.
-  // "/indicators/in/energy/installed_mw_by_state.json".
+  // "/indicators/in/energy/state_per_capita_electricity_consumption_kwh.json".
   const res = await fetch(`${DATA_BASE}${path}`);
   if (!res.ok) {
     throw new Error(`fetch ${path} failed: ${res.status} ${res.statusText}`);

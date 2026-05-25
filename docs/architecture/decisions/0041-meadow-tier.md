@@ -3,14 +3,14 @@
 **Last Updated**: 2026-05-25
 **Status**: Accepted
 **Deciders**: User (autonomous mandate, 2026-05-25) + Hans (Governance) + Max (Indicator Scout) + Gregor (Architect) — parallel custom-agent consult 2026-05-25; all three personas converged on Strategy F (Gregor's framing). Authority assignment per CLAUDE.md §0a: data shape = Hans + Max; integration topology = Gregor.
-**Supersedes**: nothing. **Refines**: [ADR-0030 D1/D10/D13](0030-canonical-store-duckdb-wasm.md) (canonical store position) and the `legacy-folded-indicator-shards.txt` allowlist contract (semantics changed from "countdown to retirement" → "perimeter for canonical-input contract"; file rename deferred to PR 7c-4).
+**Supersedes**: nothing. **Refines**: [ADR-0030 D1/D10/D13](0030-canonical-store-duckdb-wasm.md) (canonical store position) and the `meadow-shard-contract.txt` allowlist contract (semantics changed from "countdown to retirement" → "perimeter for canonical-input contract"; file rename deferred to PR 7c-4).
 **Plan reference**: [`TODO/20260517-canonical-long-format-pivot.md` §0e.8a + §0e.8b](../../../TODO/20260517-canonical-long-format-pivot.md). On conflict THE PLAN wins and this ADR is amended.
 
 ## Context
 
 ### What this resolves
 
-By 2026-05-24 the canonical-pivot strangler-fig (ADR-0030) had landed Phase A (canonical writer) and Phase B (frontend allowlist routing to canonical Parquet) for the energy family, but Phase D (`git rm` of the legacy JSON shards under `datasets/indicators/in/<topic>/<id>.json`) was blocked. The blocker: backend canonical adapters under `backend/yen_gov/canonical/adapters/energy/*.py` still read the same shards as **primary input** via `_shared.load_shard()`. The contract at [`datasets/_ops/legacy-folded-indicator-shards.txt`](../../../datasets/_ops/legacy-folded-indicator-shards.txt) lines 23-26 said the family's Phase-D `git rm` MUST land in the same Tier-A commit as the canonical pivot — but PR 7a (the energy canonical-writer landing) wired adapters to read shards instead of dropping the dependency. Strategy C never happened.
+By 2026-05-24 the canonical-pivot strangler-fig (ADR-0030) had landed Phase A (canonical writer) and Phase B (frontend allowlist routing to canonical Parquet) for the energy family, but Phase D (`git rm` of the legacy JSON shards under `datasets/indicators/in/<topic>/<id>.json`) was blocked. The blocker: backend canonical adapters under `backend/yen_gov/canonical/adapters/energy/*.py` still read the same shards as **primary input** via `_shared.load_shard()`. The contract at [`datasets/_ops/meadow-shard-contract.txt`](../../../datasets/_ops/meadow-shard-contract.txt) lines 23-26 said the family's Phase-D `git rm` MUST land in the same Tier-A commit as the canonical pivot — but PR 7a (the energy canonical-writer landing) wired adapters to read shards instead of dropping the dependency. Strategy C never happened.
 
 A new lesson (2026-05-25, `/memories/lessons.md`) captured the trap: a "Phase B frontend reader-switch" does NOT imply "backend can drop the shard." Per-adapter Phase-C must be verified before any Phase-D `git rm` is scoped. User chose Fowler's Option 2 (per-adapter Phase-C, 3-4 small PRs, clean architecture not band-aid). This ADR ratifies the structural decision that follows.
 
@@ -62,7 +62,7 @@ Example: `datasets/energy/_meadow/rbi/2024-25/hbk_table_142_peak_demand.json`.
 | **7c-1** | `generation.py` | 2 | Introduce `load_meadow()` helper in `_shared.py`; `git mv` 2 ICED-gen shards to `_meadow/iced/<vintage>/`; allowlist + smoke. |
 | **7c-2** | `distribution.py` | 6 | Same pattern; reuse `load_meadow()`. Parallel-safe with 7c-3. |
 | **7c-3** | `demand_supply.py` | 7 | Same pattern; PR #174 inline-literal block stays. |
-| **7c-4** | `installed_capacity.py` | 8 | Same pattern + finalisation: retire `load_shard()`; rename `datasets/_ops/legacy-folded-indicator-shards.txt` → `meadow-shard-contract.txt`; rewrite header semantics ("perimeter" not "countdown"); delete empty `datasets/indicators/in/energy/`. |
+| **7c-4** | `installed_capacity.py` | 8 | Same pattern + finalisation: retire `load_shard()`; rename `datasets/_ops/meadow-shard-contract.txt` → `meadow-shard-contract.txt`; rewrite header semantics ("perimeter" not "countdown"); delete empty `datasets/indicators/in/energy/`. |
 
 ### Forcing function (why the rename is structural, not cosmetic)
 
@@ -109,7 +109,7 @@ Adapter calls publisher API at lift; shard deletes.
 
 ### C — Reframe shards as canonical-input contract IN PLACE (Hans's initial proposal)
 
-Keep shards at `datasets/indicators/in/<topic>/<id>.json`; amend allowlist header + CLAUDE.md §10 to declare them "permanent canonical-input layer"; rename `_ops/legacy-folded-indicator-shards.txt` → `_ops/canonical-input-shards.txt`.
+Keep shards at `datasets/indicators/in/<topic>/<id>.json`; amend allowlist header + CLAUDE.md §10 to declare them "permanent canonical-input layer"; rename `_ops/meadow-shard-contract.txt` → `_ops/canonical-input-shards.txt`.
 
 **Rejected because** the path lie persists: `datasets/indicators/in/` reads as citizen-facing even after the rename. Tier-B validator becomes ceremony ("permanent allowlist" never shrinks). No forcing function for Phase B allowlist completion: the legacy `fetch('/data/indicators/in/...')` URL still works after the rename, so any consumer that missed migration keeps reading the shard silently. Phase 2 P.2+ contributors learning the project would see `datasets/indicators/in/` and assume citizen-readable status, then have to be told the convention reversed.
 

@@ -175,7 +175,7 @@ Tier-B carries a registry of forbidden-path checks that make CLAUDE.md §10 anti
 
 | Check function | Forbidden subtree | Allowlist file | Anti-pattern in CLAUDE.md §10 | Retires when |
 | --- | --- | --- | --- | --- |
-| `tier_b_legacy_folded_indicator_shards` | `datasets/indicators/in/` (110 legacy per-indicator JSON shards) | `datasets/_ops/legacy-folded-indicator-shards.txt` | "Create new indicator artifact files under `datasets/indicators/in/<topic>/<id>.json`" — established 2026-05-22 (Gregor PR1, Phase-2 pre-flight) | Final P.* family ships and the forbidden subtree is empty; the allowlist file deletes alongside [`backend/yen_gov/legacy/folded_indicator_writer.py`](../../backend/yen_gov/legacy/folded_indicator_writer.py). |
+| `tier_b_meadow_shard_contract` | `datasets/indicators/in/` (110 legacy per-indicator JSON shards) | `datasets/_ops/meadow-shard-contract.txt` | "Create new indicator artifact files under `datasets/indicators/in/<topic>/<id>.json`" — established 2026-05-22 (Gregor PR1, Phase-2 pre-flight) | Final P.* family ships and the forbidden subtree is empty; the allowlist file deletes alongside [`backend/yen_gov/legacy/folded_indicator_writer.py`](../../backend/yen_gov/legacy/folded_indicator_writer.py). |
 
 Planned future entries (T.0c carried Tier-B forbidden-path checks forward as a deletion gate; those checks are scoped under separate PRs):
 

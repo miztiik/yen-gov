@@ -14,7 +14,7 @@ Tier B — data conformance:
   * "$schema_version" equals the schema's current x-version.
   * The file validates against that schema.
   * Legacy folded-indicator shards under datasets/indicators/in/ are
-    pinned to the allowlist datasets/_ops/legacy-folded-indicator-shards.txt
+    pinned to the allowlist datasets/_ops/meadow-shard-contract.txt
     (CLAUDE.md §10 anti-pattern computationally enforced). New shards are
     rejected; allowlist entries with no on-disk file are reported as orphans.
   * Energy installed-capacity shards under datasets/indicators/in/energy/
@@ -46,11 +46,11 @@ DATA_ROOTS = (Path("datasets"), Path("config"))
 # the canonical-long-format pivot (TODO/20260517 §0e.7 P.*). New shards
 # are forbidden; existing shards retire family-by-family. The allowlist
 # enumerates the legacy set; the Tier-B check
-# `tier_b_legacy_folded_indicator_shards` enforces the doctrine. See
+# `tier_b_meadow_shard_contract` enforces the doctrine. See
 # docs/architecture/backend/validator.md and
 # docs/architecture/canonical-pivot-deletion-manifest.md §6a.
 LEGACY_INDICATOR_SHARDS_DIR = Path("datasets/indicators/in")
-LEGACY_INDICATOR_SHARDS_ALLOWLIST = Path("datasets/_ops/legacy-folded-indicator-shards.txt")
+LEGACY_INDICATOR_SHARDS_ALLOWLIST = Path("datasets/_ops/meadow-shard-contract.txt")
 
 # Legacy boundary sidecar tree (CLAUDE.md §10 anti-pattern, ADR-0031
 # Amendment 2026-05-22 -- T.0d boundaries consolidation). Pre-T.0d every
@@ -309,7 +309,7 @@ def _load_allowlist(path: Path) -> set[str]:
     return allowed
 
 
-def tier_b_legacy_folded_indicator_shards(root: Path) -> list[Failure]:
+def tier_b_meadow_shard_contract(root: Path) -> list[Failure]:
     """Forbid new per-indicator JSON shards under datasets/indicators/in/.
 
     Per CLAUDE.md §10 anti-pattern and Gregor's Phase-2 pre-flight audit
@@ -320,7 +320,7 @@ def tier_b_legacy_folded_indicator_shards(root: Path) -> list[Failure]:
     + `datasets/taxonomy/indicators.parquet`. This Tier-B check makes the
     doctrine computationally enforced rather than purely textual.
 
-    The allowlist `datasets/_ops/legacy-folded-indicator-shards.txt`
+    The allowlist `datasets/_ops/meadow-shard-contract.txt`
     enumerates the legacy set. When a P.* PR retires a family, that PR
     `git rm`s the family's shards AND removes the matching lines from the
     allowlist in the same Tier-A commit. When the final P.* family ships,
@@ -351,7 +351,7 @@ def tier_b_legacy_folded_indicator_shards(root: Path) -> list[Failure]:
                 allowlist_rel,
                 "B",
                 "missing allowlist file while datasets/indicators/in/ still exists "
-                "(required by tier_b_legacy_folded_indicator_shards; see "
+                "(required by tier_b_meadow_shard_contract; see "
                 "docs/architecture/backend/validator.md)",
             )
         )
@@ -372,7 +372,7 @@ def tier_b_legacy_folded_indicator_shards(root: Path) -> list[Failure]:
                 "forbidden new indicator shard: per CLAUDE.md §10, new content must land "
                 "on the canonical Parquet store (datasets/<family>/<family>_<role>.parquet "
                 "+ datasets/taxonomy/indicators.parquet). To retire an existing family, "
-                "remove its lines from datasets/_ops/legacy-folded-indicator-shards.txt "
+                "remove its lines from datasets/_ops/meadow-shard-contract.txt "
                 "in the same PR as the per-family P.* pivot.",
             )
         )
@@ -424,7 +424,7 @@ def tier_b_legacy_boundary_sidecars(root: Path) -> list[Failure]:
     `source_id` FK to `datasets/taxonomy/sources.parquet`).
 
     Two symmetric failure modes (mirroring
-    `tier_b_legacy_folded_indicator_shards`):
+    `tier_b_meadow_shard_contract`):
       1. Forbidden sidecar: file on disk under `datasets/boundaries/`
          matching a legacy pattern, not listed in the allowlist.
       2. Orphan allowlist entry: path listed in the allowlist but not
@@ -626,7 +626,7 @@ def tier_b_no_new_sub_fuel_shards(root: Path) -> list[Failure]:
     Scope-boxing: this check ONLY fences the
     `<state_>?installed_capacity_<X>_mw.json` filename family. Other
     energy-shard shapes (e.g. `state_rooftop_solar_capacity_mw.json`)
-    fall under `tier_b_legacy_folded_indicator_shards` (any new file
+    fall under `tier_b_meadow_shard_contract` (any new file
     under `datasets/indicators/in/` must be in the legacy allowlist).
     Sub-fuel preservation as canonical citizen-surface indicators
     requires a Hans+Max doctrine amendment routed via CLAUDE.md §0a;
@@ -683,7 +683,7 @@ def run(root: Path) -> list[Failure]:
         parse_failures
         + tier_a(schemas)
         + tier_b(schemas, root)
-        + tier_b_legacy_folded_indicator_shards(root)
+        + tier_b_meadow_shard_contract(root)
         + tier_b_legacy_boundary_sidecars(root)
         + tier_b_indicator_alias_window(root)
         + tier_b_no_new_sub_fuel_shards(root)

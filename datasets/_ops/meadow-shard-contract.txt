@@ -1,17 +1,34 @@
-# Legacy folded-indicator shard allowlist
+# Meadow shard contract (perimeter)
 #
-# This file enumerates the 110 per-indicator JSON shards under
-# `datasets/indicators/in/` that pre-date the canonical-long-format
-# pivot (TODO/20260517-canonical-long-format-pivot.md §0e.7 P.*).
+# This file enumerates the backend-internal indicator shards under
+# `datasets/indicators/in/` that the validator currently permits on disk.
+# It serves a dual role during the canonical-long-format pivot
+# (TODO/20260517-canonical-long-format-pivot.md §0e.7 P.*; ADR-0041):
+#
+#   * For families that have NOT yet pivoted to canonical (the majority
+#     today), each line is a countdown entry — the shard exists, is read
+#     by the renderer, and will retire when the family ships its
+#     canonical Parquet writer + frontend allowlist routing.
+#
+#   * For families that HAVE pivoted but whose backend canonical adapter
+#     still reads from a shard as PRIMARY input (energy, post-PR-7a; see
+#     `_shared.load_shard()` call sites under
+#     `backend/yen_gov/canonical/adapters/`), the line documents a
+#     permanent canonical-input contract — the shard cannot be removed
+#     without first deciding Phase-C strategy for that adapter (re-fetch
+#     upstream, inline-literal the rows, or accept the shard as long-lived).
 #
 # Per CLAUDE.md §10 ("Create new indicator artifact files under
 # `datasets/indicators/in/<topic>/<id>.json`" anti-pattern), no new shards
-# may be added under this tree. New indicator content lands directly on
-# the canonical Parquet store (`datasets/<family>/<family>_<role>.parquet`
-# + `datasets/taxonomy/indicators.parquet`).
+# may be added under this tree. New backend-internal parsed publisher rows
+# go to the meadow tier at
+# `datasets/<family>/_meadow/<source>/<vintage>/<file>.json`; new
+# citizen-facing canonical data goes to
+# `datasets/<family>/<family>_<role>.parquet` +
+# `datasets/taxonomy/indicators.parquet`.
 #
 # This list is the input to the Tier-B validator check
-# `tier_b_legacy_folded_indicator_shards` in `backend/yen_gov/validate.py`.
+# `tier_b_meadow_shard_contract` in `backend/yen_gov/validate.py`.
 # The check fails the validator with two symmetric rules:
 #
 #   1. Any `*.json` on disk under `datasets/indicators/in/` that is NOT
@@ -19,17 +36,20 @@
 #   2. Any path listed below that is NOT on disk is reported as
 #      "orphan allowlist entry."
 #
-# When a P.* family pivots to the canonical store (e.g. P.energy ships
-# `datasets/energy/energy_state.parquet`), the same PR MUST `git rm` the
-# family's shards AND delete the matching lines below in one Tier-A commit.
-# When the final P.* family ships, this file deletes alongside
-# `backend/yen_gov/legacy/folded_indicator_writer.py` and the Tier-B check.
+# When a P.* family pivots to the canonical store, the same PR MUST
+# `git rm` the family's shards AND delete the matching lines below in one
+# Tier-A commit, UNLESS the family's backend adapter still depends on
+# those shards as canonical input (Phase-C unfinished) — in which case the
+# lines stay as documented perimeter and the retirement waits.
 #
 # Format: one POSIX path per line, sorted. Blank lines and lines
 # starting with `#` are ignored. Paths are repo-relative.
 #
 # Established: 2026-05-22 (Gregor PR1 — Phase 2 pre-flight; see
 # TODO/20260521-phase-2-preflight-audit-gregor.md finding #1).
+# Renamed: 2026-05-25 (PR-A of energy-residue triage; per ADR-0041 the
+# rename + header rewrite were ratified for 7c-4 then folded forward
+# into PR-A so subsequent PRs work against the renamed surface).
 
 datasets/indicators/in/demography/state_population_by_residence_count.json
 datasets/indicators/in/demography/state_population_by_sex_count.json
@@ -54,14 +74,11 @@ datasets/indicators/in/economy/state_per_capita_nsdp_current_inr.json
 datasets/indicators/in/economy/state_per_capita_nsdp_current_inr_long.json
 datasets/indicators/in/economy/state_sectoral_gva_constant_2011_12_inr_lakh_crore.json
 datasets/indicators/in/economy/state_sectoral_gva_current_inr_lakh_crore.json
-datasets/indicators/in/energy/india_capacity_pipeline_gw.json
 datasets/indicators/in/energy/india_thermal_capacity_retired_mw.json
 datasets/indicators/in/energy/installed_capacity_thermal_mw.json
 datasets/indicators/in/energy/installed_capacity_total_mw.json
-datasets/indicators/in/energy/installed_mw_by_state.json
 datasets/indicators/in/energy/national_final_energy_consumption_by_sector_mtoe.json
 datasets/indicators/in/energy/national_primary_energy_supply_mtoe.json
-datasets/indicators/in/energy/national_renewable_potential_vs_installed_mw.json
 datasets/indicators/in/energy/state_coal_consumption_mt.json
 datasets/indicators/in/energy/state_oil_product_consumption_kt.json
 datasets/indicators/in/energy/state_plant_load_factor_pct.json

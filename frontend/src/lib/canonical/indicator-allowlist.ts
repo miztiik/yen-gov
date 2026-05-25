@@ -171,11 +171,13 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   //     `GWh`. 1 MU == 1 GWh numerically — the unit relabel is dimensionally
   //     identical (no value transformation needed at read time).
   //
-  // DESCOPED from PR 7a (deferred to 7b/7c per Fowler split): the 6 shards
+  // DESCOPED from PR 7a (deferred to 7b/7c per Fowler split): 5 shards
   // with no clean 1:1 canonical mapping — `installed_capacity_{thermal,
-  // total, by_source}_mw.json`, `installed_mw_by_state.json`,
+  // total, by_source}_mw.json`,
   // `state_installed_capacity_by_source_mw.json` (faceted),
   // `state_installed_capacity_total_mw.json` (Block 5 lift input).
+  // (A 6th shard `installed_mw_by_state.json` was retired in PR-A 2026-05-25
+  // — superseded by the per-fuel CEA family rather than canonicalised.)
 
   // --- 1: National capacity, Coal (CEA monthly snapshot, per-state) ---
   {

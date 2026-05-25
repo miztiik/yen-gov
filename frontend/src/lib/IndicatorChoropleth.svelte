@@ -61,7 +61,7 @@
   import { axisUnitLabel, legendCaption } from "./indicator-render";
 
   interface Props {
-    /** Path under DATA_BASE, e.g. "/indicators/in/energy/installed_mw_by_state.json". */
+    /** Path under DATA_BASE, e.g. "/indicators/in/energy/state_per_capita_electricity_consumption_kwh.json". */
     indicator_path: string;
     /** Optional ECI code to outline as the "focused" state (e.g. "S22" on
      *  the TN overview). The map highlights its boundary so the citizen

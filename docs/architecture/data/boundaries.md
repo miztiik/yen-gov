@@ -135,7 +135,7 @@ Disk layout sits OUTSIDE the LGD Hive tree to make the orthogonality visible at 
 
 ## Enforcement
 
-A Tier-B forbidden-path gate (`tier_b_legacy_boundary_sidecars` in `backend/yen_gov/validate.py`) rejects any future `*.sources.json` / `*.metadata.json` / `*.unkeyed.json` / `*-index.json` under `datasets/boundaries/`. The companion allowlist at `datasets/_ops/legacy-boundary-sidecars.txt` ships empty by design; it exists only to support short-lived overrides during follow-up PRs (with PR-body justification required). Same pattern as `tier_b_legacy_folded_indicator_shards`.
+A Tier-B forbidden-path gate (`tier_b_legacy_boundary_sidecars` in `backend/yen_gov/validate.py`) rejects any future `*.sources.json` / `*.metadata.json` / `*.unkeyed.json` / `*-index.json` under `datasets/boundaries/`. The companion allowlist at `datasets/_ops/legacy-boundary-sidecars.txt` ships empty by design; it exists only to support short-lived overrides during follow-up PRs (with PR-body justification required). Same pattern as `tier_b_meadow_shard_contract`.
 
 Frontend has a paired contract test at `frontend/src/contracts/boundaries-conform.test.ts` that asserts every `**/*.geojson` under `datasets/boundaries/in/` matches one of the seven Hive-shape patterns AND that no legacy sidecar / index manifest survives.
 
