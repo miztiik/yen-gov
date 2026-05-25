@@ -1,0 +1,1231 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "4.4",
+  "sources": [
+    {
+      "url": "https://bharatpashudhan-api.ndlm.co.in/epashu/v1/homepage/getAnimalRegistrationDistrictWise",
+      "fetched_at": "2026-05-25T13:43:41Z"
+    }
+  ],
+  "license": {
+    "id": "GoI-Open",
+    "name": "Government of India open publication",
+    "url": "https://data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "24 states/UTs, 235 districts",
+    "temporal": "2024-25",
+    "admin_level": "district"
+  },
+  "indicator": {
+    "id": "livestock/pashu_aadhaar_count_yak",
+    "title": "Pashu Aadhaar tagged - Yak",
+    "description": "Number of yaks tagged with Pashu Aadhaar (NDLM) in each district. Pashu Aadhaar is the UIDAI-style 12-digit tag issued by the National Digital Livestock Mission to individual animals; the count here is a count of tags issued, NOT an estimate of the actual yaks population of the district. Coverage varies by state as the rollout is in progress.",
+    "entity_kind": "district",
+    "time_grain": "fiscal_year",
+    "value_kind": "raw",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "animals",
+    "short_unit": "head",
+    "attribution_geography": "where_resident",
+    "comparability": "directional_only",
+    "implementing_authority": "centre",
+    "methodology_vintage": "NDLM Bharat Pashudhan; raw vintages ['2024-25']; snapshot 2026-05-25T13:43:41Z",
+    "notes": "Hans honest-renderer: tagged count is NOT a livestock-population estimate. Indicator carries renderer_rules=[no_rank_table] in the canonical catalogue. Animals without a recorded total are skipped (NDLM may emit null totals for species with only male xor female counts present). Each row's `time` is the raw NDLM vintage selector (`2024` for CY 2024, `2024-25` for FY 2024-25); the canonical adapter decodes this to (period_label, year, period_seq)."
+  },
+  "rows": [
+    {
+      "entity_id": "IN-S01-D502",
+      "time": "2024-25",
+      "value": 4
+    },
+    {
+      "entity_id": "IN-S01-D504",
+      "time": "2024-25",
+      "value": 5
+    },
+    {
+      "entity_id": "IN-S01-D505",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S01-D506",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S01-D511",
+      "time": "2024-25",
+      "value": 8
+    },
+    {
+      "entity_id": "IN-S01-D515",
+      "time": "2024-25",
+      "value": 9
+    },
+    {
+      "entity_id": "IN-S01-D517",
+      "time": "2024-25",
+      "value": 9
+    },
+    {
+      "entity_id": "IN-S01-D519",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S01-D520",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S01-D521",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S01-D744",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S01-D745",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S01-D748",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S01-D750",
+      "time": "2024-25",
+      "value": 4
+    },
+    {
+      "entity_id": "IN-S01-D751",
+      "time": "2024-25",
+      "value": 5
+    },
+    {
+      "entity_id": "IN-S01-D753",
+      "time": "2024-25",
+      "value": 15
+    },
+    {
+      "entity_id": "IN-S01-D754",
+      "time": "2024-25",
+      "value": 47
+    },
+    {
+      "entity_id": "IN-S01-D755",
+      "time": "2024-25",
+      "value": 10
+    },
+    {
+      "entity_id": "IN-S02-D231",
+      "time": "2024-25",
+      "value": 3
+    },
+    {
+      "entity_id": "IN-S02-D238",
+      "time": "2024-25",
+      "value": 17
+    },
+    {
+      "entity_id": "IN-S02-D628",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S02-D719",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S03-D281",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S03-D616",
+      "time": "2024-25",
+      "value": 11
+    },
+    {
+      "entity_id": "IN-S04-D188",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S04-D189",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S04-D190",
+      "time": "2024-25",
+      "value": 7
+    },
+    {
+      "entity_id": "IN-S04-D193",
+      "time": "2024-25",
+      "value": 7
+    },
+    {
+      "entity_id": "IN-S04-D195",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S04-D196",
+      "time": "2024-25",
+      "value": 498
+    },
+    {
+      "entity_id": "IN-S04-D199",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S04-D200",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S04-D201",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S04-D204",
+      "time": "2024-25",
+      "value": 98
+    },
+    {
+      "entity_id": "IN-S04-D205",
+      "time": "2024-25",
+      "value": 5
+    },
+    {
+      "entity_id": "IN-S04-D206",
+      "time": "2024-25",
+      "value": 10
+    },
+    {
+      "entity_id": "IN-S04-D207",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S04-D208",
+      "time": "2024-25",
+      "value": 5
+    },
+    {
+      "entity_id": "IN-S04-D209",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S04-D211",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S04-D212",
+      "time": "2024-25",
+      "value": 38
+    },
+    {
+      "entity_id": "IN-S04-D213",
+      "time": "2024-25",
+      "value": 16
+    },
+    {
+      "entity_id": "IN-S04-D214",
+      "time": "2024-25",
+      "value": 7
+    },
+    {
+      "entity_id": "IN-S04-D215",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S04-D216",
+      "time": "2024-25",
+      "value": 8
+    },
+    {
+      "entity_id": "IN-S04-D217",
+      "time": "2024-25",
+      "value": 53
+    },
+    {
+      "entity_id": "IN-S04-D218",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S04-D219",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S04-D221",
+      "time": "2024-25",
+      "value": 6
+    },
+    {
+      "entity_id": "IN-S04-D222",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S04-D223",
+      "time": "2024-25",
+      "value": 26
+    },
+    {
+      "entity_id": "IN-S04-D611",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S05-D551",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S06-D441",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S06-D450",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S06-D451",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S06-D458",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S06-D459",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S06-D676",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S06-D789",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S07-D59",
+      "time": "2024-25",
+      "value": 4
+    },
+    {
+      "entity_id": "IN-S07-D63",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S07-D70",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S07-D76",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S08-D15",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S08-D19",
+      "time": "2024-25",
+      "value": 20
+    },
+    {
+      "entity_id": "IN-S08-D20",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S08-D21",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S10-D525",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S10-D528",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S10-D530",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S10-D538",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S10-D544",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S10-D548",
+      "time": "2024-25",
+      "value": 13
+    },
+    {
+      "entity_id": "IN-S10-D738",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S11-D557",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S12-D392",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S12-D402",
+      "time": "2024-25",
+      "value": 17
+    },
+    {
+      "entity_id": "IN-S12-D404",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S12-D410",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S12-D420",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S12-D422",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S12-D431",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S12-D435",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S12-D436",
+      "time": "2024-25",
+      "value": 4
+    },
+    {
+      "entity_id": "IN-S12-D638",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S12-D766",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S13-D466",
+      "time": "2024-25",
+      "value": 15
+    },
+    {
+      "entity_id": "IN-S13-D468",
+      "time": "2024-25",
+      "value": 15
+    },
+    {
+      "entity_id": "IN-S13-D469",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S13-D470",
+      "time": "2024-25",
+      "value": 3
+    },
+    {
+      "entity_id": "IN-S13-D472",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S13-D473",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S13-D477",
+      "time": "2024-25",
+      "value": 5
+    },
+    {
+      "entity_id": "IN-S13-D478",
+      "time": "2024-25",
+      "value": 8
+    },
+    {
+      "entity_id": "IN-S13-D479",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S13-D480",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S13-D481",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S13-D484",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S13-D485",
+      "time": "2024-25",
+      "value": 69
+    },
+    {
+      "entity_id": "IN-S13-D488",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S13-D489",
+      "time": "2024-25",
+      "value": 5
+    },
+    {
+      "entity_id": "IN-S13-D490",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S13-D492",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S13-D494",
+      "time": "2024-25",
+      "value": 20
+    },
+    {
+      "entity_id": "IN-S13-D496",
+      "time": "2024-25",
+      "value": 3
+    },
+    {
+      "entity_id": "IN-S13-D499",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S13-D500",
+      "time": "2024-25",
+      "value": 64
+    },
+    {
+      "entity_id": "IN-S18-D344",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S18-D346",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S18-D347",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S18-D350",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S18-D367",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S19-D31",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S19-D32",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S19-D38",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S19-D42",
+      "time": "2024-25",
+      "value": 3
+    },
+    {
+      "entity_id": "IN-S19-D608",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S19-D609",
+      "time": "2024-25",
+      "value": 7
+    },
+    {
+      "entity_id": "IN-S19-D651",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S20-D100",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S20-D102",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S20-D104",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S20-D105",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S20-D106",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S20-D107",
+      "time": "2024-25",
+      "value": 9
+    },
+    {
+      "entity_id": "IN-S20-D108",
+      "time": "2024-25",
+      "value": 5
+    },
+    {
+      "entity_id": "IN-S20-D109",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S20-D110",
+      "time": "2024-25",
+      "value": 3
+    },
+    {
+      "entity_id": "IN-S20-D111",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S20-D112",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S20-D113",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S20-D114",
+      "time": "2024-25",
+      "value": 13
+    },
+    {
+      "entity_id": "IN-S20-D117",
+      "time": "2024-25",
+      "value": 38
+    },
+    {
+      "entity_id": "IN-S20-D629",
+      "time": "2024-25",
+      "value": 27
+    },
+    {
+      "entity_id": "IN-S20-D777",
+      "time": "2024-25",
+      "value": 3
+    },
+    {
+      "entity_id": "IN-S20-D87",
+      "time": "2024-25",
+      "value": 9
+    },
+    {
+      "entity_id": "IN-S20-D88",
+      "time": "2024-25",
+      "value": 98
+    },
+    {
+      "entity_id": "IN-S20-D89",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S20-D90",
+      "time": "2024-25",
+      "value": 7
+    },
+    {
+      "entity_id": "IN-S20-D91",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S20-D92",
+      "time": "2024-25",
+      "value": 18
+    },
+    {
+      "entity_id": "IN-S20-D93",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S20-D94",
+      "time": "2024-25",
+      "value": 3
+    },
+    {
+      "entity_id": "IN-S20-D95",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S20-D96",
+      "time": "2024-25",
+      "value": 5
+    },
+    {
+      "entity_id": "IN-S20-D97",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S20-D99",
+      "time": "2024-25",
+      "value": 82
+    },
+    {
+      "entity_id": "IN-S22-D571",
+      "time": "2024-25",
+      "value": 3
+    },
+    {
+      "entity_id": "IN-S22-D584",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S22-D586",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S24-D118",
+      "time": "2024-25",
+      "value": 5
+    },
+    {
+      "entity_id": "IN-S24-D119",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S24-D120",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S24-D122",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S24-D124",
+      "time": "2024-25",
+      "value": 12
+    },
+    {
+      "entity_id": "IN-S24-D125",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S24-D126",
+      "time": "2024-25",
+      "value": 3
+    },
+    {
+      "entity_id": "IN-S24-D128",
+      "time": "2024-25",
+      "value": 10
+    },
+    {
+      "entity_id": "IN-S24-D129",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S24-D132",
+      "time": "2024-25",
+      "value": 3
+    },
+    {
+      "entity_id": "IN-S24-D133",
+      "time": "2024-25",
+      "value": 51
+    },
+    {
+      "entity_id": "IN-S24-D134",
+      "time": "2024-25",
+      "value": 7
+    },
+    {
+      "entity_id": "IN-S24-D135",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S24-D136",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S24-D141",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S24-D142",
+      "time": "2024-25",
+      "value": 13
+    },
+    {
+      "entity_id": "IN-S24-D143",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S24-D144",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S24-D146",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S24-D147",
+      "time": "2024-25",
+      "value": 16
+    },
+    {
+      "entity_id": "IN-S24-D150",
+      "time": "2024-25",
+      "value": 6
+    },
+    {
+      "entity_id": "IN-S24-D151",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S24-D152",
+      "time": "2024-25",
+      "value": 106
+    },
+    {
+      "entity_id": "IN-S24-D153",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S24-D156",
+      "time": "2024-25",
+      "value": 33
+    },
+    {
+      "entity_id": "IN-S24-D158",
+      "time": "2024-25",
+      "value": 4
+    },
+    {
+      "entity_id": "IN-S24-D161",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S24-D162",
+      "time": "2024-25",
+      "value": 5
+    },
+    {
+      "entity_id": "IN-S24-D167",
+      "time": "2024-25",
+      "value": 3
+    },
+    {
+      "entity_id": "IN-S24-D169",
+      "time": "2024-25",
+      "value": 145
+    },
+    {
+      "entity_id": "IN-S24-D170",
+      "time": "2024-25",
+      "value": 39
+    },
+    {
+      "entity_id": "IN-S24-D171",
+      "time": "2024-25",
+      "value": 19
+    },
+    {
+      "entity_id": "IN-S24-D172",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S24-D173",
+      "time": "2024-25",
+      "value": 10
+    },
+    {
+      "entity_id": "IN-S24-D176",
+      "time": "2024-25",
+      "value": 5
+    },
+    {
+      "entity_id": "IN-S24-D177",
+      "time": "2024-25",
+      "value": 5
+    },
+    {
+      "entity_id": "IN-S24-D180",
+      "time": "2024-25",
+      "value": 9
+    },
+    {
+      "entity_id": "IN-S24-D182",
+      "time": "2024-25",
+      "value": 30
+    },
+    {
+      "entity_id": "IN-S24-D184",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S24-D185",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S24-D186",
+      "time": "2024-25",
+      "value": 3
+    },
+    {
+      "entity_id": "IN-S24-D633",
+      "time": "2024-25",
+      "value": 17
+    },
+    {
+      "entity_id": "IN-S24-D659",
+      "time": "2024-25",
+      "value": 102
+    },
+    {
+      "entity_id": "IN-S25-D303",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S25-D305",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S25-D308",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S25-D309",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S25-D311",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S25-D316",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S25-D319",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S25-D321",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S26-D378",
+      "time": "2024-25",
+      "value": 27
+    },
+    {
+      "entity_id": "IN-S26-D380",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S26-D381",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S26-D388",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S26-D636",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S26-D643",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S26-D648",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S27-D323",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S27-D326",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S27-D327",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S27-D328",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S27-D329",
+      "time": "2024-25",
+      "value": 30
+    },
+    {
+      "entity_id": "IN-S27-D330",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S27-D332",
+      "time": "2024-25",
+      "value": 9
+    },
+    {
+      "entity_id": "IN-S27-D333",
+      "time": "2024-25",
+      "value": 33
+    },
+    {
+      "entity_id": "IN-S27-D334",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S27-D337",
+      "time": "2024-25",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S27-D338",
+      "time": "2024-25",
+      "value": 7
+    },
+    {
+      "entity_id": "IN-S27-D339",
+      "time": "2024-25",
+      "value": 4
+    },
+    {
+      "entity_id": "IN-S27-D340",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S27-D343",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S27-D606",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S28-D47",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S29-D691",
+      "time": "2024-25",
+      "value": 6
+    },
+    {
+      "entity_id": "IN-U08-D1",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-U08-D12",
+      "time": "2024-25",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-U08-D4",
+      "time": "2024-25",
+      "value": 6
+    },
+    {
+      "entity_id": "IN-U08-D620",
+      "time": "2024-25",
+      "value": 3
+    },
+    {
+      "entity_id": "IN-U08-D621",
+      "time": "2024-25",
+      "value": 8
+    },
+    {
+      "entity_id": "IN-U08-D623",
+      "time": "2024-25",
+      "value": 11
+    },
+    {
+      "entity_id": "IN-U08-D7",
+      "time": "2024-25",
+      "value": 9
+    },
+    {
+      "entity_id": "IN-U09-D6",
+      "time": "2024-25",
+      "value": 99
+    },
+    {
+      "entity_id": "IN-U09-D9",
+      "time": "2024-25",
+      "value": 2450
+    }
+  ],
+  "series_spec": {
+    "description": "Number of yaks tagged with Pashu Aadhaar (NDLM) in each district. Pashu Aadhaar is the UIDAI-style 12-digit tag issued by the National Digital Livestock Mission to individual animals; the count here is a count of tags issued, NOT an estimate of the actual yaks population of the district. Coverage varies by state as the rollout is in progress."
+  },
+  "methodology": {
+    "definition": "Number of yaks tagged with Pashu Aadhaar (NDLM) in each district. Pashu Aadhaar is the UIDAI-style 12-digit tag issued by the National Digital Livestock Mission to individual animals; the count here is a count of tags issued, NOT an estimate of the actual yaks population of the district. Coverage varies by state as the rollout is in progress.",
+    "publisher": "Department of Animal Husbandry & Dairying, Ministry of Fisheries, Animal Husbandry & Dairying, Government of India",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [
+      "Pashu Aadhaar tagging coverage varies sharply by state and is in active rollout; this is a tag-count, not a livestock population estimate.",
+      "Animals without a recorded total are skipped (NDLM emits null total when only male xor female sub-counts are present)."
+    ],
+    "notes": []
+  },
+  "divergence": null
+}

@@ -11,7 +11,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "count",
       "direction": "neutral",
       "attribution_geography": "where_administered",
@@ -27,7 +29,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "percentage",
       "direction": "neutral",
       "attribution_geography": "where_administered",
@@ -43,7 +47,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "count",
       "direction": "neutral",
       "attribution_geography": "where_administered",
@@ -59,7 +65,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "count",
       "direction": "neutral",
       "attribution_geography": "where_resident",
@@ -75,7 +83,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "count",
       "direction": "neutral",
       "attribution_geography": "where_administered",
@@ -91,7 +101,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "percentage",
       "direction": "higher_is_better",
       "denominator": "ac-total-electors",
@@ -108,13 +120,17 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "count",
       "direction": "neutral",
       "attribution_geography": "where_administered",
       "comparability": "comparable_across_states_and_time",
       "parent_indicator_id": null,
-      "excluded_notes": ["NOTA was introduced by the Election Commission in 2013; pre-2013 values are null, not zero."]
+      "excluded_notes": [
+        "NOTA was introduced by the Election Commission in 2013; pre-2013 values are null, not zero."
+      ]
     },
     {
       "indicator_id": "ac-nota-pct",
@@ -125,7 +141,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "percentage",
       "direction": "neutral",
       "denominator": "ac-votes-polled",
@@ -142,7 +160,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_administered",
@@ -158,7 +178,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_administered",
@@ -174,7 +196,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "count",
       "direction": "neutral",
       "attribution_geography": "where_administered",
@@ -190,7 +214,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "percentage",
       "direction": "neutral",
       "denominator": "ac-votes-polled",
@@ -207,7 +233,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "index",
       "direction": "neutral",
       "attribution_geography": "where_administered",
@@ -223,7 +251,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "count",
       "direction": "neutral",
       "attribution_geography": "where_administered",
@@ -239,7 +269,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "count",
       "direction": "neutral",
       "attribution_geography": "where_administered",
@@ -255,7 +287,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "percentage",
       "direction": "neutral",
       "denominator": "ac-votes-polled",
@@ -272,7 +306,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "count",
       "direction": "neutral",
       "attribution_geography": "where_administered",
@@ -288,7 +324,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "count",
       "direction": "higher_is_better",
       "attribution_geography": "where_administered",
@@ -304,7 +342,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "percentage",
       "direction": "higher_is_better",
       "denominator": "party-contested-acs",
@@ -321,7 +361,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "count",
       "direction": "neutral",
       "attribution_geography": "where_administered",
@@ -337,7 +379,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "percentage",
       "direction": "neutral",
       "denominator": "state-votes-polled",
@@ -354,7 +398,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "count",
       "direction": "lower_is_better",
       "attribution_geography": "where_administered",
@@ -370,7 +416,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "count",
       "direction": "neutral",
       "attribution_geography": "where_resident",
@@ -386,7 +434,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "count",
       "direction": "neutral",
       "attribution_geography": "where_administered",
@@ -402,7 +452,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "percentage",
       "direction": "higher_is_better",
       "denominator": "state-electors-total",
@@ -419,14 +471,18 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "percentage",
       "direction": "neutral",
       "denominator": "state-votes-polled",
       "attribution_geography": "where_administered",
       "comparability": "comparable_across_states_and_time",
       "parent_indicator_id": null,
-      "excluded_notes": ["NOTA introduced 2013; pre-2013 values are null, not zero."]
+      "excluded_notes": [
+        "NOTA introduced 2013; pre-2013 values are null, not zero."
+      ]
     },
     {
       "indicator_id": "state-effective-parties-laakso",
@@ -437,7 +493,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "index",
       "direction": "neutral",
       "attribution_geography": "where_administered",
@@ -453,7 +511,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_administered",
@@ -469,7 +529,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "count",
       "direction": "neutral",
       "attribution_geography": "where_administered",
@@ -485,7 +547,9 @@
       "cadence": "ad_hoc",
       "family": "elections",
       "pillar": "politics",
-      "topic_tags": ["elections"],
+      "topic_tags": [
+        "elections"
+      ],
       "value_kind": "count",
       "direction": "neutral",
       "attribution_geography": "where_administered",
@@ -502,7 +566,9 @@
       "cadence": "monthly_cy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_produced",
@@ -522,7 +588,9 @@
       "cadence": "monthly_cy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_produced",
@@ -533,7 +601,9 @@
         "fuel_type": "coal"
       },
       "source_id": "src-092a5dc7af3f",
-      "methodology_break_ids": ["cea-coal-aggregate-proxy-fy22"]
+      "methodology_break_ids": [
+        "cea-coal-aggregate-proxy-fy22"
+      ]
     },
     {
       "indicator_id": "national-installed-capacity-mw-gas",
@@ -544,7 +614,9 @@
       "cadence": "monthly_cy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_produced",
@@ -565,7 +637,9 @@
       "cadence": "monthly_cy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_produced",
@@ -586,7 +660,9 @@
       "cadence": "monthly_cy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_produced",
@@ -607,7 +683,9 @@
       "cadence": "monthly_cy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_produced",
@@ -618,7 +696,9 @@
         "fuel_type": "renewable"
       },
       "source_id": "src-092a5dc7af3f",
-      "methodology_break_ids": ["mnre-offgrid-inclusion-2021-08"]
+      "methodology_break_ids": [
+        "mnre-offgrid-inclusion-2021-08"
+      ]
     },
     {
       "indicator_id": "state-installed-capacity-geographical-mw",
@@ -630,7 +710,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_produced",
@@ -650,7 +732,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_produced",
@@ -661,7 +745,9 @@
         "fuel_type": "coal"
       },
       "source_id": "src-1240f07df0ac",
-      "methodology_break_ids": ["cea-coal-aggregate-proxy-fy22"]
+      "methodology_break_ids": [
+        "cea-coal-aggregate-proxy-fy22"
+      ]
     },
     {
       "indicator_id": "state-installed-capacity-geographical-mw-gas",
@@ -672,7 +758,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_produced",
@@ -693,7 +781,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_produced",
@@ -714,7 +804,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_produced",
@@ -735,7 +827,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_produced",
@@ -746,7 +840,9 @@
         "fuel_type": "renewable"
       },
       "source_id": "src-1240f07df0ac",
-      "methodology_break_ids": ["mnre-offgrid-inclusion-2021-08"]
+      "methodology_break_ids": [
+        "mnre-offgrid-inclusion-2021-08"
+      ]
     },
     {
       "indicator_id": "state-installed-capacity-allocated-mw",
@@ -758,7 +854,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "higher_is_better",
       "attribution_geography": "where_allocated",
@@ -768,7 +866,9 @@
       "revision_tier": "mixed",
       "parent_indicator_id": null,
       "source_id": "src-bb1d7bec8b34",
-      "methodology_break_ids": ["rbi-handbook-aggregate-no-fuel-split-pre-fy15"]
+      "methodology_break_ids": [
+        "rbi-handbook-aggregate-no-fuel-split-pre-fy15"
+      ]
     },
     {
       "indicator_id": "state-installed-capacity-allocated-mw-coal",
@@ -779,7 +879,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "higher_is_better",
       "attribution_geography": "where_allocated",
@@ -800,7 +902,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "higher_is_better",
       "attribution_geography": "where_allocated",
@@ -821,7 +925,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "higher_is_better",
       "attribution_geography": "where_allocated",
@@ -842,7 +948,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "higher_is_better",
       "attribution_geography": "where_allocated",
@@ -863,7 +971,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "higher_is_better",
       "attribution_geography": "where_allocated",
@@ -885,7 +995,9 @@
       "cadence": "monthly_cy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_allocated",
@@ -904,7 +1016,9 @@
       "cadence": "monthly_cy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_allocated",
@@ -926,7 +1040,9 @@
       "cadence": "monthly_cy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_allocated",
@@ -948,7 +1064,9 @@
       "cadence": "monthly_cy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_allocated",
@@ -970,7 +1088,9 @@
       "cadence": "monthly_cy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_allocated",
@@ -992,7 +1112,9 @@
       "cadence": "monthly_cy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_allocated",
@@ -1015,7 +1137,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_produced",
@@ -1035,7 +1159,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_produced",
@@ -1056,7 +1182,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_produced",
@@ -1077,7 +1205,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_produced",
@@ -1098,7 +1228,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_produced",
@@ -1119,7 +1251,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_produced",
@@ -1140,7 +1274,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_billed",
@@ -1161,7 +1297,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "lower_is_better",
       "attribution_geography": "where_administered",
@@ -1182,7 +1320,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_administered",
@@ -1203,7 +1343,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "higher_is_better",
       "attribution_geography": "where_administered",
@@ -1224,7 +1366,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "rate",
       "direction": "higher_is_better",
       "attribution_geography": "where_consumed",
@@ -1245,7 +1389,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "money",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "higher_is_better",
       "attribution_geography": "where_administered",
@@ -1266,7 +1412,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "money",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "higher_is_better",
       "attribution_geography": "where_administered",
@@ -1288,7 +1436,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "money",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "higher_is_better",
       "attribution_geography": "where_administered",
@@ -1310,7 +1460,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "money",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "lower_is_better",
       "attribution_geography": "where_administered",
@@ -1332,7 +1484,10 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "money",
-      "topic_tags": ["energy", "fiscal"],
+      "topic_tags": [
+        "energy",
+        "fiscal"
+      ],
       "value_kind": "rate",
       "direction": "lower_is_better",
       "attribution_geography": "where_administered",
@@ -1353,7 +1508,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "higher_is_better",
       "attribution_geography": "where_administered",
@@ -1373,7 +1530,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "higher_is_better",
       "attribution_geography": "where_administered",
@@ -1394,7 +1553,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "higher_is_better",
       "attribution_geography": "where_administered",
@@ -1415,7 +1576,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "higher_is_better",
       "attribution_geography": "where_administered",
@@ -1437,7 +1600,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "neutral",
       "attribution_geography": "where_administered",
@@ -1458,7 +1623,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "absolute",
       "direction": "higher_is_better",
       "attribution_geography": "where_administered",
@@ -1479,7 +1646,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "rate",
       "direction": "higher_is_better",
       "attribution_geography": "where_administered",
@@ -1489,6 +1658,322 @@
       "revision_tier": "final",
       "parent_indicator_id": null,
       "source_id": "src-9a38005d8713"
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count",
+      "label_short": "Pashu Aadhaar tagged",
+      "label_long": "Animals tagged with Pashu Aadhaar (NDLM)",
+      "description_short": "Count of animals issued a 12-digit Pashu Aadhaar tag in each district. Tagged count, NOT actual population.",
+      "description_long": "Pashu Aadhaar is the UIDAI-style 12-digit unique identifier issued by the National Digital Livestock Mission (NDLM, Bharat Pashudhan) to individual animals. The count here is the number of TAGS issued in each district, NOT an estimate of the actual livestock population - coverage varies by state as the rollout is in progress. Compute-on-read parent: the value is the sum of the 10 atomic-species children (cattle + buffalo + yak + mithun + sheep + goat + pig + horse + donkey + mule). No observation rows exist on disk for this id (per Hans D33.8 convention); the frontend sums the children at read time. The catalogue carries comparability=directional_only and renderer_rules=[no_rank_table] - the renderer suppresses rank-table views and labels the choropleth illustrative, not a ranking.",
+      "unit": "animals",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; vintages CY 2024 + FY 2024-25",
+      "revision_tier": "first_release",
+      "parent_indicator_id": null,
+      "source_id": null,
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-cattle",
+      "label_short": "Cattle",
+      "label_long": "Pashu Aadhaar tagged - Cattle",
+      "description_short": "Number of cattle tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual cattle population.",
+      "description_long": "Per-species cut of district-pashu-aadhaar-count. Same Hans honest-renderer caveat applies: tagged count is NOT an estimate of the actual cattle population of the district; coverage varies by state. Vintages CY 2024 + FY 2024-25 both lifted from NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25.",
+      "unit": "animals",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; vintages CY 2024 + FY 2024-25",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "district-pashu-aadhaar-count",
+      "dimension_values": {
+        "species": "cattle"
+      },
+      "source_id": "src-7e5d4aac4995",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-buffalo",
+      "label_short": "Buffalo",
+      "label_long": "Pashu Aadhaar tagged - Buffalo",
+      "description_short": "Number of buffaloes tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual buffaloes population.",
+      "description_long": "Per-species cut of district-pashu-aadhaar-count. Same Hans honest-renderer caveat applies: tagged count is NOT an estimate of the actual buffaloes population of the district; coverage varies by state. Vintages CY 2024 + FY 2024-25 both lifted from NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25.",
+      "unit": "animals",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; vintages CY 2024 + FY 2024-25",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "district-pashu-aadhaar-count",
+      "dimension_values": {
+        "species": "buffalo"
+      },
+      "source_id": "src-7e5d4aac4995",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-yak",
+      "label_short": "Yak",
+      "label_long": "Pashu Aadhaar tagged - Yak",
+      "description_short": "Number of yaks tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual yaks population.",
+      "description_long": "Per-species cut of district-pashu-aadhaar-count. Same Hans honest-renderer caveat applies: tagged count is NOT an estimate of the actual yaks population of the district; coverage varies by state. Vintages CY 2024 + FY 2024-25 both lifted from NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25.",
+      "unit": "animals",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; vintages CY 2024 + FY 2024-25",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "district-pashu-aadhaar-count",
+      "dimension_values": {
+        "species": "yak"
+      },
+      "source_id": "src-7e5d4aac4995",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-mithun",
+      "label_short": "Mithun",
+      "label_long": "Pashu Aadhaar tagged - Mithun",
+      "description_short": "Number of mithun tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual mithun population.",
+      "description_long": "Per-species cut of district-pashu-aadhaar-count. Same Hans honest-renderer caveat applies: tagged count is NOT an estimate of the actual mithun population of the district; coverage varies by state. Vintages CY 2024 + FY 2024-25 both lifted from NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25.",
+      "unit": "animals",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; vintages CY 2024 + FY 2024-25",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "district-pashu-aadhaar-count",
+      "dimension_values": {
+        "species": "mithun"
+      },
+      "source_id": "src-7e5d4aac4995",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-sheep",
+      "label_short": "Sheep",
+      "label_long": "Pashu Aadhaar tagged - Sheep",
+      "description_short": "Number of sheep tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual sheep population.",
+      "description_long": "Per-species cut of district-pashu-aadhaar-count. Same Hans honest-renderer caveat applies: tagged count is NOT an estimate of the actual sheep population of the district; coverage varies by state. Vintages CY 2024 + FY 2024-25 both lifted from NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25.",
+      "unit": "animals",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; vintages CY 2024 + FY 2024-25",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "district-pashu-aadhaar-count",
+      "dimension_values": {
+        "species": "sheep"
+      },
+      "source_id": "src-7e5d4aac4995",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-goat",
+      "label_short": "Goat",
+      "label_long": "Pashu Aadhaar tagged - Goat",
+      "description_short": "Number of goats tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual goats population.",
+      "description_long": "Per-species cut of district-pashu-aadhaar-count. Same Hans honest-renderer caveat applies: tagged count is NOT an estimate of the actual goats population of the district; coverage varies by state. Vintages CY 2024 + FY 2024-25 both lifted from NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25.",
+      "unit": "animals",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; vintages CY 2024 + FY 2024-25",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "district-pashu-aadhaar-count",
+      "dimension_values": {
+        "species": "goat"
+      },
+      "source_id": "src-7e5d4aac4995",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-pig",
+      "label_short": "Pig",
+      "label_long": "Pashu Aadhaar tagged - Pig",
+      "description_short": "Number of pigs tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual pigs population.",
+      "description_long": "Per-species cut of district-pashu-aadhaar-count. Same Hans honest-renderer caveat applies: tagged count is NOT an estimate of the actual pigs population of the district; coverage varies by state. Vintages CY 2024 + FY 2024-25 both lifted from NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25.",
+      "unit": "animals",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; vintages CY 2024 + FY 2024-25",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "district-pashu-aadhaar-count",
+      "dimension_values": {
+        "species": "pig"
+      },
+      "source_id": "src-7e5d4aac4995",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-horse",
+      "label_short": "Horse",
+      "label_long": "Pashu Aadhaar tagged - Horse",
+      "description_short": "Number of horses tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual horses population.",
+      "description_long": "Per-species cut of district-pashu-aadhaar-count. Same Hans honest-renderer caveat applies: tagged count is NOT an estimate of the actual horses population of the district; coverage varies by state. Vintages CY 2024 + FY 2024-25 both lifted from NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25.",
+      "unit": "animals",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; vintages CY 2024 + FY 2024-25",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "district-pashu-aadhaar-count",
+      "dimension_values": {
+        "species": "horse"
+      },
+      "source_id": "src-7e5d4aac4995",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-donkey",
+      "label_short": "Donkey",
+      "label_long": "Pashu Aadhaar tagged - Donkey",
+      "description_short": "Number of donkeys tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual donkeys population.",
+      "description_long": "Per-species cut of district-pashu-aadhaar-count. Same Hans honest-renderer caveat applies: tagged count is NOT an estimate of the actual donkeys population of the district; coverage varies by state. Vintages CY 2024 + FY 2024-25 both lifted from NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25.",
+      "unit": "animals",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; vintages CY 2024 + FY 2024-25",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "district-pashu-aadhaar-count",
+      "dimension_values": {
+        "species": "donkey"
+      },
+      "source_id": "src-7e5d4aac4995",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-mule",
+      "label_short": "Mule",
+      "label_long": "Pashu Aadhaar tagged - Mule",
+      "description_short": "Number of mules tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual mules population.",
+      "description_long": "Per-species cut of district-pashu-aadhaar-count. Same Hans honest-renderer caveat applies: tagged count is NOT an estimate of the actual mules population of the district; coverage varies by state. Vintages CY 2024 + FY 2024-25 both lifted from NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25.",
+      "unit": "animals",
+      "cadence": "annual_fy",
+      "family": "livestock",
+      "pillar": "people",
+      "topic_tags": [
+        "agriculture"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "directional_only",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NDLM Bharat Pashudhan; vintages CY 2024 + FY 2024-25",
+      "revision_tier": "first_release",
+      "parent_indicator_id": "district-pashu-aadhaar-count",
+      "dimension_values": {
+        "species": "mule"
+      },
+      "source_id": "src-7e5d4aac4995",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
     }
   ]
 }

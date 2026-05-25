@@ -513,6 +513,56 @@ def lift_energy(
     typer.echo(f"lift-energy: {total_obs} total observation rows written")
 
 
+@app.command("lift-livestock")
+def lift_livestock(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Lift NDLM meadow-tier livestock JSON shards to canonical fact-table Parquets.
+
+    Path A PR 3 (TODO/20260525-livestock-ndlm-ingest-plan.md). Reads
+    meadow-tier shards under ``datasets/livestock/_meadow/ndlm/<vintage>/*.json``
+    (ADR-0041) and writes 1 canonical fact-table Parquet:
+
+    * ``livestock_pashu_aadhaar.parquet`` - 10 per-species facet-child
+      indicators (``district-pashu-aadhaar-count-<species>``) at district
+      granularity, both CY 2024 and FY 2024-25 vintages.
+
+    The parent indicator ``district-pashu-aadhaar-count`` is
+    compute-on-read (no observation rows on disk; the value is the sum
+    of the 10 atomic-species children, per Hans' D33.8 convention).
+
+    The 5 NDLM citation rows on ``datasets/taxonomy/sources.parquet``
+    are UPSERTed by ``emit-taxonomy`` (PR #276 livestock_sources_seed.py);
+    this command requires that step has already run.
+    """
+    from yen_gov.canonical.adapters.livestock import build_envelopes
+    from yen_gov.canonical.writer import write_batch
+
+    datasets_root = root / "datasets"
+    if not datasets_root.is_dir():
+        raise typer.BadParameter(
+            f"datasets/ not found under {root.as_posix()!r}"
+        )
+    total_obs = 0
+    for env in build_envelopes(root):
+        result = write_batch(env, datasets_root)
+        typer.echo(
+            f"lift-livestock: {env.target_table_stem}: "
+            f"{result.observation_rows_written} obs rows -> "
+            f"{result.observations_path.relative_to(root).as_posix()}"
+        )
+        total_obs += result.observation_rows_written
+    typer.echo(f"lift-livestock: {total_obs} total observation rows written")
+
+
 @app.command()
 def run(
     event: str = typer.Argument(..., help="ECI event id, e.g. AcGenMay2026."),

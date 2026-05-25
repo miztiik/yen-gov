@@ -113,6 +113,12 @@ FAMILY_FACT_TABLE_STEMS: dict[str, list[str]] = {
         "energy_distribution_performance",
         "energy_fuel_consumption",
     ],
+    "livestock": [
+        "livestock_pashu_aadhaar",
+        "livestock_owner_registration",
+        "livestock_nadcp_vaccination",
+        "livestock_naip_iv",
+    ],
 }
 
 
