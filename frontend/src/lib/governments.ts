@@ -9,12 +9,15 @@
 // don't have to change. Whole file fetched once and cached globally;
 // subsequent state lookups are pure filter ops over the cached holdings.
 //
-// Schema: datasets/schemas/office-holdings.schema.json v1.0 (replaced
-// the retired state_government.schema.json).
+// Schema: datasets/schemas/office-holdings.schema.json v1.1 (replaced
+// the retired state_government.schema.json). v1.1 adds non-CM national
+// offices whose raw `regime` may be null; this loader filters to CM rows.
 
 import { DATA_BASE } from "./paths";
 
 export type Regime = "elected" | "presidents_rule" | "governors_rule" | "interim";
+type SelectionMethod = "legislature_confidence" | "electoral_college" | "appointed_by_president" | "constitutional_succession";
+type TenureStatus = "substantive" | "acting" | "additional_charge";
 
 export interface GovernmentTerm {
   start: string;            // YYYY-MM-DD
@@ -39,7 +42,10 @@ interface _OfficeHolding {
   office_id: string;
   start_date: string;
   end_date: string | null;
-  regime: Regime;
+  regime: Regime | null;
+  citation_group_id?: string;
+  selection_method?: SelectionMethod;
+  tenure_status?: TenureStatus;
   person_name: string | null;
   party_eci_code: string | null;
   alliance: string | null;
@@ -51,6 +57,7 @@ interface _OfficeHoldingsFile {
   $schema: string;
   $schema_version: string;
   office_citations: Record<string, { url_main: string }>;
+  citation_groups?: Record<string, unknown>;
   holdings: _OfficeHolding[];
 }
 
@@ -72,7 +79,9 @@ function _loadAll(): Promise<_OfficeHoldingsFile | null> {
   return _allHoldings;
 }
 
-function _adapt(holding: _OfficeHolding): GovernmentTerm {
+type _ChiefMinisterHolding = _OfficeHolding & { regime: Regime };
+
+function _adapt(holding: _ChiefMinisterHolding): GovernmentTerm {
   return {
     start: holding.start_date,
     end: holding.end_date,
@@ -97,7 +106,7 @@ export function fetchGovernmentTimeline(stateCode: string): Promise<GovernmentTi
   const p = _loadAll().then(file => {
     if (!file) return null;
     const terms = file.holdings
-      .filter(h => h.office_id === office_id)
+      .filter((h): h is _ChiefMinisterHolding => h.office_id === office_id && h.regime !== null)
       .map(_adapt);
     if (terms.length === 0) return null;
     const url_main = file.office_citations[office_id]?.url_main;

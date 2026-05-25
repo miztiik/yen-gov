@@ -111,14 +111,13 @@ def emit_taxonomy(
       ``datasets/taxonomy/entities.json`` (T.0a-ii Phase A folded the 145
       hand-authored districts in; the per-state ``districts.json`` files
       that originally seeded those rows were retired in T.0c-iii Phase D.3)
-    - ``datasets/governments/dim_offices.parquet`` +
-      ``datasets/governments/governments_office_holdings.parquet`` --
-      CM offices (read from entities.parquet office_bearer rows post
-      G.1.b reader-switch, 2026-05-22) + 359 CM term holdings from the
-      consolidated ``datasets/taxonomy/office_holdings.json`` (post
-      G.1.c consolidation, 2026-05-22). Also UPSERTs the 31 Wikipedia
-      "List of CMs" citation rows into
-      ``datasets/taxonomy/sources.parquet``.
+        - ``datasets/governments/dim_offices.parquet`` +
+            ``datasets/governments/governments_office_holdings.parquet`` --
+            office identities (read from entities.parquet office_bearer rows)
+            plus tenure holdings from the consolidated
+            ``datasets/taxonomy/office_holdings.json``. Legacy CM rows UPSERT
+            Wikipedia "List of CMs" citations; national-office rows cite
+            explicit official ``citation_groups``.
     - ``datasets/taxonomy/indicators.parquet`` -- the canonical
       indicator catalogue from ``indicators.json`` (P.1.A C3, 2026-05-22).
     - ``datasets/taxonomy/methodology_breaks.parquet`` -- the
@@ -217,13 +216,10 @@ def emit_taxonomy(
         f"emit-taxonomy: wrote {rows} rows to datasets/taxonomy/entities.parquet"
     )
 
-    # 6) office_holdings -> dim_offices + holdings; upserts wiki sources.
-    #    Post-G.1.c consolidation (2026-05-22): tenure facts now come
-    #    from the single ``datasets/taxonomy/office_holdings.json``
-    #    (replaced 31 per-state cm_terms.json files); office IDENTITY
-    #    still reads from entities.parquet office_bearer rows
-    #    (G.1.a + G.1.b). Step 5 must run before step 6 so
-    #    entities.parquet is fresh.
+    # 6) office_holdings -> dim_offices + holdings; upserts sources.
+    #    Post-v1.1, legacy CM rows use office_citations while new
+    #    national-office rows use official citation_groups. Step 5 must
+    #    run before step 6 so entities.parquet is fresh.
     office_holdings_json = taxonomy_dir / "office_holdings.json"
     office_count, holdings_count = _compile_office_holdings(
         office_holdings_json,

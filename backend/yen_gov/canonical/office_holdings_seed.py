@@ -3,14 +3,12 @@
 §8.3 Python-compiles-to-Parquet seam. Replaces ``cm_terms_seed.py`` as
 the writer of:
 
-- ``datasets/governments/dim_offices.parquet`` -- one row per
-  (state, office) pair. Today only office=CM is materialised; the
-  grammar (LOCKED §0e.10.2-A) generalises to DCM / GOV / PM / etc.
+- ``datasets/governments/dim_offices.parquet`` -- one row per office
+    identity present in the authored holdings.
 - ``datasets/governments/governments_office_holdings.parquet`` -- one
-  row per CM tenure (or President's Rule interval) across every state.
-- Side effect: UPSERT 31 Wikipedia "List of Chief Ministers of ..."
-  citation rows into ``datasets/taxonomy/sources.parquet`` so every
-  holdings row's ``source_id`` resolves to a real ledger entry.
+    row per office tenure or vacancy/regime interval.
+- Side effect: UPSERT citation rows into ``datasets/taxonomy/sources.parquet``
+    so every holdings row's ``source_id`` resolves to a real ledger entry.
 
 G.1.c role (2026-05-22, consolidation): the 31 per-state cm_terms.json
 files were retired in favour of one consolidated
@@ -37,6 +35,12 @@ TCPD-style disambiguation across CM / candidate / MP / MLA appearances)
 is the §0e.5 follow-up. President's Rule intervals carry
 ``person_slug IS NULL`` AND ``person_name IS NULL`` -- the office is
 held by no person during such intervals, the schema must say so honestly.
+
+v1.1 extension (2026-05-25): constitutional national offices use explicit
+``citation_groups`` authored in office_holdings.json instead of the legacy
+CM-only ``office_citations`` URL map. This keeps TCPD as seed/QA only;
+citizen-facing provenance for President / Vice President rows comes from
+official Government of India source groups.
 
 Rejected designs (do NOT re-propose; full archive in
 TODO/20260522-g1-cm-terms-retirement-handover.md §G.1.c):
@@ -85,9 +89,28 @@ from pydantic import BaseModel, ConfigDict, Field
 from yen_gov.canonical.citation import derive_source_id
 
 DIM_OFFICES_ROW_SCHEMA_VERSION = "1.0"
-GOVERNMENTS_OFFICE_HOLDINGS_ROW_SCHEMA_VERSION = "1.0"
+GOVERNMENTS_OFFICE_HOLDINGS_ROW_SCHEMA_VERSION = "1.1"
 
 Regime = Literal["elected", "presidents_rule", "governors_rule", "interim"]
+SelectionMethod = Literal[
+    "legislature_confidence",
+    "electoral_college",
+    "appointed_by_president",
+    "constitutional_succession",
+]
+TenureStatus = Literal["substantive", "acting", "additional_charge"]
+License = Literal[
+    "OGL-IN-1.0",
+    "CC-BY-4.0",
+    "CC0-1.0",
+    "public-domain",
+    "unknown-public",
+    "internal",
+]
+ConfidenceTier = Literal["gold", "silver", "bronze"]
+VerificationMethod = Literal[
+    "live-fetch", "archived-snapshot", "transcribed", "editorial"
+]
 
 
 # ----------------------------------------------------------------------
@@ -99,6 +122,21 @@ class _OfficeCitation(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
     url_main: str
+
+
+class _CitationGroup(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    producer: str
+    title: str
+    vintage: str
+    license: License
+    confidence_tier: ConfidenceTier
+    is_issuing_authority: bool
+    verification_method: VerificationMethod
+    url_main: str | None = None
+    citation_full: str | None = None
+    notes: str | None = None
 
 
 class _HoldingReference(BaseModel):
@@ -114,7 +152,10 @@ class _OfficeHolding(BaseModel):
     office_id: str = Field(pattern=r"^IN(-[A-Z0-9]+)+$")
     start_date: str  # ISO date
     end_date: str | None = None
-    regime: Regime
+    regime: Regime | None
+    citation_group_id: str | None = None
+    selection_method: SelectionMethod | None = None
+    tenure_status: TenureStatus | None = None
     person_name: str | None = None
     party_eci_code: str | None = None
     alliance: str | None = None
@@ -126,6 +167,7 @@ class _OfficeHoldingsFile(BaseModel):
     model_config = ConfigDict(extra="allow", frozen=True)
 
     office_citations: dict[str, _OfficeCitation]
+    citation_groups: dict[str, _CitationGroup] = Field(default_factory=dict)
     holdings: list[_OfficeHolding]
 
 
@@ -151,7 +193,7 @@ class _OfficeBearerIdentity(BaseModel):
     """Office-identity row read from ``entities.parquet``.
 
     Mirrors the four columns dim_offices needs from each office_bearer
-    entity: office_id (= entity_id), entity_id of the parent state
+    entity: office_id (= entity_id), entity_id of the parent entity
     (= parent_entity_id), role (= entity_code, e.g. ``CM``), and label
     (= display_name). The source_id citation comes from
     ``office_citations`` -- not from this row -- because that citation
@@ -162,23 +204,20 @@ class _OfficeBearerIdentity(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
     office_id: str
-    state_entity_id: str
+    parent_entity_id: str
     role: str
     label: str
 
 
 def _load_office_bearer_identities(
     entities_parquet: Path,
-    role: str = "CM",
 ) -> dict[str, _OfficeBearerIdentity]:
-    """Return ``{office_id: _OfficeBearerIdentity}`` for one role.
+    """Return ``{office_id: _OfficeBearerIdentity}`` for all offices.
 
     Reads ``entity_type='office_bearer'`` rows from entities.parquet
     and keys them by ``entity_id`` (= office_id, e.g. ``IN-S22-CM``).
-    Filters by ``entity_code = role`` so this helper generalises to
-    DCM / GOV when those office_bearer rows land. Returns office_id as
-    key (not state_code) because the new long-form holdings carry
-    office_id directly -- no state-code derivation needed.
+    Returns office_id as key (not state_code) because the long-form
+    holdings carry office_id directly -- no state-code derivation needed.
     """
     con = duckdb.connect(":memory:")
     try:
@@ -187,7 +226,7 @@ def _load_office_bearer_identities(
             SELECT entity_id, parent_entity_id, entity_code, display_name
             FROM read_parquet('{Path(entities_parquet).as_posix()}')
             WHERE entity_type = 'office_bearer'
-              AND entity_code = '{role}'
+            ORDER BY entity_id
             """
         ).fetchall()
     finally:
@@ -204,7 +243,7 @@ def _load_office_bearer_identities(
             )
         out[entity_id] = _OfficeBearerIdentity(
             office_id=entity_id,
-            state_entity_id=parent_entity_id,
+            parent_entity_id=parent_entity_id,
             role=entity_code,
             label=display_name,
         )
@@ -227,6 +266,22 @@ def _state_display_from_label(label: str, role: str = "CM") -> str:
             f"office label {label!r} does not start with expected prefix {prefix!r}"
         )
     return label[len(prefix):]
+
+
+def _source_row_from_group(source_id: str, group: _CitationGroup) -> tuple:
+    return (
+        source_id,
+        group.producer,
+        group.title,
+        group.vintage,
+        group.license,
+        group.confidence_tier,
+        group.is_issuing_authority,
+        group.verification_method,
+        group.url_main,
+        group.citation_full,
+        group.notes,
+    )
 
 
 # ----------------------------------------------------------------------
@@ -262,23 +317,19 @@ def compile_to_parquet(
     Returns:
         ``(office_count, holdings_count)`` for orchestrator logging.
     """
-    office_identities = _load_office_bearer_identities(
-        Path(entities_parquet), role="CM"
-    )
+    office_identities = _load_office_bearer_identities(Path(entities_parquet))
 
     raw = json.loads(Path(office_holdings_json).read_text(encoding="utf-8"))
     for k in ("$schema", "$schema_version", "$comment"):
         raw.pop(k, None)
     file = _OfficeHoldingsFile.model_validate(raw)
 
-    # Per-office citation rows -- one row per office_id present in
-    # office_citations. Today CM only; DCM / GOV / PM extend the same
-    # path. Index by office_id so each holding row picks up its source_id.
+    # Per-office legacy citation rows -- one row per CM office_id present in
+    # office_citations. New non-CM rows use citation_groups instead.
     new_sources: dict[str, tuple] = {}  # source_id -> source row tuple
     office_source_ids: dict[str, str] = {}  # office_id -> source_id
-    office_rows: list[tuple] = []
 
-    for office_id, citation in file.office_citations.items():
+    for office_id, citation in sorted(file.office_citations.items()):
         identity = office_identities.get(office_id)
         if identity is None:
             raise ValueError(
@@ -288,15 +339,13 @@ def compile_to_parquet(
             )
         state_display = _state_display_from_label(identity.label, role=identity.role)
         producer = "Wikipedia"
-        # Per-role citation template -- CM today; DCM / GOV / PM extend
-        # by branching on identity.role when they land.
         if identity.role == "CM":
             title = f"List of Chief Ministers of {state_display}"
         else:
             raise ValueError(
                 f"office {office_id!r} role={identity.role!r}: no citation "
-                f"template yet (CM is the only role supported in v1.0). "
-                f"Extend office_holdings_seed.py when adding DCM/GOV/PM."
+                f"template in legacy office_citations. Use citation_groups "
+                f"for non-CM office holdings."
             )
         vintage = ""
         source_id = derive_source_id(producer, title, vintage)
@@ -315,26 +364,39 @@ def compile_to_parquet(
         )
         office_source_ids[office_id] = source_id
 
-        office_rows.append(
-            (
-                identity.office_id,
-                identity.state_entity_id,
-                identity.role,
-                identity.label,
-                source_id,
-            )
-        )
+    citation_group_source_ids: dict[str, str] = {}
+    for group_id, group in sorted(file.citation_groups.items()):
+        source_id = derive_source_id(group.producer, group.title, group.vintage)
+        citation_group_source_ids[group_id] = source_id
+        new_sources[source_id] = _source_row_from_group(source_id, group)
 
     # Holdings rows -- look up source_id by office_id.
     holding_rows: list[tuple] = []
+    office_dim_source_ids: dict[str, str] = {}
     for holding in file.holdings:
-        source_id = office_source_ids.get(holding.office_id)
+        identity = office_identities.get(holding.office_id)
+        if identity is None:
+            raise ValueError(
+                f"holdings row office_id={holding.office_id!r} has no "
+                f"office_bearer row in entities.parquet"
+            )
+        if holding.citation_group_id is not None:
+            source_id = citation_group_source_ids.get(holding.citation_group_id)
+            if source_id is None:
+                raise ValueError(
+                    f"holdings row office_id={holding.office_id!r} references "
+                    f"citation_group_id={holding.citation_group_id!r}, but "
+                    f"citation_groups has no such key"
+                )
+        else:
+            source_id = office_source_ids.get(holding.office_id)
         if source_id is None:
             raise ValueError(
                 f"holdings row office_id={holding.office_id!r} has no entry in "
-                f"office_citations; every office_id in holdings[] must have a "
-                f"citation row."
+                f"office_citations and no citation_group_id; non-legacy office "
+                f"holdings must cite an explicit official citation group."
             )
+        office_dim_source_ids.setdefault(identity.office_id, source_id)
         person_slug = _slugify_person(holding.person_name) if holding.person_name else None
         holding_rows.append(
             (
@@ -342,6 +404,8 @@ def compile_to_parquet(
                 holding.start_date,
                 holding.end_date,
                 holding.regime,
+                holding.selection_method,
+                holding.tenure_status,
                 person_slug,
                 holding.person_name,
                 holding.party_eci_code,
@@ -352,6 +416,19 @@ def compile_to_parquet(
         )
 
     # Dedupe office_ids and assert per-state uniqueness
+    office_rows: list[tuple] = []
+    for office_id, source_id in sorted(office_dim_source_ids.items()):
+        identity = office_identities[office_id]
+        office_rows.append(
+            (
+                identity.office_id,
+                identity.parent_entity_id,
+                identity.role,
+                identity.label,
+                source_id,
+            )
+        )
+
     seen_offices: set[str] = set()
     for row in office_rows:
         if row[0] in seen_offices:
@@ -395,7 +472,9 @@ def compile_to_parquet(
                 office_id VARCHAR NOT NULL,
                 start_date DATE NOT NULL,
                 end_date DATE,
-                regime VARCHAR NOT NULL,
+                regime VARCHAR,
+                selection_method VARCHAR,
+                tenure_status VARCHAR,
                 person_slug VARCHAR,
                 person_name VARCHAR,
                 party_eci_code VARCHAR,
@@ -406,7 +485,7 @@ def compile_to_parquet(
             """
         )
         con.executemany(
-            "INSERT INTO holdings VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            "INSERT INTO holdings VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
             holding_rows,
         )
         Path(holdings_out).parent.mkdir(parents=True, exist_ok=True)
@@ -448,11 +527,11 @@ def compile_to_parquet(
         # UPSERT -- delete any rows with source_ids we're about to write,
         # then insert the new versions. Keeps re-runs byte-identical.
         if new_sources:
-            sid_list = ",".join(f"'{sid}'" for sid in new_sources)
+            sid_list = ",".join(f"'{sid}'" for sid in sorted(new_sources))
             con.execute(f"DELETE FROM sources WHERE source_id IN ({sid_list})")
             con.executemany(
                 "INSERT INTO sources VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                list(new_sources.values()),
+                [new_sources[sid] for sid in sorted(new_sources)],
             )
         con.execute(
             f"""

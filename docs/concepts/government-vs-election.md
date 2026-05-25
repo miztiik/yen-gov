@@ -1,8 +1,10 @@
 # Government vs Election: cause and consequence
 
+**Last Updated**: 2026-05-25
+
 **Audience**: anyone authoring a renderer, route, or copy-string that touches state-level politics.
 
-**TL;DR**: A *government* is the continuing condition of who rules a state on a given date. An *election* is the discrete event that produced (or failed to produce) that condition. The citizen's primary question is the government; the election is part of its provenance.
+**TL;DR**: A *government* is the continuing condition of who rules a state on a given date. An *election* is the discrete event that produced (or failed to produce) that condition. The citizen's primary question is the government; the election is part of its provenance. Constitutional office tenures (President, Vice President, Governor) share the same office-holdings table, but they are not state-government regimes.
 
 ## The distinction
 
@@ -17,6 +19,8 @@
 | **Ends** | The day polling closes | When a successor takes office (or never, for the current holding) |
 
 A government term is what *is*; an election is part of how that term came to be. Other parts include defections, coalition collapses, no-confidence motions, dismissals under Article 356. All of these are first-class events in `office_holdings.json` `notes` and `references`; not all of them are elections.
+
+The same authoring file also carries constitutional office tenures. For these rows, `regime` can be `null`: the President of India and Vice President of India are office-holders, but their tenures are not `elected | presidents_rule | governors_rule | interim` state-government conditions. `selection_method` records how the person reaches the office (`electoral_college` for President/VP, `appointed_by_president` for Governors when validated batches land). `tenure_status` records whether the row is `substantive`, `acting`, or `additional_charge`.
 
 ## Why we treat them as peers, not parent-child
 
@@ -44,7 +48,7 @@ When you add a new state's data:
 
 1. **Add the election event** to `datasets/reference/in/election-events.json` with the citizen-facing `display`, the polling date, and a `data_status`. The CI test will hold the catalogue in sync with `backend/yen_gov/sources/eci/events.py`.
 2. **Add the government term(s)** to `datasets/taxonomy/office_holdings.json` (long-form `holdings[]` array; G.1.c 2026-05-22). At minimum, add the current term (start_date = swearing-in date, regime = `elected`, party_eci_code, alliance, person_name). Earlier terms can be backfilled later; the file degrades gracefully.
-3. **Don't author from memory.** Cite Wikipedia + ECI Statistical Reports in `references[]`. The TN holdings (filter by `office_id == "IN-S22-CM"` in `datasets/taxonomy/office_holdings.json`) are the gold-standard depth — match that bar over time.
+3. **Don't author from memory.** CM rows still use the legacy `office_citations` path plus per-term `references[]` where useful. National constitutional-office rows must cite official Government of India `citation_groups`; TCPD can seed and QA candidate rows, but it is not canonical citizen-facing provenance while official sources exist.
 
 ## Edge cases the schemas already accommodate
 
@@ -53,12 +57,16 @@ When you add a new state's data:
 - **Defection-driven CM changes**: a new term begins on the date of swearing-in; `notes` records the defection / split / no-confidence trigger.
 - **By-elections**: a separate row in `election-events.json` with `kind: by_election`. By-elections do not produce a new government term (they backfill seats); they don't appear in `office_holdings.json` unless they triggered a CM change.
 - **AP-Telangana split (2014)**: pre-split terms in S01 (combined Andhra Pradesh) end on 2014-06-01; post-split terms in S01 (residual AP) and S29 (Telangana) start on 2014-06-02. The schema allows a `notes` field on each term to record the structural cause.
-- **MCC (Model Code of Conduct) periods**: not yet a first-class regime in the schema; current convention is to record in `notes` of the in-force term. Future v1.1 may add `mcc_active_from`/`mcc_active_to` if surface demand emerges.
+- **MCC (Model Code of Conduct) periods**: not yet a first-class regime in the schema; current convention is to record in `notes` of the in-force term. A future schema bump may add `mcc_active_from`/`mcc_active_to` if surface demand emerges.
 - **UT asymmetry**: Delhi (Article 239AA — limited subjects), Puducherry (30 elected + 3 nominated), J&K (UT since 2019 — narrower than full state). Recorded in the `notes` of each respective `election-events.json` entry; UI banners can branch on the state's `tier` from `state.schema.json` v3.3.
+- **Constitutional offices**: President / Vice President rows use `regime: null`, `selection_method: electoral_college`, `tenure_status: substantive`, and official `citation_group_id` provenance. Acting intervals are deferred until official source rows are captured; gaps remain gaps rather than guessed acting tenures.
+- **Governors**: Governor rows are deferred to source-validated batches because the TCPD governors CSV is only a seed/QA checklist and the 825 rows require Raj Bhavan/state validation.
 
 ## See also
 
 - [ADR-0022](../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md) — place-first IA spine; elections-are-one-of-many doctrine.
 - [ADR-0023](../architecture/decisions/0023-election-event-identity-per-place.md) — the structural decision this doc supports.
 - `datasets/schemas/election-events.schema.json` v1.0 — per-state election inventory contract.
-- `datasets/schemas/office-holdings.schema.json` v1.0 — government-office holdings contract (replaces the retired `state_government.schema.json`; G.1.c 2026-05-22).
+- [canonical-store.md](../architecture/data/canonical-store.md) — canonical Parquet table shape.
+- [governments.md](../architecture/data/governments.md) — governments family authoring and compile contract.
+- `datasets/schemas/office-holdings.schema.json` v1.1 — government-office holdings contract (replaces the retired `state_government.schema.json`; G.1.c 2026-05-22).

@@ -1,6 +1,6 @@
 # Canonical store — target architecture
 
-**Last Updated**: 2026-05-23
+**Last Updated**: 2026-05-25
 **Owner**: data layer (Hans + Max own shape; Gregor owns contracts; Fowler owns write seam)
 **ADR**: [ADR-0030](../decisions/0030-canonical-store-duckdb-wasm.md) (canonical store rationale + rejected alternatives); [ADR-0036](../decisions/0036-state-identity-and-slice-registration.md) (state aliases + slice registration)
 **Plan**: [`TODO/20260517-canonical-long-format-pivot.md`](../../../TODO/20260517-canonical-long-format-pivot.md) (THE PLAN, R11)
@@ -198,8 +198,8 @@ datasets/
     dim_party_alliances.parquet
 
   governments/                        # CANONICAL family — institutions
-    governments_office_holdings.parquet       # post-G.1 — fact: person × office × tenure
-    dim_offices.parquet                       # PM-IN, CM-S22, MLA-<ac_id>, Collector-<dist_lgd>...
+    governments_office_holdings.parquet       # fact: person × office × tenure/regime interval
+    dim_offices.parquet                       # IN-PRES, IN-VPRES, IN-S22-CM, ...
 
   schemes/                            # NEW (T.2) — "Where the money goes"
     schemes_mgnrega_person_days.parquet       # one fact table per scheme (Q3 — granular)
@@ -327,6 +327,16 @@ datasets/
 
   ephemeral/                          # gitignored runtime
 ```
+
+### §2b.1a — Governments office holdings (v1.1, 2026-05-25)
+
+`datasets/governments/governments_office_holdings.parquet` is compiled from `datasets/taxonomy/office_holdings.json` by `backend/yen_gov/canonical/office_holdings_seed.py`. The row grain is one `(office_id, person_name, start_date, end_date)` tenure or one explicit regime/vacancy interval where `person_name` is null.
+
+Columns: `office_id`, `start_date`, `end_date`, nullable `regime`, nullable `selection_method`, nullable `tenure_status`, `person_slug`, `person_name`, `party_eci_code`, `alliance`, `notes`, `source_id`. `source_id` is an FK to `datasets/taxonomy/sources.parquet` and is derived, never hand-authored. Legacy CM rows can still derive their Wikipedia source from `office_citations`; non-CM rows cite explicit `citation_groups` aligned to the sources ledger.
+
+`regime` is about the governing condition, not the route to office. Chief Minister rows usually carry `regime: elected`; President's Rule rows carry `regime: presidents_rule` and no person. President and Vice President tenures carry `regime: null`, `selection_method: electoral_college`, and `tenure_status: substantive` because they are constitutional office tenures, not state-government regimes.
+
+TCPD office-bearer CSVs are seed/QA checklists only while official sources exist. The first v1.1 slice adds official-source President/Vice President rows. Governors are deferred to batches validated against Raj Bhavan/state or equivalent official pages before import.
 
 ### §2b.2 — Naming applied per layer
 

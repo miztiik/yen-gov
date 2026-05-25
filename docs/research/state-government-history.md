@@ -1,11 +1,11 @@
 # Research: State government history (CM terms)
 
-**Last Updated**: 2026-05-10
-**Status**: planned — Phase B (must land before Phase C ruling-party overlay)
+**Last Updated**: 2026-05-25
+**Status**: CM consolidation landed; constitutional-office extension started
 
 ## Question
 
-For the colour-by-government overlay, we need `(state, term_start, term_end, party_code, alliance, cm_name)` tuples, verifiable, going back at least to 1990. This is the join key for "is Tamil Nadu doing better on health since 2014?"
+For the colour-by-government overlay, we need `(state, term_start, term_end, party_code, alliance, cm_name)` tuples, verifiable, going back at least to 1990. This is the join key for "is Tamil Nadu doing better on health since 2014?" The same office-holdings spine now also carries constitutional national-office tenures where official sources exist.
 
 ## Candidates
 
@@ -30,7 +30,9 @@ For the colour-by-government overlay, we need `(state, term_start, term_end, par
 
 ## Decision
 
-**v1**: hand-author per state from Wikipedia + ECI cross-check. Originally one file per state at `datasets/governments/in/states/<S>/cm_terms.json`; consolidated into one long-form `datasets/taxonomy/office_holdings.json` in G.1.c (2026-05-22) per the Hans + Max + Fowler review. Each holding row has optional `references[]` listing the Wikipedia URL and the relevant ECI election URL; per-office `url_main` lives in the file's top-level `office_citations` map.
+**v1**: hand-author per state from Wikipedia + ECI cross-check. Originally one file per state at `datasets/governments/in/states/<S>/cm_terms.json`; consolidated into one long-form `datasets/taxonomy/office_holdings.json` in G.1.c (2026-05-22) per the Hans + Max + Fowler review. Each CM holding row has optional `references[]` listing the Wikipedia URL and the relevant ECI election URL; per-office `url_main` lives in the file's top-level `office_citations` map.
+
+**v1.1**: constitutional national-office rows use official `citation_groups` aligned to `sources.parquet`, not the legacy CM citation path. The first slice adds President and Vice President rows from the President's Secretariat and Vice President Office, Government of India. `regime` is null for these rows, `selection_method` is `electoral_college`, and `tenure_status` is `substantive`.
 
 License of the artifact: **note that hand-author from Wikipedia inherits CC BY-SA 3.0 obligations on the table data**. Mitigation: only the *facts* (start, end, party) are taken — facts are not copyrightable. Names and citation links are stored as references to upstream, not transcribed prose. Document this in `docs/research/license-handling.md`.
 
@@ -43,9 +45,12 @@ License of the artifact: **note that hand-author from Wikipedia inherits CC BY-S
 - President's Rule / Governor's Rule: model as a special "term" with `party_code: null`, `regime: "presidents_rule"`. Confirms for Punjab, Uttar Pradesh, J&K historical periods.
 - Coalition / alliance: party belonging to an alliance is a separate concept from party identity. Include `alliance: "UPA" | "NDA" | "Third Front" | null` per term — this is what we colour by, by default, in the overlay.
 - Tamil Nadu first (matches the existing election slice). Karnataka, Kerala, West Bengal, Assam next (the four states our boundary GeoJSONs cover).
+- Governors: TCPD's governors CSV is a seed/QA checklist only. Import Governor/LG/administrator rows only in official-source batches validated against Raj Bhavan/state/GoI pages.
+- Acting President intervals: defer until official source rows provide exact start/end dates.
 
 ## References
 
 - Wikipedia "List of CMs of TN" (visited 2026-05-10): <https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Tamil_Nadu>
 - ECI archives: <https://results.eci.gov.in/>
 - CC BY-SA 3.0 terms: <https://creativecommons.org/licenses/by-sa/3.0/>
+- Governments data family: [docs/architecture/data/governments.md](../architecture/data/governments.md)

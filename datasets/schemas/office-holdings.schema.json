@@ -2,13 +2,18 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "./office-holdings.schema.json",
   "title": "Government office holdings (CM / DCM / Governor / PM / ...)",
-  "description": "Long-form consolidation of every government-office tenure across India, sub-national + national. One row per (office, person, period) triple. Today carries CM seats only (31 states/UTs, 359 holdings since 1947); DCM / Governor / Prime Minister / Finance Minister / Cabinet Secretary tenures land in the same file when curated. Compiled by backend/yen_gov/canonical/office_holdings_seed.py to datasets/governments/governments_office_holdings.parquet. Designed against Archigos (Goemans/Gleditsch/Chiozza 2009) -- the canonical political-science head-of-government event-grain table -- per Max review 2026-05-22.\n\nDesign decisions (Hans + Max + Fowler review 2026-05-22, see TODO/20260522-g1-cm-terms-retirement-handover.md):\n  - office_id is the FK into entities.parquet[entity_type='office_bearer']. Role is encoded in office_id (IN-S22-CM, IN-PM, IN-FM, ...) -- no separate role column. President's Rule rows carry the CM office_id with regime='presidents_rule' and person_name=NULL.\n  - source_id is COMPUTED in the seed via per-role citation template -- this file carries NO source_id column. Wikipedia 'List of Chief Ministers of <state>' is the canonical CM citation; the seed derives source_id deterministically from (producer, title, vintage) per CLAUDE.md §12 v2.0.\n  - Per-term `references` is OPTIONAL inert payload that the current compile does NOT consume; preserved for a future office_holding_annotations.parquet uplift. Drops the publisher URLs the previous per-state cm_terms.json carried at file level.\n  - person_slug is DERIVED in the seed from person_name; not stored here. dim_persons.parquet is the §0e.5 follow-up.",
-  "x-version": "1.0",
+  "description": "Long-form consolidation of every government-office tenure across India, sub-national + national. One row per (office, person, period) triple. Carries Chief Minister seats plus source-validated constitutional national-office slices; DCM / Governor / Prime Minister / Finance Minister / Cabinet Secretary tenures land in the same file when curated. Compiled by backend/yen_gov/canonical/office_holdings_seed.py to datasets/governments/governments_office_holdings.parquet. Designed against Archigos (Goemans/Gleditsch/Chiozza 2009) -- the canonical political-science head-of-government event-grain table -- per Max review 2026-05-22.\n\nDesign decisions (Hans + Max + Fowler review 2026-05-22, see TODO/20260522-g1-cm-terms-retirement-handover.md; President/VP extension 2026-05-25):\n  - office_id is the FK into entities.parquet[entity_type='office_bearer']. Role is encoded in office_id (IN-S22-CM, IN-PRES, IN-VPRES, IN-PM, IN-FM, ...) -- no separate role column. President's Rule rows carry the CM office_id with regime='presidents_rule' and person_name=NULL.\n  - source_id is COMPUTED in the seed. Legacy CM rows may continue to omit citation_group_id and use office_citations, which derives Wikipedia 'List of Chief Ministers of <state>' source rows. New non-CM rows cite a first-class citation_groups entry aligned to sources.parquet and deriving source_id deterministically from (producer, title, vintage) per CLAUDE.md §12 v2.0.\n  - `regime` describes governing condition and can be NULL for constitutional office tenures that are not a government regime. `selection_method` describes how the holder reaches office; `tenure_status` records substantive / acting / additional-charge semantics.\n  - Per-term `references` is OPTIONAL inert payload that the current compile does NOT consume; preserved for a future office_holding_annotations.parquet uplift. Drops the publisher URLs the previous per-state cm_terms.json carried at file level.\n  - person_slug is DERIVED in the seed from person_name; not stored here. dim_persons.parquet is the §0e.5 follow-up.",
+  "x-version": "1.1",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-22",
       "description": "Initial schema. Replaces datasets/schemas/state_government.schema.json (retired in G.1.c PR alongside this file's introduction). 31 per-state cm_terms.json files were consolidated into datasets/taxonomy/office_holdings.json (359 CM holdings, 1947-2026) by tools/lift_cm_terms_to_office_holdings.py. Compiled Parquet (datasets/governments/governments_office_holdings.parquet) is byte-identical to the pre-G.1.c output per the SHA256 baseline in the G.1.c PR body."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-05-25",
+      "description": "Additive: add optional citation_groups aligned to sources.parquet for official non-CM office-tenure provenance; add optional holdings[].citation_group_id, holdings[].selection_method, and holdings[].tenure_status; broaden holdings[].regime to allow null for constitutional office tenures that are not government-regime intervals. Legacy office_citations remains valid for existing CM rows."
     }
   ],
   "type": "object",
@@ -28,6 +33,39 @@
           "additionalProperties": false,
           "properties": {
             "url_main": { "type": "string", "format": "uri", "pattern": "^https?://" }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "citation_groups": {
+      "type": "object",
+      "description": "Optional source groups aligned to datasets/taxonomy/sources.parquet v2.0. New non-CM holdings cite these by holdings[].citation_group_id so official Government of India sources can be citizen-facing provenance while TCPD remains seed/QA only.",
+      "patternProperties": {
+        "^[a-z0-9]+(-[a-z0-9]+)*$": {
+          "type": "object",
+          "required": [
+            "producer",
+            "title",
+            "vintage",
+            "license",
+            "confidence_tier",
+            "is_issuing_authority",
+            "verification_method",
+            "url_main"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "producer": { "type": "string", "minLength": 1 },
+            "title": { "type": "string", "minLength": 1 },
+            "vintage": { "type": "string" },
+            "license": { "enum": ["OGL-IN-1.0", "CC-BY-4.0", "CC0-1.0", "public-domain", "unknown-public", "internal"] },
+            "confidence_tier": { "enum": ["gold", "silver", "bronze"] },
+            "is_issuing_authority": { "type": "boolean" },
+            "verification_method": { "enum": ["live-fetch", "archived-snapshot", "transcribed", "editorial"] },
+            "url_main": { "type": ["string", "null"], "format": "uri", "pattern": "^https?://" },
+            "citation_full": { "type": ["string", "null"] },
+            "notes": { "type": ["string", "null"] }
           }
         }
       },
@@ -58,8 +96,21 @@
             "description": "Last date of this holding (YYYY-MM-DD). Inclusive. Null for the current ongoing holding."
           },
           "regime": {
-            "enum": ["elected", "presidents_rule", "governors_rule", "interim"],
-            "description": "Kind of government in power during this holding. `elected` is the normal case; `presidents_rule` / `governors_rule` capture central interventions where the seat is held by no person; `interim` covers caretaker / acting arrangements between elections."
+            "enum": ["elected", "presidents_rule", "governors_rule", "interim", null],
+            "description": "Kind of government in power during this holding. `elected` is the normal CM case; `presidents_rule` / `governors_rule` capture central interventions where the seat is held by no person; `interim` covers caretaker / acting arrangements between elections. NULL is reserved for constitutional office tenures (e.g. President / Vice President) that are office holdings but not state-government regime intervals."
+          },
+          "citation_group_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+            "description": "Optional FK into top-level citation_groups. Required by the compiler for non-legacy rows that cannot use office_citations."
+          },
+          "selection_method": {
+            "enum": ["legislature_confidence", "electoral_college", "appointed_by_president", "constitutional_succession"],
+            "description": "How the office-holder reaches the office. Distinct from regime: Presidents and Vice Presidents use electoral_college, Chief Ministers usually use legislature_confidence, Governors use appointed_by_president when that batch lands."
+          },
+          "tenure_status": {
+            "enum": ["substantive", "acting", "additional_charge"],
+            "description": "Whether this holding is the substantive office-holder, an acting interval, or an additional-charge arrangement."
           },
           "person_name": {
             "type": ["string", "null"],

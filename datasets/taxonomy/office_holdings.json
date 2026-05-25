@@ -1,7 +1,7 @@
 {
   "$schema": "../schemas/office-holdings.schema.json",
-  "$schema_version": "1.0",
-  "$comment": "Long-form consolidation of all government-office tenures, compiled to datasets/governments/governments_office_holdings.parquet by backend/yen_gov/canonical/office_holdings_seed.py. Carries CM holdings today (G.1.c, 2026-05-22); DCM / Governor / PM / Finance Minister tenures land here when curated. To add a row: append to holdings[] and re-sort by (office_id, start_date) on next `python -m yen_gov emit-taxonomy --root .` run. Citation source_id is computed deterministically per-role inside the seed from office_id + entities.parquet state display name -- this file carries no source_id column. Per-term `references` is optional and not consumed by the compile today (preserved for a future office_holding_annotations.parquet uplift). regime enum: elected | presidents_rule | governors_rule | interim. Person identity model: person_name is the verbatim publisher string; person_slug is derived in the seed; full dim_persons table is the §0e.5 follow-up.",
+  "$schema_version": "1.1",
+  "$comment": "Long-form consolidation of all government-office tenures, compiled to datasets/governments/governments_office_holdings.parquet by backend/yen_gov/canonical/office_holdings_seed.py. Carries CM holdings (G.1.c, 2026-05-22) plus the first official-source President/Vice President slice (2026-05-25); Governors are deferred to official Raj Bhavan/state-validated batches. To add a row: append to holdings[] and re-sort by (office_id, start_date) on next `python -m yen_gov emit-taxonomy --root .` run. Legacy CM rows may omit citation_group_id and use office_citations; non-CM rows cite citation_groups aligned to sources.parquet. Per-term `references` is optional and not consumed by the compile today (preserved for a future office_holding_annotations.parquet uplift). regime enum: elected | presidents_rule | governors_rule | interim | null. selection_method describes how the holder reaches office; tenure_status records substantive/acting/additional_charge. Person identity model: person_name is the verbatim publisher string; person_slug is derived in the seed; full dim_persons table is the §0e.5 follow-up. TCPD may seed/QA office rows, but official government sources are canonical provenance unless the user explicitly approves a fallback row.",
   "office_citations": {
     "IN-S01-CM": {
       "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Andhra_Pradesh"
@@ -97,7 +97,122 @@
       "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Jammu_and_Kashmir"
     }
   },
+  "citation_groups": {
+    "president-kovind-detail": {
+      "producer": "President's Secretariat",
+      "title": "Shri Ram Nath Kovind",
+      "vintage": "Page Last Updated on: 25/05/2026",
+      "license": "unknown-public",
+      "confidence_tier": "gold",
+      "is_issuing_authority": true,
+      "verification_method": "transcribed",
+      "url_main": "https://www.presidentofindia.gov.in/former-president/shri-ram-nath-kovind",
+      "citation_full": null,
+      "notes": "Official former-President detail page; term of office is shown as 25 July 2017 to 25 July 2022."
+    },
+    "president-murmu-profile": {
+      "producer": "President's Secretariat",
+      "title": "Profile",
+      "vintage": "Page Last Updated on: 24/05/2026",
+      "license": "unknown-public",
+      "confidence_tier": "gold",
+      "is_issuing_authority": true,
+      "verification_method": "transcribed",
+      "url_main": "https://www.presidentofindia.gov.in/profile",
+      "citation_full": null,
+      "notes": "Official President of India profile; states Smt. Droupadi Murmu was sworn in as the 15th President on 25 July 2022."
+    },
+    "vp-former-list": {
+      "producer": "Vice President Office, Government of India",
+      "title": "Former Vice Presidents",
+      "vintage": "Last Updated: 20 May 2026",
+      "license": "unknown-public",
+      "confidence_tier": "gold",
+      "is_issuing_authority": true,
+      "verification_method": "transcribed",
+      "url_main": "https://vicepresidentofindia.nic.in/former-vice-presidents/",
+      "citation_full": null,
+      "notes": "Official VP Office list; supports Shri M. Venkaiah Naidu and Shri Jagdeep Dhankhar term dates."
+    },
+    "vp-radhakrishnan-oath": {
+      "producer": "Vice President Office, Government of India",
+      "title": "Shri C. P. Radhakrishnan sworn in as the 15th Vice President of India and Chairman of Rajya Sabha",
+      "vintage": "New Delhi | September 12, 2025; Last Updated: 12 Sep 2025",
+      "license": "unknown-public",
+      "confidence_tier": "gold",
+      "is_issuing_authority": true,
+      "verification_method": "transcribed",
+      "url_main": "https://vicepresidentofindia.nic.in/pressrelease/shri-c-p-radhakrishnan-sworn-15th-vice-president-india-and-chairman-rajya-sabha",
+      "citation_full": null,
+      "notes": "Official VP Office press release for the oath/start date of Shri C. P. Radhakrishnan."
+    }
+  },
   "holdings": [
+    {
+      "office_id": "IN-PRES",
+      "start_date": "2017-07-25",
+      "end_date": "2022-07-25",
+      "regime": null,
+      "citation_group_id": "president-kovind-detail",
+      "selection_method": "electoral_college",
+      "tenure_status": "substantive",
+      "person_name": "Shri Ram Nath Kovind",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Official page gives a noon-to-noon term; date-only row records the date boundary."
+    },
+    {
+      "office_id": "IN-PRES",
+      "start_date": "2022-07-25",
+      "end_date": null,
+      "regime": null,
+      "citation_group_id": "president-murmu-profile",
+      "selection_method": "electoral_college",
+      "tenure_status": "substantive",
+      "person_name": "Smt. Droupadi Murmu",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Official profile says sworn in on 25 July 2022; current as of the 2026-05-25 authoring pass."
+    },
+    {
+      "office_id": "IN-VPRES",
+      "start_date": "2017-08-11",
+      "end_date": "2022-08-10",
+      "regime": null,
+      "citation_group_id": "vp-former-list",
+      "selection_method": "electoral_college",
+      "tenure_status": "substantive",
+      "person_name": "Shri M. Venkaiah Naidu",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Official VP Office former-list row closes the term before the 2022 successor took office."
+    },
+    {
+      "office_id": "IN-VPRES",
+      "start_date": "2022-08-11",
+      "end_date": "2025-07-21",
+      "regime": null,
+      "citation_group_id": "vp-former-list",
+      "selection_method": "electoral_college",
+      "tenure_status": "substantive",
+      "person_name": "Shri Jagdeep Dhankhar",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Official VP Office former-list row gives the term range. The vacancy before the next Vice President is left as a gap, not guessed as an acting row."
+    },
+    {
+      "office_id": "IN-VPRES",
+      "start_date": "2025-09-12",
+      "end_date": null,
+      "regime": null,
+      "citation_group_id": "vp-radhakrishnan-oath",
+      "selection_method": "electoral_college",
+      "tenure_status": "substantive",
+      "person_name": "Shri C. P. Radhakrishnan",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Official VP Office oath press release verifies the 12 September 2025 start date."
+    },
     {
       "office_id": "IN-S01-CM",
       "start_date": "1989-12-03",
