@@ -183,3 +183,54 @@ describe("boundaries-conform — parquet ledger is on disk", () => {
     expect(existsSync(path)).toBe(true);
   });
 });
+
+describe("boundaries-conform — states/all.geojson carries LGD-keyed features (Phase D.0)", () => {
+  // Post-D.0 the states layer is sourced from ramSeraph's LGD_States
+  // release (BharatMaps lineage) and carries `State_LGD` (numeric LGD
+  // state code) as the join property — replacing DataMeet's `ST_NM`
+  // English name. The layer joins to taxonomy.entities.lgd_code via
+  // MapChoropleth's `to-number` coercion in the SPA loader.
+  //
+  // We assert the on-disk shape directly rather than running the full
+  // DuckDB-WASM FK resolution in node (that's covered by the unit test
+  // `frontend/src/lib/view-models/states.test.ts::lgdCodeToEci` plus
+  // the Playwright golden path). The two invariants here are the ones
+  // that would silently break the choropleth fill without test signal.
+
+  const path = resolve(boundariesRoot, "states", "all.geojson");
+  const fc = JSON.parse(readFileSync(path, "utf8")) as {
+    type: string;
+    features: Array<{ properties: Record<string, unknown> }>;
+  };
+
+  it("contains 36 currently-valid state/UT polygons", () => {
+    expect(fc.type).toBe("FeatureCollection");
+    expect(fc.features.length).toBe(36);
+  });
+
+  it("every feature carries a positive-integer State_LGD join key", () => {
+    const offenders = fc.features
+      .map((f, i) => ({ i, lgd: f.properties?.State_LGD }))
+      .filter(
+        ({ lgd }) =>
+          typeof lgd !== "number" || !Number.isInteger(lgd) || lgd < 1 || lgd > 99,
+      );
+    expect(
+      offenders,
+      `features missing or carrying malformed State_LGD: ${JSON.stringify(offenders)}`,
+    ).toEqual([]);
+  });
+
+  it("every feature carries an STNAME label (display fallback)", () => {
+    const missing = fc.features.filter(
+      (f) => typeof f.properties?.STNAME !== "string" || (f.properties.STNAME as string).length === 0,
+    );
+    expect(missing.length).toBe(0);
+  });
+
+  it("State_LGD values are unique (one polygon per state/UT)", () => {
+    const codes = fc.features.map((f) => f.properties.State_LGD as number);
+    const unique = new Set(codes);
+    expect(unique.size).toBe(codes.length);
+  });
+});

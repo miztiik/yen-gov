@@ -1,8 +1,9 @@
 // Unit tests for the states view-model loader (T.0e — STATE_NAME_TO_ECI
-// retirement). Mirrors the pattern established by districts.test.ts:
-// mock `query` + `registerTable` at `../duckdb`, assert SQL shape,
-// returned shape, and null-row filtering. The real Parquet round-trip is
-// asserted by the Playwright golden-path spec.
+// retirement; D.0 — boundary_join_key projection + lgdCodeToEci helper).
+// Mirrors the pattern established by districts.test.ts: mock `query` +
+// `registerTable` at `../duckdb`, assert SQL shape, returned shape, and
+// null-row filtering. The real Parquet round-trip is asserted by the
+// Playwright golden-path spec.
 
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -15,6 +16,7 @@ import { query, registerTable } from "../duckdb";
 import {
   loadStates,
   eciFromStateName,
+  lgdCodeToEci,
   __resetForTests,
 } from "./states";
 
@@ -78,9 +80,18 @@ describe("loadStates (taxonomy.entities)", () => {
       eci_code: "S22",
       display_name: "Tamil Nadu",
       boundary_join_name: "Tamil Nadu",
+      boundary_join_key: "33",
       lgd_code: "33",
       iso_3166_2: "IN-TN",
     });
+  });
+
+  it("populates boundary_join_key from lgd_code verbatim on every row", async () => {
+    mockedQuery.mockResolvedValueOnce(sampleRows);
+    const out = await loadStates();
+    for (const row of out) {
+      expect(row.boundary_join_key).toBe(row.lgd_code);
+    }
   });
 
   it("SQL filters to currently-valid states + UTs only", async () => {
@@ -94,17 +105,32 @@ describe("loadStates (taxonomy.entities)", () => {
     expect(sql).toMatch(/ORDER BY entity_code/);
   });
 
-  it("applies the three boundary_join_name overrides for DataMeet ST_NM compatibility", async () => {
+  it("applies the three boundary_join_name overrides as citizen-display shortforms", async () => {
     mockedQuery.mockResolvedValueOnce(sampleRows);
     const out = await loadStates();
 
     const byEci = new Map(out.map((s) => [s.eci_code, s]));
+    // boundary_join_name is the SHORTFORM for citizen-display surfaces
+    // (tooltips, breadcrumbs, ranked lists, legends) post-D.0. The three
+    // overrides shorten the legal/display name to something readable in
+    // a 200-px tooltip pill or a breadcrumb chip.
     expect(byEci.get("U05")?.boundary_join_name).toBe("Delhi");
     expect(byEci.get("U01")?.boundary_join_name).toBe("Andaman & Nicobar");
     expect(byEci.get("U08")?.boundary_join_name).toBe("Jammu & Kashmir");
     // Names without an override pass through unchanged.
     expect(byEci.get("S22")?.boundary_join_name).toBe("Tamil Nadu");
     expect(byEci.get("S11")?.boundary_join_name).toBe("Kerala");
+  });
+
+  it("drops rows where lgd_code is null (post-D.0 LGD-keyed join requires it)", async () => {
+    mockedQuery.mockResolvedValueOnce([
+      ...sampleRows,
+      { entity_id: "IN-S99", eci_code: "S99", display_name: "Untagged", lgd_code: null, iso_3166_2: null },
+    ]);
+    const out = await loadStates();
+    // The 5 sample rows all have lgd_code; the 6th (null) is dropped.
+    expect(out).toHaveLength(5);
+    expect(out.every((r) => r.lgd_code !== null && r.lgd_code !== "")).toBe(true);
   });
 
   it("caches the result across calls within a session", async () => {
@@ -127,28 +153,29 @@ describe("loadStates (taxonomy.entities)", () => {
   it("drops rows where entity_id, eci_code, or display_name is null", async () => {
     mockedQuery.mockResolvedValueOnce([
       ...sampleRows,
-      { entity_id: null, eci_code: "X99", display_name: "Broken", lgd_code: null, iso_3166_2: null },
-      { entity_id: "IN-X99", eci_code: null, display_name: "Broken", lgd_code: null, iso_3166_2: null },
-      { entity_id: "IN-X99", eci_code: "X99", display_name: null, lgd_code: null, iso_3166_2: null },
+      { entity_id: null, eci_code: "X99", display_name: "Broken", lgd_code: "99", iso_3166_2: null },
+      { entity_id: "IN-X99", eci_code: null, display_name: "Broken", lgd_code: "99", iso_3166_2: null },
+      { entity_id: "IN-X99", eci_code: "X99", display_name: null, lgd_code: "99", iso_3166_2: null },
     ]);
     const out = await loadStates();
     expect(out).toHaveLength(5);
   });
 
-  it("preserves nullable LGD / ISO fields verbatim", async () => {
+  it("preserves nullable ISO field verbatim (lgd_code is required for boundary join)", async () => {
     mockedQuery.mockResolvedValueOnce([
       {
         entity_id: "IN-S99",
         eci_code: "S99",
         display_name: "Mystery",
-        lgd_code: null,
+        lgd_code: "99",
         iso_3166_2: null,
       },
     ]);
     const out = await loadStates();
     expect(out[0]).toMatchObject({
       eci_code: "S99",
-      lgd_code: null,
+      lgd_code: "99",
+      boundary_join_key: "99",
       iso_3166_2: null,
     });
   });
@@ -168,12 +195,12 @@ describe("eciFromStateName", () => {
     mockedQuery.mockResolvedValue(sampleRows);
   });
 
-  it("returns the ECI code for an exact DataMeet ST_NM match", async () => {
+  it("returns the ECI code for an exact display_name match", async () => {
     expect(await eciFromStateName("Tamil Nadu")).toBe("S22");
     expect(await eciFromStateName("Kerala")).toBe("S11");
   });
 
-  it("resolves the three overridden boundary names", async () => {
+  it("resolves the three overridden boundary shortforms", async () => {
     expect(await eciFromStateName("Delhi")).toBe("U05");
     expect(await eciFromStateName("Andaman & Nicobar")).toBe("U01");
     expect(await eciFromStateName("Jammu & Kashmir")).toBe("U08");
@@ -183,14 +210,54 @@ describe("eciFromStateName", () => {
     expect(await eciFromStateName("Atlantis")).toBeNull();
   });
 
-  it("does NOT resolve the canonical legal form when an override exists", async () => {
-    // "NCT of Delhi" is the display_name; the boundary join uses "Delhi".
-    // Callers that pass the legal form by mistake get null back, which is
-    // the honest answer ("this string is not a DataMeet ST_NM match").
-    expect(await eciFromStateName("NCT of Delhi")).toBeNull();
+  it("resolves BOTH the shortform and the display_name post-D.0", async () => {
+    // Post-D.0 the helper matches against EITHER boundary_join_name
+    // ("Delhi") OR display_name ("NCT of Delhi") so callers that hand-
+    // type either form get the same answer. This is a back-compat
+    // widening relative to the pre-D.0 strict ST_NM lookup.
+    expect(await eciFromStateName("Delhi")).toBe("U05");
+    expect(await eciFromStateName("NCT of Delhi")).toBe("U05");
   });
 
   it.each([null, undefined, ""])("returns null for %s", async (input) => {
     expect(await eciFromStateName(input as string | null | undefined)).toBeNull();
+  });
+});
+
+describe("lgdCodeToEci", () => {
+  beforeEach(() => {
+    mockedQuery.mockReset();
+    mockedRegister.mockReset();
+    mockedRegister.mockResolvedValue("noop");
+    __resetForTests();
+    mockedQuery.mockResolvedValue(sampleRows);
+  });
+
+  it("resolves an integer LGD code to the ECI code", async () => {
+    expect(await lgdCodeToEci(33)).toBe("S22");
+    expect(await lgdCodeToEci(32)).toBe("S11");
+  });
+
+  it("resolves a zero-padded VARCHAR LGD code (taxonomy storage shape)", async () => {
+    expect(await lgdCodeToEci("07")).toBe("U05");
+    expect(await lgdCodeToEci("35")).toBe("U01");
+    expect(await lgdCodeToEci("01")).toBe("U08");
+  });
+
+  it("resolves a plain unpadded string LGD code (post-parseInt normalisation)", async () => {
+    expect(await lgdCodeToEci("7")).toBe("U05");
+    expect(await lgdCodeToEci("33")).toBe("S22");
+  });
+
+  it("returns null for null / undefined / empty / non-numeric input", async () => {
+    expect(await lgdCodeToEci(null)).toBeNull();
+    expect(await lgdCodeToEci(undefined)).toBeNull();
+    expect(await lgdCodeToEci("")).toBeNull();
+    expect(await lgdCodeToEci("not-a-number")).toBeNull();
+  });
+
+  it("returns null for an unknown LGD code", async () => {
+    expect(await lgdCodeToEci(999)).toBeNull();
+    expect(await lgdCodeToEci("999")).toBeNull();
   });
 });

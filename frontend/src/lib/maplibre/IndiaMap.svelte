@@ -53,11 +53,11 @@
     .then(s => (states_taxonomy = s))
     .catch(() => (states_taxonomy = []));
 
-  // Reverse lookup boundary-join-name -> ECI used by on_select. Derived so
-  // that it picks up the loaded list automatically.
-  const NAME_TO_ECI = $derived.by(() => {
+  // Reverse lookup boundary-join-KEY (LGD code post-D.0) -> ECI used by
+  // on_select. Derived so it picks up the loaded list automatically.
+  const KEY_TO_ECI = $derived.by(() => {
     const out: Record<string, string> = {};
-    for (const s of states_taxonomy ?? []) out[s.boundary_join_name] = s.eci_code;
+    for (const s of states_taxonomy ?? []) out[s.boundary_join_key] = s.eci_code;
     return out;
   });
 
@@ -99,16 +99,16 @@
     void colors.overrides; // declare reactive read
     if (result.status !== "ok") return out;
     const per_state = result.data.per_state;
-    const tops: { name: string; key: string; eci: string | null; short: string }[] = [];
+    const tops: { display: string; join_key: string; key: string; eci: string | null; short: string }[] = [];
     for (const s of states_taxonomy ?? []) {
       const code = s.eci_code;
-      const name = s.boundary_join_name;
       const loaded = per_state[code];
       if (!loaded) continue;
       const top = loaded.party_totals.find((p) => p.seats_won > 0);
       if (top) {
         tops.push({
-          name,
+          display: s.boundary_join_name,
+          join_key: s.boundary_join_key,
           key: top.party_eci_code ?? top.party_short,
           eci: top.party_eci_code,
           short: top.party_short,
@@ -117,7 +117,7 @@
     }
     const palette = colors.forSet(tops.map((t) => t.key));
     for (const t of tops) {
-      out[t.name] = palette.get(t.key)?.fill ?? colors.fill(t.eci, t.short);
+      out[t.join_key] = palette.get(t.key)?.fill ?? colors.fill(t.eci, t.short);
     }
     return out;
   });
@@ -127,10 +127,11 @@
     const per_state = result.status === "ok" ? result.data.per_state : {};
     for (const s of states_taxonomy ?? []) {
       const code = s.eci_code;
-      const name = s.boundary_join_name;
+      const display = s.boundary_join_name;
+      const join_key = s.boundary_join_key;
       const loaded = per_state[code];
       if (!loaded) {
-        out[name] = `<div class="font-semibold">${escape_html(name)}</div><div class="text-slate-500">no data loaded</div>`;
+        out[join_key] = `<div class="font-semibold">${escape_html(display)}</div><div class="text-slate-500">no data loaded</div>`;
         continue;
       }
       const top = loaded.party_totals
@@ -139,8 +140,8 @@
       const rows = top
         .map((p) => `<div>${escape_html(p.party_short)} · ${p.seats_won}</div>`)
         .join("");
-      out[name] =
-        `<div class="font-semibold">${escape_html(name)} <span class="text-slate-400 font-mono text-[10px]">${code}</span></div>` +
+      out[join_key] =
+        `<div class="font-semibold">${escape_html(display)} <span class="text-slate-400 font-mono text-[10px]">${code}</span></div>` +
         `<div class="text-slate-600">${rows}</div>` +
         `<div class="text-slate-400 text-[10px] mt-1">${escape_html(loaded.event_id)} · click to open →</div>`;
     }
@@ -157,7 +158,7 @@
   }
 
   function on_select(sel: { key: string | number }): void {
-    const code = NAME_TO_ECI[String(sel.key)];
+    const code = KEY_TO_ECI[String(sel.key)];
     if (code) navigate(url.state(code));
   }
 </script>
