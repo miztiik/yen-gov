@@ -1,6 +1,6 @@
 # How to download data from Bharat Pashudhan (NDLM)
 
-**Last Updated**: 2026-05-25
+**Last Updated**: 2026-05-25 (Recipe 3 bulk tool shipped via PR 2)
 
 > Use this when you need to refresh livestock / vaccination / breeding / Pashu Aadhaar data for the `livestock` family ingest plan ([TODO/20260525-livestock-ndlm-ingest-plan.md](../../TODO/20260525-livestock-ndlm-ingest-plan.md)) or you want to inspect the raw NDLM API shape before opening a Phase 1 PR. Takes ~5 minutes to run; ~30 minutes if looping all 36 states x N years x 5 endpoints.
 
@@ -60,18 +60,34 @@ Output: full report at `.runtime/raw/ndlm/_recon/lgd-district-alignment.json`. T
 - **Intersection count** -- joinable rows.
 - **yen-gov-only count** -- districts NDLM doesn't report on this endpoint. Often non-zero (NAIP IV is a select-district programme; Kerala / Punjab / many UTs have zero NAIP IV coverage). Not a defect.
 
-## Recipe 3 -- full ingest sweep (planned; not yet shipped)
+## Recipe 3 -- full bulk corpus (all states x both vintages x 4 endpoints)
 
-The Phase 1 PR(s) will extend `tools/ndlm_download_proof.py` into `tools/ndlm_download.py` that loops:
+Walks the full NDLM corpus and writes one snapshot per (state, vintage, endpoint). Idempotent (skips files that exist on disk; pass `--force` to overwrite). Polite (0.2 s default sleep between calls + extra 0.4 s every 5th call). Resilient (3-attempt exponential backoff on 5xx / connection errors).
 
-```python
-for vintage in [(year, isYearFinancial) for year in YEARS for isYearFinancial in (False, True)]:
-    for state in all_36_states:
-        for endpoint in 5_endpoints:
-            fetch -> .runtime/raw/ndlm/<vintage>/<endpoint>_state-<stateCd>.json
+```powershell
+# Default: 36 states x 2 vintages x 4 endpoints = 288 calls, ~3-5 min
+python tools\ndlm_download.py
+
+# Subset for debugging:
+python tools\ndlm_download.py --states 33,29
+python tools\ndlm_download.py --endpoints pashu_aadhaar,nadcp
+python tools\ndlm_download.py --years 2024-25
+
+# Re-download even if files exist:
+python tools\ndlm_download.py --force
+
+# Slower (if NDLM throttles):
+python tools\ndlm_download.py --sleep 0.5
 ```
 
-Approximate runtime: 36 states x 2 vintages x 5 endpoints x ~0.3 s per call = ~110 s per ingest year. **Be polite to NDLM** -- the existing recipe sleeps 0.1-0.4 s between calls; do not parallelise above 4 concurrent requests.
+Output:
+
+1. Snapshots at `.runtime/raw/ndlm/<vintage>/<endpoint-stem>_state-<stateCd>.json` (gitignored)
+2. Summary at `.runtime/raw/ndlm/_summary.json` -- one row per (state, vintage, endpoint) with district counts and byte sizes. Meadow-lift PRs (PR 3+) cite this summary.
+
+Endpoint coverage: 4 of the 5 NDLM source rows in `datasets/taxonomy/sources.parquet` (Owner Registration, Pashu Aadhaar, NADCP, NAIP IV). The 5th (Breeding ABIP/RGM, `src-fb1694ab6a11`) is dashboard-level not per-state-endpoint; covered by a separate discovery PR. See [tools/ndlm_download.py](../../tools/ndlm_download.py) for full design notes.
+
+**Be polite to NDLM** -- do not parallelise above 4 concurrent requests; do not lower `--sleep` below 0.1 s.
 
 ## Calendar Year vs Financial Year
 

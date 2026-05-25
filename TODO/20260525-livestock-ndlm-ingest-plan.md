@@ -155,7 +155,7 @@ Recon ran 2026-05-25 (script: [tools/ndlm_recon_lgd_districts.py](../tools/ndlm_
 
 Each sub-PR:
 
-1. Pulls live snapshots into `.runtime/raw/ndlm/<vintage>/<endpoint>_state-<stateCd>.json` (script: extend [tools/ndlm_download_proof.py](../tools/ndlm_download_proof.py) into `tools/ndlm_download.py` that loops 36 states x N years x {CY, FY}).
+1. Pulls live snapshots into `.runtime/raw/ndlm/<vintage>/<endpoint>_state-<stateCd>.json` using [tools/ndlm_download.py](../tools/ndlm_download.py) (shipped 2026-05-25 via PR 2; covers all states x both vintages x 4 endpoints with retry + idempotent skip).
 2. Adds the `derive_source_id()` row(s) to `datasets/taxonomy/sources.parquet`.
 3. Writes the meadow file at `datasets/livestock/_meadow/ndlm/<vintage>/<endpoint>_district.json` per [§5.1](#51-meadow-path-per-adr-0041--gregor-verdict-a). Meadow JSON shape: `{rows: [{entity_id, time, value, ...facet keys}], source_id, ...}` mirroring energy meadow shape.
 4. Tier-A test: meadow path grammar (`livestock_meadow_path_grammar`); sources ledger closure (existing).
