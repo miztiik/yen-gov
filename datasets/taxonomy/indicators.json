@@ -1706,6 +1706,75 @@
       "source_id": "src-018bb42f9519"
     },
     {
+      "indicator_id": "india-thermal-capacity-retired-mw",
+      "label_short": "Thermal capacity retired",
+      "label_long": "India thermal generating capacity retired, by fuel (MW per year)",
+      "description_short": "National total of thermal generating capacity retired each fiscal year, broken down by fuel (coal vs gas). A key signal in the energy-transition story: rising coal retirements means the fleet is being replaced, not just expanded.",
+      "description_long": "Annual MW of utility-scale thermal generating capacity retired across India, broken into 2 fuel buckets (coal + gas; ICED's 'oil-gas' label collapses into the canonical 'gas' bucket per indicator-naming.md). Pair with installed-capacity additions to read net change. National-only -- ICED does NOT publish state-level retired capacity. Captures only utility-scale thermal retirements; captive plants and renewables decommissioning are out of scope of the upstream feed. Compute-on-read parent: sums the 2 atomic-fuel children.",
+      "unit": "MW",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_produced",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "joint",
+      "methodology_vintage": "NITI Aayog ICED ``/v1/retired-capacity-plants``. Originating data: Central Electricity Authority station-level retirement records. ICED is the federal aggregator; not the issuing authority.",
+      "revision_tier": "revised",
+      "parent_indicator_id": null,
+      "source_id": "src-fd152bd3c6c6"
+    },
+    {
+      "indicator_id": "india-thermal-capacity-retired-mw-coal",
+      "label_short": "Coal",
+      "label_long": "India thermal capacity retired -- Coal",
+      "description_short": "Coal-fired thermal capacity retired each fiscal year. The dominant retired-capacity category (~90% of cumulative thermal retirements since FY05).",
+      "unit": "MW",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_produced",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "joint",
+      "parent_indicator_id": "india-thermal-capacity-retired-mw",
+      "dimension_values": {
+        "fuel_type": "coal"
+      },
+      "source_id": "src-fd152bd3c6c6"
+    },
+    {
+      "indicator_id": "india-thermal-capacity-retired-mw-gas",
+      "label_short": "Gas",
+      "label_long": "India thermal capacity retired -- Gas",
+      "description_short": "Gas-fired thermal capacity retired each fiscal year. Includes oil-fired and diesel-fired thermal capacity (ICED's publisher label is 'oil-gas'; canonical bucket is 'gas' per Hans D33.8). Small fleet; sporadic retirements.",
+      "unit": "MW",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_produced",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "joint",
+      "parent_indicator_id": "india-thermal-capacity-retired-mw",
+      "dimension_values": {
+        "fuel_type": "gas"
+      },
+      "source_id": "src-fd152bd3c6c6"
+    },
+    {
       "indicator_id": "district-pashu-aadhaar-count",
       "label_short": "Pashu Aadhaar tagged",
       "label_long": "Animals tagged with Pashu Aadhaar (NDLM)",

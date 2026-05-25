@@ -1,6 +1,6 @@
-"""Installed capacity envelope — ``energy_installed_capacity.parquet``.
+"""Installed capacity envelope --- ``energy_installed_capacity.parquet``.
 
-Lifts 9 legacy shards into a single BatchEnvelope:
+Lifts 10 legacy shards into a single BatchEnvelope:
 
 * 5 CEA per-fuel per-state shards
   (``installed_capacity_{coal,gas,hydro,nuclear,renewable}_mw.json``)
@@ -34,6 +34,13 @@ Lifts 9 legacy shards into a single BatchEnvelope:
   NOT replace) utility-scale solar tracked under
   ``state-installed-capacity-snapshot-mw-renewable``; the total state
   solar fleet = utility-scale + rooftop.
+* ``india_thermal_capacity_retired_mw.json`` (29 rows, P.1.C PR-S)
+  → ``india-thermal-capacity-retired-mw-{fuel}`` (FY05-FY25, national
+  only, 2-facet coal/gas after SUB_FUEL_TO_CANONICAL collapse of
+  publisher "oil-gas" → canonical "gas";
+  source_id=iced_thermal_retired). First Pattern A-facet indicator in
+  P.1.C cohort. National-only — ICED does NOT publish state-level
+  retired capacity; captures only utility-scale thermal retirements.
 
 DELIBERATELY NOT LIFTED:
 * ``installed_capacity_{thermal,total}_mw.json`` — D33.8 hard drop, the
@@ -255,6 +262,41 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["iced_rooftop_solar"],
             derivation="raw",
+        ))
+
+    # 7. india_thermal_capacity_retired_mw.json (P.1.C PR-S)
+    #    → india-thermal-capacity-retired-mw-{fuel} (2-facet: coal, gas).
+    #    First Pattern A-facet indicator in P.1.C cohort. National-only
+    #    (entity_id always "IN"). Publisher emits 2 facets: "coal" and
+    #    "oil-gas"; SUB_FUEL_TO_CANONICAL collapses "oil-gas" → "gas"
+    #    per Hans D33.8 (the canonical fuel_type axis is the 5-bucket
+    #    {coal, gas, hydro, nuclear, renewable}; oil-fired + diesel +
+    #    gas-fired plants all sum into the "gas" bucket). Originating
+    #    data: CEA station-level retirement records; ICED is the
+    #    federal aggregator. Aggregate per (entity_id, time, canonical_
+    #    fuel) -- in case any future publisher rotation adds sub-fuel
+    #    rows that collapse to the same canonical bucket, the SUM keeps
+    #    the contract atomic.
+    shard = _load_iced_meadow(repo_root, "india_thermal_capacity_retired_mw.json")
+    agg: dict[tuple[str, str, str], list[float]] = defaultdict(list)
+    for r in shard["rows"]:
+        sub_fuel = r["facet"]
+        canonical = SUB_FUEL_TO_CANONICAL.get(sub_fuel)
+        if canonical is None:
+            continue
+        agg[(r["entity_id"], r["time"], canonical)].append(float(r["value"]))
+    for (entity_id, time_s, fuel), values in sorted(agg.items()):
+        period_label, year, period_seq = parse_iso_period(time_s)
+        derivation = "sum" if len(values) > 1 else "raw"
+        rows.append(ObservationRow(
+            entity_id=to_entity_id(entity_id),
+            year=year,
+            period_label=period_label,
+            period_seq=period_seq,
+            indicator_id=f"india-thermal-capacity-retired-mw-{fuel}",
+            value_numeric=sum(values),
+            source_id=SOURCE_IDS["iced_thermal_retired"],
+            derivation=derivation,
         ))
 
     return BatchEnvelope(

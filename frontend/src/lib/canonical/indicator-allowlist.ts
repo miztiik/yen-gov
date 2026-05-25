@@ -896,6 +896,66 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     ],
   },
 
+  // --- PR-S (Row 6 P.1.C 3/9, thermal capacity retired lift, 2026-05-25) ---
+  // ICED `/v1/retired-capacity-plants` -> 29 obs rows (national-only, FY05-FY25)
+  // joined into the existing `energy_installed_capacity` parquet stem. Adapter:
+  //   * installed_capacity.py block 7 emits india-thermal-capacity-retired-mw-{fuel}
+  // First Pattern A-facet indicator in P.1.C cohort. National-only --
+  // ICED does NOT publish state-level retired capacity. The publisher emits
+  // 2 facets: "coal" and "oil-gas"; SUB_FUEL_TO_CANONICAL collapses "oil-gas"
+  // -> canonical "gas" per Hans D33.8 (the 5-bucket fuel_type axis).
+  // legacy_facet_label is the CANONICAL bucket name ("gas"), NOT the raw
+  // publisher label ("oil-gas") -- citizens see the collapsed view.
+  // Compute-on-read parent: the parent indicator-id india-thermal-capacity-
+  // retired-mw carries no observation rows; the renderer sums the 2 fuel
+  // children at read time (Hans D33.8 convention; same as state-installed-
+  // capacity-geographical-mw and state-electricity-generation-gwh).
+  {
+    kind: "facet-multiplexed",
+    legacy_artifact_id: "energy/india_thermal_capacity_retired_mw",
+    canonical_parent_indicator_id: "india-thermal-capacity-retired-mw",
+    table_id: "energy.energy_installed_capacity",
+    facet_axis_id: "fuel_type",
+    facet_values: [
+      {
+        canonical_child_id: "india-thermal-capacity-retired-mw-coal",
+        legacy_facet_label: "coal",
+      },
+      {
+        canonical_child_id: "india-thermal-capacity-retired-mw-gas",
+        legacy_facet_label: "gas",
+      },
+    ],
+    meta: {
+      id: "india-thermal-capacity-retired-mw",
+      title: "India thermal capacity retired, by fuel (MW per year)",
+      description:
+        "National total of thermal generating capacity retired each fiscal year, broken down by fuel (coal vs gas). A key signal in the energy-transition story: rising coal retirements mean the fleet is being REPLACED rather than just EXPANDED. Pair with installed-capacity additions to read the NET change.",
+      entity_kind: "country",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "MW",
+      short_unit: "MW",
+      icon: "trash-2",
+      attribution_geography: "where_produced",
+      comparability: "comparable_across_states_and_time",
+      implementing_authority: "joint",
+      methodology_vintage:
+        "NITI Aayog ICED /v1/retired-capacity-plants. Originating data: Central Electricity Authority station-level retirement records. ICED is the federal aggregator; not the issuing authority.",
+      notes:
+        "National-only — ICED does NOT publish state-level retired capacity. Captures only utility-scale thermal retirements; captive plants and renewables decommissioning are out of scope. The 'gas' facet bundles oil-fired + diesel + gas-fired plants (ICED's publisher label is 'oil-gas'; the canonical 5-bucket fuel_type axis collapses to 'gas' per Hans D33.8).",
+    },
+    // PR-S (Row 6 P.1.C commit 1): Hans-curated caveats. Three honesty cues
+    // citizens need: national-only-grain, oil-gas-collapse, and net-change-pairing.
+    caveats: [
+      "National figures only — this is the ALL-INDIA annual retirement; ICED does not publish state-level retired capacity. A state cannot be ranked here. To attribute a coal retirement to (say) West Bengal or Maharashtra, cross-reference CEA station-level decommissioning notices directly.",
+      "'Gas' here bundles oil-fired + diesel + gas-fired plants. ICED's raw publisher label is 'oil-gas' (because legacy oil and diesel thermal plants share grid characteristics with gas); the canonical 5-bucket fuel axis collapses to 'gas'. A spike in 'gas' retirements is often diesel-station decommissioning, not natural-gas exit.",
+      "Coal retirements ≠ coal exit. Pair with installed-capacity additions on this page to read NET change: India retires ~1-2 GW coal annually since FY16 but ADDS 5-8 GW of new coal in the same window. Fleet is being modernised (sub-critical → super-critical), not phased out.",
+    ],
+  },
+
   // --- 12: ACS-ARR gap on electricity sales (₹/kWh), NITI ICED ---
   {
     kind: "single",

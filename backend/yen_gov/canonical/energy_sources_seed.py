@@ -1,7 +1,7 @@
-"""Seed the 14 energy citation rows into ``taxonomy/sources.parquet``.
+"""Seed the 15 energy citation rows into ``taxonomy/sources.parquet``.
 
 P.1.A (7 sources) + P.1.B (5 sources) + P.1.C PR-Q (1 source) +
-P.1.C PR-R (1 source) = 14 distinct upstreams.
+P.1.C PR-R (1 source) + P.1.C PR-S (1 source) = 15 distinct upstreams.
 
 P.1.A: 1 CEA + 3 ICED endpoints + 3 RBI Handbook tables (Table 142
 peak-demand + Table 142 peak-met + Table 140 installed-capacity long-arc
@@ -18,9 +18,13 @@ P.1.C PR-R: 1 ICED state-rooftop-solar-capacity-mw endpoint (second
 canonical P.1.C lift; originating data: Ministry of New & Renewable
 Energy (MNRE) / state nodal agencies. ICED is the federal aggregator,
 not issuing authority).
+P.1.C PR-S: 1 ICED india-thermal-capacity-retired-mw endpoint (third
+canonical P.1.C lift; first Pattern A-facet in cohort; national-grain
+fuel-faceted retired thermal capacity FY05-FY25; originating data:
+Central Electricity Authority via ICED federal aggregator).
 Each gets a citation row in the sources ledger so every emitted
-observation in P.1.A, P.1.B, and P.1.C PR-Q can FK to a real
-``source_id`` per Holy Law #9 + ADR-0032.
+observation in P.1.A, P.1.B, and P.1.C (PR-Q + PR-R + PR-S) can FK to
+a real ``source_id`` per Holy Law #9 + ADR-0032.
 
 Pattern mirrors ``boundary_layers_seed.upsert_boundary_sources`` (T.0d):
 INSERT-OR-REPLACE keyed on ``source_id`` so multiple subsystems can
@@ -56,7 +60,8 @@ __all__ = [
 ]
 
 
-# Operator nicknames for the 13 energy sources (7 P.1.A + 5 P.1.B + 1 P.1.C PR-Q).
+# Operator nicknames for the 15 energy sources (7 P.1.A + 5 P.1.B + 1 P.1.C
+# PR-Q + 1 P.1.C PR-R + 1 P.1.C PR-S).
 # Adapters look up the materialised source_id by nickname rather than
 # rebuilding the triple-hash each time.
 SOURCE_NICKNAMES: tuple[str, ...] = (
@@ -98,6 +103,14 @@ SOURCE_NICKNAMES: tuple[str, ...] = (
     # Originating data: MNRE / state nodal agencies via the National
     # Rooftop Solar Programme; ICED is the federal aggregator.
     "iced_rooftop_solar",
+    # --- P.1.C PR-S (1; third canonical lift, thermal retired) ----
+    # ICED retired-capacity-plants endpoint. National-only annual
+    # retired generating capacity by fuel (FY05-FY25). Publisher
+    # bundles "oil-gas" (oil-fired + diesel + gas) as a single facet;
+    # canonical SUB_FUEL_TO_CANONICAL collapses to "gas" per Hans D33.8.
+    # First Pattern A-facet indicator in P.1.C cohort. Originating
+    # data: CEA-published station-level retirement records.
+    "iced_thermal_retired",
 )
 
 
@@ -180,6 +193,12 @@ _TRIPLES: dict[str, tuple[str, str, str]] = {
     "iced_rooftop_solar": (
         "NITI Aayog India Climate & Energy Dashboard",
         "Rooftop Solar Capacity (MW) State-wise API (per-state cumulative rooftop solar installed capacity)",
+        "2024-25",
+    ),
+    # --- P.1.C PR-S (1) ------------------------------------------------
+    "iced_thermal_retired": (
+        "NITI Aayog India Climate & Energy Dashboard",
+        "Retired Thermal Capacity Plants Dashboard (national fiscal-year retired generating capacity by fuel)",
         "2024-25",
     ),
 }
@@ -317,6 +336,15 @@ _BY_NICKNAME: dict[str, tuple[str, str, str, bool, str, str | None]] = {
         "https://icedapi.niti.gov.in/energy/renewable/solar/rooftop/state",
         "ICED renewable-energy endpoint for state-wise cumulative rooftop solar capacity (FY18-FY25). Originating data: MNRE / state nodal agencies via the National Rooftop Solar Programme. ICED is the federal aggregator; not the issuing authority for the underlying fact (plan-doc §3 Q-d).",
     ),
+    # --- P.1.C PR-S (1) ------------------------------------------------
+    "iced_thermal_retired": (
+        "OGL-IN-1.0",
+        "silver",
+        "live-fetch",
+        False,
+        "https://icedapi.niti.gov.in/v1/retired-capacity-plants",
+        "ICED retired-capacity-plants endpoint for national fiscal-year retired thermal generating capacity by fuel (coal + oil-gas; FY05-FY25). Originating data: Central Electricity Authority station-level retirement records. ICED is the federal aggregator; not the issuing authority for the underlying fact (plan-doc §3 Q-d). National-only -- ICED does NOT publish state-level retired capacity.",
+    ),
 }
 
 
@@ -351,13 +379,13 @@ ENERGY_SOURCE_ID_BY_NICKNAME: dict[str, str] = {
 
 
 def upsert_energy_sources(con: duckdb.DuckDBPyConnection) -> int:
-    """Idempotent scope-authoritative emit of the 13 energy citation rows
+    """Idempotent scope-authoritative emit of the 15 energy citation rows
     into the in-memory ``sources`` DuckDB table.
 
     First DELETEs every row whose ``(producer, title)`` pair is owned by
-    this seed (i.e. one of the 13 ``_TRIPLES`` keys); then INSERTs the
-    13 current rows. This makes the seed structurally authoritative for
-    its 13 ``(producer, title)`` slots: when a vintage rotates (as in
+    this seed (i.e. one of the 15 ``_TRIPLES`` keys); then INSERTs the
+    15 current rows. This makes the seed structurally authoritative for
+    its 15 ``(producer, title)`` slots: when a vintage rotates (as in
     ADR-0042 + the 5 ICED rotations of PR-B Commit 2), the previous
     ``source_id`` (derived from the previous vintage) is purged rather
     than orphaned. INSERT-OR-REPLACE alone would NOT achieve this
@@ -365,7 +393,8 @@ def upsert_energy_sources(con: duckdb.DuckDBPyConnection) -> int:
 
     Caller is responsible for creating the ``sources`` table first and
     for emitting the table back to ``taxonomy/sources.parquet`` after.
-    Returns the number of rows upserted (always 13 today: 7 P.1.A + 5 P.1.B + 1 P.1.C PR-Q).
+    Returns the number of rows upserted (always 15 today: 7 P.1.A + 5
+    P.1.B + 1 P.1.C PR-Q + 1 P.1.C PR-R + 1 P.1.C PR-S).
     """
     owned_keys = sorted({(producer, title) for producer, title, _ in _TRIPLES.values()})
     for producer, title in owned_keys:
@@ -425,14 +454,14 @@ def upsert_energy_sources_to_parquet(sources_parquet: Path) -> int:
     """Read-modify-write wrapper around :func:`upsert_energy_sources`.
 
     Opens an in-memory DuckDB, loads the existing
-    ``taxonomy/sources.parquet`` (if any), upserts the 13 energy
+    ``taxonomy/sources.parquet`` (if any), upserts the 15 energy
     citation rows, writes the parquet back. Used by the
     ``emit-taxonomy`` orchestrator after office_holdings_seed has
     already written the wiki citation rows for the CM offices.
 
-    Returns the number of rows upserted (always 13 today: 7 P.1.A +
-    5 P.1.B + 1 P.1.C PR-Q). Idempotent -- re-running yields byte-identical
-    output.
+    Returns the number of rows upserted (always 15 today: 7 P.1.A + 5
+    P.1.B + 1 P.1.C PR-Q + 1 P.1.C PR-R + 1 P.1.C PR-S). Idempotent --
+    re-running yields byte-identical output.
     """
     sources_parquet = Path(sources_parquet)
     sources_parquet.parent.mkdir(parents=True, exist_ok=True)
