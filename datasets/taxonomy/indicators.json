@@ -1683,6 +1683,29 @@
       "source_id": "src-c222a8e2cd61"
     },
     {
+      "indicator_id": "state-rooftop-solar-capacity-mw",
+      "label_short": "Rooftop solar capacity",
+      "label_long": "State rooftop solar installed capacity (MW)",
+      "description_short": "Cumulative installed rooftop solar PV capacity in megawatts. Building-mounted (residential + commercial + industrial + public) only; utility-scale solar is separate and lives under state-installed-capacity-snapshot-mw-renewable.",
+      "description_long": "Per the National Rooftop Solar Programme (MNRE), rooftop solar is owned by the building owner (household, factory, school), not by a power utility. A state's total solar fleet = rooftop + utility-scale. Gujarat dominates rooftop deployment by absolute MW (a decade of state-level scheme co-funding plus the SURYA Gujarat residential push). Rajasthan and Karnataka lead utility-scale solar but lag on rooftop because rooftop economics depend on retail tariff structure (which favours states with high commercial tariffs like Maharashtra and Tamil Nadu) more than insolation. Pair with state-installed-capacity-snapshot-mw-renewable to see whether a state's renewable footprint is utility-investor-led or owner-led.",
+      "unit": "MW",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "higher_is_better",
+      "attribution_geography": "where_administered",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "state",
+      "methodology_vintage": "NITI Aayog ICED ``/energy/renewable/solar/rooftop/state``. Originating data: MNRE / state nodal agencies via the National Rooftop Solar Programme. ICED is the federal aggregator; not the issuing authority.",
+      "revision_tier": "revised",
+      "parent_indicator_id": null,
+      "source_id": "src-018bb42f9519"
+    },
+    {
       "indicator_id": "district-pashu-aadhaar-count",
       "label_short": "Pashu Aadhaar tagged",
       "label_long": "Animals tagged with Pashu Aadhaar (NDLM)",

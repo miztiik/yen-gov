@@ -609,6 +609,52 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.caveats![2]).toMatch(/Odisha/);
     expect(d!.caveats![2]).toMatch(/where_consumed|burned|consumed/i);
   });
+
+  // PR-R (Row 6 P.1.C 2/9, 2026-05-25): rooftop solar capacity lift. Joins
+  // the existing `energy_installed_capacity` parquet stem (rooftop is a
+  // sub-fuel measurement of installed MW; the total solar fleet = rooftop
+  // + utility-scale tracked under state-installed-capacity-snapshot-mw-
+  // renewable). 321 obs rows, FY18-FY25, non-faceted.
+  it("PR-R state_rooftop_solar_capacity_mw descriptor routes to state-rooftop-solar-capacity-mw", () => {
+    const d = getCanonicalDescriptor("energy/state_rooftop_solar_capacity_mw");
+    expect(d).not.toBeNull();
+    expect(d!.kind).toBe("single");
+    if (d!.kind === "single") {
+      expect(d!.canonical_indicator_id).toBe("state-rooftop-solar-capacity-mw");
+    }
+    // Rooftop joins the existing installed-capacity parquet stem -- NOT a
+    // new stem. The rooftop measurement is logically a sub-fuel of installed MW.
+    expect(d!.table_id).toBe("energy.energy_installed_capacity");
+    expect(d!.meta.title).toMatch(/rooftop solar/i);
+    expect(d!.meta.unit).toBe("MW");
+    // where_administered -- the state's nodal agency administers rooftop
+    // programmes; building owners install (not the centre, not the utility).
+    expect(d!.meta.attribution_geography).toBe("where_administered");
+    expect(d!.meta.implementing_authority).toBe("state");
+    expect(d!.meta.icon).toBe("sun");
+    expect(d!.meta.direction).toBe("higher_is_better");
+    expect(d!.meta.entity_kind).toBe("state");
+    expect(d!.meta.time_grain).toBe("fiscal_year");
+  });
+
+  it("PR-R rooftop-solar descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor("energy/state_rooftop_solar_capacity_mw");
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: rooftop-vs-utility-scale mental model + companion-card pointer.
+    expect(d!.caveats![0]).toMatch(/rooftop only|rooftop ONLY|rooftop\b.*only/i);
+    expect(d!.caveats![0]).toMatch(/utility-scale|utility scale/i);
+    expect(d!.caveats![0]).toMatch(/Karnataka|Gujarat/);
+    // 2: tariff-economics-not-just-insolation; named-state anchors.
+    expect(d!.caveats![1]).toMatch(/tariff/i);
+    expect(d!.caveats![1]).toMatch(/Maharashtra|Tamil Nadu/);
+    expect(d!.caveats![1]).toMatch(/Rajasthan/);
+    expect(d!.caveats![1]).toMatch(/insolation|sunshine/i);
+    // 3: cumulative-vs-annual semantics.
+    expect(d!.caveats![2]).toMatch(/cumulative/i);
+    expect(d!.caveats![2]).toMatch(/annual|year/i);
+  });
 });
 
 describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {

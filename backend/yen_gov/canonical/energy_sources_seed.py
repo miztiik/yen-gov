@@ -1,7 +1,7 @@
-"""Seed the 13 energy citation rows into ``taxonomy/sources.parquet``.
+"""Seed the 14 energy citation rows into ``taxonomy/sources.parquet``.
 
-P.1.A (7 sources) + P.1.B (5 sources) + P.1.C PR-Q (1 source) = 13
-distinct upstreams.
+P.1.A (7 sources) + P.1.B (5 sources) + P.1.C PR-Q (1 source) +
+P.1.C PR-R (1 source) = 14 distinct upstreams.
 
 P.1.A: 1 CEA + 3 ICED endpoints + 3 RBI Handbook tables (Table 142
 peak-demand + Table 142 peak-met + Table 140 installed-capacity long-arc
@@ -14,7 +14,10 @@ and RPO compliance) + 3 RBI Handbook tables (141 power requirement,
 P.1.C PR-Q: 1 ICED state-coal-consumption-mt endpoint (first canonical
 fuel-consumption lift; originating data: Coal Controller's Office /
 Ministry of Coal; ICED is the federal aggregator, not issuing authority).
-
+P.1.C PR-R: 1 ICED state-rooftop-solar-capacity-mw endpoint (second
+canonical P.1.C lift; originating data: Ministry of New & Renewable
+Energy (MNRE) / state nodal agencies. ICED is the federal aggregator,
+not issuing authority).
 Each gets a citation row in the sources ledger so every emitted
 observation in P.1.A, P.1.B, and P.1.C PR-Q can FK to a real
 ``source_id`` per Holy Law #9 + ADR-0032.
@@ -87,6 +90,14 @@ SOURCE_NICKNAMES: tuple[str, ...] = (
     # (plan-doc §3 Q-d). Same silver / not-authority / live-fetch
     # classification as other ICED endpoints.
     "iced_consumption_coal",
+    # --- P.1.C PR-R (1; second canonical lift, rooftop solar) -----
+    # ICED state-rooftop-solar-capacity-mw endpoint. Cumulative MW of
+    # building-mounted PV across residential / commercial / industrial /
+    # public categories; complements (NOT replaces) utility-scale solar
+    # tracked under state-installed-capacity-snapshot-mw-renewable.
+    # Originating data: MNRE / state nodal agencies via the National
+    # Rooftop Solar Programme; ICED is the federal aggregator.
+    "iced_rooftop_solar",
 )
 
 
@@ -163,6 +174,12 @@ _TRIPLES: dict[str, tuple[str, str, str]] = {
     "iced_consumption_coal": (
         "NITI Aayog India Climate & Energy Dashboard",
         "Coal Consumption (Domestic) State-wise API (per-state fiscal-year coal consumption, by grade)",
+        "2024-25",
+    ),
+    # --- P.1.C PR-R (1) ------------------------------------------------
+    "iced_rooftop_solar": (
+        "NITI Aayog India Climate & Energy Dashboard",
+        "Rooftop Solar Capacity (MW) State-wise API (per-state cumulative rooftop solar installed capacity)",
         "2024-25",
     ),
 }
@@ -290,6 +307,15 @@ _BY_NICKNAME: dict[str, tuple[str, str, str, bool, str, str | None]] = {
         False,
         "https://icedapi.niti.gov.in/energy/fuel-sources/coal/consumption-domestic-state",
         "ICED fuel-sources endpoint for state-wise domestic coal consumption (4 grades: raw + washed + middlings + lignite; FY06-FY25). Originating data: Coal Controller's Office / Ministry of Coal. ICED is the federal aggregator; not the issuing authority for the underlying fact (plan-doc §3 Q-d).",
+    ),
+    # --- P.1.C PR-R (1) ------------------------------------------------
+    "iced_rooftop_solar": (
+        "OGL-IN-1.0",
+        "silver",
+        "live-fetch",
+        False,
+        "https://icedapi.niti.gov.in/energy/renewable/solar/rooftop/state",
+        "ICED renewable-energy endpoint for state-wise cumulative rooftop solar capacity (FY18-FY25). Originating data: MNRE / state nodal agencies via the National Rooftop Solar Programme. ICED is the federal aggregator; not the issuing authority for the underlying fact (plan-doc §3 Q-d).",
     ),
 }
 
