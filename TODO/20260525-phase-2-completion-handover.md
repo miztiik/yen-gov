@@ -156,18 +156,25 @@ If ANY hit is in a canonical-adapter lift block, the shard is bucket (b) and nee
 
 ### 4.4 PR 4 — P.1 Energy: PR 7d IA editorial pass (Jony + Citizen)
 
-**Plan row**: §0e.8a "P.1 Energy - PR 7d IA editorial pass". **Status**: ◻ READY.
+**Plan row**: §0e.8a "P.1 Energy - PR 7d IA editorial pass". **Status**: ✅ DONE PR #_pending_.
 
-**Scope** (citizen-facing editorial; the actual sub-bullets need Jony + Citizen scoping):
-- Prune the 36-card wall on `/s/<state>/t/energy` per Jony's "removing what isn't essential" doctrine.
-- Rewrite ACS-ARR copy per Citizen's "mid-tier Android, 4G, non-technical reader" voice.
-- Scroll-narrative cascade — single-screen density (Loren Brichter influence) on the top half.
+**Shipped scope** (3 mandatory subagent verdicts converged: Jony + Citizen + Hans):
+- `/s/<state>/t/energy` pruned from 23 cards to 5 in Jony's scroll-narrative order: (1) per-capita consumption as the citizen anchor, (2) generation-by-source GWh [FACET-5] as "where it comes from", (3) installed-capacity-by-source MW [FACET-5] as the long-arc structure, (4) AT&C losses as the discom-health pulse, (5) RPO compliance [FACET-3] as the clean-energy trajectory.
+- 5 heading rewrites per Citizen (e.g. "Aggregate Technical & Commercial losses (%, by state)" -> "Power lost to leaks and theft (%)"; "Renewable Purchase Obligation compliance (%, by state)" -> "Clean-energy purchase targets met (%)").
+- 2 description rewrites per Citizen (Cards 4 + 5).
+- Caveats[] update on all 5 cards per Hans (Card 1: bullet 0 replaced with Gujarat-Punjab anchor; Cards 2 + 3: NEW arrays with coordinated cross-card pair surfacing the GWh-vs-MW cognitive trap symmetrically; Card 4: 4th bullet appended for UDAY-PFC FY18 break; Card 5: 3rd bullet appended for obligation-MET vs share).
+- Topic summary rewritten (4-clause scroll-narrative).
+- 18 demoted cards retain /i/<id> routing.
 
-**Subagent invocation MANDATORY** (this is a UX decision, not a mechanical fix):
-- **Jony** — IA decisions + visual prune order. Loop in **Citizen** for the copy pass on each surviving card.
-- **Hans** — for any methodology-break visibility decisions that arise during the pruning (per §0e.8b Hans non-negotiable #7: "Methodology breaks render visibly on chart, not just in `methodology_breaks.parquet`").
+**Out-of-scope (queued as follow-up PRs)**:
+- D1 (Jony): `IndicatorGapChart.svelte` primitive for demand-vs-supply paired series (peak-demand-vs-met + power-required-vs-available) — retires 4 demoted cards into 2 paired /i/ pages.
+- D2 (Jony+Citizen): descriptor `meta.description` rewrite for Cards 1+2+3 (Citizen rewrote 4+5 only).
+- D3 (Jony): `default_facet_value` field on facet-multiplexed descriptors so card 2 can default to `renewable` (the "how CLEAN?" anchor) vs current `coal` default.
+- Hans-1: methodology-breaks-aware sparkline primitive supporting BOTH hard-break vertical markers (Card 4 UDAY FY18 case) and vintage-band-shading (Card 2 CEA-to-ICED collapse case). Single new component; reads from existing `methodology_breaks.parquet`.
+- Hans-2: `TopicHonestyBanner` primitive for topic-level 4-agency federal-data plurality disclosure ("These 5 cards draw from CEA + ICED + PFC + MNRE...").
+- ACS-ARR: deferred descriptor rewrite for `/t/fiscal` placement (Citizen verdict: ACS-ARR doesn't belong on /t/energy; routes through fiscal-discoms context where the citizen mental model lives).
 
-**Likely cascade**: this PR may surface 2-3 follow-up PRs (FacetPicker polish, choropleth legend rework, etc.) — keep each separately mergeable per CLAUDE.md §8 small-reversible-commit discipline.
+**Sub-finding**: BLAST-RADIUS TRAP per `docs/architecture/frontend/indicators.md:158-165` was navigated by deferring the methodology-break primitive (Hans's non-negotiable #7 mandates a chart-render rather than a caveat-bullet for the FY18 UDAY break, but the new primitive is Level-4 scope and the interim 4th caveat bullet on Card 4 is the honest stopgap until the follow-up PR ships).
 
 ### 4.5 PR 5 — Caveat-authoring next batch (extend PR-H pattern)
 

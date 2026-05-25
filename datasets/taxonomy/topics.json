@@ -183,96 +183,17 @@
       "id": "energy",
       "title": "Power & energy",
       "list": "concurrent",
-      "summary": "Where electricity is generated. Installed capacity by state, by fuel.",
+      "summary": "How much power your state uses, what fuels run it, how much is lost before reaching you, and progress on cleaner sources.",
       "icon": "zap",
       "featured": true,
       "peer_set_default": "all",
       "artifacts": [
         {
           "kind": "indicator",
-          "id": "energy/installed_capacity_coal_mw",
-          "default": false,
-          "featured": true,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "energy/installed_capacity_gas_mw",
-          "default": false,
-          "featured": false,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "energy/installed_capacity_nuclear_mw",
-          "default": false,
-          "featured": false,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "energy/installed_capacity_hydro_mw",
-          "default": false,
-          "featured": false,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "energy/installed_capacity_renewable_mw",
-          "default": false,
-          "featured": true,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "energy/state_installed_capacity_geographical_mw",
-          "default": false,
+          "id": "energy/state_per_capita_electricity_consumption_kwh",
+          "default": true,
           "featured": true,
           "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "energy/state_installed_capacity_with_alloc_mw",
-          "default": false,
-          "featured": false,
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "energy/state_electricity_generation_mu",
-          "default": false,
-          "featured": false,
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "energy/state_electricity_sales_mu",
-          "default": false,
-          "featured": false,
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "energy/state_atc_losses_pct",
-          "default": false,
-          "featured": true,
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "energy/state_acs_arr_gap_inr_per_kwh",
-          "default": false,
-          "featured": false,
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "energy/state_installed_capacity_by_source_mw",
-          "default": false,
-          "featured": true,
-          "scope": "state",
-          "chart_type": "stacked-trend",
-          "dimension": "power_source"
         },
         {
           "kind": "indicator",
@@ -285,81 +206,31 @@
         },
         {
           "kind": "indicator",
-          "id": "energy/state_peak_electricity_demand_mw",
-          "default": false,
-          "featured": false,
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "energy/state_peak_met_mw",
-          "default": false,
-          "featured": false,
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "energy/state_power_requirement_mu",
-          "default": false,
-          "featured": false,
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "energy/state_power_availability_mu",
-          "default": false,
-          "featured": false,
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "energy/state_per_capita_availability_kwh",
-          "default": true,
-          "featured": true,
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "energy/state_per_capita_electricity_consumption_kwh",
-          "default": false,
-          "featured": true,
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "energy/state_distribution_td_loss_pct",
+          "id": "energy/state_installed_capacity_by_source_mw",
           "default": false,
           "featured": true,
           "scope": "state",
-          "chart_type": "ranked"
+          "chart_type": "stacked-trend",
+          "dimension": "power_source"
         },
         {
           "kind": "indicator",
-          "id": "energy/state_distribution_billing_efficiency_pct",
+          "id": "energy/state_atc_losses_pct",
           "default": false,
-          "featured": false,
-          "scope": "state",
-          "chart_type": "ranked"
-        },
-        {
-          "kind": "indicator",
-          "id": "energy/state_distribution_collection_efficiency_pct",
-          "default": false,
-          "featured": false,
-          "scope": "state",
-          "chart_type": "ranked"
+          "featured": true,
+          "scope": "state"
         },
         {
           "kind": "indicator",
           "id": "energy/state_rpo_compliance_pct",
           "default": false,
-          "featured": false,
+          "featured": true,
           "scope": "state",
           "chart_type": "ranked",
           "dimension": "rpo_facet"
         }
       ],
-      "notes": "Installed-MW is a *siting* statistic, not a consumption statistic — the state where a plant sits is not necessarily the state that consumes the power. The indicator artifact's `attribution_geography` field carries this caveat to the renderer. The `installed_capacity_*` family is from CEA's monthly Executive Summary (March 2026 snapshot) and covers all 35 CEA-reported state/UT entities across 7 fuel categories (total, thermal, coal, gas, nuclear, hydro, renewable). The legacy `installed_mw_by_state` indicator (Wikipedia-derived, 4 states only) was retired in PR-A 2026-05-25 — superseded by the CEA per-fuel family. The state-level family (`state_installed_capacity_*`, `state_electricity_*`, `state_rooftop_solar_capacity_mw`, `state_atc_losses_pct`, `state_acs_arr_gap_inr_per_kwh`) is from the NITI Aayog ICED state-wise deep-dive API and covers 9-11 fiscal years (FY16-FY26) per indicator across all 36 states/UTs plus the All-India aggregate. ICED publishes both 'geographical-location' (where the plant sits) and 'with-allocated-shares' (who has rights to the output) capacity series; we ship both so the analyst can pick the one that matches the question being asked. The 2026-05-15 ICED-power batch adds four complementary series from a different ICED endpoint family (NITI ICED public dashboards, not the state-wise deep-dive): `state_installed_capacity_by_source_mw` (FY16-FY26, 11y, all states × ~7 fuels, 1815 rows — same metric as the state-wise `state_installed_capacity_geographical_mw` but tidy-by-fuel and with longer history), `state_electricity_generation_by_source_gwh` and `state_peak_electricity_demand_mw` (FY26 snapshot from `/energy/powerStatistics`, useful as a current-year companion to the multi-year capacity series), and one national series — `india_thermal_capacity_retired_mw` (FY06-FY26, by retired-fuel facet). (A fifth `india_capacity_pipeline_gw` series was retired in PR-A 2026-05-25; the forward-looking pipeline view will return when an upstream re-sourcing path is identified.) The 2026-05-15 ICED-power state-extension batch adds eight more state-scope series from the same NITI ICED public dashboards: `state_installed_capacity_total_mw` (state totals across all fuels), the `peak_demand_mw` / `peak_met_mw` pair (peak load served vs requested — the gap is the operational shortfall, but it ships as two raw series rather than a derived ratio so the citizen can see both numbers), the `power_requirement_mu` / `power_availability_mu` pair (annual energy-volume equivalent of peak — a fuller-year shortfall view), `per_capita_availability_kwh` and `per_capita_electricity_consumption_kwh` (citizen-experience metrics already normalised by population so cross-state comparison is honest — the latter is `comparable_across_states` and the headline citizen read of 'how electrified is daily life here'), and `renewable_grid_capacity_mw` (grid-connected renewables only, complements the existing `state_rooftop_solar_capacity_mw`). The two pairs (peak demand/met, requirement/availability) are intentionally shipped as raw series rather than as derived shortfall % — the renderer's existing comparability banner surfaces normalisation guidance, and the explicit pairing in topic notes here lets the citizen reason about gaps without us pre-committing to one ratio framing. Two remaining national-entity series (`national_final_energy_consumption_by_sector_mtoe`, `national_primary_energy_supply_mtoe`) stay allowlisted pending Phase 4 country-entity renderers — they are multi-facet and the IndicatorChoropleth state-only renderer cannot show them honestly. (A third `national_renewable_potential_vs_installed_mw` series was retired in PR-A 2026-05-25 — it deserves a comparison sidebar against installed-capacity rather than the choropleth treatment; a follow-up GitHub issue tracks the design consult.) PR-N residue triage (2026-05-25, PR #290 + this hotfix #_pending_): the 10 final ICED/legacy energy shards under datasets/indicators/in/energy/ were classified into bucket (a) delete-no-successor (2 Pattern B duplicates of per-fuel CEA) or bucket (b) moved to datasets/energy/_meadow/iced/2024-25/ pending P.1.C canonical adapter (8 shards). datasets/indicators/in/energy/ is now empty per ADR-0041 completion criterion."
+      "notes": "Installed-MW is a *siting* statistic, not a consumption statistic — the state where a plant sits is not necessarily the state that consumes the power. The indicator artifact's `attribution_geography` field carries this caveat to the renderer. The `installed_capacity_*` family is from CEA's monthly Executive Summary (March 2026 snapshot) and covers all 35 CEA-reported state/UT entities across 7 fuel categories (total, thermal, coal, gas, nuclear, hydro, renewable). The legacy `installed_mw_by_state` indicator (Wikipedia-derived, 4 states only) was retired in PR-A 2026-05-25 — superseded by the CEA per-fuel family. The state-level family (`state_installed_capacity_*`, `state_electricity_*`, `state_rooftop_solar_capacity_mw`, `state_atc_losses_pct`, `state_acs_arr_gap_inr_per_kwh`) is from the NITI Aayog ICED state-wise deep-dive API and covers 9-11 fiscal years (FY16-FY26) per indicator across all 36 states/UTs plus the All-India aggregate. ICED publishes both 'geographical-location' (where the plant sits) and 'with-allocated-shares' (who has rights to the output) capacity series; we ship both so the analyst can pick the one that matches the question being asked. The 2026-05-15 ICED-power batch adds four complementary series from a different ICED endpoint family (NITI ICED public dashboards, not the state-wise deep-dive): `state_installed_capacity_by_source_mw` (FY16-FY26, 11y, all states × ~7 fuels, 1815 rows — same metric as the state-wise `state_installed_capacity_geographical_mw` but tidy-by-fuel and with longer history), `state_electricity_generation_by_source_gwh` and `state_peak_electricity_demand_mw` (FY26 snapshot from `/energy/powerStatistics`, useful as a current-year companion to the multi-year capacity series), and one national series — `india_thermal_capacity_retired_mw` (FY06-FY26, by retired-fuel facet). (A fifth `india_capacity_pipeline_gw` series was retired in PR-A 2026-05-25; the forward-looking pipeline view will return when an upstream re-sourcing path is identified.) The 2026-05-15 ICED-power state-extension batch adds eight more state-scope series from the same NITI ICED public dashboards: `state_installed_capacity_total_mw` (state totals across all fuels), the `peak_demand_mw` / `peak_met_mw` pair (peak load served vs requested — the gap is the operational shortfall, but it ships as two raw series rather than a derived ratio so the citizen can see both numbers), the `power_requirement_mu` / `power_availability_mu` pair (annual energy-volume equivalent of peak — a fuller-year shortfall view), `per_capita_availability_kwh` and `per_capita_electricity_consumption_kwh` (citizen-experience metrics already normalised by population so cross-state comparison is honest — the latter is `comparable_across_states` and the headline citizen read of 'how electrified is daily life here'), and `renewable_grid_capacity_mw` (grid-connected renewables only, complements the existing `state_rooftop_solar_capacity_mw`). The two pairs (peak demand/met, requirement/availability) are intentionally shipped as raw series rather than as derived shortfall % — the renderer's existing comparability banner surfaces normalisation guidance, and the explicit pairing in topic notes here lets the citizen reason about gaps without us pre-committing to one ratio framing. Two remaining national-entity series (`national_final_energy_consumption_by_sector_mtoe`, `national_primary_energy_supply_mtoe`) stay allowlisted pending Phase 4 country-entity renderers — they are multi-facet and the IndicatorChoropleth state-only renderer cannot show them honestly. (A third `national_renewable_potential_vs_installed_mw` series was retired in PR-A 2026-05-25 — it deserves a comparison sidebar against installed-capacity rather than the choropleth treatment; a follow-up GitHub issue tracks the design consult.) PR-N residue triage (2026-05-25, PR #290 + hotfix #293): the 10 final ICED/legacy energy shards under datasets/indicators/in/energy/ were classified into bucket (a) delete-no-successor (2 Pattern B duplicates of per-fuel CEA) or bucket (b) moved to datasets/energy/_meadow/iced/2024-25/ pending P.1.C canonical adapter (8 shards). datasets/indicators/in/energy/ is now empty per ADR-0041 completion criterion. Row 4 IA editorial pass (2026-05-25, PR #_pending_, per TODO/20260517-canonical-long-format-pivot.md): the chapter was pruned from 23 cards to 5 in Jony's scroll-narrative order — (1) per-capita consumption as the citizen anchor, (2) generation-by-source GWh as 'where it comes from', (3) installed-capacity-by-source MW as the long-arc structure, (4) AT&C losses as the discom-health pulse, (5) RPO compliance as the clean-energy trajectory. The 18 demoted cards remain in datasets/taxonomy/indicators.json and route as standalone /i/<id> pages — they are not deleted, just removed from the chapter wall. Demoted families: India-level installed_capacity_*_mw (5 — duplicated by state cards), state_installed_capacity_geographical_mw + state_installed_capacity_with_alloc_mw + state_electricity_generation_mu + state_electricity_sales_mu (4 — totals are now visible as parent rollups inside facet-multiplexed survivors 2/3), state_peak_electricity_demand_mw + state_peak_met_mw + state_power_requirement_mu + state_power_availability_mu (4 — these are demand/supply gap pairs; queued as a Level-4 follow-up for a dedicated IndicatorGapChart primitive), state_per_capita_availability_kwh (1 — visually conflates with #1 consumption; consumption is the higher-honesty version per Hans), state_distribution_td_loss_pct + state_distribution_billing_efficiency_pct + state_distribution_collection_efficiency_pct (3 — three sub-components of AT&C already surfaced as #4; the math identity AT&C ≈ 1 − billing × collection is too dense for the chapter wall), state_acs_arr_gap_inr_per_kwh (1 — surfaced under /t/fiscal where the discom-funding question lives per Hans M:N tag). Hans-flagged 4-agency federal-data plurality (CEA + ICED + PFC + MNRE) on the chapter; the topic-level honesty banner is queued as a separate follow-up PR pending a TopicHonestyBanner primitive design. Per-card heading rewrites + caveat-pack updates per Jony + Citizen + Hans subagent verdicts are bundled in this same PR via the canonical-allowlist descriptor surface."
     },
     {
       "id": "elections",
