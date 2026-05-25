@@ -1,6 +1,6 @@
 # Data Sources
 
-**Last Updated**: 2026-05-15
+**Last Updated**: 2026-05-25
 
 > The "look here first" catalogue. Every external place yen-gov pulls — or might pull — data from is listed below, with what it covers, what format it ships, and when to use (or avoid) it. When enriching data in future, start here.
 >
@@ -172,6 +172,33 @@ data.gov.in aggregates ministry-supplied datasets, most of which are **Rajya Sab
 Currently shipped: `fiscal/centre_transfers_gross` (RS Q1323/2023, FY17–FY23 actuals).
 
 **Recon finding (2026-05-14, RBI search)**: the `?title=rbi` search returns mostly **bank-frauds, RBI-ombudsman-complaints, demonetised-note recovery, internal-debt snapshot** rows — Ministry-of-Finance answers tabulating RBI-reported counts in 3–7 year windows. They do NOT duplicate the canonical RBI long-series we want (Handbook of Statistics, gold reserves, State Finances Statement 8 long series); those live on `rbi.org.in` directly. Status logged as `skipped` in the registry (`data_gov_in.rbi_search_results`) with the rationale; promotion to `candidate` is a per-resource decision when one of them genuinely complements an RBI series.
+
+## DAHD — National Digital Livestock Mission / Bharat Pashudhan (livestock + dairy)
+
+**Hub**: <https://bharatpashudhan.gov.in/>
+**API host**: `https://bharatpashudhan-api.ndlm.co.in/`
+**How-to**: [docs/how-to/ndlm-data-download.md](../how-to/ndlm-data-download.md)
+**Plan**: [TODO/20260525-livestock-ndlm-ingest-plan.md](../../TODO/20260525-livestock-ndlm-ingest-plan.md)
+
+The Department of Animal Husbandry & Dairying (DAHD) ships the Bharat Pashudhan portal as the official India-wide livestock data product. Five district-wise JSON endpoints are seeded as citation rows in `datasets/taxonomy/sources.parquet` (PR 1, 2026-05-25):
+
+| Endpoint | source_id | Notes |
+| -------- | --------- | ----- |
+| Owner Registration & Land Holding | `src-d98dc531ef7e` | Animal-owner identity records and land-holding ladder. |
+| Pashu Aadhaar (UID-tagged animals) | `src-7e5d4aac4995` | **Honest-renderer caveat (Hans)**: counts TAGGED animals only, NOT the underlying livestock population. Curve is monotone-non-decreasing (no de-registration event). Indicator-row will carry `comparability: directional_only` + `renderer_rules: ["no_rank_table"]`. |
+| NADCP Vaccination Coverage | `src-1d0c0fbf96e3` | Doses administered per district per FY (National Animal Disease Control Programme). |
+| Breeding Interventions (ABIP+RGM) | `src-fb1694ab6a11` | Accelerated Breed Improvement Programme + Rashtriya Gokul Mission, aggregated to district. |
+| NAIP IV (AI Coverage, Pregnancies, Calves) | `src-93a2a72db482` | National Artificial Insemination Programme Phase IV. CY/FY duality verified at recon (TN FY24-25: 1,529,434 vs CY24: 1,396,453). |
+
+All five share producer = "Department of Animal Husbandry & Dairying, Ministry of Fisheries, Animal Husbandry & Dairying, Government of India", vintage = "2024-25", license = OGL-IN-1.0, confidence_tier = gold (DAHD is the issuing authority for each series), verification_method = live-fetch (continuously-updated JSON APIs).
+
+**Identifier contract**: the `stateCode` parameter and the district `code` field on response rows ARE the LGD (Local Government Directory, MoHA) codes verbatim. Recon (PR 0 of the umbrella, [tools/ndlm_recon_lgd_districts.py](../../tools/ndlm_recon_lgd_districts.py)) verified 588 / 588 districts join cleanly against `datasets/taxonomy/entities.parquet` with zero FK-drops. No state-code translation table is required.
+
+**Period-basis duality**: each endpoint accepts a `period` discriminator (CY or FY) on the request payload, so the same indicator row can carry both bases. Per CLAUDE.md section 12 the canonical observation row carries `period_label` ("CY24" or "FY24-25") on the PK and the citizen surface defaults to FY with a URL toggle (`?period_basis=cy`). The citation row is one per endpoint (not per period-basis).
+
+**Snapshot location**: `.runtime/raw/ndlm/<year>/` (gitignored per CLAUDE.md section 2). The downloader script [tools/ndlm_download.py](../../tools/ndlm_download.py) (PR 2 of the umbrella) writes one JSON file per (state, endpoint, period-basis) tuple. Re-runs are idempotent (overwrite).
+
+**Observation rows land via PRs 3-7** of the umbrella, one canonical fact-table per indicator family per Hans's split rules.
 
 ## What does NOT belong in `sources[]`
 
