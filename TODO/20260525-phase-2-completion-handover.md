@@ -156,7 +156,7 @@ If ANY hit is in a canonical-adapter lift block, the shard is bucket (b) and nee
 
 ### 4.4 PR 4 — P.1 Energy: PR 7d IA editorial pass (Jony + Citizen)
 
-**Plan row**: §0e.8a "P.1 Energy - PR 7d IA editorial pass". **Status**: ✅ DONE PR #_pending_.
+**Plan row**: §0e.8a "P.1 Energy - PR 7d IA editorial pass". **Status**: ✅ DONE PR #296.
 
 **Shipped scope** (3 mandatory subagent verdicts converged: Jony + Citizen + Hans):
 - `/s/<state>/t/energy` pruned from 23 cards to 5 in Jony's scroll-narrative order: (1) per-capita consumption as the citizen anchor, (2) generation-by-source GWh [FACET-5] as "where it comes from", (3) installed-capacity-by-source MW [FACET-5] as the long-arc structure, (4) AT&C losses as the discom-health pulse, (5) RPO compliance [FACET-3] as the clean-energy trajectory.
