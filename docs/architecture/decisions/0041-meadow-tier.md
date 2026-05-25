@@ -154,7 +154,7 @@ Ingest adapter knows canonical shape; writes both meadow and canonical Parquet d
 1. No backend writes outside `datasets/<family>/_meadow/<source>/<vintage>/` for staging.
 2. CLAUDE.md §4 layer rule MUST land in 7c-0 (this PR) — otherwise F slips into a 3-way node within months.
 3. No network at lift, ever; `.runtime/raw/` stays gitignored ephemeral.
-4. Vintage in meadow path MUST match `vintage` field of the citation row the `source_id` FK resolves to. (Tier-B check, added in PR 7c-4.)
+4. Vintage in meadow path MUST match `vintage` field of the citation row the `source_id` FK resolves to. (Tier-B check, added in PR 7c-4.) **Structurally enforced** since PR-B (ADR-0042) by `tier_b_meadow_vintage_matches_source_id` in `backend/yen_gov/validate.py`: for every file under `datasets/<family>/_meadow/<source>/<vintage>/*.json`, the rule walks `MEADOW_PRODUCER_REGISTRY` to resolve `<source>` → full producer and asserts at least one row in `datasets/taxonomy/sources.parquet` exists with that `(producer, vintage)` pair. The rule was unenforceable before ADR-0042 because v2.0 of the source schema allowed `vintage=""`, defeating strict equality (multiple meadow files could share a single `vintage=""` citation row).
 5. Sequencing: 7c-1 introduces `load_meadow`; 7c-4 retires `load_shard` atomically.
 6. No editorial creep into 7c-N PRs — each PR is structural rename + adapter switch + allowlist + smoke only.
 7. Methodology breaks (RBI Table 140 ↔ 142 splice, UDAY effect, CEA fuel-classification changes) render visibly on the chart, not just as a `methodology_breaks.parquet` row. (Hans non-negotiable — strategy-independent.)

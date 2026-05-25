@@ -8,12 +8,14 @@ from yen_gov.validate import (
     LEGACY_BOUNDARY_SIDECARS_ALLOWLIST,
     LEGACY_INDICATOR_SHARDS_ALLOWLIST,
     LEGACY_INDICATOR_SHARDS_DIR,
+    MEADOW_PRODUCER_REGISTRY,
     load_schemas,
     run,
     tier_a,
     tier_b,
     tier_b_legacy_boundary_sidecars,
     tier_b_meadow_shard_contract,
+    tier_b_meadow_vintage_matches_source_id,
     tier_b_no_new_sub_fuel_shards,
 )
 
@@ -615,6 +617,194 @@ def test_no_new_sub_fuel_shards_constants_exported(tmp_path: Path):
     behind a leading-underscore private name (which would break the test
     suite's import + any downstream tooling that needs the dir path)."""
     assert ENERGY_INDICATOR_DIR.as_posix() == "datasets/indicators/in/energy"
+
+
+# ---------------------------------------------------------------------------
+# tier_b_meadow_vintage_matches_source_id (PR-B Commit 3 of ADR-0042;
+# structurally enforces ADR-0041 §nn4 / non-negotiable #4). For every
+# file under `datasets/<family>/_meadow/<source>/<vintage>/*.json`, the
+# rule walks `MEADOW_PRODUCER_REGISTRY` to resolve `<source>` -> full
+# producer and asserts at least one row in
+# `datasets/taxonomy/sources.parquet` exists with that (producer, vintage)
+# pair. Strict equality (no wildcards). Tests use tmp_path corpus only.
+# ---------------------------------------------------------------------------
+
+
+import duckdb  # noqa: E402 -- only needed by the meadow-vintage tests below
+
+
+def _write_sources_parquet(
+    tmp_path: Path, pairs: list[tuple[str, str]]
+) -> Path:
+    """Write a minimal `datasets/taxonomy/sources.parquet` containing
+    one row per (producer, vintage) pair. Only the 4 columns the rule
+    reads (`source_id`, `producer`, `vintage` + a stub for the rest)
+    are populated."""
+    out = tmp_path / "datasets" / "taxonomy" / "sources.parquet"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    con = duckdb.connect(":memory:")
+    try:
+        con.execute(
+            "CREATE TABLE sources(source_id VARCHAR, producer VARCHAR, vintage VARCHAR)"
+        )
+        for i, (producer, vintage) in enumerate(pairs):
+            con.execute(
+                "INSERT INTO sources VALUES (?, ?, ?)",
+                [f"src-stub-{i:04d}", producer, vintage],
+            )
+        con.execute(
+            f"COPY (SELECT * FROM sources) TO '{out.as_posix()}' (FORMAT PARQUET)"
+        )
+    finally:
+        con.close()
+    return out
+
+
+def _write_meadow_file(tmp_path: Path, rel: str) -> Path:
+    """Write a stub meadow JSON file at `<tmp_path>/<rel>`."""
+    p = tmp_path / rel
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps({"stub": True}), encoding="utf-8")
+    return p
+
+
+def test_meadow_vintage_check_passes_when_path_matches_sources_parquet(
+    tmp_path: Path,
+):
+    """Positive: meadow file at `<source>/<vintage>/` matches an existing
+    (producer, vintage) row in `sources.parquet`."""
+    _write_meadow_file(
+        tmp_path,
+        "datasets/energy/_meadow/cea/2026-03/installed_capacity_coal_mw.json",
+    )
+    _write_sources_parquet(
+        tmp_path, [("Central Electricity Authority", "2026-03")]
+    )
+    fails = tier_b_meadow_vintage_matches_source_id(tmp_path)
+    assert fails == [], f"expected no failures on matching pair, got: {fails}"
+
+
+def test_meadow_vintage_check_rejects_wrong_vintage(tmp_path: Path):
+    """Negative: meadow file declares vintage='2024-25' but sources.parquet
+    only has the same producer at vintage='2026-03'. The rule MUST
+    fail loudly so the operator either rotates the meadow path or adds
+    the citation row."""
+    _write_meadow_file(
+        tmp_path,
+        "datasets/energy/_meadow/cea/2024-25/installed_capacity_coal_mw.json",
+    )
+    _write_sources_parquet(
+        tmp_path, [("Central Electricity Authority", "2026-03")]
+    )
+    fails = tier_b_meadow_vintage_matches_source_id(tmp_path)
+    assert len(fails) == 1, f"expected one failure, got: {fails}"
+    f = fails[0]
+    assert f.tier == "B"
+    assert f.file == (
+        "datasets/energy/_meadow/cea/2024-25/installed_capacity_coal_mw.json"
+    )
+    assert "vintage='2024-25'" in f.message
+    assert "Central Electricity Authority" in f.message
+    assert "ADR-0041" in f.message
+    assert "ADR-0042" in f.message
+
+
+def test_meadow_vintage_check_rejects_unknown_source_segment(tmp_path: Path):
+    """Negative: meadow file uses a `<source>` segment NOT in
+    MEADOW_PRODUCER_REGISTRY. The rule MUST name the registry so the
+    operator either renames the directory or adds the mapping."""
+    _write_meadow_file(
+        tmp_path,
+        "datasets/energy/_meadow/xyz/2024-25/some_file.json",
+    )
+    _write_sources_parquet(tmp_path, [("Some Producer", "2024-25")])
+    fails = tier_b_meadow_vintage_matches_source_id(tmp_path)
+    assert len(fails) == 1, f"expected one failure, got: {fails}"
+    f = fails[0]
+    assert f.tier == "B"
+    assert "unknown meadow source segment 'xyz'" in f.message
+    assert "MEADOW_PRODUCER_REGISTRY" in f.message
+    # All 3 registry keys named so the operator knows which to use.
+    for key in MEADOW_PRODUCER_REGISTRY:
+        assert key in f.message
+
+
+def test_meadow_vintage_check_is_noop_when_no_meadow_dirs(tmp_path: Path):
+    """If no `_meadow/` subdirectories exist under datasets/, the check
+    is a no-op (even if sources.parquet is absent)."""
+    (tmp_path / "datasets").mkdir()
+    fails = tier_b_meadow_vintage_matches_source_id(tmp_path)
+    assert fails == [], f"expected no failures when no meadow dirs, got: {fails}"
+
+
+def test_meadow_vintage_check_skips_schema_files(tmp_path: Path):
+    """`.schema.json` sibling files MUST be skipped (they're contract
+    metadata, not staged source data)."""
+    _write_meadow_file(
+        tmp_path,
+        "datasets/energy/_meadow/cea/2026-03/installed_capacity.schema.json",
+    )
+    _write_meadow_file(
+        tmp_path,
+        "datasets/energy/_meadow/cea/2026-03/installed_capacity_coal_mw.json",
+    )
+    _write_sources_parquet(
+        tmp_path, [("Central Electricity Authority", "2026-03")]
+    )
+    fails = tier_b_meadow_vintage_matches_source_id(tmp_path)
+    assert fails == [], f"expected no failures (schema file skipped), got: {fails}"
+
+
+def test_meadow_vintage_check_reports_missing_sources_parquet(tmp_path: Path):
+    """If meadow files exist but sources.parquet is absent, every
+    meadow file is reported (the operator must run emit-taxonomy)."""
+    _write_meadow_file(
+        tmp_path,
+        "datasets/energy/_meadow/cea/2026-03/installed_capacity_coal_mw.json",
+    )
+    _write_meadow_file(
+        tmp_path,
+        "datasets/energy/_meadow/iced/2024-25/state_capacity.json",
+    )
+    fails = tier_b_meadow_vintage_matches_source_id(tmp_path)
+    assert len(fails) == 2, f"expected two failures, got: {fails}"
+    for f in fails:
+        assert f.tier == "B"
+        assert "sources.parquet" in f.message
+        assert "emit-taxonomy" in f.message
+
+
+def test_meadow_vintage_check_chained_into_run(tmp_path: Path):
+    """Regression guard: tier_b_meadow_vintage_matches_source_id MUST be
+    called by run()."""
+    _seed_repo(tmp_path)  # populates datasets/schemas/
+    _write_meadow_file(
+        tmp_path,
+        "datasets/energy/_meadow/cea/2024-25/installed_capacity_coal_mw.json",
+    )
+    _write_sources_parquet(
+        tmp_path, [("Central Electricity Authority", "2026-03")]
+    )
+    fails = run(tmp_path)
+    mismatches = [
+        f for f in fails
+        if "vintage='2024-25'" in f.message
+        and "Central Electricity Authority" in f.message
+    ]
+    assert len(mismatches) == 1, (
+        f"run() must chain tier_b_meadow_vintage_matches_source_id, got: {fails}"
+    )
+
+
+def test_meadow_producer_registry_shape(tmp_path: Path):
+    """Sanity: registry has the 3 expected energy producers and they map
+    to the canonical full producer strings used in derive_source_id."""
+    assert MEADOW_PRODUCER_REGISTRY == {
+        "cea": "Central Electricity Authority",
+        "iced": "NITI Aayog India Climate & Energy Dashboard",
+        "rbi": "Reserve Bank of India",
+    }
+
 
 
 

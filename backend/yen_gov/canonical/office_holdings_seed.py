@@ -347,7 +347,7 @@ def compile_to_parquet(
                 f"template in legacy office_citations. Use citation_groups "
                 f"for non-CM office holdings."
             )
-        vintage = ""
+        vintage = "operator-snapshot-2026-05"  # Wikipedia pages have no publisher vintage; per ADR-0042 use operator-snapshot anchor
         source_id = derive_source_id(producer, title, vintage)
         new_sources[source_id] = (
             source_id,

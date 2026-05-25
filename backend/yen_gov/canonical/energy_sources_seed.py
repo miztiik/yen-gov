@@ -296,13 +296,28 @@ ENERGY_SOURCE_ID_BY_NICKNAME: dict[str, str] = {
 
 
 def upsert_energy_sources(con: duckdb.DuckDBPyConnection) -> int:
-    """Idempotent INSERT-OR-REPLACE of the 12 energy citation rows into the
-    in-memory ``sources`` DuckDB table.
+    """Idempotent scope-authoritative emit of the 12 energy citation rows
+    into the in-memory ``sources`` DuckDB table.
+
+    First DELETEs every row whose ``(producer, title)`` pair is owned by
+    this seed (i.e. one of the 12 ``_TRIPLES`` keys); then INSERTs the
+    12 current rows. This makes the seed structurally authoritative for
+    its 12 ``(producer, title)`` slots: when a vintage rotates (as in
+    ADR-0042 + the 5 ICED rotations of PR-B Commit 2), the previous
+    ``source_id`` (derived from the previous vintage) is purged rather
+    than orphaned. INSERT-OR-REPLACE alone would NOT achieve this
+    because the new ``source_id`` hash differs from the old one.
 
     Caller is responsible for creating the ``sources`` table first and
     for emitting the table back to ``taxonomy/sources.parquet`` after.
     Returns the number of rows upserted (always 12 today: 7 P.1.A + 5 P.1.B).
     """
+    owned_keys = sorted({(producer, title) for producer, title, _ in _TRIPLES.values()})
+    for producer, title in owned_keys:
+        con.execute(
+            "DELETE FROM sources WHERE producer = ? AND title = ?",
+            [producer, title],
+        )
     upserted = 0
     for row in ENERGY_SOURCES:
         con.execute(
