@@ -151,13 +151,55 @@ describe("buildSystemPrompt", () => {
 
   it("includes the catalogue states", () => {
     const p = buildSystemPrompt(CATALOGUE);
+    // Per PR-G1 (2026-05-25): the catalogue serialization was trimmed
+    // to bare partition_ids (no display_name) to keep the prompt under
+    // the ORT WASM kernel-planner's prefill scratch ceiling. The model
+    // recovers display_names from ids via the few-shot exemplar.
     expect(p).toContain("in_s22");
-    expect(p).toContain("Tamil Nadu");
   });
 
   it("includes the catalogue election periods", () => {
     const p = buildSystemPrompt(CATALOGUE);
     expect(p).toContain("AcGenMay2026");
+  });
+
+  it("omits state display_names to keep prompt size below ORT prefill ceiling (PR-G1)", () => {
+    // Hard lock against accidental re-introduction of the
+    // display_name field on each state entry — that JSON-object shape
+    // is what 0ms-bad_alloc'd OrtRun on free-text questions.
+    const p = buildSystemPrompt(CATALOGUE);
+    expect(p).not.toContain("Tamil Nadu");
+    expect(p).not.toContain("display_name");
+  });
+
+  it("stays under a 4000-char prompt budget on a realistic 28-state catalogue (PR-G1)", () => {
+    // Regression guard for the prompt-size lever Andre identified as
+    // the actual OrtRun std::bad_alloc fix. With 28 states + ~10 periods
+    // the prompt should be well under 4000 chars (~1000 tokens). The
+    // pre-PR-G1 JSON-object serialization on the same catalogue
+    // produced ~6000 chars (~1500 tokens), which 0ms-bad_alloc'd
+    // identically on both 360M and 135M models per the smoke evidence
+    // in PR-G1's commit body.
+    const states = Array.from({ length: 28 }, (_, i) => ({
+      partition_id: `in_s${String(i + 1).padStart(2, "0")}`,
+      eci_code: `S${String(i + 1).padStart(2, "0")}`,
+      display_name: `State ${i + 1}`,
+    }));
+    const election_periods = Array.from({ length: 10 }, (_, i) => ({
+      period_label: `AcGenEvent${i + 1}`,
+      display_name: `State ${i + 1} AC General — Event ${i + 1}`,
+      state_partition_id: `in_s${String(i + 1).padStart(2, "0")}`,
+    }));
+    const big: SemanticCatalogue = {
+      tables: [],
+      states,
+      election_periods,
+      parties: [],
+      sources: [],
+      manifest: {} as never,
+    };
+    const p = buildSystemPrompt(big);
+    expect(p.length).toBeLessThan(4000);
   });
 });
 
@@ -241,6 +283,57 @@ describe("extractIntent", () => {
     expect(generateSpy).toHaveBeenCalledTimes(1);
     const opts = generateSpy.mock.calls[0]![1];
     expect(opts?.temperature).toBe(0.1);
+  });
+
+  // Regression — Andre's diagnosis 2026-05-25: free-text questions OOM'd
+  // with `OrtRun() std::bad_alloc` on SmolLM2-360M wasm because the 256
+  // max_new_tokens cap forced onnxruntime-web to reserve a contiguous
+  // KV / intermediate-tensor block that didn't fit in the WASM heap
+  // (fragmented after MiniLM's encode pass). InsightIntent JSON is
+  // ~30 tokens; 96 is 3× headroom. This test asserts the CONTRACT (the
+  // cap) — the OOM symptom can't be observed in a unit test, but the
+  // cap is the thing the cap-regression would silently undo.
+  // See plan-doc D-34 (pending) + commit message for full rationale.
+  it("caps max_new_tokens at 96 to prevent OrtRun std::bad_alloc on small models", async () => {
+    const generateSpy = vi.fn<
+      (
+        messages: readonly ChatMessage[],
+        opts?: GenerateOptions,
+      ) => Promise<GenerateResult>
+    >(async () => asResult(VALID_RAW));
+    const adapter: ModelAdapter = {
+      model: MODEL,
+      status: () => ({ kind: "ready" }),
+      prepare: async () => undefined,
+      generate: generateSpy,
+    };
+    await extractIntent("Q?", CATALOGUE, adapter);
+    expect(generateSpy).toHaveBeenCalledTimes(1);
+    const opts = generateSpy.mock.calls[0]![1];
+    expect(opts?.max_new_tokens).toBe(96);
+  });
+
+  // Retry attempts MUST inherit the same cap — a hypothetical regression
+  // that lowers the cap on attempt 1 but reverts on attempt 2 would
+  // re-introduce the OOM on the retry path (which is what the user saw
+  // in the screenshot: "attempts: 2" + bad_alloc on the second attempt).
+  it("preserves the 96 cap on retry attempts (no cap-drift between attempts)", async () => {
+    const { adapter, calls } = fakeAdapter(["not json", VALID_RAW]);
+    // Wrap to capture per-call opts (fakeAdapter records messages only).
+    const calledOpts: (GenerateOptions | undefined)[] = [];
+    const wrapped: ModelAdapter = {
+      ...adapter,
+      generate: async (messages, opts) => {
+        calledOpts.push(opts);
+        return adapter.generate(messages, opts);
+      },
+    };
+    const r = await extractIntent("Q?", CATALOGUE, wrapped);
+    expect(r.ok).toBe(true);
+    expect(calls.length).toBe(2);
+    expect(calledOpts.length).toBe(2);
+    expect(calledOpts[0]?.max_new_tokens).toBe(96);
+    expect(calledOpts[1]?.max_new_tokens).toBe(96);
   });
 
   it("records per-attempt diagnostics (D-20)", async () => {
