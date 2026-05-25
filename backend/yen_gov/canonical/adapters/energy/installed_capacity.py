@@ -66,7 +66,7 @@ from ._shared import (
 
 
 def _load_cea_meadow(repo_root: Path, file: str) -> dict:
-    return load_meadow(repo_root, "energy", "cea", "2024-25", file)
+    return load_meadow(repo_root, "energy", "cea", "2026-03", file)
 
 
 def _load_iced_meadow(repo_root: Path, file: str) -> dict:

@@ -1,7 +1,7 @@
 # ADR-0032: Sources table v2.0 — citation ledger keyed on (producer, title, vintage)
 
 **Last Updated**: 2026-05-20
-**Status**: Accepted
+**Status**: Superseded on vintage semantics by [ADR-0042](0042-sources-schema-v3-vintage-as-period-anchor.md) (2026-05-26). The v2.0 shape (11-column citation-row contract, 3-arg hash identity, fetch-vs-citation separation) remains in force; only the field-level meaning of `vintage` and the `minLength` constraint are tightened in v3.0. Body preserved verbatim per [ADR-0034](0034-adr-revision-policy.md) "Status pointer + new ADR" rule — do NOT edit the body; consult ADR-0042 for current vintage semantics.
 **Deciders**: User; Hans (Governance) + Max (Indicator Scout) parallel concurrence 2026-05-20 (CLAUDE.md §0a authority assignment for source schema)
 **Supersedes**: `datasets/schemas/source.schema.json` v1.0 (the fetch-ledger shape established in [ADR-0030](0030-canonical-store-duckdb-wasm.md) §Group 4)
 **Plan reference**: P.0e brief in conversation transcript 2026-05-20; partial cross-references in [`docs/architecture/data/canonical-store.md` §5](../data/canonical-store.md#5-sources-schema-d5)

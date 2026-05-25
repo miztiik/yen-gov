@@ -192,7 +192,7 @@ Every emitted data file under `datasets/` carries `"$schema"` and `"$schema_vers
 
 Every observation row in every Parquet family under `datasets/` carries a `source_id` FK to one row in `datasets/taxonomy/sources.parquet`. Provenance is a **citation ledger**, one row per `(producer, title, vintage)` triple, not per fetch event. Adopts OWID `origin.*` fields verbatim plus four yen-gov extensions for confidence + verifiability.
 
-Schema (11 columns, 8 required + 3 optional): [docs/architecture/data/canonical-store.md section 5](docs/architecture/data/canonical-store.md). Rationale + rejected designs: [ADR-0032](docs/architecture/decisions/0032-sources-citation-ledger.md). Concept: [docs/concepts/data-provenance.md](docs/concepts/data-provenance.md).
+Schema (11 columns, 8 required + 3 optional): [docs/architecture/data/canonical-store.md section 5](docs/architecture/data/canonical-store.md). Rationale + rejected designs: [ADR-0032](docs/architecture/decisions/0032-sources-citation-ledger.md). v3.0 `vintage` sharpening (publisher edition vs operator snapshot window): [ADR-0042](docs/architecture/decisions/0042-sources-schema-v3-vintage-as-period-anchor.md). Concept: [docs/concepts/data-provenance.md](docs/concepts/data-provenance.md).
 
 Build `source_id` via `backend.yen_gov.canonical.citation.derive_source_id`; never hand-author.
 

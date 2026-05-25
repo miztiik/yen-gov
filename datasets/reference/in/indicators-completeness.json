@@ -485,7 +485,7 @@
     {
       "id": "energy/installed_capacity_coal_mw",
       "topic": "energy",
-      "path": "datasets/energy/_meadow/cea/2024-25/installed_capacity_coal_mw.json",
+      "path": "datasets/energy/_meadow/cea/2026-03/installed_capacity_coal_mw.json",
       "title": "Installed coal-fired capacity",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -505,7 +505,7 @@
     {
       "id": "energy/installed_capacity_gas_mw",
       "topic": "energy",
-      "path": "datasets/energy/_meadow/cea/2024-25/installed_capacity_gas_mw.json",
+      "path": "datasets/energy/_meadow/cea/2026-03/installed_capacity_gas_mw.json",
       "title": "Installed gas-based capacity",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -525,7 +525,7 @@
     {
       "id": "energy/installed_capacity_hydro_mw",
       "topic": "energy",
-      "path": "datasets/energy/_meadow/cea/2024-25/installed_capacity_hydro_mw.json",
+      "path": "datasets/energy/_meadow/cea/2026-03/installed_capacity_hydro_mw.json",
       "title": "Installed hydro capacity",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -545,7 +545,7 @@
     {
       "id": "energy/installed_capacity_nuclear_mw",
       "topic": "energy",
-      "path": "datasets/energy/_meadow/cea/2024-25/installed_capacity_nuclear_mw.json",
+      "path": "datasets/energy/_meadow/cea/2026-03/installed_capacity_nuclear_mw.json",
       "title": "Installed nuclear capacity",
       "documentation_status": "stub",
       "inventory_status": "complete",
@@ -565,7 +565,7 @@
     {
       "id": "energy/installed_capacity_renewable_mw",
       "topic": "energy",
-      "path": "datasets/energy/_meadow/cea/2024-25/installed_capacity_renewable_mw.json",
+      "path": "datasets/energy/_meadow/cea/2026-03/installed_capacity_renewable_mw.json",
       "title": "Installed renewable capacity (RES MNRE)",
       "documentation_status": "stub",
       "inventory_status": "complete",

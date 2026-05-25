@@ -99,8 +99,9 @@ def _load_iced_meadow(repo_root: Path, file: str) -> dict:
 # 34 FY25 cells published in the shard
 # ``datasets/indicators/in/energy/state_electricity_peak_demand_mw.json``
 # at the time of Phase A (PR #119). source_id below FK-targets the
-# citation ledger row ``src-be6a6d5d6493`` (ICED Deep Dive) — same
-# row Phase A used.
+# citation ledger row ``src-bb1d7bec8b34`` (ICED Deep Dive) — same
+# row Phase A used; hash rotated under ADR-0042 (source schema v3.0)
+# when ICED vintage flipped from "" → "2024-25".
 #
 # Tuple shape: ``(entity_code, time_label, value_mw)`` where
 # ``entity_code`` is the legacy-shard form (``"IN"`` or ``"S07"`` etc;

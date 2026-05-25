@@ -74,10 +74,17 @@ def derive_source_id(producer: str, title: str, vintage: str) -> str:
     observations that cite the same upstream report carry the same
     ``source_id``, regardless of which fetch session populated them.
 
-    Empty ``vintage`` is permitted (rare — source publishes no period
-    label) and folds cleanly into the hash. Triples that differ only in
-    whitespace produce distinct IDs by design; callers MUST pass the
-    publisher's verbatim strings (no normalisation).
+    ``vintage`` is the strongest period anchor available per ADR-0042 —
+    publisher edition when the upstream publishes one (RBI Handbook
+    ``"2024-25"``, NFHS ``"NFHS-5"``), operator snapshot window when the
+    publisher publishes no edition tag (ICED API ``"2024-25"`` meaning
+    "the operator snapshotted this in FY 2024-25"). Empty ``vintage`` is
+    accepted by the signature but rejected by the schema (v3.0 sets
+    ``minLength: 1``); callers MUST supply a non-empty period label so
+    the meadow-tier path discipline of ADR-0041 §non-negotiable #4 holds.
+    Triples that differ only in whitespace produce distinct IDs by
+    design; callers MUST pass the publisher's verbatim strings (no
+    normalisation).
 
     Returns: ``"src-" + sha256(triple).hexdigest()[:12]``. 12 chars =
     48 bits = ~10^14 collision floor across the whole table, which sits
@@ -88,7 +95,10 @@ def derive_source_id(producer: str, title: str, vintage: str) -> str:
         raise ValueError("producer must be non-empty")
     if not title:
         raise ValueError("title must be non-empty")
-    # vintage is required-string but permitted-empty per schema.
+    # vintage is required-string with minLength=1 per schema v3.0 (ADR-0042);
+    # the signature still accepts empty strings (for tests that construct
+    # rejected fixtures), but production callers must supply the publisher
+    # edition or the operator snapshot window so the meadow-path FK closes.
     payload = f"{producer}|{title}|{vintage}".encode("utf-8")
     return "src-" + hashlib.sha256(payload).hexdigest()[:12]
 
@@ -109,7 +119,10 @@ def render_citation(
     composes a short human-readable form:
 
       - With vintage: ``"<producer>. <title> (<vintage>)."``
-      - Without vintage: ``"<producer>. <title>."``
+      - Without vintage: ``"<producer>. <title>."`` (legacy v2.0 path —
+        v3.0 ``minLength: 1`` makes this branch unreachable from valid
+        SourceRow instances, but the fallback survives for backstop and
+        for tests that construct rejected fixtures).
 
     Used by the renderer when a citizen-facing source chip needs a
     fallback string. The citation chip is supposed to ALWAYS resolve to

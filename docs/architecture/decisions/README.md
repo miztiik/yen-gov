@@ -1,6 +1,6 @@
 # Architecture Decision Records (ADRs)
 
-**Last Updated**: 2026-05-23
+**Last Updated**: 2026-05-26
 
 This directory holds the **few** decisions that earn an immutable, append-only record of their own:
 
@@ -32,14 +32,18 @@ Keep ADRs short. They are immutable once accepted; a later ADR supersedes (and t
 | [0003](0003-no-fetch-cache.md) | No HTTP cache layer; intermediates live in `.runtime/raw/` | accepted |
 | [0021](0021-no-implementation-disclosure-on-public-pages.md) | No implementation or security-boundary disclosure on public pages | accepted |
 | [0030](0030-canonical-store-duckdb-wasm.md) | Canonical Parquet store read by DuckDB-WASM | accepted |
-| [0031](0031-boundaries-as-sibling-family.md) | Boundary geometry as sibling family outside canonical store | accepted |
-| [0032](0032-sources-citation-ledger.md) | Sources as citation ledger keyed on `(producer, title, vintage)` | accepted |
+| [0031](0031-boundary-geometry-strategy.md) | Boundary geometry strategy — sibling family outside canonical store | accepted |
+| [0032](0032-sources-citation-ledger.md) | Sources as citation ledger keyed on `(producer, title, vintage)` | **superseded on vintage semantics by [0042](0042-sources-schema-v3-vintage-as-period-anchor.md)** |
 | [0033](0033-retire-wikipedia-districts-adapter.md) | Retire the Wikipedia districts adapter entirely | accepted |
 | [0034](0034-documentation-routing-contract.md) | Documentation routing contract (four doc classes) | accepted |
 | [0035](0035-persons-fork-option-b.md) | Persons fork: rename `dim_candidates` to `dim_persons` in one shot (Option B) | accepted |
 | [0036](0036-state-identity-and-slice-registration.md) | State identity aliases and manifest-directed slice registration | accepted |
 | [0037](0037-url-grammar-drop-india-prefix.md) | URL grammar — drop the `/india/` prefix; state slug is the root | accepted |
 | [0038](0038-yenask-two-stage-llm-pipeline-rejected.md) | YENASK two-stage LLM pipeline — Rejected (deterministic router preserved as a deferred option) | **rejected** |
+| [0039](0039-yenask-retrieval-augmented-intent-extraction.md) | YENASK retrieval-augmented intent extraction | **superseded by [0040](0040-yenask-brand-and-lab-route.md) on route + brand** |
+| [0040](0040-yenask-brand-and-lab-route.md) | YENASK brand `Yen-Ask` + `/lab/yenask` route | accepted |
+| [0041](0041-meadow-tier.md) | Meadow tier (`datasets/<family>/_meadow/<source>/<vintage>/`) | accepted |
+| [0042](0042-sources-schema-v3-vintage-as-period-anchor.md) | Sources schema v3.0 — `vintage` as strongest period anchor available | accepted |
 
 ## Absorbed ADRs (2026-05-09)
 
@@ -65,7 +69,7 @@ The following ADR numbers used to live in this directory and were absorbed into 
 | 0017 | `/explore` page uses `sql.js` (superseded 2026-05-19 by ADR-0030; `/explore` now runs on DuckDB-WASM) | [0017-explore-page-uses-sql-js.md](0017-explore-page-uses-sql-js.md) |
 | 0018 | Wikipedia AC-table district name resolution | [backend/sources-wikipedia.md](../backend/sources-wikipedia.md#district-name-resolution-for-ac-tables) |
 
-The next new ADR will be numbered **0039**. We do **not** reuse the duplicate 0016 slot, the gaps left by the absorbed ADRs, or renumber the survivors. The duplicate-0016 collision is recorded here so future archaeology has the answer.
+The next new ADR will be numbered **0043**. We do **not** reuse the duplicate 0016 slot, the gaps left by the absorbed ADRs, or renumber the survivors. The duplicate-0016 collision is recorded here so future archaeology has the answer.
 
 ## Why this directory is small
 

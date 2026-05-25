@@ -51,6 +51,16 @@ class SourceRow(BaseModel):
     ``backend.yen_gov.canonical.citation.derive_source_id`` to build it,
     never hand-author.
 
+    v3.0 (ADR-0042): ``vintage`` sharpened to "strongest period anchor
+    available" — publisher edition when the upstream publishes one,
+    operator snapshot window when not. ``minLength: 1`` (v2.0 permitted
+    ``""`` for unvintaged publishers; v3.0 requires the operator supply
+    the snapshot-window label so meadow-tier paths under
+    ``datasets/<family>/_meadow/<source>/<vintage>/`` have a citation
+    row to anchor to per ADR-0041 §non-negotiable #4). The hash signature
+    stays 3-arg ``(producer, title, vintage)`` — only the FIELD MEANING
+    changed, not the identity contract.
+
     Mirrors ``datasets/schemas/source.schema.json`` item shape exactly.
     Fetch telemetry (url-it-was-polled-from, content_hash, first/last_seen)
     is OUT of the contract — adapters that need cache-invalidation state
@@ -67,7 +77,18 @@ class SourceRow(BaseModel):
     source_id: str = Field(pattern=r"^src-[a-z0-9]{12}$")
     producer: str = Field(min_length=1)
     title: str = Field(min_length=1)
-    vintage: str  # required string; permitted empty when source publishes no vintage
+    vintage: str = Field(
+        min_length=1,
+        description=(
+            "Strongest period anchor available per ADR-0042 (sources v3.0): "
+            "publisher edition when the upstream publishes one (RBI Handbook "
+            "'2024-25'), operator snapshot window when the publisher publishes "
+            "no edition tag (ICED API '2024-25'). minLength=1: empty was "
+            "permitted in v2.0 but retired in v3.0 because meadow-tier paths "
+            "encode an operator-chosen vintage and ADR-0041 §nn4 requires the "
+            "citation row to match."
+        ),
+    )
     license: Literal[
         "OGL-IN-1.0", "CC-BY-4.0", "CC0-1.0", "public-domain", "unknown-public", "internal"
     ]

@@ -53,7 +53,7 @@ Worked examples:
 
 ```
 datasets/energy/_meadow/rbi/2024-25/hbk_table_142_peak_demand.json
-datasets/energy/_meadow/cea/2024-25/state_electricity_generation_mu.json
+datasets/energy/_meadow/cea/2026-03/state_electricity_generation_mu.json
 datasets/energy/_meadow/iced/2024-25/installed_capacity_coal_mw.json
 datasets/demography/_meadow/nfhs/round-5/state_summary_indicators.json
 datasets/fiscal/_meadow/rbi/2024-25/state_budget_outstanding_debt_pct_gsdp.json

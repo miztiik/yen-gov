@@ -36,15 +36,17 @@ def test_source_id_hashes_match_catalogue_fks():
     expected = {
         # P.1.A (7)
         "cea_monthly_ic": "src-092a5dc7af3f",
-        "iced_capacity_metatable": "src-ba5c6fa6acfe",
-        "iced_deep_dive": "src-be6a6d5d6493",
-        "iced_gen_metatable": "src-b60ed70f19d8",
+        # 3 ICED P.1.A ids rotated under ADR-0042 (vintage "" → "2024-25").
+        "iced_capacity_metatable": "src-1240f07df0ac",
+        "iced_deep_dive": "src-bb1d7bec8b34",
+        "iced_gen_metatable": "src-ddbfadd51428",
         "rbi_hbk_142_peak_demand": "src-99ac1fee8a50",
         "rbi_hbk_142_peak_met": "src-9c02616a7166",
         "rbi_hbk_140_installed_capacity": "src-3d1d55f8a94b",
         # P.1.B (5) — DISCOM finance + demand/supply lift.
-        "iced_distribution_perf": "src-cead8f51df6f",
-        "iced_distribution_rpo": "src-ca061b1b0adf",
+        # 2 ICED P.1.B ids rotated under ADR-0042 (vintage "" → "2024-25").
+        "iced_distribution_perf": "src-650b1c25d1f7",
+        "iced_distribution_rpo": "src-0ea63ed47704",
         "rbi_hbk_141_power_requirement": "src-f7ce9960caba",
         "rbi_hbk_139_power_availability": "src-97a3c47d092f",
         "rbi_hbk_138_per_capita_availability": "src-9a38005d8713",

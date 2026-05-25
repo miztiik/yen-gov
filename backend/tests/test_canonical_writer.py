@@ -319,7 +319,9 @@ def test_sources_parquet_kv_metadata(tmp_path: Path) -> None:
           (v.decode() if isinstance(v, bytes) else v)
           for k, v in kv_raw}
     assert kv.get("table_id") == "taxonomy.sources"
-    assert kv.get("schema_version") == "2.0"
+    # v3.0 per ADR-0042 (vintage as strongest period anchor available;
+    # minLength: 1). Identity contract (3-arg hash) unchanged from v2.0.
+    assert kv.get("schema_version") == "3.0"
 
 
 # ---------------------------------------------------------------------------

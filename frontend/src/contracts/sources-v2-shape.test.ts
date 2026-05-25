@@ -3,18 +3,20 @@
 // Two invariants enforced here that schemas can't enforce on themselves:
 //
 //   1. **Manifest registration**: `taxonomy.sources` is registered at
-//      schema_version "2.0" in `datasets/manifest.json`. Consumers
-//      (SourceList v2, ChartFooter, any future view-model) resolve the
-//      parquet location via this `table_id` — NEVER a hardcoded
-//      `/data/taxonomy/sources.parquet` (R-28).
+//      schema_version "3.0" in `datasets/manifest.json` (ADR-0042 bumped
+//      v2.0 → v3.0 to add the `vintage: minLength: 1` constraint).
+//      Consumers (SourceList v2, ChartFooter, any future view-model)
+//      resolve the parquet location via this `table_id` — NEVER a
+//      hardcoded `/data/taxonomy/sources.parquet` (R-28).
 //
-//   2. **v2.0 ledger field discipline**: the on-disk JSON schema at
-//      `datasets/schemas/source.schema.json` exposes exactly the v2.0
-//      citizen-facing fields and ZERO retired fetch-telemetry fields.
-//      `FORBIDDEN_SOURCE_FIELDS` (exported from
+//   2. **v2.0 ledger field discipline** (carried forward to v3.0): the
+//      on-disk JSON schema at `datasets/schemas/source.schema.json`
+//      exposes exactly the v2.0 citizen-facing fields and ZERO retired
+//      fetch-telemetry fields. `FORBIDDEN_SOURCE_FIELDS` (exported from
 //      `frontend/src/lib/source-list-v2/types.ts`) lists everything
 //      ADR-0032 P.0e retired — if any of these reappear under any
-//      `sources[*].properties.*` path, this test fails loud.
+//      `sources[*].properties.*` path, this test fails loud. v3.0 only
+//      tightens vintage; it does not introduce or retire any fields.
 //
 // This is the front-end-side mirror of the v2.0 pivot constraint.
 // Backend Tier-A pytest covers per-row validation
@@ -66,8 +68,10 @@ describe("sources-v2 — manifest registration (R-28)", () => {
     ).toBeDefined();
   });
 
-  it("registered at schema_version 2.0 (ADR-0032 P.0e citation ledger)", () => {
-    expect(sourcesEntry?.schema_version).toBe("2.0");
+  it("registered at schema_version 3.0 (ADR-0042 vintage-as-period-anchor)", () => {
+    // ADR-0032 P.0e originally registered the ledger at v2.0; ADR-0042
+    // bumped to v3.0 to add `vintage: minLength: 1` (no field changes).
+    expect(sourcesEntry?.schema_version).toBe("3.0");
   });
 
   it("registered as parquet format", () => {
@@ -116,9 +120,12 @@ const sourcesSchema = JSON.parse(
 
 const itemSchema = sourcesSchema.properties.sources.items;
 
-describe("sources-v2 — JSON schema is at x-version 2.0", () => {
-  it("schema document is tagged x-version 2.0", () => {
-    expect(sourcesSchema["x-version"]).toBe("2.0");
+describe("sources-v2 — JSON schema is at x-version 3.0", () => {
+  it("schema document is tagged x-version 3.0 (ADR-0042 vintage-as-period-anchor)", () => {
+    // ADR-0042 bumped the source schema from v2.0 to v3.0; the only
+    // semantic change is `vintage: minLength: 1`. Field set is identical
+    // to v2.0, so the rest of this contract continues to hold under v3.
+    expect(sourcesSchema["x-version"]).toBe("3.0");
   });
 
   it("schema rejects unknown properties (additionalProperties: false)", () => {

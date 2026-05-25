@@ -195,7 +195,7 @@ _BOUNDARY_SOURCE_TRIPLES: dict[str, tuple[str, str, str]] = {
     "datameet": (
         "DataMeet India Maps Project",
         "datameet/maps Admin2 boundary bundle",
-        "",  # vintage: rolling — no publisher-declared vintage
+        "operator-snapshot-2026-05",  # publisher declares no vintage; operator-snapshot anchor per ADR-0042
     ),
     # 2. Hindustan Times Labs (state-AC layers, MIT-applied-to-data)
     "htl": (
@@ -230,7 +230,7 @@ _BOUNDARY_SOURCE_TRIPLES: dict[str, tuple[str, str, str]] = {
     "yashveeeeeeer": (
         "yashveeeeeeer/india-geodata",
         "India national silhouette (SoI-derived)",
-        "",  # vintage: rolling — derivative of SoI under National Geospatial Policy 2022
+        "operator-snapshot-2026-05",  # derivative of SoI; operator-snapshot anchor per ADR-0042
     ),
     # 7. Department of Posts via data.gov.in — pincode polygon boundaries
     #    (Phase A.2 seed, 2026-05-25). 19,312 placemarks; per-pincode

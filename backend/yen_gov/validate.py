@@ -130,6 +130,30 @@ _INSTALLED_CAPACITY_ALLOWED_SUFFIXES: frozenset[str] = frozenset(
 )
 
 
+# Meadow producer-shortname registry (ADR-0041 §nn4 + ADR-0042).
+# Maps the `<source>` path segment used in `datasets/<family>/_meadow/
+# <source>/<vintage>/*.json` to the full producer string carried on
+# `datasets/taxonomy/sources.parquet`. The Tier-B rule
+# `tier_b_meadow_vintage_matches_source_id` walks every meadow file and
+# verifies that the (path-resolved producer, path vintage) pair exists
+# as at least one row on the sources parquet -- i.e. that the meadow
+# path tells the truth about the citation provenance.
+#
+# This rule was structurally unenforceable before ADR-0042 bumped the
+# source schema to v3.0 (`vintage: minLength: 1`); multiple meadow
+# files could legitimately share a `vintage=""` source row, defeating
+# the path-vs-citation consistency check.
+#
+# Add a new producer here only when a new family lands a `_meadow/`
+# subdirectory under a new publisher. Producer strings MUST match the
+# `derive_source_id()` 3-arg hash input exactly (case-sensitive).
+MEADOW_PRODUCER_REGISTRY: dict[str, str] = {
+    "cea": "Central Electricity Authority",
+    "iced": "NITI Aayog India Climate & Energy Dashboard",
+    "rbi": "Reserve Bank of India",
+}
+
+
 # Path segments under DATA_ROOTS whose entire subtree is exempt from
 # Tier-B conformance. Adding to this set is a doctrine decision -- see
 # `_iter_data_files` and docs/architecture/backend/validator.md.
@@ -676,6 +700,142 @@ def tier_b_no_new_sub_fuel_shards(root: Path) -> list[Failure]:
     return failures
 
 
+def tier_b_meadow_vintage_matches_source_id(root: Path) -> list[Failure]:
+    """ADR-0041 §nn4 + ADR-0042: meadow path vintage MUST match a source row.
+
+    For every file under ``datasets/<family>/_meadow/<source>/<vintage>/*.json``:
+
+    1. The path segment ``<source>`` MUST be a key in
+       ``MEADOW_PRODUCER_REGISTRY`` (a known producer-shortname).
+    2. There MUST exist at least one row in
+       ``datasets/taxonomy/sources.parquet`` whose ``producer`` equals
+       ``MEADOW_PRODUCER_REGISTRY[<source>]`` AND whose ``vintage`` equals
+       the path's ``<vintage>`` segment (strict equality, no wildcards).
+
+    Otherwise the meadow path lies about the source provenance. This
+    check was structurally unenforceable before ADR-0042 bumped the
+    source schema to v3.0 (``vintage: minLength: 1``); under v2.0
+    multiple meadow files could legitimately share a ``vintage=""``
+    source row, defeating the path-vs-citation consistency contract.
+
+    Three symmetric failure modes:
+
+    * Unknown source segment: the path uses a ``<source>`` shortname not
+      registered in ``MEADOW_PRODUCER_REGISTRY``. Either add the mapping
+      (when a new family lands a ``_meadow/`` subdirectory under a new
+      publisher) or rename the directory to a registered shortname.
+    * No matching citation row: the (registry-resolved producer, path
+      vintage) pair has no corresponding row in
+      ``datasets/taxonomy/sources.parquet``. Either rotate the meadow
+      file to a vintage segment that matches an existing citation row,
+      or add the citation row to the appropriate seed (e.g.
+      ``backend/yen_gov/canonical/energy_sources_seed.py``) and re-run
+      ``python -m yen_gov emit-taxonomy --root .``.
+    * Missing sources catalogue: if any meadow file exists but
+      ``datasets/taxonomy/sources.parquet`` is absent, every meadow file
+      is reported (the operator must run ``emit-taxonomy`` first).
+
+    If no ``_meadow/`` subdirectories exist anywhere under ``datasets/``,
+    the check is a no-op.
+    """
+    failures: list[Failure] = []
+    datasets_dir = root / "datasets"
+    if not datasets_dir.exists():
+        return failures
+
+    # Walk every datasets/<family>/_meadow/<source>/<vintage>/*.json.
+    meadow_files: list[tuple[Path, str, str]] = []  # (file, source_seg, vintage_seg)
+    for family_dir in sorted(datasets_dir.iterdir()):
+        if not family_dir.is_dir():
+            continue
+        meadow_dir = family_dir / "_meadow"
+        if not meadow_dir.exists() or not meadow_dir.is_dir():
+            continue
+        for source_dir in sorted(meadow_dir.iterdir()):
+            if not source_dir.is_dir():
+                continue
+            for vintage_dir in sorted(source_dir.iterdir()):
+                if not vintage_dir.is_dir():
+                    continue
+                for json_file in sorted(vintage_dir.glob("*.json")):
+                    if json_file.name.endswith(".schema.json"):
+                        continue
+                    meadow_files.append(
+                        (json_file, source_dir.name, vintage_dir.name)
+                    )
+
+    if not meadow_files:
+        return failures
+
+    sources_parquet = root / "datasets" / "taxonomy" / "sources.parquet"
+    if not sources_parquet.exists():
+        for meadow_file, _, _ in meadow_files:
+            failures.append(
+                Failure(
+                    _posix(meadow_file, root),
+                    "B",
+                    "meadow file present but datasets/taxonomy/sources.parquet "
+                    "is missing; run `python -m yen_gov emit-taxonomy --root .` "
+                    "to regenerate the citation ledger so meadow paths can be "
+                    "validated against it (ADR-0041 §nn4, ADR-0042).",
+                )
+            )
+        return failures
+
+    import duckdb
+
+    con = duckdb.connect(":memory:")
+    try:
+        present_pairs: set[tuple[str, str]] = {
+            (row[0], row[1])
+            for row in con.execute(
+                f"SELECT DISTINCT producer, vintage "
+                f"FROM read_parquet('{sources_parquet.as_posix()}')"
+            ).fetchall()
+        }
+    finally:
+        con.close()
+
+    registry_keys = ", ".join(sorted(MEADOW_PRODUCER_REGISTRY))
+    for meadow_file, src_seg, vintage_seg in meadow_files:
+        rel = _posix(meadow_file, root)
+        producer = MEADOW_PRODUCER_REGISTRY.get(src_seg)
+        if producer is None:
+            failures.append(
+                Failure(
+                    rel,
+                    "B",
+                    f"unknown meadow source segment {src_seg!r}: expected one "
+                    f"of {{{registry_keys}}}. Either rename the meadow "
+                    f"directory to a registered shortname, or (when a new "
+                    f"family lands a `_meadow/` subdirectory under a new "
+                    f"publisher) add the producer-shortname mapping to "
+                    f"MEADOW_PRODUCER_REGISTRY in backend/yen_gov/validate.py.",
+                )
+            )
+            continue
+        if (producer, vintage_seg) not in present_pairs:
+            failures.append(
+                Failure(
+                    rel,
+                    "B",
+                    f"meadow path declares producer={producer!r} "
+                    f"vintage={vintage_seg!r} but no row in "
+                    f"datasets/taxonomy/sources.parquet matches that "
+                    f"(producer, vintage) pair. Per ADR-0041 §nn4 the meadow "
+                    f"path vintage MUST equal a source vintage (ADR-0042 "
+                    f"source schema v3.0 enforces vintage:minLength:1). "
+                    f"Either (a) rotate the meadow file to a vintage segment "
+                    f"that matches an existing citation row, or (b) add the "
+                    f"citation row to the appropriate seed (e.g. "
+                    f"backend/yen_gov/canonical/energy_sources_seed.py) and "
+                    f"re-run `python -m yen_gov emit-taxonomy --root .`.",
+                )
+            )
+
+    return failures
+
+
 def run(root: Path) -> list[Failure]:
     """Run Tier A then Tier B against a repo root."""
     schemas, parse_failures = load_schemas(root / SCHEMAS_SUBDIR)
@@ -687,4 +847,5 @@ def run(root: Path) -> list[Failure]:
         + tier_b_legacy_boundary_sidecars(root)
         + tier_b_indicator_alias_window(root)
         + tier_b_no_new_sub_fuel_shards(root)
+        + tier_b_meadow_vintage_matches_source_id(root)
     )

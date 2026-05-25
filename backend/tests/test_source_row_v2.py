@@ -80,20 +80,24 @@ def _v2_container(rows: list[dict]) -> dict:
 
 
 def test_schema_loads_and_validates_v2_example() -> None:
-    """The shipped schema MUST accept a well-formed v2.0 row + envelope.
+    """The shipped schema MUST accept a well-formed v3.0 row + envelope.
 
     This is the smoke test for the schema rewrite itself — if the file
     is malformed JSON, or the example diverges from the contract, this
     fails loudly before any other test attempts to construct rows.
+
+    v3.0 (ADR-0042) tightens `vintage` to ``minLength: 1`` and re-anchors
+    it semantically (strongest period anchor available). The identity
+    contract (3-arg hash over producer + title + vintage) is unchanged.
     """
     schema = _load_schema()
-    assert schema["x-version"] == "2.0"
+    assert schema["x-version"] == "3.0"
     # The last changelog entry's version MUST match x-version (CLAUDE.md §11).
-    assert schema["x-changelog"][-1]["version"] == "2.0"
+    assert schema["x-changelog"][-1]["version"] == "3.0"
     validator = Draft202012Validator(schema)
     container = _v2_container([_example_v2_row()])
     errors = sorted(validator.iter_errors(container), key=lambda e: list(e.path))
-    assert errors == [], f"v2.0 example failed validation: {errors}"
+    assert errors == [], f"v3.0 example failed validation: {errors}"
 
 
 def test_schema_rejects_v1_fields() -> None:

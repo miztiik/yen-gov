@@ -335,8 +335,9 @@ def test_parquet_has_canonical_observation_columns() -> None:
 # Lift block 5 adds 374 rows (11 fiscal years FY05-FY14 × 34 states/UTs) to
 # the parent indicator ``state-installed-capacity-allocated-mw``, carrying
 # source_id ``src-3d1d55f8a94b`` (rbi_hbk_140_installed_capacity). Block 4
-# continues to own FY15-FY25 via ICED Deep Dive (src-be6a6d5d6493). The
-# splice boundary at FY15 is documented by the methodology break row
+# continues to own FY15-FY25 via ICED Deep Dive (src-bb1d7bec8b34, rotated
+# under ADR-0042). The splice boundary at FY15 is documented by the
+# methodology break row
 # ``rbi-handbook-aggregate-no-fuel-split-pre-fy15``.
 #
 # Per Fowler pre-impl: cell values pinned against the SHARD source
@@ -404,9 +405,10 @@ def test_c46_longarc_s29_2014() -> None:
 def test_c46_longarc_uses_rbi_source_id() -> None:
     """All pre-FY15 ``state-installed-capacity-allocated-mw`` rows carry the RBI
     Handbook Table 140 source_id (``src-3d1d55f8a94b``); all FY15+ rows carry
-    the ICED Deep Dive source_id (``src-be6a6d5d6493``). Pins the source_id
-    boundary at year=2015 — a leak in either direction means block 4 or
-    block 5 is emitting at the wrong fiscal range."""
+    the ICED Deep Dive source_id (``src-bb1d7bec8b34``, rotated under
+    ADR-0042). Pins the source_id boundary at year=2015 — a leak in either
+    direction means block 4 or block 5 is emitting at the wrong fiscal
+    range."""
     con = duckdb.connect(":memory:")
     try:
         rbi_pre = con.execute(
@@ -422,12 +424,12 @@ def test_c46_longarc_uses_rbi_source_id() -> None:
         iced_post = con.execute(
             f"SELECT COUNT(*) FROM read_parquet('{PARQUET.as_posix()}') "
             f"WHERE indicator_id = 'state-installed-capacity-allocated-mw' "
-            f"AND year >= 2015 AND source_id = 'src-be6a6d5d6493'"
+            f"AND year >= 2015 AND source_id = 'src-bb1d7bec8b34'"
         ).fetchone()[0]
         non_iced_post = con.execute(
             f"SELECT COUNT(*) FROM read_parquet('{PARQUET.as_posix()}') "
             f"WHERE indicator_id = 'state-installed-capacity-allocated-mw' "
-            f"AND year >= 2015 AND source_id != 'src-be6a6d5d6493'"
+            f"AND year >= 2015 AND source_id != 'src-bb1d7bec8b34'"
         ).fetchone()[0]
     finally:
         con.close()

@@ -192,13 +192,15 @@ def test_p1b_source_id_routing() -> None:
     Catches a regression where the lift accidentally cross-wires
     source FKs between blocks."""
     cases = {
-        "state-distribution-efficiency-pct-billing":    "src-cead8f51df6f",
-        "state-distribution-efficiency-pct-collection": "src-cead8f51df6f",
-        "state-distribution-efficiency-pct-td-loss":    "src-cead8f51df6f",
-        "state-acs-arr-gap-inr-per-kwh":                "src-be6a6d5d6493",
-        "state-rpo-compliance-pct-solar":               "src-ca061b1b0adf",
-        "state-rpo-compliance-pct-non-solar":           "src-ca061b1b0adf",
-        "state-rpo-compliance-pct-total":               "src-ca061b1b0adf",
+        # 3 ICED ids rotated under ADR-0042 (vintage "" → "2024-25"):
+        # iced_distribution_perf, iced_deep_dive, iced_distribution_rpo.
+        "state-distribution-efficiency-pct-billing":    "src-650b1c25d1f7",
+        "state-distribution-efficiency-pct-collection": "src-650b1c25d1f7",
+        "state-distribution-efficiency-pct-td-loss":    "src-650b1c25d1f7",
+        "state-acs-arr-gap-inr-per-kwh":                "src-bb1d7bec8b34",
+        "state-rpo-compliance-pct-solar":               "src-0ea63ed47704",
+        "state-rpo-compliance-pct-non-solar":           "src-0ea63ed47704",
+        "state-rpo-compliance-pct-total":               "src-0ea63ed47704",
     }
     con = duckdb.connect(":memory:")
     try:
