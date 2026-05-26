@@ -48,7 +48,16 @@ def test_every_fuel_suffix_is_canonical(stem: str) -> None:
     """For every indicator_id whose trailing hyphen-segment matches a
     sub-fuel candidate, that segment MUST be in the canonical 5. Catches
     any leak of ICED sub-fuel labels (solar / wind / small-hydro / etc.)
-    or typos."""
+    or typos.
+
+    EXCEPTION (PR-V, 2026-05-26): percentage-valued fuel-faceted
+    indicators (e.g. state-plant-load-factor-pct-*) MUST NOT collapse
+    sub-fuels into 'renewable' — summing per-fuel PLF percentages is
+    meaningless. PR-V uses a dedicated 1:1 publisher-to-canonical map
+    (_PLF_PUBLISHER_TO_CANONICAL_FUEL) mapping bio-power -> biomass,
+    small-hydro -> small-hydro, oil-gas -> gas, etc. The exempt prefix
+    list below enumerates these intentional exceptions.
+    """
     parquet = ENERGY_DIR / f"{stem}.parquet"
     con = duckdb.connect(":memory:")
     try:
@@ -68,8 +77,18 @@ def test_every_fuel_suffix_is_canonical(stem: str) -> None:
         "solar", "wind", "small-hydro", "bio-power", "biomass",
         "waste-to-energy", "oil-gas", "lignite", "diesel", "others",
     }
+    # PR-V exemption: percentage-valued fuel-faceted indicator stems
+    # where collapsing sub-fuels would compute meaningless aggregates.
+    # Any indicator whose id begins with one of these prefixes is
+    # ALLOWED to carry a sub-fuel suffix (biomass / small-hydro / etc.)
+    # without triggering this guard.
+    sub_fuel_exempt_prefixes = (
+        "state-plant-load-factor-pct-",  # PR-V (percentage; cannot sum across fuels)
+    )
     leaks: list[tuple[str, str]] = []
     for ind in indicators:
+        if ind.startswith(sub_fuel_exempt_prefixes):
+            continue
         # Split off the trailing segment; the catalogue's convention is
         # one hyphen separator before the fuel suffix on per-fuel children
         # (e.g. ``state-electricity-generation-gwh-coal``).

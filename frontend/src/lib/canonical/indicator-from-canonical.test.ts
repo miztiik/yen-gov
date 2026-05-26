@@ -840,6 +840,75 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.caveats![2]).toMatch(/analyst|citizen/i);
     expect(d!.caveats![2]).toMatch(/kWh|MWh|billion/i);
   });
+
+  // PR-V (Row 6 P.1.C 6/9, 2026-05-26): state plant load factor by fuel
+  // lift. Third Pattern A-facet in the P.1.C cohort, on the EXISTING
+  // `fuel_type` axis. UNLIKE every other facet-multiplexed indicator,
+  // PR-V does NOT use SUB_FUEL_TO_CANONICAL collapse -- PLF is a
+  // percentage that cannot be summed across fuels. 8 publisher labels
+  // map 1:1 to existing fuel_type axis values via a dedicated mapping
+  // dict. Joins the `energy_generation` parquet stem.
+  it("PR-V state_plant_load_factor_pct descriptor routes to facet-multiplexed parent", () => {
+    const d = getCanonicalDescriptor("energy/state_plant_load_factor_pct");
+    expect(d).not.toBeNull();
+    expect(d!.kind).toBe("facet-multiplexed");
+    if (d!.kind === "facet-multiplexed") {
+      expect(d!.canonical_parent_indicator_id).toBe("state-plant-load-factor-pct");
+      expect(d!.facet_axis_id).toBe("fuel_type");
+      // Exactly 8 children on the canonical fuel_type axis (NO sub-fuel
+      // collapse; publisher's 8 labels map 1:1 to 8 distinct axis values).
+      expect(d!.facet_values.length).toBe(8);
+      const childIds = d!.facet_values.map((fv) => fv.canonical_child_id).sort();
+      expect(childIds).toEqual([
+        "state-plant-load-factor-pct-biomass",
+        "state-plant-load-factor-pct-coal",
+        "state-plant-load-factor-pct-gas",
+        "state-plant-load-factor-pct-hydro",
+        "state-plant-load-factor-pct-nuclear",
+        "state-plant-load-factor-pct-small-hydro",
+        "state-plant-load-factor-pct-solar",
+        "state-plant-load-factor-pct-wind",
+      ]);
+      // Publisher `bio-power` collapses to canonical `biomass`;
+      // `oil-gas` collapses to canonical `gas`; `small-hydro` retains
+      // its kebab form for the indicator-id suffix but uses the
+      // `small_hydro` axis value_id in dimension_values.
+      const labels = d!.facet_values.map((fv) => fv.legacy_facet_label).sort();
+      expect(labels).not.toContain("bio-power");
+      expect(labels).not.toContain("oil-gas");
+      expect(labels).toContain("biomass");
+      expect(labels).toContain("gas");
+      expect(labels).toContain("small_hydro");
+    }
+    expect(d!.table_id).toBe("energy.energy_generation");
+    expect(d!.meta.title).toMatch(/plant load factor|PLF/i);
+    expect(d!.meta.unit).toBe("percent");
+    expect(d!.meta.short_unit).toBe("%");
+    expect(d!.meta.entity_kind).toBe("state");
+    expect(d!.meta.time_grain).toBe("fiscal_year");
+    expect(d!.meta.direction).toBe("neutral");
+    expect(d!.meta.attribution_geography).toBe("where_produced");
+    expect(d!.meta.implementing_authority).toBe("joint");
+  });
+
+  it("PR-V plant-load-factor descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor("energy/state_plant_load_factor_pct");
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: not-comparable-across-fuels; solar Rajasthan vs coal WB anchor.
+    expect(d!.caveats![0]).toMatch(/not comparable across fuels|within a fuel/i);
+    expect(d!.caveats![0]).toMatch(/solar|Rajasthan|coal|stranded/i);
+    expect(d!.caveats![0]).toMatch(/FacetPicker|do NOT|total/i);
+    // 2: resource-bounded, not performance-bounded; wind sites anchor.
+    expect(d!.caveats![1]).toMatch(/resource[- ]bounded|RESOURCE-bounded/i);
+    expect(d!.caveats![1]).toMatch(/sunlight|wind|Tamil Nadu|Gujarat|Karnataka/i);
+    expect(d!.caveats![1]).toMatch(/hydro|drought|monsoon|inter-year/i);
+    // 3: empty cells + outliers are real; nuclear states + gas allocation anchor.
+    expect(d!.caveats![2]).toMatch(/empty|extreme|outlier/i);
+    expect(d!.caveats![2]).toMatch(/Nuclear|reactor|TN|KA|RJ|GJ/i);
+    expect(d!.caveats![2]).toMatch(/gas[- ]allocation|100%|anomaly|upstream/i);
+  });
 });
 
 describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
