@@ -103,6 +103,21 @@ SOURCE_IDS: dict[str, str] = {
     # kerosene, naphtha, petroleum-coke, others). Lifts onto the
     # existing ``energy_fuel_consumption`` table stem reserved by PR-Q.
     "iced_consumption_oil":              "src-cba8334fedc5",
+    # P.1.C PR-U (national primary energy supply lift, 2026-05-26).
+    # Derived via derive_source_id("NITI Aayog India Climate & Energy
+    # Dashboard", "Primary Energy Supply National API (national fiscal-
+    # year primary-energy supply (TPES) by source, mtoe)", "2024-25").
+    # Second Pattern A-facet in P.1.C cohort: national-grain entity_id=
+    # IN only; 6-facet axis fuel_type ∈ {coal, gas, hydro, nuclear, oil,
+    # renewable} (extends the existing axis with `oil` + `renewable`
+    # value_ids in this PR). Publisher "renewables" (plural aggregate)
+    # → canonical "renewable" singular; publisher "total" facet rows
+    # are FILTERED at adapter time (compute-on-read parent semantics --
+    # the catalogue parent indicator carries 0 rows; total = SUM of
+    # children). Lifts onto the EXISTING ``energy_fuel_consumption``
+    # table stem per the PR-Q docstring reservation for "national
+    # primary/final energy supply" PRs.
+    "iced_primary_energy_supply":        "src-170d3536d908",
 }
 
 

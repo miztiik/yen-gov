@@ -1038,6 +1038,85 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     ],
   },
 
+  // --- PR-U (Row 6 P.1.C 5/9, national primary energy supply lift, 2026-05-26) ---
+  // ICED `/analytics/state-wise-deep-dive` (primary-energy-supply national
+  // series) -> 140 obs rows (national-only, FY05-FY25) joined into the
+  // existing `energy_fuel_consumption` parquet stem reserved by PR-Q for
+  // "national primary/final energy supply" indicators. Adapter:
+  //   * fuel_consumption.py block 3 emits india-primary-energy-supply-mtoe-{fuel}
+  // 6-facet Pattern A-facet on the EXISTING `fuel_type` axis (extended
+  // with `oil` + `renewable` value_ids in this PR). National-only --
+  // ICED does NOT publish state-level TPES.
+  // Publisher facets: coal, oil, gas, hydro, nuclear, renewables (+ total
+  // which is FILTERED at adapter time as compute-on-read parent). Publisher
+  // "renewables" (plural aggregate) collapses to canonical "renewable"
+  // singular per indicator-naming.md. legacy_facet_label = canonical
+  // bucket name in each entry.
+  // Compute-on-read parent: india-primary-energy-supply-mtoe carries no
+  // observation rows; renderer sums the 6 fuel children at read time
+  // (Hans D33.8; allow_compute_on_read_total=True on the fuel_type axis).
+  {
+    kind: "facet-multiplexed",
+    legacy_artifact_id: "energy/national_primary_energy_supply_mtoe",
+    canonical_parent_indicator_id: "india-primary-energy-supply-mtoe",
+    table_id: "energy.energy_fuel_consumption",
+    facet_axis_id: "fuel_type",
+    facet_values: [
+      {
+        canonical_child_id: "india-primary-energy-supply-mtoe-coal",
+        legacy_facet_label: "coal",
+      },
+      {
+        canonical_child_id: "india-primary-energy-supply-mtoe-oil",
+        legacy_facet_label: "oil",
+      },
+      {
+        canonical_child_id: "india-primary-energy-supply-mtoe-gas",
+        legacy_facet_label: "gas",
+      },
+      {
+        canonical_child_id: "india-primary-energy-supply-mtoe-hydro",
+        legacy_facet_label: "hydro",
+      },
+      {
+        canonical_child_id: "india-primary-energy-supply-mtoe-nuclear",
+        legacy_facet_label: "nuclear",
+      },
+      {
+        canonical_child_id: "india-primary-energy-supply-mtoe-renewable",
+        legacy_facet_label: "renewable",
+      },
+    ],
+    meta: {
+      id: "india-primary-energy-supply-mtoe",
+      title: "India total primary energy supply (TPES), by source (mtoe per fiscal year)",
+      description:
+        "Annual total primary energy supply for India, broken down by 6 sources (coal + oil + gas + hydro + nuclear + renewables) in million tonnes of oil equivalent (mtoe). The TPES denominator behind every per-capita / per-GDP energy intensity calculation. Coal dominates (~55%); renewables is the fastest-growing bucket; nuclear is structurally small.",
+      entity_kind: "country",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "mtoe",
+      short_unit: "mtoe",
+      icon: "flame",
+      attribution_geography: "where_consumed",
+      comparability: "comparable_with_normalisation",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NITI Aayog ICED /analytics/state-wise-deep-dive (primary-energy-supply national series). Originating data: MoSPI Energy Statistics India (annual edition). ICED is the federal aggregator; not the issuing authority. National-only.",
+      notes:
+        "TPES = indigenous production + net imports of energy commodities, in mtoe (million tonnes of oil equivalent). The 'renewables' bucket is the publisher's aggregate (solar + wind + biomass + small-hydro + waste-to-energy combined; not broken into sub-fuels at this grain). Publisher 'total' row is dropped at canonical lift — total is computed at read time as SUM(coal + oil + gas + hydro + nuclear + renewable) per the compute-on-read parent pattern.",
+    },
+    // PR-U (Row 6 P.1.C commit 1): Hans-curated caveats. Three honesty cues
+    // citizens need: national-only-grain, mtoe-not-citizen-unit, TPES-not-end-use.
+    caveats: [
+      "National figures only — this is the ALL-INDIA TPES; ICED does not publish state-level primary energy supply. A state cannot be ranked here. State-level energy is published separately as ELECTRICITY (MU/GWh) and CONSUMPTION of specific fuels (coal MT, oil products kt) — those are end-use, not primary supply.",
+      "TPES is not what you USE — it is what enters the energy system. The mtoe number bundles indigenous production + net imports BEFORE conversion losses. A coal plant burns 100 mtoe of coal to deliver ~35 mtoe of electricity to homes and factories. To read household / industry consumption, use the FINAL energy consumption indicators (when published), not TPES.",
+      "mtoe (million tonnes of oil equivalent) is an analyst unit, not a citizen one. 1 mtoe ≈ 11.6 billion kWh. India's ~900 mtoe in recent years works out to ~8 MWh per person per year of PRIMARY energy — but after conversion losses, only ~1.2 MWh per person per year reaches the meter as electricity. The gap is the transformation tax.",
+    ],
+  },
+
   // --- 12: ACS-ARR gap on electricity sales (₹/kWh), NITI ICED ---
   {
     kind: "single",

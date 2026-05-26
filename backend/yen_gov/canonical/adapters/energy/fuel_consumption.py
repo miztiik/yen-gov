@@ -13,9 +13,19 @@ P.1.C PR-T (1 indicator; second canonical fuel-consumption lift):
   -> ``state-oil-product-consumption-kt-{product}`` (7 child indicators
   + 1 compute-on-read parent).
 
+P.1.C PR-U (1 indicator; third canonical fuel-consumption lift):
+
+* ``national_primary_energy_supply_mtoe.json`` (140 rows, 7-facet on
+  the EXISTING ``fuel_type`` axis extended with `oil` + `renewable`
+  value_ids; publisher "renewables" plural -> canonical "renewable"
+  singular; publisher "total" rows are FILTERED at adapter time as
+  compute-on-read parent)
+  -> ``india-primary-energy-supply-mtoe-{fuel}`` (6 child indicators
+  + 1 compute-on-read parent). National-grain (IN entity only).
+
 Establishes the new ``energy_fuel_consumption`` table stem that the
 P.1.A ``__init__.py`` docstring reserved but never populated. Subsequent
-P.1.C PRs (national primary/final energy supply) will land additional
+P.1.C PRs (national final energy supply) will land additional
 indicators on this same stem.
 
 Coal-consumption methodology: the ICED endpoint publishes 4 grade-level
@@ -107,6 +117,49 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             indicator_id=f"state-oil-product-consumption-kt-{r['facet']}",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["iced_consumption_oil"],
+            derivation="raw",
+        ))
+
+    # 3. national_primary_energy_supply_mtoe.json (P.1.C PR-U)
+    #    -> india-primary-energy-supply-mtoe-{fuel} (6 children).
+    #    7-facet publisher (coal/oil/gas/hydro/nuclear/renewables/total)
+    #    on the EXISTING ``fuel_type`` axis extended with `oil` +
+    #    `renewable` value_ids in this PR. Publisher "renewables"
+    #    (plural) collapses to canonical "renewable" (singular) per
+    #    indicator-naming.md. Publisher "total" rows are FILTERED here
+    #    because the parent indicator (parent_indicator_id=null) is
+    #    compute-on-read: catalogue parent carries 0 obs rows; total
+    #    is SUM of children at query time via
+    #    allow_compute_on_read_total=True. National-grain: every row
+    #    arriving has entity_id="IN" and to_entity_id passes it through.
+    #    Derivation="raw" because the publisher emits a single per-
+    #    (fuel, FY) value; no aggregation at canonical lift time.
+    _PUBLISHER_TO_CANONICAL_FUEL = {
+        "coal": "coal",
+        "oil": "oil",
+        "gas": "gas",
+        "hydro": "hydro",
+        "nuclear": "nuclear",
+        "renewables": "renewable",  # publisher plural -> canonical singular
+    }
+    shard = _load_fuel_consumption_meadow(repo_root, "national_primary_energy_supply_mtoe.json")
+    for r in shard["rows"]:
+        publisher_facet = r["facet"]
+        if publisher_facet == "total":
+            # Compute-on-read parent: drop "total" rows so the parent
+            # indicator carries 0 obs rows and frontends compute total
+            # = SUM(children) at query time.
+            continue
+        canonical_fuel = _PUBLISHER_TO_CANONICAL_FUEL[publisher_facet]
+        period_label, year, period_seq = parse_iso_period(r["time"])
+        rows.append(ObservationRow(
+            entity_id=to_entity_id(r["entity_id"]),
+            year=year,
+            period_label=period_label,
+            period_seq=period_seq,
+            indicator_id=f"india-primary-energy-supply-mtoe-{canonical_fuel}",
+            value_numeric=float(r["value"]),
+            source_id=SOURCE_IDS["iced_primary_energy_supply"],
             derivation="raw",
         ))
 

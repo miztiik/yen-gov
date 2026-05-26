@@ -1959,6 +1959,167 @@
       "source_id": "src-cba8334fedc5"
     },
     {
+      "indicator_id": "india-primary-energy-supply-mtoe",
+      "label_short": "Primary energy supply",
+      "label_long": "India total primary energy supply (TPES), by source (mtoe per fiscal year)",
+      "description_short": "Annual total primary energy supply for India, broken down by source (coal, oil, gas, hydro, nuclear, renewables). The TPES denominator behind every per-capita / per-GDP energy intensity calculation.",
+      "description_long": "Total Primary Energy Supply (TPES) is the sum of indigenous production plus net imports of energy commodities, expressed in million tonnes of oil equivalent (mtoe). 6 atomic-fuel children (coal + oil + gas + hydro + nuclear + renewable) on the canonical fuel_type axis; publisher emits a per-fuel value plus a `total` row which is FILTERED at canonical lift (compute-on-read parent: total = SUM of children). National-only -- ICED does NOT publish state-level TPES. Originating data: MoSPI Energy Statistics India; republished via NITI Aayog ICED.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NITI Aayog ICED ``/analytics/state-wise-deep-dive`` (primary-energy-supply national series). Originating data: MoSPI Energy Statistics India (annual edition). ICED is the federal aggregator; not the issuing authority.",
+      "revision_tier": "revised",
+      "parent_indicator_id": null,
+      "source_id": "src-170d3536d908"
+    },
+    {
+      "indicator_id": "india-primary-energy-supply-mtoe-coal",
+      "label_short": "Coal",
+      "label_long": "India primary energy supply -- Coal",
+      "description_short": "Coal share of total primary energy supply. The dominant TPES bucket since FY05 (~55% in recent years).",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-primary-energy-supply-mtoe",
+      "dimension_values": {
+        "fuel_type": "coal"
+      },
+      "source_id": "src-170d3536d908"
+    },
+    {
+      "indicator_id": "india-primary-energy-supply-mtoe-oil",
+      "label_short": "Oil",
+      "label_long": "India primary energy supply -- Oil",
+      "description_short": "Crude-oil + petroleum-products share of TPES. The second-largest bucket; tracks transport-fleet activity and refinery throughput.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-primary-energy-supply-mtoe",
+      "dimension_values": {
+        "fuel_type": "oil"
+      },
+      "source_id": "src-170d3536d908"
+    },
+    {
+      "indicator_id": "india-primary-energy-supply-mtoe-gas",
+      "label_short": "Natural gas",
+      "label_long": "India primary energy supply -- Natural gas",
+      "description_short": "Natural-gas share of TPES (domestic + LNG imports). The fastest-growing fossil bucket; tracks LNG-terminal commissioning and pipeline expansion.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-primary-energy-supply-mtoe",
+      "dimension_values": {
+        "fuel_type": "gas"
+      },
+      "source_id": "src-170d3536d908"
+    },
+    {
+      "indicator_id": "india-primary-energy-supply-mtoe-hydro",
+      "label_short": "Hydro",
+      "label_long": "India primary energy supply -- Hydro",
+      "description_short": "Large hydro share of TPES (>=25 MW). Inter-annual swings track monsoon variability; structurally flat as no major new dams have been commissioned recently.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-primary-energy-supply-mtoe",
+      "dimension_values": {
+        "fuel_type": "hydro"
+      },
+      "source_id": "src-170d3536d908"
+    },
+    {
+      "indicator_id": "india-primary-energy-supply-mtoe-nuclear",
+      "label_short": "Nuclear",
+      "label_long": "India primary energy supply -- Nuclear",
+      "description_short": "Nuclear share of TPES. Small fleet (~7 GW operational); structurally flat with episodic step changes when a new reactor commissions.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-primary-energy-supply-mtoe",
+      "dimension_values": {
+        "fuel_type": "nuclear"
+      },
+      "source_id": "src-170d3536d908"
+    },
+    {
+      "indicator_id": "india-primary-energy-supply-mtoe-renewable",
+      "label_short": "Renewables",
+      "label_long": "India primary energy supply -- Renewables",
+      "description_short": "Aggregate renewable share of TPES (solar + wind + biomass + small-hydro + waste-to-energy). The fastest-growing bucket; publisher emits as a single aggregate, not broken into RE sub-fuels.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-primary-energy-supply-mtoe",
+      "dimension_values": {
+        "fuel_type": "renewable"
+      },
+      "source_id": "src-170d3536d908"
+    },
+    {
       "indicator_id": "district-pashu-aadhaar-count",
       "label_short": "Pashu Aadhaar tagged",
       "label_long": "Animals tagged with Pashu Aadhaar (NDLM)",
