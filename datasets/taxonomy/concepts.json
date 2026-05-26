@@ -1537,10 +1537,42 @@
       "unit_canonical": "MW",
       "normalisation": "absolute",
       "entity_kinds": [
-        "country",
+        "country"
+      ],
+      "description_short": "Renewable capacity (country-grain CEA national snapshot). Wind, solar, biomass and waste-to-energy aggregate; ~30% national capacity by FY26. State-grain attribution variants live under renewable-mw-{geographical,allocated,snapshot}.",
+      "sources": []
+    },
+    {
+      "concept_id": "renewable-mw-geographical",
+      "noun": "Renewable (geographically sited)",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
         "state"
       ],
-      "description_short": "Wind, solar, biomass and waste-to-energy. Rapid growth; ~30% national capacity by FY26.",
+      "description_short": "State-grain renewable capacity physically SITED in the state regardless of who consumes the power. Distinct measure from allocated beneficiary share and from CEA monthly snapshot.",
+      "sources": []
+    },
+    {
+      "concept_id": "renewable-mw-allocated",
+      "noun": "Renewable (allocated to state)",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State-grain BENEFICIARY share of renewable capacity (ISGS/PSU contractual allocation; a plant sited in one state is allocated to multiple consumer states). Distinct measure from geographical siting.",
+      "sources": []
+    },
+    {
+      "concept_id": "renewable-mw-snapshot",
+      "noun": "Renewable (state CEA snapshot)",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State-grain CEA Monthly Executive Summary end-of-month snapshot of renewable capacity. Distinct publisher and cadence from the fiscal-year-end -allocated- series.",
       "sources": []
     },
     {
