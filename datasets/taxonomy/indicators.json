@@ -2307,9 +2307,9 @@
       ],
       "default_entity_kind": "country",
       "update_period_days": 365,
-      "concept_id": "coal-mw-absolute",
+      "concept_id": "coal-mw-retired",
       "meta": {
-        "justification": "Country-grain RETIREMENTS flow (capacity decommissioned per FY), not stock. Concept-cluster sibling of -installed- which is end-of-period live capacity; concept_id will be re-minted in PR-Z3bconcept-resolve."
+        "justification": "Country-grain RETIREMENTS flow (capacity decommissioned per FY), not stock. Distinct concept from -installed- which is end-of-period live capacity per Hans identity rule (different measure)."
       }
     },
     {
@@ -2339,9 +2339,9 @@
       ],
       "default_entity_kind": "country",
       "update_period_days": 365,
-      "concept_id": "gas-absolute",
+      "concept_id": "gas-mw-retired",
       "meta": {
-        "justification": "Country-grain RETIREMENTS flow (capacity decommissioned per FY), not stock. Concept-cluster sibling of -installed- which is end-of-period live capacity; concept_id will be re-minted in PR-Z3bconcept-resolve."
+        "justification": "Country-grain RETIREMENTS flow (capacity decommissioned per FY), not stock. Includes oil-fired and diesel-fired (ICED publisher label \"oil-gas\"; canonical bucket per Hans D33.8). Distinct concept from -installed- per Hans identity rule (different measure)."
       }
     },
     {

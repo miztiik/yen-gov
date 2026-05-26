@@ -312,6 +312,17 @@
       "sources": []
     },
     {
+      "concept_id": "coal-mw-retired",
+      "noun": "Coal capacity retired",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Coal-fired thermal capacity retired each fiscal year (flow, not stock). Distinct measure from installed coal capacity.",
+      "sources": []
+    },
+    {
       "concept_id": "coal-plf",
       "noun": "Coal PLF",
       "unit_canonical": "percent",
@@ -530,6 +541,17 @@
         "state"
       ],
       "description_short": "Natural-gas and liquid-fuel thermal capacity. Stranded-fuel risk; small share.",
+      "sources": []
+    },
+    {
+      "concept_id": "gas-mw-retired",
+      "noun": "Gas capacity retired",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Gas/oil/diesel-fired thermal capacity retired each fiscal year (flow, not stock). Distinct measure from installed gas capacity.",
       "sources": []
     },
     {
