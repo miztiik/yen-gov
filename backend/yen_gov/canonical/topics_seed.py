@@ -55,10 +55,15 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 # ``topic-catalogue.schema.json`` x-version; bump when the Parquet row
 # shape changes.
 TOPICS_ROW_SCHEMA_VERSION = "1.0"
-# Bumped 2026-05-24 in lockstep with topic-catalogue.schema.json v1.4:
-# artifact_id is now NULLABLE because election artifacts may omit `id`
-# (the renderer resolves the per-state default event at read time).
-INDICATOR_TOPIC_TAGS_ROW_SCHEMA_VERSION = "1.1"
+# Bumped 2026-05-26 to 2.0 in lockstep with topic-catalogue.schema.json
+# v2.0 (TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md
+# PR-A3c, ADR-0045 split): per-artifact `chart_type` and `dimension`
+# columns REMOVED from the Parquet row shape. Render hints now live in
+# `datasets/grapher/topic_render.json` (frontend-owned). Consumers that
+# previously projected those columns from `indicator_topic_tags.parquet`
+# MUST switch to the grapher catalogue via `fetchGrapherTopicCatalogue`
+# / `applyGrapherOverlay` (shipped PR-A3b).
+INDICATOR_TOPIC_TAGS_ROW_SCHEMA_VERSION = "2.0"
 
 
 SeventhScheduleList = Literal["state", "union", "concurrent", "na"]
@@ -77,7 +82,6 @@ PeerSetDefault = Literal[
     "art_371_states",
 ]
 ArtifactKind = Literal["indicator", "election", "feature_collection"]
-ChartType = Literal["choropleth", "ranked", "stacked-trend"]
 Scope = Literal["national", "state", "constituency"]
 
 
@@ -98,8 +102,6 @@ class _Artifact(BaseModel):
     default: bool = False
     featured: bool = False
     scope: Scope | None = None
-    chart_type: ChartType | None = None
-    dimension: str | None = None
     peer_set_default: PeerSetDefault | None = None
 
     @model_validator(mode="after")
@@ -170,7 +172,7 @@ def _tag_rows(
     topics: list[_Topic],
 ) -> list[
     tuple[
-        str, str, str | None, str | None, bool, bool, str | None, str | None, str | None, str | None, int
+        str, str, str | None, str | None, bool, bool, str | None, str | None, int
     ]
 ]:
     """One row per (topic_id, artifact_kind, artifact_id, in_topic_order).
@@ -188,6 +190,10 @@ def _tag_rows(
     time via max(polled_on) in election_events). The column is
     therefore NULLABLE in the emitted Parquet; SQL consumers MUST
     handle the NULL on election rows.
+
+    Per row-schema 2.0 (2026-05-26, PR-A3c) the ``chart_type`` and
+    ``dimension`` columns are REMOVED. Render hints live in
+    ``datasets/grapher/topic_render.json`` (frontend-owned per ADR-0045).
     """
     out: list[
         tuple[
@@ -197,8 +203,6 @@ def _tag_rows(
             str | None,
             bool,
             bool,
-            str | None,
-            str | None,
             str | None,
             str | None,
             int,
@@ -215,8 +219,6 @@ def _tag_rows(
                     art.default,
                     art.featured,
                     art.scope,
-                    art.chart_type,
-                    art.dimension,
                     art.peer_set_default,
                     idx,
                 )
@@ -280,8 +282,6 @@ def compile_to_parquet(json_in: Path, topics_out: Path, tags_out: Path) -> tuple
                 is_default BOOLEAN NOT NULL,
                 featured BOOLEAN NOT NULL,
                 scope VARCHAR,
-                chart_type VARCHAR,
-                dimension VARCHAR,
                 peer_set_default_override VARCHAR,
                 in_topic_order INTEGER NOT NULL
             )
@@ -289,7 +289,7 @@ def compile_to_parquet(json_in: Path, topics_out: Path, tags_out: Path) -> tuple
         )
         if tagrows:
             con.executemany(
-                "INSERT INTO indicator_topic_tags VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                "INSERT INTO indicator_topic_tags VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 tagrows,
             )
         con.execute(

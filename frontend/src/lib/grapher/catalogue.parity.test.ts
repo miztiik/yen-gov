@@ -62,6 +62,22 @@ describe("grapher catalogue parity (PR-A3b)", () => {
   );
 
   describe("topic-artifact chart_type / dimension", () => {
+    // Post PR-A3c: chart_type + dimension have been stripped from
+    // datasets/taxonomy/topics.json (canonical topic catalogue v2.0).
+    // The render hints now live solely in datasets/grapher/topic_render.json,
+    // applied at fetch time by applyGrapherOverlay (PR-A3b). With no
+    // legacy-side values remaining there is nothing to cross-check;
+    // this block stays as a sentinel so a future regression that
+    // re-introduces chart_type/dimension into the canonical catalogue
+    // would surface here as a failing assertion against the grapher row.
+    it("legacy topics.json carries no chart_type / dimension (PR-A3c)", () => {
+      for (const t of legacyTopics.topics) {
+        for (const a of t.artifacts) {
+          expect(a.chart_type, `${t.id}::${a.id} chart_type`).toBeUndefined();
+          expect(a.dimension, `${t.id}::${a.id} dimension`).toBeUndefined();
+        }
+      }
+    });
     for (const t of legacyTopics.topics) {
       for (const a of t.artifacts) {
         if (a.kind !== "indicator") continue;

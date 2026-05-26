@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/topic-catalogue.schema.json",
   "title": "Topic catalogue (IA spine)",
   "description": "The hand-authored taxonomy that powers yen-gov's Topic Front Door (`/t`, `/t/:topic`) and the section list inside each state hub (`/s/:state`). Topic membership of an artifact is declared HERE, not on the artifact itself \u2014 keeping `indicator.schema.json` free of IA leakage (per ADR-0022). Each topic carries its Seventh Schedule list (`state` / `union` / `concurrent` / `na`) so cross-state surfaces can render the constitutional honesty banner without per-renderer logic. Each topic points to one or more artifacts via a polymorphic `kind`+`id` reference; the renderer dispatches on `kind` so election artifacts (different schema family) coexist with indicator artifacts under the same catalogue.",
-  "x-version": "1.4",
+  "x-version": "2.0",
   "x-changelog": [
     {
       "version": "1.0",
@@ -29,6 +29,11 @@
       "version": "1.4",
       "date": "2026-05-24",
       "description": "Additive: `topics.items.properties.artifacts.items.properties.id` is no longer required \u2014 it stays required for `kind: \"indicator\"` (where the id resolves to a concrete indicator artifact) and for `kind: \"feature_collection\"`, but is now optional for `kind: \"election\"`. Rationale: per Jony's read-aloud review of `/s/:state/t/elections`, an elections-topic artifact reference should resolve the per-state default event at render time via `defaultEventForState(state_code)` (see ADR-0023) rather than encoding a single state's cohort code in the catalogue. The pre-v1.4 shape (TN-specific `id: \"AcGenMay2026\"`) silently rendered as empty for every non-TN state and forced manual catalogue edits on every new election cohort. The new shape (`{ kind: \"election\", scope: \"state\" }` with no `id`) is fully state-agnostic and works for every state with an entry in `taxonomy/election_events.json`. Backwards-compatible because `required: [\"kind\", \"id\"]` becomes `required: [\"kind\"]` \u2014 every pre-v1.4 artifact still validates. Enforcement that `id` must be present when `kind: \"indicator\"` or `\"feature_collection\"` is added via an `oneOf` constraint on the items shape."
+    },
+    {
+      "version": "2.0",
+      "date": "2026-05-26",
+      "description": "BREAKING (TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md PR-A3c, ADR-0045 split). REMOVED: per-artifact `chart_type` and `dimension` properties. Render hints are no longer carried on the canonical topic catalogue; they live on the frontend-owned grapher catalogue at `datasets/grapher/topic_render.json` (schema `grapher-topic-render.schema.json`) and are applied at fetch time via `applyGrapherOverlay()` in `frontend/src/lib/canonical/catalogue.ts` (shipped PR-A3b). Rationale: visualization choice is a frontend concern; mixing it with the citizen-facing data taxonomy violated the storage / visualization separation (ADR-0045). Migration: every legacy artifact ref MUST have a matching row in `datasets/grapher/topic_render.json` carrying its `chart_type` + `dimension`; the PR-A3a parity test asserts coverage. Description in v1.2 (additive introduction of these fields) supersedes."
     }
   ],
   "type": "object",
@@ -155,16 +160,6 @@
                   "type": "string",
                   "enum": ["national", "state", "constituency"],
                   "description": "Geographic scope of this artifact's primary view. Drives which routes can host it: national-scope artifacts render on `/t/:topic`; state-scope artifacts render inside `/s/:state`; constituency-scope on `/s/:state/ac/:ac`. Defaults to `national` for indicators, `state` for elections."
-                },
-                "chart_type": {
-                  "type": "string",
-                  "enum": ["choropleth", "ranked", "stacked-trend"],
-                  "description": "Optional renderer hint. Mirrors the underlying indicator artifact's `chart_type` so TopicLanding can dispatch components without peeking at every indicator JSON. When absent the page falls back to its default trio (Choropleth + Ranked + SmallMultiples)."
-                },
-                "dimension": {
-                  "type": "string",
-                  "minLength": 1,
-                  "description": "Optional categorical dimension name (e.g. `power_source`, `expenditure_head`). Required when `chart_type === \"stacked-trend\"`; passed to `dimensionAnchors()` so the stacked bars get mnemonic colours instead of algorithmic palette swatches."
                 },
                 "peer_set_default": {
                   "type": "string",
