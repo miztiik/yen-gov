@@ -89,34 +89,34 @@ def state_rollup_observations(
     if not any_electors_missing:
         rows.append(_obs(
             entity_id=state_id, period=period,
-            indicator_id="state-electors-total",
+            indicator_id="electors-total",
             value_numeric=float(total_electors),
             source_id=rollup_source, derivation="sum",
         ))
     rows.append(_obs(
         entity_id=state_id, period=period,
-        indicator_id="state-votes-polled",
+        indicator_id="votes-polled",
         value_numeric=float(total_votes),
         source_id=rollup_source, derivation="sum",
     ))
     if not any_electors_missing and total_electors > 0:
         rows.append(_obs(
             entity_id=state_id, period=period,
-            indicator_id="state-turnout-pct",
+            indicator_id="turnout-pct",
             value_numeric=round(total_votes / total_electors * 100, 4),
             source_id=rollup_source, derivation="ratio_pct",
         ))
     if period.year >= nota_introduced_year and total_votes > 0:
         rows.append(_obs(
             entity_id=state_id, period=period,
-            indicator_id="state-nota-pct",
+            indicator_id="nota-pct",
             value_numeric=round(total_nota / total_votes * 100, 4),
             source_id=rollup_source, derivation="ratio_pct",
         ))
 
     rows.append(_obs(
         entity_id=state_id, period=period,
-        indicator_id="state-majority-threshold-acs",
+        indicator_id="majority-threshold-acs",
         value_numeric=float(total_acs // 2 + 1),
         source_id=rollup_source, derivation="constant",
     ))
@@ -199,13 +199,13 @@ def state_rollup_observations(
         # the largest-bloc party; null is reserved for genuinely tied legislatures.
         rows.append(_obs(
             entity_id=state_id, period=period,
-            indicator_id="state-winning-party-id",
+            indicator_id="winning-party-id",
             value_text=winning_pid,
             source_id=rollup_source, derivation="argmax",
         ))
         rows.append(_obs(
             entity_id=state_id, period=period,
-            indicator_id="state-winning-party-seats",
+            indicator_id="winning-party-seats",
             value_numeric=float(winning_seats),
             source_id=rollup_source, derivation="argmax",
         ))
@@ -216,7 +216,7 @@ def state_rollup_observations(
         if ssq > 0:
             rows.append(_obs(
                 entity_id=state_id, period=period,
-                indicator_id="state-effective-parties-laakso",
+                indicator_id="effective-parties-laakso",
                 value_numeric=round(1.0 / ssq, 4),
                 source_id=rollup_source, derivation="laakso_taagepera",
             ))
