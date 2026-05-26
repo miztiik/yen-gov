@@ -288,6 +288,7 @@ def _emit_district_rows(
 def build_district_meadow_doc(
     raw_vintages: tuple[str, ...],
     district_lookup: dict[str, str],
+    fetched_at: str,
 ) -> tuple[dict, list[tuple[str, str, str, str]]]:
     """Build the one district meadow JSON dict across all vintages.
 
@@ -332,7 +333,6 @@ def build_district_meadow_doc(
         "times."
     )
 
-    fetched_at = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     doc = {
         "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
         "$schema_version": "4.4",
@@ -459,7 +459,7 @@ def _fetch_header(raw_vintage: str) -> dict:
     return json.loads(raw)
 
 
-def build_header_meadow_doc(raw_vintages: tuple[str, ...]) -> dict:
+def build_header_meadow_doc(raw_vintages: tuple[str, ...], fetched_at: str) -> dict:
     """Build the national-grain cumulative-rollup meadow JSON dict.
 
     Emits one row per (vintage, programme) where programme is one of
@@ -505,7 +505,6 @@ def build_header_meadow_doc(raw_vintages: tuple[str, ...]) -> dict:
         "indicator slugs."
     )
 
-    fetched_at = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     doc = {
         "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
         "$schema_version": "4.4",
@@ -628,7 +627,23 @@ def main() -> int:
             "district file."
         ),
     )
+    parser.add_argument(
+        "--snapshot-date",
+        required=True,
+        help=(
+            "Required YYYY-MM-DD operator snapshot date stamped into "
+            "sources[].fetched_at + indicator.methodology_vintage as "
+            "`<YYYY-MM-DD>T00:00:00Z`. Replaces non-deterministic "
+            "`datetime.now()` per CLAUDE.md \u00a710 (datetime.now in "
+            "data-row content is forbidden); see plan-doc PR-A5b."
+        ),
+    )
     args = parser.parse_args()
+    try:
+        dt.date.fromisoformat(args.snapshot_date)
+    except ValueError as exc:
+        parser.error(f"--snapshot-date must be YYYY-MM-DD: {exc}")
+    fetched_at = f"{args.snapshot_date}T00:00:00Z"
 
     if args.raw_vintages.strip():
         raw_vintages = tuple(
@@ -655,7 +670,7 @@ def main() -> int:
 
     # 1. District meadow.
     district_doc, unresolved = build_district_meadow_doc(
-        raw_vintages, district_lookup
+        raw_vintages, district_lookup, fetched_at
     )
     district_rows = len(district_doc["rows"])
     district_path = meadow_dir / "naip_iv_district.json"
@@ -671,7 +686,7 @@ def main() -> int:
     # 2. National header meadow (sanity-check fixture).
     header_rows = 0
     if not args.skip_header:
-        header_doc = build_header_meadow_doc(raw_vintages)
+        header_doc = build_header_meadow_doc(raw_vintages, fetched_at)
         header_rows = len(header_doc["rows"])
         header_path = meadow_dir / "naip_header_count_national.json"
         header_path.write_text(

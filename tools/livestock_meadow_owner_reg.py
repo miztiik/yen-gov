@@ -224,6 +224,7 @@ def _iter_district_landholding_rows(raw_vintage: str):
 def build_meadow_doc(
     raw_vintages: tuple[str, ...],
     district_lookup: dict[str, str],
+    fetched_at: str,
 ) -> tuple[dict, list[tuple[str, str, str, str]]]:
     """Build the one meadow JSON dict for Owner Reg across all vintages.
 
@@ -289,7 +290,6 @@ def build_meadow_doc(
         "NOT a census of agricultural households."
     )
 
-    fetched_at = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     doc = {
         "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
         "$schema_version": "4.4",
@@ -417,7 +417,23 @@ def main() -> int:
             "new source seed row."
         ),
     )
+    parser.add_argument(
+        "--snapshot-date",
+        required=True,
+        help=(
+            "Required YYYY-MM-DD operator snapshot date stamped into "
+            "sources[].fetched_at + indicator.methodology_vintage as "
+            "`<YYYY-MM-DD>T00:00:00Z`. Replaces non-deterministic "
+            "`datetime.now()` per CLAUDE.md \u00a710 (datetime.now in "
+            "data-row content is forbidden); see plan-doc PR-A5b."
+        ),
+    )
     args = parser.parse_args()
+    try:
+        dt.date.fromisoformat(args.snapshot_date)
+    except ValueError as exc:
+        parser.error(f"--snapshot-date must be YYYY-MM-DD: {exc}")
+    fetched_at = f"{args.snapshot_date}T00:00:00Z"
 
     if args.raw_vintages.strip():
         raw_vintages = tuple(
@@ -441,7 +457,7 @@ def main() -> int:
 
     meadow_dir = _meadow_dir(args.meadow_snapshot)
     meadow_dir.mkdir(parents=True, exist_ok=True)
-    doc, unresolved = build_meadow_doc(raw_vintages, district_lookup)
+    doc, unresolved = build_meadow_doc(raw_vintages, district_lookup, fetched_at)
     row_count = len(doc["rows"])
     out_path = meadow_dir / "owner_reg_land_holding_district.json"
     out_path.write_text(
