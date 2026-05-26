@@ -10,9 +10,9 @@ Lifts 10 legacy shards into a single BatchEnvelope:
   per-state per-fuel allocation snapshot. The snapshot family is
   comparable_across_states_snapshot_only (NOT a time series).
 * ``state_installed_capacity_geographical_mw.json`` (407 rows)
-  → ``state-installed-capacity-geographical-mw`` (parent, publisher total).
+  → ``installed-capacity-geographical-mw`` (parent, publisher total).
 * ``state_installed_capacity_by_source_mw.json`` (~1815 rows)
-  → ``state-installed-capacity-geographical-mw-{fuel}`` (after sub-fuel
+  → ``installed-capacity-geographical-mw-{fuel}`` (after sub-fuel
   collapse to canonical 5).
 * ``state_installed_capacity_with_alloc_mw.json`` (396 rows)
   → ``state-installed-capacity-allocated-mw`` (parent, publisher total,
@@ -145,7 +145,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             ))
 
     # 2. state_installed_capacity_geographical_mw.json
-    #    → state-installed-capacity-geographical-mw (parent, publisher total)
+    #    → installed-capacity-geographical-mw (parent, publisher total)
     shard = _load_iced_meadow(repo_root, "state_installed_capacity_geographical_mw.json")
     for r in shard["rows"]:
         period_label, year, period_seq = parse_iso_period(r["time"])
@@ -154,14 +154,14 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id="state-installed-capacity-geographical-mw",
+            indicator_id="installed-capacity-geographical-mw",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["iced_capacity_metatable"],
             derivation="raw",
         ))
 
     # 3. state_installed_capacity_by_source_mw.json
-    #    → state-installed-capacity-geographical-mw-{fuel}
+    #    → installed-capacity-geographical-mw-{fuel}
     #    Sub-fuel collapse: aggregate per (entity_id, time, canonical_fuel).
     shard = _load_iced_meadow(repo_root, "state_installed_capacity_by_source_mw.json")
     agg: dict[tuple[str, str, str], list[float]] = defaultdict(list)
@@ -184,7 +184,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id=f"state-installed-capacity-geographical-mw-{fuel}",
+            indicator_id=f"installed-capacity-geographical-mw-{fuel}",
             value_numeric=sum(values),
             source_id=SOURCE_IDS["iced_capacity_metatable"],
             derivation=derivation,

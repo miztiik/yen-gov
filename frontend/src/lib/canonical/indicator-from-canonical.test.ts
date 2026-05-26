@@ -443,12 +443,12 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.caveats![2]).toMatch(/necessary but not sufficient/i);
   });
 
-  it("PR-G state_installed_capacity_by_source_mw descriptor routes to state-installed-capacity-geographical-mw with 5 fuel children", () => {
+  it("PR-G state_installed_capacity_by_source_mw descriptor routes to installed-capacity-geographical-mw with 5 fuel children", () => {
     const d = getCanonicalDescriptor("energy/state_installed_capacity_by_source_mw");
     expect(d).not.toBeNull();
     expect(d!.kind).toBe("facet-multiplexed");
     if (d!.kind === "facet-multiplexed") {
-      expect(d!.canonical_parent_indicator_id).toBe("state-installed-capacity-geographical-mw");
+      expect(d!.canonical_parent_indicator_id).toBe("installed-capacity-geographical-mw");
       expect(d!.facet_axis_id).toBe("fuel_type");
       expect(d!.facet_values).toHaveLength(5);
       const fuels = d!.facet_values.map((fv) => fv.legacy_facet_label);
@@ -456,7 +456,7 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
       // Spot-check one child mapping (coal): canonical_child_id encodes
       // the parent + fuel suffix per indicator-naming.md D30.
       const coal = d!.facet_values.find((fv) => fv.legacy_facet_label === "coal");
-      expect(coal?.canonical_child_id).toBe("state-installed-capacity-geographical-mw-coal");
+      expect(coal?.canonical_child_id).toBe("installed-capacity-geographical-mw-coal");
     }
     expect(d!.table_id).toBe("energy.energy_installed_capacity");
     expect(d!.meta.title).toMatch(/by fuel/i);
@@ -1113,7 +1113,7 @@ describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
     },
     {
       legacy_id: "energy/state_installed_capacity_geographical_mw",
-      canonical_id: "state-installed-capacity-geographical-mw",
+      canonical_id: "installed-capacity-geographical-mw",
       table_id: "energy.energy_installed_capacity",
     },
     {
@@ -1176,7 +1176,7 @@ describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
   it("time-series descriptors (#6-#8) carry time_grain=fiscal_year + comparability=across_states_and_time", () => {
     const fy_ids = PR_7A.filter((r) =>
       [
-        "state-installed-capacity-geographical-mw",
+        "installed-capacity-geographical-mw",
         "state-installed-capacity-allocated-mw",
         "state-electricity-generation-gwh",
       ].includes(r.canonical_id),

@@ -944,7 +944,7 @@
       }
     },
     {
-      "indicator_id": "state-installed-capacity-geographical-mw",
+      "indicator_id": "installed-capacity-geographical-mw",
       "label_short": "Capacity sited in state",
       "label_long": "State installed electricity capacity, geographical-location basis (MW)",
       "description_short": "Total installed capacity physically located in the state, summed across all fuels. 'Geographical' means every plant counts toward the state where it sits, regardless of who owns it or where the power is dispatched.",
@@ -973,7 +973,7 @@
       "concept_id": "capacity-sited-in-state"
     },
     {
-      "indicator_id": "state-installed-capacity-geographical-mw-coal",
+      "indicator_id": "installed-capacity-geographical-mw-coal",
       "label_short": "Coal",
       "label_long": "Capacity sited in state \u00e2\u20ac\u201d Coal",
       "description_short": "Coal-fired thermal capacity. India's largest fuel category nationally (~42%).",
@@ -989,7 +989,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-installed-capacity-geographical-mw",
+      "parent_indicator_id": "installed-capacity-geographical-mw",
       "dimension_values": {
         "fuel_type": "coal"
       },
@@ -1008,7 +1008,7 @@
       }
     },
     {
-      "indicator_id": "state-installed-capacity-geographical-mw-gas",
+      "indicator_id": "installed-capacity-geographical-mw-gas",
       "label_short": "Gas",
       "label_long": "Capacity sited in state \u00e2\u20ac\u201d Gas",
       "description_short": "Natural-gas and liquid-fuel thermal capacity. Stranded-fuel risk; small share.",
@@ -1024,7 +1024,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-installed-capacity-geographical-mw",
+      "parent_indicator_id": "installed-capacity-geographical-mw",
       "dimension_values": {
         "fuel_type": "gas"
       },
@@ -1040,7 +1040,7 @@
       }
     },
     {
-      "indicator_id": "state-installed-capacity-geographical-mw-hydro",
+      "indicator_id": "installed-capacity-geographical-mw-hydro",
       "label_short": "Hydro",
       "label_long": "Capacity sited in state \u00e2\u20ac\u201d Hydro",
       "description_short": "Conventional (>25 MW) plus small-hydro capacity. Site-bound; multi-decade lifetime.",
@@ -1056,7 +1056,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-installed-capacity-geographical-mw",
+      "parent_indicator_id": "installed-capacity-geographical-mw",
       "dimension_values": {
         "fuel_type": "hydro"
       },
@@ -1072,7 +1072,7 @@
       }
     },
     {
-      "indicator_id": "state-installed-capacity-geographical-mw-nuclear",
+      "indicator_id": "installed-capacity-geographical-mw-nuclear",
       "label_short": "Nuclear",
       "label_long": "Capacity sited in state \u00e2\u20ac\u201d Nuclear",
       "description_short": "Nuclear capacity. Central-sector only; allocated to states via PPAs.",
@@ -1088,7 +1088,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-installed-capacity-geographical-mw",
+      "parent_indicator_id": "installed-capacity-geographical-mw",
       "dimension_values": {
         "fuel_type": "nuclear"
       },
@@ -1104,7 +1104,7 @@
       }
     },
     {
-      "indicator_id": "state-installed-capacity-geographical-mw-renewable",
+      "indicator_id": "installed-capacity-geographical-mw-renewable",
       "label_short": "Renewable",
       "label_long": "Capacity sited in state \u00e2\u20ac\u201d Renewable (wind, solar, biomass)",
       "description_short": "Wind, solar, biomass and waste-to-energy. Rapid growth; ~30% national capacity by FY26.",
@@ -1120,7 +1120,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-installed-capacity-geographical-mw",
+      "parent_indicator_id": "installed-capacity-geographical-mw",
       "dimension_values": {
         "fuel_type": "renewable"
       },

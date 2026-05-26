@@ -50,13 +50,13 @@ RETIRE_LIST = [
     ("state_installed_capacity_total_mw.json", "HARD-DROP", "D33.8 aggregate; FY04-14 spliced into _allocated_mw"),
     ("state_installed_capacity_with_alloc_mw.json", "HARD-DROP", "total-row of _allocated_mw"),
     # 7 reader-replaceable
-    ("installed_capacity_coal_mw.json", "REPLACEABLE", "state-installed-capacity-geographical-mw-coal"),
-    ("installed_capacity_gas_mw.json", "REPLACEABLE", "state-installed-capacity-geographical-mw-gas"),
-    ("installed_capacity_hydro_mw.json", "REPLACEABLE", "state-installed-capacity-geographical-mw-hydro"),
-    ("installed_capacity_nuclear_mw.json", "REPLACEABLE", "state-installed-capacity-geographical-mw-nuclear"),
-    ("installed_capacity_renewable_mw.json", "REPLACEABLE", "state-installed-capacity-geographical-mw-renewable"),
-    ("state_installed_capacity_geographical_mw.json", "REPLACEABLE", "state-installed-capacity-geographical-mw"),
-    ("state_installed_capacity_by_source_mw.json", "REPLACEABLE", "facet view of state-installed-capacity-geographical-mw-<fuel>"),
+    ("installed_capacity_coal_mw.json", "REPLACEABLE", "installed-capacity-geographical-mw-coal"),
+    ("installed_capacity_gas_mw.json", "REPLACEABLE", "installed-capacity-geographical-mw-gas"),
+    ("installed_capacity_hydro_mw.json", "REPLACEABLE", "installed-capacity-geographical-mw-hydro"),
+    ("installed_capacity_nuclear_mw.json", "REPLACEABLE", "installed-capacity-geographical-mw-nuclear"),
+    ("installed_capacity_renewable_mw.json", "REPLACEABLE", "installed-capacity-geographical-mw-renewable"),
+    ("state_installed_capacity_geographical_mw.json", "REPLACEABLE", "installed-capacity-geographical-mw"),
+    ("state_installed_capacity_by_source_mw.json", "REPLACEABLE", "facet view of installed-capacity-geographical-mw-<fuel>"),
 ]
 
 print("\n\n=== 16-shard retire list audit ===\n")
@@ -90,7 +90,7 @@ for shard_name, claimed_class, note in RETIRE_LIST:
             needs_review.append((shard_name, claimed_class, verdict))
     else:  # REPLACEABLE
         canonical_id = note
-        if "-coal" in canonical_id or "-gas" in canonical_id or "-hydro" in canonical_id or "-nuclear" in canonical_id or "-renewable" in canonical_id or canonical_id == "state-installed-capacity-geographical-mw":
+        if "-coal" in canonical_id or "-gas" in canonical_id or "-hydro" in canonical_id or "-nuclear" in canonical_id or "-renewable" in canonical_id or canonical_id == "installed-capacity-geographical-mw":
             target_fact = "datasets/energy/energy_installed_capacity.parquet"
         else:
             target_fact = None

@@ -241,7 +241,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   // 5 shards with no allowlist route:
   //   1. state_electricity_sales_mu        → state-electricity-sales-mu (single)
   //   2. state_atc_losses_pct              → state-atc-losses-pct (single)
-  //   3. state_installed_capacity_by_source_mw      → state-installed-capacity-geographical-mw (facet-multiplexed by fuel_type)
+  //   3. state_installed_capacity_by_source_mw      → installed-capacity-geographical-mw (facet-multiplexed by fuel_type)
   //   4. state_electricity_generation_by_source_gwh → state-electricity-generation-gwh (facet-multiplexed by fuel_type)
   //   5. state_installed_capacity_total_mw → Pattern B duplicate of
   //      state_installed_capacity_with_alloc_mw (already routes to
@@ -255,7 +255,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   //   * distribution.py block 1 (line 87) emits state-atc-losses-pct
   //   * distribution.py block 2 (line 102) emits state-electricity-sales-mu
   //   * generation.py block 2 (line 77) emits state-electricity-generation-gwh-{fuel}
-  //   * installed_capacity.py block 3 (line 144) emits state-installed-capacity-geographical-mw + -{fuel} children
+  //   * installed_capacity.py block 3 (line 144) emits installed-capacity-geographical-mw + -{fuel} children
   //
   // Meta blocks sourced verbatim from datasets/taxonomy/indicators.json
   // per the allowlist authoring doctrine (lines 47-75). Children for the
@@ -340,7 +340,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   //     `installed_capacity.py` block 3 (line 151) collapses ICED's
   //     sub-fuel granularity into 5 canonical buckets keyed on
   //     `dimension_values.fuel_type ∈ {coal,gas,hydro,nuclear,renewable}`.
-  //   * Parent `state-installed-capacity-geographical-mw` carries the sum
+  //   * Parent `installed-capacity-geographical-mw` carries the sum
   //     (entry #6 above already routes the totals-only legacy slug
   //     `state_installed_capacity_geographical_mw` to the SAME parent —
   //     a single big-number card; this faceted entry adds the per-fuel
@@ -348,33 +348,33 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "facet-multiplexed",
     legacy_artifact_id: "energy/state_installed_capacity_by_source_mw",
-    canonical_parent_indicator_id: "state-installed-capacity-geographical-mw",
+    canonical_parent_indicator_id: "installed-capacity-geographical-mw",
     table_id: "energy.energy_installed_capacity",
     facet_axis_id: "fuel_type",
     facet_values: [
       {
-        canonical_child_id: "state-installed-capacity-geographical-mw-coal",
+        canonical_child_id: "installed-capacity-geographical-mw-coal",
         legacy_facet_label: "coal",
       },
       {
-        canonical_child_id: "state-installed-capacity-geographical-mw-gas",
+        canonical_child_id: "installed-capacity-geographical-mw-gas",
         legacy_facet_label: "gas",
       },
       {
-        canonical_child_id: "state-installed-capacity-geographical-mw-hydro",
+        canonical_child_id: "installed-capacity-geographical-mw-hydro",
         legacy_facet_label: "hydro",
       },
       {
-        canonical_child_id: "state-installed-capacity-geographical-mw-nuclear",
+        canonical_child_id: "installed-capacity-geographical-mw-nuclear",
         legacy_facet_label: "nuclear",
       },
       {
-        canonical_child_id: "state-installed-capacity-geographical-mw-renewable",
+        canonical_child_id: "installed-capacity-geographical-mw-renewable",
         legacy_facet_label: "renewable",
       },
     ],
     meta: {
-      id: "state-installed-capacity-geographical-mw",
+      id: "installed-capacity-geographical-mw",
       title: "Power plants built, by fuel (MW)",
       description:
         "Total installed capacity physically located in the state, broken out by fuel type. 'Geographical' means every plant counts toward the state where it sits, regardless of who owns it or where the power is dispatched. Read this as 'where the steel-and-concrete sits' — NOT 'where the electricity flows to'.",
@@ -630,10 +630,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/state_installed_capacity_geographical_mw",
-    canonical_indicator_id: "state-installed-capacity-geographical-mw",
+    canonical_indicator_id: "installed-capacity-geographical-mw",
     table_id: "energy.energy_installed_capacity",
     meta: {
-      id: "state-installed-capacity-geographical-mw",
+      id: "installed-capacity-geographical-mw",
       title: "State installed electricity capacity, geographical-location basis (MW)",
       description:
         "Total installed capacity physically located in the state, summed across all fuels. 'Geographical' means every plant counts toward the state where it sits, regardless of who owns it or where the power is dispatched. Read this as 'where the steel-and-concrete sits' — NOT 'where the electricity flows to'.",
