@@ -294,7 +294,7 @@
         },
         {
           "kind": "indicator",
-          "id": "economy/india_gdp_inr_crore",
+          "id": "economy/gdp_inr_crore",
           "default": false,
           "featured": true,
           "scope": "national"

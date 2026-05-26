@@ -16,7 +16,7 @@
     },
     {
       "topic_id": "economy",
-      "indicator_id": "economy/india_gdp_inr_crore",
+      "indicator_id": "economy/gdp_inr_crore",
       "chart_type": "stacked-trend",
       "dimension": "price_basis"
     },

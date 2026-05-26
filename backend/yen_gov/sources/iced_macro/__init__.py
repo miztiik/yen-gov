@@ -2,7 +2,7 @@
 
 Emits three indicator artifacts:
 
-  * economy/india_gdp_inr_crore
+  * economy/gdp_inr_crore
   * economy/state_gdp_inr_crore
   * economy/iip_index
 
