@@ -69,11 +69,11 @@ def test_every_observation_source_id_resolves(stem: str) -> None:
 
 
 def test_all_p1a_p1b_energy_source_ids_present() -> None:
-    """Sanity: the 18 energy citation triples (7 P.1.A + 5 P.1.B + 1 P.1.C
+    """Sanity: the 19 energy citation triples (7 P.1.A + 5 P.1.B + 1 P.1.C
     PR-Q + 1 P.1.C PR-R + 1 P.1.C PR-S + 1 P.1.C PR-T + 1 P.1.C PR-U + 1 P.1.C
-    PR-V) all made it into sources.parquet. If this fails, ``emit-taxonomy``
-    did not run ``_upsert_energy_sources`` or the citation hashes drifted
-    upstream."""
+    PR-V + 1 P.1.C PR-W) all made it into sources.parquet. If this fails,
+    ``emit-taxonomy`` did not run ``_upsert_energy_sources`` or the citation
+    hashes drifted upstream."""
     expected = {
         # P.1.A (7) — 3 ICED ids rotated under ADR-0042 (vintage "" → "2024-25").
         "src-092a5dc7af3f",  # CEA Monthly Executive Summary on Power Sector
@@ -108,6 +108,10 @@ def test_all_p1a_p1b_energy_source_ids_present() -> None:
         # A-facet on the EXISTING fuel_type axis with NO sub-fuel collapse;
         # PLF is a percentage that cannot be summed across fuels).
         "src-7eb929cbf2d8",  # ICED state-plant-load-factor-pct
+        # P.1.C PR-W (1) — state power-purchase share by source lift
+        # (Pattern A-facet on EXISTING fuel_type axis extended with
+        # hybrid_bundled + trading_other; NO sub-fuel collapse).
+        "src-1401f8087b0d",  # ICED state-power-purchase-share-pct
     }
     con = duckdb.connect(":memory:")
     try:
@@ -122,7 +126,7 @@ def test_all_p1a_p1b_energy_source_ids_present() -> None:
         con.close()
     missing = expected - present
     assert not missing, (
-        f"taxonomy/sources.parquet missing {len(missing)} of the 18 P.1.A+P.1.B+P.1.C "
+        f"taxonomy/sources.parquet missing {len(missing)} of the 19 P.1.A+P.1.B+P.1.C "
         f"energy citation rows: {sorted(missing)!r}. Re-run "
         f"`python -m yen_gov emit-taxonomy --root .`"
     )

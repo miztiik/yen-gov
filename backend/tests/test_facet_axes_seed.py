@@ -123,6 +123,27 @@ def test_fuel_type_axis_extended_with_oil_and_renewable() -> None:
     )
 
 
+def test_fuel_type_axis_extended_with_hybrid_bundled_and_trading_other() -> None:
+    """PR-W (Row 6 / P.1.C 7/9) extends the fuel_type axis with two
+    procurement-channel value_ids that are NOT pure fuels:
+    `hybrid_bundled` (bundled wind+solar+storage PPAs) and
+    `trading_other` (power-exchange + UI procurement).
+
+    Both buckets live on the fuel_type axis for renderer reuse (so the
+    FacetPicker primitive can drive the same descriptor shape). They
+    cannot collapse via SUB_FUEL_TO_CANONICAL -- hybrid is irreducible
+    at publisher grain and trading is source-agnostic.
+    """
+    fuel_type = next(a for a in FACET_AXES if a.axis_id == "fuel_type")
+    value_ids = {v.value_id for v in fuel_type.values}
+    assert "hybrid_bundled" in value_ids, (
+        "PR-W fuel_type axis must include `hybrid_bundled` value_id"
+    )
+    assert "trading_other" in value_ids, (
+        "PR-W fuel_type axis must include `trading_other` value_id"
+    )
+
+
 def test_pydantic_rejects_invalid_value_id_pattern() -> None:
     with pytest.raises(ValidationError):
         FacetAxisValue(value_id="Capital_Case", label="Bad")
