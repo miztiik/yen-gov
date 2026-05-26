@@ -1032,6 +1032,44 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.caveats![2]).toMatch(/non-?energy|CGD|feedstock|fertiliser/i);
     expect(d!.caveats![2]).toMatch(/citizen|renderer|re-?label/i);
   });
+
+  // PR-Y (Row 6 P.1.C 9/9 -- FINAL, state renewable grid capacity, 2026-05-26):
+  // RBI Handbook Table 143 single-source 18-year longitudinal series.
+  // Pattern A-SINGLE (scalar; no facet axis).
+  it("PR-Y state_renewable_grid_capacity_mw descriptor routes to single canonical indicator", () => {
+    const d = getCanonicalDescriptor("energy/state_renewable_grid_capacity_mw");
+    expect(d).not.toBeNull();
+    expect(d!.kind).toBe("single");
+    if (d!.kind === "single") {
+      expect(d!.canonical_indicator_id).toBe("state-renewable-grid-capacity-mw");
+    }
+    expect(d!.table_id).toBe("energy.energy_installed_capacity");
+    expect(d!.meta.title).toMatch(/renewable.*capacity|grid-connected renewable/i);
+    expect(d!.meta.unit).toBe("MW");
+    expect(d!.meta.entity_kind).toBe("state");
+    expect(d!.meta.direction).toBe("higher_is_better");
+    expect(d!.meta.attribution_geography).toBe("where_administered");
+    expect(d!.meta.icon).toBe("sun");
+  });
+
+  it("PR-Y renewable-grid-capacity descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor("energy/state_renewable_grid_capacity_mw");
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: combined RE -- no per-source split.
+    expect(d!.caveats![0]).toMatch(/combined|no per-source|lumps/i);
+    expect(d!.caveats![0]).toMatch(/wind|solar|small-?hydro|biomass/i);
+    expect(d!.caveats![0]).toMatch(/PR-Q|PR-R|cross-reference|deep history|2007/i);
+    // 2: installed capacity is not energy delivered.
+    expect(d!.caveats![1]).toMatch(/installed|capacity/i);
+    expect(d!.caveats![1]).toMatch(/NOT.*energy|not.*delivered|plant load factor|PLF/i);
+    expect(d!.caveats![1]).toMatch(/coal plant|generation|MW|flowing/i);
+    // 3: end-March snapshot vs FY flow.
+    expect(d!.caveats![2]).toMatch(/end-?March|snapshot|STOCK|stock/i);
+    expect(d!.caveats![2]).toMatch(/cumulative|annual|flow|difference/i);
+    expect(d!.caveats![2]).toMatch(/MoSPI|RBI|restate|revision/i);
+  });
 });
 
 describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
