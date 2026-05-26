@@ -115,6 +115,12 @@ When in doubt, choose the higher level. Level 2 and above require an explicit pl
 - Pre-create empty modules "for later".
 - Skip the docs update.
 - Edit a `package.json` without running `bun install` and staging `bun.lock` in the same commit.
+- Prefix `state-` / `district-` / `national-` on `indicator_id` — grain lives on each row's `entity_kind`, dispatched at read time (ADR-0044).
+- Add UI/render fields (`chart_type`, `default_mode`, `renderer_rules`, `facet_labels`, `dimension`) to canonical or topic catalogues — they live in the grapher catalogue at `datasets/grapher/` (ADR-0045).
+- Fan facets/grain into separate cards on a topic page — one card per measure with the facet picker inside the card.
+- Mint a new `indicator_id` for a new vintage, publisher, base-year, or sampling-frame of an existing fact. UPSERT same id, or add a facet, or add a `methodology_breaks.parquet` row (Rosling rule).
+- Skip the pre-ingest overlap check before adding any new ingest. Cite `python -m yen_gov check-overlap --concept "<noun>" --unit "<u>" --entity_kind "<k>"` in every new-source handover-doc.
+- Author a plan-doc touching indicator ids or catalogue fields without citing ADR-0044 + ADR-0045 in its preamble.
 
 ## See also
 

@@ -1,7 +1,7 @@
 # Grain-over-entity + storage/visualization decoupling — rip-and-replace plan
 
 **Last Updated**: 2026-05-26
-**Status**: ▶ ACTIVE — PR-A1 ✅ PR #336; PR-A2 ✅ PR #338 (`--dry-run` flag threaded through writer + emit-taxonomy + lift-energy + lift-livestock + completeness-index). Phase 1 underway per guardrails-first ordering.
+**Status**: ▶ ACTIVE — PR-A1 ✅ PR #336; PR-A2 ✅ PR #338; PR-Z1 (doctrine bullets) ✅ PR #339 (AGENTS.md sweep deferred to follow-up post-B-series). Phase 1 underway per guardrails-first ordering.
 **Doc-class**: plan-doc per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md). Carries PR sequence + status only; rationale lives in cited ADRs and concept docs.
 **Mandate**: user, 2026-05-26 — "rip-and-replace, no strangler-fig, no smooth cutover; everything is in git, we can revert." "Move grain to OWID-style grain-over-entity. Stop smooshing state + district + village into one chart; create sub-pages."
 **Authority**: Hans + Max on data shape; Gregor on contracts; Fowler on engineering craft; Jony + Citizen on UX; Andre on LLM (not in scope here). See CLAUDE.md §0a.
@@ -440,6 +440,8 @@ Per-PR pattern (applies to D1-D8 unless noted):
 This phase exists so the rip-and-replace does not silently break: (a) future agents' mental model (AGENTS.md drift), (b) other still-active plan-docs that reference soon-to-be-deleted ids/schemas.
 
 #### PR-Z1 — Update CLAUDE.md + every AGENTS.md doctrine
+
+**Status**: doctrine bullets shipped in PR #339 (CLAUDE.md §10 + docs/agents/guardrails.md). AGENTS.md per-family sweep DEFERRED to a follow-up PR after B2-B5 land (otherwise the sweep would be writing forward-looking prose against ids that still exist). The 7 new anti-pattern bullets are the load-bearing piece; the AGENTS.md sweep is clerical and tracked in PR-Z2.
 
 - **MODIFY** [CLAUDE.md](../CLAUDE.md): add anti-patterns under §10 — "Do NOT prefix `state-` / `district-` / `national-` on `indicator_id` (grain lives on the row's `entity_kind`, dispatched at read time per ADR-0044)"; "Do NOT add UI/render fields (`chart_type`, `renderer_rules`, `default_mode`, `facet_labels`, `dimension`) to canonical or topic catalogues — they live in the grapher catalogue at `datasets/grapher/` per ADR-0045"; "Do NOT add facet/grain-fanout cards to a topic page — one card per measure, with facet picker inside (per §C3 rule)."
 - **MODIFY** [datasets/livestock/AGENTS.md](../datasets/livestock/AGENTS.md): drop the line at L28 ("state-level aggregates are never persisted") — contradicts ADR-0043; rewrite invariants to reflect the new collapsed indicator-id grammar after B5.
