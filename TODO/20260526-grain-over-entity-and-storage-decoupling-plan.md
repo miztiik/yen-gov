@@ -51,8 +51,37 @@ The rip-and-replace closes today's debt. These guardrails are how it stays close
 | 10 | Every plan-doc that touches indicator ids or catalogue fields MUST cite ADR-0044 + ADR-0045 in its preamble | Doctrine in CLAUDE.md §10 (PR-Z1); reviewers enforce | Future plans relapsing into Path-A grammar |
 | 11 | New schema MUST go through CLAUDE.md §11 with `x-version` major.minor + `x-changelog` | Existing Tier-A | (already enforced) |
 | 12 | Citizen-facing field rename is a §6 Level-3 minimum + 5-gate DoD | CLAUDE.md §6 + §9 | (already enforced) |
+| 13 | New ingest MUST FK to a row in `datasets/taxonomy/concepts.json` declaring `(concept, unit, normalisation, entity_kind)`. Two indicators with the same 4-tuple is rejected | NEW Tier-B `tier_b_one_indicator_per_concept` (ships in PR-Z3) | Future agents minting `_v2` / `_alt` / source-stamped ids for the same fact |
+| 14 | Pre-ingest overlap check MUST be cited in every new-source handover doc: `python -m yen_gov check-overlap --concept "<noun>" --unit "<u>" --entity_kind "<k>"`; if overlap ≥ 70% the action is UPSERT into existing indicator or add a facet, NOT mint a new id | NEW CLI command `check-overlap` (ships in PR-Z3); handover-doc template line; doctrine in CLAUDE.md §10 | New publisher of an existing fact being minted as a parallel id |
+| 15 | Default action for new data is **UPSERT into existing indicator** (writer PK is `(entity_id, year, period_label, indicator_id)`; same key = same row). Minting a new id requires `meta.justification` field with the named difference (different concept / unit / normalisation) | Writer behaviour (already); NEW required `meta.justification` field on every catalogue row added in the same PR as the first observation row; Tier-B `tier_b_indicator_has_justification` | Adapters silently fanning out parallel ids per source |
+| 16 | When an adapter emits ≥3 indicators that differ only in one slug segment, Tier-B flags as proliferation and proposes the facet axis | NEW Tier-B `tier_b_facet_promotion_warning` (ships in PR-Z3) — pattern-matches `^(.+)-(coal\|gas\|hydro\|nuclear\|solar\|wind\|cattle\|buffalo\|goat\|sheep\|...)$` across the indicator catalogue and groups | Per-fuel / per-species ids being added one PR at a time |
+| 17 | Any PR adding >1 row to `datasets/taxonomy/indicators.json` requires explicit Hans+Max consensus in PR body OR a per-id "facet collapse not applicable because X" line | NEW CI contract test `test_indicator_add_gate` walking the PR's diff; ships in PR-Z3 | Hidden indicator-proliferation in unrelated PRs |
+| 18 | Every indicator MUST declare `update_period_days` (expected refresh cadence in days) — derived from publisher's own cadence (NDLM monthly = 30, RBI Handbook annual = 365). Operator dashboard surfaces stale indicators when `today - last_observed > 2 * update_period_days`. OWID precedent: every Grapher variable has this | Schema v2.1 additive (PR-Z3); seeded from existing `cadence` field; surfaces in `/data-completeness` | Indicators silently going stale; no rip-and-refresh prompt |
+| 19 | Methodology break = SAME `indicator_id` + new `methodology_breaks.parquet` row, NEVER a new id (Rosling rule). Base-year rebases, sampling-frame changes, definition shifts stay on the same id | Existing Tier-A on `methodology_breaks` FK; doctrine line in CLAUDE.md §10 (PR-Z1) | `economy/india_iip_index_2011_12` style — base-year in id |
 
-PR-Z1 ships guardrails #1-#10 simultaneously: schema fields removed (#2,#3), Tier-B checks live (#1,#6), tests live (#4,#5), CLAUDE.md §10 anti-patterns added (#10), `lift --table` seam shipped (#9). After PR-Z1 + PR-Z2 + PR-B9 merge, the rip is permanent.
+PR-Z1 + PR-Z2 + PR-Z3 + PR-B9 ship guardrails #1-#19 simultaneously: schema fields removed (#2,#3), Tier-B checks live (#1,#6,#13,#15,#16,#17,#18), tests live (#4,#5), CLAUDE.md §10 anti-patterns added (#10,#14,#19), `lift --table` seam shipped (#9), `check-overlap` CLI shipped (#14), concept registry shipped (#13). After all four PRs merge, the rip is permanent and the proliferation valve is closed.
+
+## 0quint. OWID-precedent doctrine (read before any new ingest)
+
+OWID, the World Bank, the IMF, the FAO and the UN Statistical Division converge on the same five rules for socio-economic indicator management. yen-gov adopts them verbatim. Cited so future agents can pattern-match against the source-of-truth instead of re-deriving.
+
+| # | Rule | OWID/WB/IMF precedent | yen-gov binding |
+| -: | --- | --- | --- |
+| O1 | One indicator = one `(concept, unit, normalisation, entity_kind)` tuple. Identity is what is MEASURED, never WHO published it | OWID `Variable` table is M:1 from `(origin_id, dataset_id)`; same variable across origins | Guardrail #13 + concept registry |
+| O2 | New vintage of same indicator = UPSERT rows; same id, source_id rotates on the row | OWID ETL `garden` tier writes new values to existing variable; old values overwritten by new ETL run | Guardrail #15; already implemented (writer PK does not include source_id) |
+| O3 | New facet/sub-category on existing concept = facet axis on existing indicator, NEVER a new indicator | OWID Grapher `dimensions` (entity, year, value, plus facet); never minting `coal-capacity`, `gas-capacity` as separate variables | Guardrail #16 + PR-B4 / PR-B5 collapse |
+| O4 | Methodology break = same id + annotation, NEVER a renamed id | OWID variable description carries `description_processing` + chart annotation; FAO/WB carry `series_breaks[]` on the same series | Guardrail #19; existing `methodology_breaks.parquet` |
+| O5 | Refresh cadence is declared per indicator; staleness is surfaced | OWID Grapher variable has `update_period_days`; WB API has `lastUpdated` per series | Guardrail #18 (PR-Z3) |
+
+**Test of "new indicator vs UPSERT-or-facet":** before minting a new id, every author must answer YES to ALL of these. If any answer is NO, it is a facet on an existing indicator or an UPSERT:
+
+1. Is the **concept** different from every concept in `datasets/taxonomy/concepts.json`? (Not "GSDP from MoSPI" vs "GSDP from RBI" — those share concept "GSDP".)
+2. Is the **unit** different from the closest concept-match indicator? (`_mw` vs `_gw` is not different — choose the smaller of the two and re-emit; `_mw` vs `_inr_crore` is different.)
+3. Is the **normalisation** different? (per-capita / per-area / share / index vs raw absolute. Same noun with different normalisation = different indicator; same noun with same normalisation = same indicator.)
+4. Is the **entity_kind** different? (Country, state, district, AC are valid entity_kinds on the SAME indicator after Path B; do NOT mint per-grain ids.)
+
+If all 4 are YES, it is a new indicator. Otherwise UPSERT or facet.
+
 
 ## 0bis. Inter-plan landscape (verified 2026-05-26)
 
@@ -435,6 +464,29 @@ This phase exists so the rip-and-replace does not silently break: (a) future age
 - **BLOCKED ON**: B2-B5 + D8 (so cross-links reflect post-rip reality).
 - **Subagent**: none required; clerical sweep with grep.
 
+#### PR-Z3 — Concept registry + overlap-gate CLI + proliferation Tier-B checks (guardrails #13-#18)
+
+- **ADD** [datasets/schemas/concepts.schema.json](../datasets/schemas/concepts.schema.json) v1.0 — fields: `concept_id` (kebab, ≤40 chars), `noun`, `unit_canonical`, `normalisation` ∈ `{absolute, per_capita, per_area, share, ratio, index}`, `entity_kinds[]`, `description_short`, `sources` (empty array — hand-authored taxonomy per ADR-0002).
+- **ADD** [datasets/taxonomy/concepts.json](../datasets/taxonomy/concepts.json) — seeded from current 121 indicators by clustering on `(noun, unit, normalisation, entity_kinds)`. Estimated ~60-80 concepts after de-duplication.
+- **MODIFY** [datasets/schemas/indicator-catalogue.schema.json](../datasets/schemas/indicator-catalogue.schema.json) v2.1 (additive): ADD `concept_id: string` REQUIRED FK to `concepts.json`; ADD `meta.justification: string | null` (REQUIRED when concept already has another indicator with same `entity_kinds`); ADD `update_period_days: integer` REQUIRED (publisher cadence in days; NDLM monthly = 30, RBI Handbook annual = 365, Census decennial = 3650). Bump `x-changelog`.
+- **MODIFY** [datasets/taxonomy/indicators.json](../datasets/taxonomy/indicators.json) — backfill `concept_id` + `update_period_days` on all 121 rows; populate `meta.justification` for any indicator that shares a concept_id + entity_kind tuple with another (should be ~zero after Phase B collapses).
+- **ADD** [backend/yen_gov/canonical/concept_registry.py](../backend/yen_gov/canonical/concept_registry.py) — `find_overlap(noun, unit, normalisation, entity_kind) -> list[ConceptMatch]`, with each match carrying `concept_id`, `match_score: float`, `existing_indicators: list[indicator_id]`, `recommended_action: Literal["upsert", "add_facet", "mint_new"]`.
+- **ADD** [backend/yen_gov/cli.py](../backend/yen_gov/cli.py) — new `check-overlap` command: `python -m yen_gov check-overlap --noun "<n>" --unit "<u>" --normalisation "<r>" --entity-kind "<k>"` → prints match table; exit 1 if any match ≥ 70% with `recommended_action != "mint_new"`.
+- **ADD** new Tier-B checks in [backend/yen_gov/validate.py](../backend/yen_gov/validate.py):
+  - `tier_b_one_indicator_per_concept` — rejects two indicators with same `(concept_id, entity_kind)` tuple (guardrail #13).
+  - `tier_b_indicator_has_justification` — when an indicator's `(concept_id, entity_kind)` matches another's `concept_id` with different `entity_kind`, require `meta.justification` non-empty (guardrail #15).
+  - `tier_b_facet_promotion_warning` — pattern-matches `^(.+)-(coal|gas|hydro|nuclear|solar|wind|cattle|buffalo|goat|sheep|pig|yak|mithun|horse|donkey|mule|coal|petrol|diesel|kerosene|naphtha|lpg)$` across `indicators.parquet`; groups by prefix; if any group has ≥3 members AND no parent indicator with `dimension_values` populated, flag as proliferation (guardrail #16).
+  - `tier_b_indicator_freshness_declared` — every row must have `update_period_days > 0` (guardrail #18).
+- **ADD** [backend/tests/test_concept_registry.py](../backend/tests/test_concept_registry.py); [backend/tests/test_cli_check_overlap.py](../backend/tests/test_cli_check_overlap.py); [backend/tests/test_tier_b_proliferation.py](../backend/tests/test_tier_b_proliferation.py).
+- **ADD** new GitHub Action job `indicator-add-gate.yml` walking the PR diff: if `git diff main -- datasets/taxonomy/indicators.json` adds >1 indicator row, parse the PR body and require either (a) string `"Hans+Max ratified"`, OR (b) one `"facet-collapse-not-applicable: <indicator_id> — <reason>"` line per added id (guardrail #17). Fail-loud if neither pattern present.
+- **MODIFY** [CLAUDE.md](../CLAUDE.md) §10 — append the guardrail #14 anti-pattern: "Do NOT mint a new `indicator_id` for a dataset that is 80%+ the same fact as an existing indicator. Run `python -m yen_gov check-overlap` first; UPSERT into existing or add facet axis. Cite the overlap result in the ingest handover doc." Append guardrail #18: "Every indicator MUST declare `update_period_days`." Append guardrail #19: "Methodology break = same id + `methodology_breaks.parquet` row, NEVER a new id (Rosling rule)."
+- **MODIFY** [docs/agents/guardrails.md](../docs/agents/guardrails.md) — mirror.
+- **MODIFY** every ingest-handover template under `TODO/` (any file matching `*-ingest-*-plan.md` or `*-ingest-handover.md`) — add a §"Concept overlap audit" mandatory section citing `check-overlap` output.
+- **LOC**: ≈ +1,200 / -300 (largest PR of the plan; consider splitting into Z3a (schema + concept registry seed) + Z3b (Tier-B + CLI + tests + CI gate) if it crosses 500 LOC at review).
+- **Tests**: schema bump + Tier-B + CLI + CI-gate-script unit tests.
+- **BLOCKED ON**: A1 (ADRs); A3c (catalogue v2.0 must land before v2.1).
+- **Subagent**: Hans + Max (concept naming + clustering), Gregor (schema seam + Tier-B contract), Fowler (CLI ergonomics).
+
 ## 3. Acceptance gates per PR
 
 Standard 5-gate DoD (CLAUDE.md §9):
@@ -489,7 +541,7 @@ Give this single prompt to a fresh execution agent. It embeds every standing aut
 ```
 Execute TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md end-to-end autonomously. The user has signed off on every standing authorization in §0ter (rip-and-replace, force-with-lease on own branches, gh pr merge --squash --delete-branch on green DoD, amend/interrupt other plan-docs as enumerated in PR-Z1+Z2, subagent consensus = ratification, escalate to Level-4 without user gate). Stop only on the standing limits in §0ter (no direct main commits, no yenask runtime, no citizen-route 404 without successor, no CLAUDE.md §0a/§1 edits).
 
-Per §0quat, permanent guardrails ship in PR-Z1 + PR-Z2 + PR-B9; the rip is not done until those three are on main.
+Per §0quat, permanent guardrails ship in PR-Z1 + PR-Z2 + PR-Z3 + PR-B9; the rip is not done until those four are on main. Read §0quint OWID-precedent doctrine before any new ingest — it is the test of "new indicator vs UPSERT-or-facet."
 
 Workflow per PR:
 1. cd to master worktree, run `git worktree list` + `gh pr list --state open` to refresh the §1 active-worktree map. Update the plan-doc §1 if anything changed.
@@ -498,9 +550,9 @@ Workflow per PR:
 4. Run the 5-gate DoD (§3) with the 3 standing pytest deselects (see repo memory). Plus parity oracle for B-series + D-series.
 5. Open PR via `gh pr create`. Once gates green, `gh pr merge <num> --squash --delete-branch`. Force-with-lease on the worker branch if rebase needed; never force on main.
 6. After merge, move to the next unblocked PR per §2 dependency graph.
-7. After PR-Z1 + PR-Z2 + PR-B9 land, post a final summary citing every PR# + merge SHA and confirming Tier-B grain-prefix check is live.
+7. After PR-Z1 + PR-Z2 + PR-Z3 + PR-B9 land, post a final summary citing every PR# + merge SHA and confirming Tier-B grain-prefix check + Tier-B one-indicator-per-concept check + check-overlap CLI + indicator-add-gate CI job are all live.
 
-Mandatory subagent dispatches: A1 (Hans+Max+Gregor+Jony), A3a-c (Gregor), B-series (Hans+Max), C-series (Jony+Citizen), Z1 (Hans for doctrine prose). Other rows: dispatch the named agent if a non-trivial design call surfaces; otherwise execute directly.
+Mandatory subagent dispatches: A1 (Hans+Max+Gregor+Jony), A3a-c (Gregor), B-series (Hans+Max), C-series (Jony+Citizen), Z1 (Hans for doctrine prose), Z3 (Hans+Max for concept clustering + naming, Gregor for Tier-B contract, Fowler for CLI). Other rows: dispatch the named agent if a non-trivial design call surfaces; otherwise execute directly.
 
 Start with PR-A1 + PR-A2 in parallel (both READY, no worktree conflicts). Use the standing reference id-mapping table in §2 verbatim — do not re-derive.
 ```
