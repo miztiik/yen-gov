@@ -1,12 +1,14 @@
-"""Phase 3 backfill: populate v1.5 governance fields on the 5 highest-leverage artifacts.
+"""Phase 3 backfill: populate v1.5 governance fields on the highest-leverage artifacts.
 
 Per TODO/PER-INDICATOR-DOCS-PLAN.md §"Backfill order (highest-leverage first)":
 
 1. fiscal/state_pension_expenditure_inr_crore — revision_tier_by_period + excludes
 2. fiscal/outstanding_debt_pct_gsdp           — denominator (object) + excludes
-3. prices/national_wpi_all_commodities_index_annual — renderer_rules
-4. economy/per_capita_nsdp_constant_inr — denominator (object)
-5. economy/per_capita_nsdp_current_inr           — denominator (object)
+3. economy/per_capita_nsdp_constant_inr — denominator (object)
+4. economy/per_capita_nsdp_current_inr           — denominator (object)
+
+Note: prices/national_wpi_all_commodities_index_annual was retired in PR-D1
+(grain-rip plan §D1); its renderer_rules patch is no longer applied.
 
 Plus the long-form siblings (constant_inr_long, current_inr_long) for parity.
 
@@ -102,20 +104,6 @@ def patch_debt(doc: dict) -> bool:
     return changed
 
 
-def patch_wpi(doc: dict) -> bool:
-    ind = doc["indicator"]
-    changed = False
-    if not ind.get("renderer_rules"):
-        ind["renderer_rules"] = ["no_growth_across_break"]
-        changed = True
-    # Promote deprecated comparability token.
-    if ind.get("comparability") == "comparable_with_normalisation":
-        # 5 base splices spanning 51 years — direction-of-change only.
-        ind["comparability"] = "directional_only"
-        changed = True
-    return changed
-
-
 def patch_per_capita_nsdp(doc: dict, *, basis: str, base_year: str | None) -> bool:
     """Add population denominator to a per-capita NSDP indicator.
 
@@ -148,8 +136,6 @@ PATCHES: list[tuple[str, callable]] = [
      patch_pension),
     ("fiscal/outstanding_debt_pct_gsdp.json",
      patch_debt),
-    ("prices/national_wpi_all_commodities_index_annual.json",
-     patch_wpi),
     ("economy/per_capita_nsdp_constant_inr.json",
      lambda d: patch_per_capita_nsdp(d, basis="constant", base_year=None)),
     ("economy/per_capita_nsdp_current_inr.json",

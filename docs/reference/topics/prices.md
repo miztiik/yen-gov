@@ -4,9 +4,18 @@
 > Per-indicator pages link UP to this page for shared methodology that
 > would otherwise repeat across siblings.
 
-**Last Updated**: 2026-05-15
+**Last Updated**: 2026-05-26
 **Maintainer**: yen-gov contributors
 **Plan**: [TODO/PER-INDICATOR-DOCS-PLAN.md](../../../TODO/PER-INDICATOR-DOCS-PLAN.md)
+
+> **Partial retirement (PR-D1, 2026-05-26):** the three national index-level series
+> referenced throughout the conceptual sections below — `prices/national_cpi_combined_index_annual`,
+> `prices/national_cpi_iw_index_annual`, `prices/national_wpi_all_commodities_index_annual` —
+> were retired along with their HBS-IE Tables 36 + 37 ingest. No canonical national-inflation
+> successor is planned. Surviving artifact: `prices/cpi_inflation_pct` (state-wise YoY %,
+> facetted by sub-basket, post-PR-B8). Inline links to the retired shards are intentionally
+> left in place as background reading; the WPI-vs-CPI-IW-vs-CPI-Combined conceptual taxonomy
+> below remains accurate as a citizen primer on Indian inflation methodology.
 
 ## What this topic covers
 
@@ -132,10 +141,9 @@ Every price artifact at fiscal_year time-grain in this corpus is the **simple ar
 
 ## Indicator pages in this topic
 
-- [`prices/national_cpi_combined_index_annual`](../../../datasets/indicators/in/prices/national_cpi_combined_index_annual.json) — All-India CPI-Combined (Rural + Urban), base 2012=100, annual average from FY15. The RBI monetary-policy anchor.
-- [`prices/national_cpi_iw_index_annual`](../../../datasets/indicators/in/prices/national_cpi_iw_index_annual.json) — CPI for Industrial Workers, spliced 1982 / 2001 / 2016 base years, annual average from FY94. Used for Centre/PSU DA indexation.
-- [`prices/national_wpi_all_commodities_index_annual`](../../../datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json) — Wholesale Price Index, All Commodities, spliced across 5 base years, annual average from FY75. Read directionally only across splices.
 - [`prices/cpi_inflation_pct`](../../../datasets/indicators/in/prices/cpi_inflation_pct.json) — State-wise CPI YoY %, faceted by sub-basket (`general` / `food` / `fuel` / `housing_urban`), FY15 onwards. Collapsed PR-B8 (2026-05-26) from 4 sibling shards into one facetted artifact per ADR-0044 / plan-doc standing-reference row 13.
+
+> **Retired (PR-D1, 2026-05-26):** the three national index-level series — `prices/national_cpi_combined_index_annual` (CPI-Combined base 2012, RBI's monetary-policy anchor), `prices/national_cpi_iw_index_annual` (CPI-IW spliced 1960/1982/2001/2016 bases, Centre/PSU DA), and `prices/national_wpi_all_commodities_index_annual` (WPI All-Commodities spliced 5 bases since FY75) — were dropped along with their HBS-IE Tables 36 + 37 ingest. No canonical national-inflation successor is planned. The conceptual sections above (WPI vs CPI-IW vs CPI-Combined; base-year splices; headline vs core) remain as background reading.
 
 ## Further reading
 

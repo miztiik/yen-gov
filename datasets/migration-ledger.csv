@@ -166,9 +166,9 @@ datasets/indicators/in/environment/india_ghg_emissions_mtco2e_by_sector.json,env
 datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json,environment,queue,4,,,Higher-resolution variant of above; consolidate at ingest.
 #
 # ----- PRICES (queued — Phase 3 has fiscal/demography/education/health; prices follows).
-datasets/indicators/in/prices/national_cpi_combined_index.json,prices,queue,3.5,,,Phase 3.5 (between fiscal and education by §9 §13 ordering). National-level CPI base 2012.
-datasets/indicators/in/prices/national_cpi_iw_index.json,prices,queue,3.5,,,CPI-IW base shift indicator; D28 methodology_version applies.
-datasets/indicators/in/prices/national_wpi_all_commodities.json,prices,queue,3.5,,,WPI base 2011-12.
+# datasets/indicators/in/prices/national_cpi_combined_index.json,prices,deleted,3.5,,,PR-D1 — no canonical successor; state CPI lives in post-B8 facetted prices/cpi_inflation_pct.
+# datasets/indicators/in/prices/national_cpi_iw_index.json,prices,deleted,3.5,,,PR-D1 — no canonical successor.
+# datasets/indicators/in/prices/national_wpi_all_commodities.json,prices,deleted,3.5,,,PR-D1 — no canonical successor.
 datasets/indicators/in/prices/state_cpi_general_inflation.json,prices,queue,3.5,,,D33.7 — CPI categories with combined_yoy as facet value.
 datasets/indicators/in/prices/state_cpi_food_inflation.json,prices,queue,3.5,,,Same parent + cpi_category facet.
 datasets/indicators/in/prices/state_cpi_fuel_inflation.json,prices,queue,3.5,,,Same parent + cpi_category facet.

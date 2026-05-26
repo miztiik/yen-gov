@@ -1,10 +1,13 @@
-"""Ingest RBI Handbook tables (HBS-IE 2024-25 + HBS-IS 2024-25) for inflation
-and state pension indicators.
+"""Ingest RBI Handbook tables (HBS-IS 2024-25) for state pension indicators.
 
 Emits artifacts under datasets/indicators/in/{prices,fiscal}/. The 5 health
 shards previously emitted under datasets/indicators/in/health/ were retired
-in PR-D6 (grain-rip plan §D6); the SPECS block below no longer includes
-them. See docs/reference/topics/health.md for the retirement note.
+in PR-D6 (grain-rip plan §D6); the 3 national inflation shards (WPI / CPI-IW /
+CPI-Combined) previously emitted under datasets/indicators/in/prices/ from
+HBS-IE Tables 36 + 37 were retired in PR-D1 (grain-rip plan §D1) — no
+canonical national-inflation successor is planned; state-level CPI lives in
+the post-B8 facetted shard ``prices/cpi_inflation_pct``. See
+docs/reference/topics/prices.md for the retirement note.
 
 Shared building blocks (state-name map, value coercion, year-label parsing,
 landing-page URLs, license block, write helper) live in
@@ -13,14 +16,12 @@ landing-page URLs, license block, write helper) live in
 from __future__ import annotations
 
 import json  # noqa: F401  -- kept for spec-table introspection during dev runs
-import re
 from datetime import datetime, timezone
 from pathlib import Path
 
 import openpyxl
 
 from yen_gov.sources.rbi_hbs import (
-    HBS_IE_LANDING,
     HBS_IS_LANDING,
     LICENSE_RBI,
     NAME_TO_ECI,
@@ -32,92 +33,10 @@ from yen_gov.sources.rbi_hbs import (
 
 setup_utf8_stdout()
 
-ECON_CACHE = Path(".runtime/raw/rbi/handbook_economy_2024_25")
 STATES_CACHE = Path(".runtime/raw/rbi/handbook_states_2024_25")
 OUT = Path("datasets/indicators/in")
 
 FETCHED_AT = datetime(2026, 5, 14, 19, 0, 0, tzinfo=timezone.utc).isoformat().replace("+00:00", "Z")
-
-
-# ---------------------------------------------------------------------------
-# Pattern A — National multi-base series (HBS-IE Tables 36 / 37)
-# ---------------------------------------------------------------------------
-
-
-def parse_national_multibase(
-    xlsx: Path, sub_series_col_idx: int, sub_series_label: str
-) -> dict[str, dict[str, float]]:
-    """Read a national time-series workbook where rows are years (with
-    interspersed '(Base : YYYY-YY = 100)' marker rows) and columns are
-    sub-series. Returns ``{time: {base: value}}`` for the given column.
-    """
-    out: dict[str, dict[str, float]] = {}
-    wb = openpyxl.load_workbook(xlsx, data_only=True, read_only=True)
-    ws = wb[wb.sheetnames[0]]
-    rows = list(ws.iter_rows(values_only=True))
-    current_base: str | None = None
-    base_marker_rx = re.compile(r"\(Base\s*:?\s*(\d{4}(?:-\d{2,4})?)\s*=\s*100\)")
-    for row in rows:
-        c1 = row[1] if len(row) > 1 else None
-        if isinstance(c1, str):
-            m = base_marker_rx.search(c1)
-            if m:
-                current_base = m.group(1)
-                continue
-        if current_base is None:
-            continue
-        time = _year_label_to_time(c1, calendar=False)
-        if time is None:
-            continue
-        v = _coerce(row[sub_series_col_idx]) if sub_series_col_idx < len(row) else None
-        if v is None:
-            continue
-        out.setdefault(time, {})[current_base] = v
-    wb.close()
-    return out
-
-
-def collapse_national(
-    parsed: dict[str, dict[str, float]], base_priority: list[str]
-) -> list[dict]:
-    rows: list[dict] = []
-    for time in sorted(parsed):
-        by_base = parsed[time]
-        chosen = next((b for b in base_priority if b in by_base), None)
-        if chosen is None:
-            continue
-        rows.append({
-            "entity_id": "IN",
-            "time": time,
-            "value": by_base[chosen],
-            "vintage": f"Base {chosen} = 100",
-        })
-    return rows
-
-
-def parse_national_simple(xlsx: Path, sub_series_col_idx: int) -> list[dict]:
-    """Simpler walker for workbooks where base-marker rows are per-sub-series
-    (e.g. T37 CPI, where '(Base : 2012 = 100 for New CPI)' applies only to
-    cols 5-7 while '(Base : 2016 = 100 for CPI - IW)' applies only to col 2).
-    We ignore markers entirely, walk every year row, and emit one (time,
-    value) per non-null cell in the requested column. Splice/break metadata
-    is conveyed via the indicator's ``series_breaks`` array instead.
-    """
-    out: list[dict] = []
-    wb = openpyxl.load_workbook(xlsx, data_only=True, read_only=True)
-    ws = wb[wb.sheetnames[0]]
-    for row in ws.iter_rows(values_only=True):
-        c1 = row[1] if len(row) > 1 else None
-        time = _year_label_to_time(c1, calendar=False)
-        if time is None:
-            continue
-        v = _coerce(row[sub_series_col_idx]) if sub_series_col_idx < len(row) else None
-        if v is None:
-            continue
-        out.append({"entity_id": "IN", "time": time, "value": v})
-    wb.close()
-    out.sort(key=lambda r: r["time"])
-    return out
 
 
 # ---------------------------------------------------------------------------
@@ -180,121 +99,7 @@ def parse_state_year_table(
 # Spec table — one entry per artifact
 # ---------------------------------------------------------------------------
 
-WPI_BASES = ["2011-12", "2004-05", "1993-94", "1981-82", "1970-71"]
-CPI_IW_BASES = ["2016", "2001", "1982", "1960-61"]
-
 SOURCE_RBI = "Reserve Bank of India (compiled from Office of the Economic Adviser, MoCI; or Labour Bureau, MoLE; per table)"
-
-# --- National inflation specs (driven by parse_national_multibase) ---
-
-NATIONAL_SPECS = [
-    {
-        "out_path": "prices/national_wpi_all_commodities_index_annual.json",
-        "id": "prices/national_wpi_all_commodities_index_annual",
-        "title": "Wholesale Price Index — All Commodities (annual average, spliced)",
-        "xlsx": ECON_CACHE / "T36_NationalWPI_AnnualAverage.xlsx",
-        "table_label": "Table 36: Wholesale Price Index - Annual Average",
-        "snapshot_url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/36T_29082025046481C533F84F82AFDF9EA32C8176A1.XLSX",
-        "landing": HBS_IE_LANDING,
-        "sub_col_idx": 2,  # col B = year label, col C = AC (All Commodities)
-        "sub_label": "All Commodities",
-        "base_priority": WPI_BASES,
-        "value_kind": "index",
-        "unit": "index (rebased)",
-        "time_grain": "fiscal_year",
-        "description": (
-            "Wholesale Price Index (All Commodities) — annual average, FY 1974-75 onwards, "
-            "spliced across MoCI's five base-year revisions (1970-71 / 1981-82 / 1993-94 / "
-            "2004-05 / 2011-12). Index level (rebased to most-recent base where overlap "
-            "exists); convert to year-on-year inflation in the renderer rather than baking "
-            "it into the artifact. WPI tracks producer-stage prices and excludes most "
-            "services. It is shown here for the deep historical perspective only — RBI's "
-            "official inflation anchor since the 2014 monetary-policy framework switch is "
-            "CPI-Combined (see `prices/national_cpi_combined_index_annual`)."
-        ),
-        "notes": (
-            "Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 36. "
-            "Each row's `vintage` records the WPI base year that produced the value. The "
-            "WPI basket and methodology change at every rebase (commodity composition, "
-            "weights, services treatment), so growth rates spanning a `series_breaks` "
-            "transition should be read as directional, not exact."
-        ),
-    },
-    {
-        "out_path": "prices/national_cpi_iw_index_annual.json",
-        "id": "prices/national_cpi_iw_index_annual",
-        "title": "Consumer Price Index — Industrial Workers (annual average, spliced)",
-        "xlsx": ECON_CACHE / "T37_NationalCPI_AnnualAverage.xlsx",
-        "table_label": "Table 37: Consumer Price Index - Annual Average",
-        "snapshot_url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/37T_29082025B6355D5BDE984665BD7120E3C3596086.XLSX",
-        "landing": HBS_IE_LANDING,
-        "sub_col_idx": 2,  # col C = IW
-        "sub_label": "Industrial Workers (CPI-IW)",
-        "base_priority": CPI_IW_BASES,
-        "value_kind": "index",
-        "unit": "index (rebased)",
-        "time_grain": "fiscal_year",
-        "description": (
-            "CPI for Industrial Workers (CPI-IW) — annual average from FY 1993-94 onwards "
-            "in this series, the deepest continuous CPI India publishes. Compiled by the "
-            "Labour Bureau (Ministry of Labour & Employment) from a basket of goods and "
-            "services consumed by industrial-worker households across 88 centres, then "
-            "national-averaged. Index level; convert to year-on-year inflation in the "
-            "renderer. Compositionally urban-industrial, so it understates rural food-price "
-            "experience — for the citizen 'cost of living' headline since 2012, prefer "
-            "`prices/national_cpi_combined_index_annual` (RBI's monetary-policy anchor)."
-        ),
-        "notes": (
-            "Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 37, "
-            "column 'IW'. Multiple base years stacked in the same column; the renderer "
-            "should not compute growth rates that span a `series_breaks` rebase entry."
-        ),
-    },
-    {
-        "out_path": "prices/national_cpi_combined_index_annual.json",
-        "id": "prices/national_cpi_combined_index_annual",
-        "title": "Consumer Price Index — Combined (Rural+Urban), annual average",
-        "xlsx": ECON_CACHE / "T37_NationalCPI_AnnualAverage.xlsx",
-        "table_label": "Table 37: Consumer Price Index - Annual Average",
-        "snapshot_url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/37T_29082025B6355D5BDE984665BD7120E3C3596086.XLSX",
-        "landing": HBS_IE_LANDING,
-        "sub_col_idx": 7,  # col H = New CPI Combined (Rural+Urban)
-        "sub_label": "CPI-Combined (Base 2012=100)",
-        "base_priority": ["2012"],  # single base — the only one published
-        "value_kind": "index",
-        "unit": "index (Base 2012=100)",
-        "time_grain": "fiscal_year",
-        "description": (
-            "All-India CPI-Combined (Rural+Urban) — annual average, base 2012=100, "
-            "from FY 2014-15 onwards. This is the official cost-of-living benchmark "
-            "the Reserve Bank of India is legally mandated to keep near 4% (within a "
-            "2-6% band) under the 2016 monetary-policy framework. Citizen-relevant "
-            "headline: roughly 46% food and beverages, 10% fuel and light, 10% housing, "
-            "with the rest in clothing, transport, education, health, and other services. "
-            "Convert to year-on-year inflation in the renderer; level is shipped here so "
-            "future revisions remain traceable."
-        ),
-        "notes": (
-            "Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 37, "
-            "column 'New CPI Combined (Rural+Urban)'. Single base (2012=100) — no splice "
-            "needed within this artifact. For deeper history splice to `cpi_iw_index_annual` "
-            "with explicit ratio-link in the renderer."
-        ),
-    },
-]
-
-INFLATION_SERIES_BREAKS_WPI = [
-    {"at_time": "1981-04", "kind": "rebase", "note": "WPI rebase: 1970-71 → 1981-82 base. Basket and weights revised."},
-    {"at_time": "1993-04", "kind": "rebase", "note": "WPI rebase: 1981-82 → 1993-94 base."},
-    {"at_time": "2004-04", "kind": "rebase", "note": "WPI rebase: 1993-94 → 2004-05 base. Commodity basket modernised; services treatment expanded."},
-    {"at_time": "2011-04", "kind": "rebase", "note": "WPI rebase: 2004-05 → 2011-12 base (current). Excise duty exclusion introduced; 'Combined' index dropped in favour of 'All Commodities'."},
-]
-
-INFLATION_SERIES_BREAKS_CPI_IW = [
-    {"at_time": "1982-04", "kind": "rebase", "note": "CPI-IW rebase: 1960-61 → 1982 base. Basket of goods and centre coverage updated."},
-    {"at_time": "2001-04", "kind": "rebase", "note": "CPI-IW rebase: 1982 → 2001 base."},
-    {"at_time": "2016-04", "kind": "rebase", "note": "CPI-IW rebase: 2001 → 2016 base (current). Centres expanded from 78 to 88; basket reweighted post-2010 services consumption survey."},
-]
 
 # --- State indicator specs (driven by parse_state_year_table) ---
 
@@ -484,26 +289,6 @@ def _write(spec: dict, art: dict) -> None:
 
 
 def main() -> None:
-    print("\n=== National inflation (HBS-IE Tables 36, 37) ===")
-    for spec in NATIONAL_SPECS:
-        is_wpi = spec["id"].endswith("national_wpi_all_commodities_index_annual")
-        if is_wpi:
-            parsed = parse_national_multibase(spec["xlsx"], spec["sub_col_idx"], spec["sub_label"])
-            rows = collapse_national(parsed, spec["base_priority"])
-        else:
-            # T37 CPI: per-sub-series base markers — use simple walker.
-            rows = parse_national_simple(spec["xlsx"], spec["sub_col_idx"])
-        if not rows:
-            print(f"  WARN no rows for {spec['id']}")
-            continue
-        breaks = None
-        if is_wpi:
-            breaks = INFLATION_SERIES_BREAKS_WPI
-        elif spec["id"].endswith("national_cpi_iw_index_annual"):
-            breaks = INFLATION_SERIES_BREAKS_CPI_IW
-        art = _build_artifact(spec, rows, series_breaks=breaks)
-        _write(spec, art)
-
     print("\n=== State indicators (HBS-IS) ===")
     for spec in STATE_SPECS:
         rows = parse_state_year_table(spec["xlsx"], spec["header_row"], spec["calendar"])

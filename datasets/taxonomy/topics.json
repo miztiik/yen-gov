@@ -432,30 +432,9 @@
           "default": true,
           "featured": true,
           "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "prices/national_cpi_combined_index_annual",
-          "default": false,
-          "featured": true,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "prices/national_wpi_all_commodities_index_annual",
-          "default": false,
-          "featured": false,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "prices/national_cpi_iw_index_annual",
-          "default": false,
-          "featured": false,
-          "scope": "national"
         }
       ],
-      "notes": "Three official price-series families coexist in India and each measures a different basket. CPI-Combined (Rural+Urban, base 2012=100) is the RBI's official target — the headline you read in news. CPI-IW (Industrial Workers, base 2016=100) is older and used to index dearness allowance for central-government employees and many wage settlements; useful for long history. WPI (Wholesale Price Index, base 2011-12=100) measures producer-stage prices and is what GDP deflators are built on; it is NOT a cost-of-living index. State CPI inflation is decomposed by NSO from the same all-India CPI sampling frame; differences across states reflect commodity weights and local price formation, not state-government policy. Index series get a Rebase Banner above the chart so the citizen reads levels as 'percent of base year' not 'rupees', and year-on-year is the comparable read. Per Hans's framing review."
+      "notes": "State-level CPI inflation (year-on-year %) is collapsed into the facetted `prices/cpi_inflation_pct` artifact (`general` / `food` / `fuel` / `housing_urban` sub-baskets) per PR-B8. The three national index-level series previously surfaced here (CPI-Combined base 2012, CPI-IW spliced across 1960/1982/2001/2016 bases, WPI All-Commodities spliced across 5 bases since FY75) were retired in PR-D1 — RBI's HBS-IE Tables 36 + 37 ingest is paused for those series; no canonical national-inflation successor is planned. State CPI inflation is decomposed by NSO from the same all-India CPI sampling frame; differences across states reflect commodity weights and local price formation, not state-government policy. Per Hans's framing review."
     },
     {
       "id": "health",
