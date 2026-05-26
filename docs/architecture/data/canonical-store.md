@@ -569,7 +569,9 @@ Full design archive: [ADR-0032 §Context + §Rejected Alternatives](../decisions
 
 | Column | Purpose |
 | --- | --- |
-| `indicator_id` (PK) | Kebab-case, single segment, ≤ 60 chars (see §7) |
+| `indicator_id` (PK) | Kebab-case, single segment, ≤ 60 chars (see §7). MUST NOT carry an `<entity>-` grain prefix per [ADR-0044](../decisions/0044-grain-over-entity.md). |
+| `entity_kinds[]` | REQUIRED non-empty array of `country` / `state` / `district` / `ac` / `party` / `candidate` enums; declares which grains this id carries observation rows for. Per ADR-0044, one id may span multiple grains; the row's `entity_kind` discriminates at read time. |
+| `default_entity_kind` | REQUIRED single enum picked from `entity_kinds[]`; the grain the renderer dispatches to when the route does not pin one. |
 | `parent_indicator_id` (nullable, self-FK) | NULL on parents; populated on facet-explode children (D26) |
 | `dimension_values` (STRUCT, nullable) | Populated iff `parent_indicator_id IS NOT NULL`; keys must come from the facet-axes registry (D31; compiled to `taxonomy/facet-axes.parquet` via §8.3) |
 | `label_short`, `label_long` | Axis text vs hover text |
@@ -606,11 +608,13 @@ Full design archive: [ADR-0032 §Context + §Rejected Alternatives](../decisions
 
 ## 7. Indicator naming convention (D30)
 
-**Format**: `<entity>-<measure>-<unit>-<facet>`, kebab-case, single segment, max 60 chars.
+**Format**: `<measure>-<unit>-<facet>`, kebab-case, single segment, max 60 chars.
+
+The id MUST NOT carry an `<entity>-` segment (`state-`, `district-`, `ac-`, `national-`, `india-`, `party-`, `candidate-`) per [ADR-0044](../decisions/0044-grain-over-entity.md). Grain lives on each observation row's `entity_kind` and on the catalogue's `entity_kinds[]` / `default_entity_kind` (§6); the renderer dispatches at read time. Tier-B `tier_b_indicator_id_no_grain_prefix` enforces this post-PR-B9 of [TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../../TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md).
 
 - Sibling sort works via `ORDER BY indicator_id` — no separate sort column needed.
 - Greppable; deterministic; no hashes.
-- Methodology-version children encode the version in the id (e.g. `state-gsdp-base-2011-12-inr-crore` is a separate id from `state-gsdp-base-2004-05-inr-crore` per D28).
+- Methodology-version children encode the version in the id (e.g. `gsdp-base-2011-12-inr-crore` is a separate id from `gsdp-base-2004-05-inr-crore` per D28); a methodology BREAK (rebase, redefinition) on an EXISTING id stays the same id plus a `methodology_breaks.parquet` row (Rosling rule, CLAUDE.md §10).
 
 ### 7.1 Approved abbreviations
 
@@ -633,12 +637,14 @@ New abbreviations require Max sign-off in the same commit that adds them.
 ### 7.2 Examples
 
 ```
-state-gsdp-base-2011-12-inr-crore
-state-installed-capacity-coal-mw
-state-distribution-losses-pct                  # parent
-state-distribution-losses-pct-loss-type-atc    # child (facet-explode)
-state-imr-per-1000-live-births
+gsdp-base-2011-12-inr-crore
+installed-capacity-coal-mw
+distribution-losses-pct                  # parent
+distribution-losses-pct-loss-type-atc    # child (facet-explode)
+imr-per-1000-live-births
 ```
+
+Each example is a SINGLE id that may carry rows at any combination of `country` / `state` / `district` grains, declared on the catalogue row via `entity_kinds[]` (§6). For example, `installed-capacity-coal-mw` carries country + state rows under one id rather than the pre-ADR-0044 sibling pair `india-installed-capacity-coal-mw` + `state-installed-capacity-coal-mw`.
 
 ---
 

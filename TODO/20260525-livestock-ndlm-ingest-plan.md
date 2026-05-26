@@ -191,6 +191,8 @@ Each PR:
 
 ## 11. Status table
 
+> **Forward-pointer (PR-Z2 of [TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md](20260526-grain-over-entity-and-storage-decoupling-plan.md), 2026-05-26)** — Phase 2.A (Owner Reg), Phase 2.B (Pashu Aadhaar), and Phase 2.E (Breeding, when upstream re-opens) all currently mint per-species / per-grain sibling indicator ids (`state-pashu-aadhaar-animals-tagged-count-<species>`, `district-pashu-aadhaar-count-<species>`, etc.). **PR-B5 of the grain-rip plan collapses these into one id per measure** (e.g. `livestock/pashu-aadhaar-count` with `species` facet + `entity_kinds: ["country","state","district"]` per ADR-0044), dispatching grain on the row's `entity_kind` rather than the id prefix. Phases 1.D (NADCP) + 1.E (Breeding) upstream-publisher work continues UNCHANGED under this plan; only the catalogue grammar is touched by PR-B5. The shipped Owner Reg + Pashu Aadhaar + NAIP IV ids stay live until PR-B5 ships the CTAS migration.
+
 | Slice | Status | Notes |
 | --- | :-: | --- |
 | Phase 0 (topic + family seed) | ◐ DONE | `agriculture` topic registered in `datasets/taxonomy/topics.json`; `datasets/livestock/` family dir exists with `_meadow/` sub-tree; `backend/yen_gov/canonical/adapters/livestock/` package registered (`__init__.py`, `_shared.py`, `pashu_aadhaar.py`). Shipped incidentally via the parallel pashu-aadhaar sprint - no standalone Phase 0 PR was needed. |

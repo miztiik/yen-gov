@@ -21,7 +21,7 @@ This pattern is itself OWID-style — they have a small set of public principles
 | Domain | OWID-canonical | yen-gov default |
 |---|---|---|
 | **Indicator URL slug** | Flat single segment (`/grapher/co2-emissions-per-capita`), not topic-hierarchy path | Flat single segment (`installed-capacity`) per [ADR-0028](../architecture/decisions/0028-url-scheme-place-first-flat-indicator-slug.md). |
-| **Indicator id (producer-side)** | `<topic>/<leaf>` or flat — internal namespace, not citizen surface | `<category>/<leaf>` (`power/installed-capacity`) in `datasets/indicators/in/...`; URL slug is a registry-backed projection. |
+| **Indicator id (producer-side)** | `<topic>/<leaf>` or flat — internal namespace, not citizen surface; one id per measure, grain dispatched at render time | **ALIGNS** with OWID after [ADR-0044](../architecture/decisions/0044-grain-over-entity.md) (2026-05-26): `<family>/<measure>-<unit>-<facet>` (`energy/installed-capacity-coal-mw`), one id spans `country` / `state` / `district` rows via `entity_kinds[]` on the catalogue row. Prior divergence (`state-`, `district-`, `national-` grain prefixes encoded into the id, ~77 sibling pairs across the corpus) RETIRED. |
 | **URL routing mode** | Path-routed with SPA fallback (`/404.html → /index.html` on GitHub Pages or equivalent) | Path-routed per ADR-0028 (supersedes hash-routing ADR-0016). |
 | **Topic-in-URL** | No. Topics live in IA (topic hubs, faceted search), not URL spine. URL stability beats taxonomy expressiveness. | No. ADR-0028. |
 | **Vintage in URL** | No. Vintage is a UI control with sane default; `?` param only for citation. | No. ADR-0028. |
