@@ -950,6 +950,176 @@ def tier_b_one_indicator_per_concept(root: Path) -> list[Failure]:
     return failures
 
 
+# Legit homes for raw ``src-<hex>`` literals (datasets/taxonomy is the
+# citation-ledger seam per ADR-0032). Backend sources MUST look up
+# ``source_id`` via a registry seam, never hand-type the hash.
+_SOURCE_ID_HEX_RE = re.compile(r'"src-[0-9a-f]{12}"')
+_SOURCE_IDS_ASSIGN_RE = re.compile(r"^SOURCE_IDS\s*=", re.MULTILINE)
+BACKEND_SOURCES_DIR = Path("backend/yen_gov/sources")
+
+
+def tier_b_no_hand_typed_source_id(root: Path) -> list[Failure]:
+    """Reject hand-typed ``source_id`` hashes in adapter source files.
+
+    Per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md
+    §0quat guardrail #6, ``source_id`` MUST be looked up via the
+    forthcoming ``source_registry.resolve(nickname)`` seam (PR-A6); raw
+    ``src-<hex>`` literals or ``SOURCE_IDS = {...}`` hash-tables inside
+    ``backend/yen_gov/sources/**/*.py`` are forbidden. The only legit
+    homes for the hex literals are ``datasets/taxonomy/sources.parquet``
+    (the citation ledger itself) and ``datasets/taxonomy/source_nicknames.json``
+    (the nickname -> source_id resolver table). Copy-pasting a hash into
+    an adapter silently couples the adapter to a snapshot of the ledger
+    and bypasses the resolver.
+
+    SHIPS DARK in PR-Z3b-tail-actionB (function present but NOT chained
+    into ``run()``). Will be wired into ``run()`` post-PR-A6 once the
+    ``source_registry`` seam exists and all adapters route through it.
+    Until then the check no-ops on today's adapters (verified clean
+    at PR ship time).
+
+    No-ops when ``backend/yen_gov/sources/`` is absent (e.g. running
+    against a docs-only sub-tree).
+    """
+    failures: list[Failure] = []
+    sources_dir = root / BACKEND_SOURCES_DIR
+    if not sources_dir.is_dir():
+        return failures
+
+    for path in sorted(sources_dir.rglob("*.py")):
+        try:
+            text = path.read_text(encoding="utf-8")
+        except (OSError, UnicodeDecodeError):
+            continue
+        rel = _posix(path, root)
+        if _SOURCE_IDS_ASSIGN_RE.search(text):
+            failures.append(
+                Failure(
+                    rel,
+                    "B",
+                    f"{rel}: forbidden top-level ``SOURCE_IDS = ...`` "
+                    f"hash-table assignment. Per guardrail #6 source_id "
+                    f"MUST be looked up via source_registry.resolve("
+                    f"nickname); raw hash tables inside adapter modules "
+                    f"silently snapshot the citation ledger. See "
+                    f"TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md "
+                    f"§0quat guardrail #6.",
+                )
+            )
+        for m in _SOURCE_ID_HEX_RE.finditer(text):
+            line_no = text[: m.start()].count("\n") + 1
+            failures.append(
+                Failure(
+                    rel,
+                    "B",
+                    f"{rel}:{line_no}: forbidden hand-typed source_id "
+                    f"literal {m.group(0)}. Per guardrail #6 the only "
+                    f"legit homes are datasets/taxonomy/sources.parquet "
+                    f"and datasets/taxonomy/source_nicknames.json; "
+                    f"adapters MUST resolve via source_registry.resolve("
+                    f"nickname). See "
+                    f"TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md "
+                    f"§0quat guardrail #6.",
+                )
+            )
+
+    return failures
+
+
+def tier_b_indicator_has_justification(root: Path) -> list[Failure]:
+    """Reject cross-grain concept twins missing ``meta.justification``.
+
+    Per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md
+    §0quat guardrail #15, default action for new data is UPSERT into the
+    existing indicator. Minting a SECOND indicator that shares a
+    ``concept_id`` with an existing one (only entity_kinds differing) is
+    permitted only when the catalogue row carries a non-empty
+    ``meta.justification`` naming the difference (different concept /
+    unit / normalisation / sampling frame). Without justification the
+    twin is a proliferation bug — the right action is to merge via
+    cross-grain ``entity_kinds[]`` on the original row.
+
+    SHIPS DARK in PR-Z3b-tail-actionD (function present but NOT chained
+    into ``run()``). Will be wired into ``run()`` post-PR-Z3b-tail-actionC
+    once the 183 existing rows have been backfilled with ``concept_id``
+    and ``meta.justification``. Until then the check no-ops cleanly on
+    today's catalogue (no row carries ``concept_id`` yet).
+
+    No-ops when ``datasets/taxonomy/indicators.json`` is absent or fails
+    to parse.
+    """
+    failures: list[Failure] = []
+    catalogue_path = root / INDICATOR_CATALOGUE_JSON
+    catalogue_rel = INDICATOR_CATALOGUE_JSON.as_posix()
+
+    if not catalogue_path.exists():
+        return failures
+
+    try:
+        payload = _load_json(catalogue_path)
+    except json.JSONDecodeError:
+        return failures
+    if not isinstance(payload, dict):
+        return failures
+    rows = payload.get("indicators")
+    if not isinstance(rows, list):
+        return failures
+
+    # Group rows by concept_id; clusters with 2+ distinct entity_kinds
+    # tuples are cross-grain twins and trigger the justification check.
+    by_concept: dict[str, list[tuple[str, tuple[str, ...], str]]] = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        indicator_id = row.get("indicator_id")
+        concept_id = row.get("concept_id")
+        entity_kinds = row.get("entity_kinds")
+        if not isinstance(indicator_id, str):
+            continue
+        if not isinstance(concept_id, str) or not concept_id:
+            continue
+        if not isinstance(entity_kinds, list):
+            continue
+        meta = row.get("meta")
+        justification = ""
+        if isinstance(meta, dict):
+            j = meta.get("justification")
+            if isinstance(j, str):
+                justification = j.strip()
+        by_concept.setdefault(concept_id, []).append(
+            (indicator_id, tuple(sorted(str(k) for k in entity_kinds)),
+             justification)
+        )
+
+    for concept_id, entries in sorted(by_concept.items()):
+        distinct_ekind_tuples = {ek for _, ek, _ in entries}
+        if len(distinct_ekind_tuples) < 2:
+            continue  # single-grain cluster -- not a cross-grain twin
+        for indicator_id, _ek, justification in entries:
+            if justification:
+                continue
+            failures.append(
+                Failure(
+                    catalogue_rel,
+                    "B",
+                    f"indicators[indicator_id={indicator_id!r}]: "
+                    f"cross-grain twin under concept_id={concept_id!r} "
+                    f"is missing non-empty meta.justification. Per "
+                    f"guardrail #15 default action for new data is "
+                    f"UPSERT into the existing indicator; minting a "
+                    f"second id that shares a concept_id requires "
+                    f"meta.justification naming the difference "
+                    f"(different concept / unit / normalisation / "
+                    f"sampling frame) or the twin must be merged via "
+                    f"cross-grain entity_kinds[]. See "
+                    f"TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md "
+                    f"§0quat guardrail #15.",
+                )
+            )
+
+    return failures
+
+
 
 def run(root: Path) -> list[Failure]:
     """Run Tier A then Tier B against a repo root."""
