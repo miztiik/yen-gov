@@ -779,6 +779,67 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.caveats![2]).toMatch(/NCR|Supreme Court|air[ -]?quality|emissions/i);
     expect(d!.caveats![2]).toMatch(/cement|glass|industrial/i);
   });
+
+  // PR-U (Row 6 P.1.C 5/9, 2026-05-26): national primary energy supply (TPES)
+  // lift. Third Pattern A-facet in the P.1.C cohort, on the EXISTING
+  // `fuel_type` axis (extended with `oil` + `renewable` value_ids in this PR).
+  // National-only (entity_kind="country") -- ICED does NOT publish state-level
+  // TPES. Joins the `energy_fuel_consumption` parquet stem.
+  it("PR-U national_primary_energy_supply_mtoe descriptor routes to facet-multiplexed parent", () => {
+    const d = getCanonicalDescriptor("energy/national_primary_energy_supply_mtoe");
+    expect(d).not.toBeNull();
+    expect(d!.kind).toBe("facet-multiplexed");
+    if (d!.kind === "facet-multiplexed") {
+      expect(d!.canonical_parent_indicator_id).toBe("india-primary-energy-supply-mtoe");
+      expect(d!.facet_axis_id).toBe("fuel_type");
+      // Exactly 6 children on the canonical fuel_type axis (publisher's
+      // 7th facet 'total' is FILTERED at canonical lift as compute-on-read
+      // parent semantics).
+      expect(d!.facet_values.length).toBe(6);
+      const childIds = d!.facet_values.map((fv) => fv.canonical_child_id).sort();
+      expect(childIds).toEqual([
+        "india-primary-energy-supply-mtoe-coal",
+        "india-primary-energy-supply-mtoe-gas",
+        "india-primary-energy-supply-mtoe-hydro",
+        "india-primary-energy-supply-mtoe-nuclear",
+        "india-primary-energy-supply-mtoe-oil",
+        "india-primary-energy-supply-mtoe-renewable",
+      ]);
+      // Publisher `renewables` plural collapses to canonical `renewable`
+      // singular; the legacy_facet_label is the CANONICAL bucket name
+      // (not the raw publisher label).
+      const labels = d!.facet_values.map((fv) => fv.legacy_facet_label).sort();
+      expect(labels).toEqual(["coal", "gas", "hydro", "nuclear", "oil", "renewable"]);
+      expect(labels).not.toContain("renewables");
+    }
+    expect(d!.table_id).toBe("energy.energy_fuel_consumption");
+    expect(d!.meta.title).toMatch(/primary energy supply|TPES/i);
+    expect(d!.meta.unit).toBe("mtoe");
+    expect(d!.meta.entity_kind).toBe("country");
+    expect(d!.meta.time_grain).toBe("fiscal_year");
+    expect(d!.meta.direction).toBe("neutral");
+    expect(d!.meta.attribution_geography).toBe("where_consumed");
+    expect(d!.meta.implementing_authority).toBe("centre");
+  });
+
+  it("PR-U primary-energy-supply descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor("energy/national_primary_energy_supply_mtoe");
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: national-only grain; ICED does not publish state-level TPES.
+    expect(d!.caveats![0]).toMatch(/national/i);
+    expect(d!.caveats![0]).toMatch(/state-level|state level|cannot be ranked/i);
+    expect(d!.caveats![0]).toMatch(/MU|GWh|electricity|kt|coal/i);
+    // 2: TPES is not what you USE; conversion losses anchor.
+    expect(d!.caveats![1]).toMatch(/TPES|primary/i);
+    expect(d!.caveats![1]).toMatch(/conversion|losses|transform/i);
+    expect(d!.caveats![1]).toMatch(/coal plant|FINAL|end-use|electricity/i);
+    // 3: mtoe is an analyst unit; kWh/MWh anchor.
+    expect(d!.caveats![2]).toMatch(/mtoe/i);
+    expect(d!.caveats![2]).toMatch(/analyst|citizen/i);
+    expect(d!.caveats![2]).toMatch(/kWh|MWh|billion/i);
+  });
 });
 
 describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
