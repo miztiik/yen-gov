@@ -179,7 +179,7 @@ Each PR is ≤300 lines diff (excluding parquet binary regen). PRs marked **READ
 | **A3a** | Grapher catalogue ADDITIVE (no deletes) | ✅ PR #340 | Gregor |
 | **A3b** | Reader migration to grapher catalogue | ✅ PR #341 | Gregor+Fowler |
 | **A3c** | Rip `renderer_rules` + `chart_type` + `dimension` from canonical catalogues | After A3b | Gregor |
-| **A4** | `--table <stem>` filter on `lift-energy` + `lift-livestock` (elections+governments don't need lift commands — see §1bis) | ✅ PR #_pending_ | Fowler |
+| **A4** | `--table <stem>` filter on `lift-energy` + `lift-livestock` (elections+governments don't need lift commands — see §1bis) | ✅ PR #368 | Fowler |
 | **A5a** | Strip `datetime.now()` from non-livestock meadow tools | READY | Fowler |
 | **A5b** | Strip `datetime.now()` from livestock meadow tools | After yen-gov-3b-species | Fowler |
 | **A6** | Data-driven `source_id` lookup | After yen-gov-pr2-ia + yen-gov-3b-species | Fowler+Gregor |
