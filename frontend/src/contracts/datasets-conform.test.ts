@@ -83,6 +83,12 @@ const PER_ROW_PROVENANCE_SCHEMAS = new Set<string>([
   // url_main. Compiled Parquet rows (dim_offices, governments_office_holdings)
   // carry source_id FK; the authoring JSON is taxonomy-shaped.
   "office-holdings.schema.json",
+  // Grapher render catalogues (ADR-0045) are frontend-owned UI hints — they
+  // carry no observational data and no provenance; they're authored by the
+  // frontend layer and validated against grapher-*-render.schema.json. They
+  // are not subject to §12 sources[] (same logic as manifest.schema.json).
+  "grapher-indicator-render.schema.json",
+  "grapher-topic-render.schema.json",
 ]);
 
 const SCHEMAS = loadSchemas();
