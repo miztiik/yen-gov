@@ -187,10 +187,10 @@ def _indicator_iip() -> dict[str, Any]:
     }
 
 
-def _indicator_india_gva_constant() -> dict[str, Any]:
+def _indicator_gva_constant() -> dict[str, Any]:
     return {
-        "id": "economy/india_gva_by_industry_constant_inr_crore",
-        "title": "India GVA by industry (constant 2011-12 prices, ₹ crore)",
+        "id": "economy/gva_by_industry_constant_inr_crore",
+        "title": "GVA by industry (constant 2011-12 prices, ₹ crore)",
         "description": (
             "National Gross Value Added at constant 2011-12 prices, ₹ crore, "
             "faceted by industry. Includes the 'GVA at basic prices' and "
@@ -358,9 +358,9 @@ def ingest_iced_macro(*, repo_root: Path, client: IcedClient | None = None) -> I
     results.append(_emit(
         repo_root=repo_root, schema_for_validation=schema_for_validation,
         schema_id_str=sid, schema_version_str=sver,
-        indicator_meta=_indicator_india_gva_constant(), rows=gva_rows,
+        indicator_meta=_indicator_gva_constant(), rows=gva_rows,
         sources=[Source(url=gva_resp.url, fetched_at=gva_resp.fetched_at)],
-        out_rel="datasets/indicators/in/economy/india_gva_by_industry_constant_inr_crore.json",
+        out_rel="datasets/indicators/in/economy/gva_by_industry_constant_inr_crore.json",
         spatial="India (national)",
     ))
 

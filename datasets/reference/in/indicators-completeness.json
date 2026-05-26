@@ -45,6 +45,26 @@
       "gap_count_within_range": 0
     },
     {
+      "id": "economy/gva_by_industry_constant_inr_crore",
+      "topic": "economy",
+      "path": "datasets/indicators/in/economy/gva_by_industry_constant_inr_crore.json",
+      "title": "GVA by industry (constant 2011-12 prices, ₹ crore)",
+      "documentation_status": "stub",
+      "inventory_status": "complete",
+      "frozen": false,
+      "last_polled_at": "2026-05-14T23:40:40Z",
+      "observed_count": 14,
+      "pending_count": 0,
+      "unavailable_count": 0,
+      "min_time": "2011-04",
+      "max_time": "2024-04",
+      "min_period_label": "2011-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 14,
+      "gap_count_within_range": 0
+    },
+    {
       "id": "economy/iip_index",
       "topic": "economy",
       "path": "datasets/indicators/in/economy/iip_index.json",
@@ -83,26 +103,6 @@
       "time_grain": "fiscal_year",
       "observed_periods_within_range": 15,
       "gap_count_within_range": 9
-    },
-    {
-      "id": "economy/india_gva_by_industry_constant_inr_crore",
-      "topic": "economy",
-      "path": "datasets/indicators/in/economy/india_gva_by_industry_constant_inr_crore.json",
-      "title": "India GVA by industry (constant 2011-12 prices, ₹ crore)",
-      "documentation_status": "stub",
-      "inventory_status": "complete",
-      "frozen": false,
-      "last_polled_at": "2026-05-14T23:40:40Z",
-      "observed_count": 14,
-      "pending_count": 0,
-      "unavailable_count": 0,
-      "min_time": "2011-04",
-      "max_time": "2024-04",
-      "min_period_label": "2011-04",
-      "max_period_label": "2024-04",
-      "time_grain": "fiscal_year",
-      "observed_periods_within_range": 14,
-      "gap_count_within_range": 0
     },
     {
       "id": "economy/national_gva_by_industry_constant_2011_12_inr_crore",
