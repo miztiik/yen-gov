@@ -182,7 +182,19 @@ def build_index() -> dict:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--write", action="store_true", help="rewrite the index file")
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help=(
+            "Plan-only alias for the default mode (no --write). Logs "
+            "unchanged|CHANGED summary, writes nothing. Mutually exclusive "
+            "with --write. PR-A2 contract."
+        ),
+    )
     args = parser.parse_args()
+
+    if args.dry_run and args.write:
+        parser.error("--dry-run and --write are mutually exclusive")
 
     new_doc = build_index()
     new_bytes = json.dumps(new_doc, indent=2, ensure_ascii=False) + "\n"

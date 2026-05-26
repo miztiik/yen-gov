@@ -91,6 +91,16 @@ def emit_taxonomy(
         dir_okay=True,
         exists=True,
     ),
+    dry_run: bool = typer.Option(
+        False,
+        "--dry-run",
+        help=(
+            "Plan-only: compile each seed into a tempfile mirror of "
+            "datasets/taxonomy/ + datasets/governments/, byte-compare to the "
+            "real on-disk targets, log UNCHANGED|CHANGED per planned file, "
+            "write nothing to disk. Manifest regen also runs as dry-run."
+        ),
+    ),
 ) -> None:
     """Compile hand-authored taxonomy parquet files (operator command).
 
@@ -173,126 +183,197 @@ def emit_taxonomy(
     )
     from yen_gov.canonical.writer import _regenerate_manifest
 
-    taxonomy_dir = root / "datasets" / "taxonomy"
-    governments_dir = root / "datasets" / "governments"
-    taxonomy_dir.mkdir(parents=True, exist_ok=True)
-    governments_dir.mkdir(parents=True, exist_ok=True)
+    real_taxonomy_dir = root / "datasets" / "taxonomy"
+    real_governments_dir = root / "datasets" / "governments"
+    real_taxonomy_dir.mkdir(parents=True, exist_ok=True)
+    real_governments_dir.mkdir(parents=True, exist_ok=True)
 
-    # 1) facet-axes (pre-existing)
-    rows = _compile_facet_axes(taxonomy_dir / "facet-axes.parquet")
-    typer.echo(f"emit-taxonomy: wrote {rows} rows to datasets/taxonomy/facet-axes.parquet")
+    # PR-A2: dry-run mirrors taxonomy/ + governments/ into a tempdir so every
+    # seed compile (and the UPSERT-style ``office_holdings`` / ``energy_sources``
+    # / ``livestock_sources`` chains that read-modify-write sources.parquet)
+    # runs end-to-end without touching the real on-disk parquets. After the
+    # pipeline finishes we byte-compare each generated tempfile against the
+    # real on-disk target and log an UNCHANGED|CHANGED|NEW line per file.
+    # ``person_aliases.json`` (hand-authored input) and ``dim_persons.parquet``
+    # (read-only input from elections/) stay at their real paths since the
+    # pipeline never writes them.
+    if dry_run:
+        import shutil as _shutil
+        import tempfile as _tempfile
 
-    # 2) state_tiers
-    rows = _compile_state_tiers(
-        taxonomy_dir / "state_tiers.json",
-        taxonomy_dir / "state_tiers.parquet",
-    )
-    typer.echo(f"emit-taxonomy: wrote {rows} rows to datasets/taxonomy/state_tiers.parquet")
+        _td = _tempfile.TemporaryDirectory(prefix="ygov_emit_dryrun_")
+        try:
+            td_root = Path(_td.name)
+            taxonomy_dir = td_root / "taxonomy"
+            governments_dir = td_root / "governments"
+            _shutil.copytree(real_taxonomy_dir, taxonomy_dir, dirs_exist_ok=True)
+            if real_governments_dir.exists():
+                _shutil.copytree(real_governments_dir, governments_dir, dirs_exist_ok=True)
+            else:
+                governments_dir.mkdir(parents=True, exist_ok=True)
+            typer.echo("emit-taxonomy [dry-run]: mirroring taxonomy/ + governments/ to tempdir")
+        except BaseException:
+            _td.cleanup()
+            raise
+    else:
+        _td = None
+        taxonomy_dir = real_taxonomy_dir
+        governments_dir = real_governments_dir
 
-    # 3) topics + indicator_topic_tags
-    topics_rows, tags_rows = _compile_topics(
-        taxonomy_dir / "topics.json",
-        taxonomy_dir / "topics.parquet",
-        taxonomy_dir / "indicator_topic_tags.parquet",
-    )
+    try:
+        prefix = "emit-taxonomy [dry-run]" if dry_run else "emit-taxonomy"
+
+        # 1) facet-axes (pre-existing)
+        rows = _compile_facet_axes(taxonomy_dir / "facet-axes.parquet")
+        typer.echo(f"{prefix}: wrote {rows} rows to datasets/taxonomy/facet-axes.parquet")
+
+        # 2) state_tiers
+        rows = _compile_state_tiers(
+            taxonomy_dir / "state_tiers.json",
+            taxonomy_dir / "state_tiers.parquet",
+        )
+        typer.echo(f"{prefix}: wrote {rows} rows to datasets/taxonomy/state_tiers.parquet")
+
+        # 3) topics + indicator_topic_tags
+        topics_rows, tags_rows = _compile_topics(
+            taxonomy_dir / "topics.json",
+            taxonomy_dir / "topics.parquet",
+            taxonomy_dir / "indicator_topic_tags.parquet",
+        )
+        typer.echo(
+            f"{prefix}: wrote {topics_rows} rows to datasets/taxonomy/topics.parquet"
+        )
+        typer.echo(
+            f"{prefix}: wrote {tags_rows} rows to "
+            f"datasets/taxonomy/indicator_topic_tags.parquet"
+        )
+
+        # 4) election_events
+        rows = _compile_election_events(
+            taxonomy_dir / "election_events.json",
+            taxonomy_dir / "election_events.parquet",
+        )
+        typer.echo(
+            f"{prefix}: wrote {rows} rows to datasets/taxonomy/election_events.parquet"
+        )
+
+        # 5) entities (entities.json is the sole input post-Phase B)
+        rows = _compile_entities(
+            taxonomy_dir / "entities.json",
+            taxonomy_dir / "entities.parquet",
+        )
+        typer.echo(
+            f"{prefix}: wrote {rows} rows to datasets/taxonomy/entities.parquet"
+        )
+
+        # 6) office_holdings -> dim_offices + holdings; upserts sources.
+        #    Post-v1.1, legacy CM rows use office_citations while new
+        #    national-office rows use official citation_groups. Step 5 must
+        #    run before step 6 so entities.parquet is fresh.
+        office_holdings_json = taxonomy_dir / "office_holdings.json"
+        office_count, holdings_count = _compile_office_holdings(
+            office_holdings_json,
+            taxonomy_dir / "entities.parquet",
+            taxonomy_dir / "sources.parquet",
+            governments_dir / "dim_offices.parquet",
+            governments_dir / "governments_office_holdings.parquet",
+        )
+        typer.echo(
+            f"{prefix}: wrote {office_count} rows to "
+            f"datasets/governments/dim_offices.parquet"
+        )
+        typer.echo(
+            f"{prefix}: wrote {holdings_count} rows to "
+            f"datasets/governments/governments_office_holdings.parquet"
+        )
+
+        # 7) indicators catalogue (P.1.A C3)
+        rows = _compile_indicators(
+            taxonomy_dir / "indicators.json",
+            taxonomy_dir / "indicators.parquet",
+        )
+        typer.echo(
+            f"{prefix}: wrote {rows} rows to datasets/taxonomy/indicators.parquet"
+        )
+
+        # 8) methodology_breaks (P.1.A C3)
+        rows = _compile_methodology_breaks(
+            taxonomy_dir / "methodology_breaks.json",
+            taxonomy_dir / "methodology_breaks.parquet",
+        )
+        typer.echo(
+            f"{prefix}: wrote {rows} rows to "
+            f"datasets/taxonomy/methodology_breaks.parquet"
+        )
+
+        # 9) energy sources UPSERT (P.1.A C3) -- must run AFTER step 6 so
+        #    the wiki citation rows are already on disk; we read-modify-
+        #    write the same sources.parquet to add the 6 energy citation
+        #    rows (1 CEA + 3 ICED + 2 RBI). Idempotent.
+        n_energy = _upsert_energy_sources(taxonomy_dir / "sources.parquet")
+        typer.echo(
+            f"{prefix}: upserted {n_energy} energy citation rows into "
+            f"datasets/taxonomy/sources.parquet"
+        )
+
+        # 9b) livestock sources UPSERT (P.2 Phase 0, 2026-05-25) -- 5 NDLM
+        #    citation rows (Owner Reg + Pashu Aadhaar + NADCP + Breeding +
+        #    NAIP IV). Same read-modify-write pattern as step 9. The
+        #    observation parquets that FK to these rows land in PR 3+.
+        n_livestock = _upsert_livestock_sources(taxonomy_dir / "sources.parquet")
+        typer.echo(
+            f"{prefix}: upserted {n_livestock} livestock citation rows into "
+            f"datasets/taxonomy/sources.parquet"
+        )
+
+        # 10) persons registry (S.1 / ADR-0035): compile hand-authored merge
+        # overlay plus dim_persons self-alias rows. The dim_persons input
+        # is read-only from datasets/elections/ regardless of dry-run mode.
+        rows = _compile_persons(
+            person_aliases_json=taxonomy_dir / "person_aliases.json",
+            dim_persons_parquet=root / "datasets" / "elections" / "dim_persons.parquet",
+            persons_out=taxonomy_dir / "persons.parquet",
+        )
+        typer.echo(
+            f"{prefix}: wrote {rows} rows to datasets/taxonomy/persons.parquet"
+        )
+        _regenerate_manifest(root / "datasets", dry_run=dry_run)
+
+        if dry_run:
+            # Byte-compare every file generated in the tempdir mirror against
+            # its real counterpart and log a per-file UNCHANGED|CHANGED|NEW
+            # summary. The manifest is regenerated against the real datasets/
+            # tree (so it sees the real on-disk parquets, not the tempdir
+            # copies), and ``_regenerate_manifest`` itself honours dry_run.
+            for tmp_file in sorted(
+                p for p in td_root.rglob("*") if p.is_file()
+            ):
+                rel = tmp_file.relative_to(td_root)
+                real_file = root / "datasets" / rel
+                _compare_dryrun_file(tmp_file, real_file)
+    finally:
+        if _td is not None:
+            _td.cleanup()
+
+
+def _compare_dryrun_file(tmp_file: Path, real_file: Path) -> None:
+    """Byte-compare a tempdir-mirrored seed output against the real on-disk
+    target and emit a single ``UNCHANGED|CHANGED|NEW`` line via ``typer.echo``.
+
+    Used by ``emit-taxonomy --dry-run``. Read I/O only; never writes either
+    side.
+    """
+    new_bytes = tmp_file.read_bytes()
+    rel = real_file.name
+    if not real_file.is_file():
+        typer.echo(f"emit-taxonomy [dry-run]: NEW {real_file.as_posix()} ({len(new_bytes)} bytes)")
+        return
+    old_bytes = real_file.read_bytes()
+    status = "UNCHANGED" if old_bytes == new_bytes else "CHANGED"
     typer.echo(
-        f"emit-taxonomy: wrote {topics_rows} rows to datasets/taxonomy/topics.parquet"
+        f"emit-taxonomy [dry-run]: {status} {real_file.as_posix()} "
+        f"({len(old_bytes)} -> {len(new_bytes)} bytes)"
     )
-    typer.echo(
-        f"emit-taxonomy: wrote {tags_rows} rows to "
-        f"datasets/taxonomy/indicator_topic_tags.parquet"
-    )
-
-    # 4) election_events
-    rows = _compile_election_events(
-        taxonomy_dir / "election_events.json",
-        taxonomy_dir / "election_events.parquet",
-    )
-    typer.echo(
-        f"emit-taxonomy: wrote {rows} rows to datasets/taxonomy/election_events.parquet"
-    )
-
-    # 5) entities (entities.json is the sole input post-Phase B)
-    rows = _compile_entities(
-        taxonomy_dir / "entities.json",
-        taxonomy_dir / "entities.parquet",
-    )
-    typer.echo(
-        f"emit-taxonomy: wrote {rows} rows to datasets/taxonomy/entities.parquet"
-    )
-
-    # 6) office_holdings -> dim_offices + holdings; upserts sources.
-    #    Post-v1.1, legacy CM rows use office_citations while new
-    #    national-office rows use official citation_groups. Step 5 must
-    #    run before step 6 so entities.parquet is fresh.
-    office_holdings_json = taxonomy_dir / "office_holdings.json"
-    office_count, holdings_count = _compile_office_holdings(
-        office_holdings_json,
-        taxonomy_dir / "entities.parquet",
-        taxonomy_dir / "sources.parquet",
-        governments_dir / "dim_offices.parquet",
-        governments_dir / "governments_office_holdings.parquet",
-    )
-    typer.echo(
-        f"emit-taxonomy: wrote {office_count} rows to "
-        f"datasets/governments/dim_offices.parquet"
-    )
-    typer.echo(
-        f"emit-taxonomy: wrote {holdings_count} rows to "
-        f"datasets/governments/governments_office_holdings.parquet"
-    )
-
-    # 7) indicators catalogue (P.1.A C3)
-    rows = _compile_indicators(
-        taxonomy_dir / "indicators.json",
-        taxonomy_dir / "indicators.parquet",
-    )
-    typer.echo(
-        f"emit-taxonomy: wrote {rows} rows to datasets/taxonomy/indicators.parquet"
-    )
-
-    # 8) methodology_breaks (P.1.A C3)
-    rows = _compile_methodology_breaks(
-        taxonomy_dir / "methodology_breaks.json",
-        taxonomy_dir / "methodology_breaks.parquet",
-    )
-    typer.echo(
-        f"emit-taxonomy: wrote {rows} rows to "
-        f"datasets/taxonomy/methodology_breaks.parquet"
-    )
-
-    # 9) energy sources UPSERT (P.1.A C3) -- must run AFTER step 6 so
-    #    the wiki citation rows are already on disk; we read-modify-
-    #    write the same sources.parquet to add the 6 energy citation
-    #    rows (1 CEA + 3 ICED + 2 RBI). Idempotent.
-    n_energy = _upsert_energy_sources(taxonomy_dir / "sources.parquet")
-    typer.echo(
-        f"emit-taxonomy: upserted {n_energy} energy citation rows into "
-        f"datasets/taxonomy/sources.parquet"
-    )
-
-    # 9b) livestock sources UPSERT (P.2 Phase 0, 2026-05-25) -- 5 NDLM
-    #    citation rows (Owner Reg + Pashu Aadhaar + NADCP + Breeding +
-    #    NAIP IV). Same read-modify-write pattern as step 9. The
-    #    observation parquets that FK to these rows land in PR 3+.
-    n_livestock = _upsert_livestock_sources(taxonomy_dir / "sources.parquet")
-    typer.echo(
-        f"emit-taxonomy: upserted {n_livestock} livestock citation rows into "
-        f"datasets/taxonomy/sources.parquet"
-    )
-
-    # 10) persons registry (S.1 / ADR-0035): compile hand-authored merge
-    # overlay plus dim_persons self-alias rows.
-    rows = _compile_persons(
-        person_aliases_json=taxonomy_dir / "person_aliases.json",
-        dim_persons_parquet=root / "datasets" / "elections" / "dim_persons.parquet",
-        persons_out=taxonomy_dir / "persons.parquet",
-    )
-    typer.echo(
-        f"emit-taxonomy: wrote {rows} rows to datasets/taxonomy/persons.parquet"
-    )
-    _regenerate_manifest(root / "datasets")
-
 
 @app.command("s1-persons-fork")
 def s1_persons_fork(
@@ -471,6 +552,14 @@ def lift_energy(
         dir_okay=True,
         exists=True,
     ),
+    dry_run: bool = typer.Option(
+        False,
+        "--dry-run",
+        help=(
+            "Plan-only: validate envelopes, build parquet bytes in tempfiles, "
+            "log UNCHANGED|CHANGED per planned file, write nothing to disk."
+        ),
+    ),
 ) -> None:
     """Lift meadow-tier energy JSON shards to canonical fact-table Parquets.
 
@@ -503,14 +592,14 @@ def lift_energy(
         )
     total_obs = 0
     for env in build_envelopes(root):
-        result = write_batch(env, datasets_root)
+        result = write_batch(env, datasets_root, dry_run=dry_run)
         typer.echo(
-            f"lift-energy: {env.target_table_stem}: "
+            f"lift-energy{' [dry-run]' if dry_run else ''}: {env.target_table_stem}: "
             f"{result.observation_rows_written} obs rows -> "
             f"{result.observations_path.relative_to(root).as_posix()}"
         )
         total_obs += result.observation_rows_written
-    typer.echo(f"lift-energy: {total_obs} total observation rows written")
+    typer.echo(f"lift-energy{' [dry-run]' if dry_run else ''}: {total_obs} total observation rows written")
 
 
 @app.command("lift-livestock")
@@ -523,6 +612,14 @@ def lift_livestock(
         file_okay=False,
         dir_okay=True,
         exists=True,
+    ),
+    dry_run: bool = typer.Option(
+        False,
+        "--dry-run",
+        help=(
+            "Plan-only: validate envelopes, build parquet bytes in tempfiles, "
+            "log UNCHANGED|CHANGED per planned file, write nothing to disk."
+        ),
     ),
 ) -> None:
     """Lift NDLM meadow-tier livestock JSON shards to canonical fact-table Parquets.
@@ -553,14 +650,14 @@ def lift_livestock(
         )
     total_obs = 0
     for env in build_envelopes(root):
-        result = write_batch(env, datasets_root)
+        result = write_batch(env, datasets_root, dry_run=dry_run)
         typer.echo(
-            f"lift-livestock: {env.target_table_stem}: "
+            f"lift-livestock{' [dry-run]' if dry_run else ''}: {env.target_table_stem}: "
             f"{result.observation_rows_written} obs rows -> "
             f"{result.observations_path.relative_to(root).as_posix()}"
         )
         total_obs += result.observation_rows_written
-    typer.echo(f"lift-livestock: {total_obs} total observation rows written")
+    typer.echo(f"lift-livestock{' [dry-run]' if dry_run else ''}: {total_obs} total observation rows written")
 
 
 @app.command()
