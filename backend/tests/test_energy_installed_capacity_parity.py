@@ -72,10 +72,10 @@ def test_state_geographical_publisher_total_matches_shard_in_2015() -> None:
 
 
 def test_state_allocated_publisher_total_matches_shard_in_2015() -> None:
-    """state-installed-capacity-allocated-mw, IN 2015-04 = 305162.5 (raw)."""
-    val = _query_value("IN", 2015, "state-installed-capacity-allocated-mw")
+    """installed-capacity-allocated-mw, IN 2015-04 = 305162.5 (raw)."""
+    val = _query_value("IN", 2015, "installed-capacity-allocated-mw")
     assert val == pytest.approx(305162.5, abs=0.01), (
-        f"IN 2015 state-installed-capacity-allocated-mw expected 305162.5, got {val!r}"
+        f"IN 2015 installed-capacity-allocated-mw expected 305162.5, got {val!r}"
     )
 
 
@@ -333,7 +333,7 @@ def test_parquet_has_canonical_observation_columns() -> None:
 # C4.6 parity oracle — RBI Handbook Table 140 FY05-FY14 long-arc splice
 #
 # Lift block 5 adds 374 rows (11 fiscal years FY05-FY14 × 34 states/UTs) to
-# the parent indicator ``state-installed-capacity-allocated-mw``, carrying
+# the parent indicator ``installed-capacity-allocated-mw``, carrying
 # source_id ``src-3d1d55f8a94b`` (rbi_hbk_140_installed_capacity). Block 4
 # continues to own FY15-FY25 via ICED Deep Dive (src-bb1d7bec8b34, rotated
 # under ADR-0042). The splice boundary at FY15 is documented by the
@@ -348,15 +348,15 @@ def test_parquet_has_canonical_observation_columns() -> None:
 
 
 def test_c46_longarc_s22_2014() -> None:
-    """state-installed-capacity-allocated-mw, IN-S22 2014-04 = 23258.0 (RBI Handbook Table 140)."""
-    val = _query_value("IN-S22", 2014, "state-installed-capacity-allocated-mw")
+    """installed-capacity-allocated-mw, IN-S22 2014-04 = 23258.0 (RBI Handbook Table 140)."""
+    val = _query_value("IN-S22", 2014, "installed-capacity-allocated-mw")
     assert val == pytest.approx(23258.0, abs=0.01), (
         f"IN-S22 2014 ...-allocated-mw expected 23258.0 (RBI HBK 140 FY14), got {val!r}"
     )
 
 
 def test_c46_longarc_s22_2005() -> None:
-    """state-installed-capacity-allocated-mw, IN-S22 2005-04 = SHARD value (RBI Handbook Table 140 FY05).
+    """installed-capacity-allocated-mw, IN-S22 2005-04 = SHARD value (RBI Handbook Table 140 FY05).
 
     Pins the long-arc FAR boundary. Value sourced from the shard directly
     rather than hand-typing it: a drift between shard and Parquet here is
@@ -369,26 +369,26 @@ def test_c46_longarc_s22_2005() -> None:
         f"shard sanity: expected 1 row for S22 2005-04, got {len(expected_rows)}"
     )
     expected = float(expected_rows[0]["value"])
-    val = _query_value("IN-S22", 2005, "state-installed-capacity-allocated-mw")
+    val = _query_value("IN-S22", 2005, "installed-capacity-allocated-mw")
     assert val == pytest.approx(expected, abs=0.01), (
         f"IN-S22 2005 ...-allocated-mw expected {expected!r} (RBI HBK 140 FY05), got {val!r}"
     )
 
 
 def test_c46_longarc_s10_2010() -> None:
-    """state-installed-capacity-allocated-mw, IN-S10 2010-04 = 11546.0 (RBI Handbook Table 140 FY10).
+    """installed-capacity-allocated-mw, IN-S10 2010-04 = 11546.0 (RBI Handbook Table 140 FY10).
 
     Bihar at FY10 — a mid-arc cell on a state that did NOT bifurcate during
     the window. Pins that block 5 emits state-level rows correctly for the
     common case."""
-    val = _query_value("IN-S10", 2010, "state-installed-capacity-allocated-mw")
+    val = _query_value("IN-S10", 2010, "installed-capacity-allocated-mw")
     assert val == pytest.approx(11546.0, abs=0.01), (
         f"IN-S10 2010 ...-allocated-mw expected 11546.0 (RBI HBK 140 FY10), got {val!r}"
     )
 
 
 def test_c46_longarc_s29_2014() -> None:
-    """state-installed-capacity-allocated-mw, IN-S29 2014-04 = 9470.0 (RBI Handbook Table 140 FY14).
+    """installed-capacity-allocated-mw, IN-S29 2014-04 = 9470.0 (RBI Handbook Table 140 FY14).
 
     Telangana — the entity boundary case. Telangana was formed 2014-06-02,
     so the shard could plausibly carry zero pre-FY15 rows (entity didn't
@@ -396,14 +396,14 @@ def test_c46_longarc_s29_2014() -> None:
     March 2014" snapshot for the new entity). Verified by inspection
     2026-05-24 at lift-prep: shard carries exactly one S29 pre-FY15 row at
     time="2014-04" with value=9470.0; block 5 emits it verbatim."""
-    val = _query_value("IN-S29", 2014, "state-installed-capacity-allocated-mw")
+    val = _query_value("IN-S29", 2014, "installed-capacity-allocated-mw")
     assert val == pytest.approx(9470.0, abs=0.01), (
         f"IN-S29 2014 ...-allocated-mw expected 9470.0 (RBI HBK 140 FY14, Telangana boundary case), got {val!r}"
     )
 
 
 def test_c46_longarc_uses_rbi_source_id() -> None:
-    """All pre-FY15 ``state-installed-capacity-allocated-mw`` rows carry the RBI
+    """All pre-FY15 ``installed-capacity-allocated-mw`` rows carry the RBI
     Handbook Table 140 source_id (``src-3d1d55f8a94b``); all FY15+ rows carry
     the ICED Deep Dive source_id (``src-bb1d7bec8b34``, rotated under
     ADR-0042). Pins the source_id boundary at year=2015 — a leak in either
@@ -413,22 +413,22 @@ def test_c46_longarc_uses_rbi_source_id() -> None:
     try:
         rbi_pre = con.execute(
             f"SELECT COUNT(*) FROM read_parquet('{PARQUET.as_posix()}') "
-            f"WHERE indicator_id = 'state-installed-capacity-allocated-mw' "
+            f"WHERE indicator_id = 'installed-capacity-allocated-mw' "
             f"AND year < 2015 AND source_id = 'src-3d1d55f8a94b'"
         ).fetchone()[0]
         non_rbi_pre = con.execute(
             f"SELECT COUNT(*) FROM read_parquet('{PARQUET.as_posix()}') "
-            f"WHERE indicator_id = 'state-installed-capacity-allocated-mw' "
+            f"WHERE indicator_id = 'installed-capacity-allocated-mw' "
             f"AND year < 2015 AND source_id != 'src-3d1d55f8a94b'"
         ).fetchone()[0]
         iced_post = con.execute(
             f"SELECT COUNT(*) FROM read_parquet('{PARQUET.as_posix()}') "
-            f"WHERE indicator_id = 'state-installed-capacity-allocated-mw' "
+            f"WHERE indicator_id = 'installed-capacity-allocated-mw' "
             f"AND year >= 2015 AND source_id = 'src-bb1d7bec8b34'"
         ).fetchone()[0]
         non_iced_post = con.execute(
             f"SELECT COUNT(*) FROM read_parquet('{PARQUET.as_posix()}') "
-            f"WHERE indicator_id = 'state-installed-capacity-allocated-mw' "
+            f"WHERE indicator_id = 'installed-capacity-allocated-mw' "
             f"AND year >= 2015 AND source_id != 'src-bb1d7bec8b34'"
         ).fetchone()[0]
     finally:
@@ -456,7 +456,7 @@ def test_c46_longarc_row_count_pre_2015_is_374() -> None:
     try:
         n = con.execute(
             f"SELECT COUNT(*) FROM read_parquet('{PARQUET.as_posix()}') "
-            f"WHERE indicator_id = 'state-installed-capacity-allocated-mw' "
+            f"WHERE indicator_id = 'installed-capacity-allocated-mw' "
             f"AND year < 2015"
         ).fetchone()[0]
     finally:
@@ -476,8 +476,8 @@ def test_c46_fy14_fy15_continuity_at_tn() -> None:
     23258 MW (FY14) to anything beyond +/- 10000 MW (FY15) would indicate
     a units or scale corruption rather than a real installed-capacity
     delta. Pins the splice doesn't produce an obviously broken series."""
-    fy14 = _query_value("IN-S22", 2014, "state-installed-capacity-allocated-mw")
-    fy15 = _query_value("IN-S22", 2015, "state-installed-capacity-allocated-mw")
+    fy14 = _query_value("IN-S22", 2014, "installed-capacity-allocated-mw")
+    fy15 = _query_value("IN-S22", 2015, "installed-capacity-allocated-mw")
     assert fy14 is not None, "TN FY14 (RBI HBK 140) row missing"
     assert fy15 is not None, "TN FY15 (ICED Deep Dive) row missing"
     delta = abs(fy15 - fy14)

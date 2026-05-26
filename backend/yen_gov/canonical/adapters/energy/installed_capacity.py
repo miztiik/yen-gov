@@ -15,15 +15,15 @@ Lifts 10 legacy shards into a single BatchEnvelope:
   → ``installed-capacity-geographical-mw-{fuel}`` (after sub-fuel
   collapse to canonical 5).
 * ``state_installed_capacity_with_alloc_mw.json`` (396 rows)
-  → ``state-installed-capacity-allocated-mw`` (parent, publisher total,
+  → ``installed-capacity-allocated-mw`` (parent, publisher total,
   FY15-FY25, source_id=iced_deep_dive).
 * ``state_installed_capacity_total_mw.json`` (374 pre-FY15 rows)
-  → ``state-installed-capacity-allocated-mw`` (parent, RBI Handbook
+  → ``installed-capacity-allocated-mw`` (parent, RBI Handbook
   Table 140 long-arc splice, FY05-FY14, source_id=rbi_hbk_140_installed_capacity).
   Added P.1.A C4.6 per plan-doc 20260522 §3 Q-c verdict (Option 1 SPLICE).
   Pre-FY15 rows have no fuel_type field in the ObservationRow (the
   schema has no such field; fuel granularity is encoded in indicator_id,
-  and the parent ``state-installed-capacity-allocated-mw`` is the
+  and the parent ``installed-capacity-allocated-mw`` is the
   publisher-total indicator that carries both ICED post-FY15 and RBI
   pre-FY15 rows). methodology_break row
   ``rbi-handbook-aggregate-no-fuel-split-pre-fy15`` documents the basis
@@ -51,7 +51,7 @@ DELIBERATELY NOT LIFTED:
   facetted composite ``installed_capacity_by_source_mw.json`` was
   retired in PR 7b alongside the composer that produced it; see
   ADR-0024 "Superseded" note.)
-* ``state-installed-capacity-allocated-mw-{fuel}`` children — the per-fuel
+* ``installed-capacity-allocated-mw-{fuel}`` children — the per-fuel
   ALLOCATED data does not exist in the lifted shards at FY granularity
   (ICED Deep Dive is per-FY publisher total only, no per-fuel breakdown).
   C4.5 fills the per-fuel allocated gap at MONTHLY granularity via the
@@ -191,7 +191,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
         ))
 
     # 4. state_installed_capacity_with_alloc_mw.json
-    #    → state-installed-capacity-allocated-mw (parent, publisher total)
+    #    → installed-capacity-allocated-mw (parent, publisher total)
     shard = _load_iced_meadow(repo_root, "state_installed_capacity_with_alloc_mw.json")
     for r in shard["rows"]:
         period_label, year, period_seq = parse_iso_period(r["time"])
@@ -200,7 +200,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id="state-installed-capacity-allocated-mw",
+            indicator_id="installed-capacity-allocated-mw",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["iced_deep_dive"],
             derivation="raw",
@@ -208,7 +208,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
 
     # 5. state_installed_capacity_total_mw.json (RBI Handbook Table 140
     #    long-arc splice, pre-FY15 only).
-    #    → state-installed-capacity-allocated-mw (parent, FY05-FY14)
+    #    → installed-capacity-allocated-mw (parent, FY05-FY14)
     #    P.1.A C4.6: extends the publisher-total indicator backward 11
     #    fiscal years. Per plan-doc 20260522 §3 Q-c verdict, RBI Handbook
     #    Table 140 is the long-arc canonical for pre-FY15 state
@@ -233,7 +233,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id="state-installed-capacity-allocated-mw",
+            indicator_id="installed-capacity-allocated-mw",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["rbi_hbk_140_installed_capacity"],
             derivation="raw",

@@ -948,7 +948,7 @@
       "label_short": "Capacity sited in state",
       "label_long": "State installed electricity capacity, geographical-location basis (MW)",
       "description_short": "Total installed capacity physically located in the state, summed across all fuels. 'Geographical' means every plant counts toward the state where it sits, regardless of who owns it or where the power is dispatched.",
-      "description_long": "Read this as 'where the steel-and-concrete sits' \u00e2\u20ac\u201d NOT 'where the electricity flows to'. For the share-allocated counterpart (rights to output via central-sector PPAs), see state-installed-capacity-allocated-mw. The all-India total equals the allocated total (as it must) but the per-state breakdown diverges sharply for states that import or export power through central PPAs. Compute-on-read parent: sums the five atomic-fuel children.",
+      "description_long": "Read this as 'where the steel-and-concrete sits' \u00e2\u20ac\u201d NOT 'where the electricity flows to'. For the share-allocated counterpart (rights to output via central-sector PPAs), see installed-capacity-allocated-mw. The all-India total equals the allocated total (as it must) but the per-state breakdown diverges sharply for states that import or export power through central PPAs. Compute-on-read parent: sums the five atomic-fuel children.",
       "unit": "MW",
       "cadence": "annual_fy",
       "family": "energy",
@@ -1139,7 +1139,7 @@
       }
     },
     {
-      "indicator_id": "state-installed-capacity-allocated-mw",
+      "indicator_id": "installed-capacity-allocated-mw",
       "label_short": "Capacity allocated to state",
       "label_long": "State installed electricity capacity, allocated-shares basis (MW)",
       "description_short": "Same as the geographical-location capacity, but each state credited its share of joint-sector and central-sector plants per regional allocation formulas. Use this when comparing 'rights to electricity' rather than 'physical assets sited here'.",
@@ -1171,7 +1171,7 @@
       "concept_id": "capacity-allocated-to-state-2"
     },
     {
-      "indicator_id": "state-installed-capacity-allocated-mw-coal",
+      "indicator_id": "installed-capacity-allocated-mw-coal",
       "label_short": "Coal",
       "label_long": "Capacity allocated to state \u00e2\u20ac\u201d Coal",
       "description_short": "Coal-fired thermal capacity. India's largest fuel category nationally (~42%).",
@@ -1187,7 +1187,7 @@
       "attribution_geography": "where_allocated",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-installed-capacity-allocated-mw",
+      "parent_indicator_id": "installed-capacity-allocated-mw",
       "dimension_values": {
         "fuel_type": "coal"
       },
@@ -1203,7 +1203,7 @@
       }
     },
     {
-      "indicator_id": "state-installed-capacity-allocated-mw-gas",
+      "indicator_id": "installed-capacity-allocated-mw-gas",
       "label_short": "Gas",
       "label_long": "Capacity allocated to state \u00e2\u20ac\u201d Gas",
       "description_short": "Natural-gas and liquid-fuel thermal capacity. Stranded-fuel risk; small share.",
@@ -1219,7 +1219,7 @@
       "attribution_geography": "where_allocated",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-installed-capacity-allocated-mw",
+      "parent_indicator_id": "installed-capacity-allocated-mw",
       "dimension_values": {
         "fuel_type": "gas"
       },
@@ -1235,7 +1235,7 @@
       }
     },
     {
-      "indicator_id": "state-installed-capacity-allocated-mw-hydro",
+      "indicator_id": "installed-capacity-allocated-mw-hydro",
       "label_short": "Hydro",
       "label_long": "Capacity allocated to state \u00e2\u20ac\u201d Hydro",
       "description_short": "Conventional (>25 MW) plus small-hydro capacity. Site-bound; multi-decade lifetime.",
@@ -1251,7 +1251,7 @@
       "attribution_geography": "where_allocated",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-installed-capacity-allocated-mw",
+      "parent_indicator_id": "installed-capacity-allocated-mw",
       "dimension_values": {
         "fuel_type": "hydro"
       },
@@ -1267,7 +1267,7 @@
       }
     },
     {
-      "indicator_id": "state-installed-capacity-allocated-mw-nuclear",
+      "indicator_id": "installed-capacity-allocated-mw-nuclear",
       "label_short": "Nuclear",
       "label_long": "Capacity allocated to state \u00e2\u20ac\u201d Nuclear",
       "description_short": "Nuclear capacity. Central-sector only; allocated to states via PPAs.",
@@ -1283,7 +1283,7 @@
       "attribution_geography": "where_allocated",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-installed-capacity-allocated-mw",
+      "parent_indicator_id": "installed-capacity-allocated-mw",
       "dimension_values": {
         "fuel_type": "nuclear"
       },
@@ -1299,7 +1299,7 @@
       }
     },
     {
-      "indicator_id": "state-installed-capacity-allocated-mw-renewable",
+      "indicator_id": "installed-capacity-allocated-mw-renewable",
       "label_short": "Renewable",
       "label_long": "Capacity allocated to state \u00e2\u20ac\u201d Renewable (wind, solar, biomass)",
       "description_short": "Wind, solar, biomass and waste-to-energy. Rapid growth; ~30% national capacity by FY26.",
@@ -1315,7 +1315,7 @@
       "attribution_geography": "where_allocated",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-installed-capacity-allocated-mw",
+      "parent_indicator_id": "installed-capacity-allocated-mw",
       "dimension_values": {
         "fuel_type": "renewable"
       },
@@ -2198,7 +2198,7 @@
       "label_short": "Coal consumption",
       "label_long": "State coal consumption (Mt, by fiscal year)",
       "description_short": "Per-state domestic coal consumption in million tonnes per fiscal year, summed across all coal grades (raw + washed + middlings + lignite). High values typically indicate hosting large thermal generation fleets (Maharashtra, UP, MP, Chhattisgarh) or heavy industry (steel, cement).",
-      "description_long": "Where coal is burned, not where it is mined. Companion to state-installed-capacity-allocated-mw (coal facet) and state-electricity-generation-gwh (coal facet): a state with high coal consumption but low coal generation is using coal for industrial heat rather than power. The ``TOTAL COAL`` ICED rows are dropped to avoid double-counting; the lift sums the 4 grade-level rows (raw + washed + middlings + lignite) directly.",
+      "description_long": "Where coal is burned, not where it is mined. Companion to installed-capacity-allocated-mw (coal facet) and state-electricity-generation-gwh (coal facet): a state with high coal consumption but low coal generation is using coal for industrial heat rather than power. The ``TOTAL COAL`` ICED rows are dropped to avoid double-counting; the lift sums the 4 grade-level rows (raw + washed + middlings + lignite) directly.",
       "unit": "Mt",
       "cadence": "annual_fy",
       "family": "energy",

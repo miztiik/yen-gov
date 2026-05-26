@@ -217,4 +217,4 @@ def test_rooftop_does_not_displace_other_indicators() -> None:
     assert INDICATOR_ID in indicators
     assert "state-installed-capacity-snapshot-mw-coal" in indicators
     assert "installed-capacity-geographical-mw" in indicators
-    assert "state-installed-capacity-allocated-mw" in indicators
+    assert "installed-capacity-allocated-mw" in indicators

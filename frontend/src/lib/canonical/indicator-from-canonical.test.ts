@@ -1118,7 +1118,7 @@ describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
     },
     {
       legacy_id: "energy/state_installed_capacity_with_alloc_mw",
-      canonical_id: "state-installed-capacity-allocated-mw",
+      canonical_id: "installed-capacity-allocated-mw",
       table_id: "energy.energy_installed_capacity",
     },
     {
@@ -1177,7 +1177,7 @@ describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
     const fy_ids = PR_7A.filter((r) =>
       [
         "installed-capacity-geographical-mw",
-        "state-installed-capacity-allocated-mw",
+        "installed-capacity-allocated-mw",
         "state-electricity-generation-gwh",
       ].includes(r.canonical_id),
     );
