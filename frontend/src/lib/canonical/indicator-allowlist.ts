@@ -1275,6 +1275,74 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     ],
   },
 
+  // --- PR-X (Row 6 P.1.C 8/9, national final-energy consumption by sector x fuel, 2026-05-26) ---
+  // ICED `/analytics/state-wise-deep-dive` (final-energy-consumption
+  // national series) -> 360 obs rows (national-only, FY05-FY24, 18
+  // sparse sector x fuel pairs out of the 6 x 5 = 30 Cartesian product)
+  // joined into the EXISTING energy_demand_supply parquet stem (final
+  // consumption is the consumer-side counterpart of TPES primary supply).
+  // 18-facet Pattern A-facet on the NEW `sector_fuel_pair` axis (added
+  // this PR). Publisher emits each row as a compound facet
+  // "agriculture | oil"; canonical lift sanitises to "agriculture-oil".
+  // National-only -- ICED does NOT publish state-level final-energy
+  // consumption (per-state would require state-level MoSPI energy
+  // statistics that aren't published).
+  {
+    kind: "facet-multiplexed",
+    legacy_artifact_id: "energy/national_final_energy_consumption_by_sector_mtoe",
+    canonical_parent_indicator_id: "india-final-energy-consumption-mtoe",
+    table_id: "energy.energy_demand_supply",
+    facet_axis_id: "sector_fuel_pair",
+    facet_values: [
+      { canonical_child_id: "india-final-energy-consumption-mtoe-agriculture-electricity", legacy_facet_label: "agriculture-electricity" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-agriculture-gas", legacy_facet_label: "agriculture-gas" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-agriculture-oil", legacy_facet_label: "agriculture-oil" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-cgd-and-others-gas", legacy_facet_label: "cgd-and-others-gas" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-commercial-electricity", legacy_facet_label: "commercial-electricity" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-commercial-oil", legacy_facet_label: "commercial-oil" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-industry-coal", legacy_facet_label: "industry-coal" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-industry-electricity", legacy_facet_label: "industry-electricity" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-industry-gas", legacy_facet_label: "industry-gas" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-industry-oil", legacy_facet_label: "industry-oil" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-non-energy-gas", legacy_facet_label: "non-energy-gas" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-non-energy-oil", legacy_facet_label: "non-energy-oil" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-other-electricity", legacy_facet_label: "other-electricity" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-other-oil", legacy_facet_label: "other-oil" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-residential-electricity", legacy_facet_label: "residential-electricity" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-residential-oil", legacy_facet_label: "residential-oil" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-transport-electricity", legacy_facet_label: "transport-electricity" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-transport-oil", legacy_facet_label: "transport-oil" },
+    ],
+    meta: {
+      id: "india-final-energy-consumption-mtoe",
+      title: "India final energy consumption, by sector and source (mtoe per fiscal year)",
+      description:
+        "Final energy consumed in India broken down by end-use sector x fuel (18 sparse pairs out of 6 sectors x 5 fuels). 'Final' = what households, industry, transport actually USE -- AFTER conversion losses from primary energy (TPES). Industry-coal + transport-oil typically dominate; residential-electricity + agriculture-electricity track grid extension and pump-set use. Compare with india-primary-energy-supply-mtoe to see the conversion-loss gap.",
+      entity_kind: "country",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "mtoe",
+      short_unit: "mtoe",
+      icon: "flame",
+      attribution_geography: "where_consumed",
+      comparability: "comparable_with_normalisation",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NITI Aayog ICED /analytics/state-wise-deep-dive (final-energy-consumption national series). Originating data: MoSPI Energy Statistics India (annual edition). ICED is the federal aggregator; not the issuing authority. National-only.",
+      notes:
+        "18 sparse (sector x fuel) pairs out of the 6 x 5 Cartesian product. Many cells are structurally zero or near-zero (e.g. residential coal is rare; non-energy electricity is undefined) and the publisher does NOT emit them at all -- treat absent pairs as 'not measured', not 'zero'. The canonical lift sanitises publisher 'sector | fuel' strings into kebab pair-ids on the NEW sector_fuel_pair axis. Compute-on-read parent total = SUM(all 18 children) = total final-energy consumption.",
+    },
+    // PR-X (Row 6 P.1.C commit 1): Hans-curated caveats. Three honesty cues:
+    // final-vs-primary distinction, sparse-pairs-vs-zero, sector-naming-stretch.
+    caveats: [
+      "FINAL energy is what you USE; PRIMARY energy is what enters the system. India's ~600 mtoe of final consumption is what households, industry, transport actually consume -- well below the ~900 mtoe of TPES (primary supply) because power plants, refineries and transmission lose ~30% as conversion + line losses. To compare 'how much do we consume vs produce' meaningfully, use FINAL on the consumer side and PRIMARY on the production / import side; mixing them double-counts the transformation tax.",
+      "Many publisher cells are absent, NOT zero. The dataset emits only 18 of the 30 possible (sector x fuel) pairs -- residential coal, transport gas, agriculture coal etc. are missing because either they don't exist meaningfully in India (transport gas was negligible pre-CGD rollout) or the publisher does not measure them at this grain. Absent cells should NOT be imputed as zero in any visualisation -- a sparse stacked bar with white-space gaps is more honest than a fake-flat zero series.",
+      "Sector names are MoSPI taxonomy, not citizen-intuitive labels. 'Non-energy' = oil + gas used as petrochemical / fertiliser FEEDSTOCK, not for combustion (the carbon ends up embedded in plastic / urea, not the atmosphere). 'CGD and others' = city-gas-distribution networks (piped natural gas to households + CNG for vehicles); the 'others' is a catch-all for small gas-distribution slivers. 'Other' (no qualifier) covers fishing, mining and a long tail of un-classified end-uses. These names should ideally be re-labelled at the renderer for the /t/energy citizen surface; we preserve publisher names verbatim in the canonical layer.",
+    ],
+  },
+
   // --- 12: ACS-ARR gap on electricity sales (₹/kWh), NITI ICED ---
   {
     kind: "single",

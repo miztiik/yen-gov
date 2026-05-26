@@ -69,11 +69,11 @@ def test_every_observation_source_id_resolves(stem: str) -> None:
 
 
 def test_all_p1a_p1b_energy_source_ids_present() -> None:
-    """Sanity: the 19 energy citation triples (7 P.1.A + 5 P.1.B + 1 P.1.C
+    """Sanity: the 20 energy citation triples (7 P.1.A + 5 P.1.B + 1 P.1.C
     PR-Q + 1 P.1.C PR-R + 1 P.1.C PR-S + 1 P.1.C PR-T + 1 P.1.C PR-U + 1 P.1.C
-    PR-V + 1 P.1.C PR-W) all made it into sources.parquet. If this fails,
-    ``emit-taxonomy`` did not run ``_upsert_energy_sources`` or the citation
-    hashes drifted upstream."""
+    PR-V + 1 P.1.C PR-W + 1 P.1.C PR-X) all made it into sources.parquet. If
+    this fails, ``emit-taxonomy`` did not run ``_upsert_energy_sources`` or
+    the citation hashes drifted upstream."""
     expected = {
         # P.1.A (7) — 3 ICED ids rotated under ADR-0042 (vintage "" → "2024-25").
         "src-092a5dc7af3f",  # CEA Monthly Executive Summary on Power Sector
@@ -112,6 +112,9 @@ def test_all_p1a_p1b_energy_source_ids_present() -> None:
         # (Pattern A-facet on EXISTING fuel_type axis extended with
         # hybrid_bundled + trading_other; NO sub-fuel collapse).
         "src-1401f8087b0d",  # ICED state-power-purchase-share-pct
+        # P.1.C PR-X (1) — national final-energy consumption by sector
+        # x fuel composite (NEW sector_fuel_pair axis with 18 sparse pairs).
+        "src-29ecbb6dce9d",  # ICED india-final-energy-consumption-mtoe
     }
     con = duckdb.connect(":memory:")
     try:
@@ -126,7 +129,7 @@ def test_all_p1a_p1b_energy_source_ids_present() -> None:
         con.close()
     missing = expected - present
     assert not missing, (
-        f"taxonomy/sources.parquet missing {len(missing)} of the 19 P.1.A+P.1.B+P.1.C "
+        f"taxonomy/sources.parquet missing {len(missing)} of the 20 P.1.A+P.1.B+P.1.C "
         f"energy citation rows: {sorted(missing)!r}. Re-run "
         f"`python -m yen_gov emit-taxonomy --root .`"
     )

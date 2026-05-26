@@ -2332,7 +2332,9 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "neutral",
       "attribution_geography": "where_consumed",
@@ -2350,14 +2352,18 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "neutral",
       "attribution_geography": "where_consumed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "state",
       "parent_indicator_id": "state-power-purchase-share-pct",
-      "dimension_values": {"fuel_type": "coal"},
+      "dimension_values": {
+        "fuel_type": "coal"
+      },
       "source_id": "src-1401f8087b0d"
     },
     {
@@ -2369,14 +2375,18 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "neutral",
       "attribution_geography": "where_consumed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "state",
       "parent_indicator_id": "state-power-purchase-share-pct",
-      "dimension_values": {"fuel_type": "gas"},
+      "dimension_values": {
+        "fuel_type": "gas"
+      },
       "source_id": "src-1401f8087b0d"
     },
     {
@@ -2388,14 +2398,18 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "neutral",
       "attribution_geography": "where_consumed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "state",
       "parent_indicator_id": "state-power-purchase-share-pct",
-      "dimension_values": {"fuel_type": "diesel"},
+      "dimension_values": {
+        "fuel_type": "diesel"
+      },
       "source_id": "src-1401f8087b0d"
     },
     {
@@ -2407,14 +2421,18 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "neutral",
       "attribution_geography": "where_consumed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "state",
       "parent_indicator_id": "state-power-purchase-share-pct",
-      "dimension_values": {"fuel_type": "hydro"},
+      "dimension_values": {
+        "fuel_type": "hydro"
+      },
       "source_id": "src-1401f8087b0d"
     },
     {
@@ -2426,14 +2444,18 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "neutral",
       "attribution_geography": "where_consumed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "state",
       "parent_indicator_id": "state-power-purchase-share-pct",
-      "dimension_values": {"fuel_type": "nuclear"},
+      "dimension_values": {
+        "fuel_type": "nuclear"
+      },
       "source_id": "src-1401f8087b0d"
     },
     {
@@ -2445,14 +2467,18 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "neutral",
       "attribution_geography": "where_consumed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "state",
       "parent_indicator_id": "state-power-purchase-share-pct",
-      "dimension_values": {"fuel_type": "small_hydro"},
+      "dimension_values": {
+        "fuel_type": "small_hydro"
+      },
       "source_id": "src-1401f8087b0d"
     },
     {
@@ -2464,14 +2490,18 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "neutral",
       "attribution_geography": "where_consumed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "state",
       "parent_indicator_id": "state-power-purchase-share-pct",
-      "dimension_values": {"fuel_type": "solar"},
+      "dimension_values": {
+        "fuel_type": "solar"
+      },
       "source_id": "src-1401f8087b0d"
     },
     {
@@ -2483,14 +2513,18 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "neutral",
       "attribution_geography": "where_consumed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "state",
       "parent_indicator_id": "state-power-purchase-share-pct",
-      "dimension_values": {"fuel_type": "wind"},
+      "dimension_values": {
+        "fuel_type": "wind"
+      },
       "source_id": "src-1401f8087b0d"
     },
     {
@@ -2502,14 +2536,18 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "neutral",
       "attribution_geography": "where_consumed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "state",
       "parent_indicator_id": "state-power-purchase-share-pct",
-      "dimension_values": {"fuel_type": "biomass"},
+      "dimension_values": {
+        "fuel_type": "biomass"
+      },
       "source_id": "src-1401f8087b0d"
     },
     {
@@ -2521,14 +2559,18 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "neutral",
       "attribution_geography": "where_consumed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "state",
       "parent_indicator_id": "state-power-purchase-share-pct",
-      "dimension_values": {"fuel_type": "renewable_other"},
+      "dimension_values": {
+        "fuel_type": "renewable_other"
+      },
       "source_id": "src-1401f8087b0d"
     },
     {
@@ -2540,14 +2582,18 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "neutral",
       "attribution_geography": "where_consumed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "state",
       "parent_indicator_id": "state-power-purchase-share-pct",
-      "dimension_values": {"fuel_type": "hybrid_bundled"},
+      "dimension_values": {
+        "fuel_type": "hybrid_bundled"
+      },
       "source_id": "src-1401f8087b0d"
     },
     {
@@ -2559,15 +2605,453 @@
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "infrastructure",
-      "topic_tags": ["energy"],
+      "topic_tags": [
+        "energy"
+      ],
       "value_kind": "percentage",
       "direction": "neutral",
       "attribution_geography": "where_consumed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "state",
       "parent_indicator_id": "state-power-purchase-share-pct",
-      "dimension_values": {"fuel_type": "trading_other"},
+      "dimension_values": {
+        "fuel_type": "trading_other"
+      },
       "source_id": "src-1401f8087b0d"
+    },
+    {
+      "indicator_id": "india-final-energy-consumption-mtoe",
+      "label_short": "Final energy consumption",
+      "label_long": "India final energy consumption by sector and source (mtoe)",
+      "description_short": "Final energy consumption in India broken down by end-use sector x fuel (18 pairs). Final = what households / industry actually USE (post-conversion losses), distinct from TPES (primary supply).",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": null,
+      "source_id": "src-29ecbb6dce9d"
+    },
+    {
+      "indicator_id": "india-final-energy-consumption-mtoe-agriculture-electricity",
+      "label_short": "Agriculture (electricity)",
+      "label_long": "India final energy consumption -- Agriculture (electricity) (mtoe)",
+      "description_short": "Final energy consumed in the agriculture sector via electricity, in mtoe per fiscal year.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-final-energy-consumption-mtoe",
+      "dimension_values": {
+        "sector_fuel_pair": "agriculture-electricity"
+      },
+      "source_id": "src-29ecbb6dce9d"
+    },
+    {
+      "indicator_id": "india-final-energy-consumption-mtoe-agriculture-gas",
+      "label_short": "Agriculture (gas)",
+      "label_long": "India final energy consumption -- Agriculture (gas) (mtoe)",
+      "description_short": "Final energy consumed in the agriculture sector via gas, in mtoe per fiscal year.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-final-energy-consumption-mtoe",
+      "dimension_values": {
+        "sector_fuel_pair": "agriculture-gas"
+      },
+      "source_id": "src-29ecbb6dce9d"
+    },
+    {
+      "indicator_id": "india-final-energy-consumption-mtoe-agriculture-oil",
+      "label_short": "Agriculture (oil)",
+      "label_long": "India final energy consumption -- Agriculture (oil) (mtoe)",
+      "description_short": "Final energy consumed in the agriculture sector via oil, in mtoe per fiscal year.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-final-energy-consumption-mtoe",
+      "dimension_values": {
+        "sector_fuel_pair": "agriculture-oil"
+      },
+      "source_id": "src-29ecbb6dce9d"
+    },
+    {
+      "indicator_id": "india-final-energy-consumption-mtoe-cgd-and-others-gas",
+      "label_short": "Cgd And Others (gas)",
+      "label_long": "India final energy consumption -- Cgd And Others (gas) (mtoe)",
+      "description_short": "Final energy consumed in the cgd and others sector via gas, in mtoe per fiscal year.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-final-energy-consumption-mtoe",
+      "dimension_values": {
+        "sector_fuel_pair": "cgd-and-others-gas"
+      },
+      "source_id": "src-29ecbb6dce9d"
+    },
+    {
+      "indicator_id": "india-final-energy-consumption-mtoe-commercial-electricity",
+      "label_short": "Commercial (electricity)",
+      "label_long": "India final energy consumption -- Commercial (electricity) (mtoe)",
+      "description_short": "Final energy consumed in the commercial sector via electricity, in mtoe per fiscal year.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-final-energy-consumption-mtoe",
+      "dimension_values": {
+        "sector_fuel_pair": "commercial-electricity"
+      },
+      "source_id": "src-29ecbb6dce9d"
+    },
+    {
+      "indicator_id": "india-final-energy-consumption-mtoe-commercial-oil",
+      "label_short": "Commercial (oil)",
+      "label_long": "India final energy consumption -- Commercial (oil) (mtoe)",
+      "description_short": "Final energy consumed in the commercial sector via oil, in mtoe per fiscal year.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-final-energy-consumption-mtoe",
+      "dimension_values": {
+        "sector_fuel_pair": "commercial-oil"
+      },
+      "source_id": "src-29ecbb6dce9d"
+    },
+    {
+      "indicator_id": "india-final-energy-consumption-mtoe-industry-coal",
+      "label_short": "Industry (coal)",
+      "label_long": "India final energy consumption -- Industry (coal) (mtoe)",
+      "description_short": "Final energy consumed in the industry sector via coal, in mtoe per fiscal year.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-final-energy-consumption-mtoe",
+      "dimension_values": {
+        "sector_fuel_pair": "industry-coal"
+      },
+      "source_id": "src-29ecbb6dce9d"
+    },
+    {
+      "indicator_id": "india-final-energy-consumption-mtoe-industry-electricity",
+      "label_short": "Industry (electricity)",
+      "label_long": "India final energy consumption -- Industry (electricity) (mtoe)",
+      "description_short": "Final energy consumed in the industry sector via electricity, in mtoe per fiscal year.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-final-energy-consumption-mtoe",
+      "dimension_values": {
+        "sector_fuel_pair": "industry-electricity"
+      },
+      "source_id": "src-29ecbb6dce9d"
+    },
+    {
+      "indicator_id": "india-final-energy-consumption-mtoe-industry-gas",
+      "label_short": "Industry (gas)",
+      "label_long": "India final energy consumption -- Industry (gas) (mtoe)",
+      "description_short": "Final energy consumed in the industry sector via gas, in mtoe per fiscal year.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-final-energy-consumption-mtoe",
+      "dimension_values": {
+        "sector_fuel_pair": "industry-gas"
+      },
+      "source_id": "src-29ecbb6dce9d"
+    },
+    {
+      "indicator_id": "india-final-energy-consumption-mtoe-industry-oil",
+      "label_short": "Industry (oil)",
+      "label_long": "India final energy consumption -- Industry (oil) (mtoe)",
+      "description_short": "Final energy consumed in the industry sector via oil, in mtoe per fiscal year.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-final-energy-consumption-mtoe",
+      "dimension_values": {
+        "sector_fuel_pair": "industry-oil"
+      },
+      "source_id": "src-29ecbb6dce9d"
+    },
+    {
+      "indicator_id": "india-final-energy-consumption-mtoe-non-energy-gas",
+      "label_short": "Non Energy (gas)",
+      "label_long": "India final energy consumption -- Non Energy (gas) (mtoe)",
+      "description_short": "Final energy consumed in the non energy sector via gas, in mtoe per fiscal year.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-final-energy-consumption-mtoe",
+      "dimension_values": {
+        "sector_fuel_pair": "non-energy-gas"
+      },
+      "source_id": "src-29ecbb6dce9d"
+    },
+    {
+      "indicator_id": "india-final-energy-consumption-mtoe-non-energy-oil",
+      "label_short": "Non Energy (oil)",
+      "label_long": "India final energy consumption -- Non Energy (oil) (mtoe)",
+      "description_short": "Final energy consumed in the non energy sector via oil, in mtoe per fiscal year.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-final-energy-consumption-mtoe",
+      "dimension_values": {
+        "sector_fuel_pair": "non-energy-oil"
+      },
+      "source_id": "src-29ecbb6dce9d"
+    },
+    {
+      "indicator_id": "india-final-energy-consumption-mtoe-other-electricity",
+      "label_short": "Other (electricity)",
+      "label_long": "India final energy consumption -- Other (electricity) (mtoe)",
+      "description_short": "Final energy consumed in the other sector via electricity, in mtoe per fiscal year.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-final-energy-consumption-mtoe",
+      "dimension_values": {
+        "sector_fuel_pair": "other-electricity"
+      },
+      "source_id": "src-29ecbb6dce9d"
+    },
+    {
+      "indicator_id": "india-final-energy-consumption-mtoe-other-oil",
+      "label_short": "Other (oil)",
+      "label_long": "India final energy consumption -- Other (oil) (mtoe)",
+      "description_short": "Final energy consumed in the other sector via oil, in mtoe per fiscal year.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-final-energy-consumption-mtoe",
+      "dimension_values": {
+        "sector_fuel_pair": "other-oil"
+      },
+      "source_id": "src-29ecbb6dce9d"
+    },
+    {
+      "indicator_id": "india-final-energy-consumption-mtoe-residential-electricity",
+      "label_short": "Residential (electricity)",
+      "label_long": "India final energy consumption -- Residential (electricity) (mtoe)",
+      "description_short": "Final energy consumed in the residential sector via electricity, in mtoe per fiscal year.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-final-energy-consumption-mtoe",
+      "dimension_values": {
+        "sector_fuel_pair": "residential-electricity"
+      },
+      "source_id": "src-29ecbb6dce9d"
+    },
+    {
+      "indicator_id": "india-final-energy-consumption-mtoe-residential-oil",
+      "label_short": "Residential (oil)",
+      "label_long": "India final energy consumption -- Residential (oil) (mtoe)",
+      "description_short": "Final energy consumed in the residential sector via oil, in mtoe per fiscal year.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-final-energy-consumption-mtoe",
+      "dimension_values": {
+        "sector_fuel_pair": "residential-oil"
+      },
+      "source_id": "src-29ecbb6dce9d"
+    },
+    {
+      "indicator_id": "india-final-energy-consumption-mtoe-transport-electricity",
+      "label_short": "Transport (electricity)",
+      "label_long": "India final energy consumption -- Transport (electricity) (mtoe)",
+      "description_short": "Final energy consumed in the transport sector via electricity, in mtoe per fiscal year.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-final-energy-consumption-mtoe",
+      "dimension_values": {
+        "sector_fuel_pair": "transport-electricity"
+      },
+      "source_id": "src-29ecbb6dce9d"
+    },
+    {
+      "indicator_id": "india-final-energy-consumption-mtoe-transport-oil",
+      "label_short": "Transport (oil)",
+      "label_long": "India final energy consumption -- Transport (oil) (mtoe)",
+      "description_short": "Final energy consumed in the transport sector via oil, in mtoe per fiscal year.",
+      "unit": "mtoe",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "india-final-energy-consumption-mtoe",
+      "dimension_values": {
+        "sector_fuel_pair": "transport-oil"
+      },
+      "source_id": "src-29ecbb6dce9d"
     },
     {
       "indicator_id": "district-pashu-aadhaar-count",

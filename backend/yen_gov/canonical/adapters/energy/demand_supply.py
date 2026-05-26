@@ -286,6 +286,11 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
     # (procurement share is a %, can't be summed across sources).
     _append_power_purchase_share_rows(repo_root, rows)
 
+    # PR-X (2026-05-26): national_final_energy_consumption_by_sector_mtoe.json
+    # -> 18 (sector x fuel) compound children. National-only (entity_id=IN).
+    # Publisher facet "agriculture | oil" -> canonical pair-id "agriculture-oil".
+    _append_final_energy_consumption_rows(repo_root, rows)
+
     return BatchEnvelope(
         target_family="energy",
         target_table_stem="energy_demand_supply",
@@ -340,5 +345,62 @@ def _append_power_purchase_share_rows(
             indicator_id=f"state-power-purchase-share-pct-{canonical_suffix}",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["iced_power_purchase_share"],
+            derivation="raw",
+        ))
+
+
+# PR-X (2026-05-26): publisher (sector | fuel) compound facet ->
+# canonical sector_fuel_pair axis value. Publisher emits 18 sparse pairs
+# out of the 6 sectors x 5 fuels Cartesian product (many cells are
+# structurally zero, e.g. residential coal). The lift sanitises the
+# publisher's "sector | fuel" string into a kebab indicator-id suffix
+# `{sector}-{fuel}` -- e.g. "agriculture | oil" -> "agriculture-oil".
+def _publisher_sector_fuel_to_canonical(facet: str) -> str | None:
+    """Convert publisher 'sector | fuel' string to canonical kebab pair-id
+    `{sector}-{fuel}`. Returns None for unrecognised facets (defensive)."""
+    if " | " not in facet:
+        return None
+    sector, fuel = (s.strip() for s in facet.split(" | ", 1))
+    return f"{sector}-{fuel}"
+
+
+_FINAL_ENERGY_EXPECTED_PAIRS: frozenset[str] = frozenset({
+    "agriculture-electricity", "agriculture-gas", "agriculture-oil",
+    "cgd-and-others-gas",
+    "commercial-electricity", "commercial-oil",
+    "industry-coal", "industry-electricity", "industry-gas", "industry-oil",
+    "non-energy-gas", "non-energy-oil",
+    "other-electricity", "other-oil",
+    "residential-electricity", "residential-oil",
+    "transport-electricity", "transport-oil",
+})
+
+
+def _append_final_energy_consumption_rows(
+    repo_root: Path, rows: list[ObservationRow]
+) -> None:
+    """Lift national_final_energy_consumption_by_sector_mtoe.json (PR-X)
+    into the demand_supply parquet. Each (FY, sector x fuel) row passes
+    through unchanged as a child indicator; the parent
+    ``india-final-energy-consumption-mtoe`` carries zero rows (catalogue
+    / facet-picker only)."""
+    shard = _load_iced_meadow(
+        repo_root, "national_final_energy_consumption_by_sector_mtoe.json",
+    )
+    for r in shard["rows"]:
+        pair = _publisher_sector_fuel_to_canonical(r["facet"])
+        if pair is None or pair not in _FINAL_ENERGY_EXPECTED_PAIRS:
+            # Defensive: today the dict covers 100% of publisher pairs
+            # (18/18); this guard catches publisher schema drift.
+            continue
+        period_label, year, period_seq = parse_iso_period(r["time"])
+        rows.append(ObservationRow(
+            entity_id=to_entity_id(r["entity_id"]),
+            year=year,
+            period_label=period_label,
+            period_seq=period_seq,
+            indicator_id=f"india-final-energy-consumption-mtoe-{pair}",
+            value_numeric=float(r["value"]),
+            source_id=SOURCE_IDS["iced_final_energy_consumption"],
             derivation="raw",
         ))

@@ -977,6 +977,61 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.caveats![2]).toMatch(/IEX|PXIL|exchange|UI/i);
     expect(d!.caveats![2]).toMatch(/Punjab|Haryana|Delhi|peaky|competence|crisis/i);
   });
+
+  // PR-X (Row 6 P.1.C 8/9, 2026-05-26): national final-energy consumption
+  // by sector x fuel composite. Fifth Pattern A-facet; 18 sparse children
+  // on NEW sector_fuel_pair axis. Publisher 'agriculture | oil' ->
+  // canonical 'agriculture-oil'. National-only (entity_kind=country).
+  it("PR-X national_final_energy_consumption_by_sector_mtoe descriptor routes to facet-multiplexed parent", () => {
+    const d = getCanonicalDescriptor("energy/national_final_energy_consumption_by_sector_mtoe");
+    expect(d).not.toBeNull();
+    expect(d!.kind).toBe("facet-multiplexed");
+    if (d!.kind === "facet-multiplexed") {
+      expect(d!.canonical_parent_indicator_id).toBe("india-final-energy-consumption-mtoe");
+      expect(d!.facet_axis_id).toBe("sector_fuel_pair");
+      expect(d!.facet_values.length).toBe(18);
+      const childIds = d!.facet_values.map((fv) => fv.canonical_child_id);
+      // Spot-check the 4 most volume-significant pairs.
+      expect(childIds).toContain("india-final-energy-consumption-mtoe-industry-coal");
+      expect(childIds).toContain("india-final-energy-consumption-mtoe-industry-oil");
+      expect(childIds).toContain("india-final-energy-consumption-mtoe-transport-oil");
+      expect(childIds).toContain("india-final-energy-consumption-mtoe-residential-electricity");
+      // Absent pairs MUST NOT appear (publisher does not emit them).
+      expect(childIds).not.toContain("india-final-energy-consumption-mtoe-residential-coal");
+      expect(childIds).not.toContain("india-final-energy-consumption-mtoe-transport-gas");
+      // Raw publisher labels (pipe-separated) must NOT appear in legacy_facet_label.
+      const labels = d!.facet_values.map((fv) => fv.legacy_facet_label);
+      for (const l of labels) {
+        expect(l).not.toContain(" | ");
+        expect(l).not.toContain(" ");
+      }
+    }
+    expect(d!.table_id).toBe("energy.energy_demand_supply");
+    expect(d!.meta.title).toMatch(/final energy consumption/i);
+    expect(d!.meta.unit).toBe("mtoe");
+    expect(d!.meta.entity_kind).toBe("country");
+    expect(d!.meta.time_grain).toBe("fiscal_year");
+    expect(d!.meta.attribution_geography).toBe("where_consumed");
+  });
+
+  it("PR-X final-energy-consumption descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor("energy/national_final_energy_consumption_by_sector_mtoe");
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: FINAL vs PRIMARY distinction; conversion losses anchor.
+    expect(d!.caveats![0]).toMatch(/FINAL|PRIMARY|primary|final/i);
+    expect(d!.caveats![0]).toMatch(/TPES|primary supply|consumption/i);
+    expect(d!.caveats![0]).toMatch(/conversion|losses|transformation/i);
+    // 2: sparse pairs are not zero.
+    expect(d!.caveats![1]).toMatch(/sparse|absent|missing|NOT zero|not.*zero/i);
+    expect(d!.caveats![1]).toMatch(/18|residential|transport|publisher/i);
+    expect(d!.caveats![1]).toMatch(/impute|fake|honest|gap/i);
+    // 3: sector names are MoSPI taxonomy.
+    expect(d!.caveats![2]).toMatch(/MoSPI|taxonomy|publisher|naming/i);
+    expect(d!.caveats![2]).toMatch(/non-?energy|CGD|feedstock|fertiliser/i);
+    expect(d!.caveats![2]).toMatch(/citizen|renderer|re-?label/i);
+  });
 });
 
 describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
