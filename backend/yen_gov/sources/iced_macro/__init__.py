@@ -4,7 +4,7 @@ Emits four indicator artifacts:
 
   * economy/india_gdp_inr_crore
   * economy/state_gdp_inr_crore
-  * economy/india_iip_index_2011_12
+  * economy/iip_index
   * demography/state_population_by_residence_count
 """
 from __future__ import annotations

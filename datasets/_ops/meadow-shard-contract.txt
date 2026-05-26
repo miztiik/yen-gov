@@ -57,7 +57,7 @@ datasets/indicators/in/demography/state_population_lakhs.json
 datasets/indicators/in/economy/india_external_balance_inr_crore.json
 datasets/indicators/in/economy/india_gdp_inr_crore.json
 datasets/indicators/in/economy/india_gva_by_industry_constant_inr_crore.json
-datasets/indicators/in/economy/india_iip_index_2011_12.json
+datasets/indicators/in/economy/iip_index.json
 datasets/indicators/in/economy/national_gdp_current_inr_lakh_crore.json
 datasets/indicators/in/economy/national_gva_by_industry_constant_2011_12_inr_crore.json
 datasets/indicators/in/economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore.json

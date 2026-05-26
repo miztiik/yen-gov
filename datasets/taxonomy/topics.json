@@ -336,7 +336,7 @@
         },
         {
           "kind": "indicator",
-          "id": "economy/india_iip_index_2011_12",
+          "id": "economy/iip_index",
           "default": false,
           "featured": false,
           "scope": "national"
