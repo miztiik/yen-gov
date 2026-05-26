@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./grapher-indicator-render.schema.json",
+  "title": "Grapher indicator render catalogue (frontend-owned)",
+  "description": "Per-indicator render hints, owned by the frontend per ADR-0045. One row per indicator_id; rows are optional (absence == frontend defaults). DELIBERATELY SEPARATE from indicator-catalogue.schema.json (canonical data shape) to keep visualization out of storage. Hand-authored seed; future PRs may add admin tooling.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-26",
+      "description": "Initial grapher indicator render catalogue per ADR-0045 (grapher catalogue split). Carries chart_type, default_mode, renderer_rules[], facet_labels{} — the four render-coupled fields that previously lived in indicator-catalogue.schema.json and the legacy per-shard indicator.schema.json. Seeded from current canonical + legacy values; PR-A3b migrates readers; PR-A3c strips the fields from the canonical schemas."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "indicators"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "indicators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["indicator_id"],
+        "properties": {
+          "indicator_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "description": "FK to either taxonomy/indicators.json (canonical) or legacy '<topic>/<id>' shard form."
+          },
+          "chart_type": {
+            "type": ["string", "null"],
+            "enum": ["stacked-trend", "ranked", "choropleth", null],
+            "description": "Default chart primitive. Absent == frontend default."
+          },
+          "default_mode": {
+            "type": ["string", "null"],
+            "enum": ["absolute", "percent", null],
+            "description": "Default display mode for stacked-trend (absolute or share-of-total)."
+          },
+          "renderer_rules": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+            "description": "Controlled-vocab slugs binding renderer behaviour (e.g. 'no_rank_table'). Vocabulary lives in docs/concepts/indicator-naming.md."
+          },
+          "facet_labels": {
+            "type": ["object", "null"],
+            "additionalProperties": { "type": "string" },
+            "description": "Citizen-readable labels for facet keys (e.g. {'coal':'Coal','gas':'Gas'})."
+          }
+        }
+      }
+    }
+  }
+}
