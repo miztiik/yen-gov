@@ -1,7 +1,7 @@
 # Grain-over-entity + storage/visualization decoupling — rip-and-replace plan
 
 **Last Updated**: 2026-05-26
-**Status**: ▶ ACTIVE — PR-A1 ✅ PR #336; PR-A2 ✅ PR #338; PR-Z1 (doctrine bullets) ✅ PR #339; PR-A3a ✅ PR #340; PR-A3b ✅ PR #_pending_ (AGENTS.md sweep deferred to follow-up post-B-series). Phase 1 underway per guardrails-first ordering.
+**Status**: ▶ ACTIVE — PR-A1 ✅ PR #336; PR-A2 ✅ PR #338; PR-Z1 (doctrine bullets) ✅ PR #339; PR-A3a ✅ PR #340; PR-A3b ✅ PR #341 (AGENTS.md sweep deferred to follow-up post-B-series). Phase 1 underway per guardrails-first ordering.
 **Doc-class**: plan-doc per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md). Carries PR sequence + status only; rationale lives in cited ADRs and concept docs.
 **Mandate**: user, 2026-05-26 — "rip-and-replace, no strangler-fig, no smooth cutover; everything is in git, we can revert." "Move grain to OWID-style grain-over-entity. Stop smooshing state + district + village into one chart; create sub-pages."
 **Authority**: Hans + Max on data shape; Gregor on contracts; Fowler on engineering craft; Jony + Citizen on UX; Andre on LLM (not in scope here). See CLAUDE.md §0a.
@@ -177,7 +177,7 @@ Each PR is ≤300 lines diff (excluding parquet binary regen). PRs marked **READ
 | **A1** | ADRs + concept rewrite | READY | Hans+Max+Gregor+Jony |
 | **A2** | `--dry-run` flag | ✅ PR #338 | Fowler |
 | **A3a** | Grapher catalogue ADDITIVE (no deletes) | ✅ PR #340 | Gregor |
-| **A3b** | Reader migration to grapher catalogue | ✅ PR #_pending_ | Gregor+Fowler |
+| **A3b** | Reader migration to grapher catalogue | ✅ PR #341 | Gregor+Fowler |
 | **A3c** | Rip `renderer_rules` + `chart_type` + `dimension` from canonical catalogues | After A3b | Gregor |
 | **A4** | `--table <stem>` filter on `lift-energy` + `lift-livestock` (elections+governments don't need lift commands — see §1bis) | After yen-gov-pr2-ia + yen-gov-3b-species | Fowler |
 | **A5a** | Strip `datetime.now()` from non-livestock meadow tools | READY | Fowler |
