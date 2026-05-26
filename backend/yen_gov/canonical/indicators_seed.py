@@ -23,17 +23,17 @@ D29 contract is enforced here at compile time (failing closed):
 - child row (parent_indicator_id non-null) MUST carry dimension_values
   AND a per-child source_id
 
-v1.1 (T.3 2026-05-22) adds two optional fields with a compile-time
-semantic-pairing rule:
-- id_aliases: legacy indicator_id slugs (D30 kebab OR pre-pivot
-  '<topic>/<snake_case_id>') that resolve to this row.
-- deprecated_in: ISO 'YYYY-MM-DD' date the alias chain was introduced.
-Non-empty ``id_aliases`` REQUIRES ``deprecated_in`` (paired or omitted;
-never orphan). The 60-day expiry window is enforced separately by
-``validate.tier_b_indicator_alias_window`` (out of compile scope --
-operators may carry expired aliases briefly inside one ingest cycle).
+v2.0 (PR-B1 2026-05-26) grain-over-entity rip-and-replace per
+ADR-0044 (TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md
+Phase B). Drops ``id_aliases`` + ``deprecated_in`` (per-PR rename scripts
+under ``tools/migrate/`` replace the one-release alias window) and adds
+required ``entity_kinds`` (list[str]) + ``default_entity_kind`` (str).
+Enum is ``{country,state,district,ac,party,candidate}``. Grain dispatches
+at read time from each observation row's ``entity_kind`` column; the
+indicator_id never encodes the grain.
 
-P.1.A C3 seed (2026-05-22). v1.1 widening 2026-05-22 (T.3).
+P.1.A C3 seed (2026-05-22). v1.1 widening 2026-05-22 (T.3). v2.0 PR-B1
+2026-05-26 (grain-over-entity rip).
 """
 
 from __future__ import annotations
@@ -47,8 +47,25 @@ from pydantic import BaseModel, ConfigDict, Field
 
 __all__ = [
     "IndicatorRow",
+    "ENTITY_KIND_VALUES",
     "compile_to_parquet",
 ]
+
+
+# v2.0 (PR-B1 2026-05-26). The closed enum of entity_kinds supported on
+# the canonical catalogue per ADR-0044. Widened beyond the geographic
+# four {country,state,district,ac} to include {party,candidate} because
+# election-class indicators (party-vote-share-pct, candidate-rank) carry
+# party/candidate as the entity. Mirrors
+# ``indicator-catalogue.schema.json`` v2.0 enum exactly.
+ENTITY_KIND_VALUES = (
+    "country",
+    "state",
+    "district",
+    "ac",
+    "party",
+    "candidate",
+)
 
 
 class _FundingSplit(BaseModel):
@@ -136,24 +153,23 @@ class IndicatorRow(BaseModel):
     coverage_year_max: int | None = None
     coverage_density: float | None = Field(default=None, ge=0, le=1)
     renderer_rules: list[str] = Field(default_factory=list)
-    # v1.1 (T.3 2026-05-22) -- one-release back-compat dereferencer.
-    # Each alias is EITHER D30 kebab (rename history) OR legacy
-    # ``<topic>/<snake_case_id>`` (pre-canonical-pivot folded-shard form).
-    # Pattern validation is delegated to the JSON Schema layer (single
-    # source of truth -- no DRY violation with the schema regex). When
-    # non-empty, ``deprecated_in`` MUST be set; enforced by the paired
-    # check inside ``compile_to_parquet`` and again at the validator gate
-    # (``yen_gov.validate.tier_b_indicator_alias_window``).
-    id_aliases: list[str] = Field(default_factory=list)
-    # ISO ``YYYY-MM-DD`` date the alias chain was introduced. Anchors
-    # the 60-day expiry window enforced by Tier-B. Optional in isolation
-    # (declaring an anchor date without any aliases is harmless).
-    deprecated_in: str | None = Field(default=None, pattern=r"^\d{4}-\d{2}-\d{2}$")
+    # v2.0 (PR-B1 2026-05-26 grain-over-entity rip per ADR-0044). The
+    # entity kinds this indicator can be observed at. Grain is dispatched
+    # at READ time from each observation row's ``entity_kind`` column;
+    # never encoded in ``indicator_id``. After Phase-B collapse pairs the
+    # same indicator_id can carry e.g. [country, state, district].
+    entity_kinds: list[
+        Literal["country", "state", "district", "ac", "party", "candidate"]
+    ] = Field(min_length=1)
+    default_entity_kind: Literal[
+        "country", "state", "district", "ac", "party", "candidate"
+    ]
 
 
 # 33 columns, flat. Lists kept as VARCHAR[]; dicts/structs serialised to
-# JSON-string for DuckDB-WASM friendliness. id_aliases + deprecated_in
-# added in v1.1 (T.3 2026-05-22) for one-release back-compat dereferencing.
+# JSON-string for DuckDB-WASM friendliness. v2.0 (PR-B1 2026-05-26):
+# id_aliases + deprecated_in removed; entity_kinds + default_entity_kind
+# added (ADR-0044 grain-over-entity). Column count unchanged (-2 + 2).
 _DDL = """
 CREATE TABLE indicators (
     indicator_id VARCHAR PRIMARY KEY,
@@ -187,8 +203,8 @@ CREATE TABLE indicators (
     coverage_year_max INTEGER,
     coverage_density DOUBLE,
     renderer_rules VARCHAR[],
-    id_aliases VARCHAR[],
-    deprecated_in VARCHAR
+    entity_kinds VARCHAR[] NOT NULL,
+    default_entity_kind VARCHAR NOT NULL
 )
 """
 
@@ -238,8 +254,8 @@ def _row_to_tuple(row: IndicatorRow) -> tuple:
         row.coverage_year_max,
         row.coverage_density,
         list(row.renderer_rules),
-        list(row.id_aliases),
-        row.deprecated_in,
+        list(row.entity_kinds),
+        row.default_entity_kind,
     )
 
 
@@ -276,16 +292,14 @@ def compile_to_parquet(json_in: Path, parquet_out: Path) -> int:
                     "(per D29 -- siblings can have different upstreams)."
                 )
 
-        # v1.1 (T.3) paired-semantic rule. ``id_aliases`` non-empty
-        # requires ``deprecated_in`` set so Tier-B can anchor the 60-day
-        # expiry window. Reverse pairing (deprecated_in set, no aliases)
-        # is legal -- harmless on its own.
-        if r.id_aliases and r.deprecated_in is None:
+        # v2.0 (PR-B1) -- default_entity_kind MUST be a member of
+        # entity_kinds. Mirrors the soft contract spelled out in
+        # indicator-catalogue.schema.json v2.0.
+        if r.default_entity_kind not in r.entity_kinds:
             raise ValueError(
-                f"indicator {r.indicator_id!r}: id_aliases non-empty requires "
-                "deprecated_in to be set (per indicator-catalogue.schema.json "
-                "v1.1 paired-semantic rule). Set deprecated_in to today's ISO "
-                "date or remove the id_aliases entries."
+                f"indicator {r.indicator_id!r}: default_entity_kind "
+                f"{r.default_entity_kind!r} not in entity_kinds "
+                f"{list(r.entity_kinds)!r} (per indicator-catalogue.schema.json v2.0)."
             )
 
     # Deterministic order: by indicator_id (PK).

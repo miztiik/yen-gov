@@ -1,5 +1,5 @@
 // Typed view of `datasets/taxonomy/indicators.parquet` rows + Zod schema.
-// Mirrors `datasets/schemas/indicator-catalogue.schema.json` v1.1 column-for-column.
+// Mirrors `datasets/schemas/indicator-catalogue.schema.json` v2.0 column-for-column.
 //
 // SEPARATE from `frontend/src/lib/indicators.ts`. That file's `IndicatorMeta`
 // mirrors the LEGACY per-shard `indicator.schema.json` v1.5 which describes
@@ -11,11 +11,10 @@
 //
 // Pure module: no DOM, no Svelte, no DuckDB. Exercised directly by vitest.
 //
-// v1.1 (T.3 2026-05-22) adds `id_aliases?: string[]` + `deprecated_in?: string`
-// for one-release back-compat dereferencing. The 60-day expiry window on
-// `deprecated_in` is enforced server-side by Tier-B
-// (`backend/yen_gov/validate.py::tier_b_indicator_alias_window`); the
-// frontend dereferencer in this module honours the field as published.
+// v2.0 (PR-B1 2026-05-26 grain-over-entity rip per ADR-0044): adds required
+// `entity_kinds: EntityKind[]` + `default_entity_kind: EntityKind`. Drops
+// `id_aliases` + `deprecated_in` -- per-PR rename scripts under
+// `tools/migrate/` replace the one-release alias window.
 
 import { z } from "zod";
 
@@ -88,6 +87,21 @@ export const IMPLEMENTING_AUTHORITY_VALUES = [
 ] as const;
 export type ImplementingAuthority = (typeof IMPLEMENTING_AUTHORITY_VALUES)[number];
 
+// v2.0 (PR-B1 2026-05-26 grain-over-entity rip per ADR-0044). The closed
+// enum of entity_kinds supported on the canonical catalogue. Widened beyond
+// the geographic four {country,state,district,ac} to include {party,candidate}
+// because election-class indicators (party-vote-share-pct, candidate-rank)
+// carry party/candidate as the entity.
+export const ENTITY_KIND_VALUES = [
+  "country",
+  "state",
+  "district",
+  "ac",
+  "party",
+  "candidate",
+] as const;
+export type EntityKind = (typeof ENTITY_KIND_VALUES)[number];
+
 export const REVISION_TIER_VALUES = [
   "first_release",
   "revised",
@@ -96,20 +110,9 @@ export const REVISION_TIER_VALUES = [
 ] as const;
 export type RevisionTier = (typeof REVISION_TIER_VALUES)[number];
 
-// D30 kebab pattern (single segment, lowercase, ≤60 chars). Mirrors
+// D30 kebab pattern (single segment, lowercase, <=60 chars). Mirrors
 // `indicator-catalogue.schema.json::properties.indicators.items.properties.indicator_id.pattern`.
 export const D30_KEBAB_PATTERN = /^[a-z][a-z0-9]*(-[a-z0-9]+)*$/;
-
-// Legacy folded-shard id form: `<topic_slug>/<snake_case_id>` (pre-canonical-pivot
-// shape e.g. `fiscal/outstanding_debt_pct_gsdp`). Mirrors the v1.1
-// `id_aliases.items.pattern` exactly (alternation: D30 OR slash-form).
-export const LEGACY_SLASH_FORM_PATTERN = /^[a-z][a-z0-9_]*\/[a-z][a-z0-9_]*$/;
-
-export const ALIAS_PATTERN =
-  /^([a-z][a-z0-9]*(-[a-z0-9]+)*|[a-z][a-z0-9_]*\/[a-z][a-z0-9_]*)$/;
-
-// ISO calendar date `YYYY-MM-DD`. Lexicographic-sortable; no semver math.
-export const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 
 // ---------------------------------------------------------------------------
 // Funding-split nested struct.
@@ -164,16 +167,13 @@ export const IndicatorCatalogueRowSchema = z
     coverage_year_max: z.number().int().optional(),
     coverage_density: z.number().min(0).max(1).optional(),
     renderer_rules: z.array(z.string().regex(/^[a-z][a-z0-9_]*$/)).default([]),
-    // v1.1 (T.3 2026-05-22) -- one-release back-compat. Each alias is EITHER
-    // D30 kebab (rename history) OR legacy `<topic>/<snake_case_id>` (pre-pivot
-    // folded-shard form). When non-empty, `deprecated_in` MUST be set in the
-    // same row (server-side semantic-pairing rule; see
-    // `backend/yen_gov/canonical/indicators_seed.py`).
-    id_aliases: z.array(z.string().regex(ALIAS_PATTERN).max(80)).default([]),
-    // ISO calendar date the alias chain was introduced. Tier-B
-    // `tier_b_indicator_alias_window` rejects rows whose deprecated_in is
-    // older than 60 days (one-release window per Gregor lock 2026-05-22).
-    deprecated_in: z.string().regex(ISO_DATE_PATTERN).nullable().optional(),
+    // v2.0 (PR-B1 2026-05-26 grain-over-entity rip per ADR-0044). The entity
+    // kinds this indicator can be observed at. Grain dispatches at READ time
+    // from each observation row's `entity_kind` column; never encoded in
+    // `indicator_id`. After Phase-B collapse pairs the same indicator_id can
+    // carry e.g. [country, state, district].
+    entity_kinds: z.array(z.enum(ENTITY_KIND_VALUES)).min(1),
+    default_entity_kind: z.enum(ENTITY_KIND_VALUES),
   })
   .strict();
 export type IndicatorCatalogueRow = z.infer<typeof IndicatorCatalogueRowSchema>;
@@ -186,27 +186,27 @@ export type IndicatorCatalogueRow = z.infer<typeof IndicatorCatalogueRowSchema>;
  * Lookup index over a catalogue array. Built once, reused across many
  * resolve calls (typical scenario: load the catalogue from
  * `indicators.parquet` via DuckDB-WASM, build the index, then dereference
- * many slugs as the user navigates).
+ * many ids as the user navigates).
+ *
+ * v2.0 (PR-B1 2026-05-26): the byAlias map was removed alongside
+ * id_aliases; per-PR rename scripts under `tools/migrate/` rewrite stale
+ * ids at observation level rather than carrying them as a runtime resolve
+ * surface. Use `index.byId.get(id)` for lookups.
  */
 export interface IndicatorCatalogueIndex {
   /** Map from canonical `indicator_id` -> row. */
   readonly byId: ReadonlyMap<string, IndicatorCatalogueRow>;
-  /** Map from each alias string (D30 OR legacy slash-form) -> the row whose
-   * `id_aliases[]` contains it. Aliases collide-detect at build time. */
-  readonly byAlias: ReadonlyMap<string, IndicatorCatalogueRow>;
 }
 
 /**
- * Build a lookup index. Throws on alias collisions (two rows claim the same
- * legacy slug) and on alias-equals-canonical-id collisions (a row's alias
- * shadows another row's `indicator_id`). Both are operator authoring bugs
- * that would lead to silent wrong-row dereferences at runtime.
+ * Build a lookup index. Throws on duplicate `indicator_id` (operator
+ * authoring bug that would lead to silent wrong-row dereferences at
+ * runtime).
  */
 export function buildIndicatorCatalogueIndex(
   rows: readonly IndicatorCatalogueRow[],
 ): IndicatorCatalogueIndex {
   const byId = new Map<string, IndicatorCatalogueRow>();
-  const byAlias = new Map<string, IndicatorCatalogueRow>();
   for (const row of rows) {
     if (byId.has(row.indicator_id)) {
       throw new Error(
@@ -215,72 +215,17 @@ export function buildIndicatorCatalogueIndex(
     }
     byId.set(row.indicator_id, row);
   }
-  for (const row of rows) {
-    for (const alias of row.id_aliases ?? []) {
-      if (byId.has(alias)) {
-        throw new Error(
-          `alias collision: ${alias} is a canonical indicator_id; ` +
-            `cannot also be an alias of ${row.indicator_id}`,
-        );
-      }
-      const prior = byAlias.get(alias);
-      if (prior && prior.indicator_id !== row.indicator_id) {
-        throw new Error(
-          `alias collision: ${alias} aliased to both ${prior.indicator_id} ` +
-            `and ${row.indicator_id}`,
-        );
-      }
-      byAlias.set(alias, row);
-    }
-  }
-  return { byId, byAlias };
+  return { byId };
 }
 
 /**
- * Dereference a slug (URL param, query string, or DuckDB column value) to
- * the canonical catalogue row.
- *
- * Resolution order:
- *  1. Exact canonical `indicator_id` match.
- *  2. Alias match (legacy slash-form OR D30 rename history).
- *  3. null when the slug is unknown.
- *
- * The slug-as-canonical case wins over the slug-as-alias case (an alias
- * cannot shadow a live canonical id; `buildIndicatorCatalogueIndex` rejects
- * authoring patterns that would create the collision).
+ * Dereference an `indicator_id` to the canonical catalogue row.
+ * Returns null when the id is unknown.
  */
 export function resolveIndicatorId(
-  slug: string,
+  id: string,
   index: IndicatorCatalogueIndex,
 ): IndicatorCatalogueRow | null {
-  if (!slug) return null;
-  const canonical = index.byId.get(slug);
-  if (canonical) return canonical;
-  const aliased = index.byAlias.get(slug);
-  if (aliased) return aliased;
-  return null;
-}
-
-/**
- * Same as `resolveIndicatorId` but returns only the canonical
- * `indicator_id` string (handy for redirect handlers / DuckDB query
- * rewrites that don't need the full row).
- */
-export function resolveCanonicalIndicatorId(
-  slug: string,
-  index: IndicatorCatalogueIndex,
-): string | null {
-  const row = resolveIndicatorId(slug, index);
-  return row ? row.indicator_id : null;
-}
-
-/**
- * Returns true when the input slug resolved via the alias path (vs the
- * canonical path). Callers use this to decide whether to issue a 301-style
- * redirect or just continue silently. Cheap: one map lookup.
- */
-export function isAliasSlug(slug: string, index: IndicatorCatalogueIndex): boolean {
-  if (!slug) return false;
-  if (index.byId.has(slug)) return false;
-  return index.byAlias.has(slug);
+  if (!id) return null;
+  return index.byId.get(id) ?? null;
 }

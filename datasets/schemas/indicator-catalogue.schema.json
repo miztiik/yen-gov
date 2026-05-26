@@ -3,17 +3,22 @@
   "$id": "./indicator-catalogue.schema.json",
   "title": "Indicator catalogue (canonical)",
   "description": "Hand-authored canonical indicator catalogue (taxonomy/indicators.json). One row per indicator_id. Carries the full Hans honesty surface (D15) plus D29 catalogue additions (parent_indicator_id self-FK, dimension_values:STRUCT for facet-explode children, per-child source_id, methodology_version FK). id field enforces the D30 naming convention. Pipeline compiles to taxonomy/indicators.parquet. NOTE: this is the canonical replacement for the pre-pivot datasets/schemas/indicator.schema.json (which validates per-shard JSON under datasets/indicators/in/). The legacy file stays in place through Phase 0.13; rename of this file to indicator.schema.json happens when the pre-pivot artifacts move to _old/.",
-  "x-version": "1.1",
+  "x-version": "2.0",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-18",
-      "description": "Initial canonical indicator catalogue schema (Phase 0.3 of TODO/20260517-canonical-long-format-pivot.md). Carries D15 honesty surface + D29 additions: parent_indicator_id self-FK for facet-explode parents/children (D26), dimension_values:STRUCT populated iff parent_indicator_id IS NOT NULL, per-child source_id (D29 — siblings can have different upstreams), methodology_version FK to methodology-breaks.json (D28). id pattern enforces D30 kebab-case, single-segment, <=60 chars. dimension_values keys MUST appear in taxonomy/facet-axes.json registry (D31 — enforced by validator, not by JSON Schema). coverage_* columns are denormalised at every emit so the catalogue stays browseable from DuckDB-WASM without scanning observation Parquet."
+      "description": "Initial canonical indicator catalogue schema (Phase 0.3 of TODO/20260517-canonical-long-format-pivot.md). Carries D15 honesty surface + D29 additions: parent_indicator_id self-FK for facet-explode parents/children (D26), dimension_values:STRUCT populated iff parent_indicator_id IS NOT NULL, per-child source_id (D29 -- siblings can have different upstreams), methodology_version FK to methodology-breaks.json (D28). id pattern enforces D30 kebab-case, single-segment, <=60 chars. dimension_values keys MUST appear in taxonomy/facet-axes.json registry (D31 -- enforced by validator, not by JSON Schema). coverage_* columns are denormalised at every emit so the catalogue stays browseable from DuckDB-WASM without scanning observation Parquet."
     },
     {
       "version": "1.1",
       "date": "2026-05-22",
       "description": "T.3 indicator catalogue widening (TODO/20260517-canonical-long-format-pivot.md §0e.7). ADDITIVE: two new optional fields on indicator rows. (a) id_aliases: list[string] of legacy indicator_id slugs (typically the pre-pivot '<topic>/<id>' form, e.g. 'fiscal/outstanding_debt_pct_gsdp') that resolve to this row for back-compat URL / query dereferencing. Each alias must match the kebab pattern OR carry a single slash for the legacy '<topic>/<snake_case_id>' shape. (b) deprecated_in: ISO date string 'YYYY-MM-DD' naming the day the alias chain was introduced; Tier-B check tier_b_indicator_alias_window REJECTS rows whose deprecated_in is older than 60 days (one-release back-compat window per Gregor strict default — locked 2026-05-22 user direction Q3). Both fields purely additive (not in required[]); v1.0 rows validate unchanged under v1.1."
+    },
+    {
+      "version": "2.0",
+      "date": "2026-05-26",
+      "description": "PR-B1 grain-over-entity rip-and-replace (TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md Phase B). BREAKING: (a) ADD required entity_kinds:array<enum> + default_entity_kind:enum -- enum is {country,state,district,ac,party,candidate}. Grain lives on the row, not in the indicator_id (ADR-0044). (b) REMOVE id_aliases + deprecated_in (per-PR rename scripts under tools/migrate/ replace the one-release alias window). v1.x rows DO NOT validate under v2.0 -- the catalogue is backfilled in the same commit. Tier-B tier_b_indicator_id_no_grain_prefix ships dark in PR-B1, enforces post-PR-B9; it rejects indicator_id matching ^(state|district|national)- so the grain axis is structurally enforced."
     }
   ],
   "type": "object",
@@ -40,7 +45,9 @@
           "direction",
           "attribution_geography",
           "comparability",
-          "parent_indicator_id"
+          "parent_indicator_id",
+          "entity_kinds",
+          "default_entity_kind"
         ],
         "properties": {
           "indicator_id": {
@@ -216,19 +223,16 @@
             "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
             "description": "Controlled-vocab slugs binding renderer behaviour (e.g. 'no_rank_table', 'no_growth_across_break', 'mask_be_in_long_view'). Vocabulary lives in docs/concepts/indicator-naming.md."
           },
-          "id_aliases": {
+          "entity_kinds": {
             "type": "array",
-            "items": {
-              "type": "string",
-              "pattern": "^([a-z][a-z0-9]*(-[a-z0-9]+)*|[a-z][a-z0-9_]*/[a-z][a-z0-9_]*)$",
-              "maxLength": 80
-            },
-            "description": "v1.1 (T.3 2026-05-22). Legacy indicator_id slugs that resolve to this row for one-release back-compat URL / query dereferencing. Two accepted shapes: (a) D30 kebab-case (rename history); (b) legacy '<topic>/<snake_case_id>' (pre-pivot '<topic>/<id>' folded-shard form, e.g. 'fiscal/outstanding_debt_pct_gsdp'). REQUIRES deprecated_in to be set in the same row (validator-enforced semantic pairing). Tier-B check tier_b_indicator_alias_window rejects entries whose deprecated_in is older than 60 days; expired entries MUST be deleted in the next operator cycle. Empty / omitted == no aliases."
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "enum": ["country", "state", "district", "ac", "party", "candidate"] },
+            "description": "v2.0 (PR-B1 2026-05-26 grain-over-entity rip per ADR-0044). The entity kinds this indicator can be observed at. Grain is dispatched at READ time from each observation row's entity_kind column -- never encoded in indicator_id. After Phase-B collapse pairs, the same indicator_id can carry e.g. [country, state, district] when one fact is observed at three grains. enum widened beyond {country,state,district,ac} to {party,candidate} because election-class indicators (party-vote-share-pct, candidate-rank) treat the party/candidate as the entity per ADR-0044 Standing Reference. Tier-B tier_b_indicator_id_no_grain_prefix (PR-B1 dark, PR-B9 enforced) rejects ^(state|district|national)- prefixes on the id so the grain axis lives ONLY here."
           },
-          "deprecated_in": {
-            "type": ["string", "null"],
-            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-            "description": "v1.1 (T.3 2026-05-22). ISO calendar date 'YYYY-MM-DD' naming the day the id_aliases chain was introduced. Per CLAUDE.md doc convention + Q1 lock 2026-05-22 (date-based tags vs semver). MUST be set when id_aliases is non-empty (validator-enforced). Used by Tier-B tier_b_indicator_alias_window as the cutoff anchor: (today - deprecated_in).days > 60 -> reject. Lexicographic sort, no semver math."
+          "default_entity_kind": {
+            "enum": ["country", "state", "district", "ac", "party", "candidate"],
+            "description": "v2.0 (PR-B1 2026-05-26). The default grain a chart picks when the user has not chosen one. MUST be a member of entity_kinds (Tier-B-enforced once PR-B5 lands the multi-kind rows)."
           }
         }
       }
