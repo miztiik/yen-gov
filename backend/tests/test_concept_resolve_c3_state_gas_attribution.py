@@ -36,7 +36,7 @@ def _concept_ids() -> set[str]:
 
 
 def test_state_gas_geographical_uses_geographical_concept():
-    row = next(r for r in _rows() if r["indicator_id"] == "state-installed-capacity-geographical-mw-gas")
+    row = next(r for r in _rows() if r["indicator_id"] == "installed-capacity-geographical-mw-gas")
     assert row["concept_id"] == "gas-mw-geographical"
 
 

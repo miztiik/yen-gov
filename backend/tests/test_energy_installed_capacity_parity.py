@@ -64,10 +64,10 @@ def _query_value(entity_id: str, year: int, indicator_id: str) -> float | None:
 
 
 def test_state_geographical_publisher_total_matches_shard_in_2015() -> None:
-    """state-installed-capacity-geographical-mw, IN 2015-04 = 306329.85 (raw)."""
-    val = _query_value("IN", 2015, "state-installed-capacity-geographical-mw")
+    """installed-capacity-geographical-mw, IN 2015-04 = 306329.85 (raw)."""
+    val = _query_value("IN", 2015, "installed-capacity-geographical-mw")
     assert val == pytest.approx(306329.85, abs=0.01), (
-        f"IN 2015 state-installed-capacity-geographical-mw expected 306329.85, got {val!r}"
+        f"IN 2015 installed-capacity-geographical-mw expected 306329.85, got {val!r}"
     )
 
 
@@ -80,18 +80,18 @@ def test_state_allocated_publisher_total_matches_shard_in_2015() -> None:
 
 
 def test_state_geographical_coal_facet_matches_shard_s01_2015() -> None:
-    """state-installed-capacity-geographical-mw-coal, IN-S01 2015-04 = 9670.0 (raw 1:1).
+    """installed-capacity-geographical-mw-coal, IN-S01 2015-04 = 9670.0 (raw 1:1).
 
     Sub-fuel ``coal`` collapses 1:1 to canonical ``coal`` — single shard row
     contributes, derivation="raw"."""
-    val = _query_value("IN-S01", 2015, "state-installed-capacity-geographical-mw-coal")
+    val = _query_value("IN-S01", 2015, "installed-capacity-geographical-mw-coal")
     assert val == pytest.approx(9670.0, abs=0.01), (
         f"IN-S01 2015 ...-mw-coal expected 9670.0, got {val!r}"
     )
 
 
 def test_state_geographical_renewable_facet_is_sum_of_collapsed_subfuels() -> None:
-    """state-installed-capacity-geographical-mw-renewable, IN-S01 2015-04 =
+    """installed-capacity-geographical-mw-renewable, IN-S01 2015-04 =
     sum of bio-power + small-hydro + solar + wind (+ waste-to-energy if present).
 
     Verifies the sub-fuel collapse against an independently computed expected
@@ -107,7 +107,7 @@ def test_state_geographical_renewable_facet_is_sum_of_collapsed_subfuels() -> No
     )
     assert expected > 0, "sanity: shard has at least one renewable sub-fuel row for S01 2015"
 
-    val = _query_value("IN-S01", 2015, "state-installed-capacity-geographical-mw-renewable")
+    val = _query_value("IN-S01", 2015, "installed-capacity-geographical-mw-renewable")
     assert val == pytest.approx(expected, abs=0.01), (
         f"IN-S01 2015 ...-mw-renewable expected {expected!r} (sum-of-{len(renewable_subs)}), got {val!r}"
     )
