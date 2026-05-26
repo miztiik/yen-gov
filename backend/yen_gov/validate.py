@@ -1134,4 +1134,5 @@ def run(root: Path) -> list[Failure]:
         + tier_b_meadow_vintage_matches_source_id(root)
         + tier_b_indicator_freshness_declared(root)
         + tier_b_indicator_has_justification(root)
+        + tier_b_one_indicator_per_concept(root)
     )
