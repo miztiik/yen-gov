@@ -161,7 +161,7 @@ def test_upsert_to_parquet_creates_file_when_absent(tmp_path: Path):
 def test_upsert_to_parquet_preserves_existing_rows(tmp_path: Path):
     """Existing (non-livestock) source rows survive the UPSERT. This
     mirrors how the live emit-taxonomy CLI step runs AFTER
-    energy_sources_seed has already upserted its 19 rows -- the
+    energy_sources_seed has already upserted its 20 rows -- the
     livestock upsert must not clobber the energy rows.
     """
     target = tmp_path / "sources.parquet"

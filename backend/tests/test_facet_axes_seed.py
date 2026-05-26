@@ -34,7 +34,7 @@ def test_module_imports_without_validation_error() -> None:
     The assertion is a sanity check that the import path is wired.
     """
     assert isinstance(FACET_AXES, list)
-    assert len(FACET_AXES) == 18
+    assert len(FACET_AXES) == 19
     assert all(isinstance(axis, FacetAxis) for axis in FACET_AXES)
 
 
