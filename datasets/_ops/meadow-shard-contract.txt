@@ -109,5 +109,3 @@ datasets/indicators/in/prices/cpi_inflation_pct.json
 datasets/indicators/in/prices/national_cpi_combined_index_annual.json
 datasets/indicators/in/prices/national_cpi_iw_index_annual.json
 datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json
-datasets/indicators/in/transport/state_ev_registrations_count.json
-datasets/indicators/in/transport/state_ev_share_total_registrations_pct.json

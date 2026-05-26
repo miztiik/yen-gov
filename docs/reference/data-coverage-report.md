@@ -9,7 +9,7 @@
 | Surface | Coverage today |
 | ------- | -------------- |
 | **Election results** (per AC) | 22 elections × 22 states/UTs = 34 result sets, **~4,422 AC results**, from Apr 2016 → May 2026 |
-| **Indicators** | **74 artifacts**: 21 energy, 18 fiscal, 16 economy (incl. 2 new ICED socio siblings ingested 2026-05-15: per-capita NSDP at constant 2011-12 prices + per-capita private consumption), 7 prices, 5 health/vital-statistics, 2 transport, 2 demography (incl. ICED state-population-by-sex 1961–2011), **1 environment (NEW — ICED economy-wide GHG emissions by sector, 1994–2020)**, 1 human-development (HDI sub-national snapshots, 2011 + 2017) |
+| **Indicators** | **74 artifacts**: 21 energy, 18 fiscal, 16 economy (incl. 2 new ICED socio siblings ingested 2026-05-15: per-capita NSDP at constant 2011-12 prices + per-capita private consumption), 7 prices, 5 health/vital-statistics, 2 demography (incl. ICED state-population-by-sex 1961–2011), **1 environment (NEW — ICED economy-wide GHG emissions by sector, 1994–2020)**, 1 human-development (HDI sub-national snapshots, 2011 + 2017) |
 | **Time depth** | **State NSDP (current + constant) now goes back to FY 1994–95 — 31 fiscal years per state** via the RBI Handbook of Statistics on Indian Economy 2024-25 edition, spliced across MoSPI's four base years (1993-94 / 1999-2000 / 2004-05 / 2011-12); per-capita NSDP long series covers FY 2000–01 → FY 2024–25 (25y). RBI national fiscal series go back to FY 2007–08 (19y); ICED state-GSDP covers FY 2011–12 → FY 2023–24 (14y); MoSPI NAS quarterly GVA covers FY 2011–12 Q1 → FY 2025–26 Q2; CEA installed capacity is a single 2026-03 snapshot |
 | **Boundaries** | 31 state/UT AC polygon files + national state + district choropleth bases |
 | **Governance** | CM term timelines for 31 states plus official-source President / Vice President slice |
@@ -125,7 +125,7 @@ These artifacts are on disk, schema-valid, and (mostly) wired into the catalogue
 
 - **Wired** (visible somewhere in the UI): all `fiscal/` debt / transfers / deficit family, most `energy/`, 4 `economy/` (state GDP + sectoral GVA), `demography/state_population_lakhs`, `AcGenMay2026`. ~22 indicator references in `topic-catalogue.json`.
 - **Partially wired** (in catalogue but rendered without honoring artifact metadata): the long-history NSDP / per-capita NSDP siblings (`series_breaks` and `vintage` declared, dropped by the renderer); CEA per-fuel monthly snapshots (rendered as length-1 sparklines that look like a bug); `direction: lower_is_better` indicators (orange ramp without a verbal "lower is better" legend cue); quarterly GVA (raw `YYYY-Qn` shown in slider).
-- **Not wired at all** (artifact on disk, IA silent): all 7 `prices/` (state CPI + national WPI/CPI long history), all 5 `health/` (SRS birth/death/IMR/TFR + public health spend), all 7 unwired RBI per-state fiscal long-history series including `state_pension_expenditure_inr_crore`, all 4 `national_*` economy aggregates, both `transport/` artifacts.
+- **Not wired at all** (artifact on disk, IA silent): all 7 `prices/` (state CPI + national WPI/CPI long history), all 5 `health/` (SRS birth/death/IMR/TFR + public health spend), all 7 unwired RBI per-state fiscal long-history series including `state_pension_expenditure_inr_crore`, all 4 `national_*` economy aggregates.
 
 ### 6b. IA / taxonomy changes needed (`topic-catalogue.json` v1.3, additive)
 

@@ -176,10 +176,6 @@ datasets/indicators/in/prices/state_cpi_housing_inflation.json,prices,queue,3.5,
 #
 # ----- HUMAN DEVELOPMENT (retired PR-D3): shard deleted; no canonical successor (UNDP NHDR re-onboard deferred indefinitely).
 #
-# ----- TRANSPORT (queued — Phase 3.5/4).
-datasets/indicators/in/transport/state_ev_registrations_count.json,transport,queue,4,,,VAHAN dashboard source; cadence monthly_cy.
-datasets/indicators/in/transport/state_ev_share_total_vehicle_registrations_pct.json,transport,queue,4,,,D33.5 derived first-class.
-#
 # ----- EOF
 # Counts:
 #   migrate     — see status column
