@@ -1,7 +1,7 @@
 # Grain-over-entity + storage/visualization decoupling — rip-and-replace plan
 
 **Last Updated**: 2026-05-26
-**Status**: ▶ ACTIVE — PR-A1 ✅ PR #_pending_ (ADRs 0044+0045 + indicator-naming rewrite + schema-is-the-design-system one-card-per-measure + indicator-id-grain-axis RESOLVED-Path-B). Phase 1 underway per guardrails-first ordering.
+**Status**: ▶ ACTIVE — PR-A1 ✅ PR #336 (ADRs 0044+0045 + indicator-naming rewrite + schema-is-the-design-system one-card-per-measure + indicator-id-grain-axis RESOLVED-Path-B). Phase 1 underway per guardrails-first ordering.
 **Doc-class**: plan-doc per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md). Carries PR sequence + status only; rationale lives in cited ADRs and concept docs.
 **Mandate**: user, 2026-05-26 — "rip-and-replace, no strangler-fig, no smooth cutover; everything is in git, we can revert." "Move grain to OWID-style grain-over-entity. Stop smooshing state + district + village into one chart; create sub-pages."
 **Authority**: Hans + Max on data shape; Gregor on contracts; Fowler on engineering craft; Jony + Citizen on UX; Andre on LLM (not in scope here). See CLAUDE.md §0a.
@@ -184,7 +184,7 @@ Each PR is ≤300 lines diff (excluding parquet binary regen). PRs marked **READ
 | **A5b** | Strip `datetime.now()` from livestock meadow tools | After yen-gov-3b-species | Fowler |
 | **A6** | Data-driven `source_id` lookup | After yen-gov-pr2-ia + yen-gov-3b-species | Fowler+Gregor |
 
-#### PR-A1 — ADR-0044 (grain-over-entity) + ADR-0045 (grapher-catalogue split) — ✅ PR #_pending_
+#### PR-A1 — ADR-0044 (grain-over-entity) + ADR-0045 (grapher-catalogue split) — ✅ PR #336
 
 - **ADD**: [docs/architecture/decisions/0044-grain-over-entity.md](../docs/architecture/decisions/0044-grain-over-entity.md), [docs/architecture/decisions/0045-grapher-catalogue-split.md](../docs/architecture/decisions/0045-grapher-catalogue-split.md). ADR-0045 MUST state the three-schema fan-out explicitly (legacy per-shard `indicator.schema.json` + canonical `indicator-catalogue.schema.json` + `topic-catalogue.schema.json`) so future agents don't repeat the scoping error from this plan's first draft.
 - **MODIFY**: [docs/concepts/indicator-naming.md](../docs/concepts/indicator-naming.md) §2.2 (drop `<entity_prefix>` mandatory rule), §2.4 (delete entirely), §8 anti-pattern #2 (rewrite as DO NOT prefix grain on id); [docs/concepts/schema-is-the-design-system.md](../docs/concepts/schema-is-the-design-system.md) (add "one card per measure" rule); [docs/research/indicator-id-grain-axis.md](../docs/research/indicator-id-grain-axis.md) flip status to RESOLVED-Path-B.
