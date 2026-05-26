@@ -33,12 +33,6 @@
       "dimension": "iip_category"
     },
     {
-      "topic_id": "economy",
-      "indicator_id": "economy/state_gdp_inr_crore",
-      "chart_type": "ranked",
-      "dimension": "price_basis"
-    },
-    {
       "topic_id": "energy",
       "indicator_id": "energy/state_electricity_generation_by_source_gwh",
       "chart_type": "ranked",

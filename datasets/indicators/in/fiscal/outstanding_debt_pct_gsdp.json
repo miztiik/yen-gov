@@ -33,7 +33,7 @@
     "denominator": {
       "what": "GSDP at current prices",
       "price_basis": "current",
-      "source_artifact": "economy/state_gdp_current_inr_lakh_crore",
+      "source_artifact": "economy/gdp_inr_crore",
       "note": "Each state's own MoSPI base year — sub-1pp YoY moves are inside the noise band"
     },
     "notes": "Source: RBI 'State Finances: A Study of Budgets', Statement 20 (Total Outstanding Liabilities — As per cent of GSDP). The latest two periods are the State governments' Revised Estimates (RE) and Budget Estimates (BE); earlier periods are Accounts data. Telangana's series begins in 2014-15 (state formation) — pre-2014 cells are intentionally null.",
@@ -3083,7 +3083,7 @@
     "related_indicators": [
       "fiscal/states_combined_gross_fiscal_deficit",
       "fiscal/state_external_debt_inr_crore",
-      "economy/state_gdp_current_inr_lakh_crore"
+      "economy/gdp_inr_crore"
     ],
     "editor_note_md": "This is a *ratio*, so movement reflects both numerator (debt stock) and denominator (nominal GSDP) — high inflation can flatter the number even when fresh borrowing is rising. To read pure fiscal stance, pair with `fiscal/states_combined_gross_fiscal_deficit` (the annual flow) rather than relying on this ratio alone.",
     "policy_context": [

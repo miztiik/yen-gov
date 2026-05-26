@@ -180,11 +180,6 @@
       "default_mode": "absolute"
     },
     {
-      "indicator_id": "economy/state_gdp_inr_crore",
-      "chart_type": "ranked",
-      "default_mode": "absolute"
-    },
-    {
       "indicator_id": "environment/india_ghg_emissions_by_subsector_ggco2e",
       "chart_type": "stacked-trend",
       "default_mode": "absolute"

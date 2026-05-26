@@ -53,65 +53,32 @@ API_HOST = "https://icedapi.niti.gov.in"
 # ---------------------------------------------------------------------------
 
 
-def _indicator_india_gdp() -> dict[str, Any]:
+def _indicator_gdp() -> dict[str, Any]:
+    # PR-B6-row9: cross-grain collapse — country (India) + state (per-state GSDP)
+    # rows ship in one shard with entity_kinds=[country, state].
     return {
         "id": "economy/gdp_inr_crore",
-        "title": "India GDP (₹ crore, current and constant prices)",
+        "title": "GDP (₹ crore, current and constant prices)",
         "description": (
-            "National Gross Domestic Product, ₹ crore, faceted by price "
-            "basis: 'current' (nominal, contemporaneous prices) and "
-            "'constant' (real, base 2011-12). Use the constant series for "
-            "growth-rate analysis; the current series for nominal-share "
-            "comparisons (e.g. fiscal-deficit ÷ GDP). Annual series 1950-51 "
-            "to 2024-25 (75 fiscal years)."
+            "Gross Domestic Product / Gross State Domestic Product in ₹ "
+            "crore, faceted by price basis: 'current' (nominal, "
+            "contemporaneous prices) and 'constant' (real, base 2011-12). "
+            "Covers India national totals (1950-51 to 2024-25, 75 fiscal "
+            "years) and per-state GSDP (2011-12 to 2024-25). Use the "
+            "constant series for growth-rate analysis; the current series "
+            "for nominal-share comparisons. State coverage varies — small "
+            "states/UTs only enter the series after they were carved out "
+            "(Telangana from 2014-15, Ladakh from 2019-20)."
+        ),
+        "description_short": (
+            "Gross Domestic Product (output produced in a year) in ₹ crore, "
+            "at both country (India) and state grain. Series at current "
+            "prices (today's rupees) and at constant 2011-12 prices "
+            "(inflation-adjusted)."
         ),
         "entity_kind": "country",
-        "time_grain": "fiscal_year",
-        "value_kind": "raw",
-        "direction": "neutral",
-        "scale_hint": "linear",
-        "unit": "INR crore",
-        "icon": "trending-up",
-        "attribution_geography": "where_produced",
-        "comparability": "comparable_with_normalisation",
-        "implementing_authority": "centre",
-        "methodology_vintage": (
-            "MoSPI / National Statistical Office back-series. Constant prices "
-            "rebased to 2011-12. Pre-2011 constant series is the back-cast "
-            "MoSPI publishes; methodology shifted in 2015 (NSS68 → 2011-12 "
-            "base) — treat the pre-2011 back-cast as a chained estimate."
-        ),
-        "chart_type": "stacked-trend",
-        "default_mode": "absolute",
-        "notes": (
-            "ICED's upstream priceType field has values 'gross', 'export', "
-            "'import' — only 'gross' is the GDP headline number we ship; "
-            "the other two are deflator-calculation auxiliaries not used in "
-            "policy framing."
-        ),
-        "series_breaks": [
-            {
-                "at_time": "2011-04",
-                "kind": "rebase",
-                "note": "Constant-price base year switches to 2011-12; pre-2011 figures are back-cast.",
-            }
-        ],
-    }
-
-
-def _indicator_state_gdp() -> dict[str, Any]:
-    return {
-        "id": "economy/state_gdp_inr_crore",
-        "title": "State GDP (₹ crore, current and constant prices)",
-        "description": (
-            "Per-state GSDP (Gross State Domestic Product) in ₹ crore, "
-            "faceted by price basis. Use 'current' for share-of-national "
-            "rankings, 'constant' for state-level growth-rate analysis. "
-            "Coverage varies by state — small states/UTs only enter the "
-            "series after they were carved out (Telangana from 2014-15, "
-            "Ladakh from 2019-20)."
-        ),
-        "entity_kind": "state",
+        "entity_kinds": ["country", "state"],
+        "default_entity_kind": "country",
         "time_grain": "fiscal_year",
         "value_kind": "raw",
         "direction": "neutral",
@@ -122,23 +89,28 @@ def _indicator_state_gdp() -> dict[str, Any]:
         "comparability": "comparable_with_normalisation",
         "implementing_authority": "joint",
         "methodology_vintage": (
-            "MoSPI per-state GSDP series. Constant prices rebased to 2011-12. "
-            "Compiled by State Directorates of Economics & Statistics with "
-            "MoSPI methodology guidance."
+            "MoSPI / National Statistical Office national GDP back-series + "
+            "per-state GSDP series compiled by State Directorates of "
+            "Economics & Statistics under MoSPI methodology. Constant prices "
+            "rebased to 2011-12. Pre-2011 national constant series is the "
+            "back-cast MoSPI publishes; methodology shifted in 2015 (NSS68 "
+            "→ 2011-12 base) — treat the pre-2011 back-cast as a chained "
+            "estimate."
         ),
-        "chart_type": "ranked",
+        "chart_type": "stacked-trend",
         "default_mode": "absolute",
         "notes": (
-            "GSDP is the within-state production view; for who-consumes-what, "
-            "see per-capita consumption. State totals will not sum exactly to "
-            "national GDP because of differences in base years and revision "
-            "timing across the 36 state-level series."
+            "State totals will not sum exactly to national GDP because of "
+            "differences in base years and revision timing across the 36 "
+            "state-level series. ICED's upstream priceType field has values "
+            "'gross', 'export', 'import' — only 'gross' is the GDP headline "
+            "we ship; the other two are deflator-calculation auxiliaries."
         ),
         "series_breaks": [
             {
                 "at_time": "2011-04",
                 "kind": "rebase",
-                "note": "Constant-price base year switches to 2011-12.",
+                "note": "Constant-price base year switches to 2011-12; pre-2011 national figures are back-cast.",
             },
             {
                 "at_time": "2014-04",
@@ -321,23 +293,18 @@ def ingest_iced_macro(*, repo_root: Path, client: IcedClient | None = None) -> I
 
     results: list[IndicatorEmitResult] = []
 
-    # GDP (split into national + state)
+    # GDP (PR-B6-row9: country + state rows in one cross-grain shard)
     gdp_resp = client.get("/economy-demography/key-economic-indicators/gdp-trend")
     gdp_src = [Source(url=gdp_resp.url, fetched_at=gdp_resp.fetched_at)]
     gdp_parsed = parse_gdp_trend(gdp_resp.decrypted)
     results.append(_emit(
         repo_root=repo_root, schema_for_validation=schema_for_validation,
         schema_id_str=sid, schema_version_str=sver,
-        indicator_meta=_indicator_india_gdp(), rows=gdp_parsed.national,
+        indicator_meta=_indicator_gdp(),
+        rows=list(gdp_parsed.national) + list(gdp_parsed.state),
         sources=gdp_src, out_rel="datasets/indicators/in/economy/gdp_inr_crore.json",
-        spatial="India (national)",
-    ))
-    results.append(_emit(
-        repo_root=repo_root, schema_for_validation=schema_for_validation,
-        schema_id_str=sid, schema_version_str=sver,
-        indicator_meta=_indicator_state_gdp(), rows=gdp_parsed.state,
-        sources=gdp_src, out_rel="datasets/indicators/in/economy/state_gdp_inr_crore.json",
-        spatial="India (states + UTs)", skipped_unmapped=gdp_parsed.skipped_unmapped,
+        spatial="India (national + states + UTs)",
+        skipped_unmapped=gdp_parsed.skipped_unmapped,
     ))
 
     # IIP

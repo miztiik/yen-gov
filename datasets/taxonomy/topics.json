@@ -238,13 +238,6 @@
         },
         {
           "kind": "indicator",
-          "id": "economy/state_gdp_current_inr_lakh_crore",
-          "default": false,
-          "featured": true,
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
           "id": "economy/sectoral_gva_inr_crore",
           "default": false,
           "featured": false,
@@ -284,13 +277,6 @@
           "default": false,
           "featured": true,
           "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "economy/state_gdp_inr_crore",
-          "default": false,
-          "featured": false,
-          "scope": "state"
         },
         {
           "kind": "indicator",

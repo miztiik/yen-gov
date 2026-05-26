@@ -17,7 +17,6 @@
 | energy | `energy/state_atc_losses_pct` | 10 FY |
 | energy | `energy/state_acs_arr_gap_inr_per_kwh` | 10 FY |
 | economy | `economy/state_gdp_constant_2011_12_inr_lakh_crore` | 10 FY |
-| economy | `economy/state_gdp_current_inr_lakh_crore` | 10 FY |
 | economy | `economy/state_sectoral_gva_constant_2011_12_inr_lakh_crore` | 10 FY |
 | economy | `economy/state_sectoral_gva_current_inr_lakh_crore` | 10 FY |
 | demography | `demography/state_population_lakhs` | 11 FY |

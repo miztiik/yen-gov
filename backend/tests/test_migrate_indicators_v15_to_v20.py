@@ -86,7 +86,7 @@ def _full_sidecar() -> dict[str, object]:
         "$schema_version": "1.1",
         "for": "synthetic_test_series.json",
         "sources": [],
-        "related": ["fiscal/states_combined_gross_fiscal_deficit", "economy/state_gdp_inr_crore"],
+        "related": ["fiscal/states_combined_gross_fiscal_deficit", "economy/gdp_inr_crore"],
         "editor_note_md": "Hand-curated editor note that MUST survive the fold to inline methodology.editor_note_md.",
         "policy_context": ["15th FC award context A.", "FRBM Act ceiling context B."],
         "chart_defaults": {"prefer_axis": "log", "highlight_states": ["S01"]},

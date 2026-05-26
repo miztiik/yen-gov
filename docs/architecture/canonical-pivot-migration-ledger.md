@@ -21,10 +21,10 @@ This ledger is the contract for Phase 1.8 deletion. Empty `target_phase` or unre
 | Family | Count | Source |
 | --- | --- | --- |
 | Elections (election_id directories) | 27 | `datasets/elections/AcGen*/` |
-| Indicators (per-shard JSON) | 93 | `datasets/indicators/in/<topic>/*.json` |
-| **Total ledger rows** | **120** | |
+| Indicators (per-shard JSON) | 91 | `datasets/indicators/in/<topic>/*.json` |
+| **Total ledger rows** | **118** | |
 
-Topic breakdown of the 93 indicators: demography 1, economy 17, energy 41, environment 8, fiscal 22, prices 4.
+Topic breakdown of the 91 indicators: demography 1, economy 15, energy 41, environment 8, fiscal 22, prices 4.
 
 Out of scope (per R25 + §0c):
 - `datasets/boundaries/` — sibling family, never moves.
