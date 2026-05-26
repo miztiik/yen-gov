@@ -23,9 +23,20 @@
   //      (the /disclaimer page is loud about this).
   //   5. Provenance ("Sources") delegates to SourceList so the row
   //      shape stays consistent across every surface that cites data.
+  //
+  // 2026-05-26 (PR #322 — user mandate: "about maps we can just use
+  // the I icon, we don't have to expand everything while it is showing
+  // in the front end... we just need to just show it I"). The collapsed
+  // surface is now a small info-icon button instead of the full
+  // "About this data" text+chevron row. The expanded body is unchanged
+  // and still carries the doc_status badge inline as an "About this
+  // dataset" header so the citizen sees the disclosure provenance once
+  // they open it. The stub-status amber dot still surfaces on the
+  // collapsed icon as a peripheral cue.
 
   import type { IndicatorArtifact } from "./indicators";
   import SourceList from "./SourceList.svelte";
+  import TopicIcon from "./TopicIcon.svelte";
 
   interface Props {
     artifact: IndicatorArtifact;
@@ -48,24 +59,40 @@
   const has_breaks = $derived(!!methodology?.methodology_breaks?.length);
   const has_scope = $derived(!!series?.description);
   const doc_status = $derived(methodology?.documentation_status ?? "stub");
+  const is_stub = $derived(doc_status !== "authored");
 </script>
 
 <details
-  class="rounded-md border border-slate-200 bg-slate-50/60 text-sm"
+  class="text-sm [&[open]]:rounded-md [&[open]]:border [&[open]]:border-slate-200 [&[open]]:bg-slate-50/60"
   bind:open
   data-testid="about-this-data"
 >
-  <summary class="cursor-pointer px-3 py-2 select-none font-medium text-slate-700 hover:bg-slate-100">
-    About this data
-    {#if doc_status !== "authored"}
+  <summary
+    class="relative inline-flex cursor-pointer list-none select-none rounded-md p-1 text-slate-500 hover:bg-slate-100 hover:text-slate-700 [&::-webkit-details-marker]:hidden"
+    title="About this data"
+    aria-label="About this data"
+  >
+    <TopicIcon name="info" cls="w-4 h-4 shrink-0" />
+    {#if is_stub}
       <span
-        class="ml-2 inline-block rounded-sm bg-amber-100 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-800"
+        class="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-amber-400 ring-1 ring-white"
         title="Methodology documentation is incomplete on yen-gov; see /data-completeness for the full list."
-      >{doc_status}</span>
+        aria-hidden="true"
+      ></span>
     {/if}
   </summary>
 
-  <div class="px-3 pb-3 pt-1 space-y-4 text-slate-700">
+  <div class="px-3 pb-3 pt-2 space-y-4 text-slate-700">
+    <section class="flex items-baseline justify-between gap-3 border-b border-slate-200 pb-2">
+      <h3 class="text-sm font-semibold text-slate-700">About this dataset</h3>
+      {#if is_stub}
+        <span
+          class="inline-block rounded-sm bg-amber-100 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-800"
+          title="Methodology documentation is incomplete on yen-gov; see /data-completeness for the full list."
+        >{doc_status}</span>
+      {/if}
+    </section>
+
     {#if has_definition}
       <section class="space-y-1">
         <h4 class="text-xs font-semibold uppercase tracking-wide text-slate-500">What the publisher measures</h4>
