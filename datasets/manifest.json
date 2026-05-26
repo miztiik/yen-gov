@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.3",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-26T20:12:49Z",
+  "generated_at": "2026-05-26T20:20:04Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -515,7 +515,7 @@
       "files": [
         {
           "path": "taxonomy/indicators.parquet",
-          "size_bytes": 47855,
+          "size_bytes": 47868,
           "row_count": 183
         }
       ],

@@ -1141,10 +1141,42 @@
       "unit_canonical": "MW",
       "normalisation": "absolute",
       "entity_kinds": [
-        "country",
+        "country"
+      ],
+      "description_short": "Nuclear capacity (country-grain CEA national snapshot). Central-sector PSU plants (NPCIL). State-grain attribution variants live under nuclear-mw-{geographical,allocated,snapshot}.",
+      "sources": []
+    },
+    {
+      "concept_id": "nuclear-mw-geographical",
+      "noun": "Nuclear (geographically sited)",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
         "state"
       ],
-      "description_short": "Nuclear capacity. Central-sector only; allocated to states via PPAs.",
+      "description_short": "State-grain nuclear capacity physically SITED in the state regardless of who consumes the power. Distinct measure from allocated beneficiary share.",
+      "sources": []
+    },
+    {
+      "concept_id": "nuclear-mw-allocated",
+      "noun": "Nuclear (allocated to state)",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State-grain BENEFICIARY share of nuclear capacity (NPCIL central-sector PPA allocation). A reactor sited in one state is allocated to multiple consumer states by quota. Distinct measure from geographical siting.",
+      "sources": []
+    },
+    {
+      "concept_id": "nuclear-mw-snapshot",
+      "noun": "Nuclear (state CEA snapshot)",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State-grain CEA Monthly Executive Summary end-of-month snapshot of nuclear capacity. Distinct publisher and cadence from the fiscal-year-end -allocated- series.",
       "sources": []
     },
     {
