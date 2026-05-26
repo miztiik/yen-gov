@@ -1,6 +1,6 @@
 # YENASK browser governance insight assistant — plan-doc (lean handoff)
 
-**Last Updated**: 2026-05-25
+**Last Updated**: 2026-05-26
 **Status**: **DECOMPOSED**. Phase 1 (compile pipeline + 4 canned intents) shipped; Phase 2 (chat surface + real model load + Debug log) shipped; Sprint ABCDE (per-attempt observability + per-row picker + graduated download friction + default-model upgrade + Slice E retrieval-augmented intent extraction) shipped; ADR-0040 brand-mark "Yen-Ask" + lab route `/lab/yenask` shipped; PR F cache-hit UX fix shipped (PR #243, `6c9f3021`, 2026-05-24); **PR-G1 OrtRun OOM fix shipped (2026-05-25, cap + catalogue trim per Andre's revised verdict — prefill `std::bad_alloc` resolved; first decode token now surfaces a separate `safeint.h` int32 overflow in ORT WASM's attention kernel, tracked as PR-G2).** **PR-G2 SafeInt overflow on decode step 1 queued** (3 levers: q4f16→fp16 LM head; wasm→webgpu; or model swap). **Slice E.3 (deterministic intent-router) deferred pending `attempts_log` evidence.** Everything else lives in [`docs/architecture/frontend/yenask.md`](../docs/architecture/frontend/yenask.md), [ADR-0038](../docs/architecture/decisions/0038-yenask-two-stage-llm-pipeline-rejected.md), [ADR-0039](../docs/architecture/decisions/0039-yenask-retrieval-augmented-intent-extraction.md), and [ADR-0040](../docs/architecture/decisions/0040-yenask-brand-and-lab-route.md).
 
 This file is now a **lean handoff stub** per CLAUDE.md §5 doc-class routing: plan-docs cite ADR + subsystem doc and carry no rationale once decomposition is complete. The pre-decomposition history (~913 lines of D-01..D-33 entries, Sprint status tables, contracts, directory layout, phases, test plan, public references) is in `git log -p` against this file's prior revisions if a future agent needs it.
@@ -268,6 +268,6 @@ Promoted to [ADR-0039 Context section](../docs/architecture/decisions/0039-yenas
 
 Promoted to [ADR-0039](../docs/architecture/decisions/0039-yenask-retrieval-augmented-intent-extraction.md) (Decision + Consequences + Andre panel verdict + 3 rejected alternatives).
 
-### D-33 — Y-Ask brand-mark refresh (LOGO ONLY, library / route / class identifiers unchanged)
+### D-33 — Yen-Ask brand-mark standard (LOGO ONLY, library / route / class identifiers unchanged)
 
-Partially superseded by [ADR-0040](../docs/architecture/decisions/0040-yenask-brand-and-lab-route.md) (brand label refreshed Y-Ask → Yen-Ask + route moved `/dev/yenask` → `/lab/yenask`; the brand-vs-identifier separation doctrine itself preserved verbatim in ADR-0040).
+Partially superseded by [ADR-0040](../docs/architecture/decisions/0040-yenask-brand-and-lab-route.md) (visible brand standard is Yen-Ask, route moved `/dev/yenask` → `/lab/yenask`; the brand-vs-identifier separation doctrine itself preserved verbatim in ADR-0040).

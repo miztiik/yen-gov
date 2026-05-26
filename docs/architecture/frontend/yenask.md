@@ -1,6 +1,6 @@
 # YENASK — browser governance insight assistant (dev preview)
 
-**Last Updated**: 2026-05-24 (Slice E.2 wired per PR #240; brand-mark refreshed to **Yen-Ask** and route moved to `/lab/yenask` per [ADR-0040](../decisions/0040-yenask-brand-and-lab-route.md), superseding the earlier "Y-Ask" label + `/dev/yenask` route locked in [ADR-0039 §D-33](../decisions/0039-yenask-retrieval-augmented-intent-extraction.md#y-ask-brand-mark-refresh-d-33))
+**Last Updated**: 2026-05-26 (Slice E.2 wired per PR #240; brand-mark standard is **Yen-Ask** and route moved to `/lab/yenask` per [ADR-0040](../decisions/0040-yenask-brand-and-lab-route.md), superseding the earlier `/dev/yenask` route locked in [ADR-0039 §D-33](../decisions/0039-yenask-retrieval-augmented-intent-extraction.md#yen-ask-brand-mark-standard-d-33))
 
 YENASK is a dev-only browser lab mounted at `/lab/yenask`. It turns a citizen governance question into a validated `InsightIntent`, then runs DuckDB-WASM directly against the canonical Parquet store to produce an `AnswerViewModel`. No backend at runtime — the lab obeys Holy Law #1 (static-first production).
 
