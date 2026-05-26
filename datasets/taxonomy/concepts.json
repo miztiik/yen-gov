@@ -305,10 +305,42 @@
       "unit_canonical": "MW",
       "normalisation": "absolute",
       "entity_kinds": [
-        "country",
+        "country"
+      ],
+      "description_short": "Coal-fired thermal capacity (country-grain CEA snapshot). India's largest fuel category nationally (~42%). State-grain attribution variants live under coal-mw-{geographical,allocated,snapshot}.",
+      "sources": []
+    },
+    {
+      "concept_id": "coal-mw-allocated",
+      "noun": "Coal (allocated to state)",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
         "state"
       ],
-      "description_short": "Coal-fired thermal capacity. India's largest fuel category nationally (~42%).",
+      "description_short": "State-grain BENEFICIARY share of coal-fired capacity (ISGS/PSU contractual allocation). A Mundra plant sited in Gujarat is allocated to multiple states by quota. Distinct measure from geographical siting.",
+      "sources": []
+    },
+    {
+      "concept_id": "coal-mw-geographical",
+      "noun": "Coal (geographically sited)",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State-grain coal-fired capacity physically SITED in the state regardless of who consumes the power. Distinct measure from allocated beneficiary share.",
+      "sources": []
+    },
+    {
+      "concept_id": "coal-mw-snapshot",
+      "noun": "Coal (state CEA snapshot)",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State-grain CEA Monthly Executive Summary end-of-month snapshot of coal capacity. Distinct publisher and cadence from the fiscal-year-end -allocated- series.",
       "sources": []
     },
     {
