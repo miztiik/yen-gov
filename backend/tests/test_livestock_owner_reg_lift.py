@@ -51,7 +51,16 @@ LANDHOLDING_SLUGS = {
     "landless-marginal", "small", "semi-medium",
     "medium", "large", "not-specified",
 }
-VINTAGES = {"2024-25"}
+# 16 FY vintages lifted from the 2026-05-26 NDLM operator snapshot.
+# CY vintages are preserved in raw but not lifted - the canonical inventory
+# deriver rejects mixing CY (year) + FY (year_month) period shapes within
+# one indicator.
+VINTAGES = {
+    "2010-11", "2011-12", "2012-13", "2013-14",
+    "2014-15", "2015-16", "2016-17", "2017-18",
+    "2018-19", "2019-20", "2020-21", "2021-22",
+    "2022-23", "2023-24", "2024-25", "2025-26",
+}
 OWNER_REG_SOURCE_ID = "src-d98dc531ef7e"
 
 
@@ -164,10 +173,11 @@ def test_all_rows_carry_owner_reg_source_id() -> None:
     not OWNER_REG_MEADOW.is_file(),
     reason="owner_reg meadow shard not on disk in this checkout",
 )
-def test_period_labels_are_fy_2024_25_only() -> None:
-    """Currently we lift only FY 2024-25 (the only vintage in the
-    meadow shard). A different period_label = adapter parse_ndlm_period
-    bug.
+def test_period_labels_are_16_fy_vintages_only() -> None:
+    """We lift the 16 FY vintages 2010-11..2025-26 from the 2026-05-26
+    NDLM operator snapshot window. A period_label outside this set =
+    adapter parse_ndlm_period bug. CY vintages are deliberately not
+    lifted (inventory deriver rejects mixed period shapes).
     """
     env = _owner_reg_envelope()
     labels = {r.period_label for r in env.observation_rows}

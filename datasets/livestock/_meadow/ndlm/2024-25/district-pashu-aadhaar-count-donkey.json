@@ -4,7 +4,7 @@
   "sources": [
     {
       "url": "https://bharatpashudhan-api.ndlm.co.in/epashu/v1/homepage/getAnimalRegistrationDistrictWise",
-      "fetched_at": "2026-05-25T13:43:42Z"
+      "fetched_at": "2026-05-26T07:26:23Z"
     }
   ],
   "license": {
@@ -14,8 +14,8 @@
     "redistributable": true
   },
   "coverage": {
-    "spatial": "1 states/UTs, 1 districts",
-    "temporal": "2024-25",
+    "spatial": "8 states/UTs, 12 districts",
+    "temporal": "2010-11, 2011-12, 2012-13, 2013-14, 2014-15, 2015-16, 2016-17, 2017-18, 2018-19, 2019-20, 2020-21, 2021-22, 2022-23, 2023-24, 2024-25, 2025-26",
     "admin_level": "district"
   },
   "indicator": {
@@ -32,14 +32,69 @@
     "attribution_geography": "where_resident",
     "comparability": "directional_only",
     "implementing_authority": "centre",
-    "methodology_vintage": "NDLM Bharat Pashudhan; raw vintages ['2024-25']; snapshot 2026-05-25T13:43:42Z",
+    "methodology_vintage": "NDLM Bharat Pashudhan; raw vintages ['2010-11', '2011-12', '2012-13', '2013-14', '2014-15', '2015-16', '2016-17', '2017-18', '2018-19', '2019-20', '2020-21', '2021-22', '2022-23', '2023-24', '2024-25', '2025-26']; snapshot 2026-05-26T07:26:23Z",
     "notes": "Hans honest-renderer: tagged count is NOT a livestock-population estimate. Indicator carries renderer_rules=[no_rank_table] in the canonical catalogue. Animals without a recorded total are skipped (NDLM may emit null totals for species with only male xor female counts present). Each row's `time` is the raw NDLM vintage selector (`2024` for CY 2024, `2024-25` for FY 2024-25); the canonical adapter decodes this to (period_label, year, period_seq)."
   },
   "rows": [
     {
+      "entity_id": "IN-S04-D208",
+      "time": "2025-26",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S06-D669",
+      "time": "2025-26",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S07-D67",
+      "time": "2025-26",
+      "value": 5
+    },
+    {
+      "entity_id": "IN-S10-D738",
+      "time": "2025-26",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S13-D485",
+      "time": "2025-26",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S14-D257",
+      "time": "2025-26",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S20-D107",
+      "time": "2025-26",
+      "value": 3
+    },
+    {
+      "entity_id": "IN-S20-D113",
+      "time": "2025-26",
+      "value": 1
+    },
+    {
+      "entity_id": "IN-S20-D116",
+      "time": "2025-26",
+      "value": 2
+    },
+    {
+      "entity_id": "IN-S20-D88",
+      "time": "2025-26",
+      "value": 1
+    },
+    {
       "entity_id": "IN-S28-D51",
       "time": "2024-25",
       "value": 3
+    },
+    {
+      "entity_id": "IN-S28-D55",
+      "time": "2025-26",
+      "value": 2
     }
   ],
   "series_spec": {

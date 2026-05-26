@@ -53,7 +53,14 @@ METRIC_SLUGS = {
     "calves-born",
     "farmers-benefitted",
 }
-VINTAGES = {"2024-25"}
+# The 2026-05-26 NDLM operator snapshot exposes the FY 2010-11..2025-26
+# raw vintages, but NAIP IV (rolled out ~2023) only has non-zero rows in
+# the last 3 FY vintages. Older vintages are still fetched at lift time
+# (no data leakage) but produce no observation rows - so the lifted set
+# is {2023-24, 2024-25, 2025-26}. CY vintages are preserved in raw but
+# not lifted (inventory deriver rejects mixed CY+FY period shapes within
+# one indicator).
+VINTAGES = {"2023-24", "2024-25", "2025-26"}
 NAIP_IV_SOURCE_ID = "src-93a2a72db482"
 
 
@@ -162,10 +169,14 @@ def test_all_rows_carry_naip_iv_source_id() -> None:
     not NAIP_IV_MEADOW.is_file(),
     reason="naip_iv meadow shard not on disk in this checkout",
 )
-def test_period_labels_are_fy_2024_25_only() -> None:
-    """Currently we lift only FY 2024-25 (the only vintage in the
-    meadow shard at slice-1 cut date). A different period_label =
-    adapter parse_ndlm_period bug.
+def test_period_labels_are_naip_iv_active_vintages_only() -> None:
+    """NAIP IV rolled out ~2023; the lift emits rows only for the FY
+    vintages where the registry had non-zero rows (2023-24, 2024-25,
+    2025-26). Older vintages are still fetched at lift time (no data
+    leakage) but produce no observation rows. A period_label outside
+    this set = adapter parse_ndlm_period bug. CY vintages are
+    deliberately not lifted (inventory deriver rejects mixed period
+    shapes).
     """
     env = _naip_iv_envelope()
     labels = {r.period_label for r in env.observation_rows}
@@ -353,38 +364,43 @@ def test_state_rollup_inherits_period_axes() -> None:
     reason="naip_iv meadow shard not on disk in this checkout",
 )
 def test_calves_born_district_value_equals_meadow_male_plus_female_sum() -> None:
-    """Hans honest-renderer invariant: for every district that has
-    BOTH calves_born|m and calves_born|f meadow rows, the lifted
-    ``district-livestock-naip-iv-calves-born`` value MUST equal the
-    sum of the two meadow values. This is the load-bearing sex-collapse
-    correctness check.
+    """Hans honest-renderer invariant: for every (district, period)
+    cell that has BOTH calves_born|m and calves_born|f meadow rows,
+    the lifted ``district-livestock-naip-iv-calves-born`` value MUST
+    equal the sum of the two meadow values. This is the load-bearing
+    sex-collapse correctness check.
+
+    Keyed by ``(entity_id, period_label)`` because the meadow now
+    carries 16 FY vintages; collapsing across vintages would mask
+    per-vintage SUM bugs behind a totals-equal-totals false-positive.
     """
     meadow = json.loads(NAIP_IV_MEADOW.read_text(encoding="utf-8"))
-    # Expected: sum male + female per district from meadow
-    expected: dict[str, float] = {}
+    # Expected: sum male + female per (district, period) from meadow
+    expected: dict[tuple[str, str], float] = {}
     for r in meadow["rows"]:
         family, _sex = r["facet"].split("|", 1)
         if family != "calves_born":
             continue
-        expected[r["entity_id"]] = expected.get(r["entity_id"], 0.0) + float(r["value"])
+        key = (r["entity_id"], r["time"])
+        expected[key] = expected.get(key, 0.0) + float(r["value"])
 
     env = _naip_iv_envelope()
-    actual: dict[str, float] = {
-        r.entity_id: float(r.value_numeric)
+    actual: dict[tuple[str, str], float] = {
+        (r.entity_id, r.period_label): float(r.value_numeric)
         for r in env.observation_rows
         if r.indicator_id == "district-livestock-naip-iv-calves-born"
     }
     assert set(actual.keys()) == set(expected.keys()), (
-        f"district set mismatch: "
+        f"(district, period) set mismatch: "
         f"missing={set(expected) - set(actual)!r}; "
         f"extra={set(actual) - set(expected)!r}"
     )
     mismatches = [
-        (e, expected[e], actual[e]) for e in expected
-        if expected[e] != actual[e]
+        (k, expected[k], actual[k]) for k in expected
+        if expected[k] != actual[k]
     ]
     assert not mismatches, (
-        f"{len(mismatches)} districts have calves_born value != "
+        f"{len(mismatches)} (district, period) cells have calves_born value != "
         f"meadow male+female sum; first 3: {mismatches[:3]!r}"
     )
 
