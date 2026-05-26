@@ -1206,6 +1206,75 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     ],
   },
 
+  // --- PR-W (Row 6 P.1.C 7/9, state power-purchase share by source, 2026-05-26) ---
+  // ICED `/statelevel-power-purchase-quantum-and-cost` (state-wise
+  // procurement-mix share by source) -> 2658 obs rows (36 states/UTs x
+  // 10 FYs x ~7-12 sources-per-state) joined into the EXISTING
+  // `energy_demand_supply` parquet stem (procurement is a demand-side
+  // metric). Adapter:
+  //   * demand_supply.py block 7 emits state-power-purchase-share-pct-{source}
+  // 12-facet Pattern A-facet on the EXISTING `fuel_type` axis (now
+  // extended with `hybrid_bundled` + `trading_other` value_ids).
+  // PR-W is a procurement-mix indicator (where DISCOMs BUY from),
+  // NOT a generation-mix (what state plants produce). Values are
+  // percentages summing to ~100 per (state, FY); CANNOT collapse
+  // renewable sub-fuels (same PLF-style exemption as PR-V).
+  // Compute-on-read parent: state-power-purchase-share-pct carries no
+  // observation rows; the FacetPicker primitive surfaces the 12
+  // children. The "Total" view would sum percentages across sources
+  // and arrive close to 100% by construction, so it's not informative
+  // -- the per-source pills are where the story lives.
+  {
+    kind: "facet-multiplexed",
+    legacy_artifact_id: "energy/state_power_purchase_share_pct",
+    canonical_parent_indicator_id: "state-power-purchase-share-pct",
+    table_id: "energy.energy_demand_supply",
+    facet_axis_id: "fuel_type",
+    facet_values: [
+      { canonical_child_id: "state-power-purchase-share-pct-coal", legacy_facet_label: "coal" },
+      { canonical_child_id: "state-power-purchase-share-pct-gas", legacy_facet_label: "gas" },
+      { canonical_child_id: "state-power-purchase-share-pct-diesel", legacy_facet_label: "diesel" },
+      { canonical_child_id: "state-power-purchase-share-pct-hydro", legacy_facet_label: "hydro" },
+      { canonical_child_id: "state-power-purchase-share-pct-nuclear", legacy_facet_label: "nuclear" },
+      { canonical_child_id: "state-power-purchase-share-pct-small-hydro", legacy_facet_label: "small_hydro" },
+      { canonical_child_id: "state-power-purchase-share-pct-solar", legacy_facet_label: "solar" },
+      { canonical_child_id: "state-power-purchase-share-pct-wind", legacy_facet_label: "wind" },
+      { canonical_child_id: "state-power-purchase-share-pct-biomass", legacy_facet_label: "biomass" },
+      { canonical_child_id: "state-power-purchase-share-pct-renewable-other", legacy_facet_label: "renewable_other" },
+      { canonical_child_id: "state-power-purchase-share-pct-hybrid-bundled", legacy_facet_label: "hybrid_bundled" },
+      { canonical_child_id: "state-power-purchase-share-pct-trading-other", legacy_facet_label: "trading_other" },
+    ],
+    meta: {
+      id: "state-power-purchase-share-pct",
+      title: "State power-purchase share by source (% per fiscal year)",
+      description:
+        "Share of total electricity purchased by a state's distribution utilities, broken down by generation source (12 buckets: coal, gas, diesel, hydro, nuclear, small-hydro, solar, wind, biomass, other-renewables, hybrid-bundled, trading-and-others). The PROCUREMENT mix (where DISCOMs buy from), not the GENERATION mix (what state plants produce). Values sum to ~100% per (state, FY). Compare against state-electricity-generation-gwh-{fuel} to read the trade pattern: RE-exporters vs thermal-importers.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "share",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "percent",
+      short_unit: "%",
+      icon: "shopping-cart",
+      attribution_geography: "where_consumed",
+      comparability: "comparable_across_states_and_time",
+      implementing_authority: "state",
+      methodology_vintage:
+        "NITI Aayog ICED /statelevel-power-purchase-quantum-and-cost (PFC / Ministry of Power upstream). Per-state per-source per-FY, FY16-FY25. The publisher's totalCost field is not emitted (many nulls in early years and unit ambiguous).",
+      notes:
+        "12 publisher buckets map to canonical fuel_type axis values via a dedicated 1:1 dict (bio-power -> biomass; oil-gas -> gas; other-res -> renewable_other; hybrid-bundled + trading-and-others -> new value_ids hybrid_bundled + trading_other added in this PR). NO sub-fuel collapse because procurement share is a percentage that cannot be summed across sources without double-counting the same megawatt-hour.",
+    },
+    // PR-W: Hans-curated caveats. Three honesty cues:
+    // procurement-vs-generation, hybrid-bundled-is-not-a-fuel,
+    // trading-share-is-not-a-stress-signal.
+    caveats: [
+      "Procurement is NOT generation. A state's power-purchase mix shows what its DISCOMs BUY from -- not what its plants produce. Karnataka generates a lot of wind and solar but imports significant coal via inter-state PPAs; Bihar produces almost nothing locally and procures most of its power from central thermal plants. Compare with state-electricity-generation-gwh-{fuel} to see the export-import pattern.",
+      "Hybrid-bundled is a CONTRACT category, not a fuel. The hybrid PPA bucket (wind + solar + storage sold as one bundle) emerged post-2022 under MNRE policy; it grows in some states while solar and wind shares stay flat -- because the SAME electrons are just being re-categorised under a different contract structure. Don't read hybrid growth as new RE; cross-reference with installed-capacity series.",
+      "Trading-and-others share is NOT a stress signal. Buying ~10-20% on power exchanges (IEX / PXIL) is normal procurement strategy -- it lets DISCOMs meet demand fluctuations cheaper than via long-term PPAs. Punjab, Haryana, Delhi run high trading shares (15-25%) because their demand is peaky; this is competence, not crisis. Only when trading + UI dominates the year-on-year delta should you read a procurement-planning failure.",
+    ],
+  },
+
   // --- 12: ACS-ARR gap on electricity sales (₹/kWh), NITI ICED ---
   {
     kind: "single",
