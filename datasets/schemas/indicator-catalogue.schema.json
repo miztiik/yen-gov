@@ -3,7 +3,7 @@
   "$id": "./indicator-catalogue.schema.json",
   "title": "Indicator catalogue (canonical)",
   "description": "Hand-authored canonical indicator catalogue (taxonomy/indicators.json). One row per indicator_id. Carries the full Hans honesty surface (D15) plus D29 catalogue additions (parent_indicator_id self-FK, dimension_values:STRUCT for facet-explode children, per-child source_id, methodology_version FK). id field enforces the D30 naming convention. Pipeline compiles to taxonomy/indicators.parquet. NOTE: this is the canonical replacement for the pre-pivot datasets/schemas/indicator.schema.json (which validates per-shard JSON under datasets/indicators/in/). The legacy file stays in place through Phase 0.13; rename of this file to indicator.schema.json happens when the pre-pivot artifacts move to _old/.",
-  "x-version": "2.1",
+  "x-version": "2.2",
   "x-changelog": [
     {
       "version": "1.0",
@@ -24,6 +24,11 @@
       "version": "2.1",
       "date": "2026-05-26",
       "description": "PR-Z3b-tail-actionC update_period_days backfill (TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat guardrail #18). ADDITIVE: ADD optional integer property update_period_days (minimum=1) -- publisher refresh cadence in days (NDLM monthly = 30, RBI Handbook annual = 365, Census decennial = 3650). All 183 existing rows backfilled in same commit via cadence-derivation (annual_fy=365, monthly_cy=30, ad_hoc=365 default annual review). Unlocks chaining the existing DARK tier_b_indicator_freshness_declared check live in a follow-up PR. concept_id FK + meta.justification deferred to a later PR; v2.0 rows continue to validate unchanged under v2.1."
+    },
+    {
+      "version": "2.2",
+      "date": "2026-05-26",
+      "description": "PR-Z3b-tail-conceptFK Carve 0a schema-only bump (TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat guardrail #13). ADDITIVE: ADD optional string property concept_id (kebab-case, single segment, maxLength=40) -- FK to datasets/taxonomy/concepts.json declaring (noun, unit_canonical, normalisation, entity_kinds) per ADR-0044 doctrine 'identity is what is MEASURED, not who published it'. No catalogue rows backfilled in this PR; the field is optional during the v2.1->v2.2 transition. Intent is required-once-backfilled, enforced via the DARK Tier-B check tier_b_one_indicator_per_concept (added in PR-Z3b-tail3 #366) which will chain live in a follow-up PR once Carve 1 ships the 183-row backfill via the Z3a find_overlap confidence>=0.95 clustering + stub-concepts auto-mint path. v2.1 rows continue to validate unchanged under v2.2 (consumer indicators.json stamp bumped 2.1->2.2 to satisfy Tier-B `$schema_version == x-version` invariant; no row carries concept_id until Carve 1 lands)."
     }
   ],
   "type": "object",
@@ -243,6 +248,12 @@
             "type": "integer",
             "minimum": 1,
             "description": "v2.1 (PR-Z3b-tail-actionC 2026-05-26). Publisher refresh cadence in days (NDLM monthly = 30, RBI Handbook annual = 365, Census decennial = 3650). Operator dashboard surfaces stale indicators when today - last_observed > 2 * update_period_days. Required-in-practice via the DARK Tier-B check tier_b_indicator_freshness_declared (added in PR-Z3b-cli #363; chained live in a follow-up PR once all 183 rows are backfilled). OWID precedent: every Grapher variable carries this. Optional in schema for the v2.0->v2.1 transition; intent is required."
+          },
+          "concept_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+            "maxLength": 40,
+            "description": "v2.2 (PR-Z3b-tail-conceptFK Carve 0a 2026-05-26). FK to datasets/taxonomy/concepts.json. Identity is what is MEASURED, not who published it (ADR-0044). Per guardrail #13: every indicator MUST FK to one row in concepts.json declaring (noun, unit_canonical, normalisation, entity_kinds); run `python -m yen_gov check-overlap` before authoring any new row, and UPSERT into an existing indicator or add a facet if a concept match >=70% exists. Optional in v2.2 for the schema/backfill split; intent-required is enforced via the DARK Tier-B check tier_b_one_indicator_per_concept (added in PR-Z3b-tail3 #366; chained live once Carve 1 lands the 183-row backfill)."
           }
         }
       }

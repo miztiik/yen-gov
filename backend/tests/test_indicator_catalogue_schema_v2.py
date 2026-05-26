@@ -23,17 +23,17 @@ def _load() -> dict:
     return json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
 
 
-def test_schema_x_version_is_2_1():
+def test_schema_x_version_is_current():
+    # Tracks the latest x-version; bumped to "2.2" in
+    # PR-Z3b-tail-conceptFK Carve 0a (additive concept_id).
     s = _load()
-    assert s["x-version"] == "2.1"
+    assert s["x-version"] == "2.2"
 
 
-def test_changelog_tail_is_2_1():
+def test_changelog_has_2_1_entry():
     s = _load()
-    tail = s["x-changelog"][-1]
-    assert tail["version"] == "2.1"
-    assert tail["date"] == "2026-05-26"
-    assert "update_period_days" in tail["description"]
+    versions = [e["version"] for e in s["x-changelog"]]
+    assert "2.1" in versions
 
 
 def test_changelog_has_2_0_entry():
