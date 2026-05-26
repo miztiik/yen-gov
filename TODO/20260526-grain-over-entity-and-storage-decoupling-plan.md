@@ -181,7 +181,7 @@ Each PR is ≤300 lines diff (excluding parquet binary regen). PRs marked **READ
 | **A3c** | Rip `renderer_rules` + `chart_type` + `dimension` from canonical catalogues | After A3b | Gregor |
 | **A4** | `--table <stem>` filter on `lift-energy` + `lift-livestock` (elections+governments don't need lift commands — see §1bis) | ✅ PR #368 | Fowler |
 | **A5a** | Strip `datetime.now()` from non-livestock meadow tools | READY | Fowler |
-| **A5b** | Strip `datetime.now()` from livestock meadow tools | After yen-gov-3b-species | Fowler |
+| **A5b** | Strip `datetime.now()` from livestock meadow tools | ✅ PR #_pending_ | Fowler |
 | **A6** | Data-driven `source_id` lookup | After yen-gov-pr2-ia + yen-gov-3b-species | Fowler+Gregor |
 
 #### PR-A1 — ADR-0044 (grain-over-entity) + ADR-0045 (grapher-catalogue split) — ✅ PR #336
@@ -247,10 +247,11 @@ Each PR is ≤300 lines diff (excluding parquet binary regen). PRs marked **READ
 - **LOC**: ≈ +200 / -30.
 - **Worktree risk**: LOW.
 
-#### PR-A5b — Same, for livestock meadow tools
+#### PR-A5b — Same, for livestock meadow tools — ✅ PR #_pending_
 
-- **MODIFY**: [tools/livestock_meadow_pashu_aadhaar.py](../tools/livestock_meadow_pashu_aadhaar.py) L191 and any livestock sibling under `tools/`.
-- **BLOCKED ON**: yen-gov-3b-species merge.
+- **MODIFY**: [tools/livestock_meadow_pashu_aadhaar.py](../tools/livestock_meadow_pashu_aadhaar.py), [tools/livestock_meadow_owner_reg.py](../tools/livestock_meadow_owner_reg.py), [tools/livestock_meadow_naip_iv.py](../tools/livestock_meadow_naip_iv.py) — add required `--snapshot-date YYYY-MM-DD` argparse Option; validate via `dt.date.fromisoformat()`; thread `fetched_at = f"{snapshot_date}T00:00:00Z"` into each `build_*meadow*()` function (replaces in-body `dt.datetime.now()` calls). Tools refuse to run without `--snapshot-date` (argparse exits with code 2).
+- **ADD**: [backend/tests/test_livestock_meadow_snapshot_date.py](../backend/tests/test_livestock_meadow_snapshot_date.py) — 9 cases: 3 missing-required + 3 malformed-date + 3 supplied-date-stamps-correctly across the 3 tools.
+- **Gates**: G1 OK; G2 9p/0f targeted (0.51s); G3-G5 N/A (tools-only, no observation rows changed). Worktree was clear (yen-gov-3b-species gone since session #29). 2-commit-then-squash.
 
 #### PR-A6 — Data-driven `source_id` lookup
 

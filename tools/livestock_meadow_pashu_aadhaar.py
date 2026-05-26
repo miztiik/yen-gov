@@ -176,6 +176,7 @@ def build_meadow_for_species(
     species_display: str,
     species_noun: str,
     district_lookup: dict[str, str],
+    fetched_at: str,
 ) -> tuple[dict, list[tuple[str, str, str, str]]]:
     """Build meadow JSON dict for one species across all raw vintages.
 
@@ -215,7 +216,6 @@ def build_meadow_for_species(
         f"district. Coverage varies by state as the rollout is in progress."
     )
 
-    fetched_at = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     doc = {
         "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
         "$schema_version": "4.4",
@@ -315,7 +315,23 @@ def main() -> int:
         default=None,
         help="Comma-separated species slugs to lift (default: all 10).",
     )
+    parser.add_argument(
+        "--snapshot-date",
+        required=True,
+        help=(
+            "Required YYYY-MM-DD operator snapshot date stamped into "
+            "sources[].fetched_at + indicator.methodology_vintage as "
+            "`<YYYY-MM-DD>T00:00:00Z`. Replaces non-deterministic "
+            "`datetime.now()` per CLAUDE.md \u00a710 (datetime.now in "
+            "data-row content is forbidden); see plan-doc PR-A5b."
+        ),
+    )
     args = parser.parse_args()
+    try:
+        dt.date.fromisoformat(args.snapshot_date)
+    except ValueError as exc:
+        parser.error(f"--snapshot-date must be YYYY-MM-DD: {exc}")
+    fetched_at = f"{args.snapshot_date}T00:00:00Z"
 
     if args.raw_vintages.strip():
         raw_vintages = tuple(
@@ -350,7 +366,8 @@ def main() -> int:
         if species_filter is not None and sp_slug not in species_filter:
             continue
         doc, unresolved = build_meadow_for_species(
-            raw_vintages, sp_cd, sp_slug, sp_display, sp_noun, district_lookup
+            raw_vintages, sp_cd, sp_slug, sp_display, sp_noun, district_lookup,
+            fetched_at,
         )
         row_count = len(doc["rows"])
         out_path = meadow_dir / f"district-pashu-aadhaar-count-{sp_slug}.json"
