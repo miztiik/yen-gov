@@ -259,13 +259,6 @@
         },
         {
           "kind": "indicator",
-          "id": "economy/state_per_capita_nsdp_constant_2011_12_inr",
-          "default": false,
-          "featured": true,
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
           "id": "economy/state_per_capita_consumption_inr",
           "default": false,
           "featured": true,
@@ -287,9 +280,9 @@
         },
         {
           "kind": "indicator",
-          "id": "economy/state_per_capita_nsdp_constant_inr_long",
+          "id": "economy/per_capita_nsdp_constant_inr",
           "default": false,
-          "featured": false,
+          "featured": true,
           "scope": "state"
         },
         {

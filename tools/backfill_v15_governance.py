@@ -5,7 +5,7 @@ Per TODO/PER-INDICATOR-DOCS-PLAN.md §"Backfill order (highest-leverage first)":
 1. fiscal/state_pension_expenditure_inr_crore — revision_tier_by_period + excludes
 2. fiscal/outstanding_debt_pct_gsdp           — denominator (object) + excludes
 3. prices/national_wpi_all_commodities_index_annual — renderer_rules
-4. economy/state_per_capita_nsdp_constant_2011_12_inr — denominator (object)
+4. economy/per_capita_nsdp_constant_inr — denominator (object)
 5. economy/per_capita_nsdp_current_inr           — denominator (object)
 
 Plus the long-form siblings (constant_inr_long, current_inr_long) for parity.
@@ -150,9 +150,7 @@ PATCHES: list[tuple[str, callable]] = [
      patch_debt),
     ("prices/national_wpi_all_commodities_index_annual.json",
      patch_wpi),
-    ("economy/state_per_capita_nsdp_constant_2011_12_inr.json",
-     lambda d: patch_per_capita_nsdp(d, basis="constant", base_year="2011-12")),
-    ("economy/state_per_capita_nsdp_constant_inr_long.json",
+    ("economy/per_capita_nsdp_constant_inr.json",
      lambda d: patch_per_capita_nsdp(d, basis="constant", base_year=None)),
     ("economy/per_capita_nsdp_current_inr.json",
      lambda d: patch_per_capita_nsdp(d, basis="current", base_year=None)),

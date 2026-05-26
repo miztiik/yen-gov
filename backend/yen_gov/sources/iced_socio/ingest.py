@@ -1,15 +1,17 @@
-"""ICED socio-economic adapter — fetch + emit five indicator artifacts.
+"""ICED socio-economic adapter — fetch + emit four indicator artifacts.
 
 Per Hans (Governance) triage 2026-05-14:
 
-* ``economy/state_per_capita_nsdp_constant_2011_12_inr``  — Priority 1
 * ``human_development/state_hdi``                          — Priority 2
 * ``economy/state_per_capita_consumption_inr``             — Priority 3
 * ``demography/state_population_by_sex_count``             — Priority 5
 * ``environment/india_ghg_emissions_mtco2e_by_sector``     — Priority 6
 
-The current-price NSDP indicator (Hans Priority 4) ships separately as
-``economy/per_capita_nsdp_current_inr`` from the
+The constant-price per-capita NSDP indicator (Hans Priority 1) was retired
+in PR-B6-row8 — the canonical source for that fact is now the RBI Handbook
+spliced shard ``economy/per_capita_nsdp_constant_inr`` (longer history,
+multi-base splice). The current-price NSDP indicator (Hans Priority 4)
+ships separately as ``economy/per_capita_nsdp_current_inr`` from the
 state-wise-deep-dive adapter; we do not re-emit it here.
 
 This module is the orchestrator only — fetching via
@@ -35,7 +37,6 @@ from .parsers import (
     parse_ghg_economy_wide,
     parse_hdi_map,
     parse_per_capita_consumption,
-    parse_per_capita_income,
 )
 
 
@@ -92,57 +93,6 @@ class _IndicatorBuild:
     page_url: str                             # human-readable dashboard URL
     source_name: str                          # Source[].name
     builder: Callable[..., Any]               # parser + selector
-
-
-def _per_capita_constant_meta() -> _IndicatorBuild:
-    return _IndicatorBuild(
-        out_topic="economy",
-        out_leaf="state_per_capita_nsdp_constant_2011_12_inr",
-        indicator={
-            "id": "economy/state_per_capita_nsdp_constant_2011_12_inr",
-            "title": "State per-capita NSDP, inflation-adjusted (₹ per person per year)",
-            "description": (
-                "Net State Domestic Product per person at constant 2011-12 prices. "
-                "This is the inflation-adjusted measure of state income — the only "
-                "honest way to ask 'is my state catching up or falling behind' "
-                "across years. The current-price companion indicator "
-                "(per_capita_nsdp_current_inr) gives the same data without "
-                "inflation adjustment, useful only for comparing states within a "
-                "single year."
-            ),
-            "entity_kind": "state",
-            "time_grain": "fiscal_year",
-            "value_kind": "currency",
-            "direction": "higher_is_better",
-            "scale_hint": "linear",
-            "unit": "INR",
-            "icon": "trending-up",
-            "attribution_geography": "where_resident",
-            "comparability": "comparable_across_states",
-            "implementing_authority": "joint",
-            "methodology_vintage": "NSDP base 2011-12 (CSO re-spliced from 2004-05 base around 2014)",
-            "notes": (
-                "Adjusted for inflation, base year 2011-12. CSO re-spliced the series "
-                "from a 2004-05 base around 2014; treat the join across that boundary "
-                "as approximate. Andhra Pradesh figures before 2014 include the area "
-                "now in Telangana; Jammu & Kashmir figures before 2019 include Ladakh."
-            ),
-            "series_breaks": [
-                {"at_time": "2011-04", "kind": "rebase",
-                 "note": "CSO re-based NSDP series from 2004-05 to 2011-12 base year."},
-                {"at_time": "2014-04", "kind": "coverage_change",
-                 "note": "Telangana bifurcated from Andhra Pradesh on 2014-06-02; pre-2014 AP rows include Telangana."},
-                {"at_time": "2019-04", "kind": "coverage_change",
-                 "note": "J&K bifurcated into J&K (UT) and Ladakh (UT) on 2019-10-31; pre-2019 J&K rows include Ladakh."},
-            ],
-        },
-        coverage_spatial="India (states + UTs)",
-        coverage_admin_level="state",
-        api_path="/economy-demography/key-economic-indicators/per-capita-income",
-        page_url="https://iced.niti.gov.in/economy-and-demography/key-economic-indicators/socio-economic",
-        source_name="ICED — Per Capita Income (NITI Aayog)",
-        builder=lambda d: parse_per_capita_income(d).constant,
-    )
 
 
 def _hdi_meta() -> _IndicatorBuild:
@@ -332,7 +282,6 @@ def _ghg_economy_wide_meta() -> _IndicatorBuild:
 
 def _all_builds() -> tuple[_IndicatorBuild, ...]:
     return (
-        _per_capita_constant_meta(),
         _hdi_meta(),
         _per_capita_consumption_meta(),
         _population_by_sex_meta(),
