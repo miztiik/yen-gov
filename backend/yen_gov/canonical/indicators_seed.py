@@ -170,13 +170,23 @@ class IndicatorRow(BaseModel):
     # v2.0->v2.1 transition; intent is required. Enforced by the DARK
     # ``tier_b_indicator_freshness_declared`` check once chained live.
     update_period_days: int | None = Field(default=None, ge=1)
+    # v2.2 (PR-Z3b-tail-conceptFK Carve 1 2026-05-26 guardrail #13). FK
+    # to ``datasets/taxonomy/concepts.json``. Optional during the
+    # v2.1->v2.2 transition; backfilled on all 183 rows by Carve 1 via
+    # the concept_registry find_overlap helper. Enforced by the DARK
+    # ``tier_b_one_indicator_per_concept`` check once chained live.
+    concept_id: str | None = Field(
+        default=None, pattern=r"^[a-z][a-z0-9]*(-[a-z0-9]+)*$", max_length=40
+    )
 
 
-# 34 columns, flat. Lists kept as VARCHAR[]; dicts/structs serialised to
+# 35 columns, flat. Lists kept as VARCHAR[]; dicts/structs serialised to
 # JSON-string for DuckDB-WASM friendliness. v2.0 (PR-B1 2026-05-26):
 # id_aliases + deprecated_in removed; entity_kinds + default_entity_kind
 # added (ADR-0044 grain-over-entity). v2.1 (PR-Z3b-tail-actionC
-# 2026-05-26): update_period_days added (guardrail #18).
+# 2026-05-26): update_period_days added (guardrail #18). v2.2
+# (PR-Z3b-tail-conceptFK Carve 1 2026-05-26): concept_id FK added
+# (guardrail #13).
 _DDL = """
 CREATE TABLE indicators (
     indicator_id VARCHAR PRIMARY KEY,
@@ -212,7 +222,8 @@ CREATE TABLE indicators (
     renderer_rules VARCHAR[],
     entity_kinds VARCHAR[] NOT NULL,
     default_entity_kind VARCHAR NOT NULL,
-    update_period_days INTEGER
+    update_period_days INTEGER,
+    concept_id VARCHAR
 )
 """
 
@@ -265,6 +276,7 @@ def _row_to_tuple(row: IndicatorRow) -> tuple:
         list(row.entity_kinds),
         row.default_entity_kind,
         row.update_period_days,
+        row.concept_id,
     )
 
 
@@ -320,7 +332,7 @@ def compile_to_parquet(json_in: Path, parquet_out: Path) -> int:
         if rows:
             con.executemany(
                 "INSERT INTO indicators VALUES ("
-                + ", ".join(["?"] * 34)
+                + ", ".join(["?"] * 35)
                 + ")",
                 [_row_to_tuple(r) for r in rows],
             )

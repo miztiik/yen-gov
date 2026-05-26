@@ -23,7 +23,8 @@
         "candidate"
       ],
       "default_entity_kind": "candidate",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "candidate-votes"
     },
     {
       "indicator_id": "candidate-vote-share-pct",
@@ -46,7 +47,8 @@
         "candidate"
       ],
       "default_entity_kind": "candidate",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "vote-share"
     },
     {
       "indicator_id": "candidate-rank",
@@ -69,7 +71,8 @@
         "candidate"
       ],
       "default_entity_kind": "candidate",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "rank"
     },
     {
       "indicator_id": "ac-total-electors",
@@ -92,7 +95,8 @@
         "ac"
       ],
       "default_entity_kind": "ac",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "electors"
     },
     {
       "indicator_id": "ac-votes-polled",
@@ -115,7 +119,8 @@
         "ac"
       ],
       "default_entity_kind": "ac",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "votes-polled"
     },
     {
       "indicator_id": "ac-turnout-pct",
@@ -139,7 +144,8 @@
         "ac"
       ],
       "default_entity_kind": "ac",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "turnout"
     },
     {
       "indicator_id": "ac-nota-votes",
@@ -165,7 +171,8 @@
         "ac"
       ],
       "default_entity_kind": "ac",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "nota-votes"
     },
     {
       "indicator_id": "ac-nota-pct",
@@ -189,7 +196,8 @@
         "ac"
       ],
       "default_entity_kind": "ac",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "nota-share"
     },
     {
       "indicator_id": "ac-winner-candidate-id",
@@ -212,7 +220,8 @@
         "ac"
       ],
       "default_entity_kind": "ac",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "winner"
     },
     {
       "indicator_id": "ac-winner-party-id",
@@ -235,7 +244,8 @@
         "ac"
       ],
       "default_entity_kind": "ac",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "winning-party"
     },
     {
       "indicator_id": "ac-margin-votes",
@@ -258,7 +268,8 @@
         "ac"
       ],
       "default_entity_kind": "ac",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "margin-absolute"
     },
     {
       "indicator_id": "ac-margin-pct",
@@ -282,7 +293,8 @@
         "ac"
       ],
       "default_entity_kind": "ac",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "margin"
     },
     {
       "indicator_id": "ac-effective-candidates-laakso",
@@ -305,7 +317,8 @@
         "ac"
       ],
       "default_entity_kind": "ac",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "effective-candidates"
     },
     {
       "indicator_id": "ac-candidates-total",
@@ -328,7 +341,8 @@
         "ac"
       ],
       "default_entity_kind": "ac",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "candidates-contested"
     },
     {
       "indicator_id": "ac-others-votes",
@@ -351,7 +365,8 @@
         "ac"
       ],
       "default_entity_kind": "ac",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "others-votes"
     },
     {
       "indicator_id": "ac-others-pct",
@@ -375,7 +390,8 @@
         "ac"
       ],
       "default_entity_kind": "ac",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "others-share"
     },
     {
       "indicator_id": "party-contested-acs",
@@ -398,7 +414,8 @@
         "party"
       ],
       "default_entity_kind": "party",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "contested"
     },
     {
       "indicator_id": "party-seats-won",
@@ -421,7 +438,8 @@
         "party"
       ],
       "default_entity_kind": "party",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "seats-won"
     },
     {
       "indicator_id": "party-strike-rate-pct",
@@ -445,7 +463,8 @@
         "party"
       ],
       "default_entity_kind": "party",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "strike-rate"
     },
     {
       "indicator_id": "party-votes-polled",
@@ -468,7 +487,8 @@
         "party"
       ],
       "default_entity_kind": "party",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "party-votes"
     },
     {
       "indicator_id": "party-vote-share-pct",
@@ -492,7 +512,8 @@
         "party"
       ],
       "default_entity_kind": "party",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "vote-share"
     },
     {
       "indicator_id": "party-forfeitures-count",
@@ -515,7 +536,8 @@
         "party"
       ],
       "default_entity_kind": "party",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "forfeitures"
     },
     {
       "indicator_id": "electors-total",
@@ -538,7 +560,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "state-electors"
     },
     {
       "indicator_id": "votes-polled",
@@ -561,7 +584,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "state-votes"
     },
     {
       "indicator_id": "turnout-pct",
@@ -585,7 +609,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "state-turnout"
     },
     {
       "indicator_id": "nota-pct",
@@ -612,7 +637,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "state-nota"
     },
     {
       "indicator_id": "effective-parties-laakso",
@@ -635,7 +661,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "effective-parties"
     },
     {
       "indicator_id": "winning-party-id",
@@ -658,7 +685,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "winning-party"
     },
     {
       "indicator_id": "winning-party-seats",
@@ -681,7 +709,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "winning-seats"
     },
     {
       "indicator_id": "majority-threshold-acs",
@@ -704,7 +733,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "majority-threshold"
     },
     {
       "indicator_id": "national-installed-capacity-mw",
@@ -732,7 +762,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 30
+      "update_period_days": 30,
+      "concept_id": "all-india-installed-capacity"
     },
     {
       "indicator_id": "national-installed-capacity-mw-coal",
@@ -763,7 +794,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 30
+      "update_period_days": 30,
+      "concept_id": "coal-mw-absolute"
     },
     {
       "indicator_id": "national-installed-capacity-mw-gas",
@@ -791,7 +823,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 30
+      "update_period_days": 30,
+      "concept_id": "gas-absolute"
     },
     {
       "indicator_id": "national-installed-capacity-mw-hydro",
@@ -819,7 +852,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 30
+      "update_period_days": 30,
+      "concept_id": "hydro-mw-absolute"
     },
     {
       "indicator_id": "national-installed-capacity-mw-nuclear",
@@ -847,7 +881,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 30
+      "update_period_days": 30,
+      "concept_id": "nuclear-mw-absolute"
     },
     {
       "indicator_id": "national-installed-capacity-mw-renewable",
@@ -878,7 +913,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 30
+      "update_period_days": 30,
+      "concept_id": "renewable-absolute"
     },
     {
       "indicator_id": "state-installed-capacity-geographical-mw",
@@ -906,7 +942,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "capacity-sited-in-state"
     },
     {
       "indicator_id": "state-installed-capacity-geographical-mw-coal",
@@ -937,7 +974,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "coal-mw-absolute"
     },
     {
       "indicator_id": "state-installed-capacity-geographical-mw-gas",
@@ -965,7 +1003,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "gas-absolute"
     },
     {
       "indicator_id": "state-installed-capacity-geographical-mw-hydro",
@@ -993,7 +1032,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "hydro-mw-absolute"
     },
     {
       "indicator_id": "state-installed-capacity-geographical-mw-nuclear",
@@ -1021,7 +1061,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "nuclear-mw-absolute"
     },
     {
       "indicator_id": "state-installed-capacity-geographical-mw-renewable",
@@ -1052,7 +1093,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "renewable-absolute"
     },
     {
       "indicator_id": "state-installed-capacity-allocated-mw",
@@ -1083,7 +1125,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "capacity-allocated-to-state-2"
     },
     {
       "indicator_id": "state-installed-capacity-allocated-mw-coal",
@@ -1111,7 +1154,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "coal-mw-absolute"
     },
     {
       "indicator_id": "state-installed-capacity-allocated-mw-gas",
@@ -1139,7 +1183,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "gas-absolute"
     },
     {
       "indicator_id": "state-installed-capacity-allocated-mw-hydro",
@@ -1167,7 +1212,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "hydro-mw-absolute"
     },
     {
       "indicator_id": "state-installed-capacity-allocated-mw-nuclear",
@@ -1195,7 +1241,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "nuclear-mw-absolute"
     },
     {
       "indicator_id": "state-installed-capacity-allocated-mw-renewable",
@@ -1223,7 +1270,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "renewable-absolute"
     },
     {
       "indicator_id": "state-installed-capacity-snapshot-mw",
@@ -1250,7 +1298,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 30
+      "update_period_days": 30,
+      "concept_id": "capacity-snapshot-cea"
     },
     {
       "indicator_id": "state-installed-capacity-snapshot-mw-coal",
@@ -1279,7 +1328,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 30
+      "update_period_days": 30,
+      "concept_id": "coal-mw-absolute"
     },
     {
       "indicator_id": "state-installed-capacity-snapshot-mw-gas",
@@ -1308,7 +1358,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 30
+      "update_period_days": 30,
+      "concept_id": "gas-absolute"
     },
     {
       "indicator_id": "state-installed-capacity-snapshot-mw-hydro",
@@ -1337,7 +1388,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 30
+      "update_period_days": 30,
+      "concept_id": "hydro-mw-absolute"
     },
     {
       "indicator_id": "state-installed-capacity-snapshot-mw-nuclear",
@@ -1366,7 +1418,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 30
+      "update_period_days": 30,
+      "concept_id": "nuclear-mw-absolute"
     },
     {
       "indicator_id": "state-installed-capacity-snapshot-mw-renewable",
@@ -1395,7 +1448,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 30
+      "update_period_days": 30,
+      "concept_id": "renewable-absolute"
     },
     {
       "indicator_id": "state-electricity-generation-gwh",
@@ -1423,7 +1477,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "state-generation-gwh"
     },
     {
       "indicator_id": "state-electricity-generation-gwh-coal",
@@ -1451,7 +1506,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "coal"
     },
     {
       "indicator_id": "state-electricity-generation-gwh-gas",
@@ -1479,7 +1535,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "gas"
     },
     {
       "indicator_id": "state-electricity-generation-gwh-hydro",
@@ -1507,7 +1564,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "hydro"
     },
     {
       "indicator_id": "state-electricity-generation-gwh-nuclear",
@@ -1535,7 +1593,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "nuclear"
     },
     {
       "indicator_id": "state-electricity-generation-gwh-renewable",
@@ -1563,7 +1622,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "renewable"
     },
     {
       "indicator_id": "state-electricity-sales-mu",
@@ -1590,7 +1650,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "state-electricity-sales"
     },
     {
       "indicator_id": "state-atc-losses-pct",
@@ -1618,7 +1679,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "at-c-losses"
     },
     {
       "indicator_id": "state-peak-electricity-demand-mw",
@@ -1646,7 +1708,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "peak-demand"
     },
     {
       "indicator_id": "state-peak-electricity-supplied-mw",
@@ -1674,7 +1737,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "peak-supplied"
     },
     {
       "indicator_id": "state-per-capita-electricity-consumption-kwh",
@@ -1702,7 +1766,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "per-capita-consumption-2"
     },
     {
       "indicator_id": "state-distribution-efficiency-pct",
@@ -1730,7 +1795,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "distribution-efficiency"
     },
     {
       "indicator_id": "state-distribution-efficiency-pct-billing",
@@ -1759,7 +1825,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "billing-efficiency"
     },
     {
       "indicator_id": "state-distribution-efficiency-pct-collection",
@@ -1788,7 +1855,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "collection-efficiency"
     },
     {
       "indicator_id": "state-distribution-efficiency-pct-td-loss",
@@ -1817,7 +1885,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "t-d-loss"
     },
     {
       "indicator_id": "state-acs-arr-gap-inr-per-kwh",
@@ -1846,7 +1915,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "acs-arr-gap"
     },
     {
       "indicator_id": "state-rpo-compliance-pct",
@@ -1874,7 +1944,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "rpo-compliance"
     },
     {
       "indicator_id": "state-rpo-compliance-pct-solar",
@@ -1902,7 +1973,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "solar-rpo"
     },
     {
       "indicator_id": "state-rpo-compliance-pct-non-solar",
@@ -1930,7 +2002,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "non-solar-rpo"
     },
     {
       "indicator_id": "state-rpo-compliance-pct-total",
@@ -1958,7 +2031,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "total-rpo"
     },
     {
       "indicator_id": "state-electricity-requirement-mu",
@@ -1986,7 +2060,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "power-requirement"
     },
     {
       "indicator_id": "state-electricity-availability-mu",
@@ -2014,7 +2089,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "power-availability"
     },
     {
       "indicator_id": "state-per-capita-electricity-availability-kwh",
@@ -2042,7 +2118,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "per-capita-availability-2"
     },
     {
       "indicator_id": "state-coal-consumption-mt",
@@ -2070,7 +2147,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "coal-consumption"
     },
     {
       "indicator_id": "state-rooftop-solar-capacity-mw",
@@ -2098,7 +2176,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "rooftop-solar-capacity"
     },
     {
       "indicator_id": "india-thermal-capacity-retired-mw",
@@ -2126,7 +2205,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "thermal-capacity-retired"
     },
     {
       "indicator_id": "india-thermal-capacity-retired-mw-coal",
@@ -2154,7 +2234,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "coal-mw-absolute"
     },
     {
       "indicator_id": "india-thermal-capacity-retired-mw-gas",
@@ -2182,7 +2263,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "gas-absolute"
     },
     {
       "indicator_id": "state-oil-product-consumption-kt",
@@ -2210,7 +2292,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "oil-product-consumption"
     },
     {
       "indicator_id": "state-oil-product-consumption-kt-diesel-hsd",
@@ -2238,7 +2321,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "diesel-hsd"
     },
     {
       "indicator_id": "state-oil-product-consumption-kt-petrol",
@@ -2266,7 +2350,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "petrol"
     },
     {
       "indicator_id": "state-oil-product-consumption-kt-lpg",
@@ -2294,7 +2379,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "lpg"
     },
     {
       "indicator_id": "state-oil-product-consumption-kt-kerosene",
@@ -2322,7 +2408,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "kerosene-sko"
     },
     {
       "indicator_id": "state-oil-product-consumption-kt-naphtha",
@@ -2350,7 +2437,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "naphtha"
     },
     {
       "indicator_id": "state-oil-product-consumption-kt-petroleum-coke",
@@ -2378,7 +2466,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "petroleum-coke"
     },
     {
       "indicator_id": "state-oil-product-consumption-kt-others",
@@ -2406,7 +2495,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "others"
     },
     {
       "indicator_id": "india-primary-energy-supply-mtoe",
@@ -2434,7 +2524,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "primary-energy-supply"
     },
     {
       "indicator_id": "india-primary-energy-supply-mtoe-coal",
@@ -2462,7 +2553,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "coal-absolute"
     },
     {
       "indicator_id": "india-primary-energy-supply-mtoe-oil",
@@ -2490,7 +2582,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "oil"
     },
     {
       "indicator_id": "india-primary-energy-supply-mtoe-gas",
@@ -2518,7 +2611,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "natural-gas"
     },
     {
       "indicator_id": "india-primary-energy-supply-mtoe-hydro",
@@ -2546,7 +2640,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "hydro-absolute"
     },
     {
       "indicator_id": "india-primary-energy-supply-mtoe-nuclear",
@@ -2574,7 +2669,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "nuclear-absolute"
     },
     {
       "indicator_id": "india-primary-energy-supply-mtoe-renewable",
@@ -2602,7 +2698,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "renewables"
     },
     {
       "indicator_id": "state-plant-load-factor-pct",
@@ -2627,7 +2724,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "plant-load-factor"
     },
     {
       "indicator_id": "state-plant-load-factor-pct-coal",
@@ -2655,7 +2753,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "coal-plf"
     },
     {
       "indicator_id": "state-plant-load-factor-pct-gas",
@@ -2683,7 +2782,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "gas-plf"
     },
     {
       "indicator_id": "state-plant-load-factor-pct-hydro",
@@ -2711,7 +2811,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "large-hydro-plf"
     },
     {
       "indicator_id": "state-plant-load-factor-pct-nuclear",
@@ -2739,7 +2840,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "nuclear-plf"
     },
     {
       "indicator_id": "state-plant-load-factor-pct-small-hydro",
@@ -2767,7 +2869,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "small-hydro-plf"
     },
     {
       "indicator_id": "state-plant-load-factor-pct-solar",
@@ -2795,7 +2898,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "solar-plf"
     },
     {
       "indicator_id": "state-plant-load-factor-pct-wind",
@@ -2823,7 +2927,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "wind-plf"
     },
     {
       "indicator_id": "state-plant-load-factor-pct-biomass",
@@ -2851,7 +2956,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "biomass-plf"
     },
     {
       "indicator_id": "state-power-purchase-share-pct",
@@ -2876,7 +2982,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "power-purchase-mix"
     },
     {
       "indicator_id": "state-power-purchase-share-pct-coal",
@@ -2904,7 +3011,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "coal-purchase-share"
     },
     {
       "indicator_id": "state-power-purchase-share-pct-gas",
@@ -2932,7 +3040,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "gas-purchase-share"
     },
     {
       "indicator_id": "state-power-purchase-share-pct-diesel",
@@ -2960,7 +3069,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "diesel-purchase-share"
     },
     {
       "indicator_id": "state-power-purchase-share-pct-hydro",
@@ -2988,7 +3098,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "large-hydro-purchase-share"
     },
     {
       "indicator_id": "state-power-purchase-share-pct-nuclear",
@@ -3016,7 +3127,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "nuclear-purchase-share"
     },
     {
       "indicator_id": "state-power-purchase-share-pct-small-hydro",
@@ -3044,7 +3156,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "small-hydro-purchase-share"
     },
     {
       "indicator_id": "state-power-purchase-share-pct-solar",
@@ -3072,7 +3185,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "solar-purchase-share"
     },
     {
       "indicator_id": "state-power-purchase-share-pct-wind",
@@ -3100,7 +3214,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "wind-purchase-share"
     },
     {
       "indicator_id": "state-power-purchase-share-pct-biomass",
@@ -3128,7 +3243,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "biomass-purchase-share"
     },
     {
       "indicator_id": "state-power-purchase-share-pct-renewable-other",
@@ -3156,7 +3272,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "other-re-purchase-share"
     },
     {
       "indicator_id": "state-power-purchase-share-pct-hybrid-bundled",
@@ -3184,7 +3301,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "hybrid-bundled-share"
     },
     {
       "indicator_id": "state-power-purchase-share-pct-trading-other",
@@ -3212,7 +3330,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "trading-others-share"
     },
     {
       "indicator_id": "india-final-energy-consumption-mtoe",
@@ -3237,7 +3356,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "final-energy-consumption"
     },
     {
       "indicator_id": "india-final-energy-consumption-mtoe-agriculture-electricity",
@@ -3265,7 +3385,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "agriculture-electricity"
     },
     {
       "indicator_id": "india-final-energy-consumption-mtoe-agriculture-gas",
@@ -3293,7 +3414,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "agriculture-gas"
     },
     {
       "indicator_id": "india-final-energy-consumption-mtoe-agriculture-oil",
@@ -3321,7 +3443,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "agriculture-oil"
     },
     {
       "indicator_id": "india-final-energy-consumption-mtoe-cgd-and-others-gas",
@@ -3349,7 +3472,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "cgd-and-others-gas"
     },
     {
       "indicator_id": "india-final-energy-consumption-mtoe-commercial-electricity",
@@ -3377,7 +3501,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "commercial-electricity"
     },
     {
       "indicator_id": "india-final-energy-consumption-mtoe-commercial-oil",
@@ -3405,7 +3530,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "commercial-oil"
     },
     {
       "indicator_id": "india-final-energy-consumption-mtoe-industry-coal",
@@ -3433,7 +3559,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "industry-coal"
     },
     {
       "indicator_id": "india-final-energy-consumption-mtoe-industry-electricity",
@@ -3461,7 +3588,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "industry-electricity"
     },
     {
       "indicator_id": "india-final-energy-consumption-mtoe-industry-gas",
@@ -3489,7 +3617,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "industry-gas"
     },
     {
       "indicator_id": "india-final-energy-consumption-mtoe-industry-oil",
@@ -3517,7 +3646,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "industry-oil"
     },
     {
       "indicator_id": "india-final-energy-consumption-mtoe-non-energy-gas",
@@ -3545,7 +3675,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "non-energy-gas"
     },
     {
       "indicator_id": "india-final-energy-consumption-mtoe-non-energy-oil",
@@ -3573,7 +3704,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "non-energy-oil"
     },
     {
       "indicator_id": "india-final-energy-consumption-mtoe-other-electricity",
@@ -3601,7 +3733,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "other-electricity"
     },
     {
       "indicator_id": "india-final-energy-consumption-mtoe-other-oil",
@@ -3629,7 +3762,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "other-oil"
     },
     {
       "indicator_id": "india-final-energy-consumption-mtoe-residential-electricity",
@@ -3657,7 +3791,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "residential-electricity"
     },
     {
       "indicator_id": "india-final-energy-consumption-mtoe-residential-oil",
@@ -3685,7 +3820,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "residential-oil"
     },
     {
       "indicator_id": "india-final-energy-consumption-mtoe-transport-electricity",
@@ -3713,7 +3849,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "transport-electricity"
     },
     {
       "indicator_id": "india-final-energy-consumption-mtoe-transport-oil",
@@ -3741,7 +3878,8 @@
         "country"
       ],
       "default_entity_kind": "country",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "transport-oil"
     },
     {
       "indicator_id": "state-renewable-grid-capacity-mw",
@@ -3766,7 +3904,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "renewable-grid-capacity"
     },
     {
       "indicator_id": "district-pashu-aadhaar-count",
@@ -3797,7 +3936,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "pashu-aadhaar-tagged"
     },
     {
       "indicator_id": "district-pashu-aadhaar-count-cattle",
@@ -3831,7 +3971,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "cattle"
     },
     {
       "indicator_id": "district-pashu-aadhaar-count-buffalo",
@@ -3865,7 +4006,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "buffalo"
     },
     {
       "indicator_id": "district-pashu-aadhaar-count-yak",
@@ -3899,7 +4041,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "yak"
     },
     {
       "indicator_id": "district-pashu-aadhaar-count-mithun",
@@ -3933,7 +4076,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "mithun"
     },
     {
       "indicator_id": "district-pashu-aadhaar-count-sheep",
@@ -3967,7 +4111,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "sheep"
     },
     {
       "indicator_id": "district-pashu-aadhaar-count-goat",
@@ -4001,7 +4146,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "goat"
     },
     {
       "indicator_id": "district-pashu-aadhaar-count-pig",
@@ -4035,7 +4181,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "pig"
     },
     {
       "indicator_id": "district-pashu-aadhaar-count-horse",
@@ -4069,7 +4216,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "horse"
     },
     {
       "indicator_id": "district-pashu-aadhaar-count-donkey",
@@ -4103,7 +4251,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "donkey"
     },
     {
       "indicator_id": "district-pashu-aadhaar-count-mule",
@@ -4137,7 +4286,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "mule"
     },
     {
       "indicator_id": "state-pashu-aadhaar-count",
@@ -4168,7 +4318,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "pashu-aadhaar-tagged-state"
     },
     {
       "indicator_id": "state-pashu-aadhaar-count-cattle",
@@ -4202,7 +4353,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "cattle-state"
     },
     {
       "indicator_id": "state-pashu-aadhaar-count-buffalo",
@@ -4236,7 +4388,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "buffalo-state"
     },
     {
       "indicator_id": "state-pashu-aadhaar-count-yak",
@@ -4270,7 +4423,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "yak-state"
     },
     {
       "indicator_id": "state-pashu-aadhaar-count-mithun",
@@ -4304,7 +4458,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "mithun-state"
     },
     {
       "indicator_id": "state-pashu-aadhaar-count-sheep",
@@ -4338,7 +4493,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "sheep-state"
     },
     {
       "indicator_id": "state-pashu-aadhaar-count-goat",
@@ -4372,7 +4528,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "goat-state"
     },
     {
       "indicator_id": "state-pashu-aadhaar-count-pig",
@@ -4406,7 +4563,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "pig-state"
     },
     {
       "indicator_id": "state-pashu-aadhaar-count-horse",
@@ -4440,7 +4598,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "horse-state"
     },
     {
       "indicator_id": "state-pashu-aadhaar-count-donkey",
@@ -4474,7 +4633,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "donkey-state"
     },
     {
       "indicator_id": "state-pashu-aadhaar-count-mule",
@@ -4508,7 +4668,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "mule-state"
     },
     {
       "indicator_id": "district-livestock-owner-reg-count",
@@ -4539,7 +4700,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "livestock-owners-registered"
     },
     {
       "indicator_id": "district-livestock-owner-reg-count-landless-marginal",
@@ -4573,7 +4735,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "landless-marginal-1-ha"
     },
     {
       "indicator_id": "district-livestock-owner-reg-count-small",
@@ -4607,7 +4770,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "small-1-0-1-99-ha"
     },
     {
       "indicator_id": "district-livestock-owner-reg-count-semi-medium",
@@ -4641,7 +4805,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "semi-medium-2-0-3-99-ha"
     },
     {
       "indicator_id": "district-livestock-owner-reg-count-medium",
@@ -4675,7 +4840,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "medium-4-0-9-99-ha"
     },
     {
       "indicator_id": "district-livestock-owner-reg-count-large",
@@ -4709,7 +4875,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "large-10-ha"
     },
     {
       "indicator_id": "district-livestock-owner-reg-count-not-specified",
@@ -4743,7 +4910,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "not-specified"
     },
     {
       "indicator_id": "state-livestock-owner-reg-count",
@@ -4774,7 +4942,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "livestock-owners-registered-state"
     },
     {
       "indicator_id": "state-livestock-owner-reg-count-landless-marginal",
@@ -4808,7 +4977,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "landless-marginal-state"
     },
     {
       "indicator_id": "state-livestock-owner-reg-count-small",
@@ -4842,7 +5012,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "small-state"
     },
     {
       "indicator_id": "state-livestock-owner-reg-count-semi-medium",
@@ -4876,7 +5047,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "semi-medium-state"
     },
     {
       "indicator_id": "state-livestock-owner-reg-count-medium",
@@ -4910,7 +5082,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "medium-state"
     },
     {
       "indicator_id": "state-livestock-owner-reg-count-large",
@@ -4944,7 +5117,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "large-state"
     },
     {
       "indicator_id": "state-livestock-owner-reg-count-not-specified",
@@ -4978,7 +5152,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "not-specified-state"
     },
     {
       "indicator_id": "district-livestock-naip-iv-inseminations",
@@ -5009,7 +5184,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "ai-events-district"
     },
     {
       "indicator_id": "district-livestock-naip-iv-pregnancy-diagnoses",
@@ -5040,7 +5216,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "pregnancy-diagnoses-district"
     },
     {
       "indicator_id": "district-livestock-naip-iv-calves-born",
@@ -5071,7 +5248,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "calves-born-district"
     },
     {
       "indicator_id": "district-livestock-naip-iv-farmers-benefitted",
@@ -5102,7 +5280,8 @@
         "district"
       ],
       "default_entity_kind": "district",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "farmers-benefitted-district"
     },
     {
       "indicator_id": "state-livestock-naip-iv-inseminations",
@@ -5133,7 +5312,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "ai-events-state"
     },
     {
       "indicator_id": "state-livestock-naip-iv-pregnancy-diagnoses",
@@ -5164,7 +5344,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "pregnancy-diagnoses-state"
     },
     {
       "indicator_id": "state-livestock-naip-iv-calves-born",
@@ -5195,7 +5376,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "calves-born-state"
     },
     {
       "indicator_id": "state-livestock-naip-iv-farmers-benefitted",
@@ -5226,7 +5408,8 @@
         "state"
       ],
       "default_entity_kind": "state",
-      "update_period_days": 365
+      "update_period_days": 365,
+      "concept_id": "farmers-benefitted-state"
     }
   ]
 }
