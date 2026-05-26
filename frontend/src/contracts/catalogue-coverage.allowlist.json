@@ -16,10 +16,6 @@
     {
       "id": "economy/national_macro_aggregates_constant_2011_12_inr_crore",
       "reason": "phase4-pending (economy national-series renderer): country-entity, GDP/GNI/NNI/NDP composite; needs multi-series picker."
-    },
-    {
-      "id": "economy/state_per_capita_nsdp_current_inr",
-      "reason": "permanent-allowlist: superseded by state_per_capita_nsdp_current_inr_long (RBI-spliced longer history). Kept on disk as diff-check artifact only — do not wire."
     }
   ]
 }

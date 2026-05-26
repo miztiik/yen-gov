@@ -78,8 +78,8 @@ if p.exists():
     yrs = sorted(indicator_years(p))
     print(f"  years: {yrs[0]} ... {yrs[-1]}  ({len(yrs)})")
 
-section("EXISTING: state_per_capita_nsdp_current_inr.json")
-p = IND / "economy" / "state_per_capita_nsdp_current_inr.json"
+section("EXISTING: per_capita_nsdp_current_inr.json")
+p = IND / "economy" / "per_capita_nsdp_current_inr.json"
 if p.exists():
     yrs = sorted(indicator_years(p))
     print(f"  years: {yrs[0]} ... {yrs[-1]}  ({len(yrs)})")

@@ -4,7 +4,7 @@ Reads four cached XLSX files under ``.runtime/raw/rbi/handbook_economy_2024_25/`
 
   T05_NSDP_Statewise_Current.xlsx   -> economy/state_nsdp_current_inr_crore
   T06_NSDP_Statewise_Constant.xlsx  -> economy/state_nsdp_constant_inr_crore
-  T09_PCNSDP_Statewise_Current.xlsx -> economy/state_per_capita_nsdp_current_inr_long
+  T09_PCNSDP_Statewise_Current.xlsx -> economy/per_capita_nsdp_current_inr
   T10_PCNSDP_Statewise_Constant.xlsx-> economy/state_per_capita_nsdp_constant_inr_long
 
 Each sheet stacks four base-year sections in the same column-1 ordering:
@@ -250,8 +250,8 @@ SPECS = [
         ),
     },
     {
-        "id": "economy/state_per_capita_nsdp_current_inr_long",
-        "title": "State per-capita NSDP (current prices, long series)",
+        "id": "economy/per_capita_nsdp_current_inr",
+        "title": "Per-capita NSDP (current prices, by state)",
         "table_key": "T09",
         "xlsx": "T09_PCNSDP_Statewise_Current.xlsx",
         "table_label": "Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices)",
@@ -261,11 +261,10 @@ SPECS = [
         "description": (
             "Per-capita Net State Domestic Product (current prices), "
             "2000-01 -> 2024-25 (25 fiscal years), spliced across MoSPI's "
-            "1999-2000, 2004-05, and 2011-12 base years. Long-history "
-            "sibling of `economy/state_per_capita_nsdp_current_inr` (which "
-            "covers 2004-05 -> 2023-24 from ICED at the 2011-12 base "
-            "only). Use this artifact when you need depth; use the ICED "
-            "sibling when you need single-base purity."
+            "1999-2000, 2004-05, and 2011-12 base years. Sourced from RBI "
+            "Handbook of Statistics on Indian Economy. Grain is per-state "
+            "(entity_kind dispatched at read time per ADR-0044); base-year "
+            "tracked on each row's `vintage`, not in the id."
         ),
         "notes": (
             "Source: RBI Handbook of Statistics on Indian Economy 2024-25 "
