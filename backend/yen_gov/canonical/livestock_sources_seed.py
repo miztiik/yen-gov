@@ -61,6 +61,7 @@ from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.envelope import SourceRow
 
 __all__ = [
+    "LIVESTOCK_NICKNAME_TO_PRODUCER_TITLE",
     "LIVESTOCK_SOURCE_ID_BY_NICKNAME",
     "LIVESTOCK_SOURCES",
     "SOURCE_NICKNAMES",
@@ -208,6 +209,26 @@ LIVESTOCK_SOURCES: tuple[SourceRow, ...] = _build_livestock_source_rows()
 LIVESTOCK_SOURCE_ID_BY_NICKNAME: dict[str, str] = {
     nickname: row.source_id
     for nickname, row in zip(SOURCE_NICKNAMES, LIVESTOCK_SOURCES, strict=True)
+}
+
+# (producer, title) pair per nickname. Exposed so that
+# ``yen_gov.canonical.adapters.livestock._shared.source_id_for`` can
+# derive a vintage-specific ``source_id`` at runtime without
+# round-tripping through the SourceRow ledger. This map carries the
+# IDENTITY half of the citation triple; vintage is the per-snapshot
+# parameter the adapter applies via ``derive_source_id``.
+#
+# Why this exists (architectural fix, 2026-05-26): adapters used to
+# carry a frozen ``SOURCE_IDS[nickname]`` constant in _shared.py that
+# baked vintage="2024-25" into every observation row's FK. When a
+# future operator snapshot window lands (ADR-0042: live-fetch endpoints
+# get a new source row per new snapshot), the new vintage's source_id
+# must FK observation rows fetched in that window. The runtime helper
+# eliminates the frozen constant + lets adapters discover meadow
+# snapshot dirs and pick the correct source_id per dir.
+LIVESTOCK_NICKNAME_TO_PRODUCER_TITLE: dict[str, tuple[str, str]] = {
+    nickname: (_TRIPLES[nickname][0], _TRIPLES[nickname][1])
+    for nickname in SOURCE_NICKNAMES
 }
 
 

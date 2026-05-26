@@ -26,21 +26,90 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from yen_gov.canonical.citation import derive_source_id
+from yen_gov.canonical.livestock_sources_seed import (
+    LIVESTOCK_NICKNAME_TO_PRODUCER_TITLE,
+    LIVESTOCK_SOURCE_ID_BY_NICKNAME,
+)
 
-# 5 source_ids seeded by PR #276 (livestock_sources_seed.py).
-# DO NOT re-derive these in the adapter - the citation ledger is the
-# source of truth, and the writer's FK gate verifies each appears in
-# ``datasets/taxonomy/sources.parquet`` before observation rows touch
-# disk. If a future PR rotates the source triple
-# (``producer | title | vintage``) for any of these, the hash will
-# rotate and BOTH the citation seed + this constant must update together.
-SOURCE_IDS: dict[str, str] = {
-    "ndlm_owner_registration": "src-d98dc531ef7e",
-    "ndlm_pashu_aadhaar":      "src-7e5d4aac4995",
-    "ndlm_nadcp_vaccination":  "src-1d0c0fbf96e3",
-    "ndlm_breeding_abip_rgm":  "src-fb1694ab6a11",
-    "ndlm_naip_iv":            "src-93a2a72db482",
-}
+
+# 5 source_ids materialised from livestock_sources_seed.py at the
+# default operator snapshot window. Kept as a back-compat alias for
+# callers that pre-date the multi-vintage architecture (2026-05-26);
+# new code uses ``source_id_for(nickname, vintage)`` so the source_id
+# rotates per snapshot window without a hand-typed constant table.
+# The writer's FK gate verifies closure against
+# ``datasets/taxonomy/sources.parquet`` before any bytes touch disk.
+SOURCE_IDS: dict[str, str] = dict(LIVESTOCK_SOURCE_ID_BY_NICKNAME)
+
+
+def source_id_for(nickname: str, vintage: str) -> str:
+    """Derive the source_id for one (livestock endpoint, vintage) pair.
+
+    Adapters call this once per discovered meadow snapshot dir to FK
+    observation rows to the correct citation row. The (producer, title)
+    pair comes from ``livestock_sources_seed.py``'s
+    ``LIVESTOCK_NICKNAME_TO_PRODUCER_TITLE`` map (the IDENTITY half of
+    the citation triple); vintage is the per-snapshot parameter.
+
+    Per ADR-0042 (vintage = operator snapshot window for live-fetch
+    sources without a publisher edition tag), vintage MUST match an
+    existing citation row in ``datasets/taxonomy/sources.parquet`` or
+    the writer's FK gate will reject the batch.
+
+    Per ADR-0041 nn4, vintage MUST also match the meadow dir name the
+    rows were loaded from (strict equality, enforced Tier-B). The
+    caller therefore always passes the meadow dir name as vintage;
+    NEVER a different label.
+
+    Raises:
+        ValueError if nickname is not one of the 5 seeded livestock
+        nicknames (defensive: a typo here would emit observation rows
+        with a phantom source_id that the FK gate catches later but
+        with a less useful error message).
+    """
+    if nickname not in LIVESTOCK_NICKNAME_TO_PRODUCER_TITLE:
+        valid = sorted(LIVESTOCK_NICKNAME_TO_PRODUCER_TITLE)
+        raise ValueError(
+            f"Unknown livestock source nickname {nickname!r}; "
+            f"valid nicknames: {valid}"
+        )
+    producer, title = LIVESTOCK_NICKNAME_TO_PRODUCER_TITLE[nickname]
+    return derive_source_id(producer, title, vintage)
+
+
+def discover_meadow_snapshots(
+    repo_root: Path, source: str = "ndlm"
+) -> tuple[str, ...]:
+    """Discover all operator snapshot window dirs under the family meadow.
+
+    Returns the sorted list of dir names found under
+    ``datasets/livestock/_meadow/<source>/`` -- each represents one
+    operator snapshot window per ADR-0042. Adapters iterate this list
+    and emit one batch of observation rows per snapshot, FK'd via
+    ``source_id_for(nickname, snapshot)`` to the matching citation row.
+
+    Today this returns ``("2024-25",)`` -- one snapshot window pulled
+    in the May 2026 operator session. A future re-snapshot (e.g. next
+    FY) lands a new dir like ``"2025-26"`` and is auto-picked up by
+    every adapter without code edits.
+
+    Raises:
+        ValueError if no snapshot dirs are present (empty family --
+        adapters should not be invoked at all in this state; emit-time
+        fail-loud is honest).
+    """
+    base = repo_root / "datasets" / "livestock" / "_meadow" / source
+    snapshots = tuple(
+        sorted(p.name for p in base.iterdir() if p.is_dir())
+    ) if base.is_dir() else ()
+    if not snapshots:
+        raise ValueError(
+            f"No meadow snapshot dirs found under {base}. The livestock "
+            f"adapters cannot emit observation rows; run the meadow lift "
+            f"tools (tools/livestock_meadow_*.py) first."
+        )
+    return snapshots
 
 
 # (speciesCd, kebab-slug, display name, citizen-readable description noun).

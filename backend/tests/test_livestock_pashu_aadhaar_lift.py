@@ -49,7 +49,16 @@ SPECIES_SLUGS = {
 # Only the FY 2024-25 vintage is currently lifted (matches the seeded
 # source citation vintage; the inventory deriver rejects mixed
 # year + year_month shapes within one indicator).
-VINTAGES = {"2024-25"}
+# 16 FY vintages lifted from the 2026-05-26 NDLM operator snapshot.
+# CY vintages are preserved in raw but not lifted - the canonical inventory
+# deriver rejects mixing CY (year) + FY (year_month) period shapes within
+# one indicator.
+VINTAGES = {
+    "2010-11", "2011-12", "2012-13", "2013-14",
+    "2014-15", "2015-16", "2016-17", "2017-18",
+    "2018-19", "2019-20", "2020-21", "2021-22",
+    "2022-23", "2023-24", "2024-25", "2025-26",
+}
 MEADOW_VINTAGE_DIR = "2024-25"
 PASHU_AADHAAR_SOURCE_ID = "src-7e5d4aac4995"
 
@@ -177,11 +186,12 @@ def test_all_rows_carry_pashu_aadhaar_source_id() -> None:
     not MEADOW_DIR.is_dir(),
     reason="livestock meadow shards not on disk in this checkout",
 )
-def test_period_labels_are_cy_or_fy_only() -> None:
-    """Currently we lift only FY 2024-25 (matches the seeded source
-    citation vintage). CY 2024 is preserved in raw but not lifted - the
-    inventory deriver rejects heterogeneous `time` vocabularies within
-    one indicator. Any other period_label = adapter parse_ndlm_period bug.
+def test_period_labels_are_16_fy_vintages_only() -> None:
+    """We lift the 16 FY vintages 2010-11..2025-26 from the 2026-05-26
+    NDLM operator snapshot window. CY vintages are preserved in raw
+    but not lifted - the inventory deriver rejects heterogeneous
+    ``time`` vocabularies within one indicator. Any period_label
+    outside the FY set = adapter parse_ndlm_period bug.
     """
     env = _pashu_aadhaar_envelope()
     labels = {r.period_label for r in env.observation_rows}

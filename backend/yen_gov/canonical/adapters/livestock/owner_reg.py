@@ -63,12 +63,19 @@ from pathlib import Path
 
 from yen_gov.canonical.envelope import BatchEnvelope, ObservationRow
 
-from ._shared import SOURCE_IDS, load_meadow, parse_ndlm_period, state_prefix
+from ._shared import (
+    discover_meadow_snapshots,
+    load_meadow,
+    parse_ndlm_period,
+    source_id_for,
+    state_prefix,
+)
 
-# Meadow-path vintage segment - matches src-d98dc531ef7e seeded by
-# PR #276. The row-level ``time`` field carries the vintage label
-# (only "2024-25" present in this shard at slice-1 cut date).
-MEADOW_VINTAGE = "2024-25"
+# Meadow source identifier (matches the dir layout
+# datasets/livestock/_meadow/<source>/<snapshot>/). The vintage
+# segment is discovered at run time via ``discover_meadow_snapshots``;
+# no hardcoded vintage literal lives in this module.
+MEADOW_SOURCE = "ndlm"
 
 # 6 land-holding brackets the publisher emits. Snake_case literal here
 # matches the FacetAxisValue value_id pattern (underscores allowed);
@@ -100,15 +107,22 @@ LANDHOLDING_TO_SLUG: dict[str, str] = {
 }
 
 
-def build_envelope(repo_root: Path) -> BatchEnvelope:
+def _lift_snapshot(
+    repo_root: Path, vintage: str, source_id: str
+) -> list[ObservationRow]:
+    """Lift one operator snapshot window's rows into observations.
+
+    Loads ``owner_reg_land_holding_district.json`` from the named
+    snapshot dir, SUMs the gender axis (Approach B), then auto-rolls
+    up to state grain per ADR-0043. All rows in the returned list FK
+    to the same ``source_id`` (one citation row per snapshot per
+    ADR-0042).
+    """
     rows: list[ObservationRow] = []
-
-    source_id = SOURCE_IDS["ndlm_owner_registration"]
-
     shard = load_meadow(
         repo_root,
-        "ndlm",
-        MEADOW_VINTAGE,
+        MEADOW_SOURCE,
+        vintage,
         "owner_reg_land_holding_district.json",
     )
 
@@ -191,8 +205,28 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             )
         )
 
+    return rows
+
+
+def build_envelope(repo_root: Path) -> BatchEnvelope:
+    """Build the Owner Registration envelope across all snapshots.
+
+    Iterates every dir under ``datasets/livestock/_meadow/ndlm/`` and
+    lifts one batch per snapshot. Each batch's observation rows FK to
+    a vintage-specific ``source_id`` derived via ``source_id_for``
+    (per ADR-0042: live-fetch endpoints get one citation row per
+    operator snapshot window). The FY 2010-11..2025-26 range lifted
+    in 2026-05 lives inside the single ``2024-25`` snapshot's meadow
+    file via row-level ``time`` field; a future re-snapshot is
+    auto-picked up by this loop without code change.
+    """
+    all_rows: list[ObservationRow] = []
+    for vintage in discover_meadow_snapshots(repo_root, MEADOW_SOURCE):
+        source_id = source_id_for("ndlm_owner_registration", vintage)
+        all_rows.extend(_lift_snapshot(repo_root, vintage, source_id))
+
     return BatchEnvelope(
         target_family="livestock",
         target_table_stem="livestock_owner_registration",
-        observation_rows=rows,
+        observation_rows=all_rows,
     )

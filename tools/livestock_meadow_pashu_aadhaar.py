@@ -60,17 +60,11 @@ SPECIES: list[tuple[int, str, str, str]] = [
 # Seeded citation vintage - the source row in datasets/taxonomy/sources.parquet
 # for ndlm_pashu_aadhaar has vintage="2024-25". The meadow-path vintage segment
 # must match this string per ADR-0041 nn4 + ADR-0042.
-MEADOW_VINTAGE = "2024-25"
-
-# Raw vintages we slurp from the gitignored .runtime/raw/ndlm/<v>/ directory.
-# DEFAULT_RAW_VINTAGES currently lifts ONLY the FY 2024-25 snapshot to keep
-# the meadow `time` vocabulary homogeneous (the inventory deriver rejects
-# heterogeneous `time` shapes within one indicator). The CY 2024 snapshot
-# remains preserved in the raw corpus (`.runtime/raw/ndlm/2024/`) and can
-# be lifted in a follow-up PR via a separate indicator family (or by
-# rotating this default to lift CY 2024 instead). The seeded source
-# citation (`src-7e5d4aac4995`) has vintage="2024-25" only.
-DEFAULT_RAW_VINTAGES = ("2024-25",)
+# Operator-tunable knob: when a future PR rotates the snapshot window
+# (e.g. next FY) it bumps this default + the matching seed row in
+# backend/yen_gov/canonical/livestock_sources_seed.py in the same
+# commit. Override per-run via --meadow-snapshot.
+MEADOW_SNAPSHOT_DEFAULT = "2024-25"
 
 SOURCE_ID = "src-7e5d4aac4995"  # ndlm_pashu_aadhaar (seeded in PR #276)
 SOURCE_URL = (
@@ -86,10 +80,43 @@ LICENSE = {
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 RAW_ROOT = REPO_ROOT / ".runtime" / "raw" / "ndlm"
-MEADOW_DIR = (
-    REPO_ROOT / "datasets" / "livestock" / "_meadow" / "ndlm" / MEADOW_VINTAGE
-)
+MEADOW_ROOT = REPO_ROOT / "datasets" / "livestock" / "_meadow" / "ndlm"
 ENTITIES_JSON = REPO_ROOT / "datasets" / "taxonomy" / "entities.json"
+
+
+def _meadow_dir(snapshot_window: str) -> Path:
+    """Compute the meadow output dir for a named snapshot window.
+
+    Lifted out of a module-level constant so the snapshot can rotate
+    via --meadow-snapshot at run time without code edits. Each
+    snapshot window is one operator-snapshot per ADR-0042 and FKs to
+    one citation row in datasets/taxonomy/sources.parquet.
+    """
+    return MEADOW_ROOT / snapshot_window
+
+
+def _discover_fy_raw_vintages() -> tuple[str, ...]:
+    """Auto-discover FY-shaped raw vintage dirs under .runtime/raw/ndlm/.
+
+    FY shape: ``YYYY-YY`` (e.g. ``2010-11`` through ``2025-26``).
+    CY dirs (``YYYY``) are deliberately excluded because the inventory
+    deriver rejects mixed CY+FY vocabularies within a single indicator;
+    a future CY lift PR will add a separate ``--vintage-type cy`` mode
+    that emits CY-only into separate indicator slugs.
+
+    Returns the sorted tuple of FY raw-vintage dir names found, or
+    () if RAW_ROOT does not exist (operator must then pass
+    --raw-vintages explicitly).
+    """
+    if not RAW_ROOT.is_dir():
+        return ()
+    return tuple(
+        sorted(
+            p.name
+            for p in RAW_ROOT.iterdir()
+            if p.is_dir() and len(p.name) == 7 and p.name[4] == "-"
+        )
+    )
 
 
 def _load_district_lookup() -> dict[str, str]:
@@ -256,16 +283,31 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--raw-vintages",
-        default=",".join(DEFAULT_RAW_VINTAGES),
+        default="",
         help=(
-            "Comma-separated raw NDLM vintages to lift (default: "
-            "'2024-25'). Output goes under _meadow/ndlm/2024-25/ (the "
-            "seeded source vintage); raw_vintage is recorded as each "
-            "row's `time` field. The inventory deriver requires a "
-            "homogeneous `time` vocabulary per indicator so the default "
-            "ships ONLY FY 2024-25 — lifting both CY 2024 and FY 2024-25 "
-            "into the same file would fail the deriver (mixed year + "
+            "Comma-separated raw NDLM vintages to lift. Default "
+            "(empty string) auto-discovers every FY-shaped dir "
+            "(YYYY-YY) under .runtime/raw/ndlm/ -- today this is the "
+            "full FY 2010-11..2025-26 range. Pass an explicit list "
+            "(e.g. '2024-25,2025-26') to scope the lift. The "
+            "inventory deriver requires a homogeneous `time` "
+            "vocabulary per indicator: CY dirs (YYYY shape) are "
+            "excluded from auto-discovery because mixing CY+FY into "
+            "one indicator would fail the deriver (mixed year + "
             "year_month shapes)."
+        ),
+    )
+    parser.add_argument(
+        "--meadow-snapshot",
+        default=MEADOW_SNAPSHOT_DEFAULT,
+        help=(
+            "Operator snapshot window per ADR-0042 (the vintage "
+            "segment of the meadow output path). Must match the "
+            "vintage of the seeded citation row in "
+            "datasets/taxonomy/sources.parquet (ndlm_pashu_aadhaar, "
+            "currently 'src-7e5d4aac4995' at vintage='2024-25'). "
+            "Override only when re-snapshotting in tandem with a "
+            "new source seed row."
         ),
     )
     parser.add_argument(
@@ -275,20 +317,35 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    raw_vintages = tuple(
-        v.strip() for v in args.raw_vintages.split(",") if v.strip()
-    )
+    if args.raw_vintages.strip():
+        raw_vintages = tuple(
+            v.strip() for v in args.raw_vintages.split(",") if v.strip()
+        )
+    else:
+        raw_vintages = _discover_fy_raw_vintages()
+    if not raw_vintages:
+        print(
+            "ERROR: no raw vintages to lift (auto-discovery found 0 "
+            "FY-shaped dirs under .runtime/raw/ndlm/; pass "
+            "--raw-vintages explicitly or run tools/ndlm_download.py).",
+            file=sys.stderr,
+        )
+        return 1
+
     species_filter = None
     if args.species:
         species_filter = {s.strip() for s in args.species.split(",") if s.strip()}
 
     district_lookup = _load_district_lookup()
     print(f"district lgd lookup: {len(district_lookup)} entries")
+    print(f"raw vintages: {list(raw_vintages)}")
+    print(f"meadow snapshot: {args.meadow_snapshot}")
 
     total_files = 0
     total_rows = 0
     all_unresolved: dict[tuple[str, str, str, str], int] = {}
-    MEADOW_DIR.mkdir(parents=True, exist_ok=True)
+    meadow_dir = _meadow_dir(args.meadow_snapshot)
+    meadow_dir.mkdir(parents=True, exist_ok=True)
     for sp_cd, sp_slug, sp_display, sp_noun in SPECIES:
         if species_filter is not None and sp_slug not in species_filter:
             continue
@@ -296,7 +353,7 @@ def main() -> int:
             raw_vintages, sp_cd, sp_slug, sp_display, sp_noun, district_lookup
         )
         row_count = len(doc["rows"])
-        out_path = MEADOW_DIR / f"district-pashu-aadhaar-count-{sp_slug}.json"
+        out_path = meadow_dir / f"district-pashu-aadhaar-count-{sp_slug}.json"
         out_path.write_text(
             json.dumps(doc, indent=2, ensure_ascii=False) + "\n",
             encoding="utf-8",
@@ -310,7 +367,7 @@ def main() -> int:
     print()
     print("=== summary ===")
     print(f"raw vintages lifted: {list(raw_vintages)}")
-    print(f"meadow files written: {total_files} under {MEADOW_DIR.relative_to(REPO_ROOT)}")
+    print(f"meadow files written: {total_files} under {meadow_dir.relative_to(REPO_ROOT)}")
     print(f"observation rows: {total_rows}")
     if all_unresolved:
         print(f"unresolved district LGD codes ({len(all_unresolved)}):")

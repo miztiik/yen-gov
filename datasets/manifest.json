@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.3",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-26T06:23:41Z",
+  "generated_at": "2026-05-26T07:45:06Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -362,11 +362,11 @@
       "files": [
         {
           "path": "livestock/livestock_pashu_aadhaar.parquet",
-          "size_bytes": 263778,
-          "row_count": 3594
+          "size_bytes": 1944735,
+          "row_count": 27360
         }
       ],
-      "row_count_total": 3594
+      "row_count_total": 27360
     },
     {
       "table_id": "livestock.livestock_owner_registration",
@@ -379,11 +379,11 @@
       "files": [
         {
           "path": "livestock/livestock_owner_registration.parquet",
-          "size_bytes": 233920,
-          "row_count": 3223
+          "size_bytes": 2150009,
+          "row_count": 30272
         }
       ],
-      "row_count_total": 3223
+      "row_count_total": 30272
     },
     {
       "table_id": "livestock.livestock_naip_iv",
@@ -396,11 +396,11 @@
       "files": [
         {
           "path": "livestock/livestock_naip_iv.parquet",
-          "size_bytes": 179850,
-          "row_count": 2464
+          "size_bytes": 534342,
+          "row_count": 7392
         }
       ],
-      "row_count_total": 2464
+      "row_count_total": 7392
     },
     {
       "table_id": "elections.dim_acs",
@@ -515,7 +515,7 @@
       "files": [
         {
           "path": "taxonomy/indicators.parquet",
-          "size_bytes": 44497,
+          "size_bytes": 45205,
           "row_count": 183
         }
       ],
@@ -566,7 +566,7 @@
       "files": [
         {
           "path": "taxonomy/sources.parquet",
-          "size_bytes": 25707,
+          "size_bytes": 25559,
           "row_count": 408
         }
       ],

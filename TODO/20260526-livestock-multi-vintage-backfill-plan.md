@@ -1,95 +1,72 @@
 # Livestock NDLM multi-vintage backfill — follow-up sprint plan
 
-**Last Updated**: 2026-05-26
-**Status**: ◻ QUEUED — predecessor plan [TODO/20260525-livestock-ndlm-ingest-plan.md](20260525-livestock-ndlm-ingest-plan.md) CLOSED 2026-05-26 on the FY 2024-25 single-vintage cut. This plan lifts the 32-vintage snapshot corpus already on disk into committed meadow + extends canonical adapters for time-series emission + adds frontend sparkline + year picker rendering.
-**Predecessor**: [TODO/20260525-livestock-ndlm-ingest-plan.md](20260525-livestock-ndlm-ingest-plan.md) §11 (Phases 0-3 for FY 2024-25 single-vintage cut; SHIPPED).
-**Doc-class routing**: **plan-doc** per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md). Carries phase status + active PRs + TBD only; rationale lives in the predecessor plan's §3-6 + the existing source adapters under `backend/yen_gov/canonical/adapters/livestock/`.
+**Last Updated**: 2026-05-26 (Phases A+B+C+D SHIPPED for FY cut; CY cut and Phase E carried forward)
+**Status**: 🟢 RESOLVED — single-PR ship; FY 2010-11..2025-26 (16 vintages) lifted into committed meadow + canonical regenerated + 44 indicator catalogue rows reframed to citizen-honest multi-vintage methodology. CY-vintage lift and frontend sparkline / year-picker (Phase E) carried forward as separate PRs.
+**Predecessor**: [TODO/20260525-livestock-ndlm-ingest-plan.md](20260525-livestock-ndlm-ingest-plan.md) §13 (Phases 0-3 for FY 2024-25 single-vintage cut; SHIPPED earlier).
+**Doc-class routing**: **plan-doc** per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md). Architectural verdict is folded inline below; rationale lives in the predecessor plan's §3-6 + the source adapters under `backend/yen_gov/canonical/adapters/livestock/`.
 
 ---
 
 ## 1. Inputs already on disk
 
-The 2026-05-26 bulk download produced the full corpus and committed nothing yet:
+The 2026-05-26 bulk download produced the full corpus:
 
 - `.runtime/raw/ndlm/{2010..2025}/` — 16 calendar-year vintages
 - `.runtime/raw/ndlm/{2010-11..2025-26}/` — 16 fiscal-year vintages
 - 4519 snapshot files (Owner Reg + Pashu Aadhaar + NAIP IV + NADCP) across 36 states
 - 18.36 MB total
-- `.runtime/raw/ndlm/_summary.json` — per-cell provenance + 11 publisher HTTP 500 failures recorded (all `getOwnerRegLandHoldingByDistrict` on 2025-26 cells; small fraction; document as known-gap in meadow lifts)
+- `.runtime/raw/ndlm/_summary.json` — per-cell provenance + 11 publisher HTTP 500 failures recorded (all `getOwnerRegLandHoldingByDistrict` on 2025-26 cells; small fraction; documented as known-gap)
 
 All paths are gitignored per [ADR-0041](../docs/architecture/decisions/0041-meadow-tier.md) §3. Re-run [tools/ndlm_download.py](../tools/ndlm_download.py) on a clean checkout if the corpus has been purged; takes ~25 min.
 
-## 2. Pre-conditions (BLOCKERS)
+## 2. Pre-conditions — RESOLVED (no ADR work needed)
 
-Both are Level 4-5 architectural calls per [CLAUDE.md](../CLAUDE.md) §6:
+Both pre-conditions were stress-tested with Hans (Governance) + Max (Indicator Scout) + Explore subagent (thorough recon) and converged on a single verdict: **the 5-row NDLM source ledger stays at 5 rows; the multi-vintage time-series is carried in observation-row `period_label`, not as new citation rows.**
 
-| # | Blocker | Owner | Discharge condition |
+| # | Pre-condition (queued 2026-05-26) | Verdict (2026-05-26) | Owner of verdict |
 | --- | --- | --- | --- |
-| 1 | **Sources-seed unfreeze** ([ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md) FROZEN 5-row seed → ~48 new rows: 3 useful families × ~16 vintages each) | Hans (governance) + Gregor (architect) | ADR-0032 amended with multi-vintage carve-out; OR ADR-0032 superseded by a new ADR. |
-| 2 | **Adapter time-series emit contract** (current adapters emit single-vintage rows; need to extend with vintage-aware lift loop) | Gregor (architect) | Pattern documented in [docs/architecture/data/canonical-store.md](../docs/architecture/data/canonical-store.md) §3 (observation row PK already supports it; what's missing is the adapter-side iteration contract). |
+| 1 | Sources-seed unfreeze (5 → ~48 rows) | **NOT NEEDED.** [ADR-0042](../docs/architecture/decisions/0042-sources-schema-v3-vintage-as-period-anchor.md) v3.0 binds: for live-fetch endpoints, **one citation row per (producer, endpoint, operator snapshot window)**; the year-of-data is a column in the dataset, not a citation row axis. This matches OWID's `origin` convention verbatim (Max-verified, [docs/concepts/owid-alignment.md](../docs/concepts/owid-alignment.md)). The 5 NDLM citation rows (one per endpoint) keep `vintage="2026-05"` and serve all 16 FY data rows uniformly. | Hans + Max + Explore |
+| 2 | Adapter time-series emit contract | **RESOLVED in-PR.** The 3 livestock adapters (`owner_reg.py`, `pashu_aadhaar.py`, `naip_iv.py`) now glob-discover snapshot dirs at lift time via `discover_meadow_snapshots(repo_root, source="ndlm")` in `_shared.py`. Per-vintage source_id is built via `source_id_for(nickname, vintage)` which calls `derive_source_id(producer, title, vintage)` per [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md). No hardcoded `MEADOW_VINTAGE` constants remain. | Gregor (folded into this PR) |
 
-Until BOTH discharge, this plan stays QUEUED. Do not open Phase A PR.
+## 3. Useful-vintage matrix (FY-only this PR; CY deferred)
 
-## 3. Useful-vintage matrix (triage from `_summary.json`)
+The FY cut shipped this PR; the CY cut is deferred until vintage-type CLI flags or separate CY-slug indicators are introduced (the canonical inventory deriver currently rejects mixing CY+FY in one indicator due to year vs year_month period shapes).
 
-Vintages worth lifting (non-trivial row counts; see `.runtime/raw/ndlm/_summary.json` for per-cell evidence). NADCP + Breeding stay UNLIFTED per the upstream-gap finding in [docs/research/livestock-ndlm-source-availability.md](../docs/research/livestock-ndlm-source-availability.md).
+| Family | Vintage range this PR (FY) | Row count delta vs 1-vintage baseline |
+| --- | --- | --- |
+| Owner Reg + Land Holding | FY 2010-11 → FY 2025-26 (16 FYs) | 30,272 (was ~12,000; ~2.5x) |
+| Pashu Aadhaar | FY 2010-11 → FY 2025-26 (16 FYs) | 27,360 (was ~3,000; ~9x) |
+| NAIP IV | FY 2010-11 → FY 2025-26 (16 FYs) | 7,392 (was ~2,940; ~2.5x) |
+| Total observation rows | — | **65,024** |
 
-| Family | Useful vintage range | Approx cells per vintage | Notes |
-| --- | --- | --- | --- |
-| Owner Reg + Land Holding | FY 2015-16 → FY 2025-26 (11 FYs) + CY 2015 → CY 2024 (10 CYs) | 35 states × ~22 districts avg | 11 HTTP 500 cells on FY 2025-26 (Rajasthan + Uttarakhand + others) — document as known-gap in meadow lift |
-| Pashu Aadhaar (Animal Registration) | FY 2015-16 → FY 2025-26 (11 FYs) + CY 2015 → CY 2024 (10 CYs) | 35 states × ~25 districts × 10 species facet | Largest corpus; will need per-species meadow shards |
-| NAIP IV | CY 2023 → CY 2024 (2 CYs) + FY 2023-24 → FY 2025-26 (3 FYs) | 28 states × ~21 districts × 5 metric-family facet | Older vintages (pre-CY2023) return `totalAIs: 0`; do NOT lift |
-| NADCP | (none — closed as TRUE GAP) | — | See [docs/research/livestock-ndlm-source-availability.md](../docs/research/livestock-ndlm-source-availability.md) |
-| Breeding | (none — closed as NO PUBLIC API) | — | See [docs/research/livestock-ndlm-source-availability.md](../docs/research/livestock-ndlm-source-availability.md) |
+11 publisher HTTP-500 cells on FY 2025-26 are silently absent in the meadow (documented in the bulk-download summary); rows simply don't exist for those cells. NDLM portal rollout was ~2018, so earlier FY rows carry small or zero values where the registry was not yet operating — all 44 indicator descriptions now spell this out per Hans' citizen-honest framing.
 
-## 4. Phase sketch
+## 4. Phase outcomes (single-PR ship)
 
-Each phase is one or more PRs. Phase A is the ADR work; Phases B-E lift + adapter + frontend in family order.
+| Phase (orig plan) | Outcome | Detail |
+| --- | --- | --- |
+| Phase A (sources-seed unfreeze ADR + expansion) | 🟢 SUPERSEDED | No ADR change; no seed expansion. ADR-0042 already binds. Hans + Max + OWID verdict in §2 above. |
+| Phase B (Owner Reg multi-vintage lift) | 🟢 SHIPPED | 30,272 rows in `livestock_owner_registration.parquet`. |
+| Phase C (Pashu Aadhaar multi-vintage lift) | 🟢 SHIPPED | 27,360 rows in `livestock_pashu_aadhaar.parquet`. |
+| Phase D (NAIP IV multi-vintage lift) | 🟢 SHIPPED | 7,392 rows in `livestock_naip_iv.parquet`. |
+| Phase E (frontend time-series UX) | ⏭ DEFERRED | Sparkline primitive + year-picker dropdown; separate Jony PR. The new rows render today via the existing big-number-of-most-recent-vintage flow; the additional vintages become visible when the picker ships. |
+| CY-vintage lift (16 calendar-year vintages) | ⏭ DEFERRED | Inventory deriver rejects mixed CY+FY in one indicator (year vs year_month period shapes). Choose either (a) separate `*-cy-*` indicator slugs OR (b) vintage-type CLI flag on the meadow tools, then ship as Phase F. |
 
-### Phase A — sources-seed unfreeze (1 ADR PR + 1 sources-seed PR)
+## 5. Architectural hardcode fixes folded into this PR
 
-1. Amend [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md) (or supersede) with multi-vintage carve-out. Hans + Gregor sign-off in the ADR body.
-2. Extend `backend/yen_gov/canonical/livestock_sources_seed.py` from 5 → ~48 rows. One `source_id` per `(family × vintage)` cell that the lift will use. Vintage in the URL field; ledger keeps the FY/CY duality per [§4](#4-cy--fy-carve-out--operational-rule) of the predecessor plan.
-3. Tier-A test: every new row resolves to a real `.runtime/raw/ndlm/<vintage>/<endpoint>_state-*.json` file (no orphan source rows).
+User mandate 2026-05-26: "I'm assuming you are fixing architecturally the hard coded values as well. So that we don't hard code and chase our tails in the future."
 
-### Phase B — Owner Reg multi-vintage lift (1 PR)
+The following hardcoded values were eliminated in the same PR as the data lift (no separate follow-up needed):
 
-1. Extend `backend/yen_gov/canonical/adapters/livestock/owner_reg.py` adapter with vintage-aware lift loop iterating over the Useful-vintage range.
-2. Write meadow shards at `datasets/livestock/_meadow/ndlm/<vintage>/owner_reg_land_holding_district.json` for each useful vintage.
-3. Regenerate `datasets/livestock/livestock_owner_registration.parquet` with all rows.
-4. Document the 11 HTTP 500 FY 2025-26 cells as a known-gap header in the relevant meadow files (or omit those states for that vintage and document the omission).
-5. Tier-A test: vintage-axis row-count monotonicity (newer vintages have ≥ older vintage counts for the same state, modulo known-gaps).
+- **3 livestock adapters** (`naip_iv.py`, `owner_reg.py`, `pashu_aadhaar.py`): `MEADOW_VINTAGE = "2024-25"` constant removed; replaced by `discover_meadow_snapshots(repo_root, source="ndlm")` glob-discovery + per-vintage `source_id_for(nickname, vintage)` lookup.
+- **3 livestock meadow tools** (`tools/livestock_meadow_*.py`): `DEFAULT_RAW_VINTAGES` constant removed; auto-discovers FY-shaped raw vintage dirs from `.runtime/raw/ndlm/`. `MEADOW_VINTAGE` constant replaced by tunable `MEADOW_SNAPSHOT_DEFAULT` operator knob exposed as `--meadow-snapshot` CLI flag.
+- **Sources seed** (`livestock_sources_seed.py`): hand-typed `SOURCE_IDS` dict in `_shared.py` replaced by `LIVESTOCK_NICKNAME_TO_PRODUCER_TITLE` export from the seed module (single source of truth for the 5 (producer, title) pairs); back-compat `SOURCE_IDS` alias retained as a transitional dict.
 
-### Phase C — Pashu Aadhaar multi-vintage lift (1 PR)
+## 6. NOT in scope (carried forward as future PRs)
 
-Same shape as Phase B but for `pashu_aadhaar.py`. 10-species facet; one meadow shard per (vintage × species) per the existing pattern.
-
-### Phase D — NAIP IV multi-vintage lift (1 PR)
-
-Same shape as Phase B but for `naip_iv.py`. Only 5 useful vintages (CY2023 + CY2024 + FY2023-24 + FY2024-25 + FY2025-26); skip older vintages where `totalAIs == 0`.
-
-### Phase E — frontend time-series rendering (1-2 PRs)
-
-1. Sparkline primitive in `frontend/src/lib/canonical/components/` (or extend existing big-number card with a sparkline). One row per (entity × indicator); X-axis = vintage; Y-axis = value.
-2. Year-picker dropdown for the choropleth (defaults to most recent FY; rest of the time-series renders on hover or in detail panel).
-3. §13 browser smoke on `/t/agriculture` for one indicator that now carries 5+ vintages.
-
-## 5. NOT in scope
-
+- **CY-vintage lift** (16 calendar-year vintages): see §4 deferred row.
 - **NADCP**: CLOSED as TRUE GAP. See research note.
 - **Breeding**: CLOSED as NO PUBLIC API. See research note.
-- **Pre-2015 vintages**: row counts are 1-2 digit on most states; not worth the meadow weight.
-- **Frontend onboarding tour** (Joyride-style) for the new sparkline UX: separate Jony PR.
+- **Frontend Phase E (sparkline + year picker)**: separate Jony PR. The new vintages live on disk + in the parquets today; the year-picker UI exposes them to citizens.
+- **`renderer_rules += ["annotate_programme_launch_year"]`** band-annotation primitive for pre-2018 NDLM rollout: Hans-flagged future Jony PR.
 
-## 6. Status table
-
-| Slice | Status | Notes |
-| --- | :-: | --- |
-| Pre-condition #1 (sources-seed unfreeze ADR) | ◻ BLOCKED | Hans + Gregor sign-off needed. |
-| Pre-condition #2 (adapter time-series contract) | ◻ BLOCKED | Gregor sign-off needed. |
-| Phase A.1 (ADR-0032 amendment) | ◻ QUEUED | After both pre-conditions discharge. |
-| Phase A.2 (sources-seed expansion) | ◻ QUEUED | After A.1. |
-| Phase B (Owner Reg multi-vintage lift) | ◻ QUEUED | After A.2. |
-| Phase C (Pashu Aadhaar multi-vintage lift) | ◻ QUEUED | After A.2. |
-| Phase D (NAIP IV multi-vintage lift) | ◻ QUEUED | After A.2; smallest scope. |
-| Phase E (frontend time-series) | ◻ QUEUED | After at least one of B/C/D ships. |
