@@ -118,6 +118,20 @@ SOURCE_IDS: dict[str, str] = {
     # table stem per the PR-Q docstring reservation for "national
     # primary/final energy supply" PRs.
     "iced_primary_energy_supply":        "src-170d3536d908",
+    # P.1.C PR-V (state plant load factor by fuel, 2026-05-26). Derived
+    # via derive_source_id("NITI Aayog India Climate & Energy Dashboard",
+    # "Plant Load Factor by Fuel State API (state-wise per-fuel PLF
+    # percentage, fiscal-year, 8 fuel buckets)", "2024-25"). Third
+    # Pattern A-facet in P.1.C cohort. 8 publisher fuel labels
+    # (bio-power, coal, hydro, nuclear, oil-gas, small-hydro, solar,
+    # wind) map 1:1 to existing fuel_type axis values (biomass / coal
+    # / hydro / nuclear / gas / small_hydro / solar / wind) with NO
+    # SUB_FUEL_TO_CANONICAL collapse step (PLF is a percentage --
+    # cross-fuel summation is meaningless). The catalogue parent
+    # carries 0 rows; the 8 children each own per-state per-FY rows
+    # for one fuel. Lifts onto the EXISTING ``energy_generation``
+    # table stem (PLF is a generation-utilization metric).
+    "iced_plant_load_factor":            "src-7eb929cbf2d8",
 }
 
 
