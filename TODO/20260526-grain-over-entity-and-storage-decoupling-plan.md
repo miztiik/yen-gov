@@ -1,7 +1,7 @@
 # Grain-over-entity + storage/visualization decoupling — rip-and-replace plan
 
 **Last Updated**: 2026-05-26
-**Status**: ▶ ACTIVE — PR-A1 ✅ PR #336; PR-A2 ✅ PR #338; PR-Z1 (doctrine bullets) ✅ PR #339; PR-A3a ✅ PR #340; PR-A3b ✅ PR #341; PR-A3c (topic-half) ✅ PR #342 (indicator-half + ingest-site tail deferred to follow-up PR-A3c-tail); PR-B1 ✅ PR #343; PR-B2 ✅ PR #344. Phase 1 underway per guardrails-first ordering.
+**Status**: ▶ ACTIVE — PR-A1 ✅ PR #336; PR-A2 ✅ PR #338; PR-Z1 (doctrine bullets) ✅ PR #339; PR-A3a ✅ PR #340; PR-A3b ✅ PR #341; PR-A3c (topic-half) ✅ PR #342 (indicator-half + ingest-site tail deferred to follow-up PR-A3c-tail); PR-B1 ✅ PR #343; PR-B2 ✅ PR #344; PR-B8 ✅ PR #345 (prices collapse 4 state CPI sub-baskets → 1 facetted shard `prices/cpi_inflation_pct`). Phase 1 underway per guardrails-first ordering.
 **Doc-class**: plan-doc per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md). Carries PR sequence + status only; rationale lives in cited ADRs and concept docs.
 **Mandate**: user, 2026-05-26 — "rip-and-replace, no strangler-fig, no smooth cutover; everything is in git, we can revert." "Move grain to OWID-style grain-over-entity. Stop smooshing state + district + village into one chart; create sub-pages."
 **Authority**: Hans + Max on data shape; Gregor on contracts; Fowler on engineering craft; Jony + Citizen on UX; Andre on LLM (not in scope here). See CLAUDE.md §0a.

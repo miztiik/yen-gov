@@ -489,7 +489,7 @@
       "artifacts": [
         {
           "kind": "indicator",
-          "id": "prices/state_cpi_general_inflation_pct",
+          "id": "prices/cpi_inflation_pct",
           "default": true,
           "featured": true,
           "scope": "national"
@@ -499,27 +499,6 @@
           "id": "prices/national_cpi_combined_index_annual",
           "default": false,
           "featured": true,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "prices/state_cpi_food_inflation_pct",
-          "default": false,
-          "featured": true,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "prices/state_cpi_fuel_inflation_pct",
-          "default": false,
-          "featured": false,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "prices/state_cpi_housing_urban_inflation_pct",
-          "default": false,
-          "featured": false,
           "scope": "national"
         },
         {
