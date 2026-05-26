@@ -9,7 +9,7 @@ Per Hans (Governance) triage 2026-05-14:
 * ``environment/india_ghg_emissions_mtco2e_by_sector``     — Priority 6
 
 The current-price NSDP indicator (Hans Priority 4) ships separately as
-``economy/state_per_capita_nsdp_current_inr`` from the
+``economy/per_capita_nsdp_current_inr`` from the
 state-wise-deep-dive adapter; we do not re-emit it here.
 
 This module is the orchestrator only — fetching via
@@ -106,7 +106,7 @@ def _per_capita_constant_meta() -> _IndicatorBuild:
                 "This is the inflation-adjusted measure of state income — the only "
                 "honest way to ask 'is my state catching up or falling behind' "
                 "across years. The current-price companion indicator "
-                "(state_per_capita_nsdp_current_inr) gives the same data without "
+                "(per_capita_nsdp_current_inr) gives the same data without "
                 "inflation adjustment, useful only for comparing states within a "
                 "single year."
             ),

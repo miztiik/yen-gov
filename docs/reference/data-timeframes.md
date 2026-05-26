@@ -34,7 +34,7 @@ These are the spine of any longitudinal "did governance work?" comparison.
 | `economy/state_nsdp_current_inr_crore` | FY95–FY25 | **31** | annual | RBI |
 | `economy/state_nsdp_constant_inr_crore` | FY95–FY25 | **31** | annual | RBI |
 | `economy/state_per_capita_nsdp_constant_inr_long` | FY01–FY25 | 25 | annual | RBI |
-| `economy/state_per_capita_nsdp_current_inr_long` | FY01–FY25 | 25 | annual | RBI |
+| `economy/per_capita_nsdp_current_inr` | FY01–FY25 | 25 | annual | RBI |
 | `transport/state_ev_registrations_count` | FY01–FY26 | 26 | annual | NITI iced |
 | `transport/state_ev_share_total_registrations_pct` | FY01–FY26 | 26 | annual | NITI iced |
 | `health/state_birth_rate_per_1000` | CY04–CY23 | 20 | annual | RBI (SRS) |

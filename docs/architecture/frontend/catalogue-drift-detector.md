@@ -42,7 +42,7 @@ Closing the gap:
 
 Some unwired artifacts are intentional:
 
-- **Redundant ingests** kept on disk for diff-checking against newer splices (e.g. `state_per_capita_nsdp_current_inr` superseded by `_long`).
+- **Redundant ingests** kept on disk for diff-checking against newer splices (e.g. earlier per-capita NSDP slices superseded by the RBI-spliced long-history shard).
 - **Honesty-blocked artifacts** that would mislead if rendered today (absolute ₹Cr health spending, vintage-spliced NSDP without break annotations, current-prices NSDP without snapshot badges). Wiring these without the Phase 1+2 honesty primitives would ship dishonest charts (Fowler yellow → red).
 
 The allowlist makes the deferral visible and reviewable. "Why is this still unwired?" has an answer in the file, not in someone's head.

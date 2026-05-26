@@ -140,9 +140,9 @@ datasets/indicators/in/economy/state_gdp_current_inr_lakh_crore.json,economy,dro
 datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json,economy,consolidate,3,state-gsdp-inr-crore,"{""prices_basis"":""constant_2011_12""}",D33.1 — base-year-encoded child.
 datasets/indicators/in/economy/state_nsdp_current_inr_crore.json,economy,consolidate,3,state-nsdp-inr-crore,"{""prices_basis"":""current""}",
 datasets/indicators/in/economy/state_nsdp_constant_inr_crore.json,economy,consolidate,3,state-nsdp-inr-crore,"{""prices_basis"":""constant_2011_12""}",
-datasets/indicators/in/economy/state_per_capita_nsdp_current_inr.json,economy,consolidate,3,state-per-capita-nsdp-inr,"{""prices_basis"":""current""}",D33.5 derived first-class.
+datasets/indicators/in/economy/state_per_capita_nsdp_current_inr.json,economy,deleted,3,economy/per_capita_nsdp_current_inr,,PR-B6-row7: short ICED slice retired; RBI-spliced long history kept as economy/per_capita_nsdp_current_inr.
 datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json,economy,consolidate,3,state-per-capita-nsdp-inr,"{""prices_basis"":""constant_2011_12""}",
-datasets/indicators/in/economy/state_per_capita_nsdp_current_inr_long.json,economy,drop,3,,,'_long' suffix = long-format intermediate; not authoritative. Drop.
+datasets/indicators/in/economy/per_capita_nsdp_current_inr.json,economy,renamed,3,economy/per_capita_nsdp_current_inr,,PR-B6-row7: renamed from state_per_capita_nsdp_current_inr_long.json; grain prefix + _long suffix dropped per ADR-0044.
 datasets/indicators/in/economy/state_per_capita_nsdp_constant_inr_long.json,economy,drop,3,,,'_long' suffix; drop.
 datasets/indicators/in/economy/state_per_capita_consumption_inr.json,economy,migrate,3,state-per-capita-consumption-inr,,Distinct measure (consumption vs income); first-class.
 datasets/indicators/in/economy/state_sectoral_gva_current_inr_lakh_crore.json,economy,consolidate,3,state-sectoral-gva-inr-crore,"{""prices_basis"":""current""}",Parent + sector + prices_basis facets.

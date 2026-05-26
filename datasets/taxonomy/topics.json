@@ -294,7 +294,7 @@
         },
         {
           "kind": "indicator",
-          "id": "economy/state_per_capita_nsdp_current_inr_long",
+          "id": "economy/per_capita_nsdp_current_inr",
           "default": false,
           "featured": false,
           "scope": "state"

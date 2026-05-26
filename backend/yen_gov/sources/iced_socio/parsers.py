@@ -10,7 +10,7 @@ multi-endpoint composition). Per Hans (Governance) triage 2026-05-14:
     5. environment/india_ghg_emissions_mtco2e_by_sector     (priority 6)
 
 (Hans's priority-4 indicator â€” per-capita income at current prices â€” is
-already shipped as ``economy/state_per_capita_nsdp_current_inr.json``
+already shipped as ``economy/per_capita_nsdp_current_inr.json``
 from the state-wise-deep-dive ingest. We do not re-emit it here.)
 
 The five parsers are pure: they take one decrypted ICED response (the
