@@ -224,7 +224,7 @@
       "id": "economy",
       "title": "Economy",
       "list": "state",
-      "summary": "How big is each state's economy, in real and nominal terms. GDP and sectoral GVA at constant and current prices, in Lakh Crore Rupees.",
+      "summary": "How big is each state's economy, in real and nominal terms. GDP and sectoral GVA at constant and current prices, in INR crore.",
       "icon": "trending-up",
       "featured": false,
       "peer_set_default": "all",
@@ -245,14 +245,7 @@
         },
         {
           "kind": "indicator",
-          "id": "economy/state_sectoral_gva_constant_2011_12_inr_lakh_crore",
-          "default": false,
-          "featured": false,
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "economy/state_sectoral_gva_current_inr_lakh_crore",
+          "id": "economy/sectoral_gva_inr_crore",
           "default": false,
           "featured": false,
           "scope": "state"

@@ -331,43 +331,35 @@ INDICATOR_SPECS: tuple[IndicatorMeta, ...] = (
     ),
     IndicatorMeta(
         spec=IndicatorSpec(
-            indicator_id="economy/state_sectoral_gva_constant_2011_12_inr_lakh_crore",
+            indicator_id="economy/sectoral_gva_inr_crore",
             api_key="Sectoral GVA (Base: 2011-12) Constant Price",
+            # Companion API key for the `current` facet is wired via
+            # SECTORAL_GVA_FACET_SOURCES below; this meta's `api_key` provides
+            # the `constant` facet rows. Both keys are fetched per FY and
+            # merged into one shard with `rows[].facet` + unit conversion
+            # (publisher Lakh Crore -> crore, x 1e5).
         ),
-        title="State Sectoral GVA (constant prices, base 2011-12)",
+        title="State Sectoral GVA (\u20b9 crore, current and constant prices)",
         description=(
             "Gross Value Added across all economic sectors (primary + "
-            "secondary + tertiary) at constant 2011-12 prices. GVA "
-            "= GDP - net product taxes; the cleaner production-side "
-            "measure for cross-sector and cross-state comparisons."
+            "secondary + tertiary) at both nominal (current) and inflation-"
+            "stripped (constant 2011-12) prices, in \u20b9 crore. GVA = GDP "
+            "minus net product taxes; the cleaner production-side measure "
+            "for cross-sector and cross-state comparisons. Use 'current' for "
+            "share-of-national rankings or tax-base sizing; use 'constant' "
+            "for real-economy trend tracking."
         ),
         notes=(
-            "Source: NITI Aayog ICED dashboard, row 'Sectoral GVA (Base: "
-            "2011-12) Constant Price'. Lakh Crore Rupees (see GDP "
-            "indicators for the unit-annotation caveat)."
+            "Source: NITI Aayog ICED dashboard, rows 'Sectoral GVA (Base: "
+            "2011-12) Current Price' and 'Sectoral GVA (Base: 2011-12) "
+            "Constant Price' (NSO/MoSPI underlying). Publisher dashboard "
+            "reports Lakh Crore; this shard converts to plain crore "
+            "(\u00d7 1e5) for consistency with peer economy indicators "
+            "(NSDP, India GDP). The 2025-26 row is typically N.A. while "
+            "NSO finalises that year's accounts."
         ),
-        topic="economy",
-        leaf="state_sectoral_gva_constant_2011_12_inr_lakh_crore",
-        entity_kind="state", value_kind="currency", unit="INR (lakh crore)",
-        direction="higher_is_better", icon="bar-chart",
-    ),
-    IndicatorMeta(
-        spec=IndicatorSpec(
-            indicator_id="economy/state_sectoral_gva_current_inr_lakh_crore",
-            api_key="Sectoral GVA (Base: 2011-12) Current Price",
-        ),
-        title="State Sectoral GVA (current prices)",
-        description=(
-            "Gross Value Added at nominal (current) prices in Lakh Crore "
-            "Rupees. Inflation-influenced — for real-economy trend "
-            "tracking prefer the constant-price indicator."
-        ),
-        notes=(
-            "Source: NITI Aayog ICED dashboard, row 'Sectoral GVA (Base: "
-            "2011-12) Current Price'."
-        ),
-        topic="economy", leaf="state_sectoral_gva_current_inr_lakh_crore",
-        entity_kind="state", value_kind="currency", unit="INR (lakh crore)",
+        topic="economy", leaf="sectoral_gva_inr_crore",
+        entity_kind="state", value_kind="currency", unit="INR (crore)",
         direction="higher_is_better", icon="bar-chart",
     ),
     IndicatorMeta(
@@ -392,6 +384,26 @@ INDICATOR_SPECS: tuple[IndicatorMeta, ...] = (
         direction="neutral", icon="users",
     ),
 )
+
+
+# Companion API keys merged into the `economy/sectoral_gva_inr_crore` faceted
+# shard at write time. The primary IndicatorMeta above declares the
+# `constant` facet's api_key; this dict maps additional facet values to the
+# extra api_keys whose rows must also be fetched per FY. Per ADR-0044 + the
+# Rosling rule (vintage-on-rows): one indicator id, two facets, base year
+# tracked on row.vintage.
+SECTORAL_GVA_FACET_SOURCES: dict[str, dict[str, str]] = {
+    "economy/sectoral_gva_inr_crore": {
+        # facet_value -> ICED api_key
+        "constant": "Sectoral GVA (Base: 2011-12) Constant Price",
+        "current": "Sectoral GVA (Base: 2011-12) Current Price",
+    },
+}
+# Publisher unit -> shard unit conversion factor for each collapsed group.
+# ICED dashboard reports Sectoral GVA in Lakh Crore; the shard normalises to
+# plain crore (1 lakh crore = 1e5 crore) for parity with peer indicators.
+SECTORAL_GVA_VALUE_SCALE: float = 1.0e5
+SECTORAL_GVA_VINTAGE_LABEL: str = "Base 2011-12"
 
 
 # ---------------------------------------------------------------------------
@@ -554,6 +566,89 @@ def _build_payload(
     }
 
 
+def _build_collapsed_payload(
+    *,
+    meta: IndicatorMeta,
+    facet_groups: list[tuple[str, list[ParsedRow]]],
+    fetched_at: datetime,
+    value_scale: float,
+    vintage_label: str,
+    facet_labels: dict[str, str],
+) -> dict[str, Any]:
+    """Merge multi-facet rows into one shard with rows[].facet + .vintage.
+
+    Per ADR-0044 + the Rosling rule: one indicator id, faceted by basis
+    (current / constant), base year tracked on each row's `vintage`. Values
+    are scaled from publisher unit to shard unit at write time (e.g. ICED
+    publishes Sectoral GVA in Lakh Crore; this shard normalises to crore by
+    `value_scale = 1e5`).
+    """
+    merged: list[dict[str, Any]] = []
+    for facet_value, rows in facet_groups:
+        for r in rows:
+            merged.append({
+                "entity_id": r.entity_id,
+                "time": r.time,
+                "value": round(r.value * value_scale, 2),
+                "facet": facet_value,
+                "vintage": vintage_label,
+            })
+    merged.sort(key=lambda x: (x["entity_id"], x["time"], x["facet"]))
+
+    eids = {m["entity_id"] for m in merged}
+    n_states = sum(1 for e in eids if e.startswith("S"))
+    n_uts = sum(1 for e in eids if e.startswith("U"))
+    spatial_parts: list[str] = []
+    if "IN" in eids:
+        spatial_parts.append("All-India aggregate")
+    if n_states:
+        spatial_parts.append(f"{n_states} states")
+    if n_uts:
+        spatial_parts.append(f"{n_uts} UTs")
+    times = sorted({m["time"] for m in merged})
+    temporal = f"{times[0]}..{times[-1]}" if times else "unknown"
+    fy_count = len(times)
+    return {
+        "license": {
+            "id": "GoI-Open",
+            "name": "Government of India open publication (NITI Aayog ICED)",
+            "url": "https://data.gov.in/government-open-data-license-india",
+            "redistributable": True,
+        },
+        "coverage": {
+            "spatial": "; ".join(spatial_parts) if spatial_parts else "no entities",
+            "temporal": temporal,
+            "admin_level": "state",
+        },
+        "indicator": {
+            "id": meta.spec.indicator_id,
+            "title": meta.title,
+            "description": meta.description,
+            "entity_kind": meta.entity_kind,
+            "time_grain": "fiscal_year",
+            "value_kind": meta.value_kind,
+            "direction": meta.direction,
+            "scale_hint": meta.scale_hint,
+            "unit": meta.unit,
+            "short_unit": "\u20b9Cr",
+            "icon": meta.icon,
+            "attribution_geography": "where_administered",
+            "comparability": "comparable_with_normalisation",
+            "implementing_authority": "state",
+            "methodology_vintage": (
+                f"NITI Aayog ICED state-wise deep-dive API; publisher base 2011-12; "
+                f"payload fetched {fetched_at.isoformat(timespec='seconds').replace('+00:00', 'Z')}; "
+                f"{fy_count} fiscal years, {len(merged)} rows; "
+                f"unit converted from publisher Lakh Crore to crore "
+                f"(\u00d7 {int(value_scale):g})."
+            ),
+            "facet_labels": facet_labels,
+            "notes": meta.notes,
+        },
+        "rows": merged,
+    }
+
+
 def ingest(
     *,
     repo_root: Path,
@@ -572,6 +667,23 @@ def ingest(
     rows_by_indicator: dict[str, list[ParsedRow]] = {
         m.spec.indicator_id: [] for m in INDICATOR_SPECS
     }
+    # Companion accumulator for the non-primary facets of collapsed groups.
+    # Key shape: (out_indicator_id, facet_value) -> rows. The primary facet
+    # for each group lives in rows_by_indicator under the out_indicator_id;
+    # this dict carries the additional facets (e.g. `current` for sectoral
+    # GVA, since the primary IndicatorMeta declares `constant`).
+    extra_facet_rows: dict[tuple[str, str], list[ParsedRow]] = {}
+    _primary_facet_by_group: dict[str, str] = {}
+    for _out_id, _facet_map in SECTORAL_GVA_FACET_SOURCES.items():
+        _primary_api_key = next(
+            (m.spec.api_key for m in INDICATOR_SPECS if m.spec.indicator_id == _out_id),
+            None,
+        )
+        for _facet_value, _api_key in _facet_map.items():
+            if _api_key == _primary_api_key:
+                _primary_facet_by_group[_out_id] = _facet_value
+                continue
+            extra_facet_rows[(_out_id, _facet_value)] = []
     latest_fetch = datetime.fromtimestamp(0, tz=timezone.utc)
 
     for fy in fy_labels:
@@ -596,6 +708,19 @@ def ingest(
                 # other FYs covered.
                 continue
             rows_by_indicator[meta.spec.indicator_id].extend(year.rows)
+
+        # Companion fetches for non-primary facets of collapsed groups.
+        for (out_id, facet_value), accum in extra_facet_rows.items():
+            api_key = SECTORAL_GVA_FACET_SOURCES[out_id][facet_value]
+            companion_spec = IndicatorSpec(
+                indicator_id=f"{out_id}#facet={facet_value}",
+                api_key=api_key,
+            )
+            try:
+                year = extract_rows(spec=companion_spec, fy_label=fy, decrypted=decrypted)
+            except ICEDShapeError:
+                continue
+            accum.extend(year.rows)
 
     out_root = repo_root / "datasets" / "indicators" / "in"
     # Per ADR-0041, energy indicators promoted to meadow tier write to
@@ -636,7 +761,36 @@ def ingest(
             )
         # Sort: state code, then time ascending.
         rows.sort(key=lambda r: (r.entity_id, r.time))
-        payload = _build_payload(meta=meta, rows=rows, fetched_at=latest_fetch)
+
+        if meta.spec.indicator_id in SECTORAL_GVA_FACET_SOURCES:
+            # Faceted collapse: merge primary + extras, unit-convert, write
+            # one shard with rows[].facet + rows[].vintage.
+            primary_facet = _primary_facet_by_group[meta.spec.indicator_id]
+            facet_groups: list[tuple[str, list[ParsedRow]]] = [(primary_facet, rows)]
+            for fv in SECTORAL_GVA_FACET_SOURCES[meta.spec.indicator_id]:
+                if fv == primary_facet:
+                    continue
+                extra = extra_facet_rows.get((meta.spec.indicator_id, fv), [])
+                if not extra:
+                    raise ICEDShapeError(
+                        f"collapsed indicator {meta.spec.indicator_id!r}: "
+                        f"facet {fv!r} returned zero rows across "
+                        f"{len(fy_labels)} FYs."
+                    )
+                facet_groups.append((fv, extra))
+            payload = _build_collapsed_payload(
+                meta=meta,
+                facet_groups=facet_groups,
+                fetched_at=latest_fetch,
+                value_scale=SECTORAL_GVA_VALUE_SCALE,
+                vintage_label=SECTORAL_GVA_VINTAGE_LABEL,
+                facet_labels={
+                    "current": "Current prices",
+                    "constant": "Constant prices (base 2011-12)",
+                },
+            )
+        else:
+            payload = _build_payload(meta=meta, rows=rows, fetched_at=latest_fetch)
 
         meadow_path = meadow_promoted.get(meta.spec.indicator_id)
         if meadow_path is not None:
@@ -654,13 +808,14 @@ def ingest(
             sources=[Source(url=PAGE_URL, fetched_at=latest_fetch)],
             schema_for_validation=indicator_schema,
         )
-        fy_count = len({r.time for r in rows})
+        fy_count = len({r["time"] for r in payload["rows"]})
+        row_count = len(payload["rows"])
         results.append(
             IndicatorIngestResult(
                 indicator_id=meta.spec.indicator_id,
                 artifact_path=path,
                 fy_count=fy_count,
-                row_count=len(rows),
+                row_count=row_count,
             )
         )
 

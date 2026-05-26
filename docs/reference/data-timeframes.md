@@ -56,7 +56,7 @@ These are the spine of any longitudinal "did governance work?" comparison.
 | --- | --- | ---: | --- |
 | `energy/state_*` (electricity gen, sales, peak demand, AT&C losses, ACS-ARR gap, rooftop, installed) | FY16–FY26 (some FY18–FY26) | 8–11 | NITI iced |
 | `economy/state_gdp_constant_2011_12_inr_lakh_crore` | FY16–FY25 | 10 | NITI iced |
-| `economy/state_sectoral_gva_*` (current + constant) | FY16–FY25 | 10 | NITI iced |
+| `economy/sectoral_gva_inr_crore` (faceted current + constant) | FY16–FY25 | 10 | NITI iced |
 | `demography/state_population_lakhs` | FY16–FY26 | 11 | NITI iced |
 | `fiscal/state_*` (own-tax, non-tax, share-central, grants, rev-exp) | FY17–FY22 | 6 | sansad.in |
 | `fiscal/centre_transfers_gross` | FY17–FY22 | 6 | data.gov.in |
