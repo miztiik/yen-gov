@@ -29,8 +29,7 @@ These are the spine of any longitudinal "did governance work?" comparison.
 
 | Indicator | Span | Years | Cadence | Provider |
 | --- | --- | ---: | --- | --- |
-| `economy/state_nsdp_current_inr_crore` | FY95–FY25 | **31** | annual | RBI |
-| `economy/state_nsdp_constant_inr_crore` | FY95–FY25 | **31** | annual | RBI |
+| `economy/nsdp_inr_crore` (faceted current+constant) | FY95–FY25 | **31** | annual | RBI |
 | `economy/per_capita_nsdp_constant_inr` | FY01–FY25 | 25 | annual | RBI |
 | `economy/per_capita_nsdp_current_inr` | FY01–FY25 | 25 | annual | RBI |
 | `fiscal/state_pension_expenditure_inr_crore` | FY05–FY25 | 21 | annual | RBI |

@@ -138,8 +138,8 @@ datasets/indicators/in/demography/state_population_lakhs.json,demography,drop,3,
 datasets/indicators/in/economy/state_gdp_inr_crore.json,economy,consolidate,3,state-gsdp-inr-crore,"{""prices_basis"":""current""}",D33.1 — GSDP base-year revisions via methodology_version + id-encoded variants; current vs constant prices via prices_basis facet.
 datasets/indicators/in/economy/state_gdp_current_inr_lakh_crore.json,economy,drop,3,,,Same as state_gdp_inr_crore unit conversion; reconcile.
 datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json,economy,consolidate,3,state-gsdp-inr-crore,"{""prices_basis"":""constant_2011_12""}",D33.1 — base-year-encoded child.
-datasets/indicators/in/economy/state_nsdp_current_inr_crore.json,economy,consolidate,3,state-nsdp-inr-crore,"{""prices_basis"":""current""}",
-datasets/indicators/in/economy/state_nsdp_constant_inr_crore.json,economy,consolidate,3,state-nsdp-inr-crore,"{""prices_basis"":""constant_2011_12""}",
+# datasets/indicators/in/economy/state_nsdp_current_inr_crore.json,economy,deleted,3,nsdp_inr_crore (faceted current+constant; PR-B6-row10),"{""prices_basis"":""current""}",
+# datasets/indicators/in/economy/state_nsdp_constant_inr_crore.json,economy,deleted,3,nsdp_inr_crore (faceted current+constant; PR-B6-row10),"{""prices_basis"":""constant_2011_12""}",
 datasets/indicators/in/economy/state_per_capita_nsdp_current_inr.json,economy,deleted,3,economy/per_capita_nsdp_current_inr,,PR-B6-row7: short ICED slice retired; RBI-spliced long history kept as economy/per_capita_nsdp_current_inr.
 datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json,economy,deleted,3,economy/per_capita_nsdp_constant_inr,,PR-B6-row8: short ICED slice retired; RBI-spliced long history kept as economy/per_capita_nsdp_constant_inr.
 datasets/indicators/in/economy/per_capita_nsdp_current_inr.json,economy,renamed,3,economy/per_capita_nsdp_current_inr,,PR-B6-row7: renamed from state_per_capita_nsdp_current_inr_long.json; grain prefix + _long suffix dropped per ADR-0044.

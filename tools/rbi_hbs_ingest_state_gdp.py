@@ -2,10 +2,13 @@
 
 Reads four cached XLSX files under ``.runtime/raw/rbi/handbook_economy_2024_25/``::
 
-  T05_NSDP_Statewise_Current.xlsx   -> economy/state_nsdp_current_inr_crore
-  T06_NSDP_Statewise_Constant.xlsx  -> economy/state_nsdp_constant_inr_crore
+  T05_NSDP_Statewise_Current.xlsx  )
+  T06_NSDP_Statewise_Constant.xlsx )-> economy/nsdp_inr_crore (faceted current+constant)
   T09_PCNSDP_Statewise_Current.xlsx -> economy/per_capita_nsdp_current_inr
   T10_PCNSDP_Statewise_Constant.xlsx-> economy/per_capita_nsdp_constant_inr
+
+T05 and T06 collapse into ONE shard with `rows[].facet ∈ {current, constant}`
+per ADR-0044 (one indicator id per measure; facet on row, grain on entity_kind).
 
 Each sheet stacks four base-year sections in the same column-1 ordering:
   (Base Year : 1993-94)   1994-95..1999-00     (current/constant; pre-2011-12 = factor cost)
@@ -195,61 +198,6 @@ SERIES_BREAKS_NSDP = [
 
 SPECS = [
     {
-        "id": "economy/state_nsdp_current_inr_crore",
-        "title": "Net State Domestic Product (current prices)",
-        "table_key": "T05",
-        "xlsx": "T05_NSDP_Statewise_Current.xlsx",
-        "table_label": "Table 5: Net State Domestic Product - State-wise (At Current Prices)",
-        "value_kind": "currency",
-        "unit": "INR (crore)",
-        "icon": "trending-up",
-        "description": (
-            "Net State Domestic Product (NSDP) of each state and union "
-            "territory, in Lakh Rupees Crore at current (nominal) prices. "
-            "Long spliced series 1994-95 -> 2024-25 (31 fiscal years), "
-            "stitched across MoSPI's four base-year revisions (1993-94, "
-            "1999-2000, 2004-05, 2011-12). For overlapping years the most "
-            "recent base is kept. Pre-2011-12 figures are NSDP 'at factor "
-            "cost'; 2011-12 onwards are NSDP 'at basic prices'."
-        ),
-        "notes": (
-            "Source: RBI Handbook of Statistics on Indian Economy 2024-25 "
-            "edition, Table 5. The same workbook stacks four base-year "
-            "sections; we keep the latest-base value per (state, year) and "
-            "stamp the chosen base on each row's `vintage` field. Telangana "
-            "(S29) starts in 2014-15 (carve-out from Andhra Pradesh). U08 "
-            "(J&K) post-2019-20 is UT-only (Ladakh excluded). 2024-25 is "
-            "Provisional Estimates per RBI; 2023-24 is First Revised."
-        ),
-    },
-    {
-        "id": "economy/state_nsdp_constant_inr_crore",
-        "title": "Net State Domestic Product (constant prices, spliced)",
-        "table_key": "T06",
-        "xlsx": "T06_NSDP_Statewise_Constant.xlsx",
-        "table_label": "Table 6: Net State Domestic Product - State-wise (At Constant Prices)",
-        "value_kind": "currency",
-        "unit": "INR (crore)",
-        "icon": "trending-up",
-        "description": (
-            "Real Net State Domestic Product (constant prices), 1994-95 -> "
-            "2024-25, spliced across MoSPI's four base years (1993-94, "
-            "1999-2000, 2004-05, 2011-12). The most recent base is kept "
-            "for any overlap. Use the 1993-94/1999-2000/2004-05 segments "
-            "for within-base growth; growth rates that span a base "
-            "transition (e.g. 2010-11 -> 2011-12) are not directly "
-            "comparable. Pre-2011-12 = NSDP at factor cost; from 2011-12 "
-            "= NSDP at basic prices."
-        ),
-        "notes": (
-            "Source: RBI Handbook of Statistics on Indian Economy 2024-25 "
-            "edition, Table 6. Each row's `vintage` records the base year "
-            "the value was published under. See `series_breaks` for the "
-            "rebase points; the renderer should refuse to compute a "
-            "growth rate that crosses a break."
-        ),
-    },
-    {
         "id": "economy/per_capita_nsdp_current_inr",
         "title": "Per-capita NSDP (current prices, by state)",
         "table_key": "T09",
@@ -351,7 +299,110 @@ def emit(spec: dict, parsed: dict[str, dict[str, dict[str, float]]]) -> None:
     write_artifact(out_path, art)
 
 
+def emit_nsdp_combined(parsed_current: dict, parsed_constant: dict) -> None:
+    """Emit the single faceted NSDP shard (per ADR-0044, row 10 of grain-rip).
+
+    Combines T05 (current) + T06 (constant) into one indicator with
+    ``rows[].facet ∈ {current, constant}``; each row preserves the chosen
+    base-year on ``vintage``. Grain is per-state (entity_kind dispatched at
+    read time); base-year tracked on row, not in id.
+    """
+    rows: list[dict] = []
+    for facet, parsed in (("current", parsed_current), ("constant", parsed_constant)):
+        for row in collapse_to_long(parsed):
+            rows.append({
+                "entity_id": row["entity_id"],
+                "time": row["time"],
+                "value": row["value"],
+                "facet": facet,
+                "vintage": row["vintage"],
+            })
+    rows.sort(key=lambda r: (r["entity_id"], r["time"], r["facet"]))
+    times = sorted({r["time"] for r in rows})
+    entities = sorted({r["entity_id"] for r in rows})
+    art = {
+        "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+        "$schema_version": "4.4",
+        "sources": [
+            {
+                "url": SNAPSHOT_URLS["T05"],
+                "fetched_at": FETCHED_AT,
+                "name": "RBI Handbook of Statistics on Indian Economy 2024-25 - Table 5: Net State Domestic Product - State-wise (At Current Prices)",
+                "authority": "Reserve Bank of India (compiled from National Statistics Office, MoSPI)",
+            },
+            {
+                "url": SNAPSHOT_URLS["T06"],
+                "fetched_at": FETCHED_AT,
+                "name": "RBI Handbook of Statistics on Indian Economy 2024-25 - Table 6: Net State Domestic Product - State-wise (At Constant Prices)",
+                "authority": "Reserve Bank of India (compiled from National Statistics Office, MoSPI)",
+            },
+            {
+                "url": HBS_LANDING,
+                "fetched_at": FETCHED_AT,
+                "name": "RBI Handbook of Statistics on Indian Economy - landing page",
+                "authority": "Reserve Bank of India",
+            },
+        ],
+        "license": LICENSE_RBI,
+        "coverage": {
+            "spatial": f"India (states + UTs); {len(entities)} entities",
+            "temporal": f"{times[0]}..{times[-1]}",
+            "admin_level": "state",
+        },
+        "indicator": {
+            "id": "economy/nsdp_inr_crore",
+            "title": "Net State Domestic Product (₹ crore, current and constant prices)",
+            "description": (
+                "Net State Domestic Product (NSDP) of each state and union "
+                "territory in ₹ crore, faceted by price basis. Use 'current' "
+                "for share-of-national rankings or tax-base sizing; use "
+                "'constant' for state-level real growth-rate analysis. Long "
+                "spliced series 1994-95 → 2024-25 (31 fiscal years), stitched "
+                "across MoSPI's four base-year revisions (1993-94, 1999-2000, "
+                "2004-05, 2011-12). The most recent base is kept for any "
+                "overlap; each row's `vintage` records the base year that "
+                "produced the value. Pre-2011-12 figures are NSDP 'at factor "
+                "cost'; 2011-12 onwards are NSDP 'at basic prices'."
+            ),
+            "entity_kind": "state",
+            "time_grain": "fiscal_year",
+            "value_kind": "currency",
+            "direction": "higher_is_better",
+            "scale_hint": "linear",
+            "unit": "INR (crore)",
+            "short_unit": "₹cr",
+            "icon": "trending-up",
+            "attribution_geography": "where_resident",
+            "comparability": "comparable_with_normalisation",
+            "implementing_authority": "state",
+            "methodology_vintage": "MoSPI multi-base spliced (1993-94 / 1999-2000 / 2004-05 / 2011-12); RBI Handbook 2024-25 edition",
+            "facet_labels": {"current": "Current prices", "constant": "Constant prices (spliced)"},
+            "notes": (
+                "Source: RBI Handbook of Statistics on Indian Economy "
+                "2024-25 edition, Tables 5 (current) and 6 (constant). "
+                "Telangana (S29) starts in 2014-15 (carve-out from Andhra "
+                "Pradesh). U08 (J&K) post-2019-20 is UT-only (Ladakh "
+                "excluded). 2024-25 is Provisional Estimates per RBI; "
+                "2023-24 is First Revised. Cross-base growth rates not "
+                "strictly comparable — see series_breaks."
+            ),
+            "series_breaks": SERIES_BREAKS_NSDP,
+        },
+        "rows": rows,
+    }
+    write_artifact(OUT / "nsdp_inr_crore.json", art)
+
+
 def main() -> None:
+    # Combined NSDP shard (T05 + T06 → nsdp_inr_crore with facet axis).
+    cur_xlsx = CACHE / "T05_NSDP_Statewise_Current.xlsx"
+    con_xlsx = CACHE / "T06_NSDP_Statewise_Constant.xlsx"
+    print("\n=== economy/nsdp_inr_crore <- T05+T06 (faceted) ===")
+    parsed_cur = parse_workbook(cur_xlsx)
+    parsed_con = parse_workbook(con_xlsx)
+    print(f"  parsed entities: current={len(parsed_cur)} constant={len(parsed_con)}")
+    emit_nsdp_combined(parsed_cur, parsed_con)
+    # Per-capita NSDP shards (T09, T10) remain one-id-per-shard.
     for spec in SPECS:
         xlsx = CACHE / spec["xlsx"]
         print(f"\n=== {spec['id']} <- {spec['xlsx']} ===")
