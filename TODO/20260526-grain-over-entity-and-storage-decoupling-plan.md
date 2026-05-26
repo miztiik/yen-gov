@@ -326,6 +326,7 @@ Mirrors B2 for the 38 energy `state-*` rows that have NO national/district sibli
 - **MODIFY**: 22 legacy shards under [datasets/indicators/in/fiscal/](../datasets/indicators/in/fiscal/). Same pattern.
 - **STAY-SPLIT**: confirm `states_combined_*_deficit` and `union_*_deficit` are NOT collapsed (Hans pin).
 - **LOC**: ≈ +500 / -600.
+- **PR-B7 (row 3 carve)**: ✅ PR #347 — 4 country-grain shards (`centre_transfers_to_states_{net,gross,tax_devolution,grants}`) collapsed into `fiscal/centre_transfers_inr_crore` with `flow` facet, 76 rows. Rows 1+2 (state-grain pair `net_transfers_from_centre` + `centre_transfers_gross`) deferred to PR-B7-tail (touches `rbi_xlsx/*.py` adapter modules).
 
 #### PR-B8 — Prices collapse + rename (standing-reference row 13)
 
