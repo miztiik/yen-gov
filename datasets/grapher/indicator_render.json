@@ -1,0 +1,369 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/grapher-indicator-render.schema.json",
+  "$schema_version": "1.0",
+  "indicators": [
+    {
+      "indicator_id": "demography/state_population_by_residence_count",
+      "chart_type": "stacked-trend",
+      "default_mode": "absolute"
+    },
+    {
+      "indicator_id": "demography/state_population_by_sex_count",
+      "chart_type": "stacked-trend",
+      "default_mode": "absolute"
+    },
+    {
+      "indicator_id": "district-livestock-naip-iv-calves-born",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-livestock-naip-iv-farmers-benefitted",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-livestock-naip-iv-inseminations",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-livestock-naip-iv-pregnancy-diagnoses",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-livestock-owner-reg-count",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-livestock-owner-reg-count-landless-marginal",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-livestock-owner-reg-count-large",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-livestock-owner-reg-count-medium",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-livestock-owner-reg-count-not-specified",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-livestock-owner-reg-count-semi-medium",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-livestock-owner-reg-count-small",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-buffalo",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-cattle",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-donkey",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-goat",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-horse",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-mithun",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-mule",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-pig",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-sheep",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-yak",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "economy/india_external_balance_inr_crore",
+      "chart_type": "stacked-trend",
+      "default_mode": "absolute"
+    },
+    {
+      "indicator_id": "economy/india_gdp_inr_crore",
+      "chart_type": "stacked-trend",
+      "default_mode": "absolute"
+    },
+    {
+      "indicator_id": "economy/india_gva_by_industry_constant_inr_crore",
+      "chart_type": "stacked-trend",
+      "default_mode": "absolute"
+    },
+    {
+      "indicator_id": "economy/india_iip_index_2011_12",
+      "chart_type": "stacked-trend",
+      "default_mode": "absolute"
+    },
+    {
+      "indicator_id": "economy/national_gva_by_industry_constant_2011_12_inr_crore",
+      "chart_type": "stacked-trend",
+      "default_mode": "absolute"
+    },
+    {
+      "indicator_id": "economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore",
+      "chart_type": "stacked-trend",
+      "default_mode": "absolute"
+    },
+    {
+      "indicator_id": "economy/national_macro_aggregates_constant_2011_12_inr_crore",
+      "chart_type": "stacked-trend",
+      "default_mode": "absolute"
+    },
+    {
+      "indicator_id": "economy/state_gdp_inr_crore",
+      "chart_type": "ranked",
+      "default_mode": "absolute"
+    },
+    {
+      "indicator_id": "environment/india_ghg_emissions_by_subsector_ggco2e",
+      "chart_type": "stacked-trend",
+      "default_mode": "absolute"
+    },
+    {
+      "indicator_id": "environment/india_ghg_emissions_mtco2e_by_sector",
+      "chart_type": "stacked-trend",
+      "default_mode": "absolute"
+    },
+    {
+      "indicator_id": "environment/state_no2_annual_mean_ug_m3",
+      "chart_type": "choropleth"
+    },
+    {
+      "indicator_id": "environment/state_pm10_annual_mean_ug_m3",
+      "chart_type": "choropleth"
+    },
+    {
+      "indicator_id": "environment/state_pm25_annual_mean_ug_m3",
+      "chart_type": "choropleth"
+    },
+    {
+      "indicator_id": "environment/state_power_sector_co2_emissions_mtco2",
+      "chart_type": "ranked",
+      "default_mode": "absolute"
+    },
+    {
+      "indicator_id": "environment/state_so2_annual_mean_ug_m3",
+      "chart_type": "choropleth"
+    },
+    {
+      "indicator_id": "environment/state_thermal_fgd_installed_share_pct",
+      "chart_type": "choropleth"
+    },
+    {
+      "indicator_id": "health/state_health_expenditure_pct_total_expenditure",
+      "chart_type": "choropleth"
+    },
+    {
+      "indicator_id": "state-livestock-naip-iv-calves-born",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-naip-iv-farmers-benefitted",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-naip-iv-inseminations",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-naip-iv-pregnancy-diagnoses",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-owner-reg-count",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-owner-reg-count-landless-marginal",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-owner-reg-count-large",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-owner-reg-count-medium",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-owner-reg-count-not-specified",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-owner-reg-count-semi-medium",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-livestock-owner-reg-count-small",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-pashu-aadhaar-count",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-pashu-aadhaar-count-buffalo",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-pashu-aadhaar-count-cattle",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-pashu-aadhaar-count-donkey",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-pashu-aadhaar-count-goat",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-pashu-aadhaar-count-horse",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-pashu-aadhaar-count-mithun",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-pashu-aadhaar-count-mule",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-pashu-aadhaar-count-pig",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-pashu-aadhaar-count-sheep",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "state-pashu-aadhaar-count-yak",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "transport/state_ev_registrations_count",
+      "chart_type": "stacked-trend",
+      "default_mode": "absolute"
+    },
+    {
+      "indicator_id": "transport/state_ev_share_total_registrations_pct",
+      "chart_type": "stacked-trend",
+      "default_mode": "percent"
+    }
+  ]
+}

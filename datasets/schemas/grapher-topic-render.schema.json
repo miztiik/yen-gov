@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./grapher-topic-render.schema.json",
+  "title": "Grapher topic render catalogue (frontend-owned)",
+  "description": "Per-topic per-indicator render hints, owned by the frontend per ADR-0045. One row per (topic_id, indicator_id) pair. Carries the chart_type and dimension overrides that previously lived inline on topic-catalogue artifact entries. Rows are optional; absence == frontend defaults from indicator_render.json.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-26",
+      "description": "Initial grapher topic render catalogue per ADR-0045 (grapher catalogue split). Replaces inline chart_type + dimension on topic-catalogue artifact entries. PR-A3b migrates readers; PR-A3c strips the fields from topic-catalogue.schema.json."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "topics"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["topic_id", "indicator_id"],
+        "properties": {
+          "topic_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "indicator_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "chart_type": {
+            "type": ["string", "null"],
+            "enum": ["stacked-trend", "ranked", "choropleth", null]
+          },
+          "dimension": {
+            "type": ["string", "null"],
+            "description": "Facet axis name for this card on this topic page (e.g. 'power_source')."
+          }
+        }
+      }
+    }
+  }
+}
