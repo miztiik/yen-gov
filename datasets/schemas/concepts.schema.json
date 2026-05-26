@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./concepts.schema.json",
+  "title": "Concept registry (canonical)",
+  "description": "Hand-authored concept registry (taxonomy/concepts.json). One row per (noun, unit_canonical, normalisation) triple — the citizen-readable fact a concept_id stands for. Every indicator in datasets/taxonomy/indicators.json MUST FK to a concept_id (enforced post-PR-Z3b via Tier-B tier_b_one_indicator_per_concept). Two indicators sharing the same (concept_id, entity_kind) tuple is the proliferation signal that PR-Z3b rejects. Ships in PR-Z3a (this file + concepts.json seed + find_overlap() helper); the indicator-catalogue concept_id FK + CLI + Tier-B + CI gate ship in PR-Z3b (TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §2 PR-Z3, guardrails #13-#18).",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-26",
+      "description": "Initial concept registry schema (PR-Z3a). Seeded from the 183 indicator rows in datasets/taxonomy/indicators.json by clustering on (label_short, unit, normalisation) → 164 concepts. Hand-authored taxonomy per ADR-0002; sources[] left empty (concepts are nouns, not series). Additive: schema introduction does NOT modify any existing artifact. PR-Z3b will add the FK on indicator-catalogue.schema.json + the find_overlap() CLI + the four Tier-B checks (tier_b_one_indicator_per_concept, tier_b_indicator_has_justification, tier_b_facet_promotion_warning, tier_b_indicator_freshness_declared) + the GitHub Action indicator-add-gate."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "concepts"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "concepts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "concept_id",
+          "noun",
+          "unit_canonical",
+          "normalisation",
+          "entity_kinds",
+          "description_short",
+          "sources"
+        ],
+        "properties": {
+          "concept_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+            "maxLength": 40,
+            "description": "PK. Kebab-case, single segment, max 40 chars. The slug a citizen-facing question maps to ('electricity-used-per-person', 'cattle-population', 'state-gva')."
+          },
+          "noun": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "description": "Short human noun for the concept (matches indicator label_short style). Example: 'Per-capita electricity'."
+          },
+          "unit_canonical": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40,
+            "description": "The canonical unit indicators FK'd to this concept emit in. Indicators in a different unit are a different concept."
+          },
+          "normalisation": {
+            "type": "string",
+            "enum": ["absolute", "per_capita", "per_area", "share", "ratio", "index"],
+            "description": "How the concept is normalised. Indicators with different normalisations are different concepts (counts vs shares are not interchangeable)."
+          },
+          "entity_kinds": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["country", "state", "district", "ac", "party", "candidate"]
+            },
+            "description": "Grain axes the concept makes sense at. Union across all FK'd indicators. A concept may live at multiple grains (country + state) iff the same noun + unit + normalisation applies."
+          },
+          "description_short": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 280,
+            "description": "One-sentence citizen-readable definition. What a non-technical reader would say the concept IS."
+          },
+          "sources": {
+            "type": "array",
+            "description": "Hand-authored taxonomy per ADR-0002 — concepts are nouns, not series. Empty by convention; per-indicator provenance lives on the observation row's source_id (CLAUDE.md §12).",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}
