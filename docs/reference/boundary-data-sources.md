@@ -1,8 +1,10 @@
 # Boundary Data Sources
 
-**Last Updated**: 2026-05-25
+**Last Updated**: 2026-05-26
 
 This is the catalogue and decision record for **geographic boundary data** — country / state / district / sub-district / village / Assembly Constituency / Parliamentary Constituency / postal polygons — that the frontend renders as choropleth maps. It is the boundary-data counterpart to [`data-sources.md`](data-sources.md) (which covers election *results* sources). The LGD identifier tables (the registry that issues `lgd_code` for the boundaries to join on) live in [`lgd-opendata.md`](lgd-opendata.md).
+
+The **"why" behind the choices** below — why polygons not topographic raster, why not GADM, why TopoJSON is queued not shipped, why DIGIPIN is deferred, why 20 states are still on HTL on purpose — lives in [docs/concepts/boundary-data-philosophy.md](../concepts/boundary-data-philosophy.md). This catalogue records the "what"; the philosophy doc records the recurring "why".
 
 The pipeline that consumes these sources lives in [`tools/boundaries/`](../../tools/boundaries/README.md); the file-by-file selection is encoded in [`tools/boundaries/pipeline.json`](../../tools/boundaries/pipeline.json); the on-disk ledger of what landed is [`datasets/boundaries/boundary_layers.parquet`](../../datasets/boundaries/boundary_layers.parquet) — the SoT for "what's currently shipping" and the right place to verify the count + producer for any layer.
 
@@ -231,6 +233,10 @@ This **does not** mean LGD is silently better for states whose boundaries have n
 | OpenStreetMap relations | Live, community-edited | AC coverage uneven across states; would require validation per state per delimitation cycle. Worth keeping as a cross-check, not a primary source. |
 | Survey of India digital products | Authoritative national mapping | Not openly licensed for redistribution in our context. |
 
+### GADM (rejected on principle)
+
+[GADM](https://gadm.org/) is a widely catalogued international boundary dataset. yen-gov does **not** adopt it. Four structural reasons: (1) the India dataset encodes China/Pakistan-claimed slices in five of its state-level `_1.json` polygons -- non-starter for an Indian-citizen-facing site; (2) the license reserves redistribution rights in a way that does not cleanly satisfy our static-bundle ship path under Holy Law #1; (3) GADM keys on HASC codes (`IN.TN`, `IN.AP`) which forces a name-normalisation translator the rest of the pipeline does not need (we key everything on LGD or ECI per [identifiers.md](identifiers.md)); (4) GADM v4.1 has not been refreshed for the post-2019 Ladakh split, the post-2014 Telangana split, or the merged DNH-DD UT, while the datameet `Admin2` layer we ship today carries all three. Full rationale + per-level recommended replacements: [docs/concepts/boundary-data-philosophy.md#gadm-rejection-rationale](../concepts/boundary-data-philosophy.md#gadm-rejection-rationale).
+
 ## Other yashveeeeeeer/india-geodata datasets worth tracking
 
 The same project catalogues many non-boundary datasets that are out of scope for the *boundary* pipeline but may be relevant to future yen-gov features (constituency-level enrichment, contextual layers, etc.). Recording them here so we don't re-research:
@@ -307,11 +313,13 @@ Survey of India 1:50k (Open Series Maps), 1:25k (NHP), 1:5k (CMPDI) topographic 
 
 ## See also
 
-- [`tools/boundaries/README.md`](../../tools/boundaries/README.md) — operational reference (how to run the pipeline, source format dispatch)
-- [`docs/architecture/frontend/map.md`](../architecture/frontend/map.md) — how the frontend consumes the PMTiles
-- [`docs/architecture/data/boundaries.md`](../architecture/data/boundaries.md) — subsystem doc (disk topology, identifier discipline, methodology breaks)
-- [`TODO/20260524-boundary-coverage-expansion-plan.md`](../../TODO/20260524-boundary-coverage-expansion-plan.md) — phased plan for Phase A (pincode), B (national subdistricts), C (national villages), D (AC consolidation onto ramSeraph), E (Census 2011 polygons)
-- [`docs/concepts/disclaimer.md`](../concepts/disclaimer.md) — user-facing wording for boundary attribution
-- [`docs/reference/data-sources.md`](data-sources.md) — election-results sources (sister catalogue)
-- [`docs/reference/lgd-opendata.md`](lgd-opendata.md) — LGD tables (identifier registry) catalogue
-- CLAUDE.md §11 (schema versioning), §12 (provenance)
+- [`docs/concepts/boundary-data-philosophy.md`](../concepts/boundary-data-philosophy.md) -- the "why" behind every choice in this catalogue (polygons vs topographic raster, GADM rejection, TopoJSON adoption status, DIGIPIN deferral, HTL kept on purpose)
+- [`tools/boundaries/README.md`](../../tools/boundaries/README.md) -- operational reference (how to run the pipeline, source format dispatch)
+- [`docs/architecture/frontend/map.md`](../architecture/frontend/map.md) -- how the frontend consumes the PMTiles
+- [`docs/architecture/data/boundaries.md`](../architecture/data/boundaries.md) -- subsystem doc (disk topology, identifier discipline, methodology breaks)
+- [`TODO/20260524-boundary-coverage-expansion-plan.md`](../../TODO/20260524-boundary-coverage-expansion-plan.md) -- phased plan for Phase A (pincode), B (national subdistricts), C (national villages), D (AC consolidation onto ramSeraph), E (Census 2011 polygons)
+- [`TODO/20260525-topojson-frontend-perf-plan.md`](../../TODO/20260525-topojson-frontend-perf-plan.md) -- queued TopoJSON adoption plan for the national states + districts shards
+- [`docs/concepts/disclaimer.md`](../concepts/disclaimer.md) -- user-facing wording for boundary attribution
+- [`docs/reference/data-sources.md`](data-sources.md) -- election-results sources (sister catalogue)
+- [`docs/reference/lgd-opendata.md`](lgd-opendata.md) -- LGD tables (identifier registry) catalogue
+- CLAUDE.md section 11 (schema versioning), section 12 (provenance)

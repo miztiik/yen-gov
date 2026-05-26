@@ -379,4 +379,5 @@ The polygon inset above ships behind `VITE_UNMAPPED_REGION_CHIPS=off`; the defau
 - [Frontend overview](overview.md) — visualization catalog, personas.
 - [Psephlab](psephlab.md) — how the map's `ac-fill` swaps data when a scenario is active.
 - [Data provenance](../../concepts/data-provenance.md) — applies to boundary PMTiles too.
+- [Boundary-data philosophy](../../concepts/boundary-data-philosophy.md) -- the "why" behind every boundary-data choice (polygons vs topographic raster, GADM rejection, TopoJSON adoption status, DIGIPIN deferral, HTL kept on purpose).
 - CLAUDE.md §3 (datasets contract surface), §12 (sources).
