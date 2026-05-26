@@ -1,7 +1,10 @@
-"""Ingest RBI Handbook tables (HBS-IE 2024-25 + HBS-IS 2024-25) for inflation,
-state pension, and state vital-stats / health indicators.
+"""Ingest RBI Handbook tables (HBS-IE 2024-25 + HBS-IS 2024-25) for inflation
+and state pension indicators.
 
-Emits 13 artifacts under datasets/indicators/in/{prices,fiscal,health}/.
+Emits artifacts under datasets/indicators/in/{prices,fiscal}/. The 5 health
+shards previously emitted under datasets/indicators/in/health/ were retired
+in PR-D6 (grain-rip plan §D6); the SPECS block below no longer includes
+them. See docs/reference/topics/health.md for the retirement note.
 
 Shared building blocks (state-name map, value coercion, year-label parsing,
 landing-page URLs, license block, write helper) live in
@@ -422,132 +425,6 @@ STATE_SPECS = [
             "time but the underlying revision tier should be considered when "
             "comparing FY24/FY25 with earlier years."
         ),
-    },
-    # ---- State health / vital statistics (T02, T03, T04, T06, T18) ----
-    {
-        "out_path": "health/state_birth_rate_per_1000.json",
-        "id": "health/state_birth_rate_per_1000",
-        "title": "Crude Birth Rate (per 1,000 population)",
-        "xlsx": STATES_CACHE / "T02_BirthRate.xlsx",
-        "table_label": "Table 2: State-wise Birth Rate",
-        "snapshot_url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/2T_11122025382C4BD8859E47A2B510B8A332E7A589.XLSX",
-        "landing": HBS_IS_LANDING,
-        "header_row": 3,
-        "calendar": True,
-        "value_kind": "rate",
-        "unit": "per 1,000 population",
-        "time_grain": "year",
-        "direction": "neutral",
-        "description": (
-            "Crude Birth Rate — number of live births per 1,000 mid-year population, "
-            "calendar-year. Sourced via SRS (Sample Registration System), Office of "
-            "the Registrar General of India. Trending downward across all states "
-            "(India's demographic transition); compare with TFR for the policy-"
-            "relevant fertility lens. NEUTRAL direction — neither high nor low is "
-            "intrinsically 'good' (high CBR may reflect poverty + low female "
-            "agency; very low CBR plus long life expectancy = ageing-population "
-            "fiscal stress)."
-        ),
-        "notes": "Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 2 (SRS, Registrar General).",
-    },
-    {
-        "out_path": "health/state_death_rate_per_1000.json",
-        "id": "health/state_death_rate_per_1000",
-        "title": "Crude Death Rate (per 1,000 population)",
-        "xlsx": STATES_CACHE / "T03_DeathRate.xlsx",
-        "table_label": "Table 3: State-wise Death Rate",
-        "snapshot_url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/3T_111220254D0C628610584647A785A4DC76884B04.XLSX",
-        "landing": HBS_IS_LANDING,
-        "header_row": 3,
-        "calendar": True,
-        "value_kind": "rate",
-        "unit": "per 1,000 population",
-        "time_grain": "year",
-        "direction": "neutral",
-        "description": (
-            "Crude Death Rate — deaths per 1,000 mid-year population, calendar-year. "
-            "Crude in the sense that it is unadjusted for age structure: states with "
-            "older populations (Kerala, Tamil Nadu) will show structurally higher CDR "
-            "than states with younger populations (Bihar, UP), without that meaning "
-            "they are 'less healthy'. Pair with Life Expectancy and Infant Mortality "
-            "for a properly age-controlled mortality picture."
-        ),
-        "notes": "Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 3 (SRS, Registrar General).",
-    },
-    {
-        "out_path": "health/state_infant_mortality_rate_per_1000.json",
-        "id": "health/state_infant_mortality_rate_per_1000",
-        "title": "Infant Mortality Rate (per 1,000 live births)",
-        "xlsx": STATES_CACHE / "T04_InfantMortalityRate.xlsx",
-        "table_label": "Table 4: State-wise Infant Mortality Rate",
-        "snapshot_url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/4T_11122025025F203A250E46CAB963946C776ADBAF.XLSX",
-        "landing": HBS_IS_LANDING,
-        "header_row": 3,
-        "calendar": True,
-        "value_kind": "rate",
-        "unit": "per 1,000 live births",
-        "time_grain": "year",
-        "direction": "lower_is_better",
-        "description": (
-            "Infant Mortality Rate — deaths of children under one year of age per "
-            "1,000 live births, calendar-year. The single most cited summary of a "
-            "state's public-health performance, because it integrates antenatal care, "
-            "institutional delivery quality, neonatal nutrition, and immunisation "
-            "coverage. India's IMR has fallen from ~58 in 2004 to under 30 in 2023, "
-            "but the inter-state spread is still wide (Kerala under 7; MP/UP near 30)."
-        ),
-        "notes": "Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 4 (SRS, Registrar General).",
-    },
-    {
-        "out_path": "health/state_total_fertility_rate.json",
-        "id": "health/state_total_fertility_rate",
-        "title": "Total Fertility Rate (children per woman)",
-        "xlsx": STATES_CACHE / "T06_TotalFertilityRate.xlsx",
-        "table_label": "Table 6: State-wise Total Fertility Rate",
-        "snapshot_url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/6T_11122025339F4339AA23421F863E7B21428C8460.XLSX",
-        "landing": HBS_IS_LANDING,
-        "header_row": 2,
-        "calendar": True,
-        "value_kind": "rate",
-        "unit": "births per woman (lifetime)",
-        "time_grain": "year",
-        "direction": "neutral",
-        "description": (
-            "Total Fertility Rate — average number of children a woman would bear "
-            "over her lifetime at current age-specific fertility rates. Replacement "
-            "level is conventionally 2.1; India's national TFR fell below replacement "
-            "around 2020. Below-replacement TFR has direct downstream consequences "
-            "for school-age population, working-age share, dependency ratio, and "
-            "long-run fiscal pension sustainability — relevant context for "
-            "`fiscal/state_pension_expenditure_inr_crore`."
-        ),
-        "notes": "Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 6 (SRS, Registrar General).",
-    },
-    {
-        "out_path": "health/state_public_health_expenditure_inr_crore.json",
-        "id": "health/state_public_health_expenditure_inr_crore",
-        "title": "State public expenditure on health",
-        "xlsx": STATES_CACHE / "T18_PublicHealthExpenditure.xlsx",
-        "table_label": "Table 18: State-wise Public Expenditure on Health",
-        "snapshot_url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/18T_11122025768C98BEB7A5493EA2E2EFFFEDDA7C46.XLSX",
-        "landing": HBS_IS_LANDING,
-        "header_row": 3,
-        "calendar": False,
-        "value_kind": "currency",
-        "unit": "INR (crore)",
-        "time_grain": "fiscal_year",
-        "direction": "neutral",
-        "description": (
-            "Annual public expenditure on health, by state, ₹ Crore — captures "
-            "Medical & Public Health, Family Welfare, and Water Supply & Sanitation "
-            "heads of the state revenue + capital accounts. Coverage is FY 2012-13 "
-            "to FY 2019-20 in this RBI edition; for citizen-relevant comparisons "
-            "normalise by population (per-capita) or by GSDP (% of GSDP). Direction "
-            "is `neutral` not `higher_is_better` because spending is an INPUT, not "
-            "an OUTCOME — pair with Infant Mortality / Life Expectancy for the "
-            "value-for-money story."
-        ),
-        "notes": "Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 18.",
     },
 ]
 

@@ -220,10 +220,6 @@
       "chart_type": "choropleth"
     },
     {
-      "indicator_id": "health/state_health_expenditure_pct_total_expenditure",
-      "chart_type": "choropleth"
-    },
-    {
       "indicator_id": "state-livestock-naip-iv-calves-born",
       "renderer_rules": [
         "no_rank_table"

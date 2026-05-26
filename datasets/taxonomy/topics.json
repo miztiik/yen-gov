@@ -463,55 +463,10 @@
       "list": "state",
       "summary": "Vital rates and public spending on health. Public health is a State List subject (Entry 6) — state governments run primary health centres, district hospitals, and most preventive programmes — but the Centre funds about a third of the spend through centrally-sponsored schemes (NHM, Ayushman Bharat).",
       "icon": "heart-pulse",
-      "featured": true,
+      "featured": false,
       "peer_set_default": "general_category",
-      "artifacts": [
-        {
-          "kind": "indicator",
-          "id": "health/state_infant_mortality_rate_per_1000",
-          "default": true,
-          "featured": true,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "health/state_total_fertility_rate",
-          "default": false,
-          "featured": true,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "health/state_birth_rate_per_1000",
-          "default": false,
-          "featured": false,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "health/state_death_rate_per_1000",
-          "default": false,
-          "featured": false,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "health/state_public_health_expenditure_inr_crore",
-          "default": false,
-          "featured": false,
-          "scope": "national",
-          "peer_set_default": "all"
-        },
-        {
-          "kind": "indicator",
-          "id": "health/state_health_expenditure_pct_total_expenditure",
-          "default": false,
-          "featured": true,
-          "scope": "national",
-          "peer_set_default": "all"
-        }
-      ],
-      "notes": "Vital rates from the Sample Registration System (SRS) — the official continuous demographic survey run by the Office of the Registrar General of India. SRS publishes annual state-level estimates roughly two years in arrears. Crude birth and death rates are population-weighted — they fall partly because states age and birth-cohorts shrink, not only because of public-health gains; read alongside TFR. IMR (Infant Mortality Rate, deaths under 1 per 1,000 live births) is the cleanest health-system indicator: lower is better, and small states with strong primary care (Kerala, Tamil Nadu) sit near OECD lows while large EAG states still post double-digit rates. Public health expenditure ships in absolute ₹Crore — the per-capita view (Phase 5 derived) is the honest comparison; large states will dominate the absolute table but spend less per capita."
+      "artifacts": [],
+      "notes": "Structural placeholder per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §D6. The 6 legacy health shards (SRS vital rates + RBI Statement 27 health-spend) were retired in PR-D6: 5 hand-curated SRS shards (birth rate, death rate, IMR, TFR, public-health expenditure ₹Cr) end in 2020 with the SRS publication paused; RBI Statement 27 (share-of-state-total) had only one publisher and no canonical successor. Re-ingestion via a canonical health adapter (SRS resumption + NHM dashboard + Ayushman Bharat) is queued behind the canonical pivot — flag for Hans review when first canonical health artifact arrives."
     },
     {
       "id": "governance",

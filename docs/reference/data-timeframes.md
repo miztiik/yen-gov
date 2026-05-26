@@ -35,10 +35,6 @@ These are the spine of any longitudinal "did governance work?" comparison.
 | `economy/state_nsdp_constant_inr_crore` | FY95–FY25 | **31** | annual | RBI |
 | `economy/per_capita_nsdp_constant_inr` | FY01–FY25 | 25 | annual | RBI |
 | `economy/per_capita_nsdp_current_inr` | FY01–FY25 | 25 | annual | RBI |
-| `health/state_birth_rate_per_1000` | CY04–CY23 | 20 | annual | RBI (SRS) |
-| `health/state_death_rate_per_1000` | CY04–CY23 | 20 | annual | RBI (SRS) |
-| `health/state_infant_mortality_rate_per_1000` | CY04–CY23 | 20 | annual | RBI (SRS) |
-| `health/state_total_fertility_rate` | CY03–CY23 | 21 | annual | RBI (SRS) |
 | `fiscal/state_pension_expenditure_inr_crore` | FY05–FY25 | 21 | annual | RBI |
 | `fiscal/outstanding_debt_pct_gsdp` | FY08–FY26 | 19 | annual | RBI |
 | `fiscal/centre_transfers_to_states_*` (4 transfer flows: net, gross, tax_devolution, grants) | FY07–FY25 | 19 | annual | RBI |
@@ -69,7 +65,6 @@ These are the spine of any longitudinal "did governance work?" comparison.
 | `fiscal/state_*` (own-tax, non-tax, share-central, grants, rev-exp) | FY17–FY22 | 6 | sansad.in |
 | `fiscal/centre_transfers_gross` | FY17–FY22 | 6 | data.gov.in |
 | `fiscal/net_transfers_from_centre` | FY24–FY26 | 3 | RBI |
-| `health/state_public_health_expenditure_inr_crore` | FY13–FY20 | 8 | RBI |
 
 ## Snapshots only (no time dimension)
 

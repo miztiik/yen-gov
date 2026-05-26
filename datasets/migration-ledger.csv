@@ -122,12 +122,12 @@ datasets/indicators/in/fiscal/union_primary_deficit.json,fiscal,migrate,3,union-
 datasets/indicators/in/fiscal/union_primary_revenue_deficit.json,fiscal,migrate,3,union-primary-revenue-deficit-inr-crore,,
 #
 # ----- HEALTH (Phase 3) — 6 legacy artifacts.
-datasets/indicators/in/health/state_infant_mortality_rate_per_1000.json,health,migrate,3,state-imr-per-1000-live-births,,SRS source canonical.
-datasets/indicators/in/health/state_birth_rate_per_1000.json,health,migrate,3,state-crude-birth-rate-per-1000,,
-datasets/indicators/in/health/state_death_rate_per_1000.json,health,migrate,3,state-crude-death-rate-per-1000,,
-datasets/indicators/in/health/state_total_fertility_rate.json,health,migrate,3,state-tfr-births-per-woman,,
-datasets/indicators/in/health/state_public_health_expenditure_inr_crore.json,fiscal,migrate,3,state-public-health-expenditure-inr-crore,,Reclassified to fiscal family — it is an expenditure indicator that happens to be on health.
-datasets/indicators/in/health/state_health_expenditure_pct_total_expenditure.json,fiscal,migrate,3,state-health-expenditure-share-pct,,Reclassified to fiscal; derived ratio first-class.
+# DELETED PR-D6: datasets/indicators/in/health/state_infant_mortality_rate_per_1000.json,health,deleted,3,,, retired (SRS paused; no canonical successor)
+# DELETED PR-D6: datasets/indicators/in/health/state_birth_rate_per_1000.json,health,deleted,3,,, retired (SRS paused; no canonical successor)
+# DELETED PR-D6: datasets/indicators/in/health/state_death_rate_per_1000.json,health,deleted,3,,, retired (SRS paused; no canonical successor)
+# DELETED PR-D6: datasets/indicators/in/health/state_total_fertility_rate.json,health,deleted,3,,, retired (SRS paused; no canonical successor)
+# DELETED PR-D6: datasets/indicators/in/health/state_public_health_expenditure_inr_crore.json,fiscal,deleted,3,,, retired (SRS paused; no canonical successor)
+# DELETED PR-D6: datasets/indicators/in/health/state_health_expenditure_pct_total_expenditure.json,fiscal,deleted,3,,, retired (RBI Statement 27 ingest removed; no canonical successor)
 #
 # ----- DEMOGRAPHY (Phase 3) — 3 legacy artifacts (2 retired in PR-D4; lakhs deferred).
 # datasets/indicators/in/demography/state_population_by_residence_count.json,demography,deleted,3,,,Retired in PR-D4 — Census 2011 was last completed; 2021 postponed; six decennial points = position not trajectory.
