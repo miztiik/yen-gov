@@ -299,6 +299,29 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             derivation=derivation,
         ))
 
+    # PR-Y (2026-05-26): state_renewable_grid_capacity_mw.json
+    # (RBI Hbk Table 143) -> state-renewable-grid-capacity-mw.
+    # Pattern A-SINGLE (scalar; no facet axis). Calendar-year end-March
+    # cumulative MW snapshots. Publisher emits no facet split (combined
+    # wind + solar + small-hydro + biomass + waste-to-energy).
+    shard = _load_rbi_meadow(repo_root, "state_renewable_grid_capacity_mw.json")
+    for r in shard["rows"]:
+        # time is calendar year like "2007"; the catalogue uses period
+        # YYYY-04 (end-March snapshot semantics).
+        year = int(r["time"])
+        period_label = f"{year}-04"
+        period_seq = year * 100 + 4
+        rows.append(ObservationRow(
+            entity_id=to_entity_id(r["entity_id"]),
+            year=year,
+            period_label=period_label,
+            period_seq=period_seq,
+            indicator_id="state-renewable-grid-capacity-mw",
+            value_numeric=float(r["value"]),
+            source_id=SOURCE_IDS["rbi_hbk_143_renewable_grid_capacity"],
+            derivation="raw",
+        ))
+
     return BatchEnvelope(
         target_family="energy",
         target_table_stem="energy_installed_capacity",

@@ -1343,6 +1343,49 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     ],
   },
 
+  // --- PR-Y (Row 6 P.1.C 9/9, state-wise renewable grid capacity MW, 2026-05-26) ---
+  // RBI Handbook 2024-25 edition, Table 143 -> 585 obs (36 states/UTs x 18
+  // calendar years 2007-2024). Pattern A-SINGLE -- the publisher emits no
+  // per-source split (combined wind + solar + small-hydro + biomass +
+  // waste-to-energy as one MW number) so this is a scalar indicator, not
+  // a facet-multiplexed one. Lifts onto the EXISTING
+  // energy_installed_capacity parquet stem. Adapter: installed_capacity.py
+  // final block emits state-renewable-grid-capacity-mw passthrough.
+  {
+    kind: "single",
+    legacy_artifact_id: "energy/state_renewable_grid_capacity_mw",
+    canonical_indicator_id: "state-renewable-grid-capacity-mw",
+    table_id: "energy.energy_installed_capacity",
+    meta: {
+      id: "state-renewable-grid-capacity-mw",
+      title: "State installed grid-connected renewable capacity (MW, end-March snapshot)",
+      description:
+        "Cumulative grid-connected renewable-power generation capacity installed in the state (MW), as at end-March of the calendar year. Combined wind + solar + small-hydro + biomass + waste-to-energy -- RBI's Table 143 does NOT publish a per-source split. The closest proxy for a state-level renewable-capacity time series with deep history (18 years). National total grew from ~10 GW in 2007 to ~144 GW in 2024 (14x). Rajasthan, Gujarat, Tamil Nadu, Karnataka, Maharashtra dominate; Bihar, Odisha, NE states remain in single-digit GW territory.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "higher_is_better",
+      scale_hint: "linear",
+      unit: "MW",
+      short_unit: "MW",
+      icon: "sun",
+      attribution_geography: "where_administered",
+      comparability: "comparable_across_states_and_time",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "RBI Handbook of Statistics on Indian States 2024-25 edition, Table 143. Originating data: MoSPI Energy Statistics, Government of India. End-March cumulative installed-capacity snapshots, calendar-year-labelled (catalogue period uses YYYY-04 sentinel).",
+      notes:
+        "Telangana data from 2015 (state created June 2014); Ladakh from 2023 (UT created October 2019). 'Total' / 'Others' rows in the source workbook are skipped at parse time. Compare with PR-R `state-rooftop-solar-capacity-mw` to see what fraction of the renewable total is rooftop (typically <10% of total RE capacity).",
+    },
+    // PR-Y: Hans-curated caveats. Three honesty cues: combined-RE-no-split,
+    // cumulative-installed-not-generation, RBI-snapshot-cadence.
+    caveats: [
+      "Combined RE total -- no per-source split. RBI Table 143 lumps wind + solar + small-hydro + biomass + waste-to-energy into ONE megawatt number per state per year. To see the source mix WITHIN a state's renewable fleet, cross-reference with PR-Q's installed-capacity-by-source series + PR-R's rooftop-solar capacity. The trade-off: this series goes back to 2007 (deep history); the per-source ICED series only starts from FY17.",
+      "Installed capacity is NOT energy delivered. A state with 25 GW of RE capacity that runs at 20% plant load factor delivers 5 GW-average -- less than a single 4 GW coal plant. Use PR-V's plant-load-factor by fuel + PR-Q's electricity-generation-gwh to convert capacity into ACTUAL energy. Cumulative MW alone is the 'how much steel is on the ground' metric, not the 'how much electricity is flowing' metric.",
+      "End-March snapshot vs financial-year accumulation. This series is an end-March STOCK reading (cumulative MW as at March 31 of the labelled year). Capacity ADDED during a fiscal year is the difference between two consecutive years; the series itself does NOT show annual flow. RBI re-publishes the same numbers as MoSPI Energy Statistics -- expect minor revisions (~1-2%) when MoSPI restates back-years; the latest RBI edition supersedes older ones for each year-cell.",
+    ],
+  },
+
   // --- 12: ACS-ARR gap on electricity sales (₹/kWh), NITI ICED ---
   {
     kind: "single",

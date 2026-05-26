@@ -61,9 +61,9 @@ __all__ = [
 ]
 
 
-# Operator nicknames for the 20 energy sources (7 P.1.A + 5 P.1.B + 1 P.1.C
+# Operator nicknames for the 21 energy sources (7 P.1.A + 5 P.1.B + 1 P.1.C
 # PR-Q + 1 P.1.C PR-R + 1 P.1.C PR-S + 1 P.1.C PR-T + 1 P.1.C PR-U + 1 P.1.C
-# PR-V + 1 P.1.C PR-W + 1 P.1.C PR-X).
+# PR-V + 1 P.1.C PR-W + 1 P.1.C PR-X + 1 P.1.C PR-Y).
 # Adapters look up the materialised source_id by nickname rather than
 # rebuilding the triple-hash each time.
 SOURCE_NICKNAMES: tuple[str, ...] = (
@@ -167,6 +167,13 @@ SOURCE_NICKNAMES: tuple[str, ...] = (
     # Originating data: MoSPI Energy Statistics India; republished via
     # NITI Aayog ICED dashboard.
     "iced_final_energy_consumption",
+    # P.1.C PR-Y (1) - State-wise grid-connected renewable installed
+    # capacity from RBI Handbook Table 143. Pattern A-single (scalar;
+    # no facet axis). End-March cumulative MW snapshot, 2007-2024.
+    # Originating data: MoSPI Energy Statistics; RBI republishes as
+    # silver-tier longitudinal anchor (same Hans D33 / plan-doc §3 Q-d
+    # ruling as RBI Hbk 140/141/142 -- republisher not authority).
+    "rbi_hbk_143_renewable_grid_capacity",
 )
 
 
@@ -285,6 +292,12 @@ _TRIPLES: dict[str, tuple[str, str, str]] = {
     "iced_final_energy_consumption": (
         "NITI Aayog India Climate & Energy Dashboard",
         "Final Energy Consumption National API (national fiscal-year final-energy consumption by sector x fuel composite, mtoe)",
+        "2024-25",
+    ),
+    # --- P.1.C PR-Y (1) ------------------------------------------------
+    "rbi_hbk_143_renewable_grid_capacity": (
+        "Reserve Bank of India",
+        "Handbook of Statistics on Indian States, Table 143 (State-wise grid-connected renewable installed capacity, MW, end-March snapshot)",
         "2024-25",
     ),
 }
@@ -475,6 +488,15 @@ _BY_NICKNAME: dict[str, tuple[str, str, str, bool, str, str | None]] = {
         False,
         "https://icedapi.niti.gov.in/analytics/state-wise-deep-dive",
         "ICED state-wise-deep-dive endpoint, final-energy-consumption national series: annual sectoral final-energy demand for India by (sector x fuel) composite (18 publisher pairs: agriculture / commercial / industry / non-energy / residential / transport / other / cgd-and-others x electricity / gas / oil / coal; FY05-FY24, mtoe). Originating data: MoSPI Energy Statistics India. ICED is the federal aggregator (plan-doc §3 Q-d). National-only -- per-state final-energy-consumption is NOT published by ICED. Fifth Pattern A-facet in P.1.C cohort, on the NEW `sector_fuel_pair` axis (introduced this PR). Compound suffix `{sector}-{fuel}` because the canonical-5 fuel_type axis cannot encode both dimensions in one indicator_id.",
+    ),
+    # --- P.1.C PR-Y (1) ------------------------------------------------
+    "rbi_hbk_143_renewable_grid_capacity": (
+        "OGL-IN-1.0",
+        "silver",
+        "archived-snapshot",
+        False,
+        "https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=22833",
+        "RBI Handbook of Statistics on Indian States 2024-25 edition, Table 143: state-wise installed grid-connected renewable capacity (MW, end-March snapshot, 2007-2024). Combined wind + solar + small-hydro + biomass + waste-to-energy (no per-source split at this grain). Originating data: MoSPI Energy Statistics, Government of India. RBI republishes as the longitudinal anchor (silver / not-authority per Hans D33 + plan-doc §3 Q-d). National total ~10 GW in 2007 to ~144 GW in 2024 (14x). Telangana data from 2015 (state created 2014); Ladakh from 2023.",
     ),
 }
 

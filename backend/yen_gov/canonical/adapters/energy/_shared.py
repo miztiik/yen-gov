@@ -159,6 +159,16 @@ SOURCE_IDS: dict[str, str] = {
     # onto the EXISTING ``energy_demand_supply`` table stem (final
     # consumption is the consumer-side counterpart of primary supply).
     "iced_final_energy_consumption":     "src-29ecbb6dce9d",
+    # P.1.C PR-Y (state-wise grid-connected renewable installed capacity
+    # MW, RBI Handbook Table 143, 2026-05-26). Derived via
+    # derive_source_id("Reserve Bank of India", "Handbook of Statistics
+    # on Indian States, Table 143 (State-wise grid-connected renewable
+    # installed capacity, MW, end-March snapshot)", "2024-25"). Pattern
+    # A-SINGLE (scalar; no facet axis). End-March cumulative MW for
+    # combined wind + solar + small-hydro + biomass + waste-to-energy;
+    # publisher does NOT split per-source at this grain. Lifts onto
+    # the EXISTING ``energy_installed_capacity`` table stem.
+    "rbi_hbk_143_renewable_grid_capacity": "src-1f51c8d742bf",
 }
 
 

@@ -3054,6 +3054,26 @@
       "source_id": "src-29ecbb6dce9d"
     },
     {
+      "indicator_id": "state-renewable-grid-capacity-mw",
+      "label_short": "Renewable grid capacity",
+      "label_long": "State installed grid-connected renewable capacity (MW, end-March snapshot)",
+      "description_short": "Cumulative grid-connected renewable installed capacity in MW, end-March snapshot per year. Combined wind + solar + small-hydro + biomass + waste-to-energy (publisher emits no per-source split). Rajasthan, Gujarat, Tamil Nadu, Karnataka, Maharashtra dominate.",
+      "unit": "MW",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "higher_is_better",
+      "attribution_geography": "where_administered",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": null,
+      "source_id": "src-1f51c8d742bf"
+    },
+    {
       "indicator_id": "district-pashu-aadhaar-count",
       "label_short": "Pashu Aadhaar tagged",
       "label_long": "Animals tagged with Pashu Aadhaar (NDLM)",
