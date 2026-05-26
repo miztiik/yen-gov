@@ -102,13 +102,25 @@ def test_reports_each_offending_row(tmp_path):
     assert any("c-bad" in m for m in ids)
 
 
-def test_check_is_dark_not_chained_into_run():
-    """PR-Z3b-cli ships the check DARK -- NOT in run(). Enforced post-tail."""
+def test_check_is_chained_live_into_run():
+    """PR-Z3b-flip wires the check LIVE into ``run()`` post-actionC backfill."""
     from yen_gov import validate as v
 
     src = Path(v.__file__).read_text(encoding="utf-8")
     assert "tier_b_indicator_freshness_declared" in src  # function present
-    assert "+ tier_b_indicator_freshness_declared" not in src
+    assert "+ tier_b_indicator_freshness_declared(root)" in src
+
+
+def test_passes_against_repo_indicators_catalogue():
+    """All 183 rows were backfilled in PR-Z3b-tail-actionC; check must be clean."""
+    from yen_gov import validate as v
+
+    repo_root = Path(v.__file__).resolve().parents[2]
+    failures = tier_b_indicator_freshness_declared(repo_root)
+    assert failures == [], (
+        f"freshness check fired on backfilled catalogue: "
+        f"{[f.message for f in failures[:3]]}"
+    )
 
 
 def test_no_op_when_catalogue_missing(tmp_path):

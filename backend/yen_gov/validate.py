@@ -1132,4 +1132,5 @@ def run(root: Path) -> list[Failure]:
         + tier_b_legacy_boundary_sidecars(root)
         + tier_b_no_new_sub_fuel_shards(root)
         + tier_b_meadow_vintage_matches_source_id(root)
+        + tier_b_indicator_freshness_declared(root)
     )
