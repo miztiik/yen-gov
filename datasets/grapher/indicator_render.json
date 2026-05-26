@@ -354,16 +354,6 @@
       "renderer_rules": [
         "no_rank_table"
       ]
-    },
-    {
-      "indicator_id": "transport/state_ev_registrations_count",
-      "chart_type": "stacked-trend",
-      "default_mode": "absolute"
-    },
-    {
-      "indicator_id": "transport/state_ev_share_total_registrations_pct",
-      "chart_type": "stacked-trend",
-      "default_mode": "percent"
     }
   ]
 }

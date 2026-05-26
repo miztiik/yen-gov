@@ -2077,46 +2077,6 @@
       "time_grain": "fiscal_year",
       "observed_periods_within_range": 51,
       "gap_count_within_range": 0
-    },
-    {
-      "id": "transport/state_ev_registrations_count",
-      "topic": "transport",
-      "path": "datasets/indicators/in/transport/state_ev_registrations_count.json",
-      "title": "EV registrations by state and vehicle category",
-      "documentation_status": "stub",
-      "inventory_status": "complete",
-      "frozen": false,
-      "last_polled_at": "2026-05-14T12:22:08Z",
-      "observed_count": 26,
-      "pending_count": 0,
-      "unavailable_count": 0,
-      "min_time": "2000-04",
-      "max_time": "2025-04",
-      "min_period_label": "2000-04",
-      "max_period_label": "2025-04",
-      "time_grain": "fiscal_year",
-      "observed_periods_within_range": 26,
-      "gap_count_within_range": 0
-    },
-    {
-      "id": "transport/state_ev_share_total_registrations_pct",
-      "topic": "transport",
-      "path": "datasets/indicators/in/transport/state_ev_share_total_registrations_pct.json",
-      "title": "EV share of total vehicle registrations by state and category",
-      "documentation_status": "stub",
-      "inventory_status": "complete",
-      "frozen": false,
-      "last_polled_at": "2026-05-14T12:22:08Z",
-      "observed_count": 26,
-      "pending_count": 0,
-      "unavailable_count": 0,
-      "min_time": "2000-04",
-      "max_time": "2025-04",
-      "min_period_label": "2000-04",
-      "max_period_label": "2025-04",
-      "time_grain": "fiscal_year",
-      "observed_periods_within_range": 26,
-      "gap_count_within_range": 0
     }
   ]
 }

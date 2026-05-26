@@ -385,7 +385,7 @@ Per-PR pattern (applies to D1-D8 unless noted):
 | PR | Family | Shard count (verified) | Smoke route | BLOCKED on | Subagent |
 | -: | --- | -: | --- | --- | --- |
 | **D1** | prices | **7** | `/t/economy` | B8 | Max |
-| **D2** | transport | 2 | `/t/transport` or `/t/infrastructure` | none | Max |
+| **D2** | transport | 2 | `/t/transport` or `/t/infrastructure` | none | Max | ✅ PR #351
 | **D3** | human_development | 1 | `/t/human-development` | none | Max | ✅ PR #350 |
 | **D4** | demography | 3 | `/t/demography` | none | Max |
 | **D5** | environment | 8 | `/t/environment` | A3c (move AQ honesty into grapher catalogue first) | Max + Hans |
