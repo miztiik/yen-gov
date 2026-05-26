@@ -44,7 +44,10 @@ from yen_gov.coverage import (
     render_markdown,
 )
 from yen_gov.sources.eci.urls import partywise_state_url
-from yen_gov.validate import run as run_validate
+from yen_gov.validate import (
+    run as run_validate,
+    tier_b_one_indicator_per_concept,
+)
 
 app = typer.Typer(help="yen-gov pipeline CLI", no_args_is_help=True)
 
@@ -65,17 +68,46 @@ def validate(
         dir_okay=True,
         exists=True,
     ),
+    warn_concept_proliferation: bool = typer.Option(
+        False,
+        "--warn-concept-proliferation",
+        "-w",
+        help=(
+            "Also run the DARK tier_b_one_indicator_per_concept check and "
+            "print findings as [WARN] lines. Does NOT affect exit code. "
+            "Per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md "
+            "guardrail #13: the LIVE chain remains blocked until the 7 known "
+            "duplicate clusters surfaced by Z3a are resolved (per-fuel "
+            "installed-capacity proliferation across 5x coal / 5x gas / "
+            "4x hydro/nuclear/renewable / 2x vote-share / 2x winning-party-id)."
+        ),
+    ),
 ) -> None:
     """Two-tier validation across schemas and data files (CLAUDE.md §11)."""
     failures = run_validate(root)
+
+    warnings = (
+        tier_b_one_indicator_per_concept(root) if warn_concept_proliferation else []
+    )
+
     if not failures:
         typer.echo("validate: OK (0 issues)")
+        if warnings:
+            for w in warnings:
+                typer.echo(f"  [WARN tier B] {w.file}: {w.message}")
+            typer.echo(
+                f"\nvalidate: {len(warnings)} concept-proliferation "
+                f"warning(s) (not failing per dark-check status)."
+            )
         raise typer.Exit(0)
 
     by_tier: dict[str, int] = {"A": 0, "B": 0}
     for f in failures:
         by_tier[f.tier] = by_tier.get(f.tier, 0) + 1
         typer.echo(f"  [tier {f.tier}] {f.file}: {f.message}")
+    if warnings:
+        for w in warnings:
+            typer.echo(f"  [WARN tier B] {w.file}: {w.message}")
     typer.echo(f"\nvalidate: FAILED — Tier A: {by_tier.get('A', 0)}, Tier B: {by_tier.get('B', 0)}")
     raise typer.Exit(1)
 
