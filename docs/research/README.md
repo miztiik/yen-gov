@@ -35,6 +35,7 @@ Whenever a new dataset, indicator, or upstream is introduced, add (or update) a 
 | State government history (CMs)     | [`state-government-history.md`](state-government-history.md)               | planned  |
 | License handling (D9 implementation)| [`license-handling.md`](license-handling.md)                              | planned  |
 | Indicator-id grain axis (Path A vs B)| [`indicator-id-grain-axis.md`](indicator-id-grain-axis.md)               | deferred |
+| Livestock: NDLM source availability | [`livestock-ndlm-source-availability.md`](livestock-ndlm-source-availability.md) | active   |
 
 ## See also
 
