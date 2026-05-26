@@ -61,8 +61,9 @@ __all__ = [
 ]
 
 
-# Operator nicknames for the 17 energy sources (7 P.1.A + 5 P.1.B + 1 P.1.C
-# PR-Q + 1 P.1.C PR-R + 1 P.1.C PR-S + 1 P.1.C PR-T + 1 P.1.C PR-U).
+# Operator nicknames for the 18 energy sources (7 P.1.A + 5 P.1.B + 1 P.1.C
+# PR-Q + 1 P.1.C PR-R + 1 P.1.C PR-S + 1 P.1.C PR-T + 1 P.1.C PR-U + 1 P.1.C
+# PR-V).
 # Adapters look up the materialised source_id by nickname rather than
 # rebuilding the triple-hash each time.
 SOURCE_NICKNAMES: tuple[str, ...] = (
@@ -131,6 +132,19 @@ SOURCE_NICKNAMES: tuple[str, ...] = (
     # in this PR). Originating data: MoSPI Energy Statistics India,
     # republished via NITI Aayog ICED dashboard.
     "iced_primary_energy_supply",
+    # P.1.C PR-V (1) - Plant Load Factor (PLF) by fuel state-wise. Third
+    # Pattern A-facet in P.1.C cohort with NO sub-fuel collapse: 8
+    # publisher fuel buckets (bio-power, coal, hydro, nuclear, oil-gas,
+    # small-hydro, solar, wind) map 1:1 to existing fuel_type axis
+    # value_ids (biomass / coal / hydro / nuclear / gas / small_hydro /
+    # solar / wind). PLF is a PERCENTAGE so values cannot be summed
+    # across fuels -- the standard SUB_FUEL_TO_CANONICAL renewable
+    # aggregation would produce nonsense. Each (state, FY, fuel) cell
+    # is a passthrough observation. Lifts onto the EXISTING
+    # ``energy_generation`` table stem (PLF is a generation-utilization
+    # metric). Originating data: CEA per-station daily generation;
+    # republished via NITI Aayog ICED dashboard.
+    "iced_plant_load_factor",
 )
 
 
@@ -231,6 +245,12 @@ _TRIPLES: dict[str, tuple[str, str, str]] = {
     "iced_primary_energy_supply": (
         "NITI Aayog India Climate & Energy Dashboard",
         "Primary Energy Supply National API (national fiscal-year primary-energy supply (TPES) by source, mtoe)",
+        "2024-25",
+    ),
+    # --- P.1.C PR-V (1) ------------------------------------------------
+    "iced_plant_load_factor": (
+        "NITI Aayog India Climate & Energy Dashboard",
+        "Plant Load Factor by Fuel State API (state-wise per-fuel PLF percentage, fiscal-year, 8 fuel buckets)",
         "2024-25",
     ),
 }
@@ -394,6 +414,15 @@ _BY_NICKNAME: dict[str, tuple[str, str, str, bool, str, str | None]] = {
         False,
         "https://icedapi.niti.gov.in/analytics/state-wise-deep-dive",
         "ICED state-wise-deep-dive endpoint, primary-energy-supply national series: annual TPES (total primary energy supply) for India by source (coal + oil + gas + hydro + nuclear + renewables; FY05-FY25, mtoe). Originating data: MoSPI Energy Statistics India. ICED is the federal aggregator; not the issuing authority for the underlying fact (plan-doc §3 Q-d). National-only -- per-state TPES is NOT published by ICED. Second indicator on the EXISTING ``fuel_type`` axis (extended with `oil` + `renewable` value_ids in this PR).",
+    ),
+    # --- P.1.C PR-V (1) ------------------------------------------------
+    "iced_plant_load_factor": (
+        "OGL-IN-1.0",
+        "silver",
+        "live-fetch",
+        False,
+        "https://icedapi.niti.gov.in/v1/plf-metatable-data",
+        "ICED plf-metatable-data endpoint: state-wise Plant Load Factor (PLF) percentages by fuel source (8 publisher buckets: bio-power / coal / hydro / nuclear / oil-gas / small-hydro / solar / wind; FY16-FY26). PLF is energy-generated / (capacity x hours-in-period) x 100. Originating data: CEA station-level daily generation. ICED is the federal aggregator; not the issuing authority for the underlying fact (plan-doc §3 Q-d). Third Pattern A-facet in P.1.C cohort -- maps 1:1 to existing fuel_type axis values (NO sub-fuel collapse because PLF is a percentage that cannot be meaningfully summed across fuels).",
     ),
 }
 

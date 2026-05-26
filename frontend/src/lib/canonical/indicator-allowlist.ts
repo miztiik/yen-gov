@@ -1117,6 +1117,95 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     ],
   },
 
+  // --- PR-V (Row 6 P.1.C 6/9, state plant load factor by fuel, 2026-05-26) ---
+  // ICED `/v1/plf-metatable-data` (state-wise PLF percentage by fuel) ->
+  // 1652 obs rows (36 states/UTs x 11 FYs x 8 fuels) joined into the
+  // existing `energy_generation` parquet stem. Adapter:
+  //   * generation.py block 3 emits state-plant-load-factor-pct-{fuel}
+  // 8-facet Pattern A-facet on the EXISTING `fuel_type` axis. UNLIKE
+  // every other facet-multiplexed energy indicator, PR-V does NOT use
+  // SUB_FUEL_TO_CANONICAL collapse — PLF is a PERCENTAGE that cannot
+  // be summed across fuels. Each publisher label maps 1:1 to a
+  // distinct existing fuel_type value_id (bio-power -> biomass,
+  // small-hydro -> small_hydro, oil-gas -> gas, others 1:1).
+  // Compute-on-read parent: state-plant-load-factor-pct carries no
+  // observation rows; the FacetPicker primitive surfaces the 8
+  // children as individual series. NOTE: the axis's compute-on-read
+  // total flag (allow_compute_on_read_total=True on fuel_type) is
+  // semantically a footgun here -- a "Total" PLF view would be
+  // SUM-of-percentages-across-fuels (nonsense). This is disclosed in
+  // the citizen-facing Hans caveats below.
+  {
+    kind: "facet-multiplexed",
+    legacy_artifact_id: "energy/state_plant_load_factor_pct",
+    canonical_parent_indicator_id: "state-plant-load-factor-pct",
+    table_id: "energy.energy_generation",
+    facet_axis_id: "fuel_type",
+    facet_values: [
+      {
+        canonical_child_id: "state-plant-load-factor-pct-coal",
+        legacy_facet_label: "coal",
+      },
+      {
+        canonical_child_id: "state-plant-load-factor-pct-gas",
+        legacy_facet_label: "gas",
+      },
+      {
+        canonical_child_id: "state-plant-load-factor-pct-hydro",
+        legacy_facet_label: "hydro",
+      },
+      {
+        canonical_child_id: "state-plant-load-factor-pct-nuclear",
+        legacy_facet_label: "nuclear",
+      },
+      {
+        canonical_child_id: "state-plant-load-factor-pct-small-hydro",
+        legacy_facet_label: "small_hydro",
+      },
+      {
+        canonical_child_id: "state-plant-load-factor-pct-solar",
+        legacy_facet_label: "solar",
+      },
+      {
+        canonical_child_id: "state-plant-load-factor-pct-wind",
+        legacy_facet_label: "wind",
+      },
+      {
+        canonical_child_id: "state-plant-load-factor-pct-biomass",
+        legacy_facet_label: "biomass",
+      },
+    ],
+    meta: {
+      id: "state-plant-load-factor-pct",
+      title: "State plant load factor (PLF), by fuel source (% per fiscal year)",
+      description:
+        "Plant Load Factor — the share of nameplate capacity actually delivered as energy over a fiscal year. Per state, per fuel source (8 buckets: coal, gas, hydro, nuclear, small-hydro, solar, wind, biomass). Coal PLFs near 60% indicate healthy merit-order despatch; near 40% indicates structural underuse (stranded assets). Renewable PLFs are RESOURCE-bounded and inherently lower (solar ~20%, wind ~25%) — these are not failures.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "share",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "percent",
+      short_unit: "%",
+      icon: "activity",
+      attribution_geography: "where_produced",
+      comparability: "comparable_across_states_and_time",
+      implementing_authority: "joint",
+      methodology_vintage:
+        "NITI Aayog ICED /v1/plf-metatable-data (CEA-sourced upstream). PLF is the standard CEA metric: energy generated / (capacity × hours-in-period) × 100. Republished by ICED; not the issuing authority (plan-doc §3 Q-d).",
+      notes:
+        "PLF is dimensionless (%) and directly comparable across states WITHIN a fuel. NOT comparable across fuels — a 25% solar PLF is excellent, a 25% coal PLF is a stranded asset. The publisher emits 8 sub-fuels (bio-power, coal, hydro, nuclear, oil-gas, small-hydro, solar, wind); the canonical lift maps them 1:1 to existing fuel_type axis values (bio-power -> biomass, oil-gas -> gas, small-hydro -> small_hydro) with NO sub-fuel collapse step (PLF is a percentage — collapsing would compute meaningless sums).",
+    },
+    // PR-V (Row 6 P.1.C commit 1): Hans-curated caveats. Three honesty cues
+    // citizens need: not-comparable-across-fuels, resource-vs-performance,
+    // outliers-and-zero-rows-are-real.
+    caveats: [
+      "PLF is NOT comparable across fuels — only within a fuel. A 20% solar PLF in Rajasthan is excellent (the resource ceiling is ~22%); a 20% coal PLF in West Bengal is a stranded-asset signal. The FacetPicker keeps fuels visually separate for exactly this reason; do NOT mentally sum the 8 sub-series into a 'total' number.",
+      "Renewable PLFs are RESOURCE-bounded, not performance-bounded. Solar PLF is capped by sunlight hours (~20-22% even with perfect kit). Wind PLF is capped by site quality — Tamil Nadu / Gujarat / Karnataka coastal zones reach ~25-28%; inland low-wind states cannot. Hydro and small-hydro swing 20 percentage points across drought vs monsoon years — read inter-year change, not a single year.",
+      "Many state-fuel cells will be empty or show extreme values. Nuclear PLF only exists in states hosting reactors (TN, KA, RJ, GJ, MH, UP). Gas PLFs persistently below 25% across many states reflect ALL-INDIA gas-allocation shortages, not state-level despatch failures. A handful of publisher cells exceed 100% (data anomaly preserved verbatim; treat as upstream-quality flag, not a record-breaking achievement).",
+    ],
+  },
+
   // --- 12: ACS-ARR gap on electricity sales (₹/kWh), NITI ICED ---
   {
     kind: "single",
