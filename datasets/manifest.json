@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.3",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-25T23:08:25Z",
+  "generated_at": "2026-05-25T23:26:55Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -345,11 +345,11 @@
       "files": [
         {
           "path": "energy/energy_fuel_consumption.parquet",
-          "size_bytes": 34325,
-          "row_count": 450
+          "size_bytes": 243015,
+          "row_count": 3351
         }
       ],
-      "row_count_total": 450
+      "row_count_total": 3351
     },
     {
       "table_id": "livestock.livestock_pashu_aadhaar",
@@ -515,11 +515,11 @@
       "files": [
         {
           "path": "taxonomy/indicators.parquet",
-          "size_bytes": 35959,
-          "row_count": 126
+          "size_bytes": 38017,
+          "row_count": 134
         }
       ],
-      "row_count_total": 126
+      "row_count_total": 134
     },
     {
       "table_id": "taxonomy.methodology_breaks",
@@ -566,11 +566,11 @@
       "files": [
         {
           "path": "taxonomy/sources.parquet",
-          "size_bytes": 23276,
-          "row_count": 402
+          "size_bytes": 23591,
+          "row_count": 403
         }
       ],
-      "row_count_total": 402
+      "row_count_total": 403
     }
   ],
   "deprecations": [

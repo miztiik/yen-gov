@@ -956,6 +956,88 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     ],
   },
 
+  // --- PR-T (Row 6 P.1.C 4/9, oil-product consumption lift, 2026-05-26) ---
+  // ICED `/energy/fuel-sources/oil/consumptionStateProductTrend` -> 2901 obs
+  // rows (state-level, FY11-FY25) joined into the existing
+  // `energy_fuel_consumption` parquet stem reserved by PR-Q. Adapter:
+  //   * fuel_consumption.py block 2 emits state-oil-product-consumption-kt-{product}
+  // 7-facet Pattern A-facet on the NEW `oil_product` axis (per Hans).
+  // Unlike fuel_type's SUB_FUEL_TO_CANONICAL collapse, the 7 publisher
+  // labels (diesel-hsd, petrol, lpg, kerosene, naphtha, petroleum-coke,
+  // others) map 1:1 onto canonical value_ids -- no sub-bucket roll-up.
+  // legacy_facet_label is the canonical bucket name = the raw publisher
+  // label (already in lowercase-hyphen citizen-display form).
+  // Compute-on-read parent: the parent indicator-id state-oil-product-
+  // consumption-kt carries no observation rows; the renderer sums the 7
+  // product children at read time (Hans D33.8; same as the `species`
+  // axis pattern used by district-pashu-aadhaar-count).
+  {
+    kind: "facet-multiplexed",
+    legacy_artifact_id: "energy/state_oil_product_consumption_kt",
+    canonical_parent_indicator_id: "state-oil-product-consumption-kt",
+    table_id: "energy.energy_fuel_consumption",
+    facet_axis_id: "oil_product",
+    facet_values: [
+      {
+        canonical_child_id: "state-oil-product-consumption-kt-diesel-hsd",
+        legacy_facet_label: "diesel-hsd",
+      },
+      {
+        canonical_child_id: "state-oil-product-consumption-kt-petrol",
+        legacy_facet_label: "petrol",
+      },
+      {
+        canonical_child_id: "state-oil-product-consumption-kt-lpg",
+        legacy_facet_label: "lpg",
+      },
+      {
+        canonical_child_id: "state-oil-product-consumption-kt-kerosene",
+        legacy_facet_label: "kerosene",
+      },
+      {
+        canonical_child_id: "state-oil-product-consumption-kt-naphtha",
+        legacy_facet_label: "naphtha",
+      },
+      {
+        canonical_child_id: "state-oil-product-consumption-kt-petroleum-coke",
+        legacy_facet_label: "petroleum-coke",
+      },
+      {
+        canonical_child_id: "state-oil-product-consumption-kt-others",
+        legacy_facet_label: "others",
+      },
+    ],
+    meta: {
+      id: "state-oil-product-consumption-kt",
+      title: "State oil-product consumption, by product (kt per fiscal year)",
+      description:
+        "Per-state annual consumption of refined petroleum products in kilotonnes, broken down by 7 products. Diesel dominates everywhere (transport + agriculture); LPG tracks PMUY (Ujjwala) household-coverage policy; petroleum-coke tracks heavy-industry heat use. Where-CONSUMED attribution (not where-refined): the figure tells you where the product was sold and burned, not where it came out of a refinery.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "kt",
+      short_unit: "kt",
+      icon: "fuel",
+      attribution_geography: "where_consumed",
+      comparability: "comparable_with_normalisation",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NITI Aayog ICED /energy/fuel-sources/oil/consumptionStateProductTrend (PPAC / Ministry of Petroleum & Natural Gas upstream). Per-state per-product per-FY, FY11-FY25. The OTHERS state bucket and the IN national row are dropped at meadow ingest.",
+      notes:
+        "Like coal, oil is a *consumption* statistic — where the product is burned, not where the refinery sits. Diesel + petrol track economic activity; LPG tracks household-policy coverage more than wealth (a poor rural state with successful PMUY rollout will show high per-capita LPG). The 'others' bucket is the publisher's catch-all (fuel oil, ATF, lubricants, bitumen) — preserved verbatim, never imputed.",
+    },
+    // PR-T (Row 6 P.1.C commit 1): Hans-curated caveats. Three honesty cues
+    // citizens need: where-consumed-not-refined, LPG-is-policy-not-wealth,
+    // petroleum-coke-is-air-quality-debt.
+    caveats: [
+      "Where-CONSUMED, not where-refined. Gujarat is a refinery hub (Jamnagar) but a state's number here only reflects what was SOLD and BURNED within its borders — not what was produced. A landlocked diesel-heavy state (Punjab, Haryana) ranks high because of agricultural pump-set use, not because it has refineries.",
+      "LPG tracks the PMUY rollout, NOT wealth. The Ujjwala scheme distributed ~9 crore connections since FY17, concentrated in rural Bihar / UP / MP / Rajasthan. A rising LPG line in a poor state is a policy-success signal (cooking-fuel transition) — not a wealth signal. Falling rural firewood use is the upside; rural-household subsidy load is the downside.",
+      "Petroleum-coke is heavily air-quality-regulated. The 'pet coke' bucket bundles refinery by-products burned in cement and glass plants — pollution-intensive use. NCR banned its industrial use in 2017 (Supreme Court); other states allow it conditionally. A rising pet-coke line in your state is an emissions-debt signal that policy may eventually close.",
+    ],
+  },
+
   // --- 12: ACS-ARR gap on electricity sales (₹/kWh), NITI ICED ---
   {
     kind: "single",

@@ -561,7 +561,7 @@
       "label_short": "All-India installed capacity",
       "label_long": "All-India installed electricity-generation capacity (MW)",
       "description_short": "Total nameplate generating capacity in megawatts, summed across all fuels, for India. Snapshot end-of-month from the CEA Monthly Executive Summary.",
-      "description_long": "Nameplate capacity is the maximum sustained output a plant can deliver under ideal conditions — NOT the energy it actually produced. A state with high capacity isn't necessarily a high-generation state if those plants run at low plant-load factor (PLF). Compute-on-read parent: the value is the sum of the five atomic-fuel children (coal + gas + hydro + nuclear + renewable). No `_total_mw` row exists on disk (ADR-0030 D33.8 refusal).",
+      "description_long": "Nameplate capacity is the maximum sustained output a plant can deliver under ideal conditions â€” NOT the energy it actually produced. A state with high capacity isn't necessarily a high-generation state if those plants run at low plant-load factor (PLF). Compute-on-read parent: the value is the sum of the five atomic-fuel children (coal + gas + hydro + nuclear + renewable). No `_total_mw` row exists on disk (ADR-0030 D33.8 refusal).",
       "unit": "MW",
       "cadence": "monthly_cy",
       "family": "energy",
@@ -574,7 +574,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "methodology_vintage": "CEA Monthly Executive Summary — Installed Capacity (IC) sheet; snapshot reported month-end. Sub-fuel taxonomy stable through current vintage; coal+lignite combined per CEA convention.",
+      "methodology_vintage": "CEA Monthly Executive Summary â€” Installed Capacity (IC) sheet; snapshot reported month-end. Sub-fuel taxonomy stable through current vintage; coal+lignite combined per CEA convention.",
       "revision_tier": "first_release",
       "parent_indicator_id": null,
       "source_id": "src-092a5dc7af3f"
@@ -582,7 +582,7 @@
     {
       "indicator_id": "national-installed-capacity-mw-coal",
       "label_short": "Coal",
-      "label_long": "All-India installed capacity — Coal",
+      "label_long": "All-India installed capacity â€” Coal",
       "description_short": "Coal-fired thermal capacity. India's largest fuel category nationally (~42%).",
       "unit": "MW",
       "cadence": "monthly_cy",
@@ -608,7 +608,7 @@
     {
       "indicator_id": "national-installed-capacity-mw-gas",
       "label_short": "Gas",
-      "label_long": "All-India installed capacity — Gas",
+      "label_long": "All-India installed capacity â€” Gas",
       "description_short": "Natural-gas and liquid-fuel thermal capacity. Stranded-fuel risk; small share.",
       "unit": "MW",
       "cadence": "monthly_cy",
@@ -631,7 +631,7 @@
     {
       "indicator_id": "national-installed-capacity-mw-hydro",
       "label_short": "Hydro",
-      "label_long": "All-India installed capacity — Hydro",
+      "label_long": "All-India installed capacity â€” Hydro",
       "description_short": "Conventional (>25 MW) plus small-hydro capacity. Site-bound; multi-decade lifetime.",
       "unit": "MW",
       "cadence": "monthly_cy",
@@ -654,7 +654,7 @@
     {
       "indicator_id": "national-installed-capacity-mw-nuclear",
       "label_short": "Nuclear",
-      "label_long": "All-India installed capacity — Nuclear",
+      "label_long": "All-India installed capacity â€” Nuclear",
       "description_short": "Nuclear capacity. Central-sector only; allocated to states via PPAs.",
       "unit": "MW",
       "cadence": "monthly_cy",
@@ -677,7 +677,7 @@
     {
       "indicator_id": "national-installed-capacity-mw-renewable",
       "label_short": "Renewable",
-      "label_long": "All-India installed capacity — Renewable (wind, solar, biomass)",
+      "label_long": "All-India installed capacity â€” Renewable (wind, solar, biomass)",
       "description_short": "Wind, solar, biomass and waste-to-energy. Rapid growth; ~30% national capacity by FY26.",
       "unit": "MW",
       "cadence": "monthly_cy",
@@ -705,7 +705,7 @@
       "label_short": "Capacity sited in state",
       "label_long": "State installed electricity capacity, geographical-location basis (MW)",
       "description_short": "Total installed capacity physically located in the state, summed across all fuels. 'Geographical' means every plant counts toward the state where it sits, regardless of who owns it or where the power is dispatched.",
-      "description_long": "Read this as 'where the steel-and-concrete sits' — NOT 'where the electricity flows to'. For the share-allocated counterpart (rights to output via central-sector PPAs), see state-installed-capacity-allocated-mw. The all-India total equals the allocated total (as it must) but the per-state breakdown diverges sharply for states that import or export power through central PPAs. Compute-on-read parent: sums the five atomic-fuel children.",
+      "description_long": "Read this as 'where the steel-and-concrete sits' â€” NOT 'where the electricity flows to'. For the share-allocated counterpart (rights to output via central-sector PPAs), see state-installed-capacity-allocated-mw. The all-India total equals the allocated total (as it must) but the per-state breakdown diverges sharply for states that import or export power through central PPAs. Compute-on-read parent: sums the five atomic-fuel children.",
       "unit": "MW",
       "cadence": "annual_fy",
       "family": "energy",
@@ -726,7 +726,7 @@
     {
       "indicator_id": "state-installed-capacity-geographical-mw-coal",
       "label_short": "Coal",
-      "label_long": "Capacity sited in state — Coal",
+      "label_long": "Capacity sited in state â€” Coal",
       "description_short": "Coal-fired thermal capacity. India's largest fuel category nationally (~42%).",
       "unit": "MW",
       "cadence": "annual_fy",
@@ -752,7 +752,7 @@
     {
       "indicator_id": "state-installed-capacity-geographical-mw-gas",
       "label_short": "Gas",
-      "label_long": "Capacity sited in state — Gas",
+      "label_long": "Capacity sited in state â€” Gas",
       "description_short": "Natural-gas and liquid-fuel thermal capacity. Stranded-fuel risk; small share.",
       "unit": "MW",
       "cadence": "annual_fy",
@@ -775,7 +775,7 @@
     {
       "indicator_id": "state-installed-capacity-geographical-mw-hydro",
       "label_short": "Hydro",
-      "label_long": "Capacity sited in state — Hydro",
+      "label_long": "Capacity sited in state â€” Hydro",
       "description_short": "Conventional (>25 MW) plus small-hydro capacity. Site-bound; multi-decade lifetime.",
       "unit": "MW",
       "cadence": "annual_fy",
@@ -798,7 +798,7 @@
     {
       "indicator_id": "state-installed-capacity-geographical-mw-nuclear",
       "label_short": "Nuclear",
-      "label_long": "Capacity sited in state — Nuclear",
+      "label_long": "Capacity sited in state â€” Nuclear",
       "description_short": "Nuclear capacity. Central-sector only; allocated to states via PPAs.",
       "unit": "MW",
       "cadence": "annual_fy",
@@ -821,7 +821,7 @@
     {
       "indicator_id": "state-installed-capacity-geographical-mw-renewable",
       "label_short": "Renewable",
-      "label_long": "Capacity sited in state — Renewable (wind, solar, biomass)",
+      "label_long": "Capacity sited in state â€” Renewable (wind, solar, biomass)",
       "description_short": "Wind, solar, biomass and waste-to-energy. Rapid growth; ~30% national capacity by FY26.",
       "unit": "MW",
       "cadence": "annual_fy",
@@ -862,7 +862,7 @@
       "attribution_geography": "where_allocated",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "methodology_vintage": "NITI Aayog ICED state-wise deep-dive API for FY15-FY25 (fiscal years 2015-16 onwards); RBI Handbook of Statistics on Indian States, Table 140 (silver tier; republishes CEA originals) for the pre-FY15 splice (fiscal years 2004-05 to 2013-14). Per plan-doc 20260522 §3 Q-c Option 1 SPLICE: methodology break at FY15 (basis change + RBI portion carries no per-fuel breakdown).",
+      "methodology_vintage": "NITI Aayog ICED state-wise deep-dive API for FY15-FY25 (fiscal years 2015-16 onwards); RBI Handbook of Statistics on Indian States, Table 140 (silver tier; republishes CEA originals) for the pre-FY15 splice (fiscal years 2004-05 to 2013-14). Per plan-doc 20260522 Â§3 Q-c Option 1 SPLICE: methodology break at FY15 (basis change + RBI portion carries no per-fuel breakdown).",
       "revision_tier": "mixed",
       "parent_indicator_id": null,
       "source_id": "src-bb1d7bec8b34",
@@ -873,7 +873,7 @@
     {
       "indicator_id": "state-installed-capacity-allocated-mw-coal",
       "label_short": "Coal",
-      "label_long": "Capacity allocated to state — Coal",
+      "label_long": "Capacity allocated to state â€” Coal",
       "description_short": "Coal-fired thermal capacity. India's largest fuel category nationally (~42%).",
       "unit": "MW",
       "cadence": "annual_fy",
@@ -896,7 +896,7 @@
     {
       "indicator_id": "state-installed-capacity-allocated-mw-gas",
       "label_short": "Gas",
-      "label_long": "Capacity allocated to state — Gas",
+      "label_long": "Capacity allocated to state â€” Gas",
       "description_short": "Natural-gas and liquid-fuel thermal capacity. Stranded-fuel risk; small share.",
       "unit": "MW",
       "cadence": "annual_fy",
@@ -919,7 +919,7 @@
     {
       "indicator_id": "state-installed-capacity-allocated-mw-hydro",
       "label_short": "Hydro",
-      "label_long": "Capacity allocated to state — Hydro",
+      "label_long": "Capacity allocated to state â€” Hydro",
       "description_short": "Conventional (>25 MW) plus small-hydro capacity. Site-bound; multi-decade lifetime.",
       "unit": "MW",
       "cadence": "annual_fy",
@@ -942,7 +942,7 @@
     {
       "indicator_id": "state-installed-capacity-allocated-mw-nuclear",
       "label_short": "Nuclear",
-      "label_long": "Capacity allocated to state — Nuclear",
+      "label_long": "Capacity allocated to state â€” Nuclear",
       "description_short": "Nuclear capacity. Central-sector only; allocated to states via PPAs.",
       "unit": "MW",
       "cadence": "annual_fy",
@@ -965,7 +965,7 @@
     {
       "indicator_id": "state-installed-capacity-allocated-mw-renewable",
       "label_short": "Renewable",
-      "label_long": "Capacity allocated to state — Renewable (wind, solar, biomass)",
+      "label_long": "Capacity allocated to state â€” Renewable (wind, solar, biomass)",
       "description_short": "Wind, solar, biomass and waste-to-energy. Rapid growth; ~30% national capacity by FY26.",
       "unit": "MW",
       "cadence": "annual_fy",
@@ -988,9 +988,9 @@
     {
       "indicator_id": "state-installed-capacity-snapshot-mw",
       "label_short": "Capacity snapshot (CEA)",
-      "label_long": "State installed electricity capacity — CEA monthly snapshot (MW)",
+      "label_long": "State installed electricity capacity â€” CEA monthly snapshot (MW)",
       "description_short": "Total installed capacity allocated to each state at the end of the most recent month, from the CEA Monthly Executive Summary IC sheet. Snapshot view; complements the multi-FY ICED geographical and allocated series.",
-      "description_long": "End-of-month, point-in-time snapshot from the CEA Monthly Executive Summary 'IC' sheet. Allocation basis (where the power is dispatched, including central-sector PPA shares) — different from the geographical-location series which counts plants by where they physically sit. Compute-on-read parent: sums the five atomic-fuel children. Single vintage per release; restate on each fresh CEA monthly drop rather than appending — citizen comparability is snapshot-only across states, NOT a time series.",
+      "description_long": "End-of-month, point-in-time snapshot from the CEA Monthly Executive Summary 'IC' sheet. Allocation basis (where the power is dispatched, including central-sector PPA shares) â€” different from the geographical-location series which counts plants by where they physically sit. Compute-on-read parent: sums the five atomic-fuel children. Single vintage per release; restate on each fresh CEA monthly drop rather than appending â€” citizen comparability is snapshot-only across states, NOT a time series.",
       "unit": "MW",
       "cadence": "monthly_cy",
       "family": "energy",
@@ -1003,14 +1003,14 @@
       "attribution_geography": "where_allocated",
       "comparability": "comparable_across_states_snapshot_only",
       "implementing_authority": "joint",
-      "methodology_vintage": "CEA Monthly Executive Summary — IC sheet snapshot 2026-03",
+      "methodology_vintage": "CEA Monthly Executive Summary â€” IC sheet snapshot 2026-03",
       "parent_indicator_id": null,
       "source_id": "src-092a5dc7af3f"
     },
     {
       "indicator_id": "state-installed-capacity-snapshot-mw-coal",
       "label_short": "Coal",
-      "label_long": "State installed capacity — Coal (CEA monthly snapshot)",
+      "label_long": "State installed capacity â€” Coal (CEA monthly snapshot)",
       "description_short": "Coal-fired thermal capacity allocated to each state, end-of-month snapshot from the CEA Monthly Executive Summary. India's largest fuel category nationally (~42%).",
       "unit": "MW",
       "cadence": "monthly_cy",
@@ -1024,7 +1024,7 @@
       "attribution_geography": "where_allocated",
       "comparability": "comparable_across_states_snapshot_only",
       "implementing_authority": "joint",
-      "methodology_vintage": "CEA Monthly Executive Summary — IC sheet snapshot 2026-03",
+      "methodology_vintage": "CEA Monthly Executive Summary â€” IC sheet snapshot 2026-03",
       "parent_indicator_id": "state-installed-capacity-snapshot-mw",
       "dimension_values": {
         "fuel_type": "coal"
@@ -1034,7 +1034,7 @@
     {
       "indicator_id": "state-installed-capacity-snapshot-mw-gas",
       "label_short": "Gas",
-      "label_long": "State installed capacity — Gas (CEA monthly snapshot)",
+      "label_long": "State installed capacity â€” Gas (CEA monthly snapshot)",
       "description_short": "Natural-gas and liquid-fuel thermal capacity allocated to each state, end-of-month snapshot from the CEA Monthly Executive Summary. Stranded-fuel risk; small share.",
       "unit": "MW",
       "cadence": "monthly_cy",
@@ -1048,7 +1048,7 @@
       "attribution_geography": "where_allocated",
       "comparability": "comparable_across_states_snapshot_only",
       "implementing_authority": "joint",
-      "methodology_vintage": "CEA Monthly Executive Summary — IC sheet snapshot 2026-03",
+      "methodology_vintage": "CEA Monthly Executive Summary â€” IC sheet snapshot 2026-03",
       "parent_indicator_id": "state-installed-capacity-snapshot-mw",
       "dimension_values": {
         "fuel_type": "gas"
@@ -1058,7 +1058,7 @@
     {
       "indicator_id": "state-installed-capacity-snapshot-mw-hydro",
       "label_short": "Hydro",
-      "label_long": "State installed capacity — Hydro (CEA monthly snapshot)",
+      "label_long": "State installed capacity â€” Hydro (CEA monthly snapshot)",
       "description_short": "Conventional (>25 MW) plus small-hydro capacity allocated to each state, end-of-month snapshot from the CEA Monthly Executive Summary. Site-bound; multi-decade lifetime.",
       "unit": "MW",
       "cadence": "monthly_cy",
@@ -1072,7 +1072,7 @@
       "attribution_geography": "where_allocated",
       "comparability": "comparable_across_states_snapshot_only",
       "implementing_authority": "joint",
-      "methodology_vintage": "CEA Monthly Executive Summary — IC sheet snapshot 2026-03",
+      "methodology_vintage": "CEA Monthly Executive Summary â€” IC sheet snapshot 2026-03",
       "parent_indicator_id": "state-installed-capacity-snapshot-mw",
       "dimension_values": {
         "fuel_type": "hydro"
@@ -1082,7 +1082,7 @@
     {
       "indicator_id": "state-installed-capacity-snapshot-mw-nuclear",
       "label_short": "Nuclear",
-      "label_long": "State installed capacity — Nuclear (CEA monthly snapshot)",
+      "label_long": "State installed capacity â€” Nuclear (CEA monthly snapshot)",
       "description_short": "Nuclear capacity allocated to each state, end-of-month snapshot from the CEA Monthly Executive Summary. Central-sector only; allocated to states via PPAs.",
       "unit": "MW",
       "cadence": "monthly_cy",
@@ -1096,7 +1096,7 @@
       "attribution_geography": "where_allocated",
       "comparability": "comparable_across_states_snapshot_only",
       "implementing_authority": "joint",
-      "methodology_vintage": "CEA Monthly Executive Summary — IC sheet snapshot 2026-03",
+      "methodology_vintage": "CEA Monthly Executive Summary â€” IC sheet snapshot 2026-03",
       "parent_indicator_id": "state-installed-capacity-snapshot-mw",
       "dimension_values": {
         "fuel_type": "nuclear"
@@ -1106,7 +1106,7 @@
     {
       "indicator_id": "state-installed-capacity-snapshot-mw-renewable",
       "label_short": "Renewable",
-      "label_long": "State installed capacity — Renewable (CEA monthly snapshot)",
+      "label_long": "State installed capacity â€” Renewable (CEA monthly snapshot)",
       "description_short": "Wind, solar, biomass and waste-to-energy capacity allocated to each state, end-of-month snapshot from the CEA Monthly Executive Summary. Rapid growth; ~30% national capacity by FY26.",
       "unit": "MW",
       "cadence": "monthly_cy",
@@ -1120,7 +1120,7 @@
       "attribution_geography": "where_allocated",
       "comparability": "comparable_across_states_snapshot_only",
       "implementing_authority": "joint",
-      "methodology_vintage": "CEA Monthly Executive Summary — IC sheet snapshot 2026-03",
+      "methodology_vintage": "CEA Monthly Executive Summary â€” IC sheet snapshot 2026-03",
       "parent_indicator_id": "state-installed-capacity-snapshot-mw",
       "dimension_values": {
         "fuel_type": "renewable"
@@ -1131,7 +1131,7 @@
       "indicator_id": "state-electricity-generation-gwh",
       "label_short": "State generation (GWh)",
       "label_long": "State electricity generation, by fuel (GWh)",
-      "description_short": "Per-state actual electricity generated, summed across all fuels. The delivered counterpart to installed capacity — capacity is potential, generation is what plants actually produced.",
+      "description_short": "Per-state actual electricity generated, summed across all fuels. The delivered counterpart to installed capacity â€” capacity is potential, generation is what plants actually produced.",
       "description_long": "Most-recent fiscal year is partial-year-actuals + forecast and may revise; treat the most-recent two FYs as preliminary. Compute-on-read parent: sums the five atomic-fuel children. ICED's 'Others' bucket (interstate/central plants pre-allocation) is dropped because it cannot be mapped to a state choropleth honestly. 1 MU (million unit) = 1 GWh.",
       "unit": "GWh",
       "cadence": "annual_fy",
@@ -1153,7 +1153,7 @@
     {
       "indicator_id": "state-electricity-generation-gwh-coal",
       "label_short": "Coal",
-      "label_long": "State generation (GWh) — Coal",
+      "label_long": "State generation (GWh) â€” Coal",
       "description_short": "Coal-fired generation. ~70% of all-India electricity by GWh (PLF gap between capacity share and generation share).",
       "unit": "GWh",
       "cadence": "annual_fy",
@@ -1176,7 +1176,7 @@
     {
       "indicator_id": "state-electricity-generation-gwh-gas",
       "label_short": "Gas",
-      "label_long": "State generation (GWh) — Gas",
+      "label_long": "State generation (GWh) â€” Gas",
       "description_short": "Gas-fired generation. Capacity-rich, generation-poor due to fuel-supply constraints.",
       "unit": "GWh",
       "cadence": "annual_fy",
@@ -1199,7 +1199,7 @@
     {
       "indicator_id": "state-electricity-generation-gwh-hydro",
       "label_short": "Hydro",
-      "label_long": "State generation (GWh) — Hydro",
+      "label_long": "State generation (GWh) â€” Hydro",
       "description_short": "Hydroelectric generation. Seasonal (monsoon-dependent) and falling as a share over time.",
       "unit": "GWh",
       "cadence": "annual_fy",
@@ -1222,7 +1222,7 @@
     {
       "indicator_id": "state-electricity-generation-gwh-nuclear",
       "label_short": "Nuclear",
-      "label_long": "State generation (GWh) — Nuclear",
+      "label_long": "State generation (GWh) â€” Nuclear",
       "description_short": "Nuclear generation. Small share but rising as new units commission.",
       "unit": "GWh",
       "cadence": "annual_fy",
@@ -1245,7 +1245,7 @@
     {
       "indicator_id": "state-electricity-generation-gwh-renewable",
       "label_short": "Renewable",
-      "label_long": "State generation (GWh) — Renewable (wind, solar, biomass)",
+      "label_long": "State generation (GWh) â€” Renewable (wind, solar, biomass)",
       "description_short": "Wind, solar and biomass generation. ~10% all-India share by FY26; growing fast.",
       "unit": "GWh",
       "cadence": "annual_fy",
@@ -1282,7 +1282,7 @@
       "attribution_geography": "where_billed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "state",
-      "methodology_vintage": "NITI Aayog ICED state-wise deep-dive; underlying figures from PFC State Distribution Utilities report. Includes intra-state imports — consumption can exceed in-state generation.",
+      "methodology_vintage": "NITI Aayog ICED state-wise deep-dive; underlying figures from PFC State Distribution Utilities report. Includes intra-state imports â€” consumption can exceed in-state generation.",
       "revision_tier": "mixed",
       "parent_indicator_id": null,
       "source_id": "src-bb1d7bec8b34"
@@ -1292,7 +1292,7 @@
       "label_short": "AT&C losses",
       "label_long": "Aggregate Technical & Commercial losses (%, by state)",
       "description_short": "Combined technical (transmission + distribution heat / ageing losses) and commercial (theft + uncollected billing) losses as % of energy input to the distribution system. Headline discom-health metric: lower is better.",
-      "description_long": "Calculated by Power Finance Corporation from PFC State Distribution Utilities reports. UDAY (2015) targeted all-India AT&C below 15% by 2018-19; the actual all-India figure has hovered around 15% since then. State-level dispersion is wide — Gujarat / Andhra at ~6-10%, Bihar / J&K at ~25-40%.",
+      "description_long": "Calculated by Power Finance Corporation from PFC State Distribution Utilities reports. UDAY (2015) targeted all-India AT&C below 15% by 2018-19; the actual all-India figure has hovered around 15% since then. State-level dispersion is wide â€” Gujarat / Andhra at ~6-10%, Bihar / J&K at ~25-40%.",
       "unit": "%",
       "cadence": "annual_fy",
       "family": "energy",
@@ -1314,8 +1314,8 @@
       "indicator_id": "state-peak-electricity-demand-mw",
       "label_short": "Peak demand",
       "label_long": "State-wise peak power demand (MW)",
-      "description_short": "Highest single-instant electricity demand observed in the state during the fiscal year (MW). 'Peak' is system-wide simultaneous demand recorded by the State Load Despatch Centre — typically a summer afternoon (north / west) or winter evening (Punjab, Delhi).",
-      "description_long": "Read alongside Peak Met (state-peak-electricity-supplied-mw) — the gap is the unmet peak demand, more operationally critical than the energy-deficit % because shortages force load-shedding. RBI Handbook relabelled 'Surplus / Deficit' to 'Demand Not Met' from FY 2019-20 onwards; underlying definition is unchanged.",
+      "description_short": "Highest single-instant electricity demand observed in the state during the fiscal year (MW). 'Peak' is system-wide simultaneous demand recorded by the State Load Despatch Centre â€” typically a summer afternoon (north / west) or winter evening (Punjab, Delhi).",
+      "description_long": "Read alongside Peak Met (state-peak-electricity-supplied-mw) â€” the gap is the unmet peak demand, more operationally critical than the energy-deficit % because shortages force load-shedding. RBI Handbook relabelled 'Surplus / Deficit' to 'Demand Not Met' from FY 2019-20 onwards; underlying definition is unchanged.",
       "unit": "MW",
       "cadence": "annual_fy",
       "family": "energy",
@@ -1338,7 +1338,7 @@
       "label_short": "Peak supplied",
       "label_long": "State-wise peak power supplied (MW)",
       "description_short": "Maximum instantaneous power actually supplied in the state during the fiscal year (MW). The pair (peak_demand, peak_supplied) tells the load-shedding story: supplied < demand in any year means the grid dropped load to keep frequency stable.",
-      "description_long": "India's all-India peak deficit fell from ~12% in FY05 to under 1% from FY18 onwards, but state-level shortfalls persist — Bihar, UP, Punjab, J&K, and Andhra Pradesh routinely under-met their own peak in the FY13-FY25 window.",
+      "description_long": "India's all-India peak deficit fell from ~12% in FY05 to under 1% from FY18 onwards, but state-level shortfalls persist â€” Bihar, UP, Punjab, J&K, and Andhra Pradesh routinely under-met their own peak in the FY13-FY25 window.",
       "unit": "MW",
       "cadence": "annual_fy",
       "family": "energy",
@@ -1360,7 +1360,7 @@
       "indicator_id": "state-per-capita-electricity-consumption-kwh",
       "label_short": "Per-capita consumption",
       "label_long": "State per-capita electricity consumption (kWh/year)",
-      "description_short": "Electricity consumption per person per year, in kilowatt-hours. Proxy for BOTH energy access (electrified homes) AND industrial intensity (heavy-industry load) — read alongside per-capita income to disambiguate.",
+      "description_short": "Electricity consumption per person per year, in kilowatt-hours. Proxy for BOTH energy access (electrified homes) AND industrial intensity (heavy-industry load) â€” read alongside per-capita income to disambiguate.",
       "description_long": "A high value can mean many electrified domestic consumers (Kerala) OR a heavy-industry economy (Chhattisgarh, Odisha) OR both (Gujarat). A low value can mean a rural agrarian economy (Bihar, Assam) OR poor access (UP). The denominator (population) is Census 2011 + projection, so values for the 2020s are subject to mid-decade re-basing once Census 2027 data lands.",
       "unit": "kWh per person per year",
       "cadence": "annual_fy",
@@ -1383,8 +1383,8 @@
       "indicator_id": "state-distribution-efficiency-pct",
       "label_short": "Distribution efficiency",
       "label_long": "Distribution efficiency dimensions (%, by state)",
-      "description_short": "Compute-on-read parent: the three citizen-readable sub-indicators of distribution-side efficiency — billing efficiency, collection efficiency, and T&D loss. The first two decompose the COMMERCIAL half of AT&C losses; the third is the TECHNICAL half.",
-      "description_long": "Billing × Collection ÷ 100 = (1 − commercial-loss%); add the T&D loss% and you arrive at the AT&C loss% reported by state-atc-losses-pct. Per Hans D29 the parent row carries no source_id and no dimension_values; the three children inherit their source_id from ICED operational-performance and encode their facet via the efficiency_dimension axis.",
+      "description_short": "Compute-on-read parent: the three citizen-readable sub-indicators of distribution-side efficiency â€” billing efficiency, collection efficiency, and T&D loss. The first two decompose the COMMERCIAL half of AT&C losses; the third is the TECHNICAL half.",
+      "description_long": "Billing Ã— Collection Ã· 100 = (1 âˆ’ commercial-loss%); add the T&D loss% and you arrive at the AT&C loss% reported by state-atc-losses-pct. Per Hans D29 the parent row carries no source_id and no dimension_values; the three children inherit their source_id from ICED operational-performance and encode their facet via the efficiency_dimension axis.",
       "unit": "%",
       "cadence": "annual_fy",
       "family": "energy",
@@ -1407,7 +1407,7 @@
       "label_short": "Billing efficiency",
       "label_long": "Distribution billing efficiency (%, by state)",
       "description_short": "Share of energy actually billed to a consumer, out of total energy input to the distribution system. 100% = every kWh that enters the grid was billed.",
-      "description_long": "The complement of billing-side losses (theft, unmetered consumption, under-billing). Together with collection efficiency, billing efficiency decomposes the commercial half of AT&C losses: AT&C loss ≈ 1 − (billing × collection / 100).",
+      "description_long": "The complement of billing-side losses (theft, unmetered consumption, under-billing). Together with collection efficiency, billing efficiency decomposes the commercial half of AT&C losses: AT&C loss â‰ˆ 1 âˆ’ (billing Ã— collection / 100).",
       "unit": "%",
       "cadence": "annual_fy",
       "family": "energy",
@@ -1431,7 +1431,7 @@
       "label_short": "Collection efficiency",
       "label_long": "Distribution collection efficiency (%, by state)",
       "description_short": "Share of billed revenue actually collected from consumers, by state. 100% = every rupee billed was paid.",
-      "description_long": "Captures the second commercial dimension: how much of the energy that WAS billed got paid for. Together with billing efficiency, collection efficiency decomposes the commercial half of AT&C losses: AT&C loss ≈ 1 − (billing × collection / 100). Low collection often reflects high accounts-receivable days on government / agricultural / municipal consumer categories.",
+      "description_long": "Captures the second commercial dimension: how much of the energy that WAS billed got paid for. Together with billing efficiency, collection efficiency decomposes the commercial half of AT&C losses: AT&C loss â‰ˆ 1 âˆ’ (billing Ã— collection / 100). Low collection often reflects high accounts-receivable days on government / agricultural / municipal consumer categories.",
       "unit": "%",
       "cadence": "annual_fy",
       "family": "energy",
@@ -1454,7 +1454,7 @@
       "indicator_id": "state-distribution-efficiency-pct-td-loss",
       "label_short": "T&D loss",
       "label_long": "Transmission & Distribution loss (%, by state)",
-      "description_short": "Transmission and Distribution loss as % of energy input — the TECHNICAL half of AT&C losses (heat / ageing / unmetered consumption on the wires).",
+      "description_short": "Transmission and Distribution loss as % of energy input â€” the TECHNICAL half of AT&C losses (heat / ageing / unmetered consumption on the wires).",
       "description_long": "T&D loss + commercial-loss = AT&C loss. Where AT&C is a comprehensive ledger of revenue leakage, T&D isolates the part attributable to physical infrastructure (line losses, transformer inefficiency). Older meters and longer rural feeders correlate with higher T&D loss; sub-station upgrades and HVDS rollout drive it down.",
       "unit": "%",
       "cadence": "annual_fy",
@@ -1477,10 +1477,10 @@
     {
       "indicator_id": "state-acs-arr-gap-inr-per-kwh",
       "label_short": "ACS-ARR gap",
-      "label_long": "ACS-ARR gap on electricity sales (₹/kWh, by state)",
+      "label_long": "ACS-ARR gap on electricity sales (â‚¹/kWh, by state)",
       "description_short": "Average Cost of Supply minus Average Revenue Realised, per unit of electricity sold. Positive = the utility loses money on every unit it sells (closed by tariff hike, loss reduction, or state subsidy). Zero is the UDAY/RDSS policy goal.",
-      "description_long": "The structural per-unit loss of a discom: positive means it loses money on every kWh sold; negative means surplus. Calculated by PFC from utility tariff orders + audited accounts. Note the opposite sign convention from fiscal-deficit indicators — here a NEGATIVE number is the surplus side.",
-      "unit": "₹/kWh",
+      "description_long": "The structural per-unit loss of a discom: positive means it loses money on every kWh sold; negative means surplus. Calculated by PFC from utility tariff orders + audited accounts. Note the opposite sign convention from fiscal-deficit indicators â€” here a NEGATIVE number is the surplus side.",
+      "unit": "â‚¹/kWh",
       "cadence": "annual_fy",
       "family": "energy",
       "pillar": "money",
@@ -1502,8 +1502,8 @@
       "indicator_id": "state-rpo-compliance-pct",
       "label_short": "RPO compliance",
       "label_long": "Renewable Purchase Obligation compliance (%, by state)",
-      "description_short": "Compute-on-read parent: the three citizen-readable segments of state RPO compliance — solar, non-solar, and combined-target. Each measures share of the regulatory RPO target met, expressed as compliance ÷ target × 100.",
-      "description_long": "Each state regulator sets a year-by-year RPO target as a % of total energy procurement; this parent groups the three segment-specific compliance ratios. The 'total' segment is NOT the sum of solar + non-solar — it is the combined-target compliance ratio (its own regulatory denominator). Values above 100% indicate over-compliance. Targets themselves vary by state and rise over time, so a 95% compliance in FY21 may represent more renewables than 105% in FY19.",
+      "description_short": "Compute-on-read parent: the three citizen-readable segments of state RPO compliance â€” solar, non-solar, and combined-target. Each measures share of the regulatory RPO target met, expressed as compliance Ã· target Ã— 100.",
+      "description_long": "Each state regulator sets a year-by-year RPO target as a % of total energy procurement; this parent groups the three segment-specific compliance ratios. The 'total' segment is NOT the sum of solar + non-solar â€” it is the combined-target compliance ratio (its own regulatory denominator). Values above 100% indicate over-compliance. Targets themselves vary by state and rise over time, so a 95% compliance in FY21 may represent more renewables than 105% in FY19.",
       "unit": "%",
       "cadence": "annual_fy",
       "family": "energy",
@@ -1524,7 +1524,7 @@
     {
       "indicator_id": "state-rpo-compliance-pct-solar",
       "label_short": "Solar RPO",
-      "label_long": "RPO compliance — solar (%, by state)",
+      "label_long": "RPO compliance â€” solar (%, by state)",
       "description_short": "Share of the state's solar-specific RPO target actually met. 100% = solar-RPO target exactly met; values above 100% indicate over-compliance on solar procurement.",
       "unit": "%",
       "cadence": "annual_fy",
@@ -1547,7 +1547,7 @@
     {
       "indicator_id": "state-rpo-compliance-pct-non-solar",
       "label_short": "Non-solar RPO",
-      "label_long": "RPO compliance — non-solar (%, by state)",
+      "label_long": "RPO compliance â€” non-solar (%, by state)",
       "description_short": "Share of the state's non-solar (wind + biomass + small-hydro) RPO target actually met. The 'other-renewables' segment of the obligation, regulated separately from the solar segment.",
       "unit": "%",
       "cadence": "annual_fy",
@@ -1570,8 +1570,8 @@
     {
       "indicator_id": "state-rpo-compliance-pct-total",
       "label_short": "Total RPO",
-      "label_long": "RPO compliance — total (%, by state)",
-      "description_short": "Combined-target RPO compliance — share of the state's overall (solar + non-solar combined) RPO target met. NOT the sum of solar + non-solar — the combined target is its own regulatory ratio.",
+      "label_long": "RPO compliance â€” total (%, by state)",
+      "description_short": "Combined-target RPO compliance â€” share of the state's overall (solar + non-solar combined) RPO target met. NOT the sum of solar + non-solar â€” the combined target is its own regulatory ratio.",
       "unit": "%",
       "cadence": "annual_fy",
       "family": "energy",
@@ -1594,8 +1594,8 @@
       "indicator_id": "state-electricity-requirement-mu",
       "label_short": "Power requirement",
       "label_long": "State-wise annual power requirement (MU)",
-      "description_short": "Annual energy requirement assessed by the state (MU = million units = GWh), fiscal year — the demand-side counterpart to availability. Requirement minus availability gives the 'energy not supplied' deficit.",
-      "description_long": "The percentage gap (deficit / requirement) is the headline 'power deficit %' India tracked closely through the 2000s. The all-India deficit shrank from ~10% in FY05 to under 0.5% from FY18 onwards as supply caught up; persistent state-level deficits today flag distribution / scheduling issues, not generation shortage. Direction is neutral because higher requirement reflects both industrial activity (good) and inefficient consumption (not good) — interpret in conjunction with per-capita GSDP and T&D loss series.",
+      "description_short": "Annual energy requirement assessed by the state (MU = million units = GWh), fiscal year â€” the demand-side counterpart to availability. Requirement minus availability gives the 'energy not supplied' deficit.",
+      "description_long": "The percentage gap (deficit / requirement) is the headline 'power deficit %' India tracked closely through the 2000s. The all-India deficit shrank from ~10% in FY05 to under 0.5% from FY18 onwards as supply caught up; persistent state-level deficits today flag distribution / scheduling issues, not generation shortage. Direction is neutral because higher requirement reflects both industrial activity (good) and inefficient consumption (not good) â€” interpret in conjunction with per-capita GSDP and T&D loss series.",
       "unit": "MU",
       "cadence": "annual_fy",
       "family": "energy",
@@ -1617,7 +1617,7 @@
       "indicator_id": "state-electricity-availability-mu",
       "label_short": "Power availability",
       "label_long": "State-wise annual power availability (MU)",
-      "description_short": "Annual energy actually supplied to the state (MU = million units = GWh), fiscal year. The supply-side companion to Requirement (T141). Requirement − Availability = the energy-not-supplied deficit.",
+      "description_short": "Annual energy actually supplied to the state (MU = million units = GWh), fiscal year. The supply-side companion to Requirement (T141). Requirement âˆ’ Availability = the energy-not-supplied deficit.",
       "description_long": "RBI Handbook Table 139 publishes the long-arc state-wise availability series sourced from CEA. Read alongside Requirement (T141): the percentage gap is the operational power-deficit metric. The all-India figure has converged on near-zero deficit since FY18, but state-level deficits persist for grid-island / load-shedding states.",
       "unit": "MU",
       "cadence": "annual_fy",
@@ -1640,8 +1640,8 @@
       "indicator_id": "state-per-capita-electricity-availability-kwh",
       "label_short": "Per-capita availability",
       "label_long": "State-wise per-capita availability of power (kWh/year)",
-      "description_short": "Annual per-capita electricity availability (kWh / person / year), by state and Union Territory, fiscal year. The most citizen-relevant single number for 'how much power do people in this state actually get to use' — captures both supply expansion and transmission losses.",
-      "description_long": "Computed by CEA as state energy availability (MU) ÷ state mid-year population. The all-India figure roughly tripled from ~600 kWh in FY05 to ~1300 kWh in FY24, but the inter-state spread is wide (Goa / Punjab / Gujarat above 2,000; Bihar / Manipur / Nagaland still below 400). Per-capita is on geographical-area population (resident), not consumption-weighted — large industrial-export states (e.g. Chhattisgarh, Sikkim) post inflated numbers because the power they generate is consumed elsewhere.",
+      "description_short": "Annual per-capita electricity availability (kWh / person / year), by state and Union Territory, fiscal year. The most citizen-relevant single number for 'how much power do people in this state actually get to use' â€” captures both supply expansion and transmission losses.",
+      "description_long": "Computed by CEA as state energy availability (MU) Ã· state mid-year population. The all-India figure roughly tripled from ~600 kWh in FY05 to ~1300 kWh in FY24, but the inter-state spread is wide (Goa / Punjab / Gujarat above 2,000; Bihar / Manipur / Nagaland still below 400). Per-capita is on geographical-area population (resident), not consumption-weighted â€” large industrial-export states (e.g. Chhattisgarh, Sikkim) post inflated numbers because the power they generate is consumed elsewhere.",
       "unit": "kWh per person per year",
       "cadence": "annual_fy",
       "family": "energy",
@@ -1773,6 +1773,190 @@
         "fuel_type": "gas"
       },
       "source_id": "src-fd152bd3c6c6"
+    },
+    {
+      "indicator_id": "state-oil-product-consumption-kt",
+      "label_short": "Oil-product consumption",
+      "label_long": "State oil-product consumption, by product (kt per fiscal year)",
+      "description_short": "Per-state annual consumption of refined petroleum products in kilotonnes, broken down by 7 products (diesel-HSD, petrol, LPG, kerosene, naphtha, petroleum-coke, others). Diesel dominates everywhere; LPG tracks PMUY rollout; petroleum-coke tracks industrial heat use.",
+      "description_long": "Consumption-side oil statistic: where the product is sold and burned, not where it is refined. Faceted on the canonical ``oil_product`` axis (7 product children). Compute-on-read parent: the value is the sum of the 7 product children, per Hans D33.8 convention. No observation rows exist on disk for this parent id; the renderer sums the 7 children at read time. Originating data: PPAC / Ministry of Petroleum & Natural Gas (via NITI Aayog ICED).",
+      "unit": "kt",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "methodology_vintage": "NITI Aayog ICED ``/energy/fuel-sources/oil/consumptionStateProductTrend`` (PPAC / Ministry of Petroleum & Natural Gas upstream). Per-state per-product per-FY, FY11-FY25. The ``OTHERS`` state bucket and the national aggregate row (region == ``IN``) are dropped at ingest.",
+      "revision_tier": "revised",
+      "parent_indicator_id": null,
+      "source_id": "src-cba8334fedc5"
+    },
+    {
+      "indicator_id": "state-oil-product-consumption-kt-diesel-hsd",
+      "label_short": "Diesel (HSD)",
+      "label_long": "State oil-product consumption -- Diesel (HSD)",
+      "description_short": "High-speed diesel: the dominant refined petroleum product. Tracks transport activity (heavy vehicles, buses, trucks) and agricultural pump-set use; the largest single fuel by volume in every state.",
+      "unit": "kt",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "state-oil-product-consumption-kt",
+      "dimension_values": {
+        "oil_product": "diesel-hsd"
+      },
+      "source_id": "src-cba8334fedc5"
+    },
+    {
+      "indicator_id": "state-oil-product-consumption-kt-petrol",
+      "label_short": "Petrol",
+      "label_long": "State oil-product consumption -- Petrol",
+      "description_short": "Motor spirit (gasoline): cars, two-wheelers, light vehicles. A proxy for urban-personal-mobility intensity; rises with vehicle ownership and middle-class growth.",
+      "unit": "kt",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "state-oil-product-consumption-kt",
+      "dimension_values": {
+        "oil_product": "petrol"
+      },
+      "source_id": "src-cba8334fedc5"
+    },
+    {
+      "indicator_id": "state-oil-product-consumption-kt-lpg",
+      "label_short": "LPG",
+      "label_long": "State oil-product consumption -- LPG",
+      "description_short": "Liquefied petroleum gas: household cooking-fuel after the PMUY (Ujjwala) scheme. Tracks household-coverage policy more than wealth -- rural states with successful PMUY rollout show high per-capita LPG consumption.",
+      "unit": "kt",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "state-oil-product-consumption-kt",
+      "dimension_values": {
+        "oil_product": "lpg"
+      },
+      "source_id": "src-cba8334fedc5"
+    },
+    {
+      "indicator_id": "state-oil-product-consumption-kt-kerosene",
+      "label_short": "Kerosene (SKO)",
+      "label_long": "State oil-product consumption -- Kerosene (SKO)",
+      "description_short": "Superior kerosene oil: household lighting + cooking fuel from the legacy PDS era. Declines steeply post-PMUY as LPG replaces it; near-zero in many states by FY23.",
+      "unit": "kt",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "state-oil-product-consumption-kt",
+      "dimension_values": {
+        "oil_product": "kerosene"
+      },
+      "source_id": "src-cba8334fedc5"
+    },
+    {
+      "indicator_id": "state-oil-product-consumption-kt-naphtha",
+      "label_short": "Naphtha",
+      "label_long": "State oil-product consumption -- Naphtha",
+      "description_short": "Light hydrocarbon feedstock for petrochemicals + occasional power-plant fuel. Concentrated in petrochemical-cluster states (Gujarat, Maharashtra). Volatile year-on-year.",
+      "unit": "kt",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "state-oil-product-consumption-kt",
+      "dimension_values": {
+        "oil_product": "naphtha"
+      },
+      "source_id": "src-cba8334fedc5"
+    },
+    {
+      "indicator_id": "state-oil-product-consumption-kt-petroleum-coke",
+      "label_short": "Petroleum coke",
+      "label_long": "State oil-product consumption -- Petroleum coke",
+      "description_short": "Refinery by-product used as cheap industrial fuel (cement, glass, steel). Heavily regulated for air-quality reasons in NCR and some industrial states. Tracks heavy-industry heat use.",
+      "unit": "kt",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "state-oil-product-consumption-kt",
+      "dimension_values": {
+        "oil_product": "petroleum-coke"
+      },
+      "source_id": "src-cba8334fedc5"
+    },
+    {
+      "indicator_id": "state-oil-product-consumption-kt-others",
+      "label_short": "Others",
+      "label_long": "State oil-product consumption -- Others",
+      "description_short": "Publisher catch-all for products outside the 6 named buckets (fuel oil, ATF, lubricants, bitumen, etc.). Preserved verbatim, never imputed into a named bucket.",
+      "unit": "kt",
+      "cadence": "annual_fy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_consumed",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "centre",
+      "parent_indicator_id": "state-oil-product-consumption-kt",
+      "dimension_values": {
+        "oil_product": "others"
+      },
+      "source_id": "src-cba8334fedc5"
     },
     {
       "indicator_id": "district-pashu-aadhaar-count",

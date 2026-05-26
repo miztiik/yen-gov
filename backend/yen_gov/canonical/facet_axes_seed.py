@@ -581,6 +581,43 @@ FACET_AXES: list[FacetAxis] = [
             ),
         ],
     ),
+    FacetAxis(
+        axis_id="oil_product",
+        label="Oil product",
+        description=(
+            "Refined petroleum product axis for state-wise oil-consumption "
+            "indicators (NITI Aayog ICED /energy/fuel-sources/oil/ "
+            "consumptionStateProductTrend). Closed enum of 7 products the "
+            "publisher emits per state per fiscal year. The parent indicator "
+            "(``state-oil-product-consumption-kt``) is compute-on-read per "
+            "Hans D33.8 - its value is the SUM of all 7 product children. "
+            "Unlike the fuel_type axis there is no publisher-sub-bucket "
+            "collapse step; the 7 publisher labels (DIESEL/HSD, PETROL, LPG, "
+            "SKO, NAPHTHA, PETROLEUM COKE, OTHERS) map 1:1 onto canonical "
+            "value_ids. Diesel dominates national consumption (transport + "
+            "agricultural pumps); LPG tracks household-policy coverage (PMUY); "
+            "petroleum-coke is a refinery by-product used in cement/glass and "
+            "is air-quality-regulated in NCR."
+        ),
+        allow_compute_on_read_total=True,
+        values=[
+            FacetAxisValue(value_id="diesel-hsd",     label="Diesel (HSD)"),
+            FacetAxisValue(value_id="petrol",         label="Petrol"),
+            FacetAxisValue(value_id="lpg",            label="LPG"),
+            FacetAxisValue(value_id="kerosene",       label="Kerosene (SKO)"),
+            FacetAxisValue(value_id="naphtha",        label="Naphtha"),
+            FacetAxisValue(value_id="petroleum-coke", label="Petroleum coke"),
+            FacetAxisValue(
+                value_id="others",
+                label="Others",
+                description=(
+                    "Publisher catch-all for products that do not fit the "
+                    "6 named buckets (e.g. fuel oil, ATF, lubricants); "
+                    "preserved verbatim, never imputed into a named bucket."
+                ),
+            ),
+        ],
+    ),
 ]
 
 

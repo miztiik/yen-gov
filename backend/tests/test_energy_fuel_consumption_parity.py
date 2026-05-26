@@ -84,9 +84,11 @@ def test_state_coal_consumption_s27_2020() -> None:
     )
 
 
-def test_parquet_has_single_indicator() -> None:
-    """Only one indicator in this parquet (PR-Q first-cut); subsequent
-    P.1.C PRs extend the indicator set on the same parquet."""
+def test_parquet_contains_coal_consumption_indicator() -> None:
+    """`state-coal-consumption-mt` is PR-Q's first-cut indicator on this
+    parquet. Subsequent P.1.C PRs (PR-T oil-product, etc.) extend the
+    indicator set on the same parquet, so we only assert presence of the
+    PR-Q indicator here -- not exclusive set equality."""
     con = duckdb.connect(":memory:")
     try:
         indicators = {
@@ -97,8 +99,9 @@ def test_parquet_has_single_indicator() -> None:
         }
     finally:
         con.close()
-    assert indicators == {"state-coal-consumption-mt"}, (
-        f"energy_fuel_consumption.parquet indicator set drift: {indicators!r}"
+    assert "state-coal-consumption-mt" in indicators, (
+        f"PR-Q coal-consumption indicator missing from "
+        f"energy_fuel_consumption.parquet: {indicators!r}"
     )
 
 
