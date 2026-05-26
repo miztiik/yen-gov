@@ -264,12 +264,25 @@ class WriteResult:
     # ``read_parquet`` the Hive glob ``family_dir/state=*/<stem>.parquet``.
 
 
-def write_batch(envelope: BatchEnvelope, datasets_root: Path) -> WriteResult:
+def write_batch(
+    envelope: BatchEnvelope,
+    datasets_root: Path,
+    *,
+    dry_run: bool = False,
+) -> WriteResult:
     """One-shot envelope -> emitted Parquet + regenerated manifest.
 
     ``datasets_root`` is the directory the writer treats as ``datasets/``.
     Tests pass a tmp_path; production passes the real repo root's
     ``datasets/`` directory.
+
+    ``dry_run`` (PR-A2): when True, every atomic write site computes the
+    planned bytes, byte-compares them against the on-disk file (if any),
+    logs an ``UNCHANGED|CHANGED (old_rows -> new_rows)`` line via the
+    module logger, and discards the temp file WITHOUT touching the target.
+    Validation + DuckDB upserts still run; only the final disk mutation is
+    suppressed. The returned ``WriteResult`` reports rows that *would*
+    have been written.
     """
     _validate_observation_values(envelope.observation_rows)
     warnings = _validate_fks(envelope, datasets_root)
@@ -287,9 +300,9 @@ def write_batch(envelope: BatchEnvelope, datasets_root: Path) -> WriteResult:
         _load_existing(con, observations_path, sources_path, envelope.target_family)
         _apply_envelope(con, envelope)
         obs_written = _emit_observations(
-            con, observations_path, envelope.target_family
+            con, observations_path, envelope.target_family, dry_run=dry_run
         )
-        src_written = _emit_sources(con, sources_path)
+        src_written = _emit_sources(con, sources_path, dry_run=dry_run)
     finally:
         con.close()
 
@@ -298,13 +311,13 @@ def write_batch(envelope: BatchEnvelope, datasets_root: Path) -> WriteResult:
     # on-disk parquet can never drift from the Python literal source of
     # truth. Primary trigger is the operator CLI ``emit-taxonomy`` command;
     # this call is belt-and-suspenders. See TODO row 1.8d-ii §G step 2.
-    _emit_facet_axes(taxonomy_dir)
+    _emit_facet_axes(taxonomy_dir, dry_run=dry_run)
 
-    dim_written = _write_dimensions(envelope, family_dir)
+    dim_written = _write_dimensions(envelope, family_dir, dry_run=dry_run)
     if envelope.target_family == "elections":
-        _emit_persons_taxonomy(datasets_root)
+        _emit_persons_taxonomy(datasets_root, dry_run=dry_run)
 
-    manifest_path = _regenerate_manifest(datasets_root)
+    manifest_path = _regenerate_manifest(datasets_root, dry_run=dry_run)
 
     return WriteResult(
         family=envelope.target_family,
@@ -645,6 +658,8 @@ def _emit_observations(
     con: duckdb.DuckDBPyConnection,
     out_path: Path,
     family: str,
+    *,
+    dry_run: bool = False,
 ) -> int:
     """Emit the in-memory ``observations`` table to parquet.
 
@@ -671,6 +686,7 @@ def _emit_observations(
             table_id=table_id,
             row_schema_file="observation.schema.json",
             sort_cols=SORT_COLUMNS,
+            dry_run=dry_run,
         )
 
     # Partitioned emit. Today only ``state`` is supported.
@@ -710,6 +726,7 @@ def _emit_observations(
             table_id=f"{table_id}#state={pv}",
             row_schema_file="observation.schema.json",
             sort_cols=SORT_COLUMNS,
+            dry_run=dry_run,
         )
         total_rows += n
     _ = distinct_count  # asserted only for symmetry; total_rows is the truth
@@ -718,12 +735,20 @@ def _emit_observations(
     # partitioned files are the new source of truth; leaving the monolith
     # in place would double-count rows on the next ``_load_existing``.
     if out_path.is_file():
-        out_path.unlink()
+        if dry_run:
+            log.info("dry-run: WOULD-UNLINK %s (stale monolith)", out_path.as_posix())
+        else:
+            out_path.unlink()
 
     return total_rows
 
 
-def _emit_sources(con: duckdb.DuckDBPyConnection, out_path: Path) -> int:
+def _emit_sources(
+    con: duckdb.DuckDBPyConnection,
+    out_path: Path,
+    *,
+    dry_run: bool = False,
+) -> int:
     return _emit_table(
         con=con,
         select_sql="SELECT * FROM sources ORDER BY source_id",
@@ -731,10 +756,11 @@ def _emit_sources(con: duckdb.DuckDBPyConnection, out_path: Path) -> int:
         table_id="taxonomy.sources",
         row_schema_file="source.schema.json",
         sort_cols=["source_id"],
+        dry_run=dry_run,
     )
 
 
-def _emit_facet_axes(taxonomy_dir: Path) -> int:
+def _emit_facet_axes(taxonomy_dir: Path, *, dry_run: bool = False) -> int:
     """Compile the hand-authored ``FACET_AXES`` literal to parquet.
 
     Delegates to ``facet_axes_seed.compile_to_parquet`` which is the canonical
@@ -743,18 +769,65 @@ def _emit_facet_axes(taxonomy_dir: Path) -> int:
     from and no row-schema file (its schema IS the Pydantic model in the
     seed module). Returns the number of denormalized ``(axis_id, value_id)``
     rows written so callers can log it.
+
+    ``dry_run`` (PR-A2): compile to a tempfile under the system tempdir,
+    byte-compare to the real ``taxonomy_dir/facet-axes.parquet`` (if any),
+    log UNCHANGED/CHANGED, discard the tempfile. Target untouched.
     """
     out_path = taxonomy_dir / "facet-axes.parquet"
-    return _compile_facet_axes_to_parquet(out_path)
-
-
-def _emit_persons_taxonomy(datasets_root: Path) -> int:
-    taxonomy_dir = datasets_root / "taxonomy"
-    return _compile_persons_to_parquet(
-        person_aliases_json=taxonomy_dir / "person_aliases.json",
-        dim_persons_parquet=datasets_root / "elections" / "dim_persons.parquet",
-        persons_out=taxonomy_dir / "persons.parquet",
+    if not dry_run:
+        return _compile_facet_axes_to_parquet(out_path)
+    return _seed_compile_dry_run(
+        out_path, lambda p: _compile_facet_axes_to_parquet(p)
     )
+
+
+def _emit_persons_taxonomy(datasets_root: Path, *, dry_run: bool = False) -> int:
+    taxonomy_dir = datasets_root / "taxonomy"
+    persons_out = taxonomy_dir / "persons.parquet"
+    person_aliases_json = taxonomy_dir / "person_aliases.json"
+    dim_persons_parquet = datasets_root / "elections" / "dim_persons.parquet"
+    if not dry_run:
+        return _compile_persons_to_parquet(
+            person_aliases_json=person_aliases_json,
+            dim_persons_parquet=dim_persons_parquet,
+            persons_out=persons_out,
+        )
+    return _seed_compile_dry_run(
+        persons_out,
+        lambda p: _compile_persons_to_parquet(
+            person_aliases_json=person_aliases_json,
+            dim_persons_parquet=dim_persons_parquet,
+            persons_out=p,
+        ),
+    )
+
+
+def _seed_compile_dry_run(out_path: Path, compile_fn) -> int:
+    """Run a taxonomy seed compile against a tempfile, byte-compare to the
+    real on-disk target, log a summary, then unlink the tempfile.
+
+    Used by ``_emit_facet_axes`` and ``_emit_persons_taxonomy`` so seed
+    modules can stay pure write-to-given-path without each needing its own
+    ``dry_run`` parameter. The CLI ``emit-taxonomy --dry-run`` mirrors this
+    pattern at the seed-call boundary for the other 8+ seed compilers.
+    """
+    import tempfile as _tempfile
+
+    fd, tmp_name = _tempfile.mkstemp(suffix=".parquet", prefix="ygov_seed_dryrun_")
+    os.close(fd)
+    tmp = Path(tmp_name)
+    try:
+        rows = compile_fn(tmp)
+        _atomic_emit_or_dryrun(tmp, out_path, out_path.stem, int(rows), dry_run=True)
+        return int(rows)
+    finally:
+        # _atomic_emit_or_dryrun already unlinks; guard against double-unlink.
+        if tmp.exists():
+            try:
+                tmp.unlink()
+            except OSError:
+                pass
 
 
 # ---------------------------------------------------------------------------
@@ -850,7 +923,12 @@ _FAMILY_WIDE_TABLE_SPECS: dict[tuple[str, str], dict] = {
 }
 
 
-def _write_dimensions(envelope: BatchEnvelope, family_dir: Path) -> dict[str, int]:
+def _write_dimensions(
+    envelope: BatchEnvelope,
+    family_dir: Path,
+    *,
+    dry_run: bool = False,
+) -> dict[str, int]:
     """Emit dim_*.parquet siblings for each non-empty dim list.
 
     UPSERT semantics on PK: existing file is loaded into DuckDB, envelope rows
@@ -874,6 +952,7 @@ def _write_dimensions(envelope: BatchEnvelope, family_dir: Path) -> dict[str, in
             rows=rows,
             spec=spec,
             table_id=f"{envelope.target_family}.{spec['stem']}",
+            dry_run=dry_run,
         )
     wide_payloads = {
         "candidacy": [r.model_dump() for r in envelope.candidacy_rows],
@@ -888,11 +967,19 @@ def _write_dimensions(envelope: BatchEnvelope, family_dir: Path) -> dict[str, in
             rows=rows,
             spec=spec,
             table_id=f"{envelope.target_family}.{spec['stem']}",
+            dry_run=dry_run,
         )
     return written
 
 
-def _upsert_dim(*, out_path: Path, rows: list[dict], spec: dict, table_id: str) -> int:
+def _upsert_dim(
+    *,
+    out_path: Path,
+    rows: list[dict],
+    spec: dict,
+    table_id: str,
+    dry_run: bool = False,
+) -> int:
     con = duckdb.connect(":memory:")
     try:
         col_defs = ", ".join(f"{name} {typ}" for name, typ in spec["columns"])
@@ -948,6 +1035,7 @@ def _upsert_dim(*, out_path: Path, rows: list[dict], spec: dict, table_id: str) 
             table_id=table_id,
             row_schema_file=spec["schema_file"],
             sort_cols=spec["sort_cols"],
+            dry_run=dry_run,
         )
     finally:
         con.close()
@@ -1008,6 +1096,8 @@ def _emit_table(
     table_id: str,
     row_schema_file: str,
     sort_cols: list[str],
+    *,
+    dry_run: bool = False,
 ) -> int:
     [(count,)] = con.execute(f"SELECT count(*) FROM ({select_sql})").fetchall()
     kv = {
@@ -1026,8 +1116,60 @@ def _emit_table(
         (FORMAT PARQUET, ROW_GROUP_SIZE 100000, KV_METADATA {{ {kv_clause} }})
         """
     )
-    os.replace(tmp, out_path)
+    _atomic_emit_or_dryrun(tmp, out_path, table_id, int(count), dry_run=dry_run)
     return int(count)
+
+
+def _atomic_emit_or_dryrun(
+    tmp: Path,
+    out_path: Path,
+    table_id: str,
+    new_rows: int,
+    *,
+    dry_run: bool,
+) -> None:
+    """Commit or discard a freshly-written tempfile.
+
+    PR-A2 (`--dry-run`) seam: every atomic write site in the writer (parquet
+    via ``_emit_table``, manifest JSON via ``_regenerate_manifest``,
+    facet/persons seed wrappers) builds the new payload to ``tmp`` first,
+    then calls this helper. In real-write mode this is an ``os.replace``.
+    In dry-run mode the helper byte-compares ``tmp`` vs ``out_path``,
+    emits a structured ``UNCHANGED|CHANGED`` log line, then unlinks ``tmp``.
+    The target file is NEVER touched in dry-run mode.
+    """
+    if not dry_run:
+        os.replace(tmp, out_path)
+        return
+    try:
+        new_bytes = tmp.read_bytes()
+        if out_path.is_file():
+            old_bytes = out_path.read_bytes()
+            old_size = len(old_bytes)
+            if old_bytes == new_bytes:
+                status = "UNCHANGED"
+            else:
+                status = "CHANGED"
+            log.info(
+                "dry-run: %s %s (%d bytes -> %d bytes, %d rows)",
+                status,
+                out_path.as_posix(),
+                old_size,
+                len(new_bytes),
+                new_rows,
+            )
+        else:
+            log.info(
+                "dry-run: NEW %s (%d bytes, %d rows)",
+                out_path.as_posix(),
+                len(new_bytes),
+                new_rows,
+            )
+    finally:
+        try:
+            tmp.unlink()
+        except OSError:
+            pass
 
 
 def _escape_sql(v: str) -> str:
@@ -1051,7 +1193,7 @@ def _writer_version() -> str:
 # ---------------------------------------------------------------------------
 
 
-def _regenerate_manifest(datasets_root: Path) -> Path:
+def _regenerate_manifest(datasets_root: Path, *, dry_run: bool = False) -> Path:
     """Re-enumerate every Parquet table under datasets/, regenerate
     manifest.json, write atomically.
 
@@ -1172,7 +1314,9 @@ def _regenerate_manifest(datasets_root: Path) -> Path:
         json.dump(manifest, tmp, indent=2)
         tmp.write("\n")
         tmp_path = Path(tmp.name)
-    os.replace(tmp_path, manifest_path)
+    _atomic_emit_or_dryrun(
+        tmp_path, manifest_path, "manifest", len(tables), dry_run=dry_run
+    )
     return manifest_path
 
 
