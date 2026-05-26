@@ -132,5 +132,7 @@ Native Windows is not supported (tippecanoe has no maintained Windows build). Us
 ## See also
 
 - [Frontend map architecture](../../docs/architecture/frontend/map.md)
+- [Boundary-data philosophy](../../docs/concepts/boundary-data-philosophy.md) -- the "why" behind every source choice (polygons vs topographic raster, GADM rejection, TopoJSON adoption status, DIGIPIN deferral, HTL kept on purpose)
+- [Boundary-data sources catalogue](../../docs/reference/boundary-data-sources.md) -- live inventory + per-level coverage + license rows
 - CLAUDE.md §3 (datasets is a contract surface), §4 (tools self-contained), §12 (provenance)
 - [ADR-0003: no fetch cache](../../docs/architecture/decisions/0003-no-fetch-cache.md) — why raw downloads land under `.runtime/raw/`, not under `datasets/`

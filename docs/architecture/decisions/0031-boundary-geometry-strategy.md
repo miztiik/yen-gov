@@ -359,6 +359,7 @@ Subsequent phases:
 
 - [ADR-0030 — canonical store on Parquet + DuckDB-WASM](0030-canonical-store-duckdb-wasm.md) — sibling-family rationale (D25, R24, R25)
 - [boundaries.md](../data/boundaries.md) — operational spec (disk topology, sidecars, LGD discipline, methodology breaks, postal orthogonality)
+- [docs/concepts/boundary-data-philosophy.md](../../concepts/boundary-data-philosophy.md) -- the "why" behind every boundary-data choice (polygons vs topographic raster, GADM rejection, TopoJSON adoption status, DIGIPIN deferral, HTL kept on purpose)
 - [canonical-store.md §17](../data/canonical-store.md) — pointer from the canonical store to this ADR
 - [canonical-pivot deletion manifest](../canonical-pivot-deletion-manifest.md) — re-asserts the no-move rule
 - [THE PLAN §0c + §6 step 0.14](../../../TODO/20260517-canonical-long-format-pivot.md) — boundaries-preservation reinforcement
