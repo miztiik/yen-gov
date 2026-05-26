@@ -130,6 +130,17 @@ FACET_AXES: list[FacetAxis] = [
             FacetAxisValue(value_id="lignite", label="Lignite"),
             FacetAxisValue(value_id="gas", label="Natural gas"),
             FacetAxisValue(value_id="diesel", label="Diesel"),
+            FacetAxisValue(
+                value_id="oil",
+                label="Oil",
+                description=(
+                    "Primary-energy crude-oil + petroleum-products aggregate "
+                    "(distinct from `diesel` which is a refined-product cut). "
+                    "Used by `india-primary-energy-supply-mtoe-oil` (PR-U). "
+                    "Publisher label `oil` maps 1:1; no SUB_FUEL_TO_CANONICAL "
+                    "collapse step."
+                ),
+            ),
             FacetAxisValue(value_id="nuclear", label="Nuclear"),
             FacetAxisValue(value_id="hydro", label="Large hydro"),
             FacetAxisValue(
@@ -147,6 +158,17 @@ FACET_AXES: list[FacetAxis] = [
             FacetAxisValue(value_id="small_hydro", label="Small hydro"),
             FacetAxisValue(value_id="waste_to_energy", label="Waste-to-energy"),
             FacetAxisValue(value_id="renewable_other", label="Other renewables"),
+            FacetAxisValue(
+                value_id="renewable",
+                label="Renewables (aggregate)",
+                description=(
+                    "Top-level renewables aggregate (used when publisher emits "
+                    "a single RE bucket instead of breaking into solar / wind / "
+                    "biomass etc). Publisher label `renewables` (plural) collapses "
+                    "to canonical `renewable` (singular) per indicator-naming.md. "
+                    "Used by `india-primary-energy-supply-mtoe-renewable` (PR-U)."
+                ),
+            ),
         ],
     ),
     FacetAxis(

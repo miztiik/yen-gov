@@ -100,6 +100,29 @@ def test_deprecated_value_present_and_flagged() -> None:
     assert deprecated_values[0].value_id == "gsdp-base-2004-05"
 
 
+def test_fuel_type_axis_extended_with_oil_and_renewable() -> None:
+    """PR-U (Row 6 / P.1.C 5/9) extends the existing fuel_type axis with
+    two new value_ids: `oil` (used by `india-primary-energy-supply-mtoe-oil`,
+    publisher label `oil` maps 1:1) and `renewable` (used by
+    `india-primary-energy-supply-mtoe-renewable`, publisher label `renewables`
+    plural collapses to `renewable` singular per indicator-naming.md).
+
+    Adding new value_ids to the EXISTING fuel_type axis (vs. creating a
+    new axis) is the right pattern when the publisher's vocabulary is a
+    superset of the canonical 5-bucket axis and the additions don't
+    require collapse via SUB_FUEL_TO_CANONICAL. Locking these two in
+    via an explicit assertion catches a regression where a future
+    bulk-edit accidentally renames or removes them.
+    """
+    fuel_type = next(a for a in FACET_AXES if a.axis_id == "fuel_type")
+    value_ids = {v.value_id for v in fuel_type.values}
+    assert "oil" in value_ids, "PR-U fuel_type axis must include `oil` value_id"
+    assert "renewable" in value_ids, (
+        "PR-U fuel_type axis must include `renewable` value_id "
+        "(canonical singular; publisher `renewables` plural collapses to this)"
+    )
+
+
 def test_pydantic_rejects_invalid_value_id_pattern() -> None:
     with pytest.raises(ValidationError):
         FacetAxisValue(value_id="Capital_Case", label="Bad")

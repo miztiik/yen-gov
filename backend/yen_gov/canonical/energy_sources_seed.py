@@ -1,7 +1,8 @@
-"""Seed the 15 energy citation rows into ``taxonomy/sources.parquet``.
+"""Seed the 17 energy citation rows into ``taxonomy/sources.parquet``.
 
 P.1.A (7 sources) + P.1.B (5 sources) + P.1.C PR-Q (1 source) +
-P.1.C PR-R (1 source) + P.1.C PR-S (1 source) = 15 distinct upstreams.
+P.1.C PR-R (1 source) + P.1.C PR-S (1 source) + P.1.C PR-T (1 source) +
+P.1.C PR-U (1 source) = 17 distinct upstreams.
 
 P.1.A: 1 CEA + 3 ICED endpoints + 3 RBI Handbook tables (Table 142
 peak-demand + Table 142 peak-met + Table 140 installed-capacity long-arc
@@ -60,8 +61,8 @@ __all__ = [
 ]
 
 
-# Operator nicknames for the 16 energy sources (7 P.1.A + 5 P.1.B + 1 P.1.C
-# PR-Q + 1 P.1.C PR-R + 1 P.1.C PR-S + 1 P.1.C PR-T).
+# Operator nicknames for the 17 energy sources (7 P.1.A + 5 P.1.B + 1 P.1.C
+# PR-Q + 1 P.1.C PR-R + 1 P.1.C PR-S + 1 P.1.C PR-T + 1 P.1.C PR-U).
 # Adapters look up the materialised source_id by nickname rather than
 # rebuilding the triple-hash each time.
 SOURCE_NICKNAMES: tuple[str, ...] = (
@@ -120,6 +121,16 @@ SOURCE_NICKNAMES: tuple[str, ...] = (
     # canonical value_ids -- no SUB_FUEL_TO_CANONICAL-style step.
     # Originating data: PPAC / Ministry of Petroleum & Natural Gas.
     "iced_consumption_oil",
+    # --- P.1.C PR-U (1; fifth canonical lift, primary energy supply) ----
+    # ICED national primary-energy-supply endpoint. National-only annual
+    # TPES (total primary energy supply) by source (FY05-FY25). Publisher
+    # facets: coal, oil, gas, hydro, nuclear, renewables (+ total which
+    # is filtered at adapter time as compute-on-read parent). Second
+    # Pattern A-facet indicator in P.1.C cohort; reuses the EXISTING
+    # ``fuel_type`` axis (extended with `oil` + `renewable` value_ids
+    # in this PR). Originating data: MoSPI Energy Statistics India,
+    # republished via NITI Aayog ICED dashboard.
+    "iced_primary_energy_supply",
 )
 
 
@@ -214,6 +225,12 @@ _TRIPLES: dict[str, tuple[str, str, str]] = {
     "iced_consumption_oil": (
         "NITI Aayog India Climate & Energy Dashboard",
         "Oil Product Consumption State-wise API (per-state fiscal-year refined-petroleum-product consumption, by product)",
+        "2024-25",
+    ),
+    # --- P.1.C PR-U (1) ------------------------------------------------
+    "iced_primary_energy_supply": (
+        "NITI Aayog India Climate & Energy Dashboard",
+        "Primary Energy Supply National API (national fiscal-year primary-energy supply (TPES) by source, mtoe)",
         "2024-25",
     ),
 }
@@ -369,6 +386,15 @@ _BY_NICKNAME: dict[str, tuple[str, str, str, bool, str, str | None]] = {
         "https://icedapi.niti.gov.in/energy/fuel-sources/oil/consumptionStateProductTrend",
         "ICED fuel-sources endpoint for state-wise oil-product consumption (7 refined-petroleum products: diesel-hsd, petrol, lpg, kerosene, naphtha, petroleum-coke, others; FY11-FY25). Originating data: PPAC / Ministry of Petroleum & Natural Gas. ICED is the federal aggregator; not the issuing authority for the underlying fact (plan-doc §3 Q-d). First indicator on the NEW ``oil_product`` facet axis.",
     ),
+    # --- P.1.C PR-U (1) ------------------------------------------------
+    "iced_primary_energy_supply": (
+        "OGL-IN-1.0",
+        "silver",
+        "live-fetch",
+        False,
+        "https://icedapi.niti.gov.in/analytics/state-wise-deep-dive",
+        "ICED state-wise-deep-dive endpoint, primary-energy-supply national series: annual TPES (total primary energy supply) for India by source (coal + oil + gas + hydro + nuclear + renewables; FY05-FY25, mtoe). Originating data: MoSPI Energy Statistics India. ICED is the federal aggregator; not the issuing authority for the underlying fact (plan-doc §3 Q-d). National-only -- per-state TPES is NOT published by ICED. Second indicator on the EXISTING ``fuel_type`` axis (extended with `oil` + `renewable` value_ids in this PR).",
+    ),
 }
 
 
@@ -403,13 +429,13 @@ ENERGY_SOURCE_ID_BY_NICKNAME: dict[str, str] = {
 
 
 def upsert_energy_sources(con: duckdb.DuckDBPyConnection) -> int:
-    """Idempotent scope-authoritative emit of the 15 energy citation rows
+    """Idempotent scope-authoritative emit of the 17 energy citation rows
     into the in-memory ``sources`` DuckDB table.
 
     First DELETEs every row whose ``(producer, title)`` pair is owned by
-    this seed (i.e. one of the 15 ``_TRIPLES`` keys); then INSERTs the
-    15 current rows. This makes the seed structurally authoritative for
-    its 15 ``(producer, title)`` slots: when a vintage rotates (as in
+    this seed (i.e. one of the 17 ``_TRIPLES`` keys); then INSERTs the
+    17 current rows. This makes the seed structurally authoritative for
+    its 17 ``(producer, title)`` slots: when a vintage rotates (as in
     ADR-0042 + the 5 ICED rotations of PR-B Commit 2), the previous
     ``source_id`` (derived from the previous vintage) is purged rather
     than orphaned. INSERT-OR-REPLACE alone would NOT achieve this
@@ -417,8 +443,9 @@ def upsert_energy_sources(con: duckdb.DuckDBPyConnection) -> int:
 
     Caller is responsible for creating the ``sources`` table first and
     for emitting the table back to ``taxonomy/sources.parquet`` after.
-    Returns the number of rows upserted (always 15 today: 7 P.1.A + 5
-    P.1.B + 1 P.1.C PR-Q + 1 P.1.C PR-R + 1 P.1.C PR-S).
+    Returns the number of rows upserted (always 17 today: 7 P.1.A + 5
+    P.1.B + 1 P.1.C PR-Q + 1 P.1.C PR-R + 1 P.1.C PR-S + 1 P.1.C PR-T +
+    1 P.1.C PR-U).
     """
     owned_keys = sorted({(producer, title) for producer, title, _ in _TRIPLES.values()})
     for producer, title in owned_keys:
@@ -478,13 +505,14 @@ def upsert_energy_sources_to_parquet(sources_parquet: Path) -> int:
     """Read-modify-write wrapper around :func:`upsert_energy_sources`.
 
     Opens an in-memory DuckDB, loads the existing
-    ``taxonomy/sources.parquet`` (if any), upserts the 15 energy
+    ``taxonomy/sources.parquet`` (if any), upserts the 17 energy
     citation rows, writes the parquet back. Used by the
     ``emit-taxonomy`` orchestrator after office_holdings_seed has
     already written the wiki citation rows for the CM offices.
 
-    Returns the number of rows upserted (always 15 today: 7 P.1.A + 5
-    P.1.B + 1 P.1.C PR-Q + 1 P.1.C PR-R + 1 P.1.C PR-S). Idempotent --
+    Returns the number of rows upserted (always 17 today: 7 P.1.A + 5
+    P.1.B + 1 P.1.C PR-Q + 1 P.1.C PR-R + 1 P.1.C PR-S + 1 P.1.C PR-T +
+    1 P.1.C PR-U). Idempotent --
     re-running yields byte-identical output.
     """
     sources_parquet = Path(sources_parquet)
