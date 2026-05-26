@@ -1739,26 +1739,6 @@
       "gap_count_within_range": 0
     },
     {
-      "id": "human_development/state_hdi",
-      "topic": "human_development",
-      "path": "datasets/indicators/in/human_development/state_hdi.json",
-      "title": "Human Development Index (income + health + education, 0–1)",
-      "documentation_status": "stub",
-      "inventory_status": "complete",
-      "frozen": false,
-      "last_polled_at": "2026-05-14T22:00:49Z",
-      "observed_count": 2,
-      "pending_count": 0,
-      "unavailable_count": 0,
-      "min_time": "2011-04",
-      "max_time": "2017-04",
-      "min_period_label": "2011-04",
-      "max_period_label": "2017-04",
-      "time_grain": "fiscal_year",
-      "observed_periods_within_range": 2,
-      "gap_count_within_range": 5
-    },
-    {
       "id": "livestock/naip_header_cumulative_count",
       "topic": "livestock",
       "path": "datasets/livestock/_meadow/ndlm/2024-25/naip_header_count_national.json",

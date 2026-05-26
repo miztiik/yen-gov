@@ -67,7 +67,7 @@ Unit suffix is **mandatory** when the same noun could plausibly be expressed in 
 | `_years` | duration in years |
 | `_count` | dimensioned count where the noun could otherwise read as a rate |
 
-**Omit** the unit suffix only when the indicator is genuinely dimensionless (`state_hdi`, `state_total_fertility_rate` — TFR is children-per-woman by definition; the noun encodes it). When in doubt, include the suffix — Max's rule: an explicit unit in the slug saves the next reader a click into the schema.
+**Omit** the unit suffix only when the indicator is genuinely dimensionless (`state_total_fertility_rate` — TFR is children-per-woman by definition; the noun encodes it). When in doubt, include the suffix — Max's rule: an explicit unit in the slug saves the next reader a click into the schema.
 
 ### 2.4 Entity grain — RETIRED by ADR-0044
 

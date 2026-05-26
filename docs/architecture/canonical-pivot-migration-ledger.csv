@@ -174,8 +174,7 @@ datasets/indicators/in/prices/state_cpi_food_inflation.json,prices,queue,3.5,,,S
 datasets/indicators/in/prices/state_cpi_fuel_inflation.json,prices,queue,3.5,,,Same parent + cpi_category facet.
 datasets/indicators/in/prices/state_cpi_housing_inflation.json,prices,queue,3.5,,,Same parent + cpi_category facet.
 #
-# ----- HUMAN DEVELOPMENT (queued — single artifact; UNDP source).
-datasets/indicators/in/human_development/state_hdi.json,human_development,queue,4,,,Phase 4 candidate; UNDP NHDR. Cadence ad_hoc.
+# ----- HUMAN DEVELOPMENT (retired PR-D3): shard deleted; no canonical successor (UNDP NHDR re-onboard deferred indefinitely).
 #
 # ----- TRANSPORT (queued — Phase 3.5/4).
 datasets/indicators/in/transport/state_ev_registrations_count.json,transport,queue,4,,,VAHAN dashboard source; cadence monthly_cy.

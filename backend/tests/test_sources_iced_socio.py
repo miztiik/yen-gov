@@ -13,7 +13,6 @@ import pytest
 from yen_gov.sources.iced_socio.parsers import (
     parse_demography_by_sex,
     parse_ghg_economy_wide,
-    parse_hdi_map,
     parse_per_capita_consumption,
     parse_per_capita_income,
 )
@@ -68,25 +67,6 @@ def test_per_capita_income_dedups_last_write_wins():
 def test_per_capita_income_rejects_non_list_data():
     with pytest.raises(ICEDShapeError):
         parse_per_capita_income({"data": {"oops": "dict"}})
-
-
-# ---------------------------------------------------------------------------
-# parse_hdi_map
-# ---------------------------------------------------------------------------
-
-
-def test_hdi_map_extracts_state_value_pairs():
-    decrypted = {"data": [
-        {"_id": "x1", "type": "state", "state": "Kerala",      "year": "2017-18", "value": 0.782},
-        {"_id": "x2", "type": "state", "state": "Bihar",       "year": "2017-18", "value": 0.574},
-        {"_id": "x3", "type": "state", "state": "Mars",        "year": "2017-18", "value": 0.5},
-    ]}
-    rows, skipped = parse_hdi_map(decrypted)
-    assert skipped == 1
-    assert {(r["entity_id"], r["time"], r["value"]) for r in rows} == {
-        ("S11", "2017-04", 0.782),
-        ("S04", "2017-04", 0.574),
-    }
 
 
 # ---------------------------------------------------------------------------

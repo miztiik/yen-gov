@@ -1,12 +1,14 @@
 """Pure parsers + indicator catalogue for the ICED socio-economic adapter.
 
-Four indicators ingested from four ICED API endpoints (one each, no
+Three indicators ingested from three ICED API endpoints (one each, no
 multi-endpoint composition). Per Hans (Governance) triage 2026-05-14:
 
-    1. human_development/state_hdi                          (priority 2)
-    2. economy/state_per_capita_consumption_inr             (priority 3)
-    3. demography/state_population_by_sex_count             (priority 5)
-    4. environment/india_ghg_emissions_mtco2e_by_sector     (priority 6)
+    1. economy/state_per_capita_consumption_inr             (priority 3)
+    2. demography/state_population_by_sex_count             (priority 5)
+    3. environment/india_ghg_emissions_mtco2e_by_sector     (priority 6)
+
+(``parse_hdi_map`` was deleted in PR-D3 along with the
+``human_development/state_hdi`` shard — no canonical successor planned.)
 
 (Hans's priority-4 indicator â€” per-capita income at current prices â€” is
 already shipped as ``economy/per_capita_nsdp_current_inr.json``

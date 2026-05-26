@@ -82,7 +82,6 @@ These are point-in-time and need a follow-up time series. Marked as snapshot in 
 | `energy/installed_capacity_*_mw` (8 by-fuel + total + by-state) | 2026-03 | CEA | CEA monthly Executive Summary archive (every month back to ~2010) |
 | `energy/installed_mw_by_state` | 2019 | community fork | replace with CEA monthly archive |
 | `energy/national_renewable_potential_vs_installed_mw` | 2026-05-14 | NITI iced | inherently snapshot — potential + present-day stack |
-| `human_development/state_hdi` | 2026-05-14 | NITI iced | UNDP/NITI publish NHDR ~every 3y; backfill possible |
 | `fiscal/state_external_debt_inr_crore` | 2026-05-14 | sansad.in | Lok Sabha PQs are episodic; not a true series |
 
 ---
