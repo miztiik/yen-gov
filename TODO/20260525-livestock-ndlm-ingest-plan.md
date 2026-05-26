@@ -216,7 +216,7 @@ This plan registers a new family on the **canonical long-format pivot** umbrella
 
 **Closed 2026-05-26** — single-vintage (FY 2024-25) cut is fully shipped; upstream-gap phases (NADCP + Breeding) have empirical TRUE-GAP / NO-PUBLIC-API verdicts; multi-vintage backfill is queued as a separate sprint with its own pre-conditions.
 
-**Re-opened + closed 2026-05-26** (later same day) — multi-vintage FY backfill SHIPPED via PR #_pending_ (16 FY vintages 2010-11..2025-26 lifted into committed meadow + canonical regenerated to 65,024 obs rows + 44 indicator catalogue rows reframed to citizen-honest multi-vintage methodology); pre-conditions in [TODO/20260526-livestock-multi-vintage-backfill-plan.md](20260526-livestock-multi-vintage-backfill-plan.md) §2 RESOLVED with verdict "no seed unfreeze needed; OWID + ADR-0042 binding". CY-vintage lift and frontend Phase E (sparkline + year picker) carried forward as separate PRs.
+**Re-opened + closed 2026-05-26** (later same day) — multi-vintage FY backfill SHIPPED via PR #337 (16 FY vintages 2010-11..2025-26 lifted into committed meadow + canonical regenerated to 65,024 obs rows + 44 indicator catalogue rows reframed to citizen-honest multi-vintage methodology); pre-conditions in [TODO/20260526-livestock-multi-vintage-backfill-plan.md](20260526-livestock-multi-vintage-backfill-plan.md) §2 RESOLVED with verdict "no seed unfreeze needed; OWID + ADR-0042 binding". CY-vintage lift and frontend Phase E (sparkline + year picker) carried forward as separate PRs.
 
 **Decomposed rationale homes**:
 
@@ -229,12 +229,12 @@ This plan registers a new family on the **canonical long-format pivot** umbrella
 
 | Indicator family | PR(s) | Grain | Vintage | Status |
 | --- | --- | --- | --- | --- |
-| Owner Reg + Land Holding (12 facet children + 2 parents) | #298 + #303 + #311 + #_pending_ | district + state | FY 2010-11..2025-26 (16) | LIVE |
-| Pashu Aadhaar (10 species, district + state) | #295 + #311 + #312 + #313 + #_pending_ | district + state | FY 2010-11..2025-26 (16) | LIVE |
-| NAIP IV (4 metric families × 2 grains) | #299 + #306 + #311 + #_pending_ | district + state | FY 2023-24..2025-26 (3 active) | LIVE |
+| Owner Reg + Land Holding (12 facet children + 2 parents) | #298 + #303 + #311 + #337 | district + state | FY 2010-11..2025-26 (16) | LIVE |
+| Pashu Aadhaar (10 species, district + state) | #295 + #311 + #312 + #313 + #337 | district + state | FY 2010-11..2025-26 (16) | LIVE |
+| NAIP IV (4 metric families × 2 grains) | #299 + #306 + #311 + #337 | district + state | FY 2023-24..2025-26 (3 active) | LIVE |
 | NADCP (vaccinations) | (none) | n/a | n/a | CLOSED — upstream gap |
 | Breeding (interventions) | (none) | n/a | n/a | CLOSED — upstream gap |
-| 32-vintage snapshot tool extension | #334 | n/a | 2010-2025 CY + 2010-11..2025-26 FY | TOOL LIVE; FY meadow lifted in #_pending_ |
+| 32-vintage snapshot tool extension | #334 | n/a | 2010-2025 CY + 2010-11..2025-26 FY | TOOL LIVE; FY meadow lifted in #337 |
 
 **What is NEXT** (in priority order, picked up by the next agent):
 
