@@ -266,14 +266,7 @@
         },
         {
           "kind": "indicator",
-          "id": "economy/state_nsdp_constant_inr_crore",
-          "default": false,
-          "featured": false,
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "economy/state_nsdp_current_inr_crore",
+          "id": "economy/nsdp_inr_crore",
           "default": false,
           "featured": false,
           "scope": "state"
@@ -328,7 +321,7 @@
           "scope": "national"
         }
       ],
-      "notes": "Source: NITI Aayog ICED state-wise deep-dive API (which republishes MoSPI National Statistical Office figures with the 2011-12 base year). Covers 10 fiscal years (FY16-FY25) for all 36 states/UTs plus All-India. Constant-price series strips inflation; current-price series is the nominal 'sticker' value. Compare GDP vs Sectoral GVA: GDP includes net product taxes; GVA is the cleaner production-side measure. The 2025-26 row is typically N.A. while NSO finalises that year's accounts. The per-capita NSDP and per-capita consumption indicators come from the ICED key-economic-indicators API (a separate endpoint family from state-wise deep-dive); they go back to 2004-05 and 2009-10 respectively, longer than the GDP series, because the source publisher provides a longer back-run of those particular metrics. The four `state_nsdp_*` and `state_per_capita_nsdp_*_long` indicators are RBI Handbook of Statistics on Indian Economy splices: `state_nsdp_constant_inr_crore` and `state_nsdp_current_inr_crore` are absolute ₹Cr (large states will dominate the table by sheer size — the existing comparability banner advises per-capita normalisation), while the `_long` per-capita variants extend FY81→FY26 by stitching across 1980-81, 1999-2000, 2004-05 and 2011-12 base-year breaks. SeriesBreakAnnotation (Phase 2) renders these breaks visibly so a citizen reading 'India's per-capita NSDP grew Nx since 1980' knows the slope crosses methodology revisions and is not a single coherent measurement. The legacy `state_per_capita_nsdp_current_inr` (non-`_long`) is permanently allowlisted as a diff-check artifact only — superseded by the spliced version. Topic is featured=false pending IA review (the doctrine says social-welfare topics drive IA; pure macro economy is context, not headline)."
+      "notes": "Source: NITI Aayog ICED state-wise deep-dive API (which republishes MoSPI National Statistical Office figures with the 2011-12 base year). Covers 10 fiscal years (FY16-FY25) for all 36 states/UTs plus All-India. Constant-price series strips inflation; current-price series is the nominal 'sticker' value. Compare GDP vs Sectoral GVA: GDP includes net product taxes; GVA is the cleaner production-side measure. The 2025-26 row is typically N.A. while NSO finalises that year's accounts. The per-capita NSDP and per-capita consumption indicators come from the ICED key-economic-indicators API (a separate endpoint family from state-wise deep-dive); they go back to 2004-05 and 2009-10 respectively, longer than the GDP series, because the source publisher provides a longer back-run of those particular metrics. The `nsdp_inr_crore` (faceted current+constant) and `per_capita_nsdp_*` indicators are RBI Handbook of Statistics on Indian Economy splices: `nsdp_inr_crore` carries absolute ₹Cr rows faceted by price basis (large states will dominate the table by sheer size — the existing comparability banner advises per-capita normalisation), while the per-capita variants extend FY81→FY26 by stitching across 1980-81, 1999-2000, 2004-05 and 2011-12 base-year breaks. SeriesBreakAnnotation (Phase 2) renders these breaks visibly so a citizen reading 'India's per-capita NSDP grew Nx since 1980' knows the slope crosses methodology revisions and is not a single coherent measurement. The legacy `state_per_capita_nsdp_current_inr` (non-`_long`) is permanently allowlisted as a diff-check artifact only — superseded by the spliced version. Topic is featured=false pending IA review (the doctrine says social-welfare topics drive IA; pure macro economy is context, not headline)."
     },
     {
       "id": "demography",
