@@ -61,9 +61,9 @@ __all__ = [
 ]
 
 
-# Operator nicknames for the 18 energy sources (7 P.1.A + 5 P.1.B + 1 P.1.C
+# Operator nicknames for the 19 energy sources (7 P.1.A + 5 P.1.B + 1 P.1.C
 # PR-Q + 1 P.1.C PR-R + 1 P.1.C PR-S + 1 P.1.C PR-T + 1 P.1.C PR-U + 1 P.1.C
-# PR-V).
+# PR-V + 1 P.1.C PR-W).
 # Adapters look up the materialised source_id by nickname rather than
 # rebuilding the triple-hash each time.
 SOURCE_NICKNAMES: tuple[str, ...] = (
@@ -145,6 +145,20 @@ SOURCE_NICKNAMES: tuple[str, ...] = (
     # metric). Originating data: CEA per-station daily generation;
     # republished via NITI Aayog ICED dashboard.
     "iced_plant_load_factor",
+    # P.1.C PR-W (1) - State power-purchase share by source. Fourth
+    # Pattern A-facet in P.1.C cohort with NO sub-fuel collapse: 12
+    # publisher buckets (8 PR-V-style fuels + diesel + hybrid-bundled +
+    # other-res + trading-and-others). 10 map to existing fuel_type axis
+    # values; 2 require NEW value_ids (hybrid_bundled + trading_other).
+    # PR-W is a procurement-mix indicator -- where a state's DISCOMs
+    # BUY from, not what they GENERATE. Compare with PR-Q's generation
+    # mix to read the trade pattern (RE-exporters vs thermal-importers).
+    # Values are percentages summing to ~100 per (state, FY); cannot
+    # collapse renewable sub-fuels (same constraint as PR-V). Lifts
+    # onto the EXISTING ``energy_demand_supply`` table stem (procurement
+    # is a demand-side metric). Originating data: PFC / Ministry of
+    # Power; republished via NITI Aayog ICED dashboard.
+    "iced_power_purchase_share",
 )
 
 
@@ -251,6 +265,12 @@ _TRIPLES: dict[str, tuple[str, str, str]] = {
     "iced_plant_load_factor": (
         "NITI Aayog India Climate & Energy Dashboard",
         "Plant Load Factor by Fuel State API (state-wise per-fuel PLF percentage, fiscal-year, 8 fuel buckets)",
+        "2024-25",
+    ),
+    # --- P.1.C PR-W (1) ------------------------------------------------
+    "iced_power_purchase_share": (
+        "NITI Aayog India Climate & Energy Dashboard",
+        "State Power Purchase Quantum and Cost API (state-wise procurement-mix share by source, fiscal-year, 12 source buckets)",
         "2024-25",
     ),
 }
@@ -423,6 +443,15 @@ _BY_NICKNAME: dict[str, tuple[str, str, str, bool, str, str | None]] = {
         False,
         "https://icedapi.niti.gov.in/v1/plf-metatable-data",
         "ICED plf-metatable-data endpoint: state-wise Plant Load Factor (PLF) percentages by fuel source (8 publisher buckets: bio-power / coal / hydro / nuclear / oil-gas / small-hydro / solar / wind; FY16-FY26). PLF is energy-generated / (capacity x hours-in-period) x 100. Originating data: CEA station-level daily generation. ICED is the federal aggregator; not the issuing authority for the underlying fact (plan-doc §3 Q-d). Third Pattern A-facet in P.1.C cohort -- maps 1:1 to existing fuel_type axis values (NO sub-fuel collapse because PLF is a percentage that cannot be meaningfully summed across fuels).",
+    ),
+    # --- P.1.C PR-W (1) ------------------------------------------------
+    "iced_power_purchase_share": (
+        "OGL-IN-1.0",
+        "silver",
+        "live-fetch",
+        False,
+        "https://icedapi.niti.gov.in/statelevel-power-purchase-quantum-and-cost",
+        "ICED statelevel-power-purchase-quantum-and-cost endpoint: state-wise procurement-mix share by source (12 publisher buckets: bio-power / coal / diesel / hybrid-bundled / hydro / nuclear / oil-gas / other-res / small-hydro / solar / trading-and-others / wind; FY16-FY25). Values are percentages summing to ~100 per (state, FY). Originating data: PFC / Ministry of Power. ICED is the federal aggregator; not the issuing authority (plan-doc §3 Q-d). Fourth Pattern A-facet in P.1.C cohort -- 10 buckets map 1:1 to existing fuel_type axis values; 2 (hybrid-bundled + trading-and-others) require NEW canonical axis values (hybrid_bundled + trading_other). NO sub-fuel collapse (% values cannot be summed across fuels).",
     ),
 }
 

@@ -281,8 +281,64 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             derivation="raw",
         ))
 
+    # PR-W (2026-05-26): state_power_purchase_share_pct.json -> 12-source
+    # procurement-mix children. Passthrough; no sub-fuel collapse
+    # (procurement share is a %, can't be summed across sources).
+    _append_power_purchase_share_rows(repo_root, rows)
+
     return BatchEnvelope(
         target_family="energy",
         target_table_stem="energy_demand_supply",
         observation_rows=rows,
     )
+
+
+# PR-W (2026-05-26): publisher power-purchase source label -> canonical
+# fuel_type axis value. 1:1 mapping (NO SUB_FUEL_TO_CANONICAL renewable
+# collapse -- procurement share is a %, summing across sources is
+# meaningless). 10 publisher buckets resolve to existing axis values;
+# 2 (hybrid-bundled + trading-and-others) resolve to NEW value_ids
+# (hybrid_bundled + trading_other) added in this PR.
+_POWER_PURCHASE_PUBLISHER_TO_CANONICAL: dict[str, str] = {
+    "bio-power":           "biomass",
+    "coal":                "coal",
+    "diesel":              "diesel",
+    "hybrid-bundled":      "hybrid-bundled",   # kebab indicator-id suffix; axis dim val is snake `hybrid_bundled`
+    "hydro":               "hydro",
+    "nuclear":             "nuclear",
+    "oil-gas":             "gas",
+    "other-res":           "renewable-other",  # kebab indicator-id suffix; axis dim val is snake `renewable_other`
+    "small-hydro":         "small-hydro",      # kebab indicator-id suffix; axis dim val is snake `small_hydro`
+    "solar":               "solar",
+    "trading-and-others":  "trading-other",    # kebab indicator-id suffix; axis dim val is snake `trading_other`
+    "wind":                "wind",
+}
+
+
+def _append_power_purchase_share_rows(
+    repo_root: Path, rows: list[ObservationRow]
+) -> None:
+    """Lift state_power_purchase_share_pct.json (PR-W) into the
+    demand_supply parquet. Each (state, FY, source) row passes through
+    unchanged as a child indicator; the parent
+    ``state-power-purchase-share-pct`` carries zero rows (catalogue /
+    facet-picker only).
+    """
+    shard = _load_iced_meadow(repo_root, "state_power_purchase_share_pct.json")
+    for r in shard["rows"]:
+        canonical_suffix = _POWER_PURCHASE_PUBLISHER_TO_CANONICAL.get(r["facet"])
+        if canonical_suffix is None:
+            # Defensive: today's dict covers 100% of publisher labels
+            # (12/12); this guard catches publisher relabels.
+            continue
+        period_label, year, period_seq = parse_iso_period(r["time"])
+        rows.append(ObservationRow(
+            entity_id=to_entity_id(r["entity_id"]),
+            year=year,
+            period_label=period_label,
+            period_seq=period_seq,
+            indicator_id=f"state-power-purchase-share-pct-{canonical_suffix}",
+            value_numeric=float(r["value"]),
+            source_id=SOURCE_IDS["iced_power_purchase_share"],
+            derivation="raw",
+        ))

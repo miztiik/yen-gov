@@ -169,6 +169,30 @@ FACET_AXES: list[FacetAxis] = [
                     "Used by `india-primary-energy-supply-mtoe-renewable` (PR-U)."
                 ),
             ),
+            FacetAxisValue(
+                value_id="hybrid_bundled",
+                label="Hybrid (bundled)",
+                description=(
+                    "Bundled hybrid PPAs (e.g. wind + solar + storage sold as "
+                    "one contract). A procurement-channel category rather than "
+                    "a pure fuel; carried on the fuel_type axis for renderer "
+                    "reuse. Used by `state-power-purchase-share-pct-hybrid-bundled` "
+                    "(PR-W). No SUB_FUEL_TO_CANONICAL collapse target -- the "
+                    "bundle is irreducible at publisher grain."
+                ),
+            ),
+            FacetAxisValue(
+                value_id="trading_other",
+                label="Trading and others",
+                description=(
+                    "Electricity bought via power exchanges (IEX / PXIL) or "
+                    "unscheduled-interchange (UI) mechanisms -- source-agnostic "
+                    "at procurement time. A procurement-channel category rather "
+                    "than a pure fuel; carried on the fuel_type axis for "
+                    "renderer reuse. Used by "
+                    "`state-power-purchase-share-pct-trading-other` (PR-W)."
+                ),
+            ),
         ],
     ),
     FacetAxis(

@@ -909,6 +909,74 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.caveats![2]).toMatch(/Nuclear|reactor|TN|KA|RJ|GJ/i);
     expect(d!.caveats![2]).toMatch(/gas[- ]allocation|100%|anomaly|upstream/i);
   });
+
+  // PR-W (Row 6 P.1.C 7/9, 2026-05-26): state power-purchase share by source.
+  // Fourth Pattern A-facet; 12 children on EXISTING fuel_type axis extended
+  // with hybrid_bundled + trading_other. NO sub-fuel collapse (percentage
+  // values cannot be summed across sources without double-counting).
+  it("PR-W state_power_purchase_share_pct descriptor routes to facet-multiplexed parent", () => {
+    const d = getCanonicalDescriptor("energy/state_power_purchase_share_pct");
+    expect(d).not.toBeNull();
+    expect(d!.kind).toBe("facet-multiplexed");
+    if (d!.kind === "facet-multiplexed") {
+      expect(d!.canonical_parent_indicator_id).toBe("state-power-purchase-share-pct");
+      expect(d!.facet_axis_id).toBe("fuel_type");
+      expect(d!.facet_values.length).toBe(12);
+      const childIds = d!.facet_values.map((fv) => fv.canonical_child_id).sort();
+      expect(childIds).toEqual([
+        "state-power-purchase-share-pct-biomass",
+        "state-power-purchase-share-pct-coal",
+        "state-power-purchase-share-pct-diesel",
+        "state-power-purchase-share-pct-gas",
+        "state-power-purchase-share-pct-hybrid-bundled",
+        "state-power-purchase-share-pct-hydro",
+        "state-power-purchase-share-pct-nuclear",
+        "state-power-purchase-share-pct-renewable-other",
+        "state-power-purchase-share-pct-small-hydro",
+        "state-power-purchase-share-pct-solar",
+        "state-power-purchase-share-pct-trading-other",
+        "state-power-purchase-share-pct-wind",
+      ]);
+      const labels = d!.facet_values.map((fv) => fv.legacy_facet_label);
+      // Raw publisher labels must NOT appear.
+      expect(labels).not.toContain("bio-power");
+      expect(labels).not.toContain("oil-gas");
+      expect(labels).not.toContain("other-res");
+      expect(labels).not.toContain("trading-and-others");
+      // Canonical labels MUST appear.
+      expect(labels).toContain("biomass");
+      expect(labels).toContain("gas");
+      expect(labels).toContain("renewable_other");
+      expect(labels).toContain("hybrid_bundled");
+      expect(labels).toContain("trading_other");
+    }
+    expect(d!.table_id).toBe("energy.energy_demand_supply");
+    expect(d!.meta.title).toMatch(/power.?purchase|procurement/i);
+    expect(d!.meta.unit).toBe("percent");
+    expect(d!.meta.entity_kind).toBe("state");
+    expect(d!.meta.time_grain).toBe("fiscal_year");
+    expect(d!.meta.attribution_geography).toBe("where_consumed");
+    expect(d!.meta.implementing_authority).toBe("state");
+  });
+
+  it("PR-W power-purchase-share descriptor carries the 3 Hans-curated caveats", () => {
+    const d = getCanonicalDescriptor("energy/state_power_purchase_share_pct");
+    expect(d).not.toBeNull();
+    expect(d!.caveats).toBeDefined();
+    expect(d!.caveats!.length).toBe(3);
+    // 1: procurement vs generation; Karnataka / Bihar anchor.
+    expect(d!.caveats![0]).toMatch(/procurement.*generation|generation.*procurement/i);
+    expect(d!.caveats![0]).toMatch(/DISCOM|BUY|buy/i);
+    expect(d!.caveats![0]).toMatch(/Karnataka|Bihar|import|export/i);
+    // 2: hybrid is a contract category, not a fuel.
+    expect(d!.caveats![1]).toMatch(/hybrid/i);
+    expect(d!.caveats![1]).toMatch(/contract|CONTRACT|MNRE|PPA/i);
+    expect(d!.caveats![1]).toMatch(/re-?categor|same electrons|installed-capacity/i);
+    // 3: trading share is not a stress signal.
+    expect(d!.caveats![2]).toMatch(/trading/i);
+    expect(d!.caveats![2]).toMatch(/IEX|PXIL|exchange|UI/i);
+    expect(d!.caveats![2]).toMatch(/Punjab|Haryana|Delhi|peaky|competence|crisis/i);
+  });
 });
 
 describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {

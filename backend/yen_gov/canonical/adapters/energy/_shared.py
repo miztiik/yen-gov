@@ -132,6 +132,21 @@ SOURCE_IDS: dict[str, str] = {
     # for one fuel. Lifts onto the EXISTING ``energy_generation``
     # table stem (PLF is a generation-utilization metric).
     "iced_plant_load_factor":            "src-7eb929cbf2d8",
+    # P.1.C PR-W (state power purchase share by source, 2026-05-26).
+    # Derived via derive_source_id("NITI Aayog India Climate & Energy
+    # Dashboard", "State Power Purchase Quantum and Cost API (state-wise
+    # procurement-mix share by source, fiscal-year, 12 source buckets)",
+    # "2024-25"). Fourth Pattern A-facet in P.1.C cohort. 12 publisher
+    # source buckets (8 PR-V-style fuels + diesel + hybrid-bundled +
+    # other-res + trading-and-others) -- 10 map 1:1 to existing
+    # fuel_type axis values; 2 require NEW value_ids (hybrid_bundled,
+    # trading_other). PR-W is a procurement-mix indicator (where
+    # DISCOMs BUY from); values are percentages summing to ~100 per
+    # (state, FY); cannot collapse renewable sub-fuels (same PLF-style
+    # exemption as PR-V). The catalogue parent carries 0 rows; the 12
+    # children each own per-state per-FY rows for one source. Lifts
+    # onto the EXISTING ``energy_demand_supply`` table stem.
+    "iced_power_purchase_share":         "src-1401f8087b0d",
 }
 
 
