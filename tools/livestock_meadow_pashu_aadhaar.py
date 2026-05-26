@@ -15,7 +15,7 @@ is carried on each observation row via its ``time`` field (decoded
 into ``period_label`` by the canonical adapter's ``parse_ndlm_period``).
 
 The district-level grand total is a compute-on-read parent (no meadow
-file, no observation rows) per the energy ``national-installed-capacity-mw``
+file, no observation rows) per the energy ``installed-capacity-mw``
 precedent. Gender breakdown is retained in the raw responses
 (``.runtime/raw/ndlm/``) and may be lifted to a ``-male`` / ``-female``
 grandchild indicator family in a follow-up PR.

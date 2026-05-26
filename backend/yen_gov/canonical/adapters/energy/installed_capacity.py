@@ -4,7 +4,7 @@ Lifts 10 legacy shards into a single BatchEnvelope:
 
 * 5 CEA per-fuel per-state shards
   (``installed_capacity_{coal,gas,hydro,nuclear,renewable}_mw.json``)
-  → ``national-installed-capacity-mw-{fuel}`` (5 IN rows, derivation=sum)
+  → ``installed-capacity-mw-{fuel}`` (5 IN rows, derivation=sum)
   AND ``state-installed-capacity-snapshot-mw-{fuel}`` (35 per-state rows
   per fuel, derivation=raw) — added P.1.A C4.5 to surface CEA's monthly
   per-state per-fuel allocation snapshot. The snapshot family is
@@ -94,7 +94,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
     rows: list[ObservationRow] = []
 
     # 1. CEA per-fuel shards →
-    #    - national-installed-capacity-mw-{fuel} (IN rollup, derivation=sum)
+    #    - installed-capacity-mw-{fuel} (IN rollup, derivation=sum)
     #    - state-installed-capacity-snapshot-mw-{fuel} (35 per-state rows
     #      per fuel, derivation=raw). P.1.A C4.5: the CEA Monthly IC sheet
     #      is published per-state per-fuel already; ICED state allocated
@@ -119,7 +119,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id=f"national-installed-capacity-mw-{fuel}",
+            indicator_id=f"installed-capacity-mw-{fuel}",
             value_numeric=per_state_sum,
             source_id=SOURCE_IDS["cea_monthly_ic"],
             derivation="sum",
