@@ -1133,4 +1133,5 @@ def run(root: Path) -> list[Failure]:
         + tier_b_no_new_sub_fuel_shards(root)
         + tier_b_meadow_vintage_matches_source_id(root)
         + tier_b_indicator_freshness_declared(root)
+        + tier_b_indicator_has_justification(root)
     )

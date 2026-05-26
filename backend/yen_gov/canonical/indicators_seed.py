@@ -79,6 +79,19 @@ class _FundingSplit(BaseModel):
     source: str = Field(min_length=1)
 
 
+class _IndicatorMeta(BaseModel):
+    """v2.3 (PR-Zjust 2026-05-26 guardrail #15) per-row free-form metadata.
+
+    Today only carries ``justification`` (required on cross-grain concept
+    twins by Tier-B ``tier_b_indicator_has_justification``). Additive
+    sub-properties land here in future PRs.
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    justification: str | None = Field(default=None, min_length=20)
+
+
 class IndicatorRow(BaseModel):
     """One row of taxonomy/indicators.parquet.
 
@@ -178,6 +191,13 @@ class IndicatorRow(BaseModel):
     concept_id: str | None = Field(
         default=None, pattern=r"^[a-z][a-z0-9]*(-[a-z0-9]+)*$", max_length=40
     )
+    # v2.3 (PR-Zjust 2026-05-26 guardrail #15). Free-form structured
+    # metadata; today only carries ``justification`` (required on
+    # cross-grain concept twins by Tier-B
+    # ``tier_b_indicator_has_justification``, chained live in this PR).
+    # Pydantic-validated but NOT serialised to the parquet tuple --
+    # consumers read meta.justification from the JSON catalogue.
+    meta: _IndicatorMeta | None = None
 
 
 # 35 columns, flat. Lists kept as VARCHAR[]; dicts/structs serialised to

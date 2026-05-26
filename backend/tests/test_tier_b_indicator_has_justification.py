@@ -134,10 +134,28 @@ def test_empty_string_justification_counts_as_missing(tmp_path):
     assert "'a'" in failures[0].message
 
 
-def test_check_is_dark_not_chained_into_run():
-    """PR-Z3b-tail-actionD ships the check DARK -- NOT in run(). Enforced post-actionC."""
+def test_check_is_chained_live_into_run():
+    """PR-Zjust flips the check LIVE -- chained into run() post meta.justification backfill."""
     from yen_gov import validate as v
 
     src = Path(v.__file__).read_text(encoding="utf-8")
     assert "tier_b_indicator_has_justification" in src  # function present
-    assert "+ tier_b_indicator_has_justification" not in src  # not chained
+    assert "+ tier_b_indicator_has_justification" in src  # chained live
+
+
+def test_passes_against_repo_indicators_catalogue():
+    """Live sentinel: real datasets/taxonomy/indicators.json must produce zero failures.
+
+    Guards against any future indicator-catalogue PR introducing a new cross-grain
+    twin without ``meta.justification``. The 26 existing twins (5x coal/gas/hydro/
+    nuclear/renewable installed-capacity attribution facets + 2x vote-share +
+    2x winning-party) all carry justifications per PR-Zjust backfill.
+    """
+    from yen_gov import validate as v
+
+    repo_root = Path(v.__file__).resolve().parents[2]
+    failures = tier_b_indicator_has_justification(repo_root)
+    assert failures == [], (
+        f"{len(failures)} cross-grain twin(s) missing meta.justification: "
+        + "; ".join(f.message[:200] for f in failures[:3])
+    )

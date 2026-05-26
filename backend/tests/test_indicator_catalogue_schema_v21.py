@@ -49,9 +49,9 @@ def test_update_period_days_is_optional_in_required_list():
 
 
 def test_catalogue_schema_version_is_current():
-    # Bumped to "2.2" in PR-Z3b-tail-conceptFK Carve 0a (additive concept_id);
+    # Bumped to "2.3" in PR-Zjust (additive meta.justification);
     # this v2.1-introduced assertion just tracks the catalogue stamp.
-    assert _catalogue()["$schema_version"] == "2.2"
+    assert _catalogue()["$schema_version"] == "2.3"
 
 
 def test_all_183_rows_carry_positive_update_period_days():
