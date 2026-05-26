@@ -20,6 +20,16 @@ See [ADR-0022](../architecture/decisions/0022-place-first-ia-with-topic-catalogu
 
 If a chart needs custom code, the metadata is incomplete — extend the schema, not the page.
 
+## Companion rule: one card per measure
+
+> **A topic page MUST have at most ONE artifact ref per `(canonical_indicator_id, entity_kind)` tuple.**
+
+Added 2026-05-26 per [ADR-0044](../architecture/decisions/0044-grain-over-entity.md) + [TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md) §C3. Facets (species, fuel, sector, basis, kind) live INSIDE the card via a facet picker, not as separate cards. The `/t/agriculture` page that shipped 18 stacked species cards is the cautionary tale — one Pashu Aadhaar measure became 11 species × 2 grains = 22 catalogue rows × 18 surface cards. The collapse target (PR-C2) is 1 cattle card with a species picker + (after grain sub-pages from PR-C1) a grain sub-page link.
+
+Enforced by [frontend/src/contracts/topic-card-uniqueness.test.ts](../../frontend/src/contracts/topic-card-uniqueness.test.ts) (ships in PR-C3): for each topic, no two artifact refs share `(canonical_indicator_id, entity_kind)`. Violations fail CI.
+
+Companion rule: render-shape fields (`chart_type`, `default_mode`, `renderer_rules`, `facet_labels`, `dimension`) do NOT live on the canonical or topic catalogue — they live in the frontend-owned grapher catalogue at `datasets/grapher/` per [ADR-0045](../architecture/decisions/0045-grapher-catalogue-split.md). The schema-is-the-design-system rule is preserved; "schema" now means the (canonical + grapher) pair, not canonical alone.
+
 ## Why
 
 yen-gov's roadmap calls for 30+ indicators across 8+ topics, maintained by one human + AI assistance. The only way that scales is if adding the 8th fiscal indicator requires no design discussion — just a JSON file.
