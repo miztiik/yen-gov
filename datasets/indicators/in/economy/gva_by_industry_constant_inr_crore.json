@@ -19,8 +19,8 @@
     "redistributable": true
   },
   "indicator": {
-    "id": "economy/india_gva_by_industry_constant_inr_crore",
-    "title": "India GVA by industry (constant 2011-12 prices, ₹ crore)",
+    "id": "economy/gva_by_industry_constant_inr_crore",
+    "title": "GVA by industry (constant 2011-12 prices, ₹ crore)",
     "description": "National Gross Value Added at constant 2011-12 prices, ₹ crore, faceted by industry. Includes the 'GVA at basic prices' and 'NVA at basic prices' rollups alongside eight production-side sectors (agriculture, mining, manufacturing, electricity & utilities, construction, trade-hotels-transport-comms, financial-real-estate-services, public-admin-and-other-services). Annual 2011-12 to 2024-25.",
     "entity_kind": "country",
     "time_grain": "fiscal_year",

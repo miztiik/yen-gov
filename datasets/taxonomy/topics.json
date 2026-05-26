@@ -301,7 +301,7 @@
         },
         {
           "kind": "indicator",
-          "id": "economy/india_gva_by_industry_constant_inr_crore",
+          "id": "economy/gva_by_industry_constant_inr_crore",
           "default": false,
           "featured": false,
           "scope": "national"

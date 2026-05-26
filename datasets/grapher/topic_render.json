@@ -22,7 +22,7 @@
     },
     {
       "topic_id": "economy",
-      "indicator_id": "economy/india_gva_by_industry_constant_inr_crore",
+      "indicator_id": "economy/gva_by_industry_constant_inr_crore",
       "chart_type": "stacked-trend",
       "dimension": "industry"
     },
