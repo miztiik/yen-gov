@@ -1,11 +1,15 @@
-"""ICED socio-economic adapter — fetch + emit four indicator artifacts.
+"""ICED socio-economic adapter — fetch + emit three indicator artifacts.
 
 Per Hans (Governance) triage 2026-05-14:
 
-* ``human_development/state_hdi``                          — Priority 2
 * ``economy/state_per_capita_consumption_inr``             — Priority 3
 * ``demography/state_population_by_sex_count``             — Priority 5
 * ``environment/india_ghg_emissions_mtco2e_by_sector``     — Priority 6
+
+The HDI indicator (Hans Priority 2 — ``human_development/state_hdi``) was
+retired in PR-D3 — ICED publishes only two snapshot years (2011-12 and
+2017-18) which is a position not a trajectory; no canonical successor is
+planned (UNDP NHDR re-onboard deferred indefinitely).
 
 The constant-price per-capita NSDP indicator (Hans Priority 1) was retired
 in PR-B6-row8 — the canonical source for that fact is now the RBI Handbook
@@ -35,7 +39,6 @@ from yen_gov.sources.iced_common import IcedClient
 from .parsers import (
     parse_demography_by_sex,
     parse_ghg_economy_wide,
-    parse_hdi_map,
     parse_per_capita_consumption,
 )
 
@@ -93,48 +96,6 @@ class _IndicatorBuild:
     page_url: str                             # human-readable dashboard URL
     source_name: str                          # Source[].name
     builder: Callable[..., Any]               # parser + selector
-
-
-def _hdi_meta() -> _IndicatorBuild:
-    return _IndicatorBuild(
-        out_topic="human_development",
-        out_leaf="state_hdi",
-        indicator={
-            "id": "human_development/state_hdi",
-            "title": "Human Development Index (income + health + education, 0–1)",
-            "description": (
-                "Composite score combining life expectancy, years of schooling, and "
-                "per-capita income, scaled 0 (lowest) to 1 (highest). Lets a citizen "
-                "see two states in the same frame on something other than money — "
-                "Kerala and Bihar can have similar incomes and very different HDI "
-                "scores because of differences in health and schooling outcomes."
-            ),
-            "entity_kind": "state",
-            "time_grain": "fiscal_year",
-            "value_kind": "index",
-            "direction": "higher_is_better",
-            "scale_hint": "linear",
-            "unit": "index (0–1)",
-            "icon": "users",
-            "attribution_geography": "where_resident",
-            "comparability": "comparable_across_states",
-            "implementing_authority": "joint",
-            "methodology_vintage": "NITI Aayog SDG India Index sub-national HDI",
-            "notes": (
-                "Sub-national HDI computed by NITI Aayog using Indian survey inputs "
-                "(NFHS for health, NSS / PLFS for education and income). Not directly "
-                "comparable to UNDP's national HDI for India — the input series differ. "
-                "ICED publishes only a small number of snapshot years; treat this as "
-                "a position, not a trajectory."
-            ),
-        },
-        coverage_spatial="India (states + UTs)",
-        coverage_admin_level="state",
-        api_path="/economy-demography/key-economic-indicators/hdi-map",
-        page_url="https://iced.niti.gov.in/economy-and-demography/key-economic-indicators/socio-economic",
-        source_name="ICED — Human Development Index map (NITI Aayog)",
-        builder=lambda d: parse_hdi_map(d)[0],
-    )
 
 
 def _per_capita_consumption_meta() -> _IndicatorBuild:
@@ -282,7 +243,6 @@ def _ghg_economy_wide_meta() -> _IndicatorBuild:
 
 def _all_builds() -> tuple[_IndicatorBuild, ...]:
     return (
-        _hdi_meta(),
         _per_capita_consumption_meta(),
         _population_by_sex_meta(),
         _ghg_economy_wide_meta(),

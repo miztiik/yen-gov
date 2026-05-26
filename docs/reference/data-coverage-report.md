@@ -115,7 +115,6 @@ These artifacts are on disk, schema-valid, and (mostly) wired into the catalogue
 | `fiscal/centre_transfers_gross` vs `fiscal/net_transfers_from_centre` | Two different definitions, two different windows (FY17–23 vs FY24–26), no overlap; spliced-on-same-axis reading creates a fake trend | Either ship a composed view with a visible methodology join, OR never render them on the same axis. Methodology badge mandatory. |
 | `fiscal/outstanding_debt_pct_gsdp` | GSDP denominator is each state's own MoSPI base year; sub-1pp YoY moves are inside the noise band | "Computed against GSDP at current prices in each state's own base year — treat 0.5pp moves as inside the noise band." |
 | `energy/installed_capacity_*_mw` (CEA, single-month snapshot) | Rendered next to ICED's annual line, the snapshot reads as "newest data point in a series" | Distinct snapshot glyph + "as of Mar 2026" pill across choropleth, ranked, and small-multiples; never connect the snapshot to the ICED line. |
-| `human_development/state_hdi` | HDI is composite, methodology has changed (UNDP 2010 vs 2014 vs 2020 weighting), and India has multiple producers (NITI vs Global Data Lab vs Suryanarayana) | Tooltip must name the producer and methodology vintage. Do not present HDI as a single comparable rank without it. |
 
 ## 6. Frontend wiring gaps (visualization layer)
 
@@ -126,7 +125,7 @@ These artifacts are on disk, schema-valid, and (mostly) wired into the catalogue
 
 - **Wired** (visible somewhere in the UI): all `fiscal/` debt / transfers / deficit family, most `energy/`, 4 `economy/` (state GDP + sectoral GVA), `demography/state_population_lakhs`, `AcGenMay2026`. ~22 indicator references in `topic-catalogue.json`.
 - **Partially wired** (in catalogue but rendered without honoring artifact metadata): the long-history NSDP / per-capita NSDP siblings (`series_breaks` and `vintage` declared, dropped by the renderer); CEA per-fuel monthly snapshots (rendered as length-1 sparklines that look like a bug); `direction: lower_is_better` indicators (orange ramp without a verbal "lower is better" legend cue); quarterly GVA (raw `YYYY-Qn` shown in slider).
-- **Not wired at all** (artifact on disk, IA silent): all 7 `prices/` (state CPI + national WPI/CPI long history), all 5 `health/` (SRS birth/death/IMR/TFR + public health spend), all 7 unwired RBI per-state fiscal long-history series including `state_pension_expenditure_inr_crore`, all 4 `national_*` economy aggregates, both `transport/` artifacts, `human_development/state_hdi`.
+- **Not wired at all** (artifact on disk, IA silent): all 7 `prices/` (state CPI + national WPI/CPI long history), all 5 `health/` (SRS birth/death/IMR/TFR + public health spend), all 7 unwired RBI per-state fiscal long-history series including `state_pension_expenditure_inr_crore`, all 4 `national_*` economy aggregates, both `transport/` artifacts.
 
 ### 6b. IA / taxonomy changes needed (`topic-catalogue.json` v1.3, additive)
 

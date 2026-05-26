@@ -21,10 +21,10 @@ This ledger is the contract for Phase 1.8 deletion. Empty `target_phase` or unre
 | Family | Count | Source |
 | --- | --- | --- |
 | Elections (election_id directories) | 27 | `datasets/elections/AcGen*/` |
-| Indicators (per-shard JSON) | 110 | `datasets/indicators/in/<topic>/*.json` |
-| **Total ledger rows** | **137** | |
+| Indicators (per-shard JSON) | 109 | `datasets/indicators/in/<topic>/*.json` |
+| **Total ledger rows** | **136** | |
 
-Topic breakdown of the 110 indicators: demography 3, economy 20, energy 41, environment 8, fiscal 22, health 6, human_development 1, prices 7, transport 2.
+Topic breakdown of the 109 indicators: demography 3, economy 20, energy 41, environment 8, fiscal 22, health 6, prices 7, transport 2.
 
 Out of scope (per R25 + §0c):
 - `datasets/boundaries/` — sibling family, never moves.
@@ -69,7 +69,7 @@ Approximate; live counts come from grepping the CSV.
 | `migrate` | ~75 | Elections (27) + ~48 indicators landing as their own parent |
 | `consolidate` | ~25 | Heavy in energy (fuel_type), fiscal (transfer_type), economy (prices_basis), demography (residence / gender) |
 | `drop` | ~13 | Unit-conversion duplicates, `_long` intermediates, computable totals (D33.8) |
-| `queue` | ~17 | environment (7), prices (7), human_development (1), transport (2) |
+| `queue` | ~16 | environment (7), prices (7), transport (2) |
 
 Net effect: ~110 legacy socio-economic indicators collapse to **~50 canonical parents + facet-explode children**, with another ~17 queued for Phase 3.5 / Phase 4 promotion. Consistent with THE PLAN's "60 parents → 80–120 ids" R11 ballpark — and well clear of the §0b 500–1,000+ growth target.
 
