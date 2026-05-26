@@ -23,18 +23,23 @@ def _load() -> dict:
     return json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
 
 
-def test_schema_x_version_is_2_0():
+def test_schema_x_version_is_2_1():
     s = _load()
-    assert s["x-version"] == "2.0"
+    assert s["x-version"] == "2.1"
 
 
-def test_changelog_tail_is_2_0():
+def test_changelog_tail_is_2_1():
     s = _load()
     tail = s["x-changelog"][-1]
-    assert tail["version"] == "2.0"
+    assert tail["version"] == "2.1"
     assert tail["date"] == "2026-05-26"
-    assert "PR-B1" in tail["description"]
-    assert "ADR-0044" in tail["description"]
+    assert "update_period_days" in tail["description"]
+
+
+def test_changelog_has_2_0_entry():
+    s = _load()
+    versions = [e["version"] for e in s["x-changelog"]]
+    assert "2.0" in versions
 
 
 def test_entity_kinds_and_default_entity_kind_required():

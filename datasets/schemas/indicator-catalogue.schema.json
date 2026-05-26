@@ -3,7 +3,7 @@
   "$id": "./indicator-catalogue.schema.json",
   "title": "Indicator catalogue (canonical)",
   "description": "Hand-authored canonical indicator catalogue (taxonomy/indicators.json). One row per indicator_id. Carries the full Hans honesty surface (D15) plus D29 catalogue additions (parent_indicator_id self-FK, dimension_values:STRUCT for facet-explode children, per-child source_id, methodology_version FK). id field enforces the D30 naming convention. Pipeline compiles to taxonomy/indicators.parquet. NOTE: this is the canonical replacement for the pre-pivot datasets/schemas/indicator.schema.json (which validates per-shard JSON under datasets/indicators/in/). The legacy file stays in place through Phase 0.13; rename of this file to indicator.schema.json happens when the pre-pivot artifacts move to _old/.",
-  "x-version": "2.0",
+  "x-version": "2.1",
   "x-changelog": [
     {
       "version": "1.0",
@@ -19,6 +19,11 @@
       "version": "2.0",
       "date": "2026-05-26",
       "description": "PR-B1 grain-over-entity rip-and-replace (TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md Phase B). BREAKING: (a) ADD required entity_kinds:array<enum> + default_entity_kind:enum -- enum is {country,state,district,ac,party,candidate}. Grain lives on the row, not in the indicator_id (ADR-0044). (b) REMOVE id_aliases + deprecated_in (per-PR rename scripts under tools/migrate/ replace the one-release alias window). v1.x rows DO NOT validate under v2.0 -- the catalogue is backfilled in the same commit. Tier-B tier_b_indicator_id_no_grain_prefix ships dark in PR-B1, enforces post-PR-B9; it rejects indicator_id matching ^(state|district|national)- so the grain axis is structurally enforced."
+    },
+    {
+      "version": "2.1",
+      "date": "2026-05-26",
+      "description": "PR-Z3b-tail-actionC update_period_days backfill (TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat guardrail #18). ADDITIVE: ADD optional integer property update_period_days (minimum=1) -- publisher refresh cadence in days (NDLM monthly = 30, RBI Handbook annual = 365, Census decennial = 3650). All 183 existing rows backfilled in same commit via cadence-derivation (annual_fy=365, monthly_cy=30, ad_hoc=365 default annual review). Unlocks chaining the existing DARK tier_b_indicator_freshness_declared check live in a follow-up PR. concept_id FK + meta.justification deferred to a later PR; v2.0 rows continue to validate unchanged under v2.1."
     }
   ],
   "type": "object",
@@ -233,6 +238,11 @@
           "default_entity_kind": {
             "enum": ["country", "state", "district", "ac", "party", "candidate"],
             "description": "v2.0 (PR-B1 2026-05-26). The default grain a chart picks when the user has not chosen one. MUST be a member of entity_kinds (Tier-B-enforced once PR-B5 lands the multi-kind rows)."
+          },
+          "update_period_days": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "v2.1 (PR-Z3b-tail-actionC 2026-05-26). Publisher refresh cadence in days (NDLM monthly = 30, RBI Handbook annual = 365, Census decennial = 3650). Operator dashboard surfaces stale indicators when today - last_observed > 2 * update_period_days. Required-in-practice via the DARK Tier-B check tier_b_indicator_freshness_declared (added in PR-Z3b-cli #363; chained live in a follow-up PR once all 183 rows are backfilled). OWID precedent: every Grapher variable carries this. Optional in schema for the v2.0->v2.1 transition; intent is required."
           }
         }
       }

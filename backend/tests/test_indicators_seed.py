@@ -208,8 +208,8 @@ def test_v20_entity_kind_party_and_candidate_accepted(tmp_path):
     assert n == 1
 
 
-def test_v20_parquet_schema_has_33_columns(tmp_path):
-    """v2.0: DDL stays at 33 columns (id_aliases+deprecated_in removed, entity_kinds+default_entity_kind added)."""
+def test_v21_parquet_schema_has_34_columns(tmp_path):
+    """v2.1 (PR-Z3b-tail-actionC): DDL grows to 34 columns (update_period_days added; was 33 at v2.0)."""
     out = tmp_path / "ind.parquet"
     compile_to_parquet(_write_fixture(tmp_path, [_PARENT_BASE]), out)
     con = duckdb.connect()
@@ -219,5 +219,5 @@ def test_v20_parquet_schema_has_33_columns(tmp_path):
         ).fetchone()[0]
     finally:
         con.close()
-    assert col_count == 33
+    assert col_count == 34
 
