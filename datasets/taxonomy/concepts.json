@@ -1,0 +1,1817 @@
+{
+  "$schema": "../schemas/concepts.schema.json",
+  "$schema_version": "1.0",
+  "concepts": [
+    {
+      "concept_id": "acs-arr-gap",
+      "noun": "ACS-ARR gap",
+      "unit_canonical": "\u00e2\u201a\u00b9/kWh",
+      "normalisation": "ratio",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Average Cost of Supply minus Average Revenue Realised, per unit of electricity sold. Positive = the utility loses money on every unit it sells (closed by tariff hike, loss reduction, or state subsidy). Zero is the UDAY/RDSS policy goal.",
+      "sources": []
+    },
+    {
+      "concept_id": "agriculture-electricity",
+      "noun": "Agriculture (electricity)",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Final energy consumed in the agriculture sector via electricity, in mtoe per fiscal year.",
+      "sources": []
+    },
+    {
+      "concept_id": "agriculture-gas",
+      "noun": "Agriculture (gas)",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Final energy consumed in the agriculture sector via gas, in mtoe per fiscal year.",
+      "sources": []
+    },
+    {
+      "concept_id": "agriculture-oil",
+      "noun": "Agriculture (oil)",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Final energy consumed in the agriculture sector via oil, in mtoe per fiscal year.",
+      "sources": []
+    },
+    {
+      "concept_id": "ai-events-district",
+      "noun": "AI events (district)",
+      "unit_canonical": "events",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Count of artificial-insemination EVENTS performed in each district under NAIP IV. Repeat inseminations on the same animal are counted multiple times.",
+      "sources": []
+    },
+    {
+      "concept_id": "ai-events-state",
+      "noun": "AI events (state)",
+      "unit_canonical": "events",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of artificial-insemination EVENTS performed under NAIP IV, summed from district rows. Repeat inseminations counted multiple times.",
+      "sources": []
+    },
+    {
+      "concept_id": "all-india-installed-capacity",
+      "noun": "All-India installed capacity",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Total nameplate generating capacity in megawatts, summed across all fuels, for India. Snapshot end-of-month from the CEA Monthly Executive Summary.",
+      "sources": []
+    },
+    {
+      "concept_id": "at-c-losses",
+      "noun": "AT&C losses",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Combined technical (transmission + distribution heat / ageing losses) and commercial (theft + uncollected billing) losses as % of energy input to the distribution system. Headline discom-health metric: lower is better.",
+      "sources": []
+    },
+    {
+      "concept_id": "billing-efficiency",
+      "noun": "Billing efficiency",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Share of energy actually billed to a consumer, out of total energy input to the distribution system. 100% = every kWh that enters the grid was billed.",
+      "sources": []
+    },
+    {
+      "concept_id": "biomass-plf",
+      "noun": "Biomass PLF",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Biomass / bio-power PLF (publisher label: 'bio-power'). Feedstock-supply-bounded; agricultural-residue-rich states (Punjab, Haryana, UP, Tamil Nadu) show higher PLFs only when supply chains are functional.",
+      "sources": []
+    },
+    {
+      "concept_id": "biomass-purchase-share",
+      "noun": "Biomass purchase share",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Biomass / bio-power procurement share. Tied to agri-residue feedstock availability; meaningful in Punjab, Haryana, UP, Tamil Nadu when supply chains function.",
+      "sources": []
+    },
+    {
+      "concept_id": "buffalo",
+      "noun": "Buffalo",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Number of buffaloes tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual buffaloes population.",
+      "sources": []
+    },
+    {
+      "concept_id": "buffalo-state",
+      "noun": "Buffalo (state)",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of buffaloes tagged with Pashu Aadhaar (NDLM), summed from district rows. Tagged count, NOT actual buffaloes population.",
+      "sources": []
+    },
+    {
+      "concept_id": "calves-born-district",
+      "noun": "Calves born (district)",
+      "unit_canonical": "calves",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Count of calves born per district from NAIP IV inseminations during FY 2024-25. Publisher reports sex split (male/female); this lift collapses sex via SUM.",
+      "sources": []
+    },
+    {
+      "concept_id": "calves-born-state",
+      "noun": "Calves born (state)",
+      "unit_canonical": "calves",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of calves born from NAIP IV inseminations, summed from districts. Sex split collapsed via SUM at district lift.",
+      "sources": []
+    },
+    {
+      "concept_id": "candidate-votes",
+      "noun": "Candidate votes",
+      "unit_canonical": "votes",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "candidate"
+      ],
+      "description_short": "Absolute number of votes a candidate received in a single AC contest.",
+      "sources": []
+    },
+    {
+      "concept_id": "candidates-contested",
+      "noun": "Candidates contested",
+      "unit_canonical": "candidates",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "ac"
+      ],
+      "description_short": "Full field size: kept candidates plus those collapsed into the 'others' tail by the top-N cutoff.",
+      "sources": []
+    },
+    {
+      "concept_id": "capacity-allocated-to-state",
+      "noun": "Capacity allocated to state",
+      "unit_canonical": "MW",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Same as the geographical-location capacity, but each state credited its share of joint-sector and central-sector plants per regional allocation formulas. Use this when comparing 'rights to electricity' rather than 'physical assets sited here'.",
+      "sources": []
+    },
+    {
+      "concept_id": "capacity-sited-in-state",
+      "noun": "Capacity sited in state",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Total installed capacity physically located in the state, summed across all fuels. 'Geographical' means every plant counts toward the state where it sits, regardless of who owns it or where the power is dispatched.",
+      "sources": []
+    },
+    {
+      "concept_id": "capacity-snapshot-cea",
+      "noun": "Capacity snapshot (CEA)",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Total installed capacity allocated to each state at the end of the most recent month, from the CEA Monthly Executive Summary IC sheet. Snapshot view; complements the multi-FY ICED geographical and allocated series.",
+      "sources": []
+    },
+    {
+      "concept_id": "cattle",
+      "noun": "Cattle",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Number of cattle tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual cattle population.",
+      "sources": []
+    },
+    {
+      "concept_id": "cattle-state",
+      "noun": "Cattle (state)",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of cattle tagged with Pashu Aadhaar (NDLM), summed from district rows. Tagged count, NOT actual cattle population.",
+      "sources": []
+    },
+    {
+      "concept_id": "cgd-and-others-gas",
+      "noun": "Cgd And Others (gas)",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Final energy consumed in the cgd and others sector via gas, in mtoe per fiscal year.",
+      "sources": []
+    },
+    {
+      "concept_id": "coal",
+      "noun": "Coal",
+      "unit_canonical": "GWh",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Coal-fired generation. ~70% of all-India electricity by GWh (PLF gap between capacity share and generation share).",
+      "sources": []
+    },
+    {
+      "concept_id": "coal-absolute",
+      "noun": "Coal",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Coal share of total primary energy supply. The dominant TPES bucket since FY05 (~55% in recent years).",
+      "sources": []
+    },
+    {
+      "concept_id": "coal-mw-absolute",
+      "noun": "Coal",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "description_short": "Coal-fired thermal capacity. India's largest fuel category nationally (~42%).",
+      "sources": []
+    },
+    {
+      "concept_id": "coal-consumption",
+      "noun": "Coal consumption",
+      "unit_canonical": "Mt",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Per-state domestic coal consumption in million tonnes per fiscal year, summed across all coal grades (raw + washed + middlings + lignite). High values typically indicate hosting large thermal generation fleets (Maharashtra, UP, MP, Chhattisgarh) or heavy industry (steel, cement).",
+      "sources": []
+    },
+    {
+      "concept_id": "coal-plf",
+      "noun": "Coal PLF",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Coal-fired plant load factor: how hard the state's coal fleet is being run. 60%+ = healthy despatch, 40% = structural underuse (stranded assets), regulator-set floor varies.",
+      "sources": []
+    },
+    {
+      "concept_id": "coal-purchase-share",
+      "noun": "Coal purchase share",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Share of state's procured electricity that came from coal plants. India-wide ~70% historically; declining as RE rises. Coal-importing states (Karnataka, Maharashtra, Punjab) typically run above the average.",
+      "sources": []
+    },
+    {
+      "concept_id": "collection-efficiency",
+      "noun": "Collection efficiency",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Share of billed revenue actually collected from consumers, by state. 100% = every rupee billed was paid.",
+      "sources": []
+    },
+    {
+      "concept_id": "commercial-electricity",
+      "noun": "Commercial (electricity)",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Final energy consumed in the commercial sector via electricity, in mtoe per fiscal year.",
+      "sources": []
+    },
+    {
+      "concept_id": "commercial-oil",
+      "noun": "Commercial (oil)",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Final energy consumed in the commercial sector via oil, in mtoe per fiscal year.",
+      "sources": []
+    },
+    {
+      "concept_id": "contested",
+      "noun": "Contested",
+      "unit_canonical": "ACs",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "party"
+      ],
+      "description_short": "Number of distinct ACs in the state where this party fielded a candidate.",
+      "sources": []
+    },
+    {
+      "concept_id": "diesel-hsd",
+      "noun": "Diesel (HSD)",
+      "unit_canonical": "kt",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "High-speed diesel: the dominant refined petroleum product. Tracks transport activity (heavy vehicles, buses, trucks) and agricultural pump-set use; the largest single fuel by volume in every state.",
+      "sources": []
+    },
+    {
+      "concept_id": "diesel-purchase-share",
+      "noun": "Diesel purchase share",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Diesel-genset procurement share. Typically <1% across most states; an emergency-backup category, not a baseload source.",
+      "sources": []
+    },
+    {
+      "concept_id": "distribution-efficiency",
+      "noun": "Distribution efficiency",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Compute-on-read parent: the three citizen-readable sub-indicators of distribution-side efficiency \u00e2\u20ac\u201d billing efficiency, collection efficiency, and T&D loss. The first two decompose the COMMERCIAL half of AT&C losses; the third is the TECHNICAL half.",
+      "sources": []
+    },
+    {
+      "concept_id": "donkey",
+      "noun": "Donkey",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Number of donkeys tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual donkeys population.",
+      "sources": []
+    },
+    {
+      "concept_id": "donkey-state",
+      "noun": "Donkey (state)",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of donkeys tagged with Pashu Aadhaar (NDLM), summed from district rows. Tagged count, NOT actual donkeys population.",
+      "sources": []
+    },
+    {
+      "concept_id": "effective-candidates",
+      "noun": "Effective candidates",
+      "unit_canonical": "count",
+      "normalisation": "index",
+      "entity_kinds": [
+        "ac"
+      ],
+      "description_short": "1 / sum(vote_share_squared). Higher = more fragmented contest.",
+      "sources": []
+    },
+    {
+      "concept_id": "effective-parties",
+      "noun": "Effective parties",
+      "unit_canonical": "count",
+      "normalisation": "index",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "1 / sum(seat_share_squared) across parties. Higher = more fragmented legislature.",
+      "sources": []
+    },
+    {
+      "concept_id": "electors",
+      "noun": "Electors",
+      "unit_canonical": "persons",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "ac"
+      ],
+      "description_short": "Number of voters on the electoral roll for this AC as of election day.",
+      "sources": []
+    },
+    {
+      "concept_id": "farmers-benefitted-district",
+      "noun": "Farmers benefitted (district)",
+      "unit_canonical": "farmers",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Count of unique farmers in each district reached by NAIP IV inseminations during FY 2024-25.",
+      "sources": []
+    },
+    {
+      "concept_id": "farmers-benefitted-state",
+      "noun": "Farmers benefitted (state)",
+      "unit_canonical": "farmers",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of unique farmers reached by NAIP IV inseminations, summed from districts.",
+      "sources": []
+    },
+    {
+      "concept_id": "final-energy-consumption",
+      "noun": "Final energy consumption",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Final energy consumption in India broken down by end-use sector x fuel (18 pairs). Final = what households / industry actually USE (post-conversion losses), distinct from TPES (primary supply).",
+      "sources": []
+    },
+    {
+      "concept_id": "forfeitures",
+      "noun": "Forfeitures",
+      "unit_canonical": "ACs",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "party"
+      ],
+      "description_short": "Number of ACs where the party's candidate received less than 1/6 of valid votes (Section 158, Representation of the People Act).",
+      "sources": []
+    },
+    {
+      "concept_id": "gas",
+      "noun": "Gas",
+      "unit_canonical": "GWh",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Gas-fired generation. Capacity-rich, generation-poor due to fuel-supply constraints.",
+      "sources": []
+    },
+    {
+      "concept_id": "gas-absolute",
+      "noun": "Gas",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "description_short": "Natural-gas and liquid-fuel thermal capacity. Stranded-fuel risk; small share.",
+      "sources": []
+    },
+    {
+      "concept_id": "gas-plf",
+      "noun": "Gas PLF",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Gas-fired plant load factor (publisher bucket 'oil-gas' = natural gas + diesel + furnace oil). Persistently low in India (often <25%) due to gas allocation shortages -- not a despatch failure.",
+      "sources": []
+    },
+    {
+      "concept_id": "gas-purchase-share",
+      "noun": "Gas purchase share",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Gas-fired procurement share (publisher 'oil-gas' bucket: natural gas + furnace oil). Often <5% due to gas-allocation shortages limiting plant availability.",
+      "sources": []
+    },
+    {
+      "concept_id": "goat",
+      "noun": "Goat",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Number of goats tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual goats population.",
+      "sources": []
+    },
+    {
+      "concept_id": "goat-state",
+      "noun": "Goat (state)",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of goats tagged with Pashu Aadhaar (NDLM), summed from district rows. Tagged count, NOT actual goats population.",
+      "sources": []
+    },
+    {
+      "concept_id": "horse",
+      "noun": "Horse",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Number of horses tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual horses population.",
+      "sources": []
+    },
+    {
+      "concept_id": "horse-state",
+      "noun": "Horse (state)",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of horses tagged with Pashu Aadhaar (NDLM), summed from district rows. Tagged count, NOT actual horses population.",
+      "sources": []
+    },
+    {
+      "concept_id": "hybrid-bundled-share",
+      "noun": "Hybrid (bundled) share",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Bundled-hybrid PPA procurement share (wind + solar + storage sold as one contract). A procurement-channel category, not a single fuel. Emerging post-2022 as MNRE hybrid policy ramped.",
+      "sources": []
+    },
+    {
+      "concept_id": "hydro",
+      "noun": "Hydro",
+      "unit_canonical": "GWh",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Hydroelectric generation. Seasonal (monsoon-dependent) and falling as a share over time.",
+      "sources": []
+    },
+    {
+      "concept_id": "hydro-absolute",
+      "noun": "Hydro",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Large hydro share of TPES (>=25 MW). Inter-annual swings track monsoon variability; structurally flat as no major new dams have been commissioned recently.",
+      "sources": []
+    },
+    {
+      "concept_id": "hydro-mw-absolute",
+      "noun": "Hydro",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "description_short": "Conventional (>25 MW) plus small-hydro capacity. Site-bound; multi-decade lifetime.",
+      "sources": []
+    },
+    {
+      "concept_id": "industry-coal",
+      "noun": "Industry (coal)",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Final energy consumed in the industry sector via coal, in mtoe per fiscal year.",
+      "sources": []
+    },
+    {
+      "concept_id": "industry-electricity",
+      "noun": "Industry (electricity)",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Final energy consumed in the industry sector via electricity, in mtoe per fiscal year.",
+      "sources": []
+    },
+    {
+      "concept_id": "industry-gas",
+      "noun": "Industry (gas)",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Final energy consumed in the industry sector via gas, in mtoe per fiscal year.",
+      "sources": []
+    },
+    {
+      "concept_id": "industry-oil",
+      "noun": "Industry (oil)",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Final energy consumed in the industry sector via oil, in mtoe per fiscal year.",
+      "sources": []
+    },
+    {
+      "concept_id": "kerosene-sko",
+      "noun": "Kerosene (SKO)",
+      "unit_canonical": "kt",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Superior kerosene oil: household lighting + cooking fuel from the legacy PDS era. Declines steeply post-PMUY as LPG replaces it; near-zero in many states by FY23.",
+      "sources": []
+    },
+    {
+      "concept_id": "landless-marginal-1-ha",
+      "noun": "Landless / marginal (<1 Ha)",
+      "unit_canonical": "owners",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Owners in the landless / marginal bracket (<1 Ha) registered on Bharat Pashudhan in each district. Registered count, NOT all owning households.",
+      "sources": []
+    },
+    {
+      "concept_id": "landless-marginal-state",
+      "noun": "Landless / marginal (state)",
+      "unit_canonical": "owners",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of owners in the landless / marginal bracket (<1 Ha) registered on Bharat Pashudhan, summed from districts.",
+      "sources": []
+    },
+    {
+      "concept_id": "large-10-ha",
+      "noun": "Large (>=10 Ha)",
+      "unit_canonical": "owners",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Owners in the large-holding bracket (>=10 Ha) registered on Bharat Pashudhan in each district. Registered count, NOT all owning households.",
+      "sources": []
+    },
+    {
+      "concept_id": "large-hydro-plf",
+      "noun": "Large-hydro PLF",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Large-hydro plant load factor (capacity > 25 MW). Inherently seasonal; monsoon-dependent states show high inter-year variation that is RESOURCE-driven, not fleet-performance-driven.",
+      "sources": []
+    },
+    {
+      "concept_id": "large-hydro-purchase-share",
+      "noun": "Large-hydro purchase share",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Large-hydro (>25 MW) procurement share. Higher in hill states (HP, UK, Sikkim) and seasonally variable across monsoon vs winter.",
+      "sources": []
+    },
+    {
+      "concept_id": "large-state",
+      "noun": "Large (state)",
+      "unit_canonical": "owners",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of owners in the large-holding bracket (>=10 Ha) registered on Bharat Pashudhan, summed from districts.",
+      "sources": []
+    },
+    {
+      "concept_id": "livestock-owners-registered",
+      "noun": "Livestock owners registered",
+      "unit_canonical": "owners",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Count of livestock owners completed Bharat Pashudhan registration in each district. Registered count, NOT all owning households.",
+      "sources": []
+    },
+    {
+      "concept_id": "livestock-owners-registered-state",
+      "noun": "Livestock owners registered (state)",
+      "unit_canonical": "owners",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of livestock owners registered on Bharat Pashudhan, summed from district rows. Registered count, NOT all owning households.",
+      "sources": []
+    },
+    {
+      "concept_id": "lpg",
+      "noun": "LPG",
+      "unit_canonical": "kt",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Liquefied petroleum gas: household cooking-fuel after the PMUY (Ujjwala) scheme. Tracks household-coverage policy more than wealth -- rural states with successful PMUY rollout show high per-capita LPG consumption.",
+      "sources": []
+    },
+    {
+      "concept_id": "majority-threshold",
+      "noun": "Majority threshold",
+      "unit_canonical": "ACs",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "floor(total_acs / 2) + 1. Constant per state per delimitation cycle.",
+      "sources": []
+    },
+    {
+      "concept_id": "margin",
+      "noun": "Margin %",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "ac"
+      ],
+      "description_short": "Vote-margin between winner and runner-up as a percentage of total votes polled.",
+      "sources": []
+    },
+    {
+      "concept_id": "margin-absolute",
+      "noun": "Margin",
+      "unit_canonical": "votes",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "ac"
+      ],
+      "description_short": "Winner's votes minus runner-up's votes.",
+      "sources": []
+    },
+    {
+      "concept_id": "medium-4-0-9-99-ha",
+      "noun": "Medium (4.0-9.99 Ha)",
+      "unit_canonical": "owners",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Owners in the medium bracket (4.0-9.99 Ha) registered on Bharat Pashudhan in each district. Registered count, NOT all owning households.",
+      "sources": []
+    },
+    {
+      "concept_id": "medium-state",
+      "noun": "Medium (state)",
+      "unit_canonical": "owners",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of owners in the medium bracket (4.0-9.99 Ha) registered on Bharat Pashudhan, summed from districts.",
+      "sources": []
+    },
+    {
+      "concept_id": "mithun",
+      "noun": "Mithun",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Number of mithun tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual mithun population.",
+      "sources": []
+    },
+    {
+      "concept_id": "mithun-state",
+      "noun": "Mithun (state)",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of mithun tagged with Pashu Aadhaar (NDLM), summed from district rows. Tagged count, NOT actual mithun population.",
+      "sources": []
+    },
+    {
+      "concept_id": "mule",
+      "noun": "Mule",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Number of mules tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual mules population.",
+      "sources": []
+    },
+    {
+      "concept_id": "mule-state",
+      "noun": "Mule (state)",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of mules tagged with Pashu Aadhaar (NDLM), summed from district rows. Tagged count, NOT actual mules population.",
+      "sources": []
+    },
+    {
+      "concept_id": "naphtha",
+      "noun": "Naphtha",
+      "unit_canonical": "kt",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Light hydrocarbon feedstock for petrochemicals + occasional power-plant fuel. Concentrated in petrochemical-cluster states (Gujarat, Maharashtra). Volatile year-on-year.",
+      "sources": []
+    },
+    {
+      "concept_id": "natural-gas",
+      "noun": "Natural gas",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Natural-gas share of TPES (domestic + LNG imports). The fastest-growing fossil bucket; tracks LNG-terminal commissioning and pipeline expansion.",
+      "sources": []
+    },
+    {
+      "concept_id": "non-energy-gas",
+      "noun": "Non Energy (gas)",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Final energy consumed in the non energy sector via gas, in mtoe per fiscal year.",
+      "sources": []
+    },
+    {
+      "concept_id": "non-energy-oil",
+      "noun": "Non Energy (oil)",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Final energy consumed in the non energy sector via oil, in mtoe per fiscal year.",
+      "sources": []
+    },
+    {
+      "concept_id": "non-solar-rpo",
+      "noun": "Non-solar RPO",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Share of the state's non-solar (wind + biomass + small-hydro) RPO target actually met. The 'other-renewables' segment of the obligation, regulated separately from the solar segment.",
+      "sources": []
+    },
+    {
+      "concept_id": "not-specified",
+      "noun": "Not specified",
+      "unit_canonical": "owners",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Owners who did not declare a land-holding bracket while registering on Bharat Pashudhan in each district. Preserved verbatim, not imputed.",
+      "sources": []
+    },
+    {
+      "concept_id": "not-specified-state",
+      "noun": "Not specified (state)",
+      "unit_canonical": "owners",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of owners who did not declare a land-holding bracket while registering on Bharat Pashudhan, summed from districts.",
+      "sources": []
+    },
+    {
+      "concept_id": "nota-share",
+      "noun": "NOTA share",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "ac"
+      ],
+      "description_short": "NOTA votes as a percentage of votes polled. Null pre-2013.",
+      "sources": []
+    },
+    {
+      "concept_id": "nota-votes",
+      "noun": "NOTA votes",
+      "unit_canonical": "votes",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "ac"
+      ],
+      "description_short": "Absolute number of NOTA (None of the Above) votes. Null pre-2013.",
+      "sources": []
+    },
+    {
+      "concept_id": "nuclear",
+      "noun": "Nuclear",
+      "unit_canonical": "GWh",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Nuclear generation. Small share but rising as new units commission.",
+      "sources": []
+    },
+    {
+      "concept_id": "nuclear-absolute",
+      "noun": "Nuclear",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Nuclear share of TPES. Small fleet (~7 GW operational); structurally flat with episodic step changes when a new reactor commissions.",
+      "sources": []
+    },
+    {
+      "concept_id": "nuclear-mw-absolute",
+      "noun": "Nuclear",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "description_short": "Nuclear capacity. Central-sector only; allocated to states via PPAs.",
+      "sources": []
+    },
+    {
+      "concept_id": "nuclear-plf",
+      "noun": "Nuclear PLF",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Nuclear plant load factor. Only present in states hosting reactors (TN/Karnataka/Rajasthan/Gujarat/Maharashtra/UP); rest = no data. Targets 80%+ when fuel-supply and grid-offtake align.",
+      "sources": []
+    },
+    {
+      "concept_id": "nuclear-purchase-share",
+      "noun": "Nuclear purchase share",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Nuclear procurement share. Allocated centrally from NPCIL plants; states near reactors (TN, KA, MH, RJ, GJ, UP) have higher shares.",
+      "sources": []
+    },
+    {
+      "concept_id": "oil",
+      "noun": "Oil",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Crude-oil + petroleum-products share of TPES. The second-largest bucket; tracks transport-fleet activity and refinery throughput.",
+      "sources": []
+    },
+    {
+      "concept_id": "oil-product-consumption",
+      "noun": "Oil-product consumption",
+      "unit_canonical": "kt",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Per-state annual consumption of refined petroleum products in kilotonnes, broken down by 7 products (diesel-HSD, petrol, LPG, kerosene, naphtha, petroleum-coke, others). Diesel dominates everywhere; LPG tracks PMUY rollout; petroleum-coke tracks industrial heat use.",
+      "sources": []
+    },
+    {
+      "concept_id": "other-electricity",
+      "noun": "Other (electricity)",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Final energy consumed in the other sector via electricity, in mtoe per fiscal year.",
+      "sources": []
+    },
+    {
+      "concept_id": "other-oil",
+      "noun": "Other (oil)",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Final energy consumed in the other sector via oil, in mtoe per fiscal year.",
+      "sources": []
+    },
+    {
+      "concept_id": "other-re-purchase-share",
+      "noun": "Other-RE purchase share",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Other-renewables procurement share (publisher 'other-res' bucket): waste-to-energy and small uncategorised RE. Typically <1-2% across most states.",
+      "sources": []
+    },
+    {
+      "concept_id": "others",
+      "noun": "Others",
+      "unit_canonical": "kt",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Publisher catch-all for products outside the 6 named buckets (fuel oil, ATF, lubricants, bitumen, etc.). Preserved verbatim, never imputed into a named bucket.",
+      "sources": []
+    },
+    {
+      "concept_id": "others-share",
+      "noun": "Others (% share)",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "ac"
+      ],
+      "description_short": "Aggregate % vote-share for the collapsed tail. Absent when no tail exists.",
+      "sources": []
+    },
+    {
+      "concept_id": "others-votes",
+      "noun": "Others (votes)",
+      "unit_canonical": "votes",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "ac"
+      ],
+      "description_short": "Sum of votes for candidates below the top-N cutoff. Absent when no tail exists.",
+      "sources": []
+    },
+    {
+      "concept_id": "party-votes",
+      "noun": "Party votes",
+      "unit_canonical": "votes",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "party"
+      ],
+      "description_short": "Sum of all votes received by the party's candidates across the state.",
+      "sources": []
+    },
+    {
+      "concept_id": "pashu-aadhaar-tagged",
+      "noun": "Pashu Aadhaar tagged",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Count of animals issued a 12-digit Pashu Aadhaar tag in each district. Tagged count, NOT actual population.",
+      "sources": []
+    },
+    {
+      "concept_id": "pashu-aadhaar-tagged-state",
+      "noun": "Pashu Aadhaar tagged (state)",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of animals issued a 12-digit Pashu Aadhaar tag, summed from district rows. Tagged count, NOT actual population.",
+      "sources": []
+    },
+    {
+      "concept_id": "peak-demand",
+      "noun": "Peak demand",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Highest single-instant electricity demand observed in the state during the fiscal year (MW). 'Peak' is system-wide simultaneous demand recorded by the State Load Despatch Centre \u00e2\u20ac\u201d typically a summer afternoon (north / west) or winter evening (Punjab, Delhi).",
+      "sources": []
+    },
+    {
+      "concept_id": "peak-supplied",
+      "noun": "Peak supplied",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Maximum instantaneous power actually supplied in the state during the fiscal year (MW). The pair (peak_demand, peak_supplied) tells the load-shedding story: supplied < demand in any year means the grid dropped load to keep frequency stable.",
+      "sources": []
+    },
+    {
+      "concept_id": "per-capita-availability",
+      "noun": "Per-capita availability",
+      "unit_canonical": "kWh per person per year",
+      "normalisation": "per_capita",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Annual per-capita electricity availability (kWh / person / year), by state and Union Territory, fiscal year. The most citizen-relevant single number for 'how much power do people in this state actually get to use' \u00e2\u20ac\u201d captures both supply expansion and transmission losses.",
+      "sources": []
+    },
+    {
+      "concept_id": "per-capita-consumption",
+      "noun": "Per-capita consumption",
+      "unit_canonical": "kWh per person per year",
+      "normalisation": "per_capita",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Electricity consumption per person per year, in kilowatt-hours. Proxy for BOTH energy access (electrified homes) AND industrial intensity (heavy-industry load) \u00e2\u20ac\u201d read alongside per-capita income to disambiguate.",
+      "sources": []
+    },
+    {
+      "concept_id": "petrol",
+      "noun": "Petrol",
+      "unit_canonical": "kt",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Motor spirit (gasoline): cars, two-wheelers, light vehicles. A proxy for urban-personal-mobility intensity; rises with vehicle ownership and middle-class growth.",
+      "sources": []
+    },
+    {
+      "concept_id": "petroleum-coke",
+      "noun": "Petroleum coke",
+      "unit_canonical": "kt",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Refinery by-product used as cheap industrial fuel (cement, glass, steel). Heavily regulated for air-quality reasons in NCR and some industrial states. Tracks heavy-industry heat use.",
+      "sources": []
+    },
+    {
+      "concept_id": "pig",
+      "noun": "Pig",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Number of pigs tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual pigs population.",
+      "sources": []
+    },
+    {
+      "concept_id": "pig-state",
+      "noun": "Pig (state)",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of pigs tagged with Pashu Aadhaar (NDLM), summed from district rows. Tagged count, NOT actual pigs population.",
+      "sources": []
+    },
+    {
+      "concept_id": "plant-load-factor",
+      "noun": "Plant load factor",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Share of nameplate capacity actually delivered as energy over a fiscal year. Per state, per fuel source. Coal PLFs near 60% indicate healthy merit-order despatch; near 40% indicates structural underuse.",
+      "sources": []
+    },
+    {
+      "concept_id": "power-availability",
+      "noun": "Power availability",
+      "unit_canonical": "MU",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Annual energy actually supplied to the state (MU = million units = GWh), fiscal year. The supply-side companion to Requirement (T141). Requirement \u00e2\u02c6\u2019 Availability = the energy-not-supplied deficit.",
+      "sources": []
+    },
+    {
+      "concept_id": "power-purchase-mix",
+      "noun": "Power purchase mix",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Share of total electricity purchased by a state's distribution utilities, broken down by generation source. The procurement mix (where DISCOMs buy from), not the generation mix (what plants produce). Values sum to ~100% per (state, FY).",
+      "sources": []
+    },
+    {
+      "concept_id": "power-requirement",
+      "noun": "Power requirement",
+      "unit_canonical": "MU",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Annual energy requirement assessed by the state (MU = million units = GWh), fiscal year \u00e2\u20ac\u201d the demand-side counterpart to availability. Requirement minus availability gives the 'energy not supplied' deficit.",
+      "sources": []
+    },
+    {
+      "concept_id": "pregnancy-diagnoses-district",
+      "noun": "Pregnancy diagnoses (district)",
+      "unit_canonical": "events",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Count of pregnancy-diagnosis EVENTS performed in each district under NAIP IV. A single dam may be diagnosed multiple times in the same year.",
+      "sources": []
+    },
+    {
+      "concept_id": "pregnancy-diagnoses-state",
+      "noun": "Pregnancy diagnoses (state)",
+      "unit_canonical": "events",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of pregnancy-diagnosis EVENTS performed under NAIP IV, summed from districts. A single dam may be diagnosed multiple times.",
+      "sources": []
+    },
+    {
+      "concept_id": "primary-energy-supply",
+      "noun": "Primary energy supply",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Annual total primary energy supply for India, broken down by source (coal, oil, gas, hydro, nuclear, renewables). The TPES denominator behind every per-capita / per-GDP energy intensity calculation.",
+      "sources": []
+    },
+    {
+      "concept_id": "rank",
+      "noun": "Rank",
+      "unit_canonical": "rank",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "candidate"
+      ],
+      "description_short": "Ordinal rank by votes polled (1 = winner).",
+      "sources": []
+    },
+    {
+      "concept_id": "renewable",
+      "noun": "Renewable",
+      "unit_canonical": "GWh",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Wind, solar and biomass generation. ~10% all-India share by FY26; growing fast.",
+      "sources": []
+    },
+    {
+      "concept_id": "renewable-absolute",
+      "noun": "Renewable",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country",
+        "state"
+      ],
+      "description_short": "Wind, solar, biomass and waste-to-energy. Rapid growth; ~30% national capacity by FY26.",
+      "sources": []
+    },
+    {
+      "concept_id": "renewable-grid-capacity",
+      "noun": "Renewable grid capacity",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Cumulative grid-connected renewable installed capacity in MW, end-March snapshot per year. Combined wind + solar + small-hydro + biomass + waste-to-energy (publisher emits no per-source split). Rajasthan, Gujarat, Tamil Nadu, Karnataka, Maharashtra dominate.",
+      "sources": []
+    },
+    {
+      "concept_id": "renewables",
+      "noun": "Renewables",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Aggregate renewable share of TPES (solar + wind + biomass + small-hydro + waste-to-energy). The fastest-growing bucket; publisher emits as a single aggregate, not broken into RE sub-fuels.",
+      "sources": []
+    },
+    {
+      "concept_id": "residential-electricity",
+      "noun": "Residential (electricity)",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Final energy consumed in the residential sector via electricity, in mtoe per fiscal year.",
+      "sources": []
+    },
+    {
+      "concept_id": "residential-oil",
+      "noun": "Residential (oil)",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Final energy consumed in the residential sector via oil, in mtoe per fiscal year.",
+      "sources": []
+    },
+    {
+      "concept_id": "rooftop-solar-capacity",
+      "noun": "Rooftop solar capacity",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Cumulative installed rooftop solar PV capacity in megawatts. Building-mounted (residential + commercial + industrial + public) only; utility-scale solar is separate and lives under state-installed-capacity-snapshot-mw-renewable.",
+      "sources": []
+    },
+    {
+      "concept_id": "rpo-compliance",
+      "noun": "RPO compliance",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Compute-on-read parent: the three citizen-readable segments of state RPO compliance \u00e2\u20ac\u201d solar, non-solar, and combined-target. Each measures share of the regulatory RPO target met, expressed as compliance \u00c3\u00b7 target \u00c3\u2014 100.",
+      "sources": []
+    },
+    {
+      "concept_id": "seats-won",
+      "noun": "Seats won",
+      "unit_canonical": "ACs",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "party"
+      ],
+      "description_short": "Number of ACs the party won in this state election.",
+      "sources": []
+    },
+    {
+      "concept_id": "semi-medium-2-0-3-99-ha",
+      "noun": "Semi-medium (2.0-3.99 Ha)",
+      "unit_canonical": "owners",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Owners in the semi-medium bracket (2.0-3.99 Ha) registered on Bharat Pashudhan in each district. Registered count, NOT all owning households.",
+      "sources": []
+    },
+    {
+      "concept_id": "semi-medium-state",
+      "noun": "Semi-medium (state)",
+      "unit_canonical": "owners",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of owners in the semi-medium bracket (2.0-3.99 Ha) registered on Bharat Pashudhan, summed from districts.",
+      "sources": []
+    },
+    {
+      "concept_id": "sheep",
+      "noun": "Sheep",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Number of sheep tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual sheep population.",
+      "sources": []
+    },
+    {
+      "concept_id": "sheep-state",
+      "noun": "Sheep (state)",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of sheep tagged with Pashu Aadhaar (NDLM), summed from district rows. Tagged count, NOT actual sheep population.",
+      "sources": []
+    },
+    {
+      "concept_id": "small-1-0-1-99-ha",
+      "noun": "Small (1.0-1.99 Ha)",
+      "unit_canonical": "owners",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Owners in the small-holding bracket (1.0-1.99 Ha) registered on Bharat Pashudhan in each district. Registered count, NOT all owning households.",
+      "sources": []
+    },
+    {
+      "concept_id": "small-hydro-plf",
+      "noun": "Small-hydro PLF",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Small-hydro plant load factor (capacity <= 25 MW). Run-of-river dominated; seasonal-flow-bounded. Distinct from large-hydro for despatch and resource-availability reasons.",
+      "sources": []
+    },
+    {
+      "concept_id": "small-hydro-purchase-share",
+      "noun": "Small-hydro purchase share",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Small-hydro (<=25 MW) procurement share. Distinct from large hydro; counts under most state RPO obligations.",
+      "sources": []
+    },
+    {
+      "concept_id": "small-state",
+      "noun": "Small (state)",
+      "unit_canonical": "owners",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of owners in the small-holding bracket (1.0-1.99 Ha) registered on Bharat Pashudhan, summed from districts.",
+      "sources": []
+    },
+    {
+      "concept_id": "solar-plf",
+      "noun": "Solar PLF",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Solar PLF (utility + rooftop combined). Resource-bounded: even perfect operation cannot exceed ~22-25% in India (function of sunlight hours). A 20% solar PLF is GOOD; do NOT compare to a 60% coal target.",
+      "sources": []
+    },
+    {
+      "concept_id": "solar-purchase-share",
+      "noun": "Solar purchase share",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Solar procurement share (utility + rooftop). Rajasthan, Gujarat, Karnataka lead with double-digit shares; smaller eastern states still in single digits.",
+      "sources": []
+    },
+    {
+      "concept_id": "solar-rpo",
+      "noun": "Solar RPO",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Share of the state's solar-specific RPO target actually met. 100% = solar-RPO target exactly met; values above 100% indicate over-compliance on solar procurement.",
+      "sources": []
+    },
+    {
+      "concept_id": "state-electors",
+      "noun": "State electors",
+      "unit_canonical": "persons",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Sum of enrolled electors across all ACs in the state.",
+      "sources": []
+    },
+    {
+      "concept_id": "state-electricity-sales",
+      "noun": "State electricity sales",
+      "unit_canonical": "MU",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Total electricity actually billed to end-consumers (domestic + commercial + industrial + agricultural + public-lighting) in the state, in million units (MU). The gap between Generation and Sales is the absolute AT&C loss.",
+      "sources": []
+    },
+    {
+      "concept_id": "state-generation-gwh",
+      "noun": "State generation (GWh)",
+      "unit_canonical": "GWh",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Per-state actual electricity generated, summed across all fuels. The delivered counterpart to installed capacity \u00e2\u20ac\u201d capacity is potential, generation is what plants actually produced.",
+      "sources": []
+    },
+    {
+      "concept_id": "state-nota",
+      "noun": "State NOTA",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Sum of NOTA votes across state as % of votes polled. Null pre-2013.",
+      "sources": []
+    },
+    {
+      "concept_id": "state-turnout",
+      "noun": "State turnout",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State-level votes polled as % of state-level enrolled electors.",
+      "sources": []
+    },
+    {
+      "concept_id": "state-votes",
+      "noun": "State votes",
+      "unit_canonical": "votes",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Sum of votes polled across all ACs in the state.",
+      "sources": []
+    },
+    {
+      "concept_id": "strike-rate",
+      "noun": "Strike rate",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "party"
+      ],
+      "description_short": "Seats won as a percentage of seats contested by the party.",
+      "sources": []
+    },
+    {
+      "concept_id": "t-d-loss",
+      "noun": "T&D loss",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Transmission and Distribution loss as % of energy input \u00e2\u20ac\u201d the TECHNICAL half of AT&C losses (heat / ageing / unmetered consumption on the wires).",
+      "sources": []
+    },
+    {
+      "concept_id": "thermal-capacity-retired",
+      "noun": "Thermal capacity retired",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "National total of thermal generating capacity retired each fiscal year, broken down by fuel (coal vs gas). A key signal in the energy-transition story: rising coal retirements means the fleet is being replaced, not just expanded.",
+      "sources": []
+    },
+    {
+      "concept_id": "total-rpo",
+      "noun": "Total RPO",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Combined-target RPO compliance \u00e2\u20ac\u201d share of the state's overall (solar + non-solar combined) RPO target met. NOT the sum of solar + non-solar \u00e2\u20ac\u201d the combined target is its own regulatory ratio.",
+      "sources": []
+    },
+    {
+      "concept_id": "trading-others-share",
+      "noun": "Trading & others share",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Procurement via power exchanges (IEX / PXIL) + unscheduled interchange (UI). Source-agnostic at procurement time. Higher trading share = state buys spot to meet demand fluctuations, not necessarily a stress signal.",
+      "sources": []
+    },
+    {
+      "concept_id": "transport-electricity",
+      "noun": "Transport (electricity)",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Final energy consumed in the transport sector via electricity, in mtoe per fiscal year.",
+      "sources": []
+    },
+    {
+      "concept_id": "transport-oil",
+      "noun": "Transport (oil)",
+      "unit_canonical": "mtoe",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Final energy consumed in the transport sector via oil, in mtoe per fiscal year.",
+      "sources": []
+    },
+    {
+      "concept_id": "turnout",
+      "noun": "Turnout",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "ac"
+      ],
+      "description_short": "Votes polled as a percentage of total enrolled electors.",
+      "sources": []
+    },
+    {
+      "concept_id": "vote-share",
+      "noun": "Vote share",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "candidate",
+        "party"
+      ],
+      "description_short": "Candidate votes as a percentage of total votes polled in the AC (including NOTA).",
+      "sources": []
+    },
+    {
+      "concept_id": "votes-polled",
+      "noun": "Votes polled",
+      "unit_canonical": "votes",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "ac"
+      ],
+      "description_short": "Sum of all candidate votes plus NOTA in this AC contest.",
+      "sources": []
+    },
+    {
+      "concept_id": "wind-plf",
+      "noun": "Wind PLF",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Wind PLF. Resource-bounded by site quality (Tamil Nadu, Gujarat, Rajasthan, Karnataka coastal/desert zones are wind-rich). A 25% wind PLF in Tamil Nadu is excellent; same number in a low-wind state could be aspirational siting.",
+      "sources": []
+    },
+    {
+      "concept_id": "wind-purchase-share",
+      "noun": "Wind purchase share",
+      "unit_canonical": "percent",
+      "normalisation": "share",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Wind procurement share. Resource-bounded; Tamil Nadu, Gujarat, Maharashtra, Karnataka, Rajasthan dominate as both producers AND consumers (sold within state and via inter-state PPAs).",
+      "sources": []
+    },
+    {
+      "concept_id": "winner",
+      "noun": "Winner",
+      "unit_canonical": "entity_id",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "ac"
+      ],
+      "description_short": "entity_id of the candidate who received the most votes. Stored in value_text.",
+      "sources": []
+    },
+    {
+      "concept_id": "winning-party",
+      "noun": "Winning party",
+      "unit_canonical": "entity_id",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "ac",
+        "state"
+      ],
+      "description_short": "party_id of the winning candidate's party (parties.IN.IND for independents).",
+      "sources": []
+    },
+    {
+      "concept_id": "winning-seats",
+      "noun": "Winning seats",
+      "unit_canonical": "ACs",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "Seats held by the state's winning party.",
+      "sources": []
+    },
+    {
+      "concept_id": "yak",
+      "noun": "Yak",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "district"
+      ],
+      "description_short": "Number of yaks tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual yaks population.",
+      "sources": []
+    },
+    {
+      "concept_id": "yak-state",
+      "noun": "Yak (state)",
+      "unit_canonical": "animals",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State total of yaks tagged with Pashu Aadhaar (NDLM), summed from district rows. Tagged count, NOT actual yaks population.",
+      "sources": []
+    }
+  ]
+}
