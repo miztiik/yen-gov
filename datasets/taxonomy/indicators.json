@@ -1002,9 +1002,9 @@
       ],
       "default_entity_kind": "state",
       "update_period_days": 365,
-      "concept_id": "coal-mw-absolute",
+      "concept_id": "coal-mw-geographical",
       "meta": {
-        "justification": "State-grain capacity physically SITED in the state regardless of who consumes the power. Distinct from -allocated- (beneficiary share) and -snapshot- (CEA monthly point-in-time) twins under the same concept."
+        "justification": "State-grain capacity physically SITED in the state regardless of who consumes the power (geographical attribution). Distinct measure from the -allocated- beneficiary-share concept and from the -snapshot- CEA-monthly concept; each gets its own concept_id under guardrail #13."
       }
     },
     {
@@ -1197,9 +1197,9 @@
       ],
       "default_entity_kind": "state",
       "update_period_days": 365,
-      "concept_id": "coal-mw-absolute",
+      "concept_id": "coal-mw-allocated",
       "meta": {
-        "justification": "State-grain BENEFICIARY share of plant capacity (ISGS/PSU contractual allocation). A Mundra plant sited in Gujarat is allocated across multiple states. Distinct from -geographical- twin."
+        "justification": "State-grain BENEFICIARY share of plant capacity (ISGS/PSU contractual allocation). A Mundra plant sited in Gujarat is allocated to multiple states by quota. Distinct measure from -geographical- siting and from -snapshot- CEA-monthly cadence; each gets its own concept_id under guardrail #13."
       }
     },
     {
@@ -1386,9 +1386,9 @@
       ],
       "default_entity_kind": "state",
       "update_period_days": 30,
-      "concept_id": "coal-mw-absolute",
+      "concept_id": "coal-mw-snapshot",
       "meta": {
-        "justification": "State-grain CEA Monthly Executive Summary end-of-month snapshot. Higher frequency twin of fiscal-year-end -allocated- series under the same concept; different publisher vintage cadence."
+        "justification": "State-grain CEA Monthly Executive Summary end-of-month snapshot of coal capacity. Distinct publisher and cadence from the fiscal-year-end -allocated- series and from -geographical- siting; each gets its own concept_id under guardrail #13."
       }
     },
     {
