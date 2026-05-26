@@ -71,10 +71,18 @@ def test_walks_all_adapters_under_sources(tmp_path):
     assert "src-deadbeefcafe" in failures[0].message
 
 
-def test_check_is_dark_not_chained_into_run():
-    """PR-Z3b-tail-actionB ships the check DARK -- NOT in run(). Enforced post-A6."""
+def test_check_is_chained_live_into_run():
+    """PR-Z3bsidflip chains the check LIVE into run(). Real catalogue is clean."""
     from yen_gov import validate as v
 
     src = Path(v.__file__).read_text(encoding="utf-8")
     assert "tier_b_no_hand_typed_source_id" in src  # function present
-    assert "+ tier_b_no_hand_typed_source_id" not in src  # not chained
+    assert "+ tier_b_no_hand_typed_source_id" in src  # chained live
+
+
+def test_passes_against_repo_sources_tree():
+    """Real backend/yen_gov/sources/** tree carries zero hand-typed source_id literals."""
+    from yen_gov import validate as v
+
+    repo_root = Path(v.__file__).resolve().parents[2]
+    assert tier_b_no_hand_typed_source_id(repo_root) == []
