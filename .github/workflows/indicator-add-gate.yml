@@ -1,0 +1,118 @@
+name: indicator-add-gate
+
+# Guardrail #17 (TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat):
+# a PR that adds >1 row to `datasets/taxonomy/indicators.json` must justify
+# every new id. Acceptable justifications in the PR body:
+#
+#   (a) the exact string "Hans+Max ratified" (taxonomy owners signed off
+#       on the cohort as a whole), OR
+#
+#   (b) one line per added id of the form
+#       "facet-collapse-not-applicable: <indicator_id> - <reason>"
+#       (explains why this id cannot be folded into an existing one as
+#       a facet axis - the default route per guardrails #13-#16).
+#
+# Fails loud if neither pattern covers the added ids. Pairs with
+# `check-overlap` (PR-Z3b-cli #363) and the upcoming Tier-B
+# `tier_b_one_indicator_per_concept` check.
+#
+# Per CLAUDE.md the gate is advisory in spirit but enforced in CI so a
+# drive-by indicator-add cannot land without a reviewer pause.
+
+on:
+  pull_request:
+    paths:
+      - "datasets/taxonomy/indicators.json"
+      - ".github/workflows/indicator-add-gate.yml"
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    name: indicator-add justification gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout PR head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: compute added indicator ids
+        id: diff
+        shell: bash
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          path="datasets/taxonomy/indicators.json"
+
+          # Head version (current checkout).
+          head_ids=$(jq -r '.indicators[].indicator_id' "$path" | sort -u)
+
+          # Base version (from base SHA). If file did not exist on base,
+          # treat as empty.
+          if git cat-file -e "$BASE_SHA":"$path" 2>/dev/null; then
+            base_ids=$(git show "$BASE_SHA":"$path" | jq -r '.indicators[].indicator_id' | sort -u)
+          else
+            base_ids=""
+          fi
+
+          added=$(comm -23 <(echo "$head_ids") <(echo "$base_ids") | grep -v '^$' || true)
+          count=$(echo "$added" | grep -c . || true)
+
+          {
+            echo "count=$count"
+            echo "added<<EOF"
+            echo "$added"
+            echo "EOF"
+          } >>"$GITHUB_OUTPUT"
+
+          echo "Added indicator ids ($count):"
+          echo "$added"
+
+      - name: enforce justification
+        if: steps.diff.outputs.count != '0' && steps.diff.outputs.count != '1'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ADDED: ${{ steps.diff.outputs.added }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+
+          body=$(gh pr view "$PR_NUMBER" --json body --jq .body)
+
+          if printf '%s' "$body" | grep -qF 'Hans+Max ratified'; then
+            echo "OK: PR body contains 'Hans+Max ratified'."
+            exit 0
+          fi
+
+          missing=""
+          while IFS= read -r id; do
+            [ -z "$id" ] && continue
+            if ! printf '%s' "$body" | grep -qF "facet-collapse-not-applicable: $id"; then
+              missing="$missing $id"
+            fi
+          done <<<"$ADDED"
+
+          if [ -z "$missing" ]; then
+            echo "OK: every added id has a 'facet-collapse-not-applicable: <id> - <reason>' line."
+            exit 0
+          fi
+
+          echo "::error::indicator-add-gate failed - PR adds multiple indicators without justification."
+          echo "Add one of the following to the PR body:"
+          echo "  (a) the literal string: Hans+Max ratified"
+          echo "  (b) one line per added id of the form:"
+          echo "        facet-collapse-not-applicable: <indicator_id> - <reason>"
+          echo ""
+          echo "Missing justification for:"
+          for id in $missing; do echo "  - $id"; done
+          exit 1
