@@ -55,7 +55,7 @@ API_HOST = "https://icedapi.niti.gov.in"
 
 def _indicator_india_gdp() -> dict[str, Any]:
     return {
-        "id": "economy/india_gdp_inr_crore",
+        "id": "economy/gdp_inr_crore",
         "title": "India GDP (₹ crore, current and constant prices)",
         "description": (
             "National Gross Domestic Product, ₹ crore, faceted by price "
@@ -329,7 +329,7 @@ def ingest_iced_macro(*, repo_root: Path, client: IcedClient | None = None) -> I
         repo_root=repo_root, schema_for_validation=schema_for_validation,
         schema_id_str=sid, schema_version_str=sver,
         indicator_meta=_indicator_india_gdp(), rows=gdp_parsed.national,
-        sources=gdp_src, out_rel="datasets/indicators/in/economy/india_gdp_inr_crore.json",
+        sources=gdp_src, out_rel="datasets/indicators/in/economy/gdp_inr_crore.json",
         spatial="India (national)",
     ))
     results.append(_emit(

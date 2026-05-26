@@ -66,7 +66,7 @@ def test_indicator_schema_accepts_documented_example() -> None:
                 "renderer_rules": ["no_rank_table"],
             },
             {
-                "indicator_id": "economy/india_gdp_inr_crore",
+                "indicator_id": "economy/gdp_inr_crore",
                 "chart_type": "stacked-trend",
                 "default_mode": "absolute",
                 "facet_labels": {"price_basis": "Price basis"},

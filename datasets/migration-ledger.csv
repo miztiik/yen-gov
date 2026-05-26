@@ -147,8 +147,8 @@ datasets/indicators/in/economy/state_per_capita_nsdp_constant_inr_long.json,econ
 datasets/indicators/in/economy/state_per_capita_consumption_inr.json,economy,migrate,3,state-per-capita-consumption-inr,,Distinct measure (consumption vs income); first-class.
 datasets/indicators/in/economy/state_sectoral_gva_current_inr_lakh_crore.json,economy,consolidate,3,state-sectoral-gva-inr-crore,"{""prices_basis"":""current""}",Parent + sector + prices_basis facets.
 datasets/indicators/in/economy/state_sectoral_gva_constant_2011_12_inr_lakh_crore.json,economy,consolidate,3,state-sectoral-gva-inr-crore,"{""prices_basis"":""constant_2011_12""}",
-datasets/indicators/in/economy/india_gdp_inr_crore.json,economy,migrate,3,india-gdp-inr-crore,,National parent.
-datasets/indicators/in/economy/national_gdp_current_inr_lakh_crore.json,economy,drop,3,,,Duplicate of india_gdp_inr_crore (unit conversion).
+# datasets/indicators/in/economy/india_gdp_inr_crore.json,economy,renamed,B6-row4,economy/gdp_inr_crore,,Renamed to drop india_ grain-prefix per ADR-0044 (PR-B6-row4 #_pending_).
+# datasets/indicators/in/economy/national_gdp_current_inr_lakh_crore.json,economy,deleted,B6-row4,,,Deleted: duplicate of india_gdp_inr_crore current facet, exact unit-converted subset (lakh_crore x 1e5 = crore; max rel diff 1.4e-16 across 13 shared FYs). Retired in PR-B6-row4 #_pending_.
 datasets/indicators/in/economy/india_gva_by_industry_constant_inr_crore.json,economy,consolidate,3,india-gva-by-industry-inr-crore,"{""prices_basis"":""constant_2011_12""}",
 datasets/indicators/in/economy/national_gva_by_industry_constant_2011_12_inr_crore.json,economy,drop,3,,,Duplicate of india_gva_by_industry_constant.
 datasets/indicators/in/economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore.json,economy,consolidate,3,india-gva-by-industry-inr-crore,"{""prices_basis"":""constant_2011_12"",""cadence"":""quarterly_fy""}",Same parent with quarterly cadence; period_seq 1..4 per year.
