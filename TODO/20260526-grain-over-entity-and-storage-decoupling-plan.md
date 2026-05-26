@@ -384,7 +384,7 @@ Per-PR pattern (applies to D1-D8 unless noted):
 
 | PR | Family | Shard count (verified) | Smoke route | BLOCKED on | Subagent |
 | -: | --- | -: | --- | --- | --- |
-| **D1** | prices | **7** | `/t/economy` | B8 | Max | ✅ PR #_pending_ (3 national index-level shards retired: CPI-Combined / CPI-IW / WPI; HBS-IE Tables 36+37 ingest paused; no canonical national-inflation successor planned; survivor `prices/cpi_inflation_pct` from PR-B8 remains)
+| **D1** | prices | **7** | `/t/economy` | B8 | Max | ✅ PR #354 (3 national index-level shards retired: CPI-Combined / CPI-IW / WPI; HBS-IE Tables 36+37 ingest paused; no canonical national-inflation successor planned; survivor `prices/cpi_inflation_pct` from PR-B8 remains)
 | **D2** | transport | 2 | `/t/transport` or `/t/infrastructure` | none | Max | ✅ PR #351
 | **D3** | human_development | 1 | `/t/human-development` | none | Max | ✅ PR #350 |
 | **D4** | demography | 3 | `/t/demography` | none | Max | partial PR #352 (2 of 3 retired; `state_population_lakhs` deferred — `frontend/src/lib/IndicatorChoropleth.svelte:396` hard-loads it for unmapped-regions chip strip, needs canonical migration first) |
