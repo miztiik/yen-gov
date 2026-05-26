@@ -5,7 +5,7 @@ Reads four cached XLSX files under ``.runtime/raw/rbi/handbook_economy_2024_25/`
   T05_NSDP_Statewise_Current.xlsx   -> economy/state_nsdp_current_inr_crore
   T06_NSDP_Statewise_Constant.xlsx  -> economy/state_nsdp_constant_inr_crore
   T09_PCNSDP_Statewise_Current.xlsx -> economy/per_capita_nsdp_current_inr
-  T10_PCNSDP_Statewise_Constant.xlsx-> economy/state_per_capita_nsdp_constant_inr_long
+  T10_PCNSDP_Statewise_Constant.xlsx-> economy/per_capita_nsdp_constant_inr
 
 Each sheet stacks four base-year sections in the same column-1 ordering:
   (Base Year : 1993-94)   1994-95..1999-00     (current/constant; pre-2011-12 = factor cost)
@@ -274,8 +274,8 @@ SPECS = [
         ),
     },
     {
-        "id": "economy/state_per_capita_nsdp_constant_inr_long",
-        "title": "State per-capita NSDP (constant prices, long series, spliced)",
+        "id": "economy/per_capita_nsdp_constant_inr",
+        "title": "Per-capita NSDP (constant prices, spliced)",
         "table_key": "T10",
         "xlsx": "T10_PCNSDP_Statewise_Constant.xlsx",
         "table_label": "Table 10: Per Capita Net State Domestic Product - State-wise (At Constant Prices)",
@@ -286,9 +286,7 @@ SPECS = [
             "Real per-capita NSDP, 2000-01 -> 2024-25, spliced across "
             "MoSPI's 1999-2000, 2004-05, and 2011-12 base years. The "
             "most recent base is kept for overlapping years; each row's "
-            "`vintage` records which base produced the value. Long-history "
-            "sibling of `economy/state_per_capita_nsdp_constant_2011_12_inr` "
-            "(which is single-base 2011-12 only)."
+            "`vintage` records which base produced the value."
         ),
         "notes": (
             "Source: RBI Handbook of Statistics on Indian Economy 2024-25 "

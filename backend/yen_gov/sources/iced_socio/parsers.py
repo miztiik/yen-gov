@@ -1,22 +1,28 @@
 """Pure parsers + indicator catalogue for the ICED socio-economic adapter.
 
-Five indicators ingested from five ICED API endpoints (one each, no
+Four indicators ingested from four ICED API endpoints (one each, no
 multi-endpoint composition). Per Hans (Governance) triage 2026-05-14:
 
-    1. economy/state_per_capita_nsdp_constant_2011_12_inr  (priority 1)
-    2. human_development/state_hdi                          (priority 2)
-    3. economy/state_per_capita_consumption_inr             (priority 3)
-    4. demography/state_population_by_sex_count             (priority 5)
-    5. environment/india_ghg_emissions_mtco2e_by_sector     (priority 6)
+    1. human_development/state_hdi                          (priority 2)
+    2. economy/state_per_capita_consumption_inr             (priority 3)
+    3. demography/state_population_by_sex_count             (priority 5)
+    4. environment/india_ghg_emissions_mtco2e_by_sector     (priority 6)
 
 (Hans's priority-4 indicator â€” per-capita income at current prices â€” is
 already shipped as ``economy/per_capita_nsdp_current_inr.json``
 from the state-wise-deep-dive ingest. We do not re-emit it here.)
 
-The five parsers are pure: they take one decrypted ICED response (the
+The four parsers actually wired into emitters are pure: they take one decrypted ICED response (the
 full ``{status, data}`` envelope) and return ``list[dict]`` of canonical
 indicator rows ready for ``write_artifact``. No I/O. No fetching. The
 orchestrator at ``ingest.py`` does the network and persistence.
+
+(``parse_per_capita_income`` is retained as a pure parser for backward
+compatibility — its ``.constant`` split was retired in PR-B6-row8 in
+favour of the RBI Handbook spliced canonical shard
+``economy/per_capita_nsdp_constant_inr``; its ``.current`` split was
+retired earlier in PR-B6-row7 in favour of the RBI-spliced
+``economy/per_capita_nsdp_current_inr`` shard. No emitter wires it now.)
 
 ICED-specific quirks every parser handles:
 
