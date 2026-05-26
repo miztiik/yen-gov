@@ -1,6 +1,6 @@
 # `frontend/src/lib/yenask/` - YENASK lab internals
 
-**Last Updated**: 2026-05-24
+**Last Updated**: 2026-05-26
 **Plan-doc**: [`TODO/20260518-browser-governance-insight-assistant-plan.md`](../../../../TODO/20260518-browser-governance-insight-assistant-plan.md)
 
 ASCII only: use plain keyboard characters; write "-", "->", ">=", "section", and "INR" instead of fancy symbols.
@@ -16,8 +16,8 @@ then runs DuckDB-WASM against the canonical Parquet store to produce an
 The CITIZEN-FACING brand is **Yen-Ask** (logo + page title only). All
 MODULE identifiers stay as `yenask` (directory name, route slug, LS key,
 testids, ADR titles). Don't unify them - see ADR-0040 section "Brand vs
-identifier separation" (supersedes ADR-0039 section D-33's earlier "Y-Ask"
-label).
+identifier separation" (supersedes ADR-0039 section D-33's earlier route
+placement).
 
 ## Layout
 

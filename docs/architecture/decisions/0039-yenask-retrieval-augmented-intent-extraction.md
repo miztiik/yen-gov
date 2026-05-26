@@ -1,10 +1,10 @@
 # ADR-0039: YENASK retrieval-augmented intent extraction (LLM-OS pattern) — Accepted
 
-**Last Updated**: 2026-05-24
-**Status**: accepted (§D-33 brand-mark refresh + the `/dev/yenask` route choice partially superseded by [ADR-0040](0040-yenask-brand-and-lab-route.md) on 2026-05-24 — the LLM-OS pipeline shape, MiniLM-L6-v2 retrieval lock, cosine-threshold fallback, and eval-set-as-contract conditions all remain in force)
+**Last Updated**: 2026-05-26
+**Status**: accepted (§D-33 brand-mark standard + the `/dev/yenask` route choice partially superseded by [ADR-0040](0040-yenask-brand-and-lab-route.md) on 2026-05-24 — the LLM-OS pipeline shape, MiniLM-L6-v2 retrieval lock, cosine-threshold fallback, and eval-set-as-contract conditions all remain in force)
 **Supersedes**: none
 **Amends**: none — ADR-0038 (single-stage LLM rejection of *two-LLM* shapes) remains in force
-**Partially superseded by**: [ADR-0040](0040-yenask-brand-and-lab-route.md) for the brand label (Y-Ask → **Yen-Ask**) and the route URL (`/dev/yenask` → **`/lab/yenask`**) only
+**Partially superseded by**: [ADR-0040](0040-yenask-brand-and-lab-route.md) for the visible brand standard (**Yen-Ask**) and the route URL (`/dev/yenask` → **`/lab/yenask`**) only
 **Related**: [yenask subsystem doc](../frontend/yenask.md), plan-doc [TODO/20260518-browser-governance-insight-assistant-plan.md](../../../TODO/20260518-browser-governance-insight-assistant-plan.md), [ADR-0038](0038-yenask-two-stage-llm-pipeline-rejected.md), [ADR-0040](0040-yenask-brand-and-lab-route.md)
 
 ## Context
@@ -36,7 +36,7 @@ A six-persona panel — **Andre** (AI/LLM application design, NEW authority per 
 - NOT a second LLM. The embeddings model is not a generator; it produces a similarity score over a closed catalogue. ADR-0038's two-LLM rejection still holds.
 - NOT a vector DB. The catalogue is ~130 entries (topics + indicators); cosine similarity over a flat `Float32Array` lives in 80 lines of TypeScript. A vector DB is a retrieval index, not a memory; this app does not have a retrieval-at-scale problem.
 - NOT a framework adoption. No LangChain, no LlamaIndex, no agent orchestrator. The implementation is one new TypeScript module + one new model registry entry.
-- NOT a citizen-facing UI change beyond the brand-mark refresh (YENASK → Y-Ask in the logo only; module names, route URLs, LS keys, code comments unchanged — see D-33).
+- NOT a citizen-facing UI change beyond the brand-mark standard (the visible logo is Yen-Ask; module names, route URLs, LS keys, code comments unchanged — see D-33).
 
 ## Consequences
 
@@ -87,7 +87,7 @@ A six-persona panel — **Andre** (AI/LLM application design, NEW authority per 
 - **Max (Indicator Scout)**: MiniLM-L6-v2 is the obvious right choice (Apache-2.0, ONNX-ready, shipped in transformers.js-examples WebGPU semantic-search demo). Cold-load economics fine. Future Indic promote path identified. Approved.
 - **Gregor (Architect)**: Confidence-threshold + fallback to substring-match is the discipline that keeps the contract clean. Embeddings produce *candidates*; canonical `concept_id ↔ source_id` mapping is unchanged. Holy Law #9 preserved. Approved with the `cosine < 0.6 → fallback` lock.
 - **Fowler (Engineering)**: This is a different shape from ADR-0038. Rule-of-three doesn't fire — embeddings-for-retrieval is a 50-year-old IR pattern, not a new abstraction. Reversal cost low (delete one file). Insist on the eval set landing IN Slice E.2 PR, not as a follow-up. Approved with that condition.
-- **Jony (UI/UX)**: Embeddings are a silent companion. No new picker, no new toggle, no new modal. Debug log row breakdown gives operator the right visibility. Y-Ask brand-mark refresh (separately decided) lands here. Approved.
+- **Jony (UI/UX)**: Embeddings are a silent companion. No new picker, no new toggle, no new modal. Debug log row breakdown gives operator the right visibility. Yen-Ask brand-mark standard (separately decided) lands here. Approved.
 - **Andre (AI/LLM)**: See above. Approved with the eval-set-as-contract condition.
 
 **Convergent verdict**: ACCEPTED with two locks — (i) `cosine < 0.6 → substring fallback`, (ii) 20-question labelled eval set ships in Slice E.2 PR.
@@ -98,9 +98,9 @@ A six-persona panel — **Andre** (AI/LLM application design, NEW authority per 
 - **Slice E.2** (next PR): `extract-intent.ts` integration; `embed_ms` Debug log row; §13 browser smoke at `/dev/yenask`; eval-set regression alarm runs in `bun run test`.
 - **Slice E.3** (deferred): deterministic intent-router (ADR-0038 D-27); blocked on `attempts_log` evidence from Slice E.2 deployment. Not in this ADR's decision.
 
-## Y-Ask brand-mark refresh (D-33)
+## Yen-Ask brand-mark standard (D-33)
 
-The on-screen logo on the dev-only `/dev/yenask` route renames from "YENASK" to "**Y-Ask**" (with hyphen) in two places: the `<title>` element and the `<h1>` mark. All other instances of "YENASK" / "yenask" are preserved:
+The on-screen logo on the dev-only `/dev/yenask` route uses "**Yen-Ask**" in two places: the `<title>` element and the `<h1>` mark. All other instances of "YENASK" / "yenask" are preserved:
 
 - Library / module names: `frontend/src/lib/yenask/...`, `Yenask.svelte`, `yenask.model.id.v1` LS key, `data-route="yenask"`.
 - Route URL: `/dev/yenask`.
@@ -144,6 +144,6 @@ Rejected on Max's cold-load economics (296 MB → 391 MB total) and Fowler's evi
 - Mark this ADR as `Status: superseded by ADR-NNNN` with the superseding ADR explaining why retrieval-augmentation didn't pay off (which would itself be unusual — it's a 50-year-old pattern).
 - No data migration, no schema bump, no breaking change to any of the five frozen Zod contracts.
 
-**To reverse the Y-Ask brand-mark refresh**: two-string revert in `Yenask.svelte`.
+**To revise the Yen-Ask brand mark**: two-string update in `Yenask.svelte`.
 
 Total estimated reversal effort: < 30 minutes if discovered within a week; < 2 hours if discovered after attempts_log integration matures.

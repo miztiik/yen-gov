@@ -1,16 +1,16 @@
 # ADR-0040: YENASK brand mark refresh (Yen-Ask) + lab route placement (/lab/yenask) — Accepted
 
-**Last Updated**: 2026-05-24
+**Last Updated**: 2026-05-26
 **Status**: accepted
-**Supersedes**: none (narrowly amends [ADR-0039 §D-33](0039-yenask-retrieval-augmented-intent-extraction.md#y-ask-brand-mark-refresh-d-33) and the `/dev/yenask` route choice locked in [ADR-0039](0039-yenask-retrieval-augmented-intent-extraction.md) §"Y-Ask brand-mark refresh (D-33)")
-**Amends**: ADR-0039 (brand label only: Y-Ask → Yen-Ask; route URL only: `/dev/yenask` → `/lab/yenask`)
+**Supersedes**: none (narrowly amends [ADR-0039 §D-33](0039-yenask-retrieval-augmented-intent-extraction.md#yen-ask-brand-mark-standard-d-33) and the `/dev/yenask` route choice locked in [ADR-0039](0039-yenask-retrieval-augmented-intent-extraction.md) §"Yen-Ask brand-mark standard (D-33)")
+**Amends**: ADR-0039 (visible brand standard only: Yen-Ask; route URL only: `/dev/yenask` → `/lab/yenask`)
 **Related**: [yenask subsystem doc](../frontend/yenask.md), [ADR-0039](0039-yenask-retrieval-augmented-intent-extraction.md), [ADR-0038](0038-yenask-two-stage-llm-pipeline-rejected.md), [ADR-0028](0028-routing-and-state-permalinks.md) (URL grammar)
 
 ## Context
 
 ADR-0039 (Accepted 2026-05-24) made two micro-decisions inside its larger Slice-E architecture commit:
 
-1. **Brand mark**: refresh the on-screen logo + page title from `YENASK` to `Y-Ask` (with hyphen).
+1. **Brand mark**: standardize the on-screen logo + page title as `Yen-Ask`.
 2. **Route URL**: keep the lab mounted at `/dev/yenask` — same namespace as the runtime-failure harnesses (`/dev/duckdb-harness`, `/dev/charts-sandbox`).
 
 Same-day user direction (2026-05-24, after PR #240 / Slice E.2 merged):
@@ -23,7 +23,7 @@ This ADR records the resolution. Both micro-decisions in ADR-0039 §D-33 are now
 
 ### 1. Brand mark: **Yen-Ask** (with hyphen)
 
-The on-screen logo on the dev-only lab route renames from `Y-Ask` to **`Yen-Ask`** in two places:
+The on-screen logo on the dev-only lab route uses **`Yen-Ask`** in two places:
 
 - The `<title>` element of `frontend/src/routes/Yenask.svelte` (browser tab + history label).
 - The `<h1>` mark in the same route's header.
@@ -43,7 +43,7 @@ The lab moves from `/dev/yenask` to **`/lab/yenask`**. The reason `/lab/` is the
 
 CHANGED (citizen-facing affordances):
 
-- `<title>` and `<h1>` strings in `frontend/src/routes/Yenask.svelte` (Y-Ask → Yen-Ask).
+- `<title>` and `<h1>` strings in `frontend/src/routes/Yenask.svelte` use Yen-Ask.
 - Route URL the citizen types or bookmarks (`/dev/yenask` → `/lab/yenask`).
 
 UNCHANGED (engineering affordances):
@@ -72,7 +72,7 @@ The reason for the split: the brand mark is what a citizen reads on the page; th
 **Negative**:
 
 - Any existing bookmark / shared link to `/dev/yenask` 404s after this change. **Mitigation declined**: the route is dev-only, was never citizen-discoverable, was never linked from the left rail. The audience that knows the URL existed (engineers + the author) is the same audience that reads this ADR. A 301 redirect from `/dev/yenask` → `/lab/yenask` would be defensible but adds router complexity for a ~5-person audience; opt for the simple cut.
-- The plan-doc `TODO/20260518-browser-governance-insight-assistant-plan.md` carries ~30 references to `/dev/yenask` and ~10 to "Y-Ask". **Mitigation**: handled by the same-day plan-doc surgery PR (separate commit) — the plan-doc was already due for a hard-cleanup pass per the user's direction.
+- The plan-doc `TODO/20260518-browser-governance-insight-assistant-plan.md` carried stale route and brand-standard references. **Mitigation**: handled by the same-day plan-doc surgery PR (separate commit) — the plan-doc was already due for a hard-cleanup pass per the user's direction.
 
 **Trade-off accepted**: documentation churn (subsystem doc + AGENTS.md + size-tier.ts comment + plan-doc + ADR-0039 status line + this new ADR) in exchange for a route URL that matches what the page IS. Net positive — future agents reading `/lab/yenask` will not have to ask "why is this under /dev/?".
 
@@ -100,12 +100,12 @@ Rejected on ADR-0039's identifier-separation rationale, which this ADR explicitl
 
 ## Reversal cost
 
-**Low**. Reverting this ADR is two grep-and-replace passes (`Yen-Ask` → `Y-Ask`, `/lab/yenask` → `/dev/yenask`) across the same 7 files this ADR's PR touched. The Cache Storage URL keys for downloaded models are unaffected (they encode the HuggingFace repo, not the route). localStorage keys are unaffected (none encode the route). No data migration, no schema bump, no consumer-side change beyond the bookmark-link 404 mentioned above.
+**Low**. Revising this ADR is two narrow grep-and-replace passes (the visible brand label and the route namespace) across the same 7 files this ADR's PR touched. The Cache Storage URL keys for downloaded models are unaffected (they encode the HuggingFace repo, not the route). localStorage keys are unaffected (none encode the route). No data migration, no schema bump, no consumer-side change beyond the bookmark-link 404 mentioned above.
 
 If a future ADR wants to flip the brand to `YENASK` (uppercase, as the original brand) or move the route to `/ask`, this ADR is the right one to cite as the predecessor.
 
 ## Implementation slicing
 
-This ADR ships in a single PR (the brand + route are coupled by the same user direction and have the same blast radius). The PR is ~7 file edits plus this ADR + the ADR-0039 status amendment line. No new tests required beyond updating the existing Playwright `goto("/dev/yenask")` → `goto("/lab/yenask")` and `getByRole("heading", { name: /Y-Ask/i })` → `/Yen-Ask/i` regex.
+This ADR ships in a single PR (the brand + route are coupled by the same user direction and have the same blast radius). The PR is ~7 file edits plus this ADR + the ADR-0039 status amendment line. No new tests required beyond updating the existing Playwright route coverage to `goto("/lab/yenask")` and `getByRole("heading", { name: /Yen-Ask/i })`.
 
 Plan-doc cleanup (separate concern raised in the same user message) is a follow-up PR — see the post-merge plan-doc surgery PR for the prune from ~913 lines to a lean handoff stub.
