@@ -5,7 +5,7 @@
     {
       "concept_id": "acs-arr-gap",
       "noun": "ACS-ARR gap",
-      "unit_canonical": "â‚¹/kWh",
+      "unit_canonical": "\u00e2\u201a\u00b9/kWh",
       "normalisation": "ratio",
       "entity_kinds": [
         "state"
@@ -450,7 +450,7 @@
       "entity_kinds": [
         "state"
       ],
-      "description_short": "Compute-on-read parent: the three citizen-readable sub-indicators of distribution-side efficiency â€” billing efficiency, collection efficiency, and T&D loss. The first two decompose the COMMERCIAL half of AT&C losses; the third is the TECHNICAL half.",
+      "description_short": "Compute-on-read parent: the three citizen-readable sub-indicators of distribution-side efficiency \u00e2\u20ac\u201d billing efficiency, collection efficiency, and T&D loss. The first two decompose the COMMERCIAL half of AT&C losses; the third is the TECHNICAL half.",
       "sources": []
     },
     {
@@ -1330,7 +1330,7 @@
       "entity_kinds": [
         "state"
       ],
-      "description_short": "Highest single-instant electricity demand observed in the state during the fiscal year (MW). 'Peak' is system-wide simultaneous demand recorded by the State Load Despatch Centre â€” typically a summer afternoon (north / west) or winter evening (Punjab, Delhi).",
+      "description_short": "Highest single-instant electricity demand observed in the state during the fiscal year (MW). 'Peak' is system-wide simultaneous demand recorded by the State Load Despatch Centre \u00e2\u20ac\u201d typically a summer afternoon (north / west) or winter evening (Punjab, Delhi).",
       "sources": []
     },
     {
@@ -1352,7 +1352,7 @@
       "entity_kinds": [
         "state"
       ],
-      "description_short": "Annual per-capita electricity availability (kWh / person / year), by state and Union Territory, fiscal year. The most citizen-relevant single number for 'how much power do people in this state actually get to use' â€” captures both supply expansion and transmission losses.",
+      "description_short": "Annual per-capita electricity availability (kWh / person / year), by state and Union Territory, fiscal year. The most citizen-relevant single number for 'how much power do people in this state actually get to use' \u00e2\u20ac\u201d captures both supply expansion and transmission losses.",
       "sources": []
     },
     {
@@ -1374,7 +1374,7 @@
       "entity_kinds": [
         "state"
       ],
-      "description_short": "Electricity consumption per person per year, in kilowatt-hours. Proxy for BOTH energy access (electrified homes) AND industrial intensity (heavy-industry load) â€” read alongside per-capita income to disambiguate.",
+      "description_short": "Electricity consumption per person per year, in kilowatt-hours. Proxy for BOTH energy access (electrified homes) AND industrial intensity (heavy-industry load) \u00e2\u20ac\u201d read alongside per-capita income to disambiguate.",
       "sources": []
     },
     {
@@ -1451,7 +1451,7 @@
       "entity_kinds": [
         "state"
       ],
-      "description_short": "Annual energy actually supplied to the state (MU = million units = GWh), fiscal year. The supply-side companion to Requirement (T141). Requirement âˆ’ Availability = the energy-not-supplied deficit.",
+      "description_short": "Annual energy actually supplied to the state (MU = million units = GWh), fiscal year. The supply-side companion to Requirement (T141). Requirement \u00e2\u02c6\u2019 Availability = the energy-not-supplied deficit.",
       "sources": []
     },
     {
@@ -1473,7 +1473,7 @@
       "entity_kinds": [
         "state"
       ],
-      "description_short": "Annual energy requirement assessed by the state (MU = million units = GWh), fiscal year â€” the demand-side counterpart to availability. Requirement minus availability gives the 'energy not supplied' deficit.",
+      "description_short": "Annual energy requirement assessed by the state (MU = million units = GWh), fiscal year \u00e2\u20ac\u201d the demand-side counterpart to availability. Requirement minus availability gives the 'energy not supplied' deficit.",
       "sources": []
     },
     {
@@ -1638,7 +1638,7 @@
       "entity_kinds": [
         "state"
       ],
-      "description_short": "Compute-on-read parent: the three citizen-readable segments of state RPO compliance â€” solar, non-solar, and combined-target. Each measures share of the regulatory RPO target met, expressed as compliance Ã· target Ã— 100.",
+      "description_short": "Compute-on-read parent: the three citizen-readable segments of state RPO compliance \u00e2\u20ac\u201d solar, non-solar, and combined-target. Each measures share of the regulatory RPO target met, expressed as compliance \u00c3\u00b7 target \u00c3\u2014 100.",
       "sources": []
     },
     {
@@ -1803,7 +1803,7 @@
       "entity_kinds": [
         "state"
       ],
-      "description_short": "Per-state actual electricity generated, summed across all fuels. The delivered counterpart to installed capacity â€” capacity is potential, generation is what plants actually produced.",
+      "description_short": "Per-state actual electricity generated, summed across all fuels. The delivered counterpart to installed capacity \u00e2\u20ac\u201d capacity is potential, generation is what plants actually produced.",
       "sources": []
     },
     {
@@ -1858,7 +1858,7 @@
       "entity_kinds": [
         "state"
       ],
-      "description_short": "Transmission and Distribution loss as % of energy input â€” the TECHNICAL half of AT&C losses (heat / ageing / unmetered consumption on the wires).",
+      "description_short": "Transmission and Distribution loss as % of energy input \u00e2\u20ac\u201d the TECHNICAL half of AT&C losses (heat / ageing / unmetered consumption on the wires).",
       "sources": []
     },
     {
@@ -1880,7 +1880,7 @@
       "entity_kinds": [
         "state"
       ],
-      "description_short": "Combined-target RPO compliance â€” share of the state's overall (solar + non-solar combined) RPO target met. NOT the sum of solar + non-solar â€” the combined target is its own regulatory ratio.",
+      "description_short": "Combined-target RPO compliance \u00e2\u20ac\u201d share of the state's overall (solar + non-solar combined) RPO target met. NOT the sum of solar + non-solar \u00e2\u20ac\u201d the combined target is its own regulatory ratio.",
       "sources": []
     },
     {
@@ -1994,18 +1994,6 @@
       "sources": []
     },
     {
-      "concept_id": "winning-party",
-      "noun": "Winning party",
-      "unit_canonical": "entity_id",
-      "normalisation": "absolute",
-      "entity_kinds": [
-        "ac",
-        "state"
-      ],
-      "description_short": "party_id of the winning candidate's party (parties.IN.IND for independents).",
-      "sources": []
-    },
-    {
       "concept_id": "winning-seats",
       "noun": "Winning seats",
       "unit_canonical": "ACs",
@@ -2036,6 +2024,28 @@
         "state"
       ],
       "description_short": "State total of yaks tagged with Pashu Aadhaar (NDLM), summed from district rows. Tagged count, NOT actual yaks population.",
+      "sources": []
+    },
+    {
+      "concept_id": "winning-party-ac",
+      "noun": "Winning party (AC)",
+      "unit_canonical": "entity_id",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "ac"
+      ],
+      "description_short": "party_id of the winning candidate in a single Assembly Constituency contest (seat-level outcome; parties.IN.IND for independents).",
+      "sources": []
+    },
+    {
+      "concept_id": "winning-party-state",
+      "noun": "Winning party (state)",
+      "unit_canonical": "entity_id",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "party_id with the most seats statewide (state-aggregate majority outcome; null on a hung house).",
       "sources": []
     }
   ]
