@@ -43,7 +43,6 @@ These are the spine of any longitudinal "did governance work?" comparison.
 | Indicator | Span | Years | Provider |
 | --- | --- | ---: | --- |
 | `economy/state_per_capita_nsdp_current_inr` | FY05–FY24 | 20 | NITI iced |
-| `economy/state_gdp_current_inr_lakh_crore` | FY12–FY25 | 14 | NITI iced |
 | `economy/national_gva_*` (3 series) | FY12–FY26 | 14–15 | MoSPI / data.gov.in |
 | `energy/national_primary_energy_supply_mtoe` | FY06–FY25 | 20 | NITI iced |
 | `energy/national_final_energy_consumption_by_sector_mtoe` | FY06–FY25 | 20 | NITI iced |

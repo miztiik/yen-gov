@@ -158,7 +158,7 @@ These can land alongside Phase 3 commits or in a follow-up sweep.
 
 Hans's lens: today we ship the inputs but not the citizen-relevant ratios. Each is a pure derivation in the loader / a new artifact emitted by the backend (decision deferred).
 
-- [ ] `fiscal/derived/own_tax_to_gsdp_ratio` — `state_own_tax_revenue_inr_crore` ÷ `state_gdp_current_inr_lakh_crore`.
+- [ ] `fiscal/derived/own_tax_to_gsdp_ratio` — `state_own_tax_revenue_inr_crore` ÷ `economy/gdp_inr_crore` (current facet, state rows; PR-B6-row9 cross-grain merge).
 - [ ] `economy/derived/real_gsdp_growth_yoy_pct` — YoY of `state_nsdp_constant_inr_crore` with rebase-aware gaps.
 - [ ] `economy/derived/per_capita_real_view` — paired current + constant chart on one canvas.
 - [ ] `fiscal/derived/state_capex_share` — capex as % total expenditure and as % GSDP.

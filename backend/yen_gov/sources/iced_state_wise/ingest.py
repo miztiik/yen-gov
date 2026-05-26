@@ -308,27 +308,10 @@ INDICATOR_SPECS: tuple[IndicatorMeta, ...] = (
         entity_kind="state", value_kind="currency", unit="INR (lakh crore)",
         direction="higher_is_better", icon="trending-up",
     ),
-    IndicatorMeta(
-        spec=IndicatorSpec(
-            indicator_id="economy/state_gdp_current_inr_lakh_crore",
-            api_key="GDP (Base: 2011-12) Current Price",
-        ),
-        title="State GDP (current prices)",
-        description=(
-            "Gross Domestic Product of the state at current (nominal) "
-            "prices, in Lakh Crore Rupees. The 'sticker' value of all "
-            "goods and services produced in the state — useful for "
-            "tax-base sizing, but inflation-distorted across years."
-        ),
-        notes=(
-            "Source: NITI Aayog ICED dashboard, row 'GDP (Base: 2011-12) "
-            "Current Price'. Same unit-annotation caveat as the constant-"
-            "price indicator: values are in **Lakh Crore**."
-        ),
-        topic="economy", leaf="state_gdp_current_inr_lakh_crore",
-        entity_kind="state", value_kind="currency", unit="INR (lakh crore)",
-        direction="higher_is_better", icon="trending-up",
-    ),
+    # PR-B6-row9: state_gdp_current_inr_lakh_crore retired (exact unit-converted
+    # subset of economy/gdp_inr_crore current facet; cross-grain shard now owns
+    # both country + state rows). state_gdp_constant_2011_12_inr_lakh_crore
+    # remains here pending future ICED-vs-MoSPI vintage reconciliation.
     IndicatorMeta(
         spec=IndicatorSpec(
             indicator_id="economy/sectoral_gva_inr_crore",

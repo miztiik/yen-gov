@@ -113,7 +113,7 @@ There are a small number of structural revision moments that matter for this top
 
 ## Related topic spines
 
-- **[Economy](../../../datasets/indicators/in/economy/)** — every fiscal ratio (debt/GSDP, deficit/GSDP, own-tax/GSDP, capex/GSDP) reaches into the economy topic for its denominator. The `economy/state_gdp_current_inr_lakh_crore` and `economy/state_per_capita_nsdp_*` family are the canonical denominators.
+- **[Economy](../../../datasets/indicators/in/economy/)** — every fiscal ratio (debt/GSDP, deficit/GSDP, own-tax/GSDP, capex/GSDP) reaches into the economy topic for its denominator. The `economy/gdp_inr_crore` (current facet, state rows) and `economy/state_per_capita_nsdp_*` family are the canonical denominators.
 - **[Prices](./prices.md)** — every nominal fiscal time-series benefits from price-deflation; CPI-Combined is the right anchor for post-2012 reads.
 - **[Demography](../../../datasets/indicators/in/demography/)** — per-capita fiscal reads (per-capita capex, per-capita revenue receipts) need population from `demography/state_population_lakhs`.
 - **[Energy](./energy.md)** — discom AT&C losses and ACS-ARR gaps are *quasi-fiscal* liabilities of state governments. State-budget subsidy transfers to discoms appear in `state_revenue_expenditure_inr_crore`; the off-budget portion shows up only in the energy topic's discom-finance artifacts.

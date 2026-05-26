@@ -64,8 +64,6 @@ datasets/indicators/in/economy/per_capita_nsdp_constant_inr.json
 datasets/indicators/in/economy/per_capita_nsdp_current_inr.json
 datasets/indicators/in/economy/sectoral_gva_inr_crore.json
 datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json
-datasets/indicators/in/economy/state_gdp_current_inr_lakh_crore.json
-datasets/indicators/in/economy/state_gdp_inr_crore.json
 datasets/indicators/in/economy/state_per_capita_consumption_inr.json
 datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json
 datasets/indicators/in/environment/india_ghg_emissions_mtco2e_by_sector.json

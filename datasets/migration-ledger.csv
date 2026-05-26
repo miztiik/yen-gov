@@ -135,8 +135,8 @@ datasets/indicators/in/fiscal/union_primary_revenue_deficit.json,fiscal,migrate,
 datasets/indicators/in/demography/state_population_lakhs.json,demography,drop,3,,,Same measure as state-population-count in different unit (lakhs); convert and reconcile via UPSERT.
 #
 # ----- ECONOMY (Phase 3 — splits into fiscal/economy classification by Max).
-datasets/indicators/in/economy/state_gdp_inr_crore.json,economy,consolidate,3,state-gsdp-inr-crore,"{""prices_basis"":""current""}",D33.1 — GSDP base-year revisions via methodology_version + id-encoded variants; current vs constant prices via prices_basis facet.
-datasets/indicators/in/economy/state_gdp_current_inr_lakh_crore.json,economy,drop,3,,,Same as state_gdp_inr_crore unit conversion; reconcile.
+# datasets/indicators/in/economy/state_gdp_inr_crore.json,economy,consolidate,3,state-gsdp-inr-crore,"{""prices_basis"":""current""}",D33.1 — GSDP base-year revisions via methodology_version + id-encoded variants; current vs constant prices via prices_basis facet.  # PR-B6-row9: merged into economy/gdp_inr_crore with entity_kinds=[country,state]
+# datasets/indicators/in/economy/state_gdp_current_inr_lakh_crore.json,economy,drop,3,,,Same as state_gdp_inr_crore unit conversion; reconcile.  # PR-B6-row9: deleted (exact unit-converted subset of merged economy/gdp_inr_crore current facet)
 datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json,economy,consolidate,3,state-gsdp-inr-crore,"{""prices_basis"":""constant_2011_12""}",D33.1 — base-year-encoded child.
 # datasets/indicators/in/economy/state_nsdp_current_inr_crore.json,economy,deleted,3,nsdp_inr_crore (faceted current+constant; PR-B6-row10),"{""prices_basis"":""current""}",
 # datasets/indicators/in/economy/state_nsdp_constant_inr_crore.json,economy,deleted,3,nsdp_inr_crore (faceted current+constant; PR-B6-row10),"{""prices_basis"":""constant_2011_12""}",

@@ -1,9 +1,8 @@
 """ICED macro adapter — national/state GDP, IIP.
 
-Emits three indicator artifacts:
+Emits two indicator artifacts:
 
-  * economy/gdp_inr_crore
-  * economy/state_gdp_inr_crore
+  * economy/gdp_inr_crore (entity_kinds=[country, state] — country + per-state GSDP rows in one shard, PR-B6-row9)
   * economy/iip_index
 
 (`demography/state_population_by_residence_count` was retired in PR-D4 —
