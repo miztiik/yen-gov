@@ -1,11 +1,15 @@
 """Pure parsers + indicator catalogue for the ICED socio-economic adapter.
 
-Three indicators ingested from three ICED API endpoints (one each, no
+Two indicators ingested from two ICED API endpoints (one each, no
 multi-endpoint composition). Per Hans (Governance) triage 2026-05-14:
 
     1. economy/state_per_capita_consumption_inr             (priority 3)
-    2. demography/state_population_by_sex_count             (priority 5)
-    3. environment/india_ghg_emissions_mtco2e_by_sector     (priority 6)
+    2. environment/india_ghg_emissions_mtco2e_by_sector     (priority 6)
+
+(``parse_demography_by_sex`` was deleted in PR-D4 along with the
+``demography/state_population_by_sex_count`` shard — Census 2011 was the
+last completed enumeration and the 2021 round was postponed; no
+canonical successor is planned.)
 
 (``parse_hdi_map`` was deleted in PR-D3 along with the
 ``human_development/state_hdi`` shard — no canonical successor planned.)
@@ -186,62 +190,6 @@ def parse_per_capita_consumption(decrypted: Any) -> tuple[list[dict[str, Any]], 
         if value is None:
             continue
         out.append(parser_kit.row(entity_id=entity_id, time=time, value=value))
-    return parser_kit.dedup_sort(out), skipped
-
-
-# ---------------------------------------------------------------------------
-# 4. Demography (population by sex)
-# ---------------------------------------------------------------------------
-
-
-def parse_demography_by_sex(decrypted: Any) -> tuple[list[dict[str, Any]], int]:
-    """Parse ICED ``demographyActual`` into populationÃ—sex rows.
-
-    Endpoint: ``/economy-demography/demography/demographyActual``.
-    Row shape: ``{state, category: "Male"|"Female"|..., year (int),
-    type: "actual"|"projected", population, fyear}``.
-
-    We faceted by ``Male`` / ``Female`` only â€” other ``category`` values
-    (e.g. totals) drop silently. ``vintage`` carries ``"actual"`` for
-    Census rows or ``"projected"`` for inter-/post-censal estimates so
-    the chart can mark the projection era visually distinct.
-
-    ``time`` uses calendar-year grain (the API ships int years like
-    ``1961`` for these) so the chart can plot the Census points cleanly.
-    """
-    raw = parser_kit.unwrap_data(decrypted)
-    if not isinstance(raw, list):
-        raise ICEDShapeError(
-            f"demographyActual: expected list under 'data', got {type(raw).__name__}"
-        )
-
-    keep_categories = {"Male", "Female"}
-    out: list[dict[str, Any]] = []
-    skipped = 0
-    for r in raw:
-        if not isinstance(r, dict):
-            continue
-        category = r.get("category")
-        if category not in keep_categories:
-            continue
-        entity_id = ENTITY_MAP.get(r.get("state")) if r.get("state") else None
-        if entity_id is None:
-            skipped += 1
-            continue
-        time = parser_kit.fy_to_period(r.get("year"), time_grain="year")
-        if time is None:
-            continue
-        value = coerce_numeric(r.get("population"))
-        if value is None:
-            continue
-        vintage_raw = (r.get("type") or "").strip().lower()
-        vintage = vintage_raw if vintage_raw in {"actual", "projected"} else None
-        out.append(
-            parser_kit.row(
-                entity_id=entity_id, time=time, value=value,
-                facet=category, vintage=vintage,
-            )
-        )
     return parser_kit.dedup_sort(out), skipped
 
 

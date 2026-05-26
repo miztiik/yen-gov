@@ -137,48 +137,6 @@ def parse_industrial_production(decrypted: Any) -> list[dict[str, Any]]:
 
 
 # ---------------------------------------------------------------------------
-# parse_population_by_residence
-# ---------------------------------------------------------------------------
-
-
-def parse_population_by_residence(decrypted: Any) -> tuple[list[dict[str, Any]], int]:
-    """Census population per state, faceted by Rural/Urban."""
-    data = _data_list(decrypted, "demographyActual")
-
-    rows: dict[tuple[str, str, str], dict[str, Any]] = {}
-    skipped = 0
-    for raw in data:
-        if not isinstance(raw, dict):
-            continue
-        category = (raw.get("category") or "").strip()
-        if category not in {"Rural", "Urban"}:
-            continue
-        # Time is calendar census year (1961, 1971, ..., 2011)
-        year = raw.get("year")
-        try:
-            time_str = str(int(year))
-        except (TypeError, ValueError):
-            continue
-        value = coerce_numeric(raw.get("population"))
-        if value is None:
-            continue
-        label = (raw.get("state") or "").strip()
-        if label.lower() == "all india":
-            entity_id = "IN"
-        else:
-            entity_id = ENTITY_MAP.get(label)
-        if not entity_id:
-            skipped += 1
-            continue
-        key = (entity_id, time_str, category)
-        rows[key] = {
-            "entity_id": entity_id, "time": time_str, "value": value,
-            "facet": category, "vintage": "actual",
-        }
-    return _dedup_sort(rows), skipped
-
-
-# ---------------------------------------------------------------------------
 # parse_gva_trend  (national, constant-price by industry)
 # ---------------------------------------------------------------------------
 

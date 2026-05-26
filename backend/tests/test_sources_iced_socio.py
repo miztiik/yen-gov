@@ -11,7 +11,6 @@ from __future__ import annotations
 import pytest
 
 from yen_gov.sources.iced_socio.parsers import (
-    parse_demography_by_sex,
     parse_ghg_economy_wide,
     parse_per_capita_consumption,
     parse_per_capita_income,
@@ -96,48 +95,6 @@ def test_per_capita_consumption_keeps_only_state_segment():
 def test_per_capita_consumption_rejects_missing_state_segment():
     with pytest.raises(ICEDShapeError):
         parse_per_capita_consumption({"data": {"indiaWorld": []}})
-
-
-# ---------------------------------------------------------------------------
-# parse_demography_by_sex
-# ---------------------------------------------------------------------------
-
-
-def test_demography_keeps_only_male_female_and_facets():
-    decrypted = {"data": [
-        {"state": "All India", "category": "Male",   "year": 2011, "type": "actual",
-         "population": 623270258, "fyear": "2011-12"},
-        {"state": "All India", "category": "Female", "year": 2011, "type": "actual",
-         "population": 587584719, "fyear": "2011-12"},
-        # Rural/Urban categories must drop out.
-        {"state": "All India", "category": "Rural",  "year": 2011, "type": "actual",
-         "population": 833463448, "fyear": "2011-12"},
-        {"state": "All India", "category": "Urban",  "year": 2011, "type": "actual",
-         "population": 377106125, "fyear": "2011-12"},
-        # Unmapped ICED state — drops silently.
-        {"state": "Mordor",    "category": "Male",   "year": 2011, "type": "actual",
-         "population": 99,     "fyear": "2011-12"},
-    ]}
-    rows, skipped = parse_demography_by_sex(decrypted)
-    assert skipped == 1
-
-    out = {(r["entity_id"], r["time"], r["facet"], r["vintage"]): r["value"] for r in rows}
-    assert out == {
-        ("IN", "2011", "Male",   "actual"): 623270258,
-        ("IN", "2011", "Female", "actual"): 587584719,
-    }
-
-
-def test_demography_handles_projected_vintage_when_present():
-    decrypted = {"data": [
-        {"state": "Kerala", "category": "Male",   "year": 2024, "type": "projected",
-         "population": 18000000, "fyear": "2024-25"},
-    ]}
-    rows, _ = parse_demography_by_sex(decrypted)
-    assert rows == [
-        {"entity_id": "S11", "time": "2024", "value": 18000000,
-         "facet": "Male", "vintage": "projected"},
-    ]
 
 
 # ---------------------------------------------------------------------------

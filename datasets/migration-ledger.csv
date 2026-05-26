@@ -129,9 +129,9 @@ datasets/indicators/in/health/state_total_fertility_rate.json,health,migrate,3,s
 datasets/indicators/in/health/state_public_health_expenditure_inr_crore.json,fiscal,migrate,3,state-public-health-expenditure-inr-crore,,Reclassified to fiscal family — it is an expenditure indicator that happens to be on health.
 datasets/indicators/in/health/state_health_expenditure_pct_total_expenditure.json,fiscal,migrate,3,state-health-expenditure-share-pct,,Reclassified to fiscal; derived ratio first-class.
 #
-# ----- DEMOGRAPHY (Phase 3) — 3 legacy artifacts.
-datasets/indicators/in/demography/state_population_by_residence_count.json,demography,consolidate,3,state-population-count,"{""residence"":""facet_split""}",Parent state-population-count carries total; children carry residence=rural|urban. NEW: explode rural/urban as children at ingest.
-datasets/indicators/in/demography/state_population_by_sex_count.json,demography,consolidate,3,state-population-count,"{""gender"":""facet_split""}",Children carry gender=male|female. D33.4: Census H-series vs NFHS = two parents (this is Census-only).
+# ----- DEMOGRAPHY (Phase 3) — 3 legacy artifacts (2 retired in PR-D4; lakhs deferred).
+# datasets/indicators/in/demography/state_population_by_residence_count.json,demography,deleted,3,,,Retired in PR-D4 — Census 2011 was last completed; 2021 postponed; six decennial points = position not trajectory.
+# datasets/indicators/in/demography/state_population_by_sex_count.json,demography,deleted,3,,,Retired in PR-D4 — same rationale as residence shard.
 datasets/indicators/in/demography/state_population_lakhs.json,demography,drop,3,,,Same measure as state-population-count in different unit (lakhs); convert and reconcile via UPSERT.
 #
 # ----- ECONOMY (Phase 3 — splits into fiscal/economy classification by Max).

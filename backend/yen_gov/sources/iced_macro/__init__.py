@@ -1,11 +1,15 @@
-"""ICED macro adapter — national/state GDP, IIP, census population.
+"""ICED macro adapter — national/state GDP, IIP.
 
-Emits four indicator artifacts:
+Emits three indicator artifacts:
 
   * economy/india_gdp_inr_crore
   * economy/state_gdp_inr_crore
   * economy/iip_index
-  * demography/state_population_by_residence_count
+
+(`demography/state_population_by_residence_count` was retired in PR-D4 —
+Census 2011 was the last completed enumeration and the 2021 round was
+postponed; six decennial points was a position not a trajectory, and no
+canonical successor is planned.)
 """
 from __future__ import annotations
 
@@ -14,7 +18,6 @@ from .parsers import (
     GDPParseResult,
     parse_gdp_trend,
     parse_industrial_production,
-    parse_population_by_residence,
 )
 
 __all__ = (
@@ -24,5 +27,4 @@ __all__ = (
     "GDPParseResult",
     "parse_gdp_trend",
     "parse_industrial_production",
-    "parse_population_by_residence",
 )
