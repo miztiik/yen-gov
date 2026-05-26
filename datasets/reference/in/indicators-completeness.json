@@ -63,6 +63,26 @@
       "gap_count_within_range": 0
     },
     {
+      "id": "economy/iip_index",
+      "topic": "economy",
+      "path": "datasets/indicators/in/economy/iip_index.json",
+      "title": "Index of Industrial Production (IIP), base 2011-12 = 100",
+      "documentation_status": "stub",
+      "inventory_status": "complete",
+      "frozen": false,
+      "last_polled_at": "2026-05-14T23:24:22Z",
+      "observed_count": 13,
+      "pending_count": 0,
+      "unavailable_count": 0,
+      "min_time": "2012-04",
+      "max_time": "2024-04",
+      "min_period_label": "2012-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 13,
+      "gap_count_within_range": 0
+    },
+    {
       "id": "economy/india_external_balance_inr_crore",
       "topic": "economy",
       "path": "datasets/indicators/in/economy/india_external_balance_inr_crore.json",
@@ -120,26 +140,6 @@
       "max_period_label": "2024-04",
       "time_grain": "fiscal_year",
       "observed_periods_within_range": 14,
-      "gap_count_within_range": 0
-    },
-    {
-      "id": "economy/india_iip_index_2011_12",
-      "topic": "economy",
-      "path": "datasets/indicators/in/economy/india_iip_index_2011_12.json",
-      "title": "Index of Industrial Production (IIP), base 2011-12 = 100",
-      "documentation_status": "stub",
-      "inventory_status": "complete",
-      "frozen": false,
-      "last_polled_at": "2026-05-14T23:24:22Z",
-      "observed_count": 13,
-      "pending_count": 0,
-      "unavailable_count": 0,
-      "min_time": "2012-04",
-      "max_time": "2024-04",
-      "min_period_label": "2012-04",
-      "max_period_label": "2024-04",
-      "time_grain": "fiscal_year",
-      "observed_periods_within_range": 13,
       "gap_count_within_range": 0
     },
     {

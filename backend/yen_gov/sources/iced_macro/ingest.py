@@ -157,7 +157,7 @@ def _indicator_state_gdp() -> dict[str, Any]:
 
 def _indicator_iip() -> dict[str, Any]:
     return {
-        "id": "economy/india_iip_index_2011_12",
+        "id": "economy/iip_index",
         "title": "Index of Industrial Production (IIP), base 2011-12 = 100",
         "description": (
             "National Index of Industrial Production, faceted by category "
@@ -387,7 +387,7 @@ def ingest_iced_macro(*, repo_root: Path, client: IcedClient | None = None) -> I
         schema_id_str=sid, schema_version_str=sver,
         indicator_meta=_indicator_iip(), rows=iip_rows,
         sources=[Source(url=iip_resp.url, fetched_at=iip_resp.fetched_at)],
-        out_rel="datasets/indicators/in/economy/india_iip_index_2011_12.json",
+        out_rel="datasets/indicators/in/economy/iip_index.json",
         spatial="India (national)",
     ))
 

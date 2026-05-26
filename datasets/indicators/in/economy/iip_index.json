@@ -19,7 +19,7 @@
     "redistributable": true
   },
   "indicator": {
-    "id": "economy/india_iip_index_2011_12",
+    "id": "economy/iip_index",
     "title": "Index of Industrial Production (IIP), base 2011-12 = 100",
     "description": "National Index of Industrial Production, faceted by category (sectoral: Mining/Manufacturing/Electricity, plus the General all-industry index, plus use-based: Capital, Consumer durables, Consumer non-durables, Intermediate, Infrastructure, Primary). All values relative to 2011-12 = 100. Annual 2012-13 to 2024-25.",
     "description_short": "Index of Industrial Production, base 2011-12 = 100. Monthly factory-output series covering mining, manufacturing, and electricity. The fastest-released industrial signal; revised heavily as data hardens.",
