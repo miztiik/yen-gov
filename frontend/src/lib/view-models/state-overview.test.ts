@@ -69,9 +69,9 @@ const partyRows = [
 ];
 
 const stateScopeRows = [
-  { indicator_id: "state-electors-total", value_numeric: 62_700_000 },
-  { indicator_id: "state-votes-polled", value_numeric: 45_900_000 },
-  { indicator_id: "state-turnout-pct", value_numeric: 72.81 },
+  { indicator_id: "electors-total", value_numeric: 62_700_000 },
+  { indicator_id: "votes-polled", value_numeric: 45_900_000 },
+  { indicator_id: "turnout-pct", value_numeric: 72.81 },
 ];
 
 const sourceRows = [

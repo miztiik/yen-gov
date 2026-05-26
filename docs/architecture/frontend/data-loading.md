@@ -265,7 +265,7 @@ Three tables get registered (subset of PR-E — no per-AC dim needed for the hub
 Three SQL statements:
 
 1. **Party pivot** — `MAX(CASE WHEN indicator_id = 'party-…' THEN value_numeric END)` across the four `party-*` indicators (`contested-acs`, `seats-won`, `votes-polled`, `vote-share-pct`), filtered on `entity_id LIKE 'IN-<state>-<event>-PARTY-%'`. JOIN key is `regexp_extract(entity_id, '-PARTY-(.+)$', 1) = dim_parties.short_name`.
-2. **State-scope facts** — `SELECT indicator_id, value_numeric FROM election_results WHERE entity_id = 'IN-<state>-<event>' AND indicator_id IN ('state-electors-total', 'state-votes-polled', 'state-turnout-pct')`.
+2. **State-scope facts** — `SELECT indicator_id, value_numeric FROM election_results WHERE entity_id = 'IN-<state>-<event>' AND indicator_id IN ('electors-total', 'votes-polled', 'turnout-pct')`.
 3. **Provenance** — `SELECT DISTINCT s.url, s.first_fetched_at` across every observation under this `(state, event)`.
 
 `total_seats` is derived in-loader as `sum(party_totals.seats_won)` rather than a fourth query — sum equals the assembly size by construction (TN = 234).

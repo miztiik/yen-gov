@@ -464,7 +464,7 @@
       ],
       "value_kind": "percentage",
       "direction": "neutral",
-      "denominator": "state-votes-polled",
+      "denominator": "votes-polled",
       "attribution_geography": "where_administered",
       "comparability": "comparable_across_states_and_time",
       "parent_indicator_id": null,
@@ -496,7 +496,7 @@
       "default_entity_kind": "party"
     },
     {
-      "indicator_id": "state-electors-total",
+      "indicator_id": "electors-total",
       "label_short": "State electors",
       "label_long": "Total enrolled electors in state",
       "description_short": "Sum of enrolled electors across all ACs in the state.",
@@ -518,7 +518,7 @@
       "default_entity_kind": "state"
     },
     {
-      "indicator_id": "state-votes-polled",
+      "indicator_id": "votes-polled",
       "label_short": "State votes",
       "label_long": "Total votes polled in state",
       "description_short": "Sum of votes polled across all ACs in the state.",
@@ -540,7 +540,7 @@
       "default_entity_kind": "state"
     },
     {
-      "indicator_id": "state-turnout-pct",
+      "indicator_id": "turnout-pct",
       "label_short": "State turnout",
       "label_long": "Voter turnout in state",
       "description_short": "State-level votes polled as % of state-level enrolled electors.",
@@ -553,7 +553,7 @@
       ],
       "value_kind": "percentage",
       "direction": "higher_is_better",
-      "denominator": "state-electors-total",
+      "denominator": "electors-total",
       "attribution_geography": "where_resident",
       "comparability": "comparable_across_states_and_time",
       "parent_indicator_id": null,
@@ -563,7 +563,7 @@
       "default_entity_kind": "state"
     },
     {
-      "indicator_id": "state-nota-pct",
+      "indicator_id": "nota-pct",
       "label_short": "State NOTA",
       "label_long": "NOTA vote share in state",
       "description_short": "Sum of NOTA votes across state as % of votes polled. Null pre-2013.",
@@ -576,7 +576,7 @@
       ],
       "value_kind": "percentage",
       "direction": "neutral",
-      "denominator": "state-votes-polled",
+      "denominator": "votes-polled",
       "attribution_geography": "where_administered",
       "comparability": "comparable_across_states_and_time",
       "parent_indicator_id": null,
@@ -589,7 +589,7 @@
       "default_entity_kind": "state"
     },
     {
-      "indicator_id": "state-effective-parties-laakso",
+      "indicator_id": "effective-parties-laakso",
       "label_short": "Effective parties",
       "label_long": "Laakso-Taagepera effective number of parties",
       "description_short": "1 / sum(seat_share_squared) across parties. Higher = more fragmented legislature.",
@@ -611,7 +611,7 @@
       "default_entity_kind": "state"
     },
     {
-      "indicator_id": "state-winning-party-id",
+      "indicator_id": "winning-party-id",
       "label_short": "Winning party",
       "label_long": "State-level winning party entity_id",
       "description_short": "party_id with the most seats. Null in a hung-house outcome.",
@@ -633,7 +633,7 @@
       "default_entity_kind": "state"
     },
     {
-      "indicator_id": "state-winning-party-seats",
+      "indicator_id": "winning-party-seats",
       "label_short": "Winning seats",
       "label_long": "Seats won by winning party",
       "description_short": "Seats held by the state's winning party.",
@@ -655,7 +655,7 @@
       "default_entity_kind": "state"
     },
     {
-      "indicator_id": "state-majority-threshold-acs",
+      "indicator_id": "majority-threshold-acs",
       "label_short": "Majority threshold",
       "label_long": "Seats needed for simple majority",
       "description_short": "floor(total_acs / 2) + 1. Constant per state per delimitation cycle.",

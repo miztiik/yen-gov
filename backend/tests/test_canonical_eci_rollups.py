@@ -65,13 +65,13 @@ class TestStateLevel:
                      votes_by_party={"parties.IN.DMK": 70_000, "parties.IN.BJP": 29_500},
                      total_electors=100_000),
         ])
-        [el] = _by_ind(rows, "state-electors-total")
+        [el] = _by_ind(rows, "electors-total")
         assert el.value_numeric == 200_000.0
-        [vp] = _by_ind(rows, "state-votes-polled")
+        [vp] = _by_ind(rows, "votes-polled")
         assert vp.value_numeric == 200_000.0
-        [tp] = _by_ind(rows, "state-turnout-pct")
+        [tp] = _by_ind(rows, "turnout-pct")
         assert tp.value_numeric == pytest.approx(100.0)
-        [mt] = _by_ind(rows, "state-majority-threshold-acs")
+        [mt] = _by_ind(rows, "majority-threshold-acs")
         assert mt.value_numeric == 2.0  # 2 // 2 + 1
 
     def test_electors_omitted_if_any_missing(self):
@@ -80,8 +80,8 @@ class TestStateLevel:
                      votes_by_party={"parties.IN.DMK": 100},
                      total_electors=None),
         ])
-        assert _by_ind(rows, "state-electors-total") == []
-        assert _by_ind(rows, "state-turnout-pct") == []
+        assert _by_ind(rows, "electors-total") == []
+        assert _by_ind(rows, "turnout-pct") == []
 
     def test_nota_pct_present_post_2013(self):
         rows = state_rollup_observations(summaries=[
@@ -89,7 +89,7 @@ class TestStateLevel:
                      votes_by_party={"parties.IN.DMK": 9_500},
                      nota_votes=500, votes_polled=10_000),
         ])
-        [n] = _by_ind(rows, "state-nota-pct")
+        [n] = _by_ind(rows, "nota-pct")
         assert n.value_numeric == pytest.approx(5.0)
 
     def test_nota_absent_pre_2013(self):
@@ -97,7 +97,7 @@ class TestStateLevel:
                      votes_by_party={"parties.IN.DMK": 100}, nota_votes=0)
         s = ACContestSummary(**{**s.__dict__, "period": Period("AcGenApr2011", 2011, 4)})
         rows = state_rollup_observations(summaries=[s])
-        assert _by_ind(rows, "state-nota-pct") == []
+        assert _by_ind(rows, "nota-pct") == []
 
 
 class TestPartyLevel:
@@ -161,9 +161,9 @@ class TestWinningPartyAndEffective:
             _summary(eci_no=3, winner="parties.IN.BJP",
                      votes_by_party={"parties.IN.BJP": 100}),
         ])
-        [w] = _by_ind(rows, "state-winning-party-id")
+        [w] = _by_ind(rows, "winning-party-id")
         assert w.value_text == "parties.IN.DMK"
-        [ws] = _by_ind(rows, "state-winning-party-seats")
+        [ws] = _by_ind(rows, "winning-party-seats")
         assert ws.value_numeric == 2.0
 
     def test_tie_break_is_lex_on_pid(self):
@@ -174,7 +174,7 @@ class TestWinningPartyAndEffective:
             _summary(eci_no=2, winner="parties.IN.BJP",
                      votes_by_party={"parties.IN.BJP": 100}),
         ])
-        [w] = _by_ind(rows, "state-winning-party-id")
+        [w] = _by_ind(rows, "winning-party-id")
         assert w.value_text == "parties.IN.BJP"
 
     def test_effective_parties_laakso(self):
@@ -183,7 +183,7 @@ class TestWinningPartyAndEffective:
                      votes_by_party={"parties.IN.DMK": 100})
             for i in range(1, 5)
         ])
-        [r] = _by_ind(rows, "state-effective-parties-laakso")
+        [r] = _by_ind(rows, "effective-parties-laakso")
         # All 4 seats to one party → ENP = 1.0
         assert r.value_numeric == pytest.approx(1.0)
 

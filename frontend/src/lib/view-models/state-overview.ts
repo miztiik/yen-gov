@@ -204,9 +204,9 @@ async function runQueries(
     WHERE entity_id = ${stateEntity}
       AND period_label = ${evt}
       AND indicator_id IN (
-        'state-electors-total',
-        'state-votes-polled',
-        'state-turnout-pct'
+        'electors-total',
+        'votes-polled',
+        'turnout-pct'
       )
   `);
 
@@ -359,9 +359,9 @@ function assembleResult(
     state: state_code,
     total_seats,
     totals: {
-      electors: scopeNum("state-electors-total"),
-      votes_polled: scopeNum("state-votes-polled"),
-      turnout_pct: scopeNum("state-turnout-pct"),
+      electors: scopeNum("electors-total"),
+      votes_polled: scopeNum("votes-polled"),
+      turnout_pct: scopeNum("turnout-pct"),
     },
     party_totals,
     ac_winners,

@@ -66,14 +66,14 @@ Candidate dim attributes (name, party_id, gender, age, education, profession, cr
 
 | indicator_id | unit | derivation | notes |
 | --- | --- | --- | --- |
-| `state-electors-total` | persons | `sum(ac-total-electors)` | |
-| `state-votes-polled` | votes | `sum(ac-votes-polled)` | |
-| `state-turnout-pct` | % | `votes_polled / electors_total * 100` | 2 dp |
-| `state-nota-pct` | % | `sum(ac-nota-votes) / votes_polled * 100` | 2 dp; null pre-2013 |
-| `state-effective-parties-laakso` | count | Laakso-Taagepera on seat shares | governance health signal |
-| `state-winning-party-id` | entity_id | `argmax(party-seats-won)` | `value_text`; null if hung |
-| `state-winning-party-seats` | ACs | max `party-seats-won` | |
-| `state-majority-threshold-acs` | ACs | `floor(total_acs / 2) + 1` | constant per state per delim cycle, but emitted so the citizen doesn't have to look it up |
+| `electors-total` | persons | `sum(ac-total-electors)` | |
+| `votes-polled` | votes | `sum(ac-votes-polled)` | |
+| `turnout-pct` | % | `votes_polled / electors_total * 100` | 2 dp |
+| `nota-pct` | % | `sum(ac-nota-votes) / votes_polled * 100` | 2 dp; null pre-2013 |
+| `effective-parties-laakso` | count | Laakso-Taagepera on seat shares | governance health signal |
+| `winning-party-id` | entity_id | `argmax(party-seats-won)` | `value_text`; null if hung |
+| `winning-party-seats` | ACs | max `party-seats-won` | |
+| `majority-threshold-acs` | ACs | `floor(total_acs / 2) + 1` | constant per state per delim cycle, but emitted so the citizen doesn't have to look it up |
 
 ## Dimension tables (Phase 1.2b — denormalised strings, not observations)
 
@@ -97,7 +97,7 @@ Per [canonical-store §11.5](canonical-store.md#115-dimension-tables-phase-12b):
 
 1. **Delimitation breaks**: `ac-*` rows pre- and post-redraw belong to different entities (§3a). Charts spanning a delim year MUST render a vertical break, not interpolate.
 2. **State reorganisations** (Telangana 2014): an AC's `entity_valid_from` predates Telangana → it's an Andhra AC for those years, a Telangana AC after. Roll-ups to `state` scope follow whichever state the AC was in on election day. Pre-existence outside the state's life: **null**, not zero ([§3a](canonical-store.md#3a-election-entity-identity-d-elections-phase-11)).
-3. **NOTA was introduced in 2013.** Pre-2013 `ac-nota-*` and `state-nota-pct` = null, not zero. The validator MUST reject zero.
+3. **NOTA was introduced in 2013.** Pre-2013 `ac-nota-*` and `nota-pct` = null, not zero. The validator MUST reject zero.
 4. **Party splits/mergers**: `parties.IN.<slug>` carries `predecessor_of` / `successor_of`. Charts comparing "DMK vote share over time" should declare whether they're following the legal party or the political lineage. yen-gov emits the legal party; the lineage walker is a frontend concern.
 
 ## See also
