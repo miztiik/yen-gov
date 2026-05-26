@@ -41,7 +41,7 @@ def test_state_gas_geographical_uses_geographical_concept():
 
 
 def test_state_gas_allocated_uses_allocated_concept():
-    row = next(r for r in _rows() if r["indicator_id"] == "state-installed-capacity-allocated-mw-gas")
+    row = next(r for r in _rows() if r["indicator_id"] == "installed-capacity-allocated-mw-gas")
     assert row["concept_id"] == "gas-mw-allocated"
 
 

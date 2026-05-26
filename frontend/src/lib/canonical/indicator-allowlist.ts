@@ -245,7 +245,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   //   4. state_electricity_generation_by_source_gwh → state-electricity-generation-gwh (facet-multiplexed by fuel_type)
   //   5. state_installed_capacity_total_mw → Pattern B duplicate of
   //      state_installed_capacity_with_alloc_mw (already routes to
-  //      state-installed-capacity-allocated-mw via entry #7). PR #222
+  //      installed-capacity-allocated-mw via entry #7). PR #222
   //      spliced both legacy shards into one canonical FY05-FY25 series;
   //      having two topics.json cards for the same data is citizen-noise.
   //      This PR PRUNES (5) from topics.json rather than aliasing it,
@@ -392,7 +392,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       methodology_vintage:
         "NITI Aayog ICED capacity-metatable rollup of CEA-published station-level capacity; harmonised across fiscal years 2015-16 onwards. Sub-fuels collapsed into 5 canonical buckets (coal / gas / hydro / nuclear / renewable) per indicator-naming.md.",
       notes:
-        "For the share-allocated counterpart (rights to output via central-sector PPAs), see state-installed-capacity-allocated-mw. The all-India total equals the allocated total (as it must) but the per-state breakdown diverges sharply for states that import or export power through central PPAs.",
+        "For the share-allocated counterpart (rights to output via central-sector PPAs), see installed-capacity-allocated-mw. The all-India total equals the allocated total (as it must) but the per-state breakdown diverges sharply for states that import or export power through central PPAs.",
     },
     caveats: [
       "MW = nameplate peak, not energy delivered. Pair with 'Where your state's power comes from' on this page — a 1GW solar plant delivers energy like 200MW of coal would. Compare RUN, not just BUILT.",
@@ -479,7 +479,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   //     mapping to `installed-capacity-mw-<fuel>` (1×1) would silently
   //     reduce visible data from 35 state rows to 1 national row and was rejected.
   //   * Shard #7 (`state_installed_capacity_with_alloc_mw.json`) carries FY15-FY25
-  //     (396 rows); the canonical `state-installed-capacity-allocated-mw` now
+  //     (396 rows); the canonical `installed-capacity-allocated-mw` now
   //     carries FY05-FY25 (770 rows) after PR #222 spliced the RBI Handbook
   //     long-arc onto the ICED post-FY15 segment. INTENTIONAL time-window
   //     extension — citizens see MORE data on the canonical path, not less.
@@ -650,7 +650,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       methodology_vintage:
         "NITI Aayog ICED capacity-metatable rollup of CEA-published station-level capacity; harmonised across fiscal years 2015-16 onwards.",
       notes:
-        "For the share-allocated counterpart (rights to output via central-sector PPAs), see state-installed-capacity-allocated-mw. The all-India total equals the allocated total (as it must) but the per-state breakdown diverges sharply for states that import or export power through central PPAs.",
+        "For the share-allocated counterpart (rights to output via central-sector PPAs), see installed-capacity-allocated-mw. The all-India total equals the allocated total (as it must) but the per-state breakdown diverges sharply for states that import or export power through central PPAs.",
     },
   },
 
@@ -658,10 +658,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/state_installed_capacity_with_alloc_mw",
-    canonical_indicator_id: "state-installed-capacity-allocated-mw",
+    canonical_indicator_id: "installed-capacity-allocated-mw",
     table_id: "energy.energy_installed_capacity",
     meta: {
-      id: "state-installed-capacity-allocated-mw",
+      id: "installed-capacity-allocated-mw",
       title: "State installed electricity capacity, allocated-shares basis (MW)",
       description:
         "Same as the geographical-location capacity, but each state credited its share of joint-sector and central-sector plants per regional allocation formulas. Use this when comparing 'rights to electricity' rather than 'physical assets sited here'. The all-India total equals the geographical total (as it must) but the per-state breakdown can diverge sharply: a state with little local capacity but large central-PPA shares has higher allocated capacity than geographical.",
@@ -836,7 +836,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       methodology_vintage:
         "NITI Aayog ICED /energy/fuel-sources/coal/consumption-domestic-state (Coal Controller's Office / Ministry of Coal upstream). Aggregated by SUM of the 4 component grades (raw + washed + middlings + lignite); the precomputed TOTAL COAL rows are dropped to avoid double-counting.",
       notes:
-        "Read with state-installed-capacity-allocated-mw (coal facet) and state-electricity-generation-gwh (coal facet) on the same /t/energy page: a state with high coal consumption but low coal generation is using coal for industrial heat (steel/cement/sponge-iron) rather than power. attribution_geography = where_consumed, NOT where_mined — coal mined in Jharkhand and Odisha but burned in deficit states.",
+        "Read with installed-capacity-allocated-mw (coal facet) and state-electricity-generation-gwh (coal facet) on the same /t/energy page: a state with high coal consumption but low coal generation is using coal for industrial heat (steel/cement/sponge-iron) rather than power. attribution_geography = where_consumed, NOT where_mined — coal mined in Jharkhand and Odisha but burned in deficit states.",
     },
     // PR-Q (Row 6 P.1.C commit 1): Hans-curated caveats for the first canonical
     // fuel-consumption indicator. The 4-grade SUM methodology, the thermal-vs-

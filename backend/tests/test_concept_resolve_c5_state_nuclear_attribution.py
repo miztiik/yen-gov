@@ -41,7 +41,7 @@ def test_state_nuclear_geographical_uses_geographical_concept():
 
 
 def test_state_nuclear_allocated_uses_allocated_concept():
-    row = next(r for r in _rows() if r["indicator_id"] == "state-installed-capacity-allocated-mw-nuclear")
+    row = next(r for r in _rows() if r["indicator_id"] == "installed-capacity-allocated-mw-nuclear")
     assert row["concept_id"] == "nuclear-mw-allocated"
 
 
