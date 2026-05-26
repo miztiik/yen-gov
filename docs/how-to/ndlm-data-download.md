@@ -1,6 +1,6 @@
 # How to download data from Bharat Pashudhan (NDLM)
 
-**Last Updated**: 2026-05-25 (Recipe 3 bulk tool shipped via PR 2)
+**Last Updated**: 2026-05-26 (Recipe 3 extended to 32 vintages; NADCP closure note added)
 
 > Use this when you need to refresh livestock / vaccination / breeding / Pashu Aadhaar data for the `livestock` family ingest plan ([TODO/20260525-livestock-ndlm-ingest-plan.md](../../TODO/20260525-livestock-ndlm-ingest-plan.md)) or you want to inspect the raw NDLM API shape before opening a Phase 1 PR. Takes ~5 minutes to run; ~30 minutes if looping all 36 states x N years x 5 endpoints.
 
@@ -87,6 +87,8 @@ Output:
 
 Endpoint coverage: 4 of the 5 NDLM source rows in `datasets/taxonomy/sources.parquet` (Owner Registration, Pashu Aadhaar, NADCP, NAIP IV). The 5th (Breeding ABIP/RGM, `src-fb1694ab6a11`) is dashboard-level not per-state-endpoint; covered by a separate discovery PR. See [tools/ndlm_download.py](../../tools/ndlm_download.py) for full design notes.
 
+**Vintage matrix as of 2026-05-26**: `VINTAGE_BODIES` enumerates 32 vintages -- CY 2010..2025 (16 entries) + FY 2010-11..2025-26 (16 entries). A full sweep is ~4608 POST calls (4 endpoints x 36 states x 32 vintages); ~25 min runtime; ~18 MB raw corpus; ~99.7 % success rate (~11 publisher-side HTTP 500s on Owner Reg FY 2025-26 for a handful of states). Re-run regenerates `.runtime/raw/ndlm/_summary.json` for the next meadow-lift PR.
+
 **Be polite to NDLM** -- do not parallelise above 4 concurrent requests; do not lower `--sleep` below 0.1 s.
 
 ## Calendar Year vs Financial Year
@@ -98,15 +100,13 @@ The body flag `isYearFinancial: true | false` toggles CY vs FY. **Both produce d
 
 Per the livestock ingest plan §4: yen-gov **carries both**. The canonical writer's PK `(entity_id, year, period_label, indicator_id)` discriminates: CY -> `period_label="2024"`; FY -> `period_label="2024-25"`. The frontend renderer's URL toggle `?period_basis=cy` picks which to show; `cadence: "annual_fy"` is the citizen-default (Indian govt convention).
 
-## Disease codes -- open question
+## NADCP + Breeding -- upstream-gap CLOSED 2026-05-26
 
-`getNADCPVaccinationDistrictWise` needs a `diseaseCd`. The probe on 2026-05-25 returned 0 rows for `diseaseCd in {1, 200..225}`. The disease enumeration (FMD, Brucellosis, PPR, HS, BQ, etc.) is not exposed via the public API endpoints we've reverse-engineered. To find it:
+`getNADCPVaccinationDistrictWise` returns `{totalVaccinations: 0, totalOutput: {}}` for **every** combination of `(stateCd, year, isYearFinancial, diseaseCd in {1, 2})` across the full publisher vintage range. Verified 2026-05-26 by the 32-vintage bulk sweep: 1152/1152 NADCP cells empty across 32 vintages x 36 states (130 bytes each). 20+ alternate endpoint name variants (e.g. `getNADCPStateWise`, `getFMDVaccinationDistrictWise`) all HTTP 404. No Swagger / OpenAPI surface to enumerate hidden endpoints.
 
-1. Inspect the Angular bundle at `https://bharatpashudhan.ndlm.co.in/main.<hash>.js` for a `DISEASE_CODES` constant.
-2. OR find a separate `/getDiseases` endpoint by watching network traffic on the NDLM portal (use Playwright to bypass the DevTools blocker -- precedent: [docs/how-to/iced-extract-passphrase.md](iced-extract-passphrase.md) recipe).
-3. OR contact DAHD via the portal "Contact us" link.
+Breeding (ABIP / RGM): 14-endpoint probe matrix all HTTP 404. NDLM exposes no per-state Breeding API endpoint.
 
-NADCP ingest blocks until this resolves. Tracked as open question #2 in [the parent plan](../../TODO/20260525-livestock-ndlm-ingest-plan.md#8-open-questions).
+**Verdict**: both indicator families are CATALOGUE-DECLARED + UNFILLED on `/t/agriculture` until DAHD publishes the data. Full evidence + re-evaluation cadence + 4 open follow-ups (DAHD PDF scrape, DevTools capture, RTI, DAHD outreach) at [../research/livestock-ndlm-source-availability.md](../research/livestock-ndlm-source-availability.md).
 
 ## See also
 

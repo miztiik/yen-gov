@@ -84,9 +84,50 @@ ALIASES = {
     "naip_iv":            "naip_iv_district",
 }
 
+# Vintage range expansion (2026-05-26): publisher serves Pashu Aadhaar +
+# Owner Reg back to FY 2005-06 with non-trivial coverage from ~FY 2015-16
+# onward. NAIP IV is populated only from CY 2023 / FY 2023-24 forward
+# (older NAIP IV calls return totalAIs=0, harmless). NADCP returns
+# totalOutput:{} for every vintage probed (publisher gap, not a shape bug).
+# Range chosen: CY 2010..2025 + FY 2010-11..2025-26 = 32 vintages, which
+# covers the meaningful publisher history. Earlier years (2005-2009) hold
+# only 1-2 digit row counts and were dropped to keep wall-clock runtime
+# under ~20 minutes for the full 36-state x 4-endpoint sweep.
 VINTAGE_BODIES = {
-    "2024":    {"isYearFinancial": False, "year": 2024},  # CY 2024
-    "2024-25": {"isYearFinancial": True,  "year": 2024},  # FY 2024-25
+    # Calendar years (isYearFinancial=False)
+    "2010":    {"isYearFinancial": False, "year": 2010},
+    "2011":    {"isYearFinancial": False, "year": 2011},
+    "2012":    {"isYearFinancial": False, "year": 2012},
+    "2013":    {"isYearFinancial": False, "year": 2013},
+    "2014":    {"isYearFinancial": False, "year": 2014},
+    "2015":    {"isYearFinancial": False, "year": 2015},
+    "2016":    {"isYearFinancial": False, "year": 2016},
+    "2017":    {"isYearFinancial": False, "year": 2017},
+    "2018":    {"isYearFinancial": False, "year": 2018},
+    "2019":    {"isYearFinancial": False, "year": 2019},
+    "2020":    {"isYearFinancial": False, "year": 2020},
+    "2021":    {"isYearFinancial": False, "year": 2021},
+    "2022":    {"isYearFinancial": False, "year": 2022},
+    "2023":    {"isYearFinancial": False, "year": 2023},
+    "2024":    {"isYearFinancial": False, "year": 2024},
+    "2025":    {"isYearFinancial": False, "year": 2025},
+    # Fiscal years (isYearFinancial=True; year=N means FY N/N+1, e.g. 2024 -> 2024-25)
+    "2010-11": {"isYearFinancial": True,  "year": 2010},
+    "2011-12": {"isYearFinancial": True,  "year": 2011},
+    "2012-13": {"isYearFinancial": True,  "year": 2012},
+    "2013-14": {"isYearFinancial": True,  "year": 2013},
+    "2014-15": {"isYearFinancial": True,  "year": 2014},
+    "2015-16": {"isYearFinancial": True,  "year": 2015},
+    "2016-17": {"isYearFinancial": True,  "year": 2016},
+    "2017-18": {"isYearFinancial": True,  "year": 2017},
+    "2018-19": {"isYearFinancial": True,  "year": 2018},
+    "2019-20": {"isYearFinancial": True,  "year": 2019},
+    "2020-21": {"isYearFinancial": True,  "year": 2020},
+    "2021-22": {"isYearFinancial": True,  "year": 2021},
+    "2022-23": {"isYearFinancial": True,  "year": 2022},
+    "2023-24": {"isYearFinancial": True,  "year": 2023},
+    "2024-25": {"isYearFinancial": True,  "year": 2024},
+    "2025-26": {"isYearFinancial": True,  "year": 2025},
 }
 
 OUT_ROOT = Path(".runtime/raw/ndlm")
