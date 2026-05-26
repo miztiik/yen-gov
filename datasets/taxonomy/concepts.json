@@ -723,10 +723,42 @@
       "unit_canonical": "MW",
       "normalisation": "absolute",
       "entity_kinds": [
-        "country",
+        "country"
+      ],
+      "description_short": "Conventional (>25 MW) plus small-hydro capacity (country-grain CEA snapshot). Site-bound; multi-decade lifetime. State-grain attribution variants live under hydro-mw-{geographical,allocated,snapshot}.",
+      "sources": []
+    },
+    {
+      "concept_id": "hydro-mw-geographical",
+      "noun": "Hydro (geographically sited)",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
         "state"
       ],
-      "description_short": "Conventional (>25 MW) plus small-hydro capacity. Site-bound; multi-decade lifetime.",
+      "description_short": "State-grain hydro capacity physically SITED in the state regardless of who consumes the power. Distinct measure from allocated beneficiary share.",
+      "sources": []
+    },
+    {
+      "concept_id": "hydro-mw-allocated",
+      "noun": "Hydro (allocated to state)",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State-grain BENEFICIARY share of hydro capacity (ISGS/PSU contractual allocation). A large hydro station sited in one hill state may be allocated to multiple consumer states by quota. Distinct measure from geographical siting.",
+      "sources": []
+    },
+    {
+      "concept_id": "hydro-mw-snapshot",
+      "noun": "Hydro (state CEA snapshot)",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State-grain CEA Monthly Executive Summary end-of-month snapshot of hydro capacity. Distinct publisher and cadence from the fiscal-year-end -allocated- series.",
       "sources": []
     },
     {
