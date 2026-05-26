@@ -34,7 +34,20 @@ from .owner_reg import build_envelope as _build_owner_reg
 from .pashu_aadhaar import build_envelope as _build_pashu_aadhaar
 
 
-def build_envelopes(repo_root: Path) -> list[BatchEnvelope]:
+#: Canonical write-order stems. Single source of truth for ``--table``
+#: CLI validation (PR-A4).
+KNOWN_TARGET_TABLE_STEMS: frozenset[str] = frozenset({
+    "livestock_pashu_aadhaar",
+    "livestock_owner_registration",
+    "livestock_naip_iv",
+})
+
+
+def build_envelopes(
+    repo_root: Path,
+    *,
+    only: set[str] | None = None,
+) -> list[BatchEnvelope]:
     """Build all livestock envelopes in canonical write-order.
 
     First slice ships 3 envelopes (pashu_aadhaar, owner_registration,
@@ -42,9 +55,25 @@ def build_envelopes(repo_root: Path) -> list[BatchEnvelope]:
     nadcp_vaccination and breeding (abip + rgm) envelopes here; each
     emits to its own ``livestock_*`` parquet and shares only the
     cross-family ``sources.parquet`` (already seeded by PR #276).
+
+    ``only`` (PR-A4): when provided, restrict the returned envelope list
+    to those whose ``target_table_stem`` is in the set. Unknown stems
+    raise ``ValueError`` BEFORE any meadow JSON is read.
     """
+    if only is not None:
+        unknown = sorted(only - KNOWN_TARGET_TABLE_STEMS)
+        if unknown:
+            raise ValueError(
+                f"unknown livestock table stem(s): {unknown!r}; "
+                f"known: {sorted(KNOWN_TARGET_TABLE_STEMS)!r}"
+            )
+    builders = [
+        ("livestock_pashu_aadhaar", _build_pashu_aadhaar),
+        ("livestock_owner_registration", _build_owner_reg),
+        ("livestock_naip_iv", _build_naip_iv),
+    ]
     return [
-        _build_pashu_aadhaar(repo_root),
-        _build_owner_reg(repo_root),
-        _build_naip_iv(repo_root),
+        builder(repo_root)
+        for stem, builder in builders
+        if only is None or stem in only
     ]
