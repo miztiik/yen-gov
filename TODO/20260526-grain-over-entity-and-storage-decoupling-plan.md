@@ -387,7 +387,7 @@ Per-PR pattern (applies to D1-D8 unless noted):
 | **D1** | prices | **7** | `/t/economy` | B8 | Max |
 | **D2** | transport | 2 | `/t/transport` or `/t/infrastructure` | none | Max | ✅ PR #351
 | **D3** | human_development | 1 | `/t/human-development` | none | Max | ✅ PR #350 |
-| **D4** | demography | 3 | `/t/demography` | none | Max | partial PR #_pending_ (2 of 3 retired; `state_population_lakhs` deferred — `frontend/src/lib/IndicatorChoropleth.svelte:396` hard-loads it for unmapped-regions chip strip, needs canonical migration first) |
+| **D4** | demography | 3 | `/t/demography` | none | Max | partial PR #352 (2 of 3 retired; `state_population_lakhs` deferred — `frontend/src/lib/IndicatorChoropleth.svelte:396` hard-loads it for unmapped-regions chip strip, needs canonical migration first) |
 | **D5** | environment | 8 | `/t/environment` | A3c (move AQ honesty into grapher catalogue first) | Max + Hans |
 | **D6** | health | 6 | `/t/health` | none | Hans |
 | **D7** | economy | 20 | `/t/economy` | B6 (rename done first to avoid id thrash) | Max |
