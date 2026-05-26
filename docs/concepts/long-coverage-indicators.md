@@ -55,8 +55,7 @@ Ship socio-economic indicators with **as much historical coverage as the source 
 | `energy/state_acs_arr_gap_inr_per_kwh` | energy | FY17–FY26 (10y) per state | NITI Aayog ICED (← PFC) | `iced_state_wise` | Negative = surplus. |
 | `economy/state_gdp_constant_2011_12_inr_lakh_crore` | economy | FY16–FY25 (10y) per state | NITI Aayog ICED (← MoSPI) | `iced_state_wise` | New `economy` topic. |
 | `economy/state_gdp_current_inr_lakh_crore` | economy | FY16–FY25 (10y) per state | NITI Aayog ICED (← MoSPI) | `iced_state_wise` | |
-| `economy/state_sectoral_gva_constant_2011_12_inr_lakh_crore` | economy | FY16–FY25 (10y) per state | NITI Aayog ICED (← MoSPI) | `iced_state_wise` | |
-| `economy/state_sectoral_gva_current_inr_lakh_crore` | economy | FY16–FY25 (10y) per state | NITI Aayog ICED (← MoSPI) | `iced_state_wise` | |
+| `economy/sectoral_gva_inr_crore` | economy | FY16–FY25 (10y) per state, faceted current + constant | NITI Aayog ICED (← MoSPI) | `iced_state_wise` | Unit converted from publisher Lakh Crore → crore (× 1e5). |
 | `demography/state_population_lakhs` | demography | FY16–FY26 (11y) per state | NITI Aayog ICED (← MoSPI inter-censal) | `iced_state_wise` | New `demography` topic. Inter-censal estimates pending next Census. |
 | `economy/national_macro_aggregates_constant_2011_12_inr_crore` | economy | FY12–FY26 (15y, all-India annual) | MoSPI NAS consolidated annual + quarterly CSV via data.gov.in | [`ingest_merged_aq`](../../tools/ingest_merged_aq.py) | [sources-mospi-national-accounts.md](../architecture/backend/sources-mospi-national-accounts.md). Constant-price 2011-12; latest-final revision stamped per row. |
 | `economy/national_gva_by_industry_constant_2011_12_inr_crore` | economy | FY12–FY26 (15y, all-India annual by industry) | MoSPI NAS consolidated annual + quarterly CSV via data.gov.in | `ingest_merged_aq` | Broad industry tier only; subindustry rows deferred. |

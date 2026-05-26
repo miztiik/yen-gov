@@ -53,21 +53,20 @@
 
 datasets/indicators/in/demography/state_population_lakhs.json
 datasets/indicators/in/economy/gdp_inr_crore.json
+datasets/indicators/in/economy/iip_index.json
 datasets/indicators/in/economy/india_external_balance_inr_crore.json
 datasets/indicators/in/economy/india_gva_by_industry_constant_inr_crore.json
-datasets/indicators/in/economy/iip_index.json
 datasets/indicators/in/economy/national_gva_by_industry_constant_2011_12_inr_crore.json
 datasets/indicators/in/economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore.json
 datasets/indicators/in/economy/national_macro_aggregates_constant_2011_12_inr_crore.json
 datasets/indicators/in/economy/nsdp_inr_crore.json
 datasets/indicators/in/economy/per_capita_nsdp_constant_inr.json
 datasets/indicators/in/economy/per_capita_nsdp_current_inr.json
+datasets/indicators/in/economy/sectoral_gva_inr_crore.json
 datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json
 datasets/indicators/in/economy/state_gdp_current_inr_lakh_crore.json
 datasets/indicators/in/economy/state_gdp_inr_crore.json
 datasets/indicators/in/economy/state_per_capita_consumption_inr.json
-datasets/indicators/in/economy/state_sectoral_gva_constant_2011_12_inr_lakh_crore.json
-datasets/indicators/in/economy/state_sectoral_gva_current_inr_lakh_crore.json
 datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json
 datasets/indicators/in/environment/india_ghg_emissions_mtco2e_by_sector.json
 datasets/indicators/in/environment/state_no2_annual_mean_ug_m3.json
