@@ -134,10 +134,22 @@ def test_reports_each_distinct_proliferation_cluster(tmp_path):
     assert "coal-mw-absolute" in msgs and "gas-mw-absolute" in msgs
 
 
-def test_check_is_dark_not_chained_into_run():
-    """PR-Z3b-tail3 ships the check DARK -- NOT in run(). Enforced post-tail."""
+def test_check_is_chained_live_into_run():
+    """PR-Z3bconceptliveflip chains the check LIVE in run()."""
     from yen_gov import validate as v
 
     src = Path(v.__file__).read_text(encoding="utf-8")
     assert "tier_b_one_indicator_per_concept" in src  # function present
-    assert "+ tier_b_one_indicator_per_concept" not in src  # not chained
+    assert "+ tier_b_one_indicator_per_concept" in src  # chained live
+
+
+def test_passes_against_repo_indicators_catalogue():
+    """All 7 proliferation clusters resolved -- real catalogue must pass."""
+    from yen_gov import validate as v
+
+    repo_root = Path(v.__file__).resolve().parents[2]
+    failures = tier_b_one_indicator_per_concept(repo_root)
+    assert failures == [], (
+        "Real repo catalogue must have 0 proliferation clusters; "
+        f"got {len(failures)}: " + "; ".join(f.message for f in failures[:3])
+    )
