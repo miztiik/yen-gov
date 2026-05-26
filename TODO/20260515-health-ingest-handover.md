@@ -1,5 +1,7 @@
 # Handoff - state health sources and ingest plan
 
+**Status (2026-05-26)**: SUPERSEDED — the 6 legacy `health/*` shards described below were retired in PR-D6 (grain-rip plan §D6). The RBI Statement 27 ingest path was removed from `backend/yen_gov/sources/rbi_xlsx/` and `backend/yen_gov/cli.py`. This handoff is retained as architectural reference for the future canonical health adapter (SRS resumption + NHM dashboard + Ayushman Bharat).
+
 **For**: the next agent picking up state-level health ingest.
 **From**: agent that mapped the RBI and CBHI source landscape on 2026-05-15.
 **Read first**: [CLAUDE.md](../CLAUDE.md), [docs/architecture/backend/sources-health.md](../docs/architecture/backend/sources-health.md), [docs/reference/data-coverage-report.md](../docs/reference/data-coverage-report.md).

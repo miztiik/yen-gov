@@ -21,8 +21,8 @@ This ledger is the contract for Phase 1.8 deletion. Empty `target_phase` or unre
 | Family | Count | Source |
 | --- | --- | --- |
 | Elections (election_id directories) | 27 | `datasets/elections/AcGen*/` |
-| Indicators (per-shard JSON) | 105 | `datasets/indicators/in/<topic>/*.json` |
-| **Total ledger rows** | **132** | |
+| Indicators (per-shard JSON) | 99 | `datasets/indicators/in/<topic>/*.json` |
+| **Total ledger rows** | **126** | |
 
 Topic breakdown of the 105 indicators: demography 1, economy 20, energy 41, environment 8, fiscal 22, health 6, prices 7.
 
