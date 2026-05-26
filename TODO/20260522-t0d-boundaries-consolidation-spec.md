@@ -64,6 +64,8 @@ PMTiles siblings (when a layer trips the 10 MB cutover from ADR-0031 §"Format s
 
 **Max (OWID precedent)**: GADM uses level-keyed split (`gadm41_IND_0.json` country, `_1.json` states, `_2.json` districts, `_3.json` subdistricts) — same level-spine. Natural Earth uses scale-keyed split (`ne_10m_admin_1_states`). OWID grapher fetches per-country shapefile at `countries.geojson` (single file with all features). None of those scale to per-village granularity; **GADM stops at level 3 (subdistrict)** because the next level explodes — vindicating both the Hive partition decision and the per-state shard for villages.
 
+> Note (2026-05-26): GADM is cited here only as topology precedent. yen-gov does **not** adopt GADM as a data source; rejection rationale (disputed-territory polygons, NC-only license, HASC vs LGD keys, staleness) lives in [docs/concepts/boundary-data-philosophy.md section "GADM rejection rationale"](../docs/concepts/boundary-data-philosophy.md#gadm-rejection-rationale).
+
 ### Rejected alternatives
 
 | # | Rejected | Reason |
@@ -182,7 +184,7 @@ Correction Level: **4** (cross-cutting structural + behavioural; touches schemas
 
 | Risk | Severity | Mitigation |
 | --- | --- | --- |
-| **Directory-layout wrong** (we move 73 files, then realise the verdict is wrong) | HIGH | Get §1 user-approved BEFORE staging. Reversal is another rename PR + frontend rewrite + parquet rewrite — not catastrophic but expensive. The user's "Hive like elections" mandate plus GADM precedent give high confidence. |
+| **Directory-layout wrong** (we move 73 files, then realise the verdict is wrong) | HIGH | Get §1 user-approved BEFORE staging. Reversal is another rename PR + frontend rewrite + parquet rewrite — not catastrophic but expensive. The user's "Hive like elections" mandate plus GADM topology precedent (level-keyed split, see [philosophy doc](../docs/concepts/boundary-data-philosophy.md#gadm-rejection-rationale) for why we still don't adopt GADM as a source) give high confidence. |
 | **Future agent re-adds a per-file `.sources.json` under `boundaries/`** because §12 says every artifact needs provenance | MEDIUM | Four-fence defence: (a) Tier-B validator fails closed per item #17; (b) snapshot.py docstring carries a NEVER comment; (c) ADR-0031 amendment lists it as Rejected B9; (d) CLAUDE.md §10 gets one new anti-pattern bullet citing the amendment. PR1 (2026-05-22) precedent shows this pattern works. |
 | **Migration corrupts on-disk geometry** | LOW | `git mv` preserves bytes verbatim; SHA256-equality dance per the G.1.b lesson (2026-05-22) — snapshot all 73 geometry files SHA before migration, re-verify after. |
 | **§13 browser-smoke gap** — repointed paths might 404 if any reference is missed | MEDIUM | Greppable contract: search frontend for the literal string `boundaries/in/geojson/` (currently 16+ matches) and migrate every one. Verify with §13 browser smoke on all 5 representative map routes (TN AC, Kerala AC, India states, TN villages, TN subdistricts). |
