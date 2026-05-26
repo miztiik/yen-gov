@@ -1,10 +1,13 @@
 """Mechanical bump of every indicator artifact's `$schema_version` to the schema's current `x-version`.
 
 Reads `datasets/schemas/indicator.schema.json` for the target version,
-walks `datasets/indicators/in/**/*.json` (skipping `*.notes.json`
-sidecars), and rewrites any artifact whose `$schema_version != target`
-with the bumped value. Order of keys is preserved; nothing else in
-the file is touched.
+walks `datasets/**/*.json` (skipping `*.notes.json` sidecars and any
+file whose `$schema` URL does not point at `indicator.schema.json`),
+and rewrites any artifact whose `$schema_version != target` with the
+bumped value. Order of keys is preserved; nothing else in the file is
+touched. v5.0 broadened the walk root from `datasets/indicators/in/**`
+to `datasets/**` so artifacts under `datasets/<family>/_meadow/**`
+(per ADR-0041) are bumped in the same pass.
 
 The bump is required after any schema version change because the
 strict `$schema_version == x-version` invariant in
@@ -34,7 +37,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = REPO_ROOT / "datasets" / "schemas" / "indicator.schema.json"
-INDICATORS_ROOT = REPO_ROOT / "datasets" / "indicators" / "in"
+INDICATORS_ROOT = REPO_ROOT / "datasets"
 
 
 def _target_version() -> str:
@@ -50,6 +53,9 @@ def _bump_one(path: Path, target: str, *, write: bool) -> str:
         return f"skipped:parse-error({exc})"
     if not isinstance(doc, dict):
         return "skipped:not-a-dict"
+    schema_url = doc.get("$schema", "")
+    if "indicator.schema.json" not in str(schema_url):
+        return "skipped:not-indicator-schema"
     if "$schema_version" not in doc:
         return "skipped:no-schema-version"
     if doc["$schema_version"] == target:

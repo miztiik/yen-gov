@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/indicator.schema.json",
   "title": "Indicator (long-form fact table)",
   "description": "A single socio-economic, demographic, infrastructure, or fiscal indicator stored as long-form rows: (entity_kind, entity_id, time, value, unit, ...). Joined to geometry at view time via the existing identifier conventions (ECI state codes, LGD district codes). Indicators carry semantic hints (`value_kind`, `direction`) so the frontend's generic chart components can render them without per-indicator code.",
-  "x-version": "4.4",
+  "x-version": "5.0",
   "x-changelog": [
     {
       "version": "1.0",
@@ -73,6 +73,11 @@
       "version": "4.4",
       "date": "2026-05-19",
       "description": "Additive (Phase 1 row 1.10, PR-T proto-ontology bootstrap — Hans + Max + Jony 2026-05-18; Q1/Q2/Q3 amendments Hans + Max 2026-05-19): 8 new optional fields on the `indicator` block that establish the OWID-floor grounding metadata Phase 4 SLM will consume. (a) `description_short` (≤280 chars, citizen-readable, Plain-Facts style — used by chart wrapper as legend caption; NULL-able at schema layer per OWID `MetadataValidator` precedent; enforcement lives at the per-family PR-template gate, not at the schema layer). (b) `description_long` (multi-para markdown methodology — numerator / denominator / scope / known breaks; distinct from `description` and `methodology.definition`). (c) `short_unit` (tight glyph form of `unit` for chart Y-axis, e.g. `%` for unit=`percent`, `₹cr` for unit=`INR crore`; fallback to full `unit` when absent). (d) `derivation_note` (one sentence naming numerator + denominator when this indicator is itself derived from raw upstream indicators). (e) `source_ref[]` (catalogue-level FK array into `taxonomy/sources.parquet` per CLAUDE.md §12; distinct from per-observation `source_id` which is unchanged). (f) `valid_period_grain` enum (`year`/`fiscal_year`/`election_date` — semantic publisher-intent grain; distinct from `time_grain` which is stamp resolution and `cadence` which is release rhythm; used by Phase 4 SLM to refuse cross-grain comparisons). (g) `valid_entity_grain` enum (`country`/`state`/`district`/`ac`/`pc` — methodologically-valid level; PLFS state-level indicators declare `state` so SLM refuses roll-up to country / drill-down to district). (h) `is_input_output_outcome` enum (`input`/`output`/`outcome` — governance pyramid classification; disambiguates MGNREGA-disbursed vs rural-wage-real). All 8 fields OPTIONAL — existing 110 v4.3 artifacts remain valid. Backfill in same PR: hand-author `description_short` on top-30 citizen-facing indicators (Hans owns wording); mechanical `short_unit` on numeric indicators; tail of ~80 backstage indicators backfill per-family during Phase 2/3 as adapter author is reading methodology. NO auto-stub mechanism for `description_short` — tautological stubs like `{title} ({unit})` look authoritative on a chart legend but are factually empty and poison downstream LLM grounding (forbidden per CLAUDE.md §5 + Rosling Single-perspective instinct). Per-family PR-template gate: every NEW indicator artifact authored in a per-family PR MUST populate `description_short`. The paired TypeScript widening of `IndicatorMeta` in `frontend/src/lib/indicators.ts` lands in the same Tier-A commit per /memories/lessons.md 2026-05-17 #1. Citizen surface (Jony, same PR): chart wrapper reads `indicator.short_unit` for Y-axis label and `indicator.description_short` for one-line legend caption (both visible at page load, NOT behind tooltip/expander/modal); fallback chain is `short_unit → unit` and `description_short → title`. Explicitly out of scope for v4.4: RDF/JSON-LD, SKOS, embedding vectors, `synonyms[]`, `related_indicators[]` (kept for back-compat on `methodology.related_indicators` only — no NEW occurrences anywhere), separate concepts file, methodology modals/drawers. See `TODO/20260517-canonical-long-format-pivot.md` row 1.10 for full rationale and rejected alternatives (Q1: `lifespan: {from,to}` rejected — OWID uses flat ints and yen-gov already has `entity_valid_from/to`; Q2: party-schema `_of` → `_party_id` rename ships in companion commit; Q3: `description_short` stays optional, not required, per OWID grapher precedent)."
+    },
+    {
+      "version": "5.0",
+      "date": "2026-05-26",
+      "description": "MAJOR per CLAUDE.md §11 (semantic shift). Three additive grounding fields on `indicator` block to unblock cross-grain collapse rows (TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §2 PR-B0): (a) `entity_kinds[]` optional array of the same 7-member enum as `entity_kind` — declares the FULL set of grains the indicator may carry on its `rows[]`. Migration window: BOTH the legacy singular `entity_kind` (required) and the new plural `entity_kinds[]` (optional) accepted simultaneously; the singular form stays load-bearing for v4.4 readers and for single-grain artifacts. Cross-grain shards (e.g. country + state under one id) MUST populate `entity_kinds[]` and set the singular `entity_kind` to whichever grain is dominant in the row set. (b) `base_year` optional string `^\\d{4}(-\\d{2})?$` — declares the constant-prices base year for index / constant-currency series so the base year no longer needs to encode into the indicator id (per ADR-0044 Rosling rule, kill base-year prefixes on ids; carry the rebase as a `methodology_breaks` row instead). (c) `frequency` optional enum mirroring `cadence` — semantic per-row release rhythm distinct from `cadence` (publisher-level) and `time_grain` (stamp resolution); reserved for the row-faceted frequency axis used by row-9 / rows 14-25 collapse rows where annual+quarterly share an id. Plus structural change: removed `additionalProperties: false` on the `indicator` block — for the migration window we allow per-family adapter blocks to ship extra optional metadata without a schema bump per family. The Tier-A schema test continues to reject typos in known fields via explicit shape assertions, not via additionalProperties. All v4.4 artifacts remain valid; all 56 artifacts are mechanically bumped to `$schema_version: 5.0` via `tools/bump_indicator_schema_to_current.py` in the same commit (no content change beyond the version stamp). Manifest.json regenerated in same commit because every artifact's content hash changed via the version bump."
     }
   ],
   "type": "object",
@@ -137,7 +142,6 @@
       "type": "object",
       "description": "Identity and rendering metadata for the indicator. The four hint fields (value_kind, direction, scale_hint, unit) drive the generic chart components — every indicator is renderable without per-indicator UI code (D1, design-system principle).",
       "required": ["id", "title", "entity_kind", "time_grain", "value_kind", "direction", "unit"],
-      "additionalProperties": false,
       "properties": {
         "id": {
           "type": "string",
@@ -155,7 +159,35 @@
         },
         "entity_kind": {
           "enum": ["country", "state", "district", "subdistrict", "constituency", "city", "ward"],
-          "description": "What the indicator is measured per. Joins to the matching identifier convention (ECI state, LGD district, etc.)."
+          "description": "What the indicator is measured per. Joins to the matching identifier convention (ECI state, LGD district, etc.). v5.0 migration-window note: when an indicator carries rows of more than one grain (cross-grain shard), set `entity_kind` to the dominant grain and populate the new `entity_kinds[]` array with the full set; readers still on v4.x see a sensible singular value."
+        },
+        "entity_kinds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["country", "state", "district", "subdistrict", "constituency", "city", "ward"]
+          },
+          "description": "Optional (v5.0+). Full set of grains carried on this indicator's `rows[]`. For single-grain shards this is redundant with the singular `entity_kind` and may be omitted. For cross-grain shards (e.g. country + state under one canonical id, per ADR-0044 grain-over-entity), this MUST list every grain present in the row set so downstream readers can dispatch per-row by `entity_kind` instead of relying on the indicator-level singular."
+        },
+        "base_year": {
+          "type": "string",
+          "pattern": "^\\d{4}(-\\d{2})?$",
+          "description": "Optional (v5.0+). Base year for constant-prices / index-level series (e.g. `2011-12` for NSDP at constant prices base 2011-12). Per ADR-0044 Rosling rule: do NOT encode the base year as a prefix or suffix on the indicator id; carry it here, and surface base-year rebases as `methodology_breaks` rows. Distinct from `denominator.base_year` (which is the base year of the DENOMINATOR series for a ratio indicator)."
+        },
+        "frequency": {
+          "enum": [
+            "annual_cy",
+            "annual_fy",
+            "quarterly_cy",
+            "quarterly_fy",
+            "monthly",
+            "weekly",
+            "daily",
+            "decennial",
+            "ad_hoc"
+          ],
+          "description": "Optional (v5.0+). Semantic per-row release frequency, mirroring the `cadence` enum. Reserved for shards that fold multiple release rhythms under one id (e.g. annual + quarterly GDP under `economy/gdp_inr_crore`); when present, each `rows[]` entry carries a `frequency` facet matching one of these values. For single-frequency shards `cadence` alone suffices."
         },
         "time_grain": {
           "enum": ["year", "fiscal_year", "quarter", "month", "date"],
