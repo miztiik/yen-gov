@@ -61,9 +61,9 @@ __all__ = [
 ]
 
 
-# Operator nicknames for the 19 energy sources (7 P.1.A + 5 P.1.B + 1 P.1.C
+# Operator nicknames for the 20 energy sources (7 P.1.A + 5 P.1.B + 1 P.1.C
 # PR-Q + 1 P.1.C PR-R + 1 P.1.C PR-S + 1 P.1.C PR-T + 1 P.1.C PR-U + 1 P.1.C
-# PR-V + 1 P.1.C PR-W).
+# PR-V + 1 P.1.C PR-W + 1 P.1.C PR-X).
 # Adapters look up the materialised source_id by nickname rather than
 # rebuilding the triple-hash each time.
 SOURCE_NICKNAMES: tuple[str, ...] = (
@@ -159,6 +159,14 @@ SOURCE_NICKNAMES: tuple[str, ...] = (
     # is a demand-side metric). Originating data: PFC / Ministry of
     # Power; republished via NITI Aayog ICED dashboard.
     "iced_power_purchase_share",
+    # P.1.C PR-X (1) - National final energy consumption by sector x fuel.
+    # Fifth Pattern A-facet in P.1.C cohort; introduces NEW
+    # `sector_fuel_pair` facet axis with 18 publisher (sector | fuel)
+    # pairs collapsed to kebab indicator-id suffixes (agriculture-oil,
+    # transport-electricity, ...). National-only IN entity, FY05-FY24.
+    # Originating data: MoSPI Energy Statistics India; republished via
+    # NITI Aayog ICED dashboard.
+    "iced_final_energy_consumption",
 )
 
 
@@ -271,6 +279,12 @@ _TRIPLES: dict[str, tuple[str, str, str]] = {
     "iced_power_purchase_share": (
         "NITI Aayog India Climate & Energy Dashboard",
         "State Power Purchase Quantum and Cost API (state-wise procurement-mix share by source, fiscal-year, 12 source buckets)",
+        "2024-25",
+    ),
+    # --- P.1.C PR-X (1) ------------------------------------------------
+    "iced_final_energy_consumption": (
+        "NITI Aayog India Climate & Energy Dashboard",
+        "Final Energy Consumption National API (national fiscal-year final-energy consumption by sector x fuel composite, mtoe)",
         "2024-25",
     ),
 }
@@ -452,6 +466,15 @@ _BY_NICKNAME: dict[str, tuple[str, str, str, bool, str, str | None]] = {
         False,
         "https://icedapi.niti.gov.in/statelevel-power-purchase-quantum-and-cost",
         "ICED statelevel-power-purchase-quantum-and-cost endpoint: state-wise procurement-mix share by source (12 publisher buckets: bio-power / coal / diesel / hybrid-bundled / hydro / nuclear / oil-gas / other-res / small-hydro / solar / trading-and-others / wind; FY16-FY25). Values are percentages summing to ~100 per (state, FY). Originating data: PFC / Ministry of Power. ICED is the federal aggregator; not the issuing authority (plan-doc §3 Q-d). Fourth Pattern A-facet in P.1.C cohort -- 10 buckets map 1:1 to existing fuel_type axis values; 2 (hybrid-bundled + trading-and-others) require NEW canonical axis values (hybrid_bundled + trading_other). NO sub-fuel collapse (% values cannot be summed across fuels).",
+    ),
+    # --- P.1.C PR-X (1) ------------------------------------------------
+    "iced_final_energy_consumption": (
+        "OGL-IN-1.0",
+        "silver",
+        "live-fetch",
+        False,
+        "https://icedapi.niti.gov.in/analytics/state-wise-deep-dive",
+        "ICED state-wise-deep-dive endpoint, final-energy-consumption national series: annual sectoral final-energy demand for India by (sector x fuel) composite (18 publisher pairs: agriculture / commercial / industry / non-energy / residential / transport / other / cgd-and-others x electricity / gas / oil / coal; FY05-FY24, mtoe). Originating data: MoSPI Energy Statistics India. ICED is the federal aggregator (plan-doc §3 Q-d). National-only -- per-state final-energy-consumption is NOT published by ICED. Fifth Pattern A-facet in P.1.C cohort, on the NEW `sector_fuel_pair` axis (introduced this PR). Compound suffix `{sector}-{fuel}` because the canonical-5 fuel_type axis cannot encode both dimensions in one indicator_id.",
     ),
 }
 

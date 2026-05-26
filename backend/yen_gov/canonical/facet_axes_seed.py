@@ -664,6 +664,45 @@ FACET_AXES: list[FacetAxis] = [
             ),
         ],
     ),
+    FacetAxis(
+        axis_id="sector_fuel_pair",
+        label="Sector and fuel pair",
+        description=(
+            "Compound (sector x fuel) axis for the national final-energy "
+            "consumption indicator (PR-W). Each value_id encodes a publisher "
+            "(sector | fuel) pair as kebab `{sector}-{fuel}` -- e.g. "
+            "`agriculture-oil`, `transport-electricity`. The publisher emits "
+            "exactly 18 sparse pairs out of the 6 sectors x 5 fuels Cartesian "
+            "product (many cells are structurally zero, e.g. residential coal "
+            "is rare; non-energy electricity is undefined). Used by "
+            "`india-final-energy-consumption-mtoe`. NOT a substitute for the "
+            "scalar `sector` + `fuel_type` axes -- it exists because the "
+            "publisher does not emit per-axis aggregates and the canonical "
+            "lift cannot fabricate them honestly without re-deriving the "
+            "MoSPI Energy Statistics methodology."
+        ),
+        allow_compute_on_read_total=True,
+        values=[
+            FacetAxisValue(value_id="agriculture-electricity", label="Agriculture (electricity)"),
+            FacetAxisValue(value_id="agriculture-gas",         label="Agriculture (gas)"),
+            FacetAxisValue(value_id="agriculture-oil",         label="Agriculture (oil)"),
+            FacetAxisValue(value_id="cgd-and-others-gas",      label="City Gas Distribution and others (gas)"),
+            FacetAxisValue(value_id="commercial-electricity",  label="Commercial (electricity)"),
+            FacetAxisValue(value_id="commercial-oil",          label="Commercial (oil)"),
+            FacetAxisValue(value_id="industry-coal",           label="Industry (coal)"),
+            FacetAxisValue(value_id="industry-electricity",    label="Industry (electricity)"),
+            FacetAxisValue(value_id="industry-gas",            label="Industry (gas)"),
+            FacetAxisValue(value_id="industry-oil",            label="Industry (oil)"),
+            FacetAxisValue(value_id="non-energy-gas",          label="Non-energy use (gas, e.g. fertiliser feedstock)"),
+            FacetAxisValue(value_id="non-energy-oil",          label="Non-energy use (oil, e.g. petrochemical feedstock)"),
+            FacetAxisValue(value_id="other-electricity",       label="Other (electricity)"),
+            FacetAxisValue(value_id="other-oil",               label="Other (oil)"),
+            FacetAxisValue(value_id="residential-electricity", label="Residential (electricity)"),
+            FacetAxisValue(value_id="residential-oil",         label="Residential (oil, mostly LPG-equivalent)"),
+            FacetAxisValue(value_id="transport-electricity",   label="Transport (electricity)"),
+            FacetAxisValue(value_id="transport-oil",           label="Transport (oil)"),
+        ],
+    ),
 ]
 
 

@@ -52,7 +52,7 @@ def test_all_value_ids_unique_within_each_axis() -> None:
 
 
 def test_expected_axes_present() -> None:
-    """Hard-coded snapshot of the 18 axes shipping at PR-T (Row 6 / P.1.C).
+    """Hard-coded snapshot of the 19 axes shipping at PR-X (Row 6 / P.1.C 8/9).
 
     Bumping this list is intentional friction - adding a new axis means
     updating this assertion AND the migration ledger AND the indicator-
@@ -81,6 +81,9 @@ def test_expected_axes_present() -> None:
         "landholding",
         # P.1.C PR-T (Row 6 / 4/9) - ICED state oil-product-consumption lift.
         "oil_product",
+        # P.1.C PR-X (Row 6 / 8/9) - ICED national final-energy-consumption
+        # by sector x fuel composite lift (NEW compound axis).
+        "sector_fuel_pair",
     }
     actual = {axis.axis_id for axis in FACET_AXES}
     assert actual == expected

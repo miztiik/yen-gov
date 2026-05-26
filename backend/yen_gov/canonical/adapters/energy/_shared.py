@@ -147,6 +147,18 @@ SOURCE_IDS: dict[str, str] = {
     # children each own per-state per-FY rows for one source. Lifts
     # onto the EXISTING ``energy_demand_supply`` table stem.
     "iced_power_purchase_share":         "src-1401f8087b0d",
+    # P.1.C PR-X (national final-energy consumption by sector x fuel,
+    # 2026-05-26). Derived via derive_source_id("NITI Aayog India
+    # Climate & Energy Dashboard", "Final Energy Consumption National
+    # API (national fiscal-year final-energy consumption by sector x
+    # fuel composite, mtoe)", "2024-25"). Fifth Pattern A-facet in P.1.C
+    # cohort. Introduces NEW `sector_fuel_pair` facet axis with 18
+    # publisher (sector | fuel) pairs collapsed to kebab indicator-id
+    # suffixes (publisher 'agriculture | oil' -> canonical pair-id
+    # 'agriculture-oil'). National-only IN entity, FY05-FY24. Lifts
+    # onto the EXISTING ``energy_demand_supply`` table stem (final
+    # consumption is the consumer-side counterpart of primary supply).
+    "iced_final_energy_consumption":     "src-29ecbb6dce9d",
 }
 
 
