@@ -636,6 +636,16 @@ def lift_energy(
             "log UNCHANGED|CHANGED per planned file, write nothing to disk."
         ),
     ),
+    table: list[str] = typer.Option(
+        [],
+        "--table",
+        "-t",
+        help=(
+            "PR-A4: Restrict to one or more target_table_stem values "
+            "(repeatable). Unknown stems exit non-zero. Default (no flag) "
+            "runs all 5 energy envelopes."
+        ),
+    ),
 ) -> None:
     """Lift meadow-tier energy JSON shards to canonical fact-table Parquets.
 
@@ -666,8 +676,13 @@ def lift_energy(
         raise typer.BadParameter(
             f"datasets/ not found under {root.as_posix()!r}"
         )
+    only = set(table) if table else None
     total_obs = 0
-    for env in build_envelopes(root):
+    try:
+        envs = build_envelopes(root, only=only)
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    for env in envs:
         result = write_batch(env, datasets_root, dry_run=dry_run)
         typer.echo(
             f"lift-energy{' [dry-run]' if dry_run else ''}: {env.target_table_stem}: "
@@ -697,6 +712,16 @@ def lift_livestock(
             "log UNCHANGED|CHANGED per planned file, write nothing to disk."
         ),
     ),
+    table: list[str] = typer.Option(
+        [],
+        "--table",
+        "-t",
+        help=(
+            "PR-A4: Restrict to one or more target_table_stem values "
+            "(repeatable). Unknown stems exit non-zero. Default (no flag) "
+            "runs all livestock envelopes."
+        ),
+    ),
 ) -> None:
     """Lift NDLM meadow-tier livestock JSON shards to canonical fact-table Parquets.
 
@@ -724,8 +749,13 @@ def lift_livestock(
         raise typer.BadParameter(
             f"datasets/ not found under {root.as_posix()!r}"
         )
+    only = set(table) if table else None
     total_obs = 0
-    for env in build_envelopes(root):
+    try:
+        envs = build_envelopes(root, only=only)
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    for env in envs:
         result = write_batch(env, datasets_root, dry_run=dry_run)
         typer.echo(
             f"lift-livestock{' [dry-run]' if dry_run else ''}: {env.target_table_stem}: "

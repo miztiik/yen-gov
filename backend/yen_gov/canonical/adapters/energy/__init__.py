@@ -58,7 +58,22 @@ from .generation import build_envelope as _build_generation
 from .installed_capacity import build_envelope as _build_installed_capacity
 
 
-def build_envelopes(repo_root: Path) -> list[BatchEnvelope]:
+#: Canonical write-order stems (alphabetical-by-stem; matches manifest).
+#: Single source of truth for ``--table`` CLI validation (PR-A4).
+KNOWN_TARGET_TABLE_STEMS: frozenset[str] = frozenset({
+    "energy_demand_supply",
+    "energy_distribution_performance",
+    "energy_fuel_consumption",
+    "energy_generation",
+    "energy_installed_capacity",
+})
+
+
+def build_envelopes(
+    repo_root: Path,
+    *,
+    only: set[str] | None = None,
+) -> list[BatchEnvelope]:
     """Build the 5 P.1.A+B+C envelopes in canonical write-order.
 
     Write-order is alphabetical-by-stem (matches manifest enumeration
@@ -68,11 +83,28 @@ def build_envelopes(repo_root: Path) -> list[BatchEnvelope]:
     The 5th stem ``energy_fuel_consumption`` is now populated by P.1.C
     PR-Q (state-coal-consumption-mt); the docstring promise from P.1.A is
     fulfilled.
+
+    ``only`` (PR-A4): when provided, restrict the returned envelope list
+    to those whose ``target_table_stem`` is in the set. Unknown stems
+    raise ``ValueError`` BEFORE any meadow JSON is read (cheap fail-fast
+    for CLI typos).
     """
+    if only is not None:
+        unknown = sorted(only - KNOWN_TARGET_TABLE_STEMS)
+        if unknown:
+            raise ValueError(
+                f"unknown energy table stem(s): {unknown!r}; "
+                f"known: {sorted(KNOWN_TARGET_TABLE_STEMS)!r}"
+            )
+    builders = [
+        ("energy_demand_supply", _build_demand_supply),
+        ("energy_distribution_performance", _build_distribution),
+        ("energy_fuel_consumption", _build_fuel_consumption),
+        ("energy_generation", _build_generation),
+        ("energy_installed_capacity", _build_installed_capacity),
+    ]
     return [
-        _build_demand_supply(repo_root),
-        _build_distribution(repo_root),
-        _build_fuel_consumption(repo_root),
-        _build_generation(repo_root),
-        _build_installed_capacity(repo_root),
+        builder(repo_root)
+        for stem, builder in builders
+        if only is None or stem in only
     ]
