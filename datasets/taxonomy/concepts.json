@@ -569,10 +569,42 @@
       "unit_canonical": "MW",
       "normalisation": "absolute",
       "entity_kinds": [
-        "country",
+        "country"
+      ],
+      "description_short": "Natural-gas and liquid-fuel thermal capacity (country-grain CEA snapshot). Stranded-fuel risk; small share nationally. State-grain attribution variants live under gas-mw-{geographical,allocated,snapshot}.",
+      "sources": []
+    },
+    {
+      "concept_id": "gas-mw-geographical",
+      "noun": "Gas (geographically sited)",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
         "state"
       ],
-      "description_short": "Natural-gas and liquid-fuel thermal capacity. Stranded-fuel risk; small share.",
+      "description_short": "State-grain gas-fired capacity physically SITED in the state regardless of who consumes the power. Distinct measure from allocated beneficiary share.",
+      "sources": []
+    },
+    {
+      "concept_id": "gas-mw-allocated",
+      "noun": "Gas (allocated to state)",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State-grain BENEFICIARY share of gas-fired capacity (ISGS/PSU contractual allocation). A Hazira plant sited in Gujarat may be allocated to multiple states by quota. Distinct measure from geographical siting.",
+      "sources": []
+    },
+    {
+      "concept_id": "gas-mw-snapshot",
+      "noun": "Gas (state CEA snapshot)",
+      "unit_canonical": "MW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "state"
+      ],
+      "description_short": "State-grain CEA Monthly Executive Summary end-of-month snapshot of gas capacity. Distinct publisher and cadence from the fiscal-year-end -allocated- series.",
       "sources": []
     },
     {
