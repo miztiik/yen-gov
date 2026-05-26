@@ -1,10 +1,15 @@
-"""ICED socio-economic adapter — fetch + emit three indicator artifacts.
+"""ICED socio-economic adapter — fetch + emit two indicator artifacts.
 
 Per Hans (Governance) triage 2026-05-14:
 
 * ``economy/state_per_capita_consumption_inr``             — Priority 3
-* ``demography/state_population_by_sex_count``             — Priority 5
 * ``environment/india_ghg_emissions_mtco2e_by_sector``     — Priority 6
+
+The sex-faceted population shard (Hans Priority 5 —
+``demography/state_population_by_sex_count``) was retired in PR-D4
+— Census 2011 was the last completed enumeration and the 2021 round
+was postponed; six decennial points was a position not a trajectory and
+no canonical successor is planned.
 
 The HDI indicator (Hans Priority 2 — ``human_development/state_hdi``) was
 retired in PR-D3 — ICED publishes only two snapshot years (2011-12 and
@@ -37,7 +42,6 @@ from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
 from yen_gov.sources.iced_common import IcedClient
 
 from .parsers import (
-    parse_demography_by_sex,
     parse_ghg_economy_wide,
     parse_per_capita_consumption,
 )
@@ -146,56 +150,6 @@ def _per_capita_consumption_meta() -> _IndicatorBuild:
     )
 
 
-def _population_by_sex_meta() -> _IndicatorBuild:
-    return _IndicatorBuild(
-        out_topic="demography",
-        out_leaf="state_population_by_sex_count",
-        indicator={
-            "id": "demography/state_population_by_sex_count",
-            "title": "State population by sex, decennial Census (number of people)",
-            "description": (
-                "State-level resident population at each decennial Census, "
-                "faceted into Male and Female. Six Census points 1961, 1971, "
-                "1981, 1991, 2001, 2011. India has not conducted a Census "
-                "since 2011, so the series stops there — no projected values "
-                "are mixed in. Lets the chart compute sex-ratio (females per "
-                "1000 males) downstream, one of the few governance outcomes "
-                "that is unambiguous, sub-national, and culturally diagnostic."
-            ),
-            "entity_kind": "state",
-            "time_grain": "year",
-            "value_kind": "count",
-            "direction": "neutral",
-            "scale_hint": "linear",
-            "unit": "people",
-            "icon": "users",
-            "attribution_geography": "where_resident",
-            "comparability": "comparable_across_states",
-            "implementing_authority": "centre",
-            "methodology_vintage": "Census of India (decennial enumeration)",
-            "chart_type": "stacked-trend",
-            "default_mode": "absolute",
-            "notes": (
-                "Decennial Census enumerations only — no inter- or post-censal "
-                "projections in this series. Census 2021 was postponed and has "
-                "not yet been conducted, so the most recent point is 2011 — over "
-                "a decade old. Pre-2014 Andhra Pradesh rows include the area now "
-                "in Telangana; pre-2019 J&K rows include Ladakh."
-            ),
-            "series_breaks": [
-                {"at_time": "2011", "kind": "frame_change",
-                 "note": "Last completed Census of India was 2011; Census 2021 was postponed."},
-            ],
-        },
-        coverage_spatial="India (states + UTs)",
-        coverage_admin_level="state",
-        api_path="/economy-demography/demography/demographyActual",
-        page_url="https://iced.niti.gov.in/economy-and-demography/demography",
-        source_name="ICED — Demography (NITI Aayog)",
-        builder=lambda d: parse_demography_by_sex(d)[0],
-    )
-
-
 def _ghg_economy_wide_meta() -> _IndicatorBuild:
     return _IndicatorBuild(
         out_topic="environment",
@@ -244,7 +198,6 @@ def _ghg_economy_wide_meta() -> _IndicatorBuild:
 def _all_builds() -> tuple[_IndicatorBuild, ...]:
     return (
         _per_capita_consumption_meta(),
-        _population_by_sex_meta(),
         _ghg_economy_wide_meta(),
     )
 

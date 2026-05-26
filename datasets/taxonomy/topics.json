@@ -345,23 +345,9 @@
           "default": true,
           "featured": true,
           "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "demography/state_population_by_sex_count",
-          "default": false,
-          "featured": true,
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "demography/state_population_by_residence_count",
-          "default": false,
-          "featured": false,
-          "scope": "state"
         }
       ],
-      "notes": "Two complementary population series. `state_population_lakhs` is the FY16-FY26 inter-censal projection used for per-capita normalisations on other indicators (denominator role). `state_population_by_sex_count` is the decennial Census enumeration (1961-2011) faceted by sex, useful for sex-ratio analysis and historical context. The most recent Census of India was 2011; the 2021 round was deferred. Topic is featured=false pending the next Census release; until then this is mostly the denominator for per-capita normalisations rather than a headline series."
+      "notes": "`state_population_lakhs` is the FY16-FY26 inter-censal projection used for per-capita normalisations on other indicators (denominator role). The decennial Census enumeration shards (`state_population_by_sex_count`, `state_population_by_residence_count`) were retired in PR-D4 — Census 2011 was the last completed enumeration and the 2021 round was postponed, so six decennial points was a position not a trajectory; no canonical successor is planned. Topic is featured=false pending the next Census release; until then this is mostly the denominator for per-capita normalisations rather than a headline series."
     },
     {
       "id": "environment",

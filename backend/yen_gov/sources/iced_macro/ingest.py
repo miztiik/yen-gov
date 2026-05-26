@@ -1,7 +1,7 @@
 """Orchestrator for the ICED macro adapter.
 
-Fetches three endpoints and emits four indicator artifacts under
-``datasets/indicators/in/`` (economy + demography).
+Fetches three endpoints and emits three indicator artifacts under
+``datasets/indicators/in/economy/``.
 """
 from __future__ import annotations
 
@@ -19,7 +19,6 @@ from .parsers import (
     parse_gdp_trend,
     parse_gva_trend_national_constant,
     parse_industrial_production,
-    parse_population_by_residence,
 )
 
 
@@ -188,44 +187,6 @@ def _indicator_iip() -> dict[str, Any]:
     }
 
 
-def _indicator_population_residence() -> dict[str, Any]:
-    return {
-        "id": "demography/state_population_by_residence_count",
-        "title": "Census population by state, faceted Rural / Urban",
-        "description": (
-            "Decennial census headcounts per state (and All-India), split "
-            "by residence: Rural vs Urban. Census years 1961, 1971, 1981, "
-            "1991, 2001, 2011 (the 2021 census has been postponed). Use as "
-            "the rural-urban share denominator and as a long-run "
-            "urbanisation-trend series."
-        ),
-        "entity_kind": "state",
-        "time_grain": "year",
-        "value_kind": "count",
-        "direction": "neutral",
-        "scale_hint": "linear",
-        "unit": "persons",
-        "icon": "users",
-        "attribution_geography": "where_resident",
-        "comparability": "comparable_with_normalisation",
-        "implementing_authority": "centre",
-        "methodology_vintage": (
-            "Registrar General & Census Commissioner of India — decennial "
-            "census, complete enumeration."
-        ),
-        "chart_type": "stacked-trend",
-        "default_mode": "absolute",
-        "notes": (
-            "Companion to the existing Male/Female-faceted "
-            "`state_population_by_sex_count`. Both come from the same census "
-            "operation and share the 1961-2011 coverage. State boundaries "
-            "shifted across the period (Andhra/Telangana 2014; J&K/Ladakh "
-            "2019; Chhattisgarh/Jharkhand/Uttarakhand 2000) — pre-bifurcation "
-            "rows reflect the older boundary and are tagged vintage='actual'."
-        ),
-    }
-
-
 def _indicator_india_gva_constant() -> dict[str, Any]:
     return {
         "id": "economy/india_gva_by_industry_constant_inr_crore",
@@ -389,18 +350,6 @@ def ingest_iced_macro(*, repo_root: Path, client: IcedClient | None = None) -> I
         sources=[Source(url=iip_resp.url, fetched_at=iip_resp.fetched_at)],
         out_rel="datasets/indicators/in/economy/iip_index.json",
         spatial="India (national)",
-    ))
-
-    # Census population by Rural/Urban
-    dem_resp = client.get("/economy-demography/demography/demographyActual")
-    pop_rows, pop_skipped = parse_population_by_residence(dem_resp.decrypted)
-    results.append(_emit(
-        repo_root=repo_root, schema_for_validation=schema_for_validation,
-        schema_id_str=sid, schema_version_str=sver,
-        indicator_meta=_indicator_population_residence(), rows=pop_rows,
-        sources=[Source(url=dem_resp.url, fetched_at=dem_resp.fetched_at)],
-        out_rel="datasets/indicators/in/demography/state_population_by_residence_count.json",
-        spatial="India (states + UTs)", skipped_unmapped=pop_skipped,
     ))
 
     # GVA national constant

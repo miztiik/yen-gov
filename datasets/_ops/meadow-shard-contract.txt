@@ -51,8 +51,6 @@
 # rename + header rewrite were ratified for 7c-4 then folded forward
 # into PR-A so subsequent PRs work against the renamed surface).
 
-datasets/indicators/in/demography/state_population_by_residence_count.json
-datasets/indicators/in/demography/state_population_by_sex_count.json
 datasets/indicators/in/demography/state_population_lakhs.json
 datasets/indicators/in/economy/india_external_balance_inr_crore.json
 datasets/indicators/in/economy/india_gdp_inr_crore.json

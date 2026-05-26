@@ -9,7 +9,6 @@ from yen_gov.sources.iced_macro.parsers import (
     parse_gdp_trend,
     parse_gva_trend_national_constant,
     parse_industrial_production,
-    parse_population_by_residence,
 )
 
 
@@ -96,37 +95,6 @@ def test_iip_dedup_last_write():
     rows = parse_industrial_production(decrypted)
     assert len(rows) == 1
     assert rows[0]["value"] == 200
-
-
-# ---------------------------------------------------------------------------
-# parse_population_by_residence
-# ---------------------------------------------------------------------------
-
-
-def test_population_residence_keeps_only_rural_urban():
-    decrypted = {"data": [
-        {"state": "Tamil Nadu", "category": "Rural", "year": 2011, "type": "actual", "population": 37189229},
-        {"state": "Tamil Nadu", "category": "Urban", "year": 2011, "type": "actual", "population": 34917440},
-        {"state": "Tamil Nadu", "category": "Male",  "year": 2011, "type": "actual", "population": 1},
-        {"state": "Tamil Nadu", "category": "Female","year": 2011, "type": "actual", "population": 1},
-        {"state": "All India",  "category": "Rural", "year": 2011, "type": "actual", "population": 833463448},
-    ]}
-    rows, skipped = parse_population_by_residence(decrypted)
-    assert skipped == 0
-    assert {(r["entity_id"], r["facet"], r["value"]) for r in rows} == {
-        ("S22", "Rural", 37189229), ("S22", "Urban", 34917440),
-        ("IN",  "Rural", 833463448),
-    }
-    assert all(r["vintage"] == "actual" for r in rows)
-
-
-def test_population_residence_skips_unmapped_state():
-    decrypted = {"data": [
-        {"state": "Atlantis", "category": "Rural", "year": 2011, "type": "actual", "population": 1},
-    ]}
-    rows, skipped = parse_population_by_residence(decrypted)
-    assert rows == []
-    assert skipped == 1
 
 
 # ---------------------------------------------------------------------------
