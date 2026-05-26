@@ -1133,9 +1133,9 @@
       ],
       "default_entity_kind": "state",
       "update_period_days": 365,
-      "concept_id": "renewable-absolute",
+      "concept_id": "renewable-mw-geographical",
       "meta": {
-        "justification": "State-grain capacity physically SITED in the state regardless of who consumes the power. Distinct from -allocated- (beneficiary share) and -snapshot- (CEA monthly point-in-time) twins under the same concept."
+        "justification": "State-grain renewable capacity physically SITED in the state regardless of who consumes the power. Distinct from -allocated- (beneficiary share via ISGS/PSU contractual allocation) and -snapshot- (CEA monthly cadence): the three twin series measure different facts on the same fleet and MUST live under distinct concepts."
       }
     },
     {
@@ -1325,9 +1325,9 @@
       ],
       "default_entity_kind": "state",
       "update_period_days": 365,
-      "concept_id": "renewable-absolute",
+      "concept_id": "renewable-mw-allocated",
       "meta": {
-        "justification": "State-grain BENEFICIARY share of plant capacity (ISGS/PSU contractual allocation). A Mundra plant sited in Gujarat is allocated across multiple states. Distinct from -geographical- twin."
+        "justification": "State-grain BENEFICIARY share of renewable capacity (ISGS/PSU contractual allocation). A wind farm sited in Tamil Nadu may be allocated across multiple consumer states by quota. Distinct measure from geographical siting and from CEA monthly snapshot."
       }
     },
     {
@@ -1518,9 +1518,9 @@
       ],
       "default_entity_kind": "state",
       "update_period_days": 30,
-      "concept_id": "renewable-absolute",
+      "concept_id": "renewable-mw-snapshot",
       "meta": {
-        "justification": "State-grain CEA Monthly Executive Summary end-of-month snapshot. Higher frequency twin of fiscal-year-end -allocated- series under the same concept; different publisher vintage cadence."
+        "justification": "State-grain CEA Monthly Executive Summary end-of-month snapshot of renewable capacity. Distinct publisher and cadence from the fiscal-year-end -allocated- series; the two should not be aliased to the same concept."
       }
     },
     {
