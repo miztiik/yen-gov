@@ -77,6 +77,16 @@ LEGACY_BOUNDARY_SIDECARS_ALLOWLIST = Path("datasets/_ops/legacy-boundary-sidecar
 INDICATOR_CATALOGUE_JSON = Path("datasets/taxonomy/indicators.json")
 _INDICATOR_ID_GRAIN_PREFIX_RE = re.compile(r"^(state|district|national)-")
 
+# Concept registry FK fence (PR-Z3b-tail3 2026-05-26 dark). Per guardrail #13
+# every indicator MUST FK to a row in `datasets/taxonomy/concepts.json` declaring
+# (noun, unit_canonical, normalisation, entity_kinds). Two indicators sharing the
+# same `(concept_id, entity_kinds)` tuple is a proliferation bug -- UPSERT into the
+# existing indicator or add a facet, never mint a new id. `tier_b_one_indicator_per_concept`
+# enforces this. SHIPS DARK in PR-Z3b-tail3 (function present but NOT chained into
+# `run()`); will enforce post-PR-Z3b-tail-actionC once the 183 existing indicators.json
+# rows have been backfilled with `concept_id`.
+CONCEPT_REGISTRY_JSON = Path("datasets/taxonomy/concepts.json")
+
 # Energy installed-capacity sub-fuel fence (P.1.A C4.8 2026-05-24, Hans+Max
 # Q3 verdict Option B per TODO/20260524-p1a-data-reacquisition-plan.md §5).
 # Hans's D33.8 ruling locks the canonical fuel axis to five buckets:
@@ -858,6 +868,87 @@ def tier_b_indicator_freshness_declared(root: Path) -> list[Failure]:
             )
 
     return failures
+
+
+def tier_b_one_indicator_per_concept(root: Path) -> list[Failure]:
+    """Reject indicator catalogue rows that proliferate within one concept.
+
+    Per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md
+    §0quat guardrail #13, identity is what is MEASURED, not who published
+    it. Each indicator FKs to a row in ``datasets/taxonomy/concepts.json``
+    declaring ``(noun, unit_canonical, normalisation, entity_kinds)``. Two
+    indicators sharing the same ``(concept_id, entity_kinds)`` tuple is a
+    proliferation bug -- the right action is UPSERT into the existing
+    indicator (new vintage / new publisher) or add a facet, never mint a
+    new id. The 7 duplicate clusters surfaced by Z3a clustering (5×coal-MW,
+    5×gas-MW, 4×hydro/nuclear/renewable-MW, 2×vote-share, 2×winning-party-id)
+    are the oracle for this check.
+
+    SHIPS DARK in PR-Z3b-tail3 (function present but NOT chained into ``run()``).
+    Will be wired into ``run()`` post-PR-Z3b-tail-actionC once the existing
+    183 catalogue rows have been backfilled with ``concept_id`` (schema v2.1).
+    Until then the check no-ops cleanly on today's catalogue (no row carries
+    ``concept_id`` yet).
+
+    No-ops when ``datasets/taxonomy/indicators.json`` is absent or fails to
+    parse.
+    """
+    failures: list[Failure] = []
+    catalogue_path = root / INDICATOR_CATALOGUE_JSON
+    catalogue_rel = INDICATOR_CATALOGUE_JSON.as_posix()
+
+    if not catalogue_path.exists():
+        return failures
+
+    try:
+        payload = _load_json(catalogue_path)
+    except json.JSONDecodeError:
+        return failures
+    if not isinstance(payload, dict):
+        return failures
+    rows = payload.get("indicators")
+    if not isinstance(rows, list):
+        return failures
+
+    # Group indicator_ids by (concept_id, sorted-entity_kinds tuple).
+    # Rows without concept_id are skipped (backfill still pending).
+    groups: dict[tuple[str, tuple[str, ...]], list[str]] = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        indicator_id = row.get("indicator_id")
+        concept_id = row.get("concept_id")
+        entity_kinds = row.get("entity_kinds")
+        if not isinstance(indicator_id, str):
+            continue
+        if not isinstance(concept_id, str) or not concept_id:
+            continue
+        if not isinstance(entity_kinds, list):
+            continue
+        key = (concept_id, tuple(sorted(str(k) for k in entity_kinds)))
+        groups.setdefault(key, []).append(indicator_id)
+
+    for (concept_id, ekinds), ids in sorted(groups.items()):
+        if len(ids) < 2:
+            continue
+        failures.append(
+            Failure(
+                catalogue_rel,
+                "B",
+                f"indicators: {len(ids)} rows share "
+                f"(concept_id={concept_id!r}, entity_kinds={list(ekinds)!r}): "
+                f"{sorted(ids)!r}. Per guardrail #13 identity is what is "
+                f"MEASURED, not who published it; UPSERT into the existing "
+                f"indicator or add a facet, never mint a new id. Run "
+                f"`python -m yen_gov check-overlap` before authoring any new "
+                f"catalogue row. See "
+                f"TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md "
+                f"§0quat guardrail #13.",
+            )
+        )
+
+    return failures
+
 
 
 def run(root: Path) -> list[Failure]:
