@@ -1928,18 +1928,6 @@
       "sources": []
     },
     {
-      "concept_id": "vote-share",
-      "noun": "Vote share",
-      "unit_canonical": "%",
-      "normalisation": "share",
-      "entity_kinds": [
-        "candidate",
-        "party"
-      ],
-      "description_short": "Candidate votes as a percentage of total votes polled in the AC (including NOTA).",
-      "sources": []
-    },
-    {
       "concept_id": "votes-polled",
       "noun": "Votes polled",
       "unit_canonical": "votes",
@@ -1981,6 +1969,28 @@
         "ac"
       ],
       "description_short": "entity_id of the candidate who received the most votes. Stored in value_text.",
+      "sources": []
+    },
+    {
+      "concept_id": "vote-share-candidate",
+      "noun": "Vote share (candidate)",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "candidate"
+      ],
+      "description_short": "A single candidate's votes as a percentage of total votes polled in their AC (including NOTA).",
+      "sources": []
+    },
+    {
+      "concept_id": "vote-share-party",
+      "noun": "Vote share (party)",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "party"
+      ],
+      "description_short": "A party's votes summed across all its candidates as a percentage of total votes polled in the state.",
       "sources": []
     },
     {

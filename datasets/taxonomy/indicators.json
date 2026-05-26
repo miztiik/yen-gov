@@ -48,9 +48,9 @@
       ],
       "default_entity_kind": "candidate",
       "update_period_days": 365,
-      "concept_id": "vote-share",
+      "concept_id": "vote-share-candidate",
       "meta": {
-        "justification": "Candidate-grain: candidate's votes as percentage of total votes in the AC (denominator = AC turnout). Distinct from party-grain twin whose denominator = state turnout."
+        "justification": "Candidate-grain measure: a single candidate's votes as a percentage of total votes polled in their AC (denominator = AC turnout including NOTA). Distinct from party-grain vote-share, which sums across all the party's candidates in the state."
       }
     },
     {
@@ -519,9 +519,9 @@
       ],
       "default_entity_kind": "party",
       "update_period_days": 365,
-      "concept_id": "vote-share",
+      "concept_id": "vote-share-party",
       "meta": {
-        "justification": "Party-grain: party's votes summed across all its candidates as percentage of total votes polled in the state (denominator = state turnout). Distinct from candidate-grain twin under the same concept."
+        "justification": "Party-grain measure: a party's votes summed across all its candidates as a percentage of total votes polled in the state (denominator = state turnout). Distinct from candidate-grain vote-share, which uses the AC turnout as denominator."
       }
     },
     {
