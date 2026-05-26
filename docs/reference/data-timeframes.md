@@ -29,8 +29,6 @@ These are the spine of any longitudinal "did governance work?" comparison.
 
 | Indicator | Span | Years | Cadence | Provider |
 | --- | --- | ---: | --- | --- |
-| `prices/national_wpi_all_commodities_index_annual` | FY75–FY25 | **51** | annual (rebased ’81/’93/’04/’11) | RBI |
-| `prices/national_cpi_iw_index_annual` | FY94–FY25 | **32** | annual (rebased ’82/’01/’16) | RBI |
 | `economy/state_nsdp_current_inr_crore` | FY95–FY25 | **31** | annual | RBI |
 | `economy/state_nsdp_constant_inr_crore` | FY95–FY25 | **31** | annual | RBI |
 | `economy/per_capita_nsdp_constant_inr` | FY01–FY25 | 25 | annual | RBI |
@@ -51,8 +49,7 @@ These are the spine of any longitudinal "did governance work?" comparison.
 | `energy/national_primary_energy_supply_mtoe` | FY06–FY25 | 20 | NITI iced |
 | `energy/national_final_energy_consumption_by_sector_mtoe` | FY06–FY25 | 20 | NITI iced |
 | `energy/state_per_capita_electricity_consumption_kwh` | FY10–FY24 | 15 | NITI iced |
-| `prices/national_cpi_combined_index_annual` | FY12–FY25 | 14 | RBI |
-| `prices/state_cpi_{general,food,fuel,housing_urban}_inflation_pct` | FY15–FY25 | 11 | RBI |
+| `prices/cpi_inflation_pct` | FY15–FY25 | 11 | RBI |
 
 ## Short series (< 10 years) — most NITI/sansad slices land here
 
