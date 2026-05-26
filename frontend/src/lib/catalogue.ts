@@ -11,6 +11,8 @@
 // module preserves that order.
 
 import { DATA_BASE } from "./paths";
+import { fetchGrapherTopicCatalogue } from "./grapher/catalogue";
+import { applyGrapherOverlay } from "./grapher/overlay";
 
 export type ArtifactKind = "indicator" | "election" | "feature_collection";
 export type ArtifactScope = "national" | "state" | "constituency";
@@ -96,7 +98,14 @@ export interface TopicCatalogue {
 /** Fetch the topic catalogue. Validated against topic-catalogue.schema.json v1.0.
  *  Path moved from `reference/in/topic-catalogue.json` to `taxonomy/topics.json`
  *  in T.0b (TODO/20260517-canonical-long-format-pivot.md §0e Phase 0 closeout).
- *  Shape unchanged; the reference/in/ original is deleted in T.0c. */
+ *  Shape unchanged; the reference/in/ original is deleted in T.0c.
+ *
+ *  PR-A3b (TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md):
+ *  per ADR-0045 the render-coupled fields (`chart_type`, `dimension`) on
+ *  artifact refs are sourced from `datasets/grapher/topic_render.json` via
+ *  `applyGrapherOverlay()`. The canonical fields remain as a transitional
+ *  fallback until A3c deletes them from `topic-catalogue.schema.json` v2.0.
+ *  Parity is locked by `grapher/catalogue.parity.test.ts`. */
 export async function fetchTopicCatalogue(): Promise<TopicCatalogue> {
   const res = await fetch(`${DATA_BASE}/taxonomy/topics.json`);
   if (!res.ok) {
@@ -104,7 +113,9 @@ export async function fetchTopicCatalogue(): Promise<TopicCatalogue> {
       `fetch /taxonomy/topics.json failed: ${res.status} ${res.statusText}`,
     );
   }
-  return (await res.json()) as TopicCatalogue;
+  const raw = (await res.json()) as TopicCatalogue;
+  const grapher = await fetchGrapherTopicCatalogue();
+  return applyGrapherOverlay(raw, grapher);
 }
 
 /**
