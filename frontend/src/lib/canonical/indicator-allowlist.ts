@@ -476,7 +476,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   //   * Shards #1-#5 (`installed_capacity_<fuel>_mw.json`) are per-state SNAPSHOTS
   //     (35 entities × single time `2026-03`), NOT national time-series. Mapped
   //     to `state-installed-capacity-snapshot-mw-<fuel>` (exact 35×1 match);
-  //     mapping to `national-installed-capacity-mw-<fuel>` (1×1) would silently
+  //     mapping to `installed-capacity-mw-<fuel>` (1×1) would silently
   //     reduce visible data from 35 state rows to 1 national row and was rejected.
   //   * Shard #7 (`state_installed_capacity_with_alloc_mw.json`) carries FY15-FY25
   //     (396 rows); the canonical `state-installed-capacity-allocated-mw` now

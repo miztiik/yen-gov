@@ -749,7 +749,7 @@
       "concept_id": "majority-threshold"
     },
     {
-      "indicator_id": "national-installed-capacity-mw",
+      "indicator_id": "installed-capacity-mw",
       "label_short": "All-India installed capacity",
       "label_long": "All-India installed electricity-generation capacity (MW)",
       "description_short": "Total nameplate generating capacity in megawatts, summed across all fuels, for India. Snapshot end-of-month from the CEA Monthly Executive Summary.",
@@ -778,7 +778,7 @@
       "concept_id": "all-india-installed-capacity"
     },
     {
-      "indicator_id": "national-installed-capacity-mw-coal",
+      "indicator_id": "installed-capacity-mw-coal",
       "label_short": "Coal",
       "label_long": "All-India installed capacity \u00e2\u20ac\u201d Coal",
       "description_short": "Coal-fired thermal capacity. India's largest fuel category nationally (~42%).",
@@ -794,7 +794,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "national-installed-capacity-mw",
+      "parent_indicator_id": "installed-capacity-mw",
       "dimension_values": {
         "fuel_type": "coal"
       },
@@ -813,7 +813,7 @@
       }
     },
     {
-      "indicator_id": "national-installed-capacity-mw-gas",
+      "indicator_id": "installed-capacity-mw-gas",
       "label_short": "Gas",
       "label_long": "All-India installed capacity \u00e2\u20ac\u201d Gas",
       "description_short": "Natural-gas and liquid-fuel thermal capacity. Stranded-fuel risk; small share.",
@@ -829,7 +829,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "national-installed-capacity-mw",
+      "parent_indicator_id": "installed-capacity-mw",
       "dimension_values": {
         "fuel_type": "gas"
       },
@@ -845,7 +845,7 @@
       }
     },
     {
-      "indicator_id": "national-installed-capacity-mw-hydro",
+      "indicator_id": "installed-capacity-mw-hydro",
       "label_short": "Hydro",
       "label_long": "All-India installed capacity \u00e2\u20ac\u201d Hydro",
       "description_short": "Conventional (>25 MW) plus small-hydro capacity. Site-bound; multi-decade lifetime.",
@@ -861,7 +861,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "national-installed-capacity-mw",
+      "parent_indicator_id": "installed-capacity-mw",
       "dimension_values": {
         "fuel_type": "hydro"
       },
@@ -877,7 +877,7 @@
       }
     },
     {
-      "indicator_id": "national-installed-capacity-mw-nuclear",
+      "indicator_id": "installed-capacity-mw-nuclear",
       "label_short": "Nuclear",
       "label_long": "All-India installed capacity \u00e2\u20ac\u201d Nuclear",
       "description_short": "Nuclear capacity. Central-sector only; allocated to states via PPAs.",
@@ -893,7 +893,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "national-installed-capacity-mw",
+      "parent_indicator_id": "installed-capacity-mw",
       "dimension_values": {
         "fuel_type": "nuclear"
       },
@@ -909,7 +909,7 @@
       }
     },
     {
-      "indicator_id": "national-installed-capacity-mw-renewable",
+      "indicator_id": "installed-capacity-mw-renewable",
       "label_short": "Renewable",
       "label_long": "All-India installed capacity \u00e2\u20ac\u201d Renewable (wind, solar, biomass)",
       "description_short": "Wind, solar, biomass and waste-to-energy. Rapid growth; ~30% national capacity by FY26.",
@@ -925,7 +925,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "national-installed-capacity-mw",
+      "parent_indicator_id": "installed-capacity-mw",
       "dimension_values": {
         "fuel_type": "renewable"
       },

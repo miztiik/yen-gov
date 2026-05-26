@@ -74,11 +74,11 @@ def test_rejects_district_prefix(tmp_path):
 
 
 def test_rejects_national_prefix(tmp_path):
-    bad = {**_BASE, "indicator_id": "national-installed-capacity-mw"}
+    bad = {**_BASE, "indicator_id": "national-foo-bar"}
     _write_catalogue(tmp_path, [bad])
     failures = tier_b_indicator_id_no_grain_prefix(tmp_path)
     assert len(failures) == 1
-    assert "national-installed-capacity-mw" in failures[0].message
+    assert "national-foo-bar" in failures[0].message
 
 
 def test_does_not_reject_ac_or_party_or_candidate_or_india_prefixes(tmp_path):
