@@ -34,23 +34,15 @@ def _catalogue() -> dict:
     return json.loads(CATALOGUE_PATH.read_text(encoding="utf-8"))
 
 
-def test_schema_x_version_is_2_2():
-    assert _schema()["x-version"] == "2.2"
-
-
-def test_catalogue_schema_version_stamp_is_2_2():
-    # Tier-B `validate.run()` enforces $schema_version == schema x-version;
-    # bumping the schema requires the catalogue stamp to track.
-    assert _catalogue()["$schema_version"] == "2.2"
-
-
-def test_x_changelog_tail_entry_is_2_2():
+def test_v22_entry_present_in_changelog():
+    # PR-Zjust bumped x-version to 2.3; v2.2 entry must remain as history.
     changelog = _schema()["x-changelog"]
-    tail = changelog[-1]
-    assert tail["version"] == "2.2"
-    assert tail["date"] == "2026-05-26"
-    assert "concept_id" in tail["description"]
-    assert "Carve 0a" in tail["description"]
+    v22 = [c for c in changelog if c["version"] == "2.2"]
+    assert len(v22) == 1
+    entry = v22[0]
+    assert entry["date"] == "2026-05-26"
+    assert "concept_id" in entry["description"]
+    assert "Carve 0a" in entry["description"]
 
 
 def test_schema_declares_concept_id_property():
