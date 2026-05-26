@@ -6,7 +6,9 @@
 
 Two ingests are about to fire in parallel — ICED NO2/SO2/PM10 ([TODO/20260515-iced-aq-no2-so2-pm10-handover.md](../../TODO/20260515-iced-aq-no2-so2-pm10-handover.md)) and RBI Statement 27 health-expenditure share ([TODO/20260515-health-ingest-handover.md](../../TODO/20260515-health-ingest-handover.md)) — and the existing `datasets/indicators/in/` corpus is internally inconsistent on slug shape (`india_*` vs `national_*` vs no scope; unit suffix sometimes present sometimes not; entity-prefix sometimes leading sometimes trailing). Without a written convention these two ingests will mint ids in different shapes and the next agent will pay for it with a renaming PR that touches the catalogue, the frontend routes, and every consumer test.
 
-This doc is the convention. It is binding for new ids; existing ids that violate it are listed in §8 and are NOT migrated by this commit. The schema (`datasets/schemas/indicator.schema.json`, currently at `x-version: 1.5`) already locks the regex; this doc locks what humans should put inside it.
+This doc is the convention. It is binding for new ids; existing ids that violate it are listed in §8 and are being ripped per [TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md). The schema (`datasets/schemas/indicator.schema.json`, currently at `x-version: 1.5`) already locks the regex; this doc locks what humans should put inside it.
+
+**2026-05-26 update** — [ADR-0044](../architecture/decisions/0044-grain-over-entity.md) retires the `<entity_prefix>` axis (`state_` / `district_` / `national_`). The grain rides on the observation row's `entity_id`; the catalogue declares `entity_kinds`. §2.2 was rewritten and §2.4 was deleted in the same commit as the ADR landed. §8 anti-pattern #2 was promoted from "style drift" to "MUST NOT mint." See ADR-0044 for the identity test that replaces §2.4's default-geography test.
 
 Per [ADR-0022](../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md): topic membership lives on `datasets/taxonomy/topics.json`, NOT on the indicator artifact. This doc does not re-open that decision. It only RECOMMENDS that the `<scope>` segment of the id match a catalogue topic-id, as a navigation aid for grep — a soft convention, not a schema-enforced field.
 
@@ -22,16 +24,16 @@ Per [ADR-0022](../architecture/decisions/0022-place-first-ia-with-topic-catalogu
 
 Lowercase, snake_case, single `/` separator (NOT `.`). Already enforced by `datasets/schemas/indicator.schema.json`.
 
-### 2.2 Mandatory shape
+### 2.2 Mandatory shape (post-ADR-0044, grain-over-entity)
 
 ```
-<scope>/<entity_prefix>_<noun>_<aggregate?>_<unit?>
+<scope>/<noun>_<aggregate?>_<unit?>_<facet?>
 ```
+
+**Per [ADR-0044](../architecture/decisions/0044-grain-over-entity.md) the `<entity_prefix>` segment is DELETED, not made optional.** The grain (country / state / district / subdistrict / village) lives on the observation row's `entity_id` and is declared on the catalogue row's `entity_kinds: array<enum>` + `default_entity_kind: enum` fields. The renderer dispatches the chart shape from the row, not from the id slug.
 
 - **`<scope>`** — exactly one segment. By convention, MUST be a topic-id from `datasets/taxonomy/topics.json` (`fiscal`, `energy`, `environment`, `health`, `economy`, `prices`, `demography`, `transport`, `elections`, `human_development`, …). The catalogue is the source of truth for the legal set; this doc deliberately does not enumerate them. Adding a new scope means adding a topic to the catalogue first.
-- **`<entity_prefix>`** — `national_`, `state_`, `district_`, `constituency_`, `city_`, `ward_`. **Mandatory** for state-and-below; **mandatory** for national/all-India aggregates too (use `national_`, NOT `india_`). Spatial scope is part of the indicator's identity, not just metadata — Hans's rule: "two artifacts measuring the same noun at different geographies are different facts."
-
-  > **Open question (deferred)** — whether to retire the `<entity_prefix>` axis in favour of OWID-style "one id, entity-kind dispatched at the renderer" is documented in [`docs/research/indicator-id-grain-axis.md`](../research/indicator-id-grain-axis.md). Status: deferred — input for a future Hans + Max ADR consult. While that ADR is pending, the rule above is binding.
+- **NO `<entity_prefix>`.** Ids that start with `state-` / `district-` / `national-` are rejected by Tier-B `tier_b_indicator_id_no_grain_prefix` (added dark in PR-B1, enforced in PR-B9 of the grain-rip plan). Fact-grain prefixes (`ac-`, `candidate-`, `party-`) are NOT entity-grain prefixes and stay — they encode the observation-row grain, not the entity grain.
 - **`<noun>`** — what is being measured. Snake_case. Use the most specific concrete noun that survives across vintages (`outstanding_debt`, `birth_rate`, `installed_capacity`, `pm25_annual_mean`, `health_expenditure_share`).
 - **`<aggregate>`** (optional) — the verb of aggregation when the noun does not already imply it. Canonical vocabulary, ban synonyms:
 
@@ -67,14 +69,11 @@ Unit suffix is **mandatory** when the same noun could plausibly be expressed in 
 
 **Omit** the unit suffix only when the indicator is genuinely dimensionless (`state_hdi`, `state_total_fertility_rate` — TFR is children-per-woman by definition; the noun encodes it). When in doubt, include the suffix — Max's rule: an explicit unit in the slug saves the next reader a click into the schema.
 
-### 2.4 When to include `state_` / `district_` / `national_`
+### 2.4 Entity grain — RETIRED by ADR-0044
 
-Always, for spatial-aware indicators. There is no "default geography" — `outstanding_debt_pct_gsdp` vs `state_outstanding_debt_pct_gsdp` are two different indicators (the first reads as union/all-India debt, the second as per-state). Where the existing corpus omits the prefix (`fiscal/outstanding_debt_pct_gsdp`, `fiscal/states_combined_*`), it is exploiting context-from-filename — that's a fragile pattern and §8 lists it as an anti-pattern to migrate later.
+This section formerly mandated a leading `state_` / `district_` / `national_` segment. **It is deleted.** Per [ADR-0044](../architecture/decisions/0044-grain-over-entity.md), entity grain rides on the observation row's `entity_id`; the catalogue row carries `entity_kinds: array<enum["country","state","district","ac"]>` + `default_entity_kind: enum`. One id per `(concept, unit, normalisation)`; rows discriminate grain.
 
-For the two pending ingests this means:
-
-- ICED AQ → `environment/state_no2_annual_mean_ug_m3`, `environment/state_so2_annual_mean_ug_m3`, `environment/state_pm10_annual_mean_ug_m3` (already what the handoff specifies — this doc ratifies it).
-- RBI Statement 27 → `health/state_health_expenditure_share_of_total_expenditure_pct` (already what the handoff specifies, but see §5: title/description rules and §3: Hans's denominator-visibility nudge — consider `health/state_health_expenditure_pct_total_expenditure` as the slug, with the denominator visible per §2.3).
+**Identity test** (use before minting any new id): is the (concept, unit, normalisation) tuple different from every existing indicator? If YES, mint. If NO, UPSERT into the existing id OR add a facet axis on the row. Entity-kind is NOT an identity axis.
 
 ### 2.5 Length budget
 
@@ -170,7 +169,7 @@ If no alias mechanism exists in the catalogue today, that's a TODO — flag it o
 These ids exist on disk and ship today. Listing them honestly so future agents know the convention is aspirational, not retroactive:
 
 1. **`energy/installed_mw_by_state`** ([datasets/indicators/in/energy/installed_mw_by_state.json](../../datasets/indicators/in/energy/installed_mw_by_state.json)) — entity-prefix at the END (`_by_state`), unit (`mw`) buried in the middle, no aggregate verb. Per §2.2 should be `energy/state_installed_capacity_mw`.
-2. **`economy/india_*` vs `economy/national_*` collision** — `economy/india_gdp_inr_crore`, `economy/india_iip_index_2011_12`, `economy/india_external_balance_inr_crore`, `economy/india_gva_by_industry_constant_inr_crore` use `india_`; `economy/national_gdp_current_inr_lakh_crore`, `economy/national_gva_by_industry_constant_2011_12_inr_crore`, `economy/national_macro_aggregates_*` use `national_`. Per §2.2 the convention is `national_`. Both shapes exist for the same scope.
+2. **`state-` / `district-` / `national-` / `india_` ENTITY-GRAIN PREFIXES — MUST NOT MINT NEW.** Per [ADR-0044](../architecture/decisions/0044-grain-over-entity.md), entity grain rides on the observation row, not the id slug. Existing ids that lead with these prefixes are being ripped per [TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md) Phase B (PR-B2 through PR-B8). New ids that re-introduce grain prefixes are rejected by Tier-B `tier_b_indicator_id_no_grain_prefix`. The old `india_*` vs `national_*` collision is moot post-rip — both shapes disappear.
 3. **`economy/india_iip_index_2011_12`** — encodes methodology base year (`2011_12`) in the id. Per §3 rule 3, vintage belongs in `methodology_vintage`, not the id. Same problem in `economy/national_gva_by_industry_constant_2011_12_inr_crore` and `economy/state_per_capita_nsdp_constant_2011_12_inr` (and these also bust the §2.5 length budget at 60+ chars).
 4. **`fiscal/states_combined_gross_fiscal_deficit`** (and siblings: `..._revenue_deficit`, `..._primary_deficit`, `..._primary_revenue_deficit`, plus `fiscal/union_*` peers) — no unit suffix. Values are `₹ crore`; per §2.3 the id should say so (`..._inr_crore`).
 5. **`fiscal/net_transfers_from_centre` AND `fiscal/centre_transfers_to_states_net`** — two ids for what looks like the same concept, named in opposite directions, neither carrying a unit suffix. One should be the alias of the other (or one should be retired) per §7. Today they're both live in the catalogue.
