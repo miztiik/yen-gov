@@ -797,6 +797,69 @@ def tier_b_meadow_vintage_matches_source_id(root: Path) -> list[Failure]:
     return failures
 
 
+def tier_b_indicator_freshness_declared(root: Path) -> list[Failure]:
+    """Reject indicator catalogue rows missing a positive ``update_period_days``.
+
+    Per ADR-0044 + TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md
+    §0quat guardrail #18, every indicator MUST declare its publisher refresh
+    cadence in days (NDLM monthly = 30, RBI Handbook annual = 365, Census
+    decennial = 3650). Staleness can only be surfaced when cadence is named.
+    OWID precedent: every Grapher variable carries this.
+
+    SHIPS DARK in PR-Z3b-cli (function present but NOT chained into ``run()``).
+    Will be wired into ``run()`` post-PR-Z3b-tail once the existing 183 catalogue
+    rows have been backfilled with ``update_period_days``. Until then, calling
+    this function returns the backlog of freshness-undeclared violations for
+    visibility -- useful in handover-doc acceptance gates.
+
+    No-ops when ``datasets/taxonomy/indicators.json`` is absent or fails to
+    parse.
+    """
+    failures: list[Failure] = []
+    catalogue_path = root / INDICATOR_CATALOGUE_JSON
+    catalogue_rel = INDICATOR_CATALOGUE_JSON.as_posix()
+
+    if not catalogue_path.exists():
+        return failures
+
+    try:
+        payload = _load_json(catalogue_path)
+    except json.JSONDecodeError:
+        return failures
+    if not isinstance(payload, dict):
+        return failures
+    rows = payload.get("indicators")
+    if not isinstance(rows, list):
+        return failures
+
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        indicator_id = row.get("indicator_id")
+        if not isinstance(indicator_id, str):
+            continue
+        cadence = row.get("update_period_days")
+        if not isinstance(cadence, int) or cadence <= 0:
+            failures.append(
+                Failure(
+                    catalogue_rel,
+                    "B",
+                    f"indicators[indicator_id={indicator_id!r}]: "
+                    f"missing or non-positive update_period_days "
+                    f"(got {cadence!r}). Per guardrail #18 every "
+                    f"indicator MUST declare the publisher refresh "
+                    f"cadence in days as a positive integer (NDLM "
+                    f"monthly = 30, RBI Handbook annual = 365, Census "
+                    f"decennial = 3650). Staleness can only be surfaced "
+                    f"when cadence is named. See ADR-0044 + "
+                    f"TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md "
+                    f"§0quat guardrail #18.",
+                )
+            )
+
+    return failures
+
+
 def run(root: Path) -> list[Failure]:
     """Run Tier A then Tier B against a repo root."""
     schemas, parse_failures = load_schemas(root / SCHEMAS_SUBDIR)

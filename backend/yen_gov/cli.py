@@ -80,6 +80,82 @@ def validate(
     raise typer.Exit(1)
 
 
+@app.command("check-overlap")
+def check_overlap(
+    noun: str = typer.Option(..., "--noun", help="Candidate concept noun (citizen-readable)."),
+    unit: str = typer.Option(..., "--unit", help="Candidate unit canonical (e.g. kWh, count, pct)."),
+    normalisation: str = typer.Option(
+        ...,
+        "--normalisation",
+        help="One of: absolute, per_capita, per_area, share, ratio, index.",
+    ),
+    entity_kind: str = typer.Option(
+        ...,
+        "--entity-kind",
+        help="One of: country, state, district, ac, party, candidate.",
+    ),
+    top_n: int = typer.Option(5, "--top-n", help="Max matches to display."),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Score a candidate concept against datasets/taxonomy/concepts.json.
+
+    Per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md
+    §0quat guardrail #13: every new indicator_id MUST FK to a row in
+    concepts.json. Run this BEFORE authoring any new ingest handover-doc.
+    If any match scores >= 0.70 the action is UPSERT into the existing
+    indicator or add a facet -- NOT mint a new id. Exits 1 in that case so
+    the gate can be wired into a pre-PR hook.
+    """
+    from yen_gov.canonical.concept_registry import find_overlap
+
+    matches = find_overlap(
+        noun=noun,
+        unit=unit,
+        normalisation=normalisation,
+        entity_kind=entity_kind,
+        concepts_path=root / "datasets" / "taxonomy" / "concepts.json",
+        top_n=top_n,
+    )
+
+    typer.echo(
+        f"check-overlap: candidate noun={noun!r} unit={unit!r} "
+        f"normalisation={normalisation!r} entity_kind={entity_kind!r}"
+    )
+    if not matches:
+        typer.echo("  no concepts in registry; mint_new is acceptable.")
+        raise typer.Exit(0)
+
+    typer.echo(f"  top {len(matches)} matches:")
+    typer.echo(f"  {'score':>6}  {'action':<10}  concept_id")
+    for m in matches:
+        typer.echo(
+            f"  {m.match_score:>6.3f}  {m.recommended_action:<10}  {m.concept_id}"
+        )
+
+    blockers = [m for m in matches if m.recommended_action != "mint_new"]
+    if blockers:
+        top = blockers[0]
+        typer.echo(
+            f"\ncheck-overlap: FAILED -- {len(blockers)} match(es) score "
+            f">= 0.70. Top recommendation: {top.recommended_action} into "
+            f"{top.concept_id!r}. Per guardrail #13 do NOT mint a new id "
+            f"when a concept match crosses the threshold; UPSERT or add a "
+            f"facet on the existing indicator instead."
+        )
+        raise typer.Exit(1)
+
+    typer.echo("\ncheck-overlap: OK -- no match crosses 0.70; mint_new is acceptable.")
+    raise typer.Exit(0)
+
+
 @app.command("emit-taxonomy")
 def emit_taxonomy(
     root: Path = typer.Option(
