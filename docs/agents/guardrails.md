@@ -121,6 +121,8 @@ When in doubt, choose the higher level. Level 2 and above require an explicit pl
 - Mint a new `indicator_id` for a new vintage, publisher, base-year, or sampling-frame of an existing fact. UPSERT same id, or add a facet, or add a `methodology_breaks.parquet` row (Rosling rule).
 - Skip the pre-ingest overlap check before adding any new ingest. Cite `python -m yen_gov check-overlap --concept "<noun>" --unit "<u>" --entity_kind "<k>"` in every new-source handover-doc.
 - Author a plan-doc touching indicator ids or catalogue fields without citing ADR-0044 + ADR-0045 in its preamble.
+- Land an indicator-catalogue row without `update_period_days` (publisher refresh cadence in days). Staleness is only surfaceable when cadence is named. Enforced post-PR-Z3b by Tier-B `tier_b_indicator_freshness_declared`.
+- Mint a new `indicator_id` without an FK to `datasets/taxonomy/concepts.json` declaring `(noun, unit_canonical, normalisation, entity_kinds)`. Run `python -m yen_gov check-overlap` (ships PR-Z3b) first; UPSERT or add a facet if a concept match >=70% exists. Enforced post-PR-Z3b by Tier-B `tier_b_one_indicator_per_concept`.
 
 ## See also
 

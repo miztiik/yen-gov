@@ -492,6 +492,7 @@ This phase exists so the rip-and-replace does not silently break: (a) future age
 - **MODIFY** [docs/agents/guardrails.md](../docs/agents/guardrails.md) — mirror.
 - **MODIFY** every ingest-handover template under `TODO/` (any file matching `*-ingest-*-plan.md` or `*-ingest-handover.md`) — add a §"Concept overlap audit" mandatory section citing `check-overlap` output.
 - **LOC**: ≈ +1,200 / -300 (largest PR of the plan; consider splitting into Z3a (schema + concept registry seed) + Z3b (Tier-B + CLI + tests + CI gate) if it crosses 500 LOC at review).
+- **STATUS**: Z3a SHIPPED PR #361 `ee5a831b` (concepts schema v1.0 + concepts.json seed + `find_overlap` helper). Z3b-doctrine SHIPPED PR #362 (CLAUDE.md §10 + guardrails.md anti-patterns for guardrails #13 + #18; Rosling-rule #19 already present from PR-Z1). Z3b-code REMAINING: `check-overlap` CLI command + 4 Tier-B checks + indicator-catalogue v2.1 (concept_id FK + meta.justification + update_period_days REQUIRED) + indicators.json backfill + indicator-add-gate GH Action + per-handover-doc concept-overlap-audit section.
 - **Tests**: schema bump + Tier-B + CLI + CI-gate-script unit tests.
 - **BLOCKED ON**: A1 (ADRs); A3c (catalogue v2.0 must land before v2.1).
 - **Subagent**: Hans + Max (concept naming + clustering), Gregor (schema seam + Tier-B contract), Fowler (CLI ergonomics).
