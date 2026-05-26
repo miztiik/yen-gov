@@ -1,6 +1,6 @@
 {
   "$schema": "../schemas/indicator-catalogue.schema.json",
-  "$schema_version": "2.1",
+  "$schema_version": "2.2",
   "indicators": [
     {
       "indicator_id": "candidate-votes-polled",
