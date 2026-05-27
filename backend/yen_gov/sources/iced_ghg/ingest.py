@@ -7,7 +7,7 @@ response) and emits a single sub-sector drill-down indicator under
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -163,7 +163,9 @@ def ingest_iced_ghg(
         out_rel="datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json",
     )
 
+    # PR-A5a-tail: derive orchestrator fetched_at from upstream per-fetch
+    # timestamp instead of wall-clock datetime.now().
     return IngestSummary(
-        fetched_at=datetime.now(timezone.utc),
+        fetched_at=response.fetched_at,
         results=(result,),
     )
