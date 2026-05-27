@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "5.0",
+  "$schema_version": "6.0",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/energy/electricity/distribution/operationalPerformanceStates",
@@ -35,7 +35,6 @@
     "implementing_authority": "state",
     "methodology_vintage": "NITI Aayog ICED ``/energy/electricity/distribution/operationalPerformanceStates``. Category ``billing-efficiency``.",
     "chart_type": "ranked",
-    "default_mode": "absolute",
     "notes": "Together with collection efficiency, billing efficiency decomposes the commercial half of AT&C losses: AT&C loss ≈ 1 − (billing × collection / 100)."
   },
   "rows": [

@@ -178,7 +178,6 @@ def _ghg_economy_wide_meta() -> _IndicatorBuild:
             "implementing_authority": "centre",
             "methodology_vintage": "IPCC 2006 guidelines (BUR submissions, MoEFCC)",
             "chart_type": "stacked-trend",
-            "default_mode": "absolute",
             "notes": (
                 "National total only — sub-national emissions accounting does not "
                 "exist for India yet. Reported in India's Biennial Update Report (BUR) "

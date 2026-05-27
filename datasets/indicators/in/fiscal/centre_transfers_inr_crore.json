@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "5.0",
+  "$schema_version": "6.0",
   "sources": [
     {
       "url": "https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=State+Finances+%3A+A+Study+of+Budgets",
@@ -39,12 +39,6 @@
     },
     "implementing_authority": "centre",
     "methodology_vintage": "RBI State Finances: A Study of Budgets, Appendix Table 2 (Devolution and Transfer of Resources from the Centre); 2024-25 edition",
-    "facet_labels": {
-      "net": "Net (after loan/interest claw-back)",
-      "gross": "Gross (envelope total)",
-      "tax_devolution": "Tax devolution (Finance Commission)",
-      "grants": "Grants (discretionary + scheme)"
-    },
     "notes": "Values are in nominal ₹ Crore (1 Crore = 10 million); they are NOT inflation-adjusted. The latest two years are typically RE / BE only. From 2017-18 onwards the figures include Delhi and Puducherry. Collapsed from 4 sibling shards (centre_transfers_to_states_{net,gross,tax_devolution,grants}) by tools/migrate/path_b_fiscal.py per plan-doc PR-B7 (row 3). The two state-grain shards `fiscal/net_transfers_from_centre` and `fiscal/centre_transfers_gross` stay split (state-level series, written by separate adapters; folding requires a coordinated source-module rename, deferred to PR-B7-tail). STAY-SPLIT: `fiscal/states_combined_*_deficit` vs `fiscal/union_*_deficit` are NOT collapsed — different fiscal entities, not different scopes of one fact."
   },
   "rows": [

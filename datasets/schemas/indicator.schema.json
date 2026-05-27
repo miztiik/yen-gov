@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/indicator.schema.json",
   "title": "Indicator (long-form fact table)",
   "description": "A single socio-economic, demographic, infrastructure, or fiscal indicator stored as long-form rows: (entity_kind, entity_id, time, value, unit, ...). Joined to geometry at view time via the existing identifier conventions (ECI state codes, LGD district codes). Indicators carry semantic hints (`value_kind`, `direction`) so the frontend's generic chart components can render them without per-indicator code.",
-  "x-version": "5.0",
+  "x-version": "6.0",
   "x-changelog": [
     {
       "version": "1.0",
@@ -13,27 +13,28 @@
     {
       "version": "1.1",
       "date": "2026-05-11",
-      "description": "Additive: optional governance/honesty metadata on indicator block. Added attribution_geography, comparability, funding_split, implementing_authority, methodology_vintage, series_breaks, icon. Driven by Governance Strategist review 2026-05-11 \u2014 the v1.0 schema let an analyst publish a ranked-choropleth indicator without declaring whether the values are even comparable across states. The new fields force honest framing without breaking any existing artifact (all optional)."
+      "description": "Additive: optional governance/honesty metadata on indicator block. Added attribution_geography, comparability, funding_split, implementing_authority, methodology_vintage, series_breaks, icon. Driven by Governance Strategist review 2026-05-11 — the v1.0 schema let an analyst publish a ranked-choropleth indicator without declaring whether the values are even comparable across states. The new fields force honest framing without breaking any existing artifact (all optional)."
     },
     {
       "version": "1.2",
       "date": "2026-05-14",
-      "description": "Additive: optional render-hint fields on indicator block. Added chart_type (enum: choropleth | ranked | stacked-trend) so a facetted indicator can declare its preferred default primitive without per-id branching in the frontend; added default_mode (enum: absolute | percent) for stacked/ranked views where percent vs absolute is a real editorial choice. Both optional \u2014 existing v1.1 artifacts remain valid. Driven by ADR-0024 (backend Aggregator for facetted indicators) and the StackedTrend chart primitive landing in the same wave."
+      "description": "Additive: optional render-hint fields on indicator block. Added chart_type (enum: choropleth | ranked | stacked-trend) so a facetted indicator can declare its preferred default primitive without per-id branching in the frontend; added default_mode (enum: absolute | percent) for stacked/ranked views where percent vs absolute is a real editorial choice. Both optional — existing v1.1 artifacts remain valid. Driven by ADR-0024 (backend Aggregator for facetted indicators) and the StackedTrend chart primitive landing in the same wave."
     },
     {
       "version": "1.3",
       "date": "2026-05-14",
-      "description": "Additive: optional row-level `vintage` field. Carries the upstream's revision-tier label per row (e.g. 'First Advance Estimates', 'Provisional Estimates', 'First Revised Estimates', 'Final Estimates') so the chart can honestly surface that recent FY values may revise. Driven by the MoSPI National Accounts Statistics ingest (2026-05-14): the source publishes the same (indicator, year) pair in multiple revision tiers; we pick the most-final per (indicator, year) and stamp the chosen vintage on each row. Optional \u2014 existing v1.2 artifacts remain valid."
+      "description": "Additive: optional row-level `vintage` field. Carries the upstream's revision-tier label per row (e.g. 'First Advance Estimates', 'Provisional Estimates', 'First Revised Estimates', 'Final Estimates') so the chart can honestly surface that recent FY values may revise. Driven by the MoSPI National Accounts Statistics ingest (2026-05-14): the source publishes the same (indicator, year) pair in multiple revision tiers; we pick the most-final per (indicator, year) and stamp the chosen vintage on each row. Optional — existing v1.2 artifacts remain valid."
     },
     {
       "version": "1.4",
       "date": "2026-05-15",
-      "description": "Additive: optional `indicator.facet_labels` map. Lets a facetted indicator (chart_type = stacked-trend, rows[].facet populated) declare the human-readable label per facet value (e.g. {coal: 'Coal', other_thermal: 'Other thermal'}). The frontend stops carrying topic-level hardcoded label literals and reads the labels from the artifact (composer-as-source-of-truth), with a humanise(facet_id) fallback when the field is absent so old artifacts keep rendering. Driven by Phase 4 C2 of TODO/VIZ-LAYER-GAPS-PLAN.md (lift facet labels into the schema). Optional — existing v1.3 artifacts remain valid."    
+      "description": "Additive: optional `indicator.facet_labels` map. Lets a facetted indicator (chart_type = stacked-trend, rows[].facet populated) declare the human-readable label per facet value (e.g. {coal: 'Coal', other_thermal: 'Other thermal'}). The frontend stops carrying topic-level hardcoded label literals and reads the labels from the artifact (composer-as-source-of-truth), with a humanise(facet_id) fallback when the field is absent so old artifacts keep rendering. Driven by Phase 4 C2 of TODO/VIZ-LAYER-GAPS-PLAN.md (lift facet labels into the schema). Optional — existing v1.3 artifacts remain valid."
     },
     {
       "version": "1.5",
       "date": "2026-05-15",
-      "description": "Additive (Hans governance fields per TODO/PER-INDICATOR-DOCS-PLAN.md). (a) `indicator.comparability` enum extended with the 4-level honest ladder: `comparable_across_states_and_time`, `comparable_across_states_snapshot_only`, `comparable_within_state_over_time`, `directional_only`. The old 3 tokens remain valid (deprecated, mapping rule: `comparable_across_states` → `comparable_across_states_and_time`; `comparable_with_normalisation` → splits per artifact into level 2 / 3 / 4 on next touch; `not_comparable_across_states` → `directional_only`). (b) `indicator.denominator` accepts an object form `{what, price_basis, base_year, source_artifact}` in addition to the legacy string form so ratio indicators can declare their normalisation surface; both shapes remain valid. (c) Three new optional indicator fields: `revision_tier_by_period[]` (array of `{from, tier, note?}` so a fiscal artifact can declare per-period RE/BE/A vintage), `excludes[]` (array of citizen-facing what's-NOT-counted bullets, e.g. 'IGNOAPS social pensions'), `renderer_rules[]` (array of slug strings from a controlled vocabulary, e.g. 'no_growth_across_break'). All v1.4 artifacts remain valid; backfill is opt-in per artifact."    },
+      "description": "Additive (Hans governance fields per TODO/PER-INDICATOR-DOCS-PLAN.md). (a) `indicator.comparability` enum extended with the 4-level honest ladder: `comparable_across_states_and_time`, `comparable_across_states_snapshot_only`, `comparable_within_state_over_time`, `directional_only`. The old 3 tokens remain valid (deprecated, mapping rule: `comparable_across_states` → `comparable_across_states_and_time`; `comparable_with_normalisation` → splits per artifact into level 2 / 3 / 4 on next touch; `not_comparable_across_states` → `directional_only`). (b) `indicator.denominator` accepts an object form `{what, price_basis, base_year, source_artifact}` in addition to the legacy string form so ratio indicators can declare their normalisation surface; both shapes remain valid. (c) Three new optional indicator fields: `revision_tier_by_period[]` (array of `{from, tier, note?}` so a fiscal artifact can declare per-period RE/BE/A vintage), `excludes[]` (array of citizen-facing what's-NOT-counted bullets, e.g. 'IGNOAPS social pensions'), `renderer_rules[]` (array of slug strings from a controlled vocabulary, e.g. 'no_growth_across_break'). All v1.4 artifacts remain valid; backfill is opt-in per artifact."
+    },
     {
       "version": "1.6",
       "date": "2026-05-17",
@@ -78,6 +79,11 @@
       "version": "5.0",
       "date": "2026-05-26",
       "description": "MAJOR per CLAUDE.md §11 (semantic shift). Three additive grounding fields on `indicator` block to unblock cross-grain collapse rows (TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §2 PR-B0): (a) `entity_kinds[]` optional array of the same 7-member enum as `entity_kind` — declares the FULL set of grains the indicator may carry on its `rows[]`. Migration window: BOTH the legacy singular `entity_kind` (required) and the new plural `entity_kinds[]` (optional) accepted simultaneously; the singular form stays load-bearing for v4.4 readers and for single-grain artifacts. Cross-grain shards (e.g. country + state under one id) MUST populate `entity_kinds[]` and set the singular `entity_kind` to whichever grain is dominant in the row set. (b) `base_year` optional string `^\\d{4}(-\\d{2})?$` — declares the constant-prices base year for index / constant-currency series so the base year no longer needs to encode into the indicator id (per ADR-0044 Rosling rule, kill base-year prefixes on ids; carry the rebase as a `methodology_breaks` row instead). (c) `frequency` optional enum mirroring `cadence` — semantic per-row release rhythm distinct from `cadence` (publisher-level) and `time_grain` (stamp resolution); reserved for the row-faceted frequency axis used by row-9 / rows 14-25 collapse rows where annual+quarterly share an id. Plus structural change: removed `additionalProperties: false` on the `indicator` block — for the migration window we allow per-family adapter blocks to ship extra optional metadata without a schema bump per family. The Tier-A schema test continues to reject typos in known fields via explicit shape assertions, not via additionalProperties. All v4.4 artifacts remain valid; all 56 artifacts are mechanically bumped to `$schema_version: 5.0` via `tools/bump_indicator_schema_to_current.py` in the same commit (no content change beyond the version stamp). Manifest.json regenerated in same commit because every artifact's content hash changed via the version bump."
+    },
+    {
+      "version": "6.0",
+      "date": "2026-05-27",
+      "description": "MAJOR per CLAUDE.md §11 (property removal). Removed three UI-render-hint properties from the `indicator` block: `default_mode` (added v1.2), `facet_labels` (added v1.4), and `renderer_rules` (added v1.5). Per ADR-0045 (grapher catalogue split): render hints belong in the grapher catalogue at `datasets/grapher/indicator_render.json`, owned by the frontend, not in the indicator catalogue / shard schema. Companion to PR-A3a (#340 added grapher catalogue additive) and PR-A3c-topic (#342 ripped chart_type+dimension from topic-catalogue side). All 30 shards that previously carried any of the three fields are mechanically stripped in the same commit; remaining indicator block content unchanged. All 88 indicator artifacts bumped to `$schema_version: 6.0` via `tools/bump_indicator_schema_to_current.py`. Ingest writers under `backend/yen_gov/sources/iced_*/ingest.py`, `backend/yen_gov/sources/iced_air_quality/markers_ingest.py`, `backend/yen_gov/sources/iced_state_wise/ingest.py`, `backend/yen_gov/sources/rbi_xlsx/ingest.py` no longer emit these fields; the catalogue model `backend/yen_gov/canonical/indicators_seed.py` no longer declares `renderer_rules`. The `chart_type` property is intentionally retained at this layer pending its own ADR-0045 rip (separate PR). Per the working contract: removal is MAJOR even when downstream readers tolerated the field optionally."
     }
   ],
   "type": "object",
@@ -95,53 +101,111 @@
   ],
   "additionalProperties": false,
   "properties": {
-    "$schema": { "type": "string", "format": "uri" },
-    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
-    "$comment": { "type": "string" },
-
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "$schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$"
+    },
+    "$comment": {
+      "type": "string"
+    },
     "sources": {
       "type": "array",
       "description": "Provenance per CLAUDE.md §12 / ADR-0002, extended per D3 with optional name + authority for human attribution.",
       "items": {
         "type": "object",
-        "required": ["url", "fetched_at"],
+        "required": [
+          "url",
+          "fetched_at"
+        ],
         "additionalProperties": false,
         "properties": {
-          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
-          "fetched_at": { "type": "string", "format": "date-time" },
-          "name": { "type": "string" },
-          "authority": { "type": "string" }
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https?://"
+          },
+          "fetched_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string"
+          },
+          "authority": {
+            "type": "string"
+          }
         }
       }
     },
-
     "license": {
       "type": "object",
-      "required": ["id", "name", "redistributable"],
+      "required": [
+        "id",
+        "name",
+        "redistributable"
+      ],
       "additionalProperties": false,
       "properties": {
-        "id": { "type": "string" },
-        "name": { "type": "string", "minLength": 1 },
-        "url": { "type": ["string", "null"], "format": "uri" },
-        "redistributable": { "type": ["boolean", "null"] }
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "redistributable": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
       }
     },
-
     "coverage": {
       "type": "object",
-      "required": ["spatial", "temporal"],
+      "required": [
+        "spatial",
+        "temporal"
+      ],
       "additionalProperties": false,
       "properties": {
-        "spatial":     { "type": "string" },
-        "temporal":    { "type": "string" },
-        "admin_level": { "type": ["string", "null"] }
+        "spatial": {
+          "type": "string"
+        },
+        "temporal": {
+          "type": "string"
+        },
+        "admin_level": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       }
     },
-
     "indicator": {
       "type": "object",
       "description": "Identity and rendering metadata for the indicator. The four hint fields (value_kind, direction, scale_hint, unit) drive the generic chart components — every indicator is renderable without per-indicator UI code (D1, design-system principle).",
-      "required": ["id", "title", "entity_kind", "time_grain", "value_kind", "direction", "unit"],
+      "required": [
+        "id",
+        "title",
+        "entity_kind",
+        "time_grain",
+        "value_kind",
+        "direction",
+        "unit"
+      ],
       "properties": {
         "id": {
           "type": "string",
@@ -158,7 +222,15 @@
           "description": "One-paragraph definition. Citizen-readable — avoid jargon, or translate it."
         },
         "entity_kind": {
-          "enum": ["country", "state", "district", "subdistrict", "constituency", "city", "ward"],
+          "enum": [
+            "country",
+            "state",
+            "district",
+            "subdistrict",
+            "constituency",
+            "city",
+            "ward"
+          ],
           "description": "What the indicator is measured per. Joins to the matching identifier convention (ECI state, LGD district, etc.). v5.0 migration-window note: when an indicator carries rows of more than one grain (cross-grain shard), set `entity_kind` to the dominant grain and populate the new `entity_kinds[]` array with the full set; readers still on v4.x see a sensible singular value."
         },
         "entity_kinds": {
@@ -166,7 +238,15 @@
           "minItems": 1,
           "uniqueItems": true,
           "items": {
-            "enum": ["country", "state", "district", "subdistrict", "constituency", "city", "ward"]
+            "enum": [
+              "country",
+              "state",
+              "district",
+              "subdistrict",
+              "constituency",
+              "city",
+              "ward"
+            ]
           },
           "description": "Optional (v5.0+). Full set of grains carried on this indicator's `rows[]`. For single-grain shards this is redundant with the singular `entity_kind` and may be omitted. For cross-grain shards (e.g. country + state under one canonical id, per ADR-0044 grain-over-entity), this MUST list every grain present in the row set so downstream readers can dispatch per-row by `entity_kind` instead of relying on the indicator-level singular."
         },
@@ -190,7 +270,13 @@
           "description": "Optional (v5.0+). Semantic per-row release frequency, mirroring the `cadence` enum. Reserved for shards that fold multiple release rhythms under one id (e.g. annual + quarterly GDP under `economy/gdp_inr_crore`); when present, each `rows[]` entry carries a `frequency` facet matching one of these values. For single-frequency shards `cadence` alone suffices."
         },
         "time_grain": {
-          "enum": ["year", "fiscal_year", "quarter", "month", "date"],
+          "enum": [
+            "year",
+            "fiscal_year",
+            "quarter",
+            "month",
+            "date"
+          ],
           "description": "Resolution of the `time` field on each row. `year`/`fiscal_year` → YYYY; `quarter`/`month` → YYYY-MM; `date` → YYYY-MM-DD. Per Q3 (TODO/SOCIO-ECONOMIC-EXPANSION.md). DISTINCT FROM `cadence`: `time_grain` is the stamp resolution of one row; `cadence` is how often the publisher releases new rows. See ADR-0027."
         },
         "cadence": {
@@ -208,15 +294,32 @@
           "description": "Optional (v4.1+). Publisher's release cadence — how often a new observation is published. DISTINCT FROM `time_grain` (which is the resolution of one row's `time` token). Examples: Census is decennial (cadence=decennial, time_grain=year, token='1961'); RBI quarterly statements are quarterly_fy with monthly stamps (cadence=quarterly_fy, time_grain=quarter, token='2024-04'); UNFCCC GHG inventory is ad-hoc. `decennial`/`ad_hoc` series have no defined inter-observation interval; the `derive_temporal_range()` consumer omits gap_count/observed_periods for these because asserting them would mislead. When absent, the consumer falls back to inferring cadence from `time_grain`. Per ADR-0027."
         },
         "value_kind": {
-          "enum": ["count", "rate", "share", "currency", "index", "duration", "raw"],
+          "enum": [
+            "count",
+            "rate",
+            "share",
+            "currency",
+            "index",
+            "duration",
+            "raw"
+          ],
           "description": "Drives formatting and choice of scale. `count` → integer; `rate` → per-unit (e.g. per capita); `share` → 0..1; `currency` → with `unit`; `index` → unitless ratio; `duration` → with `unit` (days, hours); `raw` → no formatter (escape hatch)."
         },
         "direction": {
-          "enum": ["higher_is_better", "lower_is_better", "neutral"],
+          "enum": [
+            "higher_is_better",
+            "lower_is_better",
+            "neutral"
+          ],
           "description": "Drives the colour ramp choice. `higher_is_better` → sequential warm; `lower_is_better` → sequential warm reversed; `neutral` → sequential cool. Diverging ramps are reserved for explicit comparison views and are not chosen automatically."
         },
         "scale_hint": {
-          "enum": ["linear", "log", "quantile", "symlog"],
+          "enum": [
+            "linear",
+            "log",
+            "quantile",
+            "symlog"
+          ],
           "default": "linear",
           "description": "Suggested d3 scale type; the chart may override if the data demands."
         },
@@ -227,18 +330,39 @@
         "denominator": {
           "description": "When this indicator is itself a derived per-X rate, declares the normalisation surface. v1.0–v1.4 string form (the indicator id of the denominator, e.g. \"people/population_total\") remains valid. v1.5 object form lets a ratio against a non-indicator denominator (e.g. GSDP at current prices, base 2011-12) be declared without forging a sibling indicator first. `null` for raw indicators.",
           "oneOf": [
-            { "type": "null" },
-            { "type": "string" },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            },
             {
               "type": "object",
-              "required": ["what"],
+              "required": [
+                "what"
+              ],
               "additionalProperties": false,
               "properties": {
-                "what":             { "type": "string", "minLength": 1 },
-                "price_basis":      { "enum": ["current", "constant"] },
-                "base_year":        { "type": "string", "pattern": "^\\d{4}(-\\d{2})?$" },
-                "source_artifact":  { "type": "string" },
-                "note":             { "type": "string" }
+                "what": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "price_basis": {
+                  "enum": [
+                    "current",
+                    "constant"
+                  ]
+                },
+                "base_year": {
+                  "type": "string",
+                  "pattern": "^\\d{4}(-\\d{2})?$"
+                },
+                "source_artifact": {
+                  "type": "string"
+                },
+                "note": {
+                  "type": "string"
+                }
               }
             }
           ]
@@ -252,7 +376,14 @@
           "description": "Optional icon hint (lucide-svelte name or path under frontend/src/lib/icons/indicators/). The chart shows it next to the title to make the indicator scannable in lists. When absent, a generic dot is used. Examples: \"zap\" (energy), \"factory\" (manufacturing), \"heart-pulse\" (health), \"book-open\" (education)."
         },
         "attribution_geography": {
-          "enum": ["where_produced", "where_allocated", "where_consumed", "where_billed", "where_resident", "where_administered"],
+          "enum": [
+            "where_produced",
+            "where_allocated",
+            "where_consumed",
+            "where_billed",
+            "where_resident",
+            "where_administered"
+          ],
           "description": "What the entity_id geographically represents. `where_produced`: asset is physically sited in this state (e.g. nameplate of plants whose coordinates fall inside the state). `where_allocated`: state's allocated SHARE of a centrally-pooled asset that is sited elsewhere (e.g. CEA's per-state nuclear / central-sector capacity flowing back via the regional grid — every state shows non-zero even with no plant inside its boundary). `where_consumed`: end-use happens in this state (e.g. per-capita electricity consumption). `where_billed`: financial/billing residence (e.g. GST collection). `where_resident`: persons resident in the state (e.g. population, NFHS). `where_administered`: administrative jurisdiction regardless of where the activity happens (e.g. cases filed in state HC). When this is `where_produced`, `where_allocated`, or `where_billed`, the chart MUST surface a citizen-facing banner clarifying that the map shows siting / allocation / billing, not service. Per Governance review 2026-05-11; `where_allocated` added v4.2 (2026-05-17)."
         },
         "comparability": {
@@ -271,70 +402,116 @@
           "type": "object",
           "description": "Who funds the activity this indicator measures. Critical for centre-vs-state attribution: a citizen reading 'state X is doing well on X' must know whether the state government, the Centre, or a centrally-sponsored scheme drove the outcome. Per Governance review 2026-05-11.",
           "additionalProperties": false,
-          "required": ["centre_pct", "state_pct", "source"],
+          "required": [
+            "centre_pct",
+            "state_pct",
+            "source"
+          ],
           "properties": {
-            "centre_pct":  { "type": "number", "minimum": 0, "maximum": 100 },
-            "state_pct":   { "type": "number", "minimum": 0, "maximum": 100 },
-            "other_pct":   { "type": "number", "minimum": 0, "maximum": 100 },
-            "source":      { "type": "string", "minLength": 1 }
+            "centre_pct": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "state_pct": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "other_pct": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            }
           }
         },
         "implementing_authority": {
-          "enum": ["state", "centre", "joint", "local_body", "parastatal"],
+          "enum": [
+            "state",
+            "centre",
+            "joint",
+            "local_body",
+            "parastatal"
+          ],
           "description": "Who actually executes (vs funds) the activity this indicator measures. Many CSS schemes are centre-funded but state-implemented (`joint`); judiciary is `centre`; municipal sanitation is `local_body`. Per Governance review 2026-05-11."
         },
         "methodology_vintage": {
           "type": "string",
-          "description": "Free-form short string naming the methodology revision the values were computed under. Examples: 'GSDP base 2011-12', 'Census 2011 + UIDAI 2024 projection', 'NFHS-5 (2019-21) sampling frame', 'UDISE+ post-2018-19 schema'. Distinct from `time` (which is the observation year) \u2014 a 2024 NFHS-6 figure has the same time as a 2024 NFHS-5 backcast but a different vintage. Per Governance review 2026-05-11."
+          "description": "Free-form short string naming the methodology revision the values were computed under. Examples: 'GSDP base 2011-12', 'Census 2011 + UIDAI 2024 projection', 'NFHS-5 (2019-21) sampling frame', 'UDISE+ post-2018-19 schema'. Distinct from `time` (which is the observation year) — a 2024 NFHS-6 figure has the same time as a 2024 NFHS-5 backcast but a different vintage. Per Governance review 2026-05-11."
         },
         "chart_type": {
-          "enum": ["choropleth", "ranked", "stacked-trend"],
-          "description": "Preferred default primitive for the citizen-facing render. Optional \u2014 absent = `choropleth` (the default for single-value-per-entity indicators). `stacked-trend` is for facetted indicators where rows[].facet is populated and the composition over time is the story (e.g. installed capacity by fuel source). `ranked` is for entity-rank tables. The frontend may still choose a different primitive on a specific page; this is the metadata-driven default. Per ADR-0024."
-        },
-        "default_mode": {
-          "enum": ["absolute", "percent"],
-          "description": "For stacked-trend and ranked views, whether absolute units or percent-of-total reads more honestly by default. `percent` is the citizen-default for compositional indicators (fuel mix, scheme outlay shares) where the total varies wildly across entities and the share is what's comparable. `absolute` is the default for indicators where the magnitude itself is the story. Per ADR-0024."
-        },
-        "facet_labels": {
-          "type": "object",
-          "description": "Optional map from a `rows[].facet` value to its human-readable label (e.g. {\"coal\": \"Coal\", \"other_thermal\": \"Other thermal\"}). Populated by the composer for facetted indicators so the frontend does not have to carry topic-level hardcoded label literals. When absent, the renderer falls back to humanise(facet_id) (snake_case to Title Case). Per Phase 4 C2 of TODO/VIZ-LAYER-GAPS-PLAN.md.",
-          "additionalProperties": { "type": "string", "minLength": 1 }
+          "enum": [
+            "choropleth",
+            "ranked",
+            "stacked-trend"
+          ],
+          "description": "Preferred default primitive for the citizen-facing render. Optional — absent = `choropleth` (the default for single-value-per-entity indicators). `stacked-trend` is for facetted indicators where rows[].facet is populated and the composition over time is the story (e.g. installed capacity by fuel source). `ranked` is for entity-rank tables. The frontend may still choose a different primitive on a specific page; this is the metadata-driven default. Per ADR-0024."
         },
         "revision_tier_by_period": {
           "type": "array",
           "description": "Optional v1.5 (Hans) field. Declares the upstream revision tier active over a contiguous period of the series — e.g. fiscal data published as Budget Estimate (BE), Revised Estimate (RE), or Actual (A). Distinct from `rows[].vintage` (per-row label): this field is the period-level governance contract that lets the renderer disclose 'recent FY values are still BE; the trend you see WILL revise'. Per Hans plan 2026-05-15.",
           "items": {
             "type": "object",
-            "required": ["from", "tier"],
+            "required": [
+              "from",
+              "tier"
+            ],
             "additionalProperties": false,
             "properties": {
-              "from": { "type": "string", "pattern": "^\\d{4}(-\\d{2})?$" },
-              "tier": { "type": "string", "minLength": 1 },
-              "note": { "type": "string" }
+              "from": {
+                "type": "string",
+                "pattern": "^\\d{4}(-\\d{2})?$"
+              },
+              "tier": {
+                "type": "string",
+                "minLength": 1
+              },
+              "note": {
+                "type": "string"
+              }
             }
           }
         },
         "excludes": {
           "type": "array",
           "description": "Optional v1.5 (Hans) field. Citizen-facing what's-NOT-counted bullets the renderer surfaces inline on the indicator card and on its docs page. Examples: 'IGNOAPS / IGNWPS social pensions excluded' (state pension expenditure); 'rural housing not collected by NSO' (housing CPI). Critical for honest reading: a citizen-readable indicator name often implies more than the source actually measures. Per Hans plan 2026-05-15.",
-          "items": { "type": "string", "minLength": 1 }
-        },
-        "renderer_rules": {
-          "type": "array",
-          "description": "Optional v1.5 (Hans) field. Slug-strings from a controlled vocabulary defined in docs/concepts/indicator-naming.md §10.2 that bind renderer behaviour to the indicator's data shape. Live vocabulary today: 'no_rank_table' (suppress rank line), 'no_growth_across_break' (refuse YoY growth crossing a series_break), 'mask_be_in_long_view' (visually distinguish Budget-Estimate periods from Actuals), 'force_per_capita_choropleth' (block raw-magnitude choropleth for a not-comparable raw count). New slugs validate (slug shape only) and are ignored by older renderers — see §10.2 'Adding a new slug' for the 3-place change. Per Hans plan 2026-05-15.",
-          "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" }
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         },
         "series_breaks": {
           "type": "array",
           "description": "Time-points where the series methodology changed in a way that breaks comparability across the boundary. Charts must draw a vertical marker at each break and refuse to compute growth rates that cross one. Per Governance review 2026-05-11.",
           "items": {
             "type": "object",
-            "required": ["at_time", "kind", "note"],
+            "required": [
+              "at_time",
+              "kind",
+              "note"
+            ],
             "additionalProperties": false,
             "properties": {
-              "at_time": { "type": "string", "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$" },
-              "kind":    { "enum": ["rebase", "definition_change", "frame_change", "coverage_change"] },
-              "note":    { "type": "string", "minLength": 1 }
+              "at_time": {
+                "type": "string",
+                "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$"
+              },
+              "kind": {
+                "enum": [
+                  "rebase",
+                  "definition_change",
+                  "frame_change",
+                  "coverage_change"
+                ]
+              },
+              "note": {
+                "type": "string",
+                "minLength": 1
+              }
             }
           }
         },
@@ -343,7 +520,11 @@
           "description": "Optional v4.3 (Phase 1 step 4) registry of distinct measurable quantities that share this indicator's (entity, time) axis. A composite indicator (e.g. `discom_health` carrying AT&C loss %, tariff subsidy ₹, ACS-ARR gap ₹/kWh) declares one entry per quantity; the value of `rows[].facet` for each row is the `id` of the sub_metric that row measures. This is the GENERAL pattern for composites — no per-composite unicorn fields. When `sub_metrics[]` is populated, rows MAY carry `rows[].unit` to override the indicator-level `unit` (different sub_metrics typically have different units); when absent, behaviour is unchanged from v4.2. The indicator-level `value_kind` / `direction` / `unit` remain the defaults; each sub_metric overrides only what differs.",
           "items": {
             "type": "object",
-            "required": ["id", "label", "unit"],
+            "required": [
+              "id",
+              "label",
+              "unit"
+            ],
             "additionalProperties": false,
             "properties": {
               "id": {
@@ -362,11 +543,23 @@
                 "description": "Unit string for rows measuring this sub_metric (e.g. \"%\", \"INR (crore)\", \"INR per kWh\"). Mirrors `indicator.unit` shape."
               },
               "value_kind": {
-                "enum": ["count", "rate", "share", "currency", "index", "duration", "raw"],
+                "enum": [
+                  "count",
+                  "rate",
+                  "share",
+                  "currency",
+                  "index",
+                  "duration",
+                  "raw"
+                ],
                 "description": "Optional override of `indicator.value_kind` for this sub_metric. Omit when the indicator-level default applies."
               },
               "direction": {
-                "enum": ["higher_is_better", "lower_is_better", "neutral"],
+                "enum": [
+                  "higher_is_better",
+                  "lower_is_better",
+                  "neutral"
+                ],
                 "description": "Optional override of `indicator.direction` for this sub_metric. Omit when the indicator-level default applies."
               },
               "description": {
@@ -402,27 +595,44 @@
           "description": "Optional v4.4 (Hans + Max, row 1.10): catalogue-level FK array into `taxonomy/sources.parquet`. Each item is a `source_id` per CLAUDE.md §12. Distinct from the per-observation `source_id` (which already lives on every observation row in the canonical store): this field lists the catalogue-level sources that fed THIS indicator's curation (methodology PDF, definition note, peer-reviewed paper that established the measurement). Renderer surfaces these in the source card alongside per-observation provenance. Per-observation provenance is unchanged."
         },
         "valid_period_grain": {
-          "enum": ["year", "fiscal_year", "election_date"],
+          "enum": [
+            "year",
+            "fiscal_year",
+            "election_date"
+          ],
           "description": "Optional v4.4 (Hans + Max, row 1.10): semantic period grain — what the time stamp on each row MEANS at the publisher-intent layer. Distinct from `time_grain` (resolution of the time stamp string) and `cadence` (publisher's release rhythm): `valid_period_grain` is the policy / fiscal-year / election-cycle anchor that makes a YoY comparison meaningful. Examples: GSDP rows have `time_grain=year, cadence=annual_fy, valid_period_grain=fiscal_year` (FY 2024-25); ECI election results have `time_grain=year, cadence=ad_hoc, valid_period_grain=election_date` (one anchor per election). Used by the Phase 4 SLM grounding layer to refuse cross-grain comparisons that look valid syntactically but are nonsensical semantically (e.g. comparing an FY value to a CY value)."
         },
         "valid_entity_grain": {
-          "enum": ["country", "state", "district", "ac", "pc"],
+          "enum": [
+            "country",
+            "state",
+            "district",
+            "ac",
+            "pc"
+          ],
           "description": "Optional v4.4 (Hans + Max, row 1.10): semantic entity grain — the level at which this indicator's values are methodologically valid. Distinct from `entity_kind` (schema-shape of the entity_id on each row) and `min_grain` (TS-only frontend hint): `valid_entity_grain` is the publisher-intent layer. A PLFS state-level indicator declares `valid_entity_grain=state` so the Phase 4 SLM grounding layer refuses to roll it up to country (Simpson's paradox risk) or drill down to district (sample frame doesn't support it). Used as a hard rail by the SLM dispatcher."
         },
         "is_input_output_outcome": {
-          "enum": ["input", "output", "outcome"],
+          "enum": [
+            "input",
+            "output",
+            "outcome"
+          ],
           "description": "Optional v4.4 (Hans + Max, row 1.10): governance-pyramid classification — does this indicator measure an input (resource spent — e.g. MGNREGA budget disbursed), an output (immediate deliverable — e.g. person-days of work generated), or an outcome (citizen-life change — e.g. rural-wage-real)? Critical for honest reading: a citizen looking at 'MGNREGA performance' needs to know whether the chart shows money spent (input) or wages earned (outcome). Used by the chart wrapper to surface the classification next to the title (Plain-Facts framing) and by the Phase 4 SLM to disambiguate questions like 'is MGNREGA working?'"
         }
       }
     },
-
     "rows": {
       "type": "array",
       "minItems": 1,
       "description": "Long-form fact rows. Every row carries the entity id (matching `indicator.entity_kind`), a time stamp at the declared `time_grain`, and a numeric value.",
       "items": {
         "type": "object",
-        "required": ["entity_id", "time", "value"],
+        "required": [
+          "entity_id",
+          "time",
+          "value"
+        ],
         "additionalProperties": false,
         "properties": {
           "entity_id": {
@@ -436,79 +646,152 @@
             "description": "YYYY, YYYY-MM, or YYYY-MM-DD. Must be consistent with `indicator.time_grain` (validator-side check, not a JSON Schema constraint). Machine sort/join key; the citizen-facing string lives in optional `period_label`."
           },
           "period_label": {
-            "type": ["string", "null"],
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Optional (v1.6+) adapter-owned citizen label matching the period token from `series_spec.expected_periods[].label` (e.g. 'FY 2024-25', 'as on 31.03.2025', 'Census 2011'). MUST be citizen-readable verbatim — the planner and frontend pass it through, never parse or normalise. When absent, the frontend falls back to `time`."
           },
           "value": {
-            "type": ["number", "null"],
+            "type": [
+              "number",
+              "null"
+            ],
             "description": "Numeric measurement. `null` is allowed and means \"not available for this entity-time\" (distinct from zero)."
           },
           "facet": {
-            "type": ["string", "null"],
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Optional sub-category for stacked/grouped views (e.g. fuel type for installed capacity: \"coal\" / \"hydro\" / \"solar\"). Null when not faceted. When the indicator declares `sub_metrics[]` (v4.3+), `facet` carries the `sub_metric.id` this row measures."
           },
           "unit": {
-            "type": ["string", "null"],
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Optional v4.3 (Phase 1 step 4) row-level override of `indicator.unit`. When present, takes precedence for THIS row's formatter selection — required for composites whose sub_metrics have heterogeneous units (e.g. discom_health rows carrying both '%' and 'INR (crore)'). When absent, `indicator.unit` applies. GENERAL: any indicator may use this; it is not composite-specific. For artifacts that declare `sub_metrics[]`, the row's `unit` SHOULD equal the matching `sub_metric.unit` (validator-side cross-check, not a JSON Schema constraint)."
           },
           "vintage": {
-            "type": ["string", "null"],
-            "description": "Optional upstream revision-tier label for the row. Used when the source publishes the same (entity, time, indicator, facet) pair in multiple revision tiers (e.g. MoSPI NAS: 'First Advance Estimates' \u2192 'Second Advance Estimates' \u2192 'Provisional Estimates' \u2192 'First Revised Estimates' \u2192 'Second Revised Estimates' \u2192 'Third Revised Estimates' \u2192 'Final Estimates' \u2192 'Additional Revision'). The ingest picks the most-final tier per row and stamps it here so the chart can disclose 'this year may still revise'."
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Optional upstream revision-tier label for the row. Used when the source publishes the same (entity, time, indicator, facet) pair in multiple revision tiers (e.g. MoSPI NAS: 'First Advance Estimates' → 'Second Advance Estimates' → 'Provisional Estimates' → 'First Revised Estimates' → 'Second Revised Estimates' → 'Third Revised Estimates' → 'Final Estimates' → 'Additional Revision'). The ingest picks the most-final tier per row and stamps it here so the chart can disclose 'this year may still revise'."
           }
         }
       }
     },
-
     "series_spec": {
       "type": "object",
       "description": "v4.0: shrunk to `description` only. The expected_geographies / expected_periods / expected_periods_inference sub-fields moved to the external completeness index (datasets/reference/in/indicators-completeness.json) per ADR-0026. The editorial description of what the series IS stays here, on the citizen-facing artifact.",
       "additionalProperties": false,
-      "required": ["description"],
+      "required": [
+        "description"
+      ],
       "properties": {
-        "description": { "type": "string", "minLength": 10 }
+        "description": {
+          "type": "string",
+          "minLength": 10
+        }
       }
     },
-
     "methodology": {
       "type": "object",
       "description": "Optional in v1.6, required in v2.0. Per-indicator definition, publisher, breaks, caveats, and (folded from the old indicator-notes sidecar) related_indicators / editor_note_md / policy_context / chart_defaults.",
       "additionalProperties": false,
-      "required": ["definition", "publisher", "documentation_status", "methodology_breaks", "known_caveats", "notes"],
+      "required": [
+        "definition",
+        "publisher",
+        "documentation_status",
+        "methodology_breaks",
+        "known_caveats",
+        "notes"
+      ],
       "properties": {
-        "definition": { "type": "string", "description": "One-paragraph plain-English definition of what this indicator measures." },
-        "publisher": { "type": "string", "description": "Issuing authority. e.g. 'Reserve Bank of India'." },
-        "publisher_methodology_url": { "type": ["string", "null"], "format": "uri" },
-        "documentation_status": { "enum": ["stub", "partial", "authored"] },
+        "definition": {
+          "type": "string",
+          "description": "One-paragraph plain-English definition of what this indicator measures."
+        },
+        "publisher": {
+          "type": "string",
+          "description": "Issuing authority. e.g. 'Reserve Bank of India'."
+        },
+        "publisher_methodology_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "documentation_status": {
+          "enum": [
+            "stub",
+            "partial",
+            "authored"
+          ]
+        },
         "methodology_breaks": {
           "type": "array",
           "description": "Hand-authored. Empty array = 'no breaks documented yet' (NOT 'no breaks exist').",
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["at", "note"],
+            "required": [
+              "at",
+              "note"
+            ],
             "properties": {
-              "at": { "type": "string", "description": "Free-text period where the break occurred." },
-              "note": { "type": "string", "minLength": 10 }
+              "at": {
+                "type": "string",
+                "description": "Free-text period where the break occurred."
+              },
+              "note": {
+                "type": "string",
+                "minLength": 10
+              }
             }
           }
         },
         "known_caveats": {
           "type": "array",
           "description": "Hand-authored. Empty array = 'no caveats documented yet' (NOT 'no caveats exist').",
-          "items": { "type": "string", "minLength": 10 }
+          "items": {
+            "type": "string",
+            "minLength": 10
+          }
         },
         "notes": {
           "type": "array",
           "description": "Free-form methodological notes. Former .notes.json sidecar fields get their own typed homes below; do not flatten them all here.",
-          "items": { "type": "string", "minLength": 1 }
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         },
-        "related_indicators": { "type": "array", "items": { "type": "string", "minLength": 1 } },
-        "editor_note_md": { "type": "string" },
-        "policy_context": { "type": "array", "items": { "type": "string", "minLength": 1 } },
-        "chart_defaults": { "type": "object" }
+        "related_indicators": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "editor_note_md": {
+          "type": "string"
+        },
+        "policy_context": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "chart_defaults": {
+          "type": "object"
+        }
       }
     },
-
     "divergence": {
       "description": "Reserved for the divergence-band methodology (Max Roser / OWID-style trajectory bands). Always null in v1.6 / v2.0; the field exists so future ingest adapters can populate it without a schema bump.",
       "type": "null"

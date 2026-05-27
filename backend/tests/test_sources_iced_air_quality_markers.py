@@ -259,10 +259,9 @@ def test_ingest_no2_emits_artifact(tmp_path, markers: dict) -> None:
     payload = _build_no2_payload(parsed=parsed)
     assert payload["indicator"]["id"] == NO2_INDICATOR_ID
     assert payload["indicator"]["comparability"] == "directional_only"
-    assert payload["indicator"]["renderer_rules"] == [
-        "no_rank_table",
-        "no_growth_across_break",
-    ]
+    assert "renderer_rules" not in payload["indicator"], (
+        "renderer_rules ripped from shard per ADR-0045; render hints live in grapher catalogue"
+    )
     assert payload["indicator"]["excludes"], "NO2 excludes[] must not be empty"
     assert "series_breaks" not in payload["indicator"], (
         "NO2 has 2020 data in this snapshot — series_breaks should not "
@@ -349,10 +348,9 @@ def test_ingest_so2_emits_artifact(tmp_path, markers: dict) -> None:
     payload = _build_so2_payload(parsed=parsed)
     assert payload["indicator"]["id"] == SO2_INDICATOR_ID
     assert payload["indicator"]["comparability"] == "directional_only"
-    assert payload["indicator"]["renderer_rules"] == [
-        "no_rank_table",
-        "no_growth_across_break",
-    ]
+    assert "renderer_rules" not in payload["indicator"], (
+        "renderer_rules ripped from shard per ADR-0045; render hints live in grapher catalogue"
+    )
     assert payload["indicator"]["excludes"], "SO2 excludes[] must not be empty"
     assert "series_breaks" not in payload["indicator"], (
         "SO2 has 2020 data in this snapshot — series_breaks should not "
@@ -439,10 +437,9 @@ def test_ingest_pm10_emits_artifact(tmp_path, markers: dict) -> None:
     payload = _build_pm10_payload(parsed=parsed)
     assert payload["indicator"]["id"] == PM10_INDICATOR_ID
     assert payload["indicator"]["comparability"] == "directional_only"
-    assert payload["indicator"]["renderer_rules"] == [
-        "no_rank_table",
-        "no_growth_across_break",
-    ]
+    assert "renderer_rules" not in payload["indicator"], (
+        "renderer_rules ripped from shard per ADR-0045; render hints live in grapher catalogue"
+    )
     assert payload["indicator"]["excludes"], "PM10 excludes[] must not be empty"
     assert "series_breaks" not in payload["indicator"], (
         "PM10 has 2020 data in this snapshot — series_breaks should "

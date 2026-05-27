@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "5.0",
+  "$schema_version": "6.0",
   "sources": [
     {
       "url": "https://www.data.gov.in/",
@@ -37,8 +37,7 @@
     "implementing_authority": "centre",
     "methodology_vintage": "MoSPI National Accounts Statistics, base 2011-12, constant prices. Consolidated CSV ingested 2026-05-14; per (indicator, year) the most-final published revision tier was selected (rank order: First Advance < Second Advance < Provisional < First Revised < Second Revised < Third Revised < Final < Additional Revision) and stamped on each row via the v1.3 `vintage` field. Source CSV included a parallel current-price series and a 2022-23 rebased series; both were intentionally dropped — constant-price 2011-12 is yen-gov's canonical real-GDP/GVA basis (matches IMF WEO, World Bank WDI NY.GDP.MKTP.KD, OECD SNA, MoSPI press notes). Pre-computed growth-rate rows were also dropped: MoSPI uses fixed-base accounts so naive (Y_t - Y_{t-1}) / Y_{t-1} on this constant-price level series reproduces the published growth rate to the last decimal. Subindustry rows (Crops, Livestock, Air Transport, etc.) were also dropped — citizen front door uses the 17-industry NIC-1 tier; subindustry returns in a Phase F deep-dive.",
     "notes": "Values are in ₹ crore at 2011-12 prices — comparable across years (real growth is meaningful) but NOT directly comparable to today's market value. For 'size of the economy in today's money' use the current-price series (not yet shipped at the national level).",
-    "chart_type": "stacked-trend",
-    "default_mode": "absolute"
+    "chart_type": "stacked-trend"
   },
   "rows": [
     {

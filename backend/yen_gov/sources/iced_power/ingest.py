@@ -97,7 +97,6 @@ def _indicator_state_capacity_by_source() -> dict[str, Any]:
             "capacity, harmonised across fiscal years 2015-16 → 2025-26."
         ),
         "chart_type": "stacked-trend",
-        "default_mode": "absolute",
         "notes": (
             "Andhra Pradesh figures before FY2014-15 include the area now in "
             "Telangana; Jammu & Kashmir before FY2019-20 includes Ladakh. "
@@ -148,7 +147,6 @@ def _indicator_state_generation_by_source() -> dict[str, Any]:
             "(refresh per upstream cadence)."
         ),
         "chart_type": "stacked-trend",
-        "default_mode": "absolute",
         "notes": (
             "Single-year snapshot — comparison across states for one year "
             "is meaningful, year-on-year reading is not (only one period "
@@ -213,7 +211,6 @@ def _indicator_india_retired_capacity() -> dict[str, Any]:
         "implementing_authority": "joint",
         "methodology_vintage": "ICED retired-capacity-plants endpoint (CEA-sourced).",
         "chart_type": "stacked-trend",
-        "default_mode": "absolute",
         "notes": (
             "National only — ICED does not publish state-level retired "
             "capacity. Captures only utility-scale thermal retirements; "

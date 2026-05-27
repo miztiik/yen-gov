@@ -370,7 +370,6 @@ def _build_no2_payload(*, parsed: list[StateYearMean]) -> dict:
             ),
             "chart_type": "choropleth",
             "excludes": NO2_INDICATOR_EXCLUDES,
-            "renderer_rules": ["no_rank_table", "no_growth_across_break"],
         },
         "rows": rows,
     }
@@ -530,7 +529,6 @@ def _build_so2_payload(*, parsed: list[StateYearMean]) -> dict:
             ),
             "chart_type": "choropleth",
             "excludes": SO2_INDICATOR_EXCLUDES,
-            "renderer_rules": ["no_rank_table", "no_growth_across_break"],
         },
         "rows": rows,
     }
@@ -689,7 +687,6 @@ def _build_pm10_payload(*, parsed: list[StateYearMean]) -> dict:
             ),
             "chart_type": "choropleth",
             "excludes": PM10_INDICATOR_EXCLUDES,
-            "renderer_rules": ["no_rank_table", "no_growth_across_break"],
         },
         "rows": rows,
     }

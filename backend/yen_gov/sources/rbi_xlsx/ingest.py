@@ -91,7 +91,6 @@ class IndicatorMeta:
     denominator: Mapping[str, Any] | str | None = None
     revision_tier_by_period: tuple[Mapping[str, str], ...] = ()
     excludes: tuple[str, ...] = ()
-    renderer_rules: tuple[str, ...] = ()
     funding_split_source: str = "definition (own vs centrally-transferred)"
 
 
@@ -364,8 +363,6 @@ def _build_indicator_payload(
         ]
     if meta.excludes:
         indicator_block["excludes"] = list(meta.excludes)
-    if meta.renderer_rules:
-        indicator_block["renderer_rules"] = list(meta.renderer_rules)
 
     if meta.series_breaks:
         indicator_block["series_breaks"] = list(meta.series_breaks)

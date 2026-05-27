@@ -89,7 +89,6 @@ def _indicator_state_generation_by_source() -> dict[str, Any]:
             "revise; treat the most-recent two FYs as preliminary."
         ),
         "chart_type": "stacked-trend",
-        "default_mode": "absolute",
         "notes": (
             "ICED publishes one bucket called ``Others`` that aggregates "
             "generation not attributable to any single state (interstate/"
@@ -129,7 +128,6 @@ def _indicator_state_plf() -> dict[str, Any]:
             "(capacity × hours-in-period) × 100)."
         ),
         "chart_type": "ranked",
-        "default_mode": "absolute",
         "notes": (
             "PLF is dimensionless (%) and directly comparable across states "
             "WITHIN a fuel — but NOT across fuels (a 25% solar PLF is "
@@ -170,7 +168,6 @@ def _indicator_state_co2_power() -> dict[str, Any]:
             "We aggregate by SUM per (state, fiscal year, fuel source)."
         ),
         "chart_type": "ranked",
-        "default_mode": "absolute",
         "notes": (
             "Emissions follow the *siting* of the plant, not the consumer "
             "— ``attribution_geography=where_produced``. Renewables/nuclear/"

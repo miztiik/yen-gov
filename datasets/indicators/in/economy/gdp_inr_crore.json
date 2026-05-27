@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "5.0",
+  "$schema_version": "6.0",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/economy-demography/key-economic-indicators/gdp-trend",
@@ -36,7 +36,6 @@
     "implementing_authority": "joint",
     "methodology_vintage": "MoSPI / National Statistical Office national GDP back-series + per-state GSDP series compiled by State Directorates of Economics & Statistics under MoSPI methodology. Constant prices rebased to 2011-12. Pre-2011 national constant series is the back-cast MoSPI publishes; methodology shifted in 2015 (NSS68 → 2011-12 base) — treat the pre-2011 back-cast as a chained estimate.",
     "chart_type": "stacked-trend",
-    "default_mode": "absolute",
     "notes": "State totals will not sum exactly to national GDP because of differences in base years and revision timing across the 36 state-level series. ICED's upstream priceType field has values 'gross', 'export', 'import' — only 'gross' is the GDP headline we ship; the other two are deflator-calculation auxiliaries.",
     "series_breaks": [
       {

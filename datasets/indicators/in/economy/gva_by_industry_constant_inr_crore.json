@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "5.0",
+  "$schema_version": "6.0",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/economy-demography/key-economic-indicators/gva-trend",
@@ -35,7 +35,6 @@
     "implementing_authority": "centre",
     "methodology_vintage": "MoSPI / NSO national accounts, constant prices base 2011-12. GVA = GDP minus net product taxes; NVA = GVA minus consumption of fixed capital.",
     "chart_type": "stacked-trend",
-    "default_mode": "absolute",
     "notes": "Only the constant-price series ships in this artifact; the current-price companion can be added later if needed. State-level GVA is not shipped — the upstream payload mixes sector-group rollups (Primary/Secondary/Tertiary) with per-industry rows in a denser shape that needs its own design."
   },
   "rows": [
