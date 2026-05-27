@@ -38,6 +38,12 @@ export const StackedTrendUnitChange = z.object({
 
 export const StackedTrendHonesty = z.object({
   comparability: z.enum([
+    // v1.5 4-level ladder (preferred - see frontend/src/lib/indicators.ts).
+    "comparable_across_states_and_time",
+    "comparable_across_states_snapshot_only",
+    "comparable_within_state_over_time",
+    "directional_only",
+    // v1.0-v1.4 deprecated tokens (kept for back-compat).
     "comparable_across_states",
     "comparable_with_normalisation",
     "not_comparable_across_states",
