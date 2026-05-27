@@ -1,10 +1,11 @@
 # Pashu Aadhaar ingest — handover plan
 
-**Last Updated**: 2026-05-25
-**Status**: ◻ QUEUED — depends on Phase 0 of the livestock umbrella plan ([TODO/20260525-livestock-ndlm-ingest-plan.md](20260525-livestock-ndlm-ingest-plan.md)).
-**Parent**: [livestock NDLM ingest plan](20260525-livestock-ndlm-ingest-plan.md). This is Phase 1.B + Phase 2.B of that plan, carved out as its own doc because Pashu Aadhaar is **citizen-misreading-prone** and warrants a focused Hans framing pass.
-**Doc-class routing**: **plan-doc** per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md).
+**Last Updated**: 2026-05-27
+**Status**: ARCHIVED 2026-05-27 - delivered by PR #281/#284/#304 and superseded by PR #405; retained only for the Pashu Aadhaar honest-renderer rationale.
+**Parent**: [livestock NDLM ingest plan](../../../TODO/20260525-livestock-ndlm-ingest-plan.md). This was Phase 1.B + Phase 2.B of that plan, carved out as its own doc because Pashu Aadhaar is **citizen-misreading-prone** and warranted a focused Hans framing pass.
+**Doc-class routing**: **plan-doc** per [ADR-0034](../../architecture/decisions/0034-documentation-routing-contract.md).
 **Personas**: Hans (Governance — the honest-renderer call); Max (Indicator Scout — slug + comparability); Gregor (Architect — meadow path); Fowler (engineering craft).
+**Decomposed homes**: implementation lives in [backend/yen_gov/canonical/adapters/livestock/pashu_aadhaar.py](../../../backend/yen_gov/canonical/adapters/livestock/pashu_aadhaar.py); the live citizen-honesty fields live in [datasets/taxonomy/indicators.json](../../../datasets/taxonomy/indicators.json); the grain/species identity collapse lives in [ADR-0044](../../architecture/decisions/0044-grain-over-entity.md) and [20260526-grain-over-entity-and-storage-decoupling-plan.md](20260526-grain-over-entity-and-storage-decoupling-plan.md).
 
 ---
 
@@ -25,16 +26,16 @@ Rosling-trap candidate: ranking a UID-issuance ledger by state could let a citiz
 
 | Field | Value | Why |
 | --- | --- | --- |
-| `comparability` | `directional_only` (4-level ladder, [indicator-naming.md](../docs/concepts/indicator-naming.md) §10.1) | Cross-state ranking would mislead until DAHD publishes a denormaliser (target population). Trend within a state is honest (it's the same tagging programme over time); cross-state rank is not. |
-| `renderer_rules` | `["no_rank_table"]` (controlled vocabulary per [indicator-naming.md](../docs/concepts/indicator-naming.md) §10.2) | Refuse the ranked-states-by-Pashu-Aadhaar table outright. Choropleth is acceptable IF accompanied by the caveat below; bar-chart-by-state is not. |
+| `comparability` | `directional_only` (4-level ladder, [indicator-naming.md](../../concepts/indicator-naming.md) §10.1) | Cross-state ranking would mislead until DAHD publishes a denormaliser (target population). Trend within a state is honest (it's the same tagging programme over time); cross-state rank is not. |
+| `renderer_rules` | `["no_rank_table"]` (controlled vocabulary per [indicator-naming.md](../../concepts/indicator-naming.md) §10.2) | Refuse the ranked-states-by-Pashu-Aadhaar table outright. Choropleth is acceptable IF accompanied by the caveat below; bar-chart-by-state is not. |
 | `excludes` (v1.5 field) | `["Animals not yet tagged (programme coverage is uneven across districts)", "Tagged animals that have died (no de-registration workflow today)"]` | Citizen-readable; surfaces under the chart. |
 | `notes` | "Pashu Aadhaar is a UID-issuance ledger, not a livestock census. The count is monotone-growing with enrolment effort. Use within-state-over-time for honest reading; the bar-chart-by-state view is intentionally suppressed." | Footnote on the artifact. |
 | Citizen title | `Animals issued Pashu Aadhaar (count)` | NOT `Livestock population` — Max's slug honours this. |
-| `description` | "Cumulative count of livestock animals issued a 12-digit Pashu Aadhaar unique ID under the National Digital Livestock Mission. Reported per state and per district. The count includes animals that have since died (NDLM has no de-registration today) and excludes animals not yet tagged — programme coverage is uneven across districts." | 1-3 sentences per [indicator-naming.md](../docs/concepts/indicator-naming.md) §5.2. |
+| `description` | "Cumulative count of livestock animals issued a 12-digit Pashu Aadhaar unique ID under the National Digital Livestock Mission. Reported per state and per district. The count includes animals that have since died (NDLM has no de-registration today) and excludes animals not yet tagged — programme coverage is uneven across districts." | 1-3 sentences per [indicator-naming.md](../../concepts/indicator-naming.md) §5.2. |
 
 ## 3. The 2 indicator IDs
 
-> **Forward-pointer (PR-Z2 of [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](20260526-grain-over-entity-and-storage-decoupling-plan.md), 2026-05-26)** — the per-species sibling-id model below (`state-pashu-aadhaar-animals-tagged-count` + `district-pashu-aadhaar-count-<species>` × 10 species) is **superseded by PR-B5 of the grain-rip plan**, which collapses both grains plus all 10 species into a single id `livestock/pashu-aadhaar-count` with `species` facet axis and `entity_kinds: ["country","state","district"]` per [ADR-0044](../docs/architecture/decisions/0044-grain-over-entity.md). The shipped ids stay live until PR-B5 runs the CTAS migration; this section is preserved as the original Phase 2.B shape for trail.
+> **Forward-pointer (PR-Z2 of [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](20260526-grain-over-entity-and-storage-decoupling-plan.md), 2026-05-26)** - the per-species sibling-id model below (`state-pashu-aadhaar-animals-tagged-count` + `district-pashu-aadhaar-count-<species>` x 10 species) is **superseded by PR-B5 of the grain-rip plan**, which collapses both grains plus all 10 species into a single id `livestock/pashu-aadhaar-count` with `species` facet axis and `entity_kinds: ["country","state","district"]` per [ADR-0044](../../architecture/decisions/0044-grain-over-entity.md). The shipped ids stay live until PR-B5 runs the CTAS migration; this section is preserved as the original Phase 2.B shape for trail.
 
 | # | indicator_id | grain | facet |
 | --- | --- | --- | --- |
@@ -52,7 +53,7 @@ Both lift into `datasets/livestock/livestock_pashu_aadhaar.parquet` (single fact
 | Vintage | per (year, CY/FY) tuple — e.g. `"2024"` or `"2024-25"` |
 | License | `OGL-IN-1.0` (verify against portal footer in Phase 1.B PR) |
 | URL | `https://bharatpashudhan.ndlm.co.in/keyStatistics` (portal) and `https://bharatpashudhan-api.ndlm.co.in/epashu/v1/homepage/getAnimalRegistrationDistrictWise` (machine endpoint) |
-| Derivation | `derive_source_id("Department of...", "Bharat Pashudhan — Pashu Aadhaar...", "2024-25")` per [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md) |
+| Derivation | `derive_source_id("Department of...", "Bharat Pashudhan — Pashu Aadhaar...", "2024-25")` per [ADR-0032](../../architecture/decisions/0032-sources-citation-ledger.md) |
 
 ## 5. NDLM endpoint shape (verified 2026-05-25)
 
@@ -97,7 +98,7 @@ Response (TN 2024 CY example, abbreviated):
 | 6 | Goat |
 | 7+ | Pig / Mithun / Yak / Equine (probe other states to confirm full set in Phase 1.B PR) |
 
-NDLM's `code` is the LGD MoHA district code (recon: 588/588 districts resolve — see [parent plan §7](20260525-livestock-ndlm-ingest-plan.md#7-lgd-district-recon-result-gregors-1-risk-foreclosed)).
+NDLM's `code` is the LGD MoHA district code (recon: 588/588 districts resolve — see [parent plan §7](../../../TODO/20260525-livestock-ndlm-ingest-plan.md#7-lgd-district-recon-result-gregors-1-risk-foreclosed)).
 
 ## 6. Meadow shape
 
@@ -115,7 +116,7 @@ NDLM's `code` is the LGD MoHA district code (recon: 588/588 districts resolve �
 }
 ```
 
-(`entity_id` shape `IN-S<S>-D<lgd_district>` per [canonical-store.md §3a](../docs/architecture/data/canonical-store.md). Confirm prefix convention against the PR #267 district backfill in Phase 1.B PR — may be `IN-D<lgd>` flat instead.)
+(`entity_id` shape `IN-S<S>-D<lgd_district>` per [canonical-store.md §3a](../../architecture/data/canonical-store.md). Confirm prefix convention against the PR #267 district backfill in Phase 1.B PR — may be `IN-D<lgd>` flat instead.)
 
 ## 7. Tier-A tests
 
@@ -141,4 +142,4 @@ NDLM's `code` is the LGD MoHA district code (recon: 588/588 districts resolve �
 
 - ABIP / RGM / NADCP — separate sub-PRs (see parent plan §9 Phase 1.D + 1.E).
 - A denormalised "tagging coverage %" indicator (numerator = tagged, denominator = livestock census population). Needs a separate target-population data source (DAHD Livestock Census 2019). **Queued — not Phase 2.B.**
-- TopoJSON adoption (separate plan: [TODO/20260525-topojson-frontend-perf-plan.md](20260525-topojson-frontend-perf-plan.md)).
+- TopoJSON adoption (separate plan: [TODO/20260525-topojson-frontend-perf-plan.md](../../../TODO/20260525-topojson-frontend-perf-plan.md)).

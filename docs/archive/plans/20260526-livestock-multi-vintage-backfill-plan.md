@@ -1,9 +1,10 @@
 # Livestock NDLM multi-vintage backfill — follow-up sprint plan
 
-**Last Updated**: 2026-05-26 (Phases A+B+C+D SHIPPED for FY cut; CY cut and Phase E carried forward)
-**Status**: 🟢 RESOLVED — single-PR ship; FY 2010-11..2025-26 (16 vintages) lifted into committed meadow + canonical regenerated + 44 indicator catalogue rows reframed to citizen-honest multi-vintage methodology. CY-vintage lift and frontend sparkline / year-picker (Phase E) carried forward as separate PRs.
-**Predecessor**: [TODO/20260525-livestock-ndlm-ingest-plan.md](20260525-livestock-ndlm-ingest-plan.md) §13 (Phases 0-3 for FY 2024-25 single-vintage cut; SHIPPED earlier).
-**Doc-class routing**: **plan-doc** per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md). Architectural verdict is folded inline below; rationale lives in the predecessor plan's §3-6 + the source adapters under `backend/yen_gov/canonical/adapters/livestock/`.
+**Last Updated**: 2026-05-27
+**Status**: ARCHIVED 2026-05-27 - FY multi-vintage backfill delivered by PR #337; CY lift and frontend time-series UX were explicitly out of scope.
+**Predecessor**: [TODO/20260525-livestock-ndlm-ingest-plan.md](../../../TODO/20260525-livestock-ndlm-ingest-plan.md) §13 (Phases 0-3 for FY 2024-25 single-vintage cut; SHIPPED earlier).
+**Doc-class routing**: **plan-doc** per [ADR-0034](../../architecture/decisions/0034-documentation-routing-contract.md). Architectural verdict is folded inline below; rationale lives in the predecessor plan's §3-6 + the source adapters under `backend/yen_gov/canonical/adapters/livestock/`.
+**Decomposed homes**: adapter discovery and source lookup live in [backend/yen_gov/canonical/adapters/livestock/_shared.py](../../../backend/yen_gov/canonical/adapters/livestock/_shared.py); table-specific lifts live in the three livestock adapter modules; regression coverage lives in [backend/tests/test_livestock_owner_reg_lift.py](../../../backend/tests/test_livestock_owner_reg_lift.py), [backend/tests/test_livestock_pashu_aadhaar_lift.py](../../../backend/tests/test_livestock_pashu_aadhaar_lift.py), and [backend/tests/test_livestock_naip_iv_lift.py](../../../backend/tests/test_livestock_naip_iv_lift.py).
 
 ---
 
@@ -17,7 +18,7 @@ The 2026-05-26 bulk download produced the full corpus:
 - 18.36 MB total
 - `.runtime/raw/ndlm/_summary.json` — per-cell provenance + 11 publisher HTTP 500 failures recorded (all `getOwnerRegLandHoldingByDistrict` on 2025-26 cells; small fraction; documented as known-gap)
 
-All paths are gitignored per [ADR-0041](../docs/architecture/decisions/0041-meadow-tier.md) §3. Re-run [tools/ndlm_download.py](../tools/ndlm_download.py) on a clean checkout if the corpus has been purged; takes ~25 min.
+All paths are gitignored per [ADR-0041](../../architecture/decisions/0041-meadow-tier.md) §3. Re-run [tools/ndlm_download.py](../../../tools/ndlm_download.py) on a clean checkout if the corpus has been purged; takes ~25 min.
 
 ## 2. Pre-conditions — RESOLVED (no ADR work needed)
 
@@ -25,8 +26,8 @@ Both pre-conditions were stress-tested with Hans (Governance) + Max (Indicator S
 
 | # | Pre-condition (queued 2026-05-26) | Verdict (2026-05-26) | Owner of verdict |
 | --- | --- | --- | --- |
-| 1 | Sources-seed unfreeze (5 → ~48 rows) | **NOT NEEDED.** [ADR-0042](../docs/architecture/decisions/0042-sources-schema-v3-vintage-as-period-anchor.md) v3.0 binds: for live-fetch endpoints, **one citation row per (producer, endpoint, operator snapshot window)**; the year-of-data is a column in the dataset, not a citation row axis. This matches OWID's `origin` convention verbatim (Max-verified, [docs/concepts/owid-alignment.md](../docs/concepts/owid-alignment.md)). The 5 NDLM citation rows (one per endpoint) keep `vintage="2026-05"` and serve all 16 FY data rows uniformly. | Hans + Max + Explore |
-| 2 | Adapter time-series emit contract | **RESOLVED in-PR.** The 3 livestock adapters (`owner_reg.py`, `pashu_aadhaar.py`, `naip_iv.py`) now glob-discover snapshot dirs at lift time via `discover_meadow_snapshots(repo_root, source="ndlm")` in `_shared.py`. Per-vintage source_id is built via `source_id_for(nickname, vintage)` which calls `derive_source_id(producer, title, vintage)` per [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md). No hardcoded `MEADOW_VINTAGE` constants remain. | Gregor (folded into this PR) |
+| 1 | Sources-seed unfreeze (5 → ~48 rows) | **NOT NEEDED.** [ADR-0042](../../architecture/decisions/0042-sources-schema-v3-vintage-as-period-anchor.md) v3.0 binds: for live-fetch endpoints, **one citation row per (producer, endpoint, operator snapshot window)**; the year-of-data is a column in the dataset, not a citation row axis. This matches OWID's `origin` convention verbatim (Max-verified, [docs/concepts/owid-alignment.md](../../concepts/owid-alignment.md)). The 5 NDLM citation rows (one per endpoint) keep `vintage="2026-05"` and serve all 16 FY data rows uniformly. | Hans + Max + Explore |
+| 2 | Adapter time-series emit contract | **RESOLVED in-PR.** The 3 livestock adapters (`owner_reg.py`, `pashu_aadhaar.py`, `naip_iv.py`) now glob-discover snapshot dirs at lift time via `discover_meadow_snapshots(repo_root, source="ndlm")` in `_shared.py`. Per-vintage source_id is built via `source_id_for(nickname, vintage)` which calls `derive_source_id(producer, title, vintage)` per [ADR-0032](../../architecture/decisions/0032-sources-citation-ledger.md). No hardcoded `MEADOW_VINTAGE` constants remain. | Gregor (folded into this PR) |
 
 ## 3. Useful-vintage matrix (FY-only this PR; CY deferred)
 
