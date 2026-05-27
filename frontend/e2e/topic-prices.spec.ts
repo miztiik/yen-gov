@@ -61,7 +61,7 @@ test.describe("topic: prices", () => {
     ).toBeVisible();
   });
 
-  // TODO(PR #_pending_): re-enable when WPI re-introduced via canonical
+  // TODO(PR #425): re-enable when WPI re-introduced via canonical
   // adapter post-PR-D1 retire; see /t/prices indicator manifest.
   // Currently no rebase-banner-bearing indicator on /t/prices (only
   // cpi_inflation_pct remains; no value_kind=index + series_breaks[rebase]).
