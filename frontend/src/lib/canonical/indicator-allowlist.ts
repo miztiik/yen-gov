@@ -1816,6 +1816,78 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       "INFORMAL meat-economy bias inflates Hyderabad and surrounding Andhra Pradesh and Telangana districts via mutton-trader vet camps; Bihar and eastern UP districts under-report because programme formalisation lags, not because herds are smaller.",
     ],
   },
+  // Cattle cohort PR (Row 5 PR-P cohort 2/3, 2026-05-27): state-grain +
+  // district-grain siblings on the same livestock_pashu_aadhaar canonical
+  // table. Mirrors the goat cohort (PR #428) field shape; Hans-curated
+  // caveats[] pinned by the PR-P cattle regex assertions in
+  // indicator-from-canonical.test.ts (L499) and the B.03 district smoke
+  // describe (L1320). canonical_indicator_id is grain-less per ADR-0044.
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/state_pashu_aadhaar_count_cattle",
+    canonical_indicator_id: "state-pashu-aadhaar-count-cattle",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "state-pashu-aadhaar-count-cattle",
+      title: "Cattle tagged with Pashu Aadhaar (state)",
+      description:
+        "State SUM rollup of cattle issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Auto-emitted by the canonical adapter from district source-of-truth rows per ADR-0043.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationStateWise SUM rollup of district source-of-truth, snapshot 2026-05-25; FY 2024-25.",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Tagged count is NOT a livestock census. State values are the SUM rollup of districts that have reached programme rollout; the 20th Livestock Census 2019 reports ~193M cattle nationwide, so 40-60% coverage is typical at state grain.",
+    },
+    caveats: [
+      "ANIMALS TAGGED, not cattle owned: the 20th Livestock Census 2019 counts ~193M cattle nationwide, while NDLM Pashu Aadhaar coverage runs at 40-60% coverage by state. Tag growth tracks vet-camp effort and Indus Database enrolment, not herd growth.",
+      "Karnataka (KMF) and Andhra Pradesh (dairy-coop vet camps) lead by tag count; Manipur, Mizoram and Bihar trail not because herds are smaller but because dairy-coop networks and programme effort are weaker there. Headline ranks reflect rollout, not population.",
+      "Each animal carries a unique 12-digit RFID tag persisted in the Indus Database; cattle lifespans of 12-15 years mean FY-end snapshot counts include retired and deceased animals whose tags have not yet been retired, inflating live-herd estimates.",
+    ],
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/district_pashu_aadhaar_count_cattle",
+    canonical_indicator_id: "district-pashu-aadhaar-count-cattle",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "district-pashu-aadhaar-count-cattle",
+      title: "Cattle tagged with Pashu Aadhaar (district)",
+      description:
+        "District source-of-truth count of cattle issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. The state-grain sibling is the SUM rollup auto-emitted in the same canonical adapter run per ADR-0043.",
+      entity_kind: "district",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Tagged count is NOT a livestock census. District aggregation hides transhumant herds in Himachal Pradesh, Uttarakhand, and Jammu and Kashmir that move seasonally between bagh districts. Read alongside the 20th Livestock Census for the denominator.",
+    },
+    caveats: [
+      "ANIMALS TAGGED, not cattle owned: the 20th Livestock Census 2019 counts ~193M cattle nationwide, while NDLM Pashu Aadhaar coverage runs at 40-60% coverage by district. District tag totals reflect Indus Database enrolment, not herd size.",
+      "Karnataka and Andhra Pradesh districts lead by tag count via strong dairy-coop vet camps; Manipur, Mizoram and Bihar districts trail because programme effort and dairy-coop reach are weaker, not because cattle herds are smaller there.",
+      "Each animal carries a unique 12-digit RFID tag persisted in the Indus Database; transhumant cattle in Himachal Pradesh, Uttarakhand and Jammu and Kashmir cross district lines seasonally, so FY-end snapshot counts attribute roaming herds to whichever district registered the tag.",
+    ],
+  },
   {
     kind: "single",
     legacy_artifact_id: "agriculture/pashu_aadhaar_count_sheep",

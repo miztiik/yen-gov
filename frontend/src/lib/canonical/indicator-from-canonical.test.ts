@@ -493,10 +493,10 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
   // a state's tagging rank does not equal its livestock-population rank).
   // Authored-intent regex assertions over verbatim text per the PR-H /
   // PR-I test-resilience pattern.
-  // TODO(deploy-unblock PR #424): re-enable when state-grain + district-grain
-  // Pashu Aadhaar descriptors (and Hans-curated caveats) land in the paired follow-up
-  // PR. Tracked under the Phase D livestock cohort in the grain-rip plan.
-  it.skip("PR-P cattle Pashu Aadhaar descriptor carries the 3 Hans-curated caveats", () => {
+  // Cattle cohort PR (Row 5 PR-P cohort 2/3, 2026-05-27): cattle state-grain +
+  // district-grain descriptors shipped; re-enabling the cattle caveat
+  // assertion. Buffalo sibling follows in cohort 3 of 3.
+  it("PR-P cattle Pashu Aadhaar descriptor carries the 3 Hans-curated caveats", () => {
     const d = getCanonicalDescriptor("agriculture/state_pashu_aadhaar_count_cattle");
     expect(d).not.toBeNull();
     expect(d!.caveats).toBeDefined();
@@ -1314,10 +1314,10 @@ describe("entityKindToAdminLevel — PR B.02 dispatch helper", () => {
   });
 });
 
-// TODO(deploy-unblock PR #424): re-enable when state-grain + district-grain
-// Pashu Aadhaar descriptors (and Hans-curated caveats) land in the paired follow-up
-// PR. Tracked under the Phase D livestock cohort in the grain-rip plan.
-describe.skip("buildIndicatorArtifact — district-grain (PR B.03 smoke proof)", () => {
+// Cattle cohort PR (Row 5 PR-P cohort 2/3, 2026-05-27): district-grain cattle
+// descriptor shipped alongside its state-grain sibling; re-enabling the B.03
+// district smoke describe which targets the cattle district descriptor.
+describe("buildIndicatorArtifact — district-grain (PR B.03 smoke proof)", () => {
   // PR B.03 (2026-05-25) — end-to-end smoke proof of the B.01
   // (ADR-0043 auto-rollup writer) + B.02 (entityKindToAdminLevel
   // dispatch helper) pipeline against the first district-grain
