@@ -1,6 +1,6 @@
 {
   "$schema": "../schemas/indicator-catalogue.schema.json",
-  "$schema_version": "2.3",
+  "$schema_version": "2.4",
   "indicators": [
     {
       "indicator_id": "candidate-votes-polled",
@@ -4007,9 +4007,6 @@
       "revision_tier": "first_release",
       "parent_indicator_id": null,
       "source_id": null,
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4043,9 +4040,6 @@
         "species": "cattle"
       },
       "source_id": "src-7e5d4aac4995",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4079,9 +4073,6 @@
         "species": "buffalo"
       },
       "source_id": "src-7e5d4aac4995",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4115,9 +4106,6 @@
         "species": "yak"
       },
       "source_id": "src-7e5d4aac4995",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4151,9 +4139,6 @@
         "species": "mithun"
       },
       "source_id": "src-7e5d4aac4995",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4187,9 +4172,6 @@
         "species": "sheep"
       },
       "source_id": "src-7e5d4aac4995",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4223,9 +4205,6 @@
         "species": "goat"
       },
       "source_id": "src-7e5d4aac4995",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4259,9 +4238,6 @@
         "species": "pig"
       },
       "source_id": "src-7e5d4aac4995",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4295,9 +4271,6 @@
         "species": "horse"
       },
       "source_id": "src-7e5d4aac4995",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4331,9 +4304,6 @@
         "species": "donkey"
       },
       "source_id": "src-7e5d4aac4995",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4367,9 +4337,6 @@
         "species": "mule"
       },
       "source_id": "src-7e5d4aac4995",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4400,9 +4367,6 @@
       "revision_tier": "first_release",
       "parent_indicator_id": null,
       "source_id": null,
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4439,9 +4403,6 @@
         "landholding": "landless_marginal"
       },
       "source_id": "src-d98dc531ef7e",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4478,9 +4439,6 @@
         "landholding": "small"
       },
       "source_id": "src-d98dc531ef7e",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4517,9 +4475,6 @@
         "landholding": "semi_medium"
       },
       "source_id": "src-d98dc531ef7e",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4556,9 +4511,6 @@
         "landholding": "medium"
       },
       "source_id": "src-d98dc531ef7e",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4595,9 +4547,6 @@
         "landholding": "large"
       },
       "source_id": "src-d98dc531ef7e",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4634,9 +4583,6 @@
         "landholding": "not_specified"
       },
       "source_id": "src-d98dc531ef7e",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4670,9 +4616,6 @@
       "revision_tier": "first_release",
       "parent_indicator_id": null,
       "source_id": "src-93a2a72db482",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4706,9 +4649,6 @@
       "revision_tier": "first_release",
       "parent_indicator_id": null,
       "source_id": "src-93a2a72db482",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4742,9 +4682,6 @@
       "revision_tier": "first_release",
       "parent_indicator_id": null,
       "source_id": "src-93a2a72db482",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"
@@ -4778,9 +4715,6 @@
       "revision_tier": "first_release",
       "parent_indicator_id": null,
       "source_id": "src-93a2a72db482",
-      "renderer_rules": [
-        "no_rank_table"
-      ],
       "entity_kinds": [
         "district",
         "state"

@@ -165,7 +165,6 @@ class IndicatorRow(BaseModel):
     coverage_year_min: int | None = None
     coverage_year_max: int | None = None
     coverage_density: float | None = Field(default=None, ge=0, le=1)
-    renderer_rules: list[str] = Field(default_factory=list)
     # v2.0 (PR-B1 2026-05-26 grain-over-entity rip per ADR-0044). The
     # entity kinds this indicator can be observed at. Grain is dispatched
     # at READ time from each observation row's ``entity_kind`` column;
@@ -239,7 +238,6 @@ CREATE TABLE indicators (
     coverage_year_min INTEGER,
     coverage_year_max INTEGER,
     coverage_density DOUBLE,
-    renderer_rules VARCHAR[],
     entity_kinds VARCHAR[] NOT NULL,
     default_entity_kind VARCHAR NOT NULL,
     update_period_days INTEGER,
@@ -292,7 +290,6 @@ def _row_to_tuple(row: IndicatorRow) -> tuple:
         row.coverage_year_min,
         row.coverage_year_max,
         row.coverage_density,
-        list(row.renderer_rules),
         list(row.entity_kinds),
         row.default_entity_kind,
         row.update_period_days,
@@ -352,7 +349,7 @@ def compile_to_parquet(json_in: Path, parquet_out: Path) -> int:
         if rows:
             con.executemany(
                 "INSERT INTO indicators VALUES ("
-                + ", ".join(["?"] * 35)
+                + ", ".join(["?"] * 34)
                 + ")",
                 [_row_to_tuple(r) for r in rows],
             )

@@ -3,7 +3,7 @@
   "$id": "./indicator-catalogue.schema.json",
   "title": "Indicator catalogue (canonical)",
   "description": "Hand-authored canonical indicator catalogue (taxonomy/indicators.json). One row per indicator_id. Carries the full Hans honesty surface (D15) plus D29 catalogue additions (parent_indicator_id self-FK, dimension_values:STRUCT for facet-explode children, per-child source_id, methodology_version FK). id field enforces the D30 naming convention. Pipeline compiles to taxonomy/indicators.parquet. NOTE: this is the canonical replacement for the pre-pivot datasets/schemas/indicator.schema.json (which validates per-shard JSON under datasets/indicators/in/). The legacy file stays in place through Phase 0.13; rename of this file to indicator.schema.json happens when the pre-pivot artifacts move to _old/.",
-  "x-version": "2.3",
+  "x-version": "2.4",
   "x-changelog": [
     {
       "version": "1.0",
@@ -34,6 +34,11 @@
       "version": "2.3",
       "date": "2026-05-26",
       "description": "PR-Zjust meta.justification backfill (TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat guardrail #15). ADDITIVE: ADD optional object property meta with optional string sub-property justification (minLength=20). Backfills meta.justification on the 26 cross-grain twin rows (5x coal/gas/hydro/nuclear/renewable installed-capacity attribution facets + 2x vote-share + 2x winning-party) naming the structural difference per guardrail #15 (different concept / unit / normalisation / sampling frame). Unlocks chaining the existing DARK Tier-B check tier_b_indicator_has_justification (added in PR-Z3b-tail-actionBD #367) live in run(). v2.2 rows continue to validate unchanged under v2.3."
+    },
+    {
+      "version": "2.4",
+      "date": "2026-05-27",
+      "description": "PR-A3c-tail-2 renderer_rules rip on the catalogue side (companion to PR #407 which ripped from per-shard indicator.schema.json + ingest writers). MAJOR per CLAUDE.md §11 (property removal): REMOVE optional array property renderer_rules from the indicators[] item shape. Per ADR-0045 (grapher catalogue split), render hints belong in datasets/grapher/indicator_render.json owned by the frontend, not in the canonical indicator catalogue. All 22 catalogue rows that previously carried renderer_rules are mechanically stripped in the same commit; the field is preserved verbatim on the grapher side (datasets/schemas/grapher-indicator-render.schema.json) which is its canonical home. Catalogue model backend/yen_gov/canonical/indicators_seed.py drops the IndicatorRow.renderer_rules field, the renderer_rules VARCHAR[] DDL column, and the _row_to_tuple emission. taxonomy/indicators.parquet regenerated via emit-taxonomy (one column fewer). v2.3 rows that carry renderer_rules DO NOT validate under v2.4; the catalogue is backfilled in the same commit. Stamp in consumer datasets/taxonomy/indicators.json bumped 2.3 -> 2.4."
     }
   ],
   "type": "object",
@@ -232,11 +237,6 @@
             "minimum": 0,
             "maximum": 1,
             "description": "Denormalised. Fraction of (eligible_entity x year) cells observed. 1.0 = complete; 0.0 = empty."
-          },
-          "renderer_rules": {
-            "type": "array",
-            "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
-            "description": "Controlled-vocab slugs binding renderer behaviour (e.g. 'no_rank_table', 'no_growth_across_break', 'mask_be_in_long_view'). Vocabulary lives in docs/concepts/indicator-naming.md."
           },
           "entity_kinds": {
             "type": "array",
