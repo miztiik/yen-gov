@@ -1,6 +1,6 @@
 # Agent Guardrails
 
-**Last Updated**: 2026-05-23
+**Last Updated**: 2026-05-27
 
 This is the rules-only digest every persona must honour. It restates `CLAUDE.md` constraints in one place so an agent can scan the constraints quickly and so other docs (ADRs, agent files, code reviews) can link to specific rules. The authoritative source remains [`CLAUDE.md`](../../CLAUDE.md); if this doc and `CLAUDE.md` disagree, `CLAUDE.md` wins and this digest gets updated.
 
@@ -117,7 +117,7 @@ When in doubt, choose the higher level. Level 2 and above require an explicit pl
 - Edit a `package.json` without running `bun install` and staging `bun.lock` in the same commit.
 - Prefix `state-` / `district-` / `national-` on `indicator_id` — grain lives on each row's `entity_kind`, dispatched at read time (ADR-0044).
 - Add UI/render fields (`chart_type`, `default_mode`, `renderer_rules`, `facet_labels`, `dimension`) to canonical or topic catalogues — they live in the grapher catalogue at `datasets/grapher/` (ADR-0045).
-- Fan facets/grain into separate cards on a topic page — one card per measure with the facet picker inside the card.
+- Fan facets/grain into separate cards on a topic page — one card per measure with the facet picker inside the card. Enforced by [`frontend/src/contracts/topic-card-uniqueness.test.ts`](../../frontend/src/contracts/topic-card-uniqueness.test.ts) (live as of PR #411).
 - Mint a new `indicator_id` for a new vintage, publisher, base-year, or sampling-frame of an existing fact. UPSERT same id, or add a facet, or add a `methodology_breaks.parquet` row (Rosling rule).
 - Skip the pre-ingest overlap check before adding any new ingest. Cite `python -m yen_gov check-overlap --concept "<noun>" --unit "<u>" --entity_kind "<k>"` in every new-source handover-doc.
 - Author a plan-doc touching indicator ids or catalogue fields without citing ADR-0044 + ADR-0045 in its preamble.
