@@ -21,7 +21,7 @@
 | A3c-topic | Rip `chart_type` + `dimension` (topic side) | DONE | #342 | — |
 | **A3c-tail** | Rip `renderer_rules` (indicator + ingest) | **PENDING** | — | High worktree-conflict risk |
 | A4 | `--table` filter on lift commands | DONE | #368 | — |
-| **A5a** | Strip `datetime.now()` non-livestock | DONE (7 of 8 orchestrators; iced_common/client.py deferred to A5a-tail2) | #391, #_pending_ | — |
+| **A5a** | Strip `datetime.now()` non-livestock | DONE (7 of 8 orchestrators; iced_common/client.py deferred to A5a-tail2) | #391, #393 | — |
 | A5b | Strip `datetime.now()` livestock | DONE | #369 | — |
 | **A6** | Data-driven `source_id` lookup | **PENDING** | — | Both adapter worktrees |
 | B0 | Per-shard `indicator.schema` v5.0 | DONE | #359 | — |
