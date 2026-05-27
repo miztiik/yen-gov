@@ -31,7 +31,7 @@ P.1.B — Lifts 5 additional legacy shards (DISCOM finance + RPO):
   ``state-acs-arr-gap-inr-per-kwh`` (standalone; ICED Deep Dive source).
 * ``state_rpo_compliance_pct.json`` (natively 3-faceted on
   ``solar`` / ``non-solar`` / ``total``) → 3 child indicator_ids of
-  ``state-rpo-compliance-pct`` (rpo_segment = solar / non_solar / total).
+  ``rpo-compliance-pct`` (rpo_segment = solar / non_solar / total).
 
 The two efficiency-percentage families (billing × collection) decompose
 the commercial half of AT&C losses; ``td-loss`` is the technical half.
@@ -153,7 +153,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
     #    rather than silently drop.
     shard = _load_distribution_meadow(repo_root, "state_rpo_compliance_pct.json")
     legacy_to_indicator: dict[str, str] = {
-        legacy: f"state-rpo-compliance-pct-{suffix}"
+        legacy: f"rpo-compliance-pct-{suffix}"
         for legacy, suffix, _value_id in _RPO_FACET_DISPATCH
     }
     for r in shard["rows"]:

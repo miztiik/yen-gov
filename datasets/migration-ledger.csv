@@ -76,7 +76,7 @@ datasets/indicators/in/energy/state_distribution_billing_efficiency_pct.json,ene
 datasets/indicators/in/energy/state_distribution_collection_efficiency_pct.json,energy,migrate,2,state-distribution-collection-efficiency-pct,,Distinct measure.
 datasets/indicators/in/energy/state_acs_arr_gap_inr_per_kwh.json,energy,migrate,2,state-acs-arr-gap-inr-per-kwh,,Discom financial health indicator.
 datasets/indicators/in/energy/state_plant_load_factor_pct.json,energy,migrate,2,state-plf-pct,,PLF is canonical thermal-fleet utilisation measure.
-datasets/indicators/in/energy/state_rpo_compliance_pct.json,energy,migrate,2,state-rpo-compliance-pct,,Renewable Purchase Obligation compliance.
+datasets/indicators/in/energy/state_rpo_compliance_pct.json,energy,migrate,2,rpo-compliance-pct,,Renewable Purchase Obligation compliance.
 datasets/indicators/in/energy/state_electricity_generation_by_source_gwh.json,energy,consolidate,2,state-electricity-generation-gwh,{},Parent. Facet-explode children carry fuel_type. D33.8 total = compute-on-read.
 datasets/indicators/in/energy/state_electricity_generation_mu.json,energy,drop,2,,,Same measure different unit (MU vs GWh). 1 MU = 1 GWh; keep GWh as canonical unit per OWID convention.
 datasets/indicators/in/energy/state_coal_consumption_mt.json,energy,migrate,2,state-coal-consumption-mt,,Fuel input; distinct from generation output.

@@ -69,7 +69,7 @@ def test_state_electricity_sales_matches_shard_in_2015() -> None:
 def test_parquet_has_eight_distinct_indicators_after_p1b() -> None:
     """P.1.A (2) + P.1.B (6: 3 efficiency children + ACS-ARR + 3 RPO
     children) = 8 observation-emitting indicators on this table. The 2
-    parents (distribution-efficiency-pct + state-rpo-compliance-pct)
+    parents (distribution-efficiency-pct + rpo-compliance-pct)
     are compute-on-read and emit NO rows here."""
     con = duckdb.connect(":memory:")
     try:
@@ -91,10 +91,10 @@ def test_parquet_has_eight_distinct_indicators_after_p1b() -> None:
         "distribution-efficiency-pct-td-loss",
         # P.1.B — ACS-ARR standalone
         "state-acs-arr-gap-inr-per-kwh",
-        # P.1.B — RPO triple (children of state-rpo-compliance-pct)
-        "state-rpo-compliance-pct-solar",
-        "state-rpo-compliance-pct-non-solar",
-        "state-rpo-compliance-pct-total",
+        # P.1.B — RPO triple (children of rpo-compliance-pct)
+        "rpo-compliance-pct-solar",
+        "rpo-compliance-pct-non-solar",
+        "rpo-compliance-pct-total",
     }
     assert indicators == expected, (
         f"energy_distribution_performance.parquet indicator set drift: "
@@ -155,31 +155,31 @@ def test_p1b_acs_arr_gap_in_2016() -> None:
 
 
 def test_p1b_rpo_solar_s01_2018() -> None:
-    """state-rpo-compliance-pct-solar, IN-S01 2018-04 = 7.5254...
+    """rpo-compliance-pct-solar, IN-S01 2018-04 = 7.5254...
     (raw, ICED distribution-RPO endpoint, facet=solar)."""
-    val = _query_value("IN-S01", 2018, "state-rpo-compliance-pct-solar")
+    val = _query_value("IN-S01", 2018, "rpo-compliance-pct-solar")
     assert val == pytest.approx(7.525411382975202, abs=1e-9), (
         f"IN-S01 2018 RPO solar expected 7.5254..., got {val!r}"
     )
 
 
 def test_p1b_rpo_non_solar_s01_2018() -> None:
-    """state-rpo-compliance-pct-non-solar, IN-S01 2018-04 = 15.8669...
+    """rpo-compliance-pct-non-solar, IN-S01 2018-04 = 15.8669...
     (raw, ICED distribution-RPO endpoint, facet=non-solar). Verifies
     the legacy hyphenated facet 'non-solar' correctly routes to the
     canonical -non-solar child indicator_id."""
-    val = _query_value("IN-S01", 2018, "state-rpo-compliance-pct-non-solar")
+    val = _query_value("IN-S01", 2018, "rpo-compliance-pct-non-solar")
     assert val == pytest.approx(15.866966857596928, abs=1e-9), (
         f"IN-S01 2018 RPO non-solar expected 15.8669..., got {val!r}"
     )
 
 
 def test_p1b_rpo_total_s01_2018() -> None:
-    """state-rpo-compliance-pct-total, IN-S01 2018-04 = 23.3923...
+    """rpo-compliance-pct-total, IN-S01 2018-04 = 23.3923...
     (raw, ICED distribution-RPO endpoint, facet=total). This is the
     regulator's combined-target compliance ratio, NOT the sum of solar
     + non-solar."""
-    val = _query_value("IN-S01", 2018, "state-rpo-compliance-pct-total")
+    val = _query_value("IN-S01", 2018, "rpo-compliance-pct-total")
     assert val == pytest.approx(23.392378240572132, abs=1e-9), (
         f"IN-S01 2018 RPO total expected 23.3923..., got {val!r}"
     )
@@ -198,9 +198,9 @@ def test_p1b_source_id_routing() -> None:
         "distribution-efficiency-pct-collection": "src-650b1c25d1f7",
         "distribution-efficiency-pct-td-loss":    "src-650b1c25d1f7",
         "state-acs-arr-gap-inr-per-kwh":                "src-bb1d7bec8b34",
-        "state-rpo-compliance-pct-solar":               "src-0ea63ed47704",
-        "state-rpo-compliance-pct-non-solar":           "src-0ea63ed47704",
-        "state-rpo-compliance-pct-total":               "src-0ea63ed47704",
+        "rpo-compliance-pct-solar":               "src-0ea63ed47704",
+        "rpo-compliance-pct-non-solar":           "src-0ea63ed47704",
+        "rpo-compliance-pct-total":               "src-0ea63ed47704",
     }
     con = duckdb.connect(":memory:")
     try:
