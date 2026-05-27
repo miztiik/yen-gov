@@ -509,104 +509,54 @@
       "artifacts": [
         {
           "kind": "indicator",
-          "id": "agriculture/district_pashu_aadhaar_count_cattle",
+          "id": "agriculture/pashu_aadhaar_count_cattle",
           "scope": "national",
           "default": true,
           "featured": true
         },
         {
           "kind": "indicator",
-          "id": "agriculture/state_pashu_aadhaar_count_cattle",
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/state_pashu_aadhaar_count_buffalo",
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/state_pashu_aadhaar_count_goat",
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/state_pashu_aadhaar_count_sheep",
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/state_pashu_aadhaar_count_pig",
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/state_pashu_aadhaar_count_mithun",
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/state_pashu_aadhaar_count_yak",
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/state_pashu_aadhaar_count_horse",
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/state_pashu_aadhaar_count_donkey",
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/state_pashu_aadhaar_count_mule",
-          "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/district_pashu_aadhaar_count_buffalo",
+          "id": "agriculture/pashu_aadhaar_count_buffalo",
           "scope": "national"
         },
         {
           "kind": "indicator",
-          "id": "agriculture/district_pashu_aadhaar_count_goat",
+          "id": "agriculture/pashu_aadhaar_count_goat",
           "scope": "national"
         },
         {
           "kind": "indicator",
-          "id": "agriculture/district_pashu_aadhaar_count_sheep",
+          "id": "agriculture/pashu_aadhaar_count_sheep",
           "scope": "national"
         },
         {
           "kind": "indicator",
-          "id": "agriculture/district_pashu_aadhaar_count_pig",
+          "id": "agriculture/pashu_aadhaar_count_pig",
           "scope": "national"
         },
         {
           "kind": "indicator",
-          "id": "agriculture/district_pashu_aadhaar_count_mithun",
+          "id": "agriculture/pashu_aadhaar_count_mithun",
           "scope": "national"
         },
         {
           "kind": "indicator",
-          "id": "agriculture/district_pashu_aadhaar_count_yak",
+          "id": "agriculture/pashu_aadhaar_count_yak",
           "scope": "national"
         },
         {
           "kind": "indicator",
-          "id": "agriculture/district_pashu_aadhaar_count_horse",
+          "id": "agriculture/pashu_aadhaar_count_horse",
           "scope": "national"
         },
         {
           "kind": "indicator",
-          "id": "agriculture/district_pashu_aadhaar_count_donkey",
+          "id": "agriculture/pashu_aadhaar_count_donkey",
           "scope": "national"
         },
         {
           "kind": "indicator",
-          "id": "agriculture/district_pashu_aadhaar_count_mule",
+          "id": "agriculture/pashu_aadhaar_count_mule",
           "scope": "national"
         },
         {

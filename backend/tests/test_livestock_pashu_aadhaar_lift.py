@@ -63,6 +63,20 @@ MEADOW_VINTAGE_DIR = "2024-25"
 PASHU_AADHAAR_SOURCE_ID = "src-7e5d4aac4995"
 
 
+
+
+def _is_district_row(r) -> bool:
+    """Distinguish district-grain rows from state-grain rollup rows now
+    that the indicator_id no longer carries a grain prefix (ADR-0044).
+    District entity_ids carry a "-D<digits>" suffix; state entity_ids
+    do not.
+    """
+    return "-D" in r.entity_id
+
+
+def _is_state_row(r) -> bool:
+    return not _is_district_row(r)
+
 def _pashu_aadhaar_envelope():
     """Pick the pashu_aadhaar envelope from the livestock package output.
 
@@ -125,12 +139,10 @@ def test_all_ten_species_facet_children_emit_rows() -> None:
     emitted_indicator_ids = {row.indicator_id for row in env.observation_rows}
 
     expected = {
-        f"district-pashu-aadhaar-count-{slug}" for slug in SPECIES_SLUGS
-    } | {
-        f"state-pashu-aadhaar-count-{slug}" for slug in SPECIES_SLUGS
+        f"pashu-aadhaar-count-{slug}" for slug in SPECIES_SLUGS
     }
     assert emitted_indicator_ids == expected, (
-        f"expected the 10 district + 10 state-rollup species children; "
+        f"expected the 10 collapsed species children (multi-grain); "
         f"got {emitted_indicator_ids ^ expected!r} symmetric-difference"
     )
 
@@ -148,10 +160,7 @@ def test_parent_indicator_has_no_observation_rows() -> None:
     compute-on-read contract (frontend would double-count parent +
     sum(children))."""
     env = _pashu_aadhaar_envelope()
-    parent_ids = {
-        "district-pashu-aadhaar-count",
-        "state-pashu-aadhaar-count",
-    }
+    parent_ids = {"pashu-aadhaar-count"}
     parent_rows = [
         r for r in env.observation_rows if r.indicator_id in parent_ids
     ]
@@ -213,7 +222,7 @@ def test_derivation_matches_grain() -> None:
     env = _pashu_aadhaar_envelope()
     by_grain: dict[str, set[str]] = {}
     for r in env.observation_rows:
-        grain = "district" if r.indicator_id.startswith("district-") else "state"
+        grain = "district" if _is_district_row(r) else "state"
         by_grain.setdefault(grain, set()).add(r.derivation)
     assert by_grain == {"district": {"raw"}, "state": {"sum"}}, (
         f"expected district=raw + state=sum; got {by_grain!r}"
@@ -248,11 +257,11 @@ def test_entity_id_fk_closure_for_both_grains() -> None:
             orphans.append(r.entity_id)
             continue
         entity_type = ent.get("entity_type")
-        if r.indicator_id.startswith("district-") and entity_type != "district":
+        if _is_district_row(r) and entity_type != "district":
             grain_mismatches.append(
                 f"{r.indicator_id} -> {r.entity_id} (entity_type={entity_type!r})"
             )
-        elif r.indicator_id.startswith("state-") and entity_type not in (
+        elif _is_state_row(r) and entity_type not in (
             "state", "ut",
         ):
             grain_mismatches.append(
@@ -315,7 +324,7 @@ def test_state_rollup_sum_matches_district_sum_per_species() -> None:
     # Expected: sum district rows by (state_prefix, species, period_label)
     expected: dict[tuple[str, str, str], float] = {}
     for r in env.observation_rows:
-        if not r.indicator_id.startswith("district-pashu-aadhaar-count-"):
+        if not _is_district_row(r):
             continue
         species = r.indicator_id.rsplit("-", 1)[-1]
         key = (state_prefix(r.entity_id), species, r.period_label)
@@ -324,7 +333,7 @@ def test_state_rollup_sum_matches_district_sum_per_species() -> None:
     # Actual: state-rollup rows keyed by (entity_id, species, period_label)
     actual: dict[tuple[str, str, str], float] = {}
     for r in env.observation_rows:
-        if not r.indicator_id.startswith("state-pashu-aadhaar-count-"):
+        if not _is_state_row(r):
             continue
         species = r.indicator_id.rsplit("-", 1)[-1]
         key = (r.entity_id, species, r.period_label)
@@ -359,7 +368,7 @@ def test_state_rollup_reuses_district_source_id() -> None:
     env = _pashu_aadhaar_envelope()
     bad = [
         r for r in env.observation_rows
-        if r.indicator_id.startswith("state-pashu-aadhaar-count-")
+        if _is_state_row(r)
         and r.source_id != PASHU_AADHAAR_SOURCE_ID
     ]
     assert not bad, (
@@ -383,12 +392,12 @@ def test_state_rollup_inherits_period_axes() -> None:
     district_periods = {
         (r.period_label, r.year, r.period_seq)
         for r in env.observation_rows
-        if r.indicator_id.startswith("district-pashu-aadhaar-count-")
+        if _is_district_row(r)
     }
     rollup_periods = {
         (r.period_label, r.year, r.period_seq)
         for r in env.observation_rows
-        if r.indicator_id.startswith("state-pashu-aadhaar-count-")
+        if _is_state_row(r)
     }
     assert rollup_periods == district_periods, (
         f"state-rollup period axes drifted from district; "

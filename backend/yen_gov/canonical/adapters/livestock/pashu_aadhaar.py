@@ -15,7 +15,7 @@ citation seeded in PR #276 (``src-7e5d4aac4995`` with vintage="2024-25");
 per ADR-0041 nn4 + ADR-0042 the meadow-path vintage MUST equal an
 existing citation row's vintage.
 
-The parent indicator ``district-pashu-aadhaar-count`` is compute-on-read
+The parent indicator ``pashu-aadhaar-count`` is compute-on-read
 per Hans' D33.8 ruling (the parent's value is the sum of the 10 atomic
 species children; no observation rows on disk for the parent).
 
@@ -31,7 +31,7 @@ prepared to extend without re-downloading raw data.
 **State-grain rollup rows** (per ADR-0043, 2026-05-25). After lifting
 all district rows, this adapter SUMs district rows by
 ``(state_prefix, species, period_label)`` and emits 10 NEW state-grain
-indicators (``state-pashu-aadhaar-count-<species>``) carrying:
+indicators (``pashu-aadhaar-count-<species>``) carrying:
 
 * ``entity_id`` = state-grain prefix (e.g. ``IN-S01`` from
   ``IN-S01-D502``); the trailing ``-D<n>`` is stripped.
@@ -45,7 +45,7 @@ indicators (``state-pashu-aadhaar-count-<species>``) carrying:
 * ``period_label`` / ``year`` / ``period_seq`` inherited verbatim from
   the district rows.
 
-The state-grain PARENT (``state-pashu-aadhaar-count``) is also
+The PARENT (``pashu-aadhaar-count``) is also
 compute-on-read; no observation rows emitted (mirrors the district
 parent's shape exactly per Hans D33.8).
 
@@ -102,7 +102,7 @@ def _lift_snapshot(
             vintage,
             f"district-pashu-aadhaar-count-{sp_slug}.json",
         )
-        indicator_id = f"district-pashu-aadhaar-count-{sp_slug}"
+        indicator_id = f"pashu-aadhaar-count-{sp_slug}"
         for r in shard["rows"]:
             period_label, year, period_seq = parse_ndlm_period(r["time"])
             rows.append(
@@ -153,7 +153,7 @@ def _lift_snapshot(
                 year=year,
                 period_label=period_label,
                 period_seq=period_seq,
-                indicator_id=f"state-pashu-aadhaar-count-{species_slug}",
+                indicator_id=f"pashu-aadhaar-count-{species_slug}",
                 value_numeric=total,
                 source_id=source_id,
                 derivation="sum",
