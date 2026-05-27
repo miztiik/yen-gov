@@ -26,7 +26,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from yen_gov.canonical.citation import derive_source_id
+from yen_gov.canonical.citation import derive_source_id, lookup_source_id
 from yen_gov.canonical.livestock_sources_seed import (
     LIVESTOCK_NICKNAME_TO_PRODUCER_TITLE,
     LIVESTOCK_SOURCE_ID_BY_NICKNAME,
@@ -43,7 +43,12 @@ from yen_gov.canonical.livestock_sources_seed import (
 SOURCE_IDS: dict[str, str] = dict(LIVESTOCK_SOURCE_ID_BY_NICKNAME)
 
 
-def source_id_for(nickname: str, vintage: str) -> str:
+def source_id_for(
+    nickname: str,
+    vintage: str,
+    *,
+    sources_path: Path | None = None,
+) -> str:
     """Derive the source_id for one (livestock endpoint, vintage) pair.
 
     Adapters call this once per discovered meadow snapshot dir to FK
@@ -51,6 +56,14 @@ def source_id_for(nickname: str, vintage: str) -> str:
     pair comes from ``livestock_sources_seed.py``'s
     ``LIVESTOCK_NICKNAME_TO_PRODUCER_TITLE`` map (the IDENTITY half of
     the citation triple); vintage is the per-snapshot parameter.
+
+    When ``sources_path`` is provided AND the parquet exists (PR-A6),
+    the source_id is looked up from the citation ledger via
+    :func:`lookup_source_id` so the FK is verified at adapter time
+    rather than only at the writer's gate. When omitted, or when the
+    ledger is absent (test fixtures with synthetic repo roots), falls
+    back to :func:`derive_source_id` -- the writer's FK gate remains
+    the structural backstop.
 
     Per ADR-0042 (vintage = operator snapshot window for live-fetch
     sources without a publisher edition tag), vintage MUST match an
@@ -67,6 +80,8 @@ def source_id_for(nickname: str, vintage: str) -> str:
         nicknames (defensive: a typo here would emit observation rows
         with a phantom source_id that the FK gate catches later but
         with a less useful error message).
+        LookupError if ``sources_path`` is provided but the triple has
+        no matching row in the citation ledger.
     """
     if nickname not in LIVESTOCK_NICKNAME_TO_PRODUCER_TITLE:
         valid = sorted(LIVESTOCK_NICKNAME_TO_PRODUCER_TITLE)
@@ -75,6 +90,10 @@ def source_id_for(nickname: str, vintage: str) -> str:
             f"valid nicknames: {valid}"
         )
     producer, title = LIVESTOCK_NICKNAME_TO_PRODUCER_TITLE[nickname]
+    if sources_path is not None and sources_path.exists():
+        return lookup_source_id(
+            producer, title, vintage, sources_path=sources_path
+        )
     return derive_source_id(producer, title, vintage)
 
 
