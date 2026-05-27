@@ -4,8 +4,8 @@
 **Status**: 🛑 DESIGN-PAUSED — retire-list invalidated by pre-implementation audit. **Path A CHOSEN 2026-05-24**: retire 8 SAFE shards in a near-term PR; defer 8 unsafe into 4 follow-up lift PRs scheduled at [`20260524-p1a-data-reacquisition-plan.md`](20260524-p1a-data-reacquisition-plan.md). The C5+C6 design Q1-Q6 verdicts below stay STALE — once all 8 deferred shards are no longer deferred (after C4.5 / C4.6 / C4.7 / C4.8 land), C5+C6 reopens as the final full-reader-switch + final-retire-pass commit. Until then, the Path A retire PR ships C5 reader infrastructure with a path-router that handles the 8 retired paths + falls through to legacy for the 8 deferred. Audit details: [20260524-p1a-c5-retire-list-audit-findings.md](20260524-p1a-c5-retire-list-audit-findings.md).
 
 Original status (pre-audit): ◻ DESIGN-OPEN. Authoring Q1–Q6 below. C5+C6 is the FINAL P.1.A step; ships as ONE fused-atomic commit per CLAUDE.md §15 + Holy Law #4. Blocks the ~16-shard energy-family retire-list scrub.
-**Doc class**: plan-doc per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md) — status + design decisions + sub-PR shape + Tier-A/B test plan. No executed-work narrative.
-**Cites**: [P.1 energy pivot](20260522-phase-2-p1-energy-pivot.md) §3 verdicts + §4 P.1.A pre-flight checklist (7/8 flipped on origin/main `056a995d` as of 2026-05-24; remaining §2b ships INSIDE this commit) + [canonical-store.md §2b](../docs/architecture/data/canonical-store.md) + [ADR-0030](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md) (D5/D11/D22/D26/D29/D33.8) + [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md) (sources v2.0) + [frontend/src/lib/indicators.ts](../frontend/src/lib/indicators.ts) (legacy `IndicatorArtifact` shape, line 310; `fetchIndicator()`, line 328) + [frontend/src/lib/canonical/duckdb.ts](../frontend/src/lib/canonical/duckdb.ts) (WASM seam) + [frontend/src/lib/indicator-catalogue.ts](../frontend/src/lib/indicator-catalogue.ts) (catalogue reader, PR #107 v1.1).
+**Doc class**: plan-doc per [ADR-0034](../../architecture/decisions/0034-documentation-routing-contract.md) — status + design decisions + sub-PR shape + Tier-A/B test plan. No executed-work narrative.
+**Cites**: [P.1 energy pivot](20260522-phase-2-p1-energy-pivot.md) §3 verdicts + §4 P.1.A pre-flight checklist (7/8 flipped on origin/main `056a995d` as of 2026-05-24; remaining §2b ships INSIDE this commit) + [canonical-store.md §2b](../../architecture/data/canonical-store.md) + [ADR-0030](../../architecture/decisions/0030-canonical-store-duckdb-wasm.md) (D5/D11/D22/D26/D29/D33.8) + [ADR-0032](../../architecture/decisions/0032-sources-citation-ledger.md) (sources v2.0) + [frontend/src/lib/indicators.ts](../frontend/src/lib/indicators.ts) (legacy `IndicatorArtifact` shape, line 310; `fetchIndicator()`, line 328) + [frontend/src/lib/canonical/duckdb.ts](../frontend/src/lib/canonical/duckdb.ts) (WASM seam) + [frontend/src/lib/indicator-catalogue.ts](../frontend/src/lib/indicator-catalogue.ts) (catalogue reader, PR #107 v1.1).
 
 ---
 
@@ -106,7 +106,7 @@ From P.1 plan-doc §4 + §6 + on-disk grep of `datasets/indicators/in/energy/`:
 15. `state_installed_capacity_geographical_mw.json` → `state-installed-capacity-geographical-mw` (+ facet children for fuel breakdown)
 16. `state_installed_capacity_by_source_mw.json` → `state-installed-capacity-geographical-mw-<fuel>` (facet view of #15)
 
-Hard-drop paths gain a HARD-DROP entry in the path-routing map that throws a typed `IndicatorRetiredError` with citizen-readable text (Hans authority, Jony co-sign): *"This indicator was permanently retired in May 2026 because <reason>. The current equivalent is `<canonical id or compute-on-read instruction>`. See [P.1 plan-doc §6](TODO/20260522-phase-2-p1-energy-pivot.md) for the full retire rationale."*
+Hard-drop paths gain a HARD-DROP entry in the path-routing map that throws a typed `IndicatorRetiredError` with citizen-readable text (Hans authority, Jony co-sign): *"This indicator was permanently retired in May 2026 because <reason>. The current equivalent is `<canonical id or compute-on-read instruction>`. See [P.1 plan-doc §6](docs/archive/plans/20260522-phase-2-p1-energy-pivot.md) for the full retire rationale."*
 
 Replaceable paths route through `fetchIndicatorFromCanonical(canonicalId)` transparently.
 
@@ -160,7 +160,7 @@ This pattern is STRONGER than parity-oracle alone because it asserts byte-for-by
 | `datasets/indicators/in/energy/<16 files>.json` | DELETE (`git rm`) | The retire |
 | `datasets/_ops/meadow-shard-contract.txt` | EDIT | Remove the 16 corresponding lines |
 | `docs/architecture/data/canonical-store.md` | EDIT | §2b: bump energy from 3 to 5 fact-tables; add Rule #4 wording per Q6 |
-| `TODO/20260522-phase-2-p1-energy-pivot.md` | EDIT | Flip §4 final unchecked item `[ ] canonical-store.md §2b amended` → `[x]`; update status banner to mark P.1.A DONE |
+| `docs/archive/plans/20260522-phase-2-p1-energy-pivot.md` | EDIT | Flip §4 final unchecked item `[ ] canonical-store.md §2b amended` → `[x]`; update status banner to mark P.1.A DONE |
 | `tools/snapshot_energy_artifact.py` (new, ~30 LOC) | CREATE | One-shot snapshot script for the adapter-indicator fixture migration (kept for future fixture refreshes; usable on other families' adapter-tests) |
 
 Estimated diff: ~10 files modified, ~6 new, ~20 deleted (16 shards + work-artifact cleanup). Net LOC: ~+600 / −2000 (the 16 shards are the bulk of the deletions, each ~80–200 lines).
@@ -200,10 +200,10 @@ Estimated diff: ~10 files modified, ~6 new, ~20 deleted (16 shards + work-artifa
 ## §9. Cross-refs
 
 - [P.1 energy pivot plan-doc](20260522-phase-2-p1-energy-pivot.md) — §2 family decomposition, §3 design verdicts, §4 PR breakdown + pre-flight checklist, §6 hard-drop table, §8 strangler-fig pattern
-- [canonical-store.md §2b](../docs/architecture/data/canonical-store.md) — the rule this PR amends
-- [ADR-0030 D11 / D26 / D29 / D33.8](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md) — canonical store as data-only + atomic-fuel + compute-on-read
-- [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md) — sources v2.0 (this PR consumes `taxonomy/sources.parquet` for reconstruction)
-- [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md) — doc class for this plan-doc
+- [canonical-store.md §2b](../../architecture/data/canonical-store.md) — the rule this PR amends
+- [ADR-0030 D11 / D26 / D29 / D33.8](../../architecture/decisions/0030-canonical-store-duckdb-wasm.md) — canonical store as data-only + atomic-fuel + compute-on-read
+- [ADR-0032](../../architecture/decisions/0032-sources-citation-ledger.md) — sources v2.0 (this PR consumes `taxonomy/sources.parquet` for reconstruction)
+- [ADR-0034](../../architecture/decisions/0034-documentation-routing-contract.md) — doc class for this plan-doc
 - [frontend/src/lib/indicators.ts](../frontend/src/lib/indicators.ts) — legacy `IndicatorArtifact` shape (line 310) + `fetchIndicator()` (line 328)
 - [frontend/src/lib/canonical/duckdb.ts](../frontend/src/lib/canonical/duckdb.ts) — DuckDB-WASM seam (`queryParquet`, line 41)
 - [frontend/src/lib/canonical/manifest.ts](../frontend/src/lib/canonical/manifest.ts) — manifest discovery + schema-version compat

@@ -3,7 +3,7 @@
 **Last Updated**: 2026-05-25
 **Owner**: data layer (Hans + Max own shape; Gregor owns contracts; Fowler owns write seam)
 **ADR**: [ADR-0030](../decisions/0030-canonical-store-duckdb-wasm.md) (canonical store rationale + rejected alternatives); [ADR-0036](../decisions/0036-state-identity-and-slice-registration.md) (state aliases + slice registration)
-**Plan**: [`TODO/20260517-canonical-long-format-pivot.md`](../../../TODO/20260517-canonical-long-format-pivot.md) (THE PLAN, R11)
+**Plan**: [`docs/archive/plans/20260517-canonical-long-format-pivot.md`](../../archive/plans/20260517-canonical-long-format-pivot.md) (THE PLAN, R11)
 
 This doc is the operational spec for the canonical long-format store. ADR-0030 records *why*; this doc records *what* and *where*. When the two disagree this doc wins on operational detail; the ADR wins on whether a decision is open or closed (Holy Law #4).
 
@@ -147,11 +147,11 @@ datasets/demography/demography_census_2011.parquet   datasets/demography/demogra
 
 ## 2b. Full target disk layout (LOCKED 2026-05-19 — extends §2a)
 
-**What this is.** §2 captures *today's* on-disk shape. §2a captures the naming rule. **§2b captures the full target tree** that Phase 2 of [THE PLAN](../../../TODO/20260517-canonical-long-format-pivot.md) and every family thereafter is committed to landing in. This is the doc to fall back on when asking "are we still building toward what we agreed?"
+**What this is.** §2 captures *today's* on-disk shape. §2a captures the naming rule. **§2b captures the full target tree** that Phase 2 of [THE PLAN](../../archive/plans/20260517-canonical-long-format-pivot.md) and every family thereafter is committed to landing in. This is the doc to fall back on when asking "are we still building toward what we agreed?"
 
 **Authority**: Max (Indicator Scout — OWID precedent) is the lead voice for indicator identity / topic taxonomy / directory shape per CLAUDE.md §0a, with Hans (Governance) on Indian-citizen framing and Fowler (Engineering) on refactor safety. User direction 2026-05-19: *"For all the questions … you should accept Max's recommendation."*
 
-**Cross-ref**: [THE PLAN §0e](../../../TODO/20260517-canonical-long-format-pivot.md) covers the migration sequence (T.1 → T.2 → T.3 → S.1 → G.1 → P.\*), the persons-fork resolution, the override decisions, and the debate cross-ref. This doc (§2b) is the disk-layout contract; THE PLAN §0e is the sequencing plan.
+**Cross-ref**: [THE PLAN §0e](../../archive/plans/20260517-canonical-long-format-pivot.md) covers the migration sequence (T.1 → T.2 → T.3 → S.1 → G.1 → P.\*), the persons-fork resolution, the override decisions, and the debate cross-ref. This doc (§2b) is the disk-layout contract; THE PLAN §0e is the sequencing plan.
 
 ### §2b.1 — Top-level families (locked)
 
@@ -371,7 +371,7 @@ TCPD office-bearer CSVs are seed/QA checklists only while official sources exist
 1. **Single-parent file system, faceted topic metadata.** Every Parquet has ONE physical home (its publisher family); topic membership is M:N via `taxonomy/indicator_topic_tags.parquet`. If a file is duplicated across topic dirs, that's a smell — collapse to one home, add topic tags.
 2. **Identity vs occupancy split.** Office *identity* (PM-IN, CM-S22) is taxonomy; office *occupancy* (Modi was PM 2014–) is a fact in `governments/`. Person identity is taxonomy (`persons.parquet`); person candidacy is a fact in `elections/`. If a file mixes both, split it.
 3. **Hand-authored is text + compiled Parquet** (D18 + §8.3). If a `.json` exists in `taxonomy/` without a sibling `.parquet`, the compile step is missing. If a `.parquet` exists in `taxonomy/` without a sibling `.json` (and isn't adapter-generated like `sources.parquet`), there is no editorial trail — that's a smell.
-4. **A new fact-table within a family is justified when** (a) the citizen question is distinct, AND (b) co-locating would force every chart on the smaller-question to scan unrelated indicator rows, OR (c) the FK-graph diverges (different `dim_*` joins). Same row-shape across files is expected, not a smell — `indicator_id` is the within-file discriminator (D5). Worked example: `energy/` splits to 5 fact-tables (P.1.A, 2026-05-22) because "what plants exist" (`installed_capacity`), "what fuel ran" (`generation`), "did we get power" (`demand_supply`), "is the DISCOM solvent" (`distribution_performance`), and "what fuel/oil did we burn" (`fuel_consumption`) are five different citizen questions with three different `dim_*` joins (`dim_plants` vs `dim_discoms` vs neither). Authority: Hans + Max for citizen-question separability; Gregor for FK-graph + naming. See [`TODO/20260522-phase-2-p1-energy-pivot.md` §2](../../../TODO/20260522-phase-2-p1-energy-pivot.md) for the lock-extension rationale.
+4. **A new fact-table within a family is justified when** (a) the citizen question is distinct, AND (b) co-locating would force every chart on the smaller-question to scan unrelated indicator rows, OR (c) the FK-graph diverges (different `dim_*` joins). Same row-shape across files is expected, not a smell — `indicator_id` is the within-file discriminator (D5). Worked example: `energy/` splits to 5 fact-tables (P.1.A, 2026-05-22) because "what plants exist" (`installed_capacity`), "what fuel ran" (`generation`), "did we get power" (`demand_supply`), "is the DISCOM solvent" (`distribution_performance`), and "what fuel/oil did we burn" (`fuel_consumption`) are five different citizen questions with three different `dim_*` joins (`dim_plants` vs `dim_discoms` vs neither). Authority: Hans + Max for citizen-question separability; Gregor for FK-graph + naming. See [`docs/archive/plans/20260522-phase-2-p1-energy-pivot.md` §2](../../archive/plans/20260522-phase-2-p1-energy-pivot.md) for the lock-extension rationale.
 
 ### §2b.5 — Per-family `_meadow/` directory invariant (added 2026-05-25 per ADR-0041)
 
@@ -610,7 +610,7 @@ Full design archive: [ADR-0032 §Context + §Rejected Alternatives](../decisions
 
 **Format**: `<measure>-<unit>-<facet>`, kebab-case, single segment, max 60 chars.
 
-The id MUST NOT carry an `<entity>-` segment (`state-`, `district-`, `ac-`, `national-`, `india-`, `party-`, `candidate-`) per [ADR-0044](../decisions/0044-grain-over-entity.md). Grain lives on each observation row's `entity_kind` and on the catalogue's `entity_kinds[]` / `default_entity_kind` (§6); the renderer dispatches at read time. Tier-B `tier_b_indicator_id_no_grain_prefix` enforces this post-PR-B9 of [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md).
+The id MUST NOT carry an `<entity>-` segment (`state-`, `district-`, `ac-`, `national-`, `india-`, `party-`, `candidate-`) per [ADR-0044](../decisions/0044-grain-over-entity.md). Grain lives on each observation row's `entity_kind` and on the catalogue's `entity_kinds[]` / `default_entity_kind` (§6); the renderer dispatches at read time. Tier-B `tier_b_indicator_id_no_grain_prefix` enforces this post-PR-B9 of [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md).
 
 - Sibling sort works via `ORDER BY indicator_id` — no separate sort column needed.
 - Greppable; deterministic; no hashes.
@@ -1166,7 +1166,7 @@ Two legacy folded-indicator shards under `datasets/indicators/in/energy/` — `s
 
 **Ingest cleanup deferred to Phase E.** `backend/yen_gov/sources/iced_state_wise/ingest.py` (lines 196–213) and `backend/yen_gov/sources/iced_power/ingest.py` (lines 164, 313) still write the shards. The validator (`tier_b_meadow_shard_contract`) will correctly fail the next ingest run if shards re-appear on disk — signal that any future FY26+ data must go through the canonical lift block, not back through the shard read path.
 
-Cross-refs: [ADR-0033](../decisions/0033-retire-wikipedia-districts-adapter.md) (the same pattern, applied to a different shard family); [`backend/yen_gov/canonical/adapters/energy/demand_supply.py`](../../../backend/yen_gov/canonical/adapters/energy/demand_supply.py) (the `_FY25_PEAK_DEMAND_ROWS` literal); [`TODO/20260524-p1a-data-reacquisition-plan.md` §3 C4.7](../../../TODO/20260524-p1a-data-reacquisition-plan.md) (the descope narrative).
+Cross-refs: [ADR-0033](../decisions/0033-retire-wikipedia-districts-adapter.md) (the same pattern, applied to a different shard family); [`backend/yen_gov/canonical/adapters/energy/demand_supply.py`](../../../backend/yen_gov/canonical/adapters/energy/demand_supply.py) (the `_FY25_PEAK_DEMAND_ROWS` literal); [`docs/archive/plans/20260524-p1a-data-reacquisition-plan.md` §3 C4.7](../../archive/plans/20260524-p1a-data-reacquisition-plan.md) (the descope narrative).
 
 ---
 
@@ -1176,6 +1176,6 @@ Cross-refs: [ADR-0033](../decisions/0033-retire-wikipedia-districts-adapter.md) 
 - [ADR-0031 — boundary geometry strategy](../decisions/0031-boundary-geometry-strategy.md) (Phase 0.14)
 - [boundaries.md](boundaries.md) — boundary file inventory + sidecars
 - [canonical-pivot deletion manifest](../canonical-pivot-deletion-manifest.md) — what the pivot retires
-- [THE PLAN](../../../TODO/20260517-canonical-long-format-pivot.md) — implementation phases
+- [THE PLAN](../../archive/plans/20260517-canonical-long-format-pivot.md) — implementation phases
 - [CLAUDE.md §0a — The One Rule](../../../CLAUDE.md) — OWID-canonical authority
 - [data-provenance concept](../../concepts/data-provenance.md) — sources-as-table doctrine

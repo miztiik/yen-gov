@@ -3,7 +3,7 @@
 **Last Updated**: 2026-05-18
 **Status**: Phase 0 step 0.5 deliverable. **Read alongside the [deletion manifest](canonical-pivot-deletion-manifest.md).** This doc covers data artifacts (110 socio-economic indicators + 27 elections); the deletion manifest covers files, modules, and concepts.
 **Owner**: Max (indicator decisions); Hans (governance framing).
-**THE PLAN**: [`TODO/20260517-canonical-long-format-pivot.md`](../../TODO/20260517-canonical-long-format-pivot.md). On conflict, THE PLAN wins; update this ledger.
+**THE PLAN**: [`docs/archive/plans/20260517-canonical-long-format-pivot.md`](../archive/plans/20260517-canonical-long-format-pivot.md). On conflict, THE PLAN wins; update this ledger.
 **Data file**: [`canonical-pivot-migration-ledger.csv`](canonical-pivot-migration-ledger.csv) — the actual ledger; this doc is its explainer.
 
 ---
@@ -104,4 +104,4 @@ Each gets a follow-up commit when answered (in the same PR as the answer if the 
 - [`canonical-pivot-migration-ledger.csv`](canonical-pivot-migration-ledger.csv) — the ledger itself.
 - [ADR-0030 — canonical store on Parquet + DuckDB-WASM](decisions/0030-canonical-store-duckdb-wasm.md) — D13 rip-and-replace, D14 deletion checklist, D24 migration ledger, D26 facet-explode.
 - [`data/canonical-store.md`](data/canonical-store.md) — D30 naming convention used by `replacement_indicator_id`.
-- [THE PLAN §6 step 0.5 + §7 step 1.8](../../TODO/20260517-canonical-long-format-pivot.md) — ledger / deletion gating.
+- [THE PLAN §6 step 0.5 + §7 step 1.8](../archive/plans/20260517-canonical-long-format-pivot.md) — ledger / deletion gating.

@@ -1,8 +1,8 @@
 # ADR-0035 — Persons fork: rename `dim_candidates` to `dim_persons` in one shot (Option B)
 
 **Status**: Accepted
-**Date**: 2026-05-22 (lifted from `TODO/20260517-canonical-long-format-pivot.md §0e.5`, where the decision was locked 2026-05-19 by user override of the 3-agent default)
-**Deciders**: User (override on 2026-05-19 against the agent panel's first-round default of Option A) + Max (Indicator Scout, hybrid B-ii + TCPD seed strategy) + Hans (Governance, IPC §21 anchor for office-bearer term) + Fowler (Engineering, paired-test discipline). Original debate in [TODO/20260519-indicator-topic-taxonomy-and-dir-structure-plan.md](../../../TODO/20260519-indicator-topic-taxonomy-and-dir-structure-plan.md).
+**Date**: 2026-05-22 (lifted from `docs/archive/plans/20260517-canonical-long-format-pivot.md §0e.5`, where the decision was locked 2026-05-19 by user override of the 3-agent default)
+**Deciders**: User (override on 2026-05-19 against the agent panel's first-round default of Option A) + Max (Indicator Scout, hybrid B-ii + TCPD seed strategy) + Hans (Governance, IPC §21 anchor for office-bearer term) + Fowler (Engineering, paired-test discipline). Original debate in [docs/archive/plans/20260519-indicator-topic-taxonomy-and-dir-structure-plan.md](../../archive/plans/20260519-indicator-topic-taxonomy-and-dir-structure-plan.md).
 **Cross-cuts**: `elections/` family + `governments/` family + `taxonomy/` registry — three subsystems with one identity grammar.
 
 ## Context
@@ -148,7 +148,7 @@ Strangler-fig the rename. Mark `dim_candidates` deprecated; new consumers use `d
 - **[ADR-0030 §D27](0030-canonical-store-duckdb-wasm.md)** — entity_type enum already lists `office_bearer` and the open question Q on `person_id` is now resolved here.
 - **`docs/architecture/data/elections.md`** (if/when authored) — `elections_candidacies.parquet` shape lands there; this ADR is the rationale.
 - **`docs/architecture/data/governments.md`** (if/when authored) — `governments_office_holdings.parquet` shape lands there; this ADR is the rationale.
-- **`TODO/20260517-canonical-long-format-pivot.md` §0e.5** — to be deleted in the plan-doc slim commit; this ADR replaces it.
+- **`docs/archive/plans/20260517-canonical-long-format-pivot.md` §0e.5** — to be deleted in the plan-doc slim commit; this ADR replaces it.
 
 ## Status of dependent PRs
 
@@ -156,5 +156,5 @@ As of 2026-05-22:
 
 - **G.1.a / G.1.b / G.1.c** (office-bearer consolidation, PRs #89 / #90 / #91) — **SHIPPED** on `main`. This ADR documents the persons-side decision they assumed; G.1 was unblocked by relaxing the dependency on S.1 because office identity is its own taxonomy island (per `§0e.6`).
 - **S.1** (persons rename + dual-fact) — **NOT YET SHIPPED** but READY. The earlier TCPD-license blocker (CC-BY-NC-SA SA-propagation concern) was dropped 2026-05-22 by user direction: citation goes to ECI directly (the issuing authority of the underlying candidate lists); TCPD's `Candidate_ID` clustering is editorial input not a separate citation, so the SA clause does not propagate to yen-gov's Parquet derivatives. Current master plan §0e.7 sequencing puts S.1 after Energy P.1.A + T.0d + T.2/T.3.
-- **T.0d** (boundaries consolidation — sidecars + Hive layout) — independent of S.1; can land in any order. Spec at [`TODO/20260522-t0d-boundaries-consolidation-spec.md`](../../../TODO/20260522-t0d-boundaries-consolidation-spec.md).
+- **T.0d** (boundaries consolidation — sidecars + Hive layout) — independent of S.1; can land in any order. Spec at [`docs/archive/plans/20260522-t0d-boundaries-consolidation-spec.md`](../../archive/plans/20260522-t0d-boundaries-consolidation-spec.md).
 - **T.3** (indicator catalogue widens for `topic_tags[]` + drops topic prefix) — independent of S.1; can land in any order.

@@ -3,7 +3,7 @@
 > **This plan-doc is CLOSED.** Per user mandate 2026-05-26, the canonical-long-format pivot is done-and-dusted as a single coordinating plan. Phase 1 (infrastructure) + Phase 2 P.1 (Energy family) shipped end-to-end. Remaining work has been **decomposed into separate plan-docs** -- each future family ingest (Phase 2 P.3+), Phase 3 backfill, Phase 4 SLM, Phase 5 admin rewrite all get their own plan-doc when activated. This file is preserved as historical record + status pointer; no further rows will be added.
 
 **Last Updated**: 2026-05-26 (CLOSED)
-**Doc class**: plan-doc per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md) -- carries phase status + active PRs + TBD only; no rationale, no rejected alternatives, no executed-work narrative.
+**Doc class**: plan-doc per [ADR-0034](../../architecture/decisions/0034-documentation-routing-contract.md) -- carries phase status + active PRs + TBD only; no rationale, no rejected alternatives, no executed-work narrative.
 
 ## Now playing
 
@@ -11,18 +11,18 @@
 
 **Next agent**: see [`20260525-phase-2-completion-handover.md`](20260525-phase-2-completion-handover.md) for the operational runbook + PR-by-PR queue.
 
-**Executed-work narrative + retired ledger entries + Strategy F decision rationale**: [`docs/archive/canonical-pivot-plan-20260522-snapshot.md`](../docs/archive/canonical-pivot-plan-20260522-snapshot.md) (verbatim lifts at L1-L4 of the 2026-05-25 supplement).
+**Executed-work narrative + retired ledger entries + Strategy F decision rationale**: [`docs/archive/canonical-pivot-plan-20260522-snapshot.md`](../../archive/canonical-pivot-plan-20260522-snapshot.md) (verbatim lifts at L1-L4 of the 2026-05-25 supplement).
 
 ## Authority + spec pointers
 
-- **Spec**: [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md) (disk layout, write/read paths, schemas).
-- **Decision rationale**: [ADR-0030](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md) (canonical store + DuckDB-WASM) + [ADR-0031](../docs/architecture/decisions/0031-boundary-geometry-strategy.md) (boundaries) + [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md) (sources citation ledger) + [ADR-0035](../docs/architecture/decisions/0035-persons-fork-option-b.md) (persons fork) + [ADR-0041](../docs/architecture/decisions/0041-meadow-tier.md) (meadow tier).
-- **Concept docs**: [`meadow-tier.md`](../docs/concepts/meadow-tier.md), [`topic-taxonomy.md`](../docs/concepts/topic-taxonomy.md), [`data-provenance.md`](../docs/concepts/data-provenance.md), [`indicator-naming.md`](../docs/concepts/indicator-naming.md).
+- **Spec**: [`docs/architecture/data/canonical-store.md`](../../architecture/data/canonical-store.md) (disk layout, write/read paths, schemas).
+- **Decision rationale**: [ADR-0030](../../architecture/decisions/0030-canonical-store-duckdb-wasm.md) (canonical store + DuckDB-WASM) + [ADR-0031](../../architecture/decisions/0031-boundary-geometry-strategy.md) (boundaries) + [ADR-0032](../../architecture/decisions/0032-sources-citation-ledger.md) (sources citation ledger) + [ADR-0035](../../architecture/decisions/0035-persons-fork-option-b.md) (persons fork) + [ADR-0041](../../architecture/decisions/0041-meadow-tier.md) (meadow tier).
+- **Concept docs**: [`meadow-tier.md`](../../concepts/meadow-tier.md), [`topic-taxonomy.md`](../../concepts/topic-taxonomy.md), [`data-provenance.md`](../../concepts/data-provenance.md), [`indicator-naming.md`](../../concepts/indicator-naming.md).
 - **Authority routing**: CLAUDE.md §0a. Hans + Max on data shape; Gregor on contracts; Fowler on engineering craft; Jony + Citizen on UX; Andre on LLM/SLM. User approval supersedes every agent.
 
 ## §0a. The One Rule
 
-**OWID is the canonical reference for socio-economic data modelling** (CLAUDE.md §0a). When any data-shape question arises, first check OWID; if OWID has solved it, adopt verbatim; if yen-gov must deviate, document the deviation in [`canonical-store.md`](../docs/architecture/data/canonical-store.md) with rationale signed off by Hans + Max.
+**OWID is the canonical reference for socio-economic data modelling** (CLAUDE.md §0a). When any data-shape question arises, first check OWID; if OWID has solved it, adopt verbatim; if yen-gov must deviate, document the deviation in [`canonical-store.md`](../../architecture/data/canonical-store.md) with rationale signed off by Hans + Max.
 
 ## §0b. Cardinality is a moving target
 
@@ -30,7 +30,7 @@ Today's corpus is ~110 socio-economic indicators across 9 topics. Phase 2/3 inge
 
 ## §0c. Boundaries preservation (critical)
 
-`datasets/boundaries/in/` is **not** legacy. It is a sibling family to the canonical Parquet store ([ADR-0031](../docs/architecture/decisions/0031-boundary-geometry-strategy.md)). No step in this pivot moves, renames, or deletes anything under that tree; future additions (PCs, taluks, village coverage) follow the same `{geojson|pmtiles}/<layer>.<ext>` layout.
+`datasets/boundaries/in/` is **not** legacy. It is a sibling family to the canonical Parquet store ([ADR-0031](../../architecture/decisions/0031-boundary-geometry-strategy.md)). No step in this pivot moves, renames, or deletes anything under that tree; future additions (PCs, taluks, village coverage) follow the same `{geojson|pmtiles}/<layer>.<ext>` layout.
 
 ## §0d. Status vocabulary
 
@@ -50,7 +50,7 @@ This is the only authoritative source of what's NOT done. PRs flip rows from ◻
 
 | # | Slice | Status | Why pending |
 | - | --- | :-: | --- |
-| 1 | **P.1 Energy -- 7c-N residue triage** (10 shards retired from `datasets/indicators/in/energy/`) | ✅ DONE PR #290 | Per-shard classified into bucket (a) delete-no-successor (2 shards: `installed_capacity_total_mw` + `installed_capacity_thermal_mw`) or bucket (b) move to `datasets/energy/_meadow/iced/2024-25/` pending P.1.C canonical adapter (8 shards: `india_thermal_capacity_retired_mw`, `national_final_energy_consumption_by_sector_mtoe`, `national_primary_energy_supply_mtoe`, `state_coal_consumption_mt`, `state_oil_product_consumption_kt`, `state_plant_load_factor_pct`, `state_power_purchase_share_pct`, `state_rooftop_solar_capacity_mw`). Completion criterion ([ADR-0041](../docs/architecture/decisions/0041-meadow-tier.md)) met: `git ls-tree origin/main -- datasets/indicators/in/energy/` now empty. |
+| 1 | **P.1 Energy -- 7c-N residue triage** (10 shards retired from `datasets/indicators/in/energy/`) | ✅ DONE PR #290 | Per-shard classified into bucket (a) delete-no-successor (2 shards: `installed_capacity_total_mw` + `installed_capacity_thermal_mw`) or bucket (b) move to `datasets/energy/_meadow/iced/2024-25/` pending P.1.C canonical adapter (8 shards: `india_thermal_capacity_retired_mw`, `national_final_energy_consumption_by_sector_mtoe`, `national_primary_energy_supply_mtoe`, `state_coal_consumption_mt`, `state_oil_product_consumption_kt`, `state_plant_load_factor_pct`, `state_power_purchase_share_pct`, `state_rooftop_solar_capacity_mw`). Completion criterion ([ADR-0041](../../architecture/decisions/0041-meadow-tier.md)) met: `git ls-tree origin/main -- datasets/indicators/in/energy/` now empty. |
 | 2 | **P.1 Energy -- Tier-B fence file rename** (`datasets/_ops/legacy-folded-indicator-shards.txt` -> `datasets/_ops/meadow-shard-contract.txt`) | ✅ DONE PR #265 `bf425001` | Shipped 2026-05-25 alongside PR-A energy residue retirement. Tier-B symbol renamed `tier_b_legacy_folded_indicator_shards` -> `tier_b_meadow_shard_contract`; header rewritten as dual-role allowlist + meadow-staging perimeter; 14 doc/TODO references cascaded; CLAUDE.md §10 anti-pattern cite updated. |
 | 3 | **P.1 Energy -- sources.parquet vintage backfill + Tier-B vintage check** | ✅ DONE PR #272 `2ba7eb45` | Shipped 2026-05-25. 5 NITI Aayog ICED + 6 RBI 2024-25 rows backfilled in `datasets/taxonomy/sources.parquet`; Tier-B rule `tier_b_meadow_vintage_matches_source_id` added per ADR-0041 non-negotiable #4 + ADR-0042 (vintage as period anchor). |
 | 4 | **P.1 Energy -- PR 7d IA editorial pass** | ✅ DONE PR #296 | Pruned 23 cards to 5 on `/s/<state>/t/energy` per Jony's scroll-narrative (per-capita consumption -> generation-by-source [FACET-5] -> installed-capacity-by-source [FACET-5] -> AT&C losses -> RPO compliance [FACET-3]). 5 heading rewrites + 2 description rewrites + caveats[] update for all 5 cards (Card 1 bullet 0 replaced with Gujarat-Punjab anchor; Cards 2 + 3 new arrays with coordinated cross-card pair; Card 4 4th bullet appended for UDAY-PFC FY18 break; Card 5 3rd bullet appended for obligation-MET vs share). Topic summary rewritten (4-clause scroll-narrative). 18 demoted cards retain /i/<id> routing. 4 follow-ups queued: (D1) IndicatorGapChart primitive for demand-vs-supply pairs, (D2) descriptor description rewrite for Cards 1+2+3, (D3) FacetPicker default-pill policy, (Hans-1) methodology-breaks sparkline primitive (hard-break + vintage-band-shading), (Hans-2) TopicHonestyBanner primitive. |
@@ -83,7 +83,7 @@ Phase 3 backfills the structural-coverage gaps after Phase 2 lands the issuing-a
 
 ## §4. Phase 4 -- SLM dispatcher (sketch)
 
-Phase 4 introduces the small-language-model dispatcher (full spec in the [archive §10-§11](../docs/archive/canonical-pivot-plan-20260522-snapshot.md)) that grounds citizen Q&A against the canonical Parquet store. Detailed plan opens when Phase 3 closes.
+Phase 4 introduces the small-language-model dispatcher (full spec in the [archive §10-§11](../../archive/canonical-pivot-plan-20260522-snapshot.md)) that grounds citizen Q&A against the canonical Parquet store. Detailed plan opens when Phase 3 closes.
 
 ## §5. Phase 5 -- Admin rewrite (sketch)
 
@@ -96,11 +96,11 @@ Phase 5 rewrites the operator admin app on top of the canonical store -- Invento
 Read these, in this order, before touching code:
 
 1. **[CLAUDE.md](../CLAUDE.md)** -- Holy Laws, doc-class routing rule, correction levels.
-2. **[ADR-0030](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md)** -- every D1-D36 decision about the canonical store.
-3. **[ADR-0041](../docs/architecture/decisions/0041-meadow-tier.md)** + **[meadow-tier.md](../docs/concepts/meadow-tier.md)** -- the 5-tier vocabulary your PRs operate inside.
-4. **[canonical-store.md](../docs/architecture/data/canonical-store.md)** -- current disk layout + naming + schema shape.
-5. **[ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md)** + **[ADR-0042](../docs/architecture/decisions/0042-sources-schema-v3-vintage-as-period-anchor.md)** -- sources are a citation ledger keyed on `(producer, title, vintage)`; vintage = period anchor; fetch telemetry never crosses into citizen-facing rows.
-6. **[ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md)** -- which doc class owns which kind of statement.
+2. **[ADR-0030](../../architecture/decisions/0030-canonical-store-duckdb-wasm.md)** -- every D1-D36 decision about the canonical store.
+3. **[ADR-0041](../../architecture/decisions/0041-meadow-tier.md)** + **[meadow-tier.md](../../concepts/meadow-tier.md)** -- the 5-tier vocabulary your PRs operate inside.
+4. **[canonical-store.md](../../architecture/data/canonical-store.md)** -- current disk layout + naming + schema shape.
+5. **[ADR-0032](../../architecture/decisions/0032-sources-citation-ledger.md)** + **[ADR-0042](../../architecture/decisions/0042-sources-schema-v3-vintage-as-period-anchor.md)** -- sources are a citation ledger keyed on `(producer, title, vintage)`; vintage = period anchor; fetch telemetry never crosses into citizen-facing rows.
+6. **[ADR-0034](../../architecture/decisions/0034-documentation-routing-contract.md)** -- which doc class owns which kind of statement.
 7. **This file** (§1 pending tracker) + **[`20260525-phase-2-completion-handover.md`](20260525-phase-2-completion-handover.md)** -- what's next and how to ship it.
 8. **[Active Phase 2 P.1 (Energy) plan](20260522-phase-2-p1-energy-pivot.md)** -- the family currently being pivoted (covers PRs 1, 6, 7 from §1).
 
@@ -118,17 +118,17 @@ Pre-flight check before opening a PR on this arc:
 
 ## §7. Cross-refs
 
-- **Disk layout + write/read paths**: [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md)
-- **Meadow tier vocabulary + 5-tier table**: [`docs/concepts/meadow-tier.md`](../docs/concepts/meadow-tier.md)
-- **Topic taxonomy vocabulary**: [`docs/concepts/topic-taxonomy.md`](../docs/concepts/topic-taxonomy.md)
-- **Sources citation ledger v3.0**: [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md) + [ADR-0042](../docs/architecture/decisions/0042-sources-schema-v3-vintage-as-period-anchor.md) + [`docs/concepts/data-provenance.md`](../docs/concepts/data-provenance.md)
-- **Persons fork design**: [ADR-0035](../docs/architecture/decisions/0035-persons-fork-option-b.md)
-- **Doc-class routing rule**: [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md)
+- **Disk layout + write/read paths**: [`docs/architecture/data/canonical-store.md`](../../architecture/data/canonical-store.md)
+- **Meadow tier vocabulary + 5-tier table**: [`docs/concepts/meadow-tier.md`](../../concepts/meadow-tier.md)
+- **Topic taxonomy vocabulary**: [`docs/concepts/topic-taxonomy.md`](../../concepts/topic-taxonomy.md)
+- **Sources citation ledger v3.0**: [ADR-0032](../../architecture/decisions/0032-sources-citation-ledger.md) + [ADR-0042](../../architecture/decisions/0042-sources-schema-v3-vintage-as-period-anchor.md) + [`docs/concepts/data-provenance.md`](../../concepts/data-provenance.md)
+- **Persons fork design**: [ADR-0035](../../architecture/decisions/0035-persons-fork-option-b.md)
+- **Doc-class routing rule**: [ADR-0034](../../architecture/decisions/0034-documentation-routing-contract.md)
 - **Active Phase 2 P.1 (Energy) plan**: [`20260522-phase-2-p1-energy-pivot.md`](20260522-phase-2-p1-energy-pivot.md)
 - **Active Phase 2 P.2 (Livestock) plan**: [`20260525-livestock-ndlm-ingest-plan.md`](20260525-livestock-ndlm-ingest-plan.md)
 - **Next-agent operational runbook**: [`20260525-phase-2-completion-handover.md`](20260525-phase-2-completion-handover.md)
 - **T.0d boundaries consolidation spec**: [`20260522-t0d-boundaries-consolidation-spec.md`](20260522-t0d-boundaries-consolidation-spec.md)
-- **Executed-work narrative + retired ledger entries + Strategy F decision rationale**: [`docs/archive/canonical-pivot-plan-20260522-snapshot.md`](../docs/archive/canonical-pivot-plan-20260522-snapshot.md) (2026-05-25 supplement §L1-L4)
+- **Executed-work narrative + retired ledger entries + Strategy F decision rationale**: [`docs/archive/canonical-pivot-plan-20260522-snapshot.md`](../../archive/canonical-pivot-plan-20260522-snapshot.md) (2026-05-25 supplement §L1-L4)
 
 ## §8. Closeout summary (2026-05-26)
 
@@ -165,8 +165,8 @@ When you need to pick up work that this plan-doc used to track, go to its succes
 
 **Cross-cutting authority pointers carried forward** (these survive the closeout; new plan-docs reference them):
 
-- Spec: [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md)
-- Decision rationale: [ADR-0030](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md) + [ADR-0031](../docs/architecture/decisions/0031-boundary-geometry-strategy.md) + [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md) + [ADR-0035](../docs/architecture/decisions/0035-persons-fork-option-b.md) + [ADR-0041](../docs/architecture/decisions/0041-meadow-tier.md) + [ADR-0042](../docs/architecture/decisions/0042-sources-schema-v3-vintage-as-period-anchor.md)
-- Concept docs: [`meadow-tier.md`](../docs/concepts/meadow-tier.md), [`topic-taxonomy.md`](../docs/concepts/topic-taxonomy.md), [`data-provenance.md`](../docs/concepts/data-provenance.md), [`indicator-naming.md`](../docs/concepts/indicator-naming.md)
+- Spec: [`docs/architecture/data/canonical-store.md`](../../architecture/data/canonical-store.md)
+- Decision rationale: [ADR-0030](../../architecture/decisions/0030-canonical-store-duckdb-wasm.md) + [ADR-0031](../../architecture/decisions/0031-boundary-geometry-strategy.md) + [ADR-0032](../../architecture/decisions/0032-sources-citation-ledger.md) + [ADR-0035](../../architecture/decisions/0035-persons-fork-option-b.md) + [ADR-0041](../../architecture/decisions/0041-meadow-tier.md) + [ADR-0042](../../architecture/decisions/0042-sources-schema-v3-vintage-as-period-anchor.md)
+- Concept docs: [`meadow-tier.md`](../../concepts/meadow-tier.md), [`topic-taxonomy.md`](../../concepts/topic-taxonomy.md), [`data-provenance.md`](../../concepts/data-provenance.md), [`indicator-naming.md`](../../concepts/indicator-naming.md)
 - Authority routing: CLAUDE.md §0a
-- Doc-class routing rule: [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md)
+- Doc-class routing rule: [ADR-0034](../../architecture/decisions/0034-documentation-routing-contract.md)

@@ -34,15 +34,15 @@ Action verb glossary:
 | 3 | TODO/20260515-state-page-ia-rework-plan.md | AUDIT against `/s/<state>` route; may be ADR-superseded | StateOverview + StateTopic IA has shipped; this plan may be the historical anchor. |
 | 4 | TODO/20260516-expected-geographies-audit.md | AUDIT | Coverage subsystem may have absorbed the audit. |
 | 5 | TODO/20260516-inventory-lift-followups.md | AUDIT | Meadow-tier ADR-0041 may have absorbed the lift follow-ups. |
-| 6 | TODO/20260517-canonical-long-format-pivot.md | AUDIT | Canonical-store v3 + observations table likely closes this. |
+| 6 | docs/archive/plans/20260517-canonical-long-format-pivot.md | AUDIT | Canonical-store v3 + observations table likely closes this. |
 | 7 | TODO/20260517-coverage-temporal-range-plan.md | AUDIT | `/data-completeness` route may already render this. |
 | 8 | TODO/20260517-iced-bulk-ingest-and-parity-oracle.md | AUDIT | ICED bulk-ingest landed; parity oracle status unclear. |
 | 9 | TODO/20260517-iced-country-entity-series-blocked.md | AUDIT | Confirm if the blocker still holds. |
 | 10 | TODO/20260517-indicator-corpus-survey.md | AUDIT against current `/data-completeness` | Indicator inventory may have moved into the topics catalogue. |
 | 11 | TODO/20260517-tcpd-tn-ae-people-sidecar-plan.md | AUDIT | TCPD TN AE landed via PR #193; people sidecar status unclear. |
 | 12 | TODO/20260518-browser-governance-insight-assistant-plan.md | AUDIT - YENASK ADR-0040 likely covers | YENASK shipped via PRs #239, #241, #242, #243; this is the predecessor plan. |
-| 13 | TODO/20260519-indicator-topic-taxonomy-and-dir-structure-plan.md | AUDIT against T.0d topics consolidation | Topics taxonomy landed via T.0a/b/c/d and PR #182. |
-| 14 | TODO/20260521-phase-2-preflight-audit-gregor.md | AUDIT | Architect preflight note; may be stale. |
+| 13 | docs/archive/plans/20260519-indicator-topic-taxonomy-and-dir-structure-plan.md | AUDIT against T.0d topics consolidation | Topics taxonomy landed via T.0a/b/c/d and PR #182. |
+| 14 | docs/archive/plans/20260521-phase-2-preflight-audit-gregor.md | AUDIT | Architect preflight note; may be stale. |
 
 ## Suggested workflow
 

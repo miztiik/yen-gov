@@ -369,7 +369,7 @@ Verified pre-merge against `datasets/elections/observations/**/*.parquet` and `d
 
 ### Phase 1.6 — top-N field-size honesty (PR-K)
 
-**Status (2026-05-18)**: live. Resolves Q5 in TODO/20260517-canonical-long-format-pivot.md.
+**Status (2026-05-18)**: live. Resolves Q5 in docs/archive/plans/20260517-canonical-long-format-pivot.md.
 
 The canonical observations now carry three new `ac-*` indicators:
 

@@ -1,13 +1,13 @@
 # Indicator topic taxonomy + dir-structure plan
 
-> **STATUS (updated 2026-05-19 post-user-review)**: ⊘ **SUPERSEDED AS A PLAN — RETAINED AS DEBATE TRANSCRIPT.** The live design has been folded into [TODO/20260517-canonical-long-format-pivot.md §0e](20260517-canonical-long-format-pivot.md) (sequencing + override decisions) and [docs/architecture/data/canonical-store.md §2b](../docs/architecture/data/canonical-store.md) (full target tree as contract surface). User overrides applied: (1) **Option B in one shot** for persons fork — `dim_candidates` → `dim_persons` + `elections_candidacies` fact + `governments_office_holdings` fact, day-one `person_id` rule per Max (hybrid B-ii + TCPD seed); (2) entity slug = **`office_bearer`** not `public_servant`; (3) topic slug = **`governance`** not `accountability`. Authority for all data-shape / OWID / structural questions consolidated to **Max** per CLAUDE.md §0a + user direction 2026-05-19. **Do not edit this doc** — it is preserved as the record of the 3-agent design conversation that produced the live decisions. Edit `canonical-long-format-pivot.md §0e` or `canonical-store.md §2b` instead.
+> **STATUS (updated 2026-05-19 post-user-review)**: ⊘ **SUPERSEDED AS A PLAN — RETAINED AS DEBATE TRANSCRIPT.** The live design has been folded into [docs/archive/plans/20260517-canonical-long-format-pivot.md §0e](20260517-canonical-long-format-pivot.md) (sequencing + override decisions) and [docs/architecture/data/canonical-store.md §2b](../../architecture/data/canonical-store.md) (full target tree as contract surface). User overrides applied: (1) **Option B in one shot** for persons fork — `dim_candidates` → `dim_persons` + `elections_candidacies` fact + `governments_office_holdings` fact, day-one `person_id` rule per Max (hybrid B-ii + TCPD seed); (2) entity slug = **`office_bearer`** not `public_servant`; (3) topic slug = **`governance`** not `accountability`. Authority for all data-shape / OWID / structural questions consolidated to **Max** per CLAUDE.md §0a + user direction 2026-05-19. **Do not edit this doc** — it is preserved as the record of the 3-agent design conversation that produced the live decisions. Edit `canonical-long-format-pivot.md §0e` or `canonical-store.md §2b` instead.
 
 **Date**: 2026-05-19
 **Status (original)**: ⏳ PROPOSED — awaiting user sign-off before any PR ships
 **Correction level**: 4 (structural, 4+ files, cross-cutting per CLAUDE.md §6 — "Propose breakdown first")
 **Agents consulted**: Hans (Governance), Max (Indicator Scout / OWID), Fowler (Engineering) — dispatched in parallel as read-only subagents on 2026-05-19
 **Replaces**: nothing (this is the long-arc design ahead of Phase 2 of the canonical pivot)
-**Feeds**: [TODO/20260517-canonical-long-format-pivot.md](20260517-canonical-long-format-pivot.md) Phase 2 (per-family pivot); the eventual PR-S.1/S.2 (people fold)
+**Feeds**: [docs/archive/plans/20260517-canonical-long-format-pivot.md](20260517-canonical-long-format-pivot.md) Phase 2 (per-family pivot); the eventual PR-S.1/S.2 (people fold)
 **Authority (CLAUDE.md §0a)**:
 - Data shape (entity taxonomy, indicator identity, topic axis) → **Hans + Max**
 - Contract / integration (schema versioning, write seams, layer boundaries) → **Gregor** (not dispatched this round — out of scope)
@@ -288,7 +288,7 @@ Authority per §0a: Fowler owns engineering craft, refactor safety, module struc
 
 ### 6.1 ONE naming convention for the whole tree
 
-Extending [canonical-store.md §2a](../docs/architecture/data/canonical-store.md) verbatim, then generalising:
+Extending [canonical-store.md §2a](../../architecture/data/canonical-store.md) verbatim, then generalising:
 
 > **Inside `datasets/<family>/`**: facts are `<family>_<role>.parquet`, dims are `dim_<entity>.parquet`.
 > **Inside `datasets/taxonomy/`**: registries are flat `<role>.parquet` (directory IS the role).
@@ -308,7 +308,7 @@ Applied to the 7 asymmetries:
 | 4 | Topic in indicator ID | **Collapses.** Drop prefix; topics become `topic_tags[]` on the catalogue row. |
 | 5 | `governments/in/states/` vs `taxonomy/entities.json` | **Partial collapse.** State identity → `taxonomy/entities.parquet`. State-government facts (CM terms, office-bearer tenures) → `governments/governments_office_bearer_terms.parquet`. |
 | 6 | `reference/in/topic-catalogue.json` | **Collapses.** Lives at `taxonomy/topics.json` + compiled `taxonomy/topics.parquet`. `reference/` tree retires. |
-| 7 | Legacy `indicators/in/<topic>/*.json` | **Collapses with the canonical pivot itself** (Phase 2 of [TODO/20260517-canonical-long-format-pivot.md](20260517-canonical-long-format-pivot.md)). Dir restructure rides Phase 2's family-by-family pivot. |
+| 7 | Legacy `indicators/in/<topic>/*.json` | **Collapses with the canonical pivot itself** (Phase 2 of [docs/archive/plans/20260517-canonical-long-format-pivot.md](20260517-canonical-long-format-pivot.md)). Dir restructure rides Phase 2's family-by-family pivot. |
 
 What *stays* asymmetric and why: `boundaries/` (sibling family, ADR-0031, geometry isn't tabular); `schemas/` (contracts, not data); `_ops/` (control plane); `_test/` (deletes in step 1).
 
@@ -615,7 +615,7 @@ Each PR independently mergeable, each reversible. **Two-hat discipline**: every 
 | **T.3** | **Indicator catalogue widens for topic tags + drops topic prefix from `indicator_id`.** Bump `datasets/schemas/indicator.schema.json` minor: add `topic_tags: string[]` (FK → `taxonomy/topics.parquet`), add `id_aliases: string[]` (one-release back-compat), enforce new id shape per Max §5.6. Migrate the 110 legacy indicators to new ids; populate `id_aliases` with old `<topic>/<id>` form; frontend renderer dereferences via alias. **Add `taxonomy/indicator_topic_tags.parquet` M:N join** (Max §5.2). Two-release later: drop aliases + topic-prefix shape from schema enum. | structural (step a) + behavioural (step b — separate commits within PR) | YES — paired TS widen on `IndicatorMeta` + Zod enum widen on `stacked-trend/types.ts`. **Fused atomic commit** for the schema bump per /memories/lessons.md 2026-05-17 ENTRY. | aliases keep both live; drop in T.6 | T.2 |
 | **S.1** | **PR-S.1 Option A** — fold `people/` into `dim_candidates`. Schema bump minor on `dim-candidates.schema.json`, additive optional bio columns. **Add optional `person_id` column** (NULL today, FK forward to future `taxonomy/persons.parquet`) per §7.3. Rewrite `elections/dim_candidates.parquet`. Delete `datasets/people/AcGenApr2021/`. Fused atomic commit. | structural + behavioural (fused) | YES — `DimCandidate` TS widen | re-emit from candidates source; restore `people/` from git | T.3 |
 | **G.1** | **Office-bearers consolidation.** Create `governments/governments_office_bearer_terms.parquet` (new fact). Create `governments/dim_offices.parquet`. Migrate `governments/in/states/<state>/cm_terms.json` → fact rows. Delete `governments/in/states/`. New schemas + Tier-A pair if frontend consumes (today: `cm_terms` only — check usages). | structural + behavioural (fused) | YES if frontend consumes; NO if no consumer | re-emit from `cm_terms.json` (kept in `_old/` for one release) | T.3 |
-| **P.*** | **Per-family pivot** — Phase 2 of [TODO/20260517-canonical-long-format-pivot.md](20260517-canonical-long-format-pivot.md). Each family (fiscal, energy, health, education-split-out, work-new, judiciary-new, crime-new, amenities-new, technology-new, schemes-new, accountability-new, local_govt_finance-new, …) becomes its own sub-PR following the existing 1.8a-bis naming rule + FK contract. Drops `datasets/indicators/in/<family>/` per sub-PR. | structural + behavioural (fused per family) | YES per family | per-family rollback; previous sub-PR independent | T.3 |
+| **P.*** | **Per-family pivot** — Phase 2 of [docs/archive/plans/20260517-canonical-long-format-pivot.md](20260517-canonical-long-format-pivot.md). Each family (fiscal, energy, health, education-split-out, work-new, judiciary-new, crime-new, amenities-new, technology-new, schemes-new, accountability-new, local_govt_finance-new, …) becomes its own sub-PR following the existing 1.8a-bis naming rule + FK contract. Drops `datasets/indicators/in/<family>/` per sub-PR. | structural + behavioural (fused per family) | YES per family | per-family rollback; previous sub-PR independent | T.3 |
 
 T.1 + T.2 are pure Tidy First (worth landing first — zero behavioural risk, unblock everything else). T.3 is the largest single behavioural change; earns its own Correction Level 4 review.
 
@@ -663,12 +663,12 @@ Each publisher = one ingest adapter under `backend/yen_gov/sources/<publisher>/`
 
 ## 13. Cross-references
 
-- [TODO/20260517-canonical-long-format-pivot.md](20260517-canonical-long-format-pivot.md) — Phase 2 per-family pivot is where each new family in §8 lands. This plan does NOT replace that one; it **adds** the dir-restructure + naming-rule + new-family slots to it.
+- [docs/archive/plans/20260517-canonical-long-format-pivot.md](20260517-canonical-long-format-pivot.md) — Phase 2 per-family pivot is where each new family in §8 lands. This plan does NOT replace that one; it **adds** the dir-restructure + naming-rule + new-family slots to it.
 - [TODO/20260517-indicator-corpus-survey.md](20260517-indicator-corpus-survey.md) — relevant for the coverage gap §12.
 - [TODO/SOCIO-ECONOMIC-EXPANSION.md](SOCIO-ECONOMIC-EXPANSION.md) — Hans's new topic slots in §11 supersede whatever this file currently proposes; merge or retire after user sign-off.
 - [TODO/PER-INDICATOR-DOCS-PLAN.md](PER-INDICATOR-DOCS-PLAN.md) — methodology-prose home per Hans §4.5 + Max §5.4.
 - [TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md](IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md) — Topic Front Door reads `taxonomy/topics.parquet` post-T.2.
-- [docs/architecture/data/canonical-store.md](../docs/architecture/data/canonical-store.md) — §2a naming rule + §8.3 hand-source → compiled-parquet pattern. This plan EXTENDS §2a, doesn't replace.
+- [docs/architecture/data/canonical-store.md](../../architecture/data/canonical-store.md) — §2a naming rule + §8.3 hand-source → compiled-parquet pattern. This plan EXTENDS §2a, doesn't replace.
 
 ---
 

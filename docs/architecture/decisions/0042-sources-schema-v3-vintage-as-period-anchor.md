@@ -5,7 +5,7 @@
 **Deciders**: User (autonomous mandate, 2026-05-26) + Gregor (Architect) + Fowler (Engineering) — parallel custom-agent consult 2026-05-26; both converged. Authority assignment per CLAUDE.md §0a: data shape = Gregor (canonical data model) with Fowler underwriting commit shape (Tidy-First, smallest reversible steps).
 **Supersedes**: [ADR-0032](0032-sources-citation-ledger.md) v2.0 on vintage semantics only. ADR-0032's body (citation-ledger pivot, 11-column shape, identity-as-citation-triple rationale) is preserved as the v2.0 historical record; the Status pointer at the top of -0032 redirects readers here for current vintage semantics.
 **Refines**: [ADR-0041](0041-meadow-tier.md) §non-negotiable #4 ("Vintage in meadow path MUST match `vintage` field of the citation row the `source_id` FK resolves to"). The invariant text in ADR-0041 stays as-is; this ADR resolves the semantic ambiguity that previously made #4 structurally unenforceable for unvintaged publishers.
-**Plan reference**: [`TODO/20260517-canonical-long-format-pivot.md` §0e.8a P.1 Energy — sources.parquet vintage backfill + Tier-B vintage check](../../../TODO/20260517-canonical-long-format-pivot.md)
+**Plan reference**: [`docs/archive/plans/20260517-canonical-long-format-pivot.md` §0e.8a P.1 Energy — sources.parquet vintage backfill + Tier-B vintage check](../../archive/plans/20260517-canonical-long-format-pivot.md)
 
 ## Context
 
@@ -157,5 +157,5 @@ Mark ICED meadow files exempt from Tier-B; ship the rule for CEA/RBI only. **Rej
 - **[`backend/yen_gov/canonical/citation.py`](../../../backend/yen_gov/canonical/citation.py)** — `derive_source_id` (signature unchanged)
 - **[`backend/yen_gov/canonical/energy_sources_seed.py`](../../../backend/yen_gov/canonical/energy_sources_seed.py)** — 5 ICED triples flip in PR-B Commit 2
 - **[`backend/yen_gov/validate.py`](../../../backend/yen_gov/validate.py)** — `tier_b_meadow_vintage_matches_source_id` lands in PR-B Commit 3
-- **[`TODO/20260517-canonical-long-format-pivot.md` §0e.8a](../../../TODO/20260517-canonical-long-format-pivot.md)** — PR-B scope ratification
+- **[`docs/archive/plans/20260517-canonical-long-format-pivot.md` §0e.8a](../../archive/plans/20260517-canonical-long-format-pivot.md)** — PR-B scope ratification
 - **`/memories/lessons.md` 2026-05-25** — strangler-fig blast-radius trap (informed PR-B's autonomous-execution discipline)
