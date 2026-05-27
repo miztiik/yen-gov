@@ -85,7 +85,7 @@ export interface BuildRailGroupsArgs {
  * derived from `topic.title` via the `topicTitles` map (Jony 2026-05-16:
  * the rail does not carry its own label dictionary; the catalogue IS the
  * dictionary). Order is deliberate: money + power first (highest citizen
- * pull), then economy → people → environment → transport → elections.
+ * pull), then economy → people → environment → elections.
  *
  * `human-development` and `demography` are intentionally absent — they
  * exist in the catalogue (Topic Front Door surfaces them) but are NOT
@@ -97,7 +97,6 @@ const THIS_STATE_TOPIC_IDS: ReadonlyArray<string> = [
   "economy",
   "health",
   "environment",
-  "transport",
   "elections",
 ];
 
