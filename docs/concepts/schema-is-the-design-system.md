@@ -1,6 +1,6 @@
 # The schema is the design system
 
-**Last Updated**: 2026-05-11
+**Last Updated**: 2026-05-27
 
 This is a permanent guardrail for yen-gov. It captures the UI/UX standing position formalised during the [IA reset](../../TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md) (2026-05-11) and made structural by [ADR-0022](../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md).
 
@@ -26,7 +26,17 @@ If a chart needs custom code, the metadata is incomplete — extend the schema, 
 
 Added 2026-05-26 per [ADR-0044](../architecture/decisions/0044-grain-over-entity.md) + [TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md) §C3. Facets (species, fuel, sector, basis, kind) live INSIDE the card via a facet picker, not as separate cards. The `/t/agriculture` page that shipped 18 stacked species cards is the cautionary tale — one Pashu Aadhaar measure became 11 species × 2 grains = 22 catalogue rows × 18 surface cards. The collapse target (PR-C2) is 1 cattle card with a species picker + (after grain sub-pages from PR-C1) a grain sub-page link.
 
-Enforced by [frontend/src/contracts/topic-card-uniqueness.test.ts](../../frontend/src/contracts/topic-card-uniqueness.test.ts) (ships in PR-C3): for each topic, no two artifact refs share `(canonical_indicator_id, entity_kind)`. Violations fail CI.
+Enforced by [frontend/src/contracts/topic-card-uniqueness.test.ts](../../frontend/src/contracts/topic-card-uniqueness.test.ts) (live as of PR #411): for each topic, no two artifact refs share `(canonical_indicator_id, entity_kind)`. Violations fail CI.
+
+### How to add a topic without violating the rule
+
+When adding or editing a topic page (`datasets/taxonomy/topics.json`):
+
+- One artifact ref per `(canonical_indicator_id, entity_kind)` tuple per topic. The contract test enumerates topic rows and rejects duplicates.
+- If a measure has multiple facets (species, fuel, sector, basis, kind), declare ONE ref with the facet selector inside the card — do NOT fan out into N refs.
+- If a measure has multiple grains (state + district + national), declare ONE ref per `entity_kind` you intend to surface on that topic; cross-grain comparison lives in the card's grain switcher, not in a second card.
+- PR #411 (`/t/agriculture`: 16 -> 7 cards) is the canonical worked example. Look at its diff for the shape of a compliant `topics.json` block.
+- Run `bun run test -- topic-card-uniqueness` locally before push; the contract test prints the offending `(topic, canonical_indicator_id, entity_kind)` triple on failure.
 
 Companion rule: render-shape fields (`chart_type`, `default_mode`, `renderer_rules`, `facet_labels`, `dimension`) do NOT live on the canonical or topic catalogue — they live in the frontend-owned grapher catalogue at `datasets/grapher/` per [ADR-0045](../architecture/decisions/0045-grapher-catalogue-split.md). The schema-is-the-design-system rule is preserved; "schema" now means the (canonical + grapher) pair, not canonical alone.
 
