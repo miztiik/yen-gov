@@ -1,0 +1,294 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "6.0",
+  "coverage": {
+    "admin_level": null,
+    "spatial": "India (national)",
+    "temporal": "2011..2031"
+  },
+  "divergence": null,
+  "indicator": {
+    "attribution_geography": "where_produced",
+    "comparability": "comparable_across_states_and_time",
+    "description": "ICED plantPipelineInfo: national under-construction generation capacity by expected commissioning calendar-year and status (likely-to-be-commissioned vs on-hold). Values are GW per year (not cumulative). Publisher 2022 gap preserved verbatim.",
+    "direction": "neutral",
+    "entity_kind": "country",
+    "icon": "bolt",
+    "id": "energy/plant_pipeline_info",
+    "implementing_authority": "joint",
+    "methodology_vintage": "NITI Aayog ICED plantPipelineInfo endpoint; payload fetched 2026-05-27T13:14:58Z; calendar-year expected-commissioning grain; two status facets verbatim.",
+    "notes": "Source: NITI Aayog ICED dashboard (https://iced.niti.gov.in/energy/electricity/capacity/upcoming). AES-encrypted API envelope; IcedClient.get(..., decrypt=True). Originating data: Central Electricity Authority station-level pipeline records; ICED is the federal aggregator (silver / not-authority).",
+    "scale_hint": "linear",
+    "short_unit": "GW",
+    "time_grain": "year",
+    "title": "India under-construction generation capacity, by year and status (GW)",
+    "unit": "GW",
+    "value_kind": "count"
+  },
+  "license": {
+    "id": "GoI-OpenData",
+    "name": "Government of India Open Data License",
+    "redistributable": true,
+    "url": "https://www.data.gov.in/government-open-data-license-india"
+  },
+  "methodology": {
+    "definition": "ICED plantPipelineInfo: national under-construction generation capacity by expected commissioning calendar-year and status (likely-to-be-commissioned vs on-hold). Values are GW per year (not cumulative). Publisher 2022 gap preserved verbatim.",
+    "documentation_status": "stub",
+    "known_caveats": [],
+    "methodology_breaks": [],
+    "notes": [],
+    "publisher": "joint",
+    "publisher_methodology_url": null
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2011",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2011",
+      "value": 0.485
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2012",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2012",
+      "value": 4.69
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2013",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2013",
+      "value": 6.525
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2014",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2014",
+      "value": 4.71
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2015",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2015",
+      "value": 3.06
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2016",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2016",
+      "value": 0.45
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2017",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2017",
+      "value": 0.3
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2018",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2018",
+      "value": 0.66
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2019",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2019",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2020",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2020",
+      "value": 0.5
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2021",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2021",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2023",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2023",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2024",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2024",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2025",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2025",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2026",
+      "value": 6.5
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2026",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2027",
+      "value": 3.58
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2027",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2028",
+      "value": 8.52
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2028",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2029",
+      "value": 8.24
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2029",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2030",
+      "value": 7.06
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2030",
+      "value": 0.0
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction and likely to be commissioned",
+      "time": "2031",
+      "value": 0.8
+    },
+    {
+      "entity_id": "IN",
+      "facet": "Under Construction but on Hold",
+      "time": "2031",
+      "value": 0.0
+    }
+  ],
+  "series_spec": {
+    "description": "ICED plantPipelineInfo: national under-construction generation capacity by expected commissioning calendar-year and status (likely-to-be-commissioned vs on-hold). Values are GW per year (not cumulative). Publisher 2022 gap preserved verbatim."
+  },
+  "sources": [
+    {
+      "fetched_at": "2026-05-27T13:14:58Z",
+      "url": "https://iced.niti.gov.in/energy/electricity/capacity/upcoming"
+    }
+  ]
+}

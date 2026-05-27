@@ -1827,6 +1827,17 @@
       ],
       "description_short": "Count of unique farmers in each district reached by NAIP IV inseminations during FY 2024-25.",
       "sources": []
+    },
+    {
+      "concept_id": "under-construction-capacity",
+      "noun": "Under-construction generation capacity",
+      "unit_canonical": "GW",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "country"
+      ],
+      "description_short": "Power generation capacity in active construction (post-financial-close, pre-commissioning), by expected commission calendar-year. Distinct from commissioned installed capacity and from retired capacity; this measures FUTURE additions not yet generating.",
+      "sources": []
     }
   ]
 }

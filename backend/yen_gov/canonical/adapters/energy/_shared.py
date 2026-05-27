@@ -169,6 +169,18 @@ SOURCE_IDS: dict[str, str] = {
     # publisher does NOT split per-source at this grain. Lifts onto
     # the EXISTING ``energy_installed_capacity`` table stem.
     "rbi_hbk_143_renewable_grid_capacity": "src-1f51c8d742bf",
+    # 2026-05-27 ICED plantPipelineInfo (under-construction capacity GW).
+    # Derived via derive_source_id("NITI Aayog India Climate & Energy
+    # Dashboard", "Plant Pipeline Info National API (national under-
+    # construction generation capacity by expected commissioning calendar-
+    # year, by status, GW)", "2026-05-27"). First ingest through 4-layer
+    # doctrine + ADR-0046 pre-flight gate. National-only entity_id="IN";
+    # 2 status facets summed to one row per calendar year. Lifts onto the
+    # NEW ``energy_capacity_pipeline`` table stem (under-construction is
+    # a fundamentally different physical state from commissioned per
+    # ADR-0044 concept-identity doctrine -- own stem, not facet on
+    # ``energy_installed_capacity``).
+    "iced_plant_pipeline":               "src-e0b2a084d204",
 }
 
 

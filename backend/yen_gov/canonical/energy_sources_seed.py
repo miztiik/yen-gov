@@ -174,6 +174,15 @@ SOURCE_NICKNAMES: tuple[str, ...] = (
     # silver-tier longitudinal anchor (same Hans D33 / plan-doc §3 Q-d
     # ruling as RBI Hbk 140/141/142 -- republisher not authority).
     "rbi_hbk_143_renewable_grid_capacity",
+    # --- 2026-05-27 ICED plantPipelineInfo (under-construction capacity, GW) -
+    # First ingest through the 4-layer doctrine
+    # ([docs/concepts/ingest-fetch-enrich-separation.md]) + ADR-0046
+    # pre-flight gate (PR #419 shipped fetch+parse+gate; this PR ships
+    # the enrich+emit). National-only annual under-construction generation
+    # capacity by expected commission year + status (2 facets collapsed
+    # to TOTAL via SUM at the adapter; status breakdown preserved in
+    # meadow JSON for a future facet-children PR if needed).
+    "iced_plant_pipeline",
 )
 
 
@@ -299,6 +308,11 @@ _TRIPLES: dict[str, tuple[str, str, str]] = {
         "Reserve Bank of India",
         "Handbook of Statistics on Indian States, Table 143 (State-wise grid-connected renewable installed capacity, MW, end-March snapshot)",
         "2024-25",
+    ),
+    "iced_plant_pipeline": (
+        "NITI Aayog India Climate & Energy Dashboard",
+        "Plant Pipeline Info National API (national under-construction generation capacity by expected commissioning calendar-year, by status, GW)",
+        "2026-05-27",
     ),
 }
 
@@ -497,6 +511,15 @@ _BY_NICKNAME: dict[str, tuple[str, str, str, bool, str, str | None]] = {
         False,
         "https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=22833",
         "RBI Handbook of Statistics on Indian States 2024-25 edition, Table 143: state-wise installed grid-connected renewable capacity (MW, end-March snapshot, 2007-2024). Combined wind + solar + small-hydro + biomass + waste-to-energy (no per-source split at this grain). Originating data: MoSPI Energy Statistics, Government of India. RBI republishes as the longitudinal anchor (silver / not-authority per Hans D33 + plan-doc §3 Q-d). National total ~10 GW in 2007 to ~144 GW in 2024 (14x). Telangana data from 2015 (state created 2014); Ladakh from 2023.",
+    ),
+    # --- 2026-05-27 ICED plantPipelineInfo ----------------------------
+    "iced_plant_pipeline": (
+        "OGL-IN-1.0",
+        "silver",
+        "live-fetch",
+        False,
+        "https://iced.niti.gov.in/energy/electricity/capacity/upcoming",
+        "ICED plantPipelineInfo endpoint (national under-construction generation capacity by expected commissioning calendar-year and status, GW; 2011-2031 with publisher 2022 gap preserved verbatim). Two status facets ('Under Construction and likely to be commissioned', 'Under Construction but on Hold') summed at adapter time to a single TOTAL pipeline value per year. Originating data: Central Electricity Authority via ICED federal aggregator. AES-encrypted API envelope; IcedClient.get(..., decrypt=True). First ingest through the 4-layer doctrine + ADR-0046 pre-flight gate.",
     ),
 }
 

@@ -35,8 +35,8 @@ def test_twelve_sources_built():
     the canonical assertion is the count-vs-NICKNAMES match below, not the
     literal 12.
     """
-    assert len(ENERGY_SOURCES) == 21
-    assert len(SOURCE_NICKNAMES) == 21
+    assert len(ENERGY_SOURCES) == 22
+    assert len(SOURCE_NICKNAMES) == 22
     assert set(ENERGY_SOURCE_ID_BY_NICKNAME) == set(SOURCE_NICKNAMES)
 
 
@@ -79,6 +79,9 @@ def test_source_id_hashes_match_catalogue_fks():
         "iced_final_energy_consumption": "src-29ecbb6dce9d",
         # P.1.C PR-Y (1) — RBI Handbook Table 143 (state renewable grid capacity).
         "rbi_hbk_143_renewable_grid_capacity": "src-1f51c8d742bf",
+        # 2026-05-27 ICED plantPipelineInfo (under-construction capacity GW;
+        # first ingest through the 4-layer doctrine + ADR-0046 pre-flight gate).
+        "iced_plant_pipeline": "src-e0b2a084d204",
     }
     for nickname, src_id in expected.items():
         assert ENERGY_SOURCE_ID_BY_NICKNAME[nickname] == src_id, (
@@ -147,6 +150,10 @@ def test_license_tier_authority_invariants():
         # republishes MoSPI Energy Statistics India (sector x fuel
         # composite); same silver / not-authority / live-fetch.
         "iced_final_energy_consumption",
+        # 2026-05-27 ICED plantPipelineInfo endpoint — under-construction
+        # capacity republishes CEA station-level pipeline records; same
+        # silver / not-authority / live-fetch classification.
+        "iced_plant_pipeline",
     ):
         row = by_nick[nick]
         assert row.confidence_tier == "silver", nick
@@ -212,9 +219,9 @@ def test_upsert_into_empty_table_writes_twelve_rows():
     try:
         _create_sources_table(con)
         n = upsert_energy_sources(con)
-        assert n == 21
+        assert n == 22
         count = con.execute("SELECT COUNT(*) FROM sources").fetchone()[0]
-        assert count == 21
+        assert count == 22
     finally:
         con.close()
 
@@ -227,7 +234,7 @@ def test_upsert_is_idempotent():
         upsert_energy_sources(con)
         upsert_energy_sources(con)
         count = con.execute("SELECT COUNT(*) FROM sources").fetchone()[0]
-        assert count == 21
+        assert count == 22
     finally:
         con.close()
 
@@ -236,7 +243,7 @@ def test_upsert_to_parquet_creates_file_when_absent(tmp_path: Path):
     target = tmp_path / "sources.parquet"
     assert not target.exists()
     n = upsert_energy_sources_to_parquet(target)
-    assert n == 21
+    assert n == 22
     assert target.is_file()
     con = duckdb.connect()
     try:
@@ -245,7 +252,7 @@ def test_upsert_to_parquet_creates_file_when_absent(tmp_path: Path):
         ).fetchone()[0]
     finally:
         con.close()
-    assert count == 21
+    assert count == 22
 
 
 def test_upsert_to_parquet_preserves_existing_rows(tmp_path: Path):
@@ -279,7 +286,7 @@ def test_upsert_to_parquet_preserves_existing_rows(tmp_path: Path):
         pre.close()
 
     n = upsert_energy_sources_to_parquet(target)
-    assert n == 21
+    assert n == 22
 
     con = duckdb.connect()
     try:
@@ -291,7 +298,7 @@ def test_upsert_to_parquet_preserves_existing_rows(tmp_path: Path):
 
     src_ids = [r[0] for r in rows]
     assert "src-aaaaaaaaaaaa" in src_ids
-    assert len(src_ids) == 22  # 1 pre-existing + 21 energy
+    assert len(src_ids) == 23  # 1 pre-existing + 22 energy
 
 
 def test_upsert_to_parquet_is_idempotent(tmp_path: Path):

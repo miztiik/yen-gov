@@ -4725,6 +4725,38 @@
       "meta": {
         "justification": "District SoT with state-grain SUM rollup per ADR-0043; same publisher cell, same source_id, same period_label, distinguished only by entity_id grain (district vs state prefix). Per ADR-0044, grain lives on entity_kinds[] not in the id. Replaces former district-* + state-* twin ids."
       }
+    },
+    {
+      "indicator_id": "under-construction-capacity-gw",
+      "label_short": "Under-construction capacity (pipeline)",
+      "label_long": "All-India under-construction generation capacity by expected commissioning year (GW)",
+      "description_short": "Future thermal generation capacity in active construction across India, summed across pipeline statuses (likely to be commissioned + on hold), bucketed by the calendar year the plant is expected to come online. Distinct from already-installed capacity.",
+      "description_long": "ICED plantPipelineInfo reports under-construction capacity by expected commissioning calendar-year, split into two status facets ('Under Construction and likely to be commissioned' vs 'Under Construction but on Hold'). This canonical row sums the two facets to one TOTAL pipeline GW per year; the status breakdown is preserved in the meadow JSON for a potential future facet-children PR. Publisher series spans 2011-2031 with a 2022 gap preserved verbatim. National grain only -- ICED does not publish per-state pipeline. Originating data: Central Electricity Authority station-level pipeline records; ICED is the federal aggregator (silver / not-authority per Hans D33 + plan-doc \u00a73 Q-d).",
+      "unit": "GW",
+      "cadence": "monthly_cy",
+      "family": "energy",
+      "pillar": "infrastructure",
+      "topic_tags": [
+        "energy"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_produced",
+      "comparability": "comparable_across_states_and_time",
+      "implementing_authority": "joint",
+      "methodology_vintage": "ICED plantPipelineInfo endpoint snapshot 2026-05-27; monthly publisher cadence. Calendar-year expected-commissioning grain. AES-encrypted upstream envelope; IcedClient.get(..., decrypt=True). Status SUM-collapse over the 2 publisher facets at adapter time.",
+      "revision_tier": "first_release",
+      "parent_indicator_id": null,
+      "source_id": "src-e0b2a084d204",
+      "entity_kinds": [
+        "country"
+      ],
+      "default_entity_kind": "country",
+      "update_period_days": 30,
+      "concept_id": "under-construction-capacity",
+      "meta": {
+        "justification": "First ingest through the 4-layer doctrine + ADR-0046 pre-flight gate; verdict mint_new (no existing concept scored \u22650.70 against (under-construction-capacity, GW, absolute, country)). Distinct concept from `all-india-installed-capacity` (commissioned + grid-synchronised stock) because pipeline capacity is a FORWARD-LOOKING flow measure of plants not yet on the grid; same fuel, different physical state -- not a facet collapse candidate per ADR-0044 concept-identity doctrine."
+      }
     }
   ]
 }
