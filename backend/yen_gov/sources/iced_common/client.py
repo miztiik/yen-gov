@@ -27,6 +27,7 @@ import urllib.parse
 import urllib.request
 from dataclasses import dataclass
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path, PurePosixPath
 from typing import Any
 
@@ -73,6 +74,25 @@ class IcedResponse:
     decrypted: Any
     raw_body: bytes
     raw_path: Path
+
+
+def _parse_last_modified(raw: str | None) -> datetime | None:
+    """Parse an HTTP ``Last-Modified`` header to an aware UTC datetime.
+
+    Returns ``None`` for missing or unparseable values so callers can fall
+    back to a local-deterministic anchor (the raw snapshot's mtime).
+    """
+    if not raw:
+        return None
+    try:
+        dt = parsedate_to_datetime(raw)
+    except (TypeError, ValueError):
+        return None
+    if dt is None:
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(timezone.utc).replace(microsecond=0)
 
 
 def _sanitize_path_for_disk(api_path: str, query: dict[str, str] | None) -> str:
@@ -132,6 +152,7 @@ class IcedClient:
         if extra_headers:
             self._headers.update(extra_headers)
         self._last_call_ts: float = 0.0
+        self._last_modified: datetime | None = None
 
     # ------------------------------------------------------------------ get
     def get(
@@ -166,13 +187,21 @@ class IcedClient:
             url = f"{self._host}{api_path}"
 
         body = self._fetch_with_retry(url, timeout=timeout)
-        fetched_at = datetime.now(timezone.utc)
 
         # Persist raw (encrypted-or-plain) body for offline replay.
         rel_disk = _sanitize_path_for_disk(api_path, params)
         raw_path = self._raw_dir / rel_disk
         raw_path.parent.mkdir(parents=True, exist_ok=True)
         raw_path.write_bytes(body)
+
+        # PR-A5a: prefer upstream ``Last-Modified`` (deterministic publisher
+        # timestamp), else fall back to the raw snapshot's mtime. Avoids
+        # ``datetime.now()`` (CLAUDE.md §10 anti-pattern) so artifact
+        # ``sources[].fetched_at`` stays stable across re-runs that produce
+        # byte-identical bodies. Mirrors the iced_state_wise pattern.
+        fetched_at = self._last_modified or datetime.fromtimestamp(
+            raw_path.stat().st_mtime, tz=timezone.utc
+        ).replace(microsecond=0)
 
         try:
             if decrypt:
@@ -202,6 +231,9 @@ class IcedClient:
             try:
                 with urllib.request.urlopen(req, timeout=timeout) as resp:
                     self._last_call_ts = _time.time()
+                    self._last_modified = _parse_last_modified(
+                        resp.headers.get("Last-Modified")
+                    )
                     return resp.read()
             except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as exc:
                 last_err = exc
