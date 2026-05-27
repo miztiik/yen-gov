@@ -22,7 +22,7 @@ Param-templated endpoints (119 of 259 require runtime parameters like `state_id`
 
 ## 0ter. Standing authorizations
 
-Cribbed from [TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md](20260526-grain-over-entity-and-storage-decoupling-plan.md) §0ter. Apply to every PR in this plan unless individually overridden:
+Cribbed from [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md) §0ter. Apply to every PR in this plan unless individually overridden:
 
 - Incremental: one phase + one family at a time. No big-bang PRs.
 - Own-branch + `git push --force-with-lease` on rebase is acceptable (squash-merge mode discards branch history).
@@ -101,6 +101,6 @@ Two NEW guardrails ship as part of this plan, alongside the Phase F/P/E PRs:
 - [docs/concepts/meadow-tier.md](../docs/concepts/meadow-tier.md) — backend-internal staging
 - [docs/architecture/data/canonical-store.md](../docs/architecture/data/canonical-store.md) — writer PK + family parquet
 - [TODO/_TEMPLATE-ingest-handover.md](_TEMPLATE-ingest-handover.md) — per-endpoint handover-doc template
-- [TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md](20260526-grain-over-entity-and-storage-decoupling-plan.md) — concept-overlap rule + standing authorizations precedent
+- [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md) — concept-overlap rule + standing authorizations precedent
 - [ADR-0041](../docs/architecture/decisions/0041-meadow-tier.md) — meadow tier
 - [ADR-0044](../docs/architecture/decisions/0044-grain-over-entity.md) — grain-over-entity

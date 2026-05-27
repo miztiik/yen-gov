@@ -111,7 +111,7 @@ Breeding (ABIP / RGM): 14-endpoint probe matrix all HTTP 404. NDLM exposes no pe
 ## See also
 
 - [TODO/20260525-livestock-ndlm-ingest-plan.md](../../TODO/20260525-livestock-ndlm-ingest-plan.md) -- umbrella ingest plan
-- [TODO/20260525-pashu-aadhaar-ingest-plan.md](../../TODO/20260525-pashu-aadhaar-ingest-plan.md) -- Pashu Aadhaar honest-renderer call
+- [docs/archive/plans/20260525-pashu-aadhaar-ingest-plan.md](../archive/plans/20260525-pashu-aadhaar-ingest-plan.md) -- Pashu Aadhaar honest-renderer call
 - [TODO/20260525-topojson-frontend-perf-plan.md](../../TODO/20260525-topojson-frontend-perf-plan.md) -- TopoJSON map adoption (NDLM precedent)
 - [docs/concepts/meadow-tier.md](../concepts/meadow-tier.md) -- 5-tier OWID model
 - [docs/architecture/data/canonical-store.md](../architecture/data/canonical-store.md) -- canonical store contract
