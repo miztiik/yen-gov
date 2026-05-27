@@ -1136,4 +1136,5 @@ def run(root: Path) -> list[Failure]:
         + tier_b_indicator_has_justification(root)
         + tier_b_one_indicator_per_concept(root)
         + tier_b_no_hand_typed_source_id(root)
+        + tier_b_indicator_id_no_grain_prefix(root)
     )
