@@ -2008,6 +2008,125 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     },
   },
 
+  // --- Grain-prefix legacy id aliases (2026-05-27) --- topics.json still
+  // references the pre-grain-rip ids `state_livestock_owner_reg_count` and
+  // `district_livestock_owner_reg_count`. Per ADR-0044 the canonical id is
+  // grain-free (`livestock-owner-reg-count`); these 2 aliases route both
+  // legacy lookups to the SAME facet-multiplexed descriptor above. Only
+  // legacy_artifact_id and meta.entity_kind differ; everything else is
+  // verbatim. Mirrors precedent of post-grain-rip 404 closures in
+  // PRs #280/#282/#293. See docs/concepts/indicator-naming.md.
+  {
+    kind: "facet-multiplexed",
+    legacy_artifact_id: "agriculture/state_livestock_owner_reg_count",
+    canonical_parent_indicator_id: "livestock-owner-reg-count",
+    table_id: "livestock.livestock_owner_registration",
+    facet_axis_id: "landholding",
+    facet_values: [
+      {
+        canonical_child_id: "livestock-owner-reg-count-landless-marginal",
+        legacy_facet_label: "landless_marginal",
+      },
+      {
+        canonical_child_id: "livestock-owner-reg-count-small",
+        legacy_facet_label: "small",
+      },
+      {
+        canonical_child_id: "livestock-owner-reg-count-semi-medium",
+        legacy_facet_label: "semi_medium",
+      },
+      {
+        canonical_child_id: "livestock-owner-reg-count-medium",
+        legacy_facet_label: "medium",
+      },
+      {
+        canonical_child_id: "livestock-owner-reg-count-large",
+        legacy_facet_label: "large",
+      },
+      {
+        canonical_child_id: "livestock-owner-reg-count-not-specified",
+        legacy_facet_label: "not_specified",
+      },
+    ],
+    meta: {
+      id: "livestock-owner-reg-count",
+      title: "Registered livestock owners, by landholding",
+      description:
+        "Number of livestock owners registered under NDLM Bharat Pashudhan, broken out by landholding bracket. District is the source-of-truth grain per ADR-0043; the state-grain sibling shares the same indicator_id (entity_id alone distinguishes) and is the SUM rollup auto-emitted in the same canonical adapter run. Landholding bracket is the citizen-meaningful axis: landless / marginal smallholders are the dominant register; large landholders the smallest cohort.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "owners",
+      short_unit: "owners",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getOwnerRegLandHoldingDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). Landholding brackets aligned with Agriculture Census 2015-16. `not_specified` aggregates rows where the owner did not self-declare a holding size. 741 districts with non-zero counts.",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Registered owners is NOT total owners. The bulk of the register is `not_specified` because the registration form does not require a holding declaration; do not read the 5 named brackets as the only owners. Composite gender axis collapsed at Phase 2.A adapter time. State-grain auto-summed from district children per ADR-0043.",
+    },
+  },
+  {
+    kind: "facet-multiplexed",
+    legacy_artifact_id: "agriculture/district_livestock_owner_reg_count",
+    canonical_parent_indicator_id: "livestock-owner-reg-count",
+    table_id: "livestock.livestock_owner_registration",
+    facet_axis_id: "landholding",
+    facet_values: [
+      {
+        canonical_child_id: "livestock-owner-reg-count-landless-marginal",
+        legacy_facet_label: "landless_marginal",
+      },
+      {
+        canonical_child_id: "livestock-owner-reg-count-small",
+        legacy_facet_label: "small",
+      },
+      {
+        canonical_child_id: "livestock-owner-reg-count-semi-medium",
+        legacy_facet_label: "semi_medium",
+      },
+      {
+        canonical_child_id: "livestock-owner-reg-count-medium",
+        legacy_facet_label: "medium",
+      },
+      {
+        canonical_child_id: "livestock-owner-reg-count-large",
+        legacy_facet_label: "large",
+      },
+      {
+        canonical_child_id: "livestock-owner-reg-count-not-specified",
+        legacy_facet_label: "not_specified",
+      },
+    ],
+    meta: {
+      id: "livestock-owner-reg-count",
+      title: "Registered livestock owners, by landholding",
+      description:
+        "Number of livestock owners registered under NDLM Bharat Pashudhan, broken out by landholding bracket. District is the source-of-truth grain per ADR-0043; the state-grain sibling shares the same indicator_id (entity_id alone distinguishes) and is the SUM rollup auto-emitted in the same canonical adapter run. Landholding bracket is the citizen-meaningful axis: landless / marginal smallholders are the dominant register; large landholders the smallest cohort.",
+      entity_kind: "district",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "owners",
+      short_unit: "owners",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getOwnerRegLandHoldingDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). Landholding brackets aligned with Agriculture Census 2015-16. `not_specified` aggregates rows where the owner did not self-declare a holding size. 741 districts with non-zero counts.",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Registered owners is NOT total owners. The bulk of the register is `not_specified` because the registration form does not require a holding declaration; do not read the 5 named brackets as the only owners. Composite gender axis collapsed at Phase 2.A adapter time. State-grain auto-summed from district children per ADR-0043.",
+    },
+  },
+
   // --- Phase 3.C-partial NAIP IV (2026-05-25) --- 8 single descriptors,
   // one per metric family per grain. No parent indicator (units differ
   // across families: events vs calves vs farmers). NAIP IV is a SELECT-
