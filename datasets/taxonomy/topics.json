@@ -516,51 +516,6 @@
         },
         {
           "kind": "indicator",
-          "id": "agriculture/pashu_aadhaar_count_buffalo",
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/pashu_aadhaar_count_goat",
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/pashu_aadhaar_count_sheep",
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/pashu_aadhaar_count_pig",
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/pashu_aadhaar_count_mithun",
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/pashu_aadhaar_count_yak",
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/pashu_aadhaar_count_horse",
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/pashu_aadhaar_count_donkey",
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/pashu_aadhaar_count_mule",
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
           "id": "agriculture/state_livestock_owner_reg_count",
           "scope": "state"
         },
