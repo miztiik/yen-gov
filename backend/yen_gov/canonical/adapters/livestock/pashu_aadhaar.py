@@ -176,8 +176,11 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
     auto-picked up by this loop without code change.
     """
     all_rows: list[ObservationRow] = []
+    sources_path = repo_root / "datasets" / "taxonomy" / "sources.parquet"
     for vintage in discover_meadow_snapshots(repo_root, MEADOW_SOURCE):
-        source_id = source_id_for("ndlm_pashu_aadhaar", vintage)
+        source_id = source_id_for(
+            "ndlm_pashu_aadhaar", vintage, sources_path=sources_path
+        )
         all_rows.extend(_lift_snapshot(repo_root, vintage, source_id))
 
     return BatchEnvelope(
