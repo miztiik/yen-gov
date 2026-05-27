@@ -25,6 +25,7 @@ same citation triple yields the same ID anywhere in the codebase).
 from __future__ import annotations
 
 import hashlib
+from pathlib import Path
 from typing import Final, Literal
 
 VerificationMethod = Literal["live-fetch", "archived-snapshot", "transcribed", "editorial"]
@@ -101,6 +102,66 @@ def derive_source_id(producer: str, title: str, vintage: str) -> str:
     # edition or the operator snapshot window so the meadow-path FK closes.
     payload = f"{producer}|{title}|{vintage}".encode("utf-8")
     return "src-" + hashlib.sha256(payload).hexdigest()[:12]
+
+
+def lookup_source_id(
+    producer: str,
+    title: str,
+    vintage: str,
+    *,
+    sources_path: Path,
+) -> str:
+    """Data-driven counterpart to :func:`derive_source_id` (PR-A6).
+
+    Reads ``sources_path`` (a ``datasets/taxonomy/sources.parquet``-shaped
+    parquet) and returns the ``source_id`` of the row whose
+    ``(producer, title, vintage)`` triple matches the arguments exactly.
+
+    Use this from observation-stamping call sites that want to verify
+    against the citation ledger rather than re-hash from hand-typed
+    triples. ``derive_source_id`` remains the writer-side primitive for
+    seed modules that populate the ledger itself (chicken-and-egg
+    bootstrap); ``lookup_source_id`` is for downstream readers.
+
+    Raises:
+        FileNotFoundError: ``sources_path`` does not exist.
+        LookupError: no row in the parquet matches the triple. The
+            error message lists the triple so the operator can either
+            (a) fix the hand-typed value in the adapter, or (b) add the
+            missing row to the sources seed.
+
+    duckdb is imported lazily so the module-level import surface stays
+    stdlib-only (per the module docstring's contract — keeps
+    ``citation`` importable from any layer without third-party deps).
+    """
+    if not producer:
+        raise ValueError("producer must be non-empty")
+    if not title:
+        raise ValueError("title must be non-empty")
+    if not vintage:
+        raise ValueError("vintage must be non-empty")
+    if not sources_path.exists():
+        raise FileNotFoundError(
+            f"sources parquet not found at {sources_path}; "
+            "run the sources seed first"
+        )
+    import duckdb  # lazy: preserve module-level stdlib-only surface
+
+    con = duckdb.connect(":memory:")
+    try:
+        row = con.execute(
+            "SELECT source_id FROM read_parquet(?) "
+            "WHERE producer = ? AND title = ? AND vintage = ?",
+            [str(sources_path), producer, title, vintage],
+        ).fetchone()
+    finally:
+        con.close()
+    if row is None:
+        raise LookupError(
+            f"no sources row for (producer={producer!r}, "
+            f"title={title!r}, vintage={vintage!r}) in {sources_path}"
+        )
+    return row[0]
 
 
 def render_citation(
