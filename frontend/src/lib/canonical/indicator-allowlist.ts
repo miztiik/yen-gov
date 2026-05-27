@@ -166,7 +166,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   // The legacy topics.json energy block references THREE short-name shards
   // that have no allowlist route + ONE meadow-only orphan; this PR adds 2
   // allowlist entries (peak_met → peak-electricity-supplied-mw,
-  // per_capita_consumption_kwh → state-per-capita-electricity-consumption-kwh)
+  // per_capita_consumption_kwh → per-capita-electricity-consumption-kwh)
   // and the matching topics.json prune drops 2 entries (state_peak_demand_mw
   // duplicate of state_peak_electricity_demand_mw, state_renewable_grid_capacity_mw
   // subsumed-by-renewable-child orphan).
@@ -207,10 +207,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/state_per_capita_electricity_consumption_kwh",
-    canonical_indicator_id: "state-per-capita-electricity-consumption-kwh",
+    canonical_indicator_id: "per-capita-electricity-consumption-kwh",
     table_id: "energy.energy_demand_supply",
     meta: {
-      id: "state-per-capita-electricity-consumption-kwh",
+      id: "per-capita-electricity-consumption-kwh",
       title: "Electricity used per person (kWh/year)",
       description:
         "Electricity consumption per person per year, in kilowatt-hours. Proxy for BOTH energy access (electrified homes) AND industrial intensity (heavy-industry load) — read alongside per-capita income to disambiguate.",
@@ -239,8 +239,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   // PR-G (2026-05-25) — close the 5 remaining /t/energy 404s discovered
   // during PR-F's §13 smoke. The legacy energy topics.json block lists
   // 5 shards with no allowlist route:
-  //   1. state_electricity_sales_mu        → state-electricity-sales-mu (single)
-  //   2. state_atc_losses_pct              → state-atc-losses-pct (single)
+  //   1. state_electricity_sales_mu        → electricity-sales-mu (single)
+  //   2. state_atc_losses_pct              → atc-losses-pct (single)
   //   3. state_installed_capacity_by_source_mw      → installed-capacity-geographical-mw (facet-multiplexed by fuel_type)
   //   4. state_electricity_generation_by_source_gwh → electricity-generation-gwh (facet-multiplexed by fuel_type)
   //   5. state_installed_capacity_total_mw → Pattern B duplicate of
@@ -252,8 +252,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   //      matching the PR-F precedent (state_peak_demand_mw prune).
   //
   // Adapter wiring confirmed:
-  //   * distribution.py block 1 (line 87) emits state-atc-losses-pct
-  //   * distribution.py block 2 (line 102) emits state-electricity-sales-mu
+  //   * distribution.py block 1 (line 87) emits atc-losses-pct
+  //   * distribution.py block 2 (line 102) emits electricity-sales-mu
   //   * generation.py block 2 (line 77) emits electricity-generation-gwh-{fuel}
   //   * installed_capacity.py block 3 (line 144) emits installed-capacity-geographical-mw + -{fuel} children
   //
@@ -267,10 +267,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/state_electricity_sales_mu",
-    canonical_indicator_id: "state-electricity-sales-mu",
+    canonical_indicator_id: "electricity-sales-mu",
     table_id: "energy.energy_distribution_performance",
     meta: {
-      id: "state-electricity-sales-mu",
+      id: "electricity-sales-mu",
       title: "Annual electricity sales (by state, MU)",
       description:
         "Total electricity actually billed to end-consumers (domestic + commercial + industrial + agricultural + public-lighting) in the state, in million units (MU). The gap between Generation and Sales is the absolute AT&C loss.",
@@ -304,10 +304,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/state_atc_losses_pct",
-    canonical_indicator_id: "state-atc-losses-pct",
+    canonical_indicator_id: "atc-losses-pct",
     table_id: "energy.energy_distribution_performance",
     meta: {
-      id: "state-atc-losses-pct",
+      id: "atc-losses-pct",
       title: "Power lost to leaks and theft (%)",
       description:
         "How much of the power that entered your state's grid never reached a paying meter. 'Technical' losses = grid heat and ageing wires; 'Commercial' losses = theft and uncollected bills. The floor for any future tariff hike.",
@@ -722,10 +722,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/state_power_requirement_mu",
-    canonical_indicator_id: "state-electricity-requirement-mu",
+    canonical_indicator_id: "electricity-requirement-mu",
     table_id: "energy.energy_demand_supply",
     meta: {
-      id: "state-electricity-requirement-mu",
+      id: "electricity-requirement-mu",
       title: "State annual power requirement (MU)",
       description:
         "Annual energy requirement assessed by the state (MU = million units = GWh), fiscal year — the demand-side counterpart to availability. Requirement minus availability gives the 'energy not supplied' deficit.",
@@ -750,10 +750,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/state_power_availability_mu",
-    canonical_indicator_id: "state-electricity-availability-mu",
+    canonical_indicator_id: "electricity-availability-mu",
     table_id: "energy.energy_demand_supply",
     meta: {
-      id: "state-electricity-availability-mu",
+      id: "electricity-availability-mu",
       title: "State annual power availability (MU)",
       description:
         "Annual energy actually supplied to the state (MU = million units = GWh), fiscal year. The supply-side companion to Requirement (T141). Requirement − Availability = the energy-not-supplied deficit.",
@@ -778,10 +778,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/state_per_capita_availability_kwh",
-    canonical_indicator_id: "state-per-capita-electricity-availability-kwh",
+    canonical_indicator_id: "per-capita-electricity-availability-kwh",
     table_id: "energy.energy_demand_supply",
     meta: {
-      id: "state-per-capita-electricity-availability-kwh",
+      id: "per-capita-electricity-availability-kwh",
       title: "State per-capita electricity availability (kWh/person/year)",
       description:
         "Annual per-capita electricity availability (kWh / person / year), by state and Union Territory, fiscal year. The most citizen-relevant single number for 'how much power do people in this state actually get to use' — captures both supply expansion and transmission losses.",
@@ -806,7 +806,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   // ICED `/energy/fuel-sources/coal/consumption-domestic-state` -> 450 obs rows
   // (states x fiscal-years FY06-FY25) into the long-reserved
   // `energy_fuel_consumption` parquet stem. Adapter:
-  //   * fuel_consumption.py block 1 emits state-coal-consumption-mt
+  //   * fuel_consumption.py block 1 emits coal-consumption-mt
   // ICED publishes 5 grade rows per (state, FY): raw + washed + middlings +
   // lignite + TOTAL COAL. The adapter sums the 4 component grades and DROPS
   // the publisher's TOTAL COAL row to avoid double-counting. Hans + Max
@@ -815,10 +815,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/state_coal_consumption_mt",
-    canonical_indicator_id: "state-coal-consumption-mt",
+    canonical_indicator_id: "coal-consumption-mt",
     table_id: "energy.energy_fuel_consumption",
     meta: {
-      id: "state-coal-consumption-mt",
+      id: "coal-consumption-mt",
       title: "State coal consumption (Mt, by fiscal year)",
       description:
         "Million tonnes of coal actually burned in the state per fiscal year — summed across raw, washed, middlings and lignite grades. High values typically indicate either large thermal generation fleets (Maharashtra, UP, MP, Chhattisgarh) or heavy industrial heat demand (steel, cement, sponge-iron clusters).",
@@ -853,7 +853,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   // ICED `/energy/renewable/solar/rooftop/state` -> 321 obs rows (states x
   // fiscal-years FY18-FY25) joined into the existing `energy_installed_capacity`
   // parquet stem. Adapter:
-  //   * installed_capacity.py block 6 emits state-rooftop-solar-capacity-mw
+  //   * installed_capacity.py block 6 emits rooftop-solar-capacity-mw
   // Rooftop is a sub-fuel measurement of installed MW; complements utility-scale
   // solar tracked under installed-capacity-snapshot-mw-renewable. The
   // total state solar fleet = utility-scale + rooftop. No facets; one row per
@@ -863,10 +863,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/state_rooftop_solar_capacity_mw",
-    canonical_indicator_id: "state-rooftop-solar-capacity-mw",
+    canonical_indicator_id: "rooftop-solar-capacity-mw",
     table_id: "energy.energy_installed_capacity",
     meta: {
-      id: "state-rooftop-solar-capacity-mw",
+      id: "rooftop-solar-capacity-mw",
       title: "State rooftop solar installed capacity (MW)",
       description:
         "Cumulative installed rooftop solar PV in megawatts — residential + commercial + industrial + public buildings. Owned by the building owner, NOT by a utility. Complements (does not replace) utility-scale solar, which lives under installed-capacity-snapshot-mw-renewable.",
@@ -1350,14 +1350,14 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   // waste-to-energy as one MW number) so this is a scalar indicator, not
   // a facet-multiplexed one. Lifts onto the EXISTING
   // energy_installed_capacity parquet stem. Adapter: installed_capacity.py
-  // final block emits state-renewable-grid-capacity-mw passthrough.
+  // final block emits renewable-grid-capacity-mw passthrough.
   {
     kind: "single",
     legacy_artifact_id: "energy/state_renewable_grid_capacity_mw",
-    canonical_indicator_id: "state-renewable-grid-capacity-mw",
+    canonical_indicator_id: "renewable-grid-capacity-mw",
     table_id: "energy.energy_installed_capacity",
     meta: {
-      id: "state-renewable-grid-capacity-mw",
+      id: "renewable-grid-capacity-mw",
       title: "State installed grid-connected renewable capacity (MW, end-March snapshot)",
       description:
         "Cumulative grid-connected renewable-power generation capacity installed in the state (MW), as at end-March of the calendar year. Combined wind + solar + small-hydro + biomass + waste-to-energy -- RBI's Table 143 does NOT publish a per-source split. The closest proxy for a state-level renewable-capacity time series with deep history (18 years). National total grew from ~10 GW in 2007 to ~144 GW in 2024 (14x). Rajasthan, Gujarat, Tamil Nadu, Karnataka, Maharashtra dominate; Bihar, Odisha, NE states remain in single-digit GW territory.",
@@ -1375,7 +1375,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       methodology_vintage:
         "RBI Handbook of Statistics on Indian States 2024-25 edition, Table 143. Originating data: MoSPI Energy Statistics, Government of India. End-March cumulative installed-capacity snapshots, calendar-year-labelled (catalogue period uses YYYY-04 sentinel).",
       notes:
-        "Telangana data from 2015 (state created June 2014); Ladakh from 2023 (UT created October 2019). 'Total' / 'Others' rows in the source workbook are skipped at parse time. Compare with PR-R `state-rooftop-solar-capacity-mw` to see what fraction of the renewable total is rooftop (typically <10% of total RE capacity).",
+        "Telangana data from 2015 (state created June 2014); Ladakh from 2023 (UT created October 2019). 'Total' / 'Others' rows in the source workbook are skipped at parse time. Compare with PR-R `rooftop-solar-capacity-mw` to see what fraction of the renewable total is rooftop (typically <10% of total RE capacity).",
     },
     // PR-Y: Hans-curated caveats. Three honesty cues: combined-RE-no-split,
     // cumulative-installed-not-generation, RBI-snapshot-cadence.
@@ -1390,10 +1390,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/state_acs_arr_gap_inr_per_kwh",
-    canonical_indicator_id: "state-acs-arr-gap-inr-per-kwh",
+    canonical_indicator_id: "acs-arr-gap-inr-per-kwh",
     table_id: "energy.energy_distribution_performance",
     meta: {
-      id: "state-acs-arr-gap-inr-per-kwh",
+      id: "acs-arr-gap-inr-per-kwh",
       title: "ACS-ARR gap on electricity sales (₹/kWh, by state)",
       description:
         "Average Cost of Supply minus Average Revenue Realised, per unit of electricity sold. Positive = the utility loses money on every unit it sells (closed by tariff hike, loss reduction, or state subsidy). Zero is the UDAY/RDSS policy goal.",

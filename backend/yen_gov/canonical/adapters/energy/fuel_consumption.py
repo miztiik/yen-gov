@@ -3,7 +3,7 @@
 P.1.C PR-Q (1 indicator; first canonical fuel-consumption lift):
 
 * ``state_coal_consumption_mt.json`` (450 rows, no facet)
-  -> ``state-coal-consumption-mt``.
+  -> ``coal-consumption-mt``.
 
 P.1.C PR-T (1 indicator; second canonical fuel-consumption lift):
 
@@ -79,7 +79,7 @@ def _load_fuel_consumption_meadow(repo_root: Path, file: str) -> dict:
 def build_envelope(repo_root: Path) -> BatchEnvelope:
     rows: list[ObservationRow] = []
 
-    # 1. state_coal_consumption_mt.json -> state-coal-consumption-mt
+    # 1. state_coal_consumption_mt.json -> coal-consumption-mt
     shard = _load_fuel_consumption_meadow(repo_root, "state_coal_consumption_mt.json")
     for r in shard["rows"]:
         period_label, year, period_seq = parse_iso_period(r["time"])
@@ -88,7 +88,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id="state-coal-consumption-mt",
+            indicator_id="coal-consumption-mt",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["iced_consumption_coal"],
             derivation="raw",

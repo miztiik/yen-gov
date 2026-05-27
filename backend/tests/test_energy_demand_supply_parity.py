@@ -60,10 +60,10 @@ def test_state_peak_supplied_matches_shard_s01_2013() -> None:
 
 
 def test_state_per_capita_consumption_matches_shard_u01_2009() -> None:
-    """state-per-capita-electricity-consumption-kwh, IN-U01 2009-04 = 493.979 (raw, ICED Deep Dive)."""
-    val = _query_value("IN-U01", 2009, "state-per-capita-electricity-consumption-kwh")
+    """per-capita-electricity-consumption-kwh, IN-U01 2009-04 = 493.979 (raw, ICED Deep Dive)."""
+    val = _query_value("IN-U01", 2009, "per-capita-electricity-consumption-kwh")
     assert val == pytest.approx(493.979, abs=0.001), (
-        f"IN-U01 2009 state-per-capita-electricity-consumption-kwh expected 493.979, got {val!r}"
+        f"IN-U01 2009 per-capita-electricity-consumption-kwh expected 493.979, got {val!r}"
     )
 
 
@@ -87,11 +87,11 @@ def test_parquet_has_six_distinct_indicators_after_p1b() -> None:
         # P.1.A
         "peak-electricity-demand-mw",
         "peak-electricity-supplied-mw",
-        "state-per-capita-electricity-consumption-kwh",
+        "per-capita-electricity-consumption-kwh",
         # P.1.B
-        "state-electricity-requirement-mu",
-        "state-electricity-availability-mu",
-        "state-per-capita-electricity-availability-kwh",
+        "electricity-requirement-mu",
+        "electricity-availability-mu",
+        "per-capita-electricity-availability-kwh",
     }
     # PR-W (Row 6 / P.1.C 7/9) extended this parquet with 12
     # power-purchase-share-pct-{fuel} children (parent carries 0
@@ -117,28 +117,28 @@ def test_parquet_has_six_distinct_indicators_after_p1b() -> None:
 
 
 def test_p1b_power_requirement_s01_2004() -> None:
-    """state-electricity-requirement-mu, IN-S01 2004-04 = 5042.0
+    """electricity-requirement-mu, IN-S01 2004-04 = 5042.0
     (raw, RBI Hbk Table 141; CEA originating data)."""
-    val = _query_value("IN-S01", 2004, "state-electricity-requirement-mu")
+    val = _query_value("IN-S01", 2004, "electricity-requirement-mu")
     assert val == pytest.approx(5042.0, abs=0.01), (
         f"IN-S01 2004 power requirement expected 5042.0, got {val!r}"
     )
 
 
 def test_p1b_power_availability_s01_2004() -> None:
-    """state-electricity-availability-mu, IN-S01 2004-04 = 5006.0
+    """electricity-availability-mu, IN-S01 2004-04 = 5006.0
     (raw, RBI Hbk Table 139; CEA originating data)."""
-    val = _query_value("IN-S01", 2004, "state-electricity-availability-mu")
+    val = _query_value("IN-S01", 2004, "electricity-availability-mu")
     assert val == pytest.approx(5006.0, abs=0.01), (
         f"IN-S01 2004 power availability expected 5006.0, got {val!r}"
     )
 
 
 def test_p1b_per_capita_availability_s01_2004() -> None:
-    """state-per-capita-electricity-availability-kwh, IN-S01 2004-04 =
+    """per-capita-electricity-availability-kwh, IN-S01 2004-04 =
     656.9 (raw, RBI Hbk Table 138; CEA originating data)."""
     val = _query_value(
-        "IN-S01", 2004, "state-per-capita-electricity-availability-kwh"
+        "IN-S01", 2004, "per-capita-electricity-availability-kwh"
     )
     assert val == pytest.approx(656.9, abs=0.01), (
         f"IN-S01 2004 per-capita availability expected 656.9, got {val!r}"
@@ -152,9 +152,9 @@ def test_p1b_source_id_routing() -> None:
     triples differ on the title field. Catches a regression where the
     lift accidentally cross-wires source FKs between blocks."""
     cases = {
-        "state-electricity-requirement-mu":              "src-f7ce9960caba",  # T141
-        "state-electricity-availability-mu":             "src-97a3c47d092f",  # T139
-        "state-per-capita-electricity-availability-kwh": "src-9a38005d8713",  # T138
+        "electricity-requirement-mu":              "src-f7ce9960caba",  # T141
+        "electricity-availability-mu":             "src-97a3c47d092f",  # T139
+        "per-capita-electricity-availability-kwh": "src-9a38005d8713",  # T138
     }
     con = duckdb.connect(":memory:")
     try:

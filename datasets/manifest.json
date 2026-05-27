@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.3",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-27T08:31:26Z",
+  "generated_at": "2026-05-27T08:40:11Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -277,11 +277,11 @@
       "files": [
         {
           "path": "energy/energy_installed_capacity.parquet",
-          "size_bytes": 416781,
-          "row_count": 5923
+          "size_bytes": 245494,
+          "row_count": 3429
         }
       ],
-      "row_count_total": 5923
+      "row_count_total": 3429
     },
     {
       "table_id": "energy.energy_generation",
@@ -311,7 +311,7 @@
       "files": [
         {
           "path": "energy/energy_demand_supply.parquet",
-          "size_bytes": 449034,
+          "size_bytes": 455249,
           "row_count": 6387
         }
       ],
@@ -328,7 +328,7 @@
       "files": [
         {
           "path": "energy/energy_distribution_performance.parquet",
-          "size_bytes": 215476,
+          "size_bytes": 215335,
           "row_count": 2889
         }
       ],
@@ -345,11 +345,11 @@
       "files": [
         {
           "path": "energy/energy_fuel_consumption.parquet",
-          "size_bytes": 448792,
-          "row_count": 6372
+          "size_bytes": 251403,
+          "row_count": 3471
         }
       ],
-      "row_count_total": 6372
+      "row_count_total": 3471
     },
     {
       "table_id": "livestock.livestock_pashu_aadhaar",
@@ -515,7 +515,7 @@
       "files": [
         {
           "path": "taxonomy/indicators.parquet",
-          "size_bytes": 45855,
+          "size_bytes": 45759,
           "row_count": 172
         }
       ],

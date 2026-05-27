@@ -12,7 +12,7 @@ P.1.A C4 first-cut + P.1.B + P.1.C PR-Q: 5 fact-tables emit data
                                        ICED per-capita consumption.
 * ``energy_distribution_performance`` — ICED ATC losses + sales-MU + 4 efficiency
                                        triplet children + ACS-ARR + RPO 3-segment.
-* ``energy_fuel_consumption``        — P.1.C PR-Q: ICED state-coal-consumption-mt
+* ``energy_fuel_consumption``        — P.1.C PR-Q: ICED coal-consumption-mt
                                        (first canonical fuel-consumption lift;
                                        subsequent P.1.C PRs will extend with
                                        oil-product / primary / final / etc.).
@@ -81,7 +81,7 @@ def build_envelopes(
     distinct ``energy_*`` parquet and shares only the cross-family
     ``sources.parquet`` (which C3 already seeded via `_upsert_energy_sources`).
     The 5th stem ``energy_fuel_consumption`` is now populated by P.1.C
-    PR-Q (state-coal-consumption-mt); the docstring promise from P.1.A is
+    PR-Q (coal-consumption-mt); the docstring promise from P.1.A is
     fulfilled.
 
     ``only`` (PR-A4): when provided, restrict the returned envelope list

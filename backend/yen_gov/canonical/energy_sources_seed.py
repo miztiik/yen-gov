@@ -12,10 +12,10 @@ P.1.B: 2 ICED distribution-dashboard endpoints (operational performance
 and RPO compliance) + 3 RBI Handbook tables (141 power requirement,
 139 power availability, 138 per-capita availability).
 
-P.1.C PR-Q: 1 ICED state-coal-consumption-mt endpoint (first canonical
+P.1.C PR-Q: 1 ICED coal-consumption-mt endpoint (first canonical
 fuel-consumption lift; originating data: Coal Controller's Office /
 Ministry of Coal; ICED is the federal aggregator, not issuing authority).
-P.1.C PR-R: 1 ICED state-rooftop-solar-capacity-mw endpoint (second
+P.1.C PR-R: 1 ICED rooftop-solar-capacity-mw endpoint (second
 canonical P.1.C lift; originating data: Ministry of New & Renewable
 Energy (MNRE) / state nodal agencies. ICED is the federal aggregator,
 not issuing authority).
@@ -89,7 +89,7 @@ SOURCE_NICKNAMES: tuple[str, ...] = (
     "rbi_hbk_139_power_availability",
     "rbi_hbk_138_per_capita_availability",
     # --- P.1.C PR-Q (1; first canonical fuel-consumption lift) ----
-    # ICED state-coal-consumption-mt endpoint (4-grade SUM lift:
+    # ICED coal-consumption-mt endpoint (4-grade SUM lift:
     # raw + washed + middlings + lignite; FY06-FY25; TOTAL COAL rows
     # dropped to avoid double-counting). Originating data: Coal
     # Controller's Office / Ministry of Coal. ICED is the federal
@@ -98,7 +98,7 @@ SOURCE_NICKNAMES: tuple[str, ...] = (
     # classification as other ICED endpoints.
     "iced_consumption_coal",
     # --- P.1.C PR-R (1; second canonical lift, rooftop solar) -----
-    # ICED state-rooftop-solar-capacity-mw endpoint. Cumulative MW of
+    # ICED rooftop-solar-capacity-mw endpoint. Cumulative MW of
     # building-mounted PV across residential / commercial / industrial /
     # public categories; complements (NOT replaces) utility-scale solar
     # tracked under installed-capacity-snapshot-mw-renewable.

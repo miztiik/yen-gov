@@ -1,4 +1,4 @@
-"""Parity oracle for the state-renewable-grid-capacity-mw canonical lift (PR-Y).
+"""Parity oracle for the renewable-grid-capacity-mw canonical lift (PR-Y).
 
 RBI Handbook of Statistics on Indian States 2024-25 edition, Table 143
 -> 585 raw meadow obs rows joined into ``energy_installed_capacity.parquet``.
@@ -27,7 +27,7 @@ pytestmark = pytest.mark.skipif(
 )
 
 EXPECTED_SOURCE_ID = "src-1f51c8d742bf"
-INDICATOR_ID = "state-renewable-grid-capacity-mw"
+INDICATOR_ID = "renewable-grid-capacity-mw"
 
 
 def _q(sql: str) -> list[tuple]:
@@ -47,7 +47,7 @@ def test_row_count_matches_meadow() -> None:
 
 
 def test_single_indicator_no_facet_children() -> None:
-    """Pattern A-SINGLE: no `state-renewable-grid-capacity-mw-*` children
+    """Pattern A-SINGLE: no `renewable-grid-capacity-mw-*` children
     should exist. Publisher emits no per-source split (combined wind +
     solar + small-hydro + biomass + waste-to-energy)."""
     indicator_ids = {
@@ -146,7 +146,7 @@ def test_does_not_displace_existing_capacity_indicators() -> None:
     prior PR-S thermal-retired or PR-R rooftop-solar rows."""
     rows = _q(
         f"SELECT COUNT(*) FROM read_parquet('{PARQUET.as_posix()}') "
-        f"WHERE indicator_id = 'state-rooftop-solar-capacity-mw'"
+        f"WHERE indicator_id = 'rooftop-solar-capacity-mw'"
     )
     assert rows[0][0] >= 300, (
         f"PR-R rooftop-solar rows = {rows[0][0]}; PR-Y must not displace prior indicators"

@@ -1698,7 +1698,7 @@
       "concept_id": "renewable"
     },
     {
-      "indicator_id": "state-electricity-sales-mu",
+      "indicator_id": "electricity-sales-mu",
       "label_short": "State electricity sales",
       "label_long": "Annual electricity sales (by state, MU)",
       "description_short": "Total electricity actually billed to end-consumers (domestic + commercial + industrial + agricultural + public-lighting) in the state, in million units (MU). The gap between Generation and Sales is the absolute AT&C loss.",
@@ -1726,7 +1726,7 @@
       "concept_id": "state-electricity-sales"
     },
     {
-      "indicator_id": "state-atc-losses-pct",
+      "indicator_id": "atc-losses-pct",
       "label_short": "AT&C losses",
       "label_long": "Aggregate Technical & Commercial losses (%, by state)",
       "description_short": "Combined technical (transmission + distribution heat / ageing losses) and commercial (theft + uncollected billing) losses as % of energy input to the distribution system. Headline discom-health metric: lower is better.",
@@ -1813,7 +1813,7 @@
       "concept_id": "peak-supplied"
     },
     {
-      "indicator_id": "state-per-capita-electricity-consumption-kwh",
+      "indicator_id": "per-capita-electricity-consumption-kwh",
       "label_short": "Per-capita consumption",
       "label_long": "State per-capita electricity consumption (kWh/year)",
       "description_short": "Electricity consumption per person per year, in kilowatt-hours. Proxy for BOTH energy access (electrified homes) AND industrial intensity (heavy-industry load) â€” read alongside per-capita income to disambiguate.",
@@ -1846,7 +1846,7 @@
       "label_short": "Distribution efficiency",
       "label_long": "Distribution efficiency dimensions (%, by state)",
       "description_short": "Compute-on-read parent: the three citizen-readable sub-indicators of distribution-side efficiency â€” billing efficiency, collection efficiency, and T&D loss. The first two decompose the COMMERCIAL half of AT&C losses; the third is the TECHNICAL half.",
-      "description_long": "Billing Ã— Collection Ã· 100 = (1 âˆ’ commercial-loss%); add the T&D loss% and you arrive at the AT&C loss% reported by state-atc-losses-pct. Per Hans D29 the parent row carries no source_id and no dimension_values; the three children inherit their source_id from ICED operational-performance and encode their facet via the efficiency_dimension axis.",
+      "description_long": "Billing Ã— Collection Ã· 100 = (1 âˆ’ commercial-loss%); add the T&D loss% and you arrive at the AT&C loss% reported by atc-losses-pct. Per Hans D29 the parent row carries no source_id and no dimension_values; the three children inherit their source_id from ICED operational-performance and encode their facet via the efficiency_dimension axis.",
       "unit": "%",
       "cadence": "annual_fy",
       "family": "energy",
@@ -1961,7 +1961,7 @@
       "concept_id": "t-d-loss"
     },
     {
-      "indicator_id": "state-acs-arr-gap-inr-per-kwh",
+      "indicator_id": "acs-arr-gap-inr-per-kwh",
       "label_short": "ACS-ARR gap",
       "label_long": "ACS-ARR gap on electricity sales (â‚¹/kWh, by state)",
       "description_short": "Average Cost of Supply minus Average Revenue Realised, per unit of electricity sold. Positive = the utility loses money on every unit it sells (closed by tariff hike, loss reduction, or state subsidy). Zero is the UDAY/RDSS policy goal.",
@@ -2107,7 +2107,7 @@
       "concept_id": "total-rpo"
     },
     {
-      "indicator_id": "state-electricity-requirement-mu",
+      "indicator_id": "electricity-requirement-mu",
       "label_short": "Power requirement",
       "label_long": "State-wise annual power requirement (MU)",
       "description_short": "Annual energy requirement assessed by the state (MU = million units = GWh), fiscal year â€” the demand-side counterpart to availability. Requirement minus availability gives the 'energy not supplied' deficit.",
@@ -2136,7 +2136,7 @@
       "concept_id": "power-requirement"
     },
     {
-      "indicator_id": "state-electricity-availability-mu",
+      "indicator_id": "electricity-availability-mu",
       "label_short": "Power availability",
       "label_long": "State-wise annual power availability (MU)",
       "description_short": "Annual energy actually supplied to the state (MU = million units = GWh), fiscal year. The supply-side companion to Requirement (T141). Requirement âˆ’ Availability = the energy-not-supplied deficit.",
@@ -2165,7 +2165,7 @@
       "concept_id": "power-availability"
     },
     {
-      "indicator_id": "state-per-capita-electricity-availability-kwh",
+      "indicator_id": "per-capita-electricity-availability-kwh",
       "label_short": "Per-capita availability",
       "label_long": "State-wise per-capita availability of power (kWh/year)",
       "description_short": "Annual per-capita electricity availability (kWh / person / year), by state and Union Territory, fiscal year. The most citizen-relevant single number for 'how much power do people in this state actually get to use' â€” captures both supply expansion and transmission losses.",
@@ -2194,7 +2194,7 @@
       "concept_id": "per-capita-availability-2"
     },
     {
-      "indicator_id": "state-coal-consumption-mt",
+      "indicator_id": "coal-consumption-mt",
       "label_short": "Coal consumption",
       "label_long": "State coal consumption (Mt, by fiscal year)",
       "description_short": "Per-state domestic coal consumption in million tonnes per fiscal year, summed across all coal grades (raw + washed + middlings + lignite). High values typically indicate hosting large thermal generation fleets (Maharashtra, UP, MP, Chhattisgarh) or heavy industry (steel, cement).",
@@ -2223,7 +2223,7 @@
       "concept_id": "coal-consumption"
     },
     {
-      "indicator_id": "state-rooftop-solar-capacity-mw",
+      "indicator_id": "rooftop-solar-capacity-mw",
       "label_short": "Rooftop solar capacity",
       "label_long": "State rooftop solar installed capacity (MW)",
       "description_short": "Cumulative installed rooftop solar PV capacity in megawatts. Building-mounted (residential + commercial + industrial + public) only; utility-scale solar is separate and lives under installed-capacity-snapshot-mw-renewable.",
@@ -3960,7 +3960,7 @@
       "concept_id": "transport-oil"
     },
     {
-      "indicator_id": "state-renewable-grid-capacity-mw",
+      "indicator_id": "renewable-grid-capacity-mw",
       "label_short": "Renewable grid capacity",
       "label_long": "State installed grid-connected renewable capacity (MW, end-March snapshot)",
       "description_short": "Cumulative grid-connected renewable installed capacity in MW, end-March snapshot per year. Combined wind + solar + small-hydro + biomass + waste-to-energy (publisher emits no per-source split). Rajasthan, Gujarat, Tamil Nadu, Karnataka, Maharashtra dominate.",

@@ -62,30 +62,30 @@ def _query_value(entity_id: str, year: int, indicator_id: str) -> float | None:
 
 def test_state_coal_consumption_first_row_s01_2006() -> None:
     """First row of the meadow shard: S01 FY 2006-04 = 29.49 Mt (raw, ICED)."""
-    val = _query_value("IN-S01", 2006, "state-coal-consumption-mt")
+    val = _query_value("IN-S01", 2006, "coal-consumption-mt")
     assert val == pytest.approx(29.49, abs=0.01), (
-        f"IN-S01 2006 state-coal-consumption-mt expected 29.49, got {val!r}"
+        f"IN-S01 2006 coal-consumption-mt expected 29.49, got {val!r}"
     )
 
 
 def test_state_coal_consumption_top_consumer_s26_2024() -> None:
     """S26 FY 2024-04 = 128.16 Mt (top coal-consuming state-year in the shard)."""
-    val = _query_value("IN-S26", 2024, "state-coal-consumption-mt")
+    val = _query_value("IN-S26", 2024, "coal-consumption-mt")
     assert val == pytest.approx(128.16, abs=0.01), (
-        f"IN-S26 2024 state-coal-consumption-mt expected 128.16, got {val!r}"
+        f"IN-S26 2024 coal-consumption-mt expected 128.16, got {val!r}"
     )
 
 
 def test_state_coal_consumption_s27_2020() -> None:
     """S27 FY 2020-04 = 47.3 Mt (mid-tier consumer)."""
-    val = _query_value("IN-S27", 2020, "state-coal-consumption-mt")
+    val = _query_value("IN-S27", 2020, "coal-consumption-mt")
     assert val == pytest.approx(47.3, abs=0.01), (
-        f"IN-S27 2020 state-coal-consumption-mt expected 47.3, got {val!r}"
+        f"IN-S27 2020 coal-consumption-mt expected 47.3, got {val!r}"
     )
 
 
 def test_parquet_contains_coal_consumption_indicator() -> None:
-    """`state-coal-consumption-mt` is PR-Q's first-cut indicator on this
+    """`coal-consumption-mt` is PR-Q's first-cut indicator on this
     parquet. Subsequent P.1.C PRs (PR-T oil-product, etc.) extend the
     indicator set on the same parquet, so we only assert presence of the
     PR-Q indicator here -- not exclusive set equality."""
@@ -99,7 +99,7 @@ def test_parquet_contains_coal_consumption_indicator() -> None:
         }
     finally:
         con.close()
-    assert "state-coal-consumption-mt" in indicators, (
+    assert "coal-consumption-mt" in indicators, (
         f"PR-Q coal-consumption indicator missing from "
         f"energy_fuel_consumption.parquet: {indicators!r}"
     )
@@ -107,13 +107,13 @@ def test_parquet_contains_coal_consumption_indicator() -> None:
 
 def test_row_count_matches_meadow_shard() -> None:
     """Lift is 1:1 with meadow rows (no aggregation, no facet drop) for
-    state-coal-consumption-mt: 450 rows expected."""
+    coal-consumption-mt: 450 rows expected."""
     con = duckdb.connect(":memory:")
     try:
         n = con.execute(
             f"SELECT COUNT(*) FROM read_parquet('{PARQUET.as_posix()}') "
             f"WHERE indicator_id = ?",
-            ["state-coal-consumption-mt"],
+            ["coal-consumption-mt"],
         ).fetchone()[0]
     finally:
         con.close()
@@ -133,7 +133,7 @@ def test_all_rows_carry_coal_consumption_source_id() -> None:
             for row in con.execute(
                 f"SELECT DISTINCT source_id FROM read_parquet('{PARQUET.as_posix()}') "
                 f"WHERE indicator_id = ?",
-                ["state-coal-consumption-mt"],
+                ["coal-consumption-mt"],
             ).fetchall()
         }
     finally:
@@ -153,7 +153,7 @@ def test_all_rows_have_derivation_raw() -> None:
             for row in con.execute(
                 f"SELECT DISTINCT derivation FROM read_parquet('{PARQUET.as_posix()}') "
                 f"WHERE indicator_id = ?",
-                ["state-coal-consumption-mt"],
+                ["coal-consumption-mt"],
             ).fetchall()
         }
     finally:
@@ -174,7 +174,7 @@ def test_time_vocabulary_is_fiscal_year_only() -> None:
             for row in con.execute(
                 f"SELECT DISTINCT period_label FROM read_parquet('{PARQUET.as_posix()}') "
                 f"WHERE indicator_id = ?",
-                ["state-coal-consumption-mt"],
+                ["coal-consumption-mt"],
             ).fetchall()
         ]
     finally:
@@ -198,7 +198,7 @@ def test_entity_ids_are_in_prefix_normalised() -> None:
             for row in con.execute(
                 f"SELECT DISTINCT entity_id FROM read_parquet('{PARQUET.as_posix()}') "
                 f"WHERE indicator_id = ?",
-                ["state-coal-consumption-mt"],
+                ["coal-consumption-mt"],
             ).fetchall()
         ]
     finally:

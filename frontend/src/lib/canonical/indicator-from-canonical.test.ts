@@ -300,12 +300,12 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.meta.direction).toBe("higher_is_better");
   });
 
-  it("PR-F per_capita_consumption descriptor routes to state-per-capita-electricity-consumption-kwh", () => {
+  it("PR-F per_capita_consumption descriptor routes to per-capita-electricity-consumption-kwh", () => {
     const d = getCanonicalDescriptor("energy/state_per_capita_electricity_consumption_kwh");
     expect(d).not.toBeNull();
     expect(d!.kind).toBe("single");
     if (d!.kind === "single") {
-      expect(d!.canonical_indicator_id).toBe("state-per-capita-electricity-consumption-kwh");
+      expect(d!.canonical_indicator_id).toBe("per-capita-electricity-consumption-kwh");
     }
     expect(d!.table_id).toBe("energy.energy_demand_supply");
     // Row 4 IA pass (2026-05-25): heading rewritten from "State per-capita
@@ -326,12 +326,12 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
   // (state_installed_capacity_total_mw) is resolved by a topics.json
   // prune (Pattern B duplicate of state_installed_capacity_with_alloc_mw),
   // not an allowlist add.
-  it("PR-G state_electricity_sales_mu descriptor routes to state-electricity-sales-mu", () => {
+  it("PR-G state_electricity_sales_mu descriptor routes to electricity-sales-mu", () => {
     const d = getCanonicalDescriptor("energy/state_electricity_sales_mu");
     expect(d).not.toBeNull();
     expect(d!.kind).toBe("single");
     if (d!.kind === "single") {
-      expect(d!.canonical_indicator_id).toBe("state-electricity-sales-mu");
+      expect(d!.canonical_indicator_id).toBe("electricity-sales-mu");
     }
     expect(d!.table_id).toBe("energy.energy_distribution_performance");
     expect(d!.meta.title).toMatch(/electricity sales/i);
@@ -340,12 +340,12 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.meta.attribution_geography).toBe("where_billed");
   });
 
-  it("PR-G state_atc_losses_pct descriptor routes to state-atc-losses-pct", () => {
+  it("PR-G state_atc_losses_pct descriptor routes to atc-losses-pct", () => {
     const d = getCanonicalDescriptor("energy/state_atc_losses_pct");
     expect(d).not.toBeNull();
     expect(d!.kind).toBe("single");
     if (d!.kind === "single") {
-      expect(d!.canonical_indicator_id).toBe("state-atc-losses-pct");
+      expect(d!.canonical_indicator_id).toBe("atc-losses-pct");
     }
     expect(d!.table_id).toBe("energy.energy_distribution_performance");
     // Row 4 IA pass (2026-05-25): heading rewritten from "Aggregate Technical
@@ -565,15 +565,15 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
 
   // PR-Q (Row 6 P.1.C, 2026-05-25): first canonical fuel-consumption lift.
   // Establishes the long-reserved `energy_fuel_consumption` parquet stem
-  // and ships state-coal-consumption-mt with 3 Hans-curated caveats. The
+  // and ships coal-consumption-mt with 3 Hans-curated caveats. The
   // adapter sums ICED's 4 grade rows (raw + washed + middlings + lignite)
   // and drops the publisher's TOTAL COAL row to avoid double-counting.
-  it("PR-Q state_coal_consumption_mt descriptor routes to state-coal-consumption-mt", () => {
+  it("PR-Q state_coal_consumption_mt descriptor routes to coal-consumption-mt", () => {
     const d = getCanonicalDescriptor("energy/state_coal_consumption_mt");
     expect(d).not.toBeNull();
     expect(d!.kind).toBe("single");
     if (d!.kind === "single") {
-      expect(d!.canonical_indicator_id).toBe("state-coal-consumption-mt");
+      expect(d!.canonical_indicator_id).toBe("coal-consumption-mt");
     }
     expect(d!.table_id).toBe("energy.energy_fuel_consumption");
     expect(d!.meta.title).toMatch(/coal consumption/i);
@@ -615,12 +615,12 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
   // sub-fuel measurement of installed MW; the total solar fleet = rooftop
   // + utility-scale tracked under installed-capacity-snapshot-mw-
   // renewable). 321 obs rows, FY18-FY25, non-faceted.
-  it("PR-R state_rooftop_solar_capacity_mw descriptor routes to state-rooftop-solar-capacity-mw", () => {
+  it("PR-R state_rooftop_solar_capacity_mw descriptor routes to rooftop-solar-capacity-mw", () => {
     const d = getCanonicalDescriptor("energy/state_rooftop_solar_capacity_mw");
     expect(d).not.toBeNull();
     expect(d!.kind).toBe("single");
     if (d!.kind === "single") {
-      expect(d!.canonical_indicator_id).toBe("state-rooftop-solar-capacity-mw");
+      expect(d!.canonical_indicator_id).toBe("rooftop-solar-capacity-mw");
     }
     // Rooftop joins the existing installed-capacity parquet stem -- NOT a
     // new stem. The rooftop measurement is logically a sub-fuel of installed MW.
@@ -1041,7 +1041,7 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d).not.toBeNull();
     expect(d!.kind).toBe("single");
     if (d!.kind === "single") {
-      expect(d!.canonical_indicator_id).toBe("state-renewable-grid-capacity-mw");
+      expect(d!.canonical_indicator_id).toBe("renewable-grid-capacity-mw");
     }
     expect(d!.table_id).toBe("energy.energy_installed_capacity");
     expect(d!.meta.title).toMatch(/renewable.*capacity|grid-connected renewable/i);
@@ -1697,22 +1697,22 @@ describe("PR 7c.5 — additive reader-switch for 7 P.1.B simple energy descripto
   }> = [
     {
       legacy_id: "energy/state_power_requirement_mu",
-      canonical_id: "state-electricity-requirement-mu",
+      canonical_id: "electricity-requirement-mu",
       table_id: "energy.energy_demand_supply",
     },
     {
       legacy_id: "energy/state_power_availability_mu",
-      canonical_id: "state-electricity-availability-mu",
+      canonical_id: "electricity-availability-mu",
       table_id: "energy.energy_demand_supply",
     },
     {
       legacy_id: "energy/state_per_capita_availability_kwh",
-      canonical_id: "state-per-capita-electricity-availability-kwh",
+      canonical_id: "per-capita-electricity-availability-kwh",
       table_id: "energy.energy_demand_supply",
     },
     {
       legacy_id: "energy/state_acs_arr_gap_inr_per_kwh",
-      canonical_id: "state-acs-arr-gap-inr-per-kwh",
+      canonical_id: "acs-arr-gap-inr-per-kwh",
       table_id: "energy.energy_distribution_performance",
     },
     {
