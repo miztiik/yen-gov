@@ -61,7 +61,11 @@ test.describe("topic: prices", () => {
     ).toBeVisible();
   });
 
-  test("RebaseBanner renders on the WPI index series", async ({ page }) => {
+  // TODO(PR #_pending_): re-enable when WPI re-introduced via canonical
+  // adapter post-PR-D1 retire; see /t/prices indicator manifest.
+  // Currently no rebase-banner-bearing indicator on /t/prices (only
+  // cpi_inflation_pct remains; no value_kind=index + series_breaks[rebase]).
+  test.skip("RebaseBanner renders on the WPI index series", async ({ page }) => {
     await page.goto("/t/prices");
     // WPI has series_breaks with kind="rebase" at four points; the
     // RebaseBanner should report the count and most-recent at_time.
