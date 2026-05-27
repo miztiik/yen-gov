@@ -2,8 +2,36 @@
   "$comment": "Intentionally-unwired indicator artifacts. Every entry blocks the catalogue-coverage drift detector from failing. Adding a new artifact to datasets/indicators/in/ MUST be paired with EITHER (a) a topic-catalogue.json entry OR (b) an entry here with a reason. Removing an entry here without wiring it is the ratchet that closes the gap (see TODO/VIZ-LAYER-GAPS-PLAN.md Phase 0). The reason field is plain English; tag with the phase it belongs to so the audit trail is legible.",
   "allowlist": [
     {
-      "id": "economy/national_gdp_current_inr_lakh_crore",
-      "reason": "phase4-pending (economy national-series renderer): country-entity single time series; IndicatorChoropleth is state-only. Needs a national-line / KPI tile renderer."
+      "id": "fiscal/centre_transfers_gross",
+      "reason": "sibling of fiscal/centre_transfers_inr_crore (state-grain, gross facet); rendered via canonical descriptor."
+    },
+    {
+      "id": "fiscal/centre_transfers_inr_crore",
+      "reason": "parent of Net/Gross/Tax-devolution/Grants facets on /t/fiscal; rendered via canonical descriptor + FacetPicker."
+    },
+    {
+      "id": "fiscal/states_combined_primary_deficit",
+      "reason": "child of states-combined deficit family (RBI App. Tbl 1); rendered via canonical descriptor."
+    },
+    {
+      "id": "fiscal/states_combined_primary_revenue_deficit",
+      "reason": "child of states-combined deficit family (RBI App. Tbl 1); rendered via canonical descriptor."
+    },
+    {
+      "id": "fiscal/states_combined_revenue_deficit",
+      "reason": "child of states-combined deficit family (RBI App. Tbl 1); rendered via canonical descriptor."
+    },
+    {
+      "id": "fiscal/union_primary_deficit",
+      "reason": "child of union deficit family (HBS-IE Tbl 89); rendered via canonical descriptor."
+    },
+    {
+      "id": "fiscal/union_primary_revenue_deficit",
+      "reason": "child of union deficit family (HBS-IE Tbl 89); rendered via canonical descriptor."
+    },
+    {
+      "id": "fiscal/union_revenue_deficit",
+      "reason": "child of union deficit family (HBS-IE Tbl 89); rendered via canonical descriptor."
     },
     {
       "id": "economy/national_gva_by_industry_constant_2011_12_inr_crore",
