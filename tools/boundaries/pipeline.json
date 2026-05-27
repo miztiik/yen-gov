@@ -134,7 +134,7 @@
       }
     },
     {
-      "$comment": "Phase D.7 universal LGD swap (2026-05-27) — S03 EXCLUDED from swap and KEPT on HTL. ramSeraph LGD slice for State_LGD=18 (Assam) ships the post-2023 Delimitation Commission Order boundaries and names, but the SoT (and ALL ECI election results yen-gov surfaces) remain on the pre-2023 delimitation. Joining post-2023 polygons to pre-2023 ac_no=>name SoT yields 1/126 name parity (e.g. ac_no=1 → LGD 'Ratabari' vs SoT 'Gossaigaon'). Deferred until the paired SoT refresh to post-2023 delim ships (gated on first ECI election result published under the new delimitation). See TODO/20260527-state-ac-map-universal-coverage-plan.md §1 Verdict table (PR #_pending_) and parent ADR-0031.",
+      "$comment": "Phase D.7 universal LGD swap (2026-05-27) — S03 EXCLUDED from swap and KEPT on HTL. ramSeraph LGD slice for State_LGD=18 (Assam) ships the post-2023 Delimitation Commission Order boundaries and names, but the SoT (and ALL ECI election results yen-gov surfaces) remain on the pre-2023 delimitation. Joining post-2023 polygons to pre-2023 ac_no=>name SoT yields 1/126 name parity (e.g. ac_no=1 → LGD 'Ratabari' vs SoT 'Gossaigaon'). Deferred until the paired SoT refresh to post-2023 delim ships (gated on first ECI election result published under the new delimitation). See TODO/20260527-state-ac-map-universal-coverage-plan.md §1 Verdict table (PR #431) and parent ADR-0031.",
       "kind": "ac",
       "source_triple": {
         "producer": "Hindustan Times Labs",
@@ -222,7 +222,7 @@
       }
     },
     {
-      "$comment": "Phase D.7 universal LGD swap (2026-05-27) — S01 EXCLUDED from swap and KEPT on HTL. ramSeraph LGD slice for State_LGD=28 (legacy unified AP) returns ac_no 1-294 mixing post-2014 AP (1-175) with Telangana residue (176-294), AND the surviving 1-175 entries map to entirely different AC names than the post-2014 SoT (e.g. ac_no=30 → LGD 'Yanam' vs SoT 'Anakapalle'). Citizen choropleth would join election results to wrong polygons. Deferred until ramSeraph publishes a post-2014 AP-only slice OR upstream LGD assigns AP a distinct State_LGD code separate from legacy unified AP. See TODO/20260527-state-ac-map-universal-coverage-plan.md §1 Verdict table (PR #_pending_) and parent ADR-0031.",
+      "$comment": "Phase D.7 universal LGD swap (2026-05-27) — S01 EXCLUDED from swap and KEPT on HTL. ramSeraph LGD slice for State_LGD=28 (legacy unified AP) returns ac_no 1-294 mixing post-2014 AP (1-175) with Telangana residue (176-294), AND the surviving 1-175 entries map to entirely different AC names than the post-2014 SoT (e.g. ac_no=30 → LGD 'Yanam' vs SoT 'Anakapalle'). Citizen choropleth would join election results to wrong polygons. Deferred until ramSeraph publishes a post-2014 AP-only slice OR upstream LGD assigns AP a distinct State_LGD code separate from legacy unified AP. See TODO/20260527-state-ac-map-universal-coverage-plan.md §1 Verdict table (PR #431) and parent ADR-0031.",
       "kind": "ac",
       "source_triple": {
         "producer": "Hindustan Times Labs",
@@ -1073,7 +1073,7 @@
       "coord_precision_note": "coord_precision=2 (~1.1 km). At precision=3 the file is 39 MB (over the 12 MB SNAPSHOT_BYTE_BUDGET); at 2 it lands ~6.5 MB. 1.1 km is well below typical district width (10-50 km) so choropleth rendering at zoom 3-9 is visually unaffected."
     },
     {
-      "$comment": "GAP-FILL: Survey-of-India national silhouette (single polygon, no admin codes). Used as the canonical India outline at country zoom in lieu of GADM-style derivatives; matches ECI/MoSPI cartographic convention. Separate license blanket from the ramSeraph layers below — yashveeeeeeer/india-geodata states CC-BY-4.0 derivative of SoI under National Geospatial Policy 2022 (Fowler v4 nit 3, TODO/TN-GRANULAR-GEO-PLAN.md Phase 1b). Incidental fix shipped with D.7 PR #_pending_ (2026-05-27): vintage was empty string here, but boundary_layers_seed.py was bumped to 'operator-snapshot-2026-05' in PR #272 without re-syncing this entry — leaving boundary_layers.parquet's country row with a stale source_id that compile_to_parquet (--preserve-existing path) rejected on every subsequent partial snapshot. ADR-0042 operator-snapshot anchor.",
+      "$comment": "GAP-FILL: Survey-of-India national silhouette (single polygon, no admin codes). Used as the canonical India outline at country zoom in lieu of GADM-style derivatives; matches ECI/MoSPI cartographic convention. Separate license blanket from the ramSeraph layers below — yashveeeeeeer/india-geodata states CC-BY-4.0 derivative of SoI under National Geospatial Policy 2022 (Fowler v4 nit 3, TODO/TN-GRANULAR-GEO-PLAN.md Phase 1b). Incidental fix shipped with D.7 PR #431 (2026-05-27): vintage was empty string here, but boundary_layers_seed.py was bumped to 'operator-snapshot-2026-05' in PR #272 without re-syncing this entry — leaving boundary_layers.parquet's country row with a stale source_id that compile_to_parquet (--preserve-existing path) rejected on every subsequent partial snapshot. ADR-0042 operator-snapshot anchor.",
       "kind": "country",
       "source_triple": {
         "producer": "yashveeeeeeer/india-geodata",

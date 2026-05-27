@@ -66,7 +66,7 @@ export const INDIA_STATES: BoundaryEntry = {
 
 // Per-state AC layers. Property `ac_no` (lowercase) = 1-based per-state
 // constituency number, joins to candidates.constituency_eci_no in
-// results.sqlite (= ECI eci_no). Post-D.7 (PR #_pending_) the ramSeraph
+// results.sqlite (= ECI eci_no). Post-D.7 (PR #431) the ramSeraph
 // LGD release is the default; 2 states stay on HTL because LGD's slice
 // fails the safety-net rule: S01 Andhra Pradesh (LGD bundles legacy
 // AP+TG ac_no 1-294 with names that don't match the post-2014 AP-only

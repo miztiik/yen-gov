@@ -27,7 +27,7 @@ end-state. D.7 here re-opens the 20 HTL block per user override.
 
 | Row | PR scope | PR | Status | SHA | Notes |
 |---|---|---|---|---|---|
-| **R1** | Pipeline.json LGD swap (20 states) + verify_ac_parity `--threshold` + `--allow-extras` + `--undercoverage-tolerance` flags + bundled sources.ts flip for 5 already-wired entries (S03/S11/S22/S25/U07) | _pending_ | In progress | _pending_ | Gates: validate / pytest / vitest / svelte-check / browser smoke `/s/tamil-nadu/ac/<n>`. Per-state thresholds documented in §R1.4. Any state where LGD count < SoT count × 0.90 reverts to HTL pre-commit (citizen-experience safety net per Hans). |
+| **R1** | Pipeline.json LGD swap (18 LGD + 2 HTL carve-outs: S01 AP + S03 Assam) + verify_ac_parity `--threshold` + `--allow-extras` + `--undercoverage-tolerance` flags + bundled sources.ts flip for 4 LGD entries (S11/S22/S25/U07) + S03 HTL revert | #431 | ✅ DONE | _pending_ | Gates 1-5 all green. 18 KEEP-LGD + 2 REVERT-HTL per safety-net rule §R1.6 (measured outcomes in §R1.7). |
 | **R3** | Frontend STATE_AC registry sync (extend 6 → 30) + amend ADR-0031 with 2026-05-27 D.7 override | _planned_ | Not started | — | Gated on R1 merge. Adds 25 net new entries (15 R1-newly-snapshotted + 10 D.2-already-on-disk). All 30 LGD entries use `join_property: "ac_no"` lowercase. Labels plain "<State> — Assembly constituencies" (no source acronym per user mandate). |
 | **R4** | Playwright per-state coverage report | _planned_ | Not started | — | Gated on R3 merge. New `frontend/e2e/state-ac-coverage.spec.ts` iterates 30 states, asserts ≥90% coloured polygons per state. Per-state numbers written to `notes/2026-05-27-state-ac-coverage-report.md`. |
 
