@@ -33,7 +33,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
 from typing import Any, Callable
 
@@ -225,11 +225,14 @@ def ingest_iced_socio(
     builds = _all_builds()
     out_root = repo_root / "datasets" / "indicators" / "in"
 
-    fetched_at_overall = datetime.now(timezone.utc)
+    fetched_at_overall: datetime | None = None
     results: list[IndicatorEmitResult] = []
 
     for b in builds:
         resp = client.get(b.api_path)
+        # PR-A5a: track max upstream fetched_at instead of wall-clock now().
+        if fetched_at_overall is None or resp.fetched_at > fetched_at_overall:
+            fetched_at_overall = resp.fetched_at
         rows = b.builder(resp.decrypted)
         if not rows:
             raise RuntimeError(
@@ -273,6 +276,8 @@ def ingest_iced_socio(
             )
         )
 
+    if fetched_at_overall is None:
+        raise RuntimeError("ingest_iced_socio: no builds executed; cannot derive fetched_at.")
     return IngestSummary(fetched_at=fetched_at_overall, results=tuple(results))
 
 
