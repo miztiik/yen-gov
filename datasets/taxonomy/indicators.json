@@ -1331,7 +1331,7 @@
       }
     },
     {
-      "indicator_id": "state-installed-capacity-snapshot-mw",
+      "indicator_id": "installed-capacity-snapshot-mw",
       "label_short": "Capacity snapshot (CEA)",
       "label_long": "State installed electricity capacity \u00e2\u20ac\u201d CEA monthly snapshot (MW)",
       "description_short": "Total installed capacity allocated to each state at the end of the most recent month, from the CEA Monthly Executive Summary IC sheet. Snapshot view; complements the multi-FY ICED geographical and allocated series.",
@@ -1359,7 +1359,7 @@
       "concept_id": "capacity-snapshot-cea"
     },
     {
-      "indicator_id": "state-installed-capacity-snapshot-mw-coal",
+      "indicator_id": "installed-capacity-snapshot-mw-coal",
       "label_short": "Coal",
       "label_long": "State installed capacity \u00e2\u20ac\u201d Coal (CEA monthly snapshot)",
       "description_short": "Coal-fired thermal capacity allocated to each state, end-of-month snapshot from the CEA Monthly Executive Summary. India's largest fuel category nationally (~42%).",
@@ -1376,7 +1376,7 @@
       "comparability": "comparable_across_states_snapshot_only",
       "implementing_authority": "joint",
       "methodology_vintage": "CEA Monthly Executive Summary \u00e2\u20ac\u201d IC sheet snapshot 2026-03",
-      "parent_indicator_id": "state-installed-capacity-snapshot-mw",
+      "parent_indicator_id": "installed-capacity-snapshot-mw",
       "dimension_values": {
         "fuel_type": "coal"
       },
@@ -1392,7 +1392,7 @@
       }
     },
     {
-      "indicator_id": "state-installed-capacity-snapshot-mw-gas",
+      "indicator_id": "installed-capacity-snapshot-mw-gas",
       "label_short": "Gas",
       "label_long": "State installed capacity \u00e2\u20ac\u201d Gas (CEA monthly snapshot)",
       "description_short": "Natural-gas and liquid-fuel thermal capacity allocated to each state, end-of-month snapshot from the CEA Monthly Executive Summary. Stranded-fuel risk; small share.",
@@ -1409,7 +1409,7 @@
       "comparability": "comparable_across_states_snapshot_only",
       "implementing_authority": "joint",
       "methodology_vintage": "CEA Monthly Executive Summary \u00e2\u20ac\u201d IC sheet snapshot 2026-03",
-      "parent_indicator_id": "state-installed-capacity-snapshot-mw",
+      "parent_indicator_id": "installed-capacity-snapshot-mw",
       "dimension_values": {
         "fuel_type": "gas"
       },
@@ -1425,7 +1425,7 @@
       }
     },
     {
-      "indicator_id": "state-installed-capacity-snapshot-mw-hydro",
+      "indicator_id": "installed-capacity-snapshot-mw-hydro",
       "label_short": "Hydro",
       "label_long": "State installed capacity \u00e2\u20ac\u201d Hydro (CEA monthly snapshot)",
       "description_short": "Conventional (>25 MW) plus small-hydro capacity allocated to each state, end-of-month snapshot from the CEA Monthly Executive Summary. Site-bound; multi-decade lifetime.",
@@ -1442,7 +1442,7 @@
       "comparability": "comparable_across_states_snapshot_only",
       "implementing_authority": "joint",
       "methodology_vintage": "CEA Monthly Executive Summary \u00e2\u20ac\u201d IC sheet snapshot 2026-03",
-      "parent_indicator_id": "state-installed-capacity-snapshot-mw",
+      "parent_indicator_id": "installed-capacity-snapshot-mw",
       "dimension_values": {
         "fuel_type": "hydro"
       },
@@ -1458,7 +1458,7 @@
       }
     },
     {
-      "indicator_id": "state-installed-capacity-snapshot-mw-nuclear",
+      "indicator_id": "installed-capacity-snapshot-mw-nuclear",
       "label_short": "Nuclear",
       "label_long": "State installed capacity \u00e2\u20ac\u201d Nuclear (CEA monthly snapshot)",
       "description_short": "Nuclear capacity allocated to each state, end-of-month snapshot from the CEA Monthly Executive Summary. Central-sector only; allocated to states via PPAs.",
@@ -1475,7 +1475,7 @@
       "comparability": "comparable_across_states_snapshot_only",
       "implementing_authority": "joint",
       "methodology_vintage": "CEA Monthly Executive Summary \u00e2\u20ac\u201d IC sheet snapshot 2026-03",
-      "parent_indicator_id": "state-installed-capacity-snapshot-mw",
+      "parent_indicator_id": "installed-capacity-snapshot-mw",
       "dimension_values": {
         "fuel_type": "nuclear"
       },
@@ -1491,7 +1491,7 @@
       }
     },
     {
-      "indicator_id": "state-installed-capacity-snapshot-mw-renewable",
+      "indicator_id": "installed-capacity-snapshot-mw-renewable",
       "label_short": "Renewable",
       "label_long": "State installed capacity \u00e2\u20ac\u201d Renewable (CEA monthly snapshot)",
       "description_short": "Wind, solar, biomass and waste-to-energy capacity allocated to each state, end-of-month snapshot from the CEA Monthly Executive Summary. Rapid growth; ~30% national capacity by FY26.",
@@ -1508,7 +1508,7 @@
       "comparability": "comparable_across_states_snapshot_only",
       "implementing_authority": "joint",
       "methodology_vintage": "CEA Monthly Executive Summary \u00e2\u20ac\u201d IC sheet snapshot 2026-03",
-      "parent_indicator_id": "state-installed-capacity-snapshot-mw",
+      "parent_indicator_id": "installed-capacity-snapshot-mw",
       "dimension_values": {
         "fuel_type": "renewable"
       },
@@ -2226,8 +2226,8 @@
       "indicator_id": "state-rooftop-solar-capacity-mw",
       "label_short": "Rooftop solar capacity",
       "label_long": "State rooftop solar installed capacity (MW)",
-      "description_short": "Cumulative installed rooftop solar PV capacity in megawatts. Building-mounted (residential + commercial + industrial + public) only; utility-scale solar is separate and lives under state-installed-capacity-snapshot-mw-renewable.",
-      "description_long": "Per the National Rooftop Solar Programme (MNRE), rooftop solar is owned by the building owner (household, factory, school), not by a power utility. A state's total solar fleet = rooftop + utility-scale. Gujarat dominates rooftop deployment by absolute MW (a decade of state-level scheme co-funding plus the SURYA Gujarat residential push). Rajasthan and Karnataka lead utility-scale solar but lag on rooftop because rooftop economics depend on retail tariff structure (which favours states with high commercial tariffs like Maharashtra and Tamil Nadu) more than insolation. Pair with state-installed-capacity-snapshot-mw-renewable to see whether a state's renewable footprint is utility-investor-led or owner-led.",
+      "description_short": "Cumulative installed rooftop solar PV capacity in megawatts. Building-mounted (residential + commercial + industrial + public) only; utility-scale solar is separate and lives under installed-capacity-snapshot-mw-renewable.",
+      "description_long": "Per the National Rooftop Solar Programme (MNRE), rooftop solar is owned by the building owner (household, factory, school), not by a power utility. A state's total solar fleet = rooftop + utility-scale. Gujarat dominates rooftop deployment by absolute MW (a decade of state-level scheme co-funding plus the SURYA Gujarat residential push). Rajasthan and Karnataka lead utility-scale solar but lag on rooftop because rooftop economics depend on retail tariff structure (which favours states with high commercial tariffs like Maharashtra and Tamil Nadu) more than insolation. Pair with installed-capacity-snapshot-mw-renewable to see whether a state's renewable footprint is utility-investor-led or owner-led.",
       "unit": "MW",
       "cadence": "annual_fy",
       "family": "energy",

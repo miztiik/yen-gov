@@ -82,7 +82,7 @@ SOURCE_IDS: dict[str, str] = {
     # solar-capacity-mw to the existing ``energy_installed_capacity``
     # table stem (rooftop is a sub-fuel measurement of installed MW,
     # complementing utility-scale solar already tracked under
-    # state-installed-capacity-snapshot-mw-renewable).
+    # installed-capacity-snapshot-mw-renewable).
     "iced_rooftop_solar":                "src-018bb42f9519",
     # P.1.C PR-S (thermal capacity retired lift, 2026-05-25). Derived via
     # derive_source_id("NITI Aayog India Climate & Energy Dashboard",
