@@ -28,8 +28,8 @@
 //    segments (e.g. RPO compliance with `solar` / `non-solar` / `total`).
 //    The canonical store materialises each segment as a separate
 //    `indicator_id` child of a compute-on-read parent (e.g.
-//    `state-rpo-compliance-pct-solar` etc., parented by
-//    `state-rpo-compliance-pct` which carries `source_id = null` per
+//    `rpo-compliance-pct-solar` etc., parented by
+//    `rpo-compliance-pct` which carries `source_id = null` per
 //    indicator-naming.md D29). The adapter issues ONE SQL query
 //    `WHERE indicator_id IN (<child_1>, <child_2>, …)`, fuses the rows
 //    into one `IndicatorArtifact` with `rows[].facet =
@@ -42,7 +42,7 @@
 //    Gregor note (canonical-rename slugs): the legacy `topics.json`
 //    artifact slug is the unmigrated kebab-snake hybrid (e.g.
 //    `energy/state_rpo_compliance_pct`); the canonical store names
-//    differ both in shape (kebab `state-rpo-compliance-pct`) and
+//    differ both in shape (kebab `rpo-compliance-pct`) and
 //    sometimes in unit-suffix or basis-suffix (e.g.
 //    `state_electricity_generation_mu` -> `electricity-generation-gwh`,
 //    `state_distribution_billing_efficiency_pct` ->
@@ -1525,9 +1525,9 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   //   * Legacy shard `state_rpo_compliance_pct.json` emits ONE artifact with
   //     `rows[].facet ∈ {"solar","non-solar","total"}` (hyphenated display form).
   //   * Canonical store materialises 3 child indicator_ids
-  //     (state-rpo-compliance-pct-solar / -non-solar / -total) keyed on
+  //     (rpo-compliance-pct-solar / -non-solar / -total) keyed on
   //     `dimension_values.rpo_segment ∈ {"solar","non_solar","total"}` (snake-case).
-  //   * Parent `state-rpo-compliance-pct` is compute-on-read per
+  //   * Parent `rpo-compliance-pct` is compute-on-read per
   //     indicator-naming.md D29 (parent has `source_id = null`).
   //   * Adapter fuses the 3 child rows into ONE IndicatorArtifact with
   //     `rows[].facet = legacy_facet_label` (hyphenated, preserves citizen-
@@ -1536,25 +1536,25 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "facet-multiplexed",
     legacy_artifact_id: "energy/state_rpo_compliance_pct",
-    canonical_parent_indicator_id: "state-rpo-compliance-pct",
+    canonical_parent_indicator_id: "rpo-compliance-pct",
     table_id: "energy.energy_distribution_performance",
     facet_axis_id: "rpo_segment",
     facet_values: [
       {
-        canonical_child_id: "state-rpo-compliance-pct-solar",
+        canonical_child_id: "rpo-compliance-pct-solar",
         legacy_facet_label: "solar",
       },
       {
-        canonical_child_id: "state-rpo-compliance-pct-non-solar",
+        canonical_child_id: "rpo-compliance-pct-non-solar",
         legacy_facet_label: "non-solar",
       },
       {
-        canonical_child_id: "state-rpo-compliance-pct-total",
+        canonical_child_id: "rpo-compliance-pct-total",
         legacy_facet_label: "total",
       },
     ],
     meta: {
-      id: "state-rpo-compliance-pct",
+      id: "rpo-compliance-pct",
       title: "Clean-energy purchase targets met (%)",
       description:
         "Share of each clean-energy purchase obligation your state's discoms met. RPO = a legal % of power discoms must buy from renewables. Three facets — solar, non-solar, combined-target. 'Total' is NOT solar+non-solar; it's the combined-target ratio. >100% = over-compliance (often via REC trades).",

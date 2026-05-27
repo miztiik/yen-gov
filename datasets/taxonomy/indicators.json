@@ -1991,7 +1991,7 @@
       "concept_id": "acs-arr-gap"
     },
     {
-      "indicator_id": "state-rpo-compliance-pct",
+      "indicator_id": "rpo-compliance-pct",
       "label_short": "RPO compliance",
       "label_long": "Renewable Purchase Obligation compliance (%, by state)",
       "description_short": "Compute-on-read parent: the three citizen-readable segments of state RPO compliance \u00e2\u20ac\u201d solar, non-solar, and combined-target. Each measures share of the regulatory RPO target met, expressed as compliance \u00c3\u00b7 target \u00c3\u2014 100.",
@@ -2020,7 +2020,7 @@
       "concept_id": "rpo-compliance"
     },
     {
-      "indicator_id": "state-rpo-compliance-pct-solar",
+      "indicator_id": "rpo-compliance-pct-solar",
       "label_short": "Solar RPO",
       "label_long": "RPO compliance \u00e2\u20ac\u201d solar (%, by state)",
       "description_short": "Share of the state's solar-specific RPO target actually met. 100% = solar-RPO target exactly met; values above 100% indicate over-compliance on solar procurement.",
@@ -2036,7 +2036,7 @@
       "attribution_geography": "where_administered",
       "comparability": "comparable_across_states_snapshot_only",
       "implementing_authority": "state",
-      "parent_indicator_id": "state-rpo-compliance-pct",
+      "parent_indicator_id": "rpo-compliance-pct",
       "dimension_values": {
         "rpo_segment": "solar"
       },
@@ -2049,7 +2049,7 @@
       "concept_id": "solar-rpo"
     },
     {
-      "indicator_id": "state-rpo-compliance-pct-non-solar",
+      "indicator_id": "rpo-compliance-pct-non-solar",
       "label_short": "Non-solar RPO",
       "label_long": "RPO compliance \u00e2\u20ac\u201d non-solar (%, by state)",
       "description_short": "Share of the state's non-solar (wind + biomass + small-hydro) RPO target actually met. The 'other-renewables' segment of the obligation, regulated separately from the solar segment.",
@@ -2065,7 +2065,7 @@
       "attribution_geography": "where_administered",
       "comparability": "comparable_across_states_snapshot_only",
       "implementing_authority": "state",
-      "parent_indicator_id": "state-rpo-compliance-pct",
+      "parent_indicator_id": "rpo-compliance-pct",
       "dimension_values": {
         "rpo_segment": "non_solar"
       },
@@ -2078,7 +2078,7 @@
       "concept_id": "non-solar-rpo"
     },
     {
-      "indicator_id": "state-rpo-compliance-pct-total",
+      "indicator_id": "rpo-compliance-pct-total",
       "label_short": "Total RPO",
       "label_long": "RPO compliance \u00e2\u20ac\u201d total (%, by state)",
       "description_short": "Combined-target RPO compliance \u00e2\u20ac\u201d share of the state's overall (solar + non-solar combined) RPO target met. NOT the sum of solar + non-solar \u00e2\u20ac\u201d the combined target is its own regulatory ratio.",
@@ -2094,7 +2094,7 @@
       "attribution_geography": "where_administered",
       "comparability": "comparable_across_states_snapshot_only",
       "implementing_authority": "state",
-      "parent_indicator_id": "state-rpo-compliance-pct",
+      "parent_indicator_id": "rpo-compliance-pct",
       "dimension_values": {
         "rpo_segment": "total"
       },

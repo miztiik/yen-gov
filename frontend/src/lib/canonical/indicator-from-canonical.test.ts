@@ -1785,15 +1785,15 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
   it("descriptor is kind:facet-multiplexed with parent + 3 children", () => {
     expect(RPO_DESCRIPTOR.kind).toBe("facet-multiplexed");
     if (RPO_DESCRIPTOR.kind === "facet-multiplexed") {
-      expect(RPO_DESCRIPTOR.canonical_parent_indicator_id).toBe("state-rpo-compliance-pct");
+      expect(RPO_DESCRIPTOR.canonical_parent_indicator_id).toBe("rpo-compliance-pct");
       expect(RPO_DESCRIPTOR.table_id).toBe("energy.energy_distribution_performance");
       expect(RPO_DESCRIPTOR.facet_axis_id).toBe("rpo_segment");
       expect(RPO_DESCRIPTOR.facet_values).toHaveLength(3);
       const child_ids = RPO_DESCRIPTOR.facet_values.map((fv) => fv.canonical_child_id);
       expect(child_ids).toEqual([
-        "state-rpo-compliance-pct-solar",
-        "state-rpo-compliance-pct-non-solar",
-        "state-rpo-compliance-pct-total",
+        "rpo-compliance-pct-solar",
+        "rpo-compliance-pct-non-solar",
+        "rpo-compliance-pct-total",
       ]);
     }
   });
@@ -1817,21 +1817,21 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
       .mockResolvedValueOnce([
         // 3 children × 1 state × 1 FY
         {
-          indicator_id: "state-rpo-compliance-pct-solar",
+          indicator_id: "rpo-compliance-pct-solar",
           entity_id: "IN-S22",
           period_label: "2024-04",
           value_numeric: 95.5,
           source_id: "src-rpo",
         },
         {
-          indicator_id: "state-rpo-compliance-pct-non-solar",
+          indicator_id: "rpo-compliance-pct-non-solar",
           entity_id: "IN-S22",
           period_label: "2024-04",
           value_numeric: 88.2,
           source_id: "src-rpo",
         },
         {
-          indicator_id: "state-rpo-compliance-pct-total",
+          indicator_id: "rpo-compliance-pct-total",
           entity_id: "IN-S22",
           period_label: "2024-04",
           value_numeric: 92.1,
@@ -1863,9 +1863,9 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
     expect(mockedQuery).toHaveBeenCalledTimes(1);
     const sql = mockedQuery.mock.calls[0][0] as string;
     expect(sql).toMatch(/indicator_id\s+IN\s*\(/);
-    expect(sql).toMatch(/'state-rpo-compliance-pct-solar'/);
-    expect(sql).toMatch(/'state-rpo-compliance-pct-non-solar'/);
-    expect(sql).toMatch(/'state-rpo-compliance-pct-total'/);
+    expect(sql).toMatch(/'rpo-compliance-pct-solar'/);
+    expect(sql).toMatch(/'rpo-compliance-pct-non-solar'/);
+    expect(sql).toMatch(/'rpo-compliance-pct-total'/);
     expect(sql).toMatch(/FROM\s+energy_distribution_performance/);
   });
 
@@ -1873,14 +1873,14 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
     mockedQuery
       .mockResolvedValueOnce([
         {
-          indicator_id: "state-rpo-compliance-pct-solar",
+          indicator_id: "rpo-compliance-pct-solar",
           entity_id: "IN-S22",
           period_label: "2024-04",
           value_numeric: 95.5,
           source_id: "src-rpo",
         },
         {
-          indicator_id: "state-rpo-compliance-pct-non-solar",
+          indicator_id: "rpo-compliance-pct-non-solar",
           entity_id: "IN-S22",
           period_label: "2024-04",
           value_numeric: 88.2,
@@ -1912,21 +1912,21 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
         // Different children cover different FYs — the parent's coverage
         // must be the UNION (min across children → max across children).
         {
-          indicator_id: "state-rpo-compliance-pct-solar",
+          indicator_id: "rpo-compliance-pct-solar",
           entity_id: "IN-S22",
           period_label: "2018-04",
           value_numeric: 70.0,
           source_id: "src-rpo",
         },
         {
-          indicator_id: "state-rpo-compliance-pct-non-solar",
+          indicator_id: "rpo-compliance-pct-non-solar",
           entity_id: "IN-S22",
           period_label: "2020-04",
           value_numeric: 80.0,
           source_id: "src-rpo",
         },
         {
-          indicator_id: "state-rpo-compliance-pct-total",
+          indicator_id: "rpo-compliance-pct-total",
           entity_id: "IN-S22",
           period_label: "2024-04",
           value_numeric: 92.0,
@@ -1949,7 +1949,7 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
   it("artifact's indicator.id is the parent (NOT any child); meta block carries parent fields", async () => {
     mockedQuery.mockResolvedValueOnce([]);
     const result = await loadIndicatorFromCanonical(RPO_DESCRIPTOR);
-    expect(result.indicator.id).toBe("state-rpo-compliance-pct");
+    expect(result.indicator.id).toBe("rpo-compliance-pct");
     expect(result.indicator.unit).toBe("%");
     expect(result.indicator.entity_kind).toBe("state");
   });
@@ -1958,7 +1958,7 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
     mockedQuery.mockResolvedValueOnce([]);
     const out = await loadIndicatorIfCanonical("energy/state_rpo_compliance_pct");
     expect(out).not.toBeNull();
-    expect(out!.indicator.id).toBe("state-rpo-compliance-pct");
+    expect(out!.indicator.id).toBe("rpo-compliance-pct");
   });
 });
 
