@@ -237,10 +237,12 @@ test.describe("extended routes", () => {
     const seen = await icons.evaluateAll((els) =>
       Array.from(new Set(els.map((e) => e.getAttribute("data-icon-name")))).sort(),
     );
-    // Energy corpus mixes thermal (flame), renewable (sun, wind), and
-    // generation (zap) per the taxonomy.
+    // Post-PR #296 (Row 4 IA pass): surviving /t/energy cards expose
+    // `activity` + `zap` icons. The `flame` icon was sourced from the
+    // retired thermal cards (installed_capacity_thermal_mw etc.) and is
+    // no longer present. Broader icon-presence intent is covered by the
+    // count threshold + the `zap` assertion below.
     expect(seen).toContain("zap");
-    expect(seen).toContain("flame");
   });
 
   // Phase 1.3f — icon rollout sub-5 (state-hub chips + leaf pages + chrome).
