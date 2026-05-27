@@ -157,6 +157,113 @@ def check_overlap(
     raise typer.Exit(0)
 
 
+@app.command("pre-flight-ingest")
+def pre_flight_ingest(
+    proposal_file: Path = typer.Option(
+        None,
+        "--proposal-file",
+        help=(
+            "Path to a JSON file with the ingest proposal. Canonical input "
+            "format; CLI flags below are sugar that hydrate an in-memory "
+            "proposal -- the file always wins if both are supplied."
+        ),
+        file_okay=True,
+        dir_okay=False,
+    ),
+    proposed_id: str = typer.Option(None, "--proposed-id"),
+    family: str = typer.Option(None, "--family"),
+    concept: str = typer.Option(None, "--concept"),
+    unit: str = typer.Option(None, "--unit"),
+    normalisation: str = typer.Option(None, "--normalisation"),
+    entity_kind: str = typer.Option(None, "--entity-kind"),
+    source_producer: str = typer.Option(None, "--source-producer"),
+    source_title: str = typer.Option(None, "--source-title"),
+    source_vintage: str = typer.Option(None, "--source-vintage"),
+    update_period_days: int = typer.Option(None, "--update-period-days"),
+    justification: str = typer.Option(None, "--justification"),
+    report: Path = typer.Option(
+        None,
+        "--report",
+        help="Write the JSON report to this path (in addition to stdout summary).",
+        file_okay=True,
+        dir_okay=False,
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Pre-flight ingest gate (ADR-0046).
+
+    Runs the six mechanical checks the human reviewer would otherwise have
+    to apply by hand on every new-source ingest handover-doc:
+
+    \b
+      1. concept_overlap       - proposed concept vs concepts.json
+      2. concept_fk            - proposal's concept_id resolves in registry
+      3. grain_prefix          - proposed_id has no state-/district-/national- prefix
+      4. update_period_days    - declared as positive integer
+      5. justification         - non-empty string >= 20 chars
+      6. source_id_derivation  - matches derive_source_id output
+
+    Exit codes: 0 = pass (verdict mint_new / upsert / add_facet);
+    1 = soft-warn (verdict + at least one warning); 2 = hard-fail
+    (verdict = abort). No override flag per CLAUDE.md Holy Law #5.
+    """
+    from yen_gov.preflight import build_report, load_proposal
+
+    cli_overrides = {
+        "proposed_id": proposed_id,
+        "family": family,
+        "concept": concept,
+        "unit": unit,
+        "normalisation": normalisation,
+        "entity_kind": entity_kind,
+        "source_producer": source_producer,
+        "source_title": source_title,
+        "source_vintage": source_vintage,
+        "update_period_days": update_period_days,
+        "justification": justification,
+    }
+
+    try:
+        proposal = load_proposal(
+            proposal_file=proposal_file,
+            cli_overrides=cli_overrides if proposal_file is None else None,
+        )
+    except ValueError as e:
+        typer.echo(f"pre-flight-ingest: ERROR -- {e}", err=True)
+        raise typer.Exit(2)
+
+    report_obj = build_report(proposal, root=root)
+
+    if report is not None:
+        report.parent.mkdir(parents=True, exist_ok=True)
+        report.write_text(
+            json.dumps(report_obj.to_dict(), indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+
+    typer.echo(f"pre-flight-ingest: verdict={report_obj.verdict}")
+    typer.echo(f"  recommended_action: {report_obj.recommended_action.kind}")
+    if report_obj.recommended_action.target_indicator_id:
+        typer.echo(
+            f"  target_indicator_id: {report_obj.recommended_action.target_indicator_id}"
+        )
+    typer.echo(f"  rationale: {report_obj.recommended_action.rationale}")
+    for c in report_obj.checks:
+        typer.echo(f"  [{c.status:>4}] {c.name}: {c.evidence}")
+    if report is not None:
+        typer.echo(f"  report: {report.as_posix()}")
+
+    raise typer.Exit(report_obj.exit_code)
+
+
 @app.command("emit-taxonomy")
 def emit_taxonomy(
     root: Path = typer.Option(

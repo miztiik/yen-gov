@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./preflight-report.schema.json",
+  "title": "Pre-flight Ingest Report",
+  "description": "Typed report emitted by `python -m yen_gov pre-flight-ingest` (ADR-0046). Agents cite this report in handover-docs before any new-source ingest lands.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-27",
+      "description": "Initial release. Six checks; verdict ladder (mint_new / upsert / add_facet / abort); exit-code mapping 0/1/2. ADR-0046."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "verdict",
+    "recommended_action",
+    "checks",
+    "input_echo",
+    "generated_at"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "verdict": {
+      "type": "string",
+      "enum": ["mint_new", "upsert", "add_facet", "abort"]
+    },
+    "recommended_action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "target_indicator_id", "target_parquet_path", "rationale"],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["mint_new", "upsert", "add_facet", "abort"]
+        },
+        "target_indicator_id": {
+          "type": ["string", "null"]
+        },
+        "target_parquet_path": {
+          "type": ["string", "null"]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status", "evidence", "doc_link"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "status": {"type": "string", "enum": ["pass", "warn", "fail"]},
+          "evidence": {"type": "string", "minLength": 1},
+          "doc_link": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "input_echo": {
+      "type": "object",
+      "description": "Verbatim echo of the proposal input (file or CLI hydrated)."
+    },
+    "generated_at": {
+      "type": "string",
+      "pattern": "^preflight:sha256:[0-9a-f]{16}$",
+      "description": "Deterministic content hash of input_echo. NOT a wall-clock timestamp (CLAUDE.md \u00a710 anti-pattern carve-out for control-plane does NOT apply -- this report is agent-consumable contract output)."
+    }
+  }
+}
