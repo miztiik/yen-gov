@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.3",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-27T08:04:43Z",
+  "generated_at": "2026-05-27T08:10:28Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -396,7 +396,7 @@
       "files": [
         {
           "path": "livestock/livestock_naip_iv.parquet",
-          "size_bytes": 534342,
+          "size_bytes": 533392,
           "row_count": 7392
         }
       ],
@@ -515,11 +515,11 @@
       "files": [
         {
           "path": "taxonomy/indicators.parquet",
-          "size_bytes": 47801,
-          "row_count": 183
+          "size_bytes": 46820,
+          "row_count": 179
         }
       ],
-      "row_count_total": 183
+      "row_count_total": 179
     },
     {
       "table_id": "taxonomy.methodology_breaks",
@@ -566,7 +566,7 @@
       "files": [
         {
           "path": "taxonomy/sources.parquet",
-          "size_bytes": 25707,
+          "size_bytes": 25559,
           "row_count": 408
         }
       ],

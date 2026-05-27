@@ -1957,7 +1957,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "district-pashu-aadhaar-count-cattle",
-      title: "Cattle tagged with Pashu Aadhaar (district)",
+      title: "Cattle tagged with Pashu Aadhaar",
       description:
         "District total of cattle issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
       entity_kind: "district",
@@ -1990,7 +1990,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "district-pashu-aadhaar-count-buffalo",
-      title: "Buffaloes tagged with Pashu Aadhaar (district)",
+      title: "Buffaloes tagged with Pashu Aadhaar",
       description:
         "District total of buffaloes issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
       entity_kind: "district",
@@ -2018,7 +2018,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "district-pashu-aadhaar-count-goat",
-      title: "Goats tagged with Pashu Aadhaar (district)",
+      title: "Goats tagged with Pashu Aadhaar",
       description:
         "District total of goats issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
       entity_kind: "district",
@@ -2046,7 +2046,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "district-pashu-aadhaar-count-sheep",
-      title: "Sheep tagged with Pashu Aadhaar (district)",
+      title: "Sheep tagged with Pashu Aadhaar",
       description:
         "District total of sheep issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
       entity_kind: "district",
@@ -2074,7 +2074,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "district-pashu-aadhaar-count-pig",
-      title: "Pigs tagged with Pashu Aadhaar (district)",
+      title: "Pigs tagged with Pashu Aadhaar",
       description:
         "District total of pigs issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
       entity_kind: "district",
@@ -2102,7 +2102,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "district-pashu-aadhaar-count-mithun",
-      title: "Mithun tagged with Pashu Aadhaar (district)",
+      title: "Mithun tagged with Pashu Aadhaar",
       description:
         "District total of mithun issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
       entity_kind: "district",
@@ -2130,7 +2130,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "district-pashu-aadhaar-count-yak",
-      title: "Yak tagged with Pashu Aadhaar (district)",
+      title: "Yak tagged with Pashu Aadhaar",
       description:
         "District total of yak issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
       entity_kind: "district",
@@ -2158,7 +2158,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "district-pashu-aadhaar-count-horse",
-      title: "Horses tagged with Pashu Aadhaar (district)",
+      title: "Horses tagged with Pashu Aadhaar",
       description:
         "District total of horses (including ponies) issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
       entity_kind: "district",
@@ -2186,7 +2186,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "district-pashu-aadhaar-count-donkey",
-      title: "Donkeys tagged with Pashu Aadhaar (district)",
+      title: "Donkeys tagged with Pashu Aadhaar",
       description:
         "District total of donkeys issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
       entity_kind: "district",
@@ -2214,7 +2214,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "district-pashu-aadhaar-count-mule",
-      title: "Mules tagged with Pashu Aadhaar (district)",
+      title: "Mules tagged with Pashu Aadhaar",
       description:
         "District total of mules issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Source-of-truth for the Pashu Aadhaar series per ADR-0043; the state-grain sibling indicator is the SUM rollup auto-emitted in the same canonical adapter run.",
       entity_kind: "district",
@@ -2334,7 +2334,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     ],
     meta: {
       id: "district-livestock-owner-reg-count",
-      title: "Registered livestock owners, by landholding (district)",
+      title: "Registered livestock owners, by landholding",
       description:
         "District total of livestock owners registered under NDLM Bharat Pashudhan, broken out by landholding bracket. Source-of-truth grain per ADR-0043; the state-grain sibling is the SUM rollup auto-emitted in the same canonical adapter run.",
       entity_kind: "district",
@@ -2366,40 +2366,12 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   // from district children per ADR-0043.
   {
     kind: "single",
-    legacy_artifact_id: "agriculture/state_livestock_naip_iv_inseminations",
-    canonical_indicator_id: "state-livestock-naip-iv-inseminations",
+    legacy_artifact_id: "agriculture/livestock_naip_iv_inseminations",
+    canonical_indicator_id: "livestock-naip-iv-inseminations",
     table_id: "livestock.livestock_naip_iv",
     meta: {
-      id: "state-livestock-naip-iv-inseminations",
-      title: "NAIP IV: artificial inseminations done (state)",
-      description:
-        "Number of artificial inseminations delivered under the National Artificial Insemination Programme IV. State-grain SUM rollup auto-emitted from district children per ADR-0043. Counts the procedure event, not unique animals.",
-      entity_kind: "state",
-      time_grain: "fiscal_year",
-      value_kind: "count",
-      direction: "neutral",
-      scale_hint: "linear",
-      unit: "inseminations",
-      short_unit: "AIs",
-      icon: "activity",
-      attribution_geography: "where_administered",
-      comparability: "directional_only",
-      implementing_authority: "centre",
-      methodology_vintage:
-        "NDLM Bharat Pashudhan NAIP IV endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). 588 districts in 28 reporting states/UTs.",
-      renderer_rules: ["no_rank_table"],
-      notes:
-        "NAIP IV is a SELECT-DISTRICT programme; 8 states/UTs report zero coverage upstream (Kerala, Punjab, Puducherry, Chandigarh, Delhi, Lakshadweep, A&N, D&NH+D&D). This is NOT a defect. Counts events, not animals: one cow may receive multiple AIs in a season. State-grain auto-summed from district children per ADR-0043.",
-    },
-  },
-  {
-    kind: "single",
-    legacy_artifact_id: "agriculture/district_livestock_naip_iv_inseminations",
-    canonical_indicator_id: "district-livestock-naip-iv-inseminations",
-    table_id: "livestock.livestock_naip_iv",
-    meta: {
-      id: "district-livestock-naip-iv-inseminations",
-      title: "NAIP IV: artificial inseminations done (district)",
+      id: "livestock-naip-iv-inseminations",
+      title: "NAIP IV: artificial inseminations done",
       description:
         "District total of artificial inseminations delivered under the National Artificial Insemination Programme IV. Source-of-truth grain per ADR-0043; the state-grain sibling is the SUM rollup auto-emitted in the same canonical adapter run.",
       entity_kind: "district",
@@ -2422,40 +2394,12 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   },
   {
     kind: "single",
-    legacy_artifact_id: "agriculture/state_livestock_naip_iv_pregnancy_diagnoses",
-    canonical_indicator_id: "state-livestock-naip-iv-pregnancy-diagnoses",
+    legacy_artifact_id: "agriculture/livestock_naip_iv_pregnancy_diagnoses",
+    canonical_indicator_id: "livestock-naip-iv-pregnancy-diagnoses",
     table_id: "livestock.livestock_naip_iv",
     meta: {
-      id: "state-livestock-naip-iv-pregnancy-diagnoses",
-      title: "NAIP IV: pregnancy diagnoses (state)",
-      description:
-        "Number of pregnancy diagnoses performed on inseminated animals under the National Artificial Insemination Programme IV. State-grain SUM rollup auto-emitted from district children per ADR-0043. The intermediate outcome between insemination and calf-born.",
-      entity_kind: "state",
-      time_grain: "fiscal_year",
-      value_kind: "count",
-      direction: "neutral",
-      scale_hint: "linear",
-      unit: "diagnoses",
-      short_unit: "PDs",
-      icon: "activity",
-      attribution_geography: "where_administered",
-      comparability: "directional_only",
-      implementing_authority: "centre",
-      methodology_vintage:
-        "NDLM Bharat Pashudhan NAIP IV endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). 588 districts in 28 reporting states/UTs.",
-      renderer_rules: ["no_rank_table"],
-      notes:
-        "NAIP IV is a SELECT-DISTRICT programme; 8 states/UTs report zero coverage upstream. The diagnosis-to-insemination ratio is usually ~10% (only a fraction of AIs result in pregnancy, and not all are diagnosed); cross-state ratios reflect both biology and field-staff diligence. State-grain auto-summed from district children per ADR-0043.",
-    },
-  },
-  {
-    kind: "single",
-    legacy_artifact_id: "agriculture/district_livestock_naip_iv_pregnancy_diagnoses",
-    canonical_indicator_id: "district-livestock-naip-iv-pregnancy-diagnoses",
-    table_id: "livestock.livestock_naip_iv",
-    meta: {
-      id: "district-livestock-naip-iv-pregnancy-diagnoses",
-      title: "NAIP IV: pregnancy diagnoses (district)",
+      id: "livestock-naip-iv-pregnancy-diagnoses",
+      title: "NAIP IV: pregnancy diagnoses",
       description:
         "District total of pregnancy diagnoses performed on inseminated animals under the National Artificial Insemination Programme IV. Source-of-truth grain per ADR-0043; the state-grain sibling is the SUM rollup auto-emitted in the same canonical adapter run.",
       entity_kind: "district",
@@ -2478,40 +2422,12 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   },
   {
     kind: "single",
-    legacy_artifact_id: "agriculture/state_livestock_naip_iv_calves_born",
-    canonical_indicator_id: "state-livestock-naip-iv-calves-born",
+    legacy_artifact_id: "agriculture/livestock_naip_iv_calves_born",
+    canonical_indicator_id: "livestock-naip-iv-calves-born",
     table_id: "livestock.livestock_naip_iv",
     meta: {
-      id: "state-livestock-naip-iv-calves-born",
-      title: "NAIP IV: calves born (state)",
-      description:
-        "Number of calves born from NAIP IV inseminations. State-grain SUM rollup auto-emitted from district children per ADR-0043. The final outcome of the programme chain (insemination -> pregnancy diagnosis -> calf born).",
-      entity_kind: "state",
-      time_grain: "fiscal_year",
-      value_kind: "count",
-      direction: "neutral",
-      scale_hint: "linear",
-      unit: "calves",
-      short_unit: "calves",
-      icon: "users",
-      attribution_geography: "where_administered",
-      comparability: "directional_only",
-      implementing_authority: "centre",
-      methodology_vintage:
-        "NDLM Bharat Pashudhan NAIP IV endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). Sex axis (male/female) collapsed via SUM at Phase 2.C adapter time. 588 districts in 28 reporting states/UTs.",
-      renderer_rules: ["no_rank_table"],
-      notes:
-        "NAIP IV is a SELECT-DISTRICT programme; 8 states/UTs report zero coverage upstream. Calf count reports both sexes; sex-disaggregated lift deferred to a future Phase. The calf-to-insemination ratio is usually well under 5% (most AIs do not result in a born calf within FY). State-grain auto-summed from district children per ADR-0043.",
-    },
-  },
-  {
-    kind: "single",
-    legacy_artifact_id: "agriculture/district_livestock_naip_iv_calves_born",
-    canonical_indicator_id: "district-livestock-naip-iv-calves-born",
-    table_id: "livestock.livestock_naip_iv",
-    meta: {
-      id: "district-livestock-naip-iv-calves-born",
-      title: "NAIP IV: calves born (district)",
+      id: "livestock-naip-iv-calves-born",
+      title: "NAIP IV: calves born",
       description:
         "District total of calves born from NAIP IV inseminations. Source-of-truth grain per ADR-0043; the state-grain sibling is the SUM rollup auto-emitted in the same canonical adapter run.",
       entity_kind: "district",
@@ -2534,40 +2450,12 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   },
   {
     kind: "single",
-    legacy_artifact_id: "agriculture/state_livestock_naip_iv_farmers_benefitted",
-    canonical_indicator_id: "state-livestock-naip-iv-farmers-benefitted",
+    legacy_artifact_id: "agriculture/livestock_naip_iv_farmers_benefitted",
+    canonical_indicator_id: "livestock-naip-iv-farmers-benefitted",
     table_id: "livestock.livestock_naip_iv",
     meta: {
-      id: "state-livestock-naip-iv-farmers-benefitted",
-      title: "NAIP IV: farmers benefitted (state)",
-      description:
-        "Number of distinct farmers who availed at least one NAIP IV insemination service. State-grain SUM rollup auto-emitted from district children per ADR-0043. Counts farmers (people), not animals or events.",
-      entity_kind: "state",
-      time_grain: "fiscal_year",
-      value_kind: "count",
-      direction: "neutral",
-      scale_hint: "linear",
-      unit: "farmers",
-      short_unit: "farmers",
-      icon: "users",
-      attribution_geography: "where_resident",
-      comparability: "directional_only",
-      implementing_authority: "centre",
-      methodology_vintage:
-        "NDLM Bharat Pashudhan NAIP IV endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). 588 districts in 28 reporting states/UTs.",
-      renderer_rules: ["no_rank_table"],
-      notes:
-        "NAIP IV is a SELECT-DISTRICT programme; 8 states/UTs report zero coverage upstream. Counts distinct farmers per district per FY; a farmer counted in multiple districts (rare) inflates the SUM rollup. State-grain auto-summed from district children per ADR-0043 with that small caveat.",
-    },
-  },
-  {
-    kind: "single",
-    legacy_artifact_id: "agriculture/district_livestock_naip_iv_farmers_benefitted",
-    canonical_indicator_id: "district-livestock-naip-iv-farmers-benefitted",
-    table_id: "livestock.livestock_naip_iv",
-    meta: {
-      id: "district-livestock-naip-iv-farmers-benefitted",
-      title: "NAIP IV: farmers benefitted (district)",
+      id: "livestock-naip-iv-farmers-benefitted",
+      title: "NAIP IV: farmers benefitted",
       description:
         "District total of distinct farmers who availed at least one NAIP IV insemination service. Source-of-truth grain per ADR-0043; the state-grain sibling is the SUM rollup auto-emitted in the same canonical adapter run.",
       entity_kind: "district",

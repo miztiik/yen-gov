@@ -64,6 +64,20 @@ VINTAGES = {"2023-24", "2024-25", "2025-26"}
 NAIP_IV_SOURCE_ID = "src-93a2a72db482"
 
 
+def _is_district_row(r) -> bool:
+    """Distinguish district-grain rows from state-grain rollup rows now
+    that the indicator_id no longer carries a grain prefix (ADR-0044).
+    District entity_ids carry a "-D<digits>" suffix; state entity_ids
+    do not.
+    """
+    return "-D" in r.entity_id
+
+
+def _is_state_row(r) -> bool:
+    return not _is_district_row(r)
+
+
+
 def _naip_iv_envelope():
     """Pick the naip_iv envelope from the livestock package output.
 
@@ -110,9 +124,9 @@ def test_all_four_metric_children_emit_rows_at_both_grains() -> None:
     emitted_indicator_ids = {row.indicator_id for row in env.observation_rows}
 
     expected = {
-        f"district-livestock-naip-iv-{slug}" for slug in METRIC_SLUGS
+        f"livestock-naip-iv-{slug}" for slug in METRIC_SLUGS
     } | {
-        f"state-livestock-naip-iv-{slug}" for slug in METRIC_SLUGS
+        f"livestock-naip-iv-{slug}" for slug in METRIC_SLUGS
     }
     assert emitted_indicator_ids == expected, (
         f"expected the 4 district + 4 state-rollup metric children; "
@@ -133,10 +147,7 @@ def test_no_parent_indicators_emitted() -> None:
     adapter regression.
     """
     env = _naip_iv_envelope()
-    bad_ids = {
-        "district-livestock-naip-iv",
-        "state-livestock-naip-iv",
-    }
+    bad_ids = {"livestock-naip-iv"}
     bad_rows = [r for r in env.observation_rows if r.indicator_id in bad_ids]
     assert bad_rows == [], (
         f"NAIP IV must NOT emit parent rows (units differ across metric "
@@ -227,7 +238,7 @@ def test_derivation_is_sum_on_both_grains() -> None:
     env = _naip_iv_envelope()
     by_grain: dict[str, set[str]] = {}
     for r in env.observation_rows:
-        grain = "district" if r.indicator_id.startswith("district-") else "state"
+        grain = "district" if _is_district_row(r) else "state"
         by_grain.setdefault(grain, set()).add(r.derivation)
     assert by_grain == {"district": {"sum"}, "state": {"sum"}}, (
         f"expected district=sum + state=sum; got {by_grain!r}"
@@ -259,11 +270,11 @@ def test_entity_id_fk_closure_for_both_grains() -> None:
             orphans.append(r.entity_id)
             continue
         entity_type = ent.get("entity_type")
-        if r.indicator_id.startswith("district-") and entity_type != "district":
+        if _is_district_row(r) and entity_type != "district":
             grain_mismatches.append(
                 f"{r.indicator_id} -> {r.entity_id} (entity_type={entity_type!r})"
             )
-        elif r.indicator_id.startswith("state-") and entity_type not in (
+        elif _is_state_row(r) and entity_type not in (
             "state", "ut",
         ):
             grain_mismatches.append(
@@ -301,7 +312,7 @@ def test_state_rollup_sum_matches_district_sum_per_metric() -> None:
     # Expected: sum district rows by (state_prefix, metric_slug, period_label)
     expected: dict[tuple[str, str, str], float] = {}
     for r in env.observation_rows:
-        if not r.indicator_id.startswith("district-livestock-naip-iv-"):
+        if not _is_district_row(r):
             continue
         slug = r.indicator_id.split("naip-iv-", 1)[-1]
         key = (state_prefix(r.entity_id), slug, r.period_label)
@@ -310,7 +321,7 @@ def test_state_rollup_sum_matches_district_sum_per_metric() -> None:
     # Actual: state-rollup rows keyed by (entity_id, slug, period_label)
     actual: dict[tuple[str, str, str], float] = {}
     for r in env.observation_rows:
-        if not r.indicator_id.startswith("state-livestock-naip-iv-"):
+        if not _is_state_row(r):
             continue
         slug = r.indicator_id.split("naip-iv-", 1)[-1]
         key = (r.entity_id, slug, r.period_label)
@@ -345,12 +356,12 @@ def test_state_rollup_inherits_period_axes() -> None:
     district_periods = {
         (r.period_label, r.year, r.period_seq)
         for r in env.observation_rows
-        if r.indicator_id.startswith("district-livestock-naip-iv-")
+        if _is_district_row(r)
     }
     rollup_periods = {
         (r.period_label, r.year, r.period_seq)
         for r in env.observation_rows
-        if r.indicator_id.startswith("state-livestock-naip-iv-")
+        if _is_state_row(r)
     }
     assert rollup_periods == district_periods, (
         f"state-rollup period axes drifted from district; "
@@ -388,7 +399,7 @@ def test_calves_born_district_value_equals_meadow_male_plus_female_sum() -> None
     actual: dict[tuple[str, str], float] = {
         (r.entity_id, r.period_label): float(r.value_numeric)
         for r in env.observation_rows
-        if r.indicator_id == "district-livestock-naip-iv-calves-born"
+        if r.indicator_id == "livestock-naip-iv-calves-born" and _is_district_row(r)
     }
     assert set(actual.keys()) == set(expected.keys()), (
         f"(district, period) set mismatch: "
