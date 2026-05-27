@@ -2,6 +2,8 @@
 
 **Last Updated**: 2026-05-27
 
+> **Pipeline name**: The Fetch -> Parse -> Enrich -> Emit workflow is **the Lift pipeline**. The cookbook for adding a new data source through it lives at [docs/how-to/add-a-new-data-source.md](../how-to/add-a-new-data-source.md).
+
 > Doctrine for how new upstream endpoints land in yen-gov. Splits the monolithic adapter into four layers so a new endpoint can be added incrementally without rewriting an existing adapter. Companion plan: [TODO/20260527-iced-fetch-vs-enrich-and-coverage-expansion.md](../../TODO/20260527-iced-fetch-vs-enrich-and-coverage-expansion.md).
 
 ## Why this matters

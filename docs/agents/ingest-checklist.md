@@ -2,6 +2,8 @@
 
 **Last Updated**: 2026-05-27
 
+> **Pipeline name**: This checklist gates entry to **the Lift pipeline** (Fetch -> Parse -> Enrich -> Emit). When an agent is asked to "lift" a new data source, run `python -m yen_gov pre-flight-ingest` first, then follow [docs/how-to/add-a-new-data-source.md](../how-to/add-a-new-data-source.md).
+
 > Mechanical checklist for any agent shipping a new ingest. Replaces the bare `check-overlap` invocation in [TODO/_TEMPLATE-ingest-handover.md](../../TODO/_TEMPLATE-ingest-handover.md) §3 with a single batched pre-flight gate. Defined by [ADR-0046](../architecture/decisions/0046-pre-flight-ingest-gate-contract.md).
 
 ## Step 1 -- author a proposal file

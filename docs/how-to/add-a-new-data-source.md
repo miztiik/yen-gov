@@ -2,6 +2,8 @@
 
 Last Updated: 2026-05-27
 
+> **Pipeline name**: The four-layer ingest workflow described here is called **the Lift pipeline** (the verb `lift` matches the existing `python -m yen_gov lift-<family>` CLI). When asked to "lift a new data source" or "run X through the Lift", read this cookbook first.
+
 Cookbook for adding a new upstream data source (REST endpoint, XLSX
 workbook, PDF, web scrape) to yen-gov via the 4-layer ingest doctrine.
 Terse by design: cross-links over duplication.
