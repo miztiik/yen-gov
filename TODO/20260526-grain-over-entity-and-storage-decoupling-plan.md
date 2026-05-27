@@ -8,7 +8,17 @@
 
 ## 0bis. Live status snapshot (auto-refresh per session)
 
-**As of 2026-05-27, main at `e0882e1d` (PR #390).** 56 PRs merged, ~20 remaining (~73% complete by PR count). All §0quat guardrail gates LIVE except **B9 (grain-prefix Tier-B LIVE flip)** which awaits B3 + B5 + B7-tail.
+**As of 2026-05-27 10:30, main at `b1f52dc4` (PR #406).** **🎯 ALL 4 §0quat GUARDRAIL GATES LIVE.** Grain-rip doctrine fully enforced. 66 PRs merged; ~14 remaining (mostly C/D/E phases — UI routes, shard deletes, grain depth).
+
+### §0quat gate closure
+
+| Tier-B check | PR# | Status |
+|---|---|---|
+| `tier_b_indicator_freshness_declared` | #371 | LIVE |
+| `tier_b_indicator_has_justification` | #376 | LIVE |
+| `tier_b_one_indicator_per_concept` | #386 | LIVE |
+| `tier_b_no_hand_typed_source_id` | #387 | LIVE |
+| `tier_b_indicator_id_no_grain_prefix` | **#406** | **LIVE** |
 
 ### Phase status table
 
