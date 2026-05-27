@@ -67,6 +67,18 @@
       ]
     },
     {
+      "indicator_id": "state-pashu-aadhaar-count-buffalo",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
+      "indicator_id": "district-pashu-aadhaar-count-buffalo",
+      "renderer_rules": [
+        "no_rank_table"
+      ]
+    },
+    {
       "indicator_id": "pashu-aadhaar-count-cattle",
       "renderer_rules": [
         "no_rank_table"
