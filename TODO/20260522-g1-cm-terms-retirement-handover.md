@@ -140,7 +140,7 @@ Per memory lesson 2026-05-21 ("before `git rm`, grep ALL of backend/, tools/, do
 
 ## See also
 
-- [TODO/20260521-phase-2-preflight-audit-gregor.md](20260521-phase-2-preflight-audit-gregor.md) — Gregor's original audit (§"#5" body amended in PR2)
+- [docs/archive/plans/20260521-phase-2-preflight-audit-gregor.md](../docs/archive/plans/20260521-phase-2-preflight-audit-gregor.md) — Gregor's original audit (§"#5" body amended in PR2)
 - T.0c-iii arc (districts.json retirement) — pattern reference; commits `266777d7` (Phase A) + `2236df11` (Phase B) + `8cf37922` (Phase C)
 - [CLAUDE.md §10](../CLAUDE.md) — "before `git rm` of any file under `datasets/`" doctrine
 

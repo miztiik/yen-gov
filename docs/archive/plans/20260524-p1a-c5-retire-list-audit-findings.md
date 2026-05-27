@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-05-24 (Path A CHOSEN)
 **Status**: ◧ DESCOPE-AND-PIVOT. Audit of the 16-shard retire-list in [`20260524-p1a-c5-c6-canonical-reader-design.md`](20260524-p1a-c5-c6-canonical-reader-design.md) §4 / §6 against on-disk canonical reality reveals **8 of 16 shards cannot safely retire as planned**. C5 reader + C6 retire is DESCOPED until the data-mismatch is resolved. **Path A (§3 below) CHOSEN 2026-05-24**: retire the 8 SAFE shards now, defer the 8 unsafe into 4 follow-up lift PRs. The re-acquisition schedule for those 4 lift PRs is at [`20260524-p1a-data-reacquisition-plan.md`](20260524-p1a-data-reacquisition-plan.md).
-**Doc class**: plan-doc handover per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md).
+**Doc class**: plan-doc handover per [ADR-0034](../../architecture/decisions/0034-documentation-routing-contract.md).
 **Authority routing**: Hans + Max (data fidelity) for what's actually retire-able, Gregor (read-seam contract) for the partial-retire shape, Fowler (strangler-fig discipline) for the canonical-lift-first ordering.
 **Cites**: [P.1 energy pivot plan-doc](20260522-phase-2-p1-energy-pivot.md) §4 + §6 (the retire-list that this audit invalidates) + [C5+C6 design doc](20260524-p1a-c5-c6-canonical-reader-design.md) (the planning doc this audit pauses) + [`20260524-p1a-data-reacquisition-plan.md`](20260524-p1a-data-reacquisition-plan.md) (the Path A re-acquisition schedule) + `/memories/lessons.md` 2026-05-22 PR #88 G.1 descope (the procedural precedent for this kind of mid-execution pivot).
 
@@ -102,9 +102,9 @@ The two paths share **THIS PR's deliverable**: doc-only descope, amend the plann
 
 | File | Action | Why |
 | --- | --- | --- |
-| `TODO/20260524-p1a-c5-retire-list-audit-findings.md` (new, this doc, ~210 lines) | CREATE | The binding handover |
-| `TODO/20260522-phase-2-p1-energy-pivot.md` (plan-doc) | EDIT | §4 last unchecked item annotated: "BLOCKED on retire-list reaudit, see 20260524-audit-findings.md"; §6 hard-drops table annotated with audit verdict per row |
-| `TODO/20260524-p1a-c5-c6-canonical-reader-design.md` (prior planning doc from PR #116) | EDIT | Header status changes to "🛑 DESIGN-PAUSED — retire-list invalidated by 20260524-audit-findings.md; choose Path A or Path B before code starts" |
+| `docs/archive/plans/20260524-p1a-c5-retire-list-audit-findings.md` (new, this doc, ~210 lines) | CREATE | The binding handover |
+| `docs/archive/plans/20260522-phase-2-p1-energy-pivot.md` (plan-doc) | EDIT | §4 last unchecked item annotated: "BLOCKED on retire-list reaudit, see 20260524-audit-findings.md"; §6 hard-drops table annotated with audit verdict per row |
+| `docs/archive/plans/20260524-p1a-c5-c6-canonical-reader-design.md` (prior planning doc from PR #116) | EDIT | Header status changes to "🛑 DESIGN-PAUSED — retire-list invalidated by 20260524-audit-findings.md; choose Path A or Path B before code starts" |
 | `tools/inspect_c5_full_audit.py` (new) | CREATE | Regression artifact — re-runnable to revalidate any future retire-list change |
 
 No code change. No schema change. No data change. Zero test gates impacted.

@@ -14,7 +14,7 @@ By 2026-05-22 the project had four kinds of documents on disk, each carrying arc
 4. **Concept docs** under `docs/concepts/` (vocabulary — `data-provenance.md`, `indicator-naming.md`, `owid-alignment.md`, etc.).
 5. **Plan-docs** under `TODO/` (active work plans).
 
-The result was an 895-line plan-doc (`TODO/20260517-canonical-long-format-pivot.md`, 204 KB) that mixed:
+The result was an 895-line plan-doc (`docs/archive/plans/20260517-canonical-long-format-pivot.md`, 204 KB) that mixed:
 
 - A "One Rule" pointer (duplicated in `CLAUDE.md §0a`).
 - 36 numbered "decisions" D1–D36 (all already verbatim in `ADR-0030`).
@@ -119,10 +119,10 @@ Use `git log` as the architectural decision register; eliminate `docs/architectu
 
 ## Follow-up (NOT in this ADR's commit)
 
-- **Lift §0e.4 from `TODO/20260517-canonical-long-format-pivot.md` into a new `docs/concepts/topic-taxonomy.md`** — vocabulary for the 17 topic slugs.
+- **Lift §0e.4 from `docs/archive/plans/20260517-canonical-long-format-pivot.md` into a new `docs/concepts/topic-taxonomy.md`** — vocabulary for the 17 topic slugs.
 - **Lift §0e.5 (persons fork) into a new ADR-0035** — credible rejected alternative (Option A "smallest reversible step"), cross-cuts elections + governments families.
 - **Archive `§6` (Phase 0 audit narrative) and `§7` (Phase 1 deletion sweep narrative) into `docs/archive/`** — executed work history, not active plan.
-- **Slim `TODO/20260517-canonical-long-format-pivot.md` to ~140 lines** — pure phase ledger + active phase + Phase 3 sketch.
+- **Slim `docs/archive/plans/20260517-canonical-long-format-pivot.md` to ~140 lines** — pure phase ledger + active phase + Phase 3 sketch.
 - **Retire `TODO/20260522-phase-2-p1-nfhs-5-planning.md` into `docs/archive/`** — was based on the wrong-phase assumption (Phase 2 = NFHS-5 instead of Phase 2 = Energy); content is preserved for the eventual NFHS-5 P.\* row.
-- **Replace it with a fresh `TODO/20260522-phase-2-p1-energy-pivot.md`** — small, focused, current.
+- **Replace it with a fresh `docs/archive/plans/20260522-phase-2-p1-energy-pivot.md`** — small, focused, current.
 - **Future Tidy-First**: split `docs/architecture/data/canonical-store.md` (828 lines) into `canonical-store.md` (disk layout, read/write paths, ~250 lines) + `indicator-catalogue.md` (~200 lines) + `sources-ledger.md` (~150 lines) + `taxonomy.md` (~100 lines). Track as a marker in canonical-store.md; execute when the doc is next substantively edited.

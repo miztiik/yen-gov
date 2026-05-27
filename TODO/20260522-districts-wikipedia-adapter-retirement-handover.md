@@ -10,7 +10,7 @@
 - Modified (code): `backend/yen_gov/cli.py` (`emit-taxonomy` docstring stale-since-Phase-B fixed); `backend/yen_gov/canonical/entities_seed.py` (Phase B notes flipped past-tense — "deleted in Phase D.3"); `backend/tests/test_entities_seed.py` (docstring matched); `backend/yen_gov/sources/wikipedia/constituencies.py` (resolution docstring repointed to entities.json); `backend/yen_gov/core/models.py` (retirement comment past-tensed); `backend/yen_gov/core/schema_registry.py` (docstring example switched to `constituency.schema.json`); `datasets/schemas/subdistrict.schema.json` (dropped "Analogous to district.schema.json" cross-reference).
 - Modified (docs): `docs/architecture/data-model.md`, `docs/architecture/data/boundaries.md` (methodology-break-markers paragraph + Further-reading bullet), `docs/architecture/backend/core.md` (DistrictsCollection mirror retirement), `docs/architecture/canonical-pivot-deletion-manifest.md`, `docs/architecture/frontend/routing.md`, `docs/architecture/backend/sources-eci-vs-wikipedia.md`, `docs/architecture/decisions/0033-retire-wikipedia-districts-adapter.md` (Future-work → "Subsequent phases (now landed)"), `docs/reference/schemas.md`, `docs/reference/data-coverage-report.md`, `docs/reference/boundary-data-sources.md`, `docs/reference/lgd-opendata.md`, `docs/how-to/run-the-pipeline.md`, `docs/research/energy-power-plants.md`.
 - Modified (datasets ledger + changelog): `datasets/migration-ledger.csv` (7 new D.3 rows appended); `datasets/CHANGELOG.md` (2026-05-22 entry).
-- Amended: this handover doc (D.3 outcome above); `TODO/20260517-canonical-long-format-pivot.md` row 318 (D.3 marked DONE; arc closed).
+- Amended: this handover doc (D.3 outcome above); `docs/archive/plans/20260517-canonical-long-format-pivot.md` row 318 (D.3 marked DONE; arc closed).
 
 **Known structural gap (acknowledged)**: Mahe and Yanam (U07 sub-regions) are not enumerated by LGD as standalone districts; they have no `lgd_code` and did not lift into `entities.json`. This deletion removes the only on-disk record of those two regions. Eventual fix: (a) LGD revision enumerating UT sub-regions, or (b) manual override entity rows with issuing-authority identifiers. Deferred follow-up.
 
@@ -37,7 +37,7 @@
 - Modified: `docs/architecture/data/boundaries.md` (Further-reading bullet for backfill tool removed)
 - Modified: `backend/yen_gov/core/models.py` (retirement comment: dropped `lgd/backfill_lgd_codes.py` from active-consumers list; appended retirement note)
 - Amended: this handover doc (D.2 outcome section above)
-- Amended: `TODO/20260517-canonical-long-format-pivot.md` row 318 (D.2 marked DONE)
+- Amended: `docs/archive/plans/20260517-canonical-long-format-pivot.md` row 318 (D.2 marked DONE)
 
 **Verification**:
 - `git grep backfill_lgd_codes` returns zero live (non-historical-record) hits in production code; references survive only in `datasets/migration-ledger.csv` row 218 + `datasets/schemas/district.schema.json` v3.2 changelog text (both historical artefacts — schema deleted in D.3, ledger entries are append-only history per CLAUDE.md §4).
@@ -63,7 +63,7 @@
 - Modified: `docs/architecture/data-model.md` (District key entry switched to LGD; districts.json sentence updated)
 - NEW: `docs/architecture/decisions/0033-retire-wikipedia-districts-adapter.md`
 - Amended: this handover doc (D.1 outcome section above)
-- Amended: `TODO/20260517-canonical-long-format-pivot.md` row 318 (D.1 marked DONE)
+- Amended: `docs/archive/plans/20260517-canonical-long-format-pivot.md` row 318 (D.1 marked DONE)
 
 **Non-deletion**: `tools/lgd/backfill_lgd_codes.py` + `backend/tests/test_lgd_backfill.py` + the 6 per-state `districts.json` files + `district.schema.json` remain on disk. They go in Phase D.2 + Phase D.3 respectively. The schema file is no longer referenced from any Python code path (the only caller — the deleted `DistrictsCollection._schema_id = schema_id("district.schema.json")` — is gone).
 
@@ -78,7 +78,7 @@
 
 ---
 
-> **Status (pre-D.1):** Phase A (PR #81, `a3d45611`) and Phase B (PR #82, `2c9d9712`) are MERGED. Phase C as originally scoped in `TODO/20260517-canonical-long-format-pivot.md §0e.10.4` row 318 is **PAUSED** pending a multi-PR Phase D arc. **No destructive changes shipped in this doc-only PR.** The 6 per-state `districts.json` files + `district.schema.json` remain on disk untouched.
+> **Status (pre-D.1):** Phase A (PR #81, `a3d45611`) and Phase B (PR #82, `2c9d9712`) are MERGED. Phase C as originally scoped in `docs/archive/plans/20260517-canonical-long-format-pivot.md §0e.10.4` row 318 is **PAUSED** pending a multi-PR Phase D arc. **No destructive changes shipped in this doc-only PR.** The 6 per-state `districts.json` files + `district.schema.json` remain on disk untouched.
 >
 > **Why paused:** Phase C was scoped as `git rm` of 6 data files + 1 schema, on the premise that Phase B made them orphans. A pre-deletion grep audit (per the 2026-05-21 lesson "audit ALL of backend/, tools/, docs/, admin/ before `git rm` of any file under `datasets/`") surfaced 9 live consumers including an **import-time crash risk** that would have broken every `pytest` collection. The audit worked exactly as the lesson predicted: it stopped a destructive operation that would have been caught only after CI ran.
 >
@@ -132,7 +132,7 @@ Three Phase D PRs are required before the deletion is safe:
 - [docs/architecture/data-model.md:69](docs/architecture/data-model.md)
 - [docs/how-to/run-the-pipeline.md:19](docs/how-to/run-the-pipeline.md)
 - [TODO/PLAN.md:74](TODO/PLAN.md)
-- [TODO/20260517-canonical-long-format-pivot.md:318](TODO/20260517-canonical-long-format-pivot.md) (this row updated in this PR)
+- [docs/archive/plans/20260517-canonical-long-format-pivot.md:318](docs/archive/plans/20260517-canonical-long-format-pivot.md) (this row updated in this PR)
 - `TODO/TN-GRANULAR-GEO-PLAN.md` (multiple lines)
 - [datasets/migration-ledger.csv:218](datasets/migration-ledger.csv)
 - [datasets/schemas/csv.sources.schema.json:29](datasets/schemas/csv.sources.schema.json)

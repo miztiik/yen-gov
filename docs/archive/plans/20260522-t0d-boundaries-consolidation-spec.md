@@ -4,8 +4,8 @@
 **Status**: MERGED 2026-05-22 (`9e2ee3db`). All six chunks landed as one fused atomic commit per CLAUDE.md §15. Frontend repoint + ADR-0031 amendment + Tier-B `tier_b_boundary_layer_invariants` validator all in scope.
 **Authors**: Gregor (Architect — contract design), voicing Hans (Governance) on hierarchy + Max (OWID-style coverage strategist) on global precedent, per CLAUDE.md §0a authority routing.
 **Scope**: replace the flat `boundaries/in/geojson/*` topology + per-file `.sources.json` / `.metadata.json` / `.unkeyed.json` sidecars with a Hive-partitioned tree plus one canonical `boundary_layers.parquet` control table FK-bound to `taxonomy/sources.parquet`.
-**Amends**: [ADR-0031](../docs/architecture/decisions/0031-boundary-geometry-strategy.md) (Status: Accepted → Amended 2026-05-22 in T.0d commit `9e2ee3db`). Conforms to [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md) §12 v2.0.
-**Doc-class routing**: plan-doc per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md); rationale lives in ADR-0031 amendment (in the same commit as execution); current shape lives in `docs/architecture/data/boundaries.md` (rewritten same commit).
+**Amends**: [ADR-0031](../../architecture/decisions/0031-boundary-geometry-strategy.md) (Status: Accepted → Amended 2026-05-22 in T.0d commit `9e2ee3db`). Conforms to [ADR-0032](../../architecture/decisions/0032-sources-citation-ledger.md) §12 v2.0.
+**Doc-class routing**: plan-doc per [ADR-0034](../../architecture/decisions/0034-documentation-routing-contract.md); rationale lives in ADR-0031 amendment (in the same commit as execution); current shape lives in `docs/architecture/data/boundaries.md` (rewritten same commit).
 
 ---
 
@@ -64,7 +64,7 @@ PMTiles siblings (when a layer trips the 10 MB cutover from ADR-0031 §"Format s
 
 **Max (OWID precedent)**: GADM uses level-keyed split (`gadm41_IND_0.json` country, `_1.json` states, `_2.json` districts, `_3.json` subdistricts) — same level-spine. Natural Earth uses scale-keyed split (`ne_10m_admin_1_states`). OWID grapher fetches per-country shapefile at `countries.geojson` (single file with all features). None of those scale to per-village granularity; **GADM stops at level 3 (subdistrict)** because the next level explodes — vindicating both the Hive partition decision and the per-state shard for villages.
 
-> Note (2026-05-26): GADM is cited here only as topology precedent. yen-gov does **not** adopt GADM as a data source; rejection rationale (disputed-territory polygons, NC-only license, HASC vs LGD keys, staleness) lives in [docs/concepts/boundary-data-philosophy.md section "GADM rejection rationale"](../docs/concepts/boundary-data-philosophy.md#gadm-rejection-rationale).
+> Note (2026-05-26): GADM is cited here only as topology precedent. yen-gov does **not** adopt GADM as a data source; rejection rationale (disputed-territory polygons, NC-only license, HASC vs LGD keys, staleness) lives in [docs/concepts/boundary-data-philosophy.md section "GADM rejection rationale"](../../concepts/boundary-data-philosophy.md#gadm-rejection-rationale).
 
 ### Rejected alternatives
 
@@ -162,7 +162,7 @@ Per CLAUDE.md §15 paired-test discipline. P.1.A Energy plan §6 precedent (ever
 | 19 | `docs/architecture/decisions/0031-boundary-geometry-strategy.md` | **AMEND** Status: Accepted → **Amended 2026-05-22**. Add §"Amendment 2026-05-22 (T.0d)" + 3 new rejected alternatives (B9 per-file sidecar, B10 keep-and-rewrite, B11 partial-fold) | ADR rationale per CLAUDE.md §5 doc-routing | — |
 | 20 | `docs/architecture/data/boundaries.md` | **REWRITE** "Disk layout" + "sidecars" sections; everything else unchanged | Subsystem doc per ADR-0034 routing rule | — |
 | 21 | `docs/architecture/data/canonical-store.md` §17 | **MODIFY** pointer to mention `boundary_layers.parquet` ledger | Subsystem doc cross-link | — |
-| 22 | `TODO/20260517-canonical-long-format-pivot.md` §0e.7 + §0e.8 | **MODIFY** | T.0d ledger row marked DONE (commit SHA appended); retirement-ledger entry for 115 sidecars marked DONE | Plan-doc per ADR-0034 | — |
+| 22 | `docs/archive/plans/20260517-canonical-long-format-pivot.md` §0e.7 + §0e.8 | **MODIFY** | T.0d ledger row marked DONE (commit SHA appended); retirement-ledger entry for 115 sidecars marked DONE | Plan-doc per ADR-0034 | — |
 | 23 | `/memories/repo/yen-gov-architecture.md` line 117 | **MODIFY** | Replace "DEFERRED to T.0d" entry with "DONE T.0d" + SHA | Memory derived from docs | — |
 | 24 | `datasets/migration-ledger.csv` | **APPEND** row | Hive-tree + sidecar consolidation logged | — |
 
@@ -184,7 +184,7 @@ Correction Level: **4** (cross-cutting structural + behavioural; touches schemas
 
 | Risk | Severity | Mitigation |
 | --- | --- | --- |
-| **Directory-layout wrong** (we move 73 files, then realise the verdict is wrong) | HIGH | Get §1 user-approved BEFORE staging. Reversal is another rename PR + frontend rewrite + parquet rewrite — not catastrophic but expensive. The user's "Hive like elections" mandate plus GADM topology precedent (level-keyed split, see [philosophy doc](../docs/concepts/boundary-data-philosophy.md#gadm-rejection-rationale) for why we still don't adopt GADM as a source) give high confidence. |
+| **Directory-layout wrong** (we move 73 files, then realise the verdict is wrong) | HIGH | Get §1 user-approved BEFORE staging. Reversal is another rename PR + frontend rewrite + parquet rewrite — not catastrophic but expensive. The user's "Hive like elections" mandate plus GADM topology precedent (level-keyed split, see [philosophy doc](../../concepts/boundary-data-philosophy.md#gadm-rejection-rationale) for why we still don't adopt GADM as a source) give high confidence. |
 | **Future agent re-adds a per-file `.sources.json` under `boundaries/`** because §12 says every artifact needs provenance | MEDIUM | Four-fence defence: (a) Tier-B validator fails closed per item #17; (b) snapshot.py docstring carries a NEVER comment; (c) ADR-0031 amendment lists it as Rejected B9; (d) CLAUDE.md §10 gets one new anti-pattern bullet citing the amendment. PR1 (2026-05-22) precedent shows this pattern works. |
 | **Migration corrupts on-disk geometry** | LOW | `git mv` preserves bytes verbatim; SHA256-equality dance per the G.1.b lesson (2026-05-22) — snapshot all 73 geometry files SHA before migration, re-verify after. |
 | **§13 browser-smoke gap** — repointed paths might 404 if any reference is missed | MEDIUM | Greppable contract: search frontend for the literal string `boundaries/in/geojson/` (currently 16+ matches) and migrate every one. Verify with §13 browser smoke on all 5 representative map routes (TN AC, Kerala AC, India states, TN villages, TN subdistricts). |
@@ -236,9 +236,9 @@ PR #92 merge (doc-refactor) → Energy P.1.A → T.0d (boundaries consolidation)
 Read these, in order, before touching code:
 
 1. **This file** — §1 layout + §2 scope + §3 checklist + §4 risks.
-2. **[ADR-0031](../docs/architecture/decisions/0031-boundary-geometry-strategy.md)** — current architecture; this T.0d commit amends it.
-3. **[ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md)** — §12 v2.0 sources contract; the FK target.
-4. **[boundaries.md](../docs/architecture/data/boundaries.md)** — current operational spec; this T.0d commit rewrites "Disk layout" + "sidecars" sections.
+2. **[ADR-0031](../../architecture/decisions/0031-boundary-geometry-strategy.md)** — current architecture; this T.0d commit amends it.
+3. **[ADR-0032](../../architecture/decisions/0032-sources-citation-ledger.md)** — §12 v2.0 sources contract; the FK target.
+4. **[boundaries.md](../../architecture/data/boundaries.md)** — current operational spec; this T.0d commit rewrites "Disk layout" + "sidecars" sections.
 5. **[`tools/boundaries/snapshot.py`](../tools/boundaries/snapshot.py)** — current sidecar-emit code; this T.0d commit rewrites the 4 writer methods.
 6. **[`frontend/src/lib/maplibre/sources.ts`](../frontend/src/lib/maplibre/sources.ts)** — current frontend consumer; this T.0d commit repoints `geojson_local_path` strings.
 

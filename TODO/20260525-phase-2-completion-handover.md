@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-05-25
 **Doc class**: plan-doc per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md). This is the operational runbook the next coding agent reads at session-start to continue the canonical long-format pivot autonomously.
-**Anchors to**: [`TODO/20260517-canonical-long-format-pivot.md`](20260517-canonical-long-format-pivot.md) (the umbrella plan; this handover advances its §0e.8a pending tracker).
+**Anchors to**: [`docs/archive/plans/20260517-canonical-long-format-pivot.md`](../docs/archive/plans/20260517-canonical-long-format-pivot.md) (the umbrella plan; this handover advances its §0e.8a pending tracker).
 **Authority**: User mandate 2026-05-25 ("park livestock NDLM as last in Phase 2; focus on the other items; work autonomously; invoke custom agents on doubt; structural fixes only").
 
 ---
@@ -58,7 +58,7 @@ These are CLAUDE.md restatements specialised to the Phase-2 closing context. **T
 
 ## 3. Plan anchor — where we are right now
 
-**Umbrella plan**: [`TODO/20260517-canonical-long-format-pivot.md`](20260517-canonical-long-format-pivot.md).
+**Umbrella plan**: [`docs/archive/plans/20260517-canonical-long-format-pivot.md`](../docs/archive/plans/20260517-canonical-long-format-pivot.md).
 
 **5-phase totals** (per the umbrella):
 
@@ -117,7 +117,7 @@ If ANY hit is in a canonical-adapter lift block, the shard is bucket (b) and nee
 
 **Subagent invocation suggested**:
 - **Gregor** — verify the classification of each bucket-(a) candidate against the §2b 5-fact-table lock + D33.8 compute-on-read rule. Risk of regressing canonical-input contracts.
-- **Max** — verify each bucket-(b) candidate against the P.1.C indicator list (§2 of [`TODO/20260522-phase-2-p1-energy-pivot.md`](20260522-phase-2-p1-energy-pivot.md)). Risk of orphaning data Max wants in P.1.C.
+- **Max** — verify each bucket-(b) candidate against the P.1.C indicator list (§2 of [`docs/archive/plans/20260522-phase-2-p1-energy-pivot.md`](../docs/archive/plans/20260522-phase-2-p1-energy-pivot.md)). Risk of orphaning data Max wants in P.1.C.
 
 **Completion criterion** ([ADR-0041](../docs/architecture/decisions/0041-meadow-tier.md)): `git ls-tree origin/main -- datasets/indicators/in/energy/` returns empty.
 
@@ -196,7 +196,7 @@ If ANY hit is in a canonical-adapter lift block, the shard is bucket (b) and nee
 
 **Plan row**: §0e.8a "P.1 Energy - P.1.C + P.1.D remaining energy sub-pivots". **Status**: ◻ QUEUED.
 
-**Scope**: per §4 of [`TODO/20260522-phase-2-p1-energy-pivot.md`](20260522-phase-2-p1-energy-pivot.md) — adds 9 indicators across `energy_fuel_consumption.parquet` + `energy_installed_capacity.parquet` extensions:
+**Scope**: per §4 of [`docs/archive/plans/20260522-phase-2-p1-energy-pivot.md`](../docs/archive/plans/20260522-phase-2-p1-energy-pivot.md) — adds 9 indicators across `energy_fuel_consumption.parquet` + `energy_installed_capacity.parquet` extensions:
 
 ```
 state_coal_consumption_mt              (re-anchor to Coal Controller)
@@ -376,8 +376,8 @@ When the last non-livestock §0e.8a row closes, write a 1-paragraph summary of w
 
 ## 8. References
 
-- **Umbrella plan**: [`TODO/20260517-canonical-long-format-pivot.md`](20260517-canonical-long-format-pivot.md) — your §0e.8a queue
-- **P.1 Energy sub-plan**: [`TODO/20260522-phase-2-p1-energy-pivot.md`](20260522-phase-2-p1-energy-pivot.md) — PR-level scope for PRs 6 + 7 above
+- **Umbrella plan**: [`docs/archive/plans/20260517-canonical-long-format-pivot.md`](../docs/archive/plans/20260517-canonical-long-format-pivot.md) — your §0e.8a queue
+- **P.1 Energy sub-plan**: [`docs/archive/plans/20260522-phase-2-p1-energy-pivot.md`](../docs/archive/plans/20260522-phase-2-p1-energy-pivot.md) — PR-level scope for PRs 6 + 7 above
 - **Livestock NDLM sub-plan** (PARKED for last): [`TODO/20260525-livestock-ndlm-ingest-plan.md`](20260525-livestock-ndlm-ingest-plan.md)
 - **Meadow tier concept** ([ADR-0041](../docs/architecture/decisions/0041-meadow-tier.md) precedent): [`docs/concepts/meadow-tier.md`](../docs/concepts/meadow-tier.md) — your bucket-(a)/(b)/(c) decision frame
 - **Canonical store spec**: [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md)

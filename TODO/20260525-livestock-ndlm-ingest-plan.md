@@ -212,7 +212,7 @@ Each PR:
 
 ## 12. Pointer to umbrella
 
-This plan registers a new family on the **canonical long-format pivot** umbrella at [TODO/20260517-canonical-long-format-pivot.md](20260517-canonical-long-format-pivot.md) §0e.8a pending-work tracker. Add a row there once Phase 0 PR opens.
+This plan registers a new family on the **canonical long-format pivot** umbrella at [docs/archive/plans/20260517-canonical-long-format-pivot.md](../docs/archive/plans/20260517-canonical-long-format-pivot.md) §0e.8a pending-work tracker. Add a row there once Phase 0 PR opens.
 
 ## 13. Closing
 

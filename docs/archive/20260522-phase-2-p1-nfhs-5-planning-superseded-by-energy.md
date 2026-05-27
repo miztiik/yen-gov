@@ -1,6 +1,6 @@
 # 2026-05-22 — Phase 2 P.1 NFHS-5: planning handover (archived; superseded by Energy pivot)
 
-> **ARCHIVED 2026-05-22** — This planning doc was drafted on the assumption that **Phase 2 P.1 = NFHS-5**. The user clarified on 2026-05-22 that **Phase 2 P.1 = Energy** (Option E in the agent's "which family next" question; the agent had defaulted to NFHS-5 based on a wrong reading of `§0e.7 P.*` ordering — the Max-recommended ordering in `§0e.2 Q7` was NFHS-5 → PLFS → UDISE+ → ..., but the user's choice supersedes per CLAUDE.md §0a). The NFHS-5 plan content below is preserved for the eventual NFHS-5 P.\* row when it lands later in Phase 2; nothing in this doc has been merged or shipped. The active Phase 2 P.1 plan now lives at [`TODO/20260522-phase-2-p1-energy-pivot.md`](../../TODO/20260522-phase-2-p1-energy-pivot.md).
+> **ARCHIVED 2026-05-22** — This planning doc was drafted on the assumption that **Phase 2 P.1 = NFHS-5**. The user clarified on 2026-05-22 that **Phase 2 P.1 = Energy** (Option E in the agent's "which family next" question; the agent had defaulted to NFHS-5 based on a wrong reading of `§0e.7 P.*` ordering — the Max-recommended ordering in `§0e.2 Q7` was NFHS-5 → PLFS → UDISE+ → ..., but the user's choice supersedes per CLAUDE.md §0a). The NFHS-5 plan content below is preserved for the eventual NFHS-5 P.\* row when it lands later in Phase 2; nothing in this doc has been merged or shipped. The active Phase 2 P.1 plan now lives at [`docs/archive/plans/20260522-phase-2-p1-energy-pivot.md`](plans/20260522-phase-2-p1-energy-pivot.md).
 
 ---
 
@@ -162,8 +162,8 @@ Every P.1.x sub-PR ships with:
 
 ## See also
 
-- [TODO/20260517-canonical-long-format-pivot.md](20260517-canonical-long-format-pivot.md) §0e.4 (topic taxonomy) + §0e.7 P.\* row (sequencing).
-- [TODO/20260521-phase-2-preflight-audit-gregor.md](20260521-phase-2-preflight-audit-gregor.md) §"Deferrals & open decisions" (open questions that may affect P.1 design).
+- [docs/archive/plans/20260517-canonical-long-format-pivot.md](20260517-canonical-long-format-pivot.md) §0e.4 (topic taxonomy) + §0e.7 P.\* row (sequencing).
+- [docs/archive/plans/20260521-phase-2-preflight-audit-gregor.md](20260521-phase-2-preflight-audit-gregor.md) §"Deferrals & open decisions" (open questions that may affect P.1 design).
 - [docs/architecture/data/canonical-store.md](../docs/architecture/data/canonical-store.md) §2a (naming rule), §2b (target tree), §5 (sources contract).
 - [docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md).
 - [docs/architecture/decisions/0032-sources-citation-ledger.md](../docs/architecture/decisions/0032-sources-citation-ledger.md).

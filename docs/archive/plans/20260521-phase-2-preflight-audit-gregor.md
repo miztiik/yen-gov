@@ -176,7 +176,7 @@ Each pair includes the doctrine / doc updates that close the §0d "deferred read
 
 ### PR1 — `feat/phase-2-preflight-forbid-new-folded-indicator-shards` — ✅ done (commit `8de71a4a`, PR #87, merged 2026-05-22)
 - Tier-B validator check: `tier_b_meadow_shard_contract` in `backend/yen_gov/validate.py` reads the allowlist `datasets/_ops/meadow-shard-contract.txt` and fails the validator on any `*.json` under `datasets/indicators/in/` not listed. Also fails on orphan allowlist entries (in allowlist but not on disk). No-op when the directory is absent (final-retirement contract).
-- **Design refinement from spec**: original spec said `git diff origin/main..HEAD --name-only` — replaced with an on-disk allowlist because (a) validator deliberately doesn't shell out to git (it runs against any checkout, including detached HEAD or zip-extracted), (b) the allowlist file IS the doctrinal artifact: P.* retirement PRs amend it in the same Tier-A commit as the `git rm` of the shards, so the allowlist file's diff is the audit trail; (c) the same plain-text `_ops/` allowlist pattern is reusable for the planned `tier_b_no_legacy_people_acgen` / `tier_b_no_legacy_results_csv` / `tier_b_no_legacy_states_subdir` checks (see [docs/architecture/canonical-pivot-deletion-manifest.md §6d](../docs/architecture/canonical-pivot-deletion-manifest.md)).
+- **Design refinement from spec**: original spec said `git diff origin/main..HEAD --name-only` — replaced with an on-disk allowlist because (a) validator deliberately doesn't shell out to git (it runs against any checkout, including detached HEAD or zip-extracted), (b) the allowlist file IS the doctrinal artifact: P.* retirement PRs amend it in the same Tier-A commit as the `git rm` of the shards, so the allowlist file's diff is the audit trail; (c) the same plain-text `_ops/` allowlist pattern is reusable for the planned `tier_b_no_legacy_people_acgen` / `tier_b_no_legacy_results_csv` / `tier_b_no_legacy_states_subdir` checks (see [docs/architecture/canonical-pivot-deletion-manifest.md §6d](../../architecture/canonical-pivot-deletion-manifest.md)).
 - Add to `docs/architecture/canonical-pivot-deletion-manifest.md` (new §6d "Tier-B forbidden-path checks" subsection) — ✅ done in this PR.
 - Add to CLAUDE.md §10 anti-pattern list (appended "Enforced by Tier-B" sentence to existing entry) — ✅ done in this PR.
 - New mechanism doc section: `docs/architecture/backend/validator.md` "Forbidden-path checks" — ✅ done in this PR.
@@ -187,7 +187,7 @@ Each pair includes the doctrine / doc updates that close the §0d "deferred read
 ### PR2 — `feat/phase-2-preflight-t1-status-features-audit-g1-deferred` — ✅ done (commit `8fb3e935`, PR #88, merged 2026-05-22)
 - Reconcile audit body T.1 status (was "not shipped" → now "✅ done commit `76bc5fde`").
 - Features audit: KEEP decision documented in new [`datasets/features/README.md`](../datasets/features/README.md) (sole writer = india-geodata adapter; sole reader = energy-hub map; geometry has no Parquet analytical path).
-- Update [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md) §2b.3 features row to "KEEP".
+- Update [`docs/architecture/data/canonical-store.md`](../../architecture/data/canonical-store.md) §2b.3 features row to "KEEP".
 - G.1 explicit defer: new [`TODO/20260522-g1-cm-terms-retirement-handover.md`](20260522-g1-cm-terms-retirement-handover.md) (~150 lines) with 3-PR strangler-fig design (G.1.a entity-lift / G.1.b reader-switch / G.1.c JSON+seed-delete), rejected alternatives, acceptance criteria.
 - Insert G.1.a/b/c rows in §"Recommended sequencing" between PR3 and Phase 2.
 - Final shape: ~30 LOC features README + ~150 LOC G.1 handover + ~50 LOC audit-doc edits = ~230 lines.
@@ -227,7 +227,7 @@ After all three, Phase 2 P.\* NFHS-5 starts on clean ground. **All steps DONE as
 
 ## Cross-references
 
-- Original plan: `TODO/20260517-canonical-long-format-pivot.md`
+- Original plan: `docs/archive/plans/20260517-canonical-long-format-pivot.md`
 - v2.0 citation ledger: `docs/architecture/decisions/0032-sources-citation-ledger.md`
 - T.0c-ii Phase A handover (now superseded): `TODO/20260521-states-json-port-blocker-entities-ut-gap.md`
 - States.json Phase B + Phase C (T.0c-ii arc closer): ✅ COMPLETE — Phase B `feat/states-json-port-phase-b-backend-consumers` merged 2026-05-22 (backend consumers ported); Phase C `feat/states-json-port-phase-c-frontend-delete` (frontend `fetchStates()` wrapper + `datasets/reference/in/states.json` + `datasets/schemas/state.schema.json` + `backend/tests/test_states_parity.py` deletions + §13 browser smoke).

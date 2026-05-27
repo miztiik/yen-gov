@@ -2,9 +2,9 @@
 
 **Last Updated**: 2026-05-24
 **Status**: NEW — Path A of the [C5+C6 retire-list audit](20260524-p1a-c5-retire-list-audit-findings.md) is **CHOSEN**. Path A retires the 8 SAFE shards in a near-term PR but DEFERS 8 unsafe shards because canonical does not yet carry their data. Plus 1 SAFE-retired shard (`state_peak_electricity_demand_mw.json`) loses its FY25 single-window snapshot. This plan enumerates each missing data item, names the publisher + endpoint, picks the catalogue grammar for the canonical replacement, routes the Hans/Max authority decisions, and orders the lifts into 4 sub-PRs.
-**Doc class**: plan-doc per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md) — status + active PRs + open Qs only; no rejected-alternative archaeology (that lives in the audit doc + the energy pivot plan-doc).
+**Doc class**: plan-doc per [ADR-0034](../../architecture/decisions/0034-documentation-routing-contract.md) — status + active PRs + open Qs only; no rejected-alternative archaeology (that lives in the audit doc + the energy pivot plan-doc).
 **Authority routing** (CLAUDE.md §0a): Hans + Max for snapshot-vs-time-series identity decisions + tier promotion; Gregor for catalogue / fact-table contract additions; Fowler for per-lift fused-atomic PR shape.
-**Cites**: [C5+C6 retire-list audit findings](20260524-p1a-c5-retire-list-audit-findings.md) (the 9-shard list this plan re-sources); [P.1 energy pivot plan-doc](20260522-phase-2-p1-energy-pivot.md) §2 (fact-table decomposition) + §3 Q-c (long-arc splice verdict) + §3 Q-d (tier table) + §3.1 #11 (silver→gold tier promotion); [canonical-store.md §2b](../docs/architecture/data/canonical-store.md); [ADR-0030 D33.8](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md) (atomic-fuel + compute-on-read); [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md) (sources v2.0 + `derive_source_id`).
+**Cites**: [C5+C6 retire-list audit findings](20260524-p1a-c5-retire-list-audit-findings.md) (the 9-shard list this plan re-sources); [P.1 energy pivot plan-doc](20260522-phase-2-p1-energy-pivot.md) §2 (fact-table decomposition) + §3 Q-c (long-arc splice verdict) + §3 Q-d (tier table) + §3.1 #11 (silver→gold tier promotion); [canonical-store.md §2b](../../architecture/data/canonical-store.md); [ADR-0030 D33.8](../../architecture/decisions/0030-canonical-store-duckdb-wasm.md) (atomic-fuel + compute-on-read); [ADR-0032](../../architecture/decisions/0032-sources-citation-ledger.md) (sources v2.0 + `derive_source_id`).
 
 ---
 
@@ -108,7 +108,7 @@ The lift block 4 iterates `_FY25_PEAK_DEMAND_ROWS` verbatim, calls `parse_iso_pe
 
 **Phase C acceptance gates (all GREEN)**: targeted backend pytest (12/12 — 8 demand_supply parity + 2 adapter build + 2 emit determinism, 20s); full backend pytest (876 / 44 skipped / 0 failed); determinism (two consecutive `python -m yen_gov lift-energy --root .` runs produce byte-identical `energy_demand_supply.parquet`, SHA256 match); `python -m yen_gov validate --root .` ("OK (0 issues)"); §13 browser smoke on `/s/tamil-nadu` (20,211 MW), `/s/kerala` (5,861 MW), `/s/bihar` (8,741 MW) — citizen values unchanged from Phase B.
 
-**Estimated (revised)**: Phase A: ~½ day actual (PR #119). Phase B: ~½ day actual (PR #171). Phase C: ~½ day actual (PR #174). Phase D: ~½ day actual (this PR, #176). **Four-phase strangler-fig closed.** See [canonical-store.md §18.1](../docs/architecture/data/canonical-store.md#181-strangler-fig-retirement-iced-peak-demand-legacy-shards-phase-ad-2026-05-24) for the consolidated retirement-pattern narrative.
+**Estimated (revised)**: Phase A: ~½ day actual (PR #119). Phase B: ~½ day actual (PR #171). Phase C: ~½ day actual (PR #174). Phase D: ~½ day actual (this PR, #176). **Four-phase strangler-fig closed.** See [canonical-store.md §18.1](../../architecture/data/canonical-store.md#181-strangler-fig-retirement-iced-peak-demand-legacy-shards-phase-ad-2026-05-24) for the consolidated retirement-pattern narrative.
 
 ### P.1.A C4.5 — CEA per-state per-fuel snapshot lift (3 days; Hans+Max Q1 needed) ✅ DONE 2026-05-24 (SHIP-LIFT-ONLY)
 
@@ -174,7 +174,7 @@ The lift block 4 iterates `_FY25_PEAK_DEMAND_ROWS` verbatim, calls `parse_iso_pe
 1. **Q3 decision (Hans+Max, MUST resolve before code)**: do we want sub-fuel granularity (large-hydro vs small-hydro; bio-power vs waste-to-energy; wind vs solar-utility vs solar-rooftop) as citizen-surface indicators?
    - **Option A (preserve detail)**: widen catalogue with `state-installed-capacity-geographical-mw-{sub-fuel}` × ~4 new sub-fuels; lift the 678 currently-collapsed rows; widen `fuel_type` enum in `facet-axes.parquet`. Multiplies catalogue width; relaxes D33.8 5-bucket rule.
    - **Option B (accept collapse + fence)**: D33.8's 5-bucket axis is a permanent design choice; the 678 rows live only as derivation="sum" inputs to per-fuel children. Retire the legacy shard with a `methodology_breaks` row documenting the collapse rationale. Add a Tier-B fence banning new sub-fuel shards.
-   - **Recommended**: Option B. The 5-bucket axis was Hans's D33.8 ruling; preserving sub-fuel detail re-opens it and forces every downstream chart (stacked-trend, choropleth, IndicatorRanked) to choose a fuel-axis granularity per chart — exactly the per-chart-bespoke pattern Jony's [`docs/concepts/entity-bifurcation-rendering.md`](../docs/concepts/entity-bifurcation-rendering.md) §2 already rejected as accidental complexity.
+   - **Recommended**: Option B. The 5-bucket axis was Hans's D33.8 ruling; preserving sub-fuel detail re-opens it and forces every downstream chart (stacked-trend, choropleth, IndicatorRanked) to choose a fuel-axis granularity per chart — exactly the per-chart-bespoke pattern Jony's [`docs/concepts/entity-bifurcation-rendering.md`](../../concepts/entity-bifurcation-rendering.md) §2 already rejected as accidental complexity.
 2. Under Option A: 4 new catalogue rows + ~170 new observation rows + `fuel_type` enum extension + Tier-B sub-fuel-ban removal.
 3. Under Option B: retire `state_installed_capacity_by_source_mw.json` directly (no canonical change) + author a `methodology_breaks` row explaining the 5-bucket collapse + scrub allowlist.
 4. Tier-A + Tier-B + §13 smoke per option.
@@ -211,9 +211,9 @@ The next PR (Path A retire of 8 SAFE shards) ships separately per the audit doc 
 - [C5+C6 retire-list audit findings (PR #117)](20260524-p1a-c5-retire-list-audit-findings.md) — source of the 9 deferred/lost shards
 - [C5+C6 canonical reader design (PR #116)](20260524-p1a-c5-c6-canonical-reader-design.md) — the design that gates the final retire pass
 - [P.1 energy pivot plan-doc](20260522-phase-2-p1-energy-pivot.md) §2 (canonical decomposition) + §3 Q-c (long-arc splice) + §3 Q-d (tier table) + §3.1 #11 (tier promotion follow-up) + §6 (hard drops)
-- [canonical-store.md §2b](../docs/architecture/data/canonical-store.md) — fact-table layout rules
-- [ADR-0030 D33.8](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md) — atomic-fuel + compute-on-read invariant
-- [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md) — `derive_source_id` for new (producer, title, vintage) triples
+- [canonical-store.md §2b](../../architecture/data/canonical-store.md) — fact-table layout rules
+- [ADR-0030 D33.8](../../architecture/decisions/0030-canonical-store-duckdb-wasm.md) — atomic-fuel + compute-on-read invariant
+- [ADR-0032](../../architecture/decisions/0032-sources-citation-ledger.md) — `derive_source_id` for new (producer, title, vintage) triples
 - [`tools/inspect_canonical_energy.py`](../tools/inspect_canonical_energy.py) — re-runnable canonical-store inventory; produced the rowcounts cited in §2
 - [`backend/yen_gov/canonical/adapters/energy/installed_capacity.py`](../backend/yen_gov/canonical/adapters/energy/installed_capacity.py) — existing C4 adapter; C4.5 extends it
 - /memories/lessons.md 2026-05-24 PR #117 — conceptual-map-vs-data-shape lesson that drove this plan

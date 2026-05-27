@@ -4,7 +4,7 @@
 **Status**: Accepted
 **Deciders**: User (autonomous mandate, 2026-05-25) + Hans (Governance) + Max (Indicator Scout) + Gregor (Architect) — parallel custom-agent consult 2026-05-25; all three personas converged on Strategy F (Gregor's framing). Authority assignment per CLAUDE.md §0a: data shape = Hans + Max; integration topology = Gregor.
 **Supersedes**: nothing. **Refines**: [ADR-0030 D1/D10/D13](0030-canonical-store-duckdb-wasm.md) (canonical store position) and the `meadow-shard-contract.txt` allowlist contract (semantics changed from "countdown to retirement" → "perimeter for canonical-input contract"; file rename deferred to PR 7c-4).
-**Plan reference**: [`TODO/20260517-canonical-long-format-pivot.md` §0e.8a + §0e.8b](../../../TODO/20260517-canonical-long-format-pivot.md). On conflict THE PLAN wins and this ADR is amended.
+**Plan reference**: [`docs/archive/plans/20260517-canonical-long-format-pivot.md` §0e.8a + §0e.8b](../../archive/plans/20260517-canonical-long-format-pivot.md). On conflict THE PLAN wins and this ADR is amended.
 
 ## Context
 
@@ -170,5 +170,5 @@ Ingest adapter knows canonical shape; writes both meadow and canonical Parquet d
 - **[ADR-0034](0034-documentation-routing-contract.md)** — doc-class routing contract (this ADR qualifies per dual test: credible rejected alternative + cross-cutting)
 - **[`docs/concepts/meadow-tier.md`](../../concepts/meadow-tier.md)** — meadow vocabulary + topology (defined once, linked from everywhere)
 - **[`docs/architecture/data/canonical-store.md`](../data/canonical-store.md) §2b.5** — per-family directory invariant amended to include `_meadow/`
-- **[`TODO/20260517-canonical-long-format-pivot.md` §0e.8a + §0e.8b](../../../TODO/20260517-canonical-long-format-pivot.md)** — pending-work tracker + Strategy F ratification
+- **[`docs/archive/plans/20260517-canonical-long-format-pivot.md` §0e.8a + §0e.8b](../../archive/plans/20260517-canonical-long-format-pivot.md)** — pending-work tracker + Strategy F ratification
 - **`/memories/lessons.md` 2026-05-25** — strangler-fig blast-radius trap (PR 7c discovery that motivated this ADR)

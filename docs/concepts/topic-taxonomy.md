@@ -103,6 +103,6 @@ Removing a topic is harder: every indicator carrying that tag must lose it (M:N 
 
 ## What this concept is NOT
 
-- **Not a directory.** `datasets/indicators/<topic>/` no longer exists (retired in Phase 1 per `TODO/20260517-canonical-long-format-pivot.md` §7 rows 1.8a–1.8f). All indicators live under `datasets/<family>/` keyed by the publisher's natural family, not by topic.
+- **Not a directory.** `datasets/indicators/<topic>/` no longer exists (retired in Phase 1 per `docs/archive/plans/20260517-canonical-long-format-pivot.md` §7 rows 1.8a–1.8f). All indicators live under `datasets/<family>/` keyed by the publisher's natural family, not by topic.
 - **Not the citizen URL grammar.** URLs are `/indicator/<slug>` and `/topic/<slug>`; a topic does NOT appear inside an indicator URL.
 - **Not exhaustive.** Indicators may have one, two, or three topic tags. Mean is ~1.4 tags per indicator at the current corpus.

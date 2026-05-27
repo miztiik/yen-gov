@@ -2,8 +2,8 @@
 
 **Last Updated**: 2026-05-22
 **Doc class**: concept per [ADR-0034](../architecture/decisions/0034-documentation-routing-contract.md) — one vocabulary term, defined once.
-**Cites**: [ADR-0028](../architecture/decisions/0028-url-scheme-place-first-flat-indicator-slug.md) (URL grammar), [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md) D23 (entity validity columns), [canonical-store.md](../architecture/data/canonical-store.md), [indicator-naming.md §2.4](indicator-naming.md), [schema-is-the-design-system.md](schema-is-the-design-system.md) (closed renderer set), [colours.md](../architecture/frontend/colours.md) (OkLCh treatment vocabulary), [Phase 2 P.1 Energy plan §3 Q-e + §3.1 #2](../../TODO/20260522-phase-2-p1-energy-pivot.md).
-**Cited from**: [Phase 2 P.1 Energy plan §3.1 follow-up #2](../../TODO/20260522-phase-2-p1-energy-pivot.md) (hard-blocker for any P.1.A indicator that crosses 2014/2019 entity splits).
+**Cites**: [ADR-0028](../architecture/decisions/0028-url-scheme-place-first-flat-indicator-slug.md) (URL grammar), [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md) D23 (entity validity columns), [canonical-store.md](../architecture/data/canonical-store.md), [indicator-naming.md §2.4](indicator-naming.md), [schema-is-the-design-system.md](schema-is-the-design-system.md) (closed renderer set), [colours.md](../architecture/frontend/colours.md) (OkLCh treatment vocabulary), [Phase 2 P.1 Energy plan §3 Q-e + §3.1 #2](../archive/plans/20260522-phase-2-p1-energy-pivot.md).
+**Cited from**: [Phase 2 P.1 Energy plan §3.1 follow-up #2](../archive/plans/20260522-phase-2-p1-energy-pivot.md) (hard-blocker for any P.1.A indicator that crosses 2014/2019 entity splits).
 **See also**: [data-provenance.md](data-provenance.md), [long-coverage-indicators.md](long-coverage-indicators.md), [owid-alignment.md](owid-alignment.md).
 
 ---
@@ -15,7 +15,7 @@ This doc locks how yen-gov renders **mid-series territorial reorganisations** of
 - **2014 — Andhra Pradesh reorganisation.** `IN-S01` (Andhra Pradesh, since 1956) is **reused** as the residual entity with `entity_valid_to: null`; `IN-S29` (Telangana, `entity_valid_from: 2014`) is the new entity. **Residual-id case**: the entity model alone does not surface the scope change — the renderer has to.
 - **2019 — Jammu and Kashmir reorganisation.** `IN-S09` (Jammu and Kashmir, the composite state) is **retired** with `entity_valid_to: 2019`; `IN-U08` (J&K UT) and `IN-U09` (Ladakh UT) are new entities with `entity_valid_from: 2019`. **Retired-predecessor case**: the entity model surfaces the change cleanly.
 
-**Out of scope.** Border adjustments smaller than a district; rename-without-territory-change (handled as a slug-rename, not a reorganisation); office_bearer reorganisations (covered by `office_holdings.parquet` per [G.1.c](../../TODO/20260517-canonical-long-format-pivot.md)).
+**Out of scope.** Border adjustments smaller than a district; rename-without-territory-change (handled as a slug-rename, not a reorganisation); office_bearer reorganisations (covered by `office_holdings.parquet` per [G.1.c](../archive/plans/20260517-canonical-long-format-pivot.md)).
 
 The asymmetry between the two on-disk cases (id reuse for AP vs clean retire for J&K) is **load-bearing**: the renderer rules below must work for both. If a third case lands that introduces a third pattern, this doc earns a major revision.
 

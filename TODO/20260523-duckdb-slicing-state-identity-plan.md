@@ -88,7 +88,7 @@ P1 uses `state=in_s22` only because that is the current election partition. It m
 
 ## See also
 
-- [TODO/20260517-canonical-long-format-pivot.md](20260517-canonical-long-format-pivot.md)
+- [docs/archive/plans/20260517-canonical-long-format-pivot.md](../docs/archive/plans/20260517-canonical-long-format-pivot.md)
 - [TODO/20260518-browser-governance-insight-assistant-plan.md](20260518-browser-governance-insight-assistant-plan.md)
-- [TODO/20260522-phase-2-p1-energy-pivot.md](20260522-phase-2-p1-energy-pivot.md)
+- [docs/archive/plans/20260522-phase-2-p1-energy-pivot.md](../docs/archive/plans/20260522-phase-2-p1-energy-pivot.md)
 - [docs/reference/lgd-opendata.md](../docs/reference/lgd-opendata.md)

@@ -41,7 +41,7 @@ This ADR exists because the answer is **cross-cutting** (data layer + frontend r
 | Village per state | GeoJSON now (TN partial) | → PMTiles per state when state coverage exceeds budget |
 | Postal (pincode, orthogonal — not LGD) | GeoJSON per city | stays GeoJSON per city (segregated under `postal/` — see boundaries.md) |
 
-**The 10 MB threshold answers Q11 of THE PLAN** ([TODO/20260517-canonical-long-format-pivot.md](../../../TODO/20260517-canonical-long-format-pivot.md)). It is an opening bid, not a hard wall: re-evaluate when the first layer trips it. The deciding factor is wall-clock cold-load on a mid-tier Android — when the GeoJSON download visibly stalls the map paint, switch.
+**The 10 MB threshold answers Q11 of THE PLAN** ([docs/archive/plans/20260517-canonical-long-format-pivot.md](../../archive/plans/20260517-canonical-long-format-pivot.md)). It is an opening bid, not a hard wall: re-evaluate when the first layer trips it. The deciding factor is wall-clock cold-load on a mid-tier Android — when the GeoJSON download visibly stalls the map paint, switch.
 
 ### Why a sibling family, not Parquet
 
@@ -362,5 +362,5 @@ Subsequent phases:
 - [docs/concepts/boundary-data-philosophy.md](../../concepts/boundary-data-philosophy.md) -- the "why" behind every boundary-data choice (polygons vs topographic raster, GADM rejection, TopoJSON adoption status, DIGIPIN deferral, HTL kept on purpose)
 - [canonical-store.md §17](../data/canonical-store.md) — pointer from the canonical store to this ADR
 - [canonical-pivot deletion manifest](../canonical-pivot-deletion-manifest.md) — re-asserts the no-move rule
-- [THE PLAN §0c + §6 step 0.14](../../../TODO/20260517-canonical-long-format-pivot.md) — boundaries-preservation reinforcement
+- [THE PLAN §0c + §6 step 0.14](../../archive/plans/20260517-canonical-long-format-pivot.md) — boundaries-preservation reinforcement
 - [frontend/maps.md](../frontend/maps.md) — operational rendering rules (Lakshadweep, choropleth greying)

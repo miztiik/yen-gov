@@ -4,7 +4,7 @@
 **Status**: Accepted
 **Deciders**: User; agent-deliberation across rounds R1–R11 included Hans (Governance), Max (Indicator Scout), Gregor (Architect), Fowler (Engineering), Jony (UI/UX), Citizen
 **Supersedes**: [ADR-0026](0026-lift-collection-inventory-out-of-indicator-artifact.md) (lift collection inventory), [ADR-0027](0027-cadence-as-separate-field-from-time-grain.md) (cadence as separate field), and the per-shard JSON folded-indicator doctrine in [`docs/concepts/folded-indicator.md`](../../concepts/folded-indicator.md) + [`docs/concepts/collection-inventory.md`](../../concepts/collection-inventory.md). Also retires the strangler-fig coexistence stance — production is rip-and-replace (D13).
-**Plan reference**: [TODO/20260517-canonical-long-format-pivot.md](../../../TODO/20260517-canonical-long-format-pivot.md) is THE PLAN; on conflict THE PLAN wins and this ADR is amended.
+**Plan reference**: [docs/archive/plans/20260517-canonical-long-format-pivot.md](../../archive/plans/20260517-canonical-long-format-pivot.md) is THE PLAN; on conflict THE PLAN wins and this ADR is amended.
 
 ## Context
 
@@ -234,7 +234,7 @@ Open questions Q1–Q11 (THE PLAN §12) are resolved at the phase that needs the
 
 ## See also
 
-- [THE PLAN](../../../TODO/20260517-canonical-long-format-pivot.md) — single source of truth (this ADR is settled inside it).
+- [THE PLAN](../../archive/plans/20260517-canonical-long-format-pivot.md) — single source of truth (this ADR is settled inside it).
 - [Canonical-pivot deletion manifest](../canonical-pivot-deletion-manifest.md) — what retires, when, and why.
 - [`docs/architecture/data/canonical-store.md`](../data/canonical-store.md) — target architecture (**Phase 0.2, to be authored**; will include D30 naming convention and D31 facet-axes registry).
 - ADR-0031 — boundary geometry strategy (**Phase 0.14, to be authored**; captures D25 scope, GeoJSON↔PMTiles cutover, future PCs/taluks/villages roadmap).
