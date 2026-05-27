@@ -723,7 +723,7 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d).not.toBeNull();
     expect(d!.kind).toBe("facet-multiplexed");
     if (d!.kind === "facet-multiplexed") {
-      expect(d!.canonical_parent_indicator_id).toBe("state-oil-product-consumption-kt");
+      expect(d!.canonical_parent_indicator_id).toBe("oil-product-consumption-kt");
       expect(d!.facet_axis_id).toBe("oil_product");
       // Exactly 7 children: diesel-hsd, petrol, lpg, kerosene, naphtha,
       // petroleum-coke, others. Publisher labels are 1:1 with canonical
@@ -731,13 +731,13 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
       expect(d!.facet_values.length).toBe(7);
       const childIds = d!.facet_values.map((fv) => fv.canonical_child_id).sort();
       expect(childIds).toEqual([
-        "state-oil-product-consumption-kt-diesel-hsd",
-        "state-oil-product-consumption-kt-kerosene",
-        "state-oil-product-consumption-kt-lpg",
-        "state-oil-product-consumption-kt-naphtha",
-        "state-oil-product-consumption-kt-others",
-        "state-oil-product-consumption-kt-petrol",
-        "state-oil-product-consumption-kt-petroleum-coke",
+        "oil-product-consumption-kt-diesel-hsd",
+        "oil-product-consumption-kt-kerosene",
+        "oil-product-consumption-kt-lpg",
+        "oil-product-consumption-kt-naphtha",
+        "oil-product-consumption-kt-others",
+        "oil-product-consumption-kt-petrol",
+        "oil-product-consumption-kt-petroleum-coke",
       ]);
       const labels = d!.facet_values.map((fv) => fv.legacy_facet_label).sort();
       expect(labels).toEqual([

@@ -80,7 +80,7 @@ datasets/indicators/in/energy/state_rpo_compliance_pct.json,energy,migrate,2,rpo
 datasets/indicators/in/energy/state_electricity_generation_by_source_gwh.json,energy,consolidate,2,state-electricity-generation-gwh,{},Parent. Facet-explode children carry fuel_type. D33.8 total = compute-on-read.
 datasets/indicators/in/energy/state_electricity_generation_mu.json,energy,drop,2,,,Same measure different unit (MU vs GWh). 1 MU = 1 GWh; keep GWh as canonical unit per OWID convention.
 datasets/indicators/in/energy/state_coal_consumption_mt.json,energy,migrate,2,state-coal-consumption-mt,,Fuel input; distinct from generation output.
-datasets/indicators/in/energy/state_oil_product_consumption_kt.json,energy,migrate,2,state-oil-product-consumption-kt,,Petroleum products; PPAC source.
+datasets/indicators/in/energy/state_oil_product_consumption_kt.json,energy,migrate,2,oil-product-consumption-kt,,Petroleum products; PPAC source.
 datasets/indicators/in/energy/state_power_sector_co2_emissions_mtco2.json,environment,migrate,2,state-power-sector-co2-mt,,Bridges energy + environment families; classified under environment per D32 emission-source convention.
 datasets/indicators/in/energy/state_electricity_peak_demand_mw.json,energy,consolidate,2,state-peak-demand-mw,"{""cadence_view"":""annual_max""}",Same logical measure as state_peak_demand_mw with explicit cadence view.
 datasets/indicators/in/energy/state_peak_demand_mw.json,energy,migrate,2,state-peak-demand-mw,,Canonical peak-demand parent.

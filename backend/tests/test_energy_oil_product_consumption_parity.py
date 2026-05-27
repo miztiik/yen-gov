@@ -1,4 +1,4 @@
-"""Parity oracle for the state-oil-product-consumption-kt canonical lift (PR-T).
+"""Parity oracle for the oil-product-consumption-kt canonical lift (PR-T).
 
 ICED ``/energy/fuel-sources/oil/consumptionStateProductTrend`` -> 2901 obs rows
 (36 states x ~15 fiscal years x ~7 products) joined into
@@ -42,7 +42,7 @@ pytestmark = pytest.mark.skipif(
 )
 
 EXPECTED_SOURCE_ID = "src-cba8334fedc5"
-PARENT_ID = "state-oil-product-consumption-kt"
+PARENT_ID = "oil-product-consumption-kt"
 EXPECTED_FACETS = {
     "diesel-hsd",
     "petrol",
@@ -95,7 +95,7 @@ def test_seven_child_indicator_ids():
 
 
 def test_parent_has_zero_rows():
-    """Parent ``state-oil-product-consumption-kt`` is compute-on-read: it
+    """Parent ``oil-product-consumption-kt`` is compute-on-read: it
     carries zero observation rows; the 7 children own the values. The
     parent row is for catalogue + facet wiring only.
     """

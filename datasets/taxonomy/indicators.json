@@ -2345,7 +2345,7 @@
       }
     },
     {
-      "indicator_id": "state-oil-product-consumption-kt",
+      "indicator_id": "oil-product-consumption-kt",
       "label_short": "Oil-product consumption",
       "label_long": "State oil-product consumption, by product (kt per fiscal year)",
       "description_short": "Per-state annual consumption of refined petroleum products in kilotonnes, broken down by 7 products (diesel-HSD, petrol, LPG, kerosene, naphtha, petroleum-coke, others). Diesel dominates everywhere; LPG tracks PMUY rollout; petroleum-coke tracks industrial heat use.",
@@ -2374,7 +2374,7 @@
       "concept_id": "oil-product-consumption"
     },
     {
-      "indicator_id": "state-oil-product-consumption-kt-diesel-hsd",
+      "indicator_id": "oil-product-consumption-kt-diesel-hsd",
       "label_short": "Diesel (HSD)",
       "label_long": "State oil-product consumption -- Diesel (HSD)",
       "description_short": "High-speed diesel: the dominant refined petroleum product. Tracks transport activity (heavy vehicles, buses, trucks) and agricultural pump-set use; the largest single fuel by volume in every state.",
@@ -2390,7 +2390,7 @@
       "attribution_geography": "where_consumed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "centre",
-      "parent_indicator_id": "state-oil-product-consumption-kt",
+      "parent_indicator_id": "oil-product-consumption-kt",
       "dimension_values": {
         "oil_product": "diesel-hsd"
       },
@@ -2403,7 +2403,7 @@
       "concept_id": "diesel-hsd"
     },
     {
-      "indicator_id": "state-oil-product-consumption-kt-petrol",
+      "indicator_id": "oil-product-consumption-kt-petrol",
       "label_short": "Petrol",
       "label_long": "State oil-product consumption -- Petrol",
       "description_short": "Motor spirit (gasoline): cars, two-wheelers, light vehicles. A proxy for urban-personal-mobility intensity; rises with vehicle ownership and middle-class growth.",
@@ -2419,7 +2419,7 @@
       "attribution_geography": "where_consumed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "centre",
-      "parent_indicator_id": "state-oil-product-consumption-kt",
+      "parent_indicator_id": "oil-product-consumption-kt",
       "dimension_values": {
         "oil_product": "petrol"
       },
@@ -2432,7 +2432,7 @@
       "concept_id": "petrol"
     },
     {
-      "indicator_id": "state-oil-product-consumption-kt-lpg",
+      "indicator_id": "oil-product-consumption-kt-lpg",
       "label_short": "LPG",
       "label_long": "State oil-product consumption -- LPG",
       "description_short": "Liquefied petroleum gas: household cooking-fuel after the PMUY (Ujjwala) scheme. Tracks household-coverage policy more than wealth -- rural states with successful PMUY rollout show high per-capita LPG consumption.",
@@ -2448,7 +2448,7 @@
       "attribution_geography": "where_consumed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "centre",
-      "parent_indicator_id": "state-oil-product-consumption-kt",
+      "parent_indicator_id": "oil-product-consumption-kt",
       "dimension_values": {
         "oil_product": "lpg"
       },
@@ -2461,7 +2461,7 @@
       "concept_id": "lpg"
     },
     {
-      "indicator_id": "state-oil-product-consumption-kt-kerosene",
+      "indicator_id": "oil-product-consumption-kt-kerosene",
       "label_short": "Kerosene (SKO)",
       "label_long": "State oil-product consumption -- Kerosene (SKO)",
       "description_short": "Superior kerosene oil: household lighting + cooking fuel from the legacy PDS era. Declines steeply post-PMUY as LPG replaces it; near-zero in many states by FY23.",
@@ -2477,7 +2477,7 @@
       "attribution_geography": "where_consumed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "centre",
-      "parent_indicator_id": "state-oil-product-consumption-kt",
+      "parent_indicator_id": "oil-product-consumption-kt",
       "dimension_values": {
         "oil_product": "kerosene"
       },
@@ -2490,7 +2490,7 @@
       "concept_id": "kerosene-sko"
     },
     {
-      "indicator_id": "state-oil-product-consumption-kt-naphtha",
+      "indicator_id": "oil-product-consumption-kt-naphtha",
       "label_short": "Naphtha",
       "label_long": "State oil-product consumption -- Naphtha",
       "description_short": "Light hydrocarbon feedstock for petrochemicals + occasional power-plant fuel. Concentrated in petrochemical-cluster states (Gujarat, Maharashtra). Volatile year-on-year.",
@@ -2506,7 +2506,7 @@
       "attribution_geography": "where_consumed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "centre",
-      "parent_indicator_id": "state-oil-product-consumption-kt",
+      "parent_indicator_id": "oil-product-consumption-kt",
       "dimension_values": {
         "oil_product": "naphtha"
       },
@@ -2519,7 +2519,7 @@
       "concept_id": "naphtha"
     },
     {
-      "indicator_id": "state-oil-product-consumption-kt-petroleum-coke",
+      "indicator_id": "oil-product-consumption-kt-petroleum-coke",
       "label_short": "Petroleum coke",
       "label_long": "State oil-product consumption -- Petroleum coke",
       "description_short": "Refinery by-product used as cheap industrial fuel (cement, glass, steel). Heavily regulated for air-quality reasons in NCR and some industrial states. Tracks heavy-industry heat use.",
@@ -2535,7 +2535,7 @@
       "attribution_geography": "where_consumed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "centre",
-      "parent_indicator_id": "state-oil-product-consumption-kt",
+      "parent_indicator_id": "oil-product-consumption-kt",
       "dimension_values": {
         "oil_product": "petroleum-coke"
       },
@@ -2548,7 +2548,7 @@
       "concept_id": "petroleum-coke"
     },
     {
-      "indicator_id": "state-oil-product-consumption-kt-others",
+      "indicator_id": "oil-product-consumption-kt-others",
       "label_short": "Others",
       "label_long": "State oil-product consumption -- Others",
       "description_short": "Publisher catch-all for products outside the 6 named buckets (fuel oil, ATF, lubricants, bitumen, etc.). Preserved verbatim, never imputed into a named bucket.",
@@ -2564,7 +2564,7 @@
       "attribution_geography": "where_consumed",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "centre",
-      "parent_indicator_id": "state-oil-product-consumption-kt",
+      "parent_indicator_id": "oil-product-consumption-kt",
       "dimension_values": {
         "oil_product": "others"
       },
