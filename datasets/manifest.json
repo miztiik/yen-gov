@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.3",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-27T10:10:50Z",
+  "generated_at": "2026-05-27T13:15:21Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -352,6 +352,23 @@
       "row_count_total": 3471
     },
     {
+      "table_id": "energy.energy_capacity_pipeline",
+      "family": "energy",
+      "table_name": "energy_capacity_pipeline",
+      "kind": "observations",
+      "format": "parquet",
+      "schema_version": "1.1",
+      "partition_columns": [],
+      "files": [
+        {
+          "path": "energy/energy_capacity_pipeline.parquet",
+          "size_bytes": 3878,
+          "row_count": 20
+        }
+      ],
+      "row_count_total": 20
+    },
+    {
       "table_id": "livestock.livestock_pashu_aadhaar",
       "family": "livestock",
       "table_name": "livestock_pashu_aadhaar",
@@ -515,11 +532,11 @@
       "files": [
         {
           "path": "taxonomy/indicators.parquet",
-          "size_bytes": 43733,
-          "row_count": 161
+          "size_bytes": 44699,
+          "row_count": 162
         }
       ],
-      "row_count_total": 161
+      "row_count_total": 162
     },
     {
       "table_id": "taxonomy.methodology_breaks",
@@ -566,11 +583,11 @@
       "files": [
         {
           "path": "taxonomy/sources.parquet",
-          "size_bytes": 25559,
-          "row_count": 408
+          "size_bytes": 26225,
+          "row_count": 409
         }
       ],
-      "row_count_total": 408
+      "row_count_total": 409
     }
   ],
   "deprecations": [

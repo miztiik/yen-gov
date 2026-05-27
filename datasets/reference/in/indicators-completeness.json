@@ -2,7 +2,7 @@
   "$schema": "https://yen-gov.github.io/schemas/indicators-completeness.schema.json",
   "$schema_version": "2.0",
   "sources": [],
-  "generated_at": "2026-05-26",
+  "generated_at": "2026-05-27",
   "indicators": [
     {
       "id": "demography/state_population_lakhs",
@@ -443,6 +443,26 @@
       "time_grain": "fiscal_year",
       "observed_periods_within_range": 20,
       "gap_count_within_range": 0
+    },
+    {
+      "id": "energy/plant_pipeline_info",
+      "topic": "energy",
+      "path": "datasets/energy/_meadow/iced/2026-05-27/plant_pipeline_info.json",
+      "title": "India under-construction generation capacity, by year and status (GW)",
+      "documentation_status": "stub",
+      "inventory_status": "complete",
+      "frozen": false,
+      "last_polled_at": "2026-05-27T13:14:58Z",
+      "observed_count": 20,
+      "pending_count": 0,
+      "unavailable_count": 0,
+      "min_time": "2011",
+      "max_time": "2031",
+      "min_period_label": "2011",
+      "max_period_label": "2031",
+      "time_grain": "year",
+      "observed_periods_within_range": 20,
+      "gap_count_within_range": 1
     },
     {
       "id": "energy/state_acs_arr_gap_inr_per_kwh",

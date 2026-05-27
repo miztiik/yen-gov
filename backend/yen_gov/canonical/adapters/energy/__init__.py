@@ -56,11 +56,13 @@ from .distribution import build_envelope as _build_distribution
 from .fuel_consumption import build_envelope as _build_fuel_consumption
 from .generation import build_envelope as _build_generation
 from .installed_capacity import build_envelope as _build_installed_capacity
+from .capacity_pipeline import build_envelope as _build_capacity_pipeline
 
 
 #: Canonical write-order stems (alphabetical-by-stem; matches manifest).
 #: Single source of truth for ``--table`` CLI validation (PR-A4).
 KNOWN_TARGET_TABLE_STEMS: frozenset[str] = frozenset({
+    "energy_capacity_pipeline",
     "energy_demand_supply",
     "energy_distribution_performance",
     "energy_fuel_consumption",
@@ -102,6 +104,7 @@ def build_envelopes(
         ("energy_fuel_consumption", _build_fuel_consumption),
         ("energy_generation", _build_generation),
         ("energy_installed_capacity", _build_installed_capacity),
+        ("energy_capacity_pipeline", _build_capacity_pipeline),
     ]
     return [
         builder(repo_root)

@@ -2,15 +2,15 @@
   "checks": [
     {
       "doc_link": "docs/concepts/pre-flight-ingest.md",
-      "evidence": "no existing concept scores >= 0.70; mint_new acceptable",
+      "evidence": "upsert into 'under-construction-capacity' (score=0.89)",
       "name": "concept_overlap",
       "status": "pass"
     },
     {
       "doc_link": "docs/concepts/owid-alignment.md",
-      "evidence": "proposal has no concept_id; mint_new requires a new row in datasets/taxonomy/concepts.json in the same PR",
+      "evidence": "no concept_id required (action is upsert / add_facet)",
       "name": "concept_fk",
-      "status": "warn"
+      "status": "pass"
     },
     {
       "doc_link": "docs/architecture/decisions/0044-grain-over-entity.md",
@@ -52,11 +52,11 @@
     "update_period_days": 30
   },
   "recommended_action": {
-    "kind": "mint_new",
-    "rationale": "no concept overlap >= 0.70; proceed with mint_new",
-    "target_indicator_id": null,
+    "kind": "upsert",
+    "rationale": "concept overlap 0.89 >= 0.85 with 'under-construction-capacity'; UPSERT (new vintage / publisher of same fact)",
+    "target_indicator_id": "under-construction-capacity",
     "target_parquet_path": "datasets/energy/energy_<role>.parquet"
   },
   "schema_version": "1.0",
-  "verdict": "mint_new"
+  "verdict": "upsert"
 }
