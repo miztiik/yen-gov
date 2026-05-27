@@ -5,13 +5,13 @@ P.1.A (3 indicators) + P.1.B (3 indicators) = 6 lifted indicators.
 P.1.A — Lifts 3 legacy RBI/ICED shards + 1 inline FY25 ICED snapshot:
 
 * ``state_peak_demand_mw.json`` (396 RBI Table 142 rows)
-  → ``state-peak-electricity-demand-mw`` (FY13–FY24).
+  → ``peak-electricity-demand-mw`` (FY13–FY24).
 * ``state_peak_met_mw.json`` (396 RBI Table 142 companion rows)
-  → ``state-peak-electricity-supplied-mw`` (FY13–FY24).
+  → ``peak-electricity-supplied-mw`` (FY13–FY24).
 * ``state_per_capita_electricity_consumption_kwh.json`` (555 ICED rows)
   → ``state-per-capita-electricity-consumption-kwh``.
 * ``_FY25_PEAK_DEMAND_ROWS`` literal (34 rows inc. IN national
-  aggregate) → ``state-peak-electricity-demand-mw`` (FY25 extension).
+  aggregate) → ``peak-electricity-demand-mw`` (FY25 extension).
 
 The two RBI rows form a citizen-readable pair: peak DEMAND is the
 instant the State Load Despatch Centre saw the highest simultaneous
@@ -164,7 +164,7 @@ _FY25_PEAK_DEMAND_ROWS: tuple[tuple[str, str, float], ...] = (
 def build_envelope(repo_root: Path) -> BatchEnvelope:
     rows: list[ObservationRow] = []
 
-    # 1. state_peak_demand_mw.json → state-peak-electricity-demand-mw
+    # 1. state_peak_demand_mw.json → peak-electricity-demand-mw
     shard = _load_rbi_meadow(repo_root, "state_peak_demand_mw.json")
     for r in shard["rows"]:
         period_label, year, period_seq = parse_iso_period(r["time"])
@@ -173,13 +173,13 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id="state-peak-electricity-demand-mw",
+            indicator_id="peak-electricity-demand-mw",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["rbi_hbk_142_peak_demand"],
             derivation="raw",
         ))
 
-    # 2. state_peak_met_mw.json → state-peak-electricity-supplied-mw
+    # 2. state_peak_met_mw.json → peak-electricity-supplied-mw
     shard = _load_rbi_meadow(repo_root, "state_peak_met_mw.json")
     for r in shard["rows"]:
         period_label, year, period_seq = parse_iso_period(r["time"])
@@ -188,7 +188,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id="state-peak-electricity-supplied-mw",
+            indicator_id="peak-electricity-supplied-mw",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["rbi_hbk_142_peak_met"],
             derivation="raw",
@@ -209,7 +209,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             derivation="raw",
         ))
 
-    # 4. FY25 extension of state-peak-electricity-demand-mw (Phase C).
+    # 4. FY25 extension of peak-electricity-demand-mw (Phase C).
     # Reads the inline ``_FY25_PEAK_DEMAND_ROWS`` literal — no shard
     # dependency. RBI rows above cover FY13-FY24 (gold per Hans D33);
     # this block extends coverage by one year with ICED as the gold
@@ -222,7 +222,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id="state-peak-electricity-demand-mw",
+            indicator_id="peak-electricity-demand-mw",
             value_numeric=float(value),
             source_id=SOURCE_IDS["iced_deep_dive"],
             derivation="raw",

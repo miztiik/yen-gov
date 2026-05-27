@@ -46,7 +46,7 @@
 //    sometimes in unit-suffix or basis-suffix (e.g.
 //    `state_electricity_generation_mu` -> `electricity-generation-gwh`,
 //    `state_distribution_billing_efficiency_pct` ->
-//    `state-distribution-efficiency-pct-billing` flips the modifier
+//    `distribution-efficiency-pct-billing` flips the modifier
 //    order). The allowlist is the single source of truth for these
 //    renames; until the catalogue regenerates topics.json against the
 //    canonical taxonomy (a Level-5 chore deferred behind the canonical
@@ -132,10 +132,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/state_peak_electricity_demand_mw",
-    canonical_indicator_id: "state-peak-electricity-demand-mw",
+    canonical_indicator_id: "peak-electricity-demand-mw",
     table_id: "energy.energy_demand_supply",
     meta: {
-      id: "state-peak-electricity-demand-mw",
+      id: "peak-electricity-demand-mw",
       title: "State-wise peak power demand (MW)",
       description:
         "Highest single-instant electricity demand observed in the state during the fiscal year (MW). 'Peak' is system-wide simultaneous demand recorded by the State Load Despatch Centre — typically a summer afternoon (north / west) or winter evening (Punjab, Delhi).",
@@ -153,11 +153,11 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       methodology_vintage:
         "RBI Handbook of Statistics on Indian States 2024-25 edition, Table 142 (FY13–FY24). NITI Aayog ICED state-wise deep-dive (FY25 extension). Originating data: Central Electricity Authority, Ministry of Power.",
       notes:
-        "Read alongside Peak Supplied (state-peak-electricity-supplied-mw) — the gap is the unmet peak demand, more operationally critical than the energy-deficit % because shortages force load-shedding. RBI Handbook relabelled 'Surplus / Deficit' to 'Demand Not Met' from FY 2019-20 onwards; underlying definition is unchanged.",
+        "Read alongside Peak Supplied (peak-electricity-supplied-mw) — the gap is the unmet peak demand, more operationally critical than the energy-deficit % because shortages force load-shedding. RBI Handbook relabelled 'Surplus / Deficit' to 'Demand Not Met' from FY 2019-20 onwards; underlying definition is unchanged.",
     },
     caveats: [
       "Peak demand is the highest single-instant load observed — a one-hour summer evening spike, not an average. A state can have a high peak yet a moderate annual energy requirement.",
-      "Read against state-peak-electricity-supplied-mw: the gap is unmet demand that forced load-shedding. A rising peak with a rising gap is a worse signal than a rising peak alone.",
+      "Read against peak-electricity-supplied-mw: the gap is unmet demand that forced load-shedding. A rising peak with a rising gap is a worse signal than a rising peak alone.",
       "RBI Handbook relabelled 'Surplus/Deficit' to 'Demand Not Met' from FY 2019-20; the column name changes but the underlying definition does not — do not read the rename as a methodology break.",
     ],
   },
@@ -165,7 +165,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   // PR-F (2026-05-25) — close 4 /t/energy 404s flagged by user smoke.
   // The legacy topics.json energy block references THREE short-name shards
   // that have no allowlist route + ONE meadow-only orphan; this PR adds 2
-  // allowlist entries (peak_met → state-peak-electricity-supplied-mw,
+  // allowlist entries (peak_met → peak-electricity-supplied-mw,
   // per_capita_consumption_kwh → state-per-capita-electricity-consumption-kwh)
   // and the matching topics.json prune drops 2 entries (state_peak_demand_mw
   // duplicate of state_peak_electricity_demand_mw, state_renewable_grid_capacity_mw
@@ -178,10 +178,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/state_peak_met_mw",
-    canonical_indicator_id: "state-peak-electricity-supplied-mw",
+    canonical_indicator_id: "peak-electricity-supplied-mw",
     table_id: "energy.energy_demand_supply",
     meta: {
-      id: "state-peak-electricity-supplied-mw",
+      id: "peak-electricity-supplied-mw",
       title: "State-wise peak power supplied (MW)",
       description:
         "Maximum instantaneous power actually supplied in the state during the fiscal year (MW). The pair (peak_demand, peak_supplied) tells the load-shedding story: supplied < demand in any year means the grid dropped load to keep frequency stable.",
@@ -324,7 +324,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       methodology_vintage:
         "NITI Aayog ICED state-wise deep-dive API row 'AT&C Losses'. Calculation method: PFC. Vintage updated annually with PFC report release (typically Q3 FY+1).",
       notes:
-        "UDAY (2015) targeted all-India AT&C below 15% by 2018-19; the actual all-India figure has hovered around 15% since then. State-level dispersion is wide — Gujarat / Andhra at ~6-10%, Bihar / J&K at ~25-40%. AT&C = T&D loss + commercial loss; the three sub-components (billing / collection / T&D) are surfaced separately under state-distribution-efficiency-pct.",
+        "UDAY (2015) targeted all-India AT&C below 15% by 2018-19; the actual all-India figure has hovered around 15% since then. State-level dispersion is wide — Gujarat / Andhra at ~6-10%, Bihar / J&K at ~25-40%. AT&C = T&D loss + commercial loss; the three sub-components (billing / collection / T&D) are surfaced separately under distribution-efficiency-pct.",
     },
     caveats: [
       "AT&C losses bundle technical losses (transmission heat, ageing lines) with commercial losses (theft, unbilled use). A 20% state may be losing mostly to old infrastructure or mostly to theft — the policy fixes differ.",
@@ -1418,10 +1418,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/state_distribution_billing_efficiency_pct",
-    canonical_indicator_id: "state-distribution-efficiency-pct-billing",
+    canonical_indicator_id: "distribution-efficiency-pct-billing",
     table_id: "energy.energy_distribution_performance",
     meta: {
-      id: "state-distribution-efficiency-pct-billing",
+      id: "distribution-efficiency-pct-billing",
       title: "Distribution billing efficiency (%, by state)",
       description:
         "Share of energy actually billed to a consumer, out of total energy input to the distribution system. 100% = every kWh that enters the grid was billed.",
@@ -1454,10 +1454,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/state_distribution_collection_efficiency_pct",
-    canonical_indicator_id: "state-distribution-efficiency-pct-collection",
+    canonical_indicator_id: "distribution-efficiency-pct-collection",
     table_id: "energy.energy_distribution_performance",
     meta: {
-      id: "state-distribution-efficiency-pct-collection",
+      id: "distribution-efficiency-pct-collection",
       title: "Distribution collection efficiency (%, by state)",
       description:
         "Share of billed revenue actually collected from consumers, by state. 100% = every rupee billed was paid.",
@@ -1490,10 +1490,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/state_distribution_td_loss_pct",
-    canonical_indicator_id: "state-distribution-efficiency-pct-td-loss",
+    canonical_indicator_id: "distribution-efficiency-pct-td-loss",
     table_id: "energy.energy_distribution_performance",
     meta: {
-      id: "state-distribution-efficiency-pct-td-loss",
+      id: "distribution-efficiency-pct-td-loss",
       title: "Transmission & Distribution loss (%, by state)",
       description:
         "Transmission and Distribution loss as % of energy input — the TECHNICAL half of AT&C losses (heat / ageing / unmetered consumption on the wires).",

@@ -177,6 +177,6 @@ def test_does_not_displace_existing_demand_supply_indicators() -> None:
     peak-demand or per-capita-availability indicators."""
     rows = _q(
         f"SELECT COUNT(*) FROM read_parquet('{PARQUET.as_posix()}') "
-        f"WHERE indicator_id = 'state-peak-electricity-demand-mw'"
+        f"WHERE indicator_id = 'peak-electricity-demand-mw'"
     )
     assert rows[0][0] >= 300

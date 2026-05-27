@@ -69,7 +69,7 @@ def test_state_electricity_sales_matches_shard_in_2015() -> None:
 def test_parquet_has_eight_distinct_indicators_after_p1b() -> None:
     """P.1.A (2) + P.1.B (6: 3 efficiency children + ACS-ARR + 3 RPO
     children) = 8 observation-emitting indicators on this table. The 2
-    parents (state-distribution-efficiency-pct + state-rpo-compliance-pct)
+    parents (distribution-efficiency-pct + state-rpo-compliance-pct)
     are compute-on-read and emit NO rows here."""
     con = duckdb.connect(":memory:")
     try:
@@ -85,10 +85,10 @@ def test_parquet_has_eight_distinct_indicators_after_p1b() -> None:
         # P.1.A
         "state-atc-losses-pct",
         "state-electricity-sales-mu",
-        # P.1.B — efficiency triple (children of state-distribution-efficiency-pct)
-        "state-distribution-efficiency-pct-billing",
-        "state-distribution-efficiency-pct-collection",
-        "state-distribution-efficiency-pct-td-loss",
+        # P.1.B — efficiency triple (children of distribution-efficiency-pct)
+        "distribution-efficiency-pct-billing",
+        "distribution-efficiency-pct-collection",
+        "distribution-efficiency-pct-td-loss",
         # P.1.B — ACS-ARR standalone
         "state-acs-arr-gap-inr-per-kwh",
         # P.1.B — RPO triple (children of state-rpo-compliance-pct)
@@ -113,10 +113,10 @@ def test_parquet_has_eight_distinct_indicators_after_p1b() -> None:
 
 
 def test_p1b_distribution_billing_efficiency_s01_2009() -> None:
-    """state-distribution-efficiency-pct-billing, IN-S01 2009-04 =
+    """distribution-efficiency-pct-billing, IN-S01 2009-04 =
     85.6402621476843 (raw, ICED distribution-perf endpoint)."""
     val = _query_value(
-        "IN-S01", 2009, "state-distribution-efficiency-pct-billing"
+        "IN-S01", 2009, "distribution-efficiency-pct-billing"
     )
     assert val == pytest.approx(85.6402621476843, abs=1e-9), (
         f"IN-S01 2009 billing-efficiency expected 85.6402..., got {val!r}"
@@ -124,10 +124,10 @@ def test_p1b_distribution_billing_efficiency_s01_2009() -> None:
 
 
 def test_p1b_distribution_collection_efficiency_s01_2009() -> None:
-    """state-distribution-efficiency-pct-collection, IN-S01 2009-04 =
+    """distribution-efficiency-pct-collection, IN-S01 2009-04 =
     97.58 (raw, ICED distribution-perf endpoint)."""
     val = _query_value(
-        "IN-S01", 2009, "state-distribution-efficiency-pct-collection"
+        "IN-S01", 2009, "distribution-efficiency-pct-collection"
     )
     assert val == pytest.approx(97.58, abs=1e-4), (
         f"IN-S01 2009 collection-efficiency expected 97.58, got {val!r}"
@@ -135,10 +135,10 @@ def test_p1b_distribution_collection_efficiency_s01_2009() -> None:
 
 
 def test_p1b_distribution_td_loss_s01_2009() -> None:
-    """state-distribution-efficiency-pct-td-loss, IN-S01 2009-04 =
+    """distribution-efficiency-pct-td-loss, IN-S01 2009-04 =
     18.37 (raw, ICED distribution-perf endpoint)."""
     val = _query_value(
-        "IN-S01", 2009, "state-distribution-efficiency-pct-td-loss"
+        "IN-S01", 2009, "distribution-efficiency-pct-td-loss"
     )
     assert val == pytest.approx(18.37, abs=1e-4), (
         f"IN-S01 2009 td-loss expected 18.37, got {val!r}"
@@ -194,9 +194,9 @@ def test_p1b_source_id_routing() -> None:
     cases = {
         # 3 ICED ids rotated under ADR-0042 (vintage "" → "2024-25"):
         # iced_distribution_perf, iced_deep_dive, iced_distribution_rpo.
-        "state-distribution-efficiency-pct-billing":    "src-650b1c25d1f7",
-        "state-distribution-efficiency-pct-collection": "src-650b1c25d1f7",
-        "state-distribution-efficiency-pct-td-loss":    "src-650b1c25d1f7",
+        "distribution-efficiency-pct-billing":    "src-650b1c25d1f7",
+        "distribution-efficiency-pct-collection": "src-650b1c25d1f7",
+        "distribution-efficiency-pct-td-loss":    "src-650b1c25d1f7",
         "state-acs-arr-gap-inr-per-kwh":                "src-bb1d7bec8b34",
         "state-rpo-compliance-pct-solar":               "src-0ea63ed47704",
         "state-rpo-compliance-pct-non-solar":           "src-0ea63ed47704",

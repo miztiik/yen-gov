@@ -19,13 +19,13 @@ revenue leakage.
 P.1.B — Lifts 5 additional legacy shards (DISCOM finance + RPO):
 
 * ``state_distribution_billing_efficiency_pct.json`` →
-  ``state-distribution-efficiency-pct-billing`` (efficiency_dimension =
+  ``distribution-efficiency-pct-billing`` (efficiency_dimension =
   billing).
 * ``state_distribution_collection_efficiency_pct.json`` →
-  ``state-distribution-efficiency-pct-collection`` (efficiency_dimension =
+  ``distribution-efficiency-pct-collection`` (efficiency_dimension =
   collection).
 * ``state_distribution_td_loss_pct.json`` →
-  ``state-distribution-efficiency-pct-td-loss`` (efficiency_dimension =
+  ``distribution-efficiency-pct-td-loss`` (efficiency_dimension =
   td_loss).
 * ``state_acs_arr_gap_inr_per_kwh.json`` →
   ``state-acs-arr-gap-inr-per-kwh`` (standalone; ICED Deep Dive source).
@@ -107,13 +107,13 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
 
     # 3. P.1.B — Distribution efficiency triple (billing / collection /
     #    td-loss). Three shards collapse into three CHILD indicator_ids of
-    #    ``state-distribution-efficiency-pct`` (compute-on-read parent
+    #    ``distribution-efficiency-pct`` (compute-on-read parent
     #    holds no rows; per Hans D29 child rows carry source_id +
     #    dimension_values, parent does not).
     _EFFICIENCY_DISPATCH: tuple[tuple[str, str], ...] = (
-        ("state_distribution_billing_efficiency_pct.json",    "state-distribution-efficiency-pct-billing"),
-        ("state_distribution_collection_efficiency_pct.json", "state-distribution-efficiency-pct-collection"),
-        ("state_distribution_td_loss_pct.json",               "state-distribution-efficiency-pct-td-loss"),
+        ("state_distribution_billing_efficiency_pct.json",    "distribution-efficiency-pct-billing"),
+        ("state_distribution_collection_efficiency_pct.json", "distribution-efficiency-pct-collection"),
+        ("state_distribution_td_loss_pct.json",               "distribution-efficiency-pct-td-loss"),
     )
     for shard_name, indicator_id in _EFFICIENCY_DISPATCH:
         shard = _load_distribution_meadow(repo_root, shard_name)
