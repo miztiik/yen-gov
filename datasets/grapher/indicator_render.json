@@ -13,30 +13,6 @@
       "default_mode": "absolute"
     },
     {
-      "indicator_id": "district-livestock-naip-iv-calves-born",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "district-livestock-naip-iv-farmers-benefitted",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "district-livestock-naip-iv-inseminations",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "district-livestock-naip-iv-pregnancy-diagnoses",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
       "indicator_id": "district-livestock-owner-reg-count",
       "renderer_rules": [
         "no_rank_table"
@@ -145,17 +121,17 @@
       ]
     },
     {
-      "indicator_id": "economy/india_external_balance_inr_crore",
-      "chart_type": "stacked-trend",
-      "default_mode": "absolute"
-    },
-    {
       "indicator_id": "economy/gdp_inr_crore",
       "chart_type": "stacked-trend",
       "default_mode": "absolute"
     },
     {
       "indicator_id": "economy/gva_by_industry_constant_inr_crore",
+      "chart_type": "stacked-trend",
+      "default_mode": "absolute"
+    },
+    {
+      "indicator_id": "economy/india_external_balance_inr_crore",
       "chart_type": "stacked-trend",
       "default_mode": "absolute"
     },
@@ -215,25 +191,25 @@
       "chart_type": "choropleth"
     },
     {
-      "indicator_id": "state-livestock-naip-iv-calves-born",
+      "indicator_id": "livestock-naip-iv-calves-born",
       "renderer_rules": [
         "no_rank_table"
       ]
     },
     {
-      "indicator_id": "state-livestock-naip-iv-farmers-benefitted",
+      "indicator_id": "livestock-naip-iv-farmers-benefitted",
       "renderer_rules": [
         "no_rank_table"
       ]
     },
     {
-      "indicator_id": "state-livestock-naip-iv-inseminations",
+      "indicator_id": "livestock-naip-iv-inseminations",
       "renderer_rules": [
         "no_rank_table"
       ]
     },
     {
-      "indicator_id": "state-livestock-naip-iv-pregnancy-diagnoses",
+      "indicator_id": "livestock-naip-iv-pregnancy-diagnoses",
       "renderer_rules": [
         "no_rank_table"
       ]

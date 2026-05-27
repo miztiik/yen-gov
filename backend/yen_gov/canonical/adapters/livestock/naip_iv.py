@@ -12,8 +12,10 @@ four operational outputs per district: insemination events, pregnancy
 diagnoses, calves born (publisher splits by sex), and farmers
 benefitted. These four are NOT summable - inseminations + pregnancies
 + calves + farmers is a category mistake. Phase 2.C therefore emits
-4 stand-alone indicators (no parent, no compute-on-read total) at each
-of the two grains (district SoT, state SUM rollup) = 8 catalogue rows.
+4 stand-alone indicators (no parent, no compute-on-read total) with
+entity_kinds=["district","state"] per ADR-0044 — same indicator_id at
+both grains; entity_id alone distinguishes (district SoT, state SUM
+rollup per ADR-0043) = 4 catalogue rows.
 
 **Sex collapse (Approach B, matches Phase 2.A)**:
 
@@ -162,7 +164,7 @@ def _lift_snapshot(
                 year=year,
                 period_label=period_label,
                 period_seq=period_seq,
-                indicator_id=f"district-livestock-naip-iv-{slug}",
+                indicator_id=f"livestock-naip-iv-{slug}",
                 value_numeric=total,
                 source_id=source_id,
                 derivation="sum",
@@ -180,7 +182,7 @@ def _lift_snapshot(
         float,
     ] = defaultdict(float)
     for row in rows:
-        # rows[] currently only contains district-grain district-* ids.
+        # rows[] currently only contains district-grain rows (entity_id is a district code).
         # The metric slug is whatever follows the "naip-iv-" prefix.
         slug = row.indicator_id.split("naip-iv-", 1)[-1]
         key = (
@@ -199,7 +201,7 @@ def _lift_snapshot(
                 year=year,
                 period_label=period_label,
                 period_seq=period_seq,
-                indicator_id=f"state-livestock-naip-iv-{slug}",
+                indicator_id=f"livestock-naip-iv-{slug}",
                 value_numeric=total,
                 source_id=source_id,
                 derivation="sum",

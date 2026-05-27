@@ -256,8 +256,8 @@ Each PR is ≤300 lines diff (excluding parquet binary regen). PRs marked **READ
 | 27 | Pashu Aadhaar state (parent + 10 species, mirror of #26) | `state-pashu-aadhaar-count` + 10 | [L2278+L2304..L2565](../datasets/taxonomy/indicators.json#L2278) | `pashu-aadhaar-count` | both | same | B5 | YES — 22→11 collapse (1 parent + 10 species, grain on row) |
 | 28 | Livestock owner-reg district (parent + 6 size facets) | 7 ids | [L2594-L2765](../datasets/taxonomy/indicators.json#L2594) | merges into #29 | both | `holding_size ∈ {landless_marginal,small,semi_medium,medium,large,not_specified}` | B5 | YES |
 | 29 | Livestock owner-reg state (mirror of #28) | 7 ids | [L2794-L2965](../datasets/taxonomy/indicators.json#L2794) | `livestock-owner-reg-count` | both | same | B5 | YES — 14→7 |
-| 30 | Livestock NAIP-IV district (4 metrics, no parent) | 4 distinct ids | [L2994-L3072](../datasets/taxonomy/indicators.json#L2994) | each prefix-strip; KEEP 4 distinct (different units: inseminations, pregnancies, calves, farmers) | both | — | B5 | rename only |
-| 31 | Livestock NAIP-IV state (mirror of #30) | 4 distinct ids | [L3098-L3176](../datasets/taxonomy/indicators.json#L3098) | merges into #30 | both | — | B5 | YES — 8→4 |
+| 30 | Livestock NAIP-IV district (4 metrics, no parent) | 4 distinct ids | [L2994-L3072](../datasets/taxonomy/indicators.json#L2994) | each prefix-strip; KEEP 4 distinct (different units: inseminations, pregnancies, calves, farmers) | both | — | B5 | ✅ DONE PR #_pending_ — collapsed with #31 |
+| 31 | Livestock NAIP-IV state (mirror of #30) | 4 distinct ids | [L3098-L3176](../datasets/taxonomy/indicators.json#L3098) | merges into #30 | both | — | B5 | ✅ DONE PR #_pending_ — 8→4, entity_kinds=["district","state"] |
 | 32 | Elections state-* (8 ids; no sibling) | `state-electors-total`, `-votes-polled`, `-turnout-pct`, `-nota-pct`, `-effective-parties-laakso`, `-winning-party-id`, `-winning-party-seats`, `-majority-threshold-acs` | [L411-L560](../datasets/taxonomy/indicators.json#L411) | drop `state-` prefix on each | `state` | — | B2 | rename only |
 
 **Explicitly stay-split (do NOT collapse — Hans pin)**:

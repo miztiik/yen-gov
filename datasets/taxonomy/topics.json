@@ -621,43 +621,23 @@
         },
         {
           "kind": "indicator",
-          "id": "agriculture/state_livestock_naip_iv_inseminations",
+          "id": "agriculture/livestock_naip_iv_inseminations",
           "scope": "state"
         },
         {
           "kind": "indicator",
-          "id": "agriculture/district_livestock_naip_iv_inseminations",
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/state_livestock_naip_iv_pregnancy_diagnoses",
+          "id": "agriculture/livestock_naip_iv_pregnancy_diagnoses",
           "scope": "state"
         },
         {
           "kind": "indicator",
-          "id": "agriculture/district_livestock_naip_iv_pregnancy_diagnoses",
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/state_livestock_naip_iv_calves_born",
+          "id": "agriculture/livestock_naip_iv_calves_born",
           "scope": "state"
         },
         {
           "kind": "indicator",
-          "id": "agriculture/district_livestock_naip_iv_calves_born",
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/state_livestock_naip_iv_farmers_benefitted",
+          "id": "agriculture/livestock_naip_iv_farmers_benefitted",
           "scope": "state"
-        },
-        {
-          "kind": "indicator",
-          "id": "agriculture/district_livestock_naip_iv_farmers_benefitted",
-          "scope": "national"
         }
       ],
       "notes": "First citizen-facing surface is Pashu Aadhaar (NDLM Bharat Pashudhan). PR B.05 (#294) extended IndicatorChoropleth to dispatch on admin_level (district vs state) and B.05.f (#295) mounted the cattle district choropleth (758 districts) as the headline. Phase 3.B (this PR) extends the district fan-out to the 9 other Pashu Aadhaar species (buffalo, goat, sheep, pig, mithun, yak, horse, donkey, mule) so each species ships at both grains: district as the source-of-truth (per ADR-0043) and state as the auto-rolled SUM. Phase 3.C-partial (this PR) adds Owner Registration (2 facet-multiplexed parents on landholding axis) and NAIP IV (8 single descriptors across 4 metric families x 2 grains). NADCP vaccination and Breeding ABIP+RGM remain blocked on adapter work and ship in later phases. Animal husbandry, dairying and veterinary services are State List Entry 15 - `list: state` is the honest framing; the centre coordinates via DAHD programmes (NADCP, NAIP, RGM) but the operational unit is the state department."
