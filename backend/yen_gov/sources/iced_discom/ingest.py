@@ -16,7 +16,7 @@ aggregate row that the opperf endpoint does not.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -324,7 +324,9 @@ def ingest_iced_discom(*, repo_root: Path, client: IcedClient | None = None) -> 
         spatial="India (states + UTs)", skipped_unmapped=rpo_skipped,
     ))
 
+    # PR-A5a-tail: derive orchestrator fetched_at from upstream per-fetch
+    # timestamps instead of wall-clock datetime.now().
     return IngestSummary(
-        fetched_at=datetime.now(timezone.utc),
+        fetched_at=max(op_resp.fetched_at, rpo_resp.fetched_at),
         results=tuple(results),
     )

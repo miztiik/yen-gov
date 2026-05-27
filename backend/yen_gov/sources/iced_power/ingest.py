@@ -9,7 +9,7 @@ four schema-conformant indicator artifacts under
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -332,7 +332,9 @@ def ingest_iced_power(
         ),
     }
 
-    fetched_at_overall = datetime.now(timezone.utc)
+    # PR-A5a-tail: derive orchestrator fetched_at from upstream per-fetch
+    # timestamps instead of wall-clock datetime.now().
+    fetched_at_overall: datetime | None = None
     results: list[IndicatorEmitResult] = []
 
     # Cache responses keyed by (host, path) so powerStatistics is only
@@ -347,6 +349,8 @@ def ingest_iced_power(
             resp = client.get(b.api_path, decrypt=b.decrypt)
             cache[key] = resp.decrypted
             cache_fetched_at[key] = resp.fetched_at
+            if fetched_at_overall is None or resp.fetched_at > fetched_at_overall:
+                fetched_at_overall = resp.fetched_at
         decrypted = cache[key]
         fetched_at = cache_fetched_at[key]
 
@@ -396,6 +400,8 @@ def ingest_iced_power(
             )
         )
 
+    if fetched_at_overall is None:
+        raise RuntimeError("ingest_iced_power: no builds executed; cannot derive fetched_at.")
     return IngestSummary(fetched_at=fetched_at_overall, results=tuple(results))
 
 
