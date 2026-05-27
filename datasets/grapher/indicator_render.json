@@ -55,67 +55,67 @@
       ]
     },
     {
-      "indicator_id": "district-pashu-aadhaar-count",
+      "indicator_id": "pashu-aadhaar-count",
       "renderer_rules": [
         "no_rank_table"
       ]
     },
     {
-      "indicator_id": "district-pashu-aadhaar-count-buffalo",
+      "indicator_id": "pashu-aadhaar-count-buffalo",
       "renderer_rules": [
         "no_rank_table"
       ]
     },
     {
-      "indicator_id": "district-pashu-aadhaar-count-cattle",
+      "indicator_id": "pashu-aadhaar-count-cattle",
       "renderer_rules": [
         "no_rank_table"
       ]
     },
     {
-      "indicator_id": "district-pashu-aadhaar-count-donkey",
+      "indicator_id": "pashu-aadhaar-count-donkey",
       "renderer_rules": [
         "no_rank_table"
       ]
     },
     {
-      "indicator_id": "district-pashu-aadhaar-count-goat",
+      "indicator_id": "pashu-aadhaar-count-goat",
       "renderer_rules": [
         "no_rank_table"
       ]
     },
     {
-      "indicator_id": "district-pashu-aadhaar-count-horse",
+      "indicator_id": "pashu-aadhaar-count-horse",
       "renderer_rules": [
         "no_rank_table"
       ]
     },
     {
-      "indicator_id": "district-pashu-aadhaar-count-mithun",
+      "indicator_id": "pashu-aadhaar-count-mithun",
       "renderer_rules": [
         "no_rank_table"
       ]
     },
     {
-      "indicator_id": "district-pashu-aadhaar-count-mule",
+      "indicator_id": "pashu-aadhaar-count-mule",
       "renderer_rules": [
         "no_rank_table"
       ]
     },
     {
-      "indicator_id": "district-pashu-aadhaar-count-pig",
+      "indicator_id": "pashu-aadhaar-count-pig",
       "renderer_rules": [
         "no_rank_table"
       ]
     },
     {
-      "indicator_id": "district-pashu-aadhaar-count-sheep",
+      "indicator_id": "pashu-aadhaar-count-sheep",
       "renderer_rules": [
         "no_rank_table"
       ]
     },
     {
-      "indicator_id": "district-pashu-aadhaar-count-yak",
+      "indicator_id": "pashu-aadhaar-count-yak",
       "renderer_rules": [
         "no_rank_table"
       ]
@@ -210,72 +210,6 @@
     },
     {
       "indicator_id": "livestock-naip-iv-pregnancy-diagnoses",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "state-pashu-aadhaar-count",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "state-pashu-aadhaar-count-buffalo",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "state-pashu-aadhaar-count-cattle",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "state-pashu-aadhaar-count-donkey",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "state-pashu-aadhaar-count-goat",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "state-pashu-aadhaar-count-horse",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "state-pashu-aadhaar-count-mithun",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "state-pashu-aadhaar-count-mule",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "state-pashu-aadhaar-count-pig",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "state-pashu-aadhaar-count-sheep",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "state-pashu-aadhaar-count-yak",
       "renderer_rules": [
         "no_rank_table"
       ]

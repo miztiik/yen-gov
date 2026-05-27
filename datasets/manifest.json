@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.3",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-27T08:40:11Z",
+  "generated_at": "2026-05-27T08:54:31Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -362,7 +362,7 @@
       "files": [
         {
           "path": "livestock/livestock_pashu_aadhaar.parquet",
-          "size_bytes": 1944735,
+          "size_bytes": 1938048,
           "row_count": 27360
         }
       ],
@@ -515,11 +515,11 @@
       "files": [
         {
           "path": "taxonomy/indicators.parquet",
-          "size_bytes": 45759,
-          "row_count": 172
+          "size_bytes": 44044,
+          "row_count": 161
         }
       ],
-      "row_count_total": 172
+      "row_count_total": 161
     },
     {
       "table_id": "taxonomy.methodology_breaks",
