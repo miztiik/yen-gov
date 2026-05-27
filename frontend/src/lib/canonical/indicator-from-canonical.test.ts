@@ -853,21 +853,21 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d).not.toBeNull();
     expect(d!.kind).toBe("facet-multiplexed");
     if (d!.kind === "facet-multiplexed") {
-      expect(d!.canonical_parent_indicator_id).toBe("state-plant-load-factor-pct");
+      expect(d!.canonical_parent_indicator_id).toBe("plant-load-factor-pct");
       expect(d!.facet_axis_id).toBe("fuel_type");
       // Exactly 8 children on the canonical fuel_type axis (NO sub-fuel
       // collapse; publisher's 8 labels map 1:1 to 8 distinct axis values).
       expect(d!.facet_values.length).toBe(8);
       const childIds = d!.facet_values.map((fv) => fv.canonical_child_id).sort();
       expect(childIds).toEqual([
-        "state-plant-load-factor-pct-biomass",
-        "state-plant-load-factor-pct-coal",
-        "state-plant-load-factor-pct-gas",
-        "state-plant-load-factor-pct-hydro",
-        "state-plant-load-factor-pct-nuclear",
-        "state-plant-load-factor-pct-small-hydro",
-        "state-plant-load-factor-pct-solar",
-        "state-plant-load-factor-pct-wind",
+        "plant-load-factor-pct-biomass",
+        "plant-load-factor-pct-coal",
+        "plant-load-factor-pct-gas",
+        "plant-load-factor-pct-hydro",
+        "plant-load-factor-pct-nuclear",
+        "plant-load-factor-pct-small-hydro",
+        "plant-load-factor-pct-solar",
+        "plant-load-factor-pct-wind",
       ]);
       // Publisher `bio-power` collapses to canonical `biomass`;
       // `oil-gas` collapses to canonical `gas`; `small-hydro` retains

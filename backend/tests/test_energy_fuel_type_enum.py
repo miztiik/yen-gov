@@ -51,7 +51,7 @@ def test_every_fuel_suffix_is_canonical(stem: str) -> None:
     or typos.
 
     EXCEPTION (PR-V, 2026-05-26): percentage-valued fuel-faceted
-    indicators (e.g. state-plant-load-factor-pct-*) MUST NOT collapse
+    indicators (e.g. plant-load-factor-pct-*) MUST NOT collapse
     sub-fuels into 'renewable' — summing per-fuel PLF percentages is
     meaningless. PR-V uses a dedicated 1:1 publisher-to-canonical map
     (_PLF_PUBLISHER_TO_CANONICAL_FUEL) mapping bio-power -> biomass,
@@ -83,7 +83,7 @@ def test_every_fuel_suffix_is_canonical(stem: str) -> None:
     # ALLOWED to carry a sub-fuel suffix (biomass / small-hydro / etc.)
     # without triggering this guard.
     sub_fuel_exempt_prefixes = (
-        "state-plant-load-factor-pct-",  # PR-V (percentage; cannot sum across fuels)
+        "plant-load-factor-pct-",  # PR-V (percentage; cannot sum across fuels)
     )
     leaks: list[tuple[str, str]] = []
     for ind in indicators:

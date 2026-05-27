@@ -2780,7 +2780,7 @@
       "concept_id": "renewables"
     },
     {
-      "indicator_id": "state-plant-load-factor-pct",
+      "indicator_id": "plant-load-factor-pct",
       "label_short": "Plant load factor",
       "label_long": "State plant load factor (PLF) by fuel source (%)",
       "description_short": "Share of nameplate capacity actually delivered as energy over a fiscal year. Per state, per fuel source. Coal PLFs near 60% indicate healthy merit-order despatch; near 40% indicates structural underuse.",
@@ -2806,7 +2806,7 @@
       "concept_id": "plant-load-factor"
     },
     {
-      "indicator_id": "state-plant-load-factor-pct-coal",
+      "indicator_id": "plant-load-factor-pct-coal",
       "label_short": "Coal PLF",
       "label_long": "State plant load factor -- Coal (%)",
       "description_short": "Coal-fired plant load factor: how hard the state's coal fleet is being run. 60%+ = healthy despatch, 40% = structural underuse (stranded assets), regulator-set floor varies.",
@@ -2822,7 +2822,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-plant-load-factor-pct",
+      "parent_indicator_id": "plant-load-factor-pct",
       "dimension_values": {
         "fuel_type": "coal"
       },
@@ -2835,7 +2835,7 @@
       "concept_id": "coal-plf"
     },
     {
-      "indicator_id": "state-plant-load-factor-pct-gas",
+      "indicator_id": "plant-load-factor-pct-gas",
       "label_short": "Gas PLF",
       "label_long": "State plant load factor -- Gas (oil + diesel + furnace oil + natural gas) (%)",
       "description_short": "Gas-fired plant load factor (publisher bucket 'oil-gas' = natural gas + diesel + furnace oil). Persistently low in India (often <25%) due to gas allocation shortages -- not a despatch failure.",
@@ -2851,7 +2851,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-plant-load-factor-pct",
+      "parent_indicator_id": "plant-load-factor-pct",
       "dimension_values": {
         "fuel_type": "gas"
       },
@@ -2864,7 +2864,7 @@
       "concept_id": "gas-plf"
     },
     {
-      "indicator_id": "state-plant-load-factor-pct-hydro",
+      "indicator_id": "plant-load-factor-pct-hydro",
       "label_short": "Large-hydro PLF",
       "label_long": "State plant load factor -- Large hydro (%)",
       "description_short": "Large-hydro plant load factor (capacity > 25 MW). Inherently seasonal; monsoon-dependent states show high inter-year variation that is RESOURCE-driven, not fleet-performance-driven.",
@@ -2880,7 +2880,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-plant-load-factor-pct",
+      "parent_indicator_id": "plant-load-factor-pct",
       "dimension_values": {
         "fuel_type": "hydro"
       },
@@ -2893,7 +2893,7 @@
       "concept_id": "large-hydro-plf"
     },
     {
-      "indicator_id": "state-plant-load-factor-pct-nuclear",
+      "indicator_id": "plant-load-factor-pct-nuclear",
       "label_short": "Nuclear PLF",
       "label_long": "State plant load factor -- Nuclear (%)",
       "description_short": "Nuclear plant load factor. Only present in states hosting reactors (TN/Karnataka/Rajasthan/Gujarat/Maharashtra/UP); rest = no data. Targets 80%+ when fuel-supply and grid-offtake align.",
@@ -2909,7 +2909,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-plant-load-factor-pct",
+      "parent_indicator_id": "plant-load-factor-pct",
       "dimension_values": {
         "fuel_type": "nuclear"
       },
@@ -2922,7 +2922,7 @@
       "concept_id": "nuclear-plf"
     },
     {
-      "indicator_id": "state-plant-load-factor-pct-small-hydro",
+      "indicator_id": "plant-load-factor-pct-small-hydro",
       "label_short": "Small-hydro PLF",
       "label_long": "State plant load factor -- Small hydro (<= 25 MW) (%)",
       "description_short": "Small-hydro plant load factor (capacity <= 25 MW). Run-of-river dominated; seasonal-flow-bounded. Distinct from large-hydro for despatch and resource-availability reasons.",
@@ -2938,7 +2938,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-plant-load-factor-pct",
+      "parent_indicator_id": "plant-load-factor-pct",
       "dimension_values": {
         "fuel_type": "small_hydro"
       },
@@ -2951,7 +2951,7 @@
       "concept_id": "small-hydro-plf"
     },
     {
-      "indicator_id": "state-plant-load-factor-pct-solar",
+      "indicator_id": "plant-load-factor-pct-solar",
       "label_short": "Solar PLF",
       "label_long": "State plant load factor -- Solar (%)",
       "description_short": "Solar PLF (utility + rooftop combined). Resource-bounded: even perfect operation cannot exceed ~22-25% in India (function of sunlight hours). A 20% solar PLF is GOOD; do NOT compare to a 60% coal target.",
@@ -2967,7 +2967,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-plant-load-factor-pct",
+      "parent_indicator_id": "plant-load-factor-pct",
       "dimension_values": {
         "fuel_type": "solar"
       },
@@ -2980,7 +2980,7 @@
       "concept_id": "solar-plf"
     },
     {
-      "indicator_id": "state-plant-load-factor-pct-wind",
+      "indicator_id": "plant-load-factor-pct-wind",
       "label_short": "Wind PLF",
       "label_long": "State plant load factor -- Wind (%)",
       "description_short": "Wind PLF. Resource-bounded by site quality (Tamil Nadu, Gujarat, Rajasthan, Karnataka coastal/desert zones are wind-rich). A 25% wind PLF in Tamil Nadu is excellent; same number in a low-wind state could be aspirational siting.",
@@ -2996,7 +2996,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-plant-load-factor-pct",
+      "parent_indicator_id": "plant-load-factor-pct",
       "dimension_values": {
         "fuel_type": "wind"
       },
@@ -3009,7 +3009,7 @@
       "concept_id": "wind-plf"
     },
     {
-      "indicator_id": "state-plant-load-factor-pct-biomass",
+      "indicator_id": "plant-load-factor-pct-biomass",
       "label_short": "Biomass PLF",
       "label_long": "State plant load factor -- Biomass / bio-power (%)",
       "description_short": "Biomass / bio-power PLF (publisher label: 'bio-power'). Feedstock-supply-bounded; agricultural-residue-rich states (Punjab, Haryana, UP, Tamil Nadu) show higher PLFs only when supply chains are functional.",
@@ -3025,7 +3025,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-plant-load-factor-pct",
+      "parent_indicator_id": "plant-load-factor-pct",
       "dimension_values": {
         "fuel_type": "biomass"
       },

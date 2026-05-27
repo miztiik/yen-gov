@@ -7,7 +7,7 @@ Lifts 3 meadow shards (per ADR-0041, ``datasets/energy/_meadow/iced/2024-25/``):
 * ``state_electricity_generation_by_source_gwh.json`` (~1685 per-fuel)
   → ``electricity-generation-gwh-{fuel}`` (after sub-fuel collapse).
 * ``state_plant_load_factor_pct.json`` (1652 per-fuel, PR-V 2026-05-26)
-  → ``state-plant-load-factor-pct-{fuel}`` (NO sub-fuel collapse;
+  → ``plant-load-factor-pct-{fuel}`` (NO sub-fuel collapse;
   1:1 mapping to 8 distinct fuel_type values).
 
 The unit-name change (MU on the meadow shard label vs GWh on the
@@ -22,7 +22,7 @@ SUB_FUEL_TO_CANONICAL would force via the renewable collapse -- yields
 a meaningless number (you cannot add 25% solar PLF + 25% wind PLF and
 get 50%). Therefore PR-V uses ``_PLF_PUBLISHER_TO_CANONICAL_FUEL``, a
 1:1 dict over the 8 publisher labels mapping to 8 distinct existing
-fuel_type axis values. The parent ``state-plant-load-factor-pct``
+fuel_type axis values. The parent ``plant-load-factor-pct``
 catalogues with 0 rows; the 8 children own all passthrough obs.
 """
 
@@ -123,7 +123,7 @@ _PLF_PUBLISHER_TO_CANONICAL_FUEL: dict[str, str] = {
 def _append_plf_rows(repo_root: Path, rows: list[ObservationRow]) -> None:
     """Lift state_plant_load_factor_pct.json (PR-V) into the generation
     parquet. Each (state, FY, fuel) row passes through unchanged as a
-    child indicator; the parent ``state-plant-load-factor-pct`` carries
+    child indicator; the parent ``plant-load-factor-pct`` carries
     zero rows (catalogue / facet-picker only).
     """
     shard = load_meadow(
@@ -144,7 +144,7 @@ def _append_plf_rows(repo_root: Path, rows: list[ObservationRow]) -> None:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id=f"state-plant-load-factor-pct-{canonical_fuel}",
+            indicator_id=f"plant-load-factor-pct-{canonical_fuel}",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["iced_plant_load_factor"],
             derivation="raw",

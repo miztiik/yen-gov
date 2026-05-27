@@ -106,7 +106,7 @@ def test_all_p1a_p1b_energy_source_ids_present() -> None:
         # P.1.C PR-V (1) — state plant load factor by fuel lift (Pattern
         # A-facet on the EXISTING fuel_type axis with NO sub-fuel collapse;
         # PLF is a percentage that cannot be summed across fuels).
-        "src-7eb929cbf2d8",  # ICED state-plant-load-factor-pct
+        "src-7eb929cbf2d8",  # ICED plant-load-factor-pct
         # P.1.C PR-W (1) — state power-purchase share by source lift
         # (Pattern A-facet on EXISTING fuel_type axis extended with
         # hybrid_bundled + trading_other; NO sub-fuel collapse).
