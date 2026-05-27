@@ -230,10 +230,10 @@ test.describe("extended routes", () => {
     const icons = page.locator("h3 svg[data-icon-name]");
     const total = await icons.count();
     // PR #296 (Row 4 IA pass) pruned /t/energy from 23 cards to 5
-    // survivors. ~5 cards x 2-3 chart headers each ≈ 12 icons.
-    // Threshold cushioned at 10 to leave headroom for future
-    // re-additions before this test needs re-tuning.
-    expect(total, "≥10 chart headers should render an icon on /t/energy (post PR #296 prune)").toBeGreaterThanOrEqual(10);
+    // survivors. Live count post-prune (with Fix 3 Zod fix unmasking
+    // true render) = 7 icons. Threshold set to 5 with headroom for
+    // future re-additions before this test needs re-tuning.
+    expect(total, "≥5 chart headers should render an icon on /t/energy (post PR #296 prune)").toBeGreaterThanOrEqual(5);
     const seen = await icons.evaluateAll((els) =>
       Array.from(new Set(els.map((e) => e.getAttribute("data-icon-name")))).sort(),
     );
