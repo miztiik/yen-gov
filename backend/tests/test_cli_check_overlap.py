@@ -1,6 +1,6 @@
 """CLI tests for ``check-overlap`` (PR-Z3b-cli).
 
-Per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat
+Per docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat
 guardrail #13, every new indicator_id MUST FK to a row in concepts.json.
 ``check-overlap`` is the pre-PR gate. Exits 1 if any match scores >= 0.70.
 

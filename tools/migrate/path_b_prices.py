@@ -1,6 +1,6 @@
 """Path-B migrate: collapse 4 state CPI inflation shards into 1 facetted shard.
 
-PR-B8 of TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md.
+PR-B8 of docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md.
 
 Sources (deleted on success):
   - datasets/indicators/in/prices/state_cpi_general_inflation_pct.json

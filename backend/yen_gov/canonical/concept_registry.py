@@ -10,7 +10,7 @@ recommended action.
 
 OWID precedent: every Grapher variable resolves to a single concept; new
 publishers of an existing fact are facets, not new variables. See
-``TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md`` §0quint
+``docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md`` §0quint
 + §2 PR-Z3 (guardrails #13-#18).
 
 Ships in PR-Z3a. The CLI command and Tier-B checks that consume this

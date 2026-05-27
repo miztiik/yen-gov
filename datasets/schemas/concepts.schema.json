@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "./concepts.schema.json",
   "title": "Concept registry (canonical)",
-  "description": "Hand-authored concept registry (taxonomy/concepts.json). One row per (noun, unit_canonical, normalisation) triple — the citizen-readable fact a concept_id stands for. Every indicator in datasets/taxonomy/indicators.json MUST FK to a concept_id (enforced post-PR-Z3b via Tier-B tier_b_one_indicator_per_concept). Two indicators sharing the same (concept_id, entity_kind) tuple is the proliferation signal that PR-Z3b rejects. Ships in PR-Z3a (this file + concepts.json seed + find_overlap() helper); the indicator-catalogue concept_id FK + CLI + Tier-B + CI gate ship in PR-Z3b (TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §2 PR-Z3, guardrails #13-#18).",
+  "description": "Hand-authored concept registry (taxonomy/concepts.json). One row per (noun, unit_canonical, normalisation) triple — the citizen-readable fact a concept_id stands for. Every indicator in datasets/taxonomy/indicators.json MUST FK to a concept_id (enforced post-PR-Z3b via Tier-B tier_b_one_indicator_per_concept). Two indicators sharing the same (concept_id, entity_kind) tuple is the proliferation signal that PR-Z3b rejects. Ships in PR-Z3a (this file + concepts.json seed + find_overlap() helper); the indicator-catalogue concept_id FK + CLI + Tier-B + CI gate ship in PR-Z3b (docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md §2 PR-Z3, guardrails #13-#18).",
   "x-version": "1.0",
   "x-changelog": [
     {

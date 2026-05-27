@@ -1,6 +1,6 @@
 // Overlay grapher catalogue render hints onto a topic catalogue.
 //
-// Per ADR-0045 + PR-A3b of TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md,
+// Per ADR-0045 + PR-A3b of docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md,
 // the canonical topic catalogue's `chart_type` and `dimension` fields are
 // being migrated to live in `datasets/grapher/topic_render.json`. PR-A3a
 // shipped the grapher catalogue additively (zero deletions); A3b makes the

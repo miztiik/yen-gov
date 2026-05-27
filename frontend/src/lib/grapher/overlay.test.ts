@@ -1,6 +1,6 @@
 // Unit test for `applyGrapherOverlay` — the seam that sources topic-artifact
 // `chart_type` / `dimension` from the grapher catalogue at fetch time, per
-// PR-A3b of TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md.
+// PR-A3b of docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md.
 
 import { describe, it, expect } from "vitest";
 import { applyGrapherOverlay } from "./overlay";

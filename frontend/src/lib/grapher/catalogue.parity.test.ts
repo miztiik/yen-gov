@@ -14,7 +14,7 @@
 //
 // See:
 //   - docs/architecture/decisions/0045-grapher-catalogue-split.md
-//   - TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md PR-A3b
+//   - docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md PR-A3b
 
 import { describe, it, expect } from "vitest";
 import { readFileSync } from "node:fs";

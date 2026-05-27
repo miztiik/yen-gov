@@ -8,7 +8,7 @@ The manifest at [`datasets/manifest.json`](manifest.json) carries a programmatic
 
 ## 2026-05-27 — Grain-over-entity rip (PR #336–#409)
 
-**Released across 69 PRs** under [TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md](../TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md). Substantially closes the rip-and-replace mandate for [ADR-0044 grain-over-entity](../docs/architecture/decisions/0044-grain-over-entity.md) + [ADR-0045 grapher catalogue split](../docs/architecture/decisions/0045-grapher-catalogue-split.md). Permanent prevention guardrails live; remaining D/C/E items reclassified as forward-build.
+**Released across 69 PRs** under [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md). Substantially closes the rip-and-replace mandate for [ADR-0044 grain-over-entity](../docs/architecture/decisions/0044-grain-over-entity.md) + [ADR-0045 grapher catalogue split](../docs/architecture/decisions/0045-grapher-catalogue-split.md). Permanent prevention guardrails live; remaining D/C/E items reclassified as forward-build.
 
 **§0quat guardrails — all 5 Tier-B checks LIVE**:
 

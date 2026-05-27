@@ -2,7 +2,7 @@
 ``datasets/taxonomy/indicators.json`` (guardrail #13, PR-Z3b-tail-conceptFK
 Carve 1).
 
-Strategy per ``TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md``
+Strategy per ``docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md``
 section Z3b-tail:
 
 1. For each indicator row, derive ``(noun, unit, normalisation, entity_kind)``

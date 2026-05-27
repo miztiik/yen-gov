@@ -1,6 +1,6 @@
 """Tier-B tests for ``tier_b_no_hand_typed_source_id`` (PR-Z3b-tail-actionB dark).
 
-Per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat
+Per docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat
 guardrail #6, ``source_id`` MUST be looked up via the forthcoming
 ``source_registry.resolve(nickname)`` seam (PR-A6); raw ``src-<hex>``
 literals or top-level ``SOURCE_IDS = {...}`` assignments inside

@@ -1,7 +1,7 @@
 """Schema-shape assertions for indicator-catalogue.schema.json v2.2
 (PR-Z3b-tail-conceptFK Carve 0a -- concept_id FK schema bump).
 
-Per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat
+Per docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat
 guardrail #13: every indicator MUST FK to one row in
 ``datasets/taxonomy/concepts.json`` declaring
 ``(noun, unit_canonical, normalisation, entity_kinds)``. Carve 0a is the

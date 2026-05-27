@@ -360,7 +360,7 @@
       "featured": false,
       "peer_set_default": "general_category",
       "artifacts": [],
-      "notes": "Structural placeholder per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md Â§D6. The 6 legacy health shards (SRS vital rates + RBI Statement 27 health-spend) were retired in PR-D6: 5 hand-curated SRS shards (birth rate, death rate, IMR, TFR, public-health expenditure â‚¹Cr) end in 2020 with the SRS publication paused; RBI Statement 27 (share-of-state-total) had only one publisher and no canonical successor. Re-ingestion via a canonical health adapter (SRS resumption + NHM dashboard + Ayushman Bharat) is queued behind the canonical pivot â€” flag for Hans review when first canonical health artifact arrives."
+      "notes": "Structural placeholder per docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md Â§D6. The 6 legacy health shards (SRS vital rates + RBI Statement 27 health-spend) were retired in PR-D6: 5 hand-curated SRS shards (birth rate, death rate, IMR, TFR, public-health expenditure â‚¹Cr) end in 2020 with the SRS publication paused; RBI Statement 27 (share-of-state-total) had only one publisher and no canonical successor. Re-ingestion via a canonical health adapter (SRS resumption + NHM dashboard + Ayushman Bharat) is queued behind the canonical pivot â€” flag for Hans review when first canonical health artifact arrives."
     },
     {
       "id": "governance",

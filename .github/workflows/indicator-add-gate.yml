@@ -1,6 +1,6 @@
 name: indicator-add-gate
 
-# Guardrail #17 (TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat):
+# Guardrail #17 (docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat):
 # a PR that adds >1 row to `datasets/taxonomy/indicators.json` must justify
 # every new id. Acceptable justifications in the PR body:
 #

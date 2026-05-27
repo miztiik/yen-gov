@@ -1,7 +1,7 @@
 """Path-B migrate: collapse 4 country-grain Centre-transfer shards into 1 facetted shard.
 
 PR-B7 (carved subset: row 3 only) of
-TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md.
+docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md.
 
 Sources (deleted on success), all `entity_kind=country` (all-India, 1 row per FY):
   - datasets/indicators/in/fiscal/centre_transfers_to_states_net.json

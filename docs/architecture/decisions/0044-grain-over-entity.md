@@ -5,7 +5,7 @@
 **Deciders**: User (autonomous mandate, 2026-05-26 — "Move grain to OWID-style grain-over-entity. Stop smooshing state + district + village into one chart; create sub-pages.") + Hans + Max (data shape, per CLAUDE.md §0a) + Gregor (contract seam) + Jony (UX surface).
 **Supersedes**: [docs/concepts/indicator-naming.md](../../concepts/indicator-naming.md) §2.2 ("entity-prefix mandatory") + §2.4 ("when to include `state_` / `district_` / `national_`"). Both sections are rewritten in the same commit as this ADR lands.
 **Resolves**: [docs/research/indicator-id-grain-axis.md](../../research/indicator-id-grain-axis.md) Path A vs Path B — Path B selected.
-**Plan reference**: [TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../../TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md) PR-A1.
+**Plan reference**: [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md) PR-A1.
 
 ## Context
 

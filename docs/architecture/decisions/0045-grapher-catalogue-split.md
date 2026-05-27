@@ -4,7 +4,7 @@
 **Status**: Accepted
 **Deciders**: User (autonomous mandate, 2026-05-26 — "visualization is bleeding into storage; renderer rules belong in a frontend-owned grapher catalogue") + Gregor (contract seam, per CLAUDE.md §0a) + Hans + Max (data shape — confirm what stays on canonical).
 **Refines**: [ADR-0020](0020-indicator-artifact-as-data-contract.md) — the indicator artifact remains the data contract; this ADR carves out the render-shape fields into a sibling catalogue.
-**Plan reference**: [TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../../TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md) PR-A1 (this ADR) → PR-A3a (additive grapher catalogue) → PR-A3b (reader migration) → PR-A3c (rip render fields from canonical).
+**Plan reference**: [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md) PR-A1 (this ADR) → PR-A3a (additive grapher catalogue) → PR-A3b (reader migration) → PR-A3c (rip render fields from canonical).
 
 ## Context
 

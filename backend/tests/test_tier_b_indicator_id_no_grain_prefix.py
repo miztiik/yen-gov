@@ -1,6 +1,6 @@
 """Tier-B tests for ``tier_b_indicator_id_no_grain_prefix`` (PR-B1 dark).
 
-Per ADR-0044 + TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md
+Per ADR-0044 + docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md
 Phase B, indicator_id values that encode grain in the prefix
 (``^(state|district|national)-``) are rejected. The check ships dark in
 PR-B1 (function present, NOT chained into ``run()``) and enforces post-PR-B9.

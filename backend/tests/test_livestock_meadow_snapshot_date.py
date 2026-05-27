@@ -1,4 +1,4 @@
-"""Per PR-A5b (plan-doc TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md):
+"""Per PR-A5b (plan-doc docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md):
 the 3 livestock meadow generators MUST refuse to run without an explicit
 ``--snapshot-date YYYY-MM-DD`` and MUST stamp ``<date>T00:00:00Z`` (not
 ``datetime.now()``) into ``sources[].fetched_at`` + ``indicator.methodology_vintage``

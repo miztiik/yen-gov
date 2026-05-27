@@ -610,7 +610,7 @@ Full design archive: [ADR-0032 §Context + §Rejected Alternatives](../decisions
 
 **Format**: `<measure>-<unit>-<facet>`, kebab-case, single segment, max 60 chars.
 
-The id MUST NOT carry an `<entity>-` segment (`state-`, `district-`, `ac-`, `national-`, `india-`, `party-`, `candidate-`) per [ADR-0044](../decisions/0044-grain-over-entity.md). Grain lives on each observation row's `entity_kind` and on the catalogue's `entity_kinds[]` / `default_entity_kind` (§6); the renderer dispatches at read time. Tier-B `tier_b_indicator_id_no_grain_prefix` enforces this post-PR-B9 of [TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../../TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md).
+The id MUST NOT carry an `<entity>-` segment (`state-`, `district-`, `ac-`, `national-`, `india-`, `party-`, `candidate-`) per [ADR-0044](../decisions/0044-grain-over-entity.md). Grain lives on each observation row's `entity_kind` and on the catalogue's `entity_kinds[]` / `default_entity_kind` (§6); the renderer dispatches at read time. Tier-B `tier_b_indicator_id_no_grain_prefix` enforces this post-PR-B9 of [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md).
 
 - Sibling sort works via `ORDER BY indicator_id` — no separate sort column needed.
 - Greppable; deterministic; no hashes.

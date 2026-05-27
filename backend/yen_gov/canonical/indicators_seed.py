@@ -24,7 +24,7 @@ D29 contract is enforced here at compile time (failing closed):
   AND a per-child source_id
 
 v2.0 (PR-B1 2026-05-26) grain-over-entity rip-and-replace per
-ADR-0044 (TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md
+ADR-0044 (docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md
 Phase B). Drops ``id_aliases`` + ``deprecated_in`` (per-PR rename scripts
 under ``tools/migrate/`` replace the one-release alias window) and adds
 required ``entity_kinds`` (list[str]) + ``default_entity_kind`` (str).

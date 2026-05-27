@@ -100,7 +100,7 @@ export interface TopicCatalogue {
  *  in T.0b (TODO/20260517-canonical-long-format-pivot.md §0e Phase 0 closeout).
  *  Shape unchanged; the reference/in/ original is deleted in T.0c.
  *
- *  PR-A3b (TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md):
+ *  PR-A3b (docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md):
  *  per ADR-0045 the render-coupled fields (`chart_type`, `dimension`) on
  *  artifact refs are sourced from `datasets/grapher/topic_render.json` via
  *  `applyGrapherOverlay()`. The canonical fields remain as a transitional
