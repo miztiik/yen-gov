@@ -176,7 +176,7 @@ FACET_AXES: list[FacetAxis] = [
                     "Bundled hybrid PPAs (e.g. wind + solar + storage sold as "
                     "one contract). A procurement-channel category rather than "
                     "a pure fuel; carried on the fuel_type axis for renderer "
-                    "reuse. Used by `state-power-purchase-share-pct-hybrid-bundled` "
+                    "reuse. Used by `power-purchase-share-pct-hybrid-bundled` "
                     "(PR-W). No SUB_FUEL_TO_CANONICAL collapse target -- the "
                     "bundle is irreducible at publisher grain."
                 ),
@@ -190,7 +190,7 @@ FACET_AXES: list[FacetAxis] = [
                     "at procurement time. A procurement-channel category rather "
                     "than a pure fuel; carried on the fuel_type axis for "
                     "renderer reuse. Used by "
-                    "`state-power-purchase-share-pct-trading-other` (PR-W)."
+                    "`power-purchase-share-pct-trading-other` (PR-W)."
                 ),
             ),
         ],

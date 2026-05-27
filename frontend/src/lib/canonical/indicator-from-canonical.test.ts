@@ -919,23 +919,23 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d).not.toBeNull();
     expect(d!.kind).toBe("facet-multiplexed");
     if (d!.kind === "facet-multiplexed") {
-      expect(d!.canonical_parent_indicator_id).toBe("state-power-purchase-share-pct");
+      expect(d!.canonical_parent_indicator_id).toBe("power-purchase-share-pct");
       expect(d!.facet_axis_id).toBe("fuel_type");
       expect(d!.facet_values.length).toBe(12);
       const childIds = d!.facet_values.map((fv) => fv.canonical_child_id).sort();
       expect(childIds).toEqual([
-        "state-power-purchase-share-pct-biomass",
-        "state-power-purchase-share-pct-coal",
-        "state-power-purchase-share-pct-diesel",
-        "state-power-purchase-share-pct-gas",
-        "state-power-purchase-share-pct-hybrid-bundled",
-        "state-power-purchase-share-pct-hydro",
-        "state-power-purchase-share-pct-nuclear",
-        "state-power-purchase-share-pct-renewable-other",
-        "state-power-purchase-share-pct-small-hydro",
-        "state-power-purchase-share-pct-solar",
-        "state-power-purchase-share-pct-trading-other",
-        "state-power-purchase-share-pct-wind",
+        "power-purchase-share-pct-biomass",
+        "power-purchase-share-pct-coal",
+        "power-purchase-share-pct-diesel",
+        "power-purchase-share-pct-gas",
+        "power-purchase-share-pct-hybrid-bundled",
+        "power-purchase-share-pct-hydro",
+        "power-purchase-share-pct-nuclear",
+        "power-purchase-share-pct-renewable-other",
+        "power-purchase-share-pct-small-hydro",
+        "power-purchase-share-pct-solar",
+        "power-purchase-share-pct-trading-other",
+        "power-purchase-share-pct-wind",
       ]);
       const labels = d!.facet_values.map((fv) => fv.legacy_facet_label);
       // Raw publisher labels must NOT appear.

@@ -1,4 +1,4 @@
-"""Parity oracle for the state-power-purchase-share-pct canonical lift (PR-W).
+"""Parity oracle for the power-purchase-share-pct canonical lift (PR-W).
 
 ICED ``/statelevel-power-purchase-quantum-and-cost`` (state-wise
 procurement-mix share by source) -> 2658 raw meadow obs rows joined
@@ -45,7 +45,7 @@ pytestmark = pytest.mark.skipif(
 )
 
 EXPECTED_SOURCE_ID = "src-1401f8087b0d"
-PARENT_ID = "state-power-purchase-share-pct"
+PARENT_ID = "power-purchase-share-pct"
 EXPECTED_CHILD_IDS = {
     f"{PARENT_ID}-biomass",
     f"{PARENT_ID}-coal",

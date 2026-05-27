@@ -326,7 +326,7 @@ def _append_power_purchase_share_rows(
     """Lift state_power_purchase_share_pct.json (PR-W) into the
     demand_supply parquet. Each (state, FY, source) row passes through
     unchanged as a child indicator; the parent
-    ``state-power-purchase-share-pct`` carries zero rows (catalogue /
+    ``power-purchase-share-pct`` carries zero rows (catalogue /
     facet-picker only).
     """
     shard = _load_iced_meadow(repo_root, "state_power_purchase_share_pct.json")
@@ -342,7 +342,7 @@ def _append_power_purchase_share_rows(
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id=f"state-power-purchase-share-pct-{canonical_suffix}",
+            indicator_id=f"power-purchase-share-pct-{canonical_suffix}",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["iced_power_purchase_share"],
             derivation="raw",

@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.3",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-27T08:10:28Z",
+  "generated_at": "2026-05-27T08:19:42Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -311,7 +311,7 @@
       "files": [
         {
           "path": "energy/energy_demand_supply.parquet",
-          "size_bytes": 460710,
+          "size_bytes": 449034,
           "row_count": 6387
         }
       ],
@@ -515,7 +515,7 @@
       "files": [
         {
           "path": "taxonomy/indicators.parquet",
-          "size_bytes": 46820,
+          "size_bytes": 46799,
           "row_count": 179
         }
       ],
@@ -566,7 +566,7 @@
       "files": [
         {
           "path": "taxonomy/sources.parquet",
-          "size_bytes": 25559,
+          "size_bytes": 25707,
           "row_count": 408
         }
       ],

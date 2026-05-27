@@ -94,7 +94,7 @@ def test_parquet_has_six_distinct_indicators_after_p1b() -> None:
         "state-per-capita-electricity-availability-kwh",
     }
     # PR-W (Row 6 / P.1.C 7/9) extended this parquet with 12
-    # state-power-purchase-share-pct-{fuel} children (parent carries 0
+    # power-purchase-share-pct-{fuel} children (parent carries 0
     # rows so doesn't appear in DISTINCT). Sibling-widening per the
     # NO_CAVEATS_DESCRIPTOR pattern: switch from set-equality to
     # set-superset, allowing future P.1.C / P.1.D additions onto this
