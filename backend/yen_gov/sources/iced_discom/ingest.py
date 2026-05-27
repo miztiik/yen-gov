@@ -88,7 +88,6 @@ def _indicator_td_loss() -> dict[str, Any]:
             "Category ``transmission-and-distribution-loss``."
         ),
         "chart_type": "ranked",
-        "default_mode": "absolute",
         "notes": (
             "Indian central-government targets envision T&D losses below 12% "
             "by FY26; the all-India figure has historically been ~17–20%. "
@@ -125,7 +124,6 @@ def _indicator_billing_efficiency() -> dict[str, Any]:
             "operationalPerformanceStates``. Category ``billing-efficiency``."
         ),
         "chart_type": "ranked",
-        "default_mode": "absolute",
         "notes": (
             "Together with collection efficiency, billing efficiency "
             "decomposes the commercial half of AT&C losses: "
@@ -160,7 +158,6 @@ def _indicator_collection_efficiency() -> dict[str, Any]:
             "operationalPerformanceStates``. Category ``collection-efficiency``."
         ),
         "chart_type": "ranked",
-        "default_mode": "absolute",
         "notes": (
             "State government departments (irrigation, street-lighting, "
             "panchayats) are often the largest delinquent consumer "
@@ -203,7 +200,6 @@ def _indicator_rpo_compliance() -> dict[str, Any]:
             "interpretation requires the bounded percentage form."
         ),
         "chart_type": "ranked",
-        "default_mode": "absolute",
         "notes": (
             "Time coverage is thin (FY19–FY21 in current upstream); "
             "most useful as a recent-cycle compliance snapshot rather "

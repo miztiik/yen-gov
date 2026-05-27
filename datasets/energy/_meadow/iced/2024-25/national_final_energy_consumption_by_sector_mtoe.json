@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "5.0",
+  "$schema_version": "6.0",
   "sources": [
     {
       "url": "https://iced.niti.gov.in/analytics/state-wise-deep-dive",
@@ -36,8 +36,7 @@
     "comparability": "comparable_across_states",
     "implementing_authority": "centre",
     "methodology_vintage": "MoSPI Energy Statistics India (composed by ICED)",
-    "chart_type": "stacked-trend",
-    "default_mode": "absolute"
+    "chart_type": "stacked-trend"
   },
   "rows": [
     {

@@ -98,7 +98,6 @@ def _indicator_gdp() -> dict[str, Any]:
             "estimate."
         ),
         "chart_type": "stacked-trend",
-        "default_mode": "absolute",
         "notes": (
             "State totals will not sum exactly to national GDP because of "
             "differences in base years and revision timing across the 36 "
@@ -150,7 +149,6 @@ def _indicator_iip() -> dict[str, Any]:
         "implementing_authority": "centre",
         "methodology_vintage": "MoSPI Central Statistics Office, base 2011-12.",
         "chart_type": "stacked-trend",
-        "default_mode": "absolute",
         "notes": (
             "Mixed sectoral + use-based facets in one indicator — ICED ships "
             "them in the same payload. Renderers should let the user pick "
@@ -188,7 +186,6 @@ def _indicator_gva_constant() -> dict[str, Any]:
             "of fixed capital."
         ),
         "chart_type": "stacked-trend",
-        "default_mode": "absolute",
         "notes": (
             "Only the constant-price series ships in this artifact; the "
             "current-price companion can be added later if needed. State-"
@@ -229,7 +226,6 @@ def _indicator_india_external_balance() -> dict[str, Any]:
             "the series annual-comparable."
         ),
         "chart_type": "stacked-trend",
-        "default_mode": "absolute",
         "notes": (
             "Trade Balance + Invisibles (Net) ≈ Current Account Balance; "
             "Current Account + Capital Account ≈ Overall Balance. Don't "

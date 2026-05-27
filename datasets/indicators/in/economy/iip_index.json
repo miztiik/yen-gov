@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "5.0",
+  "$schema_version": "6.0",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/economy-demography/key-economic-indicators/industrial-production",
@@ -36,7 +36,6 @@
     "implementing_authority": "centre",
     "methodology_vintage": "MoSPI Central Statistics Office, base 2011-12.",
     "chart_type": "stacked-trend",
-    "default_mode": "absolute",
     "notes": "Mixed sectoral + use-based facets in one indicator — ICED ships them in the same payload. Renderers should let the user pick which classification (sectoral vs use-based) to compare within."
   },
   "rows": [

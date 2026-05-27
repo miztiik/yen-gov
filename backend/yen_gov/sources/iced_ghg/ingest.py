@@ -74,7 +74,6 @@ def _indicator_subsector() -> dict[str, Any]:
             "Coverage: 1994, 2000, 2007, then annual 2010-2020."
         ),
         "chart_type": "stacked-trend",
-        "default_mode": "absolute",
         "notes": (
             "Facets are encoded as 'Sector|SubSector' strings. The 'Energy "
             "Sector / Total' row is present for back-compat with the older "

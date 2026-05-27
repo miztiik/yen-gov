@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "5.0",
+  "$schema_version": "6.0",
   "sources": [
     {
       "url": "https://iced.niti.gov.in/analytics/state-wise-deep-dive",
@@ -34,10 +34,6 @@
     "comparability": "comparable_with_normalisation",
     "implementing_authority": "state",
     "methodology_vintage": "NITI Aayog ICED state-wise deep-dive API; publisher base 2011-12; payload fetched 2026-05-14T07:51:49Z; 10 fiscal years, 666 rows; unit converted from publisher Lakh Crore to crore (× 1e5).",
-    "facet_labels": {
-      "current": "Current prices",
-      "constant": "Constant prices (base 2011-12)"
-    },
     "notes": "Source: NITI Aayog ICED dashboard, rows 'Sectoral GVA (Base: 2011-12) Current Price' and 'Sectoral GVA (Base: 2011-12) Constant Price' (NSO/MoSPI underlying). Compare GDP vs Sectoral GVA: GDP includes net product taxes; GVA is the cleaner production-side measure. The 2025-26 row is typically N.A. while NSO finalises that year's accounts. Publisher dashboard reports Lakh Crore; this shard converts to plain crore (× 1e5) for consistency with peer economy indicators (NSDP, India GDP)."
   },
   "rows": [

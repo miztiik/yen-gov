@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "5.0",
+  "$schema_version": "6.0",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/energy/fuel-sources/oil/consumptionStateProductTrend",
@@ -35,7 +35,6 @@
     "implementing_authority": "centre",
     "methodology_vintage": "NITI Aayog ICED ``/energy/fuel-sources/oil/consumptionStateProductTrend`` (PPAC / Ministry of Petroleum & Natural Gas upstream). Per-state per-product per-FY, FY11–FY25. The ``OTHERS`` state bucket and the national aggregate row (region == ``IN``) are dropped.",
     "chart_type": "ranked",
-    "default_mode": "absolute",
     "notes": "Like coal, oil is a *consumption* statistic — the state where the product is sold/consumed. Diesel and petrol consumption track economic activity closely; LPG tracks household-coverage policy more than wealth."
   },
   "rows": [

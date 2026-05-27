@@ -89,7 +89,6 @@ def _indicator_coal_consumption() -> dict[str, Any]:
             "double-counting (they exist for only the most-recent FYs)."
         ),
         "chart_type": "ranked",
-        "default_mode": "absolute",
         "notes": (
             "Coal consumption is a *consumption* statistic — the state "
             "where coal is burned, not the state where it is mined. For "
@@ -132,7 +131,6 @@ def _indicator_oil_consumption() -> dict[str, Any]:
             "aggregate row (region == ``IN``) are dropped."
         ),
         "chart_type": "ranked",
-        "default_mode": "absolute",
         "notes": (
             "Like coal, oil is a *consumption* statistic — the state "
             "where the product is sold/consumed. Diesel and petrol "
@@ -172,7 +170,6 @@ def _indicator_ppa_share() -> dict[str, Any]:
             "(many nulls in early years and unit unclear)."
         ),
         "chart_type": "ranked",
-        "default_mode": "percent",
         "notes": (
             "Compare state procurement mix vs state generation mix "
             "(``state_electricity_generation_by_source_gwh``) to see "

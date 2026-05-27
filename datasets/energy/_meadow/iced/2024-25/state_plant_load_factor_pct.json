@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "5.0",
+  "$schema_version": "6.0",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/v1/plf-metatable-data",
@@ -35,7 +35,6 @@
     "implementing_authority": "joint",
     "methodology_vintage": "NITI Aayog ICED ``/v1/plf-metatable-data`` (CEA-sourced upstream). PLF is the standard CEA metric (energy generated ÷ (capacity × hours-in-period) × 100).",
     "chart_type": "ranked",
-    "default_mode": "absolute",
     "notes": "PLF is dimensionless (%) and directly comparable across states WITHIN a fuel — but NOT across fuels (a 25% solar PLF is excellent, a 25% coal PLF is a stranded asset). The renderer should keep facets visually distinct."
   },
   "rows": [

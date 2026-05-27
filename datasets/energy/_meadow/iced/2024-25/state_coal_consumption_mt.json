@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "5.0",
+  "$schema_version": "6.0",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/energy/fuel-sources/coal/consumption-domestic-state",
@@ -35,7 +35,6 @@
     "implementing_authority": "joint",
     "methodology_vintage": "NITI Aayog ICED ``/energy/fuel-sources/coal/consumption-domestic-state`` (Coal Controller's Office / Ministry of Coal upstream). Aggregated by SUM of the 4 component grades (raw, washed, middlings, lignite); the precomputed ``TOTAL COAL`` rows are dropped to avoid double-counting (they exist for only the most-recent FYs).",
     "chart_type": "ranked",
-    "default_mode": "absolute",
     "notes": "Coal consumption is a *consumption* statistic — the state where coal is burned, not the state where it is mined. For the production side, see installed-capacity-by-source (coal facet) and the generation-by-source artifact."
   },
   "rows": [

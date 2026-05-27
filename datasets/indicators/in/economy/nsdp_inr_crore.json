@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "5.0",
+  "$schema_version": "6.0",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/05T_2908202556D0D1A9FA0C4615A7889EC1F025BACE.XLSX",
@@ -48,10 +48,6 @@
     "comparability": "comparable_with_normalisation",
     "implementing_authority": "state",
     "methodology_vintage": "MoSPI multi-base spliced (1993-94 / 1999-2000 / 2004-05 / 2011-12); RBI Handbook 2024-25 edition",
-    "facet_labels": {
-      "current": "Current prices",
-      "constant": "Constant prices (spliced)"
-    },
     "notes": "Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Tables 5 (current) and 6 (constant). Telangana (S29) starts in 2014-15 (carve-out from Andhra Pradesh). U08 (J&K) post-2019-20 is UT-only (Ladakh excluded). 2024-25 is Provisional Estimates per RBI; 2023-24 is First Revised. Cross-base growth rates not strictly comparable â€” see series_breaks.",
     "series_breaks": [
       {

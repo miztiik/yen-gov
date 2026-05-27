@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "5.0",
+  "$schema_version": "6.0",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/v1/capacity-metatable-data",
@@ -35,7 +35,6 @@
     "implementing_authority": "joint",
     "methodology_vintage": "ICED capacity-metatable rollup of CEA-published station-level capacity, harmonised across fiscal years 2015-16 → 2025-26.",
     "chart_type": "stacked-trend",
-    "default_mode": "absolute",
     "notes": "Andhra Pradesh figures before FY2014-15 include the area now in Telangana; Jammu & Kashmir before FY2019-20 includes Ladakh. Sub-fuel buckets ('large-hydro' vs 'small-hydro', 'bio-power' vs 'waste-to-energy') follow ICED's labelling and may shift year-on-year as CEA refines its source taxonomy.",
     "series_breaks": [
       {

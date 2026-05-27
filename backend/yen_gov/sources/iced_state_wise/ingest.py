@@ -556,7 +556,6 @@ def _build_collapsed_payload(
     fetched_at: datetime,
     value_scale: float,
     vintage_label: str,
-    facet_labels: dict[str, str],
 ) -> dict[str, Any]:
     """Merge multi-facet rows into one shard with rows[].facet + .vintage.
 
@@ -625,7 +624,6 @@ def _build_collapsed_payload(
                 f"unit converted from publisher Lakh Crore to crore "
                 f"(\u00d7 {int(value_scale):g})."
             ),
-            "facet_labels": facet_labels,
             "notes": meta.notes,
         },
         "rows": merged,
@@ -767,10 +765,6 @@ def ingest(
                 fetched_at=latest_fetch,
                 value_scale=SECTORAL_GVA_VALUE_SCALE,
                 vintage_label=SECTORAL_GVA_VINTAGE_LABEL,
-                facet_labels={
-                    "current": "Current prices",
-                    "constant": "Constant prices (base 2011-12)",
-                },
             )
         else:
             payload = _build_payload(meta=meta, rows=rows, fetched_at=latest_fetch)

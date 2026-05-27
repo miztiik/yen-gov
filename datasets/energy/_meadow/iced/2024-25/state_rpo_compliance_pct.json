@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "5.0",
+  "$schema_version": "6.0",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/energy/electricity/distribution/rpo",
@@ -35,7 +35,6 @@
     "implementing_authority": "state",
     "methodology_vintage": "NITI Aayog ICED ``/energy/electricity/distribution/rpo`` (MNRE / state-regulator data). Three facets: ``solar`` (solarCompliance), ``non-solar`` (nonSolarCompliance), ``total`` (totalCompliance). The unbounded ``rpoCompliance`` field is intentionally not emitted — citizen-readable interpretation requires the bounded percentage form.",
     "chart_type": "ranked",
-    "default_mode": "absolute",
     "notes": "Time coverage is thin (FY19–FY21 in current upstream); most useful as a recent-cycle compliance snapshot rather than a long-arc trend. Targets themselves vary by state and rise over time, so a 95% compliance in FY21 may represent more renewables than 105% in FY19."
   },
   "rows": [
