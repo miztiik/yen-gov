@@ -493,7 +493,7 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
   // a state's tagging rank does not equal its livestock-population rank).
   // Authored-intent regex assertions over verbatim text per the PR-H /
   // PR-I test-resilience pattern.
-  // TODO(deploy-unblock PR #_pending_): re-enable when state-grain + district-grain
+  // TODO(deploy-unblock PR #424): re-enable when state-grain + district-grain
   // Pashu Aadhaar descriptors (and Hans-curated caveats) land in the paired follow-up
   // PR. Tracked under the Phase D livestock cohort in the grain-rip plan.
   it.skip("PR-P cattle Pashu Aadhaar descriptor carries the 3 Hans-curated caveats", () => {
@@ -518,7 +518,7 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.caveats![2]).toMatch(/FY-end/);
   });
 
-  // TODO(deploy-unblock PR #_pending_): re-enable when state-grain + district-grain
+  // TODO(deploy-unblock PR #424): re-enable when state-grain + district-grain
   // Pashu Aadhaar descriptors (and Hans-curated caveats) land in the paired follow-up
   // PR. Tracked under the Phase D livestock cohort in the grain-rip plan.
   it.skip("PR-P buffalo Pashu Aadhaar descriptor carries the 3 Hans-curated caveats", () => {
@@ -544,7 +544,7 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.caveats![2]).toMatch(/draught/i);
   });
 
-  // TODO(deploy-unblock PR #_pending_): re-enable when state-grain + district-grain
+  // TODO(deploy-unblock PR #424): re-enable when state-grain + district-grain
   // Pashu Aadhaar descriptors (and Hans-curated caveats) land in the paired follow-up
   // PR. Tracked under the Phase D livestock cohort in the grain-rip plan.
   it.skip("PR-P goat Pashu Aadhaar descriptor carries the 3 Hans-curated caveats", () => {
@@ -1314,7 +1314,7 @@ describe("entityKindToAdminLevel — PR B.02 dispatch helper", () => {
   });
 });
 
-// TODO(deploy-unblock PR #_pending_): re-enable when state-grain + district-grain
+// TODO(deploy-unblock PR #424): re-enable when state-grain + district-grain
 // Pashu Aadhaar descriptors (and Hans-curated caveats) land in the paired follow-up
 // PR. Tracked under the Phase D livestock cohort in the grain-rip plan.
 describe.skip("buildIndicatorArtifact — district-grain (PR B.03 smoke proof)", () => {
@@ -1974,7 +1974,7 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
   });
 });
 
-// TODO(deploy-unblock PR #_pending_): re-enable when state-grain + district-grain
+// TODO(deploy-unblock PR #424): re-enable when state-grain + district-grain
 // Pashu Aadhaar descriptors (and Hans-curated caveats) land in the paired follow-up
 // PR. Tracked under the Phase D livestock cohort in the grain-rip plan.
 describe.skip("PR B.01 — livestock NDLM Pashu Aadhaar state-grain (10 species)", () => {
@@ -2045,7 +2045,7 @@ describe.skip("PR B.01 — livestock NDLM Pashu Aadhaar state-grain (10 species)
   });
 });
 
-// TODO(deploy-unblock PR #_pending_): re-enable when state-grain + district-grain
+// TODO(deploy-unblock PR #424): re-enable when state-grain + district-grain
 // Pashu Aadhaar descriptors (and Hans-curated caveats) land in the paired follow-up
 // PR. Tracked under the Phase D livestock cohort in the grain-rip plan.
 describe.skip("Phase 3.B - district-grain Pashu Aadhaar fan-out (9 species)", () => {
@@ -2118,7 +2118,7 @@ describe.skip("Phase 3.B - district-grain Pashu Aadhaar fan-out (9 species)", ()
   });
 });
 
-// TODO(deploy-unblock PR #_pending_): re-enable when state-grain + district-grain
+// TODO(deploy-unblock PR #424): re-enable when state-grain + district-grain
 // Pashu Aadhaar descriptors (and Hans-curated caveats) land in the paired follow-up
 // PR. Tracked under the Phase D livestock cohort in the grain-rip plan.
 describe.skip("Phase 3.C-partial - Owner Registration (2 facet-multiplexed parents)", () => {
@@ -2206,7 +2206,7 @@ describe.skip("Phase 3.C-partial - Owner Registration (2 facet-multiplexed paren
   });
 });
 
-// TODO(deploy-unblock PR #_pending_): re-enable when state-grain + district-grain
+// TODO(deploy-unblock PR #424): re-enable when state-grain + district-grain
 // Pashu Aadhaar descriptors (and Hans-curated caveats) land in the paired follow-up
 // PR. Tracked under the Phase D livestock cohort in the grain-rip plan.
 describe.skip("Phase 3.C-partial - NAIP IV (8 single descriptors across 4 metric families)", () => {
