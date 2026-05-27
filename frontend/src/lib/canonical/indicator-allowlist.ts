@@ -1888,6 +1888,79 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       "Each animal carries a unique 12-digit RFID tag persisted in the Indus Database; transhumant cattle in Himachal Pradesh, Uttarakhand and Jammu and Kashmir cross district lines seasonally, so FY-end snapshot counts attribute roaming herds to whichever district registered the tag.",
     ],
   },
+  // Buffalo cohort PR (Row 5 PR-P cohort 3/3, 2026-05-27): buffalo state-grain
+  // + district-grain siblings on the same livestock_pashu_aadhaar canonical
+  // table. Mirrors cattle cohort (PR #429) field shape; Hans-curated caveats[]
+  // pinned by the PR-P buffalo regex assertions in
+  // indicator-from-canonical.test.ts (L524). canonical_indicator_id is
+  // grain-prefixed per ADR-0044 + cattle precedent so the table-driven
+  // describes at L1999/L2063 can distinguish state vs district rows.
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/state_pashu_aadhaar_count_buffalo",
+    canonical_indicator_id: "state-pashu-aadhaar-count-buffalo",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "state-pashu-aadhaar-count-buffalo",
+      title: "Buffaloes tagged with Pashu Aadhaar (state)",
+      description:
+        "State SUM rollup of buffaloes issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Auto-emitted by the canonical adapter from district source-of-truth rows per ADR-0043.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationStateWise SUM rollup of district source-of-truth, snapshot 2026-05-25; FY 2024-25.",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Tagged count is NOT a livestock census. The 20th Livestock Census 2019 reports ~110M buffaloes nationwide, ~55% concentrated in UP, Punjab, Haryana and Rajasthan (Murrah breed milk-dairy belt). State tag totals reflect cooperative reach (Verka, Vita, Amul, NDDB) more than natural distribution.",
+    },
+    caveats: [
+      "Buffaloes cluster in the milk-dairy belt: UP, Punjab, Haryana and Rajasthan hold ~55% of Indian buffaloes via the Murrah breed economics, while Kerala and the NE have negligible herds. Tag-count ranks reproduce the milk-dairy belt geography, not a uniform national programme.",
+      "Same coverage gap as cattle: the 20th Livestock Census 2019 counts ~110M buffaloes nationwide vs ~193M cattle tagged at 40-60% coverage; buffalo coverage trails cattle by 3-6 months because vet-camp triage runs cattle-first in Gujarat NDDB and Karnataka KMF rollouts.",
+      "Gujarat tag totals are inflated by the Amul dairy-cooperative network which runs vet camps across district lines; Maharashtra trails despite a large buffalo herd because dairy cooperatives are weaker outside the Mumbai-Pune corridor, and male draught buffaloes are mostly sold for meat before tagging which skews counts heavily female.",
+    ],
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/district_pashu_aadhaar_count_buffalo",
+    canonical_indicator_id: "district-pashu-aadhaar-count-buffalo",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "district-pashu-aadhaar-count-buffalo",
+      title: "Buffaloes tagged with Pashu Aadhaar (district)",
+      description:
+        "District source-of-truth count of buffaloes issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. The state-grain sibling is the SUM rollup auto-emitted in the same canonical adapter run per ADR-0043.",
+      entity_kind: "district",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Tagged count is NOT a livestock census. District aggregation in Gujarat (Anand, Kheda) is inflated by Amul chilling-centre vet camps that cross district lines; swamp-buffalo districts in Assam and coastal AP are structurally under-counted because vet camps prioritise dryland Murrah-cluster herds.",
+    },
+    caveats: [
+      "Buffaloes cluster in the milk-dairy belt: UP, Punjab, Haryana districts dominate via the Murrah breed economics, while Kerala and NE districts hold negligible herds. District tag-count ranks reproduce the milk-dairy belt geography, not programme reach across districts.",
+      "Same coverage gap as cattle: the 20th Livestock Census 2019 counts ~110M buffaloes nationwide vs ~193M cattle tagged at 40-60% coverage; buffalo district coverage trails cattle tagged by 3-6 months because vet-camp triage runs cattle-first in district rollouts.",
+      "Gujarat district totals (Anand, Kheda) are inflated by Amul-owned chilling-centre vet camps that cross district lines; Maharashtra districts trail despite large buffalo herds because dairy cooperatives are weaker outside the Mumbai-Pune corridor, and male draught buffalo calves are sold for meat before tagging which skews FY-end counts heavily female.",
+    ],
+  },
   {
     kind: "single",
     legacy_artifact_id: "agriculture/pashu_aadhaar_count_sheep",
