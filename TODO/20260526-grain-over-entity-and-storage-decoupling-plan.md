@@ -6,6 +6,106 @@
 **Mandate**: user, 2026-05-26 — "rip-and-replace, no strangler-fig, no smooth cutover; everything is in git, we can revert." "Move grain to OWID-style grain-over-entity. Stop smooshing state + district + village into one chart; create sub-pages."
 **Authority**: Hans + Max on data shape; Gregor on contracts; Fowler on engineering craft; Jony + Citizen on UX; Andre on LLM (not in scope here). See CLAUDE.md §0a.
 
+## 0bis. Live status snapshot (auto-refresh per session)
+
+**As of 2026-05-27, main at `e0882e1d` (PR #390).** 56 PRs merged, ~20 remaining (~73% complete by PR count). All §0quat guardrail gates LIVE except **B9 (grain-prefix Tier-B LIVE flip)** which awaits B3 + B5 + B7-tail.
+
+### Phase status table
+
+| Phase | Scope | Status | PR# | Blocker |
+|---|---|---|---|---|
+| A1 | ADRs 0044 + 0045 + naming rewrite | DONE | #336 | — |
+| A2 | `--dry-run` flag (writer + emit + lift) | DONE | #338 | — |
+| A3a | Grapher catalogue additive | DONE | #340 | — |
+| A3b | Reader migration via `applyGrapherOverlay()` | DONE | #341 | — |
+| A3c-topic | Rip `chart_type` + `dimension` (topic side) | DONE | #342 | — |
+| **A3c-tail** | Rip `renderer_rules` (indicator + ingest) | **PENDING** | — | High worktree-conflict risk |
+| A4 | `--table` filter on lift commands | DONE | #368 | — |
+| **A5a** | Strip `datetime.now()` non-livestock | **PENDING** | — | NOT STARTED |
+| A5b | Strip `datetime.now()` livestock | DONE | #369 | — |
+| **A6** | Data-driven `source_id` lookup | **PENDING** | — | Both adapter worktrees |
+| B0 | Per-shard `indicator.schema` v5.0 | DONE | #359 | — |
+| B1 | Catalogue v2.0 + `entity_kinds` + DARK Tier-B | DONE | #343 | — |
+| B2 | Elections prefix-strip (8 ids) | DONE | #344 | — |
+| **B3** | Energy state-only prefix-strip | **PENDING** | — | NOT STARTED |
+| B4-geocap | State capacity geographical strip | DONE | #389 | — |
+| B4-allocated | State capacity allocated strip | DONE | #390 | — |
+| **B5** | Livestock collapse (44 → 22) | **PENDING** | — | A3c-tail + B3 |
+| B6-iip | Economy base-year rename | DONE | #346 | — |
+| B6-row4 | India GDP collapse | DONE | #355 | — |
+| B6-row5-partial | GVA-by-industry prefix-strip only | PARTIAL | #358 | CSO collapse deferred |
+| B6-row7 | State NSDP current `_long` drop | DONE | #348 | — |
+| B6-row8 | State NSDP constant `_long` drop | DONE | #349 | — |
+| B6-row9 | State GDP cross-grain merge (1st v5.0 consumer) | DONE | #360 | — |
+| B6-row10 | State NSDP basis-facet collapse | DONE | #356 | — |
+| B6-row11 | Sectoral GVA basis-facet collapse | DONE | #357 | — |
+| B7 (row 3) | Fiscal centre-transfers 4 → 1 | DONE | #347 | — |
+| **B7-tail** | Fiscal rows 1-2 state-grain | **PENDING** | — | B3 |
+| B8 | Prices CPI 7 → 1 | DONE | #345 | — |
+| **B9** | `tier_b_indicator_id_no_grain_prefix` LIVE | **PENDING** | — | B3 + B5 + B7-tail |
+| **C1** | `/i/:indicator/:grain` routes | **PENDING** | — | A3b done; routing work remains |
+| **C2** | `/t/agriculture` 18 → 2 cards | **PENDING** | — | B5 |
+| **C3** | One-card-per-measure invariant test | **PENDING** | — | All B + C1 + C2 |
+| D1 | Prices CPI/CPI-IW/WPI national retired | DONE | #354 | — |
+| D2 | Transport family retired | DONE | #351 | — |
+| D3 | Human_development family retired | DONE | #350 | — |
+| D4-partial | 2 of 3 demography Census retired | PARTIAL | #352 | `state_population_lakhs` chip migration |
+| **D5** | Environment 8 shards | **PENDING** | — | A3c + B5 |
+| D6 | Health family retired | DONE | #353 | — |
+| **D7** | Economy 20 shards | **PENDING** | — | B6 rows complete |
+| **D8** | Fiscal 22 shards + schema delete | **PENDING** | — | B7 + D7 |
+| **E1-E5** | Grain depth: subdistrict/village, rollup helper, PMTiles, URL grammar | **PENDING** | — | C1 + E1 chain |
+| Z1 | CLAUDE.md + AGENTS.md doctrine | DONE | #339 | — |
+| Z2 | Cross-plan-doc cross-links | DONE | #365 | — |
+| Z3a | Concepts registry seed (164 from 183) | DONE | #361 | — |
+| Z3b-doctrine | Guardrails #13-#18 | DONE | #362 | — |
+| Z3b-cli | `check-overlap` CLI | DONE | #363 | — |
+| Z3b-action-A | `indicator-add-gate.yml` CI | DONE | #364 | — |
+| Z3b-tail3 | DARK `tier_b_one_indicator_per_concept` | DONE | #366 | — |
+| Z3b-action-BD | 2 DARK Tier-B (no-hand-typed sid + has-justification) | DONE | #367 | — |
+| Z3b-action-C | Catalogue v2.1 + `update_period_days` backfill | DONE | #370 | — |
+| Z3b-flip | `tier_b_indicator_freshness_declared` LIVE | DONE | #371 | — |
+| Z3b-tail-D | Ingest handover template | DONE | #372 | — |
+| Z3b-conceptFK-0a | Catalogue v2.2 optional `concept_id` FK | DONE | #373 | — |
+| Z3b-conceptFK-1 | `concept_id` backfill 183 rows | DONE | #374 | — |
+| Z3b-concept-warn | Warn-only diagnostic mode | DONE | #375 | — |
+| Z3b-justify | `meta.justification` backfill 26 + LIVE | DONE | #376 | — |
+| Z3b-clusters-1-8 | Resolve 7 concept-proliferation clusters | DONE | #377-#385 | — |
+| Z3b-concept-LIVE | `tier_b_one_indicator_per_concept` LIVE | DONE | #386 | — |
+| Z3b-sid-LIVE | `tier_b_no_hand_typed_source_id` LIVE | DONE | #387 | — |
+| B9-energy-national | Strip 6 `national-` prefixes | DONE | #388 | — |
+
+### Summary
+
+- **Done**: 56 PRs (#336 - #390 contiguous except gaps for non-grain PRs).
+- **Remaining critical path to plan-close**: A3c-tail → A5a → A6 → B3 → B5 → B7-tail → B9 LIVE flip → C1 → C2 → C3 → D5 → D7 → D8 → E1-E5. Roughly **20-24 additional PRs**.
+- **B9 final gate blocked on**: B3 (energy state prefix-strip) + B5 (livestock 44 → 22) + B7-tail (fiscal rows 1-2). Three structural PRs gate the LIVE flip.
+- **Deferred surface**: `state_population_lakhs` (frontend chip migration), CSO GVA-by-industry collapse (B6-row5-tail), `/t/agriculture` species fanout (C2 awaits B5).
+- **Velocity reality check**: bursty. ~11 PRs/day observed during concept-cluster batch (#377-#386); 12-hour stall episode 2026-05-26 18:00 → 2026-05-27 06:00 (no progress past #390 due to subagent crash + uncaught failure).
+- **Wall-clock estimate to closure** at observed effective velocity (~5 PRs/day net of stalls): **~4-5 days** = target **2026-05-31 to 2026-06-01**. Subject to (a) C-series UI work being slower per PR (Jony+Citizen smoke gates), (b) E-series requiring real fixture data not yet ingested.
+
+### Parallelization strategy (added 2026-05-27)
+
+To cut wall-clock from ~4-5 days to ~2 days, dispatch subagents in parallel on **file-disjoint lanes**. Subagents work concurrently; merges serialize through `gh pr merge` (one at a time). Identified disjoint lanes:
+
+| Lane | PR | Touches | Conflicts with |
+|---|---|---|---|
+| 1 | A5a (datetime strip non-livestock) | `backend/yen_gov/sources/{iced_macro,iced_socio,rbi,cea}/` parsers | none (livestock-disjoint) |
+| 2 | B3 (energy state prefix-strip) | `datasets/energy/**` shards + descriptors + tests | manifest.json regen |
+| 3 | D7 (economy shard deletes) | `datasets/economy/**` retired shards + topics.json economy block | manifest.json regen |
+| 4 | A3c-tail (renderer_rules rip) | `datasets/schemas/indicator-catalogue.schema.json` + 183 catalogue rows | catalogue regen |
+
+**Rule**: parallel dispatch OK iff lanes touch disjoint family directories. Merge order resolves any manifest.json conflict via re-running `regenerate_manifest.py` on the loser's rebase. NEVER parallelize within the same family (e.g. two energy PRs).
+
+### Stall-recovery protocol (added 2026-05-27)
+
+If main does not advance for >2h while plan is ACTIVE:
+1. `git worktree list` — identify any worktree at same SHA as main with feature branch never advanced
+2. Check for `.git/worktrees/*/locked` files with reason `initializing` (subagent crash signature)
+3. Force-remove stale worktrees + delete dead branches
+4. Re-dispatch subagent against fresh worktree
+5. NEVER fabricate "PR shipped" lines without verifying via `gh pr view <#> --json state,mergeCommit`
+
 ## 0. Why this plan exists
 
 Three concerns are addressed in sequence:
