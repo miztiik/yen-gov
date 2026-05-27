@@ -13,43 +13,43 @@
       "default_mode": "absolute"
     },
     {
-      "indicator_id": "district-livestock-owner-reg-count",
+      "indicator_id": "livestock-owner-reg-count",
       "renderer_rules": [
         "no_rank_table"
       ]
     },
     {
-      "indicator_id": "district-livestock-owner-reg-count-landless-marginal",
+      "indicator_id": "livestock-owner-reg-count-landless-marginal",
       "renderer_rules": [
         "no_rank_table"
       ]
     },
     {
-      "indicator_id": "district-livestock-owner-reg-count-large",
+      "indicator_id": "livestock-owner-reg-count-large",
       "renderer_rules": [
         "no_rank_table"
       ]
     },
     {
-      "indicator_id": "district-livestock-owner-reg-count-medium",
+      "indicator_id": "livestock-owner-reg-count-medium",
       "renderer_rules": [
         "no_rank_table"
       ]
     },
     {
-      "indicator_id": "district-livestock-owner-reg-count-not-specified",
+      "indicator_id": "livestock-owner-reg-count-not-specified",
       "renderer_rules": [
         "no_rank_table"
       ]
     },
     {
-      "indicator_id": "district-livestock-owner-reg-count-semi-medium",
+      "indicator_id": "livestock-owner-reg-count-semi-medium",
       "renderer_rules": [
         "no_rank_table"
       ]
     },
     {
-      "indicator_id": "district-livestock-owner-reg-count-small",
+      "indicator_id": "livestock-owner-reg-count-small",
       "renderer_rules": [
         "no_rank_table"
       ]
@@ -210,48 +210,6 @@
     },
     {
       "indicator_id": "livestock-naip-iv-pregnancy-diagnoses",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "state-livestock-owner-reg-count",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "state-livestock-owner-reg-count-landless-marginal",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "state-livestock-owner-reg-count-large",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "state-livestock-owner-reg-count-medium",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "state-livestock-owner-reg-count-not-specified",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "state-livestock-owner-reg-count-semi-medium",
-      "renderer_rules": [
-        "no_rank_table"
-      ]
-    },
-    {
-      "indicator_id": "state-livestock-owner-reg-count-small",
       "renderer_rules": [
         "no_rank_table"
       ]

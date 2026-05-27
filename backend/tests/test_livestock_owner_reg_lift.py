@@ -64,6 +64,19 @@ VINTAGES = {
 OWNER_REG_SOURCE_ID = "src-d98dc531ef7e"
 
 
+def _is_district_row(r) -> bool:
+    """Distinguish district-grain rows from state-grain rollup rows now
+    that the indicator_id no longer carries a grain prefix (ADR-0044).
+    District entity_ids carry a "-D<digits>" suffix; state entity_ids
+    do not.
+    """
+    return "-D" in r.entity_id
+
+
+def _is_state_row(r) -> bool:
+    return not _is_district_row(r)
+
+
 def _owner_reg_envelope():
     """Pick the owner_reg envelope from the livestock package output.
 
@@ -111,14 +124,12 @@ def test_all_six_landholding_facet_children_emit_rows() -> None:
     emitted_indicator_ids = {row.indicator_id for row in env.observation_rows}
 
     expected = {
-        f"district-livestock-owner-reg-count-{slug}" for slug in LANDHOLDING_SLUGS
-    } | {
-        f"state-livestock-owner-reg-count-{slug}" for slug in LANDHOLDING_SLUGS
+        f"livestock-owner-reg-count-{slug}" for slug in LANDHOLDING_SLUGS
     }
     assert emitted_indicator_ids == expected, (
-        f"expected the 6 district + 6 state-rollup landholding "
-        f"children; got {emitted_indicator_ids ^ expected!r} "
-        f"symmetric-difference"
+        f"expected the 6 landholding facet children (one indicator_id per "
+        f"bracket, both grains share the id per ADR-0044); got "
+        f"{emitted_indicator_ids ^ expected!r} symmetric-difference"
     )
 
 
@@ -135,10 +146,7 @@ def test_parent_indicators_have_no_observation_rows() -> None:
     would double-count parent + sum(children)).
     """
     env = _owner_reg_envelope()
-    parent_ids = {
-        "district-livestock-owner-reg-count",
-        "state-livestock-owner-reg-count",
-    }
+    parent_ids = {"livestock-owner-reg-count"}
     parent_rows = [
         r for r in env.observation_rows if r.indicator_id in parent_ids
     ]
@@ -231,7 +239,7 @@ def test_derivation_is_sum_on_both_grains() -> None:
     env = _owner_reg_envelope()
     by_grain: dict[str, set[str]] = {}
     for r in env.observation_rows:
-        grain = "district" if r.indicator_id.startswith("district-") else "state"
+        grain = "district" if _is_district_row(r) else "state"
         by_grain.setdefault(grain, set()).add(r.derivation)
     assert by_grain == {"district": {"sum"}, "state": {"sum"}}, (
         f"expected district=sum + state=sum; got {by_grain!r}"
@@ -263,11 +271,11 @@ def test_entity_id_fk_closure_for_both_grains() -> None:
             orphans.append(r.entity_id)
             continue
         entity_type = ent.get("entity_type")
-        if r.indicator_id.startswith("district-") and entity_type != "district":
+        if _is_district_row(r) and entity_type != "district":
             grain_mismatches.append(
                 f"{r.indicator_id} -> {r.entity_id} (entity_type={entity_type!r})"
             )
-        elif r.indicator_id.startswith("state-") and entity_type not in (
+        elif _is_state_row(r) and entity_type not in (
             "state", "ut",
         ):
             grain_mismatches.append(
@@ -305,7 +313,7 @@ def test_state_rollup_sum_matches_district_sum_per_landholding() -> None:
     # Expected: sum district rows by (state_prefix, landholding_slug, period_label)
     expected: dict[tuple[str, str, str], float] = {}
     for r in env.observation_rows:
-        if not r.indicator_id.startswith("district-livestock-owner-reg-count-"):
+        if not _is_district_row(r):
             continue
         slug = r.indicator_id.split("count-", 1)[-1]
         key = (state_prefix(r.entity_id), slug, r.period_label)
@@ -314,7 +322,7 @@ def test_state_rollup_sum_matches_district_sum_per_landholding() -> None:
     # Actual: state-rollup rows keyed by (entity_id, slug, period_label)
     actual: dict[tuple[str, str, str], float] = {}
     for r in env.observation_rows:
-        if not r.indicator_id.startswith("state-livestock-owner-reg-count-"):
+        if not _is_state_row(r):
             continue
         slug = r.indicator_id.split("count-", 1)[-1]
         key = (r.entity_id, slug, r.period_label)
@@ -350,12 +358,12 @@ def test_state_rollup_inherits_period_axes() -> None:
     district_periods = {
         (r.period_label, r.year, r.period_seq)
         for r in env.observation_rows
-        if r.indicator_id.startswith("district-livestock-owner-reg-count-")
+        if _is_district_row(r)
     }
     rollup_periods = {
         (r.period_label, r.year, r.period_seq)
         for r in env.observation_rows
-        if r.indicator_id.startswith("state-livestock-owner-reg-count-")
+        if _is_state_row(r)
     }
     assert rollup_periods == district_periods, (
         f"state-rollup period axes drifted from district; "
