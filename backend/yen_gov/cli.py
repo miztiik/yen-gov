@@ -108,7 +108,7 @@ def check_overlap(
 ) -> None:
     """Score a candidate concept against datasets/taxonomy/concepts.json.
 
-    Per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md
+    Per docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md
     §0quat guardrail #13: every new indicator_id MUST FK to a row in
     concepts.json. Run this BEFORE authoring any new ingest handover-doc.
     If any match scores >= 0.70 the action is UPSERT into the existing

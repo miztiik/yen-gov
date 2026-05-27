@@ -1,7 +1,7 @@
 """Schema + backfill assertions for indicator-catalogue.schema.json v2.1
 (PR-Z3b-tail-actionC update_period_days backfill).
 
-Per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat
+Per docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat
 guardrail #18: every indicator MUST declare ``update_period_days``
 (publisher refresh cadence in days). v2.1 schema bump is ADDITIVE
 (optional integer field, minimum=1); all 183 existing rows are

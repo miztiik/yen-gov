@@ -1,6 +1,6 @@
 """Tier-B tests for ``tier_b_indicator_freshness_declared`` (PR-Z3b-cli dark).
 
-Per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat
+Per docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat
 guardrail #18, every indicator MUST declare ``update_period_days`` as a
 positive int. The check ships dark in PR-Z3b-cli (function present, NOT
 chained into ``run()``) and enforces post-PR-Z3b-tail once the 183

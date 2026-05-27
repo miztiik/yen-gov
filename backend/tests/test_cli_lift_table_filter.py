@@ -4,7 +4,7 @@ Tests both the adapter-level ``only=`` kwarg (unit-level, no I/O) and the
 CLI command (via ``typer.testing.CliRunner``, no I/O — the filter rejects
 unknown stems BEFORE attempting any write).
 
-Per plan-doc TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md
+Per plan-doc docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md
 PR-A4. Authority: Fowler (refactor safety) per CLAUDE.md §0a.
 """
 

@@ -1,6 +1,6 @@
 """Tier-B tests for ``tier_b_one_indicator_per_concept`` (PR-Z3b-tail3 dark).
 
-Per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat
+Per docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat
 guardrail #13, identity is what is MEASURED, not who published it. Two
 indicators sharing ``(concept_id, entity_kinds)`` is a proliferation bug.
 The check ships dark in PR-Z3b-tail3 (function present, NOT chained into

@@ -56,7 +56,7 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 # shape changes.
 TOPICS_ROW_SCHEMA_VERSION = "1.0"
 # Bumped 2026-05-26 to 2.0 in lockstep with topic-catalogue.schema.json
-# v2.0 (TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md
+# v2.0 (docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md
 # PR-A3c, ADR-0045 split): per-artifact `chart_type` and `dimension`
 # columns REMOVED from the Parquet row shape. Render hints now live in
 # `datasets/grapher/topic_render.json` (frontend-owned). Consumers that

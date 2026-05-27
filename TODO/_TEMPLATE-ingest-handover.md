@@ -2,7 +2,7 @@
 
 **Last Updated**: YYYY-MM-DD
 
-> Template for new-source ingest handover docs. Copy to `TODO/YYYYMMDD-<source>-ingest-handover.md` (or `-plan.md`) and fill in. Every section below is MANDATORY. The §"Concept overlap audit" section is load-bearing per [TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md](20260526-grain-over-entity-and-storage-decoupling-plan.md) §0quat guardrail #14 and is enforced by reviewer convention until a Tier-B check is wired.
+> Template for new-source ingest handover docs. Copy to `TODO/YYYYMMDD-<source>-ingest-handover.md` (or `-plan.md`) and fill in. Every section below is MANDATORY. The §"Concept overlap audit" section is load-bearing per [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](20260526-grain-over-entity-and-storage-decoupling-plan.md) §0quat guardrail #14 and is enforced by reviewer convention until a Tier-B check is wired.
 
 ## 1. Source
 
@@ -79,7 +79,7 @@ If `mint_new`, also confirm:
 
 ## 8. References
 
-- [TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md](20260526-grain-over-entity-and-storage-decoupling-plan.md)
+- [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](20260526-grain-over-entity-and-storage-decoupling-plan.md)
 - [ADR-0044](../docs/architecture/decisions/0044-grain-over-entity.md) grain over entity
 - [ADR-0045](../docs/architecture/decisions/0045-grapher-catalogue-split.md) grapher catalogue split
 - [docs/concepts/owid-alignment.md](../docs/concepts/owid-alignment.md)

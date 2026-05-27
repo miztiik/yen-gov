@@ -687,7 +687,7 @@ User has stated rip-and-replace + git revert is acceptable. If any PR causes cit
 Give this single prompt to a fresh execution agent. It embeds every standing authorization and points at this plan-doc as the source of truth.
 
 ```
-Execute TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md end-to-end autonomously. The user has signed off on every standing authorization in §0ter (rip-and-replace, force-with-lease on own branches, gh pr merge --squash --delete-branch on green DoD, amend/interrupt other plan-docs as enumerated in PR-Z1+Z2, subagent consensus = ratification, escalate to Level-4 without user gate). Stop only on the standing limits in §0ter (no direct main commits, no yenask runtime, no citizen-route 404 without successor, no CLAUDE.md §0a/§1 edits).
+Execute docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md end-to-end autonomously. The user has signed off on every standing authorization in §0ter (rip-and-replace, force-with-lease on own branches, gh pr merge --squash --delete-branch on green DoD, amend/interrupt other plan-docs as enumerated in PR-Z1+Z2, subagent consensus = ratification, escalate to Level-4 without user gate). Stop only on the standing limits in §0ter (no direct main commits, no yenask runtime, no citizen-route 404 without successor, no CLAUDE.md §0a/§1 edits).
 
 Per §0quat, permanent guardrails ship in PR-Z1 + PR-Z2 + PR-Z3 + PR-B9; the rip is not done until those four are on main. Read §0quint OWID-precedent doctrine before any new ingest — it is the test of "new indicator vs UPSERT-or-facet."
 

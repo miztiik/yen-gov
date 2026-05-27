@@ -584,7 +584,7 @@ def tier_b_indicator_id_no_grain_prefix(root: Path) -> list[Failure]:
                     f"Per ADR-0044 grain lives on the observation row's "
                     f"entity_kind column, not in the indicator_id. Drop the "
                     f"prefix; populate entity_kinds + default_entity_kind on "
-                    f"the catalogue row instead. See TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md "
+                    f"the catalogue row instead. See docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md "
                     f"Phase B for the per-family migration scripts.",
                 )
             )
@@ -810,7 +810,7 @@ def tier_b_meadow_vintage_matches_source_id(root: Path) -> list[Failure]:
 def tier_b_indicator_freshness_declared(root: Path) -> list[Failure]:
     """Reject indicator catalogue rows missing a positive ``update_period_days``.
 
-    Per ADR-0044 + TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md
+    Per ADR-0044 + docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md
     §0quat guardrail #18, every indicator MUST declare its publisher refresh
     cadence in days (NDLM monthly = 30, RBI Handbook annual = 365, Census
     decennial = 3650). Staleness can only be surfaced when cadence is named.
@@ -862,7 +862,7 @@ def tier_b_indicator_freshness_declared(root: Path) -> list[Failure]:
                     f"monthly = 30, RBI Handbook annual = 365, Census "
                     f"decennial = 3650). Staleness can only be surfaced "
                     f"when cadence is named. See ADR-0044 + "
-                    f"TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md "
+                    f"docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md "
                     f"§0quat guardrail #18.",
                 )
             )
@@ -873,7 +873,7 @@ def tier_b_indicator_freshness_declared(root: Path) -> list[Failure]:
 def tier_b_one_indicator_per_concept(root: Path) -> list[Failure]:
     """Reject indicator catalogue rows that proliferate within one concept.
 
-    Per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md
+    Per docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md
     §0quat guardrail #13, identity is what is MEASURED, not who published
     it. Each indicator FKs to a row in ``datasets/taxonomy/concepts.json``
     declaring ``(noun, unit_canonical, normalisation, entity_kinds)``. Two
@@ -942,7 +942,7 @@ def tier_b_one_indicator_per_concept(root: Path) -> list[Failure]:
                 f"indicator or add a facet, never mint a new id. Run "
                 f"`python -m yen_gov check-overlap` before authoring any new "
                 f"catalogue row. See "
-                f"TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md "
+                f"docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md "
                 f"§0quat guardrail #13.",
             )
         )
@@ -961,7 +961,7 @@ BACKEND_SOURCES_DIR = Path("backend/yen_gov/sources")
 def tier_b_no_hand_typed_source_id(root: Path) -> list[Failure]:
     """Reject hand-typed ``source_id`` hashes in adapter source files.
 
-    Per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md
+    Per docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md
     §0quat guardrail #6, ``source_id`` MUST be looked up via the
     forthcoming ``source_registry.resolve(nickname)`` seam (PR-A6); raw
     ``src-<hex>`` literals or ``SOURCE_IDS = {...}`` hash-tables inside
@@ -1002,7 +1002,7 @@ def tier_b_no_hand_typed_source_id(root: Path) -> list[Failure]:
                     f"MUST be looked up via source_registry.resolve("
                     f"nickname); raw hash tables inside adapter modules "
                     f"silently snapshot the citation ledger. See "
-                    f"TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md "
+                    f"docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md "
                     f"§0quat guardrail #6.",
                 )
             )
@@ -1018,7 +1018,7 @@ def tier_b_no_hand_typed_source_id(root: Path) -> list[Failure]:
                     f"and datasets/taxonomy/source_nicknames.json; "
                     f"adapters MUST resolve via source_registry.resolve("
                     f"nickname). See "
-                    f"TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md "
+                    f"docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md "
                     f"§0quat guardrail #6.",
                 )
             )
@@ -1029,7 +1029,7 @@ def tier_b_no_hand_typed_source_id(root: Path) -> list[Failure]:
 def tier_b_indicator_has_justification(root: Path) -> list[Failure]:
     """Reject cross-grain concept twins missing ``meta.justification``.
 
-    Per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md
+    Per docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md
     §0quat guardrail #15, default action for new data is UPSERT into the
     existing indicator. Minting a SECOND indicator that shares a
     ``concept_id`` with an existing one (only entity_kinds differing) is
@@ -1112,7 +1112,7 @@ def tier_b_indicator_has_justification(root: Path) -> list[Failure]:
                     f"(different concept / unit / normalisation / "
                     f"sampling frame) or the twin must be merged via "
                     f"cross-grain entity_kinds[]. See "
-                    f"TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md "
+                    f"docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md "
                     f"§0quat guardrail #15.",
                 )
             )

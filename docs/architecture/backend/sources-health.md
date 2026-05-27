@@ -1,7 +1,7 @@
 # State Health Sources And Ingest Boundaries
 
 **Last Updated**: 2026-05-26
-**Status**: SUPERSEDED — health family retired in PR-D6. See [TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../../TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md) §D6 and [docs/reference/topics/health.md](../../reference/topics/health.md).
+**Status**: SUPERSEDED — health family retired in PR-D6. See [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md) §D6 and [docs/reference/topics/health.md](../../reference/topics/health.md).
 
 Historical source recon below — kept as architectural reference for the future canonical health adapter; not authoritative for any current artifact.
 

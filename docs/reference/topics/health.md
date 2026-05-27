@@ -3,7 +3,7 @@
 > Topic spine for the (retired) `health/` indicator family.
 
 **Last Updated**: 2026-05-26
-**Status**: RETIRED — see [TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../../TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md) §D6.
+**Status**: RETIRED — see [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md) §D6.
 
 ## Retirement note (PR-D6)
 

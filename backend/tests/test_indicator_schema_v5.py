@@ -1,7 +1,7 @@
 """Tier-A contract tests for `datasets/schemas/indicator.schema.json` v5.0.
 
 Locks in the three additive grounding fields introduced by PR-B0 of
-TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §2:
+docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md §2:
 
 * ``indicator.entity_kinds[]`` — optional array mirroring the singular
   ``entity_kind`` enum, used to declare cross-grain shards.

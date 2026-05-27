@@ -34,7 +34,7 @@ Rosling-trap candidate: ranking a UID-issuance ledger by state could let a citiz
 
 ## 3. The 2 indicator IDs
 
-> **Forward-pointer (PR-Z2 of [TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md](20260526-grain-over-entity-and-storage-decoupling-plan.md), 2026-05-26)** — the per-species sibling-id model below (`state-pashu-aadhaar-animals-tagged-count` + `district-pashu-aadhaar-count-<species>` × 10 species) is **superseded by PR-B5 of the grain-rip plan**, which collapses both grains plus all 10 species into a single id `livestock/pashu-aadhaar-count` with `species` facet axis and `entity_kinds: ["country","state","district"]` per [ADR-0044](../docs/architecture/decisions/0044-grain-over-entity.md). The shipped ids stay live until PR-B5 runs the CTAS migration; this section is preserved as the original Phase 2.B shape for trail.
+> **Forward-pointer (PR-Z2 of [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](20260526-grain-over-entity-and-storage-decoupling-plan.md), 2026-05-26)** — the per-species sibling-id model below (`state-pashu-aadhaar-animals-tagged-count` + `district-pashu-aadhaar-count-<species>` × 10 species) is **superseded by PR-B5 of the grain-rip plan**, which collapses both grains plus all 10 species into a single id `livestock/pashu-aadhaar-count` with `species` facet axis and `entity_kinds: ["country","state","district"]` per [ADR-0044](../docs/architecture/decisions/0044-grain-over-entity.md). The shipped ids stay live until PR-B5 runs the CTAS migration; this section is preserved as the original Phase 2.B shape for trail.
 
 | # | indicator_id | grain | facet |
 | --- | --- | --- | --- |

@@ -1,6 +1,6 @@
 """Carve 1 backfill assertions (PR-Z3b-tail-conceptFK Carve 1).
 
-Per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat
+Per docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat
 guardrail #13: every indicator MUST FK to one row in
 ``datasets/taxonomy/concepts.json``. Carve 0a (#373) added the optional
 schema field; Carve 1 (this PR) backfills the FK on every row via the

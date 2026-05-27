@@ -24,7 +24,7 @@ If a chart needs custom code, the metadata is incomplete — extend the schema, 
 
 > **A topic page MUST have at most ONE artifact ref per `(canonical_indicator_id, entity_kind)` tuple.**
 
-Added 2026-05-26 per [ADR-0044](../architecture/decisions/0044-grain-over-entity.md) + [TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md) §C3. Facets (species, fuel, sector, basis, kind) live INSIDE the card via a facet picker, not as separate cards. The `/t/agriculture` page that shipped 18 stacked species cards is the cautionary tale — one Pashu Aadhaar measure became 11 species × 2 grains = 22 catalogue rows × 18 surface cards. The collapse target (PR-C2) is 1 cattle card with a species picker + (after grain sub-pages from PR-C1) a grain sub-page link.
+Added 2026-05-26 per [ADR-0044](../architecture/decisions/0044-grain-over-entity.md) + [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md) §C3. Facets (species, fuel, sector, basis, kind) live INSIDE the card via a facet picker, not as separate cards. The `/t/agriculture` page that shipped 18 stacked species cards is the cautionary tale — one Pashu Aadhaar measure became 11 species × 2 grains = 22 catalogue rows × 18 surface cards. The collapse target (PR-C2) is 1 cattle card with a species picker + (after grain sub-pages from PR-C1) a grain sub-page link.
 
 Enforced by [frontend/src/contracts/topic-card-uniqueness.test.ts](../../frontend/src/contracts/topic-card-uniqueness.test.ts) (live as of PR #411): for each topic, no two artifact refs share `(canonical_indicator_id, entity_kind)`. Violations fail CI.
 

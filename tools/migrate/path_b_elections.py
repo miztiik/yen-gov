@@ -1,7 +1,7 @@
 """Path-B elections rename — strip the `state-` grain prefix on 8 indicator_ids
 in the canonical `datasets/elections/state=*/election_results.parquet` shards.
 
-Scope: PR-B2 of TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md
+Scope: PR-B2 of docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md
 (row 32 of the standing reference table). Rewrites the 8 state-scope rollup
 indicator_ids in-place across all per-state shards; recomputes
 `observation_id` since it is sha256(entity_id|year|period_label|indicator_id).

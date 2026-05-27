@@ -1,6 +1,6 @@
 """Tier-B tests for ``tier_b_indicator_has_justification`` (PR-Z3b-tail-actionD dark).
 
-Per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat
+Per docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat
 guardrail #15, default action for new data is UPSERT into the existing
 indicator. Minting a SECOND indicator that shares a ``concept_id`` with
 an existing one (only entity_kinds differing) is permitted only when
