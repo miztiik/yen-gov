@@ -30,21 +30,6 @@
         },
         {
           "kind": "indicator",
-          "id": "fiscal/centre_transfers_gross",
-          "default": false,
-          "featured": false,
-          "scope": "national",
-          "peer_set_default": "all"
-        },
-        {
-          "kind": "indicator",
-          "id": "fiscal/centre_transfers_inr_crore",
-          "default": false,
-          "featured": false,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
           "id": "fiscal/states_combined_gross_fiscal_deficit",
           "default": false,
           "featured": true,
@@ -52,51 +37,9 @@
         },
         {
           "kind": "indicator",
-          "id": "fiscal/states_combined_revenue_deficit",
-          "default": false,
-          "featured": false,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "fiscal/states_combined_primary_deficit",
-          "default": false,
-          "featured": false,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "fiscal/states_combined_primary_revenue_deficit",
-          "default": false,
-          "featured": false,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
           "id": "fiscal/union_gross_fiscal_deficit",
           "default": false,
           "featured": true,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "fiscal/union_revenue_deficit",
-          "default": false,
-          "featured": false,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "fiscal/union_primary_deficit",
-          "default": false,
-          "featured": false,
-          "scope": "national"
-        },
-        {
-          "kind": "indicator",
-          "id": "fiscal/union_primary_revenue_deficit",
-          "default": false,
-          "featured": false,
           "scope": "national"
         },
         {
@@ -156,7 +99,7 @@
           "scope": "state"
         }
       ],
-      "notes": "Debt and deficit are co-determined by central transfers — the transfers indicators (RBI Net via `fiscal/net_transfers_from_centre`, Rajya Sabha Gross via `fiscal/centre_transfers_gross`) are the contextualisation that makes ranked debt/deficit tables honest. Per ADR-0022 ingest gate. RBI Net covers FY24 Accounts + FY25 RE + FY26 BE; Rajya Sabha Gross covers FY17–FY23 (longer historical run, devolution + grants pre-adjustments). The all-India aggregate equivalent (RBI Net Centre→States transfers, FY08–FY26, 19y) is `fiscal/centre_transfers_inr_crore` (with `flow=net` facet) — a country-entity series for the macro envelope view; its data shape is incompatible with the per-state choropleth (it carries one row per FY for `entity_id=\"IN\"`). The four `fiscal/states_combined_*_deficit` indicators (gross fiscal, revenue, primary, primary revenue) come from RBI Appendix Table 1 (Major Deficit Indicators) — same publication as the transfers, all-states aggregate, FY08–FY26 (20y including RE/BE). They answer the macro question 'how much are the states collectively borrowing each year, and what kind of borrowing is it?'. The matching `fiscal/union_*_deficit` quartet (RBI Handbook of Statistics on Indian Economy, Table 89, FY87–FY26 / 40y) ships the Centre's own borrowing as a peer family — without it, ranked deficit tables silently misframe responsibility (cf. Hans's chart-trap warning in docs/concepts/fiscal-actor-naming.md: states-combined GFD ~3% of GDP looks alarming until placed beside the Centre's ~6%). The seven per-state component indicators (`state_own_tax_revenue`, `state_non_tax_revenue`, `state_share_central_taxes`, `state_grants_in_aid`, `state_revenue_expenditure`, `state_pension_expenditure`, `state_external_debt`) are absolute ₹Cr — large states will dominate the table by sheer size. The renderer's existing comparability banner ('Per-capita / per-area normalisation is recommended for cross-state comparison') surfaces this; treat the rankings as 'how big is this stream' not 'how well is the state managing'. The own-tax-revenue / GSDP and pension / revenue-expenditure derived ratios (Phase 5) are the citizen-facing performance reads — these absolute components ship now so the build pipeline + drift detector cover them and so the per-state hubs can show them in context."
+      "notes": "Debt and deficit are co-determined by central transfers â€” the transfers indicators (RBI Net via `fiscal/net_transfers_from_centre`, Rajya Sabha Gross via `fiscal/centre_transfers_gross`) are the contextualisation that makes ranked debt/deficit tables honest. Per ADR-0022 ingest gate. RBI Net covers FY24 Accounts + FY25 RE + FY26 BE; Rajya Sabha Gross covers FY17â€“FY23 (longer historical run, devolution + grants pre-adjustments). The all-India aggregate equivalent (RBI Net Centreâ†’States transfers, FY08â€“FY26, 19y) is `fiscal/centre_transfers_inr_crore` (with `flow=net` facet) â€” a country-entity series for the macro envelope view; its data shape is incompatible with the per-state choropleth (it carries one row per FY for `entity_id=\"IN\"`). The four `fiscal/states_combined_*_deficit` indicators (gross fiscal, revenue, primary, primary revenue) come from RBI Appendix Table 1 (Major Deficit Indicators) â€” same publication as the transfers, all-states aggregate, FY08â€“FY26 (20y including RE/BE). They answer the macro question 'how much are the states collectively borrowing each year, and what kind of borrowing is it?'. The matching `fiscal/union_*_deficit` quartet (RBI Handbook of Statistics on Indian Economy, Table 89, FY87â€“FY26 / 40y) ships the Centre's own borrowing as a peer family â€” without it, ranked deficit tables silently misframe responsibility (cf. Hans's chart-trap warning in docs/concepts/fiscal-actor-naming.md: states-combined GFD ~3% of GDP looks alarming until placed beside the Centre's ~6%). The seven per-state component indicators (`state_own_tax_revenue`, `state_non_tax_revenue`, `state_share_central_taxes`, `state_grants_in_aid`, `state_revenue_expenditure`, `state_pension_expenditure`, `state_external_debt`) are absolute â‚¹Cr â€” large states will dominate the table by sheer size. The renderer's existing comparability banner ('Per-capita / per-area normalisation is recommended for cross-state comparison') surfaces this; treat the rankings as 'how big is this stream' not 'how well is the state managing'. The own-tax-revenue / GSDP and pension / revenue-expenditure derived ratios (Phase 5) are the citizen-facing performance reads â€” these absolute components ship now so the build pipeline + drift detector cover them and so the per-state hubs can show them in context."
     },
     {
       "id": "energy",
@@ -203,13 +146,13 @@
           "scope": "state"
         }
       ],
-      "notes": "Installed-MW is a *siting* statistic, not a consumption statistic — the state where a plant sits is not necessarily the state that consumes the power. The indicator artifact's `attribution_geography` field carries this caveat to the renderer. The `installed_capacity_*` family is from CEA's monthly Executive Summary (March 2026 snapshot) and covers all 35 CEA-reported state/UT entities across 7 fuel categories (total, thermal, coal, gas, nuclear, hydro, renewable). The legacy `installed_mw_by_state` indicator (Wikipedia-derived, 4 states only) was retired in PR-A 2026-05-25 — superseded by the CEA per-fuel family. The state-level family (`state_installed_capacity_*`, `state_electricity_*`, `state_rooftop_solar_capacity_mw`, `state_atc_losses_pct`, `state_acs_arr_gap_inr_per_kwh`) is from the NITI Aayog ICED state-wise deep-dive API and covers 9-11 fiscal years (FY16-FY26) per indicator across all 36 states/UTs plus the All-India aggregate. ICED publishes both 'geographical-location' (where the plant sits) and 'with-allocated-shares' (who has rights to the output) capacity series; we ship both so the analyst can pick the one that matches the question being asked. The 2026-05-15 ICED-power batch adds four complementary series from a different ICED endpoint family (NITI ICED public dashboards, not the state-wise deep-dive): `state_installed_capacity_by_source_mw` (FY16-FY26, 11y, all states × ~7 fuels, 1815 rows — same metric as the state-wise `state_installed_capacity_geographical_mw` but tidy-by-fuel and with longer history), `state_electricity_generation_by_source_gwh` and `state_peak_electricity_demand_mw` (FY26 snapshot from `/energy/powerStatistics`, useful as a current-year companion to the multi-year capacity series), and one national series — `india_thermal_capacity_retired_mw` (FY06-FY26, by retired-fuel facet). (A fifth `india_capacity_pipeline_gw` series was retired in PR-A 2026-05-25; the forward-looking pipeline view will return when an upstream re-sourcing path is identified.) The 2026-05-15 ICED-power state-extension batch adds eight more state-scope series from the same NITI ICED public dashboards: `state_installed_capacity_total_mw` (state totals across all fuels), the `peak_demand_mw` / `peak_met_mw` pair (peak load served vs requested — the gap is the operational shortfall, but it ships as two raw series rather than a derived ratio so the citizen can see both numbers), the `power_requirement_mu` / `power_availability_mu` pair (annual energy-volume equivalent of peak — a fuller-year shortfall view), `per_capita_availability_kwh` and `per_capita_electricity_consumption_kwh` (citizen-experience metrics already normalised by population so cross-state comparison is honest — the latter is `comparable_across_states` and the headline citizen read of 'how electrified is daily life here'), and `renewable_grid_capacity_mw` (grid-connected renewables only, complements the existing `state_rooftop_solar_capacity_mw`). The two pairs (peak demand/met, requirement/availability) are intentionally shipped as raw series rather than as derived shortfall % — the renderer's existing comparability banner surfaces normalisation guidance, and the explicit pairing in topic notes here lets the citizen reason about gaps without us pre-committing to one ratio framing. Two remaining national-entity series (`national_final_energy_consumption_by_sector_mtoe`, `national_primary_energy_supply_mtoe`) stay allowlisted pending Phase 4 country-entity renderers — they are multi-facet and the IndicatorChoropleth state-only renderer cannot show them honestly. (A third `national_renewable_potential_vs_installed_mw` series was retired in PR-A 2026-05-25 — it deserves a comparison sidebar against installed-capacity rather than the choropleth treatment; a follow-up GitHub issue tracks the design consult.) PR-N residue triage (2026-05-25, PR #290 + hotfix #293): the 10 final ICED/legacy energy shards under datasets/indicators/in/energy/ were classified into bucket (a) delete-no-successor (2 Pattern B duplicates of per-fuel CEA) or bucket (b) moved to datasets/energy/_meadow/iced/2024-25/ pending P.1.C canonical adapter (8 shards). datasets/indicators/in/energy/ is now empty per ADR-0041 completion criterion. Row 4 IA editorial pass (2026-05-25, PR #_pending_, per TODO/20260517-canonical-long-format-pivot.md): the chapter was pruned from 23 cards to 5 in Jony's scroll-narrative order — (1) per-capita consumption as the citizen anchor, (2) generation-by-source GWh as 'where it comes from', (3) installed-capacity-by-source MW as the long-arc structure, (4) AT&C losses as the discom-health pulse, (5) RPO compliance as the clean-energy trajectory. The 18 demoted cards remain in datasets/taxonomy/indicators.json and route as standalone /i/<id> pages — they are not deleted, just removed from the chapter wall. Demoted families: India-level installed_capacity_*_mw (5 — duplicated by state cards), state_installed_capacity_geographical_mw + state_installed_capacity_with_alloc_mw + state_electricity_generation_mu + state_electricity_sales_mu (4 — totals are now visible as parent rollups inside facet-multiplexed survivors 2/3), state_peak_electricity_demand_mw + state_peak_met_mw + state_power_requirement_mu + state_power_availability_mu (4 — these are demand/supply gap pairs; queued as a Level-4 follow-up for a dedicated IndicatorGapChart primitive), state_per_capita_availability_kwh (1 — visually conflates with #1 consumption; consumption is the higher-honesty version per Hans), state_distribution_td_loss_pct + state_distribution_billing_efficiency_pct + state_distribution_collection_efficiency_pct (3 — three sub-components of AT&C already surfaced as #4; the math identity AT&C ≈ 1 − billing × collection is too dense for the chapter wall), state_acs_arr_gap_inr_per_kwh (1 — surfaced under /t/fiscal where the discom-funding question lives per Hans M:N tag). Hans-flagged 4-agency federal-data plurality (CEA + ICED + PFC + MNRE) on the chapter; the topic-level honesty banner is queued as a separate follow-up PR pending a TopicHonestyBanner primitive design. Per-card heading rewrites + caveat-pack updates per Jony + Citizen + Hans subagent verdicts are bundled in this same PR via the canonical-allowlist descriptor surface."
+      "notes": "Installed-MW is a *siting* statistic, not a consumption statistic â€” the state where a plant sits is not necessarily the state that consumes the power. The indicator artifact's `attribution_geography` field carries this caveat to the renderer. The `installed_capacity_*` family is from CEA's monthly Executive Summary (March 2026 snapshot) and covers all 35 CEA-reported state/UT entities across 7 fuel categories (total, thermal, coal, gas, nuclear, hydro, renewable). The legacy `installed_mw_by_state` indicator (Wikipedia-derived, 4 states only) was retired in PR-A 2026-05-25 â€” superseded by the CEA per-fuel family. The state-level family (`state_installed_capacity_*`, `state_electricity_*`, `state_rooftop_solar_capacity_mw`, `state_atc_losses_pct`, `state_acs_arr_gap_inr_per_kwh`) is from the NITI Aayog ICED state-wise deep-dive API and covers 9-11 fiscal years (FY16-FY26) per indicator across all 36 states/UTs plus the All-India aggregate. ICED publishes both 'geographical-location' (where the plant sits) and 'with-allocated-shares' (who has rights to the output) capacity series; we ship both so the analyst can pick the one that matches the question being asked. The 2026-05-15 ICED-power batch adds four complementary series from a different ICED endpoint family (NITI ICED public dashboards, not the state-wise deep-dive): `state_installed_capacity_by_source_mw` (FY16-FY26, 11y, all states Ã— ~7 fuels, 1815 rows â€” same metric as the state-wise `state_installed_capacity_geographical_mw` but tidy-by-fuel and with longer history), `state_electricity_generation_by_source_gwh` and `state_peak_electricity_demand_mw` (FY26 snapshot from `/energy/powerStatistics`, useful as a current-year companion to the multi-year capacity series), and one national series â€” `india_thermal_capacity_retired_mw` (FY06-FY26, by retired-fuel facet). (A fifth `india_capacity_pipeline_gw` series was retired in PR-A 2026-05-25; the forward-looking pipeline view will return when an upstream re-sourcing path is identified.) The 2026-05-15 ICED-power state-extension batch adds eight more state-scope series from the same NITI ICED public dashboards: `state_installed_capacity_total_mw` (state totals across all fuels), the `peak_demand_mw` / `peak_met_mw` pair (peak load served vs requested â€” the gap is the operational shortfall, but it ships as two raw series rather than a derived ratio so the citizen can see both numbers), the `power_requirement_mu` / `power_availability_mu` pair (annual energy-volume equivalent of peak â€” a fuller-year shortfall view), `per_capita_availability_kwh` and `per_capita_electricity_consumption_kwh` (citizen-experience metrics already normalised by population so cross-state comparison is honest â€” the latter is `comparable_across_states` and the headline citizen read of 'how electrified is daily life here'), and `renewable_grid_capacity_mw` (grid-connected renewables only, complements the existing `state_rooftop_solar_capacity_mw`). The two pairs (peak demand/met, requirement/availability) are intentionally shipped as raw series rather than as derived shortfall % â€” the renderer's existing comparability banner surfaces normalisation guidance, and the explicit pairing in topic notes here lets the citizen reason about gaps without us pre-committing to one ratio framing. Two remaining national-entity series (`national_final_energy_consumption_by_sector_mtoe`, `national_primary_energy_supply_mtoe`) stay allowlisted pending Phase 4 country-entity renderers â€” they are multi-facet and the IndicatorChoropleth state-only renderer cannot show them honestly. (A third `national_renewable_potential_vs_installed_mw` series was retired in PR-A 2026-05-25 â€” it deserves a comparison sidebar against installed-capacity rather than the choropleth treatment; a follow-up GitHub issue tracks the design consult.) PR-N residue triage (2026-05-25, PR #290 + hotfix #293): the 10 final ICED/legacy energy shards under datasets/indicators/in/energy/ were classified into bucket (a) delete-no-successor (2 Pattern B duplicates of per-fuel CEA) or bucket (b) moved to datasets/energy/_meadow/iced/2024-25/ pending P.1.C canonical adapter (8 shards). datasets/indicators/in/energy/ is now empty per ADR-0041 completion criterion. Row 4 IA editorial pass (2026-05-25, PR #_pending_, per TODO/20260517-canonical-long-format-pivot.md): the chapter was pruned from 23 cards to 5 in Jony's scroll-narrative order â€” (1) per-capita consumption as the citizen anchor, (2) generation-by-source GWh as 'where it comes from', (3) installed-capacity-by-source MW as the long-arc structure, (4) AT&C losses as the discom-health pulse, (5) RPO compliance as the clean-energy trajectory. The 18 demoted cards remain in datasets/taxonomy/indicators.json and route as standalone /i/<id> pages â€” they are not deleted, just removed from the chapter wall. Demoted families: India-level installed_capacity_*_mw (5 â€” duplicated by state cards), state_installed_capacity_geographical_mw + state_installed_capacity_with_alloc_mw + state_electricity_generation_mu + state_electricity_sales_mu (4 â€” totals are now visible as parent rollups inside facet-multiplexed survivors 2/3), state_peak_electricity_demand_mw + state_peak_met_mw + state_power_requirement_mu + state_power_availability_mu (4 â€” these are demand/supply gap pairs; queued as a Level-4 follow-up for a dedicated IndicatorGapChart primitive), state_per_capita_availability_kwh (1 â€” visually conflates with #1 consumption; consumption is the higher-honesty version per Hans), state_distribution_td_loss_pct + state_distribution_billing_efficiency_pct + state_distribution_collection_efficiency_pct (3 â€” three sub-components of AT&C already surfaced as #4; the math identity AT&C â‰ˆ 1 âˆ’ billing Ã— collection is too dense for the chapter wall), state_acs_arr_gap_inr_per_kwh (1 â€” surfaced under /t/fiscal where the discom-funding question lives per Hans M:N tag). Hans-flagged 4-agency federal-data plurality (CEA + ICED + PFC + MNRE) on the chapter; the topic-level honesty banner is queued as a separate follow-up PR pending a TopicHonestyBanner primitive design. Per-card heading rewrites + caveat-pack updates per Jony + Citizen + Hans subagent verdicts are bundled in this same PR via the canonical-allowlist descriptor surface."
     },
     {
       "id": "elections",
       "title": "Elections",
       "list": "na",
-      "summary": "Who governs. State Assembly and Lok Sabha results, candidate-level detail, party totals, margins. One indicator family among many — not the spine of the site.",
+      "summary": "Who governs. State Assembly and Lok Sabha results, candidate-level detail, party totals, margins. One indicator family among many â€” not the spine of the site.",
       "icon": "vote",
       "featured": false,
       "artifacts": [
@@ -300,7 +243,7 @@
           "scope": "national"
         }
       ],
-      "notes": "Source: NITI Aayog ICED state-wise deep-dive API (which republishes MoSPI National Statistical Office figures with the 2011-12 base year). Covers 10 fiscal years (FY16-FY25) for all 36 states/UTs plus All-India. Constant-price series strips inflation; current-price series is the nominal 'sticker' value. Compare GDP vs Sectoral GVA: GDP includes net product taxes; GVA is the cleaner production-side measure. The 2025-26 row is typically N.A. while NSO finalises that year's accounts. The per-capita NSDP and per-capita consumption indicators come from the ICED key-economic-indicators API (a separate endpoint family from state-wise deep-dive); they go back to 2004-05 and 2009-10 respectively, longer than the GDP series, because the source publisher provides a longer back-run of those particular metrics. The `nsdp_inr_crore` (faceted current+constant) and `per_capita_nsdp_*` indicators are RBI Handbook of Statistics on Indian Economy splices: `nsdp_inr_crore` carries absolute ₹Cr rows faceted by price basis (large states will dominate the table by sheer size — the existing comparability banner advises per-capita normalisation), while the per-capita variants extend FY81→FY26 by stitching across 1980-81, 1999-2000, 2004-05 and 2011-12 base-year breaks. SeriesBreakAnnotation (Phase 2) renders these breaks visibly so a citizen reading 'India's per-capita NSDP grew Nx since 1980' knows the slope crosses methodology revisions and is not a single coherent measurement. The legacy `state_per_capita_nsdp_current_inr` (non-`_long`) is permanently allowlisted as a diff-check artifact only — superseded by the spliced version. Topic is featured=false pending IA review (the doctrine says social-welfare topics drive IA; pure macro economy is context, not headline)."
+      "notes": "Source: NITI Aayog ICED state-wise deep-dive API (which republishes MoSPI National Statistical Office figures with the 2011-12 base year). Covers 10 fiscal years (FY16-FY25) for all 36 states/UTs plus All-India. Constant-price series strips inflation; current-price series is the nominal 'sticker' value. Compare GDP vs Sectoral GVA: GDP includes net product taxes; GVA is the cleaner production-side measure. The 2025-26 row is typically N.A. while NSO finalises that year's accounts. The per-capita NSDP and per-capita consumption indicators come from the ICED key-economic-indicators API (a separate endpoint family from state-wise deep-dive); they go back to 2004-05 and 2009-10 respectively, longer than the GDP series, because the source publisher provides a longer back-run of those particular metrics. The `nsdp_inr_crore` (faceted current+constant) and `per_capita_nsdp_*` indicators are RBI Handbook of Statistics on Indian Economy splices: `nsdp_inr_crore` carries absolute â‚¹Cr rows faceted by price basis (large states will dominate the table by sheer size â€” the existing comparability banner advises per-capita normalisation), while the per-capita variants extend FY81â†’FY26 by stitching across 1980-81, 1999-2000, 2004-05 and 2011-12 base-year breaks. SeriesBreakAnnotation (Phase 2) renders these breaks visibly so a citizen reading 'India's per-capita NSDP grew Nx since 1980' knows the slope crosses methodology revisions and is not a single coherent measurement. The legacy `state_per_capita_nsdp_current_inr` (non-`_long`) is permanently allowlisted as a diff-check artifact only â€” superseded by the spliced version. Topic is featured=false pending IA review (the doctrine says social-welfare topics drive IA; pure macro economy is context, not headline)."
     },
     {
       "id": "demography",
@@ -319,7 +262,7 @@
           "scope": "state"
         }
       ],
-      "notes": "`state_population_lakhs` is the FY16-FY26 inter-censal projection used for per-capita normalisations on other indicators (denominator role). The decennial Census enumeration shards (`state_population_by_sex_count`, `state_population_by_residence_count`) were retired in PR-D4 — Census 2011 was the last completed enumeration and the 2021 round was postponed, so six decennial points was a position not a trajectory; no canonical successor is planned. Topic is featured=false pending the next Census release; until then this is mostly the denominator for per-capita normalisations rather than a headline series."
+      "notes": "`state_population_lakhs` is the FY16-FY26 inter-censal projection used for per-capita normalisations on other indicators (denominator role). The decennial Census enumeration shards (`state_population_by_sex_count`, `state_population_by_residence_count`) were retired in PR-D4 â€” Census 2011 was the last completed enumeration and the 2021 round was postponed, so six decennial points was a position not a trajectory; no canonical successor is planned. Topic is featured=false pending the next Census release; until then this is mostly the denominator for per-capita normalisations rather than a headline series."
     },
     {
       "id": "environment",
@@ -387,13 +330,13 @@
           "scope": "state"
         }
       ],
-      "notes": "National total only — sub-national emissions accounting does not yet exist for India. Reported in India's Biennial Update Report (BUR) submissions to UNFCCC, methodology per IPCC 2006 guidelines. LULUCF (land-use / land-use-change / forestry) shows up as a net-negative sector when forest absorption exceeds deforestation; that is real, not an error. Per-capita Indian emissions are roughly a quarter of the OECD average; absolute totals reflect a population of 1.4 billion. State-level breakdown remains an open research problem (no government series exists yet). The sub-sector drill-down (`india_ghg_emissions_by_subsector_ggco2e`) is the same UNFCCC source one level deeper — Energy splits into Energy Industries, Transport, Manufacturing, Other Sectors, Fugitive emissions; Agriculture splits into Rice Cultivation, Enteric Fermentation, Manure Management, Agricultural Soils, Field Burning of Residues; etc. Sub-sector totals reconcile to the parent sector indicator when summed within each sector."
+      "notes": "National total only â€” sub-national emissions accounting does not yet exist for India. Reported in India's Biennial Update Report (BUR) submissions to UNFCCC, methodology per IPCC 2006 guidelines. LULUCF (land-use / land-use-change / forestry) shows up as a net-negative sector when forest absorption exceeds deforestation; that is real, not an error. Per-capita Indian emissions are roughly a quarter of the OECD average; absolute totals reflect a population of 1.4 billion. State-level breakdown remains an open research problem (no government series exists yet). The sub-sector drill-down (`india_ghg_emissions_by_subsector_ggco2e`) is the same UNFCCC source one level deeper â€” Energy splits into Energy Industries, Transport, Manufacturing, Other Sectors, Fugitive emissions; Agriculture splits into Rice Cultivation, Enteric Fermentation, Manure Management, Agricultural Soils, Field Burning of Residues; etc. Sub-sector totals reconcile to the parent sector indicator when summed within each sector."
     },
     {
       "id": "prices",
       "title": "Prices & inflation",
       "list": "union",
-      "summary": "What things cost, and how fast those prices are changing. Monetary policy is set by the Reserve Bank of India under a Union List mandate to keep headline inflation between 2% and 6% — states do not control inflation directly, so a higher state CPI usually reflects commodity composition, monsoon, and global oil prices, not state-government performance.",
+      "summary": "What things cost, and how fast those prices are changing. Monetary policy is set by the Reserve Bank of India under a Union List mandate to keep headline inflation between 2% and 6% â€” states do not control inflation directly, so a higher state CPI usually reflects commodity composition, monsoon, and global oil prices, not state-government performance.",
       "icon": "trending-up",
       "featured": true,
       "peer_set_default": "all",
@@ -406,18 +349,18 @@
           "scope": "national"
         }
       ],
-      "notes": "State-level CPI inflation (year-on-year %) is collapsed into the facetted `prices/cpi_inflation_pct` artifact (`general` / `food` / `fuel` / `housing_urban` sub-baskets) per PR-B8. The three national index-level series previously surfaced here (CPI-Combined base 2012, CPI-IW spliced across 1960/1982/2001/2016 bases, WPI All-Commodities spliced across 5 bases since FY75) were retired in PR-D1 — RBI's HBS-IE Tables 36 + 37 ingest is paused for those series; no canonical national-inflation successor is planned. State CPI inflation is decomposed by NSO from the same all-India CPI sampling frame; differences across states reflect commodity weights and local price formation, not state-government policy. Per Hans's framing review."
+      "notes": "State-level CPI inflation (year-on-year %) is collapsed into the facetted `prices/cpi_inflation_pct` artifact (`general` / `food` / `fuel` / `housing_urban` sub-baskets) per PR-B8. The three national index-level series previously surfaced here (CPI-Combined base 2012, CPI-IW spliced across 1960/1982/2001/2016 bases, WPI All-Commodities spliced across 5 bases since FY75) were retired in PR-D1 â€” RBI's HBS-IE Tables 36 + 37 ingest is paused for those series; no canonical national-inflation successor is planned. State CPI inflation is decomposed by NSO from the same all-India CPI sampling frame; differences across states reflect commodity weights and local price formation, not state-government policy. Per Hans's framing review."
     },
     {
       "id": "health",
       "title": "People & health",
       "list": "state",
-      "summary": "Vital rates and public spending on health. Public health is a State List subject (Entry 6) — state governments run primary health centres, district hospitals, and most preventive programmes — but the Centre funds about a third of the spend through centrally-sponsored schemes (NHM, Ayushman Bharat).",
+      "summary": "Vital rates and public spending on health. Public health is a State List subject (Entry 6) â€” state governments run primary health centres, district hospitals, and most preventive programmes â€” but the Centre funds about a third of the spend through centrally-sponsored schemes (NHM, Ayushman Bharat).",
       "icon": "heart-pulse",
       "featured": false,
       "peer_set_default": "general_category",
       "artifacts": [],
-      "notes": "Structural placeholder per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md §D6. The 6 legacy health shards (SRS vital rates + RBI Statement 27 health-spend) were retired in PR-D6: 5 hand-curated SRS shards (birth rate, death rate, IMR, TFR, public-health expenditure ₹Cr) end in 2020 with the SRS publication paused; RBI Statement 27 (share-of-state-total) had only one publisher and no canonical successor. Re-ingestion via a canonical health adapter (SRS resumption + NHM dashboard + Ayushman Bharat) is queued behind the canonical pivot — flag for Hans review when first canonical health artifact arrives."
+      "notes": "Structural placeholder per TODO/20260526-grain-over-entity-and-storage-decoupling-plan.md Â§D6. The 6 legacy health shards (SRS vital rates + RBI Statement 27 health-spend) were retired in PR-D6: 5 hand-curated SRS shards (birth rate, death rate, IMR, TFR, public-health expenditure â‚¹Cr) end in 2020 with the SRS publication paused; RBI Statement 27 (share-of-state-total) had only one publisher and no canonical successor. Re-ingestion via a canonical health adapter (SRS resumption + NHM dashboard + Ayushman Bharat) is queued behind the canonical pivot â€” flag for Hans review when first canonical health artifact arrives."
     },
     {
       "id": "governance",
@@ -426,16 +369,16 @@
       "summary": "How well institutions of government perform: audits, transparency, vacancies, court pendency. The 'how' behind every other number on yen-gov.",
       "featured": false,
       "artifacts": [],
-      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md §0e.4. First ingestion (CAG audit findings / RTI compliance / CGA monthly accounts) lands via a dedicated P.* PR; until then this topic is a navigational slot only. Seventh Schedule placement (`concurrent`) reflects that government accountability spans CAG audits (Union body covering both Centre and states), RTI (concurrent civil-rights statute), and CGA monthly accounts (Centre) — flag for Hans review when the first artifact arrives."
+      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md Â§0e.4. First ingestion (CAG audit findings / RTI compliance / CGA monthly accounts) lands via a dedicated P.* PR; until then this topic is a navigational slot only. Seventh Schedule placement (`concurrent`) reflects that government accountability spans CAG audits (Union body covering both Centre and states), RTI (concurrent civil-rights statute), and CGA monthly accounts (Centre) â€” flag for Hans review when the first artifact arrives."
     },
     {
       "id": "schemes",
       "title": "Where the money goes",
       "list": "concurrent",
-      "summary": "Welfare delivery: MGNREGA, PMAY, PM-KISAN, ICDS, PM-POSHAN, NFSA — what the state's flagship programs actually reach on the ground.",
+      "summary": "Welfare delivery: MGNREGA, PMAY, PM-KISAN, ICDS, PM-POSHAN, NFSA â€” what the state's flagship programs actually reach on the ground.",
       "featured": false,
       "artifacts": [],
-      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md §0e.4. First ingestion (MGNREGA / PMAY / PM-KISAN dashboards) lands via a dedicated P.* PR. Seventh Schedule placement (`concurrent`) reflects that CSS/CS scheme design sits with the Centre but implementation responsibility is shared with states — flag for Hans review when the first artifact arrives."
+      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md Â§0e.4. First ingestion (MGNREGA / PMAY / PM-KISAN dashboards) lands via a dedicated P.* PR. Seventh Schedule placement (`concurrent`) reflects that CSS/CS scheme design sits with the Centre but implementation responsibility is shared with states â€” flag for Hans review when the first artifact arrives."
     },
     {
       "id": "local_govt_finance",
@@ -444,7 +387,7 @@
       "summary": "Money flowing through panchayats and urban local bodies: Finance Commission grants, own revenue, scheme delivery at the third tier.",
       "featured": false,
       "artifacts": [],
-      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md §0e.4. First ingestion (15FC PRI/ULB grant releases, MoPR/MoHUA reports) lands via a dedicated P.* PR. Local government is constitutionally a state subject (73rd/74th amendments) so `list: state` is correct; title shortened from 'Panchayats & local bodies' (25 chars) to 'Panchayats & ULBs' (17 chars) to fit the 24-char rail budget — flag for Jony if the acronym is too cryptic for the citizen."
+      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md Â§0e.4. First ingestion (15FC PRI/ULB grant releases, MoPR/MoHUA reports) lands via a dedicated P.* PR. Local government is constitutionally a state subject (73rd/74th amendments) so `list: state` is correct; title shortened from 'Panchayats & local bodies' (25 chars) to 'Panchayats & ULBs' (17 chars) to fit the 24-char rail budget â€” flag for Jony if the acronym is too cryptic for the citizen."
     },
     {
       "id": "work",
@@ -453,7 +396,7 @@
       "summary": "Employment, wages, labour force participation. PLFS quarterly + annual, NSS-EUS for the long historical run.",
       "featured": false,
       "artifacts": [],
-      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md §0e.4. First ingestion (PLFS quarterly bulletins from MoSPI) lands via a dedicated P.* PR. Labour & employment is concurrent (Entries 22–24 of the Concurrent List)."
+      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md Â§0e.4. First ingestion (PLFS quarterly bulletins from MoSPI) lands via a dedicated P.* PR. Labour & employment is concurrent (Entries 22â€“24 of the Concurrent List)."
     },
     {
       "id": "judiciary",
@@ -462,7 +405,7 @@
       "summary": "Case pendency and disposal across India's court system. NJDG metrics from district courts up.",
       "featured": false,
       "artifacts": [],
-      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md §0e.4. First ingestion (NJDG case-pendency monthly snapshots) lands via a dedicated P.* PR. Seventh Schedule placement reflects that administration of justice is split: Concurrent List Entry 11A (constitution and organisation of all courts except Supreme Court and High Courts) covers most of what citizens see — flag for Hans if the framing should sit on `state` instead."
+      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md Â§0e.4. First ingestion (NJDG case-pendency monthly snapshots) lands via a dedicated P.* PR. Seventh Schedule placement reflects that administration of justice is split: Concurrent List Entry 11A (constitution and organisation of all courts except Supreme Court and High Courts) covers most of what citizens see â€” flag for Hans if the framing should sit on `state` instead."
     },
     {
       "id": "crime",
@@ -471,7 +414,7 @@
       "summary": "Reported crime under IPC and special/local laws; prison populations; chargesheet ratios. NCRB Crime in India + Prison Statistics India.",
       "featured": false,
       "artifacts": [],
-      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md §0e.4. First ingestion (NCRB Crime in India annual + Prison Statistics India) lands via a dedicated P.* PR. Police and public order are State List Entries 1–2."
+      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md Â§0e.4. First ingestion (NCRB Crime in India annual + Prison Statistics India) lands via a dedicated P.* PR. Police and public order are State List Entries 1â€“2."
     },
     {
       "id": "education",
@@ -480,7 +423,7 @@
       "summary": "School and higher-education metrics: UDISE+ enrolment, AISHE, ASER learning outcomes, literacy rates from the Census.",
       "featured": false,
       "artifacts": [],
-      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md §0e.4. First ingestion (UDISE+ school report cards, AISHE all-India enrolment) lands via a dedicated P.* PR. Education moved to the Concurrent List (Entry 25) under the 42nd Amendment in 1976."
+      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md Â§0e.4. First ingestion (UDISE+ school report cards, AISHE all-India enrolment) lands via a dedicated P.* PR. Education moved to the Concurrent List (Entry 25) under the 42nd Amendment in 1976."
     },
     {
       "id": "amenities",
@@ -489,7 +432,7 @@
       "summary": "Household access to water, sanitation, electricity and clean cooking fuel; housing under PMAY-G/U.",
       "featured": false,
       "artifacts": [],
-      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md §0e.4. First ingestion (Jal Jeevan Mission dashboard, Swachh Bharat reports, NFHS-5 household tables) lands via a dedicated P.* PR. Water supply (State List Entry 17), sanitation (State List Entry 6) sit primarily with states — `list: state` is the honest framing; electricity (Concurrent List Entry 38) is the edge case to flag for Hans when the energy/amenities overlap surfaces."
+      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md Â§0e.4. First ingestion (Jal Jeevan Mission dashboard, Swachh Bharat reports, NFHS-5 household tables) lands via a dedicated P.* PR. Water supply (State List Entry 17), sanitation (State List Entry 6) sit primarily with states â€” `list: state` is the honest framing; electricity (Concurrent List Entry 38) is the edge case to flag for Hans when the energy/amenities overlap surfaces."
     },
     {
       "id": "technology",
@@ -498,7 +441,7 @@
       "summary": "Telecom and internet penetration: broadband subscribers, mobile coverage, ICT access from NFHS.",
       "featured": false,
       "artifacts": [],
-      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md §0e.4. First ingestion (TRAI monthly subscriber reports) lands via a dedicated P.* PR. Telegraphs, telephones, wireless and broadcasting are Union List Entry 31."
+      "notes": "Structural placeholder per TODO/20260517-canonical-long-format-pivot.md Â§0e.4. First ingestion (TRAI monthly subscriber reports) lands via a dedicated P.* PR. Telegraphs, telephones, wireless and broadcasting are Union List Entry 31."
     },
     {
       "id": "agriculture",
