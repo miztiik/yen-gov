@@ -463,18 +463,18 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.meta.unit).toBe("MW");
   });
 
-  it("PR-G state_electricity_generation_by_source_gwh descriptor routes to state-electricity-generation-gwh with 5 fuel children", () => {
+  it("PR-G state_electricity_generation_by_source_gwh descriptor routes to electricity-generation-gwh with 5 fuel children", () => {
     const d = getCanonicalDescriptor("energy/state_electricity_generation_by_source_gwh");
     expect(d).not.toBeNull();
     expect(d!.kind).toBe("facet-multiplexed");
     if (d!.kind === "facet-multiplexed") {
-      expect(d!.canonical_parent_indicator_id).toBe("state-electricity-generation-gwh");
+      expect(d!.canonical_parent_indicator_id).toBe("electricity-generation-gwh");
       expect(d!.facet_axis_id).toBe("fuel_type");
       expect(d!.facet_values).toHaveLength(5);
       const fuels = d!.facet_values.map((fv) => fv.legacy_facet_label);
       expect(fuels).toEqual(["coal", "gas", "hydro", "nuclear", "renewable"]);
       const renewable = d!.facet_values.find((fv) => fv.legacy_facet_label === "renewable");
-      expect(renewable?.canonical_child_id).toBe("state-electricity-generation-gwh-renewable");
+      expect(renewable?.canonical_child_id).toBe("electricity-generation-gwh-renewable");
     }
     expect(d!.table_id).toBe("energy.energy_generation");
     // Row 4 IA pass (2026-05-25): heading rewritten from "State electricity
@@ -1123,7 +1123,7 @@ describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
     },
     {
       legacy_id: "energy/state_electricity_generation_mu",
-      canonical_id: "state-electricity-generation-gwh",
+      canonical_id: "electricity-generation-gwh",
       table_id: "energy.energy_generation",
     },
   ];
@@ -1178,7 +1178,7 @@ describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
       [
         "installed-capacity-geographical-mw",
         "installed-capacity-allocated-mw",
-        "state-electricity-generation-gwh",
+        "electricity-generation-gwh",
       ].includes(r.canonical_id),
     );
     expect(fy_ids).toHaveLength(3);

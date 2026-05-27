@@ -44,7 +44,7 @@
 //    `energy/state_rpo_compliance_pct`); the canonical store names
 //    differ both in shape (kebab `state-rpo-compliance-pct`) and
 //    sometimes in unit-suffix or basis-suffix (e.g.
-//    `state_electricity_generation_mu` -> `state-electricity-generation-gwh`,
+//    `state_electricity_generation_mu` -> `electricity-generation-gwh`,
 //    `state_distribution_billing_efficiency_pct` ->
 //    `state-distribution-efficiency-pct-billing` flips the modifier
 //    order). The allowlist is the single source of truth for these
@@ -242,7 +242,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   //   1. state_electricity_sales_mu        → state-electricity-sales-mu (single)
   //   2. state_atc_losses_pct              → state-atc-losses-pct (single)
   //   3. state_installed_capacity_by_source_mw      → installed-capacity-geographical-mw (facet-multiplexed by fuel_type)
-  //   4. state_electricity_generation_by_source_gwh → state-electricity-generation-gwh (facet-multiplexed by fuel_type)
+  //   4. state_electricity_generation_by_source_gwh → electricity-generation-gwh (facet-multiplexed by fuel_type)
   //   5. state_installed_capacity_total_mw → Pattern B duplicate of
   //      state_installed_capacity_with_alloc_mw (already routes to
   //      installed-capacity-allocated-mw via entry #7). PR #222
@@ -254,7 +254,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   // Adapter wiring confirmed:
   //   * distribution.py block 1 (line 87) emits state-atc-losses-pct
   //   * distribution.py block 2 (line 102) emits state-electricity-sales-mu
-  //   * generation.py block 2 (line 77) emits state-electricity-generation-gwh-{fuel}
+  //   * generation.py block 2 (line 77) emits electricity-generation-gwh-{fuel}
   //   * installed_capacity.py block 3 (line 144) emits installed-capacity-geographical-mw + -{fuel} children
   //
   // Meta blocks sourced verbatim from datasets/taxonomy/indicators.json
@@ -288,7 +288,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       methodology_vintage:
         "NITI Aayog ICED state-wise deep-dive; underlying figures from PFC State Distribution Utilities report. Includes intra-state imports — consumption can exceed in-state generation.",
       notes:
-        "Read alongside generation (state-electricity-generation-gwh): generation MINUS sales = absolute AT&C loss. 1 MU (million unit) = 1 GWh; the unit relabel is dimensionally identical.",
+        "Read alongside generation (electricity-generation-gwh): generation MINUS sales = absolute AT&C loss. 1 MU (million unit) = 1 GWh; the unit relabel is dimensionally identical.",
     },
     // PR-I (Row 5 PR-1): Hans-curated caveats for the AT&C-decomposition cohort.
     // Sales-MU is the absolute-MU denominator; 3 distribution-efficiency cards
@@ -406,7 +406,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   //     ~1685 rows (state × fuel × FY16-FY26). Backend adapter `generation.py`
   //     block 2 (line 77) collapses ICED sub-fuels into 5 canonical buckets
   //     keyed on `dimension_values.fuel_type`.
-  //   * Parent `state-electricity-generation-gwh` carries the sum (entry
+  //   * Parent `electricity-generation-gwh` carries the sum (entry
   //     #8 from PR 7a already routes the totals-only legacy slug
   //     `state_electricity_generation_mu` to the SAME parent — single
   //     big-number card; this faceted entry adds the per-fuel breakdown
@@ -414,33 +414,33 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "facet-multiplexed",
     legacy_artifact_id: "energy/state_electricity_generation_by_source_gwh",
-    canonical_parent_indicator_id: "state-electricity-generation-gwh",
+    canonical_parent_indicator_id: "electricity-generation-gwh",
     table_id: "energy.energy_generation",
     facet_axis_id: "fuel_type",
     facet_values: [
       {
-        canonical_child_id: "state-electricity-generation-gwh-coal",
+        canonical_child_id: "electricity-generation-gwh-coal",
         legacy_facet_label: "coal",
       },
       {
-        canonical_child_id: "state-electricity-generation-gwh-gas",
+        canonical_child_id: "electricity-generation-gwh-gas",
         legacy_facet_label: "gas",
       },
       {
-        canonical_child_id: "state-electricity-generation-gwh-hydro",
+        canonical_child_id: "electricity-generation-gwh-hydro",
         legacy_facet_label: "hydro",
       },
       {
-        canonical_child_id: "state-electricity-generation-gwh-nuclear",
+        canonical_child_id: "electricity-generation-gwh-nuclear",
         legacy_facet_label: "nuclear",
       },
       {
-        canonical_child_id: "state-electricity-generation-gwh-renewable",
+        canonical_child_id: "electricity-generation-gwh-renewable",
         legacy_facet_label: "renewable",
       },
     ],
     meta: {
-      id: "state-electricity-generation-gwh",
+      id: "electricity-generation-gwh",
       title: "Where your state's power comes from (GWh)",
       description:
         "Per-state actual electricity generated, broken out by fuel type. The delivered counterpart to installed capacity — capacity is potential, generation is what plants actually produced. 1 MU (million unit) = 1 GWh; the unit relabel is dimensionally identical.",
@@ -484,7 +484,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   //     long-arc onto the ICED post-FY15 segment. INTENTIONAL time-window
   //     extension — citizens see MORE data on the canonical path, not less.
   //   * Shard #8 (`state_electricity_generation_mu.json`) uses publisher unit
-  //     `MU` (million units); canonical `state-electricity-generation-gwh` uses
+  //     `MU` (million units); canonical `electricity-generation-gwh` uses
   //     `GWh`. 1 MU == 1 GWh numerically — the unit relabel is dimensionally
   //     identical (no value transformation needed at read time).
   //
@@ -694,10 +694,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/state_electricity_generation_mu",
-    canonical_indicator_id: "state-electricity-generation-gwh",
+    canonical_indicator_id: "electricity-generation-gwh",
     table_id: "energy.energy_generation",
     meta: {
-      id: "state-electricity-generation-gwh",
+      id: "electricity-generation-gwh",
       title: "State electricity generation, by fuel (GWh)",
       description:
         "Per-state actual electricity generated, summed across all fuels. The delivered counterpart to installed capacity — capacity is potential, generation is what plants actually produced.",
@@ -836,7 +836,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       methodology_vintage:
         "NITI Aayog ICED /energy/fuel-sources/coal/consumption-domestic-state (Coal Controller's Office / Ministry of Coal upstream). Aggregated by SUM of the 4 component grades (raw + washed + middlings + lignite); the precomputed TOTAL COAL rows are dropped to avoid double-counting.",
       notes:
-        "Read with installed-capacity-allocated-mw (coal facet) and state-electricity-generation-gwh (coal facet) on the same /t/energy page: a state with high coal consumption but low coal generation is using coal for industrial heat (steel/cement/sponge-iron) rather than power. attribution_geography = where_consumed, NOT where_mined — coal mined in Jharkhand and Odisha but burned in deficit states.",
+        "Read with installed-capacity-allocated-mw (coal facet) and electricity-generation-gwh (coal facet) on the same /t/energy page: a state with high coal consumption but low coal generation is using coal for industrial heat (steel/cement/sponge-iron) rather than power. attribution_geography = where_consumed, NOT where_mined — coal mined in Jharkhand and Odisha but burned in deficit states.",
     },
     // PR-Q (Row 6 P.1.C commit 1): Hans-curated caveats for the first canonical
     // fuel-consumption indicator. The 4-grade SUM methodology, the thermal-vs-
@@ -909,7 +909,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   // Compute-on-read parent: the parent indicator-id india-thermal-capacity-
   // retired-mw carries no observation rows; the renderer sums the 2 fuel
   // children at read time (Hans D33.8 convention; same as state-installed-
-  // capacity-geographical-mw and state-electricity-generation-gwh).
+  // capacity-geographical-mw and electricity-generation-gwh).
   {
     kind: "facet-multiplexed",
     legacy_artifact_id: "energy/india_thermal_capacity_retired_mw",
@@ -1248,7 +1248,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       id: "state-power-purchase-share-pct",
       title: "State power-purchase share by source (% per fiscal year)",
       description:
-        "Share of total electricity purchased by a state's distribution utilities, broken down by generation source (12 buckets: coal, gas, diesel, hydro, nuclear, small-hydro, solar, wind, biomass, other-renewables, hybrid-bundled, trading-and-others). The PROCUREMENT mix (where DISCOMs buy from), not the GENERATION mix (what state plants produce). Values sum to ~100% per (state, FY). Compare against state-electricity-generation-gwh-{fuel} to read the trade pattern: RE-exporters vs thermal-importers.",
+        "Share of total electricity purchased by a state's distribution utilities, broken down by generation source (12 buckets: coal, gas, diesel, hydro, nuclear, small-hydro, solar, wind, biomass, other-renewables, hybrid-bundled, trading-and-others). The PROCUREMENT mix (where DISCOMs buy from), not the GENERATION mix (what state plants produce). Values sum to ~100% per (state, FY). Compare against electricity-generation-gwh-{fuel} to read the trade pattern: RE-exporters vs thermal-importers.",
       entity_kind: "state",
       time_grain: "fiscal_year",
       value_kind: "share",
@@ -1269,7 +1269,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     // procurement-vs-generation, hybrid-bundled-is-not-a-fuel,
     // trading-share-is-not-a-stress-signal.
     caveats: [
-      "Procurement is NOT generation. A state's power-purchase mix shows what its DISCOMs BUY from -- not what its plants produce. Karnataka generates a lot of wind and solar but imports significant coal via inter-state PPAs; Bihar produces almost nothing locally and procures most of its power from central thermal plants. Compare with state-electricity-generation-gwh-{fuel} to see the export-import pattern.",
+      "Procurement is NOT generation. A state's power-purchase mix shows what its DISCOMs BUY from -- not what its plants produce. Karnataka generates a lot of wind and solar but imports significant coal via inter-state PPAs; Bihar produces almost nothing locally and procures most of its power from central thermal plants. Compare with electricity-generation-gwh-{fuel} to see the export-import pattern.",
       "Hybrid-bundled is a CONTRACT category, not a fuel. The hybrid PPA bucket (wind + solar + storage sold as one bundle) emerged post-2022 under MNRE policy; it grows in some states while solar and wind shares stay flat -- because the SAME electrons are just being re-categorised under a different contract structure. Don't read hybrid growth as new RE; cross-reference with installed-capacity series.",
       "Trading-and-others share is NOT a stress signal. Buying ~10-20% on power exchanges (IEX / PXIL) is normal procurement strategy -- it lets DISCOMs meet demand fluctuations cheaper than via long-term PPAs. Punjab, Haryana, Delhi run high trading shares (15-25%) because their demand is peaky; this is competence, not crisis. Only when trading + UI dominates the year-on-year delta should you read a procurement-planning failure.",
     ],
