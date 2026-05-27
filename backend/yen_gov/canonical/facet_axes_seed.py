@@ -635,7 +635,7 @@ FACET_AXES: list[FacetAxis] = [
             "indicators (NITI Aayog ICED /energy/fuel-sources/oil/ "
             "consumptionStateProductTrend). Closed enum of 7 products the "
             "publisher emits per state per fiscal year. The parent indicator "
-            "(``state-oil-product-consumption-kt``) is compute-on-read per "
+            "(``oil-product-consumption-kt``) is compute-on-read per "
             "Hans D33.8 - its value is the SUM of all 7 product children. "
             "Unlike the fuel_type axis there is no publisher-sub-bucket "
             "collapse step; the 7 publisher labels (DIESEL/HSD, PETROL, LPG, "

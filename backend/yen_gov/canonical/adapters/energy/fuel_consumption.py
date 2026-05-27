@@ -10,7 +10,7 @@ P.1.C PR-T (1 indicator; second canonical fuel-consumption lift):
 * ``state_oil_product_consumption_kt.json`` (2901 rows, 7-facet on
   the NEW ``oil_product`` axis: diesel-hsd, petrol, lpg, kerosene,
   naphtha, petroleum-coke, others)
-  -> ``state-oil-product-consumption-kt-{product}`` (7 child indicators
+  -> ``oil-product-consumption-kt-{product}`` (7 child indicators
   + 1 compute-on-read parent).
 
 P.1.C PR-U (1 indicator; third canonical fuel-consumption lift):
@@ -95,7 +95,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
         ))
 
     # 2. state_oil_product_consumption_kt.json (P.1.C PR-T)
-    #    -> state-oil-product-consumption-kt-{product} (7 children).
+    #    -> oil-product-consumption-kt-{product} (7 children).
     #    7-facet Pattern A-facet on the NEW ``oil_product`` axis.
     #    Publisher labels (already normalised by the ICED ingest parser
     #    at backend/yen_gov/sources/iced_fuel/parsers.py _OIL_PRODUCT_SLUG)
@@ -114,7 +114,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id=f"state-oil-product-consumption-kt-{r['facet']}",
+            indicator_id=f"oil-product-consumption-kt-{r['facet']}",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["iced_consumption_oil"],
             derivation="raw",

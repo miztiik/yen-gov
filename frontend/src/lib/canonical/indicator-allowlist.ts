@@ -960,7 +960,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   // ICED `/energy/fuel-sources/oil/consumptionStateProductTrend` -> 2901 obs
   // rows (state-level, FY11-FY25) joined into the existing
   // `energy_fuel_consumption` parquet stem reserved by PR-Q. Adapter:
-  //   * fuel_consumption.py block 2 emits state-oil-product-consumption-kt-{product}
+  //   * fuel_consumption.py block 2 emits oil-product-consumption-kt-{product}
   // 7-facet Pattern A-facet on the NEW `oil_product` axis (per Hans).
   // Unlike fuel_type's SUB_FUEL_TO_CANONICAL collapse, the 7 publisher
   // labels (diesel-hsd, petrol, lpg, kerosene, naphtha, petroleum-coke,
@@ -974,41 +974,41 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "facet-multiplexed",
     legacy_artifact_id: "energy/state_oil_product_consumption_kt",
-    canonical_parent_indicator_id: "state-oil-product-consumption-kt",
+    canonical_parent_indicator_id: "oil-product-consumption-kt",
     table_id: "energy.energy_fuel_consumption",
     facet_axis_id: "oil_product",
     facet_values: [
       {
-        canonical_child_id: "state-oil-product-consumption-kt-diesel-hsd",
+        canonical_child_id: "oil-product-consumption-kt-diesel-hsd",
         legacy_facet_label: "diesel-hsd",
       },
       {
-        canonical_child_id: "state-oil-product-consumption-kt-petrol",
+        canonical_child_id: "oil-product-consumption-kt-petrol",
         legacy_facet_label: "petrol",
       },
       {
-        canonical_child_id: "state-oil-product-consumption-kt-lpg",
+        canonical_child_id: "oil-product-consumption-kt-lpg",
         legacy_facet_label: "lpg",
       },
       {
-        canonical_child_id: "state-oil-product-consumption-kt-kerosene",
+        canonical_child_id: "oil-product-consumption-kt-kerosene",
         legacy_facet_label: "kerosene",
       },
       {
-        canonical_child_id: "state-oil-product-consumption-kt-naphtha",
+        canonical_child_id: "oil-product-consumption-kt-naphtha",
         legacy_facet_label: "naphtha",
       },
       {
-        canonical_child_id: "state-oil-product-consumption-kt-petroleum-coke",
+        canonical_child_id: "oil-product-consumption-kt-petroleum-coke",
         legacy_facet_label: "petroleum-coke",
       },
       {
-        canonical_child_id: "state-oil-product-consumption-kt-others",
+        canonical_child_id: "oil-product-consumption-kt-others",
         legacy_facet_label: "others",
       },
     ],
     meta: {
-      id: "state-oil-product-consumption-kt",
+      id: "oil-product-consumption-kt",
       title: "State oil-product consumption, by product (kt per fiscal year)",
       description:
         "Per-state annual consumption of refined petroleum products in kilotonnes, broken down by 7 products. Diesel dominates everywhere (transport + agriculture); LPG tracks PMUY (Ujjwala) household-coverage policy; petroleum-coke tracks heavy-industry heat use. Where-CONSUMED attribution (not where-refined): the figure tells you where the product was sold and burned, not where it came out of a refinery.",

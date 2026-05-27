@@ -98,7 +98,7 @@ def test_all_p1a_p1b_energy_source_ids_present() -> None:
         "src-fd152bd3c6c6",  # ICED india-thermal-capacity-retired-mw
         # P.1.C PR-T (1) — state oil-product consumption lift (Pattern
         # A-facet on the NEW 7-bucket oil_product axis).
-        "src-cba8334fedc5",  # ICED state-oil-product-consumption-kt
+        "src-cba8334fedc5",  # ICED oil-product-consumption-kt
         # P.1.C PR-U (1) — national primary energy supply (TPES) lift
         # (Pattern A-facet on the EXISTING fuel_type axis extended with
         # `oil` + `renewable` value_ids; national-only IN entity).
