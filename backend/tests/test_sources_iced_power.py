@@ -13,6 +13,7 @@ import pytest
 from yen_gov.sources.iced_common import ICEDShapeError
 from yen_gov.sources.iced_power.parsers import (
     parse_capacity_metatable,
+    parse_plant_pipeline_info,
     parse_power_statistics,
     parse_retired_capacity,
 )
@@ -109,6 +110,76 @@ def test_power_statistics_handles_yyyy_yyyy_fyear_format():
 def test_power_statistics_rejects_missing_state_block():
     with pytest.raises(ICEDShapeError):
         parse_power_statistics({"nationalData": []})
+
+
+# ---------------------------------------------------------------------------
+# parse_plant_pipeline_info
+# ---------------------------------------------------------------------------
+
+
+def test_plant_pipeline_info_emits_country_year_status_rows():
+    decrypted = {
+        "category": ["2024", "2025", "2026"],
+        "seriesData": [
+            {"name": "Under Construction and likely to be commissioned",
+             "data": [6.5, 3.58, 8.52]},
+            {"name": "Under Construction but on Hold",
+             "data": [0.0, 0.5, 0]},
+        ],
+    }
+    rows = parse_plant_pipeline_info(decrypted)
+
+    assert {r["entity_id"] for r in rows} == {"IN"}
+    triples = {(r["time"], r["facet"], r["value"]) for r in rows}
+    assert ("2024", "Under Construction and likely to be commissioned", 6.5) in triples
+    assert ("2026", "Under Construction and likely to be commissioned", 8.52) in triples
+    # Zeros preserved (publisher information, not noise)
+    assert ("2024", "Under Construction but on Hold", 0.0) in triples
+    # Calendar-year grain ("YYYY"), NOT fiscal-year "YYYY-04"
+    assert all(len(r["time"]) == 4 for r in rows)
+    # 3 years x 2 series = 6 rows
+    assert len(rows) == 6
+    # Sorted by (entity_id, time, facet)
+    keys = [(r["entity_id"], r["time"], r["facet"]) for r in rows]
+    assert keys == sorted(keys)
+
+
+def test_plant_pipeline_info_preserves_publisher_year_gaps():
+    # ICED skips 2022 in production (verified 2026-05-27); we MUST preserve
+    # the gap verbatim per publisher-vocabulary discipline.
+    decrypted = {
+        "category": ["2020", "2021", "2023", "2024"],
+        "seriesData": [{"name": "Pipeline", "data": [1.0, 2.0, 3.0, 4.0]}],
+    }
+    rows = parse_plant_pipeline_info(decrypted)
+    times = sorted(r["time"] for r in rows)
+    assert times == ["2020", "2021", "2023", "2024"]
+    assert "2022" not in times
+
+
+def test_plant_pipeline_info_rejects_non_dict_top_level():
+    with pytest.raises(ICEDShapeError):
+        parse_plant_pipeline_info([{"category": [], "seriesData": []}])
+
+
+def test_plant_pipeline_info_rejects_missing_keys():
+    with pytest.raises(ICEDShapeError):
+        parse_plant_pipeline_info({"category": ["2024"]})
+
+
+def test_plant_pipeline_info_drops_malformed_series_entries():
+    decrypted = {
+        "category": ["2024"],
+        "seriesData": [
+            {"name": "good", "data": [1.0]},
+            "not-a-dict",
+            {"name": "", "data": [9.0]},          # empty name dropped
+            {"name": "no-data"},                    # missing data dropped
+        ],
+    }
+    rows = parse_plant_pipeline_info(decrypted)
+    assert len(rows) == 1
+    assert rows[0]["facet"] == "good"
 
 
 # ---------------------------------------------------------------------------

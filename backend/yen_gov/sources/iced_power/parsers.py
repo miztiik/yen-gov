@@ -200,3 +200,62 @@ def parse_retired_capacity(decrypted: Any) -> list[dict[str, Any]]:
             continue
         rows.append(parser_kit.row(entity_id="IN", time=period, value=cap, facet=source))
     return parser_kit.dedup_sort(rows)
+
+
+
+# ---------------------------------------------------------------------------
+# 5. plantPipelineInfo -> under-construction capacity (country, by status)
+# ---------------------------------------------------------------------------
+
+
+def parse_plant_pipeline_info(decrypted):
+    """Parse ``/v1/plantPipelineInfo`` -> national rows (entity_id="IN").
+
+    Expected shape (already-decrypted): ``{"category": [year_str, ...],
+    "seriesData": [{"name": status_str, "data": [num, ...]}, ...]}``.
+
+    ICED ships under-construction (pipeline) capacity additions by
+    expected commission-year, split by status ("Under Construction and
+    likely to be commissioned" vs "Under Construction but on Hold").
+    Values are calendar-year additions (NOT cumulative installed-capacity);
+    upstream unit is GW. The ``category`` axis is the publisher's literal
+    list (may skip years like 2022); we preserve that gap verbatim per
+    CLAUDE.md publisher-vocabulary discipline.
+
+    Returns one row per ``(year, status)`` cell with ``entity_id="IN"``,
+    ``time="YYYY"`` (calendar-year grain), ``facet=status``, and the raw
+    numeric value. Zero rows are KEPT (publisher information). Raises
+    :class:`ICEDShapeError` on missing or malformed top-level keys.
+    """
+    if not isinstance(decrypted, dict):
+        raise ICEDShapeError(
+            f"plantPipelineInfo: expected top-level dict, got {type(decrypted).__name__}"
+        )
+    category = decrypted.get("category")
+    series = decrypted.get("seriesData")
+    if not isinstance(category, list) or not isinstance(series, list):
+        raise ICEDShapeError(
+            "plantPipelineInfo: missing or non-list 'category' / 'seriesData' keys"
+        )
+
+    rows = []
+    for s in series:
+        if not isinstance(s, dict):
+            continue
+        status = s.get("name")
+        data = s.get("data")
+        if not isinstance(status, str) or not status or not isinstance(data, list):
+            continue
+        for idx, raw_year in enumerate(category):
+            if idx >= len(data):
+                break
+            period = parser_kit.fy_to_period(raw_year, time_grain="year")
+            if period is None:
+                continue
+            value = coerce_numeric(data[idx])
+            if value is None:
+                continue
+            rows.append(
+                parser_kit.row(entity_id="IN", time=period, value=value, facet=status)
+            )
+    return parser_kit.dedup_sort(rows)
