@@ -96,17 +96,26 @@ def test_does_not_reject_ac_or_party_or_candidate_or_india_prefixes(tmp_path):
     assert tier_b_indicator_id_no_grain_prefix(tmp_path) == []
 
 
-def test_check_is_dark_not_chained_into_run():
-    """PR-B1 ships the check DARK -- NOT in run(). Enforced post-PR-B9."""
+def test_check_is_chained_live_into_run():
+    """PR-B9 flips the check LIVE -- chained into run() after all B-series
+    backfill batches (#388-#405) cleared grain-prefixed indicator_ids to 0."""
     from yen_gov import validate as v
 
     src = Path(v.__file__).read_text(encoding="utf-8")
-    # Find the run() function body and confirm no chain entry.
     assert "tier_b_indicator_id_no_grain_prefix" in src  # function present
-    # Naive but sufficient: the only mention should be the def + docstring,
-    # never the `+ tier_b_indicator_id_no_grain_prefix(root)` chain pattern.
-    assert "+ tier_b_indicator_id_no_grain_prefix" not in src
+    assert "+ tier_b_indicator_id_no_grain_prefix(root)" in src  # chained LIVE
 
 
 def test_no_op_when_catalogue_missing(tmp_path):
     assert tier_b_indicator_id_no_grain_prefix(tmp_path) == []
+
+
+def test_passes_against_repo_indicators_catalogue():
+    """LIVE sentinel: the real datasets/taxonomy/indicators.json at repo HEAD
+    MUST contain zero grain-prefixed indicator_ids. If this fails, B-series
+    backfill is incomplete and the LIVE flip must be reverted until clean."""
+    from yen_gov import validate as v
+
+    repo_root = Path(v.__file__).resolve().parents[2]
+    assert (repo_root / "datasets" / "taxonomy" / "indicators.json").exists()
+    assert tier_b_indicator_id_no_grain_prefix(repo_root) == []
