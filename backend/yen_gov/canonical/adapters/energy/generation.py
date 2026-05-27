@@ -3,9 +3,9 @@
 Lifts 3 meadow shards (per ADR-0041, ``datasets/energy/_meadow/iced/2024-25/``):
 
 * ``state_electricity_generation_mu.json`` (407 publisher totals)
-  → ``state-electricity-generation-gwh`` (1 MU = 1 GWh; same numeric).
+  → ``electricity-generation-gwh`` (1 MU = 1 GWh; same numeric).
 * ``state_electricity_generation_by_source_gwh.json`` (~1685 per-fuel)
-  → ``state-electricity-generation-gwh-{fuel}`` (after sub-fuel collapse).
+  → ``electricity-generation-gwh-{fuel}`` (after sub-fuel collapse).
 * ``state_plant_load_factor_pct.json`` (1652 per-fuel, PR-V 2026-05-26)
   → ``state-plant-load-factor-pct-{fuel}`` (NO sub-fuel collapse;
   1:1 mapping to 8 distinct fuel_type values).
@@ -46,7 +46,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
     rows: list[ObservationRow] = []
 
     # 1. state_electricity_generation_mu.json (publisher total)
-    #    → state-electricity-generation-gwh (parent). 1 MU = 1 GWh.
+    #    → electricity-generation-gwh (parent). 1 MU = 1 GWh.
     shard = load_meadow(
         repo_root, "energy", "iced", "2024-25",
         "state_electricity_generation_mu.json",
@@ -58,14 +58,14 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id="state-electricity-generation-gwh",
+            indicator_id="electricity-generation-gwh",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["iced_gen_metatable"],
             derivation="raw",
         ))
 
     # 2. state_electricity_generation_by_source_gwh.json
-    #    → state-electricity-generation-gwh-{fuel} (sub-fuel collapse).
+    #    → electricity-generation-gwh-{fuel} (sub-fuel collapse).
     shard = load_meadow(
         repo_root, "energy", "iced", "2024-25",
         "state_electricity_generation_by_source_gwh.json",
@@ -87,7 +87,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id=f"state-electricity-generation-gwh-{fuel}",
+            indicator_id=f"electricity-generation-gwh-{fuel}",
             value_numeric=sum(values),
             source_id=SOURCE_IDS["iced_gen_metatable"],
             derivation=derivation,

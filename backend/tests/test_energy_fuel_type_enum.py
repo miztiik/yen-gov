@@ -91,7 +91,7 @@ def test_every_fuel_suffix_is_canonical(stem: str) -> None:
             continue
         # Split off the trailing segment; the catalogue's convention is
         # one hyphen separator before the fuel suffix on per-fuel children
-        # (e.g. ``state-electricity-generation-gwh-coal``).
+        # (e.g. ``electricity-generation-gwh-coal``).
         last = ind.rsplit("-", 1)[-1]
         if last in sub_fuel_leak_candidates:
             leaks.append((ind, last))

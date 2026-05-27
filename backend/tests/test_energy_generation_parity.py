@@ -50,23 +50,23 @@ def _query_value(entity_id: str, year: int, indicator_id: str) -> float | None:
 
 
 def test_state_generation_publisher_total_matches_shard_in_2015() -> None:
-    """state-electricity-generation-gwh, IN 2015-04 = 1167584.06 MU = 1167584.06 GWh."""
-    val = _query_value("IN", 2015, "state-electricity-generation-gwh")
+    """electricity-generation-gwh, IN 2015-04 = 1167584.06 MU = 1167584.06 GWh."""
+    val = _query_value("IN", 2015, "electricity-generation-gwh")
     assert val == pytest.approx(1167584.06, abs=0.01), (
-        f"IN 2015 state-electricity-generation-gwh expected 1167584.06, got {val!r}"
+        f"IN 2015 electricity-generation-gwh expected 1167584.06, got {val!r}"
     )
 
 
 def test_state_generation_coal_facet_matches_shard_s01_2015() -> None:
-    """state-electricity-generation-gwh-coal, IN-S01 2015-04 = 52023.75 (raw 1:1)."""
-    val = _query_value("IN-S01", 2015, "state-electricity-generation-gwh-coal")
+    """electricity-generation-gwh-coal, IN-S01 2015-04 = 52023.75 (raw 1:1)."""
+    val = _query_value("IN-S01", 2015, "electricity-generation-gwh-coal")
     assert val == pytest.approx(52023.75, abs=0.01), (
         f"IN-S01 2015 ...-gwh-coal expected 52023.75, got {val!r}"
     )
 
 
 def test_state_generation_renewable_facet_is_sum_of_collapsed_subfuels() -> None:
-    """state-electricity-generation-gwh-renewable for IN-S01 2015-04 must equal
+    """electricity-generation-gwh-renewable for IN-S01 2015-04 must equal
     sum of renewable sub-fuels (bio-power + small-hydro + solar + wind ...)."""
     shard = json.loads(
         (MEADOW_DIR / "state_electricity_generation_by_source_gwh.json").read_text(encoding="utf-8")
@@ -79,7 +79,7 @@ def test_state_generation_renewable_facet_is_sum_of_collapsed_subfuels() -> None
     )
     assert expected > 0, "sanity: shard has at least one renewable sub-fuel row for S01 2015"
 
-    val = _query_value("IN-S01", 2015, "state-electricity-generation-gwh-renewable")
+    val = _query_value("IN-S01", 2015, "electricity-generation-gwh-renewable")
     assert val == pytest.approx(expected, abs=0.01), (
         f"IN-S01 2015 ...-gwh-renewable expected {expected!r}, got {val!r}"
     )

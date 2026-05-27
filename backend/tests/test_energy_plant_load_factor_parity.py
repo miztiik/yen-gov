@@ -221,15 +221,15 @@ def test_36_distinct_states_or_uts():
 
 def test_does_not_displace_existing_generation_indicators():
     """PLF joining the energy_generation parquet must NOT have evicted
-    the prior state-electricity-generation-gwh rows.
+    the prior electricity-generation-gwh rows.
     """
     rows = _q(
         f"SELECT COUNT(*) FROM read_parquet('{PARQUET.as_posix()}') "
-        f"WHERE indicator_id = 'state-electricity-generation-gwh'"
+        f"WHERE indicator_id = 'electricity-generation-gwh'"
     )
     # The publisher's generation MU shard was 407 totals; PR-V must
     # leave these untouched.
     assert rows[0][0] >= 400, (
-        f"prior state-electricity-generation-gwh rows count = {rows[0][0]!r}; "
+        f"prior electricity-generation-gwh rows count = {rows[0][0]!r}; "
         f"PR-V must not have displaced PR pre-existing generation rows."
     )

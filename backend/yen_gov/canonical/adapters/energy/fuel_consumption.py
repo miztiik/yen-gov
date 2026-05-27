@@ -48,7 +48,7 @@ contrast with fuel_type's SUB_FUEL_TO_CANONICAL).
 Coal-consumption is a *consumption* statistic (where coal is burned,
 not where it is mined). Companions for cross-read: the coal facet of
 ``state-installed-capacity-allocated-mw`` (siting) and the coal facet of
-``state-electricity-generation-gwh`` (gen-from-coal). Industrial heat
+``electricity-generation-gwh`` (gen-from-coal). Industrial heat
 use (cement, steel) is the gap between consumption and gen-from-coal.
 
 Oil-product consumption is also a *where-consumed* statistic. Diesel

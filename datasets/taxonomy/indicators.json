@@ -1524,7 +1524,7 @@
       }
     },
     {
-      "indicator_id": "state-electricity-generation-gwh",
+      "indicator_id": "electricity-generation-gwh",
       "label_short": "State generation (GWh)",
       "label_long": "State electricity generation, by fuel (GWh)",
       "description_short": "Per-state actual electricity generated, summed across all fuels. The delivered counterpart to installed capacity \u00e2\u20ac\u201d capacity is potential, generation is what plants actually produced.",
@@ -1553,7 +1553,7 @@
       "concept_id": "state-generation-gwh"
     },
     {
-      "indicator_id": "state-electricity-generation-gwh-coal",
+      "indicator_id": "electricity-generation-gwh-coal",
       "label_short": "Coal",
       "label_long": "State generation (GWh) \u00e2\u20ac\u201d Coal",
       "description_short": "Coal-fired generation. ~70% of all-India electricity by GWh (PLF gap between capacity share and generation share).",
@@ -1569,7 +1569,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-electricity-generation-gwh",
+      "parent_indicator_id": "electricity-generation-gwh",
       "dimension_values": {
         "fuel_type": "coal"
       },
@@ -1582,7 +1582,7 @@
       "concept_id": "coal"
     },
     {
-      "indicator_id": "state-electricity-generation-gwh-gas",
+      "indicator_id": "electricity-generation-gwh-gas",
       "label_short": "Gas",
       "label_long": "State generation (GWh) \u00e2\u20ac\u201d Gas",
       "description_short": "Gas-fired generation. Capacity-rich, generation-poor due to fuel-supply constraints.",
@@ -1598,7 +1598,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-electricity-generation-gwh",
+      "parent_indicator_id": "electricity-generation-gwh",
       "dimension_values": {
         "fuel_type": "gas"
       },
@@ -1611,7 +1611,7 @@
       "concept_id": "gas"
     },
     {
-      "indicator_id": "state-electricity-generation-gwh-hydro",
+      "indicator_id": "electricity-generation-gwh-hydro",
       "label_short": "Hydro",
       "label_long": "State generation (GWh) \u00e2\u20ac\u201d Hydro",
       "description_short": "Hydroelectric generation. Seasonal (monsoon-dependent) and falling as a share over time.",
@@ -1627,7 +1627,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-electricity-generation-gwh",
+      "parent_indicator_id": "electricity-generation-gwh",
       "dimension_values": {
         "fuel_type": "hydro"
       },
@@ -1640,7 +1640,7 @@
       "concept_id": "hydro"
     },
     {
-      "indicator_id": "state-electricity-generation-gwh-nuclear",
+      "indicator_id": "electricity-generation-gwh-nuclear",
       "label_short": "Nuclear",
       "label_long": "State generation (GWh) \u00e2\u20ac\u201d Nuclear",
       "description_short": "Nuclear generation. Small share but rising as new units commission.",
@@ -1656,7 +1656,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-electricity-generation-gwh",
+      "parent_indicator_id": "electricity-generation-gwh",
       "dimension_values": {
         "fuel_type": "nuclear"
       },
@@ -1669,7 +1669,7 @@
       "concept_id": "nuclear"
     },
     {
-      "indicator_id": "state-electricity-generation-gwh-renewable",
+      "indicator_id": "electricity-generation-gwh-renewable",
       "label_short": "Renewable",
       "label_long": "State generation (GWh) \u00e2\u20ac\u201d Renewable (wind, solar, biomass)",
       "description_short": "Wind, solar and biomass generation. ~10% all-India share by FY26; growing fast.",
@@ -1685,7 +1685,7 @@
       "attribution_geography": "where_produced",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "joint",
-      "parent_indicator_id": "state-electricity-generation-gwh",
+      "parent_indicator_id": "electricity-generation-gwh",
       "dimension_values": {
         "fuel_type": "renewable"
       },
@@ -2198,7 +2198,7 @@
       "label_short": "Coal consumption",
       "label_long": "State coal consumption (Mt, by fiscal year)",
       "description_short": "Per-state domestic coal consumption in million tonnes per fiscal year, summed across all coal grades (raw + washed + middlings + lignite). High values typically indicate hosting large thermal generation fleets (Maharashtra, UP, MP, Chhattisgarh) or heavy industry (steel, cement).",
-      "description_long": "Where coal is burned, not where it is mined. Companion to installed-capacity-allocated-mw (coal facet) and state-electricity-generation-gwh (coal facet): a state with high coal consumption but low coal generation is using coal for industrial heat rather than power. The ``TOTAL COAL`` ICED rows are dropped to avoid double-counting; the lift sums the 4 grade-level rows (raw + washed + middlings + lignite) directly.",
+      "description_long": "Where coal is burned, not where it is mined. Companion to installed-capacity-allocated-mw (coal facet) and electricity-generation-gwh (coal facet): a state with high coal consumption but low coal generation is using coal for industrial heat rather than power. The ``TOTAL COAL`` ICED rows are dropped to avoid double-counting; the lift sums the 4 grade-level rows (raw + washed + middlings + lignite) directly.",
       "unit": "Mt",
       "cadence": "annual_fy",
       "family": "energy",
