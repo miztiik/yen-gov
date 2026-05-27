@@ -77,6 +77,11 @@ const PER_ROW_PROVENANCE_SCHEMAS = new Set<string>([
   "methodology-break.schema.json",
   "operator-state.schema.json",
   "manifest.schema.json",
+  // concepts.json (PR-Z3a) is a hand-authored taxonomy of nouns, not a
+  // dataset of observed series. Schema description: "sources[] left empty
+  // (concepts are nouns, not series)". Provenance lives on each
+  // indicator row's source_id FK, not on the concept registry itself.
+  "concepts.schema.json",
   // office_holdings.json (G.1.c 2026-05-22) carries per-row references[]
   // (hand-authored Wikipedia/upstream citations) instead of a top-level
   // sources[] array. office_citations is a per-office map of canonical

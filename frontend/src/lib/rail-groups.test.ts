@@ -35,7 +35,6 @@ const TITLES: ReadonlyMap<string, string> = new Map([
   ["economy", "Economy"],
   ["health", "People & health"],
   ["environment", "Environment"],
-  ["transport", "Electric vehicles"],
   ["elections", "Elections"],
 ]);
 
@@ -126,7 +125,6 @@ describe("buildRailGroups (scoped state, no event)", () => {
       "this-state.topic.economy",
       "this-state.topic.health",
       "this-state.topic.environment",
-      "this-state.topic.transport",
       "this-state.topic.elections",
     ]);
   });
@@ -261,9 +259,7 @@ describe("buildRailGroups label sourcing (Jony 2026-05-16: rail title = catalogu
       );
     }
     // Spot-check one of the rewritten titles (regression guard against
-    // a hardcoded "Transport" / "Fiscal capacity" sneaking back in).
-    const transport = my.items.find(i => i.id === "this-state.topic.transport")!;
-    expect(transport.label).toBe("Electric vehicles");
+    // a hardcoded "Fiscal capacity" sneaking back in).
     const fiscal = my.items.find(i => i.id === "this-state.topic.fiscal")!;
     expect(fiscal.label).toBe("Money & debt");
   });

@@ -54,7 +54,7 @@ describe("topics.json rail-fit budget", () => {
     ).toEqual([]);
   });
 
-  it("the rail's seven THIS STATE ids are all present in the catalogue", () => {
+  it("the rail's six THIS STATE ids are all present in the catalogue", () => {
     // Co-anchor the rail-vs-catalogue contract: ids the rail surfaces
     // MUST exist in the catalogue, else `topicTitles.get(id) ?? id`
     // silently falls back to a raw slug in production.
@@ -64,7 +64,6 @@ describe("topics.json rail-fit budget", () => {
       "economy",
       "health",
       "environment",
-      "transport",
       "elections",
     ];
     const catalogue_ids = new Set(catalogue.topics.map(t => t.id));
