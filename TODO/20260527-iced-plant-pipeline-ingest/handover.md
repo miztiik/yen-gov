@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-05-27
 
-> First ICED ingest through the four-layer doctrine ([docs/concepts/ingest-fetch-enrich-separation.md](../../docs/concepts/ingest-fetch-enrich-separation.md)) and the [ADR-0046](../../docs/architecture/decisions/0046-pre-flight-ingest-gate-contract.md) pre-flight gate. PR: #_pending_ — ships layers **1 (Fetch) + 2 (Parse)** end-to-end, plus the proposal + report that pin the `mint_new` verdict. Layers 3 (Enrich) + 4 (Emit) are deferred to a follow-up PR with structural pre-conditions documented in §5.
+> First ICED ingest through the four-layer doctrine ([docs/concepts/ingest-fetch-enrich-separation.md](../../docs/concepts/ingest-fetch-enrich-separation.md)) and the [ADR-0046](../../docs/architecture/decisions/0046-pre-flight-ingest-gate-contract.md) pre-flight gate. PR: [#419](https://github.com/miztiik/yen-gov/pull/419) — ships layers **1 (Fetch) + 2 (Parse)** end-to-end, plus the proposal + report that pin the `mint_new` verdict. Layers 3 (Enrich) + 4 (Emit) are deferred to a follow-up PR with structural pre-conditions documented in §5.
 
 ## 1. Source
 
