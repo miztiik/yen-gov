@@ -1,4 +1,4 @@
-"""Parity oracle for the state-plant-load-factor-pct canonical lift (PR-V).
+"""Parity oracle for the plant-load-factor-pct canonical lift (PR-V).
 
 ICED ``/v1/plf-metatable-data`` (state-wise PLF percentage by fuel) ->
 1652 raw meadow obs rows joined into ``energy_generation.parquet``.
@@ -54,7 +54,7 @@ pytestmark = pytest.mark.skipif(
 )
 
 EXPECTED_SOURCE_ID = "src-7eb929cbf2d8"
-PARENT_ID = "state-plant-load-factor-pct"
+PARENT_ID = "plant-load-factor-pct"
 EXPECTED_CHILD_IDS = {
     f"{PARENT_ID}-biomass",
     f"{PARENT_ID}-coal",
@@ -104,7 +104,7 @@ def test_eight_child_indicator_ids():
 
 
 def test_parent_has_zero_rows():
-    """Parent ``state-plant-load-factor-pct`` is compute-on-read (catalogue
+    """Parent ``plant-load-factor-pct`` is compute-on-read (catalogue
     + facet-picker only). PLF values across fuels cannot be summed
     meaningfully (% summation is nonsense), so the FacetPicker primitive
     only surfaces the 8 children as individual series; the catalogue
@@ -122,7 +122,7 @@ def test_publisher_bio_power_collapsed_to_biomass():
     per facet_axes_seed.py. A regression here = publisher relabel OR
     adapter mapping drift.
 
-    Crucially, there must be NO ``state-plant-load-factor-pct-bio-power``
+    Crucially, there must be NO ``plant-load-factor-pct-bio-power``
     indicator_id in the parquet.
     """
     indicator_ids = {
