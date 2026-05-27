@@ -66,7 +66,7 @@ const PEAK_DEMAND_DESCRIPTOR: CanonicalIndicatorDescriptor = getCanonicalDescrip
 // PR-H (2026-05-25) — after Hans-curated caveats landed on PEAK_DEMAND_DESCRIPTOR
 // + per-capita-consumption + atc-losses, we need a real allowlist descriptor
 // that DOES NOT carry `caveats[]` for the "default behavior" test below.
-// state-peak-electricity-supplied-mw (the PR-F sibling) is the cleanest
+// peak-electricity-supplied-mw (the PR-F sibling) is the cleanest
 // analog: same family, same shape, no Hans caveats authored yet.
 const NO_CAVEATS_DESCRIPTOR: CanonicalIndicatorDescriptor = getCanonicalDescriptor(
   "energy/state_peak_met_mw",
@@ -97,7 +97,7 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     // the single-variant canonical_indicator_id field.
     expect(d!.kind).toBe("single");
     if (d!.kind === "single") {
-      expect(d!.canonical_indicator_id).toBe("state-peak-electricity-demand-mw");
+      expect(d!.canonical_indicator_id).toBe("peak-electricity-demand-mw");
     }
     expect(d!.table_id).toBe("energy.energy_demand_supply");
     expect(getCanonicalDescriptor("nope")).toBeNull();
@@ -157,7 +157,7 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     // 1: instantaneous-vs-average misread (Rosling 'Size' instinct guard).
     expect(d!.caveats![0]).toMatch(/highest single-instant load/i);
     // 2: supplied-gap framing (load-shedding signal).
-    expect(d!.caveats![1]).toMatch(/state-peak-electricity-supplied-mw/);
+    expect(d!.caveats![1]).toMatch(/peak-electricity-supplied-mw/);
     expect(d!.caveats![1]).toMatch(/unmet demand/i);
     // 3: FY20 RBI rename-not-methodology-break clarification.
     expect(d!.caveats![2]).toMatch(/Demand Not Met/);
@@ -287,12 +287,12 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
   // canonical indicators in `energy.energy_demand_supply`; meta blocks
   // sourced from datasets/taxonomy/indicators.json per the allowlist
   // authoring doctrine (lines 47-75).
-  it("PR-F peak_met descriptor routes to state-peak-electricity-supplied-mw", () => {
+  it("PR-F peak_met descriptor routes to peak-electricity-supplied-mw", () => {
     const d = getCanonicalDescriptor("energy/state_peak_met_mw");
     expect(d).not.toBeNull();
     expect(d!.kind).toBe("single");
     if (d!.kind === "single") {
-      expect(d!.canonical_indicator_id).toBe("state-peak-electricity-supplied-mw");
+      expect(d!.canonical_indicator_id).toBe("peak-electricity-supplied-mw");
     }
     expect(d!.table_id).toBe("energy.energy_demand_supply");
     expect(d!.meta.title).toMatch(/peak power supplied/i);
@@ -1503,7 +1503,7 @@ describe("buildIndicatorArtifact — canonical rows → legacy IndicatorArtifact
   // behaviour (no surface change for the ~30 non-caveat-carrying entries).
   it("emits an empty known_caveats array when the descriptor declares no caveats", () => {
     // PR-H (2026-05-25): swapped from PEAK_DEMAND_DESCRIPTOR to
-    // NO_CAVEATS_DESCRIPTOR (= state-peak-electricity-supplied-mw)
+    // NO_CAVEATS_DESCRIPTOR (= peak-electricity-supplied-mw)
     // because PEAK_DEMAND now carries Hans-curated caveats[]. The
     // "no-caveats default → empty array" invariant is unchanged; only
     // the canary descriptor moved.
@@ -1567,7 +1567,7 @@ describe("loadIndicatorFromCanonical — DuckDB-WASM round-trip (loader)", () =>
     await loadIndicatorFromCanonical(PEAK_DEMAND_DESCRIPTOR);
     const firstSql = mockedQuery.mock.calls[0][0] as string;
     expect(firstSql).toMatch(/FROM\s+energy_demand_supply/);
-    expect(firstSql).toMatch(/indicator_id\s*=\s*'state-peak-electricity-demand-mw'/);
+    expect(firstSql).toMatch(/indicator_id\s*=\s*'peak-electricity-demand-mw'/);
   });
 
   it("returns an empty artifact when the fact-table has no rows for this indicator", async () => {
@@ -1615,7 +1615,7 @@ describe("loadIndicatorIfCanonical — single dispatch entry-point", () => {
       ]);
     const out = await loadIndicatorIfCanonical("energy/state_peak_electricity_demand_mw");
     expect(out).not.toBeNull();
-    expect(out!.indicator.id).toBe("state-peak-electricity-demand-mw");
+    expect(out!.indicator.id).toBe("peak-electricity-demand-mw");
     expect(out!.rows[0].entity_id).toBe("S22");
   });
 });
@@ -1647,7 +1647,7 @@ describe("loadIndicator — universal entry-point (Phase B-extension)", () => {
         { source_id: "src-iced", producer: "NITI", title: "ICED", vintage: "FY25", url_main: "https://example/" },
       ]);
     const out = await loadIndicator("/indicators/in/energy/state_peak_electricity_demand_mw.json");
-    expect(out.indicator.id).toBe("state-peak-electricity-demand-mw");
+    expect(out.indicator.id).toBe("peak-electricity-demand-mw");
     expect(out.rows[0].entity_id).toBe("S22");
     expect(mockedFetch).not.toHaveBeenCalled();
   });
@@ -1717,17 +1717,17 @@ describe("PR 7c.5 — additive reader-switch for 7 P.1.B simple energy descripto
     },
     {
       legacy_id: "energy/state_distribution_billing_efficiency_pct",
-      canonical_id: "state-distribution-efficiency-pct-billing",
+      canonical_id: "distribution-efficiency-pct-billing",
       table_id: "energy.energy_distribution_performance",
     },
     {
       legacy_id: "energy/state_distribution_collection_efficiency_pct",
-      canonical_id: "state-distribution-efficiency-pct-collection",
+      canonical_id: "distribution-efficiency-pct-collection",
       table_id: "energy.energy_distribution_performance",
     },
     {
       legacy_id: "energy/state_distribution_td_loss_pct",
-      canonical_id: "state-distribution-efficiency-pct-td-loss",
+      canonical_id: "distribution-efficiency-pct-td-loss",
       table_id: "energy.energy_distribution_performance",
     },
   ];

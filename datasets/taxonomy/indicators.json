@@ -1755,11 +1755,11 @@
       "concept_id": "at-c-losses"
     },
     {
-      "indicator_id": "state-peak-electricity-demand-mw",
+      "indicator_id": "peak-electricity-demand-mw",
       "label_short": "Peak demand",
       "label_long": "State-wise peak power demand (MW)",
       "description_short": "Highest single-instant electricity demand observed in the state during the fiscal year (MW). 'Peak' is system-wide simultaneous demand recorded by the State Load Despatch Centre \u00e2\u20ac\u201d typically a summer afternoon (north / west) or winter evening (Punjab, Delhi).",
-      "description_long": "Read alongside Peak Met (state-peak-electricity-supplied-mw) \u00e2\u20ac\u201d the gap is the unmet peak demand, more operationally critical than the energy-deficit % because shortages force load-shedding. RBI Handbook relabelled 'Surplus / Deficit' to 'Demand Not Met' from FY 2019-20 onwards; underlying definition is unchanged.",
+      "description_long": "Read alongside Peak Met (peak-electricity-supplied-mw) \u00e2\u20ac\u201d the gap is the unmet peak demand, more operationally critical than the energy-deficit % because shortages force load-shedding. RBI Handbook relabelled 'Surplus / Deficit' to 'Demand Not Met' from FY 2019-20 onwards; underlying definition is unchanged.",
       "unit": "MW",
       "cadence": "annual_fy",
       "family": "energy",
@@ -1784,7 +1784,7 @@
       "concept_id": "peak-demand"
     },
     {
-      "indicator_id": "state-peak-electricity-supplied-mw",
+      "indicator_id": "peak-electricity-supplied-mw",
       "label_short": "Peak supplied",
       "label_long": "State-wise peak power supplied (MW)",
       "description_short": "Maximum instantaneous power actually supplied in the state during the fiscal year (MW). The pair (peak_demand, peak_supplied) tells the load-shedding story: supplied < demand in any year means the grid dropped load to keep frequency stable.",
@@ -1842,7 +1842,7 @@
       "concept_id": "per-capita-consumption-2"
     },
     {
-      "indicator_id": "state-distribution-efficiency-pct",
+      "indicator_id": "distribution-efficiency-pct",
       "label_short": "Distribution efficiency",
       "label_long": "Distribution efficiency dimensions (%, by state)",
       "description_short": "Compute-on-read parent: the three citizen-readable sub-indicators of distribution-side efficiency \u00e2\u20ac\u201d billing efficiency, collection efficiency, and T&D loss. The first two decompose the COMMERCIAL half of AT&C losses; the third is the TECHNICAL half.",
@@ -1871,7 +1871,7 @@
       "concept_id": "distribution-efficiency"
     },
     {
-      "indicator_id": "state-distribution-efficiency-pct-billing",
+      "indicator_id": "distribution-efficiency-pct-billing",
       "label_short": "Billing efficiency",
       "label_long": "Distribution billing efficiency (%, by state)",
       "description_short": "Share of energy actually billed to a consumer, out of total energy input to the distribution system. 100% = every kWh that enters the grid was billed.",
@@ -1888,7 +1888,7 @@
       "attribution_geography": "where_administered",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "state",
-      "parent_indicator_id": "state-distribution-efficiency-pct",
+      "parent_indicator_id": "distribution-efficiency-pct",
       "dimension_values": {
         "efficiency_dimension": "billing"
       },
@@ -1901,7 +1901,7 @@
       "concept_id": "billing-efficiency"
     },
     {
-      "indicator_id": "state-distribution-efficiency-pct-collection",
+      "indicator_id": "distribution-efficiency-pct-collection",
       "label_short": "Collection efficiency",
       "label_long": "Distribution collection efficiency (%, by state)",
       "description_short": "Share of billed revenue actually collected from consumers, by state. 100% = every rupee billed was paid.",
@@ -1918,7 +1918,7 @@
       "attribution_geography": "where_administered",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "state",
-      "parent_indicator_id": "state-distribution-efficiency-pct",
+      "parent_indicator_id": "distribution-efficiency-pct",
       "dimension_values": {
         "efficiency_dimension": "collection"
       },
@@ -1931,7 +1931,7 @@
       "concept_id": "collection-efficiency"
     },
     {
-      "indicator_id": "state-distribution-efficiency-pct-td-loss",
+      "indicator_id": "distribution-efficiency-pct-td-loss",
       "label_short": "T&D loss",
       "label_long": "Transmission & Distribution loss (%, by state)",
       "description_short": "Transmission and Distribution loss as % of energy input \u00e2\u20ac\u201d the TECHNICAL half of AT&C losses (heat / ageing / unmetered consumption on the wires).",
@@ -1948,7 +1948,7 @@
       "attribution_geography": "where_administered",
       "comparability": "comparable_across_states_and_time",
       "implementing_authority": "state",
-      "parent_indicator_id": "state-distribution-efficiency-pct",
+      "parent_indicator_id": "distribution-efficiency-pct",
       "dimension_values": {
         "efficiency_dimension": "td_loss"
       },

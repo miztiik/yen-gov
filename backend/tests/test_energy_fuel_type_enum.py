@@ -11,7 +11,7 @@ broken.
 
 The test recognises a "fuel suffix" by matching the trailing segment
 against the catalogue's atomic-fuel set. Indicator IDs with no fuel
-suffix (e.g. ``state-peak-electricity-demand-mw``) are unaffected.
+suffix (e.g. ``peak-electricity-demand-mw``) are unaffected.
 """
 
 from __future__ import annotations
