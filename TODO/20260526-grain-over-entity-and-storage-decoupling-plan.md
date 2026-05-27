@@ -671,3 +671,5 @@ Start with PR-A1 + PR-A2 in parallel (both READY, no worktree conflicts). Use th
 ```
 
 **Kick-off requires nothing else from the user.** The standing authorizations in §0ter + the permanent guardrails in §0quat + the per-PR file lists in §2 are the full handover.
+
+- PR-B3-batch8 #404 — strip `state-` prefix from final 10 state-* energy ids (electricity sales/req/avail per-capita + atc/acs-arr + coal/rooftop/renewable). 0 state-energy ids remaining post-merge.

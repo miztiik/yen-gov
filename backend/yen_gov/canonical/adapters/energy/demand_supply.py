@@ -9,7 +9,7 @@ P.1.A — Lifts 3 legacy RBI/ICED shards + 1 inline FY25 ICED snapshot:
 * ``state_peak_met_mw.json`` (396 RBI Table 142 companion rows)
   → ``peak-electricity-supplied-mw`` (FY13–FY24).
 * ``state_per_capita_electricity_consumption_kwh.json`` (555 ICED rows)
-  → ``state-per-capita-electricity-consumption-kwh``.
+  → ``per-capita-electricity-consumption-kwh``.
 * ``_FY25_PEAK_DEMAND_ROWS`` literal (34 rows inc. IN national
   aggregate) → ``peak-electricity-demand-mw`` (FY25 extension).
 
@@ -22,11 +22,11 @@ P.1.B — Lifts 3 additional legacy RBI Handbook shards (annual energy
 requirement + availability + per-capita availability):
 
 * ``state_power_requirement_mu.json`` (RBI Table 141 rows) →
-  ``state-electricity-requirement-mu``.
+  ``electricity-requirement-mu``.
 * ``state_power_availability_mu.json`` (RBI Table 139 rows) →
-  ``state-electricity-availability-mu``.
+  ``electricity-availability-mu``.
 * ``state_per_capita_availability_kwh.json`` (RBI Table 138 rows) →
-  ``state-per-capita-electricity-availability-kwh``.
+  ``per-capita-electricity-availability-kwh``.
 
 Requirement minus Availability is the energy-not-supplied deficit (the
 "power deficit %" India tracked closely through the 2000s). Per-capita
@@ -203,7 +203,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id="state-per-capita-electricity-consumption-kwh",
+            indicator_id="per-capita-electricity-consumption-kwh",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["iced_deep_dive"],
             derivation="raw",
@@ -228,7 +228,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             derivation="raw",
         ))
 
-    # 5. P.1.B — state_power_requirement_mu.json → state-electricity-requirement-mu
+    # 5. P.1.B — state_power_requirement_mu.json → electricity-requirement-mu
     #    RBI Handbook Table 141 (long-arc state-wise annual energy
     #    requirement, MU = GWh; CEA-originated).
     shard = _load_rbi_meadow(repo_root, "state_power_requirement_mu.json")
@@ -239,13 +239,13 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id="state-electricity-requirement-mu",
+            indicator_id="electricity-requirement-mu",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["rbi_hbk_141_power_requirement"],
             derivation="raw",
         ))
 
-    # 6. P.1.B — state_power_availability_mu.json → state-electricity-availability-mu
+    # 6. P.1.B — state_power_availability_mu.json → electricity-availability-mu
     #    RBI Handbook Table 139 (long-arc state-wise annual energy
     #    availability, MU = GWh; CEA-originated). Companion to T141 above.
     shard = _load_rbi_meadow(repo_root, "state_power_availability_mu.json")
@@ -256,14 +256,14 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id="state-electricity-availability-mu",
+            indicator_id="electricity-availability-mu",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["rbi_hbk_139_power_availability"],
             derivation="raw",
         ))
 
     # 7. P.1.B — state_per_capita_availability_kwh.json →
-    #    state-per-capita-electricity-availability-kwh
+    #    per-capita-electricity-availability-kwh
     #    RBI Handbook Table 138 (state-wise per-capita electricity
     #    availability, kWh/year; CEA-originated; Census 2011-projection
     #    denominator).
@@ -275,7 +275,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id="state-per-capita-electricity-availability-kwh",
+            indicator_id="per-capita-electricity-availability-kwh",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["rbi_hbk_138_per_capita_availability"],
             derivation="raw",

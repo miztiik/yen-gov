@@ -90,9 +90,9 @@ def test_all_p1a_p1b_energy_source_ids_present() -> None:
         "src-97a3c47d092f",  # RBI Hbk Table 139 — Power Availability
         "src-9a38005d8713",  # RBI Hbk Table 138 — Per-Capita Availability
         # P.1.C PR-Q (1) — first canonical fuel-consumption lift.
-        "src-c222a8e2cd61",  # ICED state-coal-consumption-mt
+        "src-c222a8e2cd61",  # ICED coal-consumption-mt
         # P.1.C PR-R (1) — rooftop solar capacity lift.
-        "src-018bb42f9519",  # ICED state-rooftop-solar-capacity-mw
+        "src-018bb42f9519",  # ICED rooftop-solar-capacity-mw
         # P.1.C PR-S (1) — thermal capacity retired lift (national-only,
         # Pattern A-facet on the 5-bucket fuel_type axis).
         "src-fd152bd3c6c6",  # ICED india-thermal-capacity-retired-mw
@@ -116,7 +116,7 @@ def test_all_p1a_p1b_energy_source_ids_present() -> None:
         "src-29ecbb6dce9d",  # ICED india-final-energy-consumption-mtoe
         # P.1.C PR-Y (1) — RBI Handbook Table 143: state renewable grid
         # capacity (Pattern A-single; combined RE, no source split).
-        "src-1f51c8d742bf",  # RBI state-renewable-grid-capacity-mw
+        "src-1f51c8d742bf",  # RBI renewable-grid-capacity-mw
     }
     con = duckdb.connect(":memory:")
     try:

@@ -1247,7 +1247,7 @@
       "entity_kinds": [
         "state"
       ],
-      "description_short": "Auto-minted stub for indicator state-per-capita-electricity-availability-kwh.",
+      "description_short": "Auto-minted stub for indicator per-capita-electricity-availability-kwh.",
       "sources": []
     },
     {
@@ -1269,7 +1269,7 @@
       "entity_kinds": [
         "state"
       ],
-      "description_short": "Auto-minted stub for indicator state-per-capita-electricity-consumption-kwh.",
+      "description_short": "Auto-minted stub for indicator per-capita-electricity-consumption-kwh.",
       "sources": []
     },
     {

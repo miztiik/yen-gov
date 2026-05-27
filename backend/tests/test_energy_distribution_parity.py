@@ -43,26 +43,26 @@ def _query_value(entity_id: str, year: int, indicator_id: str) -> float | None:
 
 
 def test_state_atc_losses_matches_shard_in_2015() -> None:
-    """state-atc-losses-pct, IN 2015-04 = 23.96 (raw, ICED Deep Dive)."""
-    val = _query_value("IN", 2015, "state-atc-losses-pct")
+    """atc-losses-pct, IN 2015-04 = 23.96 (raw, ICED Deep Dive)."""
+    val = _query_value("IN", 2015, "atc-losses-pct")
     assert val == pytest.approx(23.96, abs=0.01), (
-        f"IN 2015 state-atc-losses-pct expected 23.96, got {val!r}"
+        f"IN 2015 atc-losses-pct expected 23.96, got {val!r}"
     )
 
 
 def test_state_atc_losses_matches_shard_in_2017() -> None:
-    """state-atc-losses-pct, IN 2017-04 = 21.5 (raw)."""
-    val = _query_value("IN", 2017, "state-atc-losses-pct")
+    """atc-losses-pct, IN 2017-04 = 21.5 (raw)."""
+    val = _query_value("IN", 2017, "atc-losses-pct")
     assert val == pytest.approx(21.5, abs=0.01), (
-        f"IN 2017 state-atc-losses-pct expected 21.5, got {val!r}"
+        f"IN 2017 atc-losses-pct expected 21.5, got {val!r}"
     )
 
 
 def test_state_electricity_sales_matches_shard_in_2015() -> None:
-    """state-electricity-sales-mu, IN 2015-04 = 810968.22 (raw, ICED Deep Dive)."""
-    val = _query_value("IN", 2015, "state-electricity-sales-mu")
+    """electricity-sales-mu, IN 2015-04 = 810968.22 (raw, ICED Deep Dive)."""
+    val = _query_value("IN", 2015, "electricity-sales-mu")
     assert val == pytest.approx(810968.22, abs=0.01), (
-        f"IN 2015 state-electricity-sales-mu expected 810968.22, got {val!r}"
+        f"IN 2015 electricity-sales-mu expected 810968.22, got {val!r}"
     )
 
 
@@ -83,14 +83,14 @@ def test_parquet_has_eight_distinct_indicators_after_p1b() -> None:
         con.close()
     expected = {
         # P.1.A
-        "state-atc-losses-pct",
-        "state-electricity-sales-mu",
+        "atc-losses-pct",
+        "electricity-sales-mu",
         # P.1.B — efficiency triple (children of distribution-efficiency-pct)
         "distribution-efficiency-pct-billing",
         "distribution-efficiency-pct-collection",
         "distribution-efficiency-pct-td-loss",
         # P.1.B — ACS-ARR standalone
-        "state-acs-arr-gap-inr-per-kwh",
+        "acs-arr-gap-inr-per-kwh",
         # P.1.B — RPO triple (children of rpo-compliance-pct)
         "rpo-compliance-pct-solar",
         "rpo-compliance-pct-non-solar",
@@ -146,9 +146,9 @@ def test_p1b_distribution_td_loss_s01_2009() -> None:
 
 
 def test_p1b_acs_arr_gap_in_2016() -> None:
-    """state-acs-arr-gap-inr-per-kwh, IN 2016-04 = 0.69 (raw, ICED Deep
+    """acs-arr-gap-inr-per-kwh, IN 2016-04 = 0.69 (raw, ICED Deep
     Dive endpoint)."""
-    val = _query_value("IN", 2016, "state-acs-arr-gap-inr-per-kwh")
+    val = _query_value("IN", 2016, "acs-arr-gap-inr-per-kwh")
     assert val == pytest.approx(0.69, abs=1e-4), (
         f"IN 2016 ACS-ARR gap expected 0.69, got {val!r}"
     )
@@ -197,7 +197,7 @@ def test_p1b_source_id_routing() -> None:
         "distribution-efficiency-pct-billing":    "src-650b1c25d1f7",
         "distribution-efficiency-pct-collection": "src-650b1c25d1f7",
         "distribution-efficiency-pct-td-loss":    "src-650b1c25d1f7",
-        "state-acs-arr-gap-inr-per-kwh":                "src-bb1d7bec8b34",
+        "acs-arr-gap-inr-per-kwh":                "src-bb1d7bec8b34",
         "rpo-compliance-pct-solar":               "src-0ea63ed47704",
         "rpo-compliance-pct-non-solar":           "src-0ea63ed47704",
         "rpo-compliance-pct-total":               "src-0ea63ed47704",

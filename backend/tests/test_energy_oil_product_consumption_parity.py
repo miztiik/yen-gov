@@ -200,7 +200,7 @@ def test_does_not_displace_other_indicators():
     """
     rows = _q(
         f"SELECT COUNT(*) FROM read_parquet('{PARQUET.as_posix()}') "
-        f"WHERE indicator_id = 'state-coal-consumption-mt'"
+        f"WHERE indicator_id = 'coal-consumption-mt'"
     )
     # PR-Q lifted 450 coal-consumption rows; they must persist post-PR-T.
     assert rows[0][0] >= 400

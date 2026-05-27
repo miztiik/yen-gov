@@ -7,9 +7,9 @@ P.1.A (2 indicators) + P.1.B (8 indicators: 4 efficiency + 1 ACS-ARR
 P.1.A — Lifts 2 legacy shards (DISCOM ledger surface):
 
 * ``state_atc_losses_pct.json`` (344 rows)
-  → ``state-atc-losses-pct``.
+  → ``atc-losses-pct``.
 * ``state_electricity_sales_mu.json`` (356 rows)
-  → ``state-electricity-sales-mu``.
+  → ``electricity-sales-mu``.
 
 ATC = Aggregate Technical + Commercial losses, the flagship DISCOM health
 indicator (UDAY target was <15% by FY19). Sales-MU is the volume of
@@ -28,7 +28,7 @@ P.1.B — Lifts 5 additional legacy shards (DISCOM finance + RPO):
   ``distribution-efficiency-pct-td-loss`` (efficiency_dimension =
   td_loss).
 * ``state_acs_arr_gap_inr_per_kwh.json`` →
-  ``state-acs-arr-gap-inr-per-kwh`` (standalone; ICED Deep Dive source).
+  ``acs-arr-gap-inr-per-kwh`` (standalone; ICED Deep Dive source).
 * ``state_rpo_compliance_pct.json`` (natively 3-faceted on
   ``solar`` / ``non-solar`` / ``total``) → 3 child indicator_ids of
   ``rpo-compliance-pct`` (rpo_segment = solar / non_solar / total).
@@ -75,7 +75,7 @@ _RPO_FACET_DISPATCH: tuple[tuple[str, str, str], ...] = (
 def build_envelope(repo_root: Path) -> BatchEnvelope:
     rows: list[ObservationRow] = []
 
-    # 1. state_atc_losses_pct.json → state-atc-losses-pct
+    # 1. state_atc_losses_pct.json → atc-losses-pct
     shard = _load_distribution_meadow(repo_root, "state_atc_losses_pct.json")
     for r in shard["rows"]:
         period_label, year, period_seq = parse_iso_period(r["time"])
@@ -84,13 +84,13 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id="state-atc-losses-pct",
+            indicator_id="atc-losses-pct",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["iced_deep_dive"],
             derivation="raw",
         ))
 
-    # 2. state_electricity_sales_mu.json → state-electricity-sales-mu
+    # 2. state_electricity_sales_mu.json → electricity-sales-mu
     shard = _load_distribution_meadow(repo_root, "state_electricity_sales_mu.json")
     for r in shard["rows"]:
         period_label, year, period_seq = parse_iso_period(r["time"])
@@ -99,7 +99,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id="state-electricity-sales-mu",
+            indicator_id="electricity-sales-mu",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["iced_deep_dive"],
             derivation="raw",
@@ -141,7 +141,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id="state-acs-arr-gap-inr-per-kwh",
+            indicator_id="acs-arr-gap-inr-per-kwh",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["iced_deep_dive"],
             derivation="raw",

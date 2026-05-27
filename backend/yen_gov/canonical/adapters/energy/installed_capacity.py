@@ -29,7 +29,7 @@ Lifts 10 legacy shards into a single BatchEnvelope:
   ``rbi-handbook-aggregate-no-fuel-split-pre-fy15`` documents the basis
   change at FY15 and the absence of per-fuel splits in the RBI portion.
 * ``state_rooftop_solar_capacity_mw.json`` (321 rows, P.1.C PR-R)
-  → ``state-rooftop-solar-capacity-mw`` (per-state cumulative rooftop
+  → ``rooftop-solar-capacity-mw`` (per-state cumulative rooftop
   PV MW, FY18-FY25, source_id=iced_rooftop_solar). Complements (does
   NOT replace) utility-scale solar tracked under
   ``installed-capacity-snapshot-mw-renewable``; the total state
@@ -240,7 +240,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
         ))
 
     # 6. state_rooftop_solar_capacity_mw.json (P.1.C PR-R)
-    #    → state-rooftop-solar-capacity-mw
+    #    → rooftop-solar-capacity-mw
     #    Cumulative MW of building-mounted PV across residential /
     #    commercial / industrial / public categories. COMPLEMENTS (does
     #    NOT replace) utility-scale solar tracked under
@@ -258,7 +258,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id="state-rooftop-solar-capacity-mw",
+            indicator_id="rooftop-solar-capacity-mw",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["iced_rooftop_solar"],
             derivation="raw",
@@ -300,7 +300,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
         ))
 
     # PR-Y (2026-05-26): state_renewable_grid_capacity_mw.json
-    # (RBI Hbk Table 143) -> state-renewable-grid-capacity-mw.
+    # (RBI Hbk Table 143) -> renewable-grid-capacity-mw.
     # Pattern A-SINGLE (scalar; no facet axis). Calendar-year end-March
     # cumulative MW snapshots. Publisher emits no facet split (combined
     # wind + solar + small-hydro + biomass + waste-to-energy).
@@ -316,7 +316,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
             year=year,
             period_label=period_label,
             period_seq=period_seq,
-            indicator_id="state-renewable-grid-capacity-mw",
+            indicator_id="renewable-grid-capacity-mw",
             value_numeric=float(r["value"]),
             source_id=SOURCE_IDS["rbi_hbk_143_renewable_grid_capacity"],
             derivation="raw",

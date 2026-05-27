@@ -7,7 +7,7 @@ Rooftop solar joins the existing ``energy_installed_capacity`` parquet
 stem (not a new stem) because it is a sub-fuel measurement of installed
 MW. The parquet already holds 5 CEA per-fuel snapshot indicators, plus
 the ICED geographical / allocated families; rooftop adds one more
-indicator_id (``state-rooftop-solar-capacity-mw``) with 321 rows.
+indicator_id (``rooftop-solar-capacity-mw``) with 321 rows.
 
 Holy Law #7: real Parquet + real shards, no mocks.
 """
@@ -36,7 +36,7 @@ MEADOW = (
 # (derive_source_id("NITI Aayog India Climate & Energy Dashboard",
 #  "Rooftop Solar Capacity (MW) State-wise API ...", "2024-25"))
 EXPECTED_SOURCE_ID = "src-018bb42f9519"
-INDICATOR_ID = "state-rooftop-solar-capacity-mw"
+INDICATOR_ID = "rooftop-solar-capacity-mw"
 
 
 pytestmark = pytest.mark.skipif(
@@ -91,7 +91,7 @@ def test_rooftop_solar_top_state_s06_2025() -> None:
 
 def test_rooftop_solar_row_count_matches_meadow() -> None:
     """Lift is 1:1 with meadow rows (no aggregation, no facet drop)
-    for ``state-rooftop-solar-capacity-mw``: 321 rows expected."""
+    for ``rooftop-solar-capacity-mw``: 321 rows expected."""
     con = duckdb.connect(":memory:")
     try:
         n = con.execute(
