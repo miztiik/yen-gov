@@ -1,0 +1,13 @@
+{
+  "proposed_id": "under-construction-capacity-gw",
+  "family": "energy",
+  "concept": "under-construction-capacity",
+  "unit": "GW",
+  "normalisation": "absolute",
+  "entity_kind": "country",
+  "source_producer": "iced",
+  "source_title": "plantPipelineInfo",
+  "source_vintage": "2026-05-27",
+  "update_period_days": 30,
+  "justification": "Pipeline (under-construction) thermal generation capacity by expected commissioning year, faceted by status (likely-to-be-commissioned vs on-hold). Distinct from installed-capacity-mw which measures COMMISSIONED nameplate capacity already on the grid; this measures FUTURE additions not yet generating. Country grain (all-India aggregate). Calendar-year time axis (publisher ships 2011-2031 with a 2022 gap preserved verbatim)."
+}

@@ -1,0 +1,62 @@
+{
+  "checks": [
+    {
+      "doc_link": "docs/concepts/pre-flight-ingest.md",
+      "evidence": "no existing concept scores >= 0.70; mint_new acceptable",
+      "name": "concept_overlap",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/concepts/owid-alignment.md",
+      "evidence": "proposal has no concept_id; mint_new requires a new row in datasets/taxonomy/concepts.json in the same PR",
+      "name": "concept_fk",
+      "status": "warn"
+    },
+    {
+      "doc_link": "docs/architecture/decisions/0044-grain-over-entity.md",
+      "evidence": "proposed_id='under-construction-capacity-gw' carries no grain prefix",
+      "name": "grain_prefix",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/concepts/pre-flight-ingest.md",
+      "evidence": "update_period_days=30 (positive int)",
+      "name": "update_period_days",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/concepts/pre-flight-ingest.md",
+      "evidence": "justification length=427",
+      "name": "justification",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/architecture/decisions/0032-sources-citation-ledger.md",
+      "evidence": "source_id (or absence) matches derive_source_id output",
+      "name": "source_id_derivation",
+      "status": "pass"
+    }
+  ],
+  "generated_at": "preflight:sha256:e108a6e6628dc02b",
+  "input_echo": {
+    "concept": "under-construction-capacity",
+    "entity_kind": "country",
+    "family": "energy",
+    "justification": "Pipeline (under-construction) thermal generation capacity by expected commissioning year, faceted by status (likely-to-be-commissioned vs on-hold). Distinct from installed-capacity-mw which measures COMMISSIONED nameplate capacity already on the grid; this measures FUTURE additions not yet generating. Country grain (all-India aggregate). Calendar-year time axis (publisher ships 2011-2031 with a 2022 gap preserved verbatim).",
+    "normalisation": "absolute",
+    "proposed_id": "under-construction-capacity-gw",
+    "source_producer": "iced",
+    "source_title": "plantPipelineInfo",
+    "source_vintage": "2026-05-27",
+    "unit": "GW",
+    "update_period_days": 30
+  },
+  "recommended_action": {
+    "kind": "mint_new",
+    "rationale": "no concept overlap >= 0.70; proceed with mint_new",
+    "target_indicator_id": null,
+    "target_parquet_path": "datasets/energy/energy_<role>.parquet"
+  },
+  "schema_version": "1.0",
+  "verdict": "mint_new"
+}
