@@ -6,7 +6,7 @@ Fetches three endpoints and emits three indicator artifacts under
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -343,7 +343,15 @@ def ingest_iced_macro(*, repo_root: Path, client: IcedClient | None = None) -> I
         spatial="India (national)",
     ))
 
+    # PR-A5a: derive orchestrator fetched_at from upstream per-fetch timestamps
+    # instead of wall-clock datetime.now(). Deterministic given deterministic
+    # upstream IcedClient (out-of-lane follow-up to harden iced_common/client.py).
     return IngestSummary(
-        fetched_at=datetime.now(timezone.utc),
+        fetched_at=max(
+            gdp_resp.fetched_at,
+            iip_resp.fetched_at,
+            gva_resp.fetched_at,
+            bop_resp.fetched_at,
+        ),
         results=tuple(results),
     )
