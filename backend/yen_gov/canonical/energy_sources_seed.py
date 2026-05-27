@@ -101,7 +101,7 @@ SOURCE_NICKNAMES: tuple[str, ...] = (
     # ICED state-rooftop-solar-capacity-mw endpoint. Cumulative MW of
     # building-mounted PV across residential / commercial / industrial /
     # public categories; complements (NOT replaces) utility-scale solar
-    # tracked under state-installed-capacity-snapshot-mw-renewable.
+    # tracked under installed-capacity-snapshot-mw-renewable.
     # Originating data: MNRE / state nodal agencies via the National
     # Rooftop Solar Programme; ICED is the federal aggregator.
     "iced_rooftop_solar",

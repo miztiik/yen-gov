@@ -613,7 +613,7 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
   // PR-R (Row 6 P.1.C 2/9, 2026-05-25): rooftop solar capacity lift. Joins
   // the existing `energy_installed_capacity` parquet stem (rooftop is a
   // sub-fuel measurement of installed MW; the total solar fleet = rooftop
-  // + utility-scale tracked under state-installed-capacity-snapshot-mw-
+  // + utility-scale tracked under installed-capacity-snapshot-mw-
   // renewable). 321 obs rows, FY18-FY25, non-faceted.
   it("PR-R state_rooftop_solar_capacity_mw descriptor routes to state-rooftop-solar-capacity-mw", () => {
     const d = getCanonicalDescriptor("energy/state_rooftop_solar_capacity_mw");
@@ -1088,27 +1088,27 @@ describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
   }> = [
     {
       legacy_id: "energy/installed_capacity_coal_mw",
-      canonical_id: "state-installed-capacity-snapshot-mw-coal",
+      canonical_id: "installed-capacity-snapshot-mw-coal",
       table_id: "energy.energy_installed_capacity",
     },
     {
       legacy_id: "energy/installed_capacity_gas_mw",
-      canonical_id: "state-installed-capacity-snapshot-mw-gas",
+      canonical_id: "installed-capacity-snapshot-mw-gas",
       table_id: "energy.energy_installed_capacity",
     },
     {
       legacy_id: "energy/installed_capacity_hydro_mw",
-      canonical_id: "state-installed-capacity-snapshot-mw-hydro",
+      canonical_id: "installed-capacity-snapshot-mw-hydro",
       table_id: "energy.energy_installed_capacity",
     },
     {
       legacy_id: "energy/installed_capacity_nuclear_mw",
-      canonical_id: "state-installed-capacity-snapshot-mw-nuclear",
+      canonical_id: "installed-capacity-snapshot-mw-nuclear",
       table_id: "energy.energy_installed_capacity",
     },
     {
       legacy_id: "energy/installed_capacity_renewable_mw",
-      canonical_id: "state-installed-capacity-snapshot-mw-renewable",
+      canonical_id: "installed-capacity-snapshot-mw-renewable",
       table_id: "energy.energy_installed_capacity",
     },
     {
@@ -1162,7 +1162,7 @@ describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
 
   it("snapshot-fuel descriptors (#1-#5) carry time_grain=month + comparability=snapshot_only", () => {
     const snapshot_ids = PR_7A.filter((r) =>
-      r.canonical_id.startsWith("state-installed-capacity-snapshot-mw-"),
+      r.canonical_id.startsWith("installed-capacity-snapshot-mw-"),
     );
     expect(snapshot_ids).toHaveLength(5);
     for (const row of snapshot_ids) {

@@ -215,6 +215,6 @@ def test_rooftop_does_not_displace_other_indicators() -> None:
     # Spot-check: rooftop is present + at least one CEA snapshot fuel +
     # the geographical parent + the allocated parent.
     assert INDICATOR_ID in indicators
-    assert "state-installed-capacity-snapshot-mw-coal" in indicators
+    assert "installed-capacity-snapshot-mw-coal" in indicators
     assert "installed-capacity-geographical-mw" in indicators
     assert "installed-capacity-allocated-mw" in indicators

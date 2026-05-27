@@ -475,7 +475,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   // shapes:
   //   * Shards #1-#5 (`installed_capacity_<fuel>_mw.json`) are per-state SNAPSHOTS
   //     (35 entities × single time `2026-03`), NOT national time-series. Mapped
-  //     to `state-installed-capacity-snapshot-mw-<fuel>` (exact 35×1 match);
+  //     to `installed-capacity-snapshot-mw-<fuel>` (exact 35×1 match);
   //     mapping to `installed-capacity-mw-<fuel>` (1×1) would silently
   //     reduce visible data from 35 state rows to 1 national row and was rejected.
   //   * Shard #7 (`state_installed_capacity_with_alloc_mw.json`) carries FY15-FY25
@@ -500,10 +500,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/installed_capacity_coal_mw",
-    canonical_indicator_id: "state-installed-capacity-snapshot-mw-coal",
+    canonical_indicator_id: "installed-capacity-snapshot-mw-coal",
     table_id: "energy.energy_installed_capacity",
     meta: {
-      id: "state-installed-capacity-snapshot-mw-coal",
+      id: "installed-capacity-snapshot-mw-coal",
       title: "State installed capacity — Coal (CEA monthly snapshot)",
       description:
         "Coal-fired thermal capacity allocated to each state, end-of-month snapshot from the CEA Monthly Executive Summary. India's largest fuel category nationally (~42%).",
@@ -526,10 +526,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/installed_capacity_gas_mw",
-    canonical_indicator_id: "state-installed-capacity-snapshot-mw-gas",
+    canonical_indicator_id: "installed-capacity-snapshot-mw-gas",
     table_id: "energy.energy_installed_capacity",
     meta: {
-      id: "state-installed-capacity-snapshot-mw-gas",
+      id: "installed-capacity-snapshot-mw-gas",
       title: "State installed capacity — Gas (CEA monthly snapshot)",
       description:
         "Natural-gas and liquid-fuel thermal capacity allocated to each state, end-of-month snapshot from the CEA Monthly Executive Summary. Stranded-fuel risk; small share.",
@@ -552,10 +552,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/installed_capacity_hydro_mw",
-    canonical_indicator_id: "state-installed-capacity-snapshot-mw-hydro",
+    canonical_indicator_id: "installed-capacity-snapshot-mw-hydro",
     table_id: "energy.energy_installed_capacity",
     meta: {
-      id: "state-installed-capacity-snapshot-mw-hydro",
+      id: "installed-capacity-snapshot-mw-hydro",
       title: "State installed capacity — Hydro (CEA monthly snapshot)",
       description:
         "Conventional (>25 MW) plus small-hydro capacity allocated to each state, end-of-month snapshot from the CEA Monthly Executive Summary. Site-bound; multi-decade lifetime.",
@@ -578,10 +578,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/installed_capacity_nuclear_mw",
-    canonical_indicator_id: "state-installed-capacity-snapshot-mw-nuclear",
+    canonical_indicator_id: "installed-capacity-snapshot-mw-nuclear",
     table_id: "energy.energy_installed_capacity",
     meta: {
-      id: "state-installed-capacity-snapshot-mw-nuclear",
+      id: "installed-capacity-snapshot-mw-nuclear",
       title: "State installed capacity — Nuclear (CEA monthly snapshot)",
       description:
         "Nuclear capacity allocated to each state, end-of-month snapshot from the CEA Monthly Executive Summary. Central-sector only; allocated to states via PPAs.",
@@ -604,10 +604,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "single",
     legacy_artifact_id: "energy/installed_capacity_renewable_mw",
-    canonical_indicator_id: "state-installed-capacity-snapshot-mw-renewable",
+    canonical_indicator_id: "installed-capacity-snapshot-mw-renewable",
     table_id: "energy.energy_installed_capacity",
     meta: {
-      id: "state-installed-capacity-snapshot-mw-renewable",
+      id: "installed-capacity-snapshot-mw-renewable",
       title: "State installed capacity — Renewable (CEA monthly snapshot)",
       description:
         "Wind, solar, biomass and waste-to-energy capacity allocated to each state, end-of-month snapshot from the CEA Monthly Executive Summary. Rapid growth; ~30% national capacity by FY26.",
@@ -855,7 +855,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   // parquet stem. Adapter:
   //   * installed_capacity.py block 6 emits state-rooftop-solar-capacity-mw
   // Rooftop is a sub-fuel measurement of installed MW; complements utility-scale
-  // solar tracked under state-installed-capacity-snapshot-mw-renewable. The
+  // solar tracked under installed-capacity-snapshot-mw-renewable. The
   // total state solar fleet = utility-scale + rooftop. No facets; one row per
   // (state, fiscal_year). Hans + Max signed off non-faceted lift (the rooftop
   // category itself IS the facet — no further breakdown by residential /
@@ -869,7 +869,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       id: "state-rooftop-solar-capacity-mw",
       title: "State rooftop solar installed capacity (MW)",
       description:
-        "Cumulative installed rooftop solar PV in megawatts — residential + commercial + industrial + public buildings. Owned by the building owner, NOT by a utility. Complements (does not replace) utility-scale solar, which lives under state-installed-capacity-snapshot-mw-renewable.",
+        "Cumulative installed rooftop solar PV in megawatts — residential + commercial + industrial + public buildings. Owned by the building owner, NOT by a utility. Complements (does not replace) utility-scale solar, which lives under installed-capacity-snapshot-mw-renewable.",
       entity_kind: "state",
       time_grain: "fiscal_year",
       value_kind: "count",

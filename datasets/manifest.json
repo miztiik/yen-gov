@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.3",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-27T06:15:01Z",
+  "generated_at": "2026-05-27T06:39:05Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -277,11 +277,11 @@
       "files": [
         {
           "path": "energy/energy_installed_capacity.parquet",
-          "size_bytes": 401639,
-          "row_count": 5748
+          "size_bytes": 416781,
+          "row_count": 5923
         }
       ],
-      "row_count_total": 5748
+      "row_count_total": 5923
     },
     {
       "table_id": "energy.energy_generation",
@@ -515,7 +515,7 @@
       "files": [
         {
           "path": "taxonomy/indicators.parquet",
-          "size_bytes": 47886,
+          "size_bytes": 47819,
           "row_count": 183
         }
       ],

@@ -5,7 +5,7 @@ Lifts 10 legacy shards into a single BatchEnvelope:
 * 5 CEA per-fuel per-state shards
   (``installed_capacity_{coal,gas,hydro,nuclear,renewable}_mw.json``)
   → ``installed-capacity-mw-{fuel}`` (5 IN rows, derivation=sum)
-  AND ``state-installed-capacity-snapshot-mw-{fuel}`` (35 per-state rows
+  AND ``installed-capacity-snapshot-mw-{fuel}`` (35 per-state rows
   per fuel, derivation=raw) — added P.1.A C4.5 to surface CEA's monthly
   per-state per-fuel allocation snapshot. The snapshot family is
   comparable_across_states_snapshot_only (NOT a time series).
@@ -32,7 +32,7 @@ Lifts 10 legacy shards into a single BatchEnvelope:
   → ``state-rooftop-solar-capacity-mw`` (per-state cumulative rooftop
   PV MW, FY18-FY25, source_id=iced_rooftop_solar). Complements (does
   NOT replace) utility-scale solar tracked under
-  ``state-installed-capacity-snapshot-mw-renewable``; the total state
+  ``installed-capacity-snapshot-mw-renewable``; the total state
   solar fleet = utility-scale + rooftop.
 * ``india_thermal_capacity_retired_mw.json`` (29 rows, P.1.C PR-S)
   → ``india-thermal-capacity-retired-mw-{fuel}`` (FY05-FY25, national
@@ -95,7 +95,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
 
     # 1. CEA per-fuel shards →
     #    - installed-capacity-mw-{fuel} (IN rollup, derivation=sum)
-    #    - state-installed-capacity-snapshot-mw-{fuel} (35 per-state rows
+    #    - installed-capacity-snapshot-mw-{fuel} (35 per-state rows
     #      per fuel, derivation=raw). P.1.A C4.5: the CEA Monthly IC sheet
     #      is published per-state per-fuel already; ICED state allocated
     #      tracks the same allocation basis at FY granularity but lacks a
@@ -138,7 +138,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
                 year=year,
                 period_label=period_label,
                 period_seq=period_seq,
-                indicator_id=f"state-installed-capacity-snapshot-mw-{fuel}",
+                indicator_id=f"installed-capacity-snapshot-mw-{fuel}",
                 value_numeric=float(r["value"]),
                 source_id=SOURCE_IDS["cea_monthly_ic"],
                 derivation="raw",
@@ -244,7 +244,7 @@ def build_envelope(repo_root: Path) -> BatchEnvelope:
     #    Cumulative MW of building-mounted PV across residential /
     #    commercial / industrial / public categories. COMPLEMENTS (does
     #    NOT replace) utility-scale solar tracked under
-    #    state-installed-capacity-snapshot-mw-renewable; the total state
+    #    installed-capacity-snapshot-mw-renewable; the total state
     #    solar fleet = utility-scale + rooftop. ICED publishes one row
     #    per (state, fiscal_year) with cumulative MW; no facets, no
     #    sub-fuel collapse needed. Originating data: MNRE / state nodal

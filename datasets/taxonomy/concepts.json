@@ -1627,7 +1627,7 @@
       "entity_kinds": [
         "state"
       ],
-      "description_short": "Cumulative installed rooftop solar PV capacity in megawatts. Building-mounted (residential + commercial + industrial + public) only; utility-scale solar is separate and lives under state-installed-capacity-snapshot-mw-renewable.",
+      "description_short": "Cumulative installed rooftop solar PV capacity in megawatts. Building-mounted (residential + commercial + industrial + public) only; utility-scale solar is separate and lives under installed-capacity-snapshot-mw-renewable.",
       "sources": []
     },
     {
