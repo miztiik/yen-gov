@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.3",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-27T08:19:42Z",
+  "generated_at": "2026-05-27T08:31:26Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -379,7 +379,7 @@
       "files": [
         {
           "path": "livestock/livestock_owner_registration.parquet",
-          "size_bytes": 2150009,
+          "size_bytes": 2147839,
           "row_count": 30272
         }
       ],
@@ -515,11 +515,11 @@
       "files": [
         {
           "path": "taxonomy/indicators.parquet",
-          "size_bytes": 46799,
-          "row_count": 179
+          "size_bytes": 45855,
+          "row_count": 172
         }
       ],
-      "row_count_total": 179
+      "row_count_total": 172
     },
     {
       "table_id": "taxonomy.methodology_breaks",

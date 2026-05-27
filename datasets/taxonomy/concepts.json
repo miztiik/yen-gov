@@ -756,20 +756,10 @@
       "unit_canonical": "owners",
       "normalisation": "absolute",
       "entity_kinds": [
-        "district"
-      ],
-      "description_short": "Owners in the landless / marginal bracket (<1 Ha) registered on Bharat Pashudhan in each district. Registered count, NOT all owning households.",
-      "sources": []
-    },
-    {
-      "concept_id": "landless-marginal-state",
-      "noun": "Landless / marginal (state)",
-      "unit_canonical": "owners",
-      "normalisation": "absolute",
-      "entity_kinds": [
+        "district",
         "state"
       ],
-      "description_short": "State total of owners in the landless / marginal bracket (<1 Ha) registered on Bharat Pashudhan, summed from districts.",
+      "description_short": "Owners in the landless / marginal bracket (<1 Ha) registered on Bharat Pashudhan. Registered count, NOT all owning households.",
       "sources": []
     },
     {
@@ -778,9 +768,10 @@
       "unit_canonical": "owners",
       "normalisation": "absolute",
       "entity_kinds": [
-        "district"
+        "district",
+        "state"
       ],
-      "description_short": "Owners in the large-holding bracket (>=10 Ha) registered on Bharat Pashudhan in each district. Registered count, NOT all owning households.",
+      "description_short": "Owners in the large-holding bracket (>=10 Ha) registered on Bharat Pashudhan. Registered count, NOT all owning households.",
       "sources": []
     },
     {
@@ -806,36 +797,15 @@
       "sources": []
     },
     {
-      "concept_id": "large-state",
-      "noun": "Large (state)",
-      "unit_canonical": "owners",
-      "normalisation": "absolute",
-      "entity_kinds": [
-        "state"
-      ],
-      "description_short": "State total of owners in the large-holding bracket (>=10 Ha) registered on Bharat Pashudhan, summed from districts.",
-      "sources": []
-    },
-    {
       "concept_id": "livestock-owners-registered",
       "noun": "Livestock owners registered",
       "unit_canonical": "owners",
       "normalisation": "absolute",
       "entity_kinds": [
-        "district"
-      ],
-      "description_short": "Count of livestock owners completed Bharat Pashudhan registration in each district. Registered count, NOT all owning households.",
-      "sources": []
-    },
-    {
-      "concept_id": "livestock-owners-registered-state",
-      "noun": "Livestock owners registered (state)",
-      "unit_canonical": "owners",
-      "normalisation": "absolute",
-      "entity_kinds": [
+        "district",
         "state"
       ],
-      "description_short": "State total of livestock owners registered on Bharat Pashudhan, summed from district rows. Registered count, NOT all owning households.",
+      "description_short": "Count of livestock owners completed Bharat Pashudhan registration. Registered count, NOT all owning households.",
       "sources": []
     },
     {
@@ -888,20 +858,10 @@
       "unit_canonical": "owners",
       "normalisation": "absolute",
       "entity_kinds": [
-        "district"
-      ],
-      "description_short": "Owners in the medium bracket (4.0-9.99 Ha) registered on Bharat Pashudhan in each district. Registered count, NOT all owning households.",
-      "sources": []
-    },
-    {
-      "concept_id": "medium-state",
-      "noun": "Medium (state)",
-      "unit_canonical": "owners",
-      "normalisation": "absolute",
-      "entity_kinds": [
+        "district",
         "state"
       ],
-      "description_short": "State total of owners in the medium bracket (4.0-9.99 Ha) registered on Bharat Pashudhan, summed from districts.",
+      "description_short": "Owners in the medium bracket (4.0-9.99 Ha) registered on Bharat Pashudhan. Registered count, NOT all owning households.",
       "sources": []
     },
     {
@@ -1009,20 +969,10 @@
       "unit_canonical": "owners",
       "normalisation": "absolute",
       "entity_kinds": [
-        "district"
-      ],
-      "description_short": "Owners who did not declare a land-holding bracket while registering on Bharat Pashudhan in each district. Preserved verbatim, not imputed.",
-      "sources": []
-    },
-    {
-      "concept_id": "not-specified-state",
-      "noun": "Not specified (state)",
-      "unit_canonical": "owners",
-      "normalisation": "absolute",
-      "entity_kinds": [
+        "district",
         "state"
       ],
-      "description_short": "State total of owners who did not declare a land-holding bracket while registering on Bharat Pashudhan, summed from districts.",
+      "description_short": "Owners who did not declare a land-holding bracket while registering on Bharat Pashudhan. Preserved verbatim, not imputed.",
       "sources": []
     },
     {
@@ -1570,20 +1520,10 @@
       "unit_canonical": "owners",
       "normalisation": "absolute",
       "entity_kinds": [
-        "district"
-      ],
-      "description_short": "Owners in the semi-medium bracket (2.0-3.99 Ha) registered on Bharat Pashudhan in each district. Registered count, NOT all owning households.",
-      "sources": []
-    },
-    {
-      "concept_id": "semi-medium-state",
-      "noun": "Semi-medium (state)",
-      "unit_canonical": "owners",
-      "normalisation": "absolute",
-      "entity_kinds": [
+        "district",
         "state"
       ],
-      "description_short": "State total of owners in the semi-medium bracket (2.0-3.99 Ha) registered on Bharat Pashudhan, summed from districts.",
+      "description_short": "Owners in the semi-medium bracket (2.0-3.99 Ha) registered on Bharat Pashudhan. Registered count, NOT all owning households.",
       "sources": []
     },
     {
@@ -1614,9 +1554,10 @@
       "unit_canonical": "owners",
       "normalisation": "absolute",
       "entity_kinds": [
-        "district"
+        "district",
+        "state"
       ],
-      "description_short": "Owners in the small-holding bracket (1.0-1.99 Ha) registered on Bharat Pashudhan in each district. Registered count, NOT all owning households.",
+      "description_short": "Owners in the small-holding bracket (1.0-1.99 Ha) registered on Bharat Pashudhan. Registered count, NOT all owning households.",
       "sources": []
     },
     {
@@ -1639,17 +1580,6 @@
         "state"
       ],
       "description_short": "Small-hydro (<=25 MW) procurement share. Distinct from large hydro; counts under most state RPO obligations.",
-      "sources": []
-    },
-    {
-      "concept_id": "small-state",
-      "noun": "Small (state)",
-      "unit_canonical": "owners",
-      "normalisation": "absolute",
-      "entity_kinds": [
-        "state"
-      ],
-      "description_short": "State total of owners in the small-holding bracket (1.0-1.99 Ha) registered on Bharat Pashudhan, summed from districts.",
       "sources": []
     },
     {
