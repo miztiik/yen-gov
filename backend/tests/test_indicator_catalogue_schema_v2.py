@@ -27,7 +27,7 @@ def test_schema_x_version_is_current():
     # Tracks the latest x-version; bumped to "2.3" in
     # PR-Z3b-tail-conceptFK Carve 0a (additive concept_id).
     s = _load()
-    assert s["x-version"] == "2.3"
+    assert s["x-version"] == "2.4"
 
 
 def test_changelog_has_2_1_entry():
