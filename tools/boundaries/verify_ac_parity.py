@@ -47,6 +47,9 @@ DEFAULT_STATES: tuple[str, ...] = (
 )
 
 NAME_PARITY_THRESHOLD: float = 0.95
+"""Default name-parity floor for D.2 promotions. Override per state via
+the ``--threshold`` CLI flag (e.g. Assam S03 historically lands ~0.85 due
+to upstream transliteration drift; see PR #270 D.1 recon)."""
 
 _RESERVATION_SUFFIX_RE = re.compile(r"\s*\((sc|st|gen)\)\s*$", re.IGNORECASE)
 
@@ -118,16 +121,50 @@ def load_geojson_features(repo_root: Path, eci: str) -> list[dict]:
     return doc.get("features", [])
 
 
-def verify_state(repo_root: Path, eci: str) -> tuple[bool, list[str], dict]:
-    """Run the 3 checks; return (passed, errors, stats)."""
+def verify_state(
+    repo_root: Path,
+    eci: str,
+    threshold: float = NAME_PARITY_THRESHOLD,
+    *,
+    allow_extras: bool = False,
+    undercoverage_tolerance: float = 0.0,
+) -> tuple[bool, list[str], dict]:
+    """Run the 3 checks; return (passed, errors, stats).
+
+    ``threshold`` is the name-parity floor (default 0.95). Callers may relax
+    it per state (e.g. Assam S03 ~0.85 due to upstream transliteration drift).
+
+    ``allow_extras`` (D.7 universal LGD swap, 2026-05-27) relaxes the
+    count + ``ac_no``-set checks one-sidedly: snapshot may contain EXTRA
+    features beyond SoT (LGD often carries pre-bifurcation residue that
+    renders as no-fill polygons — citizen-harmless). Undercoverage
+    (snapshot missing real SoT ACs) STILL fails by default because that
+    breaks the choropleth.
+
+    ``undercoverage_tolerance`` (D.7, default 0.0 = strict) further relaxes
+    the undercoverage check: snapshot may be missing up to
+    ``ceil(sot_count * tolerance)`` ACs without failing. Used for D.7 to
+    accept e.g. West Bengal S25 LGD 293 vs SoT 294 (1-AC residue drift).
+    The hard floor on bigger losses (Gujarat S06 -18 historical case)
+    still fires via the safety-net revert rule in the plan-doc.
+    """
     errors: list[str] = []
     sot = load_sot(repo_root, eci)
     features = load_geojson_features(repo_root, eci)
 
-    # Check 1: count match.
+    # Check 1: count match. With allow_extras, only undercoverage fails.
+    # With undercoverage_tolerance > 0, small shortfalls are accepted.
     snap_count = len(features)
     sot_count = len(sot)
-    if snap_count != sot_count:
+    shortfall = max(0, sot_count - snap_count)
+    allowed_shortfall = int(sot_count * undercoverage_tolerance)
+    if allow_extras:
+        if shortfall > allowed_shortfall:
+            errors.append(
+                f"undercoverage: snapshot has {snap_count} features, SoT has "
+                f"{sot_count} (shortfall {shortfall} > allowed {allowed_shortfall})"
+            )
+    elif snap_count != sot_count:
         errors.append(
             f"count mismatch: snapshot has {snap_count} features, SoT has {sot_count}"
         )
@@ -150,9 +187,9 @@ def verify_state(repo_root: Path, eci: str) -> tuple[bool, list[str], dict]:
     sot_set = set(sot.keys())
     missing = sot_set - snap_set
     extras = snap_set - sot_set
-    if missing:
+    if missing and len(missing) > allowed_shortfall:
         errors.append(f"ac_no(s) in SoT but missing from snapshot: {sorted(missing)}")
-    if extras:
+    if extras and not allow_extras:
         errors.append(f"ac_no(s) in snapshot but not in SoT: {sorted(extras)}")
 
     # Check 3: name parity (>=95% after normalisation, over shared ac_no set).
@@ -171,9 +208,9 @@ def verify_state(repo_root: Path, eci: str) -> tuple[bool, list[str], dict]:
         if snap_name and snap_name == sot_name:
             name_matches += 1
     name_parity = name_matches / len(shared) if shared else 0.0
-    if name_parity < NAME_PARITY_THRESHOLD:
+    if name_parity < threshold:
         errors.append(
-            f"name parity {name_parity:.1%} < {NAME_PARITY_THRESHOLD:.0%} "
+            f"name parity {name_parity:.1%} < {threshold:.0%} "
             f"({name_matches}/{len(shared)} matched)"
         )
 
@@ -201,14 +238,64 @@ def main(argv: list[str] | None = None) -> int:
         type=Path,
         help="Repo root (default `.`).",
     )
+    p.add_argument(
+        "--threshold",
+        type=float,
+        default=NAME_PARITY_THRESHOLD,
+        help=(
+            f"Name-parity floor (default {NAME_PARITY_THRESHOLD:.2f}). "
+            "Lower for states with documented upstream transliteration "
+            "drift (e.g. Assam S03 ~0.85)."
+        ),
+    )
+    p.add_argument(
+        "--allow-extras",
+        action="store_true",
+        help=(
+            "D.7 universal LGD swap (2026-05-27): allow snapshot to contain "
+            "MORE ac_no values than SoT (LGD pre-bifurcation residue renders "
+            "as no-fill polygons — citizen-harmless). Undercoverage "
+            "(snapshot missing real SoT ACs) still fails by default."
+        ),
+    )
+    p.add_argument(
+        "--undercoverage-tolerance",
+        type=float,
+        default=0.0,
+        help=(
+            "D.7 universal LGD swap (2026-05-27): allow snapshot to be "
+            "missing up to TOLERANCE * sot_count ACs (default 0.0 = strict). "
+            "Use with --allow-extras to accept tiny LGD residue drift e.g. "
+            "West Bengal S25 LGD 293 vs SoT 294 (1-AC shortfall)."
+        ),
+    )
     args = p.parse_args(argv)
     repo_root = args.root.resolve()
     targets = tuple(args.state) if args.state else DEFAULT_STATES
+    threshold: float = args.threshold
+    allow_extras: bool = args.allow_extras
+    undercoverage_tolerance: float = args.undercoverage_tolerance
+    if not (0.0 <= threshold <= 1.0):
+        print(
+            f"--threshold must be in [0.0, 1.0], got {threshold}",
+            file=sys.stderr,
+        )
+        return 2
+    if not (0.0 <= undercoverage_tolerance <= 1.0):
+        print(
+            f"--undercoverage-tolerance must be in [0.0, 1.0], got {undercoverage_tolerance}",
+            file=sys.stderr,
+        )
+        return 2
 
     all_ok = True
     for eci in targets:
         try:
-            ok, errors, stats = verify_state(repo_root, eci)
+            ok, errors, stats = verify_state(
+                repo_root, eci, threshold=threshold,
+                allow_extras=allow_extras,
+                undercoverage_tolerance=undercoverage_tolerance,
+            )
         except (FileNotFoundError, ValueError) as e:
             print(f"FAIL  {eci}  -> {e}", flush=True)
             all_ok = False
@@ -230,10 +317,19 @@ def main(argv: list[str] | None = None) -> int:
             for err in errors:
                 print(f"      - {err}", flush=True)
 
+    extras_note = " allow_extras=on" if allow_extras else ""
     if all_ok:
-        print(f"\nAll {len(targets)} state(s) passed Phase D.2 parity.", flush=True)
+        print(
+            f"\nAll {len(targets)} state(s) passed AC parity "
+            f"(threshold={threshold:.2f}{extras_note}).",
+            flush=True,
+        )
         return 0
-    print(f"\nAt least one of {len(targets)} state(s) failed parity.", flush=True)
+    print(
+        f"\nAt least one of {len(targets)} state(s) failed parity "
+        f"(threshold={threshold:.2f}{extras_note}).",
+        flush=True,
+    )
     return 1
 
 

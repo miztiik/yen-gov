@@ -64,38 +64,47 @@ export const INDIA_STATES: BoundaryEntry = {
     '<a href="https://github.com/ramSeraph/indian_admin_boundaries" target="_blank" rel="noreferrer">ramSeraph LGD-keyed admin boundaries</a> (CC0 1.0; sourced from LGD / BharatMaps)',
 };
 
-// Per-state AC layers. Property AC_NO = 1-based per-state constituency number,
-// joins to candidates.constituency_eci_no in results.sqlite (= ECI eci_no).
+// Per-state AC layers. Property `ac_no` (lowercase) = 1-based per-state
+// constituency number, joins to candidates.constituency_eci_no in
+// results.sqlite (= ECI eci_no). Post-D.7 (PR #431) the ramSeraph
+// LGD release is the default; 2 states stay on HTL because LGD's slice
+// fails the safety-net rule: S01 Andhra Pradesh (LGD bundles legacy
+// AP+TG ac_no 1-294 with names that don't match the post-2014 AP-only
+// SoT; ac_no=30 → LGD 'Yanam' vs SoT 'Anakapalle') and S03 Assam (LGD
+// ships pre-2023 delim names; SoT carries post-2023 delim — 0.8% name
+// parity). Both keep HTL `AC_NO` (uppercase) until upstream catches up.
+// U08 (J&K) keeps `seat_id` because LGD has not yet published the
+// post-2022 90-AC delimitation as of 2026-05-27.
 export const STATE_AC: Record<string, BoundaryEntry> = {
   S22: {
     id: "S22-ac",
     label: "Tamil Nadu — Assembly constituencies",
     geojson_local_path: "boundaries/in/ac/state=in_s22/all.geojson",
     geojson_url:
-      "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/tamilnadu/assembly/tamilnadu_AC.json",
-    join_property: "AC_NO",
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
     attribution:
-      '<a href="https://github.com/HindustanTimesLabs/shapefiles" target="_blank" rel="noreferrer">HTL shapefiles</a> (MIT)',
+      '<a href="https://github.com/ramSeraph/indian_admin_boundaries" target="_blank" rel="noreferrer">ramSeraph LGD-keyed admin boundaries</a> (CC0 1.0; sourced from LGD / BharatMaps)',
   },
   S11: {
     id: "S11-ac",
     label: "Kerala — Assembly constituencies",
     geojson_local_path: "boundaries/in/ac/state=in_s11/all.geojson",
     geojson_url:
-      "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/kerala/assembly/kerala_AC.json",
-    join_property: "AC_NO",
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
     attribution:
-      '<a href="https://github.com/HindustanTimesLabs/shapefiles" target="_blank" rel="noreferrer">HTL shapefiles</a> (MIT)',
+      '<a href="https://github.com/ramSeraph/indian_admin_boundaries" target="_blank" rel="noreferrer">ramSeraph LGD-keyed admin boundaries</a> (CC0 1.0; sourced from LGD / BharatMaps)',
   },
   S25: {
     id: "S25-ac",
     label: "West Bengal — Assembly constituencies",
     geojson_local_path: "boundaries/in/ac/state=in_s25/all.geojson",
     geojson_url:
-      "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/westbengal/assembly/westbengal_AC.json",
-    join_property: "AC_NO",
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
     attribution:
-      '<a href="https://github.com/HindustanTimesLabs/shapefiles" target="_blank" rel="noreferrer">HTL shapefiles</a> (MIT)',
+      '<a href="https://github.com/ramSeraph/indian_admin_boundaries" target="_blank" rel="noreferrer">ramSeraph LGD-keyed admin boundaries</a> (CC0 1.0; sourced from LGD / BharatMaps)',
   },
   S03: {
     id: "S03-ac",
@@ -112,10 +121,10 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     label: "Puducherry — Assembly constituencies",
     geojson_local_path: "boundaries/in/ac/state=in_u07/all.geojson",
     geojson_url:
-      "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/puducherry/assembly/puducherry_AC.json",
-    join_property: "AC_NO",
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
     attribution:
-      '<a href="https://github.com/HindustanTimesLabs/shapefiles" target="_blank" rel="noreferrer">HTL shapefiles</a> (MIT)',
+      '<a href="https://github.com/ramSeraph/indian_admin_boundaries" target="_blank" rel="noreferrer">ramSeraph LGD-keyed admin boundaries</a> (CC0 1.0; sourced from LGD / BharatMaps)',
   },
   // J&K post-2022 delimitation (90 ACs). HTL/datameet still ship the
   // pre-delimitation 87-AC layer for J&K; shijithpk/2024_maps_supplement
