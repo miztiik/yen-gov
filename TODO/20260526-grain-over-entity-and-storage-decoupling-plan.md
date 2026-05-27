@@ -8,7 +8,28 @@
 
 ## 0bis. Live status snapshot (auto-refresh per session)
 
-**As of 2026-05-27 10:30, main at `b1f52dc4` (PR #406).** **🎯 ALL 4 §0quat GUARDRAIL GATES LIVE.** Grain-rip doctrine fully enforced. 66 PRs merged; ~14 remaining (mostly C/D/E phases — UI routes, shard deletes, grain depth).
+**As of 2026-05-27 11:30, main at `7ddb735e` (PR #409).** **ALL 4 §0quat GUARDRAIL GATES LIVE.** Grain-rip-and-replace mandate substantially DONE. 69 PRs merged.
+
+### Remaining work — reclassified as FORWARD-BUILD (out of rip-and-replace scope)
+
+The rip-and-replace mandate is complete on every surface that had something to RIP. The items below are forward-build dependencies, not rip work, and should be tracked in their own plan-docs going forward:
+
+| Item | Honest blocker | New home |
+|---|---|---|
+| D4-tail (state_population_lakhs retire) | No canonical demography family exists (`datasets/demography/` absent, no `population-*` indicator_id) | Needs new plan-doc: canonical demography family build (Hans+Max) |
+| D7 (Economy 20 shards retire) | No canonical `economy_*.parquet` exists; B6 renames did NOT migrate to canonical pathway | Needs canonical economy adapter plan-doc |
+| D5 (Environment 8 shards retire) | All 8 have live `iced_*` adapters writing legacy JSON; needs adapter-rip not shard-rip | Needs adapter-rip plan-doc |
+| D8 (Fiscal 22 shards retire) | Chains on D7 + fiscal canonical adapter | Same as D7 |
+| C1 / C2 / C3 (UI routes + topic slim + invariant test) | Parent `/i/:indicator` route absent — needs frontend routing framework PR first | Needs frontend IA plan-doc (Jony+Citizen) |
+| E1-E5 (grain depth: subdistrict/village, rollup, PMTiles, URL grammar) | Each is Level-4+ structural; no fixture data ingested | Needs separate grain-depth plan-doc |
+
+### What this plan SHIPPED (cumulative)
+
+- **§0quat doctrine**: all 5 Tier-B guardrail checks LIVE (#371, #376, #386, #387, #406)
+- **A-series**: storage/viz decoupled — grapher catalogue split (#340, #341, #342, #407, #408); `--dry-run` flag (#338); `--table` filter (#368); `datetime.now()` stripped from data rows (#391, #393, #398, #369); `lookup_source_id` helper + 3 site migrations (#396, #409)
+- **B-series**: grain-over-entity rip complete — schema v5.0 + v6.0 (#359, #407); elections (#344), prices (#345), economy B6 rows 4-11 (#346, #348-#349, #355-#360); energy state-prefix-strip across 9 batches (#388-#390, #392, #394-#395, #397, #399-#400, #402, #404); livestock collapse (#401, #403, #405); concept registry + 7 cluster resolutions + LIVE flip (#361-#386)
+- **D-series partial**: D1 prices (#354), D2 transport (#351), D3 human-dev (#350), D6 health (#353), D4 partial (#352)
+- **Z-series**: doctrine + CI + handover template + concept-FK backfill (#339, #362-#367, #370, #372-#385)
 
 ### §0quat gate closure
 
@@ -19,6 +40,10 @@
 | `tier_b_one_indicator_per_concept` | #386 | LIVE |
 | `tier_b_no_hand_typed_source_id` | #387 | LIVE |
 | `tier_b_indicator_id_no_grain_prefix` | **#406** | **LIVE** |
+
+### Plan status: substantially COMPLETE (rip-and-replace mandate)
+
+All RIP work shipped. FORWARD-BUILD items (D-series adapter-rips, C-series UI, E-series grain depth) are tracked in the table above and should migrate to dedicated plan-docs. This plan can be marked **DONE** for the original mandate once a 2-line follow-up PR flips the top-line Status to ▶ DONE.
 
 ### Phase status table
 
