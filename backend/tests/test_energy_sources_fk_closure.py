@@ -110,7 +110,7 @@ def test_all_p1a_p1b_energy_source_ids_present() -> None:
         # P.1.C PR-W (1) — state power-purchase share by source lift
         # (Pattern A-facet on EXISTING fuel_type axis extended with
         # hybrid_bundled + trading_other; NO sub-fuel collapse).
-        "src-1401f8087b0d",  # ICED state-power-purchase-share-pct
+        "src-1401f8087b0d",  # ICED power-purchase-share-pct
         # P.1.C PR-X (1) — national final-energy consumption by sector
         # x fuel composite (NEW sector_fuel_pair axis with 18 sparse pairs).
         "src-29ecbb6dce9d",  # ICED india-final-energy-consumption-mtoe

@@ -845,7 +845,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     caveats: [
       "ICED reports 4 coal grades (raw + washed + middlings + lignite); we sum them and drop the publisher's TOTAL COAL row to avoid double-counting. Read this as a derived total, not as a single published figure.",
       "Heavy-industry states dominate the level: Maharashtra, UP, MP and Chhattisgarh burn most coal in thermal fleets; Gujarat and Odisha add steel and sponge-iron kilns on top. A services-tilted state like Karnataka stays low despite a top-10 GSDP.",
-      "Coal is mined in Jharkhand and Odisha but consumed wherever the thermal plant or kiln sits. A low-consumption state is not a low-coal-dependence state if its grid imports coal-fired power — pair with state-power-purchase-share-pct to see imported reliance.",
+      "Coal is mined in Jharkhand and Odisha but consumed wherever the thermal plant or kiln sits. A low-consumption state is not a low-coal-dependence state if its grid imports coal-fired power — pair with power-purchase-share-pct to see imported reliance.",
     ],
   },
 
@@ -1212,14 +1212,14 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   // 10 FYs x ~7-12 sources-per-state) joined into the EXISTING
   // `energy_demand_supply` parquet stem (procurement is a demand-side
   // metric). Adapter:
-  //   * demand_supply.py block 7 emits state-power-purchase-share-pct-{source}
+  //   * demand_supply.py block 7 emits power-purchase-share-pct-{source}
   // 12-facet Pattern A-facet on the EXISTING `fuel_type` axis (now
   // extended with `hybrid_bundled` + `trading_other` value_ids).
   // PR-W is a procurement-mix indicator (where DISCOMs BUY from),
   // NOT a generation-mix (what state plants produce). Values are
   // percentages summing to ~100 per (state, FY); CANNOT collapse
   // renewable sub-fuels (same PLF-style exemption as PR-V).
-  // Compute-on-read parent: state-power-purchase-share-pct carries no
+  // Compute-on-read parent: power-purchase-share-pct carries no
   // observation rows; the FacetPicker primitive surfaces the 12
   // children. The "Total" view would sum percentages across sources
   // and arrive close to 100% by construction, so it's not informative
@@ -1227,25 +1227,25 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   {
     kind: "facet-multiplexed",
     legacy_artifact_id: "energy/state_power_purchase_share_pct",
-    canonical_parent_indicator_id: "state-power-purchase-share-pct",
+    canonical_parent_indicator_id: "power-purchase-share-pct",
     table_id: "energy.energy_demand_supply",
     facet_axis_id: "fuel_type",
     facet_values: [
-      { canonical_child_id: "state-power-purchase-share-pct-coal", legacy_facet_label: "coal" },
-      { canonical_child_id: "state-power-purchase-share-pct-gas", legacy_facet_label: "gas" },
-      { canonical_child_id: "state-power-purchase-share-pct-diesel", legacy_facet_label: "diesel" },
-      { canonical_child_id: "state-power-purchase-share-pct-hydro", legacy_facet_label: "hydro" },
-      { canonical_child_id: "state-power-purchase-share-pct-nuclear", legacy_facet_label: "nuclear" },
-      { canonical_child_id: "state-power-purchase-share-pct-small-hydro", legacy_facet_label: "small_hydro" },
-      { canonical_child_id: "state-power-purchase-share-pct-solar", legacy_facet_label: "solar" },
-      { canonical_child_id: "state-power-purchase-share-pct-wind", legacy_facet_label: "wind" },
-      { canonical_child_id: "state-power-purchase-share-pct-biomass", legacy_facet_label: "biomass" },
-      { canonical_child_id: "state-power-purchase-share-pct-renewable-other", legacy_facet_label: "renewable_other" },
-      { canonical_child_id: "state-power-purchase-share-pct-hybrid-bundled", legacy_facet_label: "hybrid_bundled" },
-      { canonical_child_id: "state-power-purchase-share-pct-trading-other", legacy_facet_label: "trading_other" },
+      { canonical_child_id: "power-purchase-share-pct-coal", legacy_facet_label: "coal" },
+      { canonical_child_id: "power-purchase-share-pct-gas", legacy_facet_label: "gas" },
+      { canonical_child_id: "power-purchase-share-pct-diesel", legacy_facet_label: "diesel" },
+      { canonical_child_id: "power-purchase-share-pct-hydro", legacy_facet_label: "hydro" },
+      { canonical_child_id: "power-purchase-share-pct-nuclear", legacy_facet_label: "nuclear" },
+      { canonical_child_id: "power-purchase-share-pct-small-hydro", legacy_facet_label: "small_hydro" },
+      { canonical_child_id: "power-purchase-share-pct-solar", legacy_facet_label: "solar" },
+      { canonical_child_id: "power-purchase-share-pct-wind", legacy_facet_label: "wind" },
+      { canonical_child_id: "power-purchase-share-pct-biomass", legacy_facet_label: "biomass" },
+      { canonical_child_id: "power-purchase-share-pct-renewable-other", legacy_facet_label: "renewable_other" },
+      { canonical_child_id: "power-purchase-share-pct-hybrid-bundled", legacy_facet_label: "hybrid_bundled" },
+      { canonical_child_id: "power-purchase-share-pct-trading-other", legacy_facet_label: "trading_other" },
     ],
     meta: {
-      id: "state-power-purchase-share-pct",
+      id: "power-purchase-share-pct",
       title: "State power-purchase share by source (% per fiscal year)",
       description:
         "Share of total electricity purchased by a state's distribution utilities, broken down by generation source (12 buckets: coal, gas, diesel, hydro, nuclear, small-hydro, solar, wind, biomass, other-renewables, hybrid-bundled, trading-and-others). The PROCUREMENT mix (where DISCOMs buy from), not the GENERATION mix (what state plants produce). Values sum to ~100% per (state, FY). Compare against electricity-generation-gwh-{fuel} to read the trade pattern: RE-exporters vs thermal-importers.",
