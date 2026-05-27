@@ -544,10 +544,10 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.caveats![2]).toMatch(/draught/i);
   });
 
-  // TODO(deploy-unblock PR #424): re-enable when state-grain + district-grain
-  // Pashu Aadhaar descriptors (and Hans-curated caveats) land in the paired follow-up
-  // PR. Tracked under the Phase D livestock cohort in the grain-rip plan.
-  it.skip("PR-P goat Pashu Aadhaar descriptor carries the 3 Hans-curated caveats", () => {
+  // Goat cohort PR (Row 5 PR-P, 2026-05-27): goat descriptors shipped;
+  // re-enabling the goat caveat assertion. Cattle and buffalo siblings
+  // follow in cohort PRs 2 and 3 of 3.
+  it("PR-P goat Pashu Aadhaar descriptor carries the 3 Hans-curated caveats", () => {
     const d = getCanonicalDescriptor("agriculture/state_pashu_aadhaar_count_goat");
     expect(d).not.toBeNull();
     expect(d!.caveats).toBeDefined();
