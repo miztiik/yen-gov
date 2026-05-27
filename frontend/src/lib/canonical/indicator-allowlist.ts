@@ -1744,6 +1744,78 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
         "Tagged count is NOT a livestock census. Goats are a smallholder species; tagging coverage follows extension-worker presence, not goat presence. Rajasthan, West Bengal, UP lead by absolute count; districts in arid Maharashtra and Karnataka may under-report despite large goat populations. Read alongside the 20th Livestock Census for the denominator.",
     },
   },
+  // Goat cohort PR (Row 5 PR-P, 2026-05-27): state-grain + district-grain
+  // siblings on the same livestock_pashu_aadhaar canonical table. Both
+  // carry Hans-curated caveats[] honouring the 3-bullet rhythm pinned by
+  // the PR-P regex assertions in indicator-from-canonical.test.ts (L550).
+  // canonical_indicator_id is grain-less per ADR-0044 (id = measure-unit-facet;
+  // grain is dispatched from entity_kind at read time).
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/state_pashu_aadhaar_count_goat",
+    canonical_indicator_id: "pashu-aadhaar-count-goat",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "state-pashu-aadhaar-count-goat",
+      title: "Goats tagged with Pashu Aadhaar (state)",
+      description:
+        "State SUM rollup of goats issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. Auto-emitted by the canonical adapter from district source-of-truth rows per ADR-0043.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationStateWise SUM rollup of district source-of-truth, snapshot 2026-05-25; FY 2024-25.",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Tagged count is NOT a livestock census. State values are the SUM rollup of districts that have reached programme rollout; pastoral migration across district and state lines confounds attribution. Read alongside the 20th Livestock Census for the denominator.",
+    },
+    caveats: [
+      "Rajasthan's Bhopa and Banjara pastoral communities herd migratory goat flocks cross-district and cross-state; tags follow the registering office, not the grazing geography, so headline counts attribute roaming herds to one state.",
+      "Same coverage gap as cattle and buffalo: the 20th Livestock Census 2019 reports ~149M goats nationwide (the largest livestock category), but vet-camp triage runs cattle-first then buffalo, so goat coverage lags 6-12 months.",
+      "INFORMAL meat-economy bias inflates Andhra Pradesh and Telangana counts via Hyderabad mutton-trader vet camps; Bihar and eastern UP under-report not because herds are smaller but because programme formalisation lags.",
+    ],
+  },
+  {
+    kind: "single",
+    legacy_artifact_id: "agriculture/district_pashu_aadhaar_count_goat",
+    canonical_indicator_id: "pashu-aadhaar-count-goat",
+    table_id: "livestock.livestock_pashu_aadhaar",
+    meta: {
+      id: "district-pashu-aadhaar-count-goat",
+      title: "Goats tagged with Pashu Aadhaar (district)",
+      description:
+        "District source-of-truth count of goats issued a 12-digit Pashu Aadhaar tag under NDLM Bharat Pashudhan. The state-grain sibling is the SUM rollup auto-emitted in the same canonical adapter run per ADR-0043.",
+      entity_kind: "district",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "animals",
+      short_unit: "tagged",
+      icon: "users",
+      attribution_geography: "where_resident",
+      comparability: "directional_only",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043).",
+      renderer_rules: ["no_rank_table"],
+      notes:
+        "Tagged count is NOT a livestock census. District aggregation hides intra-district pastoral migration; Rajasthan's Jaisalmer and Barmer districts in particular may double-count herds that move between them in a single tagging season. Read alongside the 20th Livestock Census for the denominator.",
+    },
+    caveats: [
+      "District aggregation hides intra-district pastoral migration; Rajasthan's Jaisalmer and Barmer or Gujarat's Kutch may double-count herds that move between adjacent districts within a single tagging season.",
+      "Same coverage gap as cattle and buffalo: the 20th Livestock Census 2019 reports ~149M goats nationwide (the largest livestock category), but vet-camp triage runs cattle-first then buffalo, so goat coverage lags 6-12 months at district grain.",
+      "INFORMAL meat-economy bias inflates Hyderabad and surrounding Andhra Pradesh and Telangana districts via mutton-trader vet camps; Bihar and eastern UP districts under-report because programme formalisation lags, not because herds are smaller.",
+    ],
+  },
   {
     kind: "single",
     legacy_artifact_id: "agriculture/pashu_aadhaar_count_sheep",
