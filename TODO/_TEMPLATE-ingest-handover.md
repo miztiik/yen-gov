@@ -19,25 +19,27 @@
 - **Entity grain(s)**: <country / state / district / ac / party / candidate — list all that apply>
 - **Time range**: <FY start - FY end>
 
-## 3. Concept overlap audit (MANDATORY — guardrail #14)
+## 3. Concept overlap audit (MANDATORY — guardrail #14 + ADR-0046)
 
-> Before authoring any new `indicator_id`, run [`python -m yen_gov check-overlap`](../backend/yen_gov/cli.py) and paste the output below. If ANY match scores >= 0.70, the action is **UPSERT into the existing indicator** OR **add a facet axis** — NOT mint a new id. Cite the matched id explicitly.
+> Before authoring any new `indicator_id`, run [`python -m yen_gov pre-flight-ingest`](../backend/yen_gov/preflight/__init__.py) (ADR-0046) and cite the report path below. The gate batches the six mechanical checks (concept overlap, concept FK, grain prefix, update_period_days, justification, source_id derivation) into one call. Exit code 2 = abort; correct the proposal and re-run. No override flag per CLAUDE.md Holy Law #5.
 
-For each concept this ingest introduces:
+Drop a proposal JSON next to this handover-doc as `./proposal.json`, then run:
 
 ```bash
-python -m yen_gov check-overlap \
-  --noun "<concept noun>" \
-  --unit "<unit_canonical>" \
-  --normalisation "<one of absolute|per_capita|per_area|share|ratio|index>" \
-  --entity-kind "<country|state|district|ac|party|candidate>"
+python -m yen_gov pre-flight-ingest \
+  --proposal-file ./proposal.json \
+  --report        ./report.json
 ```
 
-Paste the CLI output verbatim:
+(The legacy `python -m yen_gov check-overlap` CLI is still available and is invoked internally by the pre-flight gate as check #1, but new handover-docs MUST use the batched gate so the verdict for ALL six checks is captured in one report.)
 
-```
-<paste here>
-```
+Cite the results below:
+
+- **Proposal**: [proposal.json](./proposal.json)
+- **Report**: [report.json](./report.json)
+- **Verdict**: <one of `mint_new` / `upsert` / `add_facet`>
+- **Target indicator_id** (if not `mint_new`): `<family>/<existing-id>`
+- **Exit code**: <0 pass / 1 soft-warn>
 
 **Verdict** (per concept):
 

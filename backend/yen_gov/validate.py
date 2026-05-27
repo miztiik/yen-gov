@@ -37,6 +37,8 @@ from typing import Iterable
 from jsonschema import Draft202012Validator
 from jsonschema.exceptions import SchemaError
 
+from yen_gov.preflight import predicates as _P
+
 SCHEMAS_SUBDIR = Path("datasets/schemas")
 DATA_ROOTS = (Path("datasets"), Path("config"))
 
@@ -75,7 +77,10 @@ LEGACY_BOUNDARY_SIDECARS_ALLOWLIST = Path("datasets/_ops/legacy-boundary-sidecar
 # scripts. The 60-day Tier-B alias-window check (T.3 2026-05-22) was deleted
 # in PR-B1 -- back-compat surface migrates to per-PR rename scripts.
 INDICATOR_CATALOGUE_JSON = Path("datasets/taxonomy/indicators.json")
-_INDICATOR_ID_GRAIN_PREFIX_RE = re.compile(r"^(state|district|national)-")
+# Predicate body lives in yen_gov.preflight.predicates.grain_prefix_violation
+# (ADR-0046 DRY extraction). Re-exported here for back-compat with callers
+# that import the constant.
+_INDICATOR_ID_GRAIN_PREFIX_RE = _P.GRAIN_PREFIX_RE
 
 # Concept registry FK fence (PR-Z3b-tail3 2026-05-26 dark). Per guardrail #13
 # every indicator MUST FK to a row in `datasets/taxonomy/concepts.json` declaring
@@ -574,7 +579,7 @@ def tier_b_indicator_id_no_grain_prefix(root: Path) -> list[Failure]:
         indicator_id = row.get("indicator_id")
         if not isinstance(indicator_id, str):
             continue
-        if _INDICATOR_ID_GRAIN_PREFIX_RE.match(indicator_id):
+        if _P.grain_prefix_violation(indicator_id) is not None:
             failures.append(
                 Failure(
                     catalogue_rel,
@@ -849,7 +854,7 @@ def tier_b_indicator_freshness_declared(root: Path) -> list[Failure]:
         if not isinstance(indicator_id, str):
             continue
         cadence = row.get("update_period_days")
-        if not isinstance(cadence, int) or cadence <= 0:
+        if _P.update_period_days_violation(cadence) is not None:
             failures.append(
                 Failure(
                     catalogue_rel,
@@ -950,11 +955,11 @@ def tier_b_one_indicator_per_concept(root: Path) -> list[Failure]:
     return failures
 
 
-# Legit homes for raw ``src-<hex>`` literals (datasets/taxonomy is the
-# citation-ledger seam per ADR-0032). Backend sources MUST look up
-# ``source_id`` via a registry seam, never hand-type the hash.
-_SOURCE_ID_HEX_RE = re.compile(r'"src-[0-9a-f]{12}"')
-_SOURCE_IDS_ASSIGN_RE = re.compile(r"^SOURCE_IDS\s*=", re.MULTILINE)
+# Predicate bodies live in yen_gov.preflight.predicates (ADR-0046 DRY
+# extraction). Re-exported here for back-compat with callers that import
+# the constants.
+_SOURCE_ID_HEX_RE = _P.SOURCE_ID_HEX_RE
+_SOURCE_IDS_ASSIGN_RE = _P.SOURCE_IDS_ASSIGN_RE
 BACKEND_SOURCES_DIR = Path("backend/yen_gov/sources")
 
 
@@ -992,36 +997,36 @@ def tier_b_no_hand_typed_source_id(root: Path) -> list[Failure]:
         except (OSError, UnicodeDecodeError):
             continue
         rel = _posix(path, root)
-        if _SOURCE_IDS_ASSIGN_RE.search(text):
-            failures.append(
-                Failure(
-                    rel,
-                    "B",
-                    f"{rel}: forbidden top-level ``SOURCE_IDS = ...`` "
-                    f"hash-table assignment. Per guardrail #6 source_id "
-                    f"MUST be looked up via source_registry.resolve("
-                    f"nickname); raw hash tables inside adapter modules "
-                    f"silently snapshot the citation ledger. See "
-                    f"docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md "
-                    f"§0quat guardrail #6.",
+        for snippet, line_no in _P.hand_typed_source_id_hits(text):
+            if snippet == "SOURCE_IDS=":
+                failures.append(
+                    Failure(
+                        rel,
+                        "B",
+                        f"{rel}: forbidden top-level ``SOURCE_IDS = ...`` "
+                        f"hash-table assignment. Per guardrail #6 source_id "
+                        f"MUST be looked up via source_registry.resolve("
+                        f"nickname); raw hash tables inside adapter modules "
+                        f"silently snapshot the citation ledger. See "
+                        f"docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md "
+                        f"§0quat guardrail #6.",
+                    )
                 )
-            )
-        for m in _SOURCE_ID_HEX_RE.finditer(text):
-            line_no = text[: m.start()].count("\n") + 1
-            failures.append(
-                Failure(
-                    rel,
-                    "B",
-                    f"{rel}:{line_no}: forbidden hand-typed source_id "
-                    f"literal {m.group(0)}. Per guardrail #6 the only "
-                    f"legit homes are datasets/taxonomy/sources.parquet "
-                    f"and datasets/taxonomy/source_nicknames.json; "
-                    f"adapters MUST resolve via source_registry.resolve("
-                    f"nickname). See "
-                    f"docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md "
-                    f"§0quat guardrail #6.",
+            else:
+                failures.append(
+                    Failure(
+                        rel,
+                        "B",
+                        f"{rel}:{line_no}: forbidden hand-typed source_id "
+                        f"literal {snippet}. Per guardrail #6 the only "
+                        f"legit homes are datasets/taxonomy/sources.parquet "
+                        f"and datasets/taxonomy/source_nicknames.json; "
+                        f"adapters MUST resolve via source_registry.resolve("
+                        f"nickname). See "
+                        f"docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md "
+                        f"§0quat guardrail #6.",
+                    )
                 )
-            )
 
     return failures
 
@@ -1091,12 +1096,18 @@ def tier_b_indicator_has_justification(root: Path) -> list[Failure]:
              justification)
         )
 
+    # Cross-grain twin set computed via predicate (ADR-0046 DRY extraction).
+    twin_concepts = _P.cross_grain_twin_concepts(rows)
     for concept_id, entries in sorted(by_concept.items()):
-        distinct_ekind_tuples = {ek for _, ek, _ in entries}
-        if len(distinct_ekind_tuples) < 2:
+        if concept_id not in twin_concepts:
             continue  # single-grain cluster -- not a cross-grain twin
         for indicator_id, _ek, justification in entries:
-            if justification:
+            # Tier-B preserves the original "non-empty after strip" semantics
+            # (min_len=1) so the existing #d63709eb backfill stays valid.
+            # The pre-flight gate uses the stricter min_len=20 default to
+            # enforce a real distinguishing-dimension rationale on net-new
+            # ingests.
+            if _P.justification_violation(justification, min_len=1) is None:
                 continue
             failures.append(
                 Failure(

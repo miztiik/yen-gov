@@ -61,10 +61,11 @@ When an upstream endpoint publishes a fact already in canonical (a new fuel for 
 
 This is the same rule that governs `indicator_id` minting (see [docs/concepts/indicator-naming.md](indicator-naming.md) and the [CLAUDE.md](../../CLAUDE.md) anti-pattern: "Do NOT mint a new `indicator_id` for a new vintage, new publisher, new base-year"). The parquet stem and the `indicator_id` move in lockstep: one concept -> one `indicator_id` -> one canonical parquet stem -> N rows across (entity, period, vintage, facet).
 
-Before any new ingest, run `python -m yen_gov check-overlap` per the [ingest handover template](../../TODO/_TEMPLATE-ingest-handover.md) §3. If overlap >= 0.70, the action is UPSERT or add-a-facet — never mint.
+Before any new ingest, run `python -m yen_gov pre-flight-ingest --proposal-file ./proposal.json --report ./report.json` ([ADR-0046](../architecture/decisions/0046-pre-flight-ingest-gate-contract.md)) per the [ingest handover template](../../TODO/_TEMPLATE-ingest-handover.md) §3. The gate batches the six mechanical checks (concept overlap, concept FK, grain prefix, update_period_days, justification, source_id derivation) into a single typed report so the agent cannot proceed past `verdict=abort`. If overlap >= 0.70, the action is UPSERT or add-a-facet — never mint.
 
 ## See also
 
+- [docs/concepts/pre-flight-ingest.md](pre-flight-ingest.md) — mechanical enforcer for the six checks below
 - [docs/concepts/meadow-tier.md](meadow-tier.md) — backend-internal parsed-row staging
 - [docs/concepts/data-provenance.md](data-provenance.md) — citation-ledger rules for the enrich layer
 - [docs/concepts/indicator-naming.md](indicator-naming.md) — `<measure>-<unit>-<facet>` grammar, no grain prefix

@@ -24,6 +24,9 @@ on:
     paths:
       - "datasets/taxonomy/indicators.json"
       - ".github/workflows/indicator-add-gate.yml"
+      - "backend/yen_gov/sources/**"
+      - "datasets/**/_meadow/**"
+      - "TODO/**/proposal.json"
 
 permissions:
   contents: read
@@ -116,3 +119,68 @@ jobs:
           echo "Missing justification for:"
           for id in $missing; do echo "  - $id"; done
           exit 1
+
+  preflight:
+    name: pre-flight ingest gate (ADR-0046)
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout PR head
+        uses: actions/checkout@v4
+
+      - name: set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: install backend
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install -e ./backend
+
+      - name: discover proposal.json files under TODO/
+        id: discover
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=$(find TODO -type f -name proposal.json 2>/dev/null || true)
+          count=$(printf '%s\n' "$files" | grep -c . || true)
+          {
+            echo "count=$count"
+            echo "files<<EOF"
+            echo "$files"
+            echo "EOF"
+          } >>"$GITHUB_OUTPUT"
+          echo "Found $count proposal.json file(s):"
+          echo "$files"
+
+      - name: run pre-flight on each proposal
+        if: steps.discover.outputs.count != '0'
+        shell: bash
+        env:
+          FILES: ${{ steps.discover.outputs.files }}
+        run: |
+          set -euo pipefail
+          status=0
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            report="${f%proposal.json}report.json"
+            echo "::group::pre-flight $f"
+            if python -m yen_gov pre-flight-ingest \
+                 --proposal-file "$f" \
+                 --report "$report" \
+                 --root .; then
+              echo "OK"
+            else
+              ec=$?
+              if [ "$ec" = "2" ]; then
+                echo "::error file=$f::pre-flight verdict=abort (exit 2)"
+                status=1
+              else
+                echo "::warning file=$f::pre-flight soft-warn (exit $ec)"
+              fi
+            fi
+            echo "::endgroup::"
+          done <<<"$FILES"
+          exit "$status"
