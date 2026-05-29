@@ -78,6 +78,71 @@
     </p>
   </section>
 
+  <section id="maps" class="space-y-3 scroll-mt-6">
+    <h2 class="text-xl font-semibold border-b border-slate-200 pb-1">Boundaries on these maps</h2>
+    <p class="text-sm">
+      Every map on yen-gov pulls polygon geometry from an open, public
+      source. We do not redraw boundaries; we redistribute what the
+      publisher released under their license, and we use the publisher's
+      own numeric code as the join key everywhere.
+    </p>
+    <h3 class="text-base font-semibold pt-2">Default source: ramSeraph LGD admin boundaries</h3>
+    <p class="text-sm">
+      The India state outline, the district shapes, and most per-state
+      assembly constituency layers come from
+      <a class="text-sky-700 hover:underline"
+         href="https://github.com/ramSeraph/indian_admin_boundaries"
+         target="_blank" rel="noreferrer">github.com/ramSeraph/indian_admin_boundaries</a>
+      (CC0 1.0; sourced from the Local Government Directory (LGD) and
+      BharatMaps). Each feature carries its LGD numeric code
+      (<code>State_LGD</code> for states, <code>dist_lgd</code> for
+      districts, <code>ac_no</code> for assembly constituencies); yen-gov
+      uses that code as the canonical join key. We snapshot upstream
+      releases into <code>datasets/boundaries/in/</code> so the site
+      loads boundaries from the same origin as the page.
+    </p>
+    <h3 class="text-base font-semibold pt-2">State-specific notes</h3>
+    <ul class="list-disc pl-5 space-y-2 text-sm">
+      <li>
+        <strong>Andhra Pradesh.</strong> The upstream LGD release bundles
+        pre-2014 (AP + Telangana) <code>ac_no</code> values 1-294 with
+        names that don't 1:1 against the post-2014 AP-only ECI numbering
+        (1-175). yen-gov rewrites the LGD numbering to the post-bifurcation
+        ECI numbering through a name-based reconciliation in the snapshot
+        pipeline, preserving the original LGD identity on each feature.
+      </li>
+      <li>
+        <strong>Assam.</strong> The August 2023 Delimitation Order
+        (S.O. 3553(E)) reshaped all 126 ACs but is published only as a
+        text-only PDF; vectorising it requires manual QGIS work that is
+        deferred to a follow-up. As an interim, the Assam AC map shows
+        each new AC outlined by its <em>parent district</em> polygon
+        (ramSeraph LGD districts release, CC-BY-4.0). The constituency
+        name and the election-result join are correct; only the polygon
+        shape is coarser than the underlying AC cell.
+      </li>
+      <li>
+        <strong>Jammu &amp; Kashmir.</strong> The post-2022 90-AC
+        delimitation has not yet been published by LGD. The map uses
+        <a class="text-sky-700 hover:underline"
+           href="https://github.com/shijithpk/2024_maps_supplement"
+           target="_blank" rel="noreferrer">shijithpk/2024_maps_supplement</a>
+        (Unlicense), georeferenced from the
+        <a class="text-sky-700 hover:underline"
+           href="https://ceojk.nic.in/pdf/J&K%20AC%20map%20new.pdf"
+           target="_blank" rel="noreferrer">J&amp;K CEO official AC map PDF</a>.
+        Property key is <code>seat_id</code> instead of <code>ac_no</code>.
+      </li>
+    </ul>
+    <p class="text-sm pt-2">
+      Found a boundary that looks wrong?
+      <a class="text-sky-700 hover:underline"
+         href="https://github.com/miztiik/yen-gov/issues/new"
+         target="_blank" rel="noreferrer">Open an issue</a>
+      and we will trace it back to the source.
+    </p>
+  </section>
+
   <section id="what-we-dont-do" class="space-y-3 scroll-mt-6">
     <h2 class="text-xl font-semibold border-b border-slate-200 pb-1">What we don't do</h2>
     <ul class="list-disc pl-5 space-y-2 text-sm">

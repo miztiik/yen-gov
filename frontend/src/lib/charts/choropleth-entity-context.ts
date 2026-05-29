@@ -87,7 +87,6 @@ export const INDIA_DISTRICTS: BoundaryEntry = {
   geojson_local_path: "boundaries/in/districts/all.geojson",
   geojson_url: "",
   join_property: "dist_lgd",
-  attribution: INDIA_STATES.attribution,
 };
 
 function projectStateRow(s: StateRow): EntityRow {

@@ -16,7 +16,7 @@
   import maplibregl from "maplibre-gl";
   import "maplibre-gl/dist/maplibre-gl.css";
   import { Protocol } from "pmtiles";
-  import { resolveSource, type BoundaryEntry } from "./sources";
+  import { boundaryFooterHtml, resolveSource, type BoundaryEntry } from "./sources";
   import { diagonalHatch } from "./hatch";
 
   interface FeatureSelection {
@@ -402,13 +402,13 @@
           style,
           attributionControl: {
             compact: true,
-            // Append a single "About these maps" link so the disclaimer lives
-            // alongside the upstream attribution. Previously we rendered a
-            // duplicate top-right badge for the same purpose; merging into
-            // the maplibre control gives one info surface, not two.
-            customAttribution:
-              entry.attribution +
-              ' · <a href="' + (import.meta.env.BASE_URL.replace(/\/$/, "") + "/about?section=maps") + '">About these maps</a>',
+            // Single short footer for every boundary layer (A.3 attribution
+            // centralization per TODO/20260529-boundary-rip-and-replace-
+            // plan.md). The full per-source license + provenance + the
+            // S03 district-fallback caveat now live at /about?section=maps;
+            // the map footer carries only the pointer so the citizen-
+            // facing info pill stays one line on every device.
+            customAttribution: boundaryFooterHtml(import.meta.env.BASE_URL),
           },
           // Bounds get computed from the loaded data on first idle.
           center: [80, 22],

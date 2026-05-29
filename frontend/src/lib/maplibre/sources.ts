@@ -42,8 +42,23 @@ export interface BoundaryEntry {
   geojson_url: string;
   /** Property name on each feature carrying the join key. */
   join_property: string;
-  /** License attribution shown in the map footer. */
-  attribution: string;
+}
+
+// Single citizen-facing footer for ALL boundary layers (A.3 - attribution
+// centralization per TODO/20260529-boundary-rip-and-replace-plan.md).
+//
+// Previously each BoundaryEntry carried a multi-sentence per-source
+// `attribution` HTML string that maplibre rendered into the bottom-right
+// info pill. Long strings (especially the S03 Tier-4 district-fallback
+// caveat) overflowed into the map canvas and read as noise to the
+// citizen. The full per-source licensing + provenance now lives at
+// `/about?section=maps`, and every map renders one short link instead.
+//
+// BASE_URL accommodates GitHub Pages deployment under a sub-path; in
+// dev BASE_URL is `/` so the link resolves to `/about?section=maps`.
+export function boundaryFooterHtml(base_url: string = "/"): string {
+  const base = base_url.replace(/\/$/, "");
+  return `<a href="${base}/about?section=maps">Boundary sources &amp; licensing</a>`;
 }
 
 // India-wide states layer. Property State_LGD = LGD numeric state code
@@ -60,8 +75,6 @@ export const INDIA_STATES: BoundaryEntry = {
   geojson_url:
     "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/states/LGD_States.geojsonl.7z",
   join_property: "State_LGD",
-  attribution:
-    '<a href="https://github.com/ramSeraph/indian_admin_boundaries" target="_blank" rel="noreferrer">ramSeraph LGD-keyed admin boundaries</a> (CC0 1.0; sourced from LGD / BharatMaps)',
 };
 
 // Per-state AC layers. Property `ac_no` (lowercase) = 1-based per-state
@@ -105,8 +118,6 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
-    attribution:
-      '<a href="https://github.com/ramSeraph/indian_admin_boundaries" target="_blank" rel="noreferrer">ramSeraph LGD-keyed admin boundaries</a> (Unlicense; LGD pre-bifurcation ac_no rewritten to post-2014 AP-only ECI numbering via snapshot.py)',
   },
   S22: {
     id: "S22-ac",
@@ -115,8 +126,6 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
-    attribution:
-      '<a href="https://github.com/ramSeraph/indian_admin_boundaries" target="_blank" rel="noreferrer">ramSeraph LGD-keyed admin boundaries</a> (CC0 1.0; sourced from LGD / BharatMaps)',
   },
   S11: {
     id: "S11-ac",
@@ -125,8 +134,6 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
-    attribution:
-      '<a href="https://github.com/ramSeraph/indian_admin_boundaries" target="_blank" rel="noreferrer">ramSeraph LGD-keyed admin boundaries</a> (CC0 1.0; sourced from LGD / BharatMaps)',
   },
   S25: {
     id: "S25-ac",
@@ -135,8 +142,6 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
-    attribution:
-      '<a href="https://github.com/ramSeraph/indian_admin_boundaries" target="_blank" rel="noreferrer">ramSeraph LGD-keyed admin boundaries</a> (CC0 1.0; sourced from LGD / BharatMaps)',
   },
   S03: {
     id: "S03-ac",
@@ -146,8 +151,6 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/districts/LGD_Districts.geojsonl.7z",
     join_property: "ac_no",
-    attribution:
-      'Geometry derived from <a href="https://github.com/ramSeraph/indian_admin_boundaries" target="_blank" rel="noreferrer">ramSeraph LGD districts</a> (CC-BY-4.0) - Tier-4 district-fallback interim per A.1.b (notes/2026-05-29-s03-pdf-probe-verdict.md); each post-2023 AC carries its parent district polygon pending vectorisation of Aug 2023 Delimitation Order PDF (S.O. 3553(E))',
   },
   U07: {
     id: "U07-ac",
@@ -156,8 +159,6 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
-    attribution:
-      '<a href="https://github.com/ramSeraph/indian_admin_boundaries" target="_blank" rel="noreferrer">ramSeraph LGD-keyed admin boundaries</a> (CC0 1.0; sourced from LGD / BharatMaps)',
   },
   // J&K post-2022 delimitation (90 ACs). HTL/datameet still ship the
   // pre-delimitation 87-AC layer for J&K; shijithpk/2024_maps_supplement
@@ -174,8 +175,6 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://raw.githubusercontent.com/shijithpk/2024_maps_supplement/main/j_and_k_assembly_new_borders.geojson",
     join_property: "seat_id",
-    attribution:
-      '<a href="https://github.com/shijithpk/2024_maps_supplement" target="_blank" rel="noreferrer">shijithpk/2024_maps_supplement</a> (Unlicense), georeferenced from the <a href="https://ceojk.nic.in/pdf/J&K%20AC%20map%20new.pdf" target="_blank" rel="noreferrer">J&K CEO official AC map PDF</a>',
   },
 };
 
