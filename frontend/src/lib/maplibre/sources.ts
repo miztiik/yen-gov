@@ -160,6 +160,209 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
   },
+  // A.2 (TODO/20260529-boundary-rip-and-replace-plan.md) - 24 additional
+  // LGD-keyed AC layers covering the remaining states + UTs where the AC
+  // shard exists under datasets/boundaries/in/ac/state=in_<lc>/all.geojson.
+  // All entries below are post-D.7 R1 (PR #431) ramSeraph LGD release;
+  // each feature carries `ac_no` (lowercase) + `State_LGD` per the
+  // snapshot.py normalisation pipeline. No per-state caveat in the label
+  // (none of these needed an A.1.b-style fallback - the LGD slice matched
+  // SoT names within the safety-net threshold). Per A.3, attribution
+  // string is NOT carried on the entry (one citizen footer link applies
+  // to all maps; per-source explanation lives at /about?section=maps).
+  // Listed in numerical state-code order for review-ability.
+  S02: {
+    id: "S02-ac",
+    label: "Arunachal Pradesh - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s02/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S04: {
+    id: "S04-ac",
+    label: "Bihar - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s04/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S05: {
+    id: "S05-ac",
+    label: "Goa - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s05/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S06: {
+    id: "S06-ac",
+    label: "Gujarat - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s06/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S07: {
+    id: "S07-ac",
+    label: "Haryana - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s07/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S08: {
+    id: "S08-ac",
+    label: "Himachal Pradesh - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s08/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S10: {
+    id: "S10-ac",
+    label: "Karnataka - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s10/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S12: {
+    id: "S12-ac",
+    label: "Madhya Pradesh - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s12/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S13: {
+    id: "S13-ac",
+    label: "Maharashtra - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s13/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S14: {
+    id: "S14-ac",
+    label: "Manipur - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s14/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S15: {
+    id: "S15-ac",
+    label: "Meghalaya - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s15/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S16: {
+    id: "S16-ac",
+    label: "Mizoram - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s16/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S17: {
+    id: "S17-ac",
+    label: "Nagaland - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s17/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S18: {
+    id: "S18-ac",
+    label: "Odisha - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s18/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S19: {
+    id: "S19-ac",
+    label: "Punjab - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s19/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S20: {
+    id: "S20-ac",
+    label: "Rajasthan - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s20/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S21: {
+    id: "S21-ac",
+    label: "Sikkim - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s21/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S23: {
+    id: "S23-ac",
+    label: "Tripura - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s23/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S24: {
+    id: "S24-ac",
+    label: "Uttar Pradesh - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s24/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S26: {
+    id: "S26-ac",
+    label: "Chhattisgarh - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s26/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S27: {
+    id: "S27-ac",
+    label: "Jharkhand - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s27/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S28: {
+    id: "S28-ac",
+    label: "Uttarakhand - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s28/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  S29: {
+    id: "S29-ac",
+    label: "Telangana - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_s29/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
+  U05: {
+    id: "U05-ac",
+    label: "NCT of Delhi - Assembly constituencies",
+    geojson_local_path: "boundaries/in/ac/state=in_u05/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+  },
   // J&K post-2022 delimitation (90 ACs). HTL/datameet still ship the
   // pre-delimitation 87-AC layer for J&K; shijithpk/2024_maps_supplement
   // georeferenced the J&K CEO official AC map PDF + an NIC map server into
