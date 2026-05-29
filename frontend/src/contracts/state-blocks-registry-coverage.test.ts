@@ -10,20 +10,22 @@
 // (the citizen sees a blank map). If a registry entry points at a
 // missing shard, the network request 404s.
 //
-// This is the C.1.b contract test
+// This is the C.1.b + C.1.c contract test
 // (TODO/20260529-boundary-rip-and-replace-plan.md) - it locks in the
-// 35-shard / 35-entry registry sync that C.1.b ships, and prevents
-// future PRs from drifting either direction.
+// 36-shard / 36-entry registry sync (full elective-state coverage)
+// and prevents future PRs from drifting either direction.
 //
-// Documented carve-out: S24 (Uttar Pradesh) is intentionally NOT in
-// the on-disk corpus or the registry. UP's block shard at the standard
-// coord_precision=3 renders to 12.8 MB - 7% over the 12 MB
-// SNAPSHOT_BYTE_BUDGET. Per the established precedent
-// (lift_villages_national.py + lift_subdistricts_national.py both SKIP
-// oversized state shards rather than degrade precision per-state), UP
-// is deferred to C.1.c follow-up. This test asserts S24 is absent on
-// BOTH sides; a future PR that lands C.1.c will replace these
-// assertions with the unconditional "exists on both sides" rules.
+// S24 (Uttar Pradesh) was a documented C.1.b carve-out (block shard
+// 12.8 MB > 12 MB SNAPSHOT_BYTE_BUDGET at coord_precision=3). C.1.c
+// landed the lift script's auto-fallback path: when a bucket exceeds
+// the budget at the default precision, the script re-emits at the
+// next coarser precision (coord_precision=2, ~1.1 km) before SKIP.
+// UP now lands at ~2.2 MB / 822 features with simplification_tolerance_deg=0.01
+// (recorded on the boundary_layers.parquet row). The fallback is
+// uniform script behaviour, NOT per-state hand-coded config, so
+// renderer-side heterogeneity is invisible (join_property is the LGD
+// id; vertex count only affects edge precision invisible at
+// choropleth zoom 6-10 for typical block size 10-50 km).
 //
 // Per-entry shape assertions (post-A.3 BoundaryEntry):
 //   - id matches "<CODE>-block"
@@ -61,12 +63,13 @@ const shardCodes = discoverShards();
 const registryCodes = Object.keys(BLOCK_BOUNDARY).sort();
 
 describe("BLOCK_BOUNDARY registry covers every on-disk block shard", () => {
-  it("discovers at least 35 on-disk block shards", () => {
-    // Sanity floor: post-C.1.b the corpus carries 35 block shards
-    // (one per state/UT that ramSeraph LGD_Blocks attributes, minus
-    // S24 deferred to C.1.c). If this drops below 35, an earlier PR
-    // has retired shards without updating the registry contract.
-    expect(shardCodes.length).toBeGreaterThanOrEqual(35);
+  it("discovers at least 36 on-disk block shards", () => {
+    // Sanity floor: post-C.1.c the corpus carries 36 block shards
+    // (one per state/UT that ramSeraph LGD_Blocks attributes; full
+    // elective coverage achieved by the lift script's coord_precision
+    // auto-fallback). If this drops below 36, an earlier PR has
+    // retired shards without updating the registry contract.
+    expect(shardCodes.length).toBeGreaterThanOrEqual(36);
   });
 
   it("registry entry exists for every on-disk shard", () => {
@@ -79,16 +82,16 @@ describe("BLOCK_BOUNDARY registry covers every on-disk block shard", () => {
     expect(orphans).toEqual([]);
   });
 
-  it("S24 (Uttar Pradesh) is absent from BOTH disk and registry (C.1.c follow-up)", () => {
-    // Documented C.1.b carve-out: UP block shard exceeds the 12 MB
-    // SNAPSHOT_BYTE_BUDGET at coord_precision=3 and is skipped by
-    // tools/boundaries/lift_blocks_national.py. The registry must
-    // NOT carry a stale S24 entry pointing at a missing snapshot.
-    // When C.1.c lands (per-state coord_precision override OR
-    // Douglas-Peucker simplification), DELETE this assertion and
-    // verify S24 appears on both sides.
-    expect(shardCodes).not.toContain("S24");
-    expect(registryCodes).not.toContain("S24");
+  it("S24 (Uttar Pradesh) is present on BOTH disk and registry (C.1.c)", () => {
+    // C.1.c landed the lift script's auto-fallback: S24's shard is
+    // emitted at coord_precision=2 (~1.1 km / 2.2 MB / 822 features)
+    // when the default precision exceeds the 12 MB budget. This
+    // assertion is the symmetric replacement for the C.1.b
+    // "S24 absent from both" carve-out and locks in full elective
+    // coverage. Any future budget regression that re-trips SKIP
+    // would FAIL this test.
+    expect(shardCodes).toContain("S24");
+    expect(registryCodes).toContain("S24");
   });
 });
 

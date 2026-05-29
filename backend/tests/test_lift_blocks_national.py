@@ -267,3 +267,133 @@ def test_remove_stale_shards_deletes_only_non_keep_paths(
 def test_remove_stale_shards_handles_missing_dir(tmp_path: Path, lift_module: Any) -> None:
     """No-op when the directory doesn't exist."""
     assert lift_module.remove_stale_shards(tmp_path / "nope", set()) == 0
+
+
+# ---------------------------------------------------------------------
+# C.1.c auto-fallback path: over-budget bucket re-emits at coarser
+# precision before SKIP. Asserts (a) the row's simplification_tolerance_deg
+# reflects the fallback precision, (b) the shard size is smaller after
+# fallback than at default precision, (c) the fallback log line names
+# the state and precision.
+# ---------------------------------------------------------------------
+
+
+def test_lift_auto_fallback_when_bucket_exceeds_budget(
+    tmp_path: Path,
+    lift_module: Any,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    """When a per-state shard exceeds SNAPSHOT_BYTE_BUDGET at the
+    default coord_precision, the lift script must re-emit the bucket
+    at the next coarser precision (coord_precision - 1) before falling
+    through to SKIP. The resulting BoundaryLayerRow carries the
+    fallback tolerance and the shard exists on disk.
+    """
+    # Build a many-vertex polygon with long-decimal coordinates so
+    # precision=3 -> precision=2 rounding produces a meaningful byte-size
+    # delta (precision=3 keeps ~7-char coords; precision=2 keeps ~5-char
+    # coords; both run through identical JSON structure overhead so the
+    # delta scales with vertex count).
+    long_ring = [[80.1234567 + i * 0.0001, 13.1234567 + i * 0.0001] for i in range(200)]
+    long_ring.append(long_ring[0])  # close ring
+    feat = {
+        "type": "Feature",
+        "properties": {
+            "block_lgd": 100,
+            "block_name": "BigBlock",
+            "state_lgd": 33,
+            "stname": "TEST",
+            "dist_lgd": 999,
+            "dtname": "TestDist",
+            "sdname": "TestSubdist",
+            "sd_lgd": 998,
+        },
+        "geometry": {"type": "Polygon", "coordinates": [long_ring]},
+    }
+
+    datasets_root = tmp_path / "datasets"
+    geojsonl = tmp_path / "raw" / "LGD_Blocks.geojsonl"
+    _write_geojsonl(geojsonl, [feat])
+    mapping = {33: "S22"}
+
+    # First lift at default precision to measure the byte size.
+    rows_p3 = lift_module.lift_blocks_to_per_state_shards(
+        geojsonl, mapping, datasets_root, coord_precision=3,
+    )
+    p3_size = rows_p3[0].size_bytes
+
+    # Second lift at fallback precision to measure that size.
+    rows_p2 = lift_module.lift_blocks_to_per_state_shards(
+        geojsonl, mapping, tmp_path / "datasets_p2", coord_precision=2,
+    )
+    p2_size = rows_p2[0].size_bytes
+    # Sanity: precision=2 must produce a strictly smaller shard than
+    # precision=3 for this fixture; if not, the polygon is too small
+    # to exercise the fallback path.
+    assert p2_size < p3_size, (
+        f"fixture too small to exercise fallback: p3={p3_size}, p2={p2_size}"
+    )
+
+    # Set budget to a value strictly between p2 and p3 sizes so:
+    #   - default precision=3 emit trips the breach,
+    #   - fallback precision=2 emit fits and ships.
+    monkeypatch.setattr(
+        lift_module, "SNAPSHOT_BYTE_BUDGET", (p3_size + p2_size) // 2,
+    )
+
+    rows = lift_module.lift_blocks_to_per_state_shards(
+        geojsonl, mapping, tmp_path / "datasets_fb", coord_precision=3,
+    )
+
+    # Exactly one row emitted (fallback succeeded; no SKIP).
+    assert len(rows) == 1
+    row = rows[0]
+    assert row.entity_state == "S22"
+    # Fallback precision = 3 - 1 = 2; tolerance = 10**-2 = 0.01.
+    assert row.simplification_tolerance_deg == 10**-2
+    # Shard exists on disk.
+    assert (tmp_path / "datasets_fb" / row.partition_path).is_file()
+
+    # Log line names the fallback transition.
+    captured = capsys.readouterr()
+    assert "fallback to precision=2" in captured.out
+    assert "S22" in captured.out
+
+
+def test_lift_skips_when_even_fallback_precision_exceeds_budget(
+    tmp_path: Path,
+    lift_module: Any,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    """When even coord_precision=2 fails the budget gate, the lift
+    falls through to the existing SKIP branch: no row emitted, shard
+    unlinked, parent state=in_<lc>/ dir rmdir'd.
+    """
+    # Budget = 1 byte; even an empty-ish FeatureCollection exceeds it.
+    monkeypatch.setattr(lift_module, "SNAPSHOT_BYTE_BUDGET", 1)
+
+    datasets_root = tmp_path / "datasets"
+    geojsonl = tmp_path / "raw" / "LGD_Blocks.geojsonl"
+    feats = [_feature(33, 100, "Chennai-Block")]
+    _write_geojsonl(geojsonl, feats)
+    mapping = {33: "S22"}
+
+    rows = lift_module.lift_blocks_to_per_state_shards(
+        geojsonl, mapping, datasets_root, coord_precision=3,
+    )
+
+    # No row emitted; shard + empty parent dir cleaned up.
+    assert rows == []
+    shard = datasets_root / "boundaries" / "in" / "blocks" / "state=in_s22" / "all.geojson"
+    assert not shard.exists()
+    assert not shard.parent.exists()
+
+    captured = capsys.readouterr()
+    # Both the fallback-attempt line AND the eventual SKIP line should
+    # appear, in that order, so a future operator reading logs sees the
+    # full escalation trail.
+    assert "fallback to precision=2" in captured.out
+    assert "even at precision=2" in captured.out
+
