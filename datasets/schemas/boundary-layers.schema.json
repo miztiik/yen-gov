@@ -3,7 +3,7 @@
   "$id": "./boundary-layers.schema.json",
   "title": "Boundary layers control table",
   "description": "Canonical control table for every boundary geometry shard on disk under datasets/boundaries/. One row per (level, partition) — e.g. one row for the national states outline, one row per state's AC layer, one row per (state, district) village shard. Replaces the per-file .sources.json + .metadata.json + .unkeyed.json + per-state -index.json sidecars that pre-dated T.0d (115 files retired in the T.0d fused atomic commit). FK source_id resolves to taxonomy/sources.parquet (citation triple per ADR-0032 §12 v2.0). Authored shape JSON (D18 — this schema documents the parquet column contract; the parquet itself is COMPILED by tools/boundaries/snapshot.py which calls boundary_layers_seed.compile_to_parquet, not hand-authored). Hive-partitioned discovery path matches elections/state=in_<S>/... grammar (T.0d §1). Amends ADR-0031 (Status: Accepted → Amended 2026-05-22).",
-  "x-version": "1.2",
+  "x-version": "1.3",
   "x-changelog": [
     {
       "version": "1.0",
@@ -19,6 +19,11 @@
       "version": "1.2",
       "date": "2026-05-29",
       "description": "Add 'block' to the level enum. Phase C.1 of TODO/20260529-boundary-rip-and-replace-plan.md introduces the LGD Development Block admin tier (~7,323 features across India, sourced from ramSeraph LGD_Blocks.geojsonl.7z, BharatMaps/LGD lineage). Block is a SEPARATE admin tier from subdistrict per LGD (7,323 Blocks vs 7,090 Sub-Districts; yen-gov already ships subdistricts via lift_subdistricts_national.py). Required for rural-development indicators (PMGSY, MGNREGA) that bind at block granularity. Additive: existing rows with level in the 1.1 enum continue to validate; new lift writes rows with level='block'. Per-state Hive partitions live under boundaries/in/blocks/state=in_<lc>/all.geojson, mirroring the subdistricts layout. Recon verdict + 6-step implementation plan at notes/2026-05-29-c1-blocks-source-hunt-verdict.md."
+    },
+    {
+      "version": "1.3",
+      "date": "2026-05-30",
+      "description": "Add 'panchayat' to the level enum. Phase C.2 of TODO/20260529-boundary-rip-and-replace-plan.md introduces the LGD Gram Panchayat admin tier (~255,304 features per LGD Directory; ~225-245k emitted actually due to ~9-state coverage gap in HP/J&K/Sikkim/NE; sourced from ramSeraph LGD_panchayats.geojsonl.7z, BharatMaps/LGD lineage). Gram Panchayat is the lowest formal LGD admin tier above the village (a GP aggregates 5-30 revenue villages). Required for any indicator that binds at panchayat granularity (15th Finance Commission GP grants, SBM-G, MGNREGA panchayat-rolls). Additive: existing rows with level in the 1.2 enum continue to validate; new lift writes rows with level='panchayat'. Per-(state, district) Hive partitions live under boundaries/in/panchayats/state=in_<lc>/district=<lgd>/all.geojson, mirroring the villages layout (nested district-keyed because per-state GP counts (300-2500 polygons/state) would blow the 12 MB shard budget for any high-density state). Recon verdict + 10-step implementation plan at notes/2026-05-30-c2-panchayats-source-hunt-verdict.md."
     }
   ],
   "type": "object",
@@ -52,8 +57,8 @@
             "description": "PK. Dot-separated handle derived from partition_path; e.g. 'boundaries.in.states' for the national outline, 'boundaries.in.ac.state=in_s22' for TN ACs, 'boundaries.in.villages.state=in_s22.district=603' for a per-district village shard. Stable across rebuilds; the renderer + manifest.json table_id column both key on this."
           },
           "level": {
-            "enum": ["country", "state", "district", "ac", "pc", "subdistrict", "block", "village", "postal"],
-            "description": "Admin-spine level per T.0d §1. country = national outline; state = state polygon; district = LGD district carve-outs; ac/pc = ECI assembly/parliamentary constituencies; subdistrict = LGD subdistrict; block = LGD Development Block (separate LGD tier from subdistrict — 7,323 Blocks vs 7,090 Sub-Districts; binds PMGSY / MGNREGA rural-development indicators per Phase C.1 of TODO/20260529-boundary-rip-and-replace-plan.md); village = LGD village; postal = pincode (orthogonal — NOT in the LGD admin spine; sits as a peer alongside the admin levels per ADR-0031)."
+            "enum": ["country", "state", "district", "ac", "pc", "subdistrict", "block", "panchayat", "village", "postal"],
+            "description": "Admin-spine level per T.0d §1. country = national outline; state = state polygon; district = LGD district carve-outs; ac/pc = ECI assembly/parliamentary constituencies; subdistrict = LGD subdistrict; block = LGD Development Block (separate LGD tier from subdistrict — 7,323 Blocks vs 7,090 Sub-Districts; binds PMGSY / MGNREGA rural-development indicators per Phase C.1 of TODO/20260529-boundary-rip-and-replace-plan.md); panchayat = LGD Gram Panchayat (~255k features, aggregates 5-30 revenue villages; binds 15th Finance Commission GP grants + SBM-G + MGNREGA panchayat-rolls per Phase C.2 of the same plan); village = LGD village; postal = pincode (orthogonal — NOT in the LGD admin spine; sits as a peer alongside the admin levels per ADR-0031)."
           },
           "entity_state": {
             "type": ["string", "null"],

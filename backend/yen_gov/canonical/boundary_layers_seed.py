@@ -88,6 +88,7 @@ Level = Literal[
     "pc",
     "subdistrict",
     "block",
+    "panchayat",
     "village",
     "postal",
 ]
