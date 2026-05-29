@@ -38,6 +38,7 @@ Kind = Literal[
     "ac",
     "pc",
     "subdistricts",
+    "blocks",
     "villages",
     "postal",
 ]
@@ -49,6 +50,7 @@ Level = Literal[
     "ac",
     "pc",
     "subdistrict",
+    "block",
     "village",
     "postal",
 ]
@@ -60,6 +62,7 @@ KIND_TO_LEVEL: dict[Kind, Level] = {
     "ac": "ac",
     "pc": "pc",
     "subdistricts": "subdistrict",
+    "blocks": "block",
     "villages": "village",
     "postal": "postal",
 }

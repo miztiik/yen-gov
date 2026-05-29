@@ -3,7 +3,7 @@
   "$id": "./boundary-layers.schema.json",
   "title": "Boundary layers control table",
   "description": "Canonical control table for every boundary geometry shard on disk under datasets/boundaries/. One row per (level, partition) — e.g. one row for the national states outline, one row per state's AC layer, one row per (state, district) village shard. Replaces the per-file .sources.json + .metadata.json + .unkeyed.json + per-state -index.json sidecars that pre-dated T.0d (115 files retired in the T.0d fused atomic commit). FK source_id resolves to taxonomy/sources.parquet (citation triple per ADR-0032 §12 v2.0). Authored shape JSON (D18 — this schema documents the parquet column contract; the parquet itself is COMPILED by tools/boundaries/snapshot.py which calls boundary_layers_seed.compile_to_parquet, not hand-authored). Hive-partitioned discovery path matches elections/state=in_<S>/... grammar (T.0d §1). Amends ADR-0031 (Status: Accepted → Amended 2026-05-22).",
-  "x-version": "1.1",
+  "x-version": "1.2",
   "x-changelog": [
     {
       "version": "1.0",
@@ -14,6 +14,11 @@
       "version": "1.1",
       "date": "2026-05-24",
       "description": "Add optional nullable `delimitation_vintage` column to the per-layer row shape (4-digit year string e.g. '2024', '2008'). Required for electoral-constituency layers (level='ac' or 'pc') to disambiguate which Delimitation Commission Order the geometry reflects; pre-2008 elections need pre-Delim boundaries, 2009–2024 elections use the 2008 Delim with state-specific overrides (J&K 2022, Assam 2023). Null for non-electoral layers (country/state/district/subdistrict/village/postal). This enables Hive-partitioning by `delim=<year>` under `boundaries/in/<level>/delim=<year>/...` so pre-2019 LS data can coexist with the 2024-Delim PC layer without overwriting; the partition segment matches the existing layer_id grammar regex without further change. Additive: existing rows get null; no migration needed. Lands in the same commit as the first PC layer ingest (shijithpk/2024_maps_supplement, georeferenced from ECI Press Note No. 23)."
+    },
+    {
+      "version": "1.2",
+      "date": "2026-05-29",
+      "description": "Add 'block' to the level enum. Phase C.1 of TODO/20260529-boundary-rip-and-replace-plan.md introduces the LGD Development Block admin tier (~7,323 features across India, sourced from ramSeraph LGD_Blocks.geojsonl.7z, BharatMaps/LGD lineage). Block is a SEPARATE admin tier from subdistrict per LGD (7,323 Blocks vs 7,090 Sub-Districts; yen-gov already ships subdistricts via lift_subdistricts_national.py). Required for rural-development indicators (PMGSY, MGNREGA) that bind at block granularity. Additive: existing rows with level in the 1.1 enum continue to validate; new lift writes rows with level='block'. Per-state Hive partitions live under boundaries/in/blocks/state=in_<lc>/all.geojson, mirroring the subdistricts layout. Recon verdict + 6-step implementation plan at notes/2026-05-29-c1-blocks-source-hunt-verdict.md."
     }
   ],
   "type": "object",
@@ -47,8 +52,8 @@
             "description": "PK. Dot-separated handle derived from partition_path; e.g. 'boundaries.in.states' for the national outline, 'boundaries.in.ac.state=in_s22' for TN ACs, 'boundaries.in.villages.state=in_s22.district=603' for a per-district village shard. Stable across rebuilds; the renderer + manifest.json table_id column both key on this."
           },
           "level": {
-            "enum": ["country", "state", "district", "ac", "pc", "subdistrict", "village", "postal"],
-            "description": "Admin-spine level per T.0d §1. country = national outline; state = state polygon; district = LGD district carve-outs; ac/pc = ECI assembly/parliamentary constituencies; subdistrict = LGD subdistrict; village = LGD village; postal = pincode (orthogonal — NOT in the LGD admin spine; sits as a peer alongside the admin levels per ADR-0031)."
+            "enum": ["country", "state", "district", "ac", "pc", "subdistrict", "block", "village", "postal"],
+            "description": "Admin-spine level per T.0d §1. country = national outline; state = state polygon; district = LGD district carve-outs; ac/pc = ECI assembly/parliamentary constituencies; subdistrict = LGD subdistrict; block = LGD Development Block (separate LGD tier from subdistrict — 7,323 Blocks vs 7,090 Sub-Districts; binds PMGSY / MGNREGA rural-development indicators per Phase C.1 of TODO/20260529-boundary-rip-and-replace-plan.md); village = LGD village; postal = pincode (orthogonal — NOT in the LGD admin spine; sits as a peer alongside the admin levels per ADR-0031)."
           },
           "entity_state": {
             "type": ["string", "null"],
