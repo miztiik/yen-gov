@@ -37,6 +37,12 @@ const HIVE_SHAPES: { kind: string; pattern: RegExp }[] = [
   { kind: "states", pattern: /^states\/all\.geojson$/ },
   { kind: "districts", pattern: /^districts\/all\.geojson$/ },
   { kind: "subdistricts", pattern: /^subdistricts\/state=in_[a-z0-9]+\/all\.geojson$/ },
+  // Development Blocks (LGD lineage). Per-state shards under the same
+  // Hive layout as subdistricts. Shipped via C.1.b (TODO/20260529-
+  // boundary-rip-and-replace-plan.md); registry lives in
+  // `maplibre/sources.ts:BLOCK_BOUNDARY`. UP currently absent (12.8 MB
+  // shard exceeds 12 MB budget; deferred to C.1.c).
+  { kind: "blocks", pattern: /^blocks\/state=in_[a-z0-9]+\/all\.geojson$/ },
   { kind: "villages", pattern: /^villages\/state=in_[a-z0-9]+\/district=\d+\/all\.geojson$/ },
   // Assembly Constituencies (ECI/HTL lineage). Per-state shards under the
   // same Hive layout as subdistricts. Owned by `maplibre/sources.ts`, not
