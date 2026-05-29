@@ -1,5 +1,7 @@
 # S01 Andhra Pradesh post-2014 AC source hunt verdict
 
+> **CORRECTION 2026-05-29**: The bottom line below is INCORRECT. First-pass execution of Phase A.1 against this verdict re-probed the upstream Susewind 2014 release and found the actual property keys / feature count / sample names do NOT match the claims below. The Susewind 2014 file ships 4076 all-India features under lowercase `state` / `pc` / `pc_name` / `ac` / `ac_name` keys; the AP slice (`state=='Andhra Pradesh'`) contains 292 features in legacy pre-bifurcation unified AP+TG numbering, NOT a clean post-bifurcation 175-AC AP slice. The recommended actionable Tier-1 source is the LGD release with `(State_LGD=28 AND st_name='ANDHRA PRADESH')` filter + name-based `ac_no` rewrite (100% SoT name parity after filtering). See `notes/2026-05-29-phase-b-verdict-correction.md` for full probe transcript and the corrected A.1.a actionable verdict. The content below is left in place for historical traceability only.
+
 **Last Updated**: 2026-05-29
 **Dispatched by**: PR Layer-0 of TODO/20260529-boundary-rip-and-replace-plan.md (Phase B.1)
 **Author**: Explore subagent
