@@ -39,6 +39,7 @@ Kind = Literal[
     "pc",
     "subdistricts",
     "blocks",
+    "panchayats",
     "villages",
     "postal",
 ]
@@ -51,6 +52,7 @@ Level = Literal[
     "pc",
     "subdistrict",
     "block",
+    "panchayat",
     "village",
     "postal",
 ]
@@ -63,6 +65,7 @@ KIND_TO_LEVEL: dict[Kind, Level] = {
     "pc": "pc",
     "subdistricts": "subdistrict",
     "blocks": "block",
+    "panchayats": "panchayat",
     "villages": "village",
     "postal": "postal",
 }
@@ -89,8 +92,8 @@ def derive_hive(
             still nest below it.
         state: ECI state code (``S22``, ``U08``); lowercased + prefixed
             with ``in_`` for the Hive key (``state=in_s22``).
-        district_lgd: LGD district code as digit string (``603``); only
-            valid when ``kind == "villages"`` today.
+        district_lgd: LGD district code as digit string (``603``); valid
+            for nested per-district layers (``kind in {"villages", "panchayats"}``).
         ext: file extension (``geojson`` or ``pmtiles``).
 
     Returns:
