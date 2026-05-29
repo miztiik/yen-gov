@@ -1,5 +1,7 @@
 # S03 Assam post-2023 AC source hunt verdict
 
+> **CORRECTION 2026-05-29**: The bottom line below is INCORRECT. First-pass execution of Phase A.1 against this verdict re-probed the upstream LGD release and found the State_LGD=18 slice ships 134 features (not 126) with `status: "Pre delimitation"` declared on 133 of them. The release is unambiguously PRE-2023 delim. Name overlap to the post-2023 SoT (126 constituencies) is only 80/126 = 63.5% because the 2023 delimitation involved genuine constituency mergers / splits / renames; the geometry has been redrawn, not just renumbered. LGD pre-2023 boundaries CANNOT be remapped to post-2023 SoT IDs via name lookup. Tier-1 is EXHAUSTED for S03; user decision needed on Tier 2 (Voronoi) vs Tier 3 (PDF digitization) vs Tier 4 (district fallback interim). See `notes/2026-05-29-phase-b-verdict-correction.md` for full probe transcript and the corrected A.1.b decision tree. The content below is left in place for historical traceability only.
+
 **Last Updated**: 2026-05-29
 **Dispatched by**: Explore subagent for PR Layer-0 of TODO/20260529-boundary-rip-and-replace-plan.md (Phase B.2)
 **Author**: Explore mode codebase search
