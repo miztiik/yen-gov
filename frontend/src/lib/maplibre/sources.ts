@@ -393,21 +393,19 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
 //
 // Per A.3, no per-entry attribution field (single citizen footer link
 // via boundaryFooterHtml(); per-source explanation lives at
-// /about?section=maps). All 35 entries use the same upstream URL: the
+// /about?section=maps). All 36 entries use the same upstream URL: the
 // frontend reads the local snapshot via `geojson_local_path` first and
 // only falls back to `geojson_url` when the snapshot is absent.
 //
-// Coverage gap: S24 (Uttar Pradesh) is NOT in this registry. UP has
-// 826 blocks; at the standard coord_precision=3 the per-state shard
-// renders to 12.8 MB - 7% over the 12 MB SNAPSHOT_BYTE_BUDGET enforced
-// by tools/boundaries/snapshot.py. Per the established precedent
-// (lift_villages_national.py + lift_subdistricts_national.py both SKIP
-// oversized state shards rather than degrade precision per-state), UP
-// is deferred to C.1.c (per-state coord_precision override OR
-// upstream Douglas-Peucker simplification via tools/boundaries/
-// simplify.py). The citizen-visible behaviour on /s/uttar-pradesh
-// block-grain pages is "block layer unavailable for this state" until
-// C.1.c lands.
+// Coverage: 36 of 36 elective states/UTs. S24 (Uttar Pradesh) requires
+// the lift script's auto-fallback path (C.1.c): at the standard
+// coord_precision=3 the per-state shard renders to 12.8 MB - 7% over
+// the 12 MB SNAPSHOT_BYTE_BUDGET; the lift drops S24 to
+// coord_precision=2 (~1.1 km) before SKIP, landing the shard at
+// ~2.2 MB / 822 features. The fallback is uniform script behaviour
+// (NOT per-state config), recorded in
+// datasets/boundaries/boundary_layers.parquet as
+// simplification_tolerance_deg per row.
 export const BLOCK_BOUNDARY: Record<string, BoundaryEntry> = {
   S01: {
     id: "S01-block",
@@ -585,9 +583,25 @@ export const BLOCK_BOUNDARY: Record<string, BoundaryEntry> = {
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
     join_property: "block_lgd",
   },
-  // S24 (Uttar Pradesh) deferred to C.1.c - shard 12.8 MB > 12 MB
-  // SNAPSHOT_BYTE_BUDGET at coord_precision=3 (matches villages /
-  // subdistricts SKIP-on-budget precedent).
+  // S24 (Uttar Pradesh): block shard exceeds the 12 MB
+  // SNAPSHOT_BYTE_BUDGET at the standard coord_precision=3 (~12.8 MB).
+  // The lift script's auto-fallback (C.1.c) re-emits the over-budget
+  // bucket at coord_precision=2 (~1.1 km) before SKIP; this lands UP
+  // blocks at ~2.2 MB / 822 features. Precision heterogeneity is
+  // invisible at choropleth zoom 6-10 (typical block size 10-50 km),
+  // and the join_property remains the LGD id regardless of vertex
+  // count, so no renderer-side special-case is needed. The actual
+  // precision used per shard is recorded in
+  // datasets/boundaries/boundary_layers.parquet
+  // (simplification_tolerance_deg: 0.01 for S24, 0.001 elsewhere).
+  S24: {
+    id: "S24-block",
+    label: "Uttar Pradesh - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s24/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
   S25: {
     id: "S25-block",
     label: "West Bengal - Development Blocks",

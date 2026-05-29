@@ -249,22 +249,54 @@ def lift_blocks_to_per_state_shards(
         shard_path = datasets_root / partition_path
         emit_feature_collection(shard_path, bucket_sorted)
         size = shard_path.stat().st_size
+        used_precision = coord_precision
+        used_tol = simpl_tol
         if size > SNAPSHOT_BYTE_BUDGET:
-            shard_path.unlink()
-            # Also remove the now-empty state=in_<lc>/ directory so it
-            # doesn't show up as an empty dir in `git status` after a
-            # SKIP. The parent of the parent (boundaries/in/blocks/)
-            # is intentionally preserved.
-            try:
-                shard_path.parent.rmdir()
-            except OSError:
-                pass
+            # Auto-fallback: re-emit the over-budget bucket at the next
+            # coarser precision (`coord_precision - 1`) before giving up.
+            # Mirrors the districts entry's coord_precision=2 (~1.1 km)
+            # pattern documented in pipeline.json. This is a *uniform
+            # rule applied by the script*, NOT a per-state hand-coded
+            # carve-out, so renderer-side heterogeneity is invisible
+            # (join_property is the LGD id, vertex precision only
+            # affects edge vertex count which is invisible at choropleth
+            # zoom 6-10 for typical block size 10-50 km).
+            fallback_precision = coord_precision - 1
+            fallback_tol = 10**-fallback_precision
+            for feat in bucket_sorted:
+                if feat.get("geometry"):
+                    feat["geometry"] = _round_coords_geom(
+                        feat["geometry"], fallback_precision
+                    )
+            emit_feature_collection(shard_path, bucket_sorted)
+            size = shard_path.stat().st_size
+            used_precision = fallback_precision
+            used_tol = fallback_tol
             print(
-                f"    {eci} (lgd={lgd:>3}): shard {size / 1024 / 1024:.1f} MB "
-                f"exceeds {SNAPSHOT_BYTE_BUDGET / 1024 / 1024:.0f} MB budget - SKIP",
+                f"    {eci} (lgd={lgd:>3}): over budget at "
+                f"precision={coord_precision}; fallback to "
+                f"precision={fallback_precision} -> "
+                f"{size / 1024:>7.0f} KB",
                 flush=True,
             )
-            continue
+            if size > SNAPSHOT_BYTE_BUDGET:
+                shard_path.unlink()
+                # Also remove the now-empty state=in_<lc>/ directory so
+                # it doesn't show up as an empty dir in `git status`
+                # after a SKIP. The parent of the parent
+                # (boundaries/in/blocks/) is intentionally preserved.
+                try:
+                    shard_path.parent.rmdir()
+                except OSError:
+                    pass
+                print(
+                    f"    {eci} (lgd={lgd:>3}): even at "
+                    f"precision={fallback_precision} shard "
+                    f"{size / 1024 / 1024:.1f} MB exceeds "
+                    f"{SNAPSHOT_BYTE_BUDGET / 1024 / 1024:.0f} MB budget - SKIP",
+                    flush=True,
+                )
+                continue
         retained = len(bucket_sorted)
         rows.append(
             BoundaryLayerRow(
@@ -280,12 +312,13 @@ def lift_blocks_to_per_state_shards(
                 source_id=RAMSERAPH_SOURCE_ID,
                 entity_state=eci,
                 simplification_algorithm="coord-precision-round",
-                simplification_tolerance_deg=simpl_tol,
+                simplification_tolerance_deg=used_tol,
             )
         )
         print(
             f"    {eci} (lgd={lgd:>3}): {retained:>5} features, "
-            f"{size / 1024:>7.0f} KB",
+            f"{size / 1024:>7.0f} KB"
+            + (f" (precision={used_precision})" if used_precision != coord_precision else ""),
             flush=True,
         )
 
