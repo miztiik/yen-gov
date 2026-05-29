@@ -478,7 +478,6 @@
       geojson_local_path: `boundaries/in/${relpath}`,
       geojson_url: "",
       join_property,
-      attribution: INDIA_STATES.attribution,
     };
   }
 
