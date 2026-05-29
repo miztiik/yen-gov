@@ -381,6 +381,319 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   },
 };
 
+// Per-state Development Block layers (the third LGD admin tier, between
+// subdistricts and panchayats). Property `block_lgd` (lowercase numeric
+// LGD code) joins to taxonomy.entities.lgd_code at the block grain.
+// Shipped via C.1.b (TODO/20260529-boundary-rip-and-replace-plan.md) -
+// 35 state shards derived from ramSeraph's LGD_Blocks national geojsonl
+// release (7,146 blocks total nationally; 670 features dropped without a
+// state_lgd attribution). Lift pipeline: tools/boundaries/
+// lift_blocks_national.py -> emits per-state Hive-partitioned GeoJSON
+// FeatureCollections + upserts boundary_layers.parquet rows.
+//
+// Per A.3, no per-entry attribution field (single citizen footer link
+// via boundaryFooterHtml(); per-source explanation lives at
+// /about?section=maps). All 35 entries use the same upstream URL: the
+// frontend reads the local snapshot via `geojson_local_path` first and
+// only falls back to `geojson_url` when the snapshot is absent.
+//
+// Coverage gap: S24 (Uttar Pradesh) is NOT in this registry. UP has
+// 826 blocks; at the standard coord_precision=3 the per-state shard
+// renders to 12.8 MB - 7% over the 12 MB SNAPSHOT_BYTE_BUDGET enforced
+// by tools/boundaries/snapshot.py. Per the established precedent
+// (lift_villages_national.py + lift_subdistricts_national.py both SKIP
+// oversized state shards rather than degrade precision per-state), UP
+// is deferred to C.1.c (per-state coord_precision override OR
+// upstream Douglas-Peucker simplification via tools/boundaries/
+// simplify.py). The citizen-visible behaviour on /s/uttar-pradesh
+// block-grain pages is "block layer unavailable for this state" until
+// C.1.c lands.
+export const BLOCK_BOUNDARY: Record<string, BoundaryEntry> = {
+  S01: {
+    id: "S01-block",
+    label: "Andhra Pradesh - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s01/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S02: {
+    id: "S02-block",
+    label: "Arunachal Pradesh - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s02/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S03: {
+    id: "S03-block",
+    label: "Assam - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s03/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S04: {
+    id: "S04-block",
+    label: "Bihar - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s04/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S05: {
+    id: "S05-block",
+    label: "Goa - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s05/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S06: {
+    id: "S06-block",
+    label: "Gujarat - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s06/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S07: {
+    id: "S07-block",
+    label: "Haryana - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s07/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S08: {
+    id: "S08-block",
+    label: "Himachal Pradesh - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s08/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S10: {
+    id: "S10-block",
+    label: "Karnataka - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s10/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S11: {
+    id: "S11-block",
+    label: "Kerala - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s11/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S12: {
+    id: "S12-block",
+    label: "Madhya Pradesh - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s12/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S13: {
+    id: "S13-block",
+    label: "Maharashtra - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s13/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S14: {
+    id: "S14-block",
+    label: "Manipur - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s14/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S15: {
+    id: "S15-block",
+    label: "Meghalaya - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s15/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S16: {
+    id: "S16-block",
+    label: "Mizoram - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s16/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S17: {
+    id: "S17-block",
+    label: "Nagaland - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s17/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S18: {
+    id: "S18-block",
+    label: "Odisha - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s18/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S19: {
+    id: "S19-block",
+    label: "Punjab - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s19/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S20: {
+    id: "S20-block",
+    label: "Rajasthan - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s20/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S21: {
+    id: "S21-block",
+    label: "Sikkim - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s21/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S22: {
+    id: "S22-block",
+    label: "Tamil Nadu - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s22/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S23: {
+    id: "S23-block",
+    label: "Tripura - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s23/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  // S24 (Uttar Pradesh) deferred to C.1.c - shard 12.8 MB > 12 MB
+  // SNAPSHOT_BYTE_BUDGET at coord_precision=3 (matches villages /
+  // subdistricts SKIP-on-budget precedent).
+  S25: {
+    id: "S25-block",
+    label: "West Bengal - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s25/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S26: {
+    id: "S26-block",
+    label: "Chhattisgarh - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s26/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S27: {
+    id: "S27-block",
+    label: "Jharkhand - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s27/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S28: {
+    id: "S28-block",
+    label: "Uttarakhand - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s28/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  S29: {
+    id: "S29-block",
+    label: "Telangana - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_s29/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  U01: {
+    id: "U01-block",
+    label: "Andaman & Nicobar Islands - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_u01/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  U02: {
+    id: "U02-block",
+    label: "Chandigarh - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_u02/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  U03: {
+    id: "U03-block",
+    label: "Dadra & Nagar Haveli and Daman & Diu - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_u03/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  U04: {
+    id: "U04-block",
+    label: "Lakshadweep - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_u04/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  U05: {
+    id: "U05-block",
+    label: "NCT of Delhi - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_u05/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  U07: {
+    id: "U07-block",
+    label: "Puducherry - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_u07/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  U08: {
+    id: "U08-block",
+    label: "Jammu & Kashmir - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_u08/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+  U09: {
+    id: "U09-block",
+    label: "Ladakh - Development Blocks",
+    geojson_local_path: "boundaries/in/blocks/state=in_u09/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
+    join_property: "block_lgd",
+  },
+};
+
 // Note: the legacy `STATE_NAME_TO_ECI` constant + `eciFromStateName` helper
 // that previously lived here were retired in T.0e (TODO/20260517-canonical-
 // long-format-pivot.md §0e.7). Both are now served by the view-model under

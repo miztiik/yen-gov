@@ -251,6 +251,14 @@ def lift_blocks_to_per_state_shards(
         size = shard_path.stat().st_size
         if size > SNAPSHOT_BYTE_BUDGET:
             shard_path.unlink()
+            # Also remove the now-empty state=in_<lc>/ directory so it
+            # doesn't show up as an empty dir in `git status` after a
+            # SKIP. The parent of the parent (boundaries/in/blocks/)
+            # is intentionally preserved.
+            try:
+                shard_path.parent.rmdir()
+            except OSError:
+                pass
             print(
                 f"    {eci} (lgd={lgd:>3}): shard {size / 1024 / 1024:.1f} MB "
                 f"exceeds {SNAPSHOT_BYTE_BUDGET / 1024 / 1024:.0f} MB budget - SKIP",
