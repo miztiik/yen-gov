@@ -222,27 +222,42 @@
       }
     },
     {
-      "$comment": "Phase D.7 universal LGD swap (2026-05-27) — S01 EXCLUDED from swap and KEPT on HTL. ramSeraph LGD slice for State_LGD=28 (legacy unified AP) returns ac_no 1-294 mixing post-2014 AP (1-175) with Telangana residue (176-294), AND the surviving 1-175 entries map to entirely different AC names than the post-2014 SoT (e.g. ac_no=30 → LGD 'Yanam' vs SoT 'Anakapalle'). Citizen choropleth would join election results to wrong polygons. Deferred until ramSeraph publishes a post-2014 AP-only slice OR upstream LGD assigns AP a distinct State_LGD code separate from legacy unified AP. See TODO/20260527-state-ac-map-universal-coverage-plan.md §1 Verdict table (PR #431) and parent ADR-0031.",
+      "$comment": "Phase A.1.a (2026-05-29 rip-and-replace) — S01 swapped from HTL 2008-vintage to ramSeraph LGD release via the LGD-golden doctrine carve-out for upstream legacy numbering. The LGD slice for (State_LGD=28 AND st_name='ANDHRA PRADESH') returns 177 features carrying pre-2014 unified AP+TG ac_no 0-294. We project ac_no to SoT post-2014 1-175 via name-based rewrite while preserving lgd_legacy_ac_no + lgd_ac_id + lgd_st_name on every feature for LGD-golden traceability. Excluded post-PR #431 deferral resolved here. See TODO/20260529-boundary-rip-and-replace-plan.md (LGD-golden doctrine + Phase A.1.a) and notes/2026-05-29-phase-b-verdict-correction.md (LGD probe evidence: 178 features under double filter, 100% name parity to SoT 175).",
       "kind": "ac",
       "source_triple": {
-        "producer": "Hindustan Times Labs",
-        "title": "HTL state-AC shapefile bundle",
-        "vintage": "2008 Delimitation"
+        "producer": "ramSeraph",
+        "title": "Indian Admin Boundaries (LGD-keyed)",
+        "vintage": "lgd-latest-extra1"
       },
       "country": "IN",
       "state": "S01",
       "out": "ac/S01-ac.pmtiles",
       "source": {
-        "format": "geojson",
+        "format": "geojsonl_7z",
         "urls": [
-          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/andhrapradesh/assembly/andhrapradesh_AC.json"
-        ]
+          "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z"
+        ],
+        "coord_precision": 6,
+        "state_filter": {
+          "property": "State_LGD",
+          "equals": 28
+        },
+        "additional_filters": [
+          {
+            "property": "st_name",
+            "equals": "ANDHRA PRADESH"
+          }
+        ],
+        "ac_no_rewrite": {
+          "method": "by_name_to_sot_eci_no",
+          "sot_ref": "datasets/reference/in/states/S01/constituencies.json"
+        }
       },
-      "license": "MIT",
-      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
-      "ac_no_property": "AC_NO",
-      "name_property": "AC_NAME",
-      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S01/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "license": "Unlicense",
+      "license_url": "https://github.com/ramSeraph/indian_admin_boundaries/blob/main/LICENSE",
+      "ac_no_property": "ac_no",
+      "name_property": "ac_name",
+      "delimitation_warning": "ramSeraph LGD release carries pre-2014 unified AP+TG numbering (legacy 1-294); snapshot projects to post-2014 AP-only 1-175 via name-based ac_no rewrite against the ECI 2024 AE SoT (datasets/reference/in/states/S01/constituencies.json). Each feature preserves lgd_legacy_ac_no + lgd_ac_id + lgd_st_name for LGD-golden provenance (TODO/20260529-boundary-rip-and-replace-plan.md). 2 features drop in rewrite: ac_no=0 empty placeholder + 'Bhadrachalam (ST)' ac_no=119 (post-2014 in Telangana, not in S01 SoT).",
       "tippecanoe": {
         "minzoom": 4,
         "maxzoom": 10,

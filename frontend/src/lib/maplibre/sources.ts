@@ -67,15 +67,35 @@ export const INDIA_STATES: BoundaryEntry = {
 // Per-state AC layers. Property `ac_no` (lowercase) = 1-based per-state
 // constituency number, joins to candidates.constituency_eci_no in
 // results.sqlite (= ECI eci_no). Post-D.7 (PR #431) the ramSeraph
-// LGD release is the default; 2 states stay on HTL because LGD's slice
-// fails the safety-net rule: S01 Andhra Pradesh (LGD bundles legacy
-// AP+TG ac_no 1-294 with names that don't match the post-2014 AP-only
-// SoT; ac_no=30 → LGD 'Yanam' vs SoT 'Anakapalle') and S03 Assam (LGD
-// ships pre-2023 delim names; SoT carries post-2023 delim — 0.8% name
-// parity). Both keep HTL `AC_NO` (uppercase) until upstream catches up.
+// LGD release is the default; 1 state stays on HTL because LGD's slice
+// fails the safety-net rule: S03 Assam (LGD ships pre-2023 delim names;
+// SoT carries post-2023 delim — 0.8% name parity). HTL keeps `AC_NO`
+// (uppercase) until upstream catches up.
+//
+// S01 Andhra Pradesh swap landed via A.1.a (TODO/20260529-boundary-rip-
+// and-replace-plan.md): LGD bundles legacy AP+TG ac_no 1-294 with names
+// that don't 1:1 against the post-2014 AP-only SoT (eci_no 1-175), but
+// reservation suffix on LGD ac_name + compound (name, reservation) join
+// resolves it (175/175 name parity per verify_ac_parity --state S01).
+// The snapshot pipeline rewrites LGD's pre-bifurcation ac_no -> SoT's
+// post-bifurcation eci_no via tools/boundaries/snapshot.py
+// `ac_no_rewrite.by_name_to_sot_eci_no`; LGD identity preserved on each
+// feature as `lgd_legacy_ac_no` + `lgd_ac_id`. 3 LGD features dropped
+// (no SoT match) but no SoT entry orphaned.
+//
 // U08 (J&K) keeps `seat_id` because LGD has not yet published the
 // post-2022 90-AC delimitation as of 2026-05-27.
 export const STATE_AC: Record<string, BoundaryEntry> = {
+  S01: {
+    id: "S01-ac",
+    label: "Andhra Pradesh — Assembly constituencies (post-2014 bifurcation)",
+    geojson_local_path: "boundaries/in/ac/state=in_s01/all.geojson",
+    geojson_url:
+      "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
+    join_property: "ac_no",
+    attribution:
+      '<a href="https://github.com/ramSeraph/indian_admin_boundaries" target="_blank" rel="noreferrer">ramSeraph LGD-keyed admin boundaries</a> (Unlicense; LGD pre-bifurcation ac_no rewritten to post-2014 AP-only ECI numbering via snapshot.py)',
+  },
   S22: {
     id: "S22-ac",
     label: "Tamil Nadu — Assembly constituencies",

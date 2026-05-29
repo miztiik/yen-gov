@@ -591,6 +591,224 @@ def apply_exclude_filter(
     return kept, dropped
 
 
+def apply_additional_filters(
+    features: list[dict[str, Any]],
+    filter_specs: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], list[list[dict[str, Any]]]]:
+    """Apply a list of keep-filters sequentially, narrowing the feature set.
+
+    Each spec has the same shape as `state_filter`:
+        {"property": <name>, "equals": <value>}
+        {"property": <name>, "one_of": [<value>, ...]}
+
+    Used in Phase A.1.a (S01 AP LGD swap, 2026-05-29) to narrow a single
+    `State_LGD=28` slice further to `st_name='ANDHRA PRADESH'` so the
+    Yanam enclave (returned under State_LGD=28 with st_name='PUDUCHERRY')
+    is excluded. Each spec is applied as a keep-filter; empty `kept` after
+    any single spec is a config error (same fail-loud discipline as
+    `apply_state_filter`).
+
+    Returns `(kept, dropped_per_filter)` where `dropped_per_filter[i]`
+    holds features dropped by `filter_specs[i]` (useful for diagnostics).
+    """
+    dropped_per_filter: list[list[dict[str, Any]]] = []
+    current = features
+    for i, spec in enumerate(filter_specs):
+        current, dropped = apply_state_filter(current, spec)
+        dropped_per_filter.append(dropped)
+        print(
+            f"  additional_filter[{i}] {spec!r} kept {len(current)} "
+            f"(dropped {len(dropped)})",
+            flush=True,
+        )
+    return current, dropped_per_filter
+
+
+# Reservation-suffix regex mirrors verify_ac_parity._RESERVATION_SUFFIX_RE
+# and recon_d1_ac.normalize_name so the snapshot rewrite produces the same
+# matches that downstream verification asserts. Kept module-local so the
+# rewrite transform has zero cross-module deps beyond stdlib.
+_AC_NAME_RESERVATION_RE = __import__("re").compile(
+    r"\s*\((sc|st|gen)\)\s*$",
+    __import__("re").IGNORECASE,
+)
+
+_AC_NAME_RESERVATION_EXTRACT_RE = __import__("re").compile(
+    r"\((sc|st|gen)\)",
+    __import__("re").IGNORECASE,
+)
+
+
+def _normalize_ac_name(name: str | None) -> str:
+    """Fold an AC name for SoT-vs-snapshot matching during ac_no rewrite.
+
+    Mirrors `tools/boundaries/verify_ac_parity.normalize_name` exactly so a
+    name that passes the rewrite step also passes the post-snapshot parity
+    check. Strips trailing reservation suffix (" (SC)" / " (ST)" / " (GEN)")
+    so the NAME PART of the lookup key is comparable across upstream
+    variants. Reservation disambiguation happens via the SEPARATE
+    `reservation` axis (see compound `(name, reservation)` key in
+    `apply_ac_no_rewrite_by_name`). Kept module-local (small + stdlib-only)
+    per CLAUDE.md section 4 layer discipline (snapshot.py is a tools/
+    entry point; importing from verify_ac_parity.py would be lateral
+    coupling).
+    """
+    import unicodedata
+
+    if not isinstance(name, str):
+        return ""
+    s = unicodedata.normalize("NFKD", name)
+    s = "".join(ch for ch in s if not unicodedata.combining(ch))
+    s = s.casefold().strip()
+    s = _AC_NAME_RESERVATION_RE.sub("", s)
+    out: list[str] = []
+    prev_space = False
+    for ch in s:
+        if ch.isalnum():
+            out.append(ch)
+            prev_space = False
+        elif not prev_space:
+            out.append(" ")
+            prev_space = True
+    return "".join(out).strip()
+
+
+def _extract_reservation_from_name(name: str | None) -> str:
+    """Return the GEN/SC/ST reservation parsed from an AC name's parenthesised
+    suffix (e.g. "Gannavaram (SC)" -> "SC"). Defaults to "GEN" when no suffix
+    is present.
+
+    Reservation IS identity in the ECI SoT (post-2014 AP has two distinct
+    Gannavaram constituencies: eci_no=46 with reservation=SC and eci_no=71
+    with reservation=GEN; same for two Prathipadus). The LGD release carries
+    the reservation in the ac_name suffix; the SoT carries it on the
+    `reservation` field. The compound `(name, reservation)` key
+    disambiguates these otherwise-collision cases at rewrite time.
+    """
+    if not isinstance(name, str):
+        return "GEN"
+    m = _AC_NAME_RESERVATION_EXTRACT_RE.search(name)
+    return m.group(1).upper() if m else "GEN"
+
+
+def apply_ac_no_rewrite_by_name(
+    features: list[dict[str, Any]],
+    rewrite_spec: dict[str, Any],
+    repo_root: Path,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Project a slice's `ac_no` onto SoT `eci_no` via compound
+    `(name, reservation)` lookup.
+
+    Per CLAUDE.md "LGD-golden doctrine" carve-out (TODO/20260529-boundary-
+    rip-and-replace-plan.md): where the upstream LGD release carries legacy
+    pre-redelimitation `ac_no` numbering (e.g. S01 AP with State_LGD=28
+    holding pre-2014 unified AP+TG numbering 1-294) but the SoT uses
+    post-redelimitation modern numbering (S01 SoT = post-2014 AP-only
+    1-175), the snapshot projects `ac_no` to SoT via case-insensitive
+    name-based join compounded with reservation (GEN/SC/ST), so two
+    constituencies with the same name but different reservation
+    (Gannavaram GEN vs Gannavaram SC in post-2014 AP) disambiguate
+    correctly. Features whose `(name, reservation)` does NOT match any
+    SoT entry are DROPPED (these are the pre-redelim residue: empty
+    placeholders, constituencies that moved to a different state, etc.).
+
+    Three new properties are written on every retained feature so the
+    LGD-golden provenance is preserved + auditable:
+      - `lgd_legacy_ac_no`: the original LGD ac_no value (pre-rewrite)
+      - `lgd_ac_id`: the original LGD AC_ID (unique per constituency)
+      - `lgd_st_name`: the original LGD st_name (the upstream state label)
+
+    `rewrite_spec` shape:
+        {"method": "by_name_to_sot_eci_no",
+         "sot_ref": "datasets/reference/in/states/<eci>/constituencies.json",
+         "name_property": "ac_name"}  # optional, default "ac_name"
+
+    Returns `(kept, dropped)`. Empty `kept` raises (the SoT MUST find
+    matches; an entirely-unmatched feature set is a config error).
+    """
+    method = rewrite_spec.get("method")
+    if method != "by_name_to_sot_eci_no":
+        msg = (
+            f"ac_no_rewrite method {method!r} not supported; only "
+            f"'by_name_to_sot_eci_no' is implemented"
+        )
+        raise ValueError(msg)
+    sot_ref = rewrite_spec.get("sot_ref")
+    if not sot_ref:
+        msg = "ac_no_rewrite requires `sot_ref` pointing at the state's constituencies.json"
+        raise ValueError(msg)
+    name_property = rewrite_spec.get("name_property", "ac_name")
+
+    sot_path = repo_root / sot_ref
+    if not sot_path.is_file():
+        msg = f"ac_no_rewrite sot_ref not found: {sot_path}"
+        raise FileNotFoundError(msg)
+    with sot_path.open(encoding="utf-8") as fh:
+        sot_doc = json.load(fh)
+    if sot_doc.get("body") != "AC":
+        msg = f"ac_no_rewrite sot_ref is not body=AC: {sot_doc.get('body')!r}"
+        raise ValueError(msg)
+    # Compound key: (normalised_name, reservation). Two SoT entries with the
+    # same normalised name MUST have different reservations (otherwise they
+    # are genuinely indistinguishable and the SoT is malformed).
+    key_to_eci: dict[tuple[str, str], int] = {}
+    for entry in sot_doc.get("constituencies", []):
+        eci_no = entry.get("eci_no")
+        name = entry.get("name")
+        reservation = (entry.get("reservation") or "GEN").upper()
+        if isinstance(eci_no, int) and isinstance(name, str):
+            key = (_normalize_ac_name(name), reservation)
+            if key in key_to_eci:
+                msg = (
+                    f"ac_no_rewrite SoT has duplicate (name, reservation) "
+                    f"key {key!r}: eci_no {key_to_eci[key]} vs {eci_no}"
+                )
+                raise ValueError(msg)
+            key_to_eci[key] = eci_no
+    if not key_to_eci:
+        msg = f"ac_no_rewrite sot_ref has no valid (eci_no, name) entries: {sot_path}"
+        raise ValueError(msg)
+
+    kept: list[dict[str, Any]] = []
+    dropped: list[dict[str, Any]] = []
+    seen_eci: set[int] = set()
+    for feat in features:
+        props = dict(feat.get("properties") or {})
+        snap_name = props.get(name_property)
+        key = (_normalize_ac_name(snap_name), _extract_reservation_from_name(snap_name))
+        eci_no = key_to_eci.get(key)
+        if eci_no is None:
+            dropped.append(feat)
+            continue
+        if eci_no in seen_eci:
+            msg = (
+                f"ac_no_rewrite produced duplicate eci_no {eci_no} from "
+                f"upstream name {snap_name!r}; check for duplicate "
+                f"(name, reservation) in slice"
+            )
+            raise ValueError(msg)
+        seen_eci.add(eci_no)
+        new_props = dict(props)
+        new_props["lgd_legacy_ac_no"] = props.get("ac_no")
+        new_props["lgd_ac_id"] = props.get("AC_ID")
+        new_props["lgd_st_name"] = props.get("st_name")
+        new_props["ac_no"] = eci_no
+        kept.append({**feat, "properties": new_props})
+
+    if not kept:
+        msg = (
+            f"ac_no_rewrite produced zero matches against SoT {sot_path}; "
+            f"check `name_property` ({name_property!r}) and upstream slice"
+        )
+        raise ValueError(msg)
+    print(
+        f"  ac_no_rewrite kept {len(kept)} (dropped {len(dropped)} "
+        f"no-SoT-match; SoT has {len(key_to_eci)} entries)",
+        flush=True,
+    )
+    return kept, dropped
+
+
 def apply_split_by(
     features: list[dict[str, Any]],
     split_spec: dict[str, Any],
@@ -852,12 +1070,20 @@ def snapshot_one(
                 f"(dropped {len(dropped_by_filter)} out-of-scope)",
                 flush=True,
             )
+        if "additional_filters" in source:
+            features, _ = apply_additional_filters(
+                features, source["additional_filters"],
+            )
         if "exclude_filter" in source:
             features, dropped_by_exclude = apply_exclude_filter(features, source["exclude_filter"])
             print(
                 f"  exclude_filter kept {len(features)} "
                 f"(dropped {len(dropped_by_exclude)} matching)",
                 flush=True,
+            )
+        if "ac_no_rewrite" in source:
+            features, _ = apply_ac_no_rewrite_by_name(
+                features, source["ac_no_rewrite"], datasets_root.parent,
             )
         original_count = len(features)
         if "split_by" in source:
