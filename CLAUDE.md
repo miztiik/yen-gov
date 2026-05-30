@@ -1,6 +1,6 @@
 # CLAUDE.md - yen-gov Engineering Contract
 
-**Last Updated**: 2026-05-25
+**Last Updated**: 2026-05-30
 
 Non-negotiable contract for any human or AI agent working in this repo. Derived standard: [docs/reference/documentation-structure.md](docs/reference/documentation-structure.md). When the two disagree, this file wins for yen-gov.
 
@@ -90,6 +90,7 @@ Create folders only when real code is about to land. Identifier convention: use 
 - One concept defined once; everywhere else links to it.
 - ASCII-only in all repo text: commit messages, docs, code comments, log strings, agent markdown, CLI output (use `-`, `->`, `>=`, "section", "INR"). No curly quotes, em-dashes, or non-ASCII symbols. Applies going forward; no retroactive fixing.
 - **Doc-class routing:** ADR / subsystem doc / concept doc / plan-doc - each has one valid home. See [ADR-0034](docs/architecture/decisions/0034-documentation-routing-contract.md).
+- **Plan-doc distillation:** When a plan-doc row closes, durable findings are lifted into the right `docs/` home per [docs/how-to/distill-a-plan.md](docs/how-to/distill-a-plan.md). The plan-doc itself stays as a thin audit ledger with back-pointers. Agent-only execution lessons (gotchas, tool quirks, recurring traps) go to `/memories/lessons.md`, not `docs/`.
 - Agent memory (`AGENTS.md`, `/memories/repo/`) is derived, not authoritative; if it disagrees with `docs/`, docs win.
 - Personas live under `docs/agents/`; each loads [docs/agents/bootstrap.md](docs/agents/bootstrap.md) before answering. New citizen-facing features follow [docs/how-to/distill.md](docs/how-to/distill.md). Doctrine: [docs/concepts/citizen-first.md](docs/concepts/citizen-first.md).
 - Open questions live in the active plan-doc under `TODO/`, not in this file.
@@ -126,6 +127,7 @@ Avoid (broad / lossy / history-rewriting):
 - `git add .` / `git add -A`
 - `git push --force` / `git push --force-with-lease`
 - Amending pushed commits
+- Leaving a merged PR's remote branch undeleted or its `: gone]` local tracking branches unpruned. Run post-merge cleanup per [docs/how-to/ship-a-pr.md](docs/how-to/ship-a-pr.md). The cosmetic `gh pr merge` error when any worktree holds `main` is expected; the manual `git push origin --delete <branch>` follow-up is mandatory, not optional.
 
 Safe workflow: `git status --porcelain`, leave unrelated dirty files alone, stage only explicit paths, verify with `git diff --cached --name-only`, small reversible commits on a named branch, push, merge after gates pass.
 
@@ -145,6 +147,7 @@ Commit messages describe the change. **No AI co-author / attribution tags.**
 - [ ] No new hardcoded values.
 - [ ] No new mocks unless explicitly requested.
 - [ ] Lockfiles in sync with manifests. If commit touches `frontend/package.json` or `admin/package.json`, regenerate the matching `bun.lock` and stage in the SAME commit. The Pages workflow runs `bun install --frozen-lockfile` and will reject any desync.
+- [ ] Post-merge cleanup run per [docs/how-to/ship-a-pr.md](docs/how-to/ship-a-pr.md) section Post-merge cleanup (merge verified, remote branch deleted, `: gone` local branches pruned, `.tmp_*` removed, durable lessons distilled per [docs/how-to/distill-a-plan.md](docs/how-to/distill-a-plan.md)).
 
 ## 10. Anti-Patterns (Do NOT)
 
