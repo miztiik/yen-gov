@@ -200,6 +200,8 @@ Bump rules:
 
 Every emitted data file under `datasets/` carries `"$schema"` and `"$schema_version"`. Validation has two tiers (Tier A always-on in `pytest -q`; Tier B on-demand local via `python -m yen_gov validate --root .`). See [docs/architecture/backend/validator.md](docs/architecture/backend/validator.md).
 
+Schema-version compatibility follows [ADR-0047](docs/architecture/decisions/0047-schema-version-compatibility-contract.md) and [docs/architecture/data/schema-evolution.md](docs/architecture/data/schema-evolution.md): writers are strict, readers are compatible only by explicit contract. A writer MUST emit the current schema version. A reader or validator MAY accept an older declared version only when the compatibility contract says it can interpret that version without guessing. Old major versions require retained schemas, an explicit translator, migration, or fail-loud rejection. Until a reader/validator implements the compatibility contract, it MUST keep rejecting non-current versions.
+
 ## 12. Data Provenance
 
 Every observation row in every Parquet family under `datasets/` carries a `source_id` FK to one row in `datasets/taxonomy/sources.parquet`. Provenance is a **citation ledger**, one row per `(producer, title, vintage)` triple, not per fetch event. Adopts OWID `origin.*` fields verbatim plus four yen-gov extensions for confidence + verifiability.

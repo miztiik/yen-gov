@@ -1,6 +1,6 @@
 # Architecture Decision Records (ADRs)
 
-**Last Updated**: 2026-05-26
+**Last Updated**: 2026-05-30
 
 This directory holds the **few** decisions that earn an immutable, append-only record of their own:
 
@@ -45,6 +45,16 @@ Keep ADRs short. They are immutable once accepted; a later ADR supersedes (and t
 | [0041](0041-meadow-tier.md) | Meadow tier (`datasets/<family>/_meadow/<source>/<vintage>/`) | accepted |
 | [0042](0042-sources-schema-v3-vintage-as-period-anchor.md) | Sources schema v3.0 — `vintage` as strongest period anchor available | accepted |
 | [0043](0043-auto-rollup-at-canonical-write-time.md) | Auto-rollup at canonical-write time for sub-state grains (SUM/COUNT only, same `source_id`) | accepted |
+| [0044](0044-grain-over-entity.md) | Grain over entity in indicator identity | accepted |
+| [0045](0045-grapher-catalogue-split.md) | Grapher catalogue split from taxonomy catalogues | accepted |
+| [0046](0046-pre-flight-ingest-gate-contract.md) | Pre-flight ingest gate contract | accepted |
+| [0047](0047-schema-version-compatibility-contract.md) | Schema version compatibility contract | accepted |
+
+## See also
+
+- [ADR-0034](0034-documentation-routing-contract.md) - documentation routing contract.
+- [docs/reference/documentation-structure.md](../../reference/documentation-structure.md) - generic documentation structure standard.
+- [CLAUDE.md](../../../CLAUDE.md) - yen-gov engineering contract.
 
 ## Absorbed ADRs (2026-05-09)
 
@@ -70,7 +80,7 @@ The following ADR numbers used to live in this directory and were absorbed into 
 | 0017 | `/explore` page uses `sql.js` (superseded 2026-05-19 by ADR-0030; `/explore` now runs on DuckDB-WASM) | [0017-explore-page-uses-sql-js.md](0017-explore-page-uses-sql-js.md) |
 | 0018 | Wikipedia AC-table district name resolution | [backend/sources-wikipedia.md](../backend/sources-wikipedia.md#district-name-resolution-for-ac-tables) |
 
-The next new ADR will be numbered **0043**. We do **not** reuse the duplicate 0016 slot, the gaps left by the absorbed ADRs, or renumber the survivors. The duplicate-0016 collision is recorded here so future archaeology has the answer.
+The next new ADR will be numbered **0048**. We do **not** reuse the duplicate 0016 slot, the gaps left by the absorbed ADRs, or renumber the survivors. The duplicate-0016 collision is recorded here so future archaeology has the answer.
 
 ## Why this directory is small
 
