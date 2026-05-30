@@ -65,9 +65,9 @@ When all rows reach `[x] DONE` or `[-] COLLAPSED`, run the 6-step distillation p
 
 | Row | Phase | Title | Status | PR |
 | --- | --- | --- | --- | --- |
-| 1.1 | P1 Bundle | Icon-only attribution chip on map footer | [x] DONE | #_pending_ |
-| 1.2 | P1 Bundle | e2e assertion swap (`toHaveText` -> `toHaveAttribute('title', ...)`) + skip-trap guard | [x] DONE | #_pending_ |
-| 1.3 | P1 Bundle | Predecessor plan-doc archive + bootstrap.md autonomy stanza + inventory + this plan-doc | [x] DONE | #_pending_ |
+| 1.1 | P1 Bundle | Icon-only attribution chip on map footer | [x] DONE | #460 |
+| 1.2 | P1 Bundle | e2e assertion swap (`toHaveText` -> `toHaveAttribute('title', ...)`) + skip-trap guard | [x] DONE | #460 |
+| 1.3 | P1 Bundle | Predecessor plan-doc archive + bootstrap.md autonomy stanza + inventory + this plan-doc | [x] DONE | #460 |
 | 2.1 | P2 Distill | C.2 panchayats verdict distillation -> docs/concepts + docs/architecture | [ ] PENDING | - |
 | 2.2 | P2 Distill | C.3 ULB wards verdict distillation -> docs/architecture | [ ] PENDING | - |
 | 2.3 | P2 Distill | C.4 villages verdict distillation -> docs/how-to/add-new-boundary-layer.md | [ ] PENDING | - |
