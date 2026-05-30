@@ -71,21 +71,12 @@ test.describe("golden path", () => {
     ).toMatch(/(annual|quarterly|monthly|every 10 years|irregular updates|As of)/i);
     }
 
-    // Unmapped-region chip strip (ADR-0029): Lakshadweep + A&N Islands are
-    // sub-pixel on the India choropleth, so their indicator value is
-    // surfaced as a value chip on the legend strip instead. The strip only
-    // mounts when the active indicator has values for those entities; the
-    // default home indicator may not, so assert the Lakshadweep label only
-    // when the strip is actually present. Chip-model construction is
-    // covered by frontend/src/lib/unmapped-region-chips.test.ts.
-    const chip_strip = page
-      .getByTestId("unmapped-region-chip-strip")
-      .first();
-    if ((await chip_strip.count()) > 0) {
-      await expect(
-        chip_strip.locator('[data-entity-id="U04"]'),
-      ).toContainText(/Lakshadweep/i);
-    }
+    // D.1.A (2026-05-30): the unmapped-region chip strip and the legacy
+    // Lakshadweep polygon inset were both retired per user mandate
+    // ("REMOVE ANY SIDE FIXES FOR LAKSHADWEEP..."). All UTs now render on
+    // the map at true geographic location; if a polygon is sub-pixel at
+    // current zoom, the citizen zooms in to see. No chip-strip assertion
+    // belongs in this spec.
 
     // PR-G (Phase 1.3c) — canonical bulk JOIN evidence for IndiaMap.
     // The map now resolves all ~36 state leading-party fills through one
