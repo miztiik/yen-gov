@@ -82,9 +82,16 @@ const STATE_CODES: readonly string[] = [
   "U05", "U07", "U08",
 ];
 
-let trap: { getErrors: () => string[] };
+// `trap` is nullable + `afterEach` uses optional-chaining because
+// `test.skip()` in `beforeEach` short-circuits BEFORE we assign `trap`,
+// yet Playwright still runs `afterEach` for skipped tests. Without the
+// guard, the mobile-pixel-5 project crashes with
+// `TypeError: Cannot read properties of undefined (reading 'getErrors')`.
+// Pattern mirrors `indicator-ranked-polish.spec.ts`.
+let trap: ReturnType<typeof attachPageErrorTrap> | null = null;
 
 test.beforeEach(({ page }, testInfo) => {
+  trap = null;
   test.skip(
     testInfo.project.name === "mobile-pixel-5",
     "AC coverage matrix is desktop-only (no mobile-specific map code path)",
@@ -93,7 +100,8 @@ test.beforeEach(({ page }, testInfo) => {
 });
 
 test.afterEach(() => {
-  const errors = trap.getErrors();
+  const errors = trap?.getErrors() ?? [];
+  trap = null;
   expect(errors, `Page emitted runtime errors:\n${errors.join("\n")}`).toEqual([]);
 });
 
