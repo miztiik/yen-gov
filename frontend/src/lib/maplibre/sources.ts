@@ -46,7 +46,7 @@ export interface BoundaryEntry {
 
 // Single citizen-facing footer for ALL boundary layers (A.3 - attribution
 // centralization per TODO/20260529-boundary-rip-and-replace-plan.md;
-// icon-only refinement per TODO/20260530-boundary-followups-execution-plan.md
+// icon-only refinement per docs/archive/plans/20260530-boundary-followups-execution-plan.md
 // Row 0.2).
 //
 // Previously each BoundaryEntry carried a multi-sentence per-source
