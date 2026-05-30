@@ -81,6 +81,8 @@ After the snapshot run, `verify_ac_parity --state S01` should report 175 feature
 
 ## S03 Assam - corrected verdict
 
+> **SUPERSEDED 2026-05-30** by Furfur Wahlkreise SVG pivot. User identified https://commons.wikimedia.org/wiki/File:Wahlkreise_zur_Vidhan_Sabha_von_Assam_(2023-).svg (CC-BY-4.0, 6.52 MB / 1326x919, georeferenced post-2023 delim, all 126 ACs) as a viable Tier-1 source. The 4-tier ladder verdict below (Tier-1 exhausted -> Tier-4 district fallback as interim, Tier-3 PDF as long-term) NO LONGER applies to S03: Tier-1 source exists via the Furfur SVG; the SVG-to-GeoJSON pipeline supersedes the T3 PDF sprint for S03 specifically. Tracked: [TODO/20260530-boundary-followups-execution-plan.md](../TODO/20260530-boundary-followups-execution-plan.md) Row 5.1. The 4-tier ladder framework itself remains durable (kept in [docs/how-to/digitize-ac-from-pdf.md](../docs/how-to/digitize-ac-from-pdf.md)) for FUTURE states where no Furfur-style cartographer exists. The S01 AP section above is unaffected by this correction.
+
 **Original verdict bottom line** (incorrect): "TIER 1 FOUND (post-2023; paired SoT refresh required)".
 
 **Corrected verdict bottom line**: **TIER 1 EXHAUSTED. Escalate to Tier 2 (Voronoi) or Tier 3 (PDF digitization). Tier 4 (district fallback) ships as interim.**

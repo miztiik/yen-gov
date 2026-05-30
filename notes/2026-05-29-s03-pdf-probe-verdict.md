@@ -1,5 +1,7 @@
 # B.5 - S03 Assam Post-2023 Delimitation PDF Probe Verdict
 
+> **SUPERSEDED 2026-05-30** by Furfur Wahlkreise SVG pivot. User identified https://commons.wikimedia.org/wiki/File:Wahlkreise_zur_Vidhan_Sabha_von_Assam_(2023-).svg (CC-BY-4.0, 6.52 MB / 1326x919, georeferenced post-2023 delim, all 126 ACs) as a viable Tier-1 source. This PDF probe's 40-60h T3 QGIS sprint estimate no longer applies to S03 specifically; the SVG-to-GeoJSON pipeline is ~10-20h autonomous. Tracked: [TODO/20260530-boundary-followups-execution-plan.md](../TODO/20260530-boundary-followups-execution-plan.md) Row 5.1. This probe remains historically accurate for the PDF surface ONLY; the document is kept for traceability of the path-not-taken.
+
 Last Updated: 2026-05-29
 Dispatched as: Phase B.5 of TODO/20260529-boundary-rip-and-replace-plan.md
 Probe scope: Aug 2023 Assam Delimitation Order (S.O. 3553(E)) PDF availability + map extractability for 126-AC post-2023 boundaries.
