@@ -136,13 +136,17 @@ COORD_PRECISION = 4
 
 RAMSERAPH_SOURCE_ID = BOUNDARY_SOURCE_ID_BY_NICKNAME["ramseraph"]
 
-# LGD-conventional property names for the Panchayats layer. Mirrors the
-# blocks (block_lgd / block_name) + villages (village_lgd / vlgname)
-# convention. If first snapshot reveals different upstream names,
-# update both constants + the property accessors in the grouping /
-# sorting helpers below.
-ID_PROPERTY = "panchayat_lgd"
-NAME_PROPERTY = "pname"
+# Upstream property names for the LGD_Panchayats release. First-snapshot
+# inspection (2026-05-30) showed the panchayats geojsonl uses LGD short
+# codes (``st_lgd`` / ``dt_lgd`` / ``gp_code`` / ``gp_name``) rather than
+# the longer names used by the blocks layer (``state_lgd`` / ``dist_lgd``
+# / ``block_lgd`` / ``block_name``). Same upstream maintainer, different
+# property naming convention per layer — keep these constants the single
+# source-of-truth so a future schema flip is a 4-line edit.
+STATE_PROPERTY = "st_lgd"
+DISTRICT_PROPERTY = "dt_lgd"
+ID_PROPERTY = "gp_code"
+NAME_PROPERTY = "gp_name"
 
 
 # ---------------------------------------------------------------------
@@ -153,19 +157,19 @@ NAME_PROPERTY = "pname"
 def group_features_by_state_and_district(
     features: list[dict[str, Any]],
 ) -> tuple[dict[tuple[int, int], list[dict[str, Any]]], list[dict[str, Any]]]:
-    """Group features by ``(state_lgd, dist_lgd)`` tuple.
+    """Group features by ``(st_lgd, dt_lgd)`` tuple.
 
     Returns ``(groups, unkeyed)`` where ``unkeyed`` holds features
-    missing EITHER ``state_lgd`` OR ``dist_lgd`` (or both). Coerces
-    both keys to int so callers can rely on integer tuples regardless
-    of upstream string/int variation.
+    missing EITHER ``st_lgd`` OR ``dt_lgd`` (or both). Coerces both
+    keys to int so callers can rely on integer tuples regardless of
+    upstream string/int variation.
     """
     groups: dict[tuple[int, int], list[dict[str, Any]]] = {}
     unkeyed: list[dict[str, Any]] = []
     for f in features:
         props = f.get("properties", {})
-        s = props.get("state_lgd")
-        d = props.get("dist_lgd")
+        s = props.get(STATE_PROPERTY)
+        d = props.get(DISTRICT_PROPERTY)
         if s is None or s == "" or d is None or d == "":
             unkeyed.append(f)
             continue
@@ -176,13 +180,13 @@ def group_features_by_state_and_district(
 def sort_features_deterministically(
     features: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
-    """Sort features by ``(panchayat_lgd, pname)`` for byte-determinism.
+    """Sort features by ``(gp_code, gp_name)`` for byte-determinism.
 
     Panchayat LGD codes are globally unique within India per the LGD
-    scheme, so ``panchayat_lgd`` alone gives a total order. The
-    secondary ``pname`` key only matters if two rows happen to share
-    an LGD code (a data bug we want to surface deterministically
-    rather than interleave randomly).
+    scheme, so ``gp_code`` alone gives a total order. The secondary
+    ``gp_name`` key only matters if two rows happen to share an LGD
+    code (a data bug we want to surface deterministically rather
+    than interleave randomly).
     """
     return sorted(
         features,
@@ -237,7 +241,8 @@ def lift_panchayats_to_per_district_shards(
     groups, unkeyed_no_prop = group_features_by_state_and_district(features)
     print(
         f"  grouped into {len(groups):,} (state, district) buckets "
-        f"({len(unkeyed_no_prop)} feature(s) lack state_lgd/dist_lgd)",
+        f"({len(unkeyed_no_prop)} feature(s) lack "
+        f"{STATE_PROPERTY}/{DISTRICT_PROPERTY})",
         flush=True,
     )
 
@@ -431,23 +436,48 @@ def main(argv: list[str] | None = None) -> int:
     print(f"  loaded {len(state_lgd_to_eci)} state_lgd -> ECI mappings", flush=True)
 
     bundle_dir = raw_root / "snapshot" / "panchayats"
-    extracted_geojsonl = bundle_dir / "_extracted" / "LGD_panchayats.geojsonl"
+    extract_dir = bundle_dir / "_extracted"
 
-    if not extracted_geojsonl.exists() and args.skip_fetch:
+    def _find_extracted() -> Path | None:
+        """Discover the extracted .geojsonl via rglob; case-preserving on Windows.
+
+        Upstream archive in this release ships ``LGD_Panchayats.geojsonl``
+        (capital P). Hardcoding either case would break on case-sensitive
+        filesystems (linux CI) or on case-preserving ones (Windows + git);
+        rglob mirrors what ``fetch_geojsonl_7z`` does internally.
+        """
+        if not extract_dir.exists():
+            return None
+        matches = sorted(extract_dir.rglob("*.geojsonl"))
+        return matches[0] if matches else None
+
+    extracted_geojsonl = _find_extracted()
+
+    if extracted_geojsonl is None and args.skip_fetch:
         print(
-            f"  ERROR: --skip-fetch but no geojsonl at {extracted_geojsonl}",
+            f"  ERROR: --skip-fetch but no .geojsonl under {extract_dir}",
             file=sys.stderr,
             flush=True,
         )
         return 2
 
-    if not extracted_geojsonl.exists():
+    if extracted_geojsonl is None:
         print(f"  fetching + extracting {LGD_PANCHAYATS_URL}", flush=True)
         _ = fetch_geojsonl_7z(
             [LGD_PANCHAYATS_URL],
             bundle_dir,
             coord_precision=None,  # round in lift loop, not here
         )
+        extracted_geojsonl = _find_extracted()
+        if extracted_geojsonl is None:
+            print(
+                f"  ERROR: fetch succeeded but no .geojsonl under {extract_dir}",
+                file=sys.stderr,
+                flush=True,
+            )
+            return 2
+
+    print(f"  extracted: {extracted_geojsonl.name}", flush=True)
 
     rows = lift_panchayats_to_per_district_shards(
         extracted_geojsonl,
