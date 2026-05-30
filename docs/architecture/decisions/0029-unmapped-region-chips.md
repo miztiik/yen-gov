@@ -1,8 +1,9 @@
 # ADR-0029: Replace Lakshadweep polygon inset with legend-strip value chips
 
-**Last Updated**: 2026-05-17
-**Status**: accepted
-**Supersedes**: not formally — narrows the "Lakshadweep callout inset" decision in [docs/architecture/frontend/map.md §Lakshadweep callout inset](../frontend/map.md#lakshadweep-callout-inset-phase-3-c-of-tn-granular-geo-plan) (Phase 3 §c of TN-GRANULAR-GEO-PLAN). The earlier "no leader line" rationale is preserved; the polygon inset itself is removed.
+**Last Updated**: 2026-05-30
+**Status**: superseded (2026-05-30 by D.1.A retirement — see below)
+**Supersedes**: not formally — narrows the "Lakshadweep callout inset" decision in [docs/architecture/frontend/map.md](../frontend/map.md) (Phase 3 §c of TN-GRANULAR-GEO-PLAN). The earlier "no leader line" rationale is preserved; the polygon inset itself is removed.
+**Superseded by**: user mandate 2026-05-29 — see "Retirement (D.1.A, 2026-05-30)" below.
 
 ## Context
 
@@ -66,8 +67,33 @@ This matches the eye's read on a chip 110–140 px wide; tabular-nums keeps the 
 - One new runtime fetch per India choropleth page mount (small, the population indicator artifact only, browser-cached).
 - The Phase 3 §c polygon-inset documentation in `docs/architecture/frontend/map.md` now ends with a pointer to this ADR.
 
+## Retirement (D.1.A, 2026-05-30) — both surfaces removed
+
+User mandate (verbatim, 2026-05-29):
+*"REMOVE ANY SIDE FIXES FOR LAKSHADWEEP AS DATA TABLE, IF THE MAPS INCLUDE IT, EVEN IF THE CHOROPLETH IS UNVISIBLE LETS JUST KEEP IT IN THE MAP."*
+
+This mandate retires BOTH the legacy polygon inset (the predecessor surface this ADR proposed replacing) AND the chip strip (the surface this ADR proposed). The generalised rule the citizen's mandate encodes: **if the polygon is on the map (even sub-pixel / invisible at default zoom), do not add side-fix surfaces — the map polygon is the only authoritative surface; if a citizen needs to read a sub-pixel UT they zoom in**.
+
+What is removed in D.1.A (PR #_pending_):
+
+- `frontend/src/lib/lakshadweep.ts` + test (Phase 3 §c polygon extractor + SVG projection).
+- `frontend/src/lib/UnmappedRegionChips.svelte` + `frontend/src/lib/unmapped-region-chips.ts` + test (this ADR's chip-strip subsystem).
+- `frontend/src/lib/format.ts` + test (`formatPopulationShort`, only consumed by the chip).
+- `docs/concepts/unmapped-regions.md` (chip-strip concept doc).
+- All inset + chip-strip render blocks + the `VITE_UNMAPPED_REGION_CHIPS` feature flag + the population loader effect inside `IndicatorChoropleth.svelte`.
+- The chip-strip assertion in `frontend/e2e/golden-path.spec.ts`.
+- The `UT_CODES_WITH_ASSEMBLY` UT-exclusion carve-out in `backend/yen_gov/coverage.py` — UTs now appear in coverage reports exactly like states.
+
+Why this retirement supersedes BOTH options the ADR weighed (inset and chip): both were "side-fix surfaces" in the citizen's framing. The map already includes the polygon; if the polygon is sub-pixel the citizen zooms in to read it. The page never needed a parallel value-anchor surface — what looked like a job-to-be-done ("read the legend bucket for Lakshadweep without zooming") was an editorial constraint we authored, not a citizen request.
+
+What stays preserved from this ADR's rationale:
+
+- **No leader lines.** The original "leader line implies geographic continuity that doesn't exist" reasoning still holds and is now moot — neither inset nor chip exists to draw a line to.
+- **No hand-curated UT subset.** The retirement is symmetric across all UTs; no editorial list survives.
+- **Documentation as audit trail.** This ADR remains as the durable record of how the chip-strip was reasoned about, why it shipped, and why it was retired — for any future agent who proposes a similar side-fix surface.
+
 ## See also
 
-- [docs/concepts/unmapped-regions.md](../../concepts/unmapped-regions.md) — concept definition + chip-vs-inset rationale.
-- [docs/architecture/frontend/map.md §Lakshadweep callout inset](../frontend/map.md#lakshadweep-callout-inset-phase-3-c-of-tn-granular-geo-plan) — the predecessor decision.
-- `frontend/src/lib/unmapped-region-chips.ts` + `frontend/src/lib/UnmappedRegionChips.svelte` — implementation + canonical `UNMAPPED_REGIONS` constant.
+- [docs/architecture/frontend/map.md](../frontend/map.md) — current map architecture (all entities at true location).
+- [docs/concepts/boundary-data-philosophy.md](../../concepts/boundary-data-philosophy.md) — the underlying "polygon on the map is the only authoritative surface" principle.
+- D.1.A row of `TODO/20260529-boundary-rip-and-replace-plan.md` — execution record.

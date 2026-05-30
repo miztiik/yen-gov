@@ -72,12 +72,6 @@ BUCKET_LABELS: tuple[str, ...] = (
 )
 N_BUCKETS = len(BUCKET_EDGES)
 
-# Constitutional fact: among UTs only Delhi (U05), Puducherry (U07) and J&K
-# (U08) have legislative assemblies. The other five (Andaman, Chandigarh,
-# Dadra & NH and Daman & Diu, Lakshadweep, Ladakh) elect MPs to Lok Sabha
-# only — there is no AC slice to ingest. All 28 states have assemblies.
-UT_CODES_WITH_ASSEMBLY = frozenset({"U05", "U07", "U08"})
-
 
 @dataclass(frozen=True)
 class SliceCoverage:
@@ -243,10 +237,8 @@ def _election_slices_from_canonical(
 
 
 # entities.json `entity_type` values mapped to the legacy states.json `kind`
-# field that this module's downstream logic (the
-# ``kind == "union_territory"`` UT-without-assembly filter below) already
-# consumes. Kept private to this module so the projection rule is co-located
-# with the only consumer that cares about it.
+# field. The projection is kept private to this module since coverage is
+# the only downstream caller that materialises the legacy shape.
 _ENTITY_TYPE_TO_LEGACY_KIND: dict[str, str] = {
     "state": "state",
     "ut": "union_territory",
@@ -345,10 +337,11 @@ def compute_coverage(root: Path) -> CoverageReport:
     missing: list[MissingState] = []
     for code, name in sorted(state_names.items()):
         kind = state_kinds.get(code, "state")
-        # Skip UTs without a legislative assembly — they have no AC slice
-        # to ingest, so listing them as "missing" is misleading.
-        if kind == "union_territory" and code not in UT_CODES_WITH_ASSEMBLY:
-            continue
+        # D.1.A (2026-05-30): the prior UT-without-assembly filter
+        # (kind == "union_territory" and code not in UT_CODES_WITH_ASSEMBLY)
+        # was removed per user mandate. UTs now report in the missing list
+        # exactly like states; the coverage report reflects actual ingest
+        # presence/absence, not constitutional carve-outs.
         if code in declared_codes:
             continue
         missing.append(MissingState(eci_code=code, name=name, kind=kind))
@@ -657,15 +650,11 @@ def render_markdown(report: CoverageReport) -> str:
         out.append("## Missing (no entry in the events catalogue)")
         out.append("")
         out.append(
-            "These states/UTs have a legislative assembly but no `event_id` "
-            "registered in [election_events.json]"
-            f"({_repo_link(CATALOGUE_REL)}). Adding one means: (a) appending "
-            "a `(state, year) -> EventInfo` row to "
+            "These states/UTs have no `event_id` registered in "
+            f"[election_events.json]({_repo_link(CATALOGUE_REL)}). Adding one "
+            "means: (a) appending a `(state, year) -> EventInfo` row to "
             "[backend/yen_gov/sources/eci/events.py](../../backend/yen_gov/sources/eci/events.py), "
-            "then (b) `python -m yen_gov eci-statreport-emit <state> <year>`. "
-            "UTs without an assembly (Andaman, Chandigarh, Dadra & NH, "
-            "Lakshadweep, Ladakh) are intentionally excluded \u2014 they elect "
-            "Lok Sabha MPs only."
+            "then (b) `python -m yen_gov eci-statreport-emit <state> <year>`."
         )
         out.append("")
         out.append("| State / UT | Code | Kind |")

@@ -1,6 +1,6 @@
 # Map — cartography & geographic overlays
 
-**Last Updated**: 2026-05-15 (revision: Phase 3 Lakshadweep callout inset)
+**Last Updated**: 2026-05-30 (revision: D.1.A Lakshadweep inset + chip-strip retirement)
 
 The map is the primary visual surface for the Citizen and Strategist personas. It composes multiple layers — administrative boundaries, election outcomes, and (future) socio-economic overlays — over a vector basemap. This page covers the library choice, the boundary data pipeline, layer composition, and how the map integrates with [Psephlab](psephlab.md).
 
@@ -344,35 +344,27 @@ Implementation (`IndicatorChoropleth.svelte`):
 
 The bullet's "second line on affected districts in affected years" sub-clause is descoped: `series_breaks` is indicator-level (not per-feature × per-year), so per-polygon × per-year filtering would require data shape we don't emit. The legend glyph carries the same information at the lower visual weight the bullet asked for. If a future schema bump promotes break entries to per-entity, the polygon-tooltip second-line variant becomes implementable; until then the legend glyph is the honest surface.
 
-## Lakshadweep callout inset (Phase 3 §c of TN-GRANULAR-GEO-PLAN)
+## All entities render on the map at true geographic location
 
-Lakshadweep is sub-pixel at national zoom on a choropleth — it appears as the smallest dot in the Arabian Sea, and citizens routinely lose track of it. Standard Indian-cartography practice is an inset showing the islands at exaggerated scale, with a labelled border (NOT a connecting line — a line would imply geographic continuity that isn't there; the labelled border carries the meaning).
+**As of 2026-05-30 (D.1.A)**, every administrative entity — states, UTs including sub-pixel offshore ones (Lakshadweep, Andaman & Nicobar, Dadra & NH and Daman & Diu) — renders on the choropleth at its true geographic location. There is no per-entity polygon extractor, no callout inset, no chip-strip value surface, no leader line, and no feature flag to restore any of those.
 
-### Implementation
+User mandate (verbatim, 2026-05-29): *"REMOVE ANY SIDE FIXES FOR LAKSHADWEEP AS DATA TABLE, IF THE MAPS INCLUDE IT, EVEN IF THE CHOROPLETH IS UNVISIBLE LETS JUST KEEP IT IN THE MAP."*
 
-Pure helper module `frontend/src/lib/lakshadweep.ts` exposes three functions:
+If a UT's polygon is sub-pixel at the current zoom level, that is the correct citizen experience — the citizen zooms in to see. Downstream surfaces (data tables, CSV exports, ranking lists, tooltip rollups, winner-name panels) are a UI/UX concern owned by Jony + Citizen per [CLAUDE.md](../../../CLAUDE.md) section 0a and are NOT prescribed here; they naturally render one row per entity because they are built from entity-keyed observation rows, and if a value is absent the cell renders ` - ` (the same null-render any state with a data gap gets).
 
-- `extractLakshadweepGeometry(fc)` — pulls the Lakshadweep feature out of an india-states-shaped FC by `ST_NM === "Lakshadweep"`.
-- `geometryBbox(geometry)` — walks coordinates computing min/max lng/lat. Returns `null` for degenerate input.
-- `geometryToSvgPath(geometry, viewbox)` — equirectangular Y-flipped aspect-preserving projection, supports Polygon + MultiPolygon, returns the SVG path `d=` attribute string.
+### Retired in D.1.A (2026-05-30)
 
-`IndicatorChoropleth.svelte` wires it via a `$effect` that calls `loadBoundary("state")` (cached, free after the parent map's first load), extracts the geometry, projects it into an 80×80 viewbox with padding 6, and stores the path in `lakshadweep_path: $state<string>`. The inset SVG renders bottom-left of the map wrapper, gated on `drill_state.level === "state" && lakshadweep_path` — so it appears at the national/state-overview level and disappears once the citizen drills into a TN polygon (where the islands are no longer relevant context).
+The following were deleted in PR #_pending_:
 
-### Why SVG inset, not a second MapChoropleth
+- `frontend/src/lib/lakshadweep.ts` + `frontend/src/lib/lakshadweep.test.ts` (Phase 3 §c polygon extractor + SVG projection helpers).
+- `frontend/src/lib/UnmappedRegionChips.svelte` + `frontend/src/lib/unmapped-region-chips.ts` + `frontend/src/lib/unmapped-region-chips.test.ts` (ADR-0029 chip-strip subsystem).
+- `frontend/src/lib/format.ts` + `frontend/src/lib/format.test.ts` (`formatPopulationShort`, only consumed by the chip strip).
+- `docs/concepts/unmapped-regions.md` (chip-strip concept doc).
+- The legacy SVG inset render block + chip-strip render block + `VITE_UNMAPPED_REGION_CHIPS` feature flag + population loader effect, all inside [`IndicatorChoropleth.svelte`](../../../frontend/src/lib/IndicatorChoropleth.svelte).
+- The Playwright chip-strip assertion in [`frontend/e2e/golden-path.spec.ts`](../../../frontend/e2e/golden-path.spec.ts).
+- The `UT_CODES_WITH_ASSEMBLY` UT-exclusion carve-out in [`backend/yen_gov/coverage.py`](../../../backend/yen_gov/coverage.py) — UTs now appear in coverage reports exactly like states.
 
-A second maplibre instance would double the WebGL memory cost (~150–250 KB per Map plus tile caches) for a feature that needs no pan/zoom/click. The geometry comes free from the parent's already-loaded `india-states.geojson`, the projection over 4° of latitude near the equator is fractions of a pixel different between equirectangular and Mercator (so we avoid pulling in a projection library), and an inline `<path>` is ~100 bytes vs a second canvas.
-
-### Why a labelled border, not a connecting line
-
-A connecting line from the inset to the islands' true location would suggest the islands are part of the mainland's coastline — they aren't. The inset is a standalone re-projected fragment; the labelled border ("Lakshadweep / shown 10×") declares the discontinuity honestly. This matches the convention used by the Survey of India's official maps.
-
-### Why the helper is pure
-
-Vitest cannot mount maplibre, but the projection math is the actual logic worth testing — bbox walking, MultiPolygon flattening, Y-flip orientation, aspect-preserving centring. Carving the helper out of the Svelte component lets `lakshadweep.test.ts` (11 cases) assert the path string directly. The component-side wiring is a single `$effect` and a conditional render, both verified manually per CLAUDE.md §13.
-
-### Superseded by value chips (ADR-0029, 2026-05-17)
-
-The polygon inset above ships behind `VITE_UNMAPPED_REGION_CHIPS=off`; the default surface is now a horizontal **value-chip strip** on the legend area carrying UT name + indicator value + bucket-colour swatch + population anchor. The chip mechanism solves the legend-bucket-readability job the inset failed (sub-pixel fill at any inset scale). The earlier "no leader line" reasoning is preserved — chips live outside the map and make no geographic claim. See [docs/concepts/unmapped-regions.md](../../concepts/unmapped-regions.md) and [ADR-0029](../decisions/0029-unmapped-region-chips.md).
+[ADR-0029](../decisions/0029-unmapped-region-chips.md) carries the full retirement entry.
 
 ## See also
 
