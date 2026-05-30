@@ -34,8 +34,8 @@ Out of scope:
 | --- | --- |
 | JSON Schema `x-version` + `x-changelog` | Names the current contract and records schema evolution. |
 | Backend writers, including `core.io.write_artifact` | Emit current schema metadata only. |
-| Backend Tier B validator | Validates corpus artifacts against current or explicitly compatible contracts. Until compatibility code lands, it may keep latest-only equality. |
-| Frontend JSON corpus contract | Defends the static corpus the frontend consumes. It must converge on the same compatibility contract as backend Tier B. |
+| Backend Tier B validator | Validates corpus artifacts against current or explicitly compatible contracts by consuming `datasets/schema-compatibility.json` for `json-corpus`. |
+| Frontend JSON corpus contract | Defends the static corpus the frontend consumes by using the same `json-corpus` compatibility contract as backend Tier B. |
 | Canonical manifest reader | Checks manifest/table versions before registering Parquet files. |
 | `datasets/schema-compatibility.json` | Single machine-readable source for supported reader versions across runtimes. Its schema lives at `datasets/schemas/schema-compatibility.schema.json`. |
 
@@ -45,10 +45,10 @@ Out of scope:
 
 The registry has two policy layers:
 
-- **Defaults** name each reader surface's baseline behavior. The JSON corpus surface is current-schema only until backend and frontend readers consume the registry. The canonical manifest reader is unsupported unless an override lists the schema/version pair.
+- **Defaults** name each reader surface's baseline behavior. The JSON corpus surface is current-schema only by default; backend Tier B and the frontend corpus contract consume overrides from this registry. The canonical manifest reader is unsupported unless an override lists the schema/version pair.
 - **Overrides** name explicitly accepted versions for a surface and schema. Row C seeds only additive minor versions that the current schema can still validate: `manifest.schema.json` v1.0-v1.3 and `observation.schema.json` v1.0-v1.1.
 
-The registry deliberately does not copy old-major frontend constants whose current schemas have since moved to a higher major. Old majors need retained schemas, a translator, migration, or fail-loud rejection. Row G owns retiring local frontend constants as an authority; Row E and Row F own backend and frontend JSON corpus consumption.
+The registry deliberately does not copy old-major frontend constants whose current schemas have since moved to a higher major. Old majors need retained schemas, a translator, migration, or fail-loud rejection. Row G owns retiring local frontend constants as an authority; Rows E and F wired backend and frontend JSON corpus consumption.
 
 ## Version Change Taxonomy
 
