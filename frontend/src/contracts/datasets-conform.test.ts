@@ -190,6 +190,10 @@ const PER_ROW_PROVENANCE_SCHEMAS = new Set<string>([
   // Schema compatibility is a control-plane policy registry, not observed
   // data. It is validated by its own schema and by schema-compatibility.test.ts.
   "schema-compatibility.schema.json",
+  // Schema evolution is also control-plane release metadata: it records
+  // schema releases, retained historical schema paths, and value-change
+  // receipts. It is not an observed series and carries no sources[].
+  "schema-evolution.schema.json",
 ]);
 
 const SCHEMAS = loadSchemas();
