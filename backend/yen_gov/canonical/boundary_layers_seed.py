@@ -11,8 +11,10 @@ Outputs:
 - ``datasets/boundaries/boundary_layers.parquet`` -- one row per boundary
   geometry shard on disk (15 columns; see ``boundary-layers.schema.json``
   v1.0). FK ``source_id`` resolves to ``taxonomy/sources.parquet``.
-- Side effect: UPSERT every row in ``BOUNDARY_SOURCES`` (7 today)
-  into ``datasets/taxonomy/sources.parquet`` so every boundary row's
+- Side effect: UPSERT every row in ``BOUNDARY_SOURCES`` (8 today,
+  post-C.4.a adds ``ramseraph_bhuvan_jk_villages`` for the J&K
+  Census-2011 village cadastre) into
+  ``datasets/taxonomy/sources.parquet`` so every boundary row's
   ``source_id`` resolves to a real ledger entry.
 
 T.0d role (2026-05-22, fused atomic): consolidates 115 sidecar files
@@ -189,6 +191,7 @@ SOURCE_NICKNAMES: tuple[str, ...] = (
     "shijithpk",
     "shijithpk_pc_2024",
     "ramseraph",
+    "ramseraph_bhuvan_jk_villages",
     "yashveeeeeeer",
     "datagovin_post_pincode_polygons_2025",
 )
@@ -228,6 +231,19 @@ _BOUNDARY_SOURCE_TRIPLES: dict[str, tuple[str, str, str]] = {
         "ramSeraph",
         "Indian Admin Boundaries (LGD-keyed)",
         "lgd-latest-extra1",
+    ),
+    # 5b. ramSeraph (Bhuvan-mirror, Census-2011 J&K villages). Same
+    #     publisher as 5 (ramSeraph) but a distinct triple per ADR-0032:
+    #     different upstream lineage (Bhuvan / NRSC / J&K Revenue Dept
+    #     instead of LGD), different vintage (Census-2011 instead of
+    #     LGD-current), different license (CC0 1.0 per ramSeraph
+    #     release notes instead of CC-BY-4.0). C.4.a single-state
+    #     gap-fill for U08 J&K UT + U09 Ladakh UT — both UTs absent
+    #     from LGD_Villages.geojsonl per upstream release notes.
+    "ramseraph_bhuvan_jk_villages": (
+        "ramSeraph (Bhuvan mirror)",
+        "Bhuvan J&K Villages (Census-2011 cadastre)",
+        "2011-census",
     ),
     # 6. yashveeeeeeer/india-geodata (national silhouette — Survey of India)
     "yashveeeeeeer": (
@@ -311,6 +327,14 @@ def _build_boundary_source_rows() -> tuple[SourceRow, ...]:
             False,
             "https://github.com/ramSeraph/indian_admin_boundaries",
             "Republishes LGD / Survey of India admin spine, LGD-keyed.",
+        ),
+        "ramseraph_bhuvan_jk_villages": (
+            "CC0-1.0",
+            "silver",
+            "archived-snapshot",
+            False,
+            "https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/villages",
+            "ramSeraph republishes Bhuvan's J&K village cadastre as 'Bhuvan_JK_Villages.geojsonl.7z' in the villages release. Upstream lineage: Bhuvan (https://bhuvan.nrsc.gov.in/) / ISRO-NRSC / J&K Revenue Department, Census-2011 vintage. License CC0 1.0 per the ramSeraph release-page notes. C.4.a single-state gap-fill closes 2 of 8 LGD-villages-absent UTs (U08 J&K + U09 Ladakh) — both incidentally present in this artefact because Census-2011 predates the 2019 J&K Reorganisation Act UT split. 14 Census-2011 pre-bifurcation districts (12 -> modern U08, 2 -> modern U09); shards keyed by district NAME SLUG (not LGD numeric) because the artefact carries no LGD codes. Post-2007 district bifurcations silently merged in parent shards (documented per-shard in citizen archaeology notes). Property naming is a 4th unique convention (uppercase Census-2011 shape: DIST_NAME / VID / VILL_CODE / NAME).",
         ),
         "yashveeeeeeer": (
             "CC-BY-4.0",
@@ -647,7 +671,7 @@ def compile_to_parquet(
             )
 
     # ----- FK pre-check ----------------------------------------------
-    # Every layer's source_id must be one of the 7 BOUNDARY_SOURCES or
+    # Every layer's source_id must be one of the BOUNDARY_SOURCES rows or
     # an existing source from another adapter. Pre-check against the
     # known-boundary set first (cheap); the writer's downstream
     # parquet-level FK check (across the union with existing sources)

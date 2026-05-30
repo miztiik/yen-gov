@@ -161,3 +161,80 @@ J&K has ~6,000-7,500 villages spread across ~22 districts → average ~300 villa
 - yen-gov boundary-data-sources reference: docs/reference/boundary-data-sources.md
 - Existing villages lift orchestrator: tools/boundaries/lift_villages_national.py
 - LGD villages national release notes (documents the 8-state gap): https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/villages
+
+---
+
+## Recon UPDATE 2026-05-30 (post-C.4.a first-snapshot probe)
+
+The C.4.a probe of `Bhuvan_JK_Villages.geojsonl` invalidated **four** assumptions in the original verdict above. This section is appended (not retrofitted into the body) so the original recon stands as written; the corrections below are authoritative going forward.
+
+### 1. Vintage is Census-2011, not LGD-current
+
+Probe finding: every feature's `STAT_NAME` is the literal string `"JK"` (the Census-2011 J&K shape — a single state that spanned both modern UTs before the 2019 J&K Reorganisation Act). The artefact carries **NO LGD district codes** — only `DIST_NAME` Census-2011 names + a 16-character `VID` (hierarchical Census id `SID + DID + TID + VILL_CODE`).
+
+Original assumption: artefact would mirror LGD vintage with `state_lgd`/`dist_lgd` ints. **Invalidated.**
+
+Consequence: the lift script keys shards by Census-2011 district **name slug** (`district=anantnag`) rather than LGD numeric (`district=620`). Schema regex `^[a-z0-9_]+$` accepts slugs cleanly. `derive_hive(district_lgd=<slug>)` accepts the string without complaint.
+
+### 2. Property convention is the 4TH unique shape across the cohort
+
+Probe finding: properties are **uppercase Census-2011** — `STAT_NAME` / `DIST_NAME` / `SID` / `DID` / `TID` / `VILL_CODE` / `VID` / `NAME`. Distinct from:
+- C.1.c LGD national long-form (`state_lgd`/`dist_lgd`/`village_lgd`/`vlgname`)
+- C.2.b panchayats short-form (`st_lgd`/`dt_lgd`/`gp_code`/`gp_name`)
+- C.3.b SBM wards concatenated lowercase (`statecode`/`ulbcode`/`wardcode`/`wardname`)
+
+**3-convention rule (C.3.b) extends to 4-convention rule.** Every new ramSeraph admin-level layer continues to need a first-snapshot probe. The upstream maintainer does not normalise schemas across releases — this is now confirmed across 4 distinct layer families.
+
+### 3. The artefact mixes BOTH modern UTs U08 + U09 (not U08-only)
+
+Probe finding: 14 Census-2011 district names span both modern UTs because Census-2011 predates the 2019 split:
+- **12 → U08 J&K UT**: Anantnag / Badgam / Baramula / Doda / Jammu / Kathua / Kupwara / Pulwama / Punch / Rajauri / Srinagar / Udhampur
+- **2 → U09 Ladakh UT**: Kargil / Ladakh (leh)
+
+Original assumption: Ladakh NOT covered → deferred indefinitely. **Invalidated** — Ladakh IS covered, though sparsely.
+
+Consequence: the lift emits shards under **BOTH** `state=in_u08/` AND `state=in_u09/` from a single input file. An explicit `CENSUS2011_DISTRICT_TO_MODERN` mapping in the lift script routes each Census-2011 name to its modern (eci_state, slug) tuple.
+
+**Ladakh upstream sparsity** (separate concession): Census-2011 Bhuvan layer carries only **1 village feature per Ladakh district** (1 Kargil + 1 Ladakh (leh)). Real Census-2011 village counts were ~129 + ~112; the Bhuvan vintage appears to under-cover Ladakh's sparse + difficult terrain. Documented in the lift output + per-shard sidecar notes; a future PR can swap to a richer Ladakh source if/when one publishes.
+
+### 4. 8 post-2007 bifurcated districts silently merged into Census-2011 parents
+
+Probe finding: modern LGD lists 20 J&K districts (12 Census-2011 parents + 8 post-2007 splits). The Bhuvan Census-2011 vintage predates these splits, so the bifurcated districts have NO own shard:
+
+| Modern LGD district | Census-2011 parent (Bhuvan shard) | Bifurcation year |
+|---|---|---|
+| Kulgam | anantnag | 2007 |
+| Bandipore | baramula | 2007 |
+| Ramban | doda | 2007 |
+| Kishtwar | doda | 2007 |
+| Samba | jammu | 2007 |
+| Shopian | pulwama | 2007 |
+| Ganderbal | srinagar | 2007 |
+| Reasi | udhampur | 2007 |
+
+**Bifurcation-gap concession** (deliberate): a citizen looking for a Kulgam village will find it under `district=anantnag` (Census-2011 parent). The lift script's docstring documents this explicitly. The alternative — writing a Census-2011-name → modern-LGD-district-code per-village geographic reassignment — is out-of-scope for C.4.a (would require a polygon-containment join against current LGD J&K district boundaries, plus a delim-vintage-mismatch policy). Re-attemptable when (a) LGD publishes J&K villages with modern district codes, OR (b) a citizen indicator demands village-to-modern-district resolution.
+
+### 5. Source nickname is NEW, not a reuse of `ramseraph`
+
+Original verdict listed `ramseraph_bhuvan_jk_villages` as the planned source nickname. C.4.a confirms this is **distinct** from the existing `ramseraph` nickname (LGD-keyed admin boundaries), because:
+- Different upstream lineage: Bhuvan / NRSC / J&K Revenue Dept (vs LGD)
+- Different vintage anchor: `2011-census` (vs `lgd-latest-extra1`)
+- Different license: CC0-1.0 per ramSeraph release-page notes (vs CC-BY-4.0 for the LGD-keyed releases)
+
+Seeded in `backend/yen_gov/canonical/boundary_layers_seed.py` as the 8th boundary source nickname. Resolves to `src-0a33b06781c2`.
+
+### 6. Final coverage table (C.4.a actual)
+
+| State code | Modern UT | Shards emitted | Total villages | Largest shard | Notes |
+|---|---|---|---|---|---|
+| U08 | Jammu & Kashmir UT | 12 (Census-2011 parents) | 6,636 | jammu 2.13 MB | Bifurcated districts (Kulgam/Bandipore/Ramban/Kishtwar/Samba/Shopian/Ganderbal/Reasi) silently merged in parents — see §4. |
+| U09 | Ladakh UT | 2 (Census-2011 parents) | 2 | ladakh_leh 85 KB | Upstream Bhuvan Census-2011 sparsity (1 village per district vs ~100+ expected) — see §3. |
+| **TOTAL** | — | **14** | **6,638** | jammu 2.13 MB | 1 feature unkeyed (missing DIST_NAME); reported in lift output. |
+
+All 14 shards under the 12 MB `SNAPSHOT_BYTE_BUDGET`. Auto-fallback (PR #443) NOT triggered. Parquet upsert: +14 rows in `boundary_layers.parquet` (3,986 → 4,000 → … 4,014), +1 row in `sources.parquet`.
+
+### 7. The 7 other LGD-gap states remain deferred
+
+Original recon already deferred HP / SK / ML / MZ / MN / NL / AR pending (a) ramSeraph publishing per-state Bhuvan artefacts AND (b) citizen-indicator demand. No change. The C.4.a finding that Bhuvan vintage may pre-date modern UT splits is a reminder that follow-up artefacts may carry similar bifurcation / vintage concessions.
+
+
