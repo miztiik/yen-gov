@@ -12,8 +12,9 @@ Tier B — data conformance:
     declares "$schema" and "$schema_version".
   * "$schema" resolves to a known schema by basename or by $id.
     * "$schema_version" is accepted by the json-corpus compatibility contract.
-        Row E still validates accepted old minors against the current schema;
-        declared-version schema resolution is future Row H work.
+        Accepted same-major additive minors validate against the current schema
+        unless a release entry chooses retained-schema validation; retained
+        schema resolution is defined by datasets/schema-evolution.json.
   * The file validates against that schema.
   * Legacy folded-indicator shards under datasets/indicators/in/ are
     pinned to the allowlist datasets/_ops/meadow-shard-contract.txt

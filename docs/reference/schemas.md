@@ -1,6 +1,6 @@
 # Schemas
 
-**Last Updated**: 2026-05-30
+**Last Updated**: 2026-05-31
 
 All schemas live in [`datasets/schemas/`](../../datasets/schemas/). Each is a JSON Schema 2020-12 document carrying its own version and changelog (CLAUDE.md §11).
 
@@ -36,7 +36,7 @@ Introduced by [`TODO/SOCIO-ECONOMIC-EXPANSION.md`](../../TODO/SOCIO-ECONOMIC-EXP
 | `schema-compatibility.schema.json` | Schema compatibility registry | 1.0 | `datasets/schema-compatibility.json`, the shared reader-side compatibility contract introduced by ADR-0047. Backend Tier B and the frontend JSON corpus contract consume the `json-corpus` surface as of Rows E/F; the canonical DuckDB-WASM reader consumes the `canonical-manifest-reader` surface as of Rows G1/G2. Overrides list explicitly accepted versions for reader surfaces. |
 | `schema-evolution.schema.json` | Schema evolution release ledger | 1.0 | `datasets/schema-evolution.json`, the public release metadata ledger introduced by Row H. Entries record schema changes, whether values/provenance/methodology changed, affected artifacts, PR/commit provenance, and retained historical schema paths for declared-version validation. |
 
-To regenerate this table after a schema bump, run `python -m yen_gov validate` and update the row by hand. (Auto-generation is a Phase 4 nice-to-have, not a blocker.)
+After a schema bump, run `python -m yen_gov validate --root .` from the repo root, then update the affected row by hand. Auto-generation is a future convenience, not a blocker.
 
 ## Versioning rules
 
@@ -75,10 +75,10 @@ Do not restamp or rebuild unchanged artifacts just to update `$schema_version` a
 ## Running the validator
 
 ```sh
-PYTHONPATH=backend python -m yen_gov validate
+PYTHONPATH=backend python -m yen_gov validate --root .
 ```
 
-Exits 0 on success. On failure, prints `[tier A|B] <relative path>: <message>` per issue and exits 1. CI runs this on every PR (Phase 4).
+Exits 0 on success. On failure, prints `[tier A|B] <relative path>: <message>` per issue and exits 1. Tier B corpus validation is local/on-demand, not a CI gate; run it before commits that touch `datasets/**`, `config/**`, or `datasets/schemas/**`.
 
 ## See also
 

@@ -8,7 +8,7 @@
     {
       "version": "1.0",
       "date": "2026-05-30",
-      "description": "Initial registry schema for ADR-0047. Defines default current-only reader policy plus explicit per-surface schema-version overrides for additive minor compatibility. Row C of TODO/20260530-schema-version-compatibility-plan.md adds the contract surface without changing validator or frontend runtime behavior."
+      "description": "Initial registry schema for ADR-0047. Defines default current-only reader policy plus explicit per-surface schema-version overrides for additive minor compatibility. PR #463 adds the contract surface without changing validator or frontend runtime behavior."
     }
   ],
   "type": "object",
@@ -58,7 +58,7 @@
         },
         "validation": {
           "enum": ["current_schema"],
-          "description": "Artifacts are validated against the current schema in this registry version. Declared-version validation and retained historical schemas are future Row H work."
+          "description": "Artifacts are validated against the current schema in this registry version. Declared-version validation and retained historical schemas are defined by datasets/schema-evolution.json; this registry version keeps compatibility rows on current-schema validation only."
         },
         "applies_to": {
           "type": "array",

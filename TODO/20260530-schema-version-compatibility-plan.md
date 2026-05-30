@@ -1,7 +1,7 @@
 # Schema Version Compatibility Plan
 
 **Last Updated**: 2026-05-31
-**Status**: Active - PR-A merged as #459; Row B merged as #461; Row C merged as #463; Row D merged as #466; Row E merged as #467; Row F merged as #470; Row G1 merged as #473; Row G2 merged as #477; Row H merged as #480 (`87d108b0`); Row I closed N/A as #482 (`fa873294`); Row J closing Deferred as #483.
+**Status**: Closing - PR-A merged as #459; Row B merged as #461; Row C merged as #463; Row D merged as #466; Row E merged as #467; Row F merged as #470; Row G1 merged as #473; Row G2 merged as #477; Row H merged as #480 (`87d108b0`); Row I closed N/A as #482 (`fa873294`); Row J deferred as #483 (`bdcd0f96`); Row K closing as #484.
 **Correction level**: 5 - core data contract / validator / runtime-reader semantics. Design rows first; code rows execute only after the policy row lands.
 **Doc-class**: plan-doc per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md). Durable doctrine must be distilled into `docs/` before this plan closes.
 **Authority**: Gregor owns contract / integration; Fowler owns engineering slicing and test cleanup; Hans + Max own data-shape / public-data semantics; user mandate authorizes autonomous execution except for major unresolved decisions.
@@ -79,7 +79,7 @@ Update this table in every PR. Do not skip rows. Each PR should be small enough 
 | H | #480 | Merged (`87d108b0`) | Hans + Max + Gregor + Fowler | Schema-evolution release metadata contract. Define how historical snapshots validate by declared version, how old schemas are retained, and which durable public surface records `schema changed, values did not`: separate `datasets/schema-evolution.json` ledger with `datasets/schemas/schema-evolution.schema.json`. No pilot schema bump in this row. | Chosen path, columns/fields, and ownership are named in docs; parser/schema tests cover `values_changed=true`, `values_changed=false`, and missing old-schema references; existing canonical-pivot ledger semantics are not silently repurposed. | Stop if old schemas are not recoverable by version or if the ledger surface would overload an existing artifact without a documented migration. |
 | I | #482 | N/A - no named near-term metadata candidate after Row H | Fowler + Hans + Max | Assessed after Row H (#480 / `87d108b0`). Do not invent an optional field to prove the mechanism: Rows E/F/H already cover backend compatibility, frontend corpus compatibility, retained-schema resolution, and `values_changed` ledger semantics with fixtures. Agent review found only already-shipped, obsolete, or feature-coupled/provenance/citizen-semantics items outside Row I's stop conditions. | N/A - no schema, data, ledger, or runtime change. Fixture coverage from Rows E/F/H remains the proof until a real schema-release event exists. | Reopen only when a named additive metadata need can keep unchanged artifact bytes unchanged and does not touch observation Parquet, provenance, `source_id`, or citizen-visible semantics. |
 | J | #483 | Deferred - no justified breaking schema change now | Gregor + Fowler + Hans + Max | Assessed after Rows E/H and Row I (#482 / `fa873294`). Do not invent a contraction, rename, removal, type narrowing, or semantic shift to prove the mechanism. OWID/public-indicator practice favours stable contracts, additive metadata, retained historical schemas, and fail-loud old-major rejection unless the current schema is actively misleading for a real consumer. Current scan found only already-shipped breaks, compatibility aliases still serving their window, or future trigger-gated migrations. | N/A - no schema, data, ledger, or runtime change. Rows E/F/G2/H fixtures and retained-schema ledger semantics remain the proof surface for unsupported old-major rejection until a real breaking schema-release event exists. | Reopen only for a named breaking need with consumer inventory, migration or retained-schema/translator path, rollback note, schema-evolution ledger entry, and Hans + Max signoff if meanings change. |
-| K | _pending_ | Not started | Fowler | Plan distillation and closure. Lift durable rules from this TODO into `docs/`; archive or slim this plan; update status table to closed. | Durable doctrine lives in `docs/`; TODO says where it moved; no stale TODO-only architecture remains. | Stop if docs disagree after distillation. |
+| K | #484 | Closing | Fowler | Plan distillation and closure. Durable doctrine was already lifted into `docs/` by Rows B-H; this row adds the missing no-pilot trigger rule, refreshes validator reference docs, and marks this plan as a closed audit ledger. | Durable doctrine lives in `docs/`; this TODO contains only execution history and a distillation map; no stale TODO-only architecture remains. | Stop if docs disagree after distillation. |
 
 ## 7. Execution rules
 
@@ -137,3 +137,21 @@ Update this table in every PR. Do not skip rows. Each PR should be small enough 
 - [docs/architecture/testing.md](../docs/architecture/testing.md)
 - [docs/concepts/owid-alignment.md](../docs/concepts/owid-alignment.md)
 - [docs/concepts/data-provenance.md](../docs/concepts/data-provenance.md)
+
+## Plan complete
+
+Closed 2026-05-31. Rows A-K are complete; this file remains as the audit ledger and should not be used as the live source of architecture doctrine.
+
+Distillation map:
+
+- Rows A/B -> [ADR-0047](../docs/architecture/decisions/0047-schema-version-compatibility-contract.md), [docs/architecture/data/schema-evolution.md](../docs/architecture/data/schema-evolution.md), and [docs/reference/schemas.md](../docs/reference/schemas.md).
+- Row C -> [docs/architecture/data/schema-evolution.md](../docs/architecture/data/schema-evolution.md) Compatibility Registry.
+- Row D -> [docs/architecture/testing.md](../docs/architecture/testing.md) and the fixture-literal policy in [docs/architecture/data/schema-evolution.md](../docs/architecture/data/schema-evolution.md).
+- Row E -> [docs/architecture/backend/validator.md](../docs/architecture/backend/validator.md) Schema-version compatibility.
+- Row F -> [docs/reference/schemas.md](../docs/reference/schemas.md) and [docs/architecture/testing.md](../docs/architecture/testing.md) frontend corpus contract policy.
+- Rows G1/G2 -> [docs/architecture/data/canonical-store.md](../docs/architecture/data/canonical-store.md) and [docs/architecture/data/schema-evolution.md](../docs/architecture/data/schema-evolution.md) canonical manifest reader policy.
+- Row H -> [docs/architecture/data/schema-evolution.md](../docs/architecture/data/schema-evolution.md) Release Metadata Ledger and Retained Historical Schemas.
+- Rows I/J -> [docs/architecture/data/schema-evolution.md](../docs/architecture/data/schema-evolution.md) no-pilot schema-release rule.
+- Row K -> this closure block plus the reference-doc refresh in [docs/reference/schemas.md](../docs/reference/schemas.md) and [docs/architecture/backend/validator.md](../docs/architecture/backend/validator.md).
+
+New schema-version compatibility work starts with a fresh plan-doc or a focused PR against the canonical docs above.
