@@ -65,7 +65,7 @@ When all rows reach `[x] DONE` / `[-] COLLAPSED` / `[!] ESCALATED-and-resolved`,
 
 ## section 1. Status Reckoner
 
-Total: 34 rows. 13 DONE + 1 COLLAPSED + 3 PENDING-actionable + 17 BLOCKED-on-trigger.
+Total: 35 rows. 14 DONE + 1 COLLAPSED + 2 PENDING-actionable + 18 BLOCKED-on-trigger.
 
 | Row | Title | Status | PR | Trigger / Notes |
 | --- | --- | --- | --- | --- |
@@ -84,8 +84,9 @@ Total: 34 rows. 13 DONE + 1 COLLAPSED + 3 PENDING-actionable + 17 BLOCKED-on-tri
 | 4.4 | Open Level-5 successor plan-doc for eci_no -> AC_ID | `[x] DONE` | #469 | Was 5.2; renamed to 4.4 since done. |
 | 4.5 | This plan-doc cleanup (single-hierarchy restructure + 5.22 reframe + concrete 5.1/5.5/5.7 steps) | `[x] DONE` | #471 | |
 | 4.6 | S03 Furfur SVG structure probe + verdict | `[x] DONE` | #472 | Probe finding supersedes 5.1's optimistic 10-11h estimate. |
-| 5.1 | S03 Assam Furfur SVG -> GeoJSON pipeline | `[ ] BLOCKED` | - | Probe (4.6) found only 20 paths / 25 subpaths / 132 numeric labels — NOT 126 per-AC polygons. Unblock: Path B (Furfur outreach) succeeds OR user accepts Path A (Voronoi approximation) with citizen caveat. |
-| **5.7** | **S01 AP residue: Susewind probe + fallback in-repo surgery** | **`[ ] PENDING`** | - | Concrete paths in section 2. |
+| 4.7 | S01 Susewind 2014 probe + verdict | `[ ] PENDING` | _pending_ | This PR. Susewind 2014 confirmed NOT viable (292 features pre-bifurcation; CC-BY-SA-NC license); only Path B remains. |
+| 5.1 | S03 Assam Furfur SVG -> GeoJSON pipeline | `[ ] BLOCKED` | - | Probe (4.6) found only 20 paths / 25 subpaths / 132 numeric labels - NOT 126 per-AC polygons. Unblock: Path B (Furfur outreach) succeeds OR user accepts Path A (Voronoi approximation) with citizen caveat. |
+| **5.7** | **S01 AP residue: Path B in-repo surgery** | **`[ ] BLOCKED`** | - | BLOCKED on user decision Path B (drop HTL touchpoint via remap; 3-4h) vs Path D (accept HTL indefinitely; COLLAPSE row). Per probe verdict (4.7), Path A Susewind is NOT viable. |
 | **5.22** | **Promote `verify_ac_parity` to pytest gate** | **`[ ] PENDING`** | - | Reframed from meaningless "pixel comparison"; option beta. |
 | **5.5** | **U09 Ladakh villages source probe (Bhuvan / SVAMITVA / OSM)** | **`[ ] PENDING`** | - | Research-only PR; defer if no source found. |
 | 5.3 | C.2.d Bhuvan panchayat gap-fill (9 states/UTs) | `[ ] BLOCKED` | - | Trigger: PRR / MGNREGS / PRI-funds indicator at panchayat grain. |
@@ -159,6 +160,16 @@ Legend: `[x] DONE` / `[ ] PENDING` / `[!] ESCALATED` / `[-] COLLAPSED` / `[ ] BL
 
 **Effort**: BLOCKED until Path B verdict or user authorises Path A.
 **Branch**: TBD when unblocked.
+
+---
+
+### Row 4.7 - S01 Susewind 2014 probe + verdict (this PR)
+
+**Status**: PENDING this PR.
+
+**Output**: NEW [notes/2026-05-30-s01-susewind-probe-verdict.md](../notes/2026-05-30-s01-susewind-probe-verdict.md) documenting that the Susewind 2014 release (ramSeraph mirror) ships 292 features for "Andhra Pradesh" at PRE-bifurcation unified AP+TG numbering (first AC = "Sirpur" in TG-side Adilabad), AND carries CC-BY-SA-NC license (non-commercial). NOT viable for S01 post-2014 175-feature target. Reaffirms prior PR #454 §C.6 finding. Path B (in-repo surgery on existing LGD source) is the only remaining structural path; Path D (keep HTL S01 indefinitely) is the zero-effort alternative.
+
+**Gates**: 1 only (research-only PR).
 
 ---
 
