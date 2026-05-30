@@ -872,12 +872,17 @@ A missing or unparseable `schema_version` makes the file **unreadable** by the r
 
 ### 11.2 Reader responsibility (consumer contract)
 
-Before issuing any query against a Parquet file, the DuckDB-WASM reader:
+Before issuing any query against a Parquet file, the DuckDB-WASM reader must fail loud on unsupported schema versions. The shared contract lives at `datasets/schema-compatibility.json`; the frontend derives its canonical manifest-reader compatibility set from that registry at build time.
 
-1. Looks up the file's `table_id` + `schema_version` from `manifest.json` (the control plane).
-2. Reads the Parquet file's KV metadata via `parquet_metadata(...)` and asserts `table_id` and `schema_version` match the manifest.
-3. Asserts the file's `schema_version` is in the reader's compatible set. The shared contract lives at `datasets/schema-compatibility.json`; the frontend derives its canonical manifest-reader compatibility set from that registry at build time.
-4. If any check fails, the reader emits `LoaderResult.failed` with reason `schema_version_unsupported` (§16). **No silent best-effort, no version coercion, no partial reads.**
+Current Row G2 implementation:
+
+1. Loads `manifest.json` and asserts the manifest's own `$schema_version` is accepted for `manifest.schema.json`.
+2. Looks up the requested `table_id` from the manifest before booting DuckDB-WASM or registering any file URL.
+3. Resolves the manifest table to a row schema file: `kind: "observations"` maps to `observation.schema.json`; non-observation runtime tables use an explicit table-id-to-schema binding until the manifest carries `row_schema_id`.
+4. Asserts the manifest table's `schema_version` is accepted for that row schema in `datasets/schema-compatibility.json`.
+5. If any check fails, registration stops before `read_parquet(...)`. **No silent best-effort, no version coercion, no partial reads.**
+
+Full data-plane verification remains the target contract: read Parquet footer KV metadata, assert footer `table_id`, `schema_version`, and `row_schema_id` match the manifest and registry, then create the view. Current emitted files do not uniformly carry that footer metadata yet, so Row G2 deliberately keeps the runtime gate at the manifest/registration seam and leaves footer enforcement to the writer/data backfill row that makes the corpus uniform.
 
 ### 11.3 Bump rules
 

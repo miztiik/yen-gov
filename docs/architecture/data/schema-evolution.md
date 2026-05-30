@@ -46,9 +46,9 @@ Out of scope:
 The registry has two policy layers:
 
 - **Defaults** name each reader surface's baseline behavior. The JSON corpus surface is current-schema only by default; backend Tier B and the frontend corpus contract consume overrides from this registry. The canonical manifest reader is unsupported unless an override lists the schema/version pair.
-- **Overrides** name explicitly accepted versions for a surface and schema. Row C seeds only additive minor versions that the current schema can still validate: `manifest.schema.json` v1.0-v1.3 and `observation.schema.json` v1.0-v1.1.
+- **Overrides** name explicitly accepted versions for a surface and schema. Row C seeded additive minor versions that the current schema can still validate: `manifest.schema.json` v1.0-v1.3 and `observation.schema.json` v1.0-v1.1. Row G2 extends the `canonical-manifest-reader` surface with current-only entries for every non-observation table schema the runtime can register.
 
-The registry deliberately does not copy old-major frontend constants whose current schemas have since moved to a higher major. Old majors need retained schemas, a translator, migration, or fail-loud rejection. Row G owns retiring local frontend constants as an authority; Rows E and F wired backend and frontend JSON corpus consumption.
+The registry deliberately does not copy old-major frontend constants whose current schemas have since moved to a higher major. Old majors need retained schemas, a translator, migration, or fail-loud rejection. Rows G1/G2 retire local frontend constants as an authority and wire runtime canonical manifest/table registration to the shared contract; Rows E and F wired backend and frontend JSON corpus consumption.
 
 ## Version Change Taxonomy
 
@@ -114,7 +114,7 @@ Test cases should prove behavior, not literal version strings.
 - Writer tests assert newly emitted artifacts use the current schema version from the registry.
 - Validator tests use `tmp_path` fixture corpora; pytest must not walk the real corpus.
 - Compatibility tests cover supported old additive minor versions, unsupported future versions, unsupported major versions, stale writer metadata, and accepted-version-but-invalid-shape rejection.
-- Frontend contract tests use the same compatibility contract as backend validation once Row C/F land.
+- Frontend JSON corpus contract tests use the same compatibility contract as backend validation. Canonical DuckDB-WASM reader tests use the `canonical-manifest-reader` surface for manifest/table registration compatibility.
 - Literal version strings are acceptable in named historical fixtures; otherwise use schema-registry lookups.
 
 ## Stop Conditions

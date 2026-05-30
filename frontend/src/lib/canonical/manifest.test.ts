@@ -70,7 +70,11 @@ describe("isCompatibleSchemaVersion", () => {
     expect(isCompatibleSchemaVersion("not-a-real.schema.json", "1.0")).toBe(false);
   });
 
-  it("rejects schemas not listed for the canonical-manifest-reader surface", () => {
+  it("accepts current non-observation table schemas listed for the canonical-manifest-reader surface", () => {
+    expect(isCompatibleSchemaVersion("source.schema.json", "3.0")).toBe(true);
+  });
+
+  it("rejects unsupported old non-observation table versions", () => {
     expect(isCompatibleSchemaVersion("source.schema.json", "1.0")).toBe(false);
   });
 });

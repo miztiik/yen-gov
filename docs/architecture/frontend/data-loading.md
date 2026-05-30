@@ -84,8 +84,8 @@ Both seams are implemented in [`frontend/src/lib/duckdb.ts`](../../../frontend/s
 
 | Seam | Use | Contract |
 | --- | --- | --- |
-| `registerTable(tableId)` | Full canonical table registration. Use for Explore, Compare, and other explicit broad modes. | Loads `datasets/manifest.json`, resolves `tableId`, registers every file listed for that table, and returns the DuckDB view name. |
-| `registerSlice(tableId, partitionFilter)` | Route-scoped registration. Use when a citizen page knows a required physical partition, such as the current Tamil Nadu election shard. | Filters `manifest.tables[].files` by `partition_values`, registers only matching file URLs, and returns the DuckDB view name. |
+| `registerTable(tableId)` | Full canonical table registration. Use for Explore, Compare, and other explicit broad modes. | Loads `datasets/manifest.json`, checks the manifest and table schema versions against `datasets/schema-compatibility.json`, resolves `tableId`, registers every file listed for that table, and returns the DuckDB view name. |
+| `registerSlice(tableId, partitionFilter)` | Route-scoped registration. Use when a citizen page knows a required physical partition, such as the current Tamil Nadu election shard. | Checks manifest/table schema compatibility, filters `manifest.tables[].files` by `partition_values`, registers only matching file URLs, and returns the DuckDB view name. |
 
 `registerSlice` is **manifest-native**, not semantic. Callers pass physical partition values that already exist in `manifest.json`, e.g. `{ state: "in_s22" }` for the existing election partition. The translation from route slug or `entity_id` to that physical value is table-specific and stays in the caller layer until SemanticCatalogue exists.
 
@@ -100,6 +100,7 @@ Schema-version rules:
 
 - Manifest and Parquet table versions are reader-side compatibility checks, not path guesses.
 - The shared compatibility contract lives at `datasets/schema-compatibility.json`. The frontend derives the canonical manifest-reader compatibility set from that registry at build time; no runtime compatibility fetch occurs before `manifest.json`.
+- Runtime registration fails before DuckDB-WASM boot or file URL registration when the manifest or requested table declares an unsupported schema version.
 - Reader support ships before producer output. A route must fail loud on unsupported schema versions rather than silently registering a table it cannot interpret.
 
 No manifest schema bump is required for the first slice seam because the existing manifest already exposes `partition_columns` and each file's `partition_values`. The manifest remains a physical inventory; future SemanticCatalogue work is a separate control-plane artifact and must not contain observation values.
