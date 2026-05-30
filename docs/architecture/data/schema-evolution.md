@@ -37,7 +37,18 @@ Out of scope:
 | Backend Tier B validator | Validates corpus artifacts against current or explicitly compatible contracts. Until compatibility code lands, it may keep latest-only equality. |
 | Frontend JSON corpus contract | Defends the static corpus the frontend consumes. It must converge on the same compatibility contract as backend Tier B. |
 | Canonical manifest reader | Checks manifest/table versions before registering Parquet files. |
-| Future compatibility registry | Single machine-readable source for supported reader versions across runtimes. |
+| `datasets/schema-compatibility.json` | Single machine-readable source for supported reader versions across runtimes. Its schema lives at `datasets/schemas/schema-compatibility.schema.json`. |
+
+## Compatibility Registry
+
+`datasets/schema-compatibility.json` is the data-owned compatibility contract introduced by Row C of the schema-version compatibility plan. It is a contract surface, not a generated data snapshot.
+
+The registry has two policy layers:
+
+- **Defaults** name each reader surface's baseline behavior. The JSON corpus surface is current-schema only until backend and frontend readers consume the registry. The canonical manifest reader is unsupported unless an override lists the schema/version pair.
+- **Overrides** name explicitly accepted versions for a surface and schema. Row C seeds only additive minor versions that the current schema can still validate: `manifest.schema.json` v1.0-v1.3 and `observation.schema.json` v1.0-v1.1.
+
+The registry deliberately does not copy old-major frontend constants whose current schemas have since moved to a higher major. Old majors need retained schemas, a translator, migration, or fail-loud rejection. Row G owns retiring local frontend constants as an authority; Row E and Row F own backend and frontend JSON corpus consumption.
 
 ## Version Change Taxonomy
 
@@ -90,7 +101,7 @@ If none exists, reject the artifact loudly. Do not fill missing fields with gues
 Normal rollout is reader before producer:
 
 1. Update policy/docs when the contract changes.
-2. Add or update the compatibility contract.
+2. Add or update `datasets/schema-compatibility.json`.
 3. Ship reader support and tests for old supported, unsupported future, unsupported major, and incompatible-shape cases.
 4. Only then emit artifacts with the new schema version.
 

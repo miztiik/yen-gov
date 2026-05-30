@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./schema-compatibility.schema.json",
+  "title": "Schema compatibility registry",
+  "description": "datasets/schema-compatibility.json - shared reader-side compatibility contract for schema versions. Writers remain strict and emit the current schema version; readers and validators accept older versions only when this registry explicitly permits them.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-30",
+      "description": "Initial registry schema for ADR-0047. Defines default current-only reader policy plus explicit per-surface schema-version overrides for additive minor compatibility. Row C of TODO/20260530-schema-version-compatibility-plan.md adds the contract surface without changing validator or frontend runtime behavior."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "defaults", "overrides"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "defaults": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/defaultPolicy" }
+    },
+    "overrides": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/schemaOverride" }
+    }
+  },
+  "$defs": {
+    "surfaceId": {
+      "enum": ["json-corpus", "canonical-manifest-reader"],
+      "description": "The reader surface whose compatibility policy is being described. json-corpus covers JSON artifacts in datasets/ and config/. canonical-manifest-reader covers manifest/table schema versions consumed by the frontend canonical-store reader."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$"
+    },
+    "schemaFile": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9.-]*\\.schema\\.json$",
+      "description": "Schema basename under datasets/schemas/."
+    },
+    "pathGlob": {
+      "type": "string",
+      "pattern": "^[a-z][A-Za-z0-9_./*{}=-]*$",
+      "description": "POSIX-style relative glob naming the artifacts covered by this policy. No drive letters or backslashes."
+    },
+    "defaultPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["surface", "policy", "validation", "applies_to", "rationale"],
+      "properties": {
+        "surface": { "$ref": "#/$defs/surfaceId" },
+        "policy": {
+          "enum": ["current_schema_only", "unsupported_unless_listed"],
+          "description": "current_schema_only means the current schema x-version is accepted by default. unsupported_unless_listed means no version is accepted unless an overrides[] row names it."
+        },
+        "validation": {
+          "enum": ["current_schema"],
+          "description": "Artifacts are validated against the current schema in this registry version. Declared-version validation and retained historical schemas are future Row H work."
+        },
+        "applies_to": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/pathGlob" }
+        },
+        "rationale": { "type": "string", "minLength": 20 }
+      }
+    },
+    "schemaOverride": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["surface", "schema", "accepted_versions", "validation", "rationale"],
+      "properties": {
+        "surface": { "$ref": "#/$defs/surfaceId" },
+        "schema": { "$ref": "#/$defs/schemaFile" },
+        "accepted_versions": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/version" },
+          "description": "Versions accepted by this reader surface for this schema. The current schema version must be included by tests. Old major versions are forbidden until retained schemas, translators, or migrations exist."
+        },
+        "validation": { "enum": ["current_schema"] },
+        "rationale": { "type": "string", "minLength": 20 }
+      }
+    }
+  }
+}
