@@ -1,6 +1,6 @@
 # Boundary plan follow-ups (deferred / optional / out-of-scope-recoverable inventory)
 
-**Last Updated**: 2026-05-30 (PR #_pending_: SVG pivot for Cat 2 #2 / Cat 7 #4 baked in after Furfur SVG identified mid-plan)
+**Last Updated**: 2026-05-30 (PR #468: SVG pivot for Cat 2 #2 / Cat 7 #4 baked in after Furfur SVG identified mid-plan)
 
 **Source plan**: [TODO/20260530-boundary-followups-execution-plan.md](20260530-boundary-followups-execution-plan.md) (ACTIVE; 22 of these items are now Phase 5 rows 5.1-5.22 in that plan-doc)
 

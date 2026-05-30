@@ -80,7 +80,7 @@ When all rows reach `[x] DONE` or `[-] COLLAPSED`, run the 6-step distillation p
 | 3.1 | P3 Cleanup | Vitest U08/U09 villages orphan: delete OR allow-list the 14 entries | [-] COLLAPSED | n/a |
 | 4.1 | P4 Optional | Code-marker TODO annotations in sources.ts + boundaries.ts (Category 8) | [x] DONE | #464 |
 | 4.2 | P4 Distill | Premature distill-on-complete archive of this plan-doc | [x] DONE | #465 |
-| 4.3 | P4 Correction | Un-archive this plan-doc + bake SVG pivot for S03 + restructure §6 to active follow-ups | [ ] PENDING | _pending_ |
+| 4.3 | P4 Correction | Un-archive this plan-doc + bake SVG pivot for S03 + restructure §6 to active follow-ups | [x] DONE | #468 |
 
 ### Active follow-up rows (Phase 5; from inventory)
 
