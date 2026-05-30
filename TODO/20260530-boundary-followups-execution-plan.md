@@ -65,7 +65,7 @@ When all rows reach `[x] DONE` / `[-] COLLAPSED` / `[!] ESCALATED-and-resolved`,
 
 ## section 1. Status Reckoner
 
-Total: 37 rows. 16 DONE + 1 COLLAPSED + 1 PENDING-actionable + 19 BLOCKED-on-trigger.
+Total: 37 rows. 16 DONE + 4 COLLAPSED + 0 PENDING-actionable + 17 BLOCKED-on-trigger. No executable rows remain; plan-doc stays in `TODO/` because BLOCKED rows are trigger-watch entries owned by the inventory file ([TODO/20260530-boundary-plan-followups.md](20260530-boundary-plan-followups.md)). Archive when the trigger-watch list itself moves or empties.
 
 | Row | Title | Status | PR | Trigger / Notes |
 | --- | --- | --- | --- | --- |
@@ -87,9 +87,9 @@ Total: 37 rows. 16 DONE + 1 COLLAPSED + 1 PENDING-actionable + 19 BLOCKED-on-tri
 | 4.7 | S01 Susewind 2014 probe + verdict | `[x] DONE` | #474 | Susewind 2014 confirmed NOT viable (292 features pre-bifurcation; CC-BY-SA-NC license); only Path B remains. |
 | 4.8 | Promote `verify_ac_parity` to pytest gate (was Row 5.22) | `[x] DONE` | #475 | 12 new tests across 10 D.2 states. |
 | 4.9 | U09 Ladakh villages source probe + verdict | `[x] DONE` | #476 | No viable polygon source today; recommend Path D (defer + document). |
-| 5.1 | S03 Assam Furfur SVG -> GeoJSON pipeline | `[ ] BLOCKED` | - | Probe (4.6) found only 20 paths / 25 subpaths / 132 numeric labels - NOT 126 per-AC polygons. Unblock: Path B (Furfur outreach) succeeds OR user accepts Path A (Voronoi approximation) with citizen caveat. |
-| 5.7 | S01 AP residue: Path B in-repo surgery | `[ ] BLOCKED` | - | BLOCKED on user decision Path B (drop HTL touchpoint via remap; 3-4h) vs Path D (accept HTL indefinitely; COLLAPSE row). Per probe verdict (4.7), Path A Susewind is NOT viable. |
-| **5.5** | **U09 Ladakh villages source probe** | **`[ ] BLOCKED`** | - | Per probe verdict (4.9), no viable polygon source today. Unblock now requires BOTH upstream-quality source AND village-grain citizen indicator for Ladakh. |
+| 5.1 | S03 Assam Furfur SVG -> GeoJSON pipeline | `[-] COLLAPSED` | - | User decision 2026-05-30: Path C (keep T4 district fallback). Probe (4.6) confirmed SVG has only 20 paths / 25 subpaths / 132 numeric labels - NOT 126 per-AC polygons. Voronoi approximation (Path A) would ship misleading geometry; Furfur outreach (Path B) timeline unbounded. T4 district fallback is the honest shipped experience; election results still bind correctly to post-2023 SoT `eci_no`. Documented in [docs/concepts/admin-level-sourcing.md](../docs/concepts/admin-level-sourcing.md) `Known coverage gaps`. |
+| 5.7 | S01 AP residue: in-repo surgery | `[-] COLLAPSED` | - | Re-recon 2026-05-30 found S01 was already resolved by PR #434 (A.1.a). Current `datasets/boundaries/in/ac/state=in_s01/all.geojson` ships **175 features, 100% name parity** (`verify_ac_parity --state S01` OK). The inventory entry's "177 features + ~119 no-fill residue polygons" framing was incorrect; the file is filtered to 175 post-2014 AP-only features with `lgd_legacy_ac_no` + `lgd_ac_id` preserved. HTL touchpoint count is already 3 (S03 + U07 + U10), not 4. No surgery needed; row closes via re-recon. |
+| **5.5** | **U09 Ladakh villages source probe** | **`[-] COLLAPSED`** | - | User decision 2026-05-30: Path D (defer + document). No viable polygon source today per probe verdict (4.9). Gap recorded in [docs/concepts/admin-level-sourcing.md](../docs/concepts/admin-level-sourcing.md) `Known coverage gaps`. Re-open when BOTH upstream-quality source emerges AND citizen indicator demands village-grain rendering for Ladakh. |
 | ~~5.22~~ | ~~Promote `verify_ac_parity` to pytest gate~~ | `[x] DONE` (as 4.8) | #475 | Shipped as Row 4.8. |
 | 5.3 | C.2.d Bhuvan panchayat gap-fill (9 states/UTs) | `[ ] BLOCKED` | - | Trigger: PRR / MGNREGS / PRI-funds indicator at panchayat grain. |
 | 5.4 | C.3.d Urban ward gap-fill (WB-AMRUT / Shillong / LivingAtlas) | `[ ] BLOCKED` | - | Trigger: urban-governance / Swachh-Survekshan / AMRUT indicator at ward grain. |
@@ -110,6 +110,16 @@ Total: 37 rows. 16 DONE + 1 COLLAPSED + 1 PENDING-actionable + 19 BLOCKED-on-tri
 | 5.21 | Sub-panchayat / GP Ward layer | `[ ] BLOCKED` | - | Upstream + GP-ward grain citizen indicator. |
 
 Legend: `[x] DONE` / `[ ] PENDING` / `[!] ESCALATED` / `[-] COLLAPSED` / `[ ] BLOCKED`.
+
+### Execution arc progress (2026-05-30)
+
+The 5-PR autonomous sequence authorised on 2026-05-30 (PRs #471, #472, #474, #475, #476) closed all PENDING-actionable rows. User decisions on the three resulting BLOCKED rows (recorded this PR):
+
+- **Row 5.1 -> COLLAPSED** (Path C). User accepted T4 district fallback as the honest shipped experience for S03. Voronoi approximation would ship misleading geometry; Furfur outreach is unbounded. Gap documented in [docs/concepts/admin-level-sourcing.md](../docs/concepts/admin-level-sourcing.md).
+- **Row 5.7 -> COLLAPSED** (re-recon). S01 was already resolved by PR #434 (A.1.a); the inventory's "119 no-fill residue polygons" framing was incorrect. Current S01 file ships 175 features at 100% name parity; HTL touchpoint count is already 3, not 4.
+- **Row 5.5 -> COLLAPSED** (Path D). U09 Ladakh villages: no viable polygon source today; gap documented in [docs/concepts/admin-level-sourcing.md](../docs/concepts/admin-level-sourcing.md). Re-open when both upstream and citizen-indicator triggers fire.
+
+Post-this-PR status: 0 executable rows remain. The 17 BLOCKED rows (5.3, 5.4, 5.6, 5.8-5.21) are pointers into the inventory file [TODO/20260530-boundary-plan-followups.md](20260530-boundary-plan-followups.md), which is the long-term trigger-watch. Plan-doc stays in `TODO/` per PR #468 lesson (do not archive while inventory items remain live).
 
 ---
 

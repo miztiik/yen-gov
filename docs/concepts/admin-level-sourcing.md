@@ -174,6 +174,44 @@ condition resolves. The C.4 (J&K villages) decision was YES on 1 + 2 +
 the disk layer ahead of the surface is OK because villages WILL get a
 surface once an indicator demand materialises.
 
+## Known coverage gaps (deferred)
+
+These layers have NO viable upstream polygon source today. Each entry
+names the gap, the candidate sources surveyed, the reason none qualify,
+and the unblock trigger. Re-evaluate when an upstream release or a
+citizen indicator changes the calculus.
+
+- **U09 Ladakh villages** (deferred 2026-05-30 per
+  [notes/2026-05-30-u09-ladakh-villages-source-probe-verdict.md](../../notes/2026-05-30-u09-ladakh-villages-source-probe-verdict.md)).
+  `Bhuvan_JK_Villages` (used in C.4.a for U08) explicitly excludes
+  Ladakh. `LGD_Villages` excludes Ladakh per release notes (alongside
+  HP / Sikkim / Meghalaya / Mizoram / Manipur / Nagaland / Arunachal).
+  `bhuvan_villages` national release predates the 2019 UT split.
+  Census/SOI village-point sources are wrong geometry type. SHRUG
+  Census 2011 polygons carry CC-BY-NC-SA (downstream-licensing
+  concern) plus pre-2019 vintage requiring hand-curated reassignment.
+  MoRD SVAMITVA is property-centroid data, not polygons. Until BOTH
+  (a) an upstream-quality polygon source emerges (Bhuvan-Ladakh
+  release; LGD coverage expansion; or independent civic source) AND
+  (b) a citizen indicator demands village-grain rendering for Ladakh,
+  `/s/ladakh` stays at district / UT grain.
+
+- **S03 Assam post-2023 AC polygons** (deferred 2026-05-30 per
+  [notes/2026-05-30-s03-furfur-svg-structure-probe-verdict.md](../../notes/2026-05-30-s03-furfur-svg-structure-probe-verdict.md)).
+  ECI Delimitation Order 2023 ships as PDF only; no Tier-1 vector
+  release exists. The Furfur Wikimedia SVG was probed and found to
+  carry only 20 `<path>` elements / 25 subpath-starts (district-shape
+  groups, NOT 126 per-AC polygons) plus 132 numeric label-only
+  `<text>` nodes. Voronoi tessellation around the labels would
+  approximate boundaries at L-XL effort but produce misleading
+  geometry without a prominent caveat. S03 currently renders the
+  T4 district-polygon fallback with a "boundaries pending post-2023
+  delimitation; showing district outlines as interim" tooltip --
+  honest about the gap. Election results still bind correctly to
+  post-2023 SoT `eci_no` (no join breakage). Unblock when EITHER a
+  Tier-1 vector source ships OR Furfur (via Wikimedia talk page)
+  shares the AI native file.
+
 ## See also
 
 - [`boundary-data-philosophy.md`](boundary-data-philosophy.md) -- the WHY
