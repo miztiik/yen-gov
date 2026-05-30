@@ -16,15 +16,17 @@ real upstream archive). Validates:
   re-emits at coarser precision before SKIP; the row carries the
   fallback tolerance.
 
-Note: assumed upstream SBM_Wards property names are ``state_lgd`` /
-``ulb_lgd`` / ``ward_code`` / ``ward_name`` (long-form per the blocks
-convention). The C.3.b live-lift dry-run MUST re-verify these against
-an actual SBM_Wards.geojsonl feature dump — the C.2 panchayats
-first-snapshot revealed short-form (``st_lgd`` / ``dt_lgd``) when
-long-form was assumed; SBM_Wards may follow either convention.
-Fixtures + assertions below mirror the long-form hypothesis in the
-lift module's constants; both move together if the C.3.b dry-run
-reveals different names.
+Note: C.3.b live-lift first-snapshot revealed SBM_Wards uses
+``statecode`` / ``ulbcode`` / ``wardcode`` / ``wardname`` (concatenated
+lowercase per MoHUA's SBM Urban release format) — a third distinct
+convention beyond the C.1.c blocks long-form (``state_lgd`` /
+``dist_lgd``) and the C.2.b panchayats short-form (``st_lgd`` /
+``dt_lgd``). The ``wardcode`` field is heterogeneous: mostly numeric
+strings ("4", "7") plus a non-trivial minority of free-text labels
+("Ward No 5", "WARD 12") — the sort helper handles both shapes via
+a (numeric-first, text-second) two-cohort key. Fixtures + assertions
+below mirror the discovered shape; both move together if a future
+upstream release renames any property.
 """
 
 from __future__ import annotations
@@ -65,22 +67,22 @@ def lift_module() -> Any:
 def _feature(
     state_lgd: int | None,
     ulb_lgd: int | None,
-    ward_code: int,
+    ward_code: int | str,
     ward_name: str,
     lon: float = 78.0,
     lat: float = 12.0,
 ) -> dict[str, Any]:
     """Minimal ward feature (1x1 degree square polygon)."""
     props: dict[str, Any] = {
-        "ward_code": ward_code,
-        "ward_name": ward_name,
-        "stname": "TEST",
-        "ulb_name": "TestULB",
+        "wardcode": ward_code,
+        "wardname": ward_name,
+        "statename": "TEST",
+        "ulbname": "TestULB",
     }
     if state_lgd is not None:
-        props["state_lgd"] = state_lgd
+        props["statecode"] = state_lgd
     if ulb_lgd is not None:
-        props["ulb_lgd"] = ulb_lgd
+        props["ulbcode"] = ulb_lgd
     return {
         "type": "Feature",
         "properties": props,
@@ -131,20 +133,20 @@ def test_group_features_treats_empty_string_keys_as_unkeyed(lift_module: Any) ->
         {
             "type": "Feature",
             "properties": {
-                "state_lgd": "",
-                "ulb_lgd": 802743,
-                "ward_code": 1,
-                "ward_name": "x",
+                "statecode": "",
+                "ulbcode": 802743,
+                "wardcode": 1,
+                "wardname": "x",
             },
             "geometry": None,
         },
         {
             "type": "Feature",
             "properties": {
-                "state_lgd": 2,
-                "ulb_lgd": "",
-                "ward_code": 2,
-                "ward_name": "y",
+                "statecode": 2,
+                "ulbcode": "",
+                "wardcode": 2,
+                "wardname": "y",
             },
             "geometry": None,
         },
@@ -162,10 +164,10 @@ def test_group_features_coerces_string_keys_to_int(lift_module: Any) -> None:
         {
             "type": "Feature",
             "properties": {
-                "state_lgd": "33",
-                "ulb_lgd": "800001",
-                "ward_code": 1,
-                "ward_name": "x",
+                "statecode": "33",
+                "ulbcode": "800001",
+                "wardcode": 1,
+                "wardname": "x",
             },
             "geometry": {
                 "type": "Polygon",
@@ -185,11 +187,32 @@ def test_sort_features_deterministic_by_ward_code_then_name(lift_module: Any) ->
         _feature(2, 802743, 3, "C"),
         _feature(2, 802743, 1, "A"),
         _feature(2, 802743, 2, "B"),
-        _feature(2, 802743, 1, "A2"),  # tie on ward_code, sort by ward_name
+        _feature(2, 802743, 1, "A2"),  # tie on wardcode, sort by wardname
     ]
     out = lift_module.sort_features_deterministically(feats)
-    keys = [(f["properties"]["ward_code"], f["properties"]["ward_name"]) for f in out]
+    keys = [(f["properties"]["wardcode"], f["properties"]["wardname"]) for f in out]
     assert keys == [(1, "A"), (1, "A2"), (2, "B"), (3, "C")]
+
+
+def test_sort_features_handles_heterogeneous_wardcode(lift_module: Any) -> None:
+    """SBM_Wards ``wardcode`` is heterogeneous (C.3.b first-snapshot
+    finding): mostly numeric strings ("4", "7") but a non-trivial
+    minority are free-text labels ("Ward No 5", "WARD 12"). The sort
+    helper splits into two cohorts — numeric-castable codes first
+    (sorted by int value), free-text codes second (sorted by str value)
+    — so byte-determinism survives the heterogeneity.
+    """
+    feats = [
+        _feature(2, 802743, "Ward No 5", "Z"),  # free-text cohort
+        _feature(2, 802743, "3", "C"),  # numeric cohort (string)
+        _feature(2, 802743, 1, "A"),  # numeric cohort (int)
+        _feature(2, 802743, "WARD 12", "Y"),  # free-text cohort
+        _feature(2, 802743, 2, "B"),  # numeric cohort
+    ]
+    out = lift_module.sort_features_deterministically(feats)
+    keys = [f["properties"]["wardcode"] for f in out]
+    # numeric cohort first (1, 2, 3); free-text cohort second ("WARD 12", "Ward No 5")
+    assert keys == [1, 2, "3", "WARD 12", "Ward No 5"]
 
 
 def test_lift_emits_per_ulb_shards_and_returns_rows(
@@ -384,12 +407,12 @@ def test_lift_auto_fallback_when_bucket_exceeds_budget(
     feat = {
         "type": "Feature",
         "properties": {
-            "ward_code": 1,
-            "ward_name": "BigWard",
-            "state_lgd": 33,
-            "ulb_lgd": 800001,
-            "stname": "TEST",
-            "ulb_name": "TestULB",
+            "wardcode": 1,
+            "wardname": "BigWard",
+            "statecode": 33,
+            "ulbcode": 800001,
+            "statename": "TEST",
+            "ulbname": "TestULB",
         },
         "geometry": {"type": "Polygon", "coordinates": [long_ring]},
     }
