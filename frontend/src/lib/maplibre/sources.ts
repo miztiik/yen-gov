@@ -45,7 +45,9 @@ export interface BoundaryEntry {
 }
 
 // Single citizen-facing footer for ALL boundary layers (A.3 - attribution
-// centralization per TODO/20260529-boundary-rip-and-replace-plan.md).
+// centralization per TODO/20260529-boundary-rip-and-replace-plan.md;
+// icon-only refinement per TODO/20260530-boundary-followups-execution-plan.md
+// Row 0.2).
 //
 // Previously each BoundaryEntry carried a multi-sentence per-source
 // `attribution` HTML string that maplibre rendered into the bottom-right
@@ -54,11 +56,19 @@ export interface BoundaryEntry {
 // citizen. The full per-source licensing + provenance now lives at
 // `/about?section=maps`, and every map renders one short link instead.
 //
+// 2026-05-30: refined to icon-only. The visible label `Boundary sources
+// & licensing` shifts to the `title` attribute (native HTML tooltip on
+// hover) so the bottom-right pill stays a single unobtrusive glyph.
+// One click on the glyph still navigates to `/about?section=maps` (the
+// docs surface for boundary provenance). The text is preserved in
+// `title` so a citizen who hovers gets the full label without having
+// to click first.
+//
 // BASE_URL accommodates GitHub Pages deployment under a sub-path; in
 // dev BASE_URL is `/` so the link resolves to `/about?section=maps`.
 export function boundaryFooterHtml(base_url: string = "/"): string {
   const base = base_url.replace(/\/$/, "");
-  return `<a href="${base}/about?section=maps">Boundary sources &amp; licensing</a>`;
+  return `<a href="${base}/about?section=maps" title="Boundary sources &amp; licensing">&#9432;</a>`;
 }
 
 // India-wide states layer. Property State_LGD = LGD numeric state code

@@ -24,8 +24,10 @@
 //      it must be the resolved SoT name (e.g. "NIPPANI" for S10,
 //      "BEHAT" for S24).
 //   3. Map canvas (canvas.maplibregl-canvas) mounts.
-//   4. Footer attribution link is the centralised A.3 link:
-//      `<a href="/about?section=maps">Boundary sources & licensing</a>`.
+//   4. Footer attribution link is the centralised A.3 link, rendered
+//      icon-only with the label moved to the `title` attribute (citizen
+//      hovers to see the label; one click navigates to the docs):
+//      `<a href="/about?section=maps" title="Boundary sources & licensing">ⓘ</a>`.
 //   5. The map's own GET request for the geojson shard returns 200.
 //      We listen via `page.waitForResponse` (set up BEFORE goto) rather
 //      than firing a manual fetch - manual `fetch(method:"HEAD")` from
@@ -143,11 +145,15 @@ test.describe("STATE_AC per-state coverage", () => {
         timeout: 15_000,
       });
 
-      // Footer attribution = centralised A.3 link.
+      // Footer attribution = centralised A.3 link, icon-only with the
+      // label preserved on the `title` attribute (hover-tooltip).
       const attrLink = page
         .locator(`.maplibregl-ctrl-attrib-inner a[href$="/about?section=maps"]`)
         .first();
-      await expect(attrLink).toHaveText(/Boundary sources & licensing/);
+      await expect(attrLink).toHaveAttribute(
+        "title",
+        /Boundary sources & licensing/,
+      );
 
       // GeoJSON shard load (via the map's own GET, captured above).
       const shardResponse = await shardResponsePromise;
