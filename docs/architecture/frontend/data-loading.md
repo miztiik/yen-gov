@@ -99,7 +99,7 @@ Failure rules:
 Schema-version rules:
 
 - Manifest and Parquet table versions are reader-side compatibility checks, not path guesses.
-- The shared compatibility contract lives at `datasets/schema-compatibility.json`. Current frontend runtime support is still expressed through `SUPPORTED_SCHEMA_VERSIONS`; [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md) makes that a temporary reader-local expression until Row G derives or generates runtime support from the shared contract.
+- The shared compatibility contract lives at `datasets/schema-compatibility.json`. The frontend derives the canonical manifest-reader compatibility set from that registry at build time; no runtime compatibility fetch occurs before `manifest.json`.
 - Reader support ships before producer output. A route must fail loud on unsupported schema versions rather than silently registering a table it cannot interpret.
 
 No manifest schema bump is required for the first slice seam because the existing manifest already exposes `partition_columns` and each file's `partition_values`. The manifest remains a physical inventory; future SemanticCatalogue work is a separate control-plane artifact and must not contain observation values.

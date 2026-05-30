@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import { globSync } from "glob";
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
-import { SUPPORTED_SCHEMA_VERSIONS } from "../lib/canonical/types";
+import { CANONICAL_MANIFEST_READER_SCHEMA_VERSIONS } from "../lib/canonical/schema-compatibility";
 
 const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "..", "..", "..");
 const datasetsDir = resolve(repoRoot, "datasets");
@@ -56,6 +56,14 @@ function compareVersion(left: string, right: string): number {
 const registry = readJson<CompatibilityRegistry>(registryPath);
 const registrySchema = readJson<Record<string, unknown>>(registrySchemaPath);
 
+function canonicalManifestReaderVersions(): Record<string, readonly string[]> {
+  return Object.fromEntries(
+    registry.overrides
+      .filter(row => row.surface === "canonical-manifest-reader")
+      .map(row => [row.schema, row.accepted_versions]),
+  );
+}
+
 describe("contract - schema compatibility registry", () => {
   it("validates against schema-compatibility.schema.json", () => {
     const ajv = new Ajv2020({ strict: false, allErrors: true });
@@ -98,14 +106,7 @@ describe("contract - schema compatibility registry", () => {
     }
   });
 
-  it("does not outrun the current frontend canonical reader constant", () => {
-    for (const override of registry.overrides.filter(row => row.surface === "canonical-manifest-reader")) {
-      const currentRuntimeSet = SUPPORTED_SCHEMA_VERSIONS[override.schema] ?? [];
-
-      expect(
-        currentRuntimeSet,
-        `${override.schema} registry support is ahead of SUPPORTED_SCHEMA_VERSIONS; Row G must derive runtime support before this can expand`,
-      ).toEqual(expect.arrayContaining(override.accepted_versions));
-    }
+  it("matches the runtime canonical-manifest-reader compatibility set exactly", () => {
+    expect(CANONICAL_MANIFEST_READER_SCHEMA_VERSIONS).toEqual(canonicalManifestReaderVersions());
   });
 });
