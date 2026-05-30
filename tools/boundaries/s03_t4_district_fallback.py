@@ -5,10 +5,10 @@ where each AC's geometry is its parent district's polygon, sourced from the
 all-India districts shard at `datasets/boundaries/in/districts/all.geojson`.
 
 This is the Tier-4 fallback for S03 Assam per A.1.b of
-`TODO/20260529-boundary-rip-and-replace-plan.md`. Tier-1 (LGD pre-2023) was
+`docs/archive/plans/20260529-boundary-rip-and-replace-plan.md`. Tier-1 (LGD pre-2023) was
 exhausted; Tier-3 (Aug 2023 Delimitation Order PDF vectorisation) is
 deferred-feasible (~40-60h manual QGIS work, see
-`notes/2026-05-29-s03-pdf-probe-verdict.md`); Tier-4 is the immediate
+`docs/archive/notes/2026-05-29-s03-pdf-probe-verdict.md`); Tier-4 is the immediate
 interim that fixes the systematic citizen mis-binding bug (current pre-2023
 HTL ACs have 0.8% name parity to post-2023 SoT).
 

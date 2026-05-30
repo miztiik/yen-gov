@@ -5,7 +5,7 @@
 // all.geojson` MUST sit at a well-formed Hive path and the shipped
 // coverage MUST stay above the C.3.b documented floor.
 //
-// File-name note: TODO/20260529-boundary-rip-and-replace-plan.md row
+// File-name note: docs/archive/plans/20260529-boundary-rip-and-replace-plan.md row
 // C.3.b cites this file as `state-wards-registry-coverage.test.ts`.
 // The deliverable was renamed `*-shards-coverage` because the frontend
 // `WARD_BOUNDARY_BY_ULB` registry does NOT land until C.3.c

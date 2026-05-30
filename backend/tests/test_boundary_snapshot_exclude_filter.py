@@ -6,7 +6,7 @@ hand-built feature dicts so this suite has no py7zr dependency.
 The `apply_exclude_filter` directive was added in Phase D.2 (AC consolidation
 promote) so `pipeline.json` entries can drop features whose property value
 matches a sentinel (e.g. `status == "Pre delimitation"` on ramSeraph LGD
-AC release per the D.1 recon note in `notes/2026-05-25-d1-ac-consolidation-recon.md`).
+AC release per the D.1 recon note in `docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md`).
 Unlike `state_filter`, an empty `kept` list is a valid outcome — the caller
 explicitly authorised the drop.
 """

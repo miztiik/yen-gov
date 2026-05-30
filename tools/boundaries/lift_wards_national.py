@@ -1,6 +1,6 @@
 """Lift SBM_Wards.geojsonl into per-(state, ulb) Hive shards.
 
-Phase C.3.a of ``TODO/20260529-boundary-rip-and-replace-plan.md``: add
+Phase C.3.a of ``docs/archive/plans/20260529-boundary-rip-and-replace-plan.md``: add
 the LGD ULB Ward admin level to yen-gov's boundary corpus. ramSeraph
 publishes SBM_Wards.geojsonl.7z (~250-350k features per Swachh Bharat
 Mission Urban tracking, MoHUA lineage, CC0 1.0; ~30-state coverage —

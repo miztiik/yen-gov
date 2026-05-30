@@ -11,7 +11,7 @@
 // missing shard, the network request 404s.
 //
 // This is the C.1.b + C.1.c contract test
-// (TODO/20260529-boundary-rip-and-replace-plan.md) - it locks in the
+// (docs/archive/plans/20260529-boundary-rip-and-replace-plan.md) - it locks in the
 // 36-shard / 36-entry registry sync (full elective-state coverage)
 // and prevents future PRs from drifting either direction.
 //
@@ -117,7 +117,7 @@ describe("BLOCK_BOUNDARY entry shape is well-formed", () => {
   it("all entries point at the same ramSeraph LGD_Blocks upstream URL", () => {
     // Block-level boundary source-of-truth is a single national
     // geojsonl bundle on ramSeraph (per C.1 recon verdict,
-    // notes/2026-05-29-c1-blocks-source-hunt-verdict.md). Any
+    // docs/archive/notes/2026-05-29-c1-blocks-source-hunt-verdict.md). Any
     // per-state divergence in the upstream URL should be a
     // deliberate, reviewed decision - this assertion forces that.
     const upstreamUrl =

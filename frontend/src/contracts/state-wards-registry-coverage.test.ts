@@ -11,7 +11,7 @@
 // shard, the network request 404s.
 //
 // This is the C.3.c contract test
-// (TODO/20260529-boundary-rip-and-replace-plan.md) - symmetric mirror
+// (docs/archive/plans/20260529-boundary-rip-and-replace-plan.md) - symmetric mirror
 // of the C.2.c `state-panchayats-registry-coverage.test.ts` precedent,
 // adapted for the ULB-keyed nested Hive layout. Tests the new
 // ULB-as-parent partition (vs panchayats' district-as-parent + blocks'
@@ -152,7 +152,7 @@ describe("WARD_BOUNDARY_BY_ULB entry shape is well-formed", () => {
   it("all entries point at the same ramSeraph SBM_Wards upstream URL", () => {
     // Ward-level boundary source-of-truth is a single national
     // geojsonl bundle on ramSeraph (per C.3 recon verdict,
-    // notes/2026-05-30-c3-ulb-wards-source-hunt-verdict.md). Any
+    // docs/archive/notes/2026-05-30-c3-ulb-wards-source-hunt-verdict.md). Any
     // per-ULB divergence in the upstream URL should be a deliberate,
     // reviewed decision - this assertion forces that.
     const upstreamUrl =

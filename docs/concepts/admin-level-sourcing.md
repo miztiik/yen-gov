@@ -182,7 +182,7 @@ and the unblock trigger. Re-evaluate when an upstream release or a
 citizen indicator changes the calculus.
 
 - **U09 Ladakh villages** (deferred 2026-05-30 per
-  [notes/2026-05-30-u09-ladakh-villages-source-probe-verdict.md](../../notes/2026-05-30-u09-ladakh-villages-source-probe-verdict.md)).
+  [docs/archive/notes/2026-05-30-u09-ladakh-villages-source-probe-verdict.md](../../docs/archive/notes/2026-05-30-u09-ladakh-villages-source-probe-verdict.md)).
   `Bhuvan_JK_Villages` (used in C.4.a for U08) explicitly excludes
   Ladakh. `LGD_Villages` excludes Ladakh per release notes (alongside
   HP / Sikkim / Meghalaya / Mizoram / Manipur / Nagaland / Arunachal).
@@ -197,7 +197,7 @@ citizen indicator changes the calculus.
   `/s/ladakh` stays at district / UT grain.
 
 - **S03 Assam post-2023 AC polygons** (deferred 2026-05-30 per
-  [notes/2026-05-30-s03-furfur-svg-structure-probe-verdict.md](../../notes/2026-05-30-s03-furfur-svg-structure-probe-verdict.md)).
+  [docs/archive/notes/2026-05-30-s03-furfur-svg-structure-probe-verdict.md](../../docs/archive/notes/2026-05-30-s03-furfur-svg-structure-probe-verdict.md)).
   ECI Delimitation Order 2023 ships as PDF only; no Tier-1 vector
   release exists. The Furfur Wikimedia SVG was probed and found to
   carry only 20 `<path>` elements / 25 subpath-starts (district-shape

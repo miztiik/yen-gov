@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-05-30
 
-**Predecessor plan-doc**: [TODO/20260530-boundary-followups-execution-plan.md](20260530-boundary-followups-execution-plan.md) Row 4.4 (was Row 5.2 pre-PR #471 cleanup; this plan-doc opens that row's research-only first PR).
+**Predecessor plan-doc**: [docs/archive/plans/20260530-boundary-followups-execution-plan.md](../docs/archive/plans/20260530-boundary-followups-execution-plan.md) Row 4.4 (was Row 5.2 pre-PR #471 cleanup; this plan-doc opens that row's research-only first PR).
 
 **Status**: RESEARCH-ONLY first PR shipped via #469. Subsequent migration rows ESCALATE per CLAUDE.md §6 Level-5 ("Design consultation only - pause work"). Agent does NOT execute beyond R1 without explicit user design sign-off + this plan-doc being amended in the same commit as the sign-off.
 
@@ -91,7 +91,7 @@ R3+ (per-surface migration PRs) each require:
 
 ## See also
 
-- [TODO/20260530-boundary-followups-execution-plan.md](20260530-boundary-followups-execution-plan.md) Row 4.4 (was Row 5.2; this plan-doc opens that row)
+- [docs/archive/plans/20260530-boundary-followups-execution-plan.md](../docs/archive/plans/20260530-boundary-followups-execution-plan.md) Row 4.4 (was Row 5.2; this plan-doc opens that row)
 - [docs/concepts/admin-level-sourcing.md](../docs/concepts/admin-level-sourcing.md) (LGD-golden doctrine + 3-convention rule)
 - [docs/architecture/decisions/0029-unmapped-region-chips.md](../docs/architecture/decisions/0029-unmapped-region-chips.md) (D.1.A user-mandate + retirement context)
 - [CLAUDE.md](../CLAUDE.md) §6 Level-5 ("Core design / data model / runtime - Design consultation only - pause work")

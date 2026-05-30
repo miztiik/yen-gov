@@ -11,7 +11,7 @@
 // request 404s.
 //
 // This is the A.2 contract test
-// (TODO/20260529-boundary-rip-and-replace-plan.md) - it locks in the
+// (docs/archive/plans/20260529-boundary-rip-and-replace-plan.md) - it locks in the
 // 31-shard / 31-entry registry sync that A.2 ships, and prevents
 // future PRs from drifting either direction.
 //

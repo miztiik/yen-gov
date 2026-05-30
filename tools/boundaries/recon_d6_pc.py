@@ -14,7 +14,7 @@ features, and answers the four D.6 recon-gate questions:
     4. Any pre-delimitation contamination? (status field check.)
 
 Output of one run is the substance of
-notes/2026-05-25-d6-pc-recon.md (quote findings; do not link the raw
+docs/archive/notes/2026-05-25-d6-pc-recon.md (quote findings; do not link the raw
 file path).
 
 This script does NOT promote anything to the canonical store. It exists
@@ -277,7 +277,7 @@ def main() -> int:
             print(f"    {k!r}: {values[k]}")
 
     print()
-    print("[D.6 recon] complete; substance feeds notes/2026-05-25-d6-pc-recon.md")
+    print("[D.6 recon] complete; substance feeds docs/archive/notes/2026-05-25-d6-pc-recon.md")
     return 0
 
 

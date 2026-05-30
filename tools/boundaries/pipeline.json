@@ -222,7 +222,7 @@
       }
     },
     {
-      "$comment": "Phase A.1.a (2026-05-29 rip-and-replace) — S01 swapped from HTL 2008-vintage to ramSeraph LGD release via the LGD-golden doctrine carve-out for upstream legacy numbering. The LGD slice for (State_LGD=28 AND st_name='ANDHRA PRADESH') returns 177 features carrying pre-2014 unified AP+TG ac_no 0-294. We project ac_no to SoT post-2014 1-175 via name-based rewrite while preserving lgd_legacy_ac_no + lgd_ac_id + lgd_st_name on every feature for LGD-golden traceability. Excluded post-PR #431 deferral resolved here. See TODO/20260529-boundary-rip-and-replace-plan.md (LGD-golden doctrine + Phase A.1.a) and notes/2026-05-29-phase-b-verdict-correction.md (LGD probe evidence: 178 features under double filter, 100% name parity to SoT 175).",
+      "$comment": "Phase A.1.a (2026-05-29 rip-and-replace) — S01 swapped from HTL 2008-vintage to ramSeraph LGD release via the LGD-golden doctrine carve-out for upstream legacy numbering. The LGD slice for (State_LGD=28 AND st_name='ANDHRA PRADESH') returns 177 features carrying pre-2014 unified AP+TG ac_no 0-294. We project ac_no to SoT post-2014 1-175 via name-based rewrite while preserving lgd_legacy_ac_no + lgd_ac_id + lgd_st_name on every feature for LGD-golden traceability. Excluded post-PR #431 deferral resolved here. See docs/archive/plans/20260529-boundary-rip-and-replace-plan.md (LGD-golden doctrine + Phase A.1.a) and docs/archive/notes/2026-05-29-phase-b-verdict-correction.md (LGD probe evidence: 178 features under double filter, 100% name parity to SoT 175).",
       "kind": "ac",
       "source_triple": {
         "producer": "ramSeraph",
@@ -257,7 +257,7 @@
       "license_url": "https://github.com/ramSeraph/indian_admin_boundaries/blob/main/LICENSE",
       "ac_no_property": "ac_no",
       "name_property": "ac_name",
-      "delimitation_warning": "ramSeraph LGD release carries pre-2014 unified AP+TG numbering (legacy 1-294); snapshot projects to post-2014 AP-only 1-175 via name-based ac_no rewrite against the ECI 2024 AE SoT (datasets/reference/in/states/S01/constituencies.json). Each feature preserves lgd_legacy_ac_no + lgd_ac_id + lgd_st_name for LGD-golden provenance (TODO/20260529-boundary-rip-and-replace-plan.md). 2 features drop in rewrite: ac_no=0 empty placeholder + 'Bhadrachalam (ST)' ac_no=119 (post-2014 in Telangana, not in S01 SoT).",
+      "delimitation_warning": "ramSeraph LGD release carries pre-2014 unified AP+TG numbering (legacy 1-294); snapshot projects to post-2014 AP-only 1-175 via name-based ac_no rewrite against the ECI 2024 AE SoT (datasets/reference/in/states/S01/constituencies.json). Each feature preserves lgd_legacy_ac_no + lgd_ac_id + lgd_st_name for LGD-golden provenance (docs/archive/plans/20260529-boundary-rip-and-replace-plan.md). 2 features drop in rewrite: ac_no=0 empty placeholder + 'Bhadrachalam (ST)' ac_no=119 (post-2014 in Telangana, not in S01 SoT).",
       "tippecanoe": {
         "minzoom": 4,
         "maxzoom": 10,
@@ -298,7 +298,7 @@
       }
     },
     {
-      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S04-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 99% name parity for Bihar (243 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S04-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 99% name parity for Bihar (243 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
         "producer": "ramSeraph",
@@ -397,7 +397,7 @@
       }
     },
     {
-      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S07-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 97% name parity for Haryana (90 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S07-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 97% name parity for Haryana (90 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
         "producer": "ramSeraph",
@@ -430,7 +430,7 @@
       }
     },
     {
-      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S08-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 99% name parity for Himachal Pradesh (68 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S08-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 99% name parity for Himachal Pradesh (68 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
         "producer": "ramSeraph",
@@ -661,7 +661,7 @@
       }
     },
     {
-      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S17-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 100% name parity for Nagaland (60 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S17-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 100% name parity for Nagaland (60 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
         "producer": "ramSeraph",
@@ -694,7 +694,7 @@
       }
     },
     {
-      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S18-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 97% name parity for Odisha (147 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S18-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 97% name parity for Odisha (147 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
         "producer": "ramSeraph",
@@ -727,7 +727,7 @@
       }
     },
     {
-      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S19-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 100% name parity for Punjab (117 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S19-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 100% name parity for Punjab (117 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
         "producer": "ramSeraph",
@@ -826,7 +826,7 @@
       }
     },
     {
-      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S23-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 100% name parity for Tripura (60 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S23-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 100% name parity for Tripura (60 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
         "producer": "ramSeraph",
@@ -892,7 +892,7 @@
       }
     },
     {
-      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S26-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 99% name parity for Chhattisgarh (90 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S26-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 99% name parity for Chhattisgarh (90 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
         "producer": "ramSeraph",
@@ -958,7 +958,7 @@
       }
     },
     {
-      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S28-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 100% name parity for Uttarakhand (70 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S28-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 100% name parity for Uttarakhand (70 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
         "producer": "ramSeraph",
@@ -1024,7 +1024,7 @@
       }
     },
     {
-      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL U05-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 97% name parity for NCT of Delhi (70 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
+      "$comment": "Phase D.2 swap (2026-05-25): replaced HTL U05-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 97% name parity for NCT of Delhi (70 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
       "source_triple": {
         "producer": "ramSeraph",

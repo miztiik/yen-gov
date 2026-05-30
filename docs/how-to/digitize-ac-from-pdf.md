@@ -165,6 +165,6 @@ publishes the machine-readable shapefile.
 - [`docs/concepts/boundary-data-philosophy.md`](../concepts/boundary-data-philosophy.md)
 - [`docs/concepts/admin-level-sourcing.md`](../concepts/admin-level-sourcing.md)
 - [`docs/how-to/add-new-boundary-layer.md`](add-new-boundary-layer.md)
-- [TODO/20260530-boundary-plan-followups.md](../../TODO/20260530-boundary-plan-followups.md) Category 2 (carve-outs)
+- [docs/archive/plans/20260530-boundary-plan-followups.md](../../docs/archive/plans/20260530-boundary-plan-followups.md) Category 2 (carve-outs)
 - Closed plan-doc: [docs/archive/plans/20260527-state-ac-map-universal-coverage-plan.md](../archive/plans/20260527-state-ac-map-universal-coverage-plan.md) row A.1.b
-- Verdict correction: [notes/2026-05-29-phase-b-verdict-correction.md](../../notes/2026-05-29-phase-b-verdict-correction.md)
+- Verdict correction: [docs/archive/notes/2026-05-29-phase-b-verdict-correction.md](../../docs/archive/notes/2026-05-29-phase-b-verdict-correction.md)

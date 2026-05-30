@@ -11,7 +11,7 @@
 // shard, the network request 404s.
 //
 // This is the C.2.c contract test
-// (TODO/20260529-boundary-rip-and-replace-plan.md) - symmetric mirror
+// (docs/archive/plans/20260529-boundary-rip-and-replace-plan.md) - symmetric mirror
 // of the C.1.b/c `state-blocks-registry-coverage.test.ts` precedent,
 // adapted for the district-keyed nested Hive layout.
 //
@@ -147,7 +147,7 @@ describe("PANCHAYAT_BOUNDARY_BY_DISTRICT entry shape is well-formed", () => {
   it("all entries point at the same ramSeraph LGD_Panchayats upstream URL", () => {
     // Panchayat-level boundary source-of-truth is a single national
     // geojsonl bundle on ramSeraph (per C.2 recon verdict,
-    // notes/2026-05-30-c2-panchayats-source-hunt-verdict.md). Any
+    // docs/archive/notes/2026-05-30-c2-panchayats-source-hunt-verdict.md). Any
     // per-district divergence in the upstream URL should be a
     // deliberate, reviewed decision - this assertion forces that.
     const upstreamUrl =

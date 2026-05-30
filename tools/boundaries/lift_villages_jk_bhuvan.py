@@ -1,6 +1,6 @@
 """Lift Bhuvan_JK_Villages.geojsonl into per-(state, district-slug) Hive shards.
 
-Phase C.4.a of ``TODO/20260529-boundary-rip-and-replace-plan.md``: gap-fill
+Phase C.4.a of ``docs/archive/plans/20260529-boundary-rip-and-replace-plan.md``: gap-fill
 the LGD-villages-absent J&K UT (and Ladakh UT, included incidentally) by
 adopting ramSeraph's mirror of Bhuvan's Census-2011 J&K village cadastre.
 
@@ -11,7 +11,7 @@ pre-bifurcation district names mixing both modern UTs (12 mapping to
 U08, 2 mapping to U09 Ladakh: ``Kargil`` + ``Ladakh (leh)``). The
 property naming is a 4TH unique convention (uppercase Census-2011
 shape: ``STAT_NAME`` / ``DIST_NAME`` / ``VILL_CODE`` / ``VID`` / etc.).
-See `notes/2026-05-30-c4-jk-villages-source-hunt-verdict.md` §"Recon
+See `docs/archive/notes/2026-05-30-c4-jk-villages-source-hunt-verdict.md` §"Recon
 UPDATE 2026-05-30" for the full discovery + design rationale.
 
 **Partitioning concession** (deliberate; documented for citizen

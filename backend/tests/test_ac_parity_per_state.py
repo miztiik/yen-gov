@@ -12,7 +12,7 @@ Reads 10 known-fixed files per state (constituencies.json + boundary
 geojson). NOT a corpus-walk (no globbing / discovery); reading specific
 known paths is permitted per CLAUDE.md anti-pattern carve-out.
 
-Per [TODO/20260530-boundary-followups-execution-plan.md] Row 4.8 (was Row 5.22 pre-PR #471 cleanup; shipped via PR #475).
+Per [docs/archive/plans/20260530-boundary-followups-execution-plan.md] Row 4.8 (was Row 5.22 pre-PR #471 cleanup; shipped via PR #475).
 """
 
 from __future__ import annotations
