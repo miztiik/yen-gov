@@ -708,6 +708,244 @@ export const BLOCK_BOUNDARY: Record<string, BoundaryEntry> = {
   },
 };
 
+// Per-(state, district) Gram-Panchayat layers - C.2.c registry.
+//
+// Panchayats sit one level BELOW blocks in the LGD admin hierarchy
+// (gram-panchayat = elected village-cluster local body, 255k entities
+// nationally per LGD homepage stats). Registry is keyed by
+// `"{state_code}-{district_lgd}"` (e.g. `"S13-490"`) because the per-state
+// shard size (UP: ~72k panchayats; MP: ~36k) would overwhelm the
+// MapLibre GeoJSON source - district granularity bounds the render
+// load to a few hundred polygons per layer at typical block-level zoom.
+//
+// Source-of-truth list of shards lives at
+// `datasets/boundaries/in/panchayats/state=in_<lc>/district=<lgd>/all.geojson`
+// (663 shards across 28 states/UTs, ramSeraph LGD_Panchayats live
+// lift 2026-05-30, PR #446 C.2.b). The registry below is a compact
+// construction over `PANCHAYAT_DISTRICTS_BY_STATE` - changing the
+// shard corpus on disk REQUIRES re-emitting `PANCHAYAT_DISTRICTS_BY_STATE`
+// to stay in sync. The `state-panchayats-registry-coverage` contract
+// test locks this symmetry.
+//
+// Coverage gap (9 states/UTs reserved for C.2.d Bhuvan gap-fill):
+// S02 Arunachal Pradesh, S08 Himachal Pradesh, S14 Manipur, S16 Mizoram,
+// S17 Nagaland, S21 Sikkim, U08 Jammu & Kashmir, U09 Ladakh (+ U06 not elective).
+//
+// Per-feature `gp_code` (lowercase, short-form) carries the LGD
+// gram-panchayat numeric ID per the C.2.b live snapshot - distinct
+// from blocks' `block_lgd` long-form (cross-layer schema divergence
+// within the same ramSeraph maintainer; see
+// `tools/boundaries/lift_panchayats_national.py` module-level constants).
+export const PANCHAYAT_DISTRICTS_BY_STATE: Readonly<Record<string, readonly number[]>> = {
+  // Andhra Pradesh - 26 districts
+  S01: [
+    502, 503, 504, 505, 506, 510, 511, 515, 517, 519,
+    520, 521, 523, 743, 744, 745, 746, 747, 748, 749,
+    750, 751, 752, 753, 754, 755,
+  ],
+  // Assam - 35 districts
+  S03: [
+    280, 281, 282, 283, 284, 285, 286, 287, 288, 289,
+    290, 291, 292, 293, 294, 295, 296, 297, 298, 299,
+    300, 301, 302, 612, 616, 617, 618, 705, 706, 707,
+    708, 709, 710, 739, 756,
+  ],
+  // Bihar - 38 districts
+  S04: [
+    188, 189, 190, 191, 192, 193, 194, 195, 196, 197,
+    198, 199, 200, 201, 202, 203, 204, 205, 206, 207,
+    208, 209, 210, 211, 212, 213, 214, 215, 216, 217,
+    218, 219, 220, 221, 222, 223, 224, 611,
+  ],
+  // Goa - 2 districts
+  S05: [551, 552],
+  // Gujarat - 33 districts
+  S06: [
+    438, 439, 440, 441, 442, 443, 444, 445, 446, 447,
+    448, 449, 450, 451, 452, 453, 454, 455, 456, 457,
+    458, 459, 460, 461, 462, 641, 668, 669, 672, 673,
+    674, 675, 676,
+  ],
+  // Haryana - 22 districts
+  S07: [58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 604, 619, 701],
+  // Karnataka - 31 districts
+  S10: [
+    524, 525, 526, 527, 528, 529, 530, 531, 532, 533,
+    534, 535, 536, 537, 538, 539, 540, 541, 542, 543,
+    544, 545, 546, 547, 548, 549, 550, 630, 631, 635,
+    738,
+  ],
+  // Kerala - 14 districts
+  S11: [554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567],
+  // Madhya Pradesh - 53 districts
+  S12: [
+    109, 390, 391, 392, 393, 394, 395, 396, 397, 398,
+    399, 400, 401, 402, 403, 404, 405, 406, 407, 408,
+    409, 410, 411, 412, 413, 414, 415, 416, 417, 418,
+    419, 420, 421, 422, 423, 424, 425, 426, 427, 428,
+    429, 430, 431, 432, 433, 434, 435, 436, 437, 638,
+    639, 667, 722,
+  ],
+  // Maharashtra - 36 districts
+  S13: [
+    466, 467, 468, 469, 470, 471, 472, 473, 474, 475,
+    476, 477, 478, 479, 480, 481, 482, 483, 484, 485,
+    486, 487, 488, 489, 490, 491, 492, 493, 494, 495,
+    496, 497, 498, 499, 500, 665,
+  ],
+  // Meghalaya - 1 district
+  S15: [291],
+  // Odisha - 30 districts
+  S18: [
+    344, 345, 346, 347, 348, 349, 350, 351, 352, 353,
+    354, 355, 356, 357, 358, 359, 360, 361, 362, 363,
+    364, 365, 366, 367, 368, 369, 370, 371, 372, 373,
+  ],
+  // Punjab - 23 districts
+  S19: [
+    27, 28, 29, 30, 31, 32, 33, 34, 35, 36,
+    37, 38, 39, 40, 41, 42, 43, 605, 608, 609,
+    651, 662, 737,
+  ],
+  // Rajasthan - 49 districts
+  S20: [
+    86, 87, 88, 89, 90, 91, 92, 93, 94, 95,
+    96, 97, 98, 99, 100, 101, 102, 103, 104, 105,
+    106, 107, 108, 109, 110, 111, 112, 113, 114, 115,
+    116, 117, 629, 767, 768, 769, 770, 771, 772, 773,
+    774, 775, 776, 777, 778, 780, 781, 782, 783,
+  ],
+  // Tamil Nadu - 38 districts
+  S22: [
+    568, 569, 570, 571, 572, 573, 574, 575, 576, 577,
+    578, 579, 580, 581, 582, 583, 584, 585, 586, 587,
+    588, 589, 590, 591, 592, 593, 594, 595, 596, 597,
+    610, 634, 729, 730, 731, 732, 733, 735,
+  ],
+  // Tripura - 8 districts
+  S23: [269, 270, 271, 272, 652, 653, 654, 655],
+  // Uttar Pradesh - 75 districts
+  S24: [
+    118, 119, 120, 121, 122, 123, 124, 125, 126, 127,
+    128, 129, 130, 131, 132, 133, 134, 135, 136, 137,
+    138, 139, 140, 141, 142, 143, 144, 145, 146, 147,
+    148, 149, 150, 151, 152, 153, 154, 155, 156, 157,
+    158, 159, 160, 161, 162, 163, 164, 165, 166, 167,
+    168, 169, 170, 171, 172, 173, 174, 175, 176, 177,
+    178, 179, 180, 181, 182, 183, 184, 185, 186, 187,
+    633, 640, 659, 660, 661,
+  ],
+  // West Bengal - 23 districts
+  S25: [
+    303, 304, 305, 306, 307, 308, 309, 310, 311, 312,
+    313, 314, 315, 316, 317, 318, 319, 320, 321, 664,
+    702, 703, 704,
+  ],
+  // Chhattisgarh - 33 districts
+  S26: [
+    374, 375, 376, 377, 378, 379, 380, 381, 382, 383,
+    384, 385, 386, 387, 388, 389, 636, 637, 642, 643,
+    644, 645, 646, 647, 648, 649, 650, 734, 759, 760,
+    761, 762, 763,
+  ],
+  // Jharkhand - 24 districts
+  S27: [
+    322, 323, 324, 325, 326, 327, 328, 329, 330, 331,
+    332, 333, 334, 335, 336, 337, 338, 339, 340, 341,
+    342, 343, 606, 607,
+  ],
+  // Uttarakhand - 13 districts
+  S28: [45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57],
+  // Telangana - 33 districts
+  S29: [
+    501, 507, 508, 509, 512, 513, 514, 516, 518, 522,
+    680, 681, 682, 683, 684, 685, 686, 687, 688, 689,
+    690, 691, 692, 693, 694, 695, 696, 697, 698, 699,
+    700, 720, 721,
+  ],
+  // Andaman & Nicobar Islands - 3 districts
+  U01: [602, 603, 632],
+  // Chandigarh - 1 district
+  U02: [44],
+  // Dadra & Nagar Haveli and Daman & Diu - 3 districts
+  U03: [463, 464, 465],
+  // Lakshadweep - 1 district
+  U04: [553],
+  // NCT of Delhi - 11 districts
+  U05: [77, 78, 79, 80, 81, 82, 83, 84, 85, 670, 671],
+  // Puducherry - 4 districts
+  U07: [598, 599, 600, 601],
+};
+
+// State-name lookup for `PANCHAYAT_BOUNDARY_BY_DISTRICT` labels.
+// Mirrors the citizen-readable names used by `BLOCK_BOUNDARY` above so
+// the eventual district-picker UI (post-C.2.c, scope TBD) can render
+// consistent state labels. Only the 28 covered states are listed; gap
+// states are intentionally absent (any registry lookup for a
+// non-covered state returns undefined - the contract test pins this).
+export const PANCHAYAT_STATE_NAMES: Readonly<Record<string, string>> = {
+  S01: "Andhra Pradesh",
+  S03: "Assam",
+  S04: "Bihar",
+  S05: "Goa",
+  S06: "Gujarat",
+  S07: "Haryana",
+  S10: "Karnataka",
+  S11: "Kerala",
+  S12: "Madhya Pradesh",
+  S13: "Maharashtra",
+  S15: "Meghalaya",
+  S18: "Odisha",
+  S19: "Punjab",
+  S20: "Rajasthan",
+  S22: "Tamil Nadu",
+  S23: "Tripura",
+  S24: "Uttar Pradesh",
+  S25: "West Bengal",
+  S26: "Chhattisgarh",
+  S27: "Jharkhand",
+  S28: "Uttarakhand",
+  S29: "Telangana",
+  U01: "Andaman & Nicobar Islands",
+  U02: "Chandigarh",
+  U03: "Dadra & Nagar Haveli and Daman & Diu",
+  U04: "Lakshadweep",
+  U05: "NCT of Delhi",
+  U07: "Puducherry",
+};
+
+// Constructed per-(state, district) registry. Lazy at first read; the
+// 663-entry Record is built once via `Object.fromEntries`. Each entry
+// shape mirrors `BLOCK_BOUNDARY` (id / label / geojson_local_path /
+// geojson_url / join_property) so the existing `resolveSource()` resolver
+// works unchanged.
+//
+// Key format: `"{state_code}-{district_lgd}"` (e.g. `"S13-490"`).
+// Look-up by district picker: `PANCHAYAT_BOUNDARY_BY_DISTRICT[`${stateCode}-${distLgd}`]`.
+const PANCHAYAT_UPSTREAM_URL =
+  "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/panchayats/LGD_Panchayats.geojsonl.7z";
+
+export const PANCHAYAT_BOUNDARY_BY_DISTRICT: Readonly<Record<string, BoundaryEntry>> = Object.freeze(
+  Object.fromEntries(
+    Object.entries(PANCHAYAT_DISTRICTS_BY_STATE).flatMap(([state_code, districts]) =>
+      districts.map((district_lgd): [string, BoundaryEntry] => {
+        const key = `${state_code}-${district_lgd}`;
+        const state_name = PANCHAYAT_STATE_NAMES[state_code] ?? state_code;
+        return [
+          key,
+          {
+            id: `${key}-panchayat`,
+            label: `${state_name} \u2014 District LGD ${district_lgd} (Gram Panchayats)`,
+            geojson_local_path: `boundaries/in/panchayats/state=in_${state_code.toLowerCase()}/district=${district_lgd}/all.geojson`,
+            geojson_url: PANCHAYAT_UPSTREAM_URL,
+            join_property: "gp_code",
+          },
+        ];
+      }),
+    ),
+  ),
+);
+
 // Note: the legacy `STATE_NAME_TO_ECI` constant + `eciFromStateName` helper
 // that previously lived here were retired in T.0e (TODO/20260517-canonical-
 // long-format-pivot.md §0e.7). Both are now served by the view-model under
