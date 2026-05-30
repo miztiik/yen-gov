@@ -50,7 +50,16 @@ const HIVE_SHAPES: { kind: string; pattern: RegExp }[] = [
   // rip-and-replace-plan.md); registry will live in
   // `maplibre/sources.ts:PANCHAYAT_BOUNDARY_BY_DISTRICT` (C.2.c).
   { kind: "panchayats", pattern: /^panchayats\/state=in_[a-z0-9]+\/district=\d+\/all\.geojson$/ },
-  { kind: "villages", pattern: /^villages\/state=in_[a-z0-9]+\/district=\d+\/all\.geojson$/ },
+  // Villages. District segment is normally a numeric LGD code (645 of
+  // 659 partitions today), but the C.4.a J&K + Ladakh lift
+  // (PR #453, `tools/boundaries/lift_villages_jk_bhuvan.py`) ships
+  // 14 Census-2011-vintage shards keyed by ASCII-lowercase district
+  // NAME slug (e.g. `district=anantnag`, `district=ladakh_leh`)
+  // because that vintage predates the LGD codes for the modern
+  // bifurcated districts. The slug alphabet is `[a-z0-9_]+` per the
+  // lift script's `CENSUS2011_DISTRICT_TO_MODERN` mapping; the
+  // regex below subsumes both the numeric and slug variants.
+  { kind: "villages", pattern: /^villages\/state=in_[a-z0-9]+\/district=[a-z0-9_]+\/all\.geojson$/ },
   // ULB Wards (LGD lineage; SBM_Wards.geojsonl.7z from ramSeraph, MoHUA
   // Swachh Bharat Mission Urban release, CC0 1.0). Per-(state, ulb)
   // shards under a nested ULB-keyed Hive layout (parent partition is
