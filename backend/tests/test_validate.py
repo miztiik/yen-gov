@@ -3,6 +3,7 @@ from pathlib import Path
 
 import pytest
 
+from yen_gov.core.schema_registry import schema_version
 from yen_gov.validate import (
     ENERGY_INDICATOR_DIR,
     LEGACY_BOUNDARY_SIDECARS_ALLOWLIST,
@@ -94,7 +95,7 @@ def test_tier_b_rejects_missing_required_field(tmp_path: Path):
     cfg.mkdir()
     (cfg / "processing.json").write_text(json.dumps({
         "$schema": "https://yen-gov.github.io/schemas/processing.schema.json",
-        "$schema_version": "3.1",
+        "$schema_version": schema_version("processing.schema.json"),
         "sources": [],
         "fetch": {
             "concurrency": 1, "retry_attempts": 0,
