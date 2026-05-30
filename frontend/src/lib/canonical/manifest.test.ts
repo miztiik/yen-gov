@@ -8,7 +8,7 @@
 import { describe, expect, it } from "vitest";
 
 import { fetchManifest, isCompatibleSchemaVersion, lookupTable } from "./manifest";
-import { SUPPORTED_SCHEMA_VERSIONS } from "./types";
+import { CANONICAL_MANIFEST_READER_SCHEMA_VERSIONS } from "./schema-compatibility";
 import type { Manifest } from "./types";
 
 const goodManifest: Manifest = {
@@ -48,8 +48,18 @@ function mockFetch(response: { status?: number; body: unknown; ok?: boolean }): 
 }
 
 describe("isCompatibleSchemaVersion", () => {
-  it("accepts a version listed in SUPPORTED_SCHEMA_VERSIONS", () => {
+  it("accepts manifest versions listed in the canonical-manifest-reader registry surface", () => {
     expect(isCompatibleSchemaVersion("manifest.schema.json", "1.0")).toBe(true);
+    expect(isCompatibleSchemaVersion("manifest.schema.json", "1.3")).toBe(true);
+    expect(CANONICAL_MANIFEST_READER_SCHEMA_VERSIONS["manifest.schema.json"]).toEqual([
+      "1.0", "1.1", "1.2", "1.3",
+    ]);
+  });
+
+  it("accepts observation versions listed in the canonical-manifest-reader registry surface", () => {
+    expect(isCompatibleSchemaVersion("observation.schema.json", "1.0")).toBe(true);
+    expect(isCompatibleSchemaVersion("observation.schema.json", "1.1")).toBe(true);
+    expect(CANONICAL_MANIFEST_READER_SCHEMA_VERSIONS["observation.schema.json"]).toEqual(["1.0", "1.1"]);
   });
 
   it("rejects a version not yet supported", () => {
@@ -60,10 +70,8 @@ describe("isCompatibleSchemaVersion", () => {
     expect(isCompatibleSchemaVersion("not-a-real.schema.json", "1.0")).toBe(false);
   });
 
-  it("covers every canonical schema in SUPPORTED_SCHEMA_VERSIONS at 1.0", () => {
-    for (const file of Object.keys(SUPPORTED_SCHEMA_VERSIONS)) {
-      expect(isCompatibleSchemaVersion(file, "1.0")).toBe(true);
-    }
+  it("rejects schemas not listed for the canonical-manifest-reader surface", () => {
+    expect(isCompatibleSchemaVersion("source.schema.json", "1.0")).toBe(false);
   });
 });
 

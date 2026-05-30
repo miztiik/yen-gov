@@ -4,7 +4,7 @@
 // emits LoaderResult.failed (R23 — no path-guessing fallback).
 
 import type { Manifest, ManifestError, TableId, CanonicalTable } from "./types";
-import { SUPPORTED_SCHEMA_VERSIONS } from "./types";
+import { acceptedSchemaVersions } from "./schema-compatibility";
 
 const DEFAULT_MANIFEST_URL = "datasets/manifest.json";
 
@@ -54,7 +54,7 @@ export function parseManifest(doc: unknown): Manifest | ManifestError {
     return {
       kind: "schema_version_unsupported",
       message: `manifest schema_version ${m.$schema_version} not in reader's supported set ${
-        SUPPORTED_SCHEMA_VERSIONS["manifest.schema.json"].join(", ")
+        acceptedSchemaVersions("manifest.schema.json").join(", ")
       }`,
     };
   }
@@ -62,9 +62,7 @@ export function parseManifest(doc: unknown): Manifest | ManifestError {
 }
 
 export function isCompatibleSchemaVersion(schemaFile: string, version: string): boolean {
-  const supported = SUPPORTED_SCHEMA_VERSIONS[schemaFile];
-  if (!supported) return false;
-  return supported.includes(version);
+  return acceptedSchemaVersions(schemaFile).includes(version);
 }
 
 // Resolve a table by id. Returns ManifestError if absent (R23 — no
