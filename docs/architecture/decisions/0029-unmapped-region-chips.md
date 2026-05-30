@@ -96,4 +96,7 @@ What stays preserved from this ADR's rationale:
 
 - [docs/architecture/frontend/map.md](../frontend/map.md) — current map architecture (all entities at true location).
 - [docs/concepts/boundary-data-philosophy.md](../../concepts/boundary-data-philosophy.md) — the underlying "polygon on the map is the only authoritative surface" principle.
-- D.1.A row of `TODO/20260529-boundary-rip-and-replace-plan.md` — execution record.
+- D.1.A execution record: [docs/archive/plans/20260527-state-ac-map-universal-coverage-plan.md](../../archive/plans/20260527-state-ac-map-universal-coverage-plan.md) row D.1.A (archived 2026-05-30 alongside its own retirement; the row is the audit trail for the user mandate that retired both surfaces).
+- Merge: [PR #455](https://github.com/miztiik/yen-gov/pull/455) — both Lakshadweep polygon inset AND chip-strip subsystems removed in one PR per the mandate.
+- Successor plan-doc for follow-on boundary work: [TODO/20260530-boundary-followups-execution-plan.md](../../../TODO/20260530-boundary-followups-execution-plan.md). Residual inventory: [TODO/20260530-boundary-plan-followups.md](../../../TODO/20260530-boundary-plan-followups.md).
+- User mandate (verbatim, 2026-05-29) reproduced in the "Retirement (D.1.A, 2026-05-30) — both surfaces removed" section above; it is the authoritative source for why this ADR is superseded.
