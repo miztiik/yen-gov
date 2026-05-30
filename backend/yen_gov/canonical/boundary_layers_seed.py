@@ -90,6 +90,7 @@ Level = Literal[
     "block",
     "panchayat",
     "village",
+    "ward",
     "postal",
 ]
 

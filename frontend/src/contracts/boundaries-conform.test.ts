@@ -51,6 +51,16 @@ const HIVE_SHAPES: { kind: string; pattern: RegExp }[] = [
   // `maplibre/sources.ts:PANCHAYAT_BOUNDARY_BY_DISTRICT` (C.2.c).
   { kind: "panchayats", pattern: /^panchayats\/state=in_[a-z0-9]+\/district=\d+\/all\.geojson$/ },
   { kind: "villages", pattern: /^villages\/state=in_[a-z0-9]+\/district=\d+\/all\.geojson$/ },
+  // ULB Wards (LGD lineage; SBM_Wards.geojsonl.7z from ramSeraph, MoHUA
+  // Swachh Bharat Mission Urban release, CC0 1.0). Per-(state, ulb)
+  // shards under a nested ULB-keyed Hive layout (parent partition is
+  // ULB, not district — a ULB can span multiple districts; LGD treats
+  // ULB as the primary urban entity with its own LGD code). Shipped
+  // via C.3.b (TODO/20260529-boundary-rip-and-replace-plan.md); the
+  // C.3.a infrastructure adds the Hive pattern + lift orchestrator
+  // before the live lift runs. Registry will live in
+  // `maplibre/sources.ts:WARD_BOUNDARY_BY_ULB` (C.3.c).
+  { kind: "wards", pattern: /^wards\/state=in_[a-z0-9]+\/ulb=\d+\/all\.geojson$/ },
   // Assembly Constituencies (ECI/HTL lineage). Per-state shards under the
   // same Hive layout as subdistricts. Owned by `maplibre/sources.ts`, not
   // the `boundaries.ts` loader; included here so the orphan detector

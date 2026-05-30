@@ -41,6 +41,7 @@ Kind = Literal[
     "blocks",
     "panchayats",
     "villages",
+    "wards",
     "postal",
 ]
 
@@ -54,6 +55,7 @@ Level = Literal[
     "block",
     "panchayat",
     "village",
+    "ward",
     "postal",
 ]
 
@@ -67,6 +69,7 @@ KIND_TO_LEVEL: dict[Kind, Level] = {
     "blocks": "block",
     "panchayats": "panchayat",
     "villages": "village",
+    "wards": "ward",
     "postal": "postal",
 }
 
@@ -77,6 +80,7 @@ def derive_hive(
     delim: str | None = None,
     state: str | None = None,
     district_lgd: str | None = None,
+    ulb_lgd: str | None = None,
     ext: str = "geojson",
 ) -> tuple[str, str]:
     """Return ``(partition_path, layer_id)`` for a boundary shard.
@@ -94,6 +98,11 @@ def derive_hive(
             with ``in_`` for the Hive key (``state=in_s22``).
         district_lgd: LGD district code as digit string (``603``); valid
             for nested per-district layers (``kind in {"villages", "panchayats"}``).
+        ulb_lgd: LGD ULB code as digit string (``802743``); valid for
+            nested per-ULB layers (``kind == "wards"``). Mutually
+            exclusive with ``district_lgd`` per the C.3.a ULB-keyed
+            partition rationale (a ULB can span multiple districts;
+            LGD treats ULB as the primary urban entity).
         ext: file extension (``geojson`` or ``pmtiles``).
 
     Returns:
@@ -101,11 +110,13 @@ def derive_hive(
 
         * ``partition_path`` is repo-relative POSIX (e.g.
           ``boundaries/in/villages/state=in_s22/district=603/all.geojson``,
+          ``boundaries/in/wards/state=in_s22/ulb=802743/all.geojson``,
           ``boundaries/in/pc/delim=2024/all.geojson``).
           Matches the JSON Schema ``partition_path`` regex
           (``^boundaries/in/``).
         * ``layer_id`` is the dot-grammar equivalent (e.g.
           ``boundaries.in.villages.state=in_s22.district=603``,
+          ``boundaries.in.wards.state=in_s22.ulb=802743``,
           ``boundaries.in.pc.delim=2024``).
           Matches ``boundary-layers.schema.json:properties.layer_id.pattern``.
 
@@ -128,6 +139,9 @@ def derive_hive(
     if district_lgd is not None:
         parts_path.append(f"district={district_lgd}")
         parts_id.append(f"district={district_lgd}")
+    if ulb_lgd is not None:
+        parts_path.append(f"ulb={ulb_lgd}")
+        parts_id.append(f"ulb={ulb_lgd}")
     return f"{'/'.join(parts_path)}/all.{ext}", ".".join(parts_id)
 
 
