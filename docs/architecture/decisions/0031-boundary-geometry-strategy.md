@@ -271,14 +271,14 @@ Total ledger rows at `level='ac'`: 31 (10 ramSeraph + 20 HTL + 1 shijithpk), one
 
 ### 3. S17 Nagaland Article 371A empirical correction
 
-D.1 recon `notes/2026-05-25-d1-ac-consolidation-recon.md` section 4 originally hypothesised that any `status == 'Pre delimitation'` rows in the ramSeraph upstream should be filtered before promote. Empirical inspection during the D.2 snapshot proved this wrong for the current LGD release: 9 of the 10 D.2-eligible states carry zero `Pre delimitation` rows, and S17 Nagaland carries 100% (all 60 ACs tagged Pre-delim). Reason: Article 371A constitutionally exempts Nagaland from the 2008 Delimitation, so the 1976-vintage 60-AC layout IS the canonical layout used by ECI for current Nagaland elections. Filtering Pre-delim would have erased Nagaland entirely.
+D.1 recon `docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md` section 4 originally hypothesised that any `status == 'Pre delimitation'` rows in the ramSeraph upstream should be filtered before promote. Empirical inspection during the D.2 snapshot proved this wrong for the current LGD release: 9 of the 10 D.2-eligible states carry zero `Pre delimitation` rows, and S17 Nagaland carries 100% (all 60 ACs tagged Pre-delim). Reason: Article 371A constitutionally exempts Nagaland from the 2008 Delimitation, so the 1976-vintage 60-AC layout IS the canonical layout used by ECI for current Nagaland elections. Filtering Pre-delim would have erased Nagaland entirely.
 
 D.2 therefore shipped the additive `apply_exclude_filter` capability in `tools/boundaries/snapshot.py` (with 6 unit tests, general-purpose for future per-state slices) but did NOT invoke it from any of the 10 `pipeline.json` entries. Future D.x promotes that include S03 Assam, S22 Tamil Nadu, or U07 Puducherry should measure per-state Pre-delim distribution before deciding whether to filter. Recorded in the recon note's section 4 "Empirical correction" block and section 7 item 2 update.
 
 ### 4. Cross-links
 
 - [Phase 0.0 status table](../../../TODO/20260524-boundary-coverage-expansion-plan.md#phase-00--status-ready-reckoner-update-after-every-pr) - rows D.0 / D.1 / D.2 / D.3 / D.4 / D.5
-- [D.1 recon note](../../../notes/2026-05-25-d1-ac-consolidation-recon.md) - per-state property schema, parity invariants, Article 371A empirical correction
+- [D.1 recon note](../../../docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) - per-state property schema, parity invariants, Article 371A empirical correction
 - [PR #263](https://github.com/miztiik/yen-gov/pull/263) (D.0 state polygons), [PR #270](https://github.com/miztiik/yen-gov/pull/270) (D.1 recon), [PR #273](https://github.com/miztiik/yen-gov/pull/273) (D.2/D.3/D.4 bundle)
 - [boundary-data-sources.md](../../reference/boundary-data-sources.md) - full per-state inventory + producer/license catalogue
 - [tools/boundaries/verify_ac_parity.py](../../../tools/boundaries/verify_ac_parity.py) - permanent post-snapshot parity re-assertion (kept for any future D.2-style promotion); the one-shot `recon_d1_ac.py` retires in the D.5 PR per CLAUDE.md section 10
@@ -289,7 +289,7 @@ The "boundaries-are-a-sibling-family" decision (D25 / R24 / R25 in section 1) is
 
 ## Amendment 2026-05-25 (Phase D.6 PC swap - KEEP-CURRENT verdict)
 
-Phase D.6 of the [boundary coverage-expansion plan](../../../TODO/20260524-boundary-coverage-expansion-plan.md) proposed swapping the PC layer source from `shijithpk` (Unlicense, QGIS-traced from the 2024 ECI delim PDF, 545 features) to ramSeraph `LGD_Parliament_Constituencies.geojsonl.7z` (CC0-1.0, BharatMaps-lineage survey-grade). Recon (`tools/boundaries/recon_d6_pc.py`, full audit in [notes/2026-05-25-d6-pc-recon.md](../../../notes/2026-05-25-d6-pc-recon.md)) produced four structural NO-GO findings; D.6 closes KEEP-CURRENT.
+Phase D.6 of the [boundary coverage-expansion plan](../../../TODO/20260524-boundary-coverage-expansion-plan.md) proposed swapping the PC layer source from `shijithpk` (Unlicense, QGIS-traced from the 2024 ECI delim PDF, 545 features) to ramSeraph `LGD_Parliament_Constituencies.geojsonl.7z` (CC0-1.0, BharatMaps-lineage survey-grade). Recon (`tools/boundaries/recon_d6_pc.py`, full audit in [docs/archive/notes/2026-05-25-d6-pc-recon.md](../../../docs/archive/notes/2026-05-25-d6-pc-recon.md)) produced four structural NO-GO findings; D.6 closes KEEP-CURRENT.
 
 ### 1. The four blockers
 

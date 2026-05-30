@@ -45,8 +45,8 @@ export interface BoundaryEntry {
 }
 
 // Single citizen-facing footer for ALL boundary layers (A.3 - attribution
-// centralization per TODO/20260529-boundary-rip-and-replace-plan.md;
-// icon-only refinement per TODO/20260530-boundary-followups-execution-plan.md
+// centralization per docs/archive/plans/20260529-boundary-rip-and-replace-plan.md;
+// icon-only refinement per docs/archive/plans/20260530-boundary-followups-execution-plan.md
 // Row 0.2).
 //
 // Previously each BoundaryEntry carried a multi-sentence per-source
@@ -110,7 +110,7 @@ export const INDIA_STATES: BoundaryEntry = {
 // (S.O. 3553(E), https://egazette.gov.in/WriteReadData/2023/248037.pdf)
 // is text-only with 40-60h manual QGIS vectorisation effort (deferred
 // to a future follow-up PR per
-// notes/2026-05-29-s03-pdf-probe-verdict.md). T4 ships 126 features
+// docs/archive/notes/2026-05-29-s03-pdf-probe-verdict.md). T4 ships 126 features
 // where each post-2023 AC carries its parent district's polygon as
 // fallback geometry (parent_district_id + parent_district_lgd preserved
 // on each feature). Citizen UX concession: map highlight is the parent
@@ -170,7 +170,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
   },
-  // A.2 (TODO/20260529-boundary-rip-and-replace-plan.md) - 24 additional
+  // A.2 (docs/archive/plans/20260529-boundary-rip-and-replace-plan.md) - 24 additional
   // LGD-keyed AC layers covering the remaining states + UTs where the AC
   // shard exists under datasets/boundaries/in/ac/state=in_<lc>/all.geojson.
   // All entries below are post-D.7 R1 (PR #431) ramSeraph LGD release;
@@ -394,7 +394,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
 // Per-state Development Block layers (the third LGD admin tier, between
 // subdistricts and panchayats). Property `block_lgd` (lowercase numeric
 // LGD code) joins to taxonomy.entities.lgd_code at the block grain.
-// Shipped via C.1.b (TODO/20260529-boundary-rip-and-replace-plan.md) -
+// Shipped via C.1.b (docs/archive/plans/20260529-boundary-rip-and-replace-plan.md) -
 // 35 state shards derived from ramSeraph's LGD_Blocks national geojsonl
 // release (7,146 blocks total nationally; 670 features dropped without a
 // state_lgd attribution). Lift pipeline: tools/boundaries/
@@ -938,7 +938,7 @@ const PANCHAYAT_UPSTREAM_URL =
 // TODO(C.2.c): wire district-picker on state selection. Citizen surface
 // must let the user pick a state -> then a district within that state's
 // PANCHAYAT_DISTRICTS_BY_STATE[stateCode] list -> then resolve the entry
-// here. Tracked in TODO/20260530-boundary-plan-followups.md Category 3
+// here. Tracked in docs/archive/plans/20260530-boundary-plan-followups.md Category 3
 // (UX follow-up, Value MED, effort M); marker shipped via Row 4.1.
 export const PANCHAYAT_BOUNDARY_BY_DISTRICT: Readonly<Record<string, BoundaryEntry>> = Object.freeze(
   Object.fromEntries(
@@ -1482,7 +1482,7 @@ const WARD_UPSTREAM_URL =
 // TODO(C.3.c): wire ULB-picker on state selection. Citizen surface must
 // let the user pick a state -> then a ULB within that state's
 // WARDS_BY_STATE[stateCode] list -> then resolve the entry here. Tracked
-// in TODO/20260530-boundary-plan-followups.md Category 3 (UX follow-up,
+// in docs/archive/plans/20260530-boundary-plan-followups.md Category 3 (UX follow-up,
 // Value MED, effort M); marker shipped via Row 4.1.
 export const WARD_BOUNDARY_BY_ULB: Readonly<Record<string, BoundaryEntry>> = Object.freeze(
   Object.fromEntries(

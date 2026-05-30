@@ -1,6 +1,6 @@
 """Lift LGD_panchayats.geojsonl into per-(state, district) Hive shards.
 
-Phase C.2 of ``TODO/20260529-boundary-rip-and-replace-plan.md``: add the
+Phase C.2 of ``docs/archive/plans/20260529-boundary-rip-and-replace-plan.md``: add the
 LGD Gram Panchayat admin level to yen-gov's boundary corpus. ramSeraph
 publishes LGD_panchayats.geojsonl.7z (~255,304 features per LGD Directory;
 ~225-245k actually emitted due to ~9-state coverage gap in HP/J&K/Sikkim/

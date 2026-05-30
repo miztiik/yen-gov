@@ -5,7 +5,7 @@
 // <lgd>/all.geojson` MUST sit at a well-formed Hive path and the
 // shipped coverage MUST stay above the C.2.b documented floor.
 //
-// File-name note: TODO/20260529-boundary-rip-and-replace-plan.md row
+// File-name note: docs/archive/plans/20260529-boundary-rip-and-replace-plan.md row
 // C.2.b cites this file as `state-panchayats-registry-coverage.test.ts`.
 // The deliverable was renamed `*-shards-coverage` because the frontend
 // `PANCHAYAT_BOUNDARY_BY_DISTRICT` registry does NOT land until C.2.c

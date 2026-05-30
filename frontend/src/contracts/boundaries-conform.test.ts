@@ -65,7 +65,7 @@ const HIVE_SHAPES: { kind: string; pattern: RegExp }[] = [
   // shards under a nested ULB-keyed Hive layout (parent partition is
   // ULB, not district — a ULB can span multiple districts; LGD treats
   // ULB as the primary urban entity with its own LGD code). Shipped
-  // via C.3.b (TODO/20260529-boundary-rip-and-replace-plan.md); the
+  // via C.3.b (docs/archive/plans/20260529-boundary-rip-and-replace-plan.md); the
   // C.3.a infrastructure adds the Hive pattern + lift orchestrator
   // before the live lift runs. Registry will live in
   // `maplibre/sources.ts:WARD_BOUNDARY_BY_ULB` (C.3.c).

@@ -79,7 +79,7 @@ const JOIN_KEYS: Record<GeoLevel, string | null> = {
 // when the first village-grain citizen indicator lands (e.g. MGNREGA
 // person-days, micro-watershed, PMGSY road length). 659 shards exist on
 // disk (645 LGD + 14 J&K Bhuvan) but no citizen-facing surface consumes
-// them yet. Tracked in TODO/20260530-boundary-plan-followups.md Category
+// them yet. Tracked in docs/archive/plans/20260530-boundary-plan-followups.md Category
 // 3 (BLOCKED on indicator demand); marker shipped via Row 4.1.
 
 

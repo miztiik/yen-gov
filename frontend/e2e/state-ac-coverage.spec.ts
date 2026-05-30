@@ -1,6 +1,6 @@
 // state-ac-coverage e2e spec.
 //
-// Phase A.4 of TODO/20260529-boundary-rip-and-replace-plan.md.
+// Phase A.4 of docs/archive/plans/20260529-boundary-rip-and-replace-plan.md.
 //
 // Per-state Playwright coverage matrix that asserts every state's AC
 // drilldown page renders correctly. This is the citizen-facing

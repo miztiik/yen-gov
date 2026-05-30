@@ -41,7 +41,7 @@ When a user authorises an agent to execute a plan-doc autonomously (verbatim man
 - **AUTO** every row: execute the work, run the 5-gate DoD, `gh pr merge --squash --delete-branch`, advance to the next row. No DRAFT-PR-and-wait state. No mid-row CONSULT-USER pause.
 - **Personas** (Citizen, Hans, Max, Gregor, Fowler, Jony, Andre) MAY be dispatched as Explore subagents to gather facts; their verdicts inform the agent's action  -  they are not a request-for-approval surface.
 - **ESCALATE only** for genuine triggers: schema major bump (1.x -> 2.x), new ADR proposal, election-results data deletion, persona-conflict-unresolved, or 3x cost overrun. Otherwise AUTO.
-- **Pre-resolve ambiguities at planning time**, not at execution time. Bake state codes, feature counts, source-suitability verdicts into the plan-doc as facts (e.g. section 0.2 of [TODO/20260530-boundary-followups-execution-plan.md](../../TODO/20260530-boundary-followups-execution-plan.md)) so the executing agent faces zero decision points within user-mandated scope.
+- **Pre-resolve ambiguities at planning time**, not at execution time. Bake state codes, feature counts, source-suitability verdicts into the plan-doc as facts (e.g. section 0.2 of [docs/archive/plans/20260530-boundary-followups-execution-plan.md](../../docs/archive/plans/20260530-boundary-followups-execution-plan.md)) so the executing agent faces zero decision points within user-mandated scope.
 - **When user is unavailable mid-execution**, stay in scope, progress the in-flight mandate, do not invent new scope or contract existing scope.
 
 This stanza is the canonical reference for "what autonomy means in yen-gov plan execution". Plan-docs that need the long-form version cite this doc rather than re-explaining.

@@ -1,6 +1,6 @@
 """Lift LGD_Blocks.geojsonl into per-state Hive shards.
 
-Phase C.1 of ``TODO/20260529-boundary-rip-and-replace-plan.md``: add the
+Phase C.1 of ``docs/archive/plans/20260529-boundary-rip-and-replace-plan.md``: add the
 Development Block admin level to yen-gov's boundary corpus. ramSeraph
 publishes LGD_Blocks.geojsonl.7z (~7,323 features) from the LGD /
 BharatMaps lineage at https://github.com/ramSeraph/indian_admin_boundaries/
@@ -21,7 +21,7 @@ Why a dedicated one-shot orchestrator rather than extending
   ``datasets/taxonomy/entities.json``. ``snapshot.py``'s ``split_by``
   machinery emits shards keyed by the raw group key
   (e.g. ``state=22``), not by a value derived from a per-row lookup.
-* Phase C.1 verdict ([notes/2026-05-29-c1-blocks-source-hunt-verdict.md])
+* Phase C.1 verdict ([docs/archive/notes/2026-05-29-c1-blocks-source-hunt-verdict.md])
   explicitly chose this pattern: it reuses ``snapshot.py``'s public
   primitives (``fetch_geojsonl_7z``, ``emit_feature_collection``,
   ``_round_coords_geom``, ``SNAPSHOT_BYTE_BUDGET``) so citizen-side byte

@@ -12,7 +12,7 @@ on empty-kept (same fail-loud discipline as `apply_state_filter`).
 The `apply_ac_no_rewrite_by_name` directive projects upstream LGD
 legacy `ac_no` onto SoT `eci_no` via case/diacritic/reservation-suffix-
 folded name matching. Per LGD-golden doctrine
-(TODO/20260529-boundary-rip-and-replace-plan.md), the original LGD
+(docs/archive/plans/20260529-boundary-rip-and-replace-plan.md), the original LGD
 `ac_no`, `AC_ID`, and `st_name` are preserved on the feature as
 `lgd_legacy_ac_no`, `lgd_ac_id`, `lgd_st_name` so the snapshot is
 auditable and reversible if a future PR migrates to LGD `AC_ID` as
@@ -70,7 +70,7 @@ def ap_lgd_slice() -> list[dict]:
       step must drop (Yanam appears under State_LGD=28 because the LGD
       release records it under AP's State_LGD even though st_name is
       Puducherry; mirrors actual LGD behaviour per
-      notes/2026-05-29-phase-b-verdict-correction.md).
+      docs/archive/notes/2026-05-29-phase-b-verdict-correction.md).
     """
     return [
         _feat(
