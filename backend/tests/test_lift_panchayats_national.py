@@ -3,7 +3,7 @@
 End-to-end with a tiny inline geojsonl fixture (no real network, no
 real upstream archive). Validates:
 
-* feature grouping by ``(state_lgd, dist_lgd)`` (well-keyed + missing-
+* feature grouping by ``(st_lgd, dt_lgd)`` (well-keyed + missing-
   either-key unkeyed + unknown state)
 * per-(state, district) shard emission with byte-determinism across
   two runs
@@ -14,6 +14,12 @@ real upstream archive). Validates:
 * C.2.b inherited auto-fallback path from C.1.c (PR #443): bucket
   exceeding budget at default precision re-emits at coarser precision
   before SKIP; the row carries the fallback tolerance.
+
+Note: upstream LGD_Panchayats uses LGD short codes ``st_lgd`` / ``dt_lgd``
+/ ``gp_code`` / ``gp_name`` rather than the longer convention used by
+the blocks layer (``state_lgd`` / ``dist_lgd`` / ``block_lgd`` /
+``block_name``). Fixtures + assertions below mirror the actual wire
+schema confirmed in the C.2.b first-snapshot inspection (2026-05-30).
 """
 
 from __future__ import annotations
@@ -52,26 +58,26 @@ def lift_module() -> Any:
 
 
 def _feature(
-    state_lgd: int | None,
-    dist_lgd: int | None,
-    panchayat_lgd: int,
-    pname: str,
+    st_lgd: int | None,
+    dt_lgd: int | None,
+    gp_code: int,
+    gp_name: str,
     lon: float = 78.0,
     lat: float = 12.0,
 ) -> dict[str, Any]:
     """Minimal panchayat feature (1x1 degree square polygon)."""
     props: dict[str, Any] = {
-        "panchayat_lgd": panchayat_lgd,
-        "pname": pname,
+        "gp_code": gp_code,
+        "gp_name": gp_name,
         "stname": "TEST",
         "dtname": "TestDist",
-        "block_lgd": 998,
-        "block_name": "TestBlock",
+        "blklgdcode": "998",
+        "blkname": "TestBlock",
     }
-    if state_lgd is not None:
-        props["state_lgd"] = state_lgd
-    if dist_lgd is not None:
-        props["dist_lgd"] = dist_lgd
+    if st_lgd is not None:
+        props["st_lgd"] = st_lgd
+    if dt_lgd is not None:
+        props["dt_lgd"] = dt_lgd
     return {
         "type": "Feature",
         "properties": props,
@@ -104,8 +110,8 @@ def test_group_features_by_state_and_district_partitions_and_collects_unkeyed(
         _feature(33, 603, 200, "B"),     # TN / d=603
         _feature(33, 603, 201, "C"),     # TN / d=603 (same bucket as B)
         _feature(33, 604, 202, "D"),     # TN / d=604 (different district)
-        _feature(None, 50, 300, "U1"),   # unkeyed (missing state_lgd)
-        _feature(2, None, 301, "U2"),    # unkeyed (missing dist_lgd)
+        _feature(None, 50, 300, "U1"),   # unkeyed (missing st_lgd)
+        _feature(2, None, 301, "U2"),    # unkeyed (missing dt_lgd)
         _feature(2, 50, 101, "E"),       # HP / d=50
     ]
     groups, unkeyed = lift_module.group_features_by_state_and_district(feats)
@@ -122,20 +128,20 @@ def test_group_features_treats_empty_string_keys_as_unkeyed(lift_module: Any) ->
         {
             "type": "Feature",
             "properties": {
-                "state_lgd": "",
-                "dist_lgd": 50,
-                "panchayat_lgd": 1,
-                "pname": "x",
+                "st_lgd": "",
+                "dt_lgd": 50,
+                "gp_code": 1,
+                "gp_name": "x",
             },
             "geometry": None,
         },
         {
             "type": "Feature",
             "properties": {
-                "state_lgd": 2,
-                "dist_lgd": "",
-                "panchayat_lgd": 2,
-                "pname": "y",
+                "st_lgd": 2,
+                "dt_lgd": "",
+                "gp_code": 2,
+                "gp_name": "y",
             },
             "geometry": None,
         },
@@ -153,10 +159,10 @@ def test_group_features_coerces_string_keys_to_int(lift_module: Any) -> None:
         {
             "type": "Feature",
             "properties": {
-                "state_lgd": "33",
-                "dist_lgd": "603",
-                "panchayat_lgd": 1,
-                "pname": "x",
+                "st_lgd": "33",
+                "dt_lgd": "603",
+                "gp_code": 1,
+                "gp_name": "x",
             },
             "geometry": {
                 "type": "Polygon",
@@ -176,10 +182,10 @@ def test_sort_features_deterministic_by_panchayat_lgd_then_name(lift_module: Any
         _feature(2, 50, 300, "C"),
         _feature(2, 50, 100, "A"),
         _feature(2, 50, 200, "B"),
-        _feature(2, 50, 100, "A2"),  # tie on panchayat_lgd, sort by pname
+        _feature(2, 50, 100, "A2"),  # tie on gp_code, sort by gp_name
     ]
     out = lift_module.sort_features_deterministically(feats)
-    keys = [(f["properties"]["panchayat_lgd"], f["properties"]["pname"]) for f in out]
+    keys = [(f["properties"]["gp_code"], f["properties"]["gp_name"]) for f in out]
     assert keys == [(100, "A"), (100, "A2"), (200, "B"), (300, "C")]
 
 
@@ -373,14 +379,14 @@ def test_lift_auto_fallback_when_bucket_exceeds_budget(
     feat = {
         "type": "Feature",
         "properties": {
-            "panchayat_lgd": 100,
-            "pname": "BigGP",
-            "state_lgd": 33,
-            "dist_lgd": 603,
+            "gp_code": 100,
+            "gp_name": "BigGP",
+            "st_lgd": 33,
+            "dt_lgd": 603,
             "stname": "TEST",
             "dtname": "TestDist",
-            "block_lgd": 998,
-            "block_name": "TestBlock",
+            "blklgdcode": "998",
+            "blkname": "TestBlock",
         },
         "geometry": {"type": "Polygon", "coordinates": [long_ring]},
     }
