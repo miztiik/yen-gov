@@ -16,11 +16,14 @@ import {
   filesForSlice,
   fileUrls,
   loadManifest,
+  rowSchemaFileForTable,
   tableFromManifest,
   type Manifest,
 } from "./duckdb";
 
 const SAMPLE_MANIFEST: Manifest = {
+  $schema: "./schemas/manifest.schema.json",
+  $schema_version: "1.3",
   manifest_version: "1.0",
   generated_at: "2026-05-18T12:00:00Z",
   tables: [
@@ -54,7 +57,7 @@ const SAMPLE_MANIFEST: Manifest = {
       table_name: "sources",
       kind: "taxonomy",
       format: "parquet",
-      schema_version: "1.0",
+      schema_version: "3.0",
       partition_columns: [],
       files: [{ path: "taxonomy/sources.parquet", size_bytes: 12_345, row_count: 84 }],
       row_count_total: 84,
@@ -104,9 +107,53 @@ describe("manifest helpers", () => {
     expect(fetchSpy).toHaveBeenCalledTimes(2);
   });
 
+  it("loadManifest rejects unsupported manifest schema versions and does not poison cache", async () => {
+    const fetchSpy = vi
+      .spyOn(globalThis, "fetch")
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ ...SAMPLE_MANIFEST, $schema_version: "9.9" }), { status: 200 }),
+      )
+      .mockResolvedValueOnce(new Response(JSON.stringify(SAMPLE_MANIFEST), { status: 200 }));
+
+    await expect(loadManifest()).rejects.toThrow(/schema_version_unsupported: manifest schema_version 9\.9/);
+    const manifest = await loadManifest();
+
+    expect(manifest.$schema_version).toBe("1.3");
+    expect(fetchSpy).toHaveBeenCalledTimes(2);
+  });
+
   it("tableFromManifest returns the matching table", () => {
     const t = tableFromManifest(SAMPLE_MANIFEST, "elections.election_results");
     expect(t.row_count_total).toBe(31_900);
+  });
+
+  it("tableFromManifest accepts current non-observation table versions", () => {
+    const table = tableFromManifest(SAMPLE_MANIFEST, "taxonomy.sources");
+
+    expect(table.schema_version).toBe("3.0");
+    expect(rowSchemaFileForTable(table)).toBe("source.schema.json");
+  });
+
+  it("tableFromManifest rejects unsupported table versions", () => {
+    const manifest: Manifest = {
+      ...SAMPLE_MANIFEST,
+      tables: [{ ...SAMPLE_MANIFEST.tables[0], schema_version: "9.9" }],
+    };
+
+    expect(() => tableFromManifest(manifest, "elections.election_results")).toThrow(
+      /schema_version_unsupported: table 'elections\.election_results' schema_version 9\.9/,
+    );
+  });
+
+  it("tableFromManifest rejects current tables without an explicit row-schema mapping", () => {
+    const manifest: Manifest = {
+      ...SAMPLE_MANIFEST,
+      tables: [{ ...SAMPLE_MANIFEST.tables[1], table_id: "taxonomy.unknown" }],
+    };
+
+    expect(() => tableFromManifest(manifest, "taxonomy.unknown")).toThrow(
+      /no row schema mapping for taxonomy\.unknown/,
+    );
   });
 
   it("tableFromManifest throws on unknown table_id", () => {

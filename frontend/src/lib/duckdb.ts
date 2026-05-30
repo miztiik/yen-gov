@@ -22,6 +22,7 @@ import duckdbEhWasm from "@duckdb/duckdb-wasm/dist/duckdb-eh.wasm?url";
 import mvpWorker from "@duckdb/duckdb-wasm/dist/duckdb-browser-mvp.worker.js?url";
 import ehWorker from "@duckdb/duckdb-wasm/dist/duckdb-browser-eh.worker.js?url";
 
+import { acceptedSchemaVersions } from "./canonical/schema-compatibility";
 import { DATA_BASE } from "./paths";
 
 // -----------------------------------------------------------------------------
@@ -48,6 +49,8 @@ export interface ManifestTable {
 }
 
 export interface Manifest {
+  $schema: string;
+  $schema_version: string;
   manifest_version: string;
   generated_at: string;
   tables: ManifestTable[];
@@ -57,6 +60,53 @@ const MANIFEST_URL = `${DATA_BASE}/manifest.json`;
 
 let manifestPromise: Promise<Manifest> | null = null;
 
+const ROW_SCHEMA_BY_TABLE_ID: Readonly<Record<string, string>> = Object.freeze({
+  "elections.dim_acs": "dim-acs.schema.json",
+  "elections.dim_parties": "dim-parties.schema.json",
+  "elections.dim_party_alliances": "dim-party-alliances.schema.json",
+  "elections.dim_persons": "dim-persons.schema.json",
+  "elections.elections_candidacies": "elections-candidacies.schema.json",
+  "taxonomy.entities": "entity.schema.json",
+  "taxonomy.indicators": "indicator-catalogue.schema.json",
+  "taxonomy.methodology_breaks": "methodology-break.schema.json",
+  "taxonomy.persons": "persons.schema.json",
+  "taxonomy.sources": "source.schema.json",
+});
+
+function assertSupportedSchemaVersion(schemaFile: string, version: string, subject: string): void {
+  const acceptedVersions = acceptedSchemaVersions(schemaFile);
+  if (acceptedVersions.includes(version)) return;
+
+  const rendered = acceptedVersions.length > 0 ? acceptedVersions.join(", ") : "none";
+  throw new Error(
+    `schema_version_unsupported: ${subject} schema_version ${version} ` +
+      `not in reader's supported set for ${schemaFile}: ${rendered}`,
+  );
+}
+
+function assertSupportedManifestVersion(manifest: Manifest): void {
+  if (typeof manifest.$schema_version !== "string") {
+    throw new Error("manifest: missing $schema_version");
+  }
+  assertSupportedSchemaVersion("manifest.schema.json", manifest.$schema_version, "manifest");
+}
+
+export function rowSchemaFileForTable(table: ManifestTable): string {
+  if (table.kind === "observations") return "observation.schema.json";
+  const schemaFile = ROW_SCHEMA_BY_TABLE_ID[table.table_id];
+  if (schemaFile) return schemaFile;
+
+  throw new Error(
+    `manifest: no row schema mapping for ${table.table_id}; ` +
+      "add manifest row_schema_id or an explicit runtime mapping",
+  );
+}
+
+function assertSupportedTableVersion(table: ManifestTable): void {
+  const schemaFile = rowSchemaFileForTable(table);
+  assertSupportedSchemaVersion(schemaFile, table.schema_version, `table '${table.table_id}'`);
+}
+
 export function loadManifest(): Promise<Manifest> {
   if (manifestPromise) return manifestPromise;
   manifestPromise = (async () => {
@@ -64,7 +114,9 @@ export function loadManifest(): Promise<Manifest> {
     if (!res.ok) {
       throw new Error(`manifest fetch failed: ${res.status} ${res.statusText}`);
     }
-    return (await res.json()) as Manifest;
+    const manifest = (await res.json()) as Manifest;
+    assertSupportedManifestVersion(manifest);
+    return manifest;
   })();
   manifestPromise.catch(() => {
     manifestPromise = null;
@@ -75,6 +127,7 @@ export function loadManifest(): Promise<Manifest> {
 export function tableFromManifest(m: Manifest, table_id: string): ManifestTable {
   const t = m.tables.find(x => x.table_id === table_id);
   if (!t) throw new Error(`manifest: table_id not found: ${table_id}`);
+  assertSupportedTableVersion(t);
   return t;
 }
 
@@ -221,13 +274,13 @@ export async function registerTable(
   table_id: string,
   opts: { viewName?: string } = {},
 ): Promise<string> {
-  const [db, conn, manifest] = await Promise.all([
-    dbPromise ?? (dbPromise = bootDB()),
-    getConnection(),
-    loadManifest(),
-  ]);
+  const manifest = await loadManifest();
   const table = tableFromManifest(manifest, table_id);
   const viewName = opts.viewName ?? defaultViewName(table, table_id);
+  const [db, conn] = await Promise.all([
+    dbPromise ?? (dbPromise = bootDB()),
+    getConnection(),
+  ]);
   await registerFilesAsView(db, conn, viewName, table_id, fileUrls(table));
   return viewName;
 }
@@ -237,14 +290,14 @@ export async function registerSlice(
   partitionFilter: PartitionFilter,
   opts: { viewName?: string; allowFullTableFallback?: boolean } = {},
 ): Promise<string> {
-  const [db, conn, manifest] = await Promise.all([
-    dbPromise ?? (dbPromise = bootDB()),
-    getConnection(),
-    loadManifest(),
-  ]);
+  const manifest = await loadManifest();
   const table = tableFromManifest(manifest, table_id);
   const viewName = opts.viewName ?? defaultViewName(table, table_id);
   const files = filesForSlice(table, partitionFilter, opts);
+  const [db, conn] = await Promise.all([
+    dbPromise ?? (dbPromise = bootDB()),
+    getConnection(),
+  ]);
   await registerFilesAsView(db, conn, viewName, table_id, fileUrlsForFiles(files));
   return viewName;
 }
