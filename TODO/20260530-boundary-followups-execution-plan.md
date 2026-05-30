@@ -82,7 +82,7 @@ Total: 33 rows. 12 DONE + 1 COLLAPSED + 5 PENDING-actionable + 15 BLOCKED-on-tri
 | 4.2 | Premature plan-doc archive | `[x] DONE` | #465 | REVERTED by 4.3. |
 | 4.3 | Un-archive + SVG pivot + restructure (PR #468) | `[x] DONE` | #468 | |
 | 4.4 | Open Level-5 successor plan-doc for eci_no -> AC_ID | `[x] DONE` | #469 | Was 5.2; renamed to 4.4 since done. |
-| 4.5 | This plan-doc cleanup (single-hierarchy restructure + 5.22 reframe + concrete 5.1/5.5/5.7 steps) | `[ ] PENDING` | _pending_ | This PR. |
+| 4.5 | This plan-doc cleanup (single-hierarchy restructure + 5.22 reframe + concrete 5.1/5.5/5.7 steps) | `[x] DONE` | #471 | |
 | **5.1** | **S03 Assam Furfur SVG -> GeoJSON pipeline** | **`[ ] PENDING`** | - | User-authorized 2026-05-30. Supersedes T3 PDF for S03. |
 | **5.7** | **S01 AP residue: Susewind probe + fallback in-repo surgery** | **`[ ] PENDING`** | - | Concrete paths in section 2. |
 | **5.22** | **Promote `verify_ac_parity` to pytest gate** | **`[ ] PENDING`** | - | Reframed from meaningless "pixel comparison"; option beta. |
