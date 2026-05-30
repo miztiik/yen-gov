@@ -83,7 +83,7 @@ Total: 34 rows. 13 DONE + 1 COLLAPSED + 3 PENDING-actionable + 17 BLOCKED-on-tri
 | 4.3 | Un-archive + SVG pivot + restructure (PR #468) | `[x] DONE` | #468 | |
 | 4.4 | Open Level-5 successor plan-doc for eci_no -> AC_ID | `[x] DONE` | #469 | Was 5.2; renamed to 4.4 since done. |
 | 4.5 | This plan-doc cleanup (single-hierarchy restructure + 5.22 reframe + concrete 5.1/5.5/5.7 steps) | `[x] DONE` | #471 | |
-| 4.6 | S03 Furfur SVG structure probe + verdict | `[ ] PENDING` | _pending_ | This PR. Probe finding supersedes 5.1's optimistic 10-11h estimate. |
+| 4.6 | S03 Furfur SVG structure probe + verdict | `[x] DONE` | #472 | Probe finding supersedes 5.1's optimistic 10-11h estimate. |
 | 5.1 | S03 Assam Furfur SVG -> GeoJSON pipeline | `[ ] BLOCKED` | - | Probe (4.6) found only 20 paths / 25 subpaths / 132 numeric labels — NOT 126 per-AC polygons. Unblock: Path B (Furfur outreach) succeeds OR user accepts Path A (Voronoi approximation) with citizen caveat. |
 | **5.7** | **S01 AP residue: Susewind probe + fallback in-repo surgery** | **`[ ] PENDING`** | - | Concrete paths in section 2. |
 | **5.22** | **Promote `verify_ac_parity` to pytest gate** | **`[ ] PENDING`** | - | Reframed from meaningless "pixel comparison"; option beta. |
