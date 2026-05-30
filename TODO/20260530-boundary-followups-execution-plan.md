@@ -65,7 +65,7 @@ When all rows reach `[x] DONE` / `[-] COLLAPSED` / `[!] ESCALATED-and-resolved`,
 
 ## section 1. Status Reckoner
 
-Total: 33 rows. 12 DONE + 1 COLLAPSED + 5 PENDING-actionable + 15 BLOCKED-on-trigger.
+Total: 34 rows. 13 DONE + 1 COLLAPSED + 3 PENDING-actionable + 17 BLOCKED-on-trigger.
 
 | Row | Title | Status | PR | Trigger / Notes |
 | --- | --- | --- | --- | --- |
@@ -83,7 +83,8 @@ Total: 33 rows. 12 DONE + 1 COLLAPSED + 5 PENDING-actionable + 15 BLOCKED-on-tri
 | 4.3 | Un-archive + SVG pivot + restructure (PR #468) | `[x] DONE` | #468 | |
 | 4.4 | Open Level-5 successor plan-doc for eci_no -> AC_ID | `[x] DONE` | #469 | Was 5.2; renamed to 4.4 since done. |
 | 4.5 | This plan-doc cleanup (single-hierarchy restructure + 5.22 reframe + concrete 5.1/5.5/5.7 steps) | `[x] DONE` | #471 | |
-| **5.1** | **S03 Assam Furfur SVG -> GeoJSON pipeline** | **`[ ] PENDING`** | - | User-authorized 2026-05-30. Supersedes T3 PDF for S03. |
+| 4.6 | S03 Furfur SVG structure probe + verdict | `[x] DONE` | #472 | Probe finding supersedes 5.1's optimistic 10-11h estimate. |
+| 5.1 | S03 Assam Furfur SVG -> GeoJSON pipeline | `[ ] BLOCKED` | - | Probe (4.6) found only 20 paths / 25 subpaths / 132 numeric labels — NOT 126 per-AC polygons. Unblock: Path B (Furfur outreach) succeeds OR user accepts Path A (Voronoi approximation) with citizen caveat. |
 | **5.7** | **S01 AP residue: Susewind probe + fallback in-repo surgery** | **`[ ] PENDING`** | - | Concrete paths in section 2. |
 | **5.22** | **Promote `verify_ac_parity` to pytest gate** | **`[ ] PENDING`** | - | Reframed from meaningless "pixel comparison"; option beta. |
 | **5.5** | **U09 Ladakh villages source probe (Bhuvan / SVAMITVA / OSM)** | **`[ ] PENDING`** | - | Research-only PR; defer if no source found. |
@@ -128,44 +129,36 @@ Legend: `[x] DONE` / `[ ] PENDING` / `[!] ESCALATED` / `[-] COLLAPSED` / `[ ] BL
 
 ---
 
+### Row 4.6 - S03 Furfur SVG structure probe + verdict (this PR)
+
+**Status**: PENDING this PR.
+
+**Output**: NEW [notes/2026-05-30-s03-furfur-svg-structure-probe-verdict.md](../notes/2026-05-30-s03-furfur-svg-structure-probe-verdict.md) documenting that the Furfur SVG has only 20 `<path>` elements / 25 subpath-starts / 132 numeric labels — NOT 126 per-AC polygons. Path geometry represents district-fill groups; AC identity lives only in numeric `<text>` labels at centroids. Supersedes Row 5.1's optimistic 10-11h estimate.
+
+**Gates**: 1 only (research-only PR; notes + plan-doc updates).
+
+---
+
 ### Row 5.1 - S03 Assam Furfur SVG -> GeoJSON pipeline
 
-**Status**: PENDING (user-authorized 2026-05-30; supersedes T3 PDF for S03).
+**Status**: BLOCKED on Row 4.6 probe finding.
 
-**Source**: [File:Wahlkreise zur Vidhan Sabha von Assam (2023-).svg](https://commons.wikimedia.org/wiki/File:Wahlkreise_zur_Vidhan_Sabha_von_Assam_(2023-).svg) by Furfur, CC-BY-SA 4.0, ~6.14 MB, 1326x919 viewBox, all 126 ACs as machine-readable `<text>` labels, Adobe Illustrator-clean `<path>` elements.
+**Source**: [File:Wahlkreise zur Vidhan Sabha von Assam (2023-).svg](https://commons.wikimedia.org/wiki/File:Wahlkreise_zur_Vidhan_Sabha_von_Assam_(2023-).svg) by Furfur, CC-BY-SA 4.0, 6.14 MB, 1326x919 viewBox.
 
-**Reference data**: [datasets/reference/in/states/S03/constituencies.json](../datasets/reference/in/states/S03/constituencies.json) has 126 entries (eci_no 1-126).
+**Row 4.6 probe finding** (see [notes/2026-05-30-s03-furfur-svg-structure-probe-verdict.md](../notes/2026-05-30-s03-furfur-svg-structure-probe-verdict.md)): SVG has only **20 `<path>` elements with 25 subpath-starts** + **132 numeric `<text>` labels** at AC centroids. NOT 126 per-AC polygons. AC names appear only in the Wikimedia description, not in the SVG.
 
-**Tool stack** (no new heavy deps):
-- `lxml` (already in backend `pyproject.toml`) for SVG XML parse + XPath.
-- stdlib `re` for `d=` path-attribute parse (Assam SVG uses simple `M x y L x y ... Z`).
-- `numpy` (add to `pyproject.toml` if needed) for 2x2 affine least-squares.
-- Hand-authored GeoJSON per [datasets/schemas/boundary-layers.schema.json](../datasets/schemas/boundary-layers.schema.json).
-- No shapely (winding-number closure + shoelace area in stdlib).
+**Three revised paths**:
 
-**Steps**:
-1. Fetch SVG to a temp path; lxml XPath all `<text>` (name->viewBox anchor) + all `<path>` (polygon `d`). Emit inventory JSON. ~1h.
-2. Regex-parse `d=` per AC; build coordinate lists; shoelace area sanity-check; flag self-intersection via winding number. ~2h.
-3. Pick 5-8 control points (named-AC centroid in SVG vs known lat/lon from existing HTL S03 file OR Google Maps lookup); numpy least-squares affine 2x2 + translation. ~2h.
-4. Cross-check 126 extracted names vs `constituencies.json`; hand-curate exception map if transliteration drifts. ~1h.
-5. Emit `datasets/boundaries/in/ac/state=in_s03/all.geojson` carrying `ac_no`, `ac_name`, `state_lgd=18`, source-attribution properties; coord_precision=4. ~1h.
-6. Visual spot-check on `/s/assam` (temp-override `STATE_AC.S03` in [frontend/src/lib/maplibre/sources.ts](../frontend/src/lib/maplibre/sources.ts)). ~1h.
-7. Swap `STATE_AC.S03` from `district` to `ac` shard; `join_property: "ac_no"`; CC-BY-SA Furfur attribution; remove T4 interim tooltip. ~0.5h.
-8. `python -m tools.boundaries.verify_ac_parity --state S03` expect >=95% name match; Gate 5 `/s/assam/ac/1` renders "Gossaigaon" polygon (NOT Kokrajhar district). ~1h.
+- **Path A - Voronoi tessellation around 126 numeric label centroids** (L-XL, ~20-40h): clip Voronoi cells to the union of district-fill polygons; affine-warp to lat/lon. Produces 126 polygons that **approximate** AC boundaries. Requires `shapely` + `scipy.spatial.Voronoi` + `numpy` (none currently in venv). Risk: shipping approximated boundaries labeled as "post-2023 delimitation" is misleading without a prominent caveat.
 
-**Risks + recovery**:
-- Trace artefacts (self-intersections): winding-number cleanup + coordinate rounding.
-- Affine offset >15%: add more control points (8-12); visually re-anchor against OpenStreetMap.
-- Name transliteration drift: hand-curated exception map (30 min) OR open Furfur GitHub issue.
+- **Path B - Contact Furfur for source files** (S, unknown timeline): open a discussion on https://commons.wikimedia.org/wiki/User_talk:Furfur asking for the source data (Adobe Illustrator native file, georeferenced shapefile). If Furfur shares the source, full pipeline becomes trivial.
 
-**Acceptance**:
-- New `datasets/boundaries/in/ac/state=in_s03/all.geojson`: 126 features, `ac_no` 1-126, `ac_name` SoT-matched.
-- `verify_ac_parity --state S03` exit 0, name parity >=95%.
-- `sources.parquet` carries Furfur row via `derive_source_id("Wikimedia Commons", "Wahlkreise zur Vidhan Sabha von Assam (2023-).svg", "2023-")`.
-- [notes/2026-05-29-s03-pdf-probe-verdict.md](../notes/2026-05-29-s03-pdf-probe-verdict.md) SUPERSEDED header points at this PR.
+- **Path C - Keep T4 district fallback** (S, ~0.5h): current S03 state-page renders district outlines with "boundaries pending post-2023 delimitation" tooltip. Honest about the gap. Cost: zero engineering. Trade-off: S03 stays only-state without per-AC granularity until a real source ships.
 
-**Effort**: L (~10-11h autonomous).
-**Branch**: `feat/p5-s03-furfur-svg-ac-geometry`.
+**Recommended unblock**: Path B (cheap, unbounded payoff) -> if Furfur unresponsive within 4-6 weeks, ask user to authorise Path A with a citizen-visible caveat ribbon. Until then keep Path C as the shipped experience.
+
+**Effort**: BLOCKED until Path B verdict or user authorises Path A.
+**Branch**: TBD when unblocked.
 
 ---
 
