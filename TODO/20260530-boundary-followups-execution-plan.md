@@ -74,7 +74,7 @@ When all rows reach `[x] DONE` or `[-] COLLAPSED`, run the 6-step distillation p
 | 2.4 | P2 Distill | A.1.b T3 PDF vectorization workflow -> docs/how-to/digitize-ac-from-pdf.md | [x] DONE | #462 |
 | 2.5 | P2 Distill | ADR-0029 retirement backlink to D.1.A user mandate | [x] DONE | #462 |
 | 3.1 | P3 Cleanup | Vitest U08/U09 villages orphan: delete OR allow-list the 14 entries | [-] COLLAPSED | n/a |
-| 4.1 | P4 Optional | Code-marker TODO annotations in sources.ts + boundaries.ts (Category 8) | [x] DONE | #_pending_ |
+| 4.1 | P4 Optional | Code-marker TODO annotations in sources.ts + boundaries.ts (Category 8) | [x] DONE | #464 |
 
 Legend: `[x] DONE` / `[ ] PENDING` / `[!] ESCALATED` / `[-] COLLAPSED`.
 
@@ -166,7 +166,7 @@ Single Level-2 docs PR bundling 5 distillations. Effort: 5xS. Value: HIGH (saves
 
 ## section 5. Phase 4 - Optional polish (deferred unless triggered)
 
-### Row 4.1 - Code-marker TODO annotations [DONE PR #_pending_]
+### Row 4.1 - Code-marker TODO annotations [DONE PR #464]
 
 Per inventory Category 8: forward-looking `// TODO:` markers added above
 `PANCHAYAT_BOUNDARY_BY_DISTRICT` + `WARD_BOUNDARY_BY_ULB` in
