@@ -1,7 +1,8 @@
 /**
  * Contract test (CLAUDE.md §11): every JSON artifact under datasets/ that
  * is reachable by the frontend MUST validate against its declared $schema,
- * AND its $schema_version MUST match the schema's current x-version.
+ * AND its $schema_version MUST be accepted by the shared json-corpus
+ * compatibility contract.
  *
  * This closes the consumer-side half of the §11 loop. The backend tests
  * (backend/tests/test_validate.py) cover the producer side; this test
@@ -23,6 +24,7 @@ import addFormats from "ajv-formats";
 const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "..", "..", "..");
 const datasetsDir = resolve(repoRoot, "datasets");
 const schemasDir = resolve(datasetsDir, "schemas");
+const schemaCompatibilityPath = resolve(datasetsDir, "schema-compatibility.json");
 
 interface SchemaMeta {
   path: string;
@@ -30,6 +32,21 @@ interface SchemaMeta {
   basename: string;
   version: string;
   raw: Record<string, unknown>;
+}
+
+interface CompatibilityOverride {
+  surface: string;
+  schema: string;
+  accepted_versions: string[];
+  validation: string;
+}
+
+interface CompatibilityRegistry {
+  overrides: CompatibilityOverride[];
+}
+
+function readJson<T>(path: string): T {
+  return JSON.parse(readFileSync(path, "utf-8")) as T;
 }
 
 /** Build a (basename + $id) → schema map by scanning datasets/schemas/.
@@ -42,7 +59,7 @@ interface SchemaMeta {
 function loadSchemas(): Map<string, SchemaMeta> {
   const out = new Map<string, SchemaMeta>();
   for (const file of globSync("*.schema.json", { cwd: schemasDir, absolute: true })) {
-    const raw = JSON.parse(readFileSync(file, "utf-8")) as Record<string, unknown>;
+    const raw = readJson<Record<string, unknown>>(file);
     const id = String(raw["$id"] ?? "");
     const version = String(raw["x-version"] ?? "");
     const basename = file.split(/[\\/]/).pop()!;
@@ -56,12 +73,88 @@ function loadSchemas(): Map<string, SchemaMeta> {
   return out;
 }
 
+function uniqueSchemasByBasename(schemas: Map<string, SchemaMeta>): SchemaMeta[] {
+  const seen = new Set<string>();
+  const out: SchemaMeta[] = [];
+  for (const meta of schemas.values()) {
+    if (seen.has(meta.basename)) continue;
+    seen.add(meta.basename);
+    out.push(meta);
+  }
+  return out;
+}
+
 /** Resolve a data file's $schema string against the loaded schemas, accepting
  * the full $id form or the basename form. */
 function resolveSchema(declared: string): SchemaMeta | undefined {
   if (SCHEMAS.has(declared)) return SCHEMAS.get(declared);
   const basename = declared.split(/[\\/]/).pop()!;
   return SCHEMAS.get(basename);
+}
+
+function versionTuple(version: string): [number, number] | undefined {
+  const match = /^(\d+)\.(\d+)$/.exec(version);
+  if (!match) return undefined;
+  return [Number(match[1]), Number(match[2])];
+}
+
+function schemaChangelogVersions(schema: SchemaMeta): Set<string> {
+  const changelog = schema.raw["x-changelog"];
+  if (!Array.isArray(changelog)) return new Set();
+  return new Set(
+    changelog
+      .map(entry => (entry && typeof entry === "object" ? (entry as Record<string, unknown>).version : undefined))
+      .filter((version): version is string => typeof version === "string"),
+  );
+}
+
+function currentSchemaCanValidateDeclaredVersion(schema: SchemaMeta, version: string): boolean {
+  const current = versionTuple(schema.version);
+  const declared = versionTuple(version);
+  if (!current || !declared) return false;
+  if (declared[0] !== current[0] || declared[1] > current[1]) return false;
+  return schemaChangelogVersions(schema).has(version);
+}
+
+function buildJsonCorpusAcceptedVersions(
+  registry: CompatibilityRegistry,
+  schemas: SchemaMeta[],
+): Map<string, ReadonlySet<string>> {
+  const byBasename = new Map(schemas.map(schema => [schema.basename, schema]));
+  const accepted = new Map<string, Set<string>>(
+    schemas.map(schema => [schema.basename, new Set([schema.version])]),
+  );
+
+  for (const override of registry.overrides) {
+    if (override.surface !== "json-corpus" || override.validation !== "current_schema") continue;
+    const schema = byBasename.get(override.schema);
+    if (!schema) continue;
+    const versions = accepted.get(schema.basename)!;
+    for (const version of override.accepted_versions) {
+      if (currentSchemaCanValidateDeclaredVersion(schema, version)) {
+        versions.add(version);
+      }
+    }
+  }
+
+  return new Map([...accepted.entries()].map(([schema, versions]) => [schema, versions as ReadonlySet<string>]));
+}
+
+function loadJsonCorpusAcceptedVersions(): Map<string, ReadonlySet<string>> {
+  return buildJsonCorpusAcceptedVersions(
+    readJson<CompatibilityRegistry>(schemaCompatibilityPath),
+    uniqueSchemasByBasename(SCHEMAS),
+  );
+}
+
+function formatVersions(versions: Iterable<string>): string {
+  return [...versions]
+    .sort((left, right) => {
+      const leftTuple = versionTuple(left) ?? [Number.MAX_SAFE_INTEGER, Number.MAX_SAFE_INTEGER];
+      const rightTuple = versionTuple(right) ?? [Number.MAX_SAFE_INTEGER, Number.MAX_SAFE_INTEGER];
+      return leftTuple[0] - rightTuple[0] || leftTuple[1] - rightTuple[1];
+    })
+    .join(", ");
 }
 
 /** Schemas whose row shape carries per-row source_id (FK to taxonomy/sources)
@@ -100,6 +193,8 @@ const PER_ROW_PROVENANCE_SCHEMAS = new Set<string>([
 ]);
 
 const SCHEMAS = loadSchemas();
+const UNIQUE_SCHEMAS = uniqueSchemasByBasename(SCHEMAS);
+const JSON_CORPUS_ACCEPTED_VERSIONS = loadJsonCorpusAcceptedVersions();
 
 // One Ajv instance per process — shared across data-file checks.
 const ajv = new Ajv2020({ strict: false, allErrors: true, allowUnionTypes: true });
@@ -173,6 +268,28 @@ describe("contract — schema registry sanity", () => {
   it("workspace contains at least one shipped data artifact", () => {
     expect(DATA_FILE_REFS.length).toBeGreaterThan(0);
   });
+
+  it("accepts current schema versions by default", () => {
+    for (const schema of UNIQUE_SCHEMAS) {
+      expect(JSON_CORPUS_ACCEPTED_VERSIONS.get(schema.basename), schema.basename).toContain(schema.version);
+    }
+  });
+
+  it("accepts json-corpus additive minors but filters future and old-major overrides", () => {
+    const processing = SCHEMAS.get("processing.schema.json");
+    expect(processing).toBeDefined();
+
+    const accepted = buildJsonCorpusAcceptedVersions({
+      overrides: [{
+        surface: "json-corpus",
+        schema: "processing.schema.json",
+        accepted_versions: ["2.0", "3.0", "3.1", "3.9"],
+        validation: "current_schema",
+      }],
+    }, [processing!]);
+
+    expect(accepted.get("processing.schema.json")).toEqual(new Set(["3.0", "3.1"]));
+  });
 });
 
 // Per-file conformance. Each data file becomes one test so a failure
@@ -188,10 +305,14 @@ describe("contract — every datasets/*.json validates against its declared $sch
       }
       const schema = resolveSchema(f.schema);
       expect(schema, `unknown $schema ${f.schema} in ${f.rel}`).toBeDefined();
-      // §11: $schema_version MUST match the schema's current x-version.
+      // CLAUDE.md section 11: $schema_version MUST be accepted by the json-corpus contract.
       expect(f.schemaVersion, `${f.rel} missing $schema_version`).toBeDefined();
-      expect(f.schemaVersion, `${f.rel}: $schema_version=${f.schemaVersion} != x-version=${schema!.version}`)
-        .toBe(schema!.version);
+      const acceptedVersions = JSON_CORPUS_ACCEPTED_VERSIONS.get(schema!.basename) ?? new Set<string>();
+      expect(
+        acceptedVersions.has(f.schemaVersion!),
+        `${f.rel}: $schema_version=${f.schemaVersion} not accepted for ${schema!.basename}; `
+          + `accepted versions: ${formatVersions(acceptedVersions)}`,
+      ).toBe(true);
 
       const validate = ajv.getSchema(f.schema) ?? ajv.getSchema(schema!.basename) ?? ajv.getSchema(schema!.id);
       expect(validate, `compiled validator missing for ${f.schema}`).toBeDefined();

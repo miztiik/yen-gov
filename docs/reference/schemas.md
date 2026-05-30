@@ -33,7 +33,7 @@ Introduced by [`TODO/SOCIO-ECONOMIC-EXPANSION.md`](../../TODO/SOCIO-ECONOMIC-EXP
 
 | File | Title | x-version | Describes |
 | --- | --- | :---: | --- |
-| `schema-compatibility.schema.json` | Schema compatibility registry | 1.0 | `datasets/schema-compatibility.json`, the shared reader-side compatibility contract introduced by ADR-0047. Backend Tier B consumes the `json-corpus` surface as of Row E while the frontend JSON corpus contract remains pending Row F; overrides list explicitly accepted additive minor versions for reader surfaces. |
+| `schema-compatibility.schema.json` | Schema compatibility registry | 1.0 | `datasets/schema-compatibility.json`, the shared reader-side compatibility contract introduced by ADR-0047. Backend Tier B and the frontend JSON corpus contract both consume the `json-corpus` surface as of Rows E/F; overrides list explicitly accepted additive minor versions for reader surfaces. |
 
 To regenerate this table after a schema bump, run `python -m yen_gov validate` and update the row by hand. (Auto-generation is a Phase 4 nice-to-have, not a blocker.)
 
@@ -65,7 +65,7 @@ Every JSON file under `datasets/` (except the schemas themselves) and `config/` 
 
 The writer resolves the schema from the local registry and stamps the current `$schema_version`. Writer-side stale schema metadata is an error.
 
-Reader-side policy is compatibility by explicit contract. Backend Tier B consumes `datasets/schema-compatibility.json` for the `json-corpus` surface; the frontend JSON corpus contract remains latest-only until Row F. A reader may accept an older declared version only when the compatibility contract says the reader can interpret it without guessing. Unsupported future versions, unsupported major versions, and incompatible shapes fail loud.
+Reader-side policy is compatibility by explicit contract. Backend Tier B and `frontend/src/contracts/datasets-conform.test.ts` consume `datasets/schema-compatibility.json` for the `json-corpus` surface. A reader may accept an older declared version only when the compatibility contract says the reader can interpret it without guessing. Unsupported future versions, unsupported major versions, and incompatible shapes fail loud.
 
 Do not restamp or rebuild unchanged artifacts just to update `$schema_version` after an additive minor change. If values, logical keys, provenance, and semantics did not change, the old declared version can remain once the reader compatibility contract supports it. See [schema evolution](../architecture/data/schema-evolution.md).
 
