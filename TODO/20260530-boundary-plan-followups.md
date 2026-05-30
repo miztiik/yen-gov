@@ -1,12 +1,12 @@
 # Boundary plan follow-ups (deferred / optional / out-of-scope-recoverable inventory)
 
-**Last Updated**: 2026-05-30
+**Last Updated**: 2026-05-30 (PR #468: SVG pivot for Cat 2 #2 / Cat 7 #4 baked in after Furfur SVG identified mid-plan)
 
-**Source plan**: [TODO/20260529-boundary-rip-and-replace-plan.md](20260529-boundary-rip-and-replace-plan.md) (CLOSED via PRs #434-#456)
+**Source plan**: [TODO/20260530-boundary-followups-execution-plan.md](20260530-boundary-followups-execution-plan.md) (ACTIVE; 22 of these items are now Phase 5 rows 5.1-5.22 in that plan-doc)
 
 **Captured by**: Explore subagent walk of the plan-doc + 11 verdict / handover notes + retired ADRs + frontend / backend code markers, on 2026-05-30 after PR #456 merged at `03e13157`.
 
-**Status**: ALL in-scope plan rows merged. This is the residual list of items that were either (a) explicitly deferred during execution, (b) shipped with a deliberate quality carve-out, or (c) declared out-of-scope but re-scopable if a citizen need surfaces.
+**Status**: ALL in-scope original-plan execution rows merged. The 22 still-actionable items below are now tracked as Phase 5 rows in the execution plan-doc; this file remains the per-item rationale + trigger lookup, the execution plan-doc carries the row-level status.
 
 **How to use this file**: each item carries WHY-deferred, effort (S/M/L/XL), value (HIGH/MED/LOW), and the upstream change or citizen-trigger that would re-open it. Pick items by `value desc, effort asc` for the next sprint; or filter for HIGH-value items only when planning a follow-up cycle.
 
@@ -28,7 +28,7 @@
 
 - **A.1.a: S01 AP LGD with pre-bifurcation residue** (PR #434, plan-doc row A.1.a): S01 LGD release carries legacy `ac_no` numbering 1-294 from pre-2014 unified AP+TG. Shipped: name-based `ac_no` rewrite to align with post-2014 SoT + preserved `lgd_legacy_ac_no` + `lgd_ac_id` on every feature. Citizen-visible gap: map renders 175 coloured ACs (correct) PLUS ~119 no-fill residual polygons (former TG territories, visible as transparent). Severity: **COSMETIC** (accepted per user mandate 2026-05-29 "accept the vintage mismatch with a ribbon"). Effort to close: **L** (wait for ramSeraph LGD v2 OR manual boundary surgery). Value: **MED** (visual polish; joins work correctly). Upstream unblock: ramSeraph LGD v2 with post-bifurcation AP geometry.
 
-- **A.1.b: S03 Assam Tier-4 district fallback (interim)** (PR #435, plan-doc row A.1.b): S03 post-2023 delimitation boundaries not machine-readable from any upstream. Verdict: T3 PDF digitization deferred (40-60h QGIS work), T4 district fallback shipped as interim. Citizen-visible gap: `/s/assam/ac/<n>` map shows parent DISTRICT polygon instead of coloured individual ACs; tooltip declares "boundaries pending post-2023 delimitation; showing district outlines as interim." Election results still bind correctly to post-2023 SoT `eci_no` (no join breakage). Effort to close: **L** (40-60h T3 QGIS vectorization of Delimitation Order PDF + topological closure). Value: **HIGH** (blocks AC-grain electoral insights). Upstream unblock: (a) authorise T3 QGIS vectorization sprint, OR (b) ramSeraph / Delimitation Commission / community publishes post-2023 Assam AC machine-readable boundaries.
+- **A.1.b: S03 Assam Tier-4 district fallback (interim)** (PR #435, plan-doc row A.1.b; SUPERSEDED 2026-05-30 by Furfur SVG pivot per execution-plan Row 5.1): S03 post-2023 delimitation boundaries not machine-readable from ECI upstream, BUT user identified https://commons.wikimedia.org/wiki/File:Wahlkreise_zur_Vidhan_Sabha_von_Assam_(2023-).svg by Furfur (CC-BY-4.0, 6.52 MB / 1326x919, georeferenced post-2023 delim, all 126 ACs) as a viable Tier-1 source mid-conversation 2026-05-30. T4 district fallback still rendering as interim until Row 5.1 SVG-to-GeoJSON pipeline ships. Citizen-visible gap (current): `/s/assam/ac/<n>` map shows parent DISTRICT polygon instead of coloured individual ACs; tooltip declares "boundaries pending post-2023 delimitation; showing district outlines as interim." Election results still bind correctly to post-2023 SoT `eci_no` (no join breakage). Effort to close: **L** (~10-20h autonomous SVG-to-GeoJSON pipeline per execution-plan Row 5.1; ORIGINAL estimate was 40-60h T3 QGIS PDF vectorization but the SVG pivot supersedes for S03 specifically). Value: **HIGH** (blocks AC-grain electoral insights). Tracking: execution-plan Row 5.1.
 
 ---
 
@@ -90,7 +90,7 @@
 
 - **C.4 verdict + implementation plan distillation** (source: [notes/2026-05-30-c4-jk-villages-source-hunt-verdict.md](../notes/2026-05-30-c4-jk-villages-source-hunt-verdict.md)): Parallel-orchestrator pattern (Bhuvan-JK-specific vs LGD-national) should distill to `docs/how-to/add-new-boundary-layer.md` (NEW: "when to fork vs consolidate orchestrators"). Effort: **S**. Value: **MED**.
 
-- **A.1.b: Tier ladder + T3 PDF vectorization process** (source: plan-doc row A.1.b narrative + [notes/2026-05-29-phase-b-verdict-correction.md](../notes/2026-05-29-phase-b-verdict-correction.md)): The 4-tier fallback ladder (T1 machine-readable > T3 PDF digitization > T4 district fallback > T2 Voronoi) and the T3 "40-60h QGIS vectorization" mechanics should distill to `docs/how-to/digitize-ac-from-pdf.md` (NEW: step-by-step QGIS workflow for Delimitation-Order PDF → topologically-sound AC shapefiles). Effort: **M** (actual workflow + screenshots). Value: **HIGH** (unblocks S03 + future delim AC digitization).
+- **A.1.b: Tier ladder + T3 PDF vectorization process** (source: plan-doc row A.1.b narrative + [notes/2026-05-29-phase-b-verdict-correction.md](../notes/2026-05-29-phase-b-verdict-correction.md); DONE via PR #462 as [docs/how-to/digitize-ac-from-pdf.md](../docs/how-to/digitize-ac-from-pdf.md); S03-specific framing in that doc SUPERSEDED 2026-05-30 by Furfur SVG pivot): The 4-tier fallback ladder (T1 machine-readable > T3 PDF digitization > T4 district fallback > T2 Voronoi) + T3 QGIS-vectorization mechanics distilled into `docs/how-to/digitize-ac-from-pdf.md` (kept durable for FUTURE delim-PDF states where no Furfur-style cartographer exists). S03 specifically NOW takes execution-plan Row 5.1 SVG-to-GeoJSON path; the how-to remains the fallback playbook for any state where SVG identification fails.
 
 - **ADR-0029 retirement section: backlink to D.1.A user mandate** (source: PR #455): ADR carries the "Retirement (D.1.A, 2026-05-30)" section but should embed the verbatim user mandate quote + link to plan-doc row D.1.A. Effort: **S**. Value: **HIGH** (archaeologists understand the WHY).
 
@@ -120,11 +120,11 @@
 
 **HIGH-value items (citizen-visible quality / architecture-critical, recommended first pass)**:
 
-1. **A.1.b S03 Assam T3 PDF vectorization** — unblocks AC-grain electoral insights for S03 (only-state-of-blocker for AC-grain India coverage). Effort L. Citizen-visible HIGH.
-2. **C.2/C.3/C.4 verdict distillation** (3 items) — saves every future agent the cost of re-discovering source-hunt findings; should run as 1 docs PR. Effort 3×S. Process HIGH.
-3. **A.1.b tier ladder + T3 PDF workflow docs** — pairs with #1; documents the digitization workflow so the 40-60h sprint can be picked up by anyone (not just the agent that wrote A.1.b). Effort M. Process HIGH.
-4. **ADR-0029 retirement backlink** — single-edit hygiene; restores audit-trail integrity for the D.1.A retirement. Effort S. Process HIGH.
-5. **Full `eci_no` → LGD `AC_ID` corpus migration** — the LGD-golden doctrine's natural conclusion; Level-5 successor plan when sprint capacity allows. Effort XL. Architecture HIGH.
+1. **A.1.b S03 Assam Furfur SVG-to-GeoJSON pipeline** (execution-plan Row 5.1; SUPERSEDES the 40-60h T3 PDF sprint) — unblocks AC-grain electoral insights for S03 (only-state-of-blocker for AC-grain India coverage). Effort L (~10-20h autonomous). Citizen-visible HIGH.
+2. **C.2/C.3/C.4 verdict distillation** (3 items) — DONE via PR #462 as [docs/concepts/admin-level-sourcing.md](../docs/concepts/admin-level-sourcing.md) + [docs/how-to/add-new-boundary-layer.md](../docs/how-to/add-new-boundary-layer.md) (ULB + villages sections).
+3. **A.1.b tier ladder + T3 PDF workflow docs** — DONE via PR #462 as [docs/how-to/digitize-ac-from-pdf.md](../docs/how-to/digitize-ac-from-pdf.md); S03 specifically routed to execution-plan Row 5.1 (SVG path) instead.
+4. **ADR-0029 retirement backlink** — DONE via PR #462.
+5. **Full `eci_no` → LGD `AC_ID` corpus migration** — execution-plan Row 5.2 opens the Level-5 successor plan-doc (research-only first PR; migration arc ESCALATES per CLAUDE.md §6 Level-5). Effort XL. Architecture HIGH.
 
 **Quick wins (S effort + MED-or-HIGH value, can ship in a single afternoon)**:
 
@@ -158,7 +158,7 @@
 1. **Quick-wins docs PR**: bundle the 4 Category-7 docs distillations + ADR-0029 backlink into one Level-2 docs PR (~1 day; HIGH value, S effort each).
 2. **Vitest cleanup PR**: drop or allow-list the 14 orphan U08/U09 village geojsons (~half day; MED value).
 3. **Level-5 design checkpoint**: open a successor plan-doc for the `eci_no` → `AC_ID` corpus migration (research-only first PR; user-led scoping for the rewrite arc).
-4. **S03 T3 sprint authorisation**: discuss whether the user wants to allocate the 40-60h Assam PDF vectorization sprint (HIGH value but high cost).
+4. **S03 SVG-to-GeoJSON pipeline (Row 5.1)**: user-authorized 2026-05-30; ~10-20h autonomous via Furfur Wahlkreise SVG (CC-BY-4.0, post-2023 delim, 126 ACs). Supersedes the original 40-60h T3 PDF sprint estimate for S03 specifically.
 
 **For when a citizen indicator triggers a deferred gap-fill**:
 
