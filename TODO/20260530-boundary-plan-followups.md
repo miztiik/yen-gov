@@ -1,12 +1,12 @@
 # Boundary plan follow-ups (deferred / optional / out-of-scope-recoverable inventory)
 
-**Last Updated**: 2026-05-30 (PR #468: SVG pivot for Cat 2 #2 / Cat 7 #4 baked in after Furfur SVG identified mid-plan)
+**Last Updated**: 2026-05-30 (post-PR #478: rows 5.1 / 5.7 / 5.5 COLLAPSED per user decisions; U09 + S03 gaps documented in `docs/concepts/admin-level-sourcing.md`)
 
-**Source plan**: [TODO/20260530-boundary-followups-execution-plan.md](20260530-boundary-followups-execution-plan.md) (ACTIVE; 22 of these items are now Phase 5 rows 5.1-5.22 in that plan-doc)
+**Source plan**: [TODO/20260530-boundary-followups-execution-plan.md](20260530-boundary-followups-execution-plan.md) (ACTIVE; 17 of these items remain as BLOCKED-on-trigger rows 5.3 / 5.4 / 5.6 / 5.8-5.21 in that plan-doc; rows 5.1 / 5.5 / 5.7 / 5.22 have closed)
 
 **Captured by**: Explore subagent walk of the plan-doc + 11 verdict / handover notes + retired ADRs + frontend / backend code markers, on 2026-05-30 after PR #456 merged at `03e13157`.
 
-**Status**: ALL in-scope original-plan execution rows merged. The 22 still-actionable items below are now tracked as Phase 5 rows in the execution plan-doc; this file remains the per-item rationale + trigger lookup, the execution plan-doc carries the row-level status.
+**Status**: ALL in-scope original-plan execution rows merged. 17 BLOCKED items below are tracked as trigger-watch rows in the execution plan-doc; this file remains the per-item rationale + trigger lookup, the execution plan-doc carries the row-level status.
 
 **How to use this file**: each item carries WHY-deferred, effort (S/M/L/XL), value (HIGH/MED/LOW), and the upstream change or citizen-trigger that would re-open it. Pick items by `value desc, effort asc` for the next sprint; or filter for HIGH-value items only when planning a follow-up cycle.
 
