@@ -74,6 +74,15 @@ const JOIN_KEYS: Record<GeoLevel, string | null> = {
   postal: "pincode",
 };
 
+// TODO(C.4): add a VILLAGE_BOUNDARY_BY_DISTRICT registry in
+// frontend/src/lib/maplibre/sources.ts mirroring PANCHAYAT_BOUNDARY_BY_DISTRICT
+// when the first village-grain citizen indicator lands (e.g. MGNREGA
+// person-days, micro-watershed, PMGSY road length). 659 shards exist on
+// disk (645 LGD + 14 J&K Bhuvan) but no citizen-facing surface consumes
+// them yet. Tracked in TODO/20260530-boundary-plan-followups.md Category
+// 3 (BLOCKED on indicator demand); marker shipped via Row 4.1.
+
+
 /**
  * LGD state code → ECI state code. Used to derive the partition slug
  * `in_<lc>` from the LGD code in incoming requests. Pre-T.0d this was

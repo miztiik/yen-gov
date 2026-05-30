@@ -935,6 +935,11 @@ export const PANCHAYAT_STATE_NAMES: Readonly<Record<string, string>> = {
 const PANCHAYAT_UPSTREAM_URL =
   "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/panchayats/LGD_Panchayats.geojsonl.7z";
 
+// TODO(C.2.c): wire district-picker on state selection. Citizen surface
+// must let the user pick a state -> then a district within that state's
+// PANCHAYAT_DISTRICTS_BY_STATE[stateCode] list -> then resolve the entry
+// here. Tracked in TODO/20260530-boundary-plan-followups.md Category 3
+// (UX follow-up, Value MED, effort M); marker shipped via Row 4.1.
 export const PANCHAYAT_BOUNDARY_BY_DISTRICT: Readonly<Record<string, BoundaryEntry>> = Object.freeze(
   Object.fromEntries(
     Object.entries(PANCHAYAT_DISTRICTS_BY_STATE).flatMap(([state_code, districts]) =>
@@ -1474,6 +1479,11 @@ export const WARD_STATE_NAMES: Readonly<Record<string, string>> = {
 const WARD_UPSTREAM_URL =
   "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/urban/SBM_Wards.geojsonl.7z";
 
+// TODO(C.3.c): wire ULB-picker on state selection. Citizen surface must
+// let the user pick a state -> then a ULB within that state's
+// WARDS_BY_STATE[stateCode] list -> then resolve the entry here. Tracked
+// in TODO/20260530-boundary-plan-followups.md Category 3 (UX follow-up,
+// Value MED, effort M); marker shipped via Row 4.1.
 export const WARD_BOUNDARY_BY_ULB: Readonly<Record<string, BoundaryEntry>> = Object.freeze(
   Object.fromEntries(
     Object.entries(WARDS_BY_STATE).flatMap(([state_code, ulbs]) =>

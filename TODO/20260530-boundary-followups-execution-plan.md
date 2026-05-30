@@ -74,7 +74,7 @@ When all rows reach `[x] DONE` or `[-] COLLAPSED`, run the 6-step distillation p
 | 2.4 | P2 Distill | A.1.b T3 PDF vectorization workflow -> docs/how-to/digitize-ac-from-pdf.md | [x] DONE | #462 |
 | 2.5 | P2 Distill | ADR-0029 retirement backlink to D.1.A user mandate | [x] DONE | #462 |
 | 3.1 | P3 Cleanup | Vitest U08/U09 villages orphan: delete OR allow-list the 14 entries | [-] COLLAPSED | n/a |
-| 4.1 | P4 Optional | Code-marker TODO annotations in sources.ts + boundaries.ts (Category 8) | [ ] PENDING | - |
+| 4.1 | P4 Optional | Code-marker TODO annotations in sources.ts + boundaries.ts (Category 8) | [x] DONE | #_pending_ |
 
 Legend: `[x] DONE` / `[ ] PENDING` / `[!] ESCALATED` / `[-] COLLAPSED`.
 
@@ -166,9 +166,20 @@ Single Level-2 docs PR bundling 5 distillations. Effort: 5xS. Value: HIGH (saves
 
 ## section 5. Phase 4 - Optional polish (deferred unless triggered)
 
-### Row 4.1 - Code-marker TODO annotations
+### Row 4.1 - Code-marker TODO annotations [DONE PR #_pending_]
 
-Per inventory Category 8: add `// TODO:` markers in `frontend/src/lib/maplibre/sources.ts` and `frontend/src/lib/boundaries.ts` flagging the deferred picker UI shims and villages registry. Bundle with any nearby edit; do NOT ship as a standalone PR (Value=LOW).
+Per inventory Category 8: forward-looking `// TODO:` markers added above
+`PANCHAYAT_BOUNDARY_BY_DISTRICT` + `WARD_BOUNDARY_BY_ULB` in
+[frontend/src/lib/maplibre/sources.ts](../frontend/src/lib/maplibre/sources.ts) (flag the deferred C.2.c + C.3.c
+picker UI shims) and above the `JOIN_KEYS` table in
+[frontend/src/lib/boundaries.ts](../frontend/src/lib/boundaries.ts) (flag the absent VILLAGE_BOUNDARY_BY_DISTRICT
+registry, blocked on first village-grain citizen indicator). Markers
+backlink each follow-up to inventory Category 3.
+
+Originally tagged "bundle-with-nearby-edit, not standalone" (Value=LOW).
+Shipped standalone on user override 2026-05-30; cost was ~3 lines of
+diff per file with zero behaviour change so the bundle-only heuristic
+did not apply.
 
 ---
 
