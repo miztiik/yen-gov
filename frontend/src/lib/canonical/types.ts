@@ -45,28 +45,6 @@ export interface Manifest {
   deprecations?: ManifestDeprecation[];
 }
 
-// Reader-side compatibility set. The reader fails loud on any
-// schema_version not listed here (canonical-store.md §11.2).
-//
-// Bump rules: producer (writer) upgrades first; reader follows. To accept
-// a new schema_version, add it here in the same commit that ships the
-// reader's adaptation logic. NEVER coerce / silently best-effort.
-export const SUPPORTED_SCHEMA_VERSIONS: Record<string, ReadonlyArray<string>> = {
-  "observation.schema.json": ["1.0", "1.1"],
-  "source.schema.json": ["1.0"],
-  "entity.schema.json": ["1.0"],
-  "indicator-catalogue.schema.json": ["1.0"],
-  "operator-state.schema.json": ["1.0"],
-  "caveat.schema.json": ["1.0"],
-  "methodology-break.schema.json": ["1.0"],
-  // facet-axes.schema.json + delimitation-lineage.schema.json retired in
-  // PR-Q.2 (TODO row 1.8d-ii). facet-axes now ships as a parquet emitted
-  // from the Python literal in backend/yen_gov/canonical/facet_axes_seed.py;
-  // delimitation-lineage placeholder removed pending real authoring.
-  "manifest.schema.json": ["1.0", "1.1", "1.2", "1.3"],
-  "taxonomy-parties.schema.json": ["1.0"],
-};
-
 export type ManifestErrorKind =
   | "not_found"
   | "network"

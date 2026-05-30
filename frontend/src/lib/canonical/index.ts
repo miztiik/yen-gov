@@ -10,6 +10,7 @@
 //   manifest.ts  — fetch + validate datasets/manifest.json (schema-version guard)
 //   duckdb.ts    — lazy DuckDB-WASM init + query helper
 //   types.ts     — TS shape of Manifest / Table / File entries
+//   schema-compatibility.ts - registry-derived schema-version compatibility
 //   index.ts     — public re-exports
 //
 // What does NOT live here (intentionally):
@@ -26,6 +27,11 @@ export type {
   ManifestErrorKind,
   TableId,
 } from "./types";
-export { SUPPORTED_SCHEMA_VERSIONS } from "./types";
+export {
+  acceptedSchemaVersions,
+  CANONICAL_MANIFEST_READER_SURFACE,
+  CANONICAL_MANIFEST_READER_SCHEMA_VERSIONS,
+  SUPPORTED_SCHEMA_VERSIONS,
+} from "./schema-compatibility";
 export { allFailureCopyKeys, copyForError } from "./failure-state";
 export type { FailureCopy, LoaderResult } from "./failure-state";

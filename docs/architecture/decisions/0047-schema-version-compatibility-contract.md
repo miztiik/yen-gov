@@ -13,7 +13,7 @@ That current-only rule is useful at the writer boundary, but it conflates two di
 - The artifact's envelope changed: schema shape, validation metadata, manifest shape, or footer metadata changed.
 - The facts changed: values, entity identity, period axis, denominator, indicator identity, methodology, provenance, or row inclusion changed.
 
-The canonical Parquet reader already has a compatibility idea through `SUPPORTED_SCHEMA_VERSIONS`, but that idea is local to the frontend. The JSON validator and frontend JSON corpus test have no shared compatibility contract yet. Additive schema changes therefore risk forcing restamps or rebuilds whose only observable effect is a version string changing.
+At ADR acceptance time, the canonical Parquet reader had a frontend-local compatibility idea through `SUPPORTED_SCHEMA_VERSIONS`. Row G1 made that export a registry-derived alias instead of an authority. Before this ADR, the JSON validator and frontend JSON corpus test had no shared compatibility contract. Additive schema changes therefore risked forcing restamps or rebuilds whose only observable effect was a version string changing.
 
 ## Decision
 
