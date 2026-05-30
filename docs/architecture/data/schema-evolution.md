@@ -1,6 +1,6 @@
 # Schema Evolution
 
-**Last Updated**: 2026-05-30
+**Last Updated**: 2026-05-31
 
 This document is the operational policy for evolving yen-gov schema contracts without unnecessary data rebuilds. [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md) records the decision; this page records the working rules.
 
@@ -43,7 +43,7 @@ Out of scope:
 
 ## Compatibility Registry
 
-`datasets/schema-compatibility.json` is the data-owned compatibility contract introduced by Row C of the schema-version compatibility plan. It is a contract surface, not a generated data snapshot, and it answers only one question: which schema versions a reader surface may accept.
+`datasets/schema-compatibility.json` is the data-owned compatibility contract introduced by PR #463. It is a contract surface, not a generated data snapshot, and it answers only one question: which schema versions a reader surface may accept.
 
 The registry has two policy layers:
 
@@ -91,6 +91,8 @@ Each non-empty ledger entry names:
 - `pr`, `commit`, and human-readable `notes`.
 
 The ledger may be empty when no schema-release event has shipped yet. Adding the ledger contract does not create a pilot schema bump, rewrite data, or widen any reader by itself.
+
+Do not create additive or breaking pilot schema releases solely to prove the compatibility mechanism. Fixture tests are the proof surface until a real schema-release event exists. The first real additive or breaking candidate must name the field or contract change, the consumer, the honest absent/null or migration semantics, and the matching ledger entry before editing producer outputs.
 
 ## Minor Versions
 

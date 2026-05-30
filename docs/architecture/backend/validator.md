@@ -1,6 +1,6 @@
 # Validator (`yen_gov.validate`)
 
-**Last Updated**: 2026-05-30
+**Last Updated**: 2026-05-31
 
 The two-tier validator that enforces CLAUDE.md §11 (schema versioning)
 and §12 (provenance) shape across schemas and data files. This doc
@@ -52,8 +52,8 @@ that delivered no signal a local pre-commit run wouldn't catch first.
 ## CLI
 
 ```powershell
-cd backend
-python -m yen_gov validate --root .   # full corpus walk
+$env:PYTHONPATH = "backend"
+python -m yen_gov validate --root .   # from the repo root; full corpus walk
 ```
 
 Exit 0 = clean. Exit 1 = at least one Tier-A or Tier-B failure;
@@ -66,7 +66,7 @@ today; if three concrete callers earn one, add it then.
 
 Tier B is the corpus-side reader contract. Per [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md), writers stay strict while readers may become compatible by explicit contract.
 
-The explicit contract lives at `datasets/schema-compatibility.json`, validated by `datasets/schemas/schema-compatibility.schema.json`. Row E of [TODO/20260530-schema-version-compatibility-plan.md](../../../TODO/20260530-schema-version-compatibility-plan.md) makes Tier B consume that registry for the `json-corpus` surface. The default remains current-schema only, but an override can accept an older same-major changelog version when `validation` is `current_schema` and the artifact still validates against the current schema.
+The explicit contract lives at `datasets/schema-compatibility.json`, validated by `datasets/schemas/schema-compatibility.schema.json`. PR #467 makes Tier B consume that registry for the `json-corpus` surface. The default remains current-schema only, but an override can accept an older same-major changelog version when `validation` is `current_schema` and the artifact still validates against the current schema.
 
 Declared-version schema resolution is defined by `datasets/schema-evolution.json` and `backend.yen_gov.core.schema_evolution.resolve_schema_for_declared_version()`. The current Tier-B corpus path still validates accepted same-major additive minors with the current schema unless a future compatibility row explicitly chooses retained-schema validation. Old majors remain unsupported until a release entry names a retained schema, translator, or migration.
 
