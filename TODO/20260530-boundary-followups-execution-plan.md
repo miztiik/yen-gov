@@ -85,10 +85,10 @@ Total: 36 rows. 15 DONE + 1 COLLAPSED + 2 PENDING-actionable + 18 BLOCKED-on-tri
 | 4.5 | This plan-doc cleanup (single-hierarchy restructure + 5.22 reframe + concrete 5.1/5.5/5.7 steps) | `[x] DONE` | #471 | |
 | 4.6 | S03 Furfur SVG structure probe + verdict | `[x] DONE` | #472 | Probe finding supersedes 5.1's optimistic 10-11h estimate. |
 | 4.7 | S01 Susewind 2014 probe + verdict | `[x] DONE` | #474 | Susewind 2014 confirmed NOT viable (292 features pre-bifurcation; CC-BY-SA-NC license); only Path B remains. |
-| 4.8 | Promote `verify_ac_parity` to pytest gate (was Row 5.22) | `[ ] PENDING` | _pending_ | This PR. 12 new tests across 10 D.2 states. |
+| 4.8 | Promote `verify_ac_parity` to pytest gate (was Row 5.22) | `[x] DONE` | #475 | 12 new tests across 10 D.2 states. |
 | 5.1 | S03 Assam Furfur SVG -> GeoJSON pipeline | `[ ] BLOCKED` | - | Probe (4.6) found only 20 paths / 25 subpaths / 132 numeric labels - NOT 126 per-AC polygons. Unblock: Path B (Furfur outreach) succeeds OR user accepts Path A (Voronoi approximation) with citizen caveat. |
 | **5.7** | **S01 AP residue: Path B in-repo surgery** | **`[ ] BLOCKED`** | - | BLOCKED on user decision Path B (drop HTL touchpoint via remap; 3-4h) vs Path D (accept HTL indefinitely; COLLAPSE row). Per probe verdict (4.7), Path A Susewind is NOT viable. |
-| ~~5.22~~ | ~~Promote `verify_ac_parity` to pytest gate~~ | `[x] DONE` (as 4.8) | #_pending_ | Shipped as Row 4.8 (this PR). |
+| ~~5.22~~ | ~~Promote `verify_ac_parity` to pytest gate~~ | `[x] DONE` (as 4.8) | #475 | Shipped as Row 4.8. |
 | **5.5** | **U09 Ladakh villages source probe (Bhuvan / SVAMITVA / OSM)** | **`[ ] PENDING`** | - | Research-only PR; defer if no source found. |
 | 5.3 | C.2.d Bhuvan panchayat gap-fill (9 states/UTs) | `[ ] BLOCKED` | - | Trigger: PRR / MGNREGS / PRI-funds indicator at panchayat grain. |
 | 5.4 | C.3.d Urban ward gap-fill (WB-AMRUT / Shillong / LivingAtlas) | `[ ] BLOCKED` | - | Trigger: urban-governance / Swachh-Survekshan / AMRUT indicator at ward grain. |
