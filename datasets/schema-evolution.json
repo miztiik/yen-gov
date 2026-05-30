@@ -1,0 +1,5 @@
+{
+  "$schema": "./schemas/schema-evolution.schema.json",
+  "$schema_version": "1.0",
+  "releases": []
+}

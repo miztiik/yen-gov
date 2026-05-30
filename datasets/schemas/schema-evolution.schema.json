@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./schema-evolution.schema.json",
+  "title": "Schema evolution release ledger",
+  "description": "datasets/schema-evolution.json - public release metadata for schema changes, retained historical schemas, and whether published values changed.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-30",
+      "description": "Initial Row H schema for the schema-evolution release ledger. Defines release entries that separate envelope-only schema changes from value, provenance, and methodology revisions, and points declared-version validation at retained historical schemas."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "releases"],
+  "properties": {
+    "$schema": { "const": "./schemas/schema-evolution.schema.json" },
+    "$schema_version": { "$ref": "#/$defs/version" },
+    "releases": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/release" }
+    }
+  },
+  "$defs": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$"
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "schemaFile": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9.-]*\\.schema\\.json$"
+    },
+    "schemaId": {
+      "type": "string",
+      "pattern": "^(\\./|https://yen-gov\\.github\\.io/schemas/)[a-z][a-z0-9.-]*\\.schema\\.json$"
+    },
+    "posixPath": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_./*{}#=-]+$",
+      "not": { "pattern": "(^/|^[A-Za-z]:|\\\\)" }
+    },
+    "retainedSchemaPath": {
+      "type": "string",
+      "pattern": "^datasets/schemas/archive/[a-z][a-z0-9.-]*/v\\d+\\.\\d+/[a-z][a-z0-9.-]*\\.schema\\.json$"
+    },
+    "retainedSchema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "version", "sha256"],
+      "properties": {
+        "path": { "$ref": "#/$defs/retainedSchemaPath" },
+        "version": { "$ref": "#/$defs/version" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "artifactScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path_pattern", "action"],
+      "properties": {
+        "path_pattern": { "$ref": "#/$defs/posixPath" },
+        "table_id": {
+          "type": ["string", "null"],
+          "pattern": "^[a-z][a-z0-9_]*(\\.[a-z][a-z0-9_]*)*$"
+        },
+        "artifact_count": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "action": {
+          "enum": ["unchanged", "metadata_rewritten", "provenance_rewritten", "values_rewritten", "introduced", "deleted"]
+        }
+      }
+    },
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "release_id",
+        "released_on",
+        "schema_file",
+        "schema_id",
+        "from_version",
+        "to_version",
+        "change_class",
+        "compatibility_status",
+        "validation_strategy",
+        "retained_schema",
+        "values_changed",
+        "value_change_summary",
+        "provenance_changed",
+        "methodology_changed",
+        "methodology_break_refs",
+        "affected_artifacts",
+        "pr",
+        "commit",
+        "notes"
+      ],
+      "properties": {
+        "release_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "released_on": { "$ref": "#/$defs/date" },
+        "schema_file": { "$ref": "#/$defs/schemaFile" },
+        "schema_id": { "$ref": "#/$defs/schemaId" },
+        "from_version": {
+          "anyOf": [
+            { "$ref": "#/$defs/version" },
+            { "type": "null" }
+          ]
+        },
+        "to_version": { "$ref": "#/$defs/version" },
+        "change_class": {
+          "enum": [
+            "schema_introduced",
+            "docs_only",
+            "minor_additive",
+            "minor_enum_widening",
+            "required_after_backfill",
+            "major_breaking",
+            "semantic_meaning_change",
+            "parquet_physical_layout",
+            "schema_retired"
+          ]
+        },
+        "compatibility_status": {
+          "enum": ["current_only", "reader_compatible", "historical_validation_only", "translator_required", "rejected"]
+        },
+        "validation_strategy": {
+          "enum": ["current_schema", "declared_schema", "translator_required", "unsupported"]
+        },
+        "retained_schema": {
+          "anyOf": [
+            { "$ref": "#/$defs/retainedSchema" },
+            { "type": "null" }
+          ]
+        },
+        "values_changed": { "type": "boolean" },
+        "value_change_summary": {
+          "anyOf": [
+            { "type": "string", "minLength": 20 },
+            { "type": "null" }
+          ]
+        },
+        "provenance_changed": { "type": "boolean" },
+        "methodology_changed": { "type": "boolean" },
+        "methodology_break_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          }
+        },
+        "affected_artifacts": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/artifactScope" }
+        },
+        "pr": {
+          "type": ["string", "null"],
+          "pattern": "^#\\d+$"
+        },
+        "commit": {
+          "type": ["string", "null"],
+          "pattern": "^[a-f0-9]{7,40}$"
+        },
+        "notes": { "type": "string", "minLength": 20 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "validation_strategy": { "const": "declared_schema" } }, "required": ["validation_strategy"] },
+          "then": { "properties": { "retained_schema": { "$ref": "#/$defs/retainedSchema" } } }
+        },
+        {
+          "if": { "properties": { "values_changed": { "const": true } }, "required": ["values_changed"] },
+          "then": { "properties": { "value_change_summary": { "type": "string", "minLength": 20 } } },
+          "else": { "properties": { "value_change_summary": { "type": "null" } } }
+        },
+        {
+          "if": { "properties": { "methodology_changed": { "const": true } }, "required": ["methodology_changed"] },
+          "then": { "properties": { "methodology_break_refs": { "minItems": 1 } } }
+        }
+      ]
+    }
+  }
+}

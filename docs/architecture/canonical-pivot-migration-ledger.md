@@ -30,6 +30,7 @@ Out of scope (per R25 + §0c):
 - `datasets/boundaries/` — sibling family, never moves.
 - `datasets/taxonomy/` — canonical store itself.
 - `datasets/schemas/` — schemas, including legacy.
+- `datasets/schema-evolution.json` — schema-release history, retained historical schema references, and value-change receipts live there, not in this canonical-pivot artifact-disposition ledger.
 - `datasets/manifest.json` — control plane.
 - `datasets/people/`, `datasets/governments/`, `datasets/events/`, `datasets/features/`, `datasets/reference/` — separate ledger entries when those families are scheduled.
 

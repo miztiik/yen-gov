@@ -158,6 +158,8 @@ datasets/demography/demography_census_2011.parquet   datasets/demography/demogra
 ```
 datasets/
   manifest.json                       # control-plane (D21)
+  schema-compatibility.json           # reader compatibility contract (ADR-0047)
+  schema-evolution.json               # schema-release ledger + retained-schema refs
   CHANGELOG.md   migration-ledger.csv
 
   schemas/                            # JSON Schemas — contracts
@@ -167,6 +169,7 @@ datasets/
     operator-state.schema.json  manifest.schema.json
     dim-persons.schema.json   # post-S.1 (was dim-candidates)
     topics.schema.json        # post-T.2
+    archive/<schema>/v<version>/<schema-file>  # retained historical schemas
 
   taxonomy/                           # REGISTRIES — identity, slow-changing
     entities.json    entities.parquet         # hand source + compiled (D18 + §8.3)
@@ -888,7 +891,7 @@ Full data-plane verification remains the target contract: read Parquet footer KV
 
 Mirror JSON-Schema section 11 of CLAUDE.md - minor for additive, major for breaking. Same-commit `x-changelog` entry on the matching `*.schema.json`. The writer also bumps the value it stamps; unsupported readers fail loud and the user sees the failure-state copy. Production rollouts upgrade the reader first, then the writer.
 
-Reader compatibility does not mean best-effort projection. Mixed physical Parquet schemas require an explicit design for projection or `union_by_name`; until then, the manifest/reader should reject unsupported combinations rather than guessing.
+Reader compatibility does not mean best-effort projection. Mixed physical Parquet schemas require an explicit design for projection or `union_by_name`; until then, the manifest/reader should reject unsupported combinations rather than guessing. Schema-release metadata that claims "schema changed, values did not" belongs in `datasets/schema-evolution.json`, not in `datasets/migration-ledger.csv` (which is the canonical-pivot artifact-disposition ledger).
 
 ### 11.4 Materialisation rule (D-elections, Phase 1.1)
 

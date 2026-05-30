@@ -23,7 +23,7 @@ corpus validation from CI is protecting.
 | Tier | What it asserts | Where it runs | Wall time |
 | --- | --- | --- | --- |
 | **A — schema sanity** | Every `*.schema.json` validates against the JSON Schema 2020-12 meta-schema; `x-version` is `<major>.<minor>`; `x-changelog` is non-empty and its tail entry's `version` matches `x-version`; malformed JSON is reported, not crashed on. | `pytest -q` in `backend/`, via fixture tests in `tests/test_validate.py` that construct synthetic schemas in `tmp_path`. Always on; runs in CI. | <1s |
-| **B - corpus conformance** | Every `*.json` under `datasets/` and `config/` declares `$schema` and `$schema_version`; the schema resolves; the declared version is accepted by the active compatibility contract; the file validates against the schema the reader is allowed to use. Row E consumes `datasets/schema-compatibility.json` for the `json-corpus` surface; accepted old minors still validate against the current schema until Row H lands retained historical schemas. | `python -m yen_gov validate --root .` invoked locally before committing changes that touch `datasets/**`, `config/**`, or `datasets/schemas/**`. NOT gated in CI. | ~60s (~5k files) |
+| **B - corpus conformance** | Every `*.json` under `datasets/` and `config/` declares `$schema` and `$schema_version`; the schema resolves; the declared version is accepted by the active compatibility contract; the file validates against the schema the reader is allowed to use. Row E consumes `datasets/schema-compatibility.json` for the `json-corpus` surface; Row H defines the retained historical schema path and resolver used when a future entry needs declared-version validation. | `python -m yen_gov validate --root .` invoked locally before committing changes that touch `datasets/**`, `config/**`, or `datasets/schemas/**`. NOT gated in CI. | ~60s (~5k files) |
 
 ## Why Tier B is local-only
 
@@ -68,7 +68,9 @@ Tier B is the corpus-side reader contract. Per [ADR-0047](../decisions/0047-sche
 
 The explicit contract lives at `datasets/schema-compatibility.json`, validated by `datasets/schemas/schema-compatibility.schema.json`. Row E of [TODO/20260530-schema-version-compatibility-plan.md](../../../TODO/20260530-schema-version-compatibility-plan.md) makes Tier B consume that registry for the `json-corpus` surface. The default remains current-schema only, but an override can accept an older same-major changelog version when `validation` is `current_schema` and the artifact still validates against the current schema.
 
-Declared-version schema resolution waits for Row H. Until retained historical schemas or translators exist, accepted old JSON versions are additive minors only; unsupported future versions and old majors still fail loud.
+Declared-version schema resolution is defined by `datasets/schema-evolution.json` and `backend.yen_gov.core.schema_evolution.resolve_schema_for_declared_version()`. The current Tier-B corpus path still validates accepted same-major additive minors with the current schema unless a future compatibility row explicitly chooses retained-schema validation. Old majors remain unsupported until a release entry names a retained schema, translator, or migration.
+
+Retained historical schemas live under `datasets/schemas/archive/<schema-stem>/v<major>.<minor>/<schema-file>`. A release entry with `validation_strategy=declared_schema` must name that file and its SHA-256. If the file is missing, the hash does not match, or the retained schema's `x-version` differs from the declared version, the resolver fails loudly.
 
 Tier B still fails for:
 

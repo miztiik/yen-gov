@@ -34,6 +34,7 @@ Introduced by [`TODO/SOCIO-ECONOMIC-EXPANSION.md`](../../TODO/SOCIO-ECONOMIC-EXP
 | File | Title | x-version | Describes |
 | --- | --- | :---: | --- |
 | `schema-compatibility.schema.json` | Schema compatibility registry | 1.0 | `datasets/schema-compatibility.json`, the shared reader-side compatibility contract introduced by ADR-0047. Backend Tier B and the frontend JSON corpus contract consume the `json-corpus` surface as of Rows E/F; the canonical DuckDB-WASM reader consumes the `canonical-manifest-reader` surface as of Rows G1/G2. Overrides list explicitly accepted versions for reader surfaces. |
+| `schema-evolution.schema.json` | Schema evolution release ledger | 1.0 | `datasets/schema-evolution.json`, the public release metadata ledger introduced by Row H. Entries record schema changes, whether values/provenance/methodology changed, affected artifacts, PR/commit provenance, and retained historical schema paths for declared-version validation. |
 
 To regenerate this table after a schema bump, run `python -m yen_gov validate` and update the row by hand. (Auto-generation is a Phase 4 nice-to-have, not a blocker.)
 
@@ -66,6 +67,8 @@ Every JSON file under `datasets/` (except the schemas themselves) and `config/` 
 The writer resolves the schema from the local registry and stamps the current `$schema_version`. Writer-side stale schema metadata is an error.
 
 Reader-side policy is compatibility by explicit contract. Backend Tier B and `frontend/src/contracts/datasets-conform.test.ts` consume `datasets/schema-compatibility.json` for the `json-corpus` surface. The canonical DuckDB-WASM runtime derives manifest/table compatibility from the `canonical-manifest-reader` surface. A reader may accept an older declared version only when the compatibility contract says the reader can interpret it without guessing. Unsupported future versions, unsupported major versions, and incompatible shapes fail loud.
+
+When the current schema cannot honestly validate an older declared version, the schema-evolution ledger must name a retained historical schema under `datasets/schemas/archive/<schema-stem>/v<major>.<minor>/<schema-file>`. Retained schemas are repo files with SHA-256 checks in `datasets/schema-evolution.json`; validators must not rely on git history or release assets to discover them.
 
 Do not restamp or rebuild unchanged artifacts just to update `$schema_version` after an additive minor change. If values, logical keys, provenance, and semantics did not change, the old declared version can remain once the reader compatibility contract supports it. See [schema evolution](../architecture/data/schema-evolution.md).
 
