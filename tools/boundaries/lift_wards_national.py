@@ -60,7 +60,7 @@ Outputs:
         (UPSERTed by compile_to_parquet; ramSeraph row unchanged from
         prior runs)
 
-Determinism: features per shard are sorted by ``(ward_code, ward_name)``
+Determinism: features per shard are sorted by ``(wardcode, wardname)``
 before emit; coordinates rounded to ``coord_precision=4`` (~11 m,
 matches the panchayats entry — wards aggregate revenue parcels +
 street networks so they're typically smaller than a panchayat but
@@ -71,19 +71,16 @@ byte-identical shards.
 Memory note: parses + holds all ~250-350k features in memory during
 the group-by pass (~2-3 GB peak). Acceptable on dev machines.
 
-First-snapshot inspection: the SBM_Wards property names assumed below
-(``state_lgd`` / ``ulb_lgd`` / ``ward_code`` / ``ward_name``) follow
-the LGD-conventional long-form shape used by the blocks layer
-(``state_lgd`` / ``dist_lgd`` / ``block_lgd`` / ``block_name``).
-Per the C.2 panchayats first-snapshot surprise (panchayats uses
-``st_lgd`` / ``dt_lgd`` short form, NOT the long form), the C.3.b
-live-lift dry-run MUST re-verify these constants against an actual
-SBM_Wards.geojsonl feature dump before the parquet upsert lands.
-If the first snapshot reveals different upstream names, callers MUST
-update the constants at the top of the module + the corresponding
-property accessors in the helpers. This is the C.3.b first-snapshot
-confirmation step (analogous to C.1.b's block_lgd / block_name and
-C.2.b's st_lgd / dt_lgd confirmations).
+First-snapshot inspection: PR #449 (C.3.a infra) hypothesised LGD
+long-form names (``state_lgd`` / ``ulb_lgd`` / ``ward_code`` /
+``ward_name``) per the blocks convention. The C.3.b live-lift first-
+snapshot revealed SBM Urban uses concatenated-lowercase names
+(``statecode`` / ``ulbcode`` / ``wardcode`` / ``wardname``) — a third
+distinct convention separate from the C.1.b/C.1.c blocks long-form
+AND the C.2.b panchayats short-form (``st_lgd`` / ``dt_lgd``). The
+constants at the top of the module are LOCKED at the C.3.b
+discovered shape. If a future upstream release renames properties,
+update the constants there + the property accessors in the helpers.
 
 Pure stdlib + duckdb (via the canonical writer) + py7zr (via
 fetch_geojsonl_7z). No external HTTP libs.
@@ -149,17 +146,26 @@ COORD_PRECISION = 4
 
 RAMSERAPH_SOURCE_ID = BOUNDARY_SOURCE_ID_BY_NICKNAME["ramseraph"]
 
-# Upstream property names for the SBM_Wards release. The C.3.b live-lift
-# dry-run MUST re-confirm these constants against an actual
-# SBM_Wards.geojsonl feature dump before the parquet upsert lands —
-# the C.2 panchayats first-snapshot surprise (st_lgd/dt_lgd short form,
-# not the assumed state_lgd/dist_lgd long form) means SBM_Wards may
-# also use a short-form schema. These long-form constants are the
-# hypothesis; lock them at the C.3.b dry-run before the lift commits.
-STATE_PROPERTY = "state_lgd"
-ULB_PROPERTY = "ulb_lgd"
-ID_PROPERTY = "ward_code"
-NAME_PROPERTY = "ward_name"
+# Upstream property names for the SBM_Wards release. C.3.b first-
+# snapshot finding (PR #449 follow-up): SBM_Wards.geojsonl uses
+# concatenated-lowercase names (``statecode``/``ulbcode``/``wardcode``/
+# ``wardname``), NOT the LGD long-form (``state_lgd``/``ulb_lgd``/
+# ``ward_code``/``ward_name``) hypothesised at C.3.a infra-PR time AND
+# NOT the short-form (``st_lgd``/``dt_lgd``) surprise that C.2.b
+# panchayats revealed. Cause: SBM Urban is a MoHUA-owned system whose
+# schema is separate from LGD's panchayats / blocks / villages exports;
+# its release format pre-dates the LGD long-form convention. Both
+# ``statecode`` and ``ulbcode`` come through as numeric strings ("24",
+# "802442") which the grouping helper coerces via ``int()``. The
+# ``wardcode`` field is HETEROGENEOUS: most values are numeric strings
+# ("4", "7") but a non-trivial minority are free-text labels
+# ("Ward No 5", "WARD 12", etc.) carried verbatim from the ULB's own
+# nomenclature. The sort helper handles both shapes; downstream
+# consumers MUST treat ``wardcode`` as opaque string, not as int.
+STATE_PROPERTY = "statecode"
+ULB_PROPERTY = "ulbcode"
+ID_PROPERTY = "wardcode"
+NAME_PROPERTY = "wardname"
 
 
 # ---------------------------------------------------------------------
@@ -193,22 +199,35 @@ def group_features_by_state_and_ulb(
 def sort_features_deterministically(
     features: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
-    """Sort features by ``(ward_code, ward_name)`` for byte-determinism.
+    """Sort features by ``(wardcode, wardname)`` for byte-determinism.
 
     Ward codes are locally unique within a ULB but NOT globally unique
     (every ULB numbers its wards starting from 1). The secondary
-    ``ward_name`` key disambiguates within a bucket. Note: this
-    function is called per-(state, ulb) bucket where ward_code is
+    ``wardname`` key disambiguates within a bucket. Note: this
+    function is called per-(state, ulb) bucket where ``wardcode`` is
     already unique within the bucket, so the secondary key is for
     defensive determinism rather than active disambiguation.
+
+    Heterogeneous-wardcode handling (C.3.b first-snapshot finding):
+    SBM_Wards ``wardcode`` is sometimes a pure-numeric string ("4",
+    "12") and sometimes a free-text label ("Ward No 5", "WARD 12")
+    carried verbatim from the source ULB's nomenclature. The sort key
+    splits into two cohorts: numeric-castable codes sort first by int
+    value (key=(0, int)), then free-text codes sort by str value
+    (key=(1, str)). This is byte-stable across runs because the input
+    feature list comes from a single archive pass in upstream-emit
+    order plus this deterministic re-sort.
     """
-    return sorted(
-        features,
-        key=lambda f: (
-            int(f.get("properties", {}).get(ID_PROPERTY) or 0),
-            f.get("properties", {}).get(NAME_PROPERTY, "") or "",
-        ),
-    )
+    def _key(f: dict[str, Any]) -> tuple[int, int | str, str]:
+        props = f.get("properties", {})
+        code = props.get(ID_PROPERTY)
+        name = props.get(NAME_PROPERTY, "") or ""
+        try:
+            return (0, int(code) if code is not None else 0, name)
+        except (ValueError, TypeError):
+            return (1, str(code), name)
+
+    return sorted(features, key=_key)
 
 
 # ---------------------------------------------------------------------
