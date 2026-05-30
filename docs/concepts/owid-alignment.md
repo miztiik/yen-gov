@@ -1,6 +1,6 @@
 # OWID alignment — fallback doctrine
 
-**Last Updated**: 2026-05-17
+**Last Updated**: 2026-05-30
 
 ## What this is
 
@@ -27,7 +27,7 @@ This pattern is itself OWID-style — they have a small set of public principles
 | **Vintage in URL** | No. Vintage is a UI control with sane default; `?` param only for citation. | No. ADR-0028. |
 | **Indicator catalogue** | Single registry, every indicator carries provenance, methodology, comparability flags | `datasets/reference/in/indicators-completeness.json` + per-indicator artifact carrying `methodology`, `series_breaks`, `comparability` (folded model per ADR-0026). |
 | **Provenance** | Every chart cites its source; no anonymous data | Every artifact carries `sources[]` per CLAUDE.md §12. |
-| **Schema versioning** | Additive when possible, breaking with migration | `x-version` major.minor with `x-changelog` per CLAUDE.md §11. |
+| **Schema versioning** | Additive when possible, breaking with migration | `x-version` major.minor with `x-changelog` per CLAUDE.md section 11; writer-strict / reader-compatible rollout per [ADR-0047](../architecture/decisions/0047-schema-version-compatibility-contract.md). |
 | **Granularity of an indicator** | One concept per chart; mixed units never share a Y-axis | One concept per artifact; composite-with-mixed-units uses `rows[].facet` + `rows[].unit` override per ADR-0026 / Phase 4 of the ICED plan. |
 | **Methodology breaks** | Surfaced as chart annotations + banner | `series_breaks[]` on the artifact; rendered as banner chrome. |
 
@@ -72,5 +72,7 @@ When an agent debate (Gregor / Fowler / Jony / Hans / Max) is split:
 
 - [ADR-0028 — URL scheme](../architecture/decisions/0028-url-scheme-place-first-flat-indicator-slug.md) — first concrete application of this doctrine.
 - [ADR-0022 — place-first IA](../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md) — names the divergence on geography-in-URL.
+- [ADR-0047 - schema-version compatibility](../architecture/decisions/0047-schema-version-compatibility-contract.md) - schema-evolution policy aligned with OWID-style additive metadata and explicit migrations.
+- [schema evolution](../architecture/data/schema-evolution.md) - living policy for reader compatibility and no mechanical restamps.
 - [citizen-first doctrine](citizen-first.md) — the audience choice that drives the place-first divergence.
 - [folded-indicator concept](folded-indicator.md) — names the divergence on Indian publisher vocabulary.

@@ -1,6 +1,6 @@
 # Schemas
 
-**Last Updated**: 2026-05-25
+**Last Updated**: 2026-05-30
 
 All schemas live in [`datasets/schemas/`](../../datasets/schemas/). Each is a JSON Schema 2020-12 document carrying its own version and changelog (CLAUDE.md §11).
 
@@ -33,12 +33,14 @@ To regenerate this table after a schema bump, run `python -m yen_gov validate` a
 
 ## Versioning rules
 
-Pulled from CLAUDE.md §11 — re-stated here for convenience, but `CLAUDE.md` is authoritative if they ever conflict.
+Pulled from CLAUDE.md section 11 and [ADR-0047](../architecture/decisions/0047-schema-version-compatibility-contract.md) - re-stated here for convenience, but `CLAUDE.md` is authoritative if they ever conflict.
 
 - Format is `<major>.<minor>` only. No patch component.
 - **Minor bump** for backwards-compatible additions: new optional field, broadened enum, looser bound.
 - **Major bump** for any breaking change: removed/renamed field, type change, narrowed bound, semantic shift.
 - Every bump adds an `x-changelog` entry in the same commit. The tail entry's `version` MUST equal `x-version` (Tier A enforces this).
+- Writers are strict: newly emitted artifacts use the current schema version from the registry.
+- Readers and validators are compatible only by explicit contract. Do not infer compatibility from the version number alone.
 
 ## How a data file declares its schema
 
@@ -55,9 +57,11 @@ Every JSON file under `datasets/` (except the schemas themselves) and `config/` 
 }
 ```
 
-The validator resolves `$schema` to a local file by basename match (or by `$id` exact match), then enforces `$schema_version == schema.x-version`. Mismatch fails Tier B.
+The writer resolves the schema from the local registry and stamps the current `$schema_version`. Writer-side stale schema metadata is an error.
 
-If a future migration requires consumers to read both old and new versions, we'll add a per-schema migration map to the validator. Until then, the rule is strict: data files are emitted at the current version, full stop.
+Reader-side policy is compatibility by explicit contract. Today, JSON Tier B still enforces latest-only equality until the compatibility registry and validator rows land. After that, a reader may accept an older declared version only when the compatibility contract says the reader can interpret it without guessing. Unsupported future versions, unsupported major versions, and incompatible shapes fail loud.
+
+Do not restamp or rebuild unchanged artifacts just to update `$schema_version` after an additive minor change. If values, logical keys, provenance, and semantics did not change, the old declared version can remain once the reader compatibility contract supports it. See [schema evolution](../architecture/data/schema-evolution.md).
 
 ## Running the validator
 
@@ -71,5 +75,7 @@ Exits 0 on success. On failure, prints `[tier A|B] <relative path>: <message>` p
 
 - [`docs/architecture/data-model.md`](../architecture/data-model.md) — what each schema represents.
 - [`docs/architecture/data-flow.md`](../architecture/data-flow.md) — where data files end up.
+- [`docs/architecture/data/schema-evolution.md`](../architecture/data/schema-evolution.md) - writer-strict / reader-compatible policy.
 - [`docs/reference/identifiers.md`](identifiers.md) — code conventions inside payloads.
+- [ADR-0047](../architecture/decisions/0047-schema-version-compatibility-contract.md) - schema-version compatibility decision.
 - `CLAUDE.md` §11 — authoritative versioning contract.

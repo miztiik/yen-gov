@@ -1,8 +1,8 @@
 # Canonical store — target architecture
 
-**Last Updated**: 2026-05-25
+**Last Updated**: 2026-05-30
 **Owner**: data layer (Hans + Max own shape; Gregor owns contracts; Fowler owns write seam)
-**ADR**: [ADR-0030](../decisions/0030-canonical-store-duckdb-wasm.md) (canonical store rationale + rejected alternatives); [ADR-0036](../decisions/0036-state-identity-and-slice-registration.md) (state aliases + slice registration)
+**ADR**: [ADR-0030](../decisions/0030-canonical-store-duckdb-wasm.md) (canonical store rationale + rejected alternatives); [ADR-0036](../decisions/0036-state-identity-and-slice-registration.md) (state aliases + slice registration); [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md) (schema-version compatibility)
 **Plan**: [`docs/archive/plans/20260517-canonical-long-format-pivot.md`](../../archive/plans/20260517-canonical-long-format-pivot.md) (THE PLAN, R11)
 
 This doc is the operational spec for the canonical long-format store. ADR-0030 records *why*; this doc records *what* and *where*. When the two disagree this doc wins on operational detail; the ADR wins on whether a decision is open or closed (Holy Law #4).
@@ -850,7 +850,7 @@ Post-T.0a: per-state shards. Largest (Tamil Nadu, 20,040 rows) = 1.4 MiB. Smalle
 
 ---
 
-## 11. Parquet schema-version mechanism (D21)
+## 11. Parquet schema-version mechanism (D21, amended by ADR-0047)
 
 JSON Schema `$schema_version` does not apply to Parquet — Parquet carries its schema in file-level key-value metadata. Mechanism:
 
@@ -876,12 +876,14 @@ Before issuing any query against a Parquet file, the DuckDB-WASM reader:
 
 1. Looks up the file's `table_id` + `schema_version` from `manifest.json` (the control plane).
 2. Reads the Parquet file's KV metadata via `parquet_metadata(...)` and asserts `table_id` and `schema_version` match the manifest.
-3. Asserts the file's `schema_version` is in the reader's compatible set (this build's `SUPPORTED_SCHEMA_VERSIONS`).
+3. Asserts the file's `schema_version` is in the reader's compatible set. Today that set is `SUPPORTED_SCHEMA_VERSIONS`; Row C/G1 of the schema-version compatibility plan replaces or drift-checks it against the shared compatibility contract.
 4. If any check fails, the reader emits `LoaderResult.failed` with reason `schema_version_unsupported` (§16). **No silent best-effort, no version coercion, no partial reads.**
 
 ### 11.3 Bump rules
 
-Mirror JSON-Schema §11 of CLAUDE.md — minor for additive, major for breaking. Same-commit `x-changelog` entry on the matching `*.schema.json`. The writer also bumps the value it stamps; readers from prior builds will fail-loud and the user sees the failure-state copy. Production rollouts upgrade the reader first, then the writer.
+Mirror JSON-Schema section 11 of CLAUDE.md - minor for additive, major for breaking. Same-commit `x-changelog` entry on the matching `*.schema.json`. The writer also bumps the value it stamps; unsupported readers fail loud and the user sees the failure-state copy. Production rollouts upgrade the reader first, then the writer.
+
+Reader compatibility does not mean best-effort projection. Mixed physical Parquet schemas require an explicit design for projection or `union_by_name`; until then, the manifest/reader should reject unsupported combinations rather than guessing.
 
 ### 11.4 Materialisation rule (D-elections, Phase 1.1)
 

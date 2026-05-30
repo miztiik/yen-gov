@@ -1,6 +1,6 @@
 # Validator (`yen_gov.validate`)
 
-**Last Updated**: 2026-05-20
+**Last Updated**: 2026-05-30
 
 The two-tier validator that enforces CLAUDE.md §11 (schema versioning)
 and §12 (provenance) shape across schemas and data files. This doc
@@ -12,6 +12,8 @@ corpus validation from CI is protecting.
 - [CLAUDE.md §11](../../../CLAUDE.md) — schema versioning rules.
 - [CLAUDE.md §12](../../../CLAUDE.md) — provenance rules.
 - [CLAUDE.md §15](../../../CLAUDE.md) — test coverage policy.
+- [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md) - writer-strict / reader-compatible schema policy.
+- [docs/architecture/data/schema-evolution.md](../data/schema-evolution.md)
 - [`docs/concepts/data-provenance.md`](../../concepts/data-provenance.md)
 - Source: [`backend/yen_gov/validate.py`](../../../backend/yen_gov/validate.py)
 - CLI entry: [`backend/yen_gov/cli.py`](../../../backend/yen_gov/cli.py) `validate` command
@@ -21,7 +23,7 @@ corpus validation from CI is protecting.
 | Tier | What it asserts | Where it runs | Wall time |
 | --- | --- | --- | --- |
 | **A — schema sanity** | Every `*.schema.json` validates against the JSON Schema 2020-12 meta-schema; `x-version` is `<major>.<minor>`; `x-changelog` is non-empty and its tail entry's `version` matches `x-version`; malformed JSON is reported, not crashed on. | `pytest -q` in `backend/`, via fixture tests in `tests/test_validate.py` that construct synthetic schemas in `tmp_path`. Always on; runs in CI. | <1s |
-| **B — corpus conformance** | Every `*.json` under `datasets/` and `config/` declares `$schema` and `$schema_version`; the schema resolves; `$schema_version` matches the schema's current `x-version`; the file validates against the schema. | `python -m yen_gov validate --root .` invoked locally before committing changes that touch `datasets/**`, `config/**`, or `datasets/schemas/**`. NOT gated in CI. | ~60s (≈5k files) |
+| **B - corpus conformance** | Every `*.json` under `datasets/` and `config/` declares `$schema` and `$schema_version`; the schema resolves; the declared version is accepted by the active compatibility contract; the file validates against the schema the reader is allowed to use. Current implementation remains latest-only equality until the compatibility registry and validator rows land. | `python -m yen_gov validate --root .` invoked locally before committing changes that touch `datasets/**`, `config/**`, or `datasets/schemas/**`. NOT gated in CI. | ~60s (~5k files) |
 
 ## Why Tier B is local-only
 
@@ -59,6 +61,22 @@ per-failure line printed as `[tier X] path: message`.
 
 The `--root` option is the only flag. There is no `--path` filter
 today; if three concrete callers earn one, add it then.
+
+## Schema-version compatibility
+
+Tier B is the corpus-side reader contract. Per [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md), writers stay strict while readers may become compatible by explicit contract.
+
+Until Row E of [TODO/20260530-schema-version-compatibility-plan.md](../../../TODO/20260530-schema-version-compatibility-plan.md) lands, the implementation still enforces `$schema_version == x-version` for JSON artifacts. That strict behavior is safe. The policy change is that latest-only equality is no longer the permanent design for every reader.
+
+When compatibility support lands, Tier B must still fail for:
+
+- Unknown schema ids.
+- Unsupported future versions.
+- Unsupported major versions.
+- Declared versions whose artifact shape is invalid for the allowed schema path.
+- Old versions that require a retained historical schema or translator that does not exist.
+
+Tier B must not accept an artifact by guessing defaults for missing historical fields.
 
 ## Tests
 

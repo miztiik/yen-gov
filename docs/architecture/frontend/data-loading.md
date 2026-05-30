@@ -1,6 +1,6 @@
 # Frontend Data Loading
 
-**Last Updated**: 2026-05-23
+**Last Updated**: 2026-05-30
 
 How the frontend bundle reads `datasets/` artifacts. Covers the dev-time Vite middleware, the production CI staging step, and the `/explore` page's in-browser SQL via DuckDB-WASM.
 
@@ -95,6 +95,12 @@ Failure rules:
 - Empty match fails loud for required route slices.
 - Filtering an unpartitioned table fails unless the caller explicitly allows full-table fallback.
 - The first implementation supports scalar exact-match filters only. Multi-value filters are deferred until a concrete multi-state caller earns the API surface.
+
+Schema-version rules:
+
+- Manifest and Parquet table versions are reader-side compatibility checks, not path guesses.
+- Current frontend support is expressed through `SUPPORTED_SCHEMA_VERSIONS`; [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md) makes that a temporary reader-local expression until the shared compatibility contract lands.
+- Reader support ships before producer output. A route must fail loud on unsupported schema versions rather than silently registering a table it cannot interpret.
 
 No manifest schema bump is required for the first slice seam because the existing manifest already exposes `partition_columns` and each file's `partition_values`. The manifest remains a physical inventory; future SemanticCatalogue work is a separate control-plane artifact and must not contain observation values.
 
@@ -388,6 +394,8 @@ The canonical observations now carry three new `ac-*` indicators:
 - [Frontend overview](overview.md), [Deployment](../deployment.md)
 - [`docs/how-to/release.md`](../../how-to/release.md)
 - [Canonical store](../data/canonical-store.md) — the Parquet store the new loader reads.
+- [Schema evolution](../data/schema-evolution.md) - writer-strict / reader-compatible policy.
+- [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md) - schema-version compatibility contract.
 - CLAUDE.md §1 (static-first), §4 (layer rules).
 
 ## DuckDB-WASM loader (Phase 0.8 — isolated harness)
