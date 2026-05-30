@@ -354,7 +354,7 @@ If a UT's polygon is sub-pixel at the current zoom level, that is the correct ci
 
 ### Retired in D.1.A (2026-05-30)
 
-The following were deleted in PR #_pending_:
+The following were deleted in PR #455:
 
 - `frontend/src/lib/lakshadweep.ts` + `frontend/src/lib/lakshadweep.test.ts` (Phase 3 §c polygon extractor + SVG projection helpers).
 - `frontend/src/lib/UnmappedRegionChips.svelte` + `frontend/src/lib/unmapped-region-chips.ts` + `frontend/src/lib/unmapped-region-chips.test.ts` (ADR-0029 chip-strip subsystem).

@@ -74,7 +74,7 @@ User mandate (verbatim, 2026-05-29):
 
 This mandate retires BOTH the legacy polygon inset (the predecessor surface this ADR proposed replacing) AND the chip strip (the surface this ADR proposed). The generalised rule the citizen's mandate encodes: **if the polygon is on the map (even sub-pixel / invisible at default zoom), do not add side-fix surfaces — the map polygon is the only authoritative surface; if a citizen needs to read a sub-pixel UT they zoom in**.
 
-What is removed in D.1.A (PR #_pending_):
+What is removed in D.1.A (PR #455):
 
 - `frontend/src/lib/lakshadweep.ts` + test (Phase 3 §c polygon extractor + SVG projection).
 - `frontend/src/lib/UnmappedRegionChips.svelte` + `frontend/src/lib/unmapped-region-chips.ts` + test (this ADR's chip-strip subsystem).
