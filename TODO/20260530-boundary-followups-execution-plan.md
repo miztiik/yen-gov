@@ -84,7 +84,7 @@ Total: 35 rows. 14 DONE + 1 COLLAPSED + 2 PENDING-actionable + 18 BLOCKED-on-tri
 | 4.4 | Open Level-5 successor plan-doc for eci_no -> AC_ID | `[x] DONE` | #469 | Was 5.2; renamed to 4.4 since done. |
 | 4.5 | This plan-doc cleanup (single-hierarchy restructure + 5.22 reframe + concrete 5.1/5.5/5.7 steps) | `[x] DONE` | #471 | |
 | 4.6 | S03 Furfur SVG structure probe + verdict | `[x] DONE` | #472 | Probe finding supersedes 5.1's optimistic 10-11h estimate. |
-| 4.7 | S01 Susewind 2014 probe + verdict | `[ ] PENDING` | _pending_ | This PR. Susewind 2014 confirmed NOT viable (292 features pre-bifurcation; CC-BY-SA-NC license); only Path B remains. |
+| 4.7 | S01 Susewind 2014 probe + verdict | `[x] DONE` | #474 | Susewind 2014 confirmed NOT viable (292 features pre-bifurcation; CC-BY-SA-NC license); only Path B remains. |
 | 5.1 | S03 Assam Furfur SVG -> GeoJSON pipeline | `[ ] BLOCKED` | - | Probe (4.6) found only 20 paths / 25 subpaths / 132 numeric labels - NOT 126 per-AC polygons. Unblock: Path B (Furfur outreach) succeeds OR user accepts Path A (Voronoi approximation) with citizen caveat. |
 | **5.7** | **S01 AP residue: Path B in-repo surgery** | **`[ ] BLOCKED`** | - | BLOCKED on user decision Path B (drop HTL touchpoint via remap; 3-4h) vs Path D (accept HTL indefinitely; COLLAPSE row). Per probe verdict (4.7), Path A Susewind is NOT viable. |
 | **5.22** | **Promote `verify_ac_parity` to pytest gate** | **`[ ] PENDING`** | - | Reframed from meaningless "pixel comparison"; option beta. |
