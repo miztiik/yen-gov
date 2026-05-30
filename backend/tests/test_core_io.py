@@ -85,11 +85,13 @@ def test_write_artifact_rejects_payload_with_reserved_keys(tmp_path: Path):
 
 def test_write_artifact_rejects_version_mismatch(tmp_path: Path):
     schema = _load_schema("processing.schema.json")
+    stale_reader_compatible_version = schema["x-changelog"][-2]["version"]
+    assert stale_reader_compatible_version != schema["x-version"]
     with pytest.raises(ValueError, match="does not match schema x-version"):
         write_artifact(
             path=tmp_path / "x.json",
             schema_id=schema["$id"],
-            schema_version="9.9",
+            schema_version=stale_reader_compatible_version,
             payload={
                 "fetch": {
                     "concurrency": 1, "retry_attempts": 0,

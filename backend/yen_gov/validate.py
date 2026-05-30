@@ -11,7 +11,9 @@ Tier B — data conformance:
   * Every *.json file under datasets/ (excluding schemas/) and config/
     declares "$schema" and "$schema_version".
   * "$schema" resolves to a known schema by basename or by $id.
-  * "$schema_version" equals the schema's current x-version.
+    * "$schema_version" is accepted by the json-corpus compatibility contract.
+        Row E still validates accepted old minors against the current schema;
+        declared-version schema resolution is future Row H work.
   * The file validates against that schema.
   * Legacy folded-indicator shards under datasets/indicators/in/ are
     pinned to the allowlist datasets/_ops/meadow-shard-contract.txt
@@ -41,6 +43,9 @@ from yen_gov.preflight import predicates as _P
 
 SCHEMAS_SUBDIR = Path("datasets/schemas")
 DATA_ROOTS = (Path("datasets"), Path("config"))
+SCHEMA_COMPATIBILITY_PATH = Path("datasets/schema-compatibility.json")
+JSON_CORPUS_SURFACE = "json-corpus"
+CURRENT_SCHEMA_VALIDATION = "current_schema"
 
 # Legacy per-indicator JSON shard tree (CLAUDE.md §10 anti-pattern).
 # The 110 shards under `datasets/indicators/in/<topic>/<id>.json` pre-date
@@ -282,6 +287,80 @@ def _resolve_schema(schema_url: str, schemas: dict[str, dict]) -> tuple[str, dic
     return None
 
 
+def _version_pair(value: object) -> tuple[int, int] | None:
+    if not isinstance(value, str) or not VERSION_RE.fullmatch(value):
+        return None
+    major, minor = value.split(".", 1)
+    return int(major), int(minor)
+
+
+def _changelog_versions(schema: dict) -> set[str]:
+    changelog = schema.get("x-changelog")
+    if not isinstance(changelog, list):
+        return set()
+    versions: set[str] = set()
+    for entry in changelog:
+        if isinstance(entry, dict) and isinstance(entry.get("version"), str):
+            versions.add(entry["version"])
+    return versions
+
+
+def _current_schema_can_validate_declared_version(schema: dict, version: str) -> bool:
+    current = schema.get("x-version")
+    current_pair = _version_pair(current)
+    version_pair = _version_pair(version)
+    if current_pair is None or version_pair is None:
+        return False
+    if version_pair[0] != current_pair[0] or version_pair[1] > current_pair[1]:
+        return False
+    return version in _changelog_versions(schema)
+
+
+def _json_corpus_accepted_versions(root: Path, schemas: dict[str, dict]) -> dict[str, frozenset[str]]:
+    accepted: dict[str, set[str]] = {}
+    for name, schema in schemas.items():
+        current = schema.get("x-version")
+        accepted[name] = {current} if isinstance(current, str) and VERSION_RE.fullmatch(current) else set()
+
+    registry_path = root / SCHEMA_COMPATIBILITY_PATH
+    try:
+        registry = _load_json(registry_path)
+    except (OSError, json.JSONDecodeError):
+        return {name: frozenset(versions) for name, versions in accepted.items()}
+    if not isinstance(registry, dict):
+        return {name: frozenset(versions) for name, versions in accepted.items()}
+
+    overrides = registry.get("overrides")
+    if not isinstance(overrides, list):
+        return {name: frozenset(versions) for name, versions in accepted.items()}
+
+    for override in overrides:
+        if not isinstance(override, dict):
+            continue
+        if override.get("surface") != JSON_CORPUS_SURFACE:
+            continue
+        if override.get("validation") != CURRENT_SCHEMA_VALIDATION:
+            continue
+        schema_name = override.get("schema")
+        if not isinstance(schema_name, str) or schema_name not in schemas:
+            continue
+        versions = override.get("accepted_versions")
+        if not isinstance(versions, list):
+            continue
+        for version in versions:
+            if isinstance(version, str) and _current_schema_can_validate_declared_version(
+                schemas[schema_name], version
+            ):
+                accepted[schema_name].add(version)
+
+    return {name: frozenset(versions) for name, versions in accepted.items()}
+
+
+def _format_versions(versions: Iterable[str]) -> str:
+    ordered = sorted(versions, key=lambda version: _version_pair(version) or (999999, 999999))
+    return ", ".join(ordered) if ordered else "<none>"
+
+
 def _iter_data_files(root: Path) -> Iterable[Path]:
     for base in DATA_ROOTS:
         d = root / base
@@ -303,6 +382,7 @@ def _iter_data_files(root: Path) -> Iterable[Path]:
 def tier_b(schemas: dict[str, dict], root: Path) -> list[Failure]:
     """Validate every data file against its declared schema."""
     failures: list[Failure] = []
+    accepted_versions_by_schema = _json_corpus_accepted_versions(root, schemas)
     for p in _iter_data_files(root):
         rel = _posix(p, root)
         try:
@@ -324,13 +404,18 @@ def tier_b(schemas: dict[str, dict], root: Path) -> list[Failure]:
         if resolved is None:
             failures.append(Failure(rel, "B", f"unknown schema {schema_url!r}"))
             continue
-        _, schema = resolved
+        schema_name, schema = resolved
 
         declared = data.get("$schema_version")
-        current = schema.get("x-version")
-        if declared != current:
+        accepted_versions = accepted_versions_by_schema.get(schema_name, frozenset())
+        if not isinstance(declared, str) or declared not in accepted_versions:
             failures.append(
-                Failure(rel, "B", f"$schema_version {declared!r} != schema x-version {current!r}")
+                Failure(
+                    rel,
+                    "B",
+                    f"$schema_version {declared!r} is not accepted for {schema_name}; "
+                    f"accepted versions: {_format_versions(accepted_versions)}",
+                )
             )
             continue
 

@@ -70,6 +70,50 @@ def _seed_repo(tmp_path: Path) -> Path:
     return schemas_dir
 
 
+def _processing_config(version: str, *, include_results: bool = True) -> dict:
+    body = {
+        "$schema": "https://yen-gov.github.io/schemas/processing.schema.json",
+        "$schema_version": version,
+        "sources": [],
+        "fetch": {
+            "concurrency": 1, "retry_attempts": 0,
+            "timeout_seconds": 1.0, "user_agent": "x",
+        },
+    }
+    if include_results:
+        body["results"] = {"top_n_candidates": 1, "collapse_others": False}
+    return body
+
+
+def _write_schema_compatibility(tmp_path: Path, overrides: list[dict]) -> None:
+    registry_path = tmp_path / "datasets" / "schema-compatibility.json"
+    registry_path.parent.mkdir(parents=True, exist_ok=True)
+    registry_path.write_text(json.dumps({
+        "$schema": "./schemas/schema-compatibility.schema.json",
+        "$schema_version": schema_version("schema-compatibility.schema.json"),
+        "defaults": [
+            {
+                "surface": "json-corpus",
+                "policy": "current_schema_only",
+                "validation": "current_schema",
+                "applies_to": ["datasets/**/*.json", "config/**/*.json"],
+                "rationale": "Test fixture default keeps JSON corpus current-only unless overrides name additive minors.",
+            }
+        ],
+        "overrides": overrides,
+    }), encoding="utf-8")
+
+
+def _processing_override(accepted_versions: list[str]) -> dict:
+    return {
+        "surface": "json-corpus",
+        "schema": "processing.schema.json",
+        "accepted_versions": accepted_versions,
+        "validation": "current_schema",
+        "rationale": "Test fixture override for additive processing schema minors validated by the current schema.",
+    }
+
+
 def test_tier_b_rejects_wrong_schema_version(tmp_path: Path):
     schemas_dir = _seed_repo(tmp_path)
     cfg = tmp_path / "config"
@@ -87,6 +131,67 @@ def test_tier_b_rejects_wrong_schema_version(tmp_path: Path):
     schemas, _ = load_schemas(schemas_dir)
     fails = tier_b(schemas, tmp_path)
     assert any("$schema_version" in f.message for f in fails), fails
+
+
+def test_tier_b_accepts_supported_old_additive_minor_from_json_corpus_registry(tmp_path: Path):
+    schemas_dir = _seed_repo(tmp_path)
+    _write_schema_compatibility(tmp_path, [_processing_override(["3.0", "3.1"])])
+    cfg = tmp_path / "config"
+    cfg.mkdir()
+    (cfg / "processing.json").write_text(
+        json.dumps(_processing_config("3.0")), encoding="utf-8"
+    )
+    schemas, _ = load_schemas(schemas_dir)
+    fails = tier_b(schemas, tmp_path)
+    assert not [f for f in fails if f.file == "config/processing.json"], fails
+
+
+def test_tier_b_rejects_future_version_even_if_registry_lists_it(tmp_path: Path):
+    schemas_dir = _seed_repo(tmp_path)
+    _write_schema_compatibility(tmp_path, [_processing_override(["3.1", "3.9"])])
+    cfg = tmp_path / "config"
+    cfg.mkdir()
+    (cfg / "processing.json").write_text(
+        json.dumps(_processing_config("3.9")), encoding="utf-8"
+    )
+    schemas, _ = load_schemas(schemas_dir)
+    fails = tier_b(schemas, tmp_path)
+    assert any(
+        f.file == "config/processing.json" and "$schema_version '3.9' is not accepted" in f.message
+        for f in fails
+    ), fails
+
+
+def test_tier_b_rejects_old_major_even_if_registry_lists_it(tmp_path: Path):
+    schemas_dir = _seed_repo(tmp_path)
+    _write_schema_compatibility(tmp_path, [_processing_override(["2.0", "3.1"])])
+    cfg = tmp_path / "config"
+    cfg.mkdir()
+    (cfg / "processing.json").write_text(
+        json.dumps(_processing_config("2.0")), encoding="utf-8"
+    )
+    schemas, _ = load_schemas(schemas_dir)
+    fails = tier_b(schemas, tmp_path)
+    assert any(
+        f.file == "config/processing.json" and "$schema_version '2.0' is not accepted" in f.message
+        for f in fails
+    ), fails
+
+
+def test_tier_b_rejects_supported_old_minor_with_current_schema_shape_error(tmp_path: Path):
+    schemas_dir = _seed_repo(tmp_path)
+    _write_schema_compatibility(tmp_path, [_processing_override(["3.0", "3.1"])])
+    cfg = tmp_path / "config"
+    cfg.mkdir()
+    (cfg / "processing.json").write_text(
+        json.dumps(_processing_config("3.0", include_results=False)), encoding="utf-8"
+    )
+    schemas, _ = load_schemas(schemas_dir)
+    fails = tier_b(schemas, tmp_path)
+    assert any(
+        f.file == "config/processing.json" and "'results'" in f.message
+        for f in fails
+    ), fails
 
 
 def test_tier_b_rejects_missing_required_field(tmp_path: Path):
