@@ -4,7 +4,7 @@
 
 **Predecessor plan-doc**: [TODO/20260530-boundary-followups-execution-plan.md](20260530-boundary-followups-execution-plan.md) Row 5.2 (this plan-doc opens that row's research-only first PR).
 
-**Status**: RESEARCH-ONLY first PR shipped via #_pending_. Subsequent migration rows ESCALATE per CLAUDE.md §6 Level-5 ("Design consultation only - pause work"). Agent does NOT execute beyond R1 without explicit user design sign-off + this plan-doc being amended in the same commit as the sign-off.
+**Status**: RESEARCH-ONLY first PR shipped via #469. Subsequent migration rows ESCALATE per CLAUDE.md §6 Level-5 ("Design consultation only - pause work"). Agent does NOT execute beyond R1 without explicit user design sign-off + this plan-doc being amended in the same commit as the sign-off.
 
 ---
 
@@ -35,7 +35,7 @@ This is the CLAUDE.md §6 Level-5 contract verbatim: "Core design / data model /
 
 | Row | Title | Status | PR | Effort |
 | --- | --- | --- | --- | --- |
-| R1 | Audit all `eci_no` read + write sites; produce research-note + migration-surface map | [ ] PENDING | _pending_ | S (~2-4h next session) |
+| R1 | Audit all `eci_no` read + write sites; produce research-note + migration-surface map | [ ] PENDING | #469 | S (~2-4h next session) |
 | R2 | Migration strategy (chosen by user from R1's options) | [!] ESCALATED | n/a | TBD |
 | R3+ | Per-surface migration PRs (data rewrite, schema, frontend, tests) | [!] ESCALATED | n/a | XL |
 
@@ -45,7 +45,7 @@ This is the CLAUDE.md §6 Level-5 contract verbatim: "Core design / data model /
 
 ### R1 acceptance
 
-This PR ships:
+This PR (#469) ships:
 
 1. THIS plan-doc with the operating contract + Row R1 spec.
 2. R1 acceptance is bounded — actual research-note authoring happens in a future PR; this PR opens the docket.
