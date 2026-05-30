@@ -66,7 +66,7 @@ today; if three concrete callers earn one, add it then.
 
 Tier B is the corpus-side reader contract. Per [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md), writers stay strict while readers may become compatible by explicit contract.
 
-Until Row E of [TODO/20260530-schema-version-compatibility-plan.md](../../../TODO/20260530-schema-version-compatibility-plan.md) lands, the implementation still enforces `$schema_version == x-version` for JSON artifacts. That strict behavior is safe. The policy change is that latest-only equality is no longer the permanent design for every reader.
+The explicit contract lives at `datasets/schema-compatibility.json`, validated by `datasets/schemas/schema-compatibility.schema.json`. Until Row E of [TODO/20260530-schema-version-compatibility-plan.md](../../../TODO/20260530-schema-version-compatibility-plan.md) makes the validator consume that registry, the implementation still enforces `$schema_version == x-version` for JSON artifacts. That strict behavior is safe. The policy change is that latest-only equality is no longer the permanent design for every reader.
 
 When compatibility support lands, Tier B must still fail for:
 

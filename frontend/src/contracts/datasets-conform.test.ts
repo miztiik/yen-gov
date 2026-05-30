@@ -94,6 +94,9 @@ const PER_ROW_PROVENANCE_SCHEMAS = new Set<string>([
   // are not subject to §12 sources[] (same logic as manifest.schema.json).
   "grapher-indicator-render.schema.json",
   "grapher-topic-render.schema.json",
+  // Schema compatibility is a control-plane policy registry, not observed
+  // data. It is validated by its own schema and by schema-compatibility.test.ts.
+  "schema-compatibility.schema.json",
 ]);
 
 const SCHEMAS = loadSchemas();

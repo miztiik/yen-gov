@@ -876,7 +876,7 @@ Before issuing any query against a Parquet file, the DuckDB-WASM reader:
 
 1. Looks up the file's `table_id` + `schema_version` from `manifest.json` (the control plane).
 2. Reads the Parquet file's KV metadata via `parquet_metadata(...)` and asserts `table_id` and `schema_version` match the manifest.
-3. Asserts the file's `schema_version` is in the reader's compatible set. Today that set is `SUPPORTED_SCHEMA_VERSIONS`; Row C/G1 of the schema-version compatibility plan replaces or drift-checks it against the shared compatibility contract.
+3. Asserts the file's `schema_version` is in the reader's compatible set. The shared contract lives at `datasets/schema-compatibility.json`; today's runtime still uses `SUPPORTED_SCHEMA_VERSIONS` until Row G1 derives or drift-checks it against that contract.
 4. If any check fails, the reader emits `LoaderResult.failed` with reason `schema_version_unsupported` (§16). **No silent best-effort, no version coercion, no partial reads.**
 
 ### 11.3 Bump rules

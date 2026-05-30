@@ -1,0 +1,42 @@
+{
+  "$schema": "./schemas/schema-compatibility.schema.json",
+  "$schema_version": "1.0",
+  "defaults": [
+    {
+      "surface": "json-corpus",
+      "policy": "current_schema_only",
+      "validation": "current_schema",
+      "applies_to": [
+        "datasets/**/*.json",
+        "config/**/*.json"
+      ],
+      "rationale": "Row C only creates the shared contract. Until Row E and Row F wire reader behavior, JSON corpus validation remains current-schema only."
+    },
+    {
+      "surface": "canonical-manifest-reader",
+      "policy": "unsupported_unless_listed",
+      "validation": "current_schema",
+      "applies_to": [
+        "datasets/manifest.json",
+        "datasets/**/*.parquet"
+      ],
+      "rationale": "The canonical reader fails loud unless a manifest or table schema version is explicitly listed for this reader surface."
+    }
+  ],
+  "overrides": [
+    {
+      "surface": "canonical-manifest-reader",
+      "schema": "manifest.schema.json",
+      "accepted_versions": ["1.0", "1.1", "1.2", "1.3"],
+      "validation": "current_schema",
+      "rationale": "Existing frontend manifest reader support covers v1.0 through v1.3; all are additive manifest-shape minors that current-schema validation can interpret."
+    },
+    {
+      "surface": "canonical-manifest-reader",
+      "schema": "observation.schema.json",
+      "accepted_versions": ["1.0", "1.1"],
+      "validation": "current_schema",
+      "rationale": "Existing canonical table reader support covers observation v1.0 and v1.1; v1.1 is additive and current-schema validation remains valid for v1.0 rows."
+    }
+  ]
+}

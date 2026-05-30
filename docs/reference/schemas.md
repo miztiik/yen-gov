@@ -29,6 +29,12 @@ Introduced by [`TODO/SOCIO-ECONOMIC-EXPANSION.md`](../../TODO/SOCIO-ECONOMIC-EXP
 | `indicator.schema.json`                           | Indicator (long-form fact table)      | 1.2       | One indicator (e.g. installed MW per state per year) as long-form `(entity_id, time, value)` rows with semantic hints (`value_kind`, `direction`, `unit`). v1.2 (2026-05-14) adds optional renderer hints `chart_type` (choropleth / ranked / stacked-trend) and `default_mode` (absolute / percent) so facetted artifacts can declare their preferred visualisation without per-page string matching — see [ADR-0024](../architecture/decisions/0024-backend-aggregator-for-facetted-indicators.md) and [`docs/architecture/frontend/charts/stacked-trend.md`](../architecture/frontend/charts/stacked-trend.md). v1.1 (2026-05-11) added the honesty fields: `attribution_geography`, `comparability`, `funding_split`, `implementing_authority`, `methodology_vintage`, `series_breaks[]`, `icon`. See [ADR-0020](../architecture/decisions/0020-indicator-artifact-as-data-contract.md). |
 | `office-holdings.schema.json`                     | Government office holdings            | 1.1       | Long-form consolidation of government and constitutional-office tenures. v1.1 adds official `citation_groups`, nullable `regime`, `selection_method`, and `tenure_status` so President / Vice President rows can land with Government of India provenance while CM rows keep legacy `office_citations`. Replaced `state_government.schema.json` in G.1.c (2026-05-22). |
 
+### Schema control plane
+
+| File | Title | x-version | Describes |
+| --- | --- | :---: | --- |
+| `schema-compatibility.schema.json` | Schema compatibility registry | 1.0 | `datasets/schema-compatibility.json`, the shared reader-side compatibility contract introduced by ADR-0047. Defaults keep JSON corpus validation current-only until Rows E/F consume the registry; overrides list explicitly accepted additive minor versions for the canonical manifest reader. |
+
 To regenerate this table after a schema bump, run `python -m yen_gov validate` and update the row by hand. (Auto-generation is a Phase 4 nice-to-have, not a blocker.)
 
 ## Versioning rules
