@@ -2,11 +2,11 @@
 
 **Last Updated**: 2026-05-30
 
-**Predecessor**: [docs/archive/plans/20260527-state-ac-map-universal-coverage-plan.md](../docs/archive/plans/20260527-state-ac-map-universal-coverage-plan.md) (CLOSED via PRs #434-#456) and [TODO/20260529-boundary-rip-and-replace-plan.md](20260529-boundary-rip-and-replace-plan.md).
+**Predecessor**: [docs/archive/plans/20260527-state-ac-map-universal-coverage-plan.md](../../docs/archive/plans/20260527-state-ac-map-universal-coverage-plan.md) (CLOSED via PRs #434-#456) and [TODO/20260529-boundary-rip-and-replace-plan.md](../../TODO/20260529-boundary-rip-and-replace-plan.md).
 
-**Followups inventory**: [TODO/20260530-boundary-plan-followups.md](20260530-boundary-plan-followups.md) (30 items across 8 categories).
+**Followups inventory**: [TODO/20260530-boundary-plan-followups.md](../../TODO/20260530-boundary-plan-followups.md) (30 items across 8 categories).
 
-**Operating doctrine**: This plan executes under the autonomy stance documented in [docs/agents/bootstrap.md](../docs/agents/bootstrap.md) section "Autonomous plan execution - AUTO is the default". Read that section before starting any row.
+**Operating doctrine**: This plan executes under the autonomy stance documented in [docs/agents/bootstrap.md](../../docs/agents/bootstrap.md) section "Autonomous plan execution - AUTO is the default". Read that section before starting any row.
 
 ---
 
@@ -14,7 +14,7 @@
 
 ### 0.1 Default stance
 
-- **AUTO every row**: execute work, run 5-gate DoD per [docs/how-to/ship-a-pr.md](../docs/how-to/ship-a-pr.md), `gh pr merge --squash --delete-branch`, advance to next row.
+- **AUTO every row**: execute work, run 5-gate DoD per [docs/how-to/ship-a-pr.md](../../docs/how-to/ship-a-pr.md), `gh pr merge --squash --delete-branch`, advance to next row.
 - **Personas as scouts, not gates**: Citizen / Hans / Max / Gregor / Fowler / Jony / Andre may be dispatched as Explore subagents for facts; their verdicts inform action, never request approval.
 - **User unavailable mid-execution**: stay in scope, finish the in-flight row, do not invent or contract scope.
 
@@ -53,11 +53,11 @@ ESCALATE means: stop, post a message summarising the trigger, wait for user. Do 
 5. Replace `_pending_` in any in-PR doc references with the freshly-allocated `#NNN`, commit as commit 2, push.
 6. `gh pr merge <#> --squash --delete-branch`. Verify via `gh pr view <#> --json state,mergedAt,mergeCommit`. Per F5, manually `git push origin --delete <branch>` if needed.
 7. Update the Status Reckoner row's status marker + PR# in this file.
-8. Run post-merge cleanup per [docs/how-to/ship-a-pr.md](../docs/how-to/ship-a-pr.md) section "Post-merge cleanup".
+8. Run post-merge cleanup per [docs/how-to/ship-a-pr.md](../../docs/how-to/ship-a-pr.md) section "Post-merge cleanup".
 
 ### 0.5 Distill-on-complete
 
-When all rows reach `[x] DONE` or `[-] COLLAPSED`, run the 6-step distillation per [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md) and `git mv` this file to `docs/archive/plans/`.
+When all rows reach `[x] DONE` or `[-] COLLAPSED`, run the 6-step distillation per [docs/how-to/distill-a-plan.md](../../docs/how-to/distill-a-plan.md) and `git mv` this file to `docs/archive/plans/`.
 
 ---
 
@@ -86,7 +86,7 @@ Single PR `feat/p1-bundle-chip-and-distillations` covering all 3 Row-1 items. Al
 
 ### Row 1.1 - Icon-only attribution chip
 
-**File**: [frontend/src/lib/maplibre/sources.ts](../frontend/src/lib/maplibre/sources.ts) `boundaryFooterHtml()`.
+**File**: [frontend/src/lib/maplibre/sources.ts](../../frontend/src/lib/maplibre/sources.ts) `boundaryFooterHtml()`.
 
 **Behaviour**: Visible glyph `&#9432;` (U+24D8 INFORMATION SOURCE); label "Boundary sources &amp; licensing" moves to the `title` attribute; one click navigates to `/about?section=maps`.
 
@@ -97,7 +97,7 @@ Single PR `feat/p1-bundle-chip-and-distillations` covering all 3 Row-1 items. Al
 
 ### Row 1.2 - e2e assertion swap + skip-trap guard
 
-**Files**: [frontend/e2e/state-ac-coverage.spec.ts](../frontend/e2e/state-ac-coverage.spec.ts).
+**Files**: [frontend/e2e/state-ac-coverage.spec.ts](../../frontend/e2e/state-ac-coverage.spec.ts).
 
 **Behaviour**:
 - Assertion at line ~150 changes from `.toHaveText(/Boundary sources & licensing/)` to `.toHaveAttribute('title', /Boundary sources & licensing/)`.
@@ -110,7 +110,7 @@ Single PR `feat/p1-bundle-chip-and-distillations` covering all 3 Row-1 items. Al
 - `git mv TODO/20260527-state-ac-map-universal-coverage-plan.md docs/archive/plans/20260527-state-ac-map-universal-coverage-plan.md` (predecessor archive)
 - `docs/agents/bootstrap.md`: add "Autonomous plan execution - AUTO is the default" stanza
 - `TODO/20260530-boundary-plan-followups.md`: 30-item residual inventory (already authored)
-- `TODO/20260530-boundary-followups-execution-plan.md`: this file
+- `docs/archive/plans/20260530-boundary-followups-execution-plan.md`: this file (archived 2026-05-30 after plan-completion; previously at `TODO/20260530-boundary-followups-execution-plan.md`)
 
 **Acceptance**: Phase-1 bundle PR ships green on 5 gates per `docs/how-to/ship-a-pr.md`. After merge, all 3 rows flip to `[x] DONE` with PR# stamped.
 
@@ -122,7 +122,7 @@ Single Level-2 docs PR bundling 5 distillations. Effort: 5xS. Value: HIGH (saves
 
 ### Row 2.1 - C.2 panchayats verdict distillation
 
-**Source**: [notes/2026-05-30-c2-panchayats-source-hunt-verdict.md](../notes/2026-05-30-c2-panchayats-source-hunt-verdict.md).
+**Source**: [notes/2026-05-30-c2-panchayats-source-hunt-verdict.md](../../notes/2026-05-30-c2-panchayats-source-hunt-verdict.md).
 
 **Output**:
 - NEW: `docs/concepts/admin-level-sourcing.md` (3-convention rule + Bhuvan / LGD / ramSeraph lineage).
@@ -130,19 +130,19 @@ Single Level-2 docs PR bundling 5 distillations. Effort: 5xS. Value: HIGH (saves
 
 ### Row 2.2 - C.3 ULB wards verdict distillation
 
-**Source**: [notes/2026-05-30-c3-ulb-wards-source-hunt-verdict.md](../notes/2026-05-30-c3-ulb-wards-source-hunt-verdict.md).
+**Source**: [notes/2026-05-30-c3-ulb-wards-source-hunt-verdict.md](../../notes/2026-05-30-c3-ulb-wards-source-hunt-verdict.md).
 
 **Output**: APPEND "ULB Wards partition strategy" section to `docs/architecture/boundaries/README.md`.
 
 ### Row 2.3 - C.4 villages verdict distillation
 
-**Source**: [notes/2026-05-30-c4-jk-villages-source-hunt-verdict.md](../notes/2026-05-30-c4-jk-villages-source-hunt-verdict.md).
+**Source**: [notes/2026-05-30-c4-jk-villages-source-hunt-verdict.md](../../notes/2026-05-30-c4-jk-villages-source-hunt-verdict.md).
 
 **Output**: NEW `docs/how-to/add-new-boundary-layer.md` covering "when to fork vs consolidate orchestrators".
 
 ### Row 2.4 - A.1.b T3 PDF vectorization workflow
 
-**Source**: plan-doc row A.1.b narrative + [notes/2026-05-29-phase-b-verdict-correction.md](../notes/2026-05-29-phase-b-verdict-correction.md).
+**Source**: plan-doc row A.1.b narrative + [notes/2026-05-29-phase-b-verdict-correction.md](../../notes/2026-05-29-phase-b-verdict-correction.md).
 
 **Output**: NEW `docs/how-to/digitize-ac-from-pdf.md` covering the 4-tier fallback ladder + T3 QGIS workflow (text-only; screenshots deferred).
 
@@ -170,9 +170,9 @@ Single Level-2 docs PR bundling 5 distillations. Effort: 5xS. Value: HIGH (saves
 
 Per inventory Category 8: forward-looking `// TODO:` markers added above
 `PANCHAYAT_BOUNDARY_BY_DISTRICT` + `WARD_BOUNDARY_BY_ULB` in
-[frontend/src/lib/maplibre/sources.ts](../frontend/src/lib/maplibre/sources.ts) (flag the deferred C.2.c + C.3.c
+[frontend/src/lib/maplibre/sources.ts](../../frontend/src/lib/maplibre/sources.ts) (flag the deferred C.2.c + C.3.c
 picker UI shims) and above the `JOIN_KEYS` table in
-[frontend/src/lib/boundaries.ts](../frontend/src/lib/boundaries.ts) (flag the absent VILLAGE_BOUNDARY_BY_DISTRICT
+[frontend/src/lib/boundaries.ts](../../frontend/src/lib/boundaries.ts) (flag the absent VILLAGE_BOUNDARY_BY_DISTRICT
 registry, blocked on first village-grain citizen indicator). Markers
 backlink each follow-up to inventory Category 3.
 
@@ -193,10 +193,35 @@ These items are tracked in the inventory but require user authorisation to start
 
 ---
 
+## Plan complete
+
+Closed 2026-05-30. All rows merged. Distillation routing per [docs/how-to/distill-a-plan.md](../../docs/how-to/distill-a-plan.md):
+
+| Row | PR | Distilled output (durable home) |
+| --- | --- | --- |
+| 1.1 Icon-only attribution chip | #460 | `boundaryFooterHtml()` in [frontend/src/lib/maplibre/sources.ts](../../frontend/src/lib/maplibre/sources.ts) (code is its own home); rule baked into plan section 0.2 F8 (archived with this doc) |
+| 1.2 e2e assertion swap + skip-trap guard | #460 | [frontend/e2e/state-ac-coverage.spec.ts](../../frontend/e2e/state-ac-coverage.spec.ts) (test is its own home) |
+| 1.3 Predecessor archive + autonomy stanza + inventory + this plan-doc | #460 | "Autonomous plan execution - AUTO is the default" stanza in [docs/agents/bootstrap.md](../../docs/agents/bootstrap.md); 30-item inventory in [TODO/20260530-boundary-plan-followups.md](../../TODO/20260530-boundary-plan-followups.md); predecessor at `docs/archive/plans/20260527-state-ac-map-universal-coverage-plan.md` |
+| 2.1 C.2 panchayats verdict | #462 | NEW [docs/concepts/admin-level-sourcing.md](../../docs/concepts/admin-level-sourcing.md) (3-convention rule + Bhuvan / LGD / ramSeraph lineage) |
+| 2.2 C.3 ULB wards verdict | #462 | APPENDED to [docs/how-to/add-new-boundary-layer.md](../../docs/how-to/add-new-boundary-layer.md) (ULB-keyed shards section) |
+| 2.3 C.4 villages verdict | #462 | NEW [docs/how-to/add-new-boundary-layer.md](../../docs/how-to/add-new-boundary-layer.md) (when-to-fork-vs-consolidate orchestrators) |
+| 2.4 T3 PDF vectorisation workflow | #462 | NEW [docs/how-to/digitize-ac-from-pdf.md](../../docs/how-to/digitize-ac-from-pdf.md) (4-tier fallback ladder + QGIS workflow) |
+| 2.5 ADR-0029 retirement backlink | #462 | [docs/architecture/decisions/0029-unmapped-region-chips.md](../../docs/architecture/decisions/0029-unmapped-region-chips.md) (5 explicit D.1.A user-mandate backlinks) |
+| 3.1 Vitest U08/U09 villages orphan | n/a | COLLAPSED upstream by PR #457 (boundaries-conform regex widened) |
+| 4.1 Code-marker TODO annotations | #464 | TODO blocks in [frontend/src/lib/maplibre/sources.ts](../../frontend/src/lib/maplibre/sources.ts) (PANCHAYAT_BOUNDARY_BY_DISTRICT + WARD_BOUNDARY_BY_ULB) + [frontend/src/lib/boundaries.ts](../../frontend/src/lib/boundaries.ts) (JOIN_KEYS), each backlinked to [TODO/20260530-boundary-plan-followups.md](../../TODO/20260530-boundary-plan-followups.md) Category 3 |
+
+Residual backlog (NOT plan-doc work; surfaces only when its citizen-trigger fires): [TODO/20260530-boundary-plan-followups.md](../../TODO/20260530-boundary-plan-followups.md) — 30 items across 8 categories (gap-fills, carve-outs, UX follow-ups, re-scopable non-goals, Level-5 corpus migration, test/contract polish, docs distillation, code markers — last two now CLOSED via Phase 2 and Row 4.1).
+
+Escalation-required (cannot start without user re-scope): see section 6.
+
+Plan-doc remains as the audit ledger; do not edit further. New work starts a new plan-doc.
+
+---
+
 ## See also
 
-- [TODO/20260530-boundary-plan-followups.md](20260530-boundary-plan-followups.md) - full 30-item inventory.
-- [docs/agents/bootstrap.md](../docs/agents/bootstrap.md) - autonomy stance + persona loading ritual.
-- [docs/how-to/ship-a-pr.md](../docs/how-to/ship-a-pr.md) - 5-gate DoD + post-merge cleanup.
-- [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md) - 6-step distillation to run when this plan closes.
-- [TODO/20260529-boundary-rip-and-replace-plan.md](20260529-boundary-rip-and-replace-plan.md) - predecessor plan (CLOSED).
+- [TODO/20260530-boundary-plan-followups.md](../../TODO/20260530-boundary-plan-followups.md) - full 30-item inventory.
+- [docs/agents/bootstrap.md](../../docs/agents/bootstrap.md) - autonomy stance + persona loading ritual.
+- [docs/how-to/ship-a-pr.md](../../docs/how-to/ship-a-pr.md) - 5-gate DoD + post-merge cleanup.
+- [docs/how-to/distill-a-plan.md](../../docs/how-to/distill-a-plan.md) - 6-step distillation to run when this plan closes.
+- [TODO/20260529-boundary-rip-and-replace-plan.md](../../TODO/20260529-boundary-rip-and-replace-plan.md) - predecessor plan (CLOSED).
