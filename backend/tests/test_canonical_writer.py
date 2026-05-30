@@ -300,7 +300,7 @@ def test_parquet_kv_metadata_carries_writer_contract_keys(tmp_path: Path) -> Non
           (v.decode() if isinstance(v, bytes) else v)
           for k, v in kv_raw}
     assert kv.get("table_id") == "test.observations"
-    assert kv.get("schema_version") == "1.1"
+    assert kv.get("schema_version") == schema_version("observation.schema.json")
     assert kv.get("row_schema_id") == "./observation.schema.json"
     assert "writer_version" in kv
     assert json.loads(kv["sort_columns"]) == [
@@ -321,7 +321,7 @@ def test_sources_parquet_kv_metadata(tmp_path: Path) -> None:
     assert kv.get("table_id") == "taxonomy.sources"
     # v3.0 per ADR-0042 (vintage as strongest period anchor available;
     # minLength: 1). Identity contract (3-arg hash) unchanged from v2.0.
-    assert kv.get("schema_version") == "3.0"
+    assert kv.get("schema_version") == schema_version("source.schema.json")
 
 
 # ---------------------------------------------------------------------------
@@ -343,7 +343,7 @@ def test_manifest_regenerates_with_correct_table_entries(tmp_path: Path) -> None
     test_table = next(t for t in manifest["tables"] if t["table_id"] == "test.observations")
     assert test_table["family"] == "test"
     assert test_table["format"] == "parquet"
-    assert test_table["schema_version"] == "1.1"
+    assert test_table["schema_version"] == schema_version("observation.schema.json")
     assert test_table["table_name"] == "observations"
     assert test_table["kind"] == "observations"
     assert test_table["files"][0]["path"] == "test/observations.parquet"
@@ -361,7 +361,6 @@ def test_manifest_schema_version_is_current(tmp_path: Path) -> None:
     write_batch(_envelope([_obs()]), tmp_path)
     manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
     assert manifest["$schema_version"] == schema_version("manifest.schema.json")
-    assert manifest["$schema_version"] == "1.3"
 
 
 def test_manifest_carries_known_deprecations(tmp_path: Path) -> None:
@@ -761,7 +760,7 @@ def test_dim_tables_appear_in_manifest(tmp_path: Path) -> None:
     cand = next(t for t in manifest["tables"]
             if t["table_id"] == "elections.dim_persons")
     assert cand["format"] == "parquet"
-    assert cand["schema_version"] == "2.0"
+    assert cand["schema_version"] == schema_version("dim-persons.schema.json")
     assert cand["table_name"] == "dim_persons"
     assert cand["kind"] == "dim"
     assert cand["row_count_total"] == 1

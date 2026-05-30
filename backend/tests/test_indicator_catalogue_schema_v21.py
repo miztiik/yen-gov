@@ -18,6 +18,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from yen_gov.core.schema_registry import schema_version
+
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SCHEMA_PATH = REPO_ROOT / "datasets" / "schemas" / "indicator-catalogue.schema.json"
@@ -49,9 +51,7 @@ def test_update_period_days_is_optional_in_required_list():
 
 
 def test_catalogue_schema_version_is_current():
-    # Bumped to "2.3" in PR-Zjust (additive meta.justification);
-    # this v2.1-introduced assertion just tracks the catalogue stamp.
-    assert _catalogue()["$schema_version"] == "2.4"
+    assert _catalogue()["$schema_version"] == schema_version("indicator-catalogue.schema.json")
 
 
 def test_all_183_rows_carry_positive_update_period_days():

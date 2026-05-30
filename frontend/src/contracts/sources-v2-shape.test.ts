@@ -3,8 +3,9 @@
 // Two invariants enforced here that schemas can't enforce on themselves:
 //
 //   1. **Manifest registration**: `taxonomy.sources` is registered at
-//      schema_version "3.0" in `datasets/manifest.json` (ADR-0042 bumped
-//      v2.0 → v3.0 to add the `vintage: minLength: 1` constraint).
+//      the current source schema version in `datasets/manifest.json`
+//      (ADR-0042 bumped v2.0 -> v3.0 to add the `vintage: minLength: 1`
+//      constraint).
 //      Consumers (SourceList v2, ChartFooter, any future view-model)
 //      resolve the parquet location via this `table_id` — NEVER a
 //      hardcoded `/data/taxonomy/sources.parquet` (R-28).
@@ -68,10 +69,10 @@ describe("sources-v2 — manifest registration (R-28)", () => {
     ).toBeDefined();
   });
 
-  it("registered at schema_version 3.0 (ADR-0042 vintage-as-period-anchor)", () => {
+  it("registered at the current source schema version", () => {
     // ADR-0032 P.0e originally registered the ledger at v2.0; ADR-0042
     // bumped to v3.0 to add `vintage: minLength: 1` (no field changes).
-    expect(sourcesEntry?.schema_version).toBe("3.0");
+    expect(sourcesEntry?.schema_version).toBe(sourcesSchema["x-version"]);
   });
 
   it("registered as parquet format", () => {

@@ -15,6 +15,8 @@ from pathlib import Path
 
 from jsonschema import Draft202012Validator
 
+from yen_gov.core.schema_registry import schema_version
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SCHEMA = REPO_ROOT / "datasets" / "schemas" / "concepts.schema.json"
 SEED = REPO_ROOT / "datasets" / "taxonomy" / "concepts.json"
@@ -46,7 +48,7 @@ def test_concept_ids_are_unique() -> None:
 def test_concepts_schema_version_pinned() -> None:
     schema = json.loads(SCHEMA.read_text(encoding="utf-8"))
     data = json.loads(SEED.read_text(encoding="utf-8"))
-    assert schema["x-version"] == "1.0"
-    assert data["$schema_version"] == "1.0"
+    assert schema["x-version"] == schema_version("concepts.schema.json")
+    assert data["$schema_version"] == schema_version("concepts.schema.json")
     # x-changelog tail invariant per CLAUDE.md §11.
     assert schema["x-changelog"][-1]["version"] == schema["x-version"]

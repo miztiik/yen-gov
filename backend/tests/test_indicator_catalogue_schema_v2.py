@@ -10,6 +10,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from yen_gov.core.schema_registry import schema_version
+
 
 SCHEMA_PATH = (
     Path(__file__).resolve().parents[2]
@@ -24,10 +26,8 @@ def _load() -> dict:
 
 
 def test_schema_x_version_is_current():
-    # Tracks the latest x-version; bumped to "2.3" in
-    # PR-Z3b-tail-conceptFK Carve 0a (additive concept_id).
     s = _load()
-    assert s["x-version"] == "2.4"
+    assert s["x-version"] == schema_version("indicator-catalogue.schema.json")
 
 
 def test_changelog_has_2_1_entry():

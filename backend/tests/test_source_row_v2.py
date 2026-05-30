@@ -40,6 +40,7 @@ from yen_gov.canonical.citation import (
 )
 from yen_gov.canonical.envelope import SourceRow
 from yen_gov.canonical.writer import _SRC_DDL
+from yen_gov.core.schema_registry import schema_version
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -66,10 +67,10 @@ def _example_v2_row() -> dict:
     }
 
 
-def _v2_container(rows: list[dict]) -> dict:
+def _source_container(rows: list[dict]) -> dict:
     return {
         "$schema": "../schemas/source.schema.json",
-        "$schema_version": "2.0",
+        "$schema_version": schema_version("source.schema.json"),
         "sources": rows,
     }
 
@@ -95,7 +96,7 @@ def test_schema_loads_and_validates_v2_example() -> None:
     # The last changelog entry's version MUST match x-version (CLAUDE.md §11).
     assert schema["x-changelog"][-1]["version"] == "3.0"
     validator = Draft202012Validator(schema)
-    container = _v2_container([_example_v2_row()])
+    container = _source_container([_example_v2_row()])
     errors = sorted(validator.iter_errors(container), key=lambda e: list(e.path))
     assert errors == [], f"v3.0 example failed validation: {errors}"
 
@@ -120,7 +121,7 @@ def test_schema_rejects_v1_fields() -> None:
     for field_name, sample_value in forbidden_v1_fields.items():
         row = _example_v2_row()
         row[field_name] = sample_value
-        container = _v2_container([row])
+        container = _source_container([row])
         errors = list(validator.iter_errors(container))
         assert errors, (
             f"v2.0 schema should REJECT v1.0 field {field_name!r}, "
