@@ -40,6 +40,7 @@ import {
   type IndicatorMeta,
   type IndicatorMethodology,
   type IndicatorRow,
+  type SeriesSpec,
 } from "../indicators";
 import type { SourceV2Row } from "../source-list-v2";
 import {
@@ -49,6 +50,10 @@ import {
   type CanonicalIndicatorDescriptor,
   type CanonicalSingleIndicatorDescriptor,
 } from "./indicator-allowlist";
+import {
+  CURRENT_INDICATOR_SCHEMA_ID,
+  CURRENT_INDICATOR_SCHEMA_VERSION,
+} from "./indicator-schema-policy";
 
 /** Strip `IN-` prefix from canonical entity_ids; pass bare `IN` (national
  *  aggregate) and any unrecognised shape through unchanged. Works for
@@ -143,6 +148,30 @@ type IndicatorMetaWithRetiredRenderFields = IndicatorMeta & {
   facet_labels?: unknown;
 };
 
+const artifactSourcesV2 = new WeakMap<IndicatorArtifact, readonly SourceV2Row[]>();
+
+function attachSourcesV2<T extends IndicatorArtifact>(
+  artifact: T,
+  sources: readonly SourceV2Row[],
+): T {
+  artifactSourcesV2.set(artifact, Object.freeze([...sources]));
+  return artifact;
+}
+
+export function indicatorArtifactSourcesV2(
+  artifact: IndicatorArtifact,
+): readonly SourceV2Row[] | undefined {
+  return artifactSourcesV2.get(artifact) ?? artifact.sources_v2;
+}
+
+function requireRows(rows: readonly IndicatorRow[], indicatorId: string): void {
+  if (rows.length === 0) {
+    throw new Error(
+      `canonical indicator ${indicatorId} returned zero rows; current indicator schema requires at least one row`,
+    );
+  }
+}
+
 /** Quote a string literal for embedding in a SQL `IN (...)` list. */
 function sqlString(s: string): string {
   return `'${s.replace(/'/g, "''")}'`;
@@ -162,6 +191,15 @@ function buildMethodology(descriptor: CanonicalIndicatorDescriptor): IndicatorMe
     methodology_breaks: [],
     known_caveats: descriptor.caveats ? [...descriptor.caveats] : [],
     notes: [],
+  };
+}
+
+function buildSeriesSpec(descriptor: CanonicalIndicatorDescriptor): SeriesSpec {
+  return {
+    description:
+      descriptor.meta.description ??
+      descriptor.meta.description_short ??
+      `Canonical series for ${descriptor.meta.title}`,
   };
 }
 
@@ -208,6 +246,7 @@ export function buildIndicatorArtifact(
     time: r.period_label,
     value: r.value_numeric,
   }));
+  requireRows(rows, descriptor.meta.id);
 
   // Coverage temporal — derived from the actual rows so this stays in
   // lockstep with the canonical fact-table (no manual maintenance).
@@ -222,11 +261,10 @@ export function buildIndicatorArtifact(
         ? times[0]
         : `${times[0]} to ${times[times.length - 1]}`;
 
-  return {
-    $schema: "https://yen-gov.github.io/schemas/indicator.schema.json",
-    $schema_version: "4.4",
+  return attachSourcesV2({
+    $schema: CURRENT_INDICATOR_SCHEMA_ID,
+    $schema_version: CURRENT_INDICATOR_SCHEMA_VERSION,
     sources: [],
-    sources_v2: buildSourcesV2(source_rows),
     license: {
       id: "OGL-IN-1.0",
       name: "India Government Open Data License (OGL-IN-1.0)",
@@ -240,8 +278,10 @@ export function buildIndicatorArtifact(
     },
     indicator: buildCanonicalIndicatorMeta(descriptor.meta),
     rows,
+    series_spec: buildSeriesSpec(descriptor),
     methodology: buildMethodology(descriptor),
-  };
+    divergence: null,
+  }, buildSourcesV2(source_rows));
 }
 
 /** Run the DuckDB-WASM JOIN and return the assembled `IndicatorArtifact`.
@@ -348,6 +388,7 @@ async function loadFacetMultiplexedFromCanonical(
     value: r.value_numeric,
     facet: facetLabelByChildId.get(r.indicator_id) ?? null,
   }));
+  requireRows(rows, descriptor.canonical_parent_indicator_id);
 
   // Sources from CHILDREN (parent's source_id is null per indicator-naming.md D29).
   const distinctSourceIds = [...new Set(obsRows.map((r) => r.source_id))].filter(
@@ -381,11 +422,10 @@ async function loadFacetMultiplexedFromCanonical(
         ? times[0]
         : `${times[0]} to ${times[times.length - 1]}`;
 
-  return {
-    $schema: "https://yen-gov.github.io/schemas/indicator.schema.json",
-    $schema_version: "4.4",
+  return attachSourcesV2({
+    $schema: CURRENT_INDICATOR_SCHEMA_ID,
+    $schema_version: CURRENT_INDICATOR_SCHEMA_VERSION,
     sources: [],
-    sources_v2: buildSourcesV2(sourceRows),
     license: {
       id: "OGL-IN-1.0",
       name: "India Government Open Data License (OGL-IN-1.0)",
@@ -402,8 +442,10 @@ async function loadFacetMultiplexedFromCanonical(
       descriptor.canonical_parent_indicator_id,
     ),
     rows,
+    series_spec: buildSeriesSpec(descriptor),
     methodology: buildMethodology(descriptor),
-  };
+    divergence: null,
+  }, buildSourcesV2(sourceRows));
 }
 
 /** Single dispatch entry-point used by IndicatorCard.svelte: branches on the

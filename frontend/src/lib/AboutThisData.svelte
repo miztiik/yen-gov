@@ -35,6 +35,7 @@
   // collapsed icon as a peripheral cue.
 
   import type { IndicatorArtifact } from "./indicators";
+  import { indicatorArtifactSourcesV2 } from "./canonical/indicator-from-canonical";
   import SourceList from "./SourceList.svelte";
   import SourceListV2 from "./SourceListV2.svelte";
   import TopicIcon from "./TopicIcon.svelte";
@@ -53,6 +54,7 @@
 
   const methodology = $derived(artifact.methodology);
   const series = $derived(artifact.series_spec);
+  const sources_v2 = $derived(indicatorArtifactSourcesV2(artifact));
 
   const has_definition = $derived(!!methodology?.definition);
   const has_publisher = $derived(!!methodology?.publisher);
@@ -150,8 +152,8 @@
 
     <section class="space-y-1">
       <h4 class="text-xs font-semibold uppercase tracking-wide text-slate-500">Sources</h4>
-      {#if artifact.sources_v2}
-        <SourceListV2 sources={artifact.sources_v2} schema_version={artifact.$schema_version} />
+      {#if sources_v2}
+        <SourceListV2 sources={sources_v2} schema_version={artifact.$schema_version} />
       {:else}
         <SourceList sources={artifact.sources} schema_version={artifact.$schema_version} />
       {/if}

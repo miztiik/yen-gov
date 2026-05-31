@@ -8,6 +8,9 @@
 // peak demand card with the FY13–FY25 sparkline + 245.4k MW national).
 
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import Ajv2020 from "ajv/dist/2020.js";
+import addFormats from "ajv-formats";
+import indicatorSchema from "../../../../datasets/schemas/indicator.schema.json";
 
 vi.mock("../duckdb", () => ({
   registerTable: vi.fn(async () => "noop"),
@@ -35,6 +38,7 @@ import {
   buildIndicatorArtifact,
   canonicalEntityToLegacy,
   entityKindToAdminLevel,
+  indicatorArtifactSourcesV2,
   legacyArtifactIdFromPath,
   loadIndicator,
   loadIndicatorFromCanonical,
@@ -46,10 +50,25 @@ import {
   isCanonicalBacked,
   type CanonicalIndicatorDescriptor,
 } from "./indicator-allowlist";
+import {
+  CURRENT_INDICATOR_SCHEMA_ID,
+  CURRENT_INDICATOR_SCHEMA_VERSION,
+} from "./indicator-schema-policy";
 
 const mockedQuery = vi.mocked(query);
 const mockedRegister = vi.mocked(registerTable);
 const mockedFetch = vi.mocked(fetchIndicator);
+
+const ajv = new Ajv2020({ strict: false, allErrors: true, allowUnionTypes: true });
+addFormats(ajv);
+const validateIndicatorArtifact = ajv.compile(indicatorSchema);
+
+function expectValidCurrentIndicatorArtifact(artifact: unknown): Record<string, unknown> {
+  const jsonArtifact = JSON.parse(JSON.stringify(artifact)) as Record<string, unknown>;
+  const ok = validateIndicatorArtifact(jsonArtifact);
+  expect(ok, JSON.stringify(validateIndicatorArtifact.errors, null, 2)).toBe(true);
+  return jsonArtifact;
+}
 
 beforeEach(() => {
   mockedQuery.mockReset();
@@ -1316,7 +1335,11 @@ describe("entityKindToAdminLevel — PR B.02 dispatch helper", () => {
   // `"state"` (the exact PR B.01-shaped trap this helper retires).
   it("every CANONICAL_BACKED_INDICATORS descriptor passes through the dispatch consistently", () => {
     for (const d of CANONICAL_BACKED_INDICATORS) {
-      const built = buildIndicatorArtifact(d, [], []);
+      const built = buildIndicatorArtifact(
+        d,
+        [{ entity_id: "IN-S22", period_label: "2025", value_numeric: 1, source_id: "src-test" }],
+        [],
+      );
       expect(built.coverage.admin_level).toBe(entityKindToAdminLevel(d.meta.entity_kind));
     }
   });
@@ -1511,20 +1534,30 @@ describe("buildIndicatorArtifact — canonical rows → legacy IndicatorArtifact
   it("projects joined source rows as sources_v2 without legacy fetch telemetry", () => {
     const a = buildIndicatorArtifact(PEAK_DEMAND_DESCRIPTOR, OBS_ROWS, SRC_ROWS);
     expect(a.sources).toEqual([]);
-    expect(a.sources_v2).toHaveLength(2);
-    expect(a.sources_v2!.map((s) => s.source_id)).toEqual(["src-iced", "src-rbi"]);
-    expect(a.sources_v2![0]).toMatchObject({
+    const sourcesV2 = indicatorArtifactSourcesV2(a);
+    expect(sourcesV2).toHaveLength(2);
+    expect(sourcesV2!.map((s) => s.source_id)).toEqual(["src-iced", "src-rbi"]);
+    expect(sourcesV2![0]).toMatchObject({
       producer: "NITI Aayog",
       title: "India Climate & Energy Dashboard",
       vintage: "FY 2024-25",
       url_main: "https://iced.niti.gov.in/",
     });
-    for (const s of a.sources_v2!) {
+    for (const s of sourcesV2!) {
       const asRecord = s as unknown as Record<string, unknown>;
       for (const forbidden of FORBIDDEN_SOURCE_FIELDS) {
         expect(asRecord[forbidden]).toBeUndefined();
       }
     }
+  });
+
+  it("keeps sources_v2 out of the serialized indicator artifact contract", () => {
+    const a = buildIndicatorArtifact(PEAK_DEMAND_DESCRIPTOR, OBS_ROWS, SRC_ROWS);
+    expect(indicatorArtifactSourcesV2(a)).toHaveLength(2);
+    expect(a.sources_v2).toBeUndefined();
+    expect(Object.keys(a)).not.toContain("sources_v2");
+    const serialized = expectValidCurrentIndicatorArtifact(a);
+    expect(serialized.sources_v2).toBeUndefined();
   });
 
   it("copies descriptor IndicatorMeta without retired render-owned fields", () => {
@@ -1606,26 +1639,32 @@ describe("buildIndicatorArtifact — canonical rows → legacy IndicatorArtifact
     expect(original_caveats).toEqual(["caveat A", "caveat B"]);
   });
 
-  it("declares schema v4.4 + OGL-IN-1.0 license", () => {
+  it("declares the current schema version + OGL-IN-1.0 license", () => {
     const a = buildIndicatorArtifact(PEAK_DEMAND_DESCRIPTOR, OBS_ROWS, SRC_ROWS);
-    expect(a.$schema_version).toBe("4.4");
+    expect(CURRENT_INDICATOR_SCHEMA_ID).toBe(indicatorSchema.$id);
+    expect(CURRENT_INDICATOR_SCHEMA_VERSION).toBe(indicatorSchema["x-version"]);
+    expect(a.$schema).toBe(CURRENT_INDICATOR_SCHEMA_ID);
+    expect(a.$schema_version).toBe(CURRENT_INDICATOR_SCHEMA_VERSION);
     expect(a.license.id).toBe("OGL-IN-1.0");
     expect(a.license.redistributable).toBe(true);
+    expect(a.series_spec?.description.length).toBeGreaterThanOrEqual(10);
+    expect(a.divergence).toBeNull();
+    expectValidCurrentIndicatorArtifact(a);
   });
 
-  it("handles an empty result set without throwing", () => {
-    const a = buildIndicatorArtifact(PEAK_DEMAND_DESCRIPTOR, [], []);
-    expect(a.rows).toEqual([]);
-    expect(a.sources).toEqual([]);
-    expect(a.sources_v2).toEqual([]);
-    expect(a.coverage.temporal).toBe("");
+  it("rejects an empty result set instead of emitting an invalid current artifact", () => {
+    expect(() => buildIndicatorArtifact(PEAK_DEMAND_DESCRIPTOR, [], [])).toThrow(
+      /current indicator schema requires at least one row/,
+    );
   });
 });
 
 describe("loadIndicatorFromCanonical — DuckDB-WASM round-trip (loader)", () => {
   it("registers the fact-table and sources table before querying", async () => {
     mockedQuery.mockResolvedValue([]);
-    await loadIndicatorFromCanonical(PEAK_DEMAND_DESCRIPTOR);
+    await expect(loadIndicatorFromCanonical(PEAK_DEMAND_DESCRIPTOR)).rejects.toThrow(
+      /current indicator schema requires at least one row/,
+    );
     const registered = mockedRegister.mock.calls.map((c) => c[0]);
     expect(registered).toContain("energy.energy_demand_supply");
     expect(registered).toContain("taxonomy.sources");
@@ -1633,17 +1672,19 @@ describe("loadIndicatorFromCanonical — DuckDB-WASM round-trip (loader)", () =>
 
   it("queries the fact-table view (last segment of table_id) filtered by indicator_id", async () => {
     mockedQuery.mockResolvedValue([]);
-    await loadIndicatorFromCanonical(PEAK_DEMAND_DESCRIPTOR);
+    await expect(loadIndicatorFromCanonical(PEAK_DEMAND_DESCRIPTOR)).rejects.toThrow(
+      /current indicator schema requires at least one row/,
+    );
     const firstSql = mockedQuery.mock.calls[0][0] as string;
     expect(firstSql).toMatch(/FROM\s+energy_demand_supply/);
     expect(firstSql).toMatch(/indicator_id\s*=\s*'peak-electricity-demand-mw'/);
   });
 
-  it("returns an empty artifact when the fact-table has no rows for this indicator", async () => {
+  it("rejects when the fact-table has no rows for this indicator", async () => {
     mockedQuery.mockResolvedValueOnce([]); // observation query
-    const out = await loadIndicatorFromCanonical(PEAK_DEMAND_DESCRIPTOR);
-    expect(out.rows).toEqual([]);
-    expect(out.sources).toEqual([]);
+    await expect(loadIndicatorFromCanonical(PEAK_DEMAND_DESCRIPTOR)).rejects.toThrow(
+      /current indicator schema requires at least one row/,
+    );
     // Second (sources) query is SKIPPED when there are no source_ids to look up.
     expect(mockedQuery).toHaveBeenCalledTimes(1);
   });
@@ -1674,7 +1715,7 @@ describe("loadIndicatorFromCanonical — DuckDB-WASM round-trip (loader)", () =>
     expect(secondSql).toMatch(/FROM\s+sources/);
     expect(secondSql).toMatch(/'src-iced'/);
     expect(out.sources).toEqual([]);
-    expect(out.sources_v2).toHaveLength(1);
+    expect(indicatorArtifactSourcesV2(out)).toHaveLength(1);
     expect(out.rows[0].entity_id).toBe("S22");
   });
 });
@@ -1970,7 +2011,9 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
 
   it("[mandatory] issues ONE SQL with `indicator_id IN (` covering all 3 children", async () => {
     mockedQuery.mockResolvedValueOnce([]); // no observations, sources query is skipped
-    await loadIndicatorFromCanonical(RPO_DESCRIPTOR);
+    await expect(loadIndicatorFromCanonical(RPO_DESCRIPTOR)).rejects.toThrow(
+      /current indicator schema requires at least one row/,
+    );
     // Exactly one query (sources skipped because no source_ids harvested):
     expect(mockedQuery).toHaveBeenCalledTimes(1);
     const sql = mockedQuery.mock.calls[0][0] as string;
@@ -2016,8 +2059,9 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
       ]);
     const result = await loadIndicatorFromCanonical(RPO_DESCRIPTOR);
     expect(result.sources).toEqual([]);
-    expect(result.sources_v2).toHaveLength(1);
-    expect(result.sources_v2![0]).toMatchObject({
+    const sourcesV2 = indicatorArtifactSourcesV2(result);
+    expect(sourcesV2).toHaveLength(1);
+    expect(sourcesV2![0]).toMatchObject({
       source_id: "src-rpo",
       title: "ICED RPO",
       vintage: "FY 2024-25",
@@ -2076,7 +2120,15 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
   });
 
   it("artifact's indicator.id is the parent (NOT any child); meta block carries parent fields", async () => {
-    mockedQuery.mockResolvedValueOnce([]);
+    mockedQuery.mockResolvedValueOnce([
+      {
+        indicator_id: "rpo-compliance-pct-total",
+        entity_id: "IN-S22",
+        period_label: "2024-04",
+        value_numeric: 92.1,
+        source_id: "",
+      },
+    ]);
     const result = await loadIndicatorFromCanonical(RPO_DESCRIPTOR);
     expect(result.indicator.id).toBe("rpo-compliance-pct");
     expect(result.indicator.unit).toBe("%");
@@ -2085,7 +2137,15 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
   });
 
   it("loadIndicatorIfCanonical dispatches the facet-multiplexed slug to the canonical path", async () => {
-    mockedQuery.mockResolvedValueOnce([]);
+    mockedQuery.mockResolvedValueOnce([
+      {
+        indicator_id: "rpo-compliance-pct-total",
+        entity_id: "IN-S22",
+        period_label: "2024-04",
+        value_numeric: 92.1,
+        source_id: "",
+      },
+    ]);
     const out = await loadIndicatorIfCanonical("energy/state_rpo_compliance_pct");
     expect(out).not.toBeNull();
     expect(out!.indicator.id).toBe("rpo-compliance-pct");
