@@ -300,7 +300,7 @@ def remove_stale_shards(villages_dir: Path, keep_partition_paths: set[str]) -> i
     if not villages_dir.exists():
         return 0
     deleted = 0
-    for shard in villages_dir.rglob("all.geojson"):
+    for shard in list(villages_dir.rglob("all.geojson")):
         # partition_path keys in the parquet are repo-relative POSIX
         # rooted at boundaries/in/...; reconstruct the same shape from
         # the absolute shard path.
