@@ -219,10 +219,30 @@ export async function loadBoundary(
 ): Promise<BoundaryFeatureCollection | null> {
   const relpath = boundaryRelPath(level, parentDistrictLgd, stateLgd);
   const url = `${DATA_BASE}/boundaries/in/${relpath}`;
+  // Perf-mark instrumentation for the TopoJSON migration bench harness
+  // (see TODO/20260531-geojson-to-topojson-migration-plan.md P1.2).
+  // Guarded by VITE_BENCH so Vite tree-shakes it out of production builds;
+  // zero runtime cost when the env var is unset. The bench Playwright spec
+  // measures fetch+parse cost as the gap between these two marks.
+  const benchEnabled = import.meta.env.VITE_BENCH === "1";
+  const markStart = benchEnabled ? `boundary-fetch-start:${level}` : "";
+  const markEnd = benchEnabled ? `boundary-source-added:${level}` : "";
+  if (benchEnabled) performance.mark(markStart);
   try {
     const r = await fetch(url);
-    if (!r.ok) return null;
+    if (!r.ok) {
+      if (benchEnabled) performance.mark(markEnd);
+      return null;
+    }
     const fc = (await r.json()) as BoundaryFeatureCollection;
+    if (benchEnabled) {
+      performance.mark(markEnd);
+      try {
+        performance.measure(`boundary-load:${level}`, markStart, markEnd);
+      } catch {
+        // measure() can throw if marks were cleared mid-flight; ignore.
+      }
+    }
     // District-level filter: districts/all.geojson is national. When the
     // caller supplies a stateLgd (drill-down picked a specific state), trim
     // to that state's districts before returning so the choropleth doesn't

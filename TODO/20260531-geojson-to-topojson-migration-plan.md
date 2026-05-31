@@ -94,10 +94,10 @@ Status flags: `[ ]` not-started · `[~]` in-progress · `[x]` done · `[!]` bloc
 | **P0**: Foundations | 0.1 | Author ADR-0047 (already drafted; ships with PR-0) | 2 | — | default | `#486` | `[x]` |
 | P0 | 0.2 | Distill Max's source audit to `notes/2026-05-31-geoboundaries-udit001-source-audit.md` | 1 | — | default | `#486` | `[x]` |
 | P0 | 0.3 | PR-0 (plan-doc + ADR + Max-distill) | 2 | 0.1, 0.2 | default | `#486` | `[x]` |
-| **P1**: Benchmark scaffolding | 1.1 | Add Playwright bench spec | 3 | 0.3 | Jony | `_pending_` | `[ ]` |
-| P1 | 1.2 | Add `VITE_BENCH=1` perf-mark instrumentation | 2 | 0.3 | Jony | `_pending_` | `[ ]` |
-| P1 | 1.3 | Run baseline; publish `notes/2026-05-31-topojson-baseline-bench.md` | 1 | 1.1, 1.2 | Jony | `_pending_` | `[ ]` |
-| P1 | 1.4 | Stamp plan-doc with derived STOP-CONDITION numbers | 0 | 1.3 | default | n/a | `[ ]` |
+| **P1**: Benchmark scaffolding | 1.1 | Add Playwright bench spec | 3 | 0.3 | Jony | `_pending_` | `[x]` |
+| P1 | 1.2 | Add `VITE_BENCH=1` perf-mark instrumentation | 2 | 0.3 | Jony | `_pending_` | `[x]` |
+| P1 | 1.3 | Run baseline; publish `notes/2026-05-31-topojson-baseline-bench.md` | 1 | 1.1, 1.2 | Jony | `_pending_` | `[x]` |
+| P1 | 1.4 | Stamp plan-doc with derived STOP-CONDITION numbers | 0 | 1.3 | default | n/a | `[x]` |
 | **P2**: Phase 1 — India home (state layer) | 2.1 | Add converter + `config/topojson.json` + schema + pytest | 3 | 0.1 | Fowler | `_pending_` | `[ ]` |
 | P2 | 2.2 | Run converter on `states/all.geojson` | 1 | 2.1 | default | `_pending_` | `[ ]` |
 | P2 | 2.3 | Extend frontend loader (topo-first, geo fallback) | 3 | 2.2 | Jony | `_pending_` | `[ ]` |
@@ -271,7 +271,19 @@ Plan terminates when:
 - Both distilled docs (P5.1 + P5.2) live.
 - ADR-0047 status flipped to "accepted" (was "proposed" in P0.1).
 
-Per-row Phase-2 STOP CONDITION numbers populated by P1.4 once baseline measured.
+Per-row Phase-2 STOP CONDITION numbers (derived 2026-05-31 from
+`notes/2026-05-31-topojson-baseline-bench.md` § 3; rule = `delta >= 3 *
+noise_floor` against the warm-steady-state baseline; route `/`):
+
+| Metric | Warm median (geojson baseline) | Warm noise floor (p95 - median) | 3 x noise floor | Topojson candidate MUST show |
+| --- | ---: | ---: | ---: | --- |
+| wire_bytes (B) | 812,494 | 0 | 0 | Any measurable reduction; target 60-80% per OWID/Mapshaper precedent (>= 487 KB drop). Absolute floor: >= 5% reduction OR explicit per-PR diagnosis. |
+| resource_fetch_ms | 4,087.4 | 175.0 | 525 | Reduction >= 525 ms (median over 5 warm runs). |
+| ttfp_ms | 7,628 | 1,688 | 5,064 | Reduction >= 5,064 ms OR explicit acknowledgement that TTFP is dominated by app-shell hydration (in which case `resource_fetch_ms` is the gating metric). |
+| parse_ms | null on `/` baseline | n/a | n/a | Becomes load-bearing post-P2.3 once `loadBoundary()` is the canonical topojson-first/geojson-fallback fetcher; add 3 x noise-floor rule then. |
+
+Methodology deviations from the per-row spec (5 + 5 runs, single context,
+screenshots dropped) recorded in the baseline note's section 1.
 
 ## 8. Open questions deferred to user
 
