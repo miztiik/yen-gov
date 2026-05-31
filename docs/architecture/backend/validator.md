@@ -106,6 +106,15 @@ Tier B must not accept an artifact by guessing defaults for missing historical f
   `pytest --ignore=...`. Combined wall-clock savings: ~150s per
   `pytest -q`.
 
+Validator fixture tests assert schema-version relationships, not current
+point literals. When a fixture means "the current writer version", source
+that value from `yen_gov.core.schema_registry.schema_version()` or from
+the fixture schema's own `x-version`; do not hardcode today's value in the
+assertion. Explicit version literals remain valid for migration fixtures,
+historical/backcompat cases, intentionally bad-version rejection, and
+synthetic schemas. See [docs/architecture/testing.md](../testing.md)
+`Schema Versions In Tests` for the full test doctrine.
+
 ## Pattern: env-var injection for "endpoint walks the corpus"
 
 Any FastAPI route, CLI, or tool that defaults to the real repo root
