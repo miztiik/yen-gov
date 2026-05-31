@@ -39,6 +39,7 @@
   } from "./drilldown";
   import type { BoundaryEntry } from "./maplibre/sources";
   import SourceList from "./SourceList.svelte";
+  import SourceListV2 from "./SourceListV2.svelte";
   import TopicIcon from "./TopicIcon.svelte";
   import RebaseBanner from "./honesty/RebaseBanner.svelte";
   import DirectionLegendCue from "./honesty/DirectionLegendCue.svelte";
@@ -963,7 +964,11 @@
         {/if}
       </div>
 
-      <SourceList sources={artifact.sources} schema_version={artifact.$schema_version} />
+      {#if artifact.sources_v2}
+        <SourceListV2 sources={artifact.sources_v2} schema_version={artifact.$schema_version} />
+      {:else}
+        <SourceList sources={artifact.sources} schema_version={artifact.$schema_version} />
+      {/if}
     </div>
   {/if}
 </section>

@@ -5,6 +5,7 @@
 
 import { DATA_BASE } from "./paths";
 import { oklchToHex } from "./colors/oklch";
+import type { SourceV2Row } from "./source-list-v2";
 
 // -- Schema-shaped types ------------------------------------------------------
 
@@ -311,6 +312,9 @@ export interface IndicatorArtifact {
   $schema: string;
   $schema_version: string;
   sources: IndicatorSource[];
+  /** Citation-ledger provenance for canonical-backed artifacts. Legacy
+   *  JSON artifacts keep using `sources[]` until their contract is cut. */
+  sources_v2?: SourceV2Row[];
   license: IndicatorLicense;
   coverage: IndicatorCoverage;
   indicator: IndicatorMeta;
