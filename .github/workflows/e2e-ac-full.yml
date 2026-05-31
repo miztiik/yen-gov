@@ -14,7 +14,7 @@ name: e2e AC coverage (full 31-state matrix)
 #     contract test that pairs with this spec, and the spec itself.
 #   - Manual dispatch for on-demand verification.
 #
-# Per TODO/20260531-e2e-runtime-trim-plan.md PR-2. Doctrine in
+# Per docs/archive/plans/20260531-e2e-runtime-trim-plan.md PR-2. Doctrine in
 # docs/architecture/testing.md ("e2e scope and canary subset" section,
 # distilled by PR-4).
 

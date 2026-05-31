@@ -192,6 +192,17 @@ python tools/boundaries/simplify.py --dry-run --skip-parquet
 
 This command reads `tools/boundaries/simplify.py:LAYER_TUNING`, reports every shard sorted by gzipped size, and exits non-zero if any file exceeds its configured ceiling. If a shard fails, either re-run simplification as a data PR or document and implement a finer partition strategy; do not silently raise the ceiling from a frontend test.
 
+## e2e scope and canary subset
+
+End-to-end (Playwright) coverage is the most expensive tier. It must stay scoped to representative citizen journeys; cheaper tiers own exhaustive coverage. The runtime trim landed in PRs #520, #521, #522 (plan-doc archived at [docs/archive/plans/20260531-e2e-runtime-trim-plan.md](../archive/plans/20260531-e2e-runtime-trim-plan.md)) codified four rules:
+
+- **Cheap tiers own exhaustive coverage.** If a fact can be proven by reading on-disk files + a TS module (registry symmetry, shard presence, slug round-trips, humanised label maps, temporal-caption vocabulary), it belongs in vitest / contract / pytest. Re-asserting in e2e doubles CI time for zero incremental citizen-invariant proof. When you delete an e2e assertion, the equivalent must already exist in a cheaper tier (or land in the same commit).
+- **Per-entity matrices ship as canary + opt-in full.** A spec that iterates every state/district/UT on every PR is appropriate only as a one-time migration receipt (Phase A.4 shape, [docs/archive/plans/20260529-boundary-rip-and-replace-plan.md](../archive/plans/20260529-boundary-rip-and-replace-plan.md)), not as a standing PR gate. The standing shape: a 5-code canary covering each distinct risk on every PR, with the full matrix env-gated (`AC_COVERAGE_FULL=1`) and triggered nightly + on path-filtered PRs that touch the files the canary cannot protect (registry source, on-disk shards, taxonomy, the contract test, the spec itself). Reference: [frontend/e2e/state-ac-coverage.spec.ts](../../frontend/e2e/state-ac-coverage.spec.ts) + [.github/workflows/e2e-ac-full.yml](../../.github/workflows/e2e-ac-full.yml).
+- **`mobile-pixel-5` runs only where a breakpoint-specific code path exists.** The default is desktop-chromium. Mobile only runs specs whose production code branches on `lg:` / `md:` / mobile-specific viewport (today: `golden-path.spec.ts`, `extended-routes.spec.ts`, `indicator-ranked-polish.spec.ts`). Doubling CI minutes to retest identical desktop/mobile code paths is waste. Configured via per-project `testMatch` in [frontend/playwright.config.ts](../../frontend/playwright.config.ts).
+- **Performance benchmarks ship behind `@bench`.** CDP-throttled benchmarks (currently `boundary-benchmark.spec.ts`) are excluded by default via `grepInvert: /@bench/`. Run on demand via `PLAYWRIGHT_GREP=@bench bunx playwright test ...`. They are not citizen invariants and should not gate PRs.
+
+Playwright runs `fullyParallel: true` with `workers: process.env.CI ? 2 : 4`. Add new specs assuming parallel execution; do not introduce shared on-disk state without an explicit `@bench`-style exclusion or test-context scoping.
+
 ## Fixture conventions
 
 - **`tmp_path`** for any test that needs a filesystem corpus. Per [CLAUDE.md §10](../../CLAUDE.md) and [docs/architecture/backend/validator.md](backend/validator.md), pytest tests MUST NOT walk the real `datasets/**`.
