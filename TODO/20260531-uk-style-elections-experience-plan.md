@@ -76,7 +76,7 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 
 | Row | Lane | Title | Depends on | Status | PR | Escalation agent |
 | --- | --- | --- | --- | --- | --- | --- |
-| PR-0 | 0 | ADR + docs: drill IA, generic TileCartogram, AC/PC grain, filter URL grammar | none `||` | [ ] PENDING | - | Gregor |
+| PR-0 | 0 | ADR + docs: drill IA, generic TileCartogram, AC/PC grain, filter URL grammar | none `||` | [x] DONE | - | Gregor (PASS-WITH-NITS; 5 edits applied) |
 | PR-A1 | A | PC source recon + ingest handover-doc + pre-flight proposal | none `||` | [ ] PENDING | Max |
 | PR-A2 | A | PC identity + PcDimRow + envelope + pc-* indicators + concepts + schemas | PR-A1 | [ ] PENDING | Hans + Max |
 | PR-A3 | A | PC parser + observations + rollups + CLI `ingest-eci-ls` | PR-A2 | [ ] PENDING | Gregor |
