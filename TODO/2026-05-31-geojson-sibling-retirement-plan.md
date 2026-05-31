@@ -11,7 +11,7 @@
 
 - [CLAUDE.md](../CLAUDE.md) - Holy Laws #1 (static-first), #3 (contracts before logic), #5 (structural fixes only), #10 (tests ship with feature)
 - [docs/agents/bootstrap.md](../docs/agents/bootstrap.md)
-- [TODO/20260531-geojson-to-topojson-migration-plan.md](20260531-geojson-to-topojson-migration-plan.md) - parent plan
+- [docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md](20260531-geojson-to-topojson-migration-plan.md) - parent plan
 - [docs/architecture/decisions/0031-boundary-geometry-strategy.md](../docs/architecture/decisions/0031-boundary-geometry-strategy.md) - format-split table this plan amends
 - [docs/architecture/decisions/0047-topojson-as-render-encoding.md](../docs/architecture/decisions/0047-topojson-as-render-encoding.md) - parent ADR
 - [docs/architecture/frontend/topojson-loader.md](../docs/architecture/frontend/topojson-loader.md) - loader doc this plan simplifies

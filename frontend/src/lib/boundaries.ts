@@ -154,7 +154,7 @@ export function boundaryBasename(
 
 /**
  * Sibling-path pair for the topojson-first / geojson-fallback contract
- * (TODO/20260531-geojson-to-topojson-migration-plan.md P2.3). Returns
+ * (docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md P2.3). Returns
  * both candidate relative paths for the same logical layer; the loader
  * tries `topo` first and falls back to `geo`. Pure: no I/O.
  *
@@ -229,7 +229,7 @@ export const STATE_LGD_TO_ECI_PUBLIC: Record<string, string> = STATE_LGD_TO_ECI;
  * parsed FeatureCollection plus a `format` marker indicating which
  * sibling won.
  *
- * Per TODO/20260531-geojson-to-topojson-migration-plan.md P2.3 and the
+ * Per docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md P2.3 and the
  * fallback contract in section 5: graceful failover, no user toggle,
  * `[fallback]` console.warn logs the reason whenever the topo branch
  * loses. Perf-marks (VITE_BENCH=1) wrap the winning fetch+parse so the

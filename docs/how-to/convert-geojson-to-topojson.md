@@ -4,7 +4,7 @@
 
 Runbook for [tools/topojson/convert_layer.py](../../tools/topojson/convert_layer.py), the deterministic Mapshaper wrapper that ships every `.topojson` sibling under `datasets/boundaries/in/`.
 
-Distilled from [TODO/20260531-geojson-to-topojson-migration-plan.md](../../TODO/20260531-geojson-to-topojson-migration-plan.md) rows P2.1 + P4.x. See [ADR-0047](../architecture/decisions/0047-topojson-as-render-encoding.md) for why this encoding exists.
+Distilled from [docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md](../../docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md) rows P2.1 + P4.x. See [ADR-0047](../architecture/decisions/0047-topojson-as-render-encoding.md) for why this encoding exists.
 
 ## See also
 

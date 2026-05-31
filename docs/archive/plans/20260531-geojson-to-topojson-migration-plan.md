@@ -118,7 +118,7 @@ Status flags: `[ ]` not-started · `[~]` in-progress · `[x]` done · `[!]` bloc
 | P5 | 5.2 | `docs/architecture/frontend/topojson-loader.md` | 2 | all P4 | default | #498 | `[x]` |
 | P5 | 5.3 | Commission `TODO/2026-05-31-village-pincode-vector-tiles-plan.md` (PMTiles successor) | 2 | 2.7 | default | #497 | `[x]` |
 | P5 | 5.4 | Commission cleanup PR for `.geojson` retirement | 2 | all P4 | default | #499 | `[x]` |
-| P5 | 5.5 | Archive this plan-doc with "Plan complete" block | 1 | 5.1, 5.2, 5.3 | default | `_pending_` | `[ ]` |
+| P5 | 5.5 | Archive this plan-doc with "Plan complete" block | 1 | 5.1, 5.2, 5.3 | default | `_pending_` | `[x]` |
 
 ## 4a. Per-row execution specs (zero-context subagent execution)
 
@@ -305,3 +305,52 @@ None. All ambiguities resolved 2026-05-31.
 - Server-side rendering / SSG — deployment stays static GH Pages.
 - Concurrent multi-PR execution from THIS plan — user instruction: this plan's work is strictly serial; other agents may run parallel in disjoint subsystems.
 
+
+## Plan complete (archived 2026-05-31)
+
+**Status**: COMPLETE. All 5 phases shipped. ADR-0047 status flipped to `accepted` (see docs/architecture/decisions/0047-topojson-as-render-encoding.md `Acceptance evidence` section).
+
+### Per-row distillation map
+
+| Row | PR(s) | Distilled output |
+|---|---|---|
+| P0.1 ADR draft | #486 | docs/architecture/decisions/0047-topojson-as-render-encoding.md |
+| P0.2 Max source audit | #486 | notes/2026-05-31-geoboundaries-udit001-source-audit.md |
+| P0.3 PR-0 bundle | #486 | this plan-doc (now archived) |
+| P1.1 Playwright bench spec | #487 | frontend/e2e/boundary-benchmark.spec.ts |
+| P1.2 perf-mark instrumentation | #487 | frontend/src/lib/boundaries.ts (VITE_BENCH branch) |
+| P1.3 baseline bench note | #487 | notes/2026-05-31-topojson-baseline-bench.md |
+| P1.4 STOP-CONDITION stamp | #487 | this plan-doc ?7 |
+| P2.1 converter | #488 | tools/topojson/convert_layer.py + config/topojson.json + datasets/schemas/topojson-config.schema.json |
+| P2.2-2.7 Phase 1 India home | #488 | datasets/boundaries/in/states/all.topojson + loader topo-first contract |
+| Batched converter (perf rescue) | #496 | tools/topojson/convert_layer.py --batch mode |
+| P3.x Track A cascade | #489 | datasets/boundaries/in/{districts,country,subdistricts}/**/*.topojson |
+| P4.1 AC | #490 | datasets/boundaries/in/ac/state=*/all.topojson |
+| P4.2 PC | #491 | datasets/boundaries/in/pc/delim=*/all.topojson |
+| P4.3 ULB-wards | #493 + #500 | datasets/boundaries/in/wards/state=*/ulb=*/all.topojson (3300 shards) |
+| P4.4 panchayats | #494 + #502 | datasets/boundaries/in/panchayats/state=*/district=*/all.topojson (663 shards) |
+| P4.5 villages | #495 + #504 | datasets/boundaries/in/villages/state=*/district=*/all.topojson (659 shards) |
+| P4.6 postal/pincodes | #492 | datasets/boundaries/in/postal/**/all.topojson |
+| P5.1 runbook | #498 | docs/how-to/convert-geojson-to-topojson.md |
+| P5.2 loader doc | #498 | docs/architecture/frontend/topojson-loader.md |
+| P5.3 PMTiles successor | #497 | TODO/2026-05-31-village-pincode-vector-tiles-plan.md |
+| P5.4 .geojson retirement | #499 | TODO/2026-05-31-geojson-sibling-retirement-plan.md |
+| P5.5 archive + ADR flip | #_pending_ | this archive PR |
+
+### Follow-up plans (commissioned, not executed)
+
+- [TODO/2026-05-31-geojson-sibling-retirement-plan.md](../../../TODO/2026-05-31-geojson-sibling-retirement-plan.md) ? retire `.geojson` siblings for 8 Track A boundary layers once loader fallback is proven dead.
+- [TODO/2026-05-31-village-pincode-vector-tiles-plan.md](../../../TODO/2026-05-31-village-pincode-vector-tiles-plan.md) ? PMTiles successor for villages + pincodes (Track A2 felt-perf fix; supersedes Track A2 `.topojson` for those two layers).
+
+### STOP CONDITION audit
+
+| Criterion | Status |
+|---|---|
+| P5.5 archive landed | done (this PR) |
+| All 10 in-scope layers ship as `.topojson` siblings | done (8 Track A + 2 Track A2) |
+| P5.3 PMTiles successor plan-doc commissioned | done (#497) |
+| P5.4 cleanup-PR commissioned | done (#499) |
+| P5.1 + P5.2 distilled docs live | done (#498) |
+| ADR-0047 status flipped to `accepted` | done (this PR) |
+
+End of plan.

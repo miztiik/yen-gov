@@ -1,9 +1,9 @@
 # ADR-0047 — TopoJSON as render encoding for boundary layers
 
-**Status**: proposed (flips to accepted at plan-doc P5.5). **Non-binding until the migration plan-doc is approved**; reject/amend by closing [TODO/20260531-geojson-to-topojson-migration-plan.md](../../../TODO/20260531-geojson-to-topojson-migration-plan.md).
+**Status**: accepted (flipped from proposed at plan-doc P5.5 via PR-Z4 archive; see Acceptance evidence below). Amendment commissioned at [TODO/2026-05-31-geojson-sibling-retirement-plan.md](../../../TODO/2026-05-31-geojson-sibling-retirement-plan.md) (Track A `.geojson` sibling retirement) and [TODO/2026-05-31-village-pincode-vector-tiles-plan.md](../../../TODO/2026-05-31-village-pincode-vector-tiles-plan.md) (Track A2 PMTiles successor).
 **Date**: 2026-05-31
 **Authors**: yen-gov agent (default), red-teamed by Fowler + Jony + Max subagents
-**Plan-doc**: [TODO/20260531-geojson-to-topojson-migration-plan.md](../../../TODO/20260531-geojson-to-topojson-migration-plan.md)
+**Plan-doc**: [docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md](../../../docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md)
 **Supersedes**: **partially supersedes** [ADR-0031 boundary geometry strategy](0031-boundary-geometry-strategy.md) — specifically ADR-0031's format-split-by-layer-size table (GeoJSON cells become TopoJSON post-P5.4 of the migration plan; PMTiles trigger column unchanged). Rest of ADR-0031 unchanged. Plan-doc P5.5 commissions an amendment row on ADR-0031 to update its table.
 
 ## Context
@@ -69,7 +69,31 @@ Per plan-doc phases P2-P4. Phase 1 (state layer) gates on measured perf clearing
 
 ## References
 
-- Plan-doc: [TODO/20260531-geojson-to-topojson-migration-plan.md](../../../TODO/20260531-geojson-to-topojson-migration-plan.md)
+- Plan-doc: [docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md](../../../docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md)
 - Mike Bostock, "How To Infer Topology" (2012, the TopoJSON paper)
 - Mapshaper CLI: https://github.com/mbloch/mapshaper
 - Subagent verdicts captured 2026-05-31 in plan-doc §0 cross-refs.
+
+## Acceptance evidence (2026-05-31)
+
+Plan-doc shipped all 5 phases. ADR flips from `proposed` to `accepted`.
+
+| Phase | PRs |
+|---|---|
+| P0 (plan + ADR + Max audit) | #486 |
+| P1 (bench harness + baseline) | #487 |
+| P2 (Phase 1 state layer + loader + bench) | #488 |
+| P3 (Track A cascade: districts + country + subdistricts) | #489 |
+| P4.1 (AC) | #490 |
+| P4.2 (PC) | #491 |
+| P4.3 (ULB-wards) | #493 partial + #500 complete |
+| P4.4 (panchayats) | #494 partial + #502 complete |
+| P4.5 (villages, Track A2) | #495 partial + #504 complete |
+| P4.6 (postal/pincodes, Track A2) | #492 |
+| Batched converter (perf rescue for cascade) | #496 |
+| P5.1 + P5.2 (distill docs) | #498 |
+| P5.3 (PMTiles successor plan commissioned) | #497 |
+| P5.4 (`.geojson` retirement plan commissioned) | #499 |
+| P5.5 (this archive + ADR flip) | #_pending_ |
+
+All 8 Track A boundary layers (country, state, district, subdistrict, AC, PC, ULB-wards, panchayats) AND both Track A2 layers (villages, postal) ship `.topojson` siblings 100% coverage. Loader topojson-first / geojson-fallback contract live in production via `frontend/src/lib/boundaries.ts`. Conformance test asserts feature-count parity per shard via `frontend/src/contracts/boundaries-conform.test.ts` (4137 assertions green per PR #500 gate).

@@ -11,7 +11,7 @@
 
 - [CLAUDE.md](../CLAUDE.md) - Holy Laws #1 (static-first), #3 (contracts before logic), #4 (docs = agent memory), #8 (mature OSS first)
 - [docs/agents/bootstrap.md](../docs/agents/bootstrap.md)
-- [TODO/20260531-geojson-to-topojson-migration-plan.md](20260531-geojson-to-topojson-migration-plan.md) - parent plan; honest-perf framing in section 1; commissions this at P5.3
+- [docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md](20260531-geojson-to-topojson-migration-plan.md) - parent plan; honest-perf framing in section 1; commissions this at P5.3
 - [docs/architecture/decisions/0031-boundary-geometry-strategy.md](../docs/architecture/decisions/0031-boundary-geometry-strategy.md) - PMTiles trigger column is the relevant prior decision
 - [docs/architecture/decisions/0047-topojson-as-render-encoding.md](../docs/architecture/decisions/0047-topojson-as-render-encoding.md) - parent ADR; section "Rejected E" explicitly defers PMTiles for small layers, names PMTiles as the right answer for villages + pincodes
 - PRs the parent plan shipped:

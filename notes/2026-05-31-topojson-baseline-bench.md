@@ -1,7 +1,7 @@
 # TopoJSON migration — baseline benchmark (P1.3)
 
 **Last Updated**: 2026-05-31
-**Closes**: P1.1 + P1.2 + P1.3 + P1.4 of [TODO/20260531-geojson-to-topojson-migration-plan.md](../TODO/20260531-geojson-to-topojson-migration-plan.md)
+**Closes**: P1.1 + P1.2 + P1.3 + P1.4 of [docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md](../docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md)
 **Harness**: [frontend/e2e/boundary-benchmark.spec.ts](../frontend/e2e/boundary-benchmark.spec.ts)
 **Perf-mark instrumentation**: [frontend/src/lib/boundaries.ts](../frontend/src/lib/boundaries.ts) (VITE_BENCH=1 guard)
 
