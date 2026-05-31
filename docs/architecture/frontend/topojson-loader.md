@@ -53,7 +53,7 @@ Vite dead-code-eliminates these branches when `VITE_BENCH` is unset, so producti
 
 [frontend/src/contracts/boundaries-conform.test.ts](../../../frontend/src/contracts/boundaries-conform.test.ts) enforces:
 
-1. **Sibling pair until cleanup**: every `.topojson` under `datasets/boundaries/in/**` has a sibling `.geojson` in the same directory. Cleanup commissioned at [TODO/2026-05-31-geojson-sibling-retirement-plan.md](../../../TODO/2026-05-31-geojson-sibling-retirement-plan.md) (parent plan P5.4); this invariant inverts to "topojson-only" after that plan ships.
+1. **Sibling pair is the durable contract**: every `.topojson` under `datasets/boundaries/in/**` has a sibling `.geojson` in the same directory. The earlier "cleanup commissioned" framing was REJECTED by the user on 2026-05-31 ("we are using a combination of both") and the sibling-retirement plan-doc was deleted. Both encodings stay; the loader's topo-first / geojson-fallback path is the design, not a transitional state.
 2. **Feature-count parity**: `topojson.feature(t, t.objects.<name>).features.length === geojson.features.length` per shard. Coordinate equality is NOT asserted (quantization is by design lossy).
 3. **No orphan topojson**: every shipped `.topojson` lives at a Hive partition declared in `datasets/boundaries/boundary_layers.parquet`.
 

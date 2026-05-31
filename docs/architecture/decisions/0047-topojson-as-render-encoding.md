@@ -1,6 +1,6 @@
 # ADR-0047 — TopoJSON as render encoding for boundary layers
 
-**Status**: accepted (flipped from proposed at plan-doc P5.5 via PR-Z4 archive; see Acceptance evidence below). Amendment commissioned at [TODO/2026-05-31-geojson-sibling-retirement-plan.md](../../../TODO/2026-05-31-geojson-sibling-retirement-plan.md) (Track A `.geojson` sibling retirement) and [TODO/2026-05-31-village-pincode-vector-tiles-plan.md](../../../TODO/2026-05-31-village-pincode-vector-tiles-plan.md) (Track A2 PMTiles successor).
+**Status**: accepted (flipped from proposed at plan-doc P5.5 via PR-Z4 archive; see Acceptance evidence below). One successor plan-doc commissioned: [TODO/2026-05-31-village-pincode-vector-tiles-plan.md](../../../TODO/2026-05-31-village-pincode-vector-tiles-plan.md) (Track A2 PMTiles successor for villages + pincodes). The Track A `.geojson` sibling-retirement plan was REJECTED by the user on 2026-05-31 ("we are using a combination of both") and deleted; both encodings stay on disk and the topo-first / geojson-fallback contract in `loadBoundaryData()` is the durable design (see "Sibling pair is the durable contract" in [docs/architecture/frontend/topojson-loader.md](../frontend/topojson-loader.md)).
 **Date**: 2026-05-31
 **Authors**: yen-gov agent (default), red-teamed by Fowler + Jony + Max subagents
 **Plan-doc**: [docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md](../../../docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md)
