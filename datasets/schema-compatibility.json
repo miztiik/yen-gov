@@ -25,6 +25,13 @@
   ],
   "overrides": [
     {
+      "surface": "json-corpus",
+      "schema": "indicator.schema.json",
+      "accepted_versions": ["6.0", "6.1"],
+      "validation": "current_schema",
+      "rationale": "indicator.schema.json v6.1 only widens indicator.id to accept canonical single-segment kebab ids alongside legacy slash/snake ids. Existing v6.0 artifacts remain valid under current-schema validation, so no mechanical restamp is required."
+    },
+    {
       "surface": "canonical-manifest-reader",
       "schema": "manifest.schema.json",
       "accepted_versions": ["1.0", "1.1", "1.2", "1.3"],

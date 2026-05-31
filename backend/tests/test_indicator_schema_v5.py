@@ -1,4 +1,4 @@
-"""Tier-A contract tests for `datasets/schemas/indicator.schema.json` v5.0.
+"""Tier-A contract tests for `datasets/schemas/indicator.schema.json`.
 
 Locks in the three additive grounding fields introduced by PR-B0 of
 docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md §2:
@@ -20,6 +20,7 @@ explicit assertions here.
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 import pytest
@@ -66,14 +67,72 @@ def indicator_validator(schema: dict) -> Draft202012Validator:
     return Draft202012Validator(schema["properties"]["indicator"])
 
 
-def test_x_version_is_5_0(schema: dict) -> None:
-    assert schema["x-version"] == "5.0"
+def test_x_version_uses_schema_version_shape(schema: dict) -> None:
+    assert re.fullmatch(r"\d+\.\d+", schema["x-version"])
 
 
 def test_changelog_tail_matches_x_version(schema: dict) -> None:
     tail = schema["x-changelog"][-1]
     assert tail["version"] == schema["x-version"]
-    assert tail["date"] == "2026-05-26"
+
+
+def test_changelog_retains_v5_grounding_entry(schema: dict) -> None:
+    entries = {entry["version"]: entry for entry in schema["x-changelog"]}
+
+    assert entries["5.0"]["date"] == "2026-05-26"
+    assert "entity_kinds" in entries["5.0"]["description"]
+
+
+@pytest.mark.parametrize(
+    "indicator_id",
+    [
+        "economy/test_indicator",
+        "energy/state_peak_electricity_demand_mw",
+        "plain_legacy_id",
+    ],
+)
+def test_legacy_slash_snake_indicator_ids_validate(
+    indicator_validator: Draft202012Validator,
+    indicator_id: str,
+) -> None:
+    body = _minimal_artifact({"id": indicator_id})
+
+    assert list(indicator_validator.iter_errors(body)) == []
+
+
+@pytest.mark.parametrize(
+    "indicator_id",
+    [
+        "peak-electricity-demand-mw",
+        "rpo-compliance-pct",
+    ],
+)
+def test_canonical_kebab_indicator_ids_validate(
+    indicator_validator: Draft202012Validator,
+    indicator_id: str,
+) -> None:
+    body = _minimal_artifact({"id": indicator_id})
+
+    assert list(indicator_validator.iter_errors(body)) == []
+
+
+@pytest.mark.parametrize(
+    "indicator_id",
+    [
+        "energy/peak-electricity-demand-mw",
+        "peak_electricity-demand_mw",
+        "Peak-Electricity-Demand-MW",
+        "peak--electricity-demand-mw",
+        "peak-electricity-demand-mw-",
+    ],
+)
+def test_mixed_or_malformed_indicator_ids_reject(
+    indicator_validator: Draft202012Validator,
+    indicator_id: str,
+) -> None:
+    body = _minimal_artifact({"id": indicator_id})
+
+    assert list(indicator_validator.iter_errors(body))
 
 
 def test_additional_properties_lifted_on_indicator_block(schema: dict) -> None:

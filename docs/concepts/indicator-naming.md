@@ -1,12 +1,12 @@
 # Indicator naming — id slugs, titles, descriptions, facet labels
 
-**Last Updated**: 2026-05-15
+**Last Updated**: 2026-05-31
 
 ## 1. Why this doc exists
 
 Two ingests are about to fire in parallel — ICED NO2/SO2/PM10 ([TODO/20260515-iced-aq-no2-so2-pm10-handover.md](../../TODO/20260515-iced-aq-no2-so2-pm10-handover.md)) and RBI Statement 27 health-expenditure share ([TODO/20260515-health-ingest-handover.md](../../TODO/20260515-health-ingest-handover.md)) — and the existing `datasets/indicators/in/` corpus is internally inconsistent on slug shape (`india_*` vs `national_*` vs no scope; unit suffix sometimes present sometimes not; entity-prefix sometimes leading sometimes trailing). Without a written convention these two ingests will mint ids in different shapes and the next agent will pay for it with a renaming PR that touches the catalogue, the frontend routes, and every consumer test.
 
-This doc is the convention. It is binding for new ids; existing ids that violate it are listed in §8 and are being ripped per [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md). The schema (`datasets/schemas/indicator.schema.json`, currently at `x-version: 1.5`) already locks the regex; this doc locks what humans should put inside it.
+This doc is the convention. It is binding for new ids; existing ids that violate it are listed in §8 and are being ripped per [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md). The current schema accepts both legacy folded JSON artifact ids and canonical indicator ids during the migration window; this doc locks what humans should put inside each surface.
 
 **2026-05-26 update** — [ADR-0044](../architecture/decisions/0044-grain-over-entity.md) retires the `<entity_prefix>` axis (`state_` / `district_` / `national_`). The grain rides on the observation row's `entity_id`; the catalogue declares `entity_kinds`. §2.2 was rewritten and §2.4 was deleted in the same commit as the ADR landed. §8 anti-pattern #2 was promoted from "style drift" to "MUST NOT mint." See ADR-0044 for the identity test that replaces §2.4's default-geography test.
 
@@ -16,15 +16,25 @@ Per [ADR-0022](../architecture/decisions/0022-place-first-ia-with-topic-catalogu
 
 ## 2. The `indicator.id` slug — anatomy and rules
 
-### 2.1 The regex (locked, do not change)
+### 2.1 Accepted grammar during the migration window
+
+`indicator.id` has two accepted grammars in `datasets/schemas/indicator.schema.json` v6.1:
+
+- **Legacy folded JSON artifact ids** keep the historical slash/snake grammar:
 
 ```
 ^[a-z][a-z0-9_]*(/[a-z][a-z0-9_]*)*$
 ```
 
-Lowercase, snake_case, single `/` separator (NOT `.`). Already enforced by `datasets/schemas/indicator.schema.json`.
+- **Canonical indicator ids** use the ADR-0044 single-segment kebab grammar:
 
-### 2.2 Mandatory shape (post-ADR-0044, grain-over-entity)
+```
+^[a-z][a-z0-9]*(?:-[a-z0-9]+)+$
+```
+
+Do not mix the grammars. `energy/peak-electricity-demand-mw` is neither a legacy artifact id nor a canonical id. Do not substitute a route/backcompat `legacy_artifact_id` for canonical identity.
+
+### 2.2 Legacy folded JSON artifact shape
 
 ```
 <scope>/<noun>_<aggregate?>_<unit?>_<facet?>
@@ -72,6 +82,8 @@ Unit suffix is **mandatory** when the same noun could plausibly be expressed in 
 ### 2.4 Entity grain — RETIRED by ADR-0044
 
 This section formerly mandated a leading `state_` / `district_` / `national_` segment. **It is deleted.** Per [ADR-0044](../architecture/decisions/0044-grain-over-entity.md), entity grain rides on the observation row's `entity_id`; the catalogue row carries `entity_kinds: array<enum["country","state","district","ac"]>` + `default_entity_kind: enum`. One id per `(concept, unit, normalisation)`; rows discriminate grain.
+
+Canonical indicator ids follow the `<measure>-<unit>-<facet>` kebab rule from ADR-0044. Topic membership and entity grain are not encoded in the id; topic membership lives in `datasets/taxonomy/indicator_topic_tags.parquet`, and grain rides on observation rows.
 
 **Identity test** (use before minting any new id): is the (concept, unit, normalisation) tuple different from every existing indicator? If YES, mint. If NO, UPSERT into the existing id OR add a facet axis on the row. Entity-kind is NOT an identity axis.
 
