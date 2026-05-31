@@ -1,0 +1,14 @@
+{
+  "proposed_id": "pc-votes-polled",
+  "family": "elections",
+  "concept": "Votes polled",
+  "unit": "votes",
+  "normalisation": "absolute",
+  "entity_kind": "pc",
+  "concept_id": "votes-polled",
+  "source_producer": "Election Commission of India",
+  "source_title": "General Election to Lok Sabha 2024 - Constituency Wise Detailed Result (Report 33)",
+  "source_vintage": "LsGen2024",
+  "update_period_days": 1825,
+  "justification": "Lok Sabha PC-grain votes polled; shares the votes-polled concept with the AC sibling and adds pc to entity_kinds per Option B concept-binding (ADR-0044 / ADR-0048). Same noun/unit/normalisation as ac-votes-polled, only the entity grain differs."
+}
