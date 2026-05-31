@@ -1,0 +1,368 @@
+# UK-style Elections Experience - execution plan
+
+**Last Updated**: 2026-05-31
+
+> Build a UK-elections-style experience for yen-gov: a generic reusable tile-cartogram, a geographic|cartogram toggle, cross-year change visualisation (swing arrows + snapping time-slider + opt-in sankey), indian_mlas-style faceted filtering at state AND national level, and a new elections drill IA entered from the topic door - funnelling into the existing place/constituency spine. Lok Sabha (Parliamentary Constituency) results ingest is an in-scope, mandatory part of THIS plan (it gates the national view).
+>
+> Reference apps: UK = https://data-analytics.github.io/uk_elections (geographic vs hex toggle). indian_mlas = https://garudadevdataservices.github.io/indian_mlas/?mode=DEMOGRAPHICS_AGE&f_margin=%3C2&f_party=BJP (faceted filters).
+>
+> Authorities for this plan: data shape = Hans + Max; contracts/integration = Gregor; engineering craft = Fowler; UX/URL grammar = Jony + Citizen; any LLM bits = Andre. **User approval supersedes every agent** (CLAUDE.md s0a). The user has explicitly approved breaking the "elections is just one topic on the generic state page" constraint for this work.
+
+---
+
+## Section 0 - Operating contract (read before executing ANY row)
+
+This plan is structured for **autonomous parallel execution by subagents**. Three lanes run concurrently; within a lane, rows are sequential. Each row below is a single PR with a self-contained scope, explicit file list, and acceptance gates.
+
+### 0.1 Default stance
+
+- **AUTO.** Execute the next in-scope row in your lane without waiting for human confirmation. Do not invent new scope; do not contract existing scope.
+- **Resolve ambiguity by consulting a custom agent, not a human.** If a row is genuinely ambiguous, dispatch the named escalation agent (each row lists one), apply its verdict, record the verdict in the PR body, and proceed. Only stop for a human if a custom agent's verdict would require changing this plan's contract (e.g. dropping a phase).
+- **Frugal testing (user mandate).** Run only the gates listed on the row. Do NOT run the full pytest suite for a frontend-only PR, or the full vitest suite for a backend-only PR. Do NOT wait for remote GitHub Pages deployment - local `bun run check` + `bun run test` + integrated-browser Playwright smoke is the bar. Do not repeat a green gate.
+- **One in-progress row per lane.** Mark it in the Status Reckoner before starting, stamp the PR# on close.
+
+### 0.2 Baked facts (verified 2026-05-31; do not re-derive)
+
+- **AC (assembly) results: ingested.** 30 states/UTs. Canonical at `datasets/elections/election_results.parquet` + `dim_acs.parquet` + `dim_parties.parquet` + `dim_candidates.parquet`. Observation PK = `(entity_id, year, period_label, indicator_id)`. AC entity_id = `IN-<state>-AC-<delim_year>-<eci_no>`.
+- **AC ingest pipeline to mirror for PC:** parser `backend/yen_gov/sources/eci/constituencywise.py`; observations builder `backend/yen_gov/canonical/adapters/eci/observations.py`; rollups `backend/yen_gov/canonical/adapters/eci/rollups.py`; identity `backend/yen_gov/canonical/adapters/eci/identity.py`; envelope/dim rows `backend/yen_gov/canonical/envelope.py`; backfill driver `backend/yen_gov/pipeline/canonical_eci_backfill.py`; writer `backend/yen_gov/canonical/writer.py`; CLI `backend/yen_gov/cli.py`.
+- **AC indicator_ids:** `ac-winner-party-id`, `ac-winner-candidate-id`, `ac-margin-pct`, `ac-margin-votes`, `ac-turnout-pct`, `ac-nota-pct`, `ac-nota-votes`, `ac-votes-polled`, `ac-total-electors`, `ac-candidates-total`, `ac-others-votes`, `ac-others-pct`, `ac-effective-candidates-laakso`; candidate-level `candidate-votes-polled`, `candidate-vote-share-pct`, `candidate-rank`; rollups `party-seats-won`, `party-vote-share-pct`, etc. Declared in `datasets/taxonomy/indicators.json` (family `elections`).
+- **PC (parliament) results: NOT ingested.** `datasets/taxonomy/election_events.json` has ZERO `kind:"lok_sabha"` rows (all `assembly`). No `dim_pcs` exists. This is Lane A's job.
+- **PC raw source (VERIFIED 2026-06-01 by probe).** `datasets/ephemeral/All_States_GA.csv` IS national general election (Lok Sabha / PC) data - NOT state-assembly data. It is the **TCPD `Lok Sabha Election (GE) (AC Segment Wise)`** dataset: 259,078 rows, 43 columns, years **1999/2004/2009/2014/2019 only (NO 2024)**. Columns include `Year, State_Name, PC_No, PC_Name, Constituency_No, Constituency_Name (the AC segment), Candidate, CandID, Party, Party_ID, Votes, Position, Vote_Share_Percentage, Margin, Margin_Percentage, ENOP, Election_Type`. **Row grain = one candidate's votes within ONE assembly segment of a PC**; `Position` is the candidate's rank *within that segment*. So this file is the GE result projected down onto AC segments - it is genuinely PC/Lok-Sabha data, just disaggregated.
+- **PC source strategy (resolves the old "ambiguous" tag):**
+  - **2024 (modern delim, matches the in-repo 2024 PC boundaries): use the direct-PC ECI file** `2024_india_loksabha_33-Constituency-Wise-Detailed-Result.xls` (real OLE2/BIFF `.xls` - read with `xlrd`; pandas+xlrd NOT yet in the venv, add to `backend` deps). It is already PC-level candidate results - NO aggregation. This is the primary 2024 source.
+  - **Historical series (1999-2019): prefer TCPD's direct PC-level GE release** (the non-segment "Lok Sabha Election (GE)" file) if obtainable; it is already PC-level. Only fall back to aggregating `All_States_GA.csv` if the direct-PC TCPD file is unavailable.
+  - **Aggregation (only if forced to use the segment file):** it is a plain group-by, NOT hard work - `GROUP BY (Year, State_Name, PC_No, CandID)` then `SUM(Votes)`; the PC winner = max summed votes; PC turnout/electors come from summing segment `Valid_Votes`. DuckDB one-liner over the CSV. Documented here so PR-A1 does not re-derive it.
+  - **`All_States_GA.csv` best secondary use = the AC->PC crosswalk** (which AC segment belongs to which PC), feeding the `pc_id` FK on `dim_acs`. File `2024_india_loksabha_34-Details-Of-Assembly-Segment-Of-PC.xls` is the 2024 crosswalk equivalent.
+  - **PR-A1 deliverable:** confirm the TCPD direct-PC historical file exists; if yes, ingest 1999-2024 from direct-PC sources (ECI #33 for 2024 + TCPD-PC for history); if no, ingest 2024 direct + 1999-2019 via the documented segment aggregation.
+- **PC boundaries: EXIST.** `datasets/boundaries/in/pc/delim=2024/all.geojson` (+ `all.topojson`), 545 features. Feature properties: `state_ut_name`, `state_ut_code`, `ls_seat_name`, `ls_seat_code` (ECI numeric seat code, STRINGIFIED - requires int coercion on join), `unique_id` (e.g. `S07_5`). Join key = `ls_seat_code`.
+- **Schema already supports PC/lok_sabha:** `datasets/schemas/election-events.schema.json` kind enum includes `lok_sabha`; `datasets/schemas/constituency.schema.json` has `pc_id` of form `<state>-PC-<eci_no>` and the AC->PC nesting FK. No schema MAJOR bump needed for `kind:"lok_sabha"`.
+- **National loader does NOT exist.** `frontend/src/lib/view-models/state-overview.ts` `loadStateAcWinners` is per-state (`entity_id LIKE 'IN-' || state || '-AC-%'`). A cross-state `loadNationalPcWinners` must be authored (Lane B).
+- **No `INDIA_PC` entry in `frontend/src/lib/maplibre/sources.ts`** (only `STATE_AC`). `BoundaryEntry` shape: `{ id, label, geojson_local_path?, geojson_url, join_property }`.
+
+### 0.3 CONCURRENCY - other agents are mid-flight (CRITICAL)
+
+A separate topojson/boundary migration is running across many worktrees RIGHT NOW. It is actively churning:
+
+- `frontend/src/lib/maplibre/sources.ts` (boundary entry declarations + topojson format additions)
+- `datasets/boundaries/in/pc/**` (geojson -> topojson conversion; `BOUNDARY_FORMAT` env switch)
+- `frontend/e2e/boundary-benchmark.spec.ts` (perf benches tagged `@bench`)
+
+**Rules to avoid collisions:**
+
+1. **Only ONE row in this plan touches `sources.ts`** - PR-B4 - and it is **append-only** (add a single `INDIA_PC` export at the end; do NOT edit, reorder, or reformat `STATE_AC` or the topojson-loading path). Immediately before PR-B4, `git fetch origin && git rebase origin/main`. If `sources.ts` conflicts, take **theirs** wholesale and re-append the `INDIA_PC` block.
+2. **Do NOT depend on the PC boundary file FORMAT.** Read whichever of `all.geojson` / `all.topojson` the existing `MapChoropleth` loader resolves; do not hardcode a format. Do not convert or move any file under `datasets/boundaries/`.
+3. **Do NOT add boundary-heavy cases to `golden-path.spec.ts`.** New election e2e specs go in a dedicated file `frontend/e2e/elections-atlas.spec.ts` and, if perf-sensitive, are tagged `@elections` (not `@bench`).
+4. **Lane A (backend) and Lane 0 (docs) do not touch boundary files at all** - they are collision-free by construction.
+5. Before each PR: `git worktree add ../yen-gov-elec-<row> -b feat/elec-<row> origin/main`. Never branch from another worktree's branch. Never park a worktree on `main` (keeps gh-merge clean per repo lessons).
+
+### 0.4 Data truth that shapes the whole IA (do not violate)
+
+Indian election results have a **constituency grain** (AC for state assembly, PC for Lok Sabha). **Constituencies do NOT nest into villages or sub-districts.** The drill therefore stops at the constituency leaf; there is NO village/sub-district level for election results. The honest drill is:
+
+`country (PC atlas) -> state -> district-cluster (a FILTER, not a route) -> constituency leaf`.
+
+State assembly uses AC; national uses PC. The cartogram and choropleth are built **grain-agnostic** so the same components serve both. This was user-confirmed on 2026-05-31.
+
+### 0.5 Closure condition
+
+Plan complete when every row is DONE or COLLAPSED-with-rationale. On completion: distil durable findings to `docs/` per `docs/how-to/distill-a-plan.md`, append the "Plan complete" distillation map, `git mv` this file to `docs/archive/plans/`.
+
+---
+
+## Section 1 - Status Reckoner
+
+Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PARALLEL. `||` marks rows that can start immediately (no in-plan dependency).
+
+| Row | Lane | Title | Depends on | Status | PR | Escalation agent |
+| --- | --- | --- | --- | --- | --- | --- |
+| PR-0 | 0 | ADR + docs: drill IA, generic TileCartogram, AC/PC grain, filter URL grammar | none `||` | [ ] PENDING | - | Gregor |
+| PR-A1 | A | PC source recon + ingest handover-doc + pre-flight proposal | none `||` | [ ] PENDING | Max |
+| PR-A2 | A | PC identity + PcDimRow + envelope + pc-* indicators + concepts + schemas | PR-A1 | [ ] PENDING | Hans + Max |
+| PR-A3 | A | PC parser + observations + rollups + CLI `ingest-eci-ls` | PR-A2 | [ ] PENDING | Gregor |
+| PR-A4 | A | Run ingest: write PC parquet + dim_pcs + lok_sabha event row + validate | PR-A3 | [ ] PENDING | Max |
+| PR-B1 | B | Tile-layout schema + grapher layouts + pilot S13-AC + national-PC layout | none `||` | [ ] PENDING | Jony |
+| PR-B2 | B | Generic `<TileCartogram>` SVG component + layout loader + ChartShell wrap | PR-B1 | [ ] PENDING | Jony |
+| PR-B3 | B | `ElectionMap` wrapper (Map\|Equal seats toggle) on StateElection (AC) | PR-B2 | [ ] PENDING | Jony |
+| PR-B4 | B | National atlas route `/t/elections/:event` + INDIA_PC + loadNationalPcWinners | PR-B2; live data needs PR-A4 | [ ] PENDING | Gregor |
+| PR-B5 | B | Cross-year E1: swing arrows on seat-composition bars | PR-B3 | [ ] PENDING | Jony |
+| PR-B6 | B | Cross-year E2: snapping time-slider on map/cartogram | PR-B3 | [ ] PENDING | Jony |
+| PR-B7 | B | Cross-year E3: opt-in 2-election sankey (capped) | PR-B3 | [ ] PENDING | Jony |
+| PR-B8 | B | Filter rail F1/F2/F3 (party / margin band / colour-by) - state level | PR-B3 | [ ] PENDING | Gregor + Max |
+| PR-B9 | B | Wire filters at national level | PR-B8; PR-B4; PR-A4 | [ ] PENDING | Gregor |
+
+**Concurrency map:** at t0 three agents can start in parallel on **PR-0**, **PR-A1**, **PR-B1**. Lane A and Lane B never touch the same files. The only cross-lane data dependency is PR-B4/PR-B9 needing PR-A4's PC data for LIVE rendering - both ship "dark" (boundary renders, winners show a "results pending" state) before PR-A4 lands, then light up automatically.
+
+---
+
+## Lane 0 - Decisions and docs
+
+### PR-0 - ADR + docs for drill IA, generic TileCartogram, grain split, filter grammar `||`
+
+**Scope:** Pure docs/decision. No code, no data. Locks the contracts the other two lanes build against. Ship FIRST in its lane but does not block other lanes from starting.
+
+**Files:**
+- NEW `docs/architecture/decisions/00XX-elections-drill-ia-and-tile-cartogram.md` (allocate the next free ADR number via `Get-ChildItem docs/architecture/decisions/ | Sort-Object Name | Select-Object -Last 3`).
+- EDIT `docs/concepts/schema-is-the-design-system.md` - add `TileCartogram` to the election renderer set; record "one card per measure" still holds; cartogram is election-mount-only in v1.
+- EDIT `docs/architecture/frontend/map.md` - add the `Map | Equal seats` mode contract + `?view=hex` URL param + "Each tile = one seat" legend rule.
+- EDIT `docs/architecture/data/elections-indicators.md` - add a "PC (Lok Sabha) results - pending Lane A" note + the planned `pc-*` indicator list (mirror of `ac-*`).
+
+**ADR must record (these ARE the contracts other rows depend on - be unambiguous):**
+1. **Drill IA:** entry `/t/elections/:event` (NEW national PC atlas) -> `/lab/:state/:event` (existing state surface) -> district as `?d=<district>` FILTER (not a route) -> `/s/:state/ac/:ac` leaf. Place page `/s/:state` remains the spine. NO village/sub-district level for results.
+2. **Grain split:** national = PC grain, state = AC grain. Components are grain-agnostic ("unit" = a constituency of either kind).
+3. **Generic TileCartogram, election-mount-only in v1:** one reusable SVG primitive fed by a layout dataset; NOT wired to welfare/denominator indicators in v1 (equal-sizing welfare data is misleading - Hans/Max). Tile layouts are FRONTEND-OWNED render data under `datasets/grapher/` per ADR-0045, NOT canonical election data.
+4. **Toggle:** segmented `Map` / `Equal seats` (never the words "choropleth"/"cartogram"); default geographic at all levels; persists to URL `?view=hex`; legend carries "Each tile = one seat."
+5. **Cross-year ship order:** seat-bars + swing arrows (default), then snapping time-slider (snaps to election years, no interpolation, no autoplay), then opt-in 2-election capped sankey.
+6. **Filter URL grammar (the contract PR-B8/B9 implement):** `?party=<csv of party short codes>` , `?margin=<all|lt2|gt20>` , `?mode=<winner|margin|turnout|age>` , `?view=<geo|hex>` , `?d=<district>`. Filters are modifiers on a fully-populated default view, never preconditions. Full example: `/t/elections/2024-ls?party=bjp&margin=lt2&mode=margin&view=hex`.
+7. **Do-not-build list (v1):** village/sub-district levels; full >2-election sankey; a second `/t/elections/country/state/...` URL spine; per-state hand-placed bespoke hex layouts; autoplay/interpolated transitions; demographic cross-tabs beyond "colour by".
+
+**Escalation:** if the ADR's grain or URL-grammar choices feel under-specified, dispatch **Gregor** ("Is this filter URL grammar a clean, versionable contract? Does the AC/PC grain-agnostic unit model hold?") and apply the verdict.
+
+**Acceptance gates (frugal - docs only):**
+- [ ] G-docs: every new/edited doc has H1 + `Last Updated: 2026-05-31` + "See also" cross-links; ASCII-only (CLAUDE.md s5).
+- [ ] No code/data/schema touched (so NO pytest/vitest/validate needed - mark them n/a in PR body).
+
+---
+
+## Lane A - Backend: Lok Sabha PC results ingest (mandatory; gates national view)
+
+> This lane mirrors the existing AC ingest pipeline (Section 0.2) for Parliamentary Constituencies. It is file-collision-free with Lanes 0 and B. Treat the AC modules as line-by-line templates. Follow `TODO/_TEMPLATE-ingest-handover.md` discipline and the pre-flight-ingest gate (ADR-0046).
+
+### PR-A1 - PC source recon + handover-doc + pre-flight proposal `||`
+
+**Scope:** Recon + paperwork only. NO canonical writes. Resolves the "which raw source" ambiguity and produces the ingest contract the rest of Lane A executes against.
+
+**Steps:**
+1. Inspect the candidate raw sources in `datasets/ephemeral/` (read headers + sample rows; the `.xls` files may need `python -c` with pandas/openpyxl - use a `.tmp_probe_pc.py` script, never inline `python -c` with quotes per repo lessons):
+   - `2024_india_loksabha_33-Constituency-Wise-Detailed-Result.xls` (expected TRUE PC-level - candidate rows keyed by PC).
+   - `2024_india_loksabha_32-...-Summery-Report.xls` (PC/state summary).
+   - `2024_india_loksabha_34-Details-Of-Assembly-Segment-Of-PC.xls` (AC->PC segment map - useful for the `pc_id` FK on `dim_acs`).
+   - `All_States_GA.csv` (TCPD `Lok Sabha (GE) (AC Segment Wise)`; 259,078 rows; 1999-2019 only, NO 2024; PC-tagged segment rows). Primary use = AC->PC crosswalk + historical fallback (aggregate segments to PC only if the direct-PC TCPD file is unavailable). NOT state-assembly data.
+   - `2024_india_loksabha_33-Constituency-Wise-Detailed-Result.xls` (ECI, direct PC-level, 2024; primary 2024 source - no aggregation; needs `xlrd`).
+2. **Verdict:** confirm whether `...33-Constituency-Wise-Detailed-Result.xls` yields PC-level winners directly (preferred). If it does NOT, document the aggregation needed from the AC-segment source. Pick ONE primary source and record it.
+3. Write `TODO/20260531-ls-pc-ingest-handover.md` from `TODO/_TEMPLATE-ingest-handover.md`, filled completely: source, scope (concept = "parliamentary constituency election result"; entity grain = `pc`; time range), and the planned `pc-*` indicator list.
+4. Author `proposal.json` + run `python -m yen_gov pre-flight-ingest --proposal-file ./proposal.json --report ./report.json`. The pc-* indicators are NEW concepts (no AC overlap because grain differs) - expect `mint_new`. Cite both paths in the handover-doc s3. Exit code 2 = fix proposal and re-run (no override per Holy Law #5).
+5. Decide the `event_id` naming for the lok_sabha event (e.g. `LsGen2024`) and `period_label` convention consistent with how assembly events shape `period_label`. Record it in the handover-doc - PR-A3/A4 depend on it.
+
+**Escalation:** dispatch **Max** ("Is `...33-Constituency-Wise-Detailed-Result.xls` the right OWID-grade canonical PC source, or is there a cleaner ECI release? Confirm the concept is genuinely distinct from the AC concepts.") Apply verdict; record in handover-doc s7.
+
+**Acceptance gates (frugal):**
+- [ ] G1 `python -m yen_gov validate --root .` OK (no data changed, but confirms repo clean).
+- [ ] pre-flight-ingest report committed with exit 0/1 (not 2).
+- [ ] No pytest/vitest (recon + docs only).
+
+### PR-A2 - PC identity + dimension + indicator catalogue + schemas
+
+**Scope:** The static contracts for PC data. No ingest run yet (that's PR-A4). Mirror the AC envelope/identity.
+
+**Files:**
+- EDIT `backend/yen_gov/canonical/adapters/eci/identity.py` - add `pc_entity_id(...)` mirroring `ac_entity_id`. PC is NATIONAL scope: `pc_id = IN-PC-<delim_year>-<pc_no>` (no state prefix). Add a `pc_state_code` carry-through for the `state_code` column on the dim.
+- EDIT `backend/yen_gov/canonical/envelope.py` - add `PcDimRow(pc_id, delim_year, pc_no, ls_seat_code, state_code, name, source_id)` and a `pc_dim_rows: list[PcDimRow]` field on `BatchEnvelope`.
+- EDIT `datasets/taxonomy/indicators.json` - add `pc-winner-party-id`, `pc-winner-candidate-id`, `pc-margin-pct`, `pc-margin-votes`, `pc-turnout-pct`, `pc-nota-pct`, `pc-votes-polled`, `pc-total-electors`, `pc-candidates-total` (mirror the AC set; family `elections`; NO grain prefix beyond the established `pc-`/`ac-` convention already used for `ac-*` - match the existing pattern exactly; declare `update_period_days: 1825` (LS term ~5 yrs) per guardrail #18).
+- EDIT `datasets/taxonomy/concepts.json` - add the concept row(s) the pc-* indicators FK to (per pre-flight `mint_new` verdict), declaring `(noun, unit_canonical, normalisation, entity_kinds:[pc])`.
+- Bump any schema that enumerates entity_kinds or indicator families if required (check `datasets/schemas/observation.schema.json`, `indicator-catalogue.schema.json`); follow the MINOR-vs-MAJOR rules in CLAUDE.md s11 and add an `x-changelog` entry in the same commit.
+
+**Escalation:** dispatch **Hans + Max** on the indicator/concept shape ("Are these the right pc-* measures and units? Is `pc-margin-pct` denominated on votes-polled like `ac-margin-pct`?"). Apply verdict.
+
+**Acceptance gates (frugal - targeted):**
+- [ ] G1 `python -m yen_gov validate --root .` OK.
+- [ ] G2 `pytest -q backend/tests` filtered to the touched modules (envelope, identity, indicator-catalogue, concepts validators). Set `$env:PYTHONPATH="$PWD\backend"` first (multi-worktree venv-shadow rule). Do NOT run the full suite.
+- [ ] Schema changelog bumped if any schema changed.
+
+### PR-A3 - PC parser + observations + rollups + CLI command
+
+**Scope:** The logic that turns the confirmed raw source into `pc-*` ObservationRows + PcDimRows. Mirror `observations.py` + `rollups.py`. Tested against a small committed fixture, NOT the real corpus (no-real-corpus-in-pytest rule).
+
+**Files:**
+- NEW `backend/yen_gov/sources/eci/ls_constituencywise.py` (or extend the existing parser if the `.xls` shape matches) - parse the confirmed PR-A1 source into a `PcResultRaw` per PC.
+- NEW `backend/yen_gov/canonical/adapters/eci/pc_observations.py` - `observations_from_pc(...)` emitting `pc-winner-party-id`, `pc-margin-pct`, `pc-turnout-pct`, etc., mirroring `observations_from_constituency`.
+- EDIT `backend/yen_gov/canonical/adapters/eci/rollups.py` - if national/party rollups for LS are in scope, add them; otherwise note as deferred.
+- EDIT `backend/yen_gov/pipeline/canonical_eci_backfill.py` - add a PC slice builder.
+- EDIT `backend/yen_gov/cli.py` - add `@app.command("ingest-eci-ls")` mirroring `ingest-eci-ae-panel`.
+- NEW `backend/tests/test_pc_observations.py` + a tiny committed fixture (2-3 PCs) under the test fixtures dir. Tier-A: assert winner/margin/turnout values for the fixture.
+
+**Escalation:** dispatch **Gregor** if the write-seam (how PC rows batch into `write_batch`) is unclear ("Should PC rows share `election_results.parquet` with AC rows, or a sibling partition?"). Default: same `election_results.parquet`, disambiguated by `entity_id` prefix (`IN-PC-` vs `IN-...-AC-`) and `indicator_id` (`pc-*` vs `ac-*`), consistent with the AC pattern. Apply verdict.
+
+**Acceptance gates (frugal):**
+- [ ] G2 `pytest -q backend/tests/test_pc_observations.py` green (+ any directly touched writer test). `$env:PYTHONPATH` set. Do NOT run full suite.
+- [ ] G1 `python -m yen_gov validate --root .` OK.
+
+### PR-A4 - Run the ingest: PC parquet + dim_pcs + lok_sabha event + validate
+
+**Scope:** Execute `ingest-eci-ls` to WRITE canonical PC data, add the `lok_sabha` event row, validate. This is the row that lights up the national view.
+
+**Steps:**
+1. `python -m yen_gov ingest-eci-ls --root .` -> writes PC ObservationRows into `datasets/elections/election_results.parquet`, `dim_pcs.parquet`, UPSERTs `sources.parquet`.
+2. Add the `kind:"lok_sabha"` event row to `datasets/taxonomy/election_events.json` using the PR-A1 `event_id`/`display`/`polled_on` convention (display format `"<scope> - Lok Sabha <YYYY>"` per the events schema description). `kind:"lok_sabha"` is already a valid enum value - no schema bump.
+3. `python -m yen_gov validate --root .` - confirm provenance FKs (every PC obs row has `source_id`), entity_kind, schema versions.
+4. Spot-check with a `.tmp_check_pc.py` DuckDB query: count PC winners (~543 expected for 2024), confirm join to `dim_pcs` + `dim_parties` resolves.
+
+**Escalation:** dispatch **Max** if PC coverage is incomplete (missing seats / states) - record the gap honestly in the handover-doc and `election_events.json` `data_status` (`partial` vs `complete`); do not fabricate.
+
+**Acceptance gates (frugal):**
+- [ ] G1 `python -m yen_gov validate --root .` OK (this is the gate that matters - real data written).
+- [ ] DuckDB spot-check: PC winner count in expected range; FK joins resolve.
+- [ ] G2 only the writer/validator tests that exercise the new partition. No full suite.
+
+---
+
+## Lane B - Frontend: generic machinery (AC/state first; PC/national lights up after Lane A)
+
+> This lane builds entirely on EXISTING AC data, so it does not wait for Lane A. Components are grain-agnostic; PR-B4/B9 ship "dark" for PC and auto-populate when PR-A4 lands. Touches `sources.ts` exactly once (PR-B4, append-only) - obey Section 0.3.
+
+### PR-B1 - Tile-layout schema + grapher layouts + pilot layouts `||`
+
+**Scope:** The frontend-owned tile-layout contract + data. No component yet. Can start at t0.
+
+**Files:**
+- NEW `datasets/schemas/grapher-election-tile-layout.schema.json` v1.0 (full s11 header: `$schema`, local `$id`, `title`, `description`, `x-version:"1.0"`, `x-changelog`). Row fields: `layout_kind` (`ac`|`pc`), `scope` (state_code like `S13`, or `national`), `delim_year`, `unit_id` (the `ac_id`/`pc_id` or its eci/ls number), `eci_no`, `q`, `r` (axial hex coords; optionally `x`,`y`), `label`, `source_id`, `layout_version`, `derivation_method` (e.g. `centroid-hexbin` | `hand-authored`).
+- NEW `datasets/grapher/election_tile_layouts.json` (or partitioned under `datasets/grapher/election-tile-layouts/`) - frontend-owned per ADR-0045.
+- Pilot data: **Maharashtra S13 AC layout** (288 ACs) + **national PC layout** (~543 PCs). Generate from boundary centroids via a `.tmp_gen_layout.py` hexbin pass, then PERSIST the coords (no browser-side layout compute - citizens see stable positions). The PC layout can be authored now from geometry alone (does not need PC RESULTS).
+- NEW `frontend/src/contracts/election-tile-layout-coverage.test.ts` - assert exactly one tile per dim row for each shipped `(layout_kind, scope, delim_year)`. For the PC layout, assert coverage against the 545 boundary features (since `dim_pcs` may not exist yet); for the S13 AC layout, assert against `dim_acs` S13 rows. Write the test to read whichever source-of-truth exists.
+
+**Escalation:** dispatch **Jony** ("Is a centroid-hexbin layout legible for S13/India, or do we need a coarse manual cleanup of overlaps?"). Apply verdict; if manual cleanup needed, hand-edit the persisted coords and set `derivation_method: hand-authored`.
+
+**Acceptance gates (frugal):**
+- [ ] G1 `python -m yen_gov validate --root .` OK (validates the new grapher file against its schema).
+- [ ] G4 `bun run test` filtered to `election-tile-layout-coverage.test.ts` only.
+
+### PR-B2 - Generic `<TileCartogram>` component + layout loader + ChartShell wrap
+
+**Scope:** The reusable SVG primitive. Grain-agnostic. Mounted in the dev charts sandbox for verification (no production route yet).
+
+**Files:**
+- NEW `frontend/src/lib/charts/TileCartogram.svelte` - SVG hex grid (NOT maplibre). Props: `tiles: TileRow[]` (`unit_id`, `q`, `r`, `fill`, `opacity`, `label`, `tooltip_html`, `selected`), `legend`, `height`, `highlight_key`, `onSelect`, `onHover`. Reuse the existing party colour resolver + margin->opacity semantics + click-target behaviour from `StateAcMap.svelte`/`MapChoropleth.svelte` (import the shared helpers; do not duplicate).
+- NEW `frontend/src/lib/view-models/election-tile-layout.ts` - loader that joins a winners array (`AcWinner[]` today; `PcWinner[]` later) + layout rows from `datasets/grapher/election_tile_layouts.json` into `TileRow[]`. Grain-agnostic on `unit_id`.
+- Wrap render in existing `ChartShell` so download/copy-link/share come free (reuse `chart-shell/action-builders.ts` `buildCopyLinkActionSpec`, `buildViewDataActionSpec`).
+- Mount a demo in `frontend/src/routes/DevChartsSandbox.svelte` (the existing `/dev/charts-sandbox` route) feeding S13 AC winners + the S13 layout.
+- NEW `frontend/src/lib/charts/__tests__/tile-cartogram.test.ts` - join correctness, selection state, mode-label rendering, click parity with StateAcMap (one tile = one unit).
+
+**Escalation:** dispatch **Jony** on tile sizing/label density if the sandbox render looks crowded.
+
+**Acceptance gates (frugal):**
+- [ ] G3 `bun run check` 0 errors.
+- [ ] G4 `bun run test` filtered to `tile-cartogram.test.ts` + `election-tile-layout-coverage.test.ts`.
+- [ ] G5 browser smoke (integrated Playwright, NOT remote): `/dev/charts-sandbox` renders the cartogram, no console `[error]`, no 404. Screenshot to confirm visual intent. Do not wait for any deploy.
+
+### PR-B3 - `ElectionMap` wrapper with Map|Equal seats toggle (AC/state)
+
+**Scope:** The geographic|cartogram toggle, mounted on the real state election page. Geographic arm = existing `StateAcMap`; seats arm = `TileCartogram`.
+
+**Files:**
+- NEW `frontend/src/lib/elections/ElectionMap.svelte` - segmented control `Map` | `Equal seats` (top-right, thumb-reachable). `Map` wraps `StateAcMap`; `Equal seats` wraps `TileCartogram` fed by the layout loader. Preserve the selected constituency across toggle. Persist mode to URL `?view=geo|hex` via the existing `frontend/src/lib/url.ts` grammar. Legend line "Each tile = one seat" on the hex arm.
+- EDIT `frontend/src/routes/StateElection.svelte` - this is currently a thin permalink/card page (ADR-0023); mount `ElectionMap` to make it the real state election-result page. Keep the existing breadcrumb/CTAs; add the map+toggle as the primary surface. Feed it `loadStateAcWinners(event, state_code)`.
+- NEW `frontend/e2e/elections-atlas.spec.ts` (dedicated spec per Section 0.3, tag `@elections`) - smoke `/s/maharashtra/elections/<event>`: both modes render, toggle persists to URL, selecting a unit navigates to `/s/maharashtra/ac/<ac>`.
+
+**Escalation:** **Jony** on default mode + toggle affordance copy.
+
+**Acceptance gates (frugal):**
+- [ ] G3 `bun run check` 0 errors.
+- [ ] G4 `bun run test` filtered to the touched view-model/component tests.
+- [ ] G5 integrated Playwright `elections-atlas.spec.ts` green; manual browser smoke of `/s/maharashtra/elections/<event>` + one cross-route (`/s/maharashtra`) for no-regression. No remote deploy wait.
+
+### PR-B4 - National atlas route + INDIA_PC + national PC loader (ships dark, lights up after PR-A4)
+
+**Scope:** The one new route + the one `sources.ts` touch. Renders PC geography/cartogram nationally. If PC results (PR-A4) are not yet in the bundle, show a "results pending" empty state - the route still ships.
+
+**Files:**
+- EDIT `frontend/src/main.ts` - add route `/t/elections/:event` -> a new `frontend/src/routes/NationalElectionsAtlas.svelte`.
+- NEW `frontend/src/routes/NationalElectionsAtlas.svelte` - national PC `ElectionMap` (Map arm = a national PC choropleth over `INDIA_PC`; Equal seats arm = the national PC `TileCartogram` from PR-B1). Tapping a state drills to `/lab/:state/:event` (or `/s/:state/elections/:event`). Seat-total bar across the top.
+- EDIT `frontend/src/lib/maplibre/sources.ts` - **APPEND-ONLY** `export const INDIA_PC: BoundaryEntry = { id: "india-pc", label: "India - Parliamentary Constituencies (2024 delimitation)", geojson_local_path: "boundaries/in/pc/delim=2024/all.geojson", geojson_url: "<upstream>", join_property: "ls_seat_code" };`. Coerce `ls_seat_code` to int on join (it is stringified in the GeoJSON) - follow the existing numeric-coercion path in `MapChoropleth` (`keys_are_numeric`/`to-number`). **Rebase onto origin/main immediately before; on conflict take theirs + re-append (Section 0.3).**
+- NEW `frontend/src/lib/view-models/national-elections.ts` - `loadNationalPcWinners(event)` mirroring `loadStateAcWinners` but cross-state: `WHERE indicator_id='pc-winner-party-id' AND entity_id LIKE 'IN-PC-%'`, joined to `dim_pcs` + `dim_parties`. Must degrade gracefully (empty -> "results pending") when PC data absent.
+- EDIT `frontend/e2e/elections-atlas.spec.ts` - add `/t/elections/<event>` smoke (boundary renders; pending-state OR winners depending on data presence).
+
+**Escalation:** dispatch **Gregor** on the national loader contract + the "dark until data" degradation shape. Apply verdict.
+
+**Acceptance gates (frugal):**
+- [ ] G3 `bun run check` 0 errors.
+- [ ] G4 `bun run test` filtered to `national-elections` tests.
+- [ ] G5 integrated Playwright: `/t/elections/<event>` renders PC boundary + either winners or pending-state; tap-state drills; no console error/404. No remote deploy wait.
+- [ ] Verify `sources.ts` diff is a pure append (no edits to `STATE_AC` / topojson path) via `git diff`.
+
+### PR-B5 - Cross-year E1: swing arrows on seat-composition bars
+
+**Scope:** Add per-party swing arrows (delta vs previous election) to the EXISTING seat-composition trend. Cheapest cross-year signal; default-on.
+
+**Files:**
+- EDIT `frontend/src/lib/ElectionSeatsTrend.svelte` + `frontend/src/lib/charts/StackedTrendV2.svelte` (or its model) - compute per-party delta between consecutive events and render a small up/down arrow + number on each bar segment.
+- EDIT the relevant `frontend/src/lib/view-models/election-seats-trend.ts` to expose deltas.
+- Tests: extend the existing stacked-trend tests for the delta computation.
+
+**Escalation:** **Jony** on arrow legibility.
+
+**Acceptance gates:** G3 `bun run check`; G4 filtered vitest; G5 browser smoke of a state page showing the trend.
+
+### PR-B6 - Cross-year E2: snapping time-slider on the map/cartogram
+
+**Scope:** A slider that scrubs the constituency map/cartogram across consecutive SAME-GRAIN elections, recolouring tiles. SNAPS to election years - no interpolation, no autoplay.
+
+**Files:**
+- NEW `frontend/src/lib/elections/ElectionTimeSlider.svelte` - discrete stops = the available events for that state/grain (from `election-events.ts` `listEventsForState`). On change, reload winners for that event and recolour `ElectionMap`. Persist to URL (the event is already in the route; slider just changes it).
+- EDIT `ElectionMap.svelte` / `StateElection.svelte` to host the slider.
+- Tests: slider stop derivation (snaps to real events only), recolour on change.
+
+**Escalation:** **Jony** ("snapping behaviour + no-autoplay confirmation").
+
+**Acceptance gates:** G3; G4 filtered; G5 browser smoke - drag slider, confirm recolour + URL event change, no interpolation.
+
+### PR-B7 - Cross-year E3: opt-in 2-election sankey (capped)
+
+**Scope:** A labelled "Flow (beta)" opt-in view for EXACTLY two adjacent same-grain elections, top-6 parties + merged "Others". Reuse the existing `SwingSankey.svelte` GEOMETRY pattern (losers left / gainers right; NOT d3-sankey). Honesty note: seat deltas, not voter-panel tracking.
+
+**Files:**
+- NEW `frontend/src/lib/elections/SeatFlowSankey.svelte` (or adapt `SwingSankey.svelte`) - constrained to 2 events, top-6 + Others cap, with the provenance honesty banner via ChartShell.
+- Wire an opt-in "Flow (beta)" toggle on the election page (collapsed by default).
+- Tests: party-cap logic, 2-event guard (refuse >2), Others bucketing.
+
+**Escalation:** **Jony** ("does the capped flow read honestly, or should it be deferred?"). If Jony says defer, COLLAPSE this row with rationale rather than ship an unreadable chart.
+
+**Acceptance gates:** G3; G4 filtered; G5 browser smoke of the opt-in flow.
+
+### PR-B8 - Filter rail F1/F2/F3 (party / margin band / colour-by) - state level
+
+**Scope:** The indian_mlas-style filters, on the state constituency map. Left rail (desktop) / bottom sheet (mobile). Modifiers on a fully-populated default view; serialize to URL per the PR-0 grammar.
+
+**Files:**
+- NEW `frontend/src/lib/elections/ElectionFilterRail.svelte` - F1 party multi-select chips (colour+name) `?party=`; F2 margin band segmented `All`/`Close (<2 pts)`/`Landslide (>20 pts)` `?margin=`; F3 "Colour by" dropdown `Winner`/`Margin`/`Turnout`/`Age of winner` `?mode=`. One reset affordance (the active-filter count chip).
+- EDIT `ElectionMap.svelte` - recolour the SAME choropleth/cartogram based on `mode`; dim non-matching units based on `party`/`margin`. NO bespoke per-filter widget.
+- EDIT `frontend/src/lib/url.ts` - add the filter params to the URL grammar (typed).
+- Reuse `frontend/src/lib/explore/presets.ts` margin/party query logic and `CandidateBio` (`age`/`sex`/`education`) for `mode=age` recolour.
+- Tests: URL round-trip (params <-> state), recolour-by-mode, dim-by-filter.
+
+**Escalation:** dispatch **Gregor** (URL grammar as a versionable contract) AND **Max** ("Does `dim_persons` age coverage support `mode=age` for all states, or must the option be hidden where coverage is absent?"). Apply both verdicts; if age coverage is partial, gate the `age` option per-state on coverage.
+
+**Acceptance gates:** G3 `bun run check`; G4 filtered vitest (URL + recolour tests); G5 browser smoke - apply each filter on `/s/maharashtra/elections/<event>`, confirm URL reflects state and a shared URL reproduces the screen.
+
+### PR-B9 - Wire filters at national level
+
+**Scope:** Bring the PR-B8 filter rail to `/t/elections/:event` (PC grain). Needs PC data (PR-A4) to be meaningful.
+
+**Files:**
+- EDIT `frontend/src/routes/NationalElectionsAtlas.svelte` - mount `ElectionFilterRail`; recolour the national PC map/cartogram; `mode=age` uses PC-candidate bio coverage.
+- EDIT `national-elections.ts` loader to accept filter params.
+- Tests: national URL round-trip + recolour.
+
+**Escalation:** **Gregor** on cross-state filter performance (all-India PC recolour must stay static-bundle-friendly - no server compute, Holy Law #1).
+
+**Acceptance gates:** G3; G4 filtered; G5 browser smoke - filters on `/t/elections/<event>` with live PC data; shared URL reproduces screen.
+
+---
+
+## Section 2 - Cross-cutting notes for executing agents
+
+- **Frugality:** never run a full pytest or full vitest suite for a row scoped to the other runtime. Backend rows run targeted `pytest` with `$env:PYTHONPATH="$PWD\backend"`. Frontend rows run `bun run check` + targeted `bun run test` + ONE integrated Playwright smoke. Never wait for GitHub Pages deploy.
+- **Multi-worktree venv shadow (repo lesson):** always `$env:PYTHONPATH="$PWD\backend"` before pytest in a worker worktree, else you import stale master code.
+- **2-commit-then-squash + clean F5 merge:** structural commit, then a `_pending_ -> #NNN` stamp commit, squash on merge. Never park a worktree on `main`.
+- **No `[DEBUG]` left; no hardcoded taxonomy; provenance FK on every new obs row; docs updated in the same PR; lockfiles in sync if `package.json` touched.** (CLAUDE.md s9 DoD.)
+- **If a row's contract turns out wrong mid-execution,** consult the named escalation agent, and if the fix changes THIS plan's contract, update this plan-doc's row + Status Reckoner in the same PR and note it - do not silently diverge.
+
+## Section 3 - References
+
+- [CLAUDE.md](../CLAUDE.md) Holy Laws #1 (static-first), #3 (contracts before logic), #5 (structural fixes), #9 (provenance), #10 (tests ship with feature).
+- [ADR-0023](../docs/architecture/decisions/0023-election-event-identity-per-place.md) election event identity per place (lok_sabha kept separate from assembly).
+- [ADR-0044](../docs/architecture/decisions/0044-grain-over-entity.md) grain over entity.
+- [ADR-0045](../docs/architecture/decisions/0045-grapher-catalogue-split.md) grapher catalogue split (render data is frontend-owned).
+- [ADR-0046](../docs/architecture/decisions/0046-pre-flight-ingest-gate-contract.md) pre-flight-ingest gate.
+- [TODO/_TEMPLATE-ingest-handover.md](_TEMPLATE-ingest-handover.md) ingest discipline.
+- [docs/architecture/data/elections-indicators.md](../docs/architecture/data/elections-indicators.md) AC indicator catalogue.
+- [docs/concepts/schema-is-the-design-system.md](../docs/concepts/schema-is-the-design-system.md) renderer doctrine.
+- [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md) closure procedure.
