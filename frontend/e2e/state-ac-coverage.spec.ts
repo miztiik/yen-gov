@@ -10,12 +10,22 @@
 // + footer link + boundary fetch + SoT-name binding) works on the
 // live frontend.
 //
-// State-code list is INLINED here (not imported from sources.ts).
+// Default invocation runs a 5-code canary subset (CANARY_CODES below)
+// that protects each distinct AC-shard shape (ordinary LGD,
+// LGD-with-rewrite, district-fallback, elected UT, non-LGD seat_id).
+// The full 31-code matrix runs on demand via `AC_COVERAGE_FULL=1`,
+// scheduled nightly and on path-filtered PRs in
+// .github/workflows/e2e-ac-full.yml. Per
+// TODO/20260531-e2e-runtime-trim-plan.md PR-2 - keeping the per-PR
+// gate cheap while preserving exhaustive coverage as a time-based
+// safety net.
+//
+// State-code lists are INLINED here (not imported from sources.ts).
 // The vitest contract `state-ac-registry-coverage.test.ts` enforces
 // `STATE_AC keys === on-disk-shard set`; adding a new state to that
-// set requires updating BOTH the registry AND this constant. The
-// duplication is intentional - it makes the e2e test independent of
-// the production module graph and surfaces accidental drift as a
+// set requires updating BOTH the registry AND `FULL_CODES` below.
+// The duplication is intentional - it makes the e2e test independent
+// of the production module graph and surfaces accidental drift as a
 // missing test, not a silent skip.
 //
 // Per-state assertions (all must pass for the state to be "green"):
@@ -78,13 +88,33 @@ for (const e of entities) {
 
 // State / UT codes for which `boundaries/in/ac/state=in_<lc>/all.geojson`
 // exists on disk after A.2 (31 entries). Sorted lexicographically.
-const STATE_CODES: readonly string[] = [
+const FULL_CODES: readonly string[] = [
   "S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08",
   "S10", "S11", "S12", "S13", "S14", "S15", "S16", "S17",
   "S18", "S19", "S20", "S21", "S22", "S23", "S24", "S25",
   "S26", "S27", "S28", "S29",
   "U05", "U07", "U08",
 ];
+
+// Canary subset (5 codes) covering the representative AC-shard shapes
+// across the 31-state matrix. Each canary protects a distinct risk:
+//   S24 - ordinary large LGD state (Uttar Pradesh; 403 ACs)
+//   S01 - LGD-with-bifurcation-rewrite (Andhra Pradesh post-2014;
+//         exercises the ac_no_rewrite path)
+//   S03 - district-fallback geometry (Assam; T4 district overlay,
+//         no per-AC polygons in the canonical source)
+//   U05 - elected UT on the ordinary path (Delhi; smaller LGD)
+//   U08 - non-LGD seat_id join (J&K; exercises the U08-specific
+//         seat_id-keyed boundary registry path)
+// Path-filter triggers in .github/workflows/e2e-ac-full.yml run the
+// full matrix on any PR that touches the files the canary cannot
+// protect (sources.ts, AC shards, taxonomy, contract test). Nightly
+// schedule provides a time-based safety net.
+const CANARY_CODES: readonly string[] = ["S24", "S01", "S03", "U05", "U08"];
+
+const CODES_UNDER_TEST: readonly string[] = process.env.AC_COVERAGE_FULL
+  ? FULL_CODES
+  : CANARY_CODES;
 
 // `trap` is nullable + `afterEach` uses optional-chaining because
 // `test.skip()` in `beforeEach` short-circuits BEFORE we assign `trap`,
@@ -110,7 +140,7 @@ test.afterEach(() => {
 });
 
 test.describe("STATE_AC per-state coverage", () => {
-  for (const code of STATE_CODES) {
+  for (const code of CODES_UNDER_TEST) {
     const slug = codeToSlug[code];
     if (!slug) {
       test(`${code}: entity lookup missing for code in entities.json`, () => {
