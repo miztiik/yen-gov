@@ -112,7 +112,7 @@ Status flags: `[ ]` not-started · `[~]` in-progress · `[x]` done · `[!]` bloc
 | P4 | 4.2 | Convert PC shards | 2 | 2.7 | Fowler | #491 | `[x]` |
 | P4 | 4.3 | Convert ULB-wards | 2 | 2.7 | Fowler | #493 (partial 1369/3300), #500 (complete 1931/1931) | `[x]` |
 | P4 | 4.4 | Convert panchayats | 2 | 2.7 | Fowler | #494 (partial 483/663), #502 (complete 180/180) | `[x]` |
-| P4 | 4.5 | Convert villages (Track A2; honest-perf disclaimer in PR body) | 3 | 2.7 | Fowler | #495 (partial 233/659), `_pending_` (complete 426/426) | `[x]` |
+| P4 | 4.5 | Convert villages (Track A2; honest-perf disclaimer in PR body) | 3 | 2.7 | Fowler | #495 (partial 233/659), #504 (complete 426/426) | `[x]` |
 | P4 | 4.6 | Convert postal/pincodes (Track A2) | 2 | 2.7 | Fowler | #492 | `[x]` |
 | **P5**: Distill + cleanup | 5.1 | `docs/how-to/convert-geojson-to-topojson.md` runbook | 2 | all P4 | default | #498 | `[x]` |
 | P5 | 5.2 | `docs/architecture/frontend/topojson-loader.md` | 2 | all P4 | default | #498 | `[x]` |
