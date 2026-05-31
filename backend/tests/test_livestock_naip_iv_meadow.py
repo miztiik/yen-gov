@@ -8,7 +8,7 @@ satisfy the meadow grammar declared by Phase 1.C of the NDLM ingest plan
 * Files exist at the canonical ADR-0041 meadow path. The vintage
   segment ``2024-25`` matches the seeded ``src-93a2a72db482`` citation
   row in ``datasets/taxonomy/sources.parquet`` (PR #276).
-* JSON conforms to ``indicator.schema.json v4.4`` shape:
+* JSON conforms to a compatibility-accepted ``indicator.schema.json`` shape:
   ``rows.items`` carries only the closed-set
   ``{entity_id, time, value, facet}`` keys.
 * Every ``time`` matches the schema regex ``^\\d{4}(-\\d{2}(-\\d{2})?)?$``.
@@ -35,6 +35,8 @@ import re
 from pathlib import Path
 
 import pytest
+
+from yen_gov.core.schema_registry import schema_id, schema_version
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 MEADOW_DIR = (
@@ -72,16 +74,38 @@ TIME_REGEX = re.compile(r"^\d{4}(-\d{2}(-\d{2})?)?$")
 DISTRICT_ENTITY_ID_REGEX = re.compile(r"^IN-[SU]\d{2}-D\d+$")
 
 
+def _accepted_indicator_versions() -> frozenset[str]:
+    accepted = {schema_version("indicator.schema.json")}
+    registry = json.loads(
+        (REPO_ROOT / "datasets" / "schema-compatibility.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    for override in registry.get("overrides", []):
+        if (
+            override.get("surface") == "json-corpus"
+            and override.get("schema") == "indicator.schema.json"
+            and override.get("validation") == "current_schema"
+        ):
+            accepted.update(override.get("accepted_versions", []))
+    return frozenset(accepted)
+
+
+ACCEPTED_INDICATOR_VERSIONS = _accepted_indicator_versions()
+
+
 @pytest.mark.skipif(
     not DISTRICT_FILE.is_file(),
     reason="naip_iv district meadow file not on disk in this checkout",
 )
 def test_naip_iv_district_meadow_envelope_shape() -> None:
-    """Top-level envelope conforms to indicator.schema.json v4.4."""
+    """Top-level envelope conforms to an accepted indicator schema."""
     doc = json.loads(DISTRICT_FILE.read_text(encoding="utf-8"))
     # Schema declaration
-    assert doc.get("$schema_version") == "4.4", (
-        f"schema_version != 4.4: got {doc.get('$schema_version')!r}"
+    assert doc.get("$schema") == schema_id("indicator.schema.json")
+    assert doc.get("$schema_version") in ACCEPTED_INDICATOR_VERSIONS, (
+        f"schema_version {doc.get('$schema_version')!r} is not accepted: "
+        f"{sorted(ACCEPTED_INDICATOR_VERSIONS)}"
     )
     # Indicator block
     indicator = doc.get("indicator")
@@ -236,8 +260,10 @@ def test_naip_header_national_meadow_shape_and_facets() -> None:
     fixture; not routed to the Phase 2 catalogue slugs."""
     doc = json.loads(HEADER_FILE.read_text(encoding="utf-8"))
     # Schema declaration
-    assert doc.get("$schema_version") == "4.4", (
-        f"schema_version != 4.4: got {doc.get('$schema_version')!r}"
+    assert doc.get("$schema") == schema_id("indicator.schema.json")
+    assert doc.get("$schema_version") in ACCEPTED_INDICATOR_VERSIONS, (
+        f"schema_version {doc.get('$schema_version')!r} is not accepted: "
+        f"{sorted(ACCEPTED_INDICATOR_VERSIONS)}"
     )
     # Indicator block
     indicator = doc.get("indicator")

@@ -82,6 +82,15 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 RAW_ROOT = REPO_ROOT / ".runtime" / "raw" / "ndlm"
 MEADOW_ROOT = REPO_ROOT / "datasets" / "livestock" / "_meadow" / "ndlm"
 ENTITIES_JSON = REPO_ROOT / "datasets" / "taxonomy" / "entities.json"
+INDICATOR_SCHEMA_JSON = REPO_ROOT / "datasets" / "schemas" / "indicator.schema.json"
+
+
+def _indicator_schema_metadata() -> tuple[str, str]:
+    schema = json.loads(INDICATOR_SCHEMA_JSON.read_text(encoding="utf-8"))
+    return schema["$id"], schema["x-version"]
+
+
+INDICATOR_SCHEMA_ID, INDICATOR_SCHEMA_VERSION = _indicator_schema_metadata()
 
 
 def _meadow_dir(snapshot_window: str) -> Path:
@@ -217,8 +226,8 @@ def build_meadow_for_species(
     )
 
     doc = {
-        "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-        "$schema_version": "4.4",
+        "$schema": INDICATOR_SCHEMA_ID,
+        "$schema_version": INDICATOR_SCHEMA_VERSION,
         "sources": [{"url": SOURCE_URL, "fetched_at": fetched_at}],
         "license": LICENSE,
         "coverage": {
