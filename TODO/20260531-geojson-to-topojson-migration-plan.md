@@ -105,9 +105,9 @@ Status flags: `[ ]` not-started · `[~]` in-progress · `[x]` done · `[!]` bloc
 | P2 | 2.5 | Add `"topojson"` to format enum | 1 | 2.3 | Jony | n/a | `[-]` |
 | P2 | 2.6 | Run candidate bench; verify STOP CONDITION | 1 | 2.2, 2.3, 1.4 | Jony | #488 | `[x]` |
 | P2 | 2.7 | Phase-1 PR (P2.1-2.6 bundled) | 3 | 2.6 | Fowler+Jony | #488 | `[x]` |
-| **P3**: Track A cascade | 3.1 | Convert `districts/all.geojson` | 2 | 2.7 | Fowler | `_pending_` | `[ ]` |
-| P3 | 3.2 | Convert subdistrict shards (one PR, ~36 shards) | 2 | 2.7 | Fowler | `_pending_` | `[ ]` |
-| P3 | 3.3 | Convert `country/all.geojson` (bundle into 3.1) | 1 | 2.7 | Fowler | `_pending_` | `[ ]` |
+| **P3**: Track A cascade | 3.1 | Convert `districts/all.geojson` | 2 | 2.7 | Fowler | `_pending_` | `[x]` |
+| P3 | 3.2 | Convert subdistrict shards (one PR, ~36 shards) | 2 | 2.7 | Fowler | `_pending_` | `[x]` |
+| P3 | 3.3 | Convert `country/all.geojson` (bundle into 3.1) | 1 | 2.7 | Fowler | bundled into `_pending_` | `[x]` |
 | **P4**: Electoral + governance + Track A2 | 4.1 | Convert AC shards | 2 | 2.7 | Fowler | `_pending_` | `[ ]` |
 | P4 | 4.2 | Convert PC shards | 2 | 2.7 | Fowler | `_pending_` | `[ ]` |
 | P4 | 4.3 | Convert ULB-wards | 2 | 2.7 | Fowler | `_pending_` | `[ ]` |
