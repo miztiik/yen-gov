@@ -39,37 +39,12 @@ test.describe("golden path", () => {
     const tn = page.getByRole("link", { name: /Tamil Nadu/i }).first();
     await expect(tn).toBeVisible({ timeout: 15_000 });
 
-    // IA-reset Step #3b: the Theme <select> shows humanised indicator
-    // titles (e.g. "Outstanding liabilities (% of GSDP)") rather than
-    // raw schema slugs ("fiscal/outstanding_debt_pct_gsdp"). Titles are
-    // pulled from each indicator artifact's own `indicator.title` and
-    // populated after the per-indicator JSON fetches resolve, so we
-    // wait on the humanised label before asserting absence of slugs.
-    const theme_select = page.getByRole("combobox").first();
-    await expect(theme_select).toBeVisible({ timeout: 15_000 });
-    await expect(
-      theme_select.locator("option", { hasText: /Outstanding liabilities/i }),
-    ).toHaveCount(1, { timeout: 15_000 });
-    const option_text = await theme_select.locator("option").allInnerTexts();
-    const joined = option_text.join(" | ");
-    expect(joined, `Theme dropdown leaked raw slugs:\n${joined}`).not.toMatch(/fiscal\//);
-    expect(joined, `Theme dropdown leaked raw slugs:\n${joined}`).not.toMatch(/energy\//);
-
-    // Phase #3 of TODO/20260517-coverage-temporal-range-plan.md: when an
-    // IndicatorChoropleth has a derivable temporal range, it renders a
-    // citizen-facing caption ("YYYY → YYYY · cadence-word"). The caption
-    // is gated on deriveTemporalRange() returning non-null — point-in-time
-    // indicators legitimately render no caption. So we assert shape only
-    // IF a caption is present on the home default; otherwise the wiring
-    // is covered by vitest (frontend/src/lib/indicators.test.ts).
-    const caption = page.getByTestId("indicator-temporal-caption").first();
-    if ((await caption.count()) > 0) {
-      const caption_text = (await caption.textContent())?.trim() ?? "";
-      expect(
-        caption_text,
-        `Temporal caption empty or missing cadence vocabulary: "${caption_text}"`,
-    ).toMatch(/(annual|quarterly|monthly|every 10 years|irregular updates|As of)/i);
-    }
+    // Theme-dropdown humanised labels + temporal-caption vocabulary are
+    // asserted by vitest (frontend/src/lib/home-theme.test.ts and
+    // frontend/src/lib/indicators.test.ts deriveTemporalRange suite).
+    // Per TODO/20260531-e2e-runtime-trim-plan.md PR-3, the cheaper tier
+    // owns the exhaustive assertion; e2e keeps only the mount + render
+    // + bulk-JOIN-evidence guards.
 
     // D.1.A (2026-05-30): the unmapped-region chip strip and the legacy
     // Lakshadweep polygon inset were both retired per user mandate
