@@ -191,7 +191,9 @@ async function runOne(
   };
 }
 
-test("boundary loader benchmark (cold + warm)", async ({ browser }, testInfo) => {
+// @bench — excluded by default via playwright.config.ts grepInvert. Run with
+//   PLAYWRIGHT_GREP=@bench bunx playwright test boundary-benchmark.spec.ts --project=chromium
+test("boundary loader benchmark (cold + warm) @bench", async ({ browser }, testInfo) => {
   test.skip(
     testInfo.project.name !== "chromium",
     "CDP throttling is Chromium-only",
