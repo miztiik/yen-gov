@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./topojson-config.schema.json",
+  "title": "TopoJSON converter configuration",
+  "description": "Configures the GeoJSON-to-TopoJSON converter at tools/topojson/convert_layer.py. Pinned per layer so quantization / simplification / -clean flag changes are 1-line JSON edits (no code change). Carries $schema + $schema_version per CLAUDE.md section 11. Introduced 2026-05-31 as part of TODO/20260531-geojson-to-topojson-migration-plan.md P2.1.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-31",
+      "description": "Initial schema. Fields: default_quantization (positive integer, applied to layers absent from per_layer); simplification (Mapshaper simplification expression, e.g. 'weighted 5%' or 'visvalingam 3%'); per_layer (map of layer name to overrides). Per-layer overrides may set quantization (positive integer), simplification (string), and clean (boolean opt-in for mapshaper -clean; default false). Per plan section 3 (locked 2026-05-31 per Fowler + Gregor red-team)."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema_version", "default_quantization", "simplification"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "default_quantization": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Applied to layers with no per_layer override. Default 100000 (1e5) per OWID precedent."
+    },
+    "simplification": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Mapshaper -simplify expression, e.g. 'weighted 5%'. Applied globally; per_layer override may shadow."
+    },
+    "per_layer": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "quantization": { "type": "integer", "minimum": 1 },
+          "simplification": { "type": "string", "minLength": 1 },
+          "clean": {
+            "type": "boolean",
+            "description": "Opt-in mapshaper -clean. Default false. Mutates topology; only enable when a specific input justifies it."
+          }
+        }
+      }
+    }
+  }
+}

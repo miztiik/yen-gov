@@ -14,7 +14,7 @@ export interface CanonicalFile {
 export interface CanonicalTable {
   table_id: TableId;
   family: string;
-  format: "parquet" | "geojson" | "pmtiles" | "json";
+  format: "parquet" | "geojson" | "topojson" | "pmtiles" | "json";
   schema_version: string;      // "<major>.<minor>"
   partition_columns: string[]; // empty when unpartitioned
   files: CanonicalFile[];

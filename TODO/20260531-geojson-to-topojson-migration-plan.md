@@ -98,13 +98,13 @@ Status flags: `[ ]` not-started · `[~]` in-progress · `[x]` done · `[!]` bloc
 | P1 | 1.2 | Add `VITE_BENCH=1` perf-mark instrumentation | 2 | 0.3 | Jony | #487 | `[x]` |
 | P1 | 1.3 | Run baseline; publish `notes/2026-05-31-topojson-baseline-bench.md` | 1 | 1.1, 1.2 | Jony | #487 | `[x]` |
 | P1 | 1.4 | Stamp plan-doc with derived STOP-CONDITION numbers | 0 | 1.3 | default | n/a | `[x]` |
-| **P2**: Phase 1 — India home (state layer) | 2.1 | Add converter + `config/topojson.json` + schema + pytest | 3 | 0.1 | Fowler | `_pending_` | `[ ]` |
-| P2 | 2.2 | Run converter on `states/all.geojson` | 1 | 2.1 | default | `_pending_` | `[ ]` |
-| P2 | 2.3 | Extend frontend loader (topo-first, geo fallback) | 3 | 2.2 | Jony | `_pending_` | `[ ]` |
-| P2 | 2.4 | Extend conformance test for `.topojson` siblings | 2 | 2.3 | Jony | `_pending_` | `[ ]` |
-| P2 | 2.5 | Add `"topojson"` to format enum | 1 | 2.3 | Jony | `_pending_` | `[ ]` |
-| P2 | 2.6 | Run candidate bench; verify STOP CONDITION | 1 | 2.2, 2.3, 1.4 | Jony | `_pending_` | `[ ]` |
-| P2 | 2.7 | Phase-1 PR (P2.1-2.6 bundled) | 3 | 2.6 | Fowler+Jony | `_pending_` | `[ ]` |
+| **P2**: Phase 1 — India home (state layer) | 2.1 | Add converter + `config/topojson.json` + schema + pytest | 3 | 0.1 | Fowler | #488 | `[x]` |
+| P2 | 2.2 | Run converter on `states/all.geojson` | 1 | 2.1 | default | #488 | `[x]` |
+| P2 | 2.3 | Extend frontend loader (topo-first, geo fallback) | 3 | 2.2 | Jony | #488 | `[x]` |
+| P2 | 2.4 | Extend conformance test for `.topojson` siblings | 2 | 2.3 | Jony | #488 | `[x]` |
+| P2 | 2.5 | Add `"topojson"` to format enum | 1 | 2.3 | Jony | n/a | `[-]` |
+| P2 | 2.6 | Run candidate bench; verify STOP CONDITION | 1 | 2.2, 2.3, 1.4 | Jony | #488 | `[x]` |
+| P2 | 2.7 | Phase-1 PR (P2.1-2.6 bundled) | 3 | 2.6 | Fowler+Jony | #488 | `[x]` |
 | **P3**: Track A cascade | 3.1 | Convert `districts/all.geojson` | 2 | 2.7 | Fowler | `_pending_` | `[ ]` |
 | P3 | 3.2 | Convert subdistrict shards (one PR, ~36 shards) | 2 | 2.7 | Fowler | `_pending_` | `[ ]` |
 | P3 | 3.3 | Convert `country/all.geojson` (bundle into 3.1) | 1 | 2.7 | Fowler | `_pending_` | `[ ]` |

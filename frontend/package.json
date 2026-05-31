@@ -19,11 +19,14 @@
     "@tsconfig/svelte": "^5.0.4",
     "@types/d3": "^7.4.3",
     "@types/node": "^25.6.2",
+    "@types/topojson-client": "^3.1.5",
+    "@types/topojson-specification": "^1.0.5",
     "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1",
     "autoprefixer": "^10.4.20",
     "d3": "^7.9.0",
     "glob": "^13.0.6",
+    "mapshaper": "^0.7.22",
     "postcss": "^8.4.49",
     "svelte": "^5.0.0",
     "svelte-check": "^4.0.0",
@@ -38,6 +41,7 @@
     "@huggingface/transformers": "^4.2.0",
     "maplibre-gl": "^4.7.1",
     "pmtiles": "^3.2.1",
+    "topojson-client": "^3.1.0",
     "zod": "^4.4.3"
   }
 }

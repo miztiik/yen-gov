@@ -311,10 +311,19 @@
                     type: "vector",
                     url: resolved.url,
                   }
-                : {
-                    type: "geojson",
-                    data: resolved.url,
-                  },
+                : resolved.kind === "geojson-inline"
+                  ? {
+                      // Pre-fetched + decoded inline FeatureCollection
+                      // (topojson-first / geojson-fallback per P2.3).
+                      // maplibre does NOT re-fetch when `data` is the
+                      // object directly.
+                      type: "geojson",
+                      data: resolved.data,
+                    }
+                  : {
+                      type: "geojson",
+                      data: resolved.url,
+                    },
           },
           layers: [
             {
@@ -517,45 +526,49 @@
           // we'd compute from the GeoJSON. Phase 1d ships only the GeoJSON
           // path; PMTiles bounds will be solved when the manifest carries
           // them (planned in tools/boundaries/build.py).
-          if (resolved.kind === "geojson") {
-            fetch(resolved.url)
-              .then(r => r.json())
-              .then(gj => {
-                const b = bbox(gj);
-                if (b) {
-                  data_bbox = b;
-                  map.fitBounds(b as any, { padding: 16, animate: false });
-                  // Refit whenever the canvas resizes (browser zoom,
-                  // sidebar toggle, window resize). Without this, the
-                  // initial fit is correct but a subsequent resize leaves
-                  // TN as a tiny shape stranded in a now-larger canvas.
-                  // We debounce via rAF so we don't refit mid-layout
-                  // (the page reflows multiple times during initial load
-                  // and each intermediate size triggered a stale fit
-                  // that then "stuck" once the canvas settled). We also
-                  // skip zero-sized callbacks since maplibre's first
-                  // observed size is often 0×0 before mount.
-                  if (typeof ResizeObserver !== "undefined" && container) {
-                    let rAF = 0;
-                    resize_obs = new ResizeObserver((entries) => {
-                      const cr = entries[0]?.contentRect;
-                      if (!cr || cr.width < 4 || cr.height < 4) return;
-                      if (rAF) cancelAnimationFrame(rAF);
-                      rAF = requestAnimationFrame(() => {
-                        if (map && data_bbox) {
-                          map.resize();
-                          map.fitBounds(data_bbox as any, { padding: 16, animate: false });
-                        }
-                      });
-                    });
-                    resize_obs.observe(container);
-                  }
-                }
-              })
-              .catch(() => {
-                // Bounds are nice-to-have; rendering still works at the
-                // default center/zoom if the bbox fetch fails.
-              });
+          if (resolved.kind === "geojson" || resolved.kind === "geojson-inline") {
+            const bboxFromData = (gj: any): void => {
+              const b = bbox(gj);
+              if (!b) return;
+              data_bbox = b;
+              map.fitBounds(b as any, { padding: 16, animate: false });
+              // Refit whenever the canvas resizes (browser zoom,
+              // sidebar toggle, window resize). Without this, the
+              // initial fit is correct but a subsequent resize leaves
+              // TN as a tiny shape stranded in a now-larger canvas.
+              // We debounce via rAF so we don't refit mid-layout
+              // (the page reflows multiple times during initial load
+              // and each intermediate size triggered a stale fit
+              // that then "stuck" once the canvas settled). We also
+              // skip zero-sized callbacks since maplibre's first
+              // observed size is often 0×0 before mount.
+              if (typeof ResizeObserver !== "undefined" && container) {
+                let rAF = 0;
+                resize_obs = new ResizeObserver((entries) => {
+                  const cr = entries[0]?.contentRect;
+                  if (!cr || cr.width < 4 || cr.height < 4) return;
+                  if (rAF) cancelAnimationFrame(rAF);
+                  rAF = requestAnimationFrame(() => {
+                    if (map && data_bbox) {
+                      map.resize();
+                      map.fitBounds(data_bbox as any, { padding: 16, animate: false });
+                    }
+                  });
+                });
+                resize_obs.observe(container);
+              }
+            };
+            if (resolved.kind === "geojson-inline" && resolved.data) {
+              bboxFromData(resolved.data);
+            } else {
+              fetch(resolved.url)
+                .then(r => r.json())
+                .then(bboxFromData)
+                .catch(() => {
+                  // Bounds are nice-to-have; rendering still works at the
+                  // default center/zoom if the bbox fetch fails.
+                });
+            }
           }
           loading = false;
         });

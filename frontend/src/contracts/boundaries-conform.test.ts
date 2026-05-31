@@ -21,13 +21,20 @@ import { existsSync, readFileSync } from "node:fs";
 import { resolve, sep, posix } from "node:path";
 import { fileURLToPath } from "node:url";
 import { globSync } from "glob";
+import { feature as topojsonFeature } from "topojson-client";
+import type { Topology, GeometryCollection } from "topojson-specification";
 
 const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "..", "..", "..");
 const boundaryFamilyRoot = resolve(repoRoot, "datasets", "boundaries");
 const boundariesRoot = resolve(repoRoot, "datasets", "boundaries", "in");
 
-// All *.geojson under boundaries/in/, POSIX-normalized.
+// All *.geojson AND *.topojson under boundaries/in/, POSIX-normalized.
+// Sidecar meta files (*.topojson.meta.json) ride alongside topojson
+// outputs and are NOT boundary shards; they're filtered out below.
 const ALL_GEOJSON = globSync("**/*.geojson", { cwd: boundariesRoot, absolute: false })
+  .map(p => p.split(sep).join(posix.sep))
+  .sort();
+const ALL_TOPOJSON = globSync("**/*.topojson", { cwd: boundariesRoot, absolute: false })
   .map(p => p.split(sep).join(posix.sep))
   .sort();
 
@@ -187,4 +194,59 @@ describe("boundaries-conform — states/all.geojson carries LGD-keyed features (
     const unique = new Set(codes);
     expect(unique.size).toBe(codes.length);
   });
+});
+
+// ---------------------------------------------------------------------------
+// TopoJSON siblings (P2.4 of TODO/20260531-geojson-to-topojson-migration-plan.md)
+// ---------------------------------------------------------------------------
+//
+// Until P5.4 retires geojson siblings, every shipped *.topojson MUST sit
+// next to a *.geojson sibling at the same Hive path, AND decode to the
+// same feature count. We do NOT assert coordinate equality (quantization
+// is lossy by design per ADR-0047).
+
+describe("boundaries-conform - every *.topojson sits at a well-formed Hive path", () => {
+  it("no orphan topojson at unrecognised paths", () => {
+    const orphans = ALL_TOPOJSON.filter(p => {
+      const geoEquiv = p.replace(/\.topojson$/, ".geojson");
+      return !isWellFormedHivePath(geoEquiv);
+    });
+    expect(
+      orphans,
+      `topojson at unrecognised paths: ${orphans.join(", ")}`,
+    ).toEqual([]);
+  });
+
+  it("every *.topojson has a sibling *.geojson (pre-P5.4 contract)", () => {
+    const missingSibling = ALL_TOPOJSON.filter(
+      t => !ALL_GEOJSON.includes(t.replace(/\.topojson$/, ".geojson")),
+    );
+    expect(
+      missingSibling,
+      `topojson without sibling geojson (forbidden until P5.4 retirement): ${missingSibling.join(", ")}`,
+    ).toEqual([]);
+  });
+});
+
+describe("boundaries-conform - topojson decodes to the same feature count as its geojson sibling", () => {
+  for (const topoRel of ALL_TOPOJSON) {
+    const geoRel = topoRel.replace(/\.topojson$/, ".geojson");
+    it(`${topoRel} feature-count parity with ${geoRel}`, () => {
+      const topoAbs = resolve(boundariesRoot, topoRel);
+      const geoAbs = resolve(boundariesRoot, geoRel);
+      const topo = JSON.parse(readFileSync(topoAbs, "utf8")) as Topology;
+      const geo = JSON.parse(readFileSync(geoAbs, "utf8")) as {
+        features: unknown[];
+      };
+      const objectNames = Object.keys(topo.objects ?? {});
+      expect(objectNames.length).toBeGreaterThan(0);
+      const decoded = topojsonFeature(
+        topo,
+        topo.objects[objectNames[0]] as GeometryCollection,
+      );
+      const decodedFeatures =
+        decoded.type === "FeatureCollection" ? decoded.features : [decoded];
+      expect(decodedFeatures.length).toBe(geo.features.length);
+    });
+  }
 });
