@@ -113,7 +113,7 @@ Status flags: `[ ]` not-started · `[~]` in-progress · `[x]` done · `[!]` bloc
 | P4 | 4.3 | Convert ULB-wards | 2 | 2.7 | Fowler | `_pending_` | `[ ]` |
 | P4 | 4.4 | Convert panchayats | 2 | 2.7 | Fowler | `_pending_` | `[ ]` |
 | P4 | 4.5 | Convert villages (Track A2; honest-perf disclaimer in PR body) | 3 | 2.7 | Fowler | `_pending_` | `[ ]` |
-| P4 | 4.6 | Convert postal/pincodes (Track A2) | 2 | 2.7 | Fowler | `_pending_` | `[~]` |
+| P4 | 4.6 | Convert postal/pincodes (Track A2) | 2 | 2.7 | Fowler | #492 | `[x]` |
 | **P5**: Distill + cleanup | 5.1 | `docs/how-to/convert-geojson-to-topojson.md` runbook | 2 | all P4 | default | `_pending_` | `[ ]` |
 | P5 | 5.2 | `docs/architecture/frontend/topojson-loader.md` | 2 | all P4 | default | `_pending_` | `[ ]` |
 | P5 | 5.3 | Commission `TODO/<date>-village-pincode-vector-tiles-plan.md` (PMTiles successor) | 2 | 2.7 | default | `_pending_` | `[ ]` |
