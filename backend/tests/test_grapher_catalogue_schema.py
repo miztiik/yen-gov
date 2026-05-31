@@ -22,6 +22,8 @@ from pathlib import Path
 import pytest
 from jsonschema import Draft202012Validator
 
+from yen_gov.core.schema_registry import schema_version
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SCHEMA_DIR = REPO_ROOT / "datasets" / "schemas"
 GRAPHER_DIR = REPO_ROOT / "datasets" / "grapher"
@@ -36,17 +38,17 @@ def _load(p: Path) -> dict:
     return json.loads(p.read_text(encoding="utf-8"))
 
 
-def test_indicator_schema_loads_and_is_v1_0() -> None:
+def test_indicator_schema_loads_and_changelog_matches_current_version() -> None:
     schema = _load(INDICATOR_SCHEMA)
-    assert schema["x-version"] == "1.0"
-    assert schema["x-changelog"][-1]["version"] == "1.0"
+    assert schema["x-version"] == schema_version("grapher-indicator-render.schema.json")
+    assert schema["x-changelog"][-1]["version"] == schema["x-version"]
     Draft202012Validator.check_schema(schema)
 
 
-def test_topic_schema_loads_and_is_v1_0() -> None:
+def test_topic_schema_loads_and_changelog_matches_current_version() -> None:
     schema = _load(TOPIC_SCHEMA)
-    assert schema["x-version"] == "1.0"
-    assert schema["x-changelog"][-1]["version"] == "1.0"
+    assert schema["x-version"] == schema_version("grapher-topic-render.schema.json")
+    assert schema["x-changelog"][-1]["version"] == schema["x-version"]
     Draft202012Validator.check_schema(schema)
 
 

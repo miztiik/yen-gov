@@ -92,9 +92,9 @@ def test_schema_loads_and_validates_v2_example() -> None:
     contract (3-arg hash over producer + title + vintage) is unchanged.
     """
     schema = _load_schema()
-    assert schema["x-version"] == "3.0"
+    assert schema["x-version"] == schema_version("source.schema.json")
     # The last changelog entry's version MUST match x-version (CLAUDE.md §11).
-    assert schema["x-changelog"][-1]["version"] == "3.0"
+    assert schema["x-changelog"][-1]["version"] == schema["x-version"]
     validator = Draft202012Validator(schema)
     container = _source_container([_example_v2_row()])
     errors = sorted(validator.iter_errors(container), key=lambda e: list(e.path))
