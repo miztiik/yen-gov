@@ -6,13 +6,13 @@ guardrail #13: every indicator MUST FK to one row in
 ``datasets/taxonomy/concepts.json`` declaring
 ``(noun, unit_canonical, normalisation, entity_kinds)``. Carve 0a is the
 schema-only bump (additive optional ``concept_id`` field); Carve 1 will
-backfill all 183 ``datasets/taxonomy/indicators.json`` rows via Z3a
+backfill all then-current ``datasets/taxonomy/indicators.json`` rows via Z3a
 ``find_overlap`` clustering at confidence >=0.95 + stub-concepts auto-mint
 for unmatched rows. The DARK ``tier_b_one_indicator_per_concept`` check
 (PR-Z3b-tail3 #366) chains live in a follow-up PR after Carve 1.
 
 Schema-only contract assertions plus a catalogue-stamp sentinel; no row
-backfill in this PR (the field stays absent on all 183 indicators).
+backfill in this PR (the field stayed absent from the catalogue rows).
 """
 
 from __future__ import annotations
