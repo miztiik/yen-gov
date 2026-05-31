@@ -41,7 +41,7 @@ Cheap tiers own exhaustive coverage; Playwright owns representative citizen jour
 
 | Row | PR scope | PR | Status | SHA | Notes |
 |---|---|---|---|---|---|
-| PR-1 | Playwright config: `fullyParallel: true`, `workers: CI?2:4`, scope `mobile-pixel-5` to breakpoint-sensitive specs only, tag `boundary-benchmark.spec.ts` `@bench` and exclude by default. | #_pending_ | DONE | _pending_ | Pure config; no spec body changes. Wall-time measured on CI not locally (CDP-throttled bench skipped via @bench exclusion). |
+| PR-1 | Playwright config: `fullyParallel: true`, `workers: CI?2:4`, scope `mobile-pixel-5` to breakpoint-sensitive specs only, tag `boundary-benchmark.spec.ts` `@bench` and exclude by default. | #520 | DONE | _pending_ | Pure config; no spec body changes. Wall-time measured on CI not locally (CDP-throttled bench skipped via @bench exclusion). |
 | PR-2 | AC coverage canary: reduce `STATE_CODES` to 5 canaries; full 31 behind `process.env.AC_COVERAGE_FULL`. Add path-filtered + nightly workflow that sets the env var. | _pending_ | PROPOSED | - | Depends on PR-1 (parallel/mobile-scope already in place changes the wall-time math). |
 | PR-3 | Golden-path slim-down: move theme-dropdown + temporal-caption assertions to dedicated specs or vitest. Target <= 80 lines. | _pending_ | PROPOSED | - | Touch most files; do last so PR-1+PR-2 have proven the new shape. |
 | PR-4 | Distill doctrine: add "e2e scope and canary subset" section to [docs/architecture/testing.md](../docs/architecture/testing.md); archive this plan-doc per [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md). | _pending_ | PROPOSED | - | Closes the plan. Only ship after PR-1+PR-2+PR-3 are merged and wall-time delta is verified. |
