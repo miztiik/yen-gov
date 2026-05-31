@@ -334,13 +334,13 @@ None. All ambiguities resolved 2026-05-31.
 | P5.1 runbook | #498 | docs/how-to/convert-geojson-to-topojson.md |
 | P5.2 loader doc | #498 | docs/architecture/frontend/topojson-loader.md |
 | P5.3 PMTiles successor | #497 | TODO/2026-05-31-village-pincode-vector-tiles-plan.md |
-| P5.4 .geojson retirement | #499 | TODO/2026-05-31-geojson-sibling-retirement-plan.md |
+| P5.4 .geojson retirement | #499 (commissioned plan) -> REJECTED 2026-05-31 | n/a -- sibling-retirement plan-doc DELETED per user mandate ("we are using a combination of both"); both encodings stay; loader fallback is the durable contract |
 | P5.5 archive + ADR flip | #505 | this archive PR |
 
 ### Follow-up plans (commissioned, not executed)
 
-- [TODO/2026-05-31-geojson-sibling-retirement-plan.md](../../../TODO/2026-05-31-geojson-sibling-retirement-plan.md) ? retire `.geojson` siblings for 8 Track A boundary layers once loader fallback is proven dead.
-- [TODO/2026-05-31-village-pincode-vector-tiles-plan.md](../../../TODO/2026-05-31-village-pincode-vector-tiles-plan.md) ? PMTiles successor for villages + pincodes (Track A2 felt-perf fix; supersedes Track A2 `.topojson` for those two layers).
+- ~~TODO/2026-05-31-geojson-sibling-retirement-plan.md~~ -- REJECTED + DELETED 2026-05-31. User mandate: "I don't think the sibling retirement is possible since we are using a combination of both". Both `.geojson` and `.topojson` siblings stay on disk indefinitely; the topo-first / geojson-fallback path in `loadBoundaryData()` is the durable contract, not a transitional state. Conformance invariant in `frontend/src/contracts/boundaries-conform.test.ts` stays as-is (sibling parity is required, not retired).
+- [TODO/2026-05-31-village-pincode-vector-tiles-plan.md](../../../TODO/2026-05-31-village-pincode-vector-tiles-plan.md) -- PMTiles successor for villages + pincodes (Track A2 felt-perf fix; supersedes Track A2 `.topojson` for those two layers).
 
 ### STOP CONDITION audit
 
@@ -354,4 +354,30 @@ None. All ambiguities resolved 2026-05-31.
 | ADR-0047 status flipped to `accepted` | done (this PR) |
 
 End of plan.
+
+## Post-archive correction (2026-05-31, reconcile PR)
+
+The plan above ARCHIVED as COMPLETE on 2026-05-31. A reconcile pass on the same date surfaced and fixed three drifts:
+
+1. **Sibling-retirement REJECTED by user**. The P5.4 commissioned follow-up plan (`TODO/2026-05-31-geojson-sibling-retirement-plan.md`) is deleted. User mandate verbatim: "I don't think the sibling retirement is possible since we are using a combination of both". Distillation-map row P5.4 above + Follow-up plans bullet above + ADR-0047 status line + topojson-loader.md conformance invariant #1 all updated to reflect that the sibling pair is the **durable** design, not a transitional state.
+2. **Deploy state not yet caught up to main**. As of the reconcile, the last successful `deploy site` workflow run on `main` published SHA `a7dada75` (PR #489, P3 cascade). Subsequent merges (PRs #500 ULB, #502 panchayats, #504 villages, #505 archive, #506 docs, #507 frontend) had their deploys cancelled or fail-and-retry. The TopoJSON `.topojson` siblings exist on `main` but were not yet on GH Pages at the moment this reconcile was authored. Frontend functionality is unaffected (the loader transparently falls back to `.geojson` when `.topojson` is 404).
+3. **Honest coverage tally on `main`**: 4,730 `.topojson` siblings across all 10 in-scope layers (country=1, states=1, districts=1, subdistricts=36, ac=31, pc=1, postal=37, panchayats=663, villages=659, wards=3300) vs 4,766 `all.geojson` files. The 36-file delta is the `blocks` layer, which is OUT OF SCOPE for this plan (Track A targeted the 10 layers listed in section 1; `blocks` was not in scope and intentionally has no `.topojson` sibling).
+
+### What is DONE (on main, in repo)
+
+- All 10 in-scope layers ship `.topojson` siblings (Track A + Track A2).
+- ADR-0047 status: `accepted`.
+- Distilled docs live: `docs/how-to/convert-geojson-to-topojson.md`, `docs/architecture/frontend/topojson-loader.md`.
+- Plan archived at this path.
+- Successor plan-doc for villages + pincodes PMTiles work commissioned at `TODO/2026-05-31-village-pincode-vector-tiles-plan.md`.
+
+### What is DEFERRED (intentional)
+
+- `.geojson` sibling retirement -- REJECTED by user 2026-05-31. Not deferred-with-trigger; permanently off the table. Sibling pair is the durable design.
+- `blocks` layer TopoJSON conversion -- out of scope of original plan; no current pressure to convert.
+
+### What is PENDING (the actual next work)
+
+- **Villages + pincodes PMTiles successor**: tracked at `TODO/2026-05-31-village-pincode-vector-tiles-plan.md`. This is the real felt-perf fix for those two high-feature-count layers; their Track A2 `.topojson` shipped for format-consistency but the honest disclaimer in section 1 stands -- browser polygon-render of 600k village polygons is the bottleneck, and PMTiles is the resolution.
+- **Deploy catch-up**: the next successful `deploy site` run on `main` will publish PRs #500-#507 to GH Pages. No code change required; just a green deploy. Already in progress per `gh run list --workflow="deploy site"`.
 
