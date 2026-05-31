@@ -1516,12 +1516,33 @@ export const WARD_BOUNDARY_BY_ULB: Readonly<Record<string, BoundaryEntry>> = Obj
 export { eciFromStateName, lgdCodeToEci } from "../view-models/states";
 
 export interface ResolvedSource {
-  /** Either 'pmtiles' (production) or 'geojson' (fallback). */
-  kind: "pmtiles" | "geojson";
-  /** URL the map source should load from. */
+  /**
+   * 'pmtiles' (production vector tiles), 'geojson' (URL-based fetch
+   * deferred to maplibre's internal source loader), or 'geojson-inline'
+   * (yen-gov-fetched FeatureCollection — used when the topojson-first /
+   * geojson-fallback contract in `boundaries.ts#loadBoundaryFromPath`
+   * has already decoded the data, e.g. when a `.topojson` sibling won
+   * the fallback race).
+   */
+  kind: "pmtiles" | "geojson" | "geojson-inline";
+  /** URL the map source should load from. Empty string when kind = 'geojson-inline'. */
   url: string;
   /** Layer name inside a PMTiles container; ignored for GeoJSON. */
   source_layer?: string;
+  /**
+   * Pre-fetched FeatureCollection when kind = 'geojson-inline'. The
+   * MapChoropleth source spec uses `{type: 'geojson', data: <this>}`
+   * directly (instead of `data: <url>`) so maplibre does NOT re-fetch.
+   * Populated by resolveSource() when the loader's topojson-first
+   * fallback decoded the partition; absent otherwise.
+   */
+  data?: BoundaryFeatureCollection;
+  /**
+   * Wire encoding that fed the inline data ('topojson' | 'geojson').
+   * Surfaced for instrumentation / bench harness diagnostics; ignored
+   * by the map render path.
+   */
+  format?: "topojson" | "geojson";
 }
 
 interface ManifestFile {
@@ -1538,6 +1559,10 @@ interface BoundaryManifest {
 }
 
 import { DATA_BASE } from "../paths";
+import {
+  loadBoundaryFromPath,
+  type BoundaryFeatureCollection,
+} from "../boundaries";
 
 let manifest_cache: Promise<BoundaryManifest | null> | null = null;
 
@@ -1572,13 +1597,33 @@ export async function resolveSource(entry: BoundaryEntry): Promise<ResolvedSourc
     }
   }
   if (entry.geojson_local_path) {
-    // We trust the path was wired up alongside a real snapshot under
-    // datasets/boundaries/in/ in the Hive partition layout (ADR-0031
-    // Amendment 2026-05-22). The dev server middleware (and the
-    // production Pages deploy) both serve datasets/ at /data/. If the file
-    // is missing, the map will surface a load error rather than silently
-    // fall through to the upstream URL — surfaceable bugs are better than
-    // hidden ones (CLAUDE.md §10 anti-patterns).
+    // Route through the topojson-first / geojson-fallback contract
+    // (boundaries.ts#loadBoundaryFromPath, P2.3 of the TopoJSON
+    // migration plan). When a `.topojson` sibling exists, the loader
+    // decodes it via topojson-client and returns the inline
+    // FeatureCollection so maplibre does NOT re-fetch the `.geojson`
+    // sibling. Falls through to a URL-based geojson source on any
+    // failure (matches the prior contract; an absent file still
+    // surfaces a load error on the map).
+    //
+    // geojson_local_path is rooted at `boundaries/in/...`; strip that
+    // prefix to match loadBoundaryFromPath's expected relative shape.
+    const relUnderBoundaries = entry.geojson_local_path.replace(
+      /^boundaries\/in\//,
+      "",
+    );
+    const { fc, format } = await loadBoundaryFromPath(relUnderBoundaries, entry.id);
+    if (fc) {
+      return {
+        kind: "geojson-inline",
+        url: "",
+        data: fc,
+        format: format ?? undefined,
+      };
+    }
+    // Fallback to the URL form when the loader returned null (neither
+    // sibling fetched cleanly). Preserves the prior surfaceable-error
+    // behaviour at the maplibre layer.
     return { kind: "geojson", url: `${DATA_BASE}/${entry.geojson_local_path}` };
   }
   return { kind: "geojson", url: entry.geojson_url };

@@ -1,0 +1,10 @@
+{
+  "$schema": "../datasets/schemas/topojson-config.schema.json",
+  "$schema_version": "1.0",
+  "default_quantization": 100000,
+  "simplification": "5% weighted",
+  "per_layer": {
+    "states": { "quantization": 100000 },
+    "districts": { "quantization": 100000 }
+  }
+}

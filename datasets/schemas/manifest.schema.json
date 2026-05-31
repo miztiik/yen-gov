@@ -70,7 +70,7 @@
           },
           "format": {
             "enum": ["parquet", "geojson", "pmtiles", "json"],
-            "description": "Drives the loader read path. parquet -> DuckDB-WASM HTTP Range; geojson -> fetch + JSON.parse; pmtiles -> maplibre-gl native protocol; json -> taxonomy compiled-out JSON fallback (rare)."
+            "description": "Drives the loader read path. parquet -> DuckDB-WASM HTTP Range; geojson -> fetch + JSON.parse; pmtiles -> maplibre-gl native protocol; json -> taxonomy compiled-out JSON fallback (rare). topojson is a frontend-internal render encoding tier (loaded as a sibling of geojson by `frontend/src/lib/boundaries.ts#loadBoundaryFromPath` per ADR-0047) and is NOT carried in the manifest control plane today; the format-enum bump is deferred until the writer emits topojson manifest entries."
           },
           "partition_columns": {
             "type": "array",

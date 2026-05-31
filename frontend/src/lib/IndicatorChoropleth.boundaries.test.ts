@@ -44,6 +44,19 @@ function jsonResponse(body: unknown, status = 200): Response {
 
 let fetchSpy: ReturnType<typeof vi.fn>;
 
+/**
+ * Route a single .geojson payload via the P2.3 topo-first / geo-fallback
+ * contract: any `.topojson` URL returns 404; the matching `.geojson` URL
+ * returns the supplied body.
+ */
+function mockGeoPayload(body: unknown, status = 200): void {
+  fetchSpy.mockImplementation(async (url: string) => {
+    if (url.endsWith(".topojson")) return new Response("nope", { status: 404 });
+    if (url.endsWith(".geojson")) return jsonResponse(body, status);
+    throw new Error(`unexpected fetch URL in test: ${url}`);
+  });
+}
+
 beforeEach(() => {
   fetchSpy = vi.fn();
   globalThis.fetch = fetchSpy as unknown as typeof fetch;
@@ -74,7 +87,7 @@ describe("IndicatorChoropleth drill — TN state click", () => {
     expect(state.level).toBe("district");
     expect(state.stateLgd).toBe(TN_LGD);
 
-    fetchSpy.mockResolvedValueOnce(jsonResponse(FC(38, { dist_lgd: 568, state_lgd: 33 })));
+    mockGeoPayload(FC(38, { dist_lgd: 568, state_lgd: 33 }));
     const [lvl, parent, stateLgd] = loadBoundaryArgs(state);
     const fc = await loadBoundary(lvl, parent, stateLgd);
 
@@ -99,7 +112,7 @@ describe("IndicatorChoropleth drill — TN state click", () => {
         geometry: { type: "Point" as const, coordinates: [72, 23] },
       })),
     ];
-    fetchSpy.mockResolvedValueOnce(jsonResponse({ type: "FeatureCollection", features }));
+    mockGeoPayload({ type: "FeatureCollection", features });
     const fc = await loadBoundary("district", undefined, TN_LGD);
     expect(fc?.features.length).toBe(5);
     expect(fc?.features.every(f => f.properties?.state_lgd === 33)).toBe(true);
@@ -114,12 +127,12 @@ describe("IndicatorChoropleth drill — TN state click", () => {
     expect(state.level).toBe("village");
     expect(state.parentDistrictLgd).toBe("603");
 
-    // Post-T.0d: no index probe; one direct fetch to the partitioned shard.
-    fetchSpy.mockResolvedValueOnce(jsonResponse(FC(12)));
+    // Post-P2.3: dual fetch (topojson 404 then geojson 200).
+    mockGeoPayload(FC(12));
 
     const [lvl, parent, stateLgd] = loadBoundaryArgs(state);
     const fc = await loadBoundary(lvl, parent, stateLgd);
-    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    expect(fetchSpy).toHaveBeenCalledTimes(2);
     expect(fetchSpy).toHaveBeenLastCalledWith(
       `${BASE}/boundaries/in/villages/state=in_s22/district=603/all.geojson`,
     );
@@ -129,7 +142,7 @@ describe("IndicatorChoropleth drill — TN state click", () => {
 
 describe("IndicatorChoropleth drill — graceful degradation", () => {
   it("404-as-null on a deeper boundary degrades without throwing", async () => {
-    fetchSpy.mockResolvedValueOnce(new Response("nope", { status: 404 }));
+    fetchSpy.mockImplementation(async () => new Response("nope", { status: 404 }));
     const fc = await loadBoundary("district", undefined, TN_LGD);
     expect(fc).toBeNull();
     // The component would surface this via deeper_fetch_error and roll
