@@ -56,7 +56,10 @@
     buildTemporalCaption,
     type IndicatorArtifact,
   } from "./indicators";
-  import { loadIndicator } from "./canonical/indicator-from-canonical";
+  import {
+    indicatorArtifactSourcesV2,
+    loadIndicator,
+  } from "./canonical/indicator-from-canonical";
   import { axisUnitLabel, legendCaption } from "./indicator-render";
 
   interface Props {
@@ -98,6 +101,7 @@
   const grain: ChoroplethGrain = $derived(
     artifact?.coverage.admin_level === "district" ? "district" : "state",
   );
+  const sources_v2 = $derived(artifact ? indicatorArtifactSourcesV2(artifact) : undefined);
   const ctx = $derived(entityContextForGrain(grain));
   // Currently-valid entities at this grain (states+UTs at "state",
   // districts at "district") in unified shape. Iterated to build the
@@ -964,8 +968,8 @@
         {/if}
       </div>
 
-      {#if artifact.sources_v2}
-        <SourceListV2 sources={artifact.sources_v2} schema_version={artifact.$schema_version} />
+      {#if sources_v2}
+        <SourceListV2 sources={sources_v2} schema_version={artifact.$schema_version} />
       {:else}
         <SourceList sources={artifact.sources} schema_version={artifact.$schema_version} />
       {/if}
