@@ -141,6 +141,13 @@ def test_additional_properties_lifted_on_indicator_block(schema: dict) -> None:
     assert "additionalProperties" not in schema["properties"]["indicator"]
 
 
+def test_v6_removed_render_fields_stay_out_of_indicator_schema(schema: dict) -> None:
+    props = schema["properties"]["indicator"]["properties"]
+    assert "default_mode" not in props
+    assert "facet_labels" not in props
+    assert "renderer_rules" not in props
+
+
 def test_minimal_v4_4_indicator_block_still_validates(indicator_validator: Draft202012Validator) -> None:
     """Back-compat: a v4.4-shaped indicator block (none of the new optional
     fields populated) still validates under v5.0."""

@@ -2,10 +2,10 @@
 (PR-Z3b-tail-actionC update_period_days backfill).
 
 Per docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md §0quat
-guardrail #18: every indicator MUST declare ``update_period_days``
+guardrail #18: every current indicator MUST declare ``update_period_days``
 (publisher refresh cadence in days). v2.1 schema bump is ADDITIVE
-(optional integer field, minimum=1); all 183 existing rows are
-backfilled in the same commit via cadence-derivation so the DARK
+(optional integer field, minimum=1); catalogue rows are backfilled via
+cadence-derivation so the DARK
 ``tier_b_indicator_freshness_declared`` check can be chained live in a
 follow-up PR without staging churn.
 
@@ -54,9 +54,8 @@ def test_catalogue_schema_version_is_current():
     assert _catalogue()["$schema_version"] == schema_version("indicator-catalogue.schema.json")
 
 
-def test_all_183_rows_carry_positive_update_period_days():
+def test_all_current_rows_carry_positive_update_period_days():
     inds = _catalogue()["indicators"]
-    assert len(inds) == 183
     missing = [r["indicator_id"] for r in inds if "update_period_days" not in r]
     assert missing == [], f"rows missing update_period_days: {missing}"
     non_positive = [
