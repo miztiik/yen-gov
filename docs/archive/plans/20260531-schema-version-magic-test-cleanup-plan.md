@@ -1,7 +1,7 @@
 # Schema Version Magic Test Cleanup Plan
 
 **Last Updated**: 2026-05-31
-**Status**: COMPLETE - Row A #501, Row B #503, Row C0 #506, Row C1 #507, Row C2 #509, Row C2.5 #511, Row C3 #512, Row D livestock slice #513, Row G #514, Row D ICED backend slice #515, Row E backend non-indicator test cleanup #516, Row F indicator schema/catalogue test cleanup #517, and Row D RBI state SDP backend-adapter slice #518 merged; Row H archive closure ships as PR #_pending_.
+**Status**: COMPLETE - Row A #501, Row B #503, Row C0 #506, Row C1 #507, Row C2 #509, Row C2.5 #511, Row C3 #512, Row D livestock slice #513, Row G #514, Row D ICED backend slice #515, Row E backend non-indicator test cleanup #516, Row F indicator schema/catalogue test cleanup #517, and Row D RBI state SDP backend-adapter slice #518 merged; Row H archive closure ships as PR #519.
 **Correction level**: 4 - cross-cutting cleanup across backend tests, frontend runtime, tools emitters, and docs. Escalate to Level 5 if a row changes canonical schema semantics rather than test/emitter mechanics.
 **Doc-class**: archived plan-doc per [ADR-0034](../../architecture/decisions/0034-documentation-routing-contract.md). Durable doctrine lives in [docs/architecture/testing.md](../../architecture/testing.md), [docs/architecture/backend/validator.md](../../architecture/backend/validator.md), and the linked architecture docs below.
 **Base branch discipline**: every execution PR branches from `origin/main`, not from this plan-doc branch and not from another active worktree branch.
@@ -101,7 +101,7 @@ Update this table in every PR that executes a row. Each row branches from `origi
 | E | #516 | Merged | `feat/preflight-schema-version-test` | Fowler | Backend non-indicator test cleanup: grapher catalogue, source row, preflight report producer, preflight CLI. | Current version literals removed or replaced by relationships/constants. Bad-version and historical fixtures remain named. Targeted pytest for touched files. Grep gate confirms no unclassified current pins in touched files. | Stop if a literal is the only guard for a historical behavior; rename/comment instead of deleting. |
 | F | #517 | Merged | `feat/indicator-schema-test-cleanup` | Fowler + Gregor | Indicator schema/catalogue tests: rename stale version-specific tests where helpful; remove current point pins; add v6 render-field absence checks; preserve historical changelog checks. | Targeted pytest for indicator schema/catalogue files; tests prove behavior and relationships, not point versions. | Stop if catalogue semantics or ADR-0045 ownership would change. |
 | G | #514 | Merged - trigger fired by #513 CI baseline | `feat/stale-shard-test-cleanup` | Fowler | Boundary stale-shard tests, only if the executor's active branch still has failures that enumerate pruned parent dirs. This is not schema-version magic. | Tests assert kept shard exists and stale shard file/path is gone; no parent-dir `iterdir()` on deleted paths. Targeted pytest for changed lift tests. | Skip if current `main` already has these tests correct. Do not bundle with schema-version rows. |
-| H | #_pending_ | Closed - archive PR | `feat/schema-magic-plan-distill` | Fowler | Plan closure: archive this plan with a plan-complete map and final residual-literal classification. Row B already distilled the durable testing doctrine into docs. | Durable doctrine lives in docs; this plan records where each row landed; no TODO-only architecture remains; `git diff --check` and grep closure gates pass. | Closed because no execution row remains open/actionable after #518. |
+| H | #519 | Closed - archive PR | `feat/schema-magic-plan-distill` | Fowler | Plan closure: archive this plan with a plan-complete map and final residual-literal classification. Row B already distilled the durable testing doctrine into docs. | Durable doctrine lives in docs; this plan records where each row landed; no TODO-only architecture remains; `git diff --check` and grep closure gates pass. | Closed because no execution row remains open/actionable after #518. |
 
 ## 6. Row execution details
 
@@ -291,7 +291,7 @@ This row exists because the original failure list mixed stale-shard tests with s
   - Pointer to the docs section that now owns the schema-version-in-tests rule.
 - **DoD gates**: docs-only `git diff --check`.
 
-2026-05-31 Row H closure ships as PR #_pending_:
+2026-05-31 Row H closure ships as PR #519:
 
 - Row B already moved the durable schema-version-in-tests doctrine into [docs/architecture/testing.md](../../architecture/testing.md) and [docs/architecture/backend/validator.md](../../architecture/backend/validator.md). No new doctrine is introduced by closure.
 - Final grep found residual explicit versions, but no unclassified active current-indicator emitter/test pin. The remaining literals are historical/backcompat inputs, bad-version fixtures, synthetic fixtures, row-schema constants outside this plan, boundary/schema contract sentinels, or migration scripts.
@@ -358,7 +358,7 @@ No remaining row in this plan is open/actionable.
 | E | #516 | Replaced backend non-indicator current-version test pins with schema relationships/constants while preserving bad-version and historical fixtures. |
 | F | #517 | Removed stale indicator catalogue row-count/current pins and added v6 render-field absence coverage. |
 | G | #514 | Closed the triggered boundary stale-shard failure separately from schema-version work. |
-| H | #_pending_ | Archived this plan, recorded final residual-literal classifications, and closed the execution ledger. |
+| H | #519 | Archived this plan, recorded final residual-literal classifications, and closed the execution ledger. |
 
 ## 11. See also
 
