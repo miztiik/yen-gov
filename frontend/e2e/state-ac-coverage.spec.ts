@@ -7,7 +7,7 @@
 // counterpart to the unit-level `state-ac-registry-coverage.test.ts`
 // contract: the unit test asserts the STATE_AC registry covers every
 // on-disk shard; THIS spec asserts the end-to-end pathway (map mount
-// + footer link + geojson fetch + SoT-name binding) works on the
+// + footer link + boundary fetch + SoT-name binding) works on the
 // live frontend.
 //
 // State-code list is INLINED here (not imported from sources.ts).
@@ -28,14 +28,16 @@
 //      icon-only with the label moved to the `title` attribute (citizen
 //      hovers to see the label; one click navigates to the docs):
 //      `<a href="/about?section=maps" title="Boundary sources & licensing">ⓘ</a>`.
-//   5. The map's own GET request for the geojson shard returns 200.
+//   5. The map's own GET request for the boundary shard returns 200.
 //      We listen via `page.waitForResponse` (set up BEFORE goto) rather
 //      than firing a manual fetch - manual `fetch(method:"HEAD")` from
 //      page context triggers a `requestfailed` because Vite's
 //      `serveDatasets()` middleware (vite.config.ts) only handles GET.
 //      A HEAD probe would also fail in CI for the same reason. Hooking
 //      the existing map-triggered GET avoids both problems and verifies
-//      the EXACT same fetch the citizen-facing render makes.
+//      the EXACT same fetch the citizen-facing render makes. TopoJSON
+//      siblings now exist for AC shards (ADR-0047), so the accepted
+//      request is either `.topojson` or the GeoJSON fallback.
 //
 // Mobile project skip: the AC drilldown's map behaviour is the same
 // across viewports (no breakpoint-specific code path); running the
@@ -118,12 +120,16 @@ test.describe("STATE_AC per-state coverage", () => {
     }
     test(`${code} (${slug}) /s/${slug}/ac/1 renders cleanly`, async ({ page }) => {
       const lcCode = code.toLowerCase();
-      const shardUrl = `/data/boundaries/in/ac/state=in_${lcCode}/all.geojson`;
+      const shardBaseUrl = `/data/boundaries/in/ac/state=in_${lcCode}/all`;
       // Set up the shard-response listener BEFORE navigation so the
       // map's own GET is captured by the same Promise we await later.
       const shardResponsePromise = page
         .waitForResponse(
-          (r) => r.url().includes(shardUrl) && r.request().method() === "GET",
+          (r) =>
+            r.request().method() === "GET" &&
+            r.status() === 200 &&
+            (r.url().includes(`${shardBaseUrl}.topojson`) ||
+              r.url().includes(`${shardBaseUrl}.geojson`)),
           { timeout: 30_000 },
         )
         .catch(() => null);
@@ -155,9 +161,12 @@ test.describe("STATE_AC per-state coverage", () => {
         /Boundary sources & licensing/,
       );
 
-      // GeoJSON shard load (via the map's own GET, captured above).
+      // Boundary shard load (via the map's own GET, captured above).
       const shardResponse = await shardResponsePromise;
-      expect(shardResponse, `${code}: map did not request ${shardUrl}`).not.toBeNull();
+      expect(
+        shardResponse,
+        `${code}: map did not request ${shardBaseUrl}.{topojson,geojson}`,
+      ).not.toBeNull();
       expect(shardResponse?.status(), `${code}: shard load failed`).toBe(200);
     });
   }
