@@ -44,7 +44,7 @@ Cheap tiers own exhaustive coverage; Playwright owns representative citizen jour
 | PR-1 | Playwright config: `fullyParallel: true`, `workers: CI?2:4`, scope `mobile-pixel-5` to breakpoint-sensitive specs only, tag `boundary-benchmark.spec.ts` `@bench` and exclude by default. | #520 | DONE | b027aaa4 | Pure config; no spec body changes. CI Playwright e2e ran in 6m41s; wall-time delta vs pre-#520 baseline will surface on PR-2 CI. |
 | PR-2 | AC coverage canary: reduce `STATE_CODES` to 5 canaries; full 31 behind `process.env.AC_COVERAGE_FULL`. Add path-filtered + nightly workflow that sets the env var. | #521 | DONE | bc1cad46 | Canary covers ordinary LGD (S24), LGD-with-rewrite (S01), district-fallback (S03), elected UT (U05), non-LGD seat_id (U08). Full matrix runs nightly + on path-filtered PRs touching sources.ts / AC shards / taxonomy / contract / this spec via .github/workflows/e2e-ac-full.yml. |
 | PR-3 | Golden-path slim-down: move theme-dropdown + temporal-caption assertions to dedicated specs or vitest. Target <= 80 lines. | #522 | DONE | _pending_ | Removed theme-dropdown + temporal-caption assertion blocks from `home` test (both already covered by vitest: home-theme.test.ts, indicators.test.ts deriveTemporalRange). File trimmed 310 -> 286 lines. The <= 80 line target was not pursued: remaining tests (constituency canonical loader, race-condition guard, KL/WB structural sample, /explore lazy-load, /s/:state/t/:topic IA-reset) are real citizen-invariant guards that would lose coverage if moved; the plan-doc rule "every removed assertion lands an equivalent in cheaper tier in same commit" outranks the line-count target. |
-| PR-4 | Distill doctrine: add "e2e scope and canary subset" section to [docs/architecture/testing.md](../../docs/architecture/testing.md); archive this plan-doc per [docs/how-to/distill-a-plan.md](../../docs/how-to/distill-a-plan.md). | #_pending_ | DONE | _pending_ | Section added to testing.md "e2e scope and canary subset" (4 sub-rules). Plan-doc moved to docs/archive/plans/. Code-comment backlinks updated to archive path. |
+| PR-4 | Distill doctrine: add "e2e scope and canary subset" section to [docs/architecture/testing.md](../../docs/architecture/testing.md); archive this plan-doc per [docs/how-to/distill-a-plan.md](../../docs/how-to/distill-a-plan.md). | #523 | DONE | _pending_ | Section added to testing.md "e2e scope and canary subset" (4 sub-rules). Plan-doc moved to docs/archive/plans/. Code-comment backlinks updated to archive path. |
 
 ## 4. PR specifications
 
@@ -149,7 +149,7 @@ Cheap tiers own exhaustive coverage; Playwright owns representative citizen jour
 
 ---
 
-## Plan complete (2026-05-31, PR #_pending_)
+## Plan complete (2026-05-31, PR #523)
 
 All four PRs shipped. Each row's distillation destination below.
 
@@ -158,6 +158,7 @@ All four PRs shipped. Each row's distillation destination below.
 | PR-1 Playwright config trim | #520 (027aaa4) | [frontend/playwright.config.ts](../../../frontend/playwright.config.ts) (fullyParallel + workers + per-project testMatch + grepInvert @bench) ; doctrine codified in [docs/architecture/testing.md](../../architecture/testing.md) "e2e scope and canary subset" sub-rules 3 + 4. |
 | PR-2 AC coverage canary | #521 (c1cad46) | [frontend/e2e/state-ac-coverage.spec.ts](../../../frontend/e2e/state-ac-coverage.spec.ts) (CANARY_CODES + AC_COVERAGE_FULL gate) + [.github/workflows/e2e-ac-full.yml](../../../.github/workflows/e2e-ac-full.yml) ; doctrine codified in [docs/architecture/testing.md](../../architecture/testing.md) "e2e scope and canary subset" sub-rule 2. |
 | PR-3 Golden-path slim | #522 (cab778d9) | [frontend/e2e/golden-path.spec.ts](../../../frontend/e2e/golden-path.spec.ts) (theme-dropdown + temporal-caption blocks removed; vitest tier already covers via [frontend/src/lib/home-theme.test.ts](../../../frontend/src/lib/home-theme.test.ts) and [frontend/src/lib/indicators.test.ts](../../../frontend/src/lib/indicators.test.ts)). ; doctrine codified in [docs/architecture/testing.md](../../architecture/testing.md) "e2e scope and canary subset" sub-rule 1. |
-| PR-4 Distill + archive | #_pending_ | This block + [docs/architecture/testing.md](../../architecture/testing.md) new section. Plan-doc archived in place. |
+| PR-4 Distill + archive | #523 | This block + [docs/architecture/testing.md](../../architecture/testing.md) new section. Plan-doc archived in place. |
 
 Plan-doc moved to docs/archive/plans/. No live backlinks remain (swept via git grep at archive time; surviving comments in code now point at this archive path). Closing rule: future agents looking for the e2e-scope doctrine read [docs/architecture/testing.md](../../architecture/testing.md), not this plan-doc.
+
