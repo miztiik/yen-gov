@@ -5,7 +5,7 @@
 // Locks the seed of `datasets/grapher/{indicator_render,topic_render}.json`
 // produced in PR-A3a against drift relative to:
 //   - `datasets/taxonomy/topics.json`   (chart_type, dimension on artifact refs)
-//   - `frontend/src/lib/canonical/indicator-allowlist.ts`  (renderer_rules)
+//   - canonical-backed rank-incompatible descriptors (renderer_rules now live here)
 //
 // Test direction is INCLUSIVE: every legacy row MUST have a matching
 // grapher row with identical values. The grapher catalogue MAY carry
@@ -34,6 +34,20 @@ interface LegacyTopicArtifact {
   id: string;
   chart_type?: string;
   dimension?: string;
+}
+
+const RANK_SUPPRESSING_COMPARABILITY = new Set<string>([
+  "directional_only",
+  "comparable_within_state_over_time",
+  "not_comparable_across_states",
+]);
+
+function effectiveIndicatorRenderId(
+  desc: (typeof CANONICAL_BACKED_INDICATORS)[number],
+): string {
+  return desc.kind === "single"
+    ? desc.canonical_indicator_id
+    : desc.canonical_parent_indicator_id;
 }
 interface LegacyTopic {
   id: string;
@@ -97,17 +111,19 @@ describe("grapher catalogue parity (PR-A3b)", () => {
   });
 
   describe("indicator renderer_rules", () => {
-    for (const desc of CANONICAL_BACKED_INDICATORS) {
-      const rules = desc.meta.renderer_rules;
-      if (!rules || rules.length === 0) continue;
-      const id =
-        desc.kind === "single"
-          ? desc.canonical_indicator_id
-          : desc.meta.id;
+    const rankSuppressedIds = new Set(
+      CANONICAL_BACKED_INDICATORS
+        .filter((desc) =>
+          RANK_SUPPRESSING_COMPARABILITY.has(desc.meta.comparability ?? ""),
+        )
+        .map(effectiveIndicatorRenderId),
+    );
+
+    for (const id of rankSuppressedIds) {
       it(`${id} renderer_rules match grapher indicator_render`, () => {
         const g = indicatorIdx.get(id);
         expect(g, `missing grapher row for ${id}`).toBeDefined();
-        expect(g!.renderer_rules ?? []).toEqual(rules);
+        expect(g!.renderer_rules ?? []).toContain("no_rank_table");
       });
     }
   });

@@ -7,8 +7,9 @@
 // IndicatorSmallMultiples trio (which remains in use on /t/<topic>).
 //
 // Honesty rules honoured here (see docs/concepts/indicator-naming.md §5
-// for the comparability ladder and §6 for the renderer_rules vocab):
-//   - `renderer_rules` containing "no_rank_table" → suppress rank line.
+// for the comparability ladder and ADR-0045 for grapher-owned render policy):
+//   - `renderer_rules` containing "no_rank_table" → suppress rank line
+//     whether the rule arrives from a legacy artifact or the grapher catalogue.
 //   - `comparability` ∈ rank-incompatible set → suppress rank line. The
 //     set is: `directional_only` (Hans: read direction-of-change only,
 //     a rank would mislead — e.g. WPI across base splices),
@@ -27,6 +28,10 @@
 // composition over the existing renderer set, not a new family).
 
 import type { IndicatorMeta, IndicatorRow } from "./indicators";
+
+interface RankRenderPolicy {
+  renderer_rules?: ReadonlyArray<string> | null;
+}
 
 /** Latest (most recent) observation for a single entity, or null when the
  *  entity has no non-null rows. Time is compared lexicographically — works
@@ -94,11 +99,15 @@ export function rankForEntity(
   return { rank: idx + 1, total: sorted.length, time: home.time };
 }
 
-/** Whether the card may display a rank line. Honours both the
- *  `renderer_rules` (v1.5) and the `comparability` token. See the file
- *  header for the full set of rank-suppressing comparability values. */
-export function canShowRank(meta: IndicatorMeta): boolean {
-  const rules = meta.renderer_rules ?? [];
+/** Whether the card may display a rank line. Honours both legacy artifact
+ *  `indicator.renderer_rules`, grapher-owned render policy, and the
+ *  `comparability` token. See the file header for the full set of
+ *  rank-suppressing comparability values. */
+export function canShowRank(
+  meta: IndicatorMeta,
+  render: RankRenderPolicy | null = null,
+): boolean {
+  const rules = [...(meta.renderer_rules ?? []), ...(render?.renderer_rules ?? [])];
   if (rules.includes("no_rank_table")) return false;
   switch (meta.comparability) {
     case "directional_only":

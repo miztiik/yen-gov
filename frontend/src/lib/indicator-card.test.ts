@@ -77,6 +77,11 @@ describe("canShowRank", () => {
     const m = { ...META_HIGHER, renderer_rules: ["no_rank_table"] } as IndicatorMeta;
     expect(canShowRank(m)).toBe(false);
   });
+  it("respects grapher renderer_rules: no_rank_table when artifact metadata is clean", () => {
+    expect(
+      canShowRank(META_HIGHER, { renderer_rules: ["no_rank_table"] }),
+    ).toBe(false);
+  });
   it("suppresses for comparability=not_comparable_across_states", () => {
     const m = { ...META_HIGHER, comparability: "not_comparable_across_states" } as IndicatorMeta;
     expect(canShowRank(m)).toBe(false);
