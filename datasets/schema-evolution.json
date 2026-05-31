@@ -32,7 +32,7 @@
           "action": "unchanged"
         }
       ],
-      "pr": null,
+      "pr": "#511",
       "commit": null,
       "notes": "Envelope-only validation grammar widening so canonical-backed frontend artifacts can carry ADR-0044 kebab indicator identity without rewriting legacy JSON artifacts."
     }
