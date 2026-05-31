@@ -12,6 +12,8 @@ from pathlib import Path
 
 import pytest
 
+from yen_gov.core.schema_registry import schema_id, schema_version
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 TOOLS_DIR = REPO_ROOT / "tools"
 
@@ -20,6 +22,11 @@ TOOL_NAMES = (
     "livestock_meadow_owner_reg",
     "livestock_meadow_naip_iv",
 )
+
+
+def _assert_current_indicator_schema(doc: dict) -> None:
+    assert doc["$schema"] == schema_id("indicator.schema.json")
+    assert doc["$schema_version"] == schema_version("indicator.schema.json")
 
 
 def _load(tool_name: str):
@@ -64,6 +71,7 @@ def test_pashu_aadhaar_build_stamps_supplied_fetched_at():
         {},  # empty district_lookup -> 0 rows + unresolved skip
         "2024-04-01T00:00:00Z",
     )
+    _assert_current_indicator_schema(doc)
     assert doc["sources"][0]["fetched_at"] == "2024-04-01T00:00:00Z"
     assert "2024-04-01T00:00:00Z" in doc["indicator"]["methodology_vintage"]
 
@@ -73,6 +81,7 @@ def test_owner_reg_build_stamps_supplied_fetched_at():
     doc, _ = mod.build_meadow_doc(
         ("2024-25",), {}, "2024-04-01T00:00:00Z",
     )
+    _assert_current_indicator_schema(doc)
     assert doc["sources"][0]["fetched_at"] == "2024-04-01T00:00:00Z"
     assert "2024-04-01T00:00:00Z" in doc["indicator"]["methodology_vintage"]
 
@@ -82,5 +91,19 @@ def test_naip_iv_district_build_stamps_supplied_fetched_at():
     doc, _ = mod.build_district_meadow_doc(
         ("2024-25",), {}, "2024-04-01T00:00:00Z",
     )
+    _assert_current_indicator_schema(doc)
+    assert doc["sources"][0]["fetched_at"] == "2024-04-01T00:00:00Z"
+    assert "2024-04-01T00:00:00Z" in doc["indicator"]["methodology_vintage"]
+
+
+def test_naip_iv_header_build_stamps_current_schema(monkeypatch):
+    mod = _load("livestock_meadow_naip_iv")
+    monkeypatch.setattr(
+        mod,
+        "_fetch_header",
+        lambda _raw_vintage: {"data": {"NAIP IV": 1, "ABIP": 2, "Others": 3}},
+    )
+    doc = mod.build_header_meadow_doc(("2024-25",), "2024-04-01T00:00:00Z")
+    _assert_current_indicator_schema(doc)
     assert doc["sources"][0]["fetched_at"] == "2024-04-01T00:00:00Z"
     assert "2024-04-01T00:00:00Z" in doc["indicator"]["methodology_vintage"]
