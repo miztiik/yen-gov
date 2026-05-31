@@ -116,7 +116,7 @@ Status flags: `[ ]` not-started · `[~]` in-progress · `[x]` done · `[!]` bloc
 | P4 | 4.6 | Convert postal/pincodes (Track A2) | 2 | 2.7 | Fowler | #492 | `[x]` |
 | **P5**: Distill + cleanup | 5.1 | `docs/how-to/convert-geojson-to-topojson.md` runbook | 2 | all P4 | default | `_pending_` | `[ ]` |
 | P5 | 5.2 | `docs/architecture/frontend/topojson-loader.md` | 2 | all P4 | default | `_pending_` | `[ ]` |
-| P5 | 5.3 | Commission `TODO/<date>-village-pincode-vector-tiles-plan.md` (PMTiles successor) | 2 | 2.7 | default | `_pending_` | `[ ]` |
+| P5 | 5.3 | Commission `TODO/2026-05-31-village-pincode-vector-tiles-plan.md` (PMTiles successor) | 2 | 2.7 | default | `_pending_` | `[x]` |
 | P5 | 5.4 | Commission cleanup PR for `.geojson` retirement | 2 | all P4 | default | `_pending_` | `[ ]` |
 | P5 | 5.5 | Archive this plan-doc with "Plan complete" block | 1 | 5.1, 5.2, 5.3 | default | `_pending_` | `[ ]` |
 
