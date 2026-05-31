@@ -195,3 +195,161 @@ def test_layer_settings_per_layer_override(tmp_path: Path) -> None:
     d = convert_layer._layer_settings(config, "anything_else")
     assert d["quantization"] == 100000
     assert d["clean"] is False
+
+
+# ---------------------------------------------------------------------------
+# Batch-mode tests (PR-X)
+# ---------------------------------------------------------------------------
+
+
+def _write_shard(path: Path, seed: int, n_features: int = 3) -> None:
+    payload = {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "properties": {"id": seed * 100 + i, "name": f"poly{seed}_{i}"},
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [seed + i, seed + i],
+                            [seed + i + 1, seed + i],
+                            [seed + i + 1, seed + i + 1],
+                            [seed + i, seed + i + 1],
+                            [seed + i, seed + i],
+                        ]
+                    ],
+                },
+            }
+            for i in range(n_features)
+        ],
+    }
+    path.write_text(json.dumps(payload), encoding="utf-8")
+
+
+def test_convert_batch_processes_multiple_shards(tmp_path: Path) -> None:
+    config_path = _write_config(tmp_path)
+    shards = []
+    for s in range(4):
+        in_path = tmp_path / f"in_{s}.geojson"
+        out_path = tmp_path / f"out_{s}.topojson"
+        _write_shard(in_path, s)
+        shards.append({"input": str(in_path), "output": str(out_path), "layer": "tiny"})
+
+    keys = convert_layer.convert_batch(shards, config_path, batch_size=2)
+    assert len(keys) == 4
+    for s in range(4):
+        out = tmp_path / f"out_{s}.topojson"
+        assert out.exists()
+        sidecar = convert_layer._sidecar_path(out)
+        assert sidecar.exists()
+        parsed = json.loads(out.read_text(encoding="utf-8"))
+        assert parsed["type"] == "Topology"
+        assert "tiny" in parsed["objects"]
+        assert len(parsed["objects"]["tiny"]["geometries"]) == 3
+
+
+def test_convert_batch_is_idempotent_byte_equal(tmp_path: Path) -> None:
+    config_path = _write_config(tmp_path)
+    shards = []
+    for s in range(3):
+        in_path = tmp_path / f"in_{s}.geojson"
+        out_path = tmp_path / f"out_{s}.topojson"
+        _write_shard(in_path, s)
+        shards.append({"input": str(in_path), "output": str(out_path), "layer": "tiny"})
+
+    convert_layer.convert_batch(shards, config_path, batch_size=10)
+    first_bytes = [
+        (tmp_path / f"out_{s}.topojson").read_bytes() for s in range(3)
+    ]
+    first_mtimes = [
+        (tmp_path / f"out_{s}.topojson").stat().st_mtime_ns for s in range(3)
+    ]
+
+    # Second run: every shard is a cache-hit; no mapshaper subprocess
+    # should fire and output bytes + mtimes are unchanged.
+    convert_layer.convert_batch(shards, config_path, batch_size=10)
+    second_bytes = [
+        (tmp_path / f"out_{s}.topojson").read_bytes() for s in range(3)
+    ]
+    second_mtimes = [
+        (tmp_path / f"out_{s}.topojson").stat().st_mtime_ns for s in range(3)
+    ]
+
+    assert first_bytes == second_bytes
+    assert first_mtimes == second_mtimes
+
+
+def test_convert_batch_skips_cache_hits_runs_misses(tmp_path: Path) -> None:
+    config_path = _write_config(tmp_path)
+    shards = []
+    for s in range(3):
+        in_path = tmp_path / f"in_{s}.geojson"
+        out_path = tmp_path / f"out_{s}.topojson"
+        _write_shard(in_path, s)
+        shards.append({"input": str(in_path), "output": str(out_path), "layer": "tiny"})
+
+    convert_layer.convert_batch(shards, config_path, batch_size=10)
+    cached_mtime = (tmp_path / "out_0.topojson").stat().st_mtime_ns
+
+    # Mutate only shard 2's input; shards 0 + 1 stay cache-hits.
+    _write_shard(tmp_path / "in_2.geojson", seed=99)
+
+    convert_layer.convert_batch(shards, config_path, batch_size=10)
+
+    # Cache-hit shard untouched.
+    assert (tmp_path / "out_0.topojson").stat().st_mtime_ns == cached_mtime
+    # Cache-miss shard reflects the new input.
+    parsed = json.loads((tmp_path / "out_2.topojson").read_text(encoding="utf-8"))
+    geoms = parsed["objects"]["tiny"]["geometries"]
+    assert any(g["properties"]["name"].startswith("poly99_") for g in geoms)
+
+
+def test_convert_batch_matches_single_shard_output_byte_for_byte(tmp_path: Path) -> None:
+    """Batch-mode output for one shard must equal single-shard convert() output.
+
+    Guards against accidental semantic drift between the two paths
+    (e.g. argv ordering differences that mapshaper might handle
+    differently).
+    """
+    config_path = _write_config(tmp_path)
+
+    single_in = tmp_path / "single.geojson"
+    single_out = tmp_path / "single.topojson"
+    _write_shard(single_in, seed=7)
+    convert_layer.convert(single_in, single_out, "tiny", config_path)
+    single_bytes = single_out.read_bytes()
+
+    batch_in = tmp_path / "batch.geojson"
+    batch_out = tmp_path / "batch.topojson"
+    _write_shard(batch_in, seed=7)
+    convert_layer.convert_batch(
+        [{"input": str(batch_in), "output": str(batch_out), "layer": "tiny"}],
+        config_path,
+        batch_size=10,
+    )
+    batch_bytes = batch_out.read_bytes()
+
+    assert single_bytes == batch_bytes
+
+
+def test_convert_batch_empty_manifest_is_noop(tmp_path: Path) -> None:
+    config_path = _write_config(tmp_path)
+    result = convert_layer.convert_batch([], config_path)
+    assert result == []
+
+
+def test_convert_batch_missing_input_raises(tmp_path: Path) -> None:
+    config_path = _write_config(tmp_path)
+    with pytest.raises(FileNotFoundError):
+        convert_layer.convert_batch(
+            [{"input": str(tmp_path / "nope.geojson"), "output": str(tmp_path / "x.topojson"), "layer": "tiny"}],
+            config_path,
+        )
+
+
+def test_convert_batch_rejects_bad_batch_size(tmp_path: Path) -> None:
+    config_path = _write_config(tmp_path)
+    with pytest.raises(ValueError):
+        convert_layer.convert_batch([], config_path, batch_size=0)
