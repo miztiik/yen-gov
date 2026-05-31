@@ -1,5 +1,5 @@
 // Boundary loader benchmark harness for the TopoJSON migration
-// (TODO/20260531-geojson-to-topojson-migration-plan.md P1.1/P1.3).
+// (docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md P1.1/P1.3).
 //
 // Captures the citizen-felt metrics for the boundary load surface under
 // the citizen target (Slow-4G + 4x CPU throttle + 390x844 viewport):

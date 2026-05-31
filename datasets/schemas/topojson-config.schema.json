@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "./topojson-config.schema.json",
   "title": "TopoJSON converter configuration",
-  "description": "Configures the GeoJSON-to-TopoJSON converter at tools/topojson/convert_layer.py. Pinned per layer so quantization / simplification / -clean flag changes are 1-line JSON edits (no code change). Carries $schema + $schema_version per CLAUDE.md section 11. Introduced 2026-05-31 as part of TODO/20260531-geojson-to-topojson-migration-plan.md P2.1.",
+  "description": "Configures the GeoJSON-to-TopoJSON converter at tools/topojson/convert_layer.py. Pinned per layer so quantization / simplification / -clean flag changes are 1-line JSON edits (no code change). Carries $schema + $schema_version per CLAUDE.md section 11. Introduced 2026-05-31 as part of docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md P2.1.",
   "x-version": "1.0",
   "x-changelog": [
     {

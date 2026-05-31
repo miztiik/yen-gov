@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-05-31
 
-How `frontend/src/lib/boundaries.ts` resolves boundary partitions to a `FeatureCollection` for the choropleth components. Distilled from [TODO/20260531-geojson-to-topojson-migration-plan.md](../../../TODO/20260531-geojson-to-topojson-migration-plan.md) row P2.3 and the fallback contract in section 5.
+How `frontend/src/lib/boundaries.ts` resolves boundary partitions to a `FeatureCollection` for the choropleth components. Distilled from [docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md](../../../docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md) row P2.3 and the fallback contract in section 5.
 
 ## See also
 
@@ -47,7 +47,7 @@ When `import.meta.env.VITE_BENCH === "1"` the loader emits `performance.mark` / 
 - `boundary-load:<label>` measure between them (the load-bearing signal).
 - `boundary-load:<label>:<format>` measure tagging which sibling won (`topojson` or `geojson`).
 
-Vite dead-code-eliminates these branches when `VITE_BENCH` is unset, so production bundles pay zero cost. See [TODO/20260531-geojson-to-topojson-migration-plan.md](../../../TODO/20260531-geojson-to-topojson-migration-plan.md) row P1.2 for the harness contract.
+Vite dead-code-eliminates these branches when `VITE_BENCH` is unset, so production bundles pay zero cost. See [docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md](../../../docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md) row P1.2 for the harness contract.
 
 ## Conformance invariants
 

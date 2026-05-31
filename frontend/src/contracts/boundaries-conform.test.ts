@@ -197,7 +197,7 @@ describe("boundaries-conform — states/all.geojson carries LGD-keyed features (
 });
 
 // ---------------------------------------------------------------------------
-// TopoJSON siblings (P2.4 of TODO/20260531-geojson-to-topojson-migration-plan.md)
+// TopoJSON siblings (P2.4 of docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md)
 // ---------------------------------------------------------------------------
 //
 // Until P5.4 retires geojson siblings, every shipped *.topojson MUST sit

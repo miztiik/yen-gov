@@ -1,7 +1,7 @@
 # TopoJSON migration - candidate benchmark (P2.6)
 
 **Last Updated**: 2026-05-31
-**Closes**: P2.6 of [TODO/20260531-geojson-to-topojson-migration-plan.md](../TODO/20260531-geojson-to-topojson-migration-plan.md)
+**Closes**: P2.6 of [docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md](../docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md)
 **Baseline**: [notes/2026-05-31-topojson-baseline-bench.md](2026-05-31-topojson-baseline-bench.md)
 **Harness**: [frontend/e2e/boundary-benchmark.spec.ts](../frontend/e2e/boundary-benchmark.spec.ts) (unchanged)
 **Candidate artefact**: `datasets/boundaries/in/states/all.topojson` (P2.2 output; mapshaper 0.7.22; quantization 1e5; simplification `5% weighted`)

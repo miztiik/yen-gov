@@ -5,7 +5,7 @@
 // `boundaries/boundary_layers.parquet` queryable via DuckDB-WASM).
 // Missing village shards now resolve to null via the 404-as-null branch.
 //
-// Post-P2.3 (TODO/20260531-geojson-to-topojson-migration-plan.md) the
+// Post-P2.3 (docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md) the
 // loader tries `.topojson` first and falls back to `.geojson` on 404.
 // These tests pin the geojson fallback path (no topojson sibling present
 // in the test fixtures), so each fetch mock returns 404 for the topojson

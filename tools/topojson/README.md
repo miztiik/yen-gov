@@ -1,6 +1,6 @@
 # tools/topojson - GeoJSON to TopoJSON converter
 
-**Status**: active (P2.1 of [TODO/20260531-geojson-to-topojson-migration-plan.md](../../TODO/20260531-geojson-to-topojson-migration-plan.md))
+**Status**: active (P2.1 of [docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md](../../docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md))
 
 Converts an input GeoJSON FeatureCollection to a TopoJSON file via the
 [Mapshaper](https://github.com/mbloch/mapshaper) CLI. Idempotent

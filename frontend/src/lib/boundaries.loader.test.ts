@@ -1,5 +1,5 @@
 // Loader unit tests for the topojson-first / geojson-fallback contract
-// (TODO/20260531-geojson-to-topojson-migration-plan.md P2.3). Mocks
+// (docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md P2.3). Mocks
 // `fetch` per the CLAUDE.md Holy Law #7 loader-test carve-out so we can
 // exercise topo-OK, topo-404, topo-parse-error, and topo-decode-error
 // branches deterministically without touching the on-disk corpus.

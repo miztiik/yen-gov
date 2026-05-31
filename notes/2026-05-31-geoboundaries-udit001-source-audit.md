@@ -3,7 +3,7 @@
 **Date**: 2026-05-31
 **Auditor**: Max (data-shape authority per CLAUDE.md section 0a)
 **Verdict**: NO-GO for both candidates as canonical or as render-only layer
-**Plan-doc row**: P0.2 of [TODO/20260531-geojson-to-topojson-migration-plan.md](../TODO/20260531-geojson-to-topojson-migration-plan.md)
+**Plan-doc row**: P0.2 of [docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md](../docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md)
 **ADR**: cross-linked from [docs/architecture/decisions/0047-topojson-as-render-encoding.md](../docs/architecture/decisions/0047-topojson-as-render-encoding.md) Rejected-A + Rejected-B
 
 ## 1. Context
