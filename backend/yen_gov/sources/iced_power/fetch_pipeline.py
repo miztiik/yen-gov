@@ -8,8 +8,8 @@ snapshot of ``/v1/plantPipelineInfo`` and persists it under
 where ``<vintage>`` is the upstream ``Last-Modified`` date (per the
 CLAUDE.md anti-pattern that bars ``datetime.now()`` in data-row content).
 
-The meadow file is schema-compliant per
-``datasets/schemas/indicator.schema.json`` v6.0: ``$schema`` +
+The meadow file is schema-compliant per the current
+``datasets/schemas/indicator.schema.json``: ``$schema`` +
 ``$schema_version`` + ``sources[]`` + ``license`` + ``coverage`` +
 ``indicator{...}`` + ``rows[{entity_id, time, value, facet}]``. The rows
 are produced by the pure parser
@@ -24,6 +24,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from yen_gov.core.schema_registry import schema_id, schema_version
 from yen_gov.sources.iced_common.client import API_HOST_DEFAULT, IcedClient
 from yen_gov.sources.iced_power.parsers import parse_plant_pipeline_info
 
@@ -36,7 +37,7 @@ def _build_meadow_payload(
     rows: list[dict[str, Any]],
     fetched_at_iso: str,
 ) -> dict[str, Any]:
-    """Wrap parsed rows into the meadow-tier indicator.schema v6.0 shape."""
+    """Wrap parsed rows into the current meadow-tier indicator schema shape."""
     times = sorted({r["time"] for r in rows}) if rows else []
     temporal = f"{times[0]}..{times[-1]}" if times else ""
     description = (
@@ -46,8 +47,8 @@ def _build_meadow_payload(
         "(not cumulative). Publisher 2022 gap preserved verbatim."
     )
     return {
-        "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-        "$schema_version": "6.0",
+        "$schema": schema_id("indicator.schema.json"),
+        "$schema_version": schema_version("indicator.schema.json"),
         "sources": [
             {
                 "url": "https://iced.niti.gov.in/energy/electricity/capacity/upcoming",
