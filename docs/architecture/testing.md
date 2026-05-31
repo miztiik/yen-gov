@@ -1,6 +1,6 @@
 # Test Coverage Policy
 
-**Last Updated**: 2026-05-30
+**Last Updated**: 2026-05-31
 
 > This is the canonical home for yen-gov's test-tier policy. [CLAUDE.md §15](../../CLAUDE.md) carries a one-paragraph summary and links here. The non-negotiable rules (mock carve-outs, no-corpus-walk, red-suite-blocks-commit) remain in CLAUDE.md because they are contract-grade; the matrix, command snippets, and fixture conventions live here.
 
@@ -41,6 +41,41 @@ A new integrity test needs to name the contract it defends. If the answer is "ev
 - Mocks remain forbidden ([Holy Law #7](../../CLAUDE.md)) except: (a) `fetch` in unit tests of loaders — the loader's contract IS the fetch boundary, so mocking it is testing the contract; (b) explicit user request.
 - **No pytest test walks the real on-disk corpus.** Any test that opens files under `datasets/**` or `config/**` of the real repo (directly, via a CLI subprocess, or via an HTTP route that itself walks) is Tier-B conformance smuggled into Tier A — see [CLAUDE.md §10](../../CLAUDE.md). Use a `tmp_path` fixture corpus and inject the root through an env var (e.g. `YEN_GOV_REPO_ROOT`). Red flag for review: any single backend test with a duration > 5 s. Reference fix: commit `7d407d0` ([`admin/schemas.py`](../../backend/yen_gov/admin/schemas.py) + [`test_admin_schemas.py`](../../backend/tests/test_admin_schemas.py)).
 - A red test at commit time blocks the commit. "Skip this for now" is a structural-fix request ([§5](../../CLAUDE.md)), not a casual override.
+
+## Schema Versions In Tests
+
+This section governs how tests assert schema-version behavior. It does not define reader compatibility, retained historical schemas, migration policy, or which old artifact versions validators may accept. Those choices belong to [ADR-0047](decisions/0047-schema-version-compatibility-contract.md), [data/schema-evolution.md](data/schema-evolution.md), and the active schema-compatibility plan rows.
+
+Tests MUST NOT assert a production schema's current version as a hand-typed point value when the behavior under test is "whatever the current writer emits today".
+
+Prefer relationship assertions:
+
+- Emitted `$schema_version` equals the schema file's `x-version`.
+- A schema changelog tail entry's `version` equals `x-version`.
+- Backend code/tests use `yen_gov.core.schema_registry.schema_version("<file>")` or `schema_id("<file>")` where backend imports are legal.
+- `tools/` helpers read the relevant schema JSON directly, or use a tools-local helper with a drift test. `tools/` MUST NOT import backend runtime modules.
+- Frontend current-emission tests use one named frontend policy/helper and a drift test against the schema JSON. A reader compatibility allowlist is a separate contract.
+
+Forbidden shape when the literal means "current":
+
+```python
+assert schema["x-version"] == "6.0"
+assert payload["$schema_version"] == "6.0"
+assert schema["x-changelog"][-1]["date"] == "2026-05-26"
+```
+
+Replacement shape:
+
+```python
+from yen_gov.core.schema_registry import schema_version
+
+assert payload["$schema_version"] == schema_version("indicator.schema.json")
+assert schema["x-changelog"][-1]["version"] == schema["x-version"]
+```
+
+Explicit version literals are allowed only when the literal is part of the behavior under test: migration fixtures, historical/backcompat cases, intentionally bad versions, changelog-entry history, or synthetic fixtures disconnected from production current schemas. The test name or nearby prose must make that purpose clear.
+
+This rule does not cover source vintage dates, methodology dates, business fixture dates, API mock versions, row-count sentinels, or schema changelog history inside `datasets/schemas/**`. Those may have their own review smell, but they are not current-schema-version pins.
 
 ## Runtime fragility — known issues (do NOT "fix" the tests)
 
