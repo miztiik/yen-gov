@@ -8,6 +8,7 @@ from pathlib import Path
 from typer.testing import CliRunner
 
 from yen_gov.cli import app
+from yen_gov.core.schema_registry import schema_version
 
 runner = CliRunner()
 
@@ -51,7 +52,7 @@ def test_cli_pass_exit_zero(tmp_path):
     assert report_path.exists()
     payload = json.loads(report_path.read_text(encoding="utf-8"))
     assert payload["verdict"] == "mint_new"
-    assert payload["schema_version"] == "1.0"
+    assert payload["schema_version"] == schema_version("preflight-report.schema.json")
 
 
 def test_cli_hard_fail_exit_two(tmp_path):

@@ -31,12 +31,14 @@ from pathlib import Path
 from typing import Any, Literal
 
 from yen_gov.canonical.concept_registry import find_overlap
+from yen_gov.core.schema_registry import schema_version
 from yen_gov.preflight import predicates as P
 
 Verdict = Literal["mint_new", "upsert", "add_facet", "abort"]
 CheckStatus = Literal["pass", "warn", "fail"]
 
-PREFLIGHT_REPORT_SCHEMA_VERSION = "1.0"
+_PREFLIGHT_REPORT_SCHEMA_FILE = "preflight-report.schema.json"
+PREFLIGHT_REPORT_SCHEMA_VERSION = schema_version(_PREFLIGHT_REPORT_SCHEMA_FILE)
 
 
 @dataclass(frozen=True)
