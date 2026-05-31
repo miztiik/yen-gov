@@ -1,7 +1,7 @@
 # Schema Version Magic Test Cleanup Plan
 
 **Last Updated**: 2026-05-31
-**Status**: ACTIVE - Row A plan-doc PR #501 merged; Row B doctrine PR #503 open.
+**Status**: ACTIVE - Row A plan-doc PR #501 merged; Row B doctrine PR #503 merged; Row C split by source-contract blocker.
 **Correction level**: 4 - cross-cutting cleanup across backend tests, frontend runtime, tools emitters, and docs. Escalate to Level 5 if a row changes canonical schema semantics rather than test/emitter mechanics.
 **Doc-class**: plan-doc per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md). Durable doctrine must be distilled into `docs/` before this plan closes.
 **Base branch discipline**: every execution PR branches from `origin/main`, not from this plan-doc branch and not from another active worktree branch.
@@ -23,6 +23,9 @@ The answer from the audit is **no**: the original failing tests are not the only
 - [docs/architecture/testing.md](../docs/architecture/testing.md) - test-tier policy and fixture conventions.
 - [docs/architecture/backend/validator.md](../docs/architecture/backend/validator.md) - validator Tier A / Tier B split.
 - [docs/architecture/data/canonical-store.md](../docs/architecture/data/canonical-store.md) - canonical store and runtime-reader contract.
+- [docs/concepts/data-provenance.md](../docs/concepts/data-provenance.md) - citation-ledger provenance; no fetch telemetry in `taxonomy.sources`.
+- [docs/architecture/frontend/charts/source-list-v2.md](../docs/architecture/frontend/charts/source-list-v2.md) - frontend render surface for citation-ledger sources.
+- [docs/architecture/decisions/0032-sources-citation-ledger.md](../docs/architecture/decisions/0032-sources-citation-ledger.md) and [docs/architecture/decisions/0042-sources-schema-v3-vintage-as-period-anchor.md](../docs/architecture/decisions/0042-sources-schema-v3-vintage-as-period-anchor.md) - source rows are citation identity, not fetch events.
 - [docs/architecture/decisions/0045-grapher-catalogue-split.md](../docs/architecture/decisions/0045-grapher-catalogue-split.md) - render hints live in grapher, not canonical indicator schema.
 - [TODO/20260530-schema-version-compatibility-plan.md](20260530-schema-version-compatibility-plan.md) - related compatibility policy plan. This plan is narrower: stale current-version literals and tests.
 
@@ -56,7 +59,7 @@ This table is not a substitute for the Row A grep gate. It records known surface
 | --- | --- | --- |
 | Stale current-version tests | [backend/tests/test_indicator_schema_v5.py](../backend/tests/test_indicator_schema_v5.py), [backend/tests/test_livestock_naip_iv_meadow.py](../backend/tests/test_livestock_naip_iv_meadow.py), [backend/tests/test_livestock_owner_reg_meadow.py](../backend/tests/test_livestock_owner_reg_meadow.py) | Remove current point/date assertions. Keep behavior checks. Fix emitters where tests expose stale output. |
 | Fragile current-version tests | [backend/tests/test_canonical_writer.py](../backend/tests/test_canonical_writer.py), [backend/tests/test_concepts_seed.py](../backend/tests/test_concepts_seed.py), [backend/tests/test_grapher_catalogue_schema.py](../backend/tests/test_grapher_catalogue_schema.py), [backend/tests/test_indicator_catalogue_schema_v2.py](../backend/tests/test_indicator_catalogue_schema_v2.py), [backend/tests/test_indicator_catalogue_schema_v21.py](../backend/tests/test_indicator_catalogue_schema_v21.py), [backend/tests/test_source_row_v2.py](../backend/tests/test_source_row_v2.py), [backend/tests/test_preflight_cli.py](../backend/tests/test_preflight_cli.py) | Replace current literals with schema-derived assertions or producer constants. Preserve behavior and historical changelog checks. |
-| Frontend production stale emission | [frontend/src/lib/canonical/indicator-from-canonical.ts](../frontend/src/lib/canonical/indicator-from-canonical.ts), [frontend/src/lib/canonical/indicator-from-canonical.test.ts](../frontend/src/lib/canonical/indicator-from-canonical.test.ts) | Do not just change `4.4` to `6.0`. First make emitted artifacts clean for indicator schema v6.0: no `renderer_rules`, `default_mode`, or `facet_labels` in canonical indicator artifacts. |
+| Frontend production stale emission | [frontend/src/lib/canonical/indicator-from-canonical.ts](../frontend/src/lib/canonical/indicator-from-canonical.ts), [frontend/src/lib/canonical/indicator-from-canonical.test.ts](../frontend/src/lib/canonical/indicator-from-canonical.test.ts) | Do not just change `4.4` to current. First move canonical-backed provenance to the SourceListV2 citation-ledger surface, then remove render-hint carryover, then stamp the current indicator schema from a single tested frontend policy. |
 | Frontend render-hint carryover | [frontend/src/lib/canonical/indicator-allowlist.ts](../frontend/src/lib/canonical/indicator-allowlist.ts), [frontend/src/lib/canonical/indicator-from-canonical.test.ts](../frontend/src/lib/canonical/indicator-from-canonical.test.ts) | Move/consume render hints through grapher policy if needed. Stop and split if this becomes a renderer architecture change. |
 | Active tools emit stale indicator schema | [tools/livestock_meadow_naip_iv.py](../tools/livestock_meadow_naip_iv.py), [tools/livestock_meadow_owner_reg.py](../tools/livestock_meadow_owner_reg.py), [tools/livestock_meadow_pashu_aadhaar.py](../tools/livestock_meadow_pashu_aadhaar.py), [tools/rbi_hbs_ingest_state_gdp.py](../tools/rbi_hbs_ingest_state_gdp.py) | Fix active emitters. Tools must not import backend runtime; source schema version through schema JSON or a tools-local helper with tests. |
 | Other production literals needing classification | [backend/yen_gov/preflight/\_\_init\_\_.py](../backend/yen_gov/preflight/__init__.py), [backend/yen_gov/sources/iced_power/fetch_pipeline.py](../backend/yen_gov/sources/iced_power/fetch_pipeline.py), [backend/yen_gov/pipeline/run.py](../backend/yen_gov/pipeline/run.py), [backend/yen_gov/pipeline/canonical_eci_backfill.py](../backend/yen_gov/pipeline/canonical_eci_backfill.py), [backend/yen_gov/canonical/adapters/eci_ae_panel.py](../backend/yen_gov/canonical/adapters/eci_ae_panel.py) | Classify as current producer stamp, row-schema constant, synthetic event version, or historical fixture before editing. |
@@ -88,8 +91,11 @@ Update this table in every PR that executes a row. Each row branches from `origi
 | Row | PR | Status | Branch | Owner agents | Scope | Acceptance gates | Stop conditions |
 | --- | :---: | --- | --- | --- | --- | --- | --- |
 | A | #501 | Merged | `feat/schema-version-magic-plan` | Fowler | Add this TODO plan only. No runtime behavior. | File exists under `TODO/`; plan names subagent use, branch discipline, classification table, exclusions, and row gates; `git diff --check` clean. | Stop if another active plan already supersedes this exact scope on `main`. |
-| B | #503 | In review | `feat/schema-version-testing-doctrine` | Fowler + Gregor | Durable docs: update [docs/architecture/testing.md](../docs/architecture/testing.md), [docs/architecture/backend/validator.md](../docs/architecture/backend/validator.md), and a narrow [CLAUDE.md](../CLAUDE.md) section 11 clarification if needed. | Docs define forbidden current-version literals, allowed historical/backcompat exceptions, backend registry pattern, tools-local schema JSON pattern, frontend policy-constant pattern; docs have Last Updated and See also where required. | Stop if docs would change schema compatibility policy owned by [TODO/20260530-schema-version-compatibility-plan.md](20260530-schema-version-compatibility-plan.md). |
-| C | _pending_ | Not started | `feat/frontend-indicator-v6-artifact` | Fowler + Gregor, Jony if visible behavior changes | Frontend runtime: make canonical indicator artifacts v6-shape-clean, centralize emitted indicator schema version policy, remove `4.4` stamps, update tests. | `indicator-from-canonical` tests prove no removed v6 render fields are emitted; policy test proves frontend emitted current equals `indicator.schema.json` x-version; `bun run test` targeted/full as feasible; browser smoke only if runtime route behavior changes. | Stop if render-hint migration requires broader grapher architecture work; split before changing UI semantics. |
+| B | #503 | Merged | `feat/schema-version-testing-doctrine` | Fowler + Gregor | Durable docs: update [docs/architecture/testing.md](../docs/architecture/testing.md), [docs/architecture/backend/validator.md](../docs/architecture/backend/validator.md), and a narrow [CLAUDE.md](../CLAUDE.md) section 11 clarification if needed. | Docs define forbidden current-version literals, allowed historical/backcompat exceptions, backend registry pattern, tools-local schema JSON pattern, frontend policy-constant pattern; docs have Last Updated and See also where required. | Stop if docs would change schema compatibility policy owned by [TODO/20260530-schema-version-compatibility-plan.md](20260530-schema-version-compatibility-plan.md). |
+| C0 | _pending_ | In progress | `feat/schema-magic-row-c-unblock` | Fowler + Gregor | Plan amendment only: split Row C because canonical source provenance is citation-ledger v3, not legacy fetch-ledger `sources[]`. | Plan names the source-contract prerequisite, rejected fake telemetry, and the C1/C2/C3 sequence; `git diff --check` clean. | Stop if this turns into runtime/schema edits. |
+| C1 | _pending_ | Not started | `feat/frontend-indicator-sources-v2` | Fowler + Gregor, Jony if visible behavior changes | Source-surface contract unblock for canonical-backed indicator routes: render citation-ledger provenance through SourceListV2 instead of fake legacy `fetched_at`. | Canonical-backed source rows contain no fetch telemetry; tests prove SourceListV2 receives citation-ledger rows; legacy artifacts still render legacy `sources[]`; browser smoke covers one canonical-backed and one legacy indicator route. | Stop if the only path is to invent `fetched_at`, `date_accessed`, `first_fetched_at`, or `last_seen_at`. Escalate if `indicator.schema.json` must change. |
+| C2 | _pending_ | Not started | `feat/frontend-indicator-render-hints` | Fowler + Gregor, Jony if visible behavior changes | Render-hint cleanup: remove canonical translator carryover of v6-deleted fields only after renderer behavior is preserved via grapher policy. | `indicator-from-canonical` tests prove no `renderer_rules`, `default_mode`, or `facet_labels` are emitted; rank/render behavior remains covered. | Stop if removing `renderer_rules` would change citizen-visible rank suppression before grapher lookup is wired. |
+| C3 | _pending_ | Not started | `feat/frontend-indicator-v6-artifact` | Fowler + Gregor | Version-policy cleanup: centralize emitted indicator schema version policy and remove `4.4` stamps only after C1/C2 make the emitted artifact current-shape honest. | Policy test proves frontend emitted current equals `indicator.schema.json` x-version; translator uses policy, not hand-typed literals; targeted/full frontend tests as feasible. | Stop if emitted populated artifacts are not valid for the stamped schema. |
 | D | _pending_ | Not started | `feat/tools-schema-version-emitters` | Fowler + Gregor | Active emitter cleanup in `tools/` and backend producer modules. Fix stale `4.4` indicator emitters and classify current producer constants. | Tools do not import backend runtime. Tests prove emitted `$schema_version` equals source schema x-version. Targeted pytest/tool tests pass. `python -m yen_gov validate --root .` if datasets/config/schemas are touched. | Stop if a tool emits artifacts not clean under the current schema shape; fix shape before stamping current. |
 | E | _pending_ | Not started | `feat/backend-schema-version-test-cleanup` | Fowler | Backend non-indicator test cleanup: canonical writer, concepts seed, grapher catalogue, source row, preflight CLI. | Current version literals removed or replaced by relationships/constants. Bad-version and historical fixtures remain named. Targeted pytest for touched files. Grep gate confirms no unclassified current pins in touched files. | Stop if a literal is the only guard for a historical behavior; rename/comment instead of deleting. |
 | F | _pending_ | Not started | `feat/indicator-schema-test-cleanup` | Fowler + Gregor | Indicator schema/catalogue tests: rename stale version-specific tests where helpful; remove current point pins; add v6 render-field absence checks; preserve historical changelog checks. | Targeted pytest for indicator schema/catalogue files; tests prove behavior and relationships, not point versions. | Stop if catalogue semantics or ADR-0045 ownership would change. |
@@ -119,17 +125,51 @@ Update this table in every PR that executes a row. Each row branches from `origi
   - Allowed explicit-literal exceptions.
 - **DoD gates**: docs-only `git diff --check`.
 
-### Row C - Frontend indicator artifact v6 cleanup
+### Row C0 - Frontend indicator source-contract split
+
+This row records the blocker found while preflighting the original Row C.
+[frontend/src/lib/canonical/indicator-from-canonical.ts](../frontend/src/lib/canonical/indicator-from-canonical.ts) currently degrades `taxonomy.sources.parquet` citation-ledger rows into legacy `IndicatorSource` rows with `fetched_at: ""`. That is not an honest route to current `indicator.schema.json`: canonical source rows intentionally do not carry fetch telemetry per [docs/concepts/data-provenance.md](../docs/concepts/data-provenance.md), [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md), and [ADR-0042](../docs/architecture/decisions/0042-sources-schema-v3-vintage-as-period-anchor.md).
+
+Gregor + Fowler verdict, 2026-05-31:
+
+- Reject fake telemetry. Do not invent `fetched_at`, `date_accessed`, `first_fetched_at`, or `last_seen_at`.
+- Do not stamp the current indicator schema while populated canonical-backed sources remain invalid for that schema.
+- Split the original Row C into C1 source-surface unblock, C2 render-hint cleanup, and C3 version-policy stamp.
+- Prefer frontend/runtime branching to a schema change unless C1 proves `indicator.schema.json` must grow a `sources_v2` field. If a schema bump is needed, that is a dedicated contract PR with validation and artifact migration gates, not a hidden Row C edit.
+
+### Row C1 - Canonical indicator SourceListV2 unblock
+
+- **Files likely touched**:
+  - [frontend/src/lib/canonical/indicator-from-canonical.ts](../frontend/src/lib/canonical/indicator-from-canonical.ts)
+  - [frontend/src/lib/canonical/indicator-from-canonical.test.ts](../frontend/src/lib/canonical/indicator-from-canonical.test.ts)
+  - [frontend/src/lib/indicators.ts](../frontend/src/lib/indicators.ts), only if a typed wrapper/optional `sources_v2` is needed.
+  - [frontend/src/lib/AboutThisData.svelte](../frontend/src/lib/AboutThisData.svelte) and the indicator render component(s), only if rendering needs to branch between legacy `SourceList` and `SourceListV2`.
+  - [docs/architecture/frontend/charts/source-list-v2.md](../docs/architecture/frontend/charts/source-list-v2.md), if canonical indicators become a SourceListV2 adopter.
+- **Required checks**:
+  - Canonical-backed provenance is projected as citation-ledger rows compatible with `SourceListV2`.
+  - No canonical-backed source projection contains fetch telemetry fields.
+  - Legacy JSON indicator artifacts keep the old `sources[]` render path.
+- **DoD gates**: targeted vitest for canonical indicator/source-list paths; `bun run check`; browser smoke for one canonical-backed indicator route and one legacy indicator route.
+
+### Row C2 - Frontend indicator render-hint cleanup
+
+- **Files likely touched**:
+  - [frontend/src/lib/canonical/indicator-from-canonical.ts](../frontend/src/lib/canonical/indicator-from-canonical.ts)
+  - [frontend/src/lib/canonical/indicator-from-canonical.test.ts](../frontend/src/lib/canonical/indicator-from-canonical.test.ts)
+  - [frontend/src/lib/grapher/catalogue.ts](../frontend/src/lib/grapher/catalogue.ts) and grapher tests only if rank/render hints must move for canonical-backed indicators.
+- **Required checks**:
+  - Artifact builder does not emit indicator v6-removed fields: `renderer_rules`, `default_mode`, `facet_labels`.
+  - Any renderer behavior previously driven by `renderer_rules` still comes from an allowed frontend/grapher surface.
+- **DoD gates**: targeted vitest for canonical indicator tests and any grapher/indicator-card tests; `bun run check` if TypeScript surfaces changed; browser smoke only if route behavior changes.
+
+### Row C3 - Frontend indicator artifact version-policy cleanup
 
 - **Files likely touched**:
   - [frontend/src/lib/canonical/types.ts](../frontend/src/lib/canonical/types.ts)
   - [frontend/src/lib/canonical/indicator-from-canonical.ts](../frontend/src/lib/canonical/indicator-from-canonical.ts)
   - [frontend/src/lib/canonical/indicator-from-canonical.test.ts](../frontend/src/lib/canonical/indicator-from-canonical.test.ts)
-  - [frontend/src/lib/canonical/indicator-allowlist.ts](../frontend/src/lib/canonical/indicator-allowlist.ts), only if render hints must move out of canonical descriptor metadata.
-  - Grapher catalogue files/tests only if render hints need a canonical destination; split if that grows.
 - **Required checks**:
   - Artifact builder no longer emits `$schema_version: "4.4"`.
-  - Artifact builder does not emit indicator v6-removed fields: `renderer_rules`, `default_mode`, `facet_labels`.
   - Version policy is centralized and tested against [datasets/schemas/indicator.schema.json](../datasets/schemas/indicator.schema.json).
 - **DoD gates**: targeted vitest for canonical indicator tests; full `bun run test` if feasible; `bun run check` if TypeScript surfaces changed; browser smoke only if route behavior changes.
 
