@@ -335,7 +335,7 @@ None. All ambiguities resolved 2026-05-31.
 | P5.2 loader doc | #498 | docs/architecture/frontend/topojson-loader.md |
 | P5.3 PMTiles successor | #497 | TODO/2026-05-31-village-pincode-vector-tiles-plan.md |
 | P5.4 .geojson retirement | #499 | TODO/2026-05-31-geojson-sibling-retirement-plan.md |
-| P5.5 archive + ADR flip | #_pending_ | this archive PR |
+| P5.5 archive + ADR flip | #505 | this archive PR |
 
 ### Follow-up plans (commissioned, not executed)
 
@@ -354,3 +354,4 @@ None. All ambiguities resolved 2026-05-31.
 | ADR-0047 status flipped to `accepted` | done (this PR) |
 
 End of plan.
+

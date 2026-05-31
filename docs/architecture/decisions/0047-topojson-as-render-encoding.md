@@ -94,6 +94,7 @@ Plan-doc shipped all 5 phases. ADR flips from `proposed` to `accepted`.
 | P5.1 + P5.2 (distill docs) | #498 |
 | P5.3 (PMTiles successor plan commissioned) | #497 |
 | P5.4 (`.geojson` retirement plan commissioned) | #499 |
-| P5.5 (this archive + ADR flip) | #_pending_ |
+| P5.5 (this archive + ADR flip) | #505 |
 
 All 8 Track A boundary layers (country, state, district, subdistrict, AC, PC, ULB-wards, panchayats) AND both Track A2 layers (villages, postal) ship `.topojson` siblings 100% coverage. Loader topojson-first / geojson-fallback contract live in production via `frontend/src/lib/boundaries.ts`. Conformance test asserts feature-count parity per shard via `frontend/src/contracts/boundaries-conform.test.ts` (4137 assertions green per PR #500 gate).
+
