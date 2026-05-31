@@ -36,6 +36,7 @@
 
   import type { IndicatorArtifact } from "./indicators";
   import SourceList from "./SourceList.svelte";
+  import SourceListV2 from "./SourceListV2.svelte";
   import TopicIcon from "./TopicIcon.svelte";
 
   interface Props {
@@ -149,7 +150,11 @@
 
     <section class="space-y-1">
       <h4 class="text-xs font-semibold uppercase tracking-wide text-slate-500">Sources</h4>
-      <SourceList sources={artifact.sources} schema_version={artifact.$schema_version} />
+      {#if artifact.sources_v2}
+        <SourceListV2 sources={artifact.sources_v2} schema_version={artifact.$schema_version} />
+      {:else}
+        <SourceList sources={artifact.sources} schema_version={artifact.$schema_version} />
+      {/if}
     </section>
   </div>
 </details>

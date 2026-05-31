@@ -1,6 +1,6 @@
 # SourceListV2 — citation-ledger render surface
 
-**Last Updated**: 2026-05-25
+**Last Updated**: 2026-05-31
 
 Phase 1.4 of the [charting modernisation plan](../../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md). Replaces the v1 SourceList which read fields ([ADR-0032](../../decisions/0032-sources-citation-ledger.md)) removed in the v2.0 citation-ledger contract (`url`, `fetched_at`, `content_hash`).
 
@@ -8,7 +8,7 @@ Phase 1.4 of the [charting modernisation plan](../../../../docs/archive/20260518
 
 - [`frontend/src/lib/SourceListV2.svelte`](../../../../frontend/src/lib/SourceListV2.svelte) — collapsed/expanded disclosure surface for the v2.0 ledger. Renders one block per source, sorted by verification strength, shows all 11 columns of the ledger row.
 - [`frontend/src/lib/source-list-v2/format.ts`](../../../../frontend/src/lib/source-list-v2/format.ts) — pure helpers: `formatCollapsedSummary`, `formatExpandedDisclosure`, `composeDefaultCitation`, `verificationMethodRank`.
-- **Adopters**: [`StateOverview.svelte`](../../../../frontend/src/routes/StateOverview.svelte) (footer mounts SourceListV2 from `view_model.sources_v2`), [`ElectionSeatsTrend.svelte`](../../../../frontend/src/lib/ElectionSeatsTrend.svelte) (footer migrated in Phase 1.4 step C).
+- **Adopters**: [`StateOverview.svelte`](../../../../frontend/src/routes/StateOverview.svelte) (footer mounts SourceListV2 from `view_model.sources_v2`), [`ElectionSeatsTrend.svelte`](../../../../frontend/src/lib/ElectionSeatsTrend.svelte) (footer migrated in Phase 1.4 step C), and canonical-backed indicator artifacts loaded through [`indicator-from-canonical.ts`](../../../../frontend/src/lib/canonical/indicator-from-canonical.ts) (`artifact.sources_v2`).
 
 ## Doctrinal rules
 

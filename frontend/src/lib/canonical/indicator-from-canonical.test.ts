@@ -30,6 +30,7 @@ vi.mock("../indicators", async () => {
 
 import { query, registerTable } from "../duckdb";
 import { fetchIndicator } from "../indicators";
+import { FORBIDDEN_SOURCE_FIELDS } from "../source-list-v2";
 import {
   buildIndicatorArtifact,
   canonicalEntityToLegacy,
@@ -1367,7 +1368,13 @@ describe("buildIndicatorArtifact — district-grain (PR B.03 smoke proof)", () =
       producer: "Department of Animal Husbandry & Dairying",
       title: "NDLM Bharat Pashudhan — animal registration",
       vintage: "FY 2024-25",
+      license: "OGL-IN-1.0" as const,
+      confidence_tier: "gold" as const,
+      is_issuing_authority: true,
+      verification_method: "live-fetch" as const,
       url_main: "https://bpa.dahd.gov.in/",
+      citation_full: null,
+      notes: null,
     },
   ];
 
@@ -1445,14 +1452,26 @@ describe("buildIndicatorArtifact — canonical rows → legacy IndicatorArtifact
       producer: "NITI Aayog",
       title: "India Climate & Energy Dashboard",
       vintage: "FY 2024-25",
+      license: "OGL-IN-1.0" as const,
+      confidence_tier: "gold" as const,
+      is_issuing_authority: true,
+      verification_method: "live-fetch" as const,
       url_main: "https://iced.niti.gov.in/",
+      citation_full: null,
+      notes: null,
     },
     {
       source_id: "src-rbi",
       producer: "Reserve Bank of India",
       title: "Handbook of Statistics on Indian States",
       vintage: "2024-25",
+      license: "OGL-IN-1.0" as const,
+      confidence_tier: "gold" as const,
+      is_issuing_authority: true,
+      verification_method: "live-fetch" as const,
       url_main: "https://rbi.org.in/handbook",
+      citation_full: null,
+      notes: null,
     },
   ];
 
@@ -1482,15 +1501,22 @@ describe("buildIndicatorArtifact — canonical rows → legacy IndicatorArtifact
     expect(a.coverage.temporal).toBe("2025-04");
   });
 
-  it("emits one IndicatorSource per joined source row, with empty fetched_at", () => {
+  it("projects joined source rows as sources_v2 without legacy fetch telemetry", () => {
     const a = buildIndicatorArtifact(PEAK_DEMAND_DESCRIPTOR, OBS_ROWS, SRC_ROWS);
-    expect(a.sources).toHaveLength(2);
-    const titles = a.sources.map((s) => s.name);
-    expect(titles).toContain("India Climate & Energy Dashboard (FY 2024-25)");
-    expect(titles).toContain("Handbook of Statistics on Indian States (2024-25)");
-    for (const s of a.sources) {
-      expect(s.fetched_at).toBe("");
-      expect(typeof s.url).toBe("string");
+    expect(a.sources).toEqual([]);
+    expect(a.sources_v2).toHaveLength(2);
+    expect(a.sources_v2!.map((s) => s.source_id)).toEqual(["src-iced", "src-rbi"]);
+    expect(a.sources_v2![0]).toMatchObject({
+      producer: "NITI Aayog",
+      title: "India Climate & Energy Dashboard",
+      vintage: "FY 2024-25",
+      url_main: "https://iced.niti.gov.in/",
+    });
+    for (const s of a.sources_v2!) {
+      const asRecord = s as unknown as Record<string, unknown>;
+      for (const forbidden of FORBIDDEN_SOURCE_FIELDS) {
+        expect(asRecord[forbidden]).toBeUndefined();
+      }
     }
   });
 
@@ -1561,6 +1587,7 @@ describe("buildIndicatorArtifact — canonical rows → legacy IndicatorArtifact
     const a = buildIndicatorArtifact(PEAK_DEMAND_DESCRIPTOR, [], []);
     expect(a.rows).toEqual([]);
     expect(a.sources).toEqual([]);
+    expect(a.sources_v2).toEqual([]);
     expect(a.coverage.temporal).toBe("");
   });
 });
@@ -1597,14 +1624,27 @@ describe("loadIndicatorFromCanonical — DuckDB-WASM round-trip (loader)", () =>
         { entity_id: "IN-S22", period_label: "2025-04", value_numeric: 20211, source_id: "src-iced" },
       ])
       .mockResolvedValueOnce([
-        { source_id: "src-iced", producer: "NITI", title: "ICED", vintage: "FY25", url_main: "https://example/" },
+        {
+          source_id: "src-iced",
+          producer: "NITI",
+          title: "ICED",
+          vintage: "FY25",
+          license: "OGL-IN-1.0",
+          confidence_tier: "gold",
+          is_issuing_authority: true,
+          verification_method: "live-fetch",
+          url_main: "https://example/",
+          citation_full: null,
+          notes: null,
+        },
       ]);
     const out = await loadIndicatorFromCanonical(PEAK_DEMAND_DESCRIPTOR);
     expect(mockedQuery).toHaveBeenCalledTimes(2);
     const secondSql = mockedQuery.mock.calls[1][0] as string;
     expect(secondSql).toMatch(/FROM\s+sources/);
     expect(secondSql).toMatch(/'src-iced'/);
-    expect(out.sources).toHaveLength(1);
+    expect(out.sources).toEqual([]);
+    expect(out.sources_v2).toHaveLength(1);
     expect(out.rows[0].entity_id).toBe("S22");
   });
 });
@@ -1623,7 +1663,19 @@ describe("loadIndicatorIfCanonical — single dispatch entry-point", () => {
         { entity_id: "IN-S22", period_label: "2025-04", value_numeric: 20211, source_id: "src-iced" },
       ])
       .mockResolvedValueOnce([
-        { source_id: "src-iced", producer: "NITI", title: "ICED", vintage: "FY25", url_main: "https://example/" },
+        {
+          source_id: "src-iced",
+          producer: "NITI",
+          title: "ICED",
+          vintage: "FY25",
+          license: "OGL-IN-1.0",
+          confidence_tier: "gold",
+          is_issuing_authority: true,
+          verification_method: "live-fetch",
+          url_main: "https://example/",
+          citation_full: null,
+          notes: null,
+        },
       ]);
     const out = await loadIndicatorIfCanonical("energy/state_peak_electricity_demand_mw");
     expect(out).not.toBeNull();
@@ -1656,7 +1708,19 @@ describe("loadIndicator — universal entry-point (Phase B-extension)", () => {
         { entity_id: "IN-S22", period_label: "2025-04", value_numeric: 20211, source_id: "src-iced" },
       ])
       .mockResolvedValueOnce([
-        { source_id: "src-iced", producer: "NITI", title: "ICED", vintage: "FY25", url_main: "https://example/" },
+        {
+          source_id: "src-iced",
+          producer: "NITI",
+          title: "ICED",
+          vintage: "FY25",
+          license: "OGL-IN-1.0",
+          confidence_tier: "gold",
+          is_issuing_authority: true,
+          verification_method: "live-fetch",
+          url_main: "https://example/",
+          citation_full: null,
+          notes: null,
+        },
       ]);
     const out = await loadIndicator("/indicators/in/energy/state_peak_electricity_demand_mw.json");
     expect(out.indicator.id).toBe("peak-electricity-demand-mw");
@@ -1856,7 +1920,13 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
           producer: "NITI Aayog",
           title: "India Climate & Energy Dashboard — RPO",
           vintage: "FY 2024-25",
+          license: "OGL-IN-1.0",
+          confidence_tier: "gold",
+          is_issuing_authority: true,
+          verification_method: "live-fetch",
           url_main: "https://iced.niti.gov.in/",
+          citation_full: null,
+          notes: null,
         },
       ]);
     const result = await loadIndicatorFromCanonical(RPO_DESCRIPTOR);
@@ -1905,12 +1975,23 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
           producer: "NITI Aayog",
           title: "ICED RPO",
           vintage: "FY 2024-25",
+          license: "OGL-IN-1.0",
+          confidence_tier: "gold",
+          is_issuing_authority: true,
+          verification_method: "live-fetch",
           url_main: "https://iced.niti.gov.in/",
+          citation_full: null,
+          notes: null,
         },
       ]);
     const result = await loadIndicatorFromCanonical(RPO_DESCRIPTOR);
-    expect(result.sources).toHaveLength(1);
-    expect(result.sources[0].name).toBe("ICED RPO (FY 2024-25)");
+    expect(result.sources).toEqual([]);
+    expect(result.sources_v2).toHaveLength(1);
+    expect(result.sources_v2![0]).toMatchObject({
+      source_id: "src-rpo",
+      title: "ICED RPO",
+      vintage: "FY 2024-25",
+    });
     // Sources SQL was the second call and queried by harvested child
     // source_ids — not by parent (which has source_id=null and would
     // produce zero rows).
@@ -1951,7 +2032,13 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
           producer: "NITI",
           title: "ICED",
           vintage: "FY25",
+          license: "OGL-IN-1.0",
+          confidence_tier: "gold",
+          is_issuing_authority: true,
+          verification_method: "live-fetch",
           url_main: "https://example/",
+          citation_full: null,
+          notes: null,
         },
       ]);
     const result = await loadIndicatorFromCanonical(RPO_DESCRIPTOR);

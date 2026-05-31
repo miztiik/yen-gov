@@ -19,13 +19,10 @@
 //    IndicatorCard.* helpers expect is the bare ECI code (`S22`, `U08`)
 //    with `IN` reserved for the national aggregate row. We strip the
 //    `IN-` prefix from sub-national ids and pass `IN` through unchanged.
-// 2. Provenance: CLAUDE.md §12 v2.0 (ADR-0032) removed `fetched_at` /
-//    `content_hash` from the citizen-facing sources contract entirely;
-//    canonical `taxonomy/sources.parquet` carries `(producer, title,
-//    vintage, url_main)` only. We emit `IndicatorSource[]` with
-//    `fetched_at: ""` — SourceList.svelte's `fmt()` returns the empty
-//    string verbatim when the date is unparseable, so the citizen sees
-//    just the host name (this is the intended v2.0 surface).
+// 2. Provenance: canonical `taxonomy.sources` is a citation ledger, not a
+//    fetch ledger. The adapter carries those rows through `sources_v2`
+//    for SourceListV2 and leaves legacy `sources[]` empty so it never
+//    invents retired fetch telemetry like `fetched_at`.
 // 3. Coverage: derived from `MIN(period_label)` / `MAX(period_label)` of
 //    the returned rows. No round-trip back to the legacy shard.
 // 4. License / methodology: synthesised from constants + the descriptor's
@@ -42,8 +39,8 @@ import {
   type IndicatorArtifact,
   type IndicatorMethodology,
   type IndicatorRow,
-  type IndicatorSource,
 } from "../indicators";
+import type { SourceV2Row } from "../source-list-v2";
 import {
   getCanonicalDescriptor,
   isCanonicalBacked,
@@ -130,7 +127,13 @@ interface CanonicalSourceRow {
   producer: string;
   title: string;
   vintage: string;
+  license: SourceV2Row["license"];
+  confidence_tier: SourceV2Row["confidence_tier"];
+  is_issuing_authority: boolean | number;
+  verification_method: SourceV2Row["verification_method"];
   url_main: string | null;
+  citation_full: string | null;
+  notes: string | null;
 }
 
 /** Quote a string literal for embedding in a SQL `IN (...)` list. */
@@ -155,14 +158,20 @@ function buildMethodology(descriptor: CanonicalIndicatorDescriptor): IndicatorMe
   };
 }
 
-/** Build an `IndicatorSource[]` from the canonical sources table rows.
- *  Stable order = ascending by title (matches the JOIN's ORDER BY). */
-function buildSources(rows: ReadonlyArray<CanonicalSourceRow>): IndicatorSource[] {
+/** Build `SourceV2Row[]` from the canonical sources table rows. */
+function buildSourcesV2(rows: ReadonlyArray<CanonicalSourceRow>): SourceV2Row[] {
   return rows.map((s) => ({
-    url: s.url_main ?? "",
-    fetched_at: "", // canonical store does not carry fetch telemetry (ADR-0032 v2.0)
-    name: s.vintage ? `${s.title} (${s.vintage})` : s.title,
-    authority: s.producer,
+    source_id: s.source_id,
+    producer: s.producer,
+    title: s.title,
+    vintage: s.vintage,
+    license: s.license,
+    confidence_tier: s.confidence_tier,
+    is_issuing_authority: Boolean(s.is_issuing_authority),
+    verification_method: s.verification_method,
+    url_main: s.url_main,
+    citation_full: s.citation_full,
+    notes: s.notes,
   }));
 }
 
@@ -194,7 +203,8 @@ export function buildIndicatorArtifact(
   return {
     $schema: "https://yen-gov.github.io/schemas/indicator.schema.json",
     $schema_version: "4.4",
-    sources: buildSources(source_rows),
+    sources: [],
+    sources_v2: buildSourcesV2(source_rows),
     license: {
       id: "OGL-IN-1.0",
       name: "India Government Open Data License (OGL-IN-1.0)",
@@ -257,7 +267,9 @@ async function loadSingleFromCanonical(
   if (distinctSourceIds.length > 0) {
     const idList = distinctSourceIds.map(sqlString).join(", ");
     const srcSql = `
-      SELECT source_id, producer, title, vintage, url_main
+          SELECT source_id, producer, title, vintage, license, confidence_tier,
+           is_issuing_authority, verification_method, url_main,
+           citation_full, notes
       FROM sources
       WHERE source_id IN (${idList})
       ORDER BY title
@@ -323,7 +335,9 @@ async function loadFacetMultiplexedFromCanonical(
   if (distinctSourceIds.length > 0) {
     const idList = distinctSourceIds.map(sqlString).join(", ");
     const srcSql = `
-      SELECT source_id, producer, title, vintage, url_main
+          SELECT source_id, producer, title, vintage, license, confidence_tier,
+           is_issuing_authority, verification_method, url_main,
+           citation_full, notes
       FROM sources
       WHERE source_id IN (${idList})
       ORDER BY title
@@ -348,7 +362,8 @@ async function loadFacetMultiplexedFromCanonical(
   return {
     $schema: "https://yen-gov.github.io/schemas/indicator.schema.json",
     $schema_version: "4.4",
-    sources: buildSources(sourceRows),
+    sources: [],
+    sources_v2: buildSourcesV2(sourceRows),
     license: {
       id: "OGL-IN-1.0",
       name: "India Government Open Data License (OGL-IN-1.0)",
