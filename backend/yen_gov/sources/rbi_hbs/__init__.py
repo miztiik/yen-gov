@@ -18,8 +18,9 @@ is what this package owns.
 Two RBI publications are in scope today:
 
 - **HBS-IE** — *Handbook of Statistics on Indian Economy* (national time series,
-  state SDP, prices/inflation indices). Imported by ``tools/rbi_hbs_ingest_state_gdp.py``
-  and the inflation half of ``tools/rbi_hbs_ingest_inflation_pension_health.py``.
+  state SDP, prices/inflation indices). Imported by the backend
+  ``rbi_hbs_ie_state_sdp`` adapter and the inflation half of
+  ``tools/rbi_hbs_ingest_inflation_pension_health.py``.
 - **HBS-IS** — *Handbook of Statistics on Indian States* (per-state series:
   power, vital stats, state pension expenditure). Imported by
   ``tools/rbi_hbs_ingest_power.py`` and the pension/health half of the
