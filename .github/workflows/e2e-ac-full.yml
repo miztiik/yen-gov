@@ -1,0 +1,78 @@
+name: e2e AC coverage (full 31-state matrix)
+
+# Full-matrix companion to the canary AC-coverage spec that runs by default
+# in deploy-site.yml's `citizen-site-e2e` job. The default Playwright run
+# exercises a 5-code canary (CANARY_CODES in frontend/e2e/state-ac-coverage.spec.ts);
+# this workflow runs the full 31-code matrix via `AC_COVERAGE_FULL=1`.
+#
+# Triggers:
+#   - Nightly schedule: time-based safety net catches drift the canary
+#     would not (e.g. an upstream entities.json edit landed via main
+#     without touching the path-filtered set below).
+#   - PRs that touch the files the canary cannot protect: the AC source
+#     resolution module, AC shards on disk, taxonomy entities, the
+#     contract test that pairs with this spec, and the spec itself.
+#   - Manual dispatch for on-demand verification.
+#
+# Per TODO/20260531-e2e-runtime-trim-plan.md PR-2. Doctrine in
+# docs/architecture/testing.md ("e2e scope and canary subset" section,
+# distilled by PR-4).
+
+on:
+  schedule:
+    # 02:00 UTC nightly (~07:30 IST). Off-peak; one run per 24h is
+    # sufficient for a time-based drift canary.
+    - cron: "0 2 * * *"
+  pull_request:
+    paths:
+      - "frontend/src/lib/maplibre/sources.ts"
+      - "frontend/src/lib/boundaries.ts"
+      - "frontend/src/contracts/state-ac-registry-coverage.test.ts"
+      - "frontend/e2e/state-ac-coverage.spec.ts"
+      - "datasets/boundaries/in/ac/**"
+      - "datasets/taxonomy/entities.json"
+      - "datasets/taxonomy/election_events.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ac-coverage-full:
+    name: Playwright e2e (AC coverage, full 31-state matrix)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: install
+        working-directory: frontend
+        run: bun install --frozen-lockfile
+
+      - name: install playwright browser
+        working-directory: frontend
+        run: bunx playwright install --with-deps chromium
+
+      - name: run AC coverage spec (AC_COVERAGE_FULL=1)
+        working-directory: frontend
+        env:
+          AC_COVERAGE_FULL: "1"
+        # Single-spec invocation; the rest of the e2e suite is owned by
+        # deploy-site.yml. --project=chromium since the AC spec already
+        # skips mobile-pixel-5 internally.
+        run: bunx playwright test state-ac-coverage.spec.ts --project=chromium
+
+      - name: upload playwright report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ac-coverage-full-playwright-report
+          path: frontend/playwright-report/
+          retention-days: 7
