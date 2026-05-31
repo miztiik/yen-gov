@@ -1,7 +1,7 @@
 # Plan — GeoJSON to TopoJSON migration (all 10 layers in 2 tracks)
 
 **Last Updated**: 2026-05-31
-**Status**: PLANNING — awaiting human approval before execution
+**Status**: COMPLETE — archived 2026-05-31 (PR #505). See "Plan complete" block below for per-row distillation map.
 **Mandate origin**: 2026-05-31 user request "switch to topojson — we are a data analytics app, not a political science cartography correctness app; losing precision of a few curves of a pixel is acceptable"
 **Plan-doc level**: Level-5 (cross-cutting; touches canonical store, lift orchestrators, frontend loader, conformance tests, CI, docs, ADR)
 **Worktree discipline**: this work runs on `worker` worktree. **Every PR branches FROM `main`** (NOT from any side branch / NOT from a prior plan-PR's branch). Confirmed by user 2026-05-31.
@@ -118,7 +118,7 @@ Status flags: `[ ]` not-started · `[~]` in-progress · `[x]` done · `[!]` bloc
 | P5 | 5.2 | `docs/architecture/frontend/topojson-loader.md` | 2 | all P4 | default | #498 | `[x]` |
 | P5 | 5.3 | Commission `TODO/2026-05-31-village-pincode-vector-tiles-plan.md` (PMTiles successor) | 2 | 2.7 | default | #497 | `[x]` |
 | P5 | 5.4 | Commission cleanup PR for `.geojson` retirement | 2 | all P4 | default | #499 | `[x]` |
-| P5 | 5.5 | Archive this plan-doc with "Plan complete" block | 1 | 5.1, 5.2, 5.3 | default | `_pending_` | `[x]` |
+| P5 | 5.5 | Archive this plan-doc with "Plan complete" block | 1 | 5.1, 5.2, 5.3 | default | #505 | `[x]` |
 
 ## 4a. Per-row execution specs (zero-context subagent execution)
 
