@@ -94,9 +94,9 @@ Status flags: `[ ]` not-started · `[~]` in-progress · `[x]` done · `[!]` bloc
 | **P0**: Foundations | 0.1 | Author ADR-0047 (already drafted; ships with PR-0) | 2 | — | default | `#486` | `[x]` |
 | P0 | 0.2 | Distill Max's source audit to `notes/2026-05-31-geoboundaries-udit001-source-audit.md` | 1 | — | default | `#486` | `[x]` |
 | P0 | 0.3 | PR-0 (plan-doc + ADR + Max-distill) | 2 | 0.1, 0.2 | default | `#486` | `[x]` |
-| **P1**: Benchmark scaffolding | 1.1 | Add Playwright bench spec | 3 | 0.3 | Jony | `_pending_` | `[x]` |
-| P1 | 1.2 | Add `VITE_BENCH=1` perf-mark instrumentation | 2 | 0.3 | Jony | `_pending_` | `[x]` |
-| P1 | 1.3 | Run baseline; publish `notes/2026-05-31-topojson-baseline-bench.md` | 1 | 1.1, 1.2 | Jony | `_pending_` | `[x]` |
+| **P1**: Benchmark scaffolding | 1.1 | Add Playwright bench spec | 3 | 0.3 | Jony | #487 | `[x]` |
+| P1 | 1.2 | Add `VITE_BENCH=1` perf-mark instrumentation | 2 | 0.3 | Jony | #487 | `[x]` |
+| P1 | 1.3 | Run baseline; publish `notes/2026-05-31-topojson-baseline-bench.md` | 1 | 1.1, 1.2 | Jony | #487 | `[x]` |
 | P1 | 1.4 | Stamp plan-doc with derived STOP-CONDITION numbers | 0 | 1.3 | default | n/a | `[x]` |
 | **P2**: Phase 1 — India home (state layer) | 2.1 | Add converter + `config/topojson.json` + schema + pytest | 3 | 0.1 | Fowler | `_pending_` | `[ ]` |
 | P2 | 2.2 | Run converter on `states/all.geojson` | 1 | 2.1 | default | `_pending_` | `[ ]` |
