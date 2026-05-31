@@ -109,7 +109,7 @@ Status flags: `[ ]` not-started · `[~]` in-progress · `[x]` done · `[!]` bloc
 | P3 | 3.2 | Convert subdistrict shards (one PR, ~36 shards) | 2 | 2.7 | Fowler | #489 | `[x]` |
 | P3 | 3.3 | Convert `country/all.geojson` (bundle into 3.1) | 1 | 2.7 | Fowler | bundled into #489 | `[x]` |
 | **P4**: Electoral + governance + Track A2 | 4.1 | Convert AC shards | 2 | 2.7 | Fowler | #490 | `[x]` |
-| P4 | 4.2 | Convert PC shards | 2 | 2.7 | Fowler | `_pending_` | `[ ]` |
+| P4 | 4.2 | Convert PC shards | 2 | 2.7 | Fowler | `_pending_` | `[~]` |
 | P4 | 4.3 | Convert ULB-wards | 2 | 2.7 | Fowler | `_pending_` | `[ ]` |
 | P4 | 4.4 | Convert panchayats | 2 | 2.7 | Fowler | `_pending_` | `[ ]` |
 | P4 | 4.5 | Convert villages (Track A2; honest-perf disclaimer in PR body) | 3 | 2.7 | Fowler | `_pending_` | `[ ]` |
