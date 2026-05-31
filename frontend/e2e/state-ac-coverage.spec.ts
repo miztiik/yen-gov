@@ -16,7 +16,7 @@
 // The full 31-code matrix runs on demand via `AC_COVERAGE_FULL=1`,
 // scheduled nightly and on path-filtered PRs in
 // .github/workflows/e2e-ac-full.yml. Per
-// TODO/20260531-e2e-runtime-trim-plan.md PR-2 - keeping the per-PR
+// docs/archive/plans/20260531-e2e-runtime-trim-plan.md PR-2 - keeping the per-PR
 // gate cheap while preserving exhaustive coverage as a time-based
 // safety net.
 //

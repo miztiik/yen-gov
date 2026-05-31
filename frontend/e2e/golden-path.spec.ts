@@ -42,7 +42,7 @@ test.describe("golden path", () => {
     // Theme-dropdown humanised labels + temporal-caption vocabulary are
     // asserted by vitest (frontend/src/lib/home-theme.test.ts and
     // frontend/src/lib/indicators.test.ts deriveTemporalRange suite).
-    // Per TODO/20260531-e2e-runtime-trim-plan.md PR-3, the cheaper tier
+    // Per docs/archive/plans/20260531-e2e-runtime-trim-plan.md PR-3, the cheaper tier
     // owns the exhaustive assertion; e2e keeps only the mount + render
     // + bulk-JOIN-evidence guards.
 
