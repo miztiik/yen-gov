@@ -16,11 +16,12 @@
   // Doctrine: docs/concepts/schema-is-the-design-system.md (composition
   // over the existing renderer set + sparkline primitive; not a new
   // renderer family — no ADR required).
-  // Naming policy: docs/concepts/indicator-naming.md — `renderer_rules:
-  // [no_rank_table]` and `comparability: not_comparable_across_states |
-  // directional_only` both suppress the rank line. Single-time-point
-  // indicators (series < 2) suppress the sparkline, same rule
-  // IndicatorSmallMultiples applies.
+  // Naming policy: docs/concepts/indicator-naming.md + ADR-0045 —
+  // grapher `renderer_rules: [no_rank_table]`, legacy artifact
+  // `indicator.renderer_rules`, and `comparability:
+  // not_comparable_across_states | directional_only` all suppress the
+  // rank line. Single-time-point indicators (series < 2) suppress the
+  // sparkline, same rule IndicatorSmallMultiples applies.
   import {
     formatValue,
     type IndicatorArtifact,
@@ -38,6 +39,11 @@
   import TopicIcon from "./TopicIcon.svelte";
   import FacetPicker from "./FacetPicker.svelte";
   import { uniqueFacetsInOrder, pickDefaultFacet } from "./facet-picker";
+  import {
+    fetchGrapherIndicatorCatalogue,
+    lookupIndicatorRender,
+    type IndicatorRender,
+  } from "./grapher/catalogue";
   import { url } from "./url";
   // Phase B reader-switch: per-artifact branch between the legacy
   // `/data/indicators/in/<topic>/<id>.json` shard fetch and a DuckDB-WASM
@@ -65,16 +71,25 @@
   let { topic, artifact, indicator_path, home_state }: Props = $props();
 
   let data = $state<IndicatorArtifact | null>(null);
+  let indicator_render = $state<IndicatorRender | null>(null);
   let load_error = $state<string | null>(null);
 
   $effect(() => {
     data = null;
+    indicator_render = null;
     load_error = null;
     // Snapshot the path so the closure captured below is stable across
     // re-renders (Svelte 5 $effect re-runs on prop changes).
     const path = indicator_path;
-    loadIndicator(path)
-      .then((a) => (data = a))
+    Promise.all([
+      loadIndicator(path),
+      fetchGrapherIndicatorCatalogue().catch(() => null),
+    ])
+      .then(([a, cat]) => {
+        if (indicator_path !== path) return;
+        data = a;
+        indicator_render = cat ? lookupIndicatorRender(cat, a.indicator.id) : null;
+      })
       .catch((e) => (load_error = String(e)));
   });
 
@@ -140,7 +155,12 @@
   );
   const rank_info = $derived(
     data && home_state && meta
-      ? rankForEntity(facet_rows, home_state, meta.direction, canShowRank(meta))
+      ? rankForEntity(
+          facet_rows,
+          home_state,
+          meta.direction,
+          canShowRank(meta, indicator_render),
+        )
       : null,
   );
 
@@ -272,10 +292,10 @@
       {/if}
     </div>
 
-    <!-- Rank line. Suppressed when the indicator is not comparable across
-         states or carries renderer_rules: [no_rank_table] (canShowRank
-         encapsulates both). When only one state has data, rank is "1 of 1"
-         which is meaningless — suppress total=1 too. -->
+        <!-- Rank line. Suppressed when the indicator is not comparable across
+          states or grapher/legacy render policy carries no_rank_table
+          (canShowRank encapsulates both). When only one state has data,
+          rank is "1 of 1" which is meaningless — suppress total=1 too. -->
     {#if rank_info && rank_info.total > 1}
       <p class="text-xs text-slate-600">
         {ordinal(rank_info.rank)} of {rank_info.total} states, {rank_info.time}.

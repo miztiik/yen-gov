@@ -317,7 +317,9 @@ test.describe("extended routes", () => {
   test("state hub /s/tamil-nadu mounts SourceListV2 with citizen-visible trust signals", async ({ page }) => {
     await page.goto("/s/tamil-nadu");
 
-    const footer = page.locator('[data-component="source-list-v2"]').first();
+    const footer = page
+      .locator('[data-testid="state-summary-sources"] [data-component="source-list-v2"]')
+      .first();
     await expect(footer).toBeAttached({ timeout: 45_000 });
     // Collapsed "Sources (N)" label preserved verbatim from v1.
     await expect(footer.getByText(/Sources \(\d+\)/).first()).toBeVisible({ timeout: 45_000 });

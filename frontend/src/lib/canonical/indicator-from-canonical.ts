@@ -37,6 +37,7 @@ import {
   fetchIndicator,
   type EntityKind,
   type IndicatorArtifact,
+  type IndicatorMeta,
   type IndicatorMethodology,
   type IndicatorRow,
 } from "../indicators";
@@ -136,6 +137,12 @@ interface CanonicalSourceRow {
   notes: string | null;
 }
 
+type IndicatorMetaWithRetiredRenderFields = IndicatorMeta & {
+  renderer_rules?: unknown;
+  default_mode?: unknown;
+  facet_labels?: unknown;
+};
+
 /** Quote a string literal for embedding in a SQL `IN (...)` list. */
 function sqlString(s: string): string {
   return `'${s.replace(/'/g, "''")}'`;
@@ -173,6 +180,21 @@ function buildSourcesV2(rows: ReadonlyArray<CanonicalSourceRow>): SourceV2Row[] 
     citation_full: s.citation_full,
     notes: s.notes,
   }));
+}
+
+function buildCanonicalIndicatorMeta(
+  meta: IndicatorMeta,
+  idOverride?: string,
+): IndicatorMeta {
+  const {
+    renderer_rules: _rendererRules,
+    default_mode: _defaultMode,
+    facet_labels: _facetLabels,
+    ...schemaMeta
+  } = meta as IndicatorMetaWithRetiredRenderFields;
+  return idOverride === undefined
+    ? { ...schemaMeta }
+    : { ...schemaMeta, id: idOverride };
 }
 
 /** Map observation + source rows into the legacy IndicatorArtifact shape. */
@@ -216,7 +238,7 @@ export function buildIndicatorArtifact(
       temporal,
       admin_level: entityKindToAdminLevel(descriptor.meta.entity_kind),
     },
-    indicator: descriptor.meta,
+    indicator: buildCanonicalIndicatorMeta(descriptor.meta),
     rows,
     methodology: buildMethodology(descriptor),
   };
@@ -375,10 +397,10 @@ async function loadFacetMultiplexedFromCanonical(
       temporal,
       admin_level: entityKindToAdminLevel(descriptor.meta.entity_kind),
     },
-    indicator: {
-      ...descriptor.meta,
-      id: descriptor.canonical_parent_indicator_id,
-    },
+    indicator: buildCanonicalIndicatorMeta(
+      descriptor.meta,
+      descriptor.canonical_parent_indicator_id,
+    ),
     rows,
     methodology: buildMethodology(descriptor),
   };

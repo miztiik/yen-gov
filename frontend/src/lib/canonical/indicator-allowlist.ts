@@ -1609,10 +1609,11 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
   // NDLM sprint completes).
   //
   // Per ADR-0030 §11.4 + ADR-0043: each species is a closed-vocabulary
-  // facet child. comparability='directional_only' + renderer_rules=
-  // ['no_rank_table'] suppress the ranked-table view (a "Bihar > Tamil
-  // Nadu in cattle tags" rank order would be a citizen-misleading number
-  // — Bihar tags more cattle because Bihar HAS more cattle).
+  // facet child. comparability='directional_only' suppresses rank in the
+  // canonical semantics; grapher/indicator_render.json owns the matching
+  // `no_rank_table` renderer hint (a "Bihar > Tamil Nadu in cattle tags"
+  // rank order would be a citizen-misleading number — Bihar tags more
+  // cattle because Bihar HAS more cattle).
 
 
 
@@ -1678,7 +1679,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 758 districts with non-zero counts).",
-      renderer_rules: ["no_rank_table"],
       notes:
         "Tagged count is NOT a livestock census. Coverage varies by district within a state -- even within Karnataka or Andhra Pradesh (national leaders), rollout reaches some districts before others. Read alongside the 20th Livestock Census for the denominator. This is the source-of-truth grain; state values are the SUM rollup.",
     },
@@ -1711,7 +1711,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 698 districts with non-zero counts).",
-      renderer_rules: ["no_rank_table"],
       notes:
         "Tagged count is NOT a livestock census. Buffalo tagging concentrates in the dairy belt (UP, Punjab, Haryana, Andhra Pradesh, Gujarat); North-East and tribal districts may show zero because the programme has not reached them yet, not because buffaloes are absent. Read alongside the 20th Livestock Census for the denominator. State values are the SUM rollup.",
     },
@@ -1739,7 +1738,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 598 districts with non-zero counts).",
-      renderer_rules: ["no_rank_table"],
       notes:
         "Tagged count is NOT a livestock census. Goats are a smallholder species; tagging coverage follows extension-worker presence, not goat presence. Rajasthan, West Bengal, UP lead by absolute count; districts in arid Maharashtra and Karnataka may under-report despite large goat populations. Read alongside the 20th Livestock Census for the denominator.",
     },
@@ -1773,7 +1771,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan getAnimalRegistrationStateWise SUM rollup of district source-of-truth, snapshot 2026-05-25; FY 2024-25.",
-      renderer_rules: ["no_rank_table"],
       notes:
         "Tagged count is NOT a livestock census. State values are the SUM rollup of districts that have reached programme rollout; pastoral migration across district and state lines confounds attribution. Read alongside the 20th Livestock Census for the denominator.",
     },
@@ -1806,7 +1803,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043).",
-      renderer_rules: ["no_rank_table"],
       notes:
         "Tagged count is NOT a livestock census. District aggregation hides intra-district pastoral migration; Rajasthan's Jaisalmer and Barmer districts in particular may double-count herds that move between them in a single tagging season. Read alongside the 20th Livestock Census for the denominator.",
     },
@@ -1845,7 +1841,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan getAnimalRegistrationStateWise SUM rollup of district source-of-truth, snapshot 2026-05-25; FY 2024-25.",
-      renderer_rules: ["no_rank_table"],
       notes:
         "Tagged count is NOT a livestock census. State values are the SUM rollup of districts that have reached programme rollout; the 20th Livestock Census 2019 reports ~193M cattle nationwide, so 40-60% coverage is typical at state grain.",
     },
@@ -1878,7 +1873,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043).",
-      renderer_rules: ["no_rank_table"],
       notes:
         "Tagged count is NOT a livestock census. District aggregation hides transhumant herds in Himachal Pradesh, Uttarakhand, and Jammu and Kashmir that move seasonally between bagh districts. Read alongside the 20th Livestock Census for the denominator.",
     },
@@ -1918,7 +1912,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan getAnimalRegistrationStateWise SUM rollup of district source-of-truth, snapshot 2026-05-25; FY 2024-25.",
-      renderer_rules: ["no_rank_table"],
       notes:
         "Tagged count is NOT a livestock census. The 20th Livestock Census 2019 reports ~110M buffaloes nationwide, ~55% concentrated in UP, Punjab, Haryana and Rajasthan (Murrah breed milk-dairy belt). State tag totals reflect cooperative reach (Verka, Vita, Amul, NDDB) more than natural distribution.",
     },
@@ -1951,7 +1944,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043).",
-      renderer_rules: ["no_rank_table"],
       notes:
         "Tagged count is NOT a livestock census. District aggregation in Gujarat (Anand, Kheda) is inflated by Amul chilling-centre vet camps that cross district lines; swamp-buffalo districts in Assam and coastal AP are structurally under-counted because vet camps prioritise dryland Murrah-cluster herds.",
     },
@@ -1984,7 +1976,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 426 districts with non-zero counts).",
-      renderer_rules: ["no_rank_table"],
       notes:
         "Tagged count is NOT a livestock census. Sheep concentrate in Rajasthan, Karnataka, Andhra Pradesh, Tamil Nadu, and Jammu and Kashmir; districts outside these belts may show zero because the species is genuinely scarce there, not because tagging is missing. Read alongside the 20th Livestock Census for the denominator.",
     },
@@ -2012,7 +2003,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 428 districts with non-zero counts).",
-      renderer_rules: ["no_rank_table"],
       notes:
         "Tagged count is NOT a livestock census. Pig tagging concentrates in the North-East (Assam, Nagaland, Meghalaya) and Kerala; mainland districts often show zero because pig farming is genuinely small-scale there. Read alongside the 20th Livestock Census for the denominator.",
     },
@@ -2040,7 +2030,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 232 districts with non-zero counts).",
-      renderer_rules: ["no_rank_table"],
       notes:
         "Tagged count is NOT a livestock census. Mithun (Bos frontalis) is a North-East-only species; near-total district coverage shows only in Arunachal Pradesh, Nagaland, Manipur, Mizoram. Mainland districts show zero because the species is absent, not because tagging failed. Read alongside the 20th Livestock Census for the denominator.",
     },
@@ -2068,7 +2057,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 235 districts with non-zero counts).",
-      renderer_rules: ["no_rank_table"],
       notes:
         "Tagged count is NOT a livestock census. Yak is a high-Himalayan species; coverage is concentrated in Ladakh, Himachal Pradesh, Sikkim, Arunachal Pradesh. Lower-altitude districts show zero because the species is absent, not because tagging failed. Read alongside the 20th Livestock Census for the denominator.",
     },
@@ -2096,7 +2084,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 6 districts with non-zero counts).",
-      renderer_rules: ["no_rank_table"],
       notes:
         "Equine tagging is at the early-rollout stage; only 6 districts nationwide report any horses tagged. The choropleth is mostly grey because the programme has barely begun for equines, not because horses are absent. Tagged count is NOT a livestock census.",
     },
@@ -2124,7 +2111,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 1 district with non-zero count).",
-      renderer_rules: ["no_rank_table"],
       notes:
         "Equine tagging is at the early-rollout stage; only 1 district nationwide reports any donkeys tagged. The choropleth is almost entirely grey because the programme has barely begun for equines, not because donkeys are absent. Tagged count is NOT a livestock census.",
     },
@@ -2152,7 +2138,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan getAnimalRegistrationDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 (district source-of-truth per ADR-0043; 1 district with non-zero count).",
-      renderer_rules: ["no_rank_table"],
       notes:
         "Equine tagging is at the early-rollout stage; only 1 district nationwide reports any mules tagged. The choropleth is almost entirely grey because the programme has barely begun for equines, not because mules are absent. Tagged count is NOT a livestock census.",
     },
@@ -2219,7 +2204,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan getOwnerRegLandHoldingDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). Landholding brackets aligned with Agriculture Census 2015-16. `not_specified` aggregates rows where the owner did not self-declare a holding size. 741 districts with non-zero counts.",
-      renderer_rules: ["no_rank_table"],
       notes:
         "Registered owners is NOT total owners. The bulk of the register is `not_specified` because the registration form does not require a holding declaration; do not read the 5 named brackets as the only owners. Composite gender axis collapsed at Phase 2.A adapter time. State-grain auto-summed from district children per ADR-0043.",
     },
@@ -2283,7 +2267,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan getOwnerRegLandHoldingDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). Landholding brackets aligned with Agriculture Census 2015-16. `not_specified` aggregates rows where the owner did not self-declare a holding size. 741 districts with non-zero counts.",
-      renderer_rules: ["no_rank_table"],
       notes:
         "Registered owners is NOT total owners. The bulk of the register is `not_specified` because the registration form does not require a holding declaration; do not read the 5 named brackets as the only owners. Composite gender axis collapsed at Phase 2.A adapter time. State-grain auto-summed from district children per ADR-0043.",
     },
@@ -2338,7 +2321,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan getOwnerRegLandHoldingDistrictWise endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). Landholding brackets aligned with Agriculture Census 2015-16. `not_specified` aggregates rows where the owner did not self-declare a holding size. 741 districts with non-zero counts.",
-      renderer_rules: ["no_rank_table"],
       notes:
         "Registered owners is NOT total owners. The bulk of the register is `not_specified` because the registration form does not require a holding declaration; do not read the 5 named brackets as the only owners. Composite gender axis collapsed at Phase 2.A adapter time. State-grain auto-summed from district children per ADR-0043.",
     },
@@ -2375,7 +2357,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan NAIP IV endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). 588 districts with non-zero counts.",
-      renderer_rules: ["no_rank_table"],
       notes:
         "NAIP IV is a SELECT-DISTRICT programme; 8 states/UTs report zero coverage upstream (Kerala, Punjab, Puducherry, Chandigarh, Delhi, Lakshadweep, A&N, D&NH+D&D). The choropleth is grey across those states because the programme is absent there, not because districts failed to report. Counts events, not animals.",
     },
@@ -2403,7 +2384,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan NAIP IV endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). 588 districts with non-zero counts.",
-      renderer_rules: ["no_rank_table"],
       notes:
         "NAIP IV is a SELECT-DISTRICT programme; 8 states/UTs report zero coverage upstream. The diagnosis-to-insemination ratio is usually ~10%; cross-district ratios reflect both biology and field-staff diligence. This is the source-of-truth grain.",
     },
@@ -2431,7 +2411,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan NAIP IV endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). Sex axis (male/female) collapsed via SUM at Phase 2.C adapter time. 588 districts with non-zero counts.",
-      renderer_rules: ["no_rank_table"],
       notes:
         "NAIP IV is a SELECT-DISTRICT programme; 8 states/UTs report zero coverage upstream. Calf count reports both sexes; sex-disaggregated lift deferred. This is the source-of-truth grain.",
     },
@@ -2459,7 +2438,6 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
       implementing_authority: "centre",
       methodology_vintage:
         "NDLM Bharat Pashudhan NAIP IV endpoint snapshot 2026-05-25; FY 2024-25 only (CY 2024 deferred). 588 districts with non-zero counts.",
-      renderer_rules: ["no_rank_table"],
       notes:
         "NAIP IV is a SELECT-DISTRICT programme; 8 states/UTs report zero coverage upstream. Counts distinct farmers per district per FY. This is the source-of-truth grain.",
     },

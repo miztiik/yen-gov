@@ -8,8 +8,9 @@
   // comparison primitive — not state-card grids, not composite indices.
   //
   // Honesty rules enforced here:
-  //   - When the indicator declares comparability=not_comparable_across_states,
-  //     the rank column is suppressed and an amber banner replaces the header.
+  //   - When the indicator declares rank-incompatible comparability or
+  //     grapher/legacy renderer_rules says no_rank_table, the rank column
+  //     is suppressed and an amber banner replaces the header.
   //   - When attribution_geography=where_produced, a slate caveat is shown.
   //   - Default tier filter: general_category states only when a state-tier
   //     map is provided. UTs and special-category states are toggle-includable
@@ -24,7 +25,13 @@
     type IndicatorArtifact,
   } from "./indicators";
   import { loadIndicator } from "./canonical/indicator-from-canonical";
+  import { canShowRank } from "./indicator-card";
   import { axisUnitLabel, legendCaption } from "./indicator-render";
+  import {
+    fetchGrapherIndicatorCatalogue,
+    lookupIndicatorRender,
+    type IndicatorRender,
+  } from "./grapher/catalogue";
   import { loadStates, type StateRow } from "./view-models/states";
   import TopicIcon from "./TopicIcon.svelte";
   // Phase 3 — ranked-comparison polish:
@@ -80,6 +87,7 @@
   }: Props = $props();
 
   let artifact = $state<IndicatorArtifact | null>(null);
+  let indicator_render = $state<IndicatorRender | null>(null);
   let load_error = $state<string | null>(null);
   let selected_time = $state<string | null>(null);
   let show_all = $state(false);
@@ -101,14 +109,21 @@
 
   $effect(() => {
     artifact = null;
+    indicator_render = null;
     load_error = null;
     selected_time = null;
     show_all = false;
-    loadIndicator(indicator_path)
-      .then(a => {
+    const path = indicator_path;
+    Promise.all([
+      loadIndicator(path),
+      fetchGrapherIndicatorCatalogue().catch(() => null),
+    ])
+      .then(([a, cat]) => {
+        if (indicator_path !== path) return;
         artifact = a;
         const ts = uniqueTimes(a.rows);
         selected_time = ts.at(-1) ?? null;
+        indicator_render = cat ? lookupIndicatorRender(cat, a.indicator.id) : null;
       })
       .catch(e => (load_error = String(e)));
   });
@@ -129,6 +144,10 @@
     if (!artifact) return "desc";
     return artifact.indicator.direction === "lower_is_better" ? "asc" : "desc";
   });
+
+  const can_rank = $derived(
+    artifact ? canShowRank(artifact.indicator, indicator_render) : false,
+  );
 
   type Row = {
     code: string;
@@ -191,9 +210,6 @@
         pin_index: pin_idx,
       });
     }
-    // Suppress rank when not comparable across states.
-    const meta = artifact.indicator;
-    const can_rank = meta.comparability !== "not_comparable_across_states";
     // Compute rank over rows that have a value, then assign back.
     if (can_rank) {
       const ranked = all
@@ -239,10 +255,6 @@
     for (const v of values.values()) if (Math.abs(v) > m) m = Math.abs(v);
     return m || 1;
   });
-
-  const can_rank = $derived(
-    artifact?.indicator.comparability !== "not_comparable_across_states",
-  );
 
   // Phase 3 — peer-band marker over the ranked rows (peer set + home/compare
   // pins). Median is the lightest-touch marker; the renderer only paints the
@@ -348,7 +360,7 @@
         </div>
       </div>
 
-      {#if home_row && compare_row && gap !== null && artifact.indicator.comparability !== "not_comparable_across_states"}
+      {#if home_row && compare_row && gap !== null && can_rank}
         {@const better = gap > 0}
         {@const equal = gap === 0}
         <div

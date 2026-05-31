@@ -73,6 +73,13 @@ const NO_CAVEATS_DESCRIPTOR: CanonicalIndicatorDescriptor = getCanonicalDescript
   "energy/state_peak_met_mw",
 )!;
 
+function expectNoRetiredRenderFields(meta: unknown): void {
+  const record = meta as Record<string, unknown>;
+  expect(record.renderer_rules).toBeUndefined();
+  expect(record.default_mode).toBeUndefined();
+  expect(record.facet_labels).toBeUndefined();
+}
+
 describe("indicator-allowlist (Phase B registry invariants)", () => {
   it("exports at least one descriptor (the C4.7 Phase B seed)", () => {
     expect(CANONICAL_BACKED_INDICATORS.length).toBeGreaterThan(0);
@@ -1520,9 +1527,32 @@ describe("buildIndicatorArtifact — canonical rows → legacy IndicatorArtifact
     }
   });
 
-  it("passes the descriptor's IndicatorMeta block through verbatim", () => {
+  it("copies descriptor IndicatorMeta without retired render-owned fields", () => {
     const a = buildIndicatorArtifact(PEAK_DEMAND_DESCRIPTOR, OBS_ROWS, SRC_ROWS);
-    expect(a.indicator).toBe(PEAK_DEMAND_DESCRIPTOR.meta);
+    expect(a.indicator).not.toBe(PEAK_DEMAND_DESCRIPTOR.meta);
+    expect(a.indicator).toMatchObject({
+      id: PEAK_DEMAND_DESCRIPTOR.meta.id,
+      title: PEAK_DEMAND_DESCRIPTOR.meta.title,
+      entity_kind: PEAK_DEMAND_DESCRIPTOR.meta.entity_kind,
+      time_grain: PEAK_DEMAND_DESCRIPTOR.meta.time_grain,
+      unit: PEAK_DEMAND_DESCRIPTOR.meta.unit,
+    });
+    expectNoRetiredRenderFields(a.indicator);
+  });
+
+  it("strips renderer_rules, default_mode, and facet_labels from canonical output", () => {
+    const withRetiredFields = {
+      ...PEAK_DEMAND_DESCRIPTOR,
+      meta: {
+        ...PEAK_DEMAND_DESCRIPTOR.meta,
+        renderer_rules: ["no_rank_table"],
+        default_mode: "absolute",
+        facet_labels: { total: "Total" },
+      },
+    } as unknown as CanonicalIndicatorDescriptor;
+    const a = buildIndicatorArtifact(withRetiredFields, OBS_ROWS, SRC_ROWS);
+    expectNoRetiredRenderFields(a.indicator);
+    expect(a.indicator.title).toBe(PEAK_DEMAND_DESCRIPTOR.meta.title);
   });
 
   it("synthesises a stub methodology block compatible with AboutThisData", () => {
@@ -2051,6 +2081,7 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
     expect(result.indicator.id).toBe("rpo-compliance-pct");
     expect(result.indicator.unit).toBe("%");
     expect(result.indicator.entity_kind).toBe("state");
+    expectNoRetiredRenderFields(result.indicator);
   });
 
   it("loadIndicatorIfCanonical dispatches the facet-multiplexed slug to the canonical path", async () => {
@@ -2112,11 +2143,9 @@ describe.skip("PR B.01 — livestock NDLM Pashu Aadhaar state-grain (10 species)
     }
   });
 
-  it("every PR B.01 meta block declares state grain + directional-only comparability + no_rank_table", () => {
+  it("every PR B.01 meta block declares state grain + directional-only comparability", () => {
     // ADR-0043 + Hans honest-renderer doctrine: tagged-animal counts are
-    // not a livestock census; rank tables would mislead citizens. Each
-    // descriptor MUST carry comparability='directional_only' AND
-    // renderer_rules=['no_rank_table'] to suppress the ranked-table view.
+    // not a livestock census; rank tables would mislead citizens.
     for (const row of PR_B01) {
       const d = getCanonicalDescriptor(row.legacy_id)!;
       expect(d.meta.entity_kind).toBe("state");
@@ -2124,7 +2153,7 @@ describe.skip("PR B.01 — livestock NDLM Pashu Aadhaar state-grain (10 species)
       expect(d.meta.unit).toBe("animals");
       expect(d.meta.value_kind).toBe("count");
       expect(d.meta.comparability).toBe("directional_only");
-      expect(d.meta.renderer_rules).toContain("no_rank_table");
+      expectNoRetiredRenderFields(d.meta);
       expect(d.meta.attribution_geography).toBe("where_resident");
       expect(d.meta.title).toMatch(/Pashu Aadhaar/);
       expect(d.meta.notes).toMatch(/NOT a livestock census/);
@@ -2184,7 +2213,7 @@ describe.skip("Phase 3.B - district-grain Pashu Aadhaar fan-out (9 species)", ()
       expect(d.meta.unit).toBe("animals");
       expect(d.meta.value_kind).toBe("count");
       expect(d.meta.comparability).toBe("directional_only");
-      expect(d.meta.renderer_rules).toContain("no_rank_table");
+      expectNoRetiredRenderFields(d.meta);
       expect(d.meta.attribution_geography).toBe("where_resident");
       expect(d.meta.title).toMatch(/district/);
       expect(d.meta.notes).toMatch(/NOT a livestock census|early-rollout/);
@@ -2273,7 +2302,7 @@ describe.skip("Phase 3.C-partial - Owner Registration (2 facet-multiplexed paren
       expect(d.meta.value_kind).toBe("count");
       expect(d.meta.unit).toBe("owners");
       expect(d.meta.comparability).toBe("directional_only");
-      expect(d.meta.renderer_rules).toContain("no_rank_table");
+      expectNoRetiredRenderFields(d.meta);
       expect(d.meta.title).toMatch(/landholding/);
       expect(d.meta.notes).toMatch(/not_specified/);
     }
@@ -2345,7 +2374,7 @@ describe.skip("Phase 3.C-partial - NAIP IV (8 single descriptors across 4 metric
       expect(d.meta.value_kind).toBe("count");
       expect(d.meta.unit).toBe(row.unit);
       expect(d.meta.comparability).toBe("directional_only");
-      expect(d.meta.renderer_rules).toContain("no_rank_table");
+      expectNoRetiredRenderFields(d.meta);
       expect(d.meta.title).toMatch(/NAIP IV/);
       expect(d.meta.notes).toMatch(/SELECT-DISTRICT/);
     }

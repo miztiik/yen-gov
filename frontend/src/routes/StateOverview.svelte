@@ -773,7 +773,9 @@
               </div>
             </div>
           </div>
-          <SourceListV2 sources={summary.sources_v2} />
+          <div data-testid="state-summary-sources">
+            <SourceListV2 sources={summary.sources_v2} />
+          </div>
         </div>
       </div>
     </section>
