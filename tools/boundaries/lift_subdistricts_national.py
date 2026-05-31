@@ -274,7 +274,7 @@ def remove_stale_shards(subdistricts_dir: Path, keep_partition_paths: set[str]) 
     if not subdistricts_dir.exists():
         return 0
     deleted = 0
-    for shard in subdistricts_dir.rglob("all.geojson"):
+    for shard in list(subdistricts_dir.rglob("all.geojson")):
         rel = shard.relative_to(subdistricts_dir.parent.parent.parent).as_posix()
         if rel in keep_partition_paths:
             continue
