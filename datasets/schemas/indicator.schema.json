@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/indicator.schema.json",
   "title": "Indicator (long-form fact table)",
   "description": "A single socio-economic, demographic, infrastructure, or fiscal indicator stored as long-form rows: (entity_kind, entity_id, time, value, unit, ...). Joined to geometry at view time via the existing identifier conventions (ECI state codes, LGD district codes). Indicators carry semantic hints (`value_kind`, `direction`) so the frontend's generic chart components can render them without per-indicator code.",
-  "x-version": "6.0",
+  "x-version": "6.1",
   "x-changelog": [
     {
       "version": "1.0",
@@ -84,6 +84,11 @@
       "version": "6.0",
       "date": "2026-05-27",
       "description": "MAJOR per CLAUDE.md §11 (property removal). Removed three UI-render-hint properties from the `indicator` block: `default_mode` (added v1.2), `facet_labels` (added v1.4), and `renderer_rules` (added v1.5). Per ADR-0045 (grapher catalogue split): render hints belong in the grapher catalogue at `datasets/grapher/indicator_render.json`, owned by the frontend, not in the indicator catalogue / shard schema. Companion to PR-A3a (#340 added grapher catalogue additive) and PR-A3c-topic (#342 ripped chart_type+dimension from topic-catalogue side). All 30 shards that previously carried any of the three fields are mechanically stripped in the same commit; remaining indicator block content unchanged. All 88 indicator artifacts bumped to `$schema_version: 6.0` via `tools/bump_indicator_schema_to_current.py`. Ingest writers under `backend/yen_gov/sources/iced_*/ingest.py`, `backend/yen_gov/sources/iced_air_quality/markers_ingest.py`, `backend/yen_gov/sources/iced_state_wise/ingest.py`, `backend/yen_gov/sources/rbi_xlsx/ingest.py` no longer emit these fields; the catalogue model `backend/yen_gov/canonical/indicators_seed.py` no longer declares `renderer_rules`. The `chart_type` property is intentionally retained at this layer pending its own ADR-0045 rip (separate PR). Per the working contract: removal is MAJOR even when downstream readers tolerated the field optionally."
+    },
+    {
+      "version": "6.1",
+      "date": "2026-05-31",
+      "description": "Minor widening: `indicator.id` now accepts both legacy folded JSON slash/snake artifact ids and ADR-0044 canonical single-segment kebab ids. Existing v6.0 artifacts remain valid under current-schema validation, so no mechanical artifact restamp is required. Writers that emit canonical kebab ids must stamp v6.1 or later."
     }
   ],
   "type": "object",
@@ -209,8 +214,17 @@
       "properties": {
         "id": {
           "type": "string",
-          "pattern": "^[a-z][a-z0-9_]*(/[a-z][a-z0-9_]*)*$",
-          "description": "Stable namespaced id (e.g. \"energy/state_per_capita_electricity_consumption_kwh\", \"economy/gsdp_constant_prices_2011_12\"). Used for cross-references and URL slugs."
+          "description": "Stable indicator identity. Legacy folded JSON shards may use slash/snake namespaced ids; canonical-backed artifacts use ADR-0044 single-segment kebab indicator ids. Do not substitute a route/backcompat legacy_artifact_id for canonical identity.",
+          "oneOf": [
+            {
+              "title": "Legacy folded JSON artifact id",
+              "pattern": "^[a-z][a-z0-9_]*(/[a-z][a-z0-9_]*)*$"
+            },
+            {
+              "title": "Canonical single-segment kebab indicator id",
+              "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)+$"
+            }
+          ]
         },
         "title": {
           "type": "string",

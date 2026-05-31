@@ -1,5 +1,40 @@
 {
   "$schema": "./schemas/schema-evolution.schema.json",
   "$schema_version": "1.0",
-  "releases": []
+  "releases": [
+    {
+      "release_id": "indicator-6-0-to-6-1-id-pattern",
+      "released_on": "2026-05-31",
+      "schema_file": "indicator.schema.json",
+      "schema_id": "https://yen-gov.github.io/schemas/indicator.schema.json",
+      "from_version": "6.0",
+      "to_version": "6.1",
+      "change_class": "minor_additive",
+      "compatibility_status": "reader_compatible",
+      "validation_strategy": "current_schema",
+      "retained_schema": null,
+      "values_changed": false,
+      "value_change_summary": null,
+      "provenance_changed": false,
+      "methodology_changed": false,
+      "methodology_break_refs": [],
+      "affected_artifacts": [
+        {
+          "path_pattern": "datasets/schemas/indicator.schema.json",
+          "table_id": null,
+          "artifact_count": 1,
+          "action": "metadata_rewritten"
+        },
+        {
+          "path_pattern": "datasets/indicators/**/*.json",
+          "table_id": null,
+          "artifact_count": null,
+          "action": "unchanged"
+        }
+      ],
+      "pr": null,
+      "commit": null,
+      "notes": "Envelope-only validation grammar widening so canonical-backed frontend artifacts can carry ADR-0044 kebab indicator identity without rewriting legacy JSON artifacts."
+    }
+  ]
 }

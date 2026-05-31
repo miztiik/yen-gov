@@ -1,7 +1,7 @@
 # Schema Version Magic Test Cleanup Plan
 
 **Last Updated**: 2026-05-31
-**Status**: ACTIVE - Row A plan-doc PR #501 merged; Row B doctrine PR #503 merged; Row C split by source-contract blocker; C1 source-surface unblock in progress.
+**Status**: ACTIVE - Row A #501, Row B #503, Row C0 #506, Row C1 #507, and Row C2 #509 merged; C2.5 schema id-pattern prerequisite in progress before C3.
 **Correction level**: 4 - cross-cutting cleanup across backend tests, frontend runtime, tools emitters, and docs. Escalate to Level 5 if a row changes canonical schema semantics rather than test/emitter mechanics.
 **Doc-class**: plan-doc per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md). Durable doctrine must be distilled into `docs/` before this plan closes.
 **Base branch discipline**: every execution PR branches from `origin/main`, not from this plan-doc branch and not from another active worktree branch.
@@ -94,8 +94,9 @@ Update this table in every PR that executes a row. Each row branches from `origi
 | B | #503 | Merged | `feat/schema-version-testing-doctrine` | Fowler + Gregor | Durable docs: update [docs/architecture/testing.md](../docs/architecture/testing.md), [docs/architecture/backend/validator.md](../docs/architecture/backend/validator.md), and a narrow [CLAUDE.md](../CLAUDE.md) section 11 clarification if needed. | Docs define forbidden current-version literals, allowed historical/backcompat exceptions, backend registry pattern, tools-local schema JSON pattern, frontend policy-constant pattern; docs have Last Updated and See also where required. | Stop if docs would change schema compatibility policy owned by [TODO/20260530-schema-version-compatibility-plan.md](20260530-schema-version-compatibility-plan.md). |
 | C0 | #506 | Merged | `feat/schema-magic-row-c-unblock` | Fowler + Gregor | Plan amendment only: split Row C because canonical source provenance is citation-ledger v3, not legacy fetch-ledger `sources[]`. | Plan names the source-contract prerequisite, rejected fake telemetry, and the C1/C2/C3 sequence; `git diff --check` clean. | Stop if this turns into runtime/schema edits. |
 | C1 | #507 | Merged | `feat/frontend-indicator-sources-v2` | Fowler + Gregor, Jony if visible behavior changes | Source-surface contract unblock for canonical-backed indicator routes: render citation-ledger provenance through SourceListV2 instead of fake legacy `fetched_at`. | Canonical-backed source rows contain no fetch telemetry; tests prove SourceListV2 receives citation-ledger rows; legacy artifacts still render legacy `sources[]`; browser smoke covers one canonical-backed and one legacy indicator route. | Stop if the only path is to invent `fetched_at`, `date_accessed`, `first_fetched_at`, or `last_seen_at`. Escalate if `indicator.schema.json` must change. |
-| C2 | #509 | In review | `feat/frontend-indicator-render-hints` | Fowler + Gregor, Jony if visible behavior changes | Render-hint cleanup: remove canonical translator carryover of v6-deleted fields only after renderer behavior is preserved via grapher policy. | `indicator-from-canonical` tests prove no `renderer_rules`, `default_mode`, or `facet_labels` are emitted; rank/render behavior remains covered. | Stop if removing `renderer_rules` would change citizen-visible rank suppression before grapher lookup is wired. |
-| C3 | _pending_ | Not started | `feat/frontend-indicator-v6-artifact` | Fowler + Gregor | Version-policy cleanup: centralize emitted indicator schema version policy and remove `4.4` stamps only after C1/C2 make the emitted artifact current-shape honest. | Policy test proves frontend emitted current equals `indicator.schema.json` x-version; translator uses policy, not hand-typed literals; targeted/full frontend tests as feasible. | Stop if emitted populated artifacts are not valid for the stamped schema. |
+| C2 | #509 | Merged | `feat/frontend-indicator-render-hints` | Fowler + Gregor, Jony if visible behavior changes | Render-hint cleanup: remove canonical translator carryover of v6-deleted fields only after renderer behavior is preserved via grapher policy. | `indicator-from-canonical` tests prove no `renderer_rules`, `default_mode`, or `facet_labels` are emitted; rank/render behavior remains covered. | Stop if removing `renderer_rules` would change citizen-visible rank suppression before grapher lookup is wired. |
+| C2.5 | _pending_ | In progress | `feat/indicator-schema-kebab-id` | Fowler + Gregor | Schema prerequisite for C3: bump `indicator.schema.json` 6.0 -> 6.1 and widen `indicator.id` to accept both legacy slash/snake ids and canonical single-segment kebab ids. Update compatibility, schema-evolution, indicator naming docs, and focused schema tests. No frontend runtime change and no artifact restamp. | `indicator.id` tests cover legacy accept, kebab accept, slashed-kebab reject, and mixed-shape reject; `schema-compatibility.json` accepts 6.0 + 6.1 for `json-corpus`; `schema-evolution.json` records values/provenance/methodology unchanged; targeted backend/frontend contract tests and `python -m yen_gov validate --root .` pass. | Stop if the change needs `sources_v2`, render-hint migration, frontend version-policy edits, `$schema` URI migration, data artifact rewrites, or retained old-major schema support. |
+| C3 | _pending_ | Not started | `feat/frontend-indicator-v6-artifact` | Fowler + Gregor | Version-policy cleanup: centralize emitted indicator schema version policy and remove `4.4` stamps only after C1/C2/C2.5 make the emitted artifact current-shape honest. | Policy test proves frontend emitted current equals `indicator.schema.json` x-version; translator uses policy, not hand-typed literals; targeted/full frontend tests as feasible. | Stop if emitted populated artifacts are not valid for the stamped schema. |
 | D | _pending_ | Not started | `feat/tools-schema-version-emitters` | Fowler + Gregor | Active emitter cleanup in `tools/` and backend producer modules. Fix stale `4.4` indicator emitters and classify current producer constants. | Tools do not import backend runtime. Tests prove emitted `$schema_version` equals source schema x-version. Targeted pytest/tool tests pass. `python -m yen_gov validate --root .` if datasets/config/schemas are touched. | Stop if a tool emits artifacts not clean under the current schema shape; fix shape before stamping current. |
 | E | _pending_ | Not started | `feat/backend-schema-version-test-cleanup` | Fowler | Backend non-indicator test cleanup: canonical writer, concepts seed, grapher catalogue, source row, preflight CLI. | Current version literals removed or replaced by relationships/constants. Bad-version and historical fixtures remain named. Targeted pytest for touched files. Grep gate confirms no unclassified current pins in touched files. | Stop if a literal is the only guard for a historical behavior; rename/comment instead of deleting. |
 | F | _pending_ | Not started | `feat/indicator-schema-test-cleanup` | Fowler + Gregor | Indicator schema/catalogue tests: rename stale version-specific tests where helpful; remove current point pins; add v6 render-field absence checks; preserve historical changelog checks. | Targeted pytest for indicator schema/catalogue files; tests prove behavior and relationships, not point versions. | Stop if catalogue semantics or ADR-0045 ownership would change. |
@@ -162,6 +163,24 @@ Gregor + Fowler verdict, 2026-05-31:
   - Any renderer behavior previously driven by `renderer_rules` still comes from an allowed frontend/grapher surface.
 - **DoD gates**: targeted vitest for canonical indicator tests and any grapher/indicator-card tests; `bun run check` if TypeScript surfaces changed; browser smoke only if route behavior changes.
 
+### Row C2.5 - Indicator schema id-pattern prerequisite
+
+This row records the contract blocker found while preflighting C3. Canonical-backed indicator artifacts must keep ADR-0044 canonical kebab identity (for example, `peak-electricity-demand-mw`) instead of substituting `legacy_artifact_id` route keys. The current v6.0 `indicator.id` grammar only accepts legacy slash/snake artifact ids, so C3 cannot honestly stamp the current schema until the schema contract accepts canonical ids.
+
+- **Files likely touched**:
+  - [datasets/schemas/indicator.schema.json](../datasets/schemas/indicator.schema.json)
+  - [datasets/schema-compatibility.json](../datasets/schema-compatibility.json)
+  - [datasets/schema-evolution.json](../datasets/schema-evolution.json)
+  - [docs/concepts/indicator-naming.md](../docs/concepts/indicator-naming.md)
+  - [backend/tests/test_indicator_schema_v5.py](../backend/tests/test_indicator_schema_v5.py)
+- **Required checks**:
+  - Schema bumps `6.0 -> 6.1` as a minor widening.
+  - `indicator.id` accepts legacy slash/snake ids and canonical single-segment kebab ids, but rejects slashed-kebab and mixed grammar ids.
+  - `schema-compatibility.json` accepts v6.0 and v6.1 for the `json-corpus` surface under current-schema validation.
+  - `schema-evolution.json` records an envelope-only release with values, provenance, and methodology unchanged.
+  - No indicator artifacts are mechanically restamped.
+- **DoD gates**: targeted pytest for indicator schema / compatibility / schema-evolution tests; frontend contract tests for schema compatibility and datasets conformance; `python -m yen_gov validate --root .`; `git diff --check`.
+
 ### Row C3 - Frontend indicator artifact version-policy cleanup
 
 - **Files likely touched**:
@@ -169,6 +188,7 @@ Gregor + Fowler verdict, 2026-05-31:
   - [frontend/src/lib/canonical/indicator-from-canonical.ts](../frontend/src/lib/canonical/indicator-from-canonical.ts)
   - [frontend/src/lib/canonical/indicator-from-canonical.test.ts](../frontend/src/lib/canonical/indicator-from-canonical.test.ts)
 - **Required checks**:
+  - Requires Row C2.5 merged.
   - Artifact builder no longer emits `$schema_version: "4.4"`.
   - Version policy is centralized and tested against [datasets/schemas/indicator.schema.json](../datasets/schemas/indicator.schema.json).
 - **DoD gates**: targeted vitest for canonical indicator tests; full `bun run test` if feasible; `bun run check` if TypeScript surfaces changed; browser smoke only if route behavior changes.
