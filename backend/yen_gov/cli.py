@@ -739,7 +739,8 @@ def ingest_eci_ls(
     assert result.write_result is not None
     typer.echo(
         "ingest-eci-ls: wrote "
-        f"{result.write_result.observation_rows_written} PC observation rows, "
+        f"{result.write_result.observation_rows_written} observation rows "
+        "(total across rewritten state shards, including pre-existing AC rows), "
         f"{result.write_result.dim_rows_written.get('dim_pcs', 0)} dim_pcs rows "
         f"across {result.pc_count} PCs"
     )

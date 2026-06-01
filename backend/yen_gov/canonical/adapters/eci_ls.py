@@ -191,9 +191,10 @@ def ingest_ls(
         allow_unknown_parties=allow_unknown_parties,
     )
     write_result = write_batch(envelope, datasets_root)
+    states = sorted({row.state_code for row in envelope.pc_dim_rows})
     inventory_path = _upsert_inventory(
         repo_root=repo_root,
-        pc_count=pc_count,
+        states=states,
         ingested_at=ingested_at,
     )
     return LsIngestResult(
@@ -217,7 +218,7 @@ def _inventory_has_event(repo_root: Path) -> bool:
     )
 
 
-def _upsert_inventory(*, repo_root: Path, pc_count: int, ingested_at: str) -> Path:
+def _upsert_inventory(*, repo_root: Path, states: list[str], ingested_at: str) -> Path:
     path = repo_root.joinpath(*INVENTORY_PATH_REL)
     payload: dict = {"ingested": []}
     if path.is_file():
@@ -230,13 +231,16 @@ def _upsert_inventory(*, repo_root: Path, pc_count: int, ingested_at: str) -> Pa
             and row.get("source_input") == SOURCE_INPUT_ID
         )
     ]
-    filtered.append({
-        "election_id": LS_2024_EVENT.period_label,
-        "state": "IN",
-        "source_input": SOURCE_INPUT_ID,
-        "ingested_at": ingested_at,
-        "pcs": pc_count,
-    })
+    # National Lok Sabha event recorded as one inventory slice per state
+    # (the schema keys identity on (election_id, state, source_input) and
+    # constrains state to ^[SU]\d{2}$ — there is no national "IN" token).
+    for state in states:
+        filtered.append({
+            "election_id": LS_2024_EVENT.period_label,
+            "state": state,
+            "source_input": SOURCE_INPUT_ID,
+            "ingested_at": ingested_at,
+        })
     payload["ingested"] = filtered
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(

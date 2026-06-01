@@ -80,7 +80,7 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 | PR-A1 | A | PC source recon + ingest handover-doc + pre-flight proposal | none `||` | [x] DONE | Max (handover + pre-flight exit 0) |
 | PR-A2 | A | PC identity + PcDimRow + envelope + pc-* indicators + concepts + schemas | PR-A1 | [x] DONE | Hans + Max (Model C: 13 pc-grain sibling concepts + indicators; entity_kinds enum MINOR bump; pre-flight upsert exit 0) |
 | PR-A3 | A | PC parser + observations + rollups + CLI `ingest-eci-ls` | PR-A2 | [x] DONE (local) | Gregor |
-| PR-A4 | A | Run ingest: write PC parquet + dim_pcs + lok_sabha event row + validate | PR-A3 | [ ] PENDING | Max |
+| PR-A4 | A | Run ingest: write PC parquet + dim_pcs + lok_sabha event row + validate | PR-A3 | [x] DONE (local) | Max |
 | PR-B1 | B | Tile-layout schema + grapher layouts + pilot S13-AC + national-PC layout | none `||` | [ ] PENDING | Jony |
 | PR-B2 | B | Generic `<TileCartogram>` SVG component + layout loader + ChartShell wrap | PR-B1 | [ ] PENDING | Jony |
 | PR-B3 | B | `ElectionMap` wrapper (Map\|Equal seats toggle) on StateElection (AC) | PR-B2 | [ ] PENDING | Jony |
@@ -234,6 +234,16 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 - [ ] G1 `python -m yen_gov validate --root .` OK (this is the gate that matters - real data written).
 - [ ] DuckDB spot-check: PC winner count in expected range; FK joins resolve.
 - [ ] G2 only the writer/validator tests that exercise the new partition. No full suite.
+
+**DONE (local, 2026-05-31):**
+- Ran `ingest-eci-ls` against ECI Report-33 + Report-34 ephemeral CSVs. Wrote PC observations into the shared `state=in_<state>/election_results.parquet` family + `dim_pcs.parquet` (542 PC seats across 36 states) + UPSERT `sources.parquet`. PC-grain aggregate rows = 5,962 (542 × 11 pc-* indicators); PC candidate rows folded into the candidate grain. AC data untouched (433,408 ac rows intact).
+- **Writer FK fix:** added two `_DERIVED_ENTITY_PATTERNS` for PC seat (`^IN-PC-\d{4}-[SU]\d{2}-\d+$`) and PC candidate ids, mirroring the AC patterns, so `_validate_fks` recognises minted PC entities (previously raised `dangling entity_id FKs`).
+- **Inventory fix:** `_upsert_inventory` now writes one slice **per state** (the schema keys identity on `(election_id, state, source_input)` and constrains `state` to `^[SU]\d{2}$` — there is no national `IN` token), with no `discrepancy_summary` (AC-shaped, N/A for PC).
+- **Event catalogue:** added the `kind:"lok_sabha"` event `LsGenJun2024` as a per-state slice in all 36 states' arrays in `election_events.json` (display `"<State> · Lok Sabha 2024"`, `polled_on` 2024-06-01 last phase, `term_end_estimated` null, `data_status` complete), inserted most-recent-first. Recompiled `election_events.parquet` (339 rows: 303 assembly + 36 lok_sabha).
+- **3 parties added** to `parties.json` (BAP, HAM(S), VPP) — 2 won seats; ECI alpha codes carried as `aliases` (eci_codes is digits-only). Clean 60-line append, no re-sort.
+- **CLI echo** corrected to label the observation count as total-across-rewritten-shards (not "PC observation rows"), since the writer rewrites whole `in_<state>` shards.
+- Gates: G1 `validate` OK (0 issues); DuckDB spot-check PASS (Araku S01-1 winner parties.IN.YSRCP, margin 50,580, turnout 74.87%; 542 winner rows; 542 dim_pcs); writer/coverage/seed/pc-observation tests green.
+- **Surat (Gujarat) caveat:** ECI Report-33 publishes detailed results only for the 542 contested PCs; Surat was won unopposed (no poll), so it has no detailed-result row. Recorded honestly — not fabricated.
 
 ---
 

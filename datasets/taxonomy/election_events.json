@@ -5,6 +5,15 @@
   "states": {
     "S01": [
       {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Andhra Pradesh · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
+      {
         "event_id": "AcGenMay2014",
         "kind": "assembly",
         "display": "Andhra Pradesh Assembly · May 2014",
@@ -33,6 +42,15 @@
       }
     ],
     "S02": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Arunachal Pradesh · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
       {
         "event_id": "AcGenFeb1978",
         "kind": "assembly",
@@ -135,6 +153,15 @@
     ],
     "S03": [
       {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Assam · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
+      {
         "event_id": "AcGenFeb1978",
         "kind": "assembly",
         "display": "Assam Assembly · February 1978",
@@ -234,6 +261,15 @@
       }
     ],
     "S04": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Bihar · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
       {
         "event_id": "AcGenOct1977",
         "kind": "assembly",
@@ -345,6 +381,15 @@
     ],
     "S05": [
       {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Goa · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
+      {
         "event_id": "AcGenNov1989",
         "kind": "assembly",
         "display": "Goa Assembly · November 1989",
@@ -418,6 +463,15 @@
       }
     ],
     "S07": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Haryana · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
       {
         "event_id": "AcGenOct1977",
         "kind": "assembly",
@@ -518,6 +572,15 @@
       }
     ],
     "S08": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Himachal Pradesh · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
       {
         "event_id": "AcGenOct1977",
         "kind": "assembly",
@@ -620,6 +683,15 @@
     ],
     "S10": [
       {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Karnataka · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
+      {
         "event_id": "AcGenFeb1978",
         "kind": "assembly",
         "display": "Karnataka Assembly · February 1978",
@@ -720,6 +792,15 @@
       }
     ],
     "S11": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Kerala · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
       {
         "event_id": "AcGenMar1977",
         "kind": "assembly",
@@ -830,6 +911,15 @@
     ],
     "S12": [
       {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Madhya Pradesh · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
+      {
         "event_id": "AcGenOct1977",
         "kind": "assembly",
         "display": "Madhya Pradesh Assembly · October 1977",
@@ -930,6 +1020,15 @@
       }
     ],
     "S13": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Maharashtra · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
       {
         "event_id": "AcGenFeb1962",
         "kind": "assembly",
@@ -1058,6 +1157,15 @@
     ],
     "S16": [
       {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Mizoram · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
+      {
         "event_id": "AcGenMay1978",
         "kind": "assembly",
         "display": "Mizoram Assembly · May 1978",
@@ -1167,6 +1275,15 @@
       }
     ],
     "S18": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Odisha · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
       {
         "event_id": "AcGenFeb1974",
         "kind": "assembly",
@@ -1278,6 +1395,15 @@
     ],
     "S21": [
       {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Sikkim · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
+      {
         "event_id": "AcGenOct1979",
         "kind": "assembly",
         "display": "Sikkim Assembly · October 1979",
@@ -1369,6 +1495,15 @@
       }
     ],
     "S22": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Tamil Nadu · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
       {
         "event_id": "AcGenMar1971",
         "kind": "assembly",
@@ -1488,6 +1623,15 @@
     ],
     "S25": [
       {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "West Bengal · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
+      {
         "event_id": "AcGenJun1977",
         "kind": "assembly",
         "display": "West Bengal Assembly · June 1977",
@@ -1588,6 +1732,15 @@
     ],
     "S26": [
       {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Chhattisgarh · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
+      {
         "event_id": "AcGenDec2003",
         "kind": "assembly",
         "display": "Chhattisgarh Assembly · December 2003",
@@ -1635,6 +1788,15 @@
     ],
     "S27": [
       {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Jharkhand · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
+      {
         "event_id": "AcGenFeb2005",
         "kind": "assembly",
         "display": "Jharkhand Assembly · February 2005",
@@ -1681,6 +1843,15 @@
     ],
     "S29": [
       {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Telangana · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
+      {
         "event_id": "AcGenApr2014",
         "kind": "assembly",
         "display": "Telangana Assembly · April 2014",
@@ -1709,6 +1880,15 @@
       }
     ],
     "U05": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "NCT of Delhi · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
       {
         "event_id": "AcGenOct1977",
         "kind": "assembly",
@@ -1801,6 +1981,15 @@
       }
     ],
     "U07": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Puducherry · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
       {
         "event_id": "AcGenOct1977",
         "kind": "assembly",
@@ -1919,9 +2108,27 @@
         "term_end_estimated": "2029-09-30",
         "data_status": "complete",
         "notes": "First elected government in J&K since 2018. The state was reorganised into a Union Territory on 31 October 2019; this Assembly's powers under Article 239A and the J&K Reorganisation Act 2019 are narrower than a full state's."
+      },
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Jammu and Kashmir (UT) · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
       }
     ],
     "S19": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Punjab · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
       {
         "event_id": "AcGenOct1977",
         "kind": "assembly",
@@ -2014,6 +2221,15 @@
       }
     ],
     "S24": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Uttar Pradesh · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
       {
         "event_id": "AcGenFeb1974",
         "kind": "assembly",
@@ -2134,6 +2350,15 @@
     ],
     "S28": [
       {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Uttarakhand · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
+      {
         "event_id": "AcGenFeb2002",
         "kind": "assembly",
         "display": "Uttarakhand Assembly · February 2002",
@@ -2180,6 +2405,15 @@
       }
     ],
     "S14": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Manipur · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
       {
         "event_id": "AcGenJan1980",
         "kind": "assembly",
@@ -2272,6 +2506,15 @@
       }
     ],
     "S06": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Gujarat · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
       {
         "event_id": "AcGenFeb1962",
         "kind": "assembly",
@@ -2401,6 +2644,15 @@
     ],
     "S23": [
       {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Tripura · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
+      {
         "event_id": "AcGenDec1977",
         "kind": "assembly",
         "display": "Tripura Assembly · December 1977",
@@ -2493,6 +2745,15 @@
     ],
     "S15": [
       {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Meghalaya · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
+      {
         "event_id": "AcGenFeb1978",
         "kind": "assembly",
         "display": "Meghalaya Assembly · February 1978",
@@ -2584,6 +2845,15 @@
       }
     ],
     "S17": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Nagaland · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
       {
         "event_id": "AcGenNov1977",
         "kind": "assembly",
@@ -2686,6 +2956,15 @@
     ],
     "S20": [
       {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Rajasthan · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      },
+      {
         "event_id": "AcGenJun1977",
         "kind": "assembly",
         "display": "Rajasthan Assembly · June 1977",
@@ -2783,6 +3062,61 @@
         "term_end_estimated": "2028-11-24",
         "data_status": "complete",
         "notes": "Single-phase poll on 25 November 2023. 199 ACs (Karanpur countermanded; held 5 January 2024). Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
+      }
+    ],
+    "U01": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Andaman and Nicobar Islands · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      }
+    ],
+    "U02": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Chandigarh · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      }
+    ],
+    "U03": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Dadra and Nagar Haveli and Daman and Diu · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      }
+    ],
+    "U04": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Lakshadweep · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
+      }
+    ],
+    "U09": [
+      {
+        "event_id": "LsGenJun2024",
+        "kind": "lok_sabha",
+        "display": "Ladakh · Lok Sabha 2024",
+        "polled_on": "2024-06-01",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "National Lok Sabha 2024 (multi-phase, 19 Apr - 1 Jun 2024; counted 4 Jun 2024). State slice of the all-India event LsGenJun2024. The state's MPs sent to the national Lok Sabha; kept separate from the state Assembly per ADR-0023."
       }
     ]
   }
