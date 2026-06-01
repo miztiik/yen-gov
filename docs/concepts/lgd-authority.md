@@ -18,7 +18,7 @@ Every entity has:
 
 Every non-electoral indicator that the Government of India publishes - NFHS health rounds, MoSPI NSO surveys, Census, RBI Handbook fiscal, NDLM air-quality, Bhuvan landcover, data.gov.in district-keyed datasets - references entities by **LGD id**. The LGD portal IS the authoritative spine for indicator joins.
 
-If yen-gov adopted any other identity (ECI state codes, Census2001 numbering, OWID country codes adapted-to-states) as the internal join key, every future indicator would need a per-indicator translation table. That tax compounds. Within a year, yen-gov's adapter layer would be a pile of `lookup(eci_to_lgd[st_code])` translators scattered across every indicator family. This is the "chasing tails" failure mode the [LGD-canonical plan](../../TODO/20260601-lgd-canonical-plan.md) exists to escape.
+If yen-gov adopted any other identity (ECI state codes, Census2001 numbering, OWID country codes adapted-to-states) as the internal join key, every future indicator would need a per-indicator translation table. That tax compounds. Within a year, yen-gov's adapter layer would be a pile of `lookup(eci_to_lgd[st_code])` translators scattered across every indicator family. This is the "chasing tails" failure mode the [LGD-canonical plan](../../docs/archive/plans/20260601-lgd-canonical-plan.md) exists to escape.
 
 The strategic call (locked 2026-06-01): **LGD is the canonical internal join key for every geographic entity** in yen-gov. ECI codes survive only as election-domain display labels.
 
@@ -53,7 +53,7 @@ The folder partition (`state=haryana`) coincidentally is also citizen-legible be
 
 ## What "GoI-only single source" means in practice
 
-The execution handover ([TODO/20260601-lgd-execution-handover.md](../../TODO/20260601-lgd-execution-handover.md)) tightened the source doctrine: every entity row written into the canonical store traces to a Government of India source. Concretely:
+The execution handover ([docs/archive/plans/20260601-lgd-execution-handover.md](../../docs/archive/plans/20260601-lgd-execution-handover.md)) tightened the source doctrine: every entity row written into the canonical store traces to a Government of India source. Concretely:
 
 - **Use** LGD portal for entity codes + names + parent pointers.
 - **Use** ECI for election artefacts (events, results, candidates).
@@ -77,7 +77,7 @@ If you (an LLM agent) are about to mint a new identity (a new state / district /
 
 - [ADR-0049](../architecture/decisions/0049-canonical-ac-join-key.md) - lgd_ac_id as canonical internal AC join key
 - [ADR-0050](../architecture/decisions/0050-folder-naming-lgd-slug.md) - folder convention `state=<lgd-name-slug>`
-- [TODO/20260601-lgd-canonical-plan.md](../../TODO/20260601-lgd-canonical-plan.md) - parent strategic plan
-- [TODO/20260601-lgd-execution-handover.md](../../TODO/20260601-lgd-execution-handover.md) - per-row execution split
+- [docs/archive/plans/20260601-lgd-canonical-plan.md](../../docs/archive/plans/20260601-lgd-canonical-plan.md) - parent strategic plan
+- [docs/archive/plans/20260601-lgd-execution-handover.md](../../docs/archive/plans/20260601-lgd-execution-handover.md) - per-row execution split
 - [docs/concepts/admin-level-sourcing.md](admin-level-sourcing.md) - LGD-golden doctrine context
 - [docs/architecture/data/canonical-store.md](../architecture/data/canonical-store.md) - how taxonomy seeds plug in

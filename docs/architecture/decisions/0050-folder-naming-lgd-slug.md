@@ -17,7 +17,7 @@ Two problems compound:
 1. **Convention split**: Internal partition labels diverge from BOTH external authorities. Every reader (frontend, validator, indicator adapter) carries an internal translation layer.
 2. **Code instability**: LGD numeric codes have historically shifted across census cycles (Census2001 -> Census2011 reshuffles for split states, UT reorganisations like J&K 2019, Sikkim district reorg 2021). Any partition convention keyed on the numeric code inherits that churn.
 
-The LGD-canonical plan (`TODO/20260601-lgd-canonical-plan.md`, PR #544, PR #546) made the strategic call: LGD is the canonical INTERNAL join key for every geographic entity. This ADR locks the matching FOLDER convention.
+The LGD-canonical plan (`docs/archive/plans/20260601-lgd-canonical-plan.md`, PR #544, PR #546) made the strategic call: LGD is the canonical INTERNAL join key for every geographic entity. This ADR locks the matching FOLDER convention.
 
 ## Decision
 
@@ -67,7 +67,7 @@ A folder-naming convention IS a contract surface. Tier-A validators, conform tes
 
 ## Consequences
 
-- **Migration surface**: Every Parquet partition + every `datasets/boundaries/in/<layer>/state=*` folder + every `datasets/elections/state=*` folder gets renamed in Wave 4 (M2 -> M3 -> M4 per [TODO/20260601-lgd-execution-handover.md](../../../TODO/20260601-lgd-execution-handover.md)). XL risk; serialised; single big-bang script with dry-run + manifest output.
+- **Migration surface**: Every Parquet partition + every `datasets/boundaries/in/<layer>/state=*` folder + every `datasets/elections/state=*` folder gets renamed in Wave 4 (M2 -> M3 -> M4 per [docs/archive/plans/20260601-lgd-execution-handover.md](../../../docs/archive/plans/20260601-lgd-execution-handover.md)). XL risk; serialised; single big-bang script with dry-run + manifest output.
 - **Frontend redirects**: URL grammar already uses name slugs, so no citizen-facing URL break. But the partition-key change requires `frontend/src/lib/maplibre/sources.ts` and any internal references to `in_sXX` to flip. Tracked under PR F1.
 - **Validator updates**: Tier-A schemas referencing `state=in_*` patterns must accept the new shape. Tracked under M2 wave.
 - **Backwards lookups**: A reader handed an old `in_s07` partition path can resolve to the canonical slug via `datasets/taxonomy/lgd_states.json` (the same authority list that produced the slug). No translator service needed; it's a flat-file join.
@@ -96,6 +96,6 @@ Rejected. Premature complexity. State-name slugs are stable across delim cycles 
 - [ADR-0044](0044-grain-over-entity.md) - entity_id shape (unchanged)
 - [ADR-0048](0048-elections-drill-ia-and-tile-cartogram.md) - URL grammar (unchanged)
 - [ADR-0049](0049-canonical-ac-join-key.md) - lgd_ac_id as canonical internal key
-- [TODO/20260601-lgd-canonical-plan.md](../../../TODO/20260601-lgd-canonical-plan.md) - parent plan
-- [TODO/20260601-lgd-execution-handover.md](../../../TODO/20260601-lgd-execution-handover.md) - wave breakdown (M2/M3/M4 executes this ADR)
+- [docs/archive/plans/20260601-lgd-canonical-plan.md](../../../docs/archive/plans/20260601-lgd-canonical-plan.md) - parent plan
+- [docs/archive/plans/20260601-lgd-execution-handover.md](../../../docs/archive/plans/20260601-lgd-execution-handover.md) - wave breakdown (M2/M3/M4 executes this ADR)
 - `datasets/taxonomy/lgd_states.json` - the slug authority (PR L1a)

@@ -1,7 +1,7 @@
 # Boundary coverage matrix
 
 **Last Updated:** 2026-06-01
-**Tracked by:** [`TODO/20260601-lgd-execution-handover.md`](../../../TODO/20260601-lgd-execution-handover.md) (updated whenever a layer/state ships)
+**Tracked by:** [`docs/archive/plans/20260601-lgd-execution-handover.md`](../../../docs/archive/plans/20260601-lgd-execution-handover.md) (updated whenever a layer/state ships)
 
 This document answers: **at every administrative granularity, which states and union territories have geometry and which are gaps.** It is the canonical inventory.
 
@@ -48,7 +48,7 @@ PCs and ACs are NOT children of districts — they are independently delimited b
 
 ## Per-state coverage matrix
 
-`-` = layer absent. Numbers are feature counts (small layers) or file counts (large layers; villages/panchayats/wards/blocks/subdistricts). LGD-canonical state names sourced from the LGD portal; current yen-gov folder labels (`andhra-pradesh` etc.) retire in plan row L3 - L4 (see [LGD execution handover](../../../TODO/20260601-lgd-execution-handover.md)).
+`-` = layer absent. Numbers are feature counts (small layers) or file counts (large layers; villages/panchayats/wards/blocks/subdistricts). LGD-canonical state names sourced from the LGD portal; current yen-gov folder labels (`andhra-pradesh` etc.) retire in plan row L3 - L4 (see [LGD execution handover](../../../docs/archive/plans/20260601-lgd-execution-handover.md)).
 
 | State folder | LGD name (expected) | districts* | sub-dist | blocks | panchayats | villages | wards | postal | AC | PC |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -119,7 +119,7 @@ District breakdown by `state_lgd` code (from `districts/all.geojson`, 785 total)
 
 ## Source consolidation contract (GoI-only)
 
-Per [LGD execution handover](../../../TODO/20260601-lgd-execution-handover.md) source-of-truth doctrine:
+Per [LGD execution handover](../../../docs/archive/plans/20260601-lgd-execution-handover.md) source-of-truth doctrine:
 
 | Layer | Canonical GoI source |
 | --- | --- |
@@ -145,7 +145,7 @@ Non-GoI sources (shijithpk, Garuda, ramSeraph mirrors, OSM, Wikimedia) survive O
 
 - [`docs/architecture/data/boundaries.md`](boundaries.md) — boundary layer architecture overview
 - [`docs/concepts/lgd-authority.md`](../../concepts/lgd-authority.md) — (pending; plan row A2)
-- [LGD execution handover plan](../../../TODO/20260601-lgd-execution-handover.md)
-- [LGD-canonical parent plan](../../../TODO/20260601-lgd-canonical-plan.md)
+- [LGD execution handover plan](../../../docs/archive/plans/20260601-lgd-execution-handover.md)
+- [LGD-canonical parent plan](../../../docs/archive/plans/20260601-lgd-canonical-plan.md)
 - [ADR-0049: lgd_ac_id as internal join key](../decisions/0049-lgd-ac-id-internal-key.md)
 

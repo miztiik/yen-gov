@@ -1,6 +1,6 @@
 """Build datasets/taxonomy/lgd_states.json from datasets/taxonomy/lgd/states-latest.csv.
 
-PR L1a per TODO/20260601-lgd-execution-handover.md row L1a.
+PR L1a per docs/archive/plans/20260601-lgd-execution-handover.md row L1a.
 
 Joins three inputs (all in-repo, deterministic):
   1. datasets/taxonomy/lgd/states-latest.csv         (LGD authority: 36 rows)
