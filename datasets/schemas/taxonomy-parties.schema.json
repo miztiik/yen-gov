@@ -3,7 +3,7 @@
   "$id": "./taxonomy-parties.schema.json",
   "title": "Parties taxonomy (canonical hand-authored roster)",
   "description": "Hand-authored canonical party roster at taxonomy/parties.json. Phase 1.1 of TODO/20260517-canonical-long-format-pivot.md. Replaces the pre-pivot parties-master.schema.json (which lived under datasets/elections/<event>/<state>/parties.json shards). Each party_id is yen-gov-issued (parties.IN.<SHORT_SLUG>) because ECI codes mutate and are not citizen-readable. ECI codes are kept as aliases (a list — ECI reassigns them over time). The compiled Parquet form is datasets/taxonomy/parties.parquet, joined into observations on (party_id <= entity_id_party_rollup). See canonical-store.md §3a.",
-  "x-version": "2.1",
+  "x-version": "2.2",
   "x-changelog": [
     {
       "version": "1.0",
@@ -19,6 +19,11 @@
       "version": "2.1",
       "date": "2026-05-19",
       "description": "Additive (PR-R.2 / no-UNK-regression): no schema shape change. Marker bump to reflect that the canonical roster at datasets/taxonomy/parties.json has been expanded from 32 -> 108 entries by folding in datasets/reference/in/parties.json (Wikipedia + ECI 76 entries) and hand-curating the top unresolved party_shorts surfaced by the party-taxonomy gap report (.runtime/_party_gap_report.json: top 60 covered ~83% of unresolved candidates). Same field set as 2.0; only the data grew. The legacy overlay at datasets/reference/in/parties.json + parties-discovered.json (plus the matching parties-master.schema.json + parties-discovered.schema.json) was subsequently retired in PR-R.3 (row 1.8e, 2026-05-19): backend/yen_gov/pipeline/compose.load_eci_party_registry() now reads this taxonomy file as the single source of truth, the auto-extending discovered overlay path was deleted, and the frontend's parties-registry fetch was removed. The companion structural fix is the additive party_short_raw column on dim_candidates (its own schema v1.0 -> v1.1) so the UI shows the upstream short_name even when party_lookup still falls through to parties.IN.UNK."
+    },
+    {
+      "version": "2.2",
+      "date": "2026-06-01",
+      "description": "Additive (PR-SYM-1 per TODO/20260527-party-symbol-assets-plan.md section 8). Adds two optional fields to each party item: `recognition` (nullable enum mirroring dim-parties.recognition; values: national / state / registered_unrecognised / unknown / null) and `election_symbol` (nullable object holding the party's default ECI ballot-symbol metadata: symbol_name, asset_path, asset_sha256, source_id FK to taxonomy/sources.parquet per ADR-0032, asset_source_kind, license_label, render_mode, symbol_status, notes). Existing 617 party rows remain valid with neither field present. dim-parties.schema.json is NOT bumped in this PR: the `recognition` column was already declared as a nullable enum in dim-parties v1.0 and the compiler writer.py already carries the column; PR-SYM-1 only fills the population gap on the taxonomy side. The `election_symbol` mirror onto dim-parties is deferred to PR-SYM-5 per the Gregor sequencing pass (writer-before-reader / reader-before-writer per ADR-0047 lands as one PR when the renderer needs it)."
     }
   ],
   "type": "object",
@@ -120,6 +125,61 @@
           "notes": {
             "type": ["string", "null"],
             "description": "Editorial note (e.g. 'Recognised state party in TN since 1973'). Citizen-facing on the party detail page."
+          },
+          "recognition": {
+            "type": ["string", "null"],
+            "enum": [null, "national", "state", "registered_unrecognised", "unknown"],
+            "description": "v2.2 (PR-SYM-1). ECI recognition status. Mirrors into dim-parties.recognition at compile time. Nullable when not yet classified."
+          },
+          "election_symbol": {
+            "type": ["object", "null"],
+            "additionalProperties": false,
+            "required": ["symbol_name", "asset_path", "render_mode", "symbol_status"],
+            "properties": {
+              "symbol_name": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Citizen-readable ECI symbol name (e.g. 'Lotus', 'Hand', 'Elephant', 'Two Leaves', 'Bicycle')."
+              },
+              "asset_path": {
+                "type": "string",
+                "pattern": "^party-symbols/[a-z0-9]+(-[a-z0-9]+)*\\.svg$",
+                "description": "POSIX-relative path under frontend/public/. Kebab-case slug + .svg. Renderer derives the static URL mechanically (Vite base + asset_path); no party-id-to-path map in Svelte/TS (Holy Law #6)."
+              },
+              "asset_sha256": {
+                "type": ["string", "null"],
+                "pattern": "^[a-f0-9]{64}$",
+                "description": "SHA-256 hex of the committed SVG bytes. Null only when symbol_status = 'placeholder' or 'missing'. Tier-A validator enforces match against the on-disk file."
+              },
+              "source_id": {
+                "type": ["string", "null"],
+                "description": "FK -> taxonomy/sources.parquet per CLAUDE.md Holy Law #9 and ADR-0032. Null only when symbol_status = 'placeholder' or 'missing'. For verified symbols, the producer (ECI bulletin, State CEO order, Commons file page, party official site) gets one row in sources.parquet and this field FKs into it."
+              },
+              "asset_source_kind": {
+                "type": ["string", "null"],
+                "enum": [null, "eci", "state_ceo", "commons", "party_official", "generated_from_eci", "editorial_placeholder"],
+                "description": "Denormalised hint about the source kind. The canonical citation is source_id; this field exists for fast UI/QA filtering without joining sources.parquet."
+              },
+              "license_label": {
+                "type": ["string", "null"],
+                "description": "License hint (e.g. 'CC-BY-SA-3.0', 'CC-BY-4.0', 'public-domain', 'eci-common-symbol', 'project-placeholder'). Denormalised; canonical license is on sources.parquet."
+              },
+              "render_mode": {
+                "type": "string",
+                "enum": ["monochrome", "source_coloured"],
+                "description": "How the SVG was authored. 'monochrome' for ECI ballot glyphs and the placeholder; 'source_coloured' only when the source asset is already coloured (e.g. a Commons SVG with embedded fill). The renderer never recolours monochrome symbols with party colours."
+              },
+              "symbol_status": {
+                "type": "string",
+                "enum": ["verified", "placeholder", "missing", "deferred_historical"],
+                "description": "verified = source-backed sanitised SVG shipped; placeholder = recognised party whose SVG was not collected in this batch (renders party-symbols/placeholder.svg); missing = known-no-asset-yet (renders nothing); deferred_historical = historical / alias-heavy row, defer until lineage review (renders nothing)."
+              },
+              "notes": {
+                "type": ["string", "null"],
+                "description": "Operator note (e.g. 'Symbol disputed in faction split, ECI order pending')."
+              }
+            },
+            "description": "v2.2 (PR-SYM-1). Default ECI ballot-identification symbol for the party. v1 models a single default symbol; future validity-window or per-event assignment history goes to `election_symbol_history` (additive) per the Gregor sequencing pass."
           }
         }
       }

@@ -1,6 +1,6 @@
 {
   "$schema": "../schemas/taxonomy-parties.schema.json",
-  "$schema_version": "2.1",
+  "$schema_version": "2.2",
   "sources": [
     {
       "url": "https://www.eci.gov.in/affidavit-information-of-candidate/",
