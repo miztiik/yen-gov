@@ -45,7 +45,7 @@ Independence is encoded in the **Touches** column. Rows with disjoint Touches se
 | **AC1a** | Per-state AC geometry from **Survey of India** OR **Bhuvan** (whichever publishes AC layer). FALLBACK Tier-2 with explicit `notes/<state>-source-verdict.md` if no GoI artefact. Each state = one PR. **Sikkim FIRST** as canary (4 -> 6 district reorg + 32 AC verify) | **Max** (source-hunt) + Default (ingest) | per-state slice of `datasets/boundaries/in/ac/state=<slug>/all.geojson` | L1a + L1c | M | **YES, per-state parallel** (no file overlap across state slices) |
 | **AC1b** | Stamp `lgd_ac_id` on every AC feature via name-key join from L1c. Add Tier-B test `tier_b_ac_lgd_id_present` | Default | `tools/boundaries/stamp_lgd_ac_id.py`, Tier-B predicate | L1c + AC1a (any) | M | YES (per-state after its AC1a) |
 | **D1'** | Delete `apply_ac_no_rewrite_by_name` + wiring + tests; S01/AP frontend rework off `ac_no == eci_no` assumption; parity-oracle regen | **Fowler** | `tools/boundaries/snapshot.py`, `config/elections.json`, `frontend/src/lib/elections/**`, S01 boundary file | AC1b for S01 | M | NO (last) |
-| **CLOSE** | Distill + archive parent plan-doc per [`docs/how-to/distill-a-plan.md`](../docs/how-to/distill-a-plan.md). Update [`docs/concepts/lgd-authority.md`](../docs/concepts/lgd-authority.md) with retrospective | Default | docs/archive/, plan-doc | all above | L | NO |
+| **CLOSE** | Distill + archive parent plan-doc per [`docs/how-to/distill-a-plan.md`](../docs/how-to/distill-a-plan.md). Update [`docs/concepts/lgd-authority.md`](../docs/concepts/lgd-authority.md) with retrospective. Re-run coverage matrix script and bake final matrix into [`docs/architecture/data/boundary-coverage-matrix.md`](../docs/architecture/data/boundary-coverage-matrix.md). | Default | docs/archive/, plan-doc, coverage matrix | all above | L | NO |
 
 ## Parallel execution waves
 
@@ -111,6 +111,7 @@ Wave 8:               CLOSE
 
 ## See also
 
+- **Coverage inventory:** [`docs/architecture/data/boundary-coverage-matrix.md`](../docs/architecture/data/boundary-coverage-matrix.md) - per-state x per-layer matrix; refreshed whenever a layer/state ships.
 - Parent plan: [`TODO/20260601-lgd-canonical-plan.md`](20260601-lgd-canonical-plan.md)
 - Superseded coverage plan: [`TODO/20260601-ac-coverage-to-100-plan.md`](20260601-ac-coverage-to-100-plan.md) (PR #541)
 - [ADR-0049](../docs/architecture/decisions/0049-lgd-ac-id-internal-key.md) (lgd_ac_id internal key)
