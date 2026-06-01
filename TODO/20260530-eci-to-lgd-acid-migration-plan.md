@@ -57,7 +57,7 @@ User granted explicit big-bang authorization (verbatim intent): "YOU HAVE PERMIS
 | B3 | Flip boundary default `join_property` to `lgd_ac_id` for covered states | [x] DONE | #537 | M |
 | URL | AC URL slug gains name suffix `/s/<state>/ac/<eci_no>-<name-slug>` | [x] DONE | #538 | M |
 | C1 | Fill crosswalk for U08 (J&K) + any uncovered AC (repeatable per N states) | [x] DONE - SoT-fill machinery shipped (constituency.schema.json 4.2 + harvester SoT-precedence); ZERO fabricated fills, 253 still `unmapped` pending verified external LGD codes | #539 | L |
-| D1 | Rip out legacy name-based `ac_no<->eci_no` translation seams | [ ] PENDING | _pending_ | M |
+| D1 | Rip out legacy name-based `ac_no<->eci_no` translation seams | [ ] DEFERRED - precondition unmet (not 100% `lgd_direct`; 253 `unmapped`) + deletion changes S01/AP rendering so it cannot pass its own "parity proves nothing changed" gate. Migration goals already met without it. | n/a | M |
 
 ---
 
@@ -173,6 +173,23 @@ Remaining `unmapped` (253), each now one verified-SoT-edit away: S03/Assam 126 (
 
 - Surfaces: reduce/retire `apply_ac_no_rewrite_by_name`; delete scattered `ac_no<->eci_no` name joins.
 - Gate: green parity oracle proving deletion changed nothing. Ships only after coverage is effectively 100% `lgd_direct`.
+
+**DEFERRED (2026-06-01) - both gating conditions unmet; migration goals already achieved without it.**
+
+Investigation finding: `apply_ac_no_rewrite_by_name` (tools/boundaries/snapshot.py L694, wired at L1084 via the `ac_no_rewrite` directive) is used by exactly ONE state - S01/Andhra Pradesh, whose upstream LGD bundle numbers ACs 1-294 (pre-bifurcation AP+TG) against an AP-only SoT (eci_no 1-175). The rewrite projects LGD `ac_no` -> SoT `eci_no` by `(name, reservation)` and preserves `lgd_legacy_ac_no` + `lgd_ac_id` for provenance.
+
+Why it cannot ship now:
+
+1. **Precondition explicitly unmet.** The plan gates D1 behind "coverage is effectively 100% `lgd_direct`". After C1 we are at 3860/4113 (93.8%) with 253 genuinely-`unmapped` ACs (no in-repo LGD source; see C1). Not 100%.
+2. **Deletion is NOT a no-op, so it fails its own parity gate.** The canonical join survives (B1's lift stamps `lgd_ac_id` from `AC_ID` independent of the rewrite; B3 made `lgd_ac_id` the join key). BUT removing the rewrite reverts S01's boundary `ac_no` to LGD numbering (145..), which breaks (a) the flash-free fill LABEL arm `join_property_label: "ac_no"` (which assumes `ac_no == eci_no` so eci-keyed fills match pre-crosswalk-load), and (b) the `sel.properties.ac_no` navigation fallback in `StateAcMap`. So S01/AP map rendering CHANGES - the gate "parity oracle proving deletion changed nothing" cannot pass.
+3. **The seam is currently harmless.** It is vestigial-but-correct provenance; keeping it costs nothing. The migration's substantive goals (canonical `lgd_ac_id` join, crosswalk Canonical Data Model, eci_no+name URL, repeatable SoT-fill machinery) are all SHIPPED (A1-C1 + URL).
+4. **Citizen-facing risk + no human to verify.** Doing D1 right means regenerating AP's boundary data + reworking the frontend flash/fallback handling, with a visible render change for Andhra Pradesh that needs human visual verification. Per operational safety, this is surfaced rather than executed unattended.
+
+When D1 becomes shippable: once S03/Assam + the other uncovered states reach `lgd_direct` (verified SoT LGD fills via the C1 machinery), AND the S01 frontend label/fallback is reworked to recover `eci_no` purely from the crosswalk reverse-map (no dependence on `ac_no == eci_no`). At that point the rewrite directive + `apply_ac_no_rewrite_by_name` + `test_boundary_snapshot_ac_no_rewrite.py` can be deleted and S01 regenerated, with a true byte-parity oracle on the canonical-join rendering.
+
+## Migration arc status (2026-06-01)
+
+The `eci_no -> lgd_ac_id` migration is **substantively COMPLETE**. Shipped + merged: A1 #530, A2 #533, A3 #534, B1 #535, B2 #536, B3 #537, URL #538, C1 #539. `lgd_ac_id` is the canonical internal AC join key end-to-end (crosswalk -> dim_acs -> boundary snapshot -> frontend join), `eci_no` is the citizen-facing display + URL label (`/s/<state>/ac/<eci_no>-<name-slug>`), `entity_id` PK + ADR-0044 are untouched. Only D1 (optional cleanup of a harmless vestigial seam) remains, DEFERRED above pending 100% coverage + the S01 frontend rework.
 
 ### Per-row execution rules
 
