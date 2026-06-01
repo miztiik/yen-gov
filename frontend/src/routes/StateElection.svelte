@@ -29,10 +29,12 @@
   //   * unknown event id within the state  → "Election not found" panel
   // Never blank-page; never crash.
 
-  import { fetchElectionEvents, findEvent, type ElectionEventsCatalogue } from "../lib/election-events";
+  import { fetchElectionEvents, findEvent, listEventsForState, type ElectionEventsCatalogue } from "../lib/election-events";
   import { states } from "../lib/states.svelte";
-  import { url } from "../lib/url";
+  import { navigate, url } from "../lib/url";
   import ElectionMap from "../lib/elections/ElectionMap.svelte";
+  import ElectionTimeSlider from "../lib/elections/ElectionTimeSlider.svelte";
+  import { buildSliderStops } from "../lib/elections/election-time-slider";
   import { loadStateAcWinners, type AcWinner } from "../lib/view-models/state-overview";
 
   interface Props {
@@ -49,6 +51,22 @@
   const state_code = $derived(states.codeFromSlug(params.state));
   const state_name = $derived(state_code ? states.name(state_code) : "");
   const event_row = $derived(findEvent(catalogue, state_code, params.event));
+
+  // PR-B6 — snapping time-slider stops. Same-grain only: the AC map scrubs
+  // across this state's ASSEMBLY elections (Lok Sabha slices drill into the
+  // national atlas, not this per-state surface). Chronologically ascending.
+  const slider_stops = $derived(
+    buildSliderStops(
+      listEventsForState(catalogue, state_code).filter(e => e.kind === "assembly"),
+    ),
+  );
+
+  // Scrubbing the slider just changes the route's :event segment; the
+  // reactive chain below (event_row -> $effect -> ac_winners) reloads the
+  // winners and recolours the map. URL is the single source of truth.
+  function selectEvent(eventId: string) {
+    if (state_code) navigate(url.stateElection(state_code, eventId));
+  }
 
   const states_loading = $derived(!states.isLoaded);
   const catalogue_loading = $derived(catalogue === null && load_error === null);
@@ -174,6 +192,11 @@
           Switch between the geographic map and the equal-seats cartogram.
           Tap a constituency to open its detailed result.
         </p>
+        <ElectionTimeSlider
+          stops={slider_stops}
+          selectedEventId={ev.event_id}
+          onSelect={selectEvent}
+        />
         <ElectionMap state={state_code} rows={ac_winners} event={ev.event_id} />
       </section>
     {/if}

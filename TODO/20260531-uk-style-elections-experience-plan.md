@@ -86,7 +86,7 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 | PR-B3 | B | `ElectionMap` wrapper (Map\|Equal seats toggle) on StateElection (AC) | PR-B2 | [x] DONE (Map\|Equal-seats toggle, ?view=hex persist, hex drill-to-AC; svelte-check 0e, tile vitest 17, elections-atlas e2e 2/2 green on S13 AcGenOct2019) | Jony |
 | PR-B4 | B | National atlas route `/t/elections/:event` + INDIA_PC + loadNationalPcWinners | PR-B2; live data needs PR-A4 | [x] DONE | Gregor |
 | PR-B5 | B | Cross-year E1: swing arrows on seat-composition bars | PR-B3 | [x] DONE | Jony |
-| PR-B6 | B | Cross-year E2: snapping time-slider on map/cartogram | PR-B3 | [ ] PENDING | Jony |
+| PR-B6 | B | Cross-year E2: snapping time-slider on map/cartogram | PR-B3 | [x] DONE | Jony |
 | PR-B7 | B | Cross-year E3: opt-in 2-election sankey (capped) | PR-B3 | [ ] PENDING | Jony |
 | PR-B8 | B | Filter rail F1/F2/F3 (party / margin band / colour-by) - state level | PR-B3 | [ ] PENDING | Gregor + Max |
 | PR-B9 | B | Wire filters at national level | PR-B8; PR-B4; PR-A4 | [ ] PENDING | Gregor |
@@ -355,6 +355,8 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 **Escalation:** **Jony** ("snapping behaviour + no-autoplay confirmation").
 
 **Acceptance gates:** G3; G4 filtered; G5 browser smoke - drag slider, confirm recolour + URL event change, no interpolation.
+
+**Implementation notes (DONE):** Hosted the slider in `StateElection.svelte` (the `/s/:state/elections/:event` route) rather than editing `ElectionMap.svelte` internals - the route already owns the event->winners reactive chain (`event_row` -> `$effect` -> `ac_winners` -> `<ElectionMap rows={ac_winners}>`), so the slider just re-points the `:event` segment via `navigate(url.stateElection(...))` and the URL stays the single source of truth (snapping = discrete real events only, no interpolation/autoplay). Logic split into pure helpers in NEW `frontend/src/lib/elections/election-time-slider.ts` (`buildSliderStops` dedups by event_id + sorts ascending by `polled_on` + derives a 4-digit year label; `stopIndexForEvent` clamps unknown/null selections to the most-recent stop so a stale permalink still resolves). NEW `frontend/src/lib/elections/ElectionTimeSlider.svelte` is a thin native `<input type=range>` shell (renders only when >=2 stops) with a `<datalist>` tick track + per-stop tick labels + active-year readout. Slider stops = `listEventsForState(catalogue, state_code)` filtered to `kind === "assembly"`. Gates: G3 svelte-check 0e/7w; G4 election-time-slider 9/9; G5 elections-atlas slider smoke 1/1 (Maharashtra 14 stops, scrub idx 12->13 re-points :event to AcGenNov2024).
 
 ### PR-B7 - Cross-year E3: opt-in 2-election sankey (capped)
 

@@ -103,3 +103,31 @@ test("@elections national PC atlas renders results + toggles to the equal-seats 
 
   expect(errors).toEqual([]);
 });
+
+// Election time-slider (PR-B6). Maharashtra (S13) has 14 assembly events on
+// record, so the snapping slider renders and scrubbing it to a different
+// stop re-points the route's :event segment (URL = single source of truth).
+test("@elections election time-slider snaps the map to another election year", async ({
+  page,
+}) => {
+  await page.goto(ROUTE);
+
+  const slider = page.locator('[data-testid="election-time-slider"]');
+  await expect(slider).toBeVisible();
+
+  const input = page.locator('[data-testid="election-time-slider-input"]');
+  // AcGenOct2019 is stop index 12 of 14 (0-based); the most-recent stop
+  // (index 13) is AcGenNov2024.
+  await expect(input).toHaveValue("12");
+
+  // Scrub to the most-recent election — the slider SNAPS to a real event and
+  // the route's :event segment changes; no interpolation between years.
+  await input.fill("13");
+  await expect(page).toHaveURL(/\/s\/maharashtra\/elections\/AcGenNov2024/);
+
+  // The slider re-derives its index from the new URL event.
+  await expect(input).toHaveValue("13");
+  await expect(
+    page.locator('[data-testid="election-time-slider-active"]'),
+  ).toContainText("2024");
+});
