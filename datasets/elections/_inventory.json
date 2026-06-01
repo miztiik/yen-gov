@@ -3317,6 +3317,222 @@
         "mean_delta_pp": 0,
         "halted": false
       }
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S01",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S02",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S03",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S04",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S05",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S06",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S07",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S08",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S10",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S11",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S12",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S13",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S14",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S15",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S16",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S17",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S18",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S19",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S20",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S21",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S22",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S23",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S24",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S25",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S26",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S27",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S28",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "S29",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "U01",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "U02",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "U03",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "U04",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "U05",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "U07",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "U08",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "U09",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
     }
   ]
 }

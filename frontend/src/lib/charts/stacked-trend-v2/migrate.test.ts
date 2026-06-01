@@ -120,9 +120,22 @@ describe("stackedTrendModelToV2 — verbatim pass-through", () => {
     expect(out.categories).toEqual(V1_MODEL.categories);
   });
 
-  it("copies bars verbatim (preserves segments, period_id, period_label)", () => {
+  it("copies bars (period_id, period_label, order) and segment core fields", () => {
     const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
-    expect(out.bars).toEqual(V1_MODEL.bars);
+    // PR-B5: bars are no longer reference-verbatim because each segment now
+    // carries a computed `delta`. Compare the stable scaffold + core fields.
+    expect(out.bars).toHaveLength(V1_MODEL.bars.length);
+    out.bars.forEach((bar, i) => {
+      const src = V1_MODEL.bars[i];
+      expect(bar.period_id).toBe(src.period_id);
+      expect(bar.period_label).toBe(src.period_label);
+      expect(bar.order).toBe(src.order);
+      bar.segments.forEach((seg, j) => {
+        expect(seg.category_id).toBe(src.segments[j].category_id);
+        expect(seg.value).toBe(src.segments[j].value);
+        expect(seg.availability).toBe(src.segments[j].availability);
+      });
+    });
   });
 
   it("copies headline verbatim", () => {
@@ -170,6 +183,88 @@ describe("stackedTrendModelToV2 — sources replacement (R-24)", () => {
     const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
     expect(out.sources[0].source_id).toBe("src-eci123456789");
     expect(out.sources[1].source_id).toBe("src-eci987654321");
+  });
+});
+
+describe("stackedTrendModelToV2 — swing deltas (PR-B5)", () => {
+  it("first bar segments always carry delta: null (no predecessor)", () => {
+    const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
+    for (const seg of out.bars[0].segments) {
+      expect(seg.delta).toBeNull();
+    }
+  });
+
+  it("computes delta = current.value − previous-bar same-category value", () => {
+    const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
+    const second = out.bars[1];
+    const dmk = second.segments.find((s) => s.category_id === "dmk");
+    const aiadmk = second.segments.find((s) => s.category_id === "aiadmk");
+    expect(dmk?.delta).toBe(8); // 133 − 125
+    expect(aiadmk?.delta).toBe(-9); // 66 − 75
+  });
+
+  it("yields null delta when the current value is missing", () => {
+    const withGap: StackedTrendModel = {
+      ...V1_MODEL,
+      bars: [
+        V1_MODEL.bars[0],
+        {
+          ...V1_MODEL.bars[1],
+          segments: [
+            { category_id: "dmk", value: null, availability: "missing" },
+            { category_id: "aiadmk", value: 66, availability: "present" },
+          ],
+        },
+      ],
+    } as StackedTrendModel;
+    const out = stackedTrendModelToV2(withGap, V2_SOURCES);
+    const dmk = out.bars[1].segments.find((s) => s.category_id === "dmk");
+    expect(dmk?.delta).toBeNull();
+  });
+
+  it("carries the baseline across a missing year (does not reset to null)", () => {
+    // dmk: 125 (bar0) → missing (bar1) → 140 (bar2). Bar2's delta must be
+    // 140 − 125 = 15, computed against the last PRESENT value, not bar1.
+    const threeBar: StackedTrendModel = {
+      ...V1_MODEL,
+      bars: [
+        V1_MODEL.bars[0],
+        {
+          period_id: "AcGenMay2026",
+          period_label: "May 2026",
+          order: 2,
+          segments: [
+            { category_id: "dmk", value: null, availability: "missing" },
+            { category_id: "aiadmk", value: 66, availability: "present" },
+          ],
+        },
+        {
+          period_id: "AcGenMay2031",
+          period_label: "May 2031",
+          order: 3,
+          segments: [
+            { category_id: "dmk", value: 140, availability: "present" },
+            { category_id: "aiadmk", value: 60, availability: "present" },
+          ],
+        },
+      ],
+    } as StackedTrendModel;
+    const out = stackedTrendModelToV2(threeBar, V2_SOURCES);
+    const dmk = out.bars[2].segments.find((s) => s.category_id === "dmk");
+    expect(dmk?.delta).toBe(15);
+  });
+
+  it("does not mutate the input model bars/segments", () => {
+    const before = JSON.stringify(V1_MODEL.bars);
+    stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
+    expect(JSON.stringify(V1_MODEL.bars)).toBe(before);
+  });
+
+  it("preserves the caller's original bar ordering in the output", () => {
+    const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
+    expect(out.bars.map((b) => b.period_id)).toEqual(
+      V1_MODEL.bars.map((b) => b.period_id),
+    );
   });
 });
 

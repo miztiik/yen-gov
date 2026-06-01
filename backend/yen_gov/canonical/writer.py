@@ -195,10 +195,23 @@ def _partition_cols(family: str) -> list[str]:
 # without a state segment (``IN``) collapse to ``in``; cross-state rollups
 # without ``IN-`` prefix (none today, but defensive) collapse to the
 # entity_id verbatim lower-cased. Locked grammar from TODO §0e.10 lock A.
+#
+# PC (Lok Sabha) entity_ids carry the state in segment FOUR, not two
+# (``IN-PC-<delim>-<state>-<pc_no>`` e.g. ``IN-PC-2008-S22-39``): the naive
+# first-two-segments rule would derive ``in_pc`` and dump every PC row into
+# one bogus partition. The leading ``IN-PC-<delim>-<state>`` branch routes
+# each PC row to ``in_<state>`` so PC facts share the same ``state=`` shard
+# family as the AC facts for that state (Gregor write-seam must-fix). The
+# condition matches the ``IN-PC-<delim>-<state>-`` PREFIX so it captures both
+# the PC seat id (``...-<pc_no>``) AND the longer PC candidate id
+# (``...-<pc_no>-<event>-C<nn>``) - both must land in the same state shard.
 _STATE_PARTITION_SQL = (
     "replace("
     "lower("
-    "CASE WHEN entity_id LIKE '%-%' "
+    "CASE "
+    "WHEN regexp_matches(entity_id, '^IN-PC-[0-9]+-[SU][0-9]{2}-[0-9]+') "
+    "THEN 'IN-' || regexp_extract(entity_id, '^IN-PC-[0-9]+-([SU][0-9]{2})', 1) "
+    "WHEN entity_id LIKE '%-%' "
     "THEN regexp_extract(entity_id, '^([A-Z]+-[A-Z0-9]+)', 1) "
     "ELSE entity_id "
     "END"
@@ -404,10 +417,10 @@ def _load_taxonomy_ids(path: Path, top_key: str, id_field: str) -> set[str]:
 
 
 # Derived entity_id patterns per canonical-store.md §3a.
-# AC, candidate, state-rollup, and party-rollup entities are auto-compiled
-# from source data (acs.parquet / candidates.parquet) rather than enumerated
-# in the hand-authored taxonomy/entities.json. The FK gate recognises them
-# by pattern until those sibling tables exist as FK targets.
+# AC, PC, candidate, state-rollup, and party-rollup entities are auto-compiled
+# from source data (acs.parquet / dim_pcs.parquet / candidates.parquet) rather
+# than enumerated in the hand-authored taxonomy/entities.json. The FK gate
+# recognises them by pattern until those sibling tables exist as FK targets.
 _DERIVED_ENTITY_PATTERNS = (
     re.compile(r"^IN-[SU]\d{2}-AC-\d{4}-\d+$"),
     re.compile(r"^IN-[SU]\d{2}-AC-\d{4}-\d+-(?:AcGen|LsGen|AcBye|LsBye)"
@@ -416,6 +429,12 @@ _DERIVED_ENTITY_PATTERNS = (
                r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}$"),
     re.compile(r"^IN-[SU]\d{2}-(?:AcGen|LsGen|AcBye|LsBye)"
                r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}-PARTY-[A-Z][A-Z0-9_]*$"),
+    # PC (Lok Sabha constituency) seat + per-candidate ids, compiled from
+    # dim_pcs.parquet. Seat: IN-PC-<delim>-<state>-<pc_no>; candidate appends
+    # the event period + ballot serial (IN-PC-2008-S01-1-LsGenJun2024-C01).
+    re.compile(r"^IN-PC-\d{4}-[SU]\d{2}-\d+$"),
+    re.compile(r"^IN-PC-\d{4}-[SU]\d{2}-\d+-(?:AcGen|LsGen|AcBye|LsBye)"
+               r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}-C\d{2,3}$"),
 )
 
 
@@ -866,6 +885,20 @@ _DIM_SPECS: dict[str, dict] = {
             ("source_id", "VARCHAR NOT NULL"),
         ],
     },
+    "pc": {
+        "stem": "dim_pcs",
+        "pk": "pc_id",
+        "schema_file": "dim-pcs.schema.json",
+        "sort_cols": ["pc_id"],
+        "columns": [
+            ("pc_id", "VARCHAR NOT NULL"),
+            ("state_code", "VARCHAR NOT NULL"),
+            ("delim_year", "INTEGER NOT NULL"),
+            ("pc_no", "INTEGER NOT NULL"),
+            ("name", "VARCHAR"),
+            ("source_id", "VARCHAR NOT NULL"),
+        ],
+    },
     "party": {
         "stem": "dim_parties",
         "pk": "party_id",
@@ -940,6 +973,7 @@ def _write_dimensions(
     dim_payloads = {
         "person": [r.model_dump() for r in envelope.person_dim_rows],
         "ac": [r.model_dump() for r in envelope.ac_dim_rows],
+        "pc": [r.model_dump() for r in envelope.pc_dim_rows],
         "party": [r.model_dump() for r in envelope.party_dim_rows],
         "party_alliance": [r.model_dump() for r in envelope.party_alliance_dim_rows],
     }
@@ -1458,6 +1492,7 @@ def _dim_schema_file(stem: str) -> str | None:
     mapping = {
         "dim_persons": "dim-persons.schema.json",
         "dim_acs": "dim-acs.schema.json",
+        "dim_pcs": "dim-pcs.schema.json",
         "dim_parties": "dim-parties.schema.json",
         "dim_party_alliances": "dim-party-alliances.schema.json",
     }

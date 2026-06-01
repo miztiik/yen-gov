@@ -10020,6 +10020,66 @@
       "successor_party_id": null,
       "predecessor_party_id": null,
       "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.BHARAT_ADIVASI_PARTY",
+      "short_name": "BAP",
+      "full_name": "Bharat Adivasi Party",
+      "aliases": [
+        "BHRTADVSIP"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S01",
+        "S06",
+        "S12",
+        "S13",
+        "S20",
+        "S26",
+        "S27",
+        "U03"
+      ],
+      "founded_year": 2023,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Registered (unrecognised) party; won Banswara (Rajasthan) in the 2024 Lok Sabha general election. Seeded for ECI 2024 Lok Sabha Report-33 PC ingest."
+    },
+    {
+      "party_id": "parties.IN.HAM_SECULAR",
+      "short_name": "HAM(S)",
+      "full_name": "Hindustani Awam Morcha (Secular)",
+      "aliases": [
+        "HAMS",
+        "HAM(S)",
+        "HAM"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S04"
+      ],
+      "founded_year": 2015,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Bihar state party; won Gaya in the 2024 Lok Sabha general election. Seeded for ECI 2024 Lok Sabha Report-33 PC ingest."
+    },
+    {
+      "party_id": "parties.IN.VOICE_OF_THE_PEOPLE_PARTY",
+      "short_name": "VPP",
+      "full_name": "Voice of the People Party",
+      "aliases": [
+        "VOTPP"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S15"
+      ],
+      "founded_year": 2021,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Meghalaya state party; won Shillong in the 2024 Lok Sabha general election. Seeded for ECI 2024 Lok Sabha Report-33 PC ingest."
     }
   ]
 }

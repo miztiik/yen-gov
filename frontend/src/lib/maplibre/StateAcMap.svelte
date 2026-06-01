@@ -32,8 +32,24 @@
      * overview; the per-AC page can pass a shorter value. */
     height?: string;
     event?: string | null;
+    /**
+     * PR-B8 colour-by override. When set, these replace the default
+     * winner-party fills / margin-based opacities (keyed by `ac_eci_no`),
+     * letting the filter rail recolour + dim the SAME choropleth without a
+     * bespoke widget. `highlight_eci_no` still wins for the per-AC drill-down.
+     */
+    fillsOverride?: Record<number, string>;
+    opacitiesOverride?: Record<number, number>;
   }
-  let { state: state_code, rows: input_rows, highlight_eci_no, height = "520px", event = null }: Props = $props();
+  let {
+    state: state_code,
+    rows: input_rows,
+    highlight_eci_no,
+    height = "520px",
+    event = null,
+    fillsOverride,
+    opacitiesOverride,
+  }: Props = $props();
 
   interface Row {
     eci_no: number;
@@ -62,6 +78,7 @@
   const entry = $derived(STATE_AC[state_code]);
 
   const fills = $derived.by(() => {
+    if (fillsOverride) return fillsOverride;
     const out: Record<number, string> = {};
     void colors.overrides;
     const list = rows ?? [];
@@ -84,10 +101,15 @@
   // multiplied by ~0.18 so the focused seat reads first; the highlighted
   // seat is forced to full opacity so it never washes out.
   const opacities = $derived.by(() => {
+    // The override path still honours `highlight_eci_no` so the per-AC
+    // drill-down keeps its focus-dimming even when the filter rail supplies
+    // base opacities.
+    if (opacitiesOverride && highlight_eci_no === undefined) return opacitiesOverride;
     const out: Record<number, number> = {};
     for (const r of rows ?? []) {
-      const m = Math.max(0, Math.min(30, r.margin_pct ?? 0));
-      const base = 0.35 + (m / 30) * 0.6;
+      const base =
+        opacitiesOverride?.[r.eci_no] ??
+        0.35 + (Math.max(0, Math.min(30, r.margin_pct ?? 0)) / 30) * 0.6;
       if (highlight_eci_no === undefined) {
         out[r.eci_no] = base;
       } else if (r.eci_no === highlight_eci_no) {

@@ -1,0 +1,14 @@
+{
+  "proposed_id": "pc-votes-polled",
+  "family": "elections",
+  "concept": "Votes polled (PC)",
+  "unit": "votes",
+  "normalisation": "absolute",
+  "entity_kind": "pc",
+  "concept_id": "votes-polled-pc",
+  "source_producer": "Election Commission of India",
+  "source_title": "General Election to Lok Sabha 2024 - Constituency Wise Detailed Result (Report 33)",
+  "source_vintage": "LsGenJun2024",
+  "update_period_days": 1825,
+  "justification": "Lok Sabha PC-grain votes polled. Model C (Gregor 2026-06-01): mints its OWN pc-grain sibling concept votes-polled-pc with entity_kinds ['pc'], a genuinely new grain (MP/PC is a different office on a different boundary than MLA/AC) mirroring the winning-party-ac / winning-party-state per-grain precedent. NOT shared with ac-votes-polled (Option B rejected -- it breaks the cluster-8 disjoint-entity_kinds guardrail pins). Distinct noun so find_overlap returns mint_new."
+}

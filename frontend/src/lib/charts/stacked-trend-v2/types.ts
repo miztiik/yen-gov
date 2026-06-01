@@ -46,6 +46,15 @@ export const StackedTrendV2Segment = z.object({
     .enum(["present", "missing", "not_applicable"])
     .default("present"),
   availability_label: z.string().optional(),
+  /**
+   * PR-B5 swing signal: this category's change versus the SAME category in
+   * the chronologically-previous bar (current.value − previous.value), in the
+   * model's native unit (seats for `count`, share-fraction for `share`).
+   * `null` when either endpoint is missing or this is the first bar. Computed
+   * once in the migrate shim (`stackedTrendModelToV2`) so the renderer stays
+   * pure. Optional so v2 fixtures and other adapters need not supply it.
+   */
+  delta: z.number().nullable().optional(),
 });
 
 export const StackedTrendV2Bar = z.object({

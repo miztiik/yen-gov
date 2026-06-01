@@ -197,11 +197,17 @@ def _election_slices_from_canonical(
         WITH classified AS (
             SELECT
                 period_label AS event_id,
-                regexp_extract(entity_id, '^IN-([SU][0-9]{2})', 1) AS state_code,
+                CASE
+                    WHEN regexp_matches(entity_id, '^IN-PC-[0-9]+-[SU][0-9]{2}-[0-9]+$')
+                        THEN regexp_extract(entity_id, '^IN-PC-[0-9]+-([SU][0-9]{2})', 1)
+                    ELSE regexp_extract(entity_id, '^IN-([SU][0-9]{2})', 1)
+                END AS state_code,
                 entity_id,
                 CASE
                     WHEN regexp_matches(entity_id, '^IN-[SU][0-9]{2}-AC-[0-9]+-[0-9]+$')
                         THEN 'ac'
+                    WHEN regexp_matches(entity_id, '^IN-PC-[0-9]+-[SU][0-9]{2}-[0-9]+$')
+                        THEN 'pc'
                     WHEN regexp_matches(entity_id, '^IN-[SU][0-9]{2}-[A-Za-z]+[A-Za-z0-9]*-PARTY-')
                         THEN 'party'
                     WHEN regexp_matches(entity_id, '^IN-[SU][0-9]{2}-[A-Za-z]+[A-Za-z0-9]*$')

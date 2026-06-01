@@ -75,6 +75,32 @@ Candidate dim attributes (name, party_id, gender, age, education, profession, cr
 | `winning-party-seats` | ACs | max `party-seats-won` | |
 | `majority-threshold-acs` | ACs | `floor(total_acs / 2) + 1` | constant per state per delim cycle, but emitted so the citizen doesn't have to look it up |
 
+## Lok Sabha / PC scope (Phase 2)
+
+Lok Sabha (parliamentary-constituency, PC) results mirror the AC catalogue at PC grain. Per [ADR-0048](../decisions/0048-elections-drill-ia-and-tile-cartogram.md) and [ADR-0044](../decisions/0044-grain-over-entity.md), `pc-*` indicators are a sanctioned fact-grain prefix (the grain gate `^(state|district|national)-` never matches `pc-`). PC observation rows share the `elections` family and the existing `datasets/elections/state=<key>/election_results.parquet`, discriminated by `entity_id` prefix (`IN-PC-<delim_year>-<state_code>-<pc_no>`, globally unique because ECI `pc_no` is per-state) and `indicator_id` (`pc-*`). The national query is `WHERE indicator_id='pc-winner-party-id' AND entity_id LIKE 'IN-PC-%'`.
+
+Every `pc-*` measure that also exists at AC grain shares ONE `concept_id` (in `datasets/taxonomy/concepts.json`) whose `entity_kinds` lists both `ac` and `pc` (Option B concept-binding). The candidate-scope and party/state rollup indicators are grain-neutral and are reused as-is.
+
+### PC scope (materialised per-PC contest summaries)
+
+| indicator_id | unit | derivation | notes | shared concept_id |
+| --- | --- | --- | --- | --- |
+| `pc-total-electors` | persons | raw from ECI | enrolled voters | `total-electors` |
+| `pc-votes-polled` | votes | `sum(candidate-votes-polled)` | including NOTA | `votes-polled-constituency` |
+| `pc-turnout-pct` | % | `votes_polled / total_electors * 100` | 2 dp | `turnout-pct` |
+| `pc-nota-votes` | votes | raw from ECI | absolute count; null pre-2013 | `nota-votes` |
+| `pc-nota-pct` | % | `nota_votes / votes_polled * 100` | 2 dp; null pre-2013 | `nota-pct` |
+| `pc-winner-candidate-id` | entity_id | `argmax(candidate-votes-polled)` | `value_text` | `winner-candidate-id` |
+| `pc-winner-party-id` | entity_id | join(winner candidate, party_id) | `value_text` | `winner-party-id` |
+| `pc-margin-votes` | votes | `winner.votes - runner_up.votes` | absolute | `margin-votes` |
+| `pc-margin-pct` | % of votes_polled | `margin_votes / votes_polled * 100` | 2 dp | `margin-pct` |
+| `pc-effective-candidates-laakso` | count | Laakso-Taagepera N | `1 / sum(share^2)` | `effective-candidates-laakso` |
+| `pc-candidates-total` | candidates | `len(kept) + len(others)` | full field size | `candidates-total` |
+| `pc-others-votes` | votes | `sum(votes) of tail` | absent when no tail | `others-votes` |
+| `pc-others-pct` | % of votes_polled | `sum(share_pct) of tail` | 2 dp; absent when no tail | `others-pct` |
+
+Party-scope rollups for Lok Sabha reuse `party-seats-won` / `party-vote-share-pct` / `party-strike-rate-pct` (the entity_id event token `LsGen...` discriminates the contest), with `party-contested-pcs` as the PC denominator analogue of `party-contested-acs`. PC events carry `kind: "lok_sabha"` in `datasets/taxonomy/election_events.json`.
+
 ## Dimension tables (Phase 1.2b — denormalised strings, not observations)
 
 Per [canonical-store §11.5](canonical-store.md#115-dimension-tables-phase-12b): citizen-facing strings (person name, AC name, party labels) live in sibling Parquets, NOT in `observations.parquet`. `elections_candidacies.candidacy_key` is byte-equal to candidate-scope `observations.entity_id`, so the frontend reconstructs the citizen shape through `election_results → elections_candidacies → dim_persons`.

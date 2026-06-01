@@ -1,6 +1,6 @@
 {
   "$schema": "../schemas/concepts.schema.json",
-  "$schema_version": "1.0",
+  "$schema_version": "1.1",
   "concepts": [
     {
       "concept_id": "acs-arr-gap",
@@ -1778,6 +1778,149 @@
         "state"
       ],
       "description_short": "party_id with the most seats statewide (state-aggregate majority outcome; null on a hung house).",
+      "sources": []
+    },
+    {
+      "concept_id": "electors-pc",
+      "noun": "Electors (PC)",
+      "unit_canonical": "persons",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "pc"
+      ],
+      "description_short": "Total enrolled electors in a single Lok Sabha parliamentary constituency contest.",
+      "sources": []
+    },
+    {
+      "concept_id": "votes-polled-pc",
+      "noun": "Votes polled (PC)",
+      "unit_canonical": "votes",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "pc"
+      ],
+      "description_short": "Sum of all candidate votes plus NOTA in this Lok Sabha parliamentary constituency contest.",
+      "sources": []
+    },
+    {
+      "concept_id": "turnout-pc",
+      "noun": "Turnout (PC)",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "pc"
+      ],
+      "description_short": "Votes polled as a percentage of total enrolled electors in a Lok Sabha parliamentary constituency.",
+      "sources": []
+    },
+    {
+      "concept_id": "nota-votes-pc",
+      "noun": "NOTA votes (PC)",
+      "unit_canonical": "votes",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "pc"
+      ],
+      "description_short": "None-of-the-above votes cast in a Lok Sabha parliamentary constituency. Null before NOTA was introduced (2013).",
+      "sources": []
+    },
+    {
+      "concept_id": "nota-share-pc",
+      "noun": "NOTA share (PC)",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "pc"
+      ],
+      "description_short": "NOTA votes as a percentage of total votes polled in a Lok Sabha parliamentary constituency. Null before 2013.",
+      "sources": []
+    },
+    {
+      "concept_id": "winner-pc",
+      "noun": "Winner (PC)",
+      "unit_canonical": "entity_id",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "pc"
+      ],
+      "description_short": "entity_id of the candidate who received the most votes in a Lok Sabha parliamentary constituency. Stored in value_text.",
+      "sources": []
+    },
+    {
+      "concept_id": "winning-party-pc",
+      "noun": "Winning party (PC)",
+      "unit_canonical": "entity_id",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "pc"
+      ],
+      "description_short": "party_id of the winning candidate in a single Lok Sabha parliamentary constituency contest (seat-level outcome; parties.IN.IND for independents).",
+      "sources": []
+    },
+    {
+      "concept_id": "margin-absolute-pc",
+      "noun": "Margin (PC)",
+      "unit_canonical": "votes",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "pc"
+      ],
+      "description_short": "Vote margin between the winner and the runner-up in a Lok Sabha parliamentary constituency.",
+      "sources": []
+    },
+    {
+      "concept_id": "margin-pc",
+      "noun": "Margin % (PC)",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "pc"
+      ],
+      "description_short": "Winner-minus-runner-up margin as a percentage of total votes polled in a Lok Sabha parliamentary constituency.",
+      "sources": []
+    },
+    {
+      "concept_id": "others-votes-pc",
+      "noun": "Others votes (PC)",
+      "unit_canonical": "votes",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "pc"
+      ],
+      "description_short": "Votes for all candidates outside the top finishers, aggregated, in a Lok Sabha parliamentary constituency.",
+      "sources": []
+    },
+    {
+      "concept_id": "others-share-pc",
+      "noun": "Others share (PC)",
+      "unit_canonical": "%",
+      "normalisation": "share",
+      "entity_kinds": [
+        "pc"
+      ],
+      "description_short": "Aggregated 'others' votes as a percentage of total votes polled in a Lok Sabha parliamentary constituency.",
+      "sources": []
+    },
+    {
+      "concept_id": "candidates-total-pc",
+      "noun": "Candidates (PC)",
+      "unit_canonical": "candidates",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "pc"
+      ],
+      "description_short": "Total number of candidates contesting a Lok Sabha parliamentary constituency.",
+      "sources": []
+    },
+    {
+      "concept_id": "effective-candidates-pc",
+      "noun": "Effective candidates (PC)",
+      "unit_canonical": "index",
+      "normalisation": "index",
+      "entity_kinds": [
+        "pc"
+      ],
+      "description_short": "Laakso-Taagepera effective number of candidates (inverse Herfindahl of vote shares) in a Lok Sabha parliamentary constituency.",
       "sources": []
     },
     {

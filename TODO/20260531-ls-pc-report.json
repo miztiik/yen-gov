@@ -1,0 +1,63 @@
+{
+  "checks": [
+    {
+      "doc_link": "docs/concepts/pre-flight-ingest.md",
+      "evidence": "upsert into 'votes-polled-pc' (score=1.0)",
+      "name": "concept_overlap",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/concepts/owid-alignment.md",
+      "evidence": "concept_id='votes-polled-pc' resolves in registry",
+      "name": "concept_fk",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/architecture/decisions/0044-grain-over-entity.md",
+      "evidence": "proposed_id='pc-votes-polled' carries no grain prefix",
+      "name": "grain_prefix",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/concepts/pre-flight-ingest.md",
+      "evidence": "update_period_days=1825 (positive int)",
+      "name": "update_period_days",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/concepts/pre-flight-ingest.md",
+      "evidence": "justification length=469",
+      "name": "justification",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/architecture/decisions/0032-sources-citation-ledger.md",
+      "evidence": "source_id (or absence) matches derive_source_id output",
+      "name": "source_id_derivation",
+      "status": "pass"
+    }
+  ],
+  "generated_at": "preflight:sha256:79fb614334d2a229",
+  "input_echo": {
+    "concept": "Votes polled (PC)",
+    "concept_id": "votes-polled-pc",
+    "entity_kind": "pc",
+    "family": "elections",
+    "justification": "Lok Sabha PC-grain votes polled. Model C (Gregor 2026-06-01): mints its OWN pc-grain sibling concept votes-polled-pc with entity_kinds ['pc'], a genuinely new grain (MP/PC is a different office on a different boundary than MLA/AC) mirroring the winning-party-ac / winning-party-state per-grain precedent. NOT shared with ac-votes-polled (Option B rejected -- it breaks the cluster-8 disjoint-entity_kinds guardrail pins). Distinct noun so find_overlap returns mint_new.",
+    "normalisation": "absolute",
+    "proposed_id": "pc-votes-polled",
+    "source_producer": "Election Commission of India",
+    "source_title": "General Election to Lok Sabha 2024 - Constituency Wise Detailed Result (Report 33)",
+    "source_vintage": "LsGenJun2024",
+    "unit": "votes",
+    "update_period_days": 1825
+  },
+  "recommended_action": {
+    "kind": "upsert",
+    "rationale": "concept overlap 1.0 >= 0.85 with 'votes-polled-pc'; UPSERT (new vintage / publisher of same fact)",
+    "target_indicator_id": "votes-polled-pc",
+    "target_parquet_path": "datasets/elections/elections_<role>.parquet"
+  },
+  "schema_version": "1.0",
+  "verdict": "upsert"
+}

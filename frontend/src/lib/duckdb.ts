@@ -63,6 +63,7 @@ let manifestPromise: Promise<Manifest> | null = null;
 const ROW_SCHEMA_BY_TABLE_ID: Readonly<Record<string, string>> = Object.freeze({
   "elections.dim_acs": "dim-acs.schema.json",
   "elections.dim_parties": "dim-parties.schema.json",
+  "elections.dim_pcs": "dim-pcs.schema.json",
   "elections.dim_party_alliances": "dim-party-alliances.schema.json",
   "elections.dim_persons": "dim-persons.schema.json",
   "elections.elections_candidacies": "elections-candidacies.schema.json",

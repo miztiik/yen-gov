@@ -682,6 +682,77 @@ def ingest_eci_ae_panel(
     typer.echo(f"ingest-eci-ae-panel: report={result.report_path.as_posix()}")
 
 
+@app.command("ingest-eci-ls")
+def ingest_eci_ls(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+    input_csv: Path = typer.Option(
+        ...,
+        "--input",
+        "-i",
+        help="ECI Report-33 constituency-wise detailed-result CSV.",
+        exists=True,
+        dir_okay=False,
+    ),
+    crosswalk_csv: Path = typer.Option(
+        ...,
+        "--crosswalk",
+        "-c",
+        help="ECI Report-34 AC→PC crosswalk CSV (supplies pc_no).",
+        exists=True,
+        dir_okay=False,
+    ),
+    allow_unknown_parties: bool = typer.Option(
+        False,
+        "--allow-unknown-parties",
+        help="Map unresolved parties to parties.IN.UNK instead of failing fast.",
+    ),
+    force: bool = typer.Option(
+        False,
+        "--force",
+        help="Re-ingest even when datasets/elections/_inventory.json already records the event.",
+    ),
+) -> None:
+    """Ingest the ECI 2024 Lok Sabha constituency-wise result into canonical Parquet."""
+    from yen_gov.canonical.adapters.eci_ls import ingest_ls
+
+    result = ingest_ls(
+        repo_root=root,
+        csv_path=input_csv,
+        crosswalk_path=crosswalk_csv,
+        force=force,
+        allow_unknown_parties=allow_unknown_parties,
+    )
+    if result.skipped:
+        typer.echo(
+            "ingest-eci-ls: skipped; inventory already records "
+            f"event {result.event_id}. Pass --force to re-ingest."
+        )
+        return
+    assert result.write_result is not None
+    typer.echo(
+        "ingest-eci-ls: wrote "
+        f"{result.write_result.observation_rows_written} observation rows "
+        "(total across rewritten state shards, including pre-existing AC rows), "
+        f"{result.write_result.dim_rows_written.get('dim_pcs', 0)} dim_pcs rows "
+        f"across {result.pc_count} PCs"
+    )
+    if result.unresolved_parties:
+        typer.echo(
+            f"ingest-eci-ls: {len(result.unresolved_parties)} unresolved party strings "
+            "mapped to parties.IN.UNK"
+        )
+    typer.echo(f"ingest-eci-ls: event={result.event_id}")
+
+
+
 @app.command()
 def coverage(
     root: Path = typer.Option(

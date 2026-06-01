@@ -210,6 +210,24 @@ class AcDimRow(BaseModel):
     source_id: str = Field(min_length=1)
 
 
+class PcDimRow(BaseModel):
+    """A row destined for ``datasets/elections/dim_pcs.parquet``.
+
+    Mirrors datasets/schemas/dim-pcs.schema.json. PK = pc_id. The PC (Lok
+    Sabha) sibling of :class:`AcDimRow`; ``pc_id`` carries the state_code for
+    global uniqueness (ECI ``pc_no`` is per-state).
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    pc_id: str = Field(pattern=r"^IN-PC-\d{4}-[SU]\d{2}-\d+$")
+    state_code: str = Field(pattern=r"^[SU]\d{2}$")
+    delim_year: int = Field(ge=1850, le=2100)
+    pc_no: int = Field(ge=1)
+    name: str | None = None
+    source_id: str = Field(min_length=1)
+
+
 class PartyDimRow(BaseModel):
     """A row destined for ``datasets/elections/dim_parties.parquet``.
 
@@ -286,5 +304,6 @@ class BatchEnvelope(BaseModel):
     person_dim_rows: list[PersonDimRow] = Field(default_factory=list)
     candidacy_rows: list[CandidacyRow] = Field(default_factory=list)
     ac_dim_rows: list[AcDimRow] = Field(default_factory=list)
+    pc_dim_rows: list[PcDimRow] = Field(default_factory=list)
     party_dim_rows: list[PartyDimRow] = Field(default_factory=list)
     party_alliance_dim_rows: list[PartyAllianceDimRow] = Field(default_factory=list)

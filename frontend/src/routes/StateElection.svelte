@@ -29,9 +29,21 @@
   //   * unknown event id within the state  → "Election not found" panel
   // Never blank-page; never crash.
 
-  import { fetchElectionEvents, findEvent, type ElectionEventsCatalogue } from "../lib/election-events";
+  import { fetchElectionEvents, findEvent, listEventsForState, type ElectionEventsCatalogue } from "../lib/election-events";
   import { states } from "../lib/states.svelte";
-  import { url } from "../lib/url";
+  import { navigate, url } from "../lib/url";
+  import ElectionMap from "../lib/elections/ElectionMap.svelte";
+  import ElectionTimeSlider from "../lib/elections/ElectionTimeSlider.svelte";
+  import ElectionFilterRail from "../lib/elections/ElectionFilterRail.svelte";
+  import { buildSliderStops } from "../lib/elections/election-time-slider";
+  import { hasModeCoverage } from "../lib/elections/election-map-coloring";
+  import {
+    parseElectionFilters,
+    serializeElectionFilters,
+    type ElectionFilters,
+  } from "../lib/election-filters";
+  import { colors } from "../lib/colors/store.svelte";
+  import { loadStateAcWinners, type AcWinner } from "../lib/view-models/state-overview";
 
   interface Props {
     params: { state: string; event: string };
@@ -48,8 +60,83 @@
   const state_name = $derived(state_code ? states.name(state_code) : "");
   const event_row = $derived(findEvent(catalogue, state_code, params.event));
 
+  // PR-B6 — snapping time-slider stops. Same-grain only: the AC map scrubs
+  // across this state's ASSEMBLY elections (Lok Sabha slices drill into the
+  // national atlas, not this per-state surface). Chronologically ascending.
+  const slider_stops = $derived(
+    buildSliderStops(
+      listEventsForState(catalogue, state_code).filter(e => e.kind === "assembly"),
+    ),
+  );
+
+  // Scrubbing the slider just changes the route's :event segment; the
+  // reactive chain below (event_row -> $effect -> ac_winners) reloads the
+  // winners and recolours the map. URL is the single source of truth.
+  function selectEvent(eventId: string) {
+    if (state_code) navigate(url.stateElection(state_code, eventId));
+  }
+
   const states_loading = $derived(!states.isLoaded);
   const catalogue_loading = $derived(catalogue === null && load_error === null);
+
+  // Assembly results power the map+toggle surface. Lok Sabha (national)
+  // events drill into the national atlas (PR-B4), not this per-state AC map,
+  // so we only load AC winners for assembly events. `null` = loading.
+  let ac_winners = $state<AcWinner[] | null>(null);
+  $effect(() => {
+    ac_winners = null;
+    const sc = state_code;
+    const ev = event_row;
+    if (!sc || !ev || ev.kind !== "assembly") return;
+    loadStateAcWinners(ev.event_id, sc).then(r => {
+      ac_winners = r.status === "ok" || r.status === "partial" ? r.data : [];
+    });
+  });
+
+  // PR-B8 — filter rail (colour-by mode + party/margin dimming). The URL is
+  // the single source of truth; the rail is a controlled component. We track
+  // a local mirror of the parsed query string so reactivity fires after a
+  // `navigate` (which dispatches popstate and re-runs the router).
+  let filter_search = $state(
+    typeof window === "undefined" ? "" : window.location.search,
+  );
+  const filters = $derived<ElectionFilters>(parseElectionFilters(filter_search));
+
+  function onFilterChange(next: ElectionFilters): void {
+    if (typeof window === "undefined") return;
+    const base = new URLSearchParams(window.location.search);
+    const qs = serializeElectionFilters(next, base);
+    const target =
+      window.location.pathname + (qs ? `?${qs}` : "") + window.location.hash;
+    navigate(target);
+    filter_search = qs ? `?${qs}` : "";
+  }
+
+  // Distinct winning parties for the rail chips, palette-consistent with the
+  // map (same `colors.forSet` allocation ElectionMap/StateAcMap use).
+  const party_options = $derived.by(() => {
+    void colors.overrides;
+    const list = ac_winners ?? [];
+    const palette = colors.forSet(
+      list.map((r) => r.party_eci_code ?? r.party_short),
+    );
+    const seen = new Map<string, { code: string; short: string; color: string }>();
+    for (const r of list) {
+      const code = r.party_eci_code ?? r.party_short;
+      if (seen.has(code)) continue;
+      seen.set(code, {
+        code,
+        short: r.party_short,
+        color: palette.get(code)?.fill ?? colors.fill(r.party_eci_code, r.party_short),
+      });
+    }
+    return [...seen.values()];
+  });
+
+  const mode_coverage = $derived({
+    turnout: hasModeCoverage(ac_winners ?? [], "turnout"),
+    age: hasModeCoverage(ac_winners ?? [], "age"),
+  });
 </script>
 
 <section class="p-4 sm:p-6 space-y-6 max-w-4xl">
@@ -150,6 +237,33 @@
         <p class="text-xs text-slate-500">{ev.notes}</p>
       {/if}
     </article>
+
+    {#if ev.kind === "assembly"}
+      <section class="space-y-2" data-testid="state-election-map">
+        <h2 class="text-lg font-semibold">Results map</h2>
+        <p class="text-xs text-slate-500">
+          Switch between the geographic map and the equal-seats cartogram.
+          Tap a constituency to open its detailed result.
+        </p>
+        <ElectionTimeSlider
+          stops={slider_stops}
+          selectedEventId={ev.event_id}
+          onSelect={selectEvent}
+        />
+        <ElectionFilterRail
+          {filters}
+          parties={party_options}
+          coverage={mode_coverage}
+          onChange={onFilterChange}
+        />
+        <ElectionMap
+          state={state_code}
+          rows={ac_winners}
+          event={ev.event_id}
+          {filters}
+        />
+      </section>
+    {/if}
 
     <nav class="flex flex-wrap gap-2 text-sm" aria-label="Election surfaces">
       <a
