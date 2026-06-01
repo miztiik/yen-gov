@@ -89,7 +89,7 @@ Frontend Vite middleware `serveDatasets()` exposes the same partition shape unde
 | `state_name_en` raw string | Whitespace / casing / punctuation drift across upstream sources. Resolve to id at the boundary. |
 | `iso_alpha` (`"IN-HR"`) | Display-only; used by cross-country tools (OWID-style); never a yen-gov join key. |
 | `census_2001_code` / `census_2011_code` | Vintage-specific; use only for cross-census joins where you EXPLICITLY want a vintage axis. |
-| `in_s07` legacy folder labels | Retired per ADR-0050. If you see this in code, it is a migration backlog item. |
+| `haryana` legacy folder labels | Retired per ADR-0050. If you see this in code, it is a migration backlog item. |
 
 ## Writer-side discipline
 

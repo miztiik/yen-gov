@@ -95,7 +95,7 @@ jobs:
           mkdir -p _site
           cp -r frontend/dist/. _site/
           cp -r datasets _site/data
-          test -f _site/data/elections/state=in_s22/election_results.parquet
+          test -f _site/data/elections/state=tamil-nadu/election_results.parquet
 
       - uses: actions/configure-pages@v5
 
@@ -170,7 +170,7 @@ jobs:
         # TN (S22) is the canonical first-slice state per CLAUDE.md.
         run: |
           base="${{ steps.deployment.outputs.page_url }}"
-          url="${base}data/elections/state=in_s22/election_results.parquet"
+          url="${base}data/elections/state=tamil-nadu/election_results.parquet"
           for i in 1 2 3; do
             if curl -fsSL "$url" -o /tmp/election_results.parquet; then break; fi
             sleep 10

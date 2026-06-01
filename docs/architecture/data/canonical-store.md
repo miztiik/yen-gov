@@ -63,8 +63,8 @@ datasets/
     methodology_breaks.parquet
     sources.parquet
   elections/
-    state=in_s01/election_results.parquet  # partitioned by `state` (§10); 31 shards live
-    state=in_s22/election_results.parquet  #   largest ≈ 1.4 MiB (Tamil Nadu)
+    state=andhra-pradesh/election_results.parquet  # partitioned by `state` (§10); 31 shards live
+    state=tamil-nadu/election_results.parquet  #   largest ≈ 1.4 MiB (Tamil Nadu)
     …
     dim_acs.parquet                        # dim tables stay flat (D-elections lock B)
     dim_candidates.parquet
@@ -773,18 +773,18 @@ Hive-style directory segment: `state=in_<two-char-lower>`.
   ), '-', '_')
   ```
 
-  Examples: `IN-S22` → `in_s22`. `IN-S22-AC-2024-001` → `in_s22`. `IN-U05` → `in_u05`. `IN-U05-AC-2024-001` → `in_u05`.
+  Examples: `IN-S22` → `tamil-nadu`. `IN-S22-AC-2024-001` → `tamil-nadu`. `IN-U05` → `delhi`. `IN-U05-AC-2024-001` → `delhi`.
 
-The elections grammar is closed for current election shards. Re-debating or physically renaming it requires both Hans+Max (data identity), Gregor (contract impact on manifest/readers), and a consumer audit. New non-election partition grammars do not inherit `in_s22` by default.
+The elections grammar is closed for current election shards. Re-debating or physically renaming it requires both Hans+Max (data identity), Gregor (contract impact on manifest/readers), and a consumer audit. New non-election partition grammars do not inherit `tamil-nadu` by default.
 
 ### 10.2 On-disk layout (post T.0a, 2026-05-20)
 
 ```
 datasets/elections/
-  state=in_s01/election_results.parquet      # 9,984 rows, 722 KiB
-  state=in_s02/election_results.parquet      # 1,005 rows,  72 KiB
-  state=in_s22/election_results.parquet      # 20,040 rows, 1.4 MiB  (Tamil Nadu)
-  state=in_s24/election_results.parquet      # 22,788 rows, 1.6 MiB  (Uttar Pradesh)
+  state=andhra-pradesh/election_results.parquet      # 9,984 rows, 722 KiB
+  state=arunachal-pradesh/election_results.parquet      # 1,005 rows,  72 KiB
+  state=tamil-nadu/election_results.parquet      # 20,040 rows, 1.4 MiB  (Tamil Nadu)
+  state=uttar-pradesh/election_results.parquet      # 22,788 rows, 1.6 MiB  (Uttar Pradesh)
   …                                          # 31 total shards
   dim_acs.parquet                            # flat, not partitioned
   dim_candidates.parquet                     # flat, not partitioned
@@ -799,7 +799,7 @@ Dimension tables are **NOT** partitioned — they are small (one row per AC / ca
 `_emit_observations` in [`backend/yen_gov/canonical/writer.py`](../../../backend/yen_gov/canonical/writer.py) branches on `_partition_cols(family)`:
 
 - **Non-partitioned families** (default): single-file emit via `_emit_table(con, "obs", out_path, table_id="<family>.observations")`, unchanged from pre-T.0a behaviour.
-- **Partitioned families**: writer SELECTs `DISTINCT <partition_sql> AS pv FROM obs`, iterates partition values in sorted order, and for each `pv` emits `<family>/<col>=<pv>/<stem>.parquet` via the same `_emit_table` helper (so KV_METADATA + sort order are preserved per shard). Each shard's `table_id` is stamped `<family>.<stem>#<col>=<pv>` (e.g. `elections.election_results#state=in_s22`).
+- **Partitioned families**: writer SELECTs `DISTINCT <partition_sql> AS pv FROM obs`, iterates partition values in sorted order, and for each `pv` emits `<family>/<col>=<pv>/<stem>.parquet` via the same `_emit_table` helper (so KV_METADATA + sort order are preserved per shard). Each shard's `table_id` is stamped `<family>.<stem>#<col>=<pv>` (e.g. `elections.election_results#state=tamil-nadu`).
 - After a partitioned emit, the writer sweeps any pre-existing monolith at `<family>/<stem>.parquet` so the directory is in one valid shape (partitioned, no leftover). This is the migration seam for families that flip from non-partitioned to partitioned post-launch.
 - `_load_existing` mirrors the same branch: if the family is partitioned AND the partition directory exists, the read globs `<family>/<col>=*/<stem>.parquet` and projects explicit canonical columns (NOT `SELECT *`, to drop the synthesised Hive partition column). Falls back to the monolith path if the partition directory is absent (cold-start case).
 
@@ -818,16 +818,16 @@ The control-plane `datasets/manifest.json` already supports partition reporting 
   "partition_columns": ["state"],
   "files": [
     {
-      "path": "elections/state=in_s01/election_results.parquet",
+      "path": "elections/state=andhra-pradesh/election_results.parquet",
       "row_count": 9984,
       "size_bytes": 739877,
-      "partition_values": { "state": "in_s01" }
+      "partition_values": { "state": "andhra-pradesh" }
     },
     {
-      "path": "elections/state=in_s22/election_results.parquet",
+      "path": "elections/state=tamil-nadu/election_results.parquet",
       "row_count": 20040,
       "size_bytes": 1456891,
-      "partition_values": { "state": "in_s22" }
+      "partition_values": { "state": "tamil-nadu" }
     }
   ],
   "row_count_total": 201292
@@ -841,7 +841,7 @@ The control-plane `datasets/manifest.json` already supports partition reporting 
 Frontend readers use two seams:
 
 - **`registerTable(tableId)`**: full-table registration for Explore, Compare, and other explicit broad modes.
-- **`registerSlice(tableId, partitionFilter)`**: manifest-directed registration of only the files whose `partition_values` match an exact partition filter. Used when a citizen route knows the physical slice it needs, for example `{ state: "in_s22" }` for the current Tamil Nadu election shard.
+- **`registerSlice(tableId, partitionFilter)`**: manifest-directed registration of only the files whose `partition_values` match an exact partition filter. Used when a citizen route knows the physical slice it needs, for example `{ state: "tamil-nadu" }` for the current Tamil Nadu election shard.
 
 `registerSlice` is deliberately physical and manifest-native. Unknown partition keys fail loud. Filtering an unpartitioned table fails unless the caller explicitly allows full-table fallback. Logical alias resolution (`tamil-nadu` route slug -> `entity_id` -> ECI/LGD/ISO alias) lives above this seam in route/view-model helpers today and in SemanticCatalogue later. The frontend must not guess paths.
 
@@ -961,10 +961,10 @@ Canonical shape (see [`datasets/schemas/manifest.schema.json`](../../../datasets
       "partition_columns": ["state"],
       "files": [
         {
-          "path": "elections/state=in_s22/election_results.parquet",
+          "path": "elections/state=tamil-nadu/election_results.parquet",
           "row_count": 20040,
           "size_bytes": 1456891,
-          "partition_values": { "state": "in_s22" }
+          "partition_values": { "state": "tamil-nadu" }
         }
       ],
       "row_count_total": 201292
@@ -1084,7 +1084,7 @@ git commit  →  GitHub Pages publish
 
 **Per-event batching (Phase 1.1 step 5)**: the ECI backfill driver (`backend/yen_gov/pipeline/canonical_eci_backfill.py`) calls `write_batch` once **per event** rather than once at the end. Each event's rows persist to the canonical store before the next event starts. This gives the operator continuous progress visibility (each write logs `[WRITE] <event_id>: persisted N obs, S sources in T.TTs`), bounds the blast radius of any single failure to one event, and makes re-runs cheap (UPSERT is a no-op when upstream bytes are unchanged).
 
-Pre-T.0a (2026-05-20) the writer re-read + re-emitted a single growing `election_results.parquet` on every call, so total wall-clock scaled O(N²) in event count — manageable at ~14 MB and 27 events (~1–2 min full run), but a clear forward risk. **T.0a partitioned the elections fact table by `state`** (§10) which closes the size-based concern (largest shard ~1.4 MiB) but does NOT change the O(N²) cost shape because each per-event write still touches every shard whose rows the event spans. A future per-event sub-partition (`state=in_s22/event=<id>/…`) is the next-level fix if write wall-clock becomes a bottleneck; deferred — partition-by-state alone is sufficient for the current corpus + the projected national scale.
+Pre-T.0a (2026-05-20) the writer re-read + re-emitted a single growing `election_results.parquet` on every call, so total wall-clock scaled O(N²) in event count — manageable at ~14 MB and 27 events (~1–2 min full run), but a clear forward risk. **T.0a partitioned the elections fact table by `state`** (§10) which closes the size-based concern (largest shard ~1.4 MiB) but does NOT change the O(N²) cost shape because each per-event write still touches every shard whose rows the event spans. A future per-event sub-partition (`state=tamil-nadu/event=<id>/…`) is the next-level fix if write wall-clock becomes a bottleneck; deferred — partition-by-state alone is sufficient for the current corpus + the projected national scale.
 
 ---
 

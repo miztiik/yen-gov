@@ -1,6 +1,6 @@
 """S03 Assam Tier-4 district fallback snapshot generator.
 
-Generates `datasets/boundaries/in/ac/state=in_s03/all.geojson` as 126 features
+Generates `datasets/boundaries/in/ac/state=assam/all.geojson` as 126 features
 where each AC's geometry is its parent district's polygon, sourced from the
 all-India districts shard at `datasets/boundaries/in/districts/all.geojson`.
 
@@ -84,7 +84,7 @@ def main() -> int:
 
     sot_path = repo_root / "datasets/reference/in/states/S03/constituencies.json"
     districts_path = repo_root / "datasets/boundaries/in/districts/all.geojson"
-    out_path = repo_root / "datasets/boundaries/in/ac/state=in_s03/all.geojson"
+    out_path = repo_root / "datasets/boundaries/in/ac/state=assam/all.geojson"
 
     sot = json.loads(sot_path.read_text(encoding="utf-8"))
     districts = json.loads(districts_path.read_text(encoding="utf-8"))

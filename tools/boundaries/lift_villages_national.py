@@ -2,7 +2,7 @@
 
 Phase C of ``TODO/20260524-boundary-coverage-expansion-plan.md``: extend
 the existing TN-only village adoption (38 per-district shards under
-``boundaries/in/villages/state=in_s22/district=*/all.geojson``) to all
+``boundaries/in/villages/state=tamil-nadu/district=*/all.geojson``) to all
 states/UTs where ramSeraph publishes village geometry. Per the plan,
 upstream coverage gap (HP, J&K, Sikkim, ML, MZ, MN, NL, AR — 8
 states/UTs) is acknowledged and tracked separately via a recon note;

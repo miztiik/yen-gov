@@ -32,7 +32,7 @@ One row per shard. Schema in `datasets/schemas/boundary-layers.schema.json`. The
 
 | Column | Meaning |
 | --- | --- |
-| `layer_id` (PK) | Dot-grammar matching the Hive path (e.g. `boundaries.in.villages.state=in_s22.district=603`) |
+| `layer_id` (PK) | Dot-grammar matching the Hive path (e.g. `boundaries.in.villages.state=tamil-nadu.district=603`) |
 | `level` | `"country" \| "state" \| "district" \| "subdistrict" \| "village" \| "ac" \| "pc" \| "postal"` |
 | `partition_path` | repo-relative POSIX path under `datasets/` to the geometry file |
 | `format` | `"geojson" \| "pmtiles"` |
@@ -55,7 +55,7 @@ Pre-T.0d the tree was flat: `boundaries/in/geojson/india-states.geojson`, `bound
 
 Hive partitioning solves both:
 
-1. Per-state and per-district shards live at their own depth (`villages/state=in_s22/district=603/all.geojson`), so `ls boundaries/in/villages/state=in_s22/` lists "TN districts with village geometry on disk" without an index file.
+1. Per-state and per-district shards live at their own depth (`villages/state=tamil-nadu/district=603/all.geojson`), so `ls boundaries/in/villages/state=tamil-nadu/` lists "TN districts with village geometry on disk" without an index file.
 2. Frontend resolves a layer to a path via `boundaryRelPath(level, parentDistrictLgd?, stateLgd?)` (`frontend/src/lib/boundaries.ts`). Village lookups fetch the partition path directly and let 404 = "not yet ingested" propagate as `null` (graceful degradation).
 3. The convention matches every other family on disk — one fewer mental model for new contributors.
 

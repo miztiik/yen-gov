@@ -416,9 +416,9 @@ def test_elections_family_uses_election_results_stem(tmp_path: Path) -> None:
     result = write_batch(env, tmp_path)
     # File-on-disk uses the per-family stem, but lives inside a Hive
     # partition directory now. The default _obs() entity_id is "IN-S22",
-    # so the partition value is "in_s22".
+    # so the partition value is "tamil-nadu".
     assert result.observations_path.name == "election_results.parquet"
-    partition_file = tmp_path / "elections" / "state=in_s22" / "election_results.parquet"
+    partition_file = tmp_path / "elections" / "state=tamil-nadu" / "election_results.parquet"
     assert partition_file.is_file()
     # Monolith and legacy names both absent.
     assert not (tmp_path / "elections" / "election_results.parquet").exists()
@@ -433,8 +433,8 @@ def test_elections_family_uses_election_results_stem(tmp_path: Path) -> None:
     assert elections_table["partition_columns"] == ["state"]
     files = elections_table["files"]
     assert len(files) == 1
-    assert files[0]["path"] == "elections/state=in_s22/election_results.parquet"
-    assert files[0]["partition_values"] == {"state": "in_s22"}
+    assert files[0]["path"] == "elections/state=tamil-nadu/election_results.parquet"
+    assert files[0]["partition_values"] == {"state": "tamil-nadu"}
 
 
 def test_manifest_path_is_posix_no_backslashes(tmp_path: Path) -> None:

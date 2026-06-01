@@ -87,7 +87,7 @@ Both seams are implemented in [`frontend/src/lib/duckdb.ts`](../../../frontend/s
 | `registerTable(tableId)` | Full canonical table registration. Use for Explore, Compare, and other explicit broad modes. | Loads `datasets/manifest.json`, checks the manifest and table schema versions against `datasets/schema-compatibility.json`, resolves `tableId`, registers every file listed for that table, and returns the DuckDB view name. |
 | `registerSlice(tableId, partitionFilter)` | Route-scoped registration. Use when a citizen page knows a required physical partition, such as the current Tamil Nadu election shard. | Checks manifest/table schema compatibility, filters `manifest.tables[].files` by `partition_values`, registers only matching file URLs, and returns the DuckDB view name. |
 
-`registerSlice` is **manifest-native**, not semantic. Callers pass physical partition values that already exist in `manifest.json`, e.g. `{ state: "in_s22" }` for the existing election partition. The translation from route slug or `entity_id` to that physical value is table-specific and stays in the caller layer until SemanticCatalogue exists.
+`registerSlice` is **manifest-native**, not semantic. Callers pass physical partition values that already exist in `manifest.json`, e.g. `{ state: "tamil-nadu" }` for the existing election partition. The translation from route slug or `entity_id` to that physical value is table-specific and stays in the caller layer until SemanticCatalogue exists.
 
 Failure rules:
 
