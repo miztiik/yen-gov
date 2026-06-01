@@ -1,0 +1,3213 @@
+{
+  "$schema": "../schemas/lgd-pcs.schema.json",
+  "$schema_version": "1.0",
+  "$comment": "Authoritative LGD Parliamentary Constituency register. FK to lgd_states.json on lgd_state_id. Sourced from datasets/taxonomy/lgd/constituency-report-2026-06-01.xlsx (LGD portal Constituency Coverage report). KNOWN GAPS: state_code=7 Delhi (0 PCs; expected 7), state_code=31 Lakshadweep (0 PCs; expected 1), state_code=37 Ladakh (0 PCs; expected 1) - the source report excluded these. Total in this snapshot: 533 PCs; expected 543. See plan-doc successor handover for the follow-up ingest plan. Builder: tools/migrate/build_lgd_acs_pcs.py.",
+  "sources": [
+    {
+      "url": "https://lgdirectory.gov.in/",
+      "fetched_at": "2026-06-01T21:38:00Z",
+      "name": "Local Government Directory (LGD) - Constituency Coverage Report",
+      "authority": "Ministry of Panchayati Raj, Government of India"
+    }
+  ],
+  "pcs": [
+    {
+      "lgd_pc_id": 1,
+      "lgd_state_id": 1,
+      "pc_name": "Anantnag",
+      "slug": "anantnag"
+    },
+    {
+      "lgd_pc_id": 2,
+      "lgd_state_id": 1,
+      "pc_name": "Baramulla",
+      "slug": "baramulla"
+    },
+    {
+      "lgd_pc_id": 3,
+      "lgd_state_id": 1,
+      "pc_name": "Jammu",
+      "slug": "jammu"
+    },
+    {
+      "lgd_pc_id": 5,
+      "lgd_state_id": 1,
+      "pc_name": "Srinagar",
+      "slug": "srinagar"
+    },
+    {
+      "lgd_pc_id": 6,
+      "lgd_state_id": 1,
+      "pc_name": "Udhampur",
+      "slug": "udhampur"
+    },
+    {
+      "lgd_pc_id": 7,
+      "lgd_state_id": 2,
+      "pc_name": "Hamirpur",
+      "slug": "hamirpur"
+    },
+    {
+      "lgd_pc_id": 8,
+      "lgd_state_id": 2,
+      "pc_name": "Kangra",
+      "slug": "kangra"
+    },
+    {
+      "lgd_pc_id": 9,
+      "lgd_state_id": 2,
+      "pc_name": "Mandi",
+      "slug": "mandi"
+    },
+    {
+      "lgd_pc_id": 10,
+      "lgd_state_id": 2,
+      "pc_name": "Shimla",
+      "slug": "shimla"
+    },
+    {
+      "lgd_pc_id": 11,
+      "lgd_state_id": 3,
+      "pc_name": "Amritsar",
+      "slug": "amritsar"
+    },
+    {
+      "lgd_pc_id": 12,
+      "lgd_state_id": 3,
+      "pc_name": "Anandpur Sahib",
+      "slug": "anandpur-sahib"
+    },
+    {
+      "lgd_pc_id": 13,
+      "lgd_state_id": 3,
+      "pc_name": "Bathinda",
+      "slug": "bathinda"
+    },
+    {
+      "lgd_pc_id": 14,
+      "lgd_state_id": 3,
+      "pc_name": "Faridkot",
+      "slug": "faridkot"
+    },
+    {
+      "lgd_pc_id": 15,
+      "lgd_state_id": 3,
+      "pc_name": "Fatehgarh Sahib",
+      "slug": "fatehgarh-sahib"
+    },
+    {
+      "lgd_pc_id": 16,
+      "lgd_state_id": 3,
+      "pc_name": "Firozpur",
+      "slug": "firozpur"
+    },
+    {
+      "lgd_pc_id": 17,
+      "lgd_state_id": 3,
+      "pc_name": "Gurdaspur",
+      "slug": "gurdaspur"
+    },
+    {
+      "lgd_pc_id": 18,
+      "lgd_state_id": 3,
+      "pc_name": "Hoshiarpur",
+      "slug": "hoshiarpur"
+    },
+    {
+      "lgd_pc_id": 19,
+      "lgd_state_id": 3,
+      "pc_name": "Jalandhar",
+      "slug": "jalandhar"
+    },
+    {
+      "lgd_pc_id": 20,
+      "lgd_state_id": 3,
+      "pc_name": "Khadoor Sahib",
+      "slug": "khadoor-sahib"
+    },
+    {
+      "lgd_pc_id": 21,
+      "lgd_state_id": 3,
+      "pc_name": "Ludhiana",
+      "slug": "ludhiana"
+    },
+    {
+      "lgd_pc_id": 22,
+      "lgd_state_id": 3,
+      "pc_name": "Patiala",
+      "slug": "patiala"
+    },
+    {
+      "lgd_pc_id": 23,
+      "lgd_state_id": 3,
+      "pc_name": "Sangrur",
+      "slug": "sangrur"
+    },
+    {
+      "lgd_pc_id": 24,
+      "lgd_state_id": 4,
+      "pc_name": "Chandigarh",
+      "slug": "chandigarh"
+    },
+    {
+      "lgd_pc_id": 25,
+      "lgd_state_id": 5,
+      "pc_name": "Almora",
+      "slug": "almora"
+    },
+    {
+      "lgd_pc_id": 26,
+      "lgd_state_id": 5,
+      "pc_name": "Garhwal",
+      "slug": "garhwal"
+    },
+    {
+      "lgd_pc_id": 27,
+      "lgd_state_id": 5,
+      "pc_name": "Hardwar",
+      "slug": "hardwar"
+    },
+    {
+      "lgd_pc_id": 28,
+      "lgd_state_id": 5,
+      "pc_name": "Nainital-Udhamsingh Nagar",
+      "slug": "nainital-udhamsingh-nagar"
+    },
+    {
+      "lgd_pc_id": 29,
+      "lgd_state_id": 5,
+      "pc_name": "Tehri Garhwal",
+      "slug": "tehri-garhwal"
+    },
+    {
+      "lgd_pc_id": 30,
+      "lgd_state_id": 6,
+      "pc_name": "Ambala",
+      "slug": "ambala"
+    },
+    {
+      "lgd_pc_id": 31,
+      "lgd_state_id": 6,
+      "pc_name": "Bhiwani-Mahendragarh",
+      "slug": "bhiwani-mahendragarh"
+    },
+    {
+      "lgd_pc_id": 32,
+      "lgd_state_id": 6,
+      "pc_name": "Faridabad",
+      "slug": "faridabad"
+    },
+    {
+      "lgd_pc_id": 33,
+      "lgd_state_id": 6,
+      "pc_name": "Gurgaon",
+      "slug": "gurgaon"
+    },
+    {
+      "lgd_pc_id": 34,
+      "lgd_state_id": 6,
+      "pc_name": "Hisar",
+      "slug": "hisar"
+    },
+    {
+      "lgd_pc_id": 35,
+      "lgd_state_id": 6,
+      "pc_name": "Karnal",
+      "slug": "karnal"
+    },
+    {
+      "lgd_pc_id": 36,
+      "lgd_state_id": 6,
+      "pc_name": "Kurukshetra",
+      "slug": "kurukshetra"
+    },
+    {
+      "lgd_pc_id": 37,
+      "lgd_state_id": 6,
+      "pc_name": "Rohtak",
+      "slug": "rohtak"
+    },
+    {
+      "lgd_pc_id": 38,
+      "lgd_state_id": 6,
+      "pc_name": "Sirsa",
+      "slug": "sirsa"
+    },
+    {
+      "lgd_pc_id": 39,
+      "lgd_state_id": 6,
+      "pc_name": "Sonipat",
+      "slug": "sonipat"
+    },
+    {
+      "lgd_pc_id": 47,
+      "lgd_state_id": 8,
+      "pc_name": "Ajmer",
+      "slug": "ajmer"
+    },
+    {
+      "lgd_pc_id": 48,
+      "lgd_state_id": 8,
+      "pc_name": "Alwar",
+      "slug": "alwar"
+    },
+    {
+      "lgd_pc_id": 49,
+      "lgd_state_id": 8,
+      "pc_name": "Banswara",
+      "slug": "banswara"
+    },
+    {
+      "lgd_pc_id": 50,
+      "lgd_state_id": 8,
+      "pc_name": "Barmer",
+      "slug": "barmer"
+    },
+    {
+      "lgd_pc_id": 51,
+      "lgd_state_id": 8,
+      "pc_name": "Bharatpur",
+      "slug": "bharatpur"
+    },
+    {
+      "lgd_pc_id": 52,
+      "lgd_state_id": 8,
+      "pc_name": "Bhilwara",
+      "slug": "bhilwara"
+    },
+    {
+      "lgd_pc_id": 53,
+      "lgd_state_id": 8,
+      "pc_name": "Bikaner",
+      "slug": "bikaner"
+    },
+    {
+      "lgd_pc_id": 54,
+      "lgd_state_id": 8,
+      "pc_name": "Chittorgarh",
+      "slug": "chittorgarh"
+    },
+    {
+      "lgd_pc_id": 55,
+      "lgd_state_id": 8,
+      "pc_name": "Churu",
+      "slug": "churu"
+    },
+    {
+      "lgd_pc_id": 56,
+      "lgd_state_id": 8,
+      "pc_name": "Dausa",
+      "slug": "dausa"
+    },
+    {
+      "lgd_pc_id": 57,
+      "lgd_state_id": 8,
+      "pc_name": "Ganganagar",
+      "slug": "ganganagar"
+    },
+    {
+      "lgd_pc_id": 58,
+      "lgd_state_id": 8,
+      "pc_name": "Jaipur",
+      "slug": "jaipur"
+    },
+    {
+      "lgd_pc_id": 59,
+      "lgd_state_id": 8,
+      "pc_name": "Jaipur Rural",
+      "slug": "jaipur-rural"
+    },
+    {
+      "lgd_pc_id": 60,
+      "lgd_state_id": 8,
+      "pc_name": "Jalore",
+      "slug": "jalore"
+    },
+    {
+      "lgd_pc_id": 61,
+      "lgd_state_id": 8,
+      "pc_name": "Jhalawar-Baran",
+      "slug": "jhalawar-baran"
+    },
+    {
+      "lgd_pc_id": 62,
+      "lgd_state_id": 8,
+      "pc_name": "Jhunjhunu",
+      "slug": "jhunjhunu"
+    },
+    {
+      "lgd_pc_id": 63,
+      "lgd_state_id": 8,
+      "pc_name": "Jodhpur",
+      "slug": "jodhpur"
+    },
+    {
+      "lgd_pc_id": 64,
+      "lgd_state_id": 8,
+      "pc_name": "Karauli-Dholpur",
+      "slug": "karauli-dholpur"
+    },
+    {
+      "lgd_pc_id": 65,
+      "lgd_state_id": 8,
+      "pc_name": "Kota",
+      "slug": "kota"
+    },
+    {
+      "lgd_pc_id": 66,
+      "lgd_state_id": 8,
+      "pc_name": "Nagaur",
+      "slug": "nagaur"
+    },
+    {
+      "lgd_pc_id": 67,
+      "lgd_state_id": 8,
+      "pc_name": "Pali",
+      "slug": "pali"
+    },
+    {
+      "lgd_pc_id": 68,
+      "lgd_state_id": 8,
+      "pc_name": "Rajsamand",
+      "slug": "rajsamand"
+    },
+    {
+      "lgd_pc_id": 69,
+      "lgd_state_id": 8,
+      "pc_name": "Sikar",
+      "slug": "sikar"
+    },
+    {
+      "lgd_pc_id": 70,
+      "lgd_state_id": 8,
+      "pc_name": "Tonk-Sawai Madhopur",
+      "slug": "tonk-sawai-madhopur"
+    },
+    {
+      "lgd_pc_id": 71,
+      "lgd_state_id": 8,
+      "pc_name": "Udaipur",
+      "slug": "udaipur"
+    },
+    {
+      "lgd_pc_id": 72,
+      "lgd_state_id": 9,
+      "pc_name": "Agra",
+      "slug": "agra"
+    },
+    {
+      "lgd_pc_id": 73,
+      "lgd_state_id": 9,
+      "pc_name": "Akbarpur",
+      "slug": "akbarpur"
+    },
+    {
+      "lgd_pc_id": 74,
+      "lgd_state_id": 9,
+      "pc_name": "Aligarh",
+      "slug": "aligarh"
+    },
+    {
+      "lgd_pc_id": 75,
+      "lgd_state_id": 9,
+      "pc_name": "Allahabad",
+      "slug": "allahabad"
+    },
+    {
+      "lgd_pc_id": 76,
+      "lgd_state_id": 9,
+      "pc_name": "Ambedkar Nagar",
+      "slug": "ambedkar-nagar"
+    },
+    {
+      "lgd_pc_id": 77,
+      "lgd_state_id": 9,
+      "pc_name": "Amethi",
+      "slug": "amethi"
+    },
+    {
+      "lgd_pc_id": 78,
+      "lgd_state_id": 9,
+      "pc_name": "Amroha",
+      "slug": "amroha"
+    },
+    {
+      "lgd_pc_id": 79,
+      "lgd_state_id": 9,
+      "pc_name": "Aonla",
+      "slug": "aonla"
+    },
+    {
+      "lgd_pc_id": 80,
+      "lgd_state_id": 9,
+      "pc_name": "Azamgarh",
+      "slug": "azamgarh"
+    },
+    {
+      "lgd_pc_id": 81,
+      "lgd_state_id": 9,
+      "pc_name": "Badaun",
+      "slug": "badaun"
+    },
+    {
+      "lgd_pc_id": 82,
+      "lgd_state_id": 9,
+      "pc_name": "Baghpat",
+      "slug": "baghpat"
+    },
+    {
+      "lgd_pc_id": 83,
+      "lgd_state_id": 9,
+      "pc_name": "Bahraich",
+      "slug": "bahraich"
+    },
+    {
+      "lgd_pc_id": 84,
+      "lgd_state_id": 9,
+      "pc_name": "Ballia",
+      "slug": "ballia"
+    },
+    {
+      "lgd_pc_id": 85,
+      "lgd_state_id": 9,
+      "pc_name": "Banda",
+      "slug": "banda"
+    },
+    {
+      "lgd_pc_id": 86,
+      "lgd_state_id": 9,
+      "pc_name": "Bansgaon",
+      "slug": "bansgaon"
+    },
+    {
+      "lgd_pc_id": 87,
+      "lgd_state_id": 9,
+      "pc_name": "Barabanki",
+      "slug": "barabanki"
+    },
+    {
+      "lgd_pc_id": 88,
+      "lgd_state_id": 9,
+      "pc_name": "Bareilly",
+      "slug": "bareilly"
+    },
+    {
+      "lgd_pc_id": 89,
+      "lgd_state_id": 9,
+      "pc_name": "Basti",
+      "slug": "basti"
+    },
+    {
+      "lgd_pc_id": 90,
+      "lgd_state_id": 9,
+      "pc_name": "Bhadohi",
+      "slug": "bhadohi"
+    },
+    {
+      "lgd_pc_id": 91,
+      "lgd_state_id": 9,
+      "pc_name": "Bijnor",
+      "slug": "bijnor"
+    },
+    {
+      "lgd_pc_id": 92,
+      "lgd_state_id": 9,
+      "pc_name": "Bulandshahr",
+      "slug": "bulandshahr"
+    },
+    {
+      "lgd_pc_id": 93,
+      "lgd_state_id": 9,
+      "pc_name": "Chandauli",
+      "slug": "chandauli"
+    },
+    {
+      "lgd_pc_id": 94,
+      "lgd_state_id": 9,
+      "pc_name": "Deoria",
+      "slug": "deoria"
+    },
+    {
+      "lgd_pc_id": 95,
+      "lgd_state_id": 9,
+      "pc_name": "Dhaurahra",
+      "slug": "dhaurahra"
+    },
+    {
+      "lgd_pc_id": 96,
+      "lgd_state_id": 9,
+      "pc_name": "Domariyaganj",
+      "slug": "domariyaganj"
+    },
+    {
+      "lgd_pc_id": 97,
+      "lgd_state_id": 9,
+      "pc_name": "Etah",
+      "slug": "etah"
+    },
+    {
+      "lgd_pc_id": 98,
+      "lgd_state_id": 9,
+      "pc_name": "Etawah",
+      "slug": "etawah"
+    },
+    {
+      "lgd_pc_id": 99,
+      "lgd_state_id": 9,
+      "pc_name": "Faizabad",
+      "slug": "faizabad"
+    },
+    {
+      "lgd_pc_id": 100,
+      "lgd_state_id": 9,
+      "pc_name": "Farrukhabad",
+      "slug": "farrukhabad"
+    },
+    {
+      "lgd_pc_id": 101,
+      "lgd_state_id": 9,
+      "pc_name": "Fatehpur",
+      "slug": "fatehpur"
+    },
+    {
+      "lgd_pc_id": 102,
+      "lgd_state_id": 9,
+      "pc_name": "Fatehpur Sikri",
+      "slug": "fatehpur-sikri"
+    },
+    {
+      "lgd_pc_id": 103,
+      "lgd_state_id": 9,
+      "pc_name": "Firozabad",
+      "slug": "firozabad"
+    },
+    {
+      "lgd_pc_id": 104,
+      "lgd_state_id": 9,
+      "pc_name": "Gautam Buddha Nagar",
+      "slug": "gautam-buddha-nagar"
+    },
+    {
+      "lgd_pc_id": 105,
+      "lgd_state_id": 9,
+      "pc_name": "Ghaziabad",
+      "slug": "ghaziabad"
+    },
+    {
+      "lgd_pc_id": 106,
+      "lgd_state_id": 9,
+      "pc_name": "Ghazipur",
+      "slug": "ghazipur"
+    },
+    {
+      "lgd_pc_id": 107,
+      "lgd_state_id": 9,
+      "pc_name": "Ghosi",
+      "slug": "ghosi"
+    },
+    {
+      "lgd_pc_id": 108,
+      "lgd_state_id": 9,
+      "pc_name": "Gonda",
+      "slug": "gonda"
+    },
+    {
+      "lgd_pc_id": 109,
+      "lgd_state_id": 9,
+      "pc_name": "Gorakhpur",
+      "slug": "gorakhpur"
+    },
+    {
+      "lgd_pc_id": 110,
+      "lgd_state_id": 9,
+      "pc_name": "Hamirpur",
+      "slug": "hamirpur"
+    },
+    {
+      "lgd_pc_id": 111,
+      "lgd_state_id": 9,
+      "pc_name": "Hardoi",
+      "slug": "hardoi"
+    },
+    {
+      "lgd_pc_id": 112,
+      "lgd_state_id": 9,
+      "pc_name": "Hathras",
+      "slug": "hathras"
+    },
+    {
+      "lgd_pc_id": 113,
+      "lgd_state_id": 9,
+      "pc_name": "Jalaun",
+      "slug": "jalaun"
+    },
+    {
+      "lgd_pc_id": 114,
+      "lgd_state_id": 9,
+      "pc_name": "Jaunpur",
+      "slug": "jaunpur"
+    },
+    {
+      "lgd_pc_id": 115,
+      "lgd_state_id": 9,
+      "pc_name": "Jhansi",
+      "slug": "jhansi"
+    },
+    {
+      "lgd_pc_id": 116,
+      "lgd_state_id": 9,
+      "pc_name": "Kairana",
+      "slug": "kairana"
+    },
+    {
+      "lgd_pc_id": 117,
+      "lgd_state_id": 9,
+      "pc_name": "Kaiserganj",
+      "slug": "kaiserganj"
+    },
+    {
+      "lgd_pc_id": 118,
+      "lgd_state_id": 9,
+      "pc_name": "Kannauj",
+      "slug": "kannauj"
+    },
+    {
+      "lgd_pc_id": 119,
+      "lgd_state_id": 9,
+      "pc_name": "Kanpur",
+      "slug": "kanpur"
+    },
+    {
+      "lgd_pc_id": 120,
+      "lgd_state_id": 9,
+      "pc_name": "Kaushambi",
+      "slug": "kaushambi"
+    },
+    {
+      "lgd_pc_id": 121,
+      "lgd_state_id": 9,
+      "pc_name": "Kheri",
+      "slug": "kheri"
+    },
+    {
+      "lgd_pc_id": 122,
+      "lgd_state_id": 9,
+      "pc_name": "Kushi Nagar",
+      "slug": "kushi-nagar"
+    },
+    {
+      "lgd_pc_id": 123,
+      "lgd_state_id": 9,
+      "pc_name": "Lalganj",
+      "slug": "lalganj"
+    },
+    {
+      "lgd_pc_id": 124,
+      "lgd_state_id": 9,
+      "pc_name": "Lucknow",
+      "slug": "lucknow"
+    },
+    {
+      "lgd_pc_id": 125,
+      "lgd_state_id": 9,
+      "pc_name": "Machhlishahr",
+      "slug": "machhlishahr"
+    },
+    {
+      "lgd_pc_id": 126,
+      "lgd_state_id": 9,
+      "pc_name": "Maharajganj",
+      "slug": "maharajganj"
+    },
+    {
+      "lgd_pc_id": 127,
+      "lgd_state_id": 9,
+      "pc_name": "Mainpuri",
+      "slug": "mainpuri"
+    },
+    {
+      "lgd_pc_id": 128,
+      "lgd_state_id": 9,
+      "pc_name": "Mathura",
+      "slug": "mathura"
+    },
+    {
+      "lgd_pc_id": 129,
+      "lgd_state_id": 9,
+      "pc_name": "Meerut",
+      "slug": "meerut"
+    },
+    {
+      "lgd_pc_id": 130,
+      "lgd_state_id": 9,
+      "pc_name": "Mirzapur",
+      "slug": "mirzapur"
+    },
+    {
+      "lgd_pc_id": 131,
+      "lgd_state_id": 9,
+      "pc_name": "Misrikh",
+      "slug": "misrikh"
+    },
+    {
+      "lgd_pc_id": 132,
+      "lgd_state_id": 9,
+      "pc_name": "Mohanlalganj",
+      "slug": "mohanlalganj"
+    },
+    {
+      "lgd_pc_id": 133,
+      "lgd_state_id": 9,
+      "pc_name": "Moradabad",
+      "slug": "moradabad"
+    },
+    {
+      "lgd_pc_id": 134,
+      "lgd_state_id": 9,
+      "pc_name": "Muzaffarnagar",
+      "slug": "muzaffarnagar"
+    },
+    {
+      "lgd_pc_id": 135,
+      "lgd_state_id": 9,
+      "pc_name": "Nagina",
+      "slug": "nagina"
+    },
+    {
+      "lgd_pc_id": 136,
+      "lgd_state_id": 9,
+      "pc_name": "Phulpur",
+      "slug": "phulpur"
+    },
+    {
+      "lgd_pc_id": 137,
+      "lgd_state_id": 9,
+      "pc_name": "Pilibhit",
+      "slug": "pilibhit"
+    },
+    {
+      "lgd_pc_id": 138,
+      "lgd_state_id": 9,
+      "pc_name": "Pratapgarh",
+      "slug": "pratapgarh"
+    },
+    {
+      "lgd_pc_id": 139,
+      "lgd_state_id": 9,
+      "pc_name": "Rae Bareli",
+      "slug": "rae-bareli"
+    },
+    {
+      "lgd_pc_id": 140,
+      "lgd_state_id": 9,
+      "pc_name": "Rampur",
+      "slug": "rampur"
+    },
+    {
+      "lgd_pc_id": 141,
+      "lgd_state_id": 9,
+      "pc_name": "Robertsganj",
+      "slug": "robertsganj"
+    },
+    {
+      "lgd_pc_id": 142,
+      "lgd_state_id": 9,
+      "pc_name": "Saharanpur",
+      "slug": "saharanpur"
+    },
+    {
+      "lgd_pc_id": 143,
+      "lgd_state_id": 9,
+      "pc_name": "Salempur",
+      "slug": "salempur"
+    },
+    {
+      "lgd_pc_id": 144,
+      "lgd_state_id": 9,
+      "pc_name": "Sambhal",
+      "slug": "sambhal"
+    },
+    {
+      "lgd_pc_id": 145,
+      "lgd_state_id": 9,
+      "pc_name": "Sant Kabir Nagar",
+      "slug": "sant-kabir-nagar"
+    },
+    {
+      "lgd_pc_id": 146,
+      "lgd_state_id": 9,
+      "pc_name": "Shahjahanpur",
+      "slug": "shahjahanpur"
+    },
+    {
+      "lgd_pc_id": 147,
+      "lgd_state_id": 9,
+      "pc_name": "Shrawasti",
+      "slug": "shrawasti"
+    },
+    {
+      "lgd_pc_id": 148,
+      "lgd_state_id": 9,
+      "pc_name": "Sitapur",
+      "slug": "sitapur"
+    },
+    {
+      "lgd_pc_id": 149,
+      "lgd_state_id": 9,
+      "pc_name": "Sultanpur",
+      "slug": "sultanpur"
+    },
+    {
+      "lgd_pc_id": 150,
+      "lgd_state_id": 9,
+      "pc_name": "Unnao",
+      "slug": "unnao"
+    },
+    {
+      "lgd_pc_id": 151,
+      "lgd_state_id": 9,
+      "pc_name": "Varanasi",
+      "slug": "varanasi"
+    },
+    {
+      "lgd_pc_id": 152,
+      "lgd_state_id": 10,
+      "pc_name": "Araria",
+      "slug": "araria"
+    },
+    {
+      "lgd_pc_id": 153,
+      "lgd_state_id": 10,
+      "pc_name": "Arrah",
+      "slug": "arrah"
+    },
+    {
+      "lgd_pc_id": 154,
+      "lgd_state_id": 10,
+      "pc_name": "Aurangabad",
+      "slug": "aurangabad"
+    },
+    {
+      "lgd_pc_id": 155,
+      "lgd_state_id": 10,
+      "pc_name": "Banka",
+      "slug": "banka"
+    },
+    {
+      "lgd_pc_id": 156,
+      "lgd_state_id": 10,
+      "pc_name": "Begusarai",
+      "slug": "begusarai"
+    },
+    {
+      "lgd_pc_id": 157,
+      "lgd_state_id": 10,
+      "pc_name": "Bhagalpur",
+      "slug": "bhagalpur"
+    },
+    {
+      "lgd_pc_id": 158,
+      "lgd_state_id": 10,
+      "pc_name": "Buxar",
+      "slug": "buxar"
+    },
+    {
+      "lgd_pc_id": 159,
+      "lgd_state_id": 10,
+      "pc_name": "Darbhanga",
+      "slug": "darbhanga"
+    },
+    {
+      "lgd_pc_id": 160,
+      "lgd_state_id": 10,
+      "pc_name": "Gaya",
+      "slug": "gaya"
+    },
+    {
+      "lgd_pc_id": 161,
+      "lgd_state_id": 10,
+      "pc_name": "Gopalganj",
+      "slug": "gopalganj"
+    },
+    {
+      "lgd_pc_id": 162,
+      "lgd_state_id": 10,
+      "pc_name": "Hajipur",
+      "slug": "hajipur"
+    },
+    {
+      "lgd_pc_id": 163,
+      "lgd_state_id": 10,
+      "pc_name": "Jahanabad",
+      "slug": "jahanabad"
+    },
+    {
+      "lgd_pc_id": 164,
+      "lgd_state_id": 10,
+      "pc_name": "Jamui",
+      "slug": "jamui"
+    },
+    {
+      "lgd_pc_id": 165,
+      "lgd_state_id": 10,
+      "pc_name": "Jhanjharpur",
+      "slug": "jhanjharpur"
+    },
+    {
+      "lgd_pc_id": 166,
+      "lgd_state_id": 10,
+      "pc_name": "Karakat",
+      "slug": "karakat"
+    },
+    {
+      "lgd_pc_id": 167,
+      "lgd_state_id": 10,
+      "pc_name": "Katihar",
+      "slug": "katihar"
+    },
+    {
+      "lgd_pc_id": 168,
+      "lgd_state_id": 10,
+      "pc_name": "Khagaria",
+      "slug": "khagaria"
+    },
+    {
+      "lgd_pc_id": 169,
+      "lgd_state_id": 10,
+      "pc_name": "Kishanganj",
+      "slug": "kishanganj"
+    },
+    {
+      "lgd_pc_id": 170,
+      "lgd_state_id": 10,
+      "pc_name": "Madhepura",
+      "slug": "madhepura"
+    },
+    {
+      "lgd_pc_id": 171,
+      "lgd_state_id": 10,
+      "pc_name": "Madhubani",
+      "slug": "madhubani"
+    },
+    {
+      "lgd_pc_id": 172,
+      "lgd_state_id": 10,
+      "pc_name": "Maharajganj",
+      "slug": "maharajganj"
+    },
+    {
+      "lgd_pc_id": 173,
+      "lgd_state_id": 10,
+      "pc_name": "Munger",
+      "slug": "munger"
+    },
+    {
+      "lgd_pc_id": 174,
+      "lgd_state_id": 10,
+      "pc_name": "Muzaffarpur",
+      "slug": "muzaffarpur"
+    },
+    {
+      "lgd_pc_id": 175,
+      "lgd_state_id": 10,
+      "pc_name": "Nalanda",
+      "slug": "nalanda"
+    },
+    {
+      "lgd_pc_id": 176,
+      "lgd_state_id": 10,
+      "pc_name": "Nawada",
+      "slug": "nawada"
+    },
+    {
+      "lgd_pc_id": 177,
+      "lgd_state_id": 10,
+      "pc_name": "Paschim Champaran",
+      "slug": "paschim-champaran"
+    },
+    {
+      "lgd_pc_id": 178,
+      "lgd_state_id": 10,
+      "pc_name": "Pataliputra",
+      "slug": "pataliputra"
+    },
+    {
+      "lgd_pc_id": 179,
+      "lgd_state_id": 10,
+      "pc_name": "Patna Sahib",
+      "slug": "patna-sahib"
+    },
+    {
+      "lgd_pc_id": 180,
+      "lgd_state_id": 10,
+      "pc_name": "Purnia",
+      "slug": "purnia"
+    },
+    {
+      "lgd_pc_id": 181,
+      "lgd_state_id": 10,
+      "pc_name": "Purvi Champaran",
+      "slug": "purvi-champaran"
+    },
+    {
+      "lgd_pc_id": 182,
+      "lgd_state_id": 10,
+      "pc_name": "Samastipur",
+      "slug": "samastipur"
+    },
+    {
+      "lgd_pc_id": 183,
+      "lgd_state_id": 10,
+      "pc_name": "Saran",
+      "slug": "saran"
+    },
+    {
+      "lgd_pc_id": 184,
+      "lgd_state_id": 10,
+      "pc_name": "Sasaram",
+      "slug": "sasaram"
+    },
+    {
+      "lgd_pc_id": 185,
+      "lgd_state_id": 10,
+      "pc_name": "Sheohar",
+      "slug": "sheohar"
+    },
+    {
+      "lgd_pc_id": 186,
+      "lgd_state_id": 10,
+      "pc_name": "Sitamarhi",
+      "slug": "sitamarhi"
+    },
+    {
+      "lgd_pc_id": 187,
+      "lgd_state_id": 10,
+      "pc_name": "Siwan",
+      "slug": "siwan"
+    },
+    {
+      "lgd_pc_id": 188,
+      "lgd_state_id": 10,
+      "pc_name": "Supaul",
+      "slug": "supaul"
+    },
+    {
+      "lgd_pc_id": 189,
+      "lgd_state_id": 10,
+      "pc_name": "Ujiarpur",
+      "slug": "ujiarpur"
+    },
+    {
+      "lgd_pc_id": 190,
+      "lgd_state_id": 10,
+      "pc_name": "Vaishali",
+      "slug": "vaishali"
+    },
+    {
+      "lgd_pc_id": 191,
+      "lgd_state_id": 10,
+      "pc_name": "Valmiki Nagar",
+      "slug": "valmiki-nagar"
+    },
+    {
+      "lgd_pc_id": 192,
+      "lgd_state_id": 11,
+      "pc_name": "Sikkim",
+      "slug": "sikkim"
+    },
+    {
+      "lgd_pc_id": 193,
+      "lgd_state_id": 12,
+      "pc_name": "Arunachal East",
+      "slug": "arunachal-east"
+    },
+    {
+      "lgd_pc_id": 194,
+      "lgd_state_id": 12,
+      "pc_name": "Arunachal West",
+      "slug": "arunachal-west"
+    },
+    {
+      "lgd_pc_id": 195,
+      "lgd_state_id": 13,
+      "pc_name": "Nagaland",
+      "slug": "nagaland"
+    },
+    {
+      "lgd_pc_id": 196,
+      "lgd_state_id": 14,
+      "pc_name": "Inner Manipur",
+      "slug": "inner-manipur"
+    },
+    {
+      "lgd_pc_id": 197,
+      "lgd_state_id": 14,
+      "pc_name": "Outer Manipur",
+      "slug": "outer-manipur"
+    },
+    {
+      "lgd_pc_id": 198,
+      "lgd_state_id": 15,
+      "pc_name": "Mizoram",
+      "slug": "mizoram"
+    },
+    {
+      "lgd_pc_id": 199,
+      "lgd_state_id": 16,
+      "pc_name": "Tripura East",
+      "slug": "tripura-east"
+    },
+    {
+      "lgd_pc_id": 200,
+      "lgd_state_id": 16,
+      "pc_name": "Tripura West",
+      "slug": "tripura-west"
+    },
+    {
+      "lgd_pc_id": 201,
+      "lgd_state_id": 17,
+      "pc_name": "Shillong",
+      "slug": "shillong"
+    },
+    {
+      "lgd_pc_id": 202,
+      "lgd_state_id": 17,
+      "pc_name": "Tura",
+      "slug": "tura"
+    },
+    {
+      "lgd_pc_id": 203,
+      "lgd_state_id": 18,
+      "pc_name": "Autonomous District",
+      "slug": "autonomous-district"
+    },
+    {
+      "lgd_pc_id": 204,
+      "lgd_state_id": 18,
+      "pc_name": "Barpeta",
+      "slug": "barpeta"
+    },
+    {
+      "lgd_pc_id": 205,
+      "lgd_state_id": 18,
+      "pc_name": "Dhubri",
+      "slug": "dhubri"
+    },
+    {
+      "lgd_pc_id": 206,
+      "lgd_state_id": 18,
+      "pc_name": "Dibrugarh",
+      "slug": "dibrugarh"
+    },
+    {
+      "lgd_pc_id": 207,
+      "lgd_state_id": 18,
+      "pc_name": "Gauhati",
+      "slug": "gauhati"
+    },
+    {
+      "lgd_pc_id": 208,
+      "lgd_state_id": 18,
+      "pc_name": "Jorhat",
+      "slug": "jorhat"
+    },
+    {
+      "lgd_pc_id": 209,
+      "lgd_state_id": 18,
+      "pc_name": "Kaziranga",
+      "slug": "kaziranga"
+    },
+    {
+      "lgd_pc_id": 210,
+      "lgd_state_id": 18,
+      "pc_name": "Karimganj",
+      "slug": "karimganj"
+    },
+    {
+      "lgd_pc_id": 211,
+      "lgd_state_id": 18,
+      "pc_name": "Kokrajhar",
+      "slug": "kokrajhar"
+    },
+    {
+      "lgd_pc_id": 212,
+      "lgd_state_id": 18,
+      "pc_name": "Lakhimpur",
+      "slug": "lakhimpur"
+    },
+    {
+      "lgd_pc_id": 213,
+      "lgd_state_id": 18,
+      "pc_name": "Mangaldoi",
+      "slug": "mangaldoi"
+    },
+    {
+      "lgd_pc_id": 214,
+      "lgd_state_id": 18,
+      "pc_name": "Nagaon",
+      "slug": "nagaon"
+    },
+    {
+      "lgd_pc_id": 215,
+      "lgd_state_id": 18,
+      "pc_name": "Silchar",
+      "slug": "silchar"
+    },
+    {
+      "lgd_pc_id": 216,
+      "lgd_state_id": 18,
+      "pc_name": "Sonitpur",
+      "slug": "sonitpur"
+    },
+    {
+      "lgd_pc_id": 217,
+      "lgd_state_id": 19,
+      "pc_name": "Alipurduars",
+      "slug": "alipurduars"
+    },
+    {
+      "lgd_pc_id": 218,
+      "lgd_state_id": 19,
+      "pc_name": "Arambag",
+      "slug": "arambag"
+    },
+    {
+      "lgd_pc_id": 219,
+      "lgd_state_id": 19,
+      "pc_name": "Asansol",
+      "slug": "asansol"
+    },
+    {
+      "lgd_pc_id": 220,
+      "lgd_state_id": 19,
+      "pc_name": "Baharampur",
+      "slug": "baharampur"
+    },
+    {
+      "lgd_pc_id": 221,
+      "lgd_state_id": 19,
+      "pc_name": "Balurghat",
+      "slug": "balurghat"
+    },
+    {
+      "lgd_pc_id": 222,
+      "lgd_state_id": 19,
+      "pc_name": "Bangaon",
+      "slug": "bangaon"
+    },
+    {
+      "lgd_pc_id": 223,
+      "lgd_state_id": 19,
+      "pc_name": "Bankura",
+      "slug": "bankura"
+    },
+    {
+      "lgd_pc_id": 224,
+      "lgd_state_id": 19,
+      "pc_name": "Barasat",
+      "slug": "barasat"
+    },
+    {
+      "lgd_pc_id": 225,
+      "lgd_state_id": 19,
+      "pc_name": "Bardhaman - Durgapur",
+      "slug": "bardhaman-durgapur"
+    },
+    {
+      "lgd_pc_id": 226,
+      "lgd_state_id": 19,
+      "pc_name": "Bardhaman Purba",
+      "slug": "bardhaman-purba"
+    },
+    {
+      "lgd_pc_id": 227,
+      "lgd_state_id": 19,
+      "pc_name": "Barrackpur",
+      "slug": "barrackpur"
+    },
+    {
+      "lgd_pc_id": 228,
+      "lgd_state_id": 19,
+      "pc_name": "Basirhat",
+      "slug": "basirhat"
+    },
+    {
+      "lgd_pc_id": 229,
+      "lgd_state_id": 19,
+      "pc_name": "Birbhum",
+      "slug": "birbhum"
+    },
+    {
+      "lgd_pc_id": 230,
+      "lgd_state_id": 19,
+      "pc_name": "Bishnupur",
+      "slug": "bishnupur"
+    },
+    {
+      "lgd_pc_id": 231,
+      "lgd_state_id": 19,
+      "pc_name": "Bolpur",
+      "slug": "bolpur"
+    },
+    {
+      "lgd_pc_id": 232,
+      "lgd_state_id": 19,
+      "pc_name": "Coochbehar",
+      "slug": "coochbehar"
+    },
+    {
+      "lgd_pc_id": 233,
+      "lgd_state_id": 19,
+      "pc_name": "Darjeeling",
+      "slug": "darjeeling"
+    },
+    {
+      "lgd_pc_id": 234,
+      "lgd_state_id": 19,
+      "pc_name": "Diamond Harbour",
+      "slug": "diamond-harbour"
+    },
+    {
+      "lgd_pc_id": 235,
+      "lgd_state_id": 19,
+      "pc_name": "Dum Dum",
+      "slug": "dum-dum"
+    },
+    {
+      "lgd_pc_id": 236,
+      "lgd_state_id": 19,
+      "pc_name": "Ghatal",
+      "slug": "ghatal"
+    },
+    {
+      "lgd_pc_id": 237,
+      "lgd_state_id": 19,
+      "pc_name": "Hooghly",
+      "slug": "hooghly"
+    },
+    {
+      "lgd_pc_id": 238,
+      "lgd_state_id": 19,
+      "pc_name": "Howrah",
+      "slug": "howrah"
+    },
+    {
+      "lgd_pc_id": 239,
+      "lgd_state_id": 19,
+      "pc_name": "Jadavpur",
+      "slug": "jadavpur"
+    },
+    {
+      "lgd_pc_id": 240,
+      "lgd_state_id": 19,
+      "pc_name": "Jalpaiguri",
+      "slug": "jalpaiguri"
+    },
+    {
+      "lgd_pc_id": 241,
+      "lgd_state_id": 19,
+      "pc_name": "Jangipur",
+      "slug": "jangipur"
+    },
+    {
+      "lgd_pc_id": 242,
+      "lgd_state_id": 19,
+      "pc_name": "Jaynagar",
+      "slug": "jaynagar"
+    },
+    {
+      "lgd_pc_id": 243,
+      "lgd_state_id": 19,
+      "pc_name": "Jhargram",
+      "slug": "jhargram"
+    },
+    {
+      "lgd_pc_id": 244,
+      "lgd_state_id": 19,
+      "pc_name": "Kanthi",
+      "slug": "kanthi"
+    },
+    {
+      "lgd_pc_id": 245,
+      "lgd_state_id": 19,
+      "pc_name": "Kolkata Dakshin",
+      "slug": "kolkata-dakshin"
+    },
+    {
+      "lgd_pc_id": 247,
+      "lgd_state_id": 19,
+      "pc_name": "Krishnanagar",
+      "slug": "krishnanagar"
+    },
+    {
+      "lgd_pc_id": 248,
+      "lgd_state_id": 19,
+      "pc_name": "Maldaha Dakshin",
+      "slug": "maldaha-dakshin"
+    },
+    {
+      "lgd_pc_id": 249,
+      "lgd_state_id": 19,
+      "pc_name": "Maldaha Uttar",
+      "slug": "maldaha-uttar"
+    },
+    {
+      "lgd_pc_id": 250,
+      "lgd_state_id": 19,
+      "pc_name": "Mathurapur",
+      "slug": "mathurapur"
+    },
+    {
+      "lgd_pc_id": 251,
+      "lgd_state_id": 19,
+      "pc_name": "Medinipur",
+      "slug": "medinipur"
+    },
+    {
+      "lgd_pc_id": 252,
+      "lgd_state_id": 19,
+      "pc_name": "Murshidabad",
+      "slug": "murshidabad"
+    },
+    {
+      "lgd_pc_id": 253,
+      "lgd_state_id": 19,
+      "pc_name": "Purulia",
+      "slug": "purulia"
+    },
+    {
+      "lgd_pc_id": 254,
+      "lgd_state_id": 19,
+      "pc_name": "Raiganj",
+      "slug": "raiganj"
+    },
+    {
+      "lgd_pc_id": 255,
+      "lgd_state_id": 19,
+      "pc_name": "Ranaghat",
+      "slug": "ranaghat"
+    },
+    {
+      "lgd_pc_id": 256,
+      "lgd_state_id": 19,
+      "pc_name": "Sreerampur",
+      "slug": "sreerampur"
+    },
+    {
+      "lgd_pc_id": 257,
+      "lgd_state_id": 19,
+      "pc_name": "Tamluk",
+      "slug": "tamluk"
+    },
+    {
+      "lgd_pc_id": 258,
+      "lgd_state_id": 19,
+      "pc_name": "Uluberia",
+      "slug": "uluberia"
+    },
+    {
+      "lgd_pc_id": 259,
+      "lgd_state_id": 20,
+      "pc_name": "Chatra",
+      "slug": "chatra"
+    },
+    {
+      "lgd_pc_id": 260,
+      "lgd_state_id": 20,
+      "pc_name": "Dhanbad",
+      "slug": "dhanbad"
+    },
+    {
+      "lgd_pc_id": 261,
+      "lgd_state_id": 20,
+      "pc_name": "Dumka",
+      "slug": "dumka"
+    },
+    {
+      "lgd_pc_id": 262,
+      "lgd_state_id": 20,
+      "pc_name": "Giridih",
+      "slug": "giridih"
+    },
+    {
+      "lgd_pc_id": 263,
+      "lgd_state_id": 20,
+      "pc_name": "Godda",
+      "slug": "godda"
+    },
+    {
+      "lgd_pc_id": 264,
+      "lgd_state_id": 20,
+      "pc_name": "Hazaribagh",
+      "slug": "hazaribagh"
+    },
+    {
+      "lgd_pc_id": 265,
+      "lgd_state_id": 20,
+      "pc_name": "Jamshedpur",
+      "slug": "jamshedpur"
+    },
+    {
+      "lgd_pc_id": 266,
+      "lgd_state_id": 20,
+      "pc_name": "Khunti",
+      "slug": "khunti"
+    },
+    {
+      "lgd_pc_id": 267,
+      "lgd_state_id": 20,
+      "pc_name": "Kodarma",
+      "slug": "kodarma"
+    },
+    {
+      "lgd_pc_id": 268,
+      "lgd_state_id": 20,
+      "pc_name": "Lohardaga",
+      "slug": "lohardaga"
+    },
+    {
+      "lgd_pc_id": 269,
+      "lgd_state_id": 20,
+      "pc_name": "Palamau",
+      "slug": "palamau"
+    },
+    {
+      "lgd_pc_id": 270,
+      "lgd_state_id": 20,
+      "pc_name": "Rajmahal",
+      "slug": "rajmahal"
+    },
+    {
+      "lgd_pc_id": 271,
+      "lgd_state_id": 20,
+      "pc_name": "Ranchi",
+      "slug": "ranchi"
+    },
+    {
+      "lgd_pc_id": 272,
+      "lgd_state_id": 20,
+      "pc_name": "Singhbhum",
+      "slug": "singhbhum"
+    },
+    {
+      "lgd_pc_id": 273,
+      "lgd_state_id": 21,
+      "pc_name": "Aska",
+      "slug": "aska"
+    },
+    {
+      "lgd_pc_id": 274,
+      "lgd_state_id": 21,
+      "pc_name": "Balasore",
+      "slug": "balasore"
+    },
+    {
+      "lgd_pc_id": 275,
+      "lgd_state_id": 21,
+      "pc_name": "Bargarh",
+      "slug": "bargarh"
+    },
+    {
+      "lgd_pc_id": 276,
+      "lgd_state_id": 21,
+      "pc_name": "Berhampur",
+      "slug": "berhampur"
+    },
+    {
+      "lgd_pc_id": 277,
+      "lgd_state_id": 21,
+      "pc_name": "Bhadrak",
+      "slug": "bhadrak"
+    },
+    {
+      "lgd_pc_id": 278,
+      "lgd_state_id": 21,
+      "pc_name": "Bhubaneswar",
+      "slug": "bhubaneswar"
+    },
+    {
+      "lgd_pc_id": 279,
+      "lgd_state_id": 21,
+      "pc_name": "Bolangir",
+      "slug": "bolangir"
+    },
+    {
+      "lgd_pc_id": 280,
+      "lgd_state_id": 21,
+      "pc_name": "Cuttack",
+      "slug": "cuttack"
+    },
+    {
+      "lgd_pc_id": 281,
+      "lgd_state_id": 21,
+      "pc_name": "Dhenkanal",
+      "slug": "dhenkanal"
+    },
+    {
+      "lgd_pc_id": 282,
+      "lgd_state_id": 21,
+      "pc_name": "Jagatsinghpur",
+      "slug": "jagatsinghpur"
+    },
+    {
+      "lgd_pc_id": 283,
+      "lgd_state_id": 21,
+      "pc_name": "Jajpur",
+      "slug": "jajpur"
+    },
+    {
+      "lgd_pc_id": 284,
+      "lgd_state_id": 21,
+      "pc_name": "Kalahandi",
+      "slug": "kalahandi"
+    },
+    {
+      "lgd_pc_id": 285,
+      "lgd_state_id": 21,
+      "pc_name": "Kandhamal",
+      "slug": "kandhamal"
+    },
+    {
+      "lgd_pc_id": 286,
+      "lgd_state_id": 21,
+      "pc_name": "Kendrapara",
+      "slug": "kendrapara"
+    },
+    {
+      "lgd_pc_id": 287,
+      "lgd_state_id": 21,
+      "pc_name": "Keonjhar",
+      "slug": "keonjhar"
+    },
+    {
+      "lgd_pc_id": 288,
+      "lgd_state_id": 21,
+      "pc_name": "Koraput",
+      "slug": "koraput"
+    },
+    {
+      "lgd_pc_id": 289,
+      "lgd_state_id": 21,
+      "pc_name": "Mayurbhanj",
+      "slug": "mayurbhanj"
+    },
+    {
+      "lgd_pc_id": 290,
+      "lgd_state_id": 21,
+      "pc_name": "Nabarangpur",
+      "slug": "nabarangpur"
+    },
+    {
+      "lgd_pc_id": 291,
+      "lgd_state_id": 21,
+      "pc_name": "Puri",
+      "slug": "puri"
+    },
+    {
+      "lgd_pc_id": 292,
+      "lgd_state_id": 21,
+      "pc_name": "Sambalpur",
+      "slug": "sambalpur"
+    },
+    {
+      "lgd_pc_id": 293,
+      "lgd_state_id": 21,
+      "pc_name": "Sundargarh",
+      "slug": "sundargarh"
+    },
+    {
+      "lgd_pc_id": 294,
+      "lgd_state_id": 22,
+      "pc_name": "Bastar",
+      "slug": "bastar"
+    },
+    {
+      "lgd_pc_id": 295,
+      "lgd_state_id": 22,
+      "pc_name": "Bilaspur",
+      "slug": "bilaspur"
+    },
+    {
+      "lgd_pc_id": 296,
+      "lgd_state_id": 22,
+      "pc_name": "Durg",
+      "slug": "durg"
+    },
+    {
+      "lgd_pc_id": 297,
+      "lgd_state_id": 22,
+      "pc_name": "Janjgir Champa",
+      "slug": "janjgir-champa"
+    },
+    {
+      "lgd_pc_id": 298,
+      "lgd_state_id": 22,
+      "pc_name": "Kanker",
+      "slug": "kanker"
+    },
+    {
+      "lgd_pc_id": 299,
+      "lgd_state_id": 22,
+      "pc_name": "Korba",
+      "slug": "korba"
+    },
+    {
+      "lgd_pc_id": 300,
+      "lgd_state_id": 22,
+      "pc_name": "Mahasamund",
+      "slug": "mahasamund"
+    },
+    {
+      "lgd_pc_id": 301,
+      "lgd_state_id": 22,
+      "pc_name": "Raigarh",
+      "slug": "raigarh"
+    },
+    {
+      "lgd_pc_id": 302,
+      "lgd_state_id": 22,
+      "pc_name": "Raipur",
+      "slug": "raipur"
+    },
+    {
+      "lgd_pc_id": 303,
+      "lgd_state_id": 22,
+      "pc_name": "Rajnandgaon",
+      "slug": "rajnandgaon"
+    },
+    {
+      "lgd_pc_id": 304,
+      "lgd_state_id": 22,
+      "pc_name": "Surguja",
+      "slug": "surguja"
+    },
+    {
+      "lgd_pc_id": 305,
+      "lgd_state_id": 23,
+      "pc_name": "Balaghat",
+      "slug": "balaghat"
+    },
+    {
+      "lgd_pc_id": 306,
+      "lgd_state_id": 23,
+      "pc_name": "Betul",
+      "slug": "betul"
+    },
+    {
+      "lgd_pc_id": 307,
+      "lgd_state_id": 23,
+      "pc_name": "Bhind",
+      "slug": "bhind"
+    },
+    {
+      "lgd_pc_id": 308,
+      "lgd_state_id": 23,
+      "pc_name": "Bhopal",
+      "slug": "bhopal"
+    },
+    {
+      "lgd_pc_id": 309,
+      "lgd_state_id": 23,
+      "pc_name": "Chhindwara",
+      "slug": "chhindwara"
+    },
+    {
+      "lgd_pc_id": 310,
+      "lgd_state_id": 23,
+      "pc_name": "Damoh",
+      "slug": "damoh"
+    },
+    {
+      "lgd_pc_id": 311,
+      "lgd_state_id": 23,
+      "pc_name": "Dewas",
+      "slug": "dewas"
+    },
+    {
+      "lgd_pc_id": 312,
+      "lgd_state_id": 23,
+      "pc_name": "Dhar",
+      "slug": "dhar"
+    },
+    {
+      "lgd_pc_id": 313,
+      "lgd_state_id": 23,
+      "pc_name": "Guna",
+      "slug": "guna"
+    },
+    {
+      "lgd_pc_id": 314,
+      "lgd_state_id": 23,
+      "pc_name": "Gwalior",
+      "slug": "gwalior"
+    },
+    {
+      "lgd_pc_id": 315,
+      "lgd_state_id": 23,
+      "pc_name": "Hoshangabad",
+      "slug": "hoshangabad"
+    },
+    {
+      "lgd_pc_id": 316,
+      "lgd_state_id": 23,
+      "pc_name": "Indore",
+      "slug": "indore"
+    },
+    {
+      "lgd_pc_id": 317,
+      "lgd_state_id": 23,
+      "pc_name": "Jabalpur",
+      "slug": "jabalpur"
+    },
+    {
+      "lgd_pc_id": 318,
+      "lgd_state_id": 23,
+      "pc_name": "Khajuraho",
+      "slug": "khajuraho"
+    },
+    {
+      "lgd_pc_id": 319,
+      "lgd_state_id": 23,
+      "pc_name": "Khandwa",
+      "slug": "khandwa"
+    },
+    {
+      "lgd_pc_id": 320,
+      "lgd_state_id": 23,
+      "pc_name": "Khargone",
+      "slug": "khargone"
+    },
+    {
+      "lgd_pc_id": 321,
+      "lgd_state_id": 23,
+      "pc_name": "Mandla",
+      "slug": "mandla"
+    },
+    {
+      "lgd_pc_id": 322,
+      "lgd_state_id": 23,
+      "pc_name": "Mandsour",
+      "slug": "mandsour"
+    },
+    {
+      "lgd_pc_id": 323,
+      "lgd_state_id": 23,
+      "pc_name": "Morena",
+      "slug": "morena"
+    },
+    {
+      "lgd_pc_id": 324,
+      "lgd_state_id": 23,
+      "pc_name": "Rajgarh",
+      "slug": "rajgarh"
+    },
+    {
+      "lgd_pc_id": 325,
+      "lgd_state_id": 23,
+      "pc_name": "Ratlam",
+      "slug": "ratlam"
+    },
+    {
+      "lgd_pc_id": 326,
+      "lgd_state_id": 23,
+      "pc_name": "Rewa",
+      "slug": "rewa"
+    },
+    {
+      "lgd_pc_id": 327,
+      "lgd_state_id": 23,
+      "pc_name": "Sagar",
+      "slug": "sagar"
+    },
+    {
+      "lgd_pc_id": 328,
+      "lgd_state_id": 23,
+      "pc_name": "Satna",
+      "slug": "satna"
+    },
+    {
+      "lgd_pc_id": 329,
+      "lgd_state_id": 23,
+      "pc_name": "Shahdol",
+      "slug": "shahdol"
+    },
+    {
+      "lgd_pc_id": 330,
+      "lgd_state_id": 23,
+      "pc_name": "Sidhi",
+      "slug": "sidhi"
+    },
+    {
+      "lgd_pc_id": 331,
+      "lgd_state_id": 23,
+      "pc_name": "Tikamgarh",
+      "slug": "tikamgarh"
+    },
+    {
+      "lgd_pc_id": 332,
+      "lgd_state_id": 23,
+      "pc_name": "Ujjain",
+      "slug": "ujjain"
+    },
+    {
+      "lgd_pc_id": 333,
+      "lgd_state_id": 23,
+      "pc_name": "Vidisha",
+      "slug": "vidisha"
+    },
+    {
+      "lgd_pc_id": 334,
+      "lgd_state_id": 24,
+      "pc_name": "Ahmedabad East",
+      "slug": "ahmedabad-east"
+    },
+    {
+      "lgd_pc_id": 335,
+      "lgd_state_id": 24,
+      "pc_name": "Ahmedabad West",
+      "slug": "ahmedabad-west"
+    },
+    {
+      "lgd_pc_id": 336,
+      "lgd_state_id": 24,
+      "pc_name": "Amreli",
+      "slug": "amreli"
+    },
+    {
+      "lgd_pc_id": 337,
+      "lgd_state_id": 24,
+      "pc_name": "Anand",
+      "slug": "anand"
+    },
+    {
+      "lgd_pc_id": 338,
+      "lgd_state_id": 24,
+      "pc_name": "Banaskantha",
+      "slug": "banaskantha"
+    },
+    {
+      "lgd_pc_id": 339,
+      "lgd_state_id": 24,
+      "pc_name": "Bardoli",
+      "slug": "bardoli"
+    },
+    {
+      "lgd_pc_id": 340,
+      "lgd_state_id": 24,
+      "pc_name": "Bharuch",
+      "slug": "bharuch"
+    },
+    {
+      "lgd_pc_id": 341,
+      "lgd_state_id": 24,
+      "pc_name": "Bhavnagar",
+      "slug": "bhavnagar"
+    },
+    {
+      "lgd_pc_id": 342,
+      "lgd_state_id": 24,
+      "pc_name": "Chhota Udaipur",
+      "slug": "chhota-udaipur"
+    },
+    {
+      "lgd_pc_id": 343,
+      "lgd_state_id": 24,
+      "pc_name": "Dahod",
+      "slug": "dahod"
+    },
+    {
+      "lgd_pc_id": 344,
+      "lgd_state_id": 24,
+      "pc_name": "Gandhinagar",
+      "slug": "gandhinagar"
+    },
+    {
+      "lgd_pc_id": 345,
+      "lgd_state_id": 24,
+      "pc_name": "Jamnagar",
+      "slug": "jamnagar"
+    },
+    {
+      "lgd_pc_id": 346,
+      "lgd_state_id": 24,
+      "pc_name": "Junagadh",
+      "slug": "junagadh"
+    },
+    {
+      "lgd_pc_id": 347,
+      "lgd_state_id": 24,
+      "pc_name": "Kachchh",
+      "slug": "kachchh"
+    },
+    {
+      "lgd_pc_id": 348,
+      "lgd_state_id": 24,
+      "pc_name": "Kheda",
+      "slug": "kheda"
+    },
+    {
+      "lgd_pc_id": 349,
+      "lgd_state_id": 24,
+      "pc_name": "Mahesana",
+      "slug": "mahesana"
+    },
+    {
+      "lgd_pc_id": 350,
+      "lgd_state_id": 24,
+      "pc_name": "Navsari",
+      "slug": "navsari"
+    },
+    {
+      "lgd_pc_id": 351,
+      "lgd_state_id": 24,
+      "pc_name": "Panchmahal",
+      "slug": "panchmahal"
+    },
+    {
+      "lgd_pc_id": 352,
+      "lgd_state_id": 24,
+      "pc_name": "Patan",
+      "slug": "patan"
+    },
+    {
+      "lgd_pc_id": 353,
+      "lgd_state_id": 24,
+      "pc_name": "Porbandar",
+      "slug": "porbandar"
+    },
+    {
+      "lgd_pc_id": 354,
+      "lgd_state_id": 24,
+      "pc_name": "Rajkot",
+      "slug": "rajkot"
+    },
+    {
+      "lgd_pc_id": 355,
+      "lgd_state_id": 24,
+      "pc_name": "Sabarkantha",
+      "slug": "sabarkantha"
+    },
+    {
+      "lgd_pc_id": 356,
+      "lgd_state_id": 24,
+      "pc_name": "Surat",
+      "slug": "surat"
+    },
+    {
+      "lgd_pc_id": 357,
+      "lgd_state_id": 24,
+      "pc_name": "Surendranagar",
+      "slug": "surendranagar"
+    },
+    {
+      "lgd_pc_id": 358,
+      "lgd_state_id": 24,
+      "pc_name": "Vadodara",
+      "slug": "vadodara"
+    },
+    {
+      "lgd_pc_id": 359,
+      "lgd_state_id": 24,
+      "pc_name": "Valsad",
+      "slug": "valsad"
+    },
+    {
+      "lgd_pc_id": 362,
+      "lgd_state_id": 27,
+      "pc_name": "Ahmednagar",
+      "slug": "ahmednagar"
+    },
+    {
+      "lgd_pc_id": 363,
+      "lgd_state_id": 27,
+      "pc_name": "Akola",
+      "slug": "akola"
+    },
+    {
+      "lgd_pc_id": 364,
+      "lgd_state_id": 27,
+      "pc_name": "Amravati",
+      "slug": "amravati"
+    },
+    {
+      "lgd_pc_id": 365,
+      "lgd_state_id": 27,
+      "pc_name": "Aurangabad",
+      "slug": "aurangabad"
+    },
+    {
+      "lgd_pc_id": 366,
+      "lgd_state_id": 27,
+      "pc_name": "Baramati",
+      "slug": "baramati"
+    },
+    {
+      "lgd_pc_id": 367,
+      "lgd_state_id": 27,
+      "pc_name": "Beed",
+      "slug": "beed"
+    },
+    {
+      "lgd_pc_id": 368,
+      "lgd_state_id": 27,
+      "pc_name": "Bhandara - Gondiya",
+      "slug": "bhandara-gondiya"
+    },
+    {
+      "lgd_pc_id": 369,
+      "lgd_state_id": 27,
+      "pc_name": "Bhiwandi",
+      "slug": "bhiwandi"
+    },
+    {
+      "lgd_pc_id": 370,
+      "lgd_state_id": 27,
+      "pc_name": "Buldhana",
+      "slug": "buldhana"
+    },
+    {
+      "lgd_pc_id": 371,
+      "lgd_state_id": 27,
+      "pc_name": "Chandrapur",
+      "slug": "chandrapur"
+    },
+    {
+      "lgd_pc_id": 372,
+      "lgd_state_id": 27,
+      "pc_name": "Dhule",
+      "slug": "dhule"
+    },
+    {
+      "lgd_pc_id": 373,
+      "lgd_state_id": 27,
+      "pc_name": "Dindori",
+      "slug": "dindori"
+    },
+    {
+      "lgd_pc_id": 374,
+      "lgd_state_id": 27,
+      "pc_name": "Gadchiroli-Chimur",
+      "slug": "gadchiroli-chimur"
+    },
+    {
+      "lgd_pc_id": 375,
+      "lgd_state_id": 27,
+      "pc_name": "Hatkanangle",
+      "slug": "hatkanangle"
+    },
+    {
+      "lgd_pc_id": 376,
+      "lgd_state_id": 27,
+      "pc_name": "Hingoli",
+      "slug": "hingoli"
+    },
+    {
+      "lgd_pc_id": 377,
+      "lgd_state_id": 27,
+      "pc_name": "Jalgaon",
+      "slug": "jalgaon"
+    },
+    {
+      "lgd_pc_id": 378,
+      "lgd_state_id": 27,
+      "pc_name": "Jalna",
+      "slug": "jalna"
+    },
+    {
+      "lgd_pc_id": 379,
+      "lgd_state_id": 27,
+      "pc_name": "Kalyan",
+      "slug": "kalyan"
+    },
+    {
+      "lgd_pc_id": 380,
+      "lgd_state_id": 27,
+      "pc_name": "Kolhapur",
+      "slug": "kolhapur"
+    },
+    {
+      "lgd_pc_id": 381,
+      "lgd_state_id": 27,
+      "pc_name": "Latur",
+      "slug": "latur"
+    },
+    {
+      "lgd_pc_id": 382,
+      "lgd_state_id": 27,
+      "pc_name": "Madha",
+      "slug": "madha"
+    },
+    {
+      "lgd_pc_id": 383,
+      "lgd_state_id": 27,
+      "pc_name": "Maval",
+      "slug": "maval"
+    },
+    {
+      "lgd_pc_id": 384,
+      "lgd_state_id": 27,
+      "pc_name": "Mumbai North",
+      "slug": "mumbai-north"
+    },
+    {
+      "lgd_pc_id": 385,
+      "lgd_state_id": 27,
+      "pc_name": "Mumbai North-Central",
+      "slug": "mumbai-north-central"
+    },
+    {
+      "lgd_pc_id": 386,
+      "lgd_state_id": 27,
+      "pc_name": "Mumbai North-East",
+      "slug": "mumbai-north-east"
+    },
+    {
+      "lgd_pc_id": 387,
+      "lgd_state_id": 27,
+      "pc_name": "Mumbai North-West",
+      "slug": "mumbai-north-west"
+    },
+    {
+      "lgd_pc_id": 388,
+      "lgd_state_id": 27,
+      "pc_name": "Mumbai South-Central",
+      "slug": "mumbai-south-central"
+    },
+    {
+      "lgd_pc_id": 389,
+      "lgd_state_id": 27,
+      "pc_name": "Mumbai-South",
+      "slug": "mumbai-south"
+    },
+    {
+      "lgd_pc_id": 390,
+      "lgd_state_id": 27,
+      "pc_name": "Nagpur",
+      "slug": "nagpur"
+    },
+    {
+      "lgd_pc_id": 391,
+      "lgd_state_id": 27,
+      "pc_name": "Nanded",
+      "slug": "nanded"
+    },
+    {
+      "lgd_pc_id": 392,
+      "lgd_state_id": 27,
+      "pc_name": "Nandurbar",
+      "slug": "nandurbar"
+    },
+    {
+      "lgd_pc_id": 393,
+      "lgd_state_id": 27,
+      "pc_name": "Nashik",
+      "slug": "nashik"
+    },
+    {
+      "lgd_pc_id": 394,
+      "lgd_state_id": 27,
+      "pc_name": "Osmanabad",
+      "slug": "osmanabad"
+    },
+    {
+      "lgd_pc_id": 395,
+      "lgd_state_id": 27,
+      "pc_name": "Palghar",
+      "slug": "palghar"
+    },
+    {
+      "lgd_pc_id": 396,
+      "lgd_state_id": 27,
+      "pc_name": "Parbhani",
+      "slug": "parbhani"
+    },
+    {
+      "lgd_pc_id": 397,
+      "lgd_state_id": 27,
+      "pc_name": "Pune",
+      "slug": "pune"
+    },
+    {
+      "lgd_pc_id": 398,
+      "lgd_state_id": 27,
+      "pc_name": "Raigad",
+      "slug": "raigad"
+    },
+    {
+      "lgd_pc_id": 399,
+      "lgd_state_id": 27,
+      "pc_name": "Ramtek",
+      "slug": "ramtek"
+    },
+    {
+      "lgd_pc_id": 400,
+      "lgd_state_id": 27,
+      "pc_name": "Ratnagiri - Sindhudurg",
+      "slug": "ratnagiri-sindhudurg"
+    },
+    {
+      "lgd_pc_id": 401,
+      "lgd_state_id": 27,
+      "pc_name": "Raver",
+      "slug": "raver"
+    },
+    {
+      "lgd_pc_id": 402,
+      "lgd_state_id": 27,
+      "pc_name": "Sangli",
+      "slug": "sangli"
+    },
+    {
+      "lgd_pc_id": 403,
+      "lgd_state_id": 27,
+      "pc_name": "Satara",
+      "slug": "satara"
+    },
+    {
+      "lgd_pc_id": 404,
+      "lgd_state_id": 27,
+      "pc_name": "Shirdi",
+      "slug": "shirdi"
+    },
+    {
+      "lgd_pc_id": 405,
+      "lgd_state_id": 27,
+      "pc_name": "Shirur",
+      "slug": "shirur"
+    },
+    {
+      "lgd_pc_id": 406,
+      "lgd_state_id": 27,
+      "pc_name": "Solapur",
+      "slug": "solapur"
+    },
+    {
+      "lgd_pc_id": 407,
+      "lgd_state_id": 27,
+      "pc_name": "Thane",
+      "slug": "thane"
+    },
+    {
+      "lgd_pc_id": 408,
+      "lgd_state_id": 27,
+      "pc_name": "Wardha",
+      "slug": "wardha"
+    },
+    {
+      "lgd_pc_id": 409,
+      "lgd_state_id": 27,
+      "pc_name": "Yavatmal-Washim",
+      "slug": "yavatmal-washim"
+    },
+    {
+      "lgd_pc_id": 411,
+      "lgd_state_id": 28,
+      "pc_name": "Amalapuram",
+      "slug": "amalapuram"
+    },
+    {
+      "lgd_pc_id": 412,
+      "lgd_state_id": 28,
+      "pc_name": "Anakapalle",
+      "slug": "anakapalle"
+    },
+    {
+      "lgd_pc_id": 413,
+      "lgd_state_id": 28,
+      "pc_name": "Anantapur",
+      "slug": "anantapur"
+    },
+    {
+      "lgd_pc_id": 414,
+      "lgd_state_id": 28,
+      "pc_name": "Araku",
+      "slug": "araku"
+    },
+    {
+      "lgd_pc_id": 415,
+      "lgd_state_id": 28,
+      "pc_name": "Bapatla",
+      "slug": "bapatla"
+    },
+    {
+      "lgd_pc_id": 418,
+      "lgd_state_id": 28,
+      "pc_name": "Chittoor",
+      "slug": "chittoor"
+    },
+    {
+      "lgd_pc_id": 419,
+      "lgd_state_id": 28,
+      "pc_name": "Eluru",
+      "slug": "eluru"
+    },
+    {
+      "lgd_pc_id": 420,
+      "lgd_state_id": 28,
+      "pc_name": "Guntur",
+      "slug": "guntur"
+    },
+    {
+      "lgd_pc_id": 421,
+      "lgd_state_id": 28,
+      "pc_name": "Hindupur",
+      "slug": "hindupur"
+    },
+    {
+      "lgd_pc_id": 423,
+      "lgd_state_id": 28,
+      "pc_name": "Kadapa",
+      "slug": "kadapa"
+    },
+    {
+      "lgd_pc_id": 424,
+      "lgd_state_id": 28,
+      "pc_name": "Kakinada",
+      "slug": "kakinada"
+    },
+    {
+      "lgd_pc_id": 427,
+      "lgd_state_id": 28,
+      "pc_name": "Kurnool",
+      "slug": "kurnool"
+    },
+    {
+      "lgd_pc_id": 428,
+      "lgd_state_id": 28,
+      "pc_name": "Machilipatnam",
+      "slug": "machilipatnam"
+    },
+    {
+      "lgd_pc_id": 435,
+      "lgd_state_id": 28,
+      "pc_name": "Nandyal",
+      "slug": "nandyal"
+    },
+    {
+      "lgd_pc_id": 436,
+      "lgd_state_id": 28,
+      "pc_name": "Narasaraopet",
+      "slug": "narasaraopet"
+    },
+    {
+      "lgd_pc_id": 437,
+      "lgd_state_id": 28,
+      "pc_name": "Narsapuram",
+      "slug": "narsapuram"
+    },
+    {
+      "lgd_pc_id": 438,
+      "lgd_state_id": 28,
+      "pc_name": "Nellore",
+      "slug": "nellore"
+    },
+    {
+      "lgd_pc_id": 440,
+      "lgd_state_id": 28,
+      "pc_name": "Ongole",
+      "slug": "ongole"
+    },
+    {
+      "lgd_pc_id": 442,
+      "lgd_state_id": 28,
+      "pc_name": "Rajahmundry",
+      "slug": "rajahmundry"
+    },
+    {
+      "lgd_pc_id": 443,
+      "lgd_state_id": 28,
+      "pc_name": "Rajampet",
+      "slug": "rajampet"
+    },
+    {
+      "lgd_pc_id": 445,
+      "lgd_state_id": 28,
+      "pc_name": "Srikakulam",
+      "slug": "srikakulam"
+    },
+    {
+      "lgd_pc_id": 446,
+      "lgd_state_id": 28,
+      "pc_name": "Tirupati",
+      "slug": "tirupati"
+    },
+    {
+      "lgd_pc_id": 447,
+      "lgd_state_id": 28,
+      "pc_name": "Vijayawada",
+      "slug": "vijayawada"
+    },
+    {
+      "lgd_pc_id": 448,
+      "lgd_state_id": 28,
+      "pc_name": "Visakhapatnam",
+      "slug": "visakhapatnam"
+    },
+    {
+      "lgd_pc_id": 449,
+      "lgd_state_id": 28,
+      "pc_name": "Vizianagaram",
+      "slug": "vizianagaram"
+    },
+    {
+      "lgd_pc_id": 452,
+      "lgd_state_id": 29,
+      "pc_name": "Bagalkot",
+      "slug": "bagalkot"
+    },
+    {
+      "lgd_pc_id": 453,
+      "lgd_state_id": 29,
+      "pc_name": "Bengaluru Central",
+      "slug": "bengaluru-central"
+    },
+    {
+      "lgd_pc_id": 454,
+      "lgd_state_id": 29,
+      "pc_name": "Bengaluru North",
+      "slug": "bengaluru-north"
+    },
+    {
+      "lgd_pc_id": 455,
+      "lgd_state_id": 29,
+      "pc_name": "Bengaluru Rural",
+      "slug": "bengaluru-rural"
+    },
+    {
+      "lgd_pc_id": 456,
+      "lgd_state_id": 29,
+      "pc_name": "Bengaluru South",
+      "slug": "bengaluru-south"
+    },
+    {
+      "lgd_pc_id": 457,
+      "lgd_state_id": 29,
+      "pc_name": "Belagavi",
+      "slug": "belagavi"
+    },
+    {
+      "lgd_pc_id": 458,
+      "lgd_state_id": 29,
+      "pc_name": "Ballari",
+      "slug": "ballari"
+    },
+    {
+      "lgd_pc_id": 459,
+      "lgd_state_id": 29,
+      "pc_name": "Bidar",
+      "slug": "bidar"
+    },
+    {
+      "lgd_pc_id": 460,
+      "lgd_state_id": 29,
+      "pc_name": "Vijayapura",
+      "slug": "vijayapura"
+    },
+    {
+      "lgd_pc_id": 461,
+      "lgd_state_id": 29,
+      "pc_name": "Chamarajanagar",
+      "slug": "chamarajanagar"
+    },
+    {
+      "lgd_pc_id": 462,
+      "lgd_state_id": 29,
+      "pc_name": "Chikkballapur",
+      "slug": "chikkballapur"
+    },
+    {
+      "lgd_pc_id": 463,
+      "lgd_state_id": 29,
+      "pc_name": "Chikkodi",
+      "slug": "chikkodi"
+    },
+    {
+      "lgd_pc_id": 464,
+      "lgd_state_id": 29,
+      "pc_name": "Chitradurga",
+      "slug": "chitradurga"
+    },
+    {
+      "lgd_pc_id": 465,
+      "lgd_state_id": 29,
+      "pc_name": "Dakshina Kannada",
+      "slug": "dakshina-kannada"
+    },
+    {
+      "lgd_pc_id": 466,
+      "lgd_state_id": 29,
+      "pc_name": "Davanagere",
+      "slug": "davanagere"
+    },
+    {
+      "lgd_pc_id": 467,
+      "lgd_state_id": 29,
+      "pc_name": "Dharwad",
+      "slug": "dharwad"
+    },
+    {
+      "lgd_pc_id": 468,
+      "lgd_state_id": 29,
+      "pc_name": "Kalaburagi",
+      "slug": "kalaburagi"
+    },
+    {
+      "lgd_pc_id": 469,
+      "lgd_state_id": 29,
+      "pc_name": "Hassan",
+      "slug": "hassan"
+    },
+    {
+      "lgd_pc_id": 470,
+      "lgd_state_id": 29,
+      "pc_name": "Haveri",
+      "slug": "haveri"
+    },
+    {
+      "lgd_pc_id": 471,
+      "lgd_state_id": 29,
+      "pc_name": "Kolar",
+      "slug": "kolar"
+    },
+    {
+      "lgd_pc_id": 472,
+      "lgd_state_id": 29,
+      "pc_name": "Koppal",
+      "slug": "koppal"
+    },
+    {
+      "lgd_pc_id": 473,
+      "lgd_state_id": 29,
+      "pc_name": "Mandya",
+      "slug": "mandya"
+    },
+    {
+      "lgd_pc_id": 474,
+      "lgd_state_id": 29,
+      "pc_name": "Mysuru",
+      "slug": "mysuru"
+    },
+    {
+      "lgd_pc_id": 475,
+      "lgd_state_id": 29,
+      "pc_name": "Raichur",
+      "slug": "raichur"
+    },
+    {
+      "lgd_pc_id": 476,
+      "lgd_state_id": 29,
+      "pc_name": "Shivamogga",
+      "slug": "shivamogga"
+    },
+    {
+      "lgd_pc_id": 477,
+      "lgd_state_id": 29,
+      "pc_name": "Tumakuru",
+      "slug": "tumakuru"
+    },
+    {
+      "lgd_pc_id": 478,
+      "lgd_state_id": 29,
+      "pc_name": "Udupi Chikkamagaluru",
+      "slug": "udupi-chikkamagaluru"
+    },
+    {
+      "lgd_pc_id": 479,
+      "lgd_state_id": 29,
+      "pc_name": "Uttara Kannada",
+      "slug": "uttara-kannada"
+    },
+    {
+      "lgd_pc_id": 480,
+      "lgd_state_id": 30,
+      "pc_name": "North Goa",
+      "slug": "north-goa"
+    },
+    {
+      "lgd_pc_id": 481,
+      "lgd_state_id": 30,
+      "pc_name": "South Goa",
+      "slug": "south-goa"
+    },
+    {
+      "lgd_pc_id": 483,
+      "lgd_state_id": 32,
+      "pc_name": "Alappuzha",
+      "slug": "alappuzha"
+    },
+    {
+      "lgd_pc_id": 484,
+      "lgd_state_id": 32,
+      "pc_name": "Alathur",
+      "slug": "alathur"
+    },
+    {
+      "lgd_pc_id": 485,
+      "lgd_state_id": 32,
+      "pc_name": "Attingal",
+      "slug": "attingal"
+    },
+    {
+      "lgd_pc_id": 486,
+      "lgd_state_id": 32,
+      "pc_name": "Chalakudy",
+      "slug": "chalakudy"
+    },
+    {
+      "lgd_pc_id": 487,
+      "lgd_state_id": 32,
+      "pc_name": "Ernakulam",
+      "slug": "ernakulam"
+    },
+    {
+      "lgd_pc_id": 488,
+      "lgd_state_id": 32,
+      "pc_name": "Idukki",
+      "slug": "idukki"
+    },
+    {
+      "lgd_pc_id": 489,
+      "lgd_state_id": 32,
+      "pc_name": "Kannur",
+      "slug": "kannur"
+    },
+    {
+      "lgd_pc_id": 490,
+      "lgd_state_id": 32,
+      "pc_name": "Kasaragod",
+      "slug": "kasaragod"
+    },
+    {
+      "lgd_pc_id": 491,
+      "lgd_state_id": 32,
+      "pc_name": "Kollam",
+      "slug": "kollam"
+    },
+    {
+      "lgd_pc_id": 492,
+      "lgd_state_id": 32,
+      "pc_name": "Kottayam",
+      "slug": "kottayam"
+    },
+    {
+      "lgd_pc_id": 493,
+      "lgd_state_id": 32,
+      "pc_name": "Kozhikode",
+      "slug": "kozhikode"
+    },
+    {
+      "lgd_pc_id": 494,
+      "lgd_state_id": 32,
+      "pc_name": "Malappuram",
+      "slug": "malappuram"
+    },
+    {
+      "lgd_pc_id": 495,
+      "lgd_state_id": 32,
+      "pc_name": "Mavelikkara",
+      "slug": "mavelikkara"
+    },
+    {
+      "lgd_pc_id": 496,
+      "lgd_state_id": 32,
+      "pc_name": "Palakkad",
+      "slug": "palakkad"
+    },
+    {
+      "lgd_pc_id": 497,
+      "lgd_state_id": 32,
+      "pc_name": "Pathanamthitta",
+      "slug": "pathanamthitta"
+    },
+    {
+      "lgd_pc_id": 498,
+      "lgd_state_id": 32,
+      "pc_name": "Ponnani",
+      "slug": "ponnani"
+    },
+    {
+      "lgd_pc_id": 499,
+      "lgd_state_id": 32,
+      "pc_name": "Thiruvananthapuram",
+      "slug": "thiruvananthapuram"
+    },
+    {
+      "lgd_pc_id": 500,
+      "lgd_state_id": 32,
+      "pc_name": "Thrissur",
+      "slug": "thrissur"
+    },
+    {
+      "lgd_pc_id": 501,
+      "lgd_state_id": 32,
+      "pc_name": "Vadakara",
+      "slug": "vadakara"
+    },
+    {
+      "lgd_pc_id": 502,
+      "lgd_state_id": 32,
+      "pc_name": "Wayanad",
+      "slug": "wayanad"
+    },
+    {
+      "lgd_pc_id": 503,
+      "lgd_state_id": 33,
+      "pc_name": "Arakkonam",
+      "slug": "arakkonam"
+    },
+    {
+      "lgd_pc_id": 504,
+      "lgd_state_id": 33,
+      "pc_name": "Arani",
+      "slug": "arani"
+    },
+    {
+      "lgd_pc_id": 505,
+      "lgd_state_id": 33,
+      "pc_name": "Chennai Central",
+      "slug": "chennai-central"
+    },
+    {
+      "lgd_pc_id": 506,
+      "lgd_state_id": 33,
+      "pc_name": "Chennai North",
+      "slug": "chennai-north"
+    },
+    {
+      "lgd_pc_id": 507,
+      "lgd_state_id": 33,
+      "pc_name": "Chennai South",
+      "slug": "chennai-south"
+    },
+    {
+      "lgd_pc_id": 508,
+      "lgd_state_id": 33,
+      "pc_name": "Chidambaram",
+      "slug": "chidambaram"
+    },
+    {
+      "lgd_pc_id": 509,
+      "lgd_state_id": 33,
+      "pc_name": "Coimbatore",
+      "slug": "coimbatore"
+    },
+    {
+      "lgd_pc_id": 510,
+      "lgd_state_id": 33,
+      "pc_name": "Cuddalore",
+      "slug": "cuddalore"
+    },
+    {
+      "lgd_pc_id": 511,
+      "lgd_state_id": 33,
+      "pc_name": "Dharmapuri",
+      "slug": "dharmapuri"
+    },
+    {
+      "lgd_pc_id": 512,
+      "lgd_state_id": 33,
+      "pc_name": "Dindigul",
+      "slug": "dindigul"
+    },
+    {
+      "lgd_pc_id": 513,
+      "lgd_state_id": 33,
+      "pc_name": "Erode",
+      "slug": "erode"
+    },
+    {
+      "lgd_pc_id": 514,
+      "lgd_state_id": 33,
+      "pc_name": "Kallakurichi",
+      "slug": "kallakurichi"
+    },
+    {
+      "lgd_pc_id": 515,
+      "lgd_state_id": 33,
+      "pc_name": "Kancheepuram",
+      "slug": "kancheepuram"
+    },
+    {
+      "lgd_pc_id": 516,
+      "lgd_state_id": 33,
+      "pc_name": "Kanniyakumari",
+      "slug": "kanniyakumari"
+    },
+    {
+      "lgd_pc_id": 517,
+      "lgd_state_id": 33,
+      "pc_name": "Karur",
+      "slug": "karur"
+    },
+    {
+      "lgd_pc_id": 518,
+      "lgd_state_id": 33,
+      "pc_name": "Krishnagiri",
+      "slug": "krishnagiri"
+    },
+    {
+      "lgd_pc_id": 519,
+      "lgd_state_id": 33,
+      "pc_name": "Madurai",
+      "slug": "madurai"
+    },
+    {
+      "lgd_pc_id": 520,
+      "lgd_state_id": 33,
+      "pc_name": "Mayiladuthurai",
+      "slug": "mayiladuthurai"
+    },
+    {
+      "lgd_pc_id": 521,
+      "lgd_state_id": 33,
+      "pc_name": "Nagapattinam",
+      "slug": "nagapattinam"
+    },
+    {
+      "lgd_pc_id": 522,
+      "lgd_state_id": 33,
+      "pc_name": "Namakkal",
+      "slug": "namakkal"
+    },
+    {
+      "lgd_pc_id": 523,
+      "lgd_state_id": 33,
+      "pc_name": "Nilgiris",
+      "slug": "nilgiris"
+    },
+    {
+      "lgd_pc_id": 524,
+      "lgd_state_id": 33,
+      "pc_name": "Perambalur",
+      "slug": "perambalur"
+    },
+    {
+      "lgd_pc_id": 525,
+      "lgd_state_id": 33,
+      "pc_name": "Pollachi",
+      "slug": "pollachi"
+    },
+    {
+      "lgd_pc_id": 526,
+      "lgd_state_id": 33,
+      "pc_name": "Ramanathapuram",
+      "slug": "ramanathapuram"
+    },
+    {
+      "lgd_pc_id": 527,
+      "lgd_state_id": 33,
+      "pc_name": "Salem",
+      "slug": "salem"
+    },
+    {
+      "lgd_pc_id": 528,
+      "lgd_state_id": 33,
+      "pc_name": "Sivaganga",
+      "slug": "sivaganga"
+    },
+    {
+      "lgd_pc_id": 529,
+      "lgd_state_id": 33,
+      "pc_name": "Sriperumbudur",
+      "slug": "sriperumbudur"
+    },
+    {
+      "lgd_pc_id": 530,
+      "lgd_state_id": 33,
+      "pc_name": "Tenkasi",
+      "slug": "tenkasi"
+    },
+    {
+      "lgd_pc_id": 531,
+      "lgd_state_id": 33,
+      "pc_name": "Thanjavur",
+      "slug": "thanjavur"
+    },
+    {
+      "lgd_pc_id": 532,
+      "lgd_state_id": 33,
+      "pc_name": "Theni",
+      "slug": "theni"
+    },
+    {
+      "lgd_pc_id": 533,
+      "lgd_state_id": 33,
+      "pc_name": "Thoothukkudi",
+      "slug": "thoothukkudi"
+    },
+    {
+      "lgd_pc_id": 534,
+      "lgd_state_id": 33,
+      "pc_name": "Tiruchirappalli",
+      "slug": "tiruchirappalli"
+    },
+    {
+      "lgd_pc_id": 535,
+      "lgd_state_id": 33,
+      "pc_name": "Tirunelveli",
+      "slug": "tirunelveli"
+    },
+    {
+      "lgd_pc_id": 536,
+      "lgd_state_id": 33,
+      "pc_name": "Tiruppur",
+      "slug": "tiruppur"
+    },
+    {
+      "lgd_pc_id": 537,
+      "lgd_state_id": 33,
+      "pc_name": "Tiruvallur",
+      "slug": "tiruvallur"
+    },
+    {
+      "lgd_pc_id": 538,
+      "lgd_state_id": 33,
+      "pc_name": "Tiruvannamalai",
+      "slug": "tiruvannamalai"
+    },
+    {
+      "lgd_pc_id": 539,
+      "lgd_state_id": 33,
+      "pc_name": "Vellore",
+      "slug": "vellore"
+    },
+    {
+      "lgd_pc_id": 540,
+      "lgd_state_id": 33,
+      "pc_name": "Viluppuram",
+      "slug": "viluppuram"
+    },
+    {
+      "lgd_pc_id": 541,
+      "lgd_state_id": 33,
+      "pc_name": "Virudhunagar",
+      "slug": "virudhunagar"
+    },
+    {
+      "lgd_pc_id": 542,
+      "lgd_state_id": 34,
+      "pc_name": "PUDUCHERRY",
+      "slug": "puducherry"
+    },
+    {
+      "lgd_pc_id": 543,
+      "lgd_state_id": 35,
+      "pc_name": "Andaman & Nicobar Islands",
+      "slug": "andaman-and-nicobar-islands"
+    },
+    {
+      "lgd_pc_id": 410,
+      "lgd_state_id": 36,
+      "pc_name": "Adilabad",
+      "slug": "adilabad"
+    },
+    {
+      "lgd_pc_id": 416,
+      "lgd_state_id": 36,
+      "pc_name": "Bhongir",
+      "slug": "bhongir"
+    },
+    {
+      "lgd_pc_id": 417,
+      "lgd_state_id": 36,
+      "pc_name": "Chevella",
+      "slug": "chevella"
+    },
+    {
+      "lgd_pc_id": 422,
+      "lgd_state_id": 36,
+      "pc_name": "Hyderabad",
+      "slug": "hyderabad"
+    },
+    {
+      "lgd_pc_id": 425,
+      "lgd_state_id": 36,
+      "pc_name": "Karimnagar",
+      "slug": "karimnagar"
+    },
+    {
+      "lgd_pc_id": 426,
+      "lgd_state_id": 36,
+      "pc_name": "Khammam",
+      "slug": "khammam"
+    },
+    {
+      "lgd_pc_id": 429,
+      "lgd_state_id": 36,
+      "pc_name": "Mahabubabad",
+      "slug": "mahabubabad"
+    },
+    {
+      "lgd_pc_id": 430,
+      "lgd_state_id": 36,
+      "pc_name": "Mahabubnagar",
+      "slug": "mahabubnagar"
+    },
+    {
+      "lgd_pc_id": 431,
+      "lgd_state_id": 36,
+      "pc_name": "Malkajgiri",
+      "slug": "malkajgiri"
+    },
+    {
+      "lgd_pc_id": 432,
+      "lgd_state_id": 36,
+      "pc_name": "Medak",
+      "slug": "medak"
+    },
+    {
+      "lgd_pc_id": 433,
+      "lgd_state_id": 36,
+      "pc_name": "Nagarkurnool",
+      "slug": "nagarkurnool"
+    },
+    {
+      "lgd_pc_id": 434,
+      "lgd_state_id": 36,
+      "pc_name": "Nalgonda",
+      "slug": "nalgonda"
+    },
+    {
+      "lgd_pc_id": 439,
+      "lgd_state_id": 36,
+      "pc_name": "Nizamabad",
+      "slug": "nizamabad"
+    },
+    {
+      "lgd_pc_id": 441,
+      "lgd_state_id": 36,
+      "pc_name": "Peddapalle",
+      "slug": "peddapalle"
+    },
+    {
+      "lgd_pc_id": 444,
+      "lgd_state_id": 36,
+      "pc_name": "Secunderabad",
+      "slug": "secunderabad"
+    },
+    {
+      "lgd_pc_id": 450,
+      "lgd_state_id": 36,
+      "pc_name": "Warangal",
+      "slug": "warangal"
+    },
+    {
+      "lgd_pc_id": 451,
+      "lgd_state_id": 36,
+      "pc_name": "Zahirabad",
+      "slug": "zahirabad"
+    },
+    {
+      "lgd_pc_id": 360,
+      "lgd_state_id": 38,
+      "pc_name": "Daman & Diu",
+      "slug": "daman-and-diu"
+    },
+    {
+      "lgd_pc_id": 361,
+      "lgd_state_id": 38,
+      "pc_name": "Dadra & Nagar Haveli",
+      "slug": "dadra-and-nagar-haveli"
+    }
+  ]
+}

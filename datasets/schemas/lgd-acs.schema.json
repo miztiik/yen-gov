@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./lgd-acs.schema.json",
+  "title": "LGD Assembly Constituency register",
+  "description": "Authoritative register of Vidhan Sabha Assembly Constituencies keyed on the LGD numeric ac_id (Ministry of Panchayati Raj). FK to lgd_states.json on lgd_state_id and lgd_pcs.json on lgd_pc_id (nullable when LGD does not record a parent PC). ECI ac_no is NOT carried here per ADR-0049 - the ECI<->LGD join lives in datasets/taxonomy/ac_crosswalk.parquet.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {"version": "1.0", "date": "2026-06-01", "summary": "Initial schema. 3918 ACs from LGD Constituency Coverage Report snapshot 2026-06-01. Delhi (70 ACs) missing from source report - documented gap."}
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "sources", "acs"],
+  "additionalProperties": true,
+  "properties": {
+    "$schema": {"type": "string"},
+    "$schema_version": {"type": "string"},
+    "$comment": {"type": "string"},
+    "sources": {"type": "array", "items": {"type": "object"}},
+    "acs": {
+      "type": "array",
+      "minItems": 3000,
+      "items": {
+        "type": "object",
+        "required": ["lgd_ac_id", "lgd_state_id", "ac_name", "slug"],
+        "additionalProperties": false,
+        "properties": {
+          "lgd_ac_id": {"type": "integer", "minimum": 1, "description": "LGD numeric AC id. Globally unique across India."},
+          "lgd_state_id": {"type": "integer", "minimum": 1, "maximum": 99, "description": "FK to lgd_states.json:lgd_state_id."},
+          "lgd_pc_id": {"type": ["integer", "null"], "description": "FK to lgd_pcs.json:lgd_pc_id. Nullable when LGD does not record a parent PC for this AC."},
+          "ac_name": {"type": "string", "minLength": 1},
+          "slug": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"}
+        }
+      }
+    }
+  }
+}
