@@ -87,7 +87,7 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 | PR-B4 | B | National atlas route `/t/elections/:event` + INDIA_PC + loadNationalPcWinners | PR-B2; live data needs PR-A4 | [x] DONE | Gregor |
 | PR-B5 | B | Cross-year E1: swing arrows on seat-composition bars | PR-B3 | [x] DONE | Jony |
 | PR-B6 | B | Cross-year E2: snapping time-slider on map/cartogram | PR-B3 | [x] DONE | Jony |
-| PR-B7 | B | Cross-year E3: opt-in 2-election sankey (capped) | PR-B3 | [ ] PENDING | Jony |
+| PR-B7 | B | Cross-year E3: opt-in 2-election sankey (capped) | PR-B3 | [x] COLLAPSED | Jony |
 | PR-B8 | B | Filter rail F1/F2/F3 (party / margin band / colour-by) - state level | PR-B3 | [ ] PENDING | Gregor + Max |
 | PR-B9 | B | Wire filters at national level | PR-B8; PR-B4; PR-A4 | [ ] PENDING | Gregor |
 
@@ -370,6 +370,8 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 **Escalation:** **Jony** ("does the capped flow read honestly, or should it be deferred?"). If Jony says defer, COLLAPSE this row with rationale rather than ship an unreadable chart.
 
 **Acceptance gates:** G3; G4 filtered; G5 browser smoke of the opt-in flow.
+
+**COLLAPSED 2026-06-01 per Jony (no code shipped).** A two-election net-seat-delta ribbon diagram reuses the scenario-lab's proportional "loser-redistributes-to-gainers" approximation, which on real elections fabricates a party-to-party seat-transfer matrix that the data cannot support - the ribbon's visual grammar asserts "A's seats went to B" when seats are won per-constituency with no such transfer. The honesty banner cannot retract what the geometry asserts. The page already conveys the true model via the stacked seat-trend with explicit ▲/▼ swing arrows (shipped in PR-B5), which show identical gains/losses without implying causality; the flow view adds no new true information and actively risks a false causal mental model. Deferred indefinitely. (If a paired before/after comparison is ever wanted, the honest form is two grouped seat bars per party with the delta labelled - no ribbons - but that is redundant with the PR-B5 swing arrows, so there is no value gap to fill.)
 
 ### PR-B8 - Filter rail F1/F2/F3 (party / margin band / colour-by) - state level
 
