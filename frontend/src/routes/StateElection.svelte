@@ -32,6 +32,8 @@
   import { fetchElectionEvents, findEvent, type ElectionEventsCatalogue } from "../lib/election-events";
   import { states } from "../lib/states.svelte";
   import { url } from "../lib/url";
+  import ElectionMap from "../lib/elections/ElectionMap.svelte";
+  import { loadStateAcWinners, type AcWinner } from "../lib/view-models/state-overview";
 
   interface Props {
     params: { state: string; event: string };
@@ -50,6 +52,20 @@
 
   const states_loading = $derived(!states.isLoaded);
   const catalogue_loading = $derived(catalogue === null && load_error === null);
+
+  // Assembly results power the map+toggle surface. Lok Sabha (national)
+  // events drill into the national atlas (PR-B4), not this per-state AC map,
+  // so we only load AC winners for assembly events. `null` = loading.
+  let ac_winners = $state<AcWinner[] | null>(null);
+  $effect(() => {
+    ac_winners = null;
+    const sc = state_code;
+    const ev = event_row;
+    if (!sc || !ev || ev.kind !== "assembly") return;
+    loadStateAcWinners(ev.event_id, sc).then(r => {
+      ac_winners = r.status === "ok" || r.status === "partial" ? r.data : [];
+    });
+  });
 </script>
 
 <section class="p-4 sm:p-6 space-y-6 max-w-4xl">
@@ -150,6 +166,17 @@
         <p class="text-xs text-slate-500">{ev.notes}</p>
       {/if}
     </article>
+
+    {#if ev.kind === "assembly"}
+      <section class="space-y-2" data-testid="state-election-map">
+        <h2 class="text-lg font-semibold">Results map</h2>
+        <p class="text-xs text-slate-500">
+          Switch between the geographic map and the equal-seats cartogram.
+          Tap a constituency to open its detailed result.
+        </p>
+        <ElectionMap state={state_code} rows={ac_winners} event={ev.event_id} />
+      </section>
+    {/if}
 
     <nav class="flex flex-wrap gap-2 text-sm" aria-label="Election surfaces">
       <a

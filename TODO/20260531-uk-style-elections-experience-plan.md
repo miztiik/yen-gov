@@ -83,7 +83,7 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 | PR-A4 | A | Run ingest: write PC parquet + dim_pcs + lok_sabha event row + validate | PR-A3 | [x] DONE (local) | Max |
 | PR-B1 | B | Tile-layout schema + grapher layouts + pilot S13-AC + national-PC layout | none `||` | [x] DONE (288 AC + 545 PC tiles, 0 overlaps) | Jony |
 | PR-B2 | B | Generic `<TileCartogram>` SVG component + layout loader + ChartShell wrap | PR-B1 | [x] DONE (component + view-model + sandbox mount; 8+9 vitest, sandbox Playwright green) | Jony |
-| PR-B3 | B | `ElectionMap` wrapper (Map\|Equal seats toggle) on StateElection (AC) | PR-B2 | [ ] PENDING | Jony |
+| PR-B3 | B | `ElectionMap` wrapper (Map\|Equal seats toggle) on StateElection (AC) | PR-B2 | [x] DONE (Map\|Equal-seats toggle, ?view=hex persist, hex drill-to-AC; svelte-check 0e, tile vitest 17, elections-atlas e2e 2/2 green on S13 AcGenOct2019) | Jony |
 | PR-B4 | B | National atlas route `/t/elections/:event` + INDIA_PC + loadNationalPcWinners | PR-B2; live data needs PR-A4 | [ ] PENDING | Gregor |
 | PR-B5 | B | Cross-year E1: swing arrows on seat-composition bars | PR-B3 | [ ] PENDING | Jony |
 | PR-B6 | B | Cross-year E2: snapping time-slider on map/cartogram | PR-B3 | [ ] PENDING | Jony |
@@ -301,9 +301,9 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 **Escalation:** **Jony** on default mode + toggle affordance copy.
 
 **Acceptance gates (frugal):**
-- [ ] G3 `bun run check` 0 errors.
-- [ ] G4 `bun run test` filtered to the touched view-model/component tests.
-- [ ] G5 integrated Playwright `elections-atlas.spec.ts` green; manual browser smoke of `/s/maharashtra/elections/<event>` + one cross-route (`/s/maharashtra`) for no-regression. No remote deploy wait.
+- [x] G3 `bun run check` 0 errors (7 pre-existing a11y warnings unrelated).
+- [x] G4 `bun run test tile-cartogram election-tile-layout` 17 passed.
+- [x] G5 integrated Playwright `elections-atlas.spec.ts` 2/2 green on `/s/maharashtra/elections/AcGenOct2019` (geo default, toggle persists `?view=hex`, 288 cartogram tiles, hex-tile click drills to `/s/maharashtra/ac/<n>`).
 
 ### PR-B4 - National atlas route + INDIA_PC + national PC loader (ships dark, lights up after PR-A4)
 
