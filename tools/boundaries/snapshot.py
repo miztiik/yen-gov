@@ -1204,6 +1204,21 @@ def main(argv: list[str] | None = None) -> int:
         f"sources upserted (total now {n_sources})",
         flush=True,
     )
+
+    # Row B1 (ADR-0049): stamp the canonical internal join key lgd_ac_id onto
+    # every covered AC feature from the crosswalk. Idempotent + crosswalk-gated
+    # so re-running over an already-stamped tree is a byte-stable no-op.
+    from lift_boundary_lgd_ac_id import lift_all  # noqa: E402
+
+    lgd_report = lift_all(datasets_root)
+    lgd_total = sum(s for _, s in lgd_report.values())
+    if lgd_total:
+        lgd_states = sum(1 for _, s in lgd_report.values() if s)
+        print(
+            f"lgd_ac_id stamped: {lgd_total} features across "
+            f"{lgd_states}/{len(lgd_report)} AC shards",
+            flush=True,
+        )
     return 0
 
 

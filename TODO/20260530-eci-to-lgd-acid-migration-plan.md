@@ -52,7 +52,7 @@ User granted explicit big-bang authorization (verbatim intent): "YOU HAVE PERMIS
 | A1 | Crosswalk contract + scaffolding (schema + helper, no data, no readers) | [x] DONE | #530 | M |
 | A2 | Materialize crosswalk by harvesting ~30 covered states from boundary `AC_ID` | [x] DONE - 4113 rows / 3860 lgd_direct / 253 unmapped (93.8% mapped); bijection+cover oracle green | #533 | M |
 | A3 | Lift `lgd_ac_id` nullable attribute onto `dim_acs` | [x] DONE | #534 | M |
-| B1 | Boundary snapshot emits `lgd_ac_id` as parallel top-level join property | [ ] PENDING | _pending_ | M |
+| B1 | Boundary snapshot emits `lgd_ac_id` as parallel top-level join property | [x] DONE - 29/31 AC shards stamped (3860 distinct = crosswalk-covered); S03+U08 exempt (no AC_ID); S01 string->int normalised | #535 | M |
 | B2 | Frontend canonical join via crosswalk (Message Translator), output-pinned | [ ] PENDING | _pending_ | L |
 | B3 | Flip boundary default `join_property` to `lgd_ac_id` for covered states | [ ] PENDING | _pending_ | M |
 | URL | AC URL slug gains name suffix `/s/<state>/ac/<eci_no>-<name-slug>` | [ ] PENDING | _pending_ | M |
@@ -127,6 +127,8 @@ Phases: A (structural, ships NOW without external sourcing), B (reader cutover, 
 
 - Surfaces: `tools/boundaries/snapshot.py` (promote provenance `lgd_ac_id` to first-class feature property for all ~30 covered states, not just S01), pipeline config, `frontend/src/lib/maplibre/sources.ts` (add `join_property_lgd` beside existing `ac_no`). Keep `ac_no`.
 - Gate: Contract (boundary `lgd_ac_id` subset-of crosswalk covered).
+
+**DONE (PR #535):** New `tools/boundaries/lift_boundary_lgd_ac_id.py` (pure duckdb+stdlib) stamps `lgd_ac_id = int(AC_ID)` onto every crosswalk-covered AC feature; `snapshot.py` calls it at end-of-run for future-correctness. `sources.ts` `BoundaryEntry` gains optional `join_property_lgd: "lgd_ac_id"` on all 29 covered states (S03 + U08 exempt - no `AC_ID`). 29/31 shards stamped; 3860 distinct `lgd_ac_id` = exactly crosswalk-covered (subset gate green). S01 `lgd_ac_id` normalised string->int. Gates: validate EXIT=0; `test_lift_boundary_lgd_ac_id.py` 7/7; `state-ac-registry-coverage.test.ts` 67/67; svelte-check 0e/7w.
 
 ### Row B2 - Frontend canonical join via crosswalk (behavioural, output-pinned)
 
