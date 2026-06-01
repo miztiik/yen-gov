@@ -48,3 +48,58 @@ test("@elections selecting a seat on the cartogram navigates to that constituenc
   // Clicking a tile drills into the AC detail route for this state.
   await expect(page).toHaveURL(/\/s\/maharashtra\/ac\/\d+/);
 });
+
+// National Lok Sabha PC atlas (PR-B4). LsGenJun2024 PC results were ingested
+// in PR-A4, so the choropleth lights up with winners + a seat-total bar.
+const NATIONAL_ROUTE = "/t/elections/LsGenJun2024";
+
+test("@elections national PC atlas renders results + toggles to the equal-seats cartogram", async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on("console", (msg) => {
+    // The generic "Failed to load resource … 404" console line carries no URL;
+    // 404s are vetted precisely by the response handler below, so skip it here
+    // to avoid double-counting the expected optional-manifest 404.
+    if (msg.type() === "error" && !/Failed to load resource.*404/.test(msg.text())) {
+      errors.push(msg.text());
+    }
+  });
+  page.on("response", (r) => {
+    // The optional PMTiles boundary manifest is absent until vector tiles
+    // ship; sources.ts resolves its 404 to null and falls back to GeoJSON,
+    // so this specific 404 is an expected part of the contract, not a fault.
+    if (r.status() === 404 && !r.url().endsWith("/boundaries/in/manifest.json")) {
+      errors.push(`404 ${r.url()}`);
+    }
+  });
+
+  await page.goto(NATIONAL_ROUTE);
+
+  await expect(
+    page.getByRole("heading", {
+      name: "National results — Parliamentary Constituencies",
+    }),
+  ).toBeVisible();
+
+  // PC winners light up the seat-total bar (PR-A4 ingested LsGenJun2024).
+  // The national scan spans every state shard of election_results (~1.6M
+  // rows) plus a DuckDB-WASM cold start, so allow a generous first paint.
+  await expect(
+    page.locator('[data-testid="national-seat-total-bar"]'),
+  ).toBeVisible({ timeout: 30000 });
+
+  // Geographic arm is the default.
+  await expect(
+    page.locator('[data-testid="national-election-map-geo"]'),
+  ).toBeVisible();
+
+  // Switch to the equal-seats cartogram → 545 national PC tiles.
+  const toggle = page.locator('[data-testid="election-map-toggle"]');
+  await toggle.locator('[data-view="hex"]').click();
+  await expect(page).toHaveURL(/[?&]view=hex/);
+  const hex = page.locator('[data-testid="national-election-map-hex"]');
+  await expect(hex.locator("svg polygon")).toHaveCount(545);
+
+  expect(errors).toEqual([]);
+});

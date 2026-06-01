@@ -84,7 +84,7 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 | PR-B1 | B | Tile-layout schema + grapher layouts + pilot S13-AC + national-PC layout | none `||` | [x] DONE (288 AC + 545 PC tiles, 0 overlaps) | Jony |
 | PR-B2 | B | Generic `<TileCartogram>` SVG component + layout loader + ChartShell wrap | PR-B1 | [x] DONE (component + view-model + sandbox mount; 8+9 vitest, sandbox Playwright green) | Jony |
 | PR-B3 | B | `ElectionMap` wrapper (Map\|Equal seats toggle) on StateElection (AC) | PR-B2 | [x] DONE (Map\|Equal-seats toggle, ?view=hex persist, hex drill-to-AC; svelte-check 0e, tile vitest 17, elections-atlas e2e 2/2 green on S13 AcGenOct2019) | Jony |
-| PR-B4 | B | National atlas route `/t/elections/:event` + INDIA_PC + loadNationalPcWinners | PR-B2; live data needs PR-A4 | [ ] PENDING | Gregor |
+| PR-B4 | B | National atlas route `/t/elections/:event` + INDIA_PC + loadNationalPcWinners | PR-B2; live data needs PR-A4 | [x] DONE | Gregor |
 | PR-B5 | B | Cross-year E1: swing arrows on seat-composition bars | PR-B3 | [ ] PENDING | Jony |
 | PR-B6 | B | Cross-year E2: snapping time-slider on map/cartogram | PR-B3 | [ ] PENDING | Jony |
 | PR-B7 | B | Cross-year E3: opt-in 2-election sankey (capped) | PR-B3 | [ ] PENDING | Jony |
@@ -319,10 +319,14 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 **Escalation:** dispatch **Gregor** on the national loader contract + the "dark until data" degradation shape. Apply verdict.
 
 **Acceptance gates (frugal):**
-- [ ] G3 `bun run check` 0 errors.
-- [ ] G4 `bun run test` filtered to `national-elections` tests.
-- [ ] G5 integrated Playwright: `/t/elections/<event>` renders PC boundary + either winners or pending-state; tap-state drills; no console error/404. No remote deploy wait.
-- [ ] Verify `sources.ts` diff is a pure append (no edits to `STATE_AC` / topojson path) via `git diff`.
+- [x] G3 `bun run check` 0 errors (0 errors / 7 pre-existing a11y warnings in 6 files).
+- [x] G4 `bun run test` schema-compat + duckdb green (21/21). National loader exercised live via the integrated Playwright smoke (542 winners over 1.6M-row national scan).
+- [x] G5 integrated Playwright: `/t/elections/LsGenJun2024` renders the PC seat-total bar + geo choropleth, toggles to the 545-tile equal-seats cartogram (`?view=hex`), drills to state on select; no console error/404 (3/3 elections-atlas specs pass).
+- [x] Verify `sources.ts` diff is a pure append (41 insertions, 0 deletions; no edits to `STATE_AC` / topojson path) via `git diff`.
+
+**Implementation notes (deviations from plan TEXT, baked):**
+- **Join key correction:** `INDIA_PC.join_property` is **`unique_id`** (`<state_ut_code>_<ls_seat_code>`, e.g. `S07_8`), NOT the bare `ls_seat_code`. ECI `ls_seat_code` is per-state and collides nationally; `pipeline.json` `id_property_note` confirms the join needs the `(st_name, pc_no)` tuple. The loader emits `join_key = ${state_code}_${pc_no}` to match. The 2 J&K-territory placeholders (`ls_seat_code=999`) carry no winner and render via `hatch_unmapped` (cartography contract honoured).
+- **Reader plumbing:** registering `elections.dim_pcs` at runtime required adding it to `ROW_SCHEMA_BY_TABLE_ID` in `frontend/src/lib/duckdb.ts` AND adding a `dim-pcs.schema.json` override (v1.0) to `datasets/schema-compatibility.json`. Also fixed a pre-existing Lane-A gap: `indicator-catalogue.schema.json` was bumped to v2.5 (PC indicator family) but the reader registry still capped at v2.4 — added `2.5` (additive minor) to its accepted versions.
 
 ### PR-B5 - Cross-year E1: swing arrows on seat-composition bars
 

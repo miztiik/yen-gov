@@ -18,6 +18,7 @@ import TopicIndex from "./routes/TopicIndex.svelte";
 import TopicLanding from "./routes/TopicLanding.svelte";
 import StateTopic from "./routes/StateTopic.svelte";
 import StateElection from "./routes/StateElection.svelte";
+import NationalElectionsAtlas from "./routes/NationalElectionsAtlas.svelte";
 import DataCompleteness from "./routes/DataCompleteness.svelte";
 import DuckDbHarness from "./routes/DuckDbHarness.svelte";
 import DevChartsSandbox from "./routes/DevChartsSandbox.svelte";
@@ -84,6 +85,10 @@ startRouter({
     { pattern: "/disclaimer", component: Disclaimer },
     // Topic Front Door (P3.3, ADR-0022).
     { pattern: "/t", component: TopicIndex },
+    // National Lok Sabha PC results atlas (UK-style elections plan, PR-B4).
+    // 3-segment pattern, distinct from /t/:topic (2 segments); placed first
+    // so the more-specific route wins regardless of matcher order.
+    { pattern: "/t/elections/:event", component: NationalElectionsAtlas },
     { pattern: "/t/:topic", component: TopicLanding },
     // Citizen transparency surface (folded-indicator PR commit 10).
     { pattern: "/data-completeness", component: DataCompleteness },

@@ -1628,3 +1628,44 @@ export async function resolveSource(entry: BoundaryEntry): Promise<ResolvedSourc
   }
   return { kind: "geojson", url: entry.geojson_url };
 }
+
+// ---------------------------------------------------------------------------
+// National Lok Sabha Parliamentary Constituency layer (PR-B4 of the UK-style
+// elections experience plan). APPEND-ONLY — added at EOF so the topojson /
+// boundary migration running in sibling worktrees never conflicts on the
+// per-state AC entries above.
+//
+// 545 features (543 numbered PCs + 2 J&K-territory placeholders at
+// ls_seat_code=999). shijithpk georeferenced the ECI Press Note No. 23 PDF
+// images; researcher-grade, choropleth-only (see tools/boundaries/pipeline.json
+// `kind:"pc"` $comment for the survey-grade caveat).
+//
+// JOIN KEY = `unique_id` (e.g. `S07_8`), NOT `ls_seat_code`. ECI numbers PCs
+// per-state (Tamil Nadu 1..39, Karnataka 1..28, ...), so `ls_seat_code` alone
+// collides across states for a NATIONAL choropleth. `unique_id` =
+// `<state_ut_code>_<ls_seat_code>` is globally unique and matches the
+// `join_key` the national loader emits (national-elections.ts
+// `<state_code>_<pc_no>`). This deviates from the plan's `ls_seat_code` +
+// int-coercion note, which assumed a globally-numbered key that the upstream
+// GeoJSON does not carry (pipeline.json id_property_note: "Joining election
+// results to geometry requires the (st_name, pc_no) tuple, not pc_no alone").
+//
+// CARTOGRAPHY CONTRACT: the 2 `ls_seat_code=999` placeholders cover J&K
+// territory administered by Pakistan/China and MUST be rendered with a
+// distinct treatment (diagonal hatch) and NEVER tinted with election colours.
+// They carry no election winner, so they fall outside the choropleth `fills`
+// map; renderers MUST pass `hatch_unmapped` to MapChoropleth so these features
+// hatch instead of taking `default_fill`.
+//
+// No permalinked upstream release exists (the supplement repo ships per-state
+// shards + reconstruction scripts, not a consolidated 545-feature artifact),
+// so the local snapshot under DATA_BASE is the canonical source; `geojson_url`
+// points at the supplement repo only as a provenance pointer of last resort.
+export const INDIA_PC: BoundaryEntry = {
+  id: "india-pc",
+  label: "India — Parliamentary Constituencies (2024 delimitation)",
+  geojson_local_path: "boundaries/in/pc/delim=2024/all.geojson",
+  geojson_url:
+    "https://github.com/shijithpk/2024_maps_supplement",
+  join_property: "unique_id",
+};
