@@ -42,6 +42,15 @@ export interface BoundaryEntry {
   geojson_url: string;
   /** Property name on each feature carrying the join key. */
   join_property: string;
+  /**
+   * Optional parallel join key carrying the canonical INTERNAL AC
+   * identifier `lgd_ac_id` (ADR-0049, Row B1). Present on every covered
+   * AC state whose boundary features carry a crosswalk-covered `AC_ID`
+   * (all AC states except S03 Assam district-fallback and U08 J&K
+   * seat_id). `join_property` (`ac_no` = ECI eci_no) is retained beside
+   * it; the canonical join migrates to `lgd_ac_id` in Row B3.
+   */
+  join_property_lgd?: string;
 }
 
 // Single citizen-facing footer for ALL boundary layers (A.3 - attribution
@@ -128,6 +137,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S22: {
     id: "S22-ac",
@@ -136,6 +146,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S11: {
     id: "S11-ac",
@@ -144,6 +155,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S25: {
     id: "S25-ac",
@@ -152,6 +164,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S03: {
     id: "S03-ac",
@@ -169,6 +182,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   // A.2 (docs/archive/plans/20260529-boundary-rip-and-replace-plan.md) - 24 additional
   // LGD-keyed AC layers covering the remaining states + UTs where the AC
@@ -188,6 +202,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S04: {
     id: "S04-ac",
@@ -196,6 +211,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S05: {
     id: "S05-ac",
@@ -204,6 +220,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S06: {
     id: "S06-ac",
@@ -212,6 +229,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S07: {
     id: "S07-ac",
@@ -220,6 +238,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S08: {
     id: "S08-ac",
@@ -228,6 +247,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S10: {
     id: "S10-ac",
@@ -236,6 +256,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S12: {
     id: "S12-ac",
@@ -244,6 +265,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S13: {
     id: "S13-ac",
@@ -252,6 +274,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S14: {
     id: "S14-ac",
@@ -260,6 +283,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S15: {
     id: "S15-ac",
@@ -268,6 +292,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S16: {
     id: "S16-ac",
@@ -276,6 +301,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S17: {
     id: "S17-ac",
@@ -284,6 +310,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S18: {
     id: "S18-ac",
@@ -292,6 +319,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S19: {
     id: "S19-ac",
@@ -300,6 +328,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S20: {
     id: "S20-ac",
@@ -308,6 +337,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S21: {
     id: "S21-ac",
@@ -316,6 +346,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S23: {
     id: "S23-ac",
@@ -324,6 +355,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S24: {
     id: "S24-ac",
@@ -332,6 +364,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S26: {
     id: "S26-ac",
@@ -340,6 +373,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S27: {
     id: "S27-ac",
@@ -348,6 +382,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S28: {
     id: "S28-ac",
@@ -356,6 +391,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   S29: {
     id: "S29-ac",
@@ -364,6 +400,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   U05: {
     id: "U05-ac",
@@ -372,6 +409,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "ac_no",
+    join_property_lgd: "lgd_ac_id",
   },
   // J&K post-2022 delimitation (90 ACs). HTL/datameet still ship the
   // pre-delimitation 87-AC layer for J&K; shijithpk/2024_maps_supplement

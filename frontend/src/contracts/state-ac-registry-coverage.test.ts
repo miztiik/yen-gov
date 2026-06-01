@@ -102,3 +102,25 @@ describe("STATE_AC entry shape is well-formed", () => {
     }
   });
 });
+
+describe("STATE_AC carries the canonical lgd_ac_id parallel join key (Row B1)", () => {
+  // ADR-0049: lgd_ac_id is the canonical INTERNAL AC join key. Row B1
+  // stamps it onto every covered AC boundary feature (crosswalk-gated)
+  // and declares it here as `join_property_lgd` beside the retained
+  // `ac_no`. Two documented exceptions carry NO lgd_ac_id because their
+  // features carry no crosswalk-covered AC_ID:
+  //   - S03 Assam: Tier-4 district-fallback geometry (no AC_ID property)
+  //   - U08 J&K:   shijithpk seat_id supplement (no AC_ID property)
+  const LGD_EXEMPT = new Set(["S03", "U08"]);
+
+  it.each(Object.entries(STATE_AC))(
+    "entry %s declares join_property_lgd iff it is not LGD-exempt",
+    (code, entry) => {
+      if (LGD_EXEMPT.has(code)) {
+        expect(entry.join_property_lgd).toBeUndefined();
+      } else {
+        expect(entry.join_property_lgd).toBe("lgd_ac_id");
+      }
+    },
+  );
+});
