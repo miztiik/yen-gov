@@ -31,7 +31,7 @@ If yen-gov adopts ECI as the canonical join key (the trap of PR #542's enrich-on
 | :-: | --- | --- | --- | :-: |
 | L0 | This plan-doc + sign-off | [ ] PENDING | _pending_ | L |
 | L1 | Author `datasets/taxonomy/lgd_states.json` (37 states/UTs: lgd_state_id + lgd_name + slug). Author `datasets/taxonomy/lgd_districts.json` (~780 districts: lgd_district_id + lgd_state_id + lgd_name). Author `datasets/taxonomy/lgd_eci_state_map.json` (lgd_state_id <-> eci_st_code lookup). | [ ] PENDING | _pending_ | M |
-| L2 | Decide folder-name convention. Two candidates: (a) `state=lgd06` (LGD ID, machine-stable); (b) `state=haryana` (LGD-name slug, human-readable). Plan-doc gate; non-PR. | [ ] PENDING (needs user pick) | _pending_ | L |
+| L2 | Folder-name convention: **`state=haryana` (LGD-name slug)** locked by user 2026-06-01 (rationale: state names rarely change; LGD numbers historically do). | [x] DECIDED | n/a | L |
 | L3 | Rename rip across `datasets/boundaries/in/{ac,pc,country,states,districts,...}` AND `datasets/elections/state=*` AND every Parquet partition key carrying `state_code`. Single big-bang script + recompile every artefact. Test contract for the new convention. | [ ] BLOCKED-on-L2 | _pending_ | XL |
 | L4 | Frontend route migration: `/s/<old-slug>` -> `/s/<lgd-slug>` with redirect map for 6 months (saves citizen bookmarks). Update `StateAcMap`, `frontend/src/lib/routes.ts`, `golden-path.spec.ts`. | [ ] BLOCKED-on-L3 | _pending_ | L |
 | AC1 | Replace boundary AC geometry from Garuda for all 30 covered states (single big-bang). Stamp `lgd_ac_id` per feature via LGD AC directory lookup (29 states' AC LGD codes are publicly listed; J&K post-2022 needs hand-stamp from delim notification annex). U08 from shijithpk file (90 ACs post-2022, `state_id="U08"` already aligns). | [ ] BLOCKED-on-L1 (needs lgd_states ready) | _pending_ | M |
@@ -47,6 +47,8 @@ If yen-gov adopts ECI as the canonical join key (the trap of PR #542's enrich-on
 | AC LGD codes (29 states) | LGD AC directory (per state) | lgd_ac_id + lgd_district_id + name + reservation | public-domain (GoI) |
 | AC geometry (30 states, ECI-keyed) | `https://github.com/GarudadevDataServices/indian_mlas/raw_data/india_asm.geojson` | 4164 AC polygons, st_code + ac_no + ac_id (ECI) | public-domain mirror (ECI works) |
 | U08 J&K AC geometry post-2022 | `https://github.com/shijithpk/2024_maps_supplement/blob/main/j_and_k_assembly_new_borders.geojson` | 91 features (90 ACs + 1 POK ref), `state_id="U08"`, `seat_id` 1-90, `seat_name_en`, `seat_district_en` | per shijithpk repo (verify CC/MIT on commit) |
+| U08 J&K LGD AC codes | `https://lgdirectory.gov.in/globalviewstateforcitizen.do` (state=J&K) | LGD AC codes for U08 (names stable; Census2001/2011 numbers shift, names don't) | public-domain (GoI) |
+| S21 Sikkim AC geometry | `https://github.com/shijithpk/2024_maps_supplement/blob/main/sikkim_assembly_updated.geojson` | 31 features, `ac_num` + `ac_name` + `ac_type`. Verify against expected 32 ACs (1-feature gap — investigate at ingest). | per shijithpk repo |
 | U08 J&K verification overlay | Wikimedia Furfur SVG "Wahlkreise zur Vidhan Sabha von J&K (2022)" | visual cross-check post-delim boundaries | CC-BY-4.0 |
 
 ## Anti-patterns (do NOT)
@@ -72,11 +74,11 @@ If yen-gov adopts ECI as the canonical join key (the trap of PR #542's enrich-on
 
 At plan close, archive `TODO/20260601-lgd-canonical-plan.md` to `docs/archive/plans/` with per-row PR + distillation map per the standard distill ceremony.
 
-## Open questions (need user answer before L3 starts)
+## Decisions (user-locked 2026-06-01)
 
-1. **L2 convention pick:** `state=lgd06` (machine ID, language-neutral, stable across renames like Orissa->Odisha) OR `state=haryana` (slug, human-readable, but a name change forces a rip). **My lean: `state=lgd06`** with a separate `lgd_name` field for display. Machines key on IDs; names drift.
-2. **AC LGD source confidence:** for the 29 covered states, do we trust LGD portal AC listings as authoritative-as-of-current-delim, or do we need a delim-cycle versioning concept (`lgd_ac_id_2008delim` vs `lgd_ac_id_2022delim`)? **My lean: trust LGD as canonical-as-of-current; versioning is a separate plan if a state re-delims.**
-3. **U08 J&K LGD codes:** shijithpk's `seat_id` 1-90 matches ECI ac_no. LGD doesn't publish AC codes for J&K post-2022 (delim too recent). **Options:** (a) compute synthetic `lgd_ac_id = lgd_state_id * 1000 + seat_id` until LGD catches up; (b) leave J&K `lgd_ac_id` null and revisit when LGD publishes. **My lean: (b)** - synthetic codes are tech debt that will be wrong when LGD publishes real ones.
+1. **L2 convention:** `state=haryana` slug (LGD-name based). Rationale (user): state names rarely change; LGD numbers historically do (Census2001 -> Census2011 reshuffles). Slug-stability > id-stability for this domain.
+2. **AC LGD delim-cycle versioning:** trust current LGD AC codes as canonical-as-of-current. No `lgd_ac_id_<delim>` suffix. If a state re-delims later, that re-delim ships its own plan.
+3. **U08 J&K LGD codes:** scrape from `https://lgdirectory.gov.in/globalviewstateforcitizen.do` (J&K). LGD does publish J&K AC codes — names are stable, only legacy census numbers shift, so name-keyed stamping into shijithpk's 90 features is safe.
 
 ## See also
 
