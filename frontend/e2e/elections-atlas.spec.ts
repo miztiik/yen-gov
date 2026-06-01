@@ -168,3 +168,43 @@ test("@elections filter rail reflects colour-by + margin band in the URL and a s
   ).toHaveAttribute("aria-pressed", "true");
 });
 
+test("@elections national PC filter rail recolours and round-trips through the URL", async ({
+  page,
+}) => {
+  await page.goto(NATIONAL_ROUTE);
+
+  // Rail only mounts once PC winners are loaded; wait for the seat bar first.
+  await expect(
+    page.locator('[data-testid="national-seat-total-bar"]'),
+  ).toBeVisible({ timeout: 30_000 });
+
+  const rail = page.locator('[data-testid="election-filter-rail"]');
+  await expect(rail).toBeVisible();
+
+  // Colour-by turnout (fully covered for LsGenJun2024 PC) writes ?mode=turnout.
+  await page
+    .locator('[data-testid="election-colour-mode"]')
+    .selectOption("turnout");
+  await expect(page).toHaveURL(/[?&]mode=turnout/);
+
+  // Margin band gt20 keeps only the landslide seats.
+  await page
+    .locator('[data-testid="election-margin-band"] [data-band="gt20"]')
+    .click();
+  await expect(page).toHaveURL(/[?&]margin=gt20/);
+
+  // Shared URL reproduces the controls (URL is the only state channel).
+  const shared = new URL(page.url());
+  await page.goto(shared.pathname + shared.search);
+  // The rail only remounts once the cross-state PC scan resolves again.
+  await expect(
+    page.locator('[data-testid="national-seat-total-bar"]'),
+  ).toBeVisible({ timeout: 30_000 });
+  await expect(
+    page.locator('[data-testid="election-colour-mode"]'),
+  ).toHaveValue("turnout");
+  await expect(
+    page.locator('[data-testid="election-margin-band"] [data-band="gt20"]'),
+  ).toHaveAttribute("aria-pressed", "true");
+});
+

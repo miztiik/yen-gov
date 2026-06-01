@@ -39,6 +39,10 @@ export interface NationalPcWinner {
   party_eci_code: string | null;
   party_short: string;
   margin_pct: number;
+  /** Turnout % for the seat (PR-B9 colour-by); null when not ingested. */
+  turnout_pct?: number | null;
+  /** Winning MP's age (PR-B9 colour-by); null when affidavit age absent. */
+  winner_age?: number | null;
 }
 
 function sqlString(s: string): string {
@@ -53,6 +57,8 @@ interface PcWinnerRow {
   party_eci_code: string | null;
   party_short: string | null;
   margin_pct: number | null;
+  turnout_pct: number | null;
+  winner_age: number | null;
 }
 
 async function queryPcWinners(evtLiteral: string): Promise<PcWinnerRow[]> {
@@ -70,6 +76,20 @@ async function queryPcWinners(evtLiteral: string): Promise<PcWinnerRow[]> {
       WHERE indicator_id = 'pc-margin-pct'
         AND period_label = ${evtLiteral}
         AND entity_id LIKE 'IN-PC-%'
+    ),
+    turnout AS (
+      SELECT entity_id AS pc_id, value_numeric AS turnout_pct
+      FROM election_results
+      WHERE indicator_id = 'pc-turnout-pct'
+        AND period_label = ${evtLiteral}
+        AND entity_id LIKE 'IN-PC-%'
+    ),
+    winner_cand AS (
+      SELECT entity_id AS pc_id, value_text AS candidacy_key
+      FROM election_results
+      WHERE indicator_id = 'pc-winner-candidate-id'
+        AND period_label = ${evtLiteral}
+        AND entity_id LIKE 'IN-PC-%'
     )
     SELECT dpc.pc_id        AS pc_id,
            dpc.state_code   AS state_code,
@@ -77,11 +97,17 @@ async function queryPcWinners(evtLiteral: string): Promise<PcWinnerRow[]> {
            dpc.name         AS pc_name,
            dp.eci_code      AS party_eci_code,
            dp.short_name    AS party_short,
-           m.margin_pct     AS margin_pct
+           m.margin_pct     AS margin_pct,
+           t.turnout_pct    AS turnout_pct,
+           per.age          AS winner_age
     FROM winner w
     JOIN margin m ON m.pc_id = w.pc_id
     JOIN dim_pcs dpc ON dpc.pc_id = w.pc_id
     LEFT JOIN dim_parties dp ON dp.party_id = w.party_id
+    LEFT JOIN turnout t ON t.pc_id = w.pc_id
+    LEFT JOIN winner_cand wc ON wc.pc_id = w.pc_id
+    LEFT JOIN elections_candidacies ec ON ec.candidacy_key = wc.candidacy_key
+    LEFT JOIN dim_persons per ON per.person_id = ec.person_id
   `);
 }
 
@@ -97,6 +123,8 @@ function toNationalPcWinners(rows: PcWinnerRow[]): NationalPcWinner[] {
       party_eci_code: r.party_eci_code ?? null,
       party_short: r.party_short ?? "",
       margin_pct: Number(r.margin_pct),
+      turnout_pct: r.turnout_pct == null ? null : Number(r.turnout_pct),
+      winner_age: r.winner_age == null ? null : Number(r.winner_age),
     }));
 }
 
@@ -108,6 +136,8 @@ export async function loadNationalPcWinners(
       registerTable("elections.election_results"),
       registerTable("elections.dim_parties"),
       registerTable("elections.dim_pcs"),
+      registerTable("elections.elections_candidacies"),
+      registerTable("elections.dim_persons"),
     ]);
     const rows = await queryPcWinners(sqlString(event));
     const winners = toNationalPcWinners(rows);

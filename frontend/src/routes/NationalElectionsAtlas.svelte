@@ -38,6 +38,19 @@
   import type { LoaderResult } from "../lib/loader-result";
   import { colors } from "../lib/colors/store.svelte";
   import { navigate, url } from "../lib/url";
+  import ElectionFilterRail from "../lib/elections/ElectionFilterRail.svelte";
+  import {
+    DEFAULT_ELECTION_FILTERS,
+    parseElectionFilters,
+    serializeElectionFilters,
+    type ElectionFilters,
+  } from "../lib/election-filters";
+  import {
+    buildKeyedFills,
+    buildKeyedOpacities,
+    hasModeCoverage,
+    type PartyFill,
+  } from "../lib/elections/election-map-coloring";
 
   interface Props {
     /** Route params; `event` is the Lok Sabha event id (e.g. "LsGenJun2024"). */
@@ -67,6 +80,47 @@
     result.status === "partial" ||
       (result.status === "ok" && winners.length === 0),
   );
+
+  // ─── PR-B9 filter rail (party / margin band / colour-by) ────────────────
+  // Same URL grammar + typed translator as the state arm (PR-B8); the rail
+  // recolours the SAME PC choropleth/cartogram and dims out-of-filter seats.
+  function readSearch(): string {
+    return typeof window === "undefined" ? "" : window.location.search;
+  }
+  let filter_search = $state<string>(readSearch());
+  const filters = $derived<ElectionFilters>(parseElectionFilters(filter_search));
+
+  function onFilterChange(next: ElectionFilters): void {
+    if (typeof window === "undefined") return;
+    const base = new URLSearchParams(window.location.search);
+    const qs = serializeElectionFilters(next, base);
+    const target =
+      window.location.pathname + (qs ? `?${qs}` : "") + window.location.hash;
+    navigate(target);
+    filter_search = qs ? `?${qs}` : "";
+  }
+
+  const party_options = $derived.by(() => {
+    void colors.overrides;
+    const palette = colors.forSet(
+      winners.map((w) => w.party_eci_code ?? w.party_short),
+    );
+    const seen = new Map<string, { code: string; short: string; color: string }>();
+    for (const w of winners) {
+      const code = w.party_eci_code ?? w.party_short;
+      if (seen.has(code)) continue;
+      seen.set(code, {
+        code,
+        short: w.party_short,
+        color: palette.get(code)?.fill ?? colors.fill(w.party_eci_code, w.party_short),
+      });
+    }
+    return [...seen.values()];
+  });
+  const mode_coverage = $derived({
+    turnout: hasModeCoverage(winners, "turnout"),
+    age: hasModeCoverage(winners, "age"),
+  });
 
   // ─── View toggle (persisted to ?view) ───────────────────────────────
   type ViewMode = "geo" | "hex";
@@ -111,19 +165,21 @@
   }
 
   // ─── Geographic (choropleth) arm ────────────────────────────────────
-  const fills = $derived.by(() => {
-    const out: Record<string, string> = {};
-    for (const w of winners) out[w.join_key] = fillFor(w);
-    return out;
+  const party_fill = $derived.by<PartyFill>(() => {
+    void colors.overrides;
+    const list = winners;
+    const palette = colors.forSet(
+      list.map((w) => w.party_eci_code ?? w.party_short),
+    );
+    return (code, short) =>
+      palette.get(code ?? short)?.fill ?? colors.fill(code, short);
   });
-  const opacities = $derived.by(() => {
-    const out: Record<string, number> = {};
-    for (const w of winners) {
-      const m = Math.max(0, Math.min(30, w.margin_pct ?? 0));
-      out[w.join_key] = 0.35 + (m / 30) * 0.6;
-    }
-    return out;
-  });
+  const fills = $derived<Record<string, string>>(
+    buildKeyedFills(winners, filters.mode, party_fill, (w) => w.join_key),
+  );
+  const opacities = $derived<Record<string, number>>(
+    buildKeyedOpacities(winners, filters.mode, filters, (w) => w.join_key),
+  );
   const tooltips = $derived.by(() => {
     const out: Record<string, string> = {};
     for (const w of winners) {
@@ -167,8 +223,22 @@
       margin_pct: w.margin_pct,
     })),
   );
-  const tile_rows = $derived<TileRow[]>(
+  const raw_tile_rows = $derived<TileRow[]>(
     layout == null ? [] : buildTileRows(layout, hex_winners),
+  );
+  // Re-skin the hex tiles with the same mode/filter colouring as the geo arm.
+  const hex_fills = $derived<Record<string, string>>(
+    buildKeyedFills(winners, filters.mode, party_fill, (w) => w.unit_id),
+  );
+  const hex_opacities = $derived<Record<string, number>>(
+    buildKeyedOpacities(winners, filters.mode, filters, (w) => w.unit_id),
+  );
+  const tile_rows = $derived<TileRow[]>(
+    raw_tile_rows.map((t) => ({
+      ...t,
+      fill: hex_fills[t.unit_id] ?? t.fill,
+      opacity: hex_opacities[t.unit_id] ?? t.opacity,
+    })),
   );
   function onSelectHex(unit_id: string): void {
     // unit_id = IN-PC-<delim>-<state_code>-<pc_no>; drill to that state.
@@ -290,6 +360,15 @@
         </button>
       </div>
     </div>
+
+    {#if !pending && winners.length > 0}
+      <ElectionFilterRail
+        {filters}
+        parties={party_options}
+        coverage={mode_coverage}
+        onChange={onFilterChange}
+      />
+    {/if}
 
     {#if pending}
       <div

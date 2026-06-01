@@ -89,7 +89,7 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 | PR-B6 | B | Cross-year E2: snapping time-slider on map/cartogram | PR-B3 | [x] DONE | Jony |
 | PR-B7 | B | Cross-year E3: opt-in 2-election sankey (capped) | PR-B3 | [x] COLLAPSED | Jony |
 | PR-B8 | B | Filter rail F1/F2/F3 (party / margin band / colour-by) - state level | PR-B3 | [x] DONE | Gregor + Max |
-| PR-B9 | B | Wire filters at national level | PR-B8; PR-B4; PR-A4 | [ ] PENDING | Gregor |
+| PR-B9 | B | Wire filters at national level | PR-B8; PR-B4; PR-A4 | [x] DONE | Gregor |
 
 **Concurrency map:** at t0 three agents can start in parallel on **PR-0**, **PR-A1**, **PR-B1**. Lane A and Lane B never touch the same files. The only cross-lane data dependency is PR-B4/PR-B9 needing PR-A4's PC data for LIVE rendering - both ship "dark" (boundary renders, winners show a "results pending" state) before PR-A4 lands, then light up automatically.
 
@@ -409,6 +409,14 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 **Escalation:** **Gregor** on cross-state filter performance (all-India PC recolour must stay static-bundle-friendly - no server compute, Holy Law #1).
 
 **Acceptance gates:** G3; G4 filtered; G5 browser smoke - filters on `/t/elections/<event>` with live PC data; shared URL reproduces screen.
+
+**DONE (this session):**
+- Reused the PR-B8 filter grammar verbatim (`?party=<csv>`, `?margin=<all|lt2|gt20>`, `?mode=<winner|margin|turnout|age>`) via the shared `election-filters.ts` translator - no new URL tokens.
+- Generalised the AC colour builders into `buildKeyedFills<T>`/`buildKeyedOpacities<T>` in `election-map-coloring.ts` (keyed by a caller-supplied `keyOf`), so the national PC map (keyed by `join_key`) and hex cartogram (keyed by `unit_id`) share the exact colour/dim logic with the state AC map.
+- Extended `national-elections.ts` `queryPcWinners` with `turnout` (`pc-turnout-pct`) and `winner_cand`->`elections_candidacies`->`dim_persons` CTEs to surface `turnout_pct` (542/542) and `winner_age`. Registered `elections.elections_candidacies` + `elections.dim_persons`.
+- `mode=turnout` is offered (PC turnout coverage 542/542); `mode=age` auto-hides nationally (PC winner age coverage 0/542 < 80% gate) per Max's coverage rule.
+- Mounted `ElectionFilterRail` on `/t/elections/:event` gated on `{#if !pending && winners.length > 0}`.
+- Gates: G3 svelte-check 0e/7w/6 files; G4 vitest election-filters+election-map-coloring 32/32; G5 e2e `elections-atlas` 6 passed (`--workers=1`; the default-parallel run shows contention-only timeouts on the heavy ~1.6M-row cross-state PC scan, all green serially).
 
 ---
 

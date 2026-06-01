@@ -16,6 +16,19 @@ import {
   type ElectionFilters,
 } from "../election-filters";
 
+/**
+ * Minimal structural shape the recolour/dim logic reads. Both `AcWinner`
+ * (state arm) and `NationalPcWinner` (national arm) satisfy it, so the
+ * decision helpers below work for either grain without re-implementation.
+ */
+export interface ColorableWinner {
+  party_eci_code: string | null;
+  party_short: string;
+  margin_pct: number | null;
+  turnout_pct?: number | null;
+  winner_age?: number | null;
+}
+
 /** Resolver for a party's hex fill (injected so this module stays store-free). */
 export type PartyFill = (
   eci_code: string | null,
@@ -64,7 +77,7 @@ export function lerpColor(from: string, to: string, t: number): string {
 }
 
 /** The value a continuous mode reads off each winner row (null if absent). */
-function valueFor(row: AcWinner, mode: ColourMode): number | null {
+function valueFor(row: ColorableWinner, mode: ColourMode): number | null {
   switch (mode) {
     case "margin":
       return row.margin_pct == null ? null : Math.abs(row.margin_pct);
@@ -84,7 +97,7 @@ function valueFor(row: AcWinner, mode: ColourMode): number | null {
  * (Max's coverage verdict) — default threshold 0.8 (80% populated).
  */
 export function hasModeCoverage(
-  rows: AcWinner[],
+  rows: ColorableWinner[],
   mode: ColourMode,
   threshold = 0.8,
 ): boolean {
@@ -95,7 +108,10 @@ export function hasModeCoverage(
 }
 
 /** True when a winner row passes BOTH the party and margin filters. */
-export function matchesFilters(row: AcWinner, filters: ElectionFilters): boolean {
+export function matchesFilters(
+  row: ColorableWinner,
+  filters: ElectionFilters,
+): boolean {
   if (filters.parties.length > 0) {
     const code = row.party_eci_code ?? row.party_short;
     if (!filters.parties.includes(code)) return false;
@@ -158,6 +174,63 @@ export function buildAcOpacities(
       out[r.ac_eci_no] = 0.35 + (m / 30) * 0.6;
     } else {
       out[r.ac_eci_no] = 0.9;
+    }
+  }
+  return out;
+}
+
+// ─── National (PC) arm ────────────────────────────────────────────────
+// Same recolour/dim logic as the AC builders, but keyed by an arbitrary
+// string the caller selects (the choropleth keys by `join_key`, the hex
+// cartogram keys by `unit_id`), so one set of helpers serves both national
+// presentations without a second palette/threshold implementation.
+
+/** Per-unit fills keyed by `keyOf(row)` (string). See `buildAcFills`. */
+export function buildKeyedFills<T extends ColorableWinner>(
+  rows: T[],
+  mode: ColourMode,
+  partyFill: PartyFill,
+  keyOf: (row: T) => string,
+): Record<string, string> {
+  const out: Record<string, string> = {};
+  if (mode === "winner") {
+    for (const r of rows) out[keyOf(r)] = partyFill(r.party_eci_code, r.party_short);
+    return out;
+  }
+  const [from, to] = RAMP[mode];
+  const vals = rows
+    .map((r) => valueFor(r, mode))
+    .filter((v): v is number => v != null);
+  const min = vals.length ? Math.min(...vals) : 0;
+  const max = vals.length ? Math.max(...vals) : 1;
+  const span = max - min || 1;
+  for (const r of rows) {
+    const v = valueFor(r, mode);
+    out[keyOf(r)] =
+      v == null ? NO_VALUE_FILL : lerpColor(from, to, (v - min) / span);
+  }
+  return out;
+}
+
+/** Per-unit opacities keyed by `keyOf(row)` (string). See `buildAcOpacities`. */
+export function buildKeyedOpacities<T extends ColorableWinner>(
+  rows: T[],
+  mode: ColourMode,
+  filters: ElectionFilters,
+  keyOf: (row: T) => string,
+): Record<string, number> {
+  const out: Record<string, number> = {};
+  for (const r of rows) {
+    const key = keyOf(r);
+    if (!matchesFilters(r, filters)) {
+      out[key] = DIMMED_OPACITY;
+      continue;
+    }
+    if (mode === "winner") {
+      const m = Math.max(0, Math.min(30, r.margin_pct ?? 0));
+      out[key] = 0.35 + (m / 30) * 0.6;
+    } else {
+      out[key] = 0.9;
     }
   }
   return out;
