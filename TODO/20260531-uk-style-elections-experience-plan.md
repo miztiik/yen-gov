@@ -79,7 +79,7 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 | PR-0 | 0 | ADR + docs: drill IA, generic TileCartogram, AC/PC grain, filter URL grammar | none `||` | [x] DONE | - | Gregor (PASS-WITH-NITS; 5 edits applied) |
 | PR-A1 | A | PC source recon + ingest handover-doc + pre-flight proposal | none `||` | [x] DONE | Max (handover + pre-flight exit 0) |
 | PR-A2 | A | PC identity + PcDimRow + envelope + pc-* indicators + concepts + schemas | PR-A1 | [x] DONE | Hans + Max (Model C: 13 pc-grain sibling concepts + indicators; entity_kinds enum MINOR bump; pre-flight upsert exit 0) |
-| PR-A3 | A | PC parser + observations + rollups + CLI `ingest-eci-ls` | PR-A2 | [ ] PENDING | Gregor |
+| PR-A3 | A | PC parser + observations + rollups + CLI `ingest-eci-ls` | PR-A2 | [x] DONE (local) | Gregor |
 | PR-A4 | A | Run ingest: write PC parquet + dim_pcs + lok_sabha event row + validate | PR-A3 | [ ] PENDING | Max |
 | PR-B1 | B | Tile-layout schema + grapher layouts + pilot S13-AC + national-PC layout | none `||` | [ ] PENDING | Jony |
 | PR-B2 | B | Generic `<TileCartogram>` SVG component + layout loader + ChartShell wrap | PR-B1 | [ ] PENDING | Jony |
@@ -215,7 +215,10 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 - [ ] G2 `pytest -q backend/tests/test_pc_observations.py` green (+ any directly touched writer test). `$env:PYTHONPATH` set. Do NOT run full suite.
 - [ ] G1 `python -m yen_gov validate --root .` OK.
 
-### PR-A4 - Run the ingest: PC parquet + dim_pcs + lok_sabha event + validate
+**DONE (local) 2026-05-31:** Parser `ls_constituencywise.py` validated against the real ECI Report-33 (8912 rows) + Report-34 crosswalk (61737 rows): 542 contested PCs / 36 states / Araku winner+NOTA+margin correct. `pc_observations.py` emits 11 pc-* + candidate-* rows per PC (winner/margin/turnout/NOTA/laakso verified on Araku). Full-corpus envelope: 542 PCs, 31039 obs rows, 542 dim_pcs rows, 3 long-tail unresolved parties (only with `--allow-unknown-parties`). CLI `ingest-eci-ls` (driver `eci_ls.py`) mirrors `ingest-eci-ae-panel`. `coverage.py` + `writer.py` PC-grain discrimination (Gregor must-fix) shipped; 37 writer+coverage tests green; 6 new pc tests green; validate OK.
+  - **rollups.py — DEFERRED (not in scope):** the 13 `pc-*` indicators are all PC-grain aggregates; there are no national/party LS rollups in the Model-C set, so `rollups.py` is untouched.
+  - **canonical_eci_backfill.py — NOT NEEDED:** that module is the section-10 HTML AC backfill orchestrator (consumes `ConstituencyResult`). PC ingest is a standalone CSV driver (`eci_ls.py`) mirroring `eci_ae_panel.py`, which likewise does not route through the section-10 backfill. No PC slice builder added there.
+
 
 **Scope:** Execute `ingest-eci-ls` to WRITE canonical PC data, add the `lok_sabha` event row, validate. This is the row that lights up the national view.
 

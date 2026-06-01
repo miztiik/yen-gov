@@ -195,10 +195,20 @@ def _partition_cols(family: str) -> list[str]:
 # without a state segment (``IN``) collapse to ``in``; cross-state rollups
 # without ``IN-`` prefix (none today, but defensive) collapse to the
 # entity_id verbatim lower-cased. Locked grammar from TODO §0e.10 lock A.
+#
+# PC (Lok Sabha) entity_ids carry the state in segment FOUR, not two
+# (``IN-PC-<delim>-<state>-<pc_no>`` e.g. ``IN-PC-2008-S22-39``): the naive
+# first-two-segments rule would derive ``in_pc`` and dump every PC row into
+# one bogus partition. The leading ``IN-PC-<delim>-<state>`` branch routes
+# each PC row to ``in_<state>`` so PC facts share the same ``state=`` shard
+# family as the AC facts for that state (Gregor write-seam must-fix).
 _STATE_PARTITION_SQL = (
     "replace("
     "lower("
-    "CASE WHEN entity_id LIKE '%-%' "
+    "CASE "
+    "WHEN regexp_matches(entity_id, '^IN-PC-[0-9]+-[SU][0-9]{2}-[0-9]+$') "
+    "THEN 'IN-' || regexp_extract(entity_id, '^IN-PC-[0-9]+-([SU][0-9]{2})', 1) "
+    "WHEN entity_id LIKE '%-%' "
     "THEN regexp_extract(entity_id, '^([A-Z]+-[A-Z0-9]+)', 1) "
     "ELSE entity_id "
     "END"
