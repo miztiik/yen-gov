@@ -176,6 +176,8 @@ Remaining `unmapped` (253), each now one verified-SoT-edit away: S03/Assam 126 (
 
 **DEFERRED (2026-06-01) - both gating conditions unmet; migration goals already achieved without it.**
 
+**UN-DEFER PATH (2026-06-01):** see `TODO/20260601-ac-coverage-to-100-plan.md` which schedules the ECI AC boundary ingest (Garuda mirror) + SoT lgd_ac_id stamps + S01 frontend rework. D1 reopens as Row D1' once Rows I1+I2+I3 of that plan land.
+
 Investigation finding: `apply_ac_no_rewrite_by_name` (tools/boundaries/snapshot.py L694, wired at L1084 via the `ac_no_rewrite` directive) is used by exactly ONE state - S01/Andhra Pradesh, whose upstream LGD bundle numbers ACs 1-294 (pre-bifurcation AP+TG) against an AP-only SoT (eci_no 1-175). The rewrite projects LGD `ac_no` -> SoT `eci_no` by `(name, reservation)` and preserves `lgd_legacy_ac_no` + `lgd_ac_id` for provenance.
 
 Why it cannot ship now:
