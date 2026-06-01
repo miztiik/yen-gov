@@ -159,6 +159,15 @@ async function runQueries(
     registerTable("elections.dim_parties"),
     registerTable("elections.dim_party_alliances"),
     registerTable("elections.dim_acs"),
+    // PR #525 (PR-B8) extended queryAcWinners with turnout + winner-age,
+    // which LEFT JOIN elections_candidacies + dim_persons. runQueries calls
+    // queryAcWinners, so it must register those two tables too — otherwise
+    // DuckDB throws "table does not exist", loadStateOverview returns
+    // `failed`, and the whole summary-gated block (map, donut, seats-by-party,
+    // seat-composition trend) silently disappears. loadStateAcWinners already
+    // registers them; this keeps the two queryAcWinners callers in sync.
+    registerTable("elections.elections_candidacies"),
+    registerTable("elections.dim_persons"),
     registerTable("taxonomy.sources"),
   ]);
 

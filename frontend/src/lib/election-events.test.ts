@@ -42,6 +42,22 @@ const CATALOGUE: ElectionEventsCatalogue = {
       { event_id: "AcGenNov2022", kind: "assembly", display: "HP AC Nov 2022", polled_on: "2022-11-12" },
     ],
     S04: [], // empty array — explicit "no data" signal
+    // PR #525 shape: the Lok Sabha LsGenJun2024 event (2024-06-01) is the
+    // most-recent event by polled_on, but it sits ABOVE the latest assembly
+    // election (AcGenMay2023). Every consumer of defaultEventForState is an
+    // assembly-house view, so the default must stay on the latest assembly —
+    // otherwise the assembly query finds no IN-<state>-LsGenJun2024-PARTY-*
+    // rows and the state hub falls into its "not yet ingested" arm.
+    S10: [
+      { event_id: "AcGenMay2018", kind: "assembly", display: "KA AC May 2018", polled_on: "2018-05-12" },
+      { event_id: "AcGenMay2023", kind: "assembly", display: "KA AC May 2023", polled_on: "2023-05-10" },
+      { event_id: "LsGenJun2024", kind: "lok_sabha", display: "Lok Sabha Jun 2024", polled_on: "2024-06-01" },
+    ],
+    // Degenerate fallback: a state with ONLY a lok_sabha event must still
+    // resolve (most-recent-of-any-kind) rather than 404.
+    U99: [
+      { event_id: "LsGenJun2024", kind: "lok_sabha", display: "Lok Sabha Jun 2024", polled_on: "2024-06-01" },
+    ],
   },
 };
 
@@ -67,6 +83,16 @@ describe("defaultEventForState", () => {
     expect(defaultEventForState(CATALOGUE, "S04")).toBeNull();
     expect(defaultEventForState(null, "S22")).toBeNull();
     expect(defaultEventForState(CATALOGUE, null)).toBeNull();
+  });
+
+  it("PR #525: skips a newer lok_sabha event and defaults to the latest assembly", () => {
+    // LsGenJun2024 (2024-06-01) is the most-recent event by polled_on, but
+    // the assembly-house default must stay on AcGenMay2023.
+    expect(defaultEventForState(CATALOGUE, "S10")?.event_id).toBe("AcGenMay2023");
+  });
+
+  it("falls back to most-recent-of-any-kind when no assembly event exists", () => {
+    expect(defaultEventForState(CATALOGUE, "U99")?.event_id).toBe("LsGenJun2024");
   });
 });
 
