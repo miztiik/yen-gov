@@ -150,3 +150,31 @@ Renames applied to align filenames with ECI-symbol-noun (per plan-doc):
 
 - For each gap above, the same pipeline (Wikipedia / Commons API → svgo / pass-through → write to `party-symbols/<eci-noun>.<ext>`) applies. Re-run the throwaway scraper from PR #550 with an extended target list, or hand-add via the same naming convention.
 - For ECI symbol-noun lookup when the wiki/Commons filename doesn't give it, the canonical source is the ECI "Symbols (Reservation and Allotment) Order, 1968" + any subsequent allotment notifications.
+
+
+## Wikipedia brand_colour + wikipedia_url enrichment (PR-SYM-4c)
+
+Date: 2026-06-01. Source: same list-page snapshot as PR-SYM-4a-redo (`src.wikipedia.list-of-political-parties-in-india.2026-06-01`).
+
+Per Section 11 of the plan-doc + Hans/Jony red-team verdicts:
+
+- `brand_colour` is Wikipedia editorial consensus, NOT party identity (ECI does not register party colours).
+- `wikipedia_url` = party article URL (the list page is already pinned via source_id).
+- Faction-split parties (SHS_UBT, NCP_SP, LJPRV) get `confidence: low` + non-null `notes` citing ECI freezing order.
+- Frontend resolver MUST treat `confidence: low` as absent (fall through to algorithmic fallback).
+
+### Coverage
+
+| Metric | Count |
+|---|---|
+| Parties scraped from list page | 168 |
+| Parties with hex swatch in HTML | 65 |
+| Parties matched to `parties.json` (in PR-SYM-4b 55-party scope) | 45 |
+| `brand_colour` populated | 45 (42 high + 3 low) |
+| `wikipedia_url` populated | 45 |
+| Confidence breakdown | high=42, low=3 (SHS_UBT, NCP_SP, LJPRV) |
+
+### Gaps after PR-SYM-4c
+
+- 10 parties in the PR-SYM-4b scope did NOT receive `brand_colour` because the Wikipedia list-page row either lacked a swatch cell or used a row layout the parser missed. Hand-fill via separate PR if needed; `election_symbol` is unaffected.
+- `brand_colour` was never required; absent rows fall through to the algorithmic resolver tier per Section 11.
