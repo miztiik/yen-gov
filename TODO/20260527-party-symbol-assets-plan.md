@@ -1,7 +1,7 @@
 # Party Symbol Assets Plan
 
 **Last Updated**: 2026-06-01
-**Status**: Partially complete. PR-SYM-0..3 DONE (#524, #526, #527, #528). PR-SYM-4a STOPPED at user-supervised boundary - see [notes/20260601-party-symbol-sym4-handover.md](../notes/20260601-party-symbol-sym4-handover.md). PR-SYM-4b and PR-SYM-5 BLOCKED on SYM-4a.
+**Status**: Partially complete. PR-SYM-0..3 DONE (#524, #526, #527, #528). PR-SYM-4a-redo DONE (#550, #551). PR-SYM-4b PENDING. PR-SYM-4c (Wikipedia colour + URL enrichment) and PR-SYM-6a/b/c/d (renderer split, replaces retired PR-SYM-5) added 2026-06-01 per Hans + Jony red-team verdicts; all BLOCKED on PR-SYM-4b.
 **Scope**: Collect sanitized SVG election symbols for the parties citizens most often see. Frontend rendering comes last.
 
 ## Status Reckoner
@@ -15,16 +15,91 @@
 | PR-SYM-4a.i | SUPERSEDED by 4a-redo | _hand-authored silhouettes; rejected as inauthentic_ | none | n/a | n/a | #543 |
 | PR-SYM-4a.ii | SUPERSEDED by 4a-redo | _Commons party-LOGO bytes mislabelled as election-symbols (e.g. `aap-broom.svg` contained AAP wordmark, not broom)_ | none | n/a | n/a | #545 |
 | PR-SYM-4a-redo | DONE (Wikipedia scrape, 55 parties / 50 unique symbols) | `frontend/public/party-symbols/<symbol-noun>.{svg,png,jpg,webp}` (50 new files), `notes/20260601-party-symbol-wiki-inventory.md`, `TODO/20260527-party-symbol-assets-plan.md` reckoner update; deletes the 4 mislabelled files from #545 | none | sanitizer N/A at scrape time (renderer-time enforcement deferred to PR-SYM-5) | unblocks PR-SYM-4b | #_pending_ |
-| PR-SYM-4b | BLOCKED on SYM-4a-redo | `datasets/taxonomy/parties.json`, recompiled `datasets/elections/dim_parties.parquet` (`recognition` + `election_symbol` per inventory note); schema bump v2.2->v2.3 to add `mime_type` enum | `taxonomy-parties` minor (`mime_type`) | Tier-A validate + pytest + asset/hash/`source_id` FK checks | PR-SYM-5 | _pending_ |
-| PR-SYM-5 | BLOCKED on SYM-4b | `frontend/src/lib/parties/symbol-url.ts`, 1-2 Svelte consumers, `dim-parties.schema.json` mirror of `election_symbol`, vitest, browser smoke | `dim-parties` minor (`election_symbol` mirror) | svelte-check + vitest + Holy Law section 13 browser smoke | none | _pending_ |
+| PR-SYM-4b | BLOCKED on SYM-4a-redo | `datasets/taxonomy/parties.json`, recompiled `datasets/elections/dim_parties.parquet` (`recognition` + `election_symbol` per inventory note); schema bump v2.2->v2.3 to add `mime_type` enum + optional `wikipedia_url` + optional `brand_colour` object (see section 11) | `taxonomy-parties` minor (`mime_type` + `wikipedia_url` + `brand_colour`) | Tier-A validate + pytest + asset/hash/`source_id` FK checks | PR-SYM-4c, PR-SYM-6a | _pending_ |
+| PR-SYM-4c | BLOCKED on SYM-4b | `datasets/taxonomy/parties.json` (add `wikipedia_url` + `brand_colour` for the 55 parties in the Wikipedia inventory; faction-split parties get `confidence: low` + `notes`), `notes/20260601-party-symbol-wiki-inventory.md` (append colour + URL columns), one new row in `datasets/taxonomy/sources.parquet` for the list-page snapshot | none (schema already bumped in PR-SYM-4b) | Tier-A validate + pytest + Garudadev RGBA cross-check log | PR-SYM-6a | _pending_ |
+| PR-SYM-6a | BLOCKED on SYM-4b | `frontend/src/lib/colors/resolver.ts` (new; returns `{hex, source, party_id}`), `frontend/src/lib/colors/resolver.test.ts` (snapshot test of anchor/brand/fallback counts across the roster), `dim-parties.schema.json` minor bump mirroring `election_symbol` + `brand_colour` | `dim-parties` minor (`election_symbol` + `brand_colour` mirror) | svelte-check + vitest. Zero consumer changes. | PR-SYM-6b | _pending_ |
+| PR-SYM-6b | BLOCKED on SYM-6a | `frontend/src/lib/parties/symbol-url.ts` (uses resolver), ONE high-visibility consumer (recommend constituency-result badge) wired to read `{hex, source}` and switch chip affordance by `source` | none | svelte-check + vitest + browser smoke per CLAUDE.md section 13 + screenshot in PR body | PR-SYM-6c | _pending_ |
+| PR-SYM-6c | BLOCKED on SYM-6b | Remaining consumer migrations in 2-3 surface-grouped batches (map fills / chart legends / badge family / symbol chip). Each batch own browser-smoke. | none | per-batch svelte-check + vitest + browser smoke | PR-SYM-6d | _pending_ |
+| PR-SYM-6d | BLOCKED on SYM-6c | Import-allowlist contract test (only `resolver.ts` may import `anchors.ts` / `party-colour.ts`), delete now-unused public exports from `party-colour.ts`. This is the PR that ends the inconsistency. | none | svelte-check + vitest + contract test | none | _pending_ |
 
 Hard dependency rules:
 
 - PR-SYM-0 must merge first; everything else cites the plan policy locked there.
 - PR-SYM-1, PR-SYM-2, PR-SYM-3 may run in parallel once PR-SYM-0 is merged.
 - PR-SYM-4a starts only after PR-SYM-3; PR-SYM-4b starts only after PR-SYM-1, PR-SYM-2, and PR-SYM-4a.
-- PR-SYM-5 starts only after PR-SYM-4b.
-- `dim-parties.schema.json` mirror splits across two PRs: `recognition` in PR-SYM-1 (closes the existing null-column gap), `election_symbol` in PR-SYM-5 (matches the writer-before-reader / reader-before-writer dance from [ADR-0047](../docs/architecture/decisions/0047-schema-version-compatibility-contract.md) at the moment the renderer needs it).
+- PR-SYM-4c (wiki enrichment) starts only after PR-SYM-4b (the optional schema fields land in 4b; 4c only populates them).
+- PR-SYM-6a starts only after PR-SYM-4b (schema fields must exist). PR-SYM-6b -> 6c -> 6d are strictly sequential; do not parallelise consumer migration.
+- `dim-parties.schema.json` mirror splits across two PRs: `recognition` in PR-SYM-1 (closes the existing null-column gap), `election_symbol` + `brand_colour` in PR-SYM-6a (matches the writer-before-reader / reader-before-writer dance from [ADR-0047](../docs/architecture/decisions/0047-schema-version-compatibility-contract.md) at the moment the renderer needs it).
+- PR-SYM-5 (single-renderer-PR) is RETIRED. Replaced by PR-SYM-6a/b/c/d per Jony verdict 2026-06-01.
+
+## 11. Wikipedia enrichment (added 2026-06-01)
+
+Amendment to the plan after Hans (Governance) + Jony (UI/UX) red-team. Two optional party-row fields land alongside `election_symbol` in the PR-SYM-4b schema bump and get populated in PR-SYM-4c. Both fields are **enrichment, not required** - graceful fallover when absent.
+
+### 11.1 Doctrine correction
+
+The Wikipedia per-party `{{<Party>/meta/color}}` subtemplate is **editorial consensus on a community wiki**, not party identity in the statutory sense. ECI registers and freezes *symbols* under the Election Symbols (Reservation and Allotment) Order 1968; it does **not** publish or reserve party *colours*. There is no statutory colour register in India. `brand_colour` records the best available editorial consensus on what colour a party uses; it does not claim ECI-canonical status.
+
+User decision 2026-06-01: do NOT surface a citizen-facing disclaimer on the website (redundant when source provenance is already on the data row). The honest framing lives in this plan-doc + the schema description, not the UI.
+
+### 11.2 Field shapes
+
+Both fields are **optional** on every party row.
+
+```jsonc
+{
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Bharatiya_Janata_Party",  // optional; party article URL
+  "brand_colour": {                                                           // optional; entire object
+    "hex": "#FF9933",                                                         // required if object present
+    "confidence": "high",                                                     // required if object present: high | medium | low
+    "source_id": "src.wikipedia.list-of-political-parties-in-india.2026-06-01", // required; FK to sources.parquet
+    "source_kind": "wiki",                                                    // required; literal "wiki"
+    "notes": null                                                             // required (nullable) for non-faction; REQUIRED non-null for faction-split parties (Hans must-fix)
+  }
+}
+```
+
+`confidence` rubric:
+
+- `high` - single live Wikipedia meta/color template + Garudadev RGBA cross-check agreement + not a faction-split party.
+- `medium` - single Wikipedia template, no cross-check available, or Garudadev mismatch within tolerance.
+- `low` - faction-split party (SHS-UBT/SHS, NCP/NCP-SP, LJP-RV/LJP-Paswan, AIADMK historical) OR Wikipedia/Garudadev disagreement OR template missing/redirect. Frontend resolver MUST treat `low` as if absent (fall through to algorithmic fallback, do not paint a faction colour the citizen cannot verify).
+
+### 11.3 Provenance
+
+One `sources.parquet` row per snapshot of the list page (e.g. `src.wikipedia.list-of-political-parties-in-india.2026-06-01`), shared across every party row whose colour was lifted in that pass. Build via `backend.yen_gov.canonical.citation.derive_source_id`; never hand-author. Per-party-template `source_id` rows are explicitly rejected (see Rejected in section 12).
+
+### 11.4 Frontend resolver (PR-SYM-6a)
+
+Single pure function `getPartyColor(party_id) -> { hex: string, source: 'anchor' | 'brand' | 'fallback', party_id: string }`.
+
+Resolution chain (graceful fallover - no field is mandatory):
+
+1. `anchor` - if `frontend/src/lib/colors/anchors.ts` has an entry, return it. Full-bleed fill allowed anywhere.
+2. `brand` - else if `dim_parties.brand_colour` exists AND `confidence != 'low'`, return `brand_colour.hex`. May fill data marks (map polygon, bar segment) but NOT chrome (chip / badge background); chip uses accent stripe or ring with paper-neutral body.
+3. `fallback` - else algorithmic hash-to-hue from `frontend/src/lib/colors/party-colour.ts`. Decoration only; label MUST carry the meaning.
+
+Resolver MUST NOT mutate the returned hex (no auto-darken / lighten / contrast-tune). Identity must not mutate; legibility is a canvas problem solved by anchor overrides authored by humans.
+
+Consumer contract by source tier:
+
+| source | may fill large region | requires paired label | chip treatment |
+| --- | --- | --- | --- |
+| `anchor` | yes | no | full-bleed allowed |
+| `brand` | yes for data marks; NO for chrome | yes | accent stripe or ring; chip body paper-neutral |
+| `fallback` | no | yes | swatch + label pair; never swatch alone |
+
+### 11.5 4th-surface trap defense (PR-SYM-6d)
+
+The resolver only ends the inconsistency if a contract test forbids `import .* from '.*colors/anchors'` and `import .* from '.*colors/party-colour'` outside `colors/resolver.ts`. Without that lint, the next consumer reaches past the resolver. PR-SYM-6d ships the contract test + deletes now-unused public exports.
+
+### 11.6 Garudadev `colors.json` as second witness
+
+Lint helper only. Both Garudadev and Wikipedia are downstream of the same Wikipedia editorial community; not an independent authority. At ingest, log Garudadev/Wikipedia hex mismatches to `notes/` and lower `confidence` to `medium`. Never use Garudadev as `source_id`.
+
+### 11.7 Faction-split party audit (follow-up)
+
+Before PR-SYM-4c bulk-populates, run a manual pass on the ~10-15 most-litigated faction colour assignments (SHS-UBT/SHS, NCP/NCP-SP, LJP-RV/LJP-Paswan, AIADMK historical, JD(U)/JD(S), Samajwadi/RLD splits) comparing Wikipedia template, Garudadev value, and the party's own website/flag. Output to `docs/research/`. Every faction-affected row in PR-SYM-4c MUST have `confidence: low` + non-null `notes` citing the ECI freezing-order date and which faction Wikipedia assigned the legacy hex to.
 
 ## 0. Load-bearing constraints
 
@@ -491,9 +566,31 @@ Closed 2026-06-01 (Gregor sequencing pass, baked into Status Reckoner + section 
 - `election_symbol` is singular per row; future history goes to `election_symbol_history` (additive, not breaking).
 - `election_symbol.source_id` FKs into `datasets/taxonomy/sources.parquet` per [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md); no inline `asset_source_url` on the party row.
 
+Closed 2026-06-01 (Hans + Jony red-team pass for Wikipedia enrichment, baked into Status Reckoner + section 11):
+
+- `brand_colour` is editorial Wikipedia consensus, NOT party identity. ECI does not register party colours; only symbols are official.
+- `brand_colour` and `wikipedia_url` are both OPTIONAL (enrichment, not required). Graceful fallover throughout.
+- `source_kind` literal is `"wiki"` (short). One `sources.parquet` row per list-page snapshot, shared across every party row lifted in that pass.
+- `wikipedia_url` is the PARTY ARTICLE URL, not the list-page URL (list page is already pinned via `source_id`).
+- `confidence` enum `high | medium | low`; resolver treats `low` as absent (fall through to algorithmic fallback).
+- Faction-split parties (SHS-UBT/SHS, NCP/NCP-SP, LJP-RV/LJP-Paswan, AIADMK historical) MUST have `confidence: low` + non-null `notes`.
+- Resolver returns `{hex, source, party_id}`, not bare hex. `source` drives per-tier render affordance contract (anchor / brand / fallback).
+- Resolver MUST NOT mutate hex for contrast / a11y. Identity is preserved; canvas (chip background, paired label) solves legibility. Anchor override is the policy surface.
+- PR-SYM-5 (single renderer PR) is RETIRED. Replaced by PR-SYM-6a/b/c/d to keep diffs reviewable and isolate consumer-by-consumer regressions.
+- No citizen-facing disclaimer copy. Provenance lives on the data row + plan-doc; UI stays clean.
+
+Rejected (do not re-litigate):
+
+- **Per-party-template `source_id` rows.** The meta/color template is *transcluded* onto the list page; the list page IS the citation surface. Per-template rows would explode the ledger ~2800x with zero provenance gain.
+- **Auto-darken / lighten / contrast-tune of `brand_colour` in the resolver.** Identity must not mutate. If a brand colour is unusable on a given canvas, the fix is an anchor override authored by a human, not a runtime tweak.
+- **Treating Garudadev RGBA as an independent authority.** Both Garudadev and Wikipedia are downstream of the same editorial community. Use as lint cross-check only.
+- **Surfacing the "Wikipedia editors chose this colour" disclaimer in citizen-facing UI.** User decision 2026-06-01: redundant when source provenance is already on the data row.
+- **Mandatory `wikipedia_url` or `brand_colour`.** Both fields are enrichment; renderer fallover handles absence gracefully.
+
 Still open:
 
 - Exact Tier 0 size: 40, 50, or 60 parties (settled inside PR-SYM-2 from the roster query output).
+- Whether `brand_colour` eventually moves off `parties.json` to a sibling `party_brand.parquet` family - the field is editorial/mutable on a different cadence than ECI registration data. Defer until first ingest reveals churn rate.
 
 ## 10. References
 
