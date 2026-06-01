@@ -81,7 +81,7 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 | PR-A2 | A | PC identity + PcDimRow + envelope + pc-* indicators + concepts + schemas | PR-A1 | [x] DONE | Hans + Max (Model C: 13 pc-grain sibling concepts + indicators; entity_kinds enum MINOR bump; pre-flight upsert exit 0) |
 | PR-A3 | A | PC parser + observations + rollups + CLI `ingest-eci-ls` | PR-A2 | [x] DONE (local) | Gregor |
 | PR-A4 | A | Run ingest: write PC parquet + dim_pcs + lok_sabha event row + validate | PR-A3 | [x] DONE (local) | Max |
-| PR-B1 | B | Tile-layout schema + grapher layouts + pilot S13-AC + national-PC layout | none `||` | [ ] PENDING | Jony |
+| PR-B1 | B | Tile-layout schema + grapher layouts + pilot S13-AC + national-PC layout | none `||` | [x] DONE (288 AC + 545 PC tiles, 0 overlaps) | Jony |
 | PR-B2 | B | Generic `<TileCartogram>` SVG component + layout loader + ChartShell wrap | PR-B1 | [ ] PENDING | Jony |
 | PR-B3 | B | `ElectionMap` wrapper (Map\|Equal seats toggle) on StateElection (AC) | PR-B2 | [ ] PENDING | Jony |
 | PR-B4 | B | National atlas route `/t/elections/:event` + INDIA_PC + loadNationalPcWinners | PR-B2; live data needs PR-A4 | [ ] PENDING | Gregor |
@@ -264,8 +264,10 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 **Escalation:** dispatch **Jony** ("Is a centroid-hexbin layout legible for S13/India, or do we need a coarse manual cleanup of overlaps?"). Apply verdict; if manual cleanup needed, hand-edit the persisted coords and set `derivation_method: hand-authored`.
 
 **Acceptance gates (frugal):**
-- [ ] G1 `python -m yen_gov validate --root .` OK (validates the new grapher file against its schema).
-- [ ] G4 `bun run test` filtered to `election-tile-layout-coverage.test.ts` only.
+- [x] G1 `python -m yen_gov validate --root .` OK (validates the new grapher file against its schema).
+- [x] G4 `bun run test` filtered to `election-tile-layout-coverage.test.ts` only (9 tests pass).
+
+**Done 2026-05-31:** schema `grapher-election-tile-layout.schema.json` v1.0 + `datasets/grapher/election_tile_layouts.json` (288 S13-AC tiles + 545 national-PC tiles, greedy nearest-free-cell hexbin, 0 cell overlaps, north-up) + coverage test (9 tests). `unit_id` = canonical entity_id (`IN-S13-AC-2008-<n>` / `IN-PC-2008-<state>-<n>`) for direct join to winner observations. Jony legibility review deferred to PR-B2 sandbox render (subagents cannot see the cartogram until it renders).
 
 ### PR-B2 - Generic `<TileCartogram>` component + layout loader + ChartShell wrap
 

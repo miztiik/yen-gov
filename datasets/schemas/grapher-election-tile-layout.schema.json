@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./grapher-election-tile-layout.schema.json",
+  "title": "Grapher election tile-cartogram layout (frontend-owned)",
+  "description": "Persisted tile-cartogram (equal-area hex) layouts for election constituencies, owned by the frontend per ADR-0045. One row per (layout_kind, scope, delim_year, unit_id) tile. Coordinates are pre-computed and PERSISTED so citizens see stable seat positions (no browser-side layout compute). Grain-agnostic: serves AC (state assembly) and PC (Lok Sabha) cartograms from the same contract. Derived from boundary centroids via a one-time hexbin pass (derivation_method=centroid-hexbin) or hand-authored cleanup (derivation_method=hand-authored).",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-31",
+      "description": "Initial election tile-cartogram layout schema (UK-style elections experience plan, PR-B1). Carries axial hex coords (q, r) plus optional pixel coords (x, y), the canonical unit_id (ac_id/pc_id) for direct join to winner observations, eci_no, citizen label, source provenance, and derivation_method. Seeds the Maharashtra (S13) AC layout and the national PC layout."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "tiles"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "tiles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "layout_kind",
+          "scope",
+          "delim_year",
+          "unit_id",
+          "eci_no",
+          "q",
+          "r",
+          "label",
+          "source_id",
+          "derivation_method"
+        ],
+        "properties": {
+          "layout_kind": {
+            "type": "string",
+            "enum": ["ac", "pc"],
+            "description": "Constituency grain: 'ac' = state assembly, 'pc' = Lok Sabha parliamentary."
+          },
+          "scope": {
+            "type": "string",
+            "pattern": "^(national|[SU]\\d{2})$",
+            "description": "Cartogram scope: a state/UT code (e.g. 'S13') for AC layouts, or 'national' for the all-India PC layout."
+          },
+          "delim_year": {
+            "type": "integer",
+            "minimum": 1950,
+            "maximum": 2099,
+            "description": "Delimitation vintage the constituency boundaries belong to (e.g. 2008)."
+          },
+          "unit_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 60,
+            "description": "Canonical entity id of the constituency (ac_id 'IN-<state>-AC-<delim>-<eci_no>' or pc_id 'IN-PC-<delim>-<state>-<pc_no>'). Joins directly to the winner observation's entity_id."
+          },
+          "eci_no": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "ECI numeric seat code within the scope (ac_no for AC, ls_seat_code for PC)."
+          },
+          "q": {
+            "type": "integer",
+            "description": "Axial hex column coordinate (pointy-top axial grid)."
+          },
+          "r": {
+            "type": "integer",
+            "description": "Axial hex row coordinate (pointy-top axial grid)."
+          },
+          "x": {
+            "type": ["number", "null"],
+            "description": "Optional pre-computed pixel/world x (else derive from q,r at render)."
+          },
+          "y": {
+            "type": ["number", "null"],
+            "description": "Optional pre-computed pixel/world y (else derive from q,r at render)."
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120,
+            "description": "Citizen-readable constituency name for the tile tooltip/label."
+          },
+          "source_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120,
+            "description": "Geometry provenance the centroid was derived from (boundary dataset path or source id)."
+          },
+          "layout_version": {
+            "type": ["string", "null"],
+            "pattern": "^\\d+\\.\\d+$",
+            "description": "Optional per-layout version tag for hand-authored revisions."
+          },
+          "derivation_method": {
+            "type": "string",
+            "enum": ["centroid-hexbin", "hand-authored"],
+            "description": "How the q,r coords were produced: automatic centroid-hexbin pass or hand-authored cleanup."
+          }
+        }
+      }
+    }
+  }
+}
