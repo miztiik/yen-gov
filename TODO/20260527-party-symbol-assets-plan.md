@@ -2,42 +2,90 @@
 
 **Last Updated**: 2026-06-01
 **Status**: Proposed research handoff - no implementation landed
-**Scope**: High-quality, license-clear SVG election symbols for Indian political parties. This plan records the research verdict and a granular PR path so a future agent can implement without restarting discovery.
+**Scope**: Collect sanitized SVG election symbols for the parties citizens most often see. Frontend rendering comes later.
 
 ## 0. Load-bearing constraints
 
-- [CLAUDE.md](../CLAUDE.md) Holy Law #1: production is static; symbol bytes must ship in the bundle via `datasets/`, not remote hotlinks.
-- [CLAUDE.md](../CLAUDE.md) Holy Law #3: contracts before logic; add a schema before frontend rendering.
+- [CLAUDE.md](../CLAUDE.md) Holy Law #1: production is static; symbol bytes must ship in the static bundle, not as remote hotlinks.
+- [CLAUDE.md](../CLAUDE.md) Holy Law #3: contracts before logic; add schema fields before frontend rendering.
 - [CLAUDE.md](../CLAUDE.md) Holy Law #4: document decisions in the same PR as code.
-- [CLAUDE.md](../CLAUDE.md) Holy Law #6: no hardcoded data in frontend code; symbol assignments are reference data.
-- [CLAUDE.md](../CLAUDE.md) Holy Law #8: use open-source / license-clear assets first, but do not confuse license source with semantic authority.
-- [CLAUDE.md](../CLAUDE.md) Holy Law #9: provenance is mandatory; every symbol asset and every party-symbol assignment needs a source row.
-- [docs/architecture/data/canonical-store.md](../docs/architecture/data/canonical-store.md) owns taxonomy/dimension-table placement.
-- [docs/architecture/frontend/data-loading.md](../docs/architecture/frontend/data-loading.md) owns `/data/<rel>` runtime loading.
-- [docs/architecture/frontend/colours.md](../docs/architecture/frontend/colours.md) owns party colour anchors. Colours are presentation; election symbols are data.
-- [TODO/PARTY-COLORS-REWORK.md](PARTY-COLORS-REWORK.md) is the sibling colour plan. Do not merge the colour and symbol concepts.
+- [CLAUDE.md](../CLAUDE.md) Holy Law #6: no hardcoded party-to-symbol maps in Svelte or TypeScript. Metadata stays data-driven.
+- [CLAUDE.md](../CLAUDE.md) Holy Law #8: use mature open sources first. For v1, ECI/common election-symbol glyphs are project-accepted as generic civic glyphs when source, hash, and sanitization are recorded.
+- [CLAUDE.md](../CLAUDE.md) Holy Law #9: provenance is mandatory for observation rows. Party-symbol v1 is a static visual affordance, so it records source URL, source kind, license label, hash, and status inline on the party row instead of creating per-symbol observation-style source rows.
+- [docs/architecture/data/canonical-store.md](../docs/architecture/data/canonical-store.md) owns party identity and dimension-table placement. Recognition stays on party identity / `dim_parties`, not in a separate recognition table.
+- [docs/architecture/frontend/data-loading.md](../docs/architecture/frontend/data-loading.md) owns static frontend loading. `frontend/public/party-symbols/` is an intentional public-media exception; it must not become a data registry.
+- [docs/architecture/frontend/charts/icon-registry.md](../docs/architecture/frontend/charts/icon-registry.md) owns the local SVG sanitizer precedent.
+- [docs/architecture/frontend/colours.md](../docs/architecture/frontend/colours.md) owns party colour anchors. Colours are presentation; election symbols are separate.
 
 ## 1. Research snapshot
 
-User request: find the 80/20 approach for high-quality SVG election symbols for Indian political parties, starting from Wikimedia Commons but not treating it as the only source. No permanent code changes were requested in the research turn.
+User direction, updated 2026-06-01:
 
-Repo facts observed on 2026-05-27:
+- Do not create a separate party-symbol tracking system for v1.
+- Target the most recognised and most visible parties first, using an 80/20 rule.
+- Use DuckDB over the canonical election corpus to find top parties by seats/wins across states and elections.
+- Use Wikipedia, Commons, `thecont1/india-votes-data`, and web search as discovery aids, then verify current recognition/symbol status against ECI where possible.
+- Store sanitized SVGs under `frontend/public/party-symbols/*.svg` so the future frontend can serve them easily.
+- Focus on election symbols only. No flags, party logos, banners, composites, or motifs.
+- Do not chase party colours. If a source SVG is already coloured, keep it as source-coloured; otherwise use monochrome black/white.
+- Party recognition is an attribute of the party, not a separate table.
+- Use one placeholder icon for recognised parties whose symbol has not been collected yet.
+- Split-party edge cases are deferred: current split parties can carry their own symbols; the older unified party can keep its older symbol. Do not model validity-window history until a route needs it.
+
+Repo facts observed on 2026-05-27 and re-checked on 2026-06-01:
 
 - `datasets/taxonomy/parties.json` currently has 617 active party rows.
-- `datasets/elections/dim_parties.parquet` currently has 617 party rows, but `recognition` is null for every row. Do not use that column yet as the recognised-party gate.
+- `datasets/schemas/taxonomy-parties.schema.json` does not yet expose a first-class `recognition` property, although many notes mention imported recognition labels.
+- `datasets/elections/dim_parties.parquet` has `recognition`, but it is null for every row today. The shape exists; the data does not.
+- [docs/architecture/data/canonical-store.md](../docs/architecture/data/canonical-store.md) says `recognition` is party identity on `dim_parties`, while alliances are event-scoped through `dim_party_alliances`.
 - `datasets/elections/elections_candidacies.parquet` references 613 distinct party IDs across 387,810 candidacy rows, 139 events, and 8,055 ACs.
-- In the candidacy corpus, 174 party IDs have at least one win, 222 have at least one candidate with >= 10,000 votes, 190 have >= 100,000 total votes, and 105 have >= 1,000,000 total votes.
 - Existing colour anchors live in [frontend/src/lib/colors/anchors.ts](../frontend/src/lib/colors/anchors.ts), keyed by ECI party code. That file is presentation-only and must not become a symbol registry.
-- [frontend/src/app.css](../frontend/src/app.css) already warns that party symbols as background motifs carry legal/perception risk. That warning remains valid.
+- [frontend/src/app.css](../frontend/src/app.css) already warns that party symbols as background motifs carry legal/perception risk. That warning remains valid for motifs; it does not block small ballot-symbol icons next to party names.
+
+DuckDB top-winner probe, run 2026-06-01:
+
+```sql
+WITH cand AS (
+  SELECT
+    c.party_id,
+    regexp_extract(c.ac_id, 'IN-(S[0-9]{2}|U[0-9]{2})-', 1) AS state_code,
+    c.election_id,
+    c.won,
+    c.votes_polled
+  FROM read_parquet('datasets/elections/elections_candidacies.parquet') c
+  WHERE c.party_id IS NOT NULL
+    AND c.party_id NOT IN ('parties.IN.IND', 'parties.IN.NOTA', 'parties.IN.UNK')
+), agg AS (
+  SELECT
+    party_id,
+    COUNT(*) FILTER (WHERE won) AS wins,
+    COUNT(DISTINCT state_code) FILTER (WHERE won) AS win_states,
+    COUNT(DISTINCT election_id) FILTER (WHERE won) AS win_events,
+    COUNT(*) AS candidacies,
+    SUM(votes_polled) AS total_votes
+  FROM cand
+  GROUP BY party_id
+)
+SELECT a.party_id, p.eci_code, p.short_name, p.full_name,
+       a.wins, a.win_states, a.win_events, a.candidacies,
+       CAST(a.total_votes AS BIGINT) AS total_votes
+FROM agg a
+LEFT JOIN read_parquet('datasets/elections/dim_parties.parquet') p USING (party_id)
+ORDER BY a.wins DESC, a.win_states DESC, a.total_votes DESC
+LIMIT 40;
+```
+
+Top current/high-impact seed parties from the probe include `INC`, `BJP`, `CPI(M)`, `DMK`, `SP`, `AITC`, `BSP`, `AIADMK`, `CPI`, `JD(U)`, `BJD`, `RJD`, `SHS`, `NCP`, `SAD`, `AAP`, `TDP`, `YSRCP`, `JD(S)`, `AIFB`, `IUML`, `RSP`, `JMM`, `AGP`, `BRS`, `SDF`, `NPF`, `MNF`, `INLD`, and `TVK`.
+
+Historical or alias-heavy rows from the top-winner list need lineage review before any current symbol is attached: `JSP`/Janata aliases, `INC_I`, `JD`, `ADK`, `LKD`, `JNP_SC`, `SWA`, `INC_U`, `BKD`, and `NCO`. They may still receive historical/default symbols later, but they are not the first current-recognition collection target.
 
 Commons facts observed from `https://commons.wikimedia.org/wiki/Category:Symbols_of_political_parties_in_India`:
 
 - The direct category has 30 files: 9 SVG, 9 PNG, and 12 JPG/JPEG.
 - The category has 10 subcategories: flags, logos, and party-specific symbol categories for AAP, BRS, BJP, CPI(M), INC, NCP, TDP, and AITC.
 - Direct SVG examples include `Ceiling fan.svg`, `CPI symbol.svg`, `Elephant electoral symbol.svg`, `India National Level Parties symbols.svg`, `INLD1.svg`, `Janata Dal symbol.svg`, and `Oil lamp.svg`.
-- Representative file licenses vary: e.g. `Ceiling fan.svg` CC BY-SA 3.0, `CPI symbol.svg` CC BY-SA 3.0, `Elephant electoral symbol.svg` CC BY 4.0, `India National Level Parties symbols.svg` CC BY-SA 3.0, `INLD1.svg` public domain.
 - Visual check: most election-symbol SVGs are monochrome ballot glyphs. The colourful files are usually party flags/logos or composites, not ECI ballot-symbol artwork.
-- `India National Level Parties symbols.svg` is a high-quality composite but monochrome, partly non-English labelled, and not a per-party asset set. Treat it as discovery material, not a runtime asset.
+- `India National Level Parties symbols.svg` is a high-quality composite but is not a per-party asset set. Treat it as discovery material, not a runtime asset.
 
 ECI facts observed:
 
@@ -48,94 +96,65 @@ ECI facts observed:
 
 External metadata probes observed on 2026-06-01:
 
-- Wikipedia's [List of political parties in India](https://en.wikipedia.org/wiki/List_of_political_parties_in_India) is a dynamic editorial page. It is useful for party-page discovery, party split hints, Commons file leads, and references to official material, but it is not recognition or symbol-assignment authority.
+- Wikipedia's [List of political parties in India](https://en.wikipedia.org/wiki/List_of_political_parties_in_India) is useful for party-page discovery, split hints, Commons file leads, and references to official material.
 - `thecont1/india-votes-data` is an MIT-licensed active repository. Its `data/parties.csv` has fields including `name`, `abv`, `chief`, `colour`, `founded`, `symbol_url`, `seats_loksabha`, `seats_rajyasabha`, `seats_assembly`, `wikipedia_url`, and `alliance`.
-- `thecont1/india-votes-data` is useful as a discovery shortlist for Tier 0 party pages, symbol candidates, aliases, and colour hints. Its `symbol_url` values often point to rendered Wikimedia thumbnails such as `upload.wikimedia.org/.../thumb/.../120px-*.svg.png`, not to the Commons file page, original SVG, or ECI assignment order.
+- `thecont1/india-votes-data` is useful as a discovery shortlist for symbol candidates, aliases, Wikipedia links, and colour hints. Its `symbol_url` values often point to rendered Wikimedia thumbnails, not Commons file pages or original SVGs.
 - `GarudadevDataServices/indian_mlas` has no license surfaced in the initial repository UI probe. Its `scripts/process-data.js` reads `raw_data/india_asm.xlsx`, `raw_data/india_asm.geojson`, and `raw_data/colors.json`; candidate `AGE`, `GENDER`, and `WIKIPEDIA LINK` are lifted directly from the Excel columns.
-- `GarudadevDataServices/indian_mlas/raw_data/colors.json` maps party abbreviations and aliases to 4-channel RGBA arrays in the 0..1 range. It is useful as colour QA and alias-discovery input only; it is not an official party-colour source.
-- The upstream source for Garudadev's `india_asm.xlsx` demographics and Wikipedia links is not documented in that repository. Do not import candidate age, gender, or wiki links from it into yen-gov unless each row is independently traced to ECI, State CEO, affidavit, or another accepted authority.
+- `GarudadevDataServices/indian_mlas/raw_data/colors.json` maps party abbreviations and aliases to 4-channel RGBA arrays in the 0..1 range. It is useful as colour QA and alias-discovery input only.
+
+Discovery wording for future PRs:
+
+> Candidate asset discovered via Wikipedia, Commons, thecont1, or search; symbol recognition checked against ECI/CEO material where possible; asset bytes, source URL, license label, hash, and sanitizer result recorded in the collection inventory.
 
 ## 2. Core decision
 
-Do not chase all 617 taxonomy parties in the first implementation. The useful first tranche is about 100-125 symbols, not the whole registry.
+V1 models a **default party election symbol**, not a full symbol-assignment history.
 
-Model three separate concepts:
+Do **not** create `party_symbols.json`, `party_symbols.parquet`, or `party_symbol_assignments.parquet` for v1. Do **not** track event-specific symbol assignments until a route or source-backed story needs that level of truth.
 
-- **Election symbol**: the ECI ballot-identification glyph. Usually monochrome. It answers, "what symbol was reserved or allotted?"
-- **Party logo / flag**: party brand material. It may be colourful, but it is not necessarily the ECI ballot glyph.
-- **Party colour**: yen-gov presentation aid governed by [docs/architecture/frontend/colours.md](../docs/architecture/frontend/colours.md). It must not be used to colourize election symbols and call them official.
+Model v1 as:
 
-Default rendering rule: render verified election symbols as monochrome SVGs. Do not auto-fill a symbol with party colour unless the asset is explicitly a party logo/flag and the UI labels it as such.
+- optional `recognition` on each party row in `datasets/taxonomy/parties.json`, mirrored to `datasets/elections/dim_parties.parquet`;
+- optional `election_symbol` metadata on each party row in `datasets/taxonomy/parties.json`;
+- sanitized SVG bytes under `frontend/public/party-symbols/*.svg`;
+- one reusable placeholder SVG under `frontend/public/party-symbols/placeholder.svg`.
+
+Election-symbol rules:
+
+- Election symbols are ballot-identification glyphs. They are not flags, logos, banners, or motifs.
+- Default rendering later should show the symbol next to party names where applicable.
+- Store source-coloured SVGs only when the source asset is already coloured. Otherwise store monochrome black/white.
+- Do not recolour monochrome symbols with party colours.
+- Do not invent symbols for independents, unknown parties, or unresolved rows.
+- Recognised parties without collected SVGs get `symbol_status = "placeholder"`, not a fake verified icon.
+- Split parties can each carry their current default symbol. The older unified party can keep the older unified symbol. Validity-window history is deferred.
 
 Citizen warning copy, when symbols first surface:
 
-> Election symbols are shown where yen-gov has verified an ECI or State CEO source. For registered unrecognised parties, symbols may change by election. Colours are yen-gov visual aids, not official ECI ballot colours.
-
-Short citizen-facing copy for mixed symbol/colour surfaces:
-
-> The symbol is the ballot symbol verified from ECI or State CEO material. The colour is a yen-gov chart colour to help you follow parties across the page; it is not an official ECI ballot colour.
-
-Source-authority warnings:
-
-- Do not use Wikipedia, `thecont1/india-votes-data`, `GarudadevDataServices/indian_mlas`, news articles, or third-party dashboards as `authority_source_id` for `party_symbol_assignments`.
-- Do not import thecont1 `parties.csv` fields such as `colour`, `chief`, `founded`, `seats_*`, `wikipedia_url`, or `symbol_url` as yen-gov facts. Use them as discovery leads only.
-- Do not use Garudadev `colors.json` as official party colours. yen-gov party colours remain presentation aids governed by [docs/architecture/frontend/colours.md](../docs/architecture/frontend/colours.md).
-- Do not import Garudadev `india_asm.xlsx` candidate `AGE`, `GENDER`, or `WIKIPEDIA LINK` fields into `dim_persons` or candidate facts unless the row can be traced to an accepted source.
-- Do not infer candidate sex or gender from names, pronouns, photos, titles, Wikipedia prose, or LLM output. Preserve the upstream label and value exactly where ECI, State CEO, or affidavit material publishes it.
-- Do not colourize a monochrome ECI election symbol with a party colour and call that official. Election symbols are ballot identifiers; party colours are yen-gov visual aids.
-
-No symbol is better than a guessed symbol. Do not invent a common symbol for `parties.IN.IND`, `parties.IN.UNK`, or other unresolved rows.
+> Symbols are shown where yen-gov has collected a source-backed election-symbol SVG. Some historical and registered unrecognised parties may have missing or changing symbols. Colours are yen-gov chart aids, not ballot-symbol colours.
 
 ## 3. 80/20 coverage rule
 
-### Tier 0 - seed the visible surface first
+Do not chase all 617 party rows. The useful first tranche is about 60-100 parties, split by visibility and current recognition.
 
-Target size: 25-35 parties.
+### Tier 0 - current recognised + high-visibility seed
 
-Include parties that are already prominent in current yen-gov election pages, high in the candidacy corpus, or represented in colour anchors:
+Target size: 40-60 parties.
 
-- `parties.IN.BJP` - BJP
-- `parties.IN.INC` - INC
-- `parties.IN.BSP` - BSP
-- `parties.IN.CPIM` - CPI(M)
-- `parties.IN.CPI` - CPI
-- `parties.IN.AAP` - AAP
-- `parties.IN.DMK` - DMK
-- `parties.IN.AIADMK` - AIADMK
-- `parties.IN.AITC` - AITC
-- `parties.IN.SP` - SP
-- `parties.IN.JDU` - JD(U)
-- `parties.IN.BJD` - BJD
-- `parties.IN.RJD` - RJD
-- `parties.IN.SHS` and split successors where current routes need them
-- `parties.IN.NCP` and split successors where current routes need them
-- `parties.IN.SAD` - SAD
-- `parties.IN.TDP` - TDP
-- `parties.IN.YSRCP` - YSRCP
-- `parties.IN.JDS` - JD(S)
-- `parties.IN.IUML` - IUML
-- `parties.IN.AGP` - AGP
-- `parties.IN.AIUDF` - AIUDF
-- `parties.IN.PMK` - PMK
-- `parties.IN.JMM` - JMM
-- `parties.IN.BRS` - BRS
-- `parties.IN.SKM` - SKM
-- `parties.IN.INLD` - INLD
-- `parties.IN.AIMIM` - AIMIM
-- `parties.IN.MNS` - MNS
-- `parties.IN.NPP` - NPP
-- `parties.IN.NPF` - NPF
-- `parties.IN.MNF` - MNF
-- `parties.IN.NTK` - NTK, if/when present in the taxonomy/corpus under its current party_id
-- `parties.IN.TVK` - TVK, if the current 2026 surface needs it
+Include:
+
+- all current ECI national parties;
+- current state-recognised parties visible in yen-gov routes;
+- top winners from the DuckDB query above after excluding `IND`, `NOTA`, `UNK`, and legacy alias traps;
+- parties already prominent in colour anchors or current state pages.
+
+Initial seed list to review first: `BJP`, `INC`, `CPI(M)`, `CPI`, `AAP`, `DMK`, `AIADMK`, `AITC`, `SP`, `BSP`, `JD(U)`, `BJD`, `RJD`, `SHS`, `NCP`, `SAD`, `TDP`, `YSRCP`, `JD(S)`, `AIFB`, `IUML`, `RSP`, `JMM`, `AGP`, `BRS`, `SDF`, `NPF`, `MNF`, `INLD`, `AIMIM`, `NPP`, `PMK`, `AIUDF`, `SKM`, `NTK`, and `TVK` if present/needed in the 2026 surface.
 
 ### Tier 1 - all current recognised parties
 
 Target cumulative size: 60-75 parties.
 
-Ingest current ECI national and state-recognised parties from the latest main notification and recognition/de-recognition orders. This is the first official 80/20 cut because recognised parties have reserved symbols that persist across elections until recognition or party status changes.
-
-Prerequisite: backfill or compile party recognition into the canonical party/dimension path before using recognition as a data gate, because `dim_parties.recognition` is currently null.
+Backfill `recognition` from the latest ECI national/state recognised-party notification and recognition/de-recognition orders. Recognition is a party identity attribute; it belongs on `taxonomy/parties.json` and then compiles into `dim_parties.recognition`.
 
 ### Tier 2 - corpus-impact long tail
 
@@ -143,327 +162,277 @@ Target cumulative size: 100-125 parties.
 
 Add parties meeting any one of these corpus rules:
 
-- party has at least one win in `elections_candidacies.parquet`;
+- party has at least one win and is not a legacy alias trap;
 - party has >= 1,000,000 total votes in the corpus;
 - party appears in >= 20 election events;
 - party is visible in a current route or issue-specific narrative.
 
 ### Tier 3 - event-specific or low-exposure rows
 
-Defer everything else. For registered unrecognised parties and independents, assignments are often election-specific common/free-symbol allotments. Add them only when a route or source-backed story needs them.
+Defer everything else. Registered unrecognised parties and independents often receive election-specific common/free symbols. Add them only when a citizen route or source-backed story needs them.
 
 ## 4. Source hierarchy
 
-Separate four questions: party identity, symbol assignment, asset bytes/license, and presentation colour. A source that is acceptable for one question is not automatically acceptable for the others.
+Separate four questions: party identity, recognition, symbol SVG bytes, and presentation colour.
 
-Use this source order for party identity, recognition, and symbol assignment:
+Use this source order for party identity, recognition, and symbol name:
 
 1. ECI main notifications listing national parties, state parties, reserved symbols, registered unrecognised parties, delisted/inactive RUPPs, and free symbols.
 2. ECI recognition/de-recognition/restoration/freezing orders, including faction and reserved-symbol disputes.
 3. ECI election-symbol detail pages and orders under Paras 10, 10A, and 10B for reserved/common-symbol allotment.
-4. State CEO / Returning Officer Form 7A and final list of contesting candidates for election-specific symbol allotment, especially RUPPs and independents.
+4. State CEO / Returning Officer Form 7A and final list of contesting candidates for election-specific symbol cases.
 5. ECI Statistical Reports Section 10 for post-election candidate rows, party short code, symbol text, votes, and reported sex/age/category fields when present.
-6. ECI Results Portal pages for current-cycle party/candidate/result cross-checks, but not as artwork or long-term recognition authority.
-7. Wikimedia Commons file pages and original asset files as asset/license candidates only. A Wikimedia thumbnail URL is not enough; resolve it to the Commons file page and original file, then record license and asset format.
-8. Structured third-party metadata such as `thecont1/india-votes-data` and `GarudadevDataServices/indian_mlas` as discovery/QA only. They may seed candidate links, colours, and review lists, but must not populate `authority_source_id`.
-9. Party official sites, press kits, flags, and constitutions for party-logo or brand-colour discovery only; they do not override ECI ballot-symbol assignment.
-10. Wikipedia/news/media for discovery only unless the PR explicitly marks the row as low-confidence editorial fallback.
+6. ECI Results Portal pages for current-cycle cross-checks.
 
-A runtime `party_symbol_assignments` row must have an ECI or State CEO authority source. If no official source is found, the symbol stays absent.
+Use this source order for SVG bytes:
+
+1. Existing official/source SVG from ECI or State CEO where available.
+2. Wikimedia Commons original SVG file page, especially when it matches the ECI symbol name/shape.
+3. A new clean SVG trace from ECI/CEO black-and-white source material.
+4. Party official site only if it clearly shows the ballot symbol, not a flag/logo.
+5. Placeholder SVG for recognised parties whose symbol is not collected yet.
+
+Wikipedia, Commons category pages, `thecont1/india-votes-data`, Garudadev, and general web search are discovery aids. They can tell us where to look; they do not decide recognition status by themselves.
+
+Colour policy:
+
+- Do not chase colours in this plan.
+- Keep a source-coloured SVG if that is the source asset.
+- Otherwise keep monochrome.
+- Party colour anchors remain separate frontend presentation aids.
+
+License policy:
+
+- User decision 2026-06-01: v1 does not block on per-symbol license anxiety where the asset is an ECI/common election symbol or generic civic glyph.
+- Still record `asset_source_url`, `asset_source_kind`, `license_label`, and `asset_sha256` for every non-placeholder SVG.
+- Sanitization is mandatory regardless of source.
 
 ## 5. Proposed durable layout
 
-Put durable symbol assets and metadata under `datasets/`, not `frontend/`.
+Store SVG bytes as public static media; store metadata as party data.
 
-Proposed layout:
+Proposed v1 layout:
 
 ```text
+frontend/
+  public/
+    party-symbols/
+      placeholder.svg
+      lotus.svg
+      hand.svg
+      hammer-sickle-star.svg
+      two-leaves.svg
+
 datasets/
   schemas/
-    party-symbols.schema.json
+    taxonomy-parties.schema.json      # minor bump: recognition + election_symbol
+    dim-parties.schema.json           # minor bump when compiled symbol fields are mirrored
   taxonomy/
-    party_symbols.json
-    party_symbols.parquet
-    party_symbol_assignments.parquet
-    party_external_links.json
-    party_external_links.parquet
-    person_external_links.json
-    person_external_links.parquet
-    party-symbol-assets/
-      eci-lotus.svg
-      eci-hand.svg
-      eci-elephant.svg
-  grapher/
-    party_colour_anchors.json      # future option if colour anchors move out of frontend code
+    parties.json                      # operator-edited source of truth
+    parties.parquet                   # compiled registry view, if/when emitted
+  elections/
+    dim_parties.parquet               # frontend-readable party dimension
 ```
 
 Rationale:
 
-- `datasets/` is the static data contract copied to `/data/` at deploy time.
-- `frontend/` must not own data files or hardcoded party-symbol maps.
-- Symbol assignment is a relation with validity and provenance, not a timeless field on one party row.
-- The same symbol can belong to multiple historical parties or be free/common in one context and reserved in another.
-- Party and person external links are separate relations, not symbol fields. A Wikipedia URL answers "where can I read more?"; it does not prove symbol assignment or election results.
-- Party colours remain frontend presentation under [docs/architecture/frontend/colours.md](../docs/architecture/frontend/colours.md). If anchors later become persistent data, they belong in a frontend/grapher-owned render catalogue, not in canonical party identity or symbol assignment tables.
+- `frontend/public/party-symbols/*.svg` gives the future frontend stable static URLs without remote hotlinks.
+- `frontend/public` stores bytes only. It must not contain `party-symbols.json`, CSVs, or party-to-path maps.
+- `datasets/taxonomy/parties.json` remains the source of truth for which party gets which default symbol.
+- `elections.dim_parties` is the frontend-readable denormalised view, consistent with existing recognition doctrine.
+- This is an intentional exception to the older "symbol bytes under datasets" idea. It is safe because the bytes are static public media; the metadata remains data-driven.
 
 ## 6. Contract shape
 
-Prefer a separate contract over adding `symbol_path` directly to `taxonomy/parties.json`.
+Add optional fields to each party row in `datasets/taxonomy/parties.json`.
 
-Suggested `party_symbols.json` top-level shape:
+Suggested additive fields:
 
 ```text
 {
-  "$schema": "../schemas/party-symbols.schema.json",
-  "$schema_version": "1.0",
-  "symbols": [...],
-  "assignments": [...]
+  "party_id": "parties.IN.BJP",
+  "short_name": "BJP",
+  "full_name": "Bharatiya Janata Party",
+  "recognition": "national",
+  "election_symbol": {
+    "symbol_name": "Lotus",
+    "asset_path": "party-symbols/lotus.svg",
+    "asset_sha256": "...",
+    "asset_source_url": "https://...",
+    "asset_source_kind": "commons",
+    "license_label": "CC-BY-SA-3.0",
+    "render_mode": "monochrome",
+    "symbol_status": "verified",
+    "notes": null
+  }
 }
 ```
 
-Suggested `symbols[]` fields:
+Suggested `recognition` enum:
 
-- `symbol_id`: stable slug from the symbol name, e.g. `eci-lotus`, `eci-hand`, `eci-elephant`.
-- `display_name`: citizen-readable symbol name, e.g. `Lotus`, `Hand`, `Elephant`.
-- `asset_path`: POSIX-relative path under `taxonomy/party-symbol-assets/`.
-- `asset_sha256`: hash of the committed asset bytes.
-- `asset_format`: `image/svg+xml` for v1.
-- `asset_kind`: `election_symbol`, `party_logo`, `party_flag`, or `composite_reference`. Only `election_symbol` is used in ballot/result UI by default.
-- `render_mode`: `monochrome`, `source_coloured`, or `brand_coloured`. Default `monochrome`.
-- `license`: SPDX-ish text or source license label, e.g. `CC-BY-4.0`, `CC-BY-SA-3.0`, `public-domain`, `unknown-public`.
-- `asset_source_url`: original asset URL, e.g. Commons file page or ECI PDF/source page.
-- `source_id`: FK to `datasets/taxonomy/sources.parquet` for the asset source.
+- `national`
+- `state`
+- `registered_unrecognised`
+- `unknown`
+- `null`
+
+Suggested `election_symbol` fields:
+
+- `symbol_name`: citizen-readable symbol name, e.g. `Lotus`, `Hand`, `Elephant`.
+- `asset_path`: path relative to `frontend/public/`, e.g. `party-symbols/lotus.svg`.
+- `asset_sha256`: hash of committed SVG bytes.
+- `asset_source_url`: ECI/CEO/Commons/official source URL or null for placeholder.
+- `asset_source_kind`: `eci`, `state_ceo`, `commons`, `party_official`, `generated_from_eci`, or `editorial_placeholder`.
+- `license_label`: source license or project label, e.g. `eci-common-symbol`, `CC-BY-SA-3.0`, `public-domain`, `project-placeholder`.
+- `render_mode`: `monochrome` or `source_coloured`.
+- `symbol_status`: `verified`, `placeholder`, `missing`, or `deferred_historical`.
 - `notes`: nullable operator note.
 
-Suggested `assignments[]` fields:
+Do not add these v1 fields:
 
-- `party_id`: FK to `datasets/taxonomy/parties.json`.
-- `symbol_id`: FK to `symbols[].symbol_id`.
-- `scope`: `IN` or ECI state/UT code such as `S22`, when assignment is state-scoped.
-- `valid_from_year`: nullable integer.
-- `valid_to_year`: nullable integer.
-- `assignment_kind`: `reserved_national`, `reserved_state`, `common_symbol`, `free_symbol`, or `historical`.
-- `authority_source_id`: FK to `sources.parquet` proving the assignment.
-- `confidence_tier`: `gold`, `silver`, or `bronze`.
-- `notes`: nullable operator note.
+- `party_symbols.json`
+- `party_symbol_assignments.parquet`
+- `party_external_links.json`
+- `person_external_links.json`
+- `wikipedia_url`
+- third-party `colour` / `rgba`
+- flags or logos
+- event-specific assignment windows
 
-Suggested `party_external_links[]` fields, if the party-profile UI earns this relation:
-
-- `party_id`: FK to `datasets/taxonomy/parties.json`.
-- `link_kind`: `wikipedia`, `wikidata`, `official_site`, `eci_profile`, or `other`.
-- `url`: canonical external URL.
-- `language`: nullable BCP-47 language code, e.g. `en` for English Wikipedia.
-- `source_id`: FK to `datasets/taxonomy/sources.parquet` proving where the link was collected or verified.
-- `confidence_tier`: `gold`, `silver`, or `bronze`.
-- `notes`: nullable operator note.
-
-Suggested `person_external_links[]` fields, if candidate/person profile links are persisted:
-
-- `person_id`: FK to the canonical person dimension once `dim_persons` / person taxonomy lands.
-- `link_kind`: `wikipedia`, `wikidata`, `official_site`, `affidavit`, `myneta_profile`, or `other`.
-- `url`: canonical external URL.
-- `source_id`: FK to `datasets/taxonomy/sources.parquet`.
-- `confidence_tier`: `gold`, `silver`, or `bronze`.
-- `notes`: nullable operator note.
-
-Do not add `wikipedia_url`, third-party `colour`, `rgba`, or raw upstream `symbol_url` fields to the runtime v1 symbol contract. Those belong in the probe report until a concrete citizen-facing need earns a schema field. The runtime symbol contract should carry only verified asset provenance, assignment authority, and render-safe asset metadata.
-
-Future extension, only if needed: event-specific assignment table keyed by `(party_id, election_id, state_code)` for RUPPs and independents.
+Party/person external links can wait for a profile-page feature. This plan is only about election-symbol SVG collection.
 
 ## 7. Validation rules
 
-Backend validator / tests should enforce:
+Backend and frontend contract tests should enforce:
 
-- `party-symbols.schema.json` is schema-valid and has `x-version`/`x-changelog` per [CLAUDE.md](../CLAUDE.md) section 11.
-- Every `party_id` exists in `taxonomy/parties.json`.
-- Every `symbol_id` in assignments exists in `symbols[]`.
-- Every `asset_path` is POSIX-relative, starts with `taxonomy/party-symbol-assets/`, exists, ends in `.svg`, and matches `asset_sha256`.
-- SVGs are sanitized: no `script`, no event-handler attributes, no `foreignObject`, no external `href`, no remote fonts, and no embedded raster blobs unless a later ADR explicitly allows them.
-- No overlapping active assignment for the same `(party_id, scope, assignment_kind)` validity window.
-- Every `source_id` / `authority_source_id` resolves to `taxonomy/sources.parquet`.
-- `asset_kind = composite_reference` cannot be assigned to a party for UI rendering.
-- `render_mode = brand_coloured` requires `asset_kind` of `party_logo` or `party_flag`, not `election_symbol`.
-- External-link relations validate FK closure, URL shape, allowed `link_kind`, duplicate prevention on `(party_id, link_kind, url)` or `(person_id, link_kind, url)`, and `source_id` closure.
-- Probe parsers use small checked-in fixtures, not live network calls in pytest.
-- `india-votes-data` fixtures keep the required headers `name`, `abv`, `colour`, `symbol_url`, and `wikipedia_url`; missing optional values are allowed and reported.
-- `indian_mlas` fixtures validate every colour as a 4-item RGBA array with numeric channels between 0 and 1.
-- Party matching uses the existing party lookup / alias resolution seam. Unresolved abbreviations are reported, never coerced to `IND` or `UNK`.
-- A `symbol_url` discovered from a thumbnail is only a candidate until the pipeline resolves a Commons file page or official source and passes SVG sanitizer/hash checks.
-- Probe output must be a report or handoff table only. It must not write symbol assets, party-symbol assignments, frontend anchors, or canonical Parquet.
+- `taxonomy-parties.schema.json` minor bump adds `recognition` and nullable `election_symbol` fields.
+- `dim-parties.schema.json` minor bump mirrors only the frontend-needed subset when the compile path is updated.
+- Every `recognition` value is from the enum.
+- Every non-null `election_symbol.asset_path` starts with `party-symbols/`, is POSIX-relative, ends in `.svg`, and has a kebab-case filename.
+- Every non-placeholder asset path exists under `frontend/public/party-symbols/`.
+- Every SVG hash matches `asset_sha256`.
+- Every SVG passes the existing icon-registry style allowlist: no `script`, no event-handler attributes, no `foreignObject`, no external `href`, no remote fonts, no embedded raster blobs, no inline `style`, and no `use`.
+- `symbol_status = "placeholder"` must use `party-symbols/placeholder.svg` and must not claim a real symbol name/source.
+- No Svelte or TypeScript file contains a party-id-to-symbol-path map. Future frontend code derives URLs from party data.
+- Probe parsers use checked-in fixtures; no pytest test performs live network access or walks the real corpus.
+- The collection report distinguishes source discovery, recognition source, asset source, sanitizer result, and placeholder status.
 
 ## 8. PR sequence
 
-### PR-SYM-0 - Recognition/source audit handoff
+### PR-SYM-0 - Plan rewrite and policy lock
 
-Goal: make the official coverage cut reproducible before adding assets.
+Goal: close the old relation-heavy design and lock the v1 collection policy.
 
 Work:
 
-- Create or update a handoff doc listing the latest ECI national-party and state-party main notification PDFs.
-- Record recognition/de-recognition pages that changed current status after the main notification.
-- Decide whether recognition belongs on `taxonomy/parties.json`, `dim_parties.parquet`, or a separate party-recognition relation. Consult Hans + Gregor if the shape is not obvious.
+- Update this plan with the 2026-06-01 user decisions.
+- Record the DuckDB top-N query and the recognised-party-first rule.
+- Record that party recognition is an attribute on party identity.
+- Record the `frontend/public/party-symbols/` public-media exception.
 
 Acceptance:
 
-- No asset ingestion yet.
-- A reviewer can reproduce the Tier 1 party list from ECI sources.
+- Docs-only PR.
+- No assets, schemas, runtime code, or canonical data changes.
 
-### PR-SYM-0A - External discovery-source probes
+### PR-SYM-1 - Recognition + symbol metadata schema
 
-Goal: turn third-party metadata into a candidate review report before any contract or asset ingest changes.
-
-Work:
-
-- Probe `https://raw.githubusercontent.com/thecont1/india-votes-data/main/data/parties.csv` and record row count, headers, repository license, latest observed upstream commit/file SHA, and whether the row is in the Tier 0/1/2 target set.
-- Probe `https://raw.githubusercontent.com/GarudadevDataServices/indian_mlas/main/raw_data/colors.json` and record key count, alias patterns, RGBA range, and license status.
-- Probe `https://raw.githubusercontent.com/GarudadevDataServices/indian_mlas/main/scripts/process-data.js` and record that candidate age, gender, and Wikipedia links are read from `raw_data/india_asm.xlsx` columns, with no upstream source documented in the repository.
-- For each `india-votes-data.symbol_url`, classify whether it is a Wikimedia thumbnail, original SVG, PNG/JPG-only candidate, missing value, or non-Wikimedia URL.
-- For each thumbnail candidate, derive the likely Commons file title, then verify through the Commons API or file page before any asset is accepted. Store the Commons file page URL and original SVG URL separately in the report.
-- For each `india-votes-data.wikipedia_url`, record it as a discovery cross-link only.
-- Join upstream party abbreviations through the existing party lookup / alias resolution seam; report unresolved abbreviations separately.
-- Produce a compact candidate table with: upstream source, upstream party code/name, matched `party_id` if any, candidate symbol URL, candidate Commons file page, candidate Wikipedia URL, candidate colour values, license status, assignment authority status, and recommended next action.
-- Do not write `datasets/taxonomy/party_symbols.json`, do not commit assets, do not update frontend colour anchors.
-
-Acceptance:
-
-- Report/handoff only; no runtime data, schema, frontend, or asset changes.
-- Unit tests cover CSV header parsing, RGBA validation, URL classification, Commons-thumbnail detection, and unresolved-party reporting using fixtures.
-- No pytest test performs live network access or walks the real corpus.
-- The report clearly separates discovery source, asset/license source, and assignment-authority source.
-
-### PR-LINK-1 - Party/person external-link contract
-
-Goal: persist party and person external profile links only after a citizen-facing profile surface needs them.
+Goal: make the party-row contract explicit before assets land.
 
 Work:
 
-- Add schemas for `party_external_links.json` and/or `person_external_links.json` only when the UI has a concrete consumer.
-- Compile the JSON relations to Parquet under `datasets/taxonomy/` and register them in `datasets/manifest.json`.
-- Keep Wikipedia links out of result provenance and source lists; they are profile links, not evidence for votes, recognition, or symbol assignment.
-- For candidate/person links, do not import Garudadev Excel-derived values unless every row can be traced to accepted source material.
-
-Acceptance:
-
-- FK closure to party/person identity tables and `taxonomy/sources.parquet` is tested.
-- Duplicate link keys are rejected.
-- Frontend tests prove missing links hide cleanly and no Wikipedia URL is hardcoded in Svelte/TS runtime components.
-
-### PR-SYM-1 - Contract only
-
-Goal: land the schema and docs before logic.
-
-Work:
-
-- Add `datasets/schemas/party-symbols.schema.json` v1.0.
-- Add documentation to [docs/architecture/data/canonical-store.md](../docs/architecture/data/canonical-store.md) or a focused sibling doc under `docs/architecture/data/` explaining symbol identity vs assignment.
-- Add a tiny fixture in backend tests only. Do not commit real symbol assets unless the PR explicitly owns that data.
+- Add `recognition` and nullable `election_symbol` fields to `taxonomy-parties.schema.json` with a minor bump.
+- Update the taxonomy parties validator/tests with small fixtures.
+- Decide whether `dim_parties` mirrors symbol fields immediately or waits until frontend rendering. If mirrored now, bump `dim-parties.schema.json` minor and update the compiler.
 
 Acceptance:
 
 - Schema tests green.
-- No frontend runtime changes.
+- Existing parties with no symbol remain valid.
+- No frontend rendering change.
 
-### PR-SYM-2 - Validator and sanitizer
+### PR-SYM-2 - Reproducible roster report
 
-Goal: make bad assets impossible to commit silently.
-
-Work:
-
-- Add pure validation helpers for asset path, hash, FK closure, and validity-window overlap.
-- Add SVG sanitizer checks with `tmp_path` fixtures.
-- Add Tier-A tests for malicious SVG examples.
-
-Acceptance:
-
-- Tests prove scripts, event handlers, external links, and `foreignObject` are rejected.
-- No real corpus walk from pytest.
-
-### PR-SYM-3 - Compile to Parquet and manifest
-
-Goal: expose the symbol contract through the same static data path as other taxonomy artifacts.
+Goal: choose the first 80/20 collection set without hand-picking in chat.
 
 Work:
 
-- Add a backend compile path that reads `taxonomy/party_symbols.json` and writes `taxonomy/party_symbols.parquet` and `taxonomy/party_symbol_assignments.parquet`.
-- Register both Parquets in `datasets/manifest.json`.
-- Keep `party-symbol-assets/*.svg` as static files served under `/data/` by existing dev/prod data-loading rules.
+- Add a small report script or documented DuckDB query that produces: party_id, code, full name, wins, win_states, win_events, candidacies, total_votes.
+- Join current ECI recognised-party sources to mark `recognition` candidates.
+- Flag historical/alias-heavy rows for review instead of auto-assigning symbols.
+- Produce a checked-in handoff note under `notes/` or the PR body with the first 40-60 targets.
 
 Acceptance:
 
-- `python -m yen_gov emit-taxonomy --root .` or the appropriate writer command emits deterministic Parquet.
-- Manifest regeneration is stable except expected table additions.
-- Tier-B validator passes.
+- Reviewer can rerun the query.
+- The report explains every excluded top-winner alias trap.
+- The target set covers current recognised parties and the main citizen-visible winners.
 
-### PR-SYM-4 - Seed Tier 0 assets
+### PR-SYM-3 - Sanitizer + placeholder asset
 
-Goal: add first visible symbols with high confidence and screenshots.
+Goal: make bad SVGs impossible to commit silently before the first real batch lands.
 
 Work:
 
-- Add 25-35 Tier 0 SVGs and assignments.
-- Prefer Commons SVG where license is clear and visual shape matches ECI/CEO authority; otherwise trace from ECI source only if license policy permits and source is documented.
-- Record both asset provenance and assignment authority.
-- Use the PR-SYM-0A report only as a shortlist. Every committed asset still needs its own verified asset source/license, and every assignment still needs ECI/CEO authority.
+- Reuse or factor the existing icon-registry SVG allowlist for party-symbol assets.
+- Add `frontend/public/party-symbols/placeholder.svg`.
+- Add tests that walk `frontend/public/party-symbols/*.svg` and reject unsafe SVGs.
 
 Acceptance:
 
-- All hashes and FKs validate.
-- A small generated inventory table in the PR body lists party, symbol, asset source, assignment source, license, and confidence.
-- If a symbol candidate came from Wikipedia, Commons, or `india-votes-data`, the PR body identifies it as discovery material and names the separate authority source used for assignment.
+- Malicious fixture tests reject scripts, event handlers, external links, `foreignObject`, `style`, `use`, and embedded rasters.
+- Placeholder SVG passes the same sanitizer.
 
-### PR-SYM-5 - Frontend loader/render component
+### PR-SYM-4 - Seed first SVG batch
 
-Goal: render symbols without making frontend the data owner.
+Goal: collect the first visible set, without frontend rendering yet.
 
 Work:
 
-- Add a loader/view-model that reads manifest-backed symbol tables and maps `asset_path` to `/data/<asset_path>`.
-- Add a small `PartySymbol` renderer with fallback to initials or no-icon state.
-- Do not hardcode party-specific asset paths in Svelte or TS.
+- Add 40-60 sanitized SVG assets under `frontend/public/party-symbols/`.
+- Update `datasets/taxonomy/parties.json` with `recognition` and `election_symbol` metadata for those parties.
+- Use source-coloured SVGs only when the source asset is already coloured; otherwise store monochrome.
+- Use placeholder metadata for recognised parties where the SVG was not collected in this batch.
 
 Acceptance:
 
-- Unit tests cover present, absent, and invalid assignment cases.
-- Frontend contract test blocks hardcoded `party-symbol-assets/` paths outside the loader/test fixtures.
-- Browser smoke per [CLAUDE.md](../CLAUDE.md) section 13 on one route that actually renders symbols.
+- Inventory table in the PR body lists `party_id`, short name, wins/rank where applicable, recognition status/source, symbol name, asset path, source URL, license label, hash, render mode, symbol status, and sanitizer result.
+- Coverage report shows recognised-party coverage and top-N winner coverage before/after.
+- No frontend route renders symbols yet.
 
-### PR-SYM-6 - Tier 1 recognised-party expansion
+### PR-SYM-5 - Later frontend renderer
 
-Goal: cover the official recognised-party list.
+Goal: render collected symbols next to parties once the data and assets are stable.
 
 Work:
 
-- Add all current national/state recognised parties not covered by Tier 0.
-- Add recognition validity/source rows or assignments with validity windows where ECI orders require them.
+- Add a party-symbol view-model path that reads `dim_parties`/party data.
+- Render `asset_path` mechanically from data and the Vite base URL.
+- Use the placeholder only when `symbol_status = "placeholder"`.
+- Do not create a party-id-to-path map in Svelte or TypeScript.
 
 Acceptance:
 
-- Coverage report says every current recognised party has either a verified symbol or a documented missing-asset reason.
+- Unit tests cover verified, placeholder, missing, and invalid asset states.
+- Browser smoke per [CLAUDE.md](../CLAUDE.md) section 13 on one affected route.
 
-### PR-SYM-7 - Tier 2 corpus-impact expansion
+## 9. Closed decisions and deferred questions
 
-Goal: cover high-use long-tail parties.
+Closed for v1:
 
-Work:
+- Recognition is a party attribute in `taxonomy/parties.json`, mirrored into `dim_parties`; no separate recognition table.
+- SVG bytes live under `frontend/public/party-symbols/`; metadata lives on party rows.
+- No `party_symbols` registry or `party_symbol_assignments` relation for v1.
+- No flags, logos, banners, or composites.
+- No party-colour chase. Keep source-coloured assets if they exist; otherwise monochrome.
+- User policy accepts ECI/common election-symbol glyphs as suitable v1 assets when source, hash, and sanitizer result are recorded.
+- Split-party deep history is deferred.
 
-- Add parties with wins, >= 1,000,000 total corpus votes, or repeated event appearances.
-- Where assignment is event-specific common/free symbol, do not promote it to timeless party identity.
+Still open:
 
-Acceptance:
-
-- Corpus coverage table in PR body shows before/after: percent of candidate rows, votes, wins, and current-route parties with symbols.
-
-## 9. Open questions
-
-- Should party recognition be modelled as a property on `taxonomy/parties.json`, as a compiled `party_recognition.parquet` relation, or as election-scoped rows only? Current `dim_parties.recognition` is null, so this is unresolved.
-- What license posture is acceptable for manual SVG traces from ECI PDFs? This needs explicit project policy before tracing many assets.
-- Should `thecont1/india-votes-data` metadata be cited as an MIT discovery source in `sources.parquet`, or only in the PR-SYM-0A handoff report, given it is not assignment authority?
-- `GarudadevDataServices/indian_mlas` did not surface an explicit license in the initial probe. Should it remain QA-only unless license status is clarified?
-- Should Wikipedia URLs be persisted in `party_external_links`, or remain probe-only until a party-profile page earns that field?
-- Should candidate/person Wikipedia links wait for the `dim_persons` / canonical person identity work, rather than attach to candidate rows?
-- Should logos/flags ever render in citizen results pages, or should v1 restrict itself to `asset_kind = election_symbol` only?
-- How should party splits share or fork symbol assignments? Example: Shiv Sena and NCP factions need careful validity windows and assignment authority.
-- Should symbol assets be optimized with SVGO during ingest? If yes, sanitizer and hash must run after optimization, and the optimizer config becomes part of the data contract.
+- Exact Tier 0 size: 40, 50, or 60 parties.
+- Whether `dim_parties` should mirror `election_symbol` fields before frontend rendering or in the renderer PR.
+- Whether the sanitizer should reuse `frontend/src/lib/icons/` directly or expose a small shared validation helper for `frontend/public/party-symbols/` tests.
 
 ## 10. References
 
@@ -479,5 +448,6 @@ Acceptance:
 - [GarudadevDataServices/indian_mlas `scripts/process-data.js`](https://github.com/GarudadevDataServices/indian_mlas/blob/main/scripts/process-data.js)
 - [docs/architecture/data/canonical-store.md](../docs/architecture/data/canonical-store.md)
 - [docs/architecture/frontend/data-loading.md](../docs/architecture/frontend/data-loading.md)
+- [docs/architecture/frontend/charts/icon-registry.md](../docs/architecture/frontend/charts/icon-registry.md)
 - [docs/architecture/frontend/colours.md](../docs/architecture/frontend/colours.md)
 - [TODO/PARTY-COLORS-REWORK.md](PARTY-COLORS-REWORK.md)
