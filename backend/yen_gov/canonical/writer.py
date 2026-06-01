@@ -883,6 +883,7 @@ _DIM_SPECS: dict[str, dict] = {
             ("eci_no", "INTEGER NOT NULL"),
             ("name", "VARCHAR"),
             ("source_id", "VARCHAR NOT NULL"),
+            ("lgd_ac_id", "INTEGER"),  # nullable; ADR-0049 internal join key
         ],
     },
     "pc": {

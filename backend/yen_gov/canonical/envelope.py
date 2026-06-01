@@ -208,6 +208,7 @@ class AcDimRow(BaseModel):
     eci_no: int = Field(ge=1)
     name: str | None = None
     source_id: str = Field(min_length=1)
+    lgd_ac_id: int | None = None
 
 
 class PcDimRow(BaseModel):

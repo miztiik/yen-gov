@@ -57,6 +57,7 @@ from yen_gov.pipeline.compose import (
     party_lookup_from_partywise,
     reconcile_winners_against_partywise,
 )
+from yen_gov.pipeline.dim_acs_lgd_lift import load_lgd_lookup
 from yen_gov.sources.eci.constituencywise import (
     parse_constituencywise,
     to_constituency_result,
@@ -164,12 +165,14 @@ def _write_canonical_slice(
     """
     period = parse_period_label(event_id)
     party_lookup = load_party_lookup(datasets_root)
+    lgd_lookup = load_lgd_lookup(datasets_root)
 
     rows, sources_by_id, _unresolved, person_dims, candidacies, ac_dims = build_slice_envelope(
         constituencies=constituencies,
         state_code=state_code,
         period=period,
         party_lookup=party_lookup,
+        lgd_lookup=lgd_lookup,
     )
 
     first_source_id = sorted(sources_by_id.keys())[0] if sources_by_id else ""

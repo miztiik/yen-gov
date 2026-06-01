@@ -3,12 +3,17 @@
   "$id": "./dim-acs.schema.json",
   "title": "Assembly constituency dimension row (canonical, period-stable)",
   "description": "Logical contract for one row of datasets/elections/dim_acs.parquet. One row per (state_code, delim_year, eci_no). Holds the AC display name and identity fields that observations.parquet does not carry. PK = ac_id (canonical/adapters/eci/identity.ac_entity_id). Period-stable within a delimitation cycle; UPSERT-idempotent across re-runs. Sub-phase 1.2b of TODO/20260517-canonical-long-format-pivot.md.",
-  "x-version": "1.0",
+  "x-version": "1.1",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-18",
       "description": "Initial dim_acs schema. Columns: ac_id PK, state_code, delim_year, eci_no, name, source_id."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-06-01",
+      "description": "Additive: nullable lgd_ac_id (LGD Assembly Constituency code, the canonical internal join key per ADR-0049). Joined from taxonomy/ac_crosswalk.parquet on (state_code, eci_no) for delim_year=2008 ACs; NULL for 1976 cycle and uncovered ACs. Row A3 of TODO/20260530-eci-to-lgd-acid-migration-plan.md."
     }
   ],
   "type": "object",
@@ -45,6 +50,11 @@
       "type": "string",
       "minLength": 1,
       "description": "FK -> taxonomy/sources.parquet. First-observed source; UPSERT keeps the earliest observation."
+    },
+    "lgd_ac_id": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "description": "LGD Assembly Constituency code (canonical INTERNAL join key per ADR-0049). Joined from taxonomy/ac_crosswalk.parquet on (state_code, eci_no) for delim_year=2008 ACs. NULL for the 1976 cycle and for ACs not yet bound to an LGD code (e.g. U08/J&K, S03/Assam). eci_no remains the citizen-facing display + URL label."
     }
   }
 }
