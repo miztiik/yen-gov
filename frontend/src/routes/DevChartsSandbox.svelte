@@ -33,6 +33,13 @@
   import { buildHorizontalGroupedBarViewModel, buildFacetPanelGridViewModel } from "../lib/charts/multi-dim-view-models";
   import { buildOrderedCategoryBarViewModel } from "../lib/charts/bar-view-models";
   import { buildDumbbellRangeViewModel, buildTimeSeriesLineViewModel } from "../lib/charts/time-view-models";
+  import TileCartogram from "../lib/charts/TileCartogram.svelte";
+  import ChartShell from "../lib/charts/ChartShell.svelte";
+  import {
+    buildTileRows,
+    type TileLayoutRow,
+    type TileWinnerInput,
+  } from "../lib/view-models/election-tile-layout";
 
   // ─── fixture 1 — installed capacity by fuel, 4 states × 3 fuels ───
   type CapacityRow = { state_id: string; state_label: string; fuel_id: string; fuel_label: string; capacity_gw: number | null };
@@ -177,6 +184,58 @@
   const fmtGw = (v: number) => `${v.toFixed(1)} GW`;
   const fmtPct = (v: number) => `${v.toFixed(1)}%`;
   const fmtInr = (v: number) => `₹${(v / 1000).toFixed(0)}k`;
+
+  // ─── fixture 6 — TileCartogram (equal-area hex; synthetic 5×5 patch) ───
+  // A small synthetic AC layout + winners so the renderer↔builder contract
+  // (election-tile-layout.ts -> TileCartogram.svelte) gets a runtime exercise.
+  // Numbers/parties illustrative only.
+  const _tc_parties: { key: string; short: string }[] = [
+    { key: "BJP", short: "BJP" },
+    { key: "INC", short: "INC" },
+    { key: "NCP", short: "NCP" },
+    { key: "SHS", short: "SHS" },
+  ];
+  const tc_tiles: TileLayoutRow[] = [];
+  const tc_winners: TileWinnerInput[] = [];
+  {
+    let n = 1;
+    for (let r = 0; r < 5; r++) {
+      for (let q = 0; q < 5; q++) {
+        const unit_id = `IN-S13-AC-2008-${n}`;
+        tc_tiles.push({
+          layout_kind: "ac",
+          scope: "S13",
+          delim_year: 2008,
+          unit_id,
+          eci_no: n,
+          q,
+          r,
+          label: `AC ${n}`,
+          source_id: "synthetic",
+          derivation_method: "centroid-hexbin",
+        });
+        // leave a couple of tiles winner-less to show the "pending" neutral style
+        if (n % 7 !== 0) {
+          const p = _tc_parties[(q + r) % _tc_parties.length];
+          tc_winners.push({
+            unit_id,
+            party_key: p.key,
+            party_short: p.short,
+            margin_pct: ((q * 7 + r * 11) % 30) + 1,
+          });
+        }
+        n++;
+      }
+    }
+  }
+  let tc_selected = $state<string | null>(null);
+  const tc_rows = $derived(buildTileRows(tc_tiles, tc_winners, { selected_unit_id: tc_selected }));
+  const tc_legend = $derived(
+    _tc_parties.map((p) => ({
+      label: p.short,
+      color: tc_rows.find((r) => r.tooltip_html.includes(`Winner: ${p.short}`))?.fill ?? "#94a3b8",
+    })),
+  );
 </script>
 
 <section class="mx-auto max-w-5xl space-y-10 p-6 text-slate-800">
@@ -267,5 +326,28 @@
       chart_subtitle="Panels share a global max."
       format_value={fmtGw}
     />
+  </section>
+
+  <section class="space-y-3" data-sandbox-section="tile-cartogram">
+    <h2 class="text-lg font-semibold">TileCartogram</h2>
+    <p class="text-sm text-slate-600">
+      Equal-area hex cartogram — one hexagon per constituency, sized
+      equally so dense urban seats are as visible as large rural ones.
+      Synthetic 5×5 AC patch; fill = winning party, opacity = margin.
+      Every 7th tile has no winner to exercise the neutral
+      <em>results-pending</em> style. Click a hex to toggle selection.
+      {#if tc_selected}<strong> Selected: {tc_selected}</strong>{/if}
+    </p>
+    <ChartShell
+      title="Synthetic AC tile cartogram"
+      subtitle="Illustrative only — not a real result."
+    >
+      <TileCartogram
+        tiles={tc_rows}
+        height="360px"
+        legend={tc_legend}
+        onSelect={(id) => (tc_selected = tc_selected === id ? null : id)}
+      />
+    </ChartShell>
   </section>
 </section>

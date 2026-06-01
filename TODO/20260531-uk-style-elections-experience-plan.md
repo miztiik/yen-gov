@@ -82,7 +82,7 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 | PR-A3 | A | PC parser + observations + rollups + CLI `ingest-eci-ls` | PR-A2 | [x] DONE (local) | Gregor |
 | PR-A4 | A | Run ingest: write PC parquet + dim_pcs + lok_sabha event row + validate | PR-A3 | [x] DONE (local) | Max |
 | PR-B1 | B | Tile-layout schema + grapher layouts + pilot S13-AC + national-PC layout | none `||` | [x] DONE (288 AC + 545 PC tiles, 0 overlaps) | Jony |
-| PR-B2 | B | Generic `<TileCartogram>` SVG component + layout loader + ChartShell wrap | PR-B1 | [ ] PENDING | Jony |
+| PR-B2 | B | Generic `<TileCartogram>` SVG component + layout loader + ChartShell wrap | PR-B1 | [x] DONE (component + view-model + sandbox mount; 8+9 vitest, sandbox Playwright green) | Jony |
 | PR-B3 | B | `ElectionMap` wrapper (Map\|Equal seats toggle) on StateElection (AC) | PR-B2 | [ ] PENDING | Jony |
 | PR-B4 | B | National atlas route `/t/elections/:event` + INDIA_PC + loadNationalPcWinners | PR-B2; live data needs PR-A4 | [ ] PENDING | Gregor |
 | PR-B5 | B | Cross-year E1: swing arrows on seat-composition bars | PR-B3 | [ ] PENDING | Jony |
@@ -283,9 +283,11 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 **Escalation:** dispatch **Jony** on tile sizing/label density if the sandbox render looks crowded.
 
 **Acceptance gates (frugal):**
-- [ ] G3 `bun run check` 0 errors.
-- [ ] G4 `bun run test` filtered to `tile-cartogram.test.ts` + `election-tile-layout-coverage.test.ts`.
-- [ ] G5 browser smoke (integrated Playwright, NOT remote): `/dev/charts-sandbox` renders the cartogram, no console `[error]`, no 404. Screenshot to confirm visual intent. Do not wait for any deploy.
+- [x] G3 `bun run check` 0 errors (0 errors / 7 pre-existing warnings; topojson deps installed so prior 4 module-resolution errors cleared).
+- [x] G4 `bun run test` filtered to `tile-cartogram.test.ts` (8) + `election-tile-layout-coverage.test.ts` (9) = 17 pass.
+- [x] G5 browser smoke: `/dev/charts-sandbox` renders the cartogram (25 synthetic AC polygons), no console `[error]`, no 404; both chromium + mobile-pixel-5 green.
+
+**Done 2026-05-31:** NEW `frontend/src/lib/charts/TileCartogram.svelte` (pure SVG pointy-top odd-r hex grid; party-colour fill + margin->opacity reusing StateAcMap semantics; hover tooltip; selection/highlight; a11y warnings suppressed per StackedTrendV2 convention) + NEW `frontend/src/lib/view-models/election-tile-layout.ts` (grain-agnostic `fetchElectionTileLayouts`/`selectLayout`/`buildTileRows`; unmatched tile -> neutral "results pending") + NEW `frontend/src/lib/charts/__tests__/tile-cartogram.test.ts` (8 tests) + sandbox mount in `DevChartsSandbox.svelte` (`data-sandbox-section="tile-cartogram"`, synthetic 5x5 AC patch, ChartShell wrap) + extended `frontend/e2e/dev-charts-sandbox.spec.ts` (tile-cartogram section + 25-polygon assertion). Jony deep legibility tuning deferred to PR-B3 (mounts on real state route with real winners; synthetic sandbox render is clean + uncrowded at 360px).
 
 ### PR-B3 - `ElectionMap` wrapper with Map|Equal seats toggle (AC/state)
 

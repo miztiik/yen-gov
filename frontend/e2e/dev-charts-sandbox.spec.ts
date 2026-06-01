@@ -34,7 +34,7 @@ test("dev charts sandbox renders every generic renderer section", async ({ page 
   await expect(page.getByRole("heading", { name: "Charts sandbox", level: 1 })).toBeVisible();
 
   // Each renderer is wrapped in a <section data-sandbox-section="…">.
-  for (const id of ["hgb", "ocb", "dr", "tsl", "fpg"]) {
+  for (const id of ["hgb", "ocb", "dr", "tsl", "fpg", "tile-cartogram"]) {
     await expect(page.locator(`[data-sandbox-section="${id}"]`)).toBeVisible();
   }
 
@@ -44,4 +44,8 @@ test("dev charts sandbox renders every generic renderer section", async ({ page 
   const hgb = page.locator('[data-sandbox-section="hgb"]');
   await expect(hgb.getByText("Tamil Nadu", { exact: false }).first()).toBeVisible();
   await expect(hgb.getByText("12.7 GW").first()).toBeVisible();
+
+  // TileCartogram paints one <polygon> per synthetic AC tile (5×5 = 25).
+  const tc = page.locator('[data-sandbox-section="tile-cartogram"]');
+  await expect(tc.locator("svg polygon")).toHaveCount(25);
 });
