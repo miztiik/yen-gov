@@ -20,7 +20,7 @@ import type { Manifest } from "../duckdb";
 // on every SQL string and asserts allowlist conformance.
 
 export interface CatalogueState {
-  /** Internal canonical id (e.g. "in_s22"). Used as Hive partition value. */
+  /** Internal canonical id (e.g. "tamil-nadu"). Used as Hive partition value. */
   readonly partition_id: string;
   /** ECI state code (e.g. "S22"). */
   readonly eci_code: string;
@@ -33,7 +33,7 @@ export interface CatalogueElectionPeriod {
   readonly period_label: string;
   /** Human-readable label (e.g. "Tamil Nadu AC General — May 2026"). */
   readonly display_name: string;
-  /** State partition the period belongs to (e.g. "in_s22"). */
+  /** State partition the period belongs to (e.g. "tamil-nadu"). */
   readonly state_partition_id: string;
 }
 

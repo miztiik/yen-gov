@@ -130,7 +130,7 @@ describe("Grammar A — reserved-path-token set (ADR-0037)", () => {
   });
 
   it("never overlaps with the lowercase ISO state codes / Hive form", () => {
-    // Hive form `in_s22` and ECI lowercase `s22` must NEVER be reserved
+    // Hive form `tamil-nadu` and ECI lowercase `s22` must NEVER be reserved
     // (would prevent a real state slug from landing). The reservation
     // set is structural tokens only.
     for (const token of RESERVED_PATH_TOKENS) {

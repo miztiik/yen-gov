@@ -14,12 +14,12 @@ import { compileIntent } from "./compile-intent";
 
 const CATALOGUE: SemanticCatalogue = {
   tables: [],
-  states: [{ partition_id: "in_s22", eci_code: "S22", display_name: "Tamil Nadu" }],
+  states: [{ partition_id: "tamil-nadu", eci_code: "S22", display_name: "Tamil Nadu" }],
   election_periods: [
     {
       period_label: "AcGenMay2026",
       display_name: "AC general May 2026",
-      state_partition_id: "in_s22",
+      state_partition_id: "tamil-nadu",
     },
   ],
   parties: [
@@ -35,7 +35,7 @@ function intent(overrides: Partial<InsightIntent>): InsightIntent {
     version: "insight.intent.v0",
     concept_id: "party_totals",
     question: "Q?",
-    filters: { state_partition_id: "in_s22", period_label: "AcGenMay2026" },
+    filters: { state_partition_id: "tamil-nadu", period_label: "AcGenMay2026" },
     reasoning: "",
     ...overrides,
   };
@@ -46,7 +46,7 @@ describe("compileIntent", () => {
     const plan = compileIntent(intent({}), CATALOGUE);
     expect(plan.concept_id).toBe("party_totals");
     expect(plan.slice_registrations[0]!.table_id).toBe("elections.election_results");
-    expect(plan.slice_registrations[0]!.partition_filter).toEqual({ state: "in_s22" });
+    expect(plan.slice_registrations[0]!.partition_filter).toEqual({ state: "tamil-nadu" });
     expect(plan.table_registrations.map(t => t.table_id)).toContain("taxonomy.sources");
     expect(plan.main_sql).toMatch(/FROM election_results/);
     expect(plan.main_sql).toMatch(/PARTY-/);
@@ -79,7 +79,7 @@ describe("compileIntent", () => {
       intent({
         concept_id: "constituency_result",
         filters: {
-          state_partition_id: "in_s22",
+          state_partition_id: "tamil-nadu",
           period_label: "AcGenMay2026",
           ac_no: 167,
         },
@@ -127,7 +127,7 @@ describe("compileIntent", () => {
           ...(concept_id === "constituency_result"
             ? {
                 filters: {
-                  state_partition_id: "in_s22",
+                  state_partition_id: "tamil-nadu",
                   period_label: "AcGenMay2026",
                   ac_no: 167,
                 },
@@ -145,7 +145,7 @@ describe("compileIntent", () => {
     expect(() =>
       compileIntent(
         intent({
-          filters: { state_partition_id: "in_xx", period_label: "AcGenMay2026" },
+          filters: { state_partition_id: "nonexistent-fake-state", period_label: "AcGenMay2026" },
         }),
         CATALOGUE,
       ),
@@ -156,7 +156,7 @@ describe("compileIntent", () => {
     expect(() =>
       compileIntent(
         intent({
-          filters: { state_partition_id: "in_s22", period_label: "Unknown1990" },
+          filters: { state_partition_id: "tamil-nadu", period_label: "Unknown1990" },
         }),
         CATALOGUE,
       ),
@@ -168,7 +168,7 @@ describe("compileIntent", () => {
       compileIntent(
         intent({
           filters: {
-            state_partition_id: "in_s22",
+            state_partition_id: "tamil-nadu",
             period_label: "AcGenMay2026",
             party_short_code: "FAKE",
           },
@@ -198,13 +198,13 @@ describe("compileIntent", () => {
         {
           period_label: "AcGenMay'2026",
           display_name: "AcGenMay'2026",
-          state_partition_id: "in_s22",
+          state_partition_id: "tamil-nadu",
         },
       ],
     };
     const plan = compileIntent(
       intent({
-        filters: { state_partition_id: "in_s22", period_label: "AcGenMay'2026" },
+        filters: { state_partition_id: "tamil-nadu", period_label: "AcGenMay'2026" },
       }),
       cat,
     );

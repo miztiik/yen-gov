@@ -148,7 +148,7 @@ describe("loadElectionSeatsTrend — happy path", () => {
     await loadElectionSeatsTrend("S22", ["AcGenMay2026"]);
     expect(mockedRegisterSlice).toHaveBeenCalledWith(
       "elections.election_results",
-      { state: "in_s22" },
+      { state: "tamil-nadu" },
     );
     const registered = mockedRegister.mock.calls.map((c) => c[0]).sort();
     expect(registered).toEqual([

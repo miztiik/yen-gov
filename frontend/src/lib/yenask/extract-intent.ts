@@ -143,7 +143,7 @@ export function buildSystemPrompt(
   // partition_id-only listing drops the catalogue block from ~6000
   // chars to ~1000 chars (~250-300 tokens total prompt), which cuts
   // attention scratch by ~25x (quadratic in seq_len). The model can
-  // recover display_name from the id ("in_s22" -> "Tamil Nadu") — that
+  // recover display_name from the id ("tamil-nadu" -> "Tamil Nadu") — that
   // mapping is well within a 135M instruct model's capability and is
   // demonstrated in the few-shot. See plan-doc TODO/20260518-browser-
   // governance-insight-assistant-plan.md "What's shipped" -> PR-G1.
@@ -166,7 +166,7 @@ export function buildSystemPrompt(
     `  "question": "<verbatim citizen question>",`,
     `  "concept_id": ${conceptIds.map((id) => `"${id}"`).join(" | ")},`,
     `  "filters": {`,
-    `    "state_partition_id"?: "in_<state-code>",`,
+    `    "state_partition_id"?: "<state-name-slug>",`,
     `    "period_label"?: "<event-label>",`,
     `    "ac_no"?: <positive integer>,`,
     `    "party_short_code"?: "<short-code>",`,
@@ -201,7 +201,7 @@ export function buildFewShot(): readonly ChatMessage[] {
         question: "Show me seat totals for parties in Tamil Nadu 2026.",
         concept_id: "party_totals",
         filters: {
-          state_partition_id: "in_s22",
+          state_partition_id: "tamil-nadu",
           period_label: "AcGenMay2026",
           limit: 10,
         },

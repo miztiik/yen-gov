@@ -18,6 +18,16 @@
 import type { InsightIntent } from "./contracts/insight-intent";
 import type { ConceptId } from "./contracts/insight-intent";
 import type { AnswerViewHints, DuckDBPlan, ColumnFormat } from "./types";
+import { ECI_TO_LGD_SLUG } from "../maplibre/sources";
+
+// Reverse lookup: state_partition_id (LGD slug, e.g. "tamil-nadu") -> ECI st_code
+// (e.g. "S22"). Used by every concept that builds entity_id prefixes like
+// "IN-S22-AC-...". The InsightIntent CDM emits LGD slugs since the M3 rename;
+// the canonical entity_id grammar still uses ECI codes, so concepts.ts is the
+// translation seam.
+const SLUG_TO_ECI: Readonly<Record<string, string>> = Object.fromEntries(
+  Object.entries(ECI_TO_LGD_SLUG).map(([code, slug]) => [slug, code]),
+);
 
 // ---------- SQL helpers ----------------------------------------------------
 
@@ -47,7 +57,7 @@ const PARTY_TOTALS: ConceptHandler = {
   build(intent) {
     const f = requireFilters(intent, PARTY_TOTALS, 10);
     const evt = sqlString(f.period_label);
-    const stateUpper = f.state_partition_id.replace(/^in_/, "").toUpperCase();
+    const stateUpper = SLUG_TO_ECI[f.state_partition_id] ?? f.state_partition_id.toUpperCase();
     const partyPrefix = sqlString(`IN-${stateUpper}-${f.period_label}-PARTY-`);
     const mainSql = `
       SELECT
@@ -113,7 +123,7 @@ const CLOSEST_CONTESTS: ConceptHandler = {
   build(intent) {
     const f = requireFilters(intent, CLOSEST_CONTESTS, 10);
     const evt = sqlString(f.period_label);
-    const stateUpper = f.state_partition_id.replace(/^in_/, "").toUpperCase();
+    const stateUpper = SLUG_TO_ECI[f.state_partition_id] ?? f.state_partition_id.toUpperCase();
     const acPrefix = sqlString(`IN-${stateUpper}-`);
 
     // Per-AC winner vs runner-up vote-share gap. Reads ac-margin-pp
@@ -197,7 +207,7 @@ const CONSTITUENCY_RESULT: ConceptHandler = {
       );
     }
     const evt = sqlString(f.period_label);
-    const stateUpper = f.state_partition_id.replace(/^in_/, "").toUpperCase();
+    const stateUpper = SLUG_TO_ECI[f.state_partition_id] ?? f.state_partition_id.toUpperCase();
 
     // Top-5 candidates by vote share for the named AC + NOTA row.
     // Mirrors the explore/duckdb-views.ts candidate pattern.
@@ -292,7 +302,7 @@ const TURNOUT_EXTREMES: ConceptHandler = {
   build(intent) {
     const f = requireFilters(intent, TURNOUT_EXTREMES, 10);
     const evt = sqlString(f.period_label);
-    const stateUpper = f.state_partition_id.replace(/^in_/, "").toUpperCase();
+    const stateUpper = SLUG_TO_ECI[f.state_partition_id] ?? f.state_partition_id.toUpperCase();
 
     // Per-AC turnout — one row per AC; the result table interleaves the
     // top-N (highest) and bottom-N (lowest) into a single ordered table

@@ -393,7 +393,7 @@ describe("loadCompositionBarElectionSeats — async loader (R-28 manifest regist
     });
     expect(mockedRegisterSlice).toHaveBeenCalledWith(
       "elections.election_results",
-      { state: "in_s05" },
+      { state: "goa" },
     );
     const calledWith = mockedRegister.mock.calls.map(c => c[0]);
     expect(calledWith).toContain("elections.dim_parties");

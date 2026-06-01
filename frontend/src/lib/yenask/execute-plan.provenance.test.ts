@@ -30,7 +30,7 @@ const PLAN: DuckDBPlan = {
   slice_registrations: [
     {
       table_id: "elections.election_results",
-      partition_filter: { state: "in_s22" },
+      partition_filter: { state: "tamil-nadu" },
       view_name: "election_results",
     },
   ],
@@ -123,7 +123,7 @@ describe("executePlan — D-06 provenance discipline", () => {
     expect(vm.computation.main_sql).toBe(PLAN.main_sql);
     expect(vm.computation.provenance_sql).toBe(PLAN.provenance_sql);
     expect(vm.computation.slice_registrations[0]!.partition_filter).toEqual({
-      state: "in_s22",
+      state: "tamil-nadu",
     });
   });
 
@@ -135,7 +135,7 @@ describe("executePlan — D-06 provenance discipline", () => {
     await executePlan(PLAN);
     expect(registerSliceMock).toHaveBeenCalledWith(
       "elections.election_results",
-      { state: "in_s22" },
+      { state: "tamil-nadu" },
       { viewName: "election_results" },
     );
     expect(registerTableMock).toHaveBeenCalledWith(

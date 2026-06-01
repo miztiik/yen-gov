@@ -24,14 +24,14 @@
     try {
       // Force a fresh manifest fetch each run so "Force 404" recovers cleanly.
       await loadManifest();
-      await registerSlice("elections.election_results", { state: "in_s22" });
+      await registerSlice("elections.election_results", { state: "tamil-nadu" });
       const rows = await query<{ n: bigint; events: bigint }>(
         "SELECT COUNT(*) AS n, COUNT(DISTINCT period_label) AS events FROM election_results",
       );
       const r = rows[0];
       result = {
         status: "ok",
-        data: { row_count: Number(r.n), event_count: Number(r.events), state_partition: "in_s22" },
+        data: { row_count: Number(r.n), event_count: Number(r.events), state_partition: "tamil-nadu" },
       };
     } catch (err) {
       result = { status: "failed", reason: describeFailure(err), retry: runRealQuery };

@@ -31,7 +31,7 @@ const RAW_CANNED_INTENTS: ReadonlyArray<{
       question: "Which parties won the most seats in Tamil Nadu's May 2026 assembly election?",
       concept_id: "party_totals",
       filters: {
-        state_partition_id: "in_s22",
+        state_partition_id: "tamil-nadu",
         period_label: "AcGenMay2026",
         limit: 10,
       },
@@ -49,7 +49,7 @@ const RAW_CANNED_INTENTS: ReadonlyArray<{
       question: "Which Tamil Nadu seats were decided by the narrowest margins in May 2026?",
       concept_id: "closest_contests",
       filters: {
-        state_partition_id: "in_s22",
+        state_partition_id: "tamil-nadu",
         period_label: "AcGenMay2026",
         limit: 10,
       },
@@ -67,7 +67,7 @@ const RAW_CANNED_INTENTS: ReadonlyArray<{
       question: "What were the results in Mylapore (AC 167) in the Tamil Nadu May 2026 election?",
       concept_id: "constituency_result",
       filters: {
-        state_partition_id: "in_s22",
+        state_partition_id: "tamil-nadu",
         period_label: "AcGenMay2026",
         ac_no: 167,
       },
@@ -85,7 +85,7 @@ const RAW_CANNED_INTENTS: ReadonlyArray<{
       question: "Which Tamil Nadu seats saw the highest and lowest turnout in May 2026?",
       concept_id: "turnout_extremes",
       filters: {
-        state_partition_id: "in_s22",
+        state_partition_id: "tamil-nadu",
         period_label: "AcGenMay2026",
         limit: 10,
       },

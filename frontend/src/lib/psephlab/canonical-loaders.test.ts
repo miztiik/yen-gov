@@ -164,7 +164,7 @@ describe("loadActuals — happy path", () => {
 
     expect(mockedRegisterSlice).toHaveBeenCalledWith(
       "elections.election_results",
-      { state: "in_s22" },
+      { state: "tamil-nadu" },
     );
 
     const registered = mockedRegister.mock.calls.map(c => c[0]).sort();

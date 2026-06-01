@@ -51,3 +51,5 @@ tools/inspect_state_event_matrix.py
 
 # TopoJSON converter idempotency sidecars (local-only; cross-worktree re-emit is cheap and deterministic).
 *.topojson.meta.json
+*.tmp_*
+.tmp_*

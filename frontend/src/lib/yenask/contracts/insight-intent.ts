@@ -38,8 +38,8 @@ export type ConceptId = z.infer<typeof ConceptIdEnum>;
  */
 export const IntentFiltersSchema = z
   .object({
-    /** Hive partition id for the state (e.g. "in_s22"). */
-    state_partition_id: z.string().regex(/^in_[a-z][a-z0-9_]+$/).optional(),
+    /** Hive partition id for the state — LGD-name slug per ADR-0050 (e.g. "tamil-nadu"). */
+    state_partition_id: z.string().regex(/^[a-z]+(-[a-z]+)*$/).optional(),
     /** Period label as it appears in canonical Parquet (e.g. "AcGenMay2026"). */
     period_label: z.string().min(3).max(64).optional(),
     /** ECI AC number (positive integer, no leading zeros). */
