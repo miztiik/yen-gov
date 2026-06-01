@@ -69,6 +69,27 @@ def ac_entity_id(state_code: str, delim_year: int, eci_no: int) -> str:
     return f"IN-{state_code}-AC-{delim_year}-{eci_no}"
 
 
+def pc_entity_id(state_code: str, delim_year: int, pc_no: int) -> str:
+    """Build a PC (Lok Sabha) entity_id: ``IN-PC-<delim_year>-<state_code>-<pc_no>``.
+
+    The leading ``IN-PC-`` prefix lets the national atlas prune with a clean
+    ``entity_id LIKE 'IN-PC-%'`` filter. ``state_code`` is load-bearing for
+    GLOBAL uniqueness: ECI ``pc_no`` is per-state (every state has a "PC 5"),
+    so ``IN-PC-<delim_year>-<pc_no>`` alone would collide across states.
+
+    Examples:
+        >>> pc_entity_id("S22", 2008, 39)
+        'IN-PC-2008-S22-39'
+    """
+    if not re.fullmatch(r"[SU]\d{2}", state_code):
+        raise ValueError(f"Invalid ECI state code: {state_code!r}")
+    if delim_year < 1850 or delim_year > 2100:
+        raise ValueError(f"Implausible delimitation year: {delim_year}")
+    if pc_no < 1:
+        raise ValueError(f"PC number must be positive: {pc_no}")
+    return f"IN-PC-{delim_year}-{state_code}-{pc_no}"
+
+
 def candidate_entity_id(ac_id: str, period_label: str, ballot_serial: int) -> str:
     """Build a per-contest candidate entity_id per §3a.
 

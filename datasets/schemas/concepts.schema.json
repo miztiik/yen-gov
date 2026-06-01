@@ -3,12 +3,17 @@
   "$id": "./concepts.schema.json",
   "title": "Concept registry (canonical)",
   "description": "Hand-authored concept registry (taxonomy/concepts.json). One row per (noun, unit_canonical, normalisation) triple — the citizen-readable fact a concept_id stands for. Every indicator in datasets/taxonomy/indicators.json MUST FK to a concept_id (enforced post-PR-Z3b via Tier-B tier_b_one_indicator_per_concept). Two indicators sharing the same (concept_id, entity_kind) tuple is the proliferation signal that PR-Z3b rejects. Ships in PR-Z3a (this file + concepts.json seed + find_overlap() helper); the indicator-catalogue concept_id FK + CLI + Tier-B + CI gate ship in PR-Z3b (docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md §2 PR-Z3, guardrails #13-#18).",
-  "x-version": "1.0",
+  "x-version": "1.1",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-26",
       "description": "Initial concept registry schema (PR-Z3a). Seeded from the 183 indicator rows in datasets/taxonomy/indicators.json by clustering on (label_short, unit, normalisation) → 164 concepts. Hand-authored taxonomy per ADR-0002; sources[] left empty (concepts are nouns, not series). Additive: schema introduction does NOT modify any existing artifact. PR-Z3b will add the FK on indicator-catalogue.schema.json + the find_overlap() CLI + the four Tier-B checks (tier_b_one_indicator_per_concept, tier_b_indicator_has_justification, tier_b_facet_promotion_warning, tier_b_indicator_freshness_declared) + the GitHub Action indicator-add-gate."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-05-31",
+      "description": "PR-A2 Lok Sabha PC ingest (TODO/20260531-uk-style-elections-experience-plan.md). ADDITIVE MINOR: widen the entity_kinds[].items enum from {country,state,district,ac,party,candidate} to add 'pc' (parliamentary constituency / Lok Sabha grain). Nothing removed/narrowed. Unlocks the 13 per-grain PC sibling concepts (Model C, Gregor 2026-06-01) -- each entity_kinds:[pc] -- mirroring the deliberate per-grain split precedent (winning-party-ac / winning-party-state). v1.0 rows validate unchanged under v1.1; consumer datasets/taxonomy/concepts.json stamp bumped 1.0 -> 1.1."
     }
   ],
   "type": "object",
@@ -62,7 +67,7 @@
             "uniqueItems": true,
             "items": {
               "type": "string",
-              "enum": ["country", "state", "district", "ac", "party", "candidate"]
+              "enum": ["country", "state", "district", "ac", "pc", "party", "candidate"]
             },
             "description": "Grain axes the concept makes sense at. Union across all FK'd indicators. A concept may live at multiple grains (country + state) iff the same noun + unit + normalisation applies."
           },

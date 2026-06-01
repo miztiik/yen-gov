@@ -1,6 +1,6 @@
 {
   "$schema": "../schemas/indicator-catalogue.schema.json",
-  "$schema_version": "2.4",
+  "$schema_version": "2.5",
   "indicators": [
     {
       "indicator_id": "candidate-votes-polled",
@@ -398,6 +398,328 @@
       "default_entity_kind": "ac",
       "update_period_days": 365,
       "concept_id": "others-share"
+    },
+    {
+      "indicator_id": "pc-total-electors",
+      "label_short": "Electors",
+      "label_long": "Total enrolled electors in PC",
+      "description_short": "Number of voters on the electoral roll for this Lok Sabha PC as of election day.",
+      "unit": "persons",
+      "cadence": "ad_hoc",
+      "family": "elections",
+      "pillar": "politics",
+      "topic_tags": [
+        "elections"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_resident",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "pc"
+      ],
+      "default_entity_kind": "pc",
+      "update_period_days": 1825,
+      "concept_id": "electors-pc"
+    },
+    {
+      "indicator_id": "pc-votes-polled",
+      "label_short": "Votes polled",
+      "label_long": "Total votes polled in PC",
+      "description_short": "Sum of all candidate votes plus NOTA in this Lok Sabha PC contest.",
+      "unit": "votes",
+      "cadence": "ad_hoc",
+      "family": "elections",
+      "pillar": "politics",
+      "topic_tags": [
+        "elections"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_administered",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "pc"
+      ],
+      "default_entity_kind": "pc",
+      "update_period_days": 1825,
+      "concept_id": "votes-polled-pc"
+    },
+    {
+      "indicator_id": "pc-turnout-pct",
+      "label_short": "Turnout",
+      "label_long": "Voter turnout in PC",
+      "description_short": "Votes polled as a percentage of total enrolled electors in this Lok Sabha PC.",
+      "unit": "%",
+      "cadence": "ad_hoc",
+      "family": "elections",
+      "pillar": "politics",
+      "topic_tags": [
+        "elections"
+      ],
+      "value_kind": "percentage",
+      "direction": "higher_is_better",
+      "denominator": "pc-total-electors",
+      "attribution_geography": "where_resident",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "pc"
+      ],
+      "default_entity_kind": "pc",
+      "update_period_days": 1825,
+      "concept_id": "turnout-pc"
+    },
+    {
+      "indicator_id": "pc-nota-votes",
+      "label_short": "NOTA votes",
+      "label_long": "Votes cast for NOTA in PC",
+      "description_short": "Absolute number of NOTA (None of the Above) votes in this Lok Sabha PC. Null pre-2013.",
+      "unit": "votes",
+      "cadence": "ad_hoc",
+      "family": "elections",
+      "pillar": "politics",
+      "topic_tags": [
+        "elections"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_administered",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "excluded_notes": [
+        "NOTA was introduced by the Election Commission in 2013; pre-2013 values are null, not zero."
+      ],
+      "entity_kinds": [
+        "pc"
+      ],
+      "default_entity_kind": "pc",
+      "update_period_days": 1825,
+      "concept_id": "nota-votes-pc"
+    },
+    {
+      "indicator_id": "pc-nota-pct",
+      "label_short": "NOTA share",
+      "label_long": "NOTA vote share in PC",
+      "description_short": "NOTA votes as a percentage of votes polled in this Lok Sabha PC. Null pre-2013.",
+      "unit": "%",
+      "cadence": "ad_hoc",
+      "family": "elections",
+      "pillar": "politics",
+      "topic_tags": [
+        "elections"
+      ],
+      "value_kind": "percentage",
+      "direction": "neutral",
+      "denominator": "pc-votes-polled",
+      "attribution_geography": "where_administered",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "pc"
+      ],
+      "default_entity_kind": "pc",
+      "update_period_days": 1825,
+      "concept_id": "nota-share-pc"
+    },
+    {
+      "indicator_id": "pc-winner-candidate-id",
+      "label_short": "Winner",
+      "label_long": "Winning candidate entity_id (PC)",
+      "description_short": "entity_id of the candidate who received the most votes in this Lok Sabha PC. Stored in value_text.",
+      "unit": "entity_id",
+      "cadence": "ad_hoc",
+      "family": "elections",
+      "pillar": "politics",
+      "topic_tags": [
+        "elections"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_administered",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "pc"
+      ],
+      "default_entity_kind": "pc",
+      "update_period_days": 1825,
+      "concept_id": "winner-pc"
+    },
+    {
+      "indicator_id": "pc-winner-party-id",
+      "label_short": "Winning party",
+      "label_long": "Winning party entity_id (PC)",
+      "description_short": "party_id of the winning candidate's party in this Lok Sabha PC (parties.IN.IND for independents).",
+      "unit": "entity_id",
+      "cadence": "ad_hoc",
+      "family": "elections",
+      "pillar": "politics",
+      "topic_tags": [
+        "elections"
+      ],
+      "value_kind": "absolute",
+      "direction": "neutral",
+      "attribution_geography": "where_administered",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "pc"
+      ],
+      "default_entity_kind": "pc",
+      "update_period_days": 1825,
+      "concept_id": "winning-party-pc",
+      "meta": {
+        "justification": "PC-grain measure: party_id of the winning candidate in one Lok Sabha parliamentary constituency contest (seat-level outcome). Genuinely new grain per ADR-0044 -- MP/PC is a different office on a different boundary than MLA/AC; mirrors the deliberate winning-party-ac / winning-party-state per-grain split. NOT a same-grain multi-publisher proliferation."
+      }
+    },
+    {
+      "indicator_id": "pc-margin-votes",
+      "label_short": "Margin",
+      "label_long": "Winning margin in PC (votes)",
+      "description_short": "Winner's votes minus runner-up's votes in this Lok Sabha PC.",
+      "unit": "votes",
+      "cadence": "ad_hoc",
+      "family": "elections",
+      "pillar": "politics",
+      "topic_tags": [
+        "elections"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_administered",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "pc"
+      ],
+      "default_entity_kind": "pc",
+      "update_period_days": 1825,
+      "concept_id": "margin-absolute-pc"
+    },
+    {
+      "indicator_id": "pc-margin-pct",
+      "label_short": "Margin %",
+      "label_long": "Winning margin as % of votes polled (PC)",
+      "description_short": "Vote-margin between winner and runner-up as a percentage of total votes polled in this Lok Sabha PC.",
+      "unit": "%",
+      "cadence": "ad_hoc",
+      "family": "elections",
+      "pillar": "politics",
+      "topic_tags": [
+        "elections"
+      ],
+      "value_kind": "percentage",
+      "direction": "neutral",
+      "denominator": "pc-votes-polled",
+      "attribution_geography": "where_administered",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "pc"
+      ],
+      "default_entity_kind": "pc",
+      "update_period_days": 1825,
+      "concept_id": "margin-pc"
+    },
+    {
+      "indicator_id": "pc-others-votes",
+      "label_short": "Others (votes)",
+      "label_long": "Votes for candidates collapsed into the 'others' tail (PC)",
+      "description_short": "Sum of votes for candidates below the top-N cutoff in this Lok Sabha PC. Absent when no tail exists.",
+      "unit": "votes",
+      "cadence": "ad_hoc",
+      "family": "elections",
+      "pillar": "politics",
+      "topic_tags": [
+        "elections"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_administered",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "pc"
+      ],
+      "default_entity_kind": "pc",
+      "update_period_days": 1825,
+      "concept_id": "others-votes-pc"
+    },
+    {
+      "indicator_id": "pc-others-pct",
+      "label_short": "Others (% share)",
+      "label_long": "Vote share for candidates collapsed into the 'others' tail (PC)",
+      "description_short": "Aggregate % vote-share for the collapsed tail in this Lok Sabha PC. Absent when no tail exists.",
+      "unit": "%",
+      "cadence": "ad_hoc",
+      "family": "elections",
+      "pillar": "politics",
+      "topic_tags": [
+        "elections"
+      ],
+      "value_kind": "percentage",
+      "direction": "neutral",
+      "denominator": "pc-votes-polled",
+      "attribution_geography": "where_administered",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "pc"
+      ],
+      "default_entity_kind": "pc",
+      "update_period_days": 1825,
+      "concept_id": "others-share-pc"
+    },
+    {
+      "indicator_id": "pc-candidates-total",
+      "label_short": "Candidates contested",
+      "label_long": "Total candidates contesting the PC seat",
+      "description_short": "Full field size in this Lok Sabha PC: kept candidates plus those collapsed into the 'others' tail by the top-N cutoff.",
+      "unit": "candidates",
+      "cadence": "ad_hoc",
+      "family": "elections",
+      "pillar": "politics",
+      "topic_tags": [
+        "elections"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_administered",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "pc"
+      ],
+      "default_entity_kind": "pc",
+      "update_period_days": 1825,
+      "concept_id": "candidates-total-pc"
+    },
+    {
+      "indicator_id": "pc-effective-candidates-laakso",
+      "label_short": "Effective candidates",
+      "label_long": "Laakso-Taagepera effective number of candidates (PC)",
+      "description_short": "1 / sum(vote_share_squared) in this Lok Sabha PC. Higher = more fragmented contest.",
+      "unit": "count",
+      "cadence": "ad_hoc",
+      "family": "elections",
+      "pillar": "politics",
+      "topic_tags": [
+        "elections"
+      ],
+      "value_kind": "index",
+      "direction": "neutral",
+      "attribution_geography": "where_administered",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "pc"
+      ],
+      "default_entity_kind": "pc",
+      "update_period_days": 1825,
+      "concept_id": "effective-candidates-pc"
     },
     {
       "indicator_id": "party-contested-acs",

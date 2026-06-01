@@ -56,7 +56,7 @@ def test_id_aliases_and_deprecated_in_removed():
     assert "deprecated_in" not in props
 
 
-def test_entity_kind_enum_is_closed_six():
+def test_entity_kind_enum_is_closed_seven():
     s = _load()
     props = s["properties"]["indicators"]["items"]["properties"]
     assert props["entity_kinds"]["items"]["enum"] == [
@@ -64,6 +64,7 @@ def test_entity_kind_enum_is_closed_six():
         "state",
         "district",
         "ac",
+        "pc",
         "party",
         "candidate",
     ]
@@ -72,6 +73,7 @@ def test_entity_kind_enum_is_closed_six():
         "state",
         "district",
         "ac",
+        "pc",
         "party",
         "candidate",
     ]

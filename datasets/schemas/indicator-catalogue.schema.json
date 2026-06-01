@@ -3,7 +3,7 @@
   "$id": "./indicator-catalogue.schema.json",
   "title": "Indicator catalogue (canonical)",
   "description": "Hand-authored canonical indicator catalogue (taxonomy/indicators.json). One row per indicator_id. Carries the full Hans honesty surface (D15) plus D29 catalogue additions (parent_indicator_id self-FK, dimension_values:STRUCT for facet-explode children, per-child source_id, methodology_version FK). id field enforces the D30 naming convention. Pipeline compiles to taxonomy/indicators.parquet. NOTE: this is the canonical replacement for the pre-pivot datasets/schemas/indicator.schema.json (which validates per-shard JSON under datasets/indicators/in/). The legacy file stays in place through Phase 0.13; rename of this file to indicator.schema.json happens when the pre-pivot artifacts move to _old/.",
-  "x-version": "2.4",
+  "x-version": "2.5",
   "x-changelog": [
     {
       "version": "1.0",
@@ -39,6 +39,11 @@
       "version": "2.4",
       "date": "2026-05-27",
       "description": "PR-A3c-tail-2 (#408) renderer_rules rip on the catalogue side (companion to PR #407 which ripped from per-shard indicator.schema.json + ingest writers). MAJOR per CLAUDE.md §11 (property removal): REMOVE optional array property renderer_rules from the indicators[] item shape. Per ADR-0045 (grapher catalogue split), render hints belong in datasets/grapher/indicator_render.json owned by the frontend, not in the canonical indicator catalogue. All 22 catalogue rows that previously carried renderer_rules are mechanically stripped in the same commit; the field is preserved verbatim on the grapher side (datasets/schemas/grapher-indicator-render.schema.json) which is its canonical home. Catalogue model backend/yen_gov/canonical/indicators_seed.py drops the IndicatorRow.renderer_rules field, the renderer_rules VARCHAR[] DDL column, and the _row_to_tuple emission. taxonomy/indicators.parquet regenerated via emit-taxonomy (one column fewer). v2.3 rows that carry renderer_rules DO NOT validate under v2.4; the catalogue is backfilled in the same commit. Stamp in consumer datasets/taxonomy/indicators.json bumped 2.3 -> 2.4."
+    },
+    {
+      "version": "2.5",
+      "date": "2026-05-31",
+      "description": "PR-A2 Lok Sabha PC ingest (TODO/20260531-uk-style-elections-experience-plan.md). ADDITIVE MINOR: widen the entity_kinds[].items enum and the default_entity_kind enum from {country,state,district,ac,party,candidate} to add 'pc' (parliamentary constituency / Lok Sabha grain). Nothing removed/renamed/narrowed. MP (PC) seats are a genuinely new fact-grain (different office, different boundary than MLA/AC) per ADR-0044; pc-* indicators FK to per-grain sibling concepts (Model C, Gregor 2026-06-01) mirroring the winning-party-ac / winning-party-state precedent. v2.4 rows validate unchanged under v2.5; consumer datasets/taxonomy/indicators.json stamp bumped 2.4 -> 2.5 to satisfy the Tier-B `$schema_version == x-version` invariant."
     }
   ],
   "type": "object",
@@ -242,11 +247,11 @@
             "type": "array",
             "minItems": 1,
             "uniqueItems": true,
-            "items": { "enum": ["country", "state", "district", "ac", "party", "candidate"] },
+            "items": { "enum": ["country", "state", "district", "ac", "pc", "party", "candidate"] },
             "description": "v2.0 (PR-B1 2026-05-26 grain-over-entity rip per ADR-0044). The entity kinds this indicator can be observed at. Grain is dispatched at READ time from each observation row's entity_kind column -- never encoded in indicator_id. After Phase-B collapse pairs, the same indicator_id can carry e.g. [country, state, district] when one fact is observed at three grains. enum widened beyond {country,state,district,ac} to {party,candidate} because election-class indicators (party-vote-share-pct, candidate-rank) treat the party/candidate as the entity per ADR-0044 Standing Reference. Tier-B tier_b_indicator_id_no_grain_prefix (PR-B1 dark, PR-B9 enforced) rejects ^(state|district|national)- prefixes on the id so the grain axis lives ONLY here."
           },
           "default_entity_kind": {
-            "enum": ["country", "state", "district", "ac", "party", "candidate"],
+            "enum": ["country", "state", "district", "ac", "pc", "party", "candidate"],
             "description": "v2.0 (PR-B1 2026-05-26). The default grain a chart picks when the user has not chosen one. MUST be a member of entity_kinds (Tier-B-enforced once PR-B5 lands the multi-kind rows)."
           },
           "update_period_days": {

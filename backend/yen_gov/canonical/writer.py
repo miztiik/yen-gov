@@ -866,6 +866,20 @@ _DIM_SPECS: dict[str, dict] = {
             ("source_id", "VARCHAR NOT NULL"),
         ],
     },
+    "pc": {
+        "stem": "dim_pcs",
+        "pk": "pc_id",
+        "schema_file": "dim-pcs.schema.json",
+        "sort_cols": ["pc_id"],
+        "columns": [
+            ("pc_id", "VARCHAR NOT NULL"),
+            ("state_code", "VARCHAR NOT NULL"),
+            ("delim_year", "INTEGER NOT NULL"),
+            ("pc_no", "INTEGER NOT NULL"),
+            ("name", "VARCHAR"),
+            ("source_id", "VARCHAR NOT NULL"),
+        ],
+    },
     "party": {
         "stem": "dim_parties",
         "pk": "party_id",
@@ -940,6 +954,7 @@ def _write_dimensions(
     dim_payloads = {
         "person": [r.model_dump() for r in envelope.person_dim_rows],
         "ac": [r.model_dump() for r in envelope.ac_dim_rows],
+        "pc": [r.model_dump() for r in envelope.pc_dim_rows],
         "party": [r.model_dump() for r in envelope.party_dim_rows],
         "party_alliance": [r.model_dump() for r in envelope.party_alliance_dim_rows],
     }
@@ -1458,6 +1473,7 @@ def _dim_schema_file(stem: str) -> str | None:
     mapping = {
         "dim_persons": "dim-persons.schema.json",
         "dim_acs": "dim-acs.schema.json",
+        "dim_pcs": "dim-pcs.schema.json",
         "dim_parties": "dim-parties.schema.json",
         "dim_party_alliances": "dim-party-alliances.schema.json",
     }
