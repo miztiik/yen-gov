@@ -171,6 +171,16 @@
       : (lgd_lookup?.get(highlight_eci_no) ?? highlight_eci_no),
   );
 
+  // Row URL (ADR-0049): the AC link grammar carries a readable name suffix
+  // (`/s/<state>/ac/<eci_no>-<name-slug>`). Map the selected eci_no back to
+  // its AC name from `rows`; an absent name makes `url.ac` fall back to the
+  // bare eci_no (still parse-tolerant).
+  const name_by_eci = $derived.by(() => {
+    const m = new Map<number, string>();
+    for (const r of rows ?? []) m.set(r.eci_no, r.name);
+    return m;
+  });
+
   const tooltips = $derived.by(() => {
     const out: Record<number, string> = {};
     for (const r of rows ?? []) {
@@ -204,7 +214,8 @@
     const eci_no =
       reverse_lookup?.get(raw)
       ?? (acno != null && Number.isFinite(Number(acno)) ? Number(acno) : raw);
-    if (Number.isFinite(eci_no)) navigate(url.acByNo(state_code, eci_no, event));
+    if (Number.isFinite(eci_no))
+      navigate(url.ac(state_code, eci_no, name_by_eci.get(eci_no) ?? "", event));
   }
 </script>
 

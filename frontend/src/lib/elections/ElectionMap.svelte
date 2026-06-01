@@ -176,9 +176,20 @@
     return [...seen.values()];
   });
 
+  // Row URL (ADR-0049): the AC link grammar carries a readable name suffix
+  // (`/s/<state>/ac/<eci_no>-<name-slug>`). The map click only knows the
+  // eci_no, so map it back to the AC name from `rows`; an absent name makes
+  // `url.ac` fall back to the bare eci_no (still parse-tolerant).
+  const name_by_eci = $derived.by(() => {
+    const m = new Map<number, string>();
+    for (const r of rows ?? []) m.set(r.ac_eci_no, r.ac_name);
+    return m;
+  });
+
   function onSelectUnit(unit_id: string): void {
     const eci_no = Number(unit_id.split("-").pop());
-    if (Number.isFinite(eci_no)) navigate(url.acByNo(state_code, eci_no, event));
+    if (Number.isFinite(eci_no))
+      navigate(url.ac(state_code, eci_no, name_by_eci.get(eci_no) ?? "", event));
   }
 
   const layout_unavailable = $derived(
