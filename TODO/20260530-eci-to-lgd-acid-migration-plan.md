@@ -54,7 +54,7 @@ User granted explicit big-bang authorization (verbatim intent): "YOU HAVE PERMIS
 | A3 | Lift `lgd_ac_id` nullable attribute onto `dim_acs` | [x] DONE | #534 | M |
 | B1 | Boundary snapshot emits `lgd_ac_id` as parallel top-level join property | [x] DONE - 29/31 AC shards stamped (3860 distinct = crosswalk-covered); S03+U08 exempt (no AC_ID); S01 string->int normalised | #535 | M |
 | B2 | Frontend canonical join via crosswalk (Message Translator), output-pinned | [x] DONE | #536 | L |
-| B3 | Flip boundary default `join_property` to `lgd_ac_id` for covered states | [ ] PENDING | _pending_ | M |
+| B3 | Flip boundary default `join_property` to `lgd_ac_id` for covered states | [x] DONE | #537 | M |
 | URL | AC URL slug gains name suffix `/s/<state>/ac/<eci_no>-<name-slug>` | [ ] PENDING | _pending_ | M |
 | C1 | Fill crosswalk for U08 (J&K) + any uncovered AC (repeatable per N states) | [ ] PENDING | _pending_ | L |
 | D1 | Rip out legacy name-based `ac_no<->eci_no` translation seams | [ ] PENDING | _pending_ | M |
@@ -141,6 +141,8 @@ Phases: A (structural, ships NOW without external sourcing), B (reader cutover, 
 
 - Surfaces: `sources.ts` `join_property`, contract tests `state-ac-registry-coverage.test.ts` + `election-tile-layout-coverage.test.ts`. Covered states only; `unmapped` states still ride `ac_no`.
 - Gate: Contract (updated parity oracles green).
+
+**DONE (PR #537):** 29 covered `STATE_AC` entries in `sources.ts` flip `join_property: "ac_no"` -> `join_property: "lgd_ac_id"` and gain a new optional `join_property_label: "ac_no"` (eci_no-valued); S03 Assam (`ac_no` Tier-4 district fallback) + U08 J&K (`seat_id`) stay exempt. `MapChoropleth.svelte` `get_fill_join_value` keys the COLOUR fill on `join_property_label ?? join_property` so covered polygons never flash blank pre-lookup; selection/highlight stay on the canonical `join_property` (lgd_ac_id). `StateAcMap.svelte` inverts the crosswalk lookup (`reverse_lookup` lgd_ac_id -> eci_no) so click-to-navigate recovers the citizen-facing eci_no (URL never carries lgd_ac_id), with `ac_no`-feature + raw-key fallbacks; the highlight key is mapped eci_no -> lgd_ac_id (`highlight_lgd`). DEVIATION from the one-line spec: added `join_property_label` + the reverse-map - necessary to keep eci_no in the URL (citizen invariant) and keep the fill flash-free; also makes Row D1 a near-pure deletion (selection recovers eci_no without the legacy name-join). `election-tile-layout-coverage.test.ts` needed no edit (it reads `f.properties.ac_no` feature data, not the registry). Gates: svelte-check 0e/7w; vitest `state-ac-registry-coverage` 68 + `election-tile-layout-coverage` 9 + maplibre/elections 35 green; validate EXIT=0.
 
 ### Row URL - AC URL slug gains name suffix (citizen-facing)
 

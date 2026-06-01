@@ -174,23 +174,28 @@
       : ["get", entry.join_property];
   }
 
-  // Row B2 (ADR-0049): the COLOUR join. When canonical mode is on and the
-  // entry carries a canonical key, coalesce the raw lgd_ac_id property and
-  // fall back to the label join_property (ac_no) for features the crosswalk
-  // does not cover. The coalesce runs on the RAW values before `to-number`
-  // because maplibre's `to-number(null)` is 0, which would defeat the
-  // fallback if applied per-`get`. Selection/highlight keep `get_join_value`
-  // (the eci_no label), so this only changes which polygon gets which colour.
+  // Row B2 (ADR-0049): the COLOUR join. Row B3 made `entry.join_property`
+  // the canonical `lgd_ac_id`, so the fill keys on the eci_no-valued LABEL
+  // (`join_property_label` = `ac_no`) instead. Before the crosswalk lookup
+  // resolves (`canonical_join` false) the fills are eci_no-keyed, so joining
+  // on the label keeps covered polygons from flashing blank. Once
+  // `canonical_join` is true the fills are dual-keyed (eci_no + lgd_ac_id)
+  // and we coalesce the raw lgd_ac_id property ahead of the label. The
+  // coalesce runs on the RAW values before `to-number` because maplibre's
+  // `to-number(null)` is 0, which would defeat the fallback if applied
+  // per-`get`. Selection/highlight stay on `get_join_value` (the canonical
+  // lgd_ac_id), which the AC route reverse-maps to eci_no for navigation.
   function get_fill_join_value(numeric: boolean): unknown {
+    const label_prop = entry.join_property_label ?? entry.join_property;
     if (canonical_join && entry.join_property_lgd) {
       const raw: unknown = [
         "coalesce",
         ["get", entry.join_property_lgd],
-        ["get", entry.join_property],
+        ["get", label_prop],
       ];
       return numeric ? ["to-number", raw] : raw;
     }
-    return get_join_value(numeric);
+    return numeric ? ["to-number", ["get", label_prop]] : ["get", label_prop];
   }
 
   function fill_expression(): unknown {
