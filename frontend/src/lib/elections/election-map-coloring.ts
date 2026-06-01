@@ -153,6 +153,33 @@ export function buildAcFills(
 }
 
 /**
+ * Row B2 (ADR-0049) — dual-key a per-AC fills/opacities map so the maplibre
+ * choropleth can join boundary features on the canonical `lgd_ac_id` while
+ * the eci_no keys stay live for the hex cartogram + the citizen-facing label
+ * paths. For every eci_no key in `base`, mirror its value under that AC's
+ * `lgd_ac_id` (from `lookup`). lgd_ac_id is `State_LGD * 1000 + ac_no`
+ * (>= 1000), so it never collides with an eci_no (1..~403) inside one state.
+ *
+ * Returns `base` unchanged when `lookup` is null/empty (the crosswalk load
+ * has not resolved yet, or the state is uncovered) — that, paired with the
+ * choropleth's `canonical_join` gate flipping in the SAME reactive tick,
+ * keeps the pre-load render identical to the post-load render (no flash).
+ */
+export function mirrorLgdKeys<V>(
+  base: Record<number, V>,
+  lookup: Map<number, number> | null,
+): Record<number, V> {
+  if (!lookup || lookup.size === 0) return base;
+  const out: Record<number, V> = { ...base };
+  for (const [k, v] of Object.entries(base)) {
+    const eci = Number(k);
+    const lgd = lookup.get(eci);
+    if (lgd != null && lgd !== eci) out[lgd] = v;
+  }
+  return out;
+}
+
+/**
  * Per-AC opacities keyed by `ac_eci_no`.
  *  - units filtered OUT → DIMMED_OPACITY
  *  - winner mode, kept  → margin-based base (matches StateAcMap's formula)
