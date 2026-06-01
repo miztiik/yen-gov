@@ -82,7 +82,7 @@ describe("loadBoundary - composition (Hive paths)", () => {
     mockGeoPayload(FC(300));
     const out = await loadBoundary("subdistrict", undefined, "33");
     expect(fetchSpy).toHaveBeenCalledWith(
-      `${BASE}/boundaries/in/subdistricts/state=in_s22/all.geojson`,
+      `${BASE}/boundaries/in/subdistricts/state=tamil-nadu/all.geojson`,
     );
     expect(out?.features.length).toBe(300);
   });
@@ -93,10 +93,10 @@ describe("loadBoundary - composition (Hive paths)", () => {
     // Post-P2.3: 1 fetch for topojson (404) + 1 fetch for geojson.
     expect(fetchSpy).toHaveBeenCalledTimes(2);
     expect(fetchSpy).toHaveBeenCalledWith(
-      `${BASE}/boundaries/in/villages/state=in_s22/district=603/all.topojson`,
+      `${BASE}/boundaries/in/villages/state=tamil-nadu/district=603/all.topojson`,
     );
     expect(fetchSpy).toHaveBeenCalledWith(
-      `${BASE}/boundaries/in/villages/state=in_s22/district=603/all.geojson`,
+      `${BASE}/boundaries/in/villages/state=tamil-nadu/district=603/all.geojson`,
     );
     expect(out?.features.length).toBe(42);
   });
@@ -108,7 +108,7 @@ describe("loadBoundary - composition (Hive paths)", () => {
     // 2 fetches: topojson then geojson, both 404.
     expect(fetchSpy).toHaveBeenCalledTimes(2);
     expect(fetchSpy).toHaveBeenCalledWith(
-      `${BASE}/boundaries/in/villages/state=in_s22/district=999/all.geojson`,
+      `${BASE}/boundaries/in/villages/state=tamil-nadu/district=999/all.geojson`,
     );
   });
 });

@@ -43,11 +43,11 @@ For multi-shard layers (AC, PC, ULB-wards, panchayats, villages, postal), use th
 
    ```json
    [
-     { "input": "datasets/boundaries/in/ac/state=in_s01/all.geojson",
-       "output": "datasets/boundaries/in/ac/state=in_s01/all.topojson",
+     { "input": "datasets/boundaries/in/ac/state=andhra-pradesh/all.geojson",
+       "output": "datasets/boundaries/in/ac/state=andhra-pradesh/all.topojson",
        "layer": "ac" },
-     { "input": "datasets/boundaries/in/ac/state=in_s02/all.geojson",
-       "output": "datasets/boundaries/in/ac/state=in_s02/all.topojson",
+     { "input": "datasets/boundaries/in/ac/state=arunachal-pradesh/all.geojson",
+       "output": "datasets/boundaries/in/ac/state=arunachal-pradesh/all.topojson",
        "layer": "ac" }
    ]
    ```

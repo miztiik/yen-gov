@@ -43,20 +43,20 @@ const HIVE_SHAPES: { kind: string; pattern: RegExp }[] = [
   { kind: "country", pattern: /^country\/all\.geojson$/ },
   { kind: "states", pattern: /^states\/all\.geojson$/ },
   { kind: "districts", pattern: /^districts\/all\.geojson$/ },
-  { kind: "subdistricts", pattern: /^subdistricts\/state=in_[a-z0-9]+\/all\.geojson$/ },
+  { kind: "subdistricts", pattern: /^subdistricts\/state=[a-z0-9-]+\/all\.geojson$/ },
   // Development Blocks (LGD lineage). Per-state shards under the same
   // Hive layout as subdistricts. Shipped via C.1.b (TODO/20260529-
   // boundary-rip-and-replace-plan.md); registry lives in
   // `maplibre/sources.ts:BLOCK_BOUNDARY`. UP currently absent (12.8 MB
   // shard exceeds 12 MB budget; deferred to C.1.c).
-  { kind: "blocks", pattern: /^blocks\/state=in_[a-z0-9]+\/all\.geojson$/ },
+  { kind: "blocks", pattern: /^blocks\/state=[a-z0-9-]+\/all\.geojson$/ },
   // Gram Panchayats (LGD lineage). Per-(state, district) shards under
   // the same Hive layout as villages (nested district-keyed because
   // per-state GP counts would blow the 12 MB shard budget for any
   // high-density state). Shipped via C.2.b (TODO/20260529-boundary-
   // rip-and-replace-plan.md); registry will live in
   // `maplibre/sources.ts:PANCHAYAT_BOUNDARY_BY_DISTRICT` (C.2.c).
-  { kind: "panchayats", pattern: /^panchayats\/state=in_[a-z0-9]+\/district=\d+\/all\.geojson$/ },
+  { kind: "panchayats", pattern: /^panchayats\/state=[a-z0-9-]+\/district=\d+\/all\.geojson$/ },
   // Villages. District segment is normally a numeric LGD code (645 of
   // 659 partitions today), but the C.4.a J&K + Ladakh lift
   // (PR #453, `tools/boundaries/lift_villages_jk_bhuvan.py`) ships
@@ -66,7 +66,7 @@ const HIVE_SHAPES: { kind: string; pattern: RegExp }[] = [
   // bifurcated districts. The slug alphabet is `[a-z0-9_]+` per the
   // lift script's `CENSUS2011_DISTRICT_TO_MODERN` mapping; the
   // regex below subsumes both the numeric and slug variants.
-  { kind: "villages", pattern: /^villages\/state=in_[a-z0-9]+\/district=[a-z0-9_]+\/all\.geojson$/ },
+  { kind: "villages", pattern: /^villages\/state=[a-z0-9-]+\/district=[a-z0-9_]+\/all\.geojson$/ },
   // ULB Wards (LGD lineage; SBM_Wards.geojsonl.7z from ramSeraph, MoHUA
   // Swachh Bharat Mission Urban release, CC0 1.0). Per-(state, ulb)
   // shards under a nested ULB-keyed Hive layout (parent partition is
@@ -76,12 +76,12 @@ const HIVE_SHAPES: { kind: string; pattern: RegExp }[] = [
   // C.3.a infrastructure adds the Hive pattern + lift orchestrator
   // before the live lift runs. Registry will live in
   // `maplibre/sources.ts:WARD_BOUNDARY_BY_ULB` (C.3.c).
-  { kind: "wards", pattern: /^wards\/state=in_[a-z0-9]+\/ulb=\d+\/all\.geojson$/ },
+  { kind: "wards", pattern: /^wards\/state=[a-z0-9-]+\/ulb=\d+\/all\.geojson$/ },
   // Assembly Constituencies (ECI/HTL lineage). Per-state shards under the
   // same Hive layout as subdistricts. Owned by `maplibre/sources.ts`, not
   // the `boundaries.ts` loader; included here so the orphan detector
   // doesn't flag them as legacy.
-  { kind: "ac", pattern: /^ac\/state=in_[a-z0-9]+\/all\.geojson$/ },
+  { kind: "ac", pattern: /^ac\/state=[a-z0-9-]+\/all\.geojson$/ },
   // Parliamentary Constituencies. Single-file national layout keyed on
   // delimitation_vintage (each delimitation order published by ECI/the
   // Delimitation Commission gets its own partition; the current ingest
@@ -92,7 +92,7 @@ const HIVE_SHAPES: { kind: string; pattern: RegExp }[] = [
   // Postal pincode polygons are orthogonal to the LGD hierarchy. They shard
   // by resolved state when possible, plus a synthetic unkeyed bucket for
   // pincodes whose state could not be resolved from the directory table.
-  { kind: "postal", pattern: /^postal\/(state=in_[a-z0-9]+|scope=unkeyed)\/all\.geojson$/ },
+  { kind: "postal", pattern: /^postal\/(state=[a-z0-9-]+|scope=unkeyed)\/all\.geojson$/ },
 ];
 
 function isWellFormedHivePath(relPath: string): boolean {
@@ -250,3 +250,4 @@ describe("boundaries-conform - topojson decodes to the same feature count as its
     });
   }
 });
+

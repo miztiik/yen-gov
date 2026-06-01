@@ -17,11 +17,11 @@
 //                  — see TODO/20260524-boundary-coverage-expansion-plan.md.)
 //   district     → datasets/boundaries/in/districts/all.geojson
 //                  (LGD-keyed; joins on dist_lgd integer)
-//   subdistrict  → datasets/boundaries/in/subdistricts/state=in_<lc>/all.geojson
+//   subdistrict  → datasets/boundaries/in/subdistricts/state=<lgd_slug>/all.geojson
 //                  (one shard per state; joins on subdt_lgd integer)
-//   village      → datasets/boundaries/in/villages/state=in_<lc>/district=<lgd>/all.geojson
+//   village      → datasets/boundaries/in/villages/state=<lgd_slug>/district=<lgd>/all.geojson
 //                  (one shard PER DISTRICT; joins on vil_lgd integer)
-//   postal       → datasets/boundaries/in/postal/state=in_<lc>/all.geojson
+//   postal       → datasets/boundaries/in/postal/state=<lgd_slug>/all.geojson
 //                  (search-only; joins on pincode 6-digit string. Unkeyed
 //                   pincode polygons sit in postal/scope=unkeyed/all.geojson
 //                   and are not resolved by this state-scoped helper.)
@@ -86,13 +86,21 @@ const JOIN_KEYS: Record<GeoLevel, string | null> = {
 
 
 /**
- * LGD state code → ECI state code. Used to derive the partition slug
- * `in_<lc>` from the LGD code in incoming requests. Pre-T.0d this was
- * STATE_LGD_TO_ECI; the export name is preserved so downstream callers
- * keep working.
+ * LGD state code → ECI state code. Display-only since ADR-0050; partition
+ * paths use the LGD-name slug map below.
  */
 const STATE_LGD_TO_ECI: Record<string, string> = {
   "33": "S22",
+};
+
+/**
+ * LGD state code → LGD-name slug (per ADR-0050). Used as the partition-key
+ * value for the `state=<slug>/...` Hive layout. Source of truth:
+ * `datasets/taxonomy/lgd_states.json` (PR #555). Only LGD codes that have
+ * an active partition under `datasets/boundaries/` need an entry here.
+ */
+const STATE_LGD_TO_SLUG: Record<string, string> = {
+  "33": "tamil-nadu",
 };
 
 /**
@@ -119,22 +127,22 @@ export function boundaryRelPath(
       return "districts/all.geojson";
     case "subdistrict": {
       if (!stateLgd) throw new Error("subdistrict requires stateLgd");
-      const eci = STATE_LGD_TO_ECI[stateLgd];
-      if (!eci) throw new Error(`no frontend state-code mapping for stateLgd=${stateLgd}`);
-      return `subdistricts/state=in_${eci.toLowerCase()}/all.geojson`;
+      const slug = STATE_LGD_TO_SLUG[stateLgd];
+      if (!slug) throw new Error(`no LGD slug mapping for stateLgd=${stateLgd}`);
+      return `subdistricts/state=${slug}/all.geojson`;
     }
     case "village": {
       if (!stateLgd) throw new Error("village requires stateLgd");
       if (!parentDistrictLgd) throw new Error("village requires parentDistrictLgd");
-      const eci = STATE_LGD_TO_ECI[stateLgd];
-      if (!eci) throw new Error(`no frontend state-code mapping for stateLgd=${stateLgd}`);
-      return `villages/state=in_${eci.toLowerCase()}/district=${parentDistrictLgd}/all.geojson`;
+      const slug = STATE_LGD_TO_SLUG[stateLgd];
+      if (!slug) throw new Error(`no LGD slug mapping for stateLgd=${stateLgd}`);
+      return `villages/state=${slug}/district=${parentDistrictLgd}/all.geojson`;
     }
     case "postal": {
       if (!stateLgd) throw new Error("postal requires stateLgd");
-      const eci = STATE_LGD_TO_ECI[stateLgd];
-      if (!eci) throw new Error(`no frontend state-code mapping for stateLgd=${stateLgd}`);
-      return `postal/state=in_${eci.toLowerCase()}/all.geojson`;
+      const slug = STATE_LGD_TO_SLUG[stateLgd];
+      if (!slug) throw new Error(`no LGD slug mapping for stateLgd=${stateLgd}`);
+      return `postal/state=${slug}/all.geojson`;
     }
   }
 }

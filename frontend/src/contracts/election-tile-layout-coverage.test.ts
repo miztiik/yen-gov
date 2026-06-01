@@ -9,7 +9,7 @@
 //
 // Source-of-truth (read whichever exists, per the plan): both layouts are
 // geometry-derived, so coverage is asserted against the boundary geojson —
-//   - S13 AC layout  -> `datasets/boundaries/in/ac/state=in_s13/all.geojson`
+//   - S13 AC layout  -> `datasets/boundaries/in/ac/state=maharashtra/all.geojson`
 //     real ACs (ac_no in 1..288, deduped; ac_no=0 junk excluded). This set is
 //     1:1 with dim_acs S13 delim-2008 (eci_no 1..288).
 //   - national PC layout -> `datasets/boundaries/in/pc/delim=2024/all.geojson`
@@ -23,7 +23,7 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "..", "..", "..");
 const layoutPath = resolve(repoRoot, "datasets", "grapher", "election_tile_layouts.json");
-const acBndPath = resolve(repoRoot, "datasets", "boundaries", "in", "ac", "state=in_s13", "all.geojson");
+const acBndPath = resolve(repoRoot, "datasets", "boundaries", "in", "ac", "state=maharashtra", "all.geojson");
 const pcBndPath = resolve(repoRoot, "datasets", "boundaries", "in", "pc", "delim=2024", "all.geojson");
 
 interface Tile {

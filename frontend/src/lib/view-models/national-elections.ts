@@ -5,7 +5,7 @@
 // the per-Parliamentary-Constituency winning party + margin for ONE Lok Sabha
 // event across every state, in a single national scan. The state loader slices
 // to one partition; this one registers the WHOLE `election_results` table
-// (all state partitions) because PC results are spread across `state=in_<x>`
+// (all state partitions) because PC results are spread across `state=<lgd-slug>`
 // shards (ADR-0044 write-seam: PC rows live in the same per-state family as AC
 // rows, disambiguated by `entity_id` prefix `IN-PC-`).
 //

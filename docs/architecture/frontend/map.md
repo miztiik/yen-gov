@@ -175,7 +175,7 @@ Property names match what ramSeraph's upstream actually emits — `subdt_lgd` / 
 
 ### Per-district village split — no index manifest (post-T.0d)
 
-The per-district village split is the contract Phase 1b nailed: a single district click pulls ~10–600 KB instead of the full TN villages bundle (~200 MB raw, ~50 MB even at `coord_precision=4`). Under T.0d (2026-05-22) the per-state `<S>-villages-index.json` manifest is retired — Hive partitioning makes the on-disk presence of a shard at `villages/state=in_s22/district=<lgd>/all.geojson` self-describing. The loader fetches the partition path directly and lets a 404 propagate as `null` (graceful degradation — see below). One fewer manifest to keep in sync; one fewer pre-flight round-trip per village query.
+The per-district village split is the contract Phase 1b nailed: a single district click pulls ~10–600 KB instead of the full TN villages bundle (~200 MB raw, ~50 MB even at `coord_precision=4`). Under T.0d (2026-05-22) the per-state `<S>-villages-index.json` manifest is retired — Hive partitioning makes the on-disk presence of a shard at `villages/state=tamil-nadu/district=<lgd>/all.geojson` self-describing. The loader fetches the partition path directly and lets a 404 propagate as `null` (graceful degradation — see below). One fewer manifest to keep in sync; one fewer pre-flight round-trip per village query.
 
 ### 404-as-null contract
 

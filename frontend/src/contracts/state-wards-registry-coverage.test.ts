@@ -1,7 +1,7 @@
 // state-wards-registry-coverage contract test.
 //
 // Invariant: every nested Ward GeoJSON shard that exists on
-// disk under `datasets/boundaries/in/wards/state=in_<lc>/ulb=
+// disk under `datasets/boundaries/in/wards/state=<lgd-slug>/ulb=
 // <ulb_lgd>/all.geojson` MUST have a matching `WARD_BOUNDARY_BY_ULB`
 // entry in `frontend/src/lib/maplibre/sources.ts`, and vice versa. The
 // frontend registry and the on-disk corpus are two halves of the same
@@ -28,7 +28,7 @@
 // Per-entry shape assertions (post-A.3 BoundaryEntry):
 //   - key matches `${state_code}-${ulb_lgd}`
 //   - id matches `${key}-ward`
-//   - geojson_local_path matches `boundaries/in/wards/state=in_<lc>/ulb=<ulb_lgd>/all.geojson`
+//   - geojson_local_path matches `boundaries/in/wards/state=<lgd-slug>/ulb=<ulb_lgd>/all.geojson`
 //   - geojson_url points at the ramSeraph SBM_Wards release
 //   - join_property is "wardcode"
 //   - label is non-empty (contains the state name)
@@ -45,7 +45,12 @@ import {
   WARD_BOUNDARY_BY_ULB,
   WARDS_BY_STATE,
   WARD_STATE_NAMES,
+  ECI_TO_LGD_SLUG,
 } from "../lib/maplibre/sources";
+
+const SLUG_TO_ECI: Record<string, string> = Object.fromEntries(
+  Object.entries(ECI_TO_LGD_SLUG).map(([code, slug]) => [slug, code]),
+);
 
 const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "..", "..", "..");
 const wardsDir = resolve(repoRoot, "datasets", "boundaries", "in", "wards");
@@ -62,9 +67,11 @@ function discoverShards(): DiscoveredShard[] {
   const out: DiscoveredShard[] = [];
   for (const stateEntry of readdirSync(wardsDir, { withFileTypes: true })) {
     if (!stateEntry.isDirectory()) continue;
-    const sm = stateEntry.name.match(/^state=in_([su]\d{2})$/);
+    const sm = stateEntry.name.match(/^state=(.+)$/);
     if (!sm) continue;
-    const stateCode = sm[1].toUpperCase();
+    const stateSlug = sm[1];
+    const stateCode = SLUG_TO_ECI[stateSlug];
+    if (!stateCode) continue;
     const stateDir = resolve(wardsDir, stateEntry.name);
     for (const ulbEntry of readdirSync(stateDir, { withFileTypes: true })) {
       if (!ulbEntry.isDirectory()) continue;
@@ -137,7 +144,7 @@ describe("WARD_BOUNDARY_BY_ULB entry shape is well-formed", () => {
       expect(entry.id).toBe(`${key}-ward`);
       const stateCode = key.split("-")[0];
       expect(entry.geojson_local_path).toBe(
-        `boundaries/in/wards/state=in_${stateCode.toLowerCase()}/ulb=${ulbLgd}/all.geojson`,
+        `boundaries/in/wards/state=${ECI_TO_LGD_SLUG[stateCode]}/ulb=${ulbLgd}/all.geojson`,
       );
       expect(entry.geojson_url).toMatch(/^https:\/\//);
       expect(entry.join_property).toBe("wardcode");

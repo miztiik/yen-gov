@@ -149,7 +149,7 @@ If yes, add a registry entry to
 
 ```typescript
 export const PANCHAYAT_BOUNDARY_BY_DISTRICT: Record<string, () => Promise<string>> = {
-  "in_s33_576": () => fetch("/data/.../state=in_s33/district=576/all.geojson")
+  "tamil-nadu_603": () => fetch("/data/.../state=tamil-nadu/district=603/all.geojson")
     .then(r => r.text()),
   // ...
 };
