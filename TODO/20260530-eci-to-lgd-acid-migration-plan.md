@@ -50,7 +50,7 @@ User granted explicit big-bang authorization (verbatim intent): "YOU HAVE PERMIS
 | R1 | Audit all `eci_no` read + write sites; produce research-note + migration-surface map | [x] NOTE AUTHORED - [notes/20260601-eci-to-acid-migration-surface-audit.md](../notes/20260601-eci-to-acid-migration-surface-audit.md) | #469 (docket) + _pending_ (note) | S |
 | R2 | Migration strategy chosen + plan-doc amended | [x] DONE - Strategy-D-hardened, signed off 2026-06-01 (section 0.4/0.5) | _this edit_ | S |
 | A1 | Crosswalk contract + scaffolding (schema + helper, no data, no readers) | [x] DONE | #530 | M |
-| A2 | Materialize crosswalk by harvesting ~30 covered states from boundary `AC_ID` | [ ] PENDING | _pending_ | M |
+| A2 | Materialize crosswalk by harvesting ~30 covered states from boundary `AC_ID` | [x] DONE - 4113 rows / 3860 lgd_direct / 253 unmapped (93.8% mapped); bijection+cover oracle green | #533 | M |
 | A3 | Lift `lgd_ac_id` nullable attribute onto `dim_acs` | [ ] PENDING | _pending_ | M |
 | B1 | Boundary snapshot emits `lgd_ac_id` as parallel top-level join property | [ ] PENDING | _pending_ | M |
 | B2 | Frontend canonical join via crosswalk (Message Translator), output-pinned | [ ] PENDING | _pending_ | L |
@@ -115,6 +115,7 @@ Phases: A (structural, ships NOW without external sourcing), B (reader cutover, 
 - Surfaces: new `tools/migrate/build_ac_crosswalk.py`; new `datasets/taxonomy/ac_crosswalk.parquet`; `datasets/manifest.json`.
 - Reads boundary-shard `AC_ID`/`lgd_ac_id` + `ac_no` + SoT `eci_no`; emits one row per SoT AC. ~30 states resolve via `AC_ID` (`lgd_direct` where `ac_no`==`eci_no`, else `name_reservation_join`). U08 + any unresolved get `lgd_ac_id=null, match_method=unmapped`.
 - Gate: the bijection + completeness oracle (THE safety net). Structural - nobody reads it yet.
+- DONE (PR #533): harvester `tools/migrate/build_ac_crosswalk.py` emits 4113 rows (one per SoT AC), 3860 `lgd_direct` + 253 `unmapped` (93.8% mapped), zero global `lgd_ac_id` collisions. `ac_id`/`ac_name`/`delim_year` read from `dim_acs(2008)` (SoT is a strict subset, verified). `lgd_ac_id` harvested from HTL `AC_ID` after dropping cross-state spillover via modal `st_code`. Whole-state `unmapped`: S03/Assam (126, boundary has no `AC_ID`) + U08/J&K (90, no `AC_ID`) - deferred to Row C1. Registered in `manifest.json` via `_taxonomy_schema_file` mapping. Oracle (`backend/tests/test_build_ac_crosswalk.py::test_shipped_crosswalk_passes_oracle`) runs `assert_bijection` with exact cover over the real SoT universe and passes (4113 == 4113).
 
 ### Row A3 - Lift `lgd_ac_id` onto `dim_acs` (structural, ships NOW)
 
