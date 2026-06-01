@@ -88,7 +88,7 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 | PR-B5 | B | Cross-year E1: swing arrows on seat-composition bars | PR-B3 | [x] DONE | Jony |
 | PR-B6 | B | Cross-year E2: snapping time-slider on map/cartogram | PR-B3 | [x] DONE | Jony |
 | PR-B7 | B | Cross-year E3: opt-in 2-election sankey (capped) | PR-B3 | [x] COLLAPSED | Jony |
-| PR-B8 | B | Filter rail F1/F2/F3 (party / margin band / colour-by) - state level | PR-B3 | [ ] PENDING | Gregor + Max |
+| PR-B8 | B | Filter rail F1/F2/F3 (party / margin band / colour-by) - state level | PR-B3 | [x] DONE | Gregor + Max |
 | PR-B9 | B | Wire filters at national level | PR-B8; PR-B4; PR-A4 | [ ] PENDING | Gregor |
 
 **Concurrency map:** at t0 three agents can start in parallel on **PR-0**, **PR-A1**, **PR-B1**. Lane A and Lane B never touch the same files. The only cross-lane data dependency is PR-B4/PR-B9 needing PR-A4's PC data for LIVE rendering - both ship "dark" (boundary renders, winners show a "results pending" state) before PR-A4 lands, then light up automatically.
@@ -387,6 +387,15 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 **Escalation:** dispatch **Gregor** (URL grammar as a versionable contract) AND **Max** ("Does `dim_persons` age coverage support `mode=age` for all states, or must the option be hidden where coverage is absent?"). Apply both verdicts; if age coverage is partial, gate the `age` option per-state on coverage.
 
 **Acceptance gates:** G3 `bun run check`; G4 filtered vitest (URL + recolour tests); G5 browser smoke - apply each filter on `/s/maharashtra/elections/<event>`, confirm URL reflects state and a shared URL reproduces the screen.
+
+**DONE 2026-06-01.** Implemented as:
+- NEW `frontend/src/lib/election-filters.ts` - typed Message Translator (`parseElectionFilters`/`serializeElectionFilters`/`matchesMarginBand`/`activeFilterCount`). Grammar `?party=<csv>` , `?margin=<all|lt2|gt20>` , `?mode=<winner|margin|turnout|age>`; defaults omitted; enum-clamp + party-passthrough degradation. (`url.ts` left untouched - the typed translator lives in its own module so both routes share it, per Gregor.)
+- NEW `frontend/src/lib/elections/election-map-coloring.ts` - pure recolour helpers (`buildAcFills`/`buildAcOpacities`/`hasModeCoverage`/`matchesFilters`); continuous modes gated at 80% non-null coverage.
+- NEW `frontend/src/lib/elections/ElectionFilterRail.svelte` - F1 party chips / F2 margin segmented / F3 colour-by `<select>` (turnout+age options coverage-gated) / reset chip with active-filter count.
+- EDIT `ElectionMap.svelte` + `StateAcMap.svelte` - additive `fillsOverride`/`opacitiesOverride` recolour seam (winner palette vs sequential ramp; filtered-out units dimmed). EDIT `StateElection.svelte` - mounts the rail, URL round-trips via `navigate`. EDIT `state-overview.ts` `queryAcWinners` - adds `turnout_pct` (`ac-turnout-pct`) + `winner_age` (bridged `ac-winner-candidate-id` -> `elections_candidacies.candidacy_key` -> `dim_persons.age`).
+- NEW `docs/concepts/election-url-grammar.md` - the four grammar rules (CSV multi-value, default-omission, enum-clamp vs data-passthrough, one shared translator).
+- **Gregor verdict applied:** typed translator module, CSV multi-value party, omit-defaults, clamp invalid enums, view-safe `base` param. **Max verdict applied:** `mode=turnout` and `mode=age` coverage-gated (S13 AcGenOct2019 winner-age = 288/288; turnout = 288 rows); option hidden where coverage <80%.
+- **Gates:** G3 svelte-check 0e/7w/6 files (baseline). G4 vitest 32/32 (election-filters 17 + election-map-coloring 15). G5 playwright filter-rail smoke PASSED (URL reflects `mode`/`margin`, shared URL reproduces controls).
 
 ### PR-B9 - Wire filters at national level
 

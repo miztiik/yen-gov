@@ -33,6 +33,15 @@
   import type { AcWinner } from "../view-models/state-overview";
   import { colors } from "../colors/store.svelte";
   import { navigate, url } from "../url";
+  import {
+    DEFAULT_ELECTION_FILTERS,
+    type ElectionFilters,
+  } from "../election-filters";
+  import {
+    buildAcFills,
+    buildAcOpacities,
+    type PartyFill,
+  } from "./election-map-coloring";
 
   interface Props {
     /** ECI state code (e.g. "S13"). */
@@ -45,6 +54,8 @@
     delim_year?: number;
     /** Override canvas height. */
     height?: string;
+    /** PR-B8 filter state (colour-by mode + party/margin dimming). */
+    filters?: ElectionFilters;
   }
   let {
     state: state_code,
@@ -52,6 +63,7 @@
     event = null,
     delim_year = 2008,
     height = "520px",
+    filters = DEFAULT_ELECTION_FILTERS,
   }: Props = $props();
 
   type ViewMode = "geo" | "hex";
@@ -107,8 +119,41 @@
     })),
   );
 
-  const tile_rows = $derived<TileRow[]>(
+  // ─── PR-B8 recolour / dim ───────────────────────────────────────────
+  // One palette allocation across every winning party, reused as the
+  // `PartyFill` resolver so the helper stays store-free + testable.
+  const party_fill = $derived.by<PartyFill>(() => {
+    void colors.overrides;
+    const list = rows ?? [];
+    const palette = colors.forSet(
+      list.map((r) => r.party_eci_code ?? r.party_short),
+    );
+    return (code, short) =>
+      palette.get(code ?? short)?.fill ?? colors.fill(code, short);
+  });
+
+  const fills_override = $derived<Record<number, string>>(
+    buildAcFills(rows ?? [], filters.mode, party_fill),
+  );
+  const opacities_override = $derived<Record<number, number>>(
+    buildAcOpacities(rows ?? [], filters.mode, filters),
+  );
+
+  const raw_tile_rows = $derived<TileRow[]>(
     layout == null ? [] : buildTileRows(layout, hex_winners),
+  );
+  // Re-skin the hex tiles with the same mode/filter colouring as the geo arm.
+  const tile_rows = $derived<TileRow[]>(
+    raw_tile_rows.map((t) => {
+      const eci_no = Number(t.unit_id.split("-").pop());
+      const fill = fills_override[eci_no];
+      const opacity = opacities_override[eci_no];
+      return {
+        ...t,
+        fill: fill ?? t.fill,
+        opacity: opacity ?? t.opacity,
+      };
+    }),
   );
 
   // Compact party legend (distinct winning parties, palette-consistent with
@@ -178,7 +223,14 @@
 
   {#if view === "geo"}
     <div data-testid="election-map-geo">
-      <StateAcMap state={state_code} {rows} {event} {height} />
+      <StateAcMap
+        state={state_code}
+        {rows}
+        {event}
+        {height}
+        fillsOverride={fills_override}
+        opacitiesOverride={opacities_override}
+      />
     </div>
   {:else}
     <div data-testid="election-map-hex">

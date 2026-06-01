@@ -131,3 +131,40 @@ test("@elections election time-slider snaps the map to another election year", a
     page.locator('[data-testid="election-time-slider-active"]'),
   ).toContainText("2024");
 });
+
+// Filter rail (PR-B8). Changing the colour-by mode and the margin band
+// writes the choice to the URL query, and reloading that shared URL
+// reproduces the same screen (URL = single source of truth).
+test("@elections filter rail reflects colour-by + margin band in the URL and a shared URL reproduces it", async ({
+  page,
+}) => {
+  await page.goto(ROUTE);
+
+  const rail = page.locator('[data-testid="election-filter-rail"]');
+  await expect(rail).toBeVisible();
+
+  // F3 — recolour by margin (always available).
+  await page
+    .locator('[data-testid="election-colour-mode"]')
+    .selectOption("margin");
+  await expect(page).toHaveURL(/[?&]mode=margin/);
+
+  // F2 — margin band "Close" dims the landslide seats.
+  await page.locator('[data-testid="election-margin-band"] [data-band="lt2"]').click();
+  await expect(page).toHaveURL(/[?&]margin=lt2/);
+
+  // Reset chip appears with the active-filter count and clears everything.
+  const reset = page.locator('[data-testid="election-filter-reset"]');
+  await expect(reset).toContainText("2");
+
+  // A fresh load of the shared URL reproduces the same controls.
+  const shared = new URL(page.url());
+  await page.goto(shared.pathname + shared.search);
+  await expect(page.locator('[data-testid="election-colour-mode"]')).toHaveValue(
+    "margin",
+  );
+  await expect(
+    page.locator('[data-testid="election-margin-band"] [data-band="lt2"]'),
+  ).toHaveAttribute("aria-pressed", "true");
+});
+

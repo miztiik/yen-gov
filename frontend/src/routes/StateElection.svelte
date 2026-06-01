@@ -34,7 +34,15 @@
   import { navigate, url } from "../lib/url";
   import ElectionMap from "../lib/elections/ElectionMap.svelte";
   import ElectionTimeSlider from "../lib/elections/ElectionTimeSlider.svelte";
+  import ElectionFilterRail from "../lib/elections/ElectionFilterRail.svelte";
   import { buildSliderStops } from "../lib/elections/election-time-slider";
+  import { hasModeCoverage } from "../lib/elections/election-map-coloring";
+  import {
+    parseElectionFilters,
+    serializeElectionFilters,
+    type ElectionFilters,
+  } from "../lib/election-filters";
+  import { colors } from "../lib/colors/store.svelte";
   import { loadStateAcWinners, type AcWinner } from "../lib/view-models/state-overview";
 
   interface Props {
@@ -83,6 +91,51 @@
     loadStateAcWinners(ev.event_id, sc).then(r => {
       ac_winners = r.status === "ok" || r.status === "partial" ? r.data : [];
     });
+  });
+
+  // PR-B8 — filter rail (colour-by mode + party/margin dimming). The URL is
+  // the single source of truth; the rail is a controlled component. We track
+  // a local mirror of the parsed query string so reactivity fires after a
+  // `navigate` (which dispatches popstate and re-runs the router).
+  let filter_search = $state(
+    typeof window === "undefined" ? "" : window.location.search,
+  );
+  const filters = $derived<ElectionFilters>(parseElectionFilters(filter_search));
+
+  function onFilterChange(next: ElectionFilters): void {
+    if (typeof window === "undefined") return;
+    const base = new URLSearchParams(window.location.search);
+    const qs = serializeElectionFilters(next, base);
+    const target =
+      window.location.pathname + (qs ? `?${qs}` : "") + window.location.hash;
+    navigate(target);
+    filter_search = qs ? `?${qs}` : "";
+  }
+
+  // Distinct winning parties for the rail chips, palette-consistent with the
+  // map (same `colors.forSet` allocation ElectionMap/StateAcMap use).
+  const party_options = $derived.by(() => {
+    void colors.overrides;
+    const list = ac_winners ?? [];
+    const palette = colors.forSet(
+      list.map((r) => r.party_eci_code ?? r.party_short),
+    );
+    const seen = new Map<string, { code: string; short: string; color: string }>();
+    for (const r of list) {
+      const code = r.party_eci_code ?? r.party_short;
+      if (seen.has(code)) continue;
+      seen.set(code, {
+        code,
+        short: r.party_short,
+        color: palette.get(code)?.fill ?? colors.fill(r.party_eci_code, r.party_short),
+      });
+    }
+    return [...seen.values()];
+  });
+
+  const mode_coverage = $derived({
+    turnout: hasModeCoverage(ac_winners ?? [], "turnout"),
+    age: hasModeCoverage(ac_winners ?? [], "age"),
   });
 </script>
 
@@ -197,7 +250,18 @@
           selectedEventId={ev.event_id}
           onSelect={selectEvent}
         />
-        <ElectionMap state={state_code} rows={ac_winners} event={ev.event_id} />
+        <ElectionFilterRail
+          {filters}
+          parties={party_options}
+          coverage={mode_coverage}
+          onChange={onFilterChange}
+        />
+        <ElectionMap
+          state={state_code}
+          rows={ac_winners}
+          event={ev.event_id}
+          {filters}
+        />
       </section>
     {/if}
 

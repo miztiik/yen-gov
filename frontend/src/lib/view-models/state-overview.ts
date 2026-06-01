@@ -61,6 +61,11 @@ export interface AcWinner {
   party_eci_code: string | null;
   party_short: string;
   margin_pct: number;
+  // PR-B8 colour-by modes. Both are nullable/optional: turnout is
+  // conditionally emitted per event and winner age is affidavit-sourced
+  // (dense ~2004+, null for older events). Coverage is gated downstream.
+  turnout_pct?: number | null;
+  winner_age?: number | null;
 }
 
 export interface StateOverviewViewModel {
@@ -132,6 +137,8 @@ interface AcWinnerRow {
   party_eci_code: string | null;
   party_short: string | null;
   margin_pct: number | null;
+  turnout_pct: number | null;
+  winner_age: number | null;
 }
 
 const num = (v: unknown): number => (v == null ? 0 : Number(v));
@@ -272,16 +279,36 @@ async function queryAcWinners(
       WHERE indicator_id = 'ac-margin-pct'
         AND period_label = ${evtLiteral}
         AND entity_id LIKE 'IN-' || ${stateLiteral} || '-AC-%'
+    ),
+    turnout AS (
+      SELECT entity_id AS ac_id, value_numeric AS turnout_pct
+      FROM election_results
+      WHERE indicator_id = 'ac-turnout-pct'
+        AND period_label = ${evtLiteral}
+        AND entity_id LIKE 'IN-' || ${stateLiteral} || '-AC-%'
+    ),
+    winner_cand AS (
+      SELECT entity_id AS ac_id, value_text AS candidacy_key
+      FROM election_results
+      WHERE indicator_id = 'ac-winner-candidate-id'
+        AND period_label = ${evtLiteral}
+        AND entity_id LIKE 'IN-' || ${stateLiteral} || '-AC-%'
     )
     SELECT da.eci_no       AS ac_eci_no,
            da.name         AS ac_name,
            dp.eci_code     AS party_eci_code,
            dp.short_name   AS party_short,
-           m.margin_pct    AS margin_pct
+           m.margin_pct    AS margin_pct,
+           t.turnout_pct   AS turnout_pct,
+           per.age         AS winner_age
     FROM winner w
     JOIN margin m ON m.ac_id = w.ac_id
     JOIN dim_acs da ON da.ac_id = w.ac_id
     LEFT JOIN dim_parties dp ON dp.party_id = w.party_id
+    LEFT JOIN turnout t ON t.ac_id = w.ac_id
+    LEFT JOIN winner_cand wc ON wc.ac_id = w.ac_id
+    LEFT JOIN elections_candidacies ec ON ec.candidacy_key = wc.candidacy_key
+    LEFT JOIN dim_persons per ON per.person_id = ec.person_id
   `);
 }
 
@@ -294,6 +321,8 @@ function toAcWinners(rows: AcWinnerRow[]): AcWinner[] {
       party_eci_code: r.party_eci_code ?? null,
       party_short: r.party_short ?? "",
       margin_pct: Number(r.margin_pct),
+      turnout_pct: r.turnout_pct == null ? null : Number(r.turnout_pct),
+      winner_age: r.winner_age == null ? null : Number(r.winner_age),
     }));
 }
 
@@ -443,6 +472,8 @@ export async function loadStateAcWinners(
       registerSlice("elections.election_results", { state: electionStatePartition(state_code) }),
       registerTable("elections.dim_parties"),
       registerTable("elections.dim_acs"),
+      registerTable("elections.elections_candidacies"),
+      registerTable("elections.dim_persons"),
     ]);
     const rows = await queryAcWinners(sqlString(event), sqlString(state_code));
     const winners = toAcWinners(rows);
