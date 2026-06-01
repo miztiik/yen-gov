@@ -1484,6 +1484,7 @@ def _taxonomy_schema_file(stem: str) -> str | None:
         "operator_state": "operator-state.schema.json",
         "caveats": "caveat.schema.json",
         "methodology_breaks": "methodology-break.schema.json",
+        "ac_crosswalk": "ac-crosswalk.schema.json",
     }
     return mapping.get(stem)
 
