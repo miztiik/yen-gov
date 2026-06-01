@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./lgd-districts.schema.json",
+  "title": "LGD districts register",
+  "description": "Authoritative register of every Indian district, keyed on the LGD numeric district id issued by the Ministry of Panchayati Raj's Local Government Directory. FK to datasets/taxonomy/lgd_states.json on lgd_state_id. The canonical INTERNAL join authority for every district-keyed indicator per ADR-0050 + docs/concepts/lgd-authority.md. Refreshed from datasets/taxonomy/lgd/districts-latest.csv via tools/migrate/build_lgd_districts.py.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-06-01",
+      "summary": "Initial schema. 784 districts across all 36 states/UTs from LGD CSV snapshot 2026-05-24. Bifurcation lineage (parent_district_lgd) intentionally NOT in v1.0 - source CSV does not carry it; will arrive in a follow-up ingest from the LGD district-history page."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "sources", "districts"],
+  "additionalProperties": true,
+  "properties": {
+    "$schema": {"type": "string"},
+    "$schema_version": {"type": "string"},
+    "$comment": {"type": "string"},
+    "sources": {
+      "type": "array",
+      "items": {"type": "object"}
+    },
+    "districts": {
+      "type": "array",
+      "minItems": 700,
+      "items": {
+        "type": "object",
+        "required": [
+          "lgd_district_id",
+          "lgd_state_id",
+          "lgd_name",
+          "slug"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "lgd_district_id": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9999,
+            "description": "LGD numeric district id (Ministry of Panchayati Raj). Globally unique across India."
+          },
+          "lgd_state_id": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 99,
+            "description": "FK to datasets/taxonomy/lgd_states.json:lgd_state_id."
+          },
+          "lgd_name": {
+            "type": "string",
+            "minLength": 2,
+            "description": "Canonical English name as published by LGD."
+          },
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+            "description": "Kebab-case ASCII slug. Unique WITHIN a state (name collisions across states like 'Hamirpur' in HP and UP get a numeric salt)."
+          },
+          "census_2001_code": {
+            "type": ["integer", "null"],
+            "description": "Census 2001 numeric district code (null if district did not exist or was unmapped in 2001)."
+          },
+          "census_2011_code": {
+            "type": ["integer", "null"],
+            "description": "Census 2011 numeric district code (null if district did not exist or was unmapped in 2011)."
+          }
+        }
+      }
+    }
+  }
+}
