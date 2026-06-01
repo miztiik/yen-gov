@@ -37,16 +37,16 @@ const SAMPLE_MANIFEST: Manifest = {
       partition_columns: ["state"],
       files: [
         {
-          path: "elections/state=in_s11/election_results.parquet",
+          path: "elections/state=kerala/election_results.parquet",
           size_bytes: 508_781,
           row_count: 11_860,
-          partition_values: { state: "in_s11" },
+          partition_values: { state: "kerala" },
         },
         {
-          path: "elections/state=in_s22/election_results.parquet",
+          path: "elections/state=tamil-nadu/election_results.parquet",
           size_bytes: 1_456_891,
           row_count: 20_040,
-          partition_values: { state: "in_s22" },
+          partition_values: { state: "tamil-nadu" },
         },
       ],
       row_count_total: 31_900,
@@ -166,15 +166,15 @@ describe("manifest helpers", () => {
     const t = tableFromManifest(SAMPLE_MANIFEST, "elections.election_results");
     const urls = fileUrls(t);
     expect(urls).toHaveLength(2);
-    expect(urls[0].endsWith("/data/elections/state=in_s11/election_results.parquet")).toBe(true);
-    expect(urls[1].endsWith("/data/elections/state=in_s22/election_results.parquet")).toBe(true);
+    expect(urls[0].endsWith("/data/elections/state=kerala/election_results.parquet")).toBe(true);
+    expect(urls[1].endsWith("/data/elections/state=tamil-nadu/election_results.parquet")).toBe(true);
   });
 
   it("filesForSlice returns only files whose partition values match", () => {
     const t = tableFromManifest(SAMPLE_MANIFEST, "elections.election_results");
-    const files = filesForSlice(t, { state: "in_s22" });
+    const files = filesForSlice(t, { state: "tamil-nadu" });
     expect(files).toHaveLength(1);
-    expect(files[0].path).toBe("elections/state=in_s22/election_results.parquet");
+    expect(files[0].path).toBe("elections/state=tamil-nadu/election_results.parquet");
   });
 
   it("filesForSlice throws on an unknown partition key", () => {
@@ -186,17 +186,17 @@ describe("manifest helpers", () => {
 
   it("filesForSlice throws when no files match the requested slice", () => {
     const t = tableFromManifest(SAMPLE_MANIFEST, "elections.election_results");
-    expect(() => filesForSlice(t, { state: "in_s99" })).toThrow(
-      /no files match elections\.election_results partition state=in_s99/,
+    expect(() => filesForSlice(t, { state: "nonexistent-fake" })).toThrow(
+      /no files match elections\.election_results partition state=nonexistent-fake/,
     );
   });
 
   it("filesForSlice throws for unpartitioned tables unless fallback is explicit", () => {
     const t = tableFromManifest(SAMPLE_MANIFEST, "taxonomy.sources");
-    expect(() => filesForSlice(t, { state: "in_s22" })).toThrow(
+    expect(() => filesForSlice(t, { state: "tamil-nadu" })).toThrow(
       /table taxonomy\.sources is unpartitioned/,
     );
-    expect(filesForSlice(t, { state: "in_s22" }, { allowFullTableFallback: true })).toEqual(
+    expect(filesForSlice(t, { state: "tamil-nadu" }, { allowFullTableFallback: true })).toEqual(
       t.files,
     );
   });
@@ -228,3 +228,4 @@ describe("registerTable view name resolution", () => {
     expect(defaultViewName(stripped, "energy.energy_capacity")).toBe("energy_capacity");
   });
 });
+

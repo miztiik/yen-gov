@@ -17,7 +17,7 @@ const VALID_BASE = {
   concept_id: "party_totals",
   question: "What were the May 2026 Tamil Nadu party totals?",
   filters: {
-    state_partition_id: "in_s22",
+    state_partition_id: "tamil-nadu",
     period_label: "AcGenMay2026",
   },
 };
@@ -26,7 +26,7 @@ describe("InsightIntent v0", () => {
   it("accepts a minimal well-formed party_totals intent", () => {
     const intent = parseInsightIntent(VALID_BASE);
     expect(intent.concept_id).toBe("party_totals");
-    expect(intent.filters.state_partition_id).toBe("in_s22");
+    expect(intent.filters.state_partition_id).toBe("tamil-nadu");
     expect(intent.version).toBe("insight.intent.v0");
   });
 
@@ -69,7 +69,7 @@ describe("InsightIntent v0", () => {
   it("rejects state_partition_id with uppercase", () => {
     const r = safeParseInsightIntent({
       ...VALID_BASE,
-      filters: { ...VALID_BASE.filters, state_partition_id: "in_S22" },
+      filters: { ...VALID_BASE.filters, state_partition_id: "Tamil-Nadu" },
     });
     expect(r.success).toBe(false);
   });

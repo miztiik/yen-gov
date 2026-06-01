@@ -87,13 +87,13 @@ describe("loadSemanticCatalogue", () => {
     const cat = await loadSemanticCatalogue();
 
     expect(cat.states).toHaveLength(1);
-    expect(cat.states[0]!.partition_id).toBe("in_s22");
+    expect(cat.states[0]!.partition_id).toBe("tamil-nadu");
     expect(cat.states[0]!.eci_code).toBe("S22");
 
     expect(cat.parties.map(p => p.short_code)).toEqual(["DMK", "AIADMK"]);
     expect(cat.sources[0]!.producer).toBe("ECI");
     expect(cat.election_periods[0]!.period_label).toBe("AcGenMay2026");
-    expect(cat.election_periods[0]!.state_partition_id).toBe("in_s22");
+    expect(cat.election_periods[0]!.state_partition_id).toBe("tamil-nadu");
     expect(cat.tables.map(t => t.table_id)).toContain("elections.election_results");
   });
 
@@ -125,6 +125,6 @@ describe("loadSemanticCatalogue", () => {
     // Next call should re-attempt — prime fresh mocks.
     primeQueries();
     const cat = await loadSemanticCatalogue();
-    expect(cat.states[0]!.partition_id).toBe("in_s22");
+    expect(cat.states[0]!.partition_id).toBe("tamil-nadu");
   });
 });

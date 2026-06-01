@@ -48,7 +48,7 @@ test.describe("duckdb harness", () => {
     // boot + ~13 MB Parquet fetch + Arrow round-trip.
     await expect(page.getByTestId("state-ok")).toBeVisible({ timeout: 60_000 });
 
-    await expect(page.getByTestId("state-partition")).toHaveText("in_s22");
+    await expect(page.getByTestId("state-partition")).toHaveText("tamil-nadu");
 
     // The harness registers only the Tamil Nadu shard. If the TN corpus grows,
     // this lower bound remains stable while still proving we did not fall back
@@ -60,7 +60,7 @@ test.describe("duckdb harness", () => {
     expect(Number(eventText)).toBeGreaterThanOrEqual(1);
 
     expect(electionShardRequests.length).toBeGreaterThan(0);
-    expect(electionShardRequests.every((url) => url.includes("/state=in_s22/"))).toBe(true);
+    expect(electionShardRequests.every((url) => url.includes("/state=tamil-nadu/"))).toBe(true);
   });
 
   test("forced manifest 404 — plain-language copy + retry, no stack", async ({ page }) => {

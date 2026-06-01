@@ -4,7 +4,7 @@ import { electionStatePartition } from "./election-partitions";
 
 describe("electionStatePartition", () => {
   it("maps ECI state codes to the current election fact partition token", () => {
-    expect(electionStatePartition("S22")).toBe("in_s22");
-    expect(electionStatePartition("U05")).toBe("in_u05");
+    expect(electionStatePartition("S22")).toBe("tamil-nadu");
+    expect(electionStatePartition("U05")).toBe("delhi");
   });
 });

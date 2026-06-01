@@ -56,7 +56,7 @@ describe("url.stateTopic", () => {
 // The `<state>` token is the citizen-readable slug when states.json has
 // loaded (`tamil-nadu`), or the lower-cased ECI code fallback (`s22`)
 // before then — both shapes are covered by [a-z0-9-]+. ECI-code
-// uppercase (`S22`) and Hive partition form (`in_s22`) are NEVER emitted
+// uppercase (`S22`) and Hive partition form (`tamil-nadu`) are NEVER emitted
 // in URLs (the Hive form lives only in Parquet/GeoJSON partition paths).
 describe("canonical URL grammar", () => {
   it("home is /", () => {

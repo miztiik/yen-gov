@@ -16,6 +16,7 @@ import {
   registerTable,
   type Manifest,
 } from "../duckdb";
+import { ECI_TO_LGD_SLUG } from "../maplibre/sources";
 import type {
   CatalogueElectionPeriod,
   CatalogueParty,
@@ -87,7 +88,7 @@ async function buildCatalogue(): Promise<SemanticCatalogue> {
   // catalogue we keep the eci_code raw and let the renderer humanise.
   const stateCodes = await query<{ state_code: string }>(SQL_DISTINCT_STATES);
   const states: CatalogueState[] = stateCodes.map(r => ({
-    partition_id: `in_${r.state_code.toLowerCase()}`,
+    partition_id: ECI_TO_LGD_SLUG[r.state_code] ?? r.state_code.toLowerCase(),
     eci_code: r.state_code,
     display_name: r.state_code, // renderer enriches via states.svelte
   }));
@@ -98,7 +99,7 @@ async function buildCatalogue(): Promise<SemanticCatalogue> {
     election_periods: electionPeriods.map(r => ({
       period_label: String(r.period_label),
       display_name: String(r.period_label),
-      state_partition_id: `in_${String(r.state_code).toLowerCase()}`,
+      state_partition_id: ECI_TO_LGD_SLUG[String(r.state_code)] ?? String(r.state_code).toLowerCase(),
     })),
     parties: parties.map(p => ({
       short_code: String(p.short_code),

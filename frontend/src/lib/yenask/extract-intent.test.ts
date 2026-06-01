@@ -31,13 +31,13 @@ import type { ModelEntry } from "./model-registry";
 const CATALOGUE: SemanticCatalogue = {
   tables: [],
   states: [
-    { partition_id: "in_s22", eci_code: "S22", display_name: "Tamil Nadu" },
+    { partition_id: "tamil-nadu", eci_code: "S22", display_name: "Tamil Nadu" },
   ],
   election_periods: [
     {
       period_label: "AcGenMay2026",
       display_name: "Tamil Nadu AC General — May 2026",
-      state_partition_id: "in_s22",
+      state_partition_id: "tamil-nadu",
     },
   ],
   parties: [],
@@ -155,7 +155,7 @@ describe("buildSystemPrompt", () => {
     // to bare partition_ids (no display_name) to keep the prompt under
     // the ORT WASM kernel-planner's prefill scratch ceiling. The model
     // recovers display_names from ids via the few-shot exemplar.
-    expect(p).toContain("in_s22");
+    expect(p).toContain("tamil-nadu");
   });
 
   it("includes the catalogue election periods", () => {
@@ -211,7 +211,7 @@ describe("extractIntent", () => {
     question: "Who won TN 2026?",
     concept_id: "party_totals",
     filters: {
-      state_partition_id: "in_s22",
+      state_partition_id: "tamil-nadu",
       period_label: "AcGenMay2026",
     },
     reasoning: "Seat totals for a state event.",
@@ -223,7 +223,7 @@ describe("extractIntent", () => {
     expect(r.ok).toBe(true);
     if (r.ok) {
       expect(r.intent.concept_id).toBe("party_totals");
-      expect(r.intent.filters.state_partition_id).toBe("in_s22");
+      expect(r.intent.filters.state_partition_id).toBe("tamil-nadu");
       expect(r.diagnostics.attempts).toBe(1);
     }
     // 1 call = system + few-shot + user (single attempt).
@@ -485,7 +485,7 @@ describe("extractIntent with embed (D-32)", () => {
     question: "Who won TN 2026?",
     concept_id: "party_totals",
     filters: {
-      state_partition_id: "in_s22",
+      state_partition_id: "tamil-nadu",
       period_label: "AcGenMay2026",
     },
     reasoning: "Seat totals for a state event.",

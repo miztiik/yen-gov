@@ -53,7 +53,7 @@ const VALID_VM: AnswerViewModel = {
     slice_registrations: [
       {
         table_id: "elections.election_results",
-        partition_filter: { state: "in_s22" },
+        partition_filter: { state: "tamil-nadu" },
       },
     ],
     main_sql: "SELECT 1",

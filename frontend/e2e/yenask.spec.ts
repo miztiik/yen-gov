@@ -44,7 +44,7 @@ test.describe("yenask dev route", () => {
 
     await partyButton.click();
 
-    // Compiler + executor — the slice is Tamil Nadu only (in_s22).
+    // Compiler + executor — the slice is Tamil Nadu only (tamil-nadu).
     const table = page.getByTestId("yenask-answer-table");
     await expect(table).toBeVisible({ timeout: 60_000 });
 
