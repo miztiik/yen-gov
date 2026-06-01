@@ -45,7 +45,7 @@ Projected post-execution: **~90 unmapped (J&K only, deferred to user-sourced pos
 | # | Description | Status | PR | Risk |
 | :-: | --- | --- | --- | :-: |
 | I0 | This plan-doc + coverage doc + sources row spec | [ ] PENDING | _pending_ | L |
-| I1 | Ingest Garuda for S03/S12/U07 (full-state new boundary files) + recompile crosswalk | [ ] PENDING | _pending_ | M |
+| I1 | Garuda-enrich AC boundary files with AC_ID (Assam closed; 253→127 unmapped). Followup needed: sources.parquet row + boundary_layers_seed nickname. | [x] DONE | #542 | M |
 | I2 | SoT lgd_ac_id stamps for 7 singletons (S15, S20, S21, S22, S24, S25, S29) + S06 Gujarat partial (22 LGD lookups) | [ ] PENDING | _pending_ | L |
 | I3 | S01 AP frontend rework (replace `join_property_label: "ac_no"` + `sel.properties.ac_no` fallback with crosswalk reverse-map lookup); regenerate S01 boundary snapshot without `ac_no_rewrite` directive; visual smoke | [ ] PENDING | _pending_ | M |
 | D1' | Delete `apply_ac_no_rewrite_by_name` + wiring + `ac_no_rewrite` directive + `test_boundary_snapshot_ac_no_rewrite.py`; parity oracle on S01 | [ ] BLOCKED-on-I3 | _pending_ | L |
