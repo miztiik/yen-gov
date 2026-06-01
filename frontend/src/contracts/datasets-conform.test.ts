@@ -187,6 +187,11 @@ const PER_ROW_PROVENANCE_SCHEMAS = new Set<string>([
   // are not subject to §12 sources[] (same logic as manifest.schema.json).
   "grapher-indicator-render.schema.json",
   "grapher-topic-render.schema.json",
+  // Election tile-cartogram layouts (ADR-0048, PR-B1) are the same class of
+  // frontend-owned grapher catalogue: each tile carries a per-row source_id
+  // FK to the boundary geojson it was hexbinned from, so provenance lives on
+  // the row (§12.1), not in a top-level sources[] (§12.2).
+  "grapher-election-tile-layout.schema.json",
   // Schema compatibility is a control-plane policy registry, not observed
   // data. It is validated by its own schema and by schema-compatibility.test.ts.
   "schema-compatibility.schema.json",

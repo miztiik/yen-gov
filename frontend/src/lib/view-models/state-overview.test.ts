@@ -246,6 +246,9 @@ describe("loadStateOverview — happy path", () => {
         expect(row).not.toHaveProperty(forbidden);
       }
     }
+    // PR-B8 added turnout_pct + winner_age to AcWinner (colour-by modes).
+    // The fixture rows omit both, so toAcWinners emits them as null — the
+    // keys are always present in the projected shape.
     expect(res.data.ac_winners).toEqual([
       {
         ac_eci_no: 1,
@@ -253,6 +256,8 @@ describe("loadStateOverview — happy path", () => {
         party_eci_code: "1234",
         party_short: "DMK",
         margin_pct: 12.5,
+        turnout_pct: null,
+        winner_age: null,
       },
       {
         ac_eci_no: 2,
@@ -260,6 +265,8 @@ describe("loadStateOverview — happy path", () => {
         party_eci_code: null,
         party_short: "AIADMK",
         margin_pct: 3.4,
+        turnout_pct: null,
+        winner_age: null,
       },
     ]);
   });
