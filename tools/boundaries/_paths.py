@@ -18,7 +18,7 @@ T.0d §1 admin-spine layout (locked 2026-05-22)::
 
 ``layer_id`` mirrors the partition path under the dot grammar required by
 ``boundary-layers.schema.json`` (regex ``^boundaries\\.in\\.[a-z]+(\\.[a-z]+=[a-z0-9_]+)*$``).
-The Hive key/value tokens (``state=in_s22``, ``district=603``) are
+The Hive key/value tokens (``state=tamil-nadu``, ``district=603``) are
 embedded verbatim so callers can build either form from the same args.
 """
 
@@ -95,7 +95,7 @@ def derive_hive(
             after the kind segment so per-state/per-district sub-partitions
             still nest below it.
         state: ECI state code (``S22``, ``U08``); lowercased + prefixed
-            with ``in_`` for the Hive key (``state=in_s22``).
+            with ``in_`` for the Hive key (``state=tamil-nadu``).
         district_lgd: LGD district code as digit string (``603``); valid
             for nested per-district layers (``kind in {"villages", "panchayats"}``).
         ulb_lgd: LGD ULB code as digit string (``802743``); valid for
@@ -109,14 +109,14 @@ def derive_hive(
         ``(partition_path, layer_id)`` where:
 
         * ``partition_path`` is repo-relative POSIX (e.g.
-          ``boundaries/in/villages/state=in_s22/district=603/all.geojson``,
-          ``boundaries/in/wards/state=in_s22/ulb=802743/all.geojson``,
+          ``boundaries/in/villages/state=tamil-nadu/district=603/all.geojson``,
+          ``boundaries/in/wards/state=tamil-nadu/ulb=802743/all.geojson``,
           ``boundaries/in/pc/delim=2024/all.geojson``).
           Matches the JSON Schema ``partition_path`` regex
           (``^boundaries/in/``).
         * ``layer_id`` is the dot-grammar equivalent (e.g.
-          ``boundaries.in.villages.state=in_s22.district=603``,
-          ``boundaries.in.wards.state=in_s22.ulb=802743``,
+          ``boundaries.in.villages.state=tamil-nadu.district=603``,
+          ``boundaries.in.wards.state=tamil-nadu.ulb=802743``,
           ``boundaries.in.pc.delim=2024``).
           Matches ``boundary-layers.schema.json:properties.layer_id.pattern``.
 

@@ -171,7 +171,7 @@ def _fact_table_stems_all(family: str) -> list[str]:
 # Phase 0 closeout (TODO row 1.8-§0e.10 lock B) registers ``elections`` with
 # ``state`` partition derived from the first two hyphen-separated segments
 # of ``entity_id`` (e.g. ``IN-S22-AC-2008-167`` -> partition value
-# ``in_s22``). Citizen-facing rationale: the all-states monolith reaches
+# ``tamil-nadu``). Citizen-facing rationale: the all-states monolith reaches
 # ~14 MB at the TN-only Phase-1 slice and would scale to ~400 MB at full
 # national coverage; per-state shards keep DuckDB-WASM range queries
 # selective and the GitHub repo browsable.
@@ -205,18 +205,51 @@ def _partition_cols(family: str) -> list[str]:
 # condition matches the ``IN-PC-<delim>-<state>-`` PREFIX so it captures both
 # the PC seat id (``...-<pc_no>``) AND the longer PC candidate id
 # (``...-<pc_no>-<event>-C<nn>``) - both must land in the same state shard.
-_STATE_PARTITION_SQL = (
-    "replace("
-    "lower("
-    "CASE "
-    "WHEN regexp_matches(entity_id, '^IN-PC-[0-9]+-[SU][0-9]{2}-[0-9]+') "
-    "THEN 'IN-' || regexp_extract(entity_id, '^IN-PC-[0-9]+-([SU][0-9]{2})', 1) "
-    "WHEN entity_id LIKE '%-%' "
-    "THEN regexp_extract(entity_id, '^([A-Z]+-[A-Z0-9]+)', 1) "
-    "ELSE entity_id "
-    "END"
-    "), '-', '_')"
-)
+def _eci_to_lgd_slug_case_sql() -> str:
+    """Build a DuckDB CASE expression mapping every ECI st_code (S01-S29/U01-U09)
+    to its LGD-name slug per ADR-0050. Sourced from
+    ``datasets/taxonomy/lgd_states.json``. Cached for the process lifetime.
+    """
+    global _ECI_TO_LGD_SLUG_CASE_SQL_CACHE
+    if _ECI_TO_LGD_SLUG_CASE_SQL_CACHE is None:
+        import json as _json
+        from pathlib import Path as _Path
+        repo_root = _Path(__file__).resolve().parents[3]
+        doc = _json.loads((repo_root / "datasets/taxonomy/lgd_states.json").read_text(encoding="utf-8"))
+        whens = " ".join(
+            f"WHEN '{s['eci_st_code']}' THEN '{s['slug']}'"
+            for s in doc["states"]
+        )
+        _ECI_TO_LGD_SLUG_CASE_SQL_CACHE = f"CASE __eci_st {whens} END"
+    return _ECI_TO_LGD_SLUG_CASE_SQL_CACHE
+
+
+_ECI_TO_LGD_SLUG_CASE_SQL_CACHE: str | None = None
+
+
+def _state_partition_sql() -> str:
+    """Build the DuckDB SQL expression that derives the LGD-name-slug Hive
+    partition value (e.g. ``tamil-nadu``) from an ``entity_id``. Per ADR-0050:
+    elections partition keys are LGD-name slugs, not legacy ``in_sXX`` codes.
+
+    Extracts ECI st_code from entity_id (handling PC's deeper shape) then
+    looks up the slug via a CASE expression sourced from
+    ``datasets/taxonomy/lgd_states.json``.
+    """
+    case_expr = _eci_to_lgd_slug_case_sql().replace(
+        "__eci_st",
+        "(CASE "
+        "WHEN regexp_matches(entity_id, '^IN-PC-[0-9]+-[SU][0-9]{2}-[0-9]+') "
+        "THEN regexp_extract(entity_id, '^IN-PC-[0-9]+-([SU][0-9]{2})', 1) "
+        "WHEN entity_id LIKE '%-%' "
+        "THEN regexp_extract(entity_id, '^[A-Z]+-([A-Z0-9]+)', 1) "
+        "ELSE entity_id "
+        "END)",
+    )
+    return case_expr
+
+
+_STATE_PARTITION_SQL = _state_partition_sql()
 
 
 # Append-only ledger of dataset path renames / relocations the writer stamps

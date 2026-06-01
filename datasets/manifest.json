@@ -16,291 +16,291 @@
       ],
       "files": [
         {
-          "path": "elections/state=in_s01/election_results.parquet",
+          "path": "elections/state=andhra-pradesh/election_results.parquet",
           "size_bytes": 1617142,
           "row_count": 20487,
           "partition_values": {
-            "state": "in_s01"
+            "state": "andhra-pradesh"
           }
         },
         {
-          "path": "elections/state=in_s02/election_results.parquet",
+          "path": "elections/state=arunachal-pradesh/election_results.parquet",
           "size_bytes": 823707,
           "row_count": 10662,
           "partition_values": {
-            "state": "in_s02"
+            "state": "arunachal-pradesh"
           }
         },
         {
-          "path": "elections/state=in_s03/election_results.parquet",
+          "path": "elections/state=assam/election_results.parquet",
           "size_bytes": 3557613,
           "row_count": 45445,
           "partition_values": {
-            "state": "in_s03"
+            "state": "assam"
           }
         },
         {
-          "path": "elections/state=in_s04/election_results.parquet",
+          "path": "elections/state=bihar/election_results.parquet",
           "size_bytes": 13784605,
           "row_count": 176387,
           "partition_values": {
-            "state": "in_s04"
+            "state": "bihar"
           }
         },
         {
-          "path": "elections/state=in_s05/election_results.parquet",
+          "path": "elections/state=goa/election_results.parquet",
           "size_bytes": 762187,
           "row_count": 9690,
           "partition_values": {
-            "state": "in_s05"
+            "state": "goa"
           }
         },
         {
-          "path": "elections/state=in_s06/election_results.parquet",
+          "path": "elections/state=gujarat/election_results.parquet",
           "size_bytes": 6128204,
           "row_count": 78191,
           "partition_values": {
-            "state": "in_s06"
+            "state": "gujarat"
           }
         },
         {
-          "path": "elections/state=in_s07/election_results.parquet",
+          "path": "elections/state=haryana/election_results.parquet",
           "size_bytes": 3940592,
           "row_count": 50376,
           "partition_values": {
-            "state": "in_s07"
+            "state": "haryana"
           }
         },
         {
-          "path": "elections/state=in_s08/election_results.parquet",
+          "path": "elections/state=himachal-pradesh/election_results.parquet",
           "size_bytes": 1596278,
           "row_count": 20382,
           "partition_values": {
-            "state": "in_s08"
+            "state": "himachal-pradesh"
           }
         },
         {
-          "path": "elections/state=in_s10/election_results.parquet",
+          "path": "elections/state=karnataka/election_results.parquet",
           "size_bytes": 6676687,
           "row_count": 85449,
           "partition_values": {
-            "state": "in_s10"
+            "state": "karnataka"
           }
         },
         {
-          "path": "elections/state=in_s11/election_results.parquet",
+          "path": "elections/state=kerala/election_results.parquet",
           "size_bytes": 3760657,
           "row_count": 48131,
           "partition_values": {
-            "state": "in_s11"
+            "state": "kerala"
           }
         },
         {
-          "path": "elections/state=in_s12/election_results.parquet",
+          "path": "elections/state=madhya-pradesh/election_results.parquet",
           "size_bytes": 9360397,
           "row_count": 119274,
           "partition_values": {
-            "state": "in_s12"
+            "state": "madhya-pradesh"
           }
         },
         {
-          "path": "elections/state=in_s13/election_results.parquet",
+          "path": "elections/state=maharashtra/election_results.parquet",
           "size_bytes": 11716988,
           "row_count": 149436,
           "partition_values": {
-            "state": "in_s13"
+            "state": "maharashtra"
           }
         },
         {
-          "path": "elections/state=in_s14/election_results.parquet",
+          "path": "elections/state=manipur/election_results.parquet",
           "size_bytes": 1261677,
           "row_count": 16098,
           "partition_values": {
-            "state": "in_s14"
+            "state": "manipur"
           }
         },
         {
-          "path": "elections/state=in_s15/election_results.parquet",
+          "path": "elections/state=meghalaya/election_results.parquet",
           "size_bytes": 1220226,
           "row_count": 15606,
           "partition_values": {
-            "state": "in_s15"
+            "state": "meghalaya"
           }
         },
         {
-          "path": "elections/state=in_s16/election_results.parquet",
+          "path": "elections/state=mizoram/election_results.parquet",
           "size_bytes": 850100,
           "row_count": 10796,
           "partition_values": {
-            "state": "in_s16"
+            "state": "mizoram"
           }
         },
         {
-          "path": "elections/state=in_s17/election_results.parquet",
+          "path": "elections/state=nagaland/election_results.parquet",
           "size_bytes": 997848,
           "row_count": 12979,
           "partition_values": {
-            "state": "in_s17"
+            "state": "nagaland"
           }
         },
         {
-          "path": "elections/state=in_s18/election_results.parquet",
+          "path": "elections/state=odisha/election_results.parquet",
           "size_bytes": 4184062,
           "row_count": 53453,
           "partition_values": {
-            "state": "in_s18"
+            "state": "odisha"
           }
         },
         {
-          "path": "elections/state=in_s19/election_results.parquet",
+          "path": "elections/state=punjab/election_results.parquet",
           "size_bytes": 2885124,
           "row_count": 36855,
           "partition_values": {
-            "state": "in_s19"
+            "state": "punjab"
           }
         },
         {
-          "path": "elections/state=in_s20/election_results.parquet",
+          "path": "elections/state=rajasthan/election_results.parquet",
           "size_bytes": 6592717,
           "row_count": 84306,
           "partition_values": {
-            "state": "in_s20"
+            "state": "rajasthan"
           }
         },
         {
-          "path": "elections/state=in_s21/election_results.parquet",
+          "path": "elections/state=sikkim/election_results.parquet",
           "size_bytes": 635069,
           "row_count": 8078,
           "partition_values": {
-            "state": "in_s21"
+            "state": "sikkim"
           }
         },
         {
-          "path": "elections/state=in_s22/election_results.parquet",
+          "path": "elections/state=tamil-nadu/election_results.parquet",
           "size_bytes": 9954737,
           "row_count": 127162,
           "partition_values": {
-            "state": "in_s22"
+            "state": "tamil-nadu"
           }
         },
         {
-          "path": "elections/state=in_s23/election_results.parquet",
+          "path": "elections/state=tripura/election_results.parquet",
           "size_bytes": 1179212,
           "row_count": 14989,
           "partition_values": {
-            "state": "in_s23"
+            "state": "tripura"
           }
         },
         {
-          "path": "elections/state=in_s24/election_results.parquet",
+          "path": "elections/state=uttar-pradesh/election_results.parquet",
           "size_bytes": 20522059,
           "row_count": 262214,
           "partition_values": {
-            "state": "in_s24"
+            "state": "uttar-pradesh"
           }
         },
         {
-          "path": "elections/state=in_s25/election_results.parquet",
+          "path": "elections/state=west-bengal/election_results.parquet",
           "size_bytes": 7165646,
           "row_count": 91605,
           "partition_values": {
-            "state": "in_s25"
+            "state": "west-bengal"
           }
         },
         {
-          "path": "elections/state=in_s26/election_results.parquet",
+          "path": "elections/state=chhattisgarh/election_results.parquet",
           "size_bytes": 1573670,
           "row_count": 20026,
           "partition_values": {
-            "state": "in_s26"
+            "state": "chhattisgarh"
           }
         },
         {
-          "path": "elections/state=in_s27/election_results.parquet",
+          "path": "elections/state=jharkhand/election_results.parquet",
           "size_bytes": 1626149,
           "row_count": 20724,
           "partition_values": {
-            "state": "in_s27"
+            "state": "jharkhand"
           }
         },
         {
-          "path": "elections/state=in_s28/election_results.parquet",
+          "path": "elections/state=uttarakhand/election_results.parquet",
           "size_bytes": 1111203,
           "row_count": 14156,
           "partition_values": {
-            "state": "in_s28"
+            "state": "uttarakhand"
           }
         },
         {
-          "path": "elections/state=in_s29/election_results.parquet",
+          "path": "elections/state=telangana/election_results.parquet",
           "size_bytes": 1481894,
           "row_count": 18734,
           "partition_values": {
-            "state": "in_s29"
+            "state": "telangana"
           }
         },
         {
-          "path": "elections/state=in_u01/election_results.parquet",
+          "path": "elections/state=andaman-and-nicobar/election_results.parquet",
           "size_bytes": 6509,
           "row_count": 47,
           "partition_values": {
-            "state": "in_u01"
+            "state": "andaman-and-nicobar"
           }
         },
         {
-          "path": "elections/state=in_u02/election_results.parquet",
+          "path": "elections/state=chandigarh/election_results.parquet",
           "size_bytes": 8185,
           "row_count": 68,
           "partition_values": {
-            "state": "in_u02"
+            "state": "chandigarh"
           }
         },
         {
-          "path": "elections/state=in_u03/election_results.parquet",
+          "path": "elections/state=dadra-and-nagar-haveli-and-daman-and-diu/election_results.parquet",
           "size_bytes": 7414,
           "row_count": 58,
           "partition_values": {
-            "state": "in_u03"
+            "state": "dadra-and-nagar-haveli-and-daman-and-diu"
           }
         },
         {
-          "path": "elections/state=in_u04/election_results.parquet",
+          "path": "elections/state=lakshadweep/election_results.parquet",
           "size_bytes": 4590,
           "row_count": 23,
           "partition_values": {
-            "state": "in_u04"
+            "state": "lakshadweep"
           }
         },
         {
-          "path": "elections/state=in_u05/election_results.parquet",
+          "path": "elections/state=delhi/election_results.parquet",
           "size_bytes": 2276967,
           "row_count": 28969,
           "partition_values": {
-            "state": "in_u05"
+            "state": "delhi"
           }
         },
         {
-          "path": "elections/state=in_u07/election_results.parquet",
+          "path": "elections/state=puducherry/election_results.parquet",
           "size_bytes": 869503,
           "row_count": 11101,
           "partition_values": {
-            "state": "in_u07"
+            "state": "puducherry"
           }
         },
         {
-          "path": "elections/state=in_u08/election_results.parquet",
+          "path": "elections/state=jammu-and-kashmir/election_results.parquet",
           "size_bytes": 229122,
           "row_count": 2930,
           "partition_values": {
-            "state": "in_u08"
+            "state": "jammu-and-kashmir"
           }
         },
         {
-          "path": "elections/state=in_u09/election_results.parquet",
+          "path": "elections/state=ladakh/election_results.parquet",
           "size_bytes": 4413,
           "row_count": 20,
           "partition_values": {
-            "state": "in_u09"
+            "state": "ladakh"
           }
         }
       ],

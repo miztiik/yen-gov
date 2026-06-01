@@ -48,10 +48,10 @@ Inputs:
         (existing rows; merged via ``merge_with_existing=True``)
 
 Outputs:
-    datasets/boundaries/in/villages/state=in_u08/district=<slug>/all.geojson
+    datasets/boundaries/in/villages/state=jammu-and-kashmir/district=<slug>/all.geojson
         (12 shards: anantnag / badgam / baramula / doda / jammu / kathua
         / kupwara / pulwama / punch / rajauri / srinagar / udhampur)
-    datasets/boundaries/in/villages/state=in_u09/district=<slug>/all.geojson
+    datasets/boundaries/in/villages/state=ladakh/district=<slug>/all.geojson
         (2 shards: kargil / ladakh_leh)
     datasets/boundaries/boundary_layers.parquet
         (+14 per-(state, district-slug) rows added; all other layers

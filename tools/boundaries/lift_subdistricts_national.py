@@ -2,9 +2,9 @@
 
 Phase B of ``TODO/20260524-boundary-coverage-expansion-plan.md``: extend
 the existing TN-only sub-district adoption (~5,084 features in
-``boundaries/in/subdistricts/state=in_s22/all.geojson``) to all 36
+``boundaries/in/subdistricts/state=tamil-nadu/all.geojson``) to all 36
 states/UTs by emitting per-state shards keyed by ECI state code
-(``state=in_s08/...``, ``state=in_u05/...``, etc).
+(``state=himachal-pradesh/...``, ``state=delhi/...``, etc).
 
 Why a dedicated one-shot orchestrator rather than extending
 ``tools/boundaries/snapshot.py``:

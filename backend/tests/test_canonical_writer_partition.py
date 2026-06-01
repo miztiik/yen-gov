@@ -104,20 +104,21 @@ def test_elections_writes_one_parquet_per_state(tmp_path: Path) -> None:
     elections_dir = tmp_path / "elections"
     partition_files = sorted(elections_dir.glob("state=*/election_results.parquet"))
     rels = sorted(p.relative_to(elections_dir).as_posix() for p in partition_files)
-    assert rels == [
-        "state=in_s08/election_results.parquet",
-        "state=in_s22/election_results.parquet",
-        "state=in_u05/election_results.parquet",
-    ]
+    assert rels == sorted([
+        "state=himachal-pradesh/election_results.parquet",
+        "state=tamil-nadu/election_results.parquet",
+        "state=delhi/election_results.parquet",
+    ])
     # No monolith leaks into the family dir.
     assert not (elections_dir / "election_results.parquet").exists()
 
 
 def test_partition_grammar_is_in_underscore_lowercase(tmp_path: Path) -> None:
-    """Locked grammar (TODO §0e.10 lock A): partition value = ``in_<two-char-lower>``.
+    """Locked grammar (ADR-0050): partition value = LGD-name slug.
 
-    Rules: country prefix preserved (``in_``, not bare ``s22``); ASCII
-    lower case; ``-`` swapped for ``_`` so Hive parsers don't choke."""
+    Rules: ASCII lower-case, hyphen-separated kebab-case slug as published
+    in `datasets/taxonomy/lgd_states.json`. The legacy `in_<two-char>` form
+    is retired per the M2 + M3 rip."""
     _seed_taxonomy(tmp_path)
     env = _elections_envelope([
         _obs("IN-S22-AC-2024-001"),
@@ -130,15 +131,14 @@ def test_partition_grammar_is_in_underscore_lowercase(tmp_path: Path) -> None:
         p.relative_to(tmp_path / "elections").as_posix()
         for p in (tmp_path / "elections").glob("state=*/election_results.parquet")
     )
-    # All-lowercase, underscore separator, country-prefixed.
+    import re as _re
+    slug_re = _re.compile(r"^[a-z]+(-[a-z]+)*$")
     for rel in files:
         seg = rel.split("/", 1)[0]
-        assert seg.startswith("state=in_"), rel
-        # Two-char-lower state code follows the prefix.
+        assert seg.startswith("state="), rel
         partition_val = seg.split("=", 1)[1]
-        assert partition_val.startswith("in_")
+        assert slug_re.match(partition_val), partition_val
         assert partition_val == partition_val.lower()
-        assert "-" not in partition_val
 
 
 def test_rows_partition_correctly_by_entity_state_prefix(tmp_path: Path) -> None:
@@ -153,11 +153,11 @@ def test_rows_partition_correctly_by_entity_state_prefix(tmp_path: Path) -> None
     con = duckdb.connect(":memory:")
     s22_rows = con.execute(
         "SELECT entity_id, value_numeric FROM read_parquet(?) ORDER BY entity_id",
-        [(tmp_path / "elections" / "state=in_s22" / "election_results.parquet").as_posix()],
+        [(tmp_path / "elections" / "state=tamil-nadu" / "election_results.parquet").as_posix()],
     ).fetchall()
     s08_rows = con.execute(
         "SELECT entity_id, value_numeric FROM read_parquet(?) ORDER BY entity_id",
-        [(tmp_path / "elections" / "state=in_s08" / "election_results.parquet").as_posix()],
+        [(tmp_path / "elections" / "state=himachal-pradesh" / "election_results.parquet").as_posix()],
     ).fetchall()
     assert s22_rows == [("IN-S22", 22.0), ("IN-S22-AC-2024-001", 22.1)]
     assert s08_rows == [("IN-S08", 8.0)]
@@ -177,7 +177,7 @@ def test_partition_parquet_omits_synthesized_state_column(tmp_path: Path) -> Non
     _seed_taxonomy(tmp_path)
     env = _elections_envelope([_obs("IN-S22")])
     write_batch(env, tmp_path)
-    file = tmp_path / "elections" / "state=in_s22" / "election_results.parquet"
+    file = tmp_path / "elections" / "state=tamil-nadu" / "election_results.parquet"
     cols = duckdb.connect(":memory:").execute(
         f"DESCRIBE SELECT * FROM read_parquet('{file.as_posix()}', hive_partitioning=false)"
     ).fetchall()
@@ -232,7 +232,7 @@ def test_manifest_lists_partitioned_table_with_per_file_values(tmp_path: Path) -
     assert t["kind"] == "observations"
 
     files_by_pv = {f["partition_values"]["state"]: f for f in t["files"]}
-    assert set(files_by_pv) == {"in_s22", "in_s08", "in_u05"}
+    assert set(files_by_pv) == {"tamil-nadu", "himachal-pradesh", "delhi"}
     for pv, f in files_by_pv.items():
         assert f["path"] == f"elections/state={pv}/election_results.parquet"
         assert f["row_count"] == 1
@@ -257,10 +257,10 @@ def test_pre_existing_monolith_swept_after_partitioned_emit(tmp_path: Path) -> N
     env_seed = _elections_envelope([_obs("IN-S22", value_numeric=99.0)])
     write_batch(env_seed, tmp_path)
     elections_dir = tmp_path / "elections"
-    src_partition = elections_dir / "state=in_s22" / "election_results.parquet"
+    src_partition = elections_dir / "state=tamil-nadu" / "election_results.parquet"
     monolith = elections_dir / "election_results.parquet"
     shutil.copy(src_partition, monolith)
-    shutil.rmtree(elections_dir / "state=in_s22")
+    shutil.rmtree(elections_dir / "state=tamil-nadu")
     assert monolith.is_file()
     assert not list(elections_dir.glob("state=*"))
 
@@ -276,12 +276,12 @@ def test_pre_existing_monolith_swept_after_partitioned_emit(tmp_path: Path) -> N
         for p in elections_dir.glob("state=*/election_results.parquet")
     )
     assert rels == [
-        "state=in_s08/election_results.parquet",
-        "state=in_s22/election_results.parquet",
+        "state=himachal-pradesh/election_results.parquet",
+        "state=tamil-nadu/election_results.parquet",
     ]
     con = duckdb.connect(":memory:")
     s22 = con.execute(
-        f"SELECT value_numeric FROM read_parquet('{(elections_dir / 'state=in_s22' / 'election_results.parquet').as_posix()}')"
+        f"SELECT value_numeric FROM read_parquet('{(elections_dir / 'state=tamil-nadu' / 'election_results.parquet').as_posix()}')"
     ).fetchall()
     assert s22 == [(99.0,)]
 

@@ -19,7 +19,7 @@ Pipeline (one read-through of the KMZ):
 3. ``_build_entity_lookup`` — DuckDB query over ``entities.parquet``
    returning ``{normalised_display_name → entity_id (IN-S22)}``.
 4. ``_state_assign`` — walks parsed polygons, resolves
-   ``pincode → statename → entity_id → partition_slug (in_s22)``.
+   ``pincode → statename → entity_id → partition_slug (tamil-nadu)``.
    Pincodes that don't resolve (no directory row, NULL statename, or
    unmappable statename) accumulate in ``unkeyed`` and ship as the
    synthetic ``scope=unkeyed`` layer row (no geometry; just the
@@ -236,8 +236,28 @@ def _build_entity_lookup(entities_parquet: Path) -> dict[str, str]:
 
 
 def _entity_id_to_partition_slug(entity_id: str) -> str:
-    """Convert ``IN-S22`` → ``in_s22`` (Hive partition-key value)."""
-    return entity_id.replace("-", "_").lower()
+    """Convert ``IN-S22`` → ``tamil-nadu`` (LGD-name slug Hive partition-key value, per ADR-0050).
+
+    The entity_id carries the ECI st_code (S01-S29 / U01-U09). The Hive
+    partition-key value is the LGD-name slug per ``datasets/taxonomy/lgd_states.json``.
+    The lookup is loaded lazily on first call to avoid module-import-time IO.
+    """
+    eci = entity_id.removeprefix("IN-")
+    return _ECI_TO_LGD_SLUG()[eci]
+
+
+_ECI_TO_LGD_SLUG_CACHE: dict[str, str] | None = None
+
+
+def _ECI_TO_LGD_SLUG() -> dict[str, str]:
+    global _ECI_TO_LGD_SLUG_CACHE
+    if _ECI_TO_LGD_SLUG_CACHE is None:
+        import json as _json
+        from pathlib import Path as _Path
+        repo_root = _Path(__file__).resolve().parents[4]
+        doc = _json.loads((repo_root / "datasets/taxonomy/lgd_states.json").read_text(encoding="utf-8"))
+        _ECI_TO_LGD_SLUG_CACHE = {s["eci_st_code"]: s["slug"] for s in doc["states"]}
+    return _ECI_TO_LGD_SLUG_CACHE
 
 
 # ---------------------------------------------------------------------------
@@ -254,7 +274,7 @@ def _state_assign(
 
     Returns ``(by_slug, unkeyed)``:
 
-    * ``by_slug`` — ``{partition_slug (in_s22 ...) → list of polygons}``,
+    * ``by_slug`` — ``{partition_slug (tamil-nadu ...) → list of polygons}``,
       with the polygon lists in input order (callers re-sort by pincode
       before emit for byte-determinism).
     * ``unkeyed`` — ``[(pincode, reason)]`` for every polygon that
