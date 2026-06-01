@@ -271,7 +271,7 @@ describe("loadStateOverview — happy path", () => {
     ]);
   });
 
-  it("registers the election fact slice and the four supporting tables before querying", async () => {
+  it("registers the election fact slice and the six supporting tables before querying", async () => {
     mockedQuery
       .mockResolvedValueOnce(partyRows)
       .mockResolvedValueOnce(stateScopeRows)
@@ -287,6 +287,11 @@ describe("loadStateOverview — happy path", () => {
       "elections.dim_acs",
       "elections.dim_parties",
       "elections.dim_party_alliances",
+      // PR #525 (PR-B8) extended queryAcWinners with turnout + winner-age
+      // LEFT JOINs onto elections_candidacies + dim_persons; both must be
+      // registered before the query runs.
+      "elections.dim_persons",
+      "elections.elections_candidacies",
       "taxonomy.sources",
     ]);
   });
