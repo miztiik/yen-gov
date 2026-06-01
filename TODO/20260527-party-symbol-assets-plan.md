@@ -1,20 +1,20 @@
 # Party Symbol Assets Plan
 
 **Last Updated**: 2026-06-01
-**Status**: Active execution plan. PR-SYM-0 open as PR #524; PR-SYM-1..5 not started.
+**Status**: Partially complete. PR-SYM-0..3 DONE (#524, #526, #527, #528). PR-SYM-4a STOPPED at user-supervised boundary - see [notes/20260601-party-symbol-sym4-handover.md](../notes/20260601-party-symbol-sym4-handover.md). PR-SYM-4b and PR-SYM-5 BLOCKED on SYM-4a.
 **Scope**: Collect sanitized SVG election symbols for the parties citizens most often see. Frontend rendering comes last.
 
 ## Status Reckoner
 
 | PR | Status | Files touched | Schema bump | Gates | Blocks | PR# |
 | --- | --- | --- | --- | --- | --- | --- |
-| PR-SYM-0 | OPEN | `TODO/20260527-party-symbol-assets-plan.md` | none | docs-only | none | #524 |
-| PR-SYM-1 | PENDING | `datasets/schemas/taxonomy-parties.schema.json`, `datasets/schemas/dim-parties.schema.json`, backend schema fixtures | `taxonomy-parties` minor, `dim-parties` minor (`recognition` only) | pytest schema fixtures + Tier-A validate | PR-SYM-4b | _pending_ |
-| PR-SYM-2 | PENDING (parallelisable with SYM-1, SYM-3) | `notes/YYYY-MM-DD-party-symbol-roster.md`, optional `tools/parties/roster_report.py` | none | reviewer reruns query | PR-SYM-4 | _pending_ |
-| PR-SYM-3 | PENDING (parallelisable with SYM-1, SYM-2) | `frontend/src/lib/party-symbols/sanitizer.ts`, `frontend/public/party-symbols/placeholder.svg`, vitest fixtures | none | vitest contract test walks `frontend/public/party-symbols/*.svg` | PR-SYM-4a | _pending_ |
-| PR-SYM-4a | PENDING (after SYM-3) | 40-60 sanitized `frontend/public/party-symbols/*.svg`, `datasets/taxonomy/sources.parquet` (new ECI / Commons / state-CEO rows) | none | sanitizer vitest + Tier-A validate | PR-SYM-4b | _pending_ |
-| PR-SYM-4b | PENDING (after SYM-1, SYM-2, SYM-4a) | `datasets/taxonomy/parties.json`, recompiled `datasets/elections/dim_parties.parquet` (`recognition` only mirror) | none (consumes SYM-1 bump) | Tier-A validate + pytest + asset/hash/`source_id` FK checks | PR-SYM-5 | _pending_ |
-| PR-SYM-5 | PENDING (after SYM-4b) | `frontend/src/lib/parties/symbol-url.ts`, 1-2 Svelte consumers, `dim-parties.schema.json` mirror of `election_symbol`, vitest, browser smoke | `dim-parties` minor (`election_symbol` mirror) | svelte-check + vitest + Holy Law section 13 browser smoke | none | _pending_ |
+| PR-SYM-0 | DONE | `TODO/20260527-party-symbol-assets-plan.md` | none | docs-only | none | #524 |
+| PR-SYM-1 | DONE | `datasets/schemas/taxonomy-parties.schema.json` (2.1 -> 2.2), `datasets/taxonomy/parties.json` ($schema_version bump), `backend/tests/test_taxonomy_parties_schema_v22.py` (13 cases) | `taxonomy-parties` minor (`recognition` + `election_symbol`); `dim-parties` NOT bumped (recognition already declared v1.0, election_symbol mirror deferred to PR-SYM-5) | pytest 70 targeted pass + Tier-A validate exit 0 | unblocks PR-SYM-4b | #526 |
+| PR-SYM-2 | DONE | `notes/20260601-party-symbol-roster.md` (177 lines: top-60 winners SQL + snapshot pins + Tier 0/1/2 routing + alias-trap flags + recognition source policy) | none | notes-only | unblocks PR-SYM-4 | #527 |
+| PR-SYM-3 | DONE | `frontend/src/lib/party-symbols/sanitizer.ts`, `frontend/src/lib/party-symbols/sanitizer.test.ts` (18 cases), `frontend/public/party-symbols/placeholder.svg` | none | vitest 18/18 pass | unblocks PR-SYM-4a | #528 |
+| PR-SYM-4a | STOP - user-supervised | (planned) ~40 sanitized `frontend/public/party-symbols/*.svg`, `datasets/taxonomy/sources.parquet` rows | none | sanitizer vitest + Tier-A validate | PR-SYM-4b | _stopped per Citizen verdict 2026-06-01; see handover note_ |
+| PR-SYM-4b | BLOCKED on SYM-4a | `datasets/taxonomy/parties.json`, recompiled `datasets/elections/dim_parties.parquet` (`recognition` only mirror) | none (consumes SYM-1 bump) | Tier-A validate + pytest + asset/hash/`source_id` FK checks | PR-SYM-5 | _pending_ |
+| PR-SYM-5 | BLOCKED on SYM-4b | `frontend/src/lib/parties/symbol-url.ts`, 1-2 Svelte consumers, `dim-parties.schema.json` mirror of `election_symbol`, vitest, browser smoke | `dim-parties` minor (`election_symbol` mirror) | svelte-check + vitest + Holy Law section 13 browser smoke | none | _pending_ |
 
 Hard dependency rules:
 
