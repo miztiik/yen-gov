@@ -55,7 +55,7 @@ User granted explicit big-bang authorization (verbatim intent): "YOU HAVE PERMIS
 | B1 | Boundary snapshot emits `lgd_ac_id` as parallel top-level join property | [x] DONE - 29/31 AC shards stamped (3860 distinct = crosswalk-covered); S03+U08 exempt (no AC_ID); S01 string->int normalised | #535 | M |
 | B2 | Frontend canonical join via crosswalk (Message Translator), output-pinned | [x] DONE | #536 | L |
 | B3 | Flip boundary default `join_property` to `lgd_ac_id` for covered states | [x] DONE | #537 | M |
-| URL | AC URL slug gains name suffix `/s/<state>/ac/<eci_no>-<name-slug>` | [ ] PENDING | _pending_ | M |
+| URL | AC URL slug gains name suffix `/s/<state>/ac/<eci_no>-<name-slug>` | [x] DONE | #538 | M |
 | C1 | Fill crosswalk for U08 (J&K) + any uncovered AC (repeatable per N states) | [ ] PENDING | _pending_ | L |
 | D1 | Rip out legacy name-based `ac_no<->eci_no` translation seams | [ ] PENDING | _pending_ | M |
 
@@ -148,6 +148,8 @@ Phases: A (structural, ships NOW without external sourcing), B (reader cutover, 
 
 - Surfaces: AC route + slug builder/parser (`acSlug`/`parseAcSlug`), route param, title. New grammar `/s/<state-slug>/ac/<eci_no>-<name-slug>` (e.g. `/s/tamil-nadu/ac/42-tekkali`). `eci_no` stays the leading token + parse key; name slug is decorative + parsed-tolerant. `constituencywise_url` (ECI-portal-semantic) stays on `eci_no`. `lgd_ac_id` never in URL.
 - Gate: Unit (slug round-trip: parse(build(eci_no, name)) == eci_no) + a redirect/tolerance check for the old bare-number form. Browser smoke per CLAUDE.md section 13.
+
+**DONE (PR #538):** The grammar was ALREADY in place - `url.ac(state, eci_no, name)` + `acSlug(eci_no, name)` build the name-suffixed slug, `parseAcSlug` already accepts both `/ac/42` and `/ac/42-tekkali`, and `StateOverview` already emitted it. This row converged the three remaining citizen-facing emitters that still produced bare-number links: `RacesBoard.svelte` (`url.acByNo` -> `url.ac` with `r.name`), `ElectionMap.svelte` (hex/tile map click maps eci_no -> AC name via new `name_by_eci` lookup over `rows`), `StateAcMap.svelte` (choropleth select same, layered on the Row B3 reverse-map). `url.acByNo` retained as the no-name fallback API; absent name falls back to bare eci_no (parse-tolerant). Gates: svelte-check 0e/7w; vitest `slug.test.ts` 14 (round-trip + bare-number tolerance) + `url.test.ts` 44 green; validate EXIT=0.
 
 ### Row C1 - Fill crosswalk for U08 + uncovered (behavioural, REPEATABLE)
 

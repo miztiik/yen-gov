@@ -223,7 +223,7 @@
               {@const mc = marginColor(r.margin_pct ?? 0)}
               <li>
                 <a
-                  href={url.acByNo(state_code, r.eci_no, event)}
+                  href={url.ac(state_code, r.eci_no, r.name, event)}
                   class="flex items-center gap-2 px-3 py-1.5 hover:bg-white transition-colors"
                   title="{r.name} (#{r.eci_no}) — {r.winner_party_short} won by {r.margin_pct?.toFixed(2) ?? '—'} pp"
                 >
