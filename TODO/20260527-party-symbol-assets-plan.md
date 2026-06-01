@@ -1,8 +1,28 @@
 # Party Symbol Assets Plan
 
 **Last Updated**: 2026-06-01
-**Status**: Proposed research handoff - no implementation landed
-**Scope**: Collect sanitized SVG election symbols for the parties citizens most often see. Frontend rendering comes later.
+**Status**: Active execution plan. PR-SYM-0 open as PR #524; PR-SYM-1..5 not started.
+**Scope**: Collect sanitized SVG election symbols for the parties citizens most often see. Frontend rendering comes last.
+
+## Status Reckoner
+
+| PR | Status | Files touched | Schema bump | Gates | Blocks | PR# |
+| --- | --- | --- | --- | --- | --- | --- |
+| PR-SYM-0 | OPEN | `TODO/20260527-party-symbol-assets-plan.md` | none | docs-only | none | #524 |
+| PR-SYM-1 | PENDING | `datasets/schemas/taxonomy-parties.schema.json`, `datasets/schemas/dim-parties.schema.json`, backend schema fixtures | `taxonomy-parties` minor, `dim-parties` minor (`recognition` only) | pytest schema fixtures + Tier-A validate | PR-SYM-4b | _pending_ |
+| PR-SYM-2 | PENDING (parallelisable with SYM-1, SYM-3) | `notes/YYYY-MM-DD-party-symbol-roster.md`, optional `tools/parties/roster_report.py` | none | reviewer reruns query | PR-SYM-4 | _pending_ |
+| PR-SYM-3 | PENDING (parallelisable with SYM-1, SYM-2) | `frontend/src/lib/party-symbols/sanitizer.ts`, `frontend/public/party-symbols/placeholder.svg`, vitest fixtures | none | vitest contract test walks `frontend/public/party-symbols/*.svg` | PR-SYM-4a | _pending_ |
+| PR-SYM-4a | PENDING (after SYM-3) | 40-60 sanitized `frontend/public/party-symbols/*.svg`, `datasets/taxonomy/sources.parquet` (new ECI / Commons / state-CEO rows) | none | sanitizer vitest + Tier-A validate | PR-SYM-4b | _pending_ |
+| PR-SYM-4b | PENDING (after SYM-1, SYM-2, SYM-4a) | `datasets/taxonomy/parties.json`, recompiled `datasets/elections/dim_parties.parquet` (`recognition` only mirror) | none (consumes SYM-1 bump) | Tier-A validate + pytest + asset/hash/`source_id` FK checks | PR-SYM-5 | _pending_ |
+| PR-SYM-5 | PENDING (after SYM-4b) | `frontend/src/lib/parties/symbol-url.ts`, 1-2 Svelte consumers, `dim-parties.schema.json` mirror of `election_symbol`, vitest, browser smoke | `dim-parties` minor (`election_symbol` mirror) | svelte-check + vitest + Holy Law section 13 browser smoke | none | _pending_ |
+
+Hard dependency rules:
+
+- PR-SYM-0 must merge first; everything else cites the plan policy locked there.
+- PR-SYM-1, PR-SYM-2, PR-SYM-3 may run in parallel once PR-SYM-0 is merged.
+- PR-SYM-4a starts only after PR-SYM-3; PR-SYM-4b starts only after PR-SYM-1, PR-SYM-2, and PR-SYM-4a.
+- PR-SYM-5 starts only after PR-SYM-4b.
+- `dim-parties.schema.json` mirror splits across two PRs: `recognition` in PR-SYM-1 (closes the existing null-column gap), `election_symbol` in PR-SYM-5 (matches the writer-before-reader / reader-before-writer dance from [ADR-0047](../docs/architecture/decisions/0047-schema-version-compatibility-contract.md) at the moment the renderer needs it).
 
 ## 0. Load-bearing constraints
 
@@ -260,7 +280,7 @@ Suggested additive fields:
     "symbol_name": "Lotus",
     "asset_path": "party-symbols/lotus.svg",
     "asset_sha256": "...",
-    "asset_source_url": "https://...",
+    "source_id": "src.commons.symbols-of-political-parties-in-india.YYYY-MM-DD",
     "asset_source_kind": "commons",
     "license_label": "CC-BY-SA-3.0",
     "render_mode": "monochrome",
@@ -269,6 +289,8 @@ Suggested additive fields:
   }
 }
 ```
+
+Name the field `election_symbol` (singular). Reserve `election_symbol_history` for any future validity-window or assignment-history model so the future migration is additive, not breaking.
 
 Suggested `recognition` enum:
 
@@ -283,12 +305,14 @@ Suggested `election_symbol` fields:
 - `symbol_name`: citizen-readable symbol name, e.g. `Lotus`, `Hand`, `Elephant`.
 - `asset_path`: path relative to `frontend/public/`, e.g. `party-symbols/lotus.svg`.
 - `asset_sha256`: hash of committed SVG bytes.
-- `asset_source_url`: ECI/CEO/Commons/official source URL or null for placeholder.
-- `asset_source_kind`: `eci`, `state_ceo`, `commons`, `party_official`, `generated_from_eci`, or `editorial_placeholder`.
-- `license_label`: source license or project label, e.g. `eci-common-symbol`, `CC-BY-SA-3.0`, `public-domain`, `project-placeholder`.
+- `source_id`: FK to one row in `datasets/taxonomy/sources.parquet` per Holy Law #9 and [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md). Null only for `symbol_status = "placeholder"`.
+- `asset_source_kind`: `eci`, `state_ceo`, `commons`, `party_official`, `generated_from_eci`, or `editorial_placeholder`. Denormalised hint; the citation truth is `source_id`.
+- `license_label`: source license or project label, e.g. `eci-common-symbol`, `CC-BY-SA-3.0`, `public-domain`, `project-placeholder`. Denormalised hint; the citation truth is `source_id`.
 - `render_mode`: `monochrome` or `source_coloured`.
 - `symbol_status`: `verified`, `placeholder`, `missing`, or `deferred_historical`.
 - `notes`: nullable operator note.
+
+Provenance rule: do NOT inline `asset_source_url` on the party row. Each distinct producer (ECI bulletin, Commons file page, state CEO order) gets one row in `datasets/taxonomy/sources.parquet` and `election_symbol.source_id` FKs into it. This keeps party-symbol provenance shaped identically to every other observation in the repo.
 
 Do not add these v1 fields:
 
@@ -307,15 +331,17 @@ Party/person external links can wait for a profile-page feature. This plan is on
 
 Backend and frontend contract tests should enforce:
 
-- `taxonomy-parties.schema.json` minor bump adds `recognition` and nullable `election_symbol` fields.
-- `dim-parties.schema.json` minor bump mirrors only the frontend-needed subset when the compile path is updated.
+- `taxonomy-parties.schema.json` minor bump adds `recognition` and nullable `election_symbol` fields (PR-SYM-1).
+- `dim-parties.schema.json` minor bump adds `recognition` mirror in PR-SYM-1 and the `election_symbol` mirror in PR-SYM-5.
 - Every `recognition` value is from the enum.
 - Every non-null `election_symbol.asset_path` starts with `party-symbols/`, is POSIX-relative, ends in `.svg`, and has a kebab-case filename.
 - Every non-placeholder asset path exists under `frontend/public/party-symbols/`.
 - Every SVG hash matches `asset_sha256`.
-- Every SVG passes the existing icon-registry style allowlist: no `script`, no event-handler attributes, no `foreignObject`, no external `href`, no remote fonts, no embedded raster blobs, no inline `style`, and no `use`.
-- `symbol_status = "placeholder"` must use `party-symbols/placeholder.svg` and must not claim a real symbol name/source.
-- No Svelte or TypeScript file contains a party-id-to-symbol-path map. Future frontend code derives URLs from party data.
+- Every non-placeholder `election_symbol.source_id` resolves to a row in `datasets/taxonomy/sources.parquet`. Placeholder rows have `source_id = null`.
+- Every SVG passes the shared SVG allowlist sanitizer: no `script`, no event-handler attributes, no `foreignObject`, no external `href`, no remote fonts, no embedded raster blobs, no inline `style`, and no `use`.
+- The sanitizer is ONE module reused across the icon-registry and the party-symbol registry. Two divergent allowlists is a failure mode; do not copy-paste from `frontend/src/lib/icons/allowlist.ts`. PR-SYM-3 factors the shared module and both registries import it.
+- `symbol_status = "placeholder"` must use `party-symbols/placeholder.svg` and must not claim a real symbol name or `source_id`.
+- No Svelte or TypeScript file contains a party-id-to-symbol-path map. Future frontend code derives URLs mechanically from party data. PR-SYM-5 ships a contract test that greps for any literal party-id from the top-40 roster in `frontend/src/**` and fails on hit.
 - Probe parsers use checked-in fixtures; no pytest test performs live network access or walks the real corpus.
 - The collection report distinguishes source discovery, recognition source, asset source, sanitizer result, and placeholder status.
 
@@ -343,14 +369,16 @@ Goal: make the party-row contract explicit before assets land.
 
 Work:
 
-- Add `recognition` and nullable `election_symbol` fields to `taxonomy-parties.schema.json` with a minor bump.
-- Update the taxonomy parties validator/tests with small fixtures.
-- Decide whether `dim_parties` mirrors symbol fields immediately or waits until frontend rendering. If mirrored now, bump `dim-parties.schema.json` minor and update the compiler.
+- Add `recognition` (enum) and nullable `election_symbol` (object) to `taxonomy-parties.schema.json` with a minor bump.
+- Bump `dim-parties.schema.json` minor to expose `recognition` as a typed enum (was nullable column with no schema declaration). Update the compiler to copy `recognition` from `parties.json` into the compiled `dim_parties.parquet` view.
+- Do NOT mirror `election_symbol` into `dim_parties` yet; that mirror ships in PR-SYM-5 alongside the renderer.
+- Add backend pytest fixtures (one valid `parties.json` row with `election_symbol`, one with `recognition` only, one with neither, one negative `recognition` value) exercising the schema and the compiler.
 
 Acceptance:
 
-- Schema tests green.
-- Existing parties with no symbol remain valid.
+- Schema tests green; both minor bumps appended to each schema's `x-changelog`.
+- Existing 617 `parties.json` rows still validate without modification (`election_symbol` and `recognition` are optional).
+- Compiled `dim_parties.parquet` regenerates with `recognition` typed; row count unchanged.
 - No frontend rendering change.
 
 ### PR-SYM-2 - Reproducible roster report
@@ -359,16 +387,16 @@ Goal: choose the first 80/20 collection set without hand-picking in chat.
 
 Work:
 
-- Add a small report script or documented DuckDB query that produces: party_id, code, full name, wins, win_states, win_events, candidacies, total_votes.
-- Join current ECI recognised-party sources to mark `recognition` candidates.
-- Flag historical/alias-heavy rows for review instead of auto-assigning symbols.
-- Produce a checked-in handoff note under `notes/` or the PR body with the first 40-60 targets.
+- Add `notes/YYYY-MM-DD-party-symbol-roster.md` (and optionally `tools/parties/roster_report.py`) that runs the DuckDB top-winner query in section 1 and produces: party_id, eci_code, short_name, full_name, wins, win_states, win_events, candidacies, total_votes.
+- Cross-check against the latest ECI national/state recognised-party notification to mark `recognition` candidates per row.
+- Flag historical / alias-heavy rows (`JSP`, `INC_I`, `JD`, `ADK`, etc.) for review instead of auto-assigning symbols.
+- Record in the note: (a) the verbatim SQL, (b) the git SHA of `datasets/elections/elections_candidacies.parquet` and `datasets/elections/dim_parties.parquet` at probe time, (c) the produced 40-60 target list. The corpus grows, so a rerun in 6 months must either reproduce or knowingly differ from this snapshot.
 
 Acceptance:
 
-- Reviewer can rerun the query.
+- Reviewer can rerun the query verbatim against the recorded SHAs and get byte-identical output.
 - The report explains every excluded top-winner alias trap.
-- The target set covers current recognised parties and the main citizen-visible winners.
+- The target set covers all current ECI national parties, current state-recognised parties visible in yen-gov routes, and the main citizen-visible winners.
 
 ### PR-SYM-3 - Sanitizer + placeholder asset
 
@@ -376,47 +404,70 @@ Goal: make bad SVGs impossible to commit silently before the first real batch la
 
 Work:
 
-- Reuse or factor the existing icon-registry SVG allowlist for party-symbol assets.
-- Add `frontend/public/party-symbols/placeholder.svg`.
-- Add tests that walk `frontend/public/party-symbols/*.svg` and reject unsafe SVGs.
+- Factor the existing icon-registry SVG allowlist out of `frontend/src/lib/icons/allowlist.ts` into a shared module that both the icon registry and the new party-symbol registry import. ONE allowlist, not two.
+- Add `frontend/src/lib/party-symbols/sanitizer.ts` that consumes the shared allowlist and exposes a `sanitizeAndHash(svgBytes) -> { sanitizedBytes, sha256 }` function.
+- Add `frontend/public/party-symbols/placeholder.svg` (monochrome, no source, generic civic glyph).
+- Add vitest fixtures: malicious SVGs (script, onload, foreignObject, external href, inline style, use, embedded raster) plus the placeholder and a small clean party-symbol fixture. The contract test walks `frontend/public/party-symbols/*.svg` and runs the sanitizer on each.
 
 Acceptance:
 
 - Malicious fixture tests reject scripts, event handlers, external links, `foreignObject`, `style`, `use`, and embedded rasters.
-- Placeholder SVG passes the same sanitizer.
+- The shared allowlist module is the only allowlist in `frontend/src/`; a grep for a second `ALLOWED_ELEMENTS` constant finds none.
+- Placeholder SVG passes the sanitizer and round-trips to a stable `sha256`.
 
-### PR-SYM-4 - Seed first SVG batch
+### PR-SYM-4a - First SVG batch + sources ledger
 
-Goal: collect the first visible set, without frontend rendering yet.
+Goal: land the bytes and their provenance, separate from the 617-row `parties.json` edit so reviewers can read each diff line-by-line.
 
 Work:
 
-- Add 40-60 sanitized SVG assets under `frontend/public/party-symbols/`.
-- Update `datasets/taxonomy/parties.json` with `recognition` and `election_symbol` metadata for those parties.
-- Use source-coloured SVGs only when the source asset is already coloured; otherwise store monochrome.
-- Use placeholder metadata for recognised parties where the SVG was not collected in this batch.
+- Add 40-60 sanitized SVG assets under `frontend/public/party-symbols/` (one per Tier-0 / Tier-1 target from PR-SYM-2's roster).
+- For each distinct producer (ECI bulletin, Commons file page, state CEO order), add one row to `datasets/taxonomy/sources.parquet` per [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md). Build `source_id` via `backend.yen_gov.canonical.citation.derive_source_id`; never hand-author.
+- PR body inventory table: `slug | asset_path | sha256 | source_id | license_label | render_mode | sanitizer_result`.
+- Do NOT edit `datasets/taxonomy/parties.json` in this PR. The `election_symbol` rows referencing these assets land in PR-SYM-4b.
 
 Acceptance:
 
-- Inventory table in the PR body lists `party_id`, short name, wins/rank where applicable, recognition status/source, symbol name, asset path, source URL, license label, hash, render mode, symbol status, and sanitizer result.
-- Coverage report shows recognised-party coverage and top-N winner coverage before/after.
+- PR-SYM-3 sanitizer vitest passes on every new SVG.
+- Every new `source_id` resolves under Tier-A validate.
 - No frontend route renders symbols yet.
 
-### PR-SYM-5 - Later frontend renderer
+### PR-SYM-4b - Populate parties.json and recompile dim_parties
 
-Goal: render collected symbols next to parties once the data and assets are stable.
+Goal: connect the bytes to the party rows; surface in `dim_parties.parquet` for the renderer to pick up.
 
 Work:
 
-- Add a party-symbol view-model path that reads `dim_parties`/party data.
-- Render `asset_path` mechanically from data and the Vite base URL.
-- Use the placeholder only when `symbol_status = "placeholder"`.
-- Do not create a party-id-to-path map in Svelte or TypeScript.
+- Edit `datasets/taxonomy/parties.json` to add `recognition` and `election_symbol` blocks for each Tier-0 / Tier-1 party on the roster.
+- For recognised parties without a collected SVG in PR-SYM-4a, write `symbol_status: "placeholder"` with `source_id: null`.
+- Recompile `datasets/elections/dim_parties.parquet`; `recognition` populates from the new schema mirror (`election_symbol` mirror is deferred to PR-SYM-5).
+- Update the coverage section of `notes/YYYY-MM-DD-party-symbol-roster.md` with before/after counts.
+
+Acceptance:
+
+- Tier-A validate green: every non-placeholder `election_symbol.source_id` FK resolves; every `asset_path` exists; every `asset_sha256` matches the bytes shipped in PR-SYM-4a.
+- Pytest green.
+- Coverage report shows recognised-party coverage and top-N winner coverage before/after.
+- No frontend route renders symbols yet.
+
+### PR-SYM-5 - Frontend renderer + dim_parties election_symbol mirror
+
+Goal: render collected symbols next to parties.
+
+Work:
+
+- Bump `dim-parties.schema.json` minor to mirror `election_symbol` (writer-before-reader / reader-before-writer per [ADR-0047](../docs/architecture/decisions/0047-schema-version-compatibility-contract.md), one PR).
+- Update the compiler to copy `election_symbol` from `parties.json` into `dim_parties.parquet`.
+- Add `frontend/src/lib/parties/symbol-url.ts` that mechanically derives a static URL from a `dim_parties` row plus the Vite base URL; uses the placeholder when `symbol_status = "placeholder"`; renders nothing for parties with no `election_symbol` block.
+- Wire 1-2 Svelte consumers (e.g. a candidate row or a party badge) to read the URL through `symbol-url.ts`. No party-id literals.
+- Add a contract test that greps `frontend/src/**` for any literal party-id from the top-40 roster and fails on hit (Holy Law #6).
+- Add the citizen warning copy from section 2 to the first surface that renders a symbol.
 
 Acceptance:
 
 - Unit tests cover verified, placeholder, missing, and invalid asset states.
-- Browser smoke per [CLAUDE.md](../CLAUDE.md) section 13 on one affected route.
+- svelte-check + vitest green.
+- Browser smoke per [CLAUDE.md](../CLAUDE.md) section 13 on one affected route: symbol renders for a verified row, placeholder renders for a placeholder row, no console errors, no 404.
 
 ## 9. Closed decisions and deferred questions
 
@@ -430,11 +481,17 @@ Closed for v1:
 - User policy accepts ECI/common election-symbol glyphs as suitable v1 assets when source, hash, and sanitizer result are recorded.
 - Split-party deep history is deferred.
 
+Closed 2026-06-01 (Gregor sequencing pass, baked into Status Reckoner + section 8):
+
+- `dim_parties` mirror split: `recognition` in PR-SYM-1, `election_symbol` in PR-SYM-5 (writer-before-reader / reader-before-writer per [ADR-0047](../docs/architecture/decisions/0047-schema-version-compatibility-contract.md) lands as one PR per mirror).
+- Sanitizer is ONE shared module factored from `frontend/src/lib/icons/allowlist.ts` in PR-SYM-3; both registries import it. No copy-paste.
+- PR-SYM-4 splits into PR-SYM-4a (bytes + `sources.parquet`) and PR-SYM-4b (parties.json + recompile) so 40-60 SVG bytes and 617-row `parties.json` edits review independently.
+- `election_symbol` is singular per row; future history goes to `election_symbol_history` (additive, not breaking).
+- `election_symbol.source_id` FKs into `datasets/taxonomy/sources.parquet` per [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md); no inline `asset_source_url` on the party row.
+
 Still open:
 
-- Exact Tier 0 size: 40, 50, or 60 parties.
-- Whether `dim_parties` should mirror `election_symbol` fields before frontend rendering or in the renderer PR.
-- Whether the sanitizer should reuse `frontend/src/lib/icons/` directly or expose a small shared validation helper for `frontend/public/party-symbols/` tests.
+- Exact Tier 0 size: 40, 50, or 60 parties (settled inside PR-SYM-2 from the roster query output).
 
 ## 10. References
 
