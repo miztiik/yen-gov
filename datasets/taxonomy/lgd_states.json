@@ -1,0 +1,411 @@
+{
+  "$schema": "../schemas/lgd-states.schema.json",
+  "$schema_version": "1.0",
+  "$comment": "Authoritative LGD state/UT register. Sourced from datasets/taxonomy/lgd/states-latest.csv (LGD portal snapshot via Ministry of Panchayati Raj). Joined with ECI st_code (the in-repo wikipedia.urls map) and ISO 3166-2:IN. See ADR-0050 + docs/concepts/lgd-authority.md. Builder: tools/migrate/build_lgd_states.py.",
+  "sources": [
+    {
+      "url": "https://lgdirectory.gov.in/",
+      "fetched_at": "2026-05-24T20:25:59Z",
+      "name": "Local Government Directory (LGD) - States register",
+      "authority": "Ministry of Panchayati Raj, Government of India"
+    }
+  ],
+  "states": [
+    {
+      "lgd_state_id": 1,
+      "lgd_name": "Jammu And Kashmir",
+      "lgd_name_short": "Jammu & Kashmir",
+      "iso_alpha": "IN-JK",
+      "slug": "jammu-and-kashmir",
+      "eci_st_code": "U08",
+      "census_2001_code": 1,
+      "census_2011_code": 1,
+      "kind": "ut"
+    },
+    {
+      "lgd_state_id": 2,
+      "lgd_name": "Himachal Pradesh",
+      "lgd_name_short": "Himachal Pradesh",
+      "iso_alpha": "IN-HP",
+      "slug": "himachal-pradesh",
+      "eci_st_code": "S08",
+      "census_2001_code": 2,
+      "census_2011_code": 2,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 3,
+      "lgd_name": "Punjab",
+      "lgd_name_short": "Punjab",
+      "iso_alpha": "IN-PB",
+      "slug": "punjab",
+      "eci_st_code": "S19",
+      "census_2001_code": 3,
+      "census_2011_code": 3,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 4,
+      "lgd_name": "Chandigarh",
+      "lgd_name_short": "Chandigarh",
+      "iso_alpha": "IN-CH",
+      "slug": "chandigarh",
+      "eci_st_code": "U02",
+      "census_2001_code": 4,
+      "census_2011_code": 4,
+      "kind": "ut"
+    },
+    {
+      "lgd_state_id": 5,
+      "lgd_name": "Uttarakhand",
+      "lgd_name_short": "Uttarakhand",
+      "iso_alpha": "IN-UT",
+      "slug": "uttarakhand",
+      "eci_st_code": "S28",
+      "census_2001_code": 5,
+      "census_2011_code": 5,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_name": "Haryana",
+      "lgd_name_short": "Haryana",
+      "iso_alpha": "IN-HR",
+      "slug": "haryana",
+      "eci_st_code": "S07",
+      "census_2001_code": 6,
+      "census_2011_code": 6,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 7,
+      "lgd_name": "Delhi",
+      "lgd_name_short": "Delhi",
+      "iso_alpha": "IN-DL",
+      "slug": "delhi",
+      "eci_st_code": "U05",
+      "census_2001_code": 7,
+      "census_2011_code": 7,
+      "kind": "ut"
+    },
+    {
+      "lgd_state_id": 8,
+      "lgd_name": "Rajasthan",
+      "lgd_name_short": "Rajasthan",
+      "iso_alpha": "IN-RJ",
+      "slug": "rajasthan",
+      "eci_st_code": "S20",
+      "census_2001_code": 8,
+      "census_2011_code": 8,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 9,
+      "lgd_name": "Uttar Pradesh",
+      "lgd_name_short": "Uttar Pradesh",
+      "iso_alpha": "IN-UP",
+      "slug": "uttar-pradesh",
+      "eci_st_code": "S24",
+      "census_2001_code": 9,
+      "census_2011_code": 9,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_name": "Bihar",
+      "lgd_name_short": "Bihar",
+      "iso_alpha": "IN-BR",
+      "slug": "bihar",
+      "eci_st_code": "S04",
+      "census_2001_code": 10,
+      "census_2011_code": 10,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 11,
+      "lgd_name": "Sikkim",
+      "lgd_name_short": "Sikkim",
+      "iso_alpha": "IN-SK",
+      "slug": "sikkim",
+      "eci_st_code": "S21",
+      "census_2001_code": 11,
+      "census_2011_code": 11,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_name": "Arunachal Pradesh",
+      "lgd_name_short": "Arunachal Pradesh",
+      "iso_alpha": "IN-AR",
+      "slug": "arunachal-pradesh",
+      "eci_st_code": "S02",
+      "census_2001_code": 12,
+      "census_2011_code": 12,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 13,
+      "lgd_name": "Nagaland",
+      "lgd_name_short": "Nagaland",
+      "iso_alpha": "IN-NL",
+      "slug": "nagaland",
+      "eci_st_code": "S17",
+      "census_2001_code": 13,
+      "census_2011_code": 13,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 14,
+      "lgd_name": "Manipur",
+      "lgd_name_short": "Manipur",
+      "iso_alpha": "IN-MN",
+      "slug": "manipur",
+      "eci_st_code": "S14",
+      "census_2001_code": 14,
+      "census_2011_code": 14,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 15,
+      "lgd_name": "Mizoram",
+      "lgd_name_short": "Mizoram",
+      "iso_alpha": "IN-MZ",
+      "slug": "mizoram",
+      "eci_st_code": "S16",
+      "census_2001_code": 15,
+      "census_2011_code": 15,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 16,
+      "lgd_name": "Tripura",
+      "lgd_name_short": "Tripura",
+      "iso_alpha": "IN-TR",
+      "slug": "tripura",
+      "eci_st_code": "S23",
+      "census_2001_code": 16,
+      "census_2011_code": 16,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 17,
+      "lgd_name": "Meghalaya",
+      "lgd_name_short": "Meghalaya",
+      "iso_alpha": "IN-ML",
+      "slug": "meghalaya",
+      "eci_st_code": "S15",
+      "census_2001_code": 17,
+      "census_2011_code": 17,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_name": "Assam",
+      "lgd_name_short": "Assam",
+      "iso_alpha": "IN-AS",
+      "slug": "assam",
+      "eci_st_code": "S03",
+      "census_2001_code": 18,
+      "census_2011_code": 18,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 19,
+      "lgd_name": "West Bengal",
+      "lgd_name_short": "West Bengal",
+      "iso_alpha": "IN-WB",
+      "slug": "west-bengal",
+      "eci_st_code": "S25",
+      "census_2001_code": 19,
+      "census_2011_code": 19,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 20,
+      "lgd_name": "Jharkhand",
+      "lgd_name_short": "Jharkhand",
+      "iso_alpha": "IN-JH",
+      "slug": "jharkhand",
+      "eci_st_code": "S27",
+      "census_2001_code": 20,
+      "census_2011_code": 20,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 21,
+      "lgd_name": "Odisha",
+      "lgd_name_short": "Odisha",
+      "iso_alpha": "IN-OR",
+      "slug": "odisha",
+      "eci_st_code": "S18",
+      "census_2001_code": 21,
+      "census_2011_code": 21,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_name": "Chhattisgarh",
+      "lgd_name_short": "Chhattisgarh",
+      "iso_alpha": "IN-CT",
+      "slug": "chhattisgarh",
+      "eci_st_code": "S26",
+      "census_2001_code": 22,
+      "census_2011_code": 22,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 23,
+      "lgd_name": "Madhya Pradesh",
+      "lgd_name_short": "Madhya Pradesh",
+      "iso_alpha": "IN-MP",
+      "slug": "madhya-pradesh",
+      "eci_st_code": "S12",
+      "census_2001_code": 23,
+      "census_2011_code": 23,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_name": "Gujarat",
+      "lgd_name_short": "Gujarat",
+      "iso_alpha": "IN-GJ",
+      "slug": "gujarat",
+      "eci_st_code": "S06",
+      "census_2001_code": 24,
+      "census_2011_code": 24,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 27,
+      "lgd_name": "Maharashtra",
+      "lgd_name_short": "Maharashtra",
+      "iso_alpha": "IN-MH",
+      "slug": "maharashtra",
+      "eci_st_code": "S13",
+      "census_2001_code": 27,
+      "census_2011_code": 27,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_name": "Andhra Pradesh",
+      "lgd_name_short": "Andhra Pradesh",
+      "iso_alpha": "IN-AP",
+      "slug": "andhra-pradesh",
+      "eci_st_code": "S01",
+      "census_2001_code": 28,
+      "census_2011_code": 28,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 29,
+      "lgd_name": "Karnataka",
+      "lgd_name_short": "Karnataka",
+      "iso_alpha": "IN-KA",
+      "slug": "karnataka",
+      "eci_st_code": "S10",
+      "census_2001_code": 29,
+      "census_2011_code": 29,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 30,
+      "lgd_name": "Goa",
+      "lgd_name_short": "Goa",
+      "iso_alpha": "IN-GA",
+      "slug": "goa",
+      "eci_st_code": "S05",
+      "census_2001_code": 30,
+      "census_2011_code": 30,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 31,
+      "lgd_name": "Lakshadweep",
+      "lgd_name_short": "Lakshadweep",
+      "iso_alpha": "IN-LD",
+      "slug": "lakshadweep",
+      "eci_st_code": "U04",
+      "census_2001_code": 31,
+      "census_2011_code": 31,
+      "kind": "ut"
+    },
+    {
+      "lgd_state_id": 32,
+      "lgd_name": "Kerala",
+      "lgd_name_short": "Kerala",
+      "iso_alpha": "IN-KL",
+      "slug": "kerala",
+      "eci_st_code": "S11",
+      "census_2001_code": 32,
+      "census_2011_code": 32,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 33,
+      "lgd_name": "Tamil Nadu",
+      "lgd_name_short": "Tamil Nadu",
+      "iso_alpha": "IN-TN",
+      "slug": "tamil-nadu",
+      "eci_st_code": "S22",
+      "census_2001_code": 33,
+      "census_2011_code": 33,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 34,
+      "lgd_name": "Puducherry",
+      "lgd_name_short": "Puducherry",
+      "iso_alpha": "IN-PY",
+      "slug": "puducherry",
+      "eci_st_code": "U07",
+      "census_2001_code": 34,
+      "census_2011_code": 34,
+      "kind": "ut"
+    },
+    {
+      "lgd_state_id": 35,
+      "lgd_name": "Andaman And Nicobar Islands",
+      "lgd_name_short": "Andaman & Nicobar",
+      "iso_alpha": "IN-AN",
+      "slug": "andaman-and-nicobar",
+      "eci_st_code": "U01",
+      "census_2001_code": 35,
+      "census_2011_code": 35,
+      "kind": "ut"
+    },
+    {
+      "lgd_state_id": 36,
+      "lgd_name": "Telangana",
+      "lgd_name_short": "Telangana",
+      "iso_alpha": "IN-TG",
+      "slug": "telangana",
+      "eci_st_code": "S29",
+      "census_2001_code": null,
+      "census_2011_code": null,
+      "kind": "state"
+    },
+    {
+      "lgd_state_id": 37,
+      "lgd_name": "Ladakh",
+      "lgd_name_short": "Ladakh",
+      "iso_alpha": "IN-LA",
+      "slug": "ladakh",
+      "eci_st_code": "U09",
+      "census_2001_code": null,
+      "census_2011_code": null,
+      "kind": "ut"
+    },
+    {
+      "lgd_state_id": 38,
+      "lgd_name": "The Dadra And Nagar Haveli And Daman And Diu",
+      "lgd_name_short": "Dadra And Nagar Haveli And Daman And Diu",
+      "iso_alpha": "IN-DH",
+      "slug": "dadra-and-nagar-haveli-and-daman-and-diu",
+      "eci_st_code": "U03",
+      "census_2001_code": null,
+      "census_2011_code": null,
+      "kind": "ut"
+    }
+  ]
+}
