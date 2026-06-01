@@ -88,3 +88,34 @@ At plan close, archive `TODO/20260601-lgd-canonical-plan.md` to `docs/archive/pl
 - Garuda mirror: `https://github.com/GarudadevDataServices/indian_mlas`
 - shijithpk J&K: `https://github.com/shijithpk/2024_maps_supplement`
 - Wikimedia Furfur J&K SVG: `https://en.wikipedia.org/wiki/File:Wahlkreise_zur_Vidhan_Sabha_von_Jammu_%26_Kashmir_(2022).svg`
+
+
+---
+
+## Plan complete (2026-06-02)
+
+All rows shipped or collapsed; archived per `docs/how-to/distill-a-plan.md`.
+
+### Distillation map
+
+| Row | PR(s) | Distilled output |
+| --- | --- | --- |
+| A1 Coverage matrix doctrine | #552 | `docs/architecture/data/boundary-coverage-matrix.md` |
+| A2 ADR partition-key shape | #553 | `docs/architecture/decisions/0050-folder-naming-lgd-slug.md` |
+| A3 LGD authority concept | #554 | `docs/concepts/lgd-authority.md` |
+| L1a Seed states | #555 | `datasets/taxonomy/lgd_states.json` (36) |
+| L1b Seed districts | #556 | `datasets/taxonomy/lgd_districts.json` (784) |
+| L1c+L1d ACs + PCs | #559 | `datasets/taxonomy/lgd_acs.json` (3918) + `lgd_pcs.json` (533) |
+| Canonical-keys doc | #557 | `docs/architecture/data/lgd-canonical-keys.md` |
+| M1 Rename tool | #561 | `tools/migrate/rename_partition_keys.py` + sample manifest |
+| M2 Boundaries rename | #562 | 225 partition dirs renamed; frontend `ECI_TO_LGD_SLUG` bridge in `frontend/src/lib/maplibre/sources.ts` |
+| M3 Elections rename | #565 | 36 partition dirs + writer SQL CASE + manifest + 7 docs |
+| M4 Residual sweep | (no-op) | Audit `state=in_*` returned 0 across boundaries + elections; closed as no-op |
+| F1 Golden-path verify | (no-op) | ADR-0048 URLs already use LGD slugs; covered by M2/M3 e2e gates |
+| Yenask LGD-slug decouple | #568 | `frontend/src/lib/yenask/` Zod regex + SLUG_TO_ECI bridge + semantic-catalogue emit slug |
+
+### Successor
+
+`docs/archive/plans/20260601-lgd-partition-rename-successor-plan.md` — fully closed via M2/M3/M4.
+
+Durable lessons distilled to `/memories/lessons.md` (session-3 entry).

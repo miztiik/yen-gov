@@ -1,7 +1,7 @@
 """Build datasets/taxonomy/{lgd_acs.json, lgd_pcs.json, lgd_ac_pc_district_map.json}
 from datasets/taxonomy/lgd/constituency-report-2026-06-01.xlsx.
 
-PR L1c per TODO/20260601-lgd-execution-handover.md row L1c.
+PR L1c per docs/archive/plans/20260601-lgd-execution-handover.md row L1c.
 
 The source XLSX is the LGD portal's "Constituency Coverage Details" report
 (498663 rows; one row per (PC, AC, contained entity)). We aggregate to three

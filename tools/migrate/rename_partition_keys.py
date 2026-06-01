@@ -1,11 +1,11 @@
 """Rename `state=in_sXX` / `state=in_uXX` partition directories to `state=<lgd-name-slug>`
-per ADR-0050 and TODO/20260601-lgd-execution-handover.md row M1.
+per ADR-0050 and docs/archive/plans/20260601-lgd-execution-handover.md row M1.
 
 This is the DESIGN + DRY-RUN tool. Execution (rows M2/M3/M4) is gated behind
 `--apply` AND requires per-surface reader updates in the same commit (frontend
 slug references, CI deploy-site.yml literals, parquet KV_METADATA in manifest,
 canonical-store.md examples, etc.) - see
-`TODO/20260601-lgd-partition-rename-successor-plan.md` for the full blast radius.
+`docs/archive/plans/20260601-lgd-partition-rename-successor-plan.md` for the full blast radius.
 
 Usage:
     python -m tools.migrate.rename_partition_keys --root datasets/boundaries \\

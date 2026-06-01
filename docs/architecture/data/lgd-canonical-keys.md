@@ -27,7 +27,7 @@ Every row in every canonical Parquet under `datasets/` that names a geographic e
 | Sub-district / Block | `lgd_subdistrict_id` | `datasets/taxonomy/lgd_subdistricts.json` (future) | (future) | ~7000 |
 | Panchayat / ULB / Ward | `lgd_panchayat_id` / `lgd_ulb_id` / `lgd_ward_id` | (future) | (future) | varies |
 
-State + district are seeded (PRs L1a #555 + L1b #556). AC seed (L1c) is blocked on LGD AC-directory snapshot; see the [execution handover](../../../TODO/20260601-lgd-execution-handover.md) for the source plan.
+State + district are seeded (PRs L1a #555 + L1b #556). AC seed (L1c) is blocked on LGD AC-directory snapshot; see the [execution handover](../../../docs/archive/plans/20260601-lgd-execution-handover.md) for the source plan.
 
 ## Join recipes
 
@@ -122,5 +122,5 @@ Pre-LGD-canonical, yen-gov used `state_code` (ECI form) as the de-facto join key
 - [ADR-0044](../decisions/0044-grain-over-entity.md) - entity_id shape (unchanged by LGD-canonical)
 - [docs/architecture/data/canonical-store.md](canonical-store.md) - the canonical store layout that consumes these keys
 - [docs/concepts/admin-level-sourcing.md](../../concepts/admin-level-sourcing.md) - the LGD-golden doctrine predating these PRs
-- [TODO/20260601-lgd-canonical-plan.md](../../../TODO/20260601-lgd-canonical-plan.md) - parent strategic plan
-- [TODO/20260601-lgd-execution-handover.md](../../../TODO/20260601-lgd-execution-handover.md) - per-row execution split
+- [docs/archive/plans/20260601-lgd-canonical-plan.md](../../../docs/archive/plans/20260601-lgd-canonical-plan.md) - parent strategic plan
+- [docs/archive/plans/20260601-lgd-execution-handover.md](../../../docs/archive/plans/20260601-lgd-execution-handover.md) - per-row execution split

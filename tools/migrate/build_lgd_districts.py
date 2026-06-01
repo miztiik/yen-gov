@@ -1,6 +1,6 @@
 """Build datasets/taxonomy/lgd_districts.json from datasets/taxonomy/lgd/districts-latest.csv.
 
-PR L1b per TODO/20260601-lgd-execution-handover.md row L1b.
+PR L1b per docs/archive/plans/20260601-lgd-execution-handover.md row L1b.
 
 Joins:
   1. datasets/taxonomy/lgd/districts-latest.csv   (LGD authority: 784 rows)
