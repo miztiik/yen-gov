@@ -21,6 +21,12 @@ Binding algorithm (per state)
    neighbouring-state features (the S22 / Tamil Nadu file carries a few
    Puducherry features). Keep only the modal ``st_code`` (the dominant state).
 3. For each SoT AC ``(eci_no, name, reservation)``:
+   * SoT precedence - if the SoT AC item carries a verified ``lgd_ac_id``
+     (constituency.schema.json v4.2, Row C1), it is authoritative and outranks
+     every boundary-harvested match below; the row is ``lgd_direct``. This is
+     the repeatable fill path: progressively, per state, a SoT edit can recover
+     an LGD code that is genuinely absent from the in-repo boundary data (no
+     value is ever fabricated - the SoT must already hold a verified code).
    * ``lgd_direct`` - a unique boundary feature has ``ac_no == eci_no``. The
      HTL bundle is ECI-numbered, so the ballot number is the binding key. Note
      ``lgd_ac_id = int(AC_ID)`` is taken verbatim - it already encodes
@@ -28,8 +34,9 @@ Binding algorithm (per state)
      Telangana carries the new census code ``36001..``); the two never collide.
    * ``name_reservation_join`` - no ``ac_no`` match, but a unique boundary
      feature matches on normalised ``(name, reservation)``.
-   * ``unmapped`` - neither; ``lgd_ac_id`` is NULL. Whole states with no
-     boundary ``AC_ID`` (S03 / Assam, U08 / J&K) fall here.
+   * ``unmapped`` - neither, and no SoT ``lgd_ac_id``; ``lgd_ac_id`` is NULL.
+     Whole states with no boundary ``AC_ID`` (S03 / Assam, U08 / J&K) fall here
+     until a verified LGD code is added to their SoT.
 
 The ``ac_id`` (entity_id, FK to dim_acs), ``ac_name`` and ``delim_year`` columns
 are read straight from ``datasets/elections/dim_acs.parquet`` (delim_year=2008,
@@ -112,7 +119,11 @@ def _reservation_from_boundary_name(name: str | None) -> str:
 def _load_sot(root: Path) -> list[dict[str, Any]]:
     """Read every SoT ``constituencies.json`` into ordered AC records.
 
-    Returns dicts with ``state_code``, ``eci_no``, ``name``, ``reservation``.
+    Returns dicts with ``state_code``, ``eci_no``, ``name``, ``reservation`` and
+    ``sot_lgd_ac_id`` (the optional nullable ``lgd_ac_id`` declared on the AC item
+    per constituency.schema.json v4.2 / Row C1, or ``None`` when absent). When a
+    SoT carries a verified ``lgd_ac_id`` it is authoritative and outranks the
+    boundary-harvested ``AC_ID`` in :func:`build_rows`.
     """
     states_dir = root / "reference" / "in" / "states"
     out: list[dict[str, Any]] = []
@@ -122,12 +133,14 @@ def _load_sot(root: Path) -> list[dict[str, Any]]:
         )
         state_code = doc["state"]
         for ac in doc["constituencies"]:
+            raw_lgd = ac.get("lgd_ac_id")
             out.append(
                 {
                     "state_code": state_code,
                     "eci_no": int(ac["eci_no"]),
                     "name": ac["name"],
                     "reservation": ac.get("reservation", "GEN"),
+                    "sot_lgd_ac_id": int(raw_lgd) if raw_lgd is not None else None,
                 }
             )
     return out
@@ -237,7 +250,13 @@ def build_rows(root: Path, con: duckdb.DuckDBPyConnection) -> list[dict[str, Any
 
         lgd_ac_id: int | None = None
         method = MATCH_UNMAPPED
-        if idx is not None:
+        sot_lgd = rec.get("sot_lgd_ac_id")
+        if sot_lgd is not None:
+            # A verified SoT-provided lgd_ac_id (constituency.schema.json v4.2,
+            # Row C1) is authoritative and outranks the boundary AC_ID.
+            lgd_ac_id = int(sot_lgd)
+            method = MATCH_LGD_DIRECT
+        elif idx is not None:
             by_acno, by_namer = idx
             acno_codes = sorted({int(p["AC_ID"]) for p in by_acno.get(eci_no, [])})
             if len(acno_codes) == 1:
