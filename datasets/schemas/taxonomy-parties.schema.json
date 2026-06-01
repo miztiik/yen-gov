@@ -3,7 +3,7 @@
   "$id": "./taxonomy-parties.schema.json",
   "title": "Parties taxonomy (canonical hand-authored roster)",
   "description": "Hand-authored canonical party roster at taxonomy/parties.json. Phase 1.1 of TODO/20260517-canonical-long-format-pivot.md. Replaces the pre-pivot parties-master.schema.json (which lived under datasets/elections/<event>/<state>/parties.json shards). Each party_id is yen-gov-issued (parties.IN.<SHORT_SLUG>) because ECI codes mutate and are not citizen-readable. ECI codes are kept as aliases (a list — ECI reassigns them over time). The compiled Parquet form is datasets/taxonomy/parties.parquet, joined into observations on (party_id <= entity_id_party_rollup). See canonical-store.md §3a.",
-  "x-version": "2.2",
+  "x-version": "2.3",
   "x-changelog": [
     {
       "version": "1.0",
@@ -24,6 +24,11 @@
       "version": "2.2",
       "date": "2026-06-01",
       "description": "Additive (PR-SYM-1 per TODO/20260527-party-symbol-assets-plan.md section 8). Adds two optional fields to each party item: `recognition` (nullable enum mirroring dim-parties.recognition; values: national / state / registered_unrecognised / unknown / null) and `election_symbol` (nullable object holding the party's default ECI ballot-symbol metadata: symbol_name, asset_path, asset_sha256, source_id FK to taxonomy/sources.parquet per ADR-0032, asset_source_kind, license_label, render_mode, symbol_status, notes). Existing 617 party rows remain valid with neither field present. dim-parties.schema.json is NOT bumped in this PR: the `recognition` column was already declared as a nullable enum in dim-parties v1.0 and the compiler writer.py already carries the column; PR-SYM-1 only fills the population gap on the taxonomy side. The `election_symbol` mirror onto dim-parties is deferred to PR-SYM-5 per the Gregor sequencing pass (writer-before-reader / reader-before-writer per ADR-0047 lands as one PR when the renderer needs it)."
+    },
+    {
+      "version": "2.3",
+      "date": "2026-06-01",
+      "description": "Additive (PR-SYM-4b per TODO/20260527-party-symbol-assets-plan.md section 11). Three additions, all optional / non-breaking: (1) `election_symbol.asset_path` pattern loosened from `\\.svg$` only to `\\.(svg|png|jpg|jpeg|webp)$` because the Wikipedia/Commons batch ships 50% non-SVG assets (PNG/JPG/WEBP) and we accept whatever format Commons serves; (2) `election_symbol.mime_type` required-when-object-present enum (`image/svg+xml | image/png | image/jpeg | image/webp`) to make the format explicit alongside the path extension; (3) two NEW optional top-level fields on each party: `wikipedia_url` (string, format: uri) and `brand_colour` (object with `hex`, `confidence: high|medium|low`, `source_id`, `source_kind: \"wiki\"`, nullable `notes`) per Section 11 Wikipedia-enrichment doctrine. Both new fields are ENRICHMENT, never required; absence is the normal case and graceful fallover handles it (frontend resolver: anchor -> brand -> algorithmic fallback, brand tier skipped when `confidence: low`). `brand_colour` is Wikipedia editorial consensus, NOT party identity (ECI does not register party colours). dim-parties.schema.json is NOT bumped here; the election_symbol + brand_colour mirror onto dim-parties is deferred to PR-SYM-6a per the renderer-split plan."
     }
   ],
   "type": "object",
@@ -131,6 +136,43 @@
             "enum": [null, "national", "state", "registered_unrecognised", "unknown"],
             "description": "v2.2 (PR-SYM-1). ECI recognition status. Mirrors into dim-parties.recognition at compile time. Nullable when not yet classified."
           },
+          "wikipedia_url": {
+            "type": ["string", "null"],
+            "format": "uri",
+            "pattern": "^https?://[a-z]{2,3}\\.wikipedia\\.org/wiki/",
+            "description": "v2.3 (PR-SYM-4b). OPTIONAL party article URL on Wikipedia. Enrichment, not required. Per Section 11 of the party-symbol plan; populated alongside brand_colour from the same list-page snapshot."
+          },
+          "brand_colour": {
+            "type": ["object", "null"],
+            "additionalProperties": false,
+            "required": ["hex", "confidence", "source_id", "source_kind"],
+            "properties": {
+              "hex": {
+                "type": "string",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "description": "Brand colour as 6-digit hex (e.g. '#FF9933'). Resolver MUST NOT mutate this value (no auto-darken/lighten); identity must not mutate."
+              },
+              "confidence": {
+                "type": "string",
+                "enum": ["high", "medium", "low"],
+                "description": "high = single live Wikipedia meta/color template + Garudadev cross-check agreement + not a faction-split party. medium = single Wikipedia template, no cross-check or Garudadev mismatch within tolerance. low = faction-split party OR Wikipedia/Garudadev disagreement OR template missing. Frontend resolver MUST treat 'low' as if absent (fall through to algorithmic fallback)."
+              },
+              "source_id": {
+                "type": "string",
+                "description": "FK -> taxonomy/sources.parquet per ADR-0032. One sources row per list-page snapshot, shared across every party row lifted in that pass (e.g. 'src.wikipedia.list-of-political-parties-in-india.2026-06-01'). Per-template source_id rows are explicitly rejected."
+              },
+              "source_kind": {
+                "type": "string",
+                "enum": ["wiki"],
+                "description": "Literal 'wiki'. Indicates the value came from Wikipedia editorial consensus (per-party meta/color template transcluded onto the list page). NOT ECI-canonical — ECI does not register party colours; only symbols are official."
+              },
+              "notes": {
+                "type": ["string", "null"],
+                "description": "Required (nullable) for non-faction parties; non-null REQUIRED for faction-split parties (SHS-UBT/SHS, NCP/NCP-SP, LJP-RV/LJP-Paswan, AIADMK historical) citing the ECI freezing-order date and Wikipedia's editorial colour assignment."
+              }
+            },
+            "description": "v2.3 (PR-SYM-4b). OPTIONAL party brand colour from Wikipedia's per-party meta/color template. Enrichment, not required. Per Section 11 of the party-symbol plan: editorial consensus not party identity; resolver returns {hex, source, party_id} not bare hex."
+          },
           "election_symbol": {
             "type": ["object", "null"],
             "additionalProperties": false,
@@ -143,8 +185,13 @@
               },
               "asset_path": {
                 "type": "string",
-                "pattern": "^party-symbols/[a-z0-9]+(-[a-z0-9]+)*\\.svg$",
-                "description": "POSIX-relative path under frontend/public/. Kebab-case slug + .svg. Renderer derives the static URL mechanically (Vite base + asset_path); no party-id-to-path map in Svelte/TS (Holy Law #6)."
+                "pattern": "^party-symbols/[a-z0-9]+(-[a-z0-9]+)*\\.(svg|png|jpg|jpeg|webp)$",
+                "description": "v2.3 (PR-SYM-4b): pattern loosened from .svg-only to .(svg|png|jpg|jpeg|webp). POSIX-relative path under frontend/public/. Kebab-case slug + format extension. We accept whatever format Commons serves rather than forcing rasterisation; renderer dispatches on mime_type. Renderer derives the static URL mechanically (Vite base + asset_path); no party-id-to-path map in Svelte/TS (Holy Law #6)."
+              },
+              "mime_type": {
+                "type": ["string", "null"],
+                "enum": [null, "image/svg+xml", "image/png", "image/jpeg", "image/webp"],
+                "description": "v2.3 (PR-SYM-4b). MIME type of the asset; renderer uses this to pick <svg inline-sanitised> vs <img>. Required-by-convention when asset_path is present and not a placeholder; nullable when symbol_status is 'placeholder' or 'missing'. Must agree with the asset_path extension."
               },
               "asset_sha256": {
                 "type": ["string", "null"],

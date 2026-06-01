@@ -1,6 +1,6 @@
 {
   "$schema": "../schemas/taxonomy-parties.schema.json",
-  "$schema_version": "2.2",
+  "$schema_version": "2.3",
   "sources": [
     {
       "url": "https://www.eci.gov.in/affidavit-information-of-candidate/",
@@ -53,7 +53,20 @@
       "founded_year": 2012,
       "dissolved_year": null,
       "successor_party_id": null,
-      "predecessor_party_id": null
+      "predecessor_party_id": null,
+      "recognition": "national",
+      "election_symbol": {
+        "symbol_name": "Broom",
+        "asset_path": "party-symbols/broom.png",
+        "asset_sha256": "364b28bcf78ee9363ac9f8d7f2a85c0e578a2f6fe8c0d6f3bb1d180d2c1fc558",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.AAPP",
@@ -299,7 +312,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Cup And Saucer",
+        "asset_path": "party-symbols/cup-and-saucer.jpg",
+        "asset_sha256": "43d89bd7d81aa7f2f195c9b1c260f65adbdb80de5a865e9d60d94ad803ab7f06",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/jpeg",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.ADSMK",
@@ -348,7 +374,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Elephant Agp",
+        "asset_path": "party-symbols/elephant-agp.png",
+        "asset_sha256": "bc69702c58a2e698588400c48dc580dd25940071bd4c6cb51b5fb4a225e3ad05",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.AHF_R",
@@ -424,7 +463,20 @@
           "alliance": "AIADMK+"
         }
       ],
-      "notes": "Split from DMK in 1972 by M. G. Ramachandran."
+      "notes": "Split from DMK in 1972 by M. G. Ramachandran.",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Two Leaves",
+        "asset_path": "party-symbols/two-leaves.svg",
+        "asset_sha256": "6f9a9828aa02f3ba55f20b2e1d648d6d8fcc8581e9bba23a854ddb8d2cc76cfd",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.AIFB",
@@ -441,7 +493,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Lion",
+        "asset_path": "party-symbols/lion.svg",
+        "asset_sha256": "6339dd459ecef1c975034a01609e1a68f234afe71ad76e8eae4e46fbe5cb5dba",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.AIFB_S",
@@ -553,7 +618,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Kite",
+        "asset_path": "party-symbols/kite.svg",
+        "asset_sha256": "1471ac51307001d6eac0f6d4fef13809eea826723bd90794c2a23fa603df5365",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.AIMPP",
@@ -604,7 +682,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "All India Nr Congress",
+        "asset_path": "party-symbols/all-india-nr-congress.png",
+        "asset_sha256": "a27a057bb05092e0e8b880d936800d38c173802a5e0ae8d2775ed64142c8cce9",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.AIPMK",
@@ -722,7 +813,20 @@
       "founded_year": 1998,
       "dissolved_year": null,
       "successor_party_id": null,
-      "predecessor_party_id": "parties.IN.INC"
+      "predecessor_party_id": "parties.IN.INC",
+      "recognition": "national",
+      "election_symbol": {
+        "symbol_name": "Flowers And Grass",
+        "asset_path": "party-symbols/flowers-and-grass.svg",
+        "asset_sha256": "03c6ba19626559a708011ac01dc1c316322ce775d308de03144ef8aa41c79f7c",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.AIUDF",
@@ -739,7 +843,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Lock And Key",
+        "asset_path": "party-symbols/lock-and-key.webp",
+        "asset_sha256": "0950a75e17258fdd8cd2a556731e811197aeecdbd65c4ae0ef6e4c88148950e4",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/webp",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.AIVMK",
@@ -850,7 +967,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Banana",
+        "asset_path": "party-symbols/banana.svg",
+        "asset_sha256": "8b3be432e673ec8f0b650697b94c8129a97eaecdb9447ce83469232f6e4b6868",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.AJSUP",
@@ -1843,7 +1973,20 @@
       "founded_year": 1997,
       "dissolved_year": null,
       "successor_party_id": null,
-      "predecessor_party_id": null
+      "predecessor_party_id": null,
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Conch",
+        "asset_path": "party-symbols/conch.svg",
+        "asset_sha256": "39077e1acd9a4fcd446da079e57cb43909541d08b40d054b8b5880df09da1af0",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.BJNKP",
@@ -1884,7 +2027,20 @@
           "alliance": "NDA"
         }
       ],
-      "notes": "National party. Successor to Bharatiya Jana Sangh via the Janata Party interregnum."
+      "notes": "National party. Successor to Bharatiya Jana Sangh via the Janata Party interregnum.",
+      "recognition": "national",
+      "election_symbol": {
+        "symbol_name": "Lotus",
+        "asset_path": "party-symbols/lotus.svg",
+        "asset_sha256": "e7e7ce31e316035da4f914ab918a68a68f44ce49cc6d43f214178b330fe6f50d",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.BJS",
@@ -2257,7 +2413,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Renamed from TRS to BRS in 2022."
+      "notes": "Renamed from TRS to BRS in 2022.",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Car",
+        "asset_path": "party-symbols/car.png",
+        "asset_sha256": "f0669be72fa949b9a6a809633a1c6fc6e44a2b36834df787421656ff961a61f3",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.BRSCP",
@@ -2335,7 +2504,20 @@
       "founded_year": 1984,
       "dissolved_year": null,
       "successor_party_id": null,
-      "predecessor_party_id": null
+      "predecessor_party_id": null,
+      "recognition": "national",
+      "election_symbol": {
+        "symbol_name": "Elephant",
+        "asset_path": "party-symbols/elephant.svg",
+        "asset_sha256": "317a8e83e43cbc324e4761e0667bc59330183b404eb3a59bf16381a85e4891be",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.BSP_A",
@@ -2457,7 +2639,20 @@
           "period_label": "AcGenMay2026",
           "alliance": "SPA"
         }
-      ]
+      ],
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Ears Of Corn And Sickle",
+        "asset_path": "party-symbols/ears-of-corn-and-sickle.svg",
+        "asset_sha256": "7104159eed411c0799d1b88d77f48bcdbedb5f653cb6b817bc3326e858c01d4b",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.CPI_ML_L",
@@ -2501,7 +2696,20 @@
           "alliance": "SPA"
         }
       ],
-      "notes": "Split from CPI in 1964."
+      "notes": "Split from CPI in 1964.",
+      "recognition": "national",
+      "election_symbol": {
+        "symbol_name": "Hammer Sickle And Star",
+        "asset_path": "party-symbols/hammer-sickle-and-star.png",
+        "asset_sha256": "6b6c153228cc3b21078a3b07b8b15fe848377c62777c3576ca132496d209f275",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.CPIMLL",
@@ -2718,7 +2926,20 @@
           "period_label": "AcGenMay2026",
           "alliance": "AIADMK+"
         }
-      ]
+      ],
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Nagara",
+        "asset_path": "party-symbols/nagara.svg",
+        "asset_sha256": "70650817e9c6de48b2fba6d9dbe732f9c287d7ef777ffce4c6670739edc3ed2c",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.DMK",
@@ -2743,7 +2964,20 @@
           "period_label": "AcGenMay2026",
           "alliance": "SPA"
         }
-      ]
+      ],
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Rising Sun",
+        "asset_path": "party-symbols/rising-sun.svg",
+        "asset_sha256": "5c72af23f15e04d29abc04cd0ca89275f4ce65799933fb990714eede20ee3f1b",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.DMM",
@@ -2982,7 +3216,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Coconut",
+        "asset_path": "party-symbols/coconut.svg",
+        "asset_sha256": "9b47d03825be37b1dd6cfd551a58e05c7fd2fd554d005b8c1b46f9243e508bf4",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.GGP",
@@ -3631,7 +3878,20 @@
           "alliance": "SPA"
         }
       ],
-      "notes": "National party. Oldest major political party in India."
+      "notes": "National party. Oldest major political party in India.",
+      "recognition": "national",
+      "election_symbol": {
+        "symbol_name": "Hand",
+        "asset_path": "party-symbols/hand.svg",
+        "asset_sha256": "544bbcf55df982deebf2ef4eda1e9463fd5350316b383f2f10c57327e8f331cf",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.INC_I",
@@ -3760,7 +4020,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Spectacles",
+        "asset_path": "party-symbols/spectacles.svg",
+        "asset_sha256": "f0dc7ee8f1edd422a7d915458efe59e1ca66f80417e3f2e7c9480097096814d9",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.INMMK",
@@ -3873,7 +4146,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Ladder",
+        "asset_path": "party-symbols/ladder.svg",
+        "asset_sha256": "ea30c7d402a0b3c4e41f4079a9157cd8235b8edd401ffa1200fd7d6dc589ad2e",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.IVP",
@@ -4020,7 +4306,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Farmer Ploughing Within Square",
+        "asset_path": "party-symbols/farmer-ploughing-within-square.jpg",
+        "asset_sha256": "b5980e1a692e313300dc94e0f73982f62bdd8eda37adfdb884e67d63376c9cf4",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/jpeg",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.JD",
@@ -4055,7 +4354,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Female Farmer",
+        "asset_path": "party-symbols/female-farmer.svg",
+        "asset_sha256": "5b01f4ef6de6b020ffe4896205613846d785a49b1a7e91993c066578d3d9070e",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.JDU",
@@ -4073,7 +4385,20 @@
       "founded_year": 2003,
       "dissolved_year": null,
       "successor_party_id": null,
-      "predecessor_party_id": null
+      "predecessor_party_id": null,
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Arrow",
+        "asset_path": "party-symbols/arrow.svg",
+        "asset_sha256": "c17dc7d11d43e0dcba9ed0a5281c49b63a308de544bb346ae655e42f3d1dec60",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.JEBAMANI_JANATA",
@@ -4136,7 +4461,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Key",
+        "asset_path": "party-symbols/key.svg",
+        "asset_sha256": "c44f3c09329200191537a69eb0c666559db25203f39e3bb41b09585a03bb22f1",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.JKNC",
@@ -4154,7 +4492,20 @@
       "founded_year": 1939,
       "dissolved_year": null,
       "successor_party_id": null,
-      "predecessor_party_id": null
+      "predecessor_party_id": null,
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Plough",
+        "asset_path": "party-symbols/plough.png",
+        "asset_sha256": "56dc5622eb8fa3e154be8081f9ae457b0ca1c00cf98729e60f6da34b10dc619c",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.JKNPP",
@@ -4186,7 +4537,20 @@
       "founded_year": 1999,
       "dissolved_year": null,
       "successor_party_id": null,
-      "predecessor_party_id": null
+      "predecessor_party_id": null,
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Ink Pot And Pen",
+        "asset_path": "party-symbols/ink-pot-and-pen.png",
+        "asset_sha256": "4e4d1752bb1ce06f3d6a751cb112997770ce555db68dd7a65f9783ed72880d3d",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.JMBP",
@@ -4216,7 +4580,20 @@
       "founded_year": 1972,
       "dissolved_year": null,
       "successor_party_id": null,
-      "predecessor_party_id": null
+      "predecessor_party_id": null,
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Bow And Arrow",
+        "asset_path": "party-symbols/bow-and-arrow.svg",
+        "asset_sha256": "b96f87239dc2f8b5c1e883c83ee024177a90163ec1b11ecf366223c8ba95c63b",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.JMM_U",
@@ -4362,7 +4739,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Glass Tumbler",
+        "asset_path": "party-symbols/glass-tumbler.svg",
+        "asset_sha256": "2457d35cb2638d76088a8b023b310ae4f29bad0ba260f5e438981dd9a6043e3e",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.JSS",
@@ -4461,7 +4851,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Auto Rickshaw",
+        "asset_path": "party-symbols/auto-rickshaw.svg",
+        "asset_sha256": "38a9f5200acc526079e45b4e001aebabc6a7c6e5f8cf64ae49dc2d02c8f276da",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.KECJ",
@@ -4497,7 +4900,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Two Leaves",
+        "asset_path": "party-symbols/two-leaves.svg",
+        "asset_sha256": "6f9a9828aa02f3ba55f20b2e1d648d6d8fcc8581e9bba23a854ddb8d2cc76cfd",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.KISP",
@@ -4800,7 +5216,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Helicopter",
+        "asset_path": "party-symbols/helicopter.jpg",
+        "asset_sha256": "c5088cfa1ec9838b559ff065c73984ba2765bba27f1ca731084bd323ff7b217e",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/jpeg",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.LJSP",
@@ -5443,7 +5872,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Lion",
+        "asset_path": "party-symbols/lion.svg",
+        "asset_sha256": "6339dd459ecef1c975034a01609e1a68f234afe71ad76e8eae4e46fbe5cb5dba",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.MGR_MAKKAL_KATCHI",
@@ -5618,7 +6060,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Star",
+        "asset_path": "party-symbols/star.svg",
+        "asset_sha256": "b6a24eef8cc9ef327723e2985fe9c7e756b47f745902c663ba189061ec094a80",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.MNK_PLP",
@@ -5664,7 +6119,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Railway Engine",
+        "asset_path": "party-symbols/railway-engine.png",
+        "asset_sha256": "885bb28377846762f9b4efe17454015d21feae6868720b1f99b1e10b6ffb69d4",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.MPP",
@@ -6067,7 +6535,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": "parties.IN.NCP",
-      "notes": "2023 split of NCP; ECI allotted the NCP name+symbol to the Ajit Pawar faction."
+      "notes": "2023 split of NCP; ECI allotted the NCP name+symbol to the Ajit Pawar faction.",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Man Blowing Turha",
+        "asset_path": "party-symbols/man-blowing-turha.png",
+        "asset_sha256": "e3d58da8155a92ac85f239f288e39a45c4c2ca752f747c16a964eedebbf79d1f",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.NDPP",
@@ -6410,7 +6891,20 @@
           "period_label": "AcGenMay2026",
           "alliance": null
         }
-      ]
+      ],
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Farmer Carrying Plough",
+        "asset_path": "party-symbols/farmer-carrying-plough.jpg",
+        "asset_sha256": "9a69d78ecfeb725ec53ebed806519480a971380319d5ed5f067fcee57f865eb9",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/jpeg",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.NVAS",
@@ -7185,7 +7679,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Football",
+        "asset_path": "party-symbols/football.jpg",
+        "asset_sha256": "ec62c747b3aae1f22ca20a67d8bb185114373cf5c2a642eb50f0b6b37390ae28",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/jpeg",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.RJANPTY",
@@ -7234,7 +7741,20 @@
       "founded_year": 1997,
       "dissolved_year": null,
       "successor_party_id": null,
-      "predecessor_party_id": null
+      "predecessor_party_id": null,
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Hurricane Lamp",
+        "asset_path": "party-symbols/hurricane-lamp.png",
+        "asset_sha256": "56b95750ee11c76348ab5b2d6e56bb2ba2a279922bb53a0b589a7050ebffd545",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.RJRD",
@@ -7349,7 +7869,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Bottle",
+        "asset_path": "party-symbols/bottle.png",
+        "asset_sha256": "9d22de5a0c383f5d1382bc31b416f47d370d3ac45cede46f37a005dabb7b1a65",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.RLSP",
@@ -7768,7 +8301,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Spade And Stoker",
+        "asset_path": "party-symbols/spade-and-stoker.png",
+        "asset_sha256": "a09990234e641073e6cdf179db13b12006aaf26365a5c3a62d70f6bc563a8caf",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.RSP_S",
@@ -7958,7 +8504,20 @@
       "founded_year": 1920,
       "dissolved_year": null,
       "successor_party_id": null,
-      "predecessor_party_id": null
+      "predecessor_party_id": null,
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Scales",
+        "asset_path": "party-symbols/scales.svg",
+        "asset_sha256": "f5d8fee9245c14c338d8de52d2ae25b466f3f3365c8cd3634774f897a42b37aa",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.SADM",
@@ -8198,7 +8757,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Umbrella",
+        "asset_path": "party-symbols/umbrella.png",
+        "asset_sha256": "a8bc47f29cd757f5df0861e6781a9e3a5bb5066ff147acd08e0ed486335dbf80",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.SDP",
@@ -8262,7 +8834,20 @@
       "founded_year": 1966,
       "dissolved_year": null,
       "successor_party_id": null,
-      "predecessor_party_id": null
+      "predecessor_party_id": null,
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Bow And Arrow",
+        "asset_path": "party-symbols/bow-and-arrow.svg",
+        "asset_sha256": "b96f87239dc2f8b5c1e883c83ee024177a90163ec1b11ecf366223c8ba95c63b",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.SJP_M",
@@ -8309,7 +8894,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Table Lamp",
+        "asset_path": "party-symbols/table-lamp.png",
+        "asset_sha256": "d98947a33fd02ede8d19d141eb1b4634243067a1c94894669a1cbc90b2a92a78",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.SMFB",
@@ -8467,7 +9065,20 @@
       "founded_year": 1992,
       "dissolved_year": null,
       "successor_party_id": null,
-      "predecessor_party_id": null
+      "predecessor_party_id": null,
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Cycle",
+        "asset_path": "party-symbols/cycle.png",
+        "asset_sha256": "d91a897d738ba5b21c38fb62b8a5a2736f3931d0b388c867d24c9fe7c75c69d7",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.SP_I",
@@ -8549,7 +9160,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": "parties.IN.SHS",
-      "notes": "2022 split of Shiv Sena; Election Commission allotted the Shiv Sena name+symbol to the Eknath Shinde faction. The Uddhav-led faction is registered under this name."
+      "notes": "2022 split of Shiv Sena; Election Commission allotted the Shiv Sena name+symbol to the Eknath Shinde faction. The Uddhav-led faction is registered under this name.",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Flaming Torch",
+        "asset_path": "party-symbols/flaming-torch.png",
+        "asset_sha256": "a6faa72fff581006dc447e06e36acb5f8385a7a95fe44a9d33cd1762ba2637aa",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.SSD",
@@ -8950,7 +9574,20 @@
       "founded_year": 1982,
       "dissolved_year": null,
       "successor_party_id": null,
-      "predecessor_party_id": null
+      "predecessor_party_id": null,
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Cycle",
+        "asset_path": "party-symbols/cycle.png",
+        "asset_sha256": "d91a897d738ba5b21c38fb62b8a5a2736f3931d0b388c867d24c9fe7c75c69d7",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.THAMIZHAGA_MUNNETRA_CONGRESS",
@@ -9141,7 +9778,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Tipra Logo",
+        "asset_path": "party-symbols/tipra-logo.jpg",
+        "asset_sha256": "a368b9a6bceabb77327f0bc7ec48c06be042b372c7e0b4d0c6d7973950789ecd",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/jpeg",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.TMUL",
@@ -9399,7 +10049,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Drums",
+        "asset_path": "party-symbols/drums.png",
+        "asset_sha256": "6fcaf1580d584164f70ae918492895528f08b4f3b4ac79cbb9835d4eae6505f5",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.UKKD",
@@ -9780,7 +10443,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Winnower",
+        "asset_path": "party-symbols/winnower.png",
+        "asset_sha256": "5e1ec3535875534b3e1c1be715b1a7fab0707deca833d9e08491814527c39f5d",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.VRA",
@@ -9957,7 +10633,20 @@
       "founded_year": 2011,
       "dissolved_year": null,
       "successor_party_id": null,
-      "predecessor_party_id": "parties.IN.INC"
+      "predecessor_party_id": "parties.IN.INC",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Ceiling Fan",
+        "asset_path": "party-symbols/ceiling-fan.svg",
+        "asset_sha256": "7ac7fd43afae8a31c50e6b8d7d5fa7875ce17633a454a9d7a25c3689002aa356",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "monochrome",
+        "symbol_status": "verified",
+        "mime_type": "image/svg+xml",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.YUS",
@@ -10004,7 +10693,20 @@
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": null,
-      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state).",
+      "recognition": "state",
+      "election_symbol": {
+        "symbol_name": "Sun Without Rays",
+        "asset_path": "party-symbols/sun-without-rays.png",
+        "asset_sha256": "08e1f30b476d83d7329a6b2355447d7c7d56b064ca42c34b14333cf8fe66c7f7",
+        "source_id": "src.wikimedia.commons.party-symbols.2026-06-01",
+        "asset_source_kind": "commons",
+        "license_label": "CC-BY-SA-4.0-or-PD-ECI-symbol",
+        "render_mode": "source_coloured",
+        "symbol_status": "verified",
+        "mime_type": "image/png",
+        "notes": null
+      }
     },
     {
       "party_id": "parties.IN.ZPM",
