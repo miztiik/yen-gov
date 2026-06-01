@@ -220,6 +220,72 @@ def test_harvester_writes_typed_parquet(build_module: Any, fixture_root: Path) -
     assert null_count == 1
 
 
+def _rewrite_sot_lgd(fixture_root: Path, overrides: dict[int, int]) -> None:
+    """Stamp a verified ``lgd_ac_id`` onto the given SoT eci_no(s) and bump the
+    SoT file's $schema_version to 4.2 (constituency.schema.json v4.2 / Row C1)."""
+    cfile = fixture_root / "reference" / "in" / "states" / "S99" / "constituencies.json"
+    doc = json.loads(cfile.read_text(encoding="utf-8"))
+    doc["$schema_version"] = "4.2"
+    for ac in doc["constituencies"]:
+        if ac["eci_no"] in overrides:
+            ac["lgd_ac_id"] = overrides[ac["eci_no"]]
+    cfile.write_text(json.dumps(doc), encoding="utf-8")
+
+
+def test_sot_provided_lgd_ac_id_fills_and_outranks_boundary(
+    build_module: Any, fixture_root: Path
+) -> None:
+    """Row C1 machinery: a SoT-provided lgd_ac_id (a) recovers a previously
+    unmapped AC and (b) outranks a conflicting boundary-harvested code, both as
+    ``lgd_direct``. No value is fabricated - the code is read straight from the
+    SoT and the oracle still proves a valid bijection with exact cover."""
+    # eci 4 was unmapped (no boundary feature); give it a verified LGD code.
+    # eci 3 name-joined to 99007; the SoT now asserts a different code 99099,
+    # which must win.
+    _rewrite_sot_lgd(fixture_root, {4: 99004, 3: 99099})
+
+    con = duckdb.connect()
+    rows = build_module.build_rows(fixture_root, con)
+    con.close()
+    by_eci = {r["eci_no"]: r for r in rows}
+
+    # eci 4: previously unmapped -> now lgd_direct via SoT.
+    assert by_eci[4]["match_method"] == "lgd_direct"
+    assert by_eci[4]["lgd_ac_id"] == 99004
+
+    # eci 3: SoT code 99099 outranks the boundary name-join (99007).
+    assert by_eci[3]["match_method"] == "lgd_direct"
+    assert by_eci[3]["lgd_ac_id"] == 99099
+
+    # untouched ACs keep their boundary-harvested bindings.
+    assert by_eci[1]["lgd_ac_id"] == 99001
+    assert by_eci[2]["lgd_ac_id"] == 99002
+
+    # full cover now (no unmapped rows) and still a valid bijection.
+    assert all(r["match_method"] != UNMAPPED for r in rows)
+    sot = {("S99", 1), ("S99", 2), ("S99", 3), ("S99", 4)}
+    assert_bijection(rows, sot_acs=sot)
+
+
+def test_no_sot_lgd_is_byte_for_byte_the_boundary_path(
+    build_module: Any, fixture_root: Path
+) -> None:
+    """No-regression: with no SoT carrying lgd_ac_id (the state of the tree at
+    Row C1 ship time), the harvester output is identical to the pre-C1 boundary
+    -only path - same methods, same codes, same unmapped row."""
+    con = duckdb.connect()
+    rows = build_module.build_rows(fixture_root, con)
+    con.close()
+    by_eci = {r["eci_no"]: r for r in rows}
+    assert by_eci[1]["match_method"] == "lgd_direct" and by_eci[1]["lgd_ac_id"] == 99001
+    assert by_eci[2]["match_method"] == "lgd_direct" and by_eci[2]["lgd_ac_id"] == 99002
+    assert (
+        by_eci[3]["match_method"] == "name_reservation_join"
+        and by_eci[3]["lgd_ac_id"] == 99007
+    )
+    assert by_eci[4]["match_method"] == UNMAPPED and by_eci[4]["lgd_ac_id"] is None
+
+
 def test_shipped_crosswalk_passes_oracle() -> None:
     """Load-bearing guard: the committed crosswalk MUST be a valid bijection
     with exact cover over the real SoT AC universe."""

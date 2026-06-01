@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/constituency.schema.json",
   "title": "Constituencies collection (per state, per body)",
   "description": "Electoral constituencies within a single state for a single legislative body (Assembly or Parliament). Keyed by ECI's numeric constituency number, which is stable within (state, body).",
-  "x-version": "4.1",
+  "x-version": "4.2",
   "x-changelog": [
     {
       "version": "1.0",
@@ -29,6 +29,11 @@
       "version": "4.1",
       "date": "2026-05-11",
       "description": "Additive: optional name (human-readable upstream name) and authority (issuing body) fields on each sources[] entry. Aligns with Phase A schemas (feature_collection.metadata, indicator) so attribution can be uniform across electoral and socio-economic data. Per TODO/SOCIO-ECONOMIC-EXPANSION.md §6 D3."
+    },
+    {
+      "version": "4.2",
+      "date": "2026-06-01",
+      "description": "Additive: optional nullable lgd_ac_id (integer) on AC items per ADR-0049 / eci_no -> lgd_ac_id migration (TODO/20260530-eci-to-lgd-acid-migration-plan.md Row C1). lgd_ac_id is the canonical INTERNAL join key (State_LGD*1000 + LGD ac_no); eci_no stays the citizen-facing display + URL label. Nullable + optional: filled progressively per state as verified LGD codes are sourced; the crosswalk harvester (tools/migrate/build_ac_crosswalk.py) prefers a SoT-provided lgd_ac_id over the boundary-harvested one. Existing v4.1 files (no lgd_ac_id) remain valid; no mechanical restamp required."
     }
   ],
   "type": "object",
@@ -115,11 +120,16 @@
           "eci_no": {
             "type": "integer",
             "minimum": 1,
-            "description": "ECI's constituency number within (state, body). Stable across elections unless redrawn."
+            "description": "ECI's constituency number within (state, body). Stable across elections unless redrawn. Citizen-facing display + URL label (ADR-0049)."
           },
           "name": {
             "type": "string",
             "minLength": 1
+          },
+          "lgd_ac_id": {
+            "type": ["integer", "null"],
+            "minimum": 1000,
+            "description": "LGD Assembly Constituency code (State_LGD * 1000 + LGD ac_no, >= 1000, e.g. 28145), the canonical INTERNAL join key per ADR-0049. Optional + nullable: present only where a verified LGD code has been sourced for this AC (filled progressively per state, Row C1). When present it is authoritative and the crosswalk harvester prefers it over the boundary-harvested AC_ID. eci_no (not lgd_ac_id) remains the citizen-facing display + URL label; lgd_ac_id never appears in a URL. Forbidden in spirit on PC items (this field is AC-specific) - PC files simply omit it."
           },
           "district_id": {
             "type": "string",

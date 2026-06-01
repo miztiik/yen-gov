@@ -56,7 +56,7 @@ User granted explicit big-bang authorization (verbatim intent): "YOU HAVE PERMIS
 | B2 | Frontend canonical join via crosswalk (Message Translator), output-pinned | [x] DONE | #536 | L |
 | B3 | Flip boundary default `join_property` to `lgd_ac_id` for covered states | [x] DONE | #537 | M |
 | URL | AC URL slug gains name suffix `/s/<state>/ac/<eci_no>-<name-slug>` | [x] DONE | #538 | M |
-| C1 | Fill crosswalk for U08 (J&K) + any uncovered AC (repeatable per N states) | [ ] PENDING | _pending_ | L |
+| C1 | Fill crosswalk for U08 (J&K) + any uncovered AC (repeatable per N states) | [x] DONE - SoT-fill machinery shipped (constituency.schema.json 4.2 + harvester SoT-precedence); ZERO fabricated fills, 253 still `unmapped` pending verified external LGD codes | #539 | L |
 | D1 | Rip out legacy name-based `ac_no<->eci_no` translation seams | [ ] PENDING | _pending_ | M |
 
 ---
@@ -155,6 +155,19 @@ Phases: A (structural, ships NOW without external sourcing), B (reader cutover, 
 
 - Surfaces: SoT `constituencies.json` real `lgd_ac_id` (with `constituency.schema.json` 4.1 -> 4.2 additive bump + restamp of every touched SoT file's `$schema_version` + a `datasets/schema-compatibility.json` entry, all in this same change per ADR-0047), recompile `ac_crosswalk.parquet`, flip `match_method` `unmapped` -> `lgd_direct`. U08 (J&K seat_id<->eci_no) is the known hard case - research via integrated browser / LGD portal if needed; stays `unmapped` (rides `ac_no`/`seat_id`) until resolved.
 - Gate: bijection oracle extended to newly-filled states + explicit "no regression to already-covered states" assertion.
+
+**DONE (PR #539): machinery-only, ZERO fabricated fills.** The repeatable SoT-fill path is now wired, but no LGD codes were invented (CLAUDE.md section 6). Investigation finding: the 253 `unmapped` ACs are genuinely ABSENT from the in-repo boundary data - e.g. Gujarat's boundary carries 164 features for 182 ACs, with urban Ahmedabad/Surat seats (NARANPURA / NIKOL / NARODA / SURAT NORTH) entirely missing - so `lgd_ac_id` is NOT recoverable from any committed source, and fabricating it would violate section 6. (An Explore subagent's boundary probe for this row was partly hallucinated - it mislabelled S06 as "Haryana" and claimed "no AC_ID property" when the crosswalk shows 68/90 S06 ACs mapped; load-bearing facts were re-verified directly against the boundary parquet. Lesson: do not trust a subagent's specific data claims; verify directly.)
+
+What shipped:
+
+1. `constituency.schema.json` 4.1 -> 4.2: additive nullable `lgd_ac_id` (`type: [integer, null]`, `minimum: 1000`) on AC items + changelog entry. The field is the SoT INPUT contract for a verified LGD code; it is optional, so the in-tree SoT files still declaring `$schema_version` 4.1 stay valid and are NOT mechanically restamped (clean reader-before-writer - a SoT only advances to 4.2 when it is touched to carry a real code).
+2. `datasets/schema-compatibility.json`: json-corpus override for `constituency.schema.json` accepting `["4.1", "4.2"]` (ADR-0047 reader registered BEFORE any writer).
+3. `tools/migrate/build_ac_crosswalk.py`: `_load_sot` reads the optional `lgd_ac_id`; `build_rows` gives a SoT-provided code HIGHEST precedence (SoT > boundary `ac_no==eci_no` > name+reservation join > `unmapped`), bound as `lgd_direct`. A future per-state fill is now a one-SoT-edit change with no harvester change.
+4. Oracle + tests: two new `test_build_ac_crosswalk.py` cases - one proving a SoT-provided code recovers a previously-`unmapped` AC AND outranks a conflicting boundary code (both `lgd_direct`, bijection+cover still green), one no-regression case proving that with no SoT carrying the field the output is byte-identical to the pre-C1 boundary-only path.
+
+DECISION: did NOT mint a new `sot_provided` match_method enum value - per ADR-0047 a schema enum should not gain a value with zero emitters; a SoT code is conceptually a direct LGD binding so `lgd_direct` is correct, and the actual-fill PR can refine provenance (`source_id`) when real data lands. The crosswalk parquet + `ac-crosswalk.schema.json` + manifest `schema_version` are UNCHANGED (recompile dry-run: 4113 rows / 3860 `lgd_direct` / 253 `unmapped`, byte-identical), proving zero regression.
+
+Remaining `unmapped` (253), each now one verified-SoT-edit away: S03/Assam 126 (boundary district-fallback, no `AC_ID`), U08/J&K 90 (stays `unmapped` per plan - `seat_id<->eci_no` is the hard case), S06/Gujarat 22 (urban seats absent from boundary), S12/MP 6, U07/Puducherry 2, and 7 singletons (S15/S20/S21/S22/S24/S25/S29). Gates: pytest `test_build_ac_crosswalk.py` 5/5; recompile dry-run distribution unchanged; validate EXIT=0.
 
 ### Row D1 - Rip out legacy name-based translation seams (structural cleanup)
 
