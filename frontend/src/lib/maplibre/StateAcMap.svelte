@@ -150,6 +150,27 @@
   const final_fills = $derived(mirrorLgdKeys(fills, lgd_lookup));
   const final_opacities = $derived(mirrorLgdKeys(opacities, lgd_lookup));
 
+  // Row B3 (ADR-0049): the canonical map join is now lgd_ac_id, so the
+  // MapChoropleth selection/highlight emit lgd_ac_id keys. Invert the
+  // crosswalk lookup so click-to-navigate can recover the citizen-facing
+  // eci_no (the URL never carries lgd_ac_id).
+  const reverse_lookup = $derived.by(() => {
+    if (!lgd_lookup) return null;
+    const out = new Map<number, number>();
+    for (const [eci, lgd] of lgd_lookup) out.set(lgd, eci);
+    return out;
+  });
+
+  // The highlighted seat is addressed by eci_no by the parent route; map it
+  // to its lgd_ac_id so the canonical-join highlight filter matches. Falls
+  // back to the eci_no itself for unmapped states (S03/U08) and the brief
+  // pre-lookup window.
+  const highlight_lgd = $derived(
+    highlight_eci_no == null
+      ? undefined
+      : (lgd_lookup?.get(highlight_eci_no) ?? highlight_eci_no),
+  );
+
   const tooltips = $derived.by(() => {
     const out: Record<number, string> = {};
     for (const r of rows ?? []) {
@@ -171,8 +192,18 @@
     );
   }
 
-  function on_select(sel: { key: string | number }): void {
-    const eci_no = Number(sel.key);
+  function on_select(sel: { key: string | number; properties?: Record<string, unknown> }): void {
+    // The canonical map join is lgd_ac_id (Row B3), so `sel.key` is an
+    // lgd_ac_id for covered states. Recover the citizen-facing eci_no via
+    // the inverted crosswalk; fall back to the feature's `ac_no` label
+    // (eci_no-valued for covered states today) during the pre-lookup window,
+    // then to the raw key for unmapped states (S03 `ac_no` / U08 `seat_id`
+    // are already eci_no/seat values).
+    const raw = Number(sel.key);
+    const acno = sel.properties?.ac_no;
+    const eci_no =
+      reverse_lookup?.get(raw)
+      ?? (acno != null && Number.isFinite(Number(acno)) ? Number(acno) : raw);
     if (Number.isFinite(eci_no)) navigate(url.acByNo(state_code, eci_no, event));
   }
 </script>
@@ -189,7 +220,7 @@
     {tooltips}
     {height}
     canonical_join={canonical_join}
-    highlight_key={highlight_eci_no}
+    highlight_key={highlight_lgd}
     onSelect={on_select}
   />
 {/if}

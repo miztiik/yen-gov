@@ -95,10 +95,24 @@ describe("STATE_AC entry shape is well-formed", () => {
     expect(STATE_AC.U08.join_property).toBe("seat_id");
   });
 
-  it("all non-U08 entries use ac_no join key", () => {
+  it("S03 keeps the eci_no-valued ac_no join key (Tier-4 district fallback, no lgd_ac_id)", () => {
+    // S03 Assam has no crosswalk-covered AC_ID, so Row B3's flip to the
+    // canonical lgd_ac_id does not apply; it stays on the eci_no-valued
+    // `ac_no` property.
+    expect(STATE_AC.S03.join_property).toBe("ac_no");
+  });
+
+  it("every covered AC entry uses the canonical lgd_ac_id join key (Row B3)", () => {
+    // Row B3 (ADR-0049): the default map join flips from the eci_no-valued
+    // `ac_no` to the canonical INTERNAL `lgd_ac_id`. The eci_no label
+    // survives as `join_property_label` so the colour fill stays flash-free
+    // and the AC route reverse-maps lgd_ac_id -> eci_no for navigation. The
+    // two unmapped states keep their own property (S03 `ac_no`, U08
+    // `seat_id`).
     for (const [code, entry] of Object.entries(STATE_AC)) {
-      if (code === "U08") continue;
-      expect(entry.join_property).toBe("ac_no");
+      if (code === "S03" || code === "U08") continue;
+      expect(entry.join_property).toBe("lgd_ac_id");
+      expect(entry.join_property_label).toBe("ac_no");
     }
   });
 });
