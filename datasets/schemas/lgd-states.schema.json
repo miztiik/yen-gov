@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./lgd-states.schema.json",
+  "title": "LGD states register",
+  "description": "Authoritative register of every Indian state and Union Territory, keyed on the LGD numeric state id issued by the Ministry of Panchayati Raj's Local Government Directory. The canonical INTERNAL join authority for every non-electoral indicator per ADR-0050 + docs/concepts/lgd-authority.md. ECI st_code (S01-S29 / U01-U09) survives as a nullable display attribute for election-domain artefacts. Refreshed from datasets/taxonomy/lgd/states-latest.csv via tools/migrate/build_lgd_states.py.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-06-01",
+      "summary": "Initial schema. 36 states/UTs from LGD CSV snapshot 2026-05-24. Adds eci_st_code as nullable display attribute + ISO 3166-2:IN + Census 2001/2011 codes for cross-source joins. Excludes lgd_districts (separate schema in L1b)."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "sources", "states"],
+  "additionalProperties": true,
+  "properties": {
+    "$schema": {"type": "string"},
+    "$schema_version": {"type": "string"},
+    "$comment": {"type": "string"},
+    "sources": {
+      "type": "array",
+      "items": {"type": "object"}
+    },
+    "states": {
+      "type": "array",
+      "minItems": 36,
+      "items": {
+        "type": "object",
+        "required": [
+          "lgd_state_id",
+          "lgd_name",
+          "lgd_name_short",
+          "iso_alpha",
+          "slug",
+          "eci_st_code",
+          "kind"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "lgd_state_id": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 99,
+            "description": "LGD numeric state id (Ministry of Panchayati Raj). Globally unique within India."
+          },
+          "lgd_name": {
+            "type": "string",
+            "minLength": 2,
+            "description": "Canonical English name as published by LGD."
+          },
+          "lgd_name_short": {
+            "type": "string",
+            "minLength": 2,
+            "description": "Display-friendly short name (e.g. 'Jammu & Kashmir' instead of LGD's 'Jammu And Kashmir')."
+          },
+          "iso_alpha": {
+            "type": "string",
+            "pattern": "^IN-[A-Z]{2}$",
+            "description": "ISO 3166-2:IN subdivision code."
+          },
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+            "description": "Kebab-case ASCII slug derived from lgd_name_short. Used for folder partitions (per ADR-0050: state=<slug>) and URL routes."
+          },
+          "eci_st_code": {
+            "type": "string",
+            "pattern": "^[SU]\\d{2}$",
+            "description": "ECI per-state code (S01-S29 for states, U01-U09 for UTs). Display-only for election artefacts; NOT the canonical join key."
+          },
+          "census_2001_code": {
+            "type": ["integer", "null"],
+            "description": "Census 2001 numeric state code (null when the entity did not exist in 2001, e.g. Telangana, Ladakh)."
+          },
+          "census_2011_code": {
+            "type": ["integer", "null"],
+            "description": "Census 2011 numeric state code (null when the entity did not exist in 2011)."
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["state", "ut"],
+            "description": "state | ut (constitutional classification)."
+          }
+        }
+      }
+    }
+  }
+}
