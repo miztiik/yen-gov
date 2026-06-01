@@ -59,9 +59,26 @@ export function fetchElectionEvents(): Promise<ElectionEventsCatalogue> {
 }
 
 /**
- * The default event for a state is the one with the most recent `polled_on`
- * date. Returns null when the state has no entries — the caller renders the
+ * The default event for a state is the most-recent **assembly** election.
+ * Returns null when the state has no entries — the caller renders the
  * "no election data" UI rather than a 404.
+ *
+ * Why assembly-only: every consumer of this helper (StateOverview,
+ * StateTopic, Party, Explore, Constituency) is an assembly-house view —
+ * AC map, house composition, seats-by-party, per-constituency drill-in.
+ * PR #525 added the `LsGenJun2024` lok_sabha event to every state's
+ * catalogue. For any state whose last assembly election predates June 2024
+ * (e.g. Karnataka AcGenMay2023), a naive most-recent-by-polled_on default
+ * now resolves to the Lok Sabha event, whose `IN-<state>-LsGenJun2024-PARTY-*`
+ * rows the assembly query does not match — so the page falls into the
+ * "not yet in the canonical store" arm and the donut / seats-by-party /
+ * seat-composition sections vanish. Filtering to `kind === "assembly"`
+ * keeps the state hub on its assembly axis; the picker (listEventsForState)
+ * still lists the LS event so a citizen can select it explicitly.
+ *
+ * Fallback: if a state somehow has no assembly event at all, fall back to
+ * the most-recent event of any kind so we never 404 a state that only has
+ * non-assembly data ingested.
  *
  * Previously this read a hand-authored `default: true` flag with a `rows[0]`
  * fallback. That fallback returned the OLDEST event whenever a backfill
@@ -81,9 +98,13 @@ export function defaultEventForState(
   const rows = catalogue.states[stateCode];
   if (!rows || rows.length === 0) return null;
   // polled_on is ISO YYYY-MM-DD so lexicographic max == chronological max.
-  return rows.reduce((latest, r) =>
-    r.polled_on > latest.polled_on ? r : latest,
-  );
+  const mostRecent = (candidates: ElectionEventRow[]): ElectionEventRow | null =>
+    candidates.length === 0
+      ? null
+      : candidates.reduce((latest, r) => (r.polled_on > latest.polled_on ? r : latest));
+  // Assembly-house views default to the latest assembly election; fall back
+  // to the latest event of any kind only when no assembly event exists.
+  return mostRecent(rows.filter((r) => r.kind === "assembly")) ?? mostRecent(rows);
 }
 
 /**

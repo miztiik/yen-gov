@@ -257,7 +257,7 @@
           "update_period_days": {
             "type": "integer",
             "minimum": 1,
-            "description": "v2.1 (PR-Z3b-tail-actionC 2026-05-26). Publisher refresh cadence in days (NDLM monthly = 30, RBI Handbook annual = 365, Census decennial = 3650). Operator dashboard surfaces stale indicators when today - last_observed > 2 * update_period_days. Required-in-practice via the DARK Tier-B check tier_b_indicator_freshness_declared (added in PR-Z3b-cli #363; chained live in a follow-up PR once all 183 rows are backfilled). OWID precedent: every Grapher variable carries this. Optional in schema for the v2.0->v2.1 transition; intent is required."
+            "description": "v2.1 (PR-Z3b-tail-actionC 2026-05-26). Publisher refresh cadence in days (NDLM monthly = 30, RBI Handbook annual = 365, Census decennial = 3650). Operator dashboard surfaces stale indicators when today - last_observed > 2 * update_period_days -- EXCEPT for ad_hoc cadence (elections, one-off releases), which are NOT on a fixed cycle: a government can collapse or an assembly be dissolved early, so an election's value (e.g. pc-* Lok Sabha = 1825) is a NOMINAL upper-bound, never a staleness deadline. Any staleness check MUST skip ad_hoc / election series entirely. Required-in-practice via the DARK Tier-B check tier_b_indicator_freshness_declared (added in PR-Z3b-cli #363; chained live in a follow-up PR once all 183 rows are backfilled). OWID precedent: every Grapher variable carries this. Optional in schema for the v2.0->v2.1 transition; intent is required."
           },
           "concept_id": {
             "type": "string",
