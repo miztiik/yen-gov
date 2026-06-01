@@ -9,6 +9,7 @@ import {
   hasModeCoverage,
   lerpColor,
   matchesFilters,
+  mirrorLgdKeys,
 } from "./election-map-coloring";
 
 function w(partial: Partial<AcWinner> & { ac_eci_no: number }): AcWinner {
@@ -125,3 +126,70 @@ describe("buildAcOpacities", () => {
     expect(op[1]).toBe(0.9);
   });
 });
+
+// Row B2 (ADR-0049) — the parity oracle for the canonical lgd_ac_id join.
+// mirrorLgdKeys must make the choropleth resolve to the SAME value whether
+// maplibre matches a polygon on its eci_no (legacy) or its lgd_ac_id
+// (canonical). These are the behavioural net: a regression here would
+// silently recolour or blank covered constituencies post-migration.
+describe("mirrorLgdKeys", () => {
+  it("returns the base unchanged when the lookup is null (pre-load window)", () => {
+    const base = { 1: "#aaa", 2: "#bbb" };
+    expect(mirrorLgdKeys(base, null)).toBe(base);
+  });
+
+  it("returns the base unchanged when the lookup is empty (uncovered state)", () => {
+    const base = { 1: "#aaa", 2: "#bbb" };
+    expect(mirrorLgdKeys(base, new Map())).toBe(base);
+  });
+
+  it("mirrors each eci_no value under its lgd_ac_id, preserving the eci keys", () => {
+    const base = { 1: "#aaa", 2: "#bbb" };
+    const lookup = new Map<number, number>([
+      [1, 22001],
+      [2, 22002],
+    ]);
+    const out = mirrorLgdKeys(base, lookup);
+    // eci keys retained (hex cartogram + label paths still match)
+    expect(out[1]).toBe("#aaa");
+    expect(out[2]).toBe("#bbb");
+    // lgd keys added with the SAME value (the canonical-join parity)
+    expect(out[22001]).toBe("#aaa");
+    expect(out[22002]).toBe("#bbb");
+  });
+
+  it("byte-identical parity: every covered AC resolves equal on both keys", () => {
+    const rows = [
+      w({ ac_eci_no: 1, party_short: "BJP" }),
+      w({ ac_eci_no: 2, party_short: "INC", party_eci_code: "INC" }),
+      w({ ac_eci_no: 3, party_short: "BJP" }),
+    ];
+    const base = buildAcFills(rows, "winner", partyFill);
+    const lookup = new Map<number, number>([
+      [1, 22001],
+      [2, 22002],
+      [3, 22003],
+    ]);
+    const out = mirrorLgdKeys(base, lookup);
+    for (const [eci, lgd] of lookup) {
+      expect(out[lgd]).toBe(base[eci]);
+    }
+  });
+
+  it("does not invent a key for an AC the crosswalk omits (uncovered seat)", () => {
+    const base = { 1: "#aaa", 2: "#bbb" };
+    // only AC 1 is mapped; AC 2 has no lgd_ac_id
+    const lookup = new Map<number, number>([[1, 22001]]);
+    const out = mirrorLgdKeys(base, lookup);
+    expect(out[22001]).toBe("#aaa");
+    expect(Object.keys(out).sort()).toEqual(["1", "2", "22001"]);
+  });
+
+  it("skips the mirror when lgd_ac_id equals eci_no (no self-collision)", () => {
+    const base = { 5: "#ccc" };
+    const lookup = new Map<number, number>([[5, 5]]);
+    const out = mirrorLgdKeys(base, lookup);
+    expect(Object.keys(out)).toEqual(["5"]);
+  });
+});
+

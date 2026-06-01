@@ -93,6 +93,17 @@
      * v1 "pinch is just zoom" semantics.
      */
     pinch_to_drill?: boolean;
+    /**
+     * Row B2 (ADR-0049). When true AND `entry.join_property_lgd` is set, the
+     * FILL/opacity/hatch join coalesces to the canonical `lgd_ac_id` before
+     * falling back to the label `join_property` (ac_no). The data layer flips
+     * this on only once it has supplied the parallel `lgd_ac_id` fill keys, so
+     * the colour join never points at keys the fills map lacks (no flash).
+     * Selection / hover / highlight stay on `join_property` (the citizen-
+     * facing eci_no), so click-to-navigate is unaffected. Off by default —
+     * non-AC layers (state names, PC) keep the single-property join.
+     */
+    canonical_join?: boolean;
     onSelect?: (sel: FeatureSelection) => void;
     onHover?: (sel: FeatureSelection | null) => void;
   }
@@ -111,6 +122,7 @@
     pending_at,
     pending_label,
     pinch_to_drill = false,
+    canonical_join = false,
     onSelect,
     onHover,
   }: Props = $props();
@@ -162,11 +174,30 @@
       : ["get", entry.join_property];
   }
 
+  // Row B2 (ADR-0049): the COLOUR join. When canonical mode is on and the
+  // entry carries a canonical key, coalesce the raw lgd_ac_id property and
+  // fall back to the label join_property (ac_no) for features the crosswalk
+  // does not cover. The coalesce runs on the RAW values before `to-number`
+  // because maplibre's `to-number(null)` is 0, which would defeat the
+  // fallback if applied per-`get`. Selection/highlight keep `get_join_value`
+  // (the eci_no label), so this only changes which polygon gets which colour.
+  function get_fill_join_value(numeric: boolean): unknown {
+    if (canonical_join && entry.join_property_lgd) {
+      const raw: unknown = [
+        "coalesce",
+        ["get", entry.join_property_lgd],
+        ["get", entry.join_property],
+      ];
+      return numeric ? ["to-number", raw] : raw;
+    }
+    return get_join_value(numeric);
+  }
+
   function fill_expression(): unknown {
     const keys = Object.keys(fills);
     if (keys.length === 0) return default_fill;
     const numeric = keys_are_numeric(keys);
-    const expr: unknown[] = ["match", get_join_value(numeric)];
+    const expr: unknown[] = ["match", get_fill_join_value(numeric)];
     for (const k of keys) {
       const join_key: string | number = numeric ? Number(k) : k;
       expr.push(join_key, fills[k]);
@@ -179,7 +210,7 @@
     const keys = Object.keys(opacities);
     if (keys.length === 0) return 0.85;
     const numeric = keys_are_numeric(keys);
-    const expr: unknown[] = ["match", get_join_value(numeric)];
+    const expr: unknown[] = ["match", get_fill_join_value(numeric)];
     for (const k of keys) {
       const join_key: string | number = numeric ? Number(k) : k;
       expr.push(join_key, opacities[k]);
@@ -210,7 +241,7 @@
     if (keys.length === 0) return ["==", ["literal", 1], ["literal", 0]];
     const numeric = keys_are_numeric(keys);
     const literal_keys = keys.map(k => (numeric ? Number(k) : k));
-    return ["!", ["in", get_join_value(numeric), ["literal", literal_keys]]];
+    return ["!", ["in", get_fill_join_value(numeric), ["literal", literal_keys]]];
   }
 
   function repaint(): void {
@@ -236,6 +267,7 @@
     void opacities;
     void highlight_key;
     void hatch_unmapped;
+    void canonical_join;
     repaint();
   });
 

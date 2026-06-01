@@ -15,6 +15,8 @@
   import { colors } from "../colors/store.svelte";
   import { navigate, url } from "../url";
   import type { AcWinner } from "../view-models/state-overview";
+  import { loadAcLgdLookup } from "../view-models/ac-crosswalk";
+  import { mirrorLgdKeys } from "../elections/election-map-coloring";
 
   interface Props {
     state: string;
@@ -77,6 +79,27 @@
 
   const entry = $derived(STATE_AC[state_code]);
 
+  // Row B2 (ADR-0049): load the canonical eci_no -> lgd_ac_id map for this
+  // state from taxonomy.ac_crosswalk. Covered states get a non-empty map and
+  // flip the map's colour join to lgd_ac_id; uncovered states (S03/Assam,
+  // U08/J&K) and the pre-load window keep the eci_no/ac_no join. A load error
+  // degrades to the legacy join rather than blanking the choropleth.
+  let lgd_lookup = $state<Map<number, number> | null>(null);
+  $effect(() => {
+    const sc = state_code;
+    lgd_lookup = null;
+    loadAcLgdLookup(sc)
+      .then((m) => { if (state_code === sc) lgd_lookup = m; })
+      .catch(() => { if (state_code === sc) lgd_lookup = null; });
+  });
+
+  // Dual-key the fills/opacities so the choropleth resolves identically
+  // whether maplibre matches a polygon on lgd_ac_id (covered) or ac_no
+  // (uncovered). `canonical_join` flips in the SAME tick `lgd_lookup`
+  // resolves, atomically with the mirrored keys appearing — so there is no
+  // frame where the join points at keys the fills map lacks.
+  const canonical_join = $derived(lgd_lookup != null && lgd_lookup.size > 0);
+
   const fills = $derived.by(() => {
     if (fillsOverride) return fillsOverride;
     const out: Record<number, string> = {};
@@ -121,6 +144,12 @@
     return out;
   });
 
+  // Row B2 (ADR-0049): mirror the eci_no-keyed fills/opacities under each
+  // AC's lgd_ac_id so the choropleth's canonical join resolves to the same
+  // colour. Returns the inputs unchanged until `lgd_lookup` resolves.
+  const final_fills = $derived(mirrorLgdKeys(fills, lgd_lookup));
+  const final_opacities = $derived(mirrorLgdKeys(opacities, lgd_lookup));
+
   const tooltips = $derived.by(() => {
     const out: Record<number, string> = {};
     for (const r of rows ?? []) {
@@ -155,10 +184,11 @@
 {:else}
   <MapChoropleth
     {entry}
-    {fills}
-    {opacities}
+    fills={final_fills}
+    opacities={final_opacities}
     {tooltips}
     {height}
+    canonical_join={canonical_join}
     highlight_key={highlight_eci_no}
     onSelect={on_select}
   />

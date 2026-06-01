@@ -53,7 +53,7 @@ User granted explicit big-bang authorization (verbatim intent): "YOU HAVE PERMIS
 | A2 | Materialize crosswalk by harvesting ~30 covered states from boundary `AC_ID` | [x] DONE - 4113 rows / 3860 lgd_direct / 253 unmapped (93.8% mapped); bijection+cover oracle green | #533 | M |
 | A3 | Lift `lgd_ac_id` nullable attribute onto `dim_acs` | [x] DONE | #534 | M |
 | B1 | Boundary snapshot emits `lgd_ac_id` as parallel top-level join property | [x] DONE - 29/31 AC shards stamped (3860 distinct = crosswalk-covered); S03+U08 exempt (no AC_ID); S01 string->int normalised | #535 | M |
-| B2 | Frontend canonical join via crosswalk (Message Translator), output-pinned | [ ] PENDING | _pending_ | L |
+| B2 | Frontend canonical join via crosswalk (Message Translator), output-pinned | [x] DONE | #536 | L |
 | B3 | Flip boundary default `join_property` to `lgd_ac_id` for covered states | [ ] PENDING | _pending_ | M |
 | URL | AC URL slug gains name suffix `/s/<state>/ac/<eci_no>-<name-slug>` | [ ] PENDING | _pending_ | M |
 | C1 | Fill crosswalk for U08 (J&K) + any uncovered AC (repeatable per N states) | [ ] PENDING | _pending_ | L |
@@ -134,6 +134,8 @@ Phases: A (structural, ships NOW without external sourcing), B (reader cutover, 
 
 - Surfaces: `duckdb-views.ts`, `presets.ts`, `view-models/constituency.ts`, `maplibre/MapChoropleth.svelte`. Resolve boundary<->results through crosswalk `lgd_ac_id` where present, fall back to `eci_no`/`ac_no` where `unmapped`.
 - Gate: Integration parity oracle pinning byte-identical result rows pre/post (THE behavioural net).
+
+**DONE (PR #536):** New `frontend/src/lib/view-models/ac-crosswalk.ts` (`loadAcLgdLookup(state) -> Map<eci_no, lgd_ac_id>` reading `taxonomy.ac_crosswalk` covered rows - the Message Translator). New pure `mirrorLgdKeys(base, lookup)` in `election-map-coloring.ts` dual-keys an eci_no-keyed fills/opacities map under each AC's `lgd_ac_id` (>=1000, never collides with eci_no 1..~403). `MapChoropleth.svelte` gains optional `canonical_join` prop: when true + entry carries `join_property_lgd`, the fill/opacity/hatch join `coalesce`s raw `lgd_ac_id` before `ac_no` (coalesce on RAW values before `to-number`, since `to-number(null)=0` defeats fallback); selection/hover/highlight keep the eci_no label join (click-to-navigate unchanged). `StateAcMap.svelte` loads the per-state lookup, dual-keys fills+opacities, and flips `canonical_join` atomically when the lookup resolves (no flash). SEAM NOTE: plan named `duckdb-views.ts`/`presets.ts`/`constituency.ts` but those overlap an in-flight winners-query refactor; join resolved in the boundary layer via the crosswalk instead - same outcome, no WIP contention. Gates: parity oracle (`election-map-coloring.test.ts` +6 tests) 21/21; svelte-check 0e/7w; validate EXIT=0. `entity_id` PK + ADR-0044 untouched; `lgd_ac_id` INTERNAL-only.
 
 ### Row B3 - Flip boundary default `join_property` to `lgd_ac_id` (behavioural)
 
