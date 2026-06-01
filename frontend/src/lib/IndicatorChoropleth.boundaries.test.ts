@@ -134,7 +134,7 @@ describe("IndicatorChoropleth drill — TN state click", () => {
     const fc = await loadBoundary(lvl, parent, stateLgd);
     expect(fetchSpy).toHaveBeenCalledTimes(2);
     expect(fetchSpy).toHaveBeenLastCalledWith(
-      `${BASE}/boundaries/in/villages/state=in_s22/district=603/all.geojson`,
+      `${BASE}/boundaries/in/villages/state=tamil-nadu/district=603/all.geojson`,
     );
     expect(fc?.features.length).toBe(12);
   });

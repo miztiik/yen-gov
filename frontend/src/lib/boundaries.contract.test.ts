@@ -36,9 +36,9 @@ function levelForRelPath(relPath: string): { level: GeoLevel; districtLgd?: stri
   if (relPath === "country/all.geojson") return { level: "country" };
   if (relPath === "states/all.geojson") return { level: "state" };
   if (relPath === "districts/all.geojson") return { level: "district" };
-  const m1 = relPath.match(/^subdistricts\/state=in_[a-z0-9]+\/all\.geojson$/);
+  const m1 = relPath.match(/^subdistricts\/state=[a-z0-9-]+\/all\.geojson$/);
   if (m1) return { level: "subdistrict" };
-  const m2 = relPath.match(/^villages\/state=in_[a-z0-9]+\/district=(\d+)\/all\.geojson$/);
+  const m2 = relPath.match(/^villages\/state=[a-z0-9-]+\/district=(\d+)\/all\.geojson$/);
   if (m2) return { level: "village", districtLgd: m2[1] };
   return null;
 }
@@ -100,9 +100,9 @@ describe("contract — boundaryRelPath round-trips against on-disk shards", () =
   });
 
   it("every TN village shard on disk is reachable via boundaryRelPath", () => {
-    // Walk every villages/state=in_s22/district=N/all.geojson present on
+    // Walk every villages/state=tamil-nadu/district=N/all.geojson present on
     // disk and confirm the loader's path resolver lands on the same file.
-    const tnVillages = ALL_SHARDS.filter(p => p.startsWith("villages/state=in_s22/"));
+    const tnVillages = ALL_SHARDS.filter(p => p.startsWith("villages/state=tamil-nadu/"));
     expect(tnVillages.length).toBeGreaterThan(0);
     for (const relPath of tnVillages) {
       const info = levelForRelPath(relPath);
@@ -112,3 +112,4 @@ describe("contract — boundaryRelPath round-trips against on-disk shards", () =
     }
   });
 });
+

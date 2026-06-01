@@ -1,7 +1,7 @@
 // state-panchayats-registry-coverage contract test.
 //
 // Invariant: every nested Gram-Panchayat GeoJSON shard that exists on
-// disk under `datasets/boundaries/in/panchayats/state=in_<lc>/district=
+// disk under `datasets/boundaries/in/panchayats/state=<lgd-slug>/district=
 // <lgd>/all.geojson` MUST have a matching `PANCHAYAT_BOUNDARY_BY_DISTRICT`
 // entry in `frontend/src/lib/maplibre/sources.ts`, and vice versa. The
 // frontend registry and the on-disk corpus are two halves of the same
@@ -24,7 +24,7 @@
 // Per-entry shape assertions (post-A.3 BoundaryEntry):
 //   - key matches `${state_code}-${district_lgd}`
 //   - id matches `${key}-panchayat`
-//   - geojson_local_path matches `boundaries/in/panchayats/state=in_<lc>/district=<lgd>/all.geojson`
+//   - geojson_local_path matches `boundaries/in/panchayats/state=<lgd-slug>/district=<lgd>/all.geojson`
 //   - geojson_url points at the ramSeraph LGD_Panchayats release
 //   - join_property is "gp_code"
 //   - label is non-empty (contains the state name)
@@ -41,7 +41,12 @@ import {
   PANCHAYAT_BOUNDARY_BY_DISTRICT,
   PANCHAYAT_DISTRICTS_BY_STATE,
   PANCHAYAT_STATE_NAMES,
+  ECI_TO_LGD_SLUG,
 } from "../lib/maplibre/sources";
+
+const SLUG_TO_ECI: Record<string, string> = Object.fromEntries(
+  Object.entries(ECI_TO_LGD_SLUG).map(([code, slug]) => [slug, code]),
+);
 
 const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "..", "..", "..");
 const panchayatsDir = resolve(repoRoot, "datasets", "boundaries", "in", "panchayats");
@@ -58,9 +63,11 @@ function discoverShards(): DiscoveredShard[] {
   const out: DiscoveredShard[] = [];
   for (const stateEntry of readdirSync(panchayatsDir, { withFileTypes: true })) {
     if (!stateEntry.isDirectory()) continue;
-    const sm = stateEntry.name.match(/^state=in_([su]\d{2})$/);
+    const sm = stateEntry.name.match(/^state=(.+)$/);
     if (!sm) continue;
-    const stateCode = sm[1].toUpperCase();
+    const stateSlug = sm[1];
+    const stateCode = SLUG_TO_ECI[stateSlug];
+    if (!stateCode) continue;
     const stateDir = resolve(panchayatsDir, stateEntry.name);
     for (const distEntry of readdirSync(stateDir, { withFileTypes: true })) {
       if (!distEntry.isDirectory()) continue;
@@ -132,7 +139,7 @@ describe("PANCHAYAT_BOUNDARY_BY_DISTRICT entry shape is well-formed", () => {
       const [, stateCode, distLgd] = km!;
       expect(entry.id).toBe(`${key}-panchayat`);
       expect(entry.geojson_local_path).toBe(
-        `boundaries/in/panchayats/state=in_${stateCode.toLowerCase()}/district=${distLgd}/all.geojson`,
+        `boundaries/in/panchayats/state=${ECI_TO_LGD_SLUG[stateCode]}/district=${distLgd}/all.geojson`,
       );
       expect(entry.geojson_url).toMatch(/^https:\/\//);
       expect(entry.join_property).toBe("gp_code");

@@ -19,21 +19,21 @@ describe("boundaryRelPath (Hive layout)", () => {
     expect(boundaryRelPath("district")).toBe("districts/all.geojson");
   });
 
-  it("subdistrict for TN → subdistricts/state=in_s22/all.geojson", () => {
+  it("subdistrict for TN → subdistricts/state=tamil-nadu/all.geojson", () => {
     expect(boundaryRelPath("subdistrict", undefined, "33")).toBe(
-      "subdistricts/state=in_s22/all.geojson",
+      "subdistricts/state=tamil-nadu/all.geojson",
     );
   });
 
-  it("village for TN district 603 → villages/state=in_s22/district=603/all.geojson", () => {
+  it("village for TN district 603 → villages/state=tamil-nadu/district=603/all.geojson", () => {
     expect(boundaryRelPath("village", "603", "33")).toBe(
-      "villages/state=in_s22/district=603/all.geojson",
+      "villages/state=tamil-nadu/district=603/all.geojson",
     );
   });
 
   it("postal for TN resolves to the state-sharded pincode file", () => {
     expect(boundaryRelPath("postal", undefined, "33")).toBe(
-      "postal/state=in_s22/all.geojson",
+      "postal/state=tamil-nadu/all.geojson",
     );
   });
 
@@ -43,7 +43,7 @@ describe("boundaryRelPath (Hive layout)", () => {
 
   it("postal for an unmapped state throws", () => {
     expect(() => boundaryRelPath("postal", undefined, "27")).toThrow(
-      /no frontend state-code mapping/,
+      /no LGD slug mapping/,
     );
   });
 
@@ -59,7 +59,7 @@ describe("boundaryRelPath (Hive layout)", () => {
 
   it("subdistrict for an unmapped state throws", () => {
     expect(() => boundaryRelPath("subdistrict", undefined, "27")).toThrow(
-      /no frontend state-code mapping/,
+      /no LGD slug mapping/,
     );
   });
 });
@@ -100,3 +100,5 @@ describe("joinKeyFor", () => {
     expect(joinKeyFor("postal")).toBe("pincode");
   });
 });
+
+

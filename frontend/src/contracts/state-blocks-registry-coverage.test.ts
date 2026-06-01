@@ -1,7 +1,7 @@
 // state-blocks-registry-coverage contract test.
 //
 // Invariant: every Development-Block GeoJSON shard that exists on disk
-// under `datasets/boundaries/in/blocks/state=in_<lc>/all.geojson` MUST
+// under `datasets/boundaries/in/blocks/state=<lgd-slug>/all.geojson` MUST
 // have a matching `BLOCK_BOUNDARY[<CODE>]` entry in
 // `frontend/src/lib/maplibre/sources.ts`, and vice versa. The frontend
 // boundary registry and the on-disk boundary corpus are two halves of
@@ -29,7 +29,7 @@
 //
 // Per-entry shape assertions (post-A.3 BoundaryEntry):
 //   - id matches "<CODE>-block"
-//   - geojson_local_path matches "boundaries/in/blocks/state=in_<lc>/all.geojson"
+//   - geojson_local_path matches "boundaries/in/blocks/state=<lgd-slug>/all.geojson"
 //   - geojson_url is non-empty https URL
 //   - join_property is "block_lgd"
 //   - label is non-empty string
@@ -38,7 +38,11 @@ import { describe, it, expect } from "vitest";
 import { existsSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { BLOCK_BOUNDARY } from "../lib/maplibre/sources";
+import { BLOCK_BOUNDARY, ECI_TO_LGD_SLUG } from "../lib/maplibre/sources";
+
+const SLUG_TO_ECI: Record<string, string> = Object.fromEntries(
+  Object.entries(ECI_TO_LGD_SLUG).map(([code, slug]) => [slug, code]),
+);
 
 const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "..", "..", "..");
 const blocksDir = resolve(repoRoot, "datasets", "boundaries", "in", "blocks");
@@ -50,9 +54,11 @@ function discoverShards(): string[] {
   const codes: string[] = [];
   for (const entry of readdirSync(blocksDir, { withFileTypes: true })) {
     if (!entry.isDirectory()) continue;
-    const m = entry.name.match(/^state=in_([su]\d{2})$/);
+    const m = entry.name.match(/^state=(.+)$/);
     if (!m) continue;
-    const code = m[1].toUpperCase();
+    const slug = m[1];
+    const code = SLUG_TO_ECI[slug];
+    if (!code) continue;
     const shard = resolve(blocksDir, entry.name, "all.geojson");
     if (existsSync(shard)) codes.push(code);
   }
@@ -101,7 +107,7 @@ describe("BLOCK_BOUNDARY entry shape is well-formed", () => {
     (code, entry) => {
       expect(entry.id).toBe(`${code}-block`);
       expect(entry.geojson_local_path).toBe(
-        `boundaries/in/blocks/state=in_${code.toLowerCase()}/all.geojson`,
+        `boundaries/in/blocks/state=${ECI_TO_LGD_SLUG[code]}/all.geojson`,
       );
       expect(entry.geojson_url).toMatch(/^https:\/\//);
       expect(entry.join_property).toBe("block_lgd");

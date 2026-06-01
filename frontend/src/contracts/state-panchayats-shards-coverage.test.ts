@@ -1,7 +1,7 @@
 // state-panchayats-shards-coverage contract test.
 //
 // Invariant: every nested Gram-Panchayat GeoJSON shard that exists on
-// disk under `datasets/boundaries/in/panchayats/state=in_<lc>/district=
+// disk under `datasets/boundaries/in/panchayats/state=<lgd-slug>/district=
 // <lgd>/all.geojson` MUST sit at a well-formed Hive path and the
 // shipped coverage MUST stay above the C.2.b documented floor.
 //
@@ -32,6 +32,11 @@ import { describe, it, expect } from "vitest";
 import { existsSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { ECI_TO_LGD_SLUG } from "../lib/maplibre/sources";
+
+const SLUG_TO_ECI: Record<string, string> = Object.fromEntries(
+  Object.entries(ECI_TO_LGD_SLUG).map(([code, slug]) => [slug, code]),
+);
 
 const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "..", "..", "..");
 const panchayatsDir = resolve(repoRoot, "datasets", "boundaries", "in", "panchayats");
@@ -47,9 +52,11 @@ function discoverShards(): DiscoveredShard[] {
   const out: DiscoveredShard[] = [];
   for (const stateEntry of readdirSync(panchayatsDir, { withFileTypes: true })) {
     if (!stateEntry.isDirectory()) continue;
-    const sm = stateEntry.name.match(/^state=in_([su]\d{2})$/);
+    const sm = stateEntry.name.match(/^state=(.+)$/);
     if (!sm) continue;
-    const stateCode = sm[1].toUpperCase();
+    const stateSlug = sm[1];
+    const stateCode = SLUG_TO_ECI[stateSlug];
+    if (!stateCode) continue;
     const stateDir = resolve(panchayatsDir, stateEntry.name);
     for (const distEntry of readdirSync(stateDir, { withFileTypes: true })) {
       if (!distEntry.isDirectory()) continue;
@@ -105,7 +112,7 @@ describe("panchayat shards — corpus coverage floor (C.2.b)", () => {
 });
 
 describe("panchayat shards — well-formed shape", () => {
-  it("every shard sits under state=in_<lc>/district=<lgd>/all.geojson", () => {
+  it("every shard sits under state=<lgd-slug>/district=<lgd>/all.geojson", () => {
     // Structural: the discoverShards regex already filters
     // mal-shaped dirs; this assertion locks in that the discovery
     // yielded a non-empty set with the expected shape (i.e. no
