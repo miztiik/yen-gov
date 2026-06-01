@@ -1,0 +1,1660 @@
+{
+  "$schema": "../schemas/lgd-ac-pc-district-map.schema.json",
+  "$schema_version": "1.0",
+  "$comment": "Per-AC district coverage from the LGD Constituency Coverage Report. An AC can span multiple districts (e.g. urban-rural boundary cases); this map records every (lgd_ac_id, lgd_district_id) coverage edge the LGD portal asserts. FK both sides to lgd_acs.json and lgd_districts.json. Coverage entries with unknown district ids (not in lgd_districts.json) are dropped silently - those are almost always sub-district / panchayat entities the source row carried as Entity Type=District by mistake. Builder: tools/migrate/build_lgd_acs_pcs.py.",
+  "sources": [
+    {
+      "url": "https://lgdirectory.gov.in/",
+      "fetched_at": "2026-06-01T21:38:00Z",
+      "name": "Local Government Directory (LGD) - Constituency Coverage Report",
+      "authority": "Ministry of Panchayati Raj, Government of India"
+    }
+  ],
+  "rows": [
+    {
+      "lgd_state_id": 1,
+      "lgd_ac_id": 1,
+      "lgd_district_ids": [
+        1
+      ]
+    },
+    {
+      "lgd_state_id": 1,
+      "lgd_ac_id": 3,
+      "lgd_district_ids": [
+        622
+      ]
+    },
+    {
+      "lgd_state_id": 1,
+      "lgd_ac_id": 16,
+      "lgd_district_ids": [
+        625
+      ]
+    },
+    {
+      "lgd_state_id": 1,
+      "lgd_ac_id": 17,
+      "lgd_district_ids": [
+        623
+      ]
+    },
+    {
+      "lgd_state_id": 1,
+      "lgd_ac_id": 18,
+      "lgd_district_ids": [
+        3
+      ]
+    },
+    {
+      "lgd_state_id": 1,
+      "lgd_ac_id": 21,
+      "lgd_district_ids": [
+        8
+      ]
+    },
+    {
+      "lgd_state_id": 1,
+      "lgd_ac_id": 29,
+      "lgd_district_ids": [
+        626
+      ]
+    },
+    {
+      "lgd_state_id": 1,
+      "lgd_ac_id": 81,
+      "lgd_district_ids": [
+        620
+      ]
+    },
+    {
+      "lgd_state_id": 2,
+      "lgd_ac_id": 88,
+      "lgd_district_ids": [
+        15,
+        17
+      ]
+    },
+    {
+      "lgd_state_id": 2,
+      "lgd_ac_id": 91,
+      "lgd_district_ids": [
+        26
+      ]
+    },
+    {
+      "lgd_state_id": 2,
+      "lgd_ac_id": 92,
+      "lgd_district_ids": [
+        18
+      ]
+    },
+    {
+      "lgd_state_id": 2,
+      "lgd_ac_id": 93,
+      "lgd_district_ids": [
+        22,
+        25
+      ]
+    },
+    {
+      "lgd_state_id": 2,
+      "lgd_ac_id": 106,
+      "lgd_district_ids": [
+        16
+      ]
+    },
+    {
+      "lgd_state_id": 2,
+      "lgd_ac_id": 122,
+      "lgd_district_ids": [
+        20
+      ]
+    },
+    {
+      "lgd_state_id": 2,
+      "lgd_ac_id": 129,
+      "lgd_district_ids": [
+        19
+      ]
+    },
+    {
+      "lgd_state_id": 2,
+      "lgd_ac_id": 131,
+      "lgd_district_ids": [
+        21
+      ]
+    },
+    {
+      "lgd_state_id": 2,
+      "lgd_ac_id": 135,
+      "lgd_district_ids": [
+        23
+      ]
+    },
+    {
+      "lgd_state_id": 2,
+      "lgd_ac_id": 145,
+      "lgd_district_ids": [
+        24
+      ]
+    },
+    {
+      "lgd_state_id": 4,
+      "lgd_ac_id": 273,
+      "lgd_district_ids": [
+        44
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 344,
+      "lgd_district_ids": [
+        58
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 346,
+      "lgd_district_ids": [
+        76
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 347,
+      "lgd_district_ids": [
+        70
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 353,
+      "lgd_district_ids": [
+        69
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 354,
+      "lgd_district_ids": [
+        701
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 355,
+      "lgd_district_ids": [
+        59
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 362,
+      "lgd_district_ids": [
+        60
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 366,
+      "lgd_district_ids": [
+        619
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 371,
+      "lgd_district_ids": [
+        62,
+        72
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 373,
+      "lgd_district_ids": [
+        604
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 380,
+      "lgd_district_ids": [
+        63
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 387,
+      "lgd_district_ids": [
+        65
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 389,
+      "lgd_district_ids": [
+        67
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 392,
+      "lgd_district_ids": [
+        71
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 398,
+      "lgd_district_ids": [
+        66
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 401,
+      "lgd_district_ids": [
+        68
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 407,
+      "lgd_district_ids": [
+        64
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 410,
+      "lgd_district_ids": [
+        73
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 416,
+      "lgd_district_ids": [
+        74
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 418,
+      "lgd_district_ids": [
+        61
+      ]
+    },
+    {
+      "lgd_state_id": 6,
+      "lgd_ac_id": 425,
+      "lgd_district_ids": [
+        75
+      ]
+    },
+    {
+      "lgd_state_id": 8,
+      "lgd_ac_id": 633,
+      "lgd_district_ids": [
+        772
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1107,
+      "lgd_district_ids": [
+        188
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1113,
+      "lgd_district_ids": [
+        193
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1120,
+      "lgd_district_ids": [
+        189
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1121,
+      "lgd_district_ids": [
+        196
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1126,
+      "lgd_district_ids": [
+        190
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1131,
+      "lgd_district_ids": [
+        192
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1132,
+      "lgd_district_ids": [
+        191
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1145,
+      "lgd_district_ids": [
+        194
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1147,
+      "lgd_district_ids": [
+        215
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1150,
+      "lgd_district_ids": [
+        200
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1151,
+      "lgd_district_ids": [
+        195
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1163,
+      "lgd_district_ids": [
+        197
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1169,
+      "lgd_district_ids": [
+        224
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1175,
+      "lgd_district_ids": [
+        611
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1177,
+      "lgd_district_ids": [
+        199
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1181,
+      "lgd_district_ids": [
+        198
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1184,
+      "lgd_district_ids": [
+        219
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1186,
+      "lgd_district_ids": [
+        207
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1187,
+      "lgd_district_ids": [
+        206
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1199,
+      "lgd_district_ids": [
+        201
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1205,
+      "lgd_district_ids": [
+        202
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1207,
+      "lgd_district_ids": [
+        217
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1210,
+      "lgd_district_ids": [
+        216
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1211,
+      "lgd_district_ids": [
+        214
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1212,
+      "lgd_district_ids": [
+        203
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1217,
+      "lgd_district_ids": [
+        205
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1229,
+      "lgd_district_ids": [
+        218
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1231,
+      "lgd_district_ids": [
+        222
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1235,
+      "lgd_district_ids": [
+        212
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1237,
+      "lgd_district_ids": [
+        204
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1241,
+      "lgd_district_ids": [
+        208
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1247,
+      "lgd_district_ids": [
+        209
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1255,
+      "lgd_district_ids": [
+        210
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1260,
+      "lgd_district_ids": [
+        211
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1262,
+      "lgd_district_ids": [
+        213
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1308,
+      "lgd_district_ids": [
+        220,
+        221
+      ]
+    },
+    {
+      "lgd_state_id": 10,
+      "lgd_ac_id": 1326,
+      "lgd_district_ids": [
+        223
+      ]
+    },
+    {
+      "lgd_state_id": 11,
+      "lgd_ac_id": 1373,
+      "lgd_district_ids": [
+        742
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1381,
+      "lgd_district_ids": [
+        230
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1382,
+      "lgd_district_ids": [
+        229
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1383,
+      "lgd_district_ids": [
+        239
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1386,
+      "lgd_district_ids": [
+        234,
+        678
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1387,
+      "lgd_district_ids": [
+        235
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1388,
+      "lgd_district_ids": [
+        628
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1389,
+      "lgd_district_ids": [
+        666
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1394,
+      "lgd_district_ids": [
+        240
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1395,
+      "lgd_district_ids": [
+        232
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1400,
+      "lgd_district_ids": [
+        719
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1401,
+      "lgd_district_ids": [
+        679
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1408,
+      "lgd_district_ids": [
+        243
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1410,
+      "lgd_district_ids": [
+        231
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1411,
+      "lgd_district_ids": [
+        724
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1412,
+      "lgd_district_ids": [
+        242
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1414,
+      "lgd_district_ids": [
+        241
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1416,
+      "lgd_district_ids": [
+        237
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1420,
+      "lgd_district_ids": [
+        233
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1423,
+      "lgd_district_ids": [
+        238
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1424,
+      "lgd_district_ids": [
+        725
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1428,
+      "lgd_district_ids": [
+        723
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1429,
+      "lgd_district_ids": [
+        677
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1430,
+      "lgd_district_ids": [
+        718
+      ]
+    },
+    {
+      "lgd_state_id": 12,
+      "lgd_ac_id": 1439,
+      "lgd_district_ids": [
+        236
+      ]
+    },
+    {
+      "lgd_state_id": 13,
+      "lgd_ac_id": 1455,
+      "lgd_district_ids": [
+        764
+      ]
+    },
+    {
+      "lgd_state_id": 15,
+      "lgd_ac_id": 1580,
+      "lgd_district_ids": [
+        264
+      ]
+    },
+    {
+      "lgd_state_id": 17,
+      "lgd_ac_id": 1666,
+      "lgd_district_ids": [
+        740
+      ]
+    },
+    {
+      "lgd_state_id": 17,
+      "lgd_ac_id": 1669,
+      "lgd_district_ids": [
+        658
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1721,
+      "lgd_district_ids": [
+        291,
+        710
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1722,
+      "lgd_district_ids": [
+        292
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1724,
+      "lgd_district_ids": [
+        299
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1726,
+      "lgd_district_ids": [
+        287
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1727,
+      "lgd_district_ids": [
+        281,
+        285,
+        294,
+        612
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1728,
+      "lgd_district_ids": [
+        280
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1729,
+      "lgd_district_ids": [
+        739
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1732,
+      "lgd_district_ids": [
+        298,
+        301
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1744,
+      "lgd_district_ids": [
+        707
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1746,
+      "lgd_district_ids": [
+        286
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1747,
+      "lgd_district_ids": [
+        302
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1758,
+      "lgd_district_ids": [
+        618
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1766,
+      "lgd_district_ids": [
+        290
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1767,
+      "lgd_district_ids": [
+        300,
+        708
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1775,
+      "lgd_district_ids": [
+        296
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1776,
+      "lgd_district_ids": [
+        288
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1780,
+      "lgd_district_ids": [
+        297
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1785,
+      "lgd_district_ids": [
+        289
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1788,
+      "lgd_district_ids": [
+        282
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1794,
+      "lgd_district_ids": [
+        616
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1801,
+      "lgd_district_ids": [
+        617
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1802,
+      "lgd_district_ids": [
+        756
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1804,
+      "lgd_district_ids": [
+        295
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1805,
+      "lgd_district_ids": [
+        284
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1809,
+      "lgd_district_ids": [
+        706
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1812,
+      "lgd_district_ids": [
+        283
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1823,
+      "lgd_district_ids": [
+        293,
+        709
+      ]
+    },
+    {
+      "lgd_state_id": 18,
+      "lgd_ac_id": 1839,
+      "lgd_district_ids": [
+        705
+      ]
+    },
+    {
+      "lgd_state_id": 20,
+      "lgd_ac_id": 2170,
+      "lgd_district_ids": [
+        332
+      ]
+    },
+    {
+      "lgd_state_id": 20,
+      "lgd_ac_id": 2175,
+      "lgd_district_ids": [
+        327
+      ]
+    },
+    {
+      "lgd_state_id": 20,
+      "lgd_ac_id": 2185,
+      "lgd_district_ids": [
+        339
+      ]
+    },
+    {
+      "lgd_state_id": 20,
+      "lgd_ac_id": 2198,
+      "lgd_district_ids": [
+        328
+      ]
+    },
+    {
+      "lgd_state_id": 21,
+      "lgd_ac_id": 2222,
+      "lgd_district_ids": [
+        354
+      ]
+    },
+    {
+      "lgd_state_id": 21,
+      "lgd_ac_id": 2278,
+      "lgd_district_ids": [
+        344
+      ]
+    },
+    {
+      "lgd_state_id": 21,
+      "lgd_ac_id": 2308,
+      "lgd_district_ids": [
+        349
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2369,
+      "lgd_district_ids": [
+        374
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2370,
+      "lgd_district_ids": [
+        636,
+        637
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2372,
+      "lgd_district_ids": [
+        376,
+        642
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2374,
+      "lgd_district_ids": [
+        643
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2377,
+      "lgd_district_ids": [
+        375,
+        647
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2380,
+      "lgd_district_ids": [
+        734
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2385,
+      "lgd_district_ids": [
+        378
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2386,
+      "lgd_district_ids": [
+        650
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2394,
+      "lgd_district_ids": [
+        379
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2395,
+      "lgd_district_ids": [
+        644,
+        763
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2396,
+      "lgd_district_ids": [
+        762
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2402,
+      "lgd_district_ids": [
+        381
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2404,
+      "lgd_district_ids": [
+        646
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2409,
+      "lgd_district_ids": [
+        377
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2410,
+      "lgd_district_ids": [
+        384
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2411,
+      "lgd_district_ids": [
+        760
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2412,
+      "lgd_district_ids": [
+        383
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2418,
+      "lgd_district_ids": [
+        385
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2419,
+      "lgd_district_ids": [
+        645
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2426,
+      "lgd_district_ids": [
+        386
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2427,
+      "lgd_district_ids": [
+        380
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2431,
+      "lgd_district_ids": [
+        382
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2434,
+      "lgd_district_ids": [
+        387
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2443,
+      "lgd_district_ids": [
+        388
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2446,
+      "lgd_district_ids": [
+        759
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2448,
+      "lgd_district_ids": [
+        761
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2451,
+      "lgd_district_ids": [
+        389
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2452,
+      "lgd_district_ids": [
+        648
+      ]
+    },
+    {
+      "lgd_state_id": 22,
+      "lgd_ac_id": 2454,
+      "lgd_district_ids": [
+        649
+      ]
+    },
+    {
+      "lgd_state_id": 23,
+      "lgd_ac_id": 2670,
+      "lgd_district_ids": [
+        722
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2690,
+      "lgd_district_ids": [
+        446
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2692,
+      "lgd_district_ids": [
+        438
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2703,
+      "lgd_district_ids": [
+        439
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2704,
+      "lgd_district_ids": [
+        457
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2705,
+      "lgd_district_ids": [
+        443
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2710,
+      "lgd_district_ids": [
+        440
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2714,
+      "lgd_district_ids": [
+        450
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2717,
+      "lgd_district_ids": [
+        441
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2723,
+      "lgd_district_ids": [
+        455,
+        789
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2724,
+      "lgd_district_ids": [
+        459
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2726,
+      "lgd_district_ids": [
+        641
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2731,
+      "lgd_district_ids": [
+        442
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2733,
+      "lgd_district_ids": [
+        452
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2736,
+      "lgd_district_ids": [
+        461
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2741,
+      "lgd_district_ids": [
+        676
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2745,
+      "lgd_district_ids": [
+        668
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2747,
+      "lgd_district_ids": [
+        454
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2752,
+      "lgd_district_ids": [
+        445
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2758,
+      "lgd_district_ids": [
+        669
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2766,
+      "lgd_district_ids": [
+        674
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2767,
+      "lgd_district_ids": [
+        447
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2771,
+      "lgd_district_ids": [
+        673
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2773,
+      "lgd_district_ids": [
+        448
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2774,
+      "lgd_district_ids": [
+        675
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2780,
+      "lgd_district_ids": [
+        449
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2790,
+      "lgd_district_ids": [
+        672
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2794,
+      "lgd_district_ids": [
+        451
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2802,
+      "lgd_district_ids": [
+        453
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2826,
+      "lgd_district_ids": [
+        456
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2837,
+      "lgd_district_ids": [
+        458
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2850,
+      "lgd_district_ids": [
+        460
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2864,
+      "lgd_district_ids": [
+        444
+      ]
+    },
+    {
+      "lgd_state_id": 24,
+      "lgd_ac_id": 2865,
+      "lgd_district_ids": [
+        462
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3166,
+      "lgd_district_ids": [
+        505
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3167,
+      "lgd_district_ids": [
+        510,
+        747
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3173,
+      "lgd_district_ids": [
+        520,
+        744
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3180,
+      "lgd_district_ids": [
+        502
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3187,
+      "lgd_district_ids": [
+        745
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3188,
+      "lgd_district_ids": [
+        521
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3190,
+      "lgd_district_ids": [
+        519
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3191,
+      "lgd_district_ids": [
+        743
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3194,
+      "lgd_district_ids": [
+        517
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3195,
+      "lgd_district_ids": [
+        506,
+        750
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3215,
+      "lgd_district_ids": [
+        503,
+        752
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3222,
+      "lgd_district_ids": [
+        523
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3224,
+      "lgd_district_ids": [
+        748
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3237,
+      "lgd_district_ids": [
+        754
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3250,
+      "lgd_district_ids": [
+        504
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3259,
+      "lgd_district_ids": [
+        746
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3278,
+      "lgd_district_ids": [
+        511
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3286,
+      "lgd_district_ids": [
+        749
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3338,
+      "lgd_district_ids": [
+        755
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3344,
+      "lgd_district_ids": [
+        751
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3355,
+      "lgd_district_ids": [
+        515
+      ]
+    },
+    {
+      "lgd_state_id": 28,
+      "lgd_ac_id": 3396,
+      "lgd_district_ids": [
+        753
+      ]
+    },
+    {
+      "lgd_state_id": 29,
+      "lgd_ac_id": 3461,
+      "lgd_district_ids": [
+        525
+      ]
+    },
+    {
+      "lgd_state_id": 29,
+      "lgd_ac_id": 3589,
+      "lgd_district_ids": [
+        539
+      ]
+    },
+    {
+      "lgd_state_id": 30,
+      "lgd_ac_id": 3677,
+      "lgd_district_ids": [
+        551
+      ]
+    },
+    {
+      "lgd_state_id": 30,
+      "lgd_ac_id": 3688,
+      "lgd_district_ids": [
+        552
+      ]
+    },
+    {
+      "lgd_state_id": 36,
+      "lgd_ac_id": 3301,
+      "lgd_district_ids": [
+        721
+      ]
+    }
+  ]
+}
