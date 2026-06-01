@@ -196,10 +196,12 @@ Wikipedia, Commons category pages, `thecont1/india-votes-data`, Garudadev, and g
 
 Colour policy:
 
-- Do not chase colours in this plan.
-- Keep a source-coloured SVG if that is the source asset.
-- Otherwise keep monochrome.
-- Party colour anchors remain separate frontend presentation aids.
+- Party colours are already a separate frontend presentation contract. The durable home is [frontend/src/lib/colors/anchors.ts](../frontend/src/lib/colors/anchors.ts), with algorithmic fallback in `frontend/src/lib/colors/party-colour.ts` and architecture notes in [docs/architecture/frontend/colours.md](../docs/architecture/frontend/colours.md).
+- Do not use the symbol-collection PRs to rebuild the party-colour system.
+- Keep a source-coloured SVG if that is the source asset. Otherwise keep monochrome.
+- Do not recolour monochrome election symbols with party colours.
+- If a future source-backed exact party colour needs to be stored as party data, use the existing `display.colour` override path on party rows rather than adding colour fields to `election_symbol`.
+- `thecont1/india-votes-data` and Garudadev colour files are discovery/QA aids for aliases and rough colour sanity checks; they are not canonical party-colour sources by themselves.
 
 License policy:
 
