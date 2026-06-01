@@ -51,7 +51,7 @@ User granted explicit big-bang authorization (verbatim intent): "YOU HAVE PERMIS
 | R2 | Migration strategy chosen + plan-doc amended | [x] DONE - Strategy-D-hardened, signed off 2026-06-01 (section 0.4/0.5) | _this edit_ | S |
 | A1 | Crosswalk contract + scaffolding (schema + helper, no data, no readers) | [x] DONE | #530 | M |
 | A2 | Materialize crosswalk by harvesting ~30 covered states from boundary `AC_ID` | [x] DONE - 4113 rows / 3860 lgd_direct / 253 unmapped (93.8% mapped); bijection+cover oracle green | #533 | M |
-| A3 | Lift `lgd_ac_id` nullable attribute onto `dim_acs` | [ ] PENDING | _pending_ | M |
+| A3 | Lift `lgd_ac_id` nullable attribute onto `dim_acs` | [x] DONE | #534 | M |
 | B1 | Boundary snapshot emits `lgd_ac_id` as parallel top-level join property | [ ] PENDING | _pending_ | M |
 | B2 | Frontend canonical join via crosswalk (Message Translator), output-pinned | [ ] PENDING | _pending_ | L |
 | B3 | Flip boundary default `join_property` to `lgd_ac_id` for covered states | [ ] PENDING | _pending_ | M |
@@ -121,6 +121,7 @@ Phases: A (structural, ships NOW without external sourcing), B (reader cutover, 
 
 - Surfaces: `envelope.py` (`DimensionAc`), `rollups.py`, `writer.py` (additive `dim_acs` column), `canonical_eci_backfill.py`. `entity_id` PK + `eci_no` FK unchanged; `lgd_ac_id` added as nullable attribute joined from the crosswalk.
 - Gate: Contract (`dim_acs.lgd_ac_id` == crosswalk for covered states, null elsewhere).
+- DONE (PR #534): `dim-acs.schema.json` bumped 1.0 -> 1.1 (additive nullable `lgd_ac_id`); `schema-compatibility.json` accepts `[1.0, 1.1]`. `AcDimRow` (envelope) + `_DIM_SPECS["ac"]` (writer) carry the column. New one-shot `backend/yen_gov/pipeline/dim_acs_lgd_lift.py` re-emits `dim_acs.parquet` through `_emit_table` (KV metadata + manifest advance to 1.1) joining `lgd_ac_id` from the crosswalk for `delim_year=2008` rows only. Future-correctness: `build_slice_envelope`/`_process_slice`/`backfill_elections` + `run.py` thread an optional `lgd_lookup` so re-runs never null the column. Shipped distribution: 8055 rows, 3860 covered (2008 `lgd_direct`); 1976 (3932) + uncovered 2008 (263) NULL. Oracle `test_dim_acs_lgd_lift.py::test_shipped_dim_acs_matches_crosswalk` asserts every 2008 row == crosswalk and every non-2008 row NULL. Gates: validate EXIT=0; A3 test 4/4; writer+partition+backfill 45/45.
 
 ### Row B1 - Boundary snapshot emits `lgd_ac_id` join property (structural-leaning)
 

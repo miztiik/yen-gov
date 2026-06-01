@@ -53,6 +53,7 @@ from __future__ import annotations
 import json
 import logging
 from collections import defaultdict
+from collections.abc import Mapping
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -81,6 +82,7 @@ from yen_gov.canonical.envelope import (
 )
 from yen_gov.canonical.writer import WriteResult, write_batch
 from yen_gov.core.models import ConstituencyResult
+from yen_gov.pipeline.dim_acs_lgd_lift import load_lgd_lookup
 
 log = logging.getLogger(__name__)
 
@@ -178,6 +180,7 @@ def backfill_elections(
     import time
 
     party_lookup = load_party_lookup(datasets_root)
+    lgd_lookup = load_lgd_lookup(datasets_root)
     elections_root = corpus_root if corpus_root is not None else (datasets_root / "elections")
 
     event_dirs = sorted(
@@ -225,6 +228,7 @@ def backfill_elections(
                     state_code=state_code,
                     period=period,
                     party_lookup=party_lookup,
+                    lgd_lookup=lgd_lookup,
                 )
             except Exception as exc:
                 log.exception("slice %s/%s parse failed", event_id, state_code)
@@ -341,6 +345,7 @@ def _process_slice(
     state_code: str,
     period,
     party_lookup: PartyLookup,
+    lgd_lookup: Mapping[tuple[str, int], int] | None = None,
 ) -> tuple[
     list[ObservationRow], dict[str, SourceRow], int, dict[str, int],
     list[PersonDimRow], list[CandidacyRow], list[AcDimRow],
@@ -373,6 +378,7 @@ def _process_slice(
         state_code=state_code,
         period=period,
         party_lookup=party_lookup,
+        lgd_lookup=lgd_lookup,
     )
     # NOTE: returned ``ac_count`` mirrors the historical contract — number of
     # *.json files on disk, NOT successfully-loaded ConstituencyResults. Skip-on-
@@ -390,6 +396,7 @@ def build_slice_envelope(
     state_code: str,
     period,
     party_lookup: PartyLookup,
+    lgd_lookup: Mapping[tuple[str, int], int] | None = None,
 ) -> tuple[
     list[ObservationRow], dict[str, SourceRow], dict[str, int],
     list[PersonDimRow], list[CandidacyRow], list[AcDimRow],
@@ -447,7 +454,15 @@ def build_slice_envelope(
         person_dims.extend(PersonDimRow(**d) for d in dims["person"])
         candidacies.extend(CandidacyRow(**d) for d in dims["candidacy"])
         for d in dims["ac"]:
-            ac_dims_by_id.setdefault(d["ac_id"], AcDimRow(**d))
+            row = AcDimRow(**d)
+            # ADR-0049: bind the canonical internal join key on every write so
+            # a re-run's UPSERT never nulls lgd_ac_id. The crosswalk covers
+            # only the 2008 cycle; a 1976 (state, eci) must not inherit it.
+            if lgd_lookup is not None and row.delim_year == DEFAULT_DELIM_YEAR:
+                lgd = lgd_lookup.get((row.state_code, row.eci_no))
+                if lgd is not None:
+                    row.lgd_ac_id = lgd
+            ac_dims_by_id.setdefault(d["ac_id"], row)
 
         summaries.append(_summary_for_result(
             result=cr,
