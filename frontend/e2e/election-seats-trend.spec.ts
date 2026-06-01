@@ -30,4 +30,17 @@ test.describe("election seats trend", () => {
     // exists. Mirrors golden-path.spec.ts:108.
     await expect(page.getByText(SOURCE_LIST_TEXT).first()).toBeAttached({ timeout: 15_000 });
   });
+
+  test("assam (S03) shows per-party swing arrows on later bars (PR-B5)", async ({ page }) => {
+    await page.goto("/s/assam");
+    await expect(
+      page.getByRole("heading", { name: /Seat composition over time/i }),
+    ).toBeVisible({ timeout: 20_000 });
+    // Assam has 3 election bars, so the 2nd/3rd bars carry swing deltas
+    // versus the prior election. The first bar has no predecessor and
+    // therefore no arrow. At least one inline swing badge must render.
+    await expect(
+      page.locator('[data-testid="seat-swing"]').first(),
+    ).toBeVisible({ timeout: 20_000 });
+  });
 });

@@ -27,7 +27,48 @@
 // unit / dimension / default_mode all carry the same semantics).
 
 import type { StackedTrendModel } from "../stacked-trend/types";
-import type { StackedTrendV2Model, StackedTrendV2Source } from "./types";
+import type {
+  StackedTrendV2Bar,
+  StackedTrendV2Model,
+  StackedTrendV2Source,
+} from "./types";
+
+/**
+ * PR-B5 — attach a per-segment swing `delta` to each bar.
+ *
+ * For every bar (taken in chronological order, i.e. ascending `order`) and
+ * every category in it, `delta = current.value − previous_bar.same_category`
+ * when BOTH endpoints are present numbers; otherwise `null`. The first bar's
+ * segments always carry `delta: null` (no predecessor). Pure / sync; returns
+ * fresh bar + segment objects so the input model is never mutated.
+ */
+function withSwingDeltas(
+  bars: StackedTrendModel["bars"],
+): StackedTrendV2Bar[] {
+  const ordered = [...bars].sort((a, b) => a.order - b.order);
+  const prevByCategory = new Map<string, number>();
+  const out: StackedTrendV2Bar[] = [];
+  for (const bar of ordered) {
+    const segments = bar.segments.map((seg) => {
+      const prev = prevByCategory.get(seg.category_id);
+      const delta =
+        seg.value != null && prev != null ? seg.value - prev : null;
+      return { ...seg, delta };
+    });
+    // Advance the running "previous present value" per category AFTER the
+    // delta is read, so a missing year does not silently reset the baseline.
+    for (const seg of bar.segments) {
+      if (seg.value != null) prevByCategory.set(seg.category_id, seg.value);
+    }
+    out.push({ ...bar, segments });
+  }
+  // Preserve the caller's original bar ordering in the emitted model.
+  const orderIndex = new Map(bars.map((b, i) => [b.period_id, i]));
+  return out.sort(
+    (a, b) =>
+      (orderIndex.get(a.period_id) ?? 0) - (orderIndex.get(b.period_id) ?? 0),
+  );
+}
 
 /**
  * Bridge a v1 StackedTrendModel into a v2 StackedTrendV2Model.
@@ -56,7 +97,7 @@ export function stackedTrendModelToV2(
     x_axis_label: model.x_axis_label,
     bar_sort: model.bar_sort,
     categories: model.categories,
-    bars: model.bars,
+    bars: withSwingDeltas(model.bars),
     headline: model.headline,
     honesty: model.honesty,
     sources: [...sourcesV2],

@@ -85,7 +85,7 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 | PR-B2 | B | Generic `<TileCartogram>` SVG component + layout loader + ChartShell wrap | PR-B1 | [x] DONE (component + view-model + sandbox mount; 8+9 vitest, sandbox Playwright green) | Jony |
 | PR-B3 | B | `ElectionMap` wrapper (Map\|Equal seats toggle) on StateElection (AC) | PR-B2 | [x] DONE (Map\|Equal-seats toggle, ?view=hex persist, hex drill-to-AC; svelte-check 0e, tile vitest 17, elections-atlas e2e 2/2 green on S13 AcGenOct2019) | Jony |
 | PR-B4 | B | National atlas route `/t/elections/:event` + INDIA_PC + loadNationalPcWinners | PR-B2; live data needs PR-A4 | [x] DONE | Gregor |
-| PR-B5 | B | Cross-year E1: swing arrows on seat-composition bars | PR-B3 | [ ] PENDING | Jony |
+| PR-B5 | B | Cross-year E1: swing arrows on seat-composition bars | PR-B3 | [x] DONE | Jony |
 | PR-B6 | B | Cross-year E2: snapping time-slider on map/cartogram | PR-B3 | [ ] PENDING | Jony |
 | PR-B7 | B | Cross-year E3: opt-in 2-election sankey (capped) | PR-B3 | [ ] PENDING | Jony |
 | PR-B8 | B | Filter rail F1/F2/F3 (party / margin band / colour-by) - state level | PR-B3 | [ ] PENDING | Gregor + Max |
@@ -340,6 +340,8 @@ Lane 0 (docs/decisions), Lane A (backend PC ingest), Lane B (frontend) run in PA
 **Escalation:** **Jony** on arrow legibility.
 
 **Acceptance gates:** G3 `bun run check`; G4 filtered vitest; G5 browser smoke of a state page showing the trend.
+
+**Implementation notes (DONE):** Computed the swing `delta` in the v1->v2 migrate shim (`frontend/src/lib/charts/stacked-trend-v2/migrate.ts`) rather than in `election-seats-trend.ts`, because a per-category bar-to-bar delta is fundamentally a chart-model concept and the migrate shim is the single ordered-bars seam shared by ALL StackedTrendV2 callers (elections + indicators), pure/sync, already test-covered. Added an optional nullable `delta` to `StackedTrendV2Segment` (`types.ts`) so other adapters/fixtures need not supply it. `delta = current.value - last-PRESENT previous-bar same-category value` (baseline carries across a missing year; first bar + missing endpoint => null). Rendered a small up/down glyph + magnitude (`pp` for shares, whole units for counts) in the inline-label overlay of `StackedTrendV2.svelte` with `data-testid="seat-swing"`. `ElectionSeatsTrend.svelte` and the v1 adapter are UNCHANGED (branch-by-abstraction R-08 preserved). Gates: G3 svelte-check 0e/7w; G4 migrate 24/24 + full stacked-trend suite 206/206; G5 election-seats-trend e2e 2/2 (incl. new swing-arrow assertion on Assam's 3-bar trend).
 
 ### PR-B6 - Cross-year E2: snapping time-slider on the map/cartogram
 

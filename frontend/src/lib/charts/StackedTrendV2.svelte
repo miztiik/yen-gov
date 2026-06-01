@@ -332,6 +332,28 @@
     );
   }
 
+  /**
+   * PR-B5 swing arrow text for a bar segment: looks up the migrate-computed
+   * `delta` for this category and renders an up/down glyph + magnitude in the
+   * model's native unit. Returns `null` when there is no swing to show (first
+   * bar, missing endpoint, or a flat zero change). Shares (`value_kind:
+   * "share"`) read as percentage points; counts read as whole units.
+   */
+  function swingText(
+    bar: StackedTrendV2Model["bars"][number],
+    category_id: string,
+  ): string | null {
+    const seg = bar.segments.find((s) => s.category_id === category_id);
+    const d = seg?.delta;
+    if (d == null || d === 0) return null;
+    const glyph = d > 0 ? "▲" : "▼";
+    const mag =
+      model.unit.value_kind === "share"
+        ? `${(Math.abs(d) * 100).toFixed(1)}pp`
+        : `${Math.abs(d).toFixed(0)}`;
+    return `${glyph}${mag}`;
+  }
+
   // ---- bar geometry constants --------------------------------------------
   //
   // viewBox uses 0..100 in both axes. `pitch` = the per-bar slot width
@@ -663,6 +685,7 @@
         {@const rects = rectsForBar(bar.segments, total)}
         {#each rects as r (r.category_id)}
           {#if r.eligibleForLabel}
+            {@const swing = swingText(bar, r.category_id)}
             <div
               class="stacked-trend-v2__label absolute flex flex-col items-center justify-center text-center leading-tight"
               style:left={`${barX(i) + barWidth / 2}%`}
@@ -675,6 +698,14 @@
             >
               <span class="text-[10px] font-medium truncate w-full px-0.5">{labelFor(r.category_id)}</span>
               <span class="text-[9px] opacity-90 tabular-nums truncate w-full px-0.5">{fmtValue(r.value)}</span>
+              {#if swing}
+                <span
+                  class="text-[8px] font-semibold tabular-nums truncate w-full px-0.5"
+                  data-testid="seat-swing"
+                  data-category-id={r.category_id}
+                  data-period-id={bar.period_id}>{swing}</span
+                >
+              {/if}
             </div>
           {/if}
         {/each}
