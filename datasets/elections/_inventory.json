@@ -3320,12 +3320,6 @@
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "andaman-and-nicobar",
-      "source_input": "eci_ls",
-      "ingested_at": "2026-05-31"
-    },
-    {
-      "election_id": "LsGenJun2024",
       "state": "andhra-pradesh",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
@@ -3345,30 +3339,6 @@
     {
       "election_id": "LsGenJun2024",
       "state": "bihar",
-      "source_input": "eci_ls",
-      "ingested_at": "2026-05-31"
-    },
-    {
-      "election_id": "LsGenJun2024",
-      "state": "chandigarh",
-      "source_input": "eci_ls",
-      "ingested_at": "2026-05-31"
-    },
-    {
-      "election_id": "LsGenJun2024",
-      "state": "chhattisgarh",
-      "source_input": "eci_ls",
-      "ingested_at": "2026-05-31"
-    },
-    {
-      "election_id": "LsGenJun2024",
-      "state": "dadra-and-nagar-haveli-and-daman-and-diu",
-      "source_input": "eci_ls",
-      "ingested_at": "2026-05-31"
-    },
-    {
-      "election_id": "LsGenJun2024",
-      "state": "delhi",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
@@ -3398,18 +3368,6 @@
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "jammu-and-kashmir",
-      "source_input": "eci_ls",
-      "ingested_at": "2026-05-31"
-    },
-    {
-      "election_id": "LsGenJun2024",
-      "state": "jharkhand",
-      "source_input": "eci_ls",
-      "ingested_at": "2026-05-31"
-    },
-    {
-      "election_id": "LsGenJun2024",
       "state": "karnataka",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
@@ -3417,18 +3375,6 @@
     {
       "election_id": "LsGenJun2024",
       "state": "kerala",
-      "source_input": "eci_ls",
-      "ingested_at": "2026-05-31"
-    },
-    {
-      "election_id": "LsGenJun2024",
-      "state": "ladakh",
-      "source_input": "eci_ls",
-      "ingested_at": "2026-05-31"
-    },
-    {
-      "election_id": "LsGenJun2024",
-      "state": "lakshadweep",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
@@ -3476,12 +3422,6 @@
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "puducherry",
-      "source_input": "eci_ls",
-      "ingested_at": "2026-05-31"
-    },
-    {
-      "election_id": "LsGenJun2024",
       "state": "punjab",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
@@ -3506,12 +3446,6 @@
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "telangana",
-      "source_input": "eci_ls",
-      "ingested_at": "2026-05-31"
-    },
-    {
-      "election_id": "LsGenJun2024",
       "state": "tripura",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
@@ -3524,13 +3458,79 @@
     },
     {
       "election_id": "LsGenJun2024",
+      "state": "west-bengal",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "chhattisgarh",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "jharkhand",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
       "state": "uttarakhand",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "west-bengal",
+      "state": "telangana",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "andaman-and-nicobar",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "chandigarh",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "dadra-and-nagar-haveli-and-daman-and-diu",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "lakshadweep",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "delhi",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "puducherry",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "jammu-and-kashmir",
+      "source_input": "eci_ls",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenJun2024",
+      "state": "ladakh",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     }

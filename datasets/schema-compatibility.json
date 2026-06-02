@@ -83,9 +83,9 @@
     {
       "surface": "canonical-manifest-reader",
       "schema": "elections-candidacies.schema.json",
-      "accepted_versions": ["1.1"],
+      "accepted_versions": ["1.1", "1.2"],
       "validation": "current_schema",
-      "rationale": "Row G2 makes runtime table registration fail loud on unsupported schema versions; current elections_candidacies tables use v1.1."
+      "rationale": "Row G2 makes runtime table registration fail loud on unsupported schema versions; elections_candidacies v1.2 (EGC-B2) is additive + relaxing — optional pc_id FK, nullable ac_id, widened candidacy_key pattern for Lok Sabha (PC) candidacies — so current-schema validation remains valid for v1.1 AC rows."
     },
     {
       "surface": "canonical-manifest-reader",

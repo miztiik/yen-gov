@@ -127,6 +127,26 @@ def layer1_person_id(
     return hashlib.sha256(key.encode("utf-8")).hexdigest()[:16]
 
 
+def layer1_person_id_for_pc(
+    *,
+    state_code: str,
+    pc_id: str,
+    election_id: str,
+    candidate_name: str | None,
+) -> str:
+    """Lok Sabha (PC) sibling of :func:`layer1_person_id`.
+
+    Mirrors the AC formula with ``pc_id`` substituted for ``ac_id`` so a PC
+    candidacy gets a stable Layer-1 person_id. Day-one ADR-0035 identity is
+    one person per candidacy row; cross-contest unification is a later layer.
+    """
+    if not re.fullmatch(r"[SU]\d{2}", state_code):
+        raise ValueError(f"Invalid ECI state code: {state_code!r}")
+    normalised = normalise_person_name(candidate_name or "")
+    key = f"{state_code}|{pc_id}|{election_id}|{normalised}"
+    return hashlib.sha256(key.encode("utf-8")).hexdigest()[:16]
+
+
 def layer1_person_id_collision_tiebreak(base_person_id: str, candidacy_key: str) -> str:
     """Deterministic tiebreak when the Layer-1 formula repeats in one contest."""
     key = f"{base_person_id}|{candidacy_key}"
