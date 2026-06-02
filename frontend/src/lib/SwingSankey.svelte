@@ -52,7 +52,7 @@
       // fall back to actuals row when the party is only present on the
       // left side. Either row carries party_id + brand fields when the
       // canonical loader populated them.
-      const row_for_colour = s ?? a ?? { party_eci_code: code, party_short: short };
+      const row_for_colour = s ?? a ?? { party_eci_code: code, party_short: short, party_id: `parties.IN.${code}` };
       const color = partyColourHex(row_for_colour);
       if (delta < -0.5) losers.push({ party_eci_code: code, party_short: short, delta: -delta, color });
       else if (delta > 0.5) gainers.push({ party_eci_code: code, party_short: short, delta, color });

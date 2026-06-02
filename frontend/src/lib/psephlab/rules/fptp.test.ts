@@ -60,9 +60,9 @@ describe("fptp — NOTA cannot win a seat", () => {
       scope: FIXTURE.scope,
       acs: [
         ac(1, [
-          { party_eci_code: "NOTA",   party_short: "NOTA",   name: "NOTA", votes: 500 },
-          { party_eci_code: "DMK",    party_short: "DMK",    name: "X",    votes: 300 },
-          { party_eci_code: "AIADMK", party_short: "AIADMK", name: "Y",    votes: 200 },
+          { party_eci_code: "NOTA",   party_short: "NOTA",   name: "NOTA", votes: 500, party_id: "parties.IN.NOTA" },
+          { party_eci_code: "DMK",    party_short: "DMK",    name: "X",    votes: 300, party_id: "parties.IN.DMK" },
+          { party_eci_code: "AIADMK", party_short: "AIADMK", name: "Y",    votes: 200, party_id: "parties.IN.AIADMK" },
         ]),
       ],
     };
@@ -81,8 +81,8 @@ describe("fptp — ties", () => {
       scope: FIXTURE.scope,
       acs: [
         ac(1, [
-          { party_eci_code: "DMK",    party_short: "DMK",    name: "Zebra",   votes: 500 },
-          { party_eci_code: "AIADMK", party_short: "AIADMK", name: "Alpha",   votes: 500 },
+          { party_eci_code: "DMK",    party_short: "DMK",    name: "Zebra",   votes: 500, party_id: "parties.IN.DMK" },
+          { party_eci_code: "AIADMK", party_short: "AIADMK", name: "Alpha",   votes: 500, party_id: "parties.IN.AIADMK" },
         ]),
       ],
     };
@@ -108,8 +108,8 @@ describe("fptp — degenerate inputs", () => {
     const r = fptp.apply({
       scope: FIXTURE.scope,
       acs: [ac(1, [
-        { party_eci_code: "DMK",    party_short: "DMK",    name: "A", votes: 0 },
-        { party_eci_code: "AIADMK", party_short: "AIADMK", name: "B", votes: 0 },
+        { party_eci_code: "DMK",    party_short: "DMK",    name: "A", votes: 0, party_id: "parties.IN.DMK" },
+        { party_eci_code: "AIADMK", party_short: "AIADMK", name: "B", votes: 0, party_id: "parties.IN.AIADMK" },
       ])],
     });
     expect(r.by_ac[0].margin_pct).toBe(0);
