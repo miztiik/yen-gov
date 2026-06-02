@@ -25,24 +25,26 @@ import { join, relative, resolve, sep } from "node:path";
 const SRC_ROOT = resolve(__dirname, "..");
 
 /**
- * Forbidden import-path fragments. Any file outside the allowlist that
- * contains an `import ... from "<fragment>"` (or `from '<fragment>'`)
- * triggers the assertion.
+ * Forbidden import-path pattern. Matches any relative import of the
+ * three legacy party-colour modules (`party-colour`, `anchors`,
+ * `store.svelte`) at any depth, with or without a `lib/` segment in
+ * the path.
  *
- * Keep in lockstep with the actual file paths. If a path renames, also
- * update this list.
+ * Examples matched:
+ *   from "./colors/party-colour"
+ *   from "../colors/store.svelte"
+ *   from "../../colors/anchors"
+ *   from "../lib/colors/store.svelte"   <- routes/*.svelte shape
+ *   from "../../lib/colors/anchors"
+ *
+ * PR-SYM-6i-pre1 (#TBD): widened from a fixed fragment list to a
+ * single depth-agnostic regex after PR #596 mis-reported the
+ * grandfathered-consumer set as EMPTY -- the old fragment list missed
+ * `../lib/colors/...` (the shape every `routes/*.svelte` uses), so
+ * 5 live route consumers were slipping through the contract.
  */
-const FORBIDDEN_IMPORTS = [
-  "./colors/party-colour",
-  "../colors/party-colour",
-  "../../colors/party-colour",
-  "./colors/anchors",
-  "../colors/anchors",
-  "../../colors/anchors",
-  "./colors/store.svelte",
-  "../colors/store.svelte",
-  "../../colors/store.svelte",
-] as const;
+const FORBIDDEN_IMPORT_RE =
+  /from\s+["'](?:\.\.?\/)+(?:lib\/)?colors\/(?:party-colour|anchors|store\.svelte)["']/;
 
 /**
  * Files that are PERMITTED to import the legacy modules. Each entry is
@@ -61,15 +63,25 @@ const ALLOWLIST = new Set<string>([
   "lib/colors/anchors.ts",
   "lib/colors/store.svelte.ts",
 
+  // This contract test itself contains example import strings in its
+  // docstrings (e.g. `from "./colors/party-colour"`) -- exempt it from
+  // its own walk.
+  "contracts/party-colour-import-allowlist.test.ts",
+
   // Resolver -- sanctioned bridge. Imports from `./anchors` to populate
   // the curated ANCHORS_BY_PID map per the 3-tier contract.
   "lib/colors/resolver.ts",
 
-  // PR-SYM-6h (#TBD): grandfathered consumer set is now EMPTY. The last
-  // entry (`lib/charts/StackedTrendV2.svelte`) retired when the party
-  // branch of `category-colour.ts` was routed through `getPartyColor`,
-  // letting `category-colour.ts` drop out of FORBIDDEN_IMPORTS as a
-  // legitimate dimension dispatcher (not a legacy party module).
+  // PR-SYM-6i-pre1 (#TBD): grandfathered route consumers surfaced when
+  // the FORBIDDEN regex widened to match `../lib/colors/...`. Each is
+  // tagged with its planned migration PR.
+  "routes/Settings.svelte",            // MIGRATE in PR-SYM-6i-pre2
+  "routes/NationalElectionsAtlas.svelte", // MIGRATE in PR-SYM-6i-pre3
+  "routes/Psephlab.svelte",            // MIGRATE in PR-SYM-6i-pre3
+  "routes/StateElection.svelte",       // MIGRATE in PR-SYM-6i-pre3
+  "routes/StateOverview.svelte",       // MIGRATE in PR-SYM-6i-pre3
+
+  // Historical migration log (modules retired from FORBIDDEN over time):
   // PR-SYM-6f1 (#585): SeatDonut migrated to getPartyColor resolver.
   // PR-SYM-6f2 (#586): PartyBar migrated to resolvePartyPalette + getPartyColor.
   // PR-SYM-6f3 (#587): IndiaMap migrated to resolvePartyPalette + getPartyColor.
@@ -106,19 +118,14 @@ function toPosixWorkspace(abs: string): string {
 
 describe("contract — legacy party-colour modules are not imported outside the allowlist", () => {
   it("no NEW imports of party-colour / anchors / store.svelte / category-colour outside the grandfathered set", () => {
-    const violations: { file: string; fragment: string }[] = [];
+    const violations: { file: string; line: string }[] = [];
     for (const file of walkTs(SRC_ROOT)) {
       const rel = toPosixWorkspace(file);
       if (ALLOWLIST.has(rel)) continue;
       const src = readFileSync(file, "utf8");
-      for (const fragment of FORBIDDEN_IMPORTS) {
-        // Match either `from "<fragment>"` or `from '<fragment>'`.
-        const pattern = new RegExp(
-          `from\\s+["']${fragment.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\$&")}["']`,
-        );
-        if (pattern.test(src)) {
-          violations.push({ file: rel, fragment });
-        }
+      const match = src.match(FORBIDDEN_IMPORT_RE);
+      if (match) {
+        violations.push({ file: rel, line: match[0] });
       }
     }
     expect(
