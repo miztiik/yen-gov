@@ -1,53 +1,71 @@
 <script lang="ts">
-  // Color overrides editor. Lists the union of (canonical dim_parties +
-  // observations-fallback parties) and current overrides. Migrated off the
-  // 5-state hardcoded fetchParties fan-out onto the parties-palette
-  // view-model loader in PR-G (Phase 1.3c) — net coverage is now every
-  // party that has ever scored a party-totals row, not just 5 states.
-  import { colors } from "../lib/colors/store.svelte";
-  import { ANCHORS } from "../lib/colors/anchors";
+  // Settings route — citizen-facing provenance explainer.
+  //
+  // PR-SYM-6i-pre2 retired the user-override colour-picker UI in favour
+  // of a read-only "How party colours are chosen" explainer. Rationale
+  // (Jony reductionism + Hans honesty): user overrides had no schema
+  // home (no `override_colour` column in dim_parties or any canonical
+  // store), persisted only in this browser's localStorage (violates the
+  // static-first / no-server-state contract), and would have required a
+  // 4th `source: "user-override"` provenance tier that doesn't
+  // generalise across devices or sessions.
+  //
+  // What this page now shows: the 3-tier resolver contract from
+  // `lib/colors/resolver.ts`, demonstrated live with one worked example
+  // per tier. The swatch + chip on each row are computed by calling
+  // `getPartyColor` directly, so the explainer can never drift from the
+  // resolver.
+  //
+  // See: docs/concepts/party-colour-resolution.md
   import {
-    loadPartiesPalette,
-    type PartiesPaletteViewModel,
-  } from "../lib/view-models/parties-palette";
-  import type { LoaderResult } from "../lib/loader-result";
+    getPartyColor,
+    type PartyRowForResolver,
+  } from "../lib/colors/resolver";
+  import { chipFor } from "../lib/colors/chip";
   import TopicIcon from "../lib/TopicIcon.svelte";
 
-  let result = $state<LoaderResult<PartiesPaletteViewModel>>({
-    status: "loading",
-  });
+  // Three worked examples, one per resolver tier. The party_id + row
+  // shape are the same inputs any chart consumer would pass; the
+  // resolver decides the tier and returns the hex.
+  const examples: ReadonlyArray<{
+    party_id: string;
+    party_short: string;
+    party_full: string;
+    row: PartyRowForResolver | null;
+    note: string;
+  }> = [
+    {
+      party_id: "parties.IN.AAP",
+      party_short: "AAP",
+      party_full: "Aam Aadmi Party",
+      row: {
+        party_id: "parties.IN.AAP",
+        brand_colour: { hex: "#0072B0", confidence: "high" },
+      },
+      note: "Wikipedia-sourced editorial colour. Carried on every party row from dim_parties.",
+    },
+    {
+      party_id: "parties.IN.DMK",
+      party_short: "DMK",
+      party_full: "Dravida Munnetra Kazhagam",
+      row: null,
+      note: "Hand-curated iconic colour. Used for parties whose colour the average voter recognises without thinking.",
+    },
+    {
+      party_id: "parties.IN.SP",
+      party_short: "SP",
+      party_full: "Samajwadi Party (illustrative; fallback example)",
+      row: null,
+      note: "Deterministic hash of party_id. Decoration only; the label carries the meaning.",
+    },
+  ];
 
-  function retryLoad(): void {
-    result = { status: "loading" };
-    loadPartiesPalette().then((r) => (result = r));
-  }
-
-  $effect(() => {
-    retryLoad();
-  });
-
-  // Always include any party that has an override but isn't in the palette
-  // (e.g. a party loaded from a state not yet ingested into observations).
-  const editable = $derived.by(() => {
-    const list: { eci_code: string; short_name: string; full_name: string | null }[] = [];
-    const seen = new Set<string>();
-    const palette = result.status === "ok" ? result.data.parties : [];
-    for (const p of palette) {
-      list.push({ eci_code: p.eci_code, short_name: p.short_name, full_name: p.full_name });
-      seen.add(p.eci_code);
-    }
-    for (const code of Object.keys(colors.overrides)) {
-      if (seen.has(code)) continue;
-      list.push({ eci_code: code, short_name: code, full_name: null });
-      seen.add(code);
-    }
-    return list;
-  });
-
-  function onPick(eci_code: string, e: Event): void {
-    const v = (e.target as HTMLInputElement).value;
-    colors.set(eci_code, { fill: v });
-  }
+  const resolved = $derived(
+    examples.map((e) => ({
+      ...e,
+      colour: getPartyColor(e.party_id, e.row),
+    })),
+  );
 </script>
 
 <main class="max-w-3xl mx-auto p-6 space-y-6">
@@ -57,76 +75,55 @@
       <span>Settings</span>
     </h1>
     <p class="text-sm text-slate-500">
-      Party color overrides. Saved per-browser; cleared when you reset all.
+      How yen-gov chooses the colour for each party on every chart.
     </p>
   </header>
 
   <section class="bg-white rounded-lg shadow-sm p-5 space-y-4">
-    <div class="flex justify-between items-baseline">
-      <h2 class="text-sm font-semibold uppercase text-slate-500">Party colors</h2>
-      <button
-        type="button"
-        onclick={() => { if (confirm("Reset all party colors to defaults?")) colors.resetAll(); }}
-        class="text-xs text-rose-600 hover:underline"
-        disabled={Object.keys(colors.overrides).length === 0}
-      >Reset all</button>
-    </div>
+    <h2 class="text-sm font-semibold uppercase text-slate-500">
+      How party colours are chosen
+    </h2>
 
-    {#if result.status === "failed"}
-      <div class="rounded border border-rose-200 bg-rose-50 p-3 text-sm text-rose-900">
-        <p>Could not load parties: {result.reason}</p>
-        <button
-          type="button"
-          onclick={() => result.status === "failed" && result.retry?.()}
-          class="mt-2 px-3 py-1 text-xs rounded bg-rose-100 hover:bg-rose-200"
-        >Retry</button>
-      </div>
-    {:else if result.status === "loading"}
-      <p class="text-sm text-slate-500">Loading parties…</p>
-    {:else}
-      <ul class="divide-y">
-        {#each editable as p (p.eci_code)}
-          {@const override = colors.overrides[p.eci_code]}
-          {@const effective = colors.fill(p.eci_code, p.short_name)}
-          {@const is_default = !override}
-          <li class="flex items-center gap-3 py-2.5">
-            <input
-              type="color"
-              value={effective}
-              oninput={(e) => onPick(p.eci_code, e)}
-              class="h-8 w-12 rounded border border-slate-200 cursor-pointer p-0"
-              title="Pick a color"
-            />
-            <div class="flex-1">
-              <div class="font-medium text-sm">{p.short_name}</div>
-              <div class="text-xs text-slate-500">
-                {p.full_name ?? "(unmapped party — override only)"}
-                <span class="text-slate-400 font-mono ml-1">#{p.eci_code}</span>
-              </div>
+    <p class="text-sm text-slate-700">
+      Every party shown on a chart is coloured by the same three-tier
+      resolver. The first tier that has a colour wins; later tiers never
+      override an earlier one. The chip next to the swatch tells you which
+      tier produced the colour.
+    </p>
+
+    <ul class="divide-y border-t border-b border-slate-100">
+      {#each resolved as ex (ex.party_id)}
+        {@const chip = chipFor(ex.colour.source)}
+        <li class="flex items-start gap-3 py-3">
+          <span
+            class="mt-0.5 inline-block h-8 w-8 rounded border border-slate-200 shrink-0"
+            style="background-color: {ex.colour.hex};"
+            aria-hidden="true"
+          ></span>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="font-medium text-sm">{ex.party_short}</span>
+              <span
+                class="text-[10px] uppercase tracking-wide px-1.5 py-0.5 rounded {chip.className}"
+                title={chip.tooltip}>{chip.label}</span
+              >
+              <code class="text-xs font-mono text-slate-500"
+                >{ex.colour.hex}</code
+              >
             </div>
-            <code class="text-xs font-mono text-slate-500">{effective}</code>
-            <button
-              type="button"
-              onclick={() => colors.reset(p.eci_code)}
-              disabled={is_default}
-              class="text-xs px-2 py-1 rounded text-slate-600 hover:text-slate-900 hover:bg-slate-100 disabled:opacity-30 disabled:hover:bg-transparent"
-              title="Revert to default"
-            >Reset</button>
-          </li>
-        {/each}
-      </ul>
-    {/if}
-  </section>
+            <div class="text-xs text-slate-500 mt-0.5">{ex.party_full}</div>
+            <div class="text-xs text-slate-600 mt-1">{ex.note}</div>
+          </div>
+        </li>
+      {/each}
+    </ul>
 
-  <section class="text-xs text-slate-500">
-    <p>
-      Iconic colours come from {Object.keys(ANCHORS).length} curated anchors
-      (national parties + strongly-recognised regional brands like DMK red,
-      ADMK green, AITC green). Every other party is assigned a colour
-      algorithmically from an OkLCh palette, with same-chart de-duplication
-      so no two visible parties ever share a swatch. Pick any colour above to
-      override the default per your preference; the override persists in this
-      browser.
+    <p class="text-xs text-slate-500">
+      Colours are not editable. They reflect editorial sources
+      (Wikipedia-curated brand colours, hand-curated anchors for
+      high-recognition parties) and a deterministic fallback for the long
+      tail. A per-browser override would not survive across devices and
+      would muddy the provenance signal the chip is meant to carry.
     </p>
   </section>
 </main>

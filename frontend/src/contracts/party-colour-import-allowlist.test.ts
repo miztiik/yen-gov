@@ -72,11 +72,6 @@ const ALLOWLIST = new Set<string>([
   // the curated ANCHORS_BY_PID map per the 3-tier contract.
   "lib/colors/resolver.ts",
 
-  // PR-SYM-6i-pre1 (#597): grandfathered route consumers surfaced when
-  // the FORBIDDEN regex widened to match `../lib/colors/...`. Each is
-  // tagged with its planned migration PR.
-  "routes/Settings.svelte",            // MIGRATE in PR-SYM-6i-pre2
-
   // Historical migration log (modules retired from FORBIDDEN over time):
   // PR-SYM-6f1 (#585): SeatDonut migrated to getPartyColor resolver.
   // PR-SYM-6f2 (#586): PartyBar migrated to resolvePartyPalette + getPartyColor.
@@ -87,6 +82,10 @@ const ALLOWLIST = new Set<string>([
   // PR-SYM-6f7 (#592): election-tile-layout view-model migrated to resolvePartyPalette + getPartyColor.
   // PR-SYM-6g  (#595): ParliamentArc + SwingSankey + routes/Compare migrated to
   //                    `partyColourHex` from `lib/psephlab/colour-bridge.ts`.
+  // PR-SYM-6i-pre2 (#TBD): Settings route migrated -- colour-override UI
+  //                    retired in favour of a read-only provenance explainer
+  //                    using `getPartyColor` + `chipFor`. ALLOWLIST is now
+  //                    empty of route consumers.
   // PR-SYM-6i-pre3 (#TBD): NationalElectionsAtlas + Psephlab + StateElection +
   //                        StateOverview migrated to getPartyColor /
   //                        resolvePartyPalette / partyColourHex. National PC
