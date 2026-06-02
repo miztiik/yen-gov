@@ -18,6 +18,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from yen_gov.canonical.adapters.eci.identity import Period
+from yen_gov.canonical.adapters.eci.state_slug import eci_to_lgd_slug
 from yen_gov.canonical.adapters.eci.party_lookup import (
     PartyLookup,
     UnknownPartyError,
@@ -231,13 +232,13 @@ def _upsert_inventory(*, repo_root: Path, states: list[str], ingested_at: str) -
             and row.get("source_input") == SOURCE_INPUT_ID
         )
     ]
-    # National Lok Sabha event recorded as one inventory slice per state
-    # (the schema keys identity on (election_id, state, source_input) and
-    # constrains state to ^[SU]\d{2}$ — there is no national "IN" token).
+    # National Lok Sabha event recorded as one inventory slice per state.
+    # Schema v2.0 (ADR-0050): state field carries LGD-name slug, not ECI st_code.
+    # Callers pass ECI st_code (relational join-key); translate at the write boundary.
     for state in states:
         filtered.append({
             "election_id": LS_2024_EVENT.period_label,
-            "state": state,
+            "state": eci_to_lgd_slug(state),
             "source_input": SOURCE_INPUT_ID,
             "ingested_at": ingested_at,
         })

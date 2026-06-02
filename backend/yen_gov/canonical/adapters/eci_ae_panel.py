@@ -32,6 +32,7 @@ from yen_gov.canonical.adapters.eci.party_lookup import (
     party_dim_rows,
 )
 from yen_gov.canonical.adapters.eci.rollups import ACContestSummary, state_rollup_observations
+from yen_gov.canonical.adapters.eci.state_slug import eci_to_lgd_slug
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.envelope import (
     AcDimRow,
@@ -566,12 +567,14 @@ def inventory_has_entries(
     path = repo_root.joinpath(*INVENTORY_PATH_REL)
     if not path.is_file():
         return False
+    # Inventory stores LGD-name slug per ADR-0050; caller's state_code is ECI.
+    state_slug = eci_to_lgd_slug(state_code)
     existing = json.loads(path.read_text(encoding="utf-8")).get("ingested") or []
     triples = {
         (row.get("election_id"), row.get("state"), row.get("source_input"))
         for row in existing
     }
-    return all((event, state_code, source_input) in triples for event in events)
+    return all((event, state_slug, source_input) in triples for event in events)
 
 
 def candidate_observations(*, candidacy_key: str, period: Period, votes: int, vote_share_pct: float, rank: int, source_id: str) -> list[ObservationRow]:
@@ -743,19 +746,22 @@ def _existing_ac_totals(datasets_root: Path, state_code: str) -> dict[tuple[str,
 
 def upsert_inventory_entries(*, repo_root: Path, events: Iterable[str], state_code: str, source_input: str, ingested_at: str, report: dict) -> Path:
     path = repo_root.joinpath(*INVENTORY_PATH_REL)
+    # ADR-0050 / inventory schema v2.0: state field carries LGD-name slug, not ECI st_code.
+    # Callers pass ECI st_code (relational join-key); translate at the write boundary.
+    state_slug = eci_to_lgd_slug(state_code)
     existing = []
     if path.is_file():
         existing = list(json.loads(path.read_text(encoding="utf-8")).get("ingested") or [])
     event_report = {row["event_id"]: row for row in report.get("events", [])}
     filtered = [
         row for row in existing
-        if not (row.get("state") == state_code and row.get("election_id") in set(events) and row.get("source_input") == source_input)
+        if not (row.get("state") == state_slug and row.get("election_id") in set(events) and row.get("source_input") == source_input)
     ]
     for event in events:
         er = event_report.get(event, {})
         filtered.append({
             "election_id": event,
-            "state": state_code,
+            "state": state_slug,
             "source_input": source_input,
             "ingested_at": ingested_at,
             "discrepancy_summary": {
