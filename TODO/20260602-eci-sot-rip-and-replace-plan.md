@@ -1,6 +1,6 @@
 # Level-4 plan: rip `datasets/reference/in/states/<S>/constituencies.json` SoT, standardise on LGD taxonomy
 
-**Last Updated**: 2026-06-02
+**Last Updated**: 2026-06-02 (amended after data audit; see section 0a)
 
 **Predecessor**: [docs/archive/plans/20260530-eci-to-lgd-acid-migration-plan.md](../docs/archive/plans/20260530-eci-to-lgd-acid-migration-plan.md) (LGD AC_ID join-key migration; merged through PRs #530-#539). That plan landed the `taxonomy/ac_crosswalk.parquet` spine; this plan retires the **per-state ECI-keyed SoT shards** that the spine made redundant.
 
@@ -10,23 +10,30 @@
 
 ## section 0. Why this plan-doc exists
 
-The post-PR-#539 audit confirmed: ~85% of every `datasets/reference/in/states/<S>/constituencies.json` shard is now redundant with `datasets/taxonomy/ac_crosswalk.parquet` (4113 AC rows with `eci_state, eci_no, lgd_ac_id, name, reservation, status`). Two facts only live on the SoT shards and must be lifted before the rip:
+The post-PR-#539 audit confirmed that the SoT shards are largely redundant with `taxonomy/ac_crosswalk.parquet`. Two facts initially looked like they only lived on the SoT shards. **Section 0a (below) records the data audit that ran after this plan-doc landed on main**; the audit invalidated one premise and confirmed the other, so the live scope is narrower than the original plan-doc claimed.
 
-1. **AC->district FK** (`district_id` per AC; declared on every constituency row in the SoT shard but absent from `ac_crosswalk.parquet`).
-2. **Per-state ECI provenance** (`sources[]` per shard: which ECI XLSX produced this state's roster + `fetched_at`; not in `taxonomy/sources.parquet` at `(scope=state, body=AC)` granularity).
+---
 
-Once both facts are lifted to the taxonomy, the 36 SoT shards become pure duplication and the 7 consumers can be rewritten to read from the taxonomy.
+## section 0a. Data-audit findings (2026-06-02, post-merge of plan-doc PR #605)
+
+Before executing R1, ran a row-count audit of the SoT shards against the taxonomy. Findings:
+
+1. **`district_id` is DEAD.** Of 4113 AC rows across 31 SoT shards, only 824 (20%) have any value, in only 5 states (S03, S11, S22, S25, U07). The populated values are short author-internal strings (`'KOK'`, `'KAS'`, `'TAL'`, `'COB'`, `'puducherry'`) - **NOT LGD district codes**. The proper LGD-keyed hook already exists in the taxonomy: [`datasets/taxonomy/lgd_ac_pc_district_map.json`](../datasets/taxonomy/lgd_ac_pc_district_map.json) (232 rows of `(lgd_state_id, lgd_ac_id) -> [lgd_district_ids]`) + [`datasets/taxonomy/lgd_acs.json`](../datasets/taxonomy/lgd_acs.json) (carries `lgd_pc_id` + `lgd_state_id` per AC). Exactly one consumer ([`tools/boundaries/s03_t4_district_fallback.py`](../tools/boundaries/s03_t4_district_fallback.py)) reads the SoT field, and it already maintains its own hardcoded `SOT_CODE_TO_DIST_LGD` 35-entry translator because the SoT codes are not LGD-joinable. **Consequence: R1 is DROPPED.** No lift; just delete the dead field with the SoT shards and rewire `s03_t4_district_fallback.py` to read from `lgd_ac_pc_district_map.json` in R3.
+
+2. **Per-state ECI provenance IS unique** to the SoT shards (`sources[].url` + `fetched_at` per state). R2 stands as authored.
+
+3. **Lesson distilled**: before executing a multi-PR data-lift plan, verify the plan's load-bearing premises against the actual data, not from one sample row. The plan-doc R1 was authored after reading `S01:1 Ichchapuram` only, where `district_id: null` was apparently misread as `district_id present`. Recording in `/memories/lessons.md`.
 
 ---
 
 ## section 1. Hard scope (in)
 
-- Lift `district_id` per AC into `taxonomy/ac_crosswalk.parquet` (additive column; nullable for the few SoT rows that lack it).
+- ~~Lift `district_id` per AC into `taxonomy/ac_crosswalk.parquet`~~ **DROPPED per section 0a finding 1** (dead field; LGD hook already exists via `taxonomy/lgd_ac_pc_district_map.json`).
 - Lift per-state ECI provenance rows into `taxonomy/sources.parquet` with `scope_kind=state`, `scope_value=<eci_state_code>`, `body=AC`, one row per (state, ECI XLSX URL).
 - Rewrite **7 consumers** to read from `taxonomy/ac_crosswalk.parquet` + `taxonomy/lgd_acs.json` + `taxonomy/sources.parquet` instead of the SoT shards:
   1. `tools/boundaries/snapshot.py` — replace `sot_ref` field stamping with crosswalk pointer
   2. `tools/boundaries/verify_ac_parity.py` — replace `(state, eci_no, name)` join against SoT with crosswalk query
-  3. `tools/boundaries/s03_t4_district_fallback.py` — replace S03 SoT load with `taxonomy/ac_crosswalk.parquet WHERE eci_state='S03'`
+  3. `tools/boundaries/s03_t4_district_fallback.py` — replace S03 SoT load with crosswalk + LGD join: `ac_crosswalk WHERE eci_state='S03'` JOIN `lgd_ac_pc_district_map.json` ON `lgd_ac_id` -> `lgd_district_ids[]`. **DELETE the hardcoded `SOT_CODE_TO_DIST_LGD` 35-entry translator** (it exists only because the SoT codes were not LGD-joinable; the LGD map replaces it). Output stays `parent_district_id` keyed to LGD numerics (compatible with downstream callers).
   4. `tools/boundaries/pipeline.json` — drop `sot_ref` fields; replace `delimitation_warning` SoT pointers with crosswalk pointers
   5. `tools/bootstrap_constituencies_from_results.py` — RETIRE entirely (it writes the SoT format we're deleting; bootstrap path moves to a single `tools/taxonomy/bootstrap_ac_crosswalk.py` if/when needed)
   6. `frontend/e2e/golden-path.spec.ts` line 153 — replace the `/data/reference/in/states/S22/constituencies.json` mock with a `/data/taxonomy/ac_crosswalk.parquet` mock (or remove the mock if the e2e doesn't need to assert on the AC list)
@@ -54,23 +61,19 @@ Once both facts are lifted to the taxonomy, the 36 SoT shards become pure duplic
 
 | Row | Title | Status | PR | Effort |
 | --- | --- | --- | --- | --- |
-| R1 | Lift `district_id` per AC into `taxonomy/ac_crosswalk.parquet` (schema bump minor, harvest script, deterministic emit) | [ ] PENDING | _pending_ | M |
+| R0 | Plan-doc + amendment recording audit findings | [x] DONE | #605 + _pending_ (this amend) | S |
+| R1 | ~~Lift `district_id` per AC~~ | [x] DROPPED | n/a | n/a |
 | R2 | Lift per-state ECI provenance into `taxonomy/sources.parquet` (1 row per (state, XLSX) tuple) | [ ] PENDING | _pending_ | M |
-| R3 | Rewrite 7 consumers + delete 36 SoT shards + fix 4 incidental ECI residues + update CLAUDE.md anti-pattern; **single big-bang PR** | [ ] PENDING | _pending_ | L |
+| R3 | Rewrite 7 consumers (incl. `s03_t4_district_fallback.py` LGD-hook rewire) + delete 36 SoT shards + fix 4 incidental ECI residues + update CLAUDE.md anti-pattern; **single big-bang PR** | [ ] PENDING | _pending_ | L |
 | R4 | Distill: archive this plan-doc + update [docs/reference/data-coverage-report.md](../docs/reference/data-coverage-report.md) + emit lesson | [ ] PENDING | _pending_ | S |
 
 ---
 
 ## section 4. Per-row acceptance gates
 
-### R1 - Lift `district_id` per AC
+### ~~R1 - Lift `district_id` per AC~~ DROPPED
 
-- Bump `datasets/schemas/ac-crosswalk.schema.json` x-version to minor (additive `district_id?` column).
-- Harvester script `tools/taxonomy/lift_ac_district_from_sot.py` walks `datasets/reference/in/states/<S>/constituencies.json`, joins on `(eci_state, eci_no)`, fills `district_id` column in `ac_crosswalk.parquet`.
-- Emit deterministic: sorted by `(eci_state, eci_no)`; idempotent re-run is a no-op.
-- Coverage gate: >=95% of crosswalk rows resolve to a `district_id` (the residual <5% are SoT rows where `district_id` was absent upstream; left null).
-- Tier-A: new unit test `backend/tests/test_lift_ac_district_from_sot.py` asserts the harvest is deterministic + total >=3900 ACs filled.
-- Tier-B: `python -m yen_gov validate --root .` green.
+See section 0a finding 1. No work to do.
 
 ### R2 - Lift per-state ECI provenance
 
@@ -117,7 +120,7 @@ Once both facts are lifted to the taxonomy, the 36 SoT shards become pure duplic
 
 ## section 6. Sequencing
 
-R1 -> R2 -> R3 -> R4. R1 + R2 are independent and could parallelise, but they're both small enough that serialising them avoids merge-conflict risk on `taxonomy/sources.parquet` + `taxonomy/ac_crosswalk.parquet`. R3 has hard dependencies on BOTH R1 and R2 being on main (the consumer rewrites read the new columns + rows R1/R2 emit). R4 is post-merge cleanup.
+**Revised post-audit**: R2 -> R3 -> R4. R1 dropped. R3 has a hard dependency on R2 being on main (consumer rewrites of `snapshot.py` + `pipeline.json` need the per-state ECI provenance rows already present in `taxonomy/sources.parquet` so they can point at the new source_ids instead of the SoT shards). R4 is post-merge cleanup.
 
 ---
 
