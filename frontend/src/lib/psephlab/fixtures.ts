@@ -21,10 +21,10 @@ export const FIXTURE: Tallies = {
       name: "Alpha",
       electorate: 1200,
       candidates: [
-        { party_eci_code: "DMK",    party_short: "DMK",    name: "A1", votes: 600 },
-        { party_eci_code: "AIADMK", party_short: "AIADMK", name: "A2", votes: 300 },
-        { party_eci_code: "BJP",    party_short: "BJP",    name: "A3", votes: 90 },
-        { party_eci_code: "NOTA",   party_short: "NOTA",   name: "NOTA", votes: 10 },
+        { party_eci_code: "DMK",    party_short: "DMK",    name: "A1", votes: 600, party_id: "parties.IN.DMK" },
+        { party_eci_code: "AIADMK", party_short: "AIADMK", name: "A2", votes: 300, party_id: "parties.IN.AIADMK" },
+        { party_eci_code: "BJP",    party_short: "BJP",    name: "A3", votes: 90, party_id: "parties.IN.BJP" },
+        { party_eci_code: "NOTA",   party_short: "NOTA",   name: "NOTA", votes: 10, party_id: "parties.IN.NOTA" },
       ],
     },
     {
@@ -32,10 +32,10 @@ export const FIXTURE: Tallies = {
       name: "Bravo",
       electorate: 1200,
       candidates: [
-        { party_eci_code: "AIADMK", party_short: "AIADMK", name: "B1", votes: 700 },
-        { party_eci_code: "DMK",    party_short: "DMK",    name: "B2", votes: 200 },
-        { party_eci_code: "BJP",    party_short: "BJP",    name: "B3", votes: 90 },
-        { party_eci_code: "NOTA",   party_short: "NOTA",   name: "NOTA", votes: 10 },
+        { party_eci_code: "AIADMK", party_short: "AIADMK", name: "B1", votes: 700, party_id: "parties.IN.AIADMK" },
+        { party_eci_code: "DMK",    party_short: "DMK",    name: "B2", votes: 200, party_id: "parties.IN.DMK" },
+        { party_eci_code: "BJP",    party_short: "BJP",    name: "B3", votes: 90, party_id: "parties.IN.BJP" },
+        { party_eci_code: "NOTA",   party_short: "NOTA",   name: "NOTA", votes: 10, party_id: "parties.IN.NOTA" },
       ],
     },
     {
@@ -43,9 +43,9 @@ export const FIXTURE: Tallies = {
       name: "Charlie",
       electorate: 1200,
       candidates: [
-        { party_eci_code: "DMK",    party_short: "DMK",    name: "C1", votes: 500 },
-        { party_eci_code: "AIADMK", party_short: "AIADMK", name: "C2", votes: 480 },
-        { party_eci_code: "NOTA",   party_short: "NOTA",   name: "NOTA", votes: 20 },
+        { party_eci_code: "DMK",    party_short: "DMK",    name: "C1", votes: 500, party_id: "parties.IN.DMK" },
+        { party_eci_code: "AIADMK", party_short: "AIADMK", name: "C2", votes: 480, party_id: "parties.IN.AIADMK" },
+        { party_eci_code: "NOTA",   party_short: "NOTA",   name: "NOTA", votes: 20, party_id: "parties.IN.NOTA" },
       ],
     },
   ],

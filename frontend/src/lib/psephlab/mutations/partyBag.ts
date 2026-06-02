@@ -48,6 +48,10 @@ export const partyBag: MutationPlugin<PartyBagConfig> = {
         party_short: cfg.name,
         name: member_names.length === 1 ? member_names[0] : `${cfg.name} (${member_names.length})`,
         votes: pooled,
+        // Synthetic bag is not a real party; party_id mirrors party_eci_code so
+        // the 3-tier resolver falls through Tier-1/2 to a deterministic Tier-3
+        // hash keyed on the bag identifier.
+        party_id: `parties.IN.${code}`,
       };
       return { ...ac, candidates: [...non_members, bag] };
     });
