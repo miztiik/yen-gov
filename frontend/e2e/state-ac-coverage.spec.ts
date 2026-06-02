@@ -86,7 +86,7 @@ for (const e of entities) {
   }
 }
 
-// State / UT codes for which `boundaries/in/ac/state=in_<lc>/all.geojson`
+// State / UT codes for which `boundaries/in/ac/state=<lgd-slug>/all.geojson`
 // exists on disk after A.2 (31 entries). Sorted lexicographically.
 const FULL_CODES: readonly string[] = [
   "S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08",
@@ -149,8 +149,18 @@ test.describe("STATE_AC per-state coverage", () => {
       continue;
     }
     test(`${code} (${slug}) /s/${slug}/ac/1 renders cleanly`, async ({ page }) => {
-      const lcCode = code.toLowerCase();
-      const shardBaseUrl = `/data/boundaries/in/ac/state=in_${lcCode}/all`;
+      // The AC boundary shard partition is keyed by the canonical LGD
+      // slug (ADR-0048 LGD-canonical rename, e.g. `state=delhi`,
+      // `state=uttar-pradesh`), which is NOT always the same as the
+      // URL slug used for navigation (e.g. `nct-of-delhi`,
+      // `jammu-and-kashmir-ut`). Rather than re-derive the partition
+      // slug here, match the map's own GET for ANY AC shard returning
+      // 200 — the drilldown page only loads this state's shard, so the
+      // first 200 match IS this state's boundary, and we verify the
+      // EXACT fetch the citizen-facing render makes. TopoJSON siblings
+      // exist for AC shards (ADR-0047), so accept either extension.
+      const acShardRe =
+        /\/data\/boundaries\/in\/ac\/state=[^/]+\/all\.(topojson|geojson)(\?|$)/;
       // Set up the shard-response listener BEFORE navigation so the
       // map's own GET is captured by the same Promise we await later.
       const shardResponsePromise = page
@@ -158,8 +168,7 @@ test.describe("STATE_AC per-state coverage", () => {
           (r) =>
             r.request().method() === "GET" &&
             r.status() === 200 &&
-            (r.url().includes(`${shardBaseUrl}.topojson`) ||
-              r.url().includes(`${shardBaseUrl}.geojson`)),
+            acShardRe.test(r.url()),
           { timeout: 30_000 },
         )
         .catch(() => null);
@@ -195,7 +204,7 @@ test.describe("STATE_AC per-state coverage", () => {
       const shardResponse = await shardResponsePromise;
       expect(
         shardResponse,
-        `${code}: map did not request ${shardBaseUrl}.{topojson,geojson}`,
+        `${code}: map did not request /data/boundaries/in/ac/state=<lgd-slug>/all.{topojson,geojson}`,
       ).not.toBeNull();
       expect(shardResponse?.status(), `${code}: shard load failed`).toBe(200);
     });

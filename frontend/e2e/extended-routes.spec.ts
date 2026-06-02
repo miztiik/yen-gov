@@ -52,10 +52,16 @@ test.describe("extended routes", () => {
     await expect(page.getByRole("heading", { level: 2, name: /Corrections/ })).toBeVisible();
   });
 
-  test("settings page renders color overrides editor", async ({ page }) => {
+  test("settings page renders the party colour explainer", async ({ page }) => {
     await page.goto("/settings");
     await expect(page.getByRole("heading", { level: 1, name: "Settings" })).toBeVisible();
-    await expect(page.getByText(/Party color overrides/i)).toBeVisible();
+    // Party colours are no longer editable (one-identity party-colour
+    // migration). The page is now a read-only explainer of the
+    // three-tier colour resolver rather than a per-browser override
+    // editor.
+    await expect(
+      page.getByRole("heading", { level: 2, name: /How party colours are chosen/i }),
+    ).toBeVisible();
   });
 
   test("404 fallback renders for unknown route", async ({ page }) => {
