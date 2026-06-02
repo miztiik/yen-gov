@@ -34,7 +34,11 @@
     type TileRow,
   } from "../view-models/election-tile-layout";
   import type { AcWinner } from "../view-models/state-overview";
-  import { colors } from "../colors/store.svelte";
+  import {
+    getPartyColor,
+    resolvePartyPalette,
+    type PartyRowForResolver,
+  } from "../colors/resolver";
   import { navigate, url } from "../url";
   import {
     DEFAULT_ELECTION_FILTERS,
@@ -138,16 +142,74 @@
   );
 
   // ─── PR-B8 recolour / dim ───────────────────────────────────────────
-  // One palette allocation across every winning party, reused as the
-  // `PartyFill` resolver so the helper stays store-free + testable.
-  const party_fill = $derived.by<PartyFill>(() => {
-    void colors.overrides;
+  // PR-SYM-6f4: One-identity migration. AcWinner carries `party_id`
+  // (from `view-models/state-overview` extended in PR-SYM-6d) plus the
+  // additive brand_colour mirror, so we resolve through the canonical
+  // 3-tier `getPartyColor` / `resolvePartyPalette` path. Rows without
+  // `party_id` derive a stable `parties.IN.<UPPER(short)>` so the
+  // resolver still degrades to anchor / algorithmic tiers without losing
+  // identity stability. Mirrors PR #587 (IndiaMap) precedent.
+  function partyIdFor(r: {
+    party_id?: string | null;
+    party_short: string;
+  }): string {
+    if (r.party_id) return r.party_id;
+    const slug = (r.party_short ?? "UNK").trim().toUpperCase();
+    return `parties.IN.${slug}`;
+  }
+
+  function rowFor(pid: string, r: AcWinner): PartyRowForResolver | null {
+    if (r.brand_colour_hex == null) return null;
+    return {
+      party_id: pid,
+      eci_code: r.party_eci_code,
+      brand_colour: {
+        hex: r.brand_colour_hex,
+        confidence: r.brand_colour_confidence ?? "medium",
+      },
+    };
+  }
+
+  // One palette allocation across every winning party, batched via
+  // `resolvePartyPalette` so per-AC `party_fill(...)` calls below stay
+  // O(1) map gets. Also feeds the legend below so they agree by id.
+  const palette_bundle = $derived.by(() => {
     const list = rows ?? [];
-    const palette = colors.forSet(
-      list.map((r) => r.party_eci_code ?? r.party_short),
-    );
-    return (code, short) =>
-      palette.get(code ?? short)?.fill ?? colors.fill(code, short);
+    const ids: string[] = [];
+    const rowMap = new Map<string, PartyRowForResolver | null>();
+    const idByKey = new Map<string, string>();
+    const labelByPid = new Map<string, string>();
+    for (const r of list) {
+      const key = r.party_eci_code ?? r.party_short;
+      if (idByKey.has(key)) continue;
+      const pid = partyIdFor(r);
+      idByKey.set(key, pid);
+      if (!labelByPid.has(pid)) labelByPid.set(pid, r.party_short);
+      if (!rowMap.has(pid)) {
+        ids.push(pid);
+        rowMap.set(pid, rowFor(pid, r));
+      }
+    }
+    const palette = resolvePartyPalette(ids, rowMap);
+    return { palette, idByKey, labelByPid, rowMap };
+  });
+
+  const party_fill = $derived.by<PartyFill>(() => {
+    const { palette, idByKey, rowMap } = palette_bundle;
+    return (code, short) => {
+      const key = code ?? short;
+      const pid = idByKey.get(key);
+      if (pid) {
+        return (
+          palette.get(pid)?.hex ??
+          getPartyColor(pid, rowMap.get(pid) ?? null).hex
+        );
+      }
+      // Party not present in `rows` (defensive): derive a stable id and
+      // resolve through the same tiers so the swatch stays identity-stable.
+      const fallback_pid = `parties.IN.${(short ?? "UNK").trim().toUpperCase()}`;
+      return getPartyColor(fallback_pid, null).hex;
+    };
   });
 
   const fills_override = $derived<Record<number, string>>(
@@ -174,21 +236,19 @@
     }),
   );
 
-  // Compact party legend (distinct winning parties, palette-consistent with
-  // the choropleth). Built from the same `colors.forSet` allocation.
+  // Compact party legend (distinct winning parties, palette-consistent
+  // with the choropleth). Built off the same `palette_bundle` so swatch
+  // and polygon agree by `party_id`.
   const legend = $derived.by(() => {
-    void colors.overrides;
-    const list = rows ?? [];
-    const palette = colors.forSet(
-      list.map((r) => r.party_eci_code ?? r.party_short),
-    );
+    const { palette, idByKey, labelByPid, rowMap } = palette_bundle;
     const seen = new Map<string, { label: string; color: string }>();
-    for (const r of list) {
-      const key = r.party_eci_code ?? r.party_short;
-      if (seen.has(key)) continue;
-      seen.set(key, {
-        label: r.party_short,
-        color: palette.get(key)?.fill ?? colors.fill(r.party_eci_code, r.party_short),
+    for (const pid of idByKey.values()) {
+      if (seen.has(pid)) continue;
+      seen.set(pid, {
+        label: labelByPid.get(pid) ?? pid,
+        color:
+          palette.get(pid)?.hex ??
+          getPartyColor(pid, rowMap.get(pid) ?? null).hex,
       });
     }
     return [...seen.values()];
