@@ -41,8 +41,8 @@ Lanes run in parallel; within a lane rows are sequential. `||` = can start immed
 | EGC-A2 | A | Mount experience on `/s/:state/t/elections` topic door | EGC-A1 | [ ] PENDING | _pending_ | Jony |
 | EGC-A3 | A | Mount experience on national `/t/elections` topic door | EGC-A1 | [ ] PENDING | _pending_ | Jony |
 | EGC-A4 | A | Amend ADR-0048 (topic-door experience; reconcile Model C) + docs | EGC-A2,A3 | [ ] PENDING | _pending_ | Gregor |
-| EGC-B1 | B | Per-year ECI-direct vs TCPD-fallback source map recon (1999-2019); GAP B signed off option (a) | none `||` | [ ] PENDING | _pending_ | Max |
-| EGC-B2 | B | Ingest historical PC series (ECI-primary, TCPD-fallback) + honesty flags | EGC-B1 | [ ] PENDING | _pending_ | Hans + Max |
+| EGC-B1 | B | Per-year ECI-direct vs TCPD-fallback source map recon (1999-2019); GAP B signed off option (a) | none `||` | [x] DONE | #579 | Max |
+| EGC-B2 | B | Ingest historical PC series (TCPD/Lok Dhaba for all 5 years per B1 verdict) + honesty flags | EGC-B1 | [ ] PENDING | _pending_ | Hans + Max |
 | EGC-C1 | C | Promote hexbin generator to `tools/`; border-conforming refinement; build all states/UTs | none `||` | [ ] PENDING | _pending_ | Jony |
 | EGC-C2 | C | Two-tier tile-layout coverage contract (Tier-1 always-on; Tier-2 ship-dark->enforce) | EGC-C1 | [ ] PENDING | _pending_ | Jony |
 | EGC-C3 | C | Hide "Equal seats" toggle where no layout; demote string to deep-link fallback | EGC-C1 | [ ] PENDING | _pending_ | Jony |
