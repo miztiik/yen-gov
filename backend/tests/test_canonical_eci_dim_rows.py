@@ -55,11 +55,32 @@ def _write_parties(tmp: Path) -> Path:
             {"party_id": "parties.IN.DMK", "short_name": "DMK",
              "full_name": "Dravida Munnetra Kazhagam", "aliases": [],
              "eci_codes": ["1234"], "state_scope": ["S22"],
-             "recognition": "state"},
+             "recognition": "state",
+             "brand_colour": {
+                 "hex": "#e63329", "confidence": "high",
+                 "source_id": "src.wiki.dmk", "source_kind": "wiki",
+             },
+             "wikipedia_url": "https://en.wikipedia.org/wiki/Dravida_Munnetra_Kazhagam",
+             "election_symbol": {
+                 "symbol_name": "Rising Sun",
+                 "asset_path": "party-symbols/rising-sun.svg",
+                 "asset_sha256": "deadbeef" * 8,
+                 "source_id": "src.wiki.symbols",
+                 "asset_source_kind": "commons",
+                 "license_label": "CC-BY-SA-4.0",
+                 "render_mode": "source_coloured",
+                 "symbol_status": "verified",
+                 "mime_type": "image/svg+xml",
+                 "notes": None,
+             }},
             {"party_id": "parties.IN.BJP", "short_name": "BJP",
              "full_name": "Bharatiya Janata Party", "aliases": [],
              "eci_codes": ["742"], "state_scope": ["IN"],
-             "recognition": "national"},
+             "recognition": "national",
+             "brand_colour": {
+                 "hex": "#ff9933", "confidence": "high",
+                 "source_id": "src.wiki.bjp", "source_kind": "wiki",
+             }},
         ],
     }
     (tax / "parties.json").write_text(json.dumps(payload), encoding="utf-8")
@@ -178,6 +199,44 @@ class TestPartyRegistry:
         rows = party_dim_rows(lookup, source_id=SOURCE)
         pids = {r["party_id"] for r in rows}
         assert pids == {"parties.IN.IND", "parties.IN.DMK", "parties.IN.BJP"}
+
+    def test_party_dim_mirrors_brand_colour_when_present(self, lookup):
+        """PR-SYM-6b: brand_colour_hex + brand_colour_confidence flow through."""
+        rows = party_dim_rows(lookup, source_id=SOURCE)
+        by_id = {r["party_id"]: r for r in rows}
+        assert by_id["parties.IN.DMK"]["brand_colour_hex"] == "#e63329"
+        assert by_id["parties.IN.DMK"]["brand_colour_confidence"] == "high"
+        assert by_id["parties.IN.BJP"]["brand_colour_hex"] == "#ff9933"
+
+    def test_party_dim_brand_colour_null_when_absent(self, lookup):
+        """Parties without brand_colour mirror to null, never raise."""
+        rows = party_dim_rows(lookup, source_id=SOURCE)
+        by_id = {r["party_id"]: r for r in rows}
+        assert by_id["parties.IN.IND"]["brand_colour_hex"] is None
+        assert by_id["parties.IN.IND"]["brand_colour_confidence"] is None
+        assert by_id["parties.IN.IND"]["wikipedia_url"] is None
+
+    def test_party_dim_mirrors_wikipedia_url(self, lookup):
+        rows = party_dim_rows(lookup, source_id=SOURCE)
+        by_id = {r["party_id"]: r for r in rows}
+        assert by_id["parties.IN.DMK"]["wikipedia_url"] == (
+            "https://en.wikipedia.org/wiki/Dravida_Munnetra_Kazhagam"
+        )
+        assert by_id["parties.IN.BJP"]["wikipedia_url"] is None
+
+    def test_party_dim_mirrors_election_symbol_flattened(self, lookup):
+        """Nested election_symbol object flattens to asset_path + render_mode."""
+        rows = party_dim_rows(lookup, source_id=SOURCE)
+        by_id = {r["party_id"]: r for r in rows}
+        assert by_id["parties.IN.DMK"]["election_symbol_asset_path"] == (
+            "party-symbols/rising-sun.svg"
+        )
+        assert by_id["parties.IN.DMK"]["election_symbol_render_mode"] == (
+            "source_coloured"
+        )
+        # BJP has no election_symbol in this fixture; all symbol cols null.
+        assert by_id["parties.IN.BJP"]["election_symbol_asset_path"] is None
+        assert by_id["parties.IN.BJP"]["election_symbol_render_mode"] is None
 
     def test_party_dim_carries_full_name_and_recognition(self, lookup):
         rows = party_dim_rows(lookup, source_id=SOURCE)

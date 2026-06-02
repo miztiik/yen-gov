@@ -945,6 +945,12 @@ _DIM_SPECS: dict[str, dict] = {
             ("full_name", "VARCHAR NOT NULL"),
             ("recognition", "VARCHAR"),
             ("source_id", "VARCHAR NOT NULL"),
+            # PR-SYM-6b additive mirror columns from taxonomy/parties.json
+            ("brand_colour_hex", "VARCHAR"),
+            ("brand_colour_confidence", "VARCHAR"),
+            ("wikipedia_url", "VARCHAR"),
+            ("election_symbol_asset_path", "VARCHAR"),
+            ("election_symbol_render_mode", "VARCHAR"),
         ],
     },
     "party_alliance": {
