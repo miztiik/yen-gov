@@ -83,6 +83,22 @@ The 3-tier chain gives high-recognition stability (anchor), broad coverage (bran
 5. Run `bun run test --run party-colour-import-allowlist` — must stay green.
 6. Visual smoke: load the consumer's page; spot-check 2-3 high-recognition parties keep their colour.
 
+## Citizen-visible chip affordance (PR-SYM-6b)
+
+The resolver's `source` (`"anchor" | "brand" | "fallback"`) is rendered as a small chip next to the winner badge on the Constituency route so citizens can answer "is this colour real, or did the site invent it?" within seconds.
+
+| `source`   | Chip label  | Border-style | Honesty claim                                                                 |
+| ---------- | ----------- | ------------ | ----------------------------------------------------------------------------- |
+| `anchor`   | `anchor`    | solid        | Hand-curated iconic colour (INC blue, BJP saffron, DMK rising-sun red, ...). |
+| `brand`    | `brand`     | solid        | Wikipedia-sourced editorial brand colour (medium / high confidence).         |
+| `fallback` | `fallback`  | dashed       | No editorial colour exists; the hex is a deterministic hash of `party_id`.   |
+
+Border-style encodes the tier so the chip is readable without colour vision: dashed border = invented, solid border = sourced or curated. The chip's `title` attribute carries the long-form provenance explanation.
+
+Implementation: pure helper `frontend/src/lib/colors/chip.ts` (vitest-pinned) consumed by `frontend/src/lib/WinnerBadge.svelte`. The badge component takes a `WinnerInfo` (which carries `party_id` + `brand_colour_hex` + `brand_colour_confidence` per PR-SYM-6b) and renders an accent stripe + name + party_short + source chip.
+
+The ballot-symbol glyph (`dim_parties.election_symbol_asset_path`) is deferred to PR-SYM-6b2 — wiring the SVG sanitizer pipeline through the loader is its own contract surface and is out of scope for this PR.
+
 ## References
 
 - [TODO/20260527-party-symbol-assets-plan.md](../../TODO/20260527-party-symbol-assets-plan.md) — original plan-doc with one-identity doctrine in §11

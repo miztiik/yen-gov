@@ -14,6 +14,7 @@
   } from "../lib/election-events";
   import AcStackedBar from "../lib/AcStackedBar.svelte";
   import StateAcMap from "../lib/maplibre/StateAcMap.svelte";
+  import WinnerBadge from "../lib/WinnerBadge.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
   import { url } from "../lib/url";
@@ -139,9 +140,7 @@
   {:else}
     <section class="bg-white rounded-lg shadow-sm p-5 grid sm:grid-cols-3 gap-4 text-sm">
       <div>
-        <div class="text-xs uppercase text-slate-500">Winner</div>
-        <div class="font-semibold">{result.winner.name}</div>
-        <div class="text-slate-500">{result.winner.party_short}</div>
+        <WinnerBadge winner={result.winner} />
       </div>
       <div>
         <div class="text-xs uppercase text-slate-500">Margin</div>

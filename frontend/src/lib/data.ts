@@ -77,6 +77,16 @@ export interface WinnerInfo {
   votes: number;
   margin_votes: number;
   margin_pct: number;
+  /** PR-SYM-6b: canonical taxonomy id, threaded through so the
+   *  citizen-facing winner badge can call `getPartyColor(party_id, row)`
+   *  instead of joining on ECI code. Optional for back-compat with
+   *  fixtures that predate this PR. */
+  party_id?: string | null;
+  /** PR-SYM-6b: Wikipedia brand colour mirror from dim_parties v1.1.
+   *  Null/absent when no brand colour was sourced; resolver falls
+   *  through to anchor or algorithmic tier. */
+  brand_colour_hex?: string | null;
+  brand_colour_confidence?: "high" | "medium" | "low" | null;
 }
 
 export interface ConstituencyResult {
