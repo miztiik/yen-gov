@@ -3,17 +3,12 @@
   "$id": "https://yen-gov.github.io/schemas/elections-inventory.schema.json",
   "title": "Elections ingest inventory",
   "description": "Declarative record of which (election_id, state, source_input) tuples have been ingested and validated. Re-runs trust this file and skip; operators delete an entry (or pass --force) to re-ingest deliberately. Replaces per-run corpus validation per CLAUDE.md §10 doctrine (Tier-B is local pre-emit, not CI-gated).",
-  "x-version": "2.0",
+  "x-version": "1.0",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-17",
       "description": "Initial schema. Per-entry record of ingest completion with discrepancy summary; treated as the 'done and tested' marker for a state-election-source triple."
-    },
-    {
-      "version": "2.0",
-      "date": "2026-06-02",
-      "description": "BREAKING: `state` field migrated from ECI st_code (`^[SU]\\d{2}$`) to LGD-name slug (`^[a-z]+(-[a-z]+)*$`, e.g. `tamil-nadu`) per ADR-0050. Aligns inventory state identity with on-disk Hive partition values. v1.0 schema archived at `datasets/schemas/archive/elections-inventory/v1.0/`."
     }
   ],
   "type": "object",
@@ -53,8 +48,7 @@
           },
           "state": {
             "type": "string",
-            "pattern": "^[a-z]+(-[a-z]+)*$",
-            "description": "LGD-name slug (e.g. `tamil-nadu`) per ADR-0050. Matches the on-disk Hive partition value at `datasets/elections/state=<slug>/`. Translated from ECI st_code by `eci_to_lgd_slug()` at write time."
+            "pattern": "^[SU]\\d{2}$"
           },
           "source_input": {
             "type": "string",

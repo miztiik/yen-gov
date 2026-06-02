@@ -1,1649 +1,11 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/elections-inventory.schema.json",
-  "$schema_version": "1.0",
+  "$schema_version": "2.0",
   "sources": [],
   "ingested": [
     {
-      "election_id": "AcGenMay2014",
-      "state": "S01",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 175,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenApr2014",
-      "state": "S02",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenApr2019",
-      "state": "S02",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenDec1984",
-      "state": "S02",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 30,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1978",
-      "state": "S02",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 30,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenJan1980",
-      "state": "S02",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 30,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMar1990",
-      "state": "S02",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMar1995",
-      "state": "S02",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenOct1999",
-      "state": "S02",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 59,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenOct2004",
-      "state": "S02",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 57,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenOct2009",
-      "state": "S02",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenApr1996",
-      "state": "S03",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 122,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenApr2006",
-      "state": "S03",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 126,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenApr2011",
-      "state": "S03",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 126,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenDec1985",
-      "state": "S03",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 126,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1978",
-      "state": "S03",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 126,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1983",
-      "state": "S03",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 109,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenJun1991",
-      "state": "S03",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 126,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay2001",
-      "state": "S03",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 126,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1990",
-      "state": "S04",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 324,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2000",
-      "state": "S04",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 324,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2005",
-      "state": "S04",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 243,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMar1985",
-      "state": "S04",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 324,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMar1995",
-      "state": "S04",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 324,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1980",
-      "state": "S04",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 324,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov2005",
-      "state": "S04",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 243,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov2010",
-      "state": "S04",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 243,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov2015",
-      "state": "S04",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 243,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov2020",
-      "state": "S04",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 243,
-        "acs_with_mismatch": 7,
-        "coverage_pct": 2.8807,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenOct1977",
-      "state": "S04",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 324,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2017",
-      "state": "S05",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 40,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2022",
-      "state": "S05",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 40,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenJun1999",
-      "state": "S05",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 40,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenJun2007",
-      "state": "S05",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 40,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMar2012",
-      "state": "S05",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 40,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay2002",
-      "state": "S05",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 40,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov1989",
-      "state": "S05",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 40,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov1994",
-      "state": "S05",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 40,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenDec2002",
-      "state": "S06",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 182,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenDec2007",
-      "state": "S06",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 182,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenDec2012",
-      "state": "S06",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 182,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenDec2017",
-      "state": "S06",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 182,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1962",
-      "state": "S06",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 154,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1967",
-      "state": "S06",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 168,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1990",
-      "state": "S06",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 182,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1995",
-      "state": "S06",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 182,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenJun1975",
-      "state": "S06",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 181,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMar1972",
-      "state": "S06",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 168,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMar1998",
-      "state": "S06",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 182,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1980",
-      "state": "S06",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 182,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1985",
-      "state": "S06",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 182,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2000",
-      "state": "S07",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 90,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2005",
-      "state": "S07",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 90,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenJun1987",
-      "state": "S07",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 90,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1982",
-      "state": "S07",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 90,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1991",
-      "state": "S07",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 90,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1996",
-      "state": "S07",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 90,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenOct1977",
-      "state": "S07",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 90,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenOct2009",
-      "state": "S07",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 90,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenOct2014",
-      "state": "S07",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 90,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1990",
-      "state": "S08",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 67,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1998",
-      "state": "S08",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 68,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2003",
-      "state": "S08",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 68,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1982",
-      "state": "S08",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 68,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1985",
-      "state": "S08",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 68,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov2007",
-      "state": "S08",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 68,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov2012",
-      "state": "S08",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 68,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenOct1977",
-      "state": "S08",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 68,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenSep1993",
-      "state": "S08",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 68,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenApr2004",
-      "state": "S10",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 224,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenDec1994",
-      "state": "S10",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 224,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1978",
-      "state": "S10",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 224,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1983",
-      "state": "S10",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 224,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1985",
-      "state": "S10",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 224,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay2008",
-      "state": "S10",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 224,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay2013",
-      "state": "S10",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 224,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov1989",
-      "state": "S10",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 224,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenSep1999",
-      "state": "S10",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 224,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenApr1996",
-      "state": "S11",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 140,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenApr2011",
-      "state": "S11",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 140,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenJan1980",
-      "state": "S11",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 140,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenJun1991",
-      "state": "S11",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 140,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMar1977",
-      "state": "S11",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 140,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMar1987",
-      "state": "S11",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 140,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1982",
-      "state": "S11",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 140,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay2001",
-      "state": "S11",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 140,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay2006",
-      "state": "S11",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 140,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1985",
-      "state": "S12",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 320,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1990",
-      "state": "S12",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 320,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1980",
-      "state": "S12",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 320,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov1993",
-      "state": "S12",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 320,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov1998",
-      "state": "S12",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 320,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov2003",
-      "state": "S12",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 230,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov2008",
-      "state": "S12",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 230,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov2013",
-      "state": "S12",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 230,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov2018",
-      "state": "S12",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 230,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenOct1977",
-      "state": "S12",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 320,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1962",
-      "state": "S13",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 264,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1967",
-      "state": "S13",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 270,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1978",
-      "state": "S13",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 288,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1985",
-      "state": "S13",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 288,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1990",
-      "state": "S13",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 288,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMar1972",
-      "state": "S13",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 270,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMar1995",
-      "state": "S13",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 288,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1980",
-      "state": "S13",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 288,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenOct1999",
-      "state": "S13",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 288,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenOct2004",
-      "state": "S13",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 288,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenOct2009",
-      "state": "S13",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 288,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenOct2014",
-      "state": "S13",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 288,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenOct2019",
-      "state": "S13",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 288,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenDec1984",
-      "state": "S14",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1990",
-      "state": "S14",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 54,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1995",
-      "state": "S14",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2000",
-      "state": "S14",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2002",
-      "state": "S14",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2007",
-      "state": "S14",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenJan1980",
-      "state": "S14",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenJan2012",
-      "state": "S14",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1978",
-      "state": "S15",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1983",
-      "state": "S15",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1988",
-      "state": "S15",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1993",
-      "state": "S15",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1998",
-      "state": "S15",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2003",
-      "state": "S15",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2013",
-      "state": "S15",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMar2008",
-      "state": "S15",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
       "election_id": "AcGenApr1979",
-      "state": "S16",
+      "state": "mizoram",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
@@ -1656,1155 +18,11 @@
     },
     {
       "election_id": "AcGenApr1984",
-      "state": "S16",
+      "state": "mizoram",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
         "acs_total": 30,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenDec2008",
-      "state": "S16",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 40,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1987",
-      "state": "S16",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 40,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1978",
-      "state": "S16",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 30,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov1989",
-      "state": "S16",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 40,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov1993",
-      "state": "S16",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 40,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov1998",
-      "state": "S16",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 40,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov2003",
-      "state": "S16",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 40,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov2013",
-      "state": "S16",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 40,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov2018",
-      "state": "S16",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 40,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1993",
-      "state": "S17",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1998",
-      "state": "S17",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2003",
-      "state": "S17",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2013",
-      "state": "S17",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenJan1989",
-      "state": "S17",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMar2008",
-      "state": "S17",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov1977",
-      "state": "S17",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov1982",
-      "state": "S17",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov1987",
-      "state": "S17",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenApr2004",
-      "state": "S18",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 147,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenApr2009",
-      "state": "S18",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 147,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenApr2014",
-      "state": "S18",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 147,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenApr2019",
-      "state": "S18",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 146,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1974",
-      "state": "S18",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 146,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1990",
-      "state": "S18",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 147,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2000",
-      "state": "S18",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 147,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenJun1980",
-      "state": "S18",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 147,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMar1985",
-      "state": "S18",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 147,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMar1995",
-      "state": "S18",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 147,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenOct1977",
-      "state": "S18",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 147,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1992",
-      "state": "S19",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 117,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1997",
-      "state": "S19",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 117,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2002",
-      "state": "S19",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 117,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenJan2007",
-      "state": "S19",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 116,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenJan2012",
-      "state": "S19",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 117,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1980",
-      "state": "S19",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 117,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenOct1977",
-      "state": "S19",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 117,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenSep1985",
-      "state": "S19",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 117,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenDec2003",
-      "state": "S20",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 200,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenDec2008",
-      "state": "S20",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 200,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenDec2013",
-      "state": "S20",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 200,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenDec2018",
-      "state": "S20",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 199,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1990",
-      "state": "S20",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 200,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenJun1977",
-      "state": "S20",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 200,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1980",
-      "state": "S20",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 200,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1985",
-      "state": "S20",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 200,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov1993",
-      "state": "S20",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 199,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov1998",
-      "state": "S20",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 200,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenApr2009",
-      "state": "S21",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 32,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenApr2014",
-      "state": "S21",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 32,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenApr2019",
-      "state": "S21",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 32,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1985",
-      "state": "S21",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 32,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay2004",
-      "state": "S21",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 28,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov1989",
-      "state": "S21",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 32,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov1994",
-      "state": "S21",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 32,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenOct1979",
-      "state": "S21",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 32,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenOct1999",
-      "state": "S21",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 32,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenApr2021",
-      "state": "S22",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 234,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenApr2021",
-      "state": "S22",
-      "source_input": "tn_ae_panel_1971_2021",
-      "ingested_at": "2026-05-17",
-      "discrepancy_summary": {
-        "acs_total": 234,
-        "acs_with_mismatch": 2,
-        "coverage_pct": 0.8547,
-        "mean_delta_pp": 0.0201,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenDec1984",
-      "state": "S22",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 234,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1991",
-      "state": "S22",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 234,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1996",
-      "state": "S22",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 234,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenJan1989",
-      "state": "S22",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 234,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenJun1980",
-      "state": "S22",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 234,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMar1971",
-      "state": "S22",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 234,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay2001",
-      "state": "S22",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 234,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay2006",
-      "state": "S22",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 234,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay2011",
-      "state": "S22",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 234,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay2016",
-      "state": "S22",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 232,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenOct1977",
-      "state": "S22",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 234,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenDec1977",
-      "state": "S23",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1988",
-      "state": "S23",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1993",
-      "state": "S23",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1998",
-      "state": "S23",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2003",
-      "state": "S23",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2008",
-      "state": "S23",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2013",
-      "state": "S23",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1983",
-      "state": "S23",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 60,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenApr2007",
-      "state": "S24",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 403,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1974",
-      "state": "S24",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 424,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb1985",
-      "state": "S24",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 425,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2002",
-      "state": "S24",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 403,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2012",
-      "state": "S24",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 403,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenJun1977",
-      "state": "S24",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 425,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1980",
-      "state": "S24",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 425,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenMay1991",
-      "state": "S24",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 419,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov1989",
-      "state": "S24",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 425,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenNov1993",
-      "state": "S24",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 423,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenSep1996",
-      "state": "S24",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 424,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -2813,7 +31,7 @@
     },
     {
       "election_id": "AcGenApr1987",
-      "state": "S25",
+      "state": "west-bengal",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
@@ -2826,7 +44,7 @@
     },
     {
       "election_id": "AcGenApr1991",
-      "state": "S25",
+      "state": "west-bengal",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
@@ -2838,12 +56,12 @@
       }
     },
     {
-      "election_id": "AcGenApr2021",
-      "state": "S25",
+      "election_id": "AcGenApr1996",
+      "state": "assam",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 294,
+        "acs_total": 122,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -2851,12 +69,12 @@
       }
     },
     {
-      "election_id": "AcGenJun1977",
-      "state": "S25",
+      "election_id": "AcGenApr1996",
+      "state": "kerala",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 294,
+        "acs_total": 140,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -2864,12 +82,12 @@
       }
     },
     {
-      "election_id": "AcGenMay1982",
-      "state": "S25",
+      "election_id": "AcGenApr1996",
+      "state": "puducherry",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 294,
+        "acs_total": 30,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -2877,12 +95,12 @@
       }
     },
     {
-      "election_id": "AcGenMay1996",
-      "state": "S25",
+      "election_id": "AcGenApr2004",
+      "state": "karnataka",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 294,
+        "acs_total": 224,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -2890,12 +108,12 @@
       }
     },
     {
-      "election_id": "AcGenMay2001",
-      "state": "S25",
+      "election_id": "AcGenApr2004",
+      "state": "odisha",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 294,
+        "acs_total": 147,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -2903,12 +121,12 @@
       }
     },
     {
-      "election_id": "AcGenMay2006",
-      "state": "S25",
+      "election_id": "AcGenApr2006",
+      "state": "assam",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 294,
+        "acs_total": 126,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -2916,12 +134,12 @@
       }
     },
     {
-      "election_id": "AcGenMay2011",
-      "state": "S25",
+      "election_id": "AcGenApr2007",
+      "state": "uttar-pradesh",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 294,
+        "acs_total": 403,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -2929,12 +147,12 @@
       }
     },
     {
-      "election_id": "AcGenMay2016",
-      "state": "S25",
+      "election_id": "AcGenApr2009",
+      "state": "odisha",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 294,
+        "acs_total": 147,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -2942,12 +160,12 @@
       }
     },
     {
-      "election_id": "AcGenDec2003",
-      "state": "S26",
+      "election_id": "AcGenApr2009",
+      "state": "sikkim",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 90,
+        "acs_total": 32,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -2955,12 +173,12 @@
       }
     },
     {
-      "election_id": "AcGenNov2008",
-      "state": "S26",
+      "election_id": "AcGenApr2011",
+      "state": "assam",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 90,
+        "acs_total": 126,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -2968,12 +186,12 @@
       }
     },
     {
-      "election_id": "AcGenNov2013",
-      "state": "S26",
+      "election_id": "AcGenApr2011",
+      "state": "kerala",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 90,
+        "acs_total": 140,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -2981,90 +199,12 @@
       }
     },
     {
-      "election_id": "AcGenNov2018",
-      "state": "S26",
+      "election_id": "AcGenApr2011",
+      "state": "puducherry",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 90,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenDec2009",
-      "state": "S27",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 81,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenDec2014",
-      "state": "S27",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 81,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2005",
-      "state": "S27",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 81,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2002",
-      "state": "S28",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 70,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenFeb2007",
-      "state": "S28",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 69,
-        "acs_with_mismatch": 0,
-        "coverage_pct": 0.0,
-        "mean_delta_pp": 0,
-        "halted": false
-      }
-    },
-    {
-      "election_id": "AcGenJan2012",
-      "state": "S28",
-      "source_input": "eci_ae_panel",
-      "ingested_at": "2026-05-24",
-      "discrepancy_summary": {
-        "acs_total": 70,
+        "acs_total": 30,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -3073,7 +213,46 @@
     },
     {
       "election_id": "AcGenApr2014",
-      "state": "S29",
+      "state": "arunachal-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenApr2014",
+      "state": "odisha",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 147,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenApr2014",
+      "state": "sikkim",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 32,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenApr2014",
+      "state": "telangana",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
@@ -3085,12 +264,168 @@
       }
     },
     {
-      "election_id": "AcGenDec2018",
-      "state": "S29",
+      "election_id": "AcGenApr2019",
+      "state": "arunachal-pradesh",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 119,
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenApr2019",
+      "state": "odisha",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 146,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenApr2019",
+      "state": "sikkim",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 32,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenApr2021",
+      "state": "tamil-nadu",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 234,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenApr2021",
+      "state": "tamil-nadu",
+      "source_input": "tn_ae_panel_1971_2021",
+      "ingested_at": "2026-05-17",
+      "discrepancy_summary": {
+        "acs_total": 234,
+        "acs_with_mismatch": 2,
+        "coverage_pct": 0.8547,
+        "mean_delta_pp": 0.0201,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenApr2021",
+      "state": "west-bengal",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 294,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenDec1977",
+      "state": "tripura",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenDec1984",
+      "state": "arunachal-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 30,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenDec1984",
+      "state": "manipur",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenDec1984",
+      "state": "tamil-nadu",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 234,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenDec1985",
+      "state": "assam",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 126,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenDec1994",
+      "state": "karnataka",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 224,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenDec2002",
+      "state": "gujarat",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 182,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -3099,7 +434,111 @@
     },
     {
       "election_id": "AcGenDec2003",
-      "state": "U05",
+      "state": "chhattisgarh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 90,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenDec2003",
+      "state": "delhi",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 70,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenDec2003",
+      "state": "rajasthan",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 200,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenDec2007",
+      "state": "gujarat",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 182,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenDec2008",
+      "state": "mizoram",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 40,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenDec2008",
+      "state": "rajasthan",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 200,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenDec2009",
+      "state": "jharkhand",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 81,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenDec2012",
+      "state": "gujarat",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 182,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenDec2013",
+      "state": "delhi",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
@@ -3112,11 +551,11 @@
     },
     {
       "election_id": "AcGenDec2013",
-      "state": "U05",
+      "state": "rajasthan",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 70,
+        "acs_total": 200,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -3124,12 +563,12 @@
       }
     },
     {
-      "election_id": "AcGenFeb2015",
-      "state": "U05",
+      "election_id": "AcGenDec2014",
+      "state": "jharkhand",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 70,
+        "acs_total": 81,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -3137,12 +576,12 @@
       }
     },
     {
-      "election_id": "AcGenMay1983",
-      "state": "U05",
+      "election_id": "AcGenDec2017",
+      "state": "gujarat",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 55,
+        "acs_total": 182,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -3150,12 +589,12 @@
       }
     },
     {
-      "election_id": "AcGenNov1993",
-      "state": "U05",
+      "election_id": "AcGenDec2018",
+      "state": "rajasthan",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 70,
+        "acs_total": 199,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -3163,12 +602,12 @@
       }
     },
     {
-      "election_id": "AcGenNov1998",
-      "state": "U05",
+      "election_id": "AcGenDec2018",
+      "state": "telangana",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 70,
+        "acs_total": 119,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -3176,12 +615,12 @@
       }
     },
     {
-      "election_id": "AcGenNov2008",
-      "state": "U05",
+      "election_id": "AcGenFeb1962",
+      "state": "gujarat",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 70,
+        "acs_total": 154,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -3189,12 +628,12 @@
       }
     },
     {
-      "election_id": "AcGenOct1977",
-      "state": "U05",
+      "election_id": "AcGenFeb1962",
+      "state": "maharashtra",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 56,
+        "acs_total": 264,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -3202,8 +641,60 @@
       }
     },
     {
-      "election_id": "AcGenApr1996",
-      "state": "U07",
+      "election_id": "AcGenFeb1967",
+      "state": "gujarat",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 168,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1967",
+      "state": "maharashtra",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 270,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1974",
+      "state": "odisha",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 146,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1974",
+      "state": "uttar-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 424,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1978",
+      "state": "arunachal-pradesh",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
@@ -3215,8 +706,255 @@
       }
     },
     {
-      "election_id": "AcGenApr2011",
-      "state": "U07",
+      "election_id": "AcGenFeb1978",
+      "state": "assam",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 126,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1978",
+      "state": "karnataka",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 224,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1978",
+      "state": "maharashtra",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 288,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1978",
+      "state": "meghalaya",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1983",
+      "state": "assam",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 109,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1983",
+      "state": "meghalaya",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1985",
+      "state": "madhya-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 320,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1985",
+      "state": "maharashtra",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 288,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1985",
+      "state": "uttar-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 425,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1987",
+      "state": "mizoram",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 40,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1988",
+      "state": "meghalaya",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1988",
+      "state": "tripura",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1990",
+      "state": "bihar",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 324,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1990",
+      "state": "gujarat",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 182,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1990",
+      "state": "himachal-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 67,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1990",
+      "state": "madhya-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 320,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1990",
+      "state": "maharashtra",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 288,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1990",
+      "state": "manipur",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 54,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1990",
+      "state": "odisha",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 147,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1990",
+      "state": "puducherry",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
@@ -3229,11 +967,713 @@
     },
     {
       "election_id": "AcGenFeb1990",
-      "state": "U07",
+      "state": "rajasthan",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 200,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1991",
+      "state": "tamil-nadu",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 234,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1992",
+      "state": "punjab",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 117,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1993",
+      "state": "meghalaya",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1993",
+      "state": "nagaland",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1993",
+      "state": "tripura",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1995",
+      "state": "gujarat",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 182,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1995",
+      "state": "manipur",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1996",
+      "state": "tamil-nadu",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 234,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1997",
+      "state": "punjab",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 117,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1998",
+      "state": "himachal-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 68,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1998",
+      "state": "meghalaya",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1998",
+      "state": "nagaland",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb1998",
+      "state": "tripura",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2000",
+      "state": "bihar",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 324,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2000",
+      "state": "haryana",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 90,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2000",
+      "state": "manipur",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2000",
+      "state": "odisha",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 147,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2002",
+      "state": "manipur",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2002",
+      "state": "punjab",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 117,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2002",
+      "state": "uttar-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 403,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2002",
+      "state": "uttarakhand",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 70,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2003",
+      "state": "himachal-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 68,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2003",
+      "state": "meghalaya",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2003",
+      "state": "nagaland",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2003",
+      "state": "tripura",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2005",
+      "state": "bihar",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 243,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2005",
+      "state": "haryana",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 90,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2005",
+      "state": "jharkhand",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 81,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2007",
+      "state": "manipur",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2007",
+      "state": "uttarakhand",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 69,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2008",
+      "state": "tripura",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2012",
+      "state": "uttar-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 403,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2013",
+      "state": "meghalaya",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2013",
+      "state": "nagaland",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2013",
+      "state": "tripura",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2015",
+      "state": "delhi",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 70,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2017",
+      "state": "goa",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 40,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenFeb2022",
+      "state": "goa",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 40,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJan1980",
+      "state": "arunachal-pradesh",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
         "acs_total": 30,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJan1980",
+      "state": "kerala",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 140,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJan1980",
+      "state": "manipur",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJan1989",
+      "state": "nagaland",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJan1989",
+      "state": "tamil-nadu",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 234,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJan2007",
+      "state": "punjab",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 116,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJan2012",
+      "state": "manipur",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJan2012",
+      "state": "punjab",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 117,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJan2012",
+      "state": "uttarakhand",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 70,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJun1975",
+      "state": "gujarat",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 181,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJun1977",
+      "state": "rajasthan",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 200,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJun1977",
+      "state": "uttar-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 425,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJun1977",
+      "state": "west-bengal",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 294,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJun1980",
+      "state": "odisha",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 147,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJun1980",
+      "state": "tamil-nadu",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 234,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJun1987",
+      "state": "haryana",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 90,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -3242,7 +1682,33 @@
     },
     {
       "election_id": "AcGenJun1991",
-      "state": "U07",
+      "state": "assam",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 126,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJun1991",
+      "state": "kerala",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 140,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJun1991",
+      "state": "puducherry",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
@@ -3254,8 +1720,489 @@
       }
     },
     {
+      "election_id": "AcGenJun1999",
+      "state": "goa",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 40,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenJun2007",
+      "state": "goa",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 40,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMar1971",
+      "state": "tamil-nadu",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 234,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMar1972",
+      "state": "gujarat",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 168,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMar1972",
+      "state": "maharashtra",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 270,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMar1977",
+      "state": "kerala",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 140,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
       "election_id": "AcGenMar1980",
-      "state": "U07",
+      "state": "puducherry",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 30,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMar1985",
+      "state": "bihar",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 324,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMar1985",
+      "state": "odisha",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 147,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMar1987",
+      "state": "kerala",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 140,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMar1990",
+      "state": "arunachal-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMar1995",
+      "state": "arunachal-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMar1995",
+      "state": "bihar",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 324,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMar1995",
+      "state": "maharashtra",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 288,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMar1995",
+      "state": "odisha",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 147,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMar1998",
+      "state": "gujarat",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 182,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMar2008",
+      "state": "meghalaya",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMar2008",
+      "state": "nagaland",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMar2012",
+      "state": "goa",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 40,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1978",
+      "state": "mizoram",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 30,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1980",
+      "state": "bihar",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 324,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1980",
+      "state": "gujarat",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 182,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1980",
+      "state": "madhya-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 320,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1980",
+      "state": "maharashtra",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 288,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1980",
+      "state": "punjab",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 117,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1980",
+      "state": "rajasthan",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 200,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1980",
+      "state": "uttar-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 425,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1982",
+      "state": "haryana",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 90,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1982",
+      "state": "himachal-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 68,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1982",
+      "state": "kerala",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 140,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1982",
+      "state": "west-bengal",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 294,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1983",
+      "state": "delhi",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 55,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1983",
+      "state": "karnataka",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 224,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1983",
+      "state": "tripura",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1985",
+      "state": "gujarat",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 182,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1985",
+      "state": "himachal-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 68,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1985",
+      "state": "karnataka",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 224,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1985",
+      "state": "puducherry",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
@@ -3268,7 +2215,111 @@
     },
     {
       "election_id": "AcGenMay1985",
-      "state": "U07",
+      "state": "rajasthan",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 200,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1985",
+      "state": "sikkim",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 32,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1991",
+      "state": "haryana",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 90,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1991",
+      "state": "uttar-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 419,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1996",
+      "state": "haryana",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 90,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay1996",
+      "state": "west-bengal",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 294,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay2001",
+      "state": "assam",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 126,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay2001",
+      "state": "kerala",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 140,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay2001",
+      "state": "puducherry",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
@@ -3281,7 +2332,72 @@
     },
     {
       "election_id": "AcGenMay2001",
-      "state": "U07",
+      "state": "tamil-nadu",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 234,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay2001",
+      "state": "west-bengal",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 294,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay2002",
+      "state": "goa",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 40,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay2004",
+      "state": "sikkim",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 28,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay2006",
+      "state": "kerala",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 140,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay2006",
+      "state": "puducherry",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
@@ -3294,7 +2410,670 @@
     },
     {
       "election_id": "AcGenMay2006",
-      "state": "U07",
+      "state": "tamil-nadu",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 234,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay2006",
+      "state": "west-bengal",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 294,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay2008",
+      "state": "karnataka",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 224,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay2011",
+      "state": "tamil-nadu",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 234,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay2011",
+      "state": "west-bengal",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 294,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay2013",
+      "state": "karnataka",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 224,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay2014",
+      "state": "andhra-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 175,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay2016",
+      "state": "tamil-nadu",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 232,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenMay2016",
+      "state": "west-bengal",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 294,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov1977",
+      "state": "nagaland",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov1982",
+      "state": "nagaland",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov1987",
+      "state": "nagaland",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov1989",
+      "state": "goa",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 40,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov1989",
+      "state": "karnataka",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 224,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov1989",
+      "state": "mizoram",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 40,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov1989",
+      "state": "sikkim",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 32,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov1989",
+      "state": "uttar-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 425,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov1993",
+      "state": "delhi",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 70,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov1993",
+      "state": "madhya-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 320,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov1993",
+      "state": "mizoram",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 40,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov1993",
+      "state": "rajasthan",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 199,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov1993",
+      "state": "uttar-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 423,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov1994",
+      "state": "goa",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 40,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov1994",
+      "state": "sikkim",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 32,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov1998",
+      "state": "delhi",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 70,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov1998",
+      "state": "madhya-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 320,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov1998",
+      "state": "mizoram",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 40,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov1998",
+      "state": "rajasthan",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 200,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov2003",
+      "state": "madhya-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 230,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov2003",
+      "state": "mizoram",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 40,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov2005",
+      "state": "bihar",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 243,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov2007",
+      "state": "himachal-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 68,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov2008",
+      "state": "chhattisgarh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 90,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov2008",
+      "state": "delhi",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 70,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov2008",
+      "state": "madhya-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 230,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov2010",
+      "state": "bihar",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 243,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov2012",
+      "state": "himachal-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 68,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov2013",
+      "state": "chhattisgarh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 90,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov2013",
+      "state": "madhya-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 230,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov2013",
+      "state": "mizoram",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 40,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov2015",
+      "state": "bihar",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 243,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov2018",
+      "state": "chhattisgarh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 90,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov2018",
+      "state": "madhya-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 230,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov2018",
+      "state": "mizoram",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 40,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenNov2020",
+      "state": "bihar",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 243,
+        "acs_with_mismatch": 7,
+        "coverage_pct": 2.8807,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct1977",
+      "state": "bihar",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 324,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct1977",
+      "state": "delhi",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 56,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct1977",
+      "state": "haryana",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 90,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct1977",
+      "state": "himachal-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 68,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct1977",
+      "state": "madhya-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 320,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct1977",
+      "state": "odisha",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 147,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct1977",
+      "state": "puducherry",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
@@ -3307,11 +3086,232 @@
     },
     {
       "election_id": "AcGenOct1977",
-      "state": "U07",
+      "state": "punjab",
       "source_input": "eci_ae_panel",
       "ingested_at": "2026-05-24",
       "discrepancy_summary": {
-        "acs_total": 30,
+        "acs_total": 117,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct1977",
+      "state": "tamil-nadu",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 234,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct1979",
+      "state": "sikkim",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 32,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct1999",
+      "state": "arunachal-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 59,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct1999",
+      "state": "maharashtra",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 288,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct1999",
+      "state": "sikkim",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 32,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct2004",
+      "state": "arunachal-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 57,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct2004",
+      "state": "maharashtra",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 288,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct2009",
+      "state": "arunachal-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 60,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct2009",
+      "state": "haryana",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 90,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct2009",
+      "state": "maharashtra",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 288,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct2014",
+      "state": "haryana",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 90,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct2014",
+      "state": "maharashtra",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 288,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenOct2019",
+      "state": "maharashtra",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 288,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenSep1985",
+      "state": "punjab",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 117,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenSep1993",
+      "state": "himachal-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 68,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenSep1996",
+      "state": "uttar-pradesh",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 424,
+        "acs_with_mismatch": 0,
+        "coverage_pct": 0.0,
+        "mean_delta_pp": 0,
+        "halted": false
+      }
+    },
+    {
+      "election_id": "AcGenSep1999",
+      "state": "karnataka",
+      "source_input": "eci_ae_panel",
+      "ingested_at": "2026-05-24",
+      "discrepancy_summary": {
+        "acs_total": 224,
         "acs_with_mismatch": 0,
         "coverage_pct": 0.0,
         "mean_delta_pp": 0,
@@ -3320,217 +3320,217 @@
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S01",
+      "state": "andaman-and-nicobar",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S02",
+      "state": "andhra-pradesh",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S03",
+      "state": "arunachal-pradesh",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S04",
+      "state": "assam",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S05",
+      "state": "bihar",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S06",
+      "state": "chandigarh",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S07",
+      "state": "chhattisgarh",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S08",
+      "state": "dadra-and-nagar-haveli-and-daman-and-diu",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S10",
+      "state": "delhi",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S11",
+      "state": "goa",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S12",
+      "state": "gujarat",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S13",
+      "state": "haryana",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S14",
+      "state": "himachal-pradesh",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S15",
+      "state": "jammu-and-kashmir",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S16",
+      "state": "jharkhand",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S17",
+      "state": "karnataka",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S18",
+      "state": "kerala",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S19",
+      "state": "ladakh",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S20",
+      "state": "lakshadweep",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S21",
+      "state": "madhya-pradesh",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S22",
+      "state": "maharashtra",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S23",
+      "state": "manipur",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S24",
+      "state": "meghalaya",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S25",
+      "state": "mizoram",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S26",
+      "state": "nagaland",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S27",
+      "state": "odisha",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S28",
+      "state": "puducherry",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "S29",
+      "state": "punjab",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "U01",
+      "state": "rajasthan",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "U02",
+      "state": "sikkim",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "U03",
+      "state": "tamil-nadu",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "U04",
+      "state": "telangana",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "U05",
+      "state": "tripura",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "U07",
+      "state": "uttar-pradesh",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "U08",
+      "state": "uttarakhand",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     },
     {
       "election_id": "LsGenJun2024",
-      "state": "U09",
+      "state": "west-bengal",
       "source_input": "eci_ls",
       "ingested_at": "2026-05-31"
     }

@@ -29,6 +29,7 @@ from typing import Iterable
 
 from yen_gov.core.io import write_artifact
 from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
+from yen_gov.canonical.adapters.eci.state_slug import eci_to_lgd_slug
 from yen_gov.sources.eci.people_panel import (
     PersonRow,
     group_by_ac,
@@ -410,8 +411,14 @@ def upsert_inventory_entry(
 ) -> Path:
     """Insert or replace the (election_id, state, source_input) entry in
     ``datasets/elections/_inventory.json``. Re-runs are idempotent: the
-    underlying ``write_artifact`` skips when nothing changed."""
+    underlying ``write_artifact`` skips when nothing changed.
+
+    ADR-0050 / schema v2.0: inventory ``state`` carries the LGD-name slug.
+    Callers pass ECI st_code (the relational join-key); translation happens
+    at this write boundary.
+    """
     inv_path = repo_root.joinpath(*INVENTORY_PATH_REL)
+    state_slug = eci_to_lgd_slug(state)
     existing: list[dict] = []
     if inv_path.is_file():
         prior = json.loads(inv_path.read_text(encoding="utf-8"))
@@ -419,7 +426,7 @@ def upsert_inventory_entry(
 
     new_entry = {
         "election_id": election_id,
-        "state": state,
+        "state": state_slug,
         "source_input": source_input,
         "ingested_at": ingested_at,
         "discrepancy_summary": discrepancy_summary,
@@ -428,7 +435,7 @@ def upsert_inventory_entry(
         e
         for e in existing
         if (e.get("election_id"), e.get("state"), e.get("source_input"))
-        != (election_id, state, source_input)
+        != (election_id, state_slug, source_input)
     ]
     filtered.append(new_entry)
     filtered.sort(
@@ -509,7 +516,8 @@ def run_people_ingest(
             (e.get("election_id"), e.get("state"), e.get("source_input"))
             for e in (prior.get("ingested") or [])
         }
-        if (election_id, state, source_input) in triples:
+        # Inventory stores slug per schema v2.0; caller passes ECI.
+        if (election_id, eci_to_lgd_slug(state), source_input) in triples:
             # Already ingested; honour declarative gate.
             return IngestResult(
                 bios_upserted=0,
