@@ -97,6 +97,8 @@ Border-style encodes the tier so the chip is readable without colour vision: das
 
 Implementation: pure helper `frontend/src/lib/colors/chip.ts` (vitest-pinned) consumed by `frontend/src/lib/WinnerBadge.svelte`. The badge component takes a `WinnerInfo` (which carries `party_id` + `brand_colour_hex` + `brand_colour_confidence` per PR-SYM-6b) and renders an accent stripe + name + party_short + source chip.
 
+The Settings route (`/settings`) renders the same chip helper next to one worked example per tier so citizens can see the contract in action. The page is read-only — colours are not user-editable. PR-SYM-6i-pre2 retired the previous override UI because a per-browser override has no schema home in the canonical store and would have required a 4th `source: "user-override"` tier that does not generalise across devices or sessions.
+
 The ballot-symbol glyph (`dim_parties.election_symbol_asset_path`) is deferred to PR-SYM-6b2 — wiring the SVG sanitizer pipeline through the loader is its own contract surface and is out of scope for this PR.
 
 ## References
