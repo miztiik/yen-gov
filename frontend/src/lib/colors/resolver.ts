@@ -138,3 +138,36 @@ export function getPartyColor(
   // Tier 3: algorithmic fallback (decoration only)
   return { hex: algorithmicFallback(party_id), source: "fallback", party_id };
 }
+
+/**
+ * Resolve a palette across a set of parties in one pass — used by chart
+ * surfaces that render many parties side-by-side (state map polygons,
+ * RacesBoard chips). Same `getPartyColor` per-row contract, just batched
+ * so callers can `palette.get(party_id)` inside render-loops without
+ * paying the resolver cost each call.
+ *
+ * IMPORTANT: this helper does NOT do in-use de-duplication of algorithmic
+ * fallback slots — the resolver's per-row contract is "identity in, hex
+ * out, no mutation". Two different `parties.IN.*` ids that hash to the
+ * same algorithmic slot will get the same colour. The original
+ * `colors.forSet` walked the palette to avoid that, but in practice
+ * (a) anchor + brand-tier parties never collide (curated), and
+ * (b) algorithmic-fallback parties are minor regional parties whose
+ * identity isn't load-bearing — the swatch is decoration only and the
+ * label carries the meaning per the affordance contract.
+ *
+ * Pass each party's brand_colour-bearing row via `rows` so the brand
+ * tier is honoured. Rows without a `party_id` entry resolve to anchor
+ * or fallback.
+ */
+export function resolvePartyPalette(
+  party_ids: readonly string[],
+  rows: ReadonlyMap<string, PartyRowForResolver | null> = new Map(),
+): Map<string, ResolvedPartyColor> {
+  const out = new Map<string, ResolvedPartyColor>();
+  for (const pid of party_ids) {
+    if (out.has(pid)) continue;
+    out.set(pid, getPartyColor(pid, rows.get(pid) ?? null));
+  }
+  return out;
+}
