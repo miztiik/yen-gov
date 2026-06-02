@@ -21,7 +21,11 @@
   // Each row in a column shows: AC name (link), winner party chip, margin.
   // Click a row → opens the AC drill-down page (same target as the map).
 
-  import { colors } from "./colors/store.svelte";
+  import {
+    getPartyColor,
+    resolvePartyPalette,
+    type PartyRowForResolver,
+  } from "./colors/resolver";
   import { url } from "./url";
   import type { AcWinner } from "./view-models/state-overview";
 
@@ -35,9 +39,12 @@
   interface Row {
     eci_no: number;
     name: string;
+    party_id: string;
     winner_party_eci_code: string | null;
     winner_party_short: string;
     margin_pct: number;
+    brand_colour_hex: string | null;
+    brand_colour_confidence: "high" | "medium" | "low" | null;
   }
 
   const rows = $derived<Row[] | null>(
@@ -46,9 +53,12 @@
       : input_rows.map((w) => ({
           eci_no: w.ac_eci_no,
           name: w.ac_name,
+          party_id: w.party_id,
           winner_party_eci_code: w.party_eci_code,
           winner_party_short: w.party_short,
           margin_pct: w.margin_pct,
+          brand_colour_hex: w.brand_colour_hex ?? null,
+          brand_colour_confidence: w.brand_colour_confidence ?? null,
         })),
   );
 
@@ -58,13 +68,14 @@
   // result is stable across re-fetches.
   const top3 = $derived.by(() => {
     if (!rows) return [];
-    const tally = new Map<string, { key: string; eci_code: string | null; short: string; seats: number }>();
+    const tally = new Map<string, { key: string; party_id: string; eci_code: string | null; short: string; seats: number }>();
     for (const r of rows) {
-      const key = r.winner_party_eci_code ?? r.winner_party_short;
+      const key = r.party_id;
       const e = tally.get(key);
       if (e) e.seats++;
       else tally.set(key, {
         key,
+        party_id: r.party_id,
         eci_code: r.winner_party_eci_code,
         short: r.winner_party_short,
         seats: 1,
@@ -86,8 +97,8 @@
     title: string;
     /** Optional party_short name driving the column color. */
     party_short?: string;
-    /** Optional ECI code for the column's color stripe. */
-    party_eci_code?: string | null;
+    /** Optional canonical party_id for the column's color stripe. */
+    party_id?: string;
     /** Subtitle below the column header (e.g. seat count). */
     subtitle: string;
     rows: Row[];
@@ -100,38 +111,30 @@
     // For each top-3 party: their easy wins (margin >= COMFORTABLE_PP),
     // sorted by margin descending (most decisive first).
     const easy_cols: Column[] = top3.map(p => {
-      const list = rows!.filter(r => {
-        const k = r.winner_party_eci_code ?? r.winner_party_short;
-        return k === p.key && (r.margin_pct ?? 0) >= COMFORTABLE_PP;
-      }).sort((a, b) => (b.margin_pct ?? 0) - (a.margin_pct ?? 0));
+      const list = rows!.filter(r => r.party_id === p.key && (r.margin_pct ?? 0) >= COMFORTABLE_PP)
+        .sort((a, b) => (b.margin_pct ?? 0) - (a.margin_pct ?? 0));
       return {
         title: `${p.short} won easily`,
         party_short: p.short,
-        party_eci_code: p.eci_code,
+        party_id: p.party_id,
         subtitle: `${list.length} seat${list.length === 1 ? "" : "s"} · margin ≥ ${COMFORTABLE_PP} pp`,
         rows: list,
       };
     });
 
     // Top-3 narrow wins: any seat won by a top-3 party with margin between
-    // TIGHT and COMFORTABLE. Tells the "had to fight for it" story
-    // separately from the easy wins.
+    // TIGHT and COMFORTABLE.
     const narrow = rows!.filter(r => {
-      const k = r.winner_party_eci_code ?? r.winner_party_short;
       const m = r.margin_pct ?? 0;
-      return top_keys.has(k) && m >= TIGHT_PP && m < COMFORTABLE_PP;
+      return top_keys.has(r.party_id) && m >= TIGHT_PP && m < COMFORTABLE_PP;
     }).sort((a, b) => (a.margin_pct ?? 0) - (b.margin_pct ?? 0));
 
-    // Smaller parties: every seat NOT won by a top-3 party. These are the
-    // "wild cards" — independent winners, regional fronts, etc.
-    const smaller = rows!.filter(r => {
-      const k = r.winner_party_eci_code ?? r.winner_party_short;
-      return !top_keys.has(k);
-    }).sort((a, b) => (b.margin_pct ?? 0) - (a.margin_pct ?? 0));
+    // Smaller parties: every seat NOT won by a top-3 party.
+    const smaller = rows!.filter(r => !top_keys.has(r.party_id))
+      .sort((a, b) => (b.margin_pct ?? 0) - (a.margin_pct ?? 0));
 
     // Most competitive: tightest 12 races across all parties (margin <
-    // TIGHT). These are the races that could have flipped on a few
-    // hundred votes.
+    // TIGHT).
     const tight = rows!.filter(r => (r.margin_pct ?? 0) < TIGHT_PP)
       .sort((a, b) => (a.margin_pct ?? 0) - (b.margin_pct ?? 0))
       .slice(0, 12);
@@ -161,21 +164,30 @@
     return out;
   });
 
-  // Color helpers — read from the shared palette store so any custom party
-  // color overrides apply here too. The chip color matches the chip the
-  // same party gets in the donut, bar chart, and histogram.
-  //
-  // colors.forSet allocates a stable batch palette across every winning
-  // party in this state's results — keeps unanchored regional parties
-  // visually separated within the chart.
+  // PR-SYM-6e: batch-resolve via `resolvePartyPalette` keyed on party_id.
+  // Brand_colour rides through from dim_parties v1.1 (PR-SYM-6b) -> AcWinner
+  // (PR-SYM-6d) -> Row -> resolver -> palette.
   const palette = $derived.by(() => {
-    void colors.overrides;
-    const keys = (rows ?? []).map(r => r.winner_party_eci_code ?? r.winner_party_short);
-    return colors.forSet(keys);
+    const list = rows ?? [];
+    const partyRowMap = new Map<string, PartyRowForResolver>();
+    for (const r of list) {
+      if (partyRowMap.has(r.party_id)) continue;
+      partyRowMap.set(r.party_id, {
+        party_id: r.party_id,
+        brand_colour: r.brand_colour_hex
+          ? {
+              hex: r.brand_colour_hex,
+              confidence: r.brand_colour_confidence ?? "medium",
+            }
+          : null,
+      });
+    }
+    return resolvePartyPalette(list.map(r => r.party_id), partyRowMap);
   });
-  function chipBg(eci_code: string | null, short: string): string {
-    const k = eci_code ?? short;
-    return palette.get(k)?.fill ?? colors.fill(eci_code, short);
+  function chipBg(party_id: string | null): string {
+    if (!party_id) return "#94a3b8";
+    return palette.get(party_id)?.hex
+      ?? getPartyColor(party_id, null).hex;
   }
   // Margin band color: same RdYlBu trio used by the map legend so the
   // mental model "red = nail-biter, blue = comfortable" is consistent.
@@ -209,8 +221,8 @@
          scrollbar. -->
     <div class="grid gap-3" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
       {#each columns as col}
-        {@const stripe = col.party_eci_code !== undefined
-          ? chipBg(col.party_eci_code ?? null, col.party_short ?? "")
+        {@const stripe = col.party_id !== undefined
+          ? chipBg(col.party_id)
           : "#94a3b8" /* slate-400 for non-party columns */}
         <section class="bg-slate-50 border border-slate-200 rounded-lg overflow-hidden flex flex-col">
           <header class="px-3 pt-2.5 pb-2 border-b border-slate-200 bg-white" style:border-top="3px solid {stripe}">
@@ -219,7 +231,7 @@
           </header>
           <ul class="overflow-y-auto max-h-[420px] divide-y divide-slate-200 text-xs">
             {#each col.rows as r}
-              {@const fill = chipBg(r.winner_party_eci_code, r.winner_party_short)}
+              {@const fill = chipBg(r.party_id)}
               {@const mc = marginColor(r.margin_pct ?? 0)}
               <li>
                 <a

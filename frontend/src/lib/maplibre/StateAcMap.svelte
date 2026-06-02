@@ -12,7 +12,10 @@
 
   import MapChoropleth from "./MapChoropleth.svelte";
   import { STATE_AC } from "./sources";
-  import { colors } from "../colors/store.svelte";
+  import {
+    resolvePartyPalette,
+    type PartyRowForResolver,
+  } from "../colors/resolver";
   import { navigate, url } from "../url";
   import type { AcWinner } from "../view-models/state-overview";
   import { loadAcLgdLookup } from "../view-models/ac-crosswalk";
@@ -56,24 +59,36 @@
   interface Row {
     eci_no: number;
     name: string;
+    party_id: string;
     winner_party_eci_code: string | null;
     winner_party_short: string;
     margin_pct: number;
+    brand_colour_hex: string | null;
+    brand_colour_confidence: "high" | "medium" | "low" | null;
   }
 
   // PR-J (Phase 1.5): rows now flow in from the parent via the canonical
   // view-model loaders (loadStateOverview / loadStateAcWinners). The
   // legacy `getDb` + `results.sqlite` query is gone — this is a pure
   // presentational map.
+  //
+  // PR-SYM-6e: migrated off `colors.fill` / `colors.forSet` to the
+  // `getPartyColor(party_id, row)` + `resolvePartyPalette` helpers from
+  // the 3-tier resolver. `brand_colour_hex` already lives on AcWinner
+  // (PR-SYM-6d); the resolver handles anchor / brand / algorithmic
+  // fallback.
   const rows = $derived<Row[] | null>(
     input_rows == null
       ? null
       : input_rows.map((w) => ({
           eci_no: w.ac_eci_no,
           name: w.ac_name,
+          party_id: w.party_id,
           winner_party_eci_code: w.party_eci_code,
           winner_party_short: w.party_short,
           margin_pct: w.margin_pct,
+          brand_colour_hex: w.brand_colour_hex ?? null,
+          brand_colour_confidence: w.brand_colour_confidence ?? null,
         })),
   );
 
@@ -103,17 +118,30 @@
   const fills = $derived.by(() => {
     if (fillsOverride) return fillsOverride;
     const out: Record<number, string> = {};
-    void colors.overrides;
     const list = rows ?? [];
-    // colors.forSet: one allocation across every winning party in the state
-    // so two unanchored regional parties never land on near-identical hues.
-    const palette = colors.forSet(
-      list.map(r => r.winner_party_eci_code ?? r.winner_party_short),
+    // resolvePartyPalette: one batch resolve across every winning party
+    // in the state. Each row carries brand_colour_hex from dim_parties
+    // v1.1 (PR-SYM-6b); the resolver picks anchor / brand / algorithmic
+    // tiers per party_id.
+    const partyRowMap = new Map<string, PartyRowForResolver>();
+    for (const r of list) {
+      if (partyRowMap.has(r.party_id)) continue;
+      partyRowMap.set(r.party_id, {
+        party_id: r.party_id,
+        brand_colour: r.brand_colour_hex
+          ? {
+              hex: r.brand_colour_hex,
+              confidence: r.brand_colour_confidence ?? "medium",
+            }
+          : null,
+      });
+    }
+    const palette = resolvePartyPalette(
+      list.map((r) => r.party_id),
+      partyRowMap,
     );
     for (const r of list) {
-      const k = r.winner_party_eci_code ?? r.winner_party_short;
-      out[r.eci_no] = palette.get(k)?.fill
-        ?? colors.fill(r.winner_party_eci_code, r.winner_party_short);
+      out[r.eci_no] = palette.get(r.party_id)?.hex ?? "#94a3b8";
     }
     return out;
   });
