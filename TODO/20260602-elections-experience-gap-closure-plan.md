@@ -37,8 +37,8 @@ Lanes run in parallel; within a lane rows are sequential. `||` = can start immed
 | Row | Lane | Title | Depends on | Status | PR | Agent |
 | --- | --- | --- | --- | --- | --- | --- |
 | EGC-0 | 0 | Process guardrail: STOP-AND-SURFACE tripwire (no schema enums) | none `||` | [x] DONE | #574 | Gregor |
-| EGC-A1 | A | Extract `StateElectionExperience.svelte` (behaviour-preserving) | none `||` | [ ] PENDING | _pending_ | Gregor/Jony |
-| EGC-A2 | A | Mount experience on `/s/:state/t/elections` topic door | EGC-A1 | [ ] PENDING | _pending_ | Jony |
+| EGC-A1 | A | Extract `StateElectionExperience.svelte` (behaviour-preserving) | none `||` | [x] DONE | #582 | Gregor/Jony |
+| EGC-A2 | A | Mount experience on `/s/:state/t/elections` topic door | EGC-A1 | [x] DONE | #582 | Jony |
 | EGC-A3 | A | Mount experience on national `/t/elections` topic door | EGC-A1 | [ ] PENDING | _pending_ | Jony |
 | EGC-A4 | A | Amend ADR-0048 (topic-door experience; reconcile Model C) + docs | EGC-A2,A3 | [ ] PENDING | _pending_ | Gregor |
 | EGC-B1 | B | Per-year ECI-direct vs TCPD-fallback source map recon (1999-2019); GAP B signed off option (a) | none `||` | [x] DONE | #579 | Max |
