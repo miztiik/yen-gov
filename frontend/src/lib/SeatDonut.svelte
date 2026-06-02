@@ -4,7 +4,7 @@
   import { tweened } from "svelte/motion";
   import { cubicOut } from "svelte/easing";
   import type { PartyTotals } from "./data";
-  import { colors } from "./colors/store.svelte";
+  import { getPartyColor } from "./colors/resolver";
   import { hasMajority } from "./electoral";
   import ChartTooltip, { type TooltipState } from "./ChartTooltip.svelte";
 
@@ -44,6 +44,36 @@
     return p.party_eci_code ?? p.party_short;
   }
 
+  // PR-SYM-6f1: One-identity migration. Replace `colors.fill(eci_code, short)`
+  // (data-vs-render id fork) with `getPartyColor(party_id, row)` off the
+  // canonical 3-tier resolver. When the loader populates `party_id` from
+  // dim_parties (current shape from state-overview.ts) we hand it straight
+  // through; legacy producers that have not been extended yet surface
+  // `party_id == null`, in which case we derive a stable
+  // `parties.IN.<UPPER(short_name)>` so the resolver still degrades to
+  // anchor / algorithmic tiers without losing identity stability.
+  function partyIdFor(p: PartyTotals): string {
+    if (p.party_id) return p.party_id;
+    const slug = (p.party_short ?? "UNK").trim().toUpperCase();
+    return `parties.IN.${slug}`;
+  }
+
+  function colour_of(p: PartyTotals): string {
+    const pid = partyIdFor(p);
+    const row =
+      p.brand_colour_hex != null
+        ? {
+            party_id: pid,
+            eci_code: p.party_eci_code,
+            brand_colour: {
+              hex: p.brand_colour_hex,
+              confidence: p.brand_colour_confidence ?? "medium",
+            },
+          }
+        : null;
+    return getPartyColor(pid, row).hex;
+  }
+
   // Sweep-in entrance. `progress` goes 0 → 1 on mount; arc end-angles and
   // the centre tally are both gated on it so the chart "draws itself".
   const progress = tweened(0, { duration: 950, easing: cubicOut });
@@ -61,7 +91,7 @@
       .sort((a, b) => b.seats_won - a.seats_won)
       .map(p => ({
         ...p,
-        color: colors.fill(p.party_eci_code, p.party_short),
+        color: colour_of(p),
         key: key_for(p),
       })),
   );

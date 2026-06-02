@@ -17,6 +17,17 @@ export interface PartyTotals {
   seats_won: number;
   votes: number;
   vote_share_pct: number;
+  /** PR-SYM-6f1: canonical `parties.IN.<SLUG>` from dim_parties JOIN.
+   *  Optional because the legacy producers (election-seats-trend,
+   *  india-leading-parties) have not been extended yet. Consumers that
+   *  call `getPartyColor(party_id, row)` derive a fallback id from
+   *  `party_short` when absent so the resolver still degrades cleanly. */
+  party_id?: string | null;
+  /** PR-SYM-6f1: Wikipedia brand colour mirror from dim_parties v1.1.
+   *  Null/absent when no brand colour was sourced; resolver falls
+   *  through to anchor or algorithmic tier. */
+  brand_colour_hex?: string | null;
+  brand_colour_confidence?: "high" | "medium" | "low" | null;
 }
 
 export interface CandidateBio {
