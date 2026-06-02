@@ -137,6 +137,42 @@ export function findEvent(
 }
 
 /**
+ * Every distinct national Lok Sabha event in the catalogue, most-recent-first.
+ *
+ * The catalogue is per-state, but Lok Sabha events are national: PR #525
+ * stamped the SAME `lok_sabha` event (e.g. `LsGenJun2024`) into every state's
+ * list so a state-house view can reason about it. This helper collapses that
+ * cross-state duplication back to one row per distinct `event_id`, giving the
+ * national `/t/elections` topic door its event inventory without a separate
+ * national catalogue. De-duplicates on `event_id`, keeping the first-seen
+ * display/polled_on (they are identical across states by construction).
+ */
+export function listNationalLokSabhaEvents(
+  catalogue: ElectionEventsCatalogue | null,
+): ElectionEventRow[] {
+  if (!catalogue) return [];
+  const byId = new Map<string, ElectionEventRow>();
+  for (const rows of Object.values(catalogue.states)) {
+    for (const r of rows) {
+      if (r.kind === "lok_sabha" && !byId.has(r.event_id)) byId.set(r.event_id, r);
+    }
+  }
+  return [...byId.values()].sort((a, b) => b.polled_on.localeCompare(a.polled_on));
+}
+
+/**
+ * The default national Lok Sabha event — the most-recent one — or null when
+ * no Lok Sabha event is catalogued. Drives the `/t/elections` topic door's
+ * "which national results lead" choice, mirroring `defaultEventForState` for
+ * the state house views.
+ */
+export function defaultNationalLokSabhaEvent(
+  catalogue: ElectionEventsCatalogue | null,
+): ElectionEventRow | null {
+  return listNationalLokSabhaEvents(catalogue)[0] ?? null;
+}
+
+/**
  * Days since this event's polling date (negative if polling is in the future).
  * Used by StateOverview's recency rule: <90 days → election leads above the
  * government card; otherwise government card leads.

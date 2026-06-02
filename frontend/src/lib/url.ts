@@ -111,6 +111,19 @@ export const url = {
     return withBase(`/t/${topicId}`);
   },
   /**
+   * National Lok Sabha results atlas for a specific event —
+   * `/t/elections/<event-id>`. (UK-style elections plan PR-B4; EGC-A3.)
+   *
+   * The national counterpart to `stateElection(state, event)`: the all-India
+   * Parliamentary-Constituency results surface for one Lok Sabha event. The
+   * `/t/elections` topic door (no event) mounts the same experience at the
+   * default (most-recent) Lok Sabha event; this permalink targets a specific
+   * cohort from the "Other Lok Sabha elections on file" list.
+   */
+  nationalElection(eventId: string): string {
+    return withBase(`/t/elections/${encodeURIComponent(eventId)}`);
+  },
+  /**
    * Per-state topic page — `/s/<state-slug>/t/<topic-id>`. (IA-reset
    * Step #2.) The state slug is derived the same way as `state()` so
    * the URL shape stays citizen-readable; the topic id stays opaque

@@ -23,6 +23,7 @@ import {
 const routesDir = resolve(fileURLToPath(new URL(".", import.meta.url)), "..", "routes");
 const stateElectionSrc = readFileSync(resolve(routesDir, "StateElection.svelte"), "utf-8");
 const stateTopicSrc = readFileSync(resolve(routesDir, "StateTopic.svelte"), "utf-8");
+const topicLandingSrc = readFileSync(resolve(routesDir, "TopicLanding.svelte"), "utf-8");
 
 describe("elections experience renders on both the permalink and the topic door", () => {
   it("both routes import the shared StateElectionExperience component", () => {
@@ -43,6 +44,22 @@ describe("elections experience renders on both the permalink and the topic door"
     // on every house-view surface. The topic door must use it (not a bespoke
     // pick) so it agrees with every other elections surface.
     expect(stateTopicSrc).toContain("defaultEventForState");
+  });
+});
+
+describe("national /t/elections topic door mounts the national atlas (EGC-A3)", () => {
+  it("the topic landing mounts the national PC atlas experience", () => {
+    expect(topicLandingSrc).toContain("NationalElectionsAtlas");
+  });
+
+  it("gates the national atlas mount on the elections topic", () => {
+    expect(topicLandingSrc).toMatch(/topic\.id === "elections"/);
+  });
+
+  it("resolves the default Lok Sabha event via the shared national resolver", () => {
+    // Same drift guard as the state door: the national default must come from
+    // defaultNationalLokSabhaEvent, never a hardcoded event id.
+    expect(topicLandingSrc).toContain("defaultNationalLokSabhaEvent");
   });
 });
 

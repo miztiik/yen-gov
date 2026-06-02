@@ -32,6 +32,13 @@
   import TopicIcon from "../lib/TopicIcon.svelte";
   import UnionListBanner from "../lib/UnionListBanner.svelte";
   import PeerSetFilter from "../lib/PeerSetFilter.svelte";
+  import NationalElectionsAtlas from "./NationalElectionsAtlas.svelte";
+  import {
+    fetchElectionEvents,
+    defaultNationalLokSabhaEvent,
+    listNationalLokSabhaEvents,
+    type ElectionEventsCatalogue,
+  } from "../lib/election-events";
   import {
     fetchStateTiers,
     resolvePeerSet,
@@ -55,6 +62,27 @@
   fetchStateTiers()
     .then(t => (state_tiers = t))
     .catch(() => (state_tiers = null));
+
+  // EGC-A3 — the national /t/elections topic door mounts the all-India
+  // Parliamentary-Constituency atlas at the default (most-recent) Lok Sabha
+  // event, instead of the empty indicator grid. Loaded lazily (cached, ~3 KB)
+  // so non-elections topics pay nothing. The election_events catalogue is the
+  // only source of the national Lok Sabha event inventory (Lok Sabha events
+  // are stamped into every state's list; defaultNationalLokSabhaEvent collapses
+  // that to one row per distinct event).
+  let election_catalogue = $state<ElectionEventsCatalogue | null>(null);
+  fetchElectionEvents()
+    .then(c => (election_catalogue = c))
+    .catch(() => (election_catalogue = null));
+
+  const national_default_event = $derived(
+    defaultNationalLokSabhaEvent(election_catalogue),
+  );
+  const national_other_events = $derived(
+    listNationalLokSabhaEvents(election_catalogue).filter(
+      r => r.event_id !== national_default_event?.event_id,
+    ),
+  );
 
   // Lookup against the loaded catalogue. Null = catalogue not yet loaded
   // (loading state) OR the slug is not a known topic id (404 state). The
@@ -183,7 +211,38 @@
       <UnionListBanner topic_title={topic.title} />
     {/if}
 
-    {#if indicator_artifacts.length === 0}
+    {#if topic.id === "elections"}
+      <!-- EGC-A3: national Lok Sabha results atlas, not an indicator grid. -->
+      {#if national_default_event}
+        <section data-testid="national-elections-experience" class="space-y-6">
+          <NationalElectionsAtlas params={{ event: national_default_event.event_id }} />
+          {#if national_other_events.length > 0}
+            <details class="rounded border border-slate-200 bg-slate-50 p-3 text-sm">
+              <summary class="cursor-pointer font-medium text-slate-700">
+                Other Lok Sabha elections on file
+              </summary>
+              <ul class="mt-2 space-y-1 list-none p-0 m-0">
+                {#each national_other_events as ev (ev.event_id)}
+                  <li>
+                    <a
+                      href={url.nationalElection(ev.event_id)}
+                      class="text-sky-700 hover:underline"
+                    >{ev.display}</a>
+                  </li>
+                {/each}
+              </ul>
+            </details>
+          {/if}
+        </section>
+      {:else if election_catalogue}
+        <p class="text-sm text-slate-500">
+          No Lok Sabha results are published yet. National election results will
+          appear here as soon as the pipeline emits them.
+        </p>
+      {:else}
+        <p class="text-sm text-slate-500">Loading national election results…</p>
+      {/if}
+    {:else if indicator_artifacts.length === 0}
       <p class="text-sm text-slate-500">
         No indicator artifacts catalogued for this topic yet.
       </p>

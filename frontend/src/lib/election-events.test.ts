@@ -4,6 +4,8 @@ import {
   listEventsForState,
   findEvent,
   daysSincePolled,
+  listNationalLokSabhaEvents,
+  defaultNationalLokSabhaEvent,
   type ElectionEventsCatalogue,
 } from "./election-events";
 
@@ -141,5 +143,70 @@ describe("daysSincePolled", () => {
     const row = { event_id: "x", kind: "assembly", display: "x", polled_on: "2026-12-31" } as const;
     const now = new Date("2026-05-01T00:00:00Z");
     expect(daysSincePolled(row, now)).toBeLessThan(0);
+  });
+});
+
+describe("listNationalLokSabhaEvents (EGC-A3)", () => {
+  // Lok Sabha events are national but stamped into every state's per-state
+  // list (PR #525). The national /t/elections door must collapse that back to
+  // one row per distinct event_id, most-recent-first.
+  const NATIONAL: ElectionEventsCatalogue = {
+    $schema: "x",
+    $schema_version: "1.1",
+    sources: [],
+    states: {
+      S22: [
+        { event_id: "AcGenMay2026", kind: "assembly", display: "TN AC 2026", polled_on: "2026-05-06" },
+        { event_id: "LsGenJun2024", kind: "lok_sabha", display: "Lok Sabha 2024", polled_on: "2024-06-04" },
+        { event_id: "LsGen2019", kind: "lok_sabha", display: "Lok Sabha 2019", polled_on: "2019-05-23" },
+      ],
+      S25: [
+        // Same LS events duplicated into another state — must de-duplicate.
+        { event_id: "LsGenJun2024", kind: "lok_sabha", display: "Lok Sabha 2024", polled_on: "2024-06-04" },
+        { event_id: "LsGen2019", kind: "lok_sabha", display: "Lok Sabha 2019", polled_on: "2019-05-23" },
+      ],
+    },
+  };
+
+  it("collapses cross-state duplication to one row per distinct event_id", () => {
+    const out = listNationalLokSabhaEvents(NATIONAL);
+    expect(out.map(e => e.event_id)).toEqual(["LsGenJun2024", "LsGen2019"]);
+  });
+
+  it("excludes assembly events", () => {
+    const out = listNationalLokSabhaEvents(NATIONAL);
+    expect(out.every(e => e.kind === "lok_sabha")).toBe(true);
+  });
+
+  it("returns an empty array when no catalogue / no Lok Sabha events", () => {
+    expect(listNationalLokSabhaEvents(null)).toEqual([]);
+    expect(
+      listNationalLokSabhaEvents({
+        $schema: "x", $schema_version: "1.1", sources: [],
+        states: { S01: [{ event_id: "a", kind: "assembly", display: "a", polled_on: "2020-01-01" }] },
+      }),
+    ).toEqual([]);
+  });
+});
+
+describe("defaultNationalLokSabhaEvent (EGC-A3)", () => {
+  const NATIONAL: ElectionEventsCatalogue = {
+    $schema: "x",
+    $schema_version: "1.1",
+    sources: [],
+    states: {
+      S22: [
+        { event_id: "LsGen2019", kind: "lok_sabha", display: "Lok Sabha 2019", polled_on: "2019-05-23" },
+        { event_id: "LsGenJun2024", kind: "lok_sabha", display: "Lok Sabha 2024", polled_on: "2024-06-04" },
+      ],
+    },
+  };
+
+  it("returns the most-recent Lok Sabha event", () => {
+    expect(defaultNationalLokSabhaEvent(NATIONAL)?.event_id).toBe("LsGenJun2024");
+  });
+
+  it("returns null when no Lok Sabha event is catalogued", () => {
+    expect(defaultNationalLokSabhaEvent(null)).toBeNull();
   });
 });
