@@ -138,6 +138,14 @@
       party_key: w.party_eci_code,
       party_short: w.party_short,
       margin_pct: w.margin_pct,
+      // PR-SYM-6f7: thread canonical party_id + brand_colour so the
+      // tile-layout's internal resolver picks anchor / brand / fallback
+      // identically to the geo arm. Overlay `fills_override` below still
+      // wins for actual rendered fill; this keeps the legend swatch +
+      // any non-overridden tile identity-stable.
+      party_id: w.party_id,
+      brand_colour_hex: w.brand_colour_hex,
+      brand_colour_confidence: w.brand_colour_confidence,
     })),
   );
 
