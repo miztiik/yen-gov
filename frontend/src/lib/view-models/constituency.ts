@@ -141,14 +141,12 @@ async function runQueries(
       END               AS party_short,
       dp.full_name      AS party_full,
       dp.eci_code       AS party_eci_code,
-      -- PR-SYM-6b: dim_parties brand columns are declared in schema v1.1
-      -- (PR #570) but the canonical writer has not yet rewritten the
-      -- on-disk parquet. Project NULLs so the loader runs today; the
-      -- resolver falls through anchor -> algorithmic gracefully. Swap to
-      -- dp.brand_colour_hex / dp.brand_colour_confidence once the
-      -- writer-side rewrite lands (tracked in PR-SYM-6b2).
-      CAST(NULL AS VARCHAR) AS brand_colour_hex,
-      CAST(NULL AS VARCHAR) AS brand_colour_confidence,
+      -- PR-SYM-6b2: dim_parties.parquet rewritten to schema v1.1; project
+      -- the real brand columns now. NULLs flow through when a row has no
+      -- editorial brand colour (most parties) and the resolver falls
+      -- through anchor -> algorithmic-fallback gracefully.
+      dp.brand_colour_hex        AS brand_colour_hex,
+      dp.brand_colour_confidence AS brand_colour_confidence,
       obs_v.value_numeric AS votes,
       obs_s.value_numeric AS vote_share_pct,
       p.sex             AS sex,
