@@ -12,6 +12,7 @@
 
   import MapChoropleth from "./MapChoropleth.svelte";
   import { STATE_AC } from "./sources";
+  import { renderTooltipCard } from "./tooltip-card";
   import {
     resolvePartyPalette,
     type PartyRowForResolver,
@@ -115,14 +116,13 @@
   // frame where the join points at keys the fills map lacks.
   const canonical_join = $derived(lgd_lookup != null && lgd_lookup.size > 0);
 
-  const fills = $derived.by(() => {
-    if (fillsOverride) return fillsOverride;
-    const out: Record<number, string> = {};
+  // Party identity colour per AC (eci_no -> hex), resolved once via the
+  // 3-tier resolver. Drives BOTH the default choropleth fill and the
+  // tooltip party pill. Independent of `fillsOverride` so the pill always
+  // shows the winning party's colour even when the filter rail recolours
+  // the choropleth by some other dimension.
+  const party_colors = $derived.by(() => {
     const list = rows ?? [];
-    // resolvePartyPalette: one batch resolve across every winning party
-    // in the state. Each row carries brand_colour_hex from dim_parties
-    // v1.1 (PR-SYM-6b); the resolver picks anchor / brand / algorithmic
-    // tiers per party_id.
     const partyRowMap = new Map<string, PartyRowForResolver>();
     for (const r of list) {
       if (partyRowMap.has(r.party_id)) continue;
@@ -140,8 +140,19 @@
       list.map((r) => r.party_id),
       partyRowMap,
     );
+    const out = new Map<number, string>();
     for (const r of list) {
-      out[r.eci_no] = palette.get(r.party_id)?.hex ?? "#94a3b8";
+      const hex = palette.get(r.party_id)?.hex;
+      if (hex) out.set(r.eci_no, hex);
+    }
+    return out;
+  });
+
+  const fills = $derived.by(() => {
+    if (fillsOverride) return fillsOverride;
+    const out: Record<number, string> = {};
+    for (const r of rows ?? []) {
+      out[r.eci_no] = party_colors.get(r.eci_no) ?? "#94a3b8";
     }
     return out;
   });
@@ -212,23 +223,15 @@
   const tooltips = $derived.by(() => {
     const out: Record<number, string> = {};
     for (const r of rows ?? []) {
-      const m = r.margin_pct == null ? "—" : `${r.margin_pct.toFixed(1)}%`;
-      out[r.eci_no] =
-        `<div class="font-semibold">${r.eci_no}. ${escape_html(r.name)}</div>` +
-        `<div class="text-slate-600">Winner: ${escape_html(r.winner_party_short)}</div>` +
-        `<div class="text-slate-500">Margin: ${m}</div>`;
+      out[r.eci_no] = renderTooltipCard({
+        title: `${r.eci_no}. ${r.name}`,
+        partyShort: r.winner_party_short,
+        partyColorHex: party_colors.get(r.eci_no) ?? null,
+        marginPct: r.margin_pct,
+      });
     }
     return out;
   });
-
-  function escape_html(s: string): string {
-    return s.replace(/[&<>"']/g, c =>
-      c === "&" ? "&amp;" :
-      c === "<" ? "&lt;" :
-      c === ">" ? "&gt;" :
-      c === '"' ? "&quot;" : "&#39;",
-    );
-  }
 
   function on_select(sel: { key: string | number; properties?: Record<string, unknown> }): void {
     // The canonical map join is lgd_ac_id (Row B3), so `sel.key` is an

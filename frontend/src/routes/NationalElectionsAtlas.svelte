@@ -22,6 +22,7 @@
 
   import MapChoropleth from "../lib/maplibre/MapChoropleth.svelte";
   import { INDIA_PC } from "../lib/maplibre/sources";
+  import { renderTooltipCard } from "../lib/maplibre/tooltip-card";
   import TileCartogram from "../lib/charts/TileCartogram.svelte";
   import {
     fetchElectionTileLayouts,
@@ -146,11 +147,6 @@
     );
   }
 
-  function escapeHtml(s: string): string {
-    return s.replace(/[&<>"']/g, (c) =>
-      c === "&" ? "&amp;" : c === "<" ? "&lt;" : c === ">" ? "&gt;" : c === '"' ? "&quot;" : "&#39;",
-    );
-  }
 
   // ─── Palette (PR-SYM-6i-pre3: 3-tier resolver, keyed on party_id) ──
   //
@@ -222,11 +218,12 @@
   const tooltips = $derived.by(() => {
     const out: Record<string, string> = {};
     for (const w of winners) {
-      const m = w.margin_pct == null ? "—" : `${w.margin_pct.toFixed(1)}%`;
-      out[w.join_key] =
-        `<div class="font-semibold">${escapeHtml(w.pc_name)}</div>` +
-        `<div class="text-slate-600">Winner: ${escapeHtml(w.party_short)}</div>` +
-        `<div class="text-slate-500">Margin: ${m}</div>`;
+      out[w.join_key] = renderTooltipCard({
+        title: w.pc_name,
+        partyShort: w.party_short,
+        partyColorHex: fillFor(w),
+        marginPct: w.margin_pct,
+      });
     }
     return out;
   });
