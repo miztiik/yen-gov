@@ -1,7 +1,8 @@
 <script lang="ts">
   import * as d3 from "d3";
   import type { PartyTotals } from "./data";
-  import { colors } from "./colors/store.svelte";
+  import { getPartyColor, resolvePartyPalette } from "./colors/resolver";
+  import type { PartyRowForResolver } from "./colors/resolver";
   import { majorityFor } from "./electoral";
   import ChartTooltip, { type TooltipState } from "./ChartTooltip.svelte";
 
@@ -25,16 +26,45 @@
     return p.party_eci_code ?? p.party_short;
   }
 
-  // Resolve every party's swatch in ONE pass via colors.forSet so
-  // unanchored parties (regional outfits without an ANCHOR entry) are
-  // assigned hues round-robin across the available bands rather than
-  // each computed in isolation. Per docs/architecture/frontend/colours.md.
-  const palette = $derived(
-    colors.forSet(parties.map(p => p.party_eci_code ?? p.party_short)),
-  );
+  // PR-SYM-6f2: One-identity migration. Replace the legacy
+  // `colors.forSet(...) -> colors.fill(eci_code, short)` ladder with the
+  // canonical 3-tier resolver keyed on `party_id`. When the loader
+  // populates `party_id` from dim_parties (current shape from
+  // state-overview.ts) we hand it straight through; legacy producers
+  // that have not been extended yet surface `party_id == null`, in which
+  // case we derive a stable `parties.IN.<UPPER(short_name)>` so the
+  // resolver still degrades to anchor / algorithmic tiers without losing
+  // identity stability. See PR #585 (SeatDonut) for the precedent.
+  function partyIdFor(p: PartyTotals): string {
+    if (p.party_id) return p.party_id;
+    const slug = (p.party_short ?? "UNK").trim().toUpperCase();
+    return `parties.IN.${slug}`;
+  }
+
+  function rowFor(p: PartyTotals): PartyRowForResolver | null {
+    if (p.brand_colour_hex == null) return null;
+    return {
+      party_id: partyIdFor(p),
+      eci_code: p.party_eci_code,
+      brand_colour: {
+        hex: p.brand_colour_hex,
+        confidence: p.brand_colour_confidence ?? "medium",
+      },
+    };
+  }
+
+  // Batch-resolve every party's swatch in ONE pass via resolvePartyPalette
+  // so render-loop tooltip/bar lookups are O(1) map gets.
+  const palette = $derived.by(() => {
+    const ids = parties.map(partyIdFor);
+    const rows = new Map<string, PartyRowForResolver | null>();
+    for (const p of parties) rows.set(partyIdFor(p), rowFor(p));
+    return resolvePartyPalette(ids, rows);
+  });
+
   function colour_of(p: PartyTotals): string {
-    return palette.get(p.party_eci_code ?? p.party_short)?.fill
-      ?? colors.fill(p.party_eci_code, p.party_short);
+    const pid = partyIdFor(p);
+    return palette.get(pid)?.hex ?? getPartyColor(pid, rowFor(p)).hex;
   }
 
   // Sort by seats descending; ties broken by vote share so that 0-seat
