@@ -75,6 +75,9 @@ interface CandidateRow {
   // chips can render election_symbol_asset_path when present.
   brand_colour_hex: string | null;
   brand_colour_confidence: string | null;
+  // PR-SYM-6b3: ballot-symbol asset path (repo-relative). WinnerBadge
+  // renders the glyph when populated.
+  election_symbol_asset_path: string | null;
   // v1.2 biographic columns (PR-S.2 / canonical pivot 1.8f). Nullable in
   // Parquet -> nullable here. Populated only for events where an ECI
   // Statistical Report adapter has run (currently TN AcGenApr2021).
@@ -145,8 +148,9 @@ async function runQueries(
       -- the real brand columns now. NULLs flow through when a row has no
       -- editorial brand colour (most parties) and the resolver falls
       -- through anchor -> algorithmic-fallback gracefully.
-      dp.brand_colour_hex        AS brand_colour_hex,
-      dp.brand_colour_confidence AS brand_colour_confidence,
+      dp.brand_colour_hex             AS brand_colour_hex,
+      dp.brand_colour_confidence      AS brand_colour_confidence,
+      dp.election_symbol_asset_path   AS election_symbol_asset_path,
       obs_v.value_numeric AS votes,
       obs_s.value_numeric AS vote_share_pct,
       p.sex             AS sex,
@@ -337,6 +341,7 @@ function assembleResult(
         winnerRow?.brand_colour_confidence === "low"
           ? winnerRow.brand_colour_confidence
           : null,
+      election_symbol_asset_path: winnerRow?.election_symbol_asset_path ?? null,
     },
   };
 }

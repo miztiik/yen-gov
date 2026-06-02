@@ -3,20 +3,47 @@
 
   Renders the winner's name + party with:
     - an accent stripe coloured by the 3-tier resolver (getPartyColor)
-    - a small "source" chip declaring provenance (anchor / brand / fallback)
+    - the party's ballot-symbol glyph when `election_symbol_asset_path`
+      is populated on dim_parties (PR-SYM-6b3); no placeholder otherwise
+    - a small "source" chip declaring colour provenance (anchor / brand /
+      fallback)
 
   Hans + Jony lens:
     - Hans (honesty): the source chip MUST show "fallback" when the renderer
       hashed party_id rather than using an editorial colour. Hiding the
       fallback tier is dishonest.
     - Jony (restraint): one chip, low contrast, secondary weight. The
-      accent stripe carries the visual identity; the chip carries the
-      provenance metadata.
+      accent stripe carries the visual identity; the glyph (when present)
+      carries the citizen-recognition anchor; the chip carries the colour
+      provenance.
 
-  Ballot-symbol glyph is intentionally NOT rendered here. The schema column
-  `dim_parties.election_symbol_asset_path` lands in a follow-up
-  (PR-SYM-6b2) that wires the SVG sanitizer pipeline through the loader.
+  Glyph render strategy (PR-SYM-6b3):
+    - assets under `frontend/public/party-symbols/` are pre-sanitized at
+      author time by `lib/party-symbols/sanitizer.ts` (node-only). The
+      runtime renderer never imports the sanitizer; it just builds the
+      static URL via `glyphUrlFor(path)` and emits an `<img>` tag.
+    - on fetch / decode error the `<img>` is hidden (`hidden` flipped
+      from `onerror`) so a broken asset never leaves a placeholder behind
+      per the no-placeholder doctrine.
 -->
+<script lang="ts" module>
+  /**
+   * Resolve a `dim_parties.election_symbol_asset_path` value to a runtime
+   * URL the browser can fetch. Returns `null` when the path is absent so
+   * the template can branch on truthiness.
+   *
+   * Pure (no DOM, no fetch) so vitest pins the contract in node.
+   */
+  export function glyphUrlFor(
+    assetPath: string | null | undefined,
+  ): string | null {
+    if (assetPath == null) return null;
+    const trimmed = assetPath.trim();
+    if (trimmed.length === 0) return null;
+    return `${import.meta.env.BASE_URL}${trimmed}`;
+  }
+</script>
+
 <script lang="ts">
   import { getPartyColor } from "./colors/resolver";
   import { chipFor } from "./colors/chip";
@@ -43,6 +70,7 @@
     ),
   );
   const chip = $derived(chipFor(resolved.source));
+  const glyphUrl = $derived(glyphUrlFor(winner.election_symbol_asset_path));
 </script>
 
 <div class="flex items-start gap-3" data-testid="winner-badge">
@@ -56,6 +84,23 @@
     <div class="text-xs uppercase text-slate-500">Winner</div>
     <div class="font-semibold truncate">{winner.name}</div>
     <div class="flex items-center gap-2 mt-0.5">
+      {#if glyphUrl}
+        <!-- Ballot-symbol glyph. 20px square, decorative (alt=""). The
+             party_short text alongside carries the accessible name. On
+             fetch / decode failure the element hides itself: no broken
+             icon, no placeholder. -->
+        <img
+          src={glyphUrl}
+          alt=""
+          width="20"
+          height="20"
+          class="w-5 h-5 object-contain shrink-0"
+          data-testid="winner-glyph"
+          loading="lazy"
+          decoding="async"
+          onerror={(e) => { (e.currentTarget as HTMLImageElement).hidden = true; }}
+        />
+      {/if}
       <span class="text-slate-500 text-sm truncate">{winner.party_short}</span>
       <!-- Source chip: provenance. Border-style encodes the tier so it is
            readable without colour vision. -->
