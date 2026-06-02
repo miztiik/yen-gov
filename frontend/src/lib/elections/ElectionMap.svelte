@@ -14,9 +14,10 @@
   // in either arm navigates to that constituency's page (parity).
   //
   // The equal-seats arm needs a persisted hex layout for the state
-  // (`datasets/grapher/election_tile_layouts.json`). Pilot ships S13
-  // (Maharashtra, 288 ACs); states without a layout show a graceful
-  // "equal-seats view not available yet" note rather than an empty canvas.
+  // (`datasets/grapher/election_tile_layouts.json`). States without a layout
+  // never show the toggle at all — the geographic map renders on its own. A
+  // tiny covered-scopes manifest (`election_tile_scopes.json`) is fetched up
+  // front to decide this without pulling the large layout file.
   //
   // CLAUDE.md §0: no aria/role; visible affordances only.
 
@@ -24,6 +25,8 @@
   import TileCartogram from "../charts/TileCartogram.svelte";
   import {
     fetchElectionTileLayouts,
+    fetchElectionTileScopes,
+    hasLayoutForScope,
     selectLayout,
     buildTileRows,
     type TileLayoutRow,
@@ -91,13 +94,28 @@
   }
 
   // ─── Equal-seats (hex) layout ───────────────────────────────────────
+  // Whether this state has a persisted hex layout at all. `null` = unknown
+  // (manifest still loading). The toggle only appears when this is `true`.
+  let has_equal_seats = $state<boolean | null>(null);
+  $effect(() => {
+    fetchElectionTileScopes()
+      .then((doc) => {
+        has_equal_seats = hasLayoutForScope(doc, {
+          layout_kind: "ac",
+          scope: state_code,
+          delim_year,
+        });
+      })
+      .catch(() => (has_equal_seats = false));
+  });
+
   let layout = $state<TileLayoutRow[] | null>(null);
   let layout_error = $state(false);
   // Only fetch when the hex arm is first shown — keeps the JSON off the
   // critical path for citizens who never leave the geographic view.
   let layout_requested = false;
   $effect(() => {
-    if (view !== "hex" || layout_requested) return;
+    if (view !== "hex" || layout_requested || has_equal_seats === false) return;
     layout_requested = true;
     fetchElectionTileLayouts()
       .then((doc) => {
@@ -193,7 +211,10 @@
   }
 
   const layout_unavailable = $derived(
-    view === "hex" && (layout_error || (layout != null && layout.length === 0)),
+    view === "hex" &&
+      (has_equal_seats === false ||
+        layout_error ||
+        (layout != null && layout.length === 0)),
   );
 </script>
 
@@ -202,34 +223,36 @@
     <p class="text-xs text-slate-500">
       {view === "hex" ? "Each tile = one seat" : "Seats sized by geography"}
     </p>
-    <div
-      class="inline-flex rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-sm"
-      role="group"
-      data-testid="election-map-toggle"
-    >
-      <button
-        type="button"
-        class="rounded-md px-3 py-1 transition-colors {view === 'geo'
-          ? 'bg-white font-medium text-slate-900 shadow-sm'
-          : 'text-slate-500 hover:text-slate-700'}"
-        aria-pressed={view === "geo"}
-        data-view="geo"
-        onclick={() => setView("geo")}
+    {#if has_equal_seats === true}
+      <div
+        class="inline-flex rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-sm"
+        role="group"
+        data-testid="election-map-toggle"
       >
-        Map
-      </button>
-      <button
-        type="button"
-        class="rounded-md px-3 py-1 transition-colors {view === 'hex'
-          ? 'bg-white font-medium text-slate-900 shadow-sm'
-          : 'text-slate-500 hover:text-slate-700'}"
-        aria-pressed={view === "hex"}
-        data-view="hex"
-        onclick={() => setView("hex")}
-      >
-        Equal seats
-      </button>
-    </div>
+        <button
+          type="button"
+          class="rounded-md px-3 py-1 transition-colors {view === 'geo'
+            ? 'bg-white font-medium text-slate-900 shadow-sm'
+            : 'text-slate-500 hover:text-slate-700'}"
+          aria-pressed={view === "geo"}
+          data-view="geo"
+          onclick={() => setView("geo")}
+        >
+          Map
+        </button>
+        <button
+          type="button"
+          class="rounded-md px-3 py-1 transition-colors {view === 'hex'
+            ? 'bg-white font-medium text-slate-900 shadow-sm'
+            : 'text-slate-500 hover:text-slate-700'}"
+          aria-pressed={view === "hex"}
+          data-view="hex"
+          onclick={() => setView("hex")}
+        >
+          Equal seats
+        </button>
+      </div>
+    {/if}
   </div>
 
   {#if view === "geo"}

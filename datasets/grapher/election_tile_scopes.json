@@ -1,0 +1,192 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/grapher-election-tile-scopes.schema.json",
+  "$schema_version": "1.0",
+  "scopes": [
+    {
+      "layout_kind": "ac",
+      "scope": "S01",
+      "delim_year": 2008,
+      "tile_count": 175
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S02",
+      "delim_year": 2008,
+      "tile_count": 60
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S03",
+      "delim_year": 2008,
+      "tile_count": 126
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S04",
+      "delim_year": 2008,
+      "tile_count": 243
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S05",
+      "delim_year": 2008,
+      "tile_count": 40
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S06",
+      "delim_year": 2008,
+      "tile_count": 160
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S07",
+      "delim_year": 2008,
+      "tile_count": 90
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S08",
+      "delim_year": 2008,
+      "tile_count": 68
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S10",
+      "delim_year": 2008,
+      "tile_count": 224
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S11",
+      "delim_year": 2008,
+      "tile_count": 140
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S12",
+      "delim_year": 2008,
+      "tile_count": 224
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S13",
+      "delim_year": 2008,
+      "tile_count": 288
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S14",
+      "delim_year": 2008,
+      "tile_count": 60
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S15",
+      "delim_year": 2008,
+      "tile_count": 59
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S16",
+      "delim_year": 2008,
+      "tile_count": 40
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S17",
+      "delim_year": 2008,
+      "tile_count": 60
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S18",
+      "delim_year": 2008,
+      "tile_count": 147
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S19",
+      "delim_year": 2008,
+      "tile_count": 117
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S20",
+      "delim_year": 2008,
+      "tile_count": 199
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S21",
+      "delim_year": 2008,
+      "tile_count": 31
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S22",
+      "delim_year": 2008,
+      "tile_count": 233
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S23",
+      "delim_year": 2008,
+      "tile_count": 60
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S24",
+      "delim_year": 2008,
+      "tile_count": 402
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S25",
+      "delim_year": 2008,
+      "tile_count": 293
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S26",
+      "delim_year": 2008,
+      "tile_count": 90
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S27",
+      "delim_year": 2008,
+      "tile_count": 82
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S28",
+      "delim_year": 2008,
+      "tile_count": 70
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "S29",
+      "delim_year": 2008,
+      "tile_count": 118
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "U05",
+      "delim_year": 2008,
+      "tile_count": 70
+    },
+    {
+      "layout_kind": "ac",
+      "scope": "U07",
+      "delim_year": 2008,
+      "tile_count": 29
+    },
+    {
+      "layout_kind": "pc",
+      "scope": "national",
+      "delim_year": 2008,
+      "tile_count": 545
+    }
+  ]
+}

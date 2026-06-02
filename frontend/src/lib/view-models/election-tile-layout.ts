@@ -34,6 +34,22 @@ export interface ElectionTileLayoutDoc {
   tiles: TileLayoutRow[];
 }
 
+/** One covered (layout_kind, scope, delim_year) entry from the tiny scopes
+ *  manifest. Lets the UI gate the equal-seats toggle without fetching the
+ *  large layout document. */
+export interface TileScopeRow {
+  layout_kind: "ac" | "pc";
+  scope: string;
+  delim_year: number;
+  tile_count: number;
+}
+
+export interface ElectionTileScopesDoc {
+  $schema: string;
+  $schema_version: string;
+  scopes: TileScopeRow[];
+}
+
 /** A winner to paint onto a tile. Callers map their grain-specific winner
  *  (AcWinner / PcWinner) onto this shape, keyed by the canonical `unit_id`. */
 export interface TileWinnerInput {
@@ -78,6 +94,38 @@ export function fetchElectionTileLayouts(): Promise<ElectionTileLayoutDoc> {
     return (await res.json()) as ElectionTileLayoutDoc;
   })();
   return _cache;
+}
+
+let _scopesCache: Promise<ElectionTileScopesDoc> | null = null;
+
+/** Fetch the tiny covered-scopes manifest. Cached per page. Used to decide
+ *  whether to offer the equal-seats toggle for a given scope. */
+export function fetchElectionTileScopes(): Promise<ElectionTileScopesDoc> {
+  if (_scopesCache) return _scopesCache;
+  _scopesCache = (async () => {
+    const res = await fetch(`${DATA_BASE}/grapher/election_tile_scopes.json`);
+    if (!res.ok) {
+      throw new Error(
+        `fetch /grapher/election_tile_scopes.json failed: ${res.status} ${res.statusText}`,
+      );
+    }
+    return (await res.json()) as ElectionTileScopesDoc;
+  })();
+  return _scopesCache;
+}
+
+/** True when the manifest lists a layout for (layout_kind, scope, delim_year). */
+export function hasLayoutForScope(
+  doc: ElectionTileScopesDoc,
+  sel: { layout_kind: "ac" | "pc"; scope: string; delim_year: number },
+): boolean {
+  return doc.scopes.some(
+    (s) =>
+      s.layout_kind === sel.layout_kind &&
+      s.scope === sel.scope &&
+      s.delim_year === sel.delim_year &&
+      s.tile_count > 0,
+  );
 }
 
 /** Select the tiles for one (layout_kind, scope, delim_year) layout. */

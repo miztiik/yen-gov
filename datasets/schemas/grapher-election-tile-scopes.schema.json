@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./grapher-election-tile-scopes.schema.json",
+  "title": "Grapher election tile-cartogram covered-scopes manifest (frontend-owned)",
+  "description": "Tiny manifest of which (layout_kind, scope, delim_year) tile-cartogram layouts exist in election_tile_layouts.json, with each layout's tile_count. The frontend reads THIS (not the large layout file) to decide whether to offer the equal-seats toggle for a state, so the toggle never appears for a scope with no tiles. Generated in lockstep with the layout by tools/gen_election_tile_layouts.py.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-06-02",
+      "description": "Initial covered-scopes manifest (elections-experience gap-closure plan EGC-C1/C3). One row per shipped layout with its tile_count."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "scopes"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "scopes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["layout_kind", "scope", "delim_year", "tile_count"],
+        "properties": {
+          "layout_kind": {
+            "type": "string",
+            "enum": ["ac", "pc"],
+            "description": "Constituency grain: 'ac' = state assembly, 'pc' = Lok Sabha parliamentary."
+          },
+          "scope": {
+            "type": "string",
+            "pattern": "^(national|[SU]\\d{2})$",
+            "description": "Cartogram scope: a state/UT code (e.g. 'S13') for AC layouts, or 'national' for the all-India PC layout."
+          },
+          "delim_year": {
+            "type": "integer",
+            "minimum": 1950,
+            "maximum": 2099,
+            "description": "Delimitation vintage the constituency boundaries belong to."
+          },
+          "tile_count": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Number of tiles (constituencies) in this layout."
+          }
+        }
+      }
+    }
+  }
+}
