@@ -29,7 +29,9 @@
     defaultEventForState,
     fetchElectionEvents,
   } from "../election-events";
-  import { colors } from "../colors/store.svelte";
+  import { getPartyColor, resolvePartyPalette } from "../colors/resolver";
+  import type { PartyRowForResolver } from "../colors/resolver";
+  import type { PartyTotals } from "../data";
   import { navigate, url } from "../url";
 
   interface Props {
@@ -92,32 +94,56 @@
     retryLoad();
   });
 
+  // PR-SYM-6f3: One-identity migration. Replace the legacy
+  // `colors.forSet(...) -> colors.fill(eci_code, short)` ladder with the
+  // canonical 3-tier resolver keyed on `party_id`. When the loader
+  // populates `party_id` from dim_parties (current shape from
+  // india-leading-parties.ts) we hand it straight through; legacy
+  // producers that have not been extended yet surface `party_id == null`,
+  // in which case we derive a stable `parties.IN.<UPPER(short_name)>` so
+  // the resolver still degrades to anchor / algorithmic tiers without
+  // losing identity stability. See PR #585 / #586 for the precedent.
+  function partyIdFor(p: PartyTotals): string {
+    if (p.party_id) return p.party_id;
+    const slug = (p.party_short ?? "UNK").trim().toUpperCase();
+    return `parties.IN.${slug}`;
+  }
+
+  function rowFor(p: PartyTotals): PartyRowForResolver | null {
+    if (p.brand_colour_hex == null) return null;
+    return {
+      party_id: partyIdFor(p),
+      eci_code: p.party_eci_code,
+      brand_colour: {
+        hex: p.brand_colour_hex,
+        confidence: p.brand_colour_confidence ?? "medium",
+      },
+    };
+  }
+
   // Pick the leading party (max seats_won) per state. Loader already sorts
   // party_totals desc by seats_won.
   const fills = $derived.by(() => {
     const out: Record<string, string> = {};
-    void colors.overrides; // declare reactive read
     if (result.status !== "ok") return out;
     const per_state = result.data.per_state;
-    const tops: { display: string; join_key: string; key: string; eci: string | null; short: string }[] = [];
+    const tops: { join_key: string; party: PartyTotals }[] = [];
     for (const s of states_taxonomy ?? []) {
       const code = s.eci_code;
       const loaded = per_state[code];
       if (!loaded) continue;
       const top = loaded.party_totals.find((p) => p.seats_won > 0);
-      if (top) {
-        tops.push({
-          display: s.boundary_join_name,
-          join_key: s.boundary_join_key,
-          key: top.party_eci_code ?? top.party_short,
-          eci: top.party_eci_code,
-          short: top.party_short,
-        });
-      }
+      if (top) tops.push({ join_key: s.boundary_join_key, party: top });
     }
-    const palette = colors.forSet(tops.map((t) => t.key));
+    // Batch-resolve every leading party's hex in one pass via
+    // resolvePartyPalette so per-state lookups below are O(1) map gets.
+    const ids = tops.map((t) => partyIdFor(t.party));
+    const rows = new Map<string, PartyRowForResolver | null>();
+    for (const t of tops) rows.set(partyIdFor(t.party), rowFor(t.party));
+    const palette = resolvePartyPalette(ids, rows);
     for (const t of tops) {
-      out[t.join_key] = palette.get(t.key)?.fill ?? colors.fill(t.eci, t.short);
+      const pid = partyIdFor(t.party);
+      out[t.join_key] = palette.get(pid)?.hex ?? getPartyColor(pid, rowFor(t.party)).hex;
     }
     return out;
   });
