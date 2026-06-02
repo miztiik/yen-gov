@@ -13,6 +13,7 @@
   import MapChoropleth from "./MapChoropleth.svelte";
   import { STATE_AC } from "./sources";
   import { renderTooltipCard } from "./tooltip-card";
+  import { parseReservation } from "./ac-reservation";
   import {
     resolvePartyPalette,
     type PartyRowForResolver,
@@ -222,19 +223,40 @@
     return m;
   });
 
-  const tooltips = $derived.by(() => {
-    const out: Record<number, string> = {};
-    for (const r of rows ?? []) {
-      out[r.eci_no] = renderTooltipCard({
-        title: `${r.eci_no}. ${r.name}`,
-        candidateName: r.winner_candidate_name,
-        partyShort: r.winner_party_short,
-        partyColorHex: party_colors.get(r.eci_no) ?? null,
-        marginPct: r.margin_pct,
-      });
-    }
-    return out;
+  // Winner row by eci_no, so the per-feature tooltip builder can merge the
+  // winner facts (candidate / party / margin) with the boundary-only
+  // reservation read straight off the hovered feature's properties.
+  const row_by_eci = $derived.by(() => {
+    const m = new Map<number, Row>();
+    for (const r of rows ?? []) m.set(r.eci_no, r);
+    return m;
   });
+
+  // Reservation status read off a boundary feature's raw properties — the
+  // source is heterogeneous (explicit field vs `(SC)`/`(ST)` name suffix);
+  // see `parseReservation`.
+
+  // Per-feature tooltip builder passed to MapChoropleth. The hover/click key
+  // is the label join (`ac_no`, eci_no-valued for covered states), which is
+  // how the winner rows are keyed. Reservation is read off the boundary
+  // feature props because it lives nowhere else (not in dim_acs nor the
+  // winner rows) — see `parseReservation`.
+  function tooltipFor(
+    props: Record<string, unknown>,
+    key: string | number,
+  ): string | undefined {
+    const eci = Number(key);
+    const r = row_by_eci.get(eci);
+    if (!r) return undefined;
+    return renderTooltipCard({
+      title: `${r.eci_no}. ${r.name}`,
+      reservation: parseReservation(props),
+      candidateName: r.winner_candidate_name,
+      partyShort: r.winner_party_short,
+      partyColorHex: party_colors.get(r.eci_no) ?? null,
+      marginPct: r.margin_pct,
+    });
+  }
 
   function on_select(sel: { key: string | number; properties?: Record<string, unknown> }): void {
     // The canonical map join is lgd_ac_id (Row B3), so `sel.key` is an
@@ -262,7 +284,7 @@
     {entry}
     fills={final_fills}
     opacities={final_opacities}
-    {tooltips}
+    tooltipFromFeature={tooltipFor}
     {height}
     canonical_join={canonical_join}
     highlight_key={highlight_lgd}
