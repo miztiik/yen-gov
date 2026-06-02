@@ -74,8 +74,6 @@ const ALLOWLIST = new Set<string>([
   // `partyColour` / `colors.forSet`. Each PR-SYM-6f+ follow-up retires
   // these one at a time as their loader contracts gain `party_id`.
   "routes/Compare.svelte",                                        // psephlab-derived rows
-  "lib/charts/composition-bar/adapter-elections-seats.ts",        // PartyRow keyed on eci_code
-  "lib/charts/composition-bar/adapter-elections-seats.test.ts",   // co-located fixture
   "lib/charts/stacked-trend/adapter-elections.ts",                // stacked-trend; same shape
   "lib/charts/StackedTrendV2.svelte",                             // uses category-colour
   "lib/ParliamentArc.svelte",                                     // colors.store
@@ -83,6 +81,7 @@ const ALLOWLIST = new Set<string>([
   // PR-SYM-6f2 (#586): PartyBar migrated to resolvePartyPalette + getPartyColor.
   // PR-SYM-6f3 (#587): IndiaMap migrated to resolvePartyPalette + getPartyColor.
   // PR-SYM-6f4 (#TBD): ElectionMap migrated to resolvePartyPalette + getPartyColor.
+  // PR-SYM-6f5 (#TBD): composition-bar adapter migrated to getPartyColor.
   "lib/SwingSankey.svelte",                                       // colors.store
   "lib/view-models/election-tile-layout.ts",                      // colors.store
 ]);

@@ -51,6 +51,9 @@ function party(
     party_short,
     party_full: party_full ?? party_short,
     seats_won,
+    party_id: `parties.IN.${party_short.toUpperCase()}`,
+    brand_colour_hex: null,
+    brand_colour_confidence: null,
   };
 }
 
@@ -419,6 +422,9 @@ describe("loadCompositionBarElectionSeats — async loader (R-28 manifest regist
           party_full: p.party_full,
           eci_code: p.party_eci_code,
           seats_won: p.seats_won,
+          party_id: p.party_id,
+          brand_colour_hex: p.brand_colour_hex,
+          brand_colour_confidence: p.brand_colour_confidence,
         })),
       )
       .mockResolvedValueOnce(GJ_2022_SOURCES);

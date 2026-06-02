@@ -58,7 +58,7 @@
 import { describeFailure, type LoaderResult } from "../../loader-result";
 import { query, registerSlice, registerTable } from "../../duckdb";
 import { electionStatePartition } from "../../election-partitions";
-import { partyColour } from "../../colors/party-colour";
+import { getPartyColor, type PartyRowForResolver } from "../../colors/resolver";
 import type { SourceV2Row } from "../../source-list-v2/types";
 import type {
   CompositionBarModel,
@@ -109,6 +109,13 @@ export interface CompositionBarPartyRow {
   party_short: string;
   party_full: string | null;
   seats_won: number;
+  /** PR-SYM-6f5: canonical `parties.IN.<SLUG>` from dim_parties LEFT JOIN.
+   *  Null when the JOIN missed (party not in taxonomy yet); resolver
+   *  derives a fallback id from party_short. */
+  party_id: string | null;
+  /** PR-SYM-6f5: brand-colour mirror from dim_parties v1.1. */
+  brand_colour_hex: string | null;
+  brand_colour_confidence: "high" | "medium" | "low" | null;
 }
 
 export interface CompositionBarSourceJoinRow {
@@ -136,6 +143,9 @@ interface PartyRow {
   party_full: string | null;
   eci_code: string | null;
   seats_won: number | null;
+  party_id: string | null;
+  brand_colour_hex: string | null;
+  brand_colour_confidence: string | null;
 }
 
 interface SourceJoinRow {
@@ -181,6 +191,9 @@ async function runQueries(
       regexp_extract(o.entity_id, '-PARTY-(.+)$', 1) AS party_short,
       dp.full_name                                   AS party_full,
       dp.eci_code                                    AS eci_code,
+      dp.party_id                                    AS party_id,
+      dp.brand_colour_hex                            AS brand_colour_hex,
+      dp.brand_colour_confidence                     AS brand_colour_confidence,
       o.value_numeric                                AS seats_won
     FROM election_results o
     LEFT JOIN dim_parties dp
@@ -195,6 +208,14 @@ async function runQueries(
     party_short: r.party_short,
     party_full: r.party_full ?? null,
     seats_won: num(r.seats_won),
+    party_id: r.party_id ?? null,
+    brand_colour_hex: r.brand_colour_hex ?? null,
+    brand_colour_confidence:
+      r.brand_colour_confidence === "high" ||
+      r.brand_colour_confidence === "medium" ||
+      r.brand_colour_confidence === "low"
+        ? r.brand_colour_confidence
+        : null,
   }));
 
   const sources = await query<SourceJoinRow>(`
@@ -273,30 +294,57 @@ export function reduceToTopNWithTail(
       party_short: "OTHERS",
       party_full: "Others",
       seats_won: tailSeats,
+      party_id: null,
+      brand_colour_hex: null,
+      brand_colour_confidence: null,
     },
   ];
 }
 
 /**
+ * Derive the canonical `parties.IN.<SLUG>` id when the dim_parties JOIN
+ * missed (party absent from taxonomy). Mirrors the SeatDonut helper from
+ * PR-SYM-6f1 so the resolver gets a stable key for anchor / fallback.
+ */
+function partyIdFor(party: CompositionBarPartyRow): string {
+  if (party.party_id) return party.party_id;
+  return `parties.IN.${party.party_short.toUpperCase()}`;
+}
+
+/**
  * Resolve a party fill. Lookup order:
  *
- *   1. `OTHERS` → `OTHERS_FILL` (tail aggregate).
- *   2. `IND` / `Independent` → `IND_FILL`.
- *   3. `partyColour(<eci_code or party_short>, in_use_codes)` — uses
- *      the existing override/anchor/algorithm cascade. NOTA flows
- *      through `partyColour` and lands on the canonical `ANCHORS["NOTA"]`
- *      slate-500 swatch automatically.
+ *   1. `OTHERS` -> `OTHERS_FILL` (tail aggregate).
+ *   2. `IND` / `Independent` -> `IND_FILL`.
+ *   3. `getPartyColor(party_id, row)` (PR-SYM-6f5) - resolver's
+ *      anchor / brand / algorithmic-fallback cascade. NOTA lands on
+ *      the curated `parties.IN.NOTA` anchor automatically.
+ *
+ * The `in_use_codes` argument is retained for back-compat with the
+ * earlier `partyColour` API but is unused; the resolver does not
+ * de-dupe algorithmic slots (per resolver.ts contract).
  */
 export function resolvePartyFill(
   party: CompositionBarPartyRow,
-  in_use_codes: readonly string[],
+  _in_use_codes: readonly string[] = [],
 ): string {
   if (party.party_short === "OTHERS") return OTHERS_FILL;
   if (party.party_short === "IND" || party.party_short === "INDEPENDENT") {
     return IND_FILL;
   }
-  const key = party.party_eci_code ?? party.party_short;
-  return partyColour(key, in_use_codes).fill;
+  const pid = partyIdFor(party);
+  const row: PartyRowForResolver = {
+    party_id: pid,
+    eci_code: party.party_eci_code,
+    brand_colour:
+      party.brand_colour_hex && party.brand_colour_confidence
+        ? {
+            hex: party.brand_colour_hex,
+            confidence: party.brand_colour_confidence,
+          }
+        : null,
+  };
+  return getPartyColor(pid, row).hex;
 }
 
 export interface AssembleOptions {
@@ -332,13 +380,10 @@ export function assembleCompositionBar(
   const top_n = opts.top_n ?? DEFAULT_TOP_N;
   const reduced = reduceToTopNWithTail(rows.parties, top_n);
 
-  // Build in_use_codes for the de-dup arm in partyColour. Use the
-  // eci_code when present (more stable across spellings), else fall
-  // back to party_short.
-  const in_use_codes: string[] = reduced
-    .filter(p => p.party_short !== "OTHERS")
-    .map(p => p.party_eci_code ?? p.party_short);
-
+  // PR-SYM-6f5: `getPartyColor(party_id, row)` resolver does not need
+  // an `in_use_codes` set - each party_id resolves through the
+  // anchor/brand/algorithmic cascade independently. Passing [] keeps
+  // the public resolvePartyFill signature compatible with prior calls.
   const segments: CompositionBarSegment[] = reduced.map(p => ({
     id: p.party_eci_code ?? p.party_short,
     label:
@@ -346,7 +391,7 @@ export function assembleCompositionBar(
         ? "Others"
         : p.party_full ?? p.party_short,
     value: p.seats_won,
-    fill: resolvePartyFill(p, in_use_codes),
+    fill: resolvePartyFill(p, []),
     swatch_role:
       p.party_short === "OTHERS"
         ? "others"
