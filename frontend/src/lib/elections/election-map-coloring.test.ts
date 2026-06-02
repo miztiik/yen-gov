@@ -15,11 +15,14 @@ import {
 function w(partial: Partial<AcWinner> & { ac_eci_no: number }): AcWinner {
   return {
     ac_name: `AC ${partial.ac_eci_no}`,
+    party_id: "parties.IN.BJP",
     party_eci_code: "BJP",
     party_short: "BJP",
     margin_pct: 10,
     turnout_pct: null,
     winner_age: null,
+    brand_colour_hex: null,
+    brand_colour_confidence: null,
     ...partial,
   };
 }

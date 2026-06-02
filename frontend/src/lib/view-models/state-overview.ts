@@ -58,6 +58,10 @@ import {
 export interface AcWinner {
   ac_eci_no: number;
   ac_name: string;
+  /** PR-SYM-6d: canonical `parties.IN.<SLUG>`. Render code calls
+   *  `getPartyColor(party_id, row)` — the resolver picks anchor /
+   *  Wikipedia brand_colour / algorithmic-fallback off this key. */
+  party_id: string;
   party_eci_code: string | null;
   party_short: string;
   margin_pct: number;
@@ -66,6 +70,9 @@ export interface AcWinner {
   // (dense ~2004+, null for older events). Coverage is gated downstream.
   turnout_pct?: number | null;
   winner_age?: number | null;
+  // PR-SYM-6d additive brand_colour mirror (from dim_parties v1.1).
+  brand_colour_hex?: string | null;
+  brand_colour_confidence?: "high" | "medium" | "low" | null;
 }
 
 export interface StateOverviewViewModel {
@@ -134,11 +141,14 @@ interface SourceJoinRow {
 interface AcWinnerRow {
   ac_eci_no: number | null;
   ac_name: string | null;
+  party_id: string | null;
   party_eci_code: string | null;
   party_short: string | null;
   margin_pct: number | null;
   turnout_pct: number | null;
   winner_age: number | null;
+  brand_colour_hex: string | null;
+  brand_colour_confidence: string | null;
 }
 
 const num = (v: unknown): number => (v == null ? 0 : Number(v));
@@ -303,13 +313,16 @@ async function queryAcWinners(
         AND period_label = ${evtLiteral}
         AND entity_id LIKE 'IN-' || ${stateLiteral} || '-AC-%'
     )
-    SELECT da.eci_no       AS ac_eci_no,
-           da.name         AS ac_name,
-           dp.eci_code     AS party_eci_code,
-           dp.short_name   AS party_short,
-           m.margin_pct    AS margin_pct,
-           t.turnout_pct   AS turnout_pct,
-           per.age         AS winner_age
+    SELECT da.eci_no                  AS ac_eci_no,
+           da.name                    AS ac_name,
+           w.party_id                 AS party_id,
+           dp.eci_code                AS party_eci_code,
+           dp.short_name              AS party_short,
+           dp.brand_colour_hex        AS brand_colour_hex,
+           dp.brand_colour_confidence AS brand_colour_confidence,
+           m.margin_pct               AS margin_pct,
+           t.turnout_pct              AS turnout_pct,
+           per.age                    AS winner_age
     FROM winner w
     JOIN margin m ON m.ac_id = w.ac_id
     JOIN dim_acs da ON da.ac_id = w.ac_id
@@ -327,11 +340,19 @@ function toAcWinners(rows: AcWinnerRow[]): AcWinner[] {
     .map((r) => ({
       ac_eci_no: Number(r.ac_eci_no),
       ac_name: r.ac_name ?? "",
+      party_id: r.party_id ?? "parties.IN.UNK",
       party_eci_code: r.party_eci_code ?? null,
       party_short: r.party_short ?? "",
       margin_pct: Number(r.margin_pct),
       turnout_pct: r.turnout_pct == null ? null : Number(r.turnout_pct),
       winner_age: r.winner_age == null ? null : Number(r.winner_age),
+      brand_colour_hex: r.brand_colour_hex ?? null,
+      brand_colour_confidence:
+        r.brand_colour_confidence === "high" ||
+        r.brand_colour_confidence === "medium" ||
+        r.brand_colour_confidence === "low"
+          ? r.brand_colour_confidence
+          : null,
     }));
 }
 

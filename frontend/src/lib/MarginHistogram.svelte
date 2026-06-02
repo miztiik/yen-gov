@@ -11,20 +11,29 @@
   // (lib/view-models/state-overview.ts). Margin already computed upstream
   // from `ac-margin-pct` observations — no SQLite roundtrip in this
   // component anymore.
-  import { colors } from "./colors/store.svelte";
+  //
+  // PR-SYM-6d: migrated off `colors.fill(eci_code, party_short)` to
+  // `getPartyColor(party_id, row)` from the 3-tier resolver. The row
+  // carries `brand_colour_hex` + confidence from `dim_parties` v1.1
+  // (PR-SYM-6b) so the Wikipedia brand tier renders when present;
+  // anchor / algorithmic tiers handle the rest.
   import * as d3 from "d3";
   import { onMount } from "svelte";
   import { tweened } from "svelte/motion";
   import { cubicOut } from "svelte/easing";
   import ChartTooltip, { type TooltipState } from "./ChartTooltip.svelte";
+  import { getPartyColor } from "./colors/resolver";
   import type { AcWinner } from "./view-models/state-overview";
 
   interface Row {
     eci_no: number;
     name: string;
+    party_id: string;
     winner_party_eci_code: string | null;
     winner_party_short: string;
     margin_pct: number;
+    brand_colour_hex: string | null;
+    brand_colour_confidence: "high" | "medium" | "low" | null;
   }
 
   let { rows: input_rows }: { rows: AcWinner[] | null } = $props();
@@ -39,12 +48,27 @@
           .map((w) => ({
             eci_no: w.ac_eci_no,
             name: w.ac_name,
+            party_id: w.party_id,
             winner_party_eci_code: w.party_eci_code,
             winner_party_short: w.party_short,
             margin_pct: w.margin_pct,
+            brand_colour_hex: w.brand_colour_hex ?? null,
+            brand_colour_confidence: w.brand_colour_confidence ?? null,
           }))
           .sort((a, b) => a.margin_pct - b.margin_pct),
   );
+
+  function rowColor(r: Row): string {
+    return getPartyColor(r.party_id, {
+      party_id: r.party_id,
+      brand_colour: r.brand_colour_hex
+        ? {
+            hex: r.brand_colour_hex,
+            confidence: r.brand_colour_confidence ?? "medium",
+          }
+        : null,
+    }).hex;
+  }
 
   // Bucket edges: [0,5), [5,10), ..., [45,50), [50,∞)
   const BUCKETS = 11;
@@ -64,9 +88,11 @@
               - (party_rank.get(b[0]) ?? Number.MAX_SAFE_INTEGER),
     );
     return entries.map(([k, n]) => {
-      // k is either an ECI code or a short name; colors.fill handles both.
-      const sample = b.acs.find(a => (a.winner_party_eci_code ?? a.winner_party_short) === k);
-      const fill = colors.fill(sample?.winner_party_eci_code ?? null, sample?.winner_party_short);
+      // k is the party_id selected by `party_key` below; find any sample
+      // row for this party_id so we have the brand_colour to feed the
+      // resolver.
+      const sample = b.acs.find(a => a.party_id === k);
+      const fill = sample ? rowColor(sample) : "#94a3b8";
       return {
         n,
         party: sample?.winner_party_short ?? k,
@@ -90,7 +116,7 @@
   $effect(() => { void input_rows; muted_parties = new Set(); });
 
   function party_key(r: Row): string {
-    return r.winner_party_eci_code ?? r.winner_party_short;
+    return r.party_id;
   }
   function toggle_mute(k: string): void {
     const next = new Set(muted_parties);
@@ -115,7 +141,7 @@
         key: k,
         party_eci_code: r.winner_party_eci_code,
         short: r.winner_party_short,
-        color: colors.fill(r.winner_party_eci_code, r.winner_party_short),
+        color: rowColor(r),
         seats: 1,
       });
     }

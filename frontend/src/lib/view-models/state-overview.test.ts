@@ -120,16 +120,22 @@ const acWinnerRows = [
   {
     ac_eci_no: 1,
     ac_name: "GUMMIDIPOONDI",
+    party_id: "parties.IN.DMK",
     party_eci_code: "1234",
     party_short: "DMK",
     margin_pct: 12.5,
+    brand_colour_hex: "#e63329",
+    brand_colour_confidence: "high",
   },
   {
     ac_eci_no: 2,
     ac_name: "PONNERI",
+    party_id: "parties.IN.AIADMK",
     party_eci_code: null,
     party_short: "AIADMK",
     margin_pct: 3.4,
+    brand_colour_hex: null,
+    brand_colour_confidence: null,
   },
 ];
 
@@ -253,20 +259,26 @@ describe("loadStateOverview — happy path", () => {
       {
         ac_eci_no: 1,
         ac_name: "GUMMIDIPOONDI",
+        party_id: "parties.IN.DMK",
         party_eci_code: "1234",
         party_short: "DMK",
         margin_pct: 12.5,
         turnout_pct: null,
         winner_age: null,
+        brand_colour_hex: "#e63329",
+        brand_colour_confidence: "high",
       },
       {
         ac_eci_no: 2,
         ac_name: "PONNERI",
+        party_id: "parties.IN.AIADMK",
         party_eci_code: null,
         party_short: "AIADMK",
         margin_pct: 3.4,
         turnout_pct: null,
         winner_age: null,
+        brand_colour_hex: null,
+        brand_colour_confidence: null,
       },
     ]);
   });
