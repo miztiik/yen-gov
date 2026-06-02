@@ -64,6 +64,7 @@
     winner_party_eci_code: string | null;
     winner_party_short: string;
     margin_pct: number;
+    winner_candidate_name: string | null;
     brand_colour_hex: string | null;
     brand_colour_confidence: "high" | "medium" | "low" | null;
   }
@@ -88,6 +89,7 @@
           winner_party_eci_code: w.party_eci_code,
           winner_party_short: w.party_short,
           margin_pct: w.margin_pct,
+          winner_candidate_name: w.winner_candidate_name ?? null,
           brand_colour_hex: w.brand_colour_hex ?? null,
           brand_colour_confidence: w.brand_colour_confidence ?? null,
         })),
@@ -225,6 +227,7 @@
     for (const r of rows ?? []) {
       out[r.eci_no] = renderTooltipCard({
         title: `${r.eci_no}. ${r.name}`,
+        candidateName: r.winner_candidate_name,
         partyShort: r.winner_party_short,
         partyColorHex: party_colors.get(r.eci_no) ?? null,
         marginPct: r.margin_pct,
