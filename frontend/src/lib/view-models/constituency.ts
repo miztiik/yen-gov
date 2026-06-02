@@ -70,6 +70,11 @@ interface CandidateRow {
   party_eci_code: string | null;
   votes: number | null;
   vote_share_pct: number | null;
+  // PR-SYM-6b mirror columns from dim_parties (v1.1). Nullable in Parquet
+  // -> nullable here. Resolver consumes brand_colour_hex + _confidence; UI
+  // chips can render election_symbol_asset_path when present.
+  brand_colour_hex: string | null;
+  brand_colour_confidence: string | null;
   // v1.2 biographic columns (PR-S.2 / canonical pivot 1.8f). Nullable in
   // Parquet -> nullable here. Populated only for events where an ECI
   // Statistical Report adapter has run (currently TN AcGenApr2021).
@@ -131,6 +136,8 @@ async function runQueries(
       ec.party_id       AS party_id,
       CASE
         WHEN ec.party_id = 'parties.IN.UNK'
+      dp.brand_colour_hex        AS brand_colour_hex,
+      dp.brand_colour_confidence AS brand_colour_confidence,
           THEN COALESCE(ec.party_short_raw, dp.short_name, 'UNK')
         ELSE dp.short_name
       END               AS party_short,
@@ -242,11 +249,19 @@ function assembleResult(
     return {
       rank: Number(r.rank),
       name: r.candidate_name ?? "",
+      party_id: r.party_id,
       party_eci_code: r.party_eci_code ?? null,
       party_short: r.party_short ?? r.party_id,
       votes: num(r.votes),
       vote_share_pct: num(r.vote_share_pct),
       is_winner: r.candidate_id === winnerCandidateId,
+      brand_colour_hex: r.brand_colour_hex ?? null,
+      brand_colour_confidence:
+        r.brand_colour_confidence === "high" ||
+        r.brand_colour_confidence === "medium" ||
+        r.brand_colour_confidence === "low"
+          ? r.brand_colour_confidence
+          : null,
       bio: hasBio
         ? {
             sex: r.sex,
