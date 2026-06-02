@@ -29,14 +29,17 @@ from yen_gov.canonical.adapters.eci.party_lookup import (
 from yen_gov.canonical.adapters.eci.pc_observations import (
     dim_rows_from_pc,
     observations_from_pc,
+    persons_and_candidacies_from_pc,
 )
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.envelope import (
     BatchEnvelope,
+    CandidacyRow,
     ObservationRow,
     PartyAllianceDimRow,
     PartyDimRow,
     PcDimRow,
+    PersonDimRow,
     SourceRow,
 )
 from yen_gov.canonical.writer import WriteResult, write_batch
@@ -130,6 +133,8 @@ def build_pc_envelope(
 
     observations: list[ObservationRow] = []
     pc_dims: list[PcDimRow] = []
+    person_payloads: dict[str, dict] = {}
+    candidacy_payloads: list[dict] = []
     for result in results:
         observations.extend(observations_from_pc(
             result=result,
@@ -146,6 +151,16 @@ def build_pc_envelope(
                 source_id=source_row.source_id,
             )
         )
+        persons, candidacies = persons_and_candidacies_from_pc(
+            result=result,
+            period=LS_2024_EVENT,
+            delim_year=LS_2024_DELIM_YEAR,
+            party_lookup=lookup,
+            source_id=source_row.source_id,
+        )
+        for p in persons:
+            person_payloads[p["person_id"]] = p
+        candidacy_payloads.extend(candidacies)
 
     envelope = BatchEnvelope(
         target_family="elections",
@@ -153,6 +168,8 @@ def build_pc_envelope(
         source_rows=[source_row],
         observation_rows=observations,
         pc_dim_rows=pc_dims,
+        person_dim_rows=[PersonDimRow(**p) for p in person_payloads.values()],
+        candidacy_rows=[CandidacyRow(**c) for c in candidacy_payloads],
         party_dim_rows=[
             PartyDimRow(**r)
             for r in party_dim_rows(base_lookup, source_id=source_row.source_id)

@@ -3,7 +3,7 @@
   "$id": "./elections-candidacies.schema.json",
   "title": "Election candidacy fact row",
   "description": "Logical contract for one row of datasets/elections/elections_candidacies.parquet. ADR-0035 S.1 splits per-contest candidacy facts away from dim_persons while keeping candidacy_key byte-equal to election_results.entity_id for candidate-* observations.",
-  "x-version": "1.1",
+  "x-version": "1.2",
   "x-changelog": [
     {
       "version": "1.0",
@@ -14,6 +14,11 @@
       "version": "1.1",
       "date": "2026-05-24",
       "description": "Widen candidacy_key and ballot_serial to three digits for large historical candidate fields, anchored by Karnataka 1985 Belgaum."
+    },
+    {
+      "version": "1.2",
+      "date": "2026-06-02",
+      "description": "EGC-B2 Option 1: reuse the candidacy model for Lok Sabha (PC) candidates. Add optional pc_id FK -> dim_pcs.pc_id; relax ac_id from required to nullable; widen candidacy_key pattern to also accept the IN-PC-<delim>-<state>-<no>- body. Exactly one of ac_id / pc_id is set per row (grain dispatched at read time). Additive + relaxing only; existing AC rows are unchanged."
     }
   ],
   "type": "object",
@@ -21,7 +26,6 @@
   "required": [
     "candidacy_key",
     "person_id",
-    "ac_id",
     "election_id",
     "ballot_serial",
     "party_id",
@@ -32,8 +36,8 @@
   "properties": {
     "candidacy_key": {
       "type": "string",
-      "pattern": "^IN-[SU][0-9]{2}-AC-[0-9]{4}-[0-9]+-(?:AcGen|LsGen|AcBye|LsBye)(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[0-9]{4}-C[0-9]{2,3}$",
-      "description": "PK. The retired candidate_id / current election_results.entity_id for candidate-* observation rows."
+      "pattern": "^IN-(?:[SU][0-9]{2}-AC-[0-9]{4}|PC-[0-9]{4}-[SU][0-9]{2})-[0-9]+-(?:AcGen|LsGen|AcBye|LsBye)(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[0-9]{4}-C[0-9]{2,3}$",
+      "description": "PK. The retired candidate_id / current election_results.entity_id for candidate-* observation rows. AC body: IN-<state>-AC-<delim>-<no>-...; PC (Lok Sabha) body: IN-PC-<delim>-<state>-<no>-..."
     },
     "person_id": {
       "type": "string",
@@ -41,9 +45,14 @@
       "description": "FK -> elections/dim_persons.parquet person_id."
     },
     "ac_id": {
-      "type": "string",
+      "type": ["string", "null"],
       "pattern": "^IN-[SU][0-9]{2}-AC-[0-9]{4}-[0-9]+$",
-      "description": "FK -> dim_acs.ac_id."
+      "description": "FK -> dim_acs.ac_id. Set for Assembly (AC) candidacies; null for Lok Sabha (PC) candidacies, where pc_id is set instead. Exactly one of ac_id / pc_id is non-null."
+    },
+    "pc_id": {
+      "type": ["string", "null"],
+      "pattern": "^IN-PC-[0-9]{4}-[SU][0-9]{2}-[0-9]+$",
+      "description": "FK -> dim_pcs.pc_id. Set for Lok Sabha (PC) candidacies; null for Assembly (AC) candidacies, where ac_id is set instead. Exactly one of ac_id / pc_id is non-null."
     },
     "election_id": {
       "type": "string",

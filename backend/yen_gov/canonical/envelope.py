@@ -24,7 +24,7 @@ import hashlib
 from enum import Enum
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 
 class ReplacementSemantics(str, Enum):
@@ -176,11 +176,13 @@ class CandidacyRow(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     candidacy_key: str = Field(
-        pattern=r"^IN-[SU]\d{2}-AC-\d{4}-\d+-(?:AcGen|LsGen|AcBye|LsBye)"
+        pattern=r"^IN-(?:[SU]\d{2}-AC-\d{4}|PC-\d{4}-[SU]\d{2})-\d+-"
+        r"(?:AcGen|LsGen|AcBye|LsBye)"
         r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}-C\d{2,3}$"
     )
     person_id: str = Field(pattern=r"^[0-9a-f]{16}$")
-    ac_id: str = Field(pattern=r"^IN-[SU]\d{2}-AC-\d{4}-\d+$")
+    ac_id: str | None = Field(default=None, pattern=r"^IN-[SU]\d{2}-AC-\d{4}-\d+$")
+    pc_id: str | None = Field(default=None, pattern=r"^IN-PC-\d{4}-[SU]\d{2}-\d+$")
     election_id: str = Field(min_length=1)
     ballot_serial: int = Field(ge=1, le=999)
     party_id: str = Field(pattern=r"^parties\.IN\.[A-Z][A-Z0-9_]*$")
@@ -192,6 +194,16 @@ class CandidacyRow(BaseModel):
     party_short_raw: str | None = None
     constituency_type: str | None = Field(default=None)
     party_type: str | None = Field(default=None)
+
+    @model_validator(mode="after")
+    def _exactly_one_constituency_fk(self) -> "CandidacyRow":
+        """Exactly one of ac_id / pc_id is set; grain is dispatched at read time."""
+        if (self.ac_id is None) == (self.pc_id is None):
+            raise ValueError(
+                "CandidacyRow requires exactly one of ac_id / pc_id to be set "
+                f"(ac_id={self.ac_id!r}, pc_id={self.pc_id!r})"
+            )
+        return self
 
 
 class AcDimRow(BaseModel):

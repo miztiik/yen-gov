@@ -5,11 +5,12 @@ rows per ``TODO/20260531-uk-style-elections-experience-plan.md`` (Model C —
 the pc-grain measures are SIBLING concepts of the ac-grain ones, sharing one
 ``concept_id`` whose ``entity_kinds`` lists both ``ac`` and ``pc``).
 
-PC person/candidacy dim rows are deliberately NOT emitted here: the
-``CandidacyRow``/``PersonDimRow`` schemas are AC-pattern-locked
-(``IN-<state>-AC-...``) and extending them to PC is a separate schema bump
-out of scope for this row. ``dim_rows_from_pc`` therefore returns only the
-``PcDimRow`` payloads, mirroring the plan's PR-A3 deliverable.
+EGC-B2 (elections-candidacies v1.2, Option 1) additionally reuses the unified
+person/candidacy model for Lok Sabha (PC) candidates: ``persons_and_candidacies_from_pc``
+emits ``PersonDimRow`` + ``CandidacyRow`` payloads with ``pc_id`` set and
+``ac_id`` null, so national candidates are enriched through the SAME
+``dim_persons`` + ``elections_candidacies`` tables as Assembly candidates
+("people are the same").
 """
 
 from __future__ import annotations
@@ -17,6 +18,8 @@ from __future__ import annotations
 from yen_gov.canonical.adapters.eci.identity import (
     Period,
     candidate_entity_id,
+    layer1_person_id_collision_tiebreak,
+    layer1_person_id_for_pc,
     pc_entity_id,
 )
 from yen_gov.canonical.adapters.eci.party_lookup import PartyLookup
@@ -230,6 +233,103 @@ def _obs(
         source_id=source_id,
         derivation=derivation,
     )
+
+
+def _normalise_sex(raw: str | None) -> str | None:
+    """Map an upstream gender token to the dim_persons enum (Male/Female/Other)."""
+    text = (raw or "").strip().upper()
+    if not text:
+        return None
+    if text in {"MALE", "M"}:
+        return "Male"
+    if text in {"FEMALE", "F"}:
+        return "Female"
+    return "Other"
+
+
+def _clean_age(raw: int | None) -> int | None:
+    """Drop implausible ages so PersonDimRow (18..120) never fails on bad data."""
+    if raw is None or raw < 18 or raw > 120:
+        return None
+    return int(raw)
+
+
+def persons_and_candidacies_from_pc(
+    *,
+    result: PcResultRaw,
+    period: Period,
+    delim_year: int,
+    party_lookup: PartyLookup,
+    source_id: str,
+) -> tuple[list[dict], list[dict]]:
+    """Emit PersonDimRow + CandidacyRow payloads for one PC contest.
+
+    Returns ``(person_payloads, candidacy_payloads)`` as plain dicts so the
+    driver wraps them in ``PersonDimRow`` / ``CandidacyRow`` before envelope
+    construction, matching the ``dim_rows_from_pc`` convention.
+
+    NOTA is excluded - it is a ballot option, not a person. ``candidacy_key``
+    is byte-equal to the ``candidate-*`` observation entity_id for the same
+    rank, so the candidacy table joins cleanly to ``election_results``.
+    Sex/age come from the ECI Report-33 candidate columns; education/profession
+    are TCPD-only and stay null for the ECI slice.
+    """
+    pc_id = pc_entity_id(result.state_code, delim_year, result.pc_no)
+    ranked = _ranked_non_nota(result)
+    if not ranked:
+        raise ValueError(
+            f"PC {result.pc_name} ({result.state_code}) has no non-NOTA "
+            f"candidates - cannot build candidacies"
+        )
+    valid = float(result.valid_votes) if result.valid_votes else None
+
+    persons: list[dict] = []
+    candidacies: list[dict] = []
+    seen_person_ids: set[str] = set()
+    for rank, cand in enumerate(ranked, start=1):
+        candidacy_key = candidate_entity_id(pc_id, period.period_label, rank)
+        person_id = layer1_person_id_for_pc(
+            state_code=result.state_code,
+            pc_id=pc_id,
+            election_id=period.period_label,
+            candidate_name=cand.name,
+        )
+        if person_id in seen_person_ids:
+            person_id = layer1_person_id_collision_tiebreak(person_id, candidacy_key)
+        seen_person_ids.add(person_id)
+        party_id = party_lookup.resolve(
+            party_full=cand.party_name,
+            is_independent=_is_independent(cand.party_name),
+        )
+        votes_polled = float(cand.total_votes)
+        vote_share = votes_polled / valid * 100.0 if valid else None
+        persons.append({
+            "person_id": person_id,
+            "display_name": cand.name,
+            "source_id": source_id,
+            "sex": _normalise_sex(cand.gender),
+            "age": _clean_age(cand.age),
+            "education": None,
+            "profession": None,
+        })
+        candidacies.append({
+            "candidacy_key": candidacy_key,
+            "person_id": person_id,
+            "ac_id": None,
+            "pc_id": pc_id,
+            "election_id": period.period_label,
+            "ballot_serial": rank,
+            "party_id": party_id,
+            "rank": rank,
+            "votes_polled": votes_polled,
+            "vote_share_pct": vote_share,
+            "won": rank == 1,
+            "source_id": source_id,
+            "party_short_raw": cand.party_name,
+            "constituency_type": None,
+            "party_type": None,
+        })
+    return persons, candidacies
 
 
 def dim_rows_from_pc(
