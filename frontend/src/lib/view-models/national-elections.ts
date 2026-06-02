@@ -51,6 +51,11 @@ export interface NationalPcWinner {
   /** Winning candidate's display name (dim_persons.display_name). Null when
    *  the candidacy join missed or upstream omitted the name. */
   winner_candidate_name?: string | null;
+  /** Winning party's election-symbol asset path, root-relative
+   *  (e.g. "party-symbols/lotus.svg"), from
+   *  dim_parties.election_symbol_asset_path. Null when no verified symbol
+   *  asset — the tooltip medallion degrades silently. */
+  symbol_asset_path?: string | null;
   // PR-SYM-6i-pre3 additive brand_colour mirror (from dim_parties v1.1).
   brand_colour_hex?: string | null;
   brand_colour_confidence?: "high" | "medium" | "low" | null;
@@ -74,6 +79,7 @@ interface PcWinnerRow {
   turnout_pct: number | null;
   winner_age: number | null;
   winner_candidate_name: string | null;
+  symbol_asset_path: string | null;
 }
 
 async function queryPcWinners(evtLiteral: string): Promise<PcWinnerRow[]> {
@@ -115,6 +121,7 @@ async function queryPcWinners(evtLiteral: string): Promise<PcWinnerRow[]> {
            dp.short_name              AS party_short,
            dp.brand_colour_hex        AS brand_colour_hex,
            dp.brand_colour_confidence AS brand_colour_confidence,
+           dp.election_symbol_asset_path AS symbol_asset_path,
            m.margin_pct               AS margin_pct,
            t.turnout_pct              AS turnout_pct,
            per.age                    AS winner_age,
@@ -146,6 +153,7 @@ function toNationalPcWinners(rows: PcWinnerRow[]): NationalPcWinner[] {
       turnout_pct: r.turnout_pct == null ? null : Number(r.turnout_pct),
       winner_age: r.winner_age == null ? null : Number(r.winner_age),
       winner_candidate_name: r.winner_candidate_name ?? null,
+      symbol_asset_path: r.symbol_asset_path ?? null,
       brand_colour_hex: r.brand_colour_hex ?? null,
       brand_colour_confidence:
         (r.brand_colour_confidence as "high" | "medium" | "low" | null) ?? null,
