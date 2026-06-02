@@ -232,9 +232,12 @@ class PcDimRow(BaseModel):
 class PartyDimRow(BaseModel):
     """A row destined for ``datasets/elections/dim_parties.parquet``.
 
-    Mirrors datasets/schemas/dim-parties.schema.json. PK = party_id.
+    Mirrors datasets/schemas/dim-parties.schema.json v1.1. PK = party_id.
     Sourced from the in-memory PartyLookup registry (taxonomy/parties.json),
-    NOT re-fetched.
+    NOT re-fetched. The 5 brand_colour / wikipedia_url / election_symbol
+    mirror columns are PR-SYM-6b additions: flattened from the nested
+    taxonomy/parties.json objects so the frontend resolver + symbol chip
+    can read everything they need from one canonical join.
     """
 
     model_config = ConfigDict(extra="forbid")
@@ -248,6 +251,24 @@ class PartyDimRow(BaseModel):
         pattern=r"^(national|state|registered_unrecognised|unknown)$",
     )
     source_id: str = Field(min_length=1)
+    # --- PR-SYM-6b additive mirror columns (all nullable) ---
+    brand_colour_hex: str | None = Field(
+        default=None,
+        pattern=r"^#[0-9a-fA-F]{6}$",
+    )
+    brand_colour_confidence: str | None = Field(
+        default=None,
+        pattern=r"^(high|medium|low)$",
+    )
+    wikipedia_url: str | None = None
+    election_symbol_asset_path: str | None = Field(
+        default=None,
+        pattern=r"^party-symbols/[a-z0-9_-]+\.(svg|png|jpg|jpeg|webp)$",
+    )
+    election_symbol_render_mode: str | None = Field(
+        default=None,
+        pattern=r"^(source_coloured|recolourable|silhouette)$",
+    )
 
 
 class PartyAllianceDimRow(BaseModel):

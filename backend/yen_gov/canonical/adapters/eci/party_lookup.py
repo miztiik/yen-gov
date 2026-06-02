@@ -112,6 +112,8 @@ def party_dim_rows(lookup: PartyLookup, *, source_id: str) -> list[dict]:
     out: list[dict] = []
     for row in roster:
         eci_codes = row.get("eci_codes") or []
+        brand = row.get("brand_colour") or {}
+        symbol = row.get("election_symbol") or {}
         out.append({
             "party_id": row["party_id"],
             "eci_code": eci_codes[0] if eci_codes else None,
@@ -119,6 +121,14 @@ def party_dim_rows(lookup: PartyLookup, *, source_id: str) -> list[dict]:
             "full_name": row["full_name"],
             "recognition": row.get("recognition"),
             "source_id": source_id,
+            # PR-SYM-6b mirror columns (all nullable). Flatten the nested
+            # taxonomy/parties.json objects so a single dim_parties JOIN
+            # carries everything the frontend resolver + symbol chip need.
+            "brand_colour_hex": brand.get("hex"),
+            "brand_colour_confidence": brand.get("confidence"),
+            "wikipedia_url": row.get("wikipedia_url"),
+            "election_symbol_asset_path": symbol.get("asset_path"),
+            "election_symbol_render_mode": symbol.get("render_mode"),
         })
     return out
 
