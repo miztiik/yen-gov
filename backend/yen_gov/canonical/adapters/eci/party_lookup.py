@@ -128,7 +128,16 @@ def party_dim_rows(lookup: PartyLookup, *, source_id: str) -> list[dict]:
             "brand_colour_confidence": brand.get("confidence"),
             "wikipedia_url": row.get("wikipedia_url"),
             "election_symbol_asset_path": symbol.get("asset_path"),
-            "election_symbol_render_mode": symbol.get("render_mode"),
+            # Normalise source data render_mode to canonical dim enum.
+            # parties.json schema accepts the descriptive 'monochrome';
+            # dim-parties.schema.json v1.1 uses the semantic 'recolourable'
+            # (= consumer may tint with brand_colour_hex). Other values
+            # ('source_coloured', 'silhouette') pass through unchanged.
+            "election_symbol_render_mode": (
+                "recolourable"
+                if symbol.get("render_mode") == "monochrome"
+                else symbol.get("render_mode")
+            ),
         })
     return out
 
