@@ -113,6 +113,12 @@ interface PartyRow {
   eci_code: string | null;
   recognition: string | null;
   alliance: string | null;
+  // PR-SYM-6f1: project dim_parties.party_id + brand_colour_* through to
+  // PartyTotals so SeatDonut (and follow-up consumers) can call
+  // getPartyColor(party_id, row) off the existing dim_parties LEFT JOIN.
+  party_id: string | null;
+  brand_colour_hex: string | null;
+  brand_colour_confidence: string | null;
   seats_contested: number | null;
   seats_won: number | null;
   votes: number | null;
@@ -193,11 +199,14 @@ async function runQueries(
   const partySql = `
     SELECT
       regexp_extract(o.entity_id, '-PARTY-(.+)$', 1) AS short_name_key,
-      dp.short_name     AS short_name,
-      dp.full_name      AS full_name,
-      dp.eci_code       AS eci_code,
-      dp.recognition    AS recognition,
-      dpa.alliance      AS alliance,
+      dp.short_name              AS short_name,
+      dp.full_name               AS full_name,
+      dp.eci_code                AS eci_code,
+      dp.recognition             AS recognition,
+      dpa.alliance               AS alliance,
+      dp.party_id                AS party_id,
+      dp.brand_colour_hex        AS brand_colour_hex,
+      dp.brand_colour_confidence AS brand_colour_confidence,
       MAX(CASE WHEN o.indicator_id = 'party-contested-acs'  THEN o.value_numeric END) AS seats_contested,
       MAX(CASE WHEN o.indicator_id = 'party-seats-won'      THEN o.value_numeric END) AS seats_won,
       MAX(CASE WHEN o.indicator_id = 'party-votes-polled'   THEN o.value_numeric END) AS votes,
@@ -216,7 +225,7 @@ async function runQueries(
         'party-votes-polled',
         'party-vote-share-pct'
       )
-    GROUP BY 1, 2, 3, 4, 5, 6
+    GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9
   `;
   const parties = await query<PartyRow>(partySql);
 
@@ -380,6 +389,17 @@ function assembleResult(
     party_full: r.full_name ?? null,
     recognition: r.recognition ?? null,
     alliance: r.alliance ?? null,
+    // PR-SYM-6f1: additive brand-identity fields from dim_parties. Null
+    // when the LEFT JOIN missed (party not yet in canonical seed) so
+    // SeatDonut's getPartyColor call falls through to the algorithmic tier.
+    party_id: r.party_id ?? null,
+    brand_colour_hex: r.brand_colour_hex ?? null,
+    brand_colour_confidence:
+      r.brand_colour_confidence === "high" ||
+      r.brand_colour_confidence === "medium" ||
+      r.brand_colour_confidence === "low"
+        ? r.brand_colour_confidence
+        : null,
     seats_contested:
       r.seats_contested == null ? null : Number(r.seats_contested),
     seats_won: num(r.seats_won),
