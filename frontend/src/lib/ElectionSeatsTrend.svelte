@@ -98,6 +98,9 @@
         seats_won: p.seats_won,
         votes: p.votes,
         vote_share_pct: p.vote_share_pct,
+        party_id: p.party_id ?? null,
+        brand_colour_hex: p.brand_colour_hex ?? null,
+        brand_colour_confidence: p.brand_colour_confidence ?? null,
       })),
     }));
   });

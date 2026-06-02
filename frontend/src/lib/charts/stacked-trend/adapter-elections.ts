@@ -8,7 +8,7 @@
 
 import { applyGlobalUnion, buildCategories, type RollupConfig, type RollupInputBar } from "./rollup";
 import { computeHeadline, type HeadlineContext, type HeadlineRule } from "./headline";
-import { partyColour } from "../../colors/party-colour";
+import { getPartyColor, type PartyRowForResolver } from "../../colors/resolver";
 import { OTHER_CATEGORY_ID } from "./types";
 import {
   StackedTrendModel,
@@ -36,6 +36,13 @@ export interface ResultSummaryDoc {
     seats_won: number;
     votes: number;
     vote_share_pct: number;
+    /** PR-SYM-6f6: canonical `parties.IN.<SLUG>` from dim_parties LEFT JOIN.
+     *  Null when the JOIN missed (party not in taxonomy yet); resolver
+     *  derives a fallback id from party_short. */
+    party_id?: string | null;
+    /** PR-SYM-6f6: brand-colour mirror from dim_parties v1.1. */
+    brand_colour_hex?: string | null;
+    brand_colour_confidence?: "high" | "medium" | "low" | null;
   }>;
 }
 
@@ -123,29 +130,38 @@ export function electionsToStackedTrend(
   );
 
   // Bind the canonical party-colour anchors so this chart's swatches
-  // agree with SeatsByParty and MarginHistogram. The ANCHORS table is
-  // keyed by ECI numeric code (e.g. AIADMK = "75"), NOT by party_short,
-  // so we build a short→eci map from the summaries and pass the eci
-  // code as the first arg to partyColour. Without the eci lookup the
-  // anchors all miss and the chart falls through to the hash palette
-  // (visually random vs the other two state-page charts). OTHER is
-  // left untouched so the v2 renderer applies its fixed grey via
+  // agree with SeatsByParty and MarginHistogram. PR-SYM-6f6 swaps the
+  // legacy `partyColour(eci_code, in_use_codes)` resolver for
+  // `getPartyColor(party_id, row)` from the 3-tier resolver. We index
+  // the summaries' party rows by party_short so each named category
+  // can pull its canonical `parties.IN.<SLUG>` id plus the optional
+  // brand_colour fields the dim_parties LEFT JOIN now projects. OTHER
+  // is left untouched so the v2 renderer applies its fixed grey via
   // OTHER_CATEGORY_FILL_V2.
-  const eciByShort = new Map<string, string>();
+  const rowByShort = new Map<string, ResultSummaryDoc["party_totals"][number]>();
   for (const s of summaries) {
     for (const p of s.party_totals) {
-      if (p.party_eci_code && !eciByShort.has(p.party_short)) {
-        eciByShort.set(p.party_short, p.party_eci_code);
+      if (!rowByShort.has(p.party_short)) {
+        rowByShort.set(p.party_short, p);
       }
     }
   }
-  const namedCodes = rolled.named_category_ids.map(
-    (id) => eciByShort.get(id) ?? id,
-  );
   for (const cat of categories) {
     if (cat.id === OTHER_CATEGORY_ID) continue;
-    const code = eciByShort.get(cat.id) ?? cat.id;
-    cat.fill = partyColour(code, namedCodes).fill;
+    const p = rowByShort.get(cat.id);
+    const pid = p?.party_id ?? `parties.IN.${cat.id.toUpperCase()}`;
+    const row: PartyRowForResolver = {
+      party_id: pid,
+      eci_code: p?.party_eci_code ?? null,
+      brand_colour:
+        p?.brand_colour_hex && p?.brand_colour_confidence
+          ? {
+              hex: p.brand_colour_hex,
+              confidence: p.brand_colour_confidence,
+            }
+          : null,
+    };
+    cat.fill = getPartyColor(pid, row).hex;
   }
 
   const value_kind = MAP_VALUE_KIND[opts.value];

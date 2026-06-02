@@ -37,6 +37,9 @@ const partyRows = [
     seats_won: 133,
     votes: 22_350_000,
     vote_share_pct: 37.7,
+    party_id: "parties.IN.DMK",
+    brand_colour_hex: null,
+    brand_colour_confidence: null,
   },
   {
     period_label: "AcGenMay2026",
@@ -48,6 +51,9 @@ const partyRows = [
     seats_won: 66,
     votes: 19_300_000,
     vote_share_pct: 33.3,
+    party_id: "parties.IN.AIADMK",
+    brand_colour_hex: null,
+    brand_colour_confidence: null,
   },
   {
     period_label: "AcGenApr2021",
@@ -59,6 +65,9 @@ const partyRows = [
     seats_won: 125,
     votes: 21_000_000,
     vote_share_pct: 36.7,
+    party_id: "parties.IN.DMK",
+    brand_colour_hex: null,
+    brand_colour_confidence: null,
   },
   {
     period_label: "AcGenApr2021",
@@ -70,6 +79,9 @@ const partyRows = [
     seats_won: 75,
     votes: 19_800_000,
     vote_share_pct: 33.3,
+    party_id: "parties.IN.AIADMK",
+    brand_colour_hex: null,
+    brand_colour_confidence: null,
   },
 ];
 

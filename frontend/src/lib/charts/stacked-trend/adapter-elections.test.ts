@@ -118,7 +118,7 @@ describe("electionsToStackedTrend — Assam (S03) seats_won timeline", () => {
     ]);
   });
 
-  it("dimension is 'party' so partyColour resolves the segments", () => {
+  it("dimension is 'party' so getPartyColor resolves the segments", () => {
     const model = electionsToStackedTrend(summaries, {
       value: "seats_won",
       config: { coverage_ceiling: 0.95, max_named_categories: 8 },

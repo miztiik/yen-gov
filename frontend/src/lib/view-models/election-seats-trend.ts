@@ -63,6 +63,9 @@ interface PartyRow {
   seats_won: number | null;
   votes: number | null;
   vote_share_pct: number | null;
+  party_id: string | null;
+  brand_colour_hex: string | null;
+  brand_colour_confidence: string | null;
 }
 
 interface SourceJoinRow {
@@ -101,6 +104,9 @@ async function runQueries(
       dp.short_name                                               AS short_name,
       dp.full_name                                                AS full_name,
       dp.eci_code                                                 AS eci_code,
+      dp.party_id                                                 AS party_id,
+      dp.brand_colour_hex                                         AS brand_colour_hex,
+      dp.brand_colour_confidence                                  AS brand_colour_confidence,
       MAX(CASE WHEN o.indicator_id = 'party-contested-acs'  THEN o.value_numeric END) AS seats_contested,
       MAX(CASE WHEN o.indicator_id = 'party-seats-won'      THEN o.value_numeric END) AS seats_won,
       MAX(CASE WHEN o.indicator_id = 'party-votes-polled'   THEN o.value_numeric END) AS votes,
@@ -116,7 +122,7 @@ async function runQueries(
         'party-votes-polled',
         'party-vote-share-pct'
       )
-    GROUP BY 1, 2, 3, 4, 5
+    GROUP BY 1, 2, 3, 4, 5, 6, 7, 8
   `;
   const parties = await query<PartyRow>(partySql);
 
@@ -166,6 +172,14 @@ function assembleResult(
       seats_won: num(r.seats_won),
       votes: num(r.votes),
       vote_share_pct: num(r.vote_share_pct),
+      party_id: r.party_id ?? null,
+      brand_colour_hex: r.brand_colour_hex ?? null,
+      brand_colour_confidence:
+        r.brand_colour_confidence === "high" ||
+        r.brand_colour_confidence === "medium" ||
+        r.brand_colour_confidence === "low"
+          ? r.brand_colour_confidence
+          : null,
     }));
     const total_seats = party_totals.reduce((s, p) => s + p.seats_won, 0);
     events.push({ event_id, party_totals, total_seats });
