@@ -14,7 +14,7 @@
 | --- | --- |
 | DuckDB-WASM remains the browser SQL engine over canonical Parquet. | [ADR-0030](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md) |
 | State/UT identity is a canonical entity row with ECI, LGD, ISO, and slug aliases. | [ADR-0036](../docs/architecture/decisions/0036-state-identity-and-slice-registration.md) |
-| Existing elections keep `state=in_s22`; this is elections-only physical grammar. | [canonical-store.md](../docs/architecture/data/canonical-store.md) |
+| Elections partitions migrated to `state=<lgd-slug>` (e.g. `state=tamil-nadu`) per ADR-0050 / PR #565 (2026-06-01). The `state=in_s22` shape below is historical. | [ADR-0050](../docs/architecture/decisions/0050-folder-naming-lgd-slug.md) |
 | Future socio-economic state partitions prefer ISO-like tokens if partitioning is earned. | [ADR-0036](../docs/architecture/decisions/0036-state-identity-and-slice-registration.md) |
 | `registerSlice` is manifest-native and takes physical partition filters. | [frontend/data-loading.md](../docs/architecture/frontend/data-loading.md) |
 | `/s/...` is current legacy runtime; `/india/...` is the target citizen route grammar. | [frontend/routing.md](../docs/architecture/frontend/routing.md) |
@@ -73,7 +73,7 @@ P1 uses `state=in_s22` only because that is the current election partition. It m
 | Candidate | Status | Trigger |
 | --- | --- | --- |
 | Rename state entity IDs from ECI-shaped `IN-S22` to ISO-shaped IDs. | Open; requires ADR + migration plan + consumer audit. | Trigger only if a concrete downstream consumer cannot tolerate alias-based state identity. |
-| Rename election partitions from `state=in_s22`. | Open; probably unnecessary. | Trigger only if manifest deprecations plus current election paths become a real operational burden. |
+| Rename election partitions from `state=in_s22`. | DONE 2026-06-01 via PR #565 (M3) per ADR-0050. Partitions now `state=<lgd-slug>`. | Closed. |
 | Add normalized `taxonomy.entity_aliases` table. | Strong additive candidate; separate structural PR. | Trigger when the second source family needs alias lookup beyond fields already on `taxonomy.entities`. |
 
 ---

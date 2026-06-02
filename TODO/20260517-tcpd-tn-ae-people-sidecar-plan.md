@@ -48,11 +48,11 @@ Once a `(state, election_id, source_input)` triple has been ingested and validat
 datasets/elections/_inventory.json
 {
   "$schema": "https://yen-gov.github.io/schemas/elections-inventory.schema.json",
-  "$schema_version": "1.0",
+  "$schema_version": "2.0",
   "ingested": [
     {
       "election_id": "AcGenApr2021",
-      "state": "S22",
+      "state": "tamil-nadu",
       "people_source": "tn_ae_panel_1971_2021",
       "ingested_at": "2026-05-17",
       "discrepancy_summary": { "acs_with_mismatch": 3, "halted": false }
