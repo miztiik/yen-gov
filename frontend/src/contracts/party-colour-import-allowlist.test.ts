@@ -42,9 +42,6 @@ const FORBIDDEN_IMPORTS = [
   "./colors/store.svelte",
   "../colors/store.svelte",
   "../../colors/store.svelte",
-  "./colors/category-colour",
-  "../colors/category-colour",
-  "../../colors/category-colour",
 ] as const;
 
 /**
@@ -63,29 +60,27 @@ const ALLOWLIST = new Set<string>([
   "lib/colors/party-colour.test.ts",
   "lib/colors/anchors.ts",
   "lib/colors/store.svelte.ts",
-  "lib/colors/category-colour.ts",
 
-  // Resolver — sanctioned bridge. Imports from `./anchors` to populate
+  // Resolver -- sanctioned bridge. Imports from `./anchors` to populate
   // the curated ANCHORS_BY_PID map per the 3-tier contract.
   "lib/colors/resolver.ts",
 
-  // Grandfathered consumers -- pending follow-up migration. Each entry
-  // is a real-world consumer that still uses `colors.fill` /
-  // `partyColour` / `colors.forSet`. Each PR-SYM-6f+ follow-up retires
-  // these one at a time as their loader contracts gain `party_id`.
-  "lib/charts/StackedTrendV2.svelte",                             // uses category-colour
+  // PR-SYM-6h (#TBD): grandfathered consumer set is now EMPTY. The last
+  // entry (`lib/charts/StackedTrendV2.svelte`) retired when the party
+  // branch of `category-colour.ts` was routed through `getPartyColor`,
+  // letting `category-colour.ts` drop out of FORBIDDEN_IMPORTS as a
+  // legitimate dimension dispatcher (not a legacy party module).
   // PR-SYM-6f1 (#585): SeatDonut migrated to getPartyColor resolver.
   // PR-SYM-6f2 (#586): PartyBar migrated to resolvePartyPalette + getPartyColor.
   // PR-SYM-6f3 (#587): IndiaMap migrated to resolvePartyPalette + getPartyColor.
   // PR-SYM-6f4 (#589): ElectionMap migrated to resolvePartyPalette + getPartyColor.
   // PR-SYM-6f5 (#590): composition-bar adapter migrated to getPartyColor.
   // PR-SYM-6f6 (#591): stacked-trend adapter migrated to getPartyColor.
-  // PR-SYM-6f7 (#TBD): election-tile-layout view-model migrated to resolvePartyPalette + getPartyColor.
-  // PR-SYM-6g  (#TBD): ParliamentArc + SwingSankey + routes/Compare migrated to
-  //                    `partyColourHex` from `lib/psephlab/colour-bridge.ts`
-  //                    after PartyResult + CandidateTally grew optional
-  //                    party_id + brand_colour_* fields populated by the
-  //                    canonical psephlab loader.
+  // PR-SYM-6f7 (#592): election-tile-layout view-model migrated to resolvePartyPalette + getPartyColor.
+  // PR-SYM-6g  (#595): ParliamentArc + SwingSankey + routes/Compare migrated to
+  //                    `partyColourHex` from `lib/psephlab/colour-bridge.ts`.
+  // PR-SYM-6i  (#TBD): legacy module deletion (party-colour.ts, anchors.ts,
+  //                    store.svelte.ts) -- final closing PR of the SYM-6 spine.
 ]);
 
 function* walkTs(dir: string): IterableIterator<string> {
