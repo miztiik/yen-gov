@@ -14,7 +14,7 @@ import {
 import type { PartyColor } from "./anchors";
 import { dimensionAnchors } from "./anchors-domain";
 import { ANCHORS, ANCHOR_RESERVED_HUE_RANGES } from "./anchors";
-import { partyColour } from "./party-colour";
+import { getPartyColor } from "./resolver";
 
 const FALLBACK_PALETTE: OkLCh[] = generateOkLChPalette({
   hueSlots: 36,
@@ -41,7 +41,14 @@ export function categoryColour(
   overrides: Record<string, PartyColor> = {},
 ): PartyColor {
   if (overrides[code]) return overrides[code];
-  if (dimension === "party") return partyColour(code, inUseCodes, overrides);
+  // PR-SYM-6h: party branch routes through the canonical 3-tier resolver
+  // (`getPartyColor`) instead of legacy `partyColour`. `code` here is the
+  // category_id supplied by the caller; for party-dimension models built
+  // by canonical adapters (PR #591), `category.fill` is pre-resolved so
+  // this branch is effectively a defensive fallback. The resolver returns
+  // an algorithmic hex for unknown ids, matching the `partyColour`
+  // contract for non-anchored parties.
+  if (dimension === "party") return { fill: getPartyColor(code, null).hex };
 
   const anchors = dimensionAnchors(dimension);
   if (anchors[code]) return anchors[code];
