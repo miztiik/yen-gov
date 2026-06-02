@@ -81,7 +81,7 @@ Projected post-execution: **~90 unmapped (J&K only, deferred to user-sourced pos
 
 - Rework `IndicatorChoropleth` fill arm: replace `join_property_label: "ac_no"` with a crosswalk reverse-map lookup keyed on `lgd_ac_id` so AP fills work without the `ac_no == eci_no` assumption.
 - Rework `StateAcMap` nav fallback: replace `sel.properties.ac_no` with `crosswalk.reverse(lgd_ac_id).eci_no`.
-- Regenerate `datasets/boundaries/in/ac/state=in_s01/all.geojson` from Garuda (S01 has full 175 features in Garuda; replaces the LGD pre-bifurcation 1-294 numbering currently corrected by `apply_ac_no_rewrite_by_name`).
+- Regenerate `datasets/boundaries/in/ac/state=andhra-pradesh/all.geojson` from Garuda (S01 has full 175 features in Garuda; replaces the LGD pre-bifurcation 1-294 numbering currently corrected by `apply_ac_no_rewrite_by_name`). [Path updated 2026-06-02 per ADR-0050 / PR #562 — partition was `state=in_s01` pre-LGD rename.]
 - Visual smoke: click 5 ACs on `/s/andhra-pradesh`, confirm correct seat highlights. **Human-in-the-loop verification required.**
 - Gates: svelte-check, vitest, browser smoke per section 13.
 
