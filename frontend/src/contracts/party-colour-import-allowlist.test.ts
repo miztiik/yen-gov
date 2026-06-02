@@ -81,8 +81,8 @@ const ALLOWLIST = new Set<string>([
   "lib/elections/ElectionMap.svelte",                             // colors.store
   "lib/maplibre/IndiaMap.svelte",                                 // colors.store
   "lib/ParliamentArc.svelte",                                     // colors.store
-  "lib/PartyBar.svelte",                                          // colors.store
-  // PR-SYM-6f1 (#TBD): SeatDonut migrated to getPartyColor resolver.
+  // PR-SYM-6f1 (#585): SeatDonut migrated to getPartyColor resolver.
+  // PR-SYM-6f2 (#TBD): PartyBar migrated to resolvePartyPalette + getPartyColor.
   "lib/SwingSankey.svelte",                                       // colors.store
   "lib/view-models/election-tile-layout.ts",                      // colors.store
 ]);
