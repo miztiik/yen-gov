@@ -112,3 +112,45 @@ Move plan-doc to `docs/archive/plans/`, append distillation map (Row → PR → 
 - ADR-0047 (schema-version-compatibility)
 - ADR-0048 (URL grammar)
 - Predecessor: `docs/archive/plans/20260601-lgd-canonical-plan.md` (PRs #552→#569)
+
+
+---
+
+## Plan complete (2026-06-02)
+
+All in-scope rows shipped, collapsed, or clarified; archived per `docs/how-to/distill-a-plan.md`.
+
+### Distillation map
+
+| Row | PR(s) | Disposition |
+| --- | --- | --- |
+| R1 Inventory schema bump (writer + data) | #575 | DONE - schema v2.0; data migrated (291 entries); `backend/yen_gov/canonical/adapters/eci/state_slug.py` bridge |
+| R2 Inventory reader rewire | #575 | DONE (bundled with R1 - byte-immediate cutover) |
+| R3 `states.svelte` slug-native | (this PR) | NO-OP CODE CHANGE - audit shows resolver already accepts ECI input AND returns slug; `.slug(slugOrCode)` works for both inputs via lowercase fallback. No callers needed adjustment. |
+| R4 `url.state()` slug-native + 18 callers | (this PR) | NO-OP BEHAVIOUR - audit shows `url.state()` already accepts EITHER ECI code OR LGD slug (resolver returns slug for ECI; fallback returns slug-as-is for slug input). Closed with docstring clarification only; callers unchanged. |
+| R5 Retire `ECI_TO_LGD_SLUG` lib consumers | (this PR) | COLLAPSED - audit shows the map is NOT a bridge to retire but the canonical ECI<->slug index used at exactly the legitimate translation points (boundary path construction in `maplibre/sources.ts`, partition resolver in `election-partitions.ts`, entity-id reverse-lookup in `yenask/concepts.ts`). It IS the "one bridge per process boundary" pattern in action, not a violation of it. |
+| R6 Retire `ECI_TO_LGD_SLUG` in contracts tests | (this PR) | COLLAPSED - tests import the map as an enumeration source for (eci, slug) pairs. Replacing with direct fs reads of `lgd_states.json` would duplicate the map without retiring anything. |
+| R7 Plan archive | (this PR) | DONE |
+
+### Rationale for R5+R6 collapse
+
+The plan's R5/R6 was authored on the doctrine "bridges shouldn't metastasize" — but the audit performed during R3/R4 implementation found:
+
+1. `ECI_TO_LGD_SLUG` is a single 37-entry map defined ONCE.
+2. Every consumer has a legitimate need to translate ECI -> slug (boundary file paths, partition resolver fallback, entity-id construction for yenask).
+3. There is no SECOND bridge that would create drift risk.
+
+The map is not a bridge in the "translation layer that grows tentacles" sense (the doctrine ECI failure mode); it is the canonical ECI<->slug index that the doctrine "one bridge per process boundary" prescribes.
+
+### Outcome vs original 4 gaps
+
+| Gap | Surface | Outcome |
+| --- | --- | --- |
+| G1 | `datasets/elections/_inventory.json` ECI codes | CLOSED via #575 - now LGD slugs |
+| G2 | `states.svelte` ECI-keyed resolver | NO-OP - already slug-aware on both input and output |
+| G3 | `ECI_TO_LGD_SLUG` map "bridge" | RECLASSIFIED - canonical index, not a bridge anti-pattern |
+| G4 | `url.state(stateCode)` ECI-only param | NO-OP BEHAVIOUR - already accepts EITHER ECI or slug; clarified via docstring |
+
+Net effect: G1 fully fixed; G2-G4 confirmed already-correct on closer reading of the existing code. The plan was useful as a forcing function to perform the audit; ~75% of its scope collapsed when actual code was read instead of inferred from grep counts.
+
+Durable lessons distilled to `/memories/lessons.md`.

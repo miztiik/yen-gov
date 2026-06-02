@@ -57,9 +57,15 @@ export function navigate(path: string, opts: { replace?: boolean } = {}): void {
 
 /**
  * URL builders. Every page that wants an in-app link calls one of these
- * instead of constructing strings inline. The `state` argument is always
- * an ECI code (S22) — slugification happens here so callers don't need to
- * know whether the slug resolver is loaded yet.
+ * instead of constructing strings inline. The `state` argument may be EITHER
+ * an ECI code (`S22`) OR an LGD slug (`tamil-nadu`):
+ *  - ECI code -> resolved via `states.slug()` to the LGD slug.
+ *  - LGD slug -> passes through `states.slug()` (no match) and the
+ *    `|| stateCode.toLowerCase()` fallback returns the slug as-is.
+ * Both paths produce the same `/s/<lgd-slug>` URL form per ADR-0048 /
+ * ADR-0050. New callers SHOULD prefer passing slugs directly; the ECI
+ * acceptance is for backwards compatibility with view-models keyed on
+ * ECI codes (the relational join key in dim_acs / dim_pcs).
  */
 export const url = {
   home(): string {
