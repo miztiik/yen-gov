@@ -41,6 +41,22 @@
     opacities?: Record<string | number, number>;
     /** Tooltip HTML by key. Plain text safe; HTML rendered as-is. */
     tooltips?: Record<string | number, string>;
+    /**
+     * Optional per-feature tooltip builder that takes precedence over the
+     * `tooltips` Record when set. Receives the hovered/clicked feature's
+     * raw `properties` plus the resolved join `key`, and returns the
+     * tooltip HTML (or undefined to suppress). This is the seam for
+     * tooltip content that depends on boundary-only attributes the data
+     * layer never sees — e.g. AC reservation, which lives in the
+     * topojson feature props (heterogeneously: an explicit `reservation`
+     * field in some states, an `(SC)`/`(ST)` suffix on `ac_name` in
+     * others) and is absent from dim_acs / the winner rows. Additive:
+     * consumers that pass only `tooltips` are unaffected.
+     */
+    tooltipFromFeature?: (
+      props: Record<string, unknown>,
+      key: string | number,
+    ) => string | undefined;
     /** Default fill for features with no entry in `fills`. */
     default_fill?: string;
     /** CSS height; width fills the parent. */
@@ -113,6 +129,7 @@
     fills,
     opacities = {},
     tooltips = {},
+    tooltipFromFeature,
     default_fill = "#e2e8f0", // slate-200 — visible but unobtrusive
     height = "420px",
     highlight_key,
@@ -623,7 +640,9 @@
           if (!f) return;
           map.getCanvas().style.cursor = "pointer";
           const key = f.properties?.[entry.join_property];
-          const html = tooltips[key];
+          const html = tooltipFromFeature
+            ? tooltipFromFeature(f.properties ?? {}, key)
+            : tooltips[key];
           if (html) {
             popup.setLngLat(e.lngLat).setHTML(html).addTo(map);
           } else {
@@ -644,7 +663,9 @@
           // hover-only popup never appeared on phones/tablets. Show the
           // popup on click as well — desktop users get it on hover and
           // again on click (idempotent), touch users get it on tap.
-          const html = tooltips[key];
+          const html = tooltipFromFeature
+            ? tooltipFromFeature(f.properties ?? {}, key)
+            : tooltips[key];
           if (html && popup) {
             popup.setLngLat(e.lngLat).setHTML(html).addTo(map);
           }
