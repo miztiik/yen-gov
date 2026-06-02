@@ -23,6 +23,7 @@
   import MapChoropleth from "../lib/maplibre/MapChoropleth.svelte";
   import { INDIA_PC } from "../lib/maplibre/sources";
   import { renderTooltipCard } from "../lib/maplibre/tooltip-card";
+  import { symbolAssetUrl } from "../lib/maplibre/symbol-asset";
   import TileCartogram from "../lib/charts/TileCartogram.svelte";
   import {
     fetchElectionTileLayouts,
@@ -223,6 +224,7 @@
         candidateName: w.winner_candidate_name,
         partyShort: w.party_short,
         partyColorHex: fillFor(w),
+        symbolAsset: symbolAssetUrl(w.symbol_asset_path),
         marginPct: w.margin_pct,
       });
     }

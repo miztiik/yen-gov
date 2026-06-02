@@ -14,6 +14,7 @@
   import { STATE_AC } from "./sources";
   import { renderTooltipCard } from "./tooltip-card";
   import { parseReservation } from "./ac-reservation";
+  import { symbolAssetUrl } from "./symbol-asset";
   import {
     resolvePartyPalette,
     type PartyRowForResolver,
@@ -66,6 +67,7 @@
     winner_party_short: string;
     margin_pct: number;
     winner_candidate_name: string | null;
+    symbol_asset_path: string | null;
     brand_colour_hex: string | null;
     brand_colour_confidence: "high" | "medium" | "low" | null;
   }
@@ -91,6 +93,7 @@
           winner_party_short: w.party_short,
           margin_pct: w.margin_pct,
           winner_candidate_name: w.winner_candidate_name ?? null,
+          symbol_asset_path: w.symbol_asset_path ?? null,
           brand_colour_hex: w.brand_colour_hex ?? null,
           brand_colour_confidence: w.brand_colour_confidence ?? null,
         })),
@@ -254,6 +257,7 @@
       candidateName: r.winner_candidate_name,
       partyShort: r.winner_party_short,
       partyColorHex: party_colors.get(r.eci_no) ?? null,
+      symbolAsset: symbolAssetUrl(r.symbol_asset_path),
       marginPct: r.margin_pct,
     });
   }
