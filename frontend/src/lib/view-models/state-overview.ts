@@ -70,6 +70,9 @@ export interface AcWinner {
   // (dense ~2004+, null for older events). Coverage is gated downstream.
   turnout_pct?: number | null;
   winner_age?: number | null;
+  /** Winning candidate's display name (dim_persons.display_name). Null when
+   *  the affidavit/candidacy join missed or upstream omitted the name. */
+  winner_candidate_name?: string | null;
   // PR-SYM-6d additive brand_colour mirror (from dim_parties v1.1).
   brand_colour_hex?: string | null;
   brand_colour_confidence?: "high" | "medium" | "low" | null;
@@ -153,6 +156,7 @@ interface AcWinnerRow {
   margin_pct: number | null;
   turnout_pct: number | null;
   winner_age: number | null;
+  winner_candidate_name: string | null;
   brand_colour_hex: string | null;
   brand_colour_confidence: string | null;
 }
@@ -331,7 +335,8 @@ async function queryAcWinners(
            dp.brand_colour_confidence AS brand_colour_confidence,
            m.margin_pct               AS margin_pct,
            t.turnout_pct              AS turnout_pct,
-           per.age                    AS winner_age
+           per.age                    AS winner_age,
+           per.display_name           AS winner_candidate_name
     FROM winner w
     JOIN margin m ON m.ac_id = w.ac_id
     JOIN dim_acs da ON da.ac_id = w.ac_id
@@ -355,6 +360,7 @@ function toAcWinners(rows: AcWinnerRow[]): AcWinner[] {
       margin_pct: Number(r.margin_pct),
       turnout_pct: r.turnout_pct == null ? null : Number(r.turnout_pct),
       winner_age: r.winner_age == null ? null : Number(r.winner_age),
+      winner_candidate_name: r.winner_candidate_name ?? null,
       brand_colour_hex: r.brand_colour_hex ?? null,
       brand_colour_confidence:
         r.brand_colour_confidence === "high" ||

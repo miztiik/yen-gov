@@ -48,6 +48,9 @@ export interface NationalPcWinner {
   turnout_pct?: number | null;
   /** Winning MP's age (PR-B9 colour-by); null when affidavit age absent. */
   winner_age?: number | null;
+  /** Winning candidate's display name (dim_persons.display_name). Null when
+   *  the candidacy join missed or upstream omitted the name. */
+  winner_candidate_name?: string | null;
   // PR-SYM-6i-pre3 additive brand_colour mirror (from dim_parties v1.1).
   brand_colour_hex?: string | null;
   brand_colour_confidence?: "high" | "medium" | "low" | null;
@@ -70,6 +73,7 @@ interface PcWinnerRow {
   margin_pct: number | null;
   turnout_pct: number | null;
   winner_age: number | null;
+  winner_candidate_name: string | null;
 }
 
 async function queryPcWinners(evtLiteral: string): Promise<PcWinnerRow[]> {
@@ -113,7 +117,8 @@ async function queryPcWinners(evtLiteral: string): Promise<PcWinnerRow[]> {
            dp.brand_colour_confidence AS brand_colour_confidence,
            m.margin_pct               AS margin_pct,
            t.turnout_pct              AS turnout_pct,
-           per.age                    AS winner_age
+           per.age                    AS winner_age,
+           per.display_name           AS winner_candidate_name
     FROM winner w
     JOIN margin m ON m.pc_id = w.pc_id
     JOIN dim_pcs dpc ON dpc.pc_id = w.pc_id
@@ -140,6 +145,7 @@ function toNationalPcWinners(rows: PcWinnerRow[]): NationalPcWinner[] {
       margin_pct: Number(r.margin_pct),
       turnout_pct: r.turnout_pct == null ? null : Number(r.turnout_pct),
       winner_age: r.winner_age == null ? null : Number(r.winner_age),
+      winner_candidate_name: r.winner_candidate_name ?? null,
       brand_colour_hex: r.brand_colour_hex ?? null,
       brand_colour_confidence:
         (r.brand_colour_confidence as "high" | "medium" | "low" | null) ?? null,

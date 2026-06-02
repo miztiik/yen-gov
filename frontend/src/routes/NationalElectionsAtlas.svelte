@@ -220,6 +220,7 @@
     for (const w of winners) {
       out[w.join_key] = renderTooltipCard({
         title: w.pc_name,
+        candidateName: w.winner_candidate_name,
         partyShort: w.party_short,
         partyColorHex: fillFor(w),
         marginPct: w.margin_pct,
