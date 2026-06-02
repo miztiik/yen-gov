@@ -60,7 +60,7 @@
   import TopicIcon from "../lib/TopicIcon.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
-  import { colors } from "../lib/colors/store.svelte";
+  import { getPartyColor } from "../lib/colors/resolver";
   import { url } from "../lib/url";
   import {
     fetchElectionEvents,
@@ -186,9 +186,12 @@
   // Map<eci_no, AcWinner> shape is preserved so the constituency list
   // template (line ~770) can stay unchanged.
   interface AcWinner {
+    party_id: string;
     party_eci_code: string | null;
     party_short: string;
     margin_pct: number;
+    brand_colour_hex?: string | null;
+    brand_colour_confidence?: "high" | "medium" | "low" | null;
   }
 
   $effect(() => {
@@ -254,9 +257,12 @@
     if (!summary) return m;
     for (const w of summary.ac_winners) {
       m.set(w.ac_eci_no, {
+        party_id: w.party_id,
         party_eci_code: w.party_eci_code,
         party_short: w.party_short,
         margin_pct: w.margin_pct,
+        brand_colour_hex: w.brand_colour_hex,
+        brand_colour_confidence: w.brand_colour_confidence,
       });
     }
     return m;
@@ -953,7 +959,19 @@
                       {#if w}
                         <span
                           class="inline-block w-2 h-2 rounded-sm flex-shrink-0"
-                          style:background-color={colors.fill(w.party_eci_code, w.party_short)}
+                          style:background-color={getPartyColor(
+                            w.party_id,
+                            w.brand_colour_hex
+                              ? {
+                                  party_id: w.party_id,
+                                  eci_code: w.party_eci_code,
+                                  brand_colour: {
+                                    hex: w.brand_colour_hex,
+                                    confidence: w.brand_colour_confidence ?? "medium",
+                                  },
+                                }
+                              : null,
+                          ).hex}
                           title={`${w.party_short} · ${w.margin_pct.toFixed(1)} pt margin`}
                         ></span>
                       {:else}

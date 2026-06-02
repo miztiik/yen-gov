@@ -36,6 +36,11 @@ export interface NationalPcWinner {
   state_code: string;
   pc_no: number;
   pc_name: string;
+  /** PR-SYM-6i-pre3: canonical `parties.IN.<SLUG>` from the
+   *  `pc-winner-party-id` observation. Render code calls
+   *  `getPartyColor(party_id, row)` — the resolver picks anchor /
+   *  Wikipedia brand_colour / algorithmic-fallback off this key. */
+  party_id: string;
   party_eci_code: string | null;
   party_short: string;
   margin_pct: number;
@@ -43,6 +48,9 @@ export interface NationalPcWinner {
   turnout_pct?: number | null;
   /** Winning MP's age (PR-B9 colour-by); null when affidavit age absent. */
   winner_age?: number | null;
+  // PR-SYM-6i-pre3 additive brand_colour mirror (from dim_parties v1.1).
+  brand_colour_hex?: string | null;
+  brand_colour_confidence?: "high" | "medium" | "low" | null;
 }
 
 function sqlString(s: string): string {
@@ -54,8 +62,11 @@ interface PcWinnerRow {
   state_code: string;
   pc_no: number;
   pc_name: string;
+  party_id: string | null;
   party_eci_code: string | null;
   party_short: string | null;
+  brand_colour_hex: string | null;
+  brand_colour_confidence: string | null;
   margin_pct: number | null;
   turnout_pct: number | null;
   winner_age: number | null;
@@ -91,15 +102,18 @@ async function queryPcWinners(evtLiteral: string): Promise<PcWinnerRow[]> {
         AND period_label = ${evtLiteral}
         AND entity_id LIKE 'IN-PC-%'
     )
-    SELECT dpc.pc_id        AS pc_id,
-           dpc.state_code   AS state_code,
-           dpc.pc_no        AS pc_no,
-           dpc.name         AS pc_name,
-           dp.eci_code      AS party_eci_code,
-           dp.short_name    AS party_short,
-           m.margin_pct     AS margin_pct,
-           t.turnout_pct    AS turnout_pct,
-           per.age          AS winner_age
+    SELECT dpc.pc_id                  AS pc_id,
+           dpc.state_code             AS state_code,
+           dpc.pc_no                  AS pc_no,
+           dpc.name                   AS pc_name,
+           w.party_id                 AS party_id,
+           dp.eci_code                AS party_eci_code,
+           dp.short_name              AS party_short,
+           dp.brand_colour_hex        AS brand_colour_hex,
+           dp.brand_colour_confidence AS brand_colour_confidence,
+           m.margin_pct               AS margin_pct,
+           t.turnout_pct              AS turnout_pct,
+           per.age                    AS winner_age
     FROM winner w
     JOIN margin m ON m.pc_id = w.pc_id
     JOIN dim_pcs dpc ON dpc.pc_id = w.pc_id
@@ -120,11 +134,15 @@ function toNationalPcWinners(rows: PcWinnerRow[]): NationalPcWinner[] {
       state_code: r.state_code,
       pc_no: Number(r.pc_no),
       pc_name: r.pc_name ?? "",
+      party_id: r.party_id ?? "",
       party_eci_code: r.party_eci_code ?? null,
       party_short: r.party_short ?? "",
       margin_pct: Number(r.margin_pct),
       turnout_pct: r.turnout_pct == null ? null : Number(r.turnout_pct),
       winner_age: r.winner_age == null ? null : Number(r.winner_age),
+      brand_colour_hex: r.brand_colour_hex ?? null,
+      brand_colour_confidence:
+        (r.brand_colour_confidence as "high" | "medium" | "low" | null) ?? null,
     }));
 }
 
