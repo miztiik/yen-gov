@@ -30,7 +30,7 @@
     Tallies,
     ThresholdDropConfig,
   } from "../lib/psephlab/types";
-  import { colors } from "../lib/colors/store.svelte";
+  import { partyColourHex } from "../lib/psephlab/colour-bridge";
   import ParliamentArc from "../lib/ParliamentArc.svelte";
   import SwingSankey from "../lib/SwingSankey.svelte";
   import { states } from "../lib/states.svelte";
@@ -520,7 +520,7 @@
                     <span
                       class="absolute inset-y-0 left-0 rounded transition-[width] duration-300"
                       style:width="{(p.seats_won / Math.max(1, total_seats)) * 100}%"
-                      style:background-color={colors.fill(p.party_eci_code, p.party_short)}
+                      style:background-color={partyColourHex(p)}
                     ></span>
                     <span class="absolute inset-y-0 px-2 flex items-center text-[10px] font-semibold text-slate-900">{p.seats_won}</span>
                   </span>
@@ -540,7 +540,7 @@
                     <span
                       class="absolute inset-y-0 left-0 rounded transition-[width] duration-300"
                       style:width="{(p.seats_won / Math.max(1, total_seats)) * 100}%"
-                      style:background-color={colors.fill(p.party_eci_code, p.party_short)}
+                      style:background-color={partyColourHex(p)}
                     ></span>
                     <span class="absolute inset-y-0 px-2 flex items-center text-[10px] font-semibold text-slate-900">{p.seats_won}</span>
                   </span>
@@ -577,7 +577,7 @@
                 {@const delta = deltaFor(p.party_eci_code)}
                 {@const act = result.actuals_allocation.by_party.find(x => x.party_eci_code === p.party_eci_code)}
                 <tr class="border-b border-slate-100 hover:bg-slate-50">
-                  <td class="py-1 pr-3 font-medium" style:color={colors.fill(p.party_eci_code, p.party_short)}>
+                  <td class="py-1 pr-3 font-medium" style:color={partyColourHex(p)}>
                     {p.party_short}
                   </td>
                   <td class="text-right tabular-nums px-2">{act?.seats_won ?? 0}</td>

@@ -36,7 +36,11 @@
     type NationalPcWinner,
   } from "../lib/view-models/national-elections";
   import type { LoaderResult } from "../lib/loader-result";
-  import { colors } from "../lib/colors/store.svelte";
+  import {
+    getPartyColor,
+    resolvePartyPalette,
+    type PartyRowForResolver,
+  } from "../lib/colors/resolver";
   import { navigate, url } from "../lib/url";
   import ElectionFilterRail from "../lib/elections/ElectionFilterRail.svelte";
   import {
@@ -101,10 +105,6 @@
   }
 
   const party_options = $derived.by(() => {
-    void colors.overrides;
-    const palette = colors.forSet(
-      winners.map((w) => w.party_eci_code ?? w.party_short),
-    );
     const seen = new Map<string, { code: string; short: string; color: string }>();
     for (const w of winners) {
       const code = w.party_eci_code ?? w.party_short;
@@ -112,7 +112,7 @@
       seen.set(code, {
         code,
         short: w.party_short,
-        color: palette.get(code)?.fill ?? colors.fill(w.party_eci_code, w.party_short),
+        color: fillFor(w),
       });
     }
     return [...seen.values()];
@@ -152,27 +152,66 @@
     );
   }
 
-  // ─── Palette (one allocation across every winning party) ────────────
-  const palette = $derived.by(() => {
-    void colors.overrides;
-    return colors.forSet(winners.map((w) => w.party_eci_code ?? w.party_short));
+  // ─── Palette (PR-SYM-6i-pre3: 3-tier resolver, keyed on party_id) ──
+  //
+  // NationalPcWinner carries `party_id` (from `pc-winner-party-id`
+  // observation) + the additive `brand_colour_hex` / `_confidence` mirror
+  // off the dim_parties LEFT JOIN, so we resolve through the canonical
+  // 3-tier `getPartyColor` / `resolvePartyPalette` path. Rows without
+  // `party_id` derive a stable `parties.IN.<UPPER(short)>` so the
+  // resolver still degrades to anchor / algorithmic tiers without losing
+  // identity stability. Mirrors ElectionMap (PR #589) precedent.
+  function partyIdFor(w: { party_id?: string | null; party_short: string }): string {
+    if (w.party_id) return w.party_id;
+    const slug = (w.party_short ?? "UNK").trim().toUpperCase();
+    return `parties.IN.${slug}`;
+  }
+  function rowFor(pid: string, w: NationalPcWinner): PartyRowForResolver | null {
+    if (w.brand_colour_hex == null) return null;
+    return {
+      party_id: pid,
+      eci_code: w.party_eci_code,
+      brand_colour: {
+        hex: w.brand_colour_hex,
+        confidence: w.brand_colour_confidence ?? "medium",
+      },
+    };
+  }
+  const palette_bundle = $derived.by(() => {
+    const ids: string[] = [];
+    const rowMap = new Map<string, PartyRowForResolver | null>();
+    const pidByKey = new Map<string, string>();
+    for (const w of winners) {
+      const key = w.party_eci_code ?? w.party_short;
+      if (pidByKey.has(key)) continue;
+      const pid = partyIdFor(w);
+      pidByKey.set(key, pid);
+      if (!rowMap.has(pid)) {
+        ids.push(pid);
+        rowMap.set(pid, rowFor(pid, w));
+      }
+    }
+    return { palette: resolvePartyPalette(ids, rowMap), pidByKey, rowMap };
   });
   function fillFor(w: NationalPcWinner): string {
-    return (
-      palette.get(w.party_eci_code ?? w.party_short)?.fill ??
-      colors.fill(w.party_eci_code, w.party_short)
-    );
+    const { palette, pidByKey, rowMap } = palette_bundle;
+    const key = w.party_eci_code ?? w.party_short;
+    const pid = pidByKey.get(key) ?? partyIdFor(w);
+    return palette.get(pid)?.hex ?? getPartyColor(pid, rowMap.get(pid) ?? null).hex;
   }
 
   // ─── Geographic (choropleth) arm ────────────────────────────────────
   const party_fill = $derived.by<PartyFill>(() => {
-    void colors.overrides;
-    const list = winners;
-    const palette = colors.forSet(
-      list.map((w) => w.party_eci_code ?? w.party_short),
-    );
-    return (code, short) =>
-      palette.get(code ?? short)?.fill ?? colors.fill(code, short);
+    const { palette, pidByKey, rowMap } = palette_bundle;
+    return (code, short) => {
+      const key = code ?? short;
+      const pid = pidByKey.get(key);
+      if (pid) {
+        return palette.get(pid)?.hex ?? getPartyColor(pid, rowMap.get(pid) ?? null).hex;
+      }
+      const fallback_pid = `parties.IN.${(short ?? "UNK").trim().toUpperCase()}`;
+      return getPartyColor(fallback_pid, null).hex;
+    };
   });
   const fills = $derived<Record<string, string>>(
     buildKeyedFills(winners, filters.mode, party_fill, (w) => w.join_key),
@@ -252,7 +291,7 @@
 
   // ─── Seat-total bar (winners grouped by party, desc) ────────────────
   const seat_totals = $derived.by(() => {
-    void colors.overrides;
+
     const by = new Map<
       string,
       { label: string; color: string; seats: number }

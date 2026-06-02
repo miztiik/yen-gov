@@ -42,7 +42,11 @@
     serializeElectionFilters,
     type ElectionFilters,
   } from "../lib/election-filters";
-  import { colors } from "../lib/colors/store.svelte";
+  import {
+    getPartyColor,
+    resolvePartyPalette,
+    type PartyRowForResolver,
+  } from "../lib/colors/resolver";
   import { loadStateAcWinners, type AcWinner } from "../lib/view-models/state-overview";
 
   interface Props {
@@ -113,21 +117,50 @@
   }
 
   // Distinct winning parties for the rail chips, palette-consistent with the
-  // map (same `colors.forSet` allocation ElectionMap/StateAcMap use).
+  // map (PR-SYM-6i-pre3: 3-tier resolver keyed on party_id, mirrors ElectionMap).
+  function partyIdFor(r: { party_id?: string | null; party_short: string }): string {
+    if (r.party_id) return r.party_id;
+    const slug = (r.party_short ?? "UNK").trim().toUpperCase();
+    return `parties.IN.${slug}`;
+  }
+  function rowFor(pid: string, r: AcWinner): PartyRowForResolver | null {
+    if (r.brand_colour_hex == null) return null;
+    return {
+      party_id: pid,
+      eci_code: r.party_eci_code,
+      brand_colour: {
+        hex: r.brand_colour_hex,
+        confidence: r.brand_colour_confidence ?? "medium",
+      },
+    };
+  }
   const party_options = $derived.by(() => {
-    void colors.overrides;
     const list = ac_winners ?? [];
-    const palette = colors.forSet(
-      list.map((r) => r.party_eci_code ?? r.party_short),
-    );
+    const ids: string[] = [];
+    const rowMap = new Map<string, PartyRowForResolver | null>();
+    const pidByCode = new Map<string, string>();
     const seen = new Map<string, { code: string; short: string; color: string }>();
     for (const r of list) {
       const code = r.party_eci_code ?? r.party_short;
+      if (pidByCode.has(code)) continue;
+      const pid = partyIdFor(r);
+      pidByCode.set(code, pid);
+      if (!rowMap.has(pid)) {
+        ids.push(pid);
+        rowMap.set(pid, rowFor(pid, r));
+      }
+    }
+    const palette = resolvePartyPalette(ids, rowMap);
+    for (const r of list) {
+      const code = r.party_eci_code ?? r.party_short;
       if (seen.has(code)) continue;
+      const pid = pidByCode.get(code) ?? partyIdFor(r);
       seen.set(code, {
         code,
         short: r.party_short,
-        color: palette.get(code)?.fill ?? colors.fill(r.party_eci_code, r.party_short),
+        color:
+          palette.get(pid)?.hex ??
+          getPartyColor(pid, rowMap.get(pid) ?? null).hex,
       });
     }
     return [...seen.values()];
