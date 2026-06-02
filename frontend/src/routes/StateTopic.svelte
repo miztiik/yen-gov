@@ -49,6 +49,7 @@
   import ListBadge from "../lib/ListBadge.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import UnionListBanner from "../lib/UnionListBanner.svelte";
+  import StateElectionExperience from "../lib/elections/StateElectionExperience.svelte";
   import { states } from "../lib/states.svelte";
   import { url } from "../lib/url";
   import {
@@ -108,9 +109,28 @@
   const election_default_row = $derived<ElectionEventRow | null>(
     defaultEventForState(election_catalogue, state_code),
   );
+
+  // Topic-door experience (EGC-A2): the citizen can scrub the time-slider to
+  // another assembly event without leaving the topic door. We track a local
+  // override event id; null = show the default event. The override is resolved
+  // against this state's catalogued events, falling back to the default if the
+  // id is unknown. (The event-permalink route uses the URL :event segment for
+  // the same job; the topic door keeps it in component state instead.)
+  let selected_event_override = $state<string | null>(null);
+  const election_active_row = $derived<ElectionEventRow | null>(
+    selected_event_override
+      ? (listEventsForState(election_catalogue, state_code).find(
+          r => r.event_id === selected_event_override,
+        ) ?? election_default_row)
+      : election_default_row,
+  );
+  function onSelectTopicEvent(eventId: string): void {
+    selected_event_override = eventId;
+  }
+
   const election_other_rows = $derived<ElectionEventRow[]>(
     listEventsForState(election_catalogue, state_code).filter(
-      r => r.event_id !== election_default_row?.event_id,
+      r => r.event_id !== election_active_row?.event_id,
     ),
   );
 
@@ -185,16 +205,13 @@
       <section class="space-y-3" data-testid="election-topic-section">
         {#if election_catalogue === null}
           <p class="text-sm text-slate-500">Loading election data…</p>
-        {:else if election_default_row === null}
+        {:else if election_active_row === null}
           <div class="rounded border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
             No election data ingested for {state_name} yet.
           </div>
         {:else}
-          {@const ev = election_default_row}
-          <article
-            class="rounded border border-slate-200 bg-white p-4 space-y-2"
-            data-testid="election-topic-card"
-          >
+          {@const ev = election_active_row}
+          {#if ev.kind === "assembly"}
             <header class="flex items-baseline justify-between gap-3 flex-wrap">
               <h2 class="text-base font-semibold">
                 <a
@@ -207,26 +224,48 @@
               </h2>
               <span class="text-xs text-slate-500">Polled {ev.polled_on}</span>
             </header>
-            <p class="text-xs text-slate-600">
-              {ev.kind === "assembly"
-                ? "State Assembly election"
-                : ev.kind === "lok_sabha"
+            <StateElectionExperience
+              {state_code}
+              selectedEvent={ev}
+              catalogue={election_catalogue}
+              onSelectEvent={onSelectTopicEvent}
+            />
+          {:else}
+            <article
+              class="rounded border border-slate-200 bg-white p-4 space-y-2"
+              data-testid="election-topic-card"
+            >
+              <header class="flex items-baseline justify-between gap-3 flex-wrap">
+                <h2 class="text-base font-semibold">
+                  <a
+                    href={url.stateElection(state_code, ev.event_id)}
+                    class="text-sky-700 hover:underline"
+                    data-testid="election-topic-default-link"
+                  >
+                    {ev.display}
+                  </a>
+                </h2>
+                <span class="text-xs text-slate-500">Polled {ev.polled_on}</span>
+              </header>
+              <p class="text-xs text-slate-600">
+                {ev.kind === "lok_sabha"
                   ? "Lok Sabha (national) election slice for this state"
                   : "By-election"}{ev.data_status === "pending_upstream"
-                ? " — awaiting publication by ECI."
-                : ev.data_status === "partial"
-                  ? " — partial data on disk."
-                  : ""}
-            </p>
-            <p class="text-xs text-slate-500">
-              <a
-                href={url.stateElection(state_code, ev.event_id)}
-                class="text-sky-700 hover:underline"
-              >
-                View constituency-level results →
-              </a>
-            </p>
-          </article>
+                  ? " — awaiting publication by ECI."
+                  : ev.data_status === "partial"
+                    ? " — partial data on disk."
+                    : ""}
+              </p>
+              <p class="text-xs text-slate-500">
+                <a
+                  href={url.stateElection(state_code, ev.event_id)}
+                  class="text-sky-700 hover:underline"
+                >
+                  View constituency-level results →
+                </a>
+              </p>
+            </article>
+          {/if}
 
           {#if election_other_rows.length > 0}
             <details class="text-sm" data-testid="election-topic-others">
