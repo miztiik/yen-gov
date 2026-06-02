@@ -1,22 +1,25 @@
-// Import-allowlist contract test for legacy party-colour modules.
+// Permanent re-introduction sentinel for retired party-colour modules.
 //
-// Per PR-SYM-6a..6e + TODO/20260527-party-symbol-assets-plan.md §11
-// one-identity doctrine: the canonical party-colour entrypoint is
-// `frontend/src/lib/colors/resolver.ts` (`getPartyColor` / `resolvePartyPalette`).
+// These modules were retired across PRs #570-#599 (PR-SYM-6 spine) and
+// deleted in PR-SYM-6i (the closing PR of the spine). Re-introducing any
+// of these import paths is forbidden.
 //
-// Legacy modules `colors/party-colour.ts`, `colors/anchors.ts`,
-// `colors/store.svelte.ts`, and `colors/category-colour.ts` are
-// transitional — they remain in the repo because a handful of consumers
-// still use them, but they are NOT to be imported by NEW code. The
-// resolver is the single sanctioned doorway.
+//   - lib/colors/party-colour.ts     (algorithmic + anchor lookup helper)
+//   - lib/colors/anchors.ts          (curated iconic colour map; inlined
+//                                     into lib/colors/resolver.ts)
+//   - lib/colors/store.svelte.ts     (reactive override store, retired
+//                                     along with the user-override UI)
 //
-// This test freezes the current grandfathered-consumer set. ANY new
-// import outside the allowlist fails the test loud at the contract
-// boundary — catches drift before reviewers see it.
+// To resolve party colours, use `getPartyColor(party_id, row)` or
+// `resolvePartyPalette(party_ids, rows)` from
+// `frontend/src/lib/colors/resolver.ts`. For Svelte route helpers, see
+// `partyColourHex` in `frontend/src/lib/psephlab/colour-bridge.ts`.
 //
-// To remove an entry: migrate the consumer to `resolver.ts`. To add
-// one (rare; only when reverting a migration): document why in the
-// PR body. Pure deletions from the allowlist are always fine.
+// The sentinel is PERMANENT -- there is no allowlist of grandfathered
+// consumers. Any match is a regression.
+//
+// File name kept (`party-colour-import-allowlist.test.ts`) to preserve
+// git history continuity with PRs #596, #597 that authored / patched it.
 
 import { describe, expect, it } from "vitest";
 import { readFileSync, readdirSync, statSync } from "node:fs";
@@ -25,74 +28,23 @@ import { join, relative, resolve, sep } from "node:path";
 const SRC_ROOT = resolve(__dirname, "..");
 
 /**
- * Forbidden import-path pattern. Matches any relative import of the
- * three legacy party-colour modules (`party-colour`, `anchors`,
- * `store.svelte`) at any depth, with or without a `lib/` segment in
- * the path.
+ * Forbidden import-path pattern. Matches any import of the three retired
+ * party-colour modules (`party-colour`, `anchors`, `store.svelte`) at
+ * any depth, via relative path (with or without a `lib/` segment) or
+ * via the SvelteKit `$lib/` alias.
  *
  * Examples matched:
  *   from "./colors/party-colour"
  *   from "../colors/store.svelte"
  *   from "../../colors/anchors"
- *   from "../lib/colors/store.svelte"   <- routes/*.svelte shape
+ *   from "../lib/colors/store.svelte"
  *   from "../../lib/colors/anchors"
- *
- * PR-SYM-6i-pre1 (#TBD): widened from a fixed fragment list to a
- * single depth-agnostic regex after PR #596 mis-reported the
- * grandfathered-consumer set as EMPTY -- the old fragment list missed
- * `../lib/colors/...` (the shape every `routes/*.svelte` uses), so
- * 5 live route consumers were slipping through the contract.
+ *   from "$lib/colors/anchors"
  */
 const FORBIDDEN_IMPORT_RE =
-  /from\s+["'](?:\.\.?\/)+(?:lib\/)?colors\/(?:party-colour|anchors|store\.svelte)["']/;
+  /from\s+["'](?:(?:\.\.?\/)+(?:lib\/)?|\$lib\/)colors\/(?:party-colour|anchors|store\.svelte)["']/;
 
-/**
- * Files that are PERMITTED to import the legacy modules. Each entry is
- * a workspace-relative POSIX path (no leading "./"). One of three reasons:
- *   1. The legacy module itself, or its co-located test.
- *   2. The resolver — `resolver.ts` re-exports anchor data internally;
- *      this is the SANCTIONED bridge.
- *   3. A consumer not yet migrated (grandfathered with a follow-up PR
- *      tag in the comment column). New entries here MUST be accompanied
- *      by a follow-up note in `TODO/20260527-party-symbol-assets-plan.md`.
- */
-const ALLOWLIST = new Set<string>([
-  // Legacy modules themselves (and their tests, where present)
-  "lib/colors/party-colour.ts",
-  "lib/colors/party-colour.test.ts",
-  "lib/colors/anchors.ts",
-  "lib/colors/store.svelte.ts",
-
-  // This contract test itself contains example import strings in its
-  // docstrings (e.g. `from "./colors/party-colour"`) -- exempt it from
-  // its own walk.
-  "contracts/party-colour-import-allowlist.test.ts",
-
-  // Resolver -- sanctioned bridge. Imports from `./anchors` to populate
-  // the curated ANCHORS_BY_PID map per the 3-tier contract.
-  "lib/colors/resolver.ts",
-
-  // Historical migration log (modules retired from FORBIDDEN over time):
-  // PR-SYM-6f1 (#585): SeatDonut migrated to getPartyColor resolver.
-  // PR-SYM-6f2 (#586): PartyBar migrated to resolvePartyPalette + getPartyColor.
-  // PR-SYM-6f3 (#587): IndiaMap migrated to resolvePartyPalette + getPartyColor.
-  // PR-SYM-6f4 (#589): ElectionMap migrated to resolvePartyPalette + getPartyColor.
-  // PR-SYM-6f5 (#590): composition-bar adapter migrated to getPartyColor.
-  // PR-SYM-6f6 (#591): stacked-trend adapter migrated to getPartyColor.
-  // PR-SYM-6f7 (#592): election-tile-layout view-model migrated to resolvePartyPalette + getPartyColor.
-  // PR-SYM-6g  (#595): ParliamentArc + SwingSankey + routes/Compare migrated to
-  //                    `partyColourHex` from `lib/psephlab/colour-bridge.ts`.
-  // PR-SYM-6i-pre2 (#TBD): Settings route migrated -- colour-override UI
-  //                    retired in favour of a read-only provenance explainer
-  //                    using `getPartyColor` + `chipFor`. ALLOWLIST is now
-  //                    empty of route consumers.
-  // PR-SYM-6i-pre3 (#TBD): NationalElectionsAtlas + Psephlab + StateElection +
-  //                        StateOverview migrated to getPartyColor /
-  //                        resolvePartyPalette / partyColourHex. National PC
-  //                        producer extended with party_id + brand mirror.
-  // PR-SYM-6i  (#TBD): legacy module deletion (party-colour.ts, anchors.ts,
-  //                    store.svelte.ts) -- final closing PR of the SYM-6 spine.
-]);
+const SELF = "contracts/party-colour-import-allowlist.test.ts";
 
 function* walkTs(dir: string): IterableIterator<string> {
   for (const name of readdirSync(dir)) {
@@ -115,12 +67,14 @@ function toPosixWorkspace(abs: string): string {
   return relative(SRC_ROOT, abs).split(sep).join("/");
 }
 
-describe("contract — legacy party-colour modules are not imported outside the allowlist", () => {
-  it("no NEW imports of party-colour / anchors / store.svelte / category-colour outside the grandfathered set", () => {
+describe("sentinel -- retired party-colour modules MUST NOT be re-introduced", () => {
+  it("no imports of party-colour / anchors / store.svelte anywhere under frontend/src", () => {
     const violations: { file: string; line: string }[] = [];
     for (const file of walkTs(SRC_ROOT)) {
       const rel = toPosixWorkspace(file);
-      if (ALLOWLIST.has(rel)) continue;
+      // Exempt this file itself -- the docstring above contains example
+      // import strings that the regex would otherwise flag.
+      if (rel === SELF) continue;
       const src = readFileSync(file, "utf8");
       const match = src.match(FORBIDDEN_IMPORT_RE);
       if (match) {
@@ -129,26 +83,10 @@ describe("contract — legacy party-colour modules are not imported outside the 
     }
     expect(
       violations,
-      `New import(s) of legacy party-colour modules detected outside the allowlist.
-Migrate the consumer to \`lib/colors/resolver.ts\` (\`getPartyColor\` /
-\`resolvePartyPalette\`) or, if you must keep the legacy import, add the
-file to ALLOWLIST in this test with a follow-up note in
-TODO/20260527-party-symbol-assets-plan.md.\n\n${JSON.stringify(violations, null, 2)}`,
-    ).toEqual([]);
-  });
-
-  it("every allowlist entry actually exists (no stale paths)", () => {
-    const missing: string[] = [];
-    for (const rel of ALLOWLIST) {
-      try {
-        statSync(join(SRC_ROOT, rel));
-      } catch {
-        missing.push(rel);
-      }
-    }
-    expect(
-      missing,
-      `Allowlist references files that no longer exist. Remove them or fix the path.\n${missing.join("\n")}`,
+      `Re-introduction of retired party-colour module(s) detected.
+These modules were deleted in PR-SYM-6i (the closing PR of the SYM-6
+spine, PRs #570-#599). Use \`getPartyColor\` / \`resolvePartyPalette\`
+from \`frontend/src/lib/colors/resolver.ts\` instead.\n\n${JSON.stringify(violations, null, 2)}`,
     ).toEqual([]);
   });
 });

@@ -11,10 +11,13 @@ import {
   stringHash,
   type OkLCh,
 } from "./oklch";
-import type { PartyColor } from "./anchors";
 import { dimensionAnchors } from "./anchors-domain";
-import { ANCHORS, ANCHOR_RESERVED_HUE_RANGES } from "./anchors";
-import { getPartyColor } from "./resolver";
+import {
+  ANCHORS,
+  ANCHOR_RESERVED_HUE_RANGES,
+  getPartyColor,
+  type PartyColor,
+} from "./resolver";
 
 const FALLBACK_PALETTE: OkLCh[] = generateOkLChPalette({
   hueSlots: 36,
