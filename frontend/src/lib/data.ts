@@ -34,6 +34,11 @@ export interface CandidateBio {
 export interface CandidateResult {
   rank: number;
   name: string;
+  /** Canonical taxonomy id (`parties.IN.<SLUG>`). PR-SYM-6c made this
+   *  required so render code calls `getPartyColor(party_id, row)` from the
+   *  3-tier resolver instead of joining on ECI code at draw time. The legacy
+   *  `party_eci_code` is kept as nullable display/debug metadata only. */
+  party_id: string;
   party_eci_code: string | null;
   party_short: string;
   votes: number;
@@ -44,6 +49,12 @@ export interface CandidateResult {
    *  Replaces the retired `fetchPersonEntity()` JSON sidecar fetch path
    *  (PR-S.2, canonical pivot 1.8f). */
   bio?: CandidateBio | null;
+  /** PR-SYM-6c. Wikipedia-sourced brand colour from `dim_parties.brand_colour_hex`.
+   *  `null` when unsourced — resolver falls through to anchor or algorithmic
+   *  tier. Confidence comes alongside; `low` is skipped by the resolver per
+   *  Hans (Governance) verdict. */
+  brand_colour_hex?: string | null;
+  brand_colour_confidence?: "high" | "medium" | "low" | null;
 }
 
 export interface NotaResult { votes: number; vote_share_pct: number; }

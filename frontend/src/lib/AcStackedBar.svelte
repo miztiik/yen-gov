@@ -3,58 +3,80 @@
   // NOTA, and the collapsed "others" bucket took in one constituency.
   //
   // Pure presentational: takes a ConstituencyResult and renders. No fetch.
-  // Segments are colored by the candidate's party via the colors store.
+  // Segments are colored by the candidate's party via the 3-tier resolver
+  // (anchor -> Wikipedia brand_colour -> algorithmic fallback). PR-SYM-6c:
+  // first consumer migrated off the legacy `partyColour(eci_code, ...)` path
+  // onto `getPartyColor(party_id, row)` which keys on the canonical
+  // taxonomy id, not the ECI alias.
   import type { ConstituencyResult } from "./data";
-  import { colors } from "./colors/store.svelte";
+  import { getPartyColor } from "./colors/resolver";
 
   let { result }: { result: ConstituencyResult } = $props();
 
   interface Seg {
     label: string;
+    party_id: string;
     party_short: string;
-    party_eci_code: string | null;
     pct: number;
     votes: number;
     is_winner: boolean;
     is_special?: "nota" | "others";
+    brand_colour_hex: string | null;
+    brand_colour_confidence: "high" | "medium" | "low" | null;
   }
 
   const segments = $derived.by<Seg[]>(() => {
     const out: Seg[] = result.candidates.map(c => ({
       label: c.name,
+      party_id: c.party_id,
       party_short: c.party_short,
-      party_eci_code: c.party_eci_code,
       pct: c.vote_share_pct,
       votes: c.votes,
       is_winner: !!c.is_winner,
+      brand_colour_hex: c.brand_colour_hex ?? null,
+      brand_colour_confidence: c.brand_colour_confidence ?? null,
     }));
     out.push({
       label: "NOTA",
+      party_id: "parties.IN.NOTA",
       party_short: "NOTA",
-      party_eci_code: null,
       pct: result.nota.vote_share_pct,
       votes: result.nota.votes,
       is_winner: false,
       is_special: "nota",
+      brand_colour_hex: null,
+      brand_colour_confidence: null,
     });
     if (result.others) {
       out.push({
         label: `Others (${result.others.candidate_count})`,
+        party_id: "parties.IN.OTHERS",
         party_short: "Others",
-        party_eci_code: null,
         pct: result.others.vote_share_pct,
         votes: result.others.votes,
         is_winner: false,
         is_special: "others",
+        brand_colour_hex: null,
+        brand_colour_confidence: null,
       });
     }
     return out;
   });
 
   function color_for(s: Seg): string {
-    if (s.is_special === "nota") return colors.fill("NOTA", "NOTA");
-    if (s.is_special === "others") return "#cbd5e1";  // slate-300, neutral
-    return colors.fill(s.party_eci_code, s.party_short);
+    if (s.is_special === "others") return "#cbd5e1"; // slate-300 neutral
+    // Resolver consumes brand_colour_hex when confidence is high/medium;
+    // falls through to anchor (NOTA, IND, BJP, INC, ...) or algorithmic
+    // hash. NEVER mutates the returned hex.
+    return getPartyColor(s.party_id, {
+      party_id: s.party_id,
+      brand_colour: s.brand_colour_hex
+        ? {
+            hex: s.brand_colour_hex,
+            confidence: s.brand_colour_confidence ?? "medium",
+          }
+        : null,
+    }).hex;
   }
 </script>
 
