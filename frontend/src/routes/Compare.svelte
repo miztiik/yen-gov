@@ -28,7 +28,7 @@
     Scenario,
     Tallies,
   } from "../lib/psephlab/types";
-  import { colors } from "../lib/colors/store.svelte";
+  import { partyColourHex } from "../lib/psephlab/colour-bridge";
   import ParliamentArc from "../lib/ParliamentArc.svelte";
   import { states } from "../lib/states.svelte";
   import { url } from "../lib/url";
@@ -108,6 +108,7 @@
     left: number;
     right: number;
     delta: number;
+    fill: string;
   }
   const compared_parties = $derived.by<DeltaRow[]>(() => {
     if (!result_left || !result_right) return [];
@@ -119,9 +120,16 @@
         left: 0,
         right: 0,
         delta: 0,
+        // PR-SYM-6g: resolve once per party via the 3-tier resolver
+        // (anchor / brand / fallback). PartyResult rows carry party_id +
+        // brand_colour_* when the canonical loader populated them.
+        fill: partyColourHex(p),
       };
       e[side] = p.seats_won;
       e.short = p.party_short || e.short;
+      // First-seen row sets the fill; later rows for the same party are
+      // expected to carry identical brand metadata (dim_parties is keyed
+      // by party_id), so re-resolving would be wasted work.
       map.set(p.party_eci_code, e);
     };
     for (const p of result_left.allocation.by_party) upsert(p, "left");
@@ -245,7 +253,7 @@
               {#each compared_parties as r}
                 <tr>
                   <td class="py-0.5 flex items-center gap-1.5">
-                    <span class="inline-block w-2.5 h-2.5 rounded-sm" style="background:{colors.fill(r.code, r.short)}"></span>
+                    <span class="inline-block w-2.5 h-2.5 rounded-sm" style="background:{r.fill}"></span>
                     <span class="truncate">{r.short}</span>
                   </td>
                   <td class="text-right">{r.left}</td>
@@ -338,7 +346,7 @@
               {#each compared_parties as r}
                 <tr>
                   <td class="py-0.5 flex items-center gap-1.5">
-                    <span class="inline-block w-2.5 h-2.5 rounded-sm" style="background:{colors.fill(r.code, r.short)}"></span>
+                    <span class="inline-block w-2.5 h-2.5 rounded-sm" style="background:{r.fill}"></span>
                     <span class="truncate">{r.short}</span>
                   </td>
                   <td class="text-right">{r.left}</td>

@@ -69,13 +69,11 @@ const ALLOWLIST = new Set<string>([
   // the curated ANCHORS_BY_PID map per the 3-tier contract.
   "lib/colors/resolver.ts",
 
-  // Grandfathered consumers — pending follow-up migration. Each entry
+  // Grandfathered consumers -- pending follow-up migration. Each entry
   // is a real-world consumer that still uses `colors.fill` /
   // `partyColour` / `colors.forSet`. Each PR-SYM-6f+ follow-up retires
   // these one at a time as their loader contracts gain `party_id`.
-  "routes/Compare.svelte",                                        // psephlab-derived rows
   "lib/charts/StackedTrendV2.svelte",                             // uses category-colour
-  "lib/ParliamentArc.svelte",                                     // colors.store
   // PR-SYM-6f1 (#585): SeatDonut migrated to getPartyColor resolver.
   // PR-SYM-6f2 (#586): PartyBar migrated to resolvePartyPalette + getPartyColor.
   // PR-SYM-6f3 (#587): IndiaMap migrated to resolvePartyPalette + getPartyColor.
@@ -83,7 +81,11 @@ const ALLOWLIST = new Set<string>([
   // PR-SYM-6f5 (#590): composition-bar adapter migrated to getPartyColor.
   // PR-SYM-6f6 (#591): stacked-trend adapter migrated to getPartyColor.
   // PR-SYM-6f7 (#TBD): election-tile-layout view-model migrated to resolvePartyPalette + getPartyColor.
-  "lib/SwingSankey.svelte",                                       // colors.store
+  // PR-SYM-6g  (#TBD): ParliamentArc + SwingSankey + routes/Compare migrated to
+  //                    `partyColourHex` from `lib/psephlab/colour-bridge.ts`
+  //                    after PartyResult + CandidateTally grew optional
+  //                    party_id + brand_colour_* fields populated by the
+  //                    canonical psephlab loader.
 ]);
 
 function* walkTs(dir: string): IterableIterator<string> {

@@ -57,6 +57,13 @@ export const fptp: CountingRule = {
         const t = totals.get(c.party_eci_code);
         if (t) {
           t.votes += c.votes;
+          // First-seen party_id / brand wins; later rows for the same party
+          // are expected to carry identical metadata (dim_parties JOIN).
+          if (t.party_id == null && c.party_id != null) {
+            t.party_id = c.party_id;
+            t.brand_colour_hex = c.brand_colour_hex ?? null;
+            t.brand_colour_confidence = c.brand_colour_confidence ?? null;
+          }
         } else {
           totals.set(c.party_eci_code, {
             party_eci_code: c.party_eci_code,
@@ -64,6 +71,11 @@ export const fptp: CountingRule = {
             seats_won: 0,
             votes: c.votes,
             vote_share_pct: 0,
+            // PR-SYM-6g: propagate canonical identity + brand colour for the
+            // resolver. Absent on hand-built fixtures (engine.test.ts / fptp.test.ts).
+            party_id: c.party_id,
+            brand_colour_hex: c.brand_colour_hex ?? null,
+            brand_colour_confidence: c.brand_colour_confidence ?? null,
           });
         }
       }

@@ -64,6 +64,12 @@ interface CandidateRow {
   party_short: string | null;
   votes: number | null;
   is_nota: number; // 0 or 1, matching legacy SQLite shape
+  // PR-SYM-6g: party_id + brand colour fields propagate from dim_parties
+  // through the loader to PartyResult so the 3-tier colour resolver
+  // (anchor -> brand -> fallback) can run at consumer render-time.
+  party_id: string | null;
+  brand_colour_hex: string | null;
+  brand_colour_confidence: "high" | "medium" | "low" | null;
 }
 
 // ---------- SQL composition -----------------------------------------------
@@ -136,6 +142,9 @@ function buildCandidateSql(event: string, state_code: string): string {
           THEN COALESCE(ec.party_short_raw, dp.short_name, 'UNK')
         ELSE dp.short_name
       END                                             AS party_short,
+      ec.party_id                                     AS party_id,
+      dp.brand_colour_hex                             AS brand_colour_hex,
+      dp.brand_colour_confidence                      AS brand_colour_confidence,
       CAST(cv.votes AS BIGINT)                        AS votes,
       0                                               AS is_nota
     FROM elections_candidacies ec
@@ -154,6 +163,9 @@ function buildCandidateSql(event: string, state_code: string): string {
       'NOTA'                                                                                 AS name,
       NULL::VARCHAR                                                                          AS party_eci_code,
       'NOTA'                                                                                 AS party_short,
+      'parties.IN.NOTA'                                                                      AS party_id,
+      NULL::VARCHAR                                                                          AS brand_colour_hex,
+      NULL::VARCHAR                                                                          AS brand_colour_confidence,
       CAST(MAX(CASE WHEN o.indicator_id = 'ac-nota-votes' THEN o.value_numeric END) AS BIGINT) AS votes,
       1                                                                                      AS is_nota
     FROM dim_acs da
@@ -224,11 +236,25 @@ export function loadActuals(event: string, state: string): Promise<Tallies> {
       const name = String(row.name ?? "");
       const party_code = row.party_eci_code == null ? null : String(row.party_eci_code);
       const party_short = String(row.party_short ?? "");
+      const resolved_eci = is_nota ? "NOTA" : (party_code ?? "IND");
+      const resolved_short = party_short || (is_nota ? "NOTA" : "IND");
+      // party_id resolution: prefer the dim_parties.party_id from the JOIN;
+      // for NOTA the SQL hardcodes parties.IN.NOTA; for IND fallback rows
+      // the JOIN yields NULL so we synthesise the canonical sentinel.
+      const party_id =
+        row.party_id != null && row.party_id !== ""
+          ? String(row.party_id)
+          : is_nota
+            ? "parties.IN.NOTA"
+            : "parties.IN.IND";
       const c: CandidateTally = {
-        party_eci_code: is_nota ? "NOTA" : (party_code ?? "IND"),
-        party_short: party_short || (is_nota ? "NOTA" : "IND"),
+        party_eci_code: resolved_eci,
+        party_short: resolved_short,
         name,
         votes: num(row.votes),
+        party_id,
+        brand_colour_hex: row.brand_colour_hex ?? null,
+        brand_colour_confidence: row.brand_colour_confidence ?? null,
       };
       ac.candidates.push(c);
     }
