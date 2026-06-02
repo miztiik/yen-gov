@@ -428,6 +428,7 @@
           {tooltips}
           height={HEIGHT}
           hatch_unmapped={true}
+          tap_to_pin
           onSelect={onSelectGeo}
         />
       </div>

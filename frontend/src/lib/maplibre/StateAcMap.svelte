@@ -292,6 +292,7 @@
     {height}
     canonical_join={canonical_join}
     highlight_key={highlight_lgd}
+    tap_to_pin
     onSelect={on_select}
   />
 {/if}
