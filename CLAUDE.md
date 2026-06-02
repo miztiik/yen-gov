@@ -145,12 +145,14 @@ Commit messages describe the change. **No AI co-author / attribution tags.**
 - [ ] Module `AGENTS.md` updated if structure or invariants changed.
 - [ ] No `[DEBUG]` markers left.
 - [ ] No new hardcoded values.
+- [ ] No source or instruction the user named explicitly was downgraded, substituted, or scope-narrowed without a Scope-change ledger row carrying a non-empty `signoff:` in the active plan-doc (section 10 STOP-AND-SURFACE).
 - [ ] No new mocks unless explicitly requested.
 - [ ] Lockfiles in sync with manifests. If commit touches `frontend/package.json` or `admin/package.json`, regenerate the matching `bun.lock` and stage in the SAME commit. The Pages workflow runs `bun install --frozen-lockfile` and will reject any desync.
 - [ ] Post-merge cleanup run per [docs/how-to/ship-a-pr.md](docs/how-to/ship-a-pr.md) section Post-merge cleanup (merge verified, remote branch deleted, `: gone` local branches pruned, `.tmp_*` removed, durable lessons distilled per [docs/how-to/distill-a-plan.md](docs/how-to/distill-a-plan.md)).
 
 ## 10. Anti-Patterns (Do NOT)
 
+- Reinterpret, downgrade, substitute, or scope-narrow a source or instruction the user named explicitly, without surfacing it as a scope change for sign-off (STOP-AND-SURFACE). An explicit user-named artifact may NOT be silently demoted - e.g. "ingest X" quietly becoming "X is crosswalk / fallback only" inside baked-facts or any other low-visibility ledger. Disposition of a user-named source is a contract change requiring an explicit STOP plus user sign-off (section 0a), NOT agent-internal ambiguity resolution. When you hit this: set the plan-doc row `BLOCKED-NEEDS-SIGNOFF`, write a Scope-change ledger row (verbatim instruction | proposed change | reason | `signoff:`) in the active plan-doc, and stop. See [docs/how-to/handle-scope-change.md](docs/how-to/handle-scope-change.md).
 - Assume a backend exists in production.
 - Hardcode taxonomy values, version numbers, magic strings.
 - Store absolute / backslash paths in any persisted artifact.
