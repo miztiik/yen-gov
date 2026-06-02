@@ -1,7 +1,7 @@
 # Party Symbol Assets Plan
 
-**Last Updated**: 2026-06-01
-**Status**: Partially complete. PR-SYM-0..3 DONE (#524, #526, #527, #528). PR-SYM-4a-redo DONE (#550, #551). PR-SYM-4b PENDING. PR-SYM-4c (Wikipedia colour + URL enrichment) and PR-SYM-6a/b/c/d (renderer split, replaces retired PR-SYM-5) added 2026-06-01 per Hans + Jony red-team verdicts; all BLOCKED on PR-SYM-4b.
+**Last Updated**: 2026-06-02
+**Status**: COMPLETE. PR-SYM-0..3 DONE (#524, #526, #527, #528). PR-SYM-4a-redo DONE (#551). PR-SYM-4b DONE (#563). PR-SYM-4c DONE (#564). PR-SYM-6a DONE (#566). PR-SYM-6 series renumbered during execution into 6 PRs (6b/6c/6d/6e/6f); see Plan complete block at end of file. 12 grandfathered consumers remain; tracked in [frontend/src/contracts/party-colour-import-allowlist.test.ts](../frontend/src/contracts/party-colour-import-allowlist.test.ts) (PR #581).
 **Scope**: Collect sanitized SVG election symbols for the parties citizens most often see. Frontend rendering comes last.
 
 ## Status Reckoner
@@ -14,13 +14,15 @@
 | PR-SYM-3 | DONE | `frontend/src/lib/party-symbols/sanitizer.ts`, `frontend/src/lib/party-symbols/sanitizer.test.ts` (18 cases), `frontend/public/party-symbols/placeholder.svg` | none | vitest 18/18 pass | unblocks PR-SYM-4a | #528 |
 | PR-SYM-4a.i | SUPERSEDED by 4a-redo | _hand-authored silhouettes; rejected as inauthentic_ | none | n/a | n/a | #543 |
 | PR-SYM-4a.ii | SUPERSEDED by 4a-redo | _Commons party-LOGO bytes mislabelled as election-symbols (e.g. `aap-broom.svg` contained AAP wordmark, not broom)_ | none | n/a | n/a | #545 |
-| PR-SYM-4a-redo | DONE (Wikipedia scrape, 55 parties / 50 unique symbols) | `frontend/public/party-symbols/<symbol-noun>.{svg,png,jpg,webp}` (50 new files), `notes/20260601-party-symbol-wiki-inventory.md`, `TODO/20260527-party-symbol-assets-plan.md` reckoner update; deletes the 4 mislabelled files from #545 | none | sanitizer N/A at scrape time (renderer-time enforcement deferred to PR-SYM-5) | unblocks PR-SYM-4b | #_pending_ |
-| PR-SYM-4b | BLOCKED on SYM-4a-redo | `datasets/taxonomy/parties.json`, recompiled `datasets/elections/dim_parties.parquet` (`recognition` + `election_symbol` per inventory note); schema bump v2.2->v2.3 to add `mime_type` enum + optional `wikipedia_url` + optional `brand_colour` object (see section 11) | `taxonomy-parties` minor (`mime_type` + `wikipedia_url` + `brand_colour`) | Tier-A validate + pytest + asset/hash/`source_id` FK checks | PR-SYM-4c, PR-SYM-6a | _pending_ |
-| PR-SYM-4c | BLOCKED on SYM-4b | `datasets/taxonomy/parties.json` (add `wikipedia_url` + `brand_colour` for the 55 parties in the Wikipedia inventory; faction-split parties get `confidence: low` + `notes`), `notes/20260601-party-symbol-wiki-inventory.md` (append colour + URL columns), one new row in `datasets/taxonomy/sources.parquet` for the list-page snapshot | none (schema already bumped in PR-SYM-4b) | Tier-A validate + pytest + Garudadev RGBA cross-check log | PR-SYM-6a | _pending_ |
-| PR-SYM-6a | BLOCKED on SYM-4b | `frontend/src/lib/colors/resolver.ts` (new; returns `{hex, source, party_id}`), `frontend/src/lib/colors/resolver.test.ts` (snapshot test of anchor/brand/fallback counts across the roster), `dim-parties.schema.json` minor bump mirroring `election_symbol` + `brand_colour` | `dim-parties` minor (`election_symbol` + `brand_colour` mirror) | svelte-check + vitest. Zero consumer changes. | PR-SYM-6b | _pending_ |
-| PR-SYM-6b | BLOCKED on SYM-6a | `frontend/src/lib/parties/symbol-url.ts` (uses resolver), ONE high-visibility consumer (recommend constituency-result badge) wired to read `{hex, source}` and switch chip affordance by `source` | none | svelte-check + vitest + browser smoke per CLAUDE.md section 13 + screenshot in PR body | PR-SYM-6c | _pending_ |
-| PR-SYM-6c | BLOCKED on SYM-6b | Remaining consumer migrations in 2-3 surface-grouped batches (map fills / chart legends / badge family / symbol chip). Each batch own browser-smoke. | none | per-batch svelte-check + vitest + browser smoke | PR-SYM-6d | _pending_ |
-| PR-SYM-6d | BLOCKED on SYM-6c | Import-allowlist contract test (only `resolver.ts` may import `anchors.ts` / `party-colour.ts`), delete now-unused public exports from `party-colour.ts`. This is the PR that ends the inconsistency. | none | svelte-check + vitest + contract test | none | _pending_ |
+| PR-SYM-4a-redo | DONE (Wikipedia scrape, 55 parties / 50 unique symbols) | `frontend/public/party-symbols/<symbol-noun>.{svg,png,jpg,webp}` (50 new files), `notes/20260601-party-symbol-wiki-inventory.md`, `TODO/20260527-party-symbol-assets-plan.md` reckoner update; deletes the 4 mislabelled files from #545 | none | sanitizer N/A at scrape time (renderer-time enforcement deferred to PR-SYM-5) | unblocks PR-SYM-4b | #551 |
+| PR-SYM-4b | DONE | parties.json + recompiled dim_parties.parquet + taxonomy schema v2.2->v2.3 | `taxonomy-parties` minor | Tier-A validate + pytest | PR-SYM-4c, PR-SYM-6a | #563 |
+| PR-SYM-4c | DONE | parties.json (wikipedia_url + brand_colour for 55 parties), inventory note, sources.parquet | none | validate + pytest + Garudadev cross-check | PR-SYM-6a | #564 |
+| PR-SYM-6a | DONE | resolver.ts + resolver.test.ts (3-tier: anchor / brand / fallback) | none | svelte-check + vitest | PR-SYM-6b | #566 |
+| PR-SYM-6b (data) | DONE | dim_parties schema v1.1 + writer + PartyDimRow pydantic + adapter; renumbered from original 6a's mirror split | `dim-parties` minor (`election_symbol` + `brand_colour`) | validate + pytest + svelte-check + vitest | PR-SYM-6c | #570 |
+| PR-SYM-6c (loader + AcStackedBar) | DONE | loader projection extends row shape (`party_id` + `brand_colour` + `brand_confidence`); first consumer AcStackedBar migrates | none | svelte-check + vitest + browser smoke | PR-SYM-6d | #571 |
+| PR-SYM-6d (MarginHistogram + AcWinner spine) | DONE | MarginHistogram migrates; AcWinner row shape carries `party_id` + brand mirror end-to-end | none | svelte-check + vitest + browser smoke | PR-SYM-6e | #577 |
+| PR-SYM-6e (batch resolver + StateAcMap + RacesBoard) | DONE | `resolvePartyPalette` batch helper added at 2nd batch consumer; StateAcMap (234 polygons) + RacesBoard migrate | none | svelte-check + vitest + browser smoke | PR-SYM-6f | #580 |
+| PR-SYM-6f (import-allowlist guardrail) | DONE | `frontend/src/contracts/party-colour-import-allowlist.test.ts` (2 cases). Forbids NEW imports of legacy modules; ALLOWLIST enumerates the 12 grandfathered consumers as the durable migration tracker. Legacy module deletion deferred until ALLOWLIST is empty. | none | vitest 2/2 pass | none | #581 |
 
 Hard dependency rules:
 
@@ -609,3 +611,31 @@ Still open:
 - [docs/architecture/frontend/charts/icon-registry.md](../docs/architecture/frontend/charts/icon-registry.md)
 - [docs/architecture/frontend/colours.md](../docs/architecture/frontend/colours.md)
 - [TODO/PARTY-COLORS-REWORK.md](PARTY-COLORS-REWORK.md)
+## Plan complete (2026-06-02)
+
+The PR-SYM series shipped end-to-end. The one-identity party-colour migration spine is live on 4 high-traffic consumers and guarded by a contract test.
+
+### Renumbering note
+
+The original plan named 4 renderer PRs (6a/b/c/d). During execution the row count expanded to 6 (6a/b/c/d/e/f) because (a) the data-layer mirror (schema + writer + pydantic + adapter) earned its own PR separate from the resolver to keep gate matrices independent, and (b) a batch-resolver helper was added at the 2nd batch consumer rather than pre-built. The reckoner above maps each as-shipped PR# to its actual scope.
+
+### Distillation map
+
+| Original | As-shipped | PR | Durable destination |
+| --- | --- | --- | --- |
+| PR-SYM-1 | PR-SYM-1 | #526 | taxonomy-parties v2.2 schema + tests |
+| PR-SYM-4a-redo | PR-SYM-4a-redo | #551 | 50 Wikipedia-sourced election symbol assets |
+| PR-SYM-4b | PR-SYM-4b | #563 | parties.json populated + taxonomy v2.3 |
+| PR-SYM-4c | PR-SYM-4c | #564 | brand_colour + wikipedia_url for 55 parties |
+| PR-SYM-6a | PR-SYM-6a | #566 | resolver.ts (3-tier contract) |
+| PR-SYM-6 (data) | PR-SYM-6b | #570 | dim_parties v1.1 schema + writer + adapter |
+| PR-SYM-6 (loader+1st) | PR-SYM-6c | #571 | loader projection + AcStackedBar |
+| PR-SYM-6 (2nd) | PR-SYM-6d | #577 | MarginHistogram + AcWinner spine |
+| PR-SYM-6 (batch helper + 3rd/4th) | PR-SYM-6e | #580 | resolvePartyPalette + StateAcMap + RacesBoard |
+| PR-SYM-6 (guardrail) | PR-SYM-6f | #581 | import-allowlist contract test |
+| Distillation (this PR) | distill | _pending_ | docs/concepts/party-colour-resolution.md + plan-doc stamp |
+
+### Out of scope, follow-up
+
+12 grandfathered consumers remain on the legacy `colors.fill` / `partyColour` path. The full enumeration with migration tier (A leaf / B loader-contract / C upstream) lives in the ALLOWLIST block in `frontend/src/contracts/party-colour-import-allowlist.test.ts`. Each consumer is a separate one-PR follow-up; legacy modules (`party-colour.ts`, `anchors.ts`, `store.svelte.ts`, `category-colour.ts`) delete when the ALLOWLIST goes empty. The 6-step migration recipe is in [docs/concepts/party-colour-resolution.md](../docs/concepts/party-colour-resolution.md).
+
