@@ -1,6 +1,6 @@
 # Level-4 plan: rip `datasets/reference/in/states/<S>/constituencies.json` SoT, standardise on LGD taxonomy
 
-**Last Updated**: 2026-06-03 (second amendment; see section 0b)
+**Last Updated**: 2026-06-03 (third amendment; see section 0c)
 
 **Predecessor**: [docs/archive/plans/20260530-eci-to-lgd-acid-migration-plan.md](../docs/archive/plans/20260530-eci-to-lgd-acid-migration-plan.md) (LGD AC_ID join-key migration; merged through PRs #530-#539). That plan landed the `taxonomy/ac_crosswalk.parquet` spine; this plan retires the **per-state ECI-keyed SoT shards** that the spine made redundant.
 
@@ -40,6 +40,19 @@ Consequence: the rip cannot be a single PR. The frontend consumer is NOT mechani
 
 ---
 
+## 0c. Third audit finding (2026-06-03) -- R2 dropped, the 30 missing URLs are orphan-by-design
+
+Before executing R2, audited the actual writer pattern for `taxonomy/sources.parquet`. Findings:
+
+1. **The sources table is a CITATION LEDGER, not an audit-trail dump.** Per CLAUDE.md §12 and ADR-0032: every row in `sources.parquet` exists because at least one observation row carries it as `source_id` FK. The existing writers (`energy_sources_seed.py`, `livestock_sources_seed.py`, `boundary_layers_seed.py`) all follow this shape -- they DELETE owned `(producer, title)` slots then INSERT, ensuring every emitted source_id matches a downstream consumer's FK.
+2. **The 30 missing SoT URLs (audit in section 0a + 0b) have NO downstream FK consumer post-rip.** They're a mix of bootstrap-era Wikipedia constituency-list pages, HindustanTimesLabs shapefile (Rajasthan), and per-state ECI XLSXes that were the SoT shard's authoring provenance. None are referenced by `ac_crosswalk.parquet` (which carries 1 distinct `source_id` for the boundary-AC_ID harvest, NOT 30+ for the per-state SoT bootstrap). The 13 SoT URLs that ARE already in `taxonomy/sources.parquet` got there via other seeds (ECI Statistical Reports cited by `election_results.parquet`).
+3. **Adding 30 orphan rows would VIOLATE the citation-ledger invariant in reverse**: rows on the FK-target side with no observation FK on the source side are litter. The ledger pattern requires each row to justify its existence with a downstream reference. None of these 30 do post-rip.
+4. **Git history preserves the URLs forever.** Anyone asking "where did S22's SoT shard originally cite?" answers via `git log -p docs/archive/plans/... -- datasets/reference/in/states/S22/constituencies.json` (or the same path before its R3b deletion).
+
+**Consequence: R2 is DROPPED.** Status Reckoner updated. Sequencing collapses to R3a -> R3b -> R4. R3b commit body must include the audit-finding rationale so the deleted URLs' fate is recorded in the merge log.
+
+---
+
 ## section 1. Hard scope (in)
 
 - ~~Lift `district_id` per AC into `taxonomy/ac_crosswalk.parquet`~~ **DROPPED per section 0a finding 1** (dead field; LGD hook already exists via `taxonomy/lgd_ac_pc_district_map.json`).
@@ -71,17 +84,17 @@ Consequence: the rip cannot be a single PR. The frontend consumer is NOT mechani
 
 ---
 
-## section 3. Status Reckoner (revised 2026-06-03)
+## section 3. Status Reckoner (revised 2026-06-03, third amendment)
 
 | Row | Scope | PR# | Status | Depends on |
 | --- | --- | --- | --- | --- |
 | R1 | ~~Lift `district_id` per AC into `ac_crosswalk.parquet`~~ | -- | DROPPED (§0a audit) | -- |
-| R2 | Lift per-state ECI provenance into `taxonomy/sources.parquet` | _pending_ | PENDING | -- |
-| R3a | Frontend migration: register `dim_acs` DuckDB-WASM view; rewrite `loadConstituencies` to query view; rewire `districts.ts` to LGD-join; update `data.test.ts` + `StateOverview.svelte` + `golden-path.spec.ts`; SoT shards stay on disk (parallel-readable) | _pending_ | PENDING | R2 |
+| R2 | ~~Lift per-state ECI provenance into `taxonomy/sources.parquet`~~ | -- | DROPPED (§0c audit -- orphan rows would violate citation-ledger invariant) | -- |
+| R3a | Frontend migration: register `dim_acs` DuckDB-WASM view; rewrite `loadConstituencies` to query view; rewire `districts.ts` to LGD-join; update `data.test.ts` + `StateOverview.svelte` + `golden-path.spec.ts`; SoT shards stay on disk (parallel-readable) | _pending_ | PENDING | -- |
 | R3b | The rip: rewrite 4 backend tools (`snapshot.py`, `verify_ac_parity.py`, `s03_t4_district_fallback.py`, `pipeline.json`); retire `bootstrap_constituencies_from_results.py`; `git rm -r datasets/reference/in/states/`; fix 4 incidental ECI residues; update `sources.ts:463` comment; stamp CLAUDE.md anti-pattern; update 3 docs | _pending_ | PENDING | R3a on main |
 | R4 | Distil + archive plan-doc | _pending_ | PENDING | R3b |
 
-Sequencing: R2 -> R3a -> R3b -> R4. R2 and R3a are NOT parallelised: R3a's view registration may reference `source_id` derivation paths R2 introduces; serialising costs ~1 day and removes the merge-order risk.
+Sequencing: R3a -> R3b -> R4. R2 dropped per §0c; R3a no longer depends on it.
 
 ---
 
@@ -91,13 +104,9 @@ Sequencing: R2 -> R3a -> R3b -> R4. R2 and R3a are NOT parallelised: R3a's view 
 
 See section 0a finding 1. No work to do.
 
-### R2 - Lift per-state ECI provenance
+### ~~R2 - Lift per-state ECI provenance~~ DROPPED
 
-- Each SoT shard's `sources[]` array becomes N rows in `taxonomy/sources.parquet` with `scope_kind=state, scope_value=<S01..U09>, body=AC, producer=ECI, url, fetched_at`.
-- `source_id` derived via existing `backend.yen_gov.canonical.citation.derive_source_id` (CLAUDE.md section 12).
-- Deduplicate when the same XLSX URL covers multiple states (one row per (state, url)).
-- Tier-A: new unit test asserts every emitted row has `source_id` FK + non-null `url` + valid `fetched_at`.
-- Tier-B: `python -m yen_gov validate --root .` green.
+See section 0c finding. Orphan rows violate citation-ledger invariant; URLs preserved in git history.
 
 ### R3a - Frontend migration (PR A; EXPAND + MIGRATE phase of Parallel Change)
 
@@ -150,14 +159,13 @@ See section 0a finding 1. No work to do.
 
 ---
 
-## section 5. Sequencing rationale (revised 2026-06-03)
+## section 5. Sequencing rationale (revised 2026-06-03, third amendment)
 
-R2 -> R3a -> R3b -> R4.
+R3a -> R3b -> R4.
 
-- **R2 first:** R3a's slice registration may need `source_id` FKs for the `dim_acs` projection if any AC-attributed metadata gets surfaced in the view. Doing R2 first means R3a never needs a follow-up to wire provenance.
 - **R3a before R3b:** Parallel Change discipline. R3a is EXPAND + MIGRATE (canonical reader live on main, legacy artifact still on disk). R3b is CONTRACT (legacy artifact deleted). Reversing the order would create a window where the frontend 404s on every state hub.
-- **R3a and R2 NOT parallelised:** ~1 day saved if parallelised, but introduces merge-order risk on `taxonomy/sources.parquet` schema and on the `dim_acs` slice's source FK. Serialising is cheap insurance.
 - **R3b is the only PR that touches `datasets/reference/in/states/`:** the deletion is atomic with the backend rewires so no commit on main carries an orphaned tool reading deleted shards.
+- **R3b commit body MUST include §0c rationale** for the dropped R2: "30 SoT source URLs preserved in git history; not lifted to `taxonomy/sources.parquet` because orphan rows violate the citation-ledger invariant (CLAUDE.md §12)."
 - **R4 after R3b on main:** distillation map must cite the final R3a + R3b PR numbers.
 
 ---
