@@ -1,30 +1,73 @@
-// election-tile-layout-coverage contract test (UK-style elections plan, PR-B1).
+// election-tile-layout-coverage contract test (UK-style elections plan PR-B1;
+// generalised in the gap-closure plan EGC-C2).
 //
-// Invariant: the persisted tile-cartogram layout at
-// `datasets/grapher/election_tile_layouts.json` MUST carry exactly one tile per
-// real constituency for every shipped (layout_kind, scope, delim_year), and no
-// two tiles in a layout may share a hex cell (q, r). The cartogram and the
-// boundary corpus are two halves of the same contract: a missing tile drops a
-// seat from the equal-area view; a duplicate cell overlaps two seats.
+// Two tiers guard the persisted tile-cartogram at
+// `datasets/grapher/election_tile_layouts.json`:
 //
-// Source-of-truth (read whichever exists, per the plan): both layouts are
-// geometry-derived, so coverage is asserted against the boundary geojson —
-//   - S13 AC layout  -> `datasets/boundaries/in/ac/state=maharashtra/all.geojson`
-//     real ACs (ac_no in 1..288, deduped; ac_no=0 junk excluded). This set is
-//     1:1 with dim_acs S13 delim-2008 (eci_no 1..288).
-//   - national PC layout -> `datasets/boundaries/in/pc/delim=2024/all.geojson`
-//     all 545 features (the full geographic seat universe; results light up the
-//     contested subset later).
+//   Tier-1 (always-on, every shipped scope): for EVERY (layout_kind, scope,
+//     delim_year) present in the layout, no two tiles share a hex cell (q,r)
+//     and no unit_id repeats. A missing tile drops a seat from the equal-area
+//     view; a duplicate cell overlaps two seats.
+//
+//   Tier-2 (ship-dark coverage ledger): every state/UT with an elected
+//     assembly and a standard `ac_no` boundary corpus MUST ship exactly one AC
+//     layout whose tile set equals the boundary's constituency set. The
+//     COVERED_AC_SCOPES allowlist IS the progress ledger — a scope only enters
+//     once its layout lands. When the last holdout (J&K, non-standard boundary
+//     schema) lands, delete the allowlist and assert REQUIRED_AC_SCOPES
+//     unconditionally.
 
 import { describe, it, expect } from "vitest";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "..", "..", "..");
 const layoutPath = resolve(repoRoot, "datasets", "grapher", "election_tile_layouts.json");
-const acBndPath = resolve(repoRoot, "datasets", "boundaries", "in", "ac", "state=maharashtra", "all.geojson");
+const acDir = resolve(repoRoot, "datasets", "boundaries", "in", "ac");
 const pcBndPath = resolve(repoRoot, "datasets", "boundaries", "in", "pc", "delim=2024", "all.geojson");
+
+const DELIM_YEAR = 2008;
+
+// Boundary partition slug -> ECI state/UT code (mirrors the generator's
+// SLUG_TO_CODE in tools/gen_election_tile_layouts.py).
+const SLUG_TO_CODE: Record<string, string> = {
+  "andhra-pradesh": "S01",
+  "arunachal-pradesh": "S02",
+  assam: "S03",
+  bihar: "S04",
+  goa: "S05",
+  gujarat: "S06",
+  haryana: "S07",
+  "himachal-pradesh": "S08",
+  karnataka: "S10",
+  kerala: "S11",
+  "madhya-pradesh": "S12",
+  maharashtra: "S13",
+  manipur: "S14",
+  meghalaya: "S15",
+  mizoram: "S16",
+  nagaland: "S17",
+  odisha: "S18",
+  punjab: "S19",
+  rajasthan: "S20",
+  sikkim: "S21",
+  "tamil-nadu": "S22",
+  tripura: "S23",
+  "uttar-pradesh": "S24",
+  "west-bengal": "S25",
+  chhattisgarh: "S26",
+  jharkhand: "S27",
+  uttarakhand: "S28",
+  telangana: "S29",
+  delhi: "U05",
+  puducherry: "U07",
+  "jammu-and-kashmir": "U08",
+};
+
+// State partitions whose boundary geojson lacks the standard `ac_no` property.
+// These cannot yet be covered by the centroid-hexbin generator.
+const NON_STANDARD_AC_SLUGS = new Set(["jammu-and-kashmir"]);
 
 interface Tile {
   layout_kind: "ac" | "pc";
@@ -37,40 +80,54 @@ interface Tile {
 }
 
 function loadTiles(): Tile[] {
-  const doc = JSON.parse(readFileSync(layoutPath, "utf-8"));
-  return doc.tiles as Tile[];
+  return JSON.parse(readFileSync(layoutPath, "utf-8")).tiles as Tile[];
 }
 
 function loadGeojson(p: string): { features: { properties: Record<string, unknown> }[] } {
   return JSON.parse(readFileSync(p, "utf-8"));
 }
 
-// Expected canonical unit_ids for the S13 AC layout from the boundary corpus.
-function expectedAcUnitIds(): Set<string> {
-  const gj = loadGeojson(acBndPath);
+function tilesFor(tiles: Tile[], kind: "ac" | "pc", scope: string, delim: number): Tile[] {
+  return tiles.filter((t) => t.layout_kind === kind && t.scope === scope && t.delim_year === delim);
+}
+
+// Expected canonical AC unit_ids for one boundary slug.
+function expectedAcUnitIds(slug: string): Set<string> {
+  const code = SLUG_TO_CODE[slug];
+  const gj = loadGeojson(resolve(acDir, `state=${slug}`, "all.geojson"));
   const acNos = new Set<number>();
   for (const f of gj.features) {
     const acNo = Number(f.properties.ac_no);
     if (Number.isFinite(acNo) && acNo > 0) acNos.add(acNo);
   }
-  return new Set([...acNos].map((n) => `IN-S13-AC-2008-${n}`));
+  return new Set([...acNos].map((n) => `IN-${code}-AC-${DELIM_YEAR}-${n}`));
 }
 
-// Expected canonical unit_ids for the national PC layout from the boundary corpus.
 function expectedPcUnitIds(): Set<string> {
   const gj = loadGeojson(pcBndPath);
   const ids = new Set<string>();
   for (const f of gj.features) {
     const sc = String(f.properties.state_ut_code);
     const ls = Number(f.properties.ls_seat_code);
-    ids.add(`IN-PC-2008-${sc}-${ls}`);
+    ids.add(`IN-PC-${DELIM_YEAR}-${sc}-${ls}`);
   }
   return ids;
 }
 
-function tilesFor(tiles: Tile[], kind: "ac" | "pc", scope: string, delim: number): Tile[] {
-  return tiles.filter((t) => t.layout_kind === kind && t.scope === scope && t.delim_year === delim);
-}
+// Every boundary slug that ships a standard `ac_no` corpus = the elected-assembly
+// AC scopes the cartogram is REQUIRED to cover.
+const REQUIRED_AC_SCOPES: { slug: string; code: string }[] = readdirSync(acDir)
+  .filter((d) => d.startsWith("state="))
+  .map((d) => d.slice("state=".length))
+  .filter((slug) => slug in SLUG_TO_CODE && !NON_STANDARD_AC_SLUGS.has(slug))
+  .map((slug) => ({ slug, code: SLUG_TO_CODE[slug] }))
+  .sort((a, b) => a.code.localeCompare(b.code));
+
+// Ship-dark ledger: scopes whose layout has landed. Every standard-schema AC
+// scope is now covered; J&K (non-standard schema) is the lone uncovered scope
+// and is excluded from REQUIRED_AC_SCOPES above. When J&K lands, drop this
+// allowlist and assert REQUIRED_AC_SCOPES directly.
+const COVERED_AC_SCOPES = new Set<string>(REQUIRED_AC_SCOPES.map((s) => s.code));
 
 describe("election tile-layout coverage", () => {
   const tiles = loadTiles();
@@ -80,59 +137,57 @@ describe("election tile-layout coverage", () => {
     expect(tiles.length).toBeGreaterThan(0);
   });
 
-  describe("S13 AC layout (assembly, delim 2008)", () => {
-    const acTiles = tilesFor(tiles, "ac", "S13", 2008);
-    const expected = expectedAcUnitIds();
+  // ---- Tier-1: structural invariants on every shipped scope ----------------
+  describe("Tier-1: per-scope structural invariants", () => {
+    const scopeKeys = [...new Set(tiles.map((t) => `${t.layout_kind}|${t.scope}|${t.delim_year}`))].sort();
 
-    it("ships 288 tiles", () => {
-      expect(acTiles.length).toBe(288);
-      expect(expected.size).toBe(288);
-    });
-
-    it("has exactly one tile per real AC (no missing, no extra)", () => {
-      const got = new Set(acTiles.map((t) => t.unit_id));
-      const missing = [...expected].filter((id) => !got.has(id));
-      const extra = [...got].filter((id) => !expected.has(id));
-      expect(missing).toEqual([]);
-      expect(extra).toEqual([]);
-    });
-
-    it("has no duplicate unit_id", () => {
-      const ids = acTiles.map((t) => t.unit_id);
+    it.each(scopeKeys)("%s has no duplicate unit_id and no shared hex cell", (key) => {
+      const [kind, scope, delim] = key.split("|");
+      const group = tilesFor(tiles, kind as "ac" | "pc", scope, Number(delim));
+      const ids = group.map((t) => t.unit_id);
       expect(new Set(ids).size).toBe(ids.length);
-    });
-
-    it("has no two tiles sharing a hex cell (q,r)", () => {
-      const cells = acTiles.map((t) => `${t.q},${t.r}`);
+      const cells = group.map((t) => `${t.q},${t.r}`);
       expect(new Set(cells).size).toBe(cells.length);
     });
   });
 
-  describe("national PC layout (parliamentary, delim 2008)", () => {
-    const pcTiles = tilesFor(tiles, "pc", "national", 2008);
-    const expected = expectedPcUnitIds();
+  // ---- Tier-2: ship-dark coverage ledger -----------------------------------
+  describe("Tier-2: required AC scope coverage (ship-dark)", () => {
+    for (const { slug, code } of REQUIRED_AC_SCOPES) {
+      const covered = COVERED_AC_SCOPES.has(code);
+      const label = `${code} (${slug})${covered ? "" : " [ship-dark: not yet covered]"}`;
+      it(label, () => {
+        if (!covered) return; // ledger holdout — skip until its layout lands
+        const got = new Set(tilesFor(tiles, "ac", code, DELIM_YEAR).map((t) => t.unit_id));
+        const expected = expectedAcUnitIds(slug);
+        expect(got.size).toBeGreaterThan(0);
+        const missing = [...expected].filter((id) => !got.has(id));
+        const extra = [...got].filter((id) => !expected.has(id));
+        expect(missing).toEqual([]);
+        expect(extra).toEqual([]);
+      });
+    }
 
-    it("ships one tile per PC boundary feature (545)", () => {
+    it("allowlist never claims an uncovered scope", () => {
+      const requiredCodes = new Set(REQUIRED_AC_SCOPES.map((s) => s.code));
+      for (const code of COVERED_AC_SCOPES) {
+        expect(requiredCodes.has(code)).toBe(true);
+      }
+    });
+  });
+
+  // ---- Count pins (regression guard for the two seed layouts) --------------
+  describe("count pins", () => {
+    it("S13 AC ships 288 tiles", () => {
+      expect(tilesFor(tiles, "ac", "S13", DELIM_YEAR).length).toBe(288);
+    });
+    it("national PC ships 545 tiles matching the boundary corpus", () => {
+      const pcTiles = tilesFor(tiles, "pc", "national", DELIM_YEAR);
       expect(pcTiles.length).toBe(545);
-      expect(expected.size).toBe(545);
-    });
-
-    it("has exactly one tile per boundary PC (no missing, no extra)", () => {
       const got = new Set(pcTiles.map((t) => t.unit_id));
-      const missing = [...expected].filter((id) => !got.has(id));
-      const extra = [...got].filter((id) => !expected.has(id));
-      expect(missing).toEqual([]);
-      expect(extra).toEqual([]);
-    });
-
-    it("has no duplicate unit_id", () => {
-      const ids = pcTiles.map((t) => t.unit_id);
-      expect(new Set(ids).size).toBe(ids.length);
-    });
-
-    it("has no two tiles sharing a hex cell (q,r)", () => {
-      const cells = pcTiles.map((t) => `${t.q},${t.r}`);
-      expect(new Set(cells).size).toBe(cells.length);
+      const expected = expectedPcUnitIds();
+      expect([...expected].filter((id) => !got.has(id))).toEqual([]);
+      expect([...got].filter((id) => !expected.has(id))).toEqual([]);
     });
   });
 });

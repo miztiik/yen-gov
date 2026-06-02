@@ -192,6 +192,11 @@ const PER_ROW_PROVENANCE_SCHEMAS = new Set<string>([
   // FK to the boundary geojson it was hexbinned from, so provenance lives on
   // the row (§12.1), not in a top-level sources[] (§12.2).
   "grapher-election-tile-layout.schema.json",
+  // The tile-cartogram covered-scopes manifest (EGC-C) is a derived index of
+  // the layout doc above — pure frontend-owned UI hint (which scopes have a
+  // layout, with each layout's tile_count) carrying no observational data and
+  // no provenance, so it is exempt from §12 sources[] for the same reason.
+  "grapher-election-tile-scopes.schema.json",
   // Schema compatibility is a control-plane policy registry, not observed
   // data. It is validated by its own schema and by schema-compatibility.test.ts.
   "schema-compatibility.schema.json",
