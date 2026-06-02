@@ -8,12 +8,22 @@
 //
 // This module owns the party-colour + margin->opacity semantics (mirrors
 // StateAcMap.svelte) so neither caller nor the presentational
-// `<TileCartogram>` component duplicates them. Colour resolution reads the
-// shared `colors` store, so calling `buildTileRows` inside a Svelte
-// `$derived` stays reactive to palette overrides.
+// `<TileCartogram>` component duplicates them.
+//
+// PR-SYM-6f7: one-identity migration. Colour resolution now flows through
+// the canonical 3-tier `getPartyColor` / `resolvePartyPalette` resolver
+// (anchor -> brand -> algorithmic). Callers SHOULD pass `party_id` on each
+// `TileWinnerInput`; rows without one derive a stable
+// `parties.IN.<UPPER(short)>` so the resolver still degrades to
+// anchor / algorithmic tiers without losing identity stability. Mirrors
+// the IndiaMap (PR #587) + ElectionMap (PR #589) precedent.
 
 import { DATA_BASE } from "../paths";
-import { colors } from "../colors/store.svelte";
+import {
+  getPartyColor,
+  resolvePartyPalette,
+  type PartyRowForResolver,
+} from "../colors/resolver";
 
 export interface TileLayoutRow {
   layout_kind: "ac" | "pc";
@@ -60,6 +70,14 @@ export interface TileWinnerInput {
   party_short: string;
   /** Margin of victory as a percentage; null = unknown. */
   margin_pct: number | null;
+  /** PR-SYM-6f7: canonical `parties.IN.<SLUG>`. When absent, the resolver
+   *  receives a derived `parties.IN.<UPPER(party_short)>` fallback so the
+   *  anchor / algorithmic tiers stay identity-stable. */
+  party_id?: string | null;
+  /** PR-SYM-6f7: brand_colour mirror from dim_parties v1.1. Honoured by
+   *  the resolver's `brand` tier when confidence is high/medium. */
+  brand_colour_hex?: string | null;
+  brand_colour_confidence?: "high" | "medium" | "low" | null;
 }
 
 /** A fully-resolved tile ready for the presentational `<TileCartogram>`. */
@@ -168,13 +186,45 @@ export function buildTileRows(
   winners: readonly TileWinnerInput[],
   opts: { selected_unit_id?: string | null } = {},
 ): TileRow[] {
-  void colors.overrides; // reactive dependency when called inside $derived
   const byUnit = new Map<string, TileWinnerInput>();
   for (const w of winners) byUnit.set(w.unit_id, w);
 
-  const palette = colors.forSet(
-    winners.map((w) => w.party_key ?? w.party_short),
-  );
+  // PR-SYM-6f7: batch-resolve a palette across every distinct winning
+  // party via the canonical resolver. `partyIdFor` derives a stable
+  // `parties.IN.<SLUG>` when the winner row hasn't been widened with
+  // `party_id` yet (PcWinner / synthetic dev fixtures); the resolver
+  // still picks anchor / algorithmic colours off that key.
+  const partyIdFor = (w: TileWinnerInput): string => {
+    if (w.party_id) return w.party_id;
+    const slug = (w.party_short ?? "UNK").trim().toUpperCase();
+    return `parties.IN.${slug}`;
+  };
+  const rowFor = (
+    pid: string,
+    w: TileWinnerInput,
+  ): PartyRowForResolver | null => {
+    if (w.brand_colour_hex == null) return null;
+    return {
+      party_id: pid,
+      eci_code: w.party_key,
+      brand_colour: {
+        hex: w.brand_colour_hex,
+        confidence: w.brand_colour_confidence ?? "medium",
+      },
+    };
+  };
+  const ids: string[] = [];
+  const rowMap = new Map<string, PartyRowForResolver | null>();
+  const pidByUnit = new Map<string, string>();
+  for (const w of winners) {
+    const pid = partyIdFor(w);
+    pidByUnit.set(w.unit_id, pid);
+    if (!rowMap.has(pid)) {
+      ids.push(pid);
+      rowMap.set(pid, rowFor(pid, w));
+    }
+  }
+  const palette = resolvePartyPalette(ids, rowMap);
 
   const selected = opts.selected_unit_id ?? null;
 
@@ -195,8 +245,9 @@ export function buildTileRows(
         pending: true,
       };
     }
-    const key = w.party_key ?? w.party_short;
-    const fill = palette.get(key)?.fill ?? colors.fill(w.party_key, w.party_short);
+    const pid = pidByUnit.get(t.unit_id) ?? partyIdFor(w);
+    const fill =
+      palette.get(pid)?.hex ?? getPartyColor(pid, rowMap.get(pid) ?? null).hex;
     const marginLabel = w.margin_pct == null ? "—" : `${w.margin_pct.toFixed(1)}%`;
     return {
       unit_id: t.unit_id,

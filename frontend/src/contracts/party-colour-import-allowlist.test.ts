@@ -81,9 +81,9 @@ const ALLOWLIST = new Set<string>([
   // PR-SYM-6f3 (#587): IndiaMap migrated to resolvePartyPalette + getPartyColor.
   // PR-SYM-6f4 (#589): ElectionMap migrated to resolvePartyPalette + getPartyColor.
   // PR-SYM-6f5 (#590): composition-bar adapter migrated to getPartyColor.
-  // PR-SYM-6f6 (#TBD): stacked-trend adapter migrated to getPartyColor.
+  // PR-SYM-6f6 (#591): stacked-trend adapter migrated to getPartyColor.
+  // PR-SYM-6f7 (#TBD): election-tile-layout view-model migrated to resolvePartyPalette + getPartyColor.
   "lib/SwingSankey.svelte",                                       // colors.store
-  "lib/view-models/election-tile-layout.ts",                      // colors.store
 ]);
 
 function* walkTs(dir: string): IterableIterator<string> {
