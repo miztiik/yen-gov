@@ -9,7 +9,7 @@
   // dots are well-spaced regardless of total seat count (TN=234, etc.).
 
   import type { PartyResult } from "./psephlab/types";
-  import { colors } from "./colors/store.svelte";
+  import { partyColourHex } from "./psephlab/colour-bridge";
   import { majorityFor } from "./electoral";
 
   interface Props {
@@ -43,7 +43,7 @@
   // from the actual achieved spacing — so the radius scales with the real
   // layout (rows + per-row counts) rather than a hand-tuned √total fudge.
   const geometry = $derived.by(() => {
-    type Dot = { x: number; y: number; party_eci_code: string; party_short: string };
+    type Dot = { x: number; y: number; party_eci_code: string; party_short: string; fill: string };
     if (total_seats <= 0) return { dots: [] as Dot[], dot_radius: 4 };
 
     const radii: number[] = [];
@@ -96,6 +96,7 @@
     const dots: Dot[] = [];
     let s = 0;
     for (const p of ordered) {
+      const fill = partyColourHex(p);
       for (let k = 0; k < p.seats_won && s < slots.length; k++, s++) {
         const sl = slots[s];
         dots.push({
@@ -103,6 +104,7 @@
           y: cy - sl.r * Math.sin(sl.angle),
           party_eci_code: p.party_eci_code,
           party_short: p.party_short,
+          fill,
         });
       }
     }
@@ -140,7 +142,7 @@
       {@const muted = !!hidden_parties?.has(d.party_eci_code)}
       <circle
         cx={d.x} cy={d.y} r={dot_radius}
-        fill={colors.fill(d.party_eci_code, d.party_short)}
+        fill={d.fill}
         opacity={muted ? 0.18 : 1}
         stroke="#fff" stroke-width="0.8"
         role="img" aria-label={d.party_short}
@@ -177,7 +179,7 @@
         onclick={() => onToggleHidden?.(p.party_eci_code)}
         onkeydown={(e) => { if (clickable && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); onToggleHidden?.(p.party_eci_code); } }}
       >
-        <span class="inline-block w-2.5 h-2.5 rounded-sm" style:background-color={colors.fill(p.party_eci_code, p.party_short)}></span>
+        <span class="inline-block w-2.5 h-2.5 rounded-sm" style:background-color={partyColourHex(p)}></span>
         <span class="font-medium">{p.party_short}</span>
         <span class="text-slate-500 tabular-nums">{p.seats_won}</span>
       </li>

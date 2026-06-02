@@ -26,6 +26,23 @@ export interface CandidateTally {
   party_short: string;
   name: string;
   votes: number;
+  /**
+   * Canonical taxonomy id (e.g. `parties.IN.DMK`). PR-SYM-6g additive
+   * extension: populated by the canonical loader via the dim_parties
+   * JOIN. Optional because hand-built test fixtures (fixtures.ts,
+   * fptp.test.ts, mutation tests) construct CandidateTally inline and
+   * have not been backfilled. Consumers that need a colour MUST handle
+   * the absent case by synthesising `parties.IN.<eci_code>` -- see the
+   * `partyIdFor` helper in `frontend/src/lib/colors/resolver.ts`
+   * call sites in ParliamentArc / SwingSankey / Compare.
+   */
+  party_id?: string;
+  /**
+   * Wikipedia-sourced brand colour from dim_parties.brand_colour_hex.
+   * Forwarded to the 3-tier resolver as Tier-2 input.
+   */
+  brand_colour_hex?: string | null;
+  brand_colour_confidence?: "high" | "medium" | "low" | null;
 }
 
 export interface AcTally {
@@ -126,6 +143,16 @@ export interface PartyResult {
   seats_won: number;
   votes: number;
   vote_share_pct: number;
+  /**
+   * Canonical taxonomy id. PR-SYM-6g additive extension: propagated from
+   * the first CandidateTally row contributing to this party total by
+   * `rules/fptp.ts`. Optional for the same reason as CandidateTally.party_id
+   * -- mutation/engine unit tests build PartyResult-shaped objects indirectly
+   * via fixtures that don't yet carry party_id.
+   */
+  party_id?: string;
+  brand_colour_hex?: string | null;
+  brand_colour_confidence?: "high" | "medium" | "low" | null;
 }
 
 export interface AcOutcome {

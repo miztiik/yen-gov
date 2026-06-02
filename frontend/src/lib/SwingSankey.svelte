@@ -12,7 +12,7 @@
   // (rounding only).
 
   import type { PartyResult } from "./psephlab/types";
-  import { colors } from "./colors/store.svelte";
+  import { partyColourHex } from "./psephlab/colour-bridge";
 
   interface Props {
     actuals: PartyResult[];   // by_party from actuals allocation
@@ -48,7 +48,12 @@
       const sv = s?.votes ?? 0;
       const delta = sv - av;
       const short = s?.party_short ?? a?.party_short ?? code;
-      const color = colors.fill(code, short);
+      // Prefer scenario row (current snapshot) for the colour lookup;
+      // fall back to actuals row when the party is only present on the
+      // left side. Either row carries party_id + brand fields when the
+      // canonical loader populated them.
+      const row_for_colour = s ?? a ?? { party_eci_code: code, party_short: short };
+      const color = partyColourHex(row_for_colour);
       if (delta < -0.5) losers.push({ party_eci_code: code, party_short: short, delta: -delta, color });
       else if (delta > 0.5) gainers.push({ party_eci_code: code, party_short: short, delta, color });
     }

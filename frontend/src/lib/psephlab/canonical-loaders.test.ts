@@ -30,13 +30,16 @@ const constituencyRows = [
 ];
 
 const candidateRows = [
-  // AC 1 — 2 real candidates + 1 NOTA
+  // AC 1 -- 2 real candidates + 1 NOTA
   {
     ac_eci_no: 1,
     rank: 1,
     name: "GOVINDARAJAN T.J",
     party_eci_code: "1234",
     party_short: "DMK",
+    party_id: "parties.IN.DMK",
+    brand_colour_hex: "#e2231a",
+    brand_colour_confidence: "high" as const,
     votes: 126_452,
     is_nota: 0,
   },
@@ -46,6 +49,9 @@ const candidateRows = [
     name: "PRAKASH M",
     party_eci_code: "742",
     party_short: "PMK",
+    party_id: "parties.IN.PMK",
+    brand_colour_hex: null,
+    brand_colour_confidence: null,
     votes: 75_514,
     is_nota: 0,
   },
@@ -55,16 +61,22 @@ const candidateRows = [
     name: "NOTA",
     party_eci_code: null,
     party_short: "NOTA",
+    party_id: "parties.IN.NOTA",
+    brand_colour_hex: null,
+    brand_colour_confidence: null,
     votes: 1_783,
     is_nota: 1,
   },
-  // AC 2 — 1 real + 1 NOTA
+  // AC 2 -- 1 real + 1 NOTA
   {
     ac_eci_no: 2,
     rank: 1,
     name: "INDEPENDENT_CANDIDATE",
-    party_eci_code: null, // null party_eci_code → loader should fall back to "IND"
-    party_short: "",      // empty short → loader should fall back to "IND"
+    party_eci_code: null, // null party_eci_code -> loader should fall back to "IND"
+    party_short: "",      // empty short -> loader should fall back to "IND"
+    party_id: null,       // null party_id -> loader should synthesise parties.IN.IND
+    brand_colour_hex: null,
+    brand_colour_confidence: null,
     votes: 100_000,
     is_nota: 0,
   },
@@ -74,6 +86,9 @@ const candidateRows = [
     name: "NOTA",
     party_eci_code: null,
     party_short: "NOTA",
+    party_id: "parties.IN.NOTA",
+    brand_colour_hex: null,
+    brand_colour_confidence: null,
     votes: 900,
     is_nota: 1,
   },
@@ -114,19 +129,29 @@ describe("loadActuals — happy path", () => {
       party_short: "DMK",
       name: "GOVINDARAJAN T.J",
       votes: 126_452,
+      party_id: "parties.IN.DMK",
+      brand_colour_hex: "#e2231a",
+      brand_colour_confidence: "high",
     });
     expect(ac1.candidates[1]).toEqual({
       party_eci_code: "742",
       party_short: "PMK",
       name: "PRAKASH M",
       votes: 75_514,
+      party_id: "parties.IN.PMK",
+      brand_colour_hex: null,
+      brand_colour_confidence: null,
     });
-    // NOTA candidate: party_eci_code MUST be "NOTA", party_short MUST be "NOTA".
+    // NOTA candidate: party_eci_code MUST be "NOTA", party_short MUST be "NOTA",
+    // party_id MUST be parties.IN.NOTA (PR-SYM-6g hardcoded in the UNION ALL).
     expect(ac1.candidates[2]).toEqual({
       party_eci_code: "NOTA",
       party_short: "NOTA",
       name: "NOTA",
       votes: 1_783,
+      party_id: "parties.IN.NOTA",
+      brand_colour_hex: null,
+      brand_colour_confidence: null,
     });
   });
 
@@ -142,6 +167,11 @@ describe("loadActuals — happy path", () => {
       party_short: "IND",
       name: "INDEPENDENT_CANDIDATE",
       votes: 100_000,
+      // PR-SYM-6g: null party_id from the SQL gets synthesised to the
+      // canonical IND sentinel so the colour resolver hits Tier-1 anchor.
+      party_id: "parties.IN.IND",
+      brand_colour_hex: null,
+      brand_colour_confidence: null,
     });
   });
 
