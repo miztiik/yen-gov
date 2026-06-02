@@ -87,6 +87,11 @@ export interface WinnerInfo {
    *  through to anchor or algorithmic tier. */
   brand_colour_hex?: string | null;
   brand_colour_confidence?: "high" | "medium" | "low" | null;
+  /** PR-SYM-6b3: repo-relative ballot-symbol asset path
+   *  (e.g. `party-symbols/broom.png`). Mirror of
+   *  `dim_parties.election_symbol_asset_path`. WinnerBadge renders the
+   *  glyph when populated; renders no glyph (no placeholder) when null. */
+  election_symbol_asset_path?: string | null;
 }
 
 export interface ConstituencyResult {
