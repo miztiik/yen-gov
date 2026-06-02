@@ -639,3 +639,38 @@ The original plan named 4 renderer PRs (6a/b/c/d). During execution the row coun
 
 12 grandfathered consumers remain on the legacy `colors.fill` / `partyColour` path. The full enumeration with migration tier (A leaf / B loader-contract / C upstream) lives in the ALLOWLIST block in `frontend/src/contracts/party-colour-import-allowlist.test.ts`. Each consumer is a separate one-PR follow-up; legacy modules (`party-colour.ts`, `anchors.ts`, `store.svelte.ts`, `category-colour.ts`) delete when the ALLOWLIST goes empty. The 6-step migration recipe is in [docs/concepts/party-colour-resolution.md](../docs/concepts/party-colour-resolution.md).
 
+
+## Plan FULLY complete (2026-06-02, PR-SYM-6i closing move)
+
+The 12 grandfathered consumers were migrated across PRs #585, #586, #587, #589, #590, #591, #592, #595, #598 (route bundle: NationalElectionsAtlas + Psephlab + StateElection + StateOverview), #599 (Settings retired the override UI). PR-SYM-6i-pre1 (#597) patched a depth-agnostic regex hole in the sentinel that PR #596 had missed. PR-SYM-6i (this PR) inlined the curated anchor map into `lib/colors/resolver.ts` and deleted the three legacy modules (`party-colour.ts`, `anchors.ts`, `store.svelte.ts`) plus their tests. The ALLOWLIST is gone; the contract test is now a permanent re-introduction sentinel with no exemptions.
+
+### Spine recap (17 PRs)
+
+| PR | Role |
+| --- | --- |
+| #570 PR-SYM-6b | dim_parties v1.1 schema + writer + pydantic + adapter (data layer mirror) |
+| #571 PR-SYM-6c | loader projection extends row shape; first consumer AcStackedBar |
+| #577 PR-SYM-6d | MarginHistogram + AcWinner spine end-to-end |
+| #580 PR-SYM-6e | resolvePartyPalette batch helper; StateAcMap + RacesBoard |
+| #581 PR-SYM-6f | import-allowlist guardrail (initial; 12 grandfathered) |
+| #585 PR-SYM-6f1 | SeatDonut migrated to getPartyColor |
+| #586 PR-SYM-6f2 | PartyBar migrated to resolvePartyPalette + getPartyColor |
+| #587 PR-SYM-6f3 | IndiaMap migrated to resolvePartyPalette + getPartyColor |
+| #589 PR-SYM-6f4 | ElectionMap migrated to resolvePartyPalette + getPartyColor |
+| #590 PR-SYM-6f5 | composition-bar adapter migrated to getPartyColor |
+| #591 PR-SYM-6f6 | stacked-trend adapter migrated to getPartyColor |
+| #592 PR-SYM-6f7 | election-tile-layout view-model migrated |
+| #593 PR-SYM-6h | Constituency badge wired through canonical resolver |
+| #595 PR-SYM-6g | ParliamentArc + SwingSankey + routes/Compare via partyColourHex |
+| #597 PR-SYM-6i-pre1 | sentinel regex hole patched; depth-agnostic; allowlist narrowed |
+| #598 PR-SYM-6i-pre3 | NationalElectionsAtlas + Psephlab + StateElection + StateOverview migrated |
+| #599 PR-SYM-6i-pre2 | Settings override UI retired -> read-only provenance explainer |
+| #TBD PR-SYM-6i  | legacy modules deleted; anchors inlined into resolver; sentinel permanent |
+
+### Citizen-visible outcome
+
+- Brand colours render everywhere: every chart, map, badge, and chip resolves party colour via the same 3-tier doorway (anchor / brand / fallback).
+- New parties just work: drop a row in `dim_parties` with optional `brand_colour`; the resolver picks the right tier without code changes.
+- Schema can evolve: the canonical store owns the data; the resolver owns the render contract; the sentinel owns the doorway. No parallel paths, no drift surface.
+- The `one identity for parties` doctrine (party_id everywhere; ECI code is metadata, not a key) is now load-bearing repo-wide.
+

@@ -10,7 +10,7 @@
 // power-source choice are in `docs/architecture/frontend/charts/stacked-trend.md`
 // §"Why these power-source hexes (UI-UX-validated)".
 
-import type { PartyColor } from "./anchors";
+import type { PartyColor } from "./resolver";
 
 /** Coal grey, gas cyan, hydro deep blue, nuclear purple, renewable indigo,
  * other_thermal burnt amber. Reconciled to the actual CEA per-fuel files

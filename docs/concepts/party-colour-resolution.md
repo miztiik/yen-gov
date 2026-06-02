@@ -101,9 +101,25 @@ The Settings route (`/settings`) renders the same chip helper next to one worked
 
 The ballot-symbol glyph (`dim_parties.election_symbol_asset_path`) is deferred to PR-SYM-6b2 — wiring the SVG sanitizer pipeline through the loader is its own contract surface and is out of scope for this PR.
 
+## SYM-6 spine complete (PR-SYM-6i, 2026-06-02)
+
+The PR-SYM-6 spine (PRs #570-#599 + #TBD) is complete. The legacy modules
+`lib/colors/party-colour.ts`, `lib/colors/anchors.ts`, and
+`lib/colors/store.svelte.ts` were deleted in PR-SYM-6i; the curated anchor
+map was inlined into `lib/colors/resolver.ts`. The allowlist contract test
+became a permanent re-introduction sentinel — there are no grandfathered
+consumers, and no exemptions are allowed. Any future import of those paths
+fails the sentinel loud.
+
+The "one identity for parties" doctrine is now load-bearing repo-wide:
+every consumer resolves colour via `getPartyColor(party_id, row)` (or
+`resolvePartyPalette` for batch surfaces, or `partyColourHex` for Svelte
+route helpers). New parties just work — drop a row in `dim_parties` and
+the 3-tier resolver picks anchor / brand / fallback automatically.
+
 ## References
 
 - [TODO/20260527-party-symbol-assets-plan.md](../../TODO/20260527-party-symbol-assets-plan.md) — original plan-doc with one-identity doctrine in §11
-- [frontend/src/lib/colors/resolver.ts](../../frontend/src/lib/colors/resolver.ts) — resolver module + module-header contract
-- [frontend/src/contracts/party-colour-import-allowlist.test.ts](../../frontend/src/contracts/party-colour-import-allowlist.test.ts) — guardrail + grandfathered-consumer tracker
+- [frontend/src/lib/colors/resolver.ts](../../frontend/src/lib/colors/resolver.ts) — resolver module + module-header contract (now also owns the anchor map)
+- [frontend/src/contracts/party-colour-import-allowlist.test.ts](../../frontend/src/contracts/party-colour-import-allowlist.test.ts) — permanent re-introduction sentinel
 - [datasets/schemas/dim-parties.schema.json](../../datasets/schemas/dim-parties.schema.json) — dim_parties v1.1 schema

@@ -25,9 +25,75 @@
 // IMPORTANT: do NOT import this module's `ANCHORS_BY_PID` from anywhere except
 // `resolver.ts`. The contract test in PR-SYM-6d will lint for direct imports
 // of the underlying maps outside this module.
+//
+// PR-SYM-6i (#TBD): the curated `ANCHORS` map (keyed by ECI numeric code),
+// the `PartyColor` shape, and `ANCHOR_RESERVED_HUE_RANGES` used to live in
+// `./anchors.ts`. That module was deleted in the closing PR of the SYM-6
+// spine; its contents are inlined below. Consumers that previously imported
+// from `./anchors` now import from `./resolver`.
 
-import { ANCHORS } from "./anchors";
 import { generateOkLChPalette, oklchToHex, stringHash } from "./oklch";
+
+// ---------------------------------------------------------------------------
+// Anchor party colours -- iconic, citizen-recognisable hues.
+//
+// Pure presentation -- colours live in the frontend, not under
+// `datasets/reference/`. Per CLAUDE.md sec.3 keys are ECI party codes
+// (never invented; verified against parties.json artifacts).
+//
+// Adding an anchor is a citizen-recall decision, not a curation reflex:
+// only add a party here if the average voter recognises the colour-party
+// pairing without thinking. Two anchors must not collide perceptually.
+// ---------------------------------------------------------------------------
+
+export interface PartyColor {
+  /** Primary fill (`#rrggbb`, no alpha). */
+  fill: string;
+  /**
+   * Optional foreground text colour when text sits on top of `fill`. When
+   * omitted, the consumer should pick black/white by luminance.
+   */
+  text?: string;
+}
+
+/** Curated iconic colours, keyed by ECI party code. */
+export const ANCHORS: Record<string, PartyColor> = {
+  // National parties
+  "369": { fill: "#ea580c" },                  // BJP -- saffron lotus
+  "742": { fill: "#1d4ed8" },                  // INC -- Congress hand blue
+  "547": { fill: "#991b1b" },                  // CPI(M) -- deeper red
+  "544": { fill: "#b91c1c" },                  // CPI -- red
+
+  // Tamil Nadu (S22)
+  "582": { fill: "#dc2626" },                  // DMK -- rising sun red
+  "75":  { fill: "#16a34a" },                  // ADMK -- twin leaves green
+  "1272": { fill: "#facc15", text: "#1f2937" }, // PMK -- mango yellow
+  "772":  { fill: "#15803d" },                  // IUML -- green
+
+  // West Bengal / pan-India
+  "140": { fill: "#15803d" },                  // AITC -- Trinamool green
+
+  // Assam
+  "83":  { fill: "#f97316" },                  // AGP -- saffron flag
+  "145": { fill: "#166534" },                  // AIUDF -- dark green crescent
+
+  // Specials
+  "NOTA": { fill: "#64748b" },                 // slate-500 -- canonical NOTA
+  "IND":  { fill: "#94a3b8" },                 // slate-400 -- independents
+};
+
+/**
+ * Hue ranges (in degrees) reserved by anchors above. The algorithmic
+ * palette skips these so an algorithmic-assigned party won't end up
+ * looking like BJP or INC.
+ */
+export const ANCHOR_RESERVED_HUE_RANGES: Array<[number, number]> = [
+  [0, 20],     // reds (DMK / CPI / CPI(M))
+  [25, 45],    // saffrons (BJP / AGP)
+  [95, 110],   // PMK yellow
+  [130, 160],  // greens (ADMK / AITC / IUML / AIUDF)
+  [250, 275],  // INC blue
+];
 
 /** The data tier the resolver chose. Drives downstream affordance rules. */
 export type ColorSource = "anchor" | "brand" | "fallback";
