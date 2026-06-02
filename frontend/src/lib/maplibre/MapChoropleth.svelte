@@ -18,6 +18,7 @@
   import { Protocol } from "pmtiles";
   import { boundaryFooterHtml, resolveSource, type BoundaryEntry } from "./sources";
   import { diagonalHatch } from "./hatch";
+  import { resolveTapAction } from "./tap-to-pin";
 
   interface FeatureSelection {
     /** Join-key value (string for state name, number for AC_NO). */
@@ -110,6 +111,19 @@
      */
     pinch_to_drill?: boolean;
     /**
+     * Touch tap-to-pin. Without hover, a phone/tablet citizen can only
+     * reach the tooltip card by tapping a polygon — but the click handler
+     * also fires `onSelect` (navigation), so the card flashes for a frame
+     * before the page changes and is never actually readable. When this is
+     * on AND the device is a coarse-pointer (touch) one, the FIRST tap on a
+     * feature *pins* the card and suppresses navigation; a SECOND tap on the
+     * same feature navigates (`onSelect`); a tap on empty map dismisses the
+     * pinned card. Desktop (fine pointer) is unaffected — hover shows the
+     * card and a single click still navigates. Off by default so maps that
+     * have no per-feature navigation keep the v1 tap-shows-popup semantics.
+     */
+    tap_to_pin?: boolean;
+    /**
      * Row B2 (ADR-0049). When true AND `entry.join_property_lgd` is set, the
      * FILL/opacity/hatch join coalesces to the canonical `lgd_ac_id` before
      * falling back to the label `join_property` (ac_no). The data layer flips
@@ -139,11 +153,11 @@
     pending_at,
     pending_label,
     pinch_to_drill = false,
+    tap_to_pin = false,
     canonical_join = false,
     onSelect,
     onHover,
   }: Props = $props();
-
   let container: HTMLDivElement;
   let error = $state<string | null>(null);
   let loading = $state(true);
@@ -152,6 +166,18 @@
   // into every consumer.
   let map: any = null;
   let popup: any = null;
+  // Tap-to-pin (touch only): the key of the feature whose card is currently
+  // pinned, so a second tap on the same feature navigates instead of re-pinning.
+  let pinned_key: string | number | null = null;
+  // True on devices whose primary pointer can't hover (phones/tablets).
+  // Evaluated per-event so responsive emulation / device rotation is honoured.
+  function isCoarsePointer(): boolean {
+    return (
+      typeof window !== "undefined" &&
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(hover: none)").matches
+    );
+  }
   // Cached bbox of the loaded data so the resize observer can re-fit
   // without re-fetching the GeoJSON.
   let data_bbox: [[number, number], [number, number]] | null = null;
@@ -669,11 +695,43 @@
           if (html && popup) {
             popup.setLngLat(e.lngLat).setHTML(html).addTo(map);
           }
+          // Tap-to-pin (touch only): without hover the card is unreadable if
+          // the first tap also navigates. So on a coarse-pointer device the
+          // first tap on a feature pins the card and suppresses navigation;
+          // a second tap on the *same* feature navigates. Desktop and maps
+          // without `tap_to_pin` fall straight through to the navigate path.
+          const action = resolveTapAction({
+            tapToPin: tap_to_pin,
+            coarsePointer: isCoarsePointer(),
+            pinnedKey: pinned_key,
+            key,
+          });
+          if (action === "pin") {
+            pinned_key = key;
+            onHover?.({ key, properties: f.properties ?? {} });
+            return;
+          }
+          pinned_key = null;
           onSelect?.({
             key,
             properties: f.properties ?? {},
             at: [e.lngLat.lng, e.lngLat.lat],
           });
+        });
+        // Tap-to-pin dismissal: a tap on the map background (no feature
+        // under the point) clears the pinned card. The FILL_LAYER_ID click
+        // above also fires for feature taps, so we guard on an empty hit
+        // test to avoid clobbering a fresh pin. No-op when tap-to-pin is
+        // off or the pointer can hover.
+        map.on("click", (e: any) => {
+          if (!tap_to_pin || !isCoarsePointer()) return;
+          const hits = map.queryRenderedFeatures(e.point, {
+            layers: [FILL_LAYER_ID],
+          });
+          if (hits.length === 0) {
+            pinned_key = null;
+            if (popup) popup.remove();
+          }
         });
       } catch (e) {
         if (!cancelled) {
