@@ -26,6 +26,7 @@
     resolvePartyPalette,
     type PartyRowForResolver,
   } from "./colors/resolver";
+  import PartySymbolGlyph from "./PartySymbolGlyph.svelte";
   import { url } from "./url";
   import type { AcWinner } from "./view-models/state-overview";
 
@@ -45,6 +46,7 @@
     margin_pct: number;
     brand_colour_hex: string | null;
     brand_colour_confidence: "high" | "medium" | "low" | null;
+    symbol_asset_path: string | null;
   }
 
   const rows = $derived<Row[] | null>(
@@ -59,6 +61,7 @@
           margin_pct: w.margin_pct,
           brand_colour_hex: w.brand_colour_hex ?? null,
           brand_colour_confidence: w.brand_colour_confidence ?? null,
+          symbol_asset_path: w.symbol_asset_path ?? null,
         })),
   );
 
@@ -68,7 +71,7 @@
   // result is stable across re-fetches.
   const top3 = $derived.by(() => {
     if (!rows) return [];
-    const tally = new Map<string, { key: string; party_id: string; eci_code: string | null; short: string; seats: number }>();
+    const tally = new Map<string, { key: string; party_id: string; eci_code: string | null; short: string; seats: number; symbol_asset_path: string | null }>();
     for (const r of rows) {
       const key = r.party_id;
       const e = tally.get(key);
@@ -79,6 +82,7 @@
         eci_code: r.winner_party_eci_code,
         short: r.winner_party_short,
         seats: 1,
+        symbol_asset_path: r.symbol_asset_path ?? null,
       });
     }
     return [...tally.values()]
@@ -99,6 +103,8 @@
     party_short?: string;
     /** Optional canonical party_id for the column's color stripe. */
     party_id?: string;
+    /** Optional party election-symbol asset path for the column header glyph. */
+    symbol_asset_path?: string | null;
     /** Subtitle below the column header (e.g. seat count). */
     subtitle: string;
     rows: Row[];
@@ -117,6 +123,7 @@
         title: `${p.short} won easily`,
         party_short: p.short,
         party_id: p.party_id,
+        symbol_asset_path: p.symbol_asset_path,
         subtitle: `${list.length} seat${list.length === 1 ? "" : "s"} · margin ≥ ${COMFORTABLE_PP} pp`,
         rows: list,
       };
@@ -226,7 +233,12 @@
           : "#94a3b8" /* slate-400 for non-party columns */}
         <section class="bg-slate-50 border border-slate-200 rounded-lg overflow-hidden flex flex-col">
           <header class="px-3 pt-2.5 pb-2 border-b border-slate-200 bg-white" style:border-top="3px solid {stripe}">
-            <div class="text-sm font-semibold text-slate-800 leading-tight">{col.title}</div>
+            <div class="flex items-center gap-1.5">
+              {#if col.symbol_asset_path}
+                <PartySymbolGlyph assetPath={col.symbol_asset_path} size={16} />
+              {/if}
+              <div class="text-sm font-semibold text-slate-800 leading-tight">{col.title}</div>
+            </div>
             <div class="text-[10px] uppercase tracking-[0.1em] text-slate-500 mt-0.5">{col.subtitle}</div>
           </header>
           <ul class="overflow-y-auto max-h-[420px] divide-y divide-slate-200 text-xs">
@@ -240,6 +252,7 @@
                   title="{r.name} (#{r.eci_no}) — {r.winner_party_short} won by {r.margin_pct?.toFixed(2) ?? '—'} pp"
                 >
                   <span class="inline-block w-1.5 h-1.5 rounded-full flex-shrink-0" style:background-color={fill} aria-hidden="true"></span>
+                  <PartySymbolGlyph assetPath={r.symbol_asset_path} size={12} />
                   <span class="truncate text-slate-700 flex-1">{r.name}</span>
                   <span class="text-[10px] tabular-nums font-semibold" style:color={mc}>
                     {r.margin_pct?.toFixed(1) ?? "—"}

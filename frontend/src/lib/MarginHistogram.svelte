@@ -23,6 +23,7 @@
   import { cubicOut } from "svelte/easing";
   import ChartTooltip, { type TooltipState } from "./ChartTooltip.svelte";
   import { getPartyColor } from "./colors/resolver";
+  import PartySymbolGlyph from "./PartySymbolGlyph.svelte";
   import type { AcWinner } from "./view-models/state-overview";
 
   interface Row {
@@ -34,6 +35,7 @@
     margin_pct: number;
     brand_colour_hex: string | null;
     brand_colour_confidence: "high" | "medium" | "low" | null;
+    symbol_asset_path: string | null;
   }
 
   let { rows: input_rows }: { rows: AcWinner[] | null } = $props();
@@ -54,6 +56,7 @@
             margin_pct: w.margin_pct,
             brand_colour_hex: w.brand_colour_hex ?? null,
             brand_colour_confidence: w.brand_colour_confidence ?? null,
+            symbol_asset_path: w.symbol_asset_path ?? null,
           }))
           .sort((a, b) => a.margin_pct - b.margin_pct),
   );
@@ -130,6 +133,7 @@
     short: string;
     color: string;
     seats: number;
+    symbol_asset_path: string | null;
   }
   const winner_chips = $derived.by<PartyChip[]>(() => {
     const by_key = new Map<string, PartyChip>();
@@ -143,6 +147,7 @@
         short: r.winner_party_short,
         color: rowColor(r),
         seats: 1,
+        symbol_asset_path: r.symbol_asset_path ?? null,
       });
     }
     return [...by_key.values()].sort((a, b) => b.seats - a.seats || a.short.localeCompare(b.short));
@@ -342,6 +347,7 @@
           onclick={() => toggle_mute(chip.key)}
         >
           <span class="inline-block w-2 h-2 rounded-sm" style:background-color={chip.color}></span>
+          <PartySymbolGlyph assetPath={chip.symbol_asset_path} size={14} />
           <span class="font-medium text-slate-700">{chip.short}</span>
           <span class="text-slate-400">{chip.seats}</span>
         </button>

@@ -19,6 +19,7 @@
   import { states } from "../lib/states.svelte";
   import { url } from "../lib/url";
   import TopicIcon from "../lib/TopicIcon.svelte";
+  import PartySymbolGlyph from "../lib/PartySymbolGlyph.svelte";
 
   // params.state is a slug; params.eci_no is the parsed AC number from
   // the AC slug (e.g. `167-mylapore` → 167). When the prefix is missing
@@ -203,9 +204,12 @@
                 </div>
               </td>
               <td class="align-top">
-                {#if c.party_eci_code && state_code}
-                  <a class="hover:underline" href={url.party(state_code, c.party_eci_code, c.party_short)}>{c.party_short}</a>
-                {:else}{c.party_short}{/if}
+                <div class="flex items-center gap-1.5">
+                  <PartySymbolGlyph assetPath={c.election_symbol_asset_path} size={16} />
+                  {#if c.party_eci_code && state_code}
+                    <a class="hover:underline" href={url.party(state_code, c.party_eci_code, c.party_short)}>{c.party_short}</a>
+                  {:else}{c.party_short}{/if}
+                </div>
               </td>
               <td class="text-right tabular-nums align-top">{c.votes.toLocaleString()}</td>
               <td class="text-right tabular-nums align-top">{pct(c.vote_share_pct)}</td>

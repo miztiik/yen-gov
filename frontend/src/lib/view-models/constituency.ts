@@ -270,6 +270,9 @@ function assembleResult(
         r.brand_colour_confidence === "low"
           ? r.brand_colour_confidence
           : null,
+      // PR-SYM-6h: thread ballot-symbol path through to every candidate
+      // so the candidate table + stacked-bar legend can render the glyph.
+      election_symbol_asset_path: r.election_symbol_asset_path ?? null,
       bio: hasBio
         ? {
             sex: r.sex,
