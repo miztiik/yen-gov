@@ -1,6 +1,6 @@
 # Elections Experience - delivery-gap closure plan
 
-**Last Updated**: 2026-06-02 (EGC-B2 BLOCKED-on-handover)
+**Last Updated**: 2026-06-03 (EGC-B2 DONE; plan complete)
 
 > The UK-style elections experience (`TODO/20260531-uk-style-elections-experience-plan.md`, now complete) shipped with three delivery gaps the user surfaced post-merge. This plan closes them and installs a process guardrail so the reinterpretation class of gap cannot recur. Authorities (CLAUDE.md s0a): IA/contracts = Gregor; data shape = Hans + Max; UX = Jony + Citizen; **user approval supersedes every agent**.
 
@@ -42,7 +42,7 @@ Lanes run in parallel; within a lane rows are sequential. `||` = can start immed
 | EGC-A3 | A | Mount experience on national `/t/elections` topic door | EGC-A1 | [x] DONE | #582 | Jony |
 | EGC-A4 | A | Amend ADR-0048 (topic-door experience; reconcile Model C) + docs | EGC-A2,A3 | [x] DONE | #583 | Gregor |
 | EGC-B1 | B | Per-year ECI-direct vs TCPD-fallback source map recon (1999-2019); GAP B signed off option (a) | none `||` | [x] DONE | #579 | Max |
-| EGC-B2 | B | Ingest historical PC series (TCPD/Lok Dhaba for all 5 years per B1 verdict) + honesty flags | EGC-B1 | [!] BLOCKED-on-handover | [note](../notes/2026-06-02-egc-b2-historical-ls-ingest-handover.md) | Hans + Max |
+| EGC-B2 | B | Ingest historical PC series (1999-2024 candidate grain via TCPD spine + override-only crosswalk) + honesty flags | EGC-B1 | [x] DONE | #603,#618,#619,#621,#622,#623 | Hans + Max |
 | EGC-C1 | C | Promote hexbin generator to `tools/`; border-conforming refinement; build all states/UTs | none `||` | [x] DONE | #588 | Jony |
 | EGC-C2 | C | Two-tier tile-layout coverage contract (Tier-1 always-on; Tier-2 ship-dark->enforce) | EGC-C1 | [x] DONE | #588 | Jony |
 | EGC-C3 | C | Hide "Equal seats" toggle where no layout; demote string to deep-link fallback | EGC-C1 | [x] DONE | #588 | Jony |
@@ -79,7 +79,15 @@ Lanes run in parallel; within a lane rows are sequential. `||` = can start immed
 
 **EGC-B2.** Ingest 1999-2019 PC results from the EGC-B1 source through the existing PC pipeline (mirrors PR-A2/A3/A4 of the prior plan: identity, observations, rollups, writer, `ingest-eci-ls` CLI). Reuse the existing Model-C `pc-*` indicators + `IN-PC-<delim_year>-<state_code>-<pc_no>` entity scheme - NO new indicator, NO new id grammar. Mandatory honesty guards (Hans+Max): `segment_approximate` boolean per row (true only if a year is segment-sourced); one `methodology_breaks.parquet` row for the 2008 delimitation; NOTA NULL (not zero) pre-2013; Telangana-under-AP pre-2014 (NULL not zero); turnout/electors NULL (never fabricated) for any year whose source lacks electors; per-`(year, delim_year)` distinct-PC count assertion (543 elected universe for direct-sourced; floor >=536 + named missing-seat allow-list for any segment-sourced stopgap year; never assert 545). Per-year `source_id` FK so the postal-inclusive/exclusive split is auditable from provenance. Gates: `python -m yen_gov validate --root .` on the touched family; per-year count-assertion test; pre-flight-ingest exit 0; schema bump only if `segment_approximate` is a new observation field (grep-confirm first; additive MINOR if so).
 
-> **BLOCKED-on-handover (2026-06-02).** De-risk probe of the signed-off acquisition path (TCPD Lok Dhaba) confirmed the exact fetch mechanism but found the source backend **down**: `POST https://lokdhaba.ashoka.edu.in/api/data/api/v1.0/DataDownload` (and every sibling data endpoint) returns `502 Bad Gateway` (nginx/1.17.5) as of 2026-06-02. All five years (1999-2019) are TCPD-fallback (PDF-only at ECI per EGC-B1), so the portal is the only arm. The portal is a React SPA with no static CSV URL; confirmed param scheme `?et=GE&st=<State>&an=<term_no>` (term nos. 13/14/15/16/17 for 1999/2004/2009/2014/2019), AC-segment toggle OFF = PC grain. This is an external-fetch + per-year-verification-at-scale boundary; with the source down AND the full ingest a multi-PR per-year-verified effort, shipping a partial/unverified historical-election series would damage citizen trust more than waiting (STOP-AT-USER-JUDGMENT-BOUNDARY). Full acquisition mechanism, per-year operator checklist, honesty-guard contract, and clean-contract resume argument: `notes/2026-06-02-egc-b2-historical-ls-ingest-handover.md`. Resume = run the checklist when Lok Dhaba is back up; B1/scope not re-litigated. **Plan stays open until EGC-B2 is DONE.**
+> **DONE (PRs #603, #618, #619, #621, #622, #623; 2026-06-03).** The user authored the resolution (verbatim, 2026-06-03): *"author the crosswalk"* — an **override-only historical PC crosswalk** plus a **split-by-delimitation product policy** that **always loads the data**. Hans + Max (entity coding) and Fowler (reversible-slice sequencing) verdicts baked. The Lok Dhaba portal handover was superseded: the TCPD `All_States_GE.csv` spine (already in `datasets/ephemeral/`) carries electors/turnout/valid/sex/edu/prof, so no portal fetch was needed.
+>
+> **Identity policy.** Crosswalk = override-only CSV `datasets/reference/in/elections/pc_historical_crosswalk.csv` (112 rows) + schema `datasets/schemas/pc-historical-crosswalk.schema.json`. Resolver `resolve_pc(ge_year, tcpd_state, constituency_no)` returns `(state_code, pc_no, delim_year, match_method)`: override hit -> use row; else automatic. 2008-delim splits (AP 2009/2014 -> modern S01+S29; J&K 2009/2014/2019 -> U08+U09) code to the modern successor; 1976-delim trifurcations (1999 CG/JH/UK seats) code as-was inside MP/Bihar/UP (zero override rows). DNH+DD -> U03 pc 1+2 (sidesteps the `U03-OLD` regex issue).
+>
+> **Product policy.** **Always load the data.** 2008-delim years (2009/2014/2019/2024) paint the choropleth fully (boundaries frozen since 1976 -> zero gray). 1976-delim years (1999/2004) render table + timeseries only with a "1976 delimitation - boundaries differ" label. The `delim_year` embedded in each `pc_id` is the single source of truth (no `boundary_changed` boolean).
+>
+> **Shipped (Fowler's 5 reversible slices).** PR-1 crosswalk + resolver + 16 tests (#618); PR-2 `PcGeEvent` driver generalisation, byte-identical 2024 (#619); PR-3 ingest 2019 (#621); PR-4 ingest 2009+2014 (#622); PR-5 ingest 1999+2004, the 1976-delim slice (#623). Phase 1 schema/backfill groundwork was #603. Every GE year 1999-2024 now lands 543 PCs at candidate grain, reusing the canonical person/candidacy model.
+>
+> Distilled to `docs/architecture/decisions/0051-historical-pc-crosswalk-and-delimitation-policy.md`.
 
 ### Lane C - equal-seats coverage for every state (user: refine hexbin border conformance)
 
@@ -120,5 +128,25 @@ EGC-0, EGC-A1, EGC-B1, EGC-C1 all start immediately and in parallel.
 
 - `TODO/20260531-uk-style-elections-experience-plan.md` (the completed plan whose gaps this closes)
 - `docs/architecture/decisions/0048-elections-drill-ia-and-tile-cartogram.md`
+- `docs/architecture/decisions/0051-historical-pc-crosswalk-and-delimitation-policy.md`
 - `docs/architecture/frontend/indicators.md`
 - `docs/how-to/distill-a-plan.md`
+
+## Plan complete
+
+Closed 2026-06-03. All rows DONE. Distillation complete (per `docs/how-to/distill-a-plan.md`):
+
+| Row | PR | Distilled output |
+| --- | --- | --- |
+| EGC-0 | #574 | `CLAUDE.md` §10 (anti-pattern) + §9 (DoD checkbox) + `docs/how-to/handle-scope-change.md` (STOP-AND-SURFACE stance + Scope-change ledger format) |
+| EGC-A1 | #582 | Code: `frontend/src/lib/elections/StateElectionExperience.svelte` (behaviour-preserving extraction; no durable doc beyond ADR-0048 amend) |
+| EGC-A2 | #582 | Code: topic-door mount + `frontend/src/contracts/election-topic-experience.test.ts` drift guard; rationale in ADR-0048 amend |
+| EGC-A3 | #582 | Code: national `/t/elections` experience mount; rationale in ADR-0048 amend |
+| EGC-A4 | #583 | `docs/architecture/decisions/0048-...md` addendum (topic doors mount the experience; supersedes §1 topic-as-card) + `docs/architecture/frontend/indicators.md` |
+| EGC-B1 | #579 | `notes/2026-06-02-eci-historical-ls-source-recon.md` (per-year ECI-direct vs TCPD-fallback source map) |
+| EGC-B2 | #603, #618, #619, #621, #622, #623 | **`docs/architecture/decisions/0051-historical-pc-crosswalk-and-delimitation-policy.md`** (override-only crosswalk + split-by-delimitation product policy) + `pc_crosswalk.py` + `datasets/reference/in/elections/pc_historical_crosswalk.csv` + `datasets/schemas/pc-historical-crosswalk.schema.json` |
+| EGC-C1 | #588 | Tool: `tools/gen_election_tile_layouts.py` + `datasets/grapher/election_tile_scopes.json` (covered-scopes manifest). Residual visual-fidelity refinements (Puducherry hand-author; ribbon/mega-city review) deferred to a supervised pass. |
+| EGC-C2 | #588 | Contract: `frontend/src/contracts/election-tile-layout-coverage.test.ts` two-tier coverage (Tier-1 always-on; Tier-2 ship-dark allowlist ledger) |
+| EGC-C3 | #588 | Code: `frontend/src/lib/elections/ElectionMap.svelte` toggle-gating on layout availability |
+
+Plan-doc remains as the audit ledger; do not edit further. New work starts a new plan-doc.

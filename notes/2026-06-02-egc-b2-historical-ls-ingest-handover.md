@@ -1,7 +1,7 @@
 # EGC-B2 historical Lok Sabha ingest - acquisition handover & STOP
 
 **Date**: 2026-06-02
-**Row**: EGC-B2 (plan `TODO/20260602-elections-experience-gap-closure-plan.md`)
+**Row**: EGC-B2 (plan `docs/archive/plans/20260602-elections-experience-gap-closure-plan.md`)
 **Status**: BLOCKED-on-handover (acquisition mechanism confirmed; source backend currently down; full ingest exceeds responsible single-session budget)
 **Author agents**: Max (Indicator Scout) + Hans (Governance)
 **Predecessor recon**: `notes/2026-06-02-eci-historical-ls-source-recon.md` (EGC-B1, PR #579)
