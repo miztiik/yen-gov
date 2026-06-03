@@ -4181,6 +4181,396 @@
       "state": "ladakh",
       "source_input": "tcpd_ge",
       "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "andhra-pradesh",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "arunachal-pradesh",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "assam",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "bihar",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "goa",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "gujarat",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "haryana",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "himachal-pradesh",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "karnataka",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "kerala",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "madhya-pradesh",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "maharashtra",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "manipur",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "meghalaya",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "mizoram",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "nagaland",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "odisha",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "punjab",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "rajasthan",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "sikkim",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "tamil-nadu",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "tripura",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "uttar-pradesh",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "west-bengal",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "chhattisgarh",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "jharkhand",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "uttarakhand",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "andaman-and-nicobar",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "chandigarh",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "dadra-and-nagar-haveli-and-daman-and-diu",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "lakshadweep",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "delhi",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "puducherry",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenMay2004",
+      "state": "jammu-and-kashmir",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "andhra-pradesh",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "arunachal-pradesh",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "assam",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "bihar",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "goa",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "gujarat",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "haryana",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "himachal-pradesh",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "karnataka",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "kerala",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "madhya-pradesh",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "maharashtra",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "manipur",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "meghalaya",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "mizoram",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "nagaland",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "odisha",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "punjab",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "rajasthan",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "sikkim",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "tamil-nadu",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "tripura",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "uttar-pradesh",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "west-bengal",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "andaman-and-nicobar",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "chandigarh",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "dadra-and-nagar-haveli-and-daman-and-diu",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "lakshadweep",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "delhi",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "puducherry",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
+    },
+    {
+      "election_id": "LsGenOct1999",
+      "state": "jammu-and-kashmir",
+      "source_input": "tcpd_ge",
+      "ingested_at": "2026-05-31"
     }
   ]
 }

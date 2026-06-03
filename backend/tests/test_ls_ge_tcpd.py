@@ -30,6 +30,8 @@ import pytest
 from yen_gov.canonical.adapters.eci.pc_crosswalk import load_crosswalk_and_lookup
 from yen_gov.canonical.adapters.eci_ls import (
     EVENT_BY_GE_YEAR,
+    LS_1999,
+    LS_2004,
     LS_2009,
     LS_2014,
     LS_2019,
@@ -328,3 +330,84 @@ def test_envelope_2014_carries_event_period(tmp_path):
     # Observations must be stamped with the 2014 period, not the 2024 default.
     assert any(o.period_label == "LsGenMay2014" for o in env.observation_rows)
     assert all(o.period_label != "LsGenJun2024" for o in env.observation_rows)
+
+
+# ---------------------------------------------------------------------------
+# Pin 6: PR-5 — 1999 + 2004 events (both 1976 delimitation; table-only years)
+# ---------------------------------------------------------------------------
+
+def test_event_registry_has_1999_and_2004():
+    for year, label, seq in ((1999, "LsGenOct1999", 1), (2004, "LsGenMay2004", 2)):
+        event = EVENT_BY_GE_YEAR[year]
+        assert event.delim_year == 1976
+        assert event.period.period_label == label
+        assert event.period.year == year
+        assert event.period.period_seq == seq
+        assert event.source_input_id == "tcpd_ge"
+
+
+@pytest.mark.parametrize("year, event", [(1999, LS_1999), (2004, LS_2004)])
+def test_1976_delim_pcid_carries_1976_prefix(tmp_path, year, event):
+    """1976-delimitation years stamp ``IN-PC-1976-*`` so the map can gray them.
+
+    The product paints a choropleth only for 2008-delimitation years; the
+    ``delim_year`` embedded in the ``pc_id`` is the single source of truth that
+    distinguishes a "boundaries differ" historical year from a paint-able one.
+    """
+    rows = [
+        _row(State_Name="Tamil_Nadu", Constituency_No="1",
+             Constituency_Name="Madras North", Year=str(year), Candidate="Winner"),
+    ]
+    csv_path = _write_csv(tmp_path, rows)
+    env, pc_count, _unresolved = build_pc_envelope_from_tcpd(
+        datasets_root=DATASETS,
+        csv_path=csv_path,
+        year=year,
+        event=event,
+        allow_unknown_parties=True,
+    )
+    assert pc_count == 1
+    (dim,) = env.pc_dim_rows
+    assert dim.pc_id == "IN-PC-1976-S22-1"
+    assert dim.delim_year == 1976
+
+
+def test_1999_pre2000_states_code_as_was(tmp_path, crosswalk_lookup):
+    """1999 has no Chhattisgarh/Jharkhand/Uttarakhand; seats sit in parent states.
+
+    Those states were created in 2000. The TCPD 1999 panel numbers their seats
+    inside Madhya Pradesh / Bihar / Uttar Pradesh, and the automatic resolver
+    codes them as-was (no override rows).
+    """
+    crosswalk, lookup = crosswalk_lookup
+    rows = [
+        _row(State_Name="Madhya_Pradesh", Constituency_No="1",
+             Constituency_Name="Morena", Year="1999", Candidate="MP Person"),
+    ]
+    csv_path = _write_csv(tmp_path, rows)
+    (result,) = parse_ls_ge_tcpd(
+        csv_path, year=1999, crosswalk=crosswalk, state_lookup=lookup
+    )
+    assert result.state_code == "S12"  # Madhya Pradesh, undivided
+
+
+def test_envelope_1999_carries_event_period(tmp_path):
+    rows = [
+        _row(Constituency_No="1", Constituency_Name="Madras North", Candidate="Winner",
+             Year="1999", Votes="200", State_Name="Tamil_Nadu"),
+    ]
+    csv_path = _write_csv(tmp_path, rows)
+    env, pc_count, _unresolved = build_pc_envelope_from_tcpd(
+        datasets_root=DATASETS,
+        csv_path=csv_path,
+        year=1999,
+        event=LS_1999,
+        allow_unknown_parties=True,
+    )
+    assert pc_count == 1
+    (dim,) = env.pc_dim_rows
+    assert dim.pc_id == "IN-PC-1976-S22-1"
+    assert dim.delim_year == 1976
+    assert any(o.period_label == "LsGenOct1999" for o in env.observation_rows)
+    assert all(o.period_label != "LsGenJun2024" for o in env.observation_rows)
+

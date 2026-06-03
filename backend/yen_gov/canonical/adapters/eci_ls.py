@@ -137,10 +137,51 @@ LS_2009 = PcGeEvent(
 )
 
 
+# The 2004 Lok Sabha general election (14th Lok Sabha): polling Apr-May 2004,
+# results declared 2004-05-13. Contested on the **1976 delimitation** — the
+# constituency boundaries differ from the current (2008) map, so 2004 is a
+# table/timeseries-only year (no choropleth painting). Chhattisgarh, Jharkhand
+# and Uttarakhand are now distinct states and their seats resolve as-was; the
+# undivided Andhra Pradesh contested its 42 seats. No override rows are needed
+# beyond the standing DNH/DD merge — the automatic resolver covers all 543.
+LS_2004_EVENT = Period(period_label="LsGenMay2004", year=2004, period_seq=2)
+LS_2004 = PcGeEvent(
+    period=LS_2004_EVENT,
+    delim_year=1976,
+    source_title=(
+        "General Election to Lok Sabha 2004 — Constituency-wise candidate "
+        "results (TCPD compilation of ECI returns)"
+    ),
+    vintage="2004",
+    source_input_id="tcpd_ge",
+)
+
+
+# The 1999 Lok Sabha general election (13th Lok Sabha): polling Sep-Oct 1999,
+# results declared 1999-10-06. Contested on the **1976 delimitation** (table/
+# timeseries-only year). Chhattisgarh, Jharkhand and Uttarakhand did not yet
+# exist (created 2000); their seats were polled inside Madhya Pradesh, Bihar
+# and Uttar Pradesh respectively and are coded as-was. The automatic resolver
+# covers all 543 constituencies (only the DNH/DD merge uses override rows).
+LS_1999_EVENT = Period(period_label="LsGenOct1999", year=1999, period_seq=1)
+LS_1999 = PcGeEvent(
+    period=LS_1999_EVENT,
+    delim_year=1976,
+    source_title=(
+        "General Election to Lok Sabha 1999 — Constituency-wise candidate "
+        "results (TCPD compilation of ECI returns)"
+    ),
+    vintage="1999",
+    source_input_id="tcpd_ge",
+)
+
+
 #: GE-year -> event registry. The 2024 row is the ECI Report-33 path (kept for
 #: completeness); historical years (1999-2019) are the TCPD-panel path. Phase 2
 #: of EGC-B2 extends this as each year's PR lands.
 EVENT_BY_GE_YEAR: dict[int, PcGeEvent] = {
+    1999: LS_1999,
+    2004: LS_2004,
     2009: LS_2009,
     2014: LS_2014,
     2019: LS_2019,
