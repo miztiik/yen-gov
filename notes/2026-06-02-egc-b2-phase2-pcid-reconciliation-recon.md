@@ -2,7 +2,7 @@
 
 **Date:** 2026-06-02
 **Author:** autonomous agent (default)
-**Scope:** EGC-B2 row of `TODO/20260602-elections-experience-gap-closure-plan.md`
+**Scope:** EGC-B2 row of `docs/archive/plans/20260602-elections-experience-gap-closure-plan.md`
 **Status:** Phase 1 SHIPPED (PR #603). Phase 2 (1999–2019 historical PC series) **STOPPED at a judgment boundary** — needs a user decision on how to identify historical constituencies before any ingest.
 
 ---
