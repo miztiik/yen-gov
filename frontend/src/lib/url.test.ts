@@ -96,18 +96,18 @@ describe("canonical URL grammar", () => {
     expect(url.ac("S22", 167, "Mylapore")).toMatch(/^\/s\/[a-z0-9-]+\/ac\/167-mylapore$/);
   });
 
-  it("ac can carry an event query", () => {
+  it("ac nests the event in the path (ADR-0052)", () => {
     expect(url.ac("S22", 167, "Mylapore", "AcGenMar1971"))
-      .toMatch(/^\/s\/[a-z0-9-]+\/ac\/167-mylapore\?event=AcGenMar1971$/);
+      .toMatch(/^\/s\/[a-z0-9-]+\/elections\/AcGenMar1971\/ac\/167-mylapore$/);
   });
 
   it("acByNo is /s/<state>/ac/<eci_no>", () => {
     expect(url.acByNo("S22", 167)).toMatch(/^\/s\/[a-z0-9-]+\/ac\/167$/);
   });
 
-  it("acByNo can carry an event query", () => {
+  it("acByNo nests the event in the path (ADR-0052)", () => {
     expect(url.acByNo("S22", 167, "AcGenMar1971"))
-      .toMatch(/^\/s\/[a-z0-9-]+\/ac\/167\?event=AcGenMar1971$/);
+      .toMatch(/^\/s\/[a-z0-9-]+\/elections\/AcGenMar1971\/ac\/167$/);
   });
 
   it("party is /s/<state>/party/<slug>-<eci-code-lower>", () => {

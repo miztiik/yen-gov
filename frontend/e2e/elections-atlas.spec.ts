@@ -45,8 +45,9 @@ test("@elections selecting a seat on the cartogram navigates to that constituenc
 
   await hex.locator("svg polygon").first().click();
 
-  // Clicking a tile drills into the AC detail route for this state.
-  await expect(page).toHaveURL(/\/s\/maharashtra\/ac\/\d+/);
+  // Clicking a tile drills into the constituency, nested under the election
+  // event (ADR-0052: event is path identity).
+  await expect(page).toHaveURL(/\/s\/maharashtra\/elections\/[^/]+\/ac\/\d+/);
 });
 
 // National Lok Sabha PC atlas (PR-B4). LsGenJun2024 PC results were ingested

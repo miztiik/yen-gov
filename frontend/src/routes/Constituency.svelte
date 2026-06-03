@@ -17,14 +17,19 @@
   import WinnerBadge from "../lib/WinnerBadge.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
-  import { url } from "../lib/url";
+  import { url, navigate } from "../lib/url";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import PartySymbolGlyph from "../lib/PartySymbolGlyph.svelte";
 
   // params.state is a slug; params.eci_no is the parsed AC number from
   // the AC slug (e.g. `167-mylapore` → 167). When the prefix is missing
   // or unparseable, eci_no is -1 and we render the not-published path.
-  interface Props { params: { state: string; eci_no: number; ac_slug: string } }
+  // params.event is present only on the canonical nested route
+  // (/s/<state>/elections/<event>/ac/<n-slug>, ADR-0052); on the bare
+  // /s/<state>/ac/<n-slug> entry it is undefined and we redirect.
+  interface Props {
+    params: { state: string; eci_no: number; ac_slug: string; event?: string };
+  }
   let { params }: Props = $props();
 
   // Per-state event resolution (ADR-0023): no global "current election".
@@ -36,12 +41,32 @@
     .catch(() => (election_catalogue = null));
 
   const state_code = $derived(states.codeFromSlug(params.state));
-  const event_param = $derived(new URLSearchParams(location.search).get("event"));
+  // ADR-0052: the event is identity and lives in the path (params.event).
+  // A legacy `?event=` query is honoured for one release so pre-ADR-0052
+  // bookmarks keep resolving; both fall back to the state default.
+  const legacy_query_event = $derived(
+    new URLSearchParams(location.search).get("event"),
+  );
+  const event_token = $derived(params.event ?? legacy_query_event);
   const event_row = $derived(
-    (event_param ? findEvent(election_catalogue, state_code, event_param) : null)
+    (event_token ? findEvent(election_catalogue, state_code, event_token) : null)
       ?? defaultEventForState(election_catalogue, state_code),
   );
   const event = $derived(event_row?.event_id ?? null);
+
+  // Bare-AC redirect (ADR-0052): when the path carries no event but we have
+  // resolved one (default or legacy-query), replaceState to the canonical
+  // nested URL so the address bar is always the identity-complete form.
+  // Preserves the exact ac slug the visitor arrived with.
+  $effect(() => {
+    if (params.event) return; // already on the canonical nested route
+    const ev = event;
+    if (!ev || params.eci_no <= 0) return;
+    navigate(
+      `/s/${params.state}/elections/${encodeURIComponent(ev)}/ac/${params.ac_slug}`,
+      { replace: true },
+    );
+  });
 
   // PR-E (Phase 1.3a): the canonical view-model loader fronts DuckDB-WASM.
   // The result is a discriminated union — render all four arms.
