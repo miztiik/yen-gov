@@ -174,7 +174,13 @@ test.describe("golden path", () => {
     // backend test covers; the canonical dim_candidates table holds the
     // AcGenMay2026 contest (TN's default event).
     await page.goto("/s/tamil-nadu/ac/1-gummidipoondi");
-    // Phase 1.6 (PR-K): heading is "Top N of M candidates" when a tail
+    // ADR-0051: the bare /ac/ entry is not canonical — it replaceState-
+    // redirects to the identity-complete nested form
+    // /s/<state>/elections/<event>/ac/<n-slug>. Assert the address bar
+    // settled on the nested shape before checking content.
+    await expect
+      .poll(() => new URL(page.url()).pathname, { timeout: 30_000 })
+      .toMatch(/\/s\/tamil-nadu\/elections\/[^/]+\/ac\/1-gummidipoondi$/);
     // exists, else "N candidate(s)". AC#1 has more than top_n_cutoff
     // contestants so the "Top N of M" form is expected here; the regex
     // tolerates the no-tail form too in case the seed shrinks.

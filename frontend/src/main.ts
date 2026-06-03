@@ -50,6 +50,27 @@ startRouter({
   routes: [
     { pattern: "/", component: Home },
     { pattern: "/s/:state", component: StateOverview },
+    // Canonical single-constituency drill-down (ADR-0052). The election
+    // event is part of the resource identity, so it lives in the PATH,
+    // nested beneath the state's election overview:
+    //   /s/<state>/elections/<event>/ac/<n-slug>
+    // 6-segment pattern, distinct from every other route by both segment
+    // count and the `elections`/`ac` literals, so order is not load-bearing.
+    {
+      pattern: "/s/:state/elections/:event/ac/:ac",
+      component: Constituency,
+      parse: ({ state, event, ac }) => ({
+        state,
+        event,
+        ac_slug: ac,
+        eci_no: parseAcSlug(ac) ?? -1,
+      }),
+    },
+    // Bare-AC convenience entry (ADR-0052). Not a canonical resource: it
+    // carries no election in its path, so Constituency resolves the
+    // state's default event and replaceState-redirects to the nested
+    // canonical form above. A legacy `?event=<e>` query (the pre-ADR-0052
+    // shape) is honoured by the same redirect for one release.
     {
       pattern: "/s/:state/ac/:ac",
       component: Constituency,

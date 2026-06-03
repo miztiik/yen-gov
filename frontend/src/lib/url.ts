@@ -81,13 +81,26 @@ export const url = {
     return withBase(`/s/${states.slug(stateCode) || stateCode.toLowerCase()}`);
   },
   ac(stateCode: string, eci_no: number, name: string, event?: string | null): string {
-    const base = `/s/${states.slug(stateCode) || stateCode.toLowerCase()}/ac/${acSlug(eci_no, name)}`;
-    return withBase(event ? `${base}?event=${encodeURIComponent(event)}` : base);
+    const slug = states.slug(stateCode) || stateCode.toLowerCase();
+    const acSeg = acSlug(eci_no, name);
+    // ADR-0052: the election event is resource identity, so it lives in the
+    // path nested under /elections/<event>. The bare /ac/ form (no event) is
+    // the convenience entry that redirects to the default-event nested URL.
+    return withBase(
+      event
+        ? `/s/${slug}/elections/${encodeURIComponent(event)}/ac/${acSeg}`
+        : `/s/${slug}/ac/${acSeg}`,
+    );
   },
   // AC link without a name (used by callers that don't have one to hand).
   acByNo(stateCode: string, eci_no: number, event?: string | null): string {
-    const base = `/s/${states.slug(stateCode) || stateCode.toLowerCase()}/ac/${eci_no}`;
-    return withBase(event ? `${base}?event=${encodeURIComponent(event)}` : base);
+    const slug = states.slug(stateCode) || stateCode.toLowerCase();
+    // ADR-0052: event in path (see `ac()` above).
+    return withBase(
+      event
+        ? `/s/${slug}/elections/${encodeURIComponent(event)}/ac/${eci_no}`
+        : `/s/${slug}/ac/${eci_no}`,
+    );
   },
   party(stateCode: string, partyEciCode: string, shortName: string): string {
     const slug = partySlug(shortName, partyEciCode);
