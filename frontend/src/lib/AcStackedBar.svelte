@@ -10,6 +10,7 @@
   // taxonomy id, not the ECI alias.
   import type { ConstituencyResult } from "./data";
   import { getPartyColor } from "./colors/resolver";
+  import PartySymbolGlyph from "./PartySymbolGlyph.svelte";
 
   let { result }: { result: ConstituencyResult } = $props();
 
@@ -23,6 +24,10 @@
     is_special?: "nota" | "others";
     brand_colour_hex: string | null;
     brand_colour_confidence: "high" | "medium" | "low" | null;
+    // PR-SYM glyph: dim_parties.election_symbol_asset_path threaded
+    // through CandidateResult so the legend can render the party's
+    // ballot-symbol next to its short name (when present).
+    election_symbol_asset_path: string | null;
   }
 
   const segments = $derived.by<Seg[]>(() => {
@@ -35,6 +40,7 @@
       is_winner: !!c.is_winner,
       brand_colour_hex: c.brand_colour_hex ?? null,
       brand_colour_confidence: c.brand_colour_confidence ?? null,
+      election_symbol_asset_path: c.election_symbol_asset_path ?? null,
     }));
     out.push({
       label: "NOTA",
@@ -46,6 +52,7 @@
       is_special: "nota",
       brand_colour_hex: null,
       brand_colour_confidence: null,
+      election_symbol_asset_path: null,
     });
     if (result.others) {
       out.push({
@@ -58,6 +65,7 @@
         is_special: "others",
         brand_colour_hex: null,
         brand_colour_confidence: null,
+        election_symbol_asset_path: null,
       });
     }
     return out;
@@ -102,6 +110,7 @@
     {#each segments as s (s.label)}
       <li class="flex items-center gap-1.5">
         <span class="inline-block w-2.5 h-2.5 rounded-sm" style:background-color={color_for(s)}></span>
+        <PartySymbolGlyph assetPath={s.election_symbol_asset_path} size={14} />
         <span class="font-medium">{s.party_short}</span>
         <span class="text-slate-400">{s.pct.toFixed(2)}%</span>
       </li>

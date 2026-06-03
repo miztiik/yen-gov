@@ -33,20 +33,18 @@
    * the template can branch on truthiness.
    *
    * Pure (no DOM, no fetch) so vitest pins the contract in node.
+   *
+   * Re-exported from `PartySymbolGlyph.svelte` so existing test fixtures
+   * and external imports keep working after the glyph renderer was
+   * extracted into a shared component (PR-SYM-6h).
    */
-  export function glyphUrlFor(
-    assetPath: string | null | undefined,
-  ): string | null {
-    if (assetPath == null) return null;
-    const trimmed = assetPath.trim();
-    if (trimmed.length === 0) return null;
-    return `${import.meta.env.BASE_URL}${trimmed}`;
-  }
+  export { glyphUrlFor } from "./PartySymbolGlyph.svelte";
 </script>
 
 <script lang="ts">
   import { getPartyColor } from "./colors/resolver";
   import { chipFor } from "./colors/chip";
+  import PartySymbolGlyph from "./PartySymbolGlyph.svelte";
   import type { WinnerInfo } from "./data";
 
   interface Props { winner: WinnerInfo }
@@ -70,7 +68,6 @@
     ),
   );
   const chip = $derived(chipFor(resolved.source));
-  const glyphUrl = $derived(glyphUrlFor(winner.election_symbol_asset_path));
 </script>
 
 <div class="flex items-start gap-3" data-testid="winner-badge">
@@ -84,23 +81,11 @@
     <div class="text-xs uppercase text-slate-500">Winner</div>
     <div class="font-semibold truncate">{winner.name}</div>
     <div class="flex items-center gap-2 mt-0.5">
-      {#if glyphUrl}
-        <!-- Ballot-symbol glyph. 20px square, decorative (alt=""). The
-             party_short text alongside carries the accessible name. On
-             fetch / decode failure the element hides itself: no broken
-             icon, no placeholder. -->
-        <img
-          src={glyphUrl}
-          alt=""
-          width="20"
-          height="20"
-          class="w-5 h-5 object-contain shrink-0"
-          data-testid="winner-glyph"
-          loading="lazy"
-          decoding="async"
-          onerror={(e) => { (e.currentTarget as HTMLImageElement).hidden = true; }}
-        />
-      {/if}
+      <PartySymbolGlyph
+        assetPath={winner.election_symbol_asset_path}
+        size={20}
+        class="w-5 h-5"
+      />
       <span class="text-slate-500 text-sm truncate">{winner.party_short}</span>
       <!-- Source chip: provenance. Border-style encodes the tier so it is
            readable without colour vision. -->

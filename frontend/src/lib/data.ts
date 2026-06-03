@@ -66,6 +66,11 @@ export interface CandidateResult {
    *  Hans (Governance) verdict. */
   brand_colour_hex?: string | null;
   brand_colour_confidence?: "high" | "medium" | "low" | null;
+  /** PR-SYM-6h: repo-relative ballot-symbol asset path mirror from
+   *  `dim_parties.election_symbol_asset_path`. Threaded onto every
+   *  candidate so the candidate table + AcStackedBar legend can render
+   *  the party glyph alongside the short name. Null when no asset. */
+  election_symbol_asset_path?: string | null;
 }
 
 export interface NotaResult { votes: number; vote_share_pct: number; }
