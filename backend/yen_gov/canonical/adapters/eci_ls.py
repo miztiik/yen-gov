@@ -104,10 +104,45 @@ LS_2019 = PcGeEvent(
 )
 
 
+# The 2014 Lok Sabha general election: results declared 2014-05-16. Same 2008
+# delimitation as 2019/2024. Andhra Pradesh still contested as the undivided
+# 42-seat state (Telangana split takes effect 2014-06-02, after polling), so
+# the crosswalk maps the 2014 AP rows onto the modern S01/S29 successors.
+LS_2014_EVENT = Period(period_label="LsGenMay2014", year=2014, period_seq=4)
+LS_2014 = PcGeEvent(
+    period=LS_2014_EVENT,
+    delim_year=2008,
+    source_title=(
+        "General Election to Lok Sabha 2014 — Constituency-wise candidate "
+        "results (TCPD compilation of ECI returns)"
+    ),
+    vintage="2014",
+    source_input_id="tcpd_ge",
+)
+
+
+# The 2009 Lok Sabha general election: results declared 2009-05-16. First GE
+# fought on the 2008 delimitation, so the constituency boundaries match the
+# current map. Andhra Pradesh contested as the undivided 42-seat state.
+LS_2009_EVENT = Period(period_label="LsGenMay2009", year=2009, period_seq=3)
+LS_2009 = PcGeEvent(
+    period=LS_2009_EVENT,
+    delim_year=2008,
+    source_title=(
+        "General Election to Lok Sabha 2009 — Constituency-wise candidate "
+        "results (TCPD compilation of ECI returns)"
+    ),
+    vintage="2009",
+    source_input_id="tcpd_ge",
+)
+
+
 #: GE-year -> event registry. The 2024 row is the ECI Report-33 path (kept for
 #: completeness); historical years (1999-2019) are the TCPD-panel path. Phase 2
 #: of EGC-B2 extends this as each year's PR lands.
 EVENT_BY_GE_YEAR: dict[int, PcGeEvent] = {
+    2009: LS_2009,
+    2014: LS_2014,
     2019: LS_2019,
     2024: LS_2024,
 }

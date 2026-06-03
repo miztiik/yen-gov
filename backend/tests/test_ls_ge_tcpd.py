@@ -29,6 +29,9 @@ import pytest
 
 from yen_gov.canonical.adapters.eci.pc_crosswalk import load_crosswalk_and_lookup
 from yen_gov.canonical.adapters.eci_ls import (
+    EVENT_BY_GE_YEAR,
+    LS_2009,
+    LS_2014,
     LS_2019,
     build_pc_envelope_from_tcpd,
 )
@@ -264,3 +267,64 @@ def test_envelope_from_tcpd_pcid_grammar_and_enrichment(tmp_path):
     assert "Education" in prof
     # Historical GE carries no age.
     assert all(p.age is None for p in env.person_dim_rows)
+
+
+# ---------------------------------------------------------------------------
+# Pin 5: PR-4 — 2009 + 2014 events (both 2008 delimitation)
+# ---------------------------------------------------------------------------
+
+def test_event_registry_has_2009_and_2014():
+    for year, label, seq in ((2009, "LsGenMay2009", 3), (2014, "LsGenMay2014", 4)):
+        event = EVENT_BY_GE_YEAR[year]
+        assert event.delim_year == 2008
+        assert event.period.period_label == label
+        assert event.period.year == year
+        assert event.period.period_seq == seq
+        assert event.source_input_id == "tcpd_ge"
+
+
+@pytest.mark.parametrize("year, event", [(2009, LS_2009), (2014, LS_2014)])
+def test_ap_undivided_numbering_splits_to_modern_successors(
+    tmp_path, crosswalk_lookup, year, event
+):
+    """Undivided-AP seats (1-42) split onto modern Telangana (S29) + AP (S01).
+
+    Telangana split from Andhra Pradesh on 2 June 2014, after both the 2009 and
+    2014 polls. TCPD numbers the seats within undivided AP (1-42); the crosswalk
+    maps 1-17 to Telangana (S29, same pc_no) and 18-42 to residual AP (S01,
+    offset -17).
+    """
+    crosswalk, lookup = crosswalk_lookup
+    rows = [
+        _row(State_Name="Andhra_Pradesh", Constituency_No="17",
+             Constituency_Name="Khammam", Year=str(year), Candidate="TG Person"),
+        _row(State_Name="Andhra_Pradesh", Constituency_No="18",
+             Constituency_Name="Araku", Year=str(year), Candidate="AP Person"),
+    ]
+    csv_path = _write_csv(tmp_path, rows)
+    results = parse_ls_ge_tcpd(csv_path, year=year, crosswalk=crosswalk, state_lookup=lookup)
+    by_state = {(r.state_code, r.pc_no) for r in results}
+    assert ("S29", 17) in by_state  # Telangana seat keeps its number
+    assert ("S01", 1) in by_state  # residual AP seat renumbered (18 - 17)
+
+
+def test_envelope_2014_carries_event_period(tmp_path):
+    rows = [
+        _row(Constituency_No="1", Constituency_Name="Tiruvallur", Candidate="Winner",
+             Year="2014", Votes="200"),
+    ]
+    csv_path = _write_csv(tmp_path, rows)
+    env, pc_count, _unresolved = build_pc_envelope_from_tcpd(
+        datasets_root=DATASETS,
+        csv_path=csv_path,
+        year=2014,
+        event=LS_2014,
+        allow_unknown_parties=True,
+    )
+    assert pc_count == 1
+    (dim,) = env.pc_dim_rows
+    assert dim.pc_id == "IN-PC-2008-S22-1"
+    assert dim.delim_year == 2008
+    # Observations must be stamped with the 2014 period, not the 2024 default.
+    assert any(o.period_label == "LsGenMay2014" for o in env.observation_rows)
+    assert all(o.period_label != "LsGenJun2024" for o in env.observation_rows)
