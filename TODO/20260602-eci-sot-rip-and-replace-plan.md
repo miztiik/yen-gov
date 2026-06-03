@@ -1,6 +1,6 @@
 # Level-4 plan: rip `datasets/reference/in/states/<S>/constituencies.json` SoT, standardise on LGD taxonomy
 
-**Last Updated**: 2026-06-03 (fourth amendment; see section 0d)
+**Last Updated**: 2026-06-03 (fifth amendment; see sections 0d-correction + 0e)
 
 **Predecessor**: [docs/archive/plans/20260530-eci-to-lgd-acid-migration-plan.md](../docs/archive/plans/20260530-eci-to-lgd-acid-migration-plan.md) (LGD AC_ID join-key migration; merged through PRs #530-#539). That plan landed the `taxonomy/ac_crosswalk.parquet` spine; this plan retires the **per-state ECI-keyed SoT shards** that the spine made redundant.
 
@@ -59,17 +59,64 @@ Before executing R3a, audited what `frontend/src/lib/view-models/districts.ts` w
 
 1. **The existing `taxonomy/lgd_ac_pc_district_map.json` has 5.6% per-AC coverage** (232 rows for ~4113 ACs, mostly U08/J&K). Cutting `districts.ts` over to this map without backfill would break district-grouping on every state hub except J&K -- ACs would fall to the empty-bucket `""` in [frontend/src/routes/StateOverview.svelte](frontend/src/routes/StateOverview.svelte#L474). Citizen verdict: that is a real UX regression on the 5 SoT-author-coded states (S03, S11, S22, S25, U07) where the current behaviour groups by author 3-letter codes.
 2. **The canonical LGD district code is already on every AC boundary feature.** [datasets/boundaries/in/ac/state=*/all.geojson](../datasets/boundaries/in/ac) carries `Dist_LGD` (numeric LGD district code) on 29 of 31 state shards plus `parent_district_lgd` on `state=assam` -- harvestable to 4010 `(lgd_state_id, lgd_ac_id, lgd_district_id)` triples. Only `state=jammu-and-kashmir` is the holdout (91 ACs, carries `seat_district_en` name-string only; reconcile against [datasets/taxonomy/lgd/districts-latest.csv](../datasets/taxonomy/lgd/districts-latest.csv) `State Code=1` -- 22 J&K districts, well-known names).
-3. **Blocker uncovered: two incompatible state-id schemes coexist in the repo.** [datasets/taxonomy/lgd_states.json](../datasets/taxonomy/lgd_states.json) and boundary features (`State_LGD` property) carry **real LGD state codes** (Tamil Nadu = 33, Andhra Pradesh = 28). [datasets/taxonomy/lgd_acs.json](../datasets/taxonomy/lgd_acs.json) and [datasets/taxonomy/lgd_ac_pc_district_map.json](../datasets/taxonomy/lgd_ac_pc_district_map.json) declare a field named `lgd_state_id` but use a **different** numbering scheme (Tamil Nadu = 22, the ECI sequence). The field name is a misnomer. A boundary-driven backfill cannot merge into the map without first reconciling these.
+3. **Blocker uncovered: two incompatible state-id schemes coexist in the repo.** [datasets/taxonomy/lgd_states.json](../datasets/taxonomy/lgd_states.json) and boundary features (`State_LGD` property) carry **real LGD state codes** (Tamil Nadu = 33, Andhra Pradesh = 28). [datasets/taxonomy/lgd_acs.json](../datasets/taxonomy/lgd_acs.json) and [datasets/taxonomy/lgd_ac_pc_district_map.json](../datasets/taxonomy/lgd_ac_pc_district_map.json) declare a field named `lgd_state_id` but use a **different** numbering scheme (Tamil Nadu = 22, the ECI sequence). The field name is a misnomer. A boundary-driven backfill cannot merge into the map without first reconciling these. **[RETRACTED 2026-06-03 -- see section 0d-correction below.]**
 4. **5 SoT-author 3-letter codes are no longer needed.** Once the boundary harvest lands in `lgd_ac_pc_district_map.json`, the `(KOK -> 294, KAR -> 292, ...)` translator [`tools/boundaries/s03_t4_district_fallback.py:SOT_CODE_TO_DIST_LGD`](../tools/boundaries/s03_t4_district_fallback.py) is redundant (R3b already plans to delete it) and the SoT shards' `district_id` string field can be dropped wholesale by R3b -- citizen-facing district grouping comes from the LGD-numeric map, not the author mnemonic.
 
-**Consequence: insert R3a-pre as a new precondition for R3a.** Two-step rip:
+**Consequence: insert R3a-pre as a new precondition for R3a.** Single step (per §0d-correction, R3a-pre.1 is dropped):
 
-- **R3a-pre.1** -- normalise `lgd_state_id` in [datasets/taxonomy/lgd_acs.json](../datasets/taxonomy/lgd_acs.json) + [datasets/taxonomy/lgd_ac_pc_district_map.json](../datasets/taxonomy/lgd_ac_pc_district_map.json) to **real LGD state codes** (translator: `lgd_states.json` `eci_st_code` <-> `lgd_state_id`). Bump both file schemas (additive minor since field semantics changes, but field name stays; document the prior-scheme history in `x-changelog`). Any current backend reader gets a same-PR migration; grep for `lgd_state_id` in `backend/` + `frontend/` confirms readership scope before staging.
-- **R3a-pre.2** -- harvest `(lgd_state_id, lgd_ac_id, [lgd_district_ids])` from 30 boundary shards (29 generic + S03) into `lgd_ac_pc_district_map.json`; J&K 91 ACs reconciled via `seat_district_en` -> `districts-latest.csv` name match. Map grows from 232 -> ~4010 rows.
+- **R3a-pre** -- harvest `(lgd_state_id, lgd_ac_id, [lgd_district_ids])` from 30 boundary shards (29 generic + S03) into `lgd_ac_pc_district_map.json`; J&K 91 ACs reconciled via `seat_district_en` -> `districts-latest.csv` name match. Map grows from 232 -> ~4010 rows. No schema migration needed.
 
 R3a then becomes safe: `districts.ts` LGD-joins against a map that covers all states; `StateOverview.svelte` grouping does not regress.
 
 **Lesson distilled**: when planning a Parallel Change that cuts a consumer over from store A to store B, the audit must verify store B's coverage matches store A's coverage at the consumer's grain. The previous audits (§0a, §0b, §0c) verified the SHAPE compatibility; only this §0d audit verified the COVERAGE compatibility. Recording in `/memories/lessons.md`.
+
+---
+
+## 0d-correction. Fifth amendment (2026-06-03) -- §0d Finding 3 retracted; state-id schemes ARE consistent
+
+Before executing R3a-pre.1, ran a verification audit joining `lgd_acs.json` AC rows on `slug` to confirm the state-id scheme. Findings:
+
+- `lgd_acs.json` row with `lgd_state_id=33` has `slug=arakkonam` (an AC in Tamil Nadu) -- matches [lgd_states.json](../datasets/taxonomy/lgd_states.json) row `lgd_state_id=33 -> Tamil Nadu` (eci `S22`).
+- `lgd_acs.json` row with `lgd_state_id=28` has `slug=amalapuram` (AC in Andhra Pradesh) -- matches `lgd_state_id=28 -> Andhra Pradesh`.
+- `lgd_acs.json` row with `lgd_state_id=1` has `slug=anantnag` (AC in J&K) -- matches `lgd_state_id=1 -> Jammu And Kashmir`.
+- Same pattern across all 31 state-id values in `lgd_acs.json`.
+
+**§0d Finding 3 was wrong.** The `lgd_state_id` field in both `lgd_acs.json` and `lgd_ac_pc_district_map.json` IS the canonical LGD scheme. The prior session conflated "domain spans 1-36" with "ECI-sequence" -- but LGD codes also span 1-38, and direct slug-join verification shows the values match `lgd_states.json` exactly. The boundary harvest can merge directly into the existing map without reconciliation.
+
+**Consequence:** R3a-pre.1 is DROPPED. R3a-pre.2 becomes the sole precondition row (renamed `R3a-pre`). Sequencing collapses to R3a-pre -> R3a -> R3b -> R4.
+
+**Lesson distilled**: a 5th-time-running audit-correction pattern. The Hans verdict applies: every load-bearing premise ("X is incompatible with Y") must be verified against the data, not against the prior session's memory of the data. The prior §0d finding cited a `State_LGD=33` boundary observation as evidence of LGD-scheme + cited the `(1,8),(2,10),...` map-state-id-domain as evidence of ECI-scheme -- both observations were correct, the inference ("therefore incompatible") was the bug. Recording in `/memories/lessons.md`.
+
+---
+
+## 0e. Sixth audit finding (2026-06-03) -- THREE incompatible `lgd_ac_id` schemes coexist; R3a-pre ESCALATED to Level-5
+
+Before running the boundary backfill harvest into `lgd_ac_pc_district_map.json`, ran a final FK audit. The harvest produced 4324 `(lgd_state_id, lgd_ac_id, [lgd_district_ids])` triples. FK validation against `lgd_acs.json`: **3853 of 4324 rows reference unknown `lgd_ac_id` values**. Spot-check Tamil Nadu:
+
+| Source | TN AC #1 example | Range | n | Scheme |
+| --- | --- | --- | --- | --- |
+| `datasets/boundaries/in/ac/state=*/all.geojson` `lgd_ac_id` | 33001 | 33001-33234 | 233 | state_code x 1000 + ac_no |
+| `datasets/taxonomy/ac_crosswalk.parquet` `lgd_ac_id` | 33001 | 33001-33234 | 233 | same as boundary (joined cleanly: 233/233) |
+| `datasets/taxonomy/lgd_acs.json` `lgd_ac_id` | 3857 | 3857-4090 | 232 | sequential per state, unrelated to ac_no |
+| `datasets/taxonomy/lgd_ac_pc_district_map.json` `lgd_ac_id` | -- | -- | -- | matches `lgd_acs.json` (FK closure proven by `backend/tests/test_lgd_taxonomy.py`) |
+
+Three DIFFERENT identifier conventions all called `lgd_ac_id`:
+
+1. **Boundary + crosswalk style**: `state_code * 1000 + ac_no` (4113 values, full coverage).
+2. **`lgd_acs.json` style**: sequential per state, source unclear (3918 values, 5 states gap-filled missing from earlier LGD-portal pull).
+3. **Crosswalk's `ac_id` column** (distinct from `lgd_ac_id`): composite string `IN-<state>-AC-<delim>-<n>` (4113 values).
+
+Overlap between scheme 1 and scheme 2 for TN: **0 / 233**. The boundary harvest cannot merge into `lgd_ac_pc_district_map.json` because the join key resolves to different rows.
+
+**Consequence: R3a-pre is ESCALATED to Level-5.** Per CLAUDE.md §6, anything that touches the canonical data model + multiple cross-cutting taxonomy artefacts requires design consultation. Three valid resolution paths exist, each Level-5:
+
+- **Path A (recommended): rebuild `lgd_acs.json` + `lgd_ac_pc_district_map.json` on the boundary/crosswalk scheme.** Drop the sequential-per-state scheme entirely; use `lgd_ac_id = state_code * 1000 + ac_no` everywhere; re-harvest district FK from boundaries (which now joins). Requires schema bump + migration of any reader of `lgd_acs.json`'s `lgd_ac_id`. The boundary scheme is already the de-facto canonical (used by `ac_crosswalk.parquet` which is the SoT this plan-doc is migrating TOWARDS).
+- **Path B: build a same-PR scheme-translator.** `lgd_acs.json` keeps its scheme; backfill script joins boundary `(state_code, ac_no)` against crosswalk `(state_code, eci_no)` against `lgd_acs.json` `(state_id, slug)` via `ac_name`. Adds a fragile name-match step; preserves the multi-scheme mess.
+- **Path C: deprecate `lgd_ac_pc_district_map.json` + `lgd_acs.json` in favour of a new map built on the canonical scheme.** Sequence the R3a frontend reader to query the new file instead. Lowest-disruption to taxonomy but adds a new file.
+
+**No autonomous data ship.** Authoring the FINAL harvest for any of the three paths without user signoff would commit the repo to one of three different Level-5 architectures. The harvest script `tools/lgd/backfill_ac_pc_district_map.py` IS shipped with this amendment (committed under `tools/`) -- it implements the Path-A harvest mechanics (boundary -> 4324 triples, J&K name-reconciled) and is ready to re-run once the user picks a path; for Path-B it needs an extra translator step; for Path-C it stays as-is but writes to a new file. **The script has NO pytest pin** (the existing FK pytest in `backend/tests/test_lgd_taxonomy.py::test_ac_district_map_fk` would fail if the script's output were committed to `lgd_ac_pc_district_map.json` today because of the scheme mismatch).
+
+**Lesson distilled**: when a backfill source (boundary feature) and a backfill target (taxonomy file) share a field NAME, that does NOT mean they share an ID SCHEME. Always FK-validate harvest output against target BEFORE writing. Recording in `/memories/lessons.md`. This is the THIRD finding-after-correction cycle in two sessions (§0d wrong about state-id; §0d-correction retracted; §0e found the real blocker) -- audit fatigue is real; ship one premise at a time and verify each.
 
 ---
 
@@ -104,19 +151,19 @@ R3a then becomes safe: `districts.ts` LGD-joins against a map that covers all st
 
 ---
 
-## section 3. Status Reckoner (revised 2026-06-03, fourth amendment)
+## section 3. Status Reckoner (revised 2026-06-03, fifth amendment)
 
 | Row | Scope | PR# | Status | Depends on |
 | --- | --- | --- | --- | --- |
 | R1 | ~~Lift `district_id` per AC into `ac_crosswalk.parquet`~~ | -- | DROPPED (§0a audit) | -- |
 | R2 | ~~Lift per-state ECI provenance into `taxonomy/sources.parquet`~~ | -- | DROPPED (§0c audit -- orphan rows would violate citation-ledger invariant) | -- |
-| R3a-pre.1 | Normalise `lgd_state_id` field in `lgd_acs.json` + `lgd_ac_pc_district_map.json` to real LGD state codes (per `lgd_states.json` bridge); bump both schemas; same-PR backend/frontend reader migration | _pending_ | PENDING | -- |
-| R3a-pre.2 | Backfill `lgd_ac_pc_district_map.json` from boundary features (30 state shards, 4010 triples); reconcile J&K 91 ACs via `districts-latest.csv` name match | _pending_ | PENDING | R3a-pre.1 on main |
-| R3a | Frontend migration: register `dim_acs` DuckDB-WASM view; rewrite `loadConstituencies` to query view; rewire `districts.ts` to LGD-join; update `data.test.ts` + `StateOverview.svelte` + `golden-path.spec.ts`; SoT shards stay on disk (parallel-readable) | _pending_ | PENDING | R3a-pre.2 on main |
+| R3a-pre.1 | ~~Normalise `lgd_state_id` field~~ | -- | DROPPED (§0d-correction -- field already uses canonical LGD scheme) | -- |
+| R3a-pre | ~~Backfill `lgd_ac_pc_district_map.json` from boundary features~~ | -- | ESCALATED to Level-5 (§0e -- three incompatible `lgd_ac_id` schemes; needs design consultation) | -- |
+| R3a | Frontend migration: register `dim_acs` DuckDB-WASM view; rewrite `loadConstituencies` to query view; rewire `districts.ts` to LGD-join; update `data.test.ts` + `StateOverview.svelte` + `golden-path.spec.ts`; SoT shards stay on disk (parallel-readable) | _pending_ | PENDING | R3a-pre on main |
 | R3b | The rip: rewrite 4 backend tools (`snapshot.py`, `verify_ac_parity.py`, `s03_t4_district_fallback.py`, `pipeline.json`); retire `bootstrap_constituencies_from_results.py`; `git rm -r datasets/reference/in/states/`; fix 4 incidental ECI residues; update `sources.ts:463` comment; stamp CLAUDE.md anti-pattern; update 3 docs | _pending_ | PENDING | R3a on main |
 | R4 | Distil + archive plan-doc | _pending_ | PENDING | R3b |
 
-Sequencing: R3a-pre.1 -> R3a-pre.2 -> R3a -> R3b -> R4. R2 dropped per §0c; the two pre-rows are added per §0d.
+Sequencing: R3a-pre BLOCKED on user design verdict (paths A/B/C in §0e). R3a + R3b + R4 cannot proceed until R3a-pre unblocks.
 
 ---
 
@@ -130,27 +177,11 @@ See section 0a finding 1. No work to do.
 
 See section 0c finding. Orphan rows violate citation-ledger invariant; URLs preserved in git history.
 
-### R3a-pre.1 - Normalise `lgd_state_id` field to real LGD state codes
+### ~~R3a-pre.1 - Normalise `lgd_state_id` field~~ DROPPED
 
-**Why:** see §0d finding 3. `lgd_acs.json` + `lgd_ac_pc_district_map.json` declare `lgd_state_id` but use ECI-sequence numbering (TN=22), incompatible with the canonical LGD scheme used by `lgd_states.json` + boundary `State_LGD` (TN=33). Backfill cannot proceed until reconciled.
+See section 0d-correction. The `lgd_state_id` field in `lgd_acs.json` + `lgd_ac_pc_district_map.json` already uses the canonical LGD scheme verified by slug-join. No work to do.
 
-**Translator:** `datasets/taxonomy/lgd_states.json` -> map `eci_st_code` (`S22`) -> `lgd_state_id` (33), then re-key both files. The legacy ECI-sequence value can stay accessible by adding a derived `eci_st_seq` field if any reader needs it (audit first; likely no consumer does).
-
-**Scope:**
-- Rewrite `lgd_state_id` values in `datasets/taxonomy/lgd_acs.json` (3918 rows) using the `lgd_states.json` bridge.
-- Rewrite `lgd_state_id` values in `datasets/taxonomy/lgd_ac_pc_district_map.json` (232 rows).
-- Bump `datasets/schemas/lgd-acs.schema.json` + `datasets/schemas/lgd-ac-pc-district-map.schema.json` (or wherever they live) `x-version` minor + add `x-changelog` entry explaining the scheme migration.
-- Grep `backend/` + `frontend/` + `tools/` for `lgd_state_id` reads against these two files; migrate any reader same-PR (most likely no readers; the field has been semi-orphan).
-- Add a same-PR vitest/pytest pin that round-trips a known state (e.g. `TN -> 33 -> S22`) against `lgd_states.json` to lock the contract.
-
-**Gates:**
-- [ ] Gate 1: `validate --root .` green (schemas bumped)
-- [ ] Gate 2: `pytest -q` green
-- [ ] Gate 3: `svelte-check` 0 errors
-- [ ] Gate 4: `vitest` green incl. new round-trip pin
-- [ ] Gate 5 (browser smoke): n/a unless a frontend reader is touched
-
-### R3a-pre.2 - Backfill `lgd_ac_pc_district_map.json` from boundary features
+### R3a-pre - Backfill `lgd_ac_pc_district_map.json` from boundary features
 
 **Why:** see §0d finding 1 + 2. Map currently covers 5.6% of ACs; R3a needs ~100% to avoid regressing district grouping.
 
@@ -224,12 +255,11 @@ See section 0c finding. Orphan rows violate citation-ledger invariant; URLs pres
 
 ---
 
-## section 5. Sequencing rationale (revised 2026-06-03, fourth amendment)
+## section 5. Sequencing rationale (revised 2026-06-03, fifth amendment)
 
-R3a-pre.1 -> R3a-pre.2 -> R3a -> R3b -> R4.
+R3a-pre -> R3a -> R3b -> R4.
 
-- **R3a-pre.1 before R3a-pre.2:** the backfill writes to `lgd_ac_pc_district_map.json` whose `lgd_state_id` field must already be on the canonical LGD scheme. Reversing would force two re-keys of the same file.
-- **R3a-pre.2 before R3a:** R3a's `districts.ts` reader queries the map; without backfill the reader returns `[]` for ~95% of ACs and `StateOverview` grouping degrades to a single empty bucket.
+- **R3a-pre before R3a:** R3a's `districts.ts` reader queries the map; without backfill the reader returns `[]` for ~95% of ACs and `StateOverview` grouping degrades to a single empty bucket.
 - **R3a before R3b:** Parallel Change discipline. R3a is EXPAND + MIGRATE (canonical reader live on main, legacy artifact still on disk). R3b is CONTRACT (legacy artifact deleted). Reversing the order would create a window where the frontend 404s on every state hub.
 - **R3b is the only PR that touches `datasets/reference/in/states/`:** the deletion is atomic with the backend rewires so no commit on main carries an orphaned tool reading deleted shards.
 - **R3b commit body MUST include §0c rationale** for the dropped R2: "30 SoT source URLs preserved in git history; not lifted to `taxonomy/sources.parquet` because orphan rows violate the citation-ledger invariant (CLAUDE.md §12)."
