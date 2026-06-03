@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./pc-historical-crosswalk.schema.json",
+  "title": "Historical Lok Sabha (PC) constituency crosswalk override row",
+  "description": "Logical contract for one row of datasets/reference/in/elections/pc_historical_crosswalk.csv. An OVERRIDE-ONLY table: it carries a row ONLY where a state/UT reorganization breaks the otherwise 1:1 map from TCPD's (State_Name, Constituency_No) to canonical (state_code, pc_no). Seats with no row fall through an automatic rule (state_code via taxonomy/entities.json display-name lookup; pc_no := Constituency_No). delim_year is NOT a column: it is derived from ge_year (1999/2004 -> 1976, 2009/2014/2019/2024 -> 2008) and is never overridden. Entity-assignment policy (Hans + Max, CLAUDE.md section 0a data-shape authority): 2008-delimitation seats in a state that later split are coded to the MODERN successor (Andhra Pradesh 2009/2014 -> S01 residual + S29 Telangana; Jammu & Kashmir 2009/2014/2019 -> U08 + U09 Ladakh); 1976-delimitation seats are coded as-they-were (the 2000 trifurcation seats stay under Madhya Pradesh/Bihar/Uttar Pradesh and need NO override row, a methodology-break note only); Dadra & Nagar Haveli + Daman & Diu seats are coded across all years to the merged U03 (pc_no 1 = Daman & Diu, pc_no 2 = Dadra & Nagar Haveli, matching the 2024 ECI numbering) to keep state_code within the [SU][0-9]{2} grammar. Provenance for the whole hand-maintained file is one ECI/TCPD ledger row; targets verified against the 2024 ECI Report-34 (State/UT Name, PC NO, PC NAME) numbering. Authored for EGC-B2 Phase 2 historical PC ingest.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-06-03",
+      "description": "Initial pc-historical-crosswalk schema. Columns: ge_year, tcpd_state, tcpd_constituency_no (PK triple), state_code, pc_no, match_method, note. Override-only; absence of a row is the identity (automatic fall-through). delim_year derived from ge_year, not stored. Covers Andhra Pradesh/Telangana 2009+2014, Jammu & Kashmir/Ladakh 2009+2014+2019, and Dadra & Nagar Haveli + Daman & Diu 1999-2019."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ge_year",
+    "tcpd_state",
+    "tcpd_constituency_no",
+    "state_code",
+    "pc_no",
+    "match_method",
+    "note"
+  ],
+  "properties": {
+    "ge_year": {
+      "type": "integer",
+      "minimum": 1951,
+      "maximum": 2100,
+      "description": "General-election year as printed by TCPD (e.g. 2009). First member of the PK triple."
+    },
+    "tcpd_state": {
+      "type": "string",
+      "minLength": 1,
+      "description": "State/UT name as printed in TCPD's All_States_GE.csv State_Name column for this seat-year (e.g. 'Andhra Pradesh', 'Jammu & Kashmir', 'Daman & Diu'). Matched after normalisation (underscores -> spaces, '&' -> 'and', lower-case). Second member of the PK triple."
+    },
+    "tcpd_constituency_no": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "TCPD Constituency_No within the contested-era state numbering. Third member of the PK triple; (ge_year, tcpd_state, tcpd_constituency_no) is unique."
+    },
+    "state_code": {
+      "type": "string",
+      "pattern": "^[SU][0-9]{2}$",
+      "description": "Canonical successor state/UT entity code the seat is re-attributed to (e.g. S29 for a Telangana seat, U09 for Ladakh, U03 for the merged Dadra & Nagar Haveli and Daman & Diu UT)."
+    },
+    "pc_no": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Canonical pc number within the successor state, matching the modern 2024 ECI numbering so the seat shares a pc_id across election years."
+    },
+    "match_method": {
+      "enum": [
+        "state_split",
+        "ut_reorg",
+        "merge",
+        "manual"
+      ],
+      "description": "Why this override exists. 'state_split' = a state divided and the seat was re-attributed (Andhra Pradesh -> Andhra Pradesh + Telangana). 'ut_reorg' = a state was reorganised into UT(s) (Jammu & Kashmir -> J&K UT + Ladakh UT). 'merge' = two UTs merged (Dadra & Nagar Haveli + Daman & Diu -> U03). 'manual' = a hand-verified one-off."
+    },
+    "note": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable justification, naming the reorganization event and its date so the methodology break is auditable from the row itself."
+    }
+  }
+}
