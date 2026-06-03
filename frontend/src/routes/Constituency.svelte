@@ -190,17 +190,20 @@
               <td class="font-medium align-top">
                 <div>{c.name}</div>
                 <!--
-                  Biographics row: the testid is ALWAYS rendered, even when
-                  no Statistical-Report adapter has populated bio columns
-                  for this contest yet. Contract (frontend/e2e/golden-path.spec.ts):
-                  "the testid must still be in the DOM for at least the first
-                  row" so the citizen sees an honest "Not declared" rather
-                  than the entire field disappearing. Conditional rendering
-                  also defeats the e2e visibility assertion that protects the
-                  dim_persons/elections_candidacies -> CandidateResult.bio projection path.
+                  Biographics row: the testid is ALWAYS rendered (even when
+                  no Statistical-Report adapter has populated bio columns for
+                  this contest yet) so the e2e contract
+                  (frontend/e2e/golden-path.spec.ts) can assert the projection
+                  path is wired — but when there is no bio it renders EMPTY,
+                  not an apologetic "Not declared". Candidate biographics are a
+                  mandatory ECI filing; surfacing "Not declared" on every
+                  un-ingested contest reads as the citizen's fault rather than
+                  a pending ingest, so we fall back to nothing. The e2e asserts
+                  `toBeAttached` (testid present in the DOM) rather than
+                  `toBeVisible` (which an empty node fails by design).
                 -->
                 <div class="text-xs text-slate-500 mt-0.5" data-testid="candidate-biographics">
-                  {#if bio}{bio}{:else}Not declared{/if}
+                  {#if bio}{bio}{/if}
                 </div>
               </td>
               <td class="align-top">

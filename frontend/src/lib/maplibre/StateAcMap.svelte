@@ -13,6 +13,7 @@
   import MapChoropleth from "./MapChoropleth.svelte";
   import { STATE_AC } from "./sources";
   import { renderTooltipCard } from "./tooltip-card";
+  import { recoverEciNo } from "./ac-key-recovery";
   import { parseReservation } from "./ac-reservation";
   import { symbolAssetUrl } from "./symbol-asset";
   import {
@@ -240,15 +241,21 @@
   // see `parseReservation`.
 
   // Per-feature tooltip builder passed to MapChoropleth. The hover/click key
-  // is the label join (`ac_no`, eci_no-valued for covered states), which is
-  // how the winner rows are keyed. Reservation is read off the boundary
-  // feature props because it lives nowhere else (not in dim_acs nor the
-  // winner rows) — see `parseReservation`.
+  // is the canonical map join (`lgd_ac_id` for covered states, Row B3); it is
+  // reverse-mapped to the eci_no the winner rows are keyed by below.
+  // Reservation is read off the boundary feature props because it lives
+  // nowhere else (not in dim_acs nor the winner rows) — see `parseReservation`.
   function tooltipFor(
     props: Record<string, unknown>,
     key: string | number,
   ): string | undefined {
-    const eci = Number(key);
+    // Row B3 (ADR-0049): the hover/click key is the canonical map join
+    // (`lgd_ac_id` for covered states), so recover the citizen-facing eci_no
+    // the winner rows are keyed by via the SAME helper `on_select` uses for
+    // navigation. Without this, covered-state polygons emit an lgd_ac_id that
+    // misses `row_by_eci` (eci_no-keyed) and the tooltip silently returns
+    // undefined.
+    const eci = recoverEciNo(key, props, reverse_lookup);
     const r = row_by_eci.get(eci);
     if (!r) return undefined;
     return renderTooltipCard({
@@ -264,16 +271,12 @@
 
   function on_select(sel: { key: string | number; properties?: Record<string, unknown> }): void {
     // The canonical map join is lgd_ac_id (Row B3), so `sel.key` is an
-    // lgd_ac_id for covered states. Recover the citizen-facing eci_no via
-    // the inverted crosswalk; fall back to the feature's `ac_no` label
+    // lgd_ac_id for covered states. Recover the citizen-facing eci_no via the
+    // SAME helper the tooltip uses; fall back to the feature's `ac_no` label
     // (eci_no-valued for covered states today) during the pre-lookup window,
     // then to the raw key for unmapped states (S03 `ac_no` / U08 `seat_id`
     // are already eci_no/seat values).
-    const raw = Number(sel.key);
-    const acno = sel.properties?.ac_no;
-    const eci_no =
-      reverse_lookup?.get(raw)
-      ?? (acno != null && Number.isFinite(Number(acno)) ? Number(acno) : raw);
+    const eci_no = recoverEciNo(sel.key, sel.properties, reverse_lookup);
     if (Number.isFinite(eci_no))
       navigate(url.ac(state_code, eci_no, name_by_eci.get(eci_no) ?? "", event));
   }
