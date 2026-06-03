@@ -209,9 +209,12 @@ test.describe("golden path", () => {
     // Assert the biographics testid renders for at least one candidate;
     // the citizen-facing render path is covered, the SQL projection by
     // view-models/constituency.test.ts. PR-S.2 (canonical pivot 1.8f)
-    // retired the per-candidate JSON sidecar fetch path entirely.
+    // retired the per-candidate JSON sidecar fetch path entirely. When no
+    // bio is ingested the node renders EMPTY (no "Not declared" label), so
+    // we assert `toBeAttached` (testid present in the DOM) rather than
+    // `toBeVisible` (which an empty node fails by design).
     const bio = page.getByTestId("candidate-biographics").first();
-    await expect(bio).toBeVisible({ timeout: 30_000 });
+    await expect(bio).toBeAttached({ timeout: 30_000 });
   });
 
   // PR-P (row 1.8c) gate: the canonical loader (`view-models/constituency.ts`)
@@ -251,10 +254,10 @@ test.describe("golden path", () => {
         .toBeVisible({ timeout: 30_000 });
       // Biographics testid presence (404-as-null contract — see TN test
       // above). KL/WB AcGenMay2026 have no biographics sidecar ingest yet
-      // so all candidates render "Not declared", but the testid must still
-      // be in the DOM for at least the first row.
+      // so all candidates render EMPTY, but the testid must still be in the
+      // DOM for at least the first row — assert attachment, not visibility.
       const bio = page.getByTestId("candidate-biographics").first();
-      await expect(bio).toBeVisible({ timeout: 30_000 });
+      await expect(bio).toBeAttached({ timeout: 30_000 });
     });
   }
 

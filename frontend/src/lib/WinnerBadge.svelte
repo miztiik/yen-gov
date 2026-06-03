@@ -5,17 +5,16 @@
     - an accent stripe coloured by the 3-tier resolver (getPartyColor)
     - the party's ballot-symbol glyph when `election_symbol_asset_path`
       is populated on dim_parties (PR-SYM-6b3); no placeholder otherwise
-    - a small "source" chip declaring colour provenance (anchor / brand /
-      fallback)
 
   Hans + Jony lens:
-    - Hans (honesty): the source chip MUST show "fallback" when the renderer
-      hashed party_id rather than using an editorial colour. Hiding the
-      fallback tier is dishonest.
-    - Jony (restraint): one chip, low contrast, secondary weight. The
-      accent stripe carries the visual identity; the glyph (when present)
-      carries the citizen-recognition anchor; the chip carries the colour
-      provenance.
+    - Hans (honesty): the colour resolver still records its provenance tier
+      (anchor / brand / fallback) internally on `resolved.source` for the
+      diagnostics surface (Settings), but the citizen-facing badge no longer
+      surfaces it. A colour-provenance pill on every constituency result was
+      provenance bleeding into the citizen UI as noise, not insight.
+    - Jony (restraint): one accent stripe carries the visual identity; the
+      glyph (when present) carries the citizen-recognition anchor. Nothing
+      else competes for attention.
 
   Glyph render strategy (PR-SYM-6b3):
     - assets under `frontend/public/party-symbols/` are pre-sanitized at
@@ -43,7 +42,6 @@
 
 <script lang="ts">
   import { getPartyColor } from "./colors/resolver";
-  import { chipFor } from "./colors/chip";
   import PartySymbolGlyph from "./PartySymbolGlyph.svelte";
   import type { WinnerInfo } from "./data";
 
@@ -67,7 +65,6 @@
         : null,
     ),
   );
-  const chip = $derived(chipFor(resolved.source));
 </script>
 
 <div class="flex items-start gap-3" data-testid="winner-badge">
@@ -87,14 +84,6 @@
         class="w-5 h-5"
       />
       <span class="text-slate-500 text-sm truncate">{winner.party_short}</span>
-      <!-- Source chip: provenance. Border-style encodes the tier so it is
-           readable without colour vision. -->
-      <span
-        class="text-[10px] uppercase tracking-wide px-1.5 py-0.5 rounded {chip.className}"
-        title={chip.tooltip}
-        data-testid="winner-colour-source"
-        data-source={resolved.source}
-      >{chip.label}</span>
     </div>
   </div>
 </div>

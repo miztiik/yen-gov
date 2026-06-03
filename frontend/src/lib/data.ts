@@ -32,7 +32,7 @@ export interface PartyTotals {
 
 export interface CandidateBio {
   // dim_persons / elections_candidacies biographic columns. Each field is nullable;
-  // citizen UI renders the populated subset and shows “Not declared” when
+  // citizen UI renders the populated subset and renders an empty node when
   // every field is null (handled by the renderer, not by replacing nulls).
   sex: string | null;
   age: number | null;
