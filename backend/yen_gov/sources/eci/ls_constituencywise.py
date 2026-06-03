@@ -68,6 +68,12 @@ class PcCandidateRaw:
     postal_votes: int
     total_votes: int
     is_nota: bool
+    # Biographic enrichment. The ECI Report-33 source leaves these None
+    # (ECI does not publish education/profession); the TCPD historical-GE
+    # source (``sources/eci/ls_ge_tcpd.py``) fills them. Defaulting to None
+    # keeps the 2024 ECI envelope byte-identical.
+    education: str | None = None
+    profession: str | None = None
 
 
 @dataclass(frozen=True)
