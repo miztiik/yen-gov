@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.3",
   "manifest_version": "1.0",
-  "generated_at": "2026-06-02T19:36:47Z",
+  "generated_at": "2026-06-03T05:32:10Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -17,294 +17,294 @@
       "files": [
         {
           "path": "elections/state=andaman-and-nicobar/election_results.parquet",
-          "size_bytes": 6522,
-          "row_count": 47,
+          "size_bytes": 11017,
+          "row_count": 103,
           "partition_values": {
             "state": "andaman-and-nicobar"
           }
         },
         {
           "path": "elections/state=andhra-pradesh/election_results.parquet",
-          "size_bytes": 1617150,
-          "row_count": 20487,
+          "size_bytes": 1711767,
+          "row_count": 21719,
           "partition_values": {
             "state": "andhra-pradesh"
           }
         },
         {
           "path": "elections/state=arunachal-pradesh/election_results.parquet",
-          "size_bytes": 823718,
-          "row_count": 10662,
+          "size_bytes": 829224,
+          "row_count": 10720,
           "partition_values": {
             "state": "arunachal-pradesh"
           }
         },
         {
           "path": "elections/state=assam/election_results.parquet",
-          "size_bytes": 3557612,
-          "row_count": 45445,
+          "size_bytes": 3610385,
+          "row_count": 46034,
           "partition_values": {
             "state": "assam"
           }
         },
         {
           "path": "elections/state=bihar/election_results.parquet",
-          "size_bytes": 13784604,
-          "row_count": 176387,
+          "size_bytes": 13980880,
+          "row_count": 178705,
           "partition_values": {
             "state": "bihar"
           }
         },
         {
           "path": "elections/state=chandigarh/election_results.parquet",
-          "size_bytes": 8189,
-          "row_count": 68,
+          "size_bytes": 17223,
+          "row_count": 187,
           "partition_values": {
             "state": "chandigarh"
           }
         },
         {
           "path": "elections/state=chhattisgarh/election_results.parquet",
-          "size_bytes": 1573676,
-          "row_count": 20026,
+          "size_bytes": 1626335,
+          "row_count": 20645,
           "partition_values": {
             "state": "chhattisgarh"
           }
         },
         {
           "path": "elections/state=dadra-and-nagar-haveli-and-daman-and-diu/election_results.parquet",
-          "size_bytes": 7448,
-          "row_count": 58,
+          "size_bytes": 12739,
+          "row_count": 125,
           "partition_values": {
             "state": "dadra-and-nagar-haveli-and-daman-and-diu"
           }
         },
         {
           "path": "elections/state=delhi/election_results.parquet",
-          "size_bytes": 2276966,
-          "row_count": 28969,
+          "size_bytes": 2314868,
+          "row_count": 29538,
           "partition_values": {
             "state": "delhi"
           }
         },
         {
           "path": "elections/state=goa/election_results.parquet",
-          "size_bytes": 762184,
-          "row_count": 9690,
+          "size_bytes": 767413,
+          "row_count": 9748,
           "partition_values": {
             "state": "goa"
           }
         },
         {
           "path": "elections/state=gujarat/election_results.parquet",
-          "size_bytes": 6128205,
-          "row_count": 78191,
+          "size_bytes": 6224629,
+          "row_count": 79590,
           "partition_values": {
             "state": "gujarat"
           }
         },
         {
           "path": "elections/state=haryana/election_results.parquet",
-          "size_bytes": 3940593,
-          "row_count": 50376,
+          "size_bytes": 4001130,
+          "row_count": 51155,
           "partition_values": {
             "state": "haryana"
           }
         },
         {
           "path": "elections/state=himachal-pradesh/election_results.parquet",
-          "size_bytes": 1596288,
-          "row_count": 20382,
+          "size_bytes": 1618611,
+          "row_count": 20561,
           "partition_values": {
             "state": "himachal-pradesh"
           }
         },
         {
           "path": "elections/state=jammu-and-kashmir/election_results.parquet",
-          "size_bytes": 229133,
-          "row_count": 2930,
+          "size_bytes": 250124,
+          "row_count": 3210,
           "partition_values": {
             "state": "jammu-and-kashmir"
           }
         },
         {
           "path": "elections/state=jharkhand/election_results.parquet",
-          "size_bytes": 1626152,
-          "row_count": 20724,
+          "size_bytes": 1709299,
+          "row_count": 21565,
           "partition_values": {
             "state": "jharkhand"
           }
         },
         {
           "path": "elections/state=karnataka/election_results.parquet",
-          "size_bytes": 6676690,
-          "row_count": 85449,
+          "size_bytes": 6803667,
+          "row_count": 87191,
           "partition_values": {
             "state": "karnataka"
           }
         },
         {
           "path": "elections/state=kerala/election_results.parquet",
-          "size_bytes": 3760657,
-          "row_count": 48131,
+          "size_bytes": 3830739,
+          "row_count": 49032,
           "partition_values": {
             "state": "kerala"
           }
         },
         {
           "path": "elections/state=ladakh/election_results.parquet",
-          "size_bytes": 4413,
-          "row_count": 20,
+          "size_bytes": 6377,
+          "row_count": 43,
           "partition_values": {
             "state": "ladakh"
           }
         },
         {
           "path": "elections/state=lakshadweep/election_results.parquet",
-          "size_bytes": 4595,
-          "row_count": 23,
+          "size_bytes": 7031,
+          "row_count": 52,
           "partition_values": {
             "state": "lakshadweep"
           }
         },
         {
           "path": "elections/state=madhya-pradesh/election_results.parquet",
-          "size_bytes": 9360405,
-          "row_count": 119274,
+          "size_bytes": 9482293,
+          "row_count": 120907,
           "partition_values": {
             "state": "madhya-pradesh"
           }
         },
         {
           "path": "elections/state=maharashtra/election_results.parquet",
-          "size_bytes": 11716993,
-          "row_count": 149436,
+          "size_bytes": 11947593,
+          "row_count": 152565,
           "partition_values": {
             "state": "maharashtra"
           }
         },
         {
           "path": "elections/state=manipur/election_results.parquet",
-          "size_bytes": 1261678,
-          "row_count": 16098,
+          "size_bytes": 1268874,
+          "row_count": 16177,
           "partition_values": {
             "state": "manipur"
           }
         },
         {
           "path": "elections/state=meghalaya/election_results.parquet",
-          "size_bytes": 1220229,
-          "row_count": 15606,
+          "size_bytes": 1223823,
+          "row_count": 15655,
           "partition_values": {
             "state": "meghalaya"
           }
         },
         {
           "path": "elections/state=mizoram/election_results.parquet",
-          "size_bytes": 850101,
-          "row_count": 10796,
+          "size_bytes": 852413,
+          "row_count": 10825,
           "partition_values": {
             "state": "mizoram"
           }
         },
         {
           "path": "elections/state=nagaland/election_results.parquet",
-          "size_bytes": 997850,
-          "row_count": 12979,
+          "size_bytes": 1000827,
+          "row_count": 13002,
           "partition_values": {
             "state": "nagaland"
           }
         },
         {
           "path": "elections/state=odisha/election_results.parquet",
-          "size_bytes": 4184062,
-          "row_count": 53453,
+          "size_bytes": 4248073,
+          "row_count": 54206,
           "partition_values": {
             "state": "odisha"
           }
         },
         {
           "path": "elections/state=puducherry/election_results.parquet",
-          "size_bytes": 869507,
-          "row_count": 11101,
+          "size_bytes": 874690,
+          "row_count": 11166,
           "partition_values": {
             "state": "puducherry"
           }
         },
         {
           "path": "elections/state=punjab/election_results.parquet",
-          "size_bytes": 2885124,
-          "row_count": 36855,
+          "size_bytes": 2966868,
+          "row_count": 37832,
           "partition_values": {
             "state": "punjab"
           }
         },
         {
           "path": "elections/state=rajasthan/election_results.parquet",
-          "size_bytes": 6592720,
-          "row_count": 84306,
+          "size_bytes": 6665746,
+          "row_count": 85328,
           "partition_values": {
             "state": "rajasthan"
           }
         },
         {
           "path": "elections/state=sikkim/election_results.parquet",
-          "size_bytes": 635069,
-          "row_count": 8078,
+          "size_bytes": 638643,
+          "row_count": 8122,
           "partition_values": {
             "state": "sikkim"
           }
         },
         {
           "path": "elections/state=tamil-nadu/election_results.parquet",
-          "size_bytes": 9954741,
-          "row_count": 127162,
+          "size_bytes": 10184557,
+          "row_count": 130139,
           "partition_values": {
             "state": "tamil-nadu"
           }
         },
         {
           "path": "elections/state=telangana/election_results.parquet",
-          "size_bytes": 1481897,
-          "row_count": 18734,
+          "size_bytes": 1575266,
+          "row_count": 20250,
           "partition_values": {
             "state": "telangana"
           }
         },
         {
           "path": "elections/state=tripura/election_results.parquet",
-          "size_bytes": 1179213,
-          "row_count": 14989,
+          "size_bytes": 1180566,
+          "row_count": 15080,
           "partition_values": {
             "state": "tripura"
           }
         },
         {
           "path": "elections/state=uttar-pradesh/election_results.parquet",
-          "size_bytes": 20522066,
-          "row_count": 262214,
+          "size_bytes": 20799087,
+          "row_count": 266031,
           "partition_values": {
             "state": "uttar-pradesh"
           }
         },
         {
           "path": "elections/state=uttarakhand/election_results.parquet",
-          "size_bytes": 1111208,
-          "row_count": 14156,
+          "size_bytes": 1127402,
+          "row_count": 14367,
           "partition_values": {
             "state": "uttarakhand"
           }
         },
         {
           "path": "elections/state=west-bengal/election_results.parquet",
-          "size_bytes": 7165651,
-          "row_count": 91605,
+          "size_bytes": 7324741,
+          "row_count": 93465,
           "partition_values": {
             "state": "west-bengal"
           }
         }
       ],
-      "row_count_total": 1664907
+      "row_count_total": 1695040
     },
     {
       "table_id": "energy.energy_installed_capacity",
@@ -521,11 +521,11 @@
       "files": [
         {
           "path": "elections/dim_pcs.parquet",
-          "size_bytes": 10373,
-          "row_count": 542
+          "size_bytes": 10184,
+          "row_count": 543
         }
       ],
-      "row_count_total": 542
+      "row_count_total": 543
     },
     {
       "table_id": "elections.dim_persons",
@@ -538,11 +538,11 @@
       "files": [
         {
           "path": "elections/dim_persons.parquet",
-          "size_bytes": 12203976,
-          "row_count": 396172
+          "size_bytes": 12477417,
+          "row_count": 404226
         }
       ],
-      "row_count_total": 396172
+      "row_count_total": 404226
     },
     {
       "table_id": "elections.elections_candidacies",
@@ -555,11 +555,11 @@
       "files": [
         {
           "path": "elections/elections_candidacies.parquet",
-          "size_bytes": 14285368,
-          "row_count": 396169
+          "size_bytes": 14598364,
+          "row_count": 404223
         }
       ],
-      "row_count_total": 396169
+      "row_count_total": 404223
     },
     {
       "table_id": "taxonomy.ac_crosswalk",
@@ -640,11 +640,11 @@
       "files": [
         {
           "path": "taxonomy/persons.parquet",
-          "size_bytes": 11757914,
-          "row_count": 396172
+          "size_bytes": 12010910,
+          "row_count": 404226
         }
       ],
-      "row_count_total": 396172
+      "row_count_total": 404226
     },
     {
       "table_id": "taxonomy.sources",
@@ -657,11 +657,11 @@
       "files": [
         {
           "path": "taxonomy/sources.parquet",
-          "size_bytes": 27194,
-          "row_count": 413
+          "size_bytes": 27273,
+          "row_count": 414
         }
       ],
-      "row_count_total": 413
+      "row_count_total": 414
     }
   ],
   "deprecations": [

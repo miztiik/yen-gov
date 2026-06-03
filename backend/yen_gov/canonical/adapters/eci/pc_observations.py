@@ -271,8 +271,9 @@ def persons_and_candidacies_from_pc(
     NOTA is excluded - it is a ballot option, not a person. ``candidacy_key``
     is byte-equal to the ``candidate-*`` observation entity_id for the same
     rank, so the candidacy table joins cleanly to ``election_results``.
-    Sex/age come from the ECI Report-33 candidate columns; education/profession
-    are TCPD-only and stay null for the ECI slice.
+    Sex/age come from the ECI Report-33 candidate columns. Education/profession
+    are TCPD-only: the ECI Report-33 slice leaves them null, while the TCPD
+    historical-GE slice fills ``cand.education`` / ``cand.profession``.
     """
     pc_id = pc_entity_id(result.state_code, delim_year, result.pc_no)
     ranked = _ranked_non_nota(result)
@@ -309,8 +310,8 @@ def persons_and_candidacies_from_pc(
             "source_id": source_id,
             "sex": _normalise_sex(cand.gender),
             "age": _clean_age(cand.age),
-            "education": None,
-            "profession": None,
+            "education": cand.education,
+            "profession": cand.profession,
         })
         candidacies.append({
             "candidacy_key": candidacy_key,

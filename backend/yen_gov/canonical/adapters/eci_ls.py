@@ -44,6 +44,8 @@ from yen_gov.canonical.envelope import (
 )
 from yen_gov.canonical.writer import WriteResult, write_batch
 from yen_gov.sources.eci.ls_constituencywise import parse_ls_constituencywise
+from yen_gov.sources.eci.ls_ge_tcpd import parse_ls_ge_tcpd
+from yen_gov.canonical.adapters.eci.pc_crosswalk import load_crosswalk_and_lookup
 
 # The 2024 Lok Sabha general election: results declared 2024-06-04. The
 # event_id MUST be parseable by ``parse_period_label`` (body+month+year), so
@@ -83,6 +85,32 @@ LS_2024 = PcGeEvent(
     ),
     vintage="2024",
 )
+
+
+# The 2019 Lok Sabha general election: results declared 2019-05-23. Ingested
+# from the TCPD All-States GE panel (EGC-B2 Phase 2). Same 2008 delimitation
+# as 2024, so the constituency boundaries (and therefore ``pc_id`` grammar)
+# match the current map.
+LS_2019_EVENT = Period(period_label="LsGenMay2019", year=2019, period_seq=5)
+LS_2019 = PcGeEvent(
+    period=LS_2019_EVENT,
+    delim_year=2008,
+    source_title=(
+        "General Election to Lok Sabha 2019 — Constituency-wise candidate "
+        "results (TCPD compilation of ECI returns)"
+    ),
+    vintage="2019",
+    source_input_id="tcpd_ge",
+)
+
+
+#: GE-year -> event registry. The 2024 row is the ECI Report-33 path (kept for
+#: completeness); historical years (1999-2019) are the TCPD-panel path. Phase 2
+#: of EGC-B2 extends this as each year's PR lands.
+EVENT_BY_GE_YEAR: dict[int, PcGeEvent] = {
+    2019: LS_2019,
+    2024: LS_2024,
+}
 
 
 @dataclass(frozen=True)
@@ -152,6 +180,56 @@ def build_pc_envelope(
         crosswalk_path=crosswalk_path,
         datasets_root=datasets_root,
     )
+    return _envelope_from_results(
+        results,
+        datasets_root=datasets_root,
+        event=event,
+        allow_unknown_parties=allow_unknown_parties,
+    )
+
+
+def build_pc_envelope_from_tcpd(
+    *,
+    datasets_root: Path,
+    csv_path: Path,
+    year: int,
+    event: PcGeEvent,
+    allow_unknown_parties: bool = False,
+) -> tuple[BatchEnvelope, int, dict[str, int]]:
+    """Parse one GE year from the TCPD All-States panel into a BatchEnvelope.
+
+    The TCPD historical path (1999-2019); shares the envelope builder with the
+    ECI Report-33 path so both produce byte-compatible canonical rows. Returns
+    ``(envelope, pc_count, unresolved_parties)``.
+    """
+    crosswalk, state_lookup = load_crosswalk_and_lookup(datasets_root)
+    results = parse_ls_ge_tcpd(
+        csv_path,
+        year=year,
+        crosswalk=crosswalk,
+        state_lookup=state_lookup,
+    )
+    return _envelope_from_results(
+        results,
+        datasets_root=datasets_root,
+        event=event,
+        allow_unknown_parties=allow_unknown_parties,
+    )
+
+
+def _envelope_from_results(
+    results,
+    *,
+    datasets_root: Path,
+    event: PcGeEvent,
+    allow_unknown_parties: bool = False,
+) -> tuple[BatchEnvelope, int, dict[str, int]]:
+    """Build a canonical PC ``BatchEnvelope`` from parsed ``PcResultRaw`` rows.
+
+    Source-agnostic: the ECI Report-33 (2024) and TCPD panel (historical)
+    parsers both feed this, so the canonical rows are identical regardless of
+    which upstream produced a given year.
+    """
     unresolved: Counter[str] = Counter()
     base_lookup = load_party_lookup(datasets_root)
     lookup = (
@@ -239,6 +317,58 @@ def ingest_ls(
         crosswalk_path=crosswalk_path,
         allow_unknown_parties=allow_unknown_parties,
         event=event,
+    )
+    write_result = write_batch(envelope, datasets_root)
+    states = sorted({row.state_code for row in envelope.pc_dim_rows})
+    inventory_path = _upsert_inventory(
+        repo_root=repo_root,
+        states=states,
+        ingested_at=ingested_at,
+        event=event,
+    )
+    return LsIngestResult(
+        write_result=write_result,
+        event_id=event.period.period_label,
+        pc_count=pc_count,
+        inventory_path=inventory_path,
+        unresolved_parties=unresolved,
+    )
+
+
+def ingest_ls_tcpd(
+    *,
+    repo_root: Path,
+    csv_path: Path,
+    year: int,
+    event: PcGeEvent,
+    force: bool = False,
+    ingested_at: str = "2026-05-31",
+    allow_unknown_parties: bool = False,
+) -> LsIngestResult:
+    """Ingest one historical GE year from the TCPD All-States panel.
+
+    Mirrors :func:`ingest_ls` (the ECI Report-33 path) but parses the TCPD
+    panel and resolves constituencies through the historical crosswalk. The
+    inventory dedup keys on ``(election_id, source_input)``, so the TCPD years
+    coexist with the ECI 2024 slice.
+    """
+    datasets_root = repo_root / "datasets"
+    inventory_path = repo_root.joinpath(*INVENTORY_PATH_REL)
+    if not force and _inventory_has_event(repo_root, event=event):
+        return LsIngestResult(
+            write_result=None,
+            event_id=event.period.period_label,
+            pc_count=0,
+            inventory_path=inventory_path,
+            unresolved_parties={},
+            skipped=True,
+        )
+    envelope, pc_count, unresolved = build_pc_envelope_from_tcpd(
+        datasets_root=datasets_root,
+        csv_path=csv_path,
+        year=year,
+        event=event,
+        allow_unknown_parties=allow_unknown_parties,
     )
     write_result = write_batch(envelope, datasets_root)
     states = sorted({row.state_code for row in envelope.pc_dim_rows})

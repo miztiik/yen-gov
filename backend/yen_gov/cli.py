@@ -752,6 +752,82 @@ def ingest_eci_ls(
     typer.echo(f"ingest-eci-ls: event={result.event_id}")
 
 
+@app.command("ingest-ls-ge-tcpd")
+def ingest_ls_ge_tcpd_cmd(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+    input_csv: Path = typer.Option(
+        ...,
+        "--input",
+        "-i",
+        help="TCPD All-States GE panel CSV (All_States_GE.csv).",
+        exists=True,
+        dir_okay=False,
+    ),
+    year: int = typer.Option(
+        ...,
+        "--year",
+        "-y",
+        help="General-election year to ingest (e.g. 2019).",
+    ),
+    allow_unknown_parties: bool = typer.Option(
+        False,
+        "--allow-unknown-parties",
+        help="Map unresolved parties to parties.IN.UNK instead of failing fast.",
+    ),
+    force: bool = typer.Option(
+        False,
+        "--force",
+        help="Re-ingest even when datasets/elections/_inventory.json already records the event.",
+    ),
+) -> None:
+    """Ingest one historical Lok Sabha GE year from the TCPD panel into Parquet."""
+    from yen_gov.canonical.adapters.eci_ls import EVENT_BY_GE_YEAR, ingest_ls_tcpd
+
+    event = EVENT_BY_GE_YEAR.get(year)
+    if event is None:
+        known = ", ".join(str(y) for y in sorted(EVENT_BY_GE_YEAR))
+        raise typer.BadParameter(
+            f"no PC event registered for GE year {year} (known: {known})"
+        )
+
+    result = ingest_ls_tcpd(
+        repo_root=root,
+        csv_path=input_csv,
+        year=year,
+        event=event,
+        force=force,
+        allow_unknown_parties=allow_unknown_parties,
+    )
+    if result.skipped:
+        typer.echo(
+            "ingest-ls-ge-tcpd: skipped; inventory already records "
+            f"event {result.event_id}. Pass --force to re-ingest."
+        )
+        return
+    assert result.write_result is not None
+    typer.echo(
+        "ingest-ls-ge-tcpd: wrote "
+        f"{result.write_result.observation_rows_written} observation rows "
+        "(total across rewritten state shards, including pre-existing rows), "
+        f"{result.write_result.dim_rows_written.get('dim_pcs', 0)} dim_pcs rows "
+        f"across {result.pc_count} PCs"
+    )
+    if result.unresolved_parties:
+        typer.echo(
+            f"ingest-ls-ge-tcpd: {len(result.unresolved_parties)} unresolved party "
+            "strings mapped to parties.IN.UNK"
+        )
+    typer.echo(f"ingest-ls-ge-tcpd: event={result.event_id}")
+
+
 
 @app.command()
 def coverage(

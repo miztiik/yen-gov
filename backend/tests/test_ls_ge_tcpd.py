@@ -1,0 +1,266 @@
+"""Tier-A unit + contract tests for the TCPD historical-GE PC parser.
+
+Per CLAUDE.md section 15: no mocks, no big-corpus walk. The parser tests use a
+tiny inline TCPD-shaped CSV fixture; the resolver/envelope tests read only the
+small committed reference CSV + entities.json + party lookup.
+
+Pins:
+1. ``parse_ls_ge_tcpd`` filters to ``Election_Type == GE``, the requested year,
+   and ``Poll_No == 0`` (re-polls excluded); groups candidate rows per PC.
+2. The Delhi spelling alias resolves; a reorganisation state (J&K) resolves
+   through the crosswalk override; age is always None; education/profession are
+   normalised from the panel columns; NOTA candidates are flagged.
+3. A missing required column is a fail-fast.
+4. The driver path (``build_pc_envelope_from_tcpd``) yields ``2008``-delimitation
+   ``pc_id`` values and carries the TCPD education/profession enrichment onto the
+   person rows, while the ECI 2024 default path stays byte-identical (guarded in
+   test_eci_ls_driver.py).
+
+See also:
+    - backend/yen_gov/sources/eci/ls_ge_tcpd.py
+    - backend/yen_gov/canonical/adapters/eci_ls.py
+"""
+
+from __future__ import annotations
+
+from pathlib import Path
+
+import pytest
+
+from yen_gov.canonical.adapters.eci.pc_crosswalk import load_crosswalk_and_lookup
+from yen_gov.canonical.adapters.eci_ls import (
+    LS_2019,
+    build_pc_envelope_from_tcpd,
+)
+from yen_gov.sources.eci.ls_ge_tcpd import (
+    LsGeTcpdError,
+    TCPD_STATE_NAME_ALIASES,
+    parse_ls_ge_tcpd,
+)
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+DATASETS = REPO_ROOT / "datasets"
+
+_HEADER = [
+    "State_Name",
+    "Constituency_No",
+    "Constituency_Name",
+    "Year",
+    "Poll_No",
+    "Election_Type",
+    "Candidate",
+    "Party",
+    "Sex",
+    "Votes",
+    "Valid_Votes",
+    "Electors",
+    "MyNeta_education",
+    "TCPD_Prof_Main",
+]
+
+GE = "Lok Sabha Election (GE)"
+
+
+def _row(**kw: object) -> list[str]:
+    base = {
+        "State_Name": "Tamil_Nadu",
+        "Constituency_No": "1",
+        "Constituency_Name": "Tiruvallur",
+        "Year": "2019",
+        "Poll_No": "0",
+        "Election_Type": GE,
+        "Candidate": "A Candidate",
+        "Party": "BJP",
+        "Sex": "M",
+        "Votes": "100",
+        "Valid_Votes": "300",
+        "Electors": "500",
+        "MyNeta_education": "Graduate",
+        "TCPD_Prof_Main": "Business",
+    }
+    base.update({k: str(v) for k, v in kw.items()})
+    return [base[c] for c in _HEADER]
+
+
+def _write_csv(tmp_path: Path, rows: list[list[str]]) -> Path:
+    import csv
+
+    p = tmp_path / "ge.csv"
+    with p.open("w", encoding="utf-8", newline="") as fh:
+        w = csv.writer(fh)
+        w.writerow(_HEADER)
+        w.writerows(rows)
+    return p
+
+
+@pytest.fixture(scope="module")
+def crosswalk_lookup():
+    return load_crosswalk_and_lookup(DATASETS)
+
+
+# ---------------------------------------------------------------------------
+# Pin 1: filtering + grouping
+# ---------------------------------------------------------------------------
+
+def test_filters_repoll_wrong_year_and_wrong_type(tmp_path, crosswalk_lookup):
+    crosswalk, lookup = crosswalk_lookup
+    rows = [
+        _row(Candidate="Winner", Votes="200"),
+        _row(Candidate="Runner Up", Party="DMK", Votes="100"),
+        # Excluded: re-poll for the same seat.
+        _row(Candidate="Repoll Ghost", Poll_No="1", Votes="999"),
+        # Excluded: different year.
+        _row(Candidate="Old Timer", Year="2014", Votes="999"),
+        # Excluded: assembly election, not GE.
+        _row(Candidate="Assembly Person", Election_Type="Assembly Election (AE)", Votes="999"),
+    ]
+    csv_path = _write_csv(tmp_path, rows)
+    results = parse_ls_ge_tcpd(csv_path, year=2019, crosswalk=crosswalk, state_lookup=lookup)
+    assert len(results) == 1
+    (pc,) = results
+    names = {c.name for c in pc.candidates}
+    assert names == {"Winner", "Runner Up"}
+    assert pc.state_code == "S22"  # Tamil Nadu
+    assert pc.pc_no == 1
+
+
+def test_groups_multiple_constituencies(tmp_path, crosswalk_lookup):
+    crosswalk, lookup = crosswalk_lookup
+    rows = [
+        _row(Constituency_No="1", Constituency_Name="Tiruvallur", Candidate="A"),
+        _row(Constituency_No="2", Constituency_Name="Chennai North", Candidate="B"),
+        _row(Constituency_No="1", Constituency_Name="Tiruvallur", Candidate="C"),
+    ]
+    csv_path = _write_csv(tmp_path, rows)
+    results = parse_ls_ge_tcpd(csv_path, year=2019, crosswalk=crosswalk, state_lookup=lookup)
+    assert len(results) == 2
+    by_no = {r.pc_no: r for r in results}
+    assert {c.name for c in by_no[1].candidates} == {"A", "C"}
+    assert {c.name for c in by_no[2].candidates} == {"B"}
+
+
+# ---------------------------------------------------------------------------
+# Pin 2: resolution, enrichment, NOTA
+# ---------------------------------------------------------------------------
+
+def test_delhi_alias_resolves(tmp_path, crosswalk_lookup):
+    crosswalk, lookup = crosswalk_lookup
+    assert TCPD_STATE_NAME_ALIASES["Delhi"] == "NCT of Delhi"
+    rows = [_row(State_Name="Delhi", Constituency_No="1", Constituency_Name="Chandni Chowk")]
+    csv_path = _write_csv(tmp_path, rows)
+    (pc,) = parse_ls_ge_tcpd(csv_path, year=2019, crosswalk=crosswalk, state_lookup=lookup)
+    assert pc.state_code == "U05"  # NCT of Delhi
+    assert pc.pc_no == 1
+
+
+def test_reorg_override_resolves_jk(tmp_path, crosswalk_lookup):
+    crosswalk, lookup = crosswalk_lookup
+    rows = [_row(State_Name="Jammu_&_Kashmir", Constituency_No="1", Constituency_Name="Baramulla")]
+    csv_path = _write_csv(tmp_path, rows)
+    (pc,) = parse_ls_ge_tcpd(csv_path, year=2019, crosswalk=crosswalk, state_lookup=lookup)
+    # J&K seat 1 maps to the post-reorg J&K UT (U08).
+    assert pc.state_code == "U08"
+    assert pc.pc_no >= 1
+
+
+def test_age_always_none_and_eduprof_normalised(tmp_path, crosswalk_lookup):
+    crosswalk, lookup = crosswalk_lookup
+    rows = [
+        _row(
+            Candidate="Bio Person",
+            Sex="F",
+            MyNeta_education="Post Graduate",
+            TCPD_Prof_Main="Agriculture",
+        ),
+    ]
+    csv_path = _write_csv(tmp_path, rows)
+    (pc,) = parse_ls_ge_tcpd(csv_path, year=2019, crosswalk=crosswalk, state_lookup=lookup)
+    (cand,) = pc.candidates
+    assert cand.age is None
+    assert cand.education == "Post Graduate"
+    assert cand.profession == "Agriculture"
+    assert cand.gender == "F"
+
+
+def test_blank_eduprof_become_none(tmp_path, crosswalk_lookup):
+    crosswalk, lookup = crosswalk_lookup
+    rows = [_row(MyNeta_education="", TCPD_Prof_Main="")]
+    csv_path = _write_csv(tmp_path, rows)
+    (pc,) = parse_ls_ge_tcpd(csv_path, year=2019, crosswalk=crosswalk, state_lookup=lookup)
+    (cand,) = pc.candidates
+    assert cand.education is None
+    assert cand.profession is None
+
+
+def test_nota_flagged(tmp_path, crosswalk_lookup):
+    crosswalk, lookup = crosswalk_lookup
+    rows = [
+        _row(Candidate="Real Person", Votes="100"),
+        _row(Candidate="NOTA", Party="NOTA", Sex="", Votes="5", MyNeta_education="", TCPD_Prof_Main=""),
+    ]
+    csv_path = _write_csv(tmp_path, rows)
+    (pc,) = parse_ls_ge_tcpd(csv_path, year=2019, crosswalk=crosswalk, state_lookup=lookup)
+    nota = [c for c in pc.candidates if c.is_nota]
+    assert len(nota) == 1
+    assert nota[0].name == "NOTA"
+    # total_votes_polled sums all candidate votes including NOTA.
+    assert pc.total_votes_polled == 105
+
+
+# ---------------------------------------------------------------------------
+# Pin 3: fail-fast on malformed input
+# ---------------------------------------------------------------------------
+
+def test_missing_required_column_is_fatal(tmp_path, crosswalk_lookup):
+    crosswalk, lookup = crosswalk_lookup
+    p = tmp_path / "bad.csv"
+    import csv
+
+    with p.open("w", encoding="utf-8", newline="") as fh:
+        w = csv.writer(fh)
+        # Drop MyNeta_education.
+        header = [c for c in _HEADER if c != "MyNeta_education"]
+        w.writerow(header)
+        w.writerow(["Tamil_Nadu", "1", "X", "2019", "0", GE, "A", "BJP", "M", "1", "1", "1", "Business"])
+    with pytest.raises(LsGeTcpdError, match="MyNeta_education"):
+        parse_ls_ge_tcpd(p, year=2019, crosswalk=crosswalk, state_lookup=lookup)
+
+
+def test_unresolvable_state_is_fatal(tmp_path, crosswalk_lookup):
+    crosswalk, lookup = crosswalk_lookup
+    rows = [_row(State_Name="Atlantis", Constituency_No="1")]
+    csv_path = _write_csv(tmp_path, rows)
+    with pytest.raises(LsGeTcpdError, match="resolve"):
+        parse_ls_ge_tcpd(csv_path, year=2019, crosswalk=crosswalk, state_lookup=lookup)
+
+
+# ---------------------------------------------------------------------------
+# Pin 4: driver path produces 2008-delim pc_id + enrichment on persons
+# ---------------------------------------------------------------------------
+
+def test_envelope_from_tcpd_pcid_grammar_and_enrichment(tmp_path):
+    rows = [
+        _row(Constituency_No="1", Constituency_Name="Tiruvallur", Candidate="Winner",
+             Votes="200", MyNeta_education="Doctorate", TCPD_Prof_Main="Education"),
+        _row(Constituency_No="1", Constituency_Name="Tiruvallur", Candidate="Runner",
+             Party="DMK", Votes="100", MyNeta_education="Graduate", TCPD_Prof_Main="Business"),
+    ]
+    csv_path = _write_csv(tmp_path, rows)
+    env, pc_count, _unresolved = build_pc_envelope_from_tcpd(
+        datasets_root=DATASETS,
+        csv_path=csv_path,
+        year=2019,
+        event=LS_2019,
+        allow_unknown_parties=True,
+    )
+    assert pc_count == 1
+    (dim,) = env.pc_dim_rows
+    assert dim.pc_id == "IN-PC-2008-S22-1"
+    assert dim.delim_year == 2008
+    # The TCPD enrichment must reach the person rows.
+    edu = {p.education for p in env.person_dim_rows}
+    prof = {p.profession for p in env.person_dim_rows}
+    assert "Doctorate" in edu
+    assert "Education" in prof
+    # Historical GE carries no age.
+    assert all(p.age is None for p in env.person_dim_rows)
