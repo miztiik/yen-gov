@@ -56,6 +56,36 @@ INVENTORY_PATH_REL = ("datasets", "elections", "_inventory.json")
 
 
 @dataclass(frozen=True)
+class PcGeEvent:
+    """Per-election parameters for the PC-grain ingest driver.
+
+    Factored out of the hardcoded 2024 constants so the same driver can ingest
+    earlier general elections (EGC-B2 Phase 2). The driver functions default to
+    :data:`LS_2024`, keeping the 2024 path byte-identical; later elections pass
+    their own instance with the matching ``delim_year`` (see
+    ``canonical/adapters/eci/pc_crosswalk.py`` for the year->delim mapping).
+    """
+
+    period: Period
+    delim_year: int
+    source_title: str
+    vintage: str
+    source_input_id: str = SOURCE_INPUT_ID
+
+
+# Default event: the already-ingested 2024 Lok Sabha general election.
+LS_2024 = PcGeEvent(
+    period=LS_2024_EVENT,
+    delim_year=LS_2024_DELIM_YEAR,
+    source_title=(
+        "General Election to Lok Sabha 2024 — Constituency Wise Detailed "
+        "Result (Report 33)"
+    ),
+    vintage="2024",
+)
+
+
+@dataclass(frozen=True)
 class LsIngestResult:
     write_result: WriteResult | None
     event_id: str
@@ -85,17 +115,16 @@ class _LenientPartyLookup:
             return "parties.IN.UNK"
 
 
-def pc_source_row() -> SourceRow:
-    title = (
-        "General Election to Lok Sabha 2024 — Constituency Wise Detailed "
-        "Result (Report 33)"
+def pc_source_row(event: PcGeEvent = LS_2024) -> SourceRow:
+    title = event.source_title
+    source_id = derive_source_id(
+        "Election Commission of India", title, event.vintage
     )
-    source_id = derive_source_id("Election Commission of India", title, "2024")
     return SourceRow(
         source_id=source_id,
         producer="Election Commission of India",
         title=title,
-        vintage="2024",
+        vintage=event.vintage,
         license="OGL-IN-1.0",
         confidence_tier="gold",
         is_issuing_authority=True,
@@ -112,6 +141,7 @@ def build_pc_envelope(
     csv_path: Path,
     crosswalk_path: Path,
     allow_unknown_parties: bool = False,
+    event: PcGeEvent = LS_2024,
 ) -> tuple[BatchEnvelope, int, dict[str, int]]:
     """Parse the ECI Report-33 + Report-34 CSVs into a BatchEnvelope.
 
@@ -129,7 +159,7 @@ def build_pc_envelope(
         if allow_unknown_parties
         else base_lookup
     )
-    source_row = pc_source_row()
+    source_row = pc_source_row(event)
 
     observations: list[ObservationRow] = []
     pc_dims: list[PcDimRow] = []
@@ -138,8 +168,8 @@ def build_pc_envelope(
     for result in results:
         observations.extend(observations_from_pc(
             result=result,
-            period=LS_2024_EVENT,
-            delim_year=LS_2024_DELIM_YEAR,
+            period=event.period,
+            delim_year=event.delim_year,
             party_lookup=lookup,
             source_id=source_row.source_id,
         ))
@@ -147,14 +177,14 @@ def build_pc_envelope(
             PcDimRow(**row)
             for row in dim_rows_from_pc(
                 result=result,
-                delim_year=LS_2024_DELIM_YEAR,
+                delim_year=event.delim_year,
                 source_id=source_row.source_id,
             )
         )
         persons, candidacies = persons_and_candidacies_from_pc(
             result=result,
-            period=LS_2024_EVENT,
-            delim_year=LS_2024_DELIM_YEAR,
+            period=event.period,
+            delim_year=event.delim_year,
             party_lookup=lookup,
             source_id=source_row.source_id,
         )
@@ -190,13 +220,14 @@ def ingest_ls(
     force: bool = False,
     ingested_at: str = "2026-05-31",
     allow_unknown_parties: bool = False,
+    event: PcGeEvent = LS_2024,
 ) -> LsIngestResult:
     datasets_root = repo_root / "datasets"
     inventory_path = repo_root.joinpath(*INVENTORY_PATH_REL)
-    if not force and _inventory_has_event(repo_root):
+    if not force and _inventory_has_event(repo_root, event=event):
         return LsIngestResult(
             write_result=None,
-            event_id=LS_2024_EVENT.period_label,
+            event_id=event.period.period_label,
             pc_count=0,
             inventory_path=inventory_path,
             unresolved_parties={},
@@ -207,6 +238,7 @@ def ingest_ls(
         csv_path=csv_path,
         crosswalk_path=crosswalk_path,
         allow_unknown_parties=allow_unknown_parties,
+        event=event,
     )
     write_result = write_batch(envelope, datasets_root)
     states = sorted({row.state_code for row in envelope.pc_dim_rows})
@@ -214,29 +246,36 @@ def ingest_ls(
         repo_root=repo_root,
         states=states,
         ingested_at=ingested_at,
+        event=event,
     )
     return LsIngestResult(
         write_result=write_result,
-        event_id=LS_2024_EVENT.period_label,
+        event_id=event.period.period_label,
         pc_count=pc_count,
         inventory_path=inventory_path,
         unresolved_parties=unresolved,
     )
 
 
-def _inventory_has_event(repo_root: Path) -> bool:
+def _inventory_has_event(repo_root: Path, *, event: PcGeEvent = LS_2024) -> bool:
     path = repo_root.joinpath(*INVENTORY_PATH_REL)
     if not path.is_file():
         return False
     existing = json.loads(path.read_text(encoding="utf-8")).get("ingested") or []
     return any(
-        row.get("election_id") == LS_2024_EVENT.period_label
-        and row.get("source_input") == SOURCE_INPUT_ID
+        row.get("election_id") == event.period.period_label
+        and row.get("source_input") == event.source_input_id
         for row in existing
     )
 
 
-def _upsert_inventory(*, repo_root: Path, states: list[str], ingested_at: str) -> Path:
+def _upsert_inventory(
+    *,
+    repo_root: Path,
+    states: list[str],
+    ingested_at: str,
+    event: PcGeEvent = LS_2024,
+) -> Path:
     path = repo_root.joinpath(*INVENTORY_PATH_REL)
     payload: dict = {"ingested": []}
     if path.is_file():
@@ -245,8 +284,8 @@ def _upsert_inventory(*, repo_root: Path, states: list[str], ingested_at: str) -
     filtered = [
         row for row in payload["ingested"]
         if not (
-            row.get("election_id") == LS_2024_EVENT.period_label
-            and row.get("source_input") == SOURCE_INPUT_ID
+            row.get("election_id") == event.period.period_label
+            and row.get("source_input") == event.source_input_id
         )
     ]
     # National Lok Sabha event recorded as one inventory slice per state.
@@ -254,9 +293,9 @@ def _upsert_inventory(*, repo_root: Path, states: list[str], ingested_at: str) -
     # Callers pass ECI st_code (relational join-key); translate at the write boundary.
     for state in states:
         filtered.append({
-            "election_id": LS_2024_EVENT.period_label,
+            "election_id": event.period.period_label,
             "state": eci_to_lgd_slug(state),
-            "source_input": SOURCE_INPUT_ID,
+            "source_input": event.source_input_id,
             "ingested_at": ingested_at,
         })
     payload["ingested"] = filtered
