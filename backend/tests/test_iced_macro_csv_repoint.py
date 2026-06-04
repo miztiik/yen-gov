@@ -1,7 +1,7 @@
 """B1.4.2 writer-unit gate: iced_macro row-builder + write_csv round-trip.
 
 Locks the contract for sub-row B1.4.2 of
-``TODO/20260604-b1.4-iced-repoint-subplan.md``: the iced_macro ingest splits
+``docs/archive/plans/20260604-b1.4-iced-repoint-subplan.md``: the iced_macro ingest splits
 its facet-keyed parser output into one ``variable_id`` per facet, emits
 each via the canonical ``yen_gov.canonical.csv_writer.write_csv`` against
 file class ``datasets/data/datapoints/geo/*.csv``, reduces fiscal-year

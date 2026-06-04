@@ -1,7 +1,7 @@
 """B1.4.5 writer-unit gate: iced_power row-builder + write_csv round-trip.
 
 Locks the contract for sub-row B1.4.5 of
-``TODO/20260604-b1.4-iced-repoint-subplan.md``: the iced_power ingest
+``docs/archive/plans/20260604-b1.4-iced-repoint-subplan.md``: the iced_power ingest
 splits its faceted parser outputs (capacity, generation, retired) into
 one ``variable_id`` per facet, emits each via the canonical
 ``yen_gov.canonical.csv_writer.write_csv`` against file class
