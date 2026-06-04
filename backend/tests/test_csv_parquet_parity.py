@@ -720,3 +720,77 @@ def test_election_events(lgd_eci_to_slug: dict[str, str]) -> None:
         "election_events.csv parity violations:\n  " + "\n  ".join(mismatches)
     )
 
+
+def test_indicator_topic_tags() -> None:
+    """B2b.4.5 cross-format parity: every row in
+    ``datasets/taxonomy/indicator_topic_tags.parquet`` MUST appear as
+    exactly one row in ``datasets/data/indicator_topic_tags.csv`` with
+    verbatim column equality (no re-keys; 1:1 projection across all nine
+    columns). PK ``(topic_id, artifact_kind, artifact_id)``; artifact_id
+    is nullable for the ``artifact_kind = 'election'`` row.
+    """
+    parquet_path = (
+        REPO_ROOT
+        / "datasets"
+        / "taxonomy"
+        / "indicator_topic_tags.parquet"
+    )
+    csv_path = (
+        REPO_ROOT / "datasets" / "data" / "indicator_topic_tags.csv"
+    )
+    if not parquet_path.exists():
+        pytest.skip(f"missing {parquet_path}")
+    if not csv_path.exists():
+        pytest.skip(f"missing {csv_path}; B2b.4.5 emit not run")
+
+    cols = (
+        "topic_id",
+        "artifact_kind",
+        "artifact_id",
+        "display",
+        "is_default",
+        "featured",
+        "scope",
+        "peer_set_default_override",
+        "in_topic_order",
+    )
+    parquet_rows = duckdb.sql(
+        "SELECT topic_id, artifact_kind, artifact_id, display, is_default, "
+        "featured, scope, peer_set_default_override, in_topic_order "
+        f"FROM read_parquet('{parquet_path.as_posix()}') "
+        "ORDER BY topic_id, artifact_kind, artifact_id NULLS FIRST"
+    ).fetchall()
+    csv_rows = duckdb.sql(
+        "SELECT topic_id, artifact_kind, artifact_id, display, is_default, "
+        "featured, scope, peer_set_default_override, in_topic_order "
+        f"FROM read_csv('{csv_path.as_posix()}', "
+        "columns={'topic_id': 'VARCHAR', 'artifact_kind': 'VARCHAR', "
+        "'artifact_id': 'VARCHAR', 'display': 'VARCHAR', "
+        "'is_default': 'BOOLEAN', 'featured': 'BOOLEAN', "
+        "'scope': 'VARCHAR', 'peer_set_default_override': 'VARCHAR', "
+        "'in_topic_order': 'INTEGER'}, header=true) "
+        "ORDER BY topic_id, artifact_kind, artifact_id NULLS FIRST"
+    ).fetchall()
+
+    assert len(csv_rows) == len(parquet_rows), (
+        f"row-count parity failed: parquet={len(parquet_rows)} "
+        f"vs csv={len(csv_rows)}"
+    )
+
+    mismatches: list[str] = []
+    for parquet_row, csv_row in zip(parquet_rows, csv_rows, strict=True):
+        for idx, name in enumerate(cols):
+            if parquet_row[idx] != csv_row[idx]:
+                mismatches.append(
+                    f"{parquet_row[0]!r}/{parquet_row[1]!r}/"
+                    f"{parquet_row[2]!r}: "
+                    f"{name} parquet={parquet_row[idx]!r} "
+                    f"csv={csv_row[idx]!r}"
+                )
+        if len(mismatches) >= 5:
+            break
+    assert not mismatches, (
+        "indicator_topic_tags.csv parity violations:\n  "
+        + "\n  ".join(mismatches)
+    )
+

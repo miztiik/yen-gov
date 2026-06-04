@@ -274,6 +274,20 @@
         { "name": "state_entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
         { "name": "notes", "dtype": "string", "nullable": true }
       ]
+    },
+    "datasets/data/indicator_topic_tags.csv": {
+      "notes": "M:N tag enrichment - one row per (topic_id, artifact_kind, artifact_id). Sourced from datasets/taxonomy/indicator_topic_tags.parquet by B2b.4.5 reingest. Verbatim 1:1 projection of all nine columns; no re-keys. FK on topic_id into topics.csv is unconditional. The parquet's artifact_id FK semantics are conditional (resolves into variables.csv.indicator_id only when artifact_kind = 'indicator'; null when artifact_kind = 'election'); the column contract has no conditional-FK construct, so artifact_id is declared without an fk target here. Closure of that FK belongs with a validator extension (parent plan section 22.6 fk-validator follow-up); not blocking B2b.4 deletion-safety since the parity gate establishes byte equality against the surviving parquet.",
+      "columns": [
+        { "name": "topic_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/topics.csv.topic" },
+        { "name": "artifact_kind", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "artifact_id", "dtype": "string", "nullable": true, "pk": true },
+        { "name": "display", "dtype": "string", "nullable": true },
+        { "name": "is_default", "dtype": "boolean", "nullable": false },
+        { "name": "featured", "dtype": "boolean", "nullable": false },
+        { "name": "scope", "dtype": "string", "nullable": false },
+        { "name": "peer_set_default_override", "dtype": "string", "nullable": true },
+        { "name": "in_topic_order", "dtype": "integer", "nullable": false }
+      ]
     }
   }
 }
