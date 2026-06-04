@@ -38,7 +38,7 @@ Out of scope (other chunks):
 | --- | --- | --- | --- | --- |
 | B2a.1 source.csv from `taxonomy/sources.parquet` (+ `derive_source_id` reused per CLAUDE.md section 12) | - | fk-validator | #673 | MERGED |
 | B2a.2 topics.csv from `taxonomy/topics.json` (parent-pointer flatten) | - | fk-validator | #675 | MERGED |
-| B2a.3 concepts.csv from `taxonomy/concepts.json` | - | fk-validator | - | TODO |
+| B2a.3 concepts.csv from `taxonomy/concepts.json` | - | fk-validator | _pending_ | IN-FLIGHT |
 | B2a.4 variables.csv from `taxonomy/indicators.json` (FKs to B2a.1 + B2a.2 + B2a.3) | B2a.1, B2a.2, B2a.3 | fk-validator | - | TODO |
 | B2a.5 entities/geo.csv from `taxonomy/lgd_states.json` + `taxonomy/lgd_districts.json` | - | fk-validator | - | TODO |
 | B2a.6 entities/electoral.csv from `taxonomy/lgd_acs.json` + `taxonomy/lgd_pcs.json` (FK to B2a.5 `state`) | B2a.5 | fk-validator | - | TODO |
