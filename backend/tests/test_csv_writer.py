@@ -228,3 +228,200 @@ def test_empty_rows_emits_header_only(tmp_path):
         "update_period_days,time_min,time_max,entity_kinds"
     ]
     assert text.endswith("\n")
+
+
+# --- B2b.5.1 election file-class roundtrips --------------------------------
+#
+# Sub-sub-plan B2b.5.1 pins write-time validator passthrough for the four
+# election file classes declared in columns.json (added by B1.1, PR #629).
+# Each test here writes ONE sample row through the generic writer to confirm
+# the header, dtype coercion, and (where declared) PK sort behave correctly
+# under the election column shape. The cross-format-parity gate (parent 22.6)
+# will exercise these emitters against real on-disk parquet in B2b.5.2..5.4.
+
+
+_ASSEMBLY_CANDIDACIES_FC = (
+    "datasets/elections/assembly/state=*/election=*/candidacies.csv"
+)
+_ASSEMBLY_SUMMARY_FC = (
+    "datasets/elections/assembly/state=*/election=*/summary.csv"
+)
+_PARLIAMENT_CANDIDACIES_FC = (
+    "datasets/elections/parliament/election=*/candidacies.csv"
+)
+_PARLIAMENT_SUMMARY_FC = (
+    "datasets/elections/parliament/election=*/summary.csv"
+)
+
+
+def _assembly_candidacy_row(*, entity_id: str, position: int) -> dict:
+    return {
+        "entity_id": entity_id,
+        "state": "tamil-nadu",
+        "election_year": 2021,
+        "constituency_no": 234,
+        "constituency_name": "Kanyakumari",
+        "candidate_name": f"Candidate {position}",
+        "party_id": "p-bjp",
+        "votes": 50000 - position,
+        "vote_share_pct": 45.5 - position,
+        "position": position,
+        "result": "won" if position == 1 else "lost",
+        "sex": "M",
+        "age": 45 + position,
+        "education": "Graduate",
+        "profession": "Politics",
+        "candidate_type": "incumbent",
+        "source_id": "tcpd-ge-2021",
+    }
+
+
+def test_writes_assembly_candidacies_file_class(tmp_path):
+    path = tmp_path / "candidacies.csv"
+    write_csv(
+        path=path,
+        file_class=_ASSEMBLY_CANDIDACIES_FC,
+        rows=[
+            _assembly_candidacy_row(entity_id="IN-AC-2008-S22-234", position=2),
+            _assembly_candidacy_row(entity_id="IN-AC-2008-S22-234", position=1),
+        ],
+    )
+    lines = _read(path).splitlines()
+    assert lines[0] == (
+        "entity_id,state,election_year,constituency_no,constituency_name,"
+        "candidate_name,party_id,votes,vote_share_pct,position,result,"
+        "sex,age,education,profession,candidate_type,source_id"
+    )
+    # No PK on candidacies; input order is preserved (stable sort by empty key).
+    assert lines[1].startswith("IN-AC-2008-S22-234,tamil-nadu,2021,234,Kanyakumari,Candidate 2,")
+    assert lines[2].startswith("IN-AC-2008-S22-234,tamil-nadu,2021,234,Kanyakumari,Candidate 1,")
+
+
+def test_assembly_candidacies_rejects_bad_result_value_at_validator_time(tmp_path):
+    # The writer is dtype-strict but enum-relaxed (enum lives on the validator).
+    # Verify the writer happily round-trips an unrecognised enum string so the
+    # validator catches it (one source of truth for closed-enum membership).
+    path = tmp_path / "candidacies.csv"
+    row = _assembly_candidacy_row(entity_id="IN-AC-2008-S22-234", position=1)
+    row["result"] = "tied"  # not in {won, lost, forfeit}
+    write_csv(path=path, file_class=_ASSEMBLY_CANDIDACIES_FC, rows=[row])
+    assert "tied" in _read(path)
+
+
+def test_writes_assembly_summary_file_class_with_pk_sort(tmp_path):
+    path = tmp_path / "summary.csv"
+    write_csv(
+        path=path,
+        file_class=_ASSEMBLY_SUMMARY_FC,
+        rows=[
+            {
+                "entity_id": "IN-AC-2008-S22-234",
+                "state": "tamil-nadu",
+                "election_year": 2021,
+                "constituency_name": "Kanyakumari",
+                "electors": 250000,
+                "votes_polled": 180000,
+                "turnout_pct": 72.0,
+                "winner_candidate": "Alice",
+                "winner_party_id": "p-bjp",
+                "winner_votes": 95000,
+                "winner_share_pct": 52.78,
+                "runnerup_candidate": "Bob",
+                "runnerup_party_id": "p-dmk",
+                "runnerup_votes": 60000,
+                "margin_votes": 35000,
+                "margin_pct": 19.45,
+                "source_id": "tcpd-ae-2021",
+            },
+            {
+                "entity_id": "IN-AC-2008-S22-001",
+                "state": "tamil-nadu",
+                "election_year": 2021,
+                "constituency_name": "Gummidipoondi",
+                "electors": 230000,
+                "votes_polled": 170000,
+                "turnout_pct": 73.9,
+                "winner_candidate": "Carol",
+                "winner_party_id": "p-dmk",
+                "winner_votes": 90000,
+                "winner_share_pct": 52.94,
+                "runnerup_candidate": "Dan",
+                "runnerup_party_id": "p-bjp",
+                "runnerup_votes": 55000,
+                "margin_votes": 35000,
+                "margin_pct": 20.59,
+                "source_id": "tcpd-ae-2021",
+            },
+        ],
+    )
+    lines = _read(path).splitlines()
+    # PK is entity_id; rows sort ascending so AC-001 precedes AC-234.
+    assert lines[1].startswith("IN-AC-2008-S22-001,")
+    assert lines[2].startswith("IN-AC-2008-S22-234,")
+
+
+def test_writes_parliament_candidacies_file_class_with_mandatory_state(tmp_path):
+    path = tmp_path / "candidacies.csv"
+    row = _assembly_candidacy_row(entity_id="IN-PC-2008-S22-39", position=1)
+    row["constituency_no"] = 39
+    row["constituency_name"] = "Kanyakumari"
+    write_csv(path=path, file_class=_PARLIAMENT_CANDIDACIES_FC, rows=[row])
+    lines = _read(path).splitlines()
+    assert lines[0] == (
+        "entity_id,state,election_year,constituency_no,constituency_name,"
+        "candidate_name,party_id,votes,vote_share_pct,position,result,"
+        "sex,age,education,profession,candidate_type,source_id"
+    )
+    assert "tamil-nadu" in lines[1]
+
+
+def test_parliament_candidacies_rejects_missing_mandatory_state(tmp_path):
+    # plan section 23.4: state is MANDATORY on parliament CSVs even though the
+    # path has no state= partition (constituency_no restarts per state).
+    row = _assembly_candidacy_row(entity_id="IN-PC-2008-S22-39", position=1)
+    row["state"] = None
+    with pytest.raises(ValueError, match="non-nullable"):
+        write_csv(
+            path=tmp_path / "candidacies.csv",
+            file_class=_PARLIAMENT_CANDIDACIES_FC,
+            rows=[row],
+        )
+
+
+def test_writes_parliament_summary_file_class(tmp_path):
+    path = tmp_path / "summary.csv"
+    write_csv(
+        path=path,
+        file_class=_PARLIAMENT_SUMMARY_FC,
+        rows=[
+            {
+                "entity_id": "IN-PC-2008-S22-39",
+                "state": "tamil-nadu",
+                "election_year": 2024,
+                "constituency_name": "Kanyakumari",
+                "electors": 1500000,
+                "votes_polled": 1100000,
+                "turnout_pct": 73.33,
+                "winner_candidate": "Eve",
+                "winner_party_id": "p-inc",
+                "winner_votes": 550000,
+                "winner_share_pct": 50.0,
+                "runnerup_candidate": "Frank",
+                "runnerup_party_id": "p-bjp",
+                "runnerup_votes": 400000,
+                "margin_votes": 150000,
+                "margin_pct": 13.64,
+                "source_id": "tcpd-ge-2024",
+            },
+        ],
+    )
+    lines = _read(path).splitlines()
+    assert lines[0] == (
+        "entity_id,state,election_year,constituency_name,electors,votes_polled,"
+        "turnout_pct,winner_candidate,winner_party_id,winner_votes,"
+        "winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,"
+        "margin_votes,margin_pct,source_id"
+    )
+    assert lines[1].startswith("IN-PC-2008-S22-39,tamil-nadu,2024,Kanyakumari,")
+    # winner_votes is integer-dtype number; 550000 must emit without ".0".
+    assert ",550000," in lines[1]
