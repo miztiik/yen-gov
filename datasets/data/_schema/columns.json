@@ -288,6 +288,19 @@
         { "name": "peer_set_default_override", "dtype": "string", "nullable": true },
         { "name": "in_topic_order", "dtype": "integer", "nullable": false }
       ]
+    },
+    "datasets/data/entities/ac_crosswalk.csv": {
+      "notes": "Authoritative ECI-no -> LGD-AC-id mapping per delim (one row per (state_entity_id, delim_year, eci_no)). Sourced from datasets/taxonomy/ac_crosswalk.parquet by B2b.4.6 reingest. The source ECI state_code is re-keyed to the LGD state slug on emit and renamed to state_entity_id (FK into geo.csv). lgd_ac_id is nullable (some delim rows have no LGD reconciliation). This file is NOT the same as datasets/data/entities/electoral_lgd_xwalk.csv (boundary-overlap decay-receipt shape with 253 rows).",
+      "columns": [
+        { "name": "state_entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
+        { "name": "delim_year", "dtype": "integer", "nullable": false, "pk": true },
+        { "name": "eci_no", "dtype": "integer", "nullable": false, "pk": true },
+        { "name": "lgd_ac_id", "dtype": "integer", "nullable": true },
+        { "name": "ac_id", "dtype": "string", "nullable": false },
+        { "name": "ac_name", "dtype": "string", "nullable": false },
+        { "name": "match_method", "dtype": "string", "nullable": true },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
+      ]
     }
   }
 }
