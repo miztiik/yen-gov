@@ -1,5 +1,5 @@
 // Devanagari conjunct render smoke (plan section 22.6 `devanagari` gate +
-// section 23.5; sub-row U1.3 of TODO/20260604-u1-tokens-fonts-subplan.md).
+// section 23.5; sub-row U1.3 of docs/archive/plans/20260604-u1-tokens-fonts-subplan.md).
 //
 // What this asserts
 // -----------------

@@ -7,7 +7,7 @@ runtime - the woff2 outputs of this script are committed to
 frontend/public/fonts/ and ship in the static bundle.
 
 Recipe per plan section 21.7 + 23.5 + the U1.2 row of
-TODO/20260604-u1-tokens-fonts-subplan.md:
+docs/archive/plans/20260604-u1-tokens-fonts-subplan.md:
 
 - Inter (SIL OFL 1.1) - the variable-axis Latin subset for UI + body +
   data text. unicode-range covers Basic Latin, Latin-1 Supplement,

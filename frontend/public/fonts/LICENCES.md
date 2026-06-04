@@ -4,7 +4,7 @@
 
 This directory carries self-hosted variable-axis font subsets shipped
 inside the static bundle per Holy Law #1 (static-first production) and
-the U1.2 row of [TODO/20260604-u1-tokens-fonts-subplan.md](../../../TODO/20260604-u1-tokens-fonts-subplan.md).
+the U1.2 row of [docs/archive/plans/20260604-u1-tokens-fonts-subplan.md](../../../docs/archive/plans/20260604-u1-tokens-fonts-subplan.md).
 Each binary below is licensed under the SIL Open Font License 1.1 and is
 free to embed, modify, and redistribute under the OFL terms; this file
 is the citation ledger required by Holy Law #9 and CLAUDE.md section 12.
@@ -145,7 +145,7 @@ and redistribution under terms summarised here:
 
 - [tools/build_fonts.py](../../../tools/build_fonts.py) - the
   reproducible subset script.
-- [TODO/20260604-u1-tokens-fonts-subplan.md](../../../TODO/20260604-u1-tokens-fonts-subplan.md) -
+- [docs/archive/plans/20260604-u1-tokens-fonts-subplan.md](../../../docs/archive/plans/20260604-u1-tokens-fonts-subplan.md) -
   the sub-plan that commissions U1.2.
 - [CLAUDE.md](../../../CLAUDE.md) Holy Law #9 (provenance) + section 12
   (citation ledger doctrine).
