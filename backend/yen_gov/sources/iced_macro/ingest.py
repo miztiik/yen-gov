@@ -10,6 +10,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from yen_gov.canonical.citation import derive_source_id
+from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.core.io import Source, write_artifact
 from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
 from yen_gov.sources.iced_common import IcedClient
@@ -20,6 +22,39 @@ from .parsers import (
     parse_gva_trend_national_constant,
     parse_industrial_production,
 )
+
+# B1.4.2 - canonical CSV citation triples + variable_id prefixes per indicator.
+# All four iced_macro indicators are NITI Aayog ICED endpoints (same producer
+# string used across the family per `canonical/adapters/energy/_shared.py`);
+# vintage = operator snapshot FY per ADR-0042. derive_source_id() hashes the
+# triple at write time; the row in `datasets/data/entities/source.csv` is
+# populated by B2a (sub-plan §"Pre-flight"). variable_ids honour parent plan
+# section 21.6 / 21.12 (no `__`) and ADR-0044 (no grain prefix); per-facet
+# split because csv_writer does not yet accept facet columns (sub-plan
+# §B1.4.1..9 point 7). concept_id binding for all four indicators is DEFERRED
+# to B2a; recorded as a per-PR DEFER marker in the PR body.
+_CSV_FILE_CLASS = "datasets/data/datapoints/geo/*.csv"
+_CSV_OUT_REL_DIR = "datasets/data/datapoints/geo"
+_CSV_SOURCE_PRODUCER = "NITI Aayog India Climate & Energy Dashboard"
+_CSV_SOURCE_VINTAGE = "2024-25"
+
+_CSV_SOURCE_TITLE_GDP = (
+    "GDP Trend (national + per-state, current & constant prices) API"
+)
+_CSV_VARIABLE_PREFIX_GDP = "gdp-inr-crore"
+
+_CSV_SOURCE_TITLE_IIP = (
+    "Industrial Production Index (IIP, 2011-12 base) API"
+)
+_CSV_VARIABLE_PREFIX_IIP = "iip-index-2011-12"
+
+_CSV_SOURCE_TITLE_GVA = (
+    "GVA by Industry (national, constant 2011-12 prices) API"
+)
+_CSV_VARIABLE_PREFIX_GVA = "gva-by-industry-constant-inr-crore"
+
+_CSV_SOURCE_TITLE_BOP = "India External-Sector Balance Trendline API"
+_CSV_VARIABLE_PREFIX_BOP = "india-external-balance-inr-crore"
 
 
 @dataclass(frozen=True)
@@ -236,6 +271,106 @@ def _indicator_india_external_balance() -> dict[str, Any]:
     }
 
 
+def _slug_segment(text: str) -> str:
+    """Kebab-case a facet segment for use inside a `variable_id`.
+
+    Plan section 21.6 / 21.12 ban `__`; ADR-0044 bans grain prefixes. We
+    lower-case, replace any non-alphanumeric run with a single `-`, and
+    strip leading/trailing `-`. Mirrors the helper in
+    ``backend/yen_gov/sources/iced_ghg/ingest.py`` (B1.4.1, PR #635).
+    """
+    out: list[str] = []
+    prev_dash = True
+    for ch in text.lower():
+        if ch.isalnum():
+            out.append(ch)
+            prev_dash = False
+        elif not prev_dash:
+            out.append("-")
+            prev_dash = True
+    return "".join(out).strip("-")
+
+
+def _period_to_year_int(period: str) -> int:
+    """Reduce an iced_common ``YYYY-MM`` period to its fiscal-year start year.
+
+    ``parsers.parse_*`` here all emit ``fy_to_period`` output (``YYYY-04``)
+    for fiscal years. The canonical CSV column class
+    ``datasets/data/datapoints/geo/*.csv`` declares ``time`` as integer
+    (`docs/architecture/data/csv-column-contract.md` section 3.3:
+    "year (calendar or fiscal as declared by the concept)"). FY 2024-25
+    -> ``2024``. Raises ``ValueError`` on malformed input rather than
+    silently truncating.
+    """
+    if not (isinstance(period, str) and len(period) >= 4 and period[:4].isdigit()):
+        raise ValueError(f"unexpected time format {period!r}; expected 'YYYY-MM'")
+    return int(period[:4])
+
+
+def build_csv_variables(
+    parsed_rows: list[dict[str, Any]],
+    *,
+    source_id: str,
+    variable_prefix: str,
+) -> dict[str, list[dict[str, Any]]]:
+    """Split parser output into per-facet CSV row lists keyed by `variable_id`.
+
+    Each iced_macro indicator carries a ``facet`` column (parser output);
+    csv_writer does not yet support facet columns, so we split into one
+    ``variable_id`` per facet value: ``<variable_prefix>-<facet-slug>``.
+    Each output row carries the canonical 4 columns declared on file
+    class ``datasets/data/datapoints/geo/*.csv``: ``entity_id``, ``time``,
+    ``value``, ``source_id``.
+    """
+    by_variable: dict[str, list[dict[str, Any]]] = {}
+    for row in parsed_rows:
+        facet = row["facet"]
+        variable_id = f"{variable_prefix}-{_slug_segment(facet)}"
+        by_variable.setdefault(variable_id, []).append({
+            "entity_id": row["entity_id"],
+            "time": _period_to_year_int(row["time"]),
+            "value": row["value"],
+            "source_id": source_id,
+        })
+    return by_variable
+
+
+def emit_csv_variables(
+    *, repo_root: Path, by_variable: dict[str, list[dict[str, Any]]]
+) -> tuple[Path, ...]:
+    """Write each `variable_id` to `datasets/data/datapoints/geo/<id>.csv`."""
+    written: list[Path] = []
+    out_dir = repo_root / _CSV_OUT_REL_DIR
+    for variable_id, rows in sorted(by_variable.items()):
+        path = write_csv(
+            path=out_dir / f"{variable_id}.csv",
+            file_class=_CSV_FILE_CLASS,
+            rows=rows,
+        )
+        written.append(path)
+    return tuple(written)
+
+
+def _emit_csv_for(
+    *,
+    repo_root: Path,
+    parsed_rows: list[dict[str, Any]],
+    title: str,
+    variable_prefix: str,
+) -> tuple[Path, ...]:
+    """Canonical CSV emission ALONGSIDE the legacy meadow/indicator JSON.
+
+    B1.4.2 - both stores coexist (parent plan section 23.1); reader flip is
+    X1a. ``source_id`` derived via ADR-0042 from (producer, title, vintage);
+    one ``variable_id`` per facet (csv_writer facet-column support deferred).
+    """
+    source_id = derive_source_id(_CSV_SOURCE_PRODUCER, title, _CSV_SOURCE_VINTAGE)
+    by_variable = build_csv_variables(
+        parsed_rows, source_id=source_id, variable_prefix=variable_prefix
+    )
+    return emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+
+
 def _emit(
     *,
     repo_root: Path,
@@ -293,15 +428,20 @@ def ingest_iced_macro(*, repo_root: Path, client: IcedClient | None = None) -> I
     gdp_resp = client.get("/economy-demography/key-economic-indicators/gdp-trend")
     gdp_src = [Source(url=gdp_resp.url, fetched_at=gdp_resp.fetched_at)]
     gdp_parsed = parse_gdp_trend(gdp_resp.decrypted)
+    gdp_rows = list(gdp_parsed.national) + list(gdp_parsed.state)
     results.append(_emit(
         repo_root=repo_root, schema_for_validation=schema_for_validation,
         schema_id_str=sid, schema_version_str=sver,
         indicator_meta=_indicator_gdp(),
-        rows=list(gdp_parsed.national) + list(gdp_parsed.state),
+        rows=gdp_rows,
         sources=gdp_src, out_rel="datasets/indicators/in/economy/gdp_inr_crore.json",
         spatial="India (national + states + UTs)",
         skipped_unmapped=gdp_parsed.skipped_unmapped,
     ))
+    _emit_csv_for(
+        repo_root=repo_root, parsed_rows=gdp_rows,
+        title=_CSV_SOURCE_TITLE_GDP, variable_prefix=_CSV_VARIABLE_PREFIX_GDP,
+    )
 
     # IIP
     iip_resp = client.get("/economy-demography/key-economic-indicators/industrial-production")
@@ -314,6 +454,10 @@ def ingest_iced_macro(*, repo_root: Path, client: IcedClient | None = None) -> I
         out_rel="datasets/indicators/in/economy/iip_index.json",
         spatial="India (national)",
     ))
+    _emit_csv_for(
+        repo_root=repo_root, parsed_rows=iip_rows,
+        title=_CSV_SOURCE_TITLE_IIP, variable_prefix=_CSV_VARIABLE_PREFIX_IIP,
+    )
 
     # GVA national constant
     gva_resp = client.get("/economy-demography/key-economic-indicators/gva-trend")
@@ -326,6 +470,10 @@ def ingest_iced_macro(*, repo_root: Path, client: IcedClient | None = None) -> I
         out_rel="datasets/indicators/in/economy/gva_by_industry_constant_inr_crore.json",
         spatial="India (national)",
     ))
+    _emit_csv_for(
+        repo_root=repo_root, parsed_rows=gva_rows,
+        title=_CSV_SOURCE_TITLE_GVA, variable_prefix=_CSV_VARIABLE_PREFIX_GVA,
+    )
 
     # External-sector balance (BoP)
     bop_resp = client.get("/economy-demography/key-economic-indicators/balance-trendline")
@@ -338,6 +486,10 @@ def ingest_iced_macro(*, repo_root: Path, client: IcedClient | None = None) -> I
         out_rel="datasets/indicators/in/economy/india_external_balance_inr_crore.json",
         spatial="India (national)",
     ))
+    _emit_csv_for(
+        repo_root=repo_root, parsed_rows=bop_rows,
+        title=_CSV_SOURCE_TITLE_BOP, variable_prefix=_CSV_VARIABLE_PREFIX_BOP,
+    )
 
     # PR-A5a: derive orchestrator fetched_at from upstream per-fetch timestamps
     # instead of wall-clock datetime.now(). Deterministic given deterministic
