@@ -1,0 +1,137 @@
+# URL grammar - ADR receipts (place-first cascade + drop `/india/` prefix + rejected hash-routing)
+
+**Last Updated**: 2026-06-04
+
+This page is the keep-receipts home for the project's URL grammar decisions per [parent plan section 9](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) (Hans-finalised 2026-06-03) and [decision-index.md](../../reference/decision-index.md). It carries the condensed Context + Decision + Consequences for the two live ADRs that lock the grammar (0028 + 0037) and the verbatim rejected-alternatives traces for both the live and the archived ADRs (0028, 0037, and archived 0016-frontend-hash-routing). The operational form of the route resolver lives in the sibling subsystem doc [routing.md](routing.md); this page carries only the architectural-decision receipts.
+
+> **DOCTRINE NOTE (2026-06-04, plan section 22.7).** The URL grammar (place-first cascade, flat indicator slug, path routing on Pages, no-vintage-in-URL, 5-way namespace disjointness, full-name state slug, entity-type page chrome) survives the canonical-store CSV cutover unchanged. URLs are a citizen contract and a frontend concern; the underlying storage format does not reach them. What MIGRATES is the read seam (`read_csv(columns=...)` over long-format CSV under `datasets/data/` rather than over the retiring Parquet tree per plan chunks F1 / X1a); the URL grammar's load-bearing invariants (OWID-alignment, Wikipedia-alignment on slug-as-entity, read-aloud test, one-segment state-swap) are invariant to the storage format.
+
+## Design rationale
+
+This section folds in the receipts from the originating `docs/architecture/decisions/` ADRs that pinned the URL grammar for this project, per parent plan section 9 (keep-receipts ADR retirement) and [decision-index.md](../../reference/decision-index.md). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives). The archived [ADR-0016 (frontend-hash-routing)](../../archive/decisions/0016-frontend-hash-routing.md) trace also lives in that section per [decision-index.md](../../reference/decision-index.md).
+
+### ADR-0028: url-scheme-place-first-flat-indicator-slug
+
+**Context.** Two design pressures converged. (1) Country-entity routes were about to land as `/c/<country>/...`, forcing a decision on whether to mirror the existing `/s/<state>/...` shape or rewrite to a uniform marker-prefixed cascade `/c/<country>/s/<state>/[d/<district>|ac/<seat>]/i/<id>`. (2) User direction (verbatim, 2026-05-17): "we are over complicating. Country can directly be India... slash India slash delhi and then the constituency under that... I would prefer not to have the number prefix... I like Max's opinion because the scale at OWID works." Five voices were consulted (Gregor architect, Fowler engineer, Jony UI/UX, Hans governance, Max indicator-scout). The user also explicitly directed: codify "align with OWID standards" as a fallback doctrine so future conflicts on URL / indicator-id / granularity / discoverability resolve to "what does Our World in Data do?" rather than re-debate. That doctrine lives in [owid-alignment.md](../../concepts/owid-alignment.md); ADR-0028 is its first concrete application.
+
+**Decision.** Place-first cascade, marker-less, with the indicator as the optional last segment of any cascade. Slug is flat (one path segment per indicator). Path routing on GitHub Pages via the standard `404.html -> index.html` SPA shim. ADR-0016 is superseded for the routing-mode question.
+
+**Route grammar (as originally drafted, later amended by ADR-0037 to drop the `/india/` prefix).**
+
+| Surface | URL (ADR-0028 draft) |
+|---|---|
+| Country home | `/india` |
+| State | `/india/tamil-nadu` |
+| District | `/india/tamil-nadu/chennai` |
+| AC | `/india/tamil-nadu/mylapore` |
+| Indicator @ national | `/india/installed-capacity` |
+| Indicator @ state | `/india/tamil-nadu/installed-capacity` |
+| Indicator @ AC | `/india/tamil-nadu/mylapore/installed-capacity` |
+
+The final shipped grammar is recorded under [ADR-0037 below](#adr-0037-url-grammar-drop-india-prefix); the operational form sits in [routing.md](routing.md).
+
+**Resolution contract.** The router walks the path from `/india` left-to-right, consulting the geography registry at each segment. When the next segment is NOT a known sub-geography of the current node, it consults the indicator-slug registry. If the segment is in neither, the result is a real 404. Geography registries: `datasets/taxonomy/entities.json` (filter `entity_type IN ('state','ut') AND entity_valid_to IS NULL` for the state list; `entity_type='district'` for the district list), ECI per-state constituency lists. Indicator-slug registry: derived field on the existing `datasets/reference/in/indicators-completeness.json` - maps `url_slug` -> canonical indicator id (e.g. `installed-capacity` -> `power/installed-capacity`). One Tier-A contract test (CLAUDE.md section 15) enforces: `indicator_slugs` are disjoint from the union of `{state_slugs, district_slugs, ac_slugs, RESERVED_SEGMENTS}` where `RESERVED_SEGMENTS = ["india", "indicator", "compare", "explore", "about", "disclaimer", "data-completeness"]`. The test reads the registries and asserts the set intersection is empty.
+
+**AC slug shape.** Name-only, no number prefix (the prior `167-mylapore` form is dropped). The ECI code (`S22-167`) remains the canonical identifier in data; the URL slug is the AC name slugified. If two ACs in the same state ever share a name (rare), the second emits as `<name>-2`, enforced by the emit-time slug-uniqueness check. ECI guarantees per-state name uniqueness in current rolls; the fallback exists only for delimitation edge cases.
+
+**Indicator slug shape.** Flat single segment, not the producer-side slash hierarchy. Producer keeps `<topic>/<leaf>` IDs (e.g. `power/installed-capacity`) for storage and the indicator catalogue. The URL slug is a registry-backed projection (`installed-capacity`) resolved at route time. Per Max's OWID precedent: OWID at ~10,000 indicators uses flat slugs (`/grapher/co2-emissions-per-capita`, not `/environment/emissions/...`) precisely because retaxonomising a topic tree is destructive to URL stability, and URL stability is a citizen-trust contract. Topic discovery lives in the IA layer (topic hubs, faceted search, breadcrumbs), not the URL spine.
+
+**Vintage in URL.** No. Per Hans: putting vintage in the path freezes a shared link to a vintage the sharer didn't consciously choose and invites silent cross-vintage comparisons across methodology breaks. Latest by default; `?as_of=<vintage>` permitted only for citation/replication, never as the canonical share link.
+
+**Hash routing.** Rejected. Path routing on GitHub Pages via the `404.html -> index.html` shim is the OWID-standard pattern and is widely-solved (~5 lines). Hash routing breaks link unfurls (Telegram/WhatsApp/Slack OG scrapers see only `/`), is inconsistently indexed by search engines, and reads as "broken" to citizens copying URLs. ADR-0016's "perpetual footgun" framing of the shim was wrong at present scale (~50 routes growing to ~5,400 once indicator-in-path lands).
+
+**Migration of existing routes.** All existing `/s/<state>/...` and hash-routed URLs get rewritten. The strangler-fig component issues a client-side redirect (`replaceState`) on legacy URL match for one release cycle, then is deleted. External bookmarks and search-engine index entries are real consumers - the 20-line redirect is cheaper than link rot.
+
+**Five-voice digest (convergence and dissent).** Agreed (all five): path routing not hash; no `/topic/<topic>/<indicator>` middle segment; no vintage in URL; geography cascade marker-less. Gregor (architect): preferred a single `/i/` marker mid-cascade for content-based-router honesty - dissolved by Max's flat slug (when the indicator is always the last segment, position disambiguates without a marker). Fowler (engineer): preferred `/i/` marker on engineering-cost grounds (one collision class vs many) - dissolved by the same flat-slug move (collision class collapses to one Tier-A contract test against three registries). Jony (UI/UX): marker-less, paths-not-hashes, flatten the indicator id, preserve cascade. Read-aloud test: "India, Tamil Nadu, installed capacity" - three nouns, no scaffolding. Hans (governance): marker-less enables one-segment state-swap (`tamil-nadu` -> `kerala`) for journalist comparison flows. No vintage in URL. Max (indicator scout, swing vote): OWID at 10x our target scale uses flat slugs. Topic prefix in URL is fragile under indicator re-homing. Producer-side `<topic>/<leaf>` ID is namespace, not taxonomy; flat URL slug is the citizen-trust contract.
+
+**Consequences.** URL is OWID-aligned where it matters (flat indicator slug, path routing, URL stability over taxonomy purity). One-segment state-swap supports journalist comparison flows. Indicator slug is opaque to topic re-homing (rename topic without breaking citizen URLs). Read-aloud test passes for every URL in the grammar. Collision detection is one Tier-A contract test reading three registries. Negatives: 404.html shim is now mandatory on GitHub Pages (operational cost: ~5 lines, one-time); producer-side indicator id (`power/installed-capacity`) does not equal URL slug (`installed-capacity`), so registry lookup is load-bearing at route time and at emit time; indicator slugs must be globally unique - if two topics ever want `installed-capacity`, one renames (emit-time test catches this); all existing URLs change, one-release redirect window covers bookmarks and search-engine index entries.
+
+### ADR-0037: url-grammar-drop-india-prefix
+
+**Context.** ADR-0028 (2026-05-17) locked `/india/<state>/<ac>/<indicator>` as the canonical URL grammar after the five-voice debate above. The decision was correct at the time and was endorsed by the user verbatim. In practice, ADR-0028 was never implemented: the codebase shipped `/s/<state>/...` instead (the legacy `RedirectLegacyUrl.svelte` strangler-fig target became the live grammar). PR #172 (2026-05-25) audited and locked the shipped `/s/<state>/...` shape into a 42-test contract - codifying drift without resolving it. On 2026-05-25 the user re-opened the question: "Having nicer URLs is important. In fact I thought it would be just an estate slug name, not even the slash-yes-slash-state. So can you have a conversation debate with all the agents together not independently and then come up to conclusion plan of how this thing can be tracked and updated. So we put this to rest one way or the other." ADR-0037 records the resolution.
+
+**Decision.** Drop the `/india/` segment from ADR-0028's grammar. The state slug sits at the URL root. Everything else about ADR-0028 stands.
+
+**Final route grammar (as shipped; the binding citizen contract).**
+
+| Surface | URL |
+|---|---|
+| Country home | `/` |
+| State hub | `/tamil-nadu` |
+| AC | `/tamil-nadu/mylapore` (pure name, no `167-` prefix per ADR-0028 AC-slug) |
+| District (when renderer ships) | `/tamil-nadu/chennai` |
+| Indicator @ national | `/installed-capacity` |
+| Indicator @ state | `/tamil-nadu/installed-capacity` |
+| Indicator @ AC | `/tamil-nadu/mylapore/installed-capacity` |
+| Topic index | `/t` |
+| Topic landing | `/t/energy` |
+| Per-state topic | `/tamil-nadu/t/energy` |
+| Party-in-state | `/tamil-nadu/party/<slug>` |
+| State explore | `/tamil-nadu/explore` |
+| Election lab | `/lab/<state>/<event>` (existing surface; not relocated) |
+| Election compare | `/compare/<state>/<event>` (existing surface; not relocated) |
+| Cross-state indicator compare | `/installed-capacity` with compare-mode tab (Phase 3+) |
+| Chrome | `/about`, `/settings`, `/disclaimer`, `/data-completeness`, `/compare` |
+
+**Reserved positional tokens.** `RESERVED = ["t", "compare", "about", "settings", "disclaimer", "data-completeness", "lab", "dev", "s", "ac", "party", "i", "explore"]`. No state slug, topic slug, indicator slug, or AC slug may equal any reserved token. The last six are retained reservations (`s`, `ac`, `party`, `explore` = legacy-redirect anchors; `i` = pre-reserved fallback for the future indicator-marker retrofit; `dev` = the existing dev-only Vite alias).
+
+**Strengthened collision invariant.** ADR-0028's contract was `indicator_slugs` disjoint from the union of `{state_slugs, district_slugs, ac_slugs, RESERVED_SEGMENTS}`. This ADR strengthens it to 5-way pairwise disjointness: the set `{urlIndicatorSlugs, stateSlugs, topicSlugs, acSlugsAcrossAllStates, RESERVED}` is pairwise disjoint. `topicSlugs` was implicit in ADR-0028 (topics lived under `/india/<state>` so couldn't collide); without the `/india/` prefix topics need explicit guarding. `acSlugsAcrossAllStates` is the largest namespace (~4,123 names) and was missing from the disjointness rule as drafted; AC names include common nouns (`central`, `north`, `south`, `kalyan`) that will collide with future indicator slugs.
+
+**Full-name state slug invariant (new).** Every state slug MUST be the slugified full English `display_name`. `/uttar-pradesh` not `/up`. `/madhya-pradesh` not `/mp`. Two precedents converge on this: Wikipedia (`/wiki/Uttar_Pradesh`) and data.gov.in (`/uttar-pradesh`) are the two URL surfaces a citizen has actually been trained on; ECI's `S24` and MoSPI's `UP` are URLs the citizen never reads. All 36 current state slugs derived from `datasets/taxonomy/entities.json` already meet this invariant; the test is a regression guard.
+
+**Page chrome must carry entity-type framing.** The URL `/<state>` reads as a place-fact (Wikipedia-trained mental model). For constitutional honesty (Delhi is NCT-UT not state; J&K became UT in 2019; Chandigarh + Lakshadweep + Ladakh are UTs without legislature), the state-hub page MUST render an `entity_type` badge (state | UT) under the H1 with the legislative-scope note where applicable, per [ADR-0022 place-first-ia constitutional-honesty rule](../../concepts/place-first-ia.md#adr-0022-place-first-ia-with-topic-catalogue). The URL alone cannot carry this; the page chrome closes it.
+
+**Missing-scope behaviour.** When a citizen visits `/tamil-nadu/<indicator>` for an indicator that exists in the catalogue but has no state-scope rows: render a stub with a one-click deep link to the nearest scope where the indicator is published. Never silent-redirect. Never 404. OWID precedent: `/grapher/<slug>?country=ATA` renders chart frame with "No data for this entity" and the country-picker visible. Wikipedia precedent: redlinks. The stub names the missing thing honestly: "installed-capacity (Tamil Nadu) - not published at state scope. See national: /installed-capacity."
+
+**Cross-state indicator-compare surface.** Lives on the indicator page itself, not at `/compare/<indicator>`. OWID precedent: `/grapher/co2-emissions-per-capita` IS the compare surface - the country-picker is a control on the chart, not a separate URL. The existing election-compare surface at `/compare/<state>/<event>` is a different beast (compares one event outcome across many states) and stays. The cross-state indicator-compare lands in Phase 3+ as a compare-mode tab on the indicator page.
+
+**Three-voice digest (Jony -> Hans -> Max, each voice seeing the previous binding output).** Jony (UI/UX, section 0a authority on URL grammar): chose Grammar A. Read-aloud test: "Tamil Nadu, Mylapore, installed capacity" - three nouns, zero scaffolding. ADR-0028's `/india/` was scaffolding for never-built country-multi-tenancy on a `.in` domain. Self-objection on link-rot blast radius was deemed acceptable: yen-gov has approximately zero external citations today; cost of change grows monotonically with every shared link, so do it now. Hans (governance): ratified A. Added full-name slug invariant (Wikipedia + data.gov.in are the trained precedents; ECI codes + MoSPI abbreviations are negative precedents). Added entity-type badge constraint on page chrome. WhatsApp-forward citizen test: URL names what the page IS, not how the site is organised. Methodology-break survival (Telangana from AP, 2014) is mildly better under A because URL carries the semantic mismatch. Max (indicator scout, OWID precedent): ratified A with one amendment - strengthen the collision invariant to include `acSlugs` (largest namespace, was missing). Missing-scope = stub-not-redirect-not-404 per OWID precedent. Cross-state compare collapses into indicator page per OWID precedent. 10k-indicator scaling estimate: collision-safe today but fragile at OWID scale; threshold for the `/i/<slug>` reserved-marker retrofit is empirical, estimated `N = 800 to 2000` indicator slugs. Do NOT pre-ship the marker; ship the Tier-A disjointness test that signals when retrofit is due.
+
+**Migration (four-phase strangler-fig).** Phase 1 (shipped PR #173): create `links.ts` with Grammar A builders + three Tier-A tests (links shape, 3-way namespace disjointness, full-name state-slug invariant). Zero call-site migration. PR #172's 42-test contract stays green. The `paths.ts` module name is already taken by the runtime `DATA_BASE` prefix helper (unrelated concern); the new route-URL builders live in `links.ts` so the two responsibilities stay separated. Phase 2: add Grammar A routes alongside `/s/*` in `main.ts`. Internal `<a href>` callers migrate component-by-component from `url.ts` to `links.ts`. AC slug shape change ships here. AC namespace (4,112 names) joins the disjointness contract. Phase 3: `RedirectLegacyUrl.svelte` rewrites `/s/<state>*` to Grammar A. Cross-state compare collapses into indicator page. `url_slug` field on `taxonomy/indicators.parquet` lands here (per Max-3i). Indicator slugs join the disjointness contract - the 5-way invariant becomes fully asserted. Phase 4: delete `/s/*` routes, `url.ts` legacy builders, PR #172's 42-test contract. Replace with Grammar A equivalents. Redirect retained one release cycle then deleted in 4b.
+
+**Consequences.** URL is OWID-aligned on the load-bearing dimension (flat indicator slug, place-first cascade, path routing) AND Wikipedia-aligned on the slug-as-entity dimension (the URL names what the page IS). One-segment state-swap (`/tamil-nadu/<indicator>` -> `/kerala/<indicator>`) survives. Read-aloud test passes for every URL in the grammar. Entity-rename/split survival is mildly better than the shipped Grammar B because URL is human-debuggable. Collision detection is one Tier-A contract test reading four registries; failure mode is "rename the colliding slug, never add an exception." Negatives: all shipped `/s/<state>/*` URLs change - strangler-fig redirect (Phase 3) covers one release cycle then is deleted in Phase 4b; external citations created during Phase 2/3 window risk link-rot when the redirect retires. PR #172's 42-test contract on the `/s/<state>` shape becomes Phase 4 deletion target. AC slug shape change (`167-mylapore` -> `mylapore`) requires resolver to look up AC by name not number. Per-state topic URL shape (`/<state>/t/<topic>` vs alternatives) is a deferred user-gate question.
+
+## Rejected alternatives
+
+This section preserves the rejected-alternatives receipts for the ADRs whose rationale is folded above, verbatim and append-only per [parent plan section 9](../../../TODO/20260603-data-and-charting-platform-reset-plan.md). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` (or `#adr-NNNN-<disambiguator>-rejected-alternatives` for the disambiguated 0016) for the redirect index. The archived [ADR-0016 frontend-hash-routing](../../archive/decisions/0016-frontend-hash-routing.md) trace lives here per [decision-index.md](../../reference/decision-index.md) (the archived body is preserved verbatim under `docs/archive/decisions/`).
+
+### ADR-0028 rejected alternatives
+
+Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-receipts).
+
+1. **Original `/c/<country>/s/<state>/[d|ac]/<seat>/i/<id>` cascade.** Rejected by user as "over complicating"; markers don't earn their place when slug shapes already disambiguate.
+2. **`?i=<indicator>` query-string projection.** Rejected by user explicitly - indicator must live in the path.
+3. **`/i/<indicator-id>` reserved-marker scheme (Gregor + Fowler round 2).** Dissolved by flat-slug move; also not OWID-aligned (OWID never uses a positional mid-cascade marker).
+4. **Hash routing per ADR-0016.** Rejected - OWID-divergence on the most-visible surface; Jony's read-aloud test fails ("hash slash India"); link unfurl broken. See also [ADR-0016 frontend rejected alternatives below](#adr-0016-frontend-rejected-alternatives) for the archived hash-routing trace; path routing on Pages adopted per ADR-0028.
+5. **AC number prefix `167-mylapore`.** Rejected by user - citizen does not navigate by ECI number.
+6. **Preserve indicator slash hierarchy in path (`/india/tamil-nadu/power/installed-capacity`).** Rejected - Max's OWID precedent: topic re-homing breaks URL stability; flat slug is the durability bet.
+
+### ADR-0037 rejected alternatives
+
+Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-receipts).
+
+1. **Keep ADR-0028 verbatim (`/india/<state>/...`).** Rejected - on a `.in` domain `/india/` reads as a stutter; yen-gov is India-only by [CLAUDE.md section 0 non-goals](../../../CLAUDE.md); paying one segment of URL tax on every page for an optionality we don't have is what gets deleted.
+2. **Keep the shipped `/s/<state>/...` grammar (Grammar B).** Rejected - `/s/` and `/ac/` are positional markers that don't disambiguate (state slugs are disjoint from AC slugs by construction); markers that don't disambiguate read as scaffolding.
+3. **Hive partition form `/s/in_s33/167/...`.** Rejected - Hive partition keys are a filesystem dialect, not a citizen sentence; already rejected by `frontend/src/lib/slug.ts` and not re-litigated.
+4. **Topic landing at root (`/energy` not `/t/energy`).** Rejected - even when topic slugs don't collide with state slugs today (they don't: `energy`, `fiscal`, `health` vs `tamil-nadu`, `gujarat`), dropping `/t/` forces the root resolver to consult three registries per navigation AND makes every future topic-name addition a state-collision audit. The 2 characters of `/t/` buy permanent topic-namespace freedom.
+5. **Per-state topic at `/<state>/<topic>` (flattening the per-state `/t/`).** Deferred - Phase 1 `links.ts` ships `/<state>/t/<topic>`. Decision needed before Phase 2 route-table change.
+
+### ADR-0016 frontend rejected alternatives
+
+Verbatim from the archived [ADR-0016 frontend-hash-routing](../../archive/decisions/0016-frontend-hash-routing.md) (body preserved verbatim under `docs/archive/decisions/`). Append-only per parent plan section 9 (keep-receipts). ADR-0016 itself is superseded by ADR-0028 on the routing-mode question (path routing on GitHub Pages via the standard `404.html -> index.html` SPA shim). Hash-routing on the frontend is the rejected approach folded here per [decision-index.md](../../reference/decision-index.md). The receipt is preserved as a guard against re-litigation (a future agent proposing hash routing as a hedge against the 404.html shim should land here first).
+
+- **svelte-routing / svelte-spa-router (rejected at ADR-0016 time as router-lib choice).** Viable, but adds a dependency and an opinion (slot-based routing, named params with `:slug` syntax, etc.) for a 4-route app. Rejected on YAGNI. (Context-of-rejection note: when ADR-0028 superseded the routing-mode decision, the project DID adopt `svelte-spa-router` for its pattern-based dispatch - the YAGNI rejection at the 4-route scale flipped at the 50-route scale, which is the same logic that flipped the 404.html shim.)
+- **SvelteKit with adapter-static (rejected at ADR-0016 time).** Gives us file-system routing and SSG. Rejected because (a) Holy Law #1 forbids assuming any backend, and adapter-static is a heavy migration path; (b) we already have a working Vite + plain-Svelte setup; (c) routing is the only thing SvelteKit would buy us right now. This rejection still stands at ADR-0028 time and beyond - the project remains Vite + plain-Svelte for the canonical SPA setup.
+- **History-mode custom router + 404.html shim (rejected at ADR-0016 time; ADOPTED by ADR-0028).** Pretty URLs, but every deep-link load goes through a redirect. Rejected on the brittleness called out in Context. (Context-of-rejection note: ADR-0028 explicitly reverses this rejection - the shim's "perpetual footgun" framing was wrong at present scale, and the OWID precedent + the shareability contract make path routing the load-bearing choice. The 5-line shim cost is less than the link-unfurl cost of hash routing. This bullet remains as the original rejected alternative for trace integrity.)
+- **Hash routing itself (the ADR-0016 decision, now superseded).** Rejected by ADR-0028 on three grounds preserved here for the trace: (i) breaks link unfurls (Telegram/WhatsApp/Slack OG scrapers see only `/`); (ii) inconsistently indexed by search engines; (iii) reads as "broken" to citizens copying URLs. Jony's read-aloud test fails for hash routing ("hash slash India"). One-release-cycle strangler-fig redirect (`#/...` -> path form) covers the migration; deleted after.
+
+## See also
+
+- [docs/architecture/frontend/routing.md](routing.md) - the operational route resolver (router patterns, registry lookups, RESERVED_PATH_TOKENS, missing-scope stub behaviour).
+- [docs/concepts/place-first-ia.md](../../concepts/place-first-ia.md) - the IA spine (ADR-0022) that this URL grammar implements at the route layer.
+- [docs/concepts/owid-alignment.md](../../concepts/owid-alignment.md) - the fallback doctrine that this URL grammar exemplifies (and re-applies at ADR-0037).
+- [archived ADR-0016 - frontend-hash-routing](../../archive/decisions/0016-frontend-hash-routing.md) - body preserved verbatim; rejected-alternatives trace folded above.
+- [decision-index.md](../../reference/decision-index.md) - the redirect index pinning every ADR to its new doc anchor.
+- [frontend/src/lib/links.ts](../../../frontend/src/lib/links.ts) - Grammar A builders (Phase 1 of ADR-0037).
+- [frontend/src/contracts/url-namespace-disjointness.test.ts](../../../frontend/src/contracts/url-namespace-disjointness.test.ts) - the namespace disjointness Tier-A contract test.
+- [frontend/src/contracts/state-slugs-full-name.test.ts](../../../frontend/src/contracts/state-slugs-full-name.test.ts) - the full-name state-slug invariant Tier-A contract test.

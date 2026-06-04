@@ -164,5 +164,5 @@ The `RootResolver` consults RESERVED + state-registry + indicator-registry to de
 
 - [ADR-0028 — URL scheme](../decisions/0028-url-scheme-place-first-flat-indicator-slug.md) — amended on the country-prefix question.
 - [ADR-0037 — drop /india/ prefix](../decisions/0037-url-grammar-drop-india-prefix.md) — the binding 2026-05-25 amendment; carries the three-voice digest, the four-phase plan, and the open user-gate questions.
-- [ADR-0016 — hash routing](../decisions/0016-frontend-hash-routing.md) — superseded.
+- [ADR-0016 — hash routing](../../archive/decisions/0016-frontend-hash-routing.md) — superseded (archived 2026-06-04 per D-DOC3.6; trace folded into [url-grammar.md](url-grammar.md#adr-0016-frontend-rejected-alternatives)).
 - [docs/concepts/owid-alignment.md](../../concepts/owid-alignment.md) — the fallback doctrine this scheme exemplifies.
