@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-06-04
 **Parent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) chunk B1
-**Status**: COMPLETE (closed by PR #_pending_ on 2026-06-04; parent B1 row flipped to MERGED)
+**Status**: COMPLETE (closed by PR #670 on 2026-06-04; parent B1 row flipped to MERGED)
 **Authority**: Hans + Max (data shape, columns.json) / Gregor (contract surface, writer API) per CLAUDE.md section 0a
 
 ---
@@ -35,7 +35,7 @@ Out of scope (other chunks): emitting actual entity/catalogue CSVs from existing
 | B1.4 ingest re-point wave 1 (`sources/iced_*`) | B1.2, B1.3 | suite-green | #644 | MERGED (sub-plan archived at [docs/archive/plans/20260604-b1.4-iced-repoint-subplan.md](20260604-b1.4-iced-repoint-subplan.md); ten sub-rows B1.4.0..9 + B1.4.X shipped as PRs #634-#644) |
 | B1.5 ingest re-point wave 2 (`sources/rbi_*`) | B1.2, B1.3 | suite-green | #645 | MERGED (sub-plan archived at [docs/archive/plans/20260604-b1.5-rbi-repoint-subplan.md](20260604-b1.5-rbi-repoint-subplan.md); seven sub-rows B1.5.0..5 + B1.5.X shipped as PRs #645-#655 + closure) |
 | B1.6 ingest re-point wave 3 (`sources/cea_*`, `sources/datagovin_ogd`, `sources/india_geodata`, `pipeline/*`, `cli.py`, `canonical/adapters/eci_ae_panel.py`) | B1.2, B1.3 | suite-green | #669 | MERGED ([docs/archive/plans/20260604-b1.6-misc-repoint-subplan.md](20260604-b1.6-misc-repoint-subplan.md); seven family sub-rows B1.6.0..7 + B1.6.X closure) |
-| B1.7 close sub-plan: parent B1 row -> MERGED + stamp final PR# + distil into [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md); archive this file to `docs/archive/plans/` | B1.4, B1.5, B1.6 | docs-review | #_pending_ | MERGED |
+| B1.7 close sub-plan: parent B1 row -> MERGED + stamp final PR# + distil into [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md); archive this file to `docs/archive/plans/` | B1.4, B1.5, B1.6 | docs-review | #670 | MERGED |
 
 Waves 1-3 are parallel-safe (independent file sets, same writer API surface).
 
@@ -109,7 +109,7 @@ All seven sub-rows shipped. Per-row PR distillation map:
 | B1.4 ingest re-point wave 1 (iced_*) | #644 | [20260604-b1.4-iced-repoint-subplan.md](20260604-b1.4-iced-repoint-subplan.md) (ten sub-rows B1.4.0..9 + closure, PRs #634-#644) |
 | B1.5 ingest re-point wave 2 (rbi_*) | #656 | [20260604-b1.5-rbi-repoint-subplan.md](20260604-b1.5-rbi-repoint-subplan.md) (seven sub-rows + closure, PRs #645-#656) |
 | B1.6 ingest re-point wave 3 (misc + alongside-NEITHER) | #669 | [20260604-b1.6-misc-repoint-subplan.md](20260604-b1.6-misc-repoint-subplan.md) (nine sub-rows + closure, PRs #657-#669) |
-| B1.7 close sub-plan + archive + lift distillation | #_pending_ | [../../architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) + this file under `docs/archive/plans/` + parent B1 row flipped to MERGED |
+| B1.7 close sub-plan + archive + lift distillation | #670 | [../../architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) + this file under `docs/archive/plans/` + parent B1 row flipped to MERGED |
 
 Durable architecture distilled to [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) (three-module surface: `csv_columns` + `csv_writer` + `csv_validator`; re-point pattern including alongside-NEITHER carve-out; deferred follow-ups). Grandparent plan section 22.5 ledger row B1 flipped to MERGED in the same PR.
 
