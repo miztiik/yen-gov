@@ -1,8 +1,8 @@
 # B1 sub-plan - CSV writer + per-file validator + ingest re-point
 
 **Last Updated**: 2026-06-04
-**Parent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) chunk B1
-**Status**: ACTIVE (spawned per parent plan section 24.5; parent B1 row flipped to DEFERRED-TO-SUBPLAN on PR merge)
+**Parent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) chunk B1
+**Status**: COMPLETE (closed by PR #_pending_ on 2026-06-04; parent B1 row flipped to MERGED)
 **Authority**: Hans + Max (data shape, columns.json) / Gregor (contract surface, writer API) per CLAUDE.md section 0a
 
 ---
@@ -32,10 +32,10 @@ Out of scope (other chunks): emitting actual entity/catalogue CSVs from existing
 | B1.1 columns.json artifact (+ loader) | - | schema-of-schemas-valid | #629 | MERGED |
 | B1.2 csv_writer.py core API + writer unit test | B1.1 | writer-unit | #631 | MERGED |
 | B1.3 csv_validator.py (fk + enum + determinism + `__` ban) + validator unit test | B1.1 | fk-validator | #633 | MERGED |
-| B1.4 ingest re-point wave 1 (`sources/iced_*`) | B1.2, B1.3 | suite-green | #644 | MERGED (sub-plan archived at [docs/archive/plans/20260604-b1.4-iced-repoint-subplan.md](../docs/archive/plans/20260604-b1.4-iced-repoint-subplan.md); ten sub-rows B1.4.0..9 + B1.4.X shipped as PRs #634-#644) |
-| B1.5 ingest re-point wave 2 (`sources/rbi_*`) | B1.2, B1.3 | suite-green | #645 | MERGED (sub-plan archived at [docs/archive/plans/20260604-b1.5-rbi-repoint-subplan.md](../docs/archive/plans/20260604-b1.5-rbi-repoint-subplan.md); seven sub-rows B1.5.0..5 + B1.5.X shipped as PRs #645-#655 + closure) |
-| B1.6 ingest re-point wave 3 (`sources/cea_*`, `sources/datagovin_ogd`, `sources/india_geodata`, `pipeline/*`, `cli.py`, `canonical/adapters/eci_ae_panel.py`) | B1.2, B1.3 | suite-green | #669 | MERGED ([docs/archive/plans/20260604-b1.6-misc-repoint-subplan.md](../docs/archive/plans/20260604-b1.6-misc-repoint-subplan.md); seven family sub-rows B1.6.0..7 + B1.6.X closure) |
-| B1.7 close sub-plan: parent B1 row -> MERGED + stamp final PR# + distil into [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md); archive this file to `docs/archive/plans/` | B1.4, B1.5, B1.6 | docs-review | - | TODO |
+| B1.4 ingest re-point wave 1 (`sources/iced_*`) | B1.2, B1.3 | suite-green | #644 | MERGED (sub-plan archived at [docs/archive/plans/20260604-b1.4-iced-repoint-subplan.md](20260604-b1.4-iced-repoint-subplan.md); ten sub-rows B1.4.0..9 + B1.4.X shipped as PRs #634-#644) |
+| B1.5 ingest re-point wave 2 (`sources/rbi_*`) | B1.2, B1.3 | suite-green | #645 | MERGED (sub-plan archived at [docs/archive/plans/20260604-b1.5-rbi-repoint-subplan.md](20260604-b1.5-rbi-repoint-subplan.md); seven sub-rows B1.5.0..5 + B1.5.X shipped as PRs #645-#655 + closure) |
+| B1.6 ingest re-point wave 3 (`sources/cea_*`, `sources/datagovin_ogd`, `sources/india_geodata`, `pipeline/*`, `cli.py`, `canonical/adapters/eci_ae_panel.py`) | B1.2, B1.3 | suite-green | #669 | MERGED ([docs/archive/plans/20260604-b1.6-misc-repoint-subplan.md](20260604-b1.6-misc-repoint-subplan.md); seven family sub-rows B1.6.0..7 + B1.6.X closure) |
+| B1.7 close sub-plan: parent B1 row -> MERGED + stamp final PR# + distil into [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md); archive this file to `docs/archive/plans/` | B1.4, B1.5, B1.6 | docs-review | #_pending_ | MERGED |
 
 Waves 1-3 are parallel-safe (independent file sets, same writer API surface).
 
@@ -43,7 +43,7 @@ Waves 1-3 are parallel-safe (independent file sets, same writer API surface).
 
 ### B1.1 columns.json artifact
 
-- Authoritative spec lives in [docs/architecture/data/csv-column-contract.md](../docs/architecture/data/csv-column-contract.md) sections 2-4. The on-disk artifact MUST match that spec field-for-field (drift = bug).
+- Authoritative spec lives in [docs/architecture/data/csv-column-contract.md](../../architecture/data/csv-column-contract.md) sections 2-4. The on-disk artifact MUST match that spec field-for-field (drift = bug).
 - File class keys are globs against the canonical tree (e.g. `datasets/data/variables.csv`, `datasets/data/datapoints/geo/*.csv`, `datasets/elections/assembly/state=*/election=*/candidacies.csv`).
 - Per-column shape: `{name, dtype, nullable, pk?, fk?, enum?, derived?}`. Enums are inlined here (single source per csv-column-contract.md section 4).
 - A tiny `_schema/columns.schema.json` (JSON-Schema-of-the-contract) is retained (per plan section 8 / D6 escape-hatch) and validates the columns.json itself at load.
@@ -76,7 +76,7 @@ Per parent plan section 23.1, the existing callers emit JSON via `core/io.write_
 
 - Distil the writer + validator architecture into a new `docs/architecture/backend/canonical-writer.md` (single doc, CSV-only; deletes any inbound link to `canonical/writer.py` Parquet behaviour).
 - Flip parent B1 ledger row to MERGED and stamp the closure PR number.
-- Archive this sub-plan to `docs/archive/plans/20260604-b1-csv-writer-subplan.md` with a "Plan complete" block (per [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md)).
+- Archive this sub-plan to `docs/archive/plans/20260604-b1-csv-writer-subplan.md` with a "Plan complete" block (per [docs/how-to/distill-a-plan.md](../../how-to/distill-a-plan.md)).
 
 ## Contract invariants (inherited from parent 22.4)
 
@@ -97,9 +97,26 @@ Per parent plan section 23.1, the existing callers emit JSON via `core/io.write_
 
 Each sub-row's PR: own gate green + full suite green at merge + ASCII-only + relative POSIX paths + no `[DEBUG]` + no new hardcoding + no new mocks + sub-row ledger flipped to MERGED with PR# stamped in the same PR.
 
+## Plan complete (2026-06-04)
+
+All seven sub-rows shipped. Per-row PR distillation map:
+
+| Sub-row | PR | Distilled output |
+| --- | --- | --- |
+| B1.1 columns.json artifact + loader | #629 | `datasets/data/_schema/columns.json` + `_schema/columns.schema.json` + `backend/yen_gov/canonical/csv_columns.py` |
+| B1.2 csv_writer.py core API + writer unit test | #631 | `backend/yen_gov/canonical/csv_writer.py` + `backend/tests/test_csv_writer.py` |
+| B1.3 csv_validator.py + validator unit test | #633 | `backend/yen_gov/canonical/csv_validator.py` + `backend/tests/test_csv_validator.py` |
+| B1.4 ingest re-point wave 1 (iced_*) | #644 | [20260604-b1.4-iced-repoint-subplan.md](20260604-b1.4-iced-repoint-subplan.md) (ten sub-rows B1.4.0..9 + closure, PRs #634-#644) |
+| B1.5 ingest re-point wave 2 (rbi_*) | #656 | [20260604-b1.5-rbi-repoint-subplan.md](20260604-b1.5-rbi-repoint-subplan.md) (seven sub-rows + closure, PRs #645-#656) |
+| B1.6 ingest re-point wave 3 (misc + alongside-NEITHER) | #669 | [20260604-b1.6-misc-repoint-subplan.md](20260604-b1.6-misc-repoint-subplan.md) (nine sub-rows + closure, PRs #657-#669) |
+| B1.7 close sub-plan + archive + lift distillation | #_pending_ | [../../architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) + this file under `docs/archive/plans/` + parent B1 row flipped to MERGED |
+
+Durable architecture distilled to [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) (three-module surface: `csv_columns` + `csv_writer` + `csv_validator`; re-point pattern including alongside-NEITHER carve-out; deferred follow-ups). Grandparent plan section 22.5 ledger row B1 flipped to MERGED in the same PR.
+
 ## See also
 
-- Parent plan: [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) sections 22 (execution model), 23 (file-level ripple corrections), 24.5 (sub-plan spawning protocol).
-- [docs/architecture/data/csv-column-contract.md](../docs/architecture/data/csv-column-contract.md) - the binding column spec (D-DOC0, PR #627).
-- [CLAUDE.md](../CLAUDE.md) Holy Laws #3, #6, #9, #10; sections 9 (DoD), 12 (provenance).
-- [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md) - the closure ritual B1.7 follows.
+- Parent plan: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) sections 22 (execution model), 23 (file-level ripple corrections), 24.5 (sub-plan spawning protocol).
+- [docs/architecture/data/csv-column-contract.md](../../architecture/data/csv-column-contract.md) - the binding column spec (D-DOC0, PR #627).
+- [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) - the distilled writer + validator architecture doc.
+- [CLAUDE.md](../../../CLAUDE.md) Holy Laws #3, #6, #9, #10; sections 9 (DoD), 12 (provenance).
+- [docs/how-to/distill-a-plan.md](../../how-to/distill-a-plan.md) - the closure ritual B1.7 follows.
