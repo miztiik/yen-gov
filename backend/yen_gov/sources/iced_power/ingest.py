@@ -13,6 +13,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from yen_gov.canonical.citation import derive_source_id
+from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.core.io import Source, write_artifact
 from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
 from yen_gov.sources.iced_common import IcedClient
@@ -22,6 +24,45 @@ from .parsers import (
     parse_power_statistics,
     parse_retired_capacity,
 )
+
+
+# ---------------------------------------------------------------------------
+# Canonical CSV emission constants (B1.4.5)
+# ---------------------------------------------------------------------------
+#
+# All four iced_power indicators are NITI Aayog ICED endpoints
+# (CEA-sourced upstream); vintage = operator snapshot FY per ADR-0042.
+# derive_source_id() hashes the triple at write time; the row in
+# `datasets/data/entities/source.csv` is populated by B2a (sub-plan
+# section "Pre-flight"). variable_ids honour parent plan section 21.6 /
+# 21.12 (no `__`) and ADR-0044 (no grain prefix). Per-facet split because
+# csv_writer does not yet accept facet columns (sub-plan B1.4.1..9 #7).
+# concept_id binding for all four indicators is DEFERRED to B2a;
+# recorded as DEFER marker in the PR body.
+_CSV_FILE_CLASS = "datasets/data/datapoints/geo/*.csv"
+_CSV_OUT_REL_DIR = "datasets/data/datapoints/geo"
+_CSV_SOURCE_PRODUCER = "NITI Aayog India Climate & Energy Dashboard"
+_CSV_SOURCE_VINTAGE = "2024-25"
+
+_CSV_SOURCE_TITLE_CAPACITY = (
+    "State installed capacity by source (capacity-metatable) API"
+)
+_CSV_VARIABLE_PREFIX_CAPACITY = "installed-capacity-mw"
+
+_CSV_SOURCE_TITLE_GEN = (
+    "State electricity generation snapshot (powerStatistics) API"
+)
+_CSV_VARIABLE_PREFIX_GEN = "electricity-generation-snapshot-gwh"
+
+_CSV_SOURCE_TITLE_PEAK = (
+    "State peak electricity demand snapshot (powerStatistics) API"
+)
+_CSV_VARIABLE_PREFIX_PEAK = "peak-electricity-demand-mw"
+
+_CSV_SOURCE_TITLE_RETIRED = (
+    "India thermal capacity retired by source (retired-capacity-plants) API"
+)
+_CSV_VARIABLE_PREFIX_RETIRED = "thermal-capacity-retired-mw"
 
 
 # ---------------------------------------------------------------------------
@@ -240,6 +281,10 @@ class _IndicatorBuild:
     # ``list[dict]`` of canonical rows. For the powerStatistics endpoint
     # we share one fetch between two artifacts via a wrapper.
     extract: Any
+    # B1.4.5 canonical CSV emission: each build also writes per-facet
+    # long-format CSV via yen_gov.canonical.csv_writer.write_csv.
+    csv_source_title: str
+    csv_variable_prefix: str
 
 
 def _all_builds() -> tuple[_IndicatorBuild, ...]:
@@ -255,6 +300,8 @@ def _all_builds() -> tuple[_IndicatorBuild, ...]:
             page_url="https://iced.niti.gov.in/energy/electricity/capacity",
             source_name="ICED — Capacity Metatable (NITI Aayog / CEA)",
             extract=lambda d: parse_capacity_metatable(d)[0],
+            csv_source_title=_CSV_SOURCE_TITLE_CAPACITY,
+            csv_variable_prefix=_CSV_VARIABLE_PREFIX_CAPACITY,
         ),
         _IndicatorBuild(
             out_leaf="state_electricity_generation_by_source_gwh",
@@ -267,6 +314,8 @@ def _all_builds() -> tuple[_IndicatorBuild, ...]:
             page_url="https://iced.niti.gov.in/energy/electricity/power-statistics",
             source_name="ICED — Power Statistics (NITI Aayog)",
             extract=lambda d: parse_power_statistics(d)[0],
+            csv_source_title=_CSV_SOURCE_TITLE_GEN,
+            csv_variable_prefix=_CSV_VARIABLE_PREFIX_GEN,
         ),
         _IndicatorBuild(
             out_leaf="state_peak_electricity_demand_mw",
@@ -279,6 +328,8 @@ def _all_builds() -> tuple[_IndicatorBuild, ...]:
             page_url="https://iced.niti.gov.in/energy/electricity/power-statistics",
             source_name="ICED — Power Statistics (NITI Aayog)",
             extract=lambda d: parse_power_statistics(d)[1],
+            csv_source_title=_CSV_SOURCE_TITLE_PEAK,
+            csv_variable_prefix=_CSV_VARIABLE_PREFIX_PEAK,
         ),
         _IndicatorBuild(
             out_leaf="india_thermal_capacity_retired_mw",
@@ -291,8 +342,117 @@ def _all_builds() -> tuple[_IndicatorBuild, ...]:
             page_url="https://iced.niti.gov.in/energy/electricity/capacity/retired",
             source_name="ICED — Retired Capacity Plants (NITI Aayog / CEA)",
             extract=lambda d: parse_retired_capacity(d),
+            csv_source_title=_CSV_SOURCE_TITLE_RETIRED,
+            csv_variable_prefix=_CSV_VARIABLE_PREFIX_RETIRED,
         ),
     )
+
+
+# ---------------------------------------------------------------------------
+# Canonical CSV emission helpers (B1.4.5)
+# ---------------------------------------------------------------------------
+
+
+def _slug_segment(text: str) -> str:
+    """Kebab-case a facet segment for use inside a ``variable_id``.
+
+    Mirrors helpers in ``iced_ghg/ingest.py`` (B1.4.1, PR #635),
+    ``iced_macro/ingest.py`` (B1.4.2, PR #636),
+    ``iced_fuel/ingest.py`` (B1.4.3, PR #637), and
+    ``iced_metatable/ingest.py`` (B1.4.4, PR #638). Parent plan
+    section 21.6 / 21.12 ban ``__``; ADR-0044 bans grain prefixes.
+    """
+    out: list[str] = []
+    prev_dash = True
+    for ch in text.lower():
+        if ch.isalnum():
+            out.append(ch)
+            prev_dash = False
+        elif not prev_dash:
+            out.append("-")
+            prev_dash = True
+    return "".join(out).strip("-")
+
+
+def _period_to_year_int(period: str) -> int:
+    """Reduce ``YYYY-MM`` to integer fiscal-year start year.
+
+    The canonical CSV column class ``datasets/data/datapoints/geo/*.csv``
+    declares ``time`` as integer; iced_power parsers emit ``YYYY-04``
+    via ``parser_kit.fy_to_period``. Raises on malformed input.
+    """
+    if not (isinstance(period, str) and len(period) >= 4 and period[:4].isdigit()):
+        raise ValueError(f"unexpected time format {period!r}; expected 'YYYY-MM'")
+    return int(period[:4])
+
+
+def build_csv_variables(
+    parsed_rows: list[dict[str, Any]],
+    *,
+    source_id: str,
+    variable_prefix: str,
+) -> dict[str, list[dict[str, Any]]]:
+    """Split parser output into per-facet CSV row lists keyed by ``variable_id``.
+
+    Faceted indicators (capacity, generation, retired) split into one
+    ``variable_id`` per facet value: ``<variable_prefix>-<facet-slug>``.
+    Non-faceted indicators (peak demand) collapse to a single
+    ``variable_id == variable_prefix``. Each output row carries the
+    canonical 4 columns declared on file class
+    ``datasets/data/datapoints/geo/*.csv``: ``entity_id``, ``time``,
+    ``value``, ``source_id``.
+    """
+    by_variable: dict[str, list[dict[str, Any]]] = {}
+    for row in parsed_rows:
+        facet = row.get("facet")
+        if facet is None:
+            variable_id = variable_prefix
+        else:
+            variable_id = f"{variable_prefix}-{_slug_segment(str(facet))}"
+        by_variable.setdefault(variable_id, []).append({
+            "entity_id": row["entity_id"],
+            "time": _period_to_year_int(row["time"]),
+            "value": row["value"],
+            "source_id": source_id,
+        })
+    return by_variable
+
+
+def emit_csv_variables(
+    *, repo_root: Path, by_variable: dict[str, list[dict[str, Any]]]
+) -> tuple[Path, ...]:
+    """Write each ``variable_id`` to ``datasets/data/datapoints/geo/<id>.csv``."""
+    written: list[Path] = []
+    out_dir = repo_root / _CSV_OUT_REL_DIR
+    for variable_id, rows in sorted(by_variable.items()):
+        path = write_csv(
+            path=out_dir / f"{variable_id}.csv",
+            file_class=_CSV_FILE_CLASS,
+            rows=rows,
+        )
+        written.append(path)
+    return tuple(written)
+
+
+def _emit_csv_for(
+    *,
+    repo_root: Path,
+    parsed_rows: list[dict[str, Any]],
+    title: str,
+    variable_prefix: str,
+) -> tuple[Path, ...]:
+    """Canonical CSV emission ALONGSIDE the legacy meadow/indicator JSON.
+
+    B1.4.5 - both stores coexist (parent plan section 23.1); reader flip
+    is X1a. ``source_id`` derived via ADR-0042 from
+    (producer, title, vintage); one ``variable_id`` per facet (csv_writer
+    facet-column support deferred).
+    """
+    source_id = derive_source_id(_CSV_SOURCE_PRODUCER, title, _CSV_SOURCE_VINTAGE)
+    by_variable = build_csv_variables(
+        parsed_rows, source_id=source_id, variable_prefix=variable_prefix
+    )
+    return emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
 
 
 # ---------------------------------------------------------------------------
@@ -384,6 +544,14 @@ def ingest_iced_power(
             payload=payload,
             sources=sources,
             schema_for_validation=schema_doc("indicator.schema.json"),
+        )
+
+        # B1.4.5 - canonical CSV emission alongside legacy artifact.
+        _emit_csv_for(
+            repo_root=repo_root,
+            parsed_rows=rows,
+            title=b.csv_source_title,
+            variable_prefix=b.csv_variable_prefix,
         )
 
         results.append(
