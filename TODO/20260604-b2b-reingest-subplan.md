@@ -40,7 +40,7 @@ Out of scope (other chunks):
 | B2b.2 livestock family CSV reingest (3 parquets) | - | cross-format-parity | #693 | MERGED |
 | B2b.3 governments family CSV reingest (2 parquets; term-shape per 20.4) | - | cross-format-parity | #695 | MERGED |
 | B2b.4 taxonomy datapoint reingest (the parquets B2a left behind: `election_events`, `facet-axes`, `ac_crosswalk`, `indicator_topic_tags`, `methodology_breaks`, `persons`, `state_tiers`) | - | cross-format-parity | - | DEFERRED-TO-SUBPLAN ([TODO/20260604-b2b4-taxonomy-subplan.md](20260604-b2b4-taxonomy-subplan.md); seven sub-sub-rows B2b.4.1=methodology_breaks, B2b.4.2=facet_axes, B2b.4.3=state_tiers, B2b.4.4=election_events, B2b.4.5=indicator_topic_tags, B2b.4.6=ac_crosswalk, B2b.4.7=persons, B2b.4.8=closure) |
-| B2b.5 elections-from-local-TCPD per-election CSV reingest (per 21.3 + 21.4 + 23.4; expected to spawn its own sub-sub-plan given ~37 states x ~5-10 cycles + parliament 1957..2024) | - | cross-format-parity + parity-oracle-CSV (winner+margin invariants only; full oracle rewrite is F1) | - | TODO |
+| B2b.5 elections-from-local-TCPD per-election CSV reingest (per 21.3 + 21.4 + 23.4) | - | cross-format-parity + parity-oracle-CSV (winner+margin invariants only; full oracle rewrite is F1) | - | DEFERRED-TO-SUBPLAN ([TODO/20260604-b2b5-elections-reingest-subplan.md](20260604-b2b5-elections-reingest-subplan.md); six sub-sub-rows B2b.5.1=column-contract, B2b.5.2=TN-pilot, B2b.5.3=assembly-fan-out, B2b.5.4=parliament, B2b.5.5=source-backfill-inline, B2b.5.Z=closure) |
 | B2b.6 close sub-plan: flip parent B2b row to MERGED + stamp closure PR + distil into [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md) section "Datapoint reingest" + archive this sub-plan | B2b.1..B2b.5 | docs-review | - | TODO |
 
 Parallel-safe groups (each `cross-format-parity` runs against a different on-disk family with no shared write target):
@@ -123,7 +123,7 @@ Gates (both, not one):
 
 EL7 (`coverage.py` AC vs PC disposition per 23.4) MUST be resolved in this row's PR body before parliament data is emitted: either extend `coverage.py` to discriminate or scope-fence it to assembly with a doc note. An aggregator silently blind to a whole election class is a latent reporting bug.
 
-Expected to spawn `TODO/20260604-b2b5-elections-reingest-subplan.md` per 24.5: ~37 assembly states x ~5-10 cycles plus parliament 1957..2024 is well over one PR. The spawn pattern matches B2a.
+Spawned as sub-sub-plan [TODO/20260604-b2b5-elections-reingest-subplan.md](20260604-b2b5-elections-reingest-subplan.md) (2026-06-04) per 24.5: ~36 assembly states x N cycles plus parliament 1957..2024 is well over one PR. The corpus audit (42 parquets / ~161.6 MB, one `election_results.parquet` per state-dir + a single root `elections_candidacies.parquet` mixing AC + PC rows) is captured there. The spawn pattern matches B2a and B2b.4.
 
 ### B2b.6 closure
 
