@@ -157,7 +157,7 @@ def validate_csv(
 
     _check_fks(fc, parsed_rows, path=path, repo_root=repo_root, contract=resolved)
 
-    if file_class.startswith(_DATAPOINTS_GLOB):
+    if file_class.startswith(_DATAPOINTS_GLOB) and file_class.endswith("/*.csv"):
         _check_datapoint_filename(fc, path, repo_root=repo_root)
 
 
