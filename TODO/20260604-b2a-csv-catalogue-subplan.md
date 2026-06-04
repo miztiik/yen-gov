@@ -41,7 +41,7 @@ Out of scope (other chunks):
 | B2a.3 concepts.csv from `taxonomy/concepts.json` | - | fk-validator | #677 | MERGED |
 | B2a.4 variables.csv from `taxonomy/indicators.json` (FKs to B2a.1 + B2a.2 + B2a.3) | B2a.1, B2a.2, B2a.3 | fk-validator | #680 | MERGED |
 | B2a.5 entities/geo.csv from `taxonomy/lgd_states.json` + `taxonomy/lgd_districts.json` | - | fk-validator | #678 | MERGED |
-| B2a.6 entities/electoral.csv from `taxonomy/lgd_acs.json` + `taxonomy/lgd_pcs.json` (FK to B2a.5 `state`) | B2a.5 | fk-validator | - | TODO |
+| B2a.6 entities/electoral.csv from `taxonomy/lgd_acs.json` + `taxonomy/lgd_pcs.json` (FK to B2a.5 `state`) | B2a.5 | fk-validator | _pending_ | IN-FLIGHT |
 | B2a.7 entities/electoral_lgd_xwalk.csv from `taxonomy/lgd_ac_pc_district_map.json` (FK to B2a.5 + B2a.6) | B2a.5, B2a.6 | fk-validator | - | TODO |
 | B2a.8 entities/party.csv from `taxonomy/parties.json` | - | fk-validator | - | TODO |
 | B2a.9 close sub-plan: parent B2a row -> MERGED + stamp final PR# + distil into [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md); archive this file to `docs/archive/plans/` | B2a.1..B2a.8 | docs-review | - | TODO |
