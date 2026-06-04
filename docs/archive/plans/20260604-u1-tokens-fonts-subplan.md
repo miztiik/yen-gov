@@ -1,8 +1,8 @@
 # U1 sub-plan - tokens + fonts + retone (the 21.7 modern design system)
 
 **Last Updated**: 2026-06-04
-**Parent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) chunk U1
-**Status**: IN-FLIGHT (2026-06-04, U1.1 merged in PR #714; U1.2 merged in PR #716; U1.3 merged in PR #718; U1.4 ready next)
+**Parent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) chunk U1
+**Status**: COMPLETE (closed 2026-06-04)
 **Authority**: Jony (visual + craft) / Gregor (additive contract) / Andre (Devanagari shaping check) per CLAUDE.md section 0a
 
 ---
@@ -46,7 +46,7 @@ Per CLAUDE.md correction-level discipline (>=4 files structural -> propose break
 | U1.1 tokens (`app-tokens.css` + `main.ts` import + `tailwind.config.js theme.extend` ADDITIVE + drift contract test) | - | build+drift | #714 | MERGED |
 | U1.2 fonts (self-hosted subset variable woff2 + `LICENCES.md` + `@font-face` declarations + Inter-Latin preload) | U1.1 | build+font-load | #716 | MERGED |
 | U1.3 cutover (CDN `<link>` + 2 preconnects already removed in U1.2; flip body font; retone ballot motif comment; tabular-nums on body; Devanagari conjunct render check) | U1.2 | build+visual+devanagari | #718 | MERGED |
-| U1.4 closure (distil to `docs/architecture/frontend/design-system.md`; flip parent U1 row -> MERGED; archive this sub-plan to `docs/archive/plans/`) | U1.1..U1.3 | docs-review | - | TODO |
+| U1.4 closure (distil to `docs/architecture/frontend/design-system.md`; flip parent U1 row -> MERGED; archive this sub-plan to `docs/archive/plans/`) | U1.1..U1.3 | docs-review | #720 | MERGED |
 
 ---
 
@@ -97,11 +97,25 @@ Per CLAUDE.md correction-level discipline (>=4 files structural -> propose break
 
 ---
 
+## Plan complete (2026-06-04)
+
+All four sub-rows shipped. Per-row PR distillation map:
+
+| Sub-row | PR | Distilled output |
+| --- | --- | --- |
+| U1.1 tokens (`app-tokens.css` + Tailwind mirror + drift contract) | #714 | [frontend/src/app-tokens.css](../../../frontend/src/app-tokens.css) + [frontend/tailwind.config.js](../../../frontend/tailwind.config.js) theme.extend + [frontend/src/contracts/app-tokens.test.ts](../../../frontend/src/contracts/app-tokens.test.ts); distilled into [docs/architecture/frontend/design-system.md](../../architecture/frontend/design-system.md) section "Token map" + "Drift contract" |
+| U1.2 fonts (self-hosted Inter / Noto Sans Devanagari / Outfit woff2) | #716 | [frontend/public/fonts/inter-latin.woff2](../../../frontend/public/fonts/) + [noto-sans-devanagari.woff2](../../../frontend/public/fonts/) + [outfit-latin.woff2](../../../frontend/public/fonts/) + [LICENCES.md](../../../frontend/public/fonts/LICENCES.md) + [tools/build_fonts.py](../../../tools/build_fonts.py); distilled into [docs/architecture/frontend/design-system.md](../../architecture/frontend/design-system.md) section "Self-hosted fonts" |
+| U1.3 cutover (body font + tabular-nums + CDN removal + Devanagari smoke) | #718 | [frontend/src/app.css](../../../frontend/src/app.css) body cutover + [frontend/index.html](../../../frontend/index.html) preload + [frontend/e2e/devanagari-conjunct.spec.ts](../../../frontend/e2e/devanagari-conjunct.spec.ts); distilled into [docs/architecture/frontend/design-system.md](../../architecture/frontend/design-system.md) section "Devanagari shaping gate" |
+| U1.4 closure (archive + design-system.md + parent ledger flip) | #720 | this file under `docs/archive/plans/` + parent section 22.5 U1 row flipped to MERGED + [docs/architecture/frontend/design-system.md](../../architecture/frontend/design-system.md) created |
+
+Lessons that did not belong in `docs/` were captured in `/memories/lessons.md` under the U1.1 / U1.2 / U1.3 dated entries (vitest alias caveat, font-subset shaping audit, single-body font-feature-settings delivery, deferred-result Playwright stall workaround, admin-merge convention for stamp PRs).
+
+The ADDITIVE rule (no Tailwind default redefined) means per-component migration (U2..U5) lands one component at a time without blocking on this closure - the token vocabulary is live and ready for consumers.
+
 ## See also
 
-- Parent plan section 21.7 (modern design system token spec, full).
-- Parent plan section 23.5 (frontend design + nav corrections, ADDITIVE rule).
-- Parent plan section 22.6 (gates catalogue, `build+visual+devanagari`).
-- Parent plan section 24.5 (sub-plan spawning shape).
-- CLAUDE.md section 13 (UI verification - in-browser smoke).
-- `/memories/lessons.md` (vitest `$lib` alias caveat - use relative imports in contract tests).
+- Parent: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) sections 21.7 (modern design system token spec, full), 23.5 (frontend design + nav corrections, ADDITIVE rule), 22.6 (gates catalogue, `build+visual+devanagari`), 24.5 (sub-plan spawning shape).
+- Sibling precedents: [docs/archive/plans/20260604-b1-csv-writer-subplan.md](20260604-b1-csv-writer-subplan.md); [docs/archive/plans/20260604-b2a-csv-catalogue-subplan.md](20260604-b2a-csv-catalogue-subplan.md).
+- Distilled: [docs/architecture/frontend/design-system.md](../../architecture/frontend/design-system.md).
+- [CLAUDE.md](../../../CLAUDE.md) Holy Law #1 (static-first), Holy Law #9 (provenance, applied to font LICENCES.md); section 13 (UI verification - in-browser smoke).
+- `/memories/lessons.md` (vitest `$lib` alias caveat - use relative imports in contract tests; font-subset shaping audit; single-body font-feature-settings delivery; deferred-result Playwright stall workaround; admin-merge convention for stamp PRs).
