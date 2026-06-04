@@ -36,7 +36,7 @@ Out of scope (other chunks):
 
 | Sub-row | Blocks on | Gate | PR# | Status |
 | --- | --- | --- | --- | --- |
-| B2b.1 energy family CSV reingest (6 parquets) | - | cross-format-parity | - | TODO |
+| B2b.1 energy family CSV reingest (6 parquets) | - | cross-format-parity | _pending_ | IN-FLIGHT |
 | B2b.2 livestock family CSV reingest (3 parquets) | - | cross-format-parity | - | TODO |
 | B2b.3 governments family CSV reingest (2 parquets; office-holdings shape per 20.4 is OUT of scope) | - | cross-format-parity | - | TODO |
 | B2b.4 taxonomy datapoint reingest (the parquets B2a left behind: `election_events`, `facet-axes`, `ac_crosswalk`, `indicator_topic_tags`, `methodology_breaks`, `persons`, `state_tiers`) | - | cross-format-parity | - | TODO |
