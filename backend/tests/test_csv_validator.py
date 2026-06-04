@@ -201,3 +201,280 @@ def test_fk_target_missing_only_fails_when_referenced(tmp_path):
     # Header-only file has no FK values to verify; missing target files are
     # tolerated when no rows depend on them.
     validate_csv(path=path, file_class=_GEO_FC, repo_root=tmp_path)
+
+
+# --- B2b.5.1 election file-class fk-validator passthrough ------------------
+#
+# Sub-sub-plan B2b.5.1 pins the validator's FK chain for the four election
+# file classes declared in columns.json:
+#
+# - entity_id -> entities/electoral.csv.entity_id
+# - party_id  -> entities/party.csv.party_id
+# - source_id -> entities/source.csv.source_id
+#
+# Plus closed-enum membership on `result`, `sex`, `candidate_type`.
+# Plus state-mandatory on parliament CSVs (plan section 23.4).
+# tmp_path fixtures only; no real-corpus walk (CLAUDE.md anti-pattern).
+
+
+_ASSEMBLY_CANDIDACIES_FC = (
+    "datasets/elections/assembly/state=*/election=*/candidacies.csv"
+)
+_PARLIAMENT_CANDIDACIES_FC = (
+    "datasets/elections/parliament/election=*/candidacies.csv"
+)
+_PARLIAMENT_SUMMARY_FC = (
+    "datasets/elections/parliament/election=*/summary.csv"
+)
+
+
+_CANDIDACIES_HEADER = [
+    "entity_id", "state", "election_year", "constituency_no",
+    "constituency_name", "candidate_name", "party_id", "votes",
+    "vote_share_pct", "position", "result", "sex", "age", "education",
+    "profession", "candidate_type", "source_id",
+]
+_PARLIAMENT_SUMMARY_HEADER = [
+    "entity_id", "state", "election_year", "constituency_name", "electors",
+    "votes_polled", "turnout_pct", "winner_candidate", "winner_party_id",
+    "winner_votes", "winner_share_pct", "runnerup_candidate",
+    "runnerup_party_id", "runnerup_votes", "margin_votes", "margin_pct",
+    "source_id",
+]
+
+
+def _stage_electoral_entities(root: Path, ids: list[str]) -> Path:
+    target = root / "datasets" / "data" / "entities" / "electoral.csv"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    lines = ["entity_id,name,entity_kind,delim_year,state,parent,reservation"]
+    for entity_id in ids:
+        kind = "ac" if "-AC-" in entity_id else "pc"
+        lines.append(f"{entity_id},{entity_id},{kind},2008,tamil-nadu,,GEN")
+    target.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return target
+
+
+def _stage_geo_for_electoral(root: Path) -> Path:
+    # electoral.csv FKs state -> geo.csv.entity_id; even though THIS test only
+    # validates the elections file class, the validator will (indirectly via
+    # the FK target's own FK chain) try to load geo.csv only if it follows
+    # transitive FKs; today it does not, but stage geo.csv to keep the fixture
+    # honest if that ever lands.
+    target = root / "datasets" / "data" / "entities" / "geo.csv"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(
+        "entity_id,name,parent,entity_kind,aliases\n"
+        "tamil-nadu,Tamil Nadu,IN,state,\n"
+        "IN,India,,country,\n",
+        encoding="utf-8",
+    )
+    return target
+
+
+def _stage_party_entities(root: Path, ids: list[str]) -> Path:
+    target = root / "datasets" / "data" / "entities" / "party.csv"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    lines = ["party_id,short,full,eci_codes,brand_colour,symbol_asset,wikipedia"]
+    for party_id in ids:
+        lines.append(f"{party_id},{party_id},{party_id},,,,")
+    target.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return target
+
+
+def _candidacy_row(
+    *,
+    entity_id: str,
+    party_id: str,
+    source_id: str,
+    state: str = "tamil-nadu",
+    position: int = 1,
+    result: str = "won",
+    sex: str = "M",
+) -> list[str]:
+    return [
+        entity_id, state, "2021", "234", "Kanyakumari",
+        f"Candidate {position}", party_id, str(50000 - position),
+        str(45.5 - position), str(position), result, sex, str(45 + position),
+        "Graduate", "Politics", "incumbent", source_id,
+    ]
+
+
+def test_assembly_candidacies_happy_path(tmp_path):
+    _stage_electoral_entities(tmp_path, ["IN-AC-2008-S22-234"])
+    _stage_geo_for_electoral(tmp_path)
+    _stage_party_entities(tmp_path, ["p-bjp", "p-dmk"])
+    _stage_sources(tmp_path, ["tcpd-ae-2021"])
+    path = (
+        tmp_path / "datasets" / "elections" / "assembly"
+        / "state=tamil-nadu" / "election=2021" / "candidacies.csv"
+    )
+    _write_csv(
+        path,
+        _CANDIDACIES_HEADER,
+        [
+            _candidacy_row(
+                entity_id="IN-AC-2008-S22-234", party_id="p-bjp",
+                source_id="tcpd-ae-2021", position=1, result="won",
+            ),
+            _candidacy_row(
+                entity_id="IN-AC-2008-S22-234", party_id="p-dmk",
+                source_id="tcpd-ae-2021", position=2, result="lost",
+            ),
+        ],
+    )
+    validate_csv(
+        path=path, file_class=_ASSEMBLY_CANDIDACIES_FC, repo_root=tmp_path,
+    )
+
+
+def test_assembly_candidacies_rejects_unknown_entity_id(tmp_path):
+    _stage_electoral_entities(tmp_path, ["IN-AC-2008-S22-001"])
+    _stage_geo_for_electoral(tmp_path)
+    _stage_party_entities(tmp_path, ["p-bjp"])
+    _stage_sources(tmp_path, ["tcpd-ae-2021"])
+    path = (
+        tmp_path / "datasets" / "elections" / "assembly"
+        / "state=tamil-nadu" / "election=2021" / "candidacies.csv"
+    )
+    _write_csv(
+        path,
+        _CANDIDACIES_HEADER,
+        [
+            _candidacy_row(
+                entity_id="IN-AC-2008-S22-999", party_id="p-bjp",
+                source_id="tcpd-ae-2021",
+            ),
+        ],
+    )
+    with pytest.raises(CsvValidationError, match="entity_id"):
+        validate_csv(
+            path=path, file_class=_ASSEMBLY_CANDIDACIES_FC, repo_root=tmp_path,
+        )
+
+
+def test_assembly_candidacies_rejects_unknown_party_id(tmp_path):
+    _stage_electoral_entities(tmp_path, ["IN-AC-2008-S22-234"])
+    _stage_geo_for_electoral(tmp_path)
+    _stage_party_entities(tmp_path, ["p-bjp"])
+    _stage_sources(tmp_path, ["tcpd-ae-2021"])
+    path = (
+        tmp_path / "datasets" / "elections" / "assembly"
+        / "state=tamil-nadu" / "election=2021" / "candidacies.csv"
+    )
+    _write_csv(
+        path,
+        _CANDIDACIES_HEADER,
+        [
+            _candidacy_row(
+                entity_id="IN-AC-2008-S22-234", party_id="p-missing",
+                source_id="tcpd-ae-2021",
+            ),
+        ],
+    )
+    with pytest.raises(CsvValidationError, match="party_id"):
+        validate_csv(
+            path=path, file_class=_ASSEMBLY_CANDIDACIES_FC, repo_root=tmp_path,
+        )
+
+
+def test_assembly_candidacies_rejects_unknown_source_id(tmp_path):
+    _stage_electoral_entities(tmp_path, ["IN-AC-2008-S22-234"])
+    _stage_geo_for_electoral(tmp_path)
+    _stage_party_entities(tmp_path, ["p-bjp"])
+    _stage_sources(tmp_path, ["tcpd-ae-2021"])
+    path = (
+        tmp_path / "datasets" / "elections" / "assembly"
+        / "state=tamil-nadu" / "election=2021" / "candidacies.csv"
+    )
+    _write_csv(
+        path,
+        _CANDIDACIES_HEADER,
+        [
+            _candidacy_row(
+                entity_id="IN-AC-2008-S22-234", party_id="p-bjp",
+                source_id="tcpd-ae-1999",
+            ),
+        ],
+    )
+    with pytest.raises(CsvValidationError, match="source_id"):
+        validate_csv(
+            path=path, file_class=_ASSEMBLY_CANDIDACIES_FC, repo_root=tmp_path,
+        )
+
+
+def test_assembly_candidacies_rejects_bad_result_enum(tmp_path):
+    _stage_electoral_entities(tmp_path, ["IN-AC-2008-S22-234"])
+    _stage_geo_for_electoral(tmp_path)
+    _stage_party_entities(tmp_path, ["p-bjp"])
+    _stage_sources(tmp_path, ["tcpd-ae-2021"])
+    path = (
+        tmp_path / "datasets" / "elections" / "assembly"
+        / "state=tamil-nadu" / "election=2021" / "candidacies.csv"
+    )
+    _write_csv(
+        path,
+        _CANDIDACIES_HEADER,
+        [
+            _candidacy_row(
+                entity_id="IN-AC-2008-S22-234", party_id="p-bjp",
+                source_id="tcpd-ae-2021", result="tied",
+            ),
+        ],
+    )
+    with pytest.raises(CsvValidationError, match="result"):
+        validate_csv(
+            path=path, file_class=_ASSEMBLY_CANDIDACIES_FC, repo_root=tmp_path,
+        )
+
+
+def test_parliament_summary_rejects_missing_state_column(tmp_path):
+    # The validator only catches the empty-string non-nullable case at row
+    # level; the header-mismatch case is caught earlier. plan section 23.4:
+    # state is MANDATORY on PC files.
+    _stage_electoral_entities(tmp_path, ["IN-PC-2008-S22-39"])
+    _stage_geo_for_electoral(tmp_path)
+    _stage_party_entities(tmp_path, ["p-bjp", "p-dmk"])
+    _stage_sources(tmp_path, ["tcpd-ge-2024"])
+    path = (
+        tmp_path / "datasets" / "elections" / "parliament"
+        / "election=2024" / "summary.csv"
+    )
+    _write_csv(
+        path,
+        _PARLIAMENT_SUMMARY_HEADER,
+        [
+            [
+                "IN-PC-2008-S22-39", "", "2024", "Kanyakumari", "1500000",
+                "1100000", "73.33", "Eve", "p-bjp", "550000", "50.0", "Frank",
+                "p-dmk", "400000", "150000", "13.64", "tcpd-ge-2024",
+            ],
+        ],
+    )
+    with pytest.raises(CsvValidationError, match="non-nullable"):
+        validate_csv(
+            path=path, file_class=_PARLIAMENT_SUMMARY_FC, repo_root=tmp_path,
+        )
+
+
+def test_parliament_candidacies_happy_path_with_state_column(tmp_path):
+    _stage_electoral_entities(tmp_path, ["IN-PC-2008-S22-39"])
+    _stage_geo_for_electoral(tmp_path)
+    _stage_party_entities(tmp_path, ["p-bjp"])
+    _stage_sources(tmp_path, ["tcpd-ge-2024"])
+    path = (
+        tmp_path / "datasets" / "elections" / "parliament"
+        / "election=2024" / "candidacies.csv"
+    )
+    _write_csv(
+        path,
+        _CANDIDACIES_HEADER,
+        [
+            _candidacy_row(
+                entity_id="IN-PC-2008-S22-39", party_id="p-bjp",
+                source_id="tcpd-ge-2024", state="tamil-nadu", position=1,
+            ),
+        ],
+    )
+    validate_csv(
+        path=path, file_class=_PARLIAMENT_CANDIDACIES_FC, repo_root=tmp_path,
+    )
