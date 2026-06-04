@@ -242,7 +242,19 @@ interface DataFile extends DataFileRef {
  * across ~7,500 files); after, collect drops to ~2s and total run halves.
  */
 function listDataFiles(): DataFileRef[] {
-  const files = globSync("**/*.json", { cwd: datasetsDir, absolute: true, ignore: ["schemas/**"] });
+  const files = globSync("**/*.json", {
+    cwd: datasetsDir,
+    absolute: true,
+    // schemas/** - JSON Schema documents, not data.
+    // data/_schema/** - CSV column contract artifact + its schema-of-schemas
+    // (datasets/data/_schema/columns.json + columns.schema.json, sub-plan
+    // B1.1). They live outside datasets/schemas/ because they belong to the
+    // post-rip CSV stack and are validated by their own surface
+    // (backend/tests/test_csv_columns.py asserts columns.json conforms to
+    // columns.schema.json). They carry no observational data and no
+    // sources[], so they are also out of scope for the §12 provenance check.
+    ignore: ["schemas/**", "data/_schema/**"],
+  });
   return files.map(path => ({
     path,
     rel: path.slice(datasetsDir.length + 1).replaceAll("\\", "/"),
