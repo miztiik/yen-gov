@@ -1038,7 +1038,7 @@ This table is the **canonical execution tracker**. The orchestrator reads `Block
 | Chunk | Blocks on | Parallel-OK with | Gate | PR# | Status |
 | --- | --- | --- | --- | --- | --- |
 | D-DOC4 STEP 0 doctrine reconciliation (CLAUDE.md + 8 AGENTS.md) | - | (none - merges FIRST) | doctrine-marker-audit | direct-commit | DONE (2026-06-04, doctrine-migration map in 22.7) |
-| D-DOC0 column-contract | D-DOC4 | all D/U/B1-prep | docs-review | _pending_ | IN-FLIGHT |
+| D-DOC0 column-contract | D-DOC4 | all D/U/B1-prep | docs-review | #627 | MERGED |
 | D-DOC1 data-spine | - | all | docs-review | - | TODO |
 | D-DOC2 chart-matrix | - | all except U4 | drift-stub | - | TODO |
 | D-DOC3 ADR-retire | - | all | grep-receipts-eq | - | TODO |
