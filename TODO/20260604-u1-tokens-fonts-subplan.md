@@ -43,7 +43,7 @@ Per CLAUDE.md correction-level discipline (>=4 files structural -> propose break
 
 | Sub-row | Blocks on | Gate | PR# | Status |
 | --- | --- | --- | --- | --- |
-| U1.1 tokens (`app-tokens.css` + `main.ts` import + `tailwind.config.js theme.extend` ADDITIVE + drift contract test) | - | build+drift | _pending_ | IN-FLIGHT |
+| U1.1 tokens (`app-tokens.css` + `main.ts` import + `tailwind.config.js theme.extend` ADDITIVE + drift contract test) | - | build+drift | #714 | IN-FLIGHT |
 | U1.2 fonts (self-hosted subset variable woff2 + `LICENCES.md` + `@font-face` declarations + Inter-Latin preload) | U1.1 | build+font-load | - | TODO |
 | U1.3 cutover (remove CDN `<link>` + 2 preconnects; flip body font; retone ballot motif; tabular-nums on data; Devanagari conjunct render check) | U1.2 | build+visual+devanagari | - | TODO |
 | U1.4 closure (distil to `docs/architecture/frontend/design-system.md`; flip parent U1 row -> MERGED; archive this sub-plan to `docs/archive/plans/`) | U1.1..U1.3 | docs-review | - | TODO |
