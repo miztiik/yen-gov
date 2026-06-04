@@ -319,6 +319,8 @@ The parity oracle (`test_canonical_parity_oracle.py`) and the geo/delimitation c
 | section 23.4 | Elections layout sharpening | **DECIDED 2026-06-04 (Gregor)**: parliament CSV carries `state` as MANDATORY column; EL7 `coverage.py` AC-vs-PC disposition; `summary==recompute(candidacies)` consistency gate |
 | section 23.5 | Frontend design + nav corrections | **CORRECTED 2026-06-04 (Jony)**: ADDITIVE tokens; Devanagari GSUB/GPOS subset; feasibleAt ranked-fallback; ChartType breaking-enum migration; district URL node; ChartShell error/empty; F2 sandbox-only blast radius |
 | section 23.6/23.7 | Deploy hygiene + test-disposition map | **DECIDED 2026-06-04 (Explore+Fowler)**: deploy emit-manifest step; config/tools survivor lists; per-chunk DELETE/REWRITE/NEW churn map (oracle REWRITE, writer test DIE, sources-v2-shape DELETE) |
+| section 24 | Operator guide: read order + status lifecycle + kickoff prompt + sub-plan rule | **ADDED 2026-06-04 (user ask)**: Execution Ledger is the ready-reckoner; TODO->IN-FLIGHT->MERGED updated in the chunk's own PR; spawn `<date>-<slug>-subplan.md` with parent back-pointer when a chunk exceeds one PR |
+| section 25 | Election-experience UX refinements | **DESIGNED 2026-06-04 (Jony)**: 25.1 archetypes (reuse RacesBoard/source-line/brush/swing-slider); 25.2 mandatory time_label; 25.3 PartyPill + --party-neutral, symbol separate; 25.4 state silhouette on choropleth+hex; 25.5 margin-vs-party-won modes + recede + margin sub-filter; 25.6a arc seats invariant fix; 25.6b countSeats seam DEFERRED to sub-plan (Citizen+Hans gate) |
 
 ---
 
@@ -1056,6 +1058,17 @@ This table is the **canonical execution tracker**. The orchestrator reads `Block
 
 Pre-cutover safety: tag the last all-parquet-green commit `pre-csv-cutover` at the F1/X1a boundary so rollback is `git checkout pre-csv-cutover`, not a log search.
 
+Election-experience chunks (section 25; ride after the renderer consolidation; all on existing seams):
+
+| Chunk | Blocks on | Parallel-OK with | Gate | PR# | Status |
+| --- | --- | --- | --- | --- | --- |
+| E1 ChartShell time_label slot (25.2) | F2a | E2 | build+visual | - | TODO |
+| E2 PartyPill + --party-neutral token (25.3) | U1, F2a | E1 | build+visual | - | TODO |
+| E3 state silhouette on StateAcMap+TileCartogram (25.4) | F2b | E2 | island-render-smoke+visual | - | TODO |
+| E4 two highlight modes + margin sub-filter (25.5) | E3 | - | visual+legend-drift | - | TODO |
+| E5 ParliamentArc seats invariant fix + countSeats seam (25.6a/6b-seam) | X1b | E1 | seats-invariant-test | - | TODO |
+| E6 alternate counting methods (25.6b) | E5 | - | (sub-plan) | - | DEFERRED-TO-SUBPLAN |
+
 ### 22.6 Gates catalogue (what each gate name means + where it fires)
 
 - **cross-format-parity** (B2b, per family): a harness queries the SAME logical question against (a) surviving parquet and (b) new CSV; asserts identical row count + per-cell equality after a typed read (no float-string drift, null===null not null==="" ). Lives in `backend/tests/test_csv_parquet_parity.py`; reads both real on-disk artifacts (Holy Law #7, no mocks); skips cleanly if either absent. The single most important deletion-safety gate - it is what proves the CSV values match before any parquet writer is deleted.
@@ -1069,6 +1082,8 @@ Pre-cutover safety: tag the last all-parquet-green commit `pre-csv-cutover` at t
 - **island-render-smoke** (F4): byte-confirm Lakshadweep + A&N + islands actually draw from the arcs-only topojson (21.11).
 - **intent-eval** (YA): yen-ask intent classifier >=90% top-1 on the eval set after the grounding-surface change.
 - **devanagari** (U1): in-browser smoke renders one Devanagari conjunct word; a codepoint-only font subset that drops GSUB/GPOS shaping fails this.
+- **seats-invariant-test** (E5): pins a known result so the parliament arc renders exactly `total_seats` dots with `sum(seats_won) == total_seats == COUNT(DISTINCT constituency winner)`; the ~2x double-count regression cannot return (25.6a).
+- **legend-drift** (E4): asserts the two highlight modes (margin / party-won) + the `margin >= X` sub-filter read from ONE shared legend system, no per-map bespoke control (25.5).
 
 ---
 
@@ -1134,6 +1149,144 @@ Rule: a PR that deletes a producer without listing the tests it obsoletes is inc
 
 ---
 
+## 24. Operator guide - how to execute this plan (for the next agent or human)
+
+This section is the entry point. It tells a human how to follow the plan and tells an execution agent how to drive and update it. Read it first.
+
+### 24.1 Plan identity + read order
+
+- **Plan name** (the single artifact to follow): `TODO/20260603-data-and-charting-platform-reset-plan.md` - this file.
+- **A human reads it in this order:** section 1 (what + why) -> section 21 (the locked doctrine: CSV-only, design tokens, rational charts) -> section 22 (execution model + the Execution Ledger 22.5) -> section 23 (file-level ripple corrections every agent must honour) -> section 25 (election-experience UX) -> this section 24 (how to drive + update).
+- **The two tracking tables:** the **Status Reckoner** (the table in the section-13 region) records DESIGN decisions (what was decided + by whom). The **Execution Ledger** (section 22.5) records EXECUTION state (which chunk is TODO / IN-FLIGHT / MERGED + PR#). For "what is done vs what is not done", the Execution Ledger is the ready-reckoner.
+
+### 24.2 Current execution state
+
+This plan is **Level-5 plan-only**. As of 2026-06-04 NO code has been written: every Execution Ledger row is `TODO`. Pasting the kickoff prompt (24.4) to an agent IS the user signoff that moves the plan from plan-only into execution.
+
+### 24.3 Status lifecycle + the update protocol (every execution agent MUST follow)
+
+Each Execution Ledger row carries one Status: `TODO -> IN-FLIGHT -> MERGED`, plus `BLOCKED` and `DEFERRED`.
+
+- **BEFORE starting a chunk:** confirm every `Blocks on` cell for that row is `MERGED`; if not, the chunk is `BLOCKED` - pick a different one. Then flip the row to `IN-FLIGHT` in the FIRST commit of the chunk's branch, so two agents never grab the same chunk.
+- **AFTER the PR merges:** flip the row to `MERGED` and stamp the PR number (the orchestrator does this as part of the merge).
+- **Cannot proceed** (upstream not ready, external blocker): mark `BLOCKED` with a one-line reason.
+- **Consciously postponed:** mark `DEFERRED` with a pointer to the sub-plan or the trigger that reopens it.
+- The **Status Reckoner** is touched only when a DESIGN decision changes - not on every PR.
+- **Rule:** the ledger is edited inside the chunk's own PR, never as a separate bookkeeping commit. The merge that ships the work is the merge that flips the status. This keeps the plan's history aligned with the code's history.
+
+### 24.4 Kickoff prompt (paste this to a new execution agent to start)
+
+```
+You are an execution agent on yen-gov. Read CLAUDE.md and run the bootstrap skill first.
+Your job: execute the next ready chunk of
+TODO/20260603-data-and-charting-platform-reset-plan.md.
+
+1. Read sections 1, 21, 22, 23, 24, 25 of that plan. The Execution Ledger
+   (section 22.5) is your merge-queue and single source of truth for status.
+2. Pick the next chunk whose every "Blocks on" cell is MERGED and whose Status
+   is TODO. Honour the dependency edges in 22.2 and the strict ordering
+   X1a (reader flip) -> cross-format/dual-read parity gate -> X1b (parquet delete).
+3. Branch from main. Flip that chunk's Status to IN-FLIGHT in your first commit.
+4. Build ONLY that chunk. Obey: the 5 contract-invariants (22.4); the gate named
+   for this chunk in the gates catalogue (22.6); the file-level corrections in
+   section 23; the per-chunk essential-tests-only DoD (22.3). No mocks, no
+   hardcoding, ASCII-only, relative POSIX paths (CLAUDE.md). For frontend/admin
+   runtime changes, in-browser smoke per CLAUDE.md section 13.
+5. The cross-format parity gate (22.6) MUST be green before any parquet writer or
+   parquet file is deleted. Never delete a producer without listing the tests it
+   obsoletes (section 23.7 test-disposition table in your PR body).
+6. Open the PR. On merge, flip the row to MERGED and stamp the PR number.
+7. If the chunk turns out bigger than one PR, spawn a sub-plan per section 24.5
+   instead of inlining the detail here.
+Stop after your chunk merges and report which chunk is next on the queue.
+```
+
+### 24.5 Sub-plan spawning (keep the parent thin; do not blow the context window)
+
+When a chunk grows past a single PR's worth of detail - more than ~5 sub-steps, its own design forks, or its own multi-row tracker - do NOT inline that detail into this file. Spawn a sub-plan:
+
+- Create `TODO/<YYYYMMDD>-<slug>-subplan.md` with its own mini Execution Ledger.
+- The sub-plan's H1 carries a back-pointer line: `Parent: TODO/20260603-data-and-charting-platform-reset-plan.md (chunk <X>)`.
+- In THIS parent, the chunk stays as ONE ledger row with Status `DEFERRED-TO-SUBPLAN` and a forward-pointer to the sub-plan path. The parent never absorbs the sub-plan's rows.
+- When the sub-plan completes, its parent row flips to `MERGED`, a one-line outcome is distilled into the right `docs/` home per CLAUDE.md section 5, and the sub-plan is archived under `docs/archive/plans/`.
+
+Worked example: the alternate vote-counting methods (section 25 item 6b) are a sub-plan candidate - ship only the `countSeats(method, ...)` seam in-scope (FPTP the sole implementation), and spawn a sub-plan for ranked/approval/proportional what-ifs gated on a Citizen + Hans second opinion. This keeps the parent plan readable in one context window: a map of chunks + gates + invariants, not the full text of every chunk.
+
+---
+
+## 25. Election-experience UX refinements (round 6, Jony)
+
+Jony verdict 2026-06-04 (research-only) on the election views being re-rendered under the frozen Candidate-C shell + section-21.7 tokens + section-21.9 rational chart-viz. Of the six asks, five are clear in-scope calls (removals/consolidations on existing seams - `ChartShell`, `getPartyColor`/`resolvePartyPalette`, `StateAcMap`, `TileCartogram`, `ParliamentArc`, `RacesBoard`); item 6b is a deferred sub-plan candidate. No new bespoke renderer is created.
+
+### 25.1 Reference-study archetypes (adopt the pattern, never the pixels)
+
+Import four interaction archetypes underneath existing renderers; copy no art.
+
+- **A. Competitiveness-columns** (NYT "all races"): already realised as `RacesBoard` (group contests into margin bands; column heights = the headline at a glance). KEEP and reuse for AC results; do not rebuild. Canonical "many contests, one screen" device.
+- **B. Entity-brush + persistent range label** (OWID grapher): any time-series carries a brushable extent with the selected start->end printed in the header (feeds 25.2). The brush is the only time control and doubles as the range label - no separate from/to dropdowns.
+- **C. Swing-as-a-slider** (psephlab swing/what-if): one horizontal slider re-pivots a result by a uniform swing; this is the interaction shell the deferred counting-method seam (25.6) plugs into later. Adopt the AFFORDANCE now; defer the math.
+- **D. Always-on provenance line** (PRS Legislative Research / TCPD): the source + year line is never collapsed away on an election view; it rides in `ChartShell`'s subtitle/source slot at all times. Trust is UX.
+
+Rejected as bespoke art: hand-drawn cartograms, seat-by-seat decorative animations, party-logo confetti, scrollytelling (each fails schema-is-the-design-system). Genuine fork (Citizen second-opinion): which two of A-D lead the first cut (A+D are non-negotiable; B-vs-C order is the soft call).
+
+### 25.2 Temporal labelling (mandatory chrome; lives in ChartShell header)
+
+No election view renders without a visible time label - it is chrome, not a tooltip or a legend footnote.
+
+- **Placement:** `ChartShell` header, immediately under the title, before the source line; tabular-numeral token (21.7). Add ONE generic slot `time_label` (or `{start, end, current}`) on `ChartShell` so every renderer discloses identically - no per-renderer code.
+- **Single-snapshot** (AC results, one seat-map, one races board): show the single election year prominently, e.g. "Assembly election 2023" - the largest secondary element after the title.
+- **Time-series** (seats-trend, vote-share-over-time, year-over-year choropleth): show START and END as a range, e.g. "1977 - 2024"; when a brush/TimeControl is active, the label reflects the BRUSHED extent live (the brush IS the range label, archetype B), and the scrubbed year prints on the TimeControl thumb.
+- **Mandatory-when rule:** renders whenever the data has a `time` axis OR a fixed election vintage (every election view). The only exempt views are genuinely timeless reference layers (boundary outlines with no result bound), which must say so explicitly ("boundary, current delimitation").
+
+### 25.3 Party pill contract (one component, schema-driven; symbol is separate)
+
+One `PartyPill` component is the single coloured party token everywhere AC results show a party (races-board rows, AC drill-down, legend chips, histogram bins). No per-view pill variants.
+
+- **Colour rule:** `PartyPill` calls `getPartyColor(party_id, row)` (the canonical 3-tier anchor/brand/fallback resolver); it NEVER hand-picks a colour. `anchor` -> full-bleed coloured pill; `brand` -> coloured accent ring/stripe on a paper-neutral body (resolver forbids brand colour as chrome fill); `fallback` OR no party row OR null `party_id` -> the NEUTRAL token, NOT the algorithmic hash hue ("unknown party" must read as unknown).
+- **Neutral token:** add one design token `--party-neutral` (calm grey, e.g. slate-300 fill / slate-600 text) to the 21.7 token set - the single source of "unmapped party" colour across pills, maps, and arcs (choropleth/hex unmapped cells reuse the SAME token; ties to 25.5 recede + the unmapped-region doctrine).
+- **Label rule:** the pill ALWAYS carries `party_short` text; a bare swatch is never allowed (resolver contract: brand/fallback require a paired label).
+- **Symbol composition (symbol is NOT inside the pill):** the SVG ballot symbol is its own glyph, loaded ONLY from the sanitised allowlist registry under `frontend/public`; it renders as a SIBLING next to the pill (`[symbol-glyph] [coloured pill: BJP]`), never as the pill's background/fill. An optional thin `PartyTag` wrapper MAY lay out `symbol? + PartyPill` in a row, but pill and symbol stay independent leaves so a view can show either alone.
+- **Component impact:** new generic `PartyPill.svelte` (replaces ad-hoc inline chips in `RacesBoard` / `MarginHistogram` / legends); optional `PartyTag` layout wrapper. Both leaf-level, schema-driven.
+
+### 25.4 State boundary on single-state district maps (choropleth + hex)
+
+When the district choropleth (`StateAcMap`) or the hex cartogram (`TileCartogram`) is shown at district/AC grain for ONE state, the state outline is always drawn so the citizen instantly recognises which state they are in. Generalises to all states from one shared boundary source; no per-state code.
+
+- **Choropleth:** draw the state boundary as a single non-interactive outline STROKE on top of the fills - 1.5-2px, calm slate, no fill, `pointer-events: none`. District internal borders stay hairline; the state border is the one bolder edge so the silhouette pops.
+- **Hex cartogram:** draw the real state silhouette BEHIND the hex grid as a faint containing shape (very low-opacity neutral fill + thin outline, e.g. slate-200 at ~0.25). The hexes float inside their geographic envelope; the silhouette is decor, never clickable.
+- **Generalisation:** both pull the outline from the SAME boundary geometry the choropleth already loads (the active node's state feature). Per the section-16.2 intersect rule, if the state outline geometry is missing the map is already not offered - no degraded case to design.
+- **Component impact:** extend `StateAcMap` (outline layer above fills) and `TileCartogram` (silhouette layer below grid), both fed by the existing boundary source. No new component.
+
+### 25.5 Two highlight modes + recede + margin sub-filter (one legend system)
+
+The AC choropleth and hex cartogram support TWO encoding modes on a single shared legend system, flipped by ONE segmented control (reuse the 16.3a switcher pattern in the `ChartShell` toolbar; NOT a per-map widget).
+
+- **Mode A - MARGIN (default, current behaviour):** fill = winner party colour; fill-opacity ~ margin of victory (today `0.35 + clamp(margin,0,30)/30 * 0.6`). Legend = the margin ramp.
+- **Mode B - PARTY-WON / SELECTION** ("show me where BJP won"): pick a party (tap a legend pill or a cell). Cells WON by the selected party get a UNIFORM strong fill in that party's colour at FULL opacity (no margin ramp - winning is binary and must pop). Non-matching cells RECEDE: `--party-neutral` at low opacity (~0.15-0.2) + hairline border, so the selected set is the only saturated thing on the map. This fixes "today's highlights are too washed-out to pop".
+- **Sub-filter (Mode B only) - "margin >= X%":** a single stepped slider / chip group (0 / 10 / 20 / 30 pp) in the toolbar. When set, only the selected party's cells with margin >= X stay fully filled; narrower wins drop to the recede treatment too ("where did BJP win COMFORTABLY (>= 20%)"). This is the swing-slider affordance (25.1 C): one thumb, instant re-render, no re-fetch (margin is already in the loaded rows).
+- **Affordance:** the same segmented-control vocabulary as 16.3a (margin glyph / target glyph); party selection in Mode B is by tapping a legend pill, tapping again clears to all-parties. Recede treatment + neutral token are shared with 25.3 and the unmapped-region doctrine.
+- **Component impact:** add `mode` + `selected_party_id` + `min_margin` props to `StateAcMap` and `TileCartogram`; both read the SAME legend component. Schema-driven, no per-map widget.
+
+### 25.6 ParliamentArc correctness fix + swappable counting-method seam
+
+**6a - Correctness fix (IN-SCOPE now; spec-level invariant).** The semicircle must encode ONE SEAT = ONE WEDGE/DOT. Hard invariant:
+
+```
+sum over parties of seats_won  ==  total_seats  ==  count of DISTINCT
+constituencies in the (state, year) result.
+```
+
+The arc geometry already reconciles per-row dots to `total_seats`, so a visible ~2x means the INPUT is doubled upstream, not the renderer. Required: (1) trace the seats feed - `total_seats` and each party's `seats_won` must derive from `COUNT(DISTINCT constituency winner)`, NOT a row count that double-joins `summary x candidacies`, and NOT from summing both an "alliance" and a "party" attribution of the same seat; (2) add a contract assertion at the view-model boundary that rejects/clamps when `sum(seats_won) != total_seats` (fail-fast, fix the join, never silently halve); (3) one regression test pins a known result (e.g. a 234-seat state renders exactly 234 dots and 234 in the legend total).
+
+**6b - Counting-method seam (DEFERRED / aspirational; sub-plan candidate per 24.5).** Today's FPTP "mutations" (the transforms raw votes -> per-seat winner -> seat tally) are RETAINED and become the first implementation behind a named seam. Do NOT build alternate methods now.
+
+- **Seam shape:** a pure function `countSeats(method, candidacies, rules) -> SeatTally` where `method = "fptp"` is the only shipped implementation. `SeatTally` is the exact contract `ParliamentArc` / `SeatDonut` / `RacesBoard` already consume (`parties[]` with `seats_won` summing to `total_seats`).
+- **Alternate methods** (approval / ranked / proportional what-ifs) become future implementations of the SAME signature, swapped UNDER the same renderer surface - no renderer rewrite, no new chart. They pair with the swing-slider affordance (25.1 C) as "what if counted differently".
+- **Out of scope for the reset.** Open as a sub-plan; gate any build on a Citizen + Hans second opinion (counting-method changes are politically sensitive and must carry a loud "hypothetical recount, not official result" honesty banner).
+- **Component impact:** no new component now - fix the seats feed + add the invariant test (6a); introduce the `countSeats(method, ...)` signature wrapping today's FPTP transform as the seam (6b), FPTP the only method until the sub-plan.
+
+---
+
 ## Appendix - provenance of verdicts
 
 Persona verdicts + Explore audits 2026-06-03 (research-only). long-format CSV confirmed by fetch of `open-numbers/ddf--open_numbers--world_development_indicators` (`topics.csv` = `tag,name,parent`; `datapoints--<ind>--by--<entity>--time.csv` = `entity,time,value`). Elections/psephlab/yen-ask shapes confirmed by Explore audit (entity-id, partition, LOC, blockers cited inline above). User refinements O1-O10 recorded in section 1 supersede conflicting persona text per CLAUDE.md section 0a.
@@ -1147,3 +1300,5 @@ Persona round 3b 2026-06-04 (research-only, 28-part user message studying `india
 Round 4 2026-06-04 (research-only, debate-style, ~13-part user message: full rip-replace freedom "no prisoners, no stranglers"; CSV-only everywhere; reingest from TCPD; scrub DDF; rational chart viz; modern UI; icons to public; autonomous orchestrator+PR-subagent plan) -> sections 21-22. **Explore** (fact pass) -> Lakshadweep present in LGD taxonomy (lgd_district_id 553, slug `lakshadweep-district`) + has an election partition; `all.topojson` is arcs-only (island geometry needs a render smoke-test to byte-confirm); `elections_candidacies.parquet` = 387,810 rows (~50-100MB CSV); network-fetch code (`sources/eci/urls.py`) cleanly separable with zero reverse-deps from ingest (check `admin/*.py` for httpx before deleting); parity oracle validates a frozen JSON fixture (format-agnostic, survives reingest); icons migration to `public/icons` clean per party-symbols precedent (change `iconsDir` in `vite.config.ts`). **Gregor vs Fowler** (debate, converged) -> 21.2/21.3/21.5/21.6 (ALL-CSV no-parquet no-strangler; elections per-election self-contained `assembly/state=/election=/` + `parliament/election=/`; AC-summary per-(state,year) NOT across-years; double-underscore BANNED; 20.13 rewritten as clean DELETE/BUILD in atomic-cutover PR chunks; 5 contract-invariants; typed `read_csv(columns=...)` replaces the 60 JSON schemas). **Max vs Hans** (debate, converged) -> 21.1 (the "DATA-SCHEMA-SCALE-ENRICHMENT" slogan REPLACED by the question-first/joinable/comparable/cite-able/static spine; new `docs/concepts/data-spine.md`). **Jony** (UI) -> 21.7 (design-token system kills the "1990" look: fill empty `theme.extend`, self-host subset variable fonts, tabular numerals, calm civic-indigo palette, soft elevation, motion tokens), 21.8 (frozen Candidate C rendered modern, same-side drawer fix, GeoBreadcrumb spine), 21.9 (rational chart-viz: switcher = `chart_types[] INTERSECT feasibleAt()`, pie/3D/blind-bar UNREACHABLE not merely banned), 21.10 (icons to `frontend/public/icons/` + LICENCES.md, allowlist sanitizer unchanged). **Country topojson** decision (21.11): FROZEN NO - keep our own 785-district LGD-keyed `all.topojson` (newer than EHdata's 766-region upload), with frozen requirements (a) Lakshadweep + A&N render smoke-test, (b) mapshaper quantize/simplify for speed. Autonomous execution model (section 22): one orchestrator + PR subagents, parallel tracks D/U/B/F with only F1<-B2+U1, X1<-F1, B3/B4/F2/F3/F4<-X1 blocking; persona DEBATE mode only at genuine forks. All round-4 verdicts research-only; no code written (Level-5 plan-only until user signoff).
 
 Round 5 2026-06-04 (research-only ripple/second-order review, "engage the subagents and thoroughly review the plan for gotchas; reorganize for execution-trackability; guiding principle = ripple effects + second-order impact") -> sections 22.2 (corrected chunk graph), 22.5 (Execution Ledger), 22.6 (gates catalogue), 23 (file-level corrections). **Explore** (codebase blast-radius fact pass) -> `canonical/writer.py` is the sole emission point (FULL REWRITE not half-delete); Fetcher woven through 5 `with Fetcher(...)` blocks in `cli.py` + `core/http.py` (delete whole, not just `sources/eci/urls.py`); `core/schema_registry.py` has 80+ importers + `admin/schemas.py` (delete both, re-source version); `queryParquet()` -> `queryCsv()` with glob support + ~40 callers; 200+ test edits; `config/`/`tools/`/deploy-workflow/docs second-order impact (23.1/23.3/23.6). **Gregor** (contract + sequencing) -> SPLIT X1 into X1a (reader flip, both stores on disk) + X1b (parquet delete) so a cross-format parity gate fires between them (the rollback story); ONE machine-readable column-contract home (ADR-0047 alt F rejects two hand-typed copies, 23.2); write-time validator enforces FK/enum/no-wallclock BEYOND dtype; 4 missing dependency edges (D-DOC0->B1/F1, D-DOC2->U4, B1->B2 serial, YA->B2b+X1a) + 2 over-bundled chunks split (B2->B2a/B2b, F2->F2a/F2b); parliament CSV carries `state` as MANDATORY column; EL7 `coverage.py` AC-vs-PC disposition; `summary==recompute(candidacies)` consistency gate; tag `pre-csv-cutover`; drafted the Execution Ledger (22.5). **Fowler** (deletion safety + chunk sizing) -> cross-format parity gate is the single biggest hole (`test_csv_parquet_parity.py`, real-on-disk both stores, before deleting any parquet writer); `core/io.write_artifact` has 20+ callers in SURVIVING ingest (re-point is a B1 deliverable, B3 delete depends on it); per-chunk test-disposition table DELETE/REWRITE/NEW (23.7); schema deletion is allowlist-driven (RETAIN config validators); skipif-when-absent reads as false green (oracle-non-skip gate); X1 shrinks to a pure structural seam flip. **Jony** (UI/chart/nav) -> tokens ADDITIVE not slate-override (never half-broken); Devanagari subset MUST retain GSUB/GPOS shaping (conjuncts); `feasibleAt()` guaranteed terminal `CategoryBar{ranked}` fallback (intersect never empty); `ChartType` union widen is a breaking enum (migrate grapher JSON + topic-dispatch same PR); `GeoBreadcrumb` needs a district URL node the router lacks (add `url.district` + `/s/:state/d/:district`); U1 file set bigger than `theme.extend` (index.html CDN link, app.css motif, LeftRail hex); F2 production blast radius is the trio + StackedTrendV2 (V2 orphans are DevChartsSandbox-only); error/empty fold into existing ChartShell. The parity oracle re-point is a REWRITE (4 hardcoded parquet paths -> CSV) confirmed by all three engineering personas. All round-5 verdicts research-only; no code written (Level-5 plan-only until user signoff).
+
+Round 6 2026-06-04 (research-only, user process questions + new election-page asks) -> sections 24 + 25. **Process additions (orchestrator, no persona):** section 24 operator guide - plan name, human read order, the Execution Ledger (22.5) named as the ready-reckoner, the status lifecycle TODO->IN-FLIGHT->MERGED (+BLOCKED/DEFERRED) updated inside the chunk's own PR, a paste-ready kickoff prompt (24.4), and a sub-plan spawning rule (24.5) so a growing chunk becomes `TODO/<date>-<slug>-subplan.md` with a parent back-pointer rather than bloating the parent past a context window. **Jony (UI/UX)** -> section 25 election-experience refinements (research-only): 25.1 adopt four interaction archetypes already half-present (RacesBoard competitiveness-columns, OWID entity-brush range label, psephlab swing-slider, PRS/TCPD always-on source line) - pattern not pixels; 25.2 mandatory `time_label` slot on ChartShell (single year for snapshots, brushed start->end for series); 25.3 one schema-driven `PartyPill` coloured via the 3-tier resolver with a new `--party-neutral` token for unknown parties, the SVG ballot symbol composing BESIDE the pill not inside it; 25.4 draw the state silhouette on both StateAcMap (outline stroke over fills) and TileCartogram (faint silhouette behind the hex grid) so a single-state district map is unambiguous; 25.5 two highlight modes on one legend (MARGIN opacity-ramp vs PARTY-WON uniform-fill with non-matching cells receding to the neutral token) + a "margin >= X%" sub-slider, fixing washed-out highlights; 25.6a fix the ParliamentArc ~2x double-count as a hard invariant (sum(seats_won)==total_seats==distinct constituencies) with a regression test, and 25.6b a `countSeats(method,...)` seam that retains FPTP as the sole implementation now and DEFERS alternate counting methods to a sub-plan gated on a Citizen+Hans second opinion with a "hypothetical recount" honesty banner. Forks flagged for Citizen second-opinion: which two archetypes lead (25.1), and any alternate-counting build (25.6b). All round-6 verdicts research-only; no code written (Level-5 plan-only until user signoff).
