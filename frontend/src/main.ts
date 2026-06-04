@@ -1,3 +1,8 @@
+// Token layer first (CLAUDE.md doctrine + plan section 21.7) so app.css
+// and any later component CSS may reference --ink / --accent / --r-md
+// etc. Mirrored ADDITIVELY into tailwind.config.js theme.extend per
+// plan section 23.5; drift locked by frontend/src/contracts/app-tokens.test.ts.
+import "./app-tokens.css";
 import "./app.css";
 import { mount } from "svelte";
 import { startRouter } from "./lib/router.svelte";
