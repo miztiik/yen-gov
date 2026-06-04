@@ -1,7 +1,7 @@
 """B1.5.3 writer-unit gate: rbi_appendix_deficits row-builder + write_csv.
 
 Locks the contract for sub-row B1.5.3 of
-``TODO/20260604-b1.5-rbi-repoint-subplan.md``: each of the four
+``docs/archive/plans/20260604-b1.5-rbi-repoint-subplan.md``: each of the four
 SHIPPED_SPECS RBI State Finances Appendix Table 1 states-combined
 deficit indicators maps 1:1 to a kebab-case ``variable_id`` (no
 faceting on this family), is emitted via the canonical

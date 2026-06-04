@@ -1,7 +1,7 @@
 """B1.5.4 writer-unit gate: rbi_xlsx row-builder + write_csv.
 
 Locks the contract for sub-row B1.5.4 of
-``TODO/20260604-b1.5-rbi-repoint-subplan.md``: each rbi_xlsx
+``docs/archive/plans/20260604-b1.5-rbi-repoint-subplan.md``: each rbi_xlsx
 SHIPPED_SPECS spec maps to one or more kebab-case ``variable_id`` files
 (split per facet because the writer does not yet support facet
 columns), is emitted via the canonical

@@ -1,7 +1,7 @@
 """B1.5.5 writer-unit gate: rbi_hbs_ie_state_sdp row-builder + write_csv.
 
 Locks the contract for sub-row B1.5.5 of
-``TODO/20260604-b1.5-rbi-repoint-subplan.md``: each state SDP table
+``docs/archive/plans/20260604-b1.5-rbi-repoint-subplan.md``: each state SDP table
 (T05 / T06 / T09 / T10) maps to one kebab-case ``variable_id`` file
 (per-price-basis split because the writer does not yet support facet
 columns), is emitted via the canonical

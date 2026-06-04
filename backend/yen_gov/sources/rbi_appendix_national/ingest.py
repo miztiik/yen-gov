@@ -35,7 +35,7 @@ from .parsers import (
 
 # B1.5.1 - canonical CSV citation triple for the RBI Appendix Table 2
 # national-aggregate indicators (sub-plan
-# `TODO/20260604-b1.5-rbi-repoint-subplan.md`). All four SHIPPED_SPECS rows
+# `docs/archive/plans/20260604-b1.5-rbi-repoint-subplan.md`). All four SHIPPED_SPECS rows
 # share one publication (Appendix Table 2 of the RBI State Finances
 # annual). Producer / title / vintage match the per-family convention
 # declared in the sub-plan §B1.5.1..5 point 8; vintage per ADR-0042 is the
