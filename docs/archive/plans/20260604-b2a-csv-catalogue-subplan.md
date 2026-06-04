@@ -44,7 +44,7 @@ Out of scope (other chunks):
 | B2a.6 entities/electoral.csv from `taxonomy/lgd_acs.json` + `taxonomy/lgd_pcs.json` (FK to B2a.5 `state`) | B2a.5 | fk-validator | #682 | MERGED |
 | B2a.7 entities/electoral_lgd_xwalk.csv from `taxonomy/lgd_ac_pc_district_map.json` (FK to B2a.5 + B2a.6) | B2a.5, B2a.6 | fk-validator | #684 | MERGED |
 | B2a.8 entities/party.csv from `taxonomy/parties.json` | - | fk-validator | #686 | MERGED |
-| B2a.9 close sub-plan: parent B2a row -> MERGED + stamp final PR# + distil into [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md); archive this file to `docs/archive/plans/` | B2a.1..B2a.8 | docs-review | #_pending_ | MERGED |
+| B2a.9 close sub-plan: parent B2a row -> MERGED + stamp final PR# + distil into [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md); archive this file to `docs/archive/plans/` | B2a.1..B2a.8 | docs-review | #688 | MERGED |
 
 Parallel-safe groups (independent inputs + the FK predecessor merged):
 
@@ -150,7 +150,7 @@ All nine sub-rows shipped. Per-row PR distillation map:
 | B2a.6 entities/electoral.csv emitter (FK to geo) | #682 | `backend/yen_gov/canonical/seed/electoral_csv.py` + `backend/tests/test_seed_electoral_csv.py`; `datasets/data/entities/electoral.csv` |
 | B2a.7 entities/electoral_lgd_xwalk.csv emitter (FKs to geo + electoral) | #684 | `backend/yen_gov/canonical/seed/electoral_lgd_xwalk_csv.py` + `backend/tests/test_seed_electoral_lgd_xwalk_csv.py`; `datasets/data/entities/electoral_lgd_xwalk.csv` |
 | B2a.8 entities/party.csv emitter | #686 | `backend/yen_gov/canonical/seed/party_csv.py` + `backend/tests/test_seed_party_csv.py`; `datasets/data/entities/party.csv` |
-| B2a.9 close sub-plan + archive | #_pending_ | this file under `docs/archive/plans/` + parent §22.5 B2a row flipped to MERGED + "Seed emitters" section distilled into [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) |
+| B2a.9 close sub-plan + archive | #688 | this file under `docs/archive/plans/` + parent §22.5 B2a row flipped to MERGED + "Seed emitters" section distilled into [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) |
 
 ## See also
 

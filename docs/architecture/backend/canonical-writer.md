@@ -47,7 +47,7 @@ The B1.4-B1.6 waves re-pointed ~17 surviving `core/io.write_artifact` call-sites
 
 **Alongside-NEITHER carve-out.** When a `write_artifact` site emits operator state (e.g. `datasets/elections/_inventory.json`) or a per-election shape that is one of N inputs to a downstream aggregator (B2a-owned: `entities/*.csv`, per-election `candidacies.csv` / `summary.csv`), no canonical CSV file class fits. Leave the legacy call in place, record the rationale in the sub-row PR body + sub-plan addendum, and pass `docs-review` instead of `writer-unit` + `suite-green`. Precedents: B1.6.4 (#664), B1.6.5 (#666), B1.6.6 (#668), B1.6.7 (#669) - all four alongside-NEITHER under sub-plan B1.6, all emit operator inventory or downstream-aggregator shapes.
 
-## Seed emitters (B2a, PRs #673-#_pending_)
+## Seed emitters (B2a, PRs #673-#688)
 
 Sub-plan [docs/archive/plans/20260604-b2a-csv-catalogue-subplan.md](../../archive/plans/20260604-b2a-csv-catalogue-subplan.md) delivered eight one-shot emitters under `backend/yen_gov/canonical/seed/` that lift the existing taxonomy artifacts under `datasets/taxonomy/` into the canonical CSV catalogue rows every downstream reader (B2b datapoint reingest, F1 frontend loaders, YA yen-ask grounding) joins against. Each emitter reads ONE taxonomy artifact and writes ONE CSV file class via `csv_writer.write_csv`; the validator (`csv_validator.validate_csv`) enforces FK + enum + sort across the emitted files.
 
