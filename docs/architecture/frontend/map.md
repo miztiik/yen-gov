@@ -370,7 +370,15 @@ The following were deleted in PR #455:
 - The Playwright chip-strip assertion in [`frontend/e2e/golden-path.spec.ts`](../../../frontend/e2e/golden-path.spec.ts).
 - The `UT_CODES_WITH_ASSEMBLY` UT-exclusion carve-out in [`backend/yen_gov/coverage.py`](../../../backend/yen_gov/coverage.py) — UTs now appear in coverage reports exactly like states.
 
-[ADR-0029](../decisions/0029-unmapped-region-chips.md) carries the full retirement entry.
+[ADR-0029](../../archive/decisions/0029-unmapped-region-chips.md) (archived 2026-06-04 per D-DOC3.7; body preserved verbatim) carries the full retirement entry.
+
+## Rejected alternatives
+
+This section folds in receipts for the moved-to-archive `docs/architecture/decisions/` ADRs whose rejected-alternative trace pins to this subsystem, per parent plan section 9 (keep-receipts ADR retirement) and [decision-index.md](../../reference/decision-index.md). Append-only.
+
+### ADR-0029 rejected alternatives
+
+Chip-based unmapped-region label (per archived [ADR-0029](../../archive/decisions/0029-unmapped-region-chips.md)); the surface was retired wholesale 2026-05-30 in PR #455 alongside the legacy polygon-inset surface that the ADR originally proposed to replace. Both side-fix surfaces were eliminated by the user mandate "REMOVE ANY SIDE FIXES FOR LAKSHADWEEP AS DATA TABLE, IF THE MAPS INCLUDE IT, EVEN IF THE CHOROPLETH IS UNVISIBLE LETS JUST KEEP IT IN THE MAP." Generalised rule from that mandate: if the polygon is on the map (even sub-pixel / invisible at default zoom), do not add side-fix surfaces - the map polygon is the only authoritative surface; if a citizen needs to read a sub-pixel UT they zoom in. What stays preserved from the ADR's rationale: no leader lines; no hand-curated UT subset; documentation as audit trail (archived ADR-0029 remains the durable record of how the chip-strip was reasoned about, why it shipped, and why it was retired - for any future agent who proposes a similar side-fix surface).
 
 ## See also
 
