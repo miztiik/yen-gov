@@ -249,6 +249,18 @@
         { "name": "value_description", "dtype": "string", "nullable": true },
         { "name": "deprecated", "dtype": "boolean", "nullable": false }
       ]
+    },
+    "datasets/data/state_tiers.csv": {
+      "notes": "M:N tier -> state register (one row per (tier, state) pair). Sourced from datasets/taxonomy/state_tiers.parquet by B2b.4.3 reingest. The source ECI state_code is re-keyed to the LGD state slug on emit and renamed to state_entity_id (FK into geo.csv).",
+      "columns": [
+        { "name": "tier_id", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "tier_label", "dtype": "string", "nullable": false },
+        { "name": "definition_kind", "dtype": "string", "nullable": false },
+        { "name": "definition", "dtype": "string", "nullable": false },
+        { "name": "authority", "dtype": "string", "nullable": true },
+        { "name": "state_entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
+        { "name": "notes", "dtype": "string", "nullable": true }
+      ]
     }
   }
 }

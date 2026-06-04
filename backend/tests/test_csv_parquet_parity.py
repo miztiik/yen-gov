@@ -530,3 +530,95 @@ def test_facet_axes() -> None:
     assert not mismatches, (
         "facet_axes.csv parity violations:\n  " + "\n  ".join(mismatches)
     )
+
+
+def test_state_tiers(lgd_eci_to_slug: dict[str, str]) -> None:
+    """B2b.4.3 cross-format parity: every row in
+    ``datasets/taxonomy/state_tiers.parquet`` MUST appear as exactly one
+    row in ``datasets/data/state_tiers.csv`` with verbatim column equality
+    after the ECI ``state_code`` -> LGD ``state_entity_id`` re-key. PK
+    ``(tier_id, state_entity_id)``.
+    """
+    parquet_path = (
+        REPO_ROOT / "datasets" / "taxonomy" / "state_tiers.parquet"
+    )
+    csv_path = REPO_ROOT / "datasets" / "data" / "state_tiers.csv"
+    if not parquet_path.exists():
+        pytest.skip(f"missing {parquet_path}")
+    if not csv_path.exists():
+        pytest.skip(f"missing {csv_path}; B2b.4.3 emit not run")
+
+    parquet_rows = duckdb.sql(
+        "SELECT tier_id, tier_label, definition_kind, definition, "
+        "authority, state_code, notes "
+        f"FROM read_parquet('{parquet_path.as_posix()}') "
+        "ORDER BY tier_id, state_code"
+    ).fetchall()
+    csv_rows = duckdb.sql(
+        "SELECT tier_id, tier_label, definition_kind, definition, "
+        "authority, state_entity_id, notes FROM read_csv("
+        f"'{csv_path.as_posix()}', "
+        "columns={'tier_id': 'VARCHAR', 'tier_label': 'VARCHAR', "
+        "'definition_kind': 'VARCHAR', 'definition': 'VARCHAR', "
+        "'authority': 'VARCHAR', 'state_entity_id': 'VARCHAR', "
+        "'notes': 'VARCHAR'}, header=true) "
+        "ORDER BY tier_id, state_entity_id"
+    ).fetchall()
+
+    assert len(csv_rows) == len(parquet_rows), (
+        f"row-count parity failed: parquet={len(parquet_rows)} "
+        f"vs csv={len(csv_rows)}"
+    )
+
+    remapped: list[
+        tuple[str, str, str, str, str | None, str, str | None]
+    ] = []
+    for (
+        tier_id,
+        tier_label,
+        definition_kind,
+        definition,
+        authority,
+        state_code,
+        notes,
+    ) in parquet_rows:
+        slug = lgd_eci_to_slug.get(state_code)
+        assert slug is not None, (
+            f"no LGD slug for ECI st_code {state_code!r} (tier {tier_id!r})"
+        )
+        remapped.append(
+            (
+                tier_id,
+                tier_label,
+                definition_kind,
+                definition,
+                authority,
+                slug,
+                notes,
+            )
+        )
+    remapped.sort(key=lambda r: (r[0], r[5]))
+
+    cols = (
+        "tier_id",
+        "tier_label",
+        "definition_kind",
+        "definition",
+        "authority",
+        "state_entity_id",
+        "notes",
+    )
+    mismatches: list[str] = []
+    for parquet_row, csv_row in zip(remapped, csv_rows, strict=True):
+        for idx, name in enumerate(cols):
+            if parquet_row[idx] != csv_row[idx]:
+                mismatches.append(
+                    f"{parquet_row[0]!r}/{parquet_row[5]!r}: "
+                    f"{name} parquet={parquet_row[idx]!r} csv={csv_row[idx]!r}"
+                )
+        if len(mismatches) >= 5:
+            break
+    assert not mismatches, (
+        "state_tiers.csv parity violations:\n  " + "\n  ".join(mismatches)
+    )
+
