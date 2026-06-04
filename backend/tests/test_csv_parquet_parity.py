@@ -794,3 +794,104 @@ def test_indicator_topic_tags() -> None:
         + "\n  ".join(mismatches)
     )
 
+
+def test_ac_crosswalk(lgd_eci_to_slug: dict[str, str]) -> None:
+    """B2b.4.6 cross-format parity: every row in
+    ``datasets/taxonomy/ac_crosswalk.parquet`` MUST appear as exactly one
+    row in ``datasets/data/entities/ac_crosswalk.csv`` with verbatim
+    column equality after the ECI ``state_code`` -> LGD
+    ``state_entity_id`` re-key. PK ``(state_entity_id, delim_year,
+    eci_no)``. ``lgd_ac_id`` is nullable.
+    """
+    parquet_path = (
+        REPO_ROOT / "datasets" / "taxonomy" / "ac_crosswalk.parquet"
+    )
+    csv_path = (
+        REPO_ROOT / "datasets" / "data" / "entities" / "ac_crosswalk.csv"
+    )
+    if not parquet_path.exists():
+        pytest.skip(f"missing {parquet_path}")
+    if not csv_path.exists():
+        pytest.skip(f"missing {csv_path}; B2b.4.6 emit not run")
+
+    parquet_rows = duckdb.sql(
+        "SELECT state_code, delim_year, eci_no, lgd_ac_id, ac_id, "
+        "ac_name, match_method, source_id "
+        f"FROM read_parquet('{parquet_path.as_posix()}') "
+        "ORDER BY state_code, delim_year, eci_no"
+    ).fetchall()
+    csv_rows = duckdb.sql(
+        "SELECT state_entity_id, delim_year, eci_no, lgd_ac_id, ac_id, "
+        "ac_name, match_method, source_id FROM read_csv("
+        f"'{csv_path.as_posix()}', "
+        "columns={'state_entity_id': 'VARCHAR', 'delim_year': 'INTEGER', "
+        "'eci_no': 'INTEGER', 'lgd_ac_id': 'INTEGER', 'ac_id': 'VARCHAR', "
+        "'ac_name': 'VARCHAR', 'match_method': 'VARCHAR', "
+        "'source_id': 'VARCHAR'}, header=true) "
+        "ORDER BY state_entity_id, delim_year, eci_no"
+    ).fetchall()
+
+    assert len(csv_rows) == len(parquet_rows), (
+        f"row-count parity failed: parquet={len(parquet_rows)} "
+        f"vs csv={len(csv_rows)}"
+    )
+
+    remapped: list[
+        tuple[str, int, int, int | None, str, str, str | None, str]
+    ] = []
+    for (
+        state_code,
+        delim_year,
+        eci_no,
+        lgd_ac_id,
+        ac_id,
+        ac_name,
+        match_method,
+        source_id,
+    ) in parquet_rows:
+        slug = lgd_eci_to_slug.get(state_code)
+        assert slug is not None, (
+            f"no LGD slug for ECI st_code {state_code!r} "
+            f"(eci_no {eci_no!r})"
+        )
+        remapped.append(
+            (
+                slug,
+                delim_year,
+                eci_no,
+                lgd_ac_id,
+                ac_id,
+                ac_name,
+                match_method,
+                source_id,
+            )
+        )
+    remapped.sort(key=lambda r: (r[0], r[1], r[2]))
+
+    cols = (
+        "state_entity_id",
+        "delim_year",
+        "eci_no",
+        "lgd_ac_id",
+        "ac_id",
+        "ac_name",
+        "match_method",
+        "source_id",
+    )
+    mismatches: list[str] = []
+    for parquet_row, csv_row in zip(remapped, csv_rows, strict=True):
+        for idx, name in enumerate(cols):
+            if parquet_row[idx] != csv_row[idx]:
+                mismatches.append(
+                    f"{parquet_row[0]!r}/{parquet_row[1]!r}/"
+                    f"{parquet_row[2]!r}: "
+                    f"{name} parquet={parquet_row[idx]!r} "
+                    f"csv={csv_row[idx]!r}"
+                )
+        if len(mismatches) >= 5:
+            break
+    assert not mismatches, (
+        "ac_crosswalk.csv parity violations:\n  "
+        + "\n  ".join(mismatches)
+    )
+
