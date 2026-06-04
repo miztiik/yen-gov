@@ -39,7 +39,7 @@ Out of scope (other chunks):
 | B2b.1 energy family CSV reingest (6 parquets) | - | cross-format-parity | #691 | MERGED |
 | B2b.2 livestock family CSV reingest (3 parquets) | - | cross-format-parity | #693 | MERGED |
 | B2b.3 governments family CSV reingest (2 parquets; term-shape per 20.4) | - | cross-format-parity | #695 | MERGED |
-| B2b.4 taxonomy datapoint reingest (the parquets B2a left behind: `election_events`, `facet-axes`, `ac_crosswalk`, `indicator_topic_tags`, `methodology_breaks`, `persons`, `state_tiers`) | - | cross-format-parity | - | TODO |
+| B2b.4 taxonomy datapoint reingest (the parquets B2a left behind: `election_events`, `facet-axes`, `ac_crosswalk`, `indicator_topic_tags`, `methodology_breaks`, `persons`, `state_tiers`) | - | cross-format-parity | - | DEFERRED-TO-SUBPLAN ([TODO/20260604-b2b4-taxonomy-subplan.md](20260604-b2b4-taxonomy-subplan.md); seven sub-sub-rows B2b.4.1=methodology_breaks, B2b.4.2=facet_axes, B2b.4.3=state_tiers, B2b.4.4=election_events, B2b.4.5=indicator_topic_tags, B2b.4.6=ac_crosswalk, B2b.4.7=persons, B2b.4.8=closure) |
 | B2b.5 elections-from-local-TCPD per-election CSV reingest (per 21.3 + 21.4 + 23.4; expected to spawn its own sub-sub-plan given ~37 states x ~5-10 cycles + parliament 1957..2024) | - | cross-format-parity + parity-oracle-CSV (winner+margin invariants only; full oracle rewrite is F1) | - | TODO |
 | B2b.6 close sub-plan: flip parent B2b row to MERGED + stamp closure PR + distil into [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md) section "Datapoint reingest" + archive this sub-plan | B2b.1..B2b.5 | docs-review | - | TODO |
 
