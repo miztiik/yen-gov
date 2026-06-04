@@ -23,6 +23,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from yen_gov.canonical.citation import derive_source_id
+from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.core.io import Source, write_artifact
 
 from .parsers import (
@@ -35,6 +37,35 @@ from .urls import OGD_AUTHORITY_URL, ResourceMeta, resource_for
 
 
 DATAGOVIN_SOURCE_NAME = "datagovin"
+
+
+# B1.6.2 - canonical CSV citation triple for the data.gov.in OGD ingest
+# (sub-plan `TODO/20260604-b1.6-misc-repoint-subplan.md`). Each shipped
+# indicator binds to one resource; producer / title / vintage match the
+# per-family convention declared in sub-plan section B1.6.1..7 point 8.
+# Vintage per ADR-0042 is the publisher edition string: the answer-month
+# of the Rajya Sabha Session 260 Unstarred Q1323 that backs the OGD
+# resource (answered 1 August 2023 -> `2023-08`). The fk-validator gate
+# is dark on this hash until `entities/source.csv` lands (B2a), by
+# design per sub-plan section "Pre-flight - source-id + concept-id
+# readiness".
+_CSV_FILE_CLASS = "datasets/data/datapoints/geo/*.csv"
+_CSV_OUT_REL_DIR = "datasets/data/datapoints/geo"
+
+# Per-indicator citation + canonical variable_id mapping.
+# variable_id honours parent plan section 21.6 / 21.12 (no `__`) and
+# ADR-0044 (no grain prefix; kebab-case `<measure>-<unit>-<facet>`).
+_INDICATOR_TO_CSV: dict[str, dict[str, str]] = {
+    "fiscal/centre_transfers_gross": {
+        "variable_id": "centre-transfers-inr-crore-gross",
+        "producer": "Ministry of Finance, Government of India",
+        "title": (
+            "State-wise Details of Total Revenue Receipts, with own "
+            "Receipts and Centre Transfers (FY17-FY23, Actuals)"
+        ),
+        "vintage": "2023-08",
+    },
+}
 
 
 # ---------------------------------------------------------------------------
@@ -256,6 +287,60 @@ class IngestResult:
     indicators: tuple[IndicatorIngestResult, ...]
 
 
+def _fy_period_to_time(period: str) -> int:
+    """Encode a canonical FY period string ``YYYY-MM`` as integer ``YYYYMM``.
+
+    The geo datapoints file class declares ``time`` as ``integer``.
+    Parser emits ``"2016-04"`` (fy_span) or ``"2017-04"`` (fy_end_year);
+    both shapes share ``YYYY-MM``. Fail-fast on shape drift - no silent
+    coercion (CLAUDE.md anti-patterns).
+    """
+    year_str, _, month_str = period.partition("-")
+    return int(year_str) * 100 + int(month_str)
+
+
+def build_csv_variables(
+    spec: IndicatorSpec,
+    parsed: ParsedIndicator,
+    *,
+    source_id: str,
+) -> dict[str, list[dict[str, Any]]]:
+    """Build per-`variable_id` CSV row lists for one OGD indicator.
+
+    Each row carries the four canonical columns declared on file class
+    ``datasets/data/datapoints/geo/*.csv``: ``entity_id``, ``time``,
+    ``value``, ``source_id``. One ``variable_id`` per indicator (the
+    OGD ingest is one-resource-per-indicator by design - no facets).
+    """
+    csv_meta = _INDICATOR_TO_CSV[spec.indicator_id]
+    variable_id = csv_meta["variable_id"]
+    csv_rows: list[dict[str, Any]] = []
+    for r in parsed.rows:
+        csv_rows.append({
+            "entity_id": r.entity_id,
+            "time": _fy_period_to_time(r.time),
+            "value": r.value,
+            "source_id": source_id,
+        })
+    return {variable_id: csv_rows}
+
+
+def emit_csv_variables(
+    *, repo_root: Path, by_variable: dict[str, list[dict[str, Any]]]
+) -> tuple[Path, ...]:
+    """Write each `variable_id` to `datasets/data/datapoints/geo/<id>.csv`."""
+    written: list[Path] = []
+    out_dir = repo_root / _CSV_OUT_REL_DIR
+    for variable_id, rows in sorted(by_variable.items()):
+        path = write_csv(
+            path=out_dir / f"{variable_id}.csv",
+            file_class=_CSV_FILE_CLASS,
+            rows=rows,
+        )
+        written.append(path)
+    return tuple(written)
+
+
 def ingest(*, repo_root: Path, schema_dir: Path) -> IngestResult:
     """Read each cached CSV → write its artifact. Idempotent."""
     indicator_schema_path = schema_dir / "indicator.schema.json"
@@ -290,6 +375,20 @@ def ingest(*, repo_root: Path, schema_dir: Path) -> IngestResult:
             ],
             schema_for_validation=indicator_schema,
         )
+
+        # B1.6.2 - canonical long-format CSV emission ALONGSIDE the
+        # legacy indicator JSON write. Existing JSON output stays in
+        # place; instead-of deletion is deferred to B3 per parent plan
+        # section 23.1 and sub-plan section B1.6.1..7 point 6.
+        csv_meta = _INDICATOR_TO_CSV[spec.indicator_id]
+        csv_source_id = derive_source_id(
+            csv_meta["producer"], csv_meta["title"], csv_meta["vintage"],
+        )
+        by_variable = build_csv_variables(
+            spec, parsed, source_id=csv_source_id,
+        )
+        emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+
         results.append(
             IndicatorIngestResult(
                 indicator_id=spec.indicator_id,
