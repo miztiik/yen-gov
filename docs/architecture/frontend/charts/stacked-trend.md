@@ -196,7 +196,7 @@ indicator.json (1 file,    ─┘     │                                 │
                                      in dev/test
 ```
 
-For the energy proof-of-value, **no multi-file adapter is shipped**. Originally a backend composer (`backend/yen_gov/composers/energy_capacity_by_source.py`) emitted a single `installed_capacity_by_source_mw.json` artifact with `facet` rows; the indicator-adapter read ONE file. That composer + artifact were retired in PR 7b (the per-state `state_installed_capacity_by_source_mw` shard now carries the same facetted shape from canonical store). See [ADR-0024](../../decisions/0024-backend-aggregator-for-facetted-indicators.md) (status: superseded by PR 7b) for the historical rationale on why this was backend Aggregator territory, not adapter territory.
+For the energy proof-of-value, **no multi-file adapter is shipped**. Originally a backend composer (`backend/yen_gov/composers/energy_capacity_by_source.py`) emitted a single `installed_capacity_by_source_mw.json` artifact with `facet` rows; the indicator-adapter read ONE file. That composer + artifact were retired in PR 7b (the per-state `state_installed_capacity_by_source_mw` shard now carries the same facetted shape from canonical store). See [archived ADR-0024](../../../archive/decisions/0024-backend-aggregator-for-facetted-indicators.md) (status: superseded by PR 7b; rationale folded into [docs/architecture/data/indicator-catalogue.md](../../data/indicator-catalogue.md#adr-0024-rejected-alternatives)) for the historical rationale on why this was backend Aggregator territory, not adapter territory.
 
 ## Dimensions registry (per Gregor S2)
 
@@ -480,7 +480,7 @@ Each `ConstituencyResult` becomes a bar (`period_id = result.election`, `kind = 
 | `docs/architecture/frontend/colours.md` | Updated: dimension anchors + mandatory registration section. |
 | `docs/architecture/frontend/indicators.md` | Updated: `chart_type` field; how to declare a stacked-trend indicator. |
 | `docs/reference/schemas.md` | Indicator-schema v1.2 row. |
-| `docs/architecture/decisions/0024-backend-aggregator-for-facetted-indicators.md` (new) | Documents why option B beat option A. |
+| `docs/archive/decisions/0024-backend-aggregator-for-facetted-indicators.md` (archived 2026-06-04, superseded by PR 7b; rationale folded into `docs/architecture/data/indicator-catalogue.md`) | Documents why option B beat option A. |
 
 ## v1 scope (what ships)
 
@@ -558,7 +558,7 @@ Per CLAUDE.md §15:
 ## Related docs
 
 - [`docs/architecture/decisions/0020-indicator-artifact-as-data-contract.md`](../../decisions/0020-indicator-artifact-as-data-contract.md) — upstream contract.
-- [`docs/architecture/decisions/0024-backend-aggregator-for-facetted-indicators.md`](../../decisions/0024-backend-aggregator-for-facetted-indicators.md) — option-A vs option-B for energy.
+- [`docs/archive/decisions/0024-backend-aggregator-for-facetted-indicators.md`](../../../archive/decisions/0024-backend-aggregator-for-facetted-indicators.md) — option-A vs option-B for energy (archived 2026-06-04, superseded by PR 7b; rationale folded into [docs/architecture/data/indicator-catalogue.md](../../data/indicator-catalogue.md#adr-0024-rejected-alternatives)).
 - [`docs/architecture/frontend/indicators.md`](../indicators.md) — sibling renderer family.
 - [`docs/architecture/frontend/colours.md`](../colours.md) — colour module (will be updated).
 - [`docs/concepts/data-provenance.md`](../../../concepts/data-provenance.md) — `sources` array discipline.
