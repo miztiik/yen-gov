@@ -3,6 +3,68 @@
 @tailwind utilities;
 
 /*
+ * Self-hosted variable font subsets (plan section 21.7 + 23.5; U1.2 of
+ * TODO/20260604-u1-tokens-fonts-subplan.md). Subset binaries live under
+ * frontend/public/fonts/ and ship in the static bundle; provenance +
+ * subset recipes are recorded in frontend/public/fonts/LICENCES.md and
+ * the script that produces them is tools/build_fonts.py. All three
+ * pass --layout-features='*' so GSUB/GPOS shaping tables ship intact -
+ * codepoint-only pruning is BANNED by plan section 23.5 (silently
+ * breaks Devanagari conjuncts).
+ *
+ * font-display: swap means a fallback renders immediately and the
+ * webfont swaps in once loaded; no flash-of-invisible-text.
+ *
+ * unicode-range narrows each @font-face to its script so the browser
+ * fetches Devanagari ONLY when the page renders a Devanagari codepoint
+ * (the LeftRail wordmark + body text are pure Latin, so the
+ * Devanagari woff2 stays uncached until a state-name or dataset label
+ * uses the script).
+ *
+ * U1.2 ships the @font-face declarations + the matching woff2 bytes;
+ * the body font-family cutover (so `body` actually reads var(--font-sans)
+ * instead of the default system stack) lands in U1.3 alongside the
+ * tabular-numeral application and the ballot-motif retone.
+ */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/inter-latin.woff2") format("woff2-variations"),
+       url("/fonts/inter-latin.woff2") format("woff2");
+  unicode-range:
+    U+0000-024F,
+    U+1E00-1EFF,
+    U+2000-206F,
+    U+20A0-20CF,
+    U+2070-209F;
+}
+
+@font-face {
+  font-family: "Noto Sans Devanagari";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/noto-sans-devanagari.woff2") format("woff2-variations"),
+       url("/fonts/noto-sans-devanagari.woff2") format("woff2");
+  unicode-range:
+    U+0900-097F,
+    U+200C-200D,
+    U+25CC;
+}
+
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/outfit-latin.woff2") format("woff2-variations"),
+       url("/fonts/outfit-latin.woff2") format("woff2");
+  unicode-range: U+0020-007E;
+}
+
+/*
  * Background motif: a tiled pattern of neutral electoral marks (✓, ✗, and
  * a ballot-box outline) drawn in slate-400. Lives behind every page via a
  * fixed body::before pseudo-element so the pattern doesn't scroll.
