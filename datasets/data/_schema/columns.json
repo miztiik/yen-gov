@@ -1,0 +1,201 @@
+{
+  "$schema": "./columns.schema.json",
+  "$schema_version": "1.0",
+  "file_classes": {
+    "datasets/data/variables.csv": {
+      "notes": "Catalogue: one row per indicator (variable). Spec: csv-column-contract.md section 3.1.",
+      "columns": [
+        { "name": "indicator_id", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "name", "dtype": "string", "nullable": false },
+        { "name": "concept_id", "dtype": "string", "nullable": false, "fk": "datasets/data/concepts.csv.concept_id" },
+        { "name": "unit", "dtype": "string", "nullable": false },
+        { "name": "derivation", "dtype": "string", "nullable": true },
+        { "name": "topic", "dtype": "string", "nullable": true, "fk": "datasets/data/topics.csv.topic" },
+        { "name": "source_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/source.csv.source_id" },
+        { "name": "update_period_days", "dtype": "integer", "nullable": false },
+        { "name": "time_min", "dtype": "integer", "nullable": true },
+        { "name": "time_max", "dtype": "integer", "nullable": true },
+        { "name": "entity_kinds", "dtype": "string", "nullable": true }
+      ]
+    },
+    "datasets/data/concepts.csv": {
+      "notes": "Catalogue: one row per concept (what is measured). Spec: csv-column-contract.md section 3.1.",
+      "columns": [
+        { "name": "concept_id", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "noun", "dtype": "string", "nullable": false },
+        { "name": "unit_canonical", "dtype": "string", "nullable": false },
+        { "name": "normalisation", "dtype": "string", "nullable": false, "enum": ["absolute", "per_capita", "share", "rate", "index"] },
+        { "name": "entity_kinds", "dtype": "string", "nullable": false },
+        { "name": "description", "dtype": "string", "nullable": true }
+      ]
+    },
+    "datasets/data/topics.csv": {
+      "notes": "Catalogue: one row per topic (Gapminder parent-pointer shape). Spec: csv-column-contract.md section 3.1.",
+      "columns": [
+        { "name": "topic", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "name", "dtype": "string", "nullable": false },
+        { "name": "parent", "dtype": "string", "nullable": true, "fk": "datasets/data/topics.csv.topic" }
+      ]
+    },
+    "datasets/data/entities/geo.csv": {
+      "notes": "LGD administrative ladder. v1 freezes entity_kind at state + district per F4 (sub-district + village admissible but not emitted yet). Spec: csv-column-contract.md section 3.2.",
+      "columns": [
+        { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "name", "dtype": "string", "nullable": false },
+        { "name": "parent", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
+        { "name": "entity_kind", "dtype": "string", "nullable": false, "enum": ["country", "state", "district", "sub-district", "village"] },
+        { "name": "aliases", "dtype": "string", "nullable": true }
+      ]
+    },
+    "datasets/data/entities/electoral.csv": {
+      "notes": "ECI AC and PC entities per delimitation cycle. Electoral and LGD entities meet only via electoral_lgd_xwalk.csv (F3). Spec: csv-column-contract.md section 3.2.",
+      "columns": [
+        { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "name", "dtype": "string", "nullable": false },
+        { "name": "entity_kind", "dtype": "string", "nullable": false, "enum": ["ac", "pc"] },
+        { "name": "delim_year", "dtype": "integer", "nullable": false },
+        { "name": "state", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/geo.csv.entity_id" },
+        { "name": "parent", "dtype": "string", "nullable": true },
+        { "name": "reservation", "dtype": "string", "nullable": true, "enum": ["GEN", "SC", "ST"] }
+      ]
+    },
+    "datasets/data/entities/electoral_lgd_xwalk.csv": {
+      "notes": "Versioned crosswalk - NEVER an invariant. Composite PK: (electoral_id, lgd_district_id, delim_year). Spec: csv-column-contract.md section 3.2.",
+      "columns": [
+        { "name": "electoral_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/electoral.csv.entity_id" },
+        { "name": "lgd_district_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
+        { "name": "delim_year", "dtype": "integer", "nullable": false, "pk": true },
+        { "name": "boundary_snapshot", "dtype": "string", "nullable": false },
+        { "name": "overlap_kind", "dtype": "string", "nullable": false, "enum": ["wholly_inside", "majority", "partial"] }
+      ]
+    },
+    "datasets/data/entities/party.csv": {
+      "notes": "Sole party key is party_id (plan section 20.3); eci_code is NOT a PK. Spec: csv-column-contract.md section 3.2.",
+      "columns": [
+        { "name": "party_id", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "short", "dtype": "string", "nullable": false },
+        { "name": "full", "dtype": "string", "nullable": false },
+        { "name": "eci_codes", "dtype": "string", "nullable": true },
+        { "name": "brand_colour", "dtype": "string", "nullable": true },
+        { "name": "symbol_asset", "dtype": "string", "nullable": true },
+        { "name": "wikipedia", "dtype": "string", "nullable": true }
+      ]
+    },
+    "datasets/data/entities/source.csv": {
+      "notes": "Provenance ledger (citation grain, one row per producer/title/vintage). Exactly five columns per plan section 7 (O3). source_id is derived (B2a builder), never hand-authored (CLAUDE.md Holy Law #9, section 12). Spec: csv-column-contract.md section 3.2.",
+      "columns": [
+        { "name": "source_id", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "owner", "dtype": "string", "nullable": true },
+        { "name": "title", "dtype": "string", "nullable": true },
+        { "name": "vintage", "dtype": "string", "nullable": true },
+        { "name": "url", "dtype": "string", "nullable": true }
+      ]
+    },
+    "datasets/data/datapoints/geo/*.csv": {
+      "notes": "Long-format datapoints keyed to LGD geo entities. One file per variable_id; filename is exactly <variable_id>.csv. Sorted by (entity_id, time). Per-indicator facet columns (e.g. sex, fuel_type) extend the core list dynamically and join the PK when present (plan section 21.6); facet metadata lives on the indicator's variables.csv row, not in this file class. Spec: csv-column-contract.md section 3.3.",
+      "columns": [
+        { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
+        { "name": "time", "dtype": "integer", "nullable": false, "pk": true },
+        { "name": "value", "dtype": "number", "nullable": true },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
+      ]
+    },
+    "datasets/data/datapoints/electoral/*.csv": {
+      "notes": "Long-format datapoints keyed to ECI electoral entities. Same shape as datapoints/geo/ but entity_id targets electoral.csv. Spec: csv-column-contract.md section 3.3.",
+      "columns": [
+        { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/electoral.csv.entity_id" },
+        { "name": "time", "dtype": "integer", "nullable": false, "pk": true },
+        { "name": "value", "dtype": "number", "nullable": true },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
+      ]
+    },
+    "datasets/elections/assembly/state=*/election=*/candidacies.csv": {
+      "notes": "Per-election self-contained CSV (wide: one row per constituency x candidate). Delimitation merge/split never reconciled in-file (plan section 21.3). Spec: csv-column-contract.md section 3.4.",
+      "columns": [
+        { "name": "entity_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/electoral.csv.entity_id" },
+        { "name": "state", "dtype": "string", "nullable": false },
+        { "name": "election_year", "dtype": "integer", "nullable": false },
+        { "name": "constituency_no", "dtype": "integer", "nullable": false },
+        { "name": "constituency_name", "dtype": "string", "nullable": false },
+        { "name": "candidate_name", "dtype": "string", "nullable": false },
+        { "name": "party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/party.csv.party_id" },
+        { "name": "votes", "dtype": "integer", "nullable": false },
+        { "name": "vote_share_pct", "dtype": "number", "nullable": true, "derived": true },
+        { "name": "position", "dtype": "integer", "nullable": false },
+        { "name": "result", "dtype": "string", "nullable": false, "enum": ["won", "lost", "forfeit"] },
+        { "name": "sex", "dtype": "string", "nullable": true, "enum": ["M", "F", "O", "U"] },
+        { "name": "age", "dtype": "integer", "nullable": true },
+        { "name": "education", "dtype": "string", "nullable": true },
+        { "name": "profession", "dtype": "string", "nullable": true },
+        { "name": "candidate_type", "dtype": "string", "nullable": true, "enum": ["incumbent", "challenger", "crossover"] },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
+      ]
+    },
+    "datasets/elections/assembly/state=*/election=*/summary.csv": {
+      "notes": "Derived projection of candidacies.csv (parity-oracle-CSV gate asserts summary == recompute(candidacies)). Spec: csv-column-contract.md section 3.4.",
+      "columns": [
+        { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/electoral.csv.entity_id" },
+        { "name": "state", "dtype": "string", "nullable": false },
+        { "name": "election_year", "dtype": "integer", "nullable": false },
+        { "name": "constituency_name", "dtype": "string", "nullable": false },
+        { "name": "electors", "dtype": "integer", "nullable": true },
+        { "name": "votes_polled", "dtype": "integer", "nullable": true },
+        { "name": "turnout_pct", "dtype": "number", "nullable": true, "derived": true },
+        { "name": "winner_candidate", "dtype": "string", "nullable": false },
+        { "name": "winner_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/party.csv.party_id" },
+        { "name": "winner_votes", "dtype": "integer", "nullable": false, "derived": true },
+        { "name": "winner_share_pct", "dtype": "number", "nullable": false, "derived": true },
+        { "name": "runnerup_candidate", "dtype": "string", "nullable": false },
+        { "name": "runnerup_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/party.csv.party_id" },
+        { "name": "runnerup_votes", "dtype": "integer", "nullable": false, "derived": true },
+        { "name": "margin_votes", "dtype": "integer", "nullable": false, "derived": true },
+        { "name": "margin_pct", "dtype": "number", "nullable": false, "derived": true },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
+      ]
+    },
+    "datasets/elections/parliament/election=*/candidacies.csv": {
+      "notes": "Same shape as assembly candidacies. constituency_no is ECI pc_no (per-state-restart, so 'state' is MANDATORY even though the path lacks a state= partition - plan section 23.4). entity_id follows IN-PC-<delim>-<state_code>-<pc_no>. Spec: csv-column-contract.md section 3.4.",
+      "columns": [
+        { "name": "entity_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/electoral.csv.entity_id" },
+        { "name": "state", "dtype": "string", "nullable": false },
+        { "name": "election_year", "dtype": "integer", "nullable": false },
+        { "name": "constituency_no", "dtype": "integer", "nullable": false },
+        { "name": "constituency_name", "dtype": "string", "nullable": false },
+        { "name": "candidate_name", "dtype": "string", "nullable": false },
+        { "name": "party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/party.csv.party_id" },
+        { "name": "votes", "dtype": "integer", "nullable": false },
+        { "name": "vote_share_pct", "dtype": "number", "nullable": true, "derived": true },
+        { "name": "position", "dtype": "integer", "nullable": false },
+        { "name": "result", "dtype": "string", "nullable": false, "enum": ["won", "lost", "forfeit"] },
+        { "name": "sex", "dtype": "string", "nullable": true, "enum": ["M", "F", "O", "U"] },
+        { "name": "age", "dtype": "integer", "nullable": true },
+        { "name": "education", "dtype": "string", "nullable": true },
+        { "name": "profession", "dtype": "string", "nullable": true },
+        { "name": "candidate_type", "dtype": "string", "nullable": true, "enum": ["incumbent", "challenger", "crossover"] },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
+      ]
+    },
+    "datasets/elections/parliament/election=*/summary.csv": {
+      "notes": "Same shape as assembly summary with entity_id keyed to PC. state is MANDATORY (plan section 23.4). Spec: csv-column-contract.md section 3.4.",
+      "columns": [
+        { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/electoral.csv.entity_id" },
+        { "name": "state", "dtype": "string", "nullable": false },
+        { "name": "election_year", "dtype": "integer", "nullable": false },
+        { "name": "constituency_name", "dtype": "string", "nullable": false },
+        { "name": "electors", "dtype": "integer", "nullable": true },
+        { "name": "votes_polled", "dtype": "integer", "nullable": true },
+        { "name": "turnout_pct", "dtype": "number", "nullable": true, "derived": true },
+        { "name": "winner_candidate", "dtype": "string", "nullable": false },
+        { "name": "winner_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/party.csv.party_id" },
+        { "name": "winner_votes", "dtype": "integer", "nullable": false, "derived": true },
+        { "name": "winner_share_pct", "dtype": "number", "nullable": false, "derived": true },
+        { "name": "runnerup_candidate", "dtype": "string", "nullable": false },
+        { "name": "runnerup_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/party.csv.party_id" },
+        { "name": "runnerup_votes", "dtype": "integer", "nullable": false, "derived": true },
+        { "name": "margin_votes", "dtype": "integer", "nullable": false, "derived": true },
+        { "name": "margin_pct", "dtype": "number", "nullable": false, "derived": true },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
+      ]
+    }
+  }
+}

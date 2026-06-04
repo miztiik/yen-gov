@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./columns.schema.json",
+  "title": "CSV column contract (schema-of-schemas)",
+  "description": "Validates datasets/data/_schema/columns.json - the one machine-readable home for the per-file-class CSV column contract. Spec: docs/architecture/data/csv-column-contract.md (D-DOC0). Consumed by the backend write-time validator (B1.3), the frontend typed-read codegen (F1), and the cross-format drift test.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-06-04",
+      "description": "Initial sub-plan B1.1 schema for the columns.json artifact. Mirrors csv-column-contract.md sections 2-4: file-class keyed by canonical-tree glob; per-column {name, dtype, nullable, pk?, fk?, enum?, derived?}; closed-enum membership; no second hand-typed column-name copy permitted."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "file_classes"],
+  "properties": {
+      "$schema": { "const": "./columns.schema.json" },
+    "$schema_version": { "$ref": "#/$defs/version" },
+    "file_classes": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": { "$ref": "#/$defs/file_class_glob" },
+      "additionalProperties": { "$ref": "#/$defs/file_class" }
+    }
+  },
+  "$defs": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$"
+    },
+    "file_class_glob": {
+      "type": "string",
+      "pattern": "^datasets/(data|elections)/[A-Za-z0-9_./*=<>-]+\\.csv$",
+      "description": "Glob over the canonical tree, anchored at repo root. POSIX separators only. No double-underscore in any path segment (plan section 21.6)."
+    },
+    "file_class": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["columns"],
+      "properties": {
+        "columns": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/column" },
+          "description": "Columns in EMISSION order. The CSV header MUST equal this list (no reordering, no extras, no omissions) per csv-column-contract.md section 2."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Human-readable note carried alongside the file-class entry. Not consumed by the validator; surfaced in tooling output."
+        }
+      }
+    },
+    "column": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "dtype", "nullable"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9]*(_[a-z0-9]+)*$",
+          "description": "snake_case identifier. No double-underscore."
+        },
+        "dtype": {
+          "type": "string",
+          "enum": ["string", "integer", "number", "boolean"],
+          "description": "CSV-readable dtype. Maps 1:1 to a DuckDB read_csv() column type."
+        },
+        "nullable": {
+          "type": "boolean",
+          "description": "Whether the column may carry NULL. The writer rejects NULL on a non-nullable column; the validator rejects empty-string-on-nullable=false."
+        },
+        "pk": {
+          "type": "boolean",
+          "description": "Member of the primary key for this file class. Composite PKs declare pk:true on each member. Rows are sorted deterministically by the PK before write."
+        },
+        "fk": {
+          "type": "string",
+          "pattern": "^datasets/(data|elections)/[A-Za-z0-9_./*=<>-]+\\.csv\\.[a-z][a-z0-9_]*$",
+          "description": "Foreign-key target as '<file-class-glob>.<column>'. Enforced by the B1.3 validator."
+        },
+        "enum": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string" },
+          "description": "Closed-enum membership (single source per csv-column-contract.md section 4). The validator rejects values outside the set."
+        },
+        "derived": {
+          "type": "boolean",
+          "description": "F7 computed at write time, never hand-authored. The writer rejects callers that supply the column in input rows."
+        }
+      }
+    }
+  }
+}
