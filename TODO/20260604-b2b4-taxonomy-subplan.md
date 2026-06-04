@@ -47,7 +47,7 @@ Out of scope (other rows / chunks):
 
 | Sub-row | Blocks on | Gate | PR# | Status |
 | --- | --- | --- | --- | --- |
-| B2b.4.1 `methodology_breaks.csv` from `methodology_breaks.parquet` (5 rows; smallest; F6 reference) | - | cross-format-parity | - | TODO |
+| B2b.4.1 `methodology_breaks.csv` from `methodology_breaks.parquet` (5 rows; smallest; F6 reference) | - | cross-format-parity | #698 | IN-FLIGHT |
 | B2b.4.2 `facet_axes.csv` from `facet-axes.parquet` (127 rows; reference) | - | cross-format-parity | - | TODO |
 | B2b.4.3 `state_tiers.csv` from `state_tiers.parquet` (104 rows; ECI `state_code` -> LGD slug re-key on emit) | - | cross-format-parity | - | TODO |
 | B2b.4.4 `election_events.csv` from `election_events.parquet` (339 rows; ECI `state_code` -> LGD slug re-key on emit) | - | cross-format-parity | - | TODO |
