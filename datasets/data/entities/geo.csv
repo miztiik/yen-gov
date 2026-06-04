@@ -1,0 +1,822 @@
+entity_id,name,parent,entity_kind,aliases
+IN,India,,country,IN|IND|356
+andaman-and-nicobar,Andaman & Nicobar,IN,state,IN-AN|U01|lgd:35
+andaman-and-nicobar/nicobars,Nicobars,andaman-and-nicobar,district,lgd:603
+andaman-and-nicobar/north-and-middle-andaman,North And Middle Andaman,andaman-and-nicobar,district,lgd:632
+andaman-and-nicobar/south-andamans,South Andamans,andaman-and-nicobar,district,lgd:602
+andhra-pradesh,Andhra Pradesh,IN,state,IN-AP|S01|lgd:28
+andhra-pradesh/alluri-sitharama-raju,Alluri Sitharama Raju,andhra-pradesh,district,lgd:745
+andhra-pradesh/anakapalli,Anakapalli,andhra-pradesh,district,lgd:744
+andhra-pradesh/ananthapuramu,Ananthapuramu,andhra-pradesh,district,lgd:502
+andhra-pradesh/annamayya,Annamayya,andhra-pradesh,district,lgd:753
+andhra-pradesh/bapatla,Bapatla,andhra-pradesh,district,lgd:750
+andhra-pradesh/chittoor,Chittoor,andhra-pradesh,district,lgd:503
+andhra-pradesh/dr-b-r-ambedkar-konaseema,Dr. B.R. Ambedkar Konaseema,andhra-pradesh,district,lgd:747
+andhra-pradesh/east-godavari,East Godavari,andhra-pradesh,district,lgd:505
+andhra-pradesh/eluru,Eluru,andhra-pradesh,district,lgd:748
+andhra-pradesh/guntur,Guntur,andhra-pradesh,district,lgd:506
+andhra-pradesh/kakinada,Kakinada,andhra-pradesh,district,lgd:746
+andhra-pradesh/krishna,Krishna,andhra-pradesh,district,lgd:510
+andhra-pradesh/kurnool,Kurnool,andhra-pradesh,district,lgd:511
+andhra-pradesh/markapuram,Markapuram,andhra-pradesh,district,lgd:790
+andhra-pradesh/nandyal,Nandyal,andhra-pradesh,district,lgd:755
+andhra-pradesh/ntr,Ntr,andhra-pradesh,district,lgd:749
+andhra-pradesh/palnadu,Palnadu,andhra-pradesh,district,lgd:751
+andhra-pradesh/parvathipuram-manyam,Parvathipuram Manyam,andhra-pradesh,district,lgd:743
+andhra-pradesh/polavaram,Polavaram,andhra-pradesh,district,lgd:791
+andhra-pradesh/prakasam,Prakasam,andhra-pradesh,district,lgd:517
+andhra-pradesh/sri-potti-sriramulu-nellore,Sri Potti Sriramulu Nellore,andhra-pradesh,district,lgd:515
+andhra-pradesh/sri-sathya-sai,Sri Sathya Sai,andhra-pradesh,district,lgd:754
+andhra-pradesh/srikakulam,Srikakulam,andhra-pradesh,district,lgd:519
+andhra-pradesh/tirupati,Tirupati,andhra-pradesh,district,lgd:752
+andhra-pradesh/visakhapatnam,Visakhapatnam,andhra-pradesh,district,lgd:520
+andhra-pradesh/vizianagaram,Vizianagaram,andhra-pradesh,district,lgd:521
+andhra-pradesh/west-godavari,West Godavari,andhra-pradesh,district,lgd:523
+andhra-pradesh/y-s-r-kadapa,Y.S.R. Kadapa,andhra-pradesh,district,lgd:504
+arunachal-pradesh,Arunachal Pradesh,IN,state,IN-AR|S02|lgd:12
+arunachal-pradesh/anjaw,Anjaw,arunachal-pradesh,district,lgd:628
+arunachal-pradesh/bichom,Bichom,arunachal-pradesh,district,lgd:787
+arunachal-pradesh/changlang,Changlang,arunachal-pradesh,district,lgd:229
+arunachal-pradesh/dibang-valley,Dibang Valley,arunachal-pradesh,district,lgd:230
+arunachal-pradesh/east-kameng,East Kameng,arunachal-pradesh,district,lgd:231
+arunachal-pradesh/east-siang,East Siang,arunachal-pradesh,district,lgd:232
+arunachal-pradesh/kamle,Kamle,arunachal-pradesh,district,lgd:718
+arunachal-pradesh/keyi-panyor,Keyi Panyor,arunachal-pradesh,district,lgd:786
+arunachal-pradesh/kra-daadi,Kra Daadi,arunachal-pradesh,district,lgd:677
+arunachal-pradesh/kurung-kumey,Kurung Kumey,arunachal-pradesh,district,lgd:233
+arunachal-pradesh/leparada,Leparada,arunachal-pradesh,district,lgd:724
+arunachal-pradesh/lohit,Lohit,arunachal-pradesh,district,lgd:234
+arunachal-pradesh/longding,Longding,arunachal-pradesh,district,lgd:666
+arunachal-pradesh/lower-dibang-valley,Lower Dibang Valley,arunachal-pradesh,district,lgd:235
+arunachal-pradesh/lower-siang,Lower Siang,arunachal-pradesh,district,lgd:719
+arunachal-pradesh/lower-subansiri,Lower Subansiri,arunachal-pradesh,district,lgd:236
+arunachal-pradesh/namsai,Namsai,arunachal-pradesh,district,lgd:678
+arunachal-pradesh/pakke-kessang,Pakke Kessang,arunachal-pradesh,district,lgd:723
+arunachal-pradesh/papum-pare,Papum Pare,arunachal-pradesh,district,lgd:237
+arunachal-pradesh/shi-yomi,Shi Yomi,arunachal-pradesh,district,lgd:725
+arunachal-pradesh/siang,Siang,arunachal-pradesh,district,lgd:679
+arunachal-pradesh/tawang,Tawang,arunachal-pradesh,district,lgd:238
+arunachal-pradesh/tirap,Tirap,arunachal-pradesh,district,lgd:239
+arunachal-pradesh/upper-siang,Upper Siang,arunachal-pradesh,district,lgd:240
+arunachal-pradesh/upper-subansiri,Upper Subansiri,arunachal-pradesh,district,lgd:241
+arunachal-pradesh/west-kameng,West Kameng,arunachal-pradesh,district,lgd:242
+arunachal-pradesh/west-siang,West Siang,arunachal-pradesh,district,lgd:243
+assam,Assam,IN,state,IN-AS|S03|lgd:18
+assam/bajali,Bajali,assam,district,lgd:739
+assam/baksa,Baksa,assam,district,lgd:616
+assam/barpeta,Barpeta,assam,district,lgd:280
+assam/biswanath,Biswanath,assam,district,lgd:705
+assam/bongaigaon,Bongaigaon,assam,district,lgd:281
+assam/cachar,Cachar,assam,district,lgd:282
+assam/charaideo,Charaideo,assam,district,lgd:708
+assam/chirang,Chirang,assam,district,lgd:612
+assam/darrang,Darrang,assam,district,lgd:283
+assam/dhemaji,Dhemaji,assam,district,lgd:284
+assam/dhubri,Dhubri,assam,district,lgd:285
+assam/dibrugarh,Dibrugarh,assam,district,lgd:286
+assam/dima-hasao,Dima Hasao,assam,district,lgd:299
+assam/goalpara,Goalpara,assam,district,lgd:287
+assam/golaghat,Golaghat,assam,district,lgd:288
+assam/hailakandi,Hailakandi,assam,district,lgd:289
+assam/hojai,Hojai,assam,district,lgd:709
+assam/jorhat,Jorhat,assam,district,lgd:290
+assam/kamrup,Kamrup,assam,district,lgd:291
+assam/kamrup-metro,Kamrup Metro,assam,district,lgd:618
+assam/karbi-anglong,Karbi Anglong,assam,district,lgd:292
+assam/kokrajhar,Kokrajhar,assam,district,lgd:294
+assam/lakhimpur,Lakhimpur,assam,district,lgd:295
+assam/majuli,Majuli,assam,district,lgd:706
+assam/marigaon,Marigaon,assam,district,lgd:296
+assam/nagaon,Nagaon,assam,district,lgd:297
+assam/nalbari,Nalbari,assam,district,lgd:298
+assam/sivasagar,Sivasagar,assam,district,lgd:300
+assam/sonitpur,Sonitpur,assam,district,lgd:301
+assam/south-salmara-mancachar,South Salmara Mancachar,assam,district,lgd:707
+assam/sribhumi,Sribhumi,assam,district,lgd:293
+assam/tamulpur,Tamulpur,assam,district,lgd:756
+assam/tinsukia,Tinsukia,assam,district,lgd:302
+assam/udalguri,Udalguri,assam,district,lgd:617
+assam/west-karbi-anglong,West Karbi Anglong,assam,district,lgd:710
+bihar,Bihar,IN,state,IN-BR|S04|lgd:10
+bihar/araria,Araria,bihar,district,lgd:188
+bihar/arwal,Arwal,bihar,district,lgd:611
+bihar/aurangabad,Aurangabad,bihar,district,lgd:189
+bihar/banka,Banka,bihar,district,lgd:190
+bihar/begusarai,Begusarai,bihar,district,lgd:191
+bihar/bhagalpur,Bhagalpur,bihar,district,lgd:192
+bihar/bhojpur,Bhojpur,bihar,district,lgd:193
+bihar/buxar,Buxar,bihar,district,lgd:194
+bihar/darbhanga,Darbhanga,bihar,district,lgd:195
+bihar/gaya,Gaya,bihar,district,lgd:196
+bihar/gopalganj,Gopalganj,bihar,district,lgd:197
+bihar/jamui,Jamui,bihar,district,lgd:198
+bihar/jehanabad,Jehanabad,bihar,district,lgd:199
+bihar/kaimur-bhabua,Kaimur (Bhabua),bihar,district,lgd:200
+bihar/katihar,Katihar,bihar,district,lgd:201
+bihar/khagaria,Khagaria,bihar,district,lgd:202
+bihar/kishanganj,Kishanganj,bihar,district,lgd:203
+bihar/lakhisarai,Lakhisarai,bihar,district,lgd:204
+bihar/madhepura,Madhepura,bihar,district,lgd:205
+bihar/madhubani,Madhubani,bihar,district,lgd:206
+bihar/munger,Munger,bihar,district,lgd:207
+bihar/muzaffarpur,Muzaffarpur,bihar,district,lgd:208
+bihar/nalanda,Nalanda,bihar,district,lgd:209
+bihar/nawada,Nawada,bihar,district,lgd:210
+bihar/pashchim-champaran,Pashchim Champaran,bihar,district,lgd:211
+bihar/patna,Patna,bihar,district,lgd:212
+bihar/purbi-champaran,Purbi Champaran,bihar,district,lgd:213
+bihar/purnia,Purnia,bihar,district,lgd:214
+bihar/rohtas,Rohtas,bihar,district,lgd:215
+bihar/saharsa,Saharsa,bihar,district,lgd:216
+bihar/samastipur,Samastipur,bihar,district,lgd:217
+bihar/saran,Saran,bihar,district,lgd:218
+bihar/sheikhpura,Sheikhpura,bihar,district,lgd:219
+bihar/sheohar,Sheohar,bihar,district,lgd:220
+bihar/sitamarhi,Sitamarhi,bihar,district,lgd:221
+bihar/siwan,Siwan,bihar,district,lgd:222
+bihar/supaul,Supaul,bihar,district,lgd:223
+bihar/vaishali,Vaishali,bihar,district,lgd:224
+chandigarh,Chandigarh,IN,state,IN-CH|U02|lgd:4
+chandigarh/chandigarh,Chandigarh,chandigarh,district,lgd:44
+chhattisgarh,Chhattisgarh,IN,state,IN-CT|S26|lgd:22
+chhattisgarh/balod,Balod,chhattisgarh,district,lgd:646
+chhattisgarh/balodabazar-bhatapara,Balodabazar-Bhatapara,chhattisgarh,district,lgd:644
+chhattisgarh/balrampur-ramanujganj,Balrampur-Ramanujganj,chhattisgarh,district,lgd:649
+chhattisgarh/bastar,Bastar,chhattisgarh,district,lgd:374
+chhattisgarh/bemetara,Bemetara,chhattisgarh,district,lgd:650
+chhattisgarh/bijapur,Bijapur,chhattisgarh,district,lgd:636
+chhattisgarh/bilaspur,Bilaspur,chhattisgarh,district,lgd:375
+chhattisgarh/dakshin-bastar-dantewada,Dakshin Bastar Dantewada,chhattisgarh,district,lgd:376
+chhattisgarh/dhamtari,Dhamtari,chhattisgarh,district,lgd:377
+chhattisgarh/durg,Durg,chhattisgarh,district,lgd:378
+chhattisgarh/gariyaband,Gariyaband,chhattisgarh,district,lgd:645
+chhattisgarh/gaurela-pendra-marwahi,Gaurela-Pendra-Marwahi,chhattisgarh,district,lgd:734
+chhattisgarh/janjgir-champa,Janjgir-Champa,chhattisgarh,district,lgd:379
+chhattisgarh/jashpur,Jashpur,chhattisgarh,district,lgd:380
+chhattisgarh/kabeerdham,Kabeerdham,chhattisgarh,district,lgd:382
+chhattisgarh/khairagarh-chhuikhadan-gandai,Khairagarh-Chhuikhadan-Gandai,chhattisgarh,district,lgd:759
+chhattisgarh/kondagaon,Kondagaon,chhattisgarh,district,lgd:643
+chhattisgarh/korba,Korba,chhattisgarh,district,lgd:383
+chhattisgarh/korea,Korea,chhattisgarh,district,lgd:384
+chhattisgarh/mahasamund,Mahasamund,chhattisgarh,district,lgd:385
+chhattisgarh/manendragarh-chirmiri-bharatpur-m-c-b,Manendragarh-Chirmiri-Bharatpur(M C B),chhattisgarh,district,lgd:760
+chhattisgarh/mohla-manpur-ambagarh-chouki,Mohla-Manpur-Ambagarh Chouki,chhattisgarh,district,lgd:761
+chhattisgarh/mungeli,Mungeli,chhattisgarh,district,lgd:647
+chhattisgarh/narayanpur,Narayanpur,chhattisgarh,district,lgd:637
+chhattisgarh/raigarh,Raigarh,chhattisgarh,district,lgd:386
+chhattisgarh/raipur,Raipur,chhattisgarh,district,lgd:387
+chhattisgarh/rajnandgaon,Rajnandgaon,chhattisgarh,district,lgd:388
+chhattisgarh/sakti,Sakti,chhattisgarh,district,lgd:762
+chhattisgarh/sarangarh-bilaigarh,Sarangarh-Bilaigarh,chhattisgarh,district,lgd:763
+chhattisgarh/sukma,Sukma,chhattisgarh,district,lgd:642
+chhattisgarh/surajpur,Surajpur,chhattisgarh,district,lgd:648
+chhattisgarh/surguja,Surguja,chhattisgarh,district,lgd:389
+chhattisgarh/uttar-bastar-kanker,Uttar Bastar Kanker,chhattisgarh,district,lgd:381
+dadra-and-nagar-haveli-and-daman-and-diu,Dadra And Nagar Haveli And Daman And Diu,IN,state,IN-DH|U03|lgd:38
+dadra-and-nagar-haveli-and-daman-and-diu/dadra-and-nagar-haveli,Dadra And Nagar Haveli,dadra-and-nagar-haveli-and-daman-and-diu,district,lgd:465
+dadra-and-nagar-haveli-and-daman-and-diu/daman,Daman,dadra-and-nagar-haveli-and-daman-and-diu,district,lgd:463
+dadra-and-nagar-haveli-and-daman-and-diu/diu,Diu,dadra-and-nagar-haveli-and-daman-and-diu,district,lgd:464
+delhi,Delhi,IN,state,IN-DL|U05|lgd:7
+delhi/central,Central,delhi,district,lgd:77
+delhi/central-north,Central North,delhi,district,lgd:796
+delhi/east,East,delhi,district,lgd:78
+delhi/new-delhi,New Delhi,delhi,district,lgd:79
+delhi/north,North,delhi,district,lgd:80
+delhi/north-east,North East,delhi,district,lgd:81
+delhi/north-west,North West,delhi,district,lgd:82
+delhi/old-delhi,Old Delhi,delhi,district,lgd:795
+delhi/outer-north,Outer North,delhi,district,lgd:794
+delhi/south,South,delhi,district,lgd:83
+delhi/south-east,South East,delhi,district,lgd:670
+delhi/south-west,South West,delhi,district,lgd:84
+delhi/west,West,delhi,district,lgd:85
+goa,Goa,IN,state,IN-GA|S05|lgd:30
+goa/kushavati,Kushavati,goa,district,lgd:793
+goa/north-goa,North Goa,goa,district,lgd:551
+goa/south-goa,South Goa,goa,district,lgd:552
+gujarat,Gujarat,IN,state,IN-GJ|S06|lgd:24
+gujarat/ahmedabad,Ahmedabad,gujarat,district,lgd:438
+gujarat/amreli,Amreli,gujarat,district,lgd:439
+gujarat/anand,Anand,gujarat,district,lgd:440
+gujarat/arvalli,Arvalli,gujarat,district,lgd:672
+gujarat/banas-kantha,Banas Kantha,gujarat,district,lgd:441
+gujarat/bharuch,Bharuch,gujarat,district,lgd:442
+gujarat/bhavnagar,Bhavnagar,gujarat,district,lgd:443
+gujarat/botad,Botad,gujarat,district,lgd:676
+gujarat/chhotaudepur,Chhotaudepur,gujarat,district,lgd:668
+gujarat/dahod,Dahod,gujarat,district,lgd:445
+gujarat/dangs,Dangs,gujarat,district,lgd:444
+gujarat/devbhumi-dwarka,Devbhumi Dwarka,gujarat,district,lgd:674
+gujarat/gandhinagar,Gandhinagar,gujarat,district,lgd:446
+gujarat/gir-somnath,Gir Somnath,gujarat,district,lgd:675
+gujarat/jamnagar,Jamnagar,gujarat,district,lgd:447
+gujarat/junagadh,Junagadh,gujarat,district,lgd:448
+gujarat/kachchh,Kachchh,gujarat,district,lgd:449
+gujarat/kheda,Kheda,gujarat,district,lgd:450
+gujarat/mahesana,Mahesana,gujarat,district,lgd:451
+gujarat/mahisagar,Mahisagar,gujarat,district,lgd:669
+gujarat/morbi,Morbi,gujarat,district,lgd:673
+gujarat/narmada,Narmada,gujarat,district,lgd:452
+gujarat/navsari,Navsari,gujarat,district,lgd:453
+gujarat/panch-mahals,Panch Mahals,gujarat,district,lgd:454
+gujarat/patan,Patan,gujarat,district,lgd:455
+gujarat/porbandar,Porbandar,gujarat,district,lgd:456
+gujarat/rajkot,Rajkot,gujarat,district,lgd:457
+gujarat/sabar-kantha,Sabar Kantha,gujarat,district,lgd:458
+gujarat/surat,Surat,gujarat,district,lgd:459
+gujarat/surendranagar,Surendranagar,gujarat,district,lgd:460
+gujarat/tapi,Tapi,gujarat,district,lgd:641
+gujarat/vadodara,Vadodara,gujarat,district,lgd:461
+gujarat/valsad,Valsad,gujarat,district,lgd:462
+gujarat/vav-tharad,Vav-Tharad,gujarat,district,lgd:789
+haryana,Haryana,IN,state,IN-HR|S07|lgd:6
+haryana/ambala,Ambala,haryana,district,lgd:58
+haryana/bhiwani,Bhiwani,haryana,district,lgd:59
+haryana/charkhi-dadri,Charkhi Dadri,haryana,district,lgd:701
+haryana/faridabad,Faridabad,haryana,district,lgd:60
+haryana/fatehabad,Fatehabad,haryana,district,lgd:61
+haryana/gurugram,Gurugram,haryana,district,lgd:62
+haryana/hansi,Hansi,haryana,district,lgd:792
+haryana/hisar,Hisar,haryana,district,lgd:63
+haryana/jhajjar,Jhajjar,haryana,district,lgd:64
+haryana/jind,Jind,haryana,district,lgd:65
+haryana/kaithal,Kaithal,haryana,district,lgd:66
+haryana/karnal,Karnal,haryana,district,lgd:67
+haryana/kurukshetra,Kurukshetra,haryana,district,lgd:68
+haryana/mahendragarh,Mahendragarh,haryana,district,lgd:69
+haryana/nuh,Nuh,haryana,district,lgd:604
+haryana/palwal,Palwal,haryana,district,lgd:619
+haryana/panchkula,Panchkula,haryana,district,lgd:70
+haryana/panipat,Panipat,haryana,district,lgd:71
+haryana/rewari,Rewari,haryana,district,lgd:72
+haryana/rohtak,Rohtak,haryana,district,lgd:73
+haryana/sirsa,Sirsa,haryana,district,lgd:74
+haryana/sonipat,Sonipat,haryana,district,lgd:75
+haryana/yamunanagar,Yamunanagar,haryana,district,lgd:76
+himachal-pradesh,Himachal Pradesh,IN,state,IN-HP|S08|lgd:2
+himachal-pradesh/bilaspur,Bilaspur,himachal-pradesh,district,lgd:15
+himachal-pradesh/chamba,Chamba,himachal-pradesh,district,lgd:16
+himachal-pradesh/hamirpur,Hamirpur,himachal-pradesh,district,lgd:17
+himachal-pradesh/kangra,Kangra,himachal-pradesh,district,lgd:18
+himachal-pradesh/kinnaur,Kinnaur,himachal-pradesh,district,lgd:19
+himachal-pradesh/kullu,Kullu,himachal-pradesh,district,lgd:20
+himachal-pradesh/lahaul-and-spiti,Lahaul And Spiti,himachal-pradesh,district,lgd:21
+himachal-pradesh/mandi,Mandi,himachal-pradesh,district,lgd:22
+himachal-pradesh/shimla,Shimla,himachal-pradesh,district,lgd:23
+himachal-pradesh/sirmaur,Sirmaur,himachal-pradesh,district,lgd:24
+himachal-pradesh/solan,Solan,himachal-pradesh,district,lgd:25
+himachal-pradesh/una,Una,himachal-pradesh,district,lgd:26
+jammu-and-kashmir,Jammu & Kashmir,IN,state,IN-JK|U08|lgd:1
+jammu-and-kashmir/anantnag,Anantnag,jammu-and-kashmir,district,lgd:1
+jammu-and-kashmir/bandipora,Bandipora,jammu-and-kashmir,district,lgd:623
+jammu-and-kashmir/baramulla,Baramulla,jammu-and-kashmir,district,lgd:3
+jammu-and-kashmir/budgam,Budgam,jammu-and-kashmir,district,lgd:2
+jammu-and-kashmir/doda,Doda,jammu-and-kashmir,district,lgd:4
+jammu-and-kashmir/ganderbal,Ganderbal,jammu-and-kashmir,district,lgd:626
+jammu-and-kashmir/jammu,Jammu,jammu-and-kashmir,district,lgd:5
+jammu-and-kashmir/kathua,Kathua,jammu-and-kashmir,district,lgd:7
+jammu-and-kashmir/kishtwar,Kishtwar,jammu-and-kashmir,district,lgd:620
+jammu-and-kashmir/kulgam,Kulgam,jammu-and-kashmir,district,lgd:622
+jammu-and-kashmir/kupwara,Kupwara,jammu-and-kashmir,district,lgd:8
+jammu-and-kashmir/poonch,Poonch,jammu-and-kashmir,district,lgd:10
+jammu-and-kashmir/pulwama,Pulwama,jammu-and-kashmir,district,lgd:11
+jammu-and-kashmir/rajouri,Rajouri,jammu-and-kashmir,district,lgd:12
+jammu-and-kashmir/ramban,Ramban,jammu-and-kashmir,district,lgd:621
+jammu-and-kashmir/reasi,Reasi,jammu-and-kashmir,district,lgd:627
+jammu-and-kashmir/samba,Samba,jammu-and-kashmir,district,lgd:624
+jammu-and-kashmir/shopian,Shopian,jammu-and-kashmir,district,lgd:625
+jammu-and-kashmir/srinagar,Srinagar,jammu-and-kashmir,district,lgd:13
+jammu-and-kashmir/udhampur,Udhampur,jammu-and-kashmir,district,lgd:14
+jharkhand,Jharkhand,IN,state,IN-JH|S27|lgd:20
+jharkhand/bokaro,Bokaro,jharkhand,district,lgd:322
+jharkhand/chatra,Chatra,jharkhand,district,lgd:323
+jharkhand/deoghar,Deoghar,jharkhand,district,lgd:324
+jharkhand/dhanbad,Dhanbad,jharkhand,district,lgd:325
+jharkhand/dumka,Dumka,jharkhand,district,lgd:326
+jharkhand/east-singhbum,East Singhbum,jharkhand,district,lgd:327
+jharkhand/garhwa,Garhwa,jharkhand,district,lgd:328
+jharkhand/giridih,Giridih,jharkhand,district,lgd:329
+jharkhand/godda,Godda,jharkhand,district,lgd:330
+jharkhand/gumla,Gumla,jharkhand,district,lgd:331
+jharkhand/hazaribagh,Hazaribagh,jharkhand,district,lgd:332
+jharkhand/jamtara,Jamtara,jharkhand,district,lgd:333
+jharkhand/khunti,Khunti,jharkhand,district,lgd:606
+jharkhand/koderma,Koderma,jharkhand,district,lgd:334
+jharkhand/latehar,Latehar,jharkhand,district,lgd:335
+jharkhand/lohardaga,Lohardaga,jharkhand,district,lgd:336
+jharkhand/pakur,Pakur,jharkhand,district,lgd:337
+jharkhand/palamu,Palamu,jharkhand,district,lgd:338
+jharkhand/ramgarh,Ramgarh,jharkhand,district,lgd:607
+jharkhand/ranchi,Ranchi,jharkhand,district,lgd:339
+jharkhand/sahebganj,Sahebganj,jharkhand,district,lgd:340
+jharkhand/saraikela-kharsawan,Saraikela Kharsawan,jharkhand,district,lgd:341
+jharkhand/simdega,Simdega,jharkhand,district,lgd:342
+jharkhand/west-singhbhum,West Singhbhum,jharkhand,district,lgd:343
+karnataka,Karnataka,IN,state,IN-KA|S10|lgd:29
+karnataka/bagalkote,Bagalkote,karnataka,district,lgd:524
+karnataka/ballari,Ballari,karnataka,district,lgd:528
+karnataka/belagavi,Belagavi,karnataka,district,lgd:527
+karnataka/bengaluru-rural,Bengaluru Rural,karnataka,district,lgd:526
+karnataka/bengaluru-south,Bengaluru South,karnataka,district,lgd:631
+karnataka/bengaluru-urban,Bengaluru Urban,karnataka,district,lgd:525
+karnataka/bidar,Bidar,karnataka,district,lgd:529
+karnataka/chamarajanagar,Chamarajanagar,karnataka,district,lgd:531
+karnataka/chikkaballapura,Chikkaballapura,karnataka,district,lgd:630
+karnataka/chikkamagaluru,Chikkamagaluru,karnataka,district,lgd:532
+karnataka/chitradurga,Chitradurga,karnataka,district,lgd:533
+karnataka/dakshina-kannada,Dakshina Kannada,karnataka,district,lgd:534
+karnataka/davanagere,Davanagere,karnataka,district,lgd:535
+karnataka/dharwad,Dharwad,karnataka,district,lgd:536
+karnataka/gadag,Gadag,karnataka,district,lgd:537
+karnataka/hassan,Hassan,karnataka,district,lgd:539
+karnataka/haveri,Haveri,karnataka,district,lgd:540
+karnataka/kalaburagi,Kalaburagi,karnataka,district,lgd:538
+karnataka/kodagu,Kodagu,karnataka,district,lgd:541
+karnataka/kolar,Kolar,karnataka,district,lgd:542
+karnataka/koppal,Koppal,karnataka,district,lgd:543
+karnataka/mandya,Mandya,karnataka,district,lgd:544
+karnataka/mysuru,Mysuru,karnataka,district,lgd:545
+karnataka/raichur,Raichur,karnataka,district,lgd:546
+karnataka/shivamogga,Shivamogga,karnataka,district,lgd:547
+karnataka/tumakuru,Tumakuru,karnataka,district,lgd:548
+karnataka/udupi,Udupi,karnataka,district,lgd:549
+karnataka/uttara-kannada,Uttara Kannada,karnataka,district,lgd:550
+karnataka/vijayanagara,Vijayanagara,karnataka,district,lgd:738
+karnataka/vijayapura,Vijayapura,karnataka,district,lgd:530
+karnataka/yadgir,Yadgir,karnataka,district,lgd:635
+kerala,Kerala,IN,state,IN-KL|S11|lgd:32
+kerala/alappuzha,Alappuzha,kerala,district,lgd:554
+kerala/ernakulam,Ernakulam,kerala,district,lgd:555
+kerala/idukki,Idukki,kerala,district,lgd:556
+kerala/kannur,Kannur,kerala,district,lgd:557
+kerala/kasaragod,Kasaragod,kerala,district,lgd:558
+kerala/kollam,Kollam,kerala,district,lgd:559
+kerala/kottayam,Kottayam,kerala,district,lgd:560
+kerala/kozhikode,Kozhikode,kerala,district,lgd:561
+kerala/malappuram,Malappuram,kerala,district,lgd:562
+kerala/palakkad,Palakkad,kerala,district,lgd:563
+kerala/pathanamthitta,Pathanamthitta,kerala,district,lgd:564
+kerala/thiruvananthapuram,Thiruvananthapuram,kerala,district,lgd:565
+kerala/thrissur,Thrissur,kerala,district,lgd:566
+kerala/wayanad,Wayanad,kerala,district,lgd:567
+ladakh,Ladakh,IN,state,IN-LA|U09|lgd:37
+ladakh/kargil,Kargil,ladakh,district,lgd:6
+ladakh/leh-ladakh,Leh Ladakh,ladakh,district,lgd:9
+lakshadweep,Lakshadweep,IN,state,IN-LD|U04|lgd:31
+lakshadweep/lakshadweep-district,Lakshadweep District,lakshadweep,district,lgd:553
+madhya-pradesh,Madhya Pradesh,IN,state,IN-MP|S12|lgd:23
+madhya-pradesh/agar-malwa,Agar-Malwa,madhya-pradesh,district,lgd:667
+madhya-pradesh/alirajpur,Alirajpur,madhya-pradesh,district,lgd:639
+madhya-pradesh/anuppur,Anuppur,madhya-pradesh,district,lgd:390
+madhya-pradesh/ashoknagar,Ashoknagar,madhya-pradesh,district,lgd:391
+madhya-pradesh/balaghat,Balaghat,madhya-pradesh,district,lgd:392
+madhya-pradesh/barwani,Barwani,madhya-pradesh,district,lgd:393
+madhya-pradesh/betul,Betul,madhya-pradesh,district,lgd:394
+madhya-pradesh/bhind,Bhind,madhya-pradesh,district,lgd:395
+madhya-pradesh/bhopal,Bhopal,madhya-pradesh,district,lgd:396
+madhya-pradesh/burhanpur,Burhanpur,madhya-pradesh,district,lgd:397
+madhya-pradesh/chhatarpur,Chhatarpur,madhya-pradesh,district,lgd:398
+madhya-pradesh/chhindwara,Chhindwara,madhya-pradesh,district,lgd:399
+madhya-pradesh/damoh,Damoh,madhya-pradesh,district,lgd:400
+madhya-pradesh/datia,Datia,madhya-pradesh,district,lgd:401
+madhya-pradesh/dewas,Dewas,madhya-pradesh,district,lgd:402
+madhya-pradesh/dhar,Dhar,madhya-pradesh,district,lgd:403
+madhya-pradesh/dindori,Dindori,madhya-pradesh,district,lgd:404
+madhya-pradesh/guna,Guna,madhya-pradesh,district,lgd:406
+madhya-pradesh/gwalior,Gwalior,madhya-pradesh,district,lgd:407
+madhya-pradesh/harda,Harda,madhya-pradesh,district,lgd:408
+madhya-pradesh/indore,Indore,madhya-pradesh,district,lgd:410
+madhya-pradesh/jabalpur,Jabalpur,madhya-pradesh,district,lgd:411
+madhya-pradesh/jhabua,Jhabua,madhya-pradesh,district,lgd:412
+madhya-pradesh/katni,Katni,madhya-pradesh,district,lgd:413
+madhya-pradesh/khandwa-east-nimar,Khandwa (East Nimar),madhya-pradesh,district,lgd:405
+madhya-pradesh/khargone-west-nimar,Khargone (West Nimar),madhya-pradesh,district,lgd:414
+madhya-pradesh/maihar,Maihar,madhya-pradesh,district,lgd:784
+madhya-pradesh/mandla,Mandla,madhya-pradesh,district,lgd:415
+madhya-pradesh/mandsaur,Mandsaur,madhya-pradesh,district,lgd:416
+madhya-pradesh/mauganj,MAUGANJ,madhya-pradesh,district,lgd:766
+madhya-pradesh/morena,Morena,madhya-pradesh,district,lgd:417
+madhya-pradesh/narmadapuram,Narmadapuram,madhya-pradesh,district,lgd:409
+madhya-pradesh/narsimhapur,Narsimhapur,madhya-pradesh,district,lgd:418
+madhya-pradesh/neemuch,Neemuch,madhya-pradesh,district,lgd:419
+madhya-pradesh/niwari,Niwari,madhya-pradesh,district,lgd:722
+madhya-pradesh/pandhurna,Pandhurna,madhya-pradesh,district,lgd:785
+madhya-pradesh/panna,Panna,madhya-pradesh,district,lgd:420
+madhya-pradesh/raisen,Raisen,madhya-pradesh,district,lgd:421
+madhya-pradesh/rajgarh,Rajgarh,madhya-pradesh,district,lgd:422
+madhya-pradesh/ratlam,Ratlam,madhya-pradesh,district,lgd:423
+madhya-pradesh/rewa,Rewa,madhya-pradesh,district,lgd:424
+madhya-pradesh/sagar,Sagar,madhya-pradesh,district,lgd:425
+madhya-pradesh/satna,Satna,madhya-pradesh,district,lgd:426
+madhya-pradesh/sehore,Sehore,madhya-pradesh,district,lgd:427
+madhya-pradesh/seoni,Seoni,madhya-pradesh,district,lgd:428
+madhya-pradesh/shahdol,Shahdol,madhya-pradesh,district,lgd:429
+madhya-pradesh/shajapur,Shajapur,madhya-pradesh,district,lgd:430
+madhya-pradesh/sheopur,Sheopur,madhya-pradesh,district,lgd:431
+madhya-pradesh/shivpuri,Shivpuri,madhya-pradesh,district,lgd:432
+madhya-pradesh/sidhi,Sidhi,madhya-pradesh,district,lgd:433
+madhya-pradesh/singrauli,Singrauli,madhya-pradesh,district,lgd:638
+madhya-pradesh/tikamgarh,Tikamgarh,madhya-pradesh,district,lgd:434
+madhya-pradesh/ujjain,Ujjain,madhya-pradesh,district,lgd:435
+madhya-pradesh/umaria,Umaria,madhya-pradesh,district,lgd:436
+madhya-pradesh/vidisha,Vidisha,madhya-pradesh,district,lgd:437
+maharashtra,Maharashtra,IN,state,IN-MH|S13|lgd:27
+maharashtra/ahilyanagar,Ahilyanagar,maharashtra,district,lgd:466
+maharashtra/akola,Akola,maharashtra,district,lgd:467
+maharashtra/amravati,Amravati,maharashtra,district,lgd:468
+maharashtra/beed,Beed,maharashtra,district,lgd:470
+maharashtra/bhandara,Bhandara,maharashtra,district,lgd:471
+maharashtra/buldhana,Buldhana,maharashtra,district,lgd:472
+maharashtra/chandrapur,Chandrapur,maharashtra,district,lgd:473
+maharashtra/chhatrapati-sambhajinagar,Chhatrapati Sambhajinagar,maharashtra,district,lgd:469
+maharashtra/dharashiv,Dharashiv,maharashtra,district,lgd:488
+maharashtra/dhule,Dhule,maharashtra,district,lgd:474
+maharashtra/gadchiroli,Gadchiroli,maharashtra,district,lgd:475
+maharashtra/gondia,Gondia,maharashtra,district,lgd:476
+maharashtra/hingoli,Hingoli,maharashtra,district,lgd:477
+maharashtra/jalgaon,Jalgaon,maharashtra,district,lgd:478
+maharashtra/jalna,Jalna,maharashtra,district,lgd:479
+maharashtra/kolhapur,Kolhapur,maharashtra,district,lgd:480
+maharashtra/latur,Latur,maharashtra,district,lgd:481
+maharashtra/mumbai,Mumbai,maharashtra,district,lgd:482
+maharashtra/mumbai-suburban,Mumbai Suburban,maharashtra,district,lgd:483
+maharashtra/nagpur,Nagpur,maharashtra,district,lgd:484
+maharashtra/nanded,Nanded,maharashtra,district,lgd:485
+maharashtra/nandurbar,Nandurbar,maharashtra,district,lgd:486
+maharashtra/nashik,Nashik,maharashtra,district,lgd:487
+maharashtra/palghar,Palghar,maharashtra,district,lgd:665
+maharashtra/parbhani,Parbhani,maharashtra,district,lgd:489
+maharashtra/pune,Pune,maharashtra,district,lgd:490
+maharashtra/raigad,Raigad,maharashtra,district,lgd:491
+maharashtra/ratnagiri,Ratnagiri,maharashtra,district,lgd:492
+maharashtra/sangli,Sangli,maharashtra,district,lgd:493
+maharashtra/satara,Satara,maharashtra,district,lgd:494
+maharashtra/sindhudurg,Sindhudurg,maharashtra,district,lgd:495
+maharashtra/solapur,Solapur,maharashtra,district,lgd:496
+maharashtra/thane,Thane,maharashtra,district,lgd:497
+maharashtra/wardha,Wardha,maharashtra,district,lgd:498
+maharashtra/washim,Washim,maharashtra,district,lgd:499
+maharashtra/yavatmal,Yavatmal,maharashtra,district,lgd:500
+manipur,Manipur,IN,state,IN-MN|S14|lgd:14
+manipur/bishnupur,Bishnupur,manipur,district,lgd:252
+manipur/chandel,Chandel,manipur,district,lgd:253
+manipur/churachandpur,Churachandpur,manipur,district,lgd:254
+manipur/imphal-east,Imphal East,manipur,district,lgd:255
+manipur/imphal-west,Imphal West,manipur,district,lgd:256
+manipur/jiribam,Jiribam,manipur,district,lgd:713
+manipur/kakching,Kakching,manipur,district,lgd:711
+manipur/kamjong,Kamjong,manipur,district,lgd:717
+manipur/kangpokpi,Kangpokpi,manipur,district,lgd:712
+manipur/noney,Noney,manipur,district,lgd:714
+manipur/pherzawl,Pherzawl,manipur,district,lgd:715
+manipur/senapati,Senapati,manipur,district,lgd:257
+manipur/tamenglong,Tamenglong,manipur,district,lgd:258
+manipur/tengnoupal,Tengnoupal,manipur,district,lgd:716
+manipur/thoubal,Thoubal,manipur,district,lgd:259
+manipur/ukhrul,Ukhrul,manipur,district,lgd:260
+meghalaya,Meghalaya,IN,state,IN-ML|S15|lgd:17
+meghalaya/east-garo-hills,East Garo Hills,meghalaya,district,lgd:273
+meghalaya/east-jaintia-hills,East Jaintia Hills,meghalaya,district,lgd:657
+meghalaya/east-khasi-hills,East Khasi Hills,meghalaya,district,lgd:274
+meghalaya/eastern-west-khasi-hills,Eastern West Khasi Hills,meghalaya,district,lgd:740
+meghalaya/north-garo-hills,North Garo Hills,meghalaya,district,lgd:656
+meghalaya/ri-bhoi,Ri Bhoi,meghalaya,district,lgd:276
+meghalaya/south-garo-hills,South Garo Hills,meghalaya,district,lgd:277
+meghalaya/south-west-garo-hills,South West Garo Hills,meghalaya,district,lgd:663
+meghalaya/south-west-khasi-hills,South West Khasi Hills,meghalaya,district,lgd:658
+meghalaya/west-garo-hills,West Garo Hills,meghalaya,district,lgd:278
+meghalaya/west-jaintia-hills,West Jaintia Hills,meghalaya,district,lgd:275
+meghalaya/west-khasi-hills,West Khasi Hills,meghalaya,district,lgd:279
+mizoram,Mizoram,IN,state,IN-MZ|S16|lgd:15
+mizoram/aizawl,Aizawl,mizoram,district,lgd:261
+mizoram/champhai,Champhai,mizoram,district,lgd:262
+mizoram/hnahthial,Hnahthial,mizoram,district,lgd:726
+mizoram/khawzawl,Khawzawl,mizoram,district,lgd:728
+mizoram/kolasib,Kolasib,mizoram,district,lgd:263
+mizoram/lawngtlai,Lawngtlai,mizoram,district,lgd:264
+mizoram/lunglei,Lunglei,mizoram,district,lgd:265
+mizoram/mamit,Mamit,mizoram,district,lgd:266
+mizoram/saitual,Saitual,mizoram,district,lgd:727
+mizoram/serchhip,Serchhip,mizoram,district,lgd:268
+mizoram/siaha,Siaha,mizoram,district,lgd:267
+nagaland,Nagaland,IN,state,IN-NL|S17|lgd:13
+nagaland/chumoukedima,Chumoukedima,nagaland,district,lgd:758
+nagaland/dimapur,Dimapur,nagaland,district,lgd:244
+nagaland/kiphire,Kiphire,nagaland,district,lgd:614
+nagaland/kohima,Kohima,nagaland,district,lgd:245
+nagaland/longleng,Longleng,nagaland,district,lgd:615
+nagaland/meluri,Meluri,nagaland,district,lgd:788
+nagaland/mokokchung,Mokokchung,nagaland,district,lgd:246
+nagaland/mon,Mon,nagaland,district,lgd:247
+nagaland/niuland,Niuland,nagaland,district,lgd:764
+nagaland/noklak,Noklak,nagaland,district,lgd:736
+nagaland/peren,Peren,nagaland,district,lgd:613
+nagaland/phek,Phek,nagaland,district,lgd:248
+nagaland/shamator,Shamator,nagaland,district,lgd:765
+nagaland/tseminyu,Tseminyu,nagaland,district,lgd:757
+nagaland/tuensang,Tuensang,nagaland,district,lgd:249
+nagaland/wokha,Wokha,nagaland,district,lgd:250
+nagaland/zunheboto,Zunheboto,nagaland,district,lgd:251
+odisha,Odisha,IN,state,IN-OR|S18|lgd:21
+odisha/angul,Angul,odisha,district,lgd:344
+odisha/balangir,Balangir,odisha,district,lgd:345
+odisha/balasore,Balasore,odisha,district,lgd:346
+odisha/bargarh,Bargarh,odisha,district,lgd:347
+odisha/bhadrak,Bhadrak,odisha,district,lgd:348
+odisha/boudh,Boudh,odisha,district,lgd:349
+odisha/cuttack,Cuttack,odisha,district,lgd:350
+odisha/deogarh,Deogarh,odisha,district,lgd:351
+odisha/dhenkanal,Dhenkanal,odisha,district,lgd:352
+odisha/gajapati,Gajapati,odisha,district,lgd:353
+odisha/ganjam,Ganjam,odisha,district,lgd:354
+odisha/jagatsinghapur,Jagatsinghapur,odisha,district,lgd:355
+odisha/jajpur,Jajpur,odisha,district,lgd:356
+odisha/jharsuguda,Jharsuguda,odisha,district,lgd:357
+odisha/kalahandi,Kalahandi,odisha,district,lgd:358
+odisha/kandhamal,Kandhamal,odisha,district,lgd:359
+odisha/kendrapara,Kendrapara,odisha,district,lgd:360
+odisha/keonjhar,Keonjhar,odisha,district,lgd:361
+odisha/khordha,Khordha,odisha,district,lgd:362
+odisha/koraput,Koraput,odisha,district,lgd:363
+odisha/malkangiri,Malkangiri,odisha,district,lgd:364
+odisha/mayurbhanj,Mayurbhanj,odisha,district,lgd:365
+odisha/nabarangpur,Nabarangpur,odisha,district,lgd:366
+odisha/nayagarh,Nayagarh,odisha,district,lgd:367
+odisha/nuapada,Nuapada,odisha,district,lgd:368
+odisha/puri,Puri,odisha,district,lgd:369
+odisha/rayagada,Rayagada,odisha,district,lgd:370
+odisha/sambalpur,Sambalpur,odisha,district,lgd:371
+odisha/sonepur,Sonepur,odisha,district,lgd:372
+odisha/sundargarh,Sundargarh,odisha,district,lgd:373
+puducherry,Puducherry,IN,state,IN-PY|U07|lgd:34
+puducherry/karaikal,Karaikal,puducherry,district,lgd:598
+puducherry/puducherry,Puducherry,puducherry,district,lgd:600
+punjab,Punjab,IN,state,IN-PB|S19|lgd:3
+punjab/amritsar,Amritsar,punjab,district,lgd:27
+punjab/barnala,Barnala,punjab,district,lgd:605
+punjab/bathinda,Bathinda,punjab,district,lgd:28
+punjab/faridkot,Faridkot,punjab,district,lgd:29
+punjab/fatehgarh-sahib,Fatehgarh Sahib,punjab,district,lgd:30
+punjab/fazilka,Fazilka,punjab,district,lgd:651
+punjab/ferozepur,Ferozepur,punjab,district,lgd:31
+punjab/gurdaspur,Gurdaspur,punjab,district,lgd:32
+punjab/hoshiarpur,Hoshiarpur,punjab,district,lgd:33
+punjab/jalandhar,Jalandhar,punjab,district,lgd:34
+punjab/kapurthala,Kapurthala,punjab,district,lgd:35
+punjab/ludhiana,Ludhiana,punjab,district,lgd:36
+punjab/malerkotla,Malerkotla,punjab,district,lgd:737
+punjab/mansa,Mansa,punjab,district,lgd:37
+punjab/moga,Moga,punjab,district,lgd:38
+punjab/pathankot,Pathankot,punjab,district,lgd:662
+punjab/patiala,Patiala,punjab,district,lgd:41
+punjab/rupnagar,Rupnagar,punjab,district,lgd:42
+punjab/s-a-s-nagar,S.A.S Nagar,punjab,district,lgd:608
+punjab/sangrur,Sangrur,punjab,district,lgd:43
+punjab/shahid-bhagat-singh-nagar,Shahid Bhagat Singh Nagar,punjab,district,lgd:40
+punjab/sri-muktsar-sahib,Sri Muktsar Sahib,punjab,district,lgd:39
+punjab/tarn-taran,Tarn Taran,punjab,district,lgd:609
+rajasthan,Rajasthan,IN,state,IN-RJ|S20|lgd:8
+rajasthan/ajmer,Ajmer,rajasthan,district,lgd:86
+rajasthan/alwar,Alwar,rajasthan,district,lgd:87
+rajasthan/balotra,Balotra,rajasthan,district,lgd:775
+rajasthan/banswara,Banswara,rajasthan,district,lgd:88
+rajasthan/baran,Baran,rajasthan,district,lgd:89
+rajasthan/barmer,Barmer,rajasthan,district,lgd:90
+rajasthan/beawar,Beawar,rajasthan,district,lgd:774
+rajasthan/bharatpur,Bharatpur,rajasthan,district,lgd:91
+rajasthan/bhilwara,Bhilwara,rajasthan,district,lgd:92
+rajasthan/bikaner,Bikaner,rajasthan,district,lgd:93
+rajasthan/bundi,Bundi,rajasthan,district,lgd:94
+rajasthan/chittorgarh,Chittorgarh,rajasthan,district,lgd:95
+rajasthan/churu,Churu,rajasthan,district,lgd:96
+rajasthan/dausa,Dausa,rajasthan,district,lgd:97
+rajasthan/deeg,Deeg,rajasthan,district,lgd:767
+rajasthan/dholpur,Dholpur,rajasthan,district,lgd:98
+rajasthan/didwana-kuchaman,Didwana-Kuchaman,rajasthan,district,lgd:768
+rajasthan/dungarpur,Dungarpur,rajasthan,district,lgd:99
+rajasthan/ganganagar,Ganganagar,rajasthan,district,lgd:100
+rajasthan/hanumangarh,Hanumangarh,rajasthan,district,lgd:101
+rajasthan/jaipur,Jaipur,rajasthan,district,lgd:102
+rajasthan/jaisalmer,Jaisalmer,rajasthan,district,lgd:103
+rajasthan/jalore,Jalore,rajasthan,district,lgd:104
+rajasthan/jhalawar,Jhalawar,rajasthan,district,lgd:105
+rajasthan/jhunjhunu,Jhunjhunu,rajasthan,district,lgd:106
+rajasthan/jodhpur,Jodhpur,rajasthan,district,lgd:107
+rajasthan/karauli,Karauli,rajasthan,district,lgd:108
+rajasthan/khairthal-tijara,Khairthal-Tijara,rajasthan,district,lgd:770
+rajasthan/kota,Kota,rajasthan,district,lgd:109
+rajasthan/kotputli-behror,Kotputli-Behror,rajasthan,district,lgd:782
+rajasthan/nagaur,Nagaur,rajasthan,district,lgd:110
+rajasthan/pali,Pali,rajasthan,district,lgd:111
+rajasthan/phalodi,Phalodi,rajasthan,district,lgd:772
+rajasthan/pratapgarh,Pratapgarh,rajasthan,district,lgd:629
+rajasthan/rajsamand,Rajsamand,rajasthan,district,lgd:112
+rajasthan/salumbar,Salumbar,rajasthan,district,lgd:777
+rajasthan/sawai-madhopur,Sawai Madhopur,rajasthan,district,lgd:113
+rajasthan/sikar,Sikar,rajasthan,district,lgd:114
+rajasthan/sirohi,Sirohi,rajasthan,district,lgd:115
+rajasthan/tonk,Tonk,rajasthan,district,lgd:116
+rajasthan/udaipur,Udaipur,rajasthan,district,lgd:117
+sikkim,Sikkim,IN,state,IN-SK|S21|lgd:11
+sikkim/gangtok,Gangtok,sikkim,district,lgd:225
+sikkim/gyalshing,Gyalshing,sikkim,district,lgd:228
+sikkim/mangan,Mangan,sikkim,district,lgd:226
+sikkim/namchi,Namchi,sikkim,district,lgd:227
+sikkim/pakyong,Pakyong,sikkim,district,lgd:741
+sikkim/soreng,Soreng,sikkim,district,lgd:742
+tamil-nadu,Tamil Nadu,IN,state,IN-TN|S22|lgd:33
+tamil-nadu/ariyalur,Ariyalur,tamil-nadu,district,lgd:610
+tamil-nadu/chengalpattu,Chengalpattu,tamil-nadu,district,lgd:730
+tamil-nadu/chennai,Chennai,tamil-nadu,district,lgd:568
+tamil-nadu/coimbatore,Coimbatore,tamil-nadu,district,lgd:569
+tamil-nadu/cuddalore,Cuddalore,tamil-nadu,district,lgd:570
+tamil-nadu/dharmapuri,Dharmapuri,tamil-nadu,district,lgd:571
+tamil-nadu/dindigul,Dindigul,tamil-nadu,district,lgd:572
+tamil-nadu/erode,Erode,tamil-nadu,district,lgd:573
+tamil-nadu/kallakurichi,Kallakurichi,tamil-nadu,district,lgd:729
+tamil-nadu/kancheepuram,Kancheepuram,tamil-nadu,district,lgd:574
+tamil-nadu/kanniyakumari,Kanniyakumari,tamil-nadu,district,lgd:575
+tamil-nadu/karur,Karur,tamil-nadu,district,lgd:576
+tamil-nadu/krishnagiri,Krishnagiri,tamil-nadu,district,lgd:577
+tamil-nadu/madurai,Madurai,tamil-nadu,district,lgd:578
+tamil-nadu/mayiladuthurai,Mayiladuthurai,tamil-nadu,district,lgd:735
+tamil-nadu/nagapattinam,Nagapattinam,tamil-nadu,district,lgd:579
+tamil-nadu/namakkal,Namakkal,tamil-nadu,district,lgd:580
+tamil-nadu/perambalur,Perambalur,tamil-nadu,district,lgd:581
+tamil-nadu/pudukkottai,Pudukkottai,tamil-nadu,district,lgd:582
+tamil-nadu/ramanathapuram,Ramanathapuram,tamil-nadu,district,lgd:583
+tamil-nadu/ranipet,Ranipet,tamil-nadu,district,lgd:731
+tamil-nadu/salem,Salem,tamil-nadu,district,lgd:584
+tamil-nadu/sivaganga,Sivaganga,tamil-nadu,district,lgd:585
+tamil-nadu/tenkasi,Tenkasi,tamil-nadu,district,lgd:733
+tamil-nadu/thanjavur,Thanjavur,tamil-nadu,district,lgd:586
+tamil-nadu/the-nilgiris,The Nilgiris,tamil-nadu,district,lgd:587
+tamil-nadu/theni,Theni,tamil-nadu,district,lgd:588
+tamil-nadu/thiruvallur,Thiruvallur,tamil-nadu,district,lgd:589
+tamil-nadu/thiruvarur,Thiruvarur,tamil-nadu,district,lgd:590
+tamil-nadu/thoothukkudi,Thoothukkudi,tamil-nadu,district,lgd:594
+tamil-nadu/tiruchirappalli,Tiruchirappalli,tamil-nadu,district,lgd:591
+tamil-nadu/tirunelveli,Tirunelveli,tamil-nadu,district,lgd:592
+tamil-nadu/tirupathur,Tirupathur,tamil-nadu,district,lgd:732
+tamil-nadu/tiruppur,Tiruppur,tamil-nadu,district,lgd:634
+tamil-nadu/tiruvannamalai,Tiruvannamalai,tamil-nadu,district,lgd:593
+tamil-nadu/vellore,Vellore,tamil-nadu,district,lgd:595
+tamil-nadu/viluppuram,Viluppuram,tamil-nadu,district,lgd:596
+tamil-nadu/virudhunagar,Virudhunagar,tamil-nadu,district,lgd:597
+telangana,Telangana,IN,state,IN-TG|S29|lgd:36
+telangana/adilabad,Adilabad,telangana,district,lgd:501
+telangana/bhadradri-kothagudem,Bhadradri Kothagudem,telangana,district,lgd:690
+telangana/hanumakonda,Hanumakonda,telangana,district,lgd:686
+telangana/hyderabad,Hyderabad,telangana,district,lgd:507
+telangana/jagitial,Jagitial,telangana,district,lgd:681
+telangana/jangoan,Jangoan,telangana,district,lgd:689
+telangana/jayashankar-bhupalapally,Jayashankar Bhupalapally,telangana,district,lgd:687
+telangana/jogulamba-gadwal,Jogulamba Gadwal,telangana,district,lgd:695
+telangana/kamareddy,Kamareddy,telangana,district,lgd:685
+telangana/karimnagar,Karimnagar,telangana,district,lgd:508
+telangana/khammam,Khammam,telangana,district,lgd:509
+telangana/kumuram-bheem-asifabad,Kumuram Bheem Asifabad,telangana,district,lgd:699
+telangana/mahabubabad,Mahabubabad,telangana,district,lgd:688
+telangana/mahabubnagar,Mahabubnagar,telangana,district,lgd:512
+telangana/mancherial,Mancherial,telangana,district,lgd:684
+telangana/medak,Medak,telangana,district,lgd:513
+telangana/medchal-malkajgiri,Medchal Malkajgiri,telangana,district,lgd:700
+telangana/mulugu,Mulugu,telangana,district,lgd:720
+telangana/nagarkurnool,Nagarkurnool,telangana,district,lgd:694
+telangana/nalgonda,Nalgonda,telangana,district,lgd:514
+telangana/narayanpet,Narayanpet,telangana,district,lgd:721
+telangana/nirmal,Nirmal,telangana,district,lgd:680
+telangana/nizamabad,Nizamabad,telangana,district,lgd:516
+telangana/peddapalli,Peddapalli,telangana,district,lgd:682
+telangana/rajanna-sircilla,Rajanna Sircilla,telangana,district,lgd:683
+telangana/ranga-reddy,Ranga Reddy,telangana,district,lgd:518
+telangana/sangareddy,Sangareddy,telangana,district,lgd:691
+telangana/siddipet,Siddipet,telangana,district,lgd:692
+telangana/suryapet,Suryapet,telangana,district,lgd:696
+telangana/vikarabad,Vikarabad,telangana,district,lgd:698
+telangana/wanaparthy,Wanaparthy,telangana,district,lgd:693
+telangana/warangal,Warangal,telangana,district,lgd:522
+telangana/yadadri-bhuvanagiri,Yadadri Bhuvanagiri,telangana,district,lgd:697
+tripura,Tripura,IN,state,IN-TR|S23|lgd:16
+tripura/dhalai,Dhalai,tripura,district,lgd:269
+tripura/gomati,Gomati,tripura,district,lgd:654
+tripura/khowai,Khowai,tripura,district,lgd:652
+tripura/north-tripura,North Tripura,tripura,district,lgd:270
+tripura/sepahijala,Sepahijala,tripura,district,lgd:653
+tripura/south-tripura,South Tripura,tripura,district,lgd:271
+tripura/unakoti,Unakoti,tripura,district,lgd:655
+tripura/west-tripura,West Tripura,tripura,district,lgd:272
+uttar-pradesh,Uttar Pradesh,IN,state,IN-UP|S24|lgd:9
+uttar-pradesh/agra,Agra,uttar-pradesh,district,lgd:118
+uttar-pradesh/aligarh,Aligarh,uttar-pradesh,district,lgd:119
+uttar-pradesh/ambedkar-nagar,Ambedkar Nagar,uttar-pradesh,district,lgd:121
+uttar-pradesh/amethi,Amethi,uttar-pradesh,district,lgd:640
+uttar-pradesh/amroha,Amroha,uttar-pradesh,district,lgd:154
+uttar-pradesh/auraiya,Auraiya,uttar-pradesh,district,lgd:122
+uttar-pradesh/ayodhya,Ayodhya,uttar-pradesh,district,lgd:140
+uttar-pradesh/azamgarh,Azamgarh,uttar-pradesh,district,lgd:123
+uttar-pradesh/baghpat,Baghpat,uttar-pradesh,district,lgd:124
+uttar-pradesh/bahraich,Bahraich,uttar-pradesh,district,lgd:125
+uttar-pradesh/ballia,Ballia,uttar-pradesh,district,lgd:126
+uttar-pradesh/balrampur,Balrampur,uttar-pradesh,district,lgd:127
+uttar-pradesh/banda,Banda,uttar-pradesh,district,lgd:128
+uttar-pradesh/bara-banki,Bara Banki,uttar-pradesh,district,lgd:129
+uttar-pradesh/bareilly,Bareilly,uttar-pradesh,district,lgd:130
+uttar-pradesh/basti,Basti,uttar-pradesh,district,lgd:131
+uttar-pradesh/bhadohi,Bhadohi,uttar-pradesh,district,lgd:179
+uttar-pradesh/bijnor,Bijnor,uttar-pradesh,district,lgd:132
+uttar-pradesh/budaun,Budaun,uttar-pradesh,district,lgd:133
+uttar-pradesh/bulandshahr,Bulandshahr,uttar-pradesh,district,lgd:134
+uttar-pradesh/chandauli,Chandauli,uttar-pradesh,district,lgd:135
+uttar-pradesh/chitrakoot,Chitrakoot,uttar-pradesh,district,lgd:136
+uttar-pradesh/deoria,Deoria,uttar-pradesh,district,lgd:137
+uttar-pradesh/etah,Etah,uttar-pradesh,district,lgd:138
+uttar-pradesh/etawah,Etawah,uttar-pradesh,district,lgd:139
+uttar-pradesh/farrukhabad,Farrukhabad,uttar-pradesh,district,lgd:141
+uttar-pradesh/fatehpur,Fatehpur,uttar-pradesh,district,lgd:142
+uttar-pradesh/firozabad,Firozabad,uttar-pradesh,district,lgd:143
+uttar-pradesh/gautam-buddha-nagar,Gautam Buddha Nagar,uttar-pradesh,district,lgd:144
+uttar-pradesh/ghaziabad,Ghaziabad,uttar-pradesh,district,lgd:145
+uttar-pradesh/ghazipur,Ghazipur,uttar-pradesh,district,lgd:146
+uttar-pradesh/gonda,Gonda,uttar-pradesh,district,lgd:147
+uttar-pradesh/gorakhpur,Gorakhpur,uttar-pradesh,district,lgd:148
+uttar-pradesh/hamirpur,Hamirpur,uttar-pradesh,district,lgd:149
+uttar-pradesh/hapur,Hapur,uttar-pradesh,district,lgd:661
+uttar-pradesh/hardoi,Hardoi,uttar-pradesh,district,lgd:150
+uttar-pradesh/hathras,Hathras,uttar-pradesh,district,lgd:163
+uttar-pradesh/jalaun,Jalaun,uttar-pradesh,district,lgd:151
+uttar-pradesh/jaunpur,Jaunpur,uttar-pradesh,district,lgd:152
+uttar-pradesh/jhansi,Jhansi,uttar-pradesh,district,lgd:153
+uttar-pradesh/kannauj,Kannauj,uttar-pradesh,district,lgd:155
+uttar-pradesh/kanpur-dehat,Kanpur Dehat,uttar-pradesh,district,lgd:156
+uttar-pradesh/kanpur-nagar,Kanpur Nagar,uttar-pradesh,district,lgd:157
+uttar-pradesh/kasganj,Kasganj,uttar-pradesh,district,lgd:633
+uttar-pradesh/kaushambi,Kaushambi,uttar-pradesh,district,lgd:158
+uttar-pradesh/kheri,Kheri,uttar-pradesh,district,lgd:159
+uttar-pradesh/kushinagar,Kushinagar,uttar-pradesh,district,lgd:160
+uttar-pradesh/lalitpur,Lalitpur,uttar-pradesh,district,lgd:161
+uttar-pradesh/lucknow,Lucknow,uttar-pradesh,district,lgd:162
+uttar-pradesh/mahoba,Mahoba,uttar-pradesh,district,lgd:165
+uttar-pradesh/mahrajganj,Mahrajganj,uttar-pradesh,district,lgd:164
+uttar-pradesh/mainpuri,Mainpuri,uttar-pradesh,district,lgd:166
+uttar-pradesh/mathura,Mathura,uttar-pradesh,district,lgd:167
+uttar-pradesh/mau,Mau,uttar-pradesh,district,lgd:168
+uttar-pradesh/meerut,Meerut,uttar-pradesh,district,lgd:169
+uttar-pradesh/mirzapur,Mirzapur,uttar-pradesh,district,lgd:170
+uttar-pradesh/moradabad,Moradabad,uttar-pradesh,district,lgd:171
+uttar-pradesh/muzaffarnagar,Muzaffarnagar,uttar-pradesh,district,lgd:172
+uttar-pradesh/pilibhit,Pilibhit,uttar-pradesh,district,lgd:173
+uttar-pradesh/pratapgarh,Pratapgarh,uttar-pradesh,district,lgd:174
+uttar-pradesh/prayagraj,Prayagraj,uttar-pradesh,district,lgd:120
+uttar-pradesh/rae-bareli,Rae Bareli,uttar-pradesh,district,lgd:175
+uttar-pradesh/rampur,Rampur,uttar-pradesh,district,lgd:176
+uttar-pradesh/saharanpur,Saharanpur,uttar-pradesh,district,lgd:177
+uttar-pradesh/sambhal,Sambhal,uttar-pradesh,district,lgd:659
+uttar-pradesh/sant-kabir-nagar,Sant Kabir Nagar,uttar-pradesh,district,lgd:178
+uttar-pradesh/shahjahanpur,Shahjahanpur,uttar-pradesh,district,lgd:180
+uttar-pradesh/shamli,Shamli,uttar-pradesh,district,lgd:660
+uttar-pradesh/shrawasti,Shrawasti,uttar-pradesh,district,lgd:181
+uttar-pradesh/siddharthnagar,Siddharthnagar,uttar-pradesh,district,lgd:182
+uttar-pradesh/sitapur,Sitapur,uttar-pradesh,district,lgd:183
+uttar-pradesh/sonbhadra,Sonbhadra,uttar-pradesh,district,lgd:184
+uttar-pradesh/sultanpur,Sultanpur,uttar-pradesh,district,lgd:185
+uttar-pradesh/unnao,Unnao,uttar-pradesh,district,lgd:186
+uttar-pradesh/varanasi,Varanasi,uttar-pradesh,district,lgd:187
+uttarakhand,Uttarakhand,IN,state,IN-UT|S28|lgd:5
+uttarakhand/almora,Almora,uttarakhand,district,lgd:45
+uttarakhand/bageshwar,Bageshwar,uttarakhand,district,lgd:46
+uttarakhand/chamoli,Chamoli,uttarakhand,district,lgd:47
+uttarakhand/champawat,Champawat,uttarakhand,district,lgd:48
+uttarakhand/dehradun,Dehradun,uttarakhand,district,lgd:49
+uttarakhand/haridwar,Haridwar,uttarakhand,district,lgd:50
+uttarakhand/nainital,Nainital,uttarakhand,district,lgd:51
+uttarakhand/pauri-garhwal,Pauri Garhwal,uttarakhand,district,lgd:52
+uttarakhand/pithoragarh,Pithoragarh,uttarakhand,district,lgd:53
+uttarakhand/rudraprayag,Rudraprayag,uttarakhand,district,lgd:54
+uttarakhand/tehri-garhwal,Tehri Garhwal,uttarakhand,district,lgd:55
+uttarakhand/udham-singh-nagar,Udham Singh Nagar,uttarakhand,district,lgd:56
+uttarakhand/uttarkashi,Uttarkashi,uttarakhand,district,lgd:57
+west-bengal,West Bengal,IN,state,IN-WB|S25|lgd:19
+west-bengal/alipurduar,Alipurduar,west-bengal,district,lgd:664
+west-bengal/bankura,Bankura,west-bengal,district,lgd:305
+west-bengal/birbhum,Birbhum,west-bengal,district,lgd:307
+west-bengal/cooch-behar,Cooch Behar,west-bengal,district,lgd:308
+west-bengal/dakshin-dinajpur,Dakshin Dinajpur,west-bengal,district,lgd:310
+west-bengal/darjeeling,Darjeeling,west-bengal,district,lgd:309
+west-bengal/hooghly,Hooghly,west-bengal,district,lgd:312
+west-bengal/howrah,Howrah,west-bengal,district,lgd:313
+west-bengal/jalpaiguri,Jalpaiguri,west-bengal,district,lgd:314
+west-bengal/jhargram,Jhargram,west-bengal,district,lgd:703
+west-bengal/kalimpong,Kalimpong,west-bengal,district,lgd:702
+west-bengal/kolkata,Kolkata,west-bengal,district,lgd:315
+west-bengal/malda,Malda,west-bengal,district,lgd:316
+west-bengal/murshidabad,Murshidabad,west-bengal,district,lgd:319
+west-bengal/nadia,Nadia,west-bengal,district,lgd:320
+west-bengal/north-24-parganas,North 24 Parganas,west-bengal,district,lgd:303
+west-bengal/paschim-bardhaman,Paschim Bardhaman,west-bengal,district,lgd:704
+west-bengal/paschim-medinipur,Paschim Medinipur,west-bengal,district,lgd:318
+west-bengal/purba-bardhaman,Purba Bardhaman,west-bengal,district,lgd:306
+west-bengal/purba-medinipur,Purba Medinipur,west-bengal,district,lgd:317
+west-bengal/purulia,Purulia,west-bengal,district,lgd:321
+west-bengal/south-24-parganas,South 24 Parganas,west-bengal,district,lgd:304
+west-bengal/uttar-dinajpur,Uttar Dinajpur,west-bengal,district,lgd:311
