@@ -102,7 +102,7 @@ def test_closed_enums_match_spec(contract):
     assert xwalk.column("overlap_kind").enum == ("wholly_inside", "majority", "partial")
     concepts = contract.for_glob("datasets/data/concepts.csv")
     assert concepts.column("normalisation").enum == (
-        "absolute", "per_capita", "share", "rate", "index",
+        "absolute", "per_capita", "per_area", "share", "ratio", "index",
     )
 
 

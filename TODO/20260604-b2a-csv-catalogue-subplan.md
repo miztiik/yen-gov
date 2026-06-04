@@ -38,7 +38,7 @@ Out of scope (other chunks):
 | --- | --- | --- | --- | --- |
 | B2a.1 source.csv from `taxonomy/sources.parquet` (+ `derive_source_id` reused per CLAUDE.md section 12) | - | fk-validator | #673 | MERGED |
 | B2a.2 topics.csv from `taxonomy/topics.json` (parent-pointer flatten) | - | fk-validator | #675 | MERGED |
-| B2a.3 concepts.csv from `taxonomy/concepts.json` | - | fk-validator | - | TODO |
+| B2a.3 concepts.csv from `taxonomy/concepts.json` | - | fk-validator | #677 | MERGED |
 | B2a.4 variables.csv from `taxonomy/indicators.json` (FKs to B2a.1 + B2a.2 + B2a.3) | B2a.1, B2a.2, B2a.3 | fk-validator | - | TODO |
 | B2a.5 entities/geo.csv from `taxonomy/lgd_states.json` + `taxonomy/lgd_districts.json` | - | fk-validator | - | TODO |
 | B2a.6 entities/electoral.csv from `taxonomy/lgd_acs.json` + `taxonomy/lgd_pcs.json` (FK to B2a.5 `state`) | B2a.5 | fk-validator | - | TODO |
@@ -71,7 +71,7 @@ Parallel-safe groups (independent inputs + the FK predecessor merged):
 ### B2a.3 concepts.csv
 
 - Read `datasets/taxonomy/concepts.json`. Emit `(concept_id, noun, unit_canonical, normalisation, entity_kinds, description)`.
-- `normalisation` enum: `absolute | per_capita | share | rate | index`.
+- `normalisation` enum: `absolute | per_capita | per_area | share | ratio | index` (matches `datasets/schemas/concepts.schema.json`; columns.json aligned to source-of-truth taxonomy enum in this PR).
 - `entity_kinds` is space-joined kinds list (e.g. `"state district"`) per columns.json string dtype.
 
 ### B2a.4 variables.csv
