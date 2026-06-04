@@ -107,7 +107,7 @@ Max (Indicator Scout, channelling Roser/Ritchie) reads every id as a candidate f
 
 1. **Refuse leaderboard-trap nouns.** An id like `state_environment_quality_index` collapses many incommensurate things into one number for a leaderboard — Max refuses it. `state_pm25_annual_mean_ug_m3` is honest because the noun is one measurable thing with one unit; the comparability flag tells the renderer not to rank.
 2. **Same id across decades; document the break, don't rename.** Rosling's instinct: if the noun is the same noun (PM2.5 mean), the id is the same id, even if the monitor count tripled in 2018. Rename ONLY when the noun itself changed (`crude_birth_rate` → `age_adjusted_birth_rate` is a new id; `birth_rate` measured by SRS in 2010 vs SRS in 2024 is the same id with a `series_break` if the frame changed).
-3. **Source authority does NOT belong in the id.** `rbi_outstanding_debt_pct_gsdp` is wrong (the upstream changes; the fact does not). `fiscal/state_outstanding_debt_pct_gsdp` is right. Provenance lives in the `sources` array (§9 of CLAUDE.md / [ADR-0002](../architecture/decisions/0002-provenance-as-sources-list.md)). The id is the citizen's noun, not the bureaucracy's catalogue number.
+3. **Source authority does NOT belong in the id.** `rbi_outstanding_debt_pct_gsdp` is wrong (the upstream changes; the fact does not). `fiscal/state_outstanding_debt_pct_gsdp` is right. Provenance lives in the `sources` array (§9 of CLAUDE.md / [archived ADR-0002](../archive/decisions/0002-provenance-as-sources-list.md), superseded by [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md) + [ADR-0032](../architecture/decisions/0032-sources-citation-ledger.md)). The id is the citizen's noun, not the bureaucracy's catalogue number.
 4. **Long-arc series get one id.** When an indicator is meant to live across a 30-year window (debt-to-GSDP, birth rate), the id should be writable in 1995 and still be the same in 2025. Methodology vintage is what changes; the id is the through-line.
 
 ## 5. `indicator.title` and `indicator.description` — citizen-readable copy rules
@@ -260,6 +260,6 @@ The schema validates the slug shape (`^[a-z][a-z0-9_]*$`) but does NOT enumerate
 
 - [`../../CLAUDE.md`](../../CLAUDE.md) — Holy Laws #4, #6; §11 schema versioning.
 - [`../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md`](../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md) — topic membership lives on the catalogue, not the artifact.
-- [`../architecture/decisions/0002-provenance-as-sources-list.md`](../architecture/decisions/0002-provenance-as-sources-list.md) — why source authority does not belong in the id.
+- [`../archive/decisions/0002-provenance-as-sources-list.md`](../archive/decisions/0002-provenance-as-sources-list.md) — why source authority does not belong in the id (superseded by [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md) + [ADR-0032](../architecture/decisions/0032-sources-citation-ledger.md)).
 - [`../../datasets/schemas/indicator.schema.json`](../../datasets/schemas/indicator.schema.json) — the regex and field shapes this doc decorates.
 - [`../../datasets/taxonomy/topics.json`](../../datasets/taxonomy/topics.json) — the source of truth for the legal `<scope>` set.
