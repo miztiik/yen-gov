@@ -52,7 +52,7 @@ Out of scope (other rows / chunks):
 | B2b.4.3 `state_tiers.csv` from `state_tiers.parquet` (104 rows; ECI `state_code` -> LGD slug re-key on emit) | - | cross-format-parity | #702 | MERGED |
 | B2b.4.4 `election_events.csv` from `election_events.parquet` (339 rows; ECI `state_code` -> LGD slug re-key on emit) | - | cross-format-parity | #704 | MERGED |
 | B2b.4.5 `indicator_topic_tags.csv` from `indicator_topic_tags.parquet` (45 rows; M:N; FK `topic_id` -> `topics.csv`; FK `artifact_id` -> `variables.csv` when `artifact_kind = 'indicator'`) | B2a.2 + B2a.4 (already MERGED) | cross-format-parity | #706 | MERGED |
-| B2b.4.6 `entities/ac_crosswalk.csv` from `ac_crosswalk.parquet` (4113 rows; `state_code` -> LGD slug; `source_id` FK to `entities/source.csv`) | - | cross-format-parity | _in-flight_ | IN-FLIGHT |
+| B2b.4.6 `entities/ac_crosswalk.csv` from `ac_crosswalk.parquet` (4113 rows; `state_code` -> LGD slug; `source_id` FK to `entities/source.csv`) | - | cross-format-parity | #708 | MERGED |
 | B2b.4.7 `entities/person.csv` from `persons.parquet` (430630 rows; heaviest emit; `source_id` FK to `entities/source.csv`) | - | cross-format-parity | - | TODO |
 | B2b.4.8 close sub-sub-plan: flip parent B2b.4 row to MERGED + stamp closure PR + distil per-file emit map into [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md) "Datapoint reingest" section + archive this file to `docs/archive/plans/` | B2b.4.1..B2b.4.7 | docs-review | - | TODO |
 
