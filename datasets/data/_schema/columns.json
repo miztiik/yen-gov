@@ -24,7 +24,7 @@
         { "name": "concept_id", "dtype": "string", "nullable": false, "pk": true },
         { "name": "noun", "dtype": "string", "nullable": false },
         { "name": "unit_canonical", "dtype": "string", "nullable": false },
-        { "name": "normalisation", "dtype": "string", "nullable": false, "enum": ["absolute", "per_capita", "share", "rate", "index"] },
+        { "name": "normalisation", "dtype": "string", "nullable": false, "enum": ["absolute", "per_capita", "per_area", "share", "ratio", "index"] },
         { "name": "entity_kinds", "dtype": "string", "nullable": false },
         { "name": "description", "dtype": "string", "nullable": true }
       ]

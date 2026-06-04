@@ -71,7 +71,7 @@ Parallel-safe groups (independent inputs + the FK predecessor merged):
 ### B2a.3 concepts.csv
 
 - Read `datasets/taxonomy/concepts.json`. Emit `(concept_id, noun, unit_canonical, normalisation, entity_kinds, description)`.
-- `normalisation` enum: `absolute | per_capita | share | rate | index`.
+- `normalisation` enum: `absolute | per_capita | per_area | share | ratio | index` (matches `datasets/schemas/concepts.schema.json`; columns.json aligned to source-of-truth taxonomy enum in this PR).
 - `entity_kinds` is space-joined kinds list (e.g. `"state district"`) per columns.json string dtype.
 
 ### B2a.4 variables.csv

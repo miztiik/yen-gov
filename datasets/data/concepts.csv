@@ -1,0 +1,179 @@
+concept_id,noun,unit_canonical,normalisation,entity_kinds,description
+acs-arr-gap,ACS-ARR gap,â‚¹/kWh,ratio,state,"Average Cost of Supply minus Average Revenue Realised, per unit of electricity sold. Positive = the utility loses money on every unit it sells (closed by tariff hike, loss reduction, or state subsidy). Zero is the UDAY/RDSS policy goal."
+agriculture-electricity,Agriculture (electricity),mtoe,absolute,country,"Final energy consumed in the agriculture sector via electricity, in mtoe per fiscal year."
+agriculture-gas,Agriculture (gas),mtoe,absolute,country,"Final energy consumed in the agriculture sector via gas, in mtoe per fiscal year."
+agriculture-oil,Agriculture (oil),mtoe,absolute,country,"Final energy consumed in the agriculture sector via oil, in mtoe per fiscal year."
+ai-events,AI events,events,absolute,district state,Count of artificial-insemination EVENTS performed under NAIP IV (district SoT; auto-rolled to state per ADR-0043). Repeat inseminations on the same animal are counted multiple times.
+all-india-installed-capacity,All-India installed capacity,MW,absolute,country,"Total nameplate generating capacity in megawatts, summed across all fuels, for India. Snapshot end-of-month from the CEA Monthly Executive Summary."
+at-c-losses,AT&C losses,%,share,state,Combined technical (transmission + distribution heat / ageing losses) and commercial (theft + uncollected billing) losses as % of energy input to the distribution system. Headline discom-health metric: lower is better.
+billing-efficiency,Billing efficiency,%,share,state,"Share of energy actually billed to a consumer, out of total energy input to the distribution system. 100% = every kWh that enters the grid was billed."
+biomass-plf,Biomass PLF,percent,share,state,"Biomass / bio-power PLF (publisher label: 'bio-power'). Feedstock-supply-bounded; agricultural-residue-rich states (Punjab, Haryana, UP, Tamil Nadu) show higher PLFs only when supply chains are functional."
+biomass-purchase-share,Biomass purchase share,percent,share,state,"Biomass / bio-power procurement share. Tied to agri-residue feedstock availability; meaningful in Punjab, Haryana, UP, Tamil Nadu when supply chains function."
+buffalo,Buffalo,animals,absolute,district state,"Number of buffaloes tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual buffaloes population."
+calves-born,Calves born,calves,absolute,district state,Count of calves born per district from NAIP IV inseminations during FY 2024-25. Publisher reports sex split (male/female); this lift collapses sex via SUM.
+candidate-votes,Candidate votes,votes,absolute,candidate,Absolute number of votes a candidate received in a single AC contest.
+candidates-contested,Candidates contested,candidates,absolute,ac,Full field size: kept candidates plus those collapsed into the 'others' tail by the top-N cutoff.
+candidates-total-pc,Candidates (PC),candidates,absolute,pc,Total number of candidates contesting a Lok Sabha parliamentary constituency.
+capacity-allocated-to-state,Capacity allocated to state,MW,share,state,"Same as the geographical-location capacity, but each state credited its share of joint-sector and central-sector plants per regional allocation formulas. Use this when comparing 'rights to electricity' rather than 'physical assets sited here'."
+capacity-allocated-to-state-2,Capacity allocated to state,MW,absolute,state,Auto-minted stub for indicator state-installed-capacity-allocated-mw.
+capacity-sited-in-state,Capacity sited in state,MW,absolute,state,"Total installed capacity physically located in the state, summed across all fuels. 'Geographical' means every plant counts toward the state where it sits, regardless of who owns it or where the power is dispatched."
+capacity-snapshot-cea,Capacity snapshot (CEA),MW,absolute,state,"Total installed capacity allocated to each state at the end of the most recent month, from the CEA Monthly Executive Summary IC sheet. Snapshot view; complements the multi-FY ICED geographical and allocated series."
+cattle,Cattle,animals,absolute,district state,"Number of cattle tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual cattle population."
+cgd-and-others-gas,Cgd And Others (gas),mtoe,absolute,country,"Final energy consumed in the cgd and others sector via gas, in mtoe per fiscal year."
+coal,Coal,GWh,absolute,state,Coal-fired generation. ~70% of all-India electricity by GWh (PLF gap between capacity share and generation share).
+coal-absolute,Coal,mtoe,absolute,country,Coal share of total primary energy supply. The dominant TPES bucket since FY05 (~55% in recent years).
+coal-consumption,Coal consumption,Mt,absolute,state,"Per-state domestic coal consumption in million tonnes per fiscal year, summed across all coal grades (raw + washed + middlings + lignite). High values typically indicate hosting large thermal generation fleets (Maharashtra, UP, MP, Chhattisgarh) or heavy industry (steel, cement)."
+coal-mw-absolute,Coal,MW,absolute,country,"Coal-fired thermal capacity (country-grain CEA snapshot). India's largest fuel category nationally (~42%). State-grain attribution variants live under coal-mw-{geographical,allocated,snapshot}."
+coal-mw-allocated,Coal (allocated to state),MW,absolute,state,State-grain BENEFICIARY share of coal-fired capacity (ISGS/PSU contractual allocation). A Mundra plant sited in Gujarat is allocated to multiple states by quota. Distinct measure from geographical siting.
+coal-mw-geographical,Coal (geographically sited),MW,absolute,state,State-grain coal-fired capacity physically SITED in the state regardless of who consumes the power. Distinct measure from allocated beneficiary share.
+coal-mw-retired,Coal capacity retired,MW,absolute,country,"Coal-fired thermal capacity retired each fiscal year (flow, not stock). Distinct measure from installed coal capacity."
+coal-mw-snapshot,Coal (state CEA snapshot),MW,absolute,state,State-grain CEA Monthly Executive Summary end-of-month snapshot of coal capacity. Distinct publisher and cadence from the fiscal-year-end -allocated- series.
+coal-plf,Coal PLF,percent,share,state,"Coal-fired plant load factor: how hard the state's coal fleet is being run. 60%+ = healthy despatch, 40% = structural underuse (stranded assets), regulator-set floor varies."
+coal-purchase-share,Coal purchase share,percent,share,state,"Share of state's procured electricity that came from coal plants. India-wide ~70% historically; declining as RE rises. Coal-importing states (Karnataka, Maharashtra, Punjab) typically run above the average."
+collection-efficiency,Collection efficiency,%,share,state,"Share of billed revenue actually collected from consumers, by state. 100% = every rupee billed was paid."
+commercial-electricity,Commercial (electricity),mtoe,absolute,country,"Final energy consumed in the commercial sector via electricity, in mtoe per fiscal year."
+commercial-oil,Commercial (oil),mtoe,absolute,country,"Final energy consumed in the commercial sector via oil, in mtoe per fiscal year."
+contested,Contested,ACs,absolute,party,Number of distinct ACs in the state where this party fielded a candidate.
+diesel-hsd,Diesel (HSD),kt,absolute,state,"High-speed diesel: the dominant refined petroleum product. Tracks transport activity (heavy vehicles, buses, trucks) and agricultural pump-set use; the largest single fuel by volume in every state."
+diesel-purchase-share,Diesel purchase share,percent,share,state,"Diesel-genset procurement share. Typically <1% across most states; an emergency-backup category, not a baseload source."
+distribution-efficiency,Distribution efficiency,%,share,state,"Compute-on-read parent: the three citizen-readable sub-indicators of distribution-side efficiency â€” billing efficiency, collection efficiency, and T&D loss. The first two decompose the COMMERCIAL half of AT&C losses; the third is the TECHNICAL half."
+donkey,Donkey,animals,absolute,district state,"Number of donkeys tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual donkeys population."
+effective-candidates,Effective candidates,count,index,ac,1 / sum(vote_share_squared). Higher = more fragmented contest.
+effective-candidates-pc,Effective candidates (PC),index,index,pc,Laakso-Taagepera effective number of candidates (inverse Herfindahl of vote shares) in a Lok Sabha parliamentary constituency.
+effective-parties,Effective parties,count,index,state,1 / sum(seat_share_squared) across parties. Higher = more fragmented legislature.
+electors,Electors,persons,absolute,ac,Number of voters on the electoral roll for this AC as of election day.
+electors-pc,Electors (PC),persons,absolute,pc,Total enrolled electors in a single Lok Sabha parliamentary constituency contest.
+farmers-benefitted,Farmers benefitted,farmers,absolute,district state,Count of unique farmers in each district reached by NAIP IV inseminations during FY 2024-25.
+final-energy-consumption,Final energy consumption,mtoe,absolute,country,"Final energy consumption in India broken down by end-use sector x fuel (18 pairs). Final = what households / industry actually USE (post-conversion losses), distinct from TPES (primary supply)."
+forfeitures,Forfeitures,ACs,absolute,party,"Number of ACs where the party's candidate received less than 1/6 of valid votes (Section 158, Representation of the People Act)."
+gas,Gas,GWh,absolute,state,"Gas-fired generation. Capacity-rich, generation-poor due to fuel-supply constraints."
+gas-absolute,Gas,MW,absolute,country,"Natural-gas and liquid-fuel thermal capacity (country-grain CEA snapshot). Stranded-fuel risk; small share nationally. State-grain attribution variants live under gas-mw-{geographical,allocated,snapshot}."
+gas-mw-allocated,Gas (allocated to state),MW,absolute,state,State-grain BENEFICIARY share of gas-fired capacity (ISGS/PSU contractual allocation). A Hazira plant sited in Gujarat may be allocated to multiple states by quota. Distinct measure from geographical siting.
+gas-mw-geographical,Gas (geographically sited),MW,absolute,state,State-grain gas-fired capacity physically SITED in the state regardless of who consumes the power. Distinct measure from allocated beneficiary share.
+gas-mw-retired,Gas capacity retired,MW,absolute,country,"Gas/oil/diesel-fired thermal capacity retired each fiscal year (flow, not stock). Distinct measure from installed gas capacity."
+gas-mw-snapshot,Gas (state CEA snapshot),MW,absolute,state,State-grain CEA Monthly Executive Summary end-of-month snapshot of gas capacity. Distinct publisher and cadence from the fiscal-year-end -allocated- series.
+gas-plf,Gas PLF,percent,share,state,Gas-fired plant load factor (publisher bucket 'oil-gas' = natural gas + diesel + furnace oil). Persistently low in India (often <25%) due to gas allocation shortages -- not a despatch failure.
+gas-purchase-share,Gas purchase share,percent,share,state,Gas-fired procurement share (publisher 'oil-gas' bucket: natural gas + furnace oil). Often <5% due to gas-allocation shortages limiting plant availability.
+goat,Goat,animals,absolute,district state,"Number of goats tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual goats population."
+horse,Horse,animals,absolute,district state,"Number of horses tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual horses population."
+hybrid-bundled-share,Hybrid (bundled) share,percent,share,state,"Bundled-hybrid PPA procurement share (wind + solar + storage sold as one contract). A procurement-channel category, not a single fuel. Emerging post-2022 as MNRE hybrid policy ramped."
+hydro,Hydro,GWh,absolute,state,Hydroelectric generation. Seasonal (monsoon-dependent) and falling as a share over time.
+hydro-absolute,Hydro,mtoe,absolute,country,Large hydro share of TPES (>=25 MW). Inter-annual swings track monsoon variability; structurally flat as no major new dams have been commissioned recently.
+hydro-mw-absolute,Hydro,MW,absolute,country,"Conventional (>25 MW) plus small-hydro capacity (country-grain CEA snapshot). Site-bound; multi-decade lifetime. State-grain attribution variants live under hydro-mw-{geographical,allocated,snapshot}."
+hydro-mw-allocated,Hydro (allocated to state),MW,absolute,state,State-grain BENEFICIARY share of hydro capacity (ISGS/PSU contractual allocation). A large hydro station sited in one hill state may be allocated to multiple consumer states by quota. Distinct measure from geographical siting.
+hydro-mw-geographical,Hydro (geographically sited),MW,absolute,state,State-grain hydro capacity physically SITED in the state regardless of who consumes the power. Distinct measure from allocated beneficiary share.
+hydro-mw-snapshot,Hydro (state CEA snapshot),MW,absolute,state,State-grain CEA Monthly Executive Summary end-of-month snapshot of hydro capacity. Distinct publisher and cadence from the fiscal-year-end -allocated- series.
+industry-coal,Industry (coal),mtoe,absolute,country,"Final energy consumed in the industry sector via coal, in mtoe per fiscal year."
+industry-electricity,Industry (electricity),mtoe,absolute,country,"Final energy consumed in the industry sector via electricity, in mtoe per fiscal year."
+industry-gas,Industry (gas),mtoe,absolute,country,"Final energy consumed in the industry sector via gas, in mtoe per fiscal year."
+industry-oil,Industry (oil),mtoe,absolute,country,"Final energy consumed in the industry sector via oil, in mtoe per fiscal year."
+kerosene-sko,Kerosene (SKO),kt,absolute,state,Superior kerosene oil: household lighting + cooking fuel from the legacy PDS era. Declines steeply post-PMUY as LPG replaces it; near-zero in many states by FY23.
+landless-marginal-1-ha,Landless / marginal (<1 Ha),owners,absolute,district state,"Owners in the landless / marginal bracket (<1 Ha) registered on Bharat Pashudhan. Registered count, NOT all owning households."
+large-10-ha,Large (>=10 Ha),owners,absolute,district state,"Owners in the large-holding bracket (>=10 Ha) registered on Bharat Pashudhan. Registered count, NOT all owning households."
+large-hydro-plf,Large-hydro PLF,percent,share,state,"Large-hydro plant load factor (capacity > 25 MW). Inherently seasonal; monsoon-dependent states show high inter-year variation that is RESOURCE-driven, not fleet-performance-driven."
+large-hydro-purchase-share,Large-hydro purchase share,percent,share,state,"Large-hydro (>25 MW) procurement share. Higher in hill states (HP, UK, Sikkim) and seasonally variable across monsoon vs winter."
+livestock-owners-registered,Livestock owners registered,owners,absolute,district state,"Count of livestock owners completed Bharat Pashudhan registration. Registered count, NOT all owning households."
+lpg,LPG,kt,absolute,state,Liquefied petroleum gas: household cooking-fuel after the PMUY (Ujjwala) scheme. Tracks household-coverage policy more than wealth -- rural states with successful PMUY rollout show high per-capita LPG consumption.
+majority-threshold,Majority threshold,ACs,absolute,state,floor(total_acs / 2) + 1. Constant per state per delimitation cycle.
+margin,Margin %,%,share,ac,Vote-margin between winner and runner-up as a percentage of total votes polled.
+margin-absolute,Margin,votes,absolute,ac,Winner's votes minus runner-up's votes.
+margin-absolute-pc,Margin (PC),votes,absolute,pc,Vote margin between the winner and the runner-up in a Lok Sabha parliamentary constituency.
+margin-pc,Margin % (PC),%,share,pc,Winner-minus-runner-up margin as a percentage of total votes polled in a Lok Sabha parliamentary constituency.
+medium-4-0-9-99-ha,Medium (4.0-9.99 Ha),owners,absolute,district state,"Owners in the medium bracket (4.0-9.99 Ha) registered on Bharat Pashudhan. Registered count, NOT all owning households."
+mithun,Mithun,animals,absolute,district state,"Number of mithun tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual mithun population."
+mule,Mule,animals,absolute,district state,"Number of mules tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual mules population."
+naphtha,Naphtha,kt,absolute,state,"Light hydrocarbon feedstock for petrochemicals + occasional power-plant fuel. Concentrated in petrochemical-cluster states (Gujarat, Maharashtra). Volatile year-on-year."
+natural-gas,Natural gas,mtoe,absolute,country,Natural-gas share of TPES (domestic + LNG imports). The fastest-growing fossil bucket; tracks LNG-terminal commissioning and pipeline expansion.
+non-energy-gas,Non Energy (gas),mtoe,absolute,country,"Final energy consumed in the non energy sector via gas, in mtoe per fiscal year."
+non-energy-oil,Non Energy (oil),mtoe,absolute,country,"Final energy consumed in the non energy sector via oil, in mtoe per fiscal year."
+non-solar-rpo,Non-solar RPO,%,share,state,"Share of the state's non-solar (wind + biomass + small-hydro) RPO target actually met. The 'other-renewables' segment of the obligation, regulated separately from the solar segment."
+not-specified,Not specified,owners,absolute,district state,"Owners who did not declare a land-holding bracket while registering on Bharat Pashudhan. Preserved verbatim, not imputed."
+nota-share,NOTA share,%,share,ac,NOTA votes as a percentage of votes polled. Null pre-2013.
+nota-share-pc,NOTA share (PC),%,share,pc,NOTA votes as a percentage of total votes polled in a Lok Sabha parliamentary constituency. Null before 2013.
+nota-votes,NOTA votes,votes,absolute,ac,Absolute number of NOTA (None of the Above) votes. Null pre-2013.
+nota-votes-pc,NOTA votes (PC),votes,absolute,pc,None-of-the-above votes cast in a Lok Sabha parliamentary constituency. Null before NOTA was introduced (2013).
+nuclear,Nuclear,GWh,absolute,state,Nuclear generation. Small share but rising as new units commission.
+nuclear-absolute,Nuclear,mtoe,absolute,country,Nuclear share of TPES. Small fleet (~7 GW operational); structurally flat with episodic step changes when a new reactor commissions.
+nuclear-mw-absolute,Nuclear,MW,absolute,country,"Nuclear capacity (country-grain CEA national snapshot). Central-sector PSU plants (NPCIL). State-grain attribution variants live under nuclear-mw-{geographical,allocated,snapshot}."
+nuclear-mw-allocated,Nuclear (allocated to state),MW,absolute,state,State-grain BENEFICIARY share of nuclear capacity (NPCIL central-sector PPA allocation). A reactor sited in one state is allocated to multiple consumer states by quota. Distinct measure from geographical siting.
+nuclear-mw-geographical,Nuclear (geographically sited),MW,absolute,state,State-grain nuclear capacity physically SITED in the state regardless of who consumes the power. Distinct measure from allocated beneficiary share.
+nuclear-mw-snapshot,Nuclear (state CEA snapshot),MW,absolute,state,State-grain CEA Monthly Executive Summary end-of-month snapshot of nuclear capacity. Distinct publisher and cadence from the fiscal-year-end -allocated- series.
+nuclear-plf,Nuclear PLF,percent,share,state,Nuclear plant load factor. Only present in states hosting reactors (TN/Karnataka/Rajasthan/Gujarat/Maharashtra/UP); rest = no data. Targets 80%+ when fuel-supply and grid-offtake align.
+nuclear-purchase-share,Nuclear purchase share,percent,share,state,"Nuclear procurement share. Allocated centrally from NPCIL plants; states near reactors (TN, KA, MH, RJ, GJ, UP) have higher shares."
+oil,Oil,mtoe,absolute,country,Crude-oil + petroleum-products share of TPES. The second-largest bucket; tracks transport-fleet activity and refinery throughput.
+oil-product-consumption,Oil-product consumption,kt,absolute,state,"Per-state annual consumption of refined petroleum products in kilotonnes, broken down by 7 products (diesel-HSD, petrol, LPG, kerosene, naphtha, petroleum-coke, others). Diesel dominates everywhere; LPG tracks PMUY rollout; petroleum-coke tracks industrial heat use."
+other-electricity,Other (electricity),mtoe,absolute,country,"Final energy consumed in the other sector via electricity, in mtoe per fiscal year."
+other-oil,Other (oil),mtoe,absolute,country,"Final energy consumed in the other sector via oil, in mtoe per fiscal year."
+other-re-purchase-share,Other-RE purchase share,percent,share,state,Other-renewables procurement share (publisher 'other-res' bucket): waste-to-energy and small uncategorised RE. Typically <1-2% across most states.
+others,Others,kt,absolute,state,"Publisher catch-all for products outside the 6 named buckets (fuel oil, ATF, lubricants, bitumen, etc.). Preserved verbatim, never imputed into a named bucket."
+others-share,Others (% share),%,share,ac,Aggregate % vote-share for the collapsed tail. Absent when no tail exists.
+others-share-pc,Others share (PC),%,share,pc,Aggregated 'others' votes as a percentage of total votes polled in a Lok Sabha parliamentary constituency.
+others-votes,Others (votes),votes,absolute,ac,Sum of votes for candidates below the top-N cutoff. Absent when no tail exists.
+others-votes-pc,Others votes (PC),votes,absolute,pc,"Votes for all candidates outside the top finishers, aggregated, in a Lok Sabha parliamentary constituency."
+party-votes,Party votes,votes,absolute,party,Sum of all votes received by the party's candidates across the state.
+pashu-aadhaar-tagged,Pashu Aadhaar tagged,animals,absolute,district state,"Count of animals issued a 12-digit Pashu Aadhaar tag in each district. Tagged count, NOT actual population."
+peak-demand,Peak demand,MW,absolute,state,"Highest single-instant electricity demand observed in the state during the fiscal year (MW). 'Peak' is system-wide simultaneous demand recorded by the State Load Despatch Centre â€” typically a summer afternoon (north / west) or winter evening (Punjab, Delhi)."
+peak-supplied,Peak supplied,MW,absolute,state,"Maximum instantaneous power actually supplied in the state during the fiscal year (MW). The pair (peak_demand, peak_supplied) tells the load-shedding story: supplied < demand in any year means the grid dropped load to keep frequency stable."
+per-capita-availability,Per-capita availability,kWh per person per year,per_capita,state,"Annual per-capita electricity availability (kWh / person / year), by state and Union Territory, fiscal year. The most citizen-relevant single number for 'how much power do people in this state actually get to use' â€” captures both supply expansion and transmission losses."
+per-capita-availability-2,Per-capita availability,kWh per person per year,ratio,state,Auto-minted stub for indicator per-capita-electricity-availability-kwh.
+per-capita-consumption,Per-capita consumption,kWh per person per year,per_capita,state,"Electricity consumption per person per year, in kilowatt-hours. Proxy for BOTH energy access (electrified homes) AND industrial intensity (heavy-industry load) â€” read alongside per-capita income to disambiguate."
+per-capita-consumption-2,Per-capita consumption,kWh per person per year,ratio,state,Auto-minted stub for indicator per-capita-electricity-consumption-kwh.
+petrol,Petrol,kt,absolute,state,"Motor spirit (gasoline): cars, two-wheelers, light vehicles. A proxy for urban-personal-mobility intensity; rises with vehicle ownership and middle-class growth."
+petroleum-coke,Petroleum coke,kt,absolute,state,"Refinery by-product used as cheap industrial fuel (cement, glass, steel). Heavily regulated for air-quality reasons in NCR and some industrial states. Tracks heavy-industry heat use."
+pig,Pig,animals,absolute,district state,"Number of pigs tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual pigs population."
+plant-load-factor,Plant load factor,percent,share,state,"Share of nameplate capacity actually delivered as energy over a fiscal year. Per state, per fuel source. Coal PLFs near 60% indicate healthy merit-order despatch; near 40% indicates structural underuse."
+power-availability,Power availability,MU,absolute,state,"Annual energy actually supplied to the state (MU = million units = GWh), fiscal year. The supply-side companion to Requirement (T141). Requirement âˆ’ Availability = the energy-not-supplied deficit."
+power-purchase-mix,Power purchase mix,percent,share,state,"Share of total electricity purchased by a state's distribution utilities, broken down by generation source. The procurement mix (where DISCOMs buy from), not the generation mix (what plants produce). Values sum to ~100% per (state, FY)."
+power-requirement,Power requirement,MU,absolute,state,"Annual energy requirement assessed by the state (MU = million units = GWh), fiscal year â€” the demand-side counterpart to availability. Requirement minus availability gives the 'energy not supplied' deficit."
+pregnancy-diagnoses,Pregnancy diagnoses,events,absolute,district state,Count of pregnancy-diagnosis EVENTS performed under NAIP IV (district SoT; auto-rolled to state per ADR-0043). A single dam may be diagnosed multiple times in the same year.
+primary-energy-supply,Primary energy supply,mtoe,absolute,country,"Annual total primary energy supply for India, broken down by source (coal, oil, gas, hydro, nuclear, renewables). The TPES denominator behind every per-capita / per-GDP energy intensity calculation."
+rank,Rank,rank,absolute,candidate,Ordinal rank by votes polled (1 = winner).
+renewable,Renewable,GWh,absolute,state,"Wind, solar and biomass generation. ~10% all-India share by FY26; growing fast."
+renewable-absolute,Renewable,MW,absolute,country,"Renewable capacity (country-grain CEA national snapshot). Wind, solar, biomass and waste-to-energy aggregate; ~30% national capacity by FY26. State-grain attribution variants live under renewable-mw-{geographical,allocated,snapshot}."
+renewable-grid-capacity,Renewable grid capacity,MW,absolute,state,"Cumulative grid-connected renewable installed capacity in MW, end-March snapshot per year. Combined wind + solar + small-hydro + biomass + waste-to-energy (publisher emits no per-source split). Rajasthan, Gujarat, Tamil Nadu, Karnataka, Maharashtra dominate."
+renewable-mw-allocated,Renewable (allocated to state),MW,absolute,state,State-grain BENEFICIARY share of renewable capacity (ISGS/PSU contractual allocation; a plant sited in one state is allocated to multiple consumer states). Distinct measure from geographical siting.
+renewable-mw-geographical,Renewable (geographically sited),MW,absolute,state,State-grain renewable capacity physically SITED in the state regardless of who consumes the power. Distinct measure from allocated beneficiary share and from CEA monthly snapshot.
+renewable-mw-snapshot,Renewable (state CEA snapshot),MW,absolute,state,State-grain CEA Monthly Executive Summary end-of-month snapshot of renewable capacity. Distinct publisher and cadence from the fiscal-year-end -allocated- series.
+renewables,Renewables,mtoe,absolute,country,"Aggregate renewable share of TPES (solar + wind + biomass + small-hydro + waste-to-energy). The fastest-growing bucket; publisher emits as a single aggregate, not broken into RE sub-fuels."
+residential-electricity,Residential (electricity),mtoe,absolute,country,"Final energy consumed in the residential sector via electricity, in mtoe per fiscal year."
+residential-oil,Residential (oil),mtoe,absolute,country,"Final energy consumed in the residential sector via oil, in mtoe per fiscal year."
+rooftop-solar-capacity,Rooftop solar capacity,MW,absolute,state,Cumulative installed rooftop solar PV capacity in megawatts. Building-mounted (residential + commercial + industrial + public) only; utility-scale solar is separate and lives under installed-capacity-snapshot-mw-renewable.
+rpo-compliance,RPO compliance,%,share,state,"Compute-on-read parent: the three citizen-readable segments of state RPO compliance â€” solar, non-solar, and combined-target. Each measures share of the regulatory RPO target met, expressed as compliance Ã· target Ã— 100."
+seats-won,Seats won,ACs,absolute,party,Number of ACs the party won in this state election.
+semi-medium-2-0-3-99-ha,Semi-medium (2.0-3.99 Ha),owners,absolute,district state,"Owners in the semi-medium bracket (2.0-3.99 Ha) registered on Bharat Pashudhan. Registered count, NOT all owning households."
+sheep,Sheep,animals,absolute,district state,"Number of sheep tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual sheep population."
+small-1-0-1-99-ha,Small (1.0-1.99 Ha),owners,absolute,district state,"Owners in the small-holding bracket (1.0-1.99 Ha) registered on Bharat Pashudhan. Registered count, NOT all owning households."
+small-hydro-plf,Small-hydro PLF,percent,share,state,Small-hydro plant load factor (capacity <= 25 MW). Run-of-river dominated; seasonal-flow-bounded. Distinct from large-hydro for despatch and resource-availability reasons.
+small-hydro-purchase-share,Small-hydro purchase share,percent,share,state,Small-hydro (<=25 MW) procurement share. Distinct from large hydro; counts under most state RPO obligations.
+solar-plf,Solar PLF,percent,share,state,Solar PLF (utility + rooftop combined). Resource-bounded: even perfect operation cannot exceed ~22-25% in India (function of sunlight hours). A 20% solar PLF is GOOD; do NOT compare to a 60% coal target.
+solar-purchase-share,Solar purchase share,percent,share,state,"Solar procurement share (utility + rooftop). Rajasthan, Gujarat, Karnataka lead with double-digit shares; smaller eastern states still in single digits."
+solar-rpo,Solar RPO,%,share,state,Share of the state's solar-specific RPO target actually met. 100% = solar-RPO target exactly met; values above 100% indicate over-compliance on solar procurement.
+state-electors,State electors,persons,absolute,state,Sum of enrolled electors across all ACs in the state.
+state-electricity-sales,State electricity sales,MU,absolute,state,"Total electricity actually billed to end-consumers (domestic + commercial + industrial + agricultural + public-lighting) in the state, in million units (MU). The gap between Generation and Sales is the absolute AT&C loss."
+state-generation-gwh,State generation (GWh),GWh,absolute,state,"Per-state actual electricity generated, summed across all fuels. The delivered counterpart to installed capacity â€” capacity is potential, generation is what plants actually produced."
+state-nota,State NOTA,%,share,state,Sum of NOTA votes across state as % of votes polled. Null pre-2013.
+state-turnout,State turnout,%,share,state,State-level votes polled as % of state-level enrolled electors.
+state-votes,State votes,votes,absolute,state,Sum of votes polled across all ACs in the state.
+strike-rate,Strike rate,%,share,party,Seats won as a percentage of seats contested by the party.
+t-d-loss,T&D loss,%,share,state,Transmission and Distribution loss as % of energy input â€” the TECHNICAL half of AT&C losses (heat / ageing / unmetered consumption on the wires).
+thermal-capacity-retired,Thermal capacity retired,MW,absolute,country,"National total of thermal generating capacity retired each fiscal year, broken down by fuel (coal vs gas). A key signal in the energy-transition story: rising coal retirements means the fleet is being replaced, not just expanded."
+total-rpo,Total RPO,%,share,state,Combined-target RPO compliance â€” share of the state's overall (solar + non-solar combined) RPO target met. NOT the sum of solar + non-solar â€” the combined target is its own regulatory ratio.
+trading-others-share,Trading & others share,percent,share,state,"Procurement via power exchanges (IEX / PXIL) + unscheduled interchange (UI). Source-agnostic at procurement time. Higher trading share = state buys spot to meet demand fluctuations, not necessarily a stress signal."
+transport-electricity,Transport (electricity),mtoe,absolute,country,"Final energy consumed in the transport sector via electricity, in mtoe per fiscal year."
+transport-oil,Transport (oil),mtoe,absolute,country,"Final energy consumed in the transport sector via oil, in mtoe per fiscal year."
+turnout,Turnout,%,share,ac,Votes polled as a percentage of total enrolled electors.
+turnout-pc,Turnout (PC),%,share,pc,Votes polled as a percentage of total enrolled electors in a Lok Sabha parliamentary constituency.
+under-construction-capacity,Under-construction generation capacity,GW,absolute,country,"Power generation capacity in active construction (post-financial-close, pre-commissioning), by expected commission calendar-year. Distinct from commissioned installed capacity and from retired capacity; this measures FUTURE additions not yet generating."
+vote-share-candidate,Vote share (candidate),%,share,candidate,A single candidate's votes as a percentage of total votes polled in their AC (including NOTA).
+vote-share-party,Vote share (party),%,share,party,A party's votes summed across all its candidates as a percentage of total votes polled in the state.
+votes-polled,Votes polled,votes,absolute,ac,Sum of all candidate votes plus NOTA in this AC contest.
+votes-polled-pc,Votes polled (PC),votes,absolute,pc,Sum of all candidate votes plus NOTA in this Lok Sabha parliamentary constituency contest.
+wind-plf,Wind PLF,percent,share,state,"Wind PLF. Resource-bounded by site quality (Tamil Nadu, Gujarat, Rajasthan, Karnataka coastal/desert zones are wind-rich). A 25% wind PLF in Tamil Nadu is excellent; same number in a low-wind state could be aspirational siting."
+wind-purchase-share,Wind purchase share,percent,share,state,"Wind procurement share. Resource-bounded; Tamil Nadu, Gujarat, Maharashtra, Karnataka, Rajasthan dominate as both producers AND consumers (sold within state and via inter-state PPAs)."
+winner,Winner,entity_id,absolute,ac,entity_id of the candidate who received the most votes. Stored in value_text.
+winner-pc,Winner (PC),entity_id,absolute,pc,entity_id of the candidate who received the most votes in a Lok Sabha parliamentary constituency. Stored in value_text.
+winning-party-ac,Winning party (AC),entity_id,absolute,ac,party_id of the winning candidate in a single Assembly Constituency contest (seat-level outcome; parties.IN.IND for independents).
+winning-party-pc,Winning party (PC),entity_id,absolute,pc,party_id of the winning candidate in a single Lok Sabha parliamentary constituency contest (seat-level outcome; parties.IN.IND for independents).
+winning-party-state,Winning party (state),entity_id,absolute,state,party_id with the most seats statewide (state-aggregate majority outcome; null on a hung house).
+winning-seats,Winning seats,ACs,absolute,state,Seats held by the state's winning party.
+yak,Yak,animals,absolute,district state,"Number of yaks tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual yaks population."
