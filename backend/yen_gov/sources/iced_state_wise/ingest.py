@@ -27,6 +27,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
 
+from yen_gov.canonical.citation import derive_source_id
+from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.core.io import Source, write_artifact
 
 from .parsers import (
@@ -387,6 +389,180 @@ SECTORAL_GVA_FACET_SOURCES: dict[str, dict[str, str]] = {
 # plain crore (1 lakh crore = 1e5 crore) for parity with peer indicators.
 SECTORAL_GVA_VALUE_SCALE: float = 1.0e5
 SECTORAL_GVA_VINTAGE_LABEL: str = "Base 2011-12"
+
+
+# ---------------------------------------------------------------------------
+# Canonical CSV emission (B1.4.8)
+# ---------------------------------------------------------------------------
+#
+# Re-points every indicator emitted by this ingest onto
+# `yen_gov.canonical.csv_writer.write_csv` ALONGSIDE the legacy
+# `write_artifact` meadow-JSON path (parent plan section 23.1; instead-of
+# is deferred to B3). `source_id` is derived via ADR-0042 from
+# (producer, title, vintage); variable_ids honour parent plan section
+# 21.6 / 21.12 (no `__`) and ADR-0044 (no grain prefix). The faceted
+# Sectoral GVA indicator splits into one variable_id per facet
+# (csv_writer facet-column support deferred per sub-plan B1.4.1..9 #7).
+# concept_id binding DEFERRED to B2a; recorded as DEFER marker in the
+# PR body.
+_CSV_FILE_CLASS = "datasets/data/datapoints/geo/*.csv"
+_CSV_OUT_REL_DIR = "datasets/data/datapoints/geo"
+_CSV_SOURCE_PRODUCER = "NITI Aayog India Climate & Energy Dashboard"
+_CSV_SOURCE_VINTAGE = "2024-25"
+
+# Map every iced_state_wise indicator_id to its (citation title,
+# kebab-case variable prefix). The prefix drops the grain (state_*)
+# prefix per ADR-0044 since grain lives on `entity_id` not on id.
+_CSV_INDICATOR_EMIT: dict[str, tuple[str, str]] = {
+    "energy/state_installed_capacity_geographical_mw": (
+        "ICED state-wise deep-dive: installed electricity capacity "
+        "(geographical location based)",
+        "installed-capacity-geographical-mw",
+    ),
+    "energy/state_installed_capacity_with_alloc_mw": (
+        "ICED state-wise deep-dive: installed electricity capacity "
+        "(with allocated shares)",
+        "installed-capacity-with-allocated-shares-mw",
+    ),
+    "energy/state_rooftop_solar_capacity_mw": (
+        "ICED state-wise deep-dive: rooftop solar installed capacity",
+        "rooftop-solar-capacity-mw",
+    ),
+    "energy/state_electricity_generation_mu": (
+        "ICED state-wise deep-dive: annual electricity generation",
+        "electricity-generation-mu",
+    ),
+    "energy/state_electricity_peak_demand_mw": (
+        "ICED state-wise deep-dive: annual peak electricity demand",
+        "electricity-peak-demand-mw",
+    ),
+    "energy/state_electricity_sales_mu": (
+        "ICED state-wise deep-dive: annual electricity sales",
+        "electricity-sales-mu",
+    ),
+    "energy/state_atc_losses_pct": (
+        "ICED state-wise deep-dive: aggregate technical and commercial losses",
+        "atc-losses-pct",
+    ),
+    "energy/state_acs_arr_gap_inr_per_kwh": (
+        "ICED state-wise deep-dive: ACS-ARR gap on electricity sales",
+        "acs-arr-gap-inr-per-kwh",
+    ),
+    "economy/state_gdp_constant_2011_12_inr_lakh_crore": (
+        "ICED state-wise deep-dive: state GDP constant 2011-12 prices",
+        "gdp-constant-2011-12-inr-lakh-crore",
+    ),
+    "economy/sectoral_gva_inr_crore": (
+        "ICED state-wise deep-dive: sectoral GVA (current and constant prices)",
+        "sectoral-gva-inr-crore",
+    ),
+    "demography/state_population_lakhs": (
+        "ICED state-wise deep-dive: state population",
+        "population-lakhs",
+    ),
+}
+
+
+def _slug_segment(text: str) -> str:
+    """Kebab-case a facet segment for use inside a ``variable_id``.
+
+    Mirrors sibling iced_* ingests (B1.4.1..7). Parent plan section
+    21.6 / 21.12 ban ``__``; ADR-0044 bans grain prefixes.
+    """
+    out: list[str] = []
+    prev_dash = True
+    for ch in text.lower():
+        if ch.isalnum():
+            out.append(ch)
+            prev_dash = False
+        elif not prev_dash:
+            out.append("-")
+            prev_dash = True
+    return "".join(out).strip("-")
+
+
+def _period_to_year_int(period: str) -> int:
+    """Reduce ``YYYY-MM`` or ``YYYY`` to integer year.
+
+    The canonical CSV column class ``datasets/data/datapoints/geo/*.csv``
+    declares ``time`` as integer. iced_state_wise parsers emit
+    ``YYYY-04`` (fiscal-year start) via ``fy_to_period``.
+    """
+    if not (isinstance(period, str) and len(period) >= 4 and period[:4].isdigit()):
+        raise ValueError(
+            f"unexpected time format {period!r}; expected 'YYYY' or 'YYYY-MM'"
+        )
+    return int(period[:4])
+
+
+def build_csv_variables(
+    payload_rows: list[dict[str, Any]],
+    *,
+    source_id: str,
+    variable_prefix: str,
+) -> dict[str, list[dict[str, Any]]]:
+    """Split payload rows into per-facet CSV row lists keyed by ``variable_id``.
+
+    Faceted indicators (Sectoral GVA: current / constant) split into one
+    ``variable_id`` per facet value: ``<variable_prefix>-<facet-slug>``.
+    Non-faceted indicators collapse to a single ``variable_id ==
+    variable_prefix``. Each output row carries the canonical 4 columns
+    declared on file class ``datasets/data/datapoints/geo/*.csv``:
+    ``entity_id``, ``time``, ``value``, ``source_id``.
+    """
+    by_variable: dict[str, list[dict[str, Any]]] = {}
+    for row in payload_rows:
+        facet = row.get("facet")
+        if facet is None:
+            variable_id = variable_prefix
+        else:
+            variable_id = f"{variable_prefix}-{_slug_segment(str(facet))}"
+        by_variable.setdefault(variable_id, []).append({
+            "entity_id": row["entity_id"],
+            "time": _period_to_year_int(row["time"]),
+            "value": row["value"],
+            "source_id": source_id,
+        })
+    return by_variable
+
+
+def emit_csv_variables(
+    *, repo_root: Path, by_variable: dict[str, list[dict[str, Any]]]
+) -> tuple[Path, ...]:
+    """Write each ``variable_id`` to ``datasets/data/datapoints/geo/<id>.csv``."""
+    written: list[Path] = []
+    out_dir = repo_root / _CSV_OUT_REL_DIR
+    for variable_id, rows in sorted(by_variable.items()):
+        path = write_csv(
+            path=out_dir / f"{variable_id}.csv",
+            file_class=_CSV_FILE_CLASS,
+            rows=rows,
+        )
+        written.append(path)
+    return tuple(written)
+
+
+def _emit_csv_for(
+    *,
+    repo_root: Path,
+    indicator_id: str,
+    payload_rows: list[dict[str, Any]],
+) -> tuple[Path, ...]:
+    """Canonical CSV emission ALONGSIDE the legacy meadow indicator JSON.
+
+    B1.4.8 - both stores coexist (parent plan section 23.1); reader flip
+    is X1a. ``source_id`` derived via ADR-0042 from
+    (producer, title, vintage); one ``variable_id`` per facet
+    (csv_writer facet-column support deferred).
+    """
+    title, variable_prefix = _CSV_INDICATOR_EMIT[indicator_id]
+    source_id = derive_source_id(
+        _CSV_SOURCE_PRODUCER, title, _CSV_SOURCE_VINTAGE
+    )
+    by_variable = build_csv_variables(
+        payload_rows, source_id=source_id, variable_prefix=variable_prefix
+    )
+    return emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
 
 
 # ---------------------------------------------------------------------------
@@ -784,6 +960,13 @@ def ingest(
             payload=payload,
             sources=[Source(url=PAGE_URL, fetched_at=latest_fetch)],
             schema_for_validation=indicator_schema,
+        )
+        # B1.4.8: canonical CSV emission ALONGSIDE legacy meadow JSON
+        # (parent plan section 23.1; reader flip = X1a, instead-of = B3).
+        _emit_csv_for(
+            repo_root=repo_root,
+            indicator_id=meta.spec.indicator_id,
+            payload_rows=payload["rows"],
         )
         fy_count = len({r["time"] for r in payload["rows"]})
         row_count = len(payload["rows"])
