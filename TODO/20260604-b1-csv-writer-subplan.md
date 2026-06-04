@@ -32,7 +32,7 @@ Out of scope (other chunks): emitting actual entity/catalogue CSVs from existing
 | B1.1 columns.json artifact (+ loader) | - | schema-of-schemas-valid | #629 | MERGED |
 | B1.2 csv_writer.py core API + writer unit test | B1.1 | writer-unit | #631 | MERGED |
 | B1.3 csv_validator.py (fk + enum + determinism + `__` ban) + validator unit test | B1.1 | fk-validator | #633 | MERGED |
-| B1.4 ingest re-point wave 1 (`sources/iced_*`) | B1.2, B1.3 | suite-green | _pending_ | DEFERRED-TO-SUBPLAN ([TODO/20260604-b1.4-iced-repoint-subplan.md](20260604-b1.4-iced-repoint-subplan.md) per grandparent plan section 24.5; flips to MERGED when sub-row B1.4.X closes the sub-plan) |
+| B1.4 ingest re-point wave 1 (`sources/iced_*`) | B1.2, B1.3 | suite-green | #634 | DEFERRED-TO-SUBPLAN ([TODO/20260604-b1.4-iced-repoint-subplan.md](20260604-b1.4-iced-repoint-subplan.md) per grandparent plan section 24.5; flips to MERGED when sub-row B1.4.X closes the sub-plan) |
 | B1.5 ingest re-point wave 2 (`sources/rbi_*`) | B1.2, B1.3 | suite-green | - | TODO |
 | B1.6 ingest re-point wave 3 (`sources/cea_*`, `sources/datagovin_ogd`, `sources/india_geodata`, `pipeline/*`, `cli.py`, `canonical/adapters/eci_ae_panel.py`) | B1.2, B1.3 | suite-green | - | TODO |
 | B1.7 close sub-plan: parent B1 row -> MERGED + stamp final PR# + distil into [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md); archive this file to `docs/archive/plans/` | B1.4, B1.5, B1.6 | docs-review | - | TODO |
