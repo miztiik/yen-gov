@@ -1,10 +1,12 @@
 # AGENTS.md - frontend/src
 
-**Last Updated**: 2026-05-17
+**Last Updated**: 2026-06-04
 
 Canonical frontend rationale lives in `docs/architecture/frontend/`; this file is only a fast module map for agents.
 
 ASCII only: use plain keyboard characters; write "-", "->", ">=", "section", and "INR" instead of fancy symbols.
+
+> **MIGRATING (2026-06-04).** Per the [CLAUDE.md](../../CLAUDE.md) doctrine-in-migration banner + [the platform-reset plan](../../TODO/20260603-data-and-charting-platform-reset-plan.md), the production read path is moving from Hive-partitioned Parquet to long-format CSV under `datasets/data/`, read via DuckDB-WASM `read_csv(columns=...)`. Parquet references below are MIGRATING until the reader flip lands (F1/X1a). Still NO JSON projections of canonical data.
 
 ## Canonical Docs
 
@@ -15,14 +17,14 @@ ASCII only: use plain keyboard characters; write "-", "->", ">=", "section", and
 - [Colour system](../../docs/architecture/frontend/colours.md)
 - [Compare flows](../../docs/architecture/frontend/compare.md)
 - [Deployment](../../docs/architecture/deployment.md)
-- [Canonical store (Parquet + DuckDB-WASM)](../../docs/architecture/data/canonical-store.md) - runtime data path
+- [Canonical store (long-format CSV + DuckDB-WASM)](../../docs/architecture/data/canonical-store.md) - runtime data path (MIGRATING from Parquet per plan chunks F1/X1a)
 
 ## Invariants
 
 - Static GitHub Pages app; anything needed at runtime ships in the bundle (including the DuckDB-WASM engine).
 - Do not import from `backend/`.
 - Do not commit generated data from `frontend/`; the only writer of `datasets/` is `backend/`.
-- **Canonical pivot (ADR-0030).** Production read path is DuckDB-WASM in the browser executing SQL over Hive-partitioned Parquet under `datasets/<family>/` fetched via HTTP Range. **No JSON projections of canonical data.** Pre-pivot per-shard JSON (per-event `datasets/elections/<event>/<state>/{results/<ac>.json,parties.json,result.summary.json}`) is **superseded** by the canonical Parquet but still sits on disk pending the per-family cleanup sub-rows (THE PLAN 1.8b-1.8f); no new readers are allowed against that shape. See [`docs/architecture/canonical-pivot-deletion-manifest.md`](../../docs/architecture/canonical-pivot-deletion-manifest.md).
+- **Canonical pivot.** Production read path is DuckDB-WASM in the browser executing SQL over long-format CSV under `datasets/data/` via `read_csv(columns=...)` (MIGRATING from Hive-partitioned Parquet fetched via HTTP Range per plan chunks F1/X1a). **No JSON projections of canonical data.** Pre-pivot per-shard JSON (per-event `datasets/elections/<event>/<state>/{results/<ac>.json,parties.json,result.summary.json}`) is **superseded**; no new readers are allowed against that shape. See [`docs/architecture/canonical-pivot-deletion-manifest.md`](../../docs/architecture/canonical-pivot-deletion-manifest.md).
 - Citizen-visible URL grammar is preserved across the pivot - only the loader internals change (touch points: `src/lib/data.ts`, `src/lib/paths.ts:15`).
 - Citizen-visible route changes need frontend tests and integrated-browser smoke verification per [CLAUDE.md](../../CLAUDE.md#13-ui-verification-mandatory-for-frontend--admin-changes).
 - Catalogue-driven UI should read schemas/catalogues instead of hardcoding one-off dataset lists.

@@ -1,12 +1,14 @@
 # Agent Bootstrap
 
-**Last Updated**: 2026-05-30
+**Last Updated**: 2026-06-04
 
 Every persona - whether invoked through Claude Code (`.claude/skills/bootstrap`) or through VS Code Copilot Chat (`.github/agents/*.agent.md`) - runs this loading ritual before answering. The duplicated "read CLAUDE.md, read docs/architecture, read the umbrella plan..." preamble that used to live in every agent file has moved here so there is one place to update it.
 
 This is the *what to load*. The companion doc [`guardrails.md`](guardrails.md) is the *what not to do*. Bootstrap loads guardrails as one of its steps.
 
 When editing agent/customization Markdown, use ASCII only: "-", "->", ">=", "section", "INR".
+
+> **DOCTRINE IN MIGRATION (2026-06-04).** The repo is mid-rip from Hive-partitioned Parquet to ONE format - long-format CSV under `datasets/data/` - per [`TODO/20260603-data-and-charting-platform-reset-plan.md`](../../TODO/20260603-data-and-charting-platform-reset-plan.md) (Level-5, user-ratified). For ANY task touching the data store, schemas, charts, provenance, or fonts/icons, that plan is the binding doctrine and OVERRIDES stale Parquet/DDF-era wording in CLAUDE.md and subsystem docs per the two-phase rule (plan section 22.7). Binding now: CSV everywhere (no Parquet for tabular data), no DDF brand, no network fetch (ingest reads local CSV), provenance FK targets `datasets/data/entities/source.csv`, icons in `frontend/public/icons/`, ADRs retire into subsystem docs. Do NOT reintroduce a Parquet writer, a network fetcher, the DDF grammar, or JSON projections of canonical data.
 
 ## The ritual (in order)
 
@@ -15,7 +17,7 @@ When editing agent/customization Markdown, use ASCII only: "-", "->", ">=", "sec
 3. **Read the relevant subsystem doc(s) under `docs/architecture/<area>/`.** Pick the area that matches the task surface - e.g. `docs/architecture/ingest/` for a new source adapter, `docs/architecture/schemas/` for a contract change, `docs/architecture/frontend/` for a UI change. Don't critique what you haven't read.
 4. **Read the relevant ADR(s) under `docs/architecture/decisions/`** if one is cited from the subsystem doc or referenced in the task.
 5. **Read the relevant concept doc(s) under `docs/concepts/`.** Especially [`citizen-first.md`](../concepts/citizen-first.md) for any citizen-facing work, and the pillar / domain concept doc that matches.
-6. **Read the umbrella plan [`TODO/SOCIO-ECONOMIC-EXPANSION.md`](../../TODO/SOCIO-ECONOMIC-EXPANSION.md)** if the task touches socio-economic indicators.
+6. **Read the umbrella plan [`TODO/SOCIO-ECONOMIC-EXPANSION.md`](../../TODO/SOCIO-ECONOMIC-EXPANSION.md)** if the task touches socio-economic indicators. **During the platform migration, also read [`TODO/20260603-data-and-charting-platform-reset-plan.md`](../../TODO/20260603-data-and-charting-platform-reset-plan.md)** for any task touching the data store, schemas, charts, fonts/icons, or provenance - it is the binding rip-and-replace doctrine (long-format CSV; no Parquet; no DDF; no network fetch) and overrides stale Parquet-era wording in CLAUDE.md / subsystem docs per the two-phase rule (plan section 22.7).
 7. **Skim recent git history** (`git log --oneline -20`) for in-flight work that overlaps the task.
 8. **State, in your first paragraph back to the user, which Holy Laws and which docs are load-bearing for this answer.** This makes the load explicit and easy to challenge.
 

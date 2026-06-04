@@ -7,6 +7,8 @@ description: Load yen-gov project context before answering. Reads CLAUDE.md, gua
 
 This skill is a thin wrapper. The canonical procedure lives in [`docs/agents/bootstrap.md`](../../../docs/agents/bootstrap.md). Read that file in full and follow the eight-step ritual it specifies before producing any answer.
 
+> DOCTRINE IN MIGRATION (2026-06-04): the repo is mid-rip to long-format CSV under `datasets/data/` per [`TODO/20260603-data-and-charting-platform-reset-plan.md`](../../../TODO/20260603-data-and-charting-platform-reset-plan.md). For any data/schema/chart/provenance task, that plan binds and overrides stale Parquet/DDF wording per the two-phase rule (plan section 22.7). The bootstrap ritual loads it as a step-6 read.
+
 The wrapper exists so the `.claude/` harness can invoke the same loading behaviour that `.github/agents/*.agent.md` invokes via a one-line pointer. There is one source of truth - the doc - not two copies.
 
 ## What you must do

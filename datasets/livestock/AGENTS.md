@@ -6,6 +6,8 @@ Module map for the livestock family. Canonical design and rationale live in [TOD
 
 ASCII only: use plain keyboard characters; write "-", "->", ">=", "section", and "INR" instead of fancy symbols.
 
+> **MIGRATING (2026-06-04).** Per the [CLAUDE.md](../../CLAUDE.md) doctrine-in-migration banner + [the platform-reset plan](../../TODO/20260603-data-and-charting-platform-reset-plan.md), this family's canonical fact-table is moving from Parquet to long-format CSV under `datasets/data/datapoints/`, and provenance FK now targets `datasets/data/entities/source.csv`. Parquet/meadow references below are MIGRATING; the meadow tier retires as the local-CSV reingest lands (plan chunk B4). Do NOT add a new Parquet writer or a network fetcher.
+
 ## What's here
 
 The livestock family captures National Digital Livestock Mission (NDLM, Bharat Pashudhan) telemetry at district granularity. NDLM publishes 5 distinct programmes; this PR ships the first (Pashu Aadhaar). The remaining 4 (owner registration, NADCP vaccination, breeding ABIP/RGM, NAIP-IV) ship in PRs 4-9.
@@ -21,7 +23,7 @@ datasets/livestock/
   AGENTS.md                               # this file
 ```
 
-Citizen reads from frontend MUST go through the canonical Parquet via DuckDB-WASM; `_meadow/**` is backend-internal (Phase B allowlist enforces this). The `2024-25` vintage segment in the meadow path matches the source citation seeded by PR #276 (per ADR-0041 nn4 + ADR-0042); CY 2024 and FY 2024-25 observation rows are interleaved within each per-species file with the period_label distinction carried on each row's `time` field.
+Citizen reads from frontend MUST go through the canonical store via DuckDB-WASM (MIGRATING from Parquet to long-format CSV under `datasets/data/`); `_meadow/**` is backend-internal (Phase B allowlist enforces this). The `2024-25` vintage segment in the meadow path matches the source citation seeded by PR #276 (per ADR-0041 nn4 + ADR-0042); CY 2024 and FY 2024-25 observation rows are interleaved within each per-species file with the period_label distinction carried on each row's `time` field.
 
 ## Invariants
 
@@ -30,7 +32,7 @@ Citizen reads from frontend MUST go through the canonical Parquet via DuckDB-WAS
 - **Gender axis retained in raw, deferred from lift.** NDLM responses carry `maleCount` / `femaleCount` per district per species. The lift currently sums these into a single `total` per (district, species). The raw responses live in `.runtime/raw/ndlm/<vintage>/` (gitignored - regenerable via `python tools/ndlm_download.py`); a follow-up PR may add `-male` / `-female` grandchildren without re-downloading raw data.
 - **Compute-on-read parent (Hans D33.8).** The parent indicator `district-pashu-aadhaar-count` has `parent_indicator_id: null` and `source_id: null` and emits ZERO observation rows. The frontend sums the 10 species children at read time. A lift regression that emits a parent row will be caught by [backend/tests/test_livestock_pashu_aadhaar_lift.py::test_parent_indicator_has_no_observation_rows](../../backend/tests/test_livestock_pashu_aadhaar_lift.py).
 - **Hans honest-renderer caveat.** ALL Pashu Aadhaar indicators carry `comparability: "directional_only"` and `renderer_rules: ["no_rank_table"]`. The count is the number of TAGS issued, NOT an estimate of the actual livestock population. Rollout coverage varies by state; ranking states by tag count is meaningless and the renderer suppresses rank-tables for this reason. The frontend labels choropleth views "illustrative, not a ranking".
-- **Source provenance.** All Pashu Aadhaar rows FK to `src-7e5d4aac4995` (ndlm_pashu_aadhaar), seeded by PR #276 (`tools/livestock_sources_seed.py`). The writer's FK gate verifies closure against `datasets/taxonomy/sources.parquet` before bytes touch disk.
+- **Source provenance.** All Pashu Aadhaar rows FK to `src-7e5d4aac4995` (ndlm_pashu_aadhaar), seeded by PR #276 (`tools/livestock_sources_seed.py`). The writer's FK gate verifies closure against `datasets/data/entities/source.csv` (MIGRATING from `datasets/taxonomy/sources.parquet`) before bytes touch disk.
 - **Two-vintage convention.** NDLM publishes a CY snapshot (`"2024"`) and an FY snapshot (`"2024-25"`); both are pulled by `tools/ndlm_download.py`. They share a single source citation row (PR #276 design: vintage="2024-25" as the operator's snapshot window per ADR-0042), so both vintages' rows live in the SAME meadow file (one per species). The per-row `time` field carries the CY/FY distinction. `parse_ndlm_period` in `_shared.py` is the single decoder; the resulting `period_label` is `"2024"` or `"2024-25"` in the canonical parquet.
 
 ## District FK closure caveat
