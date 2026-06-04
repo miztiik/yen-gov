@@ -24,6 +24,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from yen_gov.canonical.citation import derive_source_id
+from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.core.io import Source, write_artifact
 
 from .parsers import (
@@ -33,6 +35,44 @@ from .parsers import (
     ParsedWorkbook,
     parse_workbook,
 )
+
+# B1.6.1 - canonical CSV citation triple for the CEA monthly Installed
+# Capacity report (sub-plan
+# `TODO/20260604-b1.6-misc-repoint-subplan.md`). All seven SHIPPED_COLUMNS
+# share one publication (Executive Summary on Power Sector, monthly
+# edition). Producer / title / vintage match the per-family convention
+# declared in the sub-plan section B1.6.1..7 point 8; vintage per
+# ADR-0042 is the publisher edition string (YYYY-MM from the workbook
+# snapshot period). The fk-validator gate is dark on this hash until
+# `entities/source.csv` lands (B2a), by design per sub-plan
+# section "Pre-flight - source-id + concept-id readiness".
+_CSV_SOURCE_PRODUCER = "Central Electricity Authority"
+_CSV_SOURCE_TITLE = "Executive Summary on Power Sector"
+_CSV_FILE_CLASS = "datasets/data/datapoints/geo/*.csv"
+_CSV_OUT_REL_DIR = "datasets/data/datapoints/geo"
+
+# Mapping from legacy `<topic>/<leaf>` indicator_id to the canonical CSV
+# variable_id (kebab-case `<measure>-<unit>-<facet>` per ADR-0044; no
+# `__`, no grain prefix, per parent plan section 21.6 / 21.12). One
+# variable_id per fuel facet (csv_writer.py does not yet support facet
+# columns; per-facet split is the documented interim per sub-plan
+# section B1.6.1..7 point 7).
+_INDICATOR_TO_VARIABLE_ID: dict[str, str] = {
+    "energy/installed_capacity_total_mw":
+        "installed-capacity-mw-total",
+    "energy/installed_capacity_thermal_mw":
+        "installed-capacity-mw-thermal",
+    "energy/installed_capacity_coal_mw":
+        "installed-capacity-mw-coal",
+    "energy/installed_capacity_gas_mw":
+        "installed-capacity-mw-gas",
+    "energy/installed_capacity_nuclear_mw":
+        "installed-capacity-mw-nuclear",
+    "energy/installed_capacity_hydro_mw":
+        "installed-capacity-mw-hydro",
+    "energy/installed_capacity_renewable_mw":
+        "installed-capacity-mw-renewable",
+}
 
 
 CACHE_DIR_RELPATH = ".runtime/raw/cea"
@@ -328,6 +368,83 @@ class IngestResult:
     indicators: tuple[IndicatorIngestResult, ...]
 
 
+def _slug_segment(text: str) -> str:
+    """Kebab-case a segment for use inside a `variable_id`.
+
+    Mirrors the iced / rbi family helpers (lifted verbatim rather than
+    imported to keep this family self-contained). Parent plan section
+    21.6 / 21.12 ban `__`; ADR-0044 bans grain prefixes. Lower-case,
+    replace any non-alphanumeric run with a single `-`, strip
+    leading/trailing `-`.
+    """
+    out: list[str] = []
+    prev_dash = True
+    for ch in text.lower():
+        if ch.isalnum():
+            out.append(ch)
+            prev_dash = False
+        elif not prev_dash:
+            out.append("-")
+            prev_dash = True
+    return "".join(out).strip("-")
+
+
+def _snapshot_to_time(snapshot_period: str) -> int:
+    """Encode the snapshot YYYY-MM into a canonical integer `time`.
+
+    The geo datapoints file class declares `time` as `integer`. CEA is
+    a monthly snapshot, so we encode as `YYYYMM` to keep month-level
+    uniqueness on the (entity_id, time) PK. Raises `ValueError` on
+    shape drift - fail fast at the boundary (CLAUDE.md anti-pattern:
+    no silent coercion).
+    """
+    year_str, _, month_str = snapshot_period.partition("-")
+    return int(year_str) * 100 + int(month_str)
+
+
+def build_csv_variables(
+    column: FuelColumn,
+    rows: list[ParsedRow],
+    *,
+    snapshot_period: str,
+    source_id: str,
+) -> dict[str, list[dict[str, Any]]]:
+    """Build per-`variable_id` CSV row lists for one fuel column.
+
+    Each row carries the four canonical columns declared on file class
+    `datasets/data/datapoints/geo/*.csv`: `entity_id`, `time`, `value`,
+    `source_id`. One `variable_id` per fuel facet (no faceting columns
+    in csv_writer yet).
+    """
+    variable_id = _INDICATOR_TO_VARIABLE_ID[column.indicator_id]
+    time_int = _snapshot_to_time(snapshot_period)
+    csv_rows: list[dict[str, Any]] = []
+    for r in rows:
+        csv_rows.append({
+            "entity_id": r.entity_id,
+            "time": time_int,
+            "value": r.value,
+            "source_id": source_id,
+        })
+    return {variable_id: csv_rows}
+
+
+def emit_csv_variables(
+    *, repo_root: Path, by_variable: dict[str, list[dict[str, Any]]]
+) -> tuple[Path, ...]:
+    """Write each `variable_id` to `datasets/data/datapoints/geo/<id>.csv`."""
+    written: list[Path] = []
+    out_dir = repo_root / _CSV_OUT_REL_DIR
+    for variable_id, rows in sorted(by_variable.items()):
+        path = write_csv(
+            path=out_dir / f"{variable_id}.csv",
+            file_class=_CSV_FILE_CLASS,
+            rows=rows,
+        )
+        written.append(path)
+    return tuple(written)
+
+
 def ingest(*, repo_root: Path, schema_dir: Path) -> IngestResult:
     """Read cached workbook, parse all fuel columns, write artifacts."""
     indicator_schema_path = schema_dir / "indicator.schema.json"
@@ -338,6 +455,13 @@ def ingest(*, repo_root: Path, schema_dir: Path) -> IngestResult:
 
     content, mtime, url = _resolve_workbook(repo_root=repo_root)
     parsed: ParsedWorkbook = parse_workbook(content)
+
+    # B1.6.1 - one citation-ledger source_id shared across all seven
+    # SHIPPED_COLUMNS (same Executive Summary monthly publication).
+    # Vintage per ADR-0042 is the workbook snapshot period (YYYY-MM).
+    csv_source_id = derive_source_id(
+        _CSV_SOURCE_PRODUCER, _CSV_SOURCE_TITLE, parsed.snapshot_period
+    )
 
     results: list[IndicatorIngestResult] = []
     for column in SHIPPED_COLUMNS:
@@ -359,6 +483,18 @@ def ingest(*, repo_root: Path, schema_dir: Path) -> IngestResult:
             sources=[Source(url=url, fetched_at=mtime)],
             schema_for_validation=indicator_schema,
         )
+
+        # B1.6.1 - canonical long-format CSV emission ALONGSIDE the
+        # legacy meadow/indicator JSON write. Existing JSON output stays
+        # in place; instead-of deletion is deferred to B3 per parent
+        # plan section 23.1 and sub-plan section B1.6.1..7 point 6.
+        by_variable = build_csv_variables(
+            column, rows,
+            snapshot_period=parsed.snapshot_period,
+            source_id=csv_source_id,
+        )
+        emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+
         results.append(
             IndicatorIngestResult(
                 indicator_id=column.indicator_id,
