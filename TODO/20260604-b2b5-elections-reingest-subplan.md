@@ -3,8 +3,52 @@
 **Last Updated**: 2026-06-04
 **Parent**: [TODO/20260604-b2b-reingest-subplan.md](20260604-b2b-reingest-subplan.md) row B2b.5
 **Grandparent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) chunk B2b
-**Status**: IN-FLIGHT (spawned 2026-06-04)
+**Status**: B2b.5.2..B2b.5.5 `BLOCKED-NEEDS-SIGNOFF` since 2026-06-04 (pre-flight FK audit found a Level-5 LGD-numbering collision; see section 0a; surfaced in PR #_pending_). B2b.5.1 MERGED (#711); B2b.5.Z TODO (blocked-on chain). Scope-change ledger entry in section 0a.
 **Authority**: Hans + Max (per-election shape, identity, candidacy vs summary columns) / Gregor (FK contract, per-election self-containment, parity gate, parliament `state` mandatory column per 23.4) per CLAUDE.md section 0a
+
+---
+
+## section 0a Data-audit finding (2026-06-04; PR #_pending_) - STOP-AND-SURFACE
+
+Pre-flight audit of the TN slice before emitting B2b.5.2 found a structural FK rot: the `entity_id` the emitter would derive from the parquet does not resolve in the canonical `datasets/data/entities/electoral.csv` it must FK to. This is the same class of bug surfaced by the 2026-06-03 audit chain (`/memories/lessons.md`: "Field name parity does not imply scheme parity") and by the B2b.4.7 person reingest blocker (`/memories/session/b2b-4-7-blocker.md`).
+
+### What I measured
+
+Reproducible via `mcp_provides_tool_pylanceRunCodeSnippet` against the on-disk corpus on 2026-06-04:
+
+- `datasets/elections/dim_acs.parquet.lgd_ac_id` for `state_code='S22' AND delim_year=2008`: range `33001..33234`, 234 rows (233 distinct populated). Encoding: `state_code * 1000 + eci_no`.
+- `datasets/data/entities/electoral.csv` trailing-int suffix of `entity_id` for `state='tamil-nadu' AND entity_kind='ac'`: range `3857..4090`, 232 rows. Encoding: `lgd_acs.json.lgd_ac_id` (LGD constituency-register sequential-per-state id).
+- **Overlap of the two sets: 0** (verified `SELECT ... INTERSECT ...` returns zero rows).
+- Andhra Pradesh (S01): parquet `28120..28294` vs csv `3166..3438`. Same disjoint shape (175 rows each side, 0 overlap).
+- Parliament has the equivalent collision: parquet `dim_pcs.pc_no` for TN is per-state-restart (`1..39`), `entities/electoral.csv` PC suffix for `tamil-nadu` is sequential-national (`503..541`).
+
+### Root cause
+
+The repo holds TWO numbering schemes both labelled "LGD AC id":
+
+1. **`state_code * 1000 + eci_no`** (synthetic, ECI-derived): used by `datasets/taxonomy/ac_crosswalk.parquet.lgd_ac_id`, `datasets/elections/dim_acs.parquet.lgd_ac_id`, and the AC boundary feature `AC_ID` property. Harvested by `tools/migrate/build_ac_crosswalk.py` (EciToAcid migration Row A2; see [TODO/20260530-eci-to-lgd-acid-migration-plan.md](20260530-eci-to-lgd-acid-migration-plan.md)). The `match_method='lgd_direct'` label on those rows is misleading - the value is synthetic, not a real LGD register id.
+2. **LGD constituency-register sequential-per-state** (authoritative, LGD-derived): only in `datasets/taxonomy/lgd_acs.json.lgd_ac_id` (TN 3857..4090, AP 3166..3438). Lifted verbatim into `entities/electoral.csv` by B2a.6 (`backend/yen_gov/canonical/seed/electoral_csv.py`) per the seed's docstring: `IN-AC-<delim_year>-<state-slug>-<lgd_ac_id>`.
+
+There is no existing ECI-no -> LGD-register crosswalk on disk. `ac_crosswalk.parquet` is named promisingly but only binds `(state_code, eci_no) -> synthetic state*1000+eci_no` - it does NOT bind to the LGD-register sequential id. A real bind would need name-cleaning across ~4000 ACs (the parquet has `GUMMIDIPUNDI` at S22 eci_no=1; lgd_acs.json has `Gummidipoondi` at lgd_ac_id=4062 - same constituency, transliteration drift).
+
+### Why this blocks B2b.5.2 / 5.3 / 5.4 / 5.5
+
+The candidacies file class declares `entity_id` as non-nullable FK to `entities/electoral.csv.entity_id` (see `datasets/data/_schema/columns.json` lines 140-159). `backend/yen_gov/canonical/csv_validator.py._check_fks` enforces this strictly: every non-null value must exist in the target file. There is no soft-FK option (correctly so per CLAUDE.md Holy Law #9). If B2b.5.2 emits using the parquet's `lgd_ac_id`, 100% of TN rows fail FK validation. Re-keying onto `(state_code, eci_no)` does not help either - `entities/electoral.csv` carries neither column. The same blocker propagates to B2b.5.3 (assembly fan-out across the other 35 states), B2b.5.4 (parliament; PC has the same collision), and B2b.5.5 (source-ledger backfill rides the emit rows that surface gaps).
+
+### Four resolution paths (Hans + Max authority per CLAUDE.md section 0a)
+
+- **A) Build a real ECI-no -> LGD-register crosswalk** by name-clean + position match + delim-2008 anchor, lift into a new `entities/electoral_eci_xwalk.csv`. Multi-day operator project across ~4000 ACs (transliteration ambiguity, J&K U08 already known-unmapped per EciToAcid Row C1's 253 still-`unmapped` count). Becomes a new sub-plan blocking B2b.5.x. Preserves the LGD-native entity_id shape `entities/electoral.csv` already commits to.
+- **B) Re-key `entities/electoral.csv` to the ECI-native scheme** (`IN-AC-2008-S22-1`), re-emit via a B2a.6 successor. Breaks every existing consumer of the LGD-native id (frontend SQL, `entities/electoral_lgd_xwalk.csv` PK at 253 rows, boundary join). Directly contradicts B2a.6's rationale which cites `lgd_acs.json`'s `$comment` that "ECI ac_no is NOT carried here" and chose the LGD-native shape deliberately.
+- **C) Extend `entities/electoral.csv` to carry BOTH schemes** (or partition by delim_year and accept pre-2008 = ECI-only). Schema change to the canonical entity catalogue. Doubles the row count and complicates downstream consumers that today assume one row per (state, delim, ac).
+- **D) Scope-fence B2b.5.x to DEFERRED-NEEDS-CROSSWALK** until the EciToAcid migration plan ships the real-LGD bind (D1 row in [TODO/20260530-eci-to-lgd-acid-migration-plan.md](20260530-eci-to-lgd-acid-migration-plan.md), currently DEFERRED per the same blocker surfaced this audit). The rest of the grandparent reset plan (D-DOC1/2/3, U1..U5, F2*..F4, YA, E1..E6 except E5 which blocks on X1b) is unblocked.
+
+Recommendation (NOT a decision): D. The EciToAcid migration plan already owns this problem; B2b.5 should wait on it rather than re-litigate the LGD-numbering choice inside the elections sub-sub-plan. The agent will NOT autonomously pick a path - this requires Hans + Max sign-off (CLAUDE.md section 0a).
+
+### Scope-change ledger (per [docs/how-to/handle-scope-change.md](../docs/how-to/handle-scope-change.md))
+
+| Verbatim user instruction | Proposed change | Reason | `signoff:` |
+| --- | --- | --- | --- |
+| "Take B2b.5.2 (TN assembly pilot): emit `datasets/elections/assembly/state=tamil-nadu/election=YYYY/candidacies.csv` + `summary.csv` from existing TN parquet partition." | Flip B2b.5.2 / B2b.5.3 / B2b.5.4 / B2b.5.5 row Status to `BLOCKED-NEEDS-SIGNOFF` until the user picks A / B / C / D in section 0a above. B2b.5.1 stays MERGED. B2b.5.Z stays TODO. | Pre-flight audit found 100% FK rot between parquet's `lgd_ac_id` and `entities/electoral.csv.entity_id` suffix (TN: 233 vs 232, overlap 0; AP: 175 vs 175, overlap 0; PC same shape). FK is non-negotiable per Holy Law #9. The LGD-numbering choice is a Hans + Max decision per CLAUDE.md section 0a, not an executor decision. | _empty_ |
 
 ---
 
@@ -60,10 +104,10 @@ Out of scope (other rows / chunks):
 | Sub-row | Blocks on | Gate | PR# | Status |
 | --- | --- | --- | --- | --- |
 | B2b.5.1 column contract: extend `datasets/data/_schema/columns.json` with four new file_class entries (`elections/assembly/state=*/election=*/candidacies.csv`, `.../summary.csv`, `elections/parliament/election=*/candidacies.csv`, `.../summary.csv`) + write-time validator passthrough (FK targets: `entity_id` -> `entities/electoral.csv` projection; `party_id` -> `dim_parties`-mirrored future `entities/party.csv` or current ledger row; `source_id` -> `entities/source.csv`); update `backend/yen_gov/canonical/reingest/` scaffolding. Audit-finding: the four file_class entries landed in PR #629 (B1.1) ahead of schedule, so the columns.json delta in this row is zero; the in-scope delta is (a) per-file-class writer + validator roundtrip unit tests proving passthrough for all four globs, and (b) shared scaffolding module `backend/yen_gov/canonical/reingest/elections.py` exposing the FILE_CLASS constants + path-builder helpers that B2b.5.2..5.4 emitters import. | - | docs-review + fk-validator-dry-run | #711 | MERGED |
-| B2b.5.2 assembly per-state pilot: emit `assembly/state=tamil-nadu/election=<yr>/{candidacies,summary}.csv` for ALL TN years held in `state=tamil-nadu/election_results.parquet` + `elections_candidacies.parquet` (TN-scoped slice); cross-format-parity + parity-oracle-CSV (winner+margin invariants only) on this slice | B2b.5.1 | cross-format-parity + parity-oracle-CSV | - | TODO |
-| B2b.5.3 assembly fan-out: replay the B2b.5.2 emitter across the remaining 35 `state=<slug>/` directories; one PR per parallel-safe wave (~6-10 states per wave by file-size; orchestrator picks wave membership; each wave is ITSELF a sub-sub-sub-row that may spawn its own plan if a wave exceeds one PR's reviewable surface) | B2b.5.2 | cross-format-parity per state | - | TODO |
-| B2b.5.4 parliament: emit `parliament/election=<year>/{candidacies,summary}.csv` for every LS cycle held in `elections_candidacies.parquet` (1957..2024, ~18 cycles; PC rows discriminated by `entity_id` prefix). MANDATORY `state` column on the parliament file per plan section 23.4. EL7 `coverage.py` disposition resolved in this PR's body | B2b.5.1 | cross-format-parity + parity-oracle-CSV | - | TODO |
-| B2b.5.5 source ledger backfill (only if B2b.5.2 / B2b.5.3 / B2b.5.4 surface any TCPD release vintage absent from `entities/source.csv`): append rows via `derive_source_id`; SAME-PR with the emit row that surfaced the gap (do NOT defer; per B2a.1 precedent) | (folded inline into the emit row that triggers it) | fk-validator | - | TODO |
+| B2b.5.2 assembly per-state pilot: emit `assembly/state=tamil-nadu/election=<yr>/{candidacies,summary}.csv` for ALL TN years held in `state=tamil-nadu/election_results.parquet` + `elections_candidacies.parquet` (TN-scoped slice); cross-format-parity + parity-oracle-CSV (winner+margin invariants only) on this slice | B2b.5.1 | cross-format-parity + parity-oracle-CSV | - | BLOCKED-NEEDS-SIGNOFF (section 0a; PR #_pending_; LGD-numbering collision blocks `entity_id` FK to `entities/electoral.csv`) |
+| B2b.5.3 assembly fan-out: replay the B2b.5.2 emitter across the remaining 35 `state=<slug>/` directories; one PR per parallel-safe wave (~6-10 states per wave by file-size; orchestrator picks wave membership; each wave is ITSELF a sub-sub-sub-row that may spawn its own plan if a wave exceeds one PR's reviewable surface) | B2b.5.2 | cross-format-parity per state | - | BLOCKED-NEEDS-SIGNOFF (section 0a; PR #_pending_; same FK collision as B2b.5.2; same fix unblocks the fan-out) |
+| B2b.5.4 parliament: emit `parliament/election=<year>/{candidacies,summary}.csv` for every LS cycle held in `elections_candidacies.parquet` (1957..2024, ~18 cycles; PC rows discriminated by `entity_id` prefix). MANDATORY `state` column on the parliament file per plan section 23.4. EL7 `coverage.py` disposition resolved in this PR's body | B2b.5.1 | cross-format-parity + parity-oracle-CSV | - | BLOCKED-NEEDS-SIGNOFF (section 0a; PR #_pending_; PC has the same per-state-restart vs sequential-national `entity_id` FK collision; same fix unblocks parliament) |
+| B2b.5.5 source ledger backfill (only if B2b.5.2 / B2b.5.3 / B2b.5.4 surface any TCPD release vintage absent from `entities/source.csv`): append rows via `derive_source_id`; SAME-PR with the emit row that surfaced the gap (do NOT defer; per B2a.1 precedent) | (folded inline into the emit row that triggers it) | fk-validator | - | BLOCKED-NEEDS-SIGNOFF (section 0a; PR #_pending_; folds inline into B2b.5.2 / .3 / .4 which are all blocked) |
 | B2b.5.Z close sub-sub-plan: flip parent B2b.5 row to MERGED + stamp closure PR + distil per-row emit map into [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md) "Datapoint reingest" section "Elections" subsection + archive this file to `docs/archive/plans/` | B2b.5.1..B2b.5.4 | docs-review | - | TODO |
 
 Parallel-safe groups:
