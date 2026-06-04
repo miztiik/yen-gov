@@ -1,0 +1,120 @@
+/*
+ * yen-gov design tokens (CLAUDE.md doctrine + plan section 21.7).
+ *
+ * Token home: this file is THE single CSS-side source of truth for
+ * colour, type, radius, elevation, motion. CSS custom properties on
+ * :root are the runtime truth (enables future dark theme without a
+ * recompile). The Tailwind theme.extend (frontend/tailwind.config.js)
+ * MIRRORS these by name via var(--token) so every utility resolves
+ * through the same surface.
+ *
+ * ADDITIVE contract (plan section 23.5): no Tailwind default
+ * (slate-* ramp, sm/md/lg radius, sans font-family, transition-duration
+ * keys) is REDEFINED here. Components migrate to the new names
+ * progressively across U2..U5; until then, un-migrated code keeps its
+ * old-but-consistent look. The app is never half-broken.
+ *
+ * Drift gate: frontend/src/contracts/app-tokens.test.ts asserts every
+ * --var declared here has at least one Tailwind theme.extend mirror,
+ * and every Tailwind mirror references an existing --var here.
+ *
+ * Imported once from frontend/src/main.ts BEFORE ./app.css so any later
+ * CSS rule or Tailwind utility may reference the tokens.
+ *
+ * Fonts arrive in sub-rows U1.2 (self-hosted woff2 subsets) and U1.3
+ * (CDN-removal + body cutover + Devanagari conjunct smoke). Until then
+ * the font-family stacks fall back to system fonts so the build stays
+ * green AND citizen-visible behaviour is unchanged at U1.1.
+ */
+
+:root {
+  /*
+   * Colour
+   * ------
+   * One neutral ramp + one brand accent + a status triad. Status
+   * colours are DATA-direction only (good / caution / bad in a chart),
+   * never chrome. Brand accent is chakra indigo, deliberately NOT
+   * saffron / green so the chrome itself never reads as a party.
+   */
+  --ink: #0f172a;
+  --ink-muted: #64748b;
+  --line: #e2e8f0;
+  --surface: #ffffff;
+  --surface-sunken: #f8fafc;
+  --accent: #3538cd;
+  --pos: #15803d;
+  --caution: #b45309;
+  --neg: #b91c1c;
+
+  /*
+   * Type
+   * ----
+   * font-feature-settings "tnum" 1 + "lnum" 1 is the data-context
+   * default; sub-row U1.3 applies it to body so every figure aligns
+   * by default. Type scale is minor-third 1.2 at base 16px - the
+   * values match Tailwind's stock text-* utilities one-for-one so an
+   * existing `text-lg` class on a component continues to read at
+   * 1.125rem with or without these vars.
+   */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Outfit", var(--font-sans);
+  --font-deva: "Noto Sans Devanagari", var(--font-sans);
+  --font-feature-tabular: "tnum" 1, "lnum" 1;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+
+  /*
+   * Radius
+   * ------
+   * 6 / 10 / 14 / pill - softer than Tailwind defaults (2 / 6 / 8 / 12)
+   * but exposed under a yen- prefix (yen-sm / yen-md / yen-lg / yen-pill)
+   * so Tailwind's stock rounded-sm / rounded-md / rounded-lg utilities
+   * keep their current meaning until a component opts in.
+   */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-pill: 9999px;
+
+  /*
+   * Elevation
+   * ---------
+   * Low-spread tinted shadows; cheap on mobile GPUs. Default surface is
+   * e1 + a --line hairline, never a 2px grey border. e3 reserved for
+   * the spring drawer / modal scrim (U2).
+   */
+  --e1: 0 1px 2px 0 rgb(15 23 42 / 0.04), 0 1px 3px 0 rgb(15 23 42 / 0.06);
+  --e2: 0 2px 4px -1px rgb(15 23 42 / 0.06),
+    0 4px 6px -2px rgb(15 23 42 / 0.08);
+  --e3: 0 8px 16px -4px rgb(15 23 42 / 0.10),
+    0 12px 24px -8px rgb(15 23 42 / 0.12);
+
+  /*
+   * Motion
+   * ------
+   * Feedback, never decoration. prefers-reduced-motion collapses every
+   * duration to ~1ms below; per-component code does not need to
+   * re-test the media query.
+   */
+  --dur-fast: 120ms;
+  --dur: 200ms;
+  --dur-slow: 320ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 1ms;
+    --dur: 1ms;
+    --dur-slow: 1ms;
+  }
+}

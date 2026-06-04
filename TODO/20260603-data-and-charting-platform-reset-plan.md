@@ -1042,7 +1042,7 @@ This table is the **canonical execution tracker**. The orchestrator reads `Block
 | D-DOC1 data-spine | - | all | docs-review | - | TODO |
 | D-DOC2 chart-matrix | - | all except U4 | drift-stub | - | TODO |
 | D-DOC3 ADR-retire | - | all | grep-receipts-eq | - | TODO |
-| U1 tokens+fonts | - | B*, D*, U3 | build+visual+devanagari | - | TODO |
+| U1 tokens+fonts | - | B*, D*, U3 | build+visual+devanagari | - | DEFERRED-TO-SUBPLAN ([TODO/20260604-u1-tokens-fonts-subplan.md](20260604-u1-tokens-fonts-subplan.md); four sub-rows U1.1=tokens, U1.2=fonts, U1.3=retone+CDN-removal+Devanagari smoke, U1.4=closure) |
 | U2 breadcrumb+drawer+district-url | U1 | B*, D* | build+visual | - | TODO |
 | U3 icons->public | - | all | icon-build+all-routes-smoke | - | TODO |
 | U4 feasibleAt+switcher | D-DOC2 | B*, U3 | chart-drift-test | - | TODO |
