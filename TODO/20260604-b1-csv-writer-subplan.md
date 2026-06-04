@@ -29,7 +29,7 @@ Out of scope (other chunks): emitting actual entity/catalogue CSVs from existing
 
 | Sub-row | Blocks on | Gate | PR# | Status |
 | --- | --- | --- | --- | --- |
-| B1.1 columns.json artifact (+ loader) | - | schema-of-schemas-valid | _pending_ | IN-FLIGHT |
+| B1.1 columns.json artifact (+ loader) | - | schema-of-schemas-valid | #629 | MERGED |
 | B1.2 csv_writer.py core API + writer unit test | B1.1 | writer-unit | - | TODO |
 | B1.3 csv_validator.py (fk + enum + determinism + `__` ban) + validator unit test | B1.1 | fk-validator | - | TODO |
 | B1.4 ingest re-point wave 1 (`sources/iced_*`) | B1.2, B1.3 | suite-green | - | TODO |
