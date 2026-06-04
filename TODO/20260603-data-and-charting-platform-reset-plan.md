@@ -1048,7 +1048,7 @@ This table is the **canonical execution tracker**. The orchestrator reads `Block
 | U4 feasibleAt+switcher | D-DOC2 | B*, U3 | chart-drift-test | - | TODO |
 | U5 skeleton+jump+doc+chartshell-states | U1 | B*, U3 | build | - | TODO |
 | B1 csv_writer + ingest re-point | D-DOC0 | U*, D* | writer-unit+fk-validator | #670 | MERGED (sub-plan archived at [docs/archive/plans/20260604-b1-csv-writer-subplan.md](../docs/archive/plans/20260604-b1-csv-writer-subplan.md); seven sub-rows B1.1..B1.7 shipped as PRs #629-#670; distilled to [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md)) |
-| B2a entity+catalogue CSVs | B1 | U* | fk-validator | - | TODO |
+| B2a entity+catalogue CSVs | B1 | U* | fk-validator | #672 | IN-FLIGHT (sub-plan opened 2026-06-04 by PR #672 at [TODO/20260604-b2a-csv-catalogue-subplan.md](20260604-b2a-csv-catalogue-subplan.md); eight emits B2a.1..B2a.9 per §24.5 mirroring B1.4/B1.5/B1.6 pattern) |
 | B2b reingest families (per-family) | B2a | U* | cross-format-parity | - | TODO |
 | F1 CSV loaders + oracle-rewrite | B2a, B2b, U1, D-DOC0 | U* | loader-unit+parity-oracle-CSV | - | TODO |
 | X1a reader flip | F1 | - | dual-read-parity | - | TODO |
