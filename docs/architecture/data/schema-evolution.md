@@ -166,6 +166,54 @@ Stop and escalate if a proposed compatibility path would:
 - Require guessing, silent defaulting, or lossy coercion.
 - Leave durable policy only in a TODO plan.
 
+---
+
+## Design rationale
+
+This section consolidates the rationale (Context + Decision + Consequences, condensed) of the legacy `docs/architecture/decisions/` ADR that pinned the cross-cutting choice for this subsystem (the schema-version compatibility contract). The originating ADR file stays in place pending [TODO/20260604-d-doc3-adr-retire-subplan.md](../../../TODO/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.10 closure; the redirect map lives at [decision-index.md](../../reference/decision-index.md). Folded into this doc per D-DOC3.8 (2026-06-04).
+
+### ADR-0047: schema-version-compatibility-contract
+
+Status: accepted 2026-05-30. Deciders: Gregor (contract), Fowler (rollout), Hans + Max (public-data semantics).
+
+**Context.** JSON schemas under `datasets/schemas/` already carry `x-version` and `x-changelog`. JSON artifacts under `datasets/` and `config/` declare `$schema` and `$schema_version`. Before this ADR, backend Tier B and the frontend corpus contract treated any artifact whose declared version did not equal the current schema `x-version` as invalid. That current-only rule is useful at the writer boundary, but it conflates two different events: the artifact's envelope changed (schema shape, validation metadata, manifest shape, or footer metadata) vs the facts changed (values, entity identity, period axis, denominator, indicator identity, methodology, provenance, or row inclusion). At ADR acceptance time, the canonical Parquet reader had a frontend-local compatibility idea through `SUPPORTED_SCHEMA_VERSIONS`. Row G1 of the schema-version plan made that export a registry-derived alias instead of an authority. Before this ADR, the JSON validator and frontend JSON corpus test had no shared compatibility contract. Additive schema changes therefore risked forcing restamps or rebuilds whose only observable effect was a version string changing.
+
+**Decision.** Adopt a writer-strict, reader-compatible schema-version contract:
+
+1. Writers emit only the current schema version. A backend writer must continue to reject stale caller-supplied schema metadata.
+2. Readers and validators may accept older artifact versions only through an explicit compatibility contract.
+3. Reader support ships before producer output. A writer must not emit a new version until every intended reader can accept it or fail loud with a documented reason.
+4. Additive minor changes may be compatible without rebuilding unchanged artifacts when absent fields have honest null / absent semantics.
+5. Breaking major changes require migration, retained historical schemas, an explicit translator, or fail-loud rejection.
+6. No reader may accept an old major version by best-effort coercion.
+7. Schema-only changes must not churn `source_id`, source vintage, row counts, methodology-break rows, or observation values.
+8. Future implementation work must converge backend and frontend on one machine-readable compatibility contract. Temporary Python or TypeScript mirrors are acceptable only with drift tests and a removal path.
+
+The operational rules (writers strict, readers compatible by contract, reader-before-producer, fail loud, no mechanical restamp) plus the supporting contract surfaces (`x-version`, `core.io.write_artifact`, backend Tier B, frontend JSON corpus contract, canonical manifest reader, `datasets/schema-compatibility.json`, `datasets/schema-evolution.json`, retained historical schemas under `datasets/schemas/archive/...`) are formalised above in [Policy Summary](#policy-summary) + [Contract Surfaces](#contract-surfaces) + [Compatibility Registry](#compatibility-registry).
+
+**Consequences.** Additive metadata can be introduced without pretending that every historical artifact was newly produced. Researchers must not infer a factual revision from `$schema_version` alone - release metadata must distinguish "schema changed, values did not" from real data revisions (this is the `datasets/schema-evolution.json` ledger's job, separate from `datasets/migration-ledger.csv`). The current strict validator remains valid until compatibility rows implement the contract (a reader that has not implemented compatibility must reject non-current versions). Old-major acceptance is deliberately hard - it is a translator or retained-schema problem, not a tolerant-reader guess. The compatibility registry row in the schema-version plan becomes the single Canonical Data Model for supported versions across backend and frontend.
+
+> **DOCTRINE NOTE (2026-06-04, plan section 22.7).** ADR-0047's writer-strict / reader-compatible contract survives the data-platform reset verbatim. The compatibility registry (`datasets/schema-compatibility.json`) and the release ledger (`datasets/schema-evolution.json`) both apply to long-format-CSV writers and readers (plan chunks B2b / X1a) the same way they applied to Parquet writers and readers. The `json-corpus` surface generalises to CSV: per-file CSV column validation (name + dtype + nullability) consumed by a typed `read_csv(columns=...)` boundary IS the schema contract for the CSV era (per CLAUDE.md DOCTRINE IN MIGRATION header, "The schema contract moves to a per-file CSV column validator (name + dtype + nullability) + a typed `read_csv(columns=...)` boundary; it is NOT the storage format and it did NOT disappear (Holy Law #3 preserved)").
+
+---
+
+## Rejected alternatives
+
+This section preserves the rejected-alternatives receipts from the ADR whose rationale is folded above, verbatim and append-only per [TODO/20260604-d-doc3-adr-retire-subplan.md](../../../TODO/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.8 (2026-06-04). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
+
+### ADR-0047 rejected alternatives
+
+Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-receipts).
+
+- **A. Current-only equality forever.** Rejected. It keeps validation simple, but it turns every additive schema bump into potential data churn. That is bad public-data hygiene because a changed artifact timestamp or version string can look like a factual update when no value changed.
+- **B. Accept any older version with the same major.** Rejected. Semver-like ranges are too loose for public data. A minor bump can be technically additive while still requiring reader knowledge to interpret a new enum value, table footer, or manifest field.
+- **C. Producer-before-reader rollout.** Rejected. The deployed frontend is static. If data is emitted before the shipped reader knows the version, citizens see avoidable failure states.
+- **D. Runtime migration service.** Rejected. Production is a static GitHub Pages bundle. Runtime migration belongs either at local write time or inside a retained-schema / translator path in the static reader.
+- **E. Silent defaulting for old fields.** Rejected. Guessing a missing historical value hides uncertainty. Missing fields are compatible only when absence is semantically honest.
+- **F. Permanent Python and TypeScript compatibility constants.** Rejected. Duplicate local constants drift. A temporary mirror may exist only with a drift test and a row that removes or regenerates it from the shared contract.
+
+---
+
 ## See also
 
 - [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md)

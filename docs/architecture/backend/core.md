@@ -107,6 +107,45 @@ Acknowledged costs: not a content-addressable store (older bytes lost on overwri
 - **`<host>/<path>` instead of `<source>/<path>`** — automatic, but ties on-disk shape to upstream hostname changes (ECI redirected from `eciresults.nic.in` historically) and forces special cases for adapters spanning multiple hostnames. Rejected: the logical-source name is more stable.
 - **Atomic rename via temp file** — would prevent half-written files on crash. Worth adding inside `Fetcher.fetch` later (it's an implementation detail, not a contract); not codified here.
 
+---
+
+## Design rationale
+
+This section consolidates the rationale (Context + Decision + Consequences, condensed) of the legacy `docs/architecture/decisions/` ADR that pinned a cross-cutting choice for this subsystem (the no-HTTP-cache rule). The originating ADR file stays in place pending [TODO/20260604-d-doc3-adr-retire-subplan.md](../../../TODO/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.10 closure; the redirect map lives at [decision-index.md](../../reference/decision-index.md). Folded into this doc per D-DOC3.8 (2026-06-04).
+
+### ADR-0003: no-fetch-cache
+
+Status: accepted 2026-05-17 (Clarifications 2026-05-17 folded-indicator PR).
+
+**Context.** Earlier design proposed a hash-keyed disk cache (`.runtime/cache/<sha256(url)>.{html,meta.json}`) with TTL eviction reading `cache_ttl_seconds` from `config/processing.json`. The user pushed back: "let us not complicate with too much of hashes and TTL and all those nonsense. I think they are just complicating it too much." The realities for this project: ECI election results are immutable post-declaration (once a result is up at `results.eci.gov.in/ResultAcGenMay2026/...`, it does not change); pipeline runs are manual per [CLAUDE.md section 13](../../../CLAUDE.md); re-fetching a few hundred pages is cheap (seconds); and the cost of cache-invalidation bugs (stale data shipped as fresh) is much higher than the cost of an extra HTTP round-trip.
+
+**Decision.** There is no caching layer in `core/http.py`. Every `Fetcher.fetch(url)` call hits the network. Downloaded responses (HTML, JSON, etc.) ARE persisted, but as **intermediates**, not as a cache: path `.runtime/raw/<source>/<url-derived-relative-path>` (see [Intermediate raw-file path derivation](#intermediate-raw-file-path-derivation) above); purpose is troubleshooting and re-parsing (if a parser bug is found, we can re-run the parser against the saved HTML without re-hitting the upstream); lifetime is gitignored (`.runtime/` already is per [CLAUDE.md section 3](../../../CLAUDE.md)), no TTL, no eviction (operator deletes the directory if they want a fresh fetch); schema is none (these files are not a contract surface). Tenacity is still used for retry on transient HTTP failures - that isn't caching, it's basic resilience. The `cache_ttl_seconds` field was removed from `processing.schema.json` in the v2.0 -> v3.0 schema bump.
+
+**Clarifications 2026-05-17 (folded-indicator PR).** The no-cache stance stands; `core/http.py` still has no cache layer. `.runtime/raw/` is throwaway debug, not a published inventory record (gitignored, no schema, no contract surface; the committed indicator JSON is). Collection avoidance lives one layer up - the planner reads `collection_inventory.frozen`, `refetch_requested`, and `pending_periods` on each folded indicator and simply does not call the Fetcher for already-collected `(state, period)` cells. That is not caching; it is the planner not asking again (see [docs/concepts/collection-inventory.md](../../concepts/collection-inventory.md)). `rm` remains the only force-recollect mechanism (a second force-refetch flag was considered and rejected as duplicate state - see [docs/how-to/force-recollect.md](../../how-to/force-recollect.md)). A SHA-gate at the Fetcher (and a paired `.meta.json` per URL) was considered and rejected: bytes != data; the gate that matters is at the collect / planner layer (do we already have this cell?), not at the byte layer (are the bytes identical?). See [CLAUDE.md section 10](../../../CLAUDE.md) anti-patterns.
+
+**Consequences.** No cache-invalidation class of bugs (the only state that determines what we ship is the most recent run's output); simpler `core/http.py` (under ~80 lines instead of a few hundred); `.runtime/raw/` doubles as a debugging artifact and a "what did upstream serve us yesterday?" record (operator can `diff` two runs). Costs: re-running the pipeline always re-fetches (acceptable given pipeline cadence is manual and dataset size is small); if upstream rate-limits us, we hit it on every run (mitigated by `concurrency` cap in `processing.json`; if this becomes a problem, revisit with a deliberate cache ADR rather than retrofitting).
+
+> **DOCTRINE NOTE (2026-06-04, plan section 22.7).** `backend/yen_gov/core/http.py` itself MIGRATES per [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) chunk B4 (network-fetch code is deleted; elections backend = ingest-only against local source CSV; see plan section 21.4). The no-cache rule survives the rip verbatim - it just narrows scope: when there is no fetcher in production runtime, there is by construction no cache. The `.runtime/raw/` debug-snapshot convention stays in force for any operator-tier tooling under [tools/](../../../tools/) that still touches the network for a one-shot asset population (e.g. font builds; see operator-tooling carve-out in `/memories/lessons.md`).
+
+---
+
+## Rejected alternatives
+
+This section preserves the rejected-alternatives receipts from the ADR whose rationale is folded above, verbatim and append-only per [TODO/20260604-d-doc3-adr-retire-subplan.md](../../../TODO/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.8 (2026-06-04). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
+
+### ADR-0003 rejected alternatives
+
+Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-receipts).
+
+- **Hash-keyed cache with TTL.** Rejected: complexity that defends against a problem we don't have. Election data doesn't change post-declaration.
+- **ETag / If-Modified-Since.** Rejected: ECI HTML pages don't reliably set those headers; would be dead code in practice.
+- **No persistence at all (parse-in-memory, write only the final artifact).** Rejected: when a parser bug is found mid-development, having the original HTML on disk is invaluable. Loss of `.runtime/raw/` is annoying; loss of upstream is permanent.
+- **`write_text_if_changed`-style byte-compare helper at the Fetcher write seam.** Rejected per [CLAUDE.md section 10](../../../CLAUDE.md) anti-pattern: fix non-determinism upstream of the write seam rather than gating bytes at the seam.
+- **SHA-gate at the Fetcher with a paired `.meta.json` per URL.** Rejected per 2026-05-17 clarification: bytes != data; the gate that matters is at the collect / planner layer (do we already have this cell?), not at the byte layer (are the bytes identical?).
+- **A second force-refetch flag in addition to `rm`.** Rejected per 2026-05-17 clarification: duplicate state; `rm` of the planner's collected-cell record IS the force-recollect mechanism (see [docs/how-to/force-recollect.md](../../how-to/force-recollect.md)).
+
+---
+
 ## See also
 
 - [Backend overview](overview.md)
