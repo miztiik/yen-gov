@@ -1040,7 +1040,7 @@ This table is the **canonical execution tracker**. The orchestrator reads `Block
 | D-DOC4 STEP 0 doctrine reconciliation (CLAUDE.md + 8 AGENTS.md) | - | (none - merges FIRST) | doctrine-marker-audit | direct-commit | DONE (2026-06-04, doctrine-migration map in 22.7) |
 | D-DOC0 column-contract | D-DOC4 | all D/U/B1-prep | docs-review | #627 | MERGED |
 | D-DOC1 data-spine | - | all | docs-review | - | TODO |
-| D-DOC2 chart-matrix | - | all except U4 | drift-stub | - | TODO |
+| D-DOC2 chart-matrix | - | all except U4 | drift-stub | #721 | IN-FLIGHT |
 | D-DOC3 ADR-retire | - | all | grep-receipts-eq | - | TODO |
 | U1 tokens+fonts | - | B*, D*, U3 | build+visual+devanagari | #720 | MERGED (sub-plan archived at [docs/archive/plans/20260604-u1-tokens-fonts-subplan.md](../docs/archive/plans/20260604-u1-tokens-fonts-subplan.md); four sub-rows U1.1=#714, U1.2=#716, U1.3=#718, U1.4=#720; distilled into [docs/architecture/frontend/design-system.md](../docs/architecture/frontend/design-system.md)) |
 | U2 breadcrumb+drawer+district-url | U1 | B*, D* | build+visual | - | TODO |
