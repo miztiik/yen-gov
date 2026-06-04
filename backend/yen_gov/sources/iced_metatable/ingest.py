@@ -16,6 +16,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from yen_gov.canonical.citation import derive_source_id
+from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.core.io import Source, write_artifact
 from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
 from yen_gov.sources.iced_common import IcedClient
@@ -28,6 +30,39 @@ from .parsers import (
 
 
 API_HOST_V1 = "https://icedapi.niti.gov.in/v1"
+
+# B1.4.4 - canonical CSV citation triples + variable_id prefixes per indicator.
+# All three iced_metatable indicators are NITI Aayog ICED v1 endpoints
+# (CEA-sourced upstream); vintage = operator snapshot FY per ADR-0042.
+# derive_source_id() hashes the triple at write time; the row in
+# `datasets/data/entities/source.csv` is populated by B2a (sub-plan
+# section "Pre-flight"). variable_ids honour parent plan section 21.6 / 21.12
+# (no `__`) and ADR-0044 (no grain prefix - the legacy `state_` / `_pct` /
+# `_gwh` / `_mtco2` markers on the meadow id are not grain prefixes per the
+# regex `^(state|district|national)-` and are preserved only inside the
+# unit-bearing tail of the kebab id). Per-facet split because csv_writer
+# does not yet accept facet columns (sub-plan section B1.4.1..9 point 7).
+# concept_id binding for all three indicators is DEFERRED to B2a; recorded
+# as a per-PR DEFER marker in the PR body.
+_CSV_FILE_CLASS = "datasets/data/datapoints/geo/*.csv"
+_CSV_OUT_REL_DIR = "datasets/data/datapoints/geo"
+_CSV_SOURCE_PRODUCER = "NITI Aayog India Climate & Energy Dashboard"
+_CSV_SOURCE_VINTAGE = "2024-25"
+
+_CSV_SOURCE_TITLE_GEN = (
+    "State electricity generation by source (gen-metatable) API"
+)
+_CSV_VARIABLE_PREFIX_GEN = "electricity-generation-gwh"
+
+_CSV_SOURCE_TITLE_PLF = (
+    "State plant load factor by source (plf-metatable) API"
+)
+_CSV_VARIABLE_PREFIX_PLF = "plant-load-factor-pct"
+
+_CSV_SOURCE_TITLE_CO2 = (
+    "State power-sector CO2 emissions by source (co-emission-metatable) API"
+)
+_CSV_VARIABLE_PREFIX_CO2 = "power-sector-co2-emissions-mtco2"
 
 LICENSE_ICED = {
     "id": "GoI-OpenData",
@@ -231,6 +266,116 @@ def _emit(
 
 
 # ---------------------------------------------------------------------------
+# Canonical CSV emission helpers (B1.4.4)
+# ---------------------------------------------------------------------------
+
+
+def _slug_segment(text: str) -> str:
+    """Kebab-case a facet segment for use inside a `variable_id`.
+
+    Plan section 21.6 / 21.12 ban `__`; ADR-0044 bans grain prefixes. We
+    lower-case, replace any non-alphanumeric run with a single `-`, and
+    strip leading/trailing `-`. Mirrors the helper in
+    ``iced_ghg/ingest.py`` (B1.4.1, PR #635),
+    ``iced_macro/ingest.py`` (B1.4.2, PR #636), and
+    ``iced_fuel/ingest.py`` (B1.4.3, PR #637).
+    """
+    out: list[str] = []
+    prev_dash = True
+    for ch in text.lower():
+        if ch.isalnum():
+            out.append(ch)
+            prev_dash = False
+        elif not prev_dash:
+            out.append("-")
+            prev_dash = True
+    return "".join(out).strip("-")
+
+
+def _period_to_year_int(period: str) -> int:
+    """Reduce an iced_common ``YYYY-MM`` period to its fiscal-year start year.
+
+    The iced_metatable parsers emit ``fy_to_period`` output (``YYYY-04``).
+    The canonical CSV column class ``datasets/data/datapoints/geo/*.csv``
+    declares ``time`` as integer. FY 2024-25 -> ``2024``. Raises
+    ``ValueError`` on malformed input rather than silently truncating.
+    """
+    if not (isinstance(period, str) and len(period) >= 4 and period[:4].isdigit()):
+        raise ValueError(f"unexpected time format {period!r}; expected 'YYYY-MM'")
+    return int(period[:4])
+
+
+def build_csv_variables(
+    parsed_rows: list[dict[str, Any]],
+    *,
+    source_id: str,
+    variable_prefix: str,
+) -> dict[str, list[dict[str, Any]]]:
+    """Split parser output into per-facet CSV row lists keyed by ``variable_id``.
+
+    All three iced_metatable indicators carry a ``facet`` column (fuel
+    source). We split into one ``variable_id`` per facet value:
+    ``<variable_prefix>-<facet-slug>``. When ``facet`` is absent (defensive
+    branch; not exercised by iced_metatable parsers today) the indicator
+    collapses to a single ``variable_id == variable_prefix``. Each output
+    row carries the canonical 4 columns declared on file class
+    ``datasets/data/datapoints/geo/*.csv``: ``entity_id``, ``time``,
+    ``value``, ``source_id``.
+    """
+    by_variable: dict[str, list[dict[str, Any]]] = {}
+    for row in parsed_rows:
+        facet = row.get("facet")
+        if facet is None:
+            variable_id = variable_prefix
+        else:
+            variable_id = f"{variable_prefix}-{_slug_segment(str(facet))}"
+        by_variable.setdefault(variable_id, []).append({
+            "entity_id": row["entity_id"],
+            "time": _period_to_year_int(row["time"]),
+            "value": row["value"],
+            "source_id": source_id,
+        })
+    return by_variable
+
+
+def emit_csv_variables(
+    *, repo_root: Path, by_variable: dict[str, list[dict[str, Any]]]
+) -> tuple[Path, ...]:
+    """Write each ``variable_id`` to ``datasets/data/datapoints/geo/<id>.csv``."""
+    written: list[Path] = []
+    out_dir = repo_root / _CSV_OUT_REL_DIR
+    for variable_id, rows in sorted(by_variable.items()):
+        path = write_csv(
+            path=out_dir / f"{variable_id}.csv",
+            file_class=_CSV_FILE_CLASS,
+            rows=rows,
+        )
+        written.append(path)
+    return tuple(written)
+
+
+def _emit_csv_for(
+    *,
+    repo_root: Path,
+    parsed_rows: list[dict[str, Any]],
+    title: str,
+    variable_prefix: str,
+) -> tuple[Path, ...]:
+    """Canonical CSV emission ALONGSIDE the legacy meadow/indicator JSON.
+
+    B1.4.4 - both stores coexist (parent plan section 23.1); reader flip
+    is X1a. ``source_id`` derived via ADR-0042 from
+    (producer, title, vintage); one ``variable_id`` per facet (csv_writer
+    facet-column support deferred).
+    """
+    source_id = derive_source_id(_CSV_SOURCE_PRODUCER, title, _CSV_SOURCE_VINTAGE)
+    by_variable = build_csv_variables(
+        parsed_rows, source_id=source_id, variable_prefix=variable_prefix
+    )
+    return emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+
+
+# ---------------------------------------------------------------------------
 # Orchestrator
 # ---------------------------------------------------------------------------
 
@@ -255,6 +400,10 @@ def ingest_iced_metatable(*, repo_root: Path, client: IcedClient | None = None) 
         out_rel="datasets/indicators/in/energy/state_electricity_generation_by_source_gwh.json",
         spatial="India (states + UTs)", skipped_unmapped=gen_skipped,
     ))
+    _emit_csv_for(
+        repo_root=repo_root, parsed_rows=gen_rows,
+        title=_CSV_SOURCE_TITLE_GEN, variable_prefix=_CSV_VARIABLE_PREFIX_GEN,
+    )
 
     # PLF
     plf_resp = client.get("/plf-metatable-data", decrypt=False)
@@ -267,6 +416,10 @@ def ingest_iced_metatable(*, repo_root: Path, client: IcedClient | None = None) 
         out_rel="datasets/indicators/in/energy/state_plant_load_factor_pct.json",
         spatial="India (states + UTs)", skipped_unmapped=plf_skipped,
     ))
+    _emit_csv_for(
+        repo_root=repo_root, parsed_rows=plf_rows,
+        title=_CSV_SOURCE_TITLE_PLF, variable_prefix=_CSV_VARIABLE_PREFIX_PLF,
+    )
 
     # CO2 (aggregated from plant-unit-level upstream)
     co2_resp = client.get("/co-emission-metatable-data", decrypt=False)
@@ -280,6 +433,10 @@ def ingest_iced_metatable(*, repo_root: Path, client: IcedClient | None = None) 
         spatial="India (states + UTs, fossil-fired plants only)",
         skipped_unmapped=co2_skipped,
     ))
+    _emit_csv_for(
+        repo_root=repo_root, parsed_rows=co2_rows,
+        title=_CSV_SOURCE_TITLE_CO2, variable_prefix=_CSV_VARIABLE_PREFIX_CO2,
+    )
 
     # PR-A5a-tail: derive orchestrator fetched_at from upstream per-fetch
     # timestamps instead of wall-clock datetime.now().
