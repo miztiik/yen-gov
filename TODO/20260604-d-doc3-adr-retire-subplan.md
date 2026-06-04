@@ -13,7 +13,7 @@ Parent chunk D-DOC3 reads as one row in the parent Execution Ledger (section 22.
 
 Actual disk inventory (verified 2026-06-04 against `docs/architecture/decisions/0*.md`, NOT the stale README that stops at 0047 per section 9): **44 ADR files**, of which **37 are LIVE** (body still binding, fold into subsystem/concept doc) and **7 are FULL-SUPERSEDED-OR-REJECTED** (move to `docs/archive/decisions/`, fold trace into successor's `Rejected alternatives`). The section 9 list "~20 on disk (0003, 0021, 0030, 0031, 0033, 0035-0037, 0040-0050)" undercounts the live set by ~17 (missing 0015, 0016-eci-stats, 0017-eci-current-year, 0018, 0019, 0020, 0022, 0023, 0025-0028, 0034, 0039, 0051, 0052); this sub-plan honours the filesystem, not the stale enumeration (CLAUDE.md section 5 "agent memory is derived, not authoritative").
 
-Additional cost (the load-bearing one per section 9): cross-reference rewrite. CLAUDE.md alone carries **~10 direct `ADR-NNNN` links** (0032 x2, 0034 x2, 0041 x2, 0044 x2, 0045 x2, 0046 x1, 0047 x1) plus a count of mentions in subsystem docs / agent files. Per section 22.6 the migration acceptance gate is `grep-receipts-eq`: total `## Rejected alternatives` (or `## Alternatives considered`) block headers across all `docs/**/*.md` MUST stay equal to the baseline 36 (recorded in D-DOC3.2) at every intermediate state and at plan close.
+Additional cost (the load-bearing one per section 9): cross-reference rewrite. CLAUDE.md alone carries **~10 direct `ADR-NNNN` links** (0032 x2, 0034 x2, 0041 x2, 0044 x2, 0045 x2, 0046 x1, 0047 x1) plus a count of mentions in subsystem docs / agent files. Per section 22.6 the migration acceptance gate is `grep-receipts-eq`: total `## Rejected alternatives` (or `## Alternatives considered`) block headers across all `docs/**/*.md` MUST stay equal to the baselines recorded in D-DOC3.2 (strict-h2=33, broader-h2-h3=38; both load-bearing) at every intermediate state and at plan close. The original spawn body asserted 36; that was a memory-counted guess and is corrected to filesystem truth in D-DOC3.2 per `/memories/lessons.md` filesystem-truth doctrine.
 
 Per CLAUDE.md correction-level discipline (>=4 files structural -> propose breakdown first) and parent plan section 24.5, the right shape is a thin parent row + this sub-plan. U1, B1, B2a, B2b each followed this shape.
 
@@ -43,8 +43,8 @@ Per CLAUDE.md correction-level discipline (>=4 files structural -> propose break
 
 | Sub-row | Blocks on | Gate | PR# | Status |
 | --- | --- | --- | --- | --- |
-| D-DOC3.1 spawn (this PR; flip parent row + create this sub-plan) | - | docs-review | #723 | IN-FLIGHT |
-| D-DOC3.2 redirect index `docs/reference/decision-index.md` + baseline gate (record `grep -c '^## Rejected alternatives\|^## Alternatives considered' docs/**/*.md` = 36 BEFORE migration; carry the per-ADR target-home map authored here) | D-DOC3.1 | grep-receipts-eq=36 (frozen baseline) | - | TODO |
+| D-DOC3.1 spawn (this PR; flip parent row + create this sub-plan) | - | docs-review | #723 | MERGED |
+| D-DOC3.2 redirect index `docs/reference/decision-index.md` + baseline gate (records strict-h2 baseline=33 + broader-h2-h3 baseline=38; carries the per-ADR target-home map authored here) | D-DOC3.1 | grep-receipts-eq (strict=33, broader=38) | #724 | IN-FLIGHT |
 | D-DOC3.3 fold canonical-store + provenance ADRs into `docs/architecture/data/canonical-store.md` + `docs/concepts/data-provenance.md` (LIVE: 0019, 0030, 0032, 0041, 0042, 0043, 0044, 0046; SUPERSEDED-archive: 0002, 0014) | D-DOC3.2 | grep-receipts-eq | - | TODO |
 | D-DOC3.4 fold indicator-naming + catalogue ADRs into `docs/concepts/indicator-naming.md` + `docs/architecture/data/indicator-catalogue.md` (LIVE: 0020, 0025, 0026, 0027, 0045; SUPERSEDED-archive: 0024) | D-DOC3.2 | grep-receipts-eq | - | TODO |
 | D-DOC3.5 fold elections + electoral-hierarchy ADRs into `docs/concepts/electoral-hierarchy.md` + `docs/architecture/data/elections/*` + relevant frontend subsystem docs (LIVE: 0015, 0016-eci-stats, 0017-eci-current-year, 0023, 0035, 0048, 0049, 0051, 0052) | D-DOC3.2 | grep-receipts-eq | - | TODO |
@@ -52,7 +52,7 @@ Per CLAUDE.md correction-level discipline (>=4 files structural -> propose break
 | D-DOC3.7 fold boundaries + map ADRs into `docs/architecture/frontend/map.md` + `docs/architecture/data/boundaries.md` (LIVE: 0031, 0036, 0047-topojson; SUPERSEDED-archive: 0029) | D-DOC3.2 | grep-receipts-eq | - | TODO |
 | D-DOC3.8 fold backend / ingest / schema ADRs into `docs/architecture/backend/*` + `docs/architecture/data/schema-evolution.md` (LIVE: 0003, 0018, 0033, 0047-schema-version) | D-DOC3.2 | grep-receipts-eq | - | TODO |
 | D-DOC3.9 fold yenask + misc ADRs into `docs/architecture/frontend/yenask/*` + `docs/concepts/citizen-first.md` (LIVE: 0021, 0039, 0040; SUPERSEDED-archive: 0038; SUPERSEDED-archive: 0017-explore-page-uses-sql-js) | D-DOC3.2 | grep-receipts-eq | - | TODO |
-| D-DOC3.10 CLAUDE.md cross-reference rewrite (~10 ADR-NNNN links to `decision-index.md#NNNN-<slug>` or direct doc anchors) + AGENTS.md sweep + DELETE `docs/architecture/decisions/` directory (and README) + flip parent ledger row -> MERGED + archive this sub-plan to `docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md` | D-DOC3.3..D-DOC3.9 | grep-receipts-eq=36 (final) + grep zero `architecture/decisions/0` links in `CLAUDE.md` + zero `ADR-NNNN` un-rewritten in LIVE `docs/**/*.md` | - | TODO |
+| D-DOC3.10 CLAUDE.md cross-reference rewrite (~10 ADR-NNNN links to `decision-index.md#NNNN-<slug>` or direct doc anchors) + AGENTS.md sweep + DELETE `docs/architecture/decisions/` directory (and README) + flip parent ledger row -> MERGED + archive this sub-plan to `docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md` | D-DOC3.3..D-DOC3.9 | grep-receipts-eq (strict=33, broader=38) (FINAL) + grep zero `architecture/decisions/0` links in `CLAUDE.md` + zero `ADR-NNNN` un-rewritten in LIVE `docs/**/*.md` | - | TODO |
 
 Parallel-safe groups (each fold-row touches a different subsystem/concept doc tree with no shared write target):
 
@@ -75,11 +75,15 @@ The orchestrator MAY ship Wave rows in any order. Each sub-row is a separate PR 
 
 ### D-DOC3.2 redirect index + baseline gate
 
-- Create `docs/reference/decision-index.md` with one row per ADR: `| ADR-NNNN | <title> | <status> | <target> |`. Target is either `[docs/path#anchor]` for live ADRs (anchor authored in D-DOC3.3..D-DOC3.9) or `[docs/archive/decisions/NNNN-<slug>.md]` for fully-superseded/rejected ADRs (path authored in D-DOC3.10's archive moves).
+- Create `docs/reference/decision-index.md` with one row per ADR: `| ADR-NNNN | <title> | <status> | <target> | <owner> |`. Target is either `[docs/path#anchor]` for live ADRs (anchor authored in D-DOC3.3..D-DOC3.9) or `[docs/archive/decisions/NNNN-<slug>.md]` for fully-superseded/rejected ADRs (path authored in D-DOC3.10's archive moves).
 - Numbers NEVER reused (section 9 mandate). The index serves as the permanent redirect from any historical link.
-- Record the BASELINE `grep-receipts-eq` count in this row's PR body: `grep -rc --include='*.md' '^## \(Rejected alternatives\|Alternatives considered\)' docs/architecture/decisions/ | awk -F: '{s+=$2}END{print s}'` = **36** (verified 2026-06-04 against the actual directory; 36 blocks distributed across 36 of 44 ADR files; 8 ADRs without that header per section 9's permissive "TWO mandatory sections going forward" reading: 0020, 0023, 0029, 0043, 0044, 0045, 0048, 0052).
-- At plan close (D-DOC3.10 gate), `grep -rc --include='*.md' '^## \(Rejected alternatives\|Alternatives considered\)' docs/architecture/ docs/concepts/ docs/archive/decisions/ | awk -F: '{s+=$2}END{print s}'` MUST also equal 36 (no block lost, no block invented).
-- The index also carries the per-ADR target-home map: a table of every ADR `NNNN` mapping to its target subsystem/concept doc and the section anchor where its receipt lands. This is the contract the D-DOC3.3..D-DOC3.9 sub-rows execute against.
+- Record TWO BASELINE `grep-receipts-eq` counts in the index body + this row's PR body (both load-bearing; either may anchor a downstream check):
+  - Strict h2 only: `grep -rc --include='*.md' -E '^## (Rejected alternatives|Alternatives considered)' docs/architecture/decisions/ | awk -F: '{s+=$2}END{print s}'` = **33**.
+  - Broader h2-h3 + case-insensitive + extended phrasings: `grep -ric --include='*.md' -E '^#{2,3}\s*(Rejected alternatives|Alternatives considered)' docs/architecture/decisions/ | awk -F: '{s+=$2}END{print s}'` = **38**.
+  - Audit-correction (per `/memories/lessons.md` filesystem-truth rule): the D-DOC3.1 spawn body asserted 36; filesystem enumeration of `docs/architecture/decisions/0*.md` (44 files) on 2026-06-04 returned 33 (strict) and 38 (broader). The 36 was a memory-counted guess. Truth supersedes; 33 + 38 are now the binding numbers.
+- At plan close (D-DOC3.10 gate), the SAME two invocations run against the new union path set `docs/architecture/ docs/concepts/ docs/archive/decisions/` (with `docs/architecture/decisions/` deleted at D-DOC3.10) MUST return 33 (strict) AND 38 (broader) - no block lost, no block invented.
+- Intermediate fold-row PRs (D-DOC3.3..D-DOC3.9) each cite the running counts using the same two patterns; a fold-row that lifts N receipts from `docs/architecture/decisions/` to a subsystem/concept doc preserves the sum-across-tree count exactly.
+- The index also carries the per-ADR target-home map: a table of every ADR `NNNN` mapping to its target subsystem/concept doc and the section anchor where its receipt lands. This IS the contract the D-DOC3.3..D-DOC3.9 sub-rows execute against.
 
 ### D-DOC3.3 fold canonical-store + provenance ADRs
 
