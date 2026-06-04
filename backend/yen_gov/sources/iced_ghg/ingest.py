@@ -11,11 +11,30 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from yen_gov.canonical.citation import derive_source_id
+from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.core.io import Source, write_artifact
 from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
 from yen_gov.sources.iced_common import IcedClient
 
 from .parsers import parse_ghg_subsector
+
+# B1.4.1 - canonical CSV citation triple for the GHG sub-sector indicator.
+# Producer / title / vintage match the ICED-family convention established in
+# `canonical/adapters/energy/_shared.py` (NITI Aayog ICED endpoints share the
+# producer string; vintage = operator snapshot FY per ADR-0042). The triple
+# is hashed at write time via `derive_source_id`; the actual row in
+# `datasets/data/entities/source.csv` is populated by B2a. Until then the
+# fk-validator gate is dark on this hash; that is by design (sub-plan
+# "Pre-flight - source-id + concept-id readiness").
+_CSV_SOURCE_PRODUCER = "NITI Aayog India Climate & Energy Dashboard"
+_CSV_SOURCE_TITLE = (
+    "GHG Emissions by Sub-sector (Energy endpoint, full coverage) API"
+)
+_CSV_SOURCE_VINTAGE = "2024-25"
+_CSV_VARIABLE_PREFIX = "ghg-emissions-ggco2e"
+_CSV_FILE_CLASS = "datasets/data/datapoints/geo/*.csv"
+_CSV_OUT_REL_DIR = "datasets/data/datapoints/geo"
 
 
 @dataclass(frozen=True)
@@ -135,6 +154,73 @@ def _emit(
     )
 
 
+def _slug_segment(text: str) -> str:
+    """Kebab-case a facet segment for use inside a `variable_id`.
+
+    Plan section 21.6 / 21.12 ban `__`; ADR-0044 bans grain-prefixes. We
+    lower-case, replace any non-alphanumeric run with a single `-`, and
+    strip leading/trailing `-`. The result is always non-empty for
+    non-blank input (the parser already drops blank facet segments).
+    """
+    out: list[str] = []
+    prev_dash = True
+    for ch in text.lower():
+        if ch.isalnum():
+            out.append(ch)
+            prev_dash = False
+        elif not prev_dash:
+            out.append("-")
+            prev_dash = True
+    return "".join(out).strip("-")
+
+
+def build_csv_variables(
+    parsed_rows: list[dict[str, Any]], *, source_id: str
+) -> dict[str, list[dict[str, Any]]]:
+    """Split parser output into per-facet CSV row lists keyed by `variable_id`.
+
+    The GHG indicator carries a `Sector|SubSector` facet column (parser
+    output). The B1.2 `write_csv` does not yet support facet columns
+    (sub-plan §B1.4.1..9 point 7), so we split into one `variable_id`
+    per facet pair: `ghg-emissions-ggco2e-<sector>-<subsector>`. Each
+    output row carries the canonical 4 columns declared on file class
+    `datasets/data/datapoints/geo/*.csv`: `entity_id`, `time`, `value`,
+    `source_id`. `time` is the integer year; `value` is the numeric Gg
+    CO2e emission.
+    """
+    by_variable: dict[str, list[dict[str, Any]]] = {}
+    for row in parsed_rows:
+        facet = row["facet"]
+        sector, _, subsector = facet.partition("|")
+        variable_id = (
+            f"{_CSV_VARIABLE_PREFIX}-"
+            f"{_slug_segment(sector)}-{_slug_segment(subsector)}"
+        )
+        by_variable.setdefault(variable_id, []).append({
+            "entity_id": row["entity_id"],
+            "time": int(row["time"]),
+            "value": row["value"],
+            "source_id": source_id,
+        })
+    return by_variable
+
+
+def emit_csv_variables(
+    *, repo_root: Path, by_variable: dict[str, list[dict[str, Any]]]
+) -> tuple[Path, ...]:
+    """Write each `variable_id` to `datasets/data/datapoints/geo/<id>.csv`."""
+    written: list[Path] = []
+    out_dir = repo_root / _CSV_OUT_REL_DIR
+    for variable_id, rows in sorted(by_variable.items()):
+        path = write_csv(
+            path=out_dir / f"{variable_id}.csv",
+            file_class=_CSV_FILE_CLASS,
+            rows=rows,
+        )
+        written.append(path)
+    return tuple(written)
+
+
 def ingest_iced_ghg(
     *, repo_root: Path, client: IcedClient | None = None
 ) -> IngestSummary:
@@ -161,6 +247,17 @@ def ingest_iced_ghg(
         coverage_temporal=coverage,
         out_rel="datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json",
     )
+
+    # B1.4.1 - canonical long-format CSV emission ALONGSIDE the legacy
+    # meadow/indicator JSON write. Existing JSON output stays in place
+    # (instead-of deletion is deferred to B3 per parent plan §23.1 and
+    # sub-plan per-family point 6). Reader flip is X1a; until then both
+    # stores live on disk side-by-side.
+    csv_source_id = derive_source_id(
+        _CSV_SOURCE_PRODUCER, _CSV_SOURCE_TITLE, _CSV_SOURCE_VINTAGE
+    )
+    by_variable = build_csv_variables(rows, source_id=csv_source_id)
+    emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
 
     # PR-A5a-tail: derive orchestrator fetched_at from upstream per-fetch
     # timestamp instead of wall-clock datetime.now().
