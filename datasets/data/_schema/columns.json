@@ -236,6 +236,19 @@
         { "name": "publisher_url", "dtype": "string", "nullable": true },
         { "name": "supersedes_methodology_version", "dtype": "string", "nullable": true }
       ]
+    },
+    "datasets/data/facet_axes.csv": {
+      "notes": "Facet axis register (one row per (axis, value) pair). Sourced from datasets/taxonomy/facet-axes.parquet by B2b.4.2 reingest (filename loses the hyphen per parent plan 21.6 underscore convention). Verbatim 1:1 projection of all eight columns; no re-keys; no FKs.",
+      "columns": [
+        { "name": "axis_id", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "axis_label", "dtype": "string", "nullable": false },
+        { "name": "axis_description", "dtype": "string", "nullable": true },
+        { "name": "allow_compute_on_read_total", "dtype": "boolean", "nullable": false },
+        { "name": "value_id", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "value_label", "dtype": "string", "nullable": false },
+        { "name": "value_description", "dtype": "string", "nullable": true },
+        { "name": "deprecated", "dtype": "boolean", "nullable": false }
+      ]
     }
   }
 }
