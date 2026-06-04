@@ -10,11 +10,27 @@
       to know where to bounce unknown paths back to.
     -->
     <meta name="yg-base" content="%BASE_URL%" />
-    <!-- Outfit: slim, modern geometric sans used for the brand wordmark.
-         Body / UI text continue to use Tailwind's default system stack. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+    <!--
+      Self-hosted variable fonts (plan section 21.7 / 23.5; U1.2 of
+      TODO/20260604-u1-tokens-fonts-subplan.md). The Google-CDN
+      <link>+<preconnect> pair that used to load Outfit here was
+      REMOVED in U1.2 to avoid double-loading once the @font-face
+      declarations in src/app.css point at /fonts/*.woff2.
+
+      Preload ONLY Inter-Latin: it is the body / UI font and the only
+      one needed on first paint of every route. Devanagari is fetched
+      on demand by unicode-range only when a Devanagari codepoint
+      actually renders (state names like "अरुणाचल" trigger it). Outfit
+      is loaded by the LeftRail wordmark via the @font-face rule (no
+      preload because it is one component, not the page body).
+    -->
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/inter-latin.woff2"
+      crossorigin
+    />
     <!--
       SPA boot shim. The 404.html stashes the requested path in
       sessionStorage and bounces to `/`. Here we pop it back and rewrite
