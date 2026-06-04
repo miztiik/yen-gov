@@ -65,21 +65,63 @@
 }
 
 /*
- * Background motif: a tiled pattern of neutral electoral marks (✓, ✗, and
- * a ballot-box outline) drawn in slate-400. Lives behind every page via a
- * fixed body::before pseudo-element so the pattern doesn't scroll.
+ * Body cutover (plan section 21.7 + 23.5; U1.3 of
+ * TODO/20260604-u1-tokens-fonts-subplan.md). The body now reads the
+ * design-token font stack and the tabular-numerals font-feature setting
+ * directly so every page inherits Inter for Latin + Noto Sans
+ * Devanagari for U+0900-097F (via unicode-range) AND every numeric
+ * column / chart axis / time label aligns by default without per-
+ * component tabular-nums utility classes.
+ *
+ * --font-feature-tabular is intentionally exempt from a Tailwind mirror
+ * (drift contract test in src/contracts/app-tokens.test.ts) - it lives
+ * here, applied at the body root, so it is universally inherited and
+ * cannot be forgotten on a new chart by an author who skipped the
+ * `tabular-nums` utility.
+ *
+ * --font-sans (declared in app-tokens.css) lists "Noto Sans Devanagari"
+ * after "Inter" so the browser walks the family list when shaping a
+ * Devanagari codepoint - Inter's unicode-range does not cover
+ * U+0900-097F, so the browser falls through and picks the self-hosted
+ * Noto subset whose unicode-range matches. The Devanagari font is then
+ * fetched on demand (not on first paint) because the @font-face above
+ * scopes its src by unicode-range.
+ *
+ * The body's existing Tailwind utility classes (`bg-slate-50`,
+ * `text-slate-900`) are intentionally untouched - per plan section 23.5
+ * the token layer is ADDITIVE and Tailwind's stock slate-* ramp keeps
+ * its current meaning. Component-level migration off slate-* happens
+ * progressively in U2..U5.
+ */
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: var(--font-feature-tabular);
+}
+
+/*
+ * Background motif: a tiled pattern of neutral electoral marks (check,
+ * cross, and a ballot-box outline) drawn at low opacity behind every
+ * page via a fixed body::before pseudo-element so the pattern doesn't
+ * scroll.
  *
  * Why no party symbols: per Phase 3 plan, party motifs carry legal /
  * perception risk on a results product. Generic ballot glyphs read as
  * "elections" without picking sides.
  *
- * Opacity is held at 0.035 — visible at 100 % zoom on a white card-free
+ * Opacity is held at 0.035 - visible at 100 % zoom on a white card-free
  * area but well below the WCAG-AA contrast floor for the slate-700 body
  * text we render on top of `bg-white` cards (cards are opaque, so the
  * pattern only shows in the gutter regions).
  *
- * The SVG is inlined as a data URL — no extra HTTP round trip. Tile is
- * 240×240; glyphs roughly 28 px so the pattern reads at any zoom level.
+ * Retone (plan section 23.5 / U1.3): semantically this motif belongs to
+ * the `--surface-sunken` family - it lives in the gutter behind cards,
+ * not on a surface. The literal hex stays `#475569` because CSS custom
+ * properties cannot be substituted inside `url(data:...)`; the design
+ * intent is recorded here so a future renderer that switches off the
+ * data-URL approach (e.g. an inline <svg>) can read the token directly.
+ *
+ * The SVG is inlined as a data URL - no extra HTTP round trip. Tile is
+ * 240x240; glyphs roughly 28 px so the pattern reads at any zoom level.
  */
 body::before {
   content: "";

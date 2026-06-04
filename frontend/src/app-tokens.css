@@ -21,10 +21,13 @@
  * Imported once from frontend/src/main.ts BEFORE ./app.css so any later
  * CSS rule or Tailwind utility may reference the tokens.
  *
- * Fonts arrive in sub-rows U1.2 (self-hosted woff2 subsets) and U1.3
- * (CDN-removal + body cutover + Devanagari conjunct smoke). Until then
- * the font-family stacks fall back to system fonts so the build stays
- * green AND citizen-visible behaviour is unchanged at U1.1.
+ * U1.3 cutover (this sub-row): body now reads `var(--font-sans)` and
+ * `var(--font-feature-tabular)` directly via the `body` rule in app.css.
+ * `--font-sans` lists "Noto Sans Devanagari" AFTER "Inter" so the
+ * browser's unicode-range matching (per the @font-face declarations in
+ * app.css) routes Latin codepoints to Inter and Devanagari codepoints
+ * (state names like "अरुणाचल", indicator labels in Hindi) to the
+ * self-hosted Noto subset automatically - no per-component code.
  */
 
 :root {
@@ -55,9 +58,17 @@
    * values match Tailwind's stock text-* utilities one-for-one so an
    * existing `text-lg` class on a component continues to read at
    * 1.125rem with or without these vars.
+   *
+   * --font-sans lists "Noto Sans Devanagari" right after "Inter" so
+   * the browser walks the family list when shaping a Devanagari
+   * codepoint (Inter's unicode-range, U+0000-024F + Latin-Extended,
+   * does not cover U+0900-097F). Per the @font-face declarations in
+   * app.css, the Noto subset has the matching unicode-range, so the
+   * browser fetches it on demand and shapes the conjunct correctly.
+   * No per-component font-family override is needed for mixed text.
    */
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "Inter", "Noto Sans Devanagari", ui-sans-serif, system-ui,
+    -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-display: "Outfit", var(--font-sans);
   --font-deva: "Noto Sans Devanagari", var(--font-sans);
   --font-feature-tabular: "tnum" 1, "lnum" 1;
