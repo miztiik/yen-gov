@@ -47,6 +47,35 @@ The B1.4-B1.6 waves re-pointed ~17 surviving `core/io.write_artifact` call-sites
 
 **Alongside-NEITHER carve-out.** When a `write_artifact` site emits operator state (e.g. `datasets/elections/_inventory.json`) or a per-election shape that is one of N inputs to a downstream aggregator (B2a-owned: `entities/*.csv`, per-election `candidacies.csv` / `summary.csv`), no canonical CSV file class fits. Leave the legacy call in place, record the rationale in the sub-row PR body + sub-plan addendum, and pass `docs-review` instead of `writer-unit` + `suite-green`. Precedents: B1.6.4 (#664), B1.6.5 (#666), B1.6.6 (#668), B1.6.7 (#669) - all four alongside-NEITHER under sub-plan B1.6, all emit operator inventory or downstream-aggregator shapes.
 
+## Seed emitters (B2a, PRs #673-#_pending_)
+
+Sub-plan [docs/archive/plans/20260604-b2a-csv-catalogue-subplan.md](../../archive/plans/20260604-b2a-csv-catalogue-subplan.md) delivered eight one-shot emitters under `backend/yen_gov/canonical/seed/` that lift the existing taxonomy artifacts under `datasets/taxonomy/` into the canonical CSV catalogue rows every downstream reader (B2b datapoint reingest, F1 frontend loaders, YA yen-ask grounding) joins against. Each emitter reads ONE taxonomy artifact and writes ONE CSV file class via `csv_writer.write_csv`; the validator (`csv_validator.validate_csv`) enforces FK + enum + sort across the emitted files.
+
+| Emitter module | Reads | Emits | File class | PR |
+| --- | --- | --- | --- | --- |
+| `seed/source_csv.py` | `datasets/taxonomy/sources.parquet` | `datasets/data/entities/source.csv` | `entities/source.csv` (5 cols; 6 legacy cols dropped per plan section 7) | #673 |
+| `seed/topics_csv.py` | `datasets/taxonomy/topics.json` | `datasets/data/topics.csv` | `topics.csv` (parent-pointer tree; pillars are roots) | #675 |
+| `seed/concepts_csv.py` | `datasets/taxonomy/concepts.json` | `datasets/data/concepts.csv` | `concepts.csv` (F6 one-per-concept identity) | #677 |
+| `seed/variables_csv.py` | `datasets/taxonomy/indicators.json` | `datasets/data/variables.csv` | `variables.csv` (FKs to source + topics + concepts; 11 cols incl. 3 yen-ask grounding columns nullable in B2a) | #680 |
+| `seed/geo_csv.py` | `datasets/taxonomy/lgd_states.json` + `lgd_districts.json` | `datasets/data/entities/geo.csv` | `entities/geo.csv` (country -> state -> district ladder; `aliases` pipe-delimited) | #678 |
+| `seed/electoral_csv.py` | `datasets/taxonomy/lgd_acs.json` + `lgd_pcs.json` | `datasets/data/entities/electoral.csv` | `entities/electoral.csv` (FK `state` -> geo; AC parent is PC of same `delim_year`) | #682 |
+| `seed/electoral_lgd_xwalk_csv.py` | `datasets/taxonomy/lgd_ac_pc_district_map.json` | `datasets/data/entities/electoral_lgd_xwalk.csv` | `entities/electoral_lgd_xwalk.csv` (composite PK; `boundary_snapshot` carries the decay receipt per plan section 20.5) | #684 |
+| `seed/party_csv.py` | `datasets/taxonomy/parties.json` | `datasets/data/entities/party.csv` | `entities/party.csv` (`party_id` sole canonical key per plan section 20.3; `eci_codes` is descriptive, not a join key) | #686 |
+
+Each emitter is paired with `backend/tests/test_seed_<name>_csv.py` covering: deterministic sort, FK existence under the file class's predecessor (geo before electoral, source + topics + concepts before variables), enum membership, and `__` ban. A sibling `_run_<name>_csv.py` shim per emitter is the operator-facing runner invoked when refreshing the catalogue.
+
+### Identity-derivation forks resolved
+
+- **`source_id`** is re-derived inside `seed/source_csv.py` via `canonical.citation.derive_source_id` (chicken-and-egg seed path); downstream callers (B2b reingest) MUST use `citation.lookup_source_id` against the emitted CSV, never re-derive.
+- **`topic.parent`** is a self-FK; emit order sorts parents-before-children so the validator passes without a deferred-FK pass.
+- **`variables.concept_id`** binds to `concepts.csv` per ADR-0044 one-indicator-per-concept; `check-overlap` may be re-run as a post-emit audit (see canonical-writer `## Re-point pattern` for the binding rule on B2b ingest).
+- **`variables.time_min` / `time_max` / `entity_kinds`** are nullable at B2a (no datapoints yet) and back-filled by B2b reingest per plan section 20.10.
+- **`electoral.parent`** uses AC -> PC-of-same-delim_year, PC -> state; the LGD/ECI key separation invariant (#3 above) means `entities/electoral.csv` carries NO district FK - the only meeting point is `entities/electoral_lgd_xwalk.csv`.
+
+### Parquet sibling lifecycle
+
+Each emitter targets a CSV under `datasets/data/`; the legacy parquet sibling under `datasets/taxonomy/` survives until grandparent chunk X1b deletes it. During the B2a -> X1a -> X1b window both formats coexist; new readers MUST consume the CSV, never the parquet.
+
 ## Test surfaces
 
 | Test | What it pins |
@@ -54,6 +83,7 @@ The B1.4-B1.6 waves re-pointed ~17 surviving `core/io.write_artifact` call-sites
 | `backend/tests/test_csv_writer.py` | Happy-path emit, dtype coercion, sort determinism, `__` rejection, null vs empty-string distinction, skip-write-if-equal. |
 | `backend/tests/test_csv_validator.py` | FK miss, enum miss, sort drift, `__` rejection, missing `source_id`. `tmp_path` fixtures only - never walks the real corpus. |
 | Per-family `test_<source>_csv_repoint.py` (one per B1.4-B1.6 wave PR) | Row-builder helper + `write_csv` round-trip for that source's file class. |
+| `backend/tests/test_seed_<name>_csv.py` (one per B2a emitter) | Deterministic sort, FK existence under predecessor file class, enum membership, `__` ban. |
 
 ## Known follow-ups deliberately deferred
 
@@ -71,6 +101,7 @@ These surfaced during B1 execution and are recorded here so future agents do not
 - [docs/archive/plans/20260604-b1.4-iced-repoint-subplan.md](../../archive/plans/20260604-b1.4-iced-repoint-subplan.md) - wave 1 (iced_*) per-family re-point precedent (PRs #634-#644).
 - [docs/archive/plans/20260604-b1.5-rbi-repoint-subplan.md](../../archive/plans/20260604-b1.5-rbi-repoint-subplan.md) - wave 2 (rbi_*) precedent (PRs #645-#656).
 - [docs/archive/plans/20260604-b1.6-misc-repoint-subplan.md](../../archive/plans/20260604-b1.6-misc-repoint-subplan.md) - wave 3 (misc) precedent including four alongside-NEITHER carve-outs (PRs #657-#669).
+- [docs/archive/plans/20260604-b2a-csv-catalogue-subplan.md](../../archive/plans/20260604-b2a-csv-catalogue-subplan.md) - the eight seed emitters (B2a.1..B2a.8, PRs #673-#686).
 - [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) sections 22 (execution model), 23.1 (deletion blast radius), 24.5 (sub-plan spawning).
 - [writer.md](writer.md) - legacy Parquet writer (survives until grandparent chunk B3).
 - [ADR-0032](../decisions/0032-sources-citation-ledger.md) - `source_id` FK requirement.
