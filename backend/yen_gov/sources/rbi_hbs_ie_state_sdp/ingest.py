@@ -19,6 +19,8 @@ from typing import Any
 
 import openpyxl
 
+from yen_gov.canonical.citation import derive_source_id
+from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.core.io import Source, write_artifact
 from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
 from yen_gov.sources.rbi_hbs import (
@@ -214,6 +216,101 @@ def _is_year(value: object) -> str | None:
     if len(label) == 7 and label[4] == "-" and label[:4].isdigit() and label[5:].isdigit():
         return label
     return None
+
+
+# ---------------------------------------------------------------------------
+# Canonical long-format CSV emission (B1.5.5)
+# ---------------------------------------------------------------------------
+
+# All rbi_hbs_ie_state_sdp specs come from one publication
+# (Handbook of Statistics on Indian Economy). Per ADR-0042 the
+# vintage is the publisher edition string. fk-validator stays dark on
+# the source_id hashes until entities/source.csv lands (B2a), by
+# design. Per-table title (Table 5 / 6 / 9 / 10) yields a distinct
+# triple per variable_id, matching the sibling rbi_hbs_ie_centre_deficits
+# precedent.
+_CSV_SOURCE_PRODUCER = "Reserve Bank of India"
+_CSV_SOURCE_VINTAGE = "2024-25"
+_CSV_FILE_CLASS = "datasets/data/datapoints/geo/*.csv"
+_CSV_OUT_REL_DIR = "datasets/data/datapoints/geo"
+
+# Per-(legacy indicator_id, facet) -> kebab-case variable_id per
+# ADR-0044 (no grain prefix) and parent plan section 21.6 / 21.12
+# (no `__`). The nsdp-inr-crore family splits into per-price-basis
+# variables because the writer does not yet support facet columns
+# (csv_writer.py top-of-file note); per sub-plan point 7 we split each
+# facet-bearing series into per-facet variable_ids.
+_VARIABLE_ID_NSDP_CURRENT = "nsdp-inr-crore-current-prices"
+_VARIABLE_ID_NSDP_CONSTANT = "nsdp-inr-crore-constant-prices"
+_VARIABLE_ID_PER_CAPITA_CURRENT = "per-capita-nsdp-inr-current-prices"
+_VARIABLE_ID_PER_CAPITA_CONSTANT = "per-capita-nsdp-inr-constant-prices"
+
+# Source title per table; vintage shared across the family.
+_CSV_SOURCE_TITLE_BY_TABLE: dict[str, str] = {
+    "T05": "Handbook of Statistics on Indian Economy, Table 5",
+    "T06": "Handbook of Statistics on Indian Economy, Table 6",
+    "T09": "Handbook of Statistics on Indian Economy, Table 9",
+    "T10": "Handbook of Statistics on Indian Economy, Table 10",
+}
+
+
+def _fy_start_year(time_str: str) -> int:
+    """Lift the FY start year (int) from a parser period stamp.
+
+    ``collapse_to_long`` emits ``YYYY-04`` for FY starts via
+    ``fy_label_to_time``. The canonical CSV file class declares
+    ``time`` as integer; we lift YYYY. Raises ``ValueError`` on
+    malformed input - fail fast at the boundary (no silent coercion).
+    """
+    head, _, _tail = time_str.partition("-")
+    return int(head)
+
+
+def build_csv_rows(
+    rows: list[dict[str, Any]],
+    *,
+    source_id: str,
+) -> list[dict[str, Any]]:
+    """Project parser rows onto the canonical four-column CSV shape.
+
+    Each row carries the four canonical columns declared on file class
+    ``datasets/data/datapoints/geo/*.csv``: ``entity_id``, ``time``,
+    ``value``, ``source_id``. ``entity_id`` is the ECI state code (or
+    ``IN`` for All-India) lifted from the parser; parent plan section
+    22.4 #6 preserves LGD/ECI key separation. Rows sorted by
+    (entity_id, time) per file-class contract.
+    """
+    out = [
+        {
+            "entity_id": str(r["entity_id"]),
+            "time": _fy_start_year(str(r["time"])),
+            "value": r["value"],
+            "source_id": source_id,
+        }
+        for r in rows
+    ]
+    out.sort(key=lambda row: (row["entity_id"], row["time"]))
+    return out
+
+
+def emit_csv_variable(
+    *, repo_root: Path, variable_id: str, rows: list[dict[str, Any]]
+) -> Path:
+    """Write one variable_id to `datasets/data/datapoints/geo/<id>.csv`."""
+    out_dir = repo_root / _CSV_OUT_REL_DIR
+    return write_csv(
+        path=out_dir / f"{variable_id}.csv",
+        file_class=_CSV_FILE_CLASS,
+        rows=rows,
+    )
+
+
+def _csv_source_id_for_table(table_key: str) -> str:
+    return derive_source_id(
+        _CSV_SOURCE_PRODUCER,
+        _CSV_SOURCE_TITLE_BY_TABLE[table_key],
+        _CSV_SOURCE_VINTAGE,
+    )
 
 
 def _is_base_marker(value: object) -> str | None:
@@ -485,6 +582,23 @@ def ingest(*, repo_root: Path) -> IngestResult:
         )
     ]
 
+    # B1.5.5 - canonical long-format CSV emission ALONGSIDE the legacy
+    # meadow/indicator JSON write. Existing JSON output stays in place;
+    # instead-of deletion is deferred to B3 per parent plan section
+    # 23.1 and sub-plan section B1.5.1..5 point 6. NSDP splits into two
+    # per-price-basis variables (point 7) because the writer does not
+    # yet support facet columns.
+    emit_csv_variable(
+        repo_root=repo_root,
+        variable_id=_VARIABLE_ID_NSDP_CURRENT,
+        rows=build_csv_rows(current_rows, source_id=_csv_source_id_for_table("T05")),
+    )
+    emit_csv_variable(
+        repo_root=repo_root,
+        variable_id=_VARIABLE_ID_NSDP_CONSTANT,
+        rows=build_csv_rows(constant_rows, source_id=_csv_source_id_for_table("T06")),
+    )
+
     for spec in PER_CAPITA_SPECS:
         workbook = _resolve_workbook(repo_root=repo_root, table=spec.table)
         rows = collapse_to_long(parse_workbook(workbook.content))
@@ -498,6 +612,19 @@ def ingest(*, repo_root: Path) -> IngestResult:
                 sources=_source_entries([workbook]),
                 indicator_schema=indicator_schema,
             )
+        )
+        # B1.5.5 - per-capita variable alongside the legacy JSON.
+        variable_id = (
+            _VARIABLE_ID_PER_CAPITA_CURRENT
+            if spec.table.table_key == "T09"
+            else _VARIABLE_ID_PER_CAPITA_CONSTANT
+        )
+        emit_csv_variable(
+            repo_root=repo_root,
+            variable_id=variable_id,
+            rows=build_csv_rows(
+                rows, source_id=_csv_source_id_for_table(spec.table.table_key)
+            ),
         )
 
     return IngestResult(indicators=tuple(results))
