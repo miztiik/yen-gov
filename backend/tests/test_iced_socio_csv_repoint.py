@@ -1,7 +1,7 @@
 """B1.4.6 writer-unit gate: iced_socio row-builder + write_csv round-trip.
 
 Locks the contract for sub-row B1.4.6 of
-``TODO/20260604-b1.4-iced-repoint-subplan.md``: the iced_socio ingest
+``docs/archive/plans/20260604-b1.4-iced-repoint-subplan.md``: the iced_socio ingest
 emits per-capita consumption as a single non-faceted variable and the
 economy-wide GHG series split into one ``variable_id`` per sector facet.
 Each emission goes through the canonical

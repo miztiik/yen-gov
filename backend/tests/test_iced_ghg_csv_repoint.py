@@ -1,7 +1,7 @@
 """B1.4.1 writer-unit gate: iced_ghg row-builder + write_csv round-trip.
 
 Locks the contract for sub-row B1.4.1 of
-``TODO/20260604-b1.4-iced-repoint-subplan.md``: the iced_ghg ingest splits
+``docs/archive/plans/20260604-b1.4-iced-repoint-subplan.md``: the iced_ghg ingest splits
 its facet-keyed parser output into one ``variable_id`` per
 (sector, sub-sector) pair, emits each via the canonical
 ``yen_gov.canonical.csv_writer.write_csv`` against file class

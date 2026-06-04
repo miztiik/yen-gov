@@ -1,7 +1,7 @@
 """B1.4.4 writer-unit gate: iced_metatable row-builder + write_csv round-trip.
 
 Locks the contract for sub-row B1.4.4 of
-``TODO/20260604-b1.4-iced-repoint-subplan.md``: the iced_metatable ingest
+``docs/archive/plans/20260604-b1.4-iced-repoint-subplan.md``: the iced_metatable ingest
 splits its three facet-keyed parser outputs (generation, PLF, CO2) into
 one ``variable_id`` per facet, emits each via the canonical
 ``yen_gov.canonical.csv_writer.write_csv`` against file class

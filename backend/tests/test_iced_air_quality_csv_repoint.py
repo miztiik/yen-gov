@@ -1,7 +1,7 @@
 """B1.4.9 writer-unit gate: iced_air_quality + markers CSV repoint.
 
 Locks the contract for sub-row B1.4.9 of
-``TODO/20260604-b1.4-iced-repoint-subplan.md``: the five iced_air_quality
+``docs/archive/plans/20260604-b1.4-iced-repoint-subplan.md``: the five iced_air_quality
 write_artifact sites (FGD + PM2.5 + NO2 + SO2 + PM10) each also emit a
 single canonical long-format CSV under
 ``datasets/data/datapoints/geo/<variable_id>.csv`` via

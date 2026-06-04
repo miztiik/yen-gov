@@ -1,7 +1,7 @@
 """B1.4.8 writer-unit gate: iced_state_wise row-builder + write_csv round-trip.
 
 Locks the contract for sub-row B1.4.8 of
-``TODO/20260604-b1.4-iced-repoint-subplan.md``: the iced_state_wise
+``docs/archive/plans/20260604-b1.4-iced-repoint-subplan.md``: the iced_state_wise
 ingest emits each non-faceted indicator (installed capacity, generation,
 peak demand, sales, AT&C losses, ACS-ARR gap, GDP constant, rooftop
 solar, population) as a single ``variable_id`` and the faceted

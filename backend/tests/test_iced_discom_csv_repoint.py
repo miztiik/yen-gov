@@ -1,7 +1,7 @@
 """B1.4.7 writer-unit gate: iced_discom row-builder + write_csv round-trip.
 
 Locks the contract for sub-row B1.4.7 of
-``TODO/20260604-b1.4-iced-repoint-subplan.md``: the iced_discom ingest
+``docs/archive/plans/20260604-b1.4-iced-repoint-subplan.md``: the iced_discom ingest
 emits each opperf category (T&D loss, billing, collection) as a single
 non-faceted variable and the RPO compliance series split into one
 ``variable_id`` per facet (solar / non-solar / total). Each emission
