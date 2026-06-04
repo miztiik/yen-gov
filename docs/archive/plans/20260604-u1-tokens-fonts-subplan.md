@@ -46,7 +46,7 @@ Per CLAUDE.md correction-level discipline (>=4 files structural -> propose break
 | U1.1 tokens (`app-tokens.css` + `main.ts` import + `tailwind.config.js theme.extend` ADDITIVE + drift contract test) | - | build+drift | #714 | MERGED |
 | U1.2 fonts (self-hosted subset variable woff2 + `LICENCES.md` + `@font-face` declarations + Inter-Latin preload) | U1.1 | build+font-load | #716 | MERGED |
 | U1.3 cutover (CDN `<link>` + 2 preconnects already removed in U1.2; flip body font; retone ballot motif comment; tabular-nums on body; Devanagari conjunct render check) | U1.2 | build+visual+devanagari | #718 | MERGED |
-| U1.4 closure (distil to `docs/architecture/frontend/design-system.md`; flip parent U1 row -> MERGED; archive this sub-plan to `docs/archive/plans/`) | U1.1..U1.3 | docs-review | _pending_ | MERGED |
+| U1.4 closure (distil to `docs/architecture/frontend/design-system.md`; flip parent U1 row -> MERGED; archive this sub-plan to `docs/archive/plans/`) | U1.1..U1.3 | docs-review | #720 | MERGED |
 
 ---
 
@@ -106,7 +106,7 @@ All four sub-rows shipped. Per-row PR distillation map:
 | U1.1 tokens (`app-tokens.css` + Tailwind mirror + drift contract) | #714 | [frontend/src/app-tokens.css](../../../frontend/src/app-tokens.css) + [frontend/tailwind.config.js](../../../frontend/tailwind.config.js) theme.extend + [frontend/src/contracts/app-tokens.test.ts](../../../frontend/src/contracts/app-tokens.test.ts); distilled into [docs/architecture/frontend/design-system.md](../../architecture/frontend/design-system.md) section "Token map" + "Drift contract" |
 | U1.2 fonts (self-hosted Inter / Noto Sans Devanagari / Outfit woff2) | #716 | [frontend/public/fonts/inter-latin.woff2](../../../frontend/public/fonts/) + [noto-sans-devanagari.woff2](../../../frontend/public/fonts/) + [outfit-latin.woff2](../../../frontend/public/fonts/) + [LICENCES.md](../../../frontend/public/fonts/LICENCES.md) + [tools/build_fonts.py](../../../tools/build_fonts.py); distilled into [docs/architecture/frontend/design-system.md](../../architecture/frontend/design-system.md) section "Self-hosted fonts" |
 | U1.3 cutover (body font + tabular-nums + CDN removal + Devanagari smoke) | #718 | [frontend/src/app.css](../../../frontend/src/app.css) body cutover + [frontend/index.html](../../../frontend/index.html) preload + [frontend/e2e/devanagari-conjunct.spec.ts](../../../frontend/e2e/devanagari-conjunct.spec.ts); distilled into [docs/architecture/frontend/design-system.md](../../architecture/frontend/design-system.md) section "Devanagari shaping gate" |
-| U1.4 closure (archive + design-system.md + parent ledger flip) | _pending_ | this file under `docs/archive/plans/` + parent section 22.5 U1 row flipped to MERGED + [docs/architecture/frontend/design-system.md](../../architecture/frontend/design-system.md) created |
+| U1.4 closure (archive + design-system.md + parent ledger flip) | #720 | this file under `docs/archive/plans/` + parent section 22.5 U1 row flipped to MERGED + [docs/architecture/frontend/design-system.md](../../architecture/frontend/design-system.md) created |
 
 Lessons that did not belong in `docs/` were captured in `/memories/lessons.md` under the U1.1 / U1.2 / U1.3 dated entries (vitest alias caveat, font-subset shaping audit, single-body font-feature-settings delivery, deferred-result Playwright stall workaround, admin-merge convention for stamp PRs).
 
