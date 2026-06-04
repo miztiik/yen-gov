@@ -7,6 +7,8 @@
 
 This doc is the operational spec for the canonical long-format store. ADR-0030 records *why*; this doc records *what* and *where*. When the two disagree this doc wins on operational detail; the ADR wins on whether a decision is open or closed (Holy Law #4).
 
+> **MIGRATING (plan chunks B2b / X1b).** The CSV-era column contract is now defined in [csv-column-contract.md](csv-column-contract.md) and is BINDING for every file under `datasets/data/` and `datasets/elections/`. Parquet-era column rules below survive only until their owning subsystem flips per [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md).
+
 > **The One Rule (CLAUDE.md §0a)**: OWID is the canonical reference for socio-economic data modelling. Adopt verbatim. Every deviation in this doc carries an explicit rationale signed off by Hans + Max — see [§13 Deviations from OWID](#13-deviations-from-owid).
 
 ---
