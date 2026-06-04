@@ -206,5 +206,5 @@ The `eci_no -> lgd_ac_id` migration is **substantively COMPLETE**. Shipped + mer
 
 - [docs/archive/plans/20260530-boundary-followups-execution-plan.md](../docs/archive/plans/20260530-boundary-followups-execution-plan.md) Row 4.4 (was Row 5.2; this plan-doc opens that row)
 - [docs/concepts/admin-level-sourcing.md](../docs/concepts/admin-level-sourcing.md) (LGD-golden doctrine + 3-convention rule)
-- [docs/architecture/decisions/0029-unmapped-region-chips.md](../docs/architecture/decisions/0029-unmapped-region-chips.md) (D.1.A user-mandate + retirement context)
+- [docs/archive/decisions/0029-unmapped-region-chips.md](../docs/archive/decisions/0029-unmapped-region-chips.md) (D.1.A user-mandate + retirement context; archived 2026-06-04 per D-DOC3.7)
 - [CLAUDE.md](../CLAUDE.md) section 6 Level-5 ("Core design / data model / runtime - Design consultation only - pause work")
