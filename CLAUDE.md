@@ -22,6 +22,8 @@ Non-negotiable contract for any human or AI agent working in this repo. Derived 
 
 **OWID is the canonical reference for socio-economic data modelling.** Check OWID first; adopt verbatim; document deviations in [docs/architecture/data/canonical-store.md](docs/architecture/data/canonical-store.md) signed off by Hans + Max. See [docs/concepts/owid-alignment.md](docs/concepts/owid-alignment.md).
 
+**Doctrinal spine.** The One Rule sits inside the broader [data-spine doctrine](docs/concepts/data-spine.md) - five non-negotiables (question-first, LGD-joinable, methodology-stable, source-cited, static-served) that REPLACE the off-the-cuff "DATA - SCHEMA - SCALE - ENRICHMENT" slogan. The spine names WHY OWID is the reference (FAIR-grade comparability + cite-ability at scale); this rule names HOW to invoke it. Every new family of indicators MUST honour all five non-negotiables; see the spine doc for the pipeline-of-responsibility breakdown (acquire -> define -> shape -> store -> serve -> render).
+
 **Authority assignment** (resolves stalled agent debates):
 
 | Decision class | Authority |
