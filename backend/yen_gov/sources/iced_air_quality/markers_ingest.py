@@ -14,6 +14,8 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 
+from yen_gov.canonical.citation import derive_source_id
+from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.core.io import Source, write_artifact
 from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
 from yen_gov.sources.iced_common import IcedClient, ICEDShapeError
@@ -28,6 +30,104 @@ from .markers_parsers import (
     aggregate_state_year_mean,
     emit_indicator_rows,
 )
+
+# ---------------------------------------------------------------------------
+# Canonical CSV emission (B1.4.9)
+# ---------------------------------------------------------------------------
+#
+# Re-points the four NAMP-markers indicators (PM2.5, NO2, SO2, PM10)
+# onto `yen_gov.canonical.csv_writer.write_csv` ALONGSIDE the legacy
+# `write_artifact` meadow-JSON path (parent plan section 23.1; instead-of
+# is deferred to B3). `source_id` is derived via ADR-0042 from
+# (producer, title, vintage); variable_id honours parent plan section
+# 21.6 / 21.12 (no `__`) and ADR-0044 (no grain prefix). All four
+# indicators are non-faceted (one variable_id each). concept_id binding
+# DEFERRED to B2a.
+_CSV_FILE_CLASS = "datasets/data/datapoints/geo/*.csv"
+_CSV_OUT_REL_DIR = "datasets/data/datapoints/geo"
+_CSV_SOURCE_PRODUCER = "NITI Aayog India Climate & Energy Dashboard"
+_CSV_SOURCE_VINTAGE = "2024-25"
+
+# Map each markers-feed indicator to its (citation title, kebab variable_id).
+_CSV_INDICATOR_EMIT: dict[str, tuple[str, str]] = {
+    "environment/state_pm25_annual_mean_ug_m3": (
+        "ICED PM2.5 annual mean (state aggregation of CPCB NAMP "
+        "station-year means)",
+        "pm25-annual-mean-ug-m3",
+    ),
+    "environment/state_no2_annual_mean_ug_m3": (
+        "ICED NO2 annual mean (state aggregation of CPCB NAMP "
+        "station-year means)",
+        "no2-annual-mean-ug-m3",
+    ),
+    "environment/state_so2_annual_mean_ug_m3": (
+        "ICED SO2 annual mean (state aggregation of CPCB NAMP "
+        "station-year means)",
+        "so2-annual-mean-ug-m3",
+    ),
+    "environment/state_pm10_annual_mean_ug_m3": (
+        "ICED PM10 annual mean (state aggregation of CPCB NAMP "
+        "station-year means)",
+        "pm10-annual-mean-ug-m3",
+    ),
+}
+
+
+def _period_to_year_int(period: str) -> int:
+    """Reduce ``YYYY`` (or ``YYYY-MM``) to integer year.
+
+    The canonical CSV column class ``datasets/data/datapoints/geo/*.csv``
+    declares ``time`` as integer. markers_parsers emit ``str(year)``.
+    """
+    if not (isinstance(period, str) and len(period) >= 4 and period[:4].isdigit()):
+        raise ValueError(
+            f"unexpected time format {period!r}; expected 'YYYY' or 'YYYY-MM'"
+        )
+    return int(period[:4])
+
+
+def build_csv_rows_markers(
+    payload_rows: list[dict],
+    *,
+    source_id: str,
+) -> list[dict]:
+    """Build canonical CSV rows for a markers-feed indicator.
+
+    Each row carries the canonical 4 columns declared on file class
+    ``datasets/data/datapoints/geo/*.csv``: ``entity_id``, ``time``,
+    ``value``, ``source_id``. Null station-years are dropped upstream
+    by ``aggregate_state_year_mean``.
+    """
+    out: list[dict] = []
+    for row in payload_rows:
+        out.append({
+            "entity_id": row["entity_id"],
+            "time": _period_to_year_int(row["time"]),
+            "value": row["value"],
+            "source_id": source_id,
+        })
+    return out
+
+
+def _emit_csv_for(
+    *, repo_root: Path, indicator_id: str, payload_rows: list[dict]
+) -> Path:
+    """Canonical CSV emission ALONGSIDE the legacy meadow indicator JSON.
+
+    B1.4.9 - both stores coexist (parent plan section 23.1); reader flip
+    is X1a. ``source_id`` derived via ADR-0042 from (producer, title,
+    vintage); one ``variable_id`` per indicator (no facets).
+    """
+    title, variable_id = _CSV_INDICATOR_EMIT[indicator_id]
+    source_id = derive_source_id(
+        _CSV_SOURCE_PRODUCER, title, _CSV_SOURCE_VINTAGE
+    )
+    csv_rows = build_csv_rows_markers(payload_rows, source_id=source_id)
+    return write_csv(
+        path=repo_root / _CSV_OUT_REL_DIR / f"{variable_id}.csv",
+        file_class=_CSV_FILE_CLASS,
+        rows=csv_rows,
+    )
 
 # Endpoint catalogue name: aq_aqi_map_markers (see iced_common.endpoints).
 MARKERS_API_PATH = "/climate-environment/environment/air-quality/aqi-map-markers"
@@ -136,6 +236,12 @@ def ingest_pm25(
             Source(url=CPCB_NAMP_URL, fetched_at=fetched_at),
         ],
         schema_for_validation=indicator_schema,
+    )
+    # B1.4.9: canonical CSV emission ALONGSIDE legacy meadow JSON.
+    _emit_csv_for(
+        repo_root=repo_root,
+        indicator_id=PM25_INDICATOR_ID,
+        payload_rows=payload["rows"],
     )
 
     years = [r.year for r in parsed]
@@ -313,6 +419,12 @@ def ingest_no2(
         ],
         schema_for_validation=indicator_schema,
     )
+    # B1.4.9: canonical CSV emission ALONGSIDE legacy meadow JSON.
+    _emit_csv_for(
+        repo_root=repo_root,
+        indicator_id=NO2_INDICATOR_ID,
+        payload_rows=payload["rows"],
+    )
 
     years = [r.year for r in parsed]
     return MarkersIngestResult(
@@ -472,6 +584,12 @@ def ingest_so2(
         ],
         schema_for_validation=indicator_schema,
     )
+    # B1.4.9: canonical CSV emission ALONGSIDE legacy meadow JSON.
+    _emit_csv_for(
+        repo_root=repo_root,
+        indicator_id=SO2_INDICATOR_ID,
+        payload_rows=payload["rows"],
+    )
 
     years = [r.year for r in parsed]
     return MarkersIngestResult(
@@ -629,6 +747,12 @@ def ingest_pm10(
             Source(url=CPCB_NAMP_URL, fetched_at=fetched_at),
         ],
         schema_for_validation=indicator_schema,
+    )
+    # B1.4.9: canonical CSV emission ALONGSIDE legacy meadow JSON.
+    _emit_csv_for(
+        repo_root=repo_root,
+        indicator_id=PM10_INDICATOR_ID,
+        payload_rows=payload["rows"],
     )
 
     years = [r.year for r in parsed]
