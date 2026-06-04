@@ -250,6 +250,19 @@
         { "name": "deprecated", "dtype": "boolean", "nullable": false }
       ]
     },
+    "datasets/data/election_events.csv": {
+      "notes": "Per-state election event register (one row per (state_entity_id, event_id)). Sourced from datasets/taxonomy/election_events.parquet by B2b.4.4 reingest. The source ECI state_code is re-keyed to the LGD state slug on emit and renamed to state_entity_id (FK into geo.csv). polled_on / term_end_estimated are emitted as ISO-8601 (YYYY-MM-DD) strings since the column contract has no native date dtype (csv-column-contract section 4).",
+      "columns": [
+        { "name": "state_entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
+        { "name": "event_id", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "kind", "dtype": "string", "nullable": false },
+        { "name": "display", "dtype": "string", "nullable": false },
+        { "name": "polled_on", "dtype": "string", "nullable": false },
+        { "name": "term_end_estimated", "dtype": "string", "nullable": true },
+        { "name": "data_status", "dtype": "string", "nullable": false },
+        { "name": "notes", "dtype": "string", "nullable": true }
+      ]
+    },
     "datasets/data/state_tiers.csv": {
       "notes": "M:N tier -> state register (one row per (tier, state) pair). Sourced from datasets/taxonomy/state_tiers.parquet by B2b.4.3 reingest. The source ECI state_code is re-keyed to the LGD state slug on emit and renamed to state_entity_id (FK into geo.csv).",
       "columns": [

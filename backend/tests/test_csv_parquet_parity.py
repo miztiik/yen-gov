@@ -622,3 +622,101 @@ def test_state_tiers(lgd_eci_to_slug: dict[str, str]) -> None:
         "state_tiers.csv parity violations:\n  " + "\n  ".join(mismatches)
     )
 
+
+def test_election_events(lgd_eci_to_slug: dict[str, str]) -> None:
+    """B2b.4.4 cross-format parity: every row in
+    ``datasets/taxonomy/election_events.parquet`` MUST appear as exactly
+    one row in ``datasets/data/election_events.csv`` with verbatim column
+    equality after (a) the ECI ``state_code`` -> LGD ``state_entity_id``
+    re-key and (b) ISO-8601 date serialisation. PK
+    ``(state_entity_id, event_id)``.
+    """
+    parquet_path = (
+        REPO_ROOT / "datasets" / "taxonomy" / "election_events.parquet"
+    )
+    csv_path = REPO_ROOT / "datasets" / "data" / "election_events.csv"
+    if not parquet_path.exists():
+        pytest.skip(f"missing {parquet_path}")
+    if not csv_path.exists():
+        pytest.skip(f"missing {csv_path}; B2b.4.4 emit not run")
+
+    parquet_rows = duckdb.sql(
+        "SELECT state_code, event_id, kind, display, "
+        "CAST(polled_on AS VARCHAR) AS polled_on, "
+        "CAST(term_end_estimated AS VARCHAR) AS term_end_estimated, "
+        "data_status, notes "
+        f"FROM read_parquet('{parquet_path.as_posix()}') "
+        "ORDER BY state_code, event_id"
+    ).fetchall()
+    csv_rows = duckdb.sql(
+        "SELECT state_entity_id, event_id, kind, display, polled_on, "
+        "term_end_estimated, data_status, notes FROM read_csv("
+        f"'{csv_path.as_posix()}', "
+        "columns={'state_entity_id': 'VARCHAR', 'event_id': 'VARCHAR', "
+        "'kind': 'VARCHAR', 'display': 'VARCHAR', 'polled_on': 'VARCHAR', "
+        "'term_end_estimated': 'VARCHAR', 'data_status': 'VARCHAR', "
+        "'notes': 'VARCHAR'}, header=true) "
+        "ORDER BY state_entity_id, event_id"
+    ).fetchall()
+
+    assert len(csv_rows) == len(parquet_rows), (
+        f"row-count parity failed: parquet={len(parquet_rows)} "
+        f"vs csv={len(csv_rows)}"
+    )
+
+    remapped: list[
+        tuple[str, str, str, str, str, str | None, str, str | None]
+    ] = []
+    for (
+        state_code,
+        event_id,
+        kind,
+        display,
+        polled_on,
+        term_end_estimated,
+        data_status,
+        notes,
+    ) in parquet_rows:
+        slug = lgd_eci_to_slug.get(state_code)
+        assert slug is not None, (
+            f"no LGD slug for ECI st_code {state_code!r} "
+            f"(event {event_id!r})"
+        )
+        remapped.append(
+            (
+                slug,
+                event_id,
+                kind,
+                display,
+                polled_on,
+                term_end_estimated,
+                data_status,
+                notes,
+            )
+        )
+    remapped.sort(key=lambda r: (r[0], r[1]))
+
+    cols = (
+        "state_entity_id",
+        "event_id",
+        "kind",
+        "display",
+        "polled_on",
+        "term_end_estimated",
+        "data_status",
+        "notes",
+    )
+    mismatches: list[str] = []
+    for parquet_row, csv_row in zip(remapped, csv_rows, strict=True):
+        for idx, name in enumerate(cols):
+            if parquet_row[idx] != csv_row[idx]:
+                mismatches.append(
+                    f"{parquet_row[0]!r}/{parquet_row[1]!r}: "
+                    f"{name} parquet={parquet_row[idx]!r} csv={csv_row[idx]!r}"
+                )
+        if len(mismatches) >= 5:
+            break
+    assert not mismatches, (
+        "election_events.csv parity violations:\n  " + "\n  ".join(mismatches)
+    )
+
