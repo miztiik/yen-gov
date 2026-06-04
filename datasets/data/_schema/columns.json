@@ -224,6 +224,18 @@
         { "name": "margin_pct", "dtype": "number", "nullable": false, "derived": true },
         { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
       ]
+    },
+    "datasets/data/methodology_breaks.csv": {
+      "notes": "Rosling-rule break register (one row per methodology break; F6 reference). Sourced from datasets/taxonomy/methodology_breaks.parquet by B2b.4.1 reingest. publisher_url + supersedes_methodology_version are nullable; the remaining five columns form the contract spine.",
+      "columns": [
+        { "name": "methodology_version", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "at_year", "dtype": "integer", "nullable": false, "pk": true },
+        { "name": "at_period_seq", "dtype": "integer", "nullable": false, "pk": true },
+        { "name": "kind", "dtype": "string", "nullable": false },
+        { "name": "note", "dtype": "string", "nullable": false },
+        { "name": "publisher_url", "dtype": "string", "nullable": true },
+        { "name": "supersedes_methodology_version", "dtype": "string", "nullable": true }
+      ]
     }
   }
 }
