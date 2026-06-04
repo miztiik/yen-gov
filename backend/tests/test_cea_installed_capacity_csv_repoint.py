@@ -1,7 +1,7 @@
 """B1.6.1 writer-unit gate: cea_installed_capacity row-builder + write_csv.
 
 Locks the contract for sub-row B1.6.1 of
-``TODO/20260604-b1.6-misc-repoint-subplan.md``: each of the seven
+``docs/archive/plans/20260604-b1.6-misc-repoint-subplan.md``: each of the seven
 SHIPPED_COLUMNS fuel facets maps 1:1 to a kebab-case ``variable_id``
 (one-variable-per-facet interim while csv_writer lacks facet column
 support), is emitted via the canonical
