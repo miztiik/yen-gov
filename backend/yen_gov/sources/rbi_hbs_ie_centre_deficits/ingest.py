@@ -24,12 +24,47 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from yen_gov.canonical.citation import derive_source_id
+from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.core.io import Source, write_artifact
 from yen_gov.sources.rbi_appendix_deficits.parsers import (
     DeficitSpec,
     ParsedIndicator,
     parse_workbook,
 )
+
+
+# B1.5.2 - canonical CSV citation triple for RBI HBS-IE Table 89 (Union
+# Government deficit indicators). All four SHIPPED_SPECS rows share one
+# publication; vintage per ADR-0042 is the publisher edition string
+# (2024-25 = HBS-IE published 2025-08-29, see HBS_IE_EDITION_NOTE).
+# fk-validator is dark on this hash until entities/source.csv lands (B2a),
+# by design per sub-plan section "Pre-flight - source-id + concept-id
+# readiness".
+_CSV_SOURCE_PRODUCER = "Reserve Bank of India"
+_CSV_SOURCE_TITLE = (
+    "Handbook of Statistics on Indian Economy, Table 89 "
+    "(Key Deficit Indicators of the Central Government)"
+)
+_CSV_SOURCE_VINTAGE = "2024-25"
+_CSV_FILE_CLASS = "datasets/data/datapoints/geo/*.csv"
+_CSV_OUT_REL_DIR = "datasets/data/datapoints/geo"
+
+# Mapping from legacy `<topic>/<leaf>` indicator_id to canonical CSV
+# variable_id (kebab-case `<measure>-<unit>-<facet>` per ADR-0044; no
+# `__`, no grain prefix, per parent plan section 21.6 / 21.12). The
+# `union-` segment is an actor qualifier (Union vs states-combined), not
+# a grain prefix.
+_INDICATOR_TO_VARIABLE_ID: dict[str, str] = {
+    "fiscal/union_gross_fiscal_deficit":
+        "union-gross-fiscal-deficit-inr-crore",
+    "fiscal/union_revenue_deficit":
+        "union-revenue-deficit-inr-crore",
+    "fiscal/union_primary_deficit":
+        "union-primary-deficit-inr-crore",
+    "fiscal/union_primary_revenue_deficit":
+        "union-primary-revenue-deficit-inr-crore",
+}
 
 
 # Where this adapter expects the cached workbook to live, relative to
@@ -328,6 +363,84 @@ class IngestResult:
     indicators: tuple[IndicatorIngestResult, ...]
 
 
+def _slug_segment(text: str) -> str:
+    """Kebab-case a segment for use inside a `variable_id`.
+
+    Mirrors the sibling rbi_appendix_national helper; lifted here
+    verbatim to keep this family self-contained. Parent plan section
+    21.6 / 21.12 ban `__`; ADR-0044 bans grain-prefixes.
+    """
+    out: list[str] = []
+    prev_dash = True
+    for ch in text.lower():
+        if ch.isalnum():
+            out.append(ch)
+            prev_dash = False
+        elif not prev_dash:
+            out.append("-")
+            prev_dash = True
+    return "".join(out).strip("-")
+
+
+def _fy_start_year(time_str: str) -> int:
+    """Lift the fiscal-year start year (integer) from a parser time stamp.
+
+    The shared parser emits ``"YYYY-04"`` (start-of-FY). The canonical
+    CSV file class ``datasets/data/datapoints/geo/*.csv`` declares
+    ``time`` as integer; we lift the FY start year as the canonical
+    integer time. Raises ``ValueError`` if the stamp is malformed -
+    failing fast at the boundary (CLAUDE.md anti-pattern: no silent
+    coercion).
+    """
+    head, _, _ = time_str.partition("-")
+    return int(head)
+
+
+def build_csv_variables(
+    spec: DeficitSpec,
+    parsed: ParsedIndicator,
+    *,
+    source_id: str,
+) -> dict[str, list[dict[str, Any]]]:
+    """Build per-`variable_id` CSV row lists for one parsed indicator.
+
+    Each row carries the four canonical columns declared on file class
+    ``datasets/data/datapoints/geo/*.csv``: ``entity_id``, ``time``,
+    ``value``, ``source_id``. The four SHIPPED_SPECS each map 1:1 to a
+    single ``variable_id`` (no faceting on this family - one column per
+    indicator on the HBS-IE Table 89 sheet). ``entity_id`` is ``"IN"``
+    per the parent plan F4 freeze for national-grain rows.
+    """
+    variable_id = _INDICATOR_TO_VARIABLE_ID[spec.indicator_id]
+    rows: list[dict[str, Any]] = []
+    for r in parsed.rows:
+        if r.value is None:
+            continue
+        rows.append({
+            "entity_id": r.entity_id,
+            "time": _fy_start_year(r.time),
+            "value": r.value,
+            "source_id": source_id,
+        })
+    return {variable_id: rows}
+
+
+def emit_csv_variables(
+    *, repo_root: Path, by_variable: dict[str, list[dict[str, Any]]]
+) -> tuple[Path, ...]:
+    """Write each `variable_id` to `datasets/data/datapoints/geo/<id>.csv`."""
+    written: list[Path] = []
+    out_dir = repo_root / _CSV_OUT_REL_DIR
+    for variable_id, rows in sorted(by_variable.items()):
+        path = write_csv(
+            path=out_dir / f"{variable_id}.csv",
+            file_class=_CSV_FILE_CLASS,
+            rows=rows,
+        )
+        written.append(path)
+    return tuple(written)
+
+
 def ingest(*, repo_root: Path, schema_dir: Path) -> IngestResult:
     """Read cached workbook, parse all shipped specs, write artifacts."""
     indicator_schema_path = schema_dir / "indicator.schema.json"
@@ -338,6 +451,12 @@ def ingest(*, repo_root: Path, schema_dir: Path) -> IngestResult:
 
     content, mtime, url = _resolve_workbook(repo_root=repo_root)
     parsed_by_id = parse_workbook(content, specs=SHIPPED_SPECS)
+
+    # B1.5.2 - one citation-ledger source_id shared across all four
+    # SHIPPED_SPECS (same HBS-IE Table 89 publication / edition).
+    csv_source_id = derive_source_id(
+        _CSV_SOURCE_PRODUCER, _CSV_SOURCE_TITLE, _CSV_SOURCE_VINTAGE
+    )
 
     results: list[IndicatorIngestResult] = []
     for spec in SHIPPED_SPECS:
@@ -355,6 +474,14 @@ def ingest(*, repo_root: Path, schema_dir: Path) -> IngestResult:
             sources=[Source(url=url, fetched_at=mtime)],
             schema_for_validation=indicator_schema,
         )
+
+        # B1.5.2 - canonical long-format CSV emission ALONGSIDE the
+        # legacy meadow/indicator JSON write. Existing JSON output stays
+        # in place; instead-of deletion is deferred to B3 per parent
+        # plan section 23.1 and sub-plan section B1.5.1..5 point 6.
+        by_variable = build_csv_variables(spec, parsed, source_id=csv_source_id)
+        emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+
         results.append(
             IndicatorIngestResult(
                 indicator_id=spec.indicator_id,
