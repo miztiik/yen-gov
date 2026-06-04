@@ -6,6 +6,8 @@ Module map for the ICED value-parity oracle. Canonical design and rationale live
 
 ASCII only: use plain keyboard characters; write "-", "->", ">=", "section", and "INR" instead of fancy symbols.
 
+> **MIGRATING (2026-06-04).** Per the [CLAUDE.md](../../CLAUDE.md) doctrine-in-migration banner + [the platform-reset plan](../../TODO/20260603-data-and-charting-platform-reset-plan.md): the canonical data this oracle compares against is moving to long-format CSV under `datasets/data/`, and the plan deletes network-fetch code from the INGEST path in favour of local TCPD / source CSV (plan 21.4). This live-fetch parity oracle is operator tooling, not the ingest path; its disposition under the rip is sequenced by the plan. Do NOT wire its live fetcher into the citizen pipeline.
+
 ## Invariants
 
 - **Self-contained.** No imports from `backend/` (CLAUDE.md section 4). Pure stdlib + the existing ICED client (wired in step 7).

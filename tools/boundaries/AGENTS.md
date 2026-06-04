@@ -6,6 +6,8 @@ Canonical rationale lives in [docs/architecture/data/boundaries.md](../../docs/a
 
 ASCII only: use plain keyboard characters; write "-", "->", ">=", "section", and "INR" instead of fancy symbols.
 
+> **MIGRATING (2026-06-04).** Per the [CLAUDE.md](../../CLAUDE.md) doctrine-in-migration banner + [the platform-reset plan](../../TODO/20260603-data-and-charting-platform-reset-plan.md): geometry stays `.topojson` / `.geojson` (boundaries are explicitly NOT migrated to CSV); the country/district topojson is FROZEN. The only reconciliation that touches this module is that CLAUDE.md section 12 provenance now targets `datasets/data/entities/source.csv` (was `datasets/taxonomy/sources.parquet`).
+
 ## Invariants
 
 - **Self-contained.** No imports from `backend/` (CLAUDE.md section 4). The script uses Python stdlib only; mapshaper and tippecanoe are external binaries on `PATH`.

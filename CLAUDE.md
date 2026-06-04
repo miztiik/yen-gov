@@ -1,10 +1,22 @@
 # CLAUDE.md - yen-gov Engineering Contract
 
-**Last Updated**: 2026-05-30
+**Last Updated**: 2026-06-04
 
 Non-negotiable contract for any human or AI agent working in this repo. Derived standard: [docs/reference/documentation-structure.md](docs/reference/documentation-structure.md). When the two disagree, this file wins for yen-gov.
 
-> Indian socio-economic + election data. Schema-first ingestion, processing, static visualization. Canonical store is Hive-partitioned Parquet read by DuckDB-WASM in the browser. All indicator families (elections, fiscal, health, energy, demography, ...) are equally important; whichever family is being worked on, go depth-first before breadth.
+> Indian socio-economic + election data. Schema-first ingestion, processing, static visualization. Canonical store is long-format CSV under `datasets/data/` read by DuckDB-WASM in the browser. All indicator families (elections, fiscal, health, energy, demography, ...) are equally important; whichever family is being worked on, go depth-first before breadth.
+
+> **DOCTRINE IN MIGRATION (2026-06-04).** The repo is executing [TODO/20260603-data-and-charting-platform-reset-plan.md](TODO/20260603-data-and-charting-platform-reset-plan.md) (Level-5, user-ratified): a rip-and-replace from Hive-partitioned Parquet to ONE format - long-format CSV under `datasets/data/` (OWID-grapher-shaped), read in-browser by DuckDB-WASM `read_csv(columns=...)`. Until that plan's chunks land, parts of THIS file still describe the old world. Reconciliation follows the plan's two-phase rule (plan section 22.7): an assertion is rewritten here once its new truth is binding regardless of code state, and carries an inline `MIGRATING (plan <chunk>)` marker where the fact only becomes true mid-rip. The binding new direction, in force for any NEW work from now:
+>
+> - **One format: long-format CSV.** No Parquet for tabular data. The schema contract moves to a per-file CSV column validator (name + dtype + nullability) + a typed `read_csv(columns=...)` boundary; it is NOT the storage format and it did NOT disappear (Holy Law #3 preserved). Geometry stays `.topojson` / `.geojson`.
+> - **Provenance FK target is `datasets/data/entities/source.csv`** (was `datasets/taxonomy/sources.parquet`); the citation-ledger rule (one row per producer/title/vintage) is unchanged (Holy Law #9, section 12).
+> - **Elections are per-election self-contained CSV** under `datasets/elections/{assembly,parliament}/...`; aggregate electoral indicators are long-format under `datasets/data/datapoints/electoral/`.
+> - **The DDF brand is dropped** and `__` is banned in filenames/ids (plan 21.6 / 21.12).
+> - **Glyph SVGs live in `frontend/public/icons/`** (plan 21.10).
+> - **ADRs retire into their subsystem/concept docs (keep-receipts)**; no new numbered ADR files (section 9 below + plan section 9).
+> - **Network-fetch code is deleted; ingest reads local TCPD / source CSV** (plan 21.4).
+>
+> Where this file still says Parquet, DDF, `sources.parquet`, the meadow tier, JSON-Schema-on-Parquet validators, or "frontend reads Parquet only", read it as MIGRATING per the chunk that deletes it (writers B3, fetch B4, reader-flip X1a, Parquet-delete X1b). NO agent may reintroduce a Parquet writer, a network fetcher, the DDF grammar, or a JSON projection of canonical data. Agent memory (`/memories/`) is derived, not authoritative (section 5) and self-corrects.
 
 ## 0a. The One Rule
 
@@ -31,13 +43,13 @@ Non-negotiable contract for any human or AI agent working in this repo. Derived 
 
 1. **Static-first production.** Deployed app is a static bundle on GitHub Pages. No production backend. Anything the UI needs at runtime ships in the bundle.
 2. **Backend = local pipeline only.** `backend/` generates datasets; MUST NOT be assumed to exist at production runtime.
-3. **Contracts before logic.** Every cross-boundary payload gets a typed schema before logic is written.
+3. **Contracts before logic.** Every cross-boundary payload gets a typed schema before logic is written. For tabular canonical data the contract surface is the per-file CSV column schema (name + dtype + nullability) consumed by a typed `read_csv(columns=...)` boundary (MIGRATING from JSON-Schema-on-Parquet per plan chunk B3).
 4. **Docs = agent memory.** Every design decision, however granular, is documented in the same commit as the code. Default home: relevant subsystem doc under `docs/architecture/<area>/` or concept doc under `docs/concepts/`. ADRs are reserved for cross-cutting decisions with credible rejected alternatives and non-trivial reversal cost. See [ADR-0034](docs/architecture/decisions/0034-documentation-routing-contract.md).
 5. **Structural fixes only.** No band-aids, no monkey patches, no "temporary" hacks. Escalate the correction level instead.
 6. **No hardcoding.** Tunable knobs live in `config/`; reference data and generated artifacts live in `datasets/`. Both are schema-validated.
 7. **No mocks unless asked.** Real implementations and real fixtures. Mocks only on explicit user request or for genuinely untestable external boundaries.
 8. **Open source first.** Prefer mature OSS over custom builds.
-9. **Provenance is mandatory.** Every observation row carries `source_id` FK to `datasets/taxonomy/sources.parquet`. See section 12.
+9. **Provenance is mandatory.** Every observation row carries `source_id` FK to `datasets/data/entities/source.csv` (MIGRATING from `datasets/taxonomy/sources.parquet` per plan chunks B2a/X1a). See section 12.
 10. **Tests ship with the feature.** Behaviour-changing commit lands with tests at the appropriate tier (section 15). Full suite green at merge.
 
 ## 2. Path Rules
@@ -59,7 +71,7 @@ In-memory `Path` objects for local I/O may stay platform-native. Rule applies at
 | `docs/`         | created    | Canonical knowledge (Diataxis tiers, 3-level depth) |
 | `README.md`     | created    | Entry point |
 | `CLAUDE.md`     | created    | This file |
-| `datasets/`     | created    | Canonical store + schemas + reference data + upstream snapshots. Hive-partitioned Parquet per family. Sole writer: `backend/`. See [docs/architecture/data/canonical-store.md](docs/architecture/data/canonical-store.md). |
+| `datasets/`     | created    | Canonical store + schemas + reference data + upstream snapshots. Long-format CSV under `datasets/data/` per [docs/concepts/data-spine.md](docs/concepts/data-spine.md) (MIGRATING from Hive-partitioned Parquet per plan chunks B2b/X1b). Sole writer: `backend/`. See [docs/architecture/data/canonical-store.md](docs/architecture/data/canonical-store.md). |
 | `datasets/_ops/`| created    | Operator state; not citizen-facing, not inventoried. See [datasets/_ops/README.md](datasets/_ops/README.md). |
 | `config/`       | created    | Human-edited tunable knobs. Schemas live in `datasets/schemas/`. |
 | `backend/`      | created    | Local Python pipeline. FastAPI admin wrapper at `backend/yen_gov/admin/`. |
@@ -80,7 +92,7 @@ Create folders only when real code is about to land. Identifier convention: use 
 - Cross-runtime sharing is via data contracts under `datasets/`, never code imports.
 - `tools/` MUST NOT import `backend/` runtime modules.
 - Domain/core code MUST NOT import adapters/infrastructure (adapters -> core, never reverse).
-- `datasets/<family>/_meadow/...` is the backend-internal meadow tier. Frontend MUST NOT fetch under `_meadow/`. See [ADR-0041](docs/architecture/decisions/0041-meadow-tier.md) + [docs/concepts/meadow-tier.md](docs/concepts/meadow-tier.md).
+- `datasets/<family>/_meadow/...` is the backend-internal meadow tier. Frontend MUST NOT fetch under `_meadow/`. See [ADR-0041](docs/architecture/decisions/0041-meadow-tier.md) + [docs/concepts/meadow-tier.md](docs/concepts/meadow-tier.md). (MIGRATING: the meadow tier retires as the local-CSV reingest lands per plan chunk B4.)
 
 ## 5. Documentation Discipline
 
@@ -161,7 +173,7 @@ Commit messages describe the change. **No AI co-author / attribution tags.**
 - Propose `write_text_if_changed`-style byte-compare helpers at write seams. Fix non-determinism upstream of the write seam.
 - Re-litigate the sources-table design (domain-as-identity, drop-the-table, add-`content_hash`-back, require-`citation_full`). See [ADR-0032](docs/architecture/decisions/0032-sources-citation-ledger.md) Rejected A/B/C/D.
 - Walk the real on-disk corpus from a `pytest` test or live HTTP smoke test. That is Tier-B (section 11), local-only via `python -m yen_gov validate --root .`. Inject root via env var, use `tmp_path` fixtures in tests. See [docs/architecture/backend/validator.md](docs/architecture/backend/validator.md).
-- Emit JSON projections of canonical data for the citizen frontend. Frontend reads Parquet via DuckDB-WASM only.
+- Emit JSON projections of canonical data for the citizen frontend. Frontend reads long-format CSV via DuckDB-WASM `read_csv(columns=...)` only (MIGRATING from Parquet per plan chunks F1/X1a).
 - Run CI that processes `datasets/**`. Publish is plain static-file copy; CI gates are lint, type-check, pytest, frontend build, Playwright only.
 - Use broad / lossy / history-rewriting git commands (section 8).
 - Let `TODO/`, chat logs, `AGENTS.md`, or `/memories/` become the source of truth for architecture.
@@ -206,7 +218,7 @@ The reader compatibility contract lives in `datasets/schema-compatibility.json`.
 
 ## 12. Data Provenance
 
-Every observation row in every Parquet family under `datasets/` carries a `source_id` FK to one row in `datasets/taxonomy/sources.parquet`. Provenance is a **citation ledger**, one row per `(producer, title, vintage)` triple, not per fetch event. Adopts OWID `origin.*` fields verbatim plus four yen-gov extensions for confidence + verifiability.
+Every observation row in every long-format CSV family under `datasets/data/` (and every `datasets/elections/**` row) carries a `source_id` FK to one row in `datasets/data/entities/source.csv` (MIGRATING from per-Parquet-family + `datasets/taxonomy/sources.parquet` per plan chunks B2a/X1a). Provenance is a **citation ledger**, one row per `(producer, title, vintage)` triple, not per fetch event. Adopts OWID `origin.*` fields verbatim plus four yen-gov extensions for confidence + verifiability.
 
 Schema (11 columns, 8 required + 3 optional): [docs/architecture/data/canonical-store.md section 5](docs/architecture/data/canonical-store.md). Rationale + rejected designs: [ADR-0032](docs/architecture/decisions/0032-sources-citation-ledger.md). v3.0 `vintage` sharpening (publisher edition vs operator snapshot window): [ADR-0042](docs/architecture/decisions/0042-sources-schema-v3-vintage-as-period-anchor.md). Concept: [docs/concepts/data-provenance.md](docs/concepts/data-provenance.md).
 

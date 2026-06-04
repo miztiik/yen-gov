@@ -1,6 +1,8 @@
 # `datasets/grapher/` — Frontend-owned render catalogue
 
-**Last Updated**: 2026-05-26
+**Last Updated**: 2026-06-04
+
+> **MIGRATING (2026-06-04).** Per the [CLAUDE.md](../../CLAUDE.md) doctrine-in-migration banner + [the platform-reset plan](../../TODO/20260603-data-and-charting-platform-reset-plan.md), the canonical data this catalogue annotates is moving to long-format CSV under `datasets/data/`, and ADRs are retiring into their subsystem/concept docs (keep-receipts; no new numbered ADR files). The render-catalogue split (render hints separated from canonical data shape) survives the rip; only the storage of the data it points at changes.
 
 This directory holds the **grapher catalogue**: per-indicator and per-(topic, indicator) render hints that were previously inlined into canonical data schemas (`indicator-catalogue.schema.json`, `topic-catalogue.schema.json`, legacy `indicator.schema.json`).
 

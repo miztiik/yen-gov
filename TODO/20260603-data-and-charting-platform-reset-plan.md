@@ -1037,7 +1037,7 @@ This table is the **canonical execution tracker**. The orchestrator reads `Block
 
 | Chunk | Blocks on | Parallel-OK with | Gate | PR# | Status |
 | --- | --- | --- | --- | --- | --- |
-| D-DOC4 STEP 0 doctrine reconciliation (CLAUDE.md + 8 AGENTS.md) | - | (none - merges FIRST) | doctrine-marker-audit | - | TODO |
+| D-DOC4 STEP 0 doctrine reconciliation (CLAUDE.md + 8 AGENTS.md) | - | (none - merges FIRST) | doctrine-marker-audit | direct-commit | DONE (2026-06-04, doctrine-migration map in 22.7) |
 | D-DOC0 column-contract | D-DOC4 | all D/U/B1-prep | docs-review | - | TODO |
 | D-DOC1 data-spine | - | all | docs-review | - | TODO |
 | D-DOC2 chart-matrix | - | all except U4 | drift-stub | - | TODO |
@@ -1103,9 +1103,27 @@ The rip invalidates large parts of the standing doctrine (Parquet is the canonic
 
 **Deliverable:** D-DOC4 ships the edited doctrine files PLUS a **doctrine-migration map** (one table: `file:line old-assertion -> new-truth or MIGRATING-marker -> chunk that flips it`) appended to this section when executed, so the audit gate and every later agent can see the full reconciliation at a glance. D-DOC4 is cheap (no code, no tests beyond the grep audit) and merges FIRST; it is the kickoff gate in the prompt (24.4).
 
----
+**Doctrine-migration map (executed 2026-06-04, directly under user authorization - NOT via PR; commit on `plan/data-charting-reset-round5`).** Every doctrine line the rip invalidates is now either rewritten to the binding new truth (neutralised-now) or carries a `MIGRATING (... per plan chunk(s) ...)` marker that the named chunk flips in its own PR (per-chunk DoD #7). `/memories/` left untouched (derived, not authoritative).
 
-## 23. Round-5 ripple corrections - concrete file-level fixes (2026-06-04)
+| File (assertion) | Old assertion | New truth or MIGRATING-marker | Chunk that flips it |
+| --- | --- | --- | --- |
+| CLAUDE.md (preamble) | "Canonical store is Hive-partitioned Parquet" | Rewritten: "long-format CSV under `datasets/data/`" + full DOCTRINE-IN-MIGRATION banner added | neutralised-now |
+| CLAUDE.md Holy Law #3 | "Every cross-boundary payload gets a typed schema" | Rewritten: contract surface is per-file CSV column schema + typed `read_csv(columns=...)`; MIGRATING from JSON-Schema-on-Parquet | B3 |
+| CLAUDE.md Holy Law #9 + section 12 | `source_id` FK to `datasets/taxonomy/sources.parquet` | Rewritten target `datasets/data/entities/source.csv`; MIGRATING marker | B2a/X1a |
+| CLAUDE.md section 3 (`datasets/` row) | "Hive-partitioned Parquet per family" | Rewritten: long-format CSV under `datasets/data/`; MIGRATING marker | B2b/X1b |
+| CLAUDE.md section 4 (meadow tier) | meadow tier stated as standing | MIGRATING marker: meadow retires at local-CSV reingest | B4 |
+| CLAUDE.md section 10 anti-pattern | "Frontend reads Parquet via DuckDB-WASM only" | Rewritten: reads long-format CSV via `read_csv(columns=...)`; MIGRATING marker | F1/X1a |
+| backend/yen_gov/AGENTS.md (canonical-pivot + doc link + FK) | "New writes target Hive-partitioned Parquet"; `sources.parquet` FK | Rewritten: CSV writer -> `datasets/data/**`; FK `entities/source.csv`; banner + MIGRATING markers | B2b/B3/X1b, B2a/X1a |
+| frontend/src/AGENTS.md (canonical-pivot + doc link) | "SQL over Hive-partitioned Parquet ... HTTP Range" | Rewritten: SQL over long-format CSV via `read_csv(columns=...)`; banner + MIGRATING markers | F1/X1a |
+| admin/AGENTS.md (canonical-pivot) | "reading `datasets/<family>/*.parquet` ... operator_state.parquet" | Rewritten: CSV under `datasets/data/`; CSV operator-state; banner + MIGRATING markers | (admin rewrite, plan-sequenced) |
+| frontend/src/lib/yenask/AGENTS.md (3 lines) | "DuckDB-WASM against canonical Parquet"; "taxonomy parquets"; "Joins `taxonomy.sources`" | Rewritten: canonical CSV; taxonomy CSV; `datasets/data/entities/source.csv`; banner + MIGRATING markers | B2b/X1a |
+| datasets/livestock/AGENTS.md (canonical + FK) | "canonical Parquet"; FK `sources.parquet` | Banner + MIGRATING markers: CSV under `datasets/data/datapoints/`; FK `entities/source.csv` | B4, B2a/X1a |
+| datasets/grapher/AGENTS.md | (Parquet-era data shape implied; ADR cross-refs) | Banner added: data moves to CSV; render-split survives; ADRs retire into subsystem docs | neutralised-now |
+| tools/boundaries/AGENTS.md | (section 12 FK `sources.parquet` implied) | Banner added: geometry NOT migrated (topojson/geojson frozen); FK target `entities/source.csv` | neutralised-now |
+| tools/iced_parity/AGENTS.md | (Parquet-era canonical compare target) | Banner added: compare target moves to CSV; live fetcher stays out of citizen ingest (network-fetch deletion 21.4) | neutralised-now |
+| docs/agents/bootstrap.md + .claude/skills/bootstrap/SKILL.md | (no migration awareness) | Banner + step-6 read of the reset plan added so every persona loads the binding rip doctrine | neutralised-now |
+
+
 
 A 4-persona ripple review (Explore codebase-audit + Gregor contracts + Fowler deletion-craft + Jony UI) found the round-4 prose was decision-complete but understated the cutover's blast radius by ~40%. These corrections supersede the conflicting round-4 bullets they name; the chunk graph (22.2) and ledger (22.5) already fold them in. No data-shape decision is reopened.
 
