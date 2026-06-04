@@ -1,7 +1,7 @@
 """B1.6.2 writer-unit gate: datagovin_ogd row-builder + write_csv.
 
 Locks the contract for sub-row B1.6.2 of
-``TODO/20260604-b1.6-misc-repoint-subplan.md``: each shipped OGD
+``docs/archive/plans/20260604-b1.6-misc-repoint-subplan.md``: each shipped OGD
 indicator maps 1:1 to a kebab-case ``variable_id`` (no facets - one
 resource per indicator), is emitted via the canonical
 ``yen_gov.canonical.csv_writer.write_csv`` against file class

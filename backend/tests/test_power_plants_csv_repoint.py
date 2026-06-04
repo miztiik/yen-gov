@@ -1,7 +1,7 @@
 """B1.6.3 writer-unit gate: india_geodata/power_plants row-builder + write_csv.
 
 Locks the contract for sub-row B1.6.3 of
-``TODO/20260604-b1.6-misc-repoint-subplan.md``: point features aggregate
+``docs/archive/plans/20260604-b1.6-misc-repoint-subplan.md``: point features aggregate
 to one national-grain row per fuel facet, each emitted via the canonical
 ``yen_gov.canonical.csv_writer.write_csv`` against file class
 ``datasets/data/datapoints/geo/*.csv``, and stamps every row with the
