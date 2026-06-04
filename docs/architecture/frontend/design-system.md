@@ -133,7 +133,7 @@ Per `/memories/lessons.md` the test uses RELATIVE imports (`node:fs` / `node:pat
 | Chunk | What migrates | Status |
 | --- | --- | --- |
 | U2 | LeftRail brand hex, breadcrumb chrome, drawer surfaces, glass app bar | TODO |
-| U3 | icon set under `frontend/public/icons/` + LICENCES.md | TODO |
+| U3 | icon set under `frontend/public/icons/` + LICENCES.md | MERGED (_pending_) |
 | U4 | chart switcher chrome, axis colours | TODO |
 | U5 | skeleton / loading states | TODO |
 

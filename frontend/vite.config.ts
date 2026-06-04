@@ -67,11 +67,16 @@ function serveDatasets() {
 // is a deployment concern, not a source-code one (CLAUDE.md §6).
 const BASE_URL = process.env.BASE_URL ?? "/";
 
-// Build-time icon registry. Walks frontend/src/lib/icons/*.svg, parses each
+// Build-time icon registry. Walks frontend/public/icons/*.svg, parses each
 // file through the strict allowlist parser in
 // frontend/src/lib/icons/parse.ts, and exposes the result as the virtual
 // module `virtual:icon-registry`. The parser never runs in the browser —
 // only the structured `IconRegistry` object reaches the bundle.
+//
+// The SVG bytes live under frontend/public/icons/ (plan section 21.10,
+// party-symbols precedent: static SVG assets are public/, the allowlist +
+// parser are code and stay under src/lib/icons/). LICENCES.md sits next
+// to the SVGs and is the provenance ledger every shipped icon row needs.
 //
 // Rejections fail the build LOUDLY with a precise `<file>:<line>:<col>
 // <reason>` message. See frontend/src/lib/icons/README.md for the
@@ -79,7 +84,7 @@ const BASE_URL = process.env.BASE_URL ?? "/";
 function iconRegistryPlugin() {
   const VIRTUAL_ID = "virtual:icon-registry";
   const RESOLVED_ID = "\0" + VIRTUAL_ID;
-  const iconsDir = resolve(fileURLToPath(new URL(".", import.meta.url)), "src", "lib", "icons");
+  const iconsDir = resolve(fileURLToPath(new URL(".", import.meta.url)), "public", "icons");
 
   function loadAll(): Record<string, Icon> {
     const out: Record<string, Icon> = {};

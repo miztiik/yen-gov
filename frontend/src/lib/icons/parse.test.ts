@@ -87,11 +87,13 @@ describe("icon allowlist parser — structural rejections", () => {
 
 describe("allowlist self-consistency", () => {
   test("every shipped icon SVG parses cleanly", () => {
-    // Walk the icons/ folder (siblings of __fixtures__/), skip the
-    // fixtures dir + any underscore-prefixed support files. Each .svg
-    // must round-trip through parseIcon without throwing — this is the
+    // Walk frontend/public/icons/*.svg (the live icon registry per plan
+    // section 21.10; SVG bytes live under public/, the allowlist + parser
+    // are code and stay here under src/lib/icons/). Each .svg must
+    // round-trip through parseIcon without throwing — this is the
     // build-time gate, asserted as a unit test.
-    const root = resolve(fileURLToPath(new URL(".", import.meta.url)));
+    const here = resolve(fileURLToPath(new URL(".", import.meta.url)));
+    const root = resolve(here, "..", "..", "..", "public", "icons");
     const entries = readdirSync(root, { withFileTypes: true });
     const svgs = entries.filter((e) => e.isFile() && e.name.endsWith(".svg") && !e.name.startsWith("_"));
     expect(svgs.length).toBeGreaterThan(0);

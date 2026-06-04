@@ -12,7 +12,7 @@ Build-time SVG icon pipeline that replaces the legacy `IndicatorIcon.svelte`. St
   - `ALLOWED_ATTRS` (22): `viewBox`, `xmlns`, `fill`, `stroke`, `stroke-width`, `stroke-linecap`, `stroke-linejoin`, `d`, `cx`, `cy`, `r`, `x`, `y`, `width`, `height`, `x1`, `y1`, `x2`, `y2`, `points`, `transform`, `class`.
   - `FORBIDDEN_ELEMENTS` (15): `script`, `style`, `foreignObject`, `embed`, `iframe`, `image`, `animate`, `animateMotion`, `animateTransform`, `set`, `use`, `mpath`, `mask`, `pattern`, `clipPath`.
   - `FORBIDDEN_ATTR_PATTERNS` (regex): `/^on/i` (event handlers), `/^xlink:/i`, `/^href$/i`, `/^style$/i`.
-- [`frontend/vite.config.ts`](../../../../frontend/vite.config.ts) — `iconRegistryPlugin()` exposes virtual id `virtual:icon-registry`, watches `frontend/src/assets/icons/*.svg` for add/change/unlink with HMR.
+- [`frontend/vite.config.ts`](../../../../frontend/vite.config.ts) - `iconRegistryPlugin()` exposes virtual id `virtual:icon-registry`, watches `frontend/public/icons/*.svg` for add/change/unlink with HMR. (Plan section 21.10: SVG bytes live under `public/`, the allowlist + parser are code and stay under `src/lib/icons/`; the party-symbols registry follows the same pattern.) Provenance ledger lives next to the SVGs at [`frontend/public/icons/LICENCES.md`](../../../../frontend/public/icons/LICENCES.md).
 - Initial set: 4 Lucide ISC-licensed SVGs (`vote`, `cloud`, `car`, `heart-pulse`) plus 8 test fixtures.
 
 ## Doctrinal rules
