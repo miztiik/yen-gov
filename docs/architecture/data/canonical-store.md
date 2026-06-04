@@ -1369,6 +1369,10 @@ Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-r
 
 Archived 2026-05-19 (superseded by ADR-0030). Body preserved verbatim at [`docs/archive/decisions/0014-sqlite-emitter.md`](../../archive/decisions/0014-sqlite-emitter.md). Trace: in-bundle SQLite as canonical store (per archived ADR-0014); rejected designs included single `all.sqlite` covering every event/state, treating SQLite as a contract surface with JSON Schema + `x-version`, regenerating `.sqlite` in `deploy-site.yml` from committed JSON, and emitter as a step in `pipeline/run.py`. ADR-0030 supersedes the whole emitter family by moving researcher SQL onto DuckDB-WASM over the canonical Parquet store.
 
+### ADR-0017-explore rejected alternatives
+
+Archived 2026-06-04 per D-DOC3.9 (superseded by ADR-0030). Body preserved verbatim at [`docs/archive/decisions/0017-explore-page-uses-sql-js.md`](../../archive/decisions/0017-explore-page-uses-sql-js.md). Trace: sql.js for the explore page (per archived ADR-0017 explore-page-uses-sql-js); rejected designs included `@sqlite.org/sqlite-wasm` (the official SQLite-project port; rejected on the bundle-size and worker-plumbing reasons - ~370 KB sql.js vs ~570 KB official + worker file), DuckDB-Wasm (rejected at the time as "overkill for 150 KB and adds analytic-DB semantics we don't need; bundle ~2 MB" - itself later superseded by ADR-0030 which adopts DuckDB-Wasm as the canonical engine because the data altitude changed from "150 KB per-state SQLite" to "canonical store over Parquet"), and re-emitting the DB as JSON (rejected because it duplicates the work of [archived ADR-0014](../../archive/decisions/0014-sqlite-emitter.md) and removes the user-facing affordance the /explore page existed to provide). ADR-0030 supersedes the per-state SQLite + sql.js path entirely by moving researcher SQL onto DuckDB-WASM over the canonical store; the `sql.js` and `@types/sql.js` packages and `frontend/src/lib/sql.ts` were deleted in PR-R.3 (Phase 1.8e).
+
 ---
 
 ## See also
