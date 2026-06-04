@@ -1047,7 +1047,7 @@ This table is the **canonical execution tracker**. The orchestrator reads `Block
 | U3 icons->public | - | all | icon-build+all-routes-smoke | - | TODO |
 | U4 feasibleAt+switcher | D-DOC2 | B*, U3 | chart-drift-test | - | TODO |
 | U5 skeleton+jump+doc+chartshell-states | U1 | B*, U3 | build | - | TODO |
-| B1 csv_writer + ingest re-point | D-DOC0 | U*, D* | writer-unit+fk-validator | - | TODO |
+| B1 csv_writer + ingest re-point | D-DOC0 | U*, D* | writer-unit+fk-validator | _pending_ | IN-FLIGHT (deferred to sub-plan [TODO/20260604-b1-csv-writer-subplan.md](20260604-b1-csv-writer-subplan.md) per section 24.5; parent row flips to DEFERRED-TO-SUBPLAN on PR merge) |
 | B2a entity+catalogue CSVs | B1 | U* | fk-validator | - | TODO |
 | B2b reingest families (per-family) | B2a | U* | cross-format-parity | - | TODO |
 | F1 CSV loaders + oracle-rewrite | B2a, B2b, U1, D-DOC0 | U* | loader-unit+parity-oracle-CSV | - | TODO |
