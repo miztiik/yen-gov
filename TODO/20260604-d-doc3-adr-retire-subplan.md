@@ -43,7 +43,7 @@ Per CLAUDE.md correction-level discipline (>=4 files structural -> propose break
 
 | Sub-row | Blocks on | Gate | PR# | Status |
 | --- | --- | --- | --- | --- |
-| D-DOC3.1 spawn (this PR; flip parent row + create this sub-plan) | - | docs-review | _pending_ | IN-FLIGHT |
+| D-DOC3.1 spawn (this PR; flip parent row + create this sub-plan) | - | docs-review | #723 | IN-FLIGHT |
 | D-DOC3.2 redirect index `docs/reference/decision-index.md` + baseline gate (record `grep -c '^## Rejected alternatives\|^## Alternatives considered' docs/**/*.md` = 36 BEFORE migration; carry the per-ADR target-home map authored here) | D-DOC3.1 | grep-receipts-eq=36 (frozen baseline) | - | TODO |
 | D-DOC3.3 fold canonical-store + provenance ADRs into `docs/architecture/data/canonical-store.md` + `docs/concepts/data-provenance.md` (LIVE: 0019, 0030, 0032, 0041, 0042, 0043, 0044, 0046; SUPERSEDED-archive: 0002, 0014) | D-DOC3.2 | grep-receipts-eq | - | TODO |
 | D-DOC3.4 fold indicator-naming + catalogue ADRs into `docs/concepts/indicator-naming.md` + `docs/architecture/data/indicator-catalogue.md` (LIVE: 0020, 0025, 0026, 0027, 0045; SUPERSEDED-archive: 0024) | D-DOC3.2 | grep-receipts-eq | - | TODO |
