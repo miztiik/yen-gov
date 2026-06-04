@@ -20,6 +20,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from yen_gov.canonical.citation import derive_source_id
+from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.core.io import Source, write_artifact
 from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
 from yen_gov.sources.iced_common import IcedClient
@@ -28,6 +30,43 @@ from .parsers import parse_opperf_states, parse_rpo
 
 
 API_HOST_V0 = "https://icedapi.niti.gov.in"
+
+
+# ---------------------------------------------------------------------------
+# Canonical CSV emission constants (B1.4.7)
+# ---------------------------------------------------------------------------
+#
+# All four iced_discom indicators are NITI Aayog ICED endpoints; vintage =
+# operator snapshot FY per ADR-0042. derive_source_id() hashes the
+# (producer, title, vintage) triple at write time; the row in
+# `datasets/data/entities/source.csv` is populated by B2a. variable_ids
+# honour parent plan section 21.6 / 21.12 (no `__`) and ADR-0044 (no
+# grain prefix). RPO splits per facet (solar/non-solar/total) because
+# csv_writer does not yet accept facet columns (sub-plan B1.4.1..9 #7).
+# concept_id binding is DEFERRED to B2a; recorded as DEFER marker in
+# the PR body.
+_CSV_FILE_CLASS = "datasets/data/datapoints/geo/*.csv"
+_CSV_OUT_REL_DIR = "datasets/data/datapoints/geo"
+_CSV_SOURCE_PRODUCER = "NITI Aayog India Climate & Energy Dashboard"
+_CSV_SOURCE_VINTAGE = "2024-25"
+
+_CSV_SOURCE_TITLE_TD_LOSS = (
+    "ICED operational performance states: transmission and distribution loss"
+)
+_CSV_VARIABLE_PREFIX_TD_LOSS = "transmission-distribution-loss-pct"
+
+_CSV_SOURCE_TITLE_BILLING = (
+    "ICED operational performance states: billing efficiency"
+)
+_CSV_VARIABLE_PREFIX_BILLING = "distribution-billing-efficiency-pct"
+
+_CSV_SOURCE_TITLE_COLLECTION = (
+    "ICED operational performance states: collection efficiency"
+)
+_CSV_VARIABLE_PREFIX_COLLECTION = "distribution-collection-efficiency-pct"
+
+_CSV_SOURCE_TITLE_RPO = "ICED RPO compliance (solar, non-solar, total)"
+_CSV_VARIABLE_PREFIX_RPO = "rpo-compliance-pct"
 
 LICENSE_ICED = {
     "id": "GoI-OpenData",
@@ -211,6 +250,110 @@ def _indicator_rpo_compliance() -> dict[str, Any]:
 
 
 # ---------------------------------------------------------------------------
+# Canonical CSV emission helpers (B1.4.7)
+# ---------------------------------------------------------------------------
+
+
+def _slug_segment(text: str) -> str:
+    """Kebab-case a facet segment for use inside a ``variable_id``.
+
+    Mirrors sibling iced_* ingests (B1.4.1..6). Parent plan section
+    21.6 / 21.12 ban ``__``; ADR-0044 bans grain prefixes.
+    """
+    out: list[str] = []
+    prev_dash = True
+    for ch in text.lower():
+        if ch.isalnum():
+            out.append(ch)
+            prev_dash = False
+        elif not prev_dash:
+            out.append("-")
+            prev_dash = True
+    return "".join(out).strip("-")
+
+
+def _period_to_year_int(period: str) -> int:
+    """Reduce ``YYYY-MM`` or ``YYYY`` to integer year.
+
+    The canonical CSV column class ``datasets/data/datapoints/geo/*.csv``
+    declares ``time`` as integer. iced_discom parsers emit ``YYYY-04``
+    (fiscal-year start) via ``fy_to_period``. Raises on malformed input.
+    """
+    if not (isinstance(period, str) and len(period) >= 4 and period[:4].isdigit()):
+        raise ValueError(f"unexpected time format {period!r}; expected 'YYYY' or 'YYYY-MM'")
+    return int(period[:4])
+
+
+def build_csv_variables(
+    parsed_rows: list[dict[str, Any]],
+    *,
+    source_id: str,
+    variable_prefix: str,
+) -> dict[str, list[dict[str, Any]]]:
+    """Split parser output into per-facet CSV row lists keyed by ``variable_id``.
+
+    Faceted indicators (RPO compliance) split into one ``variable_id``
+    per facet value: ``<variable_prefix>-<facet-slug>``. Non-faceted
+    indicators (opperf categories) collapse to a single ``variable_id
+    == variable_prefix``. Each output row carries the canonical 4
+    columns declared on file class
+    ``datasets/data/datapoints/geo/*.csv``: ``entity_id``, ``time``,
+    ``value``, ``source_id``.
+    """
+    by_variable: dict[str, list[dict[str, Any]]] = {}
+    for row in parsed_rows:
+        facet = row.get("facet")
+        if facet is None:
+            variable_id = variable_prefix
+        else:
+            variable_id = f"{variable_prefix}-{_slug_segment(str(facet))}"
+        by_variable.setdefault(variable_id, []).append({
+            "entity_id": row["entity_id"],
+            "time": _period_to_year_int(row["time"]),
+            "value": row["value"],
+            "source_id": source_id,
+        })
+    return by_variable
+
+
+def emit_csv_variables(
+    *, repo_root: Path, by_variable: dict[str, list[dict[str, Any]]]
+) -> tuple[Path, ...]:
+    """Write each ``variable_id`` to ``datasets/data/datapoints/geo/<id>.csv``."""
+    written: list[Path] = []
+    out_dir = repo_root / _CSV_OUT_REL_DIR
+    for variable_id, rows in sorted(by_variable.items()):
+        path = write_csv(
+            path=out_dir / f"{variable_id}.csv",
+            file_class=_CSV_FILE_CLASS,
+            rows=rows,
+        )
+        written.append(path)
+    return tuple(written)
+
+
+def _emit_csv_for(
+    *,
+    repo_root: Path,
+    parsed_rows: list[dict[str, Any]],
+    title: str,
+    variable_prefix: str,
+) -> tuple[Path, ...]:
+    """Canonical CSV emission ALONGSIDE the legacy meadow indicator JSON.
+
+    B1.4.7 - both stores coexist (parent plan section 23.1); reader
+    flip is X1a. ``source_id`` derived via ADR-0042 from
+    (producer, title, vintage); one ``variable_id`` per facet (csv_writer
+    facet-column support deferred).
+    """
+    source_id = derive_source_id(_CSV_SOURCE_PRODUCER, title, _CSV_SOURCE_VINTAGE)
+    by_variable = build_csv_variables(
+        parsed_rows, source_id=source_id, variable_prefix=variable_prefix
+    )
+    return emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+
+
+# ---------------------------------------------------------------------------
 # Emit helper
 # ---------------------------------------------------------------------------
 
@@ -289,6 +432,12 @@ def ingest_iced_discom(*, repo_root: Path, client: IcedClient | None = None) -> 
         out_rel="datasets/energy/_meadow/iced/2024-25/state_distribution_td_loss_pct.json",
         spatial="India (states + UTs)", skipped_unmapped=op_skipped,
     ))
+    _emit_csv_for(
+        repo_root=repo_root,
+        parsed_rows=by_cat["transmission-and-distribution-loss"],
+        title=_CSV_SOURCE_TITLE_TD_LOSS,
+        variable_prefix=_CSV_VARIABLE_PREFIX_TD_LOSS,
+    )
     results.append(_emit(
         repo_root=repo_root, schema_for_validation=schema_for_validation,
         schema_id_str=sid, schema_version_str=sver,
@@ -298,6 +447,12 @@ def ingest_iced_discom(*, repo_root: Path, client: IcedClient | None = None) -> 
         out_rel="datasets/energy/_meadow/iced/2024-25/state_distribution_billing_efficiency_pct.json",
         spatial="India (states + UTs)",
     ))
+    _emit_csv_for(
+        repo_root=repo_root,
+        parsed_rows=by_cat["billing-efficiency"],
+        title=_CSV_SOURCE_TITLE_BILLING,
+        variable_prefix=_CSV_VARIABLE_PREFIX_BILLING,
+    )
     results.append(_emit(
         repo_root=repo_root, schema_for_validation=schema_for_validation,
         schema_id_str=sid, schema_version_str=sver,
@@ -307,6 +462,12 @@ def ingest_iced_discom(*, repo_root: Path, client: IcedClient | None = None) -> 
         out_rel="datasets/energy/_meadow/iced/2024-25/state_distribution_collection_efficiency_pct.json",
         spatial="India (states + UTs)",
     ))
+    _emit_csv_for(
+        repo_root=repo_root,
+        parsed_rows=by_cat["collection-efficiency"],
+        title=_CSV_SOURCE_TITLE_COLLECTION,
+        variable_prefix=_CSV_VARIABLE_PREFIX_COLLECTION,
+    )
 
     # RPO compliance.
     rpo_resp = client.get("/energy/electricity/distribution/rpo")
@@ -319,6 +480,12 @@ def ingest_iced_discom(*, repo_root: Path, client: IcedClient | None = None) -> 
         out_rel="datasets/energy/_meadow/iced/2024-25/state_rpo_compliance_pct.json",
         spatial="India (states + UTs)", skipped_unmapped=rpo_skipped,
     ))
+    _emit_csv_for(
+        repo_root=repo_root,
+        parsed_rows=rpo_rows,
+        title=_CSV_SOURCE_TITLE_RPO,
+        variable_prefix=_CSV_VARIABLE_PREFIX_RPO,
+    )
 
     # PR-A5a-tail: derive orchestrator fetched_at from upstream per-fetch
     # timestamps instead of wall-clock datetime.now().
