@@ -2,8 +2,8 @@
 
 **Last Updated**: 2026-06-05
 **Parent sub-plan**: [TODO/20260605-f2a-categorybar-consolidation-subplan.md](20260605-f2a-categorybar-consolidation-subplan.md) sub-row F2a.5
-**Grandparent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) chunk F2a
-**Status**: TODO (sub-sub-plan spawned 2026-06-05 after F2a.3+F2a.4 #782 closed)
+**Grandparent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) chunk F2a
+**Status**: COMPLETE (closed 2026-06-05; all three sub-rows MERGED)
 **Authority**: Fowler (deletion safety + experiment-cookie smoke) / Jony (chart-ergonomics) / Gregor (composition-bar/ package fate) per CLAUDE.md section 0a
 
 ---
@@ -35,7 +35,7 @@ Out of scope (deliberately deferred):
 | --- | --- | --- | --- | --- |
 | F2a.5.1 Add `mode="diverging"` body to `CategoryBar.svelte` (lift body byte-identical from `frontend/src/lib/CompositionBar.svelte`; consume `CompositionBarModel` from `composition-bar/types`; ChartShell wrap moves INSIDE the diverging body because the model carries `label` + `subtitle` + `honesty_banners` + `caption_fptp` that the existing top-level wrap_in_shell mechanism doesn't surface). Update DevChartsSandbox with a synthetic `CompositionBarModel` demo. NO production-route touch. | - | vitest + sandbox-render-smoke on `/dev/charts-sandbox` | #784 | MERGED |
 | F2a.5.2 Production migration: flip the `CompositionBar` import in `StateOverview.svelte` to use `CategoryBar mode="diverging"`. CompositionBar.svelte deleted (option b per recommendation; git rename detection preserves blame). Playwright `composition-bar-mount.spec.ts` selectors updated to `[data-component="category-bar"][data-mode="diverging"]`. §13 smoke uses `?yg_variant=treatment` URL override (auto-sets `yg_variant_chart-composition-bar-election-seats` cookie via bucket.ts readOverride) against `/s/karnataka` (in targeting list S05/S07/S29/S10; TN excluded). Cookie-name + override mechanism verified against `frontend/src/lib/experiments/bucket.ts` lines 222-244 before drafting smoke. | F2a.5.1 | section 13 in-browser smoke with `?yg_variant=treatment` override + svelte-check + vitest (CategoryBar tests still pass) | #785 | MERGED |
-| F2a.5.3 `composition-bar/` package decision: per the audit, this package is an adapter library worth keeping. Decide and act on one of: (a) KEEP at `lib/charts/composition-bar/` and rename the README to clarify "diverging-bar adapter package, consumed by CategoryBar mode='diverging'"; (b) RENAME the folder to `lib/charts/diverging-bar/` to align with the CategoryBar mode name; (c) split the renderer-orphan (anything that referenced the deleted CompositionBar.svelte) into a separate module. Recommend (a) - minimal churn, blame-history preserves, new README clarifies the contract. | F2a.5.2 | docs-review + svelte-check + vitest (adapter tests still pass) | _pending_ | IN-FLIGHT |
+| F2a.5.3 `composition-bar/` package decision: per the audit, this package is an adapter library worth keeping. Decide and act on one of: (a) KEEP at `lib/charts/composition-bar/` and rename the README to clarify "diverging-bar adapter package, consumed by CategoryBar mode='diverging'"; (b) RENAME the folder to `lib/charts/diverging-bar/` to align with the CategoryBar mode name; (c) split the renderer-orphan (anything that referenced the deleted CompositionBar.svelte) into a separate module. Recommend (a) - minimal churn, blame-history preserves, new README clarifies the contract. | F2a.5.2 | docs-review + svelte-check + vitest (adapter tests still pass) | #786 | MERGED |
 
 Parallel-safe groups: F2a.5 is SERIAL (each row depends on the previous one's API surface).
 
@@ -100,9 +100,30 @@ README rewrite explains:
 
 The parent F2a sub-plan row F2a.5 is `DEFERRED-TO-SUB-SUB-PLAN -> TODO/20260605-f2a-5-diverging-mode-subsubplan.md` in this PR. Sub-row status updates land inside each F2a.5.x PR per parent section 24.3.
 
+## Sub-sub-plan complete (2026-06-05)
+
+All three sub-rows MERGED in one session:
+
+| Sub-row | PR | Substance |
+| ------- | -- | --------- |
+| F2a.5.1 mode="diverging" body lift + sandbox demo | #784 | 252-LOC body lifted byte-identical from `lib/CompositionBar.svelte` into `CategoryBar.svelte` divergingBody snippet; sandbox-only proof. |
+| F2a.5.2 StateOverview production migration + CompositionBar.svelte delete + Playwright selector flip | #785 | 262-LOC standalone renderer deleted; `<CompositionBar />` mount at StateOverview.svelte line ~775 flipped to `<CategoryBar mode="diverging" view_model={...} />`; §13 3-bucket in-browser smoke (treatment/control/TN-out-of-targeting) all pass against `/s/karnataka?yg_variant=treatment`; deletion-guard assertion added to the Playwright spec. |
+| F2a.5.3 composition-bar/ package README rewrite (option-a: KEEP + clarify) | #786 | Doc-only; reframed as diverging-bar adapter package consumed by `CategoryBar mode="diverging"`; 88/88 package tests pass. |
+
+Key audit corrections vs the original sub-sub-plan body (preserved here as receipts):
+
+1. **Cookie mechanism**: there is no `assignment_cookie` field in `experiment-definition.json`. The override mechanism (`bucket.ts:readOverride`) reads `?yg_variant=<variation_id>` from the URL on first hit and persists it to a per-experiment cookie `yg_variant_<experiment_id>` (= `yg_variant_chart-composition-bar-election-seats`). Variation ids are `"control"` / `"treatment"`. The originally-proposed `composition_bar=on` cookie recipe was wrong.
+2. **Targeting state**: Tamil Nadu is **S22** and is **explicitly excluded** from the experiment per plan R-02 (alliance-led verdict; party-only chart misframes it). Hitting `/s/tamil-nadu?yg_variant=treatment` returns `null` from `bucketForWithOverride` and NEVER mounts the chart. **Karnataka (`/s/karnataka` = S10)** is the existing smoke state in `composition-bar-mount.spec.ts`; it was reused for the §13 smoke.
+3. **CompositionBar.svelte disposition**: option (b) DELETE was chosen over (a) THIN-WRAPPER per the F2a.1+F2a.2 / F2a.3+F2a.4 precedent (one-PR clean delete via git rename detection).
+4. **composition-bar/ package fate**: option (a) KEEP + README-rewrite was chosen over (b) RENAME / (c) SPLIT. The package is now framed as the diverging-bar adapter package, sibling to `bar-view-models/` (ranked) and `multi-dim-view-models/` (stacked).
+
+Parent sub-plan completion: see [20260605-f2a-categorybar-consolidation-subplan.md](20260605-f2a-categorybar-consolidation-subplan.md) "Sub-plan complete (2026-06-05)" block.
+
+Distillation lives at: [docs/architecture/frontend/design-system.md](../../architecture/frontend/design-system.md) section "F2a - CategoryBar consolidation (PRs #781 / #782 / #784 / #785 / #786)".
+
 ## See also
 
-- Parent sub-plan: [TODO/20260605-f2a-categorybar-consolidation-subplan.md](20260605-f2a-categorybar-consolidation-subplan.md) F2a.5 row
-- Grandparent plan: [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) sections 22.5 (Execution Ledger), 23.5 (file-level ripple corrections; **NB: parent's blast-radius bullet for F2a was inaccurate** - composition-bar/ consumers do NOT include the production trio IndicatorChoropleth/Ranked/SmallMultiples).
+- Parent sub-plan: [20260605-f2a-categorybar-consolidation-subplan.md](20260605-f2a-categorybar-consolidation-subplan.md) F2a.5 row (sibling in this archive folder).
+- Grandparent plan: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) sections 22.5 (Execution Ledger), 23.5 (file-level ripple corrections; **NB: parent's blast-radius bullet for F2a was inaccurate** - composition-bar/ consumers do NOT include the production trio IndicatorChoropleth/Ranked/SmallMultiples).
 - Prior F2a sub-rows: F2a.1+F2a.2 = PR #781 (ranked), F2a.3+F2a.4 = PR #782 (stacked).
 - Strangler-fig precedent: yen-gov PR #78 ([/memories/patterns.md](../../../memories/patterns.md) "Strangler-fig pre-stage").
