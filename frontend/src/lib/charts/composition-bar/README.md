@@ -1,25 +1,19 @@
-# CompositionBar — single-entity 100%-stacked horizontal bar
+# composition-bar - diverging-bar adapter package
 
-Phase 3.6 (a) renderer slice of
-[`docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md`](../../../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md).
+This package is the **view-model toolkit** for the single-entity 100%-stacked composition bar. It is consumed by [`CategoryBar.svelte`](../CategoryBar.svelte) `mode="diverging"` (the post-F2a.5.2 renderer). It does NOT ship its own Svelte component; the renderer body lives in `CategoryBar.svelte` and was lifted byte-identical from the retired `lib/CompositionBar.svelte` in F2a.5.1.
+
+The package is analogous to:
+- [`../bar-view-models/`](../bar-view-models/) - VM toolkit for `CategoryBar mode="ranked"`.
+- [`../multi-dim-view-models/`](../multi-dim-view-models/) - VM toolkit for `CategoryBar mode="stacked"`.
+- [`../time-view-models/`](../time-view-models/) - VM toolkit for time-series renderers.
+
+Upstream Phase context: shipped as the three-PR slice (a) renderer + (b) adapter/experiment + (c) mount per R-16 of the [Phase 3.6 charting-modernisation plan snapshot](../../../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md). F2a.5 (2026-06-05) consolidated the standalone renderer into `CategoryBar.svelte`; the adapter / helpers / types / fixtures stayed put.
 
 ## What this is
 
-A generic, single-entity, single-period horizontal 100%-stacked bar
-renderer. Generic = NOT election-specific; the same component renders
-party seat composition, energy fuel mix, age-band composition, etc.
-Domain bindings (party palette, NOTA wedge, FPTP framing) live in
-adapters that emit the typed view-model defined in
-[`types.ts`](./types.ts).
+A generic, single-entity, single-period horizontal 100%-stacked composition. Generic = NOT election-specific; the same view-model + renderer combo handles party seat composition, energy fuel mix, age-band composition, etc. Domain bindings (party palette, NOTA wedge, FPTP framing) live in adapters that emit the typed view-model defined in [`types.ts`](./types.ts).
 
-This PR ships the **renderer + view-model contract + pure helpers
-only**. R-16's three-PR sequence:
-
-| Slice | Branch | Status |
-| --- | --- | --- |
-| (a) Renderer + view-model contract + pure helpers | `feat/composition-bar-primitive-2026-05-24` | shipped (PR #142) |
-| (b) `adapter-elections-seats.ts` + GrowthBook experiment definition | `feat/composition-bar-elections-adapter-2026-05-24` | **THIS PR** |
-| (c) Mount on chosen state-hub route + Playwright | `feat/composition-bar-mount-<state>` | follow-up |
+The package's contract surface is what the renderer treats as opaque: model, sources, segments, fills, captions. The renderer never imports `categoryColour` / `partyColour` and never names a party / fuel / age band - that knowledge is the adapter's job.
 
 ## Surfaces
 
@@ -30,27 +24,31 @@ only**. R-16's three-PR sequence:
 | [`helpers.test.ts`](./helpers.test.ts) | 22 vitest cases on the geometry / share / lift / sum-check math. |
 | [`types.test.ts`](./types.test.ts) | 18 vitest cases on the zod contract + fixture round-trip + tail / dominant-segment assertions. |
 | [`adapter-elections-seats.ts`](./adapter-elections-seats.ts) | Pure assembler + async DuckDB-WASM loader. Top-N=8 with visible Others tail; NOTA via existing anchor; FPTP caption verbatim. |
-| [`adapter-elections-seats.test.ts`](./adapter-elections-seats.test.ts) | 24 vitest cases — sort / top-N edge cases (N=2/5/8 + degenerate) / NOTA / FPTP caption / loader manifest-registration contract. |
-| [`experiment-definition.json`](./experiment-definition.json) | GrowthBook OSS experiment: control (SeatDonut only) vs treatment (CompositionBar + SeatDonut); 50/50; cookie-sticky on `visitor_id`. |
-| [`experiment-definition.test.ts`](./experiment-definition.test.ts) | 14 vitest cases — experiment shape + R-28 manifest contract on the adapter. |
+| [`adapter-elections-seats.test.ts`](./adapter-elections-seats.test.ts) | 24 vitest cases - sort / top-N edge cases (N=2/5/8 + degenerate) / NOTA / FPTP caption / loader manifest-registration contract. |
+| [`experiment-definition.json`](./experiment-definition.json) | GrowthBook OSS experiment: control (SeatDonut only) vs treatment (diverging composition bar + SeatDonut); 50/50; cookie-sticky on `visitor_id`. |
+| [`experiment-definition.test.ts`](./experiment-definition.test.ts) | 14 vitest cases - experiment shape + R-28 manifest contract on the adapter. |
 | [`__fixtures__/gujarat-2022-seats.json`](./__fixtures__/gujarat-2022-seats.json) | Single-party-dominant fixture (BJP 156 / 182 = 85.7%). Drives the round-trip + sum-check tests. |
 | [`index.ts`](./index.ts) | Barrel. |
-| [`../../CompositionBar.svelte`](../../CompositionBar.svelte) | The Svelte 5 renderer — composes inside `<ChartShell>`. |
+| [`../CategoryBar.svelte`](../CategoryBar.svelte) `mode="diverging"` | The Svelte 5 renderer that consumes this package's view-model. Body lifted byte-identical from the retired `lib/CompositionBar.svelte` in F2a.5.1. |
 
 ## Doctrine
 
-- **R-08 Branch by Abstraction** — `SeatDonut.svelte` / `ParliamentArc.svelte`
-  / `AcStackedBar.svelte` continue to ship. CompositionBar mounts
-  alongside, not in place of, the existing donut.
-- **R-16 three-PR split** — renderer / adapter+experiment / mount.
-  Each commit ships and reviews independently.
-- **R-24 / R-28** — the footer slot delegates to `<SourceListV2>` via
+- **R-08 Branch by Abstraction** - `SeatDonut.svelte` / `ParliamentArc.svelte`
+  / `AcStackedBar.svelte` continue to ship. The diverging composition bar
+  (`CategoryBar mode="diverging"`) mounts alongside, not in place of, the
+  existing donut.
+- **R-16 three-PR split** - renderer / adapter+experiment / mount.
+  Each commit shipped and reviewed independently. Post-F2a.5: the renderer
+  slice lives inside `CategoryBar.svelte`, not in a standalone component.
+- **R-24 / R-28** - the footer slot delegates to `<SourceListV2>` via
   `<ChartShell>`. No fetch telemetry, no parquet path literal.
-- **R-27** — no JSON projection of canonical parquet. The adapter reads
+- **R-27** - no JSON projection of canonical parquet. The adapter reads
   the state-scoped `elections.election_results` slice and supporting
   tables via manifest registration and emits this view-model directly.
 
 ## Renderer rules (per plan lines 1308-1314)
+
+These rules describe what the consuming renderer (`CategoryBar.svelte` `mode="diverging"` since F2a.5.2; `lib/CompositionBar.svelte` pre-F2a.5.2) MUST honour. The package's job is to emit a view-model the renderer can paint without breaking these rules.
 
 - **No domain logic.** The renderer never names a party, fuel type, or
   age band. Everything that distinguishes the chart's subject sits in
@@ -60,11 +58,11 @@ only**. R-16's three-PR sequence:
   own label. The tail is *never* collapsed to a footnote.
 - **Adapter-supplied fills.** Every segment carries its `fill` in the
   view-model. The renderer does not call `categoryColour` or
-  `partyColour` — that's the adapter's job.
+  `partyColour` - that's the adapter's job.
 - **No variant prop.** No `variant: "donut" | "pie" | "sunburst"`
-  knob. CompositionBar is by definition a horizontal stacked bar.
-  Radial composition is `SeatDonut` / `ParliamentArc`'s job (existing
-  components, single-state geometry).
+  knob. The diverging composition bar is by definition a horizontal
+  stacked bar. Radial composition is `SeatDonut` / `ParliamentArc`'s
+  job (existing components, single-state geometry).
 
 ## Helper rules
 
