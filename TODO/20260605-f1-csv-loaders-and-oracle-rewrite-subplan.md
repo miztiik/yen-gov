@@ -36,7 +36,7 @@ Out of scope (deliberately deferred to other chunks):
 
 | Sub-row | Blocks on | Gate | PR# | Status |
 | --- | --- | --- | --- | --- |
-| F1.1 backend parity-oracle rewrite (`backend/tests/test_canonical_parity_oracle.py` reads CSV; same `canonical_winners_2026_05_19.json` fixture; same per-AC zero-tolerance assertion) | - | parity-oracle-CSV + oracle-non-skip (must actually RUN, not skipif-parquet-absent) | _pending_ | IN-FLIGHT |
+| F1.1 backend parity-oracle rewrite (`backend/tests/test_canonical_parity_oracle.py` reads CSV; same `canonical_winners_2026_05_19.json` fixture; same per-AC zero-tolerance assertion) | - | parity-oracle-CSV + oracle-non-skip (must actually RUN, not skipif-parquet-absent) | _pending_ | BLOCKED-NEEDS-SIGNOFF (see "F1.1 STOP-AND-SURFACE" below; rewrite reveals 33/34 slice drift between fixture and post-B2b.5.x CSV corpus; user-named trust anchor cannot be autonomously re-snapshotted or weakened per CLAUDE.md anti-pattern #1) |
 | F1.2 frontend loader seam (`canonical/duckdb.ts` `queryParquet` -> `queryCsv`; `canonical/indicator-allowlist.ts` docstring + descriptor doctrine scrub; `canonical/manifest.ts` if it carries parquet path references) | - | loader-unit (vitest) + §13 in-browser smoke on one canonical-backed route | - | TODO |
 | F1.3 frontend view-model SQL flip (6 callers: `view-models/constituency.ts`, `psephlab/canonical-loaders.ts`, `view-models/state-overview.ts`, `view-models/national-elections.ts`, `yenask/concepts.ts`, `explore/duckdb-views.ts`) | F1.2 | per-view-model vitest + §13 in-browser smoke on 3 routes (StateOverview, National, Constituency) | - | TODO |
 | F1.4 close sub-plan (flip parent F1 row to MERGED; distil seam shape into [docs/architecture/frontend/data-loading.md](../docs/architecture/frontend/data-loading.md) + [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md) "Parity oracle" section; archive this sub-plan to `docs/archive/plans/`) | F1.1, F1.2, F1.3 | docs-review | - | TODO |
@@ -70,6 +70,54 @@ Reads (after rewrite):
 Rewrite shape: DuckDB SQL changes from `read_parquet(...)` four-way JOIN to a per-slice CSV scan + `entities/electoral.csv` join for AC labels. The fixture key shape `(event_id, state_code)` may need re-projection from the candidacies.csv key `(election_year, state)` - one column rename, one type cast (year int vs event_id string). NOTA exclusion identical. Per-AC zero-tolerance assertion unchanged.
 
 Skipif condition flips from "parquet absent" to "CSV absent". `oracle-non-skip` gate (per 22.6) asserts the test ACTUALLY RUNS in CI (not skipped) - one assertion: `assert SLICES, "parity fixture not on disk"` becomes a hard failure not a skip, because after X1a the CSV path is mandatory.
+
+#### F1.1 STOP-AND-SURFACE (2026-06-05) - fixture-vs-CSV drift blocks autonomous ship
+
+**Status**: BLOCKED-NEEDS-SIGNOFF. Cannot proceed without user choice between options A / B / C below.
+
+**Verbatim instruction** (user prompt, 2026-06-05): *"Rewrite `backend/tests/test_canonical_parity_oracle.py` to read CSV instead of parquet ... Same frozen fixture: `backend/tests/fixtures/canonical_winners_2026_05_19.json` (UNCHANGED - the trust anchor) ... Same per-AC zero-tolerance assertion (winner candidate + winner votes + margin votes match byte-exact) ... If it FAILS on any AC, DO NOT silently relax the tolerance."*
+
+**What was done**: oracle rewritten per sub-plan body (read_csv per-(state, year) candidacies.csv; 22-state ECI-code -> LGD-slug map; oracle-non-skip floor at 34 slices; 7 known-absent slices for AcGenMay2026 / Delhi2020 / Rajasthan2023 declared explicitly). `test_oracle_non_skip_gate` PASSES. 1 of 34 per-slice tests passes byte-exact (AcGenFeb2018/S23 - Tripura 2018). 33 fail.
+
+**Evidence (live on branch `feat/f1.1-parity-oracle-csv-rewrite`)**:
+
+- Run cmd: `cd backend && python -m pytest tests/test_canonical_parity_oracle.py --tb=line -q`
+- Result: `33 failed, 2 passed in 3.52s`. The 2 passes are `test_oracle_non_skip_gate` + `test_per_ac_fptp_winner_matches_fixture[AcGenFeb2018-S23]`.
+- Dominant failure category (271 ACs across 28 slices): `ACs in fixture missing from canonical CSV`. Pattern is non-random: identical AC numbers missing across MULTIPLE election years for the SAME state. Examples (verified live):
+  - AcGenApr2016/S03 (Assam 2016) ACs `[42, 103, 107]` missing in CSV
+  - AcGenApr2021/S03 (Assam 2021) ACs `[42, 103, 107]` missing in CSV - IDENTICAL set, 5 years later
+  - AcGenDec2017/S06 (Gujarat 2017) ACs `[49, 52, 68, 79]` missing in CSV
+  - AcGenDec2022/S06 (Gujarat 2022) ACs `[49, 52, 68, 79]` missing in CSV - IDENTICAL set, 5 years later
+  - AcGenApr2019/S01 (Andhra 2019) ACs `[1, 2, 3, 4, 5, ...]` missing in CSV (122 of 175)
+  - AcGenApr2021/U07 (Puducherry 2021) ACs `[7, 8, 10, 13, 14]` missing
+  - AcGenFeb2017/S24 (UP 2017) ACs `[3, 47, 48, 55, 56]` missing
+- Secondary category (51 vote diffs across 20 slices): same `(event_id, state, ac_eci_no)` present in both fixture and CSV, but the max-votes candidate differs by 1 to 30k+ votes (per prior session's analysis - not re-verified this turn).
+
+**Root-cause hypotheses** (not exhaustively investigated this turn per "stop, don't dig" discipline):
+
+1. **CSV `constituency_no` is NOT the ECI per-state AC number that the fixture is keyed on.** The same numerical gaps repeating across years for the same state means the rewrite's assumed key (`CSV.constituency_no == fixture.ac_eci_no`) is wrong for those specific AC numbers. Possible: CSV `constituency_no` is post-delimitation LGD AC code; fixture is pre-delimitation ECI AC number.
+2. **B2b.5.x reingest dropped specific ACs** (e.g. NOTA-only, vacated, judicially-annulled, or ACs without TCPD raw row). Repeating-across-years pattern supports this for ACs that were perennially dropped from raw.
+3. **Person-merge differences from B2b.4.7 DROP** (the parent prompt's hypothesis): plausible for the 51 vote-diff slices where AC is present but max-votes candidate differs; LESS plausible for the 271 AC-missing slices where the entire AC row is absent.
+
+**Why this is a STOP, not a fix-and-ship**: CLAUDE.md anti-pattern #1 (STOP-AND-SURFACE) forbids autonomously demoting a user-named source. `canonical_winners_2026_05_19.json` is the EXPLICITLY user-named trust anchor (parent prompt verbatim: *"Same frozen fixture ... UNCHANGED - the trust anchor"*). Autonomously re-snapshotting it, or autonomously weakening the zero-tolerance assertion to swallow 33 slice failures, would silently demote what the user wrote down.
+
+**Resolution options** (per parent prompt's "STOP-AND-SURFACE with three resolution options A/B/C"):
+
+| ID | Option | Scope | Multi-PR? | Preserves byte-exact rigor? | Re-opens B2b? |
+| --- | --- | --- | --- | --- | --- |
+| A | Backfill the missing ACs (re-run B2b.5.x reingest to add the dropped AC numbers + reconcile the 51 vote diffs against TCPD raw) | Reopens B2b sub-plan; multi-PR | YES | YES (zero-tolerance preserved, fixture unchanged) | YES (multi-week) |
+| B | Relax the assertion at the boundary where structurally impossible: declare "name-normalized + votes within tolerance T" (T to be authored in a new ADR / concept doc) and explicitly cite that the CSV-corpus reshape changed semantics that byte-exact cannot survive | New ADR + test rewrite | 2 PRs (ADR + test) | NO (zero-tolerance becomes "within T") | NO |
+| C | Declare the 33 mismatch slices out-of-scope for byte-exact parity; publish a "known mismatch" annex (`backend/tests/fixtures/canonical_winners_2026_05_19.known_mismatch.json`) enumerating the 271 missing ACs + 51 vote diffs; keep zero-tolerance on the 1 passing slice + any future ingest cleanup additions | New annex fixture + test loop split (frozen-trust loop with zero-tolerance, drift-tracked loop with explicit per-slice receipt) | 1 PR | YES on the 1 passing slice (drift-tracked slices are documented receipt, not assertion) | NO |
+
+**Agent recommendation**: C. Preserves the user-signed zero-tolerance assertion on the verified subset; explicitly documents the 33 drift slices as a public receipt (becomes the input for X1a cross-format-parity gate); does NOT autonomously demote the user-named fixture; does NOT block on multi-week B2b reopening; ships F1.1 today; matches Fowler "deletion safety" + Max "OWID one-time receipt" precedent.
+
+**What was NOT done this turn**: (a) the oracle rewrite is on disk under `backend/tests/test_canonical_parity_oracle.py` (uncommitted modifications, can be inspected via `git diff origin/main -- backend/tests/test_canonical_parity_oracle.py` on branch `feat/f1.1-parity-oracle-csv-rewrite`), (b) the branch is NOT pushed, (c) NO PR is opened, (d) the `KNOWN_ABSENT_SLICES` set in the rewrite does NOT yet include the 33 drift slices - that fixture annex is option C's payload and waits on signoff.
+
+**Scope-change ledger row** (per CLAUDE.md section 10):
+
+| Verbatim instruction | Proposed change (one of A / B / C) | Reason | signoff: |
+| --- | --- | --- | --- |
+| "Same per-AC zero-tolerance assertion (winner candidate + winner votes + margin votes match byte-exact)" | TBD (A, B, or C above) | 33 of 34 on-disk slices fail byte-exact; root cause is fixture-vs-CSV corpus drift that accumulated through B2b.5.x reshape because the old parquet oracle silently SKIPPED on `parquet absent`. The skip is exactly what the parent plan's `oracle-non-skip` gate was added to catch - it is doing its job; we now need a structural answer. | _pending user signoff_ |
 
 ### F1.2 frontend loader seam
 
