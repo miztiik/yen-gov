@@ -37,6 +37,8 @@
   import TileCartogram from "../lib/charts/TileCartogram.svelte";
   import ChartShell from "../lib/charts/ChartShell.svelte";
   import SegmentedControl from "../lib/SegmentedControl.svelte";
+  import GeoChoropleth from "../lib/charts/GeoChoropleth.svelte";
+  import type { GeoChoroplethRow } from "../lib/charts/geo-choropleth-helpers";
   import {
     feasibleAt,
     intersectWithCatalogue,
@@ -218,6 +220,30 @@
   const fmtGw = (v: number) => `${v.toFixed(1)} GW`;
   const fmtPct = (v: number) => `${v.toFixed(1)}%`;
   const fmtInr = (v: number) => `₹${(v / 1000).toFixed(0)}k`;
+
+  // --- fixture 7 - F2b.3 GeoChoropleth{fill} - state-level synthetic ---
+  // Synthetic state-level installed-capacity values keyed on State_LGD
+  // (the join field carried on datasets/boundaries/in/states/all.topojson).
+  // Numbers are illustrative; this page MUST NOT be cited (sandbox
+  // doctrine). The fixture covers a diverse mix of states (north,
+  // south, east, west, an island UT) so the renderer's island-render
+  // path - the F4 frozen-requirement-a smoke contract -
+  // gets exercised at runtime in addition to the offline assertion.
+  const f2b3_state_rows: GeoChoroplethRow[] = [
+    { entity_key: 5,  value: 4.2 },  // Uttarakhand
+    { entity_key: 9,  value: 28.7 }, // Uttar Pradesh
+    { entity_key: 10, value: 8.3 },  // Bihar
+    { entity_key: 22, value: 31.5 }, // Chhattisgarh
+    { entity_key: 23, value: 22.4 }, // Madhya Pradesh
+    { entity_key: 24, value: 48.7 }, // Gujarat
+    { entity_key: 27, value: 50.2 }, // Maharashtra
+    { entity_key: 28, value: 26.1 }, // Andhra Pradesh
+    { entity_key: 29, value: 33.0 }, // Karnataka
+    { entity_key: 32, value: 4.5 },  // Kerala
+    { entity_key: 33, value: 34.4 }, // Tamil Nadu
+    { entity_key: 35, value: 0.04 }, // Andaman & Nicobar (island; tests the F4 fix path)
+    { entity_key: 31, value: 0.02 }, // Lakshadweep    (island; tests the F4 fix path)
+  ];
 
   // ─── fixture 6 — TileCartogram (equal-area hex; synthetic 5×5 patch) ───
   // A small synthetic AC layout + winners so the renderer↔builder contract
@@ -595,5 +621,46 @@
         Single-feasible body - no switcher present (deletion test passed).
       </div>
     </ChartShell>
+  </section>
+
+  <!-- F2b.3 GeoChoropleth{fill} demo (parent plan section 14.5 + 15.1
+       renderer #1; consumes the F4 island-render-smoke contract). The
+       fixture deliberately includes Andaman & Nicobar (lgd 35) and
+       Lakshadweep (lgd 31) so a reviewer can SEE the islands draw -
+       the runtime evidence next to the F4 offline smoke. -->
+  <section class="space-y-3" data-testid="f2b3-section">
+    <h2 class="text-lg font-semibold">F2b.3 - GeoChoropleth{`{`}fill{`}`} (d3-geo SVG static map)</h2>
+    <p class="text-sm text-slate-600">
+      Renderer #1 from <a class="underline" href="../docs/reference/chart-index.md">chart-index.md section 1</a>
+      consumed by parent plan section 14.5's split-by-job map engine
+      decision: d3-geo SVG for ALL static welfare choropleths
+      (maplibre-gl fenced to election AC pan/zoom). Mounts the F2b.2
+      C2 / C3 / C5 primitives (ChoroplethLegend with value-tick on
+      hover; MapTooltip with region + value + swatch; SourceLine).
+      Renders the F4-shipped <code>datasets/boundaries/in/states/all.topojson</code>
+      (785 districts excluded; 36 states+UTs included). Hover any
+      state to see the value-tick caret slide along the legend bar
+      (Jony's bank-branch chart observation; parent section 14.3 C2).
+    </p>
+    <p class="text-xs text-slate-500">
+      Fixture data is illustrative; numbers MUST NOT be cited. The
+      island UTs (Andaman & Nicobar lgd 35, Lakshadweep lgd 31) are
+      seeded with values to give the F4 island-render-smoke a runtime
+      sibling - both islands draw, both are interactive, both fill
+      the legend value-tick when hovered.
+    </p>
+    <GeoChoropleth
+      topojson_path="/boundaries/in/states/all.topojson"
+      feature_key="State_LGD"
+      rows={f2b3_state_rows}
+      direction="higher_is_better"
+      format_tick=".2s"
+      format_value={(v) => fmtGw(v)}
+      title="Installed capacity by state (synthetic)"
+      source_owner="Synthetic sandbox fixture"
+      source_vintage="2026-06-06 (illustrative)"
+      width={640}
+      height={520}
+    />
   </section>
 </section>
