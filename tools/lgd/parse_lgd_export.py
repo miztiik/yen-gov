@@ -184,6 +184,23 @@ def _text(value: Any) -> str:
     return str(value).strip()
 
 
+def _census(value: Any) -> str:
+    """Render a census code cell, normalising the LGD ``0`` sentinel to empty.
+
+    LGD emits ``0`` (or ``000`` etc.) for an entity that did NOT exist at that
+    census - Telangana (2014), Ladakh / the merged DNH-DD (2019-2020), and every
+    post-2011 district. Carrying a literal ``0`` would let a naive
+    ``JOIN ON census_*_code = 0`` match every such entity at once; the census
+    column is a LABEL never a key (sub-plan 0c.4 / round-8c), and an empty cell
+    is the honest "did not exist / no code" signal. A genuine non-zero code is
+    preserved verbatim (leading zeros intact - it is read off the string CSV).
+    """
+    text = _text(value)
+    if text == "" or set(text) == {"0"}:
+        return ""
+    return text
+
+
 def _norm_name(name: str) -> str:
     """Normalise a state name for matching: uppercase, single-spaced."""
     return re.sub(r"\s+", " ", name).strip().upper()
@@ -237,8 +254,8 @@ def parse_states(path: Path) -> list[dict[str, str]]:
             "lgd_state_code": _code_str(r[1]),
             "state_name": _text(r[3]),
             "state_name_local": _text(r[4]),
-            "census_2001_code": _text(r[5]),
-            "census_2011_code": _text(r[6]),
+            "census_2001_code": _census(r[5]),
+            "census_2011_code": _census(r[6]),
             "kind": kind,
         })
     return out
@@ -253,8 +270,8 @@ def parse_districts(path: Path) -> list[dict[str, str]]:
             "state_name": _text(r[2]),
             "lgd_district_code": _code_str(r[3]),
             "district_name": _text(r[4]),
-            "census_2001_code": _text(r[5]),
-            "census_2011_code": _text(r[6]),
+            "census_2001_code": _census(r[5]),
+            "census_2011_code": _census(r[6]),
         })
     return out
 
@@ -271,7 +288,7 @@ def parse_subdistricts(path: Path) -> list[dict[str, str]]:
             "lgd_subdistrict_code": _code_str(r[5]),
             "subdistrict_name": _text(r[7]),
             "census_2001_code": _text(r[8]),
-            "census_2011_code": _text(r[9]),
+            "census_2011_code": _census(r[9]),
         })
     return out
 

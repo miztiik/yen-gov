@@ -47,6 +47,19 @@
         { "name": "aliases", "dtype": "string", "nullable": true }
       ]
     },
+    "datasets/data/entities/state_codes.csv": {
+      "notes": "LGD-spine state/UT identity (B2b.5.0b). PK lgd_state_id (LGD-issued). iso_3166_2 is ISO-issued (yen-gov transcribes via datasets/reference/state-iso-seed.csv). eci_st_code is DROPPED (round-8: no authoritative ECI state-code registry). census_2001_code + census_2011_code are two dated LABEL columns (NEVER exact-match keys; renumber across censuses + go null for post-2011 entities); aliases is a pipe-delimited synonym column. Spec: TODO/20260604-b2b5-elections-reingest-subplan.md section 0c.4.",
+      "columns": [
+        { "name": "lgd_state_id", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "lgd_name", "dtype": "string", "nullable": false },
+        { "name": "iso_3166_2", "dtype": "string", "nullable": false },
+        { "name": "census_2001_code", "dtype": "string", "nullable": true },
+        { "name": "census_2011_code", "dtype": "string", "nullable": true },
+        { "name": "kind", "dtype": "string", "nullable": false, "enum": ["state", "ut"] },
+        { "name": "slug", "dtype": "string", "nullable": false },
+        { "name": "aliases", "dtype": "string", "nullable": true }
+      ]
+    },
     "datasets/data/entities/electoral.csv": {
       "notes": "ECI AC and PC entities per delimitation cycle. Electoral and LGD entities meet only via electoral_lgd_xwalk.csv (F3). Spec: csv-column-contract.md section 3.2.",
       "columns": [
