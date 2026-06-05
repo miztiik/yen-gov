@@ -153,20 +153,54 @@
   })();
 </script>
 
-<!-- Mobile / cramped-desktop header: brand + hamburger. Hidden when the
-     viewport is wide enough for the static rail (>= lg / 1024px). The
-     breakpoint was raised from md→lg so mid-width screens (768–1023px)
-     use the drawer instead of stealing 240px from the page content. -->
-<header class="lg:hidden bg-white border-b border-slate-200 sticky top-0 z-30 flex items-center justify-between px-4 h-12">
-  <a href={url.home()} class="brand-wordmark" aria-label="Yen Gov home">
-    <span class="brand-yen">Yen</span><span class="brand-chakra" aria-hidden="true">{@html chakraSvg}</span><span class="brand-gov">Gov</span>
-  </a>
+<!-- Mobile / cramped-desktop header: brand + hamburger LEFT cluster, search
+     RIGHT placeholder. Hidden when the viewport is wide enough for the
+     static rail (>= lg / 1024px). The breakpoint was raised from md->lg
+     so mid-width screens (768-1023px) use the drawer instead of stealing
+     240px from the page content.
+
+     SAME-SIDE FIX (plan section 21.8 / U2c): the previous layout placed
+     the brand LEFT and the hamburger RIGHT via `justify-between`, but
+     the drawer slid in from the LEFT. Trigger and surface on opposite
+     sides confused tap-recovery (citizen reaches RIGHT, eyes go LEFT).
+     Now the [=] hamburger sits LEFT of the brand (same side as the
+     drawer it opens) and a muted [search] icon anchors the RIGHT side
+     as a placeholder for the future top-bar search verb (wiring lives
+     in a later sub-row, NOT this PR).
+
+     GLASS APP BAR (plan section 21.8): translucent surface
+     (--app-bar-bg, white at 80% alpha) + backdrop-blur + hairline
+     border-line, sticky top-0, so the body ballot motif reads faintly
+     through and the bar feels less heavy than the prior opaque white
+     band. -->
+<header class="lg:hidden bg-app-bar-bg backdrop-blur border-b border-line sticky top-0 z-30 flex items-center justify-between px-4 h-12">
+  <div class="flex items-center gap-1">
+    <button
+      class="p-2 -ml-2 text-slate-600 hover:text-slate-900"
+      aria-label="Toggle navigation"
+      aria-expanded={mobile_open}
+      aria-controls="leftrail-drawer"
+      onclick={() => (mobile_open = !mobile_open)}
+    >
+      {#if mobile_open}X{:else}={/if}
+    </button>
+    <a href={url.home()} class="brand-wordmark" aria-label="Yen Gov home">
+      <span class="brand-yen">Yen</span><span class="brand-chakra" aria-hidden="true">{@html chakraSvg}</span><span class="brand-gov">Gov</span>
+    </a>
+  </div>
+  <!-- Search placeholder (plan section 21.8 mockup `[search]` top-right).
+       Disabled until the search wiring lands in a future sub-row; the
+       visual anchor preserves the coherence rule (RIGHT-side verbs stay
+       on the RIGHT). The aria-label is honest about the not-yet-active
+       state so screen readers do not promise functionality. -->
   <button
-    class="p-2 -mr-2 text-slate-600 hover:text-slate-900"
-    aria-label="Toggle navigation"
-    onclick={() => (mobile_open = !mobile_open)}
+    class="p-2 -mr-2 text-[11px] text-slate-400 cursor-not-allowed uppercase tracking-wide"
+    aria-label="Search (coming soon)"
+    title="Search (coming soon)"
+    disabled
+    data-search-placeholder
   >
-    {#if mobile_open}✕{:else}☰{/if}
+    search
   </button>
 </header>
 
@@ -179,13 +213,19 @@
   ></div>
 {/if}
 
-<!-- Rail. On lg+ it's a fixed left column; below lg it's a slide-in drawer. -->
+<!-- Rail. On lg+ it's a fixed left column; below lg it's a slide-in drawer
+     from the LEFT (same side as the hamburger trigger above, per plan
+     section 21.8 same-side fix). Drawer easing uses `--ease-spring`
+     (cubic-bezier(0.34, 1.56, 0.64, 1)) at `--dur-slow` (320ms) so the
+     drawer overshoots its rest position slightly and settles - the
+     micro-feedback that signals "the surface arrived". -->
 <aside
+  id="leftrail-drawer"
   onclick={on_rail_click}
   class="bg-white border-r border-slate-200 flex flex-col
          lg:w-60 lg:h-screen lg:sticky lg:top-0
          fixed lg:static top-12 bottom-0 left-0 w-64 z-30
-         transition-transform lg:transition-none"
+         transition-transform ease-yen-spring duration-slow lg:transition-none"
   class:translate-x-0={mobile_open}
   class:-translate-x-full={!mobile_open}
 >
@@ -240,6 +280,21 @@
 
   <footer class="px-4 py-2 text-[10px] text-slate-400 border-t border-slate-200">
     <p>Yen Gov · For an informed India</p>
+    <!-- Build provenance line (plan section 21.8 / U2c). __BUILD_SHA__
+         and __BUILD_DATE__ are injected by vite.config.ts `define` from
+         GITHUB_SHA (CI) or `git rev-parse --short HEAD` (local), so any
+         deployed bundle is traceable to the exact source tree. The
+         commit URL composes via REPO_URL (single source of truth) so a
+         fork stays linkable without a code change. -->
+    <p class="mt-1">
+      <a
+        href="{REPO_URL}/commit/{__BUILD_SHA__}"
+        target="_blank"
+        rel="noreferrer"
+        class="hover:text-slate-600 transition-colors"
+        title="View this build's source on GitHub"
+      >build {__BUILD_SHA__} - {__BUILD_DATE__}</a>
+    </p>
   </footer>
 </aside>
 
@@ -256,29 +311,33 @@
 
   /* Brand wordmark.
    *
-   * Typography: Outfit (Google Fonts, loaded in index.html) at light
-   * weight 300 for a slim, sleek silhouette that contrasts with the
-   * default UI sans. Letter-spacing tightened slightly so the chakra
-   * sits visually between the two words rather than floating.
+   * Typography: Outfit (loaded as a self-hosted woff2 subset in U1.2;
+   * @font-face declared in app.css). U2c migrates this off the inline
+   * `font-family: "Outfit", ...` literal onto `var(--font-display)`
+   * (declared in app-tokens.css, maps to Outfit) so a future re-skin
+   * updates one place.
    *
    * Separator: the Ashoka Chakra (Dharmachakra) replaces the prior
-   * '-' hyphen. 24 navy-blue (#000080) spokes per the Indian flag
-   * specification (see https://en.wikipedia.org/wiki/Ashoka_Chakra).
+   * '-' hyphen. 24 navy-blue (--brand-chakra) spokes per the Indian
+   * flag specification (see https://en.wikipedia.org/wiki/Ashoka_Chakra).
    * Sized to match the cap-height of the wordmark.
    *
-   * Colors: 'Yen' uses the saffron stripe of the flag (#FF9933) and
-   * 'Gov' uses the dark green stripe (#138808), with the navy chakra
-   * between them — a quiet tricolor nod without being literal.
+   * Colors: 'Yen' uses --brand-saffron (saffron-leaning amber-600),
+   * 'Gov' uses --brand-green (flag-green-leaning emerald-700), with the
+   * navy chakra (--brand-chakra) between them - a quiet tricolor nod
+   * without being literal. The three hexes were chosen in U1's
+   * wordmark work for WCAG AA against white at 1.25rem / weight 300;
+   * U2c lifts them out of inline literals into app-tokens.css.
    */
   /* Use :where() to drop the selector specificity to (0,0,0) so Tailwind's
    * `hidden` utility (display:none) wins on viewports where we explicitly
    * mark the brand as hidden. Without this, `.brand-wordmark { display:
    * inline-flex }` had higher specificity than `.hidden`, so the drawer
    * brand (which carries `hidden lg:flex`) stayed visible at every width
-   * — mobile users saw the wordmark twice (once in the lg:hidden top
+   * - mobile users saw the wordmark twice (once in the lg:hidden top
    * header, once inside the slide-in drawer). */
   :where(.brand-wordmark) {
-    font-family: "Outfit", ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-display);
     font-weight: 300;
     font-size: 1.25rem;
     letter-spacing: -0.01em;
@@ -289,14 +348,16 @@
   }
   /* Flag-palette tones, darkened just enough to clear WCAG AA on white at
    * 1.25rem / weight 300. The pure flag colors (#FF9933 saffron, #138808
-   * green) fail AA on white — these are the closest accessible cousins. */
-  .brand-yen { color: #d97706; }     /* saffron-leaning amber-600 */
-  .brand-gov { color: #15803d; }     /* flag-green-leaning emerald-700 */
+   * green) fail AA on white - these are the closest accessible cousins.
+   * Hex values now live in app-tokens.css (--brand-saffron / --brand-green
+   * / --brand-chakra) per U2c token migration. */
+  .brand-yen { color: var(--brand-saffron); }
+  .brand-gov { color: var(--brand-green); }
   .brand-chakra {
     display: inline-flex;
     width: 1.05em;
     height: 1.05em;
-    color: #000080;                  /* navy blue per flag spec */
+    color: var(--brand-chakra);      /* navy blue per flag spec */
     transform-origin: 50% 50%;
     will-change: transform;
   }

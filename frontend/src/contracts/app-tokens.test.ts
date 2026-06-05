@@ -69,6 +69,12 @@ describe("yen-gov design tokens - drift contract", () => {
       "--pos",
       "--caution",
       "--neg",
+      // Brand (U2c - LeftRail wordmark + flag-derived motifs)
+      "--brand-saffron",
+      "--brand-green",
+      "--brand-chakra",
+      // Glass surface (U2c - mobile app bar)
+      "--app-bar-bg",
       // Type
       "--font-sans",
       "--font-display",

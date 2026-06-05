@@ -28,6 +28,10 @@ export default {
         pos: "var(--pos)",
         caution: "var(--caution)",
         neg: "var(--neg)",
+        "brand-saffron": "var(--brand-saffron)",
+        "brand-green": "var(--brand-green)",
+        "brand-chakra": "var(--brand-chakra)",
+        "app-bar-bg": "var(--app-bar-bg)",
       },
       fontFamily: {
         "yen-sans": ["var(--font-sans)"],

@@ -50,6 +50,36 @@
   --neg: #b91c1c;
 
   /*
+   * Brand tones (LeftRail wordmark + flag-derived motifs; U2c of
+   * TODO/20260605-u2-breadcrumb-drawer-district-subplan.md).
+   *
+   * The three flag-derived hexes (saffron + green + chakra navy) were
+   * chosen in U1's wordmark work for WCAG AA against white at the
+   * wordmark's 1.25rem / weight 300 size. The pure flag colours
+   * (#FF9933 saffron, #138808 green) fail AA on white; these are the
+   * closest accessible cousins. U2c lifts them out of the LeftRail
+   * inline literals into the token home so a future re-skin updates
+   * one place. Mirrored under tailwind.config.js theme.extend.colors
+   * as `brand-saffron` / `brand-green` / `brand-chakra`.
+   */
+  --brand-saffron: #d97706;
+  --brand-green: #15803d;
+  --brand-chakra: #000080;
+
+  /*
+   * Glass surface for the mobile app bar (U2c, plan section 21.8 -
+   * "translucent sticky glass app bar (backdrop-blur + hairline)").
+   * White at 80% alpha so the body's ballot-motif backdrop reads
+   * faintly through. Consumed as `bg-app-bar-bg` in LeftRail's
+   * lg:hidden header, paired with `backdrop-blur` + `border-line`.
+   *
+   * Mirrored as a tailwind colour with the alpha BAKED IN; never
+   * combine with Tailwind's `/<opacity>` syntax (that would compound
+   * alphas and is the wrong operation here).
+   */
+  --app-bar-bg: rgb(255 255 255 / 0.80);
+
+  /*
    * Type
    * ----
    * font-feature-settings "tnum" 1 + "lnum" 1 is the data-context
