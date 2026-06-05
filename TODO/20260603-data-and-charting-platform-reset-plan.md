@@ -1062,7 +1062,7 @@ This table is the **canonical execution tracker**. The orchestrator reads `Block
 | X1b parquet delete | X1a | - | kill-50MB+oracle-non-skip | - | TODO |
 | B3 delete writers+dead-schemas+parquet-data | X1b | B4 | suite-green+allowlist-audit | - | TODO |
 | B4 delete fetch+http+legacy | X1b | B3 | suite-green | - | TODO |
-| F2a CategoryBar merge (structural) | X1b | F3,F4 | golden-render | - | TODO |
+| F2a CategoryBar merge (structural) | X1b | F3,F4 | golden-render | - | DEFERRED-TO-SUBPLAN ([TODO/20260605-f2a-categorybar-consolidation-subplan.md](20260605-f2a-categorybar-consolidation-subplan.md); six sub-rows F2a.1=CategoryBar-shell+ranked, F2a.2=OrderedCategoryBar-delete, F2a.3=stacked-mode, F2a.4=HorizontalGroupedBar-delete, F2a.5=composition-bar-+-prod-migration, F2a.6=closure; user explicitly relaxed the `Blocks on X1b` edge in the session brief - F-track ships parallel-OK with X cutover) |
 | F2b new renderers (treemap/circlepack/choropleth/matrix) | F2a | F3,F4 | render-smoke | - | TODO |
 | F3 reference line | X1b | F2*,F4 | direction-gate | - | TODO |
 | F4 d3-geo + topojson | X1b | F2*,F3 | island-render-smoke | - | TODO |
