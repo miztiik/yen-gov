@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-06-05
 **Parent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) chunk B2b
-**Status**: COMPLETE 2026-06-05 (B2b.1..B2b.5 MERGED; B2b.6 closure _pending_)
+**Status**: COMPLETE 2026-06-05 (B2b.1..B2b.5 MERGED; B2b.6 closure #776)
 **Authority**: Hans + Max (data shape, identity, units, F1 estimate-stage, F6 one-per-concept) / Gregor (FK contract, write order, parity gate) per CLAUDE.md section 0a
 
 ---
@@ -41,7 +41,7 @@ Out of scope (other chunks):
 | B2b.3 governments family CSV reingest (2 parquets; term-shape per 20.4) | - | cross-format-parity | #695 | MERGED |
 | B2b.4 taxonomy datapoint reingest (the parquets B2a left behind: `election_events`, `facet-axes`, `ac_crosswalk`, `indicator_topic_tags`, `methodology_breaks`, `persons`, `state_tiers`) | - | cross-format-parity | #698-#708 + DROP #774 | MERGED (sub-sub-plan [docs/archive/plans/20260604-b2b4-taxonomy-subplan.md](20260604-b2b4-taxonomy-subplan.md) delivered: 6 emitters lifted via #698 methodology_breaks + #700 facet_axes + #702 state_tiers + #704 election_events + #706 indicator_topic_tags + #708 ac_crosswalk; B2b.4.7 persons DROPPED via #774 per Fowler+Hans converged verdict (zero-consumer audit registry; biographic cols migrate inline via B2b.5.x); closure docs in [canonical-writer.md](../../architecture/backend/canonical-writer.md) "Taxonomy datapoint reingest" section) |
 | B2b.5 elections-from-local-TCPD per-election CSV reingest (per 21.3 + 21.4 + 23.4) | - | cross-format-parity + parity-oracle-CSV (winner+margin invariants only; full oracle rewrite is F1) | #762-#772 | MERGED (sub-sub-plan [docs/archive/plans/20260604-b2b5-elections-reingest-subplan.md](20260604-b2b5-elections-reingest-subplan.md) delivered: spine 0a-0e (#762-767) + assembly 30 states 474 CSVs ~116k candidacies (#768-771) + parliament 11 LS cycles 19336 candidacies (#772); B2b.5.5 source-backfill done inline; 0e ECI-decommission + 0d-del legacy-delete RE-SCOPED to owning chunks via disposition receipts under `datasets/_ops/`; closure docs in canonical-writer.md) |
-| B2b.6 close sub-plan: flip parent B2b row to MERGED + stamp closure PR + distil into [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) section "Datapoint reingest" + archive this sub-plan | B2b.1..B2b.5 | docs-review | _pending_ | IN-FLIGHT |
+| B2b.6 close sub-plan: flip parent B2b row to MERGED + stamp closure PR + distil into [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) section "Datapoint reingest" + archive this sub-plan | B2b.1..B2b.5 | docs-review | #776 | IN-FLIGHT |
 
 Parallel-safe groups (each `cross-format-parity` runs against a different on-disk family with no shared write target):
 
@@ -154,14 +154,14 @@ The parent Execution Ledger row B2b is `DEFERRED-TO-SUBPLAN -> TODO/20260604-b2b
 
 ## Plan complete
 
-Closed 2026-06-05 via PR _pending_. All five family rows MERGED + closure:
+Closed 2026-06-05 via PR #776. All five family rows MERGED + closure:
 
 - **B2b.1 energy** -> [datasets/data/datapoints/](../../../datasets/data/datapoints/) energy datapoint CSVs (95 files). PR #691. Six source parquets re-emit as long-format `(entity_id, time, value, source_id)` rows, one CSV per `(measure, unit, facet)` per plan section F2/21.6. Closure stamp PR #692.
 - **B2b.2 livestock** -> [datasets/data/datapoints/](../../../datasets/data/datapoints/) livestock datapoint CSVs (20 files). PR #693. Three source parquets (naip_iv, owner_registration, pashu_aadhaar). Closure stamp PR #694.
 - **B2b.3 governments** -> [datasets/governments/](../../../datasets/governments/) term-shape CSVs (office, holder, office_holdings). PR #695. Term-shape preserved per plan 20.4; long-form derivation deferred to a successor chunk. Closure stamp PR #696.
 - **B2b.4 taxonomy datapoint reingest** -> [docs/archive/plans/20260604-b2b4-taxonomy-subplan.md](20260604-b2b4-taxonomy-subplan.md). PRs #698-#708 + DROP #774 + closure #775. Six emitters lifted (methodology_breaks, facet_axes, state_tiers, election_events, indicator_topic_tags, ac_crosswalk); seventh (persons) DROPPED per Fowler+Hans converged verdict (audit-only parquet with zero frontend consumers; biographic dim_persons cols migrate inline via B2b.5.x).
 - **B2b.5 elections-from-local-TCPD** -> [docs/archive/plans/20260604-b2b5-elections-reingest-subplan.md](20260604-b2b5-elections-reingest-subplan.md). PRs #762-#772. Spine 0a-0e (#762-#767) + assembly 30 states 474 CSVs ~116k candidacies (#768-#771) + parliament 11 LS cycles ~19,336 candidacies (#772). B2b.5.5 source-backfill done inline; 0e ECI-decommission + 0d-del legacy-delete RE-SCOPED to owning chunks via disposition receipts under `datasets/_ops/`.
-- **B2b.6 closure** -> THIS PR (_pending_). Parent B2b row in grandparent ledger flipped to MERGED; this sub-plan archived to `docs/archive/plans/20260604-b2b-reingest-subplan.md`. F1 + X1a + X1b downstream chain UNBLOCKED.
+- **B2b.6 closure** -> THIS PR (#776). Parent B2b row in grandparent ledger flipped to MERGED; this sub-plan archived to `docs/archive/plans/20260604-b2b-reingest-subplan.md`. F1 + X1a + X1b downstream chain UNBLOCKED.
 
 Distillation map per [docs/how-to/distill-a-plan.md](../../how-to/distill-a-plan.md):
 
