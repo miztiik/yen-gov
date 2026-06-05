@@ -4,6 +4,7 @@ import { svelte } from "@sveltejs/vite-plugin-svelte";
 import { fileURLToPath } from "node:url";
 import { resolve, extname, sep } from "node:path";
 import { readFileSync, readdirSync, statSync, existsSync, writeFileSync } from "node:fs";
+import { execSync } from "node:child_process";
 import { parseIcon, ICON_FILENAME_REGEX, type Icon } from "./src/lib/icons";
 
 // Repo root = parent of frontend/. Used by both the dev middleware (which
@@ -63,9 +64,37 @@ function serveDatasets() {
 // and any root-served prod environment (custom domain, user/org Pages,
 // CDN). The deploy workflow sets BASE_URL=/yen-gov/ so emitted asset URLs
 // and runtime data URLs (frontend/src/lib/paths.ts) resolve under the
-// project Pages subpath. Keep this an env var, not a hardcode — repo name
-// is a deployment concern, not a source-code one (CLAUDE.md §6).
+// project Pages subpath. Keep this an env var, not a hardcode - repo name
+// is a deployment concern, not a source-code one (CLAUDE.md section 6).
 const BASE_URL = process.env.BASE_URL ?? "/";
+
+// Build-time SHA + date injection (plan section 21.8 footer line; U2c).
+// LeftRail.svelte renders a muted "build <sha7> . <date>" line in the
+// footer linking to the GitHub commit URL so any deployed bundle is
+// traceable back to the exact source tree. CI (GitHub Actions) sets
+// GITHUB_SHA; local dev falls back to `git rev-parse --short HEAD`; if
+// git is unavailable (shallow clone, sandbox) we ship the literal "dev"
+// so the footer line is always present and non-broken.
+//
+// Wall-clock at build time is operational telemetry (CLAUDE.md section
+// 10 carve-out: control-plane artifacts MAY stamp generated_at); this
+// is NOT data-row provenance.
+function buildSha(): string {
+  const ci = process.env.GITHUB_SHA;
+  if (ci) return ci.slice(0, 7);
+  try {
+    return execSync("git rev-parse --short=7 HEAD", {
+      cwd: repoRoot,
+    })
+      .toString()
+      .trim();
+  } catch {
+    return "dev";
+  }
+}
+
+const BUILD_SHA = buildSha();
+const BUILD_DATE = new Date().toISOString().slice(0, 10);
 
 // Build-time icon registry. Walks frontend/public/icons/*.svg, parses each
 // file through the strict allowlist parser in
@@ -159,6 +188,10 @@ function template404Plugin() {
 
 export default defineConfig({
   base: BASE_URL,
+  define: {
+    __BUILD_SHA__: JSON.stringify(BUILD_SHA),
+    __BUILD_DATE__: JSON.stringify(BUILD_DATE),
+  },
   plugins: [svelte(), serveDatasets(), iconRegistryPlugin(), template404Plugin()],
   // Vite 6's default condition list doesn't always include "browser" for
   // SSR-aware packages (svelte 5's exports map falls back to its server

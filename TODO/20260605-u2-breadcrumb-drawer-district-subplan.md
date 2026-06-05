@@ -53,7 +53,7 @@ Per CLAUDE.md correction-level discipline (>= 4 files structural -> propose brea
 | --- | --- | --- | --- | --- | --- |
 | U2a url.district + `/s/:state/d/:district` route + minimal `District.svelte` + `url.test.ts` assertions | - | U2c, U4, U5 | build+vitest(url) | #739 | MERGED |
 | U2b `GeoBreadcrumb.svelte` + integration into Home / StateOverview / StateTopic / Constituency / District | U2a | U2c, U4, U5 | build+vitest(breadcrumb)+in-browser smoke (5 routes) | #742 | MERGED |
-| U2c LeftRail re-cluster (same-side fix + glass app bar + spring drawer + token migration + ballot-motif retone + `build <sha>` footer) | U1 (MERGED #720) | U2a, U2b, U4, U5 | build+vitest(tokens)+in-browser smoke | _pending_ | TODO |
+| U2c LeftRail re-cluster (same-side fix + glass app bar + spring drawer + token migration + ballot-motif retone + `build <sha>` footer) | U1 (MERGED #720) | U2a, U2b, U4, U5 | build+vitest(tokens)+in-browser smoke | #745 | IN-FLIGHT |
 | U2d closure (distil into `docs/architecture/frontend/design-system.md` U2 row; flip parent U2 ledger; archive this sub-plan) | U2a, U2b, U2c | - | docs-review | _pending_ | TODO |
 
 U2a -> U2b is a hard edge (the breadcrumb's District crumb hrefs through `url.district()`). U2c is parallel-OK with U2a + U2b (LeftRail surface is visually-separable from the breadcrumb spine; the new tokens U2c mints are not referenced by U2b). U2d is closure.
