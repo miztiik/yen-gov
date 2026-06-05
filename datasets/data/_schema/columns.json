@@ -38,13 +38,15 @@
       ]
     },
     "datasets/data/entities/geo.csv": {
-      "notes": "LGD administrative ladder. v1 freezes entity_kind at state + district per F4 (sub-district + village admissible but not emitted yet). Spec: csv-column-contract.md section 3.2.",
+      "notes": "LGD administrative ladder. v1 freezes entity_kind at state + district per F4 (sub-district + village admissible but not emitted yet). census_2001_code + census_2011_code are two dated LABEL columns joined from the LGD parsed snapshot (B2b.5.0c); NEVER join keys (they renumber + go null for post-2011 entities). eci_st_code is NOT carried (round-8 decommission). Spec: csv-column-contract.md section 3.2.",
       "columns": [
         { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true },
         { "name": "name", "dtype": "string", "nullable": false },
         { "name": "parent", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
         { "name": "entity_kind", "dtype": "string", "nullable": false, "enum": ["country", "state", "district", "sub-district", "village"] },
-        { "name": "aliases", "dtype": "string", "nullable": true }
+        { "name": "aliases", "dtype": "string", "nullable": true },
+        { "name": "census_2001_code", "dtype": "string", "nullable": true },
+        { "name": "census_2011_code", "dtype": "string", "nullable": true }
       ]
     },
     "datasets/data/entities/state_codes.csv": {

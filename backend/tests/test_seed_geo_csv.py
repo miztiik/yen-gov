@@ -53,13 +53,15 @@ def test_emit_minimal_ladder(tmp_path):
     out = tmp_path / "datasets" / "data" / "entities" / "geo.csv"
     emit(lgd_states_json=s, lgd_districts_json=d, out_path=out)
     lines = out.read_text(encoding="utf-8").splitlines()
-    assert lines[0] == "entity_id,name,parent,entity_kind,aliases"
+    assert lines[0] == "entity_id,name,parent,entity_kind,aliases,census_2001_code,census_2011_code"
     # 1 country + 1 state + 1 district = 3 rows
     assert len(lines) == 4
     body = "\n".join(lines[1:])
-    assert "IN,India,,country,IN|IND|356" in body
-    assert "tamil-nadu,Tamil Nadu,IN,state,IN-TN|S22|lgd:32" in body
-    assert "tamil-nadu/chennai,Chennai,tamil-nadu,district,lgd:571" in body
+    assert "IN,India,,country,IN|IND|356,," in body
+    # eci_st_code (S22) is RETAINED on the alias until the 0e decommission sweep;
+    # no census snapshot supplied here, so census cells are empty.
+    assert "tamil-nadu,Tamil Nadu,IN,state,IN-TN|S22|lgd:32,," in body
+    assert "tamil-nadu/chennai,Chennai,tamil-nadu,district,lgd:571,," in body
 
 
 def test_emit_disambiguates_district_slug_across_states(tmp_path):
@@ -131,3 +133,57 @@ def test_emitted_csv_passes_validator(tmp_path):
     out = repo_root / "datasets" / "data" / "entities" / "geo.csv"
     emit(lgd_states_json=s, lgd_districts_json=d, out_path=out)
     validate_csv(path=out, file_class=FILE_CLASS, repo_root=repo_root)
+
+
+def _stage_snapshot(tmp_path: Path, states: list[list[str]], districts: list[list[str]]) -> tuple[Path, Path]:
+    import csv
+
+    sp = tmp_path / "lgd" / "states.csv"
+    dp = tmp_path / "lgd" / "districts.csv"
+    sp.parent.mkdir(parents=True, exist_ok=True)
+    with sp.open("w", encoding="utf-8", newline="") as fh:
+        w = csv.writer(fh, lineterminator="\n")
+        w.writerow(["lgd_state_code", "state_name", "state_name_local", "census_2001_code", "census_2011_code", "kind"])
+        for r in states:
+            w.writerow(r)
+    with dp.open("w", encoding="utf-8", newline="") as fh:
+        w = csv.writer(fh, lineterminator="\n")
+        w.writerow(["lgd_state_code", "state_name", "lgd_district_code", "district_name", "census_2001_code", "census_2011_code"])
+        for r in districts:
+            w.writerow(r)
+    return sp, dp
+
+
+def test_census_columns_joined_from_snapshot(tmp_path):
+    """Census LABEL columns are joined from the LGD snapshot by LGD code."""
+    s, d = _stage_pair(tmp_path, [_state()], [_district()])
+    sp, dp = _stage_snapshot(
+        tmp_path,
+        [["32", "Tamil Nadu", "TAMIL NADU", "33", "33", "state"]],
+        [["32", "Tamil Nadu", "571", "Chennai", "4", "38"]],
+    )
+    out = tmp_path / "geo.csv"
+    emit(
+        lgd_states_json=s,
+        lgd_districts_json=d,
+        out_path=out,
+        lgd_snapshot_states_csv=sp,
+        lgd_snapshot_districts_csv=dp,
+    )
+    body = out.read_text(encoding="utf-8")
+    assert "tamil-nadu,Tamil Nadu,IN,state,IN-TN|S22|lgd:32,33,33" in body
+    assert "tamil-nadu/chennai,Chennai,tamil-nadu,district,lgd:571,4,38" in body
+
+
+def test_long_name_synonym_in_state_alias(tmp_path):
+    """A state whose display name is the short form carries the long name as an alias synonym."""
+    s, d = _stage_pair(
+        tmp_path,
+        [_state(lgd_state_id=1, slug="jammu-and-kashmir", lgd_name="Jammu And Kashmir", lgd_name_short="Jammu & Kashmir", iso_alpha="IN-JK", eci_st_code="U08")],
+        [],
+    )
+    out = tmp_path / "geo.csv"
+    emit(lgd_states_json=s, lgd_districts_json=d, out_path=out)
+    body = out.read_text(encoding="utf-8")
+    # name shows the short form; the long official name rides the alias for search
+    assert "jammu-and-kashmir,Jammu & Kashmir,IN,state,IN-JK|U08|lgd:1|Jammu And Kashmir" in body

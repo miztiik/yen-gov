@@ -12,11 +12,15 @@ def main() -> None:
     repo_root = Path(__file__).resolve().parents[4]
     states_json = repo_root / "datasets" / "taxonomy" / "lgd_states.json"
     districts_json = repo_root / "datasets" / "taxonomy" / "lgd_districts.json"
+    snapshot_states = repo_root / "datasets" / "reference" / "lgd" / "states.csv"
+    snapshot_districts = repo_root / "datasets" / "reference" / "lgd" / "districts.csv"
     out = repo_root / "datasets" / "data" / "entities" / "geo.csv"
     emit(
         lgd_states_json=states_json,
         lgd_districts_json=districts_json,
         out_path=out,
+        lgd_snapshot_states_csv=snapshot_states,
+        lgd_snapshot_districts_csv=snapshot_districts,
     )
     validate_csv(path=out, file_class=FILE_CLASS, repo_root=repo_root)
     rows = out.read_text(encoding="utf-8").splitlines()
