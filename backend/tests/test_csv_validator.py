@@ -209,7 +209,7 @@ def test_fk_target_missing_only_fails_when_referenced(tmp_path):
 # file classes declared in columns.json:
 #
 # - entity_id -> entities/electoral.csv.entity_id
-# - party_id  -> entities/party.csv.party_id
+# - party_id  -> entities/parties.csv.party_id
 # - source_id -> entities/source.csv.source_id
 #
 # Plus closed-enum membership on `result`, `sex`, `candidate_type`.
@@ -272,7 +272,7 @@ def _stage_geo_for_electoral(root: Path) -> Path:
 
 
 def _stage_party_entities(root: Path, ids: list[str]) -> Path:
-    target = root / "datasets" / "data" / "entities" / "party.csv"
+    target = root / "datasets" / "data" / "entities" / "parties.csv"
     target.parent.mkdir(parents=True, exist_ok=True)
     lines = ["party_id,short,full,eci_codes,brand_colour,symbol_asset,wikipedia"]
     for party_id in ids:

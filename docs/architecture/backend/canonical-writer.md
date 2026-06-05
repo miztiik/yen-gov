@@ -60,7 +60,7 @@ Sub-plan [docs/archive/plans/20260604-b2a-csv-catalogue-subplan.md](../../archiv
 | `seed/geo_csv.py` | `datasets/taxonomy/lgd_states.json` + `lgd_districts.json` | `datasets/data/entities/geo.csv` | `entities/geo.csv` (country -> state -> district ladder; `aliases` pipe-delimited) | #678 |
 | `seed/electoral_csv.py` | `datasets/taxonomy/lgd_acs.json` + `lgd_pcs.json` | `datasets/data/entities/electoral.csv` | `entities/electoral.csv` (FK `state` -> geo; AC parent is PC of same `delim_year`) | #682 |
 | `seed/electoral_lgd_xwalk_csv.py` | `datasets/taxonomy/lgd_ac_pc_district_map.json` | `datasets/data/entities/electoral_lgd_xwalk.csv` | `entities/electoral_lgd_xwalk.csv` (composite PK; `boundary_snapshot` carries the decay receipt per plan section 20.5) | #684 |
-| `seed/party_csv.py` | `datasets/taxonomy/parties.json` | `datasets/data/entities/party.csv` | `entities/party.csv` (`party_id` sole canonical key per plan section 20.3; `eci_codes` is descriptive, not a join key) | #686 |
+| `seed/party_csv.py` | `datasets/taxonomy/parties.json` | `datasets/data/entities/parties.csv` | `entities/parties.csv` (`party_id` sole canonical key per plan section 20.3; `eci_codes` is descriptive, not a join key) | #686 |
 
 Each emitter is paired with `backend/tests/test_seed_<name>_csv.py` covering: deterministic sort, FK existence under the file class's predecessor (geo before electoral, source + topics + concepts before variables), enum membership, and `__` ban. A sibling `_run_<name>_csv.py` shim per emitter is the operator-facing runner invoked when refreshing the catalogue.
 

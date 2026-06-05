@@ -21,7 +21,7 @@ def main() -> None:
     repo_root = Path(__file__).resolve().parents[4]
     parquet_dir = repo_root / "datasets" / "governments"
     geo_entities_csv = repo_root / "datasets" / "data" / "entities" / "geo.csv"
-    party_entities_csv = repo_root / "datasets" / "data" / "entities" / "party.csv"
+    party_entities_csv = repo_root / "datasets" / "data" / "entities" / "parties.csv"
     out_data_dir = repo_root / "datasets" / "data"
 
     emitted = emit(

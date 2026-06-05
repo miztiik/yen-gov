@@ -40,11 +40,11 @@ Projection rules:
   - ``holder_id`` <- ``person_slug``.
   - ``person_name`` <- ``person_name`` (verified 1:1 with slug on disk).
   - ``party_id`` <- ``party_eci_code`` resolved against
-    ``datasets/data/entities/party.csv`` via its ``eci_codes`` column
+    ``datasets/data/entities/parties.csv`` via its ``eci_codes`` column
     (BIGINT). ``party_eci_code`` is null for ~157 holding rows (e.g.
     Presidents-as-independent or pre-affiliation tenures); the derived
     ``party_id`` is null when the source code is null AND when no
-    resolution exists in ``party.csv`` (the latter raises ``KeyError`` -
+    resolution exists in ``parties.csv`` (the latter raises ``KeyError`` -
     a silent null would mask a missing FK target).
 
 - ``office_holdings.csv`` row count == ``governments_office_holdings.parquet``
@@ -83,7 +83,7 @@ Public surface:
     )
 
 No mocks (Holy Law #7); duckdb reads real parquet + CSV. Tests stage
-miniature fixture parquets + geo.csv + party.csv + source.csv under
+miniature fixture parquets + geo.csv + parties.csv + source.csv under
 ``tmp_path``.
 """
 
@@ -140,9 +140,9 @@ def load_eci_state_to_geo_entity(geo_entities_csv: Path) -> dict[str, str]:
 
 
 def load_party_eci_to_party_id(party_entities_csv: Path) -> dict[str, str]:
-    """Return ``ECI party code (as string) -> party_id`` from party.csv.
+    """Return ``ECI party code (as string) -> party_id`` from parties.csv.
 
-    ``party.csv.eci_codes`` is a BIGINT column today (single ECI code per
+    ``parties.csv.eci_codes`` is a BIGINT column today (single ECI code per
     party row). Rows with a null ``eci_codes`` are skipped.
     """
     out: dict[str, str] = {}
@@ -264,7 +264,7 @@ def emit(
         parquet_dir: directory containing both governments parquets
             (typically ``datasets/governments``).
         geo_entities_csv: path to ``datasets/data/entities/geo.csv``.
-        party_entities_csv: path to ``datasets/data/entities/party.csv``.
+        party_entities_csv: path to ``datasets/data/entities/parties.csv``.
         out_data_dir: ``datasets/data`` root; the function writes
             ``entities/office.csv``, ``entities/holder.csv``, and
             ``datapoints/office_holdings.csv`` underneath.

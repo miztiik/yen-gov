@@ -96,7 +96,7 @@
         { "name": "overlap_kind", "dtype": "string", "nullable": false, "enum": ["wholly_inside", "majority", "partial"] }
       ]
     },
-    "datasets/data/entities/party.csv": {
+    "datasets/data/entities/parties.csv": {
       "notes": "Sole party key is party_id (plan section 20.3); eci_code is NOT a PK. Spec: csv-column-contract.md section 3.2.",
       "columns": [
         { "name": "party_id", "dtype": "string", "nullable": false, "pk": true },
@@ -129,11 +129,11 @@
       ]
     },
     "datasets/data/entities/holder.csv": {
-      "notes": "Office-holder register per plan section 20.4 (one row per distinct person-slug). Sourced from datasets/governments/governments_office_holdings.parquet by B2b.3 reingest. party_id is nullable (a holder may have no party affiliation at the time of holding) and FKs into party.csv.",
+      "notes": "Office-holder register per plan section 20.4 (one row per distinct person-slug). Sourced from datasets/governments/governments_office_holdings.parquet by B2b.3 reingest. party_id is nullable (a holder may have no party affiliation at the time of holding) and FKs into parties.csv.",
       "columns": [
         { "name": "holder_id", "dtype": "string", "nullable": false, "pk": true },
         { "name": "person_name", "dtype": "string", "nullable": false },
-        { "name": "party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/party.csv.party_id" }
+        { "name": "party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" }
       ]
     },
     "datasets/data/datapoints/office_holdings.csv": {
@@ -173,7 +173,7 @@
         { "name": "constituency_no", "dtype": "integer", "nullable": false },
         { "name": "constituency_name", "dtype": "string", "nullable": false },
         { "name": "candidate_name", "dtype": "string", "nullable": false },
-        { "name": "party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/party.csv.party_id" },
+        { "name": "party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
         { "name": "votes", "dtype": "integer", "nullable": false },
         { "name": "vote_share_pct", "dtype": "number", "nullable": true, "derived": true },
         { "name": "position", "dtype": "integer", "nullable": false },
@@ -197,11 +197,11 @@
         { "name": "votes_polled", "dtype": "integer", "nullable": true },
         { "name": "turnout_pct", "dtype": "number", "nullable": true, "derived": true },
         { "name": "winner_candidate", "dtype": "string", "nullable": false },
-        { "name": "winner_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/party.csv.party_id" },
+        { "name": "winner_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
         { "name": "winner_votes", "dtype": "integer", "nullable": false, "derived": true },
         { "name": "winner_share_pct", "dtype": "number", "nullable": false, "derived": true },
         { "name": "runnerup_candidate", "dtype": "string", "nullable": false },
-        { "name": "runnerup_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/party.csv.party_id" },
+        { "name": "runnerup_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
         { "name": "runnerup_votes", "dtype": "integer", "nullable": false, "derived": true },
         { "name": "margin_votes", "dtype": "integer", "nullable": false, "derived": true },
         { "name": "margin_pct", "dtype": "number", "nullable": false, "derived": true },
@@ -217,7 +217,7 @@
         { "name": "constituency_no", "dtype": "integer", "nullable": false },
         { "name": "constituency_name", "dtype": "string", "nullable": false },
         { "name": "candidate_name", "dtype": "string", "nullable": false },
-        { "name": "party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/party.csv.party_id" },
+        { "name": "party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
         { "name": "votes", "dtype": "integer", "nullable": false },
         { "name": "vote_share_pct", "dtype": "number", "nullable": true, "derived": true },
         { "name": "position", "dtype": "integer", "nullable": false },
@@ -241,11 +241,11 @@
         { "name": "votes_polled", "dtype": "integer", "nullable": true },
         { "name": "turnout_pct", "dtype": "number", "nullable": true, "derived": true },
         { "name": "winner_candidate", "dtype": "string", "nullable": false },
-        { "name": "winner_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/party.csv.party_id" },
+        { "name": "winner_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
         { "name": "winner_votes", "dtype": "integer", "nullable": false, "derived": true },
         { "name": "winner_share_pct", "dtype": "number", "nullable": false, "derived": true },
         { "name": "runnerup_candidate", "dtype": "string", "nullable": false },
-        { "name": "runnerup_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/party.csv.party_id" },
+        { "name": "runnerup_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
         { "name": "runnerup_votes", "dtype": "integer", "nullable": false, "derived": true },
         { "name": "margin_votes", "dtype": "integer", "nullable": false, "derived": true },
         { "name": "margin_pct", "dtype": "number", "nullable": false, "derived": true },

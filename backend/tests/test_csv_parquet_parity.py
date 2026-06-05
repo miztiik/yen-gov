@@ -240,7 +240,7 @@ def test_governments() -> None:
     holder_csv = data_dir / "entities" / "holder.csv"
     holdings_csv = data_dir / "datapoints" / "office_holdings.csv"
     geo_csv = data_dir / "entities" / "geo.csv"
-    party_csv = data_dir / "entities" / "party.csv"
+    party_csv = data_dir / "entities" / "parties.csv"
 
     if not _exists(office_parquet, holdings_parquet):
         pytest.skip("governments parquets absent")

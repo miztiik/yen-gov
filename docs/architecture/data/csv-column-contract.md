@@ -112,7 +112,7 @@ Notation: `pk` = primary key column(s) for the file class; `fk -> <file>.<col>` 
 | `boundary_snapshot` | string | no | date or LGD snapshot id used to compute the overlap |
 | `overlap_kind` | string | no | enum {`wholly_inside`, `majority`, `partial`} (F3) |
 
-#### `datasets/data/entities/party.csv`
+#### `datasets/data/entities/parties.csv`
 
 | column | dtype | nullable | note |
 | --- | --- | --- | --- |
@@ -170,7 +170,7 @@ Source data is wide (one row per `constituency x candidate`) and does not fit `(
 | `constituency_no` | integer | no | ECI ac_no |
 | `constituency_name` | string | no | |
 | `candidate_name` | string | no | |
-| `party_id` | string | yes | fk -> entities/party.csv.party_id; null for independents not in the party table |
+| `party_id` | string | yes | fk -> entities/parties.csv.party_id; null for independents not in the party table |
 | `votes` | integer | no | |
 | `vote_share_pct` | number | yes | derived (F7) |
 | `position` | integer | no | 1 = winner, 2 = runner-up, ... |
@@ -196,11 +196,11 @@ Derived projection of `candidacies.csv` (plan section 23.4). The parity oracle (
 | `votes_polled` | integer | yes | |
 | `turnout_pct` | number | yes | derived (F7) |
 | `winner_candidate` | string | no | |
-| `winner_party_id` | string | yes | fk -> entities/party.csv.party_id |
+| `winner_party_id` | string | yes | fk -> entities/parties.csv.party_id |
 | `winner_votes` | integer | no | argmax votes ex-NOTA (plan section 23.4) |
 | `winner_share_pct` | number | no | derived |
 | `runnerup_candidate` | string | no | |
-| `runnerup_party_id` | string | yes | fk -> entities/party.csv.party_id |
+| `runnerup_party_id` | string | yes | fk -> entities/parties.csv.party_id |
 | `runnerup_votes` | integer | no | |
 | `margin_votes` | integer | no | derived: `winner_votes - runnerup_votes` |
 | `margin_pct` | number | no | derived (F7) |
