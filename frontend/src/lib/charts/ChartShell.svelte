@@ -25,6 +25,18 @@
   //     filtered + canonical-sorted by the pure helpers in
   //     `./chart-shell/actions.ts`. Renderer cannot emit unapproved ids.
   //
+  // U5a state-aware body (parent plan section 23.5): the body slot
+  // now branches on a `state` prop ("loading" / "error" / "empty" /
+  // "data"). Loading defaults to `<Skeleton />` (or a caller-supplied
+  // `loading_slot`); error renders "Data unavailable" + an optional
+  // `source_line` snippet; empty renders a small inline hatch swatch
+  // + a citizen-readable "no rows" line; data renders `children`. The
+  // header (title / subtitle / toolbar / honesty banners) and footer
+  // (sources / actions) ride UNCHANGED in every state - the chrome
+  // stays consistent so the citizen does not lose context. The pure
+  // state helpers live in `./chart-shell/state.ts` and are covered by
+  // `./chart-shell/state.test.ts` (vitest, node-env).
+  //
   // R-08 Branch by Abstraction: this PR ships the shell structurally
   // with ZERO callers. v1 chart headers / footers (StackedTrendV2's
   // built-in heading, SeatDonut's standalone layout, etc.) continue to
@@ -51,10 +63,17 @@
 
   import type { Snippet } from "svelte";
   import SourceListV2 from "../SourceListV2.svelte";
+  import Skeleton from "../Skeleton.svelte";
   import {
     filterAllowedActions,
     sortActionsForFooter,
   } from "./chart-shell/actions";
+  import {
+    DEFAULT_EMPTY_MESSAGE,
+    DEFAULT_ERROR_MESSAGE,
+    resolveChartShellState,
+    type ChartShellState,
+  } from "./chart-shell/state";
   import type {
     ChartShellActionSpec,
     ChartShellHonestyBanner,
@@ -83,13 +102,47 @@
      *  by `filterAllowedActions` before render; approved ids are
      *  rendered in canonical order by `sortActionsForFooter`. */
     actions?: readonly ChartShellActionSpec[];
-    /** Chart body. The renderer's SVG / canvas / HTML chart goes here. */
+    /** Chart body. The renderer's SVG / canvas / HTML chart goes here.
+     *  Rendered when `state` resolves to "data" (the default). */
     children?: Snippet;
     /** Right-aligned controls hung next to the title (mode toggles,
      *  export glyphs, etc.). Kept distinct from `actions` because
      *  toolbar controls are renderer-specific and not vocabulary-gated;
      *  `actions` is the **footer** action row with the closed enum. */
     toolbar?: Snippet;
+    /** Body state discriminator (U5a, parent plan section 23.5):
+     *
+     *    - "loading" -> render `<Skeleton />` (default) or `loading_slot`.
+     *    - "error"   -> render `<p>{error_message}</p>` + optional
+     *                   `source_line` snippet so the citizen knows
+     *                   WHICH publisher failed.
+     *    - "empty"   -> render a small inline hatch swatch + a
+     *                   citizen-readable "no rows" line.
+     *    - "data"    -> render `children` (the chart).
+     *
+     *  null / undefined collapses to "data" so callers that don't opt
+     *  in keep their pre-U5a behaviour byte-for-byte. The header +
+     *  footer ride UNCHANGED in every state - the chrome stays
+     *  consistent so the citizen does not lose context when a chart
+     *  fails or returns nothing. */
+    state?: ChartShellState | null;
+    /** Caller-supplied copy for the error state. Defaults to
+     *  `DEFAULT_ERROR_MESSAGE` ("Data unavailable"). Citizen-readable
+     *  short text - paragraph, not stack trace. */
+    error_message?: string | null;
+    /** Caller-supplied copy for the empty state. Defaults to
+     *  `DEFAULT_EMPTY_MESSAGE` ("No data for this selection."). */
+    empty_message?: string | null;
+    /** Optional source-line snippet rendered alongside the error
+     *  message so the citizen sees WHICH publisher failed (e.g.
+     *  "Source: RBI, fetched 2026-05-11"). Hidden when null /
+     *  undefined. */
+    source_line?: Snippet;
+    /** Optional caller-supplied loading slot to override the default
+     *  `<Skeleton />`. Useful when a renderer needs a particular
+     *  loading-layout (e.g. multiple skeleton bands stacked to mimic
+     *  the chart's final shape). */
+    loading_slot?: Snippet;
   }
 
   const {
@@ -101,6 +154,11 @@
     actions = [],
     children,
     toolbar,
+    state = null,
+    error_message = null,
+    empty_message = null,
+    source_line,
+    loading_slot,
   }: Props = $props();
 
   // Closed-enum filter + canonical sort. The renderer never sees an
@@ -109,6 +167,18 @@
   // controls" without the test having to crawl every chart route.
   const footerActions = $derived(
     sortActionsForFooter(filterAllowedActions(actions)),
+  );
+
+  // Body-state branch resolution. `resolveChartShellState` normalises
+  // null / undefined to "data" so an un-opted renderer keeps its
+  // pre-U5a behaviour. The four branches map 1:1 to the four body
+  // slots below.
+  const resolvedState = $derived(resolveChartShellState(state));
+  const effectiveErrorMessage = $derived(
+    error_message ?? DEFAULT_ERROR_MESSAGE,
+  );
+  const effectiveEmptyMessage = $derived(
+    empty_message ?? DEFAULT_EMPTY_MESSAGE,
   );
 </script>
 
@@ -142,8 +212,48 @@
     {/if}
   </header>
 
-  <div class="chart-shell__body" data-slot="body">
-    {#if children}
+  <div class="chart-shell__body" data-slot="body" data-state={resolvedState}>
+    {#if resolvedState === "loading"}
+      <div class="chart-shell__state chart-shell__state--loading" data-state-slot="loading">
+        {#if loading_slot}
+          {@render loading_slot()}
+        {:else}
+          <Skeleton height="8rem" />
+        {/if}
+      </div>
+    {:else if resolvedState === "error"}
+      <div class="chart-shell__state chart-shell__state--error" data-state-slot="error">
+        <p class="chart-shell__state-line">{effectiveErrorMessage}</p>
+        {#if source_line}
+          <div class="chart-shell__state-source">
+            {@render source_line()}
+          </div>
+        {/if}
+      </div>
+    {:else if resolvedState === "empty"}
+      <div class="chart-shell__state chart-shell__state--empty" data-state-slot="empty">
+        <svg
+          class="chart-shell__hatch"
+          viewBox="0 0 64 24"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <defs>
+            <pattern
+              id="chart-shell-no-data-hatch"
+              width="6"
+              height="6"
+              patternUnits="userSpaceOnUse"
+              patternTransform="rotate(45)"
+            >
+              <line x1="0" y1="0" x2="0" y2="6" stroke="currentColor" stroke-width="1.5" />
+            </pattern>
+          </defs>
+          <rect width="64" height="24" fill="url(#chart-shell-no-data-hatch)" />
+        </svg>
+        <p class="chart-shell__state-line">{effectiveEmptyMessage}</p>
+      </div>
+    {:else if children}
       {@render children()}
     {/if}
   </div>
@@ -243,5 +353,40 @@
   .chart-shell__action:disabled {
     color: rgb(148 163 184); /* slate-400 */
     cursor: not-allowed;
+  }
+
+  /* U5a body-state slots (parent plan section 23.5). Each state has
+     identical chrome (the header + footer ride unchanged), only the
+     body content shifts. The styling stays muted so a citizen reads
+     the state as "the chart is not here right now" rather than
+     "something broke" - the latter would over-claim. */
+  .chart-shell__state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 6rem;
+    padding: 1rem;
+    text-align: center;
+  }
+  .chart-shell__state-line {
+    margin: 0;
+    color: var(--ink-muted);
+    font-size: 0.8125rem;
+  }
+  .chart-shell__state--error .chart-shell__state-line {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .chart-shell__state-source {
+    color: var(--ink-muted);
+    font-size: 0.6875rem;
+  }
+  .chart-shell__hatch {
+    display: block;
+    width: 4rem;
+    height: 1.5rem;
+    color: var(--line);
   }
 </style>
