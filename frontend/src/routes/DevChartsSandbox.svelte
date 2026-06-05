@@ -35,6 +35,13 @@
   import { buildDumbbellRangeViewModel, buildTimeSeriesLineViewModel } from "../lib/charts/time-view-models";
   import TileCartogram from "../lib/charts/TileCartogram.svelte";
   import ChartShell from "../lib/charts/ChartShell.svelte";
+  import SegmentedControl from "../lib/SegmentedControl.svelte";
+  import {
+    feasibleAt,
+    intersectWithCatalogue,
+    type DataShape,
+  } from "../lib/grapher/feasibleAt";
+  import type { ChartType } from "../lib/grapher/catalogue";
   import {
     buildTileRows,
     type TileLayoutRow,
@@ -236,6 +243,89 @@
       color: tc_rows.find((r) => r.tooltip_html.includes(`Winner: ${p.short}`))?.fill ?? "#94a3b8",
     })),
   );
+
+  // ─── U4 — chart-type switcher seam (in-memory; NO URL persistence) ─
+  // Demonstrates the SegmentedControl wired into ChartShell's toolbar
+  // slot. The switcher offers the intersection of `feasibleAt(...)`
+  // and an authored `chart_types[]`. Active type is in-memory ONLY
+  // (plan section 16.3a + 20.8): NEVER persisted to the URL, NEVER
+  // written to history. Reload re-opens on `chart_types[0]`.
+  //
+  // For the smoke this card uses the "one measure over geo, many
+  // slices" matrix row (which intersects to four feasible types) and
+  // the authored catalogue list ["choropleth", "matrix", "line",
+  // "ranked"] so all four segments render. Per plan section 16.3a,
+  // when the intersection has exactly one member the switcher renders
+  // NO control (a one-option control failed the deletion test); that
+  // single-member case is illustrated by the second card below.
+  const _u4_shape: DataShape = "one-measure-over-geo-many-slices";
+  const _u4_catalogue: ChartType[] = [
+    "choropleth",
+    "matrix",
+    "line",
+    "ranked",
+  ];
+  const u4_feasible = $derived(
+    feasibleAt({
+      dataShape: _u4_shape,
+      grain: "state",
+      geometryAvailable: true,
+      hasFacet: false,
+      hasTimeAxis: true,
+    }),
+  );
+  const u4_offered = $derived(
+    intersectWithCatalogue(u4_feasible, _u4_catalogue),
+  );
+  let u4_current = $state<ChartType>("choropleth");
+  // Glyph map - uses icons present in frontend/public/icons/ today.
+  // Unrecognised ids fall back to the text label (the chart-index doc
+  // §1 Thumb column carries the icons that ship in U3 follow-ups /
+  // F2b). Plain `bar-chart` + `trending-up` are already shipped.
+  const _u4_glyphs: Partial<Record<ChartType, string>> = {
+    ranked: "bar-chart",
+    line: "trending-up",
+  };
+  const _u4_labels: Record<ChartType, string> = {
+    choropleth: "Map",
+    "choropleth-symbol": "Symbol map",
+    matrix: "Grid",
+    ranked: "Bars",
+    stacked: "Stacked",
+    diverging: "Diverging",
+    line: "Line",
+    scatter: "Scatter",
+    "dumbbell-dot": "Dumbbell",
+    "dumbbell-arrow": "Dumbbell (arrow)",
+    treemap: "Treemap",
+    "circle-pack": "Bubbles",
+  };
+  const u4_options = $derived(
+    u4_offered.map((t) => ({
+      value: t,
+      label: _u4_labels[t],
+      glyph: _u4_glyphs[t],
+    })),
+  );
+
+  // Second card for the single-feasible-encoding case. Authored
+  // chart_types: ["scatter"] intersected with "one-measure-over-geo-
+  // one-slice" -> empty -> falls back to feasible (["choropleth",
+  // "ranked"]); add an authored choropleth-only catalogue to render
+  // a one-item switcher, which the UI then suppresses entirely.
+  const _u4_solo_catalogue: ChartType[] = ["choropleth"];
+  const u4_solo_offered = $derived(
+    intersectWithCatalogue(
+      feasibleAt({
+        dataShape: "one-measure-over-geo-one-slice",
+        grain: "state",
+        geometryAvailable: true,
+        hasFacet: false,
+        hasTimeAxis: false,
+      }),
+      _u4_solo_catalogue,
+    ),
+  );
 </script>
 
 <section class="mx-auto max-w-5xl space-y-10 p-6 text-slate-800">
@@ -348,6 +438,74 @@
         legend={tc_legend}
         onSelect={(id) => (tc_selected = tc_selected === id ? null : id)}
       />
+    </ChartShell>
+  </section>
+
+  <section class="space-y-3" data-sandbox-section="u4-switcher">
+    <h2 class="text-lg font-semibold">U4 - chart-type switcher seam</h2>
+    <p class="text-sm text-slate-600">
+      The seam plan section 16.3a + 21.9 commission. The picker is
+      <code>feasibleAt(dataShape, grain, geometryAvailable, ...)</code>
+      intersected with the authored
+      <code>chart_types[]</code>, rendered as a
+      <code>SegmentedControl</code> in <code>ChartShell</code>'s
+      top-right toolbar slot. Swapping is <strong>in-memory only</strong>
+      (NO URL writes); reload re-opens on <code>chart_types[0]</code>.
+      Selected: <strong data-testid="u4-current-chart-type">{u4_current}</strong>.
+      No new renderer ships in U4 (that is F2b); the chart body below
+      shows the active type as text to prove the seam wires through.
+    </p>
+    <ChartShell
+      title="U4 switcher demo - one measure over geo, many slices"
+      subtitle="feasibleAt() intersect chart_types[] = [choropleth, matrix, line, ranked]"
+    >
+      {#snippet toolbar()}
+        <SegmentedControl
+          options={u4_options}
+          value={u4_current}
+          onChange={(t) => (u4_current = t)}
+          testid="u4-chart-switcher"
+        />
+      {/snippet}
+      <div
+        class="flex h-40 items-center justify-center rounded border border-dashed border-slate-300 bg-slate-50 text-sm text-slate-500"
+        data-testid="u4-chart-body"
+      >
+        Renderer for <code class="font-mono">{u4_current}</code> would mount here.
+      </div>
+    </ChartShell>
+    <p class="text-xs text-slate-500">
+      Single-feasible case: when the intersect has exactly one member
+      (here <code>chart_types: ["choropleth"]</code> at one-time-slice
+      grain -&gt; <code>[{u4_solo_offered.join(", ")}]</code>), the
+      caller MUST render <strong>no</strong> switcher (a one-option
+      control is chrome that failed the deletion test, plan section
+      16.3a). The card below proves that path:
+    </p>
+    <ChartShell
+      title="U4 single-feasible card (no switcher rendered)"
+      subtitle="One-measure-over-geo / one slice - only `choropleth` is feasible."
+    >
+      {#snippet toolbar()}
+        {#if u4_solo_offered.length > 1}
+          <SegmentedControl
+            options={u4_solo_offered.map((t) => ({
+              value: t,
+              label: _u4_labels[t],
+              glyph: _u4_glyphs[t],
+            }))}
+            value={u4_solo_offered[0]}
+            onChange={() => {}}
+            testid="u4-solo-switcher"
+          />
+        {/if}
+      {/snippet}
+      <div
+        class="flex h-32 items-center justify-center rounded border border-dashed border-slate-300 bg-slate-50 text-sm text-slate-500"
+        data-testid="u4-solo-body"
+      >
+        Single-feasible body - no switcher present (deletion test passed).
+      </div>
     </ChartShell>
   </section>
 </section>

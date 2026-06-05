@@ -1,91 +1,121 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/grapher-topic-render.schema.json",
-  "$schema_version": "1.0",
+  "$schema_version": "1.1",
   "topics": [
     {
       "topic_id": "demography",
       "indicator_id": "demography/state_population_by_residence_count",
-      "chart_type": "stacked-trend",
+      "chart_types": [
+        "stacked-trend"
+      ],
       "dimension": "residence"
     },
     {
       "topic_id": "economy",
       "indicator_id": "economy/india_external_balance_inr_crore",
-      "chart_type": "stacked-trend",
+      "chart_types": [
+        "stacked-trend"
+      ],
       "dimension": "bop_item"
     },
     {
       "topic_id": "economy",
       "indicator_id": "economy/gdp_inr_crore",
-      "chart_type": "stacked-trend",
+      "chart_types": [
+        "stacked-trend"
+      ],
       "dimension": "price_basis"
     },
     {
       "topic_id": "economy",
       "indicator_id": "economy/gva_by_industry_constant_inr_crore",
-      "chart_type": "stacked-trend",
+      "chart_types": [
+        "stacked-trend"
+      ],
       "dimension": "industry"
     },
     {
       "topic_id": "economy",
       "indicator_id": "economy/india_iip_index_2011_12",
-      "chart_type": "stacked-trend",
+      "chart_types": [
+        "stacked-trend"
+      ],
       "dimension": "iip_category"
     },
     {
       "topic_id": "energy",
       "indicator_id": "energy/state_electricity_generation_by_source_gwh",
-      "chart_type": "ranked",
+      "chart_types": [
+        "ranked"
+      ],
       "dimension": "power_source"
     },
     {
       "topic_id": "energy",
       "indicator_id": "energy/state_installed_capacity_by_source_mw",
-      "chart_type": "stacked-trend",
+      "chart_types": [
+        "stacked-trend"
+      ],
       "dimension": "power_source"
     },
     {
       "topic_id": "energy",
       "indicator_id": "energy/state_rpo_compliance_pct",
-      "chart_type": "ranked",
+      "chart_types": [
+        "ranked"
+      ],
       "dimension": "rpo_facet"
     },
     {
       "topic_id": "environment",
       "indicator_id": "environment/india_ghg_emissions_by_subsector_ggco2e",
-      "chart_type": "stacked-trend",
+      "chart_types": [
+        "stacked-trend"
+      ],
       "dimension": "ghg_subsector"
     },
     {
       "topic_id": "environment",
       "indicator_id": "environment/state_no2_annual_mean_ug_m3",
-      "chart_type": "choropleth"
+      "chart_types": [
+        "choropleth"
+      ]
     },
     {
       "topic_id": "environment",
       "indicator_id": "environment/state_pm10_annual_mean_ug_m3",
-      "chart_type": "choropleth"
+      "chart_types": [
+        "choropleth"
+      ]
     },
     {
       "topic_id": "environment",
       "indicator_id": "environment/state_pm25_annual_mean_ug_m3",
-      "chart_type": "choropleth"
+      "chart_types": [
+        "choropleth"
+      ]
     },
     {
       "topic_id": "environment",
       "indicator_id": "environment/state_power_sector_co2_emissions_mtco2",
-      "chart_type": "ranked",
+      "chart_types": [
+        "ranked"
+      ],
       "dimension": "power_source"
     },
     {
       "topic_id": "environment",
       "indicator_id": "environment/state_so2_annual_mean_ug_m3",
-      "chart_type": "choropleth"
+      "chart_types": [
+        "choropleth"
+      ]
     },
     {
       "topic_id": "environment",
       "indicator_id": "environment/state_thermal_fgd_installed_share_pct",
-      "chart_type": "choropleth"
+      "chart_types": [
+        "choropleth"
+      ]
     }
   ]
 }
