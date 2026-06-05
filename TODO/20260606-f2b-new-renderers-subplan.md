@@ -72,8 +72,8 @@ This sub-plan is the merge-queue authority for F2b. The parent ledger row stays 
 | F2b.2 C2 + C3 + C5 primitives + color-scale.ts shared helper + tests | F2b.1 | F2b.3..F2b.6 (file-disjoint) | vitest(color-scale, value-tick predicate) + svelte-check | #790 | MERGED |
 | F2b.3 GeoChoropleth{fill} renderer + sandbox demo + section-13 smoke | F2b.2 | F2b.4, F2b.5, F2b.6 | vitest(domain calc, feature-key join) + section-13 in-browser smoke (sandbox) + topojson load assertion | #793 | MERGED |
 | F2b.4 Matrix renderer + sandbox demo + section-13 smoke | F2b.2 | F2b.3, F2b.5, F2b.6 | vitest(cell layout, color-scale share) + section-13 in-browser smoke (sandbox) | #794 | MERGED |
-| F2b.5 Treemap renderer + sandbox demo + section-13 smoke | F2b.2 | F2b.3, F2b.4, F2b.6 | vitest(treemap layout summary, label visibility predicate) + section-13 in-browser smoke (sandbox) | _pending_ | IN-FLIGHT |
-| F2b.6 CirclePack renderer (modes pack + bubble) + sandbox demo + section-13 smoke | F2b.2 | F2b.3, F2b.4, F2b.5 | vitest(pack layout summary, mode discriminator) + section-13 in-browser smoke (sandbox) | - | TODO |
+| F2b.5 Treemap renderer + sandbox demo + section-13 smoke | F2b.2 | F2b.3, F2b.4, F2b.6 | vitest(treemap layout summary, label visibility predicate) + section-13 in-browser smoke (sandbox) | #795 | MERGED |
+| F2b.6 CirclePack renderer (modes pack + bubble) + sandbox demo + section-13 smoke | F2b.2 | F2b.3, F2b.4, F2b.5 | vitest(pack layout summary, mode discriminator) + section-13 in-browser smoke (sandbox) | _pending_ | IN-FLIGHT |
 | F2b.7 GeoChoropleth{symbol} mode extension + sandbox demo + section-13 smoke | F2b.3 | F2b.4, F2b.5, F2b.6 (file-disjoint - extends F2b.3 only) | vitest(centroid-by-feature, sqrt-area scale, glyph fallback) + section-13 in-browser smoke (sandbox) | - | TODO |
 | F2b.8 closure (distil into design-system.md F2b row; flip parent F2b ledger; archive this sub-plan) | F2b.2, F2b.3, F2b.4, F2b.5, F2b.6, F2b.7 | - | docs-review | - | TODO |
 
