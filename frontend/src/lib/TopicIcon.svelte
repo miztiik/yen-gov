@@ -4,9 +4,11 @@
   // Consumes the structured `Icon` records emitted by `iconRegistryPlugin`
   // (frontend/vite.config.ts) via the virtual module `virtual:icon-registry`.
   // The contract is set by [the icon registry README](./icons/README.md):
-  // the plugin walks `frontend/src/lib/icons/*.svg` at build/dev time and
-  // freezes the result. The runtime in the citizen's browser sees only the
-  // typed tree — never a raw SVG string, never a parser.
+  // the plugin walks `frontend/public/icons/*.svg` at build/dev time (plan
+  // section 21.10: SVG bytes live under public/, the allowlist + parser
+  // are code and stay under src/lib/icons/) and freezes the result. The
+  // runtime in the citizen's browser sees only the typed tree — never a
+  // raw SVG string, never a parser.
   //
   // Design decisions (Hans/Max read):
   //

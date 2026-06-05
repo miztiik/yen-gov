@@ -73,7 +73,7 @@ describe("TopicIcon helpers", () => {
       expect(names).toEqual(sorted);
     });
 
-    it("includes every icon shipped in frontend/src/lib/icons/*.svg", () => {
+    it("includes every icon shipped in frontend/public/icons/*.svg", () => {
       const names = registeredIconNames();
       // Icons currently shipped — keeps this assertion tight so a
       // contributor deleting an icon WITHOUT updating the test sees the
