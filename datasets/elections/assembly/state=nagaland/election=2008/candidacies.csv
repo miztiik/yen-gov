@@ -1,4 +1,8 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-nagaland-eci1,nagaland,2008,1,DIMAPUR-I,K.L. CHISHI,,8700,60.16,1,won,U,65,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci1,nagaland,2008,1,DIMAPUR-I,ATOMI,,4774,33.01,2,lost,U,31,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci1,nagaland,2008,1,DIMAPUR-I,R.S. SANGTAM,,768,5.31,3,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci1,nagaland,2008,1,DIMAPUR-I,ZENEISELE,,220,1.52,4,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1453,nagaland,2008,2,DIMAPUR-II,S.I. JAMIR,,17954,54.16,1,won,U,70,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1453,nagaland,2008,2,DIMAPUR-II,SAVI LIEGISE,,15195,45.84,2,lost,U,46,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1454,nagaland,2008,3,DIMAPUR-III,AZHETO ZHIMOMI,,7874,50.16,1,won,U,58,10th Pass,,crossover,src-1b7bc1c9d39a
@@ -24,6 +28,9 @@ IN-AC-2008-nagaland-1459,nagaland,2008,9,KOHIMA TOWN,DR. NEIKIESALIE NICKY KIRE,
 IN-AC-2008-nagaland-1459,nagaland,2008,9,KOHIMA TOWN,Z. OBED SOLO,,9094,32.61,2,lost,U,73,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1459,nagaland,2008,9,KOHIMA TOWN,R. SOPU ANGAMI,,2482,8.9,3,forfeit,U,67,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1459,nagaland,2008,9,KOHIMA TOWN,SABU SOTE,,111,0.4,4,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci10,nagaland,2008,10,NORTHERN ANGAMI-I,SHURHOZELIE,,6229,37.5,1,won,U,71,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci10,nagaland,2008,10,NORTHERN ANGAMI-I,PRASIELIE PIENYU,,5256,31.64,2,lost,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci10,nagaland,2008,10,NORTHERN ANGAMI-I,SEYIEKUOLIE,,5126,30.86,3,lost,U,52,,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1471,nagaland,2008,11,NORTHERN ANGAMI-II,NEIPHIU RIO,,13641,82.57,1,won,U,57,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1471,nagaland,2008,11,NORTHERN ANGAMI-II,SEVETSO,,2880,17.43,2,lost,U,57,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1492,nagaland,2008,12,TSEMINYU,R. KHING,,8216,33.71,1,won,U,58,,,incumbent,src-1b7bc1c9d39a
@@ -72,6 +79,9 @@ IN-AC-2008-nagaland-1467,nagaland,2008,25,MONGOYA,TAKUSUNGBA,,88,0.64,4,forfeit,
 IN-AC-2008-nagaland-1446,nagaland,2008,26,AONGLENDEN,NUNGSHIZENBA,,4380,47.01,1,won,U,71,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1446,nagaland,2008,26,AONGLENDEN,IMTIKUMZUK,,2841,30.49,2,lost,U,39,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1446,nagaland,2008,26,AONGLENDEN,TOSHIPOKBA,,2096,22.5,3,lost,U,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci27,nagaland,2008,27,MOKOKCHUNG TOWN,C. APOK JAMIR,,2085,42.94,1,won,U,45,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci27,nagaland,2008,27,MOKOKCHUNG TOWN,AOLEPDEN,,1459,30.05,2,lost,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci27,nagaland,2008,27,MOKOKCHUNG TOWN,NOKZENKETBA,,1312,27.02,3,lost,U,59,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1460,nagaland,2008,28,KORIDANG,IMKONG L. IMCHEN,,10144,52,1,won,U,58,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1460,nagaland,2008,28,KORIDANG,T. CHENUNG LONGCHAR,,8947,45.87,2,lost,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1460,nagaland,2008,28,KORIDANG,S. MOA IMCHEN,,415,2.13,3,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -172,6 +182,11 @@ IN-AC-2008-nagaland-1461,nagaland,2008,52,LONGKHIM CHARE,HOTONGSE,,361,1.87,4,fo
 IN-AC-2008-nagaland-1494,nagaland,2008,53,TUENSANG SADAR-I,P. CHUBA,,9230,56.22,1,won,U,44,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1494,nagaland,2008,53,TUENSANG SADAR-I,NUNGSANGLEMBA CHANG,,4078,24.84,2,lost,U,49,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1494,nagaland,2008,53,TUENSANG SADAR-I,L. ELAM,,3110,18.94,3,lost,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci54,nagaland,2008,54,TUENSANG SADAR-II,KEJONG,,7628,43.58,1,won,U,72,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci54,nagaland,2008,54,TUENSANG SADAR-II,RHAKILA,,7275,41.56,2,lost,U,70,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci54,nagaland,2008,54,TUENSANG SADAR-II,K. IMLONG,,1855,10.6,3,forfeit,U,56,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci54,nagaland,2008,54,TUENSANG SADAR-II,N. KAIMANG,,705,4.03,4,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci54,nagaland,2008,54,TUENSANG SADAR-II,WONGTO,,42,0.24,5,forfeit,U,36,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1491,nagaland,2008,55,TOBU,NAIBA,,10017,58.26,1,won,U,43,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1491,nagaland,2008,55,TOBU,BONGKHAO,,7176,41.74,2,lost,U,31,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1468,nagaland,2008,56,NOKLAK,P. LONGON,,7939,60.18,1,won,U,41,Graduate,,incumbent,src-1b7bc1c9d39a

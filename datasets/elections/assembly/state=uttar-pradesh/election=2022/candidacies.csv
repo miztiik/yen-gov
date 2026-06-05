@@ -18,6 +18,18 @@ IN-AC-2008-uttar-pradesh-927,uttar-pradesh,2022,2,NAKUR,NITIN KUMAR,,267,0.1,9,f
 IN-AC-2008-uttar-pradesh-927,uttar-pradesh,2022,2,NAKUR,ASHISH TYAGI,,240,0.09,10,forfeit,U,25,Graduate,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-927,uttar-pradesh,2022,2,NAKUR,DEVENDRA CHAUHAN,,218,0.08,11,forfeit,U,59,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-927,uttar-pradesh,2022,2,NAKUR,NAHID LATIF,,209,0.08,12,forfeit,U,29,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2022,3,SAHARANPUR NAGAR,RAJEEV GUMBER,,143195,48.85,1,won,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2022,3,SAHARANPUR NAGAR,SANJAY GARG,,135761,46.32,2,lost,U,64,Graduate Professional,Rent,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2022,3,SAHARANPUR NAGAR,Manish,,8776,2.99,3,forfeit,U,35,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2022,3,SAHARANPUR NAGAR,SUKHWINDER KAUR,,2256,0.77,4,forfeit,U,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2022,3,SAHARANPUR NAGAR,MANSOOR AHMED,,695,0.24,6,forfeit,U,46,Post Graduate,Trader,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2022,3,SAHARANPUR NAGAR,AVTAR SINGH,,398,0.14,7,forfeit,U,51,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2022,3,SAHARANPUR NAGAR,RITA,,360,0.12,8,forfeit,U,41,Literate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2022,3,SAHARANPUR NAGAR,USMAN MALIK,,287,0.1,9,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2022,3,SAHARANPUR NAGAR,SANJAY KUMAR,,206,0.07,10,forfeit,U,46,Doctorate,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2022,3,SAHARANPUR NAGAR,KAMROODDIN,,168,0.06,11,forfeit,U,45,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2022,3,SAHARANPUR NAGAR,SALLOUDEEN RAJA,,153,0.05,12,forfeit,U,34,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2022,3,SAHARANPUR NAGAR,PULKIT THAKRAL,,104,0.04,13,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1058,uttar-pradesh,2022,4,SAHARANPUR,Ashu Malik,,107007,41.18,1,won,U,40,10th Pass,Rent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1058,uttar-pradesh,2022,4,SAHARANPUR,JAGPAL SINGH,,76262,29.35,2,lost,U,62,12th Pass,Party Worker,crossover,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1058,uttar-pradesh,2022,4,SAHARANPUR,Ajab Singh,,62637,24.1,3,lost,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -479,6 +491,31 @@ IN-AC-2008-uttar-pradesh-991,uttar-pradesh,2022,46,KITHORE,RAHUL KUMAR,,292,0.12
 IN-AC-2008-uttar-pradesh-991,uttar-pradesh,2022,46,KITHORE,PAWAN SHARMA,,292,0.12,12,forfeit,U,28,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-991,uttar-pradesh,2022,46,KITHORE,SANJEEV KUMAR,,187,0.07,13,forfeit,U,46,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-991,uttar-pradesh,2022,46,KITHORE,RAJESH GIRI,,155,0.06,14,forfeit,U,63,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci47,uttar-pradesh,2022,47,MEERUT CANTONMENT,AMIT AGARWAL,,162032,66.27,1,won,U,67,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci47,uttar-pradesh,2022,47,MEERUT CANTONMENT,MANISHA AHLAWAT,,43960,17.98,2,lost,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci47,uttar-pradesh,2022,47,MEERUT CANTONMENT,AMIT SHARMA,,28519,11.66,3,forfeit,U,41,10th Pass,Transport,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci47,uttar-pradesh,2022,47,MEERUT CANTONMENT,AVNISH KAJLA,,5096,2.08,4,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci47,uttar-pradesh,2022,47,MEERUT CANTONMENT,MADAN SINGH MAAN,,1257,0.51,5,forfeit,U,65,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci47,uttar-pradesh,2022,47,MEERUT CANTONMENT,RAJIV KUMAR,,753,0.31,7,forfeit,U,37,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci47,uttar-pradesh,2022,47,MEERUT CANTONMENT,UPENDRA KUMAR,,438,0.18,8,forfeit,U,38,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci47,uttar-pradesh,2022,47,MEERUT CANTONMENT,OM PRAKASH KANIK,,256,0.1,9,forfeit,U,70,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci47,uttar-pradesh,2022,47,MEERUT CANTONMENT,PAWAN KUMAR DHIMAN,,256,0.1,10,forfeit,U,60,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci47,uttar-pradesh,2022,47,MEERUT CANTONMENT,DEEPAK SAINI,,243,0.1,11,forfeit,U,35,Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci47,uttar-pradesh,2022,47,MEERUT CANTONMENT,DR.SUDHIR AGRAWAL,,233,0.1,12,forfeit,U,64,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci47,uttar-pradesh,2022,47,MEERUT CANTONMENT,RAKESH PARJAPATI,,218,0.09,13,forfeit,U,53,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci47,uttar-pradesh,2022,47,MEERUT CANTONMENT,DEEPAK SIROHI,,157,0.06,14,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci48,uttar-pradesh,2022,48,MEERUT,RAFIQ ANSARI,,106395,52.77,1,won,U,60,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci48,uttar-pradesh,2022,48,MEERUT,KAMAL DUTT SHARMA,,80330,39.84,2,lost,U,48,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci48,uttar-pradesh,2022,48,MEERUT,RANJAN SHARMA,,5333,2.64,3,forfeit,U,41,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci48,uttar-pradesh,2022,48,MEERUT,DILSHAD,,4939,2.45,4,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci48,uttar-pradesh,2022,48,MEERUT,IMRAN AHMAD,,3038,1.51,5,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci48,uttar-pradesh,2022,48,MEERUT,KAPIL KUMAR SHARMA,,323,0.16,7,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci48,uttar-pradesh,2022,48,MEERUT,ASHOK,,183,0.09,8,forfeit,U,52,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci48,uttar-pradesh,2022,48,MEERUT,ALI SHER,,132,0.07,9,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci48,uttar-pradesh,2022,48,MEERUT,ANKIT SHARMA,,130,0.06,10,forfeit,U,39,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci48,uttar-pradesh,2022,48,MEERUT,SUSHIL VERMA,,88,0.04,11,forfeit,U,41,10th Pass,Transport,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci48,uttar-pradesh,2022,48,MEERUT,AFZAL,,78,0.04,12,forfeit,U,51,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci48,uttar-pradesh,2022,48,MEERUT,KANAK JAIN,,49,0.02,13,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-994,uttar-pradesh,2022,49,MEERUT SOUTH,Dr. Somendra Singh Tomar,,129667,43.46,1,won,U,41,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-994,uttar-pradesh,2022,49,MEERUT SOUTH,Mohd Adil,,121725,40.79,2,lost,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-994,uttar-pradesh,2022,49,MEERUT SOUTH,Dilshad Ali,,39857,13.36,3,forfeit,U,60,Illiterate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
@@ -538,6 +575,31 @@ IN-AC-2008-uttar-pradesh-873,uttar-pradesh,2022,54,MURADNAGAR,Lalit Mohan Tyagi,
 IN-AC-2008-uttar-pradesh-873,uttar-pradesh,2022,54,MURADNAGAR,Manoj Kumar Sharma (Hodia),,307,0.11,9,forfeit,U,46,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-873,uttar-pradesh,2022,54,MURADNAGAR,Rajkumar Tyagi,,199,0.07,10,forfeit,U,67,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-873,uttar-pradesh,2022,54,MURADNAGAR,Prabhat Kumar Sharma,,180,0.07,11,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci55,uttar-pradesh,2022,55,SAHIBABAD,SUNIL KUMAR SHARMA,,322882,67.03,1,won,U,59,Post Graduate,Rent,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci55,uttar-pradesh,2022,55,SAHIBABAD,AMARPAL SHARMA,,108047,22.43,2,lost,U,54,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci55,uttar-pradesh,2022,55,SAHIBABAD,AJIT KUMAR PAL,,24136,5.01,3,forfeit,U,50,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci55,uttar-pradesh,2022,55,SAHIBABAD,SANGEETA TYAGI,,10273,2.13,4,forfeit,U,53,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci55,uttar-pradesh,2022,55,SAHIBABAD,CHHAVI YADAV,,6965,1.45,5,forfeit,U,50,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci55,uttar-pradesh,2022,55,SAHIBABAD,MANMOHAN JHA,,4305,0.89,6,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci55,uttar-pradesh,2022,55,SAHIBABAD,SMT. GEETANJALI,,557,0.12,8,forfeit,U,42,10th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci55,uttar-pradesh,2022,55,SAHIBABAD,VIJAY KUMAR,,532,0.11,9,forfeit,U,36,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci55,uttar-pradesh,2022,55,SAHIBABAD,SUJIT TIWARI,,438,0.09,10,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci55,uttar-pradesh,2022,55,SAHIBABAD,BHUPENDRA NATH,,310,0.06,11,forfeit,U,47,Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci55,uttar-pradesh,2022,55,SAHIBABAD,ANIMA OJHA,,296,0.06,12,forfeit,U,34,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci56,uttar-pradesh,2022,56,GHAZIABAD,Atul Garg,,150205,61.37,1,won,U,64,12th Pass,Minister,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci56,uttar-pradesh,2022,56,GHAZIABAD,Vishal Verma,,44668,18.25,2,lost,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci56,uttar-pradesh,2022,56,GHAZIABAD,Krishan Kumar,,32691,13.36,3,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci56,uttar-pradesh,2022,56,GHAZIABAD,SUSHANT GOYAL,,11818,4.83,4,forfeit,U,48,12th Pass,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci56,uttar-pradesh,2022,56,GHAZIABAD,Nimit,,1879,0.77,5,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci56,uttar-pradesh,2022,56,GHAZIABAD,Pintu Singh,,754,0.31,7,forfeit,U,45,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci56,uttar-pradesh,2022,56,GHAZIABAD,Rani Dev Shree,,331,0.14,8,forfeit,U,51,12th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci56,uttar-pradesh,2022,56,GHAZIABAD,Sudhir Kumar,,276,0.11,9,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci56,uttar-pradesh,2022,56,GHAZIABAD,Naresh Kumar,,250,0.1,10,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci56,uttar-pradesh,2022,56,GHAZIABAD,Pradeep Kumar Pathak,,153,0.06,11,forfeit,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci56,uttar-pradesh,2022,56,GHAZIABAD,Amit Sharma,,150,0.06,12,forfeit,U,40,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci56,uttar-pradesh,2022,56,GHAZIABAD,Ashutosh Gupta,,143,0.06,13,forfeit,U,43,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci56,uttar-pradesh,2022,56,GHAZIABAD,Rajnish Kumar Thakur,,116,0.05,14,forfeit,U,39,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci56,uttar-pradesh,2022,56,GHAZIABAD,RAKESH SURI,,94,0.04,15,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-757,uttar-pradesh,2022,57,MODINAGAR,DR. MANJU SHIWACH,,113349,50.63,1,won,U,59,Graduate,Doctor,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-757,uttar-pradesh,2022,57,MODINAGAR,SUDESH SHARMA,,78730,35.17,2,lost,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-757,uttar-pradesh,2022,57,MODINAGAR,DR. POONAM GARG,,26729,11.94,3,forfeit,U,56,Graduate Professional,,challenger,src-1b7bc1c9d39a
@@ -728,6 +790,17 @@ IN-AC-2008-uttar-pradesh-718,uttar-pradesh,2022,75,KOIL,SHAMS TABREZ KHAN,,300,0
 IN-AC-2008-uttar-pradesh-718,uttar-pradesh,2022,75,KOIL,NAIM KHAN,,243,0.1,8,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-718,uttar-pradesh,2022,75,KOIL,M L PAPA,,200,0.08,9,forfeit,U,50,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-718,uttar-pradesh,2022,75,KOIL,SAHAB SINGH,,164,0.06,10,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci76,uttar-pradesh,2022,76,ALIGARH,MUKTA RAJA,,120389,47.66,1,won,U,55,12th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci76,uttar-pradesh,2022,76,ALIGARH,ZAFAR ALAM,,107603,42.6,2,lost,U,76,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci76,uttar-pradesh,2022,76,ALIGARH,RAZIA KHAN,,18273,7.23,3,forfeit,U,52,Graduate,Household,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci76,uttar-pradesh,2022,76,ALIGARH,MOHD SALMAN IMTIAZ,,2292,0.91,4,forfeit,U,31,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci76,uttar-pradesh,2022,76,ALIGARH,MONIKA THAPAR,,861,0.34,6,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci76,uttar-pradesh,2022,76,ALIGARH,RAMGOPAL,,843,0.33,7,forfeit,U,43,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci76,uttar-pradesh,2022,76,ALIGARH,VINOD KUMAR,,471,0.19,8,forfeit,U,39,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci76,uttar-pradesh,2022,76,ALIGARH,RIHANUDDIN,,263,0.1,9,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci76,uttar-pradesh,2022,76,ALIGARH,KESHAV DEV,,195,0.08,10,forfeit,U,46,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci76,uttar-pradesh,2022,76,ALIGARH,DILEEP KUMAR,,178,0.07,11,forfeit,U,39,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci76,uttar-pradesh,2022,76,ALIGARH,RENUKA SHARMA,,163,0.06,12,forfeit,U,42,10th Pass,Rent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-907,uttar-pradesh,2022,77,IGLAS,RAJKUMAR SAHYOGI,,127209,52.35,1,won,U,56,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-907,uttar-pradesh,2022,77,IGLAS,BIRPAL SINGH,,68046,28,2,lost,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-907,uttar-pradesh,2022,77,IGLAS,SUSHIL KUMAR,,37980,15.63,3,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
@@ -841,6 +914,39 @@ IN-AC-2008-uttar-pradesh-707,uttar-pradesh,2022,86,ETMADPUR,VINOD SINGH,,155,0.0
 IN-AC-2008-uttar-pradesh-707,uttar-pradesh,2022,86,ETMADPUR,SATISH,,149,0.05,13,forfeit,U,66,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-707,uttar-pradesh,2022,86,ETMADPUR,KAPIL GAUTAM,,130,0.04,14,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-707,uttar-pradesh,2022,86,ETMADPUR,DR. ANIL KUMAR SINGH,,108,0.04,15,forfeit,U,41,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci87,uttar-pradesh,2022,87,AGRA CANTONMENT,Dr. G S Dharmesh,,117796,46.78,1,won,U,68,Graduate Professional,Petrol Pumps,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci87,uttar-pradesh,2022,87,AGRA CANTONMENT,Kunwar  Chand,,69099,27.44,2,lost,U,63,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci87,uttar-pradesh,2022,87,AGRA CANTONMENT,Dr.  Bhartendra Kumar Arun,,54409,21.61,3,lost,U,47,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci87,uttar-pradesh,2022,87,AGRA CANTONMENT,Sikandar Singh,,5590,2.22,4,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci87,uttar-pradesh,2022,87,AGRA CANTONMENT,Prem Singh,,1125,0.45,6,forfeit,U,32,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci87,uttar-pradesh,2022,87,AGRA CANTONMENT,Prakash Indiver,,619,0.25,7,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci87,uttar-pradesh,2022,87,AGRA CANTONMENT,Hari Kishan,,552,0.22,8,forfeit,U,61,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci87,uttar-pradesh,2022,87,AGRA CANTONMENT,Sundar Singh,,421,0.17,9,forfeit,U,35,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci87,uttar-pradesh,2022,87,AGRA CANTONMENT,Mona,,420,0.17,10,forfeit,U,33,12th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci87,uttar-pradesh,2022,87,AGRA CANTONMENT,Akash Soni,,365,0.14,11,forfeit,U,26,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci88,uttar-pradesh,2022,88,AGRA SOUTH,YOGENDRA UPADHYAYA,,109262,52.39,1,won,U,66,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci88,uttar-pradesh,2022,88,AGRA SOUTH,VINAY AGARWAL,,52622,25.23,2,lost,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci88,uttar-pradesh,2022,88,AGRA SOUTH,RAVI BHARADWAJ,,38219,18.32,3,lost,U,45,12th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci88,uttar-pradesh,2022,88,AGRA SOUTH,ANUJ SHARMA,,4867,2.33,4,forfeit,U,36,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci88,uttar-pradesh,2022,88,AGRA SOUTH,RAMJANI,,959,0.46,5,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci88,uttar-pradesh,2022,88,AGRA SOUTH,RASHID ALI CHOUDHARY,,566,0.27,7,forfeit,U,34,Graduate Professional,Doctor,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci88,uttar-pradesh,2022,88,AGRA SOUTH,PREM SINGH,,471,0.23,8,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci88,uttar-pradesh,2022,88,AGRA SOUTH,ALAMGIR,,419,0.2,9,forfeit,U,46,12th Pass,Trader,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci88,uttar-pradesh,2022,88,AGRA SOUTH,MOHD KAMIL,,130,0.06,10,forfeit,U,33,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci88,uttar-pradesh,2022,88,AGRA SOUTH,DEREK SMITH,,105,0.05,11,forfeit,U,68,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2022,89,AGRA NORTH,PURUSHOTTAM KHANDELWAL,,153817,63.89,1,won,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2022,89,AGRA NORTH,SHABBIR ABBAS,,41447,17.22,2,lost,U,56,Post Graduate,"Petrol Pumps, Rent",crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2022,89,AGRA NORTH,GYANENDRA,,34403,14.29,3,forfeit,U,40,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2022,89,AGRA NORTH,VINOD BANSAL,,5933,2.46,4,forfeit,U,70,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2022,89,AGRA NORTH,KAPIL VAJPAI,,1945,0.81,5,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2022,89,AGRA NORTH,MANISH,,406,0.17,7,forfeit,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2022,89,AGRA NORTH,VINEET AGARWAL,,263,0.11,8,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2022,89,AGRA NORTH,SASHANK AGARWAL,,210,0.09,9,forfeit,U,29,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2022,89,AGRA NORTH,MOHIT AGARWAL,,171,0.07,10,forfeit,U,45,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2022,89,AGRA NORTH,NIRANJAN SINGH,,157,0.07,11,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2022,89,AGRA NORTH,OM PRAKASH RAJPUT,,155,0.06,12,forfeit,U,56,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2022,89,AGRA NORTH,NEEL,,131,0.05,13,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2022,89,AGRA NORTH,RAJEEV AGARWAL,,106,0.04,14,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-855,uttar-pradesh,2022,90,AGRA RURAL,BABY RANI MAURYA,,137310,52.63,1,won,U,65,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-855,uttar-pradesh,2022,90,AGRA RURAL,KIRAN PRABHA KESHARI,,60702,23.26,2,lost,U,41,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-855,uttar-pradesh,2022,90,AGRA RURAL,MAHESH KUMAR,,52731,20.21,3,lost,U,52,5th Pass,Contractor,challenger,src-1b7bc1c9d39a
@@ -874,6 +980,19 @@ IN-AC-2008-uttar-pradesh-859,uttar-pradesh,2022,92,KHERAGARH,Ashok Kumar,,308,0.
 IN-AC-2008-uttar-pradesh-859,uttar-pradesh,2022,92,KHERAGARH,Neeraj Kumar Rawat,,266,0.13,12,forfeit,U,33,12th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-859,uttar-pradesh,2022,92,KHERAGARH,Satish Chandra Bhardwaj,,205,0.1,13,forfeit,U,61,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-859,uttar-pradesh,2022,92,KHERAGARH,Uday Singh,,184,0.09,14,forfeit,U,45,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci93,uttar-pradesh,2022,93,FATEHABAD,Chhotey Lal Verma,,108811,50.46,1,won,U,68,8th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci93,uttar-pradesh,2022,93,FATEHABAD,Roopali Dixit,,55576,25.77,2,lost,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci93,uttar-pradesh,2022,93,FATEHABAD,Shailendra Singh,,40958,18.99,3,lost,U,41,Graduate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci93,uttar-pradesh,2022,93,FATEHABAD,Rajesh Singh Kushwah,,3585,1.66,4,forfeit,U,47,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci93,uttar-pradesh,2022,93,FATEHABAD,Mahinder Singh Verma,,1331,0.62,6,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci93,uttar-pradesh,2022,93,FATEHABAD,Hotam Singh Nishad,,683,0.32,7,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci93,uttar-pradesh,2022,93,FATEHABAD,Bhuri,,611,0.28,8,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci93,uttar-pradesh,2022,93,FATEHABAD,Pramod Kumari Kushwah,,307,0.14,9,forfeit,U,45,12th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci93,uttar-pradesh,2022,93,FATEHABAD,Pt. Dinesh Chand Sharma,,301,0.14,10,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci93,uttar-pradesh,2022,93,FATEHABAD,Vijay Singh Dhangar,,267,0.12,11,forfeit,U,70,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci93,uttar-pradesh,2022,93,FATEHABAD,Narendra Singh,,257,0.12,12,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci93,uttar-pradesh,2022,93,FATEHABAD,Purushottam Das Fauzi Bhai,,250,0.12,13,forfeit,U,62,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci93,uttar-pradesh,2022,93,FATEHABAD,Ajay Kumar,,217,0.1,14,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-856,uttar-pradesh,2022,94,BAH,Rani Pakshalika Singh,,78360,41.16,1,won,U,61,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-856,uttar-pradesh,2022,94,BAH,Madhusudan Sharma,,54125,28.43,2,lost,U,53,8th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-856,uttar-pradesh,2022,94,BAH,Nitin Verma,,50618,26.59,3,lost,U,26,Graduate,,challenger,src-1b7bc1c9d39a
@@ -1185,6 +1304,17 @@ IN-AC-2008-uttar-pradesh-740,uttar-pradesh,2022,123,BITHARI CHAINPUR,DEVENDRA KU
 IN-AC-2008-uttar-pradesh-740,uttar-pradesh,2022,123,BITHARI CHAINPUR,SANGH PRIYA,,317,0.13,13,forfeit,U,33,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-740,uttar-pradesh,2022,123,BITHARI CHAINPUR,AHMAD HUSAIN,,308,0.12,14,forfeit,U,47,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-740,uttar-pradesh,2022,123,BITHARI CHAINPUR,PAPPU SAGAR,,195,0.08,15,forfeit,U,50,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci124,uttar-pradesh,2022,124,BAREILLY CITY,DR ARUN KUMAR,,129014,53.77,1,won,U,73,Graduate Professional,Real Estate or Builder or Developer or Construction,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci124,uttar-pradesh,2022,124,BAREILLY CITY,RAJESH KUMAR AGARWAL,,96694,40.3,2,lost,U,54,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci124,uttar-pradesh,2022,124,BAREILLY CITY,BRAHAMA NAND SHARMA,,6982,2.91,3,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci124,uttar-pradesh,2022,124,BAREILLY CITY,KRISHNA KANT SHARMA,,2311,0.96,4,forfeit,U,54,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci124,uttar-pradesh,2022,124,BAREILLY CITY,SHAHEEM KHAN URF RAJU,,1744,0.73,5,forfeit,U,39,5th Pass,Private Company,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci124,uttar-pradesh,2022,124,BAREILLY CITY,KRISHNA BHARDWAJ,,714,0.3,7,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci124,uttar-pradesh,2022,124,BAREILLY CITY,AMIT KHANDELWAL,,465,0.19,8,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci124,uttar-pradesh,2022,124,BAREILLY CITY,RAFIA SHABNAM,,263,0.11,9,forfeit,U,50,Post Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci124,uttar-pradesh,2022,124,BAREILLY CITY,RAKESH AGARWAL ADVOCATE,,258,0.11,10,forfeit,U,64,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci124,uttar-pradesh,2022,124,BAREILLY CITY,SAFIYA KHATOON,,220,0.09,11,forfeit,U,34,Literate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci124,uttar-pradesh,2022,124,BAREILLY CITY,JAVED HUSAIN,,103,0.04,12,forfeit,U,29,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-785,uttar-pradesh,2022,125,BAREILLY CANTONMENT,SANJEEV AGARWAL,,98931,50.43,1,won,U,59,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-785,uttar-pradesh,2022,125,BAREILLY CANTONMENT,SUPRIYA ARON,,88163,44.94,2,lost,U,60,Post Graduate,Qualified Professional,crossover,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-785,uttar-pradesh,2022,125,BAREILLY CANTONMENT,ANIL KUMAR,,3370,1.72,3,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
@@ -1666,6 +1796,68 @@ IN-AC-2008-uttar-pradesh-1008,uttar-pradesh,2022,170,SAROJINI NAGAR,Chandra Shek
 IN-AC-2008-uttar-pradesh-1008,uttar-pradesh,2022,170,SAROJINI NAGAR,Rama Shankar Bheem,,327,0.1,13,forfeit,U,61,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1008,uttar-pradesh,2022,170,SAROJINI NAGAR,Jitendra Kumar,,307,0.09,14,forfeit,U,34,8th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1008,uttar-pradesh,2022,170,SAROJINI NAGAR,Arvind Singh,,247,0.08,15,forfeit,U,47,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci171,uttar-pradesh,2022,171,LUCKNOW WEST,ARMAAN KHAN,,124497,48.19,1,won,U,49,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci171,uttar-pradesh,2022,171,LUCKNOW WEST,ANJANI KUMAR SRIVASTAVA,,116313,45.03,2,lost,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci171,uttar-pradesh,2022,171,LUCKNOW WEST,KAYAM RAZA  KHAN,,10061,3.89,3,forfeit,U,56,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci171,uttar-pradesh,2022,171,LUCKNOW WEST,SHAHANA SIDDIQUI,,2796,1.08,4,forfeit,U,46,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci171,uttar-pradesh,2022,171,LUCKNOW WEST,RAJIV BAKSHI,,1294,0.5,6,forfeit,U,58,Post Graduate,Private Company,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci171,uttar-pradesh,2022,171,LUCKNOW WEST,MOHD HANIF KHAN,,728,0.28,7,forfeit,U,47,8th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci171,uttar-pradesh,2022,171,LUCKNOW WEST,RAHUL GUPTA,,605,0.23,8,forfeit,U,28,Graduate,NGO,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci171,uttar-pradesh,2022,171,LUCKNOW WEST,Vinay Shukla,,243,0.09,9,forfeit,U,43,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci171,uttar-pradesh,2022,171,LUCKNOW WEST,ATUL TIWARI,,178,0.07,10,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci171,uttar-pradesh,2022,171,LUCKNOW WEST,KAYNAT  SIDDIQUI,,158,0.06,11,forfeit,U,34,Graduate,Architect,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci171,uttar-pradesh,2022,171,LUCKNOW WEST,KANTI PANDEY,,113,0.04,12,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci172,uttar-pradesh,2022,172,LUCKNOW NORTH,Dr. Neeraj Bora,,139159,53.3,1,won,U,54,Post Graduate,Doctor,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci172,uttar-pradesh,2022,172,LUCKNOW NORTH,Pooja Shukla,,105206,40.29,2,lost,U,25,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci172,uttar-pradesh,2022,172,LUCKNOW NORTH,Mohd Sarwar Malik,,8945,3.43,3,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci172,uttar-pradesh,2022,172,LUCKNOW NORTH,Ajay Kumar Srivastava,,3236,1.24,4,forfeit,U,45,Graduate,Principal or Administrator,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci172,uttar-pradesh,2022,172,LUCKNOW NORTH,Amit Shrivastav 'Tyagi'',,1366,0.52,5,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci172,uttar-pradesh,2022,172,LUCKNOW NORTH,Pankaj Sharma,,644,0.25,7,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci172,uttar-pradesh,2022,172,LUCKNOW NORTH,Sarvesh Sai,,299,0.11,8,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci172,uttar-pradesh,2022,172,LUCKNOW NORTH,Sanjay Singh Rana,,247,0.09,9,forfeit,U,41,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci172,uttar-pradesh,2022,172,LUCKNOW NORTH,Arvind Shukla,,206,0.08,10,forfeit,U,41,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci172,uttar-pradesh,2022,172,LUCKNOW NORTH,Kaushal Kishore,,192,0.07,11,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci172,uttar-pradesh,2022,172,LUCKNOW NORTH,Noor Mo Varsi,,96,0.04,12,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci172,uttar-pradesh,2022,172,LUCKNOW NORTH,Rani Siddiqui,,82,0.03,13,forfeit,U,41,Illiterate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci172,uttar-pradesh,2022,172,LUCKNOW NORTH,Brijesh Chandra Awasthi,,79,0.03,14,forfeit,U,49,Graduate Professional,Legal Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2022,173,LUCKNOW EAST,Ashutosh Tandon 'Gopal Ji ',,152928,59.4,1,won,U,61,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2022,173,LUCKNOW EAST,Anurag Singh Bhadouriya,,84197,32.7,2,lost,U,51,Doctorate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2022,173,LUCKNOW EAST,Aashish Kumar Sinha,,9834,3.82,3,forfeit,U,42,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2022,173,LUCKNOW EAST,Manoj Tiwari,,4485,1.74,4,forfeit,U,57,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2022,173,LUCKNOW EAST,Alok Singh,,2680,1.04,5,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2022,173,LUCKNOW EAST,Avinash Bharti,,689,0.27,7,forfeit,U,35,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2022,173,LUCKNOW EAST,Anurodh Srivastava,,238,0.09,8,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2022,173,LUCKNOW EAST,Shiva Gupta,,208,0.08,9,forfeit,U,44,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2022,173,LUCKNOW EAST,Mridul Kumar Srivastava (Advocate),,137,0.05,10,forfeit,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2022,173,LUCKNOW EAST,Vinai Prakash Srivastava,,118,0.05,11,forfeit,U,66,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2022,173,LUCKNOW EAST,Ravikant Jha  Sintu,,112,0.04,12,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2022,173,LUCKNOW EAST,Vijay Laxmi Jaiswal,,102,0.04,13,forfeit,U,59,12th Pass,Hospitality,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2022,173,LUCKNOW EAST,Dilip Kumar Rastogi,,81,0.03,14,forfeit,U,47,Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2022,173,LUCKNOW EAST,Naimish Pratap Narayan Singh,,64,0.02,15,forfeit,U,44,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci174,uttar-pradesh,2022,174,LUCKNOW CENTRAL,RAVIDAS MEHROTRA,,104488,49.62,1,won,U,66,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci174,uttar-pradesh,2022,174,LUCKNOW CENTRAL,RAJNISH KUMAR GUPTA,,93553,44.43,2,lost,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci174,uttar-pradesh,2022,174,LUCKNOW CENTRAL,ASHISH CHANDRA,,6181,2.94,3,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci174,uttar-pradesh,2022,174,LUCKNOW CENTRAL,SADAF JAFAR,,2927,1.39,4,forfeit,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci174,uttar-pradesh,2022,174,LUCKNOW CENTRAL,NADEEM ASHRAF,,754,0.36,6,forfeit,U,62,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci174,uttar-pradesh,2022,174,LUCKNOW CENTRAL,SALMAN SIDDIQUE,,623,0.3,7,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci174,uttar-pradesh,2022,174,LUCKNOW CENTRAL,MOHAMMAD ZAFAR QURESHI,,261,0.12,8,forfeit,U,32,10th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci174,uttar-pradesh,2022,174,LUCKNOW CENTRAL,RAM KUMAR,,197,0.09,9,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci174,uttar-pradesh,2022,174,LUCKNOW CENTRAL,KISHORI LAL,,168,0.08,10,forfeit,U,68,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci174,uttar-pradesh,2022,174,LUCKNOW CENTRAL,GAURAV VERMA,,133,0.06,11,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci174,uttar-pradesh,2022,174,LUCKNOW CENTRAL,VIKRANT MOHAN SRIVASTAVA,,130,0.06,12,forfeit,U,49,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci174,uttar-pradesh,2022,174,LUCKNOW CENTRAL,RAM SUNDAR BHUSHAN,,129,0.06,13,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci174,uttar-pradesh,2022,174,LUCKNOW CENTRAL,DHARMENDRA GUPTA,,63,0.03,14,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2022,175,LUCKNOW CANTONMENT,Brajesh Pathak,,108147,54.7,1,won,U,57,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2022,175,LUCKNOW CANTONMENT,Surendra Singh Gandhi 'Raju Gandhi',,68635,34.71,2,lost,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2022,175,LUCKNOW CANTONMENT,Anil Pandey,,10426,5.27,3,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2022,175,LUCKNOW CANTONMENT,Dilpreet Singh Virk,,6510,3.29,4,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2022,175,LUCKNOW CANTONMENT,Ajay Kumar,,1614,0.82,5,forfeit,U,58,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2022,175,LUCKNOW CANTONMENT,Sachidanand Srivastava,,364,0.18,7,forfeit,U,65,Others,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2022,175,LUCKNOW CANTONMENT,Satyendra Kumar Tiwari,,191,0.1,8,forfeit,U,61,Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2022,175,LUCKNOW CANTONMENT,Rajni Kant Dubey,,178,0.09,9,forfeit,U,49,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2022,175,LUCKNOW CANTONMENT,Nigmendra Mishra,,165,0.08,10,forfeit,U,49,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2022,175,LUCKNOW CANTONMENT,Ajay Kumar Singh,,151,0.08,11,forfeit,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2022,175,LUCKNOW CANTONMENT,Asheesh Saxena,,118,0.06,12,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1007,uttar-pradesh,2022,176,MOHANLALGANJ,Amresh Kumar,,107089,43.58,1,won,U,47,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1007,uttar-pradesh,2022,176,MOHANLALGANJ,Sushila Saroj,,90541,36.84,2,lost,U,71,Graduate Professional,Rent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1007,uttar-pradesh,2022,176,MOHANLALGANJ,Devendra Kumar,,31623,12.87,3,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
@@ -2037,6 +2229,45 @@ IN-AC-2008-uttar-pradesh-710,uttar-pradesh,2022,210,BITHOOR,KIRAN,,2150,0.89,5,f
 IN-AC-2008-uttar-pradesh-710,uttar-pradesh,2022,210,BITHOOR,CHANDRA PAL,,995,0.41,7,forfeit,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-710,uttar-pradesh,2022,210,BITHOOR,PUNEET KUMAR,,812,0.34,8,forfeit,U,36,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-710,uttar-pradesh,2022,210,BITHOOR,SOM NATH PAL,,694,0.29,9,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci211,uttar-pradesh,2022,211,KALYANPUR,NEELIMA KATIYAR,,98997,52.71,1,won,U,49,Post Graduate,Rent,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci211,uttar-pradesh,2022,211,KALYANPUR,SATISH KUMAR NIGAM,,77462,41.24,2,lost,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci211,uttar-pradesh,2022,211,KALYANPUR,ARUN MISHRA,,6615,3.52,3,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci211,uttar-pradesh,2022,211,KALYANPUR,NEHA TIWARI,,2302,1.23,4,forfeit,U,30,Post Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci211,uttar-pradesh,2022,211,KALYANPUR,AROON KUMAR,,721,0.38,6,forfeit,U,69,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci211,uttar-pradesh,2022,211,KALYANPUR,HEERA DEVI,,360,0.19,7,forfeit,U,51,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci211,uttar-pradesh,2022,211,KALYANPUR,ANOOP KATIYAR,,337,0.18,8,forfeit,U,43,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci211,uttar-pradesh,2022,211,KALYANPUR,ASHOK KUMAR,,126,0.07,9,forfeit,U,50,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2022,212,GOVIND NAGAR,SURENDRA MAITHANI,,117501,61.13,1,won,U,57,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2022,212,GOVIND NAGAR,VIKAS YADAV,,36605,19.05,2,lost,U,28,Post Graduate,Transport,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2022,212,GOVIND NAGAR,KARISHMA THAKUR,,26267,13.67,3,forfeit,U,27,Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2022,212,GOVIND NAGAR,ASHOK KUMAR KALIYA,,8333,4.34,4,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2022,212,GOVIND NAGAR,KAWARDEEP SINGH,,2141,1.11,5,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2022,212,GOVIND NAGAR,SANTOSH KUMAR GIRI,,261,0.14,7,forfeit,U,54,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci213,uttar-pradesh,2022,213,SISAMAU,HAJI IRFAN SOLANKI,,79163,50.68,1,won,U,42,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci213,uttar-pradesh,2022,213,SISAMAU,SALIL VISHNOI,,66897,42.83,2,lost,U,66,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci213,uttar-pradesh,2022,213,SISAMAU,HAJEE SUHEL AHAMAD,,5616,3.6,3,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci213,uttar-pradesh,2022,213,SISAMAU,RAJNISH TIWARI,,2937,1.88,4,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci213,uttar-pradesh,2022,213,SISAMAU,SUNIL BABU,,563,0.36,6,forfeit,U,56,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci213,uttar-pradesh,2022,213,SISAMAU,ALOK KUMAR,,133,0.09,7,forfeit,U,56,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci213,uttar-pradesh,2022,213,SISAMAU,LADDAN,,119,0.08,8,forfeit,U,41,Illiterate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci213,uttar-pradesh,2022,213,SISAMAU,SHRIMATI MADHURI,,117,0.07,9,forfeit,U,39,10th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci214,uttar-pradesh,2022,214,ARYANAGAR,AMITABH BAJPAI,,76897,50.56,1,won,U,48,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci214,uttar-pradesh,2022,214,ARYANAGAR,SURESH AWASTHI,,68973,45.35,2,lost,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci214,uttar-pradesh,2022,214,ARYANAGAR,PRAMOD KUMAR,,3309,2.18,3,forfeit,U,70,Graduate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci214,uttar-pradesh,2022,214,ARYANAGAR,TONI JAISWAL,,1387,0.91,4,forfeit,U,42,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci214,uttar-pradesh,2022,214,ARYANAGAR,ANUJ KUMAR SHUKLA,,818,0.54,5,forfeit,U,37,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci214,uttar-pradesh,2022,214,ARYANAGAR,PAWAN KUMAR TIWARI,,91,0.06,7,forfeit,U,44,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci214,uttar-pradesh,2022,214,ARYANAGAR,GUDDI DIXIT,,77,0.05,8,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci215,uttar-pradesh,2022,215,KIDWAI NAGAR,MAHESH KUMAR TRIVEDI,,114111,55.39,1,won,U,54,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci215,uttar-pradesh,2022,215,KIDWAI NAGAR,AJAY KAPOOR,,76351,37.06,2,lost,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci215,uttar-pradesh,2022,215,KIDWAI NAGAR,ABHIMANYU,,8397,4.08,3,forfeit,U,38,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci215,uttar-pradesh,2022,215,KIDWAI NAGAR,MOHAN MISHRA,,3846,1.87,4,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci215,uttar-pradesh,2022,215,KIDWAI NAGAR,VIVEK DWIVEDI,,1129,0.55,5,forfeit,U,50,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci215,uttar-pradesh,2022,215,KIDWAI NAGAR,SEEMA UTTAM,,514,0.25,7,forfeit,U,47,Post Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci215,uttar-pradesh,2022,215,KIDWAI NAGAR,RAKESH KUMAR DIXIT,,178,0.09,8,forfeit,U,59,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci215,uttar-pradesh,2022,215,KIDWAI NAGAR,SITARAM  SHUKLA,,160,0.08,9,forfeit,U,66,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci215,uttar-pradesh,2022,215,KIDWAI NAGAR,ALOK KUMAR,,151,0.07,10,forfeit,U,41,Post Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci215,uttar-pradesh,2022,215,KIDWAI NAGAR,PAWAN KUMAR TIWARI,,114,0.06,11,forfeit,U,34,Post Graduate,Astrologer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-943,uttar-pradesh,2022,216,KANPUR CANTONMENT,MOHAMMAD HASAN,,94729,49.99,1,won,U,56,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-943,uttar-pradesh,2022,216,KANPUR CANTONMENT,RAGHUNANDAN SINGH BHADAURIYA,,74742,39.44,2,lost,U,59,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-943,uttar-pradesh,2022,216,KANPUR CANTONMENT,SOHIL AKHTAR ANSARI,,13279,7.01,3,forfeit,U,58,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
@@ -2603,6 +2834,28 @@ IN-AC-2008-uttar-pradesh-1026,uttar-pradesh,2022,261,ALLAHABAD WEST,KAMLESH KUMA
 IN-AC-2008-uttar-pradesh-1026,uttar-pradesh,2022,261,ALLAHABAD WEST,KAMAR JAHAN,,358,0.16,11,forfeit,U,31,12th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1026,uttar-pradesh,2022,261,ALLAHABAD WEST,GANESH JI TRIPATHi,,338,0.15,12,forfeit,U,57,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1026,uttar-pradesh,2022,261,ALLAHABAD WEST,DILSHAD AHMAD,,260,0.12,13,forfeit,U,30,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci262,uttar-pradesh,2022,262,ALLAHABAD NORTH,HARSHVARDHAN BAJPAI,,96890,55.07,1,won,U,40,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci262,uttar-pradesh,2022,262,ALLAHABAD NORTH,SANDEEP YADAV,,42007,23.88,2,lost,U,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci262,uttar-pradesh,2022,262,ALLAHABAD NORTH,ANUGRAH NARAIN SINGH,,23571,13.4,3,forfeit,U,70,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci262,uttar-pradesh,2022,262,ALLAHABAD NORTH,SANJAY GOSWAMI,,9614,5.46,4,forfeit,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci262,uttar-pradesh,2022,262,ALLAHABAD NORTH,SANJIV MISHRA,,1249,0.71,5,forfeit,U,45,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci262,uttar-pradesh,2022,262,ALLAHABAD NORTH,Mo. ALI,,860,0.49,7,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci262,uttar-pradesh,2022,262,ALLAHABAD NORTH,RATAN SRIVASTAVA,,357,0.2,8,forfeit,U,49,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci262,uttar-pradesh,2022,262,ALLAHABAD NORTH,RAJEEV KUMAR PANDEY,,259,0.15,9,forfeit,U,52,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci262,uttar-pradesh,2022,262,ALLAHABAD NORTH,ANIL,,215,0.12,10,forfeit,U,54,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci263,uttar-pradesh,2022,263,ALLAHABAD SOUTH,NAND GOPAL GUPTA NANDI,,97864,54.14,1,won,U,47,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci263,uttar-pradesh,2022,263,ALLAHABAD SOUTH,RAISH CHANDRA SHUKLA,,71682,39.66,2,lost,U,60,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci263,uttar-pradesh,2022,263,ALLAHABAD SOUTH,DEVENDRA MISHRA NAGRAHA,,4208,2.33,3,forfeit,U,55,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci263,uttar-pradesh,2022,263,ALLAHABAD SOUTH,ALPANA NISHAD,,2098,1.16,4,forfeit,U,36,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci263,uttar-pradesh,2022,263,ALLAHABAD SOUTH,MOHAMMAD FARHAN,,1533,0.85,5,forfeit,U,32,Graduate Professional,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci263,uttar-pradesh,2022,263,ALLAHABAD SOUTH,ALTAF AHMAD,,1115,0.62,6,forfeit,U,43,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci263,uttar-pradesh,2022,263,ALLAHABAD SOUTH,NAMAN JEET SINGH,,270,0.15,8,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci263,uttar-pradesh,2022,263,ALLAHABAD SOUTH,GOPAL SWAROOP JOSHI,,254,0.14,9,forfeit,U,75,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci263,uttar-pradesh,2022,263,ALLAHABAD SOUTH,TARUN SRIVASTAVA,,254,0.14,10,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci263,uttar-pradesh,2022,263,ALLAHABAD SOUTH,KAMALA KANT,,214,0.12,11,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci263,uttar-pradesh,2022,263,ALLAHABAD SOUTH,SANTOSH PAL,,183,0.1,12,forfeit,U,41,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci263,uttar-pradesh,2022,263,ALLAHABAD SOUTH,KAMALA PRASAD,,129,0.07,13,forfeit,U,56,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci263,uttar-pradesh,2022,263,ALLAHABAD SOUTH,KAILASH CHANDRA KESARWANI,,110,0.06,14,forfeit,U,60,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-720,uttar-pradesh,2022,264,BARA,VACHASPATI,,89203,43.49,1,won,U,65,Post Graduate,Rent,crossover,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-720,uttar-pradesh,2022,264,BARA,AJAY,,76679,37.38,2,lost,U,44,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-720,uttar-pradesh,2022,264,BARA,DR AJAY KUMAR,,22719,11.08,3,forfeit,U,53,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
@@ -3240,6 +3493,19 @@ IN-AC-2008-uttar-pradesh-893,uttar-pradesh,2022,321,PIPRAICH,ARUN KUMAR,,416,0.1
 IN-AC-2008-uttar-pradesh-893,uttar-pradesh,2022,321,PIPRAICH,DHIRENDRA PRATAP JAISWAL,,330,0.13,13,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-893,uttar-pradesh,2022,321,PIPRAICH,VIJAY KUMAR BHARTI,,290,0.11,14,forfeit,U,35,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-893,uttar-pradesh,2022,321,PIPRAICH,AMOD KUMAR BHATT,,221,0.09,15,forfeit,U,41,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci322,uttar-pradesh,2022,322,GORAKHPUR URBAN,ADITYANATH,,165499,66.18,1,won,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci322,uttar-pradesh,2022,322,GORAKHPUR URBAN,SUBHAWATI UPENDRA DUTT SHUKLA,,62109,24.84,2,lost,U,55,Literate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci322,uttar-pradesh,2022,322,GORAKHPUR URBAN,KHWAJA SHAMSUDDIN,,8023,3.21,3,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci322,uttar-pradesh,2022,322,GORAKHPUR URBAN,CHANDRA SHEKHAR,,7640,3.06,4,forfeit,U,34,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci322,uttar-pradesh,2022,322,GORAKHPUR URBAN,Dr.  CHETNA PANDEY,,2880,1.15,5,forfeit,U,38,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci322,uttar-pradesh,2022,322,GORAKHPUR URBAN,VIJAY KUMAR SRIVASTAVA,,853,0.34,7,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci322,uttar-pradesh,2022,322,GORAKHPUR URBAN,RAM DAVAN MAURYA,,490,0.2,8,forfeit,U,40,10th Pass,Self-employed,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci322,uttar-pradesh,2022,322,GORAKHPUR URBAN,AJAI SHANKER SRIVASTAVA,,468,0.19,9,forfeit,U,53,12th Pass,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci322,uttar-pradesh,2022,322,GORAKHPUR URBAN,JASKARAN RAJ,,233,0.09,10,forfeit,U,48,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci322,uttar-pradesh,2022,322,GORAKHPUR URBAN,SANT DHARAMVEER CHOTIWALA,,207,0.08,11,forfeit,U,50,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci322,uttar-pradesh,2022,322,GORAKHPUR URBAN,SURAJ KUMAR YADAV,,187,0.07,12,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci322,uttar-pradesh,2022,322,GORAKHPUR URBAN,QAZI MOHD. RASHID,,159,0.06,13,forfeit,U,39,Graduate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci322,uttar-pradesh,2022,322,GORAKHPUR URBAN,YUVRAJ SHARMA,,125,0.05,14,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-891,uttar-pradesh,2022,323,GORAKHPUR RURAL,BIPIN SINGH,,126376,49.59,1,won,U,56,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-891,uttar-pradesh,2022,323,GORAKHPUR RURAL,VIJAY BAHADUR YADAV,,102306,40.14,2,lost,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-891,uttar-pradesh,2022,323,GORAKHPUR RURAL,DARA SINGH NISHAD,,15982,6.27,3,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -3616,6 +3882,14 @@ IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2022,354,GHOSI,HRIDYANARAYAN RAI,,703
 IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2022,354,GHOSI,VIKRAM CHAUHAN,,605,0.24,9,forfeit,U,30,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2022,354,GHOSI,PANKAJ KUMAR,,510,0.2,10,forfeit,U,29,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2022,354,GHOSI,KISHUNDEV CHAUHAN,,449,0.17,11,forfeit,U,68,12th Pass,Ex Military,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci355,uttar-pradesh,2022,355,MOHAMMADABAD GOHNA,RAJENDRA KUMAR,,94688,41.48,1,won,U,62,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci355,uttar-pradesh,2022,355,MOHAMMADABAD GOHNA,POONAM SAROJ,,68039,29.8,2,lost,U,35,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci355,uttar-pradesh,2022,355,MOHAMMADABAD GOHNA,DHARM SINGH GAUTAM,,56350,24.68,3,lost,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci355,uttar-pradesh,2022,355,MOHAMMADABAD GOHNA,MAHENDRA SONKAR,,3186,1.4,4,forfeit,U,52,Literate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci355,uttar-pradesh,2022,355,MOHAMMADABAD GOHNA,BANVARI RAM,,2452,1.07,5,forfeit,U,73,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci355,uttar-pradesh,2022,355,MOHAMMADABAD GOHNA,MONOO,,832,0.36,7,forfeit,U,30,10th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci355,uttar-pradesh,2022,355,MOHAMMADABAD GOHNA,ANKIT KUMAR RAO,,735,0.32,8,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci355,uttar-pradesh,2022,355,MOHAMMADABAD GOHNA,DINANATH PRASAD,,469,0.21,9,forfeit,U,48,Graduate Professional,Advocacy,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-882,uttar-pradesh,2022,356,MAU,ABBAS ANSARI,,124691,44.69,1,won,U,29,12th Pass,Rent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-882,uttar-pradesh,2022,356,MAU,ASHOK KUMAR SINGH,,86575,31.03,2,lost,U,57,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-882,uttar-pradesh,2022,356,MAU,BHIM,,44516,15.96,3,forfeit,U,53,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -4009,6 +4283,17 @@ IN-AC-2008-uttar-pradesh-1105,uttar-pradesh,2022,388,VARANASI NORTH,Gulerana Sab
 IN-AC-2008-uttar-pradesh-1105,uttar-pradesh,2022,388,VARANASI NORTH,Harish Mishra,,1643,0.67,5,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1105,uttar-pradesh,2022,388,VARANASI NORTH,Dr. Ashish Kumar Jaiswal,,979,0.4,7,forfeit,U,38,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1105,uttar-pradesh,2022,388,VARANASI NORTH,Asif Iqbal,,346,0.14,8,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci389,uttar-pradesh,2022,389,VARANASI SOUTH,Dr. Neelkanth Tiwari,,99622,50.88,1,won,U,50,Doctorate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci389,uttar-pradesh,2022,389,VARANASI SOUTH,Kameshwar alias Kishan Dixit,,88900,45.41,2,lost,U,40,Post Graduate,Advocacy,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci389,uttar-pradesh,2022,389,VARANASI SOUTH,Mudita Kapoor,,2166,1.11,3,forfeit,U,46,Graduate Professional,Private Company,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci389,uttar-pradesh,2022,389,VARANASI SOUTH,Dinesh Kasaudhan,,1855,0.95,4,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci389,uttar-pradesh,2022,389,VARANASI SOUTH,Ajeet Singh,,922,0.47,6,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci389,uttar-pradesh,2022,389,VARANASI SOUTH,Parvez Quadir Khan,,590,0.3,7,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci389,uttar-pradesh,2022,389,VARANASI SOUTH,Subhash Chandra Chaurasiya,,265,0.14,8,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci389,uttar-pradesh,2022,389,VARANASI SOUTH,Reyazuddhin,,163,0.08,9,forfeit,U,47,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci389,uttar-pradesh,2022,389,VARANASI SOUTH,Shiv Prasad Gupta,,149,0.08,10,forfeit,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci389,uttar-pradesh,2022,389,VARANASI SOUTH,Virendra Kumar Gupta,,109,0.06,11,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci389,uttar-pradesh,2022,389,VARANASI SOUTH,Arpan Pathak,,103,0.05,12,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1104,uttar-pradesh,2022,390,VARANASI CANTONMENT,Saurabh  Srivastava,,147833,60.63,1,won,U,46,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1104,uttar-pradesh,2022,390,VARANASI CANTONMENT,Pooja Yadav,,60989,25.01,2,lost,U,34,Post Graduate,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1104,uttar-pradesh,2022,390,VARANASI CANTONMENT,Rajesh Kumar Mishra,,23807,9.76,3,forfeit,U,61,Doctorate,Party Worker,challenger,src-1b7bc1c9d39a

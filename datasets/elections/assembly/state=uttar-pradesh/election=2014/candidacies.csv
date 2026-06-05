@@ -1,4 +1,14 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2014,3,SAHARANPUR NAGAR,Rajeev Gumber,,101748,49.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2014,3,SAHARANPUR NAGAR,Sanjay Garg,,90181,44.1,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2014,3,SAHARANPUR NAGAR,Mukesh Kumar,,3242,1.59,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2014,3,SAHARANPUR NAGAR,Intakab Ahamad,,2585,1.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2014,3,SAHARANPUR NAGAR,Bablu,,2487,1.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2014,3,SAHARANPUR NAGAR,Roshan Singh,,1384,0.68,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2014,3,SAHARANPUR NAGAR,Salahuddin Raja,,1017,0.5,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2014,3,SAHARANPUR NAGAR,Sunil Kumar Thakral,,709,0.35,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2014,3,SAHARANPUR NAGAR,Jagdish Prasad,,677,0.33,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci3,uttar-pradesh,2014,3,SAHARANPUR NAGAR,Anil Sharma,,457,0.22,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-926,uttar-pradesh,2014,8,KAIRANA,Nahid Hasan,,83984,44.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-926,uttar-pradesh,2014,8,KAIRANA,Anil Kumar,,82885,44.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-926,uttar-pradesh,2014,8,KAIRANA,Arsad Hasan,,16906,9.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -66,6 +76,21 @@ IN-AC-2008-uttar-pradesh-1101,uttar-pradesh,2014,165,UNNAO,Rajesh Kumar Srivasta
 IN-AC-2008-uttar-pradesh-1101,uttar-pradesh,2014,165,UNNAO,Mamta Pandey,,876,0.41,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1101,uttar-pradesh,2014,165,UNNAO,Vijay Kumar Singh Gautam,,635,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1101,uttar-pradesh,2014,165,UNNAO,Satya Pal,,625,0.3,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2014,173,LUCKNOW EAST,Ashutosh Tanoon (gopalJi),,71640,52.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2014,173,LUCKNOW EAST,Juhie Singh,,45181,33.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2014,173,LUCKNOW EAST,Ramesh Srivastava,,9757,7.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2014,173,LUCKNOW EAST,S.P. Singh,,7115,5.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2014,173,LUCKNOW EAST,Rajpal,,876,0.64,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2014,173,LUCKNOW EAST,Ram Milan,,265,0.19,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2014,173,LUCKNOW EAST,Laxmi Kant Singh,,252,0.18,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2014,173,LUCKNOW EAST,Aluk Singh,,188,0.14,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2014,173,LUCKNOW EAST,Sarvesh Kumar Gupta,,173,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2014,173,LUCKNOW EAST,S.K. Srivastava,,169,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2014,173,LUCKNOW EAST,Sudarshan Patel,,168,0.12,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2014,173,LUCKNOW EAST,Anup Srivastava,,151,0.11,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2014,173,LUCKNOW EAST,Avinash Chandra Jain,,145,0.11,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2014,173,LUCKNOW EAST,Nand Kumar Rajput,,108,0.08,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci173,uttar-pradesh,2014,173,LUCKNOW EAST,Bal Govind Verma,,76,0.06,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2014,228,HAMIRPUR,S.C. Prajapati,,112995,53.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2014,228,HAMIRPUR,Jagdish Prasad,,44439,21.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2014,228,HAMIRPUR,K.B. Shivhare,,42200,20.03,3,lost,U,,,,challenger,src-1b7bc1c9d39a

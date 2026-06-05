@@ -36,7 +36,7 @@ Out of scope (deliberately deferred to other chunks):
 
 | Sub-row | Blocks on | Gate | PR# | Status |
 | --- | --- | --- | --- | --- |
-| F1.1 backend parity-oracle rewrite (`backend/tests/test_canonical_parity_oracle.py` reads CSV; same `canonical_winners_2026_05_19.json` fixture; same per-AC zero-tolerance assertion) | - | parity-oracle-CSV + oracle-non-skip (must actually RUN, not skipif-parquet-absent) | - | TODO |
+| F1.1 backend parity-oracle rewrite (`backend/tests/test_canonical_parity_oracle.py` reads CSV; same `canonical_winners_2026_05_19.json` fixture; same per-AC zero-tolerance assertion) | - | parity-oracle-CSV + oracle-non-skip (must actually RUN, not skipif-parquet-absent) | _pending_ | PATH-A IN-FLIGHT (user signoff 2026-06-06 - "backfill - take what is necessary from parquet,csv, tcpd - mashup - and mark the latest updated mashed csv as source of truth"; see "F1.1 Path A backfill" below) |
 | F1.2 frontend loader seam (`canonical/duckdb.ts` `queryParquet` -> `queryCsv`; `canonical/indicator-allowlist.ts` docstring + descriptor doctrine scrub; `canonical/manifest.ts` if it carries parquet path references) | - | loader-unit (vitest) + §13 in-browser smoke on one canonical-backed route | _pending_ | IN-FLIGHT |
 | F1.3 frontend view-model SQL flip (6 callers: `view-models/constituency.ts`, `psephlab/canonical-loaders.ts`, `view-models/state-overview.ts`, `view-models/national-elections.ts`, `yenask/concepts.ts`, `explore/duckdb-views.ts`) | F1.2 | per-view-model vitest + §13 in-browser smoke on 3 routes (StateOverview, National, Constituency) | - | TODO |
 | F1.4 close sub-plan (flip parent F1 row to MERGED; distil seam shape into [docs/architecture/frontend/data-loading.md](../docs/architecture/frontend/data-loading.md) + [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md) "Parity oracle" section; archive this sub-plan to `docs/archive/plans/`) | F1.1, F1.2, F1.3 | docs-review | - | TODO |
@@ -70,6 +70,76 @@ Reads (after rewrite):
 Rewrite shape: DuckDB SQL changes from `read_parquet(...)` four-way JOIN to a per-slice CSV scan + `entities/electoral.csv` join for AC labels. The fixture key shape `(event_id, state_code)` may need re-projection from the candidacies.csv key `(election_year, state)` - one column rename, one type cast (year int vs event_id string). NOTA exclusion identical. Per-AC zero-tolerance assertion unchanged.
 
 Skipif condition flips from "parquet absent" to "CSV absent". `oracle-non-skip` gate (per 22.6) asserts the test ACTUALLY RUNS in CI (not skipped) - one assertion: `assert SLICES, "parity fixture not on disk"` becomes a hard failure not a skip, because after X1a the CSV path is mandatory.
+
+#### F1.1 STOP-AND-SURFACE (2026-06-05) - fixture-vs-CSV drift blocks autonomous ship
+
+**Status**: SUPERSEDED 2026-06-06 by user verdict **Path A (backfill)**. The block below is retained verbatim as the pre-resolution record. See "F1.1 Path A backfill" below for the in-flight resolution.
+
+**Verbatim user verdict (2026-06-06)**:
+
+**What was done**: oracle rewritten per sub-plan body (read_csv per-(state, year) candidacies.csv; 22-state ECI-code -> LGD-slug map; oracle-non-skip floor at 34 slices; 7 known-absent slices for AcGenMay2026 / Delhi2020 / Rajasthan2023 declared explicitly). `test_oracle_non_skip_gate` PASSES. 1 of 34 per-slice tests passes byte-exact (AcGenFeb2018/S23 - Tripura 2018). 33 fail.
+
+**Evidence (live on branch `feat/f1.1-parity-oracle-csv-rewrite`)**:
+
+- Run cmd: `cd backend && python -m pytest tests/test_canonical_parity_oracle.py --tb=line -q`
+- Result: `33 failed, 2 passed in 3.52s`. The 2 passes are `test_oracle_non_skip_gate` + `test_per_ac_fptp_winner_matches_fixture[AcGenFeb2018-S23]`.
+- Dominant failure category (271 ACs across 28 slices): `ACs in fixture missing from canonical CSV`. Pattern is non-random: identical AC numbers missing across MULTIPLE election years for the SAME state. Examples (verified live):
+  - AcGenApr2016/S03 (Assam 2016) ACs `[42, 103, 107]` missing in CSV
+  - AcGenApr2021/S03 (Assam 2021) ACs `[42, 103, 107]` missing in CSV - IDENTICAL set, 5 years later
+  - AcGenDec2017/S06 (Gujarat 2017) ACs `[49, 52, 68, 79]` missing in CSV
+  - AcGenDec2022/S06 (Gujarat 2022) ACs `[49, 52, 68, 79]` missing in CSV - IDENTICAL set, 5 years later
+  - AcGenApr2019/S01 (Andhra 2019) ACs `[1, 2, 3, 4, 5, ...]` missing in CSV (122 of 175)
+  - AcGenApr2021/U07 (Puducherry 2021) ACs `[7, 8, 10, 13, 14]` missing
+  - AcGenFeb2017/S24 (UP 2017) ACs `[3, 47, 48, 55, 56]` missing
+- Secondary category (51 vote diffs across 20 slices): same `(event_id, state, ac_eci_no)` present in both fixture and CSV, but the max-votes candidate differs by 1 to 30k+ votes (per prior session's analysis - not re-verified this turn).
+
+**Root-cause hypotheses** (not exhaustively investigated this turn per "stop, don't dig" discipline):
+
+1. **CSV `constituency_no` is NOT the ECI per-state AC number that the fixture is keyed on.** The same numerical gaps repeating across years for the same state means the rewrite's assumed key (`CSV.constituency_no == fixture.ac_eci_no`) is wrong for those specific AC numbers. Possible: CSV `constituency_no` is post-delimitation LGD AC code; fixture is pre-delimitation ECI AC number.
+2. **B2b.5.x reingest dropped specific ACs** (e.g. NOTA-only, vacated, judicially-annulled, or ACs without TCPD raw row). Repeating-across-years pattern supports this for ACs that were perennially dropped from raw.
+3. **Person-merge differences from B2b.4.7 DROP** (the parent prompt's hypothesis): plausible for the 51 vote-diff slices where AC is present but max-votes candidate differs; LESS plausible for the 271 AC-missing slices where the entire AC row is absent.
+
+**Why this is a STOP, not a fix-and-ship**: CLAUDE.md anti-pattern #1 (STOP-AND-SURFACE) forbids autonomously demoting a user-named source. `canonical_winners_2026_05_19.json` is the EXPLICITLY user-named trust anchor (parent prompt verbatim: *"Same frozen fixture ... UNCHANGED - the trust anchor"*). Autonomously re-snapshotting it, or autonomously weakening the zero-tolerance assertion to swallow 33 slice failures, would silently demote what the user wrote down.
+
+**Resolution options** (per parent prompt's "STOP-AND-SURFACE with three resolution options A/B/C"):
+
+| ID | Option | Scope | Multi-PR? | Preserves byte-exact rigor? | Re-opens B2b? |
+| --- | --- | --- | --- | --- | --- |
+| A | Backfill the missing ACs (re-run B2b.5.x reingest to add the dropped AC numbers + reconcile the 51 vote diffs against TCPD raw) | Reopens B2b sub-plan; multi-PR | YES | YES (zero-tolerance preserved, fixture unchanged) | YES (multi-week) |
+| B | Relax the assertion at the boundary where structurally impossible: declare "name-normalized + votes within tolerance T" (T to be authored in a new ADR / concept doc) and explicitly cite that the CSV-corpus reshape changed semantics that byte-exact cannot survive | New ADR + test rewrite | 2 PRs (ADR + test) | NO (zero-tolerance becomes "within T") | NO |
+| C | Declare the 33 mismatch slices out-of-scope for byte-exact parity; publish a "known mismatch" annex (`backend/tests/fixtures/canonical_winners_2026_05_19.known_mismatch.json`) enumerating the 271 missing ACs + 51 vote diffs; keep zero-tolerance on the 1 passing slice + any future ingest cleanup additions | New annex fixture + test loop split (frozen-trust loop with zero-tolerance, drift-tracked loop with explicit per-slice receipt) | 1 PR | YES on the 1 passing slice (drift-tracked slices are documented receipt, not assertion) | NO |
+
+**Agent recommendation**: C. Preserves the user-signed zero-tolerance assertion on the verified subset; explicitly documents the 33 drift slices as a public receipt (becomes the input for X1a cross-format-parity gate); does NOT autonomously demote the user-named fixture; does NOT block on multi-week B2b reopening; ships F1.1 today; matches Fowler "deletion safety" + Max "OWID one-time receipt" precedent.
+
+**What was NOT done this turn**: (a) the oracle rewrite is on disk under `backend/tests/test_canonical_parity_oracle.py` (uncommitted modifications, can be inspected via `git diff origin/main -- backend/tests/test_canonical_parity_oracle.py` on branch `feat/f1.1-parity-oracle-csv-rewrite`), (b) the branch is NOT pushed, (c) NO PR is opened, (d) the `KNOWN_ABSENT_SLICES` set in the rewrite does NOT yet include the 33 drift slices - that fixture annex is option C's payload and waits on signoff.
+
+**Scope-change ledger row** (per CLAUDE.md section 10):
+
+| Verbatim instruction | Proposed change (one of A / B / C) | Reason | signoff: |
+| --- | --- | --- | --- |
+| "Same per-AC zero-tolerance assertion (winner candidate + winner votes + margin votes match byte-exact)" | A - backfill missing 271 ACs + reconcile 51 vote diffs from TCPD raw + parquet; mash result becomes the canonical CSV SoT | 33 of 34 on-disk slices fail byte-exact; root cause is electoral.csv LGD-spine gaps that cause emit_state_assembly to SKIP unbindable ACs. Re-emit after extending electoral.csv backfills the gap. | **2026-06-06 (user): "F1.1 - A - backfill - take what is necessary from parquet,csv, tcpd - mashup - and mark the latest updated mashed csv as source of truth"** |
+
+#### F1.1 Path A backfill (2026-06-06, in-flight on `feat/f1.1-parity-oracle-csv-rewrite`)
+
+**User verdict shape**: Path A = backfill. The latest updated mashed CSV becomes SoT. If unclear, granulate on ACs by state and surface a per-AC residue STOP.
+
+**Phase 1 diagnosis (complete)**:
+
+- **271 AC gaps across 28 slices**: ALL category (a) - present in `datasets/elections/elections_candidacies.parquet` + `datasets/ephemeral/All_States_AE.csv` (TCPD raw); DROPPED at B2b.5.x reingest because `datasets/data/entities/electoral.csv` lacks LGD-spine rows for those (state, eci_no) tuples. Three subcategories:
+  - **LGD-spine gap** (Assam: 3 ACs [42, 103, 107]; Gujarat: 4 ACs [49, 52, 68, 79]; etc.) - true upstream LGD coverage misses, small absolute count
+  - **State-bifurcation re-keying** (Andhra Pradesh: 122 ACs of 175) - electoral.csv carries pre-2014 unified AP numbering (eci_no 62..294); fixture/TCPD/parquet use post-2014 renumbered AP (1..175)
+  - **Whole-state missing** (Delhi U05, KNOWN_ABSENT slice) - electoral.csv carries zero Delhi ACs (B2b.5.3 fanout doc: "Delhi is DEFERRED")
+- **51 vote-diff slices**: TCPD raw `All_States_AE.csv` is the canonical upstream (B2b.5.x reads from it); re-emit from TCPD produces the post-snapshot vote counts. Fixture rows that diverge reflect an older TCPD snapshot - those fixture entries are "genuinely wrong vs TCPD raw" per the user carve-out, so the fixture updates to match TCPD, surfaced explicitly in the PR body.
+
+**Phase 2 mash strategy**: extend `electoral.csv` with synthetic gap-fill rows (entity_id pattern `IN-AC-2008-{state-slug}-eci{N}`; name lifted from `dim_acs.parquet`; reservation lifted from TCPD `Constituency_Type`; parent left null per schema); then re-run the existing `assembly_results.emit_state_assembly()` per affected state. The existing emitter now picks up the previously-unbindable ACs (because the FK lookup succeeds) and emits a complete candidacies + summary per (state, year). No new emitter needed.
+
+**Tool**: `tools/elections/backfill_from_legacy.py` (one-shot, committed for provenance + reproducibility per CLAUDE.md tools/ convention).
+
+**Phase 4 ECI st_code map drop**: with the LGD-spine extended, the candidacies.csv key shape (`state` = LGD slug + `constituency_no` = ECI per-state number) directly matches the fixture key after a state_code -> slug remap. Once mash is complete, the oracle is re-anchored at the slug level (the 22-entry `_ECI_STATE_CODE_TO_SLUG` map shrinks or moves into the test as a local helper - decide on blast radius).
+
+**Phase 5 ECI audit**: grep `datasets/data/entities/*.csv` for any residual `eci_st_code` columns / `S0N` codes that B2b.5.0c (#766) rename + B2b.5.0e (#767) decommission sweep missed. Strip in same PR if small; spawn follow-up if large.
+
+**Gates**: all 34 currently-failing slices pass byte-exact + the 1 already-passing slice stays green; oracle-non-skip floor stays >= 34; cross-format-parity sample (winners + margins) byte-matches between backfilled candidacies.csv and `elections_candidacies.parquet`.
 
 ### F1.2 frontend loader seam
 
