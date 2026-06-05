@@ -1,0 +1,6 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-rajasthan-550,rajasthan,2021,SAHADA,247230,140352,56.77,GAYATRI TRIVEDI,,81700,58.21,DR. RATANLAL JAT,,39500,42200,30.07,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-567,rajasthan,2021,VALLABHNAGAR,253921,183023,72.08,Preeti Gajendra Singh Shaktawat,,65713,35.9,Udailal Dangi,,45107,20606,11.25,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-574,rajasthan,2021,SUJANGARH,275545,159482,57.88,MANOJ KUMAR,,79253,49.69,KHEMARAM,,43642,35611,22.33,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-679,rajasthan,2021,RAJSAMAND,222463,150184,67.51,DEEPTI KIRAN MAHESHWARI,,74704,49.74,TANSUKH BOHARA,,69394,5310,3.53,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-697,rajasthan,2021,DHARIAWAD,257632,178276,69.2,Nagraj,,69819,39.16,Thawarchand,,51094,18725,10.5,src-1b7bc1c9d39a

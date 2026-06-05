@@ -1,0 +1,34 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-west-bengal-1850,west-bengal,2014,10,KUMARGRAM,Manoj Kumar Oraon,,65634,34.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1850,west-bengal,2014,10,KUMARGRAM,Joachim Baxla,,62967,33.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1850,west-bengal,2014,10,KUMARGRAM,Binod Minj,,44039,23.34,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1850,west-bengal,2014,10,KUMARGRAM,Clement Dung Dung,,16020,8.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2012,west-bengal,2014,16,MAYNAGURI,A.D. Adhikary,,99185,51.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2012,west-bengal,2014,16,MAYNAGURI,Dinabandhu .(Paltu),,67395,35.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2012,west-bengal,2014,16,MAYNAGURI,Animes Roy,,10938,5.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2012,west-bengal,2014,16,MAYNAGURI,Puranjan sarkar,,8488,4.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2012,west-bengal,2014,16,MAYNAGURI,Mohit Kumar Roy,,2242,1.17,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2012,west-bengal,2014,16,MAYNAGURI,Rupeswar Roy,,2082,1.09,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2012,west-bengal,2014,16,MAYNAGURI,Suresh Chandra Roy,,1406,0.73,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2119,west-bengal,2014,86,SANTIPUR,Ajoy Dey,,71973,38.95,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2119,west-bengal,2014,86,SANTIPUR,Anup Kumar Ghosh,,51838,28.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2119,west-bengal,2014,86,SANTIPUR,Kumeresh Chakraborty,,36645,19.83,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2119,west-bengal,2014,86,SANTIPUR,Sufal Sarkar,,24324,13.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2113,west-bengal,2014,91,CHAKDAHA,Kar Ratna Ghosh,,90787,49.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2113,west-bengal,2014,91,CHAKDAHA,Biswanath Gupta,,53022,28.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2113,west-bengal,2014,91,CHAKDAHA,Mahadeb Basak,,24868,13.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2113,west-bengal,2014,91,CHAKDAHA,Samarlal Singh Ray (K),,14498,7.86,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2113,west-bengal,2014,91,CHAKDAHA,Partha Banerjee,,1255,0.68,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1925,west-bengal,2014,124,BASIRHAT DAKSHIN,Samik Bhattacharya,,71002,37.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1925,west-bengal,2014,124,BASIRHAT DAKSHIN,Dipendu Biswas (Mithu),,69416,36.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1925,west-bengal,2014,124,BASIRHAT DAKSHIN,Mrinal Chakraborty,,24884,13.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1925,west-bengal,2014,124,BASIRHAT DAKSHIN,Asit Majumdar,,21958,11.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1925,west-bengal,2014,124,BASIRHAT DAKSHIN,Ajay Kumar Bain,,2431,1.28,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1941,west-bengal,2014,256,KATULPUR,Shyamal Santra,,98878,52.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1941,west-bengal,2014,256,KATULPUR,Kaibartya Sital,,58521,31.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1941,west-bengal,2014,256,KATULPUR,L.K Majumdar,,23037,12.26,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1941,west-bengal,2014,256,KATULPUR,Akshay Santra,,7419,3.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1908,west-bengal,2014,274,GALSI,Gaur Chandra Mandah,,77799,40.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1908,west-bengal,2014,274,GALSI,Nanadalal Pandit,,69336,36.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1908,west-bengal,2014,274,GALSI,Sundar Paswan,,34479,18.09,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1908,west-bengal,2014,274,GALSI,Swapan Malik,,8958,4.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

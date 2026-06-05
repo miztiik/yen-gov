@@ -1,0 +1,630 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-uttarakhand-337,uttarakhand,2017,1,PUROLA,RAJKUMAR,,17798,35.93,1,won,U,51,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-337,uttarakhand,2017,1,PUROLA,MALCHAND,,16785,33.89,2,lost,U,50,10th Pass,Rent,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-337,uttarakhand,2017,1,PUROLA,DURGESHWAR LAL,,13508,27.27,3,lost,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-337,uttarakhand,2017,1,PUROLA,RAMLAL,,679,1.37,5,forfeit,U,55,8th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-343,uttarakhand,2017,2,YAMUNOTRI,KEDAR SINGH,,19800,42.03,1,won,U,57,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-343,uttarakhand,2017,2,YAMUNOTRI,SANJAY DOBHAL,,13840,29.38,2,lost,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-343,uttarakhand,2017,2,YAMUNOTRI,PRAKASH CHAND RAMOLA,,7061,14.99,3,forfeit,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-343,uttarakhand,2017,2,YAMUNOTRI,RANVEER SINGH,,4613,9.79,4,forfeit,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-343,uttarakhand,2017,2,YAMUNOTRI,RAJBAHADUR SINGH BAUDDH,,530,1.13,5,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-343,uttarakhand,2017,2,YAMUNOTRI,JAIPRAKASH,,342,0.73,7,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-343,uttarakhand,2017,2,YAMUNOTRI,DHARMANAND BIJALWAN,,248,0.53,8,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-343,uttarakhand,2017,2,YAMUNOTRI,PURUSHOTTAM UNIYAL,,246,0.52,9,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-333,uttarakhand,2017,3,GANGOTRI,GOPAL SINGH RAWAT,,25683,46.15,1,won,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-333,uttarakhand,2017,3,GANGOTRI,VIJAYPAL SINGH SAJWAN,,16073,28.88,2,lost,U,57,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-333,uttarakhand,2017,3,GANGOTRI,SURATRAM NAUTIYAL,,9491,17.05,3,lost,U,69,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-333,uttarakhand,2017,3,GANGOTRI,BHUPENDRA SINGH,,1526,2.74,4,forfeit,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-333,uttarakhand,2017,3,GANGOTRI,VIJAYPAL TANGANI,,576,1.04,6,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-333,uttarakhand,2017,3,GANGOTRI,MAHAVEER PRASAD,,553,0.99,7,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-333,uttarakhand,2017,3,GANGOTRI,RAJBEER SINGH PARMAR,,412,0.74,8,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-333,uttarakhand,2017,3,GANGOTRI,RATAN LAL VERMA,,213,0.38,9,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-333,uttarakhand,2017,3,GANGOTRI,VISHNUPAL SINGH RAWAT,,192,0.35,10,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-288,uttarakhand,2017,4,BADRINATH,MAHENDRA BHATT,,29676,46.8,1,won,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-288,uttarakhand,2017,4,BADRINATH,RAJENDRA SINGH BHANDARI,,24042,37.92,2,lost,U,52,Post Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-288,uttarakhand,2017,4,BADRINATH,BHARAT SINGH KUNWAR,,2380,3.75,3,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-288,uttarakhand,2017,4,BADRINATH,VINOD FONIA,,2370,3.74,4,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-288,uttarakhand,2017,4,BADRINATH,MUKESH LAL KOSHWAL,,1652,2.61,5,forfeit,U,62,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-288,uttarakhand,2017,4,BADRINATH,ARUNA DANWASHI,,916,1.44,6,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-288,uttarakhand,2017,4,BADRINATH,KEERAT SINGH BHANDARI,,859,1.35,7,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-288,uttarakhand,2017,4,BADRINATH,DEVENDRA SINGH NEGI,,487,0.77,9,forfeit,U,47,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-288,uttarakhand,2017,4,BADRINATH,LAXMI PRASAD SATI,,335,0.53,10,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-300,uttarakhand,2017,5,THARALI,MAGAN LAL SHAH,,25810,44.05,1,won,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-300,uttarakhand,2017,5,THARALI,DR. JEET RAM,,20889,35.65,2,lost,U,56,Doctorate,College Professor or Lecturer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-300,uttarakhand,2017,5,THARALI,GUDDU LAL,,7088,12.1,3,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-300,uttarakhand,2017,5,THARALI,MOHAN LAL KANYAL,,848,1.45,5,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-300,uttarakhand,2017,5,THARALI,RAJPAL KANYAL,,750,1.28,6,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-300,uttarakhand,2017,5,THARALI,CAPT. (RETD) GANESH KUMAR,,591,1.01,7,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-300,uttarakhand,2017,5,THARALI,KASBI LAL SHAH,,335,0.57,8,forfeit,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-300,uttarakhand,2017,5,THARALI,BIRENDRA LAL TAMTA,,270,0.46,9,forfeit,U,65,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-300,uttarakhand,2017,5,THARALI,RADHA BALLABH KANYAL,,255,0.44,10,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-291,uttarakhand,2017,6,KARNPRAYAG,SURENDRA SINGH NEGI,,28159,51.72,1,won,U,61,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-291,uttarakhand,2017,6,KARNPRAYAG,DR. ANSUYA PARSAD MAIKHURI,,20610,37.86,2,lost,U,65,Doctorate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-291,uttarakhand,2017,6,KARNPRAYAG,INDRESH MAIKHURI,,1331,2.44,3,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-291,uttarakhand,2017,6,KARNPRAYAG,BALWANT SINGH NEGI,,1232,2.26,4,forfeit,U,47,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-291,uttarakhand,2017,6,KARNPRAYAG,JYOTI KANWASI,,857,1.57,5,forfeit,U,28,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-291,uttarakhand,2017,6,KARNPRAYAG,BHAGAT SINGH NEGI,,673,1.24,7,forfeit,U,68,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-291,uttarakhand,2017,6,KARNPRAYAG,MOHAN SINGH NEGI,,300,0.55,8,forfeit,U,37,Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-291,uttarakhand,2017,6,KARNPRAYAG,PADAM SINGH,,281,0.52,9,forfeit,U,55,10th Pass,Ex Military,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-291,uttarakhand,2017,6,KARNPRAYAG,ANANDMANI DUTT JOSHI JHALMAMA,,189,0.35,10,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-292,uttarakhand,2017,7,KEDARNATH,MANOJ RAWAT,,13906,24.74,1,won,U,47,Post Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-292,uttarakhand,2017,7,KEDARNATH,KULDEEP SINGH RAWAT,,13037,23.2,2,lost,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-292,uttarakhand,2017,7,KEDARNATH,ASHA,,11786,20.97,3,lost,U,47,Graduate,Ex MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-292,uttarakhand,2017,7,KEDARNATH,SHAILA RANI RAWAT,,11472,20.41,4,lost,U,61,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-292,uttarakhand,2017,7,KEDARNATH,GANGADHAR,,2734,4.86,5,forfeit,U,61,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-292,uttarakhand,2017,7,KEDARNATH,GANGADHAR,,1001,1.78,6,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-292,uttarakhand,2017,7,KEDARNATH,SHAMBHU PRASAD BHATT,,650,1.16,8,forfeit,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-292,uttarakhand,2017,7,KEDARNATH,VIKRAM SINGH,,456,0.81,9,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-292,uttarakhand,2017,7,KEDARNATH,KUNDAN LAL,,447,0.8,10,forfeit,U,71,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-298,uttarakhand,2017,8,RUDRAPRAYAG,BHARAT SINGH,,29333,50.42,1,won,U,57,Graduate,Petrol Pumps,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-298,uttarakhand,2017,8,RUDRAPRAYAG,LAXMI SINGH RANA,,14701,25.27,2,lost,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-298,uttarakhand,2017,8,RUDRAPRAYAG,PRADEEP PRASAD THAPLIYAL,,5818,10,3,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-298,uttarakhand,2017,8,RUDRAPRAYAG,JAGMOHAN SINGH RAUTHAN,,3342,5.74,4,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-298,uttarakhand,2017,8,RUDRAPRAYAG,SURJEET LAL,,801,1.38,6,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-298,uttarakhand,2017,8,RUDRAPRAYAG,LALITA PRASAD,,746,1.28,7,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-298,uttarakhand,2017,8,RUDRAPRAYAG,BHAGWATI PRASAD,,711,1.22,8,forfeit,U,60,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-298,uttarakhand,2017,8,RUDRAPRAYAG,JAI OM PRAKASH,,642,1.1,9,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-298,uttarakhand,2017,8,RUDRAPRAYAG,JAGDISH SINGH,,359,0.62,10,forfeit,U,59,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-298,uttarakhand,2017,8,RUDRAPRAYAG,DEVENDRA PRASAD,,237,0.41,11,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-298,uttarakhand,2017,8,RUDRAPRAYAG,ANIL RAWAT,,220,0.38,12,forfeit,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-334,uttarakhand,2017,9,GHANSHALI,SHAKTI LAL SHAH,,22103,49.34,1,won,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-334,uttarakhand,2017,9,GHANSHALI,DHANILAL SHAH,,10450,23.33,2,lost,U,53,Post Graduate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-334,uttarakhand,2017,9,GHANSHALI,BHEEM LAL ARYA,,4963,11.08,3,forfeit,U,33,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-334,uttarakhand,2017,9,GHANSHALI,PREM LAL,,3062,6.84,4,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-334,uttarakhand,2017,9,GHANSHALI,MAKAN LAL,,1458,3.25,5,forfeit,U,34,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-334,uttarakhand,2017,9,GHANSHALI,KAMAL DAS,,715,1.6,7,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-334,uttarakhand,2017,9,GHANSHALI,PINGAL DASS,,653,1.46,8,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-334,uttarakhand,2017,9,GHANSHALI,SIMAN LAL ARYA,,395,0.88,9,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-290,uttarakhand,2017,10,DEOPRAYAG,VINOD KANDARI,,13824,31.75,1,won,U,35,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-290,uttarakhand,2017,10,DEOPRAYAG,DIWAKAR BHATT,,10325,23.71,2,lost,U,70,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-290,uttarakhand,2017,10,DEOPRAYAG,MANTRI PRASAD NAITHANI,,8742,20.08,3,lost,U,59,Graduate Professional,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-290,uttarakhand,2017,10,DEOPRAYAG,SHOORBEER SINGH SAJWAN,,6681,15.34,4,forfeit,U,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-290,uttarakhand,2017,10,DEOPRAYAG,SAMEER RATURI,,728,1.67,5,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-290,uttarakhand,2017,10,DEOPRAYAG,GANESH BHATT,,702,1.61,6,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-290,uttarakhand,2017,10,DEOPRAYAG,SUNDAR SINGH RANA,,547,1.26,7,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-290,uttarakhand,2017,10,DEOPRAYAG,SITARAM RANAKOTI,,454,1.04,8,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-290,uttarakhand,2017,10,DEOPRAYAG,ANIL BAHUGUNA,,319,0.73,9,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-290,uttarakhand,2017,10,DEOPRAYAG,DEENA DEVI,,309,0.71,10,forfeit,U,60,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-290,uttarakhand,2017,10,DEOPRAYAG,GAUREE SANKER,,204,0.47,12,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-290,uttarakhand,2017,10,DEOPRAYAG,JAMUNA PRASAD RAIWANI,,171,0.39,13,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-290,uttarakhand,2017,10,DEOPRAYAG,RAJU MAURYA,,156,0.36,14,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-290,uttarakhand,2017,10,DEOPRAYAG,RAGHUNANDAN PRASAD PANDEY,,85,0.2,15,forfeit,U,76,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-295,uttarakhand,2017,11,NARENDRANAGAR,SUBODH UNIYAL,,24104,45.87,1,won,U,57,Post Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-295,uttarakhand,2017,11,NARENDRANAGAR,OM GOPAL RAWAT,,19132,36.41,2,lost,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-295,uttarakhand,2017,11,NARENDRANAGAR,HIMANSHU BIJALWAN,,4328,8.24,3,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-295,uttarakhand,2017,11,NARENDRANAGAR,SARDAR SINGH,,3314,6.31,4,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-295,uttarakhand,2017,11,NARENDRANAGAR,JAGDISH KULIYAL,,427,0.81,6,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-295,uttarakhand,2017,11,NARENDRANAGAR,HAKIM SINGH,,417,0.79,7,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-295,uttarakhand,2017,11,NARENDRANAGAR,USHA NEGI,,260,0.49,8,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-336,uttarakhand,2017,12,PRATAPNAGAR,VIJAY SINGH PANWAR(GUDDU BHAI),,15058,36.43,1,won,U,54,Post Graduate,Ex MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-336,uttarakhand,2017,12,PRATAPNAGAR,VIKRAM SINGH NEGI,,13119,31.74,2,lost,U,50,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-336,uttarakhand,2017,12,PRATAPNAGAR,RAJESHWAR PRASAD PAINULY,,5594,13.53,3,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-336,uttarakhand,2017,12,PRATAPNAGAR,MURARI LAL KHANDWAL,,3774,9.13,4,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-336,uttarakhand,2017,12,PRATAPNAGAR,PANKAJ VYAS,,1078,2.61,5,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-336,uttarakhand,2017,12,PRATAPNAGAR,VIJAYPAL SINGH RAWAT,,1025,2.48,6,forfeit,U,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-336,uttarakhand,2017,12,PRATAPNAGAR,MOHAN SINGH NEGI,,503,1.22,8,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-336,uttarakhand,2017,12,PRATAPNAGAR,KEDAR LAL,,316,0.76,9,forfeit,U,31,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-336,uttarakhand,2017,12,PRATAPNAGAR,KANAK PAL SINGH,,307,0.74,10,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-341,uttarakhand,2017,13,TEHRI,DHAN SINGH NEGI,,20896,47.11,1,won,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-341,uttarakhand,2017,13,TEHRI,DINESH DHANAI,,14056,31.69,2,lost,U,47,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-341,uttarakhand,2017,13,TEHRI,NARENDRA CHAND RAMOLA,,4466,10.07,3,forfeit,U,47,Graduate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-341,uttarakhand,2017,13,TEHRI,SUSHIL CHANDRA BAHUGUNA,,1067,2.41,4,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-341,uttarakhand,2017,13,TEHRI,SANJAY KUMAR MAITHANI,,984,2.22,5,forfeit,U,35,Graduate Professional,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-341,uttarakhand,2017,13,TEHRI,TRILOK SINGH NEGI,,722,1.63,6,forfeit,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-341,uttarakhand,2017,13,TEHRI,GOPAL DUTT CHAMOLI,,585,1.32,7,forfeit,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-341,uttarakhand,2017,13,TEHRI,BUDHI SINGH PUNDIR,,507,1.14,8,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-341,uttarakhand,2017,13,TEHRI,BHAGWAN SINGH RANA,,285,0.64,10,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-341,uttarakhand,2017,13,TEHRI,GANESH KUDIYAL,,180,0.41,11,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-341,uttarakhand,2017,13,TEHRI,SOMI LAL,,133,0.3,12,forfeit,U,62,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-332,uttarakhand,2017,14,DHANOLTI,PRITAM SINGH PANWAR,,17811,35.98,1,won,U,51,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-332,uttarakhand,2017,14,DHANOLTI,NARAYAN SINGH RANA,,16196,32.71,2,lost,U,68,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-332,uttarakhand,2017,14,DHANOLTI,MANMOHAN SINGH MALL (MANNU BHAI),,12193,24.63,3,lost,U,57,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-332,uttarakhand,2017,14,DHANOLTI,RAKESH SEMWAL,,789,1.59,4,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-332,uttarakhand,2017,14,DHANOLTI,DINESH,,551,1.11,6,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-332,uttarakhand,2017,14,DHANOLTI,UTTAM SINGH,,534,1.08,7,forfeit,U,48,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-332,uttarakhand,2017,14,DHANOLTI,CHAMAN NAUTIYAL,,463,0.94,8,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-332,uttarakhand,2017,14,DHANOLTI,PREM DUTT,,332,0.67,9,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-330,uttarakhand,2017,15,CHAKRATA,PRITAM SINGH,,34968,48.65,1,won,U,58,Graduate Professional,Rent,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-330,uttarakhand,2017,15,CHAKRATA,MADHU CHAUHAN,,33425,46.5,2,lost,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-330,uttarakhand,2017,15,CHAKRATA,DAULAT KUNWAR,,2375,3.3,3,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-330,uttarakhand,2017,15,CHAKRATA,SWARAJ SINGH,,723,1.01,4,forfeit,U,33,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-342,uttarakhand,2017,16,VIKASNAGAR,MUNNA SINGH CHAUHAN,,38895,50.46,1,won,U,56,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-342,uttarakhand,2017,16,VIKASNAGAR,NAVPRABHAT,,32477,42.13,2,lost,U,60,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-342,uttarakhand,2017,16,VIKASNAGAR,VIPUL JAIN,,2412,3.13,3,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-342,uttarakhand,2017,16,VIKASNAGAR,GIREESH KUMAR,,594,0.77,4,forfeit,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-342,uttarakhand,2017,16,VIKASNAGAR,SANDEEP DUBEY,,499,0.65,5,forfeit,U,38,12th Pass,Mechanic,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-342,uttarakhand,2017,16,VIKASNAGAR,DIGAMBAR SINGH,,392,0.51,7,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-342,uttarakhand,2017,16,VIKASNAGAR,RAJEEV KUMAR,,369,0.48,8,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-342,uttarakhand,2017,16,VIKASNAGAR,GURUMEL SINGH,,332,0.43,9,forfeit,U,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-342,uttarakhand,2017,16,VIKASNAGAR,KAUSHAL KISHOR GAUTAM,,258,0.33,10,forfeit,U,59,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-342,uttarakhand,2017,16,VIKASNAGAR,BHASKAR CHUG,,197,0.26,11,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-342,uttarakhand,2017,16,VIKASNAGAR,ASHOK SINGH,,103,0.13,12,forfeit,U,35,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-342,uttarakhand,2017,16,VIKASNAGAR,DINESH KUMAR SHARMA,,89,0.12,13,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-340,uttarakhand,2017,17,SAHASPUR,SAHDEV SINGH PUNDIR,,44055,40.5,1,won,U,49,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-340,uttarakhand,2017,17,SAHASPUR,KISHORE UPADHAYA,,25192,23.16,2,lost,U,59,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-340,uttarakhand,2017,17,SAHASPUR,ARYENDRA SHARMA,,21888,20.12,3,lost,U,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-340,uttarakhand,2017,17,SAHASPUR,LAXMI AGARWAL,,8628,7.93,4,forfeit,U,40,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-340,uttarakhand,2017,17,SAHASPUR,GAURAV PUNDIR,,2963,2.72,5,forfeit,U,29,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-340,uttarakhand,2017,17,SAHASPUR,PRAKASH JOSHI,,1410,1.3,6,forfeit,U,54,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-340,uttarakhand,2017,17,SAHASPUR,SHIV PRASAD DEVLI,,1110,1.02,7,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-340,uttarakhand,2017,17,SAHASPUR,ILTAF,,831,0.76,8,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-340,uttarakhand,2017,17,SAHASPUR,ADESH KUMAR,,520,0.48,10,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-340,uttarakhand,2017,17,SAHASPUR,MANJU SINGH,,401,0.37,11,forfeit,U,46,12th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-340,uttarakhand,2017,17,SAHASPUR,RAM VACHAN RAM,,332,0.31,12,forfeit,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-340,uttarakhand,2017,17,SAHASPUR,OMPRAKASH SHARMA,,315,0.29,13,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-340,uttarakhand,2017,17,SAHASPUR,SHASHTRI PAWAN MALETHA,,294,0.27,14,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-340,uttarakhand,2017,17,SAHASPUR,CHAITANYA ANIL,,165,0.15,15,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2017,18,DHARAMPUR,VINOD CHAMOLI,,53828,50.78,1,won,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2017,18,DHARAMPUR,DINESH AGARWAL,,42875,40.45,2,lost,U,67,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2017,18,DHARAMPUR,NOOR HASSAN,,4117,3.88,3,forfeit,U,54,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2017,18,DHARAMPUR,SALEEM AHMED,,951,0.9,4,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2017,18,DHARAMPUR,JOGENDRA RAWAT,,577,0.54,5,forfeit,U,27,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2017,18,DHARAMPUR,RAJANI RAWAT,,541,0.51,6,forfeit,U,48,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2017,18,DHARAMPUR,RAMSUKH,,475,0.45,7,forfeit,U,72,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2017,18,DHARAMPUR,BAHADUR SINGH RAWAT,,439,0.41,8,forfeit,U,51,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2017,18,DHARAMPUR,MOHAMMAD ISMAIL,,356,0.34,10,forfeit,U,27,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2017,18,DHARAMPUR,RUPENDRA KUMAR TOMAR,,236,0.22,11,forfeit,U,32,5th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2017,18,DHARAMPUR,NIRAJ SINGHAL,,188,0.18,12,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2017,18,DHARAMPUR,GULISTA KHANAM,,180,0.17,13,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2017,18,DHARAMPUR,PRITAM SINGH KULVANSHI,,163,0.15,14,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2017,18,DHARAMPUR,ANIL KUMAR GUPTA,,137,0.13,15,forfeit,U,52,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2017,18,DHARAMPUR,BRIJ BHUSHAN KARANWAL,,131,0.12,16,forfeit,U,39,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2017,18,DHARAMPUR,MEHERBAN,,113,0.11,17,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2017,18,DHARAMPUR,SANJAY SRIVASTAVA,,111,0.1,18,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2017,18,DHARAMPUR,HRIDAY BHUSHAN DIMRI,,109,0.1,19,forfeit,U,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2017,18,DHARAMPUR,MAN MOHAN LAKHERA,,99,0.09,20,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2017,19,RAIPUR,UMESH SHARMA KAU,,59764,60.74,1,won,U,62,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2017,19,RAIPUR,PRABHU LAL,,22993,23.37,2,lost,U,68,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2017,19,RAIPUR,RAJNI RAWAT,,7569,7.69,3,forfeit,U,48,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2017,19,RAIPUR,MAHENDER SINGH NEGI,,2714,2.76,4,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2017,19,RAIPUR,HARI SINGH KHORWAL,,1680,1.71,5,forfeit,U,52,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2017,19,RAIPUR,TEJENDRA SINGH RAWAT,,1079,1.1,6,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2017,19,RAIPUR,RAKESH BARTHWAL,,392,0.4,8,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2017,19,RAIPUR,NIRMALA BISHT,,331,0.34,9,forfeit,U,56,10th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2017,19,RAIPUR,ANIL DOBHAL,,293,0.3,10,forfeit,U,39,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2017,19,RAIPUR,YAGYA BHUSAN SHARMA,,197,0.2,11,forfeit,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2017,19,RAIPUR,NAGENDER SINGH,,155,0.16,12,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2017,19,RAIPUR,RUKHSHAR MANSOORI,,126,0.13,13,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2017,19,RAIPUR,RAJENDRA PRASAD GAIROLLA,,123,0.13,14,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2017,19,RAIPUR,USHA NAGAR,,93,0.09,15,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2017,19,RAIPUR,MOHD. EHSAAN,,81,0.08,16,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2017,19,RAIPUR,RAJKUMAR TYAGI,,77,0.08,17,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2017,19,RAIPUR,MAA PRABHA KIRAN,,74,0.08,18,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2017,19,RAIPUR,DHAN SINGH,,67,0.07,19,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2017,19,RAIPUR,VIJAYNATH,,42,0.04,20,forfeit,U,42,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-331,uttarakhand,2017,21,DEHRADUN CANTT.,SHRI HARBANS KAPOOR,,41142,56.48,1,won,U,71,Graduate Professional,Insurance Agent,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-331,uttarakhand,2017,21,DEHRADUN CANTT.,SHRI SURYAKANT DHASMANA,,24472,33.6,2,lost,U,52,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-331,uttarakhand,2017,21,DEHRADUN CANTT.,SHRI ANOOP NAUTIYAL,,3285,4.51,3,forfeit,U,52,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-331,uttarakhand,2017,21,DEHRADUN CANTT.,SHRI NAVEEN BISHT,,1303,1.79,4,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-331,uttarakhand,2017,21,DEHRADUN CANTT.,SHRI DEVENDRA KUMAR,,802,1.1,5,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-331,uttarakhand,2017,21,DEHRADUN CANTT.,KUNWAR JAPENDRA SINGH UTTARAKHANDI,,325,0.45,7,forfeit,U,46,Graduate,Unspecified,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-331,uttarakhand,2017,21,DEHRADUN CANTT.,SHRI LAXMAN SINGH NEGI ( ANIL NEGI),,283,0.39,8,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-331,uttarakhand,2017,21,DEHRADUN CANTT.,SHRI KAPIL BHATIA,,159,0.22,9,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-331,uttarakhand,2017,21,DEHRADUN CANTT.,SHRI SANJAY GOYAL,,149,0.2,10,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-331,uttarakhand,2017,21,DEHRADUN CANTT.,DR. R.K. PATHAK,,110,0.15,11,forfeit,U,48,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-331,uttarakhand,2017,21,DEHRADUN CANTT.,SHRI SRIBILASH,,103,0.14,12,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-331,uttarakhand,2017,21,DEHRADUN CANTT.,SHRI ARUN KHANNA,,64,0.09,13,forfeit,U,39,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-335,uttarakhand,2017,22,MUSSOORIE,GANESH JOSHI,,41322,54.68,1,won,U,59,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-335,uttarakhand,2017,22,MUSSOORIE,GODAWARI THAPLI,,29245,38.7,2,lost,U,52,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-335,uttarakhand,2017,22,MUSSOORIE,RAJKUMAR JAISWAL,,1692,2.24,3,forfeit,U,43,Post Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-335,uttarakhand,2017,22,MUSSOORIE,ASHOK PANWAR,,862,1.14,4,forfeit,U,51,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-335,uttarakhand,2017,22,MUSSOORIE,JAI PRAKASH UPADHYAY,,471,0.62,6,forfeit,U,43,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-335,uttarakhand,2017,22,MUSSOORIE,SANJAY KUNDALIYA,,404,0.53,7,forfeit,U,45,Graduate Professional,Accountant,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-335,uttarakhand,2017,22,MUSSOORIE,ANIRUDDHA SHARMA,,253,0.33,8,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-335,uttarakhand,2017,22,MUSSOORIE,SUSHIL KUMAR MALHOTRA,,212,0.28,9,forfeit,U,35,Graduate,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-335,uttarakhand,2017,22,MUSSOORIE,SARIKA PRADHAN,,163,0.22,10,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-335,uttarakhand,2017,22,MUSSOORIE,GYANVEER TYAGI,,137,0.18,11,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-335,uttarakhand,2017,22,MUSSOORIE,CAROL ALICK ROGERS,,104,0.14,12,forfeit,U,50,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-335,uttarakhand,2017,22,MUSSOORIE,YESHVEER ARYA,,73,0.1,13,forfeit,U,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2017,23,DOIWALA,TRIVENDRA SINGH RAWAT,,58502,60.46,1,won,U,56,Post Graduate,MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2017,23,DOIWALA,HIRA SINGH BISHT,,33633,34.76,2,lost,U,76,Post Graduate,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2017,23,DOIWALA,A.HAMEED,,1569,1.62,3,forfeit,U,57,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2017,23,DOIWALA,SUBHASH CHANDRA PUROHIT,,475,0.49,5,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2017,23,DOIWALA,GAJENDRA SINGH,,313,0.32,6,forfeit,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2017,23,DOIWALA,ARUN,,304,0.31,7,forfeit,U,28,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2017,23,DOIWALA,USHA RANI,,274,0.28,8,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2017,23,DOIWALA,PRAKASH CHANDRA TIWARI,,222,0.23,9,forfeit,U,49,Graduate Professional,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2017,23,DOIWALA,BALWENDRA SINGH NEGI,,213,0.22,10,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2017,23,DOIWALA,SURENDRA DUTT PETWAL,,142,0.15,11,forfeit,U,69,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2017,23,DOIWALA,SHIKHA NEGI,,128,0.13,12,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-314,uttarakhand,2017,24,RISHIKESH,PREMCHAND AGGARWAL,,45082,45.84,1,won,U,56,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-314,uttarakhand,2017,24,RISHIKESH,RAJPAL SINGH KHAROLA,,30281,30.79,2,lost,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-314,uttarakhand,2017,24,RISHIKESH,SANDEEP GUPTA,,17149,17.44,3,lost,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-314,uttarakhand,2017,24,RISHIKESH,LALLAN BHARDWAJ RAJBHAR,,2866,2.91,4,forfeit,U,47,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-314,uttarakhand,2017,24,RISHIKESH,VIVEK TIWARI,,889,0.9,5,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-314,uttarakhand,2017,24,RISHIKESH,RAJENDRA PRASAD GAIROLA,,344,0.35,7,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-314,uttarakhand,2017,24,RISHIKESH,VIJAYLAXMI GUSAIN,,240,0.24,8,forfeit,U,56,Post Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-314,uttarakhand,2017,24,RISHIKESH,MOHIT KUMAR,,230,0.23,9,forfeit,U,55,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-314,uttarakhand,2017,24,RISHIKESH,GURUCHARAN,,217,0.22,10,forfeit,U,58,Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-314,uttarakhand,2017,24,RISHIKESH,RAM KRISHANA TIWARI,,168,0.17,11,forfeit,U,71,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-314,uttarakhand,2017,24,RISHIKESH,USHA ASWAL,,107,0.11,12,forfeit,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-306,uttarakhand,2017,25,HARDWAR,MADAN KAUSHIK,,61742,66,1,won,U,52,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-306,uttarakhand,2017,25,HARDWAR,BRAHMSWROOP BRAHMCHARI,,25815,27.6,2,lost,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-306,uttarakhand,2017,25,HARDWAR,ANJU MITTAL,,2661,2.84,3,forfeit,U,52,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-306,uttarakhand,2017,25,HARDWAR,RAVISH BHATIJA,,1571,1.68,4,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-306,uttarakhand,2017,25,HARDWAR,RAJKUMAR AGGRWAL,,364,0.39,6,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-306,uttarakhand,2017,25,HARDWAR,ADESH,,329,0.35,7,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-306,uttarakhand,2017,25,HARDWAR,VIJAY LAXMI,,232,0.25,8,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-306,uttarakhand,2017,25,HARDWAR,ADESH KUMAR,,125,0.13,9,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-306,uttarakhand,2017,25,HARDWAR,MANOJ KUMAR SHARMA,,78,0.08,10,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-302,uttarakhand,2017,26,B.H.E.L. RANIPUR,ADESH CHAUHAN,,56644,54.56,1,won,U,47,12th Pass,Shop Keeper,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-302,uttarakhand,2017,26,B.H.E.L. RANIPUR,AMBRISH KUMAR,,34404,33.14,2,lost,U,68,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-302,uttarakhand,2017,26,B.H.E.L. RANIPUR,PRASHANT RAI,,9971,9.6,3,forfeit,U,43,12th Pass,"Real Estate or Builder or Developer or Construction, Agricultural Business",challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-302,uttarakhand,2017,26,B.H.E.L. RANIPUR,PITAMBAR DUTT BALUNI,,322,0.31,5,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-302,uttarakhand,2017,26,B.H.E.L. RANIPUR,NAVEEN KAUSHIK,,282,0.27,6,forfeit,U,43,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-302,uttarakhand,2017,26,B.H.E.L. RANIPUR,TIRATH PAL,,253,0.24,7,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-302,uttarakhand,2017,26,B.H.E.L. RANIPUR,SANJAY KUMAR,,211,0.2,8,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-302,uttarakhand,2017,26,B.H.E.L. RANIPUR,DHANESH KUMAR,,204,0.2,9,forfeit,U,61,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-302,uttarakhand,2017,26,B.H.E.L. RANIPUR,FAIZAN,,187,0.18,10,forfeit,U,31,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-302,uttarakhand,2017,26,B.H.E.L. RANIPUR,IRFAN ALI,,161,0.16,11,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-302,uttarakhand,2017,26,B.H.E.L. RANIPUR,GULSHAN KHATRI,,156,0.15,12,forfeit,U,25,10th Pass,Transport,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-302,uttarakhand,2017,26,B.H.E.L. RANIPUR,TOUFEEQ AHMAD,,154,0.15,13,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-302,uttarakhand,2017,26,B.H.E.L. RANIPUR,UMESH CHANDR MISHRA,,152,0.15,14,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-302,uttarakhand,2017,26,B.H.E.L. RANIPUR,PANKAJ KUMAR,,98,0.09,15,forfeit,U,37,Post Graduate,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-302,uttarakhand,2017,26,B.H.E.L. RANIPUR,ANAND KUMAR VERMA,,96,0.09,16,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-309,uttarakhand,2017,27,JWALAPUR,SURESH RATHOR,,29513,33.97,1,won,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-309,uttarakhand,2017,27,JWALAPUR,S.P.SINGH ENGINEER,,24725,28.46,2,lost,U,56,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-309,uttarakhand,2017,27,JWALAPUR,MULKI RAJ,,19483,22.43,3,lost,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-309,uttarakhand,2017,27,JWALAPUR,BRAJ RANI,,9338,10.75,4,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-309,uttarakhand,2017,27,JWALAPUR,SUBHASH CHANCHAL,,1544,1.78,5,forfeit,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-309,uttarakhand,2017,27,JWALAPUR,MADAN LAL,,1077,1.24,6,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-309,uttarakhand,2017,27,JWALAPUR,ARVIND KUMAR,,559,0.64,8,forfeit,U,35,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-303,uttarakhand,2017,28,BHAGWANPUR,MAMTA RAKESH,,44882,48.18,1,won,U,43,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-303,uttarakhand,2017,28,BHAGWANPUR,SUBODH RAKESH,,42369,45.48,2,lost,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-303,uttarakhand,2017,28,BHAGWANPUR,RAM KUMAR RANA,,4069,4.37,3,forfeit,U,48,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-303,uttarakhand,2017,28,BHAGWANPUR,PREMPATI,,889,0.95,4,forfeit,U,38,8th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-303,uttarakhand,2017,28,BHAGWANPUR,BISHAMBER SINGH,,167,0.18,6,forfeit,U,51,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-303,uttarakhand,2017,28,BHAGWANPUR,ADESH KUMAR,,154,0.17,7,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-303,uttarakhand,2017,28,BHAGWANPUR,PREM SINGH,,153,0.16,8,forfeit,U,60,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-303,uttarakhand,2017,28,BHAGWANPUR,SURENDRA KUMAR,,119,0.13,9,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-308,uttarakhand,2017,29,JHABRERA,DESRAJ KARANWAL,,32146,38.08,1,won,U,48,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-308,uttarakhand,2017,29,JHABRERA,RAJPAL SINGH,,29893,35.41,2,lost,U,53,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-308,uttarakhand,2017,29,JHABRERA,BHAGAVAT SINGH,,20468,24.25,3,lost,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-308,uttarakhand,2017,29,JHABRERA,VIMLA,,470,0.56,4,forfeit,U,39,10th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-308,uttarakhand,2017,29,JHABRERA,ATAR SINGH,,409,0.48,5,forfeit,U,65,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-308,uttarakhand,2017,29,JHABRERA,MEMPAL,,151,0.18,7,forfeit,U,34,12th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-308,uttarakhand,2017,29,JHABRERA,TEJPAL SINGH,,149,0.18,8,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-308,uttarakhand,2017,29,JHABRERA,REETA,,139,0.16,9,forfeit,U,50,8th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-308,uttarakhand,2017,29,JHABRERA,KOMAL RANI,,121,0.14,10,forfeit,U,32,Post Graduate,Private Company,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-308,uttarakhand,2017,29,JHABRERA,HAV. HARPAL SINGH,,96,0.11,11,forfeit,U,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-313,uttarakhand,2017,30,PIRANKALIYAR,FURKAN AHMAD,,29243,32.3,1,won,U,48,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-313,uttarakhand,2017,30,PIRANKALIYAR,JAIBHAGWAN,,27894,30.81,2,lost,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-313,uttarakhand,2017,30,PIRANKALIYAR,SHAHZAD,,23843,26.34,3,lost,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-313,uttarakhand,2017,30,PIRANKALIYAR,RAO SAJID,,6188,6.84,4,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-313,uttarakhand,2017,30,PIRANKALIYAR,NETRA PAL,,1367,1.51,5,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-313,uttarakhand,2017,30,PIRANKALIYAR,MOTI LAL MAURYA,,519,0.57,6,forfeit,U,60,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-313,uttarakhand,2017,30,PIRANKALIYAR,MAHAK SINGH SAINI,,329,0.36,8,forfeit,U,41,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-313,uttarakhand,2017,30,PIRANKALIYAR,SAMEER ALVI,,227,0.25,9,forfeit,U,27,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-313,uttarakhand,2017,30,PIRANKALIYAR,AFZAL AHMED,,215,0.24,10,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-313,uttarakhand,2017,30,PIRANKALIYAR,NITIN,,197,0.22,11,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-313,uttarakhand,2017,30,PIRANKALIYAR,SUSHMA,,157,0.17,12,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-315,uttarakhand,2017,31,ROORKEE,PRADEEP BATRA,,40000,55.35,1,won,U,48,Post Graduate,Hospitality,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-315,uttarakhand,2017,31,ROORKEE,SURESH CHAND JAIN,,27458,38,2,lost,U,69,Graduate Professional,Ex MLA,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-315,uttarakhand,2017,31,ROORKEE,RAM SUBHAG SINGH,,3239,4.48,3,forfeit,U,52,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-315,uttarakhand,2017,31,ROORKEE,SUNITA SINGH,,918,1.27,4,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-315,uttarakhand,2017,31,ROORKEE,ADESH KUMAR SHARMA,,169,0.23,6,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-315,uttarakhand,2017,31,ROORKEE,SHARAD PANDEY,,72,0.1,7,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-315,uttarakhand,2017,31,ROORKEE,YUDHVIJAY SINGH,,65,0.09,8,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-315,uttarakhand,2017,31,ROORKEE,NARENDRA SINGH,,43,0.06,9,forfeit,U,57,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-310,uttarakhand,2017,32,KHANPUR,KUNWAR PARNAV SINGH CHAMPION,,53192,49.65,1,won,U,52,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-310,uttarakhand,2017,32,KHANPUR,MUFTI RIYASAT ALI,,39457,36.83,2,lost,U,49,Others,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-310,uttarakhand,2017,32,KHANPUR,CHOUDHARY YASHVEER SINGH,,6894,6.43,3,forfeit,U,66,Graduate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-310,uttarakhand,2017,32,KHANPUR,RAVINDER SINGH,,4856,4.53,4,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-310,uttarakhand,2017,32,KHANPUR,SUNIL,,729,0.68,5,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-310,uttarakhand,2017,32,KHANPUR,PALLAVI KUKRETI,,373,0.35,7,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-310,uttarakhand,2017,32,KHANPUR,VIRENDER SINGH,,338,0.32,8,forfeit,U,50,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-310,uttarakhand,2017,32,KHANPUR,SANJAY SINGH,,267,0.25,9,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-310,uttarakhand,2017,32,KHANPUR,RISHIRAM,,134,0.13,10,forfeit,U,67,Post Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-310,uttarakhand,2017,32,KHANPUR,MOHD. ARSHAD,,132,0.12,11,forfeit,U,27,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-310,uttarakhand,2017,32,KHANPUR,RAJVEER,,115,0.11,12,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-310,uttarakhand,2017,32,KHANPUR,PEHAL SINGH,,82,0.08,13,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-310,uttarakhand,2017,32,KHANPUR,ANIL KUMAR,,42,0.04,14,forfeit,U,54,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-312,uttarakhand,2017,33,MANGLORE,QAZI MOHD NIZAMUDDIN,,31352,38.62,1,won,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-312,uttarakhand,2017,33,MANGLORE,SARWAT KAREEM ANSARI,,28684,35.33,2,lost,U,60,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-312,uttarakhand,2017,33,MANGLORE,RISHIPAL BALIYAN,,16964,20.89,3,lost,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-312,uttarakhand,2017,33,MANGLORE,LETESH KUMAR,,3265,4.02,4,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-312,uttarakhand,2017,33,MANGLORE,USHA,,333,0.41,5,forfeit,U,36,8th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-312,uttarakhand,2017,33,MANGLORE,SUNIL KUMAR,,172,0.21,7,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-312,uttarakhand,2017,33,MANGLORE,UBERDUR RAHAMAN,,143,0.18,8,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-311,uttarakhand,2017,34,LAKSAR,SANJAY GUPTA,,25248,32.34,1,won,U,47,Graduate,Rent,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-311,uttarakhand,2017,34,LAKSAR,HAJI TASLEEM AHMAD,,23644,30.29,2,lost,U,64,Others,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-311,uttarakhand,2017,34,LAKSAR,SUBHASH SINGH CHOUDHARY,,19656,25.18,3,lost,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-311,uttarakhand,2017,34,LAKSAR,KUSHALPAL SINGH,,6087,7.8,4,forfeit,U,64,Post Graduate,Retired Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-311,uttarakhand,2017,34,LAKSAR,SUMIT,,2415,3.09,5,forfeit,U,27,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-311,uttarakhand,2017,34,LAKSAR,NARENDRA,,282,0.36,7,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-311,uttarakhand,2017,34,LAKSAR,RATENDRA TIWARI,,199,0.25,8,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-311,uttarakhand,2017,34,LAKSAR,MEMPAL,,96,0.12,9,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-311,uttarakhand,2017,34,LAKSAR,JULFUKAR ANSARI,,94,0.12,10,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-311,uttarakhand,2017,34,LAKSAR,NIDHI SINGH,,62,0.08,11,forfeit,U,30,Graduate Professional,Engineer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-307,uttarakhand,2017,35,HARDWAR RURAL,YATISHWARANAND,,44964,45.78,1,won,U,44,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-307,uttarakhand,2017,35,HARDWAR RURAL,HARISH CHANDRA SINGH RAWAT,,32686,33.28,2,lost,U,69,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-307,uttarakhand,2017,35,HARDWAR RURAL,MUKARRAM,,18383,18.72,3,lost,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-307,uttarakhand,2017,35,HARDWAR RURAL,SUBASH CHAND,,514,0.52,5,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-307,uttarakhand,2017,35,HARDWAR RURAL,RENU NOTIYAL,,339,0.35,6,forfeit,U,27,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-307,uttarakhand,2017,35,HARDWAR RURAL,VASIM AHMAD,,334,0.34,7,forfeit,U,25,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-307,uttarakhand,2017,35,HARDWAR RURAL,MUSTAFA,,201,0.2,8,forfeit,U,50,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-307,uttarakhand,2017,35,HARDWAR RURAL,NAGENDRA SINGH,,147,0.15,9,forfeit,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-301,uttarakhand,2017,36,YAMKESHWAR,RITU KHANDURI BHUSHAN,,19671,43.01,1,won,U,51,Graduate,NGO,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-301,uttarakhand,2017,36,YAMKESHWAR,RENU BISHT,,10689,23.37,2,lost,U,48,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-301,uttarakhand,2017,36,YAMKESHWAR,SHAILENDRA SINGH RAWAT,,10283,22.49,3,lost,U,52,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-301,uttarakhand,2017,36,YAMKESHWAR,PRASHANT BADONI,,2698,5.9,4,forfeit,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-301,uttarakhand,2017,36,YAMKESHWAR,SHANTI PRASAD BHATT,,542,1.19,6,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-301,uttarakhand,2017,36,YAMKESHWAR,JAGPAL SINGH NEGI,,375,0.82,7,forfeit,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-301,uttarakhand,2017,36,YAMKESHWAR,KIRSHAN CHANDRA,,250,0.55,8,forfeit,U,39,10th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-301,uttarakhand,2017,36,YAMKESHWAR,(BRIG) GOVIND PRASAD BARTHWAL,,235,0.51,9,forfeit,U,71,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-296,uttarakhand,2017,37,PAURI,MUKESH SINGH KOLI,,26469,54.41,1,won,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-296,uttarakhand,2017,37,PAURI,NAVAL KISHOR,,19439,39.96,2,lost,U,43,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-296,uttarakhand,2017,37,PAURI,HARI KUMAR,,593,1.22,4,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-296,uttarakhand,2017,37,PAURI,RAMESH CHANDER,,364,0.75,5,forfeit,U,59,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-296,uttarakhand,2017,37,PAURI,VIR PRATAP SINGH,,323,0.66,6,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-296,uttarakhand,2017,37,PAURI,DEVAKI NANDAN SHAH,,282,0.58,7,forfeit,U,40,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-296,uttarakhand,2017,37,PAURI,ANIL KUMAR,,184,0.38,8,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-296,uttarakhand,2017,37,PAURI,VIJAY SINGH,,153,0.31,9,forfeit,U,61,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-296,uttarakhand,2017,37,PAURI,MANOHAR LAL PAHARI,,151,0.31,10,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-299,uttarakhand,2017,38,SRINAGAR,DR. DHAN SINGH RAWAT,,30816,51.24,1,won,U,47,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-299,uttarakhand,2017,38,SRINAGAR,GANESH GODIYAL,,22118,36.78,2,lost,U,51,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-299,uttarakhand,2017,38,SRINAGAR,MOHAN PRASAD KALA,,4854,8.07,3,forfeit,U,59,Others,Accountant,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-299,uttarakhand,2017,38,SRINAGAR,NAVEEN PRAKASH NAUTIYAL,,608,1.01,5,forfeit,U,33,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-299,uttarakhand,2017,38,SRINAGAR,GANESH PRASAD,,532,0.88,6,forfeit,U,68,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-299,uttarakhand,2017,38,SRINAGAR,DHIRENDRA SINGH BISHT,,516,0.86,7,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-289,uttarakhand,2017,39,CHAUBATTAKHAL,SATPAL MAHARAJ,,20921,48.82,1,won,U,65,Others,Ex MP,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-289,uttarakhand,2017,39,CHAUBATTAKHAL,RAJPAL SINGH BISHT,,13567,31.66,2,lost,U,42,Post Graduate,Unspecified,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-289,uttarakhand,2017,39,CHAUBATTAKHAL,SUNDER SINGH CHAUHAN,,2545,5.94,3,forfeit,U,69,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-289,uttarakhand,2017,39,CHAUBATTAKHAL,KAVINDER ISTWAL,,2339,5.46,4,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-289,uttarakhand,2017,39,CHAUBATTAKHAL,SATENDRA SINGH,,965,2.25,5,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-289,uttarakhand,2017,39,CHAUBATTAKHAL,NANDAN SINGH RAWAT,,433,1.01,6,forfeit,U,67,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-289,uttarakhand,2017,39,CHAUBATTAKHAL,RAMENDRA SINGH BHANDARI,,323,0.75,7,forfeit,U,38,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-289,uttarakhand,2017,39,CHAUBATTAKHAL,ANU PANT,,316,0.74,8,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-289,uttarakhand,2017,39,CHAUBATTAKHAL,MANJU RAWAT,,241,0.56,9,forfeit,U,49,12th Pass,Unspecified,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-289,uttarakhand,2017,39,CHAUBATTAKHAL,POONAM KAINTURA,,212,0.49,10,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-289,uttarakhand,2017,39,CHAUBATTAKHAL,BHARTENDU,,211,0.49,11,forfeit,U,41,10th Pass,Mechanic,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-289,uttarakhand,2017,39,CHAUBATTAKHAL,SUBODH POKHRIYAL,,196,0.46,13,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-289,uttarakhand,2017,39,CHAUBATTAKHAL,SUSHIL CHANDRA,,162,0.38,14,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-289,uttarakhand,2017,39,CHAUBATTAKHAL,PREM SUNDRIYAL,,121,0.28,15,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-289,uttarakhand,2017,39,CHAUBATTAKHAL,CHNDRA MOHAN MUNDEPI,,88,0.21,16,forfeit,U,57,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-294,uttarakhand,2017,40,LANSDOWNE,DALEEP SINGH RAWAT,,22246,55.93,1,won,U,49,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-294,uttarakhand,2017,40,LANSDOWNE,LT. GEN(RETD) TEJPAL SINGH RAWAT  P.V.S.M  V.S.M,,15771,39.65,2,lost,U,77,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-294,uttarakhand,2017,40,LANSDOWNE,VIKRAM SINGH RAWAT,,450,1.13,4,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-294,uttarakhand,2017,40,LANSDOWNE,VED PRAKASH ARYA,,434,1.09,5,forfeit,U,49,Post Graduate,Retired Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-294,uttarakhand,2017,40,LANSDOWNE,JAGMOHAN SINGH BISHT,,226,0.57,6,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-294,uttarakhand,2017,40,LANSDOWNE,MANISH SUNDRIYAL,,164,0.41,7,forfeit,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-293,uttarakhand,2017,41,KOTDWAR,(DR) HARAK SINGH RAWAT,,39859,56.07,1,won,U,57,Doctorate,MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-293,uttarakhand,2017,41,KOTDWAR,SURENDRA SINGH NEGI,,28541,40.15,2,lost,U,68,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-293,uttarakhand,2017,41,KOTDWAR,RENU AGARWAL,,764,1.07,3,forfeit,U,39,Post Graduate,Unspecified,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-293,uttarakhand,2017,41,KOTDWAR,(DR) DINESH,,355,0.5,5,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-293,uttarakhand,2017,41,KOTDWAR,SUDHIR KUMAR BAHUGUNA,,267,0.38,6,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-293,uttarakhand,2017,41,KOTDWAR,SUDHA PATWAL,,266,0.37,7,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-293,uttarakhand,2017,41,KOTDWAR,HARISH CHANDER DWIVEDI,,168,0.24,8,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-293,uttarakhand,2017,41,KOTDWAR,SHAMMI KAPOOR,,138,0.19,9,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-293,uttarakhand,2017,41,KOTDWAR,SHYAM LAL,,137,0.19,10,forfeit,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-293,uttarakhand,2017,41,KOTDWAR,ANOOP THAPLIYAL,,68,0.1,11,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-293,uttarakhand,2017,41,KOTDWAR,MAHITAB SINGH RAWAT,,64,0.09,12,forfeit,U,57,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-277,uttarakhand,2017,42,DHARCHULA,HARISH SINGH,,25597,47.56,1,won,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-277,uttarakhand,2017,42,DHARCHULA,VIRENDRA SINGH PAL,,22512,41.82,2,lost,U,50,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-277,uttarakhand,2017,42,DHARCHULA,DURGA PRASHAD,,2717,5.05,3,forfeit,U,38,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-277,uttarakhand,2017,42,DHARCHULA,LAL SINGH,,883,1.64,4,forfeit,U,75,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-277,uttarakhand,2017,42,DHARCHULA,DEVINDRA SINGH,,631,1.17,5,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-277,uttarakhand,2017,42,DHARCHULA,VIRENDRA SINGH,,540,1,6,forfeit,U,38,Graduate,Shop Keeper,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-277,uttarakhand,2017,42,DHARCHULA,JITENDRA KUMAR,,445,0.83,8,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-278,uttarakhand,2017,43,DIDIHAT,VISHAN SINGH,,17392,33.66,1,won,U,66,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-278,uttarakhand,2017,43,DIDIHAT,KISHAN  BHANDARI,,15024,29.08,2,lost,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-278,uttarakhand,2017,43,DIDIHAT,PRADEEP SINGH PAL,,14470,28,3,lost,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-278,uttarakhand,2017,43,DIDIHAT,KASHI SINGH AIRY,,2896,5.6,4,forfeit,U,63,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-278,uttarakhand,2017,43,DIDIHAT,HAR GOVIND PANT,,631,1.22,6,forfeit,U,50,Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-278,uttarakhand,2017,43,DIDIHAT,BIKRANT PANDAY,,520,1.01,7,forfeit,U,25,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-284,uttarakhand,2017,44,PITHORAGARH,PRAKASH PANT,,32941,49.42,1,won,U,56,Graduate,Private Company,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-284,uttarakhand,2017,44,PITHORAGARH,MAYUKH MAHAR,,30257,45.39,2,lost,U,59,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-284,uttarakhand,2017,44,PITHORAGARH,LALIT MOHAN BHATT,,613,0.92,4,forfeit,U,44,Doctorate,NGO,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-284,uttarakhand,2017,44,PITHORAGARH,MAHENDRA SINGH,,529,0.79,5,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-284,uttarakhand,2017,44,PITHORAGARH,RAGHUVAR RAM,,519,0.78,6,forfeit,U,59,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-284,uttarakhand,2017,44,PITHORAGARH,SUSHMA MATHUR,,304,0.46,7,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-284,uttarakhand,2017,44,PITHORAGARH,MANOJ KUMAR JOSHI,,126,0.19,8,forfeit,U,39,Post Graduate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-284,uttarakhand,2017,44,PITHORAGARH,KRISHNANAND KAPRI,,111,0.17,9,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-284,uttarakhand,2017,44,PITHORAGARH,RAMESH BISHT,,108,0.16,10,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-284,uttarakhand,2017,44,PITHORAGARH,GULAJAR,,78,0.12,11,forfeit,U,46,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-280,uttarakhand,2017,45,GANGOLIHAT,MEENA GANGOLA,,20418,37.34,1,won,U,42,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-280,uttarakhand,2017,45,GANGOLIHAT,NARAYAN RAM ARYA,,19613,35.87,2,lost,U,64,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-280,uttarakhand,2017,45,GANGOLIHAT,KHAJAN CHANDRA,,10763,19.69,3,lost,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-280,uttarakhand,2017,45,GANGOLIHAT,DINESH KUMAR,,958,1.75,4,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-280,uttarakhand,2017,45,GANGOLIHAT,SUMITRA DEVI,,841,1.54,6,forfeit,U,38,12th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-280,uttarakhand,2017,45,GANGOLIHAT,DEEPAK KUMAR,,668,1.22,7,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-280,uttarakhand,2017,45,GANGOLIHAT,HARISH PRASAD,,550,1.01,8,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-282,uttarakhand,2017,46,KAPKOTE,BALWANT SINGH BHOURIYAL,,27213,45.53,1,won,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-282,uttarakhand,2017,46,KAPKOTE,LALIT FARSWAN,,21231,35.52,2,lost,U,45,Post Graduate,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-282,uttarakhand,2017,46,KAPKOTE,BHOOPESH UPADHYAY,,6964,11.65,3,forfeit,U,35,10th Pass,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-282,uttarakhand,2017,46,KAPKOTE,BHAGWAT SINGH DASILA,,1242,2.08,4,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-282,uttarakhand,2017,46,KAPKOTE,RAM SINGH AITHANI,,951,1.59,6,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-282,uttarakhand,2017,46,KAPKOTE,DAYAL SINGH KAPKOTI,,641,1.07,7,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-282,uttarakhand,2017,46,KAPKOTE,GOVIND LAL,,220,0.37,8,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-282,uttarakhand,2017,46,KAPKOTE,KARAM SINGH DANU,,196,0.33,9,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-275,uttarakhand,2017,47,BAGESHWAR,CHANDAN RAM DASS,,33792,50.08,1,won,U,57,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-275,uttarakhand,2017,47,BAGESHWAR,BALKRISHAN,,19225,28.49,2,lost,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-275,uttarakhand,2017,47,BAGESHWAR,BASANT KUMAR,,11038,16.36,3,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-275,uttarakhand,2017,47,BAGESHWAR,JEEVAN LAL,,1207,1.79,5,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-275,uttarakhand,2017,47,BAGESHWAR,BACHI LAL,,676,1,6,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-279,uttarakhand,2017,48,DWARAHAT,MAHESH SINGH NEGI,,20221,43.21,1,won,U,54,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-279,uttarakhand,2017,48,DWARAHAT,MADAN SINGH BISHT,,13628,29.12,2,lost,U,54,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-279,uttarakhand,2017,48,DWARAHAT,PUSHPESH TRIPATHI,,6581,14.06,3,forfeit,U,37,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-279,uttarakhand,2017,48,DWARAHAT,KUBER SINGH KATHAYAT,,2126,4.54,4,forfeit,U,61,Graduate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-279,uttarakhand,2017,48,DWARAHAT,BHUPAL SINGH ALIAS PAPPU BHANDARI,,1196,2.56,5,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-279,uttarakhand,2017,48,DWARAHAT,GIRISH CHAUDHARY,,830,1.77,6,forfeit,U,55,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-279,uttarakhand,2017,48,DWARAHAT,NANDAN GIRI,,776,1.66,7,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-279,uttarakhand,2017,48,DWARAHAT,KUNDAN SINGH RAWAT,,503,1.07,9,forfeit,U,72,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-279,uttarakhand,2017,48,DWARAHAT,JAY PRAKASH KANDPAL,,342,0.73,10,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-286,uttarakhand,2017,49,SALT,SURENDER SINGH JEENA,,21581,49.17,1,won,U,47,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-286,uttarakhand,2017,49,SALT,GANGA PANCHOLI,,18677,42.55,2,lost,U,46,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-286,uttarakhand,2017,49,SALT,BHUVAN JOSHI,,669,1.52,4,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-286,uttarakhand,2017,49,SALT,BHOLE SHANKAR,,664,1.51,5,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-286,uttarakhand,2017,49,SALT,GANGA DEVI,,459,1.05,6,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-286,uttarakhand,2017,49,SALT,NARAYAN SINGH,,268,0.61,7,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-286,uttarakhand,2017,49,SALT,MAHIPAL SINGH,,262,0.6,8,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-286,uttarakhand,2017,49,SALT,RAKESH SINGH BISHT,,187,0.43,9,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-286,uttarakhand,2017,49,SALT,BHAGAWAT SINGH,,184,0.42,10,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-286,uttarakhand,2017,49,SALT,KUBER SINGH MANRAL,,132,0.3,11,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-285,uttarakhand,2017,50,RANIKHET,KARAN  MAHARA,,19035,46.42,1,won,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-285,uttarakhand,2017,50,RANIKHET,AJAY BHATT,,14054,34.27,2,lost,U,56,Graduate Professional,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-285,uttarakhand,2017,50,RANIKHET,PRAMOD NAINWAL,,5701,13.9,3,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-285,uttarakhand,2017,50,RANIKHET,KRIPAL RAM,,1169,2.85,4,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-285,uttarakhand,2017,50,RANIKHET,PRATAP SINGH SHAHI,,414,1.01,6,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-287,uttarakhand,2017,51,SOMESHWAR,REKHA ARYA,,21780,47.47,1,won,U,38,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-287,uttarakhand,2017,51,SOMESHWAR,RAJENDRA BARAKOTI,,21070,45.92,2,lost,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-287,uttarakhand,2017,51,SOMESHWAR,PRADEEP KUMAR ARYA,,841,1.83,4,forfeit,U,28,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-287,uttarakhand,2017,51,SOMESHWAR,HIMANSHU KOHLI,,622,1.36,5,forfeit,U,25,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-287,uttarakhand,2017,51,SOMESHWAR,PURAN CHANDRA,,263,0.57,6,forfeit,U,31,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-287,uttarakhand,2017,51,SOMESHWAR,CHANDRA PRAKASH ARYA,,218,0.48,7,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-274,uttarakhand,2017,52,ALMORA,RAGHUNATH SINGH CHAUHAN,,26464,50.93,1,won,U,68,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-274,uttarakhand,2017,52,ALMORA,MANOJ TEWARI,,21085,40.57,2,lost,U,45,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-274,uttarakhand,2017,52,ALMORA,DR.SANJAY TAMTA,,1654,3.18,3,forfeit,U,39,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-274,uttarakhand,2017,52,ALMORA,VIRENDRA KUMAR,,517,0.99,5,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-274,uttarakhand,2017,52,ALMORA,MOHD HABIB,,514,0.99,6,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-274,uttarakhand,2017,52,ALMORA,DINESH PANDE,,425,0.82,7,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-274,uttarakhand,2017,52,ALMORA,BHUWAN CHANDRA JOSHI,,219,0.42,8,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-274,uttarakhand,2017,52,ALMORA,REKHA DHASMANA,,157,0.3,9,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-274,uttarakhand,2017,52,ALMORA,KUNDAN SINGH BISHT,,130,0.25,10,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-274,uttarakhand,2017,52,ALMORA,PRAKASH CHANDRA BHATT,,106,0.2,11,forfeit,U,32,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-274,uttarakhand,2017,52,ALMORA,JASWANT SINGH,,72,0.14,12,forfeit,U,66,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-281,uttarakhand,2017,53,JAGESHWAR,GOVIND SINGH KUNJWAL,,24132,47.41,1,won,U,71,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-281,uttarakhand,2017,53,JAGESHWAR,SUBHASH PANDEY,,23733,46.63,2,lost,U,47,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-281,uttarakhand,2017,53,JAGESHWAR,TARADATT PANDEY,,1345,2.64,3,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-281,uttarakhand,2017,53,JAGESHWAR,MAHENDRA SINGH RAWAT,,793,1.56,5,forfeit,U,37,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-283,uttarakhand,2017,54,LOHAGHAT,PURAN SINGH FARTYAL,,27685,47.46,1,won,U,50,10th Pass,MLA,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-283,uttarakhand,2017,54,LOHAGHAT,KHUSHAL SINGH,,26851,46.03,2,lost,U,51,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-283,uttarakhand,2017,54,LOHAGHAT,PRAKASH SINGH,,725,1.24,4,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-283,uttarakhand,2017,54,LOHAGHAT,JYOTI PRAKASH TAMTA,,724,1.24,5,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-283,uttarakhand,2017,54,LOHAGHAT,DEVILAL SHARMA ALIAS RAJU,,713,1.22,6,forfeit,U,43,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-283,uttarakhand,2017,54,LOHAGHAT,RAJENDRA SINGH,,379,0.65,7,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-276,uttarakhand,2017,55,CHAMPAWAT,KAILASH CHANDRA GAHTORI,,36601,62.3,1,won,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-276,uttarakhand,2017,55,CHAMPAWAT,HEMESH KHARKWAL,,19241,32.75,2,lost,U,46,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-276,uttarakhand,2017,55,CHAMPAWAT,TRILOK CHAND SORARI,,939,1.6,4,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-276,uttarakhand,2017,55,CHAMPAWAT,DINESH CHANDRA,,928,1.58,5,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-325,uttarakhand,2017,56,LALKUWA,NAVEEN CHANDRA DUMKA,,44293,54.81,1,won,U,62,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-325,uttarakhand,2017,56,LALKUWA,HARISH CHANDRA DURGAPAL,,17185,21.27,2,lost,U,75,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-325,uttarakhand,2017,56,LALKUWA,HARENDRA SINGH BORA,,14709,18.2,3,lost,U,54,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-325,uttarakhand,2017,56,LALKUWA,RAJEEV MOHAN,,964,1.19,5,forfeit,U,43,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-325,uttarakhand,2017,56,LALKUWA,PURUSHOTTAM SHARMA,,793,0.98,6,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-325,uttarakhand,2017,56,LALKUWA,VIRENDRA PURI MAHARAJ,,592,0.73,7,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-325,uttarakhand,2017,56,LALKUWA,CHANDAN SINGH RANA,,407,0.5,8,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-325,uttarakhand,2017,56,LALKUWA,VIJAY JOSHI,,238,0.29,9,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-325,uttarakhand,2017,56,LALKUWA,DEEPA BHATT,,224,0.28,10,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-325,uttarakhand,2017,56,LALKUWA,RAJENDER SINGH BISHT,,191,0.24,11,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-317,uttarakhand,2017,57,BHIMTAL,RAM SINGH KAIRA,,18878,30.83,1,won,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-317,uttarakhand,2017,57,BHIMTAL,GOVIND SINGH BISHT,,15432,25.2,2,lost,U,57,Graduate Professional,Ex MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-317,uttarakhand,2017,57,BHIMTAL,DAN SINGH BHANDARI,,14702,24.01,3,lost,U,48,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-317,uttarakhand,2017,57,BHIMTAL,TARA DATT PANDEY,,8444,13.79,4,forfeit,U,56,10th Pass,Transport,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-317,uttarakhand,2017,57,BHIMTAL,GOVIND SINGH BISHT,,703,1.15,6,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-317,uttarakhand,2017,57,BHIMTAL,SUHAIL AHMAD,,614,1,7,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-317,uttarakhand,2017,57,BHIMTAL,KAMAL PATHAK,,460,0.75,8,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-317,uttarakhand,2017,57,BHIMTAL,KRISHNANAND KANDPAL,,402,0.66,9,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-317,uttarakhand,2017,57,BHIMTAL,AAN SINGH,,357,0.58,10,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-317,uttarakhand,2017,57,BHIMTAL,NAVEEN CHANDRA,,275,0.45,11,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-326,uttarakhand,2017,58,NAINITAL,SANJEEV ARYA,,30036,49.03,1,won,U,38,Post Graduate,Hospitality,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-326,uttarakhand,2017,58,NAINITAL,SARITA ARYA,,22789,37.2,2,lost,U,54,10th Pass,Household,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-326,uttarakhand,2017,58,NAINITAL,HEM CHANDRA ARYA,,5505,8.99,3,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-326,uttarakhand,2017,58,NAINITAL,K.L ARYA,,1035,1.69,4,forfeit,U,59,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-326,uttarakhand,2017,58,NAINITAL,SUNDER LAL ARYA,,997,1.63,5,forfeit,U,42,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-319,uttarakhand,2017,59,HALDWANI,INDIRA HRIDAYESH,,43786,46.49,1,won,U,75,Doctorate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-319,uttarakhand,2017,59,HALDWANI,JOGENDRA PAL SINGH RAUTELA,,37229,39.53,2,lost,U,45,Doctorate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-319,uttarakhand,2017,59,HALDWANI,SHOEB AHMED,,10337,10.98,3,forfeit,U,44,Literate,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-319,uttarakhand,2017,59,HALDWANI,SHAKEEL AHMAD,,1324,1.41,4,forfeit,U,59,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-319,uttarakhand,2017,59,HALDWANI,BHUWAN CHANDRA JOSHI,,268,0.28,6,forfeit,U,49,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-319,uttarakhand,2017,59,HALDWANI,LALIT MOHAN JOSHI,,226,0.24,7,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-319,uttarakhand,2017,59,HALDWANI,VINOD KUMAR SHARMA,,201,0.21,8,forfeit,U,61,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-319,uttarakhand,2017,59,HALDWANI,TOFIK AHMAD,,156,0.17,9,forfeit,U,46,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-321,uttarakhand,2017,60,KALADHUNGI,BANSIDHAR BHAGAT,,45704,44.9,1,won,U,65,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-321,uttarakhand,2017,60,KALADHUNGI,PRAKASH JOSHI,,25107,24.66,2,lost,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-321,uttarakhand,2017,60,KALADHUNGI,MAHESH CHANDRA,,20214,19.86,3,lost,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-321,uttarakhand,2017,60,KALADHUNGI,HARENDRA SINGH DARMWAL,,4294,4.22,4,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-321,uttarakhand,2017,60,KALADHUNGI,VARUN PRATAP SINGH BHAKUNI,,2384,2.34,5,forfeit,U,27,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-321,uttarakhand,2017,60,KALADHUNGI,MAHENDRA KUMAR CHAUDHARY,,1097,1.08,7,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-321,uttarakhand,2017,60,KALADHUNGI,DR. SURESH DALAKOTI,,889,0.87,8,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-321,uttarakhand,2017,60,KALADHUNGI,SURENDRA SINGH NIGALTIYA,,625,0.61,9,forfeit,U,60,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-321,uttarakhand,2017,60,KALADHUNGI,SUMAN LATA,,367,0.36,10,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-297,uttarakhand,2017,61,RAMNAGAR,DIWAN SINGH BISHT,,35839,46.31,1,won,U,63,Post Graduate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-297,uttarakhand,2017,61,RAMNAGAR,RANJEET RAWAT,,27228,35.18,2,lost,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-297,uttarakhand,2017,61,RAMNAGAR,RAJEEV AGARWAL,,10766,13.91,3,forfeit,U,54,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-297,uttarakhand,2017,61,RAMNAGAR,PRABHAT DHYANI,,1229,1.59,4,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-297,uttarakhand,2017,61,RAMNAGAR,DHANESHWARI GHILDIYAL,,397,0.51,6,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-297,uttarakhand,2017,61,RAMNAGAR,VIJAY,,364,0.47,7,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-297,uttarakhand,2017,61,RAMNAGAR,VICHITRA SINGH,,318,0.41,8,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-297,uttarakhand,2017,61,RAMNAGAR,AKEEL,,216,0.28,9,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-297,uttarakhand,2017,61,RAMNAGAR,TANJEEM,,153,0.2,10,forfeit,U,35,Literate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-320,uttarakhand,2017,62,JASPUR,ADESH SINGH CHAUHAN,,42551,46.35,1,won,U,49,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-320,uttarakhand,2017,62,JASPUR,DR. SHAILENDRA MOHAN SINGHAL,,38347,41.77,2,lost,U,57,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-320,uttarakhand,2017,62,JASPUR,MOHAMMAD UMAR,,8666,9.44,3,forfeit,U,71,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-320,uttarakhand,2017,62,JASPUR,KM. SEEMA CHAUHAN,,578,0.63,5,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-320,uttarakhand,2017,62,JASPUR,JAMEEL AHMAD MANSOORI,,337,0.37,6,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-320,uttarakhand,2017,62,JASPUR,SANJAY DUTT,,196,0.21,7,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-320,uttarakhand,2017,62,JASPUR,LALMAN SINGH,,144,0.16,8,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-320,uttarakhand,2017,62,JASPUR,MOHAMMAD AJMAL SIDDIQI,,138,0.15,9,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-320,uttarakhand,2017,62,JASPUR,RAKESH KUMAR,,100,0.11,10,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-320,uttarakhand,2017,62,JASPUR,MAHENDER SINGH,,97,0.11,11,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-322,uttarakhand,2017,63,KASHIPUR,HARBHAJAN SINGH CHEEMA,,50156,47.8,1,won,U,70,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-322,uttarakhand,2017,63,KASHIPUR,MANOJ JOSHI,,30042,28.63,2,lost,U,59,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-322,uttarakhand,2017,63,KASHIPUR,MOHD ASHRAF SIDDIQUI,,15426,14.7,3,forfeit,U,37,Graduate Professional,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-322,uttarakhand,2017,63,KASHIPUR,RAJEEV KUMAR AGARWAL,,7106,6.77,4,forfeit,U,58,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-322,uttarakhand,2017,63,KASHIPUR,SHIV SINGH RAWAT,,416,0.4,6,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-322,uttarakhand,2017,63,KASHIPUR,MOHD. ANAS,,301,0.29,7,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-322,uttarakhand,2017,63,KASHIPUR,JAKIR,,214,0.2,8,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-322,uttarakhand,2017,63,KASHIPUR,SHIV KUMAR SINGH,,208,0.2,9,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-322,uttarakhand,2017,63,KASHIPUR,GOHAR ALI,,198,0.19,10,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-322,uttarakhand,2017,63,KASHIPUR,SURENDRA CHAUDHARY,,101,0.1,11,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-322,uttarakhand,2017,63,KASHIPUR,ASHOK KUMAR,,95,0.09,12,forfeit,U,43,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-316,uttarakhand,2017,64,BAJPUR,YASHPAL ARYA,,54965,52.75,1,won,U,67,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-316,uttarakhand,2017,64,BAJPUR,SUNEETA TAMTA,,42329,40.63,2,lost,U,38,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-316,uttarakhand,2017,64,BAJPUR,RAMAVATAR,,4511,4.33,3,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-316,uttarakhand,2017,64,BAJPUR,MANISHA,,651,0.62,5,forfeit,U,26,Illiterate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-316,uttarakhand,2017,64,BAJPUR,GAUTAM KUMAR,,488,0.47,6,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-316,uttarakhand,2017,64,BAJPUR,MADAN SINGH,,340,0.33,7,forfeit,U,60,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-318,uttarakhand,2017,65,GADARPUR,ARVIND PANDEY,,41530,42.35,1,won,U,45,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-318,uttarakhand,2017,65,GADARPUR,RAJENDRA PAL SINGH,,27424,27.97,2,lost,U,52,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-318,uttarakhand,2017,65,GADARPUR,JARNAIL SINGH (KALI),,26115,26.63,3,lost,U,42,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-318,uttarakhand,2017,65,GADARPUR,SHANKAR SINGH NAGARKOTI,,835,0.85,4,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-318,uttarakhand,2017,65,GADARPUR,SHAHEROOM,,807,0.82,5,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-318,uttarakhand,2017,65,GADARPUR,PARAMJEET KAUR,,308,0.31,7,forfeit,U,36,8th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-318,uttarakhand,2017,65,GADARPUR,ANAND VISHWAS,,174,0.18,8,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-318,uttarakhand,2017,65,GADARPUR,KAMLESH,,109,0.11,9,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-328,uttarakhand,2017,66,RUDRAPUR,RAJKUMAR THUKRAL,,68754,58.89,1,won,U,50,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-328,uttarakhand,2017,66,RUDRAPUR,TILAK RAJ BEHAR,,43983,37.67,2,lost,U,59,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-328,uttarakhand,2017,66,RUDRAPUR,JASWANT SINGH,,1471,1.26,3,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-328,uttarakhand,2017,66,RUDRAPUR,B.D.KANDPAL,,427,0.37,5,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-328,uttarakhand,2017,66,RUDRAPUR,SANJAY SAHNI,,420,0.36,6,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-328,uttarakhand,2017,66,RUDRAPUR,HIMAN SINGH NEGI,,332,0.28,7,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-328,uttarakhand,2017,66,RUDRAPUR,SURENDRA UPADHYAY,,249,0.21,8,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-328,uttarakhand,2017,66,RUDRAPUR,VINOD KUMAR,,188,0.16,9,forfeit,U,51,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-328,uttarakhand,2017,66,RUDRAPUR,KAILASH CHANDRA,,132,0.11,10,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-328,uttarakhand,2017,66,RUDRAPUR,SURENDRA SINGHAL,,107,0.09,11,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-328,uttarakhand,2017,66,RUDRAPUR,MANPREET SINGH,,94,0.08,12,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-324,uttarakhand,2017,67,KICHHA,RAJESH SHUKLA,,40363,45.77,1,won,U,47,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-324,uttarakhand,2017,67,KICHHA,HARISH RAWAT,,38236,43.36,2,lost,U,69,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-324,uttarakhand,2017,67,KICHHA,RAJESH PRATAP SINGH,,7754,8.79,3,forfeit,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-324,uttarakhand,2017,67,KICHHA,SANJAY SINGH,,459,0.52,5,forfeit,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-324,uttarakhand,2017,67,KICHHA,MOHD. JALEES,,405,0.46,6,forfeit,U,46,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-324,uttarakhand,2017,67,KICHHA,SANJAY GROVER,,254,0.29,7,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-324,uttarakhand,2017,67,KICHHA,ANIL KUMAR SHARMA,,149,0.17,8,forfeit,U,43,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-329,uttarakhand,2017,68,SITARGANJ,SAURABH BAHUGUNA,,50597,57.85,1,won,U,39,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-329,uttarakhand,2017,68,SITARGANJ,MALTI  BISWAS,,22147,25.32,2,lost,U,56,Others,Private Company,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-329,uttarakhand,2017,68,SITARGANJ,NAVTEJ PAL SINGH,,11892,13.6,3,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-329,uttarakhand,2017,68,SITARGANJ,YOGENDRA KUMAR YADAV,,811,0.93,4,forfeit,U,39,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-329,uttarakhand,2017,68,SITARGANJ,BINDA BISWAS,,437,0.5,6,forfeit,U,56,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-329,uttarakhand,2017,68,SITARGANJ,MOBEEN ALI,,400,0.46,7,forfeit,U,35,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-329,uttarakhand,2017,68,SITARGANJ,ABDUL VAHEED,,178,0.2,8,forfeit,U,44,Literate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-329,uttarakhand,2017,68,SITARGANJ,AKHTAYAR AHAMAD,,155,0.18,9,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-329,uttarakhand,2017,68,SITARGANJ,HEM CHANDRA,,136,0.16,10,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-329,uttarakhand,2017,68,SITARGANJ,RAGHUVIR,,127,0.15,11,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-327,uttarakhand,2017,69,NANAK MATTA,DR. PREM SINGH,,42785,51.65,1,won,U,40,Doctorate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-327,uttarakhand,2017,69,NANAK MATTA,GOPAL SINGH RANA,,33254,40.14,2,lost,U,67,Graduate Professional,Ex MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-327,uttarakhand,2017,69,NANAK MATTA,SHISH RAM RANA,,3174,3.83,3,forfeit,U,67,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-327,uttarakhand,2017,69,NANAK MATTA,SUNEETA RANA,,1305,1.58,4,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-327,uttarakhand,2017,69,NANAK MATTA,RITA WATI,,899,1.09,5,forfeit,U,48,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-327,uttarakhand,2017,69,NANAK MATTA,MAHESH CHANDRA,,386,0.47,7,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-327,uttarakhand,2017,69,NANAK MATTA,ANSUIYA,,228,0.28,8,forfeit,U,53,10th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-323,uttarakhand,2017,70,KHATIMA,PUSHKAR SINGH DHAMI,,29539,36.51,1,won,U,41,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-323,uttarakhand,2017,70,KHATIMA,BHUWAN CHANDRA KAPRI,,26830,33.16,2,lost,U,36,Graduate Professional,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-323,uttarakhand,2017,70,KHATIMA,RAMESH SINGH RANA,,17804,22.01,3,lost,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-323,uttarakhand,2017,70,KHATIMA,DR. LALIT SINGH,,4516,5.58,4,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-323,uttarakhand,2017,70,KHATIMA,RAMESH CHANDRA RANA,,452,0.56,6,forfeit,U,72,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-323,uttarakhand,2017,70,KHATIMA,ABDUL FAREED SIDDIQUI,,269,0.33,7,forfeit,U,46,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-323,uttarakhand,2017,70,KHATIMA,RAMESH KUMAR MAX,,215,0.27,8,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-323,uttarakhand,2017,70,KHATIMA,BHUWAL SINGH KUSHWAHA,,156,0.19,9,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-323,uttarakhand,2017,70,KHATIMA,ANIL KUMAR RASTOGI,,121,0.15,10,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-323,uttarakhand,2017,70,KHATIMA,VINOD BHATT,,115,0.14,11,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a

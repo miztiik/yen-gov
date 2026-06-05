@@ -1,0 +1,38 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-punjab-224,punjab,2019,29,PHAGWARA,BALWINDER SINGH DHALIWAL,,49215,47.62,1,won,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-224,punjab,2019,29,PHAGWARA,RAJESH BAGHA,,23099,22.35,2,lost,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-224,punjab,2019,29,PHAGWARA,BHAGWAN DASS,,15990,15.47,3,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-224,punjab,2019,29,PHAGWARA,JARNAIL NANGAL,,9088,8.79,4,forfeit,M,45,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-punjab-224,punjab,2019,29,PHAGWARA,SANTOSH KUMAR GOGI,,2910,2.82,5,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-224,punjab,2019,29,PHAGWARA,NOTA,,966,0.93,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-224,punjab,2019,29,PHAGWARA,NEETU,,706,0.68,7,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-224,punjab,2019,29,PHAGWARA,CHARANJIT KUMAR,,545,0.53,8,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-224,punjab,2019,29,PHAGWARA,PARAMJOT KAUR GILL,,485,0.47,9,forfeit,F,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-224,punjab,2019,29,PHAGWARA,SONU KUMAR,,340,0.33,10,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-223,punjab,2019,39,MUKERIAN,INDU BALA,,53910,46.62,1,won,F,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-223,punjab,2019,39,MUKERIAN,JANGI LAL MAHAJAN,,50470,43.65,2,lost,M,72,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-223,punjab,2019,39,MUKERIAN,Prof. GURDHIAN SINGH MULTANI,,8261,7.14,3,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-223,punjab,2019,39,MUKERIAN,GURVATAN SINGH,,1286,1.11,4,forfeit,M,75,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-223,punjab,2019,39,MUKERIAN,NOTA,,879,0.76,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-223,punjab,2019,39,MUKERIAN,ARJUN,,558,0.48,6,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-223,punjab,2019,39,MUKERIAN,AMANDEEP SINGH GHOTRA,,268,0.23,7,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-247,punjab,2019,68,DAKHA,MANPREET SINGH AYALI,,66297,50.3,1,won,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-247,punjab,2019,68,DAKHA,SANDEEP SINGH SANDHU,,51625,39.17,2,lost,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-247,punjab,2019,68,DAKHA,Sukhdev Singh CHAK,,8441,6.4,3,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-247,punjab,2019,68,DAKHA,AMANDEEP SINGH MOHIE,,2804,2.13,4,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-247,punjab,2019,68,DAKHA,NOTA,,642,0.49,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-247,punjab,2019,68,DAKHA,JAI PARKASH JAIN (TITU BANIYA),,535,0.41,6,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-247,punjab,2019,68,DAKHA,BALDEV SINGH (DEV SARABHA),,397,0.3,7,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-247,punjab,2019,68,DAKHA,SIMRANDEEP SINGH,,340,0.26,8,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-247,punjab,2019,68,DAKHA,JOGINDER SINGH VEGAL,,256,0.19,9,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-247,punjab,2019,68,DAKHA,GURDEEP SINGH KAHLON,,226,0.17,10,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-247,punjab,2019,68,DAKHA,HARBANS SINGH JALAL,,140,0.11,11,forfeit,M,71,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-247,punjab,2019,68,DAKHA,GURJEET SINGH,,89,0.07,12,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-207,punjab,2019,79,JALALABAD,RAMINDER SINGH AWLA,,76098,49.3,1,won,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-207,punjab,2019,79,JALALABAD,RAJ SINGH,,59465,38.52,2,lost,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-207,punjab,2019,79,JALALABAD,MOHINDER SINGH,,11301,7.32,3,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-207,punjab,2019,79,JALALABAD,JAGDEEP KAMBOJ,,5836,3.78,4,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-207,punjab,2019,79,JALALABAD,NOTA,,701,0.45,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-207,punjab,2019,79,JALALABAD,RAJ SINGH,,515,0.33,6,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-207,punjab,2019,79,JALALABAD,JOGINDER SINGH,,238,0.15,7,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-207,punjab,2019,79,JALALABAD,JOGINDER SINGH,,209,0.14,8,forfeit,M,44,,,challenger,src-1b7bc1c9d39a

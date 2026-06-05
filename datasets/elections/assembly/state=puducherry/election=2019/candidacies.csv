@@ -1,0 +1,10 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,K. VENKATESAN,,10906,47.45,1,won,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,P. NEDOUNZEJIANE,,9367,40.75,2,lost,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,B. COWRI,,1084,4.72,3,forfeit,F,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,NOTA,,653,2.84,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,DR.KA.Thamizhamallan,,269,1.17,5,forfeit,M,69,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,N. MURUGASAMY,,237,1.03,6,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,K. RAVISANKAR,,203,0.88,7,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,S. SRIDHAR,,195,0.85,8,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,E. MANNATHAN,,71,0.31,9,forfeit,M,37,,,challenger,src-1b7bc1c9d39a

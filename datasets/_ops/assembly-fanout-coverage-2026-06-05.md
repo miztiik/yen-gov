@@ -23,3 +23,18 @@ deferred (no Delhi ACs in `electoral.csv`).
 | himachal-pradesh | 6 | 1310 | 210 | 0 |
 | jammu-and-kashmir | 4 | 1973 | 157 | 21 |
 | **wave 1 total** | | 34800 | 3220 | |
+
+## Wave 3
+
+| state | years | candidacies | summary ACs | skipped_eci_no |
+| --- | --- | --- | --- | --- |
+| puducherry | 4 | 699 | 73 | 19 |
+| punjab | 8 | 3589 | 358 | 3 |
+| rajasthan | 8 | 6020 | 573 | 40 |
+| sikkim | 4 | 406 | 88 | 9 |
+| telangana | 6 | 3327 | 224 | 20 |
+| tripura | 8 | 928 | 191 | 0 |
+| uttar-pradesh | 10 | 15399 | 1171 | 83 |
+| uttarakhand | 8 | 2069 | 214 | 3 |
+| west-bengal | 10 | 5060 | 786 | 123 |
+| **wave 3 total** | | 37497 | 3678 | |

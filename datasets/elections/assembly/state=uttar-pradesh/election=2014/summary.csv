@@ -1,0 +1,14 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-uttar-pradesh-1014,uttar-pradesh,2014,THAKURDWARA,309372,231193,74.73,Navab Jan,,111097,48.05,Rajpal Chauhan,,84074,27023,11.68,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1024,uttar-pradesh,2014,NOORPUR,269545,193685,71.86,R.K.Uerma Alas,,62085,32.05,Sanjay Pandey,,48014,14071,7.26,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1101,uttar-pradesh,2014,UNNAO,317227,211845,66.78,Pankaj Gupta,,109822,51.84,Manisha Deepak,,54629,55193,26.05,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1102,uttar-pradesh,2014,ROHANIYA,316973,185461,58.51,Mahendra Singh Patel,,76121,41.04,Krishna Patel,,61672,14449,7.79,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2014,BALHA,290660,186298,64.09,Banshidhar Bauddh,,99220,53.26,Akshaibar Lal,,74039,25181,13.52,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-799,uttar-pradesh,2014,BIJNOR,317824,204487,64.34,Ruchiveera,,101748,49.76,Hemendra Pal,,90181,11567,5.66,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-851,uttar-pradesh,2014,FATEHPUR,316050,162832,51.52,"Aradhana Mishra, Mona",,94076,57.77,Nagesh Pratap Singh,,26397,67679,41.56,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-868,uttar-pradesh,2014,NOIDA,428259,164730,38.47,Vimla Batham,,100433,60.97,Kajal Sharma,,41481,58952,35.79,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-895,uttar-pradesh,2014,CHARKHARI,313564,189810,60.53,Kaptan Singh,,95008,50.05,Ramjeevan,,44203,50805,26.76,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2014,HAMIRPUR,385473,210686,54.66,S.C. Prajapati,,112995,53.63,Jagdish Prasad,,44439,68556,32.54,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-926,uttar-pradesh,2014,KAIRANA,269228,186663,69.33,Nahid Hasan,,83984,44.99,Anil Kumar,,82885,1099,0.59,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-949,uttar-pradesh,2014,SIRATHU,325109,166732,51.28,Vachaspati,,79540,47.71,Santosh Singh Patel,,55018,24522,14.71,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-952,uttar-pradesh,2014,NIGHASAN,320502,199751,62.32,K.G. Patel,,103402,51.77,Ramkumar Verma,,84426,18976,9.5,src-1b7bc1c9d39a

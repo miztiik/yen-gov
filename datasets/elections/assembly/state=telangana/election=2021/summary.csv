@@ -1,0 +1,3 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-telangana-3266,telangana,2021,HUZURABAD,237022,205965,86.9,EATALA RAJENDER,,107022,51.96,GELLU SRINIVAS YADAV,,83167,23855,11.58,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,NAGARJUNA SAGAR,220206,190861,86.67,NOMULA BHAGATH,,89804,47.05,KUNDURU JANAREDDY,,70932,18872,9.89,src-1b7bc1c9d39a

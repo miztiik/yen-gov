@@ -1,0 +1,6 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-uttar-pradesh-1018,uttar-pradesh,2016,MUZAFFARNAGAR,301726,155080,51.4,Kapil Dev Agarwal 'E',,65378,42.16,Gaurav Swarup Bansal,,58026,7352,4.74,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1056,uttar-pradesh,2016,DEOBAND,292273,168390,57.61,Mavia ALI 'E'',,51012,30.29,Meena Singh,,47453,3559,2.11,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1066,uttar-pradesh,2016,BILARI,292315,182039,62.27,Mohd. Faeem(E),,90464,49.69,Suresh Saini,,83371,7093,3.89,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-840,uttar-pradesh,2016,BIKAPUR,332607,167999,50.51,Anand Sen ''E',,68896,41.01,Ka. Munna Singh Chauhan,,62456,6440,3.83,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-877,uttar-pradesh,2016,JANGIPUR,311256,160842,51.68,Kismatiya 'E',,82316,51.18,Ramesh,,60224,22092,13.74,src-1b7bc1c9d39a

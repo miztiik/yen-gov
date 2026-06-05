@@ -1,0 +1,3 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-punjab-189,punjab,2013,MOGA,174531,130300,74.66,Joginder Pal Jain,,69269,53.16,Sathi Vijay Kumar,,50420,18849,14.46,src-1b7bc1c9d39a
+IN-AC-2008-punjab-249,punjab,2013,JAGRAON,159714,171110,107.14,Rabiul Alam Chowdhury,,66876,39.08,Sirajul Islam Mondal,,55154,11722,6.85,src-1b7bc1c9d39a

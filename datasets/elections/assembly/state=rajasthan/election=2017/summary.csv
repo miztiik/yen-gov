@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-rajasthan-642,rajasthan,2017,DHOLPUR,162264,147202,90.72,Shobha Rani Kushavah,,91548,62.19,Banwari Lal Sharma,,52875,38673,26.27,src-1b7bc1c9d39a
