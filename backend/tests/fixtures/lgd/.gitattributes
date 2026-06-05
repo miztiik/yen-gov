@@ -1,0 +1,8 @@
+# The LGD parser golden test asserts byte-equality between the parser's LF
+# output and these committed fixtures/goldens (backend/tests/test_lgd_parser.py).
+# Pin LF so a contributor with core.autocrlf=true cannot reintroduce CRLF and
+# break the deterministic-re-run / golden-file gates.
+*.csv text eol=lf
+*.json text eol=lf
+*.py text eol=lf
+*.xlsx binary

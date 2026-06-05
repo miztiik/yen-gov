@@ -1,0 +1,37 @@
+lgd_state_code,state_name,state_name_local,census_2001_code,census_2011_code,kind
+1,Jammu And Kashmir,JAMMU AND KASHMIR,1,1,ut
+2,Himachal Pradesh,HIMACHAL PRADESH,2,2,state
+3,Punjab,PUNJAB,3,3,state
+4,Chandigarh,CHANDIGARH,4,4,ut
+5,Uttarakhand,UTTARAKHAND,5,5,state
+6,Haryana,HARYANA,6,6,state
+7,Delhi,DELHI,7,7,ut
+8,Rajasthan,RAJASTHAN,8,8,state
+9,Uttar Pradesh,UTTAR PRADESH,9,9,state
+10,Bihar,BIHAR,10,10,state
+11,Sikkim,SIKKIM,11,11,state
+12,Arunachal Pradesh,ARUNACHAL PRADESH,12,12,state
+13,Nagaland,NAGALAND,13,13,state
+14,Manipur,MANIPUR,14,14,state
+15,Mizoram,MIZORAM,15,15,state
+16,Tripura,ত্রিপুরা,16,16,state
+17,Meghalaya,MEGHALAYA,17,17,state
+18,Assam,ASSAM,18,18,state
+19,West Bengal,WEST BENGAL,19,19,state
+20,Jharkhand,झारखंड,20,20,state
+21,Odisha,ଓଡ଼ିଶା,21,21,state
+22,Chhattisgarh,छत्तीसगढ़,22,22,state
+23,Madhya Pradesh,MADHYA PRADESH,23,23,state
+24,Gujarat,GUJARAT,24,24,state
+27,Maharashtra,महाराष्ट्र,27,27,state
+28,Andhra Pradesh,ANDHRA PRADESH,28,28,state
+29,Karnataka,ಕರ್ನಾಟಕ,29,29,state
+30,Goa,GOA,30,30,state
+31,Lakshadweep,LAKSHADWEEP,31,31,ut
+32,Kerala,KERALA,32,32,state
+33,Tamil Nadu,தமிழ்நாடு,33,33,state
+34,Puducherry,PUDUCHERRY,34,34,ut
+35,Andaman And Nicobar Islands,ANDAMAN AND NICOBAR ISLANDS,35,35,ut
+36,Telangana,తెలంగాణ,0,0,state
+37,Ladakh,Ladakh,0,0,ut
+38,The Dadra And Nagar Haveli And Daman And Diu,THE DADRA AND NAGAR HAVELI AND DAMAN AND DIU,0,0,ut

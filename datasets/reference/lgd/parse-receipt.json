@@ -1,0 +1,293 @@
+{
+  "$schema": "./lgd-parse-receipt.schema.json",
+  "$schema_version": "1.0",
+  "outputs": [
+    {
+      "file": "states.csv",
+      "rows": 36
+    },
+    {
+      "file": "districts.csv",
+      "rows": 784
+    },
+    {
+      "file": "subdistricts.csv",
+      "rows": 7090
+    },
+    {
+      "file": "constituencies.csv",
+      "rows": 4395
+    },
+    {
+      "file": "constituency_district_membership.csv",
+      "rows": 4315
+    }
+  ],
+  "parser": "tools/lgd/parse_lgd_export.py",
+  "pri_sources": [
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-51-49.xlsx",
+      "lgd_state_code": "28",
+      "raw_rows": 20749,
+      "sha256": "503475ae255ecaf0f60657524bec7e83503c6fa3245a52c1c710168f2df95aad",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-52-11.xlsx",
+      "lgd_state_code": "12",
+      "raw_rows": 6036,
+      "sha256": "0071a5bcd39d46116c0fcc4fec9380fe7ebe5785b7a17a156f1e1b1d6227d556",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-52-33.xlsx",
+      "lgd_state_code": "18",
+      "raw_rows": 34254,
+      "sha256": "6e7d14f25270c9bb714618139826190f8974d58d4e5d5bb037bd86e3f9504d9e",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-53-21.xlsx",
+      "lgd_state_code": "10",
+      "raw_rows": 52868,
+      "sha256": "f0b7956155727dc2b297498b3b2e25cf0d61ad9fa17de9689ae5d611306d3e70",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-53-57.xlsx",
+      "lgd_state_code": "4",
+      "raw_rows": 0,
+      "sha256": "b932c9caa39985c1ecb052fad11ca1db9617acf3a15ec703515059f928a41693",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-54-22.xlsx",
+      "lgd_state_code": "22",
+      "raw_rows": 24388,
+      "sha256": "0ebf6369d384a4130c88b64285da2432d9e3a793a92e55976e90c747bbaefd2e",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-54-39.xlsx",
+      "lgd_state_code": "7",
+      "raw_rows": 0,
+      "sha256": "100c10b15cf3f8864912e44323e9a55598393ac0f54a71c86f36bc90f1994c03",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-55-05.xlsx",
+      "lgd_state_code": "30",
+      "raw_rows": 436,
+      "sha256": "c9d8eacd75dd3cbb2fed5fc3df4727eadf343864ef8612b88bd9f1236e695a7d",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-55-22.xlsx",
+      "lgd_state_code": "24",
+      "raw_rows": 20731,
+      "sha256": "15c403f883cab0fec768c35505c245d2f9af3853c1e3bd9bcd326f77f9b0ace1",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-55-35.xlsx",
+      "lgd_state_code": "6",
+      "raw_rows": 8038,
+      "sha256": "6889300244be13a5b926e22b8f6ed427bd3103a11081d1fee4f3e2a5fb8ae7a6",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-55-51.xlsx",
+      "lgd_state_code": "2",
+      "raw_rows": 21888,
+      "sha256": "3a1888ed4813c57fb45d42a21f78c8288ab5394ce5ccd5a179cbcec789f6042e",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-56-07.xlsx",
+      "lgd_state_code": "1",
+      "raw_rows": 7874,
+      "sha256": "a24a00cdf1dacf67cdc20ad4bf20b771e8549f0a39fae028589a5e7d939c6422",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-56-20.xlsx",
+      "lgd_state_code": "20",
+      "raw_rows": 32954,
+      "sha256": "a0aba16ce0a8e07f3ba0ec637b2fc055fe1829eb02b953767e872d15708b396a",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-56-37.xlsx",
+      "lgd_state_code": "29",
+      "raw_rows": 33444,
+      "sha256": "90611ab424c5db08cee6e6d861183963d54c79156266183cb06967430369bdfd",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-56-54.xlsx",
+      "lgd_state_code": "32",
+      "raw_rows": 1881,
+      "sha256": "c6e8391ae8f133923d42b946aad585166dd13cf77cf93deb9589d8bab7eb779c",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-57-10.xlsx",
+      "lgd_state_code": "37",
+      "raw_rows": 272,
+      "sha256": "577652c22290562b26067faab33173743f482380dcdccc6247f1e792350f9205",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-57-25.xlsx",
+      "lgd_state_code": "31",
+      "raw_rows": 27,
+      "sha256": "b9e2214a4ad0cf2fa7decc1f3be00b004b5f06064ec2041d687a926efdf77711",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-58-42.xlsx",
+      "lgd_state_code": "23",
+      "raw_rows": 59350,
+      "sha256": "7489842c7f8b57b01e01a02b2f992083aec886fd049ead3b0455e0fce498304a",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-59-00.xlsx",
+      "lgd_state_code": "27",
+      "raw_rows": 45165,
+      "sha256": "870cd061b6fc8cd80f6d3f3cc84e64295fd0bb71d05abdf945ed6ef67891219b",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-59-20.xlsx",
+      "lgd_state_code": "14",
+      "raw_rows": 3720,
+      "sha256": "130c667be0a1b8fa3208f723f989f8c83553d6d159d0640d418ff03065830262",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_11-59-44.xlsx",
+      "lgd_state_code": "17",
+      "raw_rows": 7202,
+      "sha256": "951ca19657abe2e78d7af9c6a93f1e2bb17d4a212eec931df28502c305591779",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_12-00-07.xlsx",
+      "lgd_state_code": "15",
+      "raw_rows": 1112,
+      "sha256": "856c9e5fef6fb4cf1e80d547c686addcb86e871352df461576ab3ea8252f9dd4",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_12-00-29.xlsx",
+      "lgd_state_code": "13",
+      "raw_rows": 1549,
+      "sha256": "841a21877b1c8711399eb7c61415ed9219295fa9228b149503fb100c3bca8bdb",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_12-00-58.xlsx",
+      "lgd_state_code": "21",
+      "raw_rows": 51508,
+      "sha256": "efee5992def4b5a2fc574c94e5972b012b3ee705d35944066fd7f568681b761f",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_12-01-16.xlsx",
+      "lgd_state_code": "34",
+      "raw_rows": 266,
+      "sha256": "eb0ab4e624584e6a6e5bed3bc338f0d470453b7457d80efbb5485de5020bacb5",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_12-01-37.xlsx",
+      "lgd_state_code": "3",
+      "raw_rows": 15806,
+      "sha256": "989748464e386ae8df529d67428fcad26653b3230cc1d54741d7c020bd40209b",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_12-02-01.xlsx",
+      "lgd_state_code": "8",
+      "raw_rows": 53662,
+      "sha256": "9cffdd9952b2a3816c70b793e0286e80ce578557d04f5dce3ea392dd3f831ff6",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_12-02-16.xlsx",
+      "lgd_state_code": "11",
+      "raw_rows": 578,
+      "sha256": "381b7d2d4df69b9500c89d47c212a7f67e3bdc79ee790a03a970ff42fbe28613",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_12-02-35.xlsx",
+      "lgd_state_code": "33",
+      "raw_rows": 21027,
+      "sha256": "10b0deb9a8f54c985653353ab38af8b36d6a9e7d0da6152fea16deab8316dd70",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_12-03-20.xlsx",
+      "lgd_state_code": "36",
+      "raw_rows": 17561,
+      "sha256": "99d339115d6711d739a07884066fe49d85d06589885e533b9b4c86136800b978",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_12-04-54.xlsx",
+      "lgd_state_code": "38",
+      "raw_rows": 143,
+      "sha256": "40150a9daa22b55ee189a1c56a5a71aba3fa8526da0cf52c8f09f92ed0ccf7d0",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_12-05-40.xlsx",
+      "lgd_state_code": "16",
+      "raw_rows": 1550,
+      "sha256": "b9ddab00fbee4ee3cad49e5388174f0ef67a397ed6c0da6568acc259d35e99bc",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_12-05-52.xlsx",
+      "lgd_state_code": "5",
+      "raw_rows": 17328,
+      "sha256": "7de4011f15095491c5eb862d205887da545c01c66a7cc81a7358098072e9b56f",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_12-06-07.xlsx",
+      "lgd_state_code": "9",
+      "raw_rows": 110275,
+      "sha256": "08a160be19f719127a7d52a16fcadc35a13d0e3cc38dce60842bb833b1d9c38f",
+      "unmatched_district_codes": []
+    },
+    {
+      "file": "Parliment_Constituency_And_Assembly_Constituency_Pri_2026-06-05_12-06-21.xlsx",
+      "lgd_state_code": "19",
+      "raw_rows": 41470,
+      "sha256": "0558b8440fc553ba31ab637c61edc5820a9504f95725558c7c2c4642ff29280a",
+      "unmatched_district_codes": []
+    }
+  ],
+  "snapshot_vintage": "2026-06-05",
+  "sources": [
+    {
+      "file": "All_Stateof_India_2026-06-05_10-31-49.csv",
+      "raw_rows": 36,
+      "sha256": "d63e42c894098cfac41f6c591bf67aea4795d1274b2fb770501d4a7c73d6b809"
+    },
+    {
+      "file": "All_Districtof_India_2026-06-05_10-36-28.csv",
+      "raw_rows": 784,
+      "sha256": "8f39ab6e1af6fe240ed36b3d5024ba92fe9e6caac35ad35caef15a505c41751d"
+    },
+    {
+      "file": "All_Sub_Districtof_India_2026-06-05_10-37-13.csv",
+      "raw_rows": 7090,
+      "sha256": "73998936fcd6c8441c5a9fe7beab903f4a7604a3c3c5ad2c2bd2f444bf81ad2c"
+    }
+  ],
+  "unmatched_district_codes_by_state": {}
+}

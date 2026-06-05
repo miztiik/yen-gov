@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./lgd-parse-receipt.schema.json",
+  "title": "LGD parsed-snapshot parse receipt",
+  "description": "Reproducibility receipt for the committed LGD parsed snapshot under datasets/reference/lgd/. Carries a sha256 of each throwaway ephemeral source (plan B2b.5.0a), the snapshot vintage, output row counts, and any unmatched district codes. Ties the committed snapshot CSVs to the uncommitted raw bytes so a byte-exact re-download is not required.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-06-05",
+      "description": "Initial schema for the LGD parsed-snapshot parse receipt (B2b.5.0a)."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "snapshot_vintage", "parser", "sources", "pri_sources", "outputs"],
+  "additionalProperties": true,
+  "properties": {
+    "$schema": {"type": "string"},
+    "$schema_version": {"type": "string"},
+    "$comment": {"type": "string"},
+    "snapshot_vintage": {"type": "string", "minLength": 1},
+    "parser": {"type": "string", "minLength": 1},
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["file", "sha256", "raw_rows"],
+        "additionalProperties": true,
+        "properties": {
+          "file": {"type": "string"},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "raw_rows": {"type": "integer", "minimum": 0}
+        }
+      }
+    },
+    "pri_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["file", "sha256", "lgd_state_code", "raw_rows"],
+        "additionalProperties": true,
+        "properties": {
+          "file": {"type": "string"},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "lgd_state_code": {"type": "string"},
+          "raw_rows": {"type": "integer", "minimum": 0},
+          "unmatched_district_codes": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["file", "rows"],
+        "additionalProperties": false,
+        "properties": {
+          "file": {"type": "string"},
+          "rows": {"type": "integer", "minimum": 0}
+        }
+      }
+    },
+    "unmatched_district_codes_by_state": {"type": "object"}
+  }
+}
