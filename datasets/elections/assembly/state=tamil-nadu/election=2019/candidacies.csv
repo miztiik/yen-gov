@@ -1,0 +1,452 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-tamil-nadu-4065,tamil-nadu,2019,5,POONAMALLEE,KRISHNASWAMY A,,136905,53.46,1,won,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4065,tamil-nadu,2019,5,POONAMALLEE,VAITHIYANATHAN G,,76809,29.99,2,lost,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4065,tamil-nadu,2019,5,POONAMALLEE,ELUMALAI T A,,14804,5.78,3,forfeit,M,54,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4065,tamil-nadu,2019,5,POONAMALLEE,JAGADISH KUMAR A,,11772,4.6,4,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4065,tamil-nadu,2019,5,POONAMALLEE,BHARATHI PRIYA P,,10871,4.24,5,forfeit,F,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4065,tamil-nadu,2019,5,POONAMALLEE,NOTA,,3168,1.24,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4065,tamil-nadu,2019,5,POONAMALLEE,RAVIKUMAR J,,336,0.13,7,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4065,tamil-nadu,2019,5,POONAMALLEE,RAVI T A,,233,0.09,8,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4065,tamil-nadu,2019,5,POONAMALLEE,MURALI K S,,227,0.09,9,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4065,tamil-nadu,2019,5,POONAMALLEE,SIVAKUMAR S,,222,0.09,10,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4065,tamil-nadu,2019,5,POONAMALLEE,VELU S,,219,0.09,11,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4065,tamil-nadu,2019,5,POONAMALLEE,SASIKUMAR S,,216,0.08,12,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4065,tamil-nadu,2019,5,POONAMALLEE,MANI E,,182,0.07,13,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4065,tamil-nadu,2019,5,POONAMALLEE,DASARATHAN R,,144,0.06,14,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,R.D.SHEKAR,,106394,56.32,1,won,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,R.S.RAAJESH,,38371,20.31,2,lost,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,U.PRIYADARSINI,,20508,10.86,3,forfeit,F,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,S. MERLIN SUGANTHI,,8611,4.56,4,forfeit,F,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,P.VETRIIVEL,,6281,3.32,5,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,NOTA,,2511,1.33,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,S.OBATH,,1235,0.65,7,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,M.UDHAYAKUMAR,,739,0.39,8,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,HARSHITH,,491,0.26,9,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,S.SATHISHKUMAR,,354,0.19,10,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,K. KULASEKARAN (A) PUTHUVANNAI K.BABU,,310,0.16,11,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,S.SELVAKUMAR,,293,0.16,12,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,AGNI SRIRAMACHANDRAN. N,,212,0.11,13,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,J.PREMANAND,,169,0.09,14,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,S.KUMAR,,161,0.09,15,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,G.VETRIVEL,,156,0.08,16,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,A.DHANASEKAR,,127,0.07,17,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,K.RAJESH,,126,0.07,18,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,S.DEVI DASAN @ VELU,,122,0.06,19,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,C.VIVEK,,122,0.06,20,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,R.RANJINI,,122,0.06,21,forfeit,F,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,M.VASANTHAKUMAR,,120,0.06,22,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,A.RAJI,,107,0.06,23,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,J.MOHANRAJ,,106,0.06,24,forfeit,M,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,M.KADHIRAVAN,,97,0.05,25,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,G.KARTHICK,,94,0.05,26,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,P.RAJA,,92,0.05,27,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,P.VETRIVEL,,91,0.05,28,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,S.RAJESH,,89,0.05,29,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,S.VINAYAGAMOORTHY,,85,0.04,30,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,E.D.PRITHIVIRAJAN,,78,0.04,31,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,S.PRASAD,,77,0.04,32,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,M.MEENA,,71,0.04,33,forfeit,F,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,G.BOTHIRAJAN,,62,0.03,34,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,C.MOHAN,,59,0.03,35,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,S.MANOHAR,,53,0.03,36,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,A.ELAVARASAN,,52,0.03,37,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,Y.ARUNKUMAR,,50,0.03,38,forfeit,M,23,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,S.RAJESHKUMAR,,45,0.02,39,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,G.VINOTH KUMAR,,42,0.02,40,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2019,12,PERAMBUR,S.JAYARAJ,,34,0.02,41,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3933,tamil-nadu,2019,33,THIRUPORUR,IDHAYAVARMAN.L,,103248,47.53,1,won,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3933,tamil-nadu,2019,33,THIRUPORUR,ARUMUGAM.S,,82235,37.86,2,lost,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3933,tamil-nadu,2019,33,THIRUPORUR,KOTHANDAPANI. M,,11936,5.49,3,forfeit,M,60,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3933,tamil-nadu,2019,33,THIRUPORUR,MOHANASUNDARI.S,,9910,4.56,4,forfeit,F,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3933,tamil-nadu,2019,33,THIRUPORUR,KARUNAKARAN. K.U,,6039,2.78,5,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3933,tamil-nadu,2019,33,THIRUPORUR,NOTA,,2243,1.03,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3933,tamil-nadu,2019,33,THIRUPORUR,ARUMUGAM. K,,364,0.17,7,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3933,tamil-nadu,2019,33,THIRUPORUR,MAHADEVAN. M,,288,0.13,8,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3933,tamil-nadu,2019,33,THIRUPORUR,MANIKANDAN. P,,254,0.12,9,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3933,tamil-nadu,2019,33,THIRUPORUR,RAMU. A,,248,0.11,10,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3933,tamil-nadu,2019,33,THIRUPORUR,SENTHIL.K,,239,0.11,11,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3933,tamil-nadu,2019,33,THIRUPORUR,ARUMUGAM. S,,226,0.1,12,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3861,tamil-nadu,2019,39,SHOLINGHUR,G. SAMPATHU,,103545,48,1,won,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3861,tamil-nadu,2019,39,SHOLINGHUR,A. ASOKAN,,87489,40.56,2,lost,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3861,tamil-nadu,2019,39,SHOLINGHUR,T.G. MANI,,12868,5.97,3,forfeit,M,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3861,tamil-nadu,2019,39,SHOLINGHUR,P. GOKULAKRISHNAN,,5188,2.4,4,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3861,tamil-nadu,2019,39,SHOLINGHUR,S. MALAYARAJAN,,2466,1.14,5,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3861,tamil-nadu,2019,39,SHOLINGHUR,NOTA,,2112,0.98,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3861,tamil-nadu,2019,39,SHOLINGHUR,J. MANI,,576,0.27,7,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3861,tamil-nadu,2019,39,SHOLINGHUR,SUDHA,,533,0.25,8,forfeit,F,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3861,tamil-nadu,2019,39,SHOLINGHUR,N.D. SURESH BABU,,259,0.12,9,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3861,tamil-nadu,2019,39,SHOLINGHUR,M.V. POOVANNAN,,256,0.12,10,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3861,tamil-nadu,2019,39,SHOLINGHUR,NIROSHA,,180,0.08,11,forfeit,F,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3861,tamil-nadu,2019,39,SHOLINGHUR,SELLAPPAN,,125,0.06,12,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3861,tamil-nadu,2019,39,SHOLINGHUR,K. SEKAR,,124,0.06,13,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4075,tamil-nadu,2019,46,GUDIYATHAM,Kathavarayan.S,,106137,52.05,1,won,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4075,tamil-nadu,2019,46,GUDIYATHAM,Moorthy R,,78296,38.4,2,lost,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4075,tamil-nadu,2019,46,GUDIYATHAM,Jayanthi Padmanabhan C,,8186,4.01,3,forfeit,F,38,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4075,tamil-nadu,2019,46,GUDIYATHAM,Kalaiyenthiri.R,,4670,2.29,4,forfeit,F,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4075,tamil-nadu,2019,46,GUDIYATHAM,Venkatesan S,,3287,1.61,5,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4075,tamil-nadu,2019,46,GUDIYATHAM,NOTA,,2838,1.39,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4075,tamil-nadu,2019,46,GUDIYATHAM,Murugaiyan K,,253,0.12,7,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4075,tamil-nadu,2019,46,GUDIYATHAM,Subramani.A,,251,0.12,8,forfeit,M,73,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4073,tamil-nadu,2019,48,AMBUR,A.C.VILWANATHAN,,96455,55.93,1,won,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4073,tamil-nadu,2019,48,AMBUR,J.JOTHI RAMALINGA RAJA,,58688,34.03,2,lost,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4073,tamil-nadu,2019,48,AMBUR,R.BALASUBRAMANI,,8856,5.14,3,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4073,tamil-nadu,2019,48,AMBUR,N.SELVAMANI,,3127,1.81,4,forfeit,F,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4073,tamil-nadu,2019,48,AMBUR,A.KAREEM BASHA,,1853,1.07,5,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4073,tamil-nadu,2019,48,AMBUR,NOTA,,1852,1.07,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4073,tamil-nadu,2019,48,AMBUR,B.SHOBHA,,938,0.54,7,forfeit,F,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4073,tamil-nadu,2019,48,AMBUR,S.SALAUDDIN,,257,0.15,8,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4073,tamil-nadu,2019,48,AMBUR,S.RAJKUMAR,,158,0.09,9,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4073,tamil-nadu,2019,48,AMBUR,SUSHELA.S,,151,0.09,10,forfeit,F,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4073,tamil-nadu,2019,48,AMBUR,M.GOPI,,117,0.07,11,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3948,tamil-nadu,2019,55,HOSUR,SATHYA .S.A,,115027,50.77,1,won,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3948,tamil-nadu,2019,55,HOSUR,JYOTHI .S,,91814,40.52,2,lost,F,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3948,tamil-nadu,2019,55,HOSUR,JEYAPAL .P,,8032,3.55,3,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3948,tamil-nadu,2019,55,HOSUR,RAJASEKAR .M,,6740,2.97,4,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3948,tamil-nadu,2019,55,HOSUR,NOTA,,2157,0.95,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3948,tamil-nadu,2019,55,HOSUR,PUGAZHENDI .VA,,1432,0.63,6,forfeit,M,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3948,tamil-nadu,2019,55,HOSUR,SHAIK MUNAVER,,445,0.2,7,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3948,tamil-nadu,2019,55,HOSUR,DEVAPPA .Y,,363,0.16,8,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3948,tamil-nadu,2019,55,HOSUR,MURUGAN .V,,357,0.16,9,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3948,tamil-nadu,2019,55,HOSUR,AMEENULLA,,202,0.09,10,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3909,tamil-nadu,2019,60,PAPPIREDDIPPATTI,GOVINDASAMY. A.,,103981,48.31,1,won,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3909,tamil-nadu,2019,60,PAPPIREDDIPPATTI,MANI. A.,,85488,39.72,2,lost,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3909,tamil-nadu,2019,60,PAPPIREDDIPPATTI,RAJENDRAN. D. K.,,15283,7.1,3,forfeit,M,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3909,tamil-nadu,2019,60,PAPPIREDDIPPATTI,SATHISH. S.,,3783,1.76,4,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3909,tamil-nadu,2019,60,PAPPIREDDIPPATTI,NALLATHAMBI. M.,,2374,1.1,5,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3909,tamil-nadu,2019,60,PAPPIREDDIPPATTI,NOTA,,2367,1.1,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3909,tamil-nadu,2019,60,PAPPIREDDIPPATTI,RAJENDREN. C.,,438,0.2,7,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3909,tamil-nadu,2019,60,PAPPIREDDIPPATTI,MANI. P.,,418,0.19,8,forfeit,M,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3909,tamil-nadu,2019,60,PAPPIREDDIPPATTI,RAJKUMAR. V.,,399,0.19,9,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3909,tamil-nadu,2019,60,PAPPIREDDIPPATTI,GOVINDASAMY. A.,,285,0.13,10,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3909,tamil-nadu,2019,60,PAPPIREDDIPPATTI,MURUGAN. S.,,254,0.12,11,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3909,tamil-nadu,2019,60,PAPPIREDDIPPATTI,GOVINDASAMY. S.,,181,0.08,12,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3906,tamil-nadu,2019,61,HARUR,SAMPATHKUMAR. V.,,88632,45.6,1,won,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3906,tamil-nadu,2019,61,HARUR,KRISHNAKUMAR. C.,,79238,40.77,2,lost,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3906,tamil-nadu,2019,61,HARUR,MURUGAN. R.,,20282,10.43,3,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3906,tamil-nadu,2019,61,HARUR,THILEEP. P.,,3902,2.01,4,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3906,tamil-nadu,2019,61,HARUR,ANBUTHEEBAN. T.,,695,0.36,5,forfeit,M,71,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3906,tamil-nadu,2019,61,HARUR,VAIKUNTHAN. P.,,507,0.26,6,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3906,tamil-nadu,2019,61,HARUR,MURUGAN. P.,,480,0.25,7,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3906,tamil-nadu,2019,61,HARUR,PARTHIPAN. P.,,329,0.17,8,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3906,tamil-nadu,2019,61,HARUR,SARATHKUMAR. M.,,302,0.16,9,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4083,tamil-nadu,2019,75,VIKRAVANDI,Muthamilselvan R,,113766,60.29,1,won,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4083,tamil-nadu,2019,75,VIKRAVANDI,Pugazhenthi N,,68842,36.48,2,lost,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4083,tamil-nadu,2019,75,VIKRAVANDI,Kandasamy K,,2921,1.55,3,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4083,tamil-nadu,2019,75,VIKRAVANDI,NOTA,,1560,0.83,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4083,tamil-nadu,2019,75,VIKRAVANDI,Ravikumar J,,768,0.41,5,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4083,tamil-nadu,2019,75,VIKRAVANDI,Gowthaman V,,328,0.17,6,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4083,tamil-nadu,2019,75,VIKRAVANDI,Subhakar K,,124,0.07,7,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4083,tamil-nadu,2019,75,VIKRAVANDI,Murugan V,,89,0.05,8,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4083,tamil-nadu,2019,75,VIKRAVANDI,Thangarasu K,,64,0.03,9,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4083,tamil-nadu,2019,75,VIKRAVANDI,Senthilkumar S,,61,0.03,10,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4083,tamil-nadu,2019,75,VIKRAVANDI,Sathish S,,59,0.03,11,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4083,tamil-nadu,2019,75,VIKRAVANDI,Sathish R,,56,0.03,12,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4083,tamil-nadu,2019,75,VIKRAVANDI,Dhamodharan K,,54,0.03,13,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,KANDHASAMY. P,,100782,44.4,1,won,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,PONGALUR PALANISAMY. N,,90669,39.94,2,lost,M,73,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,SUGUMAR. K,,16530,7.28,3,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,MAYILSWAMY. G,,6644,2.93,4,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,VIJAYARAGAVAN. M.V,,4335,1.91,5,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,NOTA,,1938,0.85,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,PRABAKARAN. D,,1606,0.71,7,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,BALAMURUGAN. K,,656,0.29,8,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,NOOR MOHAMED. A,,620,0.27,9,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,RAJA VELUSAMY. S.T,,471,0.21,10,forfeit,M,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,SHANMUGAM. K,,411,0.18,11,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,KARTHIKEYAN. P,,401,0.18,12,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,PALANISAMY. K,,339,0.15,13,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,ESWARAMOORTHY. R,,307,0.14,14,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,KANDASWAMY. P.N,,251,0.11,15,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,UMARALI. D,,215,0.09,16,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,KATHIRESAN. L,,160,0.07,17,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,GANESAN. V,,141,0.06,18,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,PUSHPANANTHAM. V,,128,0.06,19,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,SANTHOSH KUMAR. M,,122,0.05,20,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,RAMESHKUMAR. P,,109,0.05,21,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,KANDHASAMY. P,,101,0.04,22,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2019,116,SULUR,MURUGAN. V,,60,0.03,23,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,"THENMOZHI, S.",,90982,49.42,1,won,F,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,"SOUNDARA PANDIAN, C,",,70307,38.19,2,lost,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,"THANGATHURAI, R.",,9401,5.11,3,forfeit,M,62,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,"SANGILIPANDIAN, A",,4934,2.68,4,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,"CHINNADURAI. C,",,3139,1.71,5,forfeit,M,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,NOTA,,1339,0.73,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,"KANAGARAJ, G",,523,0.28,7,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,"SURESHKUMAR, S.",,466,0.25,8,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,"MUNIYANDI, A.",,451,0.24,9,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,"MARIYAPPAN, R",,366,0.2,10,forfeit,M,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,"AMARAVATHI, M.",,359,0.2,11,forfeit,F,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,"PERUMAL, N.",,296,0.16,12,forfeit,M,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,"PITCHAIMUTHU, M.",,246,0.13,13,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,"NAGAJOTHI. P,",,246,0.13,14,forfeit,F,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,"VENDAN, V.P,",,223,0.12,15,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,"PURATCHIMANI, S.",,185,0.1,16,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,SIVAKAMI P,,175,0.1,17,forfeit,F,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,"THENMOZHI, S.",,162,0.09,18,forfeit,F,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,"VINOTH, V.",,120,0.07,19,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,"KARUPPUSAMY,P.",,107,0.06,20,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2019,130,NILAKOTTAI,"PANDI, M.",,62,0.03,21,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Senthilbalaji V,,97800,56.45,1,won,M,43,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Senthilnathan V V,,59843,34.54,2,lost,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Shahul Hameed P H,,7195,4.15,3,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Selvam P K,,2227,1.29,4,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Mohanraj S,,1361,0.79,5,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,NOTA,,904,0.52,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Ramasamy N,,572,0.33,7,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Arul Kumar V,,372,0.21,8,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Akila T,,295,0.17,9,forfeit,F,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Agni Sriramachandran,,290,0.17,10,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Amar M,,148,0.09,11,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Rajkumar R,,138,0.08,12,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Murali M,,132,0.08,13,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Jothikumar J,,131,0.08,14,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Kathijabanu K S,,123,0.07,15,forfeit,F,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Manikandan K,,96,0.06,16,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Sanjev Kumar M,,89,0.05,17,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Sayathu Abuthahir T M,,80,0.05,18,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Senthilbalaji V,,80,0.05,19,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Harikrishnan G A,,79,0.05,20,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Jayakumar G,,71,0.04,21,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Marimuthu C,,65,0.04,22,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Ramamoorthy R,,64,0.04,23,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Senthilmurugan S,,56,0.03,24,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Maheswaran A,,51,0.03,25,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Dalit Pandiyan,,47,0.03,26,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Selvaraj S,,44,0.03,27,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Prabu P,,44,0.03,28,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Sureshbabu S,,43,0.02,29,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Kathiravan P,,41,0.02,30,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Mounaguru K,,40,0.02,31,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Tamilarasan R,,37,0.02,32,forfeit,M,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Vetrivel R,,37,0.02,33,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Ashraf Ali D,,37,0.02,34,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Sudhakar S,,37,0.02,35,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Senthilkumar M,,36,0.02,36,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Jothisutharsan K,,36,0.02,37,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Savithri K,,33,0.02,38,forfeit,F,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Sakthivel N,,33,0.02,39,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Ramesh T,,30,0.02,40,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Saravanan R,,29,0.02,41,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Rameshkumar P,,27,0.02,42,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Boopathy S,,27,0.02,43,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Kalairaj K,,25,0.01,44,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Rijvana Parveen,,25,0.01,45,forfeit,F,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Vinoth B,,23,0.01,46,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Selvakumar M,,21,0.01,47,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Baskar P,,21,0.01,48,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Sivakumar M,,20,0.01,49,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Dhanabal K,,20,0.01,50,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Kamalakannan P,,19,0.01,51,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Thamilalagan A,,17,0.01,52,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Vijayandran A,,16,0.01,53,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Prakash U,,16,0.01,54,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Pasupathi S,,15,0.01,55,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Ragunath M,,15,0.01,56,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Sivasamy P,,15,0.01,57,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Dhanasekaran K,,14,0.01,58,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Vengadesh K,,13,0.01,59,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Sakthi Kumar N,,12,0.01,60,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Duraisamy J,,10,0.01,61,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Loganathan K,,9,0.01,62,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Nagesvaran P,,9,0.01,63,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2019,134,ARAVAKURICHI,Vadivel A,,8,0,64,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3969,tamil-nadu,2019,168,THIRUVARUR,Kalaivanan Poondi K.,,117616,57,1,won,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3969,tamil-nadu,2019,168,THIRUVARUR,Jeevanantham R.,,53045,25.71,2,lost,M,69,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3969,tamil-nadu,2019,168,THIRUVARUR,Kamaraj S.,,19133,9.27,3,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3969,tamil-nadu,2019,168,THIRUVARUR,Vinothini R.,,8144,3.95,4,forfeit,F,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3969,tamil-nadu,2019,168,THIRUVARUR,Arun Chidambaram K.,,4251,2.06,5,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3969,tamil-nadu,2019,168,THIRUVARUR,NOTA,,1413,0.68,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3969,tamil-nadu,2019,168,THIRUVARUR,Gunasekaran R.,,582,0.28,7,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3969,tamil-nadu,2019,168,THIRUVARUR,Elayaraja T.,,484,0.23,8,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3969,tamil-nadu,2019,168,THIRUVARUR,Amanullah A.,,341,0.17,9,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3969,tamil-nadu,2019,168,THIRUVARUR,Gunasekaran V.,,311,0.15,10,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3969,tamil-nadu,2019,168,THIRUVARUR,Marimuthu A.V.M.,,236,0.11,11,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3969,tamil-nadu,2019,168,THIRUVARUR,Kamaraj B.,,206,0.1,12,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3969,tamil-nadu,2019,168,THIRUVARUR,Sampath S.,,187,0.09,13,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3969,tamil-nadu,2019,168,THIRUVARUR,Anbazhagan T.,,155,0.08,14,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3969,tamil-nadu,2019,168,THIRUVARUR,Kesavaraj K.,,134,0.06,15,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3969,tamil-nadu,2019,168,THIRUVARUR,Kamaraj P.,,110,0.05,16,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4029,tamil-nadu,2019,174,THANJAVUR,NEELAMEGAM. T.K.G,,88972,46.93,1,won,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4029,tamil-nadu,2019,174,THANJAVUR,GANDHI. R,,54992,29,2,lost,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4029,tamil-nadu,2019,174,THANJAVUR,RENGASAMY.M,,20006,10.55,3,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4029,tamil-nadu,2019,174,THANJAVUR,KARTHI. M,,11182,5.9,4,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4029,tamil-nadu,2019,174,THANJAVUR,DURAISAMY. P,,9345,4.93,5,forfeit,M,70,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4029,tamil-nadu,2019,174,THANJAVUR,NOTA,,2797,1.48,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4029,tamil-nadu,2019,174,THANJAVUR,RENGASAMY. A,,501,0.26,7,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4029,tamil-nadu,2019,174,THANJAVUR,SANTHOSH. M,,404,0.21,8,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4029,tamil-nadu,2019,174,THANJAVUR,PALANIVEL. Pon,,381,0.2,9,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4029,tamil-nadu,2019,174,THANJAVUR,SARAVANAN. MN,,337,0.18,10,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4029,tamil-nadu,2019,174,THANJAVUR,SELVARAJ .G,,220,0.12,11,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4029,tamil-nadu,2019,174,THANJAVUR,BABUJI. M,,202,0.11,12,forfeit,M,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4029,tamil-nadu,2019,174,THANJAVUR,DINESH BABU. D,,144,0.08,13,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4029,tamil-nadu,2019,174,THANJAVUR,SABTHAGIRI. R,,117,0.06,14,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4009,tamil-nadu,2019,187,MANAMADURAI,Nagarajan S.,,85228,43.32,1,won,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4009,tamil-nadu,2019,187,MANAMADURAI,Kasilingam @ Ilakkiyadasan K,,77034,39.15,2,lost,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4009,tamil-nadu,2019,187,MANAMADURAI,Mariappankennady S.,,20395,10.37,3,forfeit,M,43,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4009,tamil-nadu,2019,187,MANAMADURAI,SHANMUGAPRIYA M.,,9315,4.73,4,forfeit,F,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4009,tamil-nadu,2019,187,MANAMADURAI,NOTA,,1618,0.82,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4009,tamil-nadu,2019,187,MANAMADURAI,Periyakaruppan P.,,870,0.44,6,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4009,tamil-nadu,2019,187,MANAMADURAI,Balamurugan A.,,516,0.26,7,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4009,tamil-nadu,2019,187,MANAMADURAI,Ganesan P.,,357,0.18,8,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4009,tamil-nadu,2019,187,MANAMADURAI,Vairakannan G.,,315,0.16,9,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4009,tamil-nadu,2019,187,MANAMADURAI,Manimuthu K.,,266,0.14,10,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4009,tamil-nadu,2019,187,MANAMADURAI,Muniyandi P.,,255,0.13,11,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4009,tamil-nadu,2019,187,MANAMADURAI,Rasu R.,,220,0.11,12,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4009,tamil-nadu,2019,187,MANAMADURAI,Sivasankari P.,,196,0.1,13,forfeit,F,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4009,tamil-nadu,2019,187,MANAMADURAI,Karuppaiah S.,,178,0.09,14,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,SARAVANAN P,,85434,37.79,1,won,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,MUNIYANDI S,,83038,36.73,2,lost,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,MAHENDRAN I,,31199,13.8,3,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,SAKTHIVEL P,,12610,5.58,4,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,REVATHI R,,5467,2.42,5,forfeit,F,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,NOTA,,2184,0.97,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,MURUGAN K,,624,0.28,7,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,ARUMUGAM R,,490,0.22,8,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,MAHENDRAN K,,408,0.18,9,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,SUBBIRAMANI M,,375,0.17,10,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,SARAVANAN YADAV C,,357,0.16,11,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,AGNI SRIRAMACHANDRAN,,313,0.14,12,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,GOBINATH M,,274,0.12,13,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,SIVA K,,245,0.11,14,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,UKKRA PANDIAN S,,243,0.11,15,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,GOPALAKRISHNAN M,,219,0.1,16,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,NAGARAJ P,,218,0.1,17,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,CHANDRAKASAN S,,177,0.08,18,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,MUNIYANDI G,,175,0.08,19,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,NAGARAJAN N,,167,0.07,20,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,PONRAJ R,,157,0.07,21,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,MUNIYANDI G,,153,0.07,22,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,SEKAR S,,150,0.07,23,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,RAMESH K K,,145,0.06,24,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,MUTHU M,,130,0.06,25,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,SENTHIL RAJA J,,124,0.05,26,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,MUNIYANDI M,,122,0.05,27,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,ARUMUGAM S,,120,0.05,28,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,"POOVANATHAN, Advocate. K. A. K",,95,0.04,29,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,NAGARAJA P,,93,0.04,30,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,MANNAN M P,,84,0.04,31,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,RAJAN N P,,78,0.03,32,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,CHELLAPANDIAN P,,78,0.03,33,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,DEVASAGAYAM A,,75,0.03,34,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,VAIRASEEMAN G,,73,0.03,35,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,MANIKANDAN P,,65,0.03,36,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,PADMARAJAN Dr. K,,55,0.02,37,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2019,195,THIRUPARANKUNDRAM,MANI A,,41,0.02,38,forfeit,M,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2019,198,ANDIPATTI,07/03/22,,87079,30.01,1,won,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2019,198,ANDIPATTI,MAHARAJAN.A,,87079,30.01,2,lost,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2019,198,ANDIPATTI,LOGIRAJAN.A,,74756,25.76,3,lost,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2019,198,ANDIPATTI,JEYAKUMAR.R,,28313,9.76,4,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2019,198,ANDIPATTI,ARUNADEVI.R,,5180,1.79,5,forfeit,F,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2019,198,ANDIPATTI,ALAGARSAMY.G,,2408,0.83,6,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2019,198,ANDIPATTI,NOTA,,2246,0.77,7,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2019,198,ANDIPATTI,RAMESHBABU.R,,484,0.17,8,forfeit,M,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2019,198,ANDIPATTI,KANDUKKARAN.K,,451,0.16,9,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2019,198,ANDIPATTI,RANJITHKUMAR.M,,406,0.14,10,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2019,198,ANDIPATTI,JEYAKODI.V,,322,0.11,11,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2019,198,ANDIPATTI,JAKKAIYAN.G,,300,0.1,12,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2019,198,ANDIPATTI,VAIGAIPANDIYAN.K,,262,0.09,13,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2019,198,ANDIPATTI,RAJAPANDIAN.S,,241,0.08,14,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2019,198,ANDIPATTI,KALUSIVALINGAM.M.S,,199,0.07,15,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2019,198,ANDIPATTI,BALAKRISHNAN.R,,180,0.06,16,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2019,198,ANDIPATTI,MUTHUVEL.G,,143,0.05,17,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2019,198,ANDIPATTI,KANDHAVEL.E,,113,0.04,18,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,RAJAVARMAN M.S.R,,76977,42.11,1,won,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,SRINIVASAN V,,76521,41.86,2,lost,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,SUBRAMANIAN. S. G,,12511,6.84,3,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,SURESHKUMAR P,,5042,2.76,4,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,SUNDARARAJ N,,3934,2.15,5,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,NOTA,,1728,0.95,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,SIVANRAJ N,,1406,0.77,7,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,SUBIRAMANIAN K,,491,0.27,8,forfeit,M,70,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,DHARMALINGAM K,,456,0.25,9,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,SUBIRAMANIAN S,,444,0.24,10,forfeit,M,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,SUBRAMANIAN K,,363,0.2,11,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,SEEVALRAJ K,,353,0.19,12,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,SUBBARAJ S,,258,0.14,13,forfeit,M,70,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,SEENIVASAN K,,208,0.11,14,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,ANANTHARAJ I,,203,0.11,15,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,SEENIVASAN R,,194,0.11,16,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,SEENIVASAN M,,192,0.11,17,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,SUBRAMANIAN R,,174,0.1,18,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,MUNIASAMY P,,163,0.09,19,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,ESAKKIMUTHU A,,145,0.08,20,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,BOSE PANDIAN C,,133,0.07,21,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,VISHWANATH R,,129,0.07,22,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,RAJA S,,105,0.06,23,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,RAJENDRAN G,,101,0.06,24,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,Jeyaraj T,,97,0.05,25,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,SANKAR R,,96,0.05,26,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,SEENIVASAN P,,93,0.05,27,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,Sevugan V,,93,0.05,28,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,SUPPIRAMANIYAN R,,78,0.04,29,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,Marikannan R,,63,0.03,30,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2019,204,SATTUR,MANMATHAN M,,60,0.03,31,forfeit,M,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3997,tamil-nadu,2019,209,PARAMAKUDI,SATHAN PRABHAKAR.N,,82438,46.44,1,won,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3997,tamil-nadu,2019,209,PARAMAKUDI,SAMBATHKUMAR.S,,68406,38.53,2,lost,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3997,tamil-nadu,2019,209,PARAMAKUDI,DR. S. MUTHIAH,,9672,5.45,3,forfeit,M,62,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3997,tamil-nadu,2019,209,PARAMAKUDI,HEMALATHA,,6710,3.78,4,forfeit,F,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3997,tamil-nadu,2019,209,PARAMAKUDI,SHANKAR.A,,5421,3.05,5,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3997,tamil-nadu,2019,209,PARAMAKUDI,NOTA,,1616,0.91,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3997,tamil-nadu,2019,209,PARAMAKUDI,MUTHIAHA.R,,973,0.55,7,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3997,tamil-nadu,2019,209,PARAMAKUDI,RADHAKRISHNAN.S,,862,0.49,8,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3997,tamil-nadu,2019,209,PARAMAKUDI,VASU.B,,364,0.21,9,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3997,tamil-nadu,2019,209,PARAMAKUDI,BALAKRISHNAN.M,,329,0.19,10,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3997,tamil-nadu,2019,209,PARAMAKUDI,SANMUGARANI.J,,210,0.12,11,forfeit,F,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3997,tamil-nadu,2019,209,PARAMAKUDI,MUTHAIAH.R,,183,0.1,12,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3997,tamil-nadu,2019,209,PARAMAKUDI,SIRANGEEVI.M,,180,0.1,13,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3997,tamil-nadu,2019,209,PARAMAKUDI,SURESH.U,,168,0.09,14,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4042,tamil-nadu,2019,213,VILATHIKULAM,CHINNAPPAN.P,,70139,43.93,1,won,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4042,tamil-nadu,2019,213,VILATHIKULAM,JAYAKUMAR.A.C,,41585,26.04,2,lost,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4042,tamil-nadu,2019,213,VILATHIKULAM,MARKANDAYAN.V,,27456,17.19,3,lost,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4042,tamil-nadu,2019,213,VILATHIKULAM,JOTHIMONY.K,,9695,6.07,4,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4042,tamil-nadu,2019,213,VILATHIKULAM,KALIDOSS.M,,4628,2.9,5,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4042,tamil-nadu,2019,213,VILATHIKULAM,NATARAJAN.T,,1399,0.88,6,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4042,tamil-nadu,2019,213,VILATHIKULAM,NOTA,,1386,0.87,7,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4042,tamil-nadu,2019,213,VILATHIKULAM,DHEEPA VALENTINA.T,,778,0.49,8,forfeit,F,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4042,tamil-nadu,2019,213,VILATHIKULAM,RAJIVGANDHI.M,,634,0.4,9,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4042,tamil-nadu,2019,213,VILATHIKULAM,MURUGANANTHAM.M,,527,0.33,10,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4042,tamil-nadu,2019,213,VILATHIKULAM,PONRAJ.P,,458,0.29,11,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4042,tamil-nadu,2019,213,VILATHIKULAM,HARIHARAN.S,,290,0.18,12,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4042,tamil-nadu,2019,213,VILATHIKULAM,VINOTH KUMAR.M,,249,0.16,13,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4042,tamil-nadu,2019,213,VILATHIKULAM,MARIMUTHU.P,,233,0.15,14,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4042,tamil-nadu,2019,213,VILATHIKULAM,RAJAMANI.P,,218,0.14,15,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4038,tamil-nadu,2019,217,OTTAPIDARAM,"SHUNMUGAIAH, C.",,73241,42.96,1,won,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4038,tamil-nadu,2019,217,OTTAPIDARAM,"MOHAN, P.",,53584,31.43,2,lost,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4038,tamil-nadu,2019,217,OTTAPIDARAM,"SUNDARARAJ, R.",,29228,17.15,3,lost,M,52,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4038,tamil-nadu,2019,217,OTTAPIDARAM,"AKALYA, M.",,8666,5.08,4,forfeit,F,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4038,tamil-nadu,2019,217,OTTAPIDARAM,NOTA,,1783,1.05,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4038,tamil-nadu,2019,217,OTTAPIDARAM,"GANDHI, M.",,1734,1.02,6,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4038,tamil-nadu,2019,217,OTTAPIDARAM,"RAGHAVAN, C.M.",,422,0.25,7,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4038,tamil-nadu,2019,217,OTTAPIDARAM,"CHINNASAMY, V.",,387,0.23,8,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4038,tamil-nadu,2019,217,OTTAPIDARAM,"RAJA, C.",,306,0.18,9,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4038,tamil-nadu,2019,217,OTTAPIDARAM,MALLAR MAHARAJAN,,254,0.15,10,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4038,tamil-nadu,2019,217,OTTAPIDARAM,AGRI PARAMASIVAN,,221,0.13,11,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4038,tamil-nadu,2019,217,OTTAPIDARAM,"MARIAPPAN, P.",,167,0.1,12,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4038,tamil-nadu,2019,217,OTTAPIDARAM,"UDAYA SELVAN, K.",,124,0.07,13,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4038,tamil-nadu,2019,217,OTTAPIDARAM,"BALAKRISHNAN, A.",,119,0.07,14,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4038,tamil-nadu,2019,217,OTTAPIDARAM,"ETTAPPAN, N.",,116,0.07,15,forfeit,M,69,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4038,tamil-nadu,2019,217,OTTAPIDARAM,"MURUGAN, G.",,116,0.07,16,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"NARAYANAN, V.",,95377,55.88,1,won,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"MANOHARAN, R.",,61932,36.29,2,lost,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"HARI NADAR, A.",,4243,2.49,3,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"RAJA NARAYANAN, S.",,3494,2.05,4,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"MARIYAPPAN, S.",,1206,0.71,5,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,NOTA,,1154,0.68,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"PRATHAP SAHAYARAJ, P.",,559,0.33,7,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"BALAMURUGAN, P.",,446,0.26,8,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"MAHARAJA PANDIAN, S.",,401,0.23,9,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"MOHAMED SALEEM, S.",,187,0.11,10,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,BISHOP GODFREY NOBLE,,180,0.11,11,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"SANKARASUBRAMANIAN, M.",,163,0.1,12,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"PADMARAJAN, DR.K.",,153,0.09,13,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"AGNI SRIRAMACHANDRAN, N.",,149,0.09,14,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"SEENIRAJ, A.",,146,0.09,15,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"CHELLAPANDIAN, P.",,143,0.08,16,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"THIRUMURUGAN, A.",,118,0.07,17,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"INDURANI, S.",,97,0.06,18,forfeit,F,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"RAGHAVAN, C.M.",,96,0.06,19,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,SUDHAKAR BALAJI,,96,0.06,20,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"JEBAKUMAR GEORGE, C.",,92,0.05,21,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"NAGOOR MEERAN PEER MOHAMED, U.",,86,0.05,22,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,RAJIV VICTOR,,82,0.05,23,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2019,227,NANGUNERI,"ESSAKIVEL, A.",,80,0.05,24,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
