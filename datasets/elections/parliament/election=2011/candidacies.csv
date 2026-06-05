@@ -1,0 +1,69 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-PC-2008-chhattisgarh-296,chhattisgarh,2011,10,BASTAR,Dinesh Kashyap,,286691,47.45,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-chhattisgarh-296,chhattisgarh,2011,10,BASTAR,Kawasi Lakhma,,197807,32.74,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-chhattisgarh-296,chhattisgarh,2011,10,BASTAR,Rama Sodhi,,49727,8.23,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-chhattisgarh-296,chhattisgarh,2011,10,BASTAR,Kawasi Lakhma,,32969,5.46,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-chhattisgarh-296,chhattisgarh,2011,10,BASTAR,Dinesh Markam,,11031,1.83,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-chhattisgarh-296,chhattisgarh,2011,10,BASTAR,S.C. Mourya,,10199,1.69,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-chhattisgarh-296,chhattisgarh,2011,10,BASTAR,Dinesh Nag,,8214,1.36,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-chhattisgarh-296,chhattisgarh,2011,10,BASTAR,Dinesh Kashyap,,7607,1.26,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,K. Bishnoi,,355955,38.84,1,won,U,,,,crossover,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,A.S. Chautala,,349620,38.15,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Jai Parkash,,149776,16.34,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,O.P. Kalyan,,27802,3.03,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,S.K. Aggarwal,,4203,0.46,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Kuldeep,,2712,0.3,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Kuldeep S/o Parduman,,2353,0.26,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,A.S.'Jogi',,2181,0.24,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,KuldeepS/o Sajan,,2043,0.22,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Ved Pal,,2037,0.22,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,K. Malik,,1659,0.18,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Karamvir,,1540,0.17,12,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Ved Parkash,,1181,0.13,13,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Duli Chand,,1143,0.12,14,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,L. Dass,,1121,0.12,15,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,R.N. Sharma,,997,0.11,16,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,V.Pal S/o B.Singh,,967,0.11,17,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Anil Kumar,,772,0.08,18,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Sher Singh,,748,0.08,19,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Krishan,,725,0.08,20,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Virender,,648,0.07,21,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,H.S.Sangharsh,,586,0.06,22,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Satbir,,492,0.05,23,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,O.Parkash S/o D.Singh,,480,0.05,24,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Anoop Singh,,477,0.05,25,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Sushil Nidhi,,461,0.05,26,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,N. Kumar,,390,0.04,27,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Atam Parkash,,389,0.04,28,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,S.D. Chotiwala,,387,0.04,29,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,R.K. Jindal,,344,0.04,30,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,N. Nath,,332,0.04,31,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,R.J.D. Pal,,308,0.03,32,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Jagpal,,292,0.03,33,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Pardeep Singh,,257,0.03,34,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Raj Kumar,,219,0.02,35,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Surjeet Singh,,219,0.02,36,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Mahender Singh,,195,0.02,37,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Baljit,,167,0.02,38,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,Ranjit Singh,,167,0.02,39,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,4,HISAR,S.S. Sisai,,135,0.01,40,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,Ajay Kumar,,276582,37.38,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,D. Goswami,,120856,16.33,2,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,Sudhir Mahato,,115799,15.65,3,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,Astik Mahato,,99058,13.39,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,Banna Gupta,,49137,6.64,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,S.K. Ghoshal,,12646,1.71,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,Rakesh Kumar,,11321,1.53,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,Prakash Prasad,,10580,1.43,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,Binod Kumar,,5978,0.81,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,Suman Mahato,,5449,0.74,10,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,Kinkar Gour,,5245,0.71,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,N.K. Srivastav,,4290,0.58,12,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,Josai Mardi,,4237,0.57,13,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,J.S. Purty,,3328,0.45,14,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,B. Mahato,,3210,0.43,15,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,Mobin Khan,,2637,0.36,16,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,G.C. Nayak,,2611,0.35,17,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,S. Akhiruddin,,2593,0.35,18,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,Md.M. Kuraishi,,2297,0.31,19,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-jharkhand-265,jharkhand,2011,9,JAMSHEDPUR,D.K. Mahato,,2148,0.29,20,forfeit,U,,,,challenger,src-31c65dbec869

@@ -1,0 +1,33 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-PC-2008-gujarat-357,gujarat,2013,2,BANASKANTHA,C.H. Parthibhai,,307988,54.21,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-gujarat-357,gujarat,2013,2,BANASKANTHA,G.K. Mukesh Kumar,,236011,41.54,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-gujarat-357,gujarat,2013,2,BANASKANTHA,S.S. Bharmabhai,,7706,1.36,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-gujarat-357,gujarat,2013,2,BANASKANTHA,C.A Nasirbhai,,6188,1.09,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-gujarat-357,gujarat,2013,2,BANASKANTHA,R.A. Rugjibhai,,3255,0.57,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-gujarat-357,gujarat,2013,2,BANASKANTHA,P.I. Ravjibhai,,2498,0.44,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-gujarat-357,gujarat,2013,2,BANASKANTHA,T.S. Arjanbhai,,2373,0.42,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-gujarat-357,gujarat,2013,2,BANASKANTHA,B.C. Menabhai,,2155,0.38,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-gujarat-344,gujarat,2013,11,PORBANDAR,R.V. Hansrajbhai,,289893,64.06,1,won,U,,,,incumbent,src-31c65dbec869
+IN-PC-2008-gujarat-344,gujarat,2013,11,PORBANDAR,A.V. Gordhanbhai,,144370,31.9,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-gujarat-344,gujarat,2013,11,PORBANDAR,R.C. Mohanbhai,,6633,1.47,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-gujarat-344,gujarat,2013,11,PORBANDAR,A.N. Pandya,,4439,0.98,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-gujarat-344,gujarat,2013,11,PORBANDAR,R.M. Butani,,2852,0.63,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-gujarat-344,gujarat,2013,11,PORBANDAR,A.M. Chandravadiya,,2804,0.62,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-gujarat-344,gujarat,2013,11,PORBANDAR,Tukadia G.R.,,1569,0.35,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2013,2,MANDI,Pratibha Singh,,353492,60.71,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2013,2,MANDI,Jai Ram Thakur,,216765,37.23,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2013,2,MANDI,Subhash Mohan Snehi,,6057,1.04,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2013,2,MANDI,Lawan Kumar,,5932,1.02,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-258,west-bengal,2013,25,HOWRAH,Prasun Banerjee,,426387,44.68,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-258,west-bengal,2013,25,HOWRAH,Sridip Bhattacharya,,399422,41.85,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-258,west-bengal,2013,25,HOWRAH,Sanatan Mukherjee,,96743,10.14,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-258,west-bengal,2013,25,HOWRAH,Ranjan Paul,,8921,0.93,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-258,west-bengal,2013,25,HOWRAH,Rajesh Prasad,,7491,0.78,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-258,west-bengal,2013,25,HOWRAH,Gobordhan Manna,,2862,0.3,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-258,west-bengal,2013,25,HOWRAH,Goutam Kumar Mondal,,2571,0.27,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-258,west-bengal,2013,25,HOWRAH,Mrityunjay Sarkar,,2023,0.21,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-258,west-bengal,2013,25,HOWRAH,Jamal Ahmed,,1818,0.19,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-258,west-bengal,2013,25,HOWRAH,Ranjita Singh,,1688,0.18,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-258,west-bengal,2013,25,HOWRAH,Sudarsan Manna,,1540,0.16,11,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-2008-west-bengal-258,west-bengal,2013,25,HOWRAH,Bapi Naskar,,1497,0.16,12,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-258,west-bengal,2013,25,HOWRAH,Partha Seneti,,1418,0.15,13,forfeit,U,,,,challenger,src-31c65dbec869
