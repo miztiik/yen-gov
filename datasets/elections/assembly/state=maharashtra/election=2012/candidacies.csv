@@ -1,0 +1,21 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,P.Alias.R.S.Sathe,,85750,47.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,T.S. V. Prakash,,77444,43.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,S.D.Kamble,,2281,1.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,S.R.Baliram,,1880,1.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,S.A.Sopan,,1742,0.97,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,S. G. Baliram,,1738,0.97,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,S.U.Tulshiram,,1721,0.96,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,A.B. Thorat,,1164,0.65,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,M.D. Kale,,955,0.53,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,S.N. Bhagwan,,938,0.52,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,T.D. Vithalrao,,773,0.43,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,P.N.Dnyanobarao,,770,0.43,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,D.(D) L.K. Patil,,747,0.42,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,B.M. Shinde,,410,0.23,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,S. N.Barwade,,392,0.22,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,V.V. Salve,,353,0.2,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,L. U. Maruti,,301,0.17,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,A.M. Mahajan,,256,0.14,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,B.A. Vyankatrao,,185,0.1,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2904,maharashtra,2012,232,KAIJ,P.M. Jogdand,,152,0.08,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a

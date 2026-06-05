@@ -1,0 +1,25 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-jharkhand-2165,jharkhand,2016,17,GODDA,Amit Kumar Mandal 'E',,83987,52.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2165,jharkhand,2016,17,GODDA,Sanjay Prasad Yadav,,49436,30.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2165,jharkhand,2016,17,GODDA,Sanjiv Marik Yadav,,18337,11.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2165,jharkhand,2016,17,GODDA,Hasina Ansari,,1981,1.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2165,jharkhand,2016,17,GODDA,Ashok Tiwari,,1210,0.75,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2165,jharkhand,2016,17,GODDA,Dr. Shrilal Kisku,,1000,0.62,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2165,jharkhand,2016,17,GODDA,Hasan,,980,0.61,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2165,jharkhand,2016,17,GODDA,Manoj Kumar,,615,0.38,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2165,jharkhand,2016,17,GODDA,Kirani Manjhi,,608,0.38,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2165,jharkhand,2016,17,GODDA,Rajesh Paswan,,436,0.27,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2165,jharkhand,2016,17,GODDA,Ritesh Singh,,427,0.27,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2165,jharkhand,2016,17,GODDA,Abdhesh Sah,,366,0.23,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2165,jharkhand,2016,17,GODDA,Dilip Kumar Jha,,352,0.22,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2165,jharkhand,2016,17,GODDA,Jay Prakash Prasad,,339,0.21,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2165,jharkhand,2016,17,GODDA,Prafull Kumar,,311,0.19,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2144,jharkhand,2016,75,PANKI,Devendra Kumar Singh,,56343,36.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2144,jharkhand,2016,75,PANKI,Kushwaha Shashi Bhushan Mehta,,52785,34.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2144,jharkhand,2016,75,PANKI,Lal Suraj,,36028,23.36,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2144,jharkhand,2016,75,PANKI,Kavita Singh,,3129,2.03,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2144,jharkhand,2016,75,PANKI,Mudrika Oraon,,1712,1.11,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2144,jharkhand,2016,75,PANKI,Bina Bhuiya,,1428,0.93,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2144,jharkhand,2016,75,PANKI,Dhananjay Singh,,1371,0.89,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2144,jharkhand,2016,75,PANKI,Jayram Oraon,,776,0.5,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2144,jharkhand,2016,75,PANKI,Savita Kumari,,685,0.44,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a

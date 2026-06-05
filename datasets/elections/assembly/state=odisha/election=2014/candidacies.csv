@@ -1,0 +1,1409 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-odisha-2242,odisha,2014,1,PADAMPUR,PRADIP PUROHIT,,68942,38.66,1,won,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2242,odisha,2014,1,PADAMPUR,BIJAYA RANJAN SINGHA BARIHA,,64429,36.13,2,lost,U,56,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2242,odisha,2014,1,PADAMPUR,PRAKASH NARAYAN TRIPATHY,,31179,17.48,3,lost,U,52,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2242,odisha,2014,1,PADAMPUR,GOBARDHAN BHOY,,5456,3.06,4,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2242,odisha,2014,1,PADAMPUR,TANKADHAR KANTA,,1632,0.92,6,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2242,odisha,2014,1,PADAMPUR,RAJKUMAR SETH,,1563,0.88,7,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2242,odisha,2014,1,PADAMPUR,GANGADHAR BHOI,,1295,0.73,8,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2242,odisha,2014,1,PADAMPUR,PURNANANDA SAHU,,1132,0.63,9,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2242,odisha,2014,1,PADAMPUR,NEHERU BAG,,953,0.53,10,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2014,2,BIJEPUR,SUBAL SAHU,,53290,32.15,1,won,U,53,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2014,2,BIJEPUR,PRASANNA ACHARYA,,52832,31.88,2,lost,U,64,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2014,2,BIJEPUR,JAYSHANKAR PATTANAIK,,30001,18.1,3,lost,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2014,2,BIJEPUR,ASHOK KUMAR PANIGRAHI,,18232,11,4,forfeit,U,56,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2014,2,BIJEPUR,KISHOR DAPHADAR,,2931,1.77,5,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2014,2,BIJEPUR,SURESH TRIPATHY,,1659,1,6,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2014,2,BIJEPUR,PURNA CHANDRA PAIK,,1561,0.94,7,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2014,2,BIJEPUR,JAYRAM BAG,,1429,0.86,8,forfeit,U,39,Graduate Professional,Advocacy,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2014,2,BIJEPUR,ROHITA KUMAR SAHU,,935,0.56,10,forfeit,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2014,2,BIJEPUR,KUMAR NANDA,,838,0.51,11,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2014,2,BIJEPUR,SACHIDANANDA PATRA,,754,0.45,12,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2237,odisha,2014,3,BARGARH,DEBESH ACHARYA,,59350,40.67,1,won,U,41,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2237,odisha,2014,3,BARGARH,SADHU NEPAK,,46146,31.62,2,lost,U,62,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2237,odisha,2014,3,BARGARH,ASHWINI KUMAR SARANGI,,22707,15.56,3,forfeit,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2237,odisha,2014,3,BARGARH,DEBABRATA MISHRA,,10699,7.33,4,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2237,odisha,2014,3,BARGARH,ARUN KUMAR SAHU,,2556,1.75,5,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2237,odisha,2014,3,BARGARH,SURENDRA KUMAR TANDI,,1894,1.3,6,forfeit,U,39,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2237,odisha,2014,3,BARGARH,MD. NIJAMUDIN SAHA,,813,0.56,8,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2236,odisha,2014,4,ATTABIRA,SNEHANGINI CHHURIA,,69602,44.92,1,won,U,45,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2236,odisha,2014,4,ATTABIRA,NIHAR RANJAN MAHANANDA,,44128,28.48,2,lost,U,36,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2236,odisha,2014,4,ATTABIRA,MILAN SETH,,33735,21.77,3,lost,U,41,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2236,odisha,2014,4,ATTABIRA,UPENDRA SETH,,2521,1.63,4,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2236,odisha,2014,4,ATTABIRA,MADHABI DEHURIA,,1233,0.8,6,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2236,odisha,2014,4,ATTABIRA,ARJUN NAG,,790,0.51,7,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2236,odisha,2014,4,ATTABIRA,KUMAR BEHERA,,757,0.49,8,forfeit,U,71,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2236,odisha,2014,4,ATTABIRA,CHANDRAMANI KUMBHAR,,668,0.43,9,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2238,odisha,2014,5,BHATLI,SUSANTA SINGH,,75077,44.62,1,won,U,40,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2238,odisha,2014,5,BHATLI,SUSHANT MISHRA,,37496,22.29,2,lost,U,43,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2238,odisha,2014,5,BHATLI,SAURI CHARAN BARIK,,29316,17.42,3,lost,U,56,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2238,odisha,2014,5,BHATLI,PRAKASH CHANDRA DEBTA,,10506,6.24,4,forfeit,U,66,10th Pass,Ex MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2238,odisha,2014,5,BHATLI,LAXMAN KUMAR BHOI,,7742,4.6,5,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2238,odisha,2014,5,BHATLI,SUSHIL KUMAR SAHU,,1499,0.89,6,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2238,odisha,2014,5,BHATLI,BIHARI MEHER,,1433,0.85,7,forfeit,U,43,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2238,odisha,2014,5,BHATLI,GUNANIDHI MISHRA,,1347,0.8,8,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2238,odisha,2014,5,BHATLI,BENUDHAR MAHAPATRA,,804,0.48,10,forfeit,U,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2238,odisha,2014,5,BHATLI,MUKESH AGRAWAL,,795,0.47,11,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2238,odisha,2014,5,BHATLI,DHANAPATI SAHU,,622,0.37,12,forfeit,U,48,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2238,odisha,2014,5,BHATLI,BRUHASPATI KHAMARI,,568,0.34,13,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2240,odisha,2014,6,BRAJARAJNAGAR,RADHARANI PANDA,,50736,34.79,1,won,U,52,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2240,odisha,2014,6,BRAJARAJNAGAR,ANUP KUMAR SAI,,43946,30.13,2,lost,U,53,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2240,odisha,2014,6,BRAJARAJNAGAR,KISHORE CHANDRA PATEL,,38175,26.17,3,lost,U,67,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2240,odisha,2014,6,BRAJARAJNAGAR,GAJANAN SAHU,,6436,4.41,4,forfeit,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2240,odisha,2014,6,BRAJARAJNAGAR,RANJIT KUMAR,,1282,0.88,6,forfeit,U,40,12th Pass,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2240,odisha,2014,6,BRAJARAJNAGAR,JAYARAM BARIK,,1216,0.83,7,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2240,odisha,2014,6,BRAJARAJNAGAR,NARAYAN MOHAPATRA,,718,0.49,8,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2240,odisha,2014,6,BRAJARAJNAGAR,JOGINDRA MAJHI,,621,0.43,9,forfeit,U,66,10th Pass,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2240,odisha,2014,6,BRAJARAJNAGAR,CHAITANYA KANTA,,609,0.42,10,forfeit,U,60,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2240,odisha,2014,6,BRAJARAJNAGAR,BISHWA LOCHAN BHOI,,477,0.33,11,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2241,odisha,2014,7,JHARSUGUDA,NABA KISORE DAS,,74499,45.1,1,won,U,52,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2241,odisha,2014,7,JHARSUGUDA,KISHORE KUMAR MOHANTY,,62936,38.1,2,lost,U,55,Graduate Professional,Advocacy,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2241,odisha,2014,7,JHARSUGUDA,ANAND PRADHAN,,21047,12.74,3,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2241,odisha,2014,7,JHARSUGUDA,BASUDEB BHOI,,2052,1.24,4,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2241,odisha,2014,7,JHARSUGUDA,PARIKHITA PANIGRAHI,,833,0.5,6,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2241,odisha,2014,7,JHARSUGUDA,SATYABHAMA DHURUA,,680,0.41,7,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2241,odisha,2014,7,JHARSUGUDA,BHASKAR GARDIA,,660,0.4,8,forfeit,U,43,10th Pass,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2241,odisha,2014,7,JHARSUGUDA,HIRALAL DHURUA,,572,0.35,9,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2241,odisha,2014,7,JHARSUGUDA,GURU PRASAD ROUT,,455,0.28,10,forfeit,U,51,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2368,odisha,2014,8,TALSARA,PRAFULLA MAJHI,,45689,32.86,1,won,U,64,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2368,odisha,2014,8,TALSARA,BINAYA KUMAR TOPPO,,44251,31.83,2,lost,U,47,Graduate Professional,Advocacy,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2368,odisha,2014,8,TALSARA,SANTOSH KUMAR AMAT,,41272,29.68,3,lost,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2368,odisha,2014,8,TALSARA,PRAPHUL KUMAR KUJUR,,1790,1.29,5,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2368,odisha,2014,8,TALSARA,BISHNU KERKETTA,,1413,1.02,6,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2368,odisha,2014,8,TALSARA,MINAKETAN NAIK,,988,0.71,7,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2368,odisha,2014,8,TALSARA,PARESWAR BARLA,,916,0.66,8,forfeit,U,65,10th Pass,Retired Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2367,odisha,2014,9,SUNDARGARH,JOGESH KUMAR SINGH,,66138,41.77,1,won,U,40,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2367,odisha,2014,9,SUNDARGARH,KUSUM TETE,,53554,33.82,2,lost,U,40,Graduate,Trader,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2367,odisha,2014,9,SUNDARGARH,SAHADEV XAXA,,27935,17.64,3,lost,U,70,10th Pass,Petrol Pumps,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2367,odisha,2014,9,SUNDARGARH,DURJODHAN BHOI,,3238,2.04,4,forfeit,U,64,10th Pass,Retired Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2367,odisha,2014,9,SUNDARGARH,PRAFULLA CHANDRA BIPRA,,1610,1.02,6,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2367,odisha,2014,9,SUNDARGARH,JALANDHAR PRADHAN,,1111,0.7,7,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2367,odisha,2014,9,SUNDARGARH,SULAGAN BHOE,,938,0.59,8,forfeit,U,70,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2367,odisha,2014,9,SUNDARGARH,MISS MARIAM GURIA,,812,0.51,9,forfeit,U,61,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2367,odisha,2014,9,SUNDARGARH,MITRABHANU KISAN,,662,0.42,10,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2362,odisha,2014,10,BIRAMITRAPUR,GEORGE TIRKEY,,46114,28.41,1,won,U,57,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2362,odisha,2014,10,BIRAMITRAPUR,SHANKAR ORAM,,34167,21.05,2,lost,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2362,odisha,2014,10,BIRAMITRAPUR,SEBEYAN AIND,,27849,17.16,3,lost,U,41,10th Pass,"Contractor, Trader",challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2362,odisha,2014,10,BIRAMITRAPUR,MAGDALI KONGADI,,25158,15.5,4,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2362,odisha,2014,10,BIRAMITRAPUR,RAJESH KERKETTA,,13006,8.01,5,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2362,odisha,2014,10,BIRAMITRAPUR,PETER TOPNO,,2922,1.8,6,forfeit,U,57,10th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2362,odisha,2014,10,BIRAMITRAPUR,DEVANANDA ORAM,,2158,1.33,7,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2362,odisha,2014,10,BIRAMITRAPUR,LALIT SINGH MUNDA,,2140,1.32,8,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2362,odisha,2014,10,BIRAMITRAPUR,DEME ORAM,,1697,1.05,9,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2362,odisha,2014,10,BIRAMITRAPUR,CHANDRA MOHAN MAJHI,,1509,0.93,10,forfeit,U,47,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2362,odisha,2014,10,BIRAMITRAPUR,RAM CHANDRA AMAT,,1161,0.72,12,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2362,odisha,2014,10,BIRAMITRAPUR,ROHIDAS MUNDARY,,1134,0.7,13,forfeit,U,60,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2362,odisha,2014,10,BIRAMITRAPUR,SOHAN MUNDARI,,995,0.61,14,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2362,odisha,2014,10,BIRAMITRAPUR,LAXMIDHAR SA,,809,0.5,15,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2364,odisha,2014,11,RAGHUNATHPALI,SUBRAT TARAI,,49074,46.45,1,won,U,43,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2364,odisha,2014,11,RAGHUNATHPALI,JAGABANDHU BEHERA,,33033,31.27,2,lost,U,58,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2364,odisha,2014,11,RAGHUNATHPALI,GAJENDRA TANTY,,14566,13.79,3,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2364,odisha,2014,11,RAGHUNATHPALI,GOPAL DAS,,3177,3.01,4,forfeit,U,50,Others,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2364,odisha,2014,11,RAGHUNATHPALI,RAJ KISHORE BHANJA,,1639,1.55,5,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2364,odisha,2014,11,RAGHUNATHPALI,LALMAN SUNA,,1385,1.31,7,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2364,odisha,2014,11,RAGHUNATHPALI,UGRESAN PATRA,,363,0.34,8,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2364,odisha,2014,11,RAGHUNATHPALI,BABULAL BADAIK,,345,0.33,9,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2364,odisha,2014,11,RAGHUNATHPALI,KRISHNA CHANDRA SWAIN,,268,0.25,10,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2364,odisha,2014,11,RAGHUNATHPALI,BIDYADHAR PANDAV,,267,0.25,11,forfeit,U,31,12th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2365,odisha,2014,13,RAJGANGAPUR,MANGALA KISAN,,54596,34.19,1,won,U,66,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2365,odisha,2014,13,RAJGANGAPUR,GREGORY MINZ,,44560,27.91,2,lost,U,51,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2365,odisha,2014,13,RAJGANGAPUR,UPENDRA PRADHAN,,28694,17.97,3,lost,U,55,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2365,odisha,2014,13,RAJGANGAPUR,BIKRAM TOPPO,,12091,7.57,4,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2365,odisha,2014,13,RAJGANGAPUR,DHANESWAR XALXO,,7829,4.9,5,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2365,odisha,2014,13,RAJGANGAPUR,ANMOL KINDO,,2706,1.69,6,forfeit,U,26,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2365,odisha,2014,13,RAJGANGAPUR,MOHANLAL KISHAN,,1652,1.03,7,forfeit,U,62,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2365,odisha,2014,13,RAJGANGAPUR,PRAMOD EKKA,,1341,0.84,8,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2365,odisha,2014,13,RAJGANGAPUR,MARCEL KINDO,,862,0.54,10,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2365,odisha,2014,13,RAJGANGAPUR,CLEMENT LAKRA,,781,0.49,11,forfeit,U,59,Others,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2365,odisha,2014,13,RAJGANGAPUR,PHILMAN TOPPO,,777,0.49,12,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2365,odisha,2014,13,RAJGANGAPUR,RAJENDRA KUMAR LAKRA,,769,0.48,13,forfeit,U,47,10th Pass,Ex Military,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2365,odisha,2014,13,RAJGANGAPUR,AUGUSTINE MINZ,,755,0.47,14,forfeit,U,46,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2365,odisha,2014,13,RAJGANGAPUR,RUBSEN HORO,,650,0.41,15,forfeit,U,31,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2365,odisha,2014,13,RAJGANGAPUR,LAWRENCE KERKETTA,,507,0.32,16,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2363,odisha,2014,14,BONAI,LAXMAN MUNDA,,39125,23.98,1,won,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2363,odisha,2014,14,BONAI,DAYANIDHI KISAN,,37307,22.86,2,lost,U,63,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2363,odisha,2014,14,BONAI,BHIMSEN CHOUDHARY,,37181,22.78,3,lost,U,52,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2363,odisha,2014,14,BONAI,LUTHAR ORAM,,25766,15.79,4,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2363,odisha,2014,14,BONAI,PATRAS EKKA,,7565,4.64,5,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2363,odisha,2014,14,BONAI,JANARDAN DEHURY,,6025,3.69,6,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2363,odisha,2014,14,BONAI,MAHADEV BHUMIJ,,2007,1.23,8,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2363,odisha,2014,14,BONAI,RAGHUNATH ORAM,,1789,1.1,9,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2363,odisha,2014,14,BONAI,JAURA ORAM,,1450,0.89,10,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2363,odisha,2014,14,BONAI,CHANDRAMANI NAIK,,1170,0.72,11,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2358,odisha,2014,15,KUCHINDA,RABINARAYAN NAIK,,68409,43.44,1,won,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2358,odisha,2014,15,KUCHINDA,BHUBANESWAR KISAN,,46345,29.43,2,lost,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2358,odisha,2014,15,KUCHINDA,RAJENDRA KUMAR CHHATRIA,,32770,20.81,3,lost,U,50,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2358,odisha,2014,15,KUCHINDA,DEEPAK PRADHAN,,2445,1.55,5,forfeit,U,29,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2358,odisha,2014,15,KUCHINDA,BINOD TOPPO,,1732,1.1,6,forfeit,U,29,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2358,odisha,2014,15,KUCHINDA,PADMALOCHAN MAJHI,,1602,1.02,7,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2358,odisha,2014,15,KUCHINDA,LINKAN KUMAR KINDO,,1306,0.83,8,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2360,odisha,2014,16,RENGALI,RAMESH PATUA,,47210,35.78,1,won,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2360,odisha,2014,16,RENGALI,NAURI NAYAK,,45380,34.4,2,lost,U,44,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2360,odisha,2014,16,RENGALI,DURYODHAN GARDIA,,31335,23.75,3,lost,U,67,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2360,odisha,2014,16,RENGALI,RASIA HARIPAL,,1684,1.28,5,forfeit,U,52,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2360,odisha,2014,16,RENGALI,SANTOSH KUMAR BERIHA,,1390,1.05,6,forfeit,U,52,Literate,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2360,odisha,2014,16,RENGALI,BIRA KISHOR BHOISAGAR,,899,0.68,7,forfeit,U,46,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2360,odisha,2014,16,RENGALI,SUBAL SINGH,,781,0.59,8,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2360,odisha,2014,16,RENGALI,SOBHAMANI PADHAN,,569,0.43,9,forfeit,U,53,10th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2360,odisha,2014,16,RENGALI,JAYAKRUSHNA PODH,,496,0.38,10,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2361,odisha,2014,17,SAMBALPUR,RASESWARI PANIGRAHI,,48362,42.73,1,won,U,67,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2361,odisha,2014,17,SAMBALPUR,JAYANARAYAN MISHRA,,38404,33.93,2,lost,U,51,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2361,odisha,2014,17,SAMBALPUR,SURESWAR MISHRA,,19020,16.81,3,lost,U,54,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2361,odisha,2014,17,SAMBALPUR,MD. MUSTAKIM,,2391,2.11,4,forfeit,U,45,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2361,odisha,2014,17,SAMBALPUR,BIRENDRA KUMAR PANIGRAHI,,1162,1.03,6,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2361,odisha,2014,17,SAMBALPUR,KALPANA SAHU,,631,0.56,7,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2361,odisha,2014,17,SAMBALPUR,RAJKUMAR AIND,,565,0.5,8,forfeit,U,59,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2361,odisha,2014,17,SAMBALPUR,JAYASHREE MISHRA,,393,0.35,9,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2361,odisha,2014,17,SAMBALPUR,BHAKTA CHARAN MIRDHA,,391,0.35,10,forfeit,U,31,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2361,odisha,2014,17,SAMBALPUR,UMA PRASAD PANIGRAHI,,279,0.25,11,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2361,odisha,2014,17,SAMBALPUR,MANAGOBINDA PADHAN,,171,0.15,12,forfeit,U,60,10th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2359,odisha,2014,18,RAIRAKHOL,ROHIT PUJARI,,53849,39.96,1,won,U,40,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2359,odisha,2014,18,RAIRAKHOL,ASSAF ALI KHAN,,41940,31.12,2,lost,U,50,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2359,odisha,2014,18,RAIRAKHOL,PRATAP KUMAR PRADHAN,,29544,21.92,3,lost,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2359,odisha,2014,18,RAIRAKHOL,MANABODHA BHOI,,1627,1.21,4,forfeit,U,50,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2359,odisha,2014,18,RAIRAKHOL,DEBDULAL BAKSHI,,1271,0.94,6,forfeit,U,31,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2359,odisha,2014,18,RAIRAKHOL,GITANJALI PRADHAN,,1060,0.79,7,forfeit,U,44,12th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2359,odisha,2014,18,RAIRAKHOL,LAXMIDHAR NAIK,,968,0.72,8,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2359,odisha,2014,18,RAIRAKHOL,SWADHIN PANDA,,928,0.69,9,forfeit,U,32,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2359,odisha,2014,18,RAIRAKHOL,APARNA BAGH,,817,0.61,10,forfeit,U,40,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2359,odisha,2014,18,RAIRAKHOL,MANIS KUMAR DEHERI,,658,0.49,11,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2359,odisha,2014,18,RAIRAKHOL,LAXMAN KUMAR BHOI,,555,0.41,12,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2359,odisha,2014,18,RAIRAKHOL,BHOLANATH DEHURY,,249,0.18,13,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2357,odisha,2014,19,DEOGARH,NITESH GANGADEB,,89636,53.87,1,won,U,42,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2357,odisha,2014,19,DEOGARH,ANITA PRADHAN,,50897,30.59,2,lost,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2357,odisha,2014,19,DEOGARH,SEM HEMRAM,,14809,8.9,3,forfeit,U,43,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2357,odisha,2014,19,DEOGARH,RAJIB KISAN,,2615,1.57,4,forfeit,U,27,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2357,odisha,2014,19,DEOGARH,SATYA NARAYAN PANI,,1687,1.01,6,forfeit,U,54,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2357,odisha,2014,19,DEOGARH,KALAKAR NAIK,,1515,0.91,7,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2357,odisha,2014,19,DEOGARH,SUDHIR KUMAR BRAHMA,,1426,0.86,8,forfeit,U,33,Post Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2357,odisha,2014,19,DEOGARH,AMAR KESHARI GANGADEB,,1001,0.6,9,forfeit,U,29,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2357,odisha,2014,19,DEOGARH,DOLAKAR BHOI,,797,0.48,10,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2326,odisha,2014,20,TELKOI,BEDABYASA NAYAK,,66675,39.72,1,won,U,30,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2326,odisha,2014,20,TELKOI,DHANURJAYA SIDU,,52721,31.41,2,lost,U,48,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2326,odisha,2014,20,TELKOI,KAILASH CHANDRA NAYAK,,21018,12.52,3,forfeit,U,51,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2326,odisha,2014,20,TELKOI,BRUNDABAN NAIK,,14080,8.39,4,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2326,odisha,2014,20,TELKOI,BHAGIRATHI DEHURY,,3117,1.86,6,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2326,odisha,2014,20,TELKOI,JALADHAR NAIK,,1541,0.92,7,forfeit,U,55,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2326,odisha,2014,20,TELKOI,HIRANYA KUMAR NAIK,,1476,0.88,8,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2326,odisha,2014,20,TELKOI,CHANDRAMANI DEHURY,,1264,0.75,9,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2326,odisha,2014,20,TELKOI,MANJULA PINGUA,,1241,0.74,10,forfeit,U,27,Others,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2326,odisha,2014,20,TELKOI,PURNA CHANDRA NAYAK,,1064,0.63,11,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2322,odisha,2014,21,GHASIPURA,BADRI NARAYAN PATRA,,108900,66.03,1,won,U,70,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2322,odisha,2014,21,GHASIPURA,SATYABRATA PANDA,,20298,12.31,2,forfeit,U,52,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2322,odisha,2014,21,GHASIPURA,RAMA CHANDRA BEHERA,,15849,9.61,3,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2322,odisha,2014,21,GHASIPURA,PRITHVIRAJ KUANR,,12018,7.29,4,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2322,odisha,2014,21,GHASIPURA,JAGABANDHU MAHANTA,,3279,1.99,5,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2322,odisha,2014,21,GHASIPURA,BIJAYA KUMAR RANA,,1168,0.71,7,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2322,odisha,2014,21,GHASIPURA,PRAMOD KUMAR SAHOO,,899,0.55,8,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2322,odisha,2014,21,GHASIPURA,HEMANTA KUMAR NAYAK,,664,0.4,9,forfeit,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2320,odisha,2014,22,ANANDAPUR,MAYADHAR JENA,,82520,51.46,1,won,U,59,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2320,odisha,2014,22,ANANDAPUR,JAYADEV JENA,,60296,37.6,2,lost,U,63,Graduate,Ex MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2320,odisha,2014,22,ANANDAPUR,ALOK KUMAR SETHY,,12664,7.9,3,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2320,odisha,2014,22,ANANDAPUR,RABIN KUMAR JENA,,1564,0.98,5,forfeit,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2320,odisha,2014,22,ANANDAPUR,MINATI JENA,,1384,0.86,6,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2325,odisha,2014,23,PATNA,HRUSHIKESH NAIK,,44584,29.92,1,won,U,73,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2325,odisha,2014,23,PATNA,BHABANI SANKAR NAYAK,,35741,23.98,2,lost,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2325,odisha,2014,23,PATNA,GOURAHARI NAIK,,22430,15.05,3,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2325,odisha,2014,23,PATNA,SANATAN NAIK,,20238,13.58,4,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2325,odisha,2014,23,PATNA,KANHU CHARAN NAIK,,13498,9.06,5,forfeit,U,66,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2325,odisha,2014,23,PATNA,GOPESWAR NAIK,,2837,1.9,6,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2325,odisha,2014,23,PATNA,PADMINI MUNDA,,2341,1.57,7,forfeit,U,30,10th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2325,odisha,2014,23,PATNA,NIRUPAMA TUDU,,2276,1.53,8,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2325,odisha,2014,23,PATNA,YASHOBANTA MARNDI,,1497,1,10,forfeit,U,27,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2325,odisha,2014,23,PATNA,RASIKA DEHURI,,1390,0.93,11,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2324,odisha,2014,24,KEONJHAR,ABHIRAM NAIK,,55959,35.87,1,won,U,40,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2324,odisha,2014,24,KEONJHAR,MOHAN CHARAN MAJHI,,47283,30.31,2,lost,U,41,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2324,odisha,2014,24,KEONJHAR,DWARIKA NATH NAIK,,25755,16.51,3,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2324,odisha,2014,24,KEONJHAR,SIDHESWAR NAIK,,17531,11.24,4,forfeit,U,50,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2324,odisha,2014,24,KEONJHAR,SUNARAM MARDI,,2208,1.42,6,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2324,odisha,2014,24,KEONJHAR,LAXMIPRIYA HEMBRAM,,2109,1.35,7,forfeit,U,39,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2324,odisha,2014,24,KEONJHAR,ASWINI KUMAR NAIK,,1471,0.94,8,forfeit,U,60,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2321,odisha,2014,25,CHAMPUA,SANATAN MAHAKUD,,69635,44.56,1,won,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2321,odisha,2014,25,CHAMPUA,KUSHA APAT,,54957,35.16,2,lost,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2321,odisha,2014,25,CHAMPUA,TATTWA PRAKASH SATAPATHY,,10233,6.55,3,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2321,odisha,2014,25,CHAMPUA,GIRISH CHANDRA MAHANTA,,7070,4.52,4,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2321,odisha,2014,25,CHAMPUA,SHYAM SUNDAR PURTY,,2693,1.72,6,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2321,odisha,2014,25,CHAMPUA,KSHETRA MOHAN MAHANTA,,2332,1.49,7,forfeit,U,62,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2321,odisha,2014,25,CHAMPUA,BIDYADHAR MAHANTA,,2288,1.46,8,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2321,odisha,2014,25,CHAMPUA,BHABANI MAHANTA,,1219,0.78,9,forfeit,U,47,Post Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2321,odisha,2014,25,CHAMPUA,BENUDHARA BEHERA,,1062,0.68,10,forfeit,U,35,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2321,odisha,2014,25,CHAMPUA,MD AZHAR IMAM,,1022,0.65,11,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2321,odisha,2014,25,CHAMPUA,PURNA CHANDRA MAHANTA,,672,0.43,12,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2336,odisha,2014,26,JASHIPUR,MANGAL SINGH MUDI,,39440,25.78,1,won,U,65,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2336,odisha,2014,26,JASHIPUR,SHAMBHU NATH NAIK,,33646,21.99,2,lost,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2336,odisha,2014,26,JASHIPUR,MAHESH CHANDRA HEMBRAM,,25077,16.39,3,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2336,odisha,2014,26,JASHIPUR,RAGUNATH HEMBRAM,,24319,15.89,4,forfeit,U,59,Graduate Professional,Medical Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2336,odisha,2014,26,JASHIPUR,MINATI NAYAK,,9518,6.22,5,forfeit,U,39,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2336,odisha,2014,26,JASHIPUR,DILLIP NAIK,,4698,3.07,6,forfeit,U,44,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2336,odisha,2014,26,JASHIPUR,DHANURJAY LAGURI,,3974,2.6,7,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2336,odisha,2014,26,JASHIPUR,BAIJU MAJHI,,2970,1.94,8,forfeit,U,60,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2336,odisha,2014,26,JASHIPUR,BHIMSEN NAIK,,1718,1.12,9,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2336,odisha,2014,26,JASHIPUR,DELHA SOREN,,1646,1.08,11,forfeit,U,62,Graduate,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2336,odisha,2014,26,JASHIPUR,SUKALAL TUDU,,1246,0.81,12,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2336,odisha,2014,26,JASHIPUR,MANJU SINGH,,1147,0.75,13,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2336,odisha,2014,26,JASHIPUR,MINA KUMARI ROUT,,997,0.65,14,forfeit,U,29,8th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2336,odisha,2014,26,JASHIPUR,AJIT KUMAR NAIK,,947,0.62,15,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2339,odisha,2014,27,SARASKANA,BHADAV HANSDAH,,46867,32.16,1,won,U,44,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2339,odisha,2014,27,SARASKANA,RAMCHANDRA MURMU,,43028,29.52,2,lost,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2339,odisha,2014,27,SARASKANA,NARENDRA NATH SINGH,,23447,16.09,3,forfeit,U,49,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2339,odisha,2014,27,SARASKANA,BEREL SIRKA,,20040,13.75,4,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2339,odisha,2014,27,SARASKANA,BALARAM MURMU,,2102,1.44,5,forfeit,U,62,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2339,odisha,2014,27,SARASKANA,SRIPATI DANDAPAT,,1226,0.84,7,forfeit,U,67,10th Pass,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2339,odisha,2014,27,SARASKANA,SURYA HEMBRAM,,1162,0.8,8,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2339,odisha,2014,27,SARASKANA,DASARATH MAHALI,,1162,0.8,9,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2339,odisha,2014,27,SARASKANA,CHANDAN KISKU,,1097,0.75,10,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2339,odisha,2014,27,SARASKANA,BIRAM TUDU,,1071,0.73,11,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2339,odisha,2014,27,SARASKANA,NARAN MURMU,,973,0.67,12,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2339,odisha,2014,27,SARASKANA,SHIBA MAJHI,,965,0.66,13,forfeit,U,34,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2339,odisha,2014,27,SARASKANA,BRAJA MOHAN HANSDAH,,806,0.55,14,forfeit,U,68,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2338,odisha,2014,28,RAIRANGPUR,SAIBA SUSHIL KUMAR HANSDAH,,51062,32.72,1,won,U,48,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2338,odisha,2014,28,RAIRANGPUR,DROUPADAI MURMU,,35506,22.76,2,lost,U,55,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2338,odisha,2014,28,RAIRANGPUR,PURNA CHANDRA MARNDI,,28838,18.48,3,lost,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2338,odisha,2014,28,RAIRANGPUR,SHYAM CHARAN HANSDAH,,19075,12.22,4,forfeit,U,48,Graduate Professional,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2338,odisha,2014,28,RAIRANGPUR,BUDHAN SING MARNDI,,4848,3.11,5,forfeit,U,40,10th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2338,odisha,2014,28,RAIRANGPUR,BIRSA KANDANKEL,,4245,2.72,6,forfeit,U,47,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2338,odisha,2014,28,RAIRANGPUR,BADA NARAN MAJHI,,1563,1,7,forfeit,U,59,Graduate,Managerial Position,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2338,odisha,2014,28,RAIRANGPUR,BUDHU MAHALI,,1412,0.9,8,forfeit,U,59,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2338,odisha,2014,28,RAIRANGPUR,RAJENDRA SINGH,,1232,0.79,9,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2338,odisha,2014,28,RAIRANGPUR,BRAJA KISHORE MAJHI,,1163,0.75,10,forfeit,U,62,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2338,odisha,2014,28,RAIRANGPUR,UMAKANTA NAIK,,1131,0.72,11,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2338,odisha,2014,28,RAIRANGPUR,SUDARSAN MURMU,,1126,0.72,12,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2338,odisha,2014,28,RAIRANGPUR,LAMBODAR MURMU,,1114,0.71,13,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2338,odisha,2014,28,RAIRANGPUR,BISWANATH KISKU,,865,0.55,15,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2338,odisha,2014,28,RAIRANGPUR,BULA SARDAR,,650,0.42,16,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2338,odisha,2014,28,RAIRANGPUR,MANGAL SING TUDU,,599,0.38,17,forfeit,U,38,8th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2338,odisha,2014,28,RAIRANGPUR,NANDA KISHORE KISKU,,510,0.33,18,forfeit,U,65,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2334,odisha,2014,29,BANGRIPOSI,SUDAM MARNDI,,62406,40.64,1,won,U,46,12th Pass,Ex MP,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2334,odisha,2014,29,BANGRIPOSI,PURUSOTAM NAIK,,30877,20.11,2,lost,U,63,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2334,odisha,2014,29,BANGRIPOSI,SUNDAR MOHAN SINGH,,26327,17.15,3,lost,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2334,odisha,2014,29,BANGRIPOSI,AJEN MURMU,,23411,15.25,4,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2334,odisha,2014,29,BANGRIPOSI,LADURAM SOREN,,2265,1.48,6,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2334,odisha,2014,29,BANGRIPOSI,KANHU SOREN,,1539,1,7,forfeit,U,65,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2334,odisha,2014,29,BANGRIPOSI,LAXMAN HANSDAH,,1199,0.78,8,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2334,odisha,2014,29,BANGRIPOSI,DHARMENDRA MUNDA,,1145,0.75,9,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2334,odisha,2014,29,BANGRIPOSI,GOBINDA HEMBRAM,,973,0.63,10,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2334,odisha,2014,29,BANGRIPOSI,BALARAM MARNDI,,894,0.58,11,forfeit,U,46,10th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2323,odisha,2014,30,KARANJIA,BIJAY KUMAR NAIK,,38609,29.83,1,won,U,41,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2323,odisha,2014,30,KARANJIA,JYOSTNA BHANSINGH,,25058,19.36,2,lost,U,51,10th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2323,odisha,2014,30,KARANJIA,PADMA CHARAN HAIBURU,,24030,18.56,3,lost,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2323,odisha,2014,30,KARANJIA,BAIDYANATH SING,,19226,14.85,4,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2323,odisha,2014,30,KARANJIA,RAMA CHANDRA SOREN,,3403,2.63,5,forfeit,U,26,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2323,odisha,2014,30,KARANJIA,JAMUNA SAMAD,,3308,2.56,6,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2323,odisha,2014,30,KARANJIA,BIPLAB KUMAR SANKHIALA,,3277,2.53,7,forfeit,U,31,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2323,odisha,2014,30,KARANJIA,JATIN KUMAR DAS,,3010,2.33,8,forfeit,U,37,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2323,odisha,2014,30,KARANJIA,SABITRI NAIK,,2324,1.8,10,forfeit,U,40,8th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2323,odisha,2014,30,KARANJIA,NIRANJAN NAIK,,1972,1.52,11,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2323,odisha,2014,30,KARANJIA,DAYANIDI NAIK,,1702,1.31,12,forfeit,U,58,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2323,odisha,2014,30,KARANJIA,SISHIR HEMBRAM,,994,0.77,13,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2340,odisha,2014,31,UDALA,GOLAKBIHARI NAIK,,49628,35.97,1,won,U,57,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2340,odisha,2014,31,UDALA,BHASKAR MADHEI,,41099,29.79,2,lost,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2340,odisha,2014,31,UDALA,DUKHISHYAM MURMU,,23345,16.92,3,lost,U,32,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2340,odisha,2014,31,UDALA,THUMPU MURMU,,15417,11.17,4,forfeit,U,40,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2340,odisha,2014,31,UDALA,ANANGA CHARAN SENAPATI,,2183,1.58,5,forfeit,U,61,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2340,odisha,2014,31,UDALA,DINAMANI SALANGI,,1203,0.87,7,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2340,odisha,2014,31,UDALA,DHANESWAR NAIK,,1120,0.81,8,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2340,odisha,2014,31,UDALA,MAYA TUDU,,1062,0.77,9,forfeit,U,27,12th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2340,odisha,2014,31,UDALA,KALI CHARAN MURMU,,871,0.63,10,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2229,odisha,2014,32,BADASAHI,GANESWAR PATRA,,52694,38.79,1,won,U,36,Post Graduate,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2229,odisha,2014,32,BADASAHI,JAMINIKANTA NAIK,,35860,26.4,2,lost,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2229,odisha,2014,32,BADASAHI,BRUNDABAN DAS,,33962,25,3,lost,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2229,odisha,2014,32,BADASAHI,BIKASH CHANDRA SETHI,,3542,2.61,4,forfeit,U,35,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2229,odisha,2014,32,BADASAHI,SARAT CHANDRA MUKHI,,2228,1.64,5,forfeit,U,38,Graduate,Auto-rickshaw Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2229,odisha,2014,32,BADASAHI,HARISH CHANDRA BEHERA,,1463,1.08,7,forfeit,U,63,Post Graduate,Advocacy,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2229,odisha,2014,32,BADASAHI,DEBANARAYAN PATRA,,1058,0.78,8,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2229,odisha,2014,32,BADASAHI,RADHASHYAM PATRA,,1010,0.74,9,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2229,odisha,2014,32,BADASAHI,MOHESWAR SETHI,,748,0.55,10,forfeit,U,66,Graduate Professional,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2229,odisha,2014,32,BADASAHI,RABINDRA NATH SETHI,,738,0.54,11,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2229,odisha,2014,32,BADASAHI,BANALATA BEHERA,,585,0.43,12,forfeit,U,44,8th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2229,odisha,2014,32,BADASAHI,BASUDEV BEHERA,,403,0.3,13,forfeit,U,61,12th Pass,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2335,odisha,2014,33,BARIPADA,SANANDA MARNDI,,54131,37.49,1,won,U,42,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2335,odisha,2014,33,BARIPADA,NISAMANI BASKE,,37017,25.64,2,lost,U,45,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2335,odisha,2014,33,BARIPADA,PRIYABRATA MAJHI,,21933,15.19,3,forfeit,U,37,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2335,odisha,2014,33,BARIPADA,FAGU HANSDA,,19214,13.31,4,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2335,odisha,2014,33,BARIPADA,DEBENDRA NATH SINGH,,1846,1.28,6,forfeit,U,59,10th Pass,Ex Civil Service,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2335,odisha,2014,33,BARIPADA,BISHNUNATH PURTY,,1783,1.23,7,forfeit,U,53,10th Pass,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2335,odisha,2014,33,BARIPADA,NANDA KISHORE HANSDAH,,1460,1.01,8,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2335,odisha,2014,33,BARIPADA,SWARUP CHANDRA NAIK,,1251,0.87,9,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2335,odisha,2014,33,BARIPADA,BADAL HEMBRAM,,1146,0.79,10,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2335,odisha,2014,33,BARIPADA,SUBASH CHANDRA HANSDAH,,1047,0.73,11,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2335,odisha,2014,33,BARIPADA,CHAITANYA HEMBRAM,,737,0.51,12,forfeit,U,37,12th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2335,odisha,2014,33,BARIPADA,CHANDRA MOHAN MURMU,,624,0.43,13,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,PRAVEEN CHANDRA BHANJDEO,,52207,32.03,1,won,U,52,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,RAJKISHORE DAS,,45251,27.76,2,lost,U,52,Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,PRAVASH KAR MOHAPATRA,,24790,15.21,3,forfeit,U,40,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,MANORANJAN DHAL,,17391,10.67,4,forfeit,U,41,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,KALINGA KESHARI JENA,,2831,1.74,5,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,DILLIP KUMAR BHANJA,,2000,1.23,6,forfeit,U,57,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,PRATAP CHANDRA MOHANTA,,1873,1.15,7,forfeit,U,82,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,ASHOK KUMAR DHAL,,1469,0.9,8,forfeit,U,30,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,DUKHINATH SETHI,,1447,0.89,9,forfeit,U,39,10th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,BAIDYANATH RATH,,1346,0.83,10,forfeit,U,58,Graduate Professional,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,JAGENDRA NATH MOHANTA,,1333,0.82,11,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,DIBRAT CHANDRA MOHANTA,,1069,0.66,13,forfeit,U,59,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,DILLIP KUMAR ACHARYA,,1055,0.65,14,forfeit,U,60,12th Pass,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,KISHORE DASH,,1034,0.63,15,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,JAY KRUSHNA NAIK,,898,0.55,16,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,ANUSAYA DHAL,,823,0.5,17,forfeit,U,29,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,YUDHISTIR MOHANTA,,822,0.5,18,forfeit,U,48,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,PRAVAKAR HASDA,,773,0.47,19,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,HIMANSHU MOHANTA,,730,0.45,20,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,RABINARAYAN SIE,,653,0.4,21,forfeit,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,KSHETRAMOHAN MOHANTA,,623,0.38,22,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,SUJIT KUMAR MOHANTA,,571,0.35,23,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,CHANDRA SEKHAR DHAURIA,,454,0.28,24,forfeit,U,61,Others,Retired Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2337,odisha,2014,34,MORADA,RANJAN KUMAR SINGH,,396,0.24,25,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2233,odisha,2014,35,JALESWAR,ASWINI KUMAR PATRA,,86084,52.23,1,won,U,64,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2233,odisha,2014,35,JALESWAR,DEBIPRASANNA CHAND,,52224,31.69,2,lost,U,50,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2233,odisha,2014,35,JALESWAR,ARUN KUMAR BEJ,,13465,8.17,3,forfeit,U,55,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2233,odisha,2014,35,JALESWAR,SUDARSAN DAS,,7336,4.45,4,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2233,odisha,2014,35,JALESWAR,SISIR KUMAR HUI,,2285,1.39,5,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2233,odisha,2014,35,JALESWAR,MANOJ KUMAR SASMAL,,913,0.55,6,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2233,odisha,2014,35,JALESWAR,RAMAKANTA JENA,,633,0.38,8,forfeit,U,42,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2233,odisha,2014,35,JALESWAR,BRAJAGOPAL RAUT,,366,0.22,9,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2233,odisha,2014,35,JALESWAR,GAGAN BIHARI DAS MOHAPATRA,,350,0.21,10,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2233,odisha,2014,35,JALESWAR,SUBHASHIS DAS,,215,0.13,11,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2233,odisha,2014,35,JALESWAR,SANTANU KUMAR DAS,,211,0.13,12,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2232,odisha,2014,36,BHOGRAI,ANANTA DAS,,76761,50.11,1,won,U,73,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2232,odisha,2014,36,BHOGRAI,SATYASHIB DAS,,57249,37.37,2,lost,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2232,odisha,2014,36,BHOGRAI,PARESH CHANDRA NAYAK,,14772,9.64,3,forfeit,U,63,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2232,odisha,2014,36,BHOGRAI,ASHIS KUMAR DAS,,3015,1.97,4,forfeit,U,60,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2232,odisha,2014,36,BHOGRAI,KARTICK CHANDRA BEHERA,,446,0.29,6,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2232,odisha,2014,36,BHOGRAI,RAGHUNATH PATRA,,403,0.26,7,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2231,odisha,2014,37,BASTA,NITYANANDA SAHOO,,76737,47.69,1,won,U,65,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2231,odisha,2014,37,BASTA,JAY NARAYAN MOHANTY,,70304,43.69,2,lost,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2231,odisha,2014,37,BASTA,SHYAMA PRASAD BEHERA,,11165,6.94,3,forfeit,U,52,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2231,odisha,2014,37,BASTA,MADAN MOHAN JENA,,690,0.43,4,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2231,odisha,2014,37,BASTA,PRAMOD KUMAR PATTAYAT,,590,0.37,6,forfeit,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2231,odisha,2014,37,BASTA,SAROJ KUMAR ROUL,,447,0.28,7,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2231,odisha,2014,37,BASTA,RAMAKANTA PANDA,,199,0.12,8,forfeit,U,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2231,odisha,2014,37,BASTA,GOURAB KUMAR ANDIA,,186,0.12,9,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2014,38,BALASORE,JIBAN PRADIP DASH,,47615,32.82,1,won,U,58,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2014,38,BALASORE,MADAN MOHAN DUTTA,,37824,26.07,2,lost,U,56,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2014,38,BALASORE,ARUN DEY,,28650,19.75,3,lost,U,68,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2014,38,BALASORE,MANAS RANJAN DAS PATTNAIK,,24720,17.04,4,lost,U,41,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2014,38,BALASORE,BASANTALATA PATTANAYAK,,1601,1.1,5,forfeit,U,61,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2014,38,BALASORE,BHASKAR CHANDRA JENA,,813,0.56,7,forfeit,U,63,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2014,38,BALASORE,GOURANGA CHARAN PANIGRAHI,,812,0.56,8,forfeit,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2014,38,BALASORE,KESU DAS,,496,0.34,9,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2014,38,BALASORE,RAJENDRA BAL,,377,0.26,10,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2014,38,BALASORE,ARCHANA NANDI,,366,0.25,11,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2014,38,BALASORE,MAYADHAR BEHERA,,359,0.25,12,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2014,38,BALASORE,MD SAHIRUL HAQUE,,269,0.19,13,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2014,38,BALASORE,MAHESWAR BEHERA,,235,0.16,14,forfeit,U,45,12th Pass,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2014,38,BALASORE,ABHISHEK DAS,,118,0.08,15,forfeit,U,30,Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2235,odisha,2014,39,REMUNA,GOBINDA CHANDRA DAS,,70973,47.63,1,won,U,45,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2235,odisha,2014,39,REMUNA,SUDARSHAN JENA,,57144,38.35,2,lost,U,48,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2235,odisha,2014,39,REMUNA,PRATYUSH RANJAN JENA,,13716,9.2,3,forfeit,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2235,odisha,2014,39,REMUNA,SANJAYA KUMAR DAS,,3800,2.55,4,forfeit,U,36,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2235,odisha,2014,39,REMUNA,RAGHUNATH MOHALIK,,710,0.48,6,forfeit,U,70,Post Graduate,Advocacy,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2235,odisha,2014,39,REMUNA,SUKUMAR DAS,,672,0.45,7,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2235,odisha,2014,39,REMUNA,ASHOK KUMAR SETHI,,486,0.33,8,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2235,odisha,2014,39,REMUNA,NITYANANDA MALIK,,312,0.21,9,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2234,odisha,2014,40,NILGIRI,SUKANTA KUMAR NAYAK,,50514,35.96,1,won,U,47,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2234,odisha,2014,40,NILGIRI,SUSHAMA BISWAL,,36814,26.21,2,lost,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2234,odisha,2014,40,NILGIRI,KARTIK MOHAPATRA,,32360,23.04,3,lost,U,64,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2234,odisha,2014,40,NILGIRI,PRADIPTA PANDA,,17018,12.12,4,forfeit,U,59,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2234,odisha,2014,40,NILGIRI,ANIL KUMAR MOHAPATRA,,768,0.55,6,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2234,odisha,2014,40,NILGIRI,LAXMAN SINGH,,607,0.43,7,forfeit,U,63,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2234,odisha,2014,40,NILGIRI,SHARAT MAHAKUD,,489,0.35,8,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2234,odisha,2014,40,NILGIRI,BITENDRA DAS,,390,0.28,9,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2234,odisha,2014,40,NILGIRI,PRATAP CHANDRA MOHANTY,,369,0.26,10,forfeit,U,44,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2256,odisha,2014,41,SORO,PARSHURAM DHADA,,57319,41.95,1,won,U,42,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2256,odisha,2014,41,SORO,MRUTYUNJAY JENA,,52408,38.36,2,lost,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2256,odisha,2014,41,SORO,RAKESH KUMAR MALIK,,23217,16.99,3,lost,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2256,odisha,2014,41,SORO,JAYAKRUSHNA MALLICK,,1787,1.31,4,forfeit,U,70,Post Graduate,Advocacy,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2256,odisha,2014,41,SORO,ASHOK KUMAR DAS,,580,0.42,6,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2256,odisha,2014,41,SORO,AIRA KHARABELA MAHALIK,,505,0.37,7,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2255,odisha,2014,42,SIMULIA,JYOTI PRAKASH PANIGRAHI,,65854,42.24,1,won,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2255,odisha,2014,42,SIMULIA,PADMALOCHAN PANDA,,57917,37.15,2,lost,U,60,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2255,odisha,2014,42,SIMULIA,SHASHI KUMAR SAHOO,,28011,17.97,3,lost,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2255,odisha,2014,42,SIMULIA,SANTOSH BISWAL,,1284,0.82,4,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2255,odisha,2014,42,SIMULIA,GAJENDRA JENA,,693,0.44,6,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2255,odisha,2014,42,SIMULIA,KAMALESH KUMAR DAS,,511,0.33,7,forfeit,U,45,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2255,odisha,2014,42,SIMULIA,SRIDHAR TRIPATHY,,440,0.28,8,forfeit,U,59,10th Pass,Retired Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2255,odisha,2014,42,SIMULIA,RATIKANTA NAYAK,,427,0.27,9,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2252,odisha,2014,43,BHANDARIPOKHARI,PRAFULLA SAMAL,,70173,45.27,1,won,U,66,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2252,odisha,2014,43,BHANDARIPOKHARI,SUBRAT KUMAR DAS,,36076,23.28,2,lost,U,38,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2252,odisha,2014,43,BHANDARIPOKHARI,BADRI NARAYAN DHAL,,28809,18.59,3,lost,U,42,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2252,odisha,2014,43,BHANDARIPOKHARI,SUJATA JENA,,6682,4.31,4,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2252,odisha,2014,43,BHANDARIPOKHARI,SUDHAKAR NANDA,,5365,3.46,5,forfeit,U,67,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2252,odisha,2014,43,BHANDARIPOKHARI,SUVENDRA PRATAP MOHANTY,,3694,2.38,6,forfeit,U,57,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2252,odisha,2014,43,BHANDARIPOKHARI,BIKASH RANJAN JENA,,1094,0.71,7,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2252,odisha,2014,43,BHANDARIPOKHARI,JAYANTI PARIDA,,820,0.53,8,forfeit,U,56,Post Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2252,odisha,2014,43,BHANDARIPOKHARI,RAJIBLOCHAN JENA,,551,0.36,10,forfeit,U,31,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2252,odisha,2014,43,BHANDARIPOKHARI,SHIBANARAYAN BISHWAL,,499,0.32,11,forfeit,U,38,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2252,odisha,2014,43,BHANDARIPOKHARI,SWADHIN SAHOO,,364,0.23,12,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2252,odisha,2014,43,BHANDARIPOKHARI,ASHOK KUMAR ROUT,,283,0.18,13,forfeit,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2251,odisha,2014,44,BHADRAK,JUGAL KISHORE PATTNAIK,,80582,49.86,1,won,U,74,Graduate Professional,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2251,odisha,2014,44,BHADRAK,NAREN PALLAI,,56995,35.27,2,lost,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2251,odisha,2014,44,BHADRAK,PRADIP NAYAK,,19384,11.99,3,forfeit,U,53,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2251,odisha,2014,44,BHADRAK,AKHTAR ALLI KHAN,,945,0.58,4,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2251,odisha,2014,44,BHADRAK,RAMAHARI DAS,,825,0.51,6,forfeit,U,40,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2251,odisha,2014,44,BHADRAK,KALLOLA KANTA SWAIN,,692,0.43,7,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2251,odisha,2014,44,BHADRAK,SANJAYA KUMAR NAYAK,,312,0.19,8,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2251,odisha,2014,44,BHADRAK,BASANTA MAHALIK,,278,0.17,9,forfeit,U,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2251,odisha,2014,44,BHADRAK,MUSTAK AHAMAD AZAD,,276,0.17,10,forfeit,U,45,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2251,odisha,2014,44,BHADRAK,HAJI SK ABDUL ISTAR,,258,0.16,11,forfeit,U,46,Graduate Professional,Advocacy,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2251,odisha,2014,44,BHADRAK,SEKH MAHAMMAD ALLI JINNA,,237,0.15,12,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2250,odisha,2014,45,BASUDEVPUR,SHRI BIJAYSHREE ROUTRAY,,77781,46.46,1,won,U,61,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2250,odisha,2014,45,BASUDEVPUR,MADHABANANDA MALLICK,,71275,42.57,2,lost,U,57,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2250,odisha,2014,45,BASUDEVPUR,DINABANDHU PATI,,15339,9.16,3,forfeit,U,51,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2250,odisha,2014,45,BASUDEVPUR,AJIT KUMAR DAS,,855,0.51,4,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2250,odisha,2014,45,BASUDEVPUR,MANOJ BARIK,,703,0.42,6,forfeit,U,31,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2250,odisha,2014,45,BASUDEVPUR,PRAKASH CHANDRA GOCHHAIT,,276,0.16,7,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2250,odisha,2014,45,BASUDEVPUR,BIJAY KUMAR PAKAL,,249,0.15,8,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2250,odisha,2014,45,BASUDEVPUR,APARNA SWAIN,,225,0.13,9,forfeit,U,46,10th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2254,odisha,2014,46,DHAMNAGAR,MUKTIKANTA MANDAL,,71538,47.98,1,won,U,54,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2254,odisha,2014,46,DHAMNAGAR,BISHNU CHARAN SETHI,,62346,41.82,2,lost,U,53,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2254,odisha,2014,46,DHAMNAGAR,HRUDANANDA SETHI,,12046,8.08,3,forfeit,U,56,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2254,odisha,2014,46,DHAMNAGAR,PREMANANDA MALLICK,,844,0.57,4,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2254,odisha,2014,46,DHAMNAGAR,ARUNA CHANDRA SETHI,,671,0.45,6,forfeit,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2254,odisha,2014,46,DHAMNAGAR,AJAY MALIK,,638,0.43,7,forfeit,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2254,odisha,2014,46,DHAMNAGAR,GANESH PRASAD DAS,,268,0.18,8,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2253,odisha,2014,47,CHANDABALI,BYOMKESH RAY,,68557,43.99,1,won,U,32,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2253,odisha,2014,47,CHANDABALI,AMIYA KUMAR MAHAPATRA,,43674,28.02,2,lost,U,52,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2253,odisha,2014,47,CHANDABALI,MANMOHAN SAMAL,,38952,24.99,3,lost,U,55,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2253,odisha,2014,47,CHANDABALI,UPENDRA KUMAR ROUL,,1687,1.08,4,forfeit,U,32,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2253,odisha,2014,47,CHANDABALI,BISWAKESHARI MOHANTY,,1249,0.8,5,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2253,odisha,2014,47,CHANDABALI,GANGADHAR BAL,,426,0.27,7,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2253,odisha,2014,47,CHANDABALI,SAMARENDRA BAL,,345,0.22,8,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2253,odisha,2014,47,CHANDABALI,DEBADUTTA MOHANTY,,257,0.16,9,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2253,odisha,2014,47,CHANDABALI,RANJAN PANDA,,173,0.11,10,forfeit,U,37,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2294,odisha,2014,48,BINJHARPUR,PRAMILA MALLIK,,74532,57.4,1,won,U,51,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2294,odisha,2014,48,BINJHARPUR,BABITA MALLICK,,36342,27.99,2,lost,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2294,odisha,2014,48,BINJHARPUR,DEBA PRASAD MALLIK,,15358,11.83,3,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2294,odisha,2014,48,BINJHARPUR,RADHABALLAV MALIK,,1314,1.01,4,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2294,odisha,2014,48,BINJHARPUR,JANARDAN DAS,,861,0.66,6,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2294,odisha,2014,48,BINJHARPUR,PRASANT KUMAR JENA,,365,0.28,7,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2293,odisha,2014,49,BARI,DEBASIS NAYAK,,59800,44.44,1,won,U,53,Post Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2293,odisha,2014,49,BARI,BISWARANJAN MALLICK,,52627,39.11,2,lost,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2293,odisha,2014,49,BARI,NILAMANI SAMAL,,9183,6.82,3,forfeit,U,66,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2293,odisha,2014,49,BARI,GAGAN JENA,,7682,5.71,4,forfeit,U,58,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2293,odisha,2014,49,BARI,MAHENDRA KUMAR NAYAK,,2947,2.19,5,forfeit,U,64,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2293,odisha,2014,49,BARI,PULIN BIHARI KHUNTIA,,807,0.6,7,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2293,odisha,2014,49,BARI,BHIMSEN BEHERA,,419,0.31,8,forfeit,U,49,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2293,odisha,2014,49,BARI,ANANDA CHANDRA JENA,,289,0.21,9,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2292,odisha,2014,50,BARCHANA,AMAR PRASAD SATPATHY,,53322,42.07,1,won,U,62,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2292,odisha,2014,50,BARCHANA,JANMEJOY LENKA,,36383,28.7,2,lost,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2292,odisha,2014,50,BARCHANA,AMAR KUMAR NAYAK,,26260,20.72,3,lost,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2292,odisha,2014,50,BARCHANA,RAJNARAYAN MOHAPATRA,,5048,3.98,4,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2292,odisha,2014,50,BARCHANA,SIMANTINI JENA,,3564,2.81,5,forfeit,U,49,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2292,odisha,2014,50,BARCHANA,BIKRAM DASH,,608,0.48,6,forfeit,U,45,Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2292,odisha,2014,50,BARCHANA,DURGA PRASAD DASH,,505,0.4,8,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2292,odisha,2014,50,BARCHANA,SANGRAM KESHARI JENA,,288,0.23,9,forfeit,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2292,odisha,2014,50,BARCHANA,JATINDRA KUMAR SAHOO,,215,0.17,10,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2295,odisha,2014,51,DHARMASALA,PRANAB KUMAR BALABANTARAY,,109241,68.6,1,won,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2295,odisha,2014,51,DHARMASALA,SRINATH MISHRA,,23455,14.73,2,forfeit,U,49,Post Graduate,Lawyer,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2295,odisha,2014,51,DHARMASALA,RAMESH CHANDRA PARIDA,,19940,12.52,3,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2295,odisha,2014,51,DHARMASALA,AKSHAYA KUMAR DAS,,2044,1.28,4,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2295,odisha,2014,51,DHARMASALA,NIRMAL KUMAR ROUT,,1108,0.7,6,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2295,odisha,2014,51,DHARMASALA,CHANDRAMANI NAYAK,,865,0.54,7,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2295,odisha,2014,51,DHARMASALA,GOBINDA SAHOO,,838,0.53,8,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2295,odisha,2014,51,DHARMASALA,PRAVAKAR NAYAK,,575,0.36,9,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2296,odisha,2014,52,JAJPUR,PRANAB PRAKASH DAS,,104458,69.17,1,won,U,41,12th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2296,odisha,2014,52,JAJPUR,SANTOSH KUMAR NANDA,,19845,13.14,2,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2296,odisha,2014,52,JAJPUR,JAGANNATH PRASAD SAMAL,,17180,11.38,3,forfeit,U,53,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2296,odisha,2014,52,JAJPUR,BADRI NARAYAN RAY,,5781,3.83,4,forfeit,U,56,Post Graduate,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2296,odisha,2014,52,JAJPUR,SURYAMANI JENA,,1203,0.8,5,forfeit,U,58,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2296,odisha,2014,52,JAJPUR,BIJAYANANDA MOHANTY,,625,0.41,7,forfeit,U,59,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2296,odisha,2014,52,JAJPUR,RAJENDRA DHAL,,463,0.31,8,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2296,odisha,2014,52,JAJPUR,HAREKRUSHNA DEBATA,,304,0.2,9,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2297,odisha,2014,53,KOREI,AKASH DAS NAYAK,,73966,55.75,1,won,U,33,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2297,odisha,2014,53,KOREI,BISWAJEET NAYAK,,31099,23.44,2,lost,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2297,odisha,2014,53,KOREI,SANCHITA MOHANTY,,15761,11.88,3,forfeit,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2297,odisha,2014,53,KOREI,PRATAP KUMAR MOHANTY,,7169,5.4,4,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2297,odisha,2014,53,KOREI,SATYABRATA PRUSTY,,1481,1.12,5,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2297,odisha,2014,53,KOREI,PARAMANANDA JYOTISH,,758,0.57,7,forfeit,U,42,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2297,odisha,2014,53,KOREI,BIMAL KUMAR DASH,,456,0.34,8,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2297,odisha,2014,53,KOREI,GOPAL KRUSHNA MOHANTY,,427,0.32,9,forfeit,U,41,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2297,odisha,2014,53,KOREI,BISWANATH SAHOO,,402,0.3,10,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2297,odisha,2014,53,KOREI,TAPAN KUMAR KHANDAI,,251,0.19,11,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2298,odisha,2014,54,SUKINDA,PRITIRANJAN GHARAI,,58122,39.84,1,won,U,41,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2298,odisha,2014,54,SUKINDA,SARAT RAUT,,53418,36.62,2,lost,U,63,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2298,odisha,2014,54,SUKINDA,PRADIP BAL SAMANTA,,17927,12.29,3,forfeit,U,57,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2298,odisha,2014,54,SUKINDA,RABINDRANATH JARIKA,,6314,4.33,4,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2298,odisha,2014,54,SUKINDA,ABHINA KUMAR HOTA,,3738,2.56,5,forfeit,U,49,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2298,odisha,2014,54,SUKINDA,CHAKRADHAR HAIBRU,,1017,0.7,6,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2298,odisha,2014,54,SUKINDA,DWIJENDRA KUMAR GHOSE,,856,0.59,8,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2298,odisha,2014,54,SUKINDA,BRAJA KISHORE MALLIK,,846,0.58,9,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2298,odisha,2014,54,SUKINDA,DIPAKA KUMAR NAYAK,,828,0.57,10,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2298,odisha,2014,54,SUKINDA,SURJIT ROUT,,576,0.39,11,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2298,odisha,2014,54,SUKINDA,ASHOK BEHERA,,575,0.39,12,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2298,odisha,2014,54,SUKINDA,PRAFULLA PATRA,,347,0.24,13,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2298,odisha,2014,54,SUKINDA,SUBHAKANTA MOHANTY,,332,0.23,14,forfeit,U,25,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2279,odisha,2014,55,DHENKANAL,SAROJ KUMAR SAMAL,,69083,39.4,1,won,U,51,Graduate Professional,Accountant,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2279,odisha,2014,55,DHENKANAL,KRUSHNA CHANDRA PATRA,,65789,37.52,2,lost,U,50,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2279,odisha,2014,55,DHENKANAL,SIDHESWARI PRASAD MISHRA,,30571,17.43,3,lost,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2279,odisha,2014,55,DHENKANAL,KAMAKSHA PRASAD BIHARI,,2028,1.16,5,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2279,odisha,2014,55,DHENKANAL,SHAIKH ABDUL WALI,,1731,0.99,6,forfeit,U,56,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2279,odisha,2014,55,DHENKANAL,SHISHIRA KUMAR SATAPATHY,,1098,0.63,7,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2279,odisha,2014,55,DHENKANAL,SADASHIV MOHAPATRA,,757,0.43,8,forfeit,U,54,10th Pass,Journalist or Editor,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2279,odisha,2014,55,DHENKANAL,BIBHUPRADA SAHOO,,696,0.4,9,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2279,odisha,2014,55,DHENKANAL,RANJAN KUMAR NAYAK,,688,0.39,10,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2279,odisha,2014,55,DHENKANAL,ARUNA KUMAR SAHOO,,499,0.28,11,forfeit,U,40,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2279,odisha,2014,55,DHENKANAL,SAROJ KUMAR SATAPATHY,,376,0.21,12,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2280,odisha,2014,56,HINDOL,SEEMARANI NAYAK,,84351,49.92,1,won,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2280,odisha,2014,56,HINDOL,LAXMIDHAR BEHERA,,33852,20.03,2,lost,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2280,odisha,2014,56,HINDOL,NAMITA NAIK,,30978,18.33,3,lost,U,34,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2280,odisha,2014,56,HINDOL,ANJALI BEHERA,,12304,7.28,4,forfeit,U,42,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2280,odisha,2014,56,HINDOL,TRINATH BEHERA,,2309,1.37,6,forfeit,U,42,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2280,odisha,2014,56,HINDOL,SABITA NAIK,,1120,0.66,7,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2280,odisha,2014,56,HINDOL,BIRANCHI NARAYAN NAYAK,,827,0.49,8,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2280,odisha,2014,56,HINDOL,BIJAYA KUMAR BEHERA,,511,0.3,9,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2281,odisha,2014,57,KAMAKHYANAGAR,PRAFULLA KUMAR MALLIK,,64163,43.59,1,won,U,67,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2281,odisha,2014,57,KAMAKHYANAGAR,BHABANI SANKAR MOHAPTRA,,47282,32.12,2,lost,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2281,odisha,2014,57,KAMAKHYANAGAR,PRASANNA PATTNAIK,,25927,17.61,3,lost,U,65,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2281,odisha,2014,57,KAMAKHYANAGAR,SHIBA RAM SAHU,,2471,1.68,4,forfeit,U,62,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2281,odisha,2014,57,KAMAKHYANAGAR,DEBASISHA HOTA,,2436,1.65,5,forfeit,U,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2281,odisha,2014,57,KAMAKHYANAGAR,BIPRABARA SAHOO,,1664,1.13,7,forfeit,U,66,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2281,odisha,2014,57,KAMAKHYANAGAR,MAYADHARA NAYAK,,813,0.55,8,forfeit,U,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2281,odisha,2014,57,KAMAKHYANAGAR,AKRUR BEHERA,,477,0.32,9,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2283,odisha,2014,58,PARJANGA,NRUSINGHA CHARAN SAHU,,60523,40.06,1,won,U,64,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2283,odisha,2014,58,PARJANGA,BIBHUTI PRADHAN,,57471,38.04,2,lost,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2283,odisha,2014,58,PARJANGA,SANTOSH KUMAR ROUT,,18240,12.07,3,forfeit,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2283,odisha,2014,58,PARJANGA,BISWATOSH SAHOO,,8967,5.94,4,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2283,odisha,2014,58,PARJANGA,DAMBARU DEHURY,,1116,0.74,6,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2283,odisha,2014,58,PARJANGA,RANJIT KUMAR SAHU,,886,0.59,7,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2283,odisha,2014,58,PARJANGA,SUSANTA KUMAR PANY,,657,0.43,8,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2283,odisha,2014,58,PARJANGA,SUSANTA KUMAR SAHOO,,559,0.37,9,forfeit,U,30,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2283,odisha,2014,58,PARJANGA,BIJAYA KUMAR PRATAPDEOU,,456,0.3,10,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2282,odisha,2014,59,PALLAHARA,MAHESH SAHOO,,44264,34.59,1,won,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2282,odisha,2014,59,PALLAHARA,ASHOK MOHANTY,,38970,30.46,2,lost,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2282,odisha,2014,59,PALLAHARA,SUBODH CHANDRA PANI,,18487,14.45,3,forfeit,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2282,odisha,2014,59,PALLAHARA,MANOJ KUMAR SAHU,,13037,10.19,4,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2282,odisha,2014,59,PALLAHARA,SRIPATI SINKO,,2948,2.3,5,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2282,odisha,2014,59,PALLAHARA,SUNDEEP KUMAR PRADHAN,,1980,1.55,6,forfeit,U,33,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2282,odisha,2014,59,PALLAHARA,BIJAYA KUMAR BEHERA,,1136,0.89,7,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2282,odisha,2014,59,PALLAHARA,MAHARGA SINGH,,1132,0.88,9,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2282,odisha,2014,59,PALLAHARA,JAMBESWAR PATTANAIK,,1121,0.88,10,forfeit,U,42,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2282,odisha,2014,59,PALLAHARA,PARAMANANDA BEHERA,,857,0.67,11,forfeit,U,50,5th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2282,odisha,2014,59,PALLAHARA,DEEPAK KUMAR JENA,,835,0.65,12,forfeit,U,42,Graduate Professional,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2282,odisha,2014,59,PALLAHARA,GOLAP SAHOO,,759,0.59,13,forfeit,U,35,8th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2282,odisha,2014,59,PALLAHARA,MOTILAL CHATAMBA,,666,0.52,14,forfeit,U,31,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2282,odisha,2014,59,PALLAHARA,JUGAL KISHOR JIT,,631,0.49,15,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2284,odisha,2014,60,TALCHER,BRAJAKISHORE PRADHAN,,56465,46.95,1,won,U,38,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2284,odisha,2014,60,TALCHER,KALANDI SAMAL,,42143,35.04,2,lost,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2284,odisha,2014,60,TALCHER,"SASHMITA BEHERA, DO- BHAJAMAN BEHERA",,14396,11.97,3,forfeit,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2284,odisha,2014,60,TALCHER,BISHNU MOHAN RATH,,1866,1.55,4,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2284,odisha,2014,60,TALCHER,"UCHHAN CHANDRA PATTANAYAK, S/O- GIRISHCH. PATTANAYAK",,1085,0.9,5,forfeit,U,53,Graduate Professional,Advocacy,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2284,odisha,2014,60,TALCHER,KESHAB BHUTIA,,941,0.78,6,forfeit,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2284,odisha,2014,60,TALCHER,PARSURAM BARIK,,802,0.67,8,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2284,odisha,2014,60,TALCHER,PRAHALAD CHANDRA SAHOO,,606,0.5,9,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2284,odisha,2014,60,TALCHER,RANJIT KUMAR SAHOO,,404,0.34,10,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2284,odisha,2014,60,TALCHER,AREN KUMAR PANI,,386,0.32,11,forfeit,U,48,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2284,odisha,2014,60,TALCHER,ANITA MOHANTY,,292,0.24,12,forfeit,U,40,12th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2278,odisha,2014,61,ANGUL,RAJANIKANTA SINGH,,72379,47.87,1,won,U,58,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2278,odisha,2014,61,ANGUL,PRATAP CHANDRA PRADHAN,,52036,34.42,2,lost,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2278,odisha,2014,61,ANGUL,MINAKETAN AMANT,,19948,13.19,3,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2278,odisha,2014,61,ANGUL,LAXMAN KUMAR SAHU,,1356,0.9,5,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2278,odisha,2014,61,ANGUL,PRAMOD CHANDRA NAIK,,993,0.66,6,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2278,odisha,2014,61,ANGUL,MANDODARI ROUL,,956,0.63,7,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2278,odisha,2014,61,ANGUL,PRADIPTA KUMAR TRIPATHY,,757,0.5,8,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2278,odisha,2014,61,ANGUL,DEBADATTA PATI,,566,0.37,9,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2278,odisha,2014,61,ANGUL,PRADIP SAHU,,414,0.27,10,forfeit,U,34,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2356,odisha,2014,62,CHHENDIPADA,SUSANTA KUMAR BEHERA,,62035,44.83,1,won,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2356,odisha,2014,62,CHHENDIPADA,AGASTI BEHERA,,52228,37.74,2,lost,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2356,odisha,2014,62,CHHENDIPADA,SANTOSH KUMAR NAIK,,15791,11.41,3,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2356,odisha,2014,62,CHHENDIPADA,GOBINDA NAIK,,3906,2.82,4,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2356,odisha,2014,62,CHHENDIPADA,BHARAT KUMAR NAIK,,824,0.6,6,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2356,odisha,2014,62,CHHENDIPADA,SUKADEB BEHERA,,654,0.47,7,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2356,odisha,2014,62,CHHENDIPADA,TRILOCHAN BEHERA,,527,0.38,8,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2356,odisha,2014,62,CHHENDIPADA,SUBASH NAIK,,477,0.34,9,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2356,odisha,2014,62,CHHENDIPADA,BHIKARAM NAIK,,419,0.3,10,forfeit,U,58,10th Pass,Retired Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2355,odisha,2014,63,ATHAMALLIK,SANJEEB KUMAR SAHOO,,63226,44.85,1,won,U,54,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2355,odisha,2014,63,ATHAMALLIK,SURENDRA KUMAR PRADHAN,,43693,31,2,lost,U,55,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2355,odisha,2014,63,ATHAMALLIK,BHAGIRATHI PRADHAN,,22463,15.93,3,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2355,odisha,2014,63,ATHAMALLIK,RAMANI RANJAN PRADHAN,,2748,1.95,4,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2355,odisha,2014,63,ATHAMALLIK,PRAFULLA KUMAR CHAULIA,,2312,1.64,5,forfeit,U,65,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2355,odisha,2014,63,ATHAMALLIK,ANANDA CHANDRA BEHERA,,1920,1.36,6,forfeit,U,60,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2355,odisha,2014,63,ATHAMALLIK,PRADEEP KUMAR SAHOO,,723,0.51,8,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2355,odisha,2014,63,ATHAMALLIK,TAPAN KUMAR MISHRA,,706,0.5,9,forfeit,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2355,odisha,2014,63,ATHAMALLIK,MITRUGHNA MAHAKHUDA,,683,0.48,10,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2355,odisha,2014,63,ATHAMALLIK,PRASADI BEHERA,,609,0.43,11,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2355,odisha,2014,63,ATHAMALLIK,BHRAMARBARA SAHU,,434,0.31,12,forfeit,U,65,10th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2264,odisha,2014,64,BIRMAHARAJPUR,PADMANABHA BEHERA,,67774,46.01,1,won,U,58,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2264,odisha,2014,64,BIRMAHARAJPUR,ANANDA BARIK,,36484,24.77,2,lost,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2264,odisha,2014,64,BIRMAHARAJPUR,KARTIK PRASAD TARIA,,34589,23.48,3,lost,U,62,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2264,odisha,2014,64,BIRMAHARAJPUR,JYOTIRMOYA NAG,,1992,1.35,5,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2264,odisha,2014,64,BIRMAHARAJPUR,BHOLANATH SAGAR,,1669,1.13,6,forfeit,U,60,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2264,odisha,2014,64,BIRMAHARAJPUR,SADANAND MAHANAND,,1527,1.04,7,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2264,odisha,2014,64,BIRMAHARAJPUR,ASHRAYA MAHANANDA,,1069,0.73,8,forfeit,U,28,Graduate Professional,Engineer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2269,odisha,2014,65,SONEPUR,NIRANJAN PUJARI,,93534,51.7,1,won,U,54,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2269,odisha,2014,65,SONEPUR,PRAMOD KUMAR MAHAPATRA,,42049,23.24,2,lost,U,52,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2269,odisha,2014,65,SONEPUR,SARBESWAR PUROHIT,,35795,19.79,3,lost,U,60,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2269,odisha,2014,65,SONEPUR,BIMALA NAIK,,2408,1.33,5,forfeit,U,49,Literate,Household,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2269,odisha,2014,65,SONEPUR,AMARESWAR MISHRA,,1686,0.93,6,forfeit,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2269,odisha,2014,65,SONEPUR,GIRIDHARI KHURA,,1480,0.82,7,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2269,odisha,2014,65,SONEPUR,NANDIGHOSH MEHER,,1192,0.66,8,forfeit,U,58,5th Pass,Workshop or Small Manufacturer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2267,odisha,2014,66,LOISINGHA,JOGENDRA BEHERA,,64340,40.51,1,won,U,72,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2267,odisha,2014,66,LOISINGHA,PANDABA CHANDRA KUMBHAR,,41486,26.12,2,lost,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2267,odisha,2014,66,LOISINGHA,PARAMANANDA SETH,,38732,24.39,3,lost,U,59,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2267,odisha,2014,66,LOISINGHA,OM PRAKASH KUMBHAR,,3063,1.93,4,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2267,odisha,2014,66,LOISINGHA,DINGAR KUMBHAR,,2301,1.45,5,forfeit,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2267,odisha,2014,66,LOISINGHA,JANMA BARIK,,2231,1.4,6,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2267,odisha,2014,66,LOISINGHA,JUGESWAR KUMBHAR,,2000,1.26,7,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2267,odisha,2014,66,LOISINGHA,SATYANANDA SUNA,,1039,0.65,9,forfeit,U,66,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2267,odisha,2014,66,LOISINGHA,SURUSINGH NAG,,739,0.47,10,forfeit,U,62,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2267,odisha,2014,66,LOISINGHA,LALMAN NAG,,585,0.37,11,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2267,odisha,2014,66,LOISINGHA,NARASINGH SING,,569,0.36,12,forfeit,U,25,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2268,odisha,2014,67,PATNAGARH,KANAK VARDHAN SINGH DEO,,74372,40.58,1,won,U,57,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2268,odisha,2014,67,PATNAGARH,PRAKRITI DEVI SINGH DEO,,60719,33.13,2,lost,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2268,odisha,2014,67,PATNAGARH,KISHOR KUMAR PARICHHA,,33697,18.38,3,lost,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2268,odisha,2014,67,PATNAGARH,SUNIL GOEL,,5588,3.05,4,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2268,odisha,2014,67,PATNAGARH,JAYA SUDAN BARIHA,,2742,1.5,6,forfeit,U,62,10th Pass,Retired Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2268,odisha,2014,67,PATNAGARH,PURNA CHANDRA MEHER,,1553,0.85,7,forfeit,U,61,10th Pass,Retired Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2268,odisha,2014,67,PATNAGARH,MOHAN SUNDAR MEHER,,1545,0.84,8,forfeit,U,66,Graduate,Retired Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2265,odisha,2014,68,BOLANGIR,NARASINGHA MISHRA,,61730,39.83,1,won,U,73,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2265,odisha,2014,68,BOLANGIR,ANAG UDAY SINGHDEO,,49476,31.93,2,lost,U,68,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2265,odisha,2014,68,BOLANGIR,BASUDEV PATI,,35130,22.67,3,lost,U,49,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2265,odisha,2014,68,BOLANGIR,NILAKANTHA NAG,,1970,1.27,5,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2265,odisha,2014,68,BOLANGIR,KARAM CHAND BEJ,,1397,0.9,6,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2265,odisha,2014,68,BOLANGIR,SANGITA MAJHI,,1086,0.7,7,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2265,odisha,2014,68,BOLANGIR,SANDEEP KUMAR BAG,,1074,0.69,8,forfeit,U,32,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2265,odisha,2014,68,BOLANGIR,GOPAL CHANDRA HOTA,,951,0.61,9,forfeit,U,50,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2270,odisha,2014,69,TITLAGARH,TUKUNI SAHU,,71858,42.07,1,won,U,38,Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2270,odisha,2014,69,TITLAGARH,SURENDRA SINGH BHOI,,57836,33.86,2,lost,U,52,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2270,odisha,2014,69,TITLAGARH,MAHENDRA KUMAR THAKUR,,25617,15,3,forfeit,U,40,Post Graduate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2270,odisha,2014,69,TITLAGARH,JAGNESWAR,,3805,2.23,4,forfeit,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2270,odisha,2014,69,TITLAGARH,SATYA NARAYAN BEHERA,,2265,1.33,5,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2270,odisha,2014,69,TITLAGARH,RANJU RAIMAN,,1987,1.16,6,forfeit,U,31,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2270,odisha,2014,69,TITLAGARH,LOKNATH JAL,,1229,0.72,8,forfeit,U,36,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2270,odisha,2014,69,TITLAGARH,CHAIRMAN BAG,,1025,0.6,9,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2270,odisha,2014,69,TITLAGARH,LALIT MOHAN TANDI,,956,0.56,10,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2270,odisha,2014,69,TITLAGARH,SUDAM NAG,,855,0.5,11,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2270,odisha,2014,69,TITLAGARH,DEVENDRA KUMAR JAIN,,828,0.48,12,forfeit,U,32,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2270,odisha,2014,69,TITLAGARH,SITARAM SATPATHY,,814,0.48,13,forfeit,U,70,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2266,odisha,2014,70,KANTABANJI,AYUB KHAN,,55252,31.65,1,won,U,66,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2266,odisha,2014,70,KANTABANJI,SANTOSH SINGH SALUJA,,51384,29.43,2,lost,U,54,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2266,odisha,2014,70,KANTABANJI,LACHHAMAN BAG,,30961,17.73,3,lost,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2266,odisha,2014,70,KANTABANJI,AJAY KUMAR DAS,,20333,11.65,4,forfeit,U,49,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2266,odisha,2014,70,KANTABANJI,BHOLA PANIKA,,3253,1.86,5,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2266,odisha,2014,70,KANTABANJI,PREMANANDA PUTEL,,2676,1.53,6,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2266,odisha,2014,70,KANTABANJI,SUSHIL KUMBHAR,,1784,1.02,7,forfeit,U,44,12th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2266,odisha,2014,70,KANTABANJI,SANTOSH DEEP,,1269,0.73,9,forfeit,U,28,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2266,odisha,2014,70,KANTABANJI,SATYENDRA SUNA,,1206,0.69,10,forfeit,U,34,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2266,odisha,2014,70,KANTABANJI,JAGADISH SINGH BHOI,,967,0.55,11,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2266,odisha,2014,70,KANTABANJI,BISHNU PRASAD JUED,,727,0.42,12,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2266,odisha,2014,70,KANTABANJI,TANKADHARA SAA,,698,0.4,13,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2266,odisha,2014,70,KANTABANJI,ALEXANDER SENAPATI,,694,0.4,14,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2266,odisha,2014,70,KANTABANJI,SRIKANTA MAHANANDA,,580,0.33,15,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2266,odisha,2014,70,KANTABANJI,NISHIKANTA RANA,,536,0.31,16,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2266,odisha,2014,70,KANTABANJI,NANDALAL TANDI,,533,0.31,17,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2305,odisha,2014,71,NUAPADA,BASANTA KUMAR PANDA,,55817,36.46,1,won,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2305,odisha,2014,71,NUAPADA,RAJENDRA DHOLAKIA,,46207,30.18,2,lost,U,58,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2305,odisha,2014,71,NUAPADA,GHASI RAM MAJHI,,39654,25.9,3,lost,U,50,Graduate Professional,Advocacy,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2305,odisha,2014,71,NUAPADA,KUNTI SAHOO,,2611,1.71,4,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2305,odisha,2014,71,NUAPADA,ISWAR CHANDRA THAKUR,,1923,1.26,6,forfeit,U,40,Graduate Professional,Advocacy,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2305,odisha,2014,71,NUAPADA,RANGADHAR MAJHI,,1102,0.72,7,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2305,odisha,2014,71,NUAPADA,SURENDRA PRASAD PANDA,,943,0.62,8,forfeit,U,60,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2305,odisha,2014,71,NUAPADA,LOCHAN SINGH MAJHI,,924,0.6,9,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2305,odisha,2014,71,NUAPADA,BHARAT DAS,,834,0.54,10,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2305,odisha,2014,71,NUAPADA,PRABHAT KUMAR DHARUA,,654,0.43,11,forfeit,U,59,10th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2302,odisha,2014,72,KHARIAR,DURYODHAN MAJHI,,57533,34.42,1,won,U,80,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2302,odisha,2014,72,KHARIAR,ADHIRAJ MOHAN PANIGRAHI,,50407,30.15,2,lost,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2302,odisha,2014,72,KHARIAR,LAMBODAR NIAL,,47655,28.51,3,lost,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2302,odisha,2014,72,KHARIAR,SUDHIR KUMAR SAHOO,,2038,1.22,5,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2302,odisha,2014,72,KHARIAR,NIMAI CHARAN TANDI,,1622,0.97,6,forfeit,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2302,odisha,2014,72,KHARIAR,DEB DEB PRASAD SINGH DEO,,1222,0.73,7,forfeit,U,39,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2302,odisha,2014,72,KHARIAR,JALESWAR SUNA,,1029,0.62,8,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2302,odisha,2014,72,KHARIAR,SATRUGHAN BEHERA,,902,0.54,9,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2302,odisha,2014,72,KHARIAR,SANYASHI DAS,,853,0.51,10,forfeit,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2302,odisha,2014,72,KHARIAR,BHRAMAR BAG,,604,0.36,11,forfeit,U,56,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2302,odisha,2014,72,KHARIAR,RADHESHYAM SAGAR,,595,0.36,12,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2302,odisha,2014,72,KHARIAR,KISHOR KUMAR BAG,,512,0.31,13,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2347,odisha,2014,73,UMARKOTE,SUBASH GOND,,50500,37.15,1,won,U,31,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2347,odisha,2014,73,UMARKOTE,JATINDRA NATH GOND,,39978,29.41,2,lost,U,39,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2347,odisha,2014,73,UMARKOTE,NITYANANDA GOND,,21351,15.71,3,forfeit,U,36,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2347,odisha,2014,73,UMARKOTE,NABIN KUMAR SANTA,,6803,5,4,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2347,odisha,2014,73,UMARKOTE,SANRAJ GOND,,5762,4.24,5,forfeit,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2347,odisha,2014,73,UMARKOTE,REENA MAJHI,,4112,3.02,7,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2347,odisha,2014,73,UMARKOTE,DAMBARUDHAR MAJHI,,2507,1.84,8,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2343,odisha,2014,74,JHARIGAM,RAMESH CHANDRA MAJHI,,65254,41.99,1,won,U,35,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2343,odisha,2014,74,JHARIGAM,ULDHAR MAJHI,,54058,34.78,2,lost,U,40,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2343,odisha,2014,74,JHARIGAM,KUMAR PUJARI,,14010,9.01,3,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2343,odisha,2014,74,JHARIGAM,SHYAM SUNDAR MAJHI,,7591,4.88,5,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2343,odisha,2014,74,JHARIGAM,JALANDHAR MAJHI,,5004,3.22,6,forfeit,U,53,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2346,odisha,2014,75,NABARANGPUR,MANOHAR RANDHARI,,76659,44.36,1,won,U,39,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2346,odisha,2014,75,NABARANGPUR,SADAN NAYAK,,65270,37.77,2,lost,U,60,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2346,odisha,2014,75,NABARANGPUR,BIRENDRA PUJARI,,13496,7.81,3,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2346,odisha,2014,75,NABARANGPUR,DIBAKAR PUJARI,,3195,1.85,5,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2346,odisha,2014,75,NABARANGPUR,PUSPANJALI NAYAK,,2491,1.44,6,forfeit,U,30,10th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2346,odisha,2014,75,NABARANGPUR,NARASINH BHOTRA,,2334,1.35,7,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2346,odisha,2014,75,NABARANGPUR,BHASKAR MAJHI,,2035,1.18,8,forfeit,U,31,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2346,odisha,2014,75,NABARANGPUR,LAIBAN MUDULI,,1864,1.08,9,forfeit,U,48,10th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2346,odisha,2014,75,NABARANGPUR,CHANDRADHWAJA MAJHI,,1849,1.07,10,forfeit,U,54,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2342,odisha,2014,76,DABUGAM,BHUJABAL MAJHI,,62957,41.72,1,won,U,47,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2342,odisha,2014,76,DABUGAM,MOTIRAM NAYAK,,56860,37.68,2,lost,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2342,odisha,2014,76,DABUGAM,SASI DHAR MAJHI,,10853,7.19,3,forfeit,U,57,10th Pass,Ex Govt Employee,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2342,odisha,2014,76,DABUGAM,KUSIA MAJHI,,4335,2.87,5,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2342,odisha,2014,76,DABUGAM,LAXMI DHAR NAIK,,3413,2.26,6,forfeit,U,57,10th Pass,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2342,odisha,2014,76,DABUGAM,GANGADHAR JANI,,3097,2.05,7,forfeit,U,41,Graduate Professional,Lawyer,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2342,odisha,2014,76,DABUGAM,KHAGAPATI NAYAK,,2554,1.69,8,forfeit,U,25,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2342,odisha,2014,76,DABUGAM,BHAGABAN NAYAK,,2147,1.42,9,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2303,odisha,2014,77,LANJIGARH,BALABHADRA MAJHI,,65033,43.47,1,won,U,50,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2303,odisha,2014,77,LANJIGARH,PRADIP KUMAR DISHARI,,40138,26.83,2,lost,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2303,odisha,2014,77,LANJIGARH,BIJAYA DISHARI,,26744,17.88,3,lost,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2303,odisha,2014,77,LANJIGARH,MAHENDRA KUMAR MAJHI,,2094,1.4,5,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2303,odisha,2014,77,LANJIGARH,SOBHA MAJHI,,2045,1.37,6,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2303,odisha,2014,77,LANJIGARH,LAL BAHADUR JANI,,1771,1.18,7,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2303,odisha,2014,77,LANJIGARH,CHANDRAMANI NAIK,,1603,1.07,8,forfeit,U,64,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2303,odisha,2014,77,LANJIGARH,SURESH MAJHI,,1313,0.88,9,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2303,odisha,2014,77,LANJIGARH,KIRAN KUMAR MAJHI,,1204,0.8,10,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2303,odisha,2014,77,LANJIGARH,BISHNU CHARAN BHOI,,1099,0.73,11,forfeit,U,30,Graduate,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2303,odisha,2014,77,LANJIGARH,SANATAN MAJHI,,1091,0.73,12,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2303,odisha,2014,77,LANJIGARH,KABI MAJHI,,674,0.45,13,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2301,odisha,2014,78,JUNAGARH,DIBYA SANKAR MISHRA,,56443,34.21,1,won,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2301,odisha,2014,78,JUNAGARH,ANIL KUMAR SINGH DEO,,46498,28.19,2,lost,U,38,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2301,odisha,2014,78,JUNAGARH,GOBARDHAN DASH,,38715,23.47,3,lost,U,49,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2301,odisha,2014,78,JUNAGARH,HARA PRASAD BAG,,4731,2.87,4,forfeit,U,54,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2301,odisha,2014,78,JUNAGARH,DAMODAR BEHERA,,4166,2.53,5,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2301,odisha,2014,78,JUNAGARH,JATISH CHANDRA MOHANTY,,2144,1.3,7,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2301,odisha,2014,78,JUNAGARH,UMAKANTA TANDI,,1868,1.13,8,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2301,odisha,2014,78,JUNAGARH,MANMATH BENUPANI,,1800,1.09,9,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2301,odisha,2014,78,JUNAGARH,SUDHANIDHI NAIK,,1498,0.91,10,forfeit,U,58,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2301,odisha,2014,78,JUNAGARH,CHINMAYA BEHERA,,1413,0.86,11,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2301,odisha,2014,78,JUNAGARH,RAJESH KUMAR MUND,,822,0.5,12,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2301,odisha,2014,78,JUNAGARH,SURESH CHANDAN,,818,0.5,13,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2301,odisha,2014,78,JUNAGARH,SOBHABAN ROUL,,657,0.4,14,forfeit,U,67,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2301,odisha,2014,78,JUNAGARH,PRADEEP KUMAR PADHI,,653,0.4,15,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2300,odisha,2014,79,DHARMGARH,PUSPENDRA SINGH DEO,,59931,32.76,1,won,U,47,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2300,odisha,2014,79,DHARMGARH,RABINDRA PATTJOSHI,,43773,23.93,2,lost,U,54,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2300,odisha,2014,79,DHARMGARH,TUSHAR RANJAN PATTJOSHI,,33569,18.35,3,lost,U,54,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2300,odisha,2014,79,DHARMGARH,DHANUGOPAL,,19508,10.67,4,forfeit,U,50,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2300,odisha,2014,79,DHARMGARH,DIGAMBAR DURIA,,10011,5.47,5,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2300,odisha,2014,79,DHARMGARH,BISHNU PRASAD AGRAWAL,,3789,2.07,6,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2300,odisha,2014,79,DHARMGARH,SIBARAM NAIK,,2341,1.28,8,forfeit,U,31,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2300,odisha,2014,79,DHARMGARH,SUSHANTA KUMAR NAIK,,2296,1.26,9,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2300,odisha,2014,79,DHARMGARH,SHYAM SUNDAR PANDA,,2092,1.14,10,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2300,odisha,2014,79,DHARMGARH,AKRUR PRASAD SETHIA,,1041,0.57,11,forfeit,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2300,odisha,2014,79,DHARMGARH,KUBER SAHU,,895,0.49,12,forfeit,U,47,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2299,odisha,2014,80,BHAWANIPATNA,ANAM NAIK,,54825,36.75,1,won,U,51,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2299,odisha,2014,80,BHAWANIPATNA,DUSMANTA NAIK,,44011,29.5,2,lost,U,47,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2299,odisha,2014,80,BHAWANIPATNA,DAYANIDHI NAIK,,32449,21.75,3,lost,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2299,odisha,2014,80,BHAWANIPATNA,SARAT CHANDRA NAIK,,4320,2.9,4,forfeit,U,43,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2299,odisha,2014,80,BHAWANIPATNA,LINGARAJ AZAD,,1960,1.31,5,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2299,odisha,2014,80,BHAWANIPATNA,CHITRASEN CHHATRIA,,1730,1.16,6,forfeit,U,65,10th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2299,odisha,2014,80,BHAWANIPATNA,BAISNAB CHARAN NAIK,,1551,1.04,7,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2299,odisha,2014,80,BHAWANIPATNA,YUDHA SUNANI,,1220,0.82,8,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2299,odisha,2014,80,BHAWANIPATNA,RISHISUDAN CHHATRAPAL,,1012,0.68,10,forfeit,U,41,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2299,odisha,2014,80,BHAWANIPATNA,BAIDYA NATH BEHERA,,985,0.66,11,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2299,odisha,2014,80,BHAWANIPATNA,HEMABANTI NAIK,,730,0.49,12,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2299,odisha,2014,80,BHAWANIPATNA,DAMAYANTI MAHANAND,,729,0.49,13,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2299,odisha,2014,80,BHAWANIPATNA,LALU NIAL,,674,0.45,14,forfeit,U,30,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2299,odisha,2014,80,BHAWANIPATNA,SURYA NARAYAN KUMAR,,533,0.36,15,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2299,odisha,2014,80,BHAWANIPATNA,USHA NAG,,500,0.34,16,forfeit,U,37,5th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2299,odisha,2014,80,BHAWANIPATNA,KAISHAB BIHARI,,453,0.3,17,forfeit,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2299,odisha,2014,80,BHAWANIPATNA,MANOJ NAIK,,429,0.29,18,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,DHANESWAR MAJHI,,56783,37.73,1,won,U,73,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,JAGANNATH PATTNAYAK,,41015,27.25,2,lost,U,68,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,ARTATRANA MOHAPATRA,,31809,21.14,3,lost,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,ARJUN SAHOO,,2446,1.63,4,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,HEMANTA KUMAR DAS,,2147,1.43,5,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,LAXMI GOUDIA,,2144,1.42,6,forfeit,U,60,5th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,ASHAKARI NAG,,1681,1.12,7,forfeit,U,72,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,GOURA CHANDRA SETH,,1633,1.09,8,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,LAXMINARAYAN PANDA,,1452,0.96,9,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,MANOJ KUMAR PATTANAYAK,,1146,0.76,10,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,PRAVAKAR NAG,,1039,0.69,11,forfeit,U,60,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,BAIDYANATH MISHRA,,949,0.63,12,forfeit,U,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,DEBENDRA NAYAK,,858,0.57,13,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,UDHABA SAHU,,854,0.57,14,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,BHISMA CHANDRA SAHU,,849,0.56,15,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,P. SHANKAR REDDI,,782,0.52,16,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,UCHHABA SAHU,,648,0.43,17,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,MAHENDRA DHANGADA MAJHI,,623,0.41,18,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,DEBARAJ SAHU,,593,0.39,19,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2304,odisha,2014,81,NARLA,UMESH CHANDRA SAHU,,462,0.31,21,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2306,odisha,2014,82,BALIGUDA,RAJIB PATRA,,37606,37.25,1,won,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2306,odisha,2014,82,BALIGUDA,KLESA PRADHAN,,34910,34.58,2,lost,U,56,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2306,odisha,2014,82,BALIGUDA,KARENDRA MAJHI,,18103,17.93,3,lost,U,39,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2306,odisha,2014,82,BALIGUDA,NABAGHANA KARJIMAJHI,,2718,2.69,4,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2306,odisha,2014,82,BALIGUDA,DUKHISHYAM MUTHAMAJHI,,1582,1.57,6,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2306,odisha,2014,82,BALIGUDA,DEBENDRA KANHAR,,1429,1.42,7,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2306,odisha,2014,82,BALIGUDA,BIJESWAR MALLICK,,1426,1.41,8,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2306,odisha,2014,82,BALIGUDA,MINATI MALLICK,,1314,1.3,9,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2310,odisha,2014,83,G. UDAYAGIRI,JACOB PRADHAN,,48958,39.82,1,won,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2310,odisha,2014,83,G. UDAYAGIRI,PRADEEP KUMAR PRADHAN,,38669,31.45,2,lost,U,42,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2310,odisha,2014,83,G. UDAYAGIRI,MANAGOBINDA PRADHAN,,27295,22.2,3,lost,U,41,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2310,odisha,2014,83,G. UDAYAGIRI,PRADEEP KUMAR MALLICK,,3205,2.61,4,forfeit,U,47,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2310,odisha,2014,83,G. UDAYAGIRI,MENAKA PRADHAN,,1867,1.52,5,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2310,odisha,2014,83,G. UDAYAGIRI,SANJAYA KUMAR PRADHAN,,1156,0.94,7,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2312,odisha,2014,84,PHULBANI,DUGUNI KANHAR,,58273,46.65,1,won,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2312,odisha,2014,84,PHULBANI,DEBANARAYAN PRADHAN,,32478,26,2,lost,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2312,odisha,2014,84,PHULBANI,SUDARSAN KANHAR,,21510,17.22,3,lost,U,59,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2312,odisha,2014,84,PHULBANI,ANANTA KANHAR,,3133,2.51,4,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2312,odisha,2014,84,PHULBANI,DURGAMADHAB KANHAR,,2203,1.76,5,forfeit,U,50,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2312,odisha,2014,84,PHULBANI,JALANDHAR KANHAR,,1683,1.35,6,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2312,odisha,2014,84,PHULBANI,HAREKRISHNA MALLICK,,1535,1.23,8,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2312,odisha,2014,84,PHULBANI,UMESH PRASAD PATRA,,1288,1.03,9,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2312,odisha,2014,84,PHULBANI,PURUSOTTAM KANHAR,,1235,0.99,10,forfeit,U,42,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2311,odisha,2014,85,KANTAMAL,MAHIDHAR RANA,,49202,42.62,1,won,U,44,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2311,odisha,2014,85,KANTAMAL,HARINARAYAN PRADHAN,,23836,20.65,2,lost,U,52,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2311,odisha,2014,85,KANTAMAL,KANHAI CHARANA DANGA,,23688,20.52,3,lost,U,60,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2311,odisha,2014,85,KANTAMAL,SUDHANSU DANGA,,9336,8.09,4,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2311,odisha,2014,85,KANTAMAL,ADITYA PRADHAN,,2791,2.42,5,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2311,odisha,2014,85,KANTAMAL,DOLAMANI PRADHAN,,1630,1.41,6,forfeit,U,23,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2311,odisha,2014,85,KANTAMAL,BISHNUPRIYA PANDA,,868,0.75,8,forfeit,U,36,8th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2311,odisha,2014,85,KANTAMAL,RAJEEB KUMAR NAYAK,,848,0.73,9,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2311,odisha,2014,85,KANTAMAL,RAMESH CHANDRA DEHURIA,,845,0.73,10,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2311,odisha,2014,85,KANTAMAL,SANDIP KUMAR MEHER,,697,0.6,11,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2311,odisha,2014,85,KANTAMAL,SUSHIL KUMBHAR,,563,0.49,12,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2308,odisha,2014,86,BOUDH,PRADIP KUMAR AMAT,,54618,48.61,1,won,U,61,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2308,odisha,2014,86,BOUDH,SUSANTA KUMAR PRADHAN,,43470,38.69,2,lost,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2308,odisha,2014,86,BOUDH,SURYA NARAYAN MAHAPATRA,,8597,7.65,3,forfeit,U,64,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2308,odisha,2014,86,BOUDH,ABAKASH SAHOO,,1265,1.13,4,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2308,odisha,2014,86,BOUDH,SAMARESH MISHRA,,571,0.51,6,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2308,odisha,2014,86,BOUDH,SASTA KUMAR PUROHIT,,564,0.5,7,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2308,odisha,2014,86,BOUDH,SANA PRADHAN,,498,0.44,8,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2308,odisha,2014,86,BOUDH,BIJAYA KUMAR BEHERA,,492,0.44,9,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2308,odisha,2014,86,BOUDH,BANAMALI BHABASAGARA,,475,0.42,10,forfeit,U,28,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2308,odisha,2014,86,BOUDH,LAKSHMAN BEHERA,,432,0.38,11,forfeit,U,52,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2308,odisha,2014,86,BOUDH,GANGADHARA HANSA,,421,0.37,12,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2274,odisha,2014,87,BARAMBA,DEBIPRASAD MISHRA,,91772,58.27,1,won,U,55,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2274,odisha,2014,87,BARAMBA,LAXMI DEVI,,23761,15.09,2,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2274,odisha,2014,87,BARAMBA,SURYA KISHORE MOHANTY,,17200,10.92,3,forfeit,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2274,odisha,2014,87,BARAMBA,BIBHUDATTA PATTANAIK,,14226,9.03,4,forfeit,U,55,Graduate,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2274,odisha,2014,87,BARAMBA,NITYANANDA KHATUA,,3163,2.01,5,forfeit,U,83,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2274,odisha,2014,87,BARAMBA,DILLIP KUMAR KHATUA,,1889,1.2,7,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2274,odisha,2014,87,BARAMBA,DEVI PRASAD PATTANAIK,,1162,0.74,8,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2274,odisha,2014,87,BARAMBA,SUBAS KUMAR SAHOO,,924,0.59,9,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2274,odisha,2014,87,BARAMBA,SUSANTA KUMAR JENA,,630,0.4,10,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2274,odisha,2014,87,BARAMBA,MANOJ KUMAR PANDA,,444,0.28,11,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2274,odisha,2014,87,BARAMBA,LAXMIDHAR SAHOO,,409,0.26,12,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2272,odisha,2014,88,BANKI,PRAVATA KUMAR TRIPATHY,,85809,58.69,1,won,U,61,Graduate Professional,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2272,odisha,2014,88,BANKI,RABINDRA KUMAR MALLICK,,42051,28.76,2,lost,U,61,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2272,odisha,2014,88,BANKI,AJAYA KUMAR SWAIN,,8672,5.93,3,forfeit,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2272,odisha,2014,88,BANKI,SUBHRANSU MOHAN PADHI,,4256,2.91,4,forfeit,U,52,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2272,odisha,2014,88,BANKI,RITANJALI SAMAL,,1337,0.91,5,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2272,odisha,2014,88,BANKI,KAMALAKANTA PRAHARAJ,,1037,0.71,6,forfeit,U,57,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2272,odisha,2014,88,BANKI,BIRANCHI KUMAR MOHARANA,,700,0.48,8,forfeit,U,47,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2272,odisha,2014,88,BANKI,JAJATI KESARI PATTANAYAK,,438,0.3,9,forfeit,U,57,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2272,odisha,2014,88,BANKI,UTKALMANI MANTRY,,326,0.22,10,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2272,odisha,2014,88,BANKI,HEMANT DEVATA,,300,0.21,11,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2272,odisha,2014,88,BANKI,NARENDRA KUMAR MOHARANA,,281,0.19,12,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2271,odisha,2014,89,ATHAGARH,RANENDRA PRATAP SWAIN,,102605,69.7,1,won,U,60,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2271,odisha,2014,89,ATHAGARH,BICHITRANANDA MUDULI,,34118,23.18,2,lost,U,72,Graduate,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2271,odisha,2014,89,ATHAGARH,BISWA SUNDAR MISHRA,,7132,4.84,3,forfeit,U,60,Graduate Professional,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2271,odisha,2014,89,ATHAGARH,BIKASH CHANDRA PANDA,,1290,0.88,5,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2271,odisha,2014,89,ATHAGARH,SHANKARSHAN MOHANTY,,495,0.34,6,forfeit,U,50,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2273,odisha,2014,90,BARABATI-CUTTACK,DEBASHISH SAMANTARAY,,57633,45.8,1,won,U,54,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2273,odisha,2014,90,BARABATI-CUTTACK,MOHAMMED MOQUIM,,43335,34.44,2,lost,U,48,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2273,odisha,2014,90,BARABATI-CUTTACK,PRADEEP SWAIN,,20552,16.33,3,forfeit,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2273,odisha,2014,90,BARABATI-CUTTACK,SHAIKH MUNTAQEEM BUKSH,,1012,0.8,5,forfeit,U,38,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2273,odisha,2014,90,BARABATI-CUTTACK,MD. WAHID SHAKEEL,,771,0.61,6,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2273,odisha,2014,90,BARABATI-CUTTACK,RAMARAMAN SARANGI,,677,0.54,7,forfeit,U,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2273,odisha,2014,90,BARABATI-CUTTACK,SYED SAIF ALI,,274,0.22,8,forfeit,U,35,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2273,odisha,2014,90,BARABATI-CUTTACK,PRATAP CHANDRA MISHRA,,207,0.16,9,forfeit,U,31,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2273,odisha,2014,90,BARABATI-CUTTACK,BIPIN BIHARI SAHOO,,125,0.1,10,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2275,odisha,2014,91,CHOUDWAR-CUTTACK,PRAVAT RANJAN BISWAL,,70880,54.45,1,won,U,47,Graduate,Activist,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2275,odisha,2014,91,CHOUDWAR-CUTTACK,SURESH MOHAPATRA,,29495,22.66,2,lost,U,57,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2275,odisha,2014,91,CHOUDWAR-CUTTACK,NAYAN KISHORE MOHANTY,,24651,18.94,3,lost,U,52,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2275,odisha,2014,91,CHOUDWAR-CUTTACK,SRIRAM PANDEY,,1168,0.9,5,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2275,odisha,2014,91,CHOUDWAR-CUTTACK,BICHITRANANDA ROUTRAY,,860,0.66,6,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2275,odisha,2014,91,CHOUDWAR-CUTTACK,JINES DAS,,745,0.57,7,forfeit,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2275,odisha,2014,91,CHOUDWAR-CUTTACK,BIJAY KUMAR SAMAL,,509,0.39,8,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2275,odisha,2014,91,CHOUDWAR-CUTTACK,GANESH KUMAR TRIPATHY,,503,0.39,9,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2288,odisha,2014,92,NIALI,PRAMOD KUMAR MALLICK,,88119,53.27,1,won,U,65,Post Graduate,Doctor,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2288,odisha,2014,92,NIALI,CHHABI MALIK,,62310,37.67,2,lost,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2288,odisha,2014,92,NIALI,SUSHANTA KUMAR MALLICK,,11831,7.15,3,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2288,odisha,2014,92,NIALI,SASMITA MALLCIK,,776,0.47,5,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2288,odisha,2014,92,NIALI,SANATAN MALICK,,670,0.41,6,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2288,odisha,2014,92,NIALI,RINABALA DAS,,627,0.38,7,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2276,odisha,2014,93,CUTTACK SADAR,CHANDRA SARATHI BEHERA,,71247,50.94,1,won,U,39,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2276,odisha,2014,93,CUTTACK SADAR,DILIP KUMAR MALLICK,,45456,32.5,2,lost,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2276,odisha,2014,93,CUTTACK SADAR,CHANDRA SKHAR SAMAL,,18271,13.06,3,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2276,odisha,2014,93,CUTTACK SADAR,MANAS RANJAN KHATUA,,975,0.7,4,forfeit,U,41,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2276,odisha,2014,93,CUTTACK SADAR,BILASA MALLIK,,705,0.5,6,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2276,odisha,2014,93,CUTTACK SADAR,MINAKHI DAS,,612,0.44,7,forfeit,U,54,10th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2276,odisha,2014,93,CUTTACK SADAR,PRANAKRUSHNA BHOI,,583,0.42,8,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2276,odisha,2014,93,CUTTACK SADAR,RAJAKISHORE MALLIK,,541,0.39,9,forfeit,U,47,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2276,odisha,2014,93,CUTTACK SADAR,BIRENDRA KUMAR SAMAL,,311,0.22,10,forfeit,U,48,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2276,odisha,2014,93,CUTTACK SADAR,HARI GOCHHAYAT,,199,0.14,11,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2319,odisha,2014,94,SALIPUR,PRAKASH CHANDRA BEHERA,,78343,46.56,1,won,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2319,odisha,2014,94,SALIPUR,PRASANTA BEHERA,,76226,45.31,2,lost,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2319,odisha,2014,94,SALIPUR,CHOUDHURY HEMANTA KUMAR SAHU,,7712,4.58,3,forfeit,U,57,Graduate,Ex Military,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2319,odisha,2014,94,SALIPUR,BADRINARAYAN DASH,,2834,1.68,4,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2319,odisha,2014,94,SALIPUR,BIJAN SATAPATHY,,679,0.4,6,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2319,odisha,2014,94,SALIPUR,JASOBANTA JENA,,523,0.31,7,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2319,odisha,2014,94,SALIPUR,SK.ASFAQUE ALI,,356,0.21,8,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2319,odisha,2014,94,SALIPUR,SANJAY KUMAR LENKA,,315,0.19,9,forfeit,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2319,odisha,2014,94,SALIPUR,SUVESH RANJAN PARIDA,,309,0.18,10,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2316,odisha,2014,95,MAHANGA,PRATAP JENA,,89531,49.34,1,won,U,48,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2316,odisha,2014,95,MAHANGA,SARADA PRASAD PADHAN,,61657,33.98,2,lost,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2316,odisha,2014,95,MAHANGA,SK. MATLUB ALI,,22297,12.29,3,forfeit,U,70,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2316,odisha,2014,95,MAHANGA,SAMIR KUMAR SAMAL,,3572,1.97,4,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2316,odisha,2014,95,MAHANGA,RAKHI AGARWAL,,855,0.47,6,forfeit,U,32,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2316,odisha,2014,95,MAHANGA,MIHIR RANJAN JENA,,810,0.45,7,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2316,odisha,2014,95,MAHANGA,BHASKAR CHANDRA SWAIN,,636,0.35,8,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2316,odisha,2014,95,MAHANGA,LAXMIDHAR JENA,,443,0.24,9,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2316,odisha,2014,95,MAHANGA,AMAR NAYAK,,343,0.19,10,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2316,odisha,2014,95,MAHANGA,LAXMIPRIYA SAHOO,,244,0.13,11,forfeit,U,40,10th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2317,odisha,2014,96,PATKURA,BED PRAKASH AGARWALLA,,89853,56.42,1,won,U,77,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2317,odisha,2014,96,PATKURA,JAYANTA KUMAR MOHANTY,,42138,26.46,2,lost,U,43,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2317,odisha,2014,96,PATKURA,MANAS RANJAN MOHANTY,,21588,13.56,3,forfeit,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2317,odisha,2014,96,PATKURA,SK AHESAN ALI,,2737,1.72,4,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2317,odisha,2014,96,PATKURA,BANAMBER SAHOO,,549,0.34,6,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2317,odisha,2014,96,PATKURA,SATYAJIT ROUT,,358,0.22,7,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2317,odisha,2014,96,PATKURA,ANNADA PRASAD ROUTRAY,,351,0.22,8,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2317,odisha,2014,96,PATKURA,AMIYA RANJAN SAHOO,,288,0.18,9,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2317,odisha,2014,96,PATKURA,LELIN LENKA,,283,0.18,10,forfeit,U,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2317,odisha,2014,96,PATKURA,PRADEEP KUMAR DASH,,207,0.13,11,forfeit,U,47,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2314,odisha,2014,97,KENDRAPARA,KISHORE CHANDRA TARAI,,65037,46.93,1,won,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2314,odisha,2014,97,KENDRAPARA,GANESWAR BEHERA,,59606,43.01,2,lost,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2314,odisha,2014,97,KENDRAPARA,SUNAKAR BEHERA,,9981,7.2,3,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2314,odisha,2014,97,KENDRAPARA,AKSHAYA KUMAR MALIK,,1645,1.19,4,forfeit,U,48,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2314,odisha,2014,97,KENDRAPARA,JAGANNATH SETHI,,729,0.53,5,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2314,odisha,2014,97,KENDRAPARA,BABAJI CHARAN MALIK,,372,0.27,7,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2314,odisha,2014,97,KENDRAPARA,BIJAN KUMAR MALLIK,,360,0.26,8,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2314,odisha,2014,97,KENDRAPARA,RABINDRA SETHI,,171,0.12,9,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2313,odisha,2014,98,AUL,DEVENDRA SHARMA,,81254,48.9,1,won,U,55,Graduate Professional,Legal Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2313,odisha,2014,98,AUL,PRATAP KESHARI DEB,,77751,46.8,2,lost,U,43,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2313,odisha,2014,98,AUL,BRAJA SUNDAR BHUYAN,,3914,2.36,3,forfeit,U,47,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2313,odisha,2014,98,AUL,BIRABARA JENA,,726,0.44,5,forfeit,U,62,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2313,odisha,2014,98,AUL,ABANI DAS,,342,0.21,6,forfeit,U,60,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2313,odisha,2014,98,AUL,BIDHAN CHANDRA DAS,,335,0.2,7,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2313,odisha,2014,98,AUL,PRAMILA SAMAL,,264,0.16,8,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2313,odisha,2014,98,AUL,SOUMYA RANJAN DHAL,,248,0.15,9,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2313,odisha,2014,98,AUL,AKSHAYA KUMAR KARAN,,165,0.1,10,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2318,odisha,2014,99,RAJANAGAR,ANSHUMAN MOHANTY,,76806,49,1,won,U,30,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2318,odisha,2014,99,RAJANAGAR,DHRUBA CH. SAHOO,,71377,45.54,2,lost,U,47,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2318,odisha,2014,99,RAJANAGAR,JNANDEV BEURA,,6632,4.23,3,forfeit,U,50,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2318,odisha,2014,99,RAJANAGAR,SURENDRANATH MOHANTY,,529,0.34,5,forfeit,U,66,Graduate,Ex Govt Employee,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2318,odisha,2014,99,RAJANAGAR,KAILAS MOHANTY,,427,0.27,6,forfeit,U,54,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2315,odisha,2014,100,MAHAKALAPADA,ATANU SABYASACHI NAYAK,,81050,47.62,1,won,U,46,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2315,odisha,2014,100,MAHAKALAPADA,BIJOY MOHAPATRA,,57804,33.96,2,lost,U,65,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2315,odisha,2014,100,MAHAKALAPADA,BALARAM PARIDA,,27001,15.86,3,forfeit,U,59,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2315,odisha,2014,100,MAHAKALAPADA,RANJAN KUMAR MALLIK,,1071,0.63,4,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2315,odisha,2014,100,MAHAKALAPADA,GOLEKHA NAURY,,744,0.44,5,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2315,odisha,2014,100,MAHAKALAPADA,SIBA PRASAD SINGH,,561,0.33,6,forfeit,U,55,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2315,odisha,2014,100,MAHAKALAPADA,NALINIKANTA BEHERA,,486,0.29,8,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2315,odisha,2014,100,MAHAKALAPADA,BABRUBAHAN ROUTRAY,,414,0.24,9,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2315,odisha,2014,100,MAHAKALAPADA,SIKHANSU LENKA,,351,0.21,10,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2315,odisha,2014,100,MAHAKALAPADA,BIKRAM KESHARI ROUTRAY,,179,0.11,11,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2290,odisha,2014,101,PARADEEP,DAMODAR ROUT,,85206,59.15,1,won,U,72,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2290,odisha,2014,101,PARADEEP,ARINDAM SARKHEL,,46606,32.35,2,lost,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2290,odisha,2014,101,PARADEEP,DIPTIREKHA NAYAK,,5832,4.05,3,forfeit,U,39,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2290,odisha,2014,101,PARADEEP,JINMAYEE SAHANI,,2276,1.58,4,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2290,odisha,2014,101,PARADEEP,MANOJ PATRA,,1127,0.78,5,forfeit,U,45,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2290,odisha,2014,101,PARADEEP,MATHURANANDA DAS,,1032,0.72,6,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2290,odisha,2014,101,PARADEEP,BIMALA CHANDRA PATTNAYAK,,620,0.43,8,forfeit,U,47,Graduate,Ex Military,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2290,odisha,2014,101,PARADEEP,KAPILA CHARAN JENA,,258,0.18,9,forfeit,U,63,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2290,odisha,2014,101,PARADEEP,RASHMI RANJAN SAMAL,,172,0.12,10,forfeit,U,32,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2291,odisha,2014,102,TIRTOL,RAJASHREE MALLICK,,88953,55.2,1,won,U,49,Post Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2291,odisha,2014,102,TIRTOL,RAJKISHORE BEHERA,,53505,33.21,2,lost,U,52,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2291,odisha,2014,102,TIRTOL,RAMAKANTA BHOI,,14516,9.01,3,forfeit,U,36,Doctorate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2291,odisha,2014,102,TIRTOL,SUKANTA KUMAR BHOI,,1071,0.66,5,forfeit,U,44,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2291,odisha,2014,102,TIRTOL,PRAMODINI SETHY,,978,0.61,6,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2291,odisha,2014,102,TIRTOL,BIJAYA KUMAR SETHI,,505,0.31,7,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2291,odisha,2014,102,TIRTOL,JASOBANTA BHOI,,404,0.25,8,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2285,odisha,2014,103,BALIKUDA-ERSAMA,PRASANTA KUMAR MUDULI,,69335,38.12,1,won,U,51,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2285,odisha,2014,103,BALIKUDA-ERSAMA,LALATENDU MOHAPATRA,,39981,21.98,2,lost,U,52,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2285,odisha,2014,103,BALIKUDA-ERSAMA,RAGHUNANDAN DAS,,32135,17.67,3,lost,U,56,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2285,odisha,2014,103,BALIKUDA-ERSAMA,SARADA PRASAN JENA,,23948,13.17,4,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2285,odisha,2014,103,BALIKUDA-ERSAMA,ABHIJIT SAHOO,,5260,2.89,5,forfeit,U,29,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2285,odisha,2014,103,BALIKUDA-ERSAMA,KHIROD KUMAR SWAIN,,5186,2.85,6,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2285,odisha,2014,103,BALIKUDA-ERSAMA,CHITTA RANJAN KANSA,,3724,2.05,7,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2285,odisha,2014,103,BALIKUDA-ERSAMA,BIBHUTI BHUSAN MAJHI,,987,0.54,8,forfeit,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2285,odisha,2014,103,BALIKUDA-ERSAMA,AKSHYA KUMAR SWAIN,,685,0.38,9,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2286,odisha,2014,104,JAGATSINGHPUR,CHIRANJIB BISWAL,,67067,43.34,1,won,U,51,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2286,odisha,2014,104,JAGATSINGHPUR,BISHNU CHARAN DAS,,64179,41.47,2,lost,U,59,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2286,odisha,2014,104,JAGATSINGHPUR,SATYABRATA MOHAPATRA,,8844,5.71,3,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2286,odisha,2014,104,JAGATSINGHPUR,PRATAP KUMAR MISHRA,,7058,4.56,4,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2286,odisha,2014,104,JAGATSINGHPUR,SK IMAM UDDIN,,5405,3.49,5,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2286,odisha,2014,104,JAGATSINGHPUR,RAJESH KUMAR GOCHHAYAT,,496,0.32,7,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2286,odisha,2014,104,JAGATSINGHPUR,SISIR KUMAR SWAIN,,488,0.32,8,forfeit,U,41,5th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2286,odisha,2014,104,JAGATSINGHPUR,DEBI PRASAD MOHARANA,,376,0.24,9,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2286,odisha,2014,104,JAGATSINGHPUR,BIRENDRA KUMAR BISWAL,,276,0.18,10,forfeit,U,25,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2287,odisha,2014,105,KAKATPUR,SURENDRA SETHI,,89963,57.42,1,won,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2287,odisha,2014,105,KAKATPUR,RABINDRA KUMAR SETHY,,48933,31.23,2,lost,U,59,Doctorate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2287,odisha,2014,105,KAKATPUR,TUSHARKANTI BEHERA,,12093,7.72,3,forfeit,U,30,Post Graduate,Managerial Position,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2287,odisha,2014,105,KAKATPUR,KAMAL KUMAR BEHERA,,3609,2.3,4,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2287,odisha,2014,105,KAKATPUR,SANJAY KUMAR KANDI,,722,0.46,6,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2287,odisha,2014,105,KAKATPUR,MADHAB MALLIK,,513,0.33,7,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2289,odisha,2014,106,NIMAPARA,SAMIR RANJAN DASH,,86958,51.62,1,won,U,51,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2289,odisha,2014,106,NIMAPARA,PRAVATI PARIDA,,57321,34.03,2,lost,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2289,odisha,2014,106,NIMAPARA,BISWARANJAN MOHANTY,,20748,12.32,3,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2289,odisha,2014,106,NIMAPARA,DEBENDRA NATH SAHOO,,1327,0.79,4,forfeit,U,60,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2289,odisha,2014,106,NIMAPARA,PRAFULLA CHANDRA MISHRA,,692,0.41,5,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2289,odisha,2014,106,NIMAPARA,SUDHIR CHARAN MOHANTY,,312,0.19,7,forfeit,U,61,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2289,odisha,2014,106,NIMAPARA,SANTOSH KUMAR KUNDA,,273,0.16,8,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2289,odisha,2014,106,NIMAPARA,SAMIR RANJAN SAMANTARAY,,248,0.15,9,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2352,odisha,2014,107,PURI,MAHESWAR MOHANTY,,76760,53.44,1,won,U,58,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2352,odisha,2014,107,PURI,UMA BALLAV RATH,,42039,29.27,2,lost,U,51,Graduate,Qualified Professional,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2352,odisha,2014,107,PURI,KRUSHNA CHANDRA PANDA,,17560,12.23,3,forfeit,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2352,odisha,2014,107,PURI,SURENDRANATH DASH,,2504,1.74,4,forfeit,U,56,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2352,odisha,2014,107,PURI,ADITYA HRUDAY MISHRA,,1058,0.74,6,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2352,odisha,2014,107,PURI,BASANTI BHOI,,921,0.64,7,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2352,odisha,2014,107,PURI,SRIDHAR MISHRA,,580,0.4,8,forfeit,U,72,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2352,odisha,2014,107,PURI,NRUSINGHA CHARAN DAS,,348,0.24,9,forfeit,U,66,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2352,odisha,2014,107,PURI,RAMA CHANDRA PRADHAN,,331,0.23,10,forfeit,U,68,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2348,odisha,2014,108,BRAMHAGIRI,SANJAY KUMAR DAS BURMA,,78982,48.77,1,won,U,47,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2348,odisha,2014,108,BRAMHAGIRI,LALATENDU BIDYADHAR MOHAPATRA,,77334,47.75,2,lost,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2348,odisha,2014,108,BRAMHAGIRI,DEBENDRANATH TAREI,,3286,2.03,3,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2348,odisha,2014,108,BRAMHAGIRI,MANGARAJ DAS,,735,0.45,4,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2348,odisha,2014,108,BRAMHAGIRI,SUBHASHREE BISWAL,,511,0.32,6,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2348,odisha,2014,108,BRAMHAGIRI,SANJAY DAS,,315,0.19,7,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2348,odisha,2014,108,BRAMHAGIRI,SUSANTA KUMAR DAS,,249,0.15,8,forfeit,U,39,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2354,odisha,2014,109,SATYABADI,UMAKANTA SAMANTRAY,,48319,33.52,1,won,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2354,odisha,2014,109,SATYABADI,RAMA RANJAN BALIARSINGH,,46787,32.46,2,lost,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2354,odisha,2014,109,SATYABADI,PRASAD KUMAR HARICHANDAN,,25905,17.97,3,lost,U,47,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2354,odisha,2014,109,SATYABADI,OM PRAKASH MISHRA,,15068,10.45,4,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2354,odisha,2014,109,SATYABADI,BISWANATH RATH,,5550,3.85,5,forfeit,U,63,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2354,odisha,2014,109,SATYABADI,JITENDRA KUMAR SAHOO,,1062,0.74,6,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2354,odisha,2014,109,SATYABADI,MRUTYUNJAYA BADAJENA,,758,0.53,7,forfeit,U,74,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2351,odisha,2014,110,PIPILI,PRADEEP MAHARATHY,,82550,51.19,1,won,U,58,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2351,odisha,2014,110,PIPILI,JUDHISTIR SAMANTARAY,,49076,30.43,2,lost,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2351,odisha,2014,110,PIPILI,ASHRIT PATTANAYAK,,18000,11.16,3,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2351,odisha,2014,110,PIPILI,PRAFULLA PRASAD GAJENDRA,,7656,4.75,4,forfeit,U,60,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2351,odisha,2014,110,PIPILI,SATYAPRIYA BEHERA,,1782,1.1,5,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2351,odisha,2014,110,PIPILI,SUBASH BARAL,,993,0.62,7,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2262,odisha,2014,111,JAYADEV,SASHI BHUSAN BEHERA,,69637,56.65,1,won,U,61,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2262,odisha,2014,111,JAYADEV,BENUDHAR BHOI,,28686,23.34,2,lost,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2262,odisha,2014,111,JAYADEV,BASANTA KUMAR NAYAK,,20007,16.28,3,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2262,odisha,2014,111,JAYADEV,DIBAKAR DAS,,1105,0.9,5,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2262,odisha,2014,111,JAYADEV,PRAFULLA CHANDRA BEHERA,,950,0.77,6,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2262,odisha,2014,111,JAYADEV,SATYA PRIYA BEHERA,,669,0.54,7,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2262,odisha,2014,111,JAYADEV,BIJAY KUMAR BHOI,,375,0.31,8,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2262,odisha,2014,111,JAYADEV,BISHNU CHARAN MALIK,,352,0.29,9,forfeit,U,67,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2258,odisha,2014,112,BHUBANESWAR CENTRAL (MADHYA),BIJAYA KUMAR MOHANTY,,50107,53.71,1,won,U,50,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2258,odisha,2014,112,BHUBANESWAR CENTRAL (MADHYA),JAGANNATH PRADHAN,,27718,29.71,2,lost,U,45,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2258,odisha,2014,112,BHUBANESWAR CENTRAL (MADHYA),SHUVENDU MOHANTY,,11429,12.25,3,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2258,odisha,2014,112,BHUBANESWAR CENTRAL (MADHYA),RANJAN KUMAR DAS,,1251,1.34,4,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2258,odisha,2014,112,BHUBANESWAR CENTRAL (MADHYA),GITANJALI BAKSHI,,710,0.76,6,forfeit,U,56,10th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2258,odisha,2014,112,BHUBANESWAR CENTRAL (MADHYA),DEBI PRASAD PRUSTI,,220,0.24,7,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2258,odisha,2014,112,BHUBANESWAR CENTRAL (MADHYA),JAYADARSHI NAYAK,,180,0.19,8,forfeit,U,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2258,odisha,2014,112,BHUBANESWAR CENTRAL (MADHYA),HARIHARA DEO,,139,0.15,9,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2258,odisha,2014,112,BHUBANESWAR CENTRAL (MADHYA),LALIT MOHAN PATNAIK,,112,0.12,10,forfeit,U,59,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2258,odisha,2014,112,BHUBANESWAR CENTRAL (MADHYA),ANITA MANJARI SAMAL,,99,0.11,11,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2258,odisha,2014,112,BHUBANESWAR CENTRAL (MADHYA),SUBASH CHANDRA CHAU PATTNAYAK,,82,0.09,12,forfeit,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2258,odisha,2014,112,BHUBANESWAR CENTRAL (MADHYA),PITAMBAR BHUYAN,,71,0.08,13,forfeit,U,55,10th Pass,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2258,odisha,2014,112,BHUBANESWAR CENTRAL (MADHYA),SANGRAM KESHARI PATTNAYAK,,62,0.07,14,forfeit,U,34,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2258,odisha,2014,112,BHUBANESWAR CENTRAL (MADHYA),SUDARSHAN PRADHAN,,55,0.06,15,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2258,odisha,2014,112,BHUBANESWAR CENTRAL (MADHYA),SIKHARA BHOI,,41,0.04,16,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2259,odisha,2014,113,BHUBANESWAR NORTH (UTTAR),PRIYADARSHI MISHRA,,73728,65.77,1,won,U,49,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2259,odisha,2014,113,BHUBANESWAR NORTH (UTTAR),DILLIP MOHANTY,,24971,22.28,2,lost,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2259,odisha,2014,113,BHUBANESWAR NORTH (UTTAR),MANORANJAN DASH,,8223,7.34,3,forfeit,U,55,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2259,odisha,2014,113,BHUBANESWAR NORTH (UTTAR),SWARNA LATA PATTNAIK,,1513,1.35,4,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2259,odisha,2014,113,BHUBANESWAR NORTH (UTTAR),SUBHAS CHANDRA PARIDA,,1030,0.92,6,forfeit,U,52,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2259,odisha,2014,113,BHUBANESWAR NORTH (UTTAR),MAHENDRA KUMAR PARIDA,,251,0.22,7,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2259,odisha,2014,113,BHUBANESWAR NORTH (UTTAR),SWAMI SAMPURNANANDA SARASWATI,,246,0.22,8,forfeit,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2259,odisha,2014,113,BHUBANESWAR NORTH (UTTAR),NARENDRA PANDA,,229,0.2,9,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2259,odisha,2014,113,BHUBANESWAR NORTH (UTTAR),BIKEKANANDA PATRA,,213,0.19,10,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2259,odisha,2014,113,BHUBANESWAR NORTH (UTTAR),SUBHASH CHANDRA DASH,,176,0.16,11,forfeit,U,60,Graduate,Musician or Artist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2259,odisha,2014,113,BHUBANESWAR NORTH (UTTAR),RAJALAXMI NAYAK,,155,0.14,12,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2259,odisha,2014,113,BHUBANESWAR NORTH (UTTAR),RABINDRA KUMAR PATRA,,120,0.11,13,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2259,odisha,2014,113,BHUBANESWAR NORTH (UTTAR),HRUSIKESH SADANGI,,86,0.08,14,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,ASHOK CHANDRA PANDA,,66376,57.86,1,won,U,59,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,AMIYA DASH,,29900,26.06,2,lost,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,SHIVANANDA RAY,,8148,7.1,3,forfeit,U,65,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,RASHMI MOHAPATRA,,3825,3.33,4,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,DEBI PRASAD MISHRA,,1083,0.94,6,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,SUNJOY HANS,,923,0.8,7,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,GYANENDRA MOHANTY,,631,0.55,8,forfeit,U,34,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,SURA JENA,,562,0.49,9,forfeit,U,58,Literate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,SUBRAT SAMAL,,443,0.39,10,forfeit,U,29,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,CHHABINDRA JENA,,329,0.29,11,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,SURENDRA KUMAR RAUT,,239,0.21,12,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,SONALI DAKUA,,186,0.16,13,forfeit,U,29,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,SHYAM SUNDAR BHOI,,150,0.13,14,forfeit,U,55,5th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,RABI MAHARANA,,147,0.13,15,forfeit,U,40,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,SURYA NARAYAN GOUDA,,147,0.13,16,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,SAUDAMINI DASH,,145,0.13,17,forfeit,U,59,Post Graduate,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,RABINDRA NATH DASH,,90,0.08,18,forfeit,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,BIJAY BARIK,,80,0.07,19,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,KHAGESWAR BAL,,69,0.06,20,forfeit,U,62,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2260,odisha,2014,114,EKAMRA-BHUBANESWAR,JAGATJIT PADHI,,41,0.04,21,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2261,odisha,2014,115,JATANI,BHAGIRATHI BADAJENA,,60976,41.92,1,won,U,61,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2261,odisha,2014,115,JATANI,SURESH KUMAR ROUTRAY,,55229,37.97,2,lost,U,68,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2261,odisha,2014,115,JATANI,SUDIPTA KUMAR RAY,,17085,11.74,3,forfeit,U,51,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2261,odisha,2014,115,JATANI,SANGRAM KESHARI RAUTARAY,,5549,3.81,4,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2261,odisha,2014,115,JATANI,SHANKARSHNA NAYAK,,2215,1.52,5,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2261,odisha,2014,115,JATANI,NAMITA PAL,,1011,0.69,7,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2261,odisha,2014,115,JATANI,MOHIT RANJAN BEHERA,,932,0.64,8,forfeit,U,30,Literate,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2261,odisha,2014,115,JATANI,ASHOK KUMAR SUNDARAY,,908,0.62,9,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2257,odisha,2014,116,BEGUNIA,PRASANTA KUMAR JAGADEV,,73984,51.46,1,won,U,44,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2257,odisha,2014,116,BEGUNIA,PRADEEP KUMAR SAHOO,,30559,21.26,2,lost,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2257,odisha,2014,116,BEGUNIA,DEBASIS PATNAIK,,20689,14.39,3,forfeit,U,44,Doctorate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2257,odisha,2014,116,BEGUNIA,JATIN KUMAR MOHANTY,,10611,7.38,4,forfeit,U,44,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2257,odisha,2014,116,BEGUNIA,BHIKARI CHARAN SAHOO,,2197,1.53,5,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2257,odisha,2014,116,BEGUNIA,BASANT KUMAR PAIKRAY,,2192,1.52,6,forfeit,U,67,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2257,odisha,2014,116,BEGUNIA,RAJA KISHORE PARIDA,,575,0.4,8,forfeit,U,60,5th Pass,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2257,odisha,2014,116,BEGUNIA,BAMAN NAIK,,489,0.34,9,forfeit,U,67,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2257,odisha,2014,116,BEGUNIA,RAJESH RAJARATAN BIDHAR,,376,0.26,10,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2257,odisha,2014,116,BEGUNIA,NIRVAYA KUMAR SAMANTRAY,,368,0.26,11,forfeit,U,38,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2257,odisha,2014,116,BEGUNIA,MAYADHAR BEHERA,,347,0.24,12,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2257,odisha,2014,116,BEGUNIA,KRUSHNA CHANDRA BARIK,,306,0.21,13,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2257,odisha,2014,116,BEGUNIA,LALIT MOHAN HARICHANDAN,,301,0.21,14,forfeit,U,32,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2263,odisha,2014,117,KHURDA,RAJENDRA KUMAR SAHOO,,72299,45.62,1,won,U,46,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2263,odisha,2014,117,KHURDA,JYOTIRINDRA NATH MITRA,,65702,41.46,2,lost,U,63,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2263,odisha,2014,117,KHURDA,DILLIP SRICHANDAN,,12202,7.7,3,forfeit,U,54,Doctorate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2263,odisha,2014,117,KHURDA,PRAKASH SAMANTARAY,,2965,1.87,4,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2263,odisha,2014,117,KHURDA,RAJKISHORE NAYAK,,762,0.48,6,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2263,odisha,2014,117,KHURDA,DEBI PRASAD PATTNAIK,,713,0.45,7,forfeit,U,53,Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2263,odisha,2014,117,KHURDA,LAXMIKANTA MISHRA,,654,0.41,8,forfeit,U,33,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2263,odisha,2014,117,KHURDA,SUDHIR KUMAR MANSINGH,,533,0.34,9,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2263,odisha,2014,117,KHURDA,DIBAKAR MAHARATHY,,472,0.3,10,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2263,odisha,2014,117,KHURDA,RUDRANATH DUTTA,,406,0.26,11,forfeit,U,25,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2263,odisha,2014,117,KHURDA,DEEPAK KUMAR DALASINGHRAY,,374,0.24,12,forfeit,U,27,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2263,odisha,2014,117,KHURDA,RAJIB LOCHAN SARANGI,,274,0.17,13,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2263,odisha,2014,117,KHURDA,PRAMOD CHANDRA DASH,,190,0.12,14,forfeit,U,60,10th Pass,Priest,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2349,odisha,2014,118,CHILIKA,BIBHUTIBHUSAN HARICHANDAN,,69433,46.7,1,won,U,71,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2349,odisha,2014,118,CHILIKA,RAGHUNATH SAHU,,68892,46.34,2,lost,U,63,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2349,odisha,2014,118,CHILIKA,MANASI PRADHAN,,5182,3.49,3,forfeit,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2349,odisha,2014,118,CHILIKA,PRADIP KUMAR SWAIN,,1553,1.04,4,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2349,odisha,2014,118,CHILIKA,NARAYAN BEHERA,,691,0.46,6,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2349,odisha,2014,118,CHILIKA,BINOD PANDA,,661,0.44,7,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2349,odisha,2014,118,CHILIKA,SUBRAT KUMAR HABADASINGH,,542,0.36,8,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2349,odisha,2014,118,CHILIKA,MURALIDHAR GHADEI,,407,0.27,9,forfeit,U,63,10th Pass,Agricultural Business,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2353,odisha,2014,119,RANPUR,RABINARAYAN MOHAPATRA,,60705,44.47,1,won,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2353,odisha,2014,119,RANPUR,SURAMA PADHY,,44279,32.44,2,lost,U,53,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2353,odisha,2014,119,RANPUR,SATYAJIT PATTANAIK,,17110,12.53,3,forfeit,U,25,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2353,odisha,2014,119,RANPUR,GOLAK BIHARI MUDULI,,6002,4.4,4,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2353,odisha,2014,119,RANPUR,SUBHASHREE PANDA,,5091,3.73,5,forfeit,U,38,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2353,odisha,2014,119,RANPUR,JOGENDRA NAYAK,,691,0.51,7,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2353,odisha,2014,119,RANPUR,KRISHNA CHANDRA MAHAPATRA,,445,0.33,8,forfeit,U,54,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2353,odisha,2014,119,RANPUR,SATYANARAYAN MISHRA,,444,0.33,9,forfeit,U,66,Graduate Professional,Medical Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2353,odisha,2014,119,RANPUR,ARTATRAN PRADHAN,,391,0.29,10,forfeit,U,26,10th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2353,odisha,2014,119,RANPUR,DEBARAJ SAHOO,,368,0.27,11,forfeit,U,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2353,odisha,2014,119,RANPUR,PRAFUL RAUTRAY,,255,0.19,12,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2277,odisha,2014,120,KHANDAPADA,ANUBHAV PATNAIK,,62257,47.19,1,won,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2277,odisha,2014,120,KHANDAPADA,SOUMYA RANJAN PATNAIK,,61656,46.73,2,lost,U,61,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2277,odisha,2014,120,KHANDAPADA,SHIBA PRASAD BHANJA,,3895,2.95,3,forfeit,U,56,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2277,odisha,2014,120,KHANDAPADA,BINODINI MOHANTY,,1877,1.42,4,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2277,odisha,2014,120,KHANDAPADA,KRUSHNA CHANDRA BARAD,,682,0.52,6,forfeit,U,62,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2277,odisha,2014,120,KHANDAPADA,SANTOSH KUMAR SAHOO,,428,0.32,7,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2277,odisha,2014,120,KHANDAPADA,SAROJINI RANASINGH,,283,0.21,8,forfeit,U,52,8th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2277,odisha,2014,120,KHANDAPADA,ASHOK KUMAR SATAPATHY,,143,0.11,9,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2309,odisha,2014,121,DASPALLA,PURNA CHANDRA NAYAK,,75832,65.46,1,won,U,56,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2309,odisha,2014,121,DASPALLA,INDUMATI NAYAK,,18505,15.97,2,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2309,odisha,2014,121,DASPALLA,PRAMODA KUMAR BEHERA,,16053,13.86,3,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2309,odisha,2014,121,DASPALLA,MAMI NAYAK,,1451,1.25,5,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2309,odisha,2014,121,DASPALLA,BANEETA NAIK,,1099,0.95,6,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2309,odisha,2014,121,DASPALLA,BRAJENDRA MALIK,,1065,0.92,7,forfeit,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2350,odisha,2014,122,NAYAGARH,ARUN KUMAR SAHOO,,75538,52.78,1,won,U,46,Doctorate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2350,odisha,2014,122,NAYAGARH,LALA MANOJ KUMAR RAY,,54671,38.2,2,lost,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2350,odisha,2014,122,NAYAGARH,PRADEEPTA JENA,,7521,5.25,3,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2350,odisha,2014,122,NAYAGARH,BISWANATH MAHAPATRA,,1297,0.91,4,forfeit,U,56,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2350,odisha,2014,122,NAYAGARH,PURNA CHANDRA SAHOO,,1171,0.82,5,forfeit,U,43,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2350,odisha,2014,122,NAYAGARH,KAMAL KUMARI PATASANI,,997,0.7,6,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2350,odisha,2014,122,NAYAGARH,MANAS KUMAR MISHRA,,442,0.31,8,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2350,odisha,2014,122,NAYAGARH,SUSANTA KUMAR DASH,,309,0.22,9,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2350,odisha,2014,122,NAYAGARH,SAROJ KUMAR BEHERA,,294,0.21,10,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2307,odisha,2014,123,BHANJANAGAR,BIKRAM KESHARI ARUKHA,,82467,56.21,1,won,U,51,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2307,odisha,2014,123,BHANJANAGAR,BINAYAK TRIPATHY,,50766,34.6,2,lost,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2307,odisha,2014,123,BHANJANAGAR,PRADEEP KUMAR SAHU,,7834,5.34,3,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2307,odisha,2014,123,BHANJANAGAR,MADHUSUDAN PADHI,,1539,1.05,5,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2307,odisha,2014,123,BHANJANAGAR,PURNA CHANDRA NAIK,,1298,0.88,6,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2226,odisha,2014,124,POLASARA,SRIKANT SAHU,,66766,48.1,1,won,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2226,odisha,2014,124,POLASARA,GOKULANANDA MALLIK,,45549,32.82,2,lost,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2226,odisha,2014,124,POLASARA,KUMUDINI PATNAIK,,18467,13.31,3,forfeit,U,70,Post Graduate,Ex MP,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2226,odisha,2014,124,POLASARA,SIMANCHALA BEHERA,,1442,1.04,5,forfeit,U,56,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2226,odisha,2014,124,POLASARA,BRUNDABAN BEHERA,,1204,0.87,6,forfeit,U,58,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2226,odisha,2014,124,POLASARA,BHASKAR SABAR,,780,0.56,7,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2226,odisha,2014,124,POLASARA,SASMITA MALLIK,,736,0.53,8,forfeit,U,32,8th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2226,odisha,2014,124,POLASARA,RANJANA KUMAR APAT,,732,0.53,9,forfeit,U,34,12th Pass,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2226,odisha,2014,124,POLASARA,SUSANT KUMAR SAHU,,715,0.52,10,forfeit,U,38,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2226,odisha,2014,124,POLASARA,BABULU KUMAR NAYAK,,496,0.36,11,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2226,odisha,2014,124,POLASARA,P.KALISH CHANDRA PATRO,,461,0.33,12,forfeit,U,47,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2224,odisha,2014,125,KABISURYANGAR,V.SUGNANA KUMARI DEO,,67161,50.68,1,won,U,77,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2224,odisha,2014,125,KABISURYANGAR,HARA PRASAD SAHU,,45661,34.45,2,lost,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2224,odisha,2014,125,KABISURYANGAR,SITARAM PANIGRAHI,,9843,7.43,3,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2224,odisha,2014,125,KABISURYANGAR,BISHNU PRASAD JENA,,4315,3.26,4,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2224,odisha,2014,125,KABISURYANGAR,SAMARJIT MAHANTY,,2339,1.76,6,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2224,odisha,2014,125,KABISURYANGAR,SANGEETA KUMARI MOHAPATRA,,740,0.56,7,forfeit,U,32,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2225,odisha,2014,126,KHALIKOTE,PURNA CHANDRA SETHY,,78845,62.7,1,won,U,59,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2225,odisha,2014,126,KHALIKOTE,PANDABA JALLI,,21651,17.22,2,lost,U,60,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2225,odisha,2014,126,KHALIKOTE,SARAT CHANDRA BEHERA,,15382,12.23,3,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2225,odisha,2014,126,KHALIKOTE,SIMANCHAL BEHERA,,4915,3.91,4,forfeit,U,43,Post Graduate,Advocacy,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2225,odisha,2014,126,KHALIKOTE,SAROJ KUMAR BEHERA,,1387,1.1,6,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2225,odisha,2014,126,KHALIKOTE,RANJAN DANGUA,,1168,0.93,7,forfeit,U,40,5th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2244,odisha,2014,127,CHHATRAPUR,PRIYANSHU PRADHAN,,53221,38.33,1,won,U,27,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2244,odisha,2014,127,CHHATRAPUR,KRUSHNA CHANDRA NAYAK,,31202,22.47,2,lost,U,29,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2244,odisha,2014,127,CHHATRAPUR,DHARANIDHAR BEHERA,,27511,19.81,3,lost,U,39,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2244,odisha,2014,127,CHHATRAPUR,BANAMALI SETHI,,21151,15.23,4,forfeit,U,39,Post Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2244,odisha,2014,127,CHHATRAPUR,RITU KUMARI SETHI,,1271,0.92,6,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2244,odisha,2014,127,CHHATRAPUR,PRAMOD KUMAR,,1177,0.85,7,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2244,odisha,2014,127,CHHATRAPUR,NATABARA BEHERA,,1111,0.8,8,forfeit,U,56,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2223,odisha,2014,128,ASKA,DEBARAJ MOHANTY,,59412,54.84,1,won,U,63,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2223,odisha,2014,128,ASKA,SAROJ KUMAR PADHI,,35913,33.15,2,lost,U,57,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2223,odisha,2014,128,ASKA,NARAYAN BEHERA,,6436,5.94,3,forfeit,U,43,Graduate Professional,Advocacy,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2223,odisha,2014,128,ASKA,LALIT MOHAN DASH,,3291,3.04,4,forfeit,U,64,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2223,odisha,2014,128,ASKA,LINGARAJ KAR,,810,0.75,6,forfeit,U,43,10th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2223,odisha,2014,128,ASKA,DWITI KRUSHNA BADATYA,,759,0.7,7,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2228,odisha,2014,129,SURADA,PURNA CHANDRA SWAIN,,67546,49.25,1,won,U,42,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2228,odisha,2014,129,SURADA,BASANTA KUMAR BISOYI,,51546,37.58,2,lost,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2228,odisha,2014,129,SURADA,BHAGABANA PANDA,,9270,6.76,3,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2228,odisha,2014,129,SURADA,SUNIL KUMAR MOHANTI,,2652,1.93,5,forfeit,U,28,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2228,odisha,2014,129,SURADA,DAYANIDHI GOUDA,,1712,1.25,6,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2228,odisha,2014,129,SURADA,PURNA CHANDRA PATRA,,1677,1.22,7,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2227,odisha,2014,130,SANAKHEMUNDI,NANDINI DEVI,,61773,47.1,1,won,U,46,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2227,odisha,2014,130,SANAKHEMUNDI,RAMESH CHANDRA JENA,,53551,40.83,2,lost,U,36,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2227,odisha,2014,130,SANAKHEMUNDI,BIRKISHORE DEV,,6053,4.61,3,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2227,odisha,2014,130,SANAKHEMUNDI,ANTARJYAMI SWAIN,,4933,3.76,4,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2227,odisha,2014,130,SANAKHEMUNDI,SIRISH CHARAN MISHRA,,1347,1.03,6,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2227,odisha,2014,130,SANAKHEMUNDI,KADMI RAMESH KUMAR DORA,,1232,0.94,7,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2222,odisha,2014,131,HINJILI,NAVEEN PATNAIK,,89267,73.14,1,won,U,67,Graduate,Private Company,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2222,odisha,2014,131,HINJILI,SIBARAM PATRA,,12681,10.39,2,forfeit,U,42,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2222,odisha,2014,131,HINJILI,DEVANANDA MAHAPATRA,,12283,10.06,3,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2222,odisha,2014,131,HINJILI,RAM KRISHNA DASH,,2312,1.89,4,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2222,odisha,2014,131,HINJILI,BIJAYA MOHANTY,,1192,0.98,6,forfeit,U,67,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2222,odisha,2014,131,HINJILI,MOHAMMAD SAZID HUSSAIN,,958,0.78,7,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2222,odisha,2014,131,HINJILI,HARIHAR SAHU,,775,0.64,8,forfeit,U,72,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2222,odisha,2014,131,HINJILI,RABI RATH,,681,0.56,9,forfeit,U,58,8th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2247,odisha,2014,132,GOPALPUR,PRADEEP KUMAR PANIGRAHY,,55265,46.98,1,won,U,50,Doctorate,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2247,odisha,2014,132,GOPALPUR,BIBHUTI BHUSAN JENA,,35153,29.88,2,lost,U,47,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2247,odisha,2014,132,GOPALPUR,BHAGABAN GANTAYAT,,21741,18.48,3,lost,U,58,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2247,odisha,2014,132,GOPALPUR,DEBASISH BEBARTTA,,1335,1.13,5,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2247,odisha,2014,132,GOPALPUR,JITENDRA KUMAR PANDA,,623,0.53,6,forfeit,U,27,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2247,odisha,2014,132,GOPALPUR,P. SIBAPRASAD REDDY,,585,0.5,7,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2247,odisha,2014,132,GOPALPUR,UJALA BEHERA,,538,0.46,8,forfeit,U,62,5th Pass,Ex Military,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2247,odisha,2014,132,GOPALPUR,NAMITA PANDA,,535,0.45,9,forfeit,U,30,12th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2247,odisha,2014,132,GOPALPUR,A. RAGHUNATH VARMA,,531,0.45,10,forfeit,U,76,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2243,odisha,2014,133,BERHAMPUR,RAMESH CHANDRA CHYAU PATNAIK,,43211,37.85,1,won,U,70,Post Graduate,Doctor,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2243,odisha,2014,133,BERHAMPUR,BIKRAM KUMAR PANDA,,42172,36.94,2,lost,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2243,odisha,2014,133,BERHAMPUR,SIVA SHANKAR DASH,,24092,21.1,3,lost,U,31,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2243,odisha,2014,133,BERHAMPUR,RAMESH CHANDRA PATRA,,970,0.85,5,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2243,odisha,2014,133,BERHAMPUR,M. ANANDA RAO ACHARY,,524,0.46,6,forfeit,U,50,Post Graduate,Advocacy,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2243,odisha,2014,133,BERHAMPUR,BASANTA NANDA,,481,0.42,7,forfeit,U,51,Graduate Professional,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2243,odisha,2014,133,BERHAMPUR,RAMESHA CHANDRA BEHERA,,470,0.41,8,forfeit,U,59,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2243,odisha,2014,133,BERHAMPUR,SATISH KUMAR NAYAK,,245,0.21,9,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2243,odisha,2014,133,BERHAMPUR,PRAMILA TRIPATHY,,231,0.2,10,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2243,odisha,2014,133,BERHAMPUR,PABITRA MOHAN MISRA,,200,0.18,11,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2243,odisha,2014,133,BERHAMPUR,DAKA BISHOYI,,194,0.17,12,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2243,odisha,2014,133,BERHAMPUR,KHALLI SAHU,,180,0.16,13,forfeit,U,66,8th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2243,odisha,2014,133,BERHAMPUR,BIPIN BIHARI DASH,,156,0.14,14,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2246,odisha,2014,134,DIGAPAHANDI,SURJYA NARAYAN PATRO,,78949,61.46,1,won,U,66,Graduate Professional,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2246,odisha,2014,134,DIGAPAHANDI,SAKA SUJIT KUMAR,,33052,25.73,2,lost,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2246,odisha,2014,134,DIGAPAHANDI,BIJAYA KUMAR SWAIN,,7771,6.05,3,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2246,odisha,2014,134,DIGAPAHANDI,BIDYADHAR JENA,,2399,1.87,4,forfeit,U,62,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2246,odisha,2014,134,DIGAPAHANDI,KURESH MAHARANA,,1949,1.52,6,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2246,odisha,2014,134,DIGAPAHANDI,PRATAP KUMAR SETHY,,1119,0.87,7,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2246,odisha,2014,134,DIGAPAHANDI,BANDANA MAHARANA,,830,0.65,8,forfeit,U,42,10th Pass,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2245,odisha,2014,135,CHIKITI,USHA DEVI,,74849,58.76,1,won,U,62,12th Pass,Household,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2245,odisha,2014,135,CHIKITI,MANO RANJAN DYANA SAMANTARA,,42701,33.52,2,lost,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2245,odisha,2014,135,CHIKITI,UDAYA NATH PRADHAN,,4590,3.6,3,forfeit,U,60,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2245,odisha,2014,135,CHIKITI,AMULYA KUMAR SAHU,,1058,0.83,5,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2245,odisha,2014,135,CHIKITI,SALINA UMASHANKAR,,770,0.6,6,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2245,odisha,2014,135,CHIKITI,RAMA PRASAD MOHANTY,,626,0.49,7,forfeit,U,40,Graduate Professional,Advocacy,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2245,odisha,2014,135,CHIKITI,ASHOK KUMAR PANDA,,625,0.49,8,forfeit,U,35,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2245,odisha,2014,135,CHIKITI,BIBHUDHENDRA PADHY,,500,0.39,9,forfeit,U,46,Others,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2245,odisha,2014,135,CHIKITI,SURENDRA MANDAL,,451,0.35,10,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2248,odisha,2014,136,MOHANA,BASANTI MALLICK,,43006,29.88,1,won,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2248,odisha,2014,136,MOHANA,DASARATHI GAMANGO,,42891,29.8,2,lost,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2248,odisha,2014,136,MOHANA,BHARAT PAIK,,39625,27.53,3,lost,U,55,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2248,odisha,2014,136,MOHANA,CHAKRADHARA PAIK,,5417,3.76,4,forfeit,U,68,Post Graduate,Ex Govt Employee,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2248,odisha,2014,136,MOHANA,DONDO PANI RAITO,,3182,2.21,6,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2248,odisha,2014,136,MOHANA,PABITRA GAMANGO,,2265,1.57,7,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2248,odisha,2014,136,MOHANA,HALADHAR KARJEE,,1524,1.06,8,forfeit,U,73,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2248,odisha,2014,136,MOHANA,RAGHUNATH BADAMUNDI,,1224,0.85,9,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2248,odisha,2014,136,MOHANA,PURNA CHANDRA BHUYAN,,1205,0.84,10,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2249,odisha,2014,137,PARALAKHEMUNDI,KENGAM SURYA RAO,,61014,45.2,1,won,U,51,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2249,odisha,2014,137,PARALAKHEMUNDI,KODURU NARAYANA RAO,,59595,44.14,2,lost,U,52,Post Graduate,MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2249,odisha,2014,137,PARALAKHEMUNDI,TRIPATI NAYAK,,6938,5.14,3,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2249,odisha,2014,137,PARALAKHEMUNDI,KEDAR SHABAR,,1370,1.01,5,forfeit,U,28,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2249,odisha,2014,137,PARALAKHEMUNDI,LALICHETTI RAMGOPAL RAO,,1239,0.92,6,forfeit,U,78,Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2249,odisha,2014,137,PARALAKHEMUNDI,AMIT KUMAR PATNAIK,,874,0.65,7,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2249,odisha,2014,137,PARALAKHEMUNDI,SISIR KUMAR BHANJA SAMANTA,,579,0.43,8,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2249,odisha,2014,137,PARALAKHEMUNDI,SUJIT PRADHAN,,533,0.39,9,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2249,odisha,2014,137,PARALAKHEMUNDI,SABITA SAHUKAR,,464,0.34,10,forfeit,U,38,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2249,odisha,2014,137,PARALAKHEMUNDI,TRINATH PANDA,,446,0.33,11,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2249,odisha,2014,137,PARALAKHEMUNDI,MEENAKETAN JENNA,,401,0.3,12,forfeit,U,67,Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2328,odisha,2014,138,GUNUPUR,TRINATH GOMANGO,,59527,41.6,1,won,U,53,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2328,odisha,2014,138,GUNUPUR,PURUSATTAM GOMANGO,,52141,36.44,2,lost,U,46,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2328,odisha,2014,138,GUNUPUR,RAMURTY GOMANGO,,15596,10.9,3,forfeit,U,63,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2328,odisha,2014,138,GUNUPUR,HARIBANDHU SABAR,,2798,1.96,5,forfeit,U,41,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2328,odisha,2014,138,GUNUPUR,MANDANGI MADHAVA RAO,,2044,1.43,6,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2328,odisha,2014,138,GUNUPUR,DAMODOR SABAR,,1609,1.12,7,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2328,odisha,2014,138,GUNUPUR,NAJITA RAITA,,1519,1.06,8,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2328,odisha,2014,138,GUNUPUR,LINGARAJ GOMANGO,,1454,1.02,9,forfeit,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2328,odisha,2014,138,GUNUPUR,BRUHASPATI SABAR,,1256,0.88,10,forfeit,U,36,Post Graduate,Advocacy,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2328,odisha,2014,138,GUNUPUR,RAJESWARI SABAR,,1149,0.8,11,forfeit,U,29,10th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2328,odisha,2014,138,GUNUPUR,BHAGABAN GOMANGO,,1109,0.78,12,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2327,odisha,2014,139,BISSAM CUTTACK,JAGANNATH SARAKA,,72366,43.74,1,won,U,41,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2327,odisha,2014,139,BISSAM CUTTACK,DAMBARUDHAR ULAKA,,43180,26.1,2,lost,U,76,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2327,odisha,2014,139,BISSAM CUTTACK,SARANGADHARA KADRAKA,,18415,11.13,3,forfeit,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2327,odisha,2014,139,BISSAM CUTTACK,BARINI MINIAKA,,17294,10.45,4,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2327,odisha,2014,139,BISSAM CUTTACK,SRIDHARA KARATA,,2820,1.7,6,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2327,odisha,2014,139,BISSAM CUTTACK,MANDIKA RAJENDRA,,2497,1.51,7,forfeit,U,29,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2327,odisha,2014,139,BISSAM CUTTACK,PRASKA RAMACHANDRA,,2183,1.32,8,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2327,odisha,2014,139,BISSAM CUTTACK,RAMADAS ULLAKA,,1777,1.07,9,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2333,odisha,2014,140,RAYAGADA,LALBIHARI HIMIRIKA,,69629,41.45,1,won,U,62,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2333,odisha,2014,140,RAYAGADA,MAKARANDA MUDULI,,61343,36.52,2,lost,U,40,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2333,odisha,2014,140,RAYAGADA,KALIRAM MAJHI,,17356,10.33,3,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2333,odisha,2014,140,RAYAGADA,BHASKAR MUTUKA,,6037,3.59,5,forfeit,U,56,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2333,odisha,2014,140,RAYAGADA,SANKAR BIDIKA,,3880,2.31,6,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2333,odisha,2014,140,RAYAGADA,KRISHNA HUIKA,,2827,1.68,7,forfeit,U,62,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2331,odisha,2014,141,LAXMIPUR,KAILASH CHANDRA KULESIKA,,53429,44.55,1,won,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2331,odisha,2014,141,LAXMIPUR,HEMA GOMANGO,,30956,25.81,2,lost,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2331,odisha,2014,141,LAXMIPUR,SHIBA MUDULI,,9527,7.94,3,forfeit,U,34,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2331,odisha,2014,141,LAXMIPUR,JANDHAR WADAKA,,5632,4.7,4,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2331,odisha,2014,141,LAXMIPUR,PARADA KULESIKA,,3472,2.89,6,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2331,odisha,2014,141,LAXMIPUR,AKHIL CHANDRA JHODIA,,3227,2.69,7,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2331,odisha,2014,141,LAXMIPUR,SURESH SIRIKA,,2343,1.95,8,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2331,odisha,2014,141,LAXMIPUR,KANTESWAR HIKAKA,,2120,1.77,9,forfeit,U,32,8th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2331,odisha,2014,141,LAXMIPUR,NIRANJAN JANI,,2002,1.67,10,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2331,odisha,2014,141,LAXMIPUR,RAMA CHANDRA KENDRUKA,,1687,1.41,11,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2331,odisha,2014,141,LAXMIPUR,KANHEI JANI,,1475,1.23,12,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2344,odisha,2014,142,KOTPAD,CHANDRA SEKHAR MAJHI,,71018,48.08,1,won,U,50,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2344,odisha,2014,142,KOTPAD,ASHOK KUMAR PANGI,,39697,26.88,2,lost,U,34,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2344,odisha,2014,142,KOTPAD,PADMANAV MAJHI,,20699,14.01,3,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2344,odisha,2014,142,KOTPAD,SURJYAMANI NAYAK,,3214,2.18,5,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2344,odisha,2014,142,KOTPAD,GOLOK BIHARI MAJHI,,2777,1.88,6,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2344,odisha,2014,142,KOTPAD,TRILOCHAN DISARI,,2727,1.85,7,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2344,odisha,2014,142,KOTPAD,BASU NAYAK,,2703,1.83,8,forfeit,U,47,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2329,odisha,2014,143,JEYPORE,TARA PRASAD BAHINIPATI,,65378,44.62,1,won,U,59,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2329,odisha,2014,143,JEYPORE,RABI NARAYAN NANDA,,57011,38.91,2,lost,U,51,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2329,odisha,2014,143,JEYPORE,BHRUGU BAXIPATRA,,14462,9.87,3,forfeit,U,39,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2329,odisha,2014,143,JEYPORE,SANTOSH KUMAR DAS,,1236,0.84,5,forfeit,U,30,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2329,odisha,2014,143,JEYPORE,SADA NAIK,,1115,0.76,6,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2329,odisha,2014,143,JEYPORE,GOUTAM SAMANTRAY,,1013,0.69,7,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2329,odisha,2014,143,JEYPORE,JOHN BAHADUR,,923,0.63,8,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2329,odisha,2014,143,JEYPORE,SUSHANT KUMAR ADHIKARI,,879,0.6,9,forfeit,U,47,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2329,odisha,2014,143,JEYPORE,MAHENDRA KUMAR PATRA,,840,0.57,10,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2329,odisha,2014,143,JEYPORE,MANORANJAN NAIK,,738,0.5,11,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2330,odisha,2014,144,KORAPUT,KRISHNA CHANDRA SAGARIA,,50672,40.65,1,won,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2330,odisha,2014,144,KORAPUT,RAGHURAM MACHHA,,45696,36.66,2,lost,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2330,odisha,2014,144,KORAPUT,JAYARAM GARADA,,13665,10.96,3,forfeit,U,56,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2330,odisha,2014,144,KORAPUT,BALABHDRA MANDI,,2091,1.68,5,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2330,odisha,2014,144,KORAPUT,REKHIT KULADIP,,1185,0.95,6,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2330,odisha,2014,144,KORAPUT,RAMA BARIK,,1182,0.95,7,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2330,odisha,2014,144,KORAPUT,MANGALDA KHOSLA,,1120,0.9,8,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2330,odisha,2014,144,KORAPUT,MANJULATA KHEMUNDU,,1075,0.86,9,forfeit,U,31,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2330,odisha,2014,144,KORAPUT,BIBEK RANJAN SETHI,,962,0.77,10,forfeit,U,41,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2330,odisha,2014,144,KORAPUT,KHAGAPATI KHOSLA,,942,0.76,11,forfeit,U,45,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2330,odisha,2014,144,KORAPUT,KASTI TURUK,,870,0.7,12,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2330,odisha,2014,144,KORAPUT,PURNA CHANDRA PANGI,,861,0.69,13,forfeit,U,46,8th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2330,odisha,2014,144,KORAPUT,ROHIDAS NAYAK,,844,0.68,14,forfeit,U,59,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2330,odisha,2014,144,KORAPUT,DHANURJAYA HANTAL,,719,0.58,15,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2330,odisha,2014,144,KORAPUT,DAMA SUNA,,574,0.46,16,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2332,odisha,2014,145,POTTANGI,PRAFULLA KUMAR PANGI,,46839,38.1,1,won,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2332,odisha,2014,145,POTTANGI,RAMA CHANDRA KADAM,,36075,29.35,2,lost,U,50,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2332,odisha,2014,145,POTTANGI,KRUSHNA CHANDRA JANI,,9401,7.65,3,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2332,odisha,2014,145,POTTANGI,BHAGABAN PETIA,,7547,6.14,4,forfeit,U,48,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2332,odisha,2014,145,POTTANGI,ASHOK KUMAR ULAKA,,6725,5.47,5,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2332,odisha,2014,145,POTTANGI,G. RADHA,,6092,4.96,6,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2332,odisha,2014,145,POTTANGI,JAYARAM BHOI,,3447,2.8,8,forfeit,U,38,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2332,odisha,2014,145,POTTANGI,SNEHAPATRO SANTA,,1807,1.47,9,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2345,odisha,2014,146,MALKANGIRI,MANASMADKAMI,,47737,32.61,1,won,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2345,odisha,2014,146,MALKANGIRI,MALA MADHI,,44425,30.35,2,lost,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2345,odisha,2014,146,MALKANGIRI,ADITYA MADHI,,36212,24.74,3,lost,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2345,odisha,2014,146,MALKANGIRI,DASARATH PADIAMI,,3220,2.2,5,forfeit,U,46,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2345,odisha,2014,146,MALKANGIRI,JARASABAR MADHI,,2641,1.8,6,forfeit,U,33,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2345,odisha,2014,146,MALKANGIRI,SUNDAR RAY SEDA,,1863,1.27,7,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2345,odisha,2014,146,MALKANGIRI,UDAY NARAYAN BURUDA,,1785,1.22,8,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2345,odisha,2014,146,MALKANGIRI,PARBATI NAYAK,,1742,1.19,9,forfeit,U,46,5th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2345,odisha,2014,146,MALKANGIRI,BHAGABAN NALI,,1626,1.11,10,forfeit,U,43,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2345,odisha,2014,146,MALKANGIRI,SAMBARU PADIAMU,,1541,1.05,11,forfeit,U,70,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2341,odisha,2014,147,CHITRAKONDA,DAMBARU SISA,,48000,42.32,1,won,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2341,odisha,2014,147,CHITRAKONDA,SUNADHAR KAKARI,,23270,20.52,2,lost,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2341,odisha,2014,147,CHITRAKONDA,SARAT CHANDRA BURUDA,,17578,15.5,3,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2341,odisha,2014,147,CHITRAKONDA,JALANDHAR NAYAK,,3593,3.17,4,forfeit,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2341,odisha,2014,147,CHITRAKONDA,HALADHAR PUJARI,,3370,2.97,5,forfeit,U,50,10th Pass,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2341,odisha,2014,147,CHITRAKONDA,GHENU MUDULI,,2629,2.32,7,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2341,odisha,2014,147,CHITRAKONDA,MUKUNDA PADIAMI,,2360,2.08,8,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2341,odisha,2014,147,CHITRAKONDA,SANATAN KABASI,,1869,1.65,9,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2341,odisha,2014,147,CHITRAKONDA,CHINMAY KUMAR DORA,,1676,1.48,10,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2341,odisha,2014,147,CHITRAKONDA,JAGABANDHU GODANGI,,1643,1.45,11,forfeit,U,21,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2341,odisha,2014,147,CHITRAKONDA,GHANA NAYAK,,1593,1.4,12,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2341,odisha,2014,147,CHITRAKONDA,DHANURJAY MADKAMI,,1569,1.38,13,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2341,odisha,2014,147,CHITRAKONDA,RAMA CHANDRA MADEMI,,1403,1.24,14,forfeit,U,32,5th Pass,,challenger,src-1b7bc1c9d39a

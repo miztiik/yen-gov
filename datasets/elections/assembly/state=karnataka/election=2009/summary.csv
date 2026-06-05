@@ -1,0 +1,7 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-karnataka-3479,karnataka,2009,CHANNAPATNA,183793,147665,80.34,Ashwath. M.C.,,64517,43.69,C.P.Yogeshwara,,62235,2282,1.54,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3484,karnataka,2009,RAMANAGARAM,173939,124245,71.43,K. Raju,,60774,48.91,C.M. Lingappa,,38724,22050,17.74,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3489,karnataka,2009,GOVINDRAJ NAGAR,246476,126749,51.42,Priya Krishna,,64176,50.63,V. Somanna,,58937,5239,4.13,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2009,BIDAR,185232,98929,53.41,Raheem Khan,,39595,40.02,Suryakant Nagmarpalli,,28781,10814,10.93,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3529,karnataka,2009,KOLLEGAL,180177,133524,74.11,G.N. N. Swamy,,49553,37.11,S. Jayanna.,,41286,8267,6.19,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3582,karnataka,2009,CHITTAPUR,183801,106276,57.82,Valmiki Nayak,,48365,45.51,Priyank Kharge,,46759,1606,1.51,src-1b7bc1c9d39a

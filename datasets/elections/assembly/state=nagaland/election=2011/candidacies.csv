@@ -1,0 +1,3 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-nagaland-1446,nagaland,2011,26,AONGLENDEN,Toshipokba,,6265,55.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1446,nagaland,2011,26,AONGLENDEN,S.C.Jamir,,4945,44.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a

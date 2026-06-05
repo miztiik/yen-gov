@@ -1,0 +1,35 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Rahim Khan,,70138,56.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Prakash Khanore,,47417,37.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Md. Ayaz Khan,,4421,3.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Dr. Madna Vaijinath,,1519,1.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Md. Qayamuddin,,555,0.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Shivakumar,,362,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Mallappa,,275,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Eshawar Keneri,,154,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Shamanna Bavri,,148,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Abdul Razzak,,145,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3637,karnataka,2016,56,DEVADURGA,K. Shivana Gowda NayakaE',,72647,52.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3637,karnataka,2016,56,DEVADURGA,A. Rajashekhar Nayak,,55776,40.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3637,karnataka,2016,56,DEVADURGA,Karemma G. Nayaka,,9156,6.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3637,karnataka,2016,56,DEVADURGA,Shivaraj Dore,,1837,1.32,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Y.A. Narayana SwamyË,,60367,56.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,C.K. Abdul Rahman Shartef,,41218,38.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Ismail Sharieff Nana,,3666,3.4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Vinay Kumar. V. Nayak,,395,0.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Syed Asif Bukhari,,359,0.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Hunsur.K. Chandrashekhar,,304,0.28,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,B.S. Manjunath,,241,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Pavithra,,205,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,N. Nagarathna,,149,0.14,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Dr. P.K. Velladurai,,134,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,K.A. Mohan,,130,0.12,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Anjan Kumar Gowda.S,,95,0.09,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Nagesh.S,,80,0.07,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Ali Haidar,,71,0.07,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Muni By Lappa,,70,0.06,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Dr. Manjunath Nayak,,64,0.06,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Supreeth Poojary Dharmasthala,,60,0.06,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Ambrose D'mello,,53,0.05,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Deepak Rajesh Coelho,,45,0.04,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,TK Dasar,,35,0.03,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a

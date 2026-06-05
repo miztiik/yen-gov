@@ -1,0 +1,31 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,BASANT SOREN,,80559,48.79,1,won,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,LOIS MARANDI,,73717,44.65,2,lost,F,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,NOTA,,3665,2.22,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,SUNITA MURMU,,1864,1.13,4,forfeit,F,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,DULAR MARANDI,,1498,0.91,5,forfeit,F,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,SANJAY TUDU,,838,0.51,6,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,DR. SRILAL KISKU,,609,0.37,7,forfeit,M,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,BABUDHAN MURMU,,487,0.29,8,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,MAYKAL HEMBRAM,,469,0.28,9,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,SURYA SINGH BESRA,,467,0.28,10,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,MUKESH KUMAR DEHRI,,371,0.22,11,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,JAGARNATH PUJHAR,,354,0.21,12,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,PRADIP TUDU,,219,0.13,13,forfeit,M,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Kumar Jaimangal (Anup Singh),,94022,49.36,1,won,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Yogeshwar Mahto 'Batul',,79797,41.89,2,lost,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Lal Chand Mahto,,4281,2.25,3,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Baidya Nath Mahto,,2643,1.39,4,forfeit,M,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Sunita Tudu,,2540,1.33,5,forfeit,F,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,NOTA,,2108,1.11,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Dwarka Prasad Lala,,1439,0.76,7,forfeit,M,69,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Sameer Kumar Das,,585,0.31,8,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Dinesh Kumar Munda,,539,0.28,9,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Sujit Kumar Barnwal,,402,0.21,10,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Shankar Ghasi,,385,0.2,11,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Kaleshwar Ravidas,,385,0.2,12,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Kailash Chandra Mahto,,315,0.17,13,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Khirodhar Kisku,,309,0.16,14,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Ajay Renjan,,281,0.15,15,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Baijnath Gorain,,277,0.15,16,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Pankaj Prasad,,190,0.1,17,forfeit,M,40,,,challenger,src-1b7bc1c9d39a

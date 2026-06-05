@@ -1,0 +1,56 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,K.S. Amarappa,,60405,44.87,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,K.B.B. Hitanal,,47917,35.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,P.V.M.Kavaloorgoodra,,20719,15.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,H.S.S. Rayya,,1252,0.93,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,S.N. Patil,,822,0.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,S. Moulasab,,716,0.53,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,V. Gorantli,,662,0.49,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,K.B.S.Vaddaratti,,508,0.38,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,K. Mounesh,,346,0.26,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,N.M Hadpad,,272,0.2,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,R. (Apanaram),,258,0.19,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,M. Basha R.,,251,0.19,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,Y.M.Pundgoudar,,248,0.18,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,H.M.E. Patel,,244,0.18,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,B. Sriramulu,,74527,60.41,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,B. Ramprasad,,27737,22.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,Gadilimgappa,,17366,14.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,B.Ram Prasad,,1116,0.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,B. Anjinappa,,731,0.59,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,B.T. Raju,,728,0.59,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,N. Gangadhappa,,661,0.54,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,K. Channappa,,503,0.41,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,S.V.Ramachandra,,41961,35.87,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,H.P. Rajesh,,37528,32.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,Y.Devendrappa,,28625,24.47,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,H.Manjunatha,,3804,3.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,G.N.Bheemappa,,2846,2.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,C.Manjunatha,,880,0.75,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,G.B.Chowdappa,,732,0.63,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,"Prakash ,B.",,601,0.51,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,E.M.Narayana Swamy,,56824,46.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,K.M.Narayanas.,,52781,43.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,C.Venkateshap.,,9255,7.65,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,Srinivasa,,463,0.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,V.A.Manjunathappa,,317,0.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,S.M.Krishna,,316,0.26,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,V.K.A.Kittanna,,302,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,Jayaramappa,,239,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,V.Ravikumar,,229,0.19,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,T.S.Krishnamurthy,,205,0.17,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,CP Yogeshwara,,75275,50.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,SL Nagaraju,,57472,38.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,R Ramanna,,12687,8.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,Syed Zikriya,,785,0.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,S Zulfikar Mehdi,,690,0.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,S.S (Heggade),,425,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,T M Mancheg.,,361,0.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,S.L Gowda (GN),,300,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,V Gowda D.R.,,175,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,S P Shivaraju,,140,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,Jai Kissan,,113,0.08,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,BS Prasad,,96,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,Ashraf,,93,0.06,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,K S Gowda (P),,81,0.05,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,M Fathima,,71,0.05,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a

@@ -1,0 +1,6 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-karnataka-3479,karnataka,2011,CHANNAPATNA,183793,148764,80.94,CP Yogeshwara,,75275,50.6,SL Nagaraju,,57472,17803,11.97,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3501,karnataka,2011,BELLARY,184316,123369,66.93,B. Sriramulu,,74527,60.41,B. Ramprasad,,27737,46790,37.93,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3571,karnataka,2011,JAGALUR,145628,116977,80.33,S.V.Ramachandra,,41961,35.87,H.P. Rajesh,,37528,4433,3.79,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,BANGARAPET,151337,120931,79.91,E.M.Narayana Swamy,,56824,46.99,K.M.Narayanas.,,52781,4043,3.34,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,KOPPAL,182348,134620,73.83,K.S. Amarappa,,60405,44.87,K.B.B. Hitanal,,47917,12488,9.28,src-1b7bc1c9d39a
