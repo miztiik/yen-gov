@@ -1,9 +1,9 @@
 # B2b.4 sub-sub-plan - taxonomy datapoint-parquet reingest to long-format CSV
 
 **Last Updated**: 2026-06-05
-**Parent**: [TODO/20260604-b2b-reingest-subplan.md](20260604-b2b-reingest-subplan.md) row B2b.4
-**Grandparent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) chunk B2b
-**Status**: IN-FLIGHT (spawned 2026-06-04; B2b.4.7 DROPPED 2026-06-05 per Fowler+Hans debate; only B2b.4.8 closure remains)
+**Parent**: [TODO/20260604-b2b-reingest-subplan.md](../../../TODO/20260604-b2b-reingest-subplan.md) row B2b.4
+**Grandparent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) chunk B2b
+**Status**: COMPLETE 2026-06-05 (B2b.4.1..B2b.4.6 MERGED + B2b.4.7 DROPPED + B2b.4.8 closure #775)
 **Authority**: Hans + Max (data shape, identity, FK target homes) / Gregor (FK contract, write order, parity gate) per CLAUDE.md section 0a
 
 ---
@@ -89,8 +89,8 @@ Out of scope (other rows / chunks):
 | B2b.4.4 `election_events.csv` from `election_events.parquet` (339 rows; ECI `state_code` -> LGD slug re-key on emit) | - | cross-format-parity | #704 | MERGED |
 | B2b.4.5 `indicator_topic_tags.csv` from `indicator_topic_tags.parquet` (45 rows; M:N; FK `topic_id` -> `topics.csv`; FK `artifact_id` -> `variables.csv` when `artifact_kind = 'indicator'`) | B2a.2 + B2a.4 (already MERGED) | cross-format-parity | #706 | MERGED |
 | B2b.4.6 `entities/ac_crosswalk.csv` from `ac_crosswalk.parquet` (4113 rows; `state_code` -> LGD slug; `source_id` FK to `entities/source.csv`) | - | cross-format-parity | #708 | MERGED |
-| B2b.4.7 `entities/person.csv` from `persons.parquet` (430630 rows; heaviest emit; `source_id` FK to `entities/source.csv`) | - | N/A (see section 0) | _pending_ | DROPPED (2026-06-05; Fowler+Hans converged debate verdict; see section 0 Scope-change ledger; no citizen consumer of persons.parquet unique cols, biographic dim_persons cols migrate inline via B2b.5.x candidacies.csv #768-#772) |
-| B2b.4.8 close sub-sub-plan: flip parent B2b.4 row to MERGED + stamp closure PR + distil per-file emit map into [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md) "Datapoint reingest" section + archive this file to `docs/archive/plans/` | B2b.4.1..B2b.4.6 + B2b.4.7-DROPPED | docs-review | - | TODO |
+| B2b.4.7 `entities/person.csv` from `persons.parquet` (430630 rows; heaviest emit; `source_id` FK to `entities/source.csv`) | - | N/A (see section 0) | #774 | DROPPED (2026-06-05; Fowler+Hans converged debate verdict; see section 0 Scope-change ledger; no citizen consumer of persons.parquet unique cols, biographic dim_persons cols migrate inline via B2b.5.x candidacies.csv #768-#772) |
+| B2b.4.8 close sub-sub-plan: flip parent B2b.4 row to MERGED + stamp closure PR + distil per-file emit map into [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) "Datapoint reingest" section + archive this file to `docs/archive/plans/` | B2b.4.1..B2b.4.6 + B2b.4.7-DROPPED | docs-review | #775 | IN-FLIGHT |
 
 Parallel-safe groups (each `cross-format-parity` runs against a different on-disk parquet with no shared write target):
 
@@ -149,9 +149,9 @@ The orchestrator MAY ship Wave A rows in any order. Each sub-sub-row is a separa
 
 ### B2b.4.8 closure
 
-- Extend [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md) "Datapoint reingest" section with each of B2b.4.1..B2b.4.7 emitter module + source parquet + parity-gate path.
-- Flip the parent B2b.4 ledger row (in [TODO/20260604-b2b-reingest-subplan.md](20260604-b2b-reingest-subplan.md)) to MERGED in this same PR and stamp the closure PR number.
-- Archive this file to `docs/archive/plans/20260604-b2b4-taxonomy-subplan.md` with a "Plan complete" block per [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md).
+- Extend [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) "Datapoint reingest" section with each of B2b.4.1..B2b.4.7 emitter module + source parquet + parity-gate path.
+- Flip the parent B2b.4 ledger row (in [TODO/20260604-b2b-reingest-subplan.md](../../../TODO/20260604-b2b-reingest-subplan.md)) to MERGED in this same PR and stamp the closure PR number.
+- Archive this file to `docs/archive/plans/20260604-b2b4-taxonomy-subplan.md` with a "Plan complete" block per [docs/how-to/distill-a-plan.md](../../how-to/distill-a-plan.md).
 - Confirm: every taxonomy parquet has an emitted CSV sibling whose `cross-format-parity` gate is green; B2b.4's deletion-safety is established for X1b.
 
 ## Contract invariants (inherited from grandparent 22.4)
@@ -168,9 +168,30 @@ The parent sub-plan row B2b.4 is `DEFERRED-TO-SUBPLAN -> TODO/20260604-b2b4-taxo
 
 ## See also
 
-- Parent sub-plan: [TODO/20260604-b2b-reingest-subplan.md](20260604-b2b-reingest-subplan.md).
-- Grandparent plan: [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) (sections 7, 20.4, 21.6, 22.4, 22.5, 22.6, 23.2, 24.5).
-- B2a sub-plan precedent: [docs/archive/plans/20260604-b2a-csv-catalogue-subplan.md](../docs/archive/plans/20260604-b2a-csv-catalogue-subplan.md).
-- B1 sub-plan precedent: [docs/archive/plans/20260604-b1-csv-writer-subplan.md](../docs/archive/plans/20260604-b1-csv-writer-subplan.md).
-- Canonical writer doc: [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md).
+- Parent sub-plan: [TODO/20260604-b2b-reingest-subplan.md](../../../TODO/20260604-b2b-reingest-subplan.md).
+- Grandparent plan: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) (sections 7, 20.4, 21.6, 22.4, 22.5, 22.6, 23.2, 24.5).
+- B2a sub-plan precedent: [docs/archive/plans/20260604-b2a-csv-catalogue-subplan.md](20260604-b2a-csv-catalogue-subplan.md).
+- B1 sub-plan precedent: [docs/archive/plans/20260604-b1-csv-writer-subplan.md](20260604-b1-csv-writer-subplan.md).
+- Canonical writer doc: [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md).
 - Sub-plan spawning rule: grandparent section 24.5.
+
+## Plan complete
+
+Closed 2026-06-05 via PR #775. All rows resolved (six MERGED + one DROPPED + closure):
+
+- B2b.4.1 `methodology_breaks` -> [datasets/data/methodology_breaks.csv](../../../datasets/data/methodology_breaks.csv); emitter `backend/yen_gov/canonical/reingest/methodology_breaks.py`. PR #698.
+- B2b.4.2 `facet_axes` -> [datasets/data/facet_axes.csv](../../../datasets/data/facet_axes.csv); emitter `reingest/facet_axes.py`. PR #700.
+- B2b.4.3 `state_tiers` -> [datasets/data/state_tiers.csv](../../../datasets/data/state_tiers.csv); emitter `reingest/state_tiers.py`. PR #702. ECI state_code -> LGD slug re-key.
+- B2b.4.4 `election_events` -> [datasets/data/election_events.csv](../../../datasets/data/election_events.csv); emitter `reingest/election_events.py`. PR #704. ECI state_code -> LGD slug re-key.
+- B2b.4.5 `indicator_topic_tags` -> [datasets/data/indicator_topic_tags.csv](../../../datasets/data/indicator_topic_tags.csv); emitter `reingest/indicator_topic_tags.py`. PR #706. M:N FK.
+- B2b.4.6 `ac_crosswalk` -> [datasets/data/entities/ac_crosswalk.csv](../../../datasets/data/entities/ac_crosswalk.csv); emitter `reingest/ac_crosswalk.py`. PR #708. ECI state_code -> LGD slug re-key.
+- B2b.4.7 `persons` -> **DROPPED** per Fowler+Hans converged verdict (section 0). PR #774. `datasets/taxonomy/persons.parquet` is a dedup-audit registry with zero frontend consumers; cross-format-parity gate is N/A for the unconsumed parquet; biographic dim_persons cols migrate inline via B2b.5.x. Path-A FK-orphan backfill also dropped.
+- B2b.4.8 closure -> THIS PR (#775). Parent B2b.4 row flipped to MERGED; canonical-writer.md `## Taxonomy datapoint reingest (B2b.4)` section appended; this file archived to `docs/archive/plans/20260604-b2b4-taxonomy-subplan.md`; the X1b deletion-safety statement for `datasets/taxonomy/persons.parquet` (zero-consumer + audit trail) is the canonical-writer doc + section 0 of this archived plan.
+
+Distillation map per [docs/how-to/distill-a-plan.md](../../how-to/distill-a-plan.md):
+
+- Per-file emit map -> [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) `## Taxonomy datapoint reingest (B2b.4)` section.
+- Fowler+Hans converged verdict for B2b.4.7 DROP -> section 0 of this archived plan + section 0 retained verbatim as the operator's reference.
+- Per-PR audit trail -> stays in this archived plan.
+
+Plan-doc remains as the audit ledger; do not edit further. New work starts a new plan-doc.
