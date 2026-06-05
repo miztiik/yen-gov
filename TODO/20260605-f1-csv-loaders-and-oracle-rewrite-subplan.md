@@ -36,7 +36,7 @@ Out of scope (deliberately deferred to other chunks):
 
 | Sub-row | Blocks on | Gate | PR# | Status |
 | --- | --- | --- | --- | --- |
-| F1.1 backend parity-oracle rewrite (`backend/tests/test_canonical_parity_oracle.py` reads CSV; same `canonical_winners_2026_05_19.json` fixture; same per-AC zero-tolerance assertion) | - | parity-oracle-CSV + oracle-non-skip (must actually RUN, not skipif-parquet-absent) | - | TODO |
+| F1.1 backend parity-oracle rewrite (`backend/tests/test_canonical_parity_oracle.py` reads CSV; same `canonical_winners_2026_05_19.json` fixture; same per-AC zero-tolerance assertion) | - | parity-oracle-CSV + oracle-non-skip (must actually RUN, not skipif-parquet-absent) | _pending_ | IN-FLIGHT |
 | F1.2 frontend loader seam (`canonical/duckdb.ts` `queryParquet` -> `queryCsv`; `canonical/indicator-allowlist.ts` docstring + descriptor doctrine scrub; `canonical/manifest.ts` if it carries parquet path references) | - | loader-unit (vitest) + §13 in-browser smoke on one canonical-backed route | - | TODO |
 | F1.3 frontend view-model SQL flip (6 callers: `view-models/constituency.ts`, `psephlab/canonical-loaders.ts`, `view-models/state-overview.ts`, `view-models/national-elections.ts`, `yenask/concepts.ts`, `explore/duckdb-views.ts`) | F1.2 | per-view-model vitest + §13 in-browser smoke on 3 routes (StateOverview, National, Constituency) | - | TODO |
 | F1.4 close sub-plan (flip parent F1 row to MERGED; distil seam shape into [docs/architecture/frontend/data-loading.md](../docs/architecture/frontend/data-loading.md) + [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md) "Parity oracle" section; archive this sub-plan to `docs/archive/plans/`) | F1.1, F1.2, F1.3 | docs-review | - | TODO |
