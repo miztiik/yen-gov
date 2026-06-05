@@ -136,6 +136,25 @@ on it).
 - The two original reconciliation tests stay green (they exercise §2b and
   the inconsistencies section).
 
+## Scope: assembly-only; parliament not yet reconciled (B2b.5.4, EL7)
+
+`coverage.py` reconciles the **legacy Parquet** election store
+(`datasets/elections/state=*/election_results.parquet`, keyed on the ECI
+`state_code`, `kind='state_rollup'`) against `election_events.json`. It is an
+**assembly/AC-grain** reconciler and has no awareness of the new long-format CSV
+tree under `datasets/elections/{assembly,parliament}/…` that B2b.5.2-5.4 emit.
+
+Per the sub-plan's EL7 disposition, B2b.5.4 (parliament emit) **scope-fences**
+`coverage.py` to assembly rather than extending it to discriminate a PC row
+class: an aggregator silently blind to a whole election class would be a latent
+reporting bug, so the disposition is recorded explicitly here instead of left
+implicit. Reconciling the new CSV tree (both axes) belongs to the **F1 reader
+flip** chunk, which retargets coverage from the retiring Parquet store to the
+canonical CSV store; the parliament axis is picked up there. Until then,
+parliament coverage is evidenced by the per-cycle bind receipt
+`datasets/_ops/parliament-coverage-2026-06-05.md` (states / candidacies /
+summary PCs / unbound per LS cycle), not by `coverage.py`.
+
 ## See also
 
 - [`docs/reference/data-inventory.md`](../../reference/data-inventory.md) —

@@ -1,0 +1,25 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2021,2,MANDI,PRATIBHA SINGH,,369565,49.14,1,won,F,,,,challenger,src-31c65dbec869
+IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2021,2,MANDI,BRIG. KHUSHAL CHAND THAKUR,,362075,48.14,2,lost,M,,,,challenger,src-31c65dbec869
+IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2021,2,MANDI,NOTA,,12661,1.68,3,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2021,2,MANDI,AMBIKA SHYAM,,3617,0.48,4,forfeit,F,,,,challenger,src-31c65dbec869
+IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2021,2,MANDI,SUBHASH MOHAN SNEHI,,1772,0.24,5,forfeit,M,,,,challenger,src-31c65dbec869
+IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2021,2,MANDI,MUNSHI RAM THAKUR,,1262,0.17,6,forfeit,M,,,,challenger,src-31c65dbec869
+IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2021,2,MANDI,ANIL KUMAR,,1119,0.15,7,forfeit,M,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-468,karnataka,2021,2,BELGAUM,ANGADI MANGAL SURESH,,440327,43.07,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-468,karnataka,2021,2,BELGAUM,SATISH LAXMANARAO JARKIHOLI,,435087,42.56,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-468,karnataka,2021,2,BELGAUM,SHUBHAM VIKRANT SHELKE,,117174,11.46,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-468,karnataka,2021,2,BELGAUM,VIVEKANAND BABU GHANTI,,4844,0.47,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-468,karnataka,2021,2,BELGAUM,SREEKANT PADASALAGI,,4388,0.43,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-468,karnataka,2021,2,BELGAUM,NAGAPPA KALASANNAVAR,,3006,0.29,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-468,karnataka,2021,2,BELGAUM,MARALINGANNAVAR SURESH BASAPPA,,2021,0.2,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-468,karnataka,2021,2,BELGAUM,SHRI VENKATESHWARA MAHA SWAMIJI,,2015,0.2,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-468,karnataka,2021,2,BELGAUM,SHRI GOUTAM YAMANAPPA KAMBLE,,1390,0.14,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-468,karnataka,2021,2,BELGAUM,APPASHEB SHRIPATI KURANE,,1364,0.13,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-kerala-498,kerala,2021,6,MALAPPURAM,Abdussamad Samadani,,538438,48.96,1,won,M,,,,challenger,src-31c65dbec869
+IN-PC-2008-kerala-498,kerala,2021,6,MALAPPURAM,V.P. Sanu,,423746,38.53,2,lost,M,,,,challenger,src-31c65dbec869
+IN-PC-2008-kerala-498,kerala,2021,6,MALAPPURAM,A.P. Abdullakutty,,68965,6.27,3,forfeit,M,,,,crossover,src-31c65dbec869
+IN-PC-2008-kerala-498,kerala,2021,6,MALAPPURAM,Dr. Tasleem Rahmani,,46852,4.26,4,forfeit,M,,,,challenger,src-31c65dbec869
+IN-PC-2008-kerala-498,kerala,2021,6,MALAPPURAM,Adv. Sayyid Sadique Ali Thangal,,10479,0.95,5,forfeit,M,,,,challenger,src-31c65dbec869
+IN-PC-2008-kerala-498,kerala,2021,6,MALAPPURAM,Yoonus Saleem,,7065,0.64,6,forfeit,M,,,,challenger,src-31c65dbec869
+IN-PC-2008-kerala-498,kerala,2021,6,MALAPPURAM,NOTA,,4260,0.39,7,lost,U,,,,challenger,src-31c65dbec869

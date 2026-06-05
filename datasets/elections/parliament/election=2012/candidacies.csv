@@ -1,0 +1,41 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-PC-2008-karnataka-461,karnataka,2012,15,UDUPI-CHIKMAGALUR,K.J. Hegde,,398723,46.75,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-461,karnataka,2012,15,UDUPI-CHIKMAGALUR,S. Kumar V.,,352999,41.39,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-461,karnataka,2012,15,UDUPI-CHIKMAGALUR,S.L.B. Gowda,,72080,8.45,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-461,karnataka,2012,15,UDUPI-CHIKMAGALUR,H.B. Kateel,,6930,0.81,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-461,karnataka,2012,15,UDUPI-CHIKMAGALUR,K.Bharath,,4945,0.58,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-461,karnataka,2012,15,UDUPI-CHIKMAGALUR,H.K. Chandrashekar,,3640,0.43,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-461,karnataka,2012,15,UDUPI-CHIKMAGALUR,S. Poojary,,3293,0.39,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-461,karnataka,2012,15,UDUPI-CHIKMAGALUR,H.S. Poojary,,2177,0.26,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-461,karnataka,2012,15,UDUPI-CHIKMAGALUR,K.J.H.(Kokkarne),,1755,0.21,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-461,karnataka,2012,15,UDUPI-CHIKMAGALUR,A. Katapadi,,1491,0.17,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-461,karnataka,2012,15,UDUPI-CHIKMAGALUR,D.R.Coelho,,1429,0.17,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-461,karnataka,2012,15,UDUPI-CHIKMAGALUR,S. Pedemane,,1377,0.16,12,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-461,karnataka,2012,15,UDUPI-CHIKMAGALUR,Venkatesha N,,1064,0.12,13,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-461,karnataka,2012,15,UDUPI-CHIKMAGALUR,Riyaz Ahmed,,921,0.11,14,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-123,uttar-pradesh,2012,42,KANNAUJ,Dimple Yadav,,0,,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttarakhand-29,uttarakhand,2012,1,TEHRI GARHWAL,Mala Rajya Laxmi Shah,,245835,48.11,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttarakhand-29,uttarakhand,2012,1,TEHRI GARHWAL,Saket Bahuguna,,223141,43.67,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttarakhand-29,uttarakhand,2012,1,TEHRI GARHWAL,K.J. S Uttarakhandi,,7466,1.46,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttarakhand-29,uttarakhand,2012,1,TEHRI GARHWAL,Trivendra Singh Panwar,,6939,1.36,4,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-2008-uttarakhand-29,uttarakhand,2012,1,TEHRI GARHWAL,Yogi Rakesh Nath,,4100,0.8,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttarakhand-29,uttarakhand,2012,1,TEHRI GARHWAL,Barhm Dav Jha,,3894,0.76,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttarakhand-29,uttarakhand,2012,1,TEHRI GARHWAL,Vigyan Bikram Shah,,3850,0.75,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttarakhand-29,uttarakhand,2012,1,TEHRI GARHWAL,Kuldeep Madhwal,,3842,0.75,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttarakhand-29,uttarakhand,2012,1,TEHRI GARHWAL,Sanjay Goyal,,3795,0.74,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttarakhand-29,uttarakhand,2012,1,TEHRI GARHWAL,Manish Verma,,2769,0.54,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttarakhand-29,uttarakhand,2012,1,TEHRI GARHWAL,Naveen Kumr Bhatt,,1779,0.35,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttarakhand-29,uttarakhand,2012,1,TEHRI GARHWAL,Jauhari Lal Suman,,1313,0.26,12,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttarakhand-29,uttarakhand,2012,1,TEHRI GARHWAL,Darshan Lal Dimri,,1161,0.23,13,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttarakhand-29,uttarakhand,2012,1,TEHRI GARHWAL,Liyakat Ali,,1067,0.21,14,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-252,west-bengal,2012,9,JANGIPUR,Abhijit Mukherjee,,332919,39.01,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-252,west-bengal,2012,9,JANGIPUR,Muzaffar Hossain,,330383,38.71,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-252,west-bengal,2012,9,JANGIPUR,Sudhansu Biswas,,85867,10.06,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-252,west-bengal,2012,9,JANGIPUR,Raichuddin Baidya,,41620,4.88,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-252,west-bengal,2012,9,JANGIPUR,Tayedvl Islam,,24691,2.89,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-252,west-bengal,2012,9,JANGIPUR,D.Bandopadhyay,,12701,1.49,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-252,west-bengal,2012,9,JANGIPUR,Muzakkar Hossain,,11278,1.32,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-252,west-bengal,2012,9,JANGIPUR,G.N. Das,,6824,0.8,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-252,west-bengal,2012,9,JANGIPUR,S.K. Mondal,,2935,0.34,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-252,west-bengal,2012,9,JANGIPUR,Apurba Sarkar,,2386,0.28,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-252,west-bengal,2012,9,JANGIPUR,Shauraj Singh,,1788,0.21,11,forfeit,U,,,,challenger,src-31c65dbec869
