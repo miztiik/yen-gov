@@ -41,6 +41,8 @@
   import type { GeoChoroplethRow } from "../lib/charts/geo-choropleth-helpers";
   import Matrix from "../lib/charts/Matrix.svelte";
   import type { MatrixRow } from "../lib/charts/matrix-helpers";
+  import Treemap from "../lib/charts/Treemap.svelte";
+  import type { TreemapRow } from "../lib/charts/treemap-helpers";
   import {
     feasibleAt,
     intersectWithCatalogue,
@@ -287,6 +289,34 @@
     return map[id] ?? id;
   };
   const f2b4_time_label = (t: string): string => t;
+
+  // --- fixture 9 - F2b.5 Treemap - part-to-whole synthetic ---
+  // Synthetic 9-segment breakdown grouped into 3 regions. Sqrt-area
+  // proportional per parent §15.1 HONESTY: a 2x value reads as 2x
+  // area, not 4x. Hover a tile to see the value + share-of-total.
+  const f2b5_treemap_rows: TreemapRow[] = [
+    { id: "MH", label: "Maharashtra", value: 320, parent_id: "West" },
+    { id: "GJ", label: "Gujarat",     value: 240, parent_id: "West" },
+    { id: "GA", label: "Goa",         value:  40, parent_id: "West" },
+    { id: "KA", label: "Karnataka",   value: 220, parent_id: "South" },
+    { id: "TN", label: "Tamil Nadu",  value: 260, parent_id: "South" },
+    { id: "KL", label: "Kerala",      value: 130, parent_id: "South" },
+    { id: "UP", label: "UP",          value: 200, parent_id: "North" },
+    { id: "DL", label: "Delhi",       value: 110, parent_id: "North" },
+    { id: "PB", label: "Punjab",      value:  90, parent_id: "North" },
+  ];
+  // Region-coloured palette (caller-supplied; intentionally NOT the
+  // shared sequential palette - this proves Treemap accepts arbitrary
+  // colour fns, including category colours).
+  const f2b5_region_color: Record<string, string> = {
+    West:  "#0e7490",
+    South: "#15803d",
+    North: "#9a3412",
+  };
+  const f2b5_color_for_tile = (t: { parent_id: string | null }): string => {
+    if (t.parent_id == null) return "#94a3b8";
+    return f2b5_region_color[t.parent_id] ?? "#94a3b8";
+  };
 
   // ─── fixture 6 — TileCartogram (equal-area hex; synthetic 5×5 patch) ───
   // A small synthetic AC layout + winners so the renderer↔builder contract
@@ -744,6 +774,36 @@
       cell_min_width={48}
       label_width={140}
       width={640}
+    />
+  </section>
+
+  <!-- F2b.5 Treemap demo (parent plan section 15.1 row 7). Tile area
+       is sqrt-proportional to value (HONESTY). Region-coloured to
+       prove the caller-supplied colour fn seam (Treemap accepts both
+       category colours and shared-palette binned colours). -->
+  <section class="space-y-3" data-testid="f2b5-section">
+    <h2 class="text-lg font-semibold">F2b.5 - Treemap (tiled part-to-whole)</h2>
+    <p class="text-sm text-slate-600">
+      Renderer #7 from <a class="underline" href="../docs/reference/chart-index.md">chart-index.md section 1</a>.
+      d3-hierarchy treemap() lays out aspect-ratio-balanced
+      rectangles whose AREA is value-proportional. Tile fill is
+      caller-supplied so the same renderer can paint by category
+      (here: region) or by value-magnitude via binnedSequential().
+      Labels render only on tiles wider than 40px AND taller than
+      18px - smaller tiles are swatches with the label on hover.
+    </p>
+    <p class="text-xs text-slate-500">
+      Fixture data is illustrative; numbers MUST NOT be cited.
+    </p>
+    <Treemap
+      rows={f2b5_treemap_rows}
+      color_for_tile={f2b5_color_for_tile}
+      format_value={(v) => `${v.toFixed(0)} cr`}
+      title="Synthetic revenue by state, grouped by region (illustrative)"
+      source_owner="Synthetic sandbox fixture"
+      source_vintage="2026-06-06 (illustrative)"
+      width={640}
+      height={400}
     />
   </section>
 </section>
