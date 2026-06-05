@@ -48,6 +48,7 @@ a B4-blocking regression). The pure helpers (``build_candidacy_rows``,
 from __future__ import annotations
 
 import csv
+import math
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
@@ -118,9 +119,14 @@ def _float_or_none(value: str | None) -> float | None:
     if not text:
         return None
     try:
-        return float(text)
+        result = float(text)
     except ValueError:
         return None
+    # TCPD records an unpolled / unopposed return as ``nan`` (and very
+    # occasionally an inf); those are "no meaningful value", not a number.
+    if math.isnan(result) or math.isinf(result):
+        return None
+    return result
 
 
 def _text_or_none(value: str | None) -> str | None:
@@ -254,6 +260,12 @@ def recompute_summary_row(
     already excluded); electors / votes_polled / turnout are carried from
     ``ac_facts`` (not derivable from candidate rows). ``candidacy_rows`` MUST be
     non-empty (the caller groups by AC, so every group has >= 1 candidate).
+
+    An UNCONTESTED seat (a single real candidate, e.g. an unopposed return in
+    the North-East where TCPD records ``votes=0`` / ``share=nan``) has no
+    runner-up: the runner-up + margin fields are emitted null (the contract
+    widens them to nullable for exactly this case), and ``winner_share_pct`` is
+    null when the source share is non-numeric.
     """
     ranked = sorted(candidacy_rows, key=lambda r: r["votes"], reverse=True)
     winner = ranked[0]
@@ -261,11 +273,8 @@ def recompute_summary_row(
 
     winner_share = winner.get("vote_share_pct")
     runner_share = runner.get("vote_share_pct") if runner else None
-    margin_pct: float | None
-    if winner_share is not None and runner_share is not None:
+    if runner is not None and winner_share is not None and runner_share is not None:
         margin_pct = _round(winner_share - runner_share)
-    elif runner is None and winner_share is not None:
-        margin_pct = _round(winner_share)
     else:
         margin_pct = None
 
@@ -280,12 +289,12 @@ def recompute_summary_row(
         "winner_candidate": winner["candidate_name"],
         "winner_party_id": winner.get("party_id"),
         "winner_votes": winner["votes"],
-        "winner_share_pct": _round(winner_share) if winner_share is not None else 0.0,
-        "runnerup_candidate": runner["candidate_name"] if runner else "",
+        "winner_share_pct": _round(winner_share),
+        "runnerup_candidate": runner["candidate_name"] if runner else None,
         "runnerup_party_id": runner.get("party_id") if runner else None,
-        "runnerup_votes": runner["votes"] if runner else 0,
-        "margin_votes": winner["votes"] - (runner["votes"] if runner else 0),
-        "margin_pct": margin_pct if margin_pct is not None else 0.0,
+        "runnerup_votes": runner["votes"] if runner else None,
+        "margin_votes": (winner["votes"] - runner["votes"]) if runner else None,
+        "margin_pct": margin_pct,
         "source_id": source_id,
     }
 

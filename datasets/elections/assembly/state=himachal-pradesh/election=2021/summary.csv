@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2021,FATEHPUR,87222,57095,65.46,Bhawani Singh Pathania,,24449,42.82,Baldev Thakur,,18660,5789,10.14,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2021,ARKI,92609,60550,65.38,SANJAY,,30798,50.86,RATTAN SINGH PAL,,27579,3219,5.31,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2021,JUBBAL-KOTKHAI,70965,56607,79.77,ROHIT THAKUR,,29955,52.92,CHETAN SINGH BRAGTA,,23662,6293,11.12,src-1b7bc1c9d39a

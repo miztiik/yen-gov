@@ -1,0 +1,6 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-arunachal-pradesh-1422,arunachal-pradesh,2015,27,LIROMOBA,Nyamar Karbak,,3808,36.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1422,arunachal-pradesh,2015,27,LIROMOBA,Bai Gadi,,3689,35.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1422,arunachal-pradesh,2015,27,LIROMOBA,Lijum Ronya,,2589,24.7,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1422,arunachal-pradesh,2015,27,LIROMOBA,Raksap Yomcha,,355,3.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1422,arunachal-pradesh,2015,27,LIROMOBA,Johny Tali,,40,0.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

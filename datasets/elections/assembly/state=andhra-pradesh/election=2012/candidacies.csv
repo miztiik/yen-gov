@@ -1,0 +1,241 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2012,127,NARASANNAPETA,D.K. Das,,54454,38.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2012,127,NARASANNAPETA,D. Ramadas,,47142,33.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2012,127,NARASANNAPETA,S. S. Babo,,32401,23.18,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2012,127,NARASANNAPETA,S.R.T. Rao,,2149,1.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2012,127,NARASANNAPETA,B. Rao Byri,,1849,1.32,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2012,127,NARASANNAPETA,V.Y. Rao,,1770,1.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2012,152,PAYAKARAOPETA,B.Rao Golla,,71963,41.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2012,152,PAYAKARAOPETA,C.V. Rao,,57601,33.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2012,152,PAYAKARAOPETA,S. Gantela,,33867,19.71,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2012,152,PAYAKARAOPETA,K. Lokanadham,,2067,1.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2012,152,PAYAKARAOPETA,M. L. Murty,,1799,1.05,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2012,152,PAYAKARAOPETA,J.R. Kumar,,1543,0.9,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2012,152,PAYAKARAOPETA,Chakravarthi K.N.P.,,1318,0.77,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2012,152,PAYAKARAOPETA,B. Gudabandi,,854,0.5,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2012,152,PAYAKARAOPETA,Mathe Suresh,,803,0.47,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2012,161,RAMACHANDRAPURAM,T. Trimurthula,,77292,49.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2012,161,RAMACHANDRAPURAM,Bosu Pilli,,65373,42.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2012,161,RAMACHANDRAPURAM,C.R. Rao,,6256,4.04,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2012,161,RAMACHANDRAPURAM,S.C.B. Chinta,,831,0.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2012,161,RAMACHANDRAPURAM,I. Rajamani,,664,0.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2012,161,RAMACHANDRAPURAM,Y.S. Rao,,597,0.39,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2012,161,RAMACHANDRAPURAM,Y. Ramakrishna,,568,0.37,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2012,161,RAMACHANDRAPURAM,G..S.S. N.Babu,,526,0.34,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2012,161,RAMACHANDRAPURAM,Bose Pyla,,513,0.33,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2012,161,RAMACHANDRAPURAM,D.V. Ramana,,478,0.31,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2012,161,RAMACHANDRAPURAM,D.B. Rao,,414,0.27,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2012,161,RAMACHANDRAPURAM,Bosu Pinipe,,392,0.25,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2012,161,RAMACHANDRAPURAM,D.G. Chowdary,,278,0.18,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2012,161,RAMACHANDRAPURAM,C.R. Rao,,212,0.14,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2012,161,RAMACHANDRAPURAM,Botcha Yesu,,208,0.13,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2012,161,RAMACHANDRAPURAM,T. Bandi,,184,0.12,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3350,andhra-pradesh,2012,177,NARASAPURAM,K.P.S. Yudu (Pedabahn),,58368,46.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3350,andhra-pradesh,2012,177,NARASAPURAM,M.P. Raju,,53896,43.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3350,andhra-pradesh,2012,177,NARASAPURAM,C.S. Rao,,8813,7.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3350,andhra-pradesh,2012,177,NARASAPURAM,G.S. Rao,,903,0.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3350,andhra-pradesh,2012,177,NARASAPURAM,K.P.S. Kumari,,572,0.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3350,andhra-pradesh,2012,177,NARASAPURAM,J.S. Babu Rao,,567,0.46,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3350,andhra-pradesh,2012,177,NARASAPURAM,B.R.V.G.Raju,,503,0.4,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3350,andhra-pradesh,2012,177,NARASAPURAM,K.P. Ramesh,,392,0.32,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3350,andhra-pradesh,2012,177,NARASAPURAM,G.K. Durga,,282,0.23,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3227,andhra-pradesh,2012,186,POLAVARAM,T. Bala Raju,,80790,53.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3227,andhra-pradesh,2012,186,POLAVARAM,B.S.Rao,,45023,30.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3227,andhra-pradesh,2012,186,POLAVARAM,N. Parvathi,,16081,10.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3227,andhra-pradesh,2012,186,POLAVARAM,M.V. Rao,,3551,2.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3227,andhra-pradesh,2012,186,POLAVARAM,T.V.Rao,,3123,2.08,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3227,andhra-pradesh,2012,186,POLAVARAM,K. Chinna Raju,,1411,0.94,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3233,andhra-pradesh,2012,212,PARTHIPADU (SC),M. Sucharitha,,87742,48.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3233,andhra-pradesh,2012,212,PARTHIPADU (SC),K. Veeraiah,,70961,39.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3233,andhra-pradesh,2012,212,PARTHIPADU (SC),TJR Sudhakar Babu,,15949,8.88,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3233,andhra-pradesh,2012,212,PARTHIPADU (SC),J.G.J. Bhagyam,,1459,0.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3233,andhra-pradesh,2012,212,PARTHIPADU (SC),S.K. Babu,,788,0.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3233,andhra-pradesh,2012,212,PARTHIPADU (SC),P. Ankaiah,,664,0.37,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3233,andhra-pradesh,2012,212,PARTHIPADU (SC),T.R. Ratwam,,626,0.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3233,andhra-pradesh,2012,212,PARTHIPADU (SC),J.M.R. Rao,,621,0.35,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3233,andhra-pradesh,2012,212,PARTHIPADU (SC),V. Vasu,,349,0.19,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3233,andhra-pradesh,2012,212,PARTHIPADU (SC),T.R. Kumar,,308,0.17,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3233,andhra-pradesh,2012,212,PARTHIPADU (SC),V.R. Babu,,195,0.11,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3343,andhra-pradesh,2012,220,MACHERLA,R.K.Reddy Pisnelhi,,79751,46.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3343,andhra-pradesh,2012,220,MACHERLA,C.M. Babu,,64272,37.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3343,andhra-pradesh,2012,220,MACHERLA,P.L. Reddy,,19065,11.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3343,andhra-pradesh,2012,220,MACHERLA,S. Javvajd,,2075,1.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3343,andhra-pradesh,2012,220,MACHERLA,V.S. Rao Avula,,1099,0.64,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3343,andhra-pradesh,2012,220,MACHERLA,D.S. Rao,,1047,0.61,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3343,andhra-pradesh,2012,220,MACHERLA,S.A. Raheman,,816,0.48,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3343,andhra-pradesh,2012,220,MACHERLA,V.R. Hodugula,,687,0.4,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3343,andhra-pradesh,2012,220,MACHERLA,D.R.K. Reddy,,626,0.37,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3343,andhra-pradesh,2012,220,MACHERLA,G. Seredd,,452,0.26,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3343,andhra-pradesh,2012,220,MACHERLA,A.J. B. Shaik,,434,0.25,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3343,andhra-pradesh,2012,220,MACHERLA,G.Rao Velioloudi,,297,0.17,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3343,andhra-pradesh,2012,220,MACHERLA,A. Ramanjsheyala,,251,0.15,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,B.S.Reddy (Vasu),,77222,48.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,D.J. Rao,,49819,31.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,M. Parvathamma,,23020,14.55,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,A.S. R. Reddy,,2844,1.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,V.Y.Yanam,,768,0.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,S.R. Kuruguntla,,668,0.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,B. Rama Rao,,482,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,S. Babu,,444,0.28,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,K. Sivaprasad,,391,0.25,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,V.K. Durga,,366,0.23,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,T.S. Babu,,291,0.18,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,P. R. Krishna (RK),,225,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,S. Nalamothu,,219,0.14,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,T. Ravi Kumar,,218,0.14,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,N. Raghavarao,,182,0.12,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,A.V. Rao,,171,0.11,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,M.R. Prasad,,155,0.1,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,P. Suresh,,152,0.1,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,P. R. Bodapati,,142,0.09,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,V. Chiranjeevi,,123,0.08,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,C. Sriramulu,,114,0.07,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,T.R.K. Rao,,113,0.07,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,227,ONGOLE,T.K. Babu,,109,0.07,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3358,andhra-pradesh,2012,235,KOVUR,N.P.Kumar Reddy,,73876,42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3358,andhra-pradesh,2012,235,KOVUR,S.C. Reddy,,50382,28.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3358,andhra-pradesh,2012,235,KOVUR,P.S.Reddy,,41397,23.53,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3358,andhra-pradesh,2012,235,KOVUR,J.V. Raju,,3562,2.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3358,andhra-pradesh,2012,235,KOVUR,Nellore Narasaiah,,1585,0.9,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3358,andhra-pradesh,2012,235,KOVUR,S.K. Rao,,1043,0.59,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3358,andhra-pradesh,2012,235,KOVUR,Kollu Madhu Babu,,836,0.48,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3358,andhra-pradesh,2012,235,KOVUR,Pattapu Ravi,,688,0.39,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3358,andhra-pradesh,2012,235,KOVUR,K. Guravaiah,,501,0.28,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3358,andhra-pradesh,2012,235,KOVUR,A.C. Sekhar,,495,0.28,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3358,andhra-pradesh,2012,235,KOVUR,Mallareddy Meda,,442,0.25,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3358,andhra-pradesh,2012,235,KOVUR,P. Vijayakumar,,391,0.22,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3358,andhra-pradesh,2012,235,KOVUR,K.R. Parusu,,386,0.22,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3358,andhra-pradesh,2012,235,KOVUR,C. Chiranjeevi,,329,0.19,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3361,andhra-pradesh,2012,242,UDAYAGIRI,M.C.S.Reddy,,75103,46.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3361,andhra-pradesh,2012,242,UDAYAGIRI,B.V. Rama Rao,,44505,27.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3361,andhra-pradesh,2012,242,UDAYAGIRI,V.R. Kambam,,34489,21.5,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3361,andhra-pradesh,2012,242,UDAYAGIRI,K. Venkatriah,,1433,0.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3361,andhra-pradesh,2012,242,UDAYAGIRI,P.R. Koduri,,968,0.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3361,andhra-pradesh,2012,242,UDAYAGIRI,S.R. Rami Reddy,,784,0.49,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3361,andhra-pradesh,2012,242,UDAYAGIRI,E.R. Murtyy,,676,0.42,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3361,andhra-pradesh,2012,242,UDAYAGIRI,K.V.R. Raju,,674,0.42,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3361,andhra-pradesh,2012,242,UDAYAGIRI,M.K. Reddy,,552,0.34,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3361,andhra-pradesh,2012,242,UDAYAGIRI,Ravi Prasad,,446,0.28,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3361,andhra-pradesh,2012,242,UDAYAGIRI,B.M.S.Rao,,239,0.15,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3361,andhra-pradesh,2012,242,UDAYAGIRI,D.M.Rao,,208,0.13,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3361,andhra-pradesh,2012,242,UDAYAGIRI,K.P. Rao,,179,0.11,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3361,andhra-pradesh,2012,242,UDAYAGIRI,C. Bayyanna,,154,0.1,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,244,RAJAMPET,A.R. Akepati,,76951,52.49,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,244,RAJAMPET,M.V.M.K. Reddy,,38732,26.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,244,RAJAMPET,B. Pasupuleti,,21417,14.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,244,RAJAMPET,B.N. Raja,,1301,0.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,244,RAJAMPET,S.R.S. Raju,,1151,0.79,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,244,RAJAMPET,M.R. Meda,,1099,0.75,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,244,RAJAMPET,S.R. Chamarthi,,897,0.61,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,244,RAJAMPET,C.S.Reddy,,779,0.53,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,244,RAJAMPET,N.J.M. Reddy,,649,0.44,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,244,RAJAMPET,P.R. Sekhat,,594,0.41,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,244,RAJAMPET,Y.V. Sagar,,545,0.37,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,244,RAJAMPET,R.R. Babu,,457,0.31,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,244,RAJAMPET,K.A. Reddy,,405,0.28,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,244,RAJAMPET,G.C. Reddy,,396,0.27,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,244,RAJAMPET,A. Mallikarjuna,,316,0.22,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,244,RAJAMPET,S.Chandranath. A.,,269,0.18,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,244,RAJAMPET,A. Suraiah,,226,0.15,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,244,RAJAMPET,G.J. Reddy,,225,0.15,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,244,RAJAMPET,K.V.Raju,,206,0.14,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3390,andhra-pradesh,2012,246,KODUR (SC),K.Sdreenivasulu,,66456,53.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3390,andhra-pradesh,2012,246,KODUR (SC),E. Kanuparthi,,34465,27.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3390,andhra-pradesh,2012,246,KODUR (SC),J.B. Nandavaram,,17594,14.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3390,andhra-pradesh,2012,246,KODUR (SC),S. Chengalrayudu,,1057,0.86,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3390,andhra-pradesh,2012,246,KODUR (SC),S. Yarrathoti,,863,0.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3390,andhra-pradesh,2012,246,KODUR (SC),A. Maddila,,777,0.63,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3390,andhra-pradesh,2012,246,KODUR (SC),S. Subbarayudu,,687,0.56,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3390,andhra-pradesh,2012,246,KODUR (SC),J.V. Ramana,,364,0.29,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3390,andhra-pradesh,2012,246,KODUR (SC),N. Subbaiah,,245,0.2,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3390,andhra-pradesh,2012,246,KODUR (SC),J. Ramakrishnaiah,,210,0.17,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3390,andhra-pradesh,2012,246,KODUR (SC),K.Prahlad,,183,0.15,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3390,andhra-pradesh,2012,246,KODUR (SC),D. Siddaiah,,152,0.12,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3390,andhra-pradesh,2012,246,KODUR (SC),D. Vemulaiah,,146,0.12,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3390,andhra-pradesh,2012,246,KODUR (SC),K. V. Subbaiah,,133,0.11,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3390,andhra-pradesh,2012,246,KODUR (SC),G. Modapothula,,107,0.09,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3390,andhra-pradesh,2012,246,KODUR (SC),G. Nellepalli,,81,0.07,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3395,andhra-pradesh,2012,247,RAYACHOTY,G.K. S. Reddy,,90978,57.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3395,andhra-pradesh,2012,247,RAYACHOTY,S.M. Sugavasi,,34087,21.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3395,andhra-pradesh,2012,247,RAYACHOTY,M.R.P. Reddy,,25344,15.92,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3395,andhra-pradesh,2012,247,RAYACHOTY,S.S. Kumar,,1711,1.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3395,andhra-pradesh,2012,247,RAYACHOTY,D.S. Kumar,,1312,0.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3395,andhra-pradesh,2012,247,RAYACHOTY,K.V. Chalapathi,,1274,0.8,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3395,andhra-pradesh,2012,247,RAYACHOTY,M.F. Ahammad,,947,0.59,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3395,andhra-pradesh,2012,247,RAYACHOTY,S.K.R. Kondreddy,,745,0.47,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3395,andhra-pradesh,2012,247,RAYACHOTY,L.J.R. Reddy,,571,0.36,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3395,andhra-pradesh,2012,247,RAYACHOTY,P. Reddy M.,,494,0.31,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3395,andhra-pradesh,2012,247,RAYACHOTY,P.R. R.Reddy,,435,0.27,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3395,andhra-pradesh,2012,247,RAYACHOTY,M.T. Ali Khan,,355,0.22,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3395,andhra-pradesh,2012,247,RAYACHOTY,P.M.M. Reddy,,315,0.2,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3395,andhra-pradesh,2012,247,RAYACHOTY,S.A. Peeran,,280,0.18,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3395,andhra-pradesh,2012,247,RAYACHOTY,C.B. Reddy M.,,181,0.11,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3395,andhra-pradesh,2012,247,RAYACHOTY,k.K.Mandapati,,172,0.11,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3334,andhra-pradesh,2012,253,ALLAGADDA,B.S. Nagireddy,,88697,52.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3334,andhra-pradesh,2012,253,ALLAGADDA,G.P. Reddy,,51902,30.83,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3334,andhra-pradesh,2012,253,ALLAGADDA,E.R. Reddy,,20374,12.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3334,andhra-pradesh,2012,253,ALLAGADDA,M.V. Bhaskar,,1531,0.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3334,andhra-pradesh,2012,253,ALLAGADDA,S. Jayaramddu,,1025,0.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3334,andhra-pradesh,2012,253,ALLAGADDA,M. Reddy J.V.,,863,0.51,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3334,andhra-pradesh,2012,253,ALLAGADDA,Y.V.Reddy,,784,0.47,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3334,andhra-pradesh,2012,253,ALLAGADDA,U.B.E.Reddy,,701,0.42,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3334,andhra-pradesh,2012,253,ALLAGADDA,T. Obulesu,,465,0.28,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3334,andhra-pradesh,2012,253,ALLAGADDA,M.L. Reddy,,451,0.27,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3334,andhra-pradesh,2012,253,ALLAGADDA,J. Bhaskar,,339,0.2,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3334,andhra-pradesh,2012,253,ALLAGADDA,A.V.N. Reddy,,290,0.17,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3334,andhra-pradesh,2012,253,ALLAGADDA,G.N. Reddy,,262,0.16,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3334,andhra-pradesh,2012,253,ALLAGADDA,G.P.Reddy,,236,0.14,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3334,andhra-pradesh,2012,253,ALLAGADDA,A.R.S.N. Reddy,,233,0.14,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3334,andhra-pradesh,2012,253,ALLAGADDA,S.V.Reddy,,212,0.13,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3284,andhra-pradesh,2012,263,YEMMIGANUR,K.C.K. Reddy,,64155,42.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3284,andhra-pradesh,2012,263,YEMMIGANUR,B.V. Mohan Reddy,,44052,28.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3284,andhra-pradesh,2012,263,YEMMIGANUR,Y.Rudra Gowd,,33733,22.12,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3284,andhra-pradesh,2012,263,YEMMIGANUR,V.A. Babu,,2114,1.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3284,andhra-pradesh,2012,263,YEMMIGANUR,N.Sreenivasuw,,1873,1.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3284,andhra-pradesh,2012,263,YEMMIGANUR,D.M. Yusuf,,1722,1.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3284,andhra-pradesh,2012,263,YEMMIGANUR,N.J.P. Kumar,,1088,0.71,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3284,andhra-pradesh,2012,263,YEMMIGANUR,K.R.L.Reddy,,968,0.63,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3284,andhra-pradesh,2012,263,YEMMIGANUR,V. Kumar,,795,0.52,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3284,andhra-pradesh,2012,263,YEMMIGANUR,Thimmappa,,756,0.5,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3284,andhra-pradesh,2012,263,YEMMIGANUR,M. Jagannath,,747,0.49,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3284,andhra-pradesh,2012,263,YEMMIGANUR,K. Ganesh,,499,0.33,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3183,andhra-pradesh,2012,267,RAYADURG,K.R. Reddy,,79171,46.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3183,andhra-pradesh,2012,267,RAYADURG,D.R.Gunapati,,46695,27.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3183,andhra-pradesh,2012,267,RAYADURG,P.V. Reddy,,35278,20.65,3,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3183,andhra-pradesh,2012,267,RAYADURG,B. Venkataramana,,2536,1.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3183,andhra-pradesh,2012,267,RAYADURG,G. Rao.P.,,2252,1.32,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3183,andhra-pradesh,2012,267,RAYADURG,R.R. Undala,,1984,1.16,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3183,andhra-pradesh,2012,267,RAYADURG,P.S. Mahesha,,1132,0.66,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3183,andhra-pradesh,2012,267,RAYADURG,C.T. Naidu,,966,0.57,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3183,andhra-pradesh,2012,267,RAYADURG,Y. Marriswamy,,852,0.5,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3180,andhra-pradesh,2012,272,ANANTAPUR URBAN,B.G. Reddy,,65719,52.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3180,andhra-pradesh,2012,272,ANANTAPUR URBAN,M. Sreenivasulu,,40980,32.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3180,andhra-pradesh,2012,272,ANANTAPUR URBAN,M.M. Begum,,9406,7.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3180,andhra-pradesh,2012,272,ANANTAPUR URBAN,V. R. Reddy,,5216,4.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3180,andhra-pradesh,2012,272,ANANTAPUR URBAN,G.L. Kumar,,674,0.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3180,andhra-pradesh,2012,272,ANANTAPUR URBAN,S. Hamsu,,489,0.39,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3180,andhra-pradesh,2012,272,ANANTAPUR URBAN,G. Lalitha,,477,0.38,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3180,andhra-pradesh,2012,272,ANANTAPUR URBAN,M. V. Gopal,,370,0.3,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3180,andhra-pradesh,2012,272,ANANTAPUR URBAN,M.D. Kalandhar,,287,0.23,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3180,andhra-pradesh,2012,272,ANANTAPUR URBAN,G. Hari Babu,,286,0.23,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3180,andhra-pradesh,2012,272,ANANTAPUR URBAN,S. Masthan,,197,0.16,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3180,andhra-pradesh,2012,272,ANANTAPUR URBAN,K.S. Reddy,,138,0.11,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,286,TIRUPATI,B.K. Reddy,,59195,43.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,286,TIRUPATI,Venkararamana M.,,41220,30.14,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,286,TIRUPATI,C.Krishnamurty,,30453,22.27,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,286,TIRUPATI,K. Murali,,2372,1.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,286,TIRUPATI,J.Madhusudhan M.Tech,,1103,0.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,286,TIRUPATI,Jayagar N.,,408,0.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,286,TIRUPATI,V. Prasad,,287,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,286,TIRUPATI,V.V. Naidu,,285,0.21,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,286,TIRUPATI,K.K. Chetty,,253,0.19,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,286,TIRUPATI,P.S.P. Kumar,,167,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,286,TIRUPATI,S.S. Babu,,165,0.12,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,286,TIRUPATI,P.K. Reddy,,131,0.1,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,286,TIRUPATI,P. Vijayalakshmi,,126,0.09,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,286,TIRUPATI,N.M.Reddy,,120,0.09,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,286,TIRUPATI,L. N. Kanora,,114,0.08,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,286,TIRUPATI,N. Benarji,,106,0.08,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,286,TIRUPATI,M. Chengalrayulu,,85,0.06,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,286,TIRUPATI,A Raveenora,,77,0.06,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,286,TIRUPATI,D. M. Reddy,,73,0.05,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a

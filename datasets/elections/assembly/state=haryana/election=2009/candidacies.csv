@@ -1,0 +1,1148 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-haryana-347,haryana,2009,1,KALKA,PARDEEP CHAUDHARY,,41625,43.99,1,won,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-347,haryana,2009,1,KALKA,SATVINDER SINGH RANA,,20438,21.6,2,lost,U,52,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-347,haryana,2009,1,KALKA,BHAGAT SINGH,,16771,17.72,3,lost,U,65,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-347,haryana,2009,1,KALKA,VIJAY BANSAL,,4975,5.26,4,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-347,haryana,2009,1,KALKA,RAM GOPAL MEHTA,,4854,5.13,5,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-347,haryana,2009,1,KALKA,VIRANDER SINGH (BHAU),,2762,2.92,6,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-347,haryana,2009,1,KALKA,VIRENDER SINGH,,1958,2.07,7,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-347,haryana,2009,1,KALKA,RAM PHAL,,329,0.35,8,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-347,haryana,2009,1,KALKA,MANOJ KUMAR,,322,0.34,9,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-347,haryana,2009,1,KALKA,AMIT KUMAR SHARMA,,321,0.34,10,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-347,haryana,2009,1,KALKA,NARINDER NATH SHARMA,,276,0.29,11,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-350,haryana,2009,2,PANCHKULA,DEVENDER KUMAR BANSAL,,29192,35.36,1,won,U,43,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-350,haryana,2009,2,PANCHKULA,YOGRAJ SINGH,,16932,20.51,2,lost,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-350,haryana,2009,2,PANCHKULA,GIAN CHAND,,15717,19.04,3,lost,U,61,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-350,haryana,2009,2,PANCHKULA,SHASHI SHARMA,,12922,15.65,4,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-350,haryana,2009,2,PANCHKULA,SANJEEV BHARDWAJ,,3177,3.85,5,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-350,haryana,2009,2,PANCHKULA,HARENDER SINGH,,1168,1.41,6,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-350,haryana,2009,2,PANCHKULA,COMRADE MEHAR CHAND GOEL,,933,1.13,7,forfeit,U,65,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-350,haryana,2009,2,PANCHKULA,NARAYAN DASS,,561,0.68,8,forfeit,U,49,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-350,haryana,2009,2,PANCHKULA,SAROJ BALA,,492,0.6,9,forfeit,U,41,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-350,haryana,2009,2,PANCHKULA,RAM NARAYAN,,432,0.52,10,forfeit,U,55,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-350,haryana,2009,2,PANCHKULA,KAMAL KUMAR,,346,0.42,11,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-350,haryana,2009,2,PANCHKULA,RAJESH KUMAR,,253,0.31,12,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-350,haryana,2009,2,PANCHKULA,RAM NIWAS SHARMA,,241,0.29,13,forfeit,U,55,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-350,haryana,2009,2,PANCHKULA,DK SAXENA,,185,0.22,14,forfeit,U,61,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-349,haryana,2009,3,NARAINGARH,RAM KISHAN,,37298,32.14,1,won,U,45,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-349,haryana,2009,3,NARAINGARH,RAM SINGH,,28978,24.97,2,lost,U,56,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-349,haryana,2009,3,NARAINGARH,ARJUN SINGH,,15404,13.27,3,forfeit,U,56,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-349,haryana,2009,3,NARAINGARH,RAJ KUMAR,,14742,12.7,4,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-349,haryana,2009,3,NARAINGARH,NAYAB SINGH,,8082,6.96,5,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-349,haryana,2009,3,NARAINGARH,MADAN PAL,,4187,3.61,6,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-349,haryana,2009,3,NARAINGARH,BHOOM SINGH,,3028,2.61,7,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-349,haryana,2009,3,NARAINGARH,MULAKH RAJ,,2115,1.82,8,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-349,haryana,2009,3,NARAINGARH,SUDESH KUMAR BHARDWAJ,,912,0.79,9,forfeit,U,55,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-349,haryana,2009,3,NARAINGARH,SHAMSHER SINGH ARYA,,519,0.45,10,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-349,haryana,2009,3,NARAINGARH,JAGPAL SINGH,,280,0.24,11,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-349,haryana,2009,3,NARAINGARH,SANJEEV KUMAR,,272,0.23,12,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-349,haryana,2009,3,NARAINGARH,GEETA SHARMA,,245,0.21,13,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-344,haryana,2009,4,AMBALA CANTT.,ANIL VIJ,,49219,49.21,1,won,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-344,haryana,2009,4,AMBALA CANTT.,NIRMAL SINGH,,42881,42.87,2,lost,U,56,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-344,haryana,2009,4,AMBALA CANTT.,PARVEEN CHAUHAN,,3065,3.06,3,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-344,haryana,2009,4,AMBALA CANTT.,DR. K.D. SHARMA,,2189,2.19,4,forfeit,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-344,haryana,2009,4,AMBALA CANTT.,SEWA SINGH,,878,0.88,5,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-344,haryana,2009,4,AMBALA CANTT.,GULJAR SINGH,,402,0.4,6,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-344,haryana,2009,4,AMBALA CANTT.,JARNAIL SINGH,,364,0.36,7,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-344,haryana,2009,4,AMBALA CANTT.,VIPUL JAIN,,344,0.34,8,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-344,haryana,2009,4,AMBALA CANTT.,SUCHA SINGH,,297,0.3,9,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-344,haryana,2009,4,AMBALA CANTT.,ANIL KISHORE,,270,0.27,10,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-344,haryana,2009,4,AMBALA CANTT.,AMRIK SINGH,,109,0.11,11,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-345,haryana,2009,5,AMBALA CITY,VENOD SHARMA,,69435,52.77,1,won,U,61,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-345,haryana,2009,5,AMBALA CITY,BIBI CHARANJEET KAUR MALLOUR,,33885,25.75,2,lost,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-345,haryana,2009,5,AMBALA CITY,DR.SANJAY SHARMA,,12741,9.68,3,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-345,haryana,2009,5,AMBALA CITY,MAKHAN SINGH,,10719,8.15,4,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-345,haryana,2009,5,AMBALA CITY,PURAN PARKASH,,2736,2.08,5,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-345,haryana,2009,5,AMBALA CITY,MEHAR CHAND NAGRA,,691,0.53,6,forfeit,U,54,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-345,haryana,2009,5,AMBALA CITY,VIRENDER,,502,0.38,7,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-345,haryana,2009,5,AMBALA CITY,UMRAO SINGH,,454,0.35,8,forfeit,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-345,haryana,2009,5,AMBALA CITY,RAJNEESH KUMAR,,406,0.31,9,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-348,haryana,2009,6,MULANA,RAJBIR SINGH BARARA,,47185,36.37,1,won,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-348,haryana,2009,6,MULANA,PHOOL CHAND MULLANA,,44248,34.11,2,lost,U,68,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-348,haryana,2009,6,MULANA,PARKASH RAM BHARTI,,28113,21.67,3,lost,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-348,haryana,2009,6,MULANA,MANGE RAM PANJAIL,,4954,3.82,4,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-348,haryana,2009,6,MULANA,AMAR NATH,,2173,1.68,5,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-348,haryana,2009,6,MULANA,DHARAM PAL BIHANA,,748,0.58,6,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-348,haryana,2009,6,MULANA,GIAN CHAND,,734,0.57,7,forfeit,U,56,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-348,haryana,2009,6,MULANA,RAJESH KUMAR S/O NIRANJAN DASS,,559,0.43,8,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-348,haryana,2009,6,MULANA,RAJESH KUMAR S/O OM PARKASH,,510,0.39,9,forfeit,U,27,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-348,haryana,2009,6,MULANA,KRISHAN CHAND,,506,0.39,10,forfeit,U,51,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-351,haryana,2009,7,SADHAURA,RAJPAL,,47263,35.58,1,won,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-351,haryana,2009,7,SADHAURA,BALWANT SINGH,,38650,29.09,2,lost,U,59,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-351,haryana,2009,7,SADHAURA,RAVI BHUSHAN,,24183,18.2,3,lost,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-351,haryana,2009,7,SADHAURA,LAL CHAND,,10789,8.12,4,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-351,haryana,2009,7,SADHAURA,DATA RAM,,4496,3.38,5,forfeit,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-351,haryana,2009,7,SADHAURA,DEEP CHAND,,2058,1.55,6,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-351,haryana,2009,7,SADHAURA,ARUN KUMAR,,1653,1.24,7,forfeit,U,37,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-351,haryana,2009,7,SADHAURA,SHER SINGH,,1361,1.02,8,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-351,haryana,2009,7,SADHAURA,RAJ BHUSHAN,,1196,0.9,9,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-351,haryana,2009,7,SADHAURA,VINAY KUMAR,,772,0.58,10,forfeit,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-351,haryana,2009,7,SADHAURA,MAHIPAL,,433,0.33,11,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-346,haryana,2009,8,JAGADHRI,AKRAM KHAN,,39868,30.86,1,won,U,39,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-346,haryana,2009,8,JAGADHRI,SUBHASH CHAND,,35540,27.51,2,lost,U,61,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-346,haryana,2009,8,JAGADHRI,KANWAR PAL,,31657,24.51,3,lost,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-346,haryana,2009,8,JAGADHRI,RAJIV KUMAR,,18425,14.26,4,forfeit,U,53,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-346,haryana,2009,8,JAGADHRI,JAI CHAND CHAUHAN,,1509,1.17,5,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-346,haryana,2009,8,JAGADHRI,HARPREET SINGH,,882,0.68,6,forfeit,U,26,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-346,haryana,2009,8,JAGADHRI,SUDESH RANI,,758,0.59,7,forfeit,U,47,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-346,haryana,2009,8,JAGADHRI,PARMOD SHARMA,,533,0.41,8,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-352,haryana,2009,9,YAMUNANAGAR,DILBAGH SINGH,,46984,41.62,1,won,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-352,haryana,2009,9,YAMUNANAGAR,DEVINDER CHAWLA,,33411,29.59,2,lost,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-352,haryana,2009,9,YAMUNANAGAR,GHANSHYAM DASS,,15526,13.75,3,forfeit,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-352,haryana,2009,9,YAMUNANAGAR,ROSHAN LAL,,9702,8.59,4,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-352,haryana,2009,9,YAMUNANAGAR,SHUSHIL KUMAR,,1631,1.44,5,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-352,haryana,2009,9,YAMUNANAGAR,HARJINDER SINGH,,1514,1.34,6,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-352,haryana,2009,9,YAMUNANAGAR,SURESH PAL,,1007,0.89,7,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-352,haryana,2009,9,YAMUNANAGAR,JARIB HASSAN,,619,0.55,8,forfeit,U,42,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-352,haryana,2009,9,YAMUNANAGAR,SATISH KUMAR,,534,0.47,9,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-352,haryana,2009,9,YAMUNANAGAR,BABU LAL,,457,0.4,10,forfeit,U,38,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-352,haryana,2009,9,YAMUNANAGAR,DHARAM SINGH,,408,0.36,11,forfeit,U,57,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-352,haryana,2009,9,YAMUNANAGAR,RAM MURTI,,361,0.32,12,forfeit,U,63,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-352,haryana,2009,9,YAMUNANAGAR,SHYAM SUNDER,,343,0.3,13,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-352,haryana,2009,9,YAMUNANAGAR,BALWINDER SINGH,,245,0.22,14,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-352,haryana,2009,9,YAMUNANAGAR,NARESH KUMAR,,157,0.14,15,forfeit,U,35,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-404,haryana,2009,10,RADAUR,DR.BISHAN LAL SAINI,,29593,25.71,1,won,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-404,haryana,2009,10,RADAUR,SURESH KUMAR,,25198,21.89,2,lost,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-404,haryana,2009,10,RADAUR,ASHWANI KUMAR,,16698,14.51,3,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-404,haryana,2009,10,RADAUR,SHAM SINGH,,13657,11.87,4,forfeit,U,61,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-404,haryana,2009,10,RADAUR,RANDHIR SINGH,,7090,6.16,5,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-404,haryana,2009,10,RADAUR,MAM RAJ,,6093,5.29,6,forfeit,U,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-404,haryana,2009,10,RADAUR,HARISH CHANDER,,5597,4.86,7,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-404,haryana,2009,10,RADAUR,SATISH KUMAR,,3507,3.05,8,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-404,haryana,2009,10,RADAUR,DAYA NAND,,2932,2.55,9,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-404,haryana,2009,10,RADAUR,RISHI PAL,,1970,1.71,10,forfeit,U,49,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-404,haryana,2009,10,RADAUR,SANJEEV KUMAR,,688,0.6,11,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-404,haryana,2009,10,RADAUR,SHIV RAM,,679,0.59,12,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-404,haryana,2009,10,RADAUR,ROOPVATI,,615,0.53,13,forfeit,U,53,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-404,haryana,2009,10,RADAUR,RAHUL SINGLA,,429,0.37,14,forfeit,U,26,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-404,haryana,2009,10,RADAUR,BALVINDER SINGH,,352,0.31,15,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-401,haryana,2009,11,LADWA,SHER SINGH BARSHAMI,,32505,28.93,1,won,U,59,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-401,haryana,2009,11,LADWA,KAILASHO SAINI,,30000,26.7,2,lost,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-401,haryana,2009,11,LADWA,MEWA SINGH,,21775,19.38,3,lost,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-401,haryana,2009,11,LADWA,PAWAN GARG,,15081,13.42,4,forfeit,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-401,haryana,2009,11,LADWA,SHASHI SAINI,,9617,8.56,5,forfeit,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-401,haryana,2009,11,LADWA,SANJEEV KUMAR,,887,0.79,6,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-401,haryana,2009,11,LADWA,RAMESHWAR,,756,0.67,7,forfeit,U,45,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-401,haryana,2009,11,LADWA,DARSHAN SINGH SARASWATI,,628,0.56,8,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-401,haryana,2009,11,LADWA,DEVENDER,,365,0.32,9,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-401,haryana,2009,11,LADWA,JAI BHAGWAN,,293,0.26,10,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-401,haryana,2009,11,LADWA,SHARWAN KUMAR,,230,0.2,11,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-401,haryana,2009,11,LADWA,JOGINDER SINGH,,224,0.2,12,forfeit,U,45,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-405,haryana,2009,12,SHAHBAD,ANIL DHANTORI,,30843,33.24,1,won,U,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-405,haryana,2009,12,SHAHBAD,JITENDER KUMAR,,27102,29.21,2,lost,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-405,haryana,2009,12,SHAHBAD,RAM KARAN,,14352,15.47,3,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-405,haryana,2009,12,SHAHBAD,KRISHAN KUMAR,,10593,11.42,4,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-405,haryana,2009,12,SHAHBAD,DR. BALDEV SINGH,,6387,6.88,5,forfeit,U,37,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-405,haryana,2009,12,SHAHBAD,SURAJ BHAN,,1012,1.09,6,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-405,haryana,2009,12,SHAHBAD,SARUP CHAND,,934,1.01,7,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-405,haryana,2009,12,SHAHBAD,KARAM SINGH,,867,0.93,8,forfeit,U,46,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-405,haryana,2009,12,SHAHBAD,DEVI DAYAL BHATTI,,424,0.46,9,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-405,haryana,2009,12,SHAHBAD,RAJESH KUMAR,,272,0.29,10,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-406,haryana,2009,13,THANESAR,ASHOK KUMAR ARORA,,29516,32.87,1,won,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-406,haryana,2009,13,THANESAR,RAMESH GUPTA,,21231,23.64,2,lost,U,58,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-406,haryana,2009,13,THANESAR,SUBHASH SUDHA,,17025,18.96,3,lost,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-406,haryana,2009,13,THANESAR,BALKAR SINGH,,12323,13.72,4,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-406,haryana,2009,13,THANESAR,DEVENDRA SHARMA,,4339,4.83,5,forfeit,U,58,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-406,haryana,2009,13,THANESAR,KRISHAN BAJAJ,,3437,3.83,6,forfeit,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-406,haryana,2009,13,THANESAR,RAMESH KUMAR,,606,0.67,7,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-406,haryana,2009,13,THANESAR,VISHNU BHAGWAN AGGARWAL,,437,0.49,8,forfeit,U,61,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-406,haryana,2009,13,THANESAR,VIJAY KUMAR,,296,0.33,9,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-406,haryana,2009,13,THANESAR,LAKHVINDER SINGH,,212,0.24,10,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-406,haryana,2009,13,THANESAR,BABU RAM TAYA,,192,0.21,11,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-406,haryana,2009,13,THANESAR,KAMLESH KUMARI,,127,0.14,12,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-406,haryana,2009,13,THANESAR,ATAM PARKASH,,51,0.06,13,forfeit,U,53,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-402,haryana,2009,14,PEHOWA,HARMOHINDER SINGH,,35429,33.24,1,won,U,74,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-402,haryana,2009,14,PEHOWA,JASWINDER SINGH,,31349,29.41,2,lost,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-402,haryana,2009,14,PEHOWA,BALBIR SINGH SAINI,,19260,18.07,3,lost,U,58,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-402,haryana,2009,14,PEHOWA,RAJINDER KUMAR,,6611,6.2,4,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-402,haryana,2009,14,PEHOWA,BALDEV SINGH,,6024,5.65,5,forfeit,U,54,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-402,haryana,2009,14,PEHOWA,RAVINDER SINGH,,2974,2.79,6,forfeit,U,37,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-402,haryana,2009,14,PEHOWA,SHAMSHER SINGH,,2252,2.11,7,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-402,haryana,2009,14,PEHOWA,BALWINDER SINGH,,1499,1.41,8,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-402,haryana,2009,14,PEHOWA,RAGHBIR CHAND,,656,0.62,9,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-402,haryana,2009,14,PEHOWA,RAJESH PURI,,536,0.5,10,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-398,haryana,2009,15,GUHLA,PHOOL SINGH,,37016,33.43,1,won,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-398,haryana,2009,15,GUHLA,DILLU RAM S/O FAUJA RAM,,31763,28.69,2,lost,U,64,Illiterate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-398,haryana,2009,15,GUHLA,KULWANT,,20926,18.9,3,lost,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-398,haryana,2009,15,GUHLA,NARESH KUMAR,,13557,12.24,4,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-398,haryana,2009,15,GUHLA,RAM KUMAR,,2987,2.7,5,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-398,haryana,2009,15,GUHLA,GHANSHYAM,,1532,1.38,6,forfeit,U,40,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-398,haryana,2009,15,GUHLA,RANDHIR SINGH SATHI,,976,0.88,7,forfeit,U,57,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-398,haryana,2009,15,GUHLA,RAMESH KUMAR,,943,0.85,8,forfeit,U,31,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-398,haryana,2009,15,GUHLA,DILLU RAM S/O SANT RAM,,575,0.52,9,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-398,haryana,2009,15,GUHLA,ROSHAN,,445,0.4,10,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-400,haryana,2009,16,KALAYAT,RAMPAL MAJRA,,55614,43.18,1,won,U,54,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-400,haryana,2009,16,KALAYAT,TEJENDER PAL SINGH,,46214,35.88,2,lost,U,68,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-400,haryana,2009,16,KALAYAT,RAMESH,,11974,9.3,3,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-400,haryana,2009,16,KALAYAT,VINOD,,9021,7,4,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-400,haryana,2009,16,KALAYAT,NAR SINGH DHANDA,,1966,1.53,5,forfeit,U,63,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-400,haryana,2009,16,KALAYAT,SUBE SINGH,,1377,1.07,6,forfeit,U,40,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-400,haryana,2009,16,KALAYAT,TARSEM,,959,0.74,7,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-400,haryana,2009,16,KALAYAT,RANDHIR,,369,0.29,8,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-400,haryana,2009,16,KALAYAT,BALDEV RAJ,,358,0.28,9,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-400,haryana,2009,16,KALAYAT,RAM KUMAR,,340,0.26,10,forfeit,U,50,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-400,haryana,2009,16,KALAYAT,RAM SINGH,,308,0.24,11,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-400,haryana,2009,16,KALAYAT,ANU,,297,0.23,12,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-399,haryana,2009,17,KAITHAL,RANDEEP SINGH SURJEWALA,,59889,51.3,1,won,U,42,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-399,haryana,2009,17,KAITHAL,KAILASH BHAGAT,,37387,32.03,2,lost,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-399,haryana,2009,17,KAITHAL,SURESH KUMAR,,13967,11.96,3,forfeit,U,47,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-399,haryana,2009,17,KAITHAL,RAVI BHUSHAN GARG,,1649,1.41,4,forfeit,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-399,haryana,2009,17,KAITHAL,SHAMSHER SINGH KASHYAP,,973,0.83,5,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-399,haryana,2009,17,KAITHAL,NARESH KUMAR,,590,0.51,6,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-399,haryana,2009,17,KAITHAL,ARYA NARESH TANWAR,,543,0.47,7,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-399,haryana,2009,17,KAITHAL,SURENDER MADAN,,337,0.29,8,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-399,haryana,2009,17,KAITHAL,VIRBHAN,,328,0.28,9,forfeit,U,40,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-399,haryana,2009,17,KAITHAL,RISHI PAL MALIK,,299,0.26,10,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-399,haryana,2009,17,KAITHAL,BALI CHOUHAN,,240,0.21,11,forfeit,U,40,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-399,haryana,2009,17,KAITHAL,DR. ASHWANI SHARMA ARITWAL,,209,0.18,12,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-399,haryana,2009,17,KAITHAL,GURDUTT,,186,0.16,13,forfeit,U,32,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-399,haryana,2009,17,KAITHAL,AMRIT LAL,,139,0.12,14,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,SULTAN,,38929,31.71,1,won,U,48,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,DINESH KAUSHIK,,34878,28.41,2,lost,U,49,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,SAJJAN SINGH,,23690,19.3,3,lost,U,60,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,NARENDER SHARMA,,17227,14.03,4,forfeit,U,42,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,KANWAR PAL SHARMA,,2686,2.19,5,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,KRISHAN GUJJAR,,1906,1.55,6,forfeit,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,GOPAL KRISHAN BHATT,,1007,0.82,7,forfeit,U,40,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,COMRADE RAJ KUMAR,,376,0.31,8,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,PIRTHI SINGH MEHLA,,301,0.25,9,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,HITENDER,,283,0.23,10,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,SATYA PARKASH,,224,0.18,11,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,RAMESHWAR DASS,,208,0.17,12,forfeit,U,44,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,RAM CHANDER,,203,0.17,13,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,ROSHAN MEHRA,,181,0.15,14,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,BAL RAM,,172,0.14,15,forfeit,U,29,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,TEJVIR SINGH,,124,0.1,16,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,RAM PAL,,107,0.09,17,forfeit,U,53,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,KAMLA,,98,0.08,18,forfeit,U,77,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,RAJESH VERMA,,91,0.07,19,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2009,18,PUNDRI,JEETA RAM,,61,0.05,20,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-394,haryana,2009,19,NILOKHERI,MAMU RAM,,47001,44.51,1,won,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-394,haryana,2009,19,NILOKHERI,MEENA RANI,,30278,28.67,2,lost,U,44,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-394,haryana,2009,19,NILOKHERI,GIAN CHAND,,7115,6.74,3,forfeit,U,56,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-394,haryana,2009,19,NILOKHERI,SHER SINGH,,5900,5.59,4,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-394,haryana,2009,19,NILOKHERI,DHARAM PAL,,4793,4.54,5,forfeit,U,52,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-394,haryana,2009,19,NILOKHERI,JAI SINGH ARJAHERI,,3994,3.78,6,forfeit,U,61,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-394,haryana,2009,19,NILOKHERI,BHAGWAN DASS,,2308,2.19,7,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-394,haryana,2009,19,NILOKHERI,GEETA,,1916,1.81,8,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-394,haryana,2009,19,NILOKHERI,LAKHMI CHAND,,597,0.57,9,forfeit,U,64,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-394,haryana,2009,19,NILOKHERI,PREM SINGH,,510,0.48,10,forfeit,U,66,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-394,haryana,2009,19,NILOKHERI,MADAN LAL,,409,0.39,11,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-394,haryana,2009,19,NILOKHERI,KARAM PAL,,378,0.36,12,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-394,haryana,2009,19,NILOKHERI,PUNJAB SINGH,,231,0.22,13,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-394,haryana,2009,19,NILOKHERI,RANBIR SINGH,,165,0.16,14,forfeit,U,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-391,haryana,2009,20,INDRI,ASHOK KASHYAP,,36886,33.05,1,won,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-391,haryana,2009,20,INDRI,BHIM SAIN MEHTA,,27789,24.9,2,lost,U,49,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-391,haryana,2009,20,INDRI,RAKESH,,26153,23.43,3,lost,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-391,haryana,2009,20,INDRI,SUNIL KUMAR,,7569,6.78,4,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-391,haryana,2009,20,INDRI,MOHINDER PANJOKHARA,,5217,4.67,5,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-391,haryana,2009,20,INDRI,DHARAMPAL SANDILAY,,2765,2.48,6,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-391,haryana,2009,20,INDRI,VED PAL,,1968,1.76,7,forfeit,U,70,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-391,haryana,2009,20,INDRI,JILA SINGH,,803,0.72,8,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-391,haryana,2009,20,INDRI,KAWAR PAL,,556,0.5,9,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-391,haryana,2009,20,INDRI,SANJEEV KUMAR,,539,0.48,10,forfeit,U,43,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-391,haryana,2009,20,INDRI,ARYA SUNIL KAMBOJ,,270,0.24,11,forfeit,U,32,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-391,haryana,2009,20,INDRI,MAI LAL KASHYAP,,270,0.24,12,forfeit,U,49,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-391,haryana,2009,20,INDRI,ASHOK KUMAR,,260,0.23,13,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-391,haryana,2009,20,INDRI,NATHI RAM,,256,0.23,14,forfeit,U,40,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-391,haryana,2009,20,INDRI,RAMPHAL,,178,0.16,15,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-391,haryana,2009,20,INDRI,RAMESH KUMAR SHARMA,,143,0.13,16,forfeit,U,37,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-393,haryana,2009,21,KARNAL,SUMITA SINGH,,35894,35.45,1,won,U,50,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-393,haryana,2009,21,KARNAL,JAI PARKASH,,32163,31.76,2,lost,U,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-393,haryana,2009,21,KARNAL,CHANDER PARKASH KATHURIA,,14883,14.7,3,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-393,haryana,2009,21,KARNAL,BALVINDER SINGH KALRA,,11128,10.99,4,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-393,haryana,2009,21,KARNAL,ASHOK,,3932,3.88,5,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-393,haryana,2009,21,KARNAL,SUSHIL KUMAR,,884,0.87,6,forfeit,U,51,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-393,haryana,2009,21,KARNAL,ANAND PARKASH,,680,0.67,7,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-393,haryana,2009,21,KARNAL,NARENDER SAROHA,,525,0.52,8,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-393,haryana,2009,21,KARNAL,PUNIT,,453,0.45,9,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-393,haryana,2009,21,KARNAL,MULAKH RAJ,,385,0.38,10,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-393,haryana,2009,21,KARNAL,LAL SINGH,,331,0.33,11,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-390,haryana,2009,22,GHARAUNDA,NARENDER SANGWAN,,35256,29.44,1,won,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-390,haryana,2009,22,GHARAUNDA,VARINDER SINGH RATHORE,,33596,28.05,2,lost,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-390,haryana,2009,22,GHARAUNDA,HARVINDER KALYAN,,29232,24.41,3,lost,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-390,haryana,2009,22,GHARAUNDA,JAI PAL SHARMA,,7523,6.28,4,forfeit,U,59,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-390,haryana,2009,22,GHARAUNDA,KRISHAN SHARMA BASTARA,,3549,2.96,5,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-390,haryana,2009,22,GHARAUNDA,KARAN SINGH,,3233,2.7,6,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-390,haryana,2009,22,GHARAUNDA,RAM SINGH,,3158,2.64,7,forfeit,U,52,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-390,haryana,2009,22,GHARAUNDA,SUBHASH KHURANA,,1533,1.28,8,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-390,haryana,2009,22,GHARAUNDA,DHARAMPAL RANA,,838,0.7,9,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-390,haryana,2009,22,GHARAUNDA,FATEH SINGH,,434,0.36,10,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-390,haryana,2009,22,GHARAUNDA,NARENDER SAROHA,,391,0.33,11,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-390,haryana,2009,22,GHARAUNDA,DILBAG ARYA,,353,0.29,12,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-390,haryana,2009,22,GHARAUNDA,JAFARDIN,,315,0.26,13,forfeit,U,64,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-390,haryana,2009,22,GHARAUNDA,MAHENDER SINGH,,233,0.19,14,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-390,haryana,2009,22,GHARAUNDA,RAJBIR SINGH CHAUHAN,,122,0.1,15,forfeit,U,61,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-389,haryana,2009,23,ASSANDH,PT. ZILE RAM CHOCHRA,,20266,15.8,1,won,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-389,haryana,2009,23,ASSANDH,RAGHBIR SINGH VIRK,,16726,13.04,2,forfeit,U,66,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-389,haryana,2009,23,ASSANDH,YASH PAL SINGH RANA,,15685,12.23,3,forfeit,U,54,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-389,haryana,2009,23,ASSANDH,BHAI BAKHSHISH SINGH VIRK,,15546,12.12,4,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-389,haryana,2009,23,ASSANDH,RAMESH KUMAR CHOUDHARY,,15208,11.86,5,forfeit,U,46,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-389,haryana,2009,23,ASSANDH,MARATHA VIRENDER VERMA,,14104,11,6,forfeit,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-389,haryana,2009,23,ASSANDH,PREM SINGH,,14026,10.94,7,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-389,haryana,2009,23,ASSANDH,ANIL RANA,,13343,10.4,8,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-389,haryana,2009,23,ASSANDH,RAMPHAL SHARMA,,832,0.65,9,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-389,haryana,2009,23,ASSANDH,BALJIT SINGH,,784,0.61,10,forfeit,U,66,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-389,haryana,2009,23,ASSANDH,ANOOP SINGH BHOLA,,449,0.35,11,forfeit,U,39,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-389,haryana,2009,23,ASSANDH,MAHA SINGH,,422,0.33,12,forfeit,U,70,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-389,haryana,2009,23,ASSANDH,SULTAN SINGH,,317,0.25,13,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-389,haryana,2009,23,ASSANDH,JAI BHAGWAN SHARMA,,210,0.16,14,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-389,haryana,2009,23,ASSANDH,KULVEER SINGH,,185,0.14,15,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-389,haryana,2009,23,ASSANDH,MMASTER SATYAWAN SINGH URANT,,164,0.13,16,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-396,haryana,2009,24,PANIPAT RURAL,OM PRAKASH JAIN,,23770,24.75,1,won,U,59,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-396,haryana,2009,24,PANIPAT RURAL,BIMLA KADIAN,,17134,17.84,2,lost,U,54,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-396,haryana,2009,24,PANIPAT RURAL,DHARA SINGH,,12221,12.73,3,forfeit,U,46,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-396,haryana,2009,24,PANIPAT RURAL,PARSANI DEVI,,12017,12.51,4,forfeit,U,74,Others,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-396,haryana,2009,24,PANIPAT RURAL,BIJENDER SINGH KADYAN,,9830,10.24,5,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-396,haryana,2009,24,PANIPAT RURAL,SATVINDER,,7969,8.3,6,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-396,haryana,2009,24,PANIPAT RURAL,SURENDER,,5791,6.03,7,forfeit,U,35,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-396,haryana,2009,24,PANIPAT RURAL,TILAK RAJ,,3869,4.03,8,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-396,haryana,2009,24,PANIPAT RURAL,PAWAN KUMAR,,1185,1.23,9,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-396,haryana,2009,24,PANIPAT RURAL,MUKESH BALMIKI,,566,0.59,10,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-396,haryana,2009,24,PANIPAT RURAL,RAMESH,,454,0.47,11,forfeit,U,42,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-396,haryana,2009,24,PANIPAT RURAL,RAJESH KUMAR,,364,0.38,12,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-396,haryana,2009,24,PANIPAT RURAL,BIJENDER,,355,0.37,13,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-396,haryana,2009,24,PANIPAT RURAL,SATINDER SINGH,,270,0.28,14,forfeit,U,41,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-396,haryana,2009,24,PANIPAT RURAL,ARYA AJAY SINGH,,235,0.24,15,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-392,haryana,2009,26,ISRANA,KRISHAN LAL PANWAR,,43905,46.27,1,won,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-392,haryana,2009,26,ISRANA,BALBIR,,41725,43.97,2,lost,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-392,haryana,2009,26,ISRANA,KULDEEP,,5102,5.38,3,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-392,haryana,2009,26,ISRANA,SATPAL S/O BHAGTU,,1065,1.12,4,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-392,haryana,2009,26,ISRANA,KRISHAN LAL LOHARI,,1042,1.1,5,forfeit,U,54,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-392,haryana,2009,26,ISRANA,RAKESH SAROHA,,1007,1.06,6,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-392,haryana,2009,26,ISRANA,ROHTAS,,452,0.48,7,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-392,haryana,2009,26,ISRANA,SATPAL S/O MANGA RAM,,366,0.39,8,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-392,haryana,2009,26,ISRANA,RAM NIWAS,,225,0.24,9,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-397,haryana,2009,27,SAMALKHA,DHARM SINGH,,39463,35.19,1,won,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-397,haryana,2009,27,SAMALKHA,SANJAY CHHOKER,,26012,23.2,2,lost,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-397,haryana,2009,27,SAMALKHA,MANOJ JAURASI,,25448,22.69,3,lost,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-397,haryana,2009,27,SAMALKHA,MANMOHAN BHADANA,,8334,7.43,4,forfeit,U,27,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-397,haryana,2009,27,SAMALKHA,HARI SINGH NALWA,,8166,7.28,5,forfeit,U,79,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-397,haryana,2009,27,SAMALKHA,ANJU RANI,,1415,1.26,6,forfeit,U,47,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-397,haryana,2009,27,SAMALKHA,NARENDER SINGH,,890,0.79,7,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-397,haryana,2009,27,SAMALKHA,RAFAQAT,,849,0.76,8,forfeit,U,25,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-397,haryana,2009,27,SAMALKHA,SUNIL,,845,0.75,9,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-397,haryana,2009,27,SAMALKHA,ARYA SANT RAM RAWAL,,312,0.28,10,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-397,haryana,2009,27,SAMALKHA,DINESH SHARMA,,225,0.2,11,forfeit,U,35,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-397,haryana,2009,27,SAMALKHA,KISHAN CHAND,,183,0.16,12,forfeit,U,70,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-426,haryana,2009,28,GANAUR,KULDEEP SHARMA,,42180,46.01,1,won,U,53,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-426,haryana,2009,28,GANAUR,KRISHAN GOPAL TYAGI,,32144,35.06,2,lost,U,69,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-426,haryana,2009,28,GANAUR,NIRMAL RANI,,9562,10.43,3,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-426,haryana,2009,28,GANAUR,AZAD SINGH,,4910,5.36,4,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-426,haryana,2009,28,GANAUR,KRISHAN KUMAR,,1158,1.26,5,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-426,haryana,2009,28,GANAUR,JITENDER NANDAL,,582,0.63,6,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-426,haryana,2009,28,GANAUR,NARENDER,,484,0.53,7,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-426,haryana,2009,28,GANAUR,MAHESH ACHARYA,,308,0.34,8,forfeit,U,37,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-426,haryana,2009,28,GANAUR,RAJKUMAR,,256,0.28,9,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-426,haryana,2009,28,GANAUR,GULAB SINGH DANGI,,101,0.11,10,forfeit,U,57,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-431,haryana,2009,29,RAI,JAI TIRATH,,35514,41.12,1,won,U,57,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-431,haryana,2009,29,RAI,INDERJIT,,30848,35.72,2,lost,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-431,haryana,2009,29,RAI,RANJIT SINGH,,10336,11.97,3,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-431,haryana,2009,29,RAI,NARAYAN DUTT,,4747,5.5,4,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-431,haryana,2009,29,RAI,RAJPAL,,2740,3.17,5,forfeit,U,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-431,haryana,2009,29,RAI,SUSHIL KUMAR ALIAS BINNU,,679,0.79,6,forfeit,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-431,haryana,2009,29,RAI,RAVINDER NATH,,479,0.55,7,forfeit,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-431,haryana,2009,29,RAI,COMRED DEVENDER SINGH,,337,0.39,8,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-431,haryana,2009,29,RAI,BIJENDER KUMAR,,319,0.37,9,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-431,haryana,2009,29,RAI,ISHWAR,,236,0.27,10,forfeit,U,56,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-431,haryana,2009,29,RAI,KRISHAN KUMAR,,122,0.14,11,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-430,haryana,2009,30,KHARKHAUDA,JAIVEER,,43684,64.07,1,won,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-430,haryana,2009,30,KHARKHAUDA,RAJU,,18400,26.99,2,lost,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-430,haryana,2009,30,KHARKHAUDA,RAM NIWAS,,2224,3.26,3,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-430,haryana,2009,30,KHARKHAUDA,RAJVIR,,2110,3.09,4,forfeit,U,59,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-430,haryana,2009,30,KHARKHAUDA,MAHAVIR SINGH KALON,,923,1.35,5,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-430,haryana,2009,30,KHARKHAUDA,PHOOL SINGH,,544,0.8,6,forfeit,U,72,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-430,haryana,2009,30,KHARKHAUDA,JAGDISH,,299,0.44,7,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-433,haryana,2009,31,SONIPAT,KAVITA JAIN,,37954,46.44,1,won,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-433,haryana,2009,31,SONIPAT,ANIL KUMAR THAKKAR,,35297,43.19,2,lost,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-433,haryana,2009,31,SONIPAT,SUSHIL JOGI,,4411,5.4,3,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-433,haryana,2009,31,SONIPAT,KHURSHID,,2134,2.61,4,forfeit,U,43,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-433,haryana,2009,31,SONIPAT,SATBIR,,645,0.79,5,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-433,haryana,2009,31,SONIPAT,JOGINDER,,514,0.63,6,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-433,haryana,2009,31,SONIPAT,JAIBIR SAIN,,287,0.35,7,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-433,haryana,2009,31,SONIPAT,VINOD KUMAR,,258,0.32,8,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-433,haryana,2009,31,SONIPAT,OM PARKASH MEHTA,,140,0.17,9,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-433,haryana,2009,31,SONIPAT,SURENDER,,94,0.12,10,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-427,haryana,2009,32,GOHANA,JAGBIR SINGH MALIK,,35249,42.48,1,won,U,59,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-427,haryana,2009,32,GOHANA,ATUL MALIK,,22233,26.8,2,lost,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-427,haryana,2009,32,GOHANA,KITAB SINGH,,9816,11.83,3,forfeit,U,68,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-427,haryana,2009,32,GOHANA,NATHA SINGH,,7234,8.72,4,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-427,haryana,2009,32,GOHANA,MUKESH TAYAL,,3897,4.7,5,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-427,haryana,2009,32,GOHANA,JITENDER SHARMA (GUDHA),,2001,2.41,6,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-427,haryana,2009,32,GOHANA,AJAY,,530,0.64,7,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-427,haryana,2009,32,GOHANA,NARENDER ARYA,,515,0.62,8,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-427,haryana,2009,32,GOHANA,GANGA SINGH,,508,0.61,9,forfeit,U,63,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-427,haryana,2009,32,GOHANA,VINOD KUMAR,,321,0.39,10,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-427,haryana,2009,32,GOHANA,DALBIR,,258,0.31,11,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-427,haryana,2009,32,GOHANA,BIJENDER,,248,0.3,12,forfeit,U,31,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-427,haryana,2009,32,GOHANA,NEERAJ KUMAR,,160,0.19,13,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2009,33,BARODA,SRI KRISHAN,,56225,59.37,1,won,U,64,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2009,33,BARODA,KAPOOR SINGH NARWAL,,30882,32.61,2,lost,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2009,33,BARODA,PARNEET,,2468,2.61,3,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2009,33,BARODA,RAJESH KUMAR BHARDWAJ,,1180,1.25,4,forfeit,U,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2009,33,BARODA,VINOD KUMAR,,675,0.71,5,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2009,33,BARODA,SATBIR SINGH CHAHAL,,661,0.7,6,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2009,33,BARODA,SAMUNDER,,571,0.6,7,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2009,33,BARODA,RAJBIR,,538,0.57,8,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2009,33,BARODA,RAMPHAL,,435,0.46,9,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2009,33,BARODA,JAGJEEVAN RAM,,321,0.34,10,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2009,33,BARODA,JAGDISH,,229,0.24,11,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2009,33,BARODA,RAMESHWAR,,195,0.21,12,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2009,33,BARODA,RAJPAL,,134,0.14,13,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2009,33,BARODA,JORA SINGH,,132,0.14,14,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2009,33,BARODA,BRAHM PARKASH,,56,0.06,15,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-429,haryana,2009,34,JULANA,PARMINDER SINGH DHULL,,45576,43.73,1,won,U,52,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-429,haryana,2009,34,JULANA,SHER SINGH,,32765,31.44,2,lost,U,68,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-429,haryana,2009,34,JULANA,SUDHIR GAUTAM,,9934,9.53,3,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-429,haryana,2009,34,JULANA,SUMER CHABRI,,8696,8.34,4,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-429,haryana,2009,34,JULANA,JAHAWAR SAINI,,2508,2.41,5,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-429,haryana,2009,34,JULANA,RAMESH CHANDER,,1383,1.33,6,forfeit,U,47,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-429,haryana,2009,34,JULANA,DR. SANJAY LATHAR,,1161,1.11,7,forfeit,U,38,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-429,haryana,2009,34,JULANA,MUKESH,,515,0.49,8,forfeit,U,34,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-429,haryana,2009,34,JULANA,RANBIR,,375,0.36,9,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-429,haryana,2009,34,JULANA,NARESH KUMAR,,309,0.3,10,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-429,haryana,2009,34,JULANA,INDERJEET,,307,0.29,11,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-429,haryana,2009,34,JULANA,SUKHBIR,,286,0.27,12,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-429,haryana,2009,34,JULANA,JAGPHOOL SINGH,,224,0.21,13,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-429,haryana,2009,34,JULANA,RAJBIR,,175,0.17,14,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-432,haryana,2009,35,SAFIDON,KALI RAM PATWARI,,38618,35.48,1,won,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-432,haryana,2009,35,SAFIDON,BACHAN SINGH ARYA,,23182,21.3,2,lost,U,54,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-432,haryana,2009,35,SAFIDON,RAM KISHAN,,19771,18.16,3,lost,U,70,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-432,haryana,2009,35,SAFIDON,SURESH KAUSHIK,,14421,13.25,4,forfeit,U,41,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-432,haryana,2009,35,SAFIDON,RAJ KUMAR,,8697,7.99,5,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-432,haryana,2009,35,SAFIDON,JAI BHAGWAN SHARMA,,1123,1.03,6,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-432,haryana,2009,35,SAFIDON,PARVEEN,,767,0.7,7,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-432,haryana,2009,35,SAFIDON,SURESH,,730,0.67,8,forfeit,U,48,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-432,haryana,2009,35,SAFIDON,GURBACHAN,,411,0.38,9,forfeit,U,53,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-432,haryana,2009,35,SAFIDON,RANBIR SINGH,,241,0.22,10,forfeit,U,34,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-432,haryana,2009,35,SAFIDON,RAMPHAL SHARMA,,238,0.22,11,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-432,haryana,2009,35,SAFIDON,ARYA MUKESH MORKHI,,217,0.2,12,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-432,haryana,2009,35,SAFIDON,RANI DEVI,,187,0.17,13,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-432,haryana,2009,35,SAFIDON,TIRLOK BHARDWAJ,,151,0.14,14,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-432,haryana,2009,35,SAFIDON,RAMPHAL,,99,0.09,15,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-428,haryana,2009,36,JIND,DR. HARI CHAND MIDDHA,,34057,36.4,1,won,U,67,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-428,haryana,2009,36,JIND,MANGE RAM GUPTA,,26195,28,2,lost,U,74,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-428,haryana,2009,36,JIND,BRIJ MOHAN SINGLA,,11141,11.91,3,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-428,haryana,2009,36,JIND,RAMESH KUMAR SAINI,,11010,11.77,4,forfeit,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-428,haryana,2009,36,JIND,BALWANT SINGH,,8220,8.79,5,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-428,haryana,2009,36,JIND,AMARJEET,,702,0.75,6,forfeit,U,37,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-428,haryana,2009,36,JIND,SWAMI RAGHVANAND,,507,0.54,7,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-428,haryana,2009,36,JIND,SUDHIR JINDAL,,415,0.44,8,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-428,haryana,2009,36,JIND,YASHPAL,,411,0.44,9,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-428,haryana,2009,36,JIND,DINESH KUMAR,,250,0.27,10,forfeit,U,26,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-428,haryana,2009,36,JIND,SUKHBIR,,185,0.2,11,forfeit,U,27,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-428,haryana,2009,36,JIND,PARBHATI RAM,,170,0.18,12,forfeit,U,54,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-428,haryana,2009,36,JIND,ISHWAR,,124,0.13,13,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-428,haryana,2009,36,JIND,PARKASH,,107,0.11,14,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-428,haryana,2009,36,JIND,GULSHAN KUMAR,,67,0.07,15,forfeit,U,41,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-387,haryana,2009,37,UCHANA KALAN,OM PARKASH CHAUTALA,,62669,46.81,1,won,U,72,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-387,haryana,2009,37,UCHANA KALAN,BIRENDER SINGH,,62048,46.34,2,lost,U,63,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-387,haryana,2009,37,UCHANA KALAN,SUSHIL KUMAR,,2737,2.04,3,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-387,haryana,2009,37,UCHANA KALAN,BALKAR SINGH,,1525,1.14,4,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-387,haryana,2009,37,UCHANA KALAN,BAL MUKAND SHARMA,,1323,0.99,5,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-387,haryana,2009,37,UCHANA KALAN,SURESH KUMAR,,1282,0.96,6,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-387,haryana,2009,37,UCHANA KALAN,DILBAG SINGH,,586,0.44,7,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-387,haryana,2009,37,UCHANA KALAN,RALDU,,546,0.41,8,forfeit,U,63,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-387,haryana,2009,37,UCHANA KALAN,OM PARKASH S/O CHURIA,,252,0.19,9,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-387,haryana,2009,37,UCHANA KALAN,JAGRUP,,233,0.17,10,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-387,haryana,2009,37,UCHANA KALAN,SATPAL,,203,0.15,11,forfeit,U,51,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-387,haryana,2009,37,UCHANA KALAN,SUMAN,,179,0.13,12,forfeit,U,25,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-387,haryana,2009,37,UCHANA KALAN,DHARAMBIR,,176,0.13,13,forfeit,U,25,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-387,haryana,2009,37,UCHANA KALAN,OM PARKASH S/O GOPALA,,132,0.1,14,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-420,haryana,2009,38,NARWANA,PIRTHI SINGH,,63703,52.32,1,won,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-420,haryana,2009,38,NARWANA,RAMPHAL,,43063,35.37,2,lost,U,59,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-420,haryana,2009,38,NARWANA,RAM BHAJ,,6294,5.17,3,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-420,haryana,2009,38,NARWANA,DHARAM PAUL TOOR,,3176,2.61,4,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-420,haryana,2009,38,NARWANA,BHAGWATI PARSAD,,3033,2.49,5,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-420,haryana,2009,38,NARWANA,SAT PAL SAROWA,,1162,0.95,6,forfeit,U,48,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-420,haryana,2009,38,NARWANA,SARWAN,,549,0.45,7,forfeit,U,61,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-420,haryana,2009,38,NARWANA,MANGAT,,461,0.38,8,forfeit,U,46,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-420,haryana,2009,38,NARWANA,KITABA,,323,0.27,9,forfeit,U,33,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-424,haryana,2009,39,TOHANA,PARAMVIR SINGH,,46752,34.01,1,won,U,54,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-424,haryana,2009,39,TOHANA,NISHAN SINGH,,42900,31.21,2,lost,U,51,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-424,haryana,2009,39,TOHANA,ROSHAN LAL,,14816,10.78,3,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-424,haryana,2009,39,TOHANA,SUBHASH BARALA,,11587,8.43,4,forfeit,U,42,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-424,haryana,2009,39,TOHANA,SANJAY SHARMA,,11038,8.03,5,forfeit,U,37,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-424,haryana,2009,39,TOHANA,DHEERA RAM,,5521,4.02,6,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-424,haryana,2009,39,TOHANA,SAMPURAN SINGH,,1374,1,7,forfeit,U,68,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-424,haryana,2009,39,TOHANA,BAJRANG,,1280,0.93,8,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-424,haryana,2009,39,TOHANA,SUBHASH CHAND,,881,0.64,9,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-424,haryana,2009,39,TOHANA,SITA RAM,,777,0.57,10,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-424,haryana,2009,39,TOHANA,BHAJAN LAL,,391,0.28,11,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-424,haryana,2009,39,TOHANA,JAGDISH SINGH,,160,0.12,12,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-418,haryana,2009,40,FATEHABAD,PRAHLAD SINGH GILLAN KHERA,,48637,32.88,1,won,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-418,haryana,2009,40,FATEHABAD,DURA RAM,,45835,30.99,2,lost,U,51,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-418,haryana,2009,40,FATEHABAD,SWATANTAR BALA CHAUDHARY,,37536,25.37,3,lost,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-418,haryana,2009,40,FATEHABAD,RAN SINGH BENIWAL,,7396,5,4,forfeit,U,74,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-418,haryana,2009,40,FATEHABAD,COMRED RAM SARUP,,1798,1.22,5,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-418,haryana,2009,40,FATEHABAD,BHISHAM PITAMAH,,1438,0.97,6,forfeit,U,59,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-418,haryana,2009,40,FATEHABAD,SATBIR SINGH,,1233,0.83,7,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-418,haryana,2009,40,FATEHABAD,MAHARANA PARTAP,,948,0.64,8,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-418,haryana,2009,40,FATEHABAD,NARENDER KUMAR URF BILLU,,853,0.58,9,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-418,haryana,2009,40,FATEHABAD,PARDEEP KUMAR,,714,0.48,10,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-418,haryana,2009,40,FATEHABAD,ROHIT DARBA,,426,0.29,11,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-418,haryana,2009,40,FATEHABAD,ARYA YASHWIR ISHWAR,,352,0.24,12,forfeit,U,47,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-418,haryana,2009,40,FATEHABAD,GULSHAN KUMAR,,347,0.23,13,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-418,haryana,2009,40,FATEHABAD,JAGDISH KUMAR,,197,0.13,14,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-418,haryana,2009,40,FATEHABAD,RAM SAWRUP BHADU,,119,0.08,15,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-418,haryana,2009,40,FATEHABAD,UMED SINGH,,97,0.07,16,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-422,haryana,2009,41,RATIA,GIAN CHAND,,50095,39.72,1,won,U,65,Illiterate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-422,haryana,2009,41,RATIA,JARNAIL SINGH S/O HAKAM SINGH,,46713,37.04,2,lost,U,42,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-422,haryana,2009,41,RATIA,MAHAVIR PARSHAD,,8865,7.03,3,forfeit,U,55,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-422,haryana,2009,41,RATIA,MANGAT RAM,,8341,6.61,4,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-422,haryana,2009,41,RATIA,AMARJEET KAUR,,4053,3.21,5,forfeit,U,39,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-422,haryana,2009,41,RATIA,BIRA RAM,,2173,1.72,6,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-422,haryana,2009,41,RATIA,GURDEEP SINGH,,2044,1.62,7,forfeit,U,48,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-422,haryana,2009,41,RATIA,SURENDER KUMAR,,1310,1.04,8,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-422,haryana,2009,41,RATIA,MANJEET,,892,0.71,9,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-422,haryana,2009,41,RATIA,JAGINDER SINGH,,728,0.58,10,forfeit,U,60,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-422,haryana,2009,41,RATIA,JARNAIL SINGH S/O ARJAN SINGH,,519,0.41,11,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-422,haryana,2009,41,RATIA,ROSHAN LAL,,379,0.3,12,forfeit,U,25,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-419,haryana,2009,42,KALANWALI,CHARANJEET SINGH,,59064,50.98,1,won,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-419,haryana,2009,42,KALANWALI,DR. SUSHIL KUMAR INDORA,,46520,40.16,2,lost,U,49,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-419,haryana,2009,42,KALANWALI,MAJOR SINGH,,5047,4.36,3,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-419,haryana,2009,42,KALANWALI,PROF. RAJESH VAID,,2125,1.83,4,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-419,haryana,2009,42,KALANWALI,RAJ KUMAR NAGAR,,1192,1.03,5,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-419,haryana,2009,42,KALANWALI,RATTAN LAL BAMNIA,,1136,0.98,6,forfeit,U,53,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-419,haryana,2009,42,KALANWALI,JASVIR SINGH,,765,0.66,7,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-421,haryana,2009,44,RANIA,KRISHAN LAL S/O RAM CHAND,,48241,39.74,1,won,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-421,haryana,2009,44,RANIA,RANJIT SINGH,,44590,36.74,2,lost,U,63,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-421,haryana,2009,44,RANIA,SATDEV,,11338,9.34,3,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-421,haryana,2009,44,RANIA,VEER SINGH,,7449,6.14,4,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-421,haryana,2009,44,RANIA,GURMIT SINGH,,3695,3.04,5,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-421,haryana,2009,44,RANIA,SWARAN SINGH VIRK,,3231,2.66,6,forfeit,U,61,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-421,haryana,2009,44,RANIA,SHISHPAL KAMBOJ,,998,0.82,7,forfeit,U,54,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-421,haryana,2009,44,RANIA,SAGAR MAL,,902,0.74,8,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-421,haryana,2009,44,RANIA,VIRENDER KUMAR,,555,0.46,9,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-421,haryana,2009,44,RANIA,KRISHAN LAL S/O HANS RAJ,,242,0.2,10,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-421,haryana,2009,44,RANIA,OM PARKASH,,137,0.11,11,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2009,45,SIRSA,GOPAL KANDA,,38147,32.94,1,won,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2009,45,SIRSA,PADAM CHAND,,31678,27.35,2,lost,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2009,45,SIRSA,LACHHMAN DASS ARORA,,30328,26.18,3,lost,U,78,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2009,45,SIRSA,VEER BHAN,,8346,7.21,4,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2009,45,SIRSA,ROHTASH JANGRA,,1702,1.47,5,forfeit,U,51,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2009,45,SIRSA,SHANTI SWAROOP,,952,0.82,6,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2009,45,SIRSA,JAMNA BAI,,893,0.77,7,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2009,45,SIRSA,SUNITA DEVI,,742,0.64,8,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2009,45,SIRSA,BALBIR KAUR ADVOCATE,,554,0.48,9,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2009,45,SIRSA,SURESH KUMAR,,422,0.36,10,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2009,45,SIRSA,KRISHAN KUMAR,,352,0.3,11,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2009,45,SIRSA,SHAYAM SUNDER MONGA,,336,0.29,12,forfeit,U,59,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2009,45,SIRSA,VINOD KUMAR,,335,0.29,13,forfeit,U,26,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2009,45,SIRSA,PAWAN KUMAR,,272,0.23,14,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2009,45,SIRSA,RAKESH SHARMA,,227,0.2,15,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2009,45,SIRSA,NASEEB SINGH,,166,0.14,16,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2009,45,SIRSA,SURINDER KUMAR,,158,0.14,17,forfeit,U,47,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2009,45,SIRSA,BHUPENDER SINGH,,121,0.1,18,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2009,45,SIRSA,JUGAL KISHOR KANDA,,94,0.08,19,forfeit,U,63,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-417,haryana,2009,46,ELLENABAD,OM PARKASH CHAUTALA,,64567,51.94,1,won,U,72,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-417,haryana,2009,46,ELLENABAD,BHARAT SINGH BENIWAL,,48144,38.73,2,lost,U,55,Literate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-417,haryana,2009,46,ELLENABAD,AMIR CHAND MEHTA,,3618,2.91,3,forfeit,U,47,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-417,haryana,2009,46,ELLENABAD,DEVI LAL BENIWAL,,3360,2.7,4,forfeit,U,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-417,haryana,2009,46,ELLENABAD,PARSHAN SINGH KHOSA,,2605,2.1,5,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-417,haryana,2009,46,ELLENABAD,SUDHIR KUMAR BENIWAL,,816,0.66,6,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-417,haryana,2009,46,ELLENABAD,RAJERAM KASNIYA,,748,0.6,7,forfeit,U,52,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-417,haryana,2009,46,ELLENABAD,INDERPAL MISTRI,,455,0.37,8,forfeit,U,39,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-380,haryana,2009,47,ADAMPUR,KULDEEP BISHNOI,,48224,45.77,1,won,U,41,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-380,haryana,2009,47,ADAMPUR,JAI PRAKASH,,42209,40.06,2,lost,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-380,haryana,2009,47,ADAMPUR,RAJESH GODARA,,8676,8.23,3,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-380,haryana,2009,47,ADAMPUR,RAJESH KUMAR,,2930,2.78,4,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-380,haryana,2009,47,ADAMPUR,PAWAN KHARIA,,1210,1.15,5,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-380,haryana,2009,47,ADAMPUR,SANTLAL,,938,0.89,6,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-380,haryana,2009,47,ADAMPUR,SUNIL KUMAR,,492,0.47,7,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-380,haryana,2009,47,ADAMPUR,RAMSARUP,,389,0.37,8,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-380,haryana,2009,47,ADAMPUR,YAGDUTT,,189,0.18,9,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-380,haryana,2009,47,ADAMPUR,RAJENDER SURA,,99,0.09,10,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-388,haryana,2009,48,UKLANA,NARESH SELWAL,,45973,41.17,1,won,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-388,haryana,2009,48,UKLANA,SEEMA DEVI,,42235,37.83,2,lost,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-388,haryana,2009,48,UKLANA,RAJBALA,,14820,13.27,3,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-388,haryana,2009,48,UKLANA,SANDEEP,,3469,3.11,4,forfeit,U,25,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-388,haryana,2009,48,UKLANA,NARSINGH DASS,,2911,2.61,5,forfeit,U,41,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-388,haryana,2009,48,UKLANA,KAVITA,,881,0.79,6,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-388,haryana,2009,48,UKLANA,MAHENDER SINGH,,704,0.63,7,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-388,haryana,2009,48,UKLANA,RAGHUVIR SINGH,,660,0.59,8,forfeit,U,39,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-386,haryana,2009,49,NARNAUND,SAROJ,,48322,37.41,1,won,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-386,haryana,2009,49,NARNAUND,RAM KUMAR,,38225,29.59,2,lost,U,63,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-386,haryana,2009,49,NARNAUND,ABHIMANYU,,37949,29.38,3,lost,U,41,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-386,haryana,2009,49,NARNAUND,BHAL SINGH,,2252,1.74,4,forfeit,U,43,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-386,haryana,2009,49,NARNAUND,ROOPENDER RANA,,975,0.75,5,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-386,haryana,2009,49,NARNAUND,ISHWAR SINGH,,369,0.29,6,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-386,haryana,2009,49,NARNAUND,ANIL KUMAR,,344,0.27,7,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-386,haryana,2009,49,NARNAUND,ARYA SATISH KUMAR,,290,0.22,8,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-386,haryana,2009,49,NARNAUND,RAJESH,,267,0.21,9,forfeit,U,37,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-386,haryana,2009,49,NARNAUND,RAM AVTAR,,183,0.14,10,forfeit,U,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-383,haryana,2009,50,HANSI,VINOD BHAYANA,,36529,34.36,1,won,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-383,haryana,2009,50,HANSI,PROF. CHATTAR PAL SINGH,,30246,28.45,2,lost,U,49,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-383,haryana,2009,50,HANSI,DHARA SINGH,,19438,18.28,3,lost,U,64,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-383,haryana,2009,50,HANSI,MANGE RAM,,7679,7.22,4,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-383,haryana,2009,50,HANSI,MAMAN RAM,,6165,5.8,5,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-383,haryana,2009,50,HANSI,RAM KISHAN,,1809,1.7,6,forfeit,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-383,haryana,2009,50,HANSI,RAMESH CHANDER,,1474,1.39,7,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-383,haryana,2009,50,HANSI,DEVENDER SINGH,,1015,0.95,8,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-383,haryana,2009,50,HANSI,VINOD,,552,0.52,9,forfeit,U,35,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-383,haryana,2009,50,HANSI,RAJBIR,,303,0.29,10,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-383,haryana,2009,50,HANSI,SATYAWAN DUHAN,,297,0.28,11,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-383,haryana,2009,50,HANSI,VIJAY KUMAR,,188,0.18,12,forfeit,U,27,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-383,haryana,2009,50,HANSI,ARJUN,,181,0.17,13,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-383,haryana,2009,50,HANSI,VAID RATTAN DEV JANGRA,,162,0.15,14,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-383,haryana,2009,50,HANSI,MANOJ,,159,0.15,15,forfeit,U,29,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-383,haryana,2009,50,HANSI,AJAY ALIAS SETHI,,116,0.11,16,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-381,haryana,2009,51,BARWALA,RAM NIWAS GHORELA,,29998,31.8,1,won,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-381,haryana,2009,51,BARWALA,SHEELA BHAYAN,,20602,21.84,2,lost,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-381,haryana,2009,51,BARWALA,SUBHASH TAK,,18785,19.91,3,lost,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-381,haryana,2009,51,BARWALA,JOGI RAM SIHAG,,11122,11.79,4,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-381,haryana,2009,51,BARWALA,BALWAN SINGH ARYA,,4768,5.05,5,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-381,haryana,2009,51,BARWALA,JITENDER JOG,,3854,4.09,6,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-381,haryana,2009,51,BARWALA,COMRADE SURESH KUMAR,,1504,1.59,7,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-381,haryana,2009,51,BARWALA,ANANT RAM,,753,0.8,8,forfeit,U,52,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-381,haryana,2009,51,BARWALA,RAJIV,,586,0.62,9,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-381,haryana,2009,51,BARWALA,KAMLESH SIHAG,,461,0.49,10,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-381,haryana,2009,51,BARWALA,MAHESH KUMAR,,451,0.48,11,forfeit,U,44,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-381,haryana,2009,51,BARWALA,JAGBIR,,335,0.36,12,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-381,haryana,2009,51,BARWALA,BALJEET SINGH POONIA,,321,0.34,13,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-381,haryana,2009,51,BARWALA,BALWAN,,228,0.24,14,forfeit,U,62,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-381,haryana,2009,51,BARWALA,RAJKUMAR,,175,0.19,15,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-381,haryana,2009,51,BARWALA,MANOJ KUMAR,,148,0.16,16,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-381,haryana,2009,51,BARWALA,ARVIND KUMAR,,137,0.15,17,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-381,haryana,2009,51,BARWALA,ROSHAN LAL,,117,0.12,18,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,SAMPAT SINGH,,38138,40.45,1,won,U,62,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,JASMA DEVI,,27237,28.88,2,lost,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,RANBIR SINGH,,21799,23.12,3,lost,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,GANGADHAR,,2877,3.05,4,forfeit,U,69,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,MADAN RAWALWASIA,,1144,1.21,5,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,CHHOTU RAM S/O KIRTA RAM,,282,0.3,6,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,RAJENDER SINGH,,280,0.3,7,forfeit,U,44,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,KRISHNA PANGHAL,,270,0.29,8,forfeit,U,45,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,VIRENDER SINGH,,253,0.27,9,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,INDER SINGH,,252,0.27,10,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,KULDEEP SINGH,,248,0.26,11,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,SATISH,,245,0.26,12,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,NARENDER,,237,0.25,13,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,SURENDER SINGH,,231,0.24,14,forfeit,U,34,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,ARYA SURENDER SINGH,,184,0.2,15,forfeit,U,34,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,RAJENDER,,153,0.16,16,forfeit,U,45,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,SAJAN LAWAT,,130,0.14,17,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,ASHOK SINGH,,100,0.11,18,forfeit,U,38,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,CHHOTU RAM S/O LADHU,,83,0.09,19,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,AMILAL,,80,0.08,20,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2009,53,NALWA,RAN SINGH,,72,0.08,21,forfeit,U,49,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,DHARAM PAL,,30887,27.14,1,won,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,JAI PARKASH DALAL,,30264,26.59,2,lost,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,SOMVIR SINGH S/O GANPAT RAM,,24380,21.42,3,lost,U,58,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,RATTANPAL,,6710,5.9,4,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,RAVI,,5930,5.21,5,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,MADAN LAL,,5693,5,6,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,PILOT SANDEEP ARYA,,4416,3.88,7,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,DAYANAND POONIA,,1566,1.38,8,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,DHARAMVEER,,884,0.78,9,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,KAPOOR SINGH,,385,0.34,10,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,CHANDER BHAN,,368,0.32,11,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,ISHWAR SINGH LAKHLAN,,335,0.29,12,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,PAWAN KUMAR,,328,0.29,13,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,PUSHPA RANI,,264,0.23,14,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,RAJBIR SINGH,,261,0.23,15,forfeit,U,28,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,DHOOP SINGH,,255,0.22,16,forfeit,U,72,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,MOHAN LAL,,215,0.19,17,forfeit,U,60,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,SOMBIR S/O CHUNI LAL,,214,0.19,18,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,OM PAL,,197,0.17,19,forfeit,U,45,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,RADHU RAM,,171,0.15,20,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2009,54,LOHARU,PRAKASH,,95,0.08,21,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-354,haryana,2009,55,BADHRA,RAGHBIR SINGH,,34280,32.65,1,won,U,65,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-354,haryana,2009,55,BADHRA,RANBIR SINGH MAHENDRA,,33571,31.97,2,lost,U,65,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-354,haryana,2009,55,BADHRA,RAN SINGH,,24963,23.78,3,lost,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-354,haryana,2009,55,BADHRA,DALBIR S/O NEKI RAM,,4777,4.55,4,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-354,haryana,2009,55,BADHRA,NARPENDER SINGH,,4575,4.36,5,forfeit,U,48,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-354,haryana,2009,55,BADHRA,NARENDER,,573,0.55,6,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-354,haryana,2009,55,BADHRA,PAWAN KUMAR,,378,0.36,7,forfeit,U,25,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-354,haryana,2009,55,BADHRA,KAMLESH,,367,0.35,8,forfeit,U,36,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-354,haryana,2009,55,BADHRA,SURNEDER,,301,0.29,9,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-354,haryana,2009,55,BADHRA,DALBIR S/O SURAT SINGH,,217,0.21,10,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-354,haryana,2009,55,BADHRA,RAMESHWER SINGH,,213,0.2,11,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-354,haryana,2009,55,BADHRA,ASHOK,,193,0.18,12,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-354,haryana,2009,55,BADHRA,MANGLI RAM,,142,0.14,13,forfeit,U,43,Illiterate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-354,haryana,2009,55,BADHRA,OM NIWAS,,129,0.12,14,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-354,haryana,2009,55,BADHRA,DALIP SINGH,,92,0.09,15,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-354,haryana,2009,55,BADHRA,SATBIR,,84,0.08,16,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-354,haryana,2009,55,BADHRA,SANJAY,,83,0.08,17,forfeit,U,30,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-354,haryana,2009,55,BADHRA,NARENDER SINGH,,57,0.05,18,forfeit,U,39,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,SATPAL,,27790,28.22,1,won,U,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,RAJDEEP,,27645,28.08,2,lost,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,MAJOR NIRPENDER SINGH SANGWAN,,26368,26.78,3,lost,U,54,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,ANIL KAUSHIK,,6655,6.76,4,forfeit,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,SOMBIR,,3713,3.77,5,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,OM PRAKASH DHANKAR,,3156,3.21,6,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,SUSHIL KUMAR,,484,0.49,7,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,AJIT,,429,0.44,8,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,DIWAN SINGH,,407,0.41,9,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,SATYAPAL S/O BHOPAL,,302,0.31,10,forfeit,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,JAIBIR,,270,0.27,11,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,DOCTOR PURANMAL HARMA-RANILAS,,230,0.23,12,forfeit,U,74,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,SATYAPAL S/O JOGA RAM,,191,0.19,13,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,PARDEEP,,189,0.19,14,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,GOPI RAM,,181,0.18,15,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,DHARAMPAL SANGWAN,,128,0.13,16,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,DHARMENDER,,113,0.11,17,forfeit,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,RAMESH,,109,0.11,18,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,KAPOOR SINGH,,61,0.06,19,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2009,56,DADRI,RAJENDER KUMAR,,41,0.04,20,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,GHANSYAM SARAF,,27337,28.44,1,won,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,DR. SHIV SHANKER BHARDWAJ,,24692,25.69,2,lost,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,VASUDEV SHARMA,,18217,18.95,3,lost,U,56,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,PARAMJEET SINGH MADDU,,5731,5.96,4,forfeit,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,BISHAMBER,,5175,5.38,5,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,OM PARKASH MANN,,4229,4.4,6,forfeit,U,57,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,RAVI SHANKAR,,2977,3.1,7,forfeit,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,KUSUM SHARMA,,2806,2.92,8,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,RAMESH VERMA,,1478,1.54,9,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,VIRENDER KUMAR KIRORI,,896,0.93,10,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,COMRADE RAJ KUMAR,,359,0.37,11,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,SHIV KUMAR,,350,0.36,12,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,DAYANAND,,280,0.29,13,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,VINAY PARMAR,,228,0.24,14,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,RAMESH CHANDER,,196,0.2,15,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,VAS DEV SINGH,,190,0.2,16,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,RAVI KUMAR,,179,0.19,17,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,RAMPHAL,,178,0.19,18,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,RAMOTAR,,177,0.18,19,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,MAHESH,,160,0.17,20,forfeit,U,27,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,BHUPENDER SINGH,,145,0.15,21,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2009,57,BHIWANI,LAXMI NARAYAN ASEEJA,,143,0.15,22,forfeit,U,39,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2009,58,TOSHAM,KIRAN CHOUDHARY,,62290,57.65,1,won,U,53,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2009,58,TOSHAM,COL. GAJRAJ SINGH,,16183,14.98,2,forfeit,U,66,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2009,58,TOSHAM,KAMAL SINGH,,14233,13.17,3,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2009,58,TOSHAM,NARENDER,,8369,7.75,4,forfeit,U,36,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2009,58,TOSHAM,MEENA KUMARI,,3460,3.2,5,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2009,58,TOSHAM,SURENDER KUMAR,,1108,1.03,6,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2009,58,TOSHAM,MANGAL SINGH KHARITA,,458,0.42,7,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2009,58,TOSHAM,VIKRAM SINGH TANWAR,,378,0.35,8,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2009,58,TOSHAM,BIR SINGH,,345,0.32,9,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2009,58,TOSHAM,PURUSHOTAM,,274,0.25,10,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2009,58,TOSHAM,SATYANARAYAN,,167,0.15,11,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2009,58,TOSHAM,RAKESH KUMAR,,159,0.15,12,forfeit,U,39,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2009,58,TOSHAM,KARAN SINGH,,156,0.14,13,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2009,58,TOSHAM,BIJENDER,,134,0.12,14,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2009,58,TOSHAM,JITENDER,,131,0.12,15,forfeit,U,36,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2009,58,TOSHAM,SHAMSHER SINGH,,83,0.08,16,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2009,58,TOSHAM,KRISHAN KUMAR,,50,0.05,17,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2009,58,TOSHAM,AMAR SINGH,,40,0.04,18,forfeit,U,73,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2009,58,TOSHAM,AJIT SINGH,,30,0.03,19,forfeit,U,39,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2009,59,BAWANI KHERA,RAM KISHAN FOUJI S/O DHARAMPAL,,35039,33.56,1,won,U,41,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2009,59,BAWANI KHERA,AZAD SINGH,,28766,27.55,2,lost,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2009,59,BAWANI KHERA,MAHENDER SINGH,,25376,24.31,3,lost,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2009,59,BAWANI KHERA,KRISHAN KUMAR S/O DHARAMPAL,,5008,4.8,4,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2009,59,BAWANI KHERA,JITENDER NATH,,3152,3.02,5,forfeit,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2009,59,BAWANI KHERA,JAI NARAIN,,1500,1.44,6,forfeit,U,67,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2009,59,BAWANI KHERA,AJIT,,1107,1.06,7,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2009,59,BAWANI KHERA,NARENDER KUMAR,,815,0.78,8,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2009,59,BAWANI KHERA,TEJPAL,,567,0.54,9,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2009,59,BAWANI KHERA,OMSINGH DHANAK,,493,0.47,10,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2009,59,BAWANI KHERA,KRISHAN KUMAR S/O INDER SINGH,,460,0.44,11,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2009,59,BAWANI KHERA,BALBIR,,374,0.36,12,forfeit,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2009,59,BAWANI KHERA,RAMPAL,,322,0.31,13,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2009,59,BAWANI KHERA,SANT LAL,,290,0.28,14,forfeit,U,64,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2009,59,BAWANI KHERA,ROSHAN LAL,,289,0.28,15,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2009,59,BAWANI KHERA,RAMKISHAN S/O FATTU,,268,0.26,16,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2009,59,BAWANI KHERA,RANDHIR SINGH,,229,0.22,17,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2009,59,BAWANI KHERA,KARAN SINGH,,224,0.21,18,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2009,59,BAWANI KHERA,SATYAWAN,,122,0.12,19,forfeit,U,28,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-414,haryana,2009,60,MEHAM,ANAND SINGH,,43964,37.59,1,won,U,58,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-414,haryana,2009,60,MEHAM,SHAMSHER,,36998,31.63,2,lost,U,52,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-414,haryana,2009,60,MEHAM,BALBIR SINGH,,15314,13.09,3,forfeit,U,46,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-414,haryana,2009,60,MEHAM,ANIL,,8450,7.22,4,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-414,haryana,2009,60,MEHAM,SUNIL,,6165,5.27,5,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-414,haryana,2009,60,MEHAM,RAJ RANI SHARMA,,3989,3.41,6,forfeit,U,34,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-414,haryana,2009,60,MEHAM,AJIT,,674,0.58,7,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-414,haryana,2009,60,MEHAM,RAJESH,,585,0.5,8,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-414,haryana,2009,60,MEHAM,RAMESH,,197,0.17,9,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-414,haryana,2009,60,MEHAM,RAGHBIR SINGH,,140,0.12,10,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-414,haryana,2009,60,MEHAM,BALJEET,,106,0.09,11,forfeit,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-414,haryana,2009,60,MEHAM,KRISHAN,,100,0.09,12,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-414,haryana,2009,60,MEHAM,SATYAWAN NEHRA,,95,0.08,13,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-414,haryana,2009,60,MEHAM,JAGMENDER,,94,0.08,14,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-414,haryana,2009,60,MEHAM,KASHMIR,,68,0.06,15,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-414,haryana,2009,60,MEHAM,DALIP SINGH,,24,0.02,16,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-410,haryana,2009,61,GARHI SAMPLA-KILOI,BHUPINDER SINGH,,89849,79.81,1,won,U,62,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-410,haryana,2009,61,GARHI SAMPLA-KILOI,SATISH KUMAR,,17749,15.77,2,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-410,haryana,2009,61,GARHI SAMPLA-KILOI,FATEH SINGH,,2135,1.9,3,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-410,haryana,2009,61,GARHI SAMPLA-KILOI,SOM DEV,,936,0.83,4,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-410,haryana,2009,61,GARHI SAMPLA-KILOI,SURESH KUMAR,,676,0.6,5,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-410,haryana,2009,61,GARHI SAMPLA-KILOI,RAJPAL SINGH,,497,0.44,6,forfeit,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-410,haryana,2009,61,GARHI SAMPLA-KILOI,BALBIR,,404,0.36,7,forfeit,U,47,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-410,haryana,2009,61,GARHI SAMPLA-KILOI,KRISHAN,,218,0.19,8,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-410,haryana,2009,61,GARHI SAMPLA-KILOI,SANT DHARAMVIR CHOTIWALA,,64,0.06,9,forfeit,U,37,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-410,haryana,2009,61,GARHI SAMPLA-KILOI,KARAN SINGH,,49,0.04,10,forfeit,U,60,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-412,haryana,2009,63,KALANAUR,SHAKUNTLA,,52142,56.73,1,won,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-412,haryana,2009,63,KALANAUR,NAGA RAM,,24282,26.42,2,lost,U,57,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-412,haryana,2009,63,KALANAUR,RAMAVTAR,,11097,12.07,3,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-412,haryana,2009,63,KALANAUR,BIJENDER BALIANA,,1306,1.42,4,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-412,haryana,2009,63,KALANAUR,RAMDHARI,,719,0.78,5,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-412,haryana,2009,63,KALANAUR,SATYAWAN RANGA,,673,0.73,6,forfeit,U,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-412,haryana,2009,63,KALANAUR,DHARAMPAL PACHARWAL,,652,0.71,7,forfeit,U,63,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-412,haryana,2009,63,KALANAUR,MUKESH,,487,0.53,8,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-412,haryana,2009,63,KALANAUR,RAJESH,,189,0.21,9,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-412,haryana,2009,63,KALANAUR,SATYA KUMAR SAROHA,,154,0.17,10,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-412,haryana,2009,63,KALANAUR,NARESH,,114,0.12,11,forfeit,U,38,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-412,haryana,2009,63,KALANAUR,PARMOD,,103,0.11,12,forfeit,U,34,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-408,haryana,2009,64,BAHADURGARH,RAJINDER SINGH JOON,,38641,43.29,1,won,U,53,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-408,haryana,2009,64,BAHADURGARH,NAFE SINGH RATHI,,19289,21.61,2,lost,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-408,haryana,2009,64,BAHADURGARH,RAMESH SINGH,,15848,17.75,3,lost,U,48,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-408,haryana,2009,64,BAHADURGARH,NARESH KUMAR,,6735,7.54,4,forfeit,U,46,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-408,haryana,2009,64,BAHADURGARH,RAJ SINGH,,4178,4.68,5,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-408,haryana,2009,64,BAHADURGARH,ANIL KUMAR,,2270,2.54,6,forfeit,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-408,haryana,2009,64,BAHADURGARH,AJIT JANGRA,,832,0.93,7,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-408,haryana,2009,64,BAHADURGARH,MAHESH ARYA,,613,0.69,8,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-408,haryana,2009,64,BAHADURGARH,YOGESH DALAL,,446,0.5,9,forfeit,U,27,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-408,haryana,2009,64,BAHADURGARH,BHAGAT SINGH,,161,0.18,10,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-408,haryana,2009,64,BAHADURGARH,NARAIN,,157,0.18,11,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-408,haryana,2009,64,BAHADURGARH,KAPTAN,,98,0.11,12,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,NARESH KUMAR,,33186,36.74,1,won,U,48,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,BRIJENDER SINGH CHAHAR,,19828,21.95,2,lost,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,SANJAY KABLANA,,12495,13.83,3,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,RAJENDER SINGH,,9993,11.06,4,forfeit,U,56,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,MANOJ YADAV,,7338,8.12,5,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,RAJ KANWAR ALIAS RAJU DAWLA,,3268,3.62,6,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,DR.OMPARKASH DHANKHAR,,753,0.83,7,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,JEETRAM ALIAS ARYA JITENDER GULIA,,588,0.65,8,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,RAM KANWAR,,520,0.58,9,forfeit,U,56,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,PARVEEN KUMAR,,479,0.53,10,forfeit,U,28,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,VINOD KUMAR,,466,0.52,11,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,PARDEEP,,269,0.3,12,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,BALJEET,,211,0.23,13,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,BIJEPAL,,209,0.23,14,forfeit,U,34,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,HARI SINGH,,190,0.21,15,forfeit,U,88,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,SHAMSHER SINGH,,173,0.19,16,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,RAVINDER KUMAR,,157,0.17,17,forfeit,U,27,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,HARISH,,92,0.1,18,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,RAJESH,,57,0.06,19,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2009,65,BADLI,MANVEER,,45,0.05,20,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-411,haryana,2009,66,JHAJJAR,GEETA,,48806,60.25,1,won,U,40,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-411,haryana,2009,66,JHAJJAR,KANTA DEVI,,21023,25.95,2,lost,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-411,haryana,2009,66,JHAJJAR,SACHIN BALMIKI,,4165,5.14,3,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-411,haryana,2009,66,JHAJJAR,AZAD SINGH,,2539,3.13,4,forfeit,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-411,haryana,2009,66,JHAJJAR,KISHORE KUMAR RAJORA,,1660,2.05,5,forfeit,U,35,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-411,haryana,2009,66,JHAJJAR,SURENDER SINGH,,1615,1.99,6,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-411,haryana,2009,66,JHAJJAR,RAJAL,,446,0.55,7,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-411,haryana,2009,66,JHAJJAR,SANJAY,,232,0.29,8,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-411,haryana,2009,66,JHAJJAR,NARSINGH,,143,0.18,9,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-411,haryana,2009,66,JHAJJAR,SANJAY KUMAR,,128,0.16,10,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-411,haryana,2009,66,JHAJJAR,GURDEEP,,98,0.12,11,forfeit,U,29,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-411,haryana,2009,66,JHAJJAR,RAKESH KUMAR,,87,0.11,12,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-411,haryana,2009,66,JHAJJAR,JAI KISHAN,,69,0.09,13,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-409,haryana,2009,67,BERI,DR. RAGHUBIR SINGH,,37742,39.48,1,won,U,65,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-409,haryana,2009,67,BERI,CHATAR SINGH,,32566,34.07,2,lost,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-409,haryana,2009,67,BERI,OM PARKASH,,15538,16.25,3,forfeit,U,70,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-409,haryana,2009,67,BERI,SUMIT,,4549,4.76,4,forfeit,U,35,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-409,haryana,2009,67,BERI,SHYAM PHUL,,1784,1.87,5,forfeit,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-409,haryana,2009,67,BERI,MUKESH DUTT,,738,0.77,6,forfeit,U,27,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-409,haryana,2009,67,BERI,ASHOK KUMAR,,603,0.63,7,forfeit,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-409,haryana,2009,67,BERI,SUNIL KUMAR,,570,0.6,8,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-409,haryana,2009,67,BERI,ARYA HAWA SINGH DALAL,,329,0.34,9,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-409,haryana,2009,67,BERI,PARDEEP,,287,0.3,10,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-409,haryana,2009,67,BERI,SANJAY KUMAR,,197,0.21,11,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-409,haryana,2009,67,BERI,VIJAY KUMAR,,184,0.19,12,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-409,haryana,2009,67,BERI,SURESH VEDI,,171,0.18,13,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-409,haryana,2009,67,BERI,SURENDER,,150,0.16,14,forfeit,U,25,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-409,haryana,2009,67,BERI,BALWAN,,123,0.13,15,forfeit,U,56,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-409,haryana,2009,67,BERI,VIRENDER SINGH,,65,0.07,16,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-353,haryana,2009,68,ATELI,ANITA YADAV,,24103,22.44,1,won,U,45,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-353,haryana,2009,68,ATELI,SANTOSH YADAV,,23130,21.53,2,lost,U,53,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-353,haryana,2009,68,ATELI,AJIT SINGH,,22400,20.85,3,lost,U,56,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-353,haryana,2009,68,ATELI,NARESH YADAV,,10535,9.81,4,forfeit,U,46,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-353,haryana,2009,68,ATELI,JASMER SINGH,,8578,7.99,5,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-353,haryana,2009,68,ATELI,ROSHAN LAL,,8168,7.6,6,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-353,haryana,2009,68,ATELI,BALI RAM ALIAS BILLU,,5218,4.86,7,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-353,haryana,2009,68,ATELI,CHANDRA SINGH,,1525,1.42,8,forfeit,U,76,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-353,haryana,2009,68,ATELI,JITENDER PAL,,882,0.82,9,forfeit,U,32,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-353,haryana,2009,68,ATELI,SUMER SINGH,,583,0.54,10,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-353,haryana,2009,68,ATELI,BALBIR SINGH,,463,0.43,11,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-353,haryana,2009,68,ATELI,PRAKASH,,442,0.41,12,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-353,haryana,2009,68,ATELI,RAMBIR,,335,0.31,13,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-353,haryana,2009,68,ATELI,SANYOGITA,,289,0.27,14,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-353,haryana,2009,68,ATELI,RAJBIR SINGH,,260,0.24,15,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-353,haryana,2009,68,ATELI,RAJENDER SINGH,,227,0.21,16,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-353,haryana,2009,68,ATELI,USHA,,195,0.18,17,forfeit,U,29,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-353,haryana,2009,68,ATELI,BHARAT SINGH,,93,0.09,18,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-358,haryana,2009,69,MAHENDRAGARH,DAN SINGH,,42286,37.77,1,won,U,53,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-358,haryana,2009,69,MAHENDRAGARH,RAM BILASH SHARMA,,36833,32.9,2,lost,U,61,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-358,haryana,2009,69,MAHENDRAGARH,KULBIR SINGH,,14553,13,3,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-358,haryana,2009,69,MAHENDRAGARH,RAMESH PALRI,,9848,8.8,4,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-358,haryana,2009,69,MAHENDRAGARH,BHAGIRATH SINGH,,3764,3.36,5,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-358,haryana,2009,69,MAHENDRAGARH,SUKESH DIWAN,,1465,1.31,6,forfeit,U,48,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-358,haryana,2009,69,MAHENDRAGARH,SANJAY KUMAR S/O GAJ RAJ SINGH,,928,0.83,7,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-358,haryana,2009,69,MAHENDRAGARH,HANUMAN SINGH,,617,0.55,8,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-358,haryana,2009,69,MAHENDRAGARH,MAHENDER SINGH,,566,0.51,9,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-358,haryana,2009,69,MAHENDRAGARH,VINOD,,378,0.34,10,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-358,haryana,2009,69,MAHENDRAGARH,BIRENDER,,252,0.23,11,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-358,haryana,2009,69,MAHENDRAGARH,SHASHI KANT KAUSHIK,,242,0.22,12,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-358,haryana,2009,69,MAHENDRAGARH,SANJAY KUMAR S/O RAMPAL,,220,0.2,13,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-360,haryana,2009,70,NARNAUL,NARENDER SINGH,,25011,31.72,1,won,U,46,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-360,haryana,2009,70,NARNAUL,BHANA RAM,,21619,27.42,2,lost,U,72,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-360,haryana,2009,70,NARNAUL,SANJAY YADAV,,13586,17.23,3,lost,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-360,haryana,2009,70,NARNAUL,KAILASH CHAND,,6806,8.63,4,forfeit,U,59,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-360,haryana,2009,70,NARNAUL,SARLA,,3354,4.25,5,forfeit,U,52,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-360,haryana,2009,70,NARNAUL,SURENDER KUMAR,,2164,2.74,6,forfeit,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-360,haryana,2009,70,NARNAUL,KAILASH CHAND,,1626,2.06,7,forfeit,U,58,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-360,haryana,2009,70,NARNAUL,FAUJI KARAMVIR,,1256,1.59,8,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-360,haryana,2009,70,NARNAUL,PURSHOTAM DASS,,1209,1.53,9,forfeit,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-360,haryana,2009,70,NARNAUL,SUDHIR,,618,0.78,10,forfeit,U,29,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-360,haryana,2009,70,NARNAUL,UMAKANT,,536,0.68,11,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-360,haryana,2009,70,NARNAUL,SATISH KUMAR,,434,0.55,12,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-360,haryana,2009,70,NARNAUL,OM PRAKASH,,215,0.27,13,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-360,haryana,2009,70,NARNAUL,JAGDISH PARSHAD,,190,0.24,14,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-360,haryana,2009,70,NARNAUL,RAJENDER,,160,0.2,15,forfeit,U,50,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-360,haryana,2009,70,NARNAUL,ANIL,,66,0.08,16,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-359,haryana,2009,71,NANGAL CHAUDHRY,BAHADUR SINGH,,32984,38.01,1,won,U,54,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-359,haryana,2009,71,NANGAL CHAUDHRY,RADHEY SHYAM,,21321,24.57,2,lost,U,64,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-359,haryana,2009,71,NANGAL CHAUDHRY,MOOLA RAM,,20918,24.1,3,lost,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-359,haryana,2009,71,NANGAL CHAUDHRY,ABHIMANYU,,3119,3.59,4,forfeit,U,27,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-359,haryana,2009,71,NANGAL CHAUDHRY,DAYA RAM,,2857,3.29,5,forfeit,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-359,haryana,2009,71,NANGAL CHAUDHRY,SHER SINGH,,1607,1.85,6,forfeit,U,53,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-359,haryana,2009,71,NANGAL CHAUDHRY,SATYA NARAIN,,1029,1.19,7,forfeit,U,60,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-359,haryana,2009,71,NANGAL CHAUDHRY,BALDEV SINGH,,828,0.95,8,forfeit,U,63,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-359,haryana,2009,71,NANGAL CHAUDHRY,SANT LAL,,330,0.38,9,forfeit,U,31,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-359,haryana,2009,71,NANGAL CHAUDHRY,DINESH KUMAR,,318,0.37,10,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-359,haryana,2009,71,NANGAL CHAUDHRY,JAI RAM,,292,0.34,11,forfeit,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-359,haryana,2009,71,NANGAL CHAUDHRY,RADHE SHYAM SHARMA,,279,0.32,12,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-359,haryana,2009,71,NANGAL CHAUDHRY,RAMROOP,,277,0.32,13,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-359,haryana,2009,71,NANGAL CHAUDHRY,ISHWAR SINGH,,243,0.28,14,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-359,haryana,2009,71,NANGAL CHAUDHRY,NIRANJAN LAL,,195,0.22,15,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-359,haryana,2009,71,NANGAL CHAUDHRY,SUMER SINGH,,111,0.13,16,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-359,haryana,2009,71,NANGAL CHAUDHRY,JASWANT,,71,0.08,17,forfeit,U,52,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-372,haryana,2009,72,BAWAL,RAMESHWAR DAYAL,,58473,53.26,1,won,U,50,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-372,haryana,2009,72,BAWAL,SHAKUNTLA BHAGWARIA,,36472,33.22,2,lost,U,66,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-372,haryana,2009,72,BAWAL,JAWAHAR LAL,,10258,9.34,3,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-372,haryana,2009,72,BAWAL,ZILE RAM,,1181,1.08,4,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-372,haryana,2009,72,BAWAL,SANJAY,,980,0.89,5,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-372,haryana,2009,72,BAWAL,SUNDER LAL,,859,0.78,6,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-372,haryana,2009,72,BAWAL,JAGDISH,,801,0.73,7,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-372,haryana,2009,72,BAWAL,MAHAVIR,,438,0.4,8,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-372,haryana,2009,72,BAWAL,ISHWAR SINGH,,319,0.29,9,forfeit,U,33,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-413,haryana,2009,73,KOSLI,YADUVENDER SINGH,,47896,37.47,1,won,U,52,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-413,haryana,2009,73,KOSLI,JAGDISH YADAV,,44473,34.79,2,lost,U,54,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-413,haryana,2009,73,KOSLI,SATISH KHOLA,,18862,14.76,3,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-413,haryana,2009,73,KOSLI,KAMALVEER SINGH,,4464,3.49,4,forfeit,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-413,haryana,2009,73,KOSLI,ANIL RAO,,3713,2.9,5,forfeit,U,50,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-413,haryana,2009,73,KOSLI,MOHIT,,2987,2.34,6,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-413,haryana,2009,73,KOSLI,COMRADE RAJENDER SINGH,,954,0.75,7,forfeit,U,50,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-413,haryana,2009,73,KOSLI,NIHAL SINGH,,936,0.73,8,forfeit,U,86,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-413,haryana,2009,73,KOSLI,SURESH,,733,0.57,9,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-413,haryana,2009,73,KOSLI,RAMESH,,693,0.54,10,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-413,haryana,2009,73,KOSLI,SUNITA,,602,0.47,11,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-413,haryana,2009,73,KOSLI,SUBHASH SINGH,,510,0.4,12,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-413,haryana,2009,73,KOSLI,KRISHAN SINGH,,336,0.26,13,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-413,haryana,2009,73,KOSLI,SUBHASH CHANDER,,334,0.26,14,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-413,haryana,2009,73,KOSLI,NARENDER YADAV,,325,0.25,15,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-378,haryana,2009,74,REWARI,AJAY SINGH S/O ABHEY SINGH,,48557,40.35,1,won,U,52,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-378,haryana,2009,74,REWARI,SATISH S/O ROSHAN LAL,,35269,29.31,2,lost,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-378,haryana,2009,74,REWARI,RANDHIR SINGH KAPRIWAS,,24396,20.27,3,lost,U,63,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-378,haryana,2009,74,REWARI,VIJAY SOMANY,,6418,5.33,4,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-378,haryana,2009,74,REWARI,ANIL KUMAR,,3225,2.68,5,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-378,haryana,2009,74,REWARI,RAJINDER SINGH,,1164,0.97,6,forfeit,U,59,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-378,haryana,2009,74,REWARI,SATISH S/O JASWANT,,406,0.34,7,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-378,haryana,2009,74,REWARI,SATVIR,,211,0.18,8,forfeit,U,58,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-378,haryana,2009,74,REWARI,VIJAY PAL,,134,0.11,9,forfeit,U,47,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-378,haryana,2009,74,REWARI,RANDHIR SINGH KAPRIWAHAK,,121,0.1,10,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-378,haryana,2009,74,REWARI,RANVIR SINGH,,120,0.1,11,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-378,haryana,2009,74,REWARI,SATPAL,,112,0.09,12,forfeit,U,50,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-378,haryana,2009,74,REWARI,AJAY SINGH YADAV S/O TEJ SINGH,,96,0.08,13,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-378,haryana,2009,74,REWARI,AJAY SINGH YADAV S/O SANTOSH KUMAR YADAV,,52,0.04,14,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-378,haryana,2009,74,REWARI,DHARAMBIR,,47,0.04,15,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-376,haryana,2009,75,PATAUDI,GANGA RAM,,49323,51.45,1,won,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-376,haryana,2009,75,PATAUDI,BHUPINDER,,24576,25.64,2,lost,U,60,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-376,haryana,2009,75,PATAUDI,RAMBIR SINGH,,5790,6.04,3,forfeit,U,59,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-376,haryana,2009,75,PATAUDI,RESHAM SINGH,,4020,4.19,4,forfeit,U,61,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-376,haryana,2009,75,PATAUDI,SATYA PRAKASH,,3996,4.17,5,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-376,haryana,2009,75,PATAUDI,NAT RAM,,2952,3.08,6,forfeit,U,53,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-376,haryana,2009,75,PATAUDI,RAJESH KUMAR,,1226,1.28,7,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-376,haryana,2009,75,PATAUDI,KIRPA RAM PUNIA,,1179,1.23,8,forfeit,U,73,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-376,haryana,2009,75,PATAUDI,LAKHAN SINGH,,800,0.83,9,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-376,haryana,2009,75,PATAUDI,BASTI RAM,,698,0.73,10,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-376,haryana,2009,75,PATAUDI,RAJINDER SINGH,,337,0.35,11,forfeit,U,47,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-376,haryana,2009,75,PATAUDI,OM PARKASH,,183,0.19,12,forfeit,U,54,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-376,haryana,2009,75,PATAUDI,CHHATER SINGH,,180,0.19,13,forfeit,U,77,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-376,haryana,2009,75,PATAUDI,SAMAY SINGH,,175,0.18,14,forfeit,U,48,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-376,haryana,2009,75,PATAUDI,PARTAP SINGH,,156,0.16,15,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-376,haryana,2009,75,PATAUDI,PREM KUMAR,,140,0.15,16,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-376,haryana,2009,75,PATAUDI,DHARAM CHAND,,131,0.14,17,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-371,haryana,2009,76,BADSHAHPUR,DHARAM PAL,,50557,34.59,1,won,U,66,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-371,haryana,2009,76,BADSHAHPUR,RAKESH,,39172,26.8,2,lost,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-371,haryana,2009,76,BADSHAHPUR,GOPI CHAND,,25824,17.67,3,lost,U,64,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-371,haryana,2009,76,BADSHAHPUR,MUKESH,,15163,10.38,4,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-371,haryana,2009,76,BADSHAHPUR,BIR SINGH,,7148,4.89,5,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-371,haryana,2009,76,BADSHAHPUR,MAN SINGH,,2341,1.6,6,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-371,haryana,2009,76,BADSHAHPUR,SHIKSHA YADAV,,1770,1.21,7,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-371,haryana,2009,76,BADSHAHPUR,BEG RAJ,,1581,1.08,8,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-371,haryana,2009,76,BADSHAHPUR,SUBASH,,811,0.55,9,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-371,haryana,2009,76,BADSHAHPUR,MAMAN,,513,0.35,10,forfeit,U,51,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-371,haryana,2009,76,BADSHAHPUR,ROHTASH SINGH,,432,0.3,11,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-371,haryana,2009,76,BADSHAHPUR,RAKESH BHARDWAJ,,341,0.23,12,forfeit,U,41,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-371,haryana,2009,76,BADSHAHPUR,DASHRATH SINGH,,331,0.23,13,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-371,haryana,2009,76,BADSHAHPUR,RAM KISHAN,,159,0.11,14,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-374,haryana,2009,77,GURGAON,SUKHBEER,,41013,32.74,1,won,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-374,haryana,2009,77,GURGAON,DHARAMBIR,,38873,31.03,2,lost,U,77,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-374,haryana,2009,77,GURGAON,UMESH AGGERWAL,,23864,19.05,3,lost,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-374,haryana,2009,77,GURGAON,R S RATHEE,,5951,4.75,4,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-374,haryana,2009,77,GURGAON,KANHIYA LAL,,4674,3.73,5,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-374,haryana,2009,77,GURGAON,BHIM SINGH RATHEE,,4420,3.53,6,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-374,haryana,2009,77,GURGAON,MANI RAM SHARMA,,3089,2.47,7,forfeit,U,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-374,haryana,2009,77,GURGAON,VIJAY KUMAR,,999,0.8,8,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-374,haryana,2009,77,GURGAON,PYARE LAL KATARIA,,712,0.57,9,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-374,haryana,2009,77,GURGAON,RAM AVTAR YADAV,,685,0.55,10,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-374,haryana,2009,77,GURGAON,BABU LAL,,315,0.25,11,forfeit,U,58,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-374,haryana,2009,77,GURGAON,RAVINDER SINGH,,251,0.2,12,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-374,haryana,2009,77,GURGAON,GD SEHGAL,,144,0.11,13,forfeit,U,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-374,haryana,2009,77,GURGAON,RAMANAND,,108,0.09,14,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-374,haryana,2009,77,GURGAON,JHABBAR SINGH,,90,0.07,15,forfeit,U,48,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-374,haryana,2009,77,GURGAON,KUSHESHWAR BHAGAT,,87,0.07,16,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-379,haryana,2009,78,SOHNA,DHARAMBIR,,20443,17.93,1,won,U,54,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-379,haryana,2009,78,SOHNA,ZAKIR HUSSAIN,,19938,17.49,2,lost,U,47,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-379,haryana,2009,78,SOHNA,SUKHBIR SINGH JAUNAPURIA,,18301,16.05,3,forfeit,U,51,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-379,haryana,2009,78,SOHNA,ROHTASH KHATANA,,13573,11.91,4,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-379,haryana,2009,78,SOHNA,JAVED HUSSAIN,,10785,9.46,5,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-379,haryana,2009,78,SOHNA,SAHEEDA,,9329,8.18,6,forfeit,U,44,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-379,haryana,2009,78,SOHNA,NIHAL SINGH,,7351,6.45,7,forfeit,U,52,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-379,haryana,2009,78,SOHNA,TEJ PAL,,5722,5.02,8,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-379,haryana,2009,78,SOHNA,MAHESH DAYMA,,5026,4.41,9,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-379,haryana,2009,78,SOHNA,RAMESH CHAND,,1121,0.98,10,forfeit,U,53,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-379,haryana,2009,78,SOHNA,BHOOP SINGH RAGHAV,,835,0.73,11,forfeit,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-379,haryana,2009,78,SOHNA,SUBE SINGH,,674,0.59,12,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-379,haryana,2009,78,SOHNA,RAM NIWAS TANWAR,,284,0.25,13,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-379,haryana,2009,78,SOHNA,LALIT SHARMA,,216,0.19,14,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-379,haryana,2009,78,SOHNA,USHMAN,,209,0.18,15,forfeit,U,27,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-379,haryana,2009,78,SOHNA,DINESH KUMAR,,183,0.16,16,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-375,haryana,2009,79,NUH,AFTAB AHMED,,33925,39.09,1,won,U,43,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-375,haryana,2009,79,NUH,SANJAY,,17021,19.61,2,lost,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-375,haryana,2009,79,NUH,HAMID HUSSAIN,,12779,14.73,3,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-375,haryana,2009,79,NUH,BADRUDDIN,,10338,11.91,4,forfeit,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-375,haryana,2009,79,NUH,JAHID,,6843,7.89,5,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-375,haryana,2009,79,NUH,TAYAB HUSSAIN,,4562,5.26,6,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-375,haryana,2009,79,NUH,MOHD.HAROON,,470,0.54,7,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-375,haryana,2009,79,NUH,SURENDER SINGH,,286,0.33,8,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-375,haryana,2009,79,NUH,SANJAY KUMAR,,192,0.22,9,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-375,haryana,2009,79,NUH,MOHD.SALMAN,,134,0.15,10,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-375,haryana,2009,79,NUH,DEVINAND SINGH,,109,0.13,11,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-375,haryana,2009,79,NUH,BHARAT,,67,0.08,12,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-375,haryana,2009,79,NUH,TAFAJUL,,55,0.06,13,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-373,haryana,2009,80,FEROZEPUR JHIRKA,NASEEM AHMED,,42824,46.15,1,won,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-373,haryana,2009,80,FEROZEPUR JHIRKA,ER.MAMMAN KHAN,,24630,26.54,2,lost,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-373,haryana,2009,80,FEROZEPUR JHIRKA,MOHD. IQBAL,,12448,13.42,3,forfeit,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-373,haryana,2009,80,FEROZEPUR JHIRKA,AMAN AHMED,,5116,5.51,4,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-373,haryana,2009,80,FEROZEPUR JHIRKA,DR.MAHENDER KUMAR GARG,,4909,5.29,5,forfeit,U,43,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-373,haryana,2009,80,FEROZEPUR JHIRKA,GHANSHYAM DASS,,1497,1.61,6,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-373,haryana,2009,80,FEROZEPUR JHIRKA,MOHD. YUNUS,,719,0.77,7,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-373,haryana,2009,80,FEROZEPUR JHIRKA,MAMRAJ,,357,0.38,8,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-373,haryana,2009,80,FEROZEPUR JHIRKA,BALWANT SINGH AGGARWAL,,291,0.31,9,forfeit,U,59,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,MOHAMMED ILYAS,,18865,23.23,1,won,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,DAYAWATI,,16177,19.92,2,lost,U,44,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,IQBAL,,11664,14.36,3,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,AKHTAR HUSSAIN,,11564,14.24,4,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,RAHISH KHAN,,9774,12.03,5,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,MOHD. AIZAZ,,6665,8.21,6,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,SAHAB KHAN,,2611,3.21,7,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,TAYYUB,,836,1.03,8,forfeit,U,39,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,NASRU ALIAS KUTAR,,766,0.94,9,forfeit,U,39,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,SAFI MOHAMMAD,,433,0.53,10,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,ATTAULLAH KHAN,,252,0.31,11,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,DAUD,,228,0.28,12,forfeit,U,39,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,RAMAN,,155,0.19,13,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,ZAHID HUSSAIN,,140,0.17,14,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,CHAWLI,,138,0.17,15,forfeit,U,58,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,SHEHNAJ,,129,0.16,16,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,ISRAIL,,123,0.15,17,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,JUHARMAL,,118,0.15,18,forfeit,U,63,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,MOHD. SARDAR KHAN,,106,0.13,19,forfeit,U,69,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,SAMSUDDIN,,105,0.13,20,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,YAKUB KHAN,,103,0.13,21,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,SARTAJ KHAN,,88,0.11,22,forfeit,U,52,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,KALLU KHAN,,84,0.1,23,forfeit,U,57,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,FAKHRUDDIN,,53,0.07,24,forfeit,U,38,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2009,81,PUNAHANA,AJIM,,48,0.06,25,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-366,haryana,2009,82,HATHIN,JALEB KHAN,,33774,29.59,1,won,U,69,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-366,haryana,2009,82,HATHIN,HARSH KUMAR,,27301,23.92,2,lost,U,54,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-366,haryana,2009,82,HATHIN,KEHAR SINGH,,21578,18.91,3,lost,U,36,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-366,haryana,2009,82,HATHIN,RAMJILAL,,15634,13.7,4,forfeit,U,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-366,haryana,2009,82,HATHIN,NASIMA,,5927,5.19,5,forfeit,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-366,haryana,2009,82,HATHIN,AJMAT KHAN,,3296,2.89,6,forfeit,U,72,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-366,haryana,2009,82,HATHIN,DR. SHAKTI SINGH RAWAT,,2563,2.25,7,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-366,haryana,2009,82,HATHIN,INDRAJ,,1709,1.5,8,forfeit,U,44,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-366,haryana,2009,82,HATHIN,SER MOHAMMAD @ SHERA,,683,0.6,9,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-366,haryana,2009,82,HATHIN,TEKCHAND SOROT,,602,0.53,10,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-366,haryana,2009,82,HATHIN,TAYYUB HUSSAIN,,484,0.42,11,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-366,haryana,2009,82,HATHIN,JAGDEV RAWAT,,304,0.27,12,forfeit,U,69,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-366,haryana,2009,82,HATHIN,MAHIPAL,,142,0.12,13,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-366,haryana,2009,82,HATHIN,ASHOK KUMAR,,134,0.12,14,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-367,haryana,2009,83,HODAL,JAGDISH NAYAR,,46515,49.53,1,won,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-367,haryana,2009,83,HODAL,UDAY BHAN,,43894,46.74,2,lost,U,54,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-367,haryana,2009,83,HODAL,TRILOK CHAND,,995,1.06,3,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-367,haryana,2009,83,HODAL,MAHAVEER SINGH,,560,0.6,4,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-367,haryana,2009,83,HODAL,HARI CHAND,,509,0.54,5,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-367,haryana,2009,83,HODAL,GIRRAJ KISHOR,,362,0.39,6,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-367,haryana,2009,83,HODAL,DR. K .P SINGH,,325,0.35,7,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-367,haryana,2009,83,HODAL,LIKHI RAM SOLANKI,,324,0.34,8,forfeit,U,43,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-367,haryana,2009,83,HODAL,KARAN DAGAR,,123,0.13,9,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-367,haryana,2009,83,HODAL,BUDDHRAM NEHRA ADVOCATE,,102,0.11,10,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-367,haryana,2009,83,HODAL,RAVINDER,,75,0.08,11,forfeit,U,34,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-367,haryana,2009,83,HODAL,MUKESH KUMAR BALMIKI,,69,0.07,12,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-367,haryana,2009,83,HODAL,ASHOK KUMAR,,35,0.04,13,forfeit,U,50,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-367,haryana,2009,83,HODAL,MANOHAR,,33,0.04,14,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-368,haryana,2009,84,PALWAL,SUBHASH CHOUDHARY,,51712,46.42,1,won,U,58,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-368,haryana,2009,84,PALWAL,KARAN SINGH DALAL,,45040,40.43,2,lost,U,51,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-368,haryana,2009,84,PALWAL,DHARAM CHAND,,8161,7.33,3,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-368,haryana,2009,84,PALWAL,ANANGPAL BAINSLA,,3376,3.03,4,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-368,haryana,2009,84,PALWAL,DAL CHAND,,759,0.68,5,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-368,haryana,2009,84,PALWAL,PHOOL CHAND AGGARWAL,,692,0.62,6,forfeit,U,69,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-368,haryana,2009,84,PALWAL,TEJ RAM,,414,0.37,7,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-368,haryana,2009,84,PALWAL,GHASSI RAM,,319,0.29,8,forfeit,U,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-368,haryana,2009,84,PALWAL,TEEKA RAM HOODA,,259,0.23,9,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-368,haryana,2009,84,PALWAL,DR. KSHETRA PAL SINGH,,237,0.21,10,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-368,haryana,2009,84,PALWAL,DHARAMVIR,,125,0.11,11,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-368,haryana,2009,84,PALWAL,KARAM CHAND,,119,0.11,12,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-368,haryana,2009,84,PALWAL,MANGE RAM SHARMA,,108,0.1,13,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-368,haryana,2009,84,PALWAL,ADARASH KUMAR,,73,0.07,14,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-369,haryana,2009,85,PRITHLA,RAGHUBIR SINGH,,34647,34.67,1,won,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-369,haryana,2009,85,PRITHLA,TEK CHAND SHARMA,,31492,31.51,2,lost,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-369,haryana,2009,85,PRITHLA,SASHI BALA TEWATIA,,19382,19.39,3,lost,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-369,haryana,2009,85,PRITHLA,NAYAN PAL,,11771,11.78,4,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-369,haryana,2009,85,PRITHLA,NIRMALA PANCHAL,,684,0.68,5,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-369,haryana,2009,85,PRITHLA,SATPAL,,670,0.67,6,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-369,haryana,2009,85,PRITHLA,VINOD,,394,0.39,7,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-369,haryana,2009,85,PRITHLA,RAJENDER,,294,0.29,8,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-369,haryana,2009,85,PRITHLA,RAJENDER SINGH,,225,0.23,9,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-369,haryana,2009,85,PRITHLA,TEK CHAND,,212,0.21,10,forfeit,U,52,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-369,haryana,2009,85,PRITHLA,PRAHLAD SINGH,,176,0.18,11,forfeit,U,47,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-365,haryana,2009,86,FARIDABAD NIT,PT. SHIV CHARAN LAL SHARMA,,23461,27.98,1,won,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-365,haryana,2009,86,FARIDABAD NIT,AKAGAR CHAND CHAUDHRY,,15586,18.59,2,lost,U,68,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-365,haryana,2009,86,FARIDABAD NIT,NAGENDER SINGH BHADANA,,15460,18.44,3,lost,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-365,haryana,2009,86,FARIDABAD NIT,SHIV RAJ LOHIA,,8074,9.63,4,forfeit,U,43,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-365,haryana,2009,86,FARIDABAD NIT,MAHENDER BHADANA,,6956,8.3,5,forfeit,U,58,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-365,haryana,2009,86,FARIDABAD NIT,TEJPAL DAGAR,,4011,4.78,6,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-365,haryana,2009,86,FARIDABAD NIT,DHARAMBIR BHADHANA,,3492,4.17,7,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-365,haryana,2009,86,FARIDABAD NIT,VED PRAKASH YADAV,,2565,3.06,8,forfeit,U,38,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-365,haryana,2009,86,FARIDABAD NIT,LIYAKAT ALI,,2364,2.82,9,forfeit,U,47,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-365,haryana,2009,86,FARIDABAD NIT,BECHU GIRI,,939,1.12,10,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-365,haryana,2009,86,FARIDABAD NIT,MOOL CHAND AGGARWAL,,418,0.5,11,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-365,haryana,2009,86,FARIDABAD NIT,VIDHI CHAND,,229,0.27,12,forfeit,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-365,haryana,2009,86,FARIDABAD NIT,CHUNNI LAL,,154,0.18,13,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-365,haryana,2009,86,FARIDABAD NIT,KISHAN PRATAP,,128,0.15,14,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-362,haryana,2009,87,BADKHAL,MAHENDER PARTAP SINGH,,33150,44.25,1,won,U,62,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-362,haryana,2009,87,BADKHAL,SEEMA TRIKHA,,20471,27.33,2,lost,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-362,haryana,2009,87,BADKHAL,KARTAR SINGH,,15641,20.88,3,lost,U,59,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-362,haryana,2009,87,BADKHAL,HEMRAJ,,1677,2.24,4,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-362,haryana,2009,87,BADKHAL,PARAMJEET GULATI,,1306,1.74,5,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-362,haryana,2009,87,BADKHAL,PARTAP SINGH,,595,0.79,6,forfeit,U,62,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-362,haryana,2009,87,BADKHAL,ISLAMUDDIN,,482,0.64,7,forfeit,U,46,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-362,haryana,2009,87,BADKHAL,ROHTASH,,442,0.59,8,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-362,haryana,2009,87,BADKHAL,VINAY,,430,0.57,9,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-362,haryana,2009,87,BADKHAL,MAMTA,,232,0.31,10,forfeit,U,26,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-362,haryana,2009,87,BADKHAL,DHARAM SINGH,,196,0.26,11,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-362,haryana,2009,87,BADKHAL,SURESH,,144,0.19,12,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-362,haryana,2009,87,BADKHAL,PAPPU,,141,0.19,13,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-370,haryana,2009,90,TIGAON,KRISHAN PAL,,39746,45.62,1,won,U,52,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-370,haryana,2009,90,TIGAON,LALIT NAGAR,,38928,44.68,2,lost,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-370,haryana,2009,90,TIGAON,GIRRAJ SHARMA,,4218,4.84,3,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-370,haryana,2009,90,TIGAON,RAJ KISHORE,,1490,1.71,4,forfeit,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-370,haryana,2009,90,TIGAON,RAJENDER KUMAR,,1155,1.33,5,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-370,haryana,2009,90,TIGAON,SANDEEP,,684,0.79,6,forfeit,U,28,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-370,haryana,2009,90,TIGAON,GYANENDER,,555,0.64,7,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-370,haryana,2009,90,TIGAON,PUSHKAR,,188,0.22,8,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-370,haryana,2009,90,TIGAON,DAYA RAM NAGAR,,167,0.19,9,forfeit,U,60,,,challenger,src-1b7bc1c9d39a

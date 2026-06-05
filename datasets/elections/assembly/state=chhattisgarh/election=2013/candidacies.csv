@@ -1,0 +1,987 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-chhattisgarh-2411,chhattisgarh,2013,1,BHARATPUR-SONHAT,CHAMPA DEVI PAWLE,,42968,36.13,1,won,U,27,10th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2411,chhattisgarh,2013,1,BHARATPUR-SONHAT,GULAB KAMRO,,38360,32.25,2,lost,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2411,chhattisgarh,2013,1,BHARATPUR-SONHAT,KANAS LAL,,18188,15.29,3,forfeit,U,36,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2411,chhattisgarh,2013,1,BHARATPUR-SONHAT,RAVISHANKAR SING KANWAR,,4918,4.14,4,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2411,chhattisgarh,2013,1,BHARATPUR-SONHAT,KRISHNA KUMAR CHERWA,,4380,3.68,5,forfeit,U,25,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2411,chhattisgarh,2013,1,BHARATPUR-SONHAT,SHIVACHARAN,,2790,2.35,7,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2411,chhattisgarh,2013,1,BHARATPUR-SONHAT,LALMAN SING NETAM,,2370,1.99,8,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2411,chhattisgarh,2013,1,BHARATPUR-SONHAT,SANTKUMAR SONWANSHI,,983,0.83,9,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2414,chhattisgarh,2013,2,MANENDRAGARH,SHYAM BIHARI JAISWAL,,32613,35.96,1,won,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2414,chhattisgarh,2013,2,MANENDRAGARH,GULAB SINGH,,28435,31.35,2,lost,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2414,chhattisgarh,2013,2,MANENDRAGARH,RAMANUJ (RAMUCHACHA),,12411,13.68,3,forfeit,U,68,Graduate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2414,chhattisgarh,2013,2,MANENDRAGARH,PAVAN KUMAR NETI,,9747,10.75,4,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2414,chhattisgarh,2013,2,MANENDRAGARH,DR. L. P. MOURYA,,1036,1.14,6,forfeit,U,50,10th Pass,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2414,chhattisgarh,2013,2,MANENDRAGARH,SUNIL DUBEY,,902,0.99,7,forfeit,U,40,Post Graduate,Advocacy,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2414,chhattisgarh,2013,2,MANENDRAGARH,SONU SINGH ORAUV(CHHAKKA),,766,0.84,8,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2414,chhattisgarh,2013,2,MANENDRAGARH,PREM SHANKAR SONI,,693,0.76,9,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2414,chhattisgarh,2013,2,MANENDRAGARH,KRISHNA SINGH BABA,,662,0.73,10,forfeit,U,36,10th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2414,chhattisgarh,2013,2,MANENDRAGARH,MADHAW PRASAD SHARMA,,528,0.58,11,forfeit,U,63,Graduate,Retired Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2414,chhattisgarh,2013,2,MANENDRAGARH,DHAJARAM,,478,0.53,12,forfeit,U,59,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2410,chhattisgarh,2013,3,BAIKUNTHPUR,BHAIYALAL RAJWADE,,45471,39.39,1,won,U,60,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2410,chhattisgarh,2013,3,BAIKUNTHPUR,BEDANTI TIVARI,,44402,38.47,2,lost,U,51,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2410,chhattisgarh,2013,3,BAIKUNTHPUR,ENGINEER SANJAY SINGH KAMRO,,17413,15.09,3,forfeit,U,32,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2410,chhattisgarh,2013,3,BAIKUNTHPUR,MANILAL RAJWADE,,2536,2.2,5,forfeit,U,40,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2410,chhattisgarh,2013,3,BAIKUNTHPUR,CHINTAMANI SANDIL,,1441,1.25,6,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2410,chhattisgarh,2013,3,BAIKUNTHPUR,RAMNARAYAN SAHU,,899,0.78,7,forfeit,U,60,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2455,chhattisgarh,2013,4,PREMNAGAR,KHELSAI SINGH,,77318,48.31,1,won,U,66,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2455,chhattisgarh,2013,4,PREMNAGAR,RENUKA SINGH,,58991,36.86,2,lost,U,45,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2455,chhattisgarh,2013,4,PREMNAGAR,ARUN KUMAR RAJWADE,,3564,2.23,4,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2455,chhattisgarh,2013,4,PREMNAGAR,RAMDAYAL UIKE,,3140,1.96,5,forfeit,U,26,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2455,chhattisgarh,2013,4,PREMNAGAR,HIRASAI PRAJAPATI,,2500,1.56,6,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2455,chhattisgarh,2013,4,PREMNAGAR,KHEMRAJ SINGH,,2305,1.44,7,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2455,chhattisgarh,2013,4,PREMNAGAR,SHIVNARAYAN,,1699,1.06,8,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2455,chhattisgarh,2013,4,PREMNAGAR,TULESHWAR SINGH,,1309,0.82,9,forfeit,U,54,Graduate,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2455,chhattisgarh,2013,4,PREMNAGAR,PARMANAND RAJWADE,,1281,0.8,10,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2455,chhattisgarh,2013,4,PREMNAGAR,KAMAL SINGH,,1167,0.73,11,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2455,chhattisgarh,2013,4,PREMNAGAR,GYANENDRA SHASTRI,,1052,0.66,12,forfeit,U,26,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2013,5,BHATGAON,PARAS NATH RAJWADE,,67339,41.54,1,won,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2013,5,BHATGAON,RAJNI RAVISHANKAR TRIPATHI,,59971,37,2,lost,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2013,5,BHATGAON,RAM ADHIN POYA,,8163,5.04,3,forfeit,U,25,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2013,5,BHATGAON,NARENDRA KUMAR SAHU (NEETU),,5496,3.39,4,forfeit,U,28,12th Pass,Private Company,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2013,5,BHATGAON,COMRADE BAL SINGH,,3726,2.3,6,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2013,5,BHATGAON,HIRALAL SINGH,,2258,1.39,7,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2013,5,BHATGAON,ARVIND SHARAN SINGH,,2130,1.31,8,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2013,5,BHATGAON,KUMAIT SANDIL,,1933,1.19,9,forfeit,U,68,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2013,5,BHATGAON,PRADEEP KUMAR GUPTA,,1869,1.15,10,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2013,5,BHATGAON,MOHEET RAM RAJWADE,,1534,0.95,11,forfeit,U,72,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2013,5,BHATGAON,SHIV KUMAR,,1472,0.91,12,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2013,5,BHATGAON,DURGA YADAV,,890,0.55,13,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2013,5,BHATGAON,DILESHWAR RAM RAJWADE,,842,0.52,14,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2454,chhattisgarh,2013,6,PRATAPPUR,RAMSEVAK PAIKRA,,66550,41.75,1,won,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2454,chhattisgarh,2013,6,PRATAPPUR,DR. PREMSAI SINGH TEKAM,,58407,36.64,2,lost,U,59,Graduate Professional,Ex MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2454,chhattisgarh,2013,6,PRATAPPUR,ASHA DEVI POYA,,6380,4,3,forfeit,U,39,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2454,chhattisgarh,2013,6,PRATAPPUR,RAMASAPANA SINGH,,5721,3.59,5,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2454,chhattisgarh,2013,6,PRATAPPUR,COMRED CHHOTELAL TIRKEY,,5011,3.14,6,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2454,chhattisgarh,2013,6,PRATAPPUR,SHIV PRASAD PANDO,,2599,1.63,7,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2454,chhattisgarh,2013,6,PRATAPPUR,SHANKAR PRATAP SINGH ORKERA,,2212,1.39,8,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2454,chhattisgarh,2013,6,PRATAPPUR,MANOJ KUMAR,,1618,1.02,9,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2454,chhattisgarh,2013,6,PRATAPPUR,SURESH KUMAR AYAM,,1494,0.94,10,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2454,chhattisgarh,2013,6,PRATAPPUR,BAIJNATH KERKETA,,1198,0.75,11,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2454,chhattisgarh,2013,6,PRATAPPUR,BELASO TEKAM,,1058,0.66,12,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2454,chhattisgarh,2013,6,PRATAPPUR,DHANPAT SINGH AYAM,,747,0.47,13,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2454,chhattisgarh,2013,6,PRATAPPUR,DEV SHARAN SINGH NETI,,583,0.37,14,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2456,chhattisgarh,2013,7,RAMANUJGANJ,BRIHASPAT SINGH,,73174,48.78,1,won,U,53,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2456,chhattisgarh,2013,7,RAMANUJGANJ,RAM VICHAR NETAM,,61582,41.06,2,lost,U,51,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2456,chhattisgarh,2013,7,RAMANUJGANJ,JANGSAY POYA,,2024,1.35,4,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2456,chhattisgarh,2013,7,RAMANUJGANJ,KUNNI UNRAON,,1655,1.1,5,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2456,chhattisgarh,2013,7,RAMANUJGANJ,VIJAY LAKRA,,1535,1.02,6,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2456,chhattisgarh,2013,7,RAMANUJGANJ,SURAJDEV SINGH,,1236,0.82,7,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2456,chhattisgarh,2013,7,RAMANUJGANJ,BIGAN SINGH,,1151,0.77,8,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2456,chhattisgarh,2013,7,RAMANUJGANJ,BINOD SINGH,,1109,0.74,9,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2456,chhattisgarh,2013,7,RAMANUJGANJ,NANDLAL,,771,0.51,10,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2456,chhattisgarh,2013,7,RAMANUJGANJ,DHARMU EKKA,,740,0.49,11,forfeit,U,50,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2456,chhattisgarh,2013,7,RAMANUJGANJ,GOPAL SINGH,,730,0.49,12,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2456,chhattisgarh,2013,7,RAMANUJGANJ,ANIL KUMAR MINJ,,696,0.46,13,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2457,chhattisgarh,2013,8,SAMRI,DR. PREETAM RAM,,82585,53.22,1,won,U,54,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2457,chhattisgarh,2013,8,SAMRI,SIDDHNATH PAIKRA,,50762,32.71,2,lost,U,55,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2457,chhattisgarh,2013,8,SAMRI,KRISHNA KUMAR TIGGA,,3282,2.11,4,forfeit,U,51,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2457,chhattisgarh,2013,8,SAMRI,SURESH PAIKRA,,3138,2.02,5,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2457,chhattisgarh,2013,8,SAMRI,PRABHAT BELA MARKAM,,2612,1.68,6,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2457,chhattisgarh,2013,8,SAMRI,YASHODA,,2194,1.41,7,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2457,chhattisgarh,2013,8,SAMRI,BASANTI PAIKRA,,2043,1.32,8,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2457,chhattisgarh,2013,8,SAMRI,GIRWAR,,1271,0.82,9,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2457,chhattisgarh,2013,8,SAMRI,AJEET KUMAR SINGH,,1184,0.76,10,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2453,chhattisgarh,2013,9,LUNDRA,CHINTAMANI MAHARAJ,,64771,46.38,1,won,U,45,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2453,chhattisgarh,2013,9,LUNDRA,VIJAY BABA,,54825,39.25,2,lost,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2453,chhattisgarh,2013,9,LUNDRA,COMRADE RAMLAL,,3521,2.52,4,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2453,chhattisgarh,2013,9,LUNDRA,ANIL PAINKRA,,2182,1.56,5,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2453,chhattisgarh,2013,9,LUNDRA,SARJU XESS,,1942,1.39,6,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2453,chhattisgarh,2013,9,LUNDRA,SAJALRAM,,1755,1.26,7,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2453,chhattisgarh,2013,9,LUNDRA,VIJAY RAM,,1727,1.24,8,forfeit,U,43,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2453,chhattisgarh,2013,9,LUNDRA,CHAKRADHARI SINGH,,1263,0.9,9,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2453,chhattisgarh,2013,9,LUNDRA,TARAN SINGH PAWLE,,1201,0.86,10,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2453,chhattisgarh,2013,9,LUNDRA,KUNJ BIHARI SINGH PAIKRA,,1187,0.85,11,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2451,chhattisgarh,2013,10,AMBIKAPUR,T.S.BABA,,84668,51.64,1,won,U,61,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2451,chhattisgarh,2013,10,AMBIKAPUR,ANURAG SINGH DEO,,65110,39.71,2,lost,U,38,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2451,chhattisgarh,2013,10,AMBIKAPUR,SEWA RAM PORTE,,2503,1.53,4,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2451,chhattisgarh,2013,10,AMBIKAPUR,ADHIWAKTA VIJAY TIWARI,,1917,1.17,5,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2451,chhattisgarh,2013,10,AMBIKAPUR,RAM DAS TOPPO,,1670,1.02,6,forfeit,U,54,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2451,chhattisgarh,2013,10,AMBIKAPUR,RAJKUMAR SINGH,,721,0.44,7,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2451,chhattisgarh,2013,10,AMBIKAPUR,PREMSAI PAWLE,,716,0.44,8,forfeit,U,54,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2451,chhattisgarh,2013,10,AMBIKAPUR,ANURAG SINGHDEO,,491,0.3,9,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2451,chhattisgarh,2013,10,AMBIKAPUR,MOHAMAD RAFIK KHALIFA,,416,0.25,10,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2451,chhattisgarh,2013,10,AMBIKAPUR,ANIL CHANNE,,386,0.24,11,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2451,chhattisgarh,2013,10,AMBIKAPUR,JAGDISH PANDEY,,375,0.23,12,forfeit,U,71,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2451,chhattisgarh,2013,10,AMBIKAPUR,R.K.SHUKLA,,346,0.21,13,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2451,chhattisgarh,2013,10,AMBIKAPUR,GITA RAVI,,327,0.2,14,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2458,chhattisgarh,2013,11,SITAPUR,AMARJEET BHAGAT,,70217,49.61,1,won,U,45,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2458,chhattisgarh,2013,11,SITAPUR,RAJA RAM BHAGAT,,52362,36.99,2,lost,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2458,chhattisgarh,2013,11,SITAPUR,RAM CHANDRA PAIKRA,,3887,2.75,4,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2458,chhattisgarh,2013,11,SITAPUR,RAM SAI BHAGAT,,3297,2.33,5,forfeit,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2458,chhattisgarh,2013,11,SITAPUR,STEPHAN LAKRA,,1982,1.4,6,forfeit,U,60,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2458,chhattisgarh,2013,11,SITAPUR,BALAMDINA EKKA,,1402,0.99,7,forfeit,U,52,12th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2458,chhattisgarh,2013,11,SITAPUR,SUDHAN NAGWANSHI(KHADADORNA),,893,0.63,8,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2458,chhattisgarh,2013,11,SITAPUR,RAJ KUMAR EKKA (AMARJEET),,785,0.55,9,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2458,chhattisgarh,2013,11,SITAPUR,DEODATT SINGH PAIKRA,,721,0.51,10,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2427,chhattisgarh,2013,12,JASHPUR,RAJSHARAN BHAGAT,,79419,50.81,1,won,U,66,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2427,chhattisgarh,2013,12,JASHPUR,SARHUL RAM BHAGAT,,45070,28.83,2,lost,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2427,chhattisgarh,2013,12,JASHPUR,GANESH RAM BHAGAT,,15001,9.6,3,forfeit,U,63,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2427,chhattisgarh,2013,12,JASHPUR,KRIPA SHANKAR BHAGAT,,6446,4.12,4,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2427,chhattisgarh,2013,12,JASHPUR,VINAY PRAKASH EKKA,,2458,1.57,6,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2427,chhattisgarh,2013,12,JASHPUR,RAJESH LAKRA,,1677,1.07,7,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2427,chhattisgarh,2013,12,JASHPUR,BAJRANGBALI PAINKRA,,1478,0.95,8,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2429,chhattisgarh,2013,13,KUNKURI,ROHIT KUMAR SAI,,76593,54.12,1,won,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2429,chhattisgarh,2013,13,KUNKURI,ABRAHAM TIRKEY,,47727,33.72,2,lost,U,57,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2429,chhattisgarh,2013,13,KUNKURI,DR.P C KUJUR,,4971,3.51,3,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2429,chhattisgarh,2013,13,KUNKURI,TEKDHARI RAM MANJHI,,2335,1.65,5,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2429,chhattisgarh,2013,13,KUNKURI,NESTOR KUJUR,,1957,1.38,6,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2429,chhattisgarh,2013,13,KUNKURI,INDRANATH PAINKRA,,1373,0.97,7,forfeit,U,47,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2429,chhattisgarh,2013,13,KUNKURI,PRAMOD KUJUR,,1324,0.94,8,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2429,chhattisgarh,2013,13,KUNKURI,SATMAN SAI,,1141,0.81,9,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2431,chhattisgarh,2013,14,PATHALGAON,SHIVSHANKAR PAINKRA,,71485,44.64,1,won,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2431,chhattisgarh,2013,14,PATHALGAON,RAMPUKAR SINGH,,67576,42.2,2,lost,U,76,5th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2431,chhattisgarh,2013,14,PATHALGAON,RUPSUN RAM,,3864,2.41,4,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2431,chhattisgarh,2013,14,PATHALGAON,NEHRU LAKRA,,3832,2.39,5,forfeit,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2431,chhattisgarh,2013,14,PATHALGAON,RAVISHANKAR SAI,,3756,2.35,6,forfeit,U,55,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2431,chhattisgarh,2013,14,PATHALGAON,ANIL KUMAR PARHA,,2520,1.57,7,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2431,chhattisgarh,2013,14,PATHALGAON,JAGDEESH RAM SIDAR,,1584,0.99,8,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2430,chhattisgarh,2013,15,LAILUNGA,SUNITI SATYANAND RATHIA,,75093,49,1,won,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2430,chhattisgarh,2013,15,LAILUNGA,HRIDAYA RAM RATHIYA,,60892,39.74,2,lost,U,47,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2430,chhattisgarh,2013,15,LAILUNGA,KRIPA RAM SIDAR,,5472,3.57,3,forfeit,U,63,8th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2430,chhattisgarh,2013,15,LAILUNGA,DILIP KERKETTA,,3107,2.03,5,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2430,chhattisgarh,2013,15,LAILUNGA,SURESH KUJUR,,2127,1.39,6,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2430,chhattisgarh,2013,15,LAILUNGA,SUNIL MINJ,,1697,1.11,7,forfeit,U,27,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2432,chhattisgarh,2013,16,RAIGARH,ROSHAN LAL,,91045,51.95,1,won,U,59,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2432,chhattisgarh,2013,16,RAIGARH,SHAKRAJIT NAIK,,70453,40.2,2,lost,U,67,Doctorate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2432,chhattisgarh,2013,16,RAIGARH,RAMESH ROUTROY,,3270,1.87,4,forfeit,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2432,chhattisgarh,2013,16,RAIGARH,RAJESH KUMAR TRIPATHI,,1171,0.67,5,forfeit,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2432,chhattisgarh,2013,16,RAIGARH,RAMBHA PATEL,,1010,0.58,6,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2432,chhattisgarh,2013,16,RAIGARH,TEJRAM MALAKAR ADV,,973,0.56,7,forfeit,U,46,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2432,chhattisgarh,2013,16,RAIGARH,TULARAM SAHA,,904,0.52,8,forfeit,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2432,chhattisgarh,2013,16,RAIGARH,RITESH VAIDYA,,635,0.36,9,forfeit,U,38,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2432,chhattisgarh,2013,16,RAIGARH,JAIKISHOR PRADHAN,,525,0.3,10,forfeit,U,56,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2432,chhattisgarh,2013,16,RAIGARH,TEJRAM SIDAR,,484,0.28,11,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2432,chhattisgarh,2013,16,RAIGARH,KAUSHAL KUMAR AGRAWAL,,468,0.27,12,forfeit,U,34,Graduate,Shop Keeper,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2432,chhattisgarh,2013,16,RAIGARH,NARAYANDAS INKLAB GANDHI,,431,0.25,13,forfeit,U,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2433,chhattisgarh,2013,17,SARANGARH,KERABAI MANHAR,,81971,44.56,1,won,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2433,chhattisgarh,2013,17,SARANGARH,PADMA GHANSHYAM MANHAR,,66127,35.94,2,lost,U,31,12th Pass,Household,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2433,chhattisgarh,2013,17,SARANGARH,KU. KAMDA JOLHE,,22470,12.21,3,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2433,chhattisgarh,2013,17,SARANGARH,MANGAL,,1729,0.94,5,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2433,chhattisgarh,2013,17,SARANGARH,PILA RAM ANANT,,1590,0.86,6,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2433,chhattisgarh,2013,17,SARANGARH,DHANESH RAM CHOUHAN,,1540,0.84,7,forfeit,U,60,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2433,chhattisgarh,2013,17,SARANGARH,AD. UDHORAM KOSHALEY,,1355,0.74,8,forfeit,U,45,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2433,chhattisgarh,2013,17,SARANGARH,DHANKA NIRALA,,805,0.44,9,forfeit,U,65,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2433,chhattisgarh,2013,17,SARANGARH,SARITA,,751,0.41,10,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2433,chhattisgarh,2013,17,SARANGARH,RAMKUMAR AJAGALLE,,677,0.37,11,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2433,chhattisgarh,2013,17,SARANGARH,"MAHARU RAM JOLHEY, ADVOCATE",,661,0.36,12,forfeit,U,41,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2433,chhattisgarh,2013,17,SARANGARH,DR.CHHABILAL RATRE,,574,0.31,13,forfeit,U,64,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2433,chhattisgarh,2013,17,SARANGARH,NANDLAL MAHILANE,,403,0.22,14,forfeit,U,51,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2428,chhattisgarh,2013,18,KHARSIA,UMESH PATEL,,95470,59.59,1,won,U,29,Graduate,Engineer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2428,chhattisgarh,2013,18,KHARSIA,DR. JAWAHAR LAL NAIK,,56582,35.32,2,lost,U,59,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2428,chhattisgarh,2013,18,KHARSIA,RAVI LAL RATHIA,,2433,1.52,4,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2428,chhattisgarh,2013,18,KHARSIA,MADAN MAHANT,,1136,0.71,5,forfeit,U,39,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2428,chhattisgarh,2013,18,KHARSIA,GITA PATEL,,481,0.3,6,forfeit,U,47,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2428,chhattisgarh,2013,18,KHARSIA,AJAY KUMAR SIDAR,,456,0.28,7,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2428,chhattisgarh,2013,18,KHARSIA,UTTAM PRASAD DANSENA,,400,0.25,8,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2428,chhattisgarh,2013,18,KHARSIA,VEERENDRA KUMAR GAVEL,,322,0.2,9,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2426,chhattisgarh,2013,19,DHARAMJAIGARH,LALJEET SINGH RATHIA,,79276,50.08,1,won,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2426,chhattisgarh,2013,19,DHARAMJAIGARH,OM PRAKASH RATHIA,,59288,37.45,2,lost,U,47,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2426,chhattisgarh,2013,19,DHARAMJAIGARH,RAMNATH BAIGA,,4760,3.01,4,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2426,chhattisgarh,2013,19,DHARAMJAIGARH,BASIL BECK,,2517,1.59,5,forfeit,U,52,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2426,chhattisgarh,2013,19,DHARAMJAIGARH,TRIBHUWAN SINGH RATHIYA,,2326,1.47,6,forfeit,U,66,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2426,chhattisgarh,2013,19,DHARAMJAIGARH,GULAB SINGH RATHIA,,2050,1.29,7,forfeit,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2426,chhattisgarh,2013,19,DHARAMJAIGARH,SHAILESH ENGINEER,,1368,0.86,8,forfeit,U,31,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2417,chhattisgarh,2013,20,RAMPUR,SHYAM LAL KANWAR,,67868,43.01,1,won,U,65,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2417,chhattisgarh,2013,20,RAMPUR,NANKI RAM KANWAR,,57953,36.72,2,lost,U,70,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2417,chhattisgarh,2013,20,RAMPUR,BHUWANESHWAR SINGH RATHIA,,21125,13.39,3,forfeit,U,74,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2417,chhattisgarh,2013,20,RAMPUR,KU. HEM BAI KANWAR,,2586,1.64,5,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2417,chhattisgarh,2013,20,RAMPUR,NARAYAN MAJHWAR,,1235,0.78,6,forfeit,U,39,8th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2417,chhattisgarh,2013,20,RAMPUR,RAMDAYAL URAON,,1164,0.74,7,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2413,chhattisgarh,2013,21,KORBA,JAI SINGH AGRAWAL (JAI SINGH BHAIYYA),,72386,49.25,1,won,U,50,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2413,chhattisgarh,2013,21,KORBA,JOGESH LAMBA,,57937,39.42,2,lost,U,45,Graduate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2413,chhattisgarh,2013,21,KORBA,ARVIND KUMAR SHARMA,,3846,2.62,4,forfeit,U,45,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2413,chhattisgarh,2013,21,KORBA,BIJAY KUMAR SAHU,,1894,1.29,5,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2413,chhattisgarh,2013,21,KORBA,K. N. SINGH,,1731,1.18,6,forfeit,U,69,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2413,chhattisgarh,2013,21,KORBA,SHATRUDHAN SAHU KAKA,,1362,0.93,7,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2413,chhattisgarh,2013,21,KORBA,RAJESH KUMAR PANDEY ALIAS LALLU PANDEY,,1066,0.73,8,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2413,chhattisgarh,2013,21,KORBA,LALIT KUMAR CHANDRA,,949,0.65,9,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2413,chhattisgarh,2013,21,KORBA,ASHOK MAHRAJ,,501,0.34,10,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2413,chhattisgarh,2013,21,KORBA,RAMKUMAR CHATURVEDI,,431,0.29,11,forfeit,U,52,8th Pass,Priest,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2413,chhattisgarh,2013,21,KORBA,MADHUR ROBERTS,,256,0.17,12,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2413,chhattisgarh,2013,21,KORBA,PAWAN DAS MAHANT,,236,0.16,13,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2413,chhattisgarh,2013,21,KORBA,PRADEEP KATHLEY (BABLU BHANCHA),,177,0.12,14,forfeit,U,30,Graduate,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2413,chhattisgarh,2013,21,KORBA,SUNI RAM YADAV,,175,0.12,15,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2413,chhattisgarh,2013,21,KORBA,CHANDRA KUMAR SHARMA (PAMMAL),,166,0.11,16,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2412,chhattisgarh,2013,22,KATGHORA,LAKHAN DEWANGAN,,61646,44.7,1,won,U,51,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2412,chhattisgarh,2013,22,KATGHORA,BODHRAM KANWAR,,48516,35.18,2,lost,U,75,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2412,chhattisgarh,2013,22,KATGHORA,SHANKAR LAL RAJAK,,11003,7.98,3,forfeit,U,51,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2412,chhattisgarh,2013,22,KATGHORA,SANTOSHKUMAR YADAV,,3931,2.85,4,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2412,chhattisgarh,2013,22,KATGHORA,JAGAT RAM SAHU,,3257,2.36,6,forfeit,U,47,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2412,chhattisgarh,2013,22,KATGHORA,ANIL KUMAR PANDEY,,2072,1.5,7,forfeit,U,49,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2412,chhattisgarh,2013,22,KATGHORA,BHUWAN PAL SINGH KANWAR,,1347,0.98,8,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2412,chhattisgarh,2013,22,KATGHORA,FHULESHWAR PRASAD SURJAEHA,,1037,0.75,9,forfeit,U,80,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2412,chhattisgarh,2013,22,KATGHORA,RAGHVENDRA PANDEY,,798,0.58,10,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2412,chhattisgarh,2013,22,KATGHORA,BANSHILAL PATEL,,436,0.32,11,forfeit,U,44,Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2412,chhattisgarh,2013,22,KATGHORA,PRAKASH ANANT,,428,0.31,12,forfeit,U,34,12th Pass,Managerial Position,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2416,chhattisgarh,2013,23,PALI-TANAKHAR,UIKE RAMDAYAL,,69450,43.6,1,won,U,46,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2416,chhattisgarh,2013,23,PALI-TANAKHAR,HIRASINGH MARKAM,,40637,25.51,2,lost,U,78,Post Graduate,Ex MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2416,chhattisgarh,2013,23,PALI-TANAKHAR,SHYAMLAL MARAVI,,33594,21.09,3,lost,U,58,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2416,chhattisgarh,2013,23,PALI-TANAKHAR,HARINARAYAN SINGH KANWAR,,2485,1.56,5,forfeit,U,70,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2416,chhattisgarh,2013,23,PALI-TANAKHAR,OM PRAKASH SINGH KUSHRO,,2373,1.49,6,forfeit,U,38,Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2416,chhattisgarh,2013,23,PALI-TANAKHAR,VIJAY BINJHWAR,,1979,1.24,7,forfeit,U,27,10th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2416,chhattisgarh,2013,23,PALI-TANAKHAR,KU. SHEELA URREY,,1728,1.08,8,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2415,chhattisgarh,2013,24,MARWAHI,AMIT AJIT JOGI,,82909,58.8,1,won,U,35,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2415,chhattisgarh,2013,24,MARWAHI,SAMIRA PAIKRA,,36659,26,2,lost,U,31,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2415,chhattisgarh,2013,24,MARWAHI,SUMAN SINGH WAKDE,,6259,4.44,4,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2415,chhattisgarh,2013,24,MARWAHI,TAPESHWAR SINGH MARAVI,,2069,1.47,5,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2415,chhattisgarh,2013,24,MARWAHI,BUDHMAN SINGH DHURVE,,1420,1.01,6,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2415,chhattisgarh,2013,24,MARWAHI,DR. URMILA SINGH MARKO,,1296,0.92,7,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2415,chhattisgarh,2013,24,MARWAHI,PANCHAM SINGH MASRAM,,1239,0.88,8,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2415,chhattisgarh,2013,24,MARWAHI,THAN SINGH OTTI,,937,0.66,9,forfeit,U,58,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2415,chhattisgarh,2013,24,MARWAHI,GHASIRAM WAKRE,,621,0.44,10,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2415,chhattisgarh,2013,24,MARWAHI,SMT. GAJMATI BHANU,,469,0.33,11,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2380,chhattisgarh,2013,25,KOTA,DR. RENU JOGI,,58390,42.16,1,won,U,61,Post Graduate,Rent,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2380,chhattisgarh,2013,25,KOTA,KASHI RAM SAHU,,53301,38.49,2,lost,U,55,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2380,chhattisgarh,2013,25,KOTA,MANOHAR LAL DHRUV,,7432,5.37,3,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2380,chhattisgarh,2013,25,KOTA,RAM SAHAY BANJARE,,4427,3.2,4,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2380,chhattisgarh,2013,25,KOTA,RAJEEV SAHU,,3002,2.17,5,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2380,chhattisgarh,2013,25,KOTA,MAHESH DIWAKAR,,1499,1.08,6,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2380,chhattisgarh,2013,25,KOTA,RAMBILAS SHARMA,,1266,0.91,7,forfeit,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2380,chhattisgarh,2013,25,KOTA,VINOD KUMAR BANJARE,,1166,0.84,8,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2380,chhattisgarh,2013,25,KOTA,RAKESH SINGH CHAUHAN,,1143,0.83,9,forfeit,U,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2380,chhattisgarh,2013,25,KOTA,KASHIRAM SAHU,,1045,0.75,11,forfeit,U,67,Literate,Actor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2380,chhattisgarh,2013,25,KOTA,DEEPAK RAJAK,,981,0.71,12,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2380,chhattisgarh,2013,25,KOTA,SANTE LAL BARE,,933,0.67,13,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2380,chhattisgarh,2013,25,KOTA,MUJID AHMAD,,742,0.54,14,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2380,chhattisgarh,2013,25,KOTA,MADAN LAL JAISWAL (MADAN BHAIYA),,469,0.34,15,forfeit,U,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2380,chhattisgarh,2013,25,KOTA,SHIV KUMAR SONI,,404,0.29,16,forfeit,U,64,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2380,chhattisgarh,2013,25,KOTA,BALDEV PRASAD BAGHEL,,331,0.24,17,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2380,chhattisgarh,2013,25,KOTA,HAJI FAKHARUDDIN AHMAD KHAN,,330,0.24,18,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2380,chhattisgarh,2013,25,KOTA,SHYAM KARTIK SURYAVANSHI,,293,0.21,19,forfeit,U,36,8th Pass,Carpenter,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2380,chhattisgarh,2013,25,KOTA,AAJU RAM JAGAT,,269,0.19,20,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2381,chhattisgarh,2013,26,LORMI,TOKHAN SAHU,,52302,39.75,1,won,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2381,chhattisgarh,2013,26,LORMI,DHARMJEET SINGH,,46061,35.01,2,lost,U,60,Graduate,"Agricultural Business, Rent",incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2381,chhattisgarh,2013,26,LORMI,GURU SOMESH GURU BALDAS GURU GOSAI,,16639,12.65,3,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2381,chhattisgarh,2013,26,LORMI,SANAT KUMAR SAHU,,3586,2.73,4,forfeit,U,29,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2381,chhattisgarh,2013,26,LORMI,SANTOSH JAISWAL,,2371,1.8,5,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2381,chhattisgarh,2013,26,LORMI,SWARATHSINGH DHURVE,,1851,1.41,6,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2381,chhattisgarh,2013,26,LORMI,SANTRAM MASRAM,,1455,1.11,8,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2381,chhattisgarh,2013,26,LORMI,PADARATH LAL SAHU,,1059,0.8,9,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2381,chhattisgarh,2013,26,LORMI,RAMKUMAR DHRITLAHRE,,1016,0.77,10,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2381,chhattisgarh,2013,26,LORMI,PRASHANT KUMAR SHARMA,,633,0.48,11,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2381,chhattisgarh,2013,26,LORMI,NANKU BHIKHARI,,617,0.47,12,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2381,chhattisgarh,2013,26,LORMI,ASHOK PATEL,,558,0.42,13,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2381,chhattisgarh,2013,26,LORMI,BALDAU PRASAD SAHU,,445,0.34,14,forfeit,U,38,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2381,chhattisgarh,2013,26,LORMI,GHANSHYAM DHRUV,,412,0.31,15,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2381,chhattisgarh,2013,26,LORMI,AGAR KUMAR SAHU,,403,0.31,16,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2381,chhattisgarh,2013,26,LORMI,NARAD PRASAD DADSENA,,399,0.3,17,forfeit,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2381,chhattisgarh,2013,26,LORMI,LALARAM DIWAKAR,,290,0.22,18,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2383,chhattisgarh,2013,27,MUNGELI,PUNNULAL MOHLE,,61026,41.58,1,won,U,58,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2383,chhattisgarh,2013,27,MUNGELI,CHANDRABHAN BARMATE,,58281,39.71,2,lost,U,58,10th Pass,Transport,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2383,chhattisgarh,2013,27,MUNGELI,RAMKUMAR GANDHARVA,,9330,6.36,3,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2383,chhattisgarh,2013,27,MUNGELI,RAJENDRA BHASKAR,,4321,2.94,5,forfeit,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2383,chhattisgarh,2013,27,MUNGELI,RAM KUMAR BANJARA,,2304,1.57,6,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2383,chhattisgarh,2013,27,MUNGELI,SUNIL TANDAN,,1531,1.04,7,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2383,chhattisgarh,2013,27,MUNGELI,MANDAS DIDORE,,1118,0.76,8,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2383,chhattisgarh,2013,27,MUNGELI,KHEM SINGH BARMATE,,808,0.55,9,forfeit,U,62,10th Pass,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2383,chhattisgarh,2013,27,MUNGELI,ASHOK KUMAR SONWANI,,723,0.49,10,forfeit,U,40,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2383,chhattisgarh,2013,27,MUNGELI,DR. SUPREM DAHARIYA,,722,0.49,11,forfeit,U,25,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2383,chhattisgarh,2013,27,MUNGELI,PUNNI BAI BANJARE,,574,0.39,12,forfeit,U,38,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2383,chhattisgarh,2013,27,MUNGELI,SAROJANI LAHRE,,573,0.39,13,forfeit,U,45,8th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2383,chhattisgarh,2013,27,MUNGELI,TUK LAL GARG,,415,0.28,14,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2384,chhattisgarh,2013,28,TAKHATPUR,RAJU SINGH KSHATRI,,44735,31.4,1,won,U,45,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2384,chhattisgarh,2013,28,TAKHATPUR,ASHISH SINGH THAKUR,,44127,30.98,2,lost,U,49,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2384,chhattisgarh,2013,28,TAKHATPUR,SANTOSH KAUSHIK (GURUJI),,29097,20.43,3,lost,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2384,chhattisgarh,2013,28,TAKHATPUR,JAGJIT SINGH MAKKAD,,9714,6.82,4,forfeit,U,66,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2384,chhattisgarh,2013,28,TAKHATPUR,SHUSHANT KUMAR PATRE,,2785,1.96,5,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2384,chhattisgarh,2013,28,TAKHATPUR,SHIVA MALI,,2110,1.48,6,forfeit,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2384,chhattisgarh,2013,28,TAKHATPUR,SHARAD KUMAR KALAR,,1360,0.95,8,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2384,chhattisgarh,2013,28,TAKHATPUR,RAJA RAM SAHU,,1190,0.84,9,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2384,chhattisgarh,2013,28,TAKHATPUR,NIYANTA KURRE,,1190,0.84,10,forfeit,U,33,Graduate,Shop Keeper,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2384,chhattisgarh,2013,28,TAKHATPUR,CHANDRABHAN SINGH JAGAT,,1071,0.75,11,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2384,chhattisgarh,2013,28,TAKHATPUR,MILAN SONI,,934,0.66,12,forfeit,U,41,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2384,chhattisgarh,2013,28,TAKHATPUR,DASHRATH SURYAWANSHI,,710,0.5,13,forfeit,U,41,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2384,chhattisgarh,2013,28,TAKHATPUR,YOGESH KUMAR LONIA,,672,0.47,14,forfeit,U,41,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2384,chhattisgarh,2013,28,TAKHATPUR,KOMAL PRASAD KURREY,,544,0.38,15,forfeit,U,36,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2384,chhattisgarh,2013,28,TAKHATPUR,KRISHNA KUMAR TANDAN,,336,0.24,16,forfeit,U,27,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2384,chhattisgarh,2013,28,TAKHATPUR,BISAHU LAL KURREY,,317,0.22,17,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2379,chhattisgarh,2013,29,BILHA,SIYARAM KAUSHIK,,83598,47.19,1,won,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2379,chhattisgarh,2013,29,BILHA,DHARAM LAL KAOUSHIK,,72630,41,2,lost,U,55,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2379,chhattisgarh,2013,29,BILHA,DILIP KUMAR KOSHLE,,6843,3.86,3,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2379,chhattisgarh,2013,29,BILHA,PARAS RAM KASHYAP,,2984,1.68,4,forfeit,U,27,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2379,chhattisgarh,2013,29,BILHA,JAGDISH KAUSHIK,,2567,1.45,5,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2379,chhattisgarh,2013,29,BILHA,TIRITH RAM DHIDHI,,1486,0.84,7,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2379,chhattisgarh,2013,29,BILHA,KRISHNA KUMAR RAJPUT,,1116,0.63,8,forfeit,U,49,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2379,chhattisgarh,2013,29,BILHA,DEEPAK RAJPUT,,1019,0.58,9,forfeit,U,29,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2379,chhattisgarh,2013,29,BILHA,ASHWANI RAJAK,,558,0.32,10,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2379,chhattisgarh,2013,29,BILHA,TIRITH RAM NISHAD,,419,0.24,11,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2379,chhattisgarh,2013,29,BILHA,RAMESH KUMAR LAHRE,,397,0.22,12,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2379,chhattisgarh,2013,29,BILHA,DHANI RAM YADAV,,384,0.22,13,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2379,chhattisgarh,2013,29,BILHA,HULESHWAR NIRMALKAR,,362,0.2,14,forfeit,U,34,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2379,chhattisgarh,2013,29,BILHA,CHAMRA RAM KAUSHIK,,306,0.17,15,forfeit,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2379,chhattisgarh,2013,29,BILHA,TULARAM SAPRE,,219,0.12,16,forfeit,U,48,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2378,chhattisgarh,2013,30,BILASPUR,AMAR AGRAWAL,,72255,53.22,1,won,U,51,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2378,chhattisgarh,2013,30,BILASPUR,VANI RAO,,56656,41.73,2,lost,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2378,chhattisgarh,2013,30,BILASPUR,(VAKIL) VIDYA PRAKASH JANGDE,,849,0.63,4,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2378,chhattisgarh,2013,30,BILASPUR,SITARAM SINGH,,671,0.49,5,forfeit,U,62,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2378,chhattisgarh,2013,30,BILASPUR,ANIL KUMAR GAIKWAD,,288,0.21,6,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2378,chhattisgarh,2013,30,BILASPUR,MOHAN MISHRA,,272,0.2,7,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2378,chhattisgarh,2013,30,BILASPUR,MAHESH KUMAR TIWARI (MAHRAJ),,199,0.15,8,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2378,chhattisgarh,2013,30,BILASPUR,ENGINEER INDRASEN MOGRE,,186,0.14,9,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2378,chhattisgarh,2013,30,BILASPUR,MOHAMMAD YUSUF,,136,0.1,10,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2378,chhattisgarh,2013,30,BILASPUR,VINEET SINGH,,116,0.09,11,forfeit,U,34,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2378,chhattisgarh,2013,30,BILASPUR,BRIJNANDAN LOKHANDE,,113,0.08,12,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2378,chhattisgarh,2013,30,BILASPUR,ANAND KUMAR TANDAN,,110,0.08,13,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2378,chhattisgarh,2013,30,BILASPUR,MO. NAZARUL HAQ,,105,0.08,14,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2378,chhattisgarh,2013,30,BILASPUR,SALIM KHAN,,96,0.07,15,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2378,chhattisgarh,2013,30,BILASPUR,ENG. RAMPHAL MANDRE,,53,0.04,16,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2377,chhattisgarh,2013,31,BELTARA,BADRIDHAR DIWAN,,50890,40.37,1,won,U,84,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2377,chhattisgarh,2013,31,BELTARA,BHUWANESHWAR YADAV,,45162,35.82,2,lost,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2377,chhattisgarh,2013,31,BELTARA,DEV KUMAR KANERI,,11194,8.88,3,forfeit,U,41,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2377,chhattisgarh,2013,31,BELTARA,TRILOK CHAND SHRIVAS,,8359,6.63,4,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2377,chhattisgarh,2013,31,BELTARA,REWASHANKAR SAHU,,1622,1.29,5,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2377,chhattisgarh,2013,31,BELTARA,MANI DAS MANIKPURI,,1423,1.13,7,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2377,chhattisgarh,2013,31,BELTARA,BHAWAR SINGH,,1101,0.87,8,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2377,chhattisgarh,2013,31,BELTARA,"SANTOSH KUMAR SAHU (DOCTOR, GURUJI)",,799,0.63,9,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2377,chhattisgarh,2013,31,BELTARA,DUJRAM THOSARIYA,,708,0.56,10,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2377,chhattisgarh,2013,31,BELTARA,SANTOSH SINGH THAKUR,,663,0.53,11,forfeit,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2377,chhattisgarh,2013,31,BELTARA,SANJAY SINGH CHAUHAN,,650,0.52,12,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2377,chhattisgarh,2013,31,BELTARA,KRANTI KUMAR MATHUR,,360,0.29,13,forfeit,U,53,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2377,chhattisgarh,2013,31,BELTARA,GAUKARAN RATRE,,358,0.28,14,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2377,chhattisgarh,2013,31,BELTARA,LILLU SINGH THAKUR,,335,0.27,15,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2377,chhattisgarh,2013,31,BELTARA,ASHOK SHANDE,,293,0.23,16,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2377,chhattisgarh,2013,31,BELTARA,BARANLAL KARIYARE,,280,0.22,17,forfeit,U,35,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2377,chhattisgarh,2013,31,BELTARA,ASHOK KUMAR DHIVAR,,265,0.21,18,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2382,chhattisgarh,2013,32,MASTURI,DILIP LAHARIYA,,86509,48.24,1,won,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2382,chhattisgarh,2013,32,MASTURI,DR. KRISHANMURTI BANDHI,,62363,34.78,2,lost,U,51,Graduate Professional,Doctor,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2382,chhattisgarh,2013,32,MASTURI,ENG.T. R .JOSHI,,11099,6.19,3,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2382,chhattisgarh,2013,32,MASTURI,ISHWAR SINGH SURYAWANSHI,,3565,1.99,4,forfeit,U,67,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2382,chhattisgarh,2013,32,MASTURI,RAJESHWAR BHARGAVA,,2847,1.59,6,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2382,chhattisgarh,2013,32,MASTURI,ANIL KUMAR CHOUHAN,,2698,1.5,7,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2382,chhattisgarh,2013,32,MASTURI,BHUSHAN PRASAD BANJARE,,1619,0.9,8,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2382,chhattisgarh,2013,32,MASTURI,BARAN LAL KARIYARE,,1599,0.89,9,forfeit,U,35,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2382,chhattisgarh,2013,32,MASTURI,RAMAYAN LAL KURREY,,956,0.53,10,forfeit,U,34,8th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2382,chhattisgarh,2013,32,MASTURI,KEDARNATH GHRITLAHRE,,848,0.47,11,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2382,chhattisgarh,2013,32,MASTURI,ENG.RAMFAL MANDREY,,619,0.35,12,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2382,chhattisgarh,2013,32,MASTURI,RASHMI KURREY,,582,0.32,13,forfeit,U,35,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2382,chhattisgarh,2013,32,MASTURI,KALAM PRASAD SONI,,502,0.28,14,forfeit,U,51,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2394,chhattisgarh,2013,33,AKALTARA,CHUNNILAL SAHU,,69355,49.4,1,won,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2394,chhattisgarh,2013,33,AKALTARA,DINESH SINGH,,47662,33.95,2,lost,U,45,12th Pass,"Trader, Petrol Pumps",challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2394,chhattisgarh,2013,33,AKALTARA,SANTAN LAL RATRE,,15720,11.2,3,forfeit,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2394,chhattisgarh,2013,33,AKALTARA,GAURI BAI NAYAK,,1552,1.11,5,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2394,chhattisgarh,2013,33,AKALTARA,RAJKUMARI DHRUW,,977,0.7,6,forfeit,U,40,Post Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2394,chhattisgarh,2013,33,AKALTARA,DILESH KUMAR KHANDE,,622,0.44,7,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2394,chhattisgarh,2013,33,AKALTARA,MANHARAN LAL KURREY,,523,0.37,8,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2394,chhattisgarh,2013,33,AKALTARA,RAMESH KUMAR BANJARE,,473,0.34,9,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2398,chhattisgarh,2013,34,JANJGIR-CHAMPA,MOTI LAL DEVANGAN,,54291,40.68,1,won,U,58,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2398,chhattisgarh,2013,34,JANJGIR-CHAMPA,NARAYAN PRASAD CHANDEL,,44080,33.03,2,lost,U,48,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2398,chhattisgarh,2013,34,JANJGIR-CHAMPA,AMAR SINGH RATHORE,,27487,20.59,3,lost,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2398,chhattisgarh,2013,34,JANJGIR-CHAMPA,SHIV NARAYAN KARSH ADVOCATE,,1255,0.94,5,forfeit,U,40,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2398,chhattisgarh,2013,34,JANJGIR-CHAMPA,PUNYATMA KASHYAP,,1144,0.86,6,forfeit,U,28,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2398,chhattisgarh,2013,34,JANJGIR-CHAMPA,UDAL KIRAN,,1052,0.79,7,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2398,chhattisgarh,2013,34,JANJGIR-CHAMPA,MAYARAM NAT,,748,0.56,8,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2398,chhattisgarh,2013,34,JANJGIR-CHAMPA,YOGESH SHARMA,,589,0.44,9,forfeit,U,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2401,chhattisgarh,2013,35,SAKTI,DOCTOR KHILAWAN SAHU,,51577,37.92,1,won,U,39,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2401,chhattisgarh,2013,35,SAKTI,SAROJA MANHARAN RATHORE,,42544,31.28,2,lost,U,48,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2401,chhattisgarh,2013,35,SAKTI,SAHASRAM KARSH,,14131,10.39,3,forfeit,U,45,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2401,chhattisgarh,2013,35,SAKTI,RAJA SURENDRA BAHADUR SINGH,,12908,9.49,4,forfeit,U,72,Others,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2401,chhattisgarh,2013,35,SAKTI,KRISHNA KUMAR GABEL,,5387,3.96,5,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2401,chhattisgarh,2013,35,SAKTI,DEEPAK DUBEY,,1239,0.91,7,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2401,chhattisgarh,2013,35,SAKTI,PRAKASH KUMAR URANW,,1081,0.79,8,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2401,chhattisgarh,2013,35,SAKTI,JAGESHWAR SINGH RAJ,,936,0.69,9,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2401,chhattisgarh,2013,35,SAKTI,NARSINGH SAHU,,923,0.68,10,forfeit,U,25,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2401,chhattisgarh,2013,35,SAKTI,RAMPRASAD SAHU,,796,0.59,11,forfeit,U,40,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2401,chhattisgarh,2013,35,SAKTI,SAHDEO DIWAKAR,,533,0.39,12,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2401,chhattisgarh,2013,35,SAKTI,LAHRU YADAV,,495,0.36,13,forfeit,U,48,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2401,chhattisgarh,2013,35,SAKTI,CHAMARU RAM YADAW,,479,0.35,14,forfeit,U,72,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2401,chhattisgarh,2013,35,SAKTI,SATKUMAR CHANDRA,,374,0.27,15,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2396,chhattisgarh,2013,36,CHANDRAPUR,YUDHVIR SINGH JUDEV,,51295,33.78,1,won,U,31,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2396,chhattisgarh,2013,36,CHANDRAPUR,RAM KUMAR YADAV,,45078,29.69,2,lost,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2396,chhattisgarh,2013,36,CHANDRAPUR,NOVEL KUMAR VERMA (GAVEL),,42593,28.05,3,lost,U,53,Post Graduate,Ex MLA,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2396,chhattisgarh,2013,36,CHANDRAPUR,RAM KUMAR YADAW SON OF MAHETTAR YADAW,,2366,1.56,4,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2396,chhattisgarh,2013,36,CHANDRAPUR,RAM KUMAR YADAW SON OF JETHHURAM YADAW,,1635,1.08,5,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2396,chhattisgarh,2013,36,CHANDRAPUR,KUNJESHWAR KUMAR RATHORE,,1521,1,6,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2396,chhattisgarh,2013,36,CHANDRAPUR,SHAYAMA BAI GAVAL,,1246,0.82,8,forfeit,U,26,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2396,chhattisgarh,2013,36,CHANDRAPUR,PURANDHAR SAURA,,929,0.61,9,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2396,chhattisgarh,2013,36,CHANDRAPUR,KANHAIYALAL TADON,,897,0.59,10,forfeit,U,29,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2396,chhattisgarh,2013,36,CHANDRAPUR,SHYAM KUMAR SAHU,,711,0.47,11,forfeit,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2396,chhattisgarh,2013,36,CHANDRAPUR,MADHU PRASAD MADHUKAR TRECTORMAKAINIK,,401,0.26,12,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2396,chhattisgarh,2013,36,CHANDRAPUR,C. R. KHANDE,,385,0.25,13,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2396,chhattisgarh,2013,36,CHANDRAPUR,SHANKAR LAL KENWAT,,344,0.23,14,forfeit,U,25,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2396,chhattisgarh,2013,36,CHANDRAPUR,PRAHLAD YADAV,,312,0.21,15,forfeit,U,69,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2396,chhattisgarh,2013,36,CHANDRAPUR,GHURVA RAM MIRENDRA,,311,0.2,16,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2396,chhattisgarh,2013,36,CHANDRAPUR,DUJRAM DHIRHE,,305,0.2,17,forfeit,U,47,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2397,chhattisgarh,2013,37,JAIJAIPUR,KESHAV CHANDRA,,47188,32.75,1,won,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2397,chhattisgarh,2013,37,JAIJAIPUR,DR. KAILASH SAHU,,44609,30.96,2,lost,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2397,chhattisgarh,2013,37,JAIJAIPUR,DR. MAHANT RAMSUNDARDAS,,38070,26.42,3,lost,U,47,Doctorate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2397,chhattisgarh,2013,37,JAIJAIPUR,MUKESH VOHRA,,2631,1.83,4,forfeit,U,45,10th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2397,chhattisgarh,2013,37,JAIJAIPUR,VIKRAMADITYA SINGH JUDEV,,2376,1.65,6,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2397,chhattisgarh,2013,37,JAIJAIPUR,BHAIYALAL JAISWAL,,1639,1.14,7,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2397,chhattisgarh,2013,37,JAIJAIPUR,LAKHAN KUMAR KHUNTE,,1379,0.96,8,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2397,chhattisgarh,2013,37,JAIJAIPUR,MANHARAN SINGH SIDAR,,1214,0.84,9,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2397,chhattisgarh,2013,37,JAIJAIPUR,RESHAMLAL BHARDWAJ,,620,0.43,10,forfeit,U,70,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2397,chhattisgarh,2013,37,JAIJAIPUR,PREM SHANKAR MAHILANGE,,472,0.33,11,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2397,chhattisgarh,2013,37,JAIJAIPUR,KHEMIN BAI,,469,0.33,12,forfeit,U,52,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2397,chhattisgarh,2013,37,JAIJAIPUR,RAKESH KUMAR BHAVE,,457,0.32,13,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2397,chhattisgarh,2013,37,JAIJAIPUR,DHANESHWAR PRASAD SAHU,,351,0.24,14,forfeit,U,50,Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2397,chhattisgarh,2013,37,JAIJAIPUR,DEV KUMAR JAISWAL,,235,0.16,15,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2400,chhattisgarh,2013,38,PAMGARH,AMBESH JANGRE,,45342,35.72,1,won,U,42,Graduate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2400,chhattisgarh,2013,38,PAMGARH,DUJRAM BOUDDH,,37217,29.32,2,lost,U,42,12th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2400,chhattisgarh,2013,38,PAMGARH,SHESHRAJ HARBANSH,,35457,27.93,3,lost,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2400,chhattisgarh,2013,38,PAMGARH,BASANT KHARE,,1530,1.21,5,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2400,chhattisgarh,2013,38,PAMGARH,RESHAMLAL KURRE,,1134,0.89,6,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2400,chhattisgarh,2013,38,PAMGARH,VIBHISHAN PATREY,,1115,0.88,7,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2400,chhattisgarh,2013,38,PAMGARH,CHHATRADHARI MAHILANGE,,902,0.71,8,forfeit,U,55,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2400,chhattisgarh,2013,38,PAMGARH,KALYAN SINGH DAHARIYA,,767,0.6,9,forfeit,U,42,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2400,chhattisgarh,2013,38,PAMGARH,BABULAL,,571,0.45,10,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2425,chhattisgarh,2013,39,SARAIPALI,RAMLAL CHOUHAN,,82064,55.18,1,won,U,61,Post Graduate,Ex Police,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2425,chhattisgarh,2013,39,SARAIPALI,DR. HARIDAS BHARDWAJ,,53232,35.79,2,lost,U,60,Others,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2425,chhattisgarh,2013,39,SARAIPALI,SAFED LAL DAS,,3243,2.18,4,forfeit,U,46,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2425,chhattisgarh,2013,39,SARAIPALI,KAMLA DAS,,2528,1.7,5,forfeit,U,30,12th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2425,chhattisgarh,2013,39,SARAIPALI,ROHIDAS CHOUHAN,,2246,1.51,6,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2418,chhattisgarh,2013,40,BASNA,RUPKUMARI CHOUDHARY,,77137,48.44,1,won,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2418,chhattisgarh,2013,40,BASNA,DEVENDRA BAHADUR SINGH,,70898,44.52,2,lost,U,52,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2418,chhattisgarh,2013,40,BASNA,SAMARU LAL SAHU ADVOCATE,,2047,1.29,4,forfeit,U,55,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2418,chhattisgarh,2013,40,BASNA,RAJENDRA AGRAWAL,,1966,1.23,5,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2418,chhattisgarh,2013,40,BASNA,MRITUNJAY PATEL,,1251,0.79,6,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2418,chhattisgarh,2013,40,BASNA,DEVNARAYAN DHRUW (D.N.),,684,0.43,7,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2418,chhattisgarh,2013,40,BASNA,AWADH RAM BANJARA (NAYAK),,625,0.39,8,forfeit,U,36,8th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2421,chhattisgarh,2013,41,KHALLARI,CHUNNI LAL SAHU,,58652,38.1,1,won,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2421,chhattisgarh,2013,41,KHALLARI,PARESH BAGBAHRA,,52653,34.2,2,lost,U,60,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2421,chhattisgarh,2013,41,KHALLARI,PHOOL SINGH DHRUW (DHRUW SAHAB),,12275,7.97,3,forfeit,U,56,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2421,chhattisgarh,2013,41,KHALLARI,SATISH JAGGI,,9549,6.2,4,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2421,chhattisgarh,2013,41,KHALLARI,MANGTU RAM DHRUW,,3357,2.18,6,forfeit,U,57,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2421,chhattisgarh,2013,41,KHALLARI,CHUNNI LAL,,2517,1.63,7,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2421,chhattisgarh,2013,41,KHALLARI,PHULSING DHRUW,,1844,1.2,8,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2421,chhattisgarh,2013,41,KHALLARI,JITENDRA CHANDRAKAR,,1594,1.04,9,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2421,chhattisgarh,2013,41,KHALLARI,SATISH JAG,,1547,1,10,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2421,chhattisgarh,2013,41,KHALLARI,CHAMPA LAL PATEL,,1468,0.95,11,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2421,chhattisgarh,2013,41,KHALLARI,DEEPTI SHAH MANDAVI,,1225,0.8,12,forfeit,U,40,Post Graduate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2421,chhattisgarh,2013,41,KHALLARI,NILKANTH DIWAN,,829,0.54,13,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2421,chhattisgarh,2013,41,KHALLARI,DEVSHARAN NAG,,515,0.33,14,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2423,chhattisgarh,2013,42,MAHASAMUND,DR. VIMAL CHOPRA,,47416,33.73,1,won,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2423,chhattisgarh,2013,42,MAHASAMUND,AGNI CHANDRAKAR,,42694,30.37,2,lost,U,59,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2423,chhattisgarh,2013,42,MAHASAMUND,POONAM CHANDRAKAR,,39609,28.17,3,lost,U,49,Graduate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2423,chhattisgarh,2013,42,MAHASAMUND,SANT KUMAR PRADHAN,,2301,1.64,5,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2423,chhattisgarh,2013,42,MAHASAMUND,HUMAN BANJARE,,1992,1.42,6,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2423,chhattisgarh,2013,42,MAHASAMUND,DEJI RANI NETAM,,1158,0.82,7,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2423,chhattisgarh,2013,42,MAHASAMUND,BAUVA NISHAD,,709,0.5,8,forfeit,U,38,Illiterate,Shop Keeper,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2423,chhattisgarh,2013,42,MAHASAMUND,MAHENDRA SAHU MUSKAN SALE,,394,0.28,9,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2423,chhattisgarh,2013,42,MAHASAMUND,ARUN HARPAL,,393,0.28,10,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2395,chhattisgarh,2013,43,BILAIGARH,DR. SANAM JANGRE,,71364,39.26,1,won,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2395,chhattisgarh,2013,43,BILAIGARH,DR. SHIV KUMAR DAHARIYA,,58669,32.28,2,lost,U,49,Graduate Professional,Medical Professional,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2395,chhattisgarh,2013,43,BILAIGARH,SHYAM TANDAN,,36765,20.23,3,lost,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2395,chhattisgarh,2013,43,BILAIGARH,SHIV CHARAN CHELAK,,2310,1.27,5,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2395,chhattisgarh,2013,43,BILAIGARH,ISHWAR KHATKAR,,1820,1,6,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2395,chhattisgarh,2013,43,BILAIGARH,RAMESHWAR KHATKAR,,1504,0.83,7,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2395,chhattisgarh,2013,43,BILAIGARH,KAILASHCHANDRA DEVDAS(GADA),,1421,0.78,8,forfeit,U,42,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2395,chhattisgarh,2013,43,BILAIGARH,NOHAR SINGH SONWANI,,1107,0.61,9,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2395,chhattisgarh,2013,43,BILAIGARH,M. BHAGWAT,,1100,0.61,10,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2395,chhattisgarh,2013,43,BILAIGARH,MANOJ KUMAR GHRITLAHARE,,828,0.46,11,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2399,chhattisgarh,2013,44,KASDOL,GAURI SHANKAR AGRAWAL,,93629,42.14,1,won,U,61,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2399,chhattisgarh,2013,44,KASDOL,RAJKAMAL SINGHANIYA,,70701,31.82,2,lost,U,63,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2399,chhattisgarh,2013,44,KASDOL,RAJ KUMAR PATRE VAKIL,,33828,15.22,3,forfeit,U,46,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2399,chhattisgarh,2013,44,KASDOL,LOKHRAM VIJAN,,8157,3.67,4,forfeit,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2399,chhattisgarh,2013,44,KASDOL,RUPESH KUMAR,,3983,1.79,5,forfeit,U,25,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2399,chhattisgarh,2013,44,KASDOL,SARASRAM GIRI,,2256,1.02,6,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2399,chhattisgarh,2013,44,KASDOL,RAJU SAHU,,1600,0.72,8,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2399,chhattisgarh,2013,44,KASDOL,NAMMU NARAYAN PATEL,,1186,0.53,9,forfeit,U,67,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2399,chhattisgarh,2013,44,KASDOL,BRIJ LAL SAHU,,885,0.4,10,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2399,chhattisgarh,2013,44,KASDOL,AJAY KUMAR BAGHMAR,,728,0.33,11,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2399,chhattisgarh,2013,44,KASDOL,GHANSHYAM SAHU,,580,0.26,12,forfeit,U,31,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2399,chhattisgarh,2013,44,KASDOL,CHAITAN KUMAR SAHU,,560,0.25,13,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2399,chhattisgarh,2013,44,KASDOL,CHANDRASHEKHAR MISHRA,,513,0.23,14,forfeit,U,54,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2399,chhattisgarh,2013,44,KASDOL,RAMESH KUMAR GHRITLAHARE,,410,0.18,15,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2399,chhattisgarh,2013,44,KASDOL,YUVRAJ YADAV,,374,0.17,16,forfeit,U,33,Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2399,chhattisgarh,2013,44,KASDOL,GAURISHANKAR,,366,0.16,17,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2399,chhattisgarh,2013,44,KASDOL,KAMAL VIBHAR,,324,0.15,18,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2436,chhattisgarh,2013,45,BALODA BAZAR,JANAK RAM VERMA,,76549,43.4,1,won,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2436,chhattisgarh,2013,45,BALODA BAZAR,LAXMI BAGHEL,,66572,37.75,2,lost,U,45,10th Pass,Household,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2436,chhattisgarh,2013,45,BALODA BAZAR,ASHOK KUMAR JAIN,,18659,10.58,3,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2436,chhattisgarh,2013,45,BALODA BAZAR,MANOJ KUMAR BANJARE,,2807,1.59,5,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2436,chhattisgarh,2013,45,BALODA BAZAR,GANGA RAM SHER (SATNAMI),,1944,1.1,6,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2436,chhattisgarh,2013,45,BALODA BAZAR,GAUKARAN NISHAD,,1015,0.58,7,forfeit,U,26,Post Graduate,Accountant,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2436,chhattisgarh,2013,45,BALODA BAZAR,DR. KEJRAM JAGAT,,995,0.56,8,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2436,chhattisgarh,2013,45,BALODA BAZAR,DR MOJI RAM SAHU (RAVIKANT),,565,0.32,9,forfeit,U,33,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2436,chhattisgarh,2013,45,BALODA BAZAR,ANAND BANDE,,528,0.3,10,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2436,chhattisgarh,2013,45,BALODA BAZAR,KRISHNA KUMAR URF K K VERMA,,501,0.28,11,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2436,chhattisgarh,2013,45,BALODA BAZAR,AYODHYA DHRUW,,374,0.21,12,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2436,chhattisgarh,2013,45,BALODA BAZAR,MANNU LAL YADAW,,272,0.15,13,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2437,chhattisgarh,2013,46,BHATAPARA,SHIVRATAN SHARMA,,76137,47.45,1,won,U,52,Post Graduate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2437,chhattisgarh,2013,46,BHATAPARA,CHAITRAM SAHU,,63797,39.76,2,lost,U,65,12th Pass,Rent,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2437,chhattisgarh,2013,46,BHATAPARA,TEEJRAM DHRUW,,4275,2.66,4,forfeit,U,60,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2437,chhattisgarh,2013,46,BHATAPARA,CHANDRAKANT (BABA) YADU,,3694,2.3,5,forfeit,U,37,Others,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2437,chhattisgarh,2013,46,BHATAPARA,RESHAM LAL JOGI,,2071,1.29,6,forfeit,U,42,Literate,Shop Keeper,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2437,chhattisgarh,2013,46,BHATAPARA,KETUMAN,,1590,0.99,7,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2437,chhattisgarh,2013,46,BHATAPARA,SANTARU BANJARE,,1150,0.72,8,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2437,chhattisgarh,2013,46,BHATAPARA,GIRJALAL SATNAMI,,866,0.54,9,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2437,chhattisgarh,2013,46,BHATAPARA,MOHAN DHIKDE,,640,0.4,10,forfeit,U,47,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2437,chhattisgarh,2013,46,BHATAPARA,GOPAL DANGCHAGAHA,,361,0.22,11,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2437,chhattisgarh,2013,46,BHATAPARA,GIRDHAR BANJARE,,333,0.21,12,forfeit,U,53,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2437,chhattisgarh,2013,46,BHATAPARA,DILIP KUMAR CHELAK,,249,0.16,13,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2438,chhattisgarh,2013,47,DHARSIWA,DEVJI BHAI PATEL,,69419,47.6,1,won,U,55,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2438,chhattisgarh,2013,47,DHARSIWA,ANITA YOGENDRA SHARMA,,67029,45.96,2,lost,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2438,chhattisgarh,2013,47,DHARSIWA,NARAD NISHAD,,1892,1.3,4,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2438,chhattisgarh,2013,47,DHARSIWA,RAHOOL TAANK,,1717,1.18,5,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2438,chhattisgarh,2013,47,DHARSIWA,GAJADHAR PRASAD VERMA,,920,0.63,6,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2438,chhattisgarh,2013,47,DHARSIWA,TEJRAM VERMA,,478,0.33,7,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2438,chhattisgarh,2013,47,DHARSIWA,BISHAHAT KURRE,,348,0.24,8,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2438,chhattisgarh,2013,47,DHARSIWA,PURSHOTTAM MISHRA,,292,0.2,9,forfeit,U,58,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2442,chhattisgarh,2013,48,RAIPUR CITY GRAMIN,SATYANARAYAN SHARMA,,70774,47.45,1,won,U,70,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2442,chhattisgarh,2013,48,RAIPUR CITY GRAMIN,NANDE SAHU,,68913,46.2,2,lost,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2442,chhattisgarh,2013,48,RAIPUR CITY GRAMIN,MAHESH DEWANGAN,,1205,0.81,4,forfeit,U,47,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2442,chhattisgarh,2013,48,RAIPUR CITY GRAMIN,VINOD KUMAR BAGHEL,,1203,0.81,5,forfeit,U,32,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2442,chhattisgarh,2013,48,RAIPUR CITY GRAMIN,BHARAT BHAI KHAKHARIYA,,1010,0.68,6,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2442,chhattisgarh,2013,48,RAIPUR CITY GRAMIN,RAVISHANKAR DAHRIYA,,805,0.54,7,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2442,chhattisgarh,2013,48,RAIPUR CITY GRAMIN,GAUTAM BUDDH AGRAWAL,,681,0.46,8,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2442,chhattisgarh,2013,48,RAIPUR CITY GRAMIN,MO. FARHAT BHAI,,301,0.2,9,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2442,chhattisgarh,2013,48,RAIPUR CITY GRAMIN,GEETESHWAR CHANDRAKAR,,244,0.16,10,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2442,chhattisgarh,2013,48,RAIPUR CITY GRAMIN,RAJESH MUKHARJI,,173,0.12,11,forfeit,U,38,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2442,chhattisgarh,2013,48,RAIPUR CITY GRAMIN,RAMDEV SAHU,,171,0.11,12,forfeit,U,34,Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2442,chhattisgarh,2013,48,RAIPUR CITY GRAMIN,RAJENDRA SAHU,,159,0.11,13,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2441,chhattisgarh,2013,49,RAIPUR CITY WEST,RAJESH MUNAT,,64611,48.01,1,won,U,50,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2441,chhattisgarh,2013,49,RAIPUR CITY WEST,VIKAS UPADHYAY,,58451,43.43,2,lost,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2441,chhattisgarh,2013,49,RAIPUR CITY WEST,MEGHRAJ SAHU,,2914,2.17,3,forfeit,U,47,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2441,chhattisgarh,2013,49,RAIPUR CITY WEST,ANIL MISHRA,,1467,1.09,5,forfeit,U,44,Post Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2441,chhattisgarh,2013,49,RAIPUR CITY WEST,LIKESH SINGH,,1019,0.76,6,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2441,chhattisgarh,2013,49,RAIPUR CITY WEST,VIVEK VARETWAR,,980,0.73,7,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2441,chhattisgarh,2013,49,RAIPUR CITY WEST,COLONEL BALWANT SINGH,,512,0.38,8,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2441,chhattisgarh,2013,49,RAIPUR CITY WEST,AHFAZ RASHID,,442,0.33,9,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2441,chhattisgarh,2013,49,RAIPUR CITY WEST,NAVEEN GUPTA,,435,0.32,10,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2441,chhattisgarh,2013,49,RAIPUR CITY WEST,SHEIKH ISMAIL ALIAS VAKEEL MAMU,,352,0.26,11,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2441,chhattisgarh,2013,49,RAIPUR CITY WEST,PURUSHOTTAM PANDEY,,317,0.24,12,forfeit,U,38,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2441,chhattisgarh,2013,49,RAIPUR CITY WEST,DHARMENDRA SINGH SISODIYA,,243,0.18,13,forfeit,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2441,chhattisgarh,2013,49,RAIPUR CITY WEST,RAM CHARAN YADAV,,196,0.15,14,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2441,chhattisgarh,2013,49,RAIPUR CITY WEST,DINESH THAKUR,,163,0.12,15,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2441,chhattisgarh,2013,49,RAIPUR CITY WEST,ISHWARI PRASAD NAMDEV,,129,0.1,16,forfeit,U,46,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2439,chhattisgarh,2013,50,RAIPUR CITY NORTH,SHRICHAND SUNDRANI,,52164,48.83,1,won,U,55,8th Pass,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2439,chhattisgarh,2013,50,RAIPUR CITY NORTH,KULDEEP SINGH JUNEJA,,48688,45.58,2,lost,U,55,10th Pass,Rent,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2439,chhattisgarh,2013,50,RAIPUR CITY NORTH,SUNAND BISWAS ( TITU ),,735,0.69,4,forfeit,U,45,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2439,chhattisgarh,2013,50,RAIPUR CITY NORTH,HAFIJ MOHAMMAD ASHRAF,,447,0.42,5,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2439,chhattisgarh,2013,50,RAIPUR CITY NORTH,HAIDER RAZA (CONTRACTOR),,415,0.39,6,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2439,chhattisgarh,2013,50,RAIPUR CITY NORTH,MOHAMMAD ISRAR,,349,0.33,7,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2439,chhattisgarh,2013,50,RAIPUR CITY NORTH,MO. SAJAN,,326,0.31,8,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2439,chhattisgarh,2013,50,RAIPUR CITY NORTH,BENU GENADRE,,300,0.28,9,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2439,chhattisgarh,2013,50,RAIPUR CITY NORTH,SANJEEV SEN,,241,0.23,10,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2439,chhattisgarh,2013,50,RAIPUR CITY NORTH,MO. SALIM KHAN,,180,0.17,11,forfeit,U,28,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2439,chhattisgarh,2013,50,RAIPUR CITY NORTH,SANJAY NAG,,168,0.16,12,forfeit,U,31,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2439,chhattisgarh,2013,50,RAIPUR CITY NORTH,PRADEEP ARORA,,157,0.15,13,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2439,chhattisgarh,2013,50,RAIPUR CITY NORTH,MASAHID KHAN,,154,0.14,14,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2439,chhattisgarh,2013,50,RAIPUR CITY NORTH,SMT. NILOFAR ALI,,79,0.07,15,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,BRIJMOHAN AGRAWAL,,81429,59.25,1,won,U,54,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,DR. KIRANMAYEE NAYAK,,46630,33.93,2,lost,U,47,Doctorate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,KAMALA AKHATAR,,1036,0.75,4,forfeit,U,48,Illiterate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,ABDUL NAYEEM KHAN,,929,0.68,5,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,SHAMSHER ALI,,737,0.54,6,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,VIMLA BHARTI,,614,0.45,7,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,RAYEES FAZIL,,597,0.43,8,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,SURAJ YADAV,,289,0.21,9,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,SMT. NAZAT ALI (RUBI),,269,0.2,10,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,MD. SAGIRUDDIN OVESHI,,264,0.19,11,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,MD. NIYAJ BHAI,,247,0.18,12,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,ABDUL KYUM KHAN,,206,0.15,13,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,KUNAL SHUKLA,,185,0.13,14,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,WASHIM AAFRIDI,,179,0.13,15,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,HARSH GAJBHIYE (SONU),,129,0.09,16,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,LIKESH KUMAR SINGH,,118,0.09,17,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,AJMAT BHAI,,105,0.08,18,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,ANWARUL HUQ ALIAS (ANWAR BHAI),,91,0.07,19,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,HABIB BHAI,,86,0.06,20,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,MD. AFJAL,,85,0.06,21,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,RAMESH MALI (KAKA),,84,0.06,22,forfeit,U,54,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,MAJHAR IQBAL,,73,0.05,23,forfeit,U,42,12th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,PRAVEEN JAIN,,71,0.05,24,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,AAM ADMI MANISH SHRIVASTAV,,71,0.05,25,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,SHRI SUNIL YADAV,,71,0.05,26,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,PARAS SONI,,66,0.05,27,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,MOULANA KALAM,,65,0.05,28,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,ILIYAS HUSSAIN (IMRAN),,64,0.05,29,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,MADHUSUDAN BAGH,,63,0.05,30,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,SANJAY DUBEY,,62,0.05,31,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,MAHEBOOB KHAN,,59,0.04,32,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,FIROZ KHAN,,57,0.04,33,forfeit,U,36,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,MOHAMMAD WASHIM RIZVI,,57,0.04,34,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,MOHAMMAD SHAHID KHAN,,53,0.04,35,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,FARHA NAAJ,,50,0.04,36,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,TAJDAR KHAN (GOLU),,49,0.04,37,forfeit,U,32,8th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,HAJI SAIYYAD HAKIMUDIN,,40,0.03,38,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2440,chhattisgarh,2013,51,RAIPUR CITY SOUTH,SANTOSH DAHARIYA,,27,0.02,39,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2435,chhattisgarh,2013,52,ARANG,NAVEEN MARKANDEY,,59067,43.09,1,won,U,34,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2435,chhattisgarh,2013,52,ARANG,RUDRA KUMAR GURU,,45293,33.04,2,lost,U,36,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2435,chhattisgarh,2013,52,ARANG,GANGURAM BAGHEL,,13004,9.49,3,forfeit,U,65,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2435,chhattisgarh,2013,52,ARANG,PAPPU KOSRE,,6769,4.94,4,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2435,chhattisgarh,2013,52,ARANG,K.D. TANDAN,,3639,2.65,5,forfeit,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2435,chhattisgarh,2013,52,ARANG,SHRIMATI MEERA TANDAN,,1962,1.43,7,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2435,chhattisgarh,2013,52,ARANG,BRIJESH PAL TANDAN,,1366,1,8,forfeit,U,35,Graduate,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2435,chhattisgarh,2013,52,ARANG,MANOJ KUMAR BANJARE,,1061,0.77,9,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2435,chhattisgarh,2013,52,ARANG,OMPRAKASH BANDE,,762,0.56,10,forfeit,U,40,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2435,chhattisgarh,2013,52,ARANG,SHAILENDRA BANJARE (SHAKTIPUTRA),,583,0.43,11,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2434,chhattisgarh,2013,53,ABHANPUR,DHANENDRA SAHU,,67926,46.68,1,won,U,61,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2434,chhattisgarh,2013,53,ABHANPUR,CHANDRASHEKHAR SAHU,,59572,40.94,2,lost,U,57,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2434,chhattisgarh,2013,53,ABHANPUR,RADHAKRISHNA TANDON,,8134,5.59,3,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2434,chhattisgarh,2013,53,ABHANPUR,HEMANT KUMAR TANDON,,2497,1.72,5,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2434,chhattisgarh,2013,53,ABHANPUR,YAUJY SINGH SONWANI,,1186,0.82,6,forfeit,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2434,chhattisgarh,2013,53,ABHANPUR,RAKESH SAHU LATE SANTOSH SAHU,,534,0.37,7,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2434,chhattisgarh,2013,53,ABHANPUR,RAKESH SAHU BYAS NARAYAN SAHU,,500,0.34,8,forfeit,U,27,5th Pass,Carpenter,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2434,chhattisgarh,2013,53,ABHANPUR,SARJU RAM SAHU,,358,0.25,9,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2434,chhattisgarh,2013,53,ABHANPUR,CHANDRAKANT SAHU,,272,0.19,10,forfeit,U,52,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2434,chhattisgarh,2013,53,ABHANPUR,KHEMAN WANI,,250,0.17,11,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2434,chhattisgarh,2013,53,ABHANPUR,BODHAN LAL FARIKAR,,202,0.14,12,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2424,chhattisgarh,2013,54,RAJIM,SANTOSH UPADHYAY,,69625,44.96,1,won,U,53,12th Pass,Industrialist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2424,chhattisgarh,2013,54,RAJIM,AMITESH SHUKLA,,67184,43.38,2,lost,U,56,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2424,chhattisgarh,2013,54,RAJIM,DR. SHWETA SHARMA,,6139,3.96,3,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2424,chhattisgarh,2013,54,RAJIM,LAXMI UPADHYAY,,1610,1.04,5,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2424,chhattisgarh,2013,54,RAJIM,COMRADE TEJRAM VIDROHI,,1026,0.66,6,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2424,chhattisgarh,2013,54,RAJIM,RAJESH SINHA,,760,0.49,7,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2424,chhattisgarh,2013,54,RAJIM,MUKESH PANDE,,714,0.46,8,forfeit,U,26,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2424,chhattisgarh,2013,54,RAJIM,CHANDRAHAS SINHA,,638,0.41,9,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2424,chhattisgarh,2013,54,RAJIM,BHUNESHWAR YADAV,,575,0.37,10,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2424,chhattisgarh,2013,54,RAJIM,PRAVEEN DEWANGAN,,550,0.36,11,forfeit,U,42,12th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2424,chhattisgarh,2013,54,RAJIM,DEVNATH SAHU,,382,0.25,12,forfeit,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2419,chhattisgarh,2013,55,BINDRANAWAGARH,GOVARDHAN SINGH MANJHI,,85843,53.66,1,won,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2419,chhattisgarh,2013,55,BINDRANAWAGARH,JANAK DHRUW,,55307,34.57,2,lost,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2419,chhattisgarh,2013,55,BINDRANAWAGARH,DAINIK RAM MANDAVI,,4077,2.55,4,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2419,chhattisgarh,2013,55,BINDRANAWAGARH,RAMIN NETAM,,2804,1.75,5,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2419,chhattisgarh,2013,55,BINDRANAWAGARH,MAHENDRA NETAM,,2348,1.47,6,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2419,chhattisgarh,2013,55,BINDRANAWAGARH,RAMESHWAR SINGH KOMARRA,,1306,0.82,7,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2419,chhattisgarh,2013,55,BINDRANAWAGARH,CHITRASEN NAGESH,,1236,0.77,8,forfeit,U,28,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2409,chhattisgarh,2013,56,SIHAWA,SHRAVAN MARKAM,,53894,38.06,1,won,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2409,chhattisgarh,2013,56,SIHAWA,AMBIKA MARKAM,,46407,32.77,2,lost,U,51,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2409,chhattisgarh,2013,56,SIHAWA,MAHESH KUMAR DEV,,16753,11.83,3,forfeit,U,43,Post Graduate,Advocacy,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2409,chhattisgarh,2013,56,SIHAWA,PANNA LAL KASHYAP,,8130,5.74,4,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2409,chhattisgarh,2013,56,SIHAWA,ASHOK SOM,,4466,3.15,6,forfeit,U,55,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2409,chhattisgarh,2013,56,SIHAWA,REWATI DHRUW,,2327,1.64,7,forfeit,U,38,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2409,chhattisgarh,2013,56,SIHAWA,CHANDRABHAN MARKAM,,1787,1.26,8,forfeit,U,32,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2409,chhattisgarh,2013,56,SIHAWA,PURAN NETAM RAJMISTRI,,1785,1.26,9,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2422,chhattisgarh,2013,57,KURUD,AJAY CHANDRAKAR,,83190,54.82,1,won,U,50,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2422,chhattisgarh,2013,57,KURUD,LEKHRAM SAHU,,56013,36.91,2,lost,U,58,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2422,chhattisgarh,2013,57,KURUD,BHOJRAM SAHU,,1596,1.05,4,forfeit,U,40,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2422,chhattisgarh,2013,57,KURUD,PRABHAT MEGHAWALE,,1419,0.94,5,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2422,chhattisgarh,2013,57,KURUD,YOUWRAJ SAHU (SOUNGA WALE),,1372,0.9,6,forfeit,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2422,chhattisgarh,2013,57,KURUD,ANURADHA AGRAWAL,,1178,0.78,7,forfeit,U,41,8th Pass,Unspecified,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2422,chhattisgarh,2013,57,KURUD,BHUNESHWAR SAHU,,655,0.43,8,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2422,chhattisgarh,2013,57,KURUD,MURARILAL SAHU,,579,0.38,9,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2422,chhattisgarh,2013,57,KURUD,REKHLAL SINHA,,484,0.32,10,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2422,chhattisgarh,2013,57,KURUD,TARACHAND BANDHE,,194,0.13,11,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2422,chhattisgarh,2013,57,KURUD,YOGENDRA KHARE,,167,0.11,12,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2422,chhattisgarh,2013,57,KURUD,OMPRAKASH MARKANDE (ADVOCATE),,159,0.1,13,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2420,chhattisgarh,2013,58,DHAMTARI,GURUMUKH SINGH HORA,,70960,45.66,1,won,U,66,5th Pass,Rent,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2420,chhattisgarh,2013,58,DHAMTARI,INDER CHOPRA,,60460,38.9,2,lost,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2420,chhattisgarh,2013,58,DHAMTARI,DAYARAM SAHU,,9265,5.96,3,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2420,chhattisgarh,2013,58,DHAMTARI,KANHAIYA LAL SAHU,,4059,2.61,5,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2420,chhattisgarh,2013,58,DHAMTARI,SANTOSH VERMA,,1591,1.02,6,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2420,chhattisgarh,2013,58,DHAMTARI,DEEPAK KUMAR AGRAWAL,,856,0.55,7,forfeit,U,52,10th Pass,Carpenter,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2420,chhattisgarh,2013,58,DHAMTARI,HIRDE LAL NETAM,,842,0.54,8,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2420,chhattisgarh,2013,58,DHAMTARI,LILA RAM SAHU,,629,0.4,9,forfeit,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2420,chhattisgarh,2013,58,DHAMTARI,BIRENDRA NAG,,625,0.4,10,forfeit,U,64,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2420,chhattisgarh,2013,58,DHAMTARI,NAVEEN CHANDRA DIXIT,,346,0.22,11,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2420,chhattisgarh,2013,58,DHAMTARI,NEEL PATEL,,299,0.19,12,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2420,chhattisgarh,2013,58,DHAMTARI,SADIK HUSAIN,,292,0.19,13,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2013,59,SANJARI BALOD,BHAIYA RAM SINHA,,88874,56.3,1,won,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2013,59,SANJARI BALOD,PRITAM SAHU,,58441,37.02,2,lost,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2013,59,SANJARI BALOD,ROHIT KUMAR NISHAD,,2137,1.35,4,forfeit,U,48,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2013,59,SANJARI BALOD,RIKHI RAM SAHU,,1398,0.89,5,forfeit,U,56,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2013,59,SANJARI BALOD,UMENDI RAM GANGRALE,,1336,0.85,6,forfeit,U,65,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2013,59,SANJARI BALOD,CHAITRAM GANGVANSHI,,740,0.47,7,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2013,59,SANJARI BALOD,BHOM LAL MANDAVI,,448,0.28,8,forfeit,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2013,59,SANJARI BALOD,PANNA LAL JAIN,,387,0.25,9,forfeit,U,55,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2404,chhattisgarh,2013,60,DONDI LAHARA,ANILA BHENDIA,,66026,42.81,1,won,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2404,chhattisgarh,2013,60,DONDI LAHARA,HORILAL RAWATE,,46291,30.01,2,lost,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2404,chhattisgarh,2013,60,DONDI LAHARA,JANAK LAL THAKUR,,19577,12.69,3,forfeit,U,57,8th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2404,chhattisgarh,2013,60,DONDI LAHARA,ANITA KUMETI,,4435,2.88,5,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2404,chhattisgarh,2013,60,DONDI LAHARA,GHANARAM THAKUR,,3103,2.01,6,forfeit,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2404,chhattisgarh,2013,60,DONDI LAHARA,YOGESHWAR KUMAR KOSMA,,1860,1.21,7,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2404,chhattisgarh,2013,60,DONDI LAHARA,HUB LAL CHANAP,,1787,1.16,8,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2404,chhattisgarh,2013,60,DONDI LAHARA,BANWARI LAL MARKAM,,1559,1.01,9,forfeit,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2404,chhattisgarh,2013,60,DONDI LAHARA,GOPAL THAKUR,,1483,0.96,10,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2404,chhattisgarh,2013,60,DONDI LAHARA,TUKA RAM KORRAM,,1244,0.81,11,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2404,chhattisgarh,2013,60,DONDI LAHARA,RIKHIRAM CHURENDRA,,667,0.43,12,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2405,chhattisgarh,2013,61,GUNDERDEHI,RAJENDRA KUMAR RAI,,72770,43.36,1,won,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2405,chhattisgarh,2013,61,GUNDERDEHI,VIRENDRA KUMAR SAHU,,51490,30.68,2,lost,U,45,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2405,chhattisgarh,2013,61,GUNDERDEHI,HUMAN SAHU,,16745,9.98,3,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2405,chhattisgarh,2013,61,GUNDERDEHI,DR. BALMUKUND DEWANGAN,,14483,8.63,4,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2405,chhattisgarh,2013,61,GUNDERDEHI,YOGESHWAR NIRMALKAR,,2431,1.45,6,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2405,chhattisgarh,2013,61,GUNDERDEHI,BABULAL SINHA,,1983,1.18,7,forfeit,U,37,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2405,chhattisgarh,2013,61,GUNDERDEHI,PURUSHOTTAM LAL MARKANDE,,1474,0.88,8,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2405,chhattisgarh,2013,61,GUNDERDEHI,DURGABAI MESHRAM/KANHAIYA LAL MESHRAM,,1144,0.68,9,forfeit,U,40,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2405,chhattisgarh,2013,61,GUNDERDEHI,AMBIKA MISHRA,,680,0.41,10,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2405,chhattisgarh,2013,61,GUNDERDEHI,SANAT KUMAR GUPTA,,628,0.37,11,forfeit,U,54,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2405,chhattisgarh,2013,61,GUNDERDEHI,RAJESH KUMAR SHARMA MAHARAJ,,436,0.26,12,forfeit,U,27,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2391,chhattisgarh,2013,62,PATAN,BHUPESH BAGHEL,,68185,47.47,1,won,U,53,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2391,chhattisgarh,2013,62,PATAN,VIJAY BAGHEL,,58842,40.97,2,lost,U,54,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2391,chhattisgarh,2013,62,PATAN,DEENU SAHU,,4639,3.23,3,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2391,chhattisgarh,2013,62,PATAN,JHUMUK LAL YADAV,,2316,1.61,5,forfeit,U,43,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2391,chhattisgarh,2013,62,PATAN,MANGU LAL BANJARE,,2235,1.56,6,forfeit,U,49,8th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2391,chhattisgarh,2013,62,PATAN,BALDAU PRASAD SAHU,,1457,1.01,7,forfeit,U,46,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2391,chhattisgarh,2013,62,PATAN,CHANDRA KUMAR,,879,0.61,8,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2391,chhattisgarh,2013,62,PATAN,DILEEP SAHU,,608,0.42,9,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2391,chhattisgarh,2013,62,PATAN,SMT.URVASHI DEWANGAN,,500,0.35,10,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2391,chhattisgarh,2013,62,PATAN,RAKESH MAHILANG,,420,0.29,11,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2391,chhattisgarh,2013,62,PATAN,ALOK JHA,,307,0.21,12,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2389,chhattisgarh,2013,63,DURG GRAMIN,SMT. RAMSHILA SAHU,,50327,38.44,1,won,U,53,Graduate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2389,chhattisgarh,2013,63,DURG GRAMIN,PRATIMA CHANDRAKAR,,47348,36.17,2,lost,U,55,12th Pass,Petrol Pumps,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2389,chhattisgarh,2013,63,DURG GRAMIN,URWASHI SAHU,,20938,15.99,3,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2389,chhattisgarh,2013,63,DURG GRAMIN,HINCHHA RAM PARKAR,,3815,2.91,4,forfeit,U,55,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2389,chhattisgarh,2013,63,DURG GRAMIN,DAYA RAM SAHU (GURUJI),,2152,1.64,6,forfeit,U,44,Post Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2389,chhattisgarh,2013,63,DURG GRAMIN,NARAYAN PRASAD YADAV,,875,0.67,7,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2389,chhattisgarh,2013,63,DURG GRAMIN,CHAKRADHAR (CHIKU) MISHRA,,714,0.55,8,forfeit,U,39,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2389,chhattisgarh,2013,63,DURG GRAMIN,SHYAMAL MITRA,,463,0.35,9,forfeit,U,56,Graduate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2389,chhattisgarh,2013,63,DURG GRAMIN,KRISHNA NAND DWIVEDI,,436,0.33,10,forfeit,U,52,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2389,chhattisgarh,2013,63,DURG GRAMIN,MENKA GOSWAMI,,306,0.23,11,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2387,chhattisgarh,2013,64,DURG CITY,ARUN VORA,,58645,42.35,1,won,U,51,Post Graduate,"Real Estate or Builder or Developer or Construction, Rent",challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2387,chhattisgarh,2013,64,DURG CITY,HEMCHAND YADAV,,53024,38.29,2,lost,U,53,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2387,chhattisgarh,2013,64,DURG CITY,RAJENDRA SAHU,,17589,12.7,3,forfeit,U,46,Post Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2387,chhattisgarh,2013,64,DURG CITY,RAMESH DAS CHELACK,,1793,1.29,5,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2387,chhattisgarh,2013,64,DURG CITY,BHAURAO FULZELE,,1137,0.82,6,forfeit,U,53,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2387,chhattisgarh,2013,64,DURG CITY,NASEEM BANO,,725,0.52,7,forfeit,U,32,12th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2387,chhattisgarh,2013,64,DURG CITY,SHIV THAKUR,,623,0.45,8,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2387,chhattisgarh,2013,64,DURG CITY,GYANESH DUBEY,,475,0.34,9,forfeit,U,49,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2387,chhattisgarh,2013,64,DURG CITY,CHANDAN MARKAM,,331,0.24,10,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2387,chhattisgarh,2013,64,DURG CITY,GIRDHARI LAL JAIN,,325,0.23,11,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2387,chhattisgarh,2013,64,DURG CITY,MOHAMMAD SHAEIK WASIM ALIAS VICKY,,311,0.22,12,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2387,chhattisgarh,2013,64,DURG CITY,DR. D.D. CHELAK (ADHIVAKTA),,301,0.22,13,forfeit,U,69,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2387,chhattisgarh,2013,64,DURG CITY,ARUN JOSHI,,296,0.21,14,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2387,chhattisgarh,2013,64,DURG CITY,MD. AYYOOB PAKIZA,,170,0.12,15,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2387,chhattisgarh,2013,64,DURG CITY,MD. AARIF,,170,0.12,16,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2387,chhattisgarh,2013,64,DURG CITY,SANTOSH PANDEY,,159,0.11,17,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2387,chhattisgarh,2013,64,DURG CITY,SATAYNARYAN PASWAN,,157,0.11,18,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2387,chhattisgarh,2013,64,DURG CITY,SHIVJI SINGH,,147,0.11,19,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2388,chhattisgarh,2013,65,BHILAI NAGAR,PREM PRAKASH PANDEY,,55654,52.35,1,won,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2388,chhattisgarh,2013,65,BHILAI NAGAR,BADRUDDIN QURESHI,,38548,36.26,2,lost,U,64,10th Pass,"Real Estate or Builder or Developer or Construction, Rent",incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2388,chhattisgarh,2013,65,BHILAI NAGAR,SUSHIL PANDEY,,2229,2.1,4,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2388,chhattisgarh,2013,65,BHILAI NAGAR,S. R. NAYADU,,1580,1.49,5,forfeit,U,60,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2388,chhattisgarh,2013,65,BHILAI NAGAR,P. VENKAT RAGHURAM,,1381,1.3,6,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2388,chhattisgarh,2013,65,BHILAI NAGAR,MANISH KUMAR LAHARE,,549,0.52,7,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2388,chhattisgarh,2013,65,BHILAI NAGAR,PAWAN KUMAR AGRAWAL,,534,0.5,8,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2388,chhattisgarh,2013,65,BHILAI NAGAR,BHARAT LAL BANJARE,,423,0.4,9,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2388,chhattisgarh,2013,65,BHILAI NAGAR,SHANNO,,403,0.38,10,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2388,chhattisgarh,2013,65,BHILAI NAGAR,RAJENDRA PARGANIHA,,280,0.26,11,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2388,chhattisgarh,2013,65,BHILAI NAGAR,VIJENDRA KUMAR SAHU,,248,0.23,12,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2388,chhattisgarh,2013,65,BHILAI NAGAR,K. N. PREMNATH,,221,0.21,13,forfeit,U,54,Graduate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2388,chhattisgarh,2013,65,BHILAI NAGAR,JUBAID SIR,,187,0.18,14,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2388,chhattisgarh,2013,65,BHILAI NAGAR,SHEIKH ALTAF HUSSAIN SALEEM,,170,0.16,15,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2388,chhattisgarh,2013,65,BHILAI NAGAR,GOVIND BISAI,,158,0.15,16,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2388,chhattisgarh,2013,65,BHILAI NAGAR,MO. IMRAN KHAN,,145,0.14,17,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2388,chhattisgarh,2013,65,BHILAI NAGAR,AJEET PAUL,,126,0.12,18,forfeit,U,41,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2388,chhattisgarh,2013,65,BHILAI NAGAR,HARDEV SINGH MEHRA,,89,0.08,19,forfeit,U,52,10th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2013,66,VAISHALI NAGAR,VIDYARATAN BHASIN,,72594,51.89,1,won,U,66,10th Pass,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2013,66,VAISHALI NAGAR,BHAJAN SINGH NIRANKARI,,48146,34.41,2,lost,U,69,Graduate Professional,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2013,66,VAISHALI NAGAR,AKHTAR JANISAR,,8700,6.22,3,forfeit,U,49,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2013,66,VAISHALI NAGAR,INDER LAL LAHARE,,1876,1.34,5,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2013,66,VAISHALI NAGAR,POOJA MOUSI,,1025,0.73,6,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2013,66,VAISHALI NAGAR,NAZRUL ISLAM KHAN,,845,0.6,7,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2013,66,VAISHALI NAGAR,MARKANDE SUNIL KUMAR,,838,0.6,8,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2013,66,VAISHALI NAGAR,DHARMENDER YADAV,,549,0.39,9,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2013,66,VAISHALI NAGAR,RAMNARAYAN YADAV,,515,0.37,10,forfeit,U,58,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2013,66,VAISHALI NAGAR,ALI HUSSAIN SIDDIQUI,,422,0.3,11,forfeit,U,31,Post Graduate,Unspecified,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2013,66,VAISHALI NAGAR,GAJANAND JANGADE,,301,0.22,12,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2013,66,VAISHALI NAGAR,KRISHNA SINGH,,253,0.18,13,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2013,66,VAISHALI NAGAR,HARISH KUMAR DUBAY,,252,0.18,14,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2013,66,VAISHALI NAGAR,RAM KUMAR SAHU,,247,0.18,15,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2013,66,VAISHALI NAGAR,SURENDRA KAPOOR KAKE BHAIYA,,196,0.14,16,forfeit,U,54,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2013,66,VAISHALI NAGAR,DHIRENDRA PRATAP SINGH,,185,0.13,17,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2013,66,VAISHALI NAGAR,NILAM ROBBINS,,168,0.12,18,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2013,66,VAISHALI NAGAR,MEENA TUMANE,,127,0.09,19,forfeit,U,42,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2385,chhattisgarh,2013,67,AHIWARA,RAJMAHNT SANWLA RAM DAHRE,,75337,52.87,1,won,U,56,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2385,chhattisgarh,2013,67,AHIWARA,ASHOK DONGRE,,43661,30.64,2,lost,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2385,chhattisgarh,2013,67,AHIWARA,VIMAL KUMAR BANDE,,11085,7.78,3,forfeit,U,27,12th Pass,Transport,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2385,chhattisgarh,2013,67,AHIWARA,VIRENDRA KURRE,,1432,1,5,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2385,chhattisgarh,2013,67,AHIWARA,SHAKUNTALA SHOBHARAM BANJARE,,1277,0.9,6,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2385,chhattisgarh,2013,67,AHIWARA,ADHIVAKTA PRAVIN KUMAR KURREY,,1272,0.89,7,forfeit,U,41,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2385,chhattisgarh,2013,67,AHIWARA,SHAILENDRA BANJARE (SHAKTI PUTRA),,1268,0.89,8,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2385,chhattisgarh,2013,67,AHIWARA,ADHIVAKTA TAMASKAR TANDON,,1075,0.75,9,forfeit,U,54,Graduate Professional,Advocacy,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2385,chhattisgarh,2013,67,AHIWARA,DR. ASHOK DESHLAHRA,,895,0.63,10,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2385,chhattisgarh,2013,67,AHIWARA,MANOJ BHARTI,,612,0.43,11,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2392,chhattisgarh,2013,68,SAJA,LABH CHAND BAFNA,,81707,49.4,1,won,U,53,Post Graduate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2392,chhattisgarh,2013,68,SAJA,RAVINDRA CHOUBEY,,72087,43.58,2,lost,U,56,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2392,chhattisgarh,2013,68,SAJA,JAIPRAKASH SINGH,,2403,1.45,4,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2392,chhattisgarh,2013,68,SAJA,RAMKUMAR SAHU,,1814,1.1,5,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2392,chhattisgarh,2013,68,SAJA,HOMLAL MARISHA,,1324,0.8,6,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2392,chhattisgarh,2013,68,SAJA,KISHAN LAL KURRE,,889,0.54,7,forfeit,U,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2392,chhattisgarh,2013,68,SAJA,ASHOK TANDULKAR,,333,0.2,8,forfeit,U,48,8th Pass,Agricultural Business,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2392,chhattisgarh,2013,68,SAJA,RAJMAHANT SATYANARAYAN SONWANI,,323,0.2,9,forfeit,U,67,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2386,chhattisgarh,2013,69,BEMETARA,AWADHESH SINGH CHANDEL,,74162,47.25,1,won,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2386,chhattisgarh,2013,69,BEMETARA,TAMRADHWAJ SAHU,,59048,37.62,2,lost,U,64,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2386,chhattisgarh,2013,69,BEMETARA,SHIV KUMAR SAHU,,5731,3.65,3,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2386,chhattisgarh,2013,69,BEMETARA,JEEVAN SAHU,,3823,2.44,4,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2386,chhattisgarh,2013,69,BEMETARA,LAXMI NARAYAN SAHU,,2930,1.87,5,forfeit,U,56,5th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2386,chhattisgarh,2013,69,BEMETARA,SANJAY MISHRA,,2421,1.54,7,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2386,chhattisgarh,2013,69,BEMETARA,BAHAL SINGH VERMA,,1549,0.99,8,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2386,chhattisgarh,2013,69,BEMETARA,CHANDRA KUMAR SONWANI,,1254,0.8,9,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2386,chhattisgarh,2013,69,BEMETARA,MOHIT KUMAR PANDAY,,862,0.55,10,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2386,chhattisgarh,2013,69,BEMETARA,JIRENDRA NISHAD,,632,0.4,11,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2386,chhattisgarh,2013,69,BEMETARA,SANTOSH KUMAR PATIL,,538,0.34,12,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2386,chhattisgarh,2013,69,BEMETARA,VISHNU KOSHLE,,362,0.23,13,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2386,chhattisgarh,2013,69,BEMETARA,GURU DADA LOKESH MAHRAJ,,294,0.19,14,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2386,chhattisgarh,2013,69,BEMETARA,ROHIT SINHA,,243,0.15,15,forfeit,U,36,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2386,chhattisgarh,2013,69,BEMETARA,PRABHA DEVI PATEL,,238,0.15,16,forfeit,U,42,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2386,chhattisgarh,2013,69,BEMETARA,DUKHIT RAM,,224,0.14,17,forfeit,U,52,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2386,chhattisgarh,2013,69,BEMETARA,MANOJ DUBEY,,207,0.13,18,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2390,chhattisgarh,2013,70,NAVAGARH,DAYALDAS BAGHEL,,69447,42.81,1,won,U,58,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2390,chhattisgarh,2013,70,NAVAGARH,DERHU PRASHAD GHRITLAHARE,,42254,26.05,2,lost,U,66,5th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2390,chhattisgarh,2013,70,NAVAGARH,ANITA PATRE,,19234,11.86,3,forfeit,U,35,Post Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2390,chhattisgarh,2013,70,NAVAGARH,OMPRAKASH BATCHPAYI,,16075,9.91,4,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2390,chhattisgarh,2013,70,NAVAGARH,GOPAL CHATURVEDI,,3870,2.39,6,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2390,chhattisgarh,2013,70,NAVAGARH,KIRTI BAI HIRWANI,,2438,1.5,7,forfeit,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2390,chhattisgarh,2013,70,NAVAGARH,SANTOSH DAHARIYA,,2315,1.43,8,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2390,chhattisgarh,2013,70,NAVAGARH,SHIVARAM GHRITLAHARE,,1734,1.07,9,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2449,chhattisgarh,2013,71,PANDARIYA,MOTI RAM CHANDRAVANSHI,,81685,40.94,1,won,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2449,chhattisgarh,2013,71,PANDARIYA,LALJI CHANDRAVANSHI,,74412,37.3,2,lost,U,59,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2449,chhattisgarh,2013,71,PANDARIYA,NIRMAL SALUJA,,7393,3.71,3,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2449,chhattisgarh,2013,71,PANDARIYA,RAMKRISHNA SAHU,,5513,2.76,4,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2449,chhattisgarh,2013,71,PANDARIYA,RAM KUMAR TANDAN,,4105,2.06,6,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2449,chhattisgarh,2013,71,PANDARIYA,SATYA PRAKASH BAUDDHA,,3677,1.84,7,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2449,chhattisgarh,2013,71,PANDARIYA,RAGGHU PATHAK ALIAS RAGHUNANDAN PATHAK,,3667,1.84,8,forfeit,U,51,Post Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2449,chhattisgarh,2013,71,PANDARIYA,CHANDRIKA CHANDRAVANSHI,,3497,1.75,9,forfeit,U,38,10th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2449,chhattisgarh,2013,71,PANDARIYA,LALJI CHANDRAVANSHI,,3245,1.63,10,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2449,chhattisgarh,2013,71,PANDARIYA,MAHVEER SATNAMI,,2442,1.22,11,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2449,chhattisgarh,2013,71,PANDARIYA,UMESH YADAV,,1772,0.89,12,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2449,chhattisgarh,2013,71,PANDARIYA,GIRDHAR BHAI,,1351,0.68,13,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2449,chhattisgarh,2013,71,PANDARIYA,SHRIMATI GANESHIYA BAI SAHU,,1090,0.55,14,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2449,chhattisgarh,2013,71,PANDARIYA,PARDHESHI RAM,,692,0.35,15,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2449,chhattisgarh,2013,71,PANDARIYA,NARENDRA AHIRWAR,,689,0.35,16,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2445,chhattisgarh,2013,72,KAWARDHA,ASHOK SAHU,,93645,42.61,1,won,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2445,chhattisgarh,2013,72,KAWARDHA,AKBAR BHAI,,91087,41.44,2,lost,U,57,Graduate,Petrol Pumps,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2445,chhattisgarh,2013,72,KAWARDHA,KARTIK RAM MARAR,,6859,3.12,4,forfeit,U,50,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2445,chhattisgarh,2013,72,KAWARDHA,MALESH KUMAR MARKAM,,5151,2.34,5,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2445,chhattisgarh,2013,72,KAWARDHA,MOHIT SAHU,,3829,1.74,6,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2445,chhattisgarh,2013,72,KAWARDHA,KANHAIYA LAL PATEL,,3157,1.44,7,forfeit,U,64,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2445,chhattisgarh,2013,72,KAWARDHA,ANIL SATNAMI,,2858,1.3,8,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2445,chhattisgarh,2013,72,KAWARDHA,JITENDRA KUMAR PURAINAK,,1610,0.73,9,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2445,chhattisgarh,2013,72,KAWARDHA,HIMANSHU THAKUR,,1098,0.5,10,forfeit,U,26,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2445,chhattisgarh,2013,72,KAWARDHA,NIRANJAN KHARE,,704,0.32,11,forfeit,U,38,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2445,chhattisgarh,2013,72,KAWARDHA,KRISHNA KUMAR DAHIRE,,554,0.25,12,forfeit,U,26,12th Pass,Agricultural Business,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2446,chhattisgarh,2013,73,KHAIRAGARH,GIRWAR JANGHEL,,70133,46.07,1,won,U,52,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2446,chhattisgarh,2013,73,KHAIRAGARH,KOMAL JANGHEL,,67943,44.64,2,lost,U,53,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2446,chhattisgarh,2013,73,KHAIRAGARH,PARAS JANGHEL,,3043,2,4,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2446,chhattisgarh,2013,73,KHAIRAGARH,MINESH SAHU,,2587,1.7,5,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2446,chhattisgarh,2013,73,KHAIRAGARH,BHOOSHAN LAL SATNAMI,,1939,1.27,6,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2446,chhattisgarh,2013,73,KHAIRAGARH,BHANU PRATAP,,750,0.49,7,forfeit,U,44,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2446,chhattisgarh,2013,73,KHAIRAGARH,JAGDISH SINGH,,593,0.39,8,forfeit,U,66,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2446,chhattisgarh,2013,73,KHAIRAGARH,SUBHASH CHAND KOCHAR JAIN,,588,0.39,9,forfeit,U,55,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2444,chhattisgarh,2013,74,DONGARGARH,SAROJANI BANJARE,,67158,45.82,1,won,U,35,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2444,chhattisgarh,2013,74,DONGARGARH,DR.THANESHWAR PATILA,,62474,42.62,2,lost,U,26,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2444,chhattisgarh,2013,74,DONGARGARH,SANJEEV KUMAR DONGARE,,4692,3.2,3,forfeit,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2444,chhattisgarh,2013,74,DONGARGARH,SANTOSH MARIA,,2753,1.88,5,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2444,chhattisgarh,2013,74,DONGARGARH,SHRINIWAS JANBANDHU,,1714,1.17,6,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2444,chhattisgarh,2013,74,DONGARGARH,DILIP KOSRE,,948,0.65,7,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2444,chhattisgarh,2013,74,DONGARGARH,VIKASH BANJAREE,,939,0.64,8,forfeit,U,29,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2444,chhattisgarh,2013,74,DONGARGARH,OMPRAKASH KURRE,,714,0.49,9,forfeit,U,25,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2444,chhattisgarh,2013,74,DONGARGARH,PANNALAL SURYAVANSHI,,479,0.33,10,forfeit,U,52,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2444,chhattisgarh,2013,74,DONGARGARH,OMPRAKASH TEMBHURNIKAR,,409,0.28,11,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2450,chhattisgarh,2013,75,RAJNANDGAON,DR. RAMAN,,86797,58.45,1,won,U,61,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2450,chhattisgarh,2013,75,RAJNANDGAON,ALKA UDAY MUDLIYAR,,50931,34.3,2,lost,U,56,Post Graduate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2450,chhattisgarh,2013,75,RAJNANDGAON,VIJAY PANDEY,,2044,1.38,3,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2450,chhattisgarh,2013,75,RAJNANDGAON,D.S. SINHA,,1807,1.22,5,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2450,chhattisgarh,2013,75,RAJNANDGAON,ARVIND NANDESHWAR,,1222,0.82,6,forfeit,U,27,12th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2450,chhattisgarh,2013,75,RAJNANDGAON,RAJESH GUPTA (CHAMPU),,1204,0.81,7,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2450,chhattisgarh,2013,75,RAJNANDGAON,BHAI KEVAL RAJAK,,749,0.5,8,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2450,chhattisgarh,2013,75,RAJNANDGAON,GURU DADA LOKESH,,554,0.37,9,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2450,chhattisgarh,2013,75,RAJNANDGAON,MADHUKAR BANJARE,,258,0.17,10,forfeit,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2450,chhattisgarh,2013,75,RAJNANDGAON,BRIJ BIHARI AGRAWAL,,245,0.16,11,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2450,chhattisgarh,2013,75,RAJNANDGAON,YUSUF BHAI,,218,0.15,12,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2450,chhattisgarh,2013,75,RAJNANDGAON,TOMESH KUMAR RAHANGDALE,,164,0.11,13,forfeit,U,38,12th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2450,chhattisgarh,2013,75,RAJNANDGAON,HAJI DAUR KHAN,,157,0.11,14,forfeit,U,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2450,chhattisgarh,2013,75,RAJNANDGAON,HARILAL PATEL,,110,0.07,15,forfeit,U,67,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2443,chhattisgarh,2013,76,DONGARGAON,DALESHWAR SAHU,,67755,46.76,1,won,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2443,chhattisgarh,2013,76,DONGARGAON,DINESH GANDHI,,66057,45.59,2,lost,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2443,chhattisgarh,2013,76,DONGARGAON,RAMESH VERMA,,1857,1.28,4,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2443,chhattisgarh,2013,76,DONGARGAON,DILIP KUMAR SAHU,,1713,1.18,5,forfeit,U,44,Post Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2443,chhattisgarh,2013,76,DONGARGAON,SOMNATH UIKE,,1274,0.88,6,forfeit,U,60,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2443,chhattisgarh,2013,76,DONGARGAON,GYANCHAND LODHA BALLU,,829,0.57,7,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2443,chhattisgarh,2013,76,DONGARGAON,VISHNU LODHI,,826,0.57,8,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2443,chhattisgarh,2013,76,DONGARGAON,KHIRWAN TANDAN,,534,0.37,9,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2447,chhattisgarh,2013,77,KHUJJI,BHOLARAM SAHU,,51873,37.57,1,won,U,54,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2447,chhattisgarh,2013,77,KHUJJI,RAJINDAR BHATIYA,,43179,31.28,2,lost,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2447,chhattisgarh,2013,77,KHUJJI,VIJAY DUKHU RAM SAHU CHOWKI WALE,,28122,20.37,3,lost,U,43,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2447,chhattisgarh,2013,77,KHUJJI,DEVANAND SAHARE,,2612,1.89,5,forfeit,U,42,12th Pass,Panchayat Member,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2447,chhattisgarh,2013,77,KHUJJI,BHISHAM LAL URVASA,,2208,1.6,6,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2447,chhattisgarh,2013,77,KHUJJI,MUSTAK BHAI,,1691,1.22,7,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2447,chhattisgarh,2013,77,KHUJJI,ANJU SINHA,,1433,1.04,8,forfeit,U,40,10th Pass,Artisan,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2447,chhattisgarh,2013,77,KHUJJI,ASHARAM VISHWAKARMA,,1259,0.91,9,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2447,chhattisgarh,2013,77,KHUJJI,CHANDRESH KUMAR BHAGEL,,1075,0.78,10,forfeit,U,38,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2448,chhattisgarh,2013,78,MOHALA-MANPUR,TEJ KUNWAR GOWARDHAN NETAM,,42648,36.79,1,won,U,58,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2448,chhattisgarh,2013,78,MOHALA-MANPUR,BHOJESH SHAH MANDAVI,,41692,35.96,2,lost,U,28,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2448,chhattisgarh,2013,78,MOHALA-MANPUR,TATU RAM BHUARYA,,10701,9.23,3,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2448,chhattisgarh,2013,78,MOHALA-MANPUR,SMT. KHAGESH THAKUR,,4700,4.05,5,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2448,chhattisgarh,2013,78,MOHALA-MANPUR,GOVIND SHAH WALKO,,3981,3.43,6,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2448,chhattisgarh,2013,78,MOHALA-MANPUR,RAVINDRA THAKUR,,1970,1.7,7,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2448,chhattisgarh,2013,78,MOHALA-MANPUR,NAMDEV KERAM,,1615,1.39,8,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2448,chhattisgarh,2013,78,MOHALA-MANPUR,ANNAPURNA THAKUR,,1142,0.99,9,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2448,chhattisgarh,2013,78,MOHALA-MANPUR,LALSAY MANDAVI,,879,0.76,10,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2448,chhattisgarh,2013,78,MOHALA-MANPUR,SUREKHA MANDAVI,,864,0.75,11,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2402,chhattisgarh,2013,79,ANTAGARH,VIKRAM USENDI,,53477,47.18,1,won,U,48,10th Pass,"MLA, Minister",incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2402,chhattisgarh,2013,79,ANTAGARH,MANTURAM PAWAR,,48306,42.62,2,lost,U,43,Graduate,Ex MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2402,chhattisgarh,2013,79,ANTAGARH,SOMNATH UIKE,,2543,2.24,4,forfeit,U,32,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2402,chhattisgarh,2013,79,ANTAGARH,JAIPRAKASH PADDA,,2308,2.04,5,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2402,chhattisgarh,2013,79,ANTAGARH,RAJA RAM KOMRA,,2009,1.77,6,forfeit,U,32,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2403,chhattisgarh,2013,80,BHANUPRATAPPUR,MANOJ SINGH MANDAVI,,64837,45.98,1,won,U,48,Post Graduate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2403,chhattisgarh,2013,80,BHANUPRATAPPUR,SATISH LATIYA,,49941,35.42,2,lost,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2403,chhattisgarh,2013,80,BHANUPRATAPPUR,PARMANAND TETA,,8096,5.74,3,forfeit,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2403,chhattisgarh,2013,80,BHANUPRATAPPUR,KAMAL SINGH KORRAM,,3967,2.81,5,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2403,chhattisgarh,2013,80,BHANUPRATAPPUR,DEENDYAL SINGH NARETI,,3628,2.57,6,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2403,chhattisgarh,2013,80,BHANUPRATAPPUR,BHUNESHWAR NARETI,,1911,1.36,7,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2403,chhattisgarh,2013,80,BHANUPRATAPPUR,BHAGWAN SINGH RAWTE,,1703,1.21,8,forfeit,U,53,Post Graduate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2403,chhattisgarh,2013,80,BHANUPRATAPPUR,BHIKHAM KANGE,,1238,0.88,9,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2406,chhattisgarh,2013,81,KANKER,SHANKER DHRUWA,,50586,39.99,1,won,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2406,chhattisgarh,2013,81,KANKER,SANJAY KODOPI,,45961,36.33,2,lost,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2406,chhattisgarh,2013,81,KANKER,MAHENDRA GAWDE,,9727,7.69,3,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2406,chhattisgarh,2013,81,KANKER,SMT. MEERA SALAM,,4197,3.32,5,forfeit,U,36,12th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2406,chhattisgarh,2013,81,KANKER,JHADU RAM NARETY,,3689,2.92,6,forfeit,U,63,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2406,chhattisgarh,2013,81,KANKER,RAMESH NETAM,,2116,1.67,7,forfeit,U,51,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2406,chhattisgarh,2013,81,KANKER,HEMLAL MARKAM,,1894,1.5,8,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2406,chhattisgarh,2013,81,KANKER,MANOHAR NETAM,,1572,1.24,9,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2406,chhattisgarh,2013,81,KANKER,UMA SHANKAR BHANDARI,,1552,1.23,10,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2407,chhattisgarh,2013,82,KESHKAL,SANTRAM NETAM,,53867,37.99,1,won,U,41,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2407,chhattisgarh,2013,82,KESHKAL,SEVAKRAM NETAM,,45178,31.86,2,lost,U,46,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2407,chhattisgarh,2013,82,KESHKAL,DANIRAM MARKAM,,16962,11.96,3,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2407,chhattisgarh,2013,82,KESHKAL,BALSINGH NAGWANSHI,,6811,4.8,5,forfeit,U,35,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2407,chhattisgarh,2013,82,KESHKAL,SON SAY NETAM,,4378,3.09,6,forfeit,U,37,Post Graduate,Rent,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2407,chhattisgarh,2013,82,KESHKAL,RAMLAL SALAM,,3792,2.67,7,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2407,chhattisgarh,2013,82,KESHKAL,PANCHURAM NETAM,,2428,1.71,8,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2374,chhattisgarh,2013,83,KONDAGAON,MOHAN MARKAM,,54290,43.24,1,won,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2374,chhattisgarh,2013,83,KONDAGAON,LATA USENDI,,49155,39.15,2,lost,U,39,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2374,chhattisgarh,2013,83,KONDAGAON,AMALSAI SORI,,5229,4.16,4,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2374,chhattisgarh,2013,83,KONDAGAON,SHANKAR SODI,,3711,2.96,5,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2374,chhattisgarh,2013,83,KONDAGAON,RAJKUMAR MARKAM,,3347,2.67,6,forfeit,U,28,Post Graduate,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2374,chhattisgarh,2013,83,KONDAGAON,MOHAN MARKAM,,3060,2.44,7,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2376,chhattisgarh,2013,84,NARAINPUR,KEDAR KASHYAP,,54874,48.78,1,won,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2376,chhattisgarh,2013,84,NARAINPUR,CHANDAN SINGH KASHYAP,,42074,37.4,2,lost,U,53,Post Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2376,chhattisgarh,2013,84,NARAINPUR,MASU RAM MARAI (BADE GURUJI),,2776,2.47,4,forfeit,U,58,8th Pass,Retired Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2376,chhattisgarh,2013,84,NARAINPUR,VIRENDRA KACH,,2248,2,5,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2376,chhattisgarh,2013,84,NARAINPUR,PRATAP SINGH MANDAVI,,2106,1.87,6,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2376,chhattisgarh,2013,84,NARAINPUR,SUSHIL KUMETI,,1682,1.5,7,forfeit,U,31,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2369,chhattisgarh,2013,85,BASTAR,BAGHEL LAKHESHWAR,,57942,50.59,1,won,U,54,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2369,chhattisgarh,2013,85,BASTAR,DR.SUBHAOO KASHYAP,,38774,33.85,2,lost,U,53,Graduate Professional,Medical Professional,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2369,chhattisgarh,2013,85,BASTAR,MANSINGH KASHYAP,,3360,2.93,4,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2369,chhattisgarh,2013,85,BASTAR,JAGMOHAN BAGHEL,,2852,2.49,5,forfeit,U,39,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2369,chhattisgarh,2013,85,BASTAR,DAMRU MOURYA,,2419,2.11,6,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2369,chhattisgarh,2013,85,BASTAR,BALDEV MANJHI,,2233,1.95,7,forfeit,U,45,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2369,chhattisgarh,2013,85,BASTAR,MADHU MOURYA,,1426,1.25,8,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2373,chhattisgarh,2013,86,JAGDALPUR,SANTOSH BAFNA,,64803,49.87,1,won,U,53,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2373,chhattisgarh,2013,86,JAGDALPUR,SHAMU KASHYAP,,48145,37.05,2,lost,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2373,chhattisgarh,2013,86,JAGDALPUR,NASEEM QURAISHI,,2666,2.05,4,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2373,chhattisgarh,2013,86,JAGDALPUR,NARESH CHANDDRA YADAV ALIAS BHIM,,1667,1.28,5,forfeit,U,50,10th Pass,Workshop or Small Manufacturer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2373,chhattisgarh,2013,86,JAGDALPUR,SHANKAR BAGHEL,,1524,1.17,6,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2373,chhattisgarh,2013,86,JAGDALPUR,SHAMU KASHYAP,,1361,1.05,7,forfeit,U,26,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2373,chhattisgarh,2013,86,JAGDALPUR,SHYAM GHOSH,,1277,0.98,8,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2373,chhattisgarh,2013,86,JAGDALPUR,DEVNATH KASHYAP,,1229,0.95,9,forfeit,U,37,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2373,chhattisgarh,2013,86,JAGDALPUR,RAJA RAM TODEM,,835,0.64,10,forfeit,U,54,Graduate,Ex MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2373,chhattisgarh,2013,86,JAGDALPUR,SHAMBHU PRASAD SONI,,655,0.5,11,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2373,chhattisgarh,2013,86,JAGDALPUR,RAVISHANKAR SHUKLA,,654,0.5,12,forfeit,U,65,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2373,chhattisgarh,2013,86,JAGDALPUR,SHAMU,,643,0.49,13,forfeit,U,36,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2373,chhattisgarh,2013,86,JAGDALPUR,VIJAY SHRIVASTAVA,,628,0.48,14,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2373,chhattisgarh,2013,86,JAGDALPUR,RADHEKISHAN SAHU,,392,0.3,15,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2371,chhattisgarh,2013,87,CHITRAKOT,DEEPAK KUMAR BAIJ,,50303,42.16,1,won,U,32,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2371,chhattisgarh,2013,87,CHITRAKOT,BAIDURAM KASHYAP,,37974,31.83,2,lost,U,41,10th Pass,Transport,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2371,chhattisgarh,2013,87,CHITRAKOT,SONADHAR NAG,,11099,9.3,3,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2371,chhattisgarh,2013,87,CHITRAKOT,SHANKAR RAM THAKUR,,3627,3.04,5,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2371,chhattisgarh,2013,87,CHITRAKOT,HEMANT POYAM,,2929,2.45,6,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2371,chhattisgarh,2013,87,CHITRAKOT,DANTI RAM POYAM,,2531,2.12,7,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2372,chhattisgarh,2013,88,DANTEWARA,DEVATI KARMA,,41417,38.23,1,won,U,51,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2372,chhattisgarh,2013,88,DANTEWARA,BHIMARAM MANDAVI,,35430,32.7,2,lost,U,35,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2372,chhattisgarh,2013,88,DANTEWARA,BOMMADA RAM KOWASHI,,12954,11.96,3,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2372,chhattisgarh,2013,88,DANTEWARA,DHURVA PODIYAMI,,3008,2.78,5,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2372,chhattisgarh,2013,88,DANTEWARA,BHIMA GURUJI,,2953,2.73,6,forfeit,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2372,chhattisgarh,2013,88,DANTEWARA,SUKAL PRASHAD NAG,,2911,2.69,7,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2370,chhattisgarh,2013,89,BIJAPUR,MAHESH GAGDA,,29578,41.82,1,won,U,38,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2370,chhattisgarh,2013,89,BIJAPUR,VIKRAM MANDAVI,,20091,28.41,2,lost,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2370,chhattisgarh,2013,89,BIJAPUR,ALWA MADNAIYA,,5942,8.4,4,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2370,chhattisgarh,2013,89,BIJAPUR,NEENA RAWATIYA,,2829,4,5,forfeit,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2370,chhattisgarh,2013,89,BIJAPUR,RANGU RAM TELAM,,2622,3.71,6,forfeit,U,29,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2370,chhattisgarh,2013,89,BIJAPUR,SANTOSH PUNEM,,2489,3.52,7,forfeit,U,38,10th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2375,chhattisgarh,2013,90,KONTA,KAWASI LAKHMA,,27610,36.4,1,won,U,56,Literate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2375,chhattisgarh,2013,90,KONTA,DHANI RAM BARSE,,21824,28.77,2,lost,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2375,chhattisgarh,2013,90,KONTA,MANISH KUNJAM,,19834,26.15,3,lost,U,48,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2375,chhattisgarh,2013,90,KONTA,HUNGA RAM KARTAMI,,2579,3.4,5,forfeit,U,36,8th Pass,,challenger,src-1b7bc1c9d39a

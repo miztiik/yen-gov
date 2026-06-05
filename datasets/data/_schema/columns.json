@@ -199,12 +199,12 @@
         { "name": "winner_candidate", "dtype": "string", "nullable": false },
         { "name": "winner_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
         { "name": "winner_votes", "dtype": "integer", "nullable": false, "derived": true },
-        { "name": "winner_share_pct", "dtype": "number", "nullable": false, "derived": true },
-        { "name": "runnerup_candidate", "dtype": "string", "nullable": false },
+        { "name": "winner_share_pct", "dtype": "number", "nullable": true, "derived": true },
+        { "name": "runnerup_candidate", "dtype": "string", "nullable": true },
         { "name": "runnerup_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
-        { "name": "runnerup_votes", "dtype": "integer", "nullable": false, "derived": true },
-        { "name": "margin_votes", "dtype": "integer", "nullable": false, "derived": true },
-        { "name": "margin_pct", "dtype": "number", "nullable": false, "derived": true },
+        { "name": "runnerup_votes", "dtype": "integer", "nullable": true, "derived": true },
+        { "name": "margin_votes", "dtype": "integer", "nullable": true, "derived": true },
+        { "name": "margin_pct", "dtype": "number", "nullable": true, "derived": true },
         { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
       ]
     },
@@ -231,7 +231,7 @@
       ]
     },
     "datasets/elections/parliament/election=*/summary.csv": {
-      "notes": "Same shape as assembly summary with entity_id keyed to PC. state is MANDATORY (plan section 23.4). Spec: csv-column-contract.md section 3.4.",
+      "notes": "Same shape as assembly summary with entity_id keyed to PC. state is MANDATORY (plan section 23.4). winner_share_pct + the runnerup_* + margin_* fields are nullable: an uncontested seat (single candidate, unopposed return) has no runner-up and no meaningful margin, and TCPD records an unopposed winner's share as non-numeric (B2b.5.3). Spec: csv-column-contract.md section 3.4.",
       "columns": [
         { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/electoral.csv.entity_id" },
         { "name": "state", "dtype": "string", "nullable": false },
@@ -243,12 +243,12 @@
         { "name": "winner_candidate", "dtype": "string", "nullable": false },
         { "name": "winner_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
         { "name": "winner_votes", "dtype": "integer", "nullable": false, "derived": true },
-        { "name": "winner_share_pct", "dtype": "number", "nullable": false, "derived": true },
-        { "name": "runnerup_candidate", "dtype": "string", "nullable": false },
+        { "name": "winner_share_pct", "dtype": "number", "nullable": true, "derived": true },
+        { "name": "runnerup_candidate", "dtype": "string", "nullable": true },
         { "name": "runnerup_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
-        { "name": "runnerup_votes", "dtype": "integer", "nullable": false, "derived": true },
-        { "name": "margin_votes", "dtype": "integer", "nullable": false, "derived": true },
-        { "name": "margin_pct", "dtype": "number", "nullable": false, "derived": true },
+        { "name": "runnerup_votes", "dtype": "integer", "nullable": true, "derived": true },
+        { "name": "margin_votes", "dtype": "integer", "nullable": true, "derived": true },
+        { "name": "margin_pct", "dtype": "number", "nullable": true, "derived": true },
         { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
       ]
     },

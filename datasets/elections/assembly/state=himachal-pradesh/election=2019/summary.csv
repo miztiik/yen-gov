@@ -1,0 +1,3 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-himachal-pradesh-110,himachal-pradesh,2019,DHARAMSHALA,81153,52915,65.2,VISHAL NEHRIA,,23498,44.41,RAKESH KUMAR,,16740,6758,12.77,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-147,himachal-pradesh,2019,PACHHAD,73909,54262,73.42,REENA KASHYAP,,22167,40.85,GANGU RAM MUSAFIR,,19359,2808,5.17,src-1b7bc1c9d39a

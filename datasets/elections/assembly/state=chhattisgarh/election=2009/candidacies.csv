@@ -1,0 +1,16 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Bhajan S. N.,,47225,43.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Jageshwar Sahu,,45997,42.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Riti Deshlahara,,11477,10.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Noor Bhai,,1058,0.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Ashok Miri,,586,0.54,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Shiv S. Singh Ad,,314,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Farooque Khan,,230,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Adv. N. Gupta,,185,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Durga Patel,,126,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Ganesh Manhar,,116,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Chitra Lekha D.,,114,0.11,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Manharan S. C.,,112,0.1,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Anand Gautam,,107,0.1,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Anita Verma,,92,0.09,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Bakar Ali,,62,0.06,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a

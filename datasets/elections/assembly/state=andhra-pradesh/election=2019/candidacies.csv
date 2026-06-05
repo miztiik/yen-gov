@@ -1,0 +1,684 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-andhra-pradesh-3170,andhra-pradesh,2019,62,TADEPALLIGUDEM,KOTTU SATYANARAYANA,,70741,42.17,1,won,M,63,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3170,andhra-pradesh,2019,62,TADEPALLIGUDEM,ELI VENKATA MADHUSUDHANARAO (Nani),,54275,32.35,2,lost,M,58,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3170,andhra-pradesh,2019,62,TADEPALLIGUDEM,BOLISETTI SRINIVAS,,36197,21.58,3,lost,M,59,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3170,andhra-pradesh,2019,62,TADEPALLIGUDEM,GATTIM MANIKYALA RAO,,1580,0.94,5,forfeit,M,54,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3170,andhra-pradesh,2019,62,TADEPALLIGUDEM,M SEKHAR (Babji),,962,0.57,6,forfeit,M,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3170,andhra-pradesh,2019,62,TADEPALLIGUDEM,MARAPATLA RAJU,,677,0.4,7,forfeit,M,47,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3170,andhra-pradesh,2019,62,TADEPALLIGUDEM,VEGI SATYANARAYANA,,329,0.2,8,forfeit,M,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3170,andhra-pradesh,2019,62,TADEPALLIGUDEM,SIMHACHALAM SIRIVARAPU,,296,0.18,9,forfeit,M,61,5th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3170,andhra-pradesh,2019,62,TADEPALLIGUDEM,SRIRAMULA NAGESWARARAO,,225,0.13,10,forfeit,M,50,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3170,andhra-pradesh,2019,62,TADEPALLIGUDEM,PYBOINA BABLOO,,203,0.12,11,forfeit,M,27,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3170,andhra-pradesh,2019,62,TADEPALLIGUDEM,VENKATA SOMESWARA RAO TATAVARTHI (SOMU),,191,0.11,12,forfeit,M,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3170,andhra-pradesh,2019,62,TADEPALLIGUDEM,PALAPARTHI VEERA VENKATA SATYANARAYANA ( BADRAM),,157,0.09,13,forfeit,M,40,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3170,andhra-pradesh,2019,62,TADEPALLIGUDEM,BUSANABOYINA ANJANEYULU,,148,0.09,14,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3405,andhra-pradesh,2019,120,GUDUR,Velagapalli Varaprasad Rao,,109759,59.58,1,won,M,65,Doctorate,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3405,andhra-pradesh,2019,120,GUDUR,Pasim Sunil Kumar,,64301,34.9,2,lost,M,50,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3405,andhra-pradesh,2019,120,GUDUR,Pattapu Ravi,,2612,1.42,4,forfeit,M,61,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3405,andhra-pradesh,2019,120,GUDUR,Bhyrappa Paricherla,,1767,0.96,5,forfeit,M,32,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3405,andhra-pradesh,2019,120,GUDUR,Parimala Venkateswara Rao,,1234,0.67,6,forfeit,M,64,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3405,andhra-pradesh,2019,120,GUDUR,Jugunta Krishnaveni,,494,0.27,7,forfeit,F,47,Post Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3405,andhra-pradesh,2019,120,GUDUR,Vadanala Venkaiah,,314,0.17,8,forfeit,M,26,Graduate Professional,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3405,andhra-pradesh,2019,120,GUDUR,Arava Parvathaiah,,222,0.12,9,forfeit,M,64,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3405,andhra-pradesh,2019,120,GUDUR,Boddu Venkata Krishnaiah,,218,0.12,10,forfeit,M,54,Post Graduate,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3405,andhra-pradesh,2019,120,GUDUR,V. C. Naveen Gupta,,152,0.08,11,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3405,andhra-pradesh,2019,120,GUDUR,Bandi Srinivasulu,,142,0.08,12,forfeit,M,47,10th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3405,andhra-pradesh,2019,120,GUDUR,Sadepalli Srinivasulu,,130,0.07,13,forfeit,M,39,12th Pass,Mechanic,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3407,andhra-pradesh,2019,121,SULLURPETA,Kiliveti Sanjeevaiah,,119627,61.99,1,won,M,53,Graduate Professional,"MLA, Party Worker",incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3407,andhra-pradesh,2019,121,SULLURPETA,Dr. Parasa Venkata Rathnaiah,,58335,30.23,2,lost,M,63,Doctorate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3407,andhra-pradesh,2019,121,SULLURPETA,Uyyala Praveen,,5513,2.86,3,forfeit,M,33,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3407,andhra-pradesh,2019,121,SULLURPETA,Chandanamudi Pedda Eswaraiah,,2698,1.4,5,forfeit,M,60,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3407,andhra-pradesh,2019,121,SULLURPETA,Dasari Ratnam,,1734,0.9,6,forfeit,M,47,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3407,andhra-pradesh,2019,121,SULLURPETA,Kinthada Gurumurthy,,311,0.16,7,forfeit,M,66,Others,Ex Govt Employee,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3407,andhra-pradesh,2019,121,SULLURPETA,Biguva Srinivasulu,,295,0.15,8,forfeit,M,53,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3407,andhra-pradesh,2019,121,SULLURPETA,Panakala Ramulamma,,249,0.13,9,forfeit,F,66,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3407,andhra-pradesh,2019,121,SULLURPETA,Addanki Chandrababu,,176,0.09,10,forfeit,M,33,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3410,andhra-pradesh,2019,122,VENKATAGIRI,ANAM RAMANARAYANA REDDY,,109204,57.26,1,won,M,67,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3410,andhra-pradesh,2019,122,VENKATAGIRI,KURUGONDLA RAMAKRISHNA,,70484,36.96,2,lost,M,57,5th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3410,andhra-pradesh,2019,122,VENKATAGIRI,PALLIPATI RAJA,,2253,1.18,4,forfeit,M,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3410,andhra-pradesh,2019,122,VENKATAGIRI,PANTA SRINIVASULU REDDY,,1725,0.9,5,forfeit,M,47,Post Graduate,Principal or Administrator,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3410,andhra-pradesh,2019,122,VENKATAGIRI,S.S.R. NAIDU,,1700,0.89,6,forfeit,M,48,Graduate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3410,andhra-pradesh,2019,122,VENKATAGIRI,M. MASTHANAIAH,,318,0.17,7,forfeit,M,65,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3410,andhra-pradesh,2019,122,VENKATAGIRI,KONGA RAMAKANTH,,204,0.11,8,forfeit,M,56,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3410,andhra-pradesh,2019,122,VENKATAGIRI,CHATLA MUNIRAJA,,203,0.11,9,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3410,andhra-pradesh,2019,122,VENKATAGIRI,ARMUGON VAYYUURU,,196,0.1,10,forfeit,M,51,Doctorate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3410,andhra-pradesh,2019,122,VENKATAGIRI,GURU PRASANNA KUMAR CHALLA,,175,0.09,11,forfeit,M,27,Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3410,andhra-pradesh,2019,122,VENKATAGIRI,ATTIRALA SIVA KUMAR,,146,0.08,12,forfeit,M,38,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3408,andhra-pradesh,2019,123,UDAYAGIRI,MEKAPATI CHANDRA SEKHAR REDDY,,106487,57.31,1,won,M,66,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3408,andhra-pradesh,2019,123,UDAYAGIRI,BOLLINENI VENKATA RAMARAO,,69959,37.65,2,lost,M,56,10th Pass,Contractor,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3408,andhra-pradesh,2019,123,UDAYAGIRI,GUNDLAPALLI BHARATH KUMAR,,3102,1.67,3,forfeit,M,48,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3408,andhra-pradesh,2019,123,UDAYAGIRI,RAMESH DUDDUKURU,,1614,0.87,5,forfeit,M,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3408,andhra-pradesh,2019,123,UDAYAGIRI,SWARNA KONDAIAH,,390,0.21,6,forfeit,M,47,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3408,andhra-pradesh,2019,123,UDAYAGIRI,SHAIK JALEEL BASHA,,385,0.21,7,forfeit,M,30,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3408,andhra-pradesh,2019,123,UDAYAGIRI,BAPATHI MADHU,,226,0.12,8,forfeit,M,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3408,andhra-pradesh,2019,123,UDAYAGIRI,CHAGAM. MAHESWARA,,176,0.09,9,forfeit,M,34,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3408,andhra-pradesh,2019,123,UDAYAGIRI,MADDINENI. CHANDRAIAH,,175,0.09,10,forfeit,M,97,Illiterate,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3408,andhra-pradesh,2019,123,UDAYAGIRI,BOLLINENI VENKATA SATYANARAYANA,,106,0.06,11,forfeit,M,49,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3408,andhra-pradesh,2019,123,UDAYAGIRI,GOLLAPALLI THIRUPATHAIAH,,93,0.05,12,forfeit,M,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3408,andhra-pradesh,2019,123,UDAYAGIRI,CHANGATTI JAYARAMI REDDY,,83,0.04,13,forfeit,M,50,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3408,andhra-pradesh,2019,123,UDAYAGIRI,CHEJARLA SUBBA REDDY,,75,0.04,14,forfeit,M,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2019,124,BADVEL,Dr. G. Venkata Subbaiah,,95482,60.89,1,won,M,59,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2019,124,BADVEL,Dr. Obulapuram Raja Sekhar,,50748,32.36,2,lost,M,47,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2019,124,BADVEL,Neerugattu Dora Vijaya Jyothi,,2883,1.84,3,forfeit,F,53,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2019,124,BADVEL,P.M. Kamalamma,,2337,1.49,4,forfeit,F,63,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2019,124,BADVEL,Nagipogu Prasad,,1321,0.84,6,forfeit,M,48,10th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2019,124,BADVEL,Thiriveedi. Jayaramulu.,,735,0.47,7,forfeit,M,60,Post Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2019,124,BADVEL,Seelam. Ganganna,,431,0.27,8,forfeit,M,66,Graduate Professional,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2019,124,BADVEL,Kotapati Narasimhulu,,337,0.21,9,forfeit,M,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2019,124,BADVEL,Zinka Raveendra Babu,,106,0.07,10,forfeit,M,32,Post Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2019,124,BADVEL,Thiriveedi Suban,,98,0.06,11,forfeit,M,33,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2019,124,BADVEL,Muthyala Prasad Rao,,96,0.06,12,forfeit,M,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2019,124,BADVEL,S. Abraham,,94,0.06,13,forfeit,M,41,10th Pass,District Council,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2019,124,BADVEL,Gudime Kishore,,80,0.05,14,forfeit,M,27,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2019,124,BADVEL,Velpula. Nara Subbanna,,67,0.04,15,forfeit,M,70,Graduate,Ex Police,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3404,andhra-pradesh,2019,125,RAJAMPET,Meda Venkata Mallikarjuna Reddy,,95266,57.79,1,won,M,56,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3404,andhra-pradesh,2019,125,RAJAMPET,Bathyala Changal Rayudu,,59994,36.39,2,lost,M,63,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3404,andhra-pradesh,2019,125,RAJAMPET,Poola Bhaskar,,3081,1.87,3,forfeit,M,42,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3404,andhra-pradesh,2019,125,RAJAMPET,Pathipati Kusuma Kumari,,2376,1.44,4,forfeit,F,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3404,andhra-pradesh,2019,125,RAJAMPET,Pothugunta Ramesh Naidu,,1008,0.61,6,forfeit,M,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3404,andhra-pradesh,2019,125,RAJAMPET,Akkidasari Chandramohan,,299,0.18,7,forfeit,M,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3404,andhra-pradesh,2019,125,RAJAMPET,Arigela Dinesh Chandranath,,243,0.15,8,forfeit,M,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3404,andhra-pradesh,2019,125,RAJAMPET,Bandi Eswar,,192,0.12,9,forfeit,M,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3404,andhra-pradesh,2019,125,RAJAMPET,Bojjireddy Rajamohan Reddy,,191,0.12,10,forfeit,M,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3404,andhra-pradesh,2019,125,RAJAMPET,J.V. Ramana,,187,0.11,11,forfeit,M,56,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3404,andhra-pradesh,2019,125,RAJAMPET,Surendra Reddy Dugganapalli,,170,0.1,12,forfeit,M,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3404,andhra-pradesh,2019,125,RAJAMPET,O. Mallikarjuna Reddy,,135,0.08,13,forfeit,M,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3404,andhra-pradesh,2019,125,RAJAMPET,Madhan Mohan Reddy Mummadi,,90,0.05,14,forfeit,M,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3404,andhra-pradesh,2019,125,RAJAMPET,Kaladhar Dasari,,87,0.05,15,forfeit,M,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3404,andhra-pradesh,2019,125,RAJAMPET,Pendyala Vijay Kumar,,79,0.05,16,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3434,andhra-pradesh,2019,126,KADAPA,AMZATH BASHA SHAIK BEPARI,,104822,62.89,1,won,M,47,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3434,andhra-pradesh,2019,126,KADAPA,AMEER BABU NAWABJAN,,50028,30.01,2,lost,M,62,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3434,andhra-pradesh,2019,126,KADAPA,SUNKARA SREENIVAS,,5385,3.23,3,forfeit,M,53,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3434,andhra-pradesh,2019,126,KADAPA,NAZEER AHAMED SHAIK,,1863,1.12,4,forfeit,M,66,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3434,andhra-pradesh,2019,126,KADAPA,SREENIVASULU REDDY KANDULA,,1230,0.74,6,forfeit,M,46,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3434,andhra-pradesh,2019,126,KADAPA,N. RAVI SANKAR REDDY,,559,0.34,7,forfeit,M,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3434,andhra-pradesh,2019,126,KADAPA,SYED SALAUDDIN,,380,0.23,8,forfeit,M,63,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3434,andhra-pradesh,2019,126,KADAPA,A. RAJAGOPAL REDDY,,377,0.23,9,forfeit,M,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3434,andhra-pradesh,2019,126,KADAPA,S. RAMACHANDRUDU,,108,0.06,10,forfeit,M,50,Post Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3434,andhra-pradesh,2019,126,KADAPA,SETTYPALLE. SUBRAMANYAM,,105,0.06,11,forfeit,M,43,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3434,andhra-pradesh,2019,126,KADAPA,KANDALAM LAKSHMI,,100,0.06,12,forfeit,F,66,Others,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3434,andhra-pradesh,2019,126,KADAPA,AKBER MABASHA,,91,0.05,13,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3434,andhra-pradesh,2019,126,KADAPA,K. MAHAMMAD BASHA,,91,0.05,14,forfeit,M,32,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3434,andhra-pradesh,2019,126,KADAPA,MOHAMMAD ALI SHAIK,,55,0.03,15,forfeit,M,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3434,andhra-pradesh,2019,126,KADAPA,K. KUMARASWAMY,,35,0.02,16,forfeit,M,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2019,127,KODUR,Koramutla Sreenivasulu,,78312,57.26,1,won,M,49,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2019,127,KODUR,Panthagani Narasimha Prasad,,43433,31.76,2,lost,M,40,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2019,127,KODUR,Bonasi Venkata Subbaiah,,9964,7.29,3,forfeit,M,59,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2019,127,KODUR,Gosala Devi,,1333,0.97,5,forfeit,F,36,8th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2019,127,KODUR,Panathala Suresh,,1049,0.77,6,forfeit,M,34,12th Pass,"Taxi Driver, Auto-rickshaw Driver",challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2019,127,KODUR,Bonasi Keerthana,,178,0.13,7,forfeit,F,25,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2019,127,KODUR,Joropalli Narasimhulu,,129,0.09,8,forfeit,M,53,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2019,127,KODUR,Bandela Obaiah,,123,0.09,9,forfeit,M,53,12th Pass,Managerial Position,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2019,127,KODUR,Mandapalle Sreenivasulu,,114,0.08,10,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2019,127,KODUR,Maddela Ramadevi,,114,0.08,11,forfeit,F,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2019,127,KODUR,Karrathoti Harinarayana,,98,0.07,12,forfeit,M,40,Doctorate,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2019,127,KODUR,K.Rambabu,,97,0.07,13,forfeit,M,34,12th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2019,127,KODUR,Pilli Rama Rao,,95,0.07,14,forfeit,M,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2019,127,KODUR,Nagiripati Sivaiah,,86,0.06,15,forfeit,M,58,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2019,127,KODUR,J.Gangulaiah,,75,0.05,16,forfeit,M,48,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3437,andhra-pradesh,2019,128,RAYACHOTI,GADIKOTA. SRIKANTH REDDY.,,98990,56.94,1,won,M,46,Graduate Professional,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3437,andhra-pradesh,2019,128,RAYACHOTI,RAMESH KUMAR REDDY REDDAPPAGARI,,66128,38.04,2,lost,M,53,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3437,andhra-pradesh,2019,128,RAYACHOTI,Shaik ALLABAKASH.,,2615,1.5,3,forfeit,M,65,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3437,andhra-pradesh,2019,128,RAYACHOTI,S. HASAN. BASHA.,,1480,0.85,5,forfeit,M,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3437,andhra-pradesh,2019,128,RAYACHOTI,PALAgiRi.SRiNiVASA KUMAR RAJU,,1199,0.69,6,forfeit,M,48,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3437,andhra-pradesh,2019,128,RAYACHOTI,Papireddy. Madan Mohan Reddy,,649,0.37,7,forfeit,M,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3437,andhra-pradesh,2019,128,RAYACHOTI,K. VINAY KUMAR REDDY.,,263,0.15,8,forfeit,M,29,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3437,andhra-pradesh,2019,128,RAYACHOTI,YADAGUTTA. JANGAMAIAH,,164,0.09,9,forfeit,M,60,8th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3437,andhra-pradesh,2019,128,RAYACHOTI,MANOHARA. REPANA,,129,0.07,10,forfeit,M,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3190,andhra-pradesh,2019,129,PULIVENDLA,Y S JAGAN MOHAN REDDY,,132356,73.48,1,won,M,46,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3190,andhra-pradesh,2019,129,PULIVENDLA,SATISH REDDY SINGA REDDY,,42246,23.45,2,lost,M,52,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3190,andhra-pradesh,2019,129,PULIVENDLA,PEDABALLI SUSHMA,,1260,0.7,4,forfeit,F,31,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3190,andhra-pradesh,2019,129,PULIVENDLA,VELURU SRINIVASA REDDY,,1230,0.68,5,forfeit,M,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3190,andhra-pradesh,2019,129,PULIVENDLA,T. RAGHAVA REDDY,,215,0.12,6,forfeit,M,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3190,andhra-pradesh,2019,129,PULIVENDLA,GAVI REDDY RAMESWARA REDDY,,142,0.08,7,forfeit,M,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3190,andhra-pradesh,2019,129,PULIVENDLA,POREDDY PRABHAKAR REDDY,,117,0.06,8,forfeit,M,54,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3190,andhra-pradesh,2019,129,PULIVENDLA,A. VIJAY KUMAR REDDY,,101,0.06,9,forfeit,M,31,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3190,andhra-pradesh,2019,129,PULIVENDLA,RAJULA BHASKAR REDDY,,89,0.05,10,forfeit,M,49,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3190,andhra-pradesh,2019,129,PULIVENDLA,NANDYALA HEMADRI REDDY,,86,0.05,11,forfeit,M,44,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3190,andhra-pradesh,2019,129,PULIVENDLA,DANTHALURU KRISHNA,,66,0.04,12,forfeit,M,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3190,andhra-pradesh,2019,129,PULIVENDLA,ANNA SIVACHANDRA REDDY,,59,0.03,13,forfeit,M,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3188,andhra-pradesh,2019,130,KAMALAPURAM,POCHIMAREDDY RAVINDRANATH REDDY,,88482,55.88,1,won,M,60,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3188,andhra-pradesh,2019,130,KAMALAPURAM,NARASIMHA REDDY PUTHA,,61149,38.62,2,lost,M,66,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3188,andhra-pradesh,2019,130,KAMALAPURAM,OBAIAH GUDISENAPALLI,,2748,1.74,3,forfeit,M,48,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3188,andhra-pradesh,2019,130,KAMALAPURAM,CHANDRA SEKHAR REDDY POTTI PATI,,1997,1.26,4,forfeit,M,52,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3188,andhra-pradesh,2019,130,KAMALAPURAM,PALEM SURESH KUMAR REDDY,,1005,0.63,6,forfeit,M,33,Others,Accountant,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3188,andhra-pradesh,2019,130,KAMALAPURAM,ABBIREDDY VEERA REDDY,,292,0.18,7,forfeit,M,54,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3188,andhra-pradesh,2019,130,KAMALAPURAM,YAMAVARAM CHANDRASEKHAR,,273,0.17,8,forfeit,M,41,Illiterate,Shop Keeper,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3188,andhra-pradesh,2019,130,KAMALAPURAM,HRUSHIKESHAVA REDDY VALLAMBAI,,166,0.1,9,forfeit,M,31,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3188,andhra-pradesh,2019,130,KAMALAPURAM,TADIGOTLA PRATAP REDDY,,136,0.09,10,forfeit,M,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3188,andhra-pradesh,2019,130,KAMALAPURAM,P. NAREN RAMANJULA REDDY,,101,0.06,11,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3188,andhra-pradesh,2019,130,KAMALAPURAM,GANDHAM MOHAN BABU,,95,0.06,12,forfeit,M,46,10th Pass,Managerial Position,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3188,andhra-pradesh,2019,130,KAMALAPURAM,MACHUPALLE VENKATA SUBBA REDDY,,87,0.05,13,forfeit,M,61,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3188,andhra-pradesh,2019,130,KAMALAPURAM,NAREDDY KISHORE REDDY,,84,0.05,14,forfeit,M,41,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3188,andhra-pradesh,2019,130,KAMALAPURAM,SUDHAKAR REDDY SINGAM,,76,0.05,15,forfeit,M,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3188,andhra-pradesh,2019,130,KAMALAPURAM,VADLAKUNTA SURYA PRAKASH,,67,0.04,16,forfeit,M,68,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3191,andhra-pradesh,2019,131,JAMMALAMADUGU,Mule Sudheer Reddy,,125005,61.31,1,won,M,38,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3191,andhra-pradesh,2019,131,JAMMALAMADUGU,Rama Subba Reddy Ponnapureddy,,73364,35.98,2,lost,M,57,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3191,andhra-pradesh,2019,131,JAMMALAMADUGU,Arigela Chinnagari Vinay Kumar,,1038,0.51,4,forfeit,M,30,Graduate,Engineer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3191,andhra-pradesh,2019,131,JAMMALAMADUGU,Vennapusa Sulochana,,570,0.28,5,forfeit,F,40,5th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3191,andhra-pradesh,2019,131,JAMMALAMADUGU,Rotikadi Ramakrishna,,536,0.26,6,forfeit,M,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3191,andhra-pradesh,2019,131,JAMMALAMADUGU,S.Sudhakar Reddy,,389,0.19,7,forfeit,M,48,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3191,andhra-pradesh,2019,131,JAMMALAMADUGU,Venkata Krishnareddy Lakkireddy,,131,0.06,8,forfeit,M,50,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3191,andhra-pradesh,2019,131,JAMMALAMADUGU,Sudheer Reddy Maram Reddy,,120,0.06,9,forfeit,M,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3191,andhra-pradesh,2019,131,JAMMALAMADUGU,Naga Subba Reddy Vela,,85,0.04,10,forfeit,M,67,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3191,andhra-pradesh,2019,131,JAMMALAMADUGU,Abdul Khadhar Shaik,,71,0.03,11,forfeit,M,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3191,andhra-pradesh,2019,131,JAMMALAMADUGU,Poreddy Maheswara Reddy,,71,0.03,12,forfeit,M,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3191,andhra-pradesh,2019,131,JAMMALAMADUGU,Anna Vijaya Shekar,,67,0.03,13,forfeit,M,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3191,andhra-pradesh,2019,131,JAMMALAMADUGU,Pogaku Hanumantha Reddy,,62,0.03,14,forfeit,M,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3191,andhra-pradesh,2019,131,JAMMALAMADUGU,Vongala Nagendrudu,,56,0.03,15,forfeit,M,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3191,andhra-pradesh,2019,131,JAMMALAMADUGU,Vempalaku Ramanjaneyulu,,54,0.03,16,forfeit,M,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3193,andhra-pradesh,2019,132,PRODDATUR,Rachamallu Siva Prasad Reddy,,107941,59.21,1,won,M,53,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3193,andhra-pradesh,2019,132,PRODDATUR,Mallela Linga Reddy,,64793,35.54,2,lost,M,59,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3193,andhra-pradesh,2019,132,PRODDATUR,Gorre Srinivasulu,,2454,1.35,3,forfeit,M,54,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3193,andhra-pradesh,2019,132,PRODDATUR,Enja Soma Sekhar Reddy,,2446,1.34,4,forfeit,M,48,8th Pass,Self-employed,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3193,andhra-pradesh,2019,132,PRODDATUR,Kovvuru Bala Chandra Reddy,,2210,1.21,5,forfeit,M,61,Graduate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3193,andhra-pradesh,2019,132,PRODDATUR,P. Munireddy Bangaru,,178,0.1,7,forfeit,M,47,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3193,andhra-pradesh,2019,132,PRODDATUR,Dwarshala Gopinath Reddy,,170,0.09,8,forfeit,M,28,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3193,andhra-pradesh,2019,132,PRODDATUR,Palagiri Uma Sankar Reddy,,153,0.08,9,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3193,andhra-pradesh,2019,132,PRODDATUR,Kanala Samel,,136,0.07,10,forfeit,M,40,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3193,andhra-pradesh,2019,132,PRODDATUR,Chinthala Shoban Babu,,122,0.07,11,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3193,andhra-pradesh,2019,132,PRODDATUR,P Gurappa,,88,0.05,12,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3193,andhra-pradesh,2019,132,PRODDATUR,S. Hajivalli,,79,0.04,13,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3432,andhra-pradesh,2019,133,MYDUKUR,Raghurami Reddy Settipally,,94849,56.03,1,won,M,73,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3432,andhra-pradesh,2019,133,MYDUKUR,Putta Sudhakar Yadav,,65505,38.69,2,lost,M,55,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3432,andhra-pradesh,2019,133,MYDUKUR,Kotaiahgari Mallikharjuna Murthy,,3617,2.14,3,forfeit,M,48,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3432,andhra-pradesh,2019,133,MYDUKUR,Panditi Malhotra,,1824,1.08,4,forfeit,M,37,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3432,andhra-pradesh,2019,133,MYDUKUR,B P Venkata Pratap Reddy,,986,0.58,6,forfeit,M,50,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3432,andhra-pradesh,2019,133,MYDUKUR,Tupakula Gangadhar Reddy,,264,0.16,7,forfeit,M,26,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3432,andhra-pradesh,2019,133,MYDUKUR,P Balaiah Yadav,,239,0.14,8,forfeit,M,63,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3432,andhra-pradesh,2019,133,MYDUKUR,Iragamreddy Priyadarshini Reddy,,116,0.07,9,forfeit,F,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3432,andhra-pradesh,2019,133,MYDUKUR,Putta Sankar,,109,0.06,10,forfeit,M,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3432,andhra-pradesh,2019,133,MYDUKUR,Rajarami Reddy Sriyapureddy,,85,0.05,11,forfeit,M,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3432,andhra-pradesh,2019,133,MYDUKUR,D Sreenivasulu,,82,0.05,12,forfeit,M,29,Graduate,Agricultural Business,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3433,andhra-pradesh,2019,134,ALLAGADDA,Gangula Brijendra Reddy (Nani),,105905,57.03,1,won,M,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3433,andhra-pradesh,2019,134,ALLAGADDA,Akhila Priya Bhuma,,70292,37.85,2,lost,F,31,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3433,andhra-pradesh,2019,134,ALLAGADDA,Chakali Pullaiah,,2626,1.41,3,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3433,andhra-pradesh,2019,134,ALLAGADDA,Sulam. Ramakrishnudu (R.K),,2075,1.12,4,forfeit,M,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3433,andhra-pradesh,2019,134,ALLAGADDA,Varikuti. Hannamma,,779,0.42,6,forfeit,F,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3433,andhra-pradesh,2019,134,ALLAGADDA,"Boreddy Lakshmi Reddy, Advocate",,735,0.4,7,forfeit,M,52,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3433,andhra-pradesh,2019,134,ALLAGADDA,C. Raghunadha Reddy,,273,0.15,8,forfeit,M,64,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3433,andhra-pradesh,2019,134,ALLAGADDA,Dr.Yarranagu Prasad,,266,0.14,9,forfeit,M,40,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3433,andhra-pradesh,2019,134,ALLAGADDA,Boreddy Raja Sekhar Reddy,,177,0.1,10,forfeit,M,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3433,andhra-pradesh,2019,134,ALLAGADDA,Gopireddy. Pullareddy,,174,0.09,11,forfeit,M,64,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3433,andhra-pradesh,2019,134,ALLAGADDA,Kunduru Rami Reddy,,149,0.08,12,forfeit,M,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3433,andhra-pradesh,2019,134,ALLAGADDA,Annem. Naga Prathap Reddy,,146,0.08,13,forfeit,M,40,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3433,andhra-pradesh,2019,134,ALLAGADDA,Gangula Prathap,,145,0.08,14,forfeit,M,40,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3433,andhra-pradesh,2019,134,ALLAGADDA,Kamatham Subbaareddy,,141,0.08,15,forfeit,M,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3433,andhra-pradesh,2019,134,ALLAGADDA,Yeddula Venkateswarlu,,127,0.07,16,forfeit,M,42,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3435,andhra-pradesh,2019,135,SRISAILAM,SILPA CHAKRAPANI REDDY,,92236,60.41,1,won,M,55,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3435,andhra-pradesh,2019,135,SRISAILAM,BUDDA RAJASEKHARA REDDY,,53538,35.07,2,lost,M,52,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3435,andhra-pradesh,2019,135,SRISAILAM,SANNAPUREDDY SUJALA,,1982,1.3,3,forfeit,F,42,Graduate,Industrialist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3435,andhra-pradesh,2019,135,SRISAILAM,NAYAB SYED THASLIMA,,1190,0.78,5,forfeit,F,30,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3435,andhra-pradesh,2019,135,SRISAILAM,BUDDA SRIKANTH REDDY,,1184,0.78,6,forfeit,M,43,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3435,andhra-pradesh,2019,135,SRISAILAM,ABDUL HAKEEM,,357,0.23,7,forfeit,M,27,12th Pass,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3435,andhra-pradesh,2019,135,SRISAILAM,NARLA VENKATA RAGHAVA REDDY,,186,0.12,8,forfeit,M,67,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3435,andhra-pradesh,2019,135,SRISAILAM,Y LOKESWARA REDDY,,185,0.12,9,forfeit,M,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3435,andhra-pradesh,2019,135,SRISAILAM,S MEER HUSSAIN,,142,0.09,10,forfeit,M,57,Illiterate,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3435,andhra-pradesh,2019,135,SRISAILAM,TALARI VENKATESWARLU,,115,0.08,11,forfeit,M,42,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3435,andhra-pradesh,2019,135,SRISAILAM,CH P MALLESWARUDU,,93,0.06,12,forfeit,M,65,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3436,andhra-pradesh,2019,136,NANDIKOTKUR,THOGURU ARTHUR,,102565,59.45,1,won,M,63,Graduate,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3436,andhra-pradesh,2019,136,NANDIKOTKUR,BANDI JAYARAJU,,61955,35.91,2,lost,M,48,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3436,andhra-pradesh,2019,136,NANDIKOTKUR,ANNAPUREDDY BALA VENKAT,,3313,1.92,3,forfeit,M,31,Graduate,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3436,andhra-pradesh,2019,136,NANDIKOTKUR,ASHOKARATHNAM.C,,1668,0.97,5,forfeit,M,68,Graduate,Managerial Position,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3436,andhra-pradesh,2019,136,NANDIKOTKUR,K.V.RAMANA,,405,0.23,6,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3436,andhra-pradesh,2019,136,NANDIKOTKUR,PALLE. NAGARAJU,,311,0.18,7,forfeit,M,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3436,andhra-pradesh,2019,136,NANDIKOTKUR,SAGiNELA VENKATESWARLU,,285,0.17,8,forfeit,M,28,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3436,andhra-pradesh,2019,136,NANDIKOTKUR,MURTHATI.RAJU,,185,0.11,9,forfeit,M,40,Literate,Ex Judiciary,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,Abdul Hafeez Khan,,72819,47.7,1,won,M,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,T.G. Bharath,,67466,44.19,2,lost,M,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,Teetla Shadrack,,3771,2.47,3,forfeit,M,61,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,M. John Wilson,,3388,2.22,4,forfeit,M,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,Venkata Subba Reddy. B,,1954,1.28,5,forfeit,M,50,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,K. Chandrakanth,,349,0.23,7,forfeit,M,25,Graduate Professional,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,Abdul Sattar (A.S.R),,230,0.15,8,forfeit,M,38,Post Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,S.A. Gaffoor,,228,0.15,9,forfeit,M,63,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,Jangam Bharath Kumar,,216,0.14,10,forfeit,M,25,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,Dr. Kakarawada Chinna Venkata Swamy,,187,0.12,11,forfeit,M,42,Doctorate,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,Jalli. Venkatesh. Valmiki,,179,0.12,12,forfeit,M,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,S. Nazeer Ahmmad,,109,0.07,13,forfeit,M,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,S. Chandra Sekhar,,108,0.07,14,forfeit,M,55,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,Abdul Hafeez Khan. B,,105,0.07,15,forfeit,M,82,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,B. Sreenivasa Rao,,101,0.07,16,forfeit,M,49,Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,Ismail Mohammed,,80,0.05,17,forfeit,M,49,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,Manchalla Babuji,,80,0.05,18,forfeit,M,46,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,K.A. VIJAYA SARATHI,,71,0.05,19,forfeit,M,42,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,Chakravarthi Nayakanti,,70,0.05,20,forfeit,M,36,Others,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,S.A.N. GANI,,70,0.05,21,forfeit,M,58,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,Bandapalli Shiva Kumar,,59,0.04,22,forfeit,M,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,Gorantla Ramanjaneyulu,,54,0.04,23,forfeit,M,37,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,Puli Jacob,,52,0.03,24,forfeit,M,60,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,Paradesi. Yonathan,,50,0.03,25,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,Shaik Abdul Gafoor,,49,0.03,26,forfeit,M,68,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,Sandyapogu Raghavendra,,43,0.03,27,forfeit,M,33,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,V.E. Raju,,37,0.02,28,forfeit,M,42,Illiterate,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3438,andhra-pradesh,2019,137,KURNOOL,B. Surya Prakash Reddy,,34,0.02,29,forfeit,M,26,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3427,andhra-pradesh,2019,138,PANYAM,KATASANI RAMBHUPAL REDDY,,122476,56.78,1,won,M,58,Graduate,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3427,andhra-pradesh,2019,138,PANYAM,GOWRU CHARITHA REDDY,,78619,36.45,2,lost,F,49,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3427,andhra-pradesh,2019,138,PANYAM,CHINTHA SURESH BABU,,5104,2.37,3,forfeit,M,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3427,andhra-pradesh,2019,138,PANYAM,MADANABOINA NAGA MADHU YADAV,,2462,1.14,5,forfeit,M,33,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3427,andhra-pradesh,2019,138,PANYAM,G S NAGARAJU,,1735,0.8,6,forfeit,M,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3427,andhra-pradesh,2019,138,PANYAM,NAYAKANTI KATTUBADI JAYANNA,,903,0.42,7,forfeit,M,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3427,andhra-pradesh,2019,138,PANYAM,KUMAR NAYAKANTI,,392,0.18,8,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3427,andhra-pradesh,2019,138,PANYAM,REDDYPOGU AYYANNA,,374,0.17,9,forfeit,M,35,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3427,andhra-pradesh,2019,138,PANYAM,SHAIK GULAM MOHIDDIN JAFURULLA,,246,0.11,10,forfeit,M,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3427,andhra-pradesh,2019,138,PANYAM,KURUVA RAVIKUMAR,,233,0.11,11,forfeit,M,30,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3427,andhra-pradesh,2019,138,PANYAM,A GOWTHAM KRISHNA,,227,0.11,12,forfeit,M,26,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3427,andhra-pradesh,2019,138,PANYAM,SHAIK ABUBAKAR BASHA,,162,0.08,13,forfeit,M,53,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3427,andhra-pradesh,2019,138,PANYAM,BATHULA SESHASAYANA REDDY,,140,0.06,14,forfeit,M,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3425,andhra-pradesh,2019,139,NANDYAL,SHILPA RAVI CHANDRA KISHORE REDDY,,108868,55.13,1,won,M,35,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3425,andhra-pradesh,2019,139,NANDYAL,Bhuma Brahmanandha Reddy,,74308,37.63,2,lost,M,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3425,andhra-pradesh,2019,139,NANDYAL,SAJJALA SREEDHAR REDDY,,6004,3.04,3,forfeit,M,43,Graduate Professional,Industrialist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3425,andhra-pradesh,2019,139,NANDYAL,ATAULLAH KHAN,,2975,1.51,4,forfeit,M,48,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3425,andhra-pradesh,2019,139,NANDYAL,MALIKIREDDY SIVA SANKAR REDDY,,1129,0.57,5,forfeit,M,55,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3425,andhra-pradesh,2019,139,NANDYAL,Dr CHINTHALA MOHAN RAO,,1114,0.56,6,forfeit,M,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3425,andhra-pradesh,2019,139,NANDYAL,YELLA SUBBARAYUDU,,774,0.39,8,forfeit,M,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3425,andhra-pradesh,2019,139,NANDYAL,VANKIRI RAMA CHANDRUDU,,351,0.18,9,forfeit,M,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3425,andhra-pradesh,2019,139,NANDYAL,VADURI UMAKANTH,,256,0.13,10,forfeit,M,28,Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3425,andhra-pradesh,2019,139,NANDYAL,RAVI CHANDRA REDDY,,135,0.07,11,forfeit,M,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3425,andhra-pradesh,2019,139,NANDYAL,RAGHAVENDRA,,124,0.06,12,forfeit,M,37,10th Pass,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3425,andhra-pradesh,2019,139,NANDYAL,DERENGULA CHANDRA SEKHAR,,121,0.06,13,forfeit,M,30,Post Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3425,andhra-pradesh,2019,139,NANDYAL,Peri Chinna Raju,,115,0.06,14,forfeit,M,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3425,andhra-pradesh,2019,139,NANDYAL,MANJULA SUBBARAYUDU,,106,0.05,15,forfeit,M,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3425,andhra-pradesh,2019,139,NANDYAL,Attar Mohammad Parvez,,101,0.05,16,forfeit,M,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3431,andhra-pradesh,2019,141,DHONE,Buggana Raja Reddy,,100845,57.79,1,won,M,49,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3431,andhra-pradesh,2019,141,DHONE,Kambalapadu Ediga Prathap,,65329,37.44,2,lost,M,68,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3431,andhra-pradesh,2019,141,DHONE,K.Ramanjaneyulu,,2550,1.46,3,forfeit,M,54,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3431,andhra-pradesh,2019,141,DHONE,Venkata Siva Reddy Gunapalle,,1572,0.9,5,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3431,andhra-pradesh,2019,141,DHONE,S V Ramana Rayal,,552,0.32,6,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3431,andhra-pradesh,2019,141,DHONE,Sudhakar Reddy,,344,0.2,7,forfeit,M,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3431,andhra-pradesh,2019,141,DHONE,V.Sreenivasa Reddy,,243,0.14,8,forfeit,M,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3431,andhra-pradesh,2019,141,DHONE,T.Maddileti Naidu,,215,0.12,9,forfeit,M,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3431,andhra-pradesh,2019,141,DHONE,K.Srinivasa Reddy,,209,0.12,10,forfeit,M,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3431,andhra-pradesh,2019,141,DHONE,Bonala Rajendra,,200,0.11,11,forfeit,M,26,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3431,andhra-pradesh,2019,141,DHONE,Krishna Prasad,,139,0.08,12,forfeit,M,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3431,andhra-pradesh,2019,141,DHONE,Boya Hanumanthu,,135,0.08,13,forfeit,M,26,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3431,andhra-pradesh,2019,141,DHONE,Kamireddy Ranga Reddy,,126,0.07,14,forfeit,M,49,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3431,andhra-pradesh,2019,141,DHONE,K.Ramachandra Reddy,,124,0.07,15,forfeit,M,51,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3431,andhra-pradesh,2019,141,DHONE,I.J.Venkata Ramana,,109,0.06,16,forfeit,M,36,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3428,andhra-pradesh,2019,142,PATTIKONDA,KANGATI SREEDEVI,,100981,59.83,1,won,F,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3428,andhra-pradesh,2019,142,PATTIKONDA,K E SHYAM KUMAR,,58916,34.91,2,lost,M,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3428,andhra-pradesh,2019,142,PATTIKONDA,BOYA KRANTHI NAIDU,,2385,1.41,3,forfeit,M,27,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3428,andhra-pradesh,2019,142,PATTIKONDA,K L MURTHI,,2329,1.38,4,forfeit,M,29,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3428,andhra-pradesh,2019,142,PATTIKONDA,EEDIGA RANGA GOUD,,959,0.57,6,forfeit,M,41,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3428,andhra-pradesh,2019,142,PATTIKONDA,M K GEETHA KARANAM,,427,0.25,7,forfeit,F,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3428,andhra-pradesh,2019,142,PATTIKONDA,M KASANNA,,348,0.21,8,forfeit,M,28,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3428,andhra-pradesh,2019,142,PATTIKONDA,K.VIJAYA BHASKAR,,282,0.17,9,forfeit,M,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3428,andhra-pradesh,2019,142,PATTIKONDA,M RAJU,,205,0.12,10,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3429,andhra-pradesh,2019,143,KODUMUR,JARADODDI SUDHAKAR,,95037,56.58,1,won,M,44,Post Graduate,Medical Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3429,andhra-pradesh,2019,143,KODUMUR,BURLA. RAMANJANEYULU,,58992,35.12,2,lost,M,60,Post Graduate,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3429,andhra-pradesh,2019,143,KODUMUR,AREKANTI JEEVAN RAJ,,4294,2.56,3,forfeit,M,32,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3429,andhra-pradesh,2019,143,KODUMUR,DAMODARAM RADHAKRISHNA MURTHY,,3616,2.15,4,forfeit,M,50,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3429,andhra-pradesh,2019,143,KODUMUR,MEESALA PREM KUMAR,,1970,1.17,6,forfeit,M,46,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3429,andhra-pradesh,2019,143,KODUMUR,JOSHUA DANIEL,,620,0.37,7,forfeit,M,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3429,andhra-pradesh,2019,143,KODUMUR,K. CHANDRA SEKHAR,,375,0.22,8,forfeit,M,48,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3429,andhra-pradesh,2019,143,KODUMUR,R. KALAVATHI,,317,0.19,9,forfeit,F,48,12th Pass,Household,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3429,andhra-pradesh,2019,143,KODUMUR,P. ELISHA,,265,0.16,10,forfeit,M,57,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3426,andhra-pradesh,2019,144,YEMMIGANUR,K CHENNAKESAVA REDDY,,96498,53.28,1,won,M,79,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3426,andhra-pradesh,2019,144,YEMMIGANUR,B JAYA NAGESWARA REDDY,,70888,39.14,2,lost,M,42,Graduate Professional,Doctor,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3426,andhra-pradesh,2019,144,YEMMIGANUR,K.R. MURAHARI REDDY,,3022,1.67,3,forfeit,M,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3426,andhra-pradesh,2019,144,YEMMIGANUR,REKHA JAVVAJI,,2964,1.64,4,forfeit,F,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3426,andhra-pradesh,2019,144,YEMMIGANUR,KADIMETLA LAKSHMI NARAYANA REDDY,,2684,1.48,5,forfeit,M,56,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3426,andhra-pradesh,2019,144,YEMMIGANUR,DEVANAKONDA MOHAMMAD YOUSUF,,1824,1.01,7,forfeit,M,52,5th Pass,Priest,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3426,andhra-pradesh,2019,144,YEMMIGANUR,VADDE URUKUNDU,,453,0.25,8,forfeit,M,29,Post Graduate,Manufacturer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3426,andhra-pradesh,2019,144,YEMMIGANUR,Y J ERANNA,,328,0.18,9,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3174,andhra-pradesh,2019,145,MANTRALAYAM,Y. BALANAGI REDDY,,86896,54.53,1,won,M,55,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3174,andhra-pradesh,2019,145,MANTRALAYAM,PALAKURTHI THIKKA REDDY,,63017,39.55,2,lost,M,52,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3174,andhra-pradesh,2019,145,MANTRALAYAM,SHIVA PRAKASH REDDY A.D.,,1912,1.2,4,forfeit,M,26,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3174,andhra-pradesh,2019,145,MANTRALAYAM,JALLI MADHUSUDAN,,1578,0.99,5,forfeit,M,47,Post Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3174,andhra-pradesh,2019,145,MANTRALAYAM,B. LAKSHMANNA,,1396,0.88,6,forfeit,M,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3174,andhra-pradesh,2019,145,MANTRALAYAM,G. YELLA REDDY,,630,0.4,7,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3174,andhra-pradesh,2019,145,MANTRALAYAM,T. KESHAPPA,,545,0.34,8,forfeit,M,44,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3174,andhra-pradesh,2019,145,MANTRALAYAM,B. EEMANTU,,455,0.29,9,forfeit,M,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3176,andhra-pradesh,2019,146,ADONI,Y. SAI PRASAD REDDY,,74109,47.11,1,won,M,56,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3176,andhra-pradesh,2019,146,ADONI,KONKA MEENAKSHI NAIDU,,61790,39.28,2,lost,M,68,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3176,andhra-pradesh,2019,146,ADONI,N. MALLAPPA,,11898,7.56,3,forfeit,M,45,Graduate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3176,andhra-pradesh,2019,146,ADONI,KUNIGIRI NEELAKANTA,,3854,2.45,4,forfeit,M,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3176,andhra-pradesh,2019,146,ADONI,BOYA NEELAKANTAPPA,,2151,1.37,5,forfeit,M,68,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3176,andhra-pradesh,2019,146,ADONI,i. RAM MOHAN GOUD,,814,0.52,7,forfeit,M,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3176,andhra-pradesh,2019,146,ADONI,FAIYAZ BASHA AMLIVALE,,338,0.21,8,forfeit,M,34,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3176,andhra-pradesh,2019,146,ADONI,A. NOOR AHMED,,253,0.16,9,forfeit,M,42,Post Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3176,andhra-pradesh,2019,146,ADONI,M.D. FAROOQ HUSSAIN,,202,0.13,10,forfeit,M,35,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3176,andhra-pradesh,2019,146,ADONI,K. NARENDRA YADAV,,197,0.13,11,forfeit,M,35,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3176,andhra-pradesh,2019,146,ADONI,G.T.S. PRASAD YADAV,,173,0.11,12,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3187,andhra-pradesh,2019,147,ALUR,Gummanur Jayaram,,107101,56.57,1,won,M,51,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3187,andhra-pradesh,2019,147,ALUR,Kotla Sujathamma,,67205,35.5,2,lost,F,59,12th Pass,Ex MLA,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3187,andhra-pradesh,2019,147,ALUR,S Venkappa,,3539,1.87,3,forfeit,M,33,Graduate,Engineer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3187,andhra-pradesh,2019,147,ALUR,D Asha Begum,,2776,1.47,5,forfeit,F,57,Others,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3187,andhra-pradesh,2019,147,ALUR,Dumma Venkataramudu,,2077,1.1,6,forfeit,M,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3187,andhra-pradesh,2019,147,ALUR,B Jaya Ramudu,,1327,0.7,7,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3187,andhra-pradesh,2019,147,ALUR,Atla Babul Reddy,,881,0.47,8,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3187,andhra-pradesh,2019,147,ALUR,Basavana Goud,,598,0.32,9,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3187,andhra-pradesh,2019,147,ALUR,Y Jayasree,,519,0.27,10,forfeit,F,28,10th Pass,Engineer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3187,andhra-pradesh,2019,147,ALUR,Avula Chandra Sekhar,,317,0.17,11,forfeit,M,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3189,andhra-pradesh,2019,148,RAYADURG,KAPU RAMACHANDRA REDDY,,109043,50.46,1,won,M,56,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3189,andhra-pradesh,2019,148,RAYADURG,KALAVA SRINIVASULU,,94994,43.96,2,lost,M,55,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3189,andhra-pradesh,2019,148,RAYADURG,MANJUNATH GOWD,,2445,1.13,4,forfeit,M,35,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3189,andhra-pradesh,2019,148,RAYADURG,M.B.CHINNAPPAYYA,,2338,1.08,5,forfeit,M,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3189,andhra-pradesh,2019,148,RAYADURG,S.RAGHAVENDRA,,972,0.45,6,forfeit,M,32,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3189,andhra-pradesh,2019,148,RAYADURG,J.VASUNDARA,,824,0.38,7,forfeit,F,53,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3189,andhra-pradesh,2019,148,RAYADURG,C.SRINIVASULU,,582,0.27,8,forfeit,M,57,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3189,andhra-pradesh,2019,148,RAYADURG,RAMCHANDRAREDDY.U,,383,0.18,9,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3189,andhra-pradesh,2019,148,RAYADURG,YADAV SREENIVASULU,,331,0.15,10,forfeit,M,41,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3189,andhra-pradesh,2019,148,RAYADURG,KAVALI SREENIVASULU,,162,0.07,11,forfeit,M,47,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3189,andhra-pradesh,2019,148,RAYADURG,M.SRINIVASULU,,155,0.07,12,forfeit,M,34,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3173,andhra-pradesh,2019,149,URAVAKONDA,PAYYAVULA KESHAV,,90209,48.3,1,won,M,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3173,andhra-pradesh,2019,149,URAVAKONDA,Y.VISWESWARA REDDY,,88077,47.16,2,lost,M,59,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3173,andhra-pradesh,2019,149,URAVAKONDA,PODAPATI RAMA NAIDU,,2394,1.28,3,forfeit,M,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3173,andhra-pradesh,2019,149,URAVAKONDA,Sake RaviKumar,,1323,0.71,5,forfeit,M,33,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3173,andhra-pradesh,2019,149,URAVAKONDA,KOTHA SREENIVASULU,,757,0.41,6,forfeit,M,50,10th Pass,Workshop or Small Manufacturer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3173,andhra-pradesh,2019,149,URAVAKONDA,D. RADHA,,651,0.35,7,forfeit,F,47,8th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3173,andhra-pradesh,2019,149,URAVAKONDA,S. Venkateswara,,419,0.22,8,forfeit,M,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3173,andhra-pradesh,2019,149,URAVAKONDA,D SHIVA KUMAR,,385,0.21,9,forfeit,M,38,Post Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3173,andhra-pradesh,2019,149,URAVAKONDA,M. VISWESWARAIAH,,252,0.13,10,forfeit,M,68,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3173,andhra-pradesh,2019,149,URAVAKONDA,V. Keshava Narayana,,211,0.11,11,forfeit,M,38,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3173,andhra-pradesh,2019,149,URAVAKONDA,Viswanatha Reddy. K,,184,0.1,12,forfeit,M,31,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3173,andhra-pradesh,2019,149,URAVAKONDA,B. Rajesh,,106,0.06,13,forfeit,M,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3173,andhra-pradesh,2019,149,URAVAKONDA,MOLAKA BALA RAMANJINEYULU,,102,0.05,14,forfeit,M,45,Illiterate,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3173,andhra-pradesh,2019,149,URAVAKONDA,KURUBA LALEPPA,,91,0.05,15,forfeit,M,63,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3173,andhra-pradesh,2019,149,URAVAKONDA,Kummathi Hanumantha Reddy,,78,0.04,16,forfeit,M,25,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3179,andhra-pradesh,2019,150,GUNTAKAL,Y. VENKATARAMA REDDY,,106922,55.96,1,won,M,60,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3179,andhra-pradesh,2019,150,GUNTAKAL,R Jitendra Gowd,,58390,30.56,2,lost,M,67,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3179,andhra-pradesh,2019,150,GUNTAKAL,KOTRIKE MADHUSUDAN,,19878,10.4,3,forfeit,M,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3179,andhra-pradesh,2019,150,GUNTAKAL,K Prabhakar,,2090,1.09,4,forfeit,M,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3179,andhra-pradesh,2019,150,GUNTAKAL,Pasupula Hariharanath,,1163,0.61,6,forfeit,M,61,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3179,andhra-pradesh,2019,150,GUNTAKAL,M Ramanjaneyulu,,249,0.13,7,forfeit,M,41,Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3179,andhra-pradesh,2019,150,GUNTAKAL,Thanniru Sreenivasulu,,186,0.1,8,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3179,andhra-pradesh,2019,150,GUNTAKAL,S Rammohan,,184,0.1,9,forfeit,M,52,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3179,andhra-pradesh,2019,150,GUNTAKAL,Gopa Hemalatha,,176,0.09,10,forfeit,F,46,12th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3179,andhra-pradesh,2019,150,GUNTAKAL,P Venkatesh,,96,0.05,11,forfeit,M,26,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3179,andhra-pradesh,2019,150,GUNTAKAL,Akula Murali Krishna,,88,0.05,12,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3179,andhra-pradesh,2019,150,GUNTAKAL,Kallamadi Satya Sudarshan Gupta,,88,0.05,13,forfeit,M,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3175,andhra-pradesh,2019,151,TADIPATRI,K. PEDDA REDDY,,92911,49.45,1,won,M,54,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3175,andhra-pradesh,2019,151,TADIPATRI,ASHMIT REDDY.J.C.,,85400,45.46,2,lost,M,35,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3175,andhra-pradesh,2019,151,TADIPATRI,KADIRI.SREEKANTH REDDY,,2642,1.41,3,forfeit,M,28,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3175,andhra-pradesh,2019,151,TADIPATRI,Gujjala Nagi Reddy,,1881,1,5,forfeit,M,59,Graduate,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3175,andhra-pradesh,2019,151,TADIPATRI,JANGAMREDDY.ANKAL REDDY,,1619,0.86,6,forfeit,M,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3175,andhra-pradesh,2019,151,TADIPATRI,Bingi Prasad,,433,0.23,7,forfeit,M,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3175,andhra-pradesh,2019,151,TADIPATRI,RAMINENI RAMAMOHAN,,291,0.15,8,forfeit,M,26,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3175,andhra-pradesh,2019,151,TADIPATRI,B. Jagadeeswara Reddy,,243,0.13,9,forfeit,M,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3175,andhra-pradesh,2019,151,TADIPATRI,MAMILLA. NARAYANA SWAMY.,,229,0.12,10,forfeit,M,49,Post Graduate,Workshop or Small Manufacturer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3175,andhra-pradesh,2019,151,TADIPATRI,PALURU. NEELAKANTA. ACHARI,,162,0.09,11,forfeit,M,39,10th Pass,Artisan,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2019,152,SINGANAMALA,Padmavathy Jonnalagadda,,118044,59.78,1,won,F,40,Post Graduate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2019,152,SINGANAMALA,Bandaru Sravani Sree,,71802,36.36,2,lost,F,29,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2019,152,SINGANAMALA,Dr. Sake. Sailajanath,,1384,0.7,4,forfeit,M,54,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2019,152,SINGANAMALA,Midde Ravindra Babu,,1358,0.69,5,forfeit,M,50,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2019,152,SINGANAMALA,Challa. Chinna Venkatesu,,1046,0.53,6,forfeit,M,51,Graduate Professional,Engineer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2019,152,SINGANAMALA,Kodamala Obulesu,,739,0.37,7,forfeit,M,36,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2019,152,SINGANAMALA,M. Obulapathi,,492,0.25,8,forfeit,M,53,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2019,152,SINGANAMALA,M. Surendra,,141,0.07,9,forfeit,M,36,10th Pass,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2019,152,SINGANAMALA,Adinarayana. S,,120,0.06,10,forfeit,M,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3177,andhra-pradesh,2019,153,ANANTAPUR URBAN,ANANTHA VENKATARAMI REDDY,,88704,53.71,1,won,M,62,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3177,andhra-pradesh,2019,153,ANANTAPUR URBAN,PRABHAKAR CHOWDARY .V,,60006,36.34,2,lost,M,59,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3177,andhra-pradesh,2019,153,ANANTAPUR URBAN,T. C. VARUN,,10920,6.61,3,forfeit,M,32,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3177,andhra-pradesh,2019,153,ANANTAPUR URBAN,G. NAGA RAJU,,1599,0.97,4,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3177,andhra-pradesh,2019,153,ANANTAPUR URBAN,AMARNATH JANGATI,,1436,0.87,5,forfeit,M,62,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3177,andhra-pradesh,2019,153,ANANTAPUR URBAN,RAHAMTHULLA,,445,0.27,7,forfeit,M,50,Post Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3177,andhra-pradesh,2019,153,ANANTAPUR URBAN,YELAMANJULA RAJESH,,179,0.11,8,forfeit,M,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3177,andhra-pradesh,2019,153,ANANTAPUR URBAN,G. BALAJI VISWANATH,,144,0.09,9,forfeit,M,56,12th Pass,Priest,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3177,andhra-pradesh,2019,153,ANANTAPUR URBAN,P. VENKATA BABU NAIDU,,127,0.08,10,forfeit,M,50,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3177,andhra-pradesh,2019,153,ANANTAPUR URBAN,D. RAGHAVENDRA,,111,0.07,11,forfeit,M,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3177,andhra-pradesh,2019,153,ANANTAPUR URBAN,KATTAM KARTHIK,,94,0.06,12,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3177,andhra-pradesh,2019,153,ANANTAPUR URBAN,SIVAIAH,,64,0.04,13,forfeit,M,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3263,andhra-pradesh,2019,154,KALYANDURG,K.V. Usha Sricharan,,88051,46.14,1,won,F,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3263,andhra-pradesh,2019,154,KALYANDURG,Umamaheswara Naidu Madineni,,68155,35.71,2,lost,M,47,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3263,andhra-pradesh,2019,154,KALYANDURG,Neelakantapuram Raghuveera Reddy,,28883,15.13,3,forfeit,M,63,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3263,andhra-pradesh,2019,154,KALYANDURG,Rahul Karanam,,1554,0.81,4,forfeit,M,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3263,andhra-pradesh,2019,154,KALYANDURG,Muppuri Devaraj,,794,0.42,6,forfeit,M,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3263,andhra-pradesh,2019,154,KALYANDURG,Sreerangarajula Gopinath Rayal,,495,0.26,7,forfeit,M,28,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3263,andhra-pradesh,2019,154,KALYANDURG,Mannila Kishor,,276,0.14,8,forfeit,M,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3263,andhra-pradesh,2019,154,KALYANDURG,Y. Usharani,,212,0.11,9,forfeit,F,30,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3263,andhra-pradesh,2019,154,KALYANDURG,V. Adeppa,,173,0.09,10,forfeit,M,43,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3263,andhra-pradesh,2019,154,KALYANDURG,Goparam Govindarajulu,,169,0.09,11,forfeit,M,49,Illiterate,Agricultural Business,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3263,andhra-pradesh,2019,154,KALYANDURG,Balaram Naik .N,,169,0.09,12,forfeit,M,28,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3263,andhra-pradesh,2019,154,KALYANDURG,M. Ramesh,,129,0.07,13,forfeit,M,28,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3263,andhra-pradesh,2019,154,KALYANDURG,Gonimanathota Pedda Obalesu,,97,0.05,14,forfeit,M,68,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3263,andhra-pradesh,2019,154,KALYANDURG,C. Sreenivasulu,,87,0.05,15,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3263,andhra-pradesh,2019,154,KALYANDURG,Shaik Pakruddin,,82,0.04,16,forfeit,M,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3262,andhra-pradesh,2019,155,RAPTADU,Thopudurthi Prakash Reddy,,111201,55,1,won,M,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3262,andhra-pradesh,2019,155,RAPTADU,Paritala Sreeram,,85626,42.35,2,lost,M,28,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3262,andhra-pradesh,2019,155,RAPTADU,Sake Pavan Kumar,,1624,0.8,4,forfeit,M,27,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3262,andhra-pradesh,2019,155,RAPTADU,Byalla Erriswamy,,934,0.46,5,forfeit,M,48,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3262,andhra-pradesh,2019,155,RAPTADU,Suripokala Chinna Peddanna,,358,0.18,6,forfeit,M,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3262,andhra-pradesh,2019,155,RAPTADU,K. Vijay Kumar Naik,,256,0.13,7,forfeit,M,35,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3262,andhra-pradesh,2019,155,RAPTADU,Sake Pothulaiah,,163,0.08,8,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3262,andhra-pradesh,2019,155,RAPTADU,B. Ramadasu,,82,0.04,9,forfeit,M,72,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3262,andhra-pradesh,2019,155,RAPTADU,Bandaru Linganna,,78,0.04,10,forfeit,M,71,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3262,andhra-pradesh,2019,155,RAPTADU,B. Naresh,,57,0.03,11,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3261,andhra-pradesh,2019,156,MADAKASIRA,M THIPPESWAMY,,88527,49.99,1,won,M,65,Post Graduate,Doctor,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3261,andhra-pradesh,2019,156,MADAKASIRA,K ERANNA,,75391,42.57,2,lost,M,60,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3261,andhra-pradesh,2019,156,MADAKASIRA,K ASWARTHANARAYANA,,6495,3.67,3,forfeit,M,48,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3261,andhra-pradesh,2019,156,MADAKASIRA,MALA SOMANNA,,1684,0.95,5,forfeit,M,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3261,andhra-pradesh,2019,156,MADAKASIRA,N HANUMANTHAPPA,,1138,0.64,6,forfeit,M,64,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3261,andhra-pradesh,2019,156,MADAKASIRA,KONKALLU H HANUMANTHARAYA,,816,0.46,7,forfeit,M,77,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3261,andhra-pradesh,2019,156,MADAKASIRA,P  HANUMANTHA RAJU,,396,0.22,8,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3259,andhra-pradesh,2019,157,HINDUPUR,Nandamuri Balakrishna,,91704,51.47,1,won,M,58,Graduate,Musician or Artist,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3259,andhra-pradesh,2019,157,HINDUPUR,SHAIK MOHAMMED IQBAL,,74676,41.91,2,lost,M,60,Post Graduate,Ex Police,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3259,andhra-pradesh,2019,157,HINDUPUR,AKULA UMESH,,4305,2.42,3,forfeit,M,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3259,andhra-pradesh,2019,157,HINDUPUR,T. BALAJI MANOHAR,,2559,1.44,4,forfeit,M,54,12th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3259,andhra-pradesh,2019,157,HINDUPUR,P. D. PARTHA SARATHY,,2104,1.18,5,forfeit,M,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3259,andhra-pradesh,2019,157,HINDUPUR,ADI NARAYANA. B,,413,0.23,7,forfeit,M,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3259,andhra-pradesh,2019,157,HINDUPUR,G.N. Ashoka,,392,0.22,8,forfeit,M,27,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3259,andhra-pradesh,2019,157,HINDUPUR,V. K. SRENIVASULU,,202,0.11,9,forfeit,M,46,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3259,andhra-pradesh,2019,157,HINDUPUR,DUDHEKULA GOUS PEERA,,185,0.1,10,forfeit,M,41,Illiterate,Artisan,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3259,andhra-pradesh,2019,157,HINDUPUR,NARASIMHA MURTHY. N,,177,0.1,11,forfeit,M,34,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3259,andhra-pradesh,2019,157,HINDUPUR,M. NARASIMHA MURTHY,,160,0.09,12,forfeit,M,53,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3260,andhra-pradesh,2019,158,PENUKONDA,MALAGUNDLA SANKARANARAYANA,,96607,51.08,1,won,M,54,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3260,andhra-pradesh,2019,158,PENUKONDA,B.K.PARTHASARATHI,,81549,43.12,2,lost,M,60,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3260,andhra-pradesh,2019,158,PENUKONDA,PEDDI REDDY GARI VARALAKSHMI,,3492,1.85,3,forfeit,F,30,Post Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3260,andhra-pradesh,2019,158,PENUKONDA,PURROLLA NARASIMHAPPA,,3202,1.69,4,forfeit,M,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3260,andhra-pradesh,2019,158,PENUKONDA,GORANTLA MOHAN RAO SEKHAR,,1417,0.75,6,forfeit,M,49,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3260,andhra-pradesh,2019,158,PENUKONDA,E.NARASIMHULU,,369,0.2,7,forfeit,M,29,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3260,andhra-pradesh,2019,158,PENUKONDA,B.MAHESH,,276,0.15,8,forfeit,M,26,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3260,andhra-pradesh,2019,158,PENUKONDA,U.D.KULLAYAPPA,,185,0.1,9,forfeit,M,49,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3260,andhra-pradesh,2019,158,PENUKONDA,BOYA ADISESHU,,175,0.09,10,forfeit,M,36,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3260,andhra-pradesh,2019,158,PENUKONDA,AVULA RAGHAVENDRA REDDY,,170,0.09,11,forfeit,M,36,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3260,andhra-pradesh,2019,158,PENUKONDA,VATTI JAYADEVA,,119,0.06,12,forfeit,M,27,5th Pass,Artisan,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3383,andhra-pradesh,2019,159,PUTTAPARTHI,DUDDUKUNTA SREEDHAR REDDY,,97234,56.77,1,won,M,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3383,andhra-pradesh,2019,159,PUTTAPARTHI,PALLE.RAGHUNATHA REDDY,,65979,38.52,2,lost,M,67,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3383,andhra-pradesh,2019,159,PUTTAPARTHI,PATTI CHALAPATHI,,2286,1.33,3,forfeit,M,72,10th Pass,Retired Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3383,andhra-pradesh,2019,159,PUTTAPARTHI,KOTA SWETHA,,1515,0.88,4,forfeit,F,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3383,andhra-pradesh,2019,159,PUTTAPARTHI,HANUMANTHA REDDY YALAPALA,,1211,0.71,6,forfeit,M,41,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3383,andhra-pradesh,2019,159,PUTTAPARTHI,K SREERAM NAIK,,357,0.21,7,forfeit,M,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3383,andhra-pradesh,2019,159,PUTTAPARTHI,AMMINENI YASODA,,289,0.17,8,forfeit,F,34,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3383,andhra-pradesh,2019,159,PUTTAPARTHI,B.RAGHUNATHAREDDY,,274,0.16,9,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3383,andhra-pradesh,2019,159,PUTTAPARTHI,A.RAGHU NATHA REDDY,,249,0.15,10,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3383,andhra-pradesh,2019,159,PUTTAPARTHI,GODDENDLA VENKATESH,,160,0.09,11,forfeit,M,38,Graduate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3383,andhra-pradesh,2019,159,PUTTAPARTHI,POOLA SREENATH REDDY,,132,0.08,12,forfeit,M,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3383,andhra-pradesh,2019,159,PUTTAPARTHI,D.SHYAM SUNDHAR REDDY,,104,0.06,13,forfeit,M,33,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3383,andhra-pradesh,2019,159,PUTTAPARTHI,POTHURU ARUNA,,97,0.06,14,forfeit,F,44,5th Pass,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3383,andhra-pradesh,2019,159,PUTTAPARTHI,AMPAVATHINI GOVINDU,,94,0.05,15,forfeit,M,57,Post Graduate,Retired Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3258,andhra-pradesh,2019,160,DHARMAVARAM,KETHIREDDY VENKATARAMI REDDY,,106909,50.74,1,won,M,38,Graduate Professional,Ex MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3258,andhra-pradesh,2019,160,DHARMAVARAM,GONUGUNTLA SURYANARAYANA,,91243,43.31,2,lost,M,52,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3258,andhra-pradesh,2019,160,DHARMAVARAM,CHILAKAM MADHUSUDHANA REDDY,,6668,3.17,3,forfeit,M,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3258,andhra-pradesh,2019,160,DHARMAVARAM,RANGANA ASWARTHA NARAYANA,,1662,0.79,5,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3258,andhra-pradesh,2019,160,DHARMAVARAM,E SUDARSHAN REDDY,,622,0.3,6,forfeit,M,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3258,andhra-pradesh,2019,160,DHARMAVARAM,J.SURYA NARAYANA,,380,0.18,7,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3258,andhra-pradesh,2019,160,DHARMAVARAM,N RAVEENDRA REDDY,,305,0.14,8,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3258,andhra-pradesh,2019,160,DHARMAVARAM,GADDAM RAJAGOPAL,,261,0.12,9,forfeit,M,37,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3258,andhra-pradesh,2019,160,DHARMAVARAM,P VENKATARAMI REDDY,,205,0.1,10,forfeit,M,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3258,andhra-pradesh,2019,160,DHARMAVARAM,K.SUDHAKAR REDDY,,160,0.08,11,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3258,andhra-pradesh,2019,160,DHARMAVARAM,PETA RAJESWARI,,140,0.07,12,forfeit,F,31,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3258,andhra-pradesh,2019,160,DHARMAVARAM,P VENKATARAMI REDDY,,118,0.06,13,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3258,andhra-pradesh,2019,160,DHARMAVARAM,MANJULA SREENIVASULU,,93,0.04,14,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3258,andhra-pradesh,2019,160,DHARMAVARAM,G.KESAVAIAH,,77,0.04,15,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3258,andhra-pradesh,2019,160,DHARMAVARAM,S.NARASIMHA REDDY,,69,0.03,16,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2019,161,KADIRI,P.V. SIDDA REDDY,,102432,53.92,1,won,M,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2019,161,KADIRI,KANDIKUNTA VENKATA PRASAD,,75189,39.58,2,lost,M,52,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2019,161,KADIRI,K. VAJRA BHASKARAREDDY,,3498,1.84,3,forfeit,M,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2019,161,KADIRI,BHYRAVA PRASAD PERUGU CHINNA,,2375,1.25,4,forfeit,M,47,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2019,161,KADIRI,PATHAN KHASEEM KHAN,,2287,1.2,5,forfeit,M,63,Graduate,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2019,161,KADIRI,S.V. NAGENDRA PRASAD,,1358,0.71,7,forfeit,M,38,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2019,161,KADIRI,MARUVA NAGAMALLU,,360,0.19,8,forfeit,M,59,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2019,161,KADIRI,D. RAJA SEKHAR REDDY,,297,0.16,9,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2019,161,KADIRI,GODDENDLA VENKATESH,,232,0.12,10,forfeit,M,40,Graduate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2019,161,KADIRI,CHANNKA SIDDAREDDY,,218,0.11,11,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2019,161,KADIRI,B. RAVISANKAR,,167,0.09,12,forfeit,M,38,10th Pass,Artisan,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3166,andhra-pradesh,2019,163,PILERU,CHINTHALA RAMACHANDRA REDDY,,87300,48.92,1,won,M,56,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3166,andhra-pradesh,2019,163,PILERU,NALLARI KISHAN KUMAR REDDY,,79426,44.51,2,lost,M,53,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3166,andhra-pradesh,2019,163,PILERU,KHATIB SYED AGHA MOHIUDDIN,,4182,2.34,3,forfeit,M,69,10th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3166,andhra-pradesh,2019,163,PILERU,B DINESH,,2374,1.33,4,forfeit,M,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3166,andhra-pradesh,2019,163,PILERU,PULI REDDY NARENDRA KUMAR REDDY,,1029,0.58,6,forfeit,M,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3166,andhra-pradesh,2019,163,PILERU,Y RAMANJULAMMA,,309,0.17,7,forfeit,F,50,12th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3166,andhra-pradesh,2019,163,PILERU,MANGIRA RAMACHANDRA,,260,0.15,8,forfeit,M,66,Post Graduate,Ex Military,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3166,andhra-pradesh,2019,163,PILERU,APRALA SUDHAKARA,,260,0.15,9,forfeit,M,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3166,andhra-pradesh,2019,163,PILERU,CHINTHALA RAMI REDDY,,239,0.13,10,forfeit,M,61,Post Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3166,andhra-pradesh,2019,163,PILERU,BATHALA VINOD KUMAR,,208,0.12,11,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3166,andhra-pradesh,2019,163,PILERU,A MOSES KIRAN KUMAR,,207,0.12,12,forfeit,M,43,Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3166,andhra-pradesh,2019,163,PILERU,POOLA ANWAR HUSSAIN,,195,0.11,13,forfeit,M,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3166,andhra-pradesh,2019,163,PILERU,GADA PUSHPALATHA,,171,0.1,14,forfeit,F,37,10th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3166,andhra-pradesh,2019,163,PILERU,B PADMAJA,,142,0.08,15,forfeit,F,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3172,andhra-pradesh,2019,164,MADANAPALLE,M. Nawaz Basha,,92066,51.2,1,won,M,45,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3172,andhra-pradesh,2019,164,MADANAPALLE,Dommalapati Ramesh,,62418,34.71,2,lost,M,57,12th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3172,andhra-pradesh,2019,164,MADANAPALLE,Gangarapu Swathi,,14601,8.12,3,forfeit,F,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3172,andhra-pradesh,2019,164,MADANAPALLE,D Mohana Rami Reddy,,2697,1.5,4,forfeit,M,54,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3172,andhra-pradesh,2019,164,MADANAPALLE,Bandi Anand,,1884,1.05,5,forfeit,M,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3172,andhra-pradesh,2019,164,MADANAPALLE,Ratakonda Ravindra Naidu,,1118,0.62,7,forfeit,M,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3172,andhra-pradesh,2019,164,MADANAPALLE,B Sreeramulu,,935,0.52,8,forfeit,M,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3172,andhra-pradesh,2019,164,MADANAPALLE,Rajesh Kumar Jangala,,415,0.23,9,forfeit,M,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3172,andhra-pradesh,2019,164,MADANAPALLE,Shaik G Nawaj Hussain,,383,0.21,10,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3172,andhra-pradesh,2019,164,MADANAPALLE,S Khajapeer,,287,0.16,11,forfeit,M,47,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3172,andhra-pradesh,2019,164,MADANAPALLE,Boyana Ramesh Babu,,264,0.15,12,forfeit,M,50,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3172,andhra-pradesh,2019,164,MADANAPALLE,Modem Manjunatha,,250,0.14,13,forfeit,M,31,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3172,andhra-pradesh,2019,164,MADANAPALLE,Pullagura Venkata Siva Raj Kumar,,233,0.13,14,forfeit,M,30,Post Graduate,Medical Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3172,andhra-pradesh,2019,164,MADANAPALLE,Chippili Jaganatha Reddy,,175,0.1,15,forfeit,M,64,10th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3172,andhra-pradesh,2019,164,MADANAPALLE,Bokya Rajashekhar Naick,,155,0.09,16,forfeit,M,41,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3172,andhra-pradesh,2019,164,MADANAPALLE,V Manjula,,153,0.09,17,forfeit,F,43,12th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3172,andhra-pradesh,2019,164,MADANAPALLE,Ginka Ananda Kumar,,138,0.08,18,forfeit,M,42,Doctorate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3172,andhra-pradesh,2019,164,MADANAPALLE,K Naga Bhushanam,,121,0.07,19,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3172,andhra-pradesh,2019,164,MADANAPALLE,Sabeera Shaik,,117,0.07,20,forfeit,F,35,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3167,andhra-pradesh,2019,165,PUNGANUR,PEDDIREDDI RAMACHANDRA REDDY,,107431,54.85,1,won,M,66,Doctorate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3167,andhra-pradesh,2019,165,PUNGANUR,N.ANESHA REDDY,,63876,32.61,2,lost,F,50,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3167,andhra-pradesh,2019,165,PUNGANUR,BODE RAMACHANDRA YADAV,,16452,8.4,3,forfeit,M,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3167,andhra-pradesh,2019,165,PUNGANUR,S.SAFIYA,,2007,1.02,5,forfeit,F,35,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3167,andhra-pradesh,2019,165,PUNGANUR,GANNA MADAN MOHAN BABU,,1472,0.75,6,forfeit,M,43,Graduate,Ex Military,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3167,andhra-pradesh,2019,165,PUNGANUR,G.T.NARAYANA,,428,0.22,7,forfeit,M,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3167,andhra-pradesh,2019,165,PUNGANUR,P.MUNIRATHNAM,,368,0.19,8,forfeit,M,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3167,andhra-pradesh,2019,165,PUNGANUR,V.PATTABI,,288,0.15,9,forfeit,M,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3167,andhra-pradesh,2019,165,PUNGANUR,ADIVIPALLI KRISHNAPPA,,259,0.13,10,forfeit,M,79,10th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,Dr.CHEVIREDDY BHASKAR REDDY,,127790,56,1,won,M,45,Doctorate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,PULLIVARTHI VENKATA MANI PRASAD @NANI,,86035,37.7,2,lost,M,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,SHITTI SURENDRA,,4531,1.99,3,forfeit,M,56,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,K. P. S. Vasu,,1551,0.68,5,forfeit,M,65,Doctorate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,Dr. T. MADHU BABU,,1158,0.51,6,forfeit,M,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,Dr PANDRETI. SIVA KUMAR,,912,0.4,7,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,A. KIRAN KUMAR,,643,0.28,8,forfeit,M,25,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,J RAMESH BABU,,575,0.25,9,forfeit,M,25,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,HARISH @ NANI,,571,0.25,10,forfeit,M,34,Others,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,M. CHENGALRAYULU,,435,0.19,11,forfeit,M,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,PALADUGU SURESH,,368,0.16,12,forfeit,M,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,R MOHANA,,337,0.15,13,forfeit,M,36,Graduate,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,G MUTHYALU,,275,0.12,14,forfeit,M,48,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,BANDI RAMESH BABU,,176,0.08,15,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,KANANGI ESWAR GOUD,,164,0.07,16,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,GURRAM KONDA FAROOQ,,161,0.07,17,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,D. BHARATH KUMAR,,145,0.06,18,forfeit,M,26,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,G NAGENDRA BABU,,141,0.06,19,forfeit,M,41,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,KALIMILI POORNIMA,,128,0.06,20,forfeit,F,33,10th Pass,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,KONERU BHASKAR REDDY,,108,0.05,21,forfeit,M,48,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,MUNEESWAR BODAGALA,,108,0.05,22,forfeit,M,43,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3168,andhra-pradesh,2019,166,CHANDRAGIRI,B. LALITHA,,103,0.05,23,forfeit,F,44,Illiterate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3169,andhra-pradesh,2019,167,TIRUPATI,BHUMANA KARUNAKAR REDDY,,80544,44.64,1,won,M,60,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3169,andhra-pradesh,2019,167,TIRUPATI,M SUGUNA,,79836,44.25,2,lost,F,67,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3169,andhra-pradesh,2019,167,TIRUPATI,CHADALAWADA KRISHNAMURTHY,,12315,6.83,3,forfeit,M,68,Post Graduate,Self-employed,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3169,andhra-pradesh,2019,167,TIRUPATI,K.PRAMILA,,2725,1.51,4,forfeit,F,72,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3169,andhra-pradesh,2019,167,TIRUPATI,BHAVANI SANKAR VALLAMCHETTY,,2385,1.32,5,forfeit,M,41,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3169,andhra-pradesh,2019,167,TIRUPATI,KESARI SWAPNA,,286,0.16,7,forfeit,F,35,Post Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3169,andhra-pradesh,2019,167,TIRUPATI,P.SAI PRASANNA KUMAR,,141,0.08,8,forfeit,M,32,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3169,andhra-pradesh,2019,167,TIRUPATI,Dr.BODAGALA VENKATA RAJARAO,,137,0.08,9,forfeit,M,55,Others,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3169,andhra-pradesh,2019,167,TIRUPATI,ANANDA HARI KRISHNA,,130,0.07,10,forfeit,M,52,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3169,andhra-pradesh,2019,167,TIRUPATI,K. VIJAY KIRAN,,111,0.06,11,forfeit,M,35,Graduate Professional,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3169,andhra-pradesh,2019,167,TIRUPATI,MINCHALA VENKATARATNAMMA,,102,0.06,12,forfeit,F,43,5th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3169,andhra-pradesh,2019,167,TIRUPATI,KATARI  KESAVULU CHETTY,,98,0.05,13,forfeit,M,70,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3169,andhra-pradesh,2019,167,TIRUPATI,E. CHENNAKESAVULU,,86,0.05,14,forfeit,M,52,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3169,andhra-pradesh,2019,167,TIRUPATI,T NARASIMHA RAO,,67,0.04,15,forfeit,M,63,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3169,andhra-pradesh,2019,167,TIRUPATI,R.KRISHNA CHAITANYA,,46,0.03,16,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3389,andhra-pradesh,2019,168,SRIKALAHASTI,Biyyapu Madhusudhan Reddy,,109541,55.89,1,won,M,48,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3389,andhra-pradesh,2019,168,SRIKALAHASTI,Bojjala Venkata Sudhir Reddy,,71400,36.43,2,lost,M,39,Post Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3389,andhra-pradesh,2019,168,SRIKALAHASTI,Vinitha Nagaram,,5274,2.69,3,forfeit,F,26,Graduate Professional,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3389,andhra-pradesh,2019,168,SRIKALAHASTI,Anandha Kumar Kola,,4004,2.04,4,forfeit,M,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3389,andhra-pradesh,2019,168,SRIKALAHASTI,S Bathaiah Naidu,,2170,1.11,5,forfeit,M,69,Graduate Professional,Medical Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3389,andhra-pradesh,2019,168,SRIKALAHASTI,Kasumuri Chiranjeevi,,436,0.22,7,forfeit,M,31,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3389,andhra-pradesh,2019,168,SRIKALAHASTI,Ramesh Ganugapenta,,324,0.17,8,forfeit,M,29,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3389,andhra-pradesh,2019,168,SRIKALAHASTI,Singamala Subramanyam,,240,0.12,9,forfeit,M,43,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3389,andhra-pradesh,2019,168,SRIKALAHASTI,Sama Ravi Chandra,,201,0.1,10,forfeit,M,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3389,andhra-pradesh,2019,168,SRIKALAHASTI,Venkatesh G,,194,0.1,11,forfeit,M,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3389,andhra-pradesh,2019,168,SRIKALAHASTI,Balasubramanyam E,,147,0.08,12,forfeit,M,39,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3389,andhra-pradesh,2019,168,SRIKALAHASTI,Pathipati Nageswararao,,133,0.07,13,forfeit,M,34,10th Pass,Unspecified,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3389,andhra-pradesh,2019,168,SRIKALAHASTI,S Satyanarayana,,108,0.06,14,forfeit,M,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3389,andhra-pradesh,2019,168,SRIKALAHASTI,Yellaiah C,,79,0.04,15,forfeit,M,43,Graduate Professional,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3389,andhra-pradesh,2019,168,SRIKALAHASTI,Giri D,,74,0.04,16,forfeit,M,32,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3387,andhra-pradesh,2019,169,SATYAVEDU,Adimulam Koneti,,103941,59.02,1,won,M,67,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3387,andhra-pradesh,2019,169,SATYAVEDU,Jadda Rajasekhar,,59197,33.61,2,lost,M,51,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3387,andhra-pradesh,2019,169,SATYAVEDU,Chandrasekhar Penubala,,3908,2.22,3,forfeit,M,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3387,andhra-pradesh,2019,169,SATYAVEDU,N. Vijay Kumar,,2076,1.18,5,forfeit,M,56,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3387,andhra-pradesh,2019,169,SATYAVEDU,Venkataiah . S,,1610,0.91,6,forfeit,M,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3387,andhra-pradesh,2019,169,SATYAVEDU,Vatambeti Yugandhar,,460,0.26,7,forfeit,M,29,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3387,andhra-pradesh,2019,169,SATYAVEDU,B. Babu,,383,0.22,8,forfeit,M,35,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3387,andhra-pradesh,2019,169,SATYAVEDU,M. Prabhu,,312,0.18,9,forfeit,M,36,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3387,andhra-pradesh,2019,169,SATYAVEDU,Kommalapudi Nagaraju,,242,0.14,10,forfeit,M,50,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3387,andhra-pradesh,2019,169,SATYAVEDU,Vaddigala Lokesulu,,229,0.13,11,forfeit,M,57,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3387,andhra-pradesh,2019,169,SATYAVEDU,EMSurajan,,220,0.12,12,forfeit,M,59,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3387,andhra-pradesh,2019,169,SATYAVEDU,P. Vivek Kumar,,189,0.11,13,forfeit,M,28,Post Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3388,andhra-pradesh,2019,170,NAGARI,R.K. ROJA,,80333,47.6,1,won,F,47,12th Pass,Film Director,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3388,andhra-pradesh,2019,170,NAGARI,GALI BHANU PRAKASH,,77625,46,2,lost,M,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3388,andhra-pradesh,2019,170,NAGARI,POCHAREDDY RAKESH REDDY,,3357,1.99,3,forfeit,M,31,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3388,andhra-pradesh,2019,170,NAGARI,NAGANABOYINA PRAVALLIKA,,3044,1.8,4,forfeit,F,28,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3388,andhra-pradesh,2019,170,NAGARI,NISHIDHA. M,,1352,0.8,6,forfeit,F,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3388,andhra-pradesh,2019,170,NAGARI,APPANI NIRANJAN REDDY,,325,0.19,7,forfeit,M,26,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3388,andhra-pradesh,2019,170,NAGARI,R. GNANAPRAKASH,,233,0.14,8,forfeit,M,35,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3388,andhra-pradesh,2019,170,NAGARI,K. DHANASEKHAR CHETTY,,204,0.12,9,forfeit,M,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3388,andhra-pradesh,2019,170,NAGARI,P. JAYARAMAIAH,,159,0.09,10,forfeit,M,53,Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3388,andhra-pradesh,2019,170,NAGARI,ECHA VINAYAKAM,,157,0.09,11,forfeit,M,27,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3388,andhra-pradesh,2019,170,NAGARI,A. CHITTI BABU,,148,0.09,12,forfeit,M,35,8th Pass,Auto-rickshaw Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3388,andhra-pradesh,2019,170,NAGARI,B. DILLI BAABU,,139,0.08,13,forfeit,M,41,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3257,andhra-pradesh,2019,171,GANGADHARA NELLORE,K. NARAYANA SWAMY,,103038,59.67,1,won,M,70,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3257,andhra-pradesh,2019,171,GANGADHARA NELLORE,ANAGANTI HARIKRISHNA,,57444,33.27,2,lost,M,39,Post Graduate,Medical Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3257,andhra-pradesh,2019,171,GANGADHARA NELLORE,DR. UGANDHAR .P,,3364,1.95,3,forfeit,M,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3257,andhra-pradesh,2019,171,GANGADHARA NELLORE,DR. SODEM.NARASIMHULU,,2279,1.32,5,forfeit,M,54,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3257,andhra-pradesh,2019,171,GANGADHARA NELLORE,V. RAJENDRAN,,1572,0.91,6,forfeit,M,57,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3257,andhra-pradesh,2019,171,GANGADHARA NELLORE,PALLIPATTU ABHINAV VISHNU,,563,0.33,7,forfeit,M,27,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3257,andhra-pradesh,2019,171,GANGADHARA NELLORE,CHENJI. MADHU BABU,,384,0.22,8,forfeit,M,43,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3257,andhra-pradesh,2019,171,GANGADHARA NELLORE,G. PALANI,,372,0.22,9,forfeit,M,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3257,andhra-pradesh,2019,171,GANGADHARA NELLORE,N. RAJESH,,348,0.2,10,forfeit,M,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3257,andhra-pradesh,2019,171,GANGADHARA NELLORE,PERURU. RAMAIAH,,268,0.16,11,forfeit,M,58,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3257,andhra-pradesh,2019,171,GANGADHARA NELLORE,K. CHINNABBA,,212,0.12,12,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3192,andhra-pradesh,2019,172,CHITTOOR,Aranii Srenevasulu (Jangalapalli),,91206,60.18,1,won,M,66,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3192,andhra-pradesh,2019,172,CHITTOOR,A. S. Manohar,,51238,33.81,2,lost,M,65,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3192,andhra-pradesh,2019,172,CHITTOOR,N. Dayaram,,4204,2.77,3,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3192,andhra-pradesh,2019,172,CHITTOOR,G. Tikaram @ Tikki Royal,,1651,1.09,4,forfeit,M,41,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3192,andhra-pradesh,2019,172,CHITTOOR,Advocate. Jaya Kumar. V.,,958,0.63,6,forfeit,M,50,Post Graduate,Lawyer,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3192,andhra-pradesh,2019,172,CHITTOOR,E . Ramesh,,285,0.19,7,forfeit,M,43,12th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3192,andhra-pradesh,2019,172,CHITTOOR,Babu Balakrishna .S,,229,0.15,8,forfeit,M,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3192,andhra-pradesh,2019,172,CHITTOOR,A . Suresh,,130,0.09,9,forfeit,M,39,8th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3192,andhra-pradesh,2019,172,CHITTOOR,K . Prabhakar Reddy,,112,0.07,10,forfeit,M,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3192,andhra-pradesh,2019,172,CHITTOOR,A . Srinivasulu,,110,0.07,11,forfeit,M,68,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3192,andhra-pradesh,2019,172,CHITTOOR,S . Nagaraju,,87,0.06,12,forfeit,M,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3385,andhra-pradesh,2019,173,PUTHALAPATTU,M. BABU,,103265,55.25,1,won,M,48,5th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3385,andhra-pradesh,2019,173,PUTHALAPATTU,LALITHA KUMARI,,74102,39.64,2,lost,F,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3385,andhra-pradesh,2019,173,PUTHALAPATTU,MOTUKUR JAGAPATHI,,3912,2.09,3,forfeit,M,42,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3385,andhra-pradesh,2019,173,PUTHALAPATTU,G. CHITTI BABU,,1254,0.67,5,forfeit,M,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3385,andhra-pradesh,2019,173,PUTHALAPATTU,BANU PRAKASH. L,,1084,0.58,6,forfeit,M,28,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3385,andhra-pradesh,2019,173,PUTHALAPATTU,KOMMITTA DHANAMJAYA RAO,,384,0.21,7,forfeit,M,47,10th Pass,Coolie,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3385,andhra-pradesh,2019,173,PUTHALAPATTU,A. PURUSHOTHAM,,252,0.13,8,forfeit,M,32,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3385,andhra-pradesh,2019,173,PUTHALAPATTU,RANGA ROHITH,,240,0.13,9,forfeit,M,27,Others,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3385,andhra-pradesh,2019,173,PUTHALAPATTU,A. RAJENDRAN,,172,0.09,10,forfeit,M,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3385,andhra-pradesh,2019,173,PUTHALAPATTU,R. RAJA,,150,0.08,11,forfeit,M,40,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3386,andhra-pradesh,2019,174,PALAMANER,N VENKATE GOWDA,,119241,54.46,1,won,M,32,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3386,andhra-pradesh,2019,174,PALAMANER,AMARNATHA REDDY. N,,87625,40.02,2,lost,M,60,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3386,andhra-pradesh,2019,174,PALAMANER,SRIKANT NAIDU,,4254,1.94,3,forfeit,M,41,Graduate Professional,Industrialist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3386,andhra-pradesh,2019,174,PALAMANER,THIPPI REDDYGARI PARTHASARADHI REDDY,,1814,0.83,5,forfeit,M,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3386,andhra-pradesh,2019,174,PALAMANER,P . C. ESWAR REDDY,,1148,0.52,6,forfeit,M,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3386,andhra-pradesh,2019,174,PALAMANER,N. VENKATRAMANA,,1107,0.51,7,forfeit,M,27,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3386,andhra-pradesh,2019,174,PALAMANER,N. SRIEENIVASULU,,393,0.18,8,forfeit,M,39,Graduate,Self-employed,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3386,andhra-pradesh,2019,174,PALAMANER,K. SURESH,,341,0.16,9,forfeit,M,29,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3386,andhra-pradesh,2019,174,PALAMANER,B.S. MOHAN,,256,0.12,10,forfeit,M,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3386,andhra-pradesh,2019,174,PALAMANER,N.K. ABDULLA,,217,0.1,11,forfeit,M,42,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3348,andhra-pradesh,2019,175,KUPPAM,Nara Chandra Babu Naidu,,100146,55.18,1,won,M,68,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3348,andhra-pradesh,2019,175,KUPPAM,Krishna Chandra Mouli,,69424,38.25,2,lost,M,65,Doctorate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3348,andhra-pradesh,2019,175,KUPPAM,Suresh @ Dr. B.R. Suresh Babu,,3839,2.12,3,forfeit,M,41,Doctorate,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3348,andhra-pradesh,2019,175,KUPPAM,Venkataramana Muddhineni,,1879,1.04,5,forfeit,M,30,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3348,andhra-pradesh,2019,175,KUPPAM,N.S. Thulasinath,,1139,0.63,6,forfeit,M,40,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3348,andhra-pradesh,2019,175,KUPPAM,Dr. T.P. Surya Chandra Rao,,703,0.39,7,forfeit,M,56,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3348,andhra-pradesh,2019,175,KUPPAM,C. Ganesh,,661,0.36,8,forfeit,M,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3348,andhra-pradesh,2019,175,KUPPAM,S. Sathish,,487,0.27,9,forfeit,M,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3348,andhra-pradesh,2019,175,KUPPAM,Padmaja .K,,316,0.17,10,forfeit,F,55,Illiterate,Household,challenger,src-1b7bc1c9d39a

@@ -1,0 +1,3 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-gujarat-2777,gujarat,2016,TALALA,141184,127622,90.39,Govind Bhai Varjang Bhai Parmar,,63899,50.07,Bhag van Bhai Dhana Bhai Barad,,61458,2441,1.91,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,CHORASI,191519,147785,77.16,Zankhana HiteshKumar Patel (Rajabbhai),,90089,60.96,Dhansukhbhai Bhagvati Prasad Rajput,,46651,43438,29.39,src-1b7bc1c9d39a

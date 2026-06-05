@@ -1,0 +1,19 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2012,RAMACHANDRAPURAM,175348,154786,88.27,T. Trimurthula,,77292,49.93,Bosu Pilli,,65373,11919,7.7,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2012,PAYAKARAOPETA,210818,171815,81.5,B.Rao Golla,,71963,41.88,C.V. Rao,,57601,14362,8.35,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3180,andhra-pradesh,2012,ANANTAPUR URBAN,229876,124239,54.05,B.G. Reddy,,65719,52.9,M. Sreenivasulu,,40980,24739,19.92,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3183,andhra-pradesh,2012,RAYADURG,198167,170866,86.22,K.R. Reddy,,79171,46.34,D.R.Gunapati,,46695,32476,19.01,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3227,andhra-pradesh,2012,POLAVARAM,166300,149979,90.19,T. Bala Raju,,80790,53.87,B.S.Rao,,45023,35767,23.85,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3233,andhra-pradesh,2012,PARTHIPADU (SC),207396,179662,86.63,M. Sucharitha,,87742,48.84,K. Veeraiah,,70961,16781,9.34,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3284,andhra-pradesh,2012,YEMMIGANUR,189278,152502,80.57,K.C.K. Reddy,,64155,42.07,B.V. Mohan Reddy,,44052,20103,13.18,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3334,andhra-pradesh,2012,ALLAGADDA,200691,168365,83.89,B.S. Nagireddy,,88697,52.68,G.P. Reddy,,51902,36795,21.85,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3343,andhra-pradesh,2012,MACHERLA,201861,170872,84.65,R.K.Reddy Pisnelhi,,79751,46.67,C.M. Babu,,64272,15479,9.06,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3350,andhra-pradesh,2012,NARASAPURAM,132956,124296,93.49,K.P.S. Yudu (Pedabahn),,58368,46.96,M.P. Raju,,53896,4472,3.6,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3358,andhra-pradesh,2012,KOVUR,227130,175913,77.45,N.P.Kumar Reddy,,73876,42,S.C. Reddy,,50382,23494,13.36,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3361,andhra-pradesh,2012,UDAYAGIRI,203782,160410,78.72,M.C.S.Reddy,,75103,46.82,B.V. Rama Rao,,44505,30598,19.08,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,ONGOLE,234265,158238,67.55,B.S.Reddy (Vasu),,77222,48.8,D.J. Rao,,49819,27403,17.32,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3390,andhra-pradesh,2012,KODUR (SC),158139,123520,78.11,K.Sdreenivasulu,,66456,53.8,E. Kanuparthi,,34465,31991,25.9,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,RAJAMPET,185475,146615,79.05,A.R. Akepati,,76951,52.49,M.V.M.K. Reddy,,38732,38219,26.07,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3395,andhra-pradesh,2012,RAYACHOTY,186579,159201,85.33,G.K. S. Reddy,,90978,57.15,S.M. Sugavasi,,34087,56891,35.74,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2012,NARASANNAPETA,172020,139765,81.25,D.K. Das,,54454,38.96,D. Ramadas,,47142,7312,5.23,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,TIRUPATI,247160,136740,55.32,B.K. Reddy,,59195,43.29,Venkararamana M.,,41220,17975,13.15,src-1b7bc1c9d39a
