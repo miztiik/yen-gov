@@ -83,7 +83,7 @@ Per CLAUDE.md correction-level discipline (>= 4 files structural -> propose brea
 
 | Sub-row | Blocks on | Parallel-OK with | Gate | PR# | Status |
 | --- | --- | --- | --- | --- | --- |
-| U5-spawn (this file + parent ledger flip to DEFERRED-TO-SUBPLAN; U5a flipped IN-FLIGHT inline) | - | - | docs-review | _pending_ | IN-FLIGHT |
+| U5-spawn (this file + parent ledger flip to DEFERRED-TO-SUBPLAN; U5a flipped IN-FLIGHT inline) | - | - | docs-review | #751 | IN-FLIGHT |
 | U5a Skeleton + ChartShell error/empty/loading slots + state helpers + tests | U5-spawn | U5b, U5c | build+vitest(skeleton, chart-shell-state) | _pending_ | TODO |
 | U5b url.indicatorDoc + `/docs/indicator/:topic/:id` route + IndicatorDoc.svelte + tests | U5-spawn | U5a, U5c | build+vitest(url, indicator-doc)+in-browser smoke (`/docs/indicator/fiscal/outstanding_debt_pct_gsdp`) | _pending_ | TODO |
 | U5c IndicatorJump.svelte + StateOverview integration + tests | U5-spawn | U5a, U5b | build+vitest(indicator-jump)+in-browser smoke (`/s/tamil-nadu`) | _pending_ | TODO |
