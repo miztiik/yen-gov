@@ -30,6 +30,7 @@
   import { slugify } from "../lib/slug";
   import { states } from "../lib/states.svelte";
   import { url } from "../lib/url";
+  import GeoBreadcrumb from "../lib/GeoBreadcrumb.svelte";
 
   interface Props {
     params: { state: string; district_slug: string };
@@ -65,6 +66,8 @@
   const districts_loading = $derived(districts === null && load_error === null);
 </script>
 
+<GeoBreadcrumb />
+
 <main class="max-w-3xl mx-auto p-4 sm:p-6 space-y-6">
   {#if load_error}
     <div class="rounded border border-rose-200 bg-rose-50 p-4 text-sm text-rose-900">
@@ -98,17 +101,6 @@
     </div>
   {:else}
     <header class="space-y-2">
-      <nav aria-label="Breadcrumb" class="text-xs text-slate-500">
-        <ol class="flex items-center gap-1 list-none p-0 m-0">
-          <li>
-            <a href={url.state(state_code)} class="hover:text-sky-700 hover:underline"
-              >{state_name}</a
-            >
-          </li>
-          <li aria-hidden="true" class="text-slate-400">&rsaquo;</li>
-          <li class="text-slate-700" aria-current="page">{district.display_name}</li>
-        </ol>
-      </nav>
       <h1 class="text-2xl font-semibold">{district.display_name}</h1>
       <p class="text-sm text-slate-500">{state_name} &middot; LGD code {district.lgd_code}</p>
     </header>

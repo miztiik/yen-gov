@@ -52,7 +52,7 @@ Per CLAUDE.md correction-level discipline (>= 4 files structural -> propose brea
 | Sub-row | Blocks on | Parallel-OK with | Gate | PR# | Status |
 | --- | --- | --- | --- | --- | --- |
 | U2a url.district + `/s/:state/d/:district` route + minimal `District.svelte` + `url.test.ts` assertions | - | U2c, U4, U5 | build+vitest(url) | #739 | MERGED |
-| U2b `GeoBreadcrumb.svelte` + integration into Home / StateOverview / StateTopic / Constituency / District | U2a | U2c, U4, U5 | build+vitest(breadcrumb)+in-browser smoke (5 routes) | _pending_ | TODO |
+| U2b `GeoBreadcrumb.svelte` + integration into Home / StateOverview / StateTopic / Constituency / District | U2a | U2c, U4, U5 | build+vitest(breadcrumb)+in-browser smoke (5 routes) | #742 | IN-FLIGHT |
 | U2c LeftRail re-cluster (same-side fix + glass app bar + spring drawer + token migration + ballot-motif retone + `build <sha>` footer) | U1 (MERGED #720) | U2a, U2b, U4, U5 | build+vitest(tokens)+in-browser smoke | _pending_ | TODO |
 | U2d closure (distil into `docs/architecture/frontend/design-system.md` U2 row; flip parent U2 ledger; archive this sub-plan) | U2a, U2b, U2c | - | docs-review | _pending_ | TODO |
 
@@ -127,6 +127,8 @@ U2a -> U2b is a hard edge (the breadcrumb's District crumb hrefs through `url.di
 **Gate**: build + vitest (`GeoBreadcrumb.test.ts` all cases pass) + svelte-check + in-browser smoke per CLAUDE.md section 13: open `/`, `/s/tamil-nadu`, `/s/tamil-nadu/ac/167-mylapore`, `/s/tamil-nadu/t/fiscal`, `/s/tamil-nadu/d/<known-district-slug>`; confirm the breadcrumb renders, ascend links work, no new console errors.
 
 **Risk**: moderate. The component touches 5 route files; the sibling-jump menu has the most surface area. Risk mitigation: if sibling-jump turns out to need a separate data fetch the route doesn't already do, ship the menu collapsed by default + open-on-click triggers the fetch (lazy, no first-paint cost).
+
+**Shipped scope (2026-06-05)**: U2b ships the ascend-only crumb chain + sticky/glass styling + the 5-route integration + the chevron-right glyph (added to the icon registry per parent plan section 21.10's icons-in-public layout). The trailing `v` sibling-jump menu is DEFERRED to a follow-up sub-row (U2b.2 if minted, else folded into U2c) per the user's "don't over-engineer" mandate and the stop-and-surface trigger above: the popover needs a data fetch the route does not already do (peer enumeration at the current grain), the latency profile is unknown without first-fetch instrumentation, and shipping a half-coverage popover hurts citizen trust more than waiting. The breadcrumb's chain + ascend behaviour is the load-bearing primary-nav spine; the popover is an enhancement that lifts cleanly later.
 
 ### U2c LeftRail re-cluster (same-side fix + glass app bar + spring drawer + token migration + ballot-motif retone + `build <sha>` footer)
 

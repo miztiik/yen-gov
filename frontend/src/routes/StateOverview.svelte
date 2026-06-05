@@ -62,6 +62,7 @@
   import { states } from "../lib/states.svelte";
   import { getPartyColor } from "../lib/colors/resolver";
   import { url } from "../lib/url";
+  import GeoBreadcrumb from "../lib/GeoBreadcrumb.svelte";
   import {
     fetchElectionEvents,
     defaultEventForState,
@@ -499,9 +500,10 @@
   );
 </script>
 
+<GeoBreadcrumb />
+
 <main class="max-w-screen-2xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
-    <p class="text-xs"><a class="text-slate-500 hover:underline" href={url.home()}>← All states</a></p>
     <h1 class="text-2xl font-bold leading-tight">{states.name(state_code)}</h1>
     <p class="text-sm text-slate-600">
       {#if event_row}
