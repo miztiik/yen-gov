@@ -25,7 +25,7 @@
   //
   // CLAUDE.md §0: no aria/role; visible affordances only.
 
-  import HorizontalGroupedBar from "../lib/charts/HorizontalGroupedBar.svelte";
+  import HorizontalGroupedBar from "../lib/charts/CategoryBar.svelte";
   import OrderedCategoryBar from "../lib/charts/CategoryBar.svelte";
   import DumbbellRange from "../lib/charts/DumbbellRange.svelte";
   import TimeSeriesLine from "../lib/charts/TimeSeriesLine.svelte";
@@ -375,8 +375,12 @@
       One row per state, three grouped bars per row (Coal / Hydro /
       Renewable). Pinned row = Tamil Nadu (amber accent). Sort policy
       <code>value_desc</code> aggregated by sum.
+      <br />Now rendered through <code>CategoryBar mode="stacked"</code>
+      (F2a.3+F2a.4 consolidation; the orphan
+      <code>HorizontalGroupedBar.svelte</code> retired).
     </p>
     <HorizontalGroupedBar
+      mode="stacked"
       view_model={hgb_vm}
       chart_title="Installed capacity by fuel (synthetic)"
       chart_subtitle="One bar group per fuel; row = state."

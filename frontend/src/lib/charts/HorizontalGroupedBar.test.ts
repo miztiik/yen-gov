@@ -4,13 +4,21 @@ import {
   buildHorizontalGroupedBarViewModel,
   type GroupedBarViewModel,
 } from "./multi-dim-view-models";
-import { legendColour } from "./HorizontalGroupedBar.svelte";
+import { legendColour } from "./CategoryBar.svelte";
 
 // Component-level DOM assertions are deferred to Playwright (vitest is
 // node-env without jsdom — see ChartShell rationale). This file
-// exercises the renderer's pure module-scope `legendColour` helper +
-// the contract between the Phase 1.6 builder and the renderer's
-// expected shape.
+// exercises the pure module-scope `legendColour` helper + the
+// contract between the Phase 1.6 builder and the renderer's expected
+// shape.
+//
+// As of F2a.3+F2a.4, `legendColour` lives in `CategoryBar.svelte`'s
+// <script module> block; the renderer body itself moved into
+// CategoryBar's `mode="stacked"` branch. This test file stays under
+// its original `HorizontalGroupedBar.test.ts` name pending a Level-1
+// rename to `category-bar-stacked.test.ts` (out of F2a.3+F2a.4 scope;
+// the rename is cosmetic and would invalidate git blame across the
+// strangler-fig sequence).
 
 interface Row {
   id: string;
