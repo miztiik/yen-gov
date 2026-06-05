@@ -23,6 +23,7 @@ import TopicIndex from "./routes/TopicIndex.svelte";
 import TopicLanding from "./routes/TopicLanding.svelte";
 import StateTopic from "./routes/StateTopic.svelte";
 import StateElection from "./routes/StateElection.svelte";
+import District from "./routes/District.svelte";
 import NationalElectionsAtlas from "./routes/NationalElectionsAtlas.svelte";
 import DataCompleteness from "./routes/DataCompleteness.svelte";
 import DuckDbHarness from "./routes/DuckDbHarness.svelte";
@@ -91,6 +92,23 @@ startRouter({
       parse: ({ state, party }) => ({ state, party_slug: party }),
     },
     { pattern: "/s/:state/explore", component: Explore },
+    // Per-state per-district landing (U2 sub-plan U2a). Place-first geo
+    // axis lives in the PATH never the querystring (parent plan section
+    // 23.5 + 20.8). 4-segment pattern, distinct from /s/:state (2 seg)
+    // and /s/:state/t/:topic (4 seg with literal `t`); route order is
+    // not load-bearing. The `district` slug is opaque to the router and
+    // resolved at render time inside District.svelte against the LGD
+    // district `display_name` via slugify().
+    //
+    // Reserved (NOT registered): `/sd/:subdistrict` per parent plan
+    // section 23.5. The shape is held for a future chunk that lifts
+    // subdistrict-grain data; until then it intentionally falls through
+    // to NotFound so we do not ship a route that points at no data.
+    {
+      pattern: "/s/:state/d/:district",
+      component: District,
+      parse: ({ state, district }) => ({ state, district_slug: district }),
+    },
     // Per-state topic page (IA-reset Step #2). Sits under /s/:state and is
     // pattern-distinct from /s/:state (different segment count), so order
     // here is not load-bearing.
