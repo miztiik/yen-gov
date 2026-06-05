@@ -88,17 +88,18 @@ describe("CategoryBar mode='ranked' renderer contract", () => {
 });
 
 describe("CategoryBar discriminated-union doctrine", () => {
-  it("ranked is the only implemented mode in F2a.1+F2a.2", () => {
-    // The component renders a labelled stub for stacked/diverging
-    // until F2a.3 and F2a.5 land their respective bodies. This
+  it("all three modes (ranked, stacked, diverging) are implemented as of F2a.5.1", () => {
+    // The component renders a real body for each mode now. This
     // test documents the contract; the actual mount-time behaviour
-    // is verified in the section 13 sandbox smoke (sandbox 'ocb'
-    // section MUST render through CategoryBar mode='ranked').
+    // is verified in the section 13 sandbox smoke for each mode
+    // (ocb -> ranked, hgb -> stacked, diverging-bar -> diverging).
     const implemented: ReadonlyArray<"ranked" | "stacked" | "diverging"> = [
       "ranked",
+      "stacked",
+      "diverging",
     ];
     expect(implemented).toContain("ranked");
-    expect(implemented).not.toContain("stacked");
-    expect(implemented).not.toContain("diverging");
+    expect(implemented).toContain("stacked");
+    expect(implemented).toContain("diverging");
   });
 });

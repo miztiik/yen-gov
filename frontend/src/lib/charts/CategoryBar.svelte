@@ -19,6 +19,43 @@
     }
     return "rgb(148 163 184)"; // slate-400
   }
+
+  // F2a.5.1 diverging-mode props type. Lives in the module block (not
+  // the instance script) because (a) it does NOT depend on the
+  // instance's generic `T`, and (b) Svelte 5 snippet template scope
+  // resolves interface names declared in the module block reliably,
+  // while interface names from a generic instance script can fail to
+  // type-check at the snippet's parameter position ("Cannot find name
+  // 'DivergingProps'"). The interface body is identical to what the
+  // F2a.5 sub-sub-plan ledger row specifies.
+  import type { CompositionBarModel } from "./composition-bar/types";
+  import type {
+    SourceV2Row,
+    ChartShellHonestyBanner,
+    ChartShellActionSpec,
+  } from "./chart-shell/types";
+  import type { Snippet } from "svelte";
+
+  export interface CategoryBarDivergingProps {
+    mode: "diverging";
+    /** Single-entity, single-period 100%-stacked horizontal
+     *  composition. Adapter (lib/charts/composition-bar/) projects
+     *  loaded rows onto this shape. Renderer treats the model as
+     *  opaque: domain knowledge stays in the adapter (party seats,
+     *  fuel mix, age bands). */
+    view_model: CompositionBarModel;
+    chart_title?: string;
+    chart_subtitle?: string | null;
+    honesty_banners?: readonly ChartShellHonestyBanner[];
+    sources?: readonly SourceV2Row[];
+    schema_version?: string | null;
+    wrap_in_shell?: boolean;
+    format_value?: (v: number) => string;
+    /** Optional footer action specs forwarded to ChartShell.
+     *  Closed-enum vocabulary; unknown ids dropped silently. */
+    actions?: readonly ChartShellActionSpec[];
+    toolbar?: Snippet;
+  }
 </script>
 
 <script lang="ts" generics="T">
@@ -47,12 +84,8 @@
   //   - No interactivity in v1.
   //   - CLAUDE.md section 0: no aria/role.
 
-  import type { Snippet } from "svelte";
-  import type {
-    SourceV2Row,
-    ChartShellHonestyBanner,
-  } from "./chart-shell/types";
   import type { OrderedCategoryBarViewModel } from "./bar-view-models";
+  import { projectSegments } from "./composition-bar/helpers";
   import ChartShell from "./ChartShell.svelte";
 
   interface CommonProps {
@@ -90,10 +123,9 @@
     show_legend?: boolean;
   }
 
-  interface DivergingProps extends CommonProps {
+  interface DivergingProps extends CategoryBarDivergingProps {
+    /** Placeholder so the discriminated union has a per-instance reference. */
     mode: "diverging";
-    /** Filled in by F2a.5 with the `composition-bar`/diverging VM. */
-    view_model: unknown;
   }
 
   type Props = RankedProps | StackedProps | DivergingProps;
@@ -235,14 +267,92 @@
   </div>
 {/snippet}
 
-{#snippet stubBody(mode: "diverging")}
-  <div
-    class="cb__stub"
-    data-component="category-bar"
-    data-mode={mode}
+{#snippet divergingBody(p: CategoryBarDivergingProps)}
+  {@const projection = projectSegments(p.view_model.segments)}
+  {@const total_label = `${p.view_model.total_value.toLocaleString()} ${p.view_model.total_unit}`}
+  <ChartShell
+    title={p.view_model.label}
+    subtitle={p.view_model.subtitle ?? undefined}
+    honesty_banners={p.view_model.honesty_banners}
+    sources={p.sources}
+    schema_version={p.schema_version ?? null}
+    actions={p.actions ?? []}
+    toolbar={p.toolbar}
   >
-    CategoryBar mode="{mode}" not yet implemented (F2a.5).
-  </div>
+    <div
+      class="composition-bar"
+      data-component="category-bar"
+      data-mode="diverging"
+      data-dimension={p.view_model.dimension}
+      data-segment-count={projection.length}
+    >
+      <div class="composition-bar__header">
+        <span class="composition-bar__total" data-slot="total">
+          {total_label}
+        </span>
+      </div>
+
+      {#if projection.length === 0}
+        <p class="composition-bar__empty" data-slot="empty">
+          No data to display.
+        </p>
+      {:else}
+        <svg
+          class="composition-bar__svg"
+          viewBox="0 0 100 8"
+          preserveAspectRatio="none"
+          data-slot="bar"
+        >
+          {#each projection as seg (seg.id)}
+            <rect
+              x={seg.x_pct}
+              y={0}
+              width={seg.width_pct}
+              height={8}
+              fill={seg.fill}
+              data-segment-id={seg.id}
+              data-swatch-role={seg.swatch_role}
+              data-is-tail={seg.is_tail ? "true" : "false"}
+              data-share-pct={seg.share_pct.toFixed(2)}
+              data-value={seg.value}
+            ></rect>
+          {/each}
+        </svg>
+
+        <ul class="composition-bar__legend" data-slot="legend">
+          {#each projection as seg (seg.id)}
+            <li
+              class="composition-bar__legend-item"
+              data-segment-id={seg.id}
+              data-swatch-role={seg.swatch_role}
+              data-is-tail={seg.is_tail ? "true" : "false"}
+            >
+              <span
+                class="composition-bar__swatch"
+                style:background={seg.fill}
+              ></span>
+              <span class="composition-bar__legend-label">{seg.label}</span>
+              <span class="composition-bar__legend-value">
+                {seg.value.toLocaleString()}
+              </span>
+              <span class="composition-bar__legend-share">
+                ({seg.share_pct.toFixed(1)}%)
+              </span>
+            </li>
+          {/each}
+        </ul>
+      {/if}
+
+      {#if p.view_model.caption_fptp}
+        <p
+          class="composition-bar__caption"
+          data-slot="caption-fptp"
+        >
+          {p.view_model.caption_fptp}
+        </p>
+      {/if}
+    </div>
+  </ChartShell>
 {/snippet}
 
 {#snippet body()}
@@ -251,11 +361,14 @@
   {:else if props.mode === "stacked"}
     {@render stackedBody(props)}
   {:else if props.mode === "diverging"}
-    {@render stubBody("diverging")}
+    {@render divergingBody(props)}
   {/if}
 {/snippet}
 
-{#if props.wrap_in_shell !== false && props.chart_title}
+{#if props.mode === "diverging"}
+  <!-- diverging mode self-wraps in ChartShell using model.* fields -->
+  {@render body()}
+{:else if props.wrap_in_shell !== false && props.chart_title}
   <ChartShell
     title={props.chart_title}
     subtitle={props.chart_subtitle ?? null}
@@ -341,14 +454,74 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
-  .cb__stub {
-    padding: 0.75rem;
+
+  /* diverging-mode (lifted verbatim from CompositionBar.svelte). */
+  .composition-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .composition-bar__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .composition-bar__total {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: rgb(15 23 42); /* slate-900 */
+  }
+  .composition-bar__svg {
+    display: block;
+    width: 100%;
+    height: 1.25rem;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    background: rgb(241 245 249); /* slate-100 - visible behind any gap */
+  }
+  .composition-bar__legend {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.875rem;
+  }
+  .composition-bar__legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
     font-size: 0.75rem;
-    color: rgb(100 116 139);
+    color: rgb(51 65 85); /* slate-700 */
+  }
+  .composition-bar__swatch {
+    display: inline-block;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 0.125rem;
+  }
+  .composition-bar__legend-label {
+    font-weight: 500;
+  }
+  .composition-bar__legend-value {
+    color: rgb(71 85 105); /* slate-600 */
+    font-variant-numeric: tabular-nums;
+  }
+  .composition-bar__legend-share {
+    color: rgb(100 116 139); /* slate-500 */
+    font-variant-numeric: tabular-nums;
+  }
+  .composition-bar__caption {
+    margin: 0;
+    font-size: 0.6875rem;
+    color: rgb(100 116 139); /* slate-500 */
     font-style: italic;
-    border: 1px dashed rgb(203 213 225);
-    border-radius: 4px;
-    background: rgb(248 250 252);
+  }
+  .composition-bar__empty {
+    margin: 0;
+    font-size: 0.75rem;
+    color: rgb(100 116 139); /* slate-500 */
+    font-style: italic;
   }
 
   /* stacked-mode (lifted verbatim from HorizontalGroupedBar.svelte). */
