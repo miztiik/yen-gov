@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-nagaland-1446,nagaland,2019,26,AONGLENDEN,SHARINGAIN LONGKUMER,,8607,78.27,1,won,M,37,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1446,nagaland,2019,26,AONGLENDEN,ALEM JONGSHI,,2362,21.48,2,lost,M,60,Post Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1446,nagaland,2019,26,AONGLENDEN,NOTA,,28,0.25,3,lost,U,,,,challenger,src-1b7bc1c9d39a

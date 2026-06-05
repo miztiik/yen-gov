@@ -1,0 +1,17 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-kerala-3731,kerala,2015,136,ARUVIKKARA,Sabarinadhan K.S,,56448,40.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2015,136,ARUVIKKARA,M.Vijayakumar,,46320,32.84,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2015,136,ARUVIKKARA,O.Raja Gopal,,34145,24.2,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2015,136,ARUVIKKARA,K.Das,,1197,0.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2015,136,ARUVIKKARA,Poonthura Siraj,,703,0.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2015,136,ARUVIKKARA,Adv.P.K.Sukumaran,,481,0.34,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2015,136,ARUVIKKARA,Sunil.M.Karani,,422,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2015,136,ARUVIKKARA,Fr.Thomas Kaithaparambil,,383,0.27,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2015,136,ARUVIKKARA,Irinchayam Suresh,,354,0.25,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2015,136,ARUVIKKARA,Sree.Jita.T.R.,,171,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2015,136,ARUVIKKARA,Sabarinath.M.S,,143,0.1,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2015,136,ARUVIKKARA,N.Sasidharan Pillai,,93,0.07,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2015,136,ARUVIKKARA,Vijaya Kumar.B,,69,0.05,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2015,136,ARUVIKKARA,K.M.Sivaprasad Master,,62,0.04,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2015,136,ARUVIKKARA,Vijaya kumar Nair,,40,0.03,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2015,136,ARUVIKKARA,K.G.Mohanan,,35,0.02,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a

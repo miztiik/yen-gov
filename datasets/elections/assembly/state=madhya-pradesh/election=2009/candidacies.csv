@@ -1,0 +1,23 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2009,13,GOHAD,Ranveer Jatav,,55442,60.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2009,13,GOHAD,Master S.Jatav,,32871,35.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2009,13,GOHAD,Keshav S.Desai,,955,1.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2009,13,GOHAD,Hariom Jatav,,595,0.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2009,13,GOHAD,B.S.Lodheki Pali,,468,0.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2009,13,GOHAD,Rameshwar Dayal,,428,0.47,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2009,13,GOHAD,Mevaram Jatav,,405,0.44,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2009,13,GOHAD,Mukesh Jatav,,200,0.22,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2009,13,GOHAD,Jitendra Singh,,157,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2009,13,GOHAD,Pancham S.Jatav,,157,0.17,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2544,madhya-pradesh,2009,120,TENDUKHEDA,Bhaiyaram Patel,,52155,53.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2544,madhya-pradesh,2009,120,TENDUKHEDA,V.Mulayam Bhaiya,,39521,40.25,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2544,madhya-pradesh,2009,120,TENDUKHEDA,Santosh,,2447,2.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2544,madhya-pradesh,2009,120,TENDUKHEDA,Siyaram Jatav,,1282,1.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2544,madhya-pradesh,2009,120,TENDUKHEDA,Harigovind Mehra,,849,0.86,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2544,madhya-pradesh,2009,120,TENDUKHEDA,Meera Kumari,,541,0.55,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2544,madhya-pradesh,2009,120,TENDUKHEDA,S. Thakur,,410,0.42,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2544,madhya-pradesh,2009,120,TENDUKHEDA,D.P.Thakur ( Baddu Bahiya),,215,0.22,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2544,madhya-pradesh,2009,120,TENDUKHEDA,N.Singh Kaurav,,195,0.2,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2544,madhya-pradesh,2009,120,TENDUKHEDA,Bhaiyalal Sahu,,194,0.2,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2544,madhya-pradesh,2009,120,TENDUKHEDA,Babulal Jatav,,191,0.19,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2544,madhya-pradesh,2009,120,TENDUKHEDA,Ashok Mishra,,185,0.19,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a

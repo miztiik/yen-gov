@@ -1,0 +1,957 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-kerala-3769,kerala,2011,1,MANJESHWAR,P B ABDUL RAZAK,,49817,37.46,1,won,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3769,kerala,2011,1,MANJESHWAR,K SURENDRAN,,43989,33.08,2,lost,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3769,kerala,2011,1,MANJESHWAR,ADV. C H KUNHAMBU,,35067,26.37,3,lost,U,51,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3769,kerala,2011,1,MANJESHWAR,HAFSA MUNEER,,1076,0.81,4,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3769,kerala,2011,1,MANJESHWAR,ABDUL MAJEED,,869,0.65,5,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3769,kerala,2011,1,MANJESHWAR,ABDULLA TIMBER,,547,0.41,6,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3769,kerala,2011,1,MANJESHWAR,KUNHAMBU,,490,0.37,7,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3769,kerala,2011,1,MANJESHWAR,ABDUL RAZAK K,,465,0.35,8,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3769,kerala,2011,1,MANJESHWAR,ABBAS M,,391,0.29,9,forfeit,U,25,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3769,kerala,2011,1,MANJESHWAR,ABDULLA P M,,262,0.2,10,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3768,kerala,2011,2,KASARAGOD,N.A.NELLIKKUNNU,,53068,45.35,1,won,U,57,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3768,kerala,2011,2,KASARAGOD,JAYALAKSHMI N BHAT,,43330,37.02,2,lost,U,53,Post Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3768,kerala,2011,2,KASARAGOD,AZEEZ KADAPPURAM,,16467,14.07,3,forfeit,U,44,10th Pass,Hospitality,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3768,kerala,2011,2,KASARAGOD,A H MUNEER,,1260,1.08,4,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3768,kerala,2011,2,KASARAGOD,GOVINDA RAJA KUNTIKKANAMATA,,938,0.8,5,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3768,kerala,2011,2,KASARAGOD,SAIFUDEEN K MAKKODU,,807,0.69,6,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3768,kerala,2011,2,KASARAGOD,AJITH KUMAR AZAD,,739,0.63,7,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3768,kerala,2011,2,KASARAGOD,ABDULLA,,422,0.36,8,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3772,kerala,2011,3,UDMA,K.KUNHIRAMAN,,61646,47.93,1,won,U,62,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3772,kerala,2011,3,UDMA,ADV. C K SREEDHARAN,,50266,39.08,2,lost,U,66,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3772,kerala,2011,3,UDMA,SUNITHA PRASANTH,,13073,10.16,3,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3772,kerala,2011,3,UDMA,FAISAL KOLIYADUKKAM,,1265,0.98,4,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3772,kerala,2011,3,UDMA,P DAMODARAN,,1096,0.85,5,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3772,kerala,2011,3,UDMA,KRISHNANKUTTY,,866,0.67,6,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3772,kerala,2011,3,UDMA,KUNHIRAMAN,,414,0.32,7,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3767,kerala,2011,4,KANHANGAD,E.CHANDRASHEKHARAN,,66640,47.65,1,won,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3767,kerala,2011,4,KANHANGAD,ADV.M C JOSE,,54462,38.95,2,lost,U,63,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3767,kerala,2011,4,KANHANGAD,MADIKAI KAMMARAN,,15543,11.11,3,forfeit,U,72,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3767,kerala,2011,4,KANHANGAD,P M JOSEPH,,1919,1.37,4,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3767,kerala,2011,4,KANHANGAD,GOPALAN K,,1277,0.91,5,forfeit,U,72,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3771,kerala,2011,5,TRIKARIPUR,K KUNHIRAMAN,,67871,49.91,1,won,U,67,Others,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3771,kerala,2011,5,TRIKARIPUR,K.V.GANGADHARAN,,59106,43.46,2,lost,U,63,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3771,kerala,2011,5,TRIKARIPUR,T.RADHAKRISHNAN,,5450,4.01,3,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3771,kerala,2011,5,TRIKARIPUR,RAZAK HAJI PARAMBATH,,1741,1.28,4,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3771,kerala,2011,5,TRIKARIPUR,ARUN KUMAR,,1031,0.76,5,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3771,kerala,2011,5,TRIKARIPUR,K.K.DILEEP KUMAR,,789,0.58,6,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3770,kerala,2011,6,PAYYANNUR,C.KRISHNAN,,78116,59.78,1,won,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3770,kerala,2011,6,PAYYANNUR,ADV. K. BRIJESH KUMAR,,45992,35.2,2,lost,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3770,kerala,2011,6,PAYYANNUR,C.K.RAMESAN MASTER,,5019,3.84,3,forfeit,U,40,10th Pass,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3770,kerala,2011,6,PAYYANNUR,GEETHA,,625,0.48,4,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3770,kerala,2011,6,PAYYANNUR,T.P.PADMANABHAN,,536,0.41,5,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3770,kerala,2011,6,PAYYANNUR,KOTTAYODI VISWANATHAN,,378,0.29,6,forfeit,U,57,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3766,kerala,2011,7,KALLIASSERI,T.V. RAJESH,,73190,58.62,1,won,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3766,kerala,2011,7,KALLIASSERI,ADV. P. INDIRA,,43244,34.64,2,lost,U,40,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3766,kerala,2011,7,KALLIASSERI,ADV. SREEKANTH RAVI VARMA,,5499,4.4,3,forfeit,U,43,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3766,kerala,2011,7,KALLIASSERI,A.P. MAHAMOOD,,2281,1.83,4,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3766,kerala,2011,7,KALLIASSERI,K. GOPALAKRISHNAN,,640,0.51,5,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3765,kerala,2011,8,TALIPARAMBA,JAMES MATHEW,,81031,56.13,1,won,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3765,kerala,2011,8,TALIPARAMBA,ADV JOB MICHEL,,53170,36.83,2,lost,U,45,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3765,kerala,2011,8,TALIPARAMBA,K.JAYAPRAKASH,,6492,4.5,3,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3765,kerala,2011,8,TALIPARAMBA,MUHAMMEDALI.S.P,,1930,1.34,4,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3765,kerala,2011,8,TALIPARAMBA,NIDHEESH THILLANKERI,,927,0.64,5,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3765,kerala,2011,8,TALIPARAMBA,THOMAS.M.V,,813,0.56,6,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3761,kerala,2011,9,IRIKKUR,K. C. JOSEPH,,68503,52.41,1,won,U,64,Post Graduate,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3761,kerala,2011,9,IRIKKUR,ADV. P. SANTHOSH KUMAR,,56746,43.42,2,lost,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3761,kerala,2011,9,IRIKKUR,M. G. RAMAKRISHNAN NAIR,,3529,2.7,3,forfeit,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3761,kerala,2011,9,IRIKKUR,JOSEPH,,740,0.57,4,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3761,kerala,2011,9,IRIKKUR,AMMINI KRISHNAN,,633,0.48,5,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3761,kerala,2011,9,IRIKKUR,BIJU THOMAS,,552,0.42,6,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3759,kerala,2011,10,AZHIKODE,K.M.SHAJI,,55077,45.21,1,won,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3759,kerala,2011,10,AZHIKODE,M.PRAKASHAN MASTER,,54584,44.8,2,lost,U,51,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3759,kerala,2011,10,AZHIKODE,M.K.SASEENDRAN MASTER,,7540,6.19,3,forfeit,U,60,12th Pass,Retired Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3759,kerala,2011,10,AZHIKODE,NOUSHAD PUNNAKKAL,,2935,2.41,4,forfeit,U,41,Others,Managerial Position,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3759,kerala,2011,10,AZHIKODE,SHAJI.K.M.,,602,0.49,5,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3759,kerala,2011,10,AZHIKODE,C.BALAKRISHNAN,,458,0.38,6,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3759,kerala,2011,10,AZHIKODE,PAUL T SAMUEL,,414,0.34,7,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3759,kerala,2011,10,AZHIKODE,PRAKASHAN KUZHIPARAMBIL,,222,0.18,8,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3762,kerala,2011,11,KANNUR,A.P ABDULLAKUTTY,,55427,48.89,1,won,U,43,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3762,kerala,2011,11,KANNUR,RAMACHANDRAN KADANNAPPALLI,,48984,43.21,2,lost,U,53,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3762,kerala,2011,11,KANNUR,U.T.JAYANDAN,,4568,4.03,3,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3762,kerala,2011,11,KANNUR,ADV.P.C.NOUSHAD,,2538,2.24,4,forfeit,U,37,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3762,kerala,2011,11,KANNUR,M.P.ABDULLAKUTTY,,1100,0.97,5,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3762,kerala,2011,11,KANNUR,K.SUDHAKARAN,,517,0.46,6,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3762,kerala,2011,11,KANNUR,S.NOORUDHEEN,,226,0.2,7,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3760,kerala,2011,12,DHARMADAM,K.K. NARAYANAN,,72354,53.13,1,won,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3760,kerala,2011,12,DHARMADAM,MAMBARAM DIVAKARAN,,57192,42,2,lost,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3760,kerala,2011,12,DHARMADAM,C.P.SANGEETHA,,4963,3.64,3,forfeit,U,37,10th Pass,Panchayat Member,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3760,kerala,2011,12,DHARMADAM,POYILORE KUNNUMBROM DIVAKARAN,,871,0.64,4,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3760,kerala,2011,12,DHARMADAM,MADHU.S.VAYANAN,,797,0.59,5,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3848,kerala,2011,13,THALASSERY,KODIYERI BALAKRISHNAN,,66870,56.78,1,won,U,57,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3848,kerala,2011,13,THALASSERY,RIJIL MAKKUTTY,,40361,34.27,2,lost,U,28,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3848,kerala,2011,13,THALASSERY,ADV. V. RATHNAKARAN,,6973,5.92,3,forfeit,U,46,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3848,kerala,2011,13,THALASSERY,A.C JALALUDDIN,,2068,1.76,4,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3848,kerala,2011,13,THALASSERY,K.RAGHUNATH,,674,0.57,5,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3848,kerala,2011,13,THALASSERY,RIJIL MULIYIL,,539,0.46,6,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3848,kerala,2011,13,THALASSERY,BALAKRISHNAN,,278,0.24,7,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3843,kerala,2011,14,KUTHUPARAMBA,K.P.MOHANAN S/O P R KURUP,,57164,44.68,1,won,U,61,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3843,kerala,2011,14,KUTHUPARAMBA,S A PUTHIYA VALAPPIL,,53861,42.1,2,lost,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3843,kerala,2011,14,KUTHUPARAMBA,O.K.VASU MASTER,,11835,9.25,3,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3843,kerala,2011,14,KUTHUPARAMBA,K.P. MOHANAN S/O KUNHIKANNAN,,1982,1.55,4,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3843,kerala,2011,14,KUTHUPARAMBA,S POOVALAPPIL,,1199,0.94,5,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3843,kerala,2011,14,KUTHUPARAMBA,K.P. MOHANAN S/O NANU,,1130,0.88,6,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3843,kerala,2011,14,KUTHUPARAMBA,SULAIM T.B,,758,0.59,7,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3763,kerala,2011,15,MATTANNUR,E.P.JAYARAJAN,,75177,56.55,1,won,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3763,kerala,2011,15,MATTANNUR,JOSEPH CHAAVARA,,44665,33.6,2,lost,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3763,kerala,2011,15,MATTANNUR,BIJU ELAKKUZHI,,8707,6.55,3,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3763,kerala,2011,15,MATTANNUR,ADV.K.C.MUHAMMAD SABEER,,2757,2.07,4,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3763,kerala,2011,15,MATTANNUR,JOSEPH,,858,0.65,5,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3763,kerala,2011,15,MATTANNUR,HAMEED,,783,0.59,6,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3764,kerala,2011,16,PERAVOOR,ADV.SUNNY JOSEPH,,56151,48.07,1,won,U,58,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3764,kerala,2011,16,PERAVOOR,K.K.SHAILAJA TEACHER,,52711,45.12,2,lost,U,54,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3764,kerala,2011,16,PERAVOOR,P.K.VELAYUDHAN.,,4055,3.47,3,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3764,kerala,2011,16,PERAVOOR,P.K. AYYAPPAN MASTER.,,1537,1.32,4,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3764,kerala,2011,16,PERAVOOR,SUNNY JOSEPH,,903,0.77,5,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3764,kerala,2011,16,PERAVOOR,A.SHYLAJA,,565,0.48,6,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3764,kerala,2011,16,PERAVOOR,RAGHAVAN,,526,0.45,7,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3764,kerala,2011,16,PERAVOOR,RADHAMANI NARAYANA KUMAR,,365,0.31,8,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3852,kerala,2011,17,MANANTHAVADY,P.K.JAYALAKSHMI,,62996,50.78,1,won,U,28,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3852,kerala,2011,17,MANANTHAVADY,K.C.KUNHIRAMAN,,50262,40.52,2,lost,U,51,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3852,kerala,2011,17,MANANTHAVADY,IRUMUTTOOR KUNHAMAN,,5732,4.62,3,forfeit,U,60,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3852,kerala,2011,17,MANANTHAVADY,A. GOPAKUMAR,,2342,1.89,4,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3852,kerala,2011,17,MANANTHAVADY,P.U BABU,,1712,1.38,5,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3852,kerala,2011,17,MANANTHAVADY,ANNAN- MADAKKIMALA,,1008,0.81,6,forfeit,U,54,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3854,kerala,2011,18,SULTHANBATHERY,I.C BALAKRISHNAN,,71509,49.14,1,won,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3854,kerala,2011,18,SULTHANBATHERY,E.A .SANKARAN,,63926,43.93,2,lost,U,36,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3854,kerala,2011,18,SULTHANBATHERY,PALLIYARA RAMAN,,8829,6.07,3,forfeit,U,66,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3854,kerala,2011,18,SULTHANBATHERY,MUKUNDAN CHEENGERI,,1248,0.86,4,forfeit,U,67,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3851,kerala,2011,19,KALPETTA,M.V SREYAMSKUMAR,,67018,52.94,1,won,U,44,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3851,kerala,2011,19,KALPETTA,P.A MUHAMMED,,48849,38.59,2,lost,U,72,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3851,kerala,2011,19,KALPETTA,ANAND KUMAR.P.G,,6580,5.2,3,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3851,kerala,2011,19,KALPETTA,JAMEELA,,1597,1.26,4,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3851,kerala,2011,19,KALPETTA,K. NASEERUDHEEN,,1197,0.95,5,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3851,kerala,2011,19,KALPETTA,CLEATUS,,760,0.6,6,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3851,kerala,2011,19,KALPETTA,MUJEEB RAHMAN ANJUKUNNU,,583,0.46,7,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3849,kerala,2011,20,VADAKARA,C.K.NANU,,46912,41.05,1,won,U,79,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3849,kerala,2011,20,VADAKARA,ADV.M.K. PREMNATH,,46065,40.31,2,lost,U,59,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3849,kerala,2011,20,VADAKARA,N.VENU,,10098,8.84,3,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3849,kerala,2011,20,VADAKARA,M.P.RAJAN,,6909,6.05,4,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3849,kerala,2011,20,VADAKARA,SAALIM AZHIYUR,,3488,3.05,5,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3849,kerala,2011,20,VADAKARA,V.K.PREMANATHAN,,795,0.7,6,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3844,kerala,2011,21,KUTTIADI,K.K.LATHIKA,,70258,49.32,1,won,U,49,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3844,kerala,2011,21,KUTTIADI,SOOPI NARIKKATTERI,,63286,44.43,2,lost,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3844,kerala,2011,21,KUTTIADI,V.K.SAJEEVAN,,6272,4.4,3,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3844,kerala,2011,21,KUTTIADI,ABDUL RAHEEM MASTER,,1045,0.73,4,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3844,kerala,2011,21,KUTTIADI,M.SATHI,,407,0.29,5,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3844,kerala,2011,21,KUTTIADI,SOOPI THODUVAYIL VALAPPIL MEETHAL,,333,0.23,6,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3844,kerala,2011,21,KUTTIADI,LATHIKA VALIYAKULANGARA KUNIYIL,,247,0.17,7,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3844,kerala,2011,21,KUTTIADI,SOOPI ALAKKATT,,209,0.15,8,forfeit,U,69,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3844,kerala,2011,21,KUTTIADI,LATHIKA NIDUMANALKUNI,,207,0.15,9,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3844,kerala,2011,21,KUTTIADI,M.K.RAJAN,,189,0.13,10,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3845,kerala,2011,22,NADAPURAM,E.K.VIJAYAN,,72078,49.22,1,won,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3845,kerala,2011,22,NADAPURAM,V.M.CHANDRAN,,64532,44.07,2,lost,U,49,12th Pass,Managerial Position,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3845,kerala,2011,22,NADAPURAM,ADV.PRAKASH BABU,,6058,4.14,3,forfeit,U,31,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3845,kerala,2011,22,NADAPURAM,ISMAIL KAMMANA,,1865,1.27,4,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3845,kerala,2011,22,NADAPURAM,CHANDRAN,,745,0.51,5,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3845,kerala,2011,22,NADAPURAM,C.K VIJAYAN,,708,0.48,6,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3845,kerala,2011,22,NADAPURAM,K.P.VIJAYAN,,444,0.3,7,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3847,kerala,2011,23,QUILANDY,K.DASAN,,64374,47.2,1,won,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3847,kerala,2011,23,QUILANDY,AD.K.P.ANIL KUMAR,,60235,44.16,2,lost,U,42,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3847,kerala,2011,23,QUILANDY,T.P.JAYACHANDRAN MASTER,,8086,5.93,3,forfeit,U,49,Graduate Professional,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3847,kerala,2011,23,QUILANDY,C.MUNEER,,985,0.72,4,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3847,kerala,2011,23,QUILANDY,RASHID P.T,,985,0.72,5,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3847,kerala,2011,23,QUILANDY,K.P.ANILKUMAR,,520,0.38,6,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3847,kerala,2011,23,QUILANDY,K.V.KRISHNANKODUVAYAL,,466,0.34,7,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3847,kerala,2011,23,QUILANDY,DASAN M.K,,418,0.31,8,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3847,kerala,2011,23,QUILANDY,DASAN V.K,,325,0.24,9,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3846,kerala,2011,24,PERAMBRA,K. KUNHAMMAD MASTER,,70248,51.91,1,won,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3846,kerala,2011,24,PERAMBRA,ADV. MOHAMMED IKBAL,,54979,40.62,2,lost,U,42,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3846,kerala,2011,24,PERAMBRA,P.CHANDRIKA TEACHER,,7214,5.33,3,forfeit,U,58,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3846,kerala,2011,24,PERAMBRA,T.K.KUNHAMMAD FAISY,,1494,1.1,4,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3846,kerala,2011,24,PERAMBRA,AKHILKUMAR,,801,0.59,5,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3846,kerala,2011,24,PERAMBRA,K.K.VASU,,598,0.44,6,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3787,kerala,2011,25,BALUSSERI,PURUSHAN KADALUNDI,,74259,49.18,1,won,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3787,kerala,2011,25,BALUSSERI,A. BALARAM,,65377,43.29,2,lost,U,70,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3787,kerala,2011,25,BALUSSERI,ADV.T.K.RAMAN,,9304,6.16,3,forfeit,U,69,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3787,kerala,2011,25,BALUSSERI,BHADRAN.M.P,,1404,0.93,4,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3787,kerala,2011,25,BALUSSERI,K.K.SATHEESH,,660,0.44,5,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3789,kerala,2011,26,ELATHUR,A.K. SASEENDRAN,,67143,50.14,1,won,U,64,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3789,kerala,2011,26,ELATHUR,SHAIK P HARRIZ,,52489,39.2,2,lost,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3789,kerala,2011,26,ELATHUR,V V RAJAN,,11901,8.89,3,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3789,kerala,2011,26,ELATHUR,A SASINDRAN,,1402,1.05,4,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3789,kerala,2011,26,ELATHUR,RAMESH NANMANDA,,971,0.73,5,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3791,kerala,2011,27,KOZHIKODE NORTH,A. PRADEEP KUMAR,,57123,49.12,1,won,U,46,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3791,kerala,2011,27,KOZHIKODE NORTH,P.V GANGADHARAN,,48125,41.38,2,lost,U,67,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3791,kerala,2011,27,KOZHIKODE NORTH,P. REGHUNATH,,9894,8.51,3,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3791,kerala,2011,27,KOZHIKODE NORTH,PRADEEP KUMAR,,420,0.36,4,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3791,kerala,2011,27,KOZHIKODE NORTH,GANGADHARAN,,367,0.32,5,forfeit,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3791,kerala,2011,27,KOZHIKODE NORTH,LOOKA JOSEPH,,229,0.2,6,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3791,kerala,2011,27,KOZHIKODE NORTH,P.M SREEKUMAR,,142,0.12,7,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3788,kerala,2011,29,BEYPORE,ELAMARAM KAREEM,,60550,46.8,1,won,U,57,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3788,kerala,2011,29,BEYPORE,ADAM MULSI .M.P.,,55234,42.69,2,lost,U,30,Post Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3788,kerala,2011,29,BEYPORE,K.P.SREESAN,,11040,8.53,3,forfeit,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3788,kerala,2011,29,BEYPORE,MUHAMMED MUSTHAFA,,954,0.74,4,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3788,kerala,2011,29,BEYPORE,K.S.HARIHARAN,,564,0.44,5,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3788,kerala,2011,29,BEYPORE,K.T.LATHA,,469,0.36,6,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3788,kerala,2011,29,BEYPORE,ADAM MALIQUE .E,,396,0.31,7,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3788,kerala,2011,29,BEYPORE,ABDUL KAREEM,,183,0.14,8,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3793,kerala,2011,30,KUNNAMANGALAM,ADV.P.T.A.RAHIM,,66169,44.06,1,won,U,62,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3793,kerala,2011,30,KUNNAMANGALAM,U.C.RAMAN,,62900,41.88,2,lost,U,45,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3793,kerala,2011,30,KUNNAMANGALAM,C.K.PADMANABHAN,,17123,11.4,3,forfeit,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3793,kerala,2011,30,KUNNAMANGALAM,C.MUHAMMED MASTER,,1178,0.78,4,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3793,kerala,2011,30,KUNNAMANGALAM,RAMAN.C.K,,701,0.47,5,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3793,kerala,2011,30,KUNNAMANGALAM,K.K.KUNHIKANARAN,,427,0.28,6,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3793,kerala,2011,30,KUNNAMANGALAM,E.P.ABDUL RAHEEM,,421,0.28,7,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3793,kerala,2011,30,KUNNAMANGALAM,RAMAN.P.C,,404,0.27,8,forfeit,U,71,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3793,kerala,2011,30,KUNNAMANGALAM,ABDU RAHEEM.M.T,,325,0.22,9,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3793,kerala,2011,30,KUNNAMANGALAM,M.P.BABURAJ,,303,0.2,10,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3793,kerala,2011,30,KUNNAMANGALAM,O.P.SUNDARAN,,236,0.16,11,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3790,kerala,2011,31,KODUVALLY,V.M.UMMER MASTER,,60365,53.03,1,won,U,54,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3790,kerala,2011,31,KODUVALLY,M.MEHABOOB,,43813,38.49,2,lost,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3790,kerala,2011,31,KODUVALLY,GIREESH THEVALLY,,6519,5.73,3,forfeit,U,42,Graduate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3790,kerala,2011,31,KODUVALLY,M.T.ABU HAJI,,1688,1.48,4,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3790,kerala,2011,31,KODUVALLY,ABOOBAKER,,496,0.44,5,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3790,kerala,2011,31,KODUVALLY,MEHABOOB KANICHADIKKUZHI VALEPARAMMEL,,324,0.28,6,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3790,kerala,2011,31,KODUVALLY,UMMER,,313,0.27,7,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3790,kerala,2011,31,KODUVALLY,MEHABOOB ILLIKKATHODI,,306,0.27,8,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3855,kerala,2011,32,THIRUVAMBADY,C MOYINKUTTY,,56386,48.71,1,won,U,67,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3855,kerala,2011,32,THIRUVAMBADY,GEORGE M THOMAS,,52553,45.4,2,lost,U,57,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3855,kerala,2011,32,THIRUVAMBADY,JOSE KAPPATTMALA,,3894,3.36,3,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3855,kerala,2011,32,THIRUVAMBADY,C T ASHRAF,,790,0.68,4,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3855,kerala,2011,32,THIRUVAMBADY,K MOYINKUTTY,,576,0.5,5,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3855,kerala,2011,32,THIRUVAMBADY,GEORGE THOMAS,,574,0.5,6,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3855,kerala,2011,32,THIRUVAMBADY,K P BASHEER HAJI,,541,0.47,7,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3855,kerala,2011,32,THIRUVAMBADY,GAFOOR PUTHUPPADY,,440,0.38,8,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3794,kerala,2011,33,KONDOTTY,K MUHAMMEDUNNI HAJI,,67998,56.82,1,won,U,67,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3794,kerala,2011,33,KONDOTTY,P C NAUSHAD,,39849,33.3,2,lost,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3794,kerala,2011,33,KONDOTTY,DR KUMARI SUKUMARAN,,6840,5.72,3,forfeit,U,61,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3794,kerala,2011,33,KONDOTTY,ABDU RAHIMAN P T (BAPPU),,2026,1.69,4,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3794,kerala,2011,33,KONDOTTY,T K MAMMUNNI HAJI,,1817,1.52,5,forfeit,U,72,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3794,kerala,2011,33,KONDOTTY,E P MADHAVAN,,730,0.61,6,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3794,kerala,2011,33,KONDOTTY,NOUSHAD P,,415,0.35,7,forfeit,U,37,8th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3850,kerala,2011,34,ERANAD,P.K.BASHEER,,58698,51.29,1,won,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3850,kerala,2011,34,ERANAD,ANVER.P.V,,47452,41.47,2,lost,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3850,kerala,2011,34,ERANAD,K.P. BABURAJ MASTER,,3448,3.01,3,forfeit,U,46,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3850,kerala,2011,34,ERANAD,ASHRAFALI KALIYATH,,2700,2.36,4,forfeit,U,36,Graduate Professional,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3850,kerala,2011,34,ERANAD,P.P.SHOWKATHALI,,2137,1.87,5,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3853,kerala,2011,35,NILAMBUR,ARYADAN MOHAMMED,,66331,48.64,1,won,U,75,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3853,kerala,2011,35,NILAMBUR,PROFESSOR.M.THOMAS MATHEW,,60733,44.54,2,lost,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3853,kerala,2011,35,NILAMBUR,K.C.VELAYUDHAN,,4425,3.25,3,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3853,kerala,2011,35,NILAMBUR,C.G.UNNI,,2566,1.88,4,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3853,kerala,2011,35,NILAMBUR,THARIYAN KILIYAN,,1291,0.95,5,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3853,kerala,2011,35,NILAMBUR,THOMAS MATHEW,,1012,0.74,6,forfeit,U,50,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3856,kerala,2011,36,WANDOOR,A.P.ANILKUMAR,,77580,58.5,1,won,U,46,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3856,kerala,2011,36,WANDOOR,V. RAMESAN,,48661,36.69,2,lost,U,39,10th Pass,Accountant,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3856,kerala,2011,36,WANDOOR,KOTHERI AYYAPPAN,,2885,2.18,3,forfeit,U,53,8th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3856,kerala,2011,36,WANDOOR,KRISHNAN ERANHIKKAL,,1682,1.27,4,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3856,kerala,2011,36,WANDOOR,P. ANILKUMAR,,953,0.72,5,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3856,kerala,2011,36,WANDOOR,T.C.THEYYAN,,849,0.64,6,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3796,kerala,2011,37,MANJERI,ADV.M.UMMER,,67594,57.99,1,won,U,57,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3796,kerala,2011,37,MANJERI,PROF:P.GOURI,,38515,33.05,2,lost,U,59,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3796,kerala,2011,37,MANJERI,P.G.UPENDRAN,,6319,5.42,3,forfeit,U,50,10th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3796,kerala,2011,37,MANJERI,JALEEL NEELAMBRA,,2906,2.49,4,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3796,kerala,2011,37,MANJERI,FEROZ BABU ISHTADANAM,,653,0.56,5,forfeit,U,31,10th Pass,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3796,kerala,2011,37,MANJERI,SHAMSUDHEEN ASLAMI,,566,0.49,6,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3798,kerala,2011,38,PERINTHALMANNA,MANJALAMKUZHI ALI,,69730,52.14,1,won,U,58,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3798,kerala,2011,38,PERINTHALMANNA,SASIKUMAR,,60141,44.97,2,lost,U,49,Graduate,MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3798,kerala,2011,38,PERINTHALMANNA,C.K .KUNHIMUHAMMED,,1989,1.49,3,forfeit,U,54,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3798,kerala,2011,38,PERINTHALMANNA,SAIDALIKKUTTY@SAEED MADANI,,1067,0.8,4,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3798,kerala,2011,38,PERINTHALMANNA,MOHAMMED ALI,,808,0.6,5,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3797,kerala,2011,39,MANKADA,T.A.AHMED KABEER,,67756,55.88,1,won,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3797,kerala,2011,39,MANKADA,KADEEJA SATHAR,,44163,36.42,2,lost,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3797,kerala,2011,39,MANKADA,MANIKANDAN.K,,4387,3.62,3,forfeit,U,38,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3797,kerala,2011,39,MANKADA,DR.C.H.ASHRAF,,3015,2.49,4,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3797,kerala,2011,39,MANKADA,ANWAR BABU,,1926,1.59,5,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3795,kerala,2011,40,MALAPPURAM,P. UBAIDULLA,,77928,63.75,1,won,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3795,kerala,2011,40,MALAPPURAM,MADATHIL SADIKALI,,33420,27.34,2,lost,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3795,kerala,2011,40,MALAPPURAM,ADVOCATE: SADIK NADUTHODI,,3968,3.25,3,forfeit,U,41,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3795,kerala,2011,40,MALAPPURAM,K. VELAYUDHAN,,3841,3.14,4,forfeit,U,59,10th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3795,kerala,2011,40,MALAPPURAM,ABU THWAHIR,,2179,1.78,5,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3795,kerala,2011,40,MALAPPURAM,POOKK ATTIL ALI HAJI,,909,0.74,6,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3800,kerala,2011,41,VENGARA,P.K.KUNHALIKUTTY,,63138,63.44,1,won,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3800,kerala,2011,41,VENGARA,K.P.ISMAYIL,,24901,25.02,2,lost,U,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3800,kerala,2011,41,VENGARA,ABDUL MAJEED FAIZI,,4683,4.71,3,forfeit,U,40,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3800,kerala,2011,41,VENGARA,SUBRAHMANIAN,,3417,3.43,4,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3800,kerala,2011,41,VENGARA,K.P.ISMAYIL(KALLUPARAMBA N),,1615,1.62,5,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3800,kerala,2011,41,VENGARA,KUNHALIKUTTY.K.P.,,1079,1.08,6,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3800,kerala,2011,41,VENGARA,SAFARUDEEN,,405,0.41,7,forfeit,U,36,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3800,kerala,2011,41,VENGARA,ISMAYIL.K.T,,292,0.29,8,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3799,kerala,2011,42,VALLIKKUNNU,ADV.K.N.A.KHADER,,57250,50.53,1,won,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3799,kerala,2011,42,VALLIKKUNNU,K.V. SANKARANARAYANAN,,39128,34.53,2,lost,U,63,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3799,kerala,2011,42,VALLIKKUNNU,PREMAN MASTER,,11099,9.8,3,forfeit,U,47,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3799,kerala,2011,42,VALLIKKUNNU,SALAM MOONNIYUR,,2666,2.35,4,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3799,kerala,2011,42,VALLIKKUNNU,ABDUL LATHEEF,,2571,2.27,5,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3799,kerala,2011,42,VALLIKKUNNU,NEELAKANTAN CHELARI,,590,0.52,6,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3828,kerala,2011,43,TIRURANGADI,P.K.ABDU RABB,,58666,58.48,1,won,U,62,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3828,kerala,2011,43,TIRURANGADI,ADV.K.K.ABDU SAMAD,,28458,28.37,2,lost,U,30,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3828,kerala,2011,43,TIRURANGADI,SASIDHARAN PUNNASSERY,,5480,5.46,3,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3828,kerala,2011,43,TIRURANGADI,IBRAHIM THIRURANGADI,,4281,4.27,4,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3828,kerala,2011,43,TIRURANGADI,ADV.A.A.RAHIM,,2945,2.94,5,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3828,kerala,2011,43,TIRURANGADI,ABUYAZAR,,493,0.49,6,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3824,kerala,2011,44,TANUR,ABDURAHIMAN RANDATHANI,,51549,49.52,1,won,U,50,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3824,kerala,2011,44,TANUR,E.JAYAN,,42116,40.45,2,lost,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3824,kerala,2011,44,TANUR,RAVI THELATH,,7304,7.02,3,forfeit,U,33,Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3824,kerala,2011,44,TANUR,K.K.MAJEED KHASIMI,,3137,3.01,4,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3827,kerala,2011,45,TIRUR,C MAMMOOTTY,,69305,54.85,1,won,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3827,kerala,2011,45,TIRUR,P P ABDULLAKUTTY,,45739,36.2,2,lost,U,68,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3827,kerala,2011,45,TIRUR,P T ALI HAJI,,5543,4.39,3,forfeit,U,60,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3827,kerala,2011,45,TIRUR,A.K MAJEED MASTER,,2696,2.13,4,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3827,kerala,2011,45,TIRUR,ALIKUTTY ALIAS BAPPU PUTHANATHANI,,1802,1.43,5,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3827,kerala,2011,45,TIRUR,MOHANDAS,,781,0.62,6,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3827,kerala,2011,45,TIRUR,T AYYAPPAN,,487,0.39,7,forfeit,U,61,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3822,kerala,2011,46,KOTTAKKAL,ABDUSSAMAD SAMADANI,,69717,58.91,1,won,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3822,kerala,2011,46,KOTTAKKAL,DR.C.P.K.GURUKKAL,,33815,28.57,2,lost,U,61,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3822,kerala,2011,46,KOTTAKKAL,K.K. SURENDRAN,,7782,6.58,3,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3822,kerala,2011,46,KOTTAKKAL,ALI KADAMPUZHA,,3027,2.56,4,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3822,kerala,2011,46,KOTTAKKAL,ADV.K.C.NASEER,,2650,2.24,5,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3822,kerala,2011,46,KOTTAKKAL,KADAMPUZHA BINDHU DEVARAJAN,,894,0.76,6,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3822,kerala,2011,46,KOTTAKKAL,MADATHIL MUHAMMAD ELLIAS,,458,0.39,7,forfeit,U,40,8th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3825,kerala,2011,47,THAVANUR,DR.K.T. JALEEL,,57729,47.2,1,won,U,45,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3825,kerala,2011,47,THAVANUR,ADV. V.V. PRAKASH,,50875,41.6,2,lost,U,47,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3825,kerala,2011,47,THAVANUR,NIRMALA KUTTIKRISHNAN PUNNAKKAL,,7107,5.81,3,forfeit,U,54,Post Graduate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3825,kerala,2011,47,THAVANUR,NURUL HACK,,3116,2.55,4,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3825,kerala,2011,47,THAVANUR,V V PRAKASHAN,,1351,1.1,5,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3825,kerala,2011,47,THAVANUR,T.A. JALEEL,,820,0.67,6,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3825,kerala,2011,47,THAVANUR,T.K. JALEEL,,768,0.63,7,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3825,kerala,2011,47,THAVANUR,NANDA KUMAR,,531,0.43,8,forfeit,U,49,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3823,kerala,2011,48,PONNANI,P.SREERAMAKRISHNAN,,57615,47.55,1,won,U,43,Graduate Professional,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3823,kerala,2011,48,PONNANI,P.T.AJAY MOHAN,,53514,44.17,2,lost,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3823,kerala,2011,48,PONNANI,V.T.JAYAPRAKASH MASTER,,5680,4.69,3,forfeit,U,54,Graduate,Principal or Administrator,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3823,kerala,2011,48,PONNANI,YAHIYA KOYA THANGAL,,3250,2.68,4,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3823,kerala,2011,48,PONNANI,AJAYAN,,1099,0.91,5,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3826,kerala,2011,49,THRITHALA,ADV.V.T. BALRAM,,57848,47.37,1,won,U,32,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3826,kerala,2011,49,THRITHALA,MAMMIKUTTY. P,,54651,44.75,2,lost,U,58,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3826,kerala,2011,49,THRITHALA,V. RAMANKUTTY,,5899,4.83,3,forfeit,U,72,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3826,kerala,2011,49,THRITHALA,BABURAJAN. O.T,,1320,1.08,4,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3826,kerala,2011,49,THRITHALA,P.MAMMIKUTTY,,902,0.74,5,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3826,kerala,2011,49,THRITHALA,P. SHAMSUDHEEN,,590,0.48,6,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3826,kerala,2011,49,THRITHALA,RAMESAN PERUMANNUR,,543,0.44,7,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3826,kerala,2011,49,THRITHALA,K BALARAMAN,,367,0.3,8,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3813,kerala,2011,50,PATTAMBI,C.P.MOHAMMED,,57728,49,1,won,U,58,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3813,kerala,2011,50,PATTAMBI,K.P.SURESH RAJ,,45253,38.41,2,lost,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3813,kerala,2011,50,PATTAMBI,POOKKATTIRI BABU,,8874,7.53,3,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3813,kerala,2011,50,PATTAMBI,ADV.K.M. ASHARAF,,3742,3.18,4,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3813,kerala,2011,50,PATTAMBI,SURESH,,754,0.64,5,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3813,kerala,2011,50,PATTAMBI,ASHARAF ALI VALLAPPUZHA,,749,0.64,6,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3813,kerala,2011,50,PATTAMBI,MASEEF HAJI,,718,0.61,7,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3814,kerala,2011,51,SHORNUR,K.S.SALEEKHA,,59616,49.57,1,won,U,50,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3814,kerala,2011,51,SHORNUR,SANTHA JAYARAM,,46123,38.35,2,lost,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3814,kerala,2011,51,SHORNUR,V.B.MURALIDHARAN,,10562,8.78,3,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3814,kerala,2011,51,SHORNUR,KHALID.A,,3065,2.55,4,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3814,kerala,2011,51,SHORNUR,M.C.VELAYUDHAN,,894,0.74,5,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3811,kerala,2011,52,OTTAPALAM,M. HAMZA,,65023,49.47,1,won,U,49,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3811,kerala,2011,52,OTTAPALAM,V.K. SREEKANDAN,,51820,39.43,2,lost,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3811,kerala,2011,52,OTTAPALAM,P. VENUGOPALAN,,9631,7.33,3,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3811,kerala,2011,52,OTTAPALAM,E.S. KAJAHUSSAIN,,1933,1.47,4,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3811,kerala,2011,52,OTTAPALAM,M. HAMZA,,1097,0.83,5,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3811,kerala,2011,52,OTTAPALAM,K.T.PADMINI,,947,0.72,6,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3811,kerala,2011,52,OTTAPALAM,N. HAMZA,,604,0.46,7,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3811,kerala,2011,52,OTTAPALAM,ARAVINDAN KARIMPUZHA,,379,0.29,8,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3808,kerala,2011,53,KONGAD,K.V.VIJAYADAS,,52920,46.63,1,won,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3808,kerala,2011,53,KONGAD,P.SWAMINATHAN,,49355,43.49,2,lost,U,42,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3808,kerala,2011,53,KONGAD,V.DEVAYANI,,8467,7.46,3,forfeit,U,40,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3808,kerala,2011,53,KONGAD,VIJAYADASAN,,1543,1.36,4,forfeit,U,34,12th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3808,kerala,2011,53,KONGAD,K. VELAYUDHAN,,1198,1.06,5,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3810,kerala,2011,54,MANNARKAD,ADVOCATE N. SAMSUDHEEN,,60191,49.66,1,won,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3810,kerala,2011,54,MANNARKAD,V. CHAMUNNI,,51921,42.84,2,lost,U,62,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3810,kerala,2011,54,MANNARKAD,O.P. VASUDEVANUNNI,,5655,4.67,3,forfeit,U,33,12th Pass,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3810,kerala,2011,54,MANNARKAD,CHAMUNNI,,1370,1.13,4,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3810,kerala,2011,54,MANNARKAD,MUHAMMED GAFOOR MADANI,,1238,1.02,5,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3810,kerala,2011,54,MANNARKAD,RAMAKRISHNAN.A,,820,0.68,6,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3809,kerala,2011,55,MALAMPUZHA,V.S.ACHUTHANANDAN.,,77752,57.04,1,won,U,87,5th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3809,kerala,2011,55,MALAMPUZHA,LATHIKA SUBHASH,,54312,39.84,2,lost,U,47,Post Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3809,kerala,2011,55,MALAMPUZHA,ADV.P. K. MAJEED PEDIKKATT,,2772,2.03,3,forfeit,U,55,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3809,kerala,2011,55,MALAMPUZHA,RAVI PALLATHERI,,1480,1.09,4,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3812,kerala,2011,56,PALAKKAD,SHAFI PARAMBIL,,47641,42.41,1,won,U,27,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3812,kerala,2011,56,PALAKKAD,K. K. DIVAKARAN,,40238,35.82,2,lost,U,64,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3812,kerala,2011,56,PALAKKAD,C. UDAYBHASKAR,,22317,19.86,3,lost,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3812,kerala,2011,56,PALAKKAD,SHAJI ABRAHAM,,637,0.57,4,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3812,kerala,2011,56,PALAKKAD,HARI ARUMBIL,,490,0.44,5,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3812,kerala,2011,56,PALAKKAD,MUHAMMED SHAFI (SHAFI PURAKARA),,377,0.34,6,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3812,kerala,2011,56,PALAKKAD,C.SAMPATH,,337,0.3,7,forfeit,U,57,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3812,kerala,2011,56,PALAKKAD,DIVAKARAN,,310,0.28,8,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3729,kerala,2011,57,TARUR,A. K. BALAN,,64175,57.15,1,won,U,62,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3729,kerala,2011,57,TARUR,N. VINESH,,38419,34.21,2,lost,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3729,kerala,2011,57,TARUR,M. LAKSHMANAN,,5385,4.8,3,forfeit,U,54,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3729,kerala,2011,57,TARUR,P.C.NARAYANANKUTTY,,2346,2.09,4,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3729,kerala,2011,57,TARUR,K. VINESH,,1963,1.75,5,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3726,kerala,2011,58,CHITTUR,K.ACHUTHAN,,69916,51.33,1,won,U,61,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3726,kerala,2011,58,CHITTUR,S. SUBHASH CHANDRABOSE,,57586,42.28,2,lost,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3726,kerala,2011,58,CHITTUR,A.K.OMANAKUTTAN,,4518,3.32,3,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3726,kerala,2011,58,CHITTUR,K. KALADHARAN,,1319,0.97,4,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3726,kerala,2011,58,CHITTUR,A.MUHAMED HANEEFA,,1192,0.88,5,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3726,kerala,2011,58,CHITTUR,V. LAKSHMI,,626,0.46,6,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3726,kerala,2011,58,CHITTUR,K.ACHUTHAN,,570,0.42,7,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3726,kerala,2011,58,CHITTUR,A.RAJEENA,,472,0.35,8,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3728,kerala,2011,59,NENMARA,V. CHENTHAMARAKSHAN,,64169,47.86,1,won,U,50,Post Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3728,kerala,2011,59,NENMARA,M.V.RAGHAVAN,,55475,41.38,2,lost,U,77,Literate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3728,kerala,2011,59,NENMARA,N. SIVARAJAN,,9123,6.8,3,forfeit,U,56,10th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3728,kerala,2011,59,NENMARA,SAKKEER HUSSAIN,,1809,1.35,4,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3728,kerala,2011,59,NENMARA,CHANDRAN,,1484,1.11,5,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3728,kerala,2011,59,NENMARA,SUGUNAN.S,,1279,0.95,6,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3728,kerala,2011,59,NENMARA,JOY PETER.T,,735,0.55,7,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3724,kerala,2011,60,ALATHUR,M.CHANDRAN,,66977,57.72,1,won,U,64,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3724,kerala,2011,60,ALATHUR,ADV. K. KUSALA KUMAR,,42236,36.4,2,lost,U,46,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3724,kerala,2011,60,ALATHUR,K.A.SULAIMAN,,5460,4.71,3,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3724,kerala,2011,60,ALATHUR,P.D.PAULOSE,,1372,1.18,4,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3725,kerala,2011,61,CHELAKKARA,K.RADHAKRISHNAN,,73683,55.42,1,won,U,46,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3725,kerala,2011,61,CHELAKKARA,K.B.SASIKUMAR,,49007,36.86,2,lost,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3725,kerala,2011,61,CHELAKKARA,V.A.KRISHNAKUMARAN,,7056,5.31,3,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3725,kerala,2011,61,CHELAKKARA,A. SUBRAHMANIAN,,2224,1.67,4,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3725,kerala,2011,61,CHELAKKARA,SURESH BABU,,972,0.73,5,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3727,kerala,2011,62,KUNNAMKULAM,BABU.M.PALISSERY,,58244,44.34,1,won,U,52,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3727,kerala,2011,62,KUNNAMKULAM,C.P.JOHN,,57763,43.98,2,lost,U,53,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3727,kerala,2011,62,KUNNAMKULAM,ADV.K.K.ANEESHKUMAR,,11725,8.93,3,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3727,kerala,2011,62,KUNNAMKULAM,K.P.PREMAN,,2059,1.57,4,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3727,kerala,2011,62,KUNNAMKULAM,JOHN,,860,0.65,5,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3727,kerala,2011,62,KUNNAMKULAM,UNNIKRISHNAN VAROLI,,693,0.53,6,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3836,kerala,2011,63,GURUVAYOOR,K.V.ABDUL KHADER,,62246,48.53,1,won,U,47,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3836,kerala,2011,63,GURUVAYOOR,ASHARAF KOKKUR,,52278,40.75,2,lost,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3836,kerala,2011,63,GURUVAYOOR,DAYANANDAN MAMPULLY,,9306,7.25,3,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3836,kerala,2011,63,GURUVAYOOR,ASHARAFVADAKOOT,,2187,1.7,4,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3836,kerala,2011,63,GURUVAYOOR,ADV. SHAMEERBABU,,1017,0.79,5,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3836,kerala,2011,63,GURUVAYOOR,K.V.ABDULKHADER,,415,0.32,6,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3836,kerala,2011,63,GURUVAYOOR,VIJAYANATH,,353,0.28,7,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3836,kerala,2011,63,GURUVAYOOR,C.V.PREMRAJ,,242,0.19,8,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3836,kerala,2011,63,GURUVAYOOR,MUHAMMED ASHARAF,,232,0.18,9,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3838,kerala,2011,64,MANALUR,P.A. MADHAVAN,,63077,45.22,1,won,U,64,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3838,kerala,2011,64,MANALUR,BABY JOHN,,62596,44.87,2,lost,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3838,kerala,2011,64,MANALUR,P.M. GOPINATHAN,,10543,7.56,3,forfeit,U,56,10th Pass,Musician or Artist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3838,kerala,2011,64,MANALUR,P.K. USMAN,,2293,1.64,4,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3838,kerala,2011,64,MANALUR,SURESH TACHAPPILLY,,594,0.43,5,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3838,kerala,2011,64,MANALUR,ARAVINDAKSHAN M.K.,,388,0.28,6,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3730,kerala,2011,65,WADAKKANCHERY,C.N.BALAKRISHNAN,,67911,48.79,1,won,U,76,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3730,kerala,2011,65,WADAKKANCHERY,N.R.BALAN,,61226,43.99,2,lost,U,61,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3730,kerala,2011,65,WADAKKANCHERY,SHAJUMON VATTEKAD,,7451,5.35,3,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3730,kerala,2011,65,WADAKKANCHERY,GOVINDAN MACHAD,,1419,1.02,4,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3730,kerala,2011,65,WADAKKANCHERY,BALAKRISHNAN,,1177,0.85,5,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3840,kerala,2011,66,OLLUR,M.P. VINCENT,,64823,49.21,1,won,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3840,kerala,2011,66,OLLUR,RAJAJI MATHEW THOMAS,,58576,44.47,2,lost,U,56,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3840,kerala,2011,66,OLLUR,SUNDARARAJAN MASTER,,6761,5.13,3,forfeit,U,49,Post Graduate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3840,kerala,2011,66,OLLUR,SURESH M.R.,,717,0.54,4,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3840,kerala,2011,66,OLLUR,SUNNY K. JOHN,,434,0.33,5,forfeit,U,77,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3840,kerala,2011,66,OLLUR,RATHEESH T. NAIR,,407,0.31,6,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3842,kerala,2011,67,THRISSUR,ADV.THERAMBIL RAMAKRISHNAN,,59991,53.19,1,won,U,69,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3842,kerala,2011,67,THRISSUR,P. BALACHANDRAN,,43822,38.85,2,lost,U,48,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3842,kerala,2011,67,THRISSUR,ADV. RAVIKUMAR UPPATH,,6697,5.94,3,forfeit,U,46,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3842,kerala,2011,67,THRISSUR,THERAMBIL RAMAKRISHNAN,,1405,1.25,4,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3842,kerala,2011,67,THRISSUR,ADV. A. JAYARAM,,879,0.78,5,forfeit,U,45,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3839,kerala,2011,68,NATTIKA,GEETHA GOPI,,64555,50.21,1,won,U,37,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3839,kerala,2011,68,NATTIKA,VIKAS CHAKRAPANI,,48501,37.72,2,lost,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3839,kerala,2011,68,NATTIKA,SARJU THOYAKKAVU,,11144,8.67,3,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3839,kerala,2011,68,NATTIKA,DINESH KUMAR.E.V,,1636,1.27,4,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3839,kerala,2011,68,NATTIKA,M.S.VASANTHY,,826,0.64,5,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3839,kerala,2011,68,NATTIKA,P.K.SUBRAMANIAN,,600,0.47,6,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3839,kerala,2011,68,NATTIKA,N.V.MANI,,513,0.4,7,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3839,kerala,2011,68,NATTIKA,C.K.CHANDRAN,,497,0.39,8,forfeit,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3839,kerala,2011,68,NATTIKA,PUSHPAKARAN,,310,0.24,9,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3741,kerala,2011,69,KAIPAMANGALAM,ADV.V S SUNILKUMAR,,58789,50.2,1,won,U,43,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3741,kerala,2011,69,KAIPAMANGALAM,UMESH CHALLIYIL,,45219,38.61,2,lost,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3741,kerala,2011,69,KAIPAMANGALAM,A N RADHAKRISHNAN,,10716,9.15,3,forfeit,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3741,kerala,2011,69,KAIPAMANGALAM,M M MANOJ,,937,0.8,4,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3741,kerala,2011,69,KAIPAMANGALAM,P A KUTTAPPAN,,811,0.69,5,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3741,kerala,2011,69,KAIPAMANGALAM,C U NIMI,,638,0.54,6,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3837,kerala,2011,70,IRINJALAKKUDA,ADV.THOMAS UNNIYADAN,,68445,51.7,1,won,U,52,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3837,kerala,2011,70,IRINJALAKKUDA,ADV. K.R.VIJAYA,,56041,42.33,2,lost,U,41,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3837,kerala,2011,70,IRINJALAKKUDA,K. C. VENU MASTER,,6672,5.04,3,forfeit,U,52,Graduate,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3837,kerala,2011,70,IRINJALAKKUDA,T V SIVADASAN,,772,0.58,4,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3837,kerala,2011,70,IRINJALAKKUDA,SUBRAMANIAN,,449,0.34,5,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3841,kerala,2011,71,PUTHUKKAD,PROF: C. RAVEENDRANATH,,73047,52.84,1,won,U,55,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3841,kerala,2011,71,PUTHUKKAD,ADV. K. P. VISWANATHAN,,46565,33.68,2,lost,U,70,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3841,kerala,2011,71,PUTHUKKAD,SOBHA SURENDRAN,,14425,10.43,3,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3841,kerala,2011,71,PUTHUKKAD,P. J. MONSY,,2084,1.51,4,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3841,kerala,2011,71,PUTHUKKAD,P.C.PUSHPAKARAN,,1013,0.73,5,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3841,kerala,2011,71,PUTHUKKAD,PAULSON KALLOOR,,622,0.45,6,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3841,kerala,2011,71,PUTHUKKAD,K. V. PURUSHOTHAMAN,,495,0.36,7,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3740,kerala,2011,72,CHALAKKUDY,DEVASSY.B.D.,,63610,48.18,1,won,U,60,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3740,kerala,2011,72,CHALAKKUDY,BENNY.K.T.,,61061,46.25,2,lost,U,36,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3740,kerala,2011,72,CHALAKKUDY,ADV.SUDHEER BABY,,5976,4.53,3,forfeit,U,51,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3740,kerala,2011,72,CHALAKKUDY,PUSHPANGADAN P.M,,681,0.52,4,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3740,kerala,2011,72,CHALAKKUDY,SUBRAMANIAN.V.K.,,451,0.34,5,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3740,kerala,2011,72,CHALAKKUDY,JAYAKUMAR.E.,,258,0.2,6,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3742,kerala,2011,73,KODUNGALLUR,T.N.PRATHAPAN,,64495,50.11,1,won,U,51,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3742,kerala,2011,73,KODUNGALLUR,K.G.SIVANANDHAN,,55063,42.78,2,lost,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3742,kerala,2011,73,KODUNGALLUR,I.R.VIJAYAN,,6732,5.23,3,forfeit,U,59,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3742,kerala,2011,73,KODUNGALLUR,AMBILY UNNIKRISHNAN,,624,0.48,4,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3742,kerala,2011,73,KODUNGALLUR,HARIDAS.K.B,,461,0.36,5,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3742,kerala,2011,73,KODUNGALLUR,RAJESH APPATT,,377,0.29,6,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3742,kerala,2011,73,KODUNGALLUR,ALLY RAVI,,343,0.27,7,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3742,kerala,2011,73,KODUNGALLUR,SUJA ANTONY,,330,0.26,8,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3742,kerala,2011,73,KODUNGALLUR,T.U.RADHAKRISHNAN,,289,0.22,9,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3744,kerala,2011,74,PERUMBAVOOR,SAJU PAUL,,59628,47.42,1,won,U,44,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3744,kerala,2011,74,PERUMBAVOOR,ADV.JAISON JOSEPH,,56246,44.73,2,lost,U,46,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3744,kerala,2011,74,PERUMBAVOOR,O. C. ASOKAN,,5464,4.35,3,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3744,kerala,2011,74,PERUMBAVOOR,O.ALIYAR,,2401,1.91,4,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3744,kerala,2011,74,PERUMBAVOOR,N.K. MUHAMMED HAJI,,1094,0.87,5,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3744,kerala,2011,74,PERUMBAVOOR,P.N.SUNILKUMAR,,494,0.39,6,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3744,kerala,2011,74,PERUMBAVOOR,BINDU JAYAN,,412,0.33,7,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3739,kerala,2011,75,ANGAMALY,ADVOCATE JOSE THETTAYIL,,61500,49.56,1,won,U,60,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3739,kerala,2011,75,ANGAMALY,ADVOCATE JOHNY NELLOOR,,54330,43.78,2,lost,U,60,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3739,kerala,2011,75,ANGAMALY,M.A.BRAHMARAJ,,4117,3.32,3,forfeit,U,44,10th Pass,Private Company,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3739,kerala,2011,75,ANGAMALY,JOHNSON. I.T. (INCHAKADAN JOHNY),,1374,1.11,4,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3739,kerala,2011,75,ANGAMALY,M.G.PURUSHOTHAMAN,,774,0.62,5,forfeit,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3739,kerala,2011,75,ANGAMALY,POULOSE KIDANGEN,,518,0.42,6,forfeit,U,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3739,kerala,2011,75,ANGAMALY,K.C.JAYAN,,514,0.41,7,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3739,kerala,2011,75,ANGAMALY,FRANCIS NJALIYAN,,482,0.39,8,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3739,kerala,2011,75,ANGAMALY,JOHNSON,,248,0.2,9,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3739,kerala,2011,75,ANGAMALY,JOHN CHACKO,,229,0.18,10,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3738,kerala,2011,76,ALUVA,ANWAR SADATH,,64244,50.24,1,won,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3738,kerala,2011,76,ALUVA,A.M. YOUSAF,,51030,39.91,2,lost,U,59,5th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3738,kerala,2011,76,ALUVA,M.N.GOPI,,8264,6.46,3,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3738,kerala,2011,76,ALUVA,ROY ARACKAL,,1684,1.32,4,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3738,kerala,2011,76,ALUVA,M.M. YOOSAF MUNDAKKAL,,829,0.65,5,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3738,kerala,2011,76,ALUVA,ANWAR SADATH PANACKAPARAMBIL,,547,0.43,6,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3738,kerala,2011,76,ALUVA,K.Y.KUNJUMON,,479,0.37,7,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3738,kerala,2011,76,ALUVA,ABDUL AZEEZ,,473,0.37,8,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3738,kerala,2011,76,ALUVA,ANTONY JOSEPH MANJOORAN,,182,0.14,9,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3738,kerala,2011,76,ALUVA,K.K. SOBHA,,138,0.11,10,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3746,kerala,2011,77,KALAMASSERY,V. K. EBRAHIM KUNJU,,62843,47.73,1,won,U,58,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3746,kerala,2011,77,KALAMASSERY,K. CHANDRAN PILLAI,,55054,41.81,2,lost,U,54,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3746,kerala,2011,77,KALAMASSERY,ADV.P.KRISHNADAS,,8438,6.41,3,forfeit,U,40,Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3746,kerala,2011,77,KALAMASSERY,P.A. MUHAMMED ASLAM,,2104,1.6,4,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3746,kerala,2011,77,KALAMASSERY,T.A. MUJEEB RAHMAN,,1236,0.94,5,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3746,kerala,2011,77,KALAMASSERY,CHANDRASEKHARA PILLAI,,657,0.5,6,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3746,kerala,2011,77,KALAMASSERY,GIREESH BABU. G.,,508,0.39,7,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3746,kerala,2011,77,KALAMASSERY,SHIBU THATTAMPADI,,505,0.38,8,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3746,kerala,2011,77,KALAMASSERY,D. SUNDARA MOORTHY,,186,0.14,9,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3746,kerala,2011,77,KALAMASSERY,K.P. MOHANAN,,145,0.11,10,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3748,kerala,2011,78,PARAVUR,ADV.V.D.SATHEESAN,,74632,51.78,1,won,U,46,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3748,kerala,2011,78,PARAVUR,PANNIAN RAVEEDNRAN,,63283,43.91,2,lost,U,61,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3748,kerala,2011,78,PARAVUR,E.S. PURUSHOTHAMAN,,3934,2.73,3,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3748,kerala,2011,78,PARAVUR,K.K. JYOTHIVAS,,754,0.52,4,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3748,kerala,2011,78,PARAVUR,P.S. RAJENDRA PRASAD,,614,0.43,5,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3748,kerala,2011,78,PARAVUR,P. P. RAVEENDRAN,,493,0.34,6,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3748,kerala,2011,78,PARAVUR,M. MANOJ,,414,0.29,7,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3751,kerala,2011,79,VYPEN,S.SARMA,,60814,50.37,1,won,U,56,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3751,kerala,2011,79,VYPEN,AJAY THARAYIL,,55572,46.03,2,lost,U,52,Graduate,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3751,kerala,2011,79,VYPEN,T.G.SURENDRAN,,2930,2.43,3,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3751,kerala,2011,79,VYPEN,T.K.SIVANANDAN,,546,0.45,4,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3751,kerala,2011,79,VYPEN,SANTHOSH SARMA,,490,0.41,5,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3751,kerala,2011,79,VYPEN,BENNY JOSEPH,,374,0.31,6,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3747,kerala,2011,80,KOCHI,DOMINIC PRESENTATION,,56352,53.37,1,won,U,61,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3747,kerala,2011,80,KOCHI,M.C.JOSEPHINE,,39849,37.74,2,lost,U,61,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3747,kerala,2011,80,KOCHI,K. SASIDHARAN MASTER,,5480,5.19,3,forfeit,U,63,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3747,kerala,2011,80,KOCHI,YOOSUF MUFTHI,,1992,1.89,4,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3747,kerala,2011,80,KOCHI,DOMINIC. C.J.,,590,0.56,5,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3747,kerala,2011,80,KOCHI,KAMARUDHEEN. T. A.,,482,0.46,6,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3747,kerala,2011,80,KOCHI,A.P. IBRAHIM KUTTY,,394,0.37,7,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3747,kerala,2011,80,KOCHI,ADV. JACOB PULIKKAN,,258,0.24,8,forfeit,U,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3747,kerala,2011,80,KOCHI,T.A. KRISHNAN KUTTY,,195,0.18,9,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2011,81,THRIPUNITHURA,K.BABU,,69886,53.36,1,won,U,60,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2011,81,THRIPUNITHURA,C.M.DINESH MANI,,54108,41.31,2,lost,U,60,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2011,81,THRIPUNITHURA,ADV.SABU VARGHEESE,,4942,3.77,3,forfeit,U,49,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2011,81,THRIPUNITHURA,KARTIKEYAN,,826,0.63,4,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2011,81,THRIPUNITHURA,BABU KEEZHATHUPARAMBU,,330,0.25,5,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2011,81,THRIPUNITHURA,SAJU KOLATTUKUDY,,327,0.25,6,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2011,81,THRIPUNITHURA,SAJI THURUTHIKUNNEL,,316,0.24,7,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2011,81,THRIPUNITHURA,P.K. THANKAMANI,,137,0.1,8,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2011,81,THRIPUNITHURA,K.P. AYYAPPAN,,105,0.08,9,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3745,kerala,2011,82,ERANAKULAM,HIBI EDEN,,59919,61.58,1,won,U,27,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3745,kerala,2011,82,ERANAKULAM,DR. SEBASTIAN PAUL,,27482,28.25,2,lost,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3745,kerala,2011,82,ERANAKULAM,C.G. RAJAGOPAL,,6362,6.54,3,forfeit,U,37,Graduate,Private Company,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3745,kerala,2011,82,ERANAKULAM,SEBASTIAN NJALAMKUNNEL,,2347,2.41,4,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3745,kerala,2011,82,ERANAKULAM,IQBAL THAMARASSERY,,742,0.76,5,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3745,kerala,2011,82,ERANAKULAM,T.R. VASUDEVAN,,445,0.46,6,forfeit,U,43,10th Pass,Journalist or Editor,crossover,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3749,kerala,2011,83,THRIKKAKARA,BENNY BEHANAN,,65854,55.88,1,won,U,58,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3749,kerala,2011,83,THRIKKAKARA,M.E. HASSAINAR,,43448,36.87,2,lost,U,60,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3749,kerala,2011,83,THRIKKAKARA,N.SAJI KUMAR,,5935,5.04,3,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3749,kerala,2011,83,THRIKKAKARA,HASSAINAR,,933,0.79,4,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3749,kerala,2011,83,THRIKKAKARA,ABDUL SALAM PARAKKADAN,,869,0.74,5,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3749,kerala,2011,83,THRIKKAKARA,BENNY GEORGE,,410,0.35,6,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3749,kerala,2011,83,THRIKKAKARA,SHEREEF THANKAYATHIL,,404,0.34,7,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3743,kerala,2011,84,KUNNATHUNAD,V.P. SAJEENDRAN,,63624,49.72,1,won,U,42,Graduate Professional,"Real Estate or Builder or Developer or Construction, Manufacturer",challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3743,kerala,2011,84,KUNNATHUNAD,M. A. SURENDRAN,,54892,42.89,2,lost,U,42,Post Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3743,kerala,2011,84,KUNNATHUNAD,M. RAVI,,5862,4.58,3,forfeit,U,42,12th Pass,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3743,kerala,2011,84,KUNNATHUNAD,M. K. MANOJ KUMAR,,2969,2.32,4,forfeit,U,45,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3743,kerala,2011,84,KUNNATHUNAD,RAJEEV. P. T.,,625,0.49,5,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3784,kerala,2011,85,PIRAVOM,T. M. JACOB,,66503,47.53,1,won,U,60,Graduate Professional,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3784,kerala,2011,85,PIRAVOM,M.J.JACOB,,66346,47.41,2,lost,U,66,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3784,kerala,2011,85,PIRAVOM,M.N. MADHU,,4234,3.03,3,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3784,kerala,2011,85,PIRAVOM,JOSHY JOSEPH,,979,0.7,4,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3784,kerala,2011,85,PIRAVOM,SABU KUNJAPPAN,,958,0.68,5,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3784,kerala,2011,85,PIRAVOM,M.K. USHA,,908,0.65,6,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3755,kerala,2011,86,MUVATTUPUZHA,JOSEPH VAZHACKKAN,,58012,49.9,1,won,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3755,kerala,2011,86,MUVATTUPUZHA,BABU PAUL,,52849,45.46,2,lost,U,55,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3755,kerala,2011,86,MUVATTUPUZHA,JIJI JOSEPH,,4367,3.76,3,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3755,kerala,2011,86,MUVATTUPUZHA,BIJU SREEDHARAN,,546,0.47,4,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3755,kerala,2011,86,MUVATTUPUZHA,BOBY KALLOOR,,487,0.42,5,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3754,kerala,2011,87,KOTHAMANGALAM,SHEV.T.U.KURUVILLA,,52924,49.26,1,won,U,74,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3754,kerala,2011,87,KOTHAMANGALAM,COMMANDER SKARIAH THOMAS,,40702,37.88,2,lost,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3754,kerala,2011,87,KOTHAMANGALAM,ADV. K.RADHAKRISHNAN,,5769,5.37,3,forfeit,U,43,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3754,kerala,2011,87,KOTHAMANGALAM,SHINE MUHAMMED,,4691,4.37,4,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3754,kerala,2011,87,KOTHAMANGALAM,SKARIA THOMAS,,1008,0.94,5,forfeit,U,61,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3754,kerala,2011,87,KOTHAMANGALAM,T. T. KURUVILA,,718,0.67,6,forfeit,U,70,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3754,kerala,2011,87,KOTHAMANGALAM,DEVAKI NARAYANAN,,524,0.49,7,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3754,kerala,2011,87,KOTHAMANGALAM,JOY DAVASIA,,419,0.39,8,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3754,kerala,2011,87,KOTHAMANGALAM,SKARIA THOMMAN,,363,0.34,9,forfeit,U,73,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3754,kerala,2011,87,KOTHAMANGALAM,SOMINI PRABHAKARAN,,319,0.3,10,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3752,kerala,2011,88,DEVIKULAM,S. RAJENDRAN,,51849,48.43,1,won,U,47,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3752,kerala,2011,88,DEVIKULAM,A.K.MONI,,47771,44.62,2,lost,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3752,kerala,2011,88,DEVIKULAM,S RAJAGOPAL,,3582,3.35,3,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3752,kerala,2011,88,DEVIKULAM,SELVARAJ MADASWAMI,,1060,0.99,4,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3752,kerala,2011,88,DEVIKULAM,T. C. THANKAPPAN,,913,0.85,5,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3752,kerala,2011,88,DEVIKULAM,MALLIKA,,646,0.6,6,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3752,kerala,2011,88,DEVIKULAM,RAJU AYYAPPAN,,628,0.59,7,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3752,kerala,2011,88,DEVIKULAM,P. K. MANI,,336,0.31,8,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3752,kerala,2011,88,DEVIKULAM,MANIKANDAN K,,274,0.26,9,forfeit,U,35,Literate,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3758,kerala,2011,89,UDUMBANCHOLA,K.K.JAYACHANDRAN,,56923,51.48,1,won,U,59,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3758,kerala,2011,89,UDUMBANCHOLA,ADV.JOSSY SEBASTIAN,,47090,42.59,2,lost,U,46,,Consultant,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3758,kerala,2011,89,UDUMBANCHOLA,NARAYANA RAJU,,3836,3.47,3,forfeit,U,34,12th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3758,kerala,2011,89,UDUMBANCHOLA,MUHAMMED SHARAFUDHEEN,,1331,1.2,4,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3758,kerala,2011,89,UDUMBANCHOLA,BENNY THOMAS,,714,0.65,5,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3758,kerala,2011,89,UDUMBANCHOLA,K.C.MAMMACHAN,,669,0.61,6,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3757,kerala,2011,90,THODUPUZHA,P.J.JOSEPH,,66325,51.92,1,won,U,69,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3757,kerala,2011,90,THODUPUZHA,PROF. JOSEPH AUGUSTINE,,43457,34.02,2,lost,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3757,kerala,2011,90,THODUPUZHA,P.M.VELAYUDHAN,,10049,7.87,3,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3757,kerala,2011,90,THODUPUZHA,M. A. NAJEEB,,5386,4.22,4,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3757,kerala,2011,90,THODUPUZHA,BINU SEBASTIAN,,677,0.53,5,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3757,kerala,2011,90,THODUPUZHA,C. R. DILEEP KUMAR,,655,0.51,6,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3757,kerala,2011,90,THODUPUZHA,T. S. SREENIVASAN,,482,0.38,7,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3757,kerala,2011,90,THODUPUZHA,JOMON JOHN,,282,0.22,8,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3757,kerala,2011,90,THODUPUZHA,SIBY C MATHEW,,246,0.19,9,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3757,kerala,2011,90,THODUPUZHA,SHIBU MON,,179,0.14,10,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3753,kerala,2011,91,IDUKKI,ROSHY AUGUSTINE,,65734,54.88,1,won,U,41,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3753,kerala,2011,91,IDUKKI,C.V.VARGHESE,,49928,41.69,2,lost,U,50,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3753,kerala,2011,91,IDUKKI,C.C.KRISHNAN,,3013,2.52,3,forfeit,U,56,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3753,kerala,2011,91,IDUKKI,KANCHIYAR PEETHAMBARAN,,389,0.32,4,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3753,kerala,2011,91,IDUKKI,P.C.PRABHAKARAN,,325,0.27,5,forfeit,U,69,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3753,kerala,2011,91,IDUKKI,M.K.NARAYANAN,,226,0.19,6,forfeit,U,75,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3753,kerala,2011,91,IDUKKI,V.LAKSHMANAN,,158,0.13,7,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3756,kerala,2011,92,PEERUMADE,E. S. BIJIMOL,,56748,49.26,1,won,U,39,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3756,kerala,2011,92,PEERUMADE,ADV.E.M.AUGUSTHY,,51971,45.11,2,lost,U,60,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3756,kerala,2011,92,PEERUMADE,P. P. SANU,,3380,2.93,3,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3756,kerala,2011,92,PEERUMADE,M.K. SUPPU ROYAL,,694,0.6,4,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3756,kerala,2011,92,PEERUMADE,K.D. VASUDEVAN,,667,0.58,5,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3756,kerala,2011,92,PEERUMADE,BIJU MATTAPPALLY,,641,0.56,6,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3756,kerala,2011,92,PEERUMADE,P. S. MADHU,,437,0.38,7,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3756,kerala,2011,92,PEERUMADE,AUGUSTHY. M,,359,0.31,8,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3756,kerala,2011,92,PEERUMADE,JOSEPH JACOB,,307,0.27,9,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3783,kerala,2011,93,PALA,K.M.MANI,,61239,49.14,1,won,U,79,Graduate Professional,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3783,kerala,2011,93,PALA,MANI.C.KAPPEN,,55980,44.92,2,lost,U,54,Graduate,Film Director,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3783,kerala,2011,93,PALA,PROF.B.VIJAYAKUMAR,,6359,5.1,3,forfeit,U,54,Post Graduate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3783,kerala,2011,93,PALA,C.V JOHN,,576,0.46,4,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3783,kerala,2011,93,PALA,JAMES JOSEPH,,465,0.37,5,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3781,kerala,2011,94,KADUTHURUTHY,ADV.MONS JOSEPH,,68787,56.37,1,won,U,46,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3781,kerala,2011,94,KADUTHURUTHY,STEPHEN GEORGE,,45730,37.48,2,lost,U,47,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3781,kerala,2011,94,KADUTHURUTHY,P.G.BIJUKUMAR,,5340,4.38,3,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3781,kerala,2011,94,KADUTHURUTHY,M.D.THOMAS,,2169,1.78,4,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3786,kerala,2011,95,VAIKOM,K. AJITH,,62603,51.62,1,won,U,39,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3786,kerala,2011,95,VAIKOM,A SANEESHKUMAR,,52035,42.91,2,lost,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3786,kerala,2011,95,VAIKOM,RAMESH KAVIMATTAM,,4512,3.72,3,forfeit,U,41,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3786,kerala,2011,95,VAIKOM,K. SANESH,,691,0.57,4,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3786,kerala,2011,95,VAIKOM,P. K. PRAKASAN,,645,0.53,5,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3786,kerala,2011,95,VAIKOM,K. S. SASIKALA,,412,0.34,6,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3786,kerala,2011,95,VAIKOM,M. K. DASAN,,367,0.3,7,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3780,kerala,2011,96,ETTUMANOOR,ADV. K. SURESH KURUP,,57381,48.52,1,won,U,54,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3780,kerala,2011,96,ETTUMANOOR,THOMAS CHAZHIKADAN,,55580,47,2,lost,U,58,Graduate Professional,Accountant,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3780,kerala,2011,96,ETTUMANOOR,V.G. GOPAKUMAR,,3385,2.86,3,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3780,kerala,2011,96,ETTUMANOOR,K.T. THOMAS,,763,0.65,4,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3780,kerala,2011,96,ETTUMANOOR,JUSTIN MATHEW,,466,0.39,5,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3780,kerala,2011,96,ETTUMANOOR,E.V. PRAKASH,,454,0.38,6,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3780,kerala,2011,96,ETTUMANOOR,ANISH KUMAR,,228,0.19,7,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3782,kerala,2011,97,KOTTAYAM,THIRUVANCHOOR RADHAKRISHNAN,,53825,46.84,1,won,U,61,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3782,kerala,2011,97,KOTTAYAM,V.N.VASAVAN,,53114,46.23,2,lost,U,56,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3782,kerala,2011,97,KOTTAYAM,ADV.NARAYANAN NAMBOOTHIRI,,5449,4.74,3,forfeit,U,51,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3782,kerala,2011,97,KOTTAYAM,V.S. SHAJAN,,1737,1.51,4,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3782,kerala,2011,97,KOTTAYAM,RAJEEV ABRAHAM,,387,0.34,5,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3782,kerala,2011,97,KOTTAYAM,N.K. BIJU,,276,0.24,6,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3782,kerala,2011,97,KOTTAYAM,GEORGE.P.ELIAS,,113,0.1,7,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3785,kerala,2011,98,PUTHUPPALLY,OOMMEN CHANDY,,69922,59.74,1,won,U,67,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3785,kerala,2011,98,PUTHUPPALLY,SUJA SUSAN GEORGE,,36667,31.33,2,lost,U,49,Post Graduate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3785,kerala,2011,98,PUTHUPPALLY,P.SUNILKUMAR,,6679,5.71,3,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3785,kerala,2011,98,PUTHUPPALLY,ADV. SAJI K CHERAMAN,,3230,2.76,4,forfeit,U,40,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3785,kerala,2011,98,PUTHUPPALLY,ADV. JAYAKUMAR KAVUNKAL,,537,0.46,5,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3801,kerala,2011,99,CHANGANASSERY,C.F THOMAS,,51019,47.13,1,won,U,71,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3801,kerala,2011,99,CHANGANASSERY,DR.B.EKBAL,,48465,44.77,2,lost,U,63,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3801,kerala,2011,99,CHANGANASSERY,M.B.RAJAGOPAL,,6281,5.8,3,forfeit,U,58,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3801,kerala,2011,99,CHANGANASSERY,MATHEWS JOHN,,1058,0.98,4,forfeit,U,54,8th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3801,kerala,2011,99,CHANGANASSERY,MANSOOR,,907,0.84,5,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3801,kerala,2011,99,CHANGANASSERY,K.SADANANDAN,,281,0.26,6,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3801,kerala,2011,99,CHANGANASSERY,NASEER.K.M,,246,0.23,7,forfeit,U,51,10th Pass,NGO,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3817,kerala,2011,100,KANJIRAPPALLY,DR. N.JAYARAJ,,57021,50.4,1,won,U,55,Doctorate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3817,kerala,2011,100,KANJIRAPPALLY,ADV. SURESH.T.NAIR,,44815,39.61,2,lost,U,31,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3817,kerala,2011,100,KANJIRAPPALLY,RAJAMOHAN,,8037,7.1,3,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3817,kerala,2011,100,KANJIRAPPALLY,ADV. P.K.GEETHA KRISHNAN,,3268,2.89,4,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3819,kerala,2011,101,POONJAR,P C GEORGE PLATHOTTAM,,59809,50.77,1,won,U,60,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3819,kerala,2011,101,POONJAR,ADV MOHAN THOMAS,,44105,37.44,2,lost,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3819,kerala,2011,101,POONJAR,K M SANTHOSHKUMAR,,5010,4.25,3,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3819,kerala,2011,101,POONJAR,V M SULAIMAN MOULAVI,,3579,3.04,4,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3819,kerala,2011,101,POONJAR,P P JOSHY,,2956,2.51,5,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3819,kerala,2011,101,POONJAR,SIVAN,,524,0.44,6,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3819,kerala,2011,101,POONJAR,P K DIVAKARAN,,455,0.39,7,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3819,kerala,2011,101,POONJAR,P C GEROGE PONNATTU PUTHENPURAYIL,,417,0.35,8,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3819,kerala,2011,101,POONJAR,K RAJAPPAN,,280,0.24,9,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3819,kerala,2011,101,POONJAR,RAJU VATTAPPARA,,243,0.21,10,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3819,kerala,2011,101,POONJAR,MANO GEORGE,,192,0.16,11,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3819,kerala,2011,101,POONJAR,ANOOP BHASKARAN,,132,0.11,12,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3819,kerala,2011,101,POONJAR,ANIL MATHEW,,107,0.09,13,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3719,kerala,2011,102,AROOR,ADV.AM.ARIFF,,76675,52.28,1,won,U,46,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3719,kerala,2011,102,AROOR,A.A.SHUKOOR,,59823,40.79,2,lost,U,56,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3719,kerala,2011,102,AROOR,T.SAJEEV LAL,,7486,5.1,3,forfeit,U,47,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3719,kerala,2011,102,AROOR,V.LENIN,,787,0.54,4,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3719,kerala,2011,102,AROOR,SURESH BABU,,776,0.53,5,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3719,kerala,2011,102,AROOR,JAYAPRAKASH,,476,0.32,6,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3719,kerala,2011,102,AROOR,S.SARATH,,378,0.26,7,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3719,kerala,2011,102,AROOR,ADV.P.T.RADHAKRISHNAN,,275,0.19,8,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3720,kerala,2011,103,CHERTHALA,P.THILOTHAMAN,,86193,53.11,1,won,U,54,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3720,kerala,2011,103,CHERTHALA,K.R.GOURIAMMA,,67878,41.83,2,lost,U,91,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3720,kerala,2011,103,CHERTHALA,ADV. P.K.BINOY,,5933,3.66,3,forfeit,U,44,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3720,kerala,2011,103,CHERTHALA,K.R.RAJEEVAN,,1185,0.73,4,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3720,kerala,2011,103,CHERTHALA,SHAJIMON,,1094,0.67,5,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3717,kerala,2011,104,ALAPPUZHA,DR.T.M.THOMAS ISAAC,,75857,53.71,1,won,U,58,Doctorate,Minister,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3717,kerala,2011,104,ALAPPUZHA,ADV.P.J.MATHEW,,59515,42.14,2,lost,U,60,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3717,kerala,2011,104,ALAPPUZHA,KOTTARAM UNNIKRISHNAN,,3540,2.51,3,forfeit,U,51,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3717,kerala,2011,104,ALAPPUZHA,T.M.SAMAD,,1158,0.82,4,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3717,kerala,2011,104,ALAPPUZHA,SEBASTIAN,,646,0.46,5,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3717,kerala,2011,104,ALAPPUZHA,C.P.THILAKAN,,527,0.37,6,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3718,kerala,2011,105,AMBALAPUZHA,G.SUDHAKARAN,,63728,54.48,1,won,U,64,Graduate Professional,Minister,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3718,kerala,2011,105,AMBALAPUZHA,ADV.M.LIJU,,47148,40.31,2,lost,U,32,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3718,kerala,2011,105,AMBALAPUZHA,P.K.VASUDEVAN,,2668,2.28,3,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3718,kerala,2011,105,AMBALAPUZHA,S.H.ALHADHI,,1852,1.58,4,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3718,kerala,2011,105,AMBALAPUZHA,OMANAKUTTAN,,672,0.57,5,forfeit,U,40,10th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3718,kerala,2011,105,AMBALAPUZHA,K.R.SASI,,415,0.35,6,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3718,kerala,2011,105,AMBALAPUZHA,SIVAKUMAR,,347,0.3,7,forfeit,U,24,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3718,kerala,2011,105,AMBALAPUZHA,NAZEER AHAMMED,,136,0.12,8,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3805,kerala,2011,106,KUTTANAD,THOMAS CHANDY,,60010,50.81,1,won,U,62,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3805,kerala,2011,106,KUTTANAD,DR.K.C.JOSEPH,,52039,44.06,2,lost,U,62,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3805,kerala,2011,106,KUTTANAD,K.SOMAN,,4395,3.72,3,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3805,kerala,2011,106,KUTTANAD,SHIBU VADAKKETTOM,,697,0.59,4,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3805,kerala,2011,106,KUTTANAD,P.R.SATHEESAN,,373,0.32,5,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3805,kerala,2011,106,KUTTANAD,JOSEPH,,361,0.31,6,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3805,kerala,2011,106,KUTTANAD,ASOK KUMAR,,235,0.2,7,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3721,kerala,2011,107,HARIPAD,RAMESH CHENNITHALA,,67378,50.03,1,won,U,54,Graduate,Private Company,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3721,kerala,2011,107,HARIPAD,G.KRISHNAPRASAD,,61858,45.93,2,lost,U,34,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3721,kerala,2011,107,HARIPAD,ADV.AJITH SANKAR,,3145,2.34,3,forfeit,U,42,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3721,kerala,2011,107,HARIPAD,RAMESHAN,,499,0.37,4,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3721,kerala,2011,107,HARIPAD,SOMALAL BABU,,425,0.32,5,forfeit,U,62,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3721,kerala,2011,107,HARIPAD,KRISHNAPRASAD,,339,0.25,6,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3721,kerala,2011,107,HARIPAD,VENU,,327,0.24,7,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3721,kerala,2011,107,HARIPAD,K.J.SHEELA,,305,0.23,8,forfeit,U,44,10th Pass,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3721,kerala,2011,107,HARIPAD,BIJU.J,,233,0.17,9,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3721,kerala,2011,107,HARIPAD,N.DIVAKARAN,,171,0.13,10,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3723,kerala,2011,108,KAYAMKULAM,C.K.SADASIVAN,,67409,48.28,1,won,U,58,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3723,kerala,2011,108,KAYAMKULAM,M.MURALI,,66094,47.34,2,lost,U,57,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3723,kerala,2011,108,KAYAMKULAM,ADV. T.O.NOUSHAD,,3083,2.21,3,forfeit,U,40,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3723,kerala,2011,108,KAYAMKULAM,K. SADASIVAN,,744,0.53,4,forfeit,U,53,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3723,kerala,2011,108,KAYAMKULAM,MURALI,,704,0.5,5,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3723,kerala,2011,108,KAYAMKULAM,AMBUJAN,,602,0.43,6,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3723,kerala,2011,108,KAYAMKULAM,SHAL MOHAN,,585,0.42,7,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3723,kerala,2011,108,KAYAMKULAM,KALESH MANIMANDIRAM,,405,0.29,8,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3806,kerala,2011,109,MAVELIKARA,R. RAJESH,,65903,49.3,1,won,U,29,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3806,kerala,2011,109,MAVELIKARA,K.K SHAJU,,60754,45.45,2,lost,U,48,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3806,kerala,2011,109,MAVELIKARA,S. GIRIJA,,4984,3.73,3,forfeit,U,39,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3806,kerala,2011,109,MAVELIKARA,R.RAJEESH,,1185,0.89,4,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3806,kerala,2011,109,MAVELIKARA,SUBHASH MANKAMKUZHY,,860,0.64,5,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3802,kerala,2011,110,CHENGANNUR,P.C.VISHNUNATH,,65156,51.98,1,won,U,33,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3802,kerala,2011,110,CHENGANNUR,ADV.C.S.SUJATHA,,52656,42.01,2,lost,U,45,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3802,kerala,2011,110,CHENGANNUR,B. RADHAKRISHNA MENON,,6062,4.84,3,forfeit,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3802,kerala,2011,110,CHENGANNUR,SURENDRAN KARIPPUZHA,,848,0.68,4,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3802,kerala,2011,110,CHENGANNUR,V.VENUGOPAL,,623,0.5,5,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3821,kerala,2011,111,THIRUVALLA,ADV MATHEW T THOMAS,,63289,49.97,1,won,U,49,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3821,kerala,2011,111,THIRUVALLA,VICTOR T THOMAS,,52522,41.47,2,lost,U,50,Post Graduate,Consultant,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3821,kerala,2011,111,THIRUVALLA,RAJAN MOOLAVEETTIL,,7656,6.05,3,forfeit,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3821,kerala,2011,111,THIRUVALLA,ADV KURIAN JOSEPH,,1511,1.19,4,forfeit,U,50,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3821,kerala,2011,111,THIRUVALLA,RADHAMANI. S,,456,0.36,5,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3821,kerala,2011,111,THIRUVALLA,KATHIKAN NIRANAM RAJAN,,439,0.35,6,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3821,kerala,2011,111,THIRUVALLA,ADV P K SUKUMARAN,,398,0.31,7,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3821,kerala,2011,111,THIRUVALLA,SAM KUTTY JACOB,,371,0.29,8,forfeit,U,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3820,kerala,2011,112,RANNI,RAJU ABRHAM,,58391,48.51,1,won,U,49,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3820,kerala,2011,112,RANNI,PEELIPOSE THOMAS,,51777,43.02,2,lost,U,61,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3820,kerala,2011,112,RANNI,SURESH KADAMBARI,,7442,6.18,3,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3820,kerala,2011,112,RANNI,V D SAJI MON,,1300,1.08,4,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3820,kerala,2011,112,RANNI,ADV. IBRAHIM KUTTTY,,905,0.75,5,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3820,kerala,2011,112,RANNI,S RADHAKRISHNAN,,350,0.29,6,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3820,kerala,2011,112,RANNI,ULAKAN THEVAN,,196,0.16,7,forfeit,U,73,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3816,kerala,2011,113,ARANMULA,ADV.K.SIVADASAN NAIR,,64845,47.69,1,won,U,62,Post Graduate,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3816,kerala,2011,113,ARANMULA,K.C.RAJAGOPALAN,,58334,42.9,2,lost,U,67,8th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3816,kerala,2011,113,ARANMULA,ADV. K.HARIDAS,,10227,7.52,3,forfeit,U,47,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3816,kerala,2011,113,ARANMULA,AMRUTHAKUMAR.T,,721,0.53,4,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3816,kerala,2011,113,ARANMULA,NAZURUDHEEN,,709,0.52,5,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3816,kerala,2011,113,ARANMULA,SUGATHAN.R,,387,0.28,6,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3816,kerala,2011,113,ARANMULA,D. SIVADASAN ACHARI,,343,0.25,7,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3816,kerala,2011,113,ARANMULA,MADHU.G,,206,0.15,8,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3816,kerala,2011,113,ARANMULA,ADV. K.V. VARGHESE,,134,0.1,9,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3816,kerala,2011,113,ARANMULA,PUSHPANGADAN,,69,0.05,10,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3818,kerala,2011,114,KONNI,ADV. ADOOR PRAKASH,,65724,50.15,1,won,U,55,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3818,kerala,2011,114,KONNI,M. S. RAJENDRAN,,57950,44.22,2,lost,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3818,kerala,2011,114,KONNI,V. S. HARISH CHANDRAN,,5994,4.57,3,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3818,kerala,2011,114,KONNI,SINTO STEPHEN,,655,0.5,4,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3818,kerala,2011,114,KONNI,THATTAYIL SARASWATHI,,276,0.21,5,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3818,kerala,2011,114,KONNI,LEKSHMI R SEKHAR,,247,0.19,6,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3818,kerala,2011,114,KONNI,RENJINI C T,,207,0.16,7,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3815,kerala,2011,115,ADOOR,CHITTAYAM GOPAKUMAR,,63501,47.02,1,won,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3815,kerala,2011,115,ADOOR,PANDALAM SUDHAKARAN,,62894,46.57,2,lost,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3815,kerala,2011,115,ADOOR,K.K.SASI,,6210,4.6,3,forfeit,U,43,12th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3815,kerala,2011,115,ADOOR,OLIKKULANGARA SURENDRAN,,994,0.74,4,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3815,kerala,2011,115,ADOOR,KODUMON RAMACHANDRAN,,519,0.38,5,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3815,kerala,2011,115,ADOOR,PIRAVANTHOOR SREEDHARAN,,462,0.34,6,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3815,kerala,2011,115,ADOOR,REMANAN,,315,0.23,7,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3815,kerala,2011,115,ADOOR,ANIL.K.,,162,0.12,8,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3722,kerala,2011,116,KARUNAGAPPALLY,C. DIVAKARAN,,69086,50.13,1,won,U,67,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3722,kerala,2011,116,KARUNAGAPPALLY,ADV. A. N. RAJANBABU,,54564,39.59,2,lost,U,62,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3722,kerala,2011,116,KARUNAGAPPALLY,NAZARUDHEEN ELAMARAM,,7645,5.55,3,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3722,kerala,2011,116,KARUNAGAPPALLY,MALUMEL SURESH,,5097,3.7,4,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3722,kerala,2011,116,KARUNAGAPPALLY,P.D. SUDHEER,,868,0.63,5,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3722,kerala,2011,116,KARUNAGAPPALLY,TWINKLE PRABHAKARAN,,547,0.4,6,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3775,kerala,2011,117,CHAVARA,SHIBU BABY JOHN,,65002,51.16,1,won,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3775,kerala,2011,117,CHAVARA,N.K.PREMACHANDRAN,,58941,46.39,2,lost,U,50,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3775,kerala,2011,117,CHAVARA,NALINI SANKARAMANGALAM,,2026,1.59,3,forfeit,U,54,,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3775,kerala,2011,117,CHAVARA,MANIYAN.G.,,567,0.45,4,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3775,kerala,2011,117,CHAVARA,V. VARADHARAJAN,,532,0.42,5,forfeit,U,59,Graduate Professional,Engineer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3804,kerala,2011,118,KUNNATHUR,KOVOOR KUNJUMON,,71923,49.97,1,won,U,42,12th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3804,kerala,2011,118,KUNNATHUR,P.K. RAVI,,59835,41.58,2,lost,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3804,kerala,2011,118,KUNNATHUR,RAJI PRASAD,,5949,4.13,3,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3804,kerala,2011,118,KUNNATHUR,THULASEEDHARAN PALLIKKAL,,2310,1.61,4,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3804,kerala,2011,118,KUNNATHUR,ADV. VALLIKUNNAM PRASAD,,1354,0.94,5,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3804,kerala,2011,118,KUNNATHUR,PULIKUZHY BALACHANDRAN,,1145,0.8,6,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3804,kerala,2011,118,KUNNATHUR,SHYLAJA. P,,611,0.42,7,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3804,kerala,2011,118,KUNNATHUR,RAVI,,525,0.36,8,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3804,kerala,2011,118,KUNNATHUR,V. REMADEVI,,266,0.18,9,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3803,kerala,2011,119,KOTTARAKKARA,ADV:P.AISHA POTTY,,74069,53.89,1,won,U,54,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3803,kerala,2011,119,KOTTARAKKARA,DR:N.N.MURALI,,53477,38.91,2,lost,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3803,kerala,2011,119,KOTTARAKKARA,VAYAKKAL MADHU,,6370,4.63,3,forfeit,U,49,Graduate,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3803,kerala,2011,119,KOTTARAKKARA,DHANESHLAL PANAVELY,,1063,0.77,4,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3803,kerala,2011,119,KOTTARAKKARA,P.T.PRASANNA KUMAR,,911,0.66,5,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3803,kerala,2011,119,KOTTARAKKARA,S. SOLOMON,,773,0.56,6,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3803,kerala,2011,119,KOTTARAKKARA,PRAKASH V,,454,0.33,7,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3803,kerala,2011,119,KOTTARAKKARA,PRAKASH R,,320,0.23,8,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3807,kerala,2011,120,PATHANAPURAM,K.B GANESH KUMAR,,71421,55.64,1,won,U,45,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3807,kerala,2011,120,PATHANAPURAM,K. RAJAGOPAL,,51019,39.74,2,lost,U,59,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3807,kerala,2011,120,PATHANAPURAM,R. SUBHASH PATTAZHY,,2839,2.21,3,forfeit,U,32,12th Pass,Designer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3807,kerala,2011,120,PATHANAPURAM,ANEESH ANTONY,,1613,1.26,4,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3807,kerala,2011,120,PATHANAPURAM,PUNALUR SALIM,,864,0.67,5,forfeit,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3807,kerala,2011,120,PATHANAPURAM,N. SUNILKUMAR,,611,0.48,6,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3779,kerala,2011,121,PUNALUR,ADV.K.RAJU,,72648,54.52,1,won,U,56,Graduate,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3779,kerala,2011,121,PUNALUR,ADV.JOHNSON ABRAHAM,,54643,41.01,2,lost,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3779,kerala,2011,121,PUNALUR,B.RADHAMANI,,4155,3.12,3,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3779,kerala,2011,121,PUNALUR,S.JAYAKUMAR,,699,0.52,4,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3779,kerala,2011,121,PUNALUR,KUZHICHAYIL SUNIL,,606,0.45,5,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3779,kerala,2011,121,PUNALUR,S.SHAILAJA,,494,0.37,6,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3773,kerala,2011,122,CHADAYAMANGALAM,MULLAKKARA RATNAKARAN,,71231,55.9,1,won,U,56,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3773,kerala,2011,122,CHADAYAMANGALAM,SHAHIDA KAMAL,,47607,37.36,2,lost,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3773,kerala,2011,122,CHADAYAMANGALAM,T.C.SAJU KUMAR,,4160,3.26,3,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3773,kerala,2011,122,CHADAYAMANGALAM,JALEEL KADAKKAL,,1800,1.41,4,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3773,kerala,2011,122,CHADAYAMANGALAM,SHIBU.K. CHADAYAMANGALAM,,1078,0.85,5,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3773,kerala,2011,122,CHADAYAMANGALAM,KOOTTUKKAL PRASAD,,996,0.78,6,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3773,kerala,2011,122,CHADAYAMANGALAM,OYOOR NAZEER,,557,0.44,7,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3778,kerala,2011,123,KUNDARA,M.A. BABY,,67135,52.48,1,won,U,57,Graduate,Minister,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3778,kerala,2011,123,KUNDARA,ADV:P.JERMIAS,,52342,40.92,2,lost,U,38,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3778,kerala,2011,123,KUNDARA,VELLIMON DILEEP,,5990,4.68,3,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3778,kerala,2011,123,KUNDARA,SANDHYA PALLIMON,,957,0.75,4,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3778,kerala,2011,123,KUNDARA,SUSEELA MOHAN,,947,0.74,5,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3778,kerala,2011,123,KUNDARA,ANTONY VINCENT,,553,0.43,6,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3777,kerala,2011,124,KOLLAM,P.K.GURUDASAN,,57986,50.86,1,won,U,75,12th Pass,Minister,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3777,kerala,2011,124,KOLLAM,K.C.RAJAN,,49446,43.37,2,lost,U,64,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3777,kerala,2011,124,KOLLAM,G.HARI.,,4207,3.69,3,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3777,kerala,2011,124,KOLLAM,A.A. SHAFI,,1168,1.02,4,forfeit,U,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3777,kerala,2011,124,KOLLAM,MANGAD THULASEEDHARAN,,507,0.44,5,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3777,kerala,2011,124,KOLLAM,SANU.K,,372,0.33,6,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3777,kerala,2011,124,KOLLAM,C.N.NARAYANAN NAIR,,191,0.17,7,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3777,kerala,2011,124,KOLLAM,V. MOHANAN,,141,0.12,8,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3776,kerala,2011,125,ERAVIPURAM,A.A. AZEEZ,,51271,49,1,won,U,69,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3776,kerala,2011,125,ERAVIPURAM,P.K.K. BAVA,,43259,41.34,2,lost,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3776,kerala,2011,125,ERAVIPURAM,PATTATHANAM BABU,,5048,4.82,3,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3776,kerala,2011,125,ERAVIPURAM,MYLAKKAD SHAH,,3234,3.09,4,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3776,kerala,2011,125,ERAVIPURAM,SUSHAMA VIJAYAN,,580,0.55,5,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3776,kerala,2011,125,ERAVIPURAM,ABDUL AZEEZ,,552,0.53,6,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3776,kerala,2011,125,ERAVIPURAM,SAIJU V.,,391,0.37,7,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3776,kerala,2011,125,ERAVIPURAM,DEEPU. N.,,310,0.3,8,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3774,kerala,2011,126,CHATHANNUR,G.S.JAYALAL,,60187,52.66,1,won,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3774,kerala,2011,126,CHATHANNUR,ADV: BINDU KRISHNA,,47598,41.64,2,lost,U,38,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3774,kerala,2011,126,CHATHANNUR,ADV:KIZHAKKANELA SUDHAKARAN,,3839,3.36,3,forfeit,U,49,Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3774,kerala,2011,126,CHATHANNUR,A.SASI,,1134,0.99,4,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3774,kerala,2011,126,CHATHANNUR,JAYALAL,,763,0.67,5,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3774,kerala,2011,126,CHATHANNUR,MAILODE SUDHAN,,490,0.43,6,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3774,kerala,2011,126,CHATHANNUR,SASIKUMAR,,287,0.25,7,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3737,kerala,2011,127,VARKALA,VARKALA KAHAR,,57755,52.4,1,won,U,60,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3737,kerala,2011,127,VARKALA,A.A.RAHIM,,47045,42.68,2,lost,U,30,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3737,kerala,2011,127,VARKALA,ELAKAMAN SATHEESAN,,3430,3.11,3,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3737,kerala,2011,127,VARKALA,CHERUNNIYOOR GANESH,,927,0.84,4,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3737,kerala,2011,127,VARKALA,KUNNIL SHAJAHAN,,795,0.72,5,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3737,kerala,2011,127,VARKALA,ANEESH KUMAR,,275,0.25,6,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3732,kerala,2011,128,ATTINGAL,ADVOCATE. B. SATYAN,,63558,55.44,1,won,U,45,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3732,kerala,2011,128,ATTINGAL,THANKAMONY DIVAKARAN,,33493,29.22,2,lost,U,54,Graduate,Consultant,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3732,kerala,2011,128,ATTINGAL,ATTINGAL SURESH,,7857,6.85,3,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3732,kerala,2011,128,ATTINGAL,DR.P.P. VAVA,,4844,4.23,4,forfeit,U,66,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3732,kerala,2011,128,ATTINGAL,V.V.SELVARAJ,,1713,1.49,5,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3732,kerala,2011,128,ATTINGAL,K. G. SOMAN,,1561,1.36,6,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3732,kerala,2011,128,ATTINGAL,DR.M.CHINNAMMA,,1235,1.08,7,forfeit,U,56,Doctorate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3732,kerala,2011,128,ATTINGAL,G.ANIRUDHAN,,377,0.33,8,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3733,kerala,2011,129,CHIRAYINKEEZHU,V.SASI,,59601,52.93,1,won,U,60,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3733,kerala,2011,129,CHIRAYINKEEZHU,K.VIDYADHARAN,,47376,42.07,2,lost,U,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3733,kerala,2011,129,CHIRAYINKEEZHU,AYTHIYOOR SURENDRAN,,2078,1.85,3,forfeit,U,57,Post Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3733,kerala,2011,129,CHIRAYINKEEZHU,ANIL MANGALAPURAM,,1414,1.26,4,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3733,kerala,2011,129,CHIRAYINKEEZHU,SAJIMON CHELAYAM,,1277,1.13,5,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3733,kerala,2011,129,CHIRAYINKEEZHU,ANILKUMAR.B,,857,0.76,6,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3735,kerala,2011,130,NEDUMANGAD,PALODE RAVI,,59789,47.87,1,won,U,61,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3735,kerala,2011,130,NEDUMANGAD,ADV.P. RAMACHANDRAN NAIR,,54759,43.84,2,lost,U,59,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3735,kerala,2011,130,NEDUMANGAD,ANJANA.K.S,,5971,4.78,3,forfeit,U,40,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3735,kerala,2011,130,NEDUMANGAD,ANDOORKONAM SULFI,,1255,1,4,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3735,kerala,2011,130,NEDUMANGAD,NOORJAHAN.A.,,1200,0.96,5,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3735,kerala,2011,130,NEDUMANGAD,IDAMMA.N.,,731,0.59,6,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3735,kerala,2011,130,NEDUMANGAD,VAZHODE RAVI,,346,0.28,7,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3735,kerala,2011,130,NEDUMANGAD,BIJU.A.,,342,0.27,8,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3735,kerala,2011,130,NEDUMANGAD,ANAD.G.RAMACHANDRAN NAIR,,277,0.22,9,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3735,kerala,2011,130,NEDUMANGAD,SAJI,,237,0.19,10,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3736,kerala,2011,131,VAMANAPURAM,KOLIAKODE.N. KRISHNAN NAIR,,57381,46.51,1,won,U,73,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3736,kerala,2011,131,VAMANAPURAM,ADV.C.MOHANACHANDRAN,,55145,44.7,2,lost,U,60,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3736,kerala,2011,131,VAMANAPURAM,KARETTE SIVAPRASAD,,5228,4.24,3,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3736,kerala,2011,131,VAMANAPURAM,ADV. PIRAPPANKODE SHAJAHAN,,2225,1.8,4,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3736,kerala,2011,131,VAMANAPURAM,SELEENA PRAKKANAM,,1613,1.31,5,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3736,kerala,2011,131,VAMANAPURAM,SASI R CHERAMAN,,867,0.7,6,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3736,kerala,2011,131,VAMANAPURAM,IRINCHAYAM SURESH,,437,0.35,7,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3736,kerala,2011,131,VAMANAPURAM,KRISHNAN NAIR,,275,0.22,8,forfeit,U,71,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3736,kerala,2011,131,VAMANAPURAM,BHARATHANNOOR BALAN,,205,0.17,9,forfeit,U,70,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3829,kerala,2011,132,KAZHAKKOOTTAM,ADV. M. A. VAHEED,,50787,46.38,1,won,U,61,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3829,kerala,2011,132,KAZHAKKOOTTAM,C AJAYAKUMAR,,48591,44.38,2,lost,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3829,kerala,2011,132,KAZHAKKOOTTAM,ADV. PADMAKUMAR,,7508,6.86,3,forfeit,U,49,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3829,kerala,2011,132,KAZHAKKOOTTAM,M WAHID,,986,0.9,4,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3829,kerala,2011,132,KAZHAKKOOTTAM,K BHUVANENDRAN CHETTIAR,,678,0.62,5,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3829,kerala,2011,132,KAZHAKKOOTTAM,M.A. JALEEL,,418,0.38,6,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3829,kerala,2011,132,KAZHAKKOOTTAM,SUDARSHANAN S,,325,0.3,7,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3829,kerala,2011,132,KAZHAKKOOTTAM,K AJITHKUMAR,,205,0.19,8,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3835,kerala,2011,133,VATTIYOORKAVU,K.MURALIDHARAN,,56531,50.19,1,won,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3835,kerala,2011,133,VATTIYOORKAVU,CHERIYAN PHILIP,,40364,35.84,2,lost,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3835,kerala,2011,133,VATTIYOORKAVU,ADV.V.V.RAJESH,,13494,11.98,3,forfeit,U,35,Graduate Professional,Advocacy,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3835,kerala,2011,133,VATTIYOORKAVU,KAITHAKODU RADHAKRISHNAN,,915,0.81,4,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3835,kerala,2011,133,VATTIYOORKAVU,CHERIYAN.P.T,,551,0.49,5,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3835,kerala,2011,133,VATTIYOORKAVU,RAJAN.K,,488,0.43,6,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3835,kerala,2011,133,VATTIYOORKAVU,G.BALAKRISHNAN NAIR,,294,0.26,7,forfeit,U,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3834,kerala,2011,134,THIRUVANANTHAPURAM,ADV.V.S.SIVAKUMAR,,49122,45.87,1,won,U,50,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3834,kerala,2011,134,THIRUVANANTHAPURAM,V.SURENDRAN PILLAI,,43770,40.87,2,lost,U,55,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3834,kerala,2011,134,THIRUVANANTHAPURAM,B.K.SHEKHAR,,11519,10.76,3,forfeit,U,51,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3834,kerala,2011,134,THIRUVANANTHAPURAM,ABDU RAZAK. A,,807,0.75,4,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3834,kerala,2011,134,THIRUVANANTHAPURAM,P.SURENDRAN PILLAI,,518,0.48,5,forfeit,U,71,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3834,kerala,2011,134,THIRUVANANTHAPURAM,S.SIVAKUMAR,,485,0.45,6,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3834,kerala,2011,134,THIRUVANANTHAPURAM,P.S GOPAKUMAR,,235,0.22,7,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3834,kerala,2011,134,THIRUVANANTHAPURAM,N.SIVAKUMAR,,221,0.21,8,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3834,kerala,2011,134,THIRUVANANTHAPURAM,SUNDARAN PILLAI,,207,0.19,9,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3834,kerala,2011,134,THIRUVANANTHAPURAM,C.VASANTHA KUMARI,,110,0.1,10,forfeit,U,55,8th Pass,Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3834,kerala,2011,134,THIRUVANANTHAPURAM,GEORGE MANKIDIAN,,98,0.09,11,forfeit,U,71,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2011,136,ARUVIKKARA,G. KARTHIKEYEN,,56797,48.79,1,won,U,62,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2011,136,ARUVIKKARA,AMBALATHARA SREEDHARAN NAIR,,46123,39.62,2,lost,U,71,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2011,136,ARUVIKKARA,SIVANKUTTY . C,,7694,6.61,3,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2011,136,ARUVIKKARA,A. BALAN,,1746,1.5,4,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2011,136,ARUVIKKARA,ADV. POOVATHOOR .S.RAJEEV,,972,0.83,5,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2011,136,ARUVIKKARA,SANIL V O,,913,0.78,6,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2011,136,ARUVIKKARA,R.RAJAPPAN,,753,0.65,7,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2011,136,ARUVIKKARA,KARAKULAM SATHYAKUMAR,,651,0.56,8,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2011,136,ARUVIKKARA,S. SREEKUMAR,,525,0.45,9,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3731,kerala,2011,136,ARUVIKKARA,LATHA B VELLUMANNADI,,244,0.21,10,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3833,kerala,2011,137,PARASSALA,A.T. GEORGE,,60578,44.8,1,won,U,59,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3833,kerala,2011,137,PARASSALA,ANAVOOR NAGAPPAN,,60073,44.43,2,lost,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3833,kerala,2011,137,PARASSALA,ADV. S. SURESH,,10310,7.63,3,forfeit,U,39,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3833,kerala,2011,137,PARASSALA,J.SUDHAKARAN,,2269,1.68,4,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3833,kerala,2011,137,PARASSALA,T.K.VISWAMBHARAN,,1207,0.89,5,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3833,kerala,2011,137,PARASSALA,OORUTTUKALA ANIKUMAR,,774,0.57,6,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3734,kerala,2011,138,KATTAKKADA,N SAKTHAN,,52368,44.63,1,won,U,60,Post Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3734,kerala,2011,138,KATTAKKADA,ADV. M.V.JAYADALI,,39452,33.62,2,lost,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3734,kerala,2011,138,KATTAKKADA,P K KRISHNADAS,,22550,19.22,3,lost,U,47,12th Pass,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3734,kerala,2011,138,KATTAKKADA,VENGODE SUNIL KUMAR,,1303,1.11,4,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3734,kerala,2011,138,KATTAKKADA,KATTAKKADA RAJAN,,613,0.52,5,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3734,kerala,2011,138,KATTAKKADA,S SUJITHRA,,586,0.5,6,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3734,kerala,2011,138,KATTAKKADA,MALAYINKEEZH RAJESH,,475,0.4,7,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3830,kerala,2011,139,KOVALAM,JAMEELA PRAKASAM,,59510,47.6,1,won,U,53,Post Graduate,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3830,kerala,2011,139,KOVALAM,ADV.GEORGE MERCIER,,52305,41.84,2,lost,U,58,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3830,kerala,2011,139,KOVALAM,VENGANOOR SATHEESH,,9127,7.3,3,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3830,kerala,2011,139,KOVALAM,THANKA BAI.T.,,1231,0.98,4,forfeit,U,70,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3830,kerala,2011,139,KOVALAM,A.M. NIZAM,,1193,0.95,5,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3830,kerala,2011,139,KOVALAM,MURALEEDHARAN,,1157,0.93,6,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3830,kerala,2011,139,KOVALAM,VAZHAMUTTOM RAJENDRAN,,485,0.39,7,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2011,140,NEYYATTINKARA,R SELVARAJ,,54711,48.98,1,won,U,62,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2011,140,NEYYATTINKARA,THAMPANOOR RAVI,,48009,42.98,2,lost,U,61,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2011,140,NEYYATTINKARA,ATHIYANNOOR SREEKUMAR,,6730,6.03,3,forfeit,U,48,Post Graduate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2011,140,NEYYATTINKARA,KOVILLOOR.A.BABU,,1168,1.05,4,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2011,140,NEYYATTINKARA,MOHANAN,,557,0.5,5,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2011,140,NEYYATTINKARA,MANALOOR.B.VASANTHA,,523,0.47,6,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
