@@ -1,8 +1,8 @@
 # Electoral Hierarchy
 
-**Last Updated**: 2026-05-09
+**Last Updated**: 2026-06-05
 
-> Indian electoral geography is a strict hierarchy. Every Assembly Constituency (AC) sits inside exactly one district AND exactly one Lok Sabha (Parliamentary) Constituency (PC). yen-gov's reference data treats both relationships as first-class, validator-enforced fields.
+> Indian electoral geography is a layered hierarchy. Every Assembly Constituency (AC) sits inside exactly one Lok Sabha (Parliamentary) Constituency (PC), but its relationship to districts is many-valued: an AC usually lies within one district yet can span several (urban-rural boundary cases, and post-delimitation district carve-outs). yen-gov treats the AC->PC link as a single `parent`, and the AC/PC->district link as a 1:many membership table (`entities/electoral_district_membership.csv`, round-7). See the data-and-charting platform reset plan section 3.
 
 ## The hierarchy
 
@@ -15,10 +15,10 @@ Country (IN)
         └── (each AC also nests under one PC)
 ```
 
-Two facts make this a *strict* hierarchy for ACs:
+One strict fact and one many-valued fact govern ACs:
 
-1. **An AC is wholly inside one district.** District boundaries are administrative; AC boundaries are drawn so they never split a district. (When a district is later carved out of an older one, ACs migrate cleanly to the new district.)
-2. **An AC is wholly inside one PC.** This is set by the Election Commission's [Delimitation of Parliamentary and Assembly Constituencies Order, 2008](https://eci.gov.in/delimitation-website/) and revised only when delimitation is redone (currently scheduled post-2026 census).
+1. **An AC maps to one or more districts (1:many).** District boundaries are administrative; AC boundaries are NOT guaranteed to respect them. The Local Government Directory (LGD) Constituency Coverage Report (the canonical source, parsed from the LGD portal export into `entities/electoral_district_membership.csv`) records every `(ac, district)` coverage edge: most ACs cover exactly one district (`is_primary`), but urban-rural cases and post-delimitation district carve-outs make some ACs span two or more. The old "an AC is wholly inside one district" invariant was FALSE and is retired (round-7); the relationship lives in `entities/electoral_district_membership.csv`, never a single `district_id`.
+2. **An AC is wholly inside one PC (strict, 1:1).** This is set by the Election Commission's [Delimitation of Parliamentary and Assembly Constituencies Order, 2008](https://eci.gov.in/delimitation-website/) and revised only when delimitation is redone (currently scheduled post-2026 census). This is the AC's single `parent` in `entities/electoral.csv`.
 
 PCs themselves do *not* nest inside districts — a single PC routinely spans 6–8 districts. So `district_id` is required on AC items but absent from PC items, and `pc_id` is required on AC items but forbidden on PC items.
 
