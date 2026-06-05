@@ -1,7 +1,7 @@
 # B2b.4 sub-sub-plan - taxonomy datapoint-parquet reingest to long-format CSV
 
 **Last Updated**: 2026-06-05
-**Parent**: [TODO/20260604-b2b-reingest-subplan.md](../../../TODO/20260604-b2b-reingest-subplan.md) row B2b.4
+**Parent**: [docs/archive/plans/20260604-b2b-reingest-subplan.md](20260604-b2b-reingest-subplan.md) row B2b.4
 **Grandparent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) chunk B2b
 **Status**: COMPLETE 2026-06-05 (B2b.4.1..B2b.4.6 MERGED + B2b.4.7 DROPPED + B2b.4.8 closure #775)
 **Authority**: Hans + Max (data shape, identity, FK target homes) / Gregor (FK contract, write order, parity gate) per CLAUDE.md section 0a
@@ -150,7 +150,7 @@ The orchestrator MAY ship Wave A rows in any order. Each sub-sub-row is a separa
 ### B2b.4.8 closure
 
 - Extend [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) "Datapoint reingest" section with each of B2b.4.1..B2b.4.7 emitter module + source parquet + parity-gate path.
-- Flip the parent B2b.4 ledger row (in [TODO/20260604-b2b-reingest-subplan.md](../../../TODO/20260604-b2b-reingest-subplan.md)) to MERGED in this same PR and stamp the closure PR number.
+- Flip the parent B2b.4 ledger row (in [docs/archive/plans/20260604-b2b-reingest-subplan.md](20260604-b2b-reingest-subplan.md)) to MERGED in this same PR and stamp the closure PR number.
 - Archive this file to `docs/archive/plans/20260604-b2b4-taxonomy-subplan.md` with a "Plan complete" block per [docs/how-to/distill-a-plan.md](../../how-to/distill-a-plan.md).
 - Confirm: every taxonomy parquet has an emitted CSV sibling whose `cross-format-parity` gate is green; B2b.4's deletion-safety is established for X1b.
 
@@ -168,7 +168,7 @@ The parent sub-plan row B2b.4 is `DEFERRED-TO-SUBPLAN -> TODO/20260604-b2b4-taxo
 
 ## See also
 
-- Parent sub-plan: [TODO/20260604-b2b-reingest-subplan.md](../../../TODO/20260604-b2b-reingest-subplan.md).
+- Parent sub-plan: [docs/archive/plans/20260604-b2b-reingest-subplan.md](20260604-b2b-reingest-subplan.md).
 - Grandparent plan: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) (sections 7, 20.4, 21.6, 22.4, 22.5, 22.6, 23.2, 24.5).
 - B2a sub-plan precedent: [docs/archive/plans/20260604-b2a-csv-catalogue-subplan.md](20260604-b2a-csv-catalogue-subplan.md).
 - B1 sub-plan precedent: [docs/archive/plans/20260604-b1-csv-writer-subplan.md](20260604-b1-csv-writer-subplan.md).

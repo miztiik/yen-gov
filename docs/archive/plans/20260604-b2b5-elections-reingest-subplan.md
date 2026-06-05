@@ -1,7 +1,7 @@
 # B2b.5 sub-sub-plan - elections-from-local-TCPD per-election CSV reingest
 
 **Last Updated**: 2026-06-04
-**Parent**: [TODO/20260604-b2b-reingest-subplan.md](../../../TODO/20260604-b2b-reingest-subplan.md) row B2b.5
+**Parent**: [docs/archive/plans/20260604-b2b-reingest-subplan.md](20260604-b2b-reingest-subplan.md) row B2b.5
 **Grandparent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) chunk B2b
 **Status**: UNBLOCKED 2026-06-05 (user-ratified resolution in section 0b; LGD-native PK kept, `eci_no` folded as a column, clean-start rip-and-replace). NEW prerequisite row B2b.5.0 (clean-start re-emit) added; B2b.5.2..B2b.5.5 flip from `BLOCKED-NEEDS-SIGNOFF` to `TODO (blocks on B2b.5.0)`. B2b.5.1 MERGED (#711); B2b.5.Z TODO. Resolution + signed scope-change ledger in section 0b.
 **Authority**: Hans + Max (per-election shape, identity, candidacy vs summary columns) / Gregor (FK contract, per-election self-containment, parity gate, parliament `state` mandatory column per 23.4) per CLAUDE.md section 0a
