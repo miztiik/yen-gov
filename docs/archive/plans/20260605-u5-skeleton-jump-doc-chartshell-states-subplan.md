@@ -1,8 +1,8 @@
 # U5 sub-plan - Skeleton + IndicatorJump + IndicatorDoc route + ChartShell error/empty/loading slots
 
 **Last Updated**: 2026-06-05
-**Parent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) chunk U5
-**Status**: IN-FLIGHT (spawned 2026-06-05; first sub-row IN-FLIGHT alongside spawn PR)
+**Parent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) chunk U5
+**Status**: COMPLETE (closed 2026-06-05)
 **Authority**: Jony (loading-state craft + jump-strip metaphor + doc page IA) / Gregor (URL grammar contract for `/docs/indicator/:topic/:id`) / Citizen (mobile ~360px jump strip comprehension + the trust banner on the doc page) per CLAUDE.md section 0a
 
 ---
@@ -85,9 +85,9 @@ Per CLAUDE.md correction-level discipline (>= 4 files structural -> propose brea
 | --- | --- | --- | --- | --- | --- |
 | U5-spawn (this file + parent ledger flip to DEFERRED-TO-SUBPLAN; U5a flipped IN-FLIGHT inline) | - | - | docs-review | #751 | MERGED |
 | U5a Skeleton + ChartShell error/empty/loading slots + state helpers + tests | U5-spawn | U5b, U5c | build+vitest(skeleton, chart-shell-state) | #752 | MERGED |
-| U5b url.indicatorDoc + `/docs/indicator/:topic/:id` route + IndicatorDoc.svelte + tests | U5-spawn | U5a, U5c | build+vitest(url, indicator-doc)+in-browser smoke (`/docs/indicator/fiscal/outstanding_debt_pct_gsdp`) | #755 | IN-FLIGHT |
-| U5c IndicatorJump.svelte + StateOverview integration + tests | U5-spawn | U5a, U5b | build+vitest(indicator-jump)+in-browser smoke (`/s/tamil-nadu`) | #757 | IN-FLIGHT |
-| U5d closure (distil into design-system.md U5 row; flip parent U5 ledger; archive this sub-plan) | U5a, U5b, U5c | - | docs-review | _pending_ | TODO |
+| U5b url.indicatorDoc + `/docs/indicator/:topic/:id` route + IndicatorDoc.svelte + tests | U5-spawn | U5a, U5c | build+vitest(url, indicator-doc)+in-browser smoke (`/docs/indicator/fiscal/outstanding_debt_pct_gsdp`) | #755 | MERGED |
+| U5c IndicatorJump.svelte + StateOverview integration + tests | U5-spawn | U5a, U5b | build+vitest(indicator-jump)+in-browser smoke (`/s/tamil-nadu`) | #757 | MERGED |
+| U5d closure (distil into design-system.md U5 row; flip parent U5 ledger; archive this sub-plan) | U5a, U5b, U5c | - | docs-review | #758 | MERGED |
 
 U5a, U5b, U5c are all parallel-OK with each other (Skeleton + IndicatorDoc + IndicatorJump touch disjoint files; ChartShell.svelte edits are only in U5a; url.ts + main.ts edits are only in U5b; StateOverview.svelte edits are only in U5c). U5d is closure.
 
@@ -225,10 +225,27 @@ U5a, U5b, U5c are all parallel-OK with each other (Skeleton + IndicatorDoc + Ind
 
 ---
 
+## Sub-plan complete (2026-06-05)
+
+All four sub-rows shipped. Per-row PR distillation map:
+
+| Sub-row | PR | Distilled output |
+| --- | --- | --- |
+| U5-spawn (this file + parent ledger flip to DEFERRED-TO-SUBPLAN; U5a flipped IN-FLIGHT inline) | #751 | this file under `TODO/` (now under `docs/archive/plans/`) + parent section 22.5 U5 row flipped to DEFERRED-TO-SUBPLAN with forward-pointer here |
+| U5a Skeleton + ChartShell error/empty/loading slots + state helpers + tests | #752 | [frontend/src/lib/Skeleton.svelte](../../../frontend/src/lib/Skeleton.svelte) (module-scope `skeletonStyle()` testable surface; shimmer respects `prefers-reduced-motion`) + [frontend/src/lib/Skeleton.test.ts](../../../frontend/src/lib/Skeleton.test.ts) (5 cases) + [frontend/src/lib/charts/chart-shell/state.ts](../../../frontend/src/lib/charts/chart-shell/state.ts) (`ChartShellState` union + `resolveChartShellState()` + `DEFAULT_ERROR_MESSAGE` + `DEFAULT_EMPTY_MESSAGE`) + [frontend/src/lib/charts/chart-shell/state.test.ts](../../../frontend/src/lib/charts/chart-shell/state.test.ts) (7 cases) + [frontend/src/lib/charts/chart-shell/index.ts](../../../frontend/src/lib/charts/chart-shell/index.ts) re-exports + [frontend/src/lib/charts/ChartShell.svelte](../../../frontend/src/lib/charts/ChartShell.svelte) (4 new optional props `state` / `error_message` / `empty_message` / `source_line` / `loading_slot`; default `state="data"` = byte-for-byte pre-U5a behaviour; inline diagonal-stripe SVG hatch matches existing `ocb__hatch` / `hgb__cell-hatch` / `fpg__hatch` visual language); distilled into [docs/architecture/frontend/design-system.md](../../architecture/frontend/design-system.md) section "U5 - Skeleton + ChartShell state slots + IndicatorDoc route + IndicatorJump strip" (the U5a paragraph) |
+| U5a-stamp (flip U5-spawn #751 + U5a #752 IN-FLIGHT -> MERGED in this sub-plan's execution ledger) | #754 | sub-plan ledger rows U5-spawn + U5a stamped MERGED |
+| U5b url.indicatorDoc + `/docs/indicator/:topic/:id` route + IndicatorDoc.svelte + tests | #755 | [frontend/src/lib/url.ts](../../../frontend/src/lib/url.ts) `url.indicatorDoc(indicatorId)` builder (preserves the `<topic>/<id>` slash, never URL-encodes it) + [frontend/src/lib/url.test.ts](../../../frontend/src/lib/url.test.ts) round-trip + grammar assertions + [frontend/src/main.ts](../../../frontend/src/main.ts) `/docs/indicator/:topic/:id` route registration (params nested under `params`) + [frontend/src/routes/IndicatorDoc.svelte](../../../frontend/src/routes/IndicatorDoc.svelte) (ONE generic doc route reading catalogue + render hints + provenance; never hand-authored per indicator; uses `<ChartShell state="loading|error|data">` so cards and doc pages share one consistency contract) + [frontend/src/routes/IndicatorDoc.test.ts](../../../frontend/src/routes/IndicatorDoc.test.ts) pure helper coverage (`projectToFourFieldSource()` + `cadenceLabel()`); distilled into [docs/architecture/frontend/design-system.md](../../architecture/frontend/design-system.md) section "U5 - Skeleton + ChartShell state slots + IndicatorDoc route + IndicatorJump strip" (the U5b paragraph). The cadence + staleness banner driven by `update_period_days` and the 4-field provenance from `entities/source.csv` ship as TODO markers; they lift when B2a / B2b emit the columns and F1 / X1a re-point the read path. |
+| U5c IndicatorJump.svelte + StateOverview integration + tests | #757 | [frontend/src/lib/IndicatorJump.svelte](../../../frontend/src/lib/IndicatorJump.svelte) (sticky `top-12` theme-chip jump strip; mobile-first ~360px; type-to-filter input above; pure helpers `filterGroups()` + `activeIdForOffsets()` exported from module-scope `<script module>` are the testable surface; IntersectionObserver wired in `$effect` with `rootMargin: "-80px 0px -60% 0px"`; `current` is `$bindable` so parent can drive initial mount AND observer mutates it as user scrolls) + [frontend/src/lib/IndicatorJump.test.ts](../../../frontend/src/lib/IndicatorJump.test.ts) (16 cases: filterGroups 7 + activeIdForOffsets 8 + module exports 1; LAST-wins-on-tie tiebreaker rationale "DOM-later paints on top") + [frontend/src/routes/StateOverview.svelte](../../../frontend/src/routes/StateOverview.svelte) (derive `jump_groups` from `indicator_topics`; mount `<IndicatorJump>` when >1 topics; add `data-jump-id={topic.id}` to each topic `<section>`); distilled into [docs/architecture/frontend/design-system.md](../../architecture/frontend/design-system.md) section "U5 - Skeleton + ChartShell state slots + IndicatorDoc route + IndicatorJump strip" (the U5c paragraph) |
+| U5d closure (distil into design-system.md U5 row + section; flip parent U5 ledger; archive this sub-plan) | #758 | this file under `docs/archive/plans/` + parent section 22.5 U5 row flipped to MERGED + [docs/architecture/frontend/design-system.md](../../architecture/frontend/design-system.md) per-component table U5 row flipped to MERGED (#752 + #755 + #757) + "U5 - Skeleton + ChartShell state slots + IndicatorDoc route + IndicatorJump strip" section appended + preamble extended to mention U5 + See-also extended to cite this archive |
+
+Lessons that did not belong in `docs/` were captured in `/memories/lessons.md` under the U5a / U5b / U5c dated entries (Svelte 5 `$derived` value vs `$derived.by` thunk distinction, router `props.params` nesting contract, ASCII-rule + visible em-dash JS-escape technique `"\u2014"`, pure scroll-spy helper signature `activeIdForOffsets(scrollY, offsets) -> id | null` separating COMPUTATION from WIRING, tie-breaker semantics "LAST wins because DOM-later paints on top", admin-merge-vs-Playwright-wait discriminator "does the diff change DOM shape on an existing citizen route?", PowerShell pipe-kills-long-running-server `Select-Object -First N` anti-pattern).
+
+The ADDITIVE rule still holds at U5 closure: no Tailwind default was redefined, no existing component was MIGRATED outside the additive ChartShell state-branch fold (default `state="data"` keeps every existing caller byte-for-byte), and no new tokens were minted (Skeleton + ChartShell empty hatch + IndicatorJump strip all read from existing tokens `--surface-sunken` / `--r-md` / `--dur` / `--surface` / `--line` / `--ink` / `--ink-muted` / `--accent` / `--r-pill`). The drift contract token count stays at 38.
+
 ## See also
 
-- [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) sections 20.12 (IndicatorJump + IndicatorDoc bullets), 22.2 (U5 row), 23.5 (error/empty fold-into-ChartShell), 22.3 (per-chunk DoD).
-- [docs/architecture/frontend/design-system.md](../docs/architecture/frontend/design-system.md) - the token home U5 components consume from; the per-component-migration table U5d flips.
-- [docs/archive/plans/20260604-u1-tokens-fonts-subplan.md](../docs/archive/plans/20260604-u1-tokens-fonts-subplan.md) - precedent for the 4-sub-row-then-closure shape (U1).
-- [docs/archive/plans/20260605-u2-breadcrumb-drawer-district-subplan.md](../docs/archive/plans/20260605-u2-breadcrumb-drawer-district-subplan.md) - precedent for the 4-sub-row-then-closure shape (U2) + the module-scope helper pattern (`computeCrumbs` is the testable surface).
-- [CLAUDE.md](../CLAUDE.md) sections 6 (correction levels - this sub-plan is the Level-2/3 escalation of parent chunk U5), 13 (UI verification), 14 (test coverage policy).
+- [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) sections 20.12 (IndicatorJump + IndicatorDoc bullets), 22.2 (U5 row), 23.5 (error/empty fold-into-ChartShell), 22.3 (per-chunk DoD).
+- [docs/architecture/frontend/design-system.md](../../architecture/frontend/design-system.md) - the token home U5 components consume from; the per-component-migration table U5d flips.
+- [docs/archive/plans/20260604-u1-tokens-fonts-subplan.md](20260604-u1-tokens-fonts-subplan.md) - precedent for the 4-sub-row-then-closure shape (U1).
+- [docs/archive/plans/20260605-u2-breadcrumb-drawer-district-subplan.md](20260605-u2-breadcrumb-drawer-district-subplan.md) - precedent for the 4-sub-row-then-closure shape (U2) + the module-scope helper pattern (`computeCrumbs` is the testable surface).
+- [CLAUDE.md](../../../CLAUDE.md) sections 6 (correction levels - this sub-plan is the Level-2/3 escalation of parent chunk U5), 13 (UI verification), 14 (test coverage policy).
