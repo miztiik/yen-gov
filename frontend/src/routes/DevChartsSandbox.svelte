@@ -27,6 +27,7 @@
 
   import HorizontalGroupedBar from "../lib/charts/CategoryBar.svelte";
   import OrderedCategoryBar from "../lib/charts/CategoryBar.svelte";
+  import CategoryBarDiverging from "../lib/charts/CategoryBar.svelte";
   import DumbbellRange from "../lib/charts/DumbbellRange.svelte";
   import TimeSeriesLine from "../lib/charts/TimeSeriesLine.svelte";
   import FacetPanelGrid from "../lib/charts/FacetPanelGrid.svelte";
@@ -404,6 +405,39 @@
       chart_title="Electricity access by wealth quintile (synthetic)"
       chart_subtitle="Axis-ordered; no value-sort permitted."
       format_value={fmtPct}
+    />
+  </section>
+
+  <section class="space-y-3" data-sandbox-section="diverging-bar">
+    <h2 class="text-lg font-semibold">CategoryBar mode="diverging"</h2>
+    <p class="text-sm text-slate-600">
+      Single-entity, single-period 100%-stacked composition bar.
+      Synthetic fuel-mix model so reviewers can see segments + legend +
+      caption render through <code>CategoryBar mode="diverging"</code>
+      (F2a.5.1; lifted byte-identical from
+      <code>lib/CompositionBar.svelte</code> body). Production
+      migration of the StateOverview mount + retirement of the legacy
+      <code>CompositionBar.svelte</code> ship in F2a.5.2.
+    </p>
+    <CategoryBarDiverging
+      mode="diverging"
+      view_model={{
+        schema_version: "1.0",
+        label: "Tamil Nadu fuel mix (synthetic)",
+        subtitle: "FY 2024-25 installed capacity",
+        total_value: 41000,
+        total_unit: "MW",
+        dimension: "fuel_type",
+        segments: [
+          { id: "coal", label: "Coal", value: 17000, fill: "#475569", swatch_role: "fuel-type", is_tail: false },
+          { id: "renewable", label: "Renewable", value: 14500, fill: "#16a34a", swatch_role: "fuel-type", is_tail: false },
+          { id: "gas", label: "Gas", value: 5200, fill: "#0284c7", swatch_role: "fuel-type", is_tail: false },
+          { id: "hydro", label: "Hydro", value: 2500, fill: "#7c3aed", swatch_role: "fuel-type", is_tail: false },
+          { id: "nuclear", label: "Nuclear", value: 1800, fill: "#dc2626", swatch_role: "fuel-type", is_tail: true },
+        ],
+        honesty_banners: [],
+        caption_fptp: null,
+      }}
     />
   </section>
 
