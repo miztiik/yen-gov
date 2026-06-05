@@ -58,6 +58,7 @@
   import IndicatorCard from "../lib/IndicatorCard.svelte";
   import ElectionSeatsTrend from "../lib/ElectionSeatsTrend.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
+  import IndicatorJump, { type JumpGroup } from "../lib/IndicatorJump.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
   import { getPartyColor } from "../lib/colors/resolver";
@@ -176,6 +177,23 @@
       t.artifacts.some(a => a.kind === "indicator"),
     ),
   );
+
+  // Jump-strip groups derived from the live indicator topic set (U5c
+  // sub-plan; parent plan section 20.12 "Quick-jump"). One chip per
+  // topic in catalogue order; the IndicatorJump component handles
+  // scroll-spy via IntersectionObserver against the `data-jump-id`
+  // marker each topic <section> ships below. `active_topic_id` is
+  // bind-driven so the chip flips as the citizen scrolls; we never
+  // mirror it to the URL (non-navigation in-memory state per parent
+  // plan section 20.8).
+  const jump_groups = $derived<JumpGroup[]>(
+    indicator_topics.map(t => ({
+      id: t.id,
+      label: t.title,
+      icon: t.icon ?? null,
+    })),
+  );
+  let active_topic_id = $state<string | null>(null);
 
   fetchTopicCatalogue()
     .then(c => (catalogue = c))
@@ -630,9 +648,19 @@
          them. A future refactor (P3+) can collapse the election block
          into a single catalogue dispatch slot of its own; until then
          this single move is what the doctrine actually requires:
-         welfare visible first. -->
+         welfare visible first.
+
+         U5c (parent plan section 20.12): a sticky theme-chip jump
+         strip sits ABOVE the indicator-list block. One chip per topic
+         (icon + title), scroll-spy via IntersectionObserver on each
+         section's `data-jump-id` marker, type-to-filter input above
+         the chips. Mobile-first; never hardcoded - the chip set is
+         derived from `indicator_topics`. -->
+    {#if jump_groups.length > 1}
+      <IndicatorJump groups={jump_groups} bind:current={active_topic_id} />
+    {/if}
     {#each indicator_topics as topic (topic.id)}
-      <section class="space-y-3">
+      <section class="space-y-3" data-jump-id={topic.id}>
         <h2 class="text-sm font-semibold uppercase text-slate-500 flex items-center gap-2">
           <TopicIcon name={topic.icon} cls="w-4 h-4 text-slate-500 shrink-0" />
           <span>{topic.title}</span>
