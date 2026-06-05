@@ -30,11 +30,21 @@
   } from "../lib/catalogue";
   import PartyBar from "../lib/PartyBar.svelte";
   import SeatDonut from "../lib/SeatDonut.svelte";
-  // Phase 3.6 (c) — CompositionBar A/B mount. Per plan resolution R-16
+  // Phase 3.6 (c) - composition-bar A/B mount. Per plan resolution R-16
   // the new primitive ships behind a sticky-cookie A/B bucket; removal
   // is `git revert` of this PR (touches only this file). See
   // frontend/src/lib/charts/composition-bar/experiment-definition.json.
-  import CompositionBar from "../lib/CompositionBar.svelte";
+  //
+  // F2a.5.2 (2026-06-05): the standalone `CompositionBar.svelte`
+  // renderer was retired; the diverging composition body now lives
+  // inside `CategoryBar.svelte` as `mode="diverging"`. The experiment
+  // id, cookie mechanism, targeting list and removal contract are
+  // unchanged - the citizen-visible DOM still carries
+  // `data-segment-id` / `data-share-pct` / `caption_fptp` from the
+  // shared `composition-bar/` adapter; only the wrapper element flips
+  // from `data-component="composition-bar"` to
+  // `data-component="category-bar" data-mode="diverging"`.
+  import CategoryBar from "../lib/charts/CategoryBar.svelte";
   import {
     loadCompositionBarElectionSeats,
     type LoadedCompositionBar,
@@ -329,15 +339,17 @@
     show_zero_seat ? ranked_parties : ranked_parties.filter(p => p.seats_won > 0),
   );
 
-  // ----- Phase 3.6 (c) CompositionBar A/B mount -----
+  // ----- Phase 3.6 (c) composition-bar A/B mount -----
   //
   // Sticky-cookie bucket on `visitor_id`; targeting list restricted to
   // single-party-dominant states per plan resolution R-02 (TN is
-  // explicitly excluded — alliance-led verdict misframes party-only
+  // explicitly excluded - alliance-led verdict misframes party-only
   // composition). When the visitor is in the treatment bucket AND the
-  // state is in the rollout list, we render `<CompositionBar />`
-  // adjacent to `<SeatDonut />` in the house-composition card; control
-  // bucket renders SeatDonut only (current production behaviour).
+  // state is in the rollout list, we render the diverging composition
+  // bar (post-F2a.5.2: `<CategoryBar mode="diverging" />`; pre-F2a.5.2:
+  // the retired `<CompositionBar />` standalone renderer) adjacent to
+  // `<SeatDonut />` in the house-composition card; control bucket
+  // renders SeatDonut only (current production behaviour).
   //
   // Removal contract: this entire block + the markup mount below + the
   // imports above is the whole footprint. `git revert` of this commit
@@ -379,8 +391,10 @@
     composition_bar_result?.status === "ok" ? composition_bar_result.data : null,
   );
 
-  // Phase 1.4 task 4 — footer action slots wired on the CompositionBar
-  // mount. Built lazily as a `$derived` so the spec captures the
+  // Phase 1.4 task 4 - footer action slots wired on the diverging
+  // composition mount (post-F2a.5.2: CategoryBar; pre-F2a.5.2: the
+  // retired CompositionBar standalone renderer). Built lazily as a
+  // `$derived` so the spec captures the
   // current `composition_bar_loaded.model.segments` at click time (not
   // at mount time). View-model gates are the same as the mount itself:
   // both actions are only attached when we have a loaded model.
@@ -773,13 +787,17 @@
             onToggleHidden={toggleHidden}
           />
           {#if composition_bar_in_treatment && composition_bar_loaded}
-            <!-- Phase 3.6 (c) CompositionBar A/B mount — sticky-cookie
+            <!-- Phase 3.6 (c) composition-bar A/B mount - sticky-cookie
                  bucket, removal contract = revert this PR; touches only
                  StateOverview.svelte. Phase 1.4 task 4 footer actions
-                 (`copy_link`, `view_data`) are attached when loaded. -->
+                 (`copy_link`, `view_data`) are attached when loaded.
+                 F2a.5.2: renderer flipped from CompositionBar.svelte to
+                 CategoryBar mode="diverging"; view-model + sources +
+                 actions wiring is unchanged. -->
             <div class="mt-5 pt-5 border-t border-slate-200/60">
-              <CompositionBar
-                model={composition_bar_loaded.model}
+              <CategoryBar
+                mode="diverging"
+                view_model={composition_bar_loaded.model}
                 sources={composition_bar_loaded.sources_v2}
                 actions={composition_bar_actions}
               />
