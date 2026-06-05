@@ -33,8 +33,8 @@ Out of scope (deliberately deferred):
 
 | Sub-row | Blocks on | Gate | PR# | Status |
 | --- | --- | --- | --- | --- |
-| F2a.5.1 Add `mode="diverging"` body to `CategoryBar.svelte` (lift body byte-identical from `frontend/src/lib/CompositionBar.svelte`; consume `CompositionBarModel` from `composition-bar/types`; ChartShell wrap moves INSIDE the diverging body because the model carries `label` + `subtitle` + `honesty_banners` + `caption_fptp` that the existing top-level wrap_in_shell mechanism doesn't surface). Update DevChartsSandbox with a synthetic `CompositionBarModel` demo. NO production-route touch. | - | vitest + sandbox-render-smoke on `/dev/charts-sandbox` | _pending_ | IN-FLIGHT |
-| F2a.5.2 Production migration: flip the `CompositionBar` import in `StateOverview.svelte` to use `CategoryBar mode="diverging"`. Decide CompositionBar.svelte disposition: (a) THIN-WRAPPER preserves the import path + downstream tests but adds an extra render; (b) DELETE forces a one-line StateOverview prop rename. Recommend (b) per the F2a.1+F2a.2 / F2a.3+F2a.4 precedent (one-PR clean delete via git rename detection). §13 smoke MUST set the `composition_bar_in_treatment` experiment cookie BEFORE navigating to `/s/tamil-nadu` so the mount actually renders. | F2a.5.1 | section 13 in-browser smoke with experiment cookie + svelte-check + golden-render (DOM diff vs pre-F2a.5.2 capture) | _pending_ | TODO |
+| F2a.5.1 Add `mode="diverging"` body to `CategoryBar.svelte` (lift body byte-identical from `frontend/src/lib/CompositionBar.svelte`; consume `CompositionBarModel` from `composition-bar/types`; ChartShell wrap moves INSIDE the diverging body because the model carries `label` + `subtitle` + `honesty_banners` + `caption_fptp` that the existing top-level wrap_in_shell mechanism doesn't surface). Update DevChartsSandbox with a synthetic `CompositionBarModel` demo. NO production-route touch. | - | vitest + sandbox-render-smoke on `/dev/charts-sandbox` | #784 | MERGED |
+| F2a.5.2 Production migration: flip the `CompositionBar` import in `StateOverview.svelte` to use `CategoryBar mode="diverging"`. CompositionBar.svelte deleted (option b per recommendation; git rename detection preserves blame). Playwright `composition-bar-mount.spec.ts` selectors updated to `[data-component="category-bar"][data-mode="diverging"]`. §13 smoke uses `?yg_variant=treatment` URL override (auto-sets `yg_variant_chart-composition-bar-election-seats` cookie via bucket.ts readOverride) against `/s/karnataka` (in targeting list S05/S07/S29/S10; TN excluded). Cookie-name + override mechanism verified against `frontend/src/lib/experiments/bucket.ts` lines 222-244 before drafting smoke. | F2a.5.1 | section 13 in-browser smoke with `?yg_variant=treatment` override + svelte-check + vitest (CategoryBar tests still pass) | _pending_ | IN-FLIGHT |
 | F2a.5.3 `composition-bar/` package decision: per the audit, this package is an adapter library worth keeping. Decide and act on one of: (a) KEEP at `lib/charts/composition-bar/` and rename the README to clarify "diverging-bar adapter package, consumed by CategoryBar mode='diverging'"; (b) RENAME the folder to `lib/charts/diverging-bar/` to align with the CategoryBar mode name; (c) split the renderer-orphan (anything that referenced the deleted CompositionBar.svelte) into a separate module. Recommend (a) - minimal churn, blame-history preserves, new README clarifies the contract. | F2a.5.2 | docs-review + svelte-check + vitest (adapter tests still pass) | _pending_ | TODO |
 
 Parallel-safe groups: F2a.5 is SERIAL (each row depends on the previous one's API surface).
@@ -59,18 +59,23 @@ Touched files:
 - `frontend/src/lib/CompositionBar.svelte` (DELETE per recommendation b)
 
 §13 cookie-setup recipe (mandatory in the PR body):
-```js
-await page.goto('http://localhost:5173/s/tamil-nadu');
-await page.evaluate(() => {
-  // Set the GrowthBook-style cookie the experiment-definition.json reads
-  document.cookie = 'composition_bar=on; path=/; max-age=3600';
-});
-await page.reload();
-// Now verify the [data-component='category-bar'][data-mode='diverging']
-// mount exists alongside the SeatDonut/ParliamentArc legacy mounts.
-```
 
-The cookie name + value must match the experiment-definition.json `assignment_cookie` field; verify before composing the smoke.
+**Correction note (F2a.5.2 pre-flight audit, 2026-06-05):** the F2a.5 sub-sub-plan body originally proposed a `composition_bar=on` cookie recipe AND used `/s/tamil-nadu` as the smoke route. BOTH were wrong against the actual experiment machinery in `frontend/src/lib/experiments/bucket.ts`:
+
+1. **Cookie name + value:** there is no `assignment_cookie` field in `experiment-definition.json`. The override mechanism (`bucket.ts:readOverride`) reads `?yg_variant=<variation_id>` from the URL on first hit and persists it to a per-experiment cookie `yg_variant_<experiment_id>` (where `experiment_id = "chart-composition-bar-election-seats"`). Variation ids are `"control"` and `"treatment"`.
+2. **Targeting state:** `experiment-definition.json` `single-party-dominant-states.condition.state_code.$in = ["S05","S07","S29","S10"]`. Tamil Nadu is **S22** and is **explicitly excluded** per plan R-02 (alliance-led verdict; party-only chart misframes it). Hitting `/s/tamil-nadu` with `?yg_variant=treatment` would return `null` from `bucketForWithOverride` and NEVER mount the chart. **Karnataka (`/s/karnataka` = S10)** is the existing smoke state in `frontend/e2e/composition-bar-mount.spec.ts`; reuse it.
+
+Correct §13 recipe:
+```js
+// URL-override path - one navigation, cookie auto-persisted by bucket.ts
+await page.goto('http://localhost:5173/s/karnataka?yg_variant=treatment');
+await page.waitForLoadState('networkidle');
+// Verify the new mount renders:
+//   [data-component='category-bar'][data-mode='diverging']
+// Verify the old mount is GONE:
+//   [data-component='composition-bar']
+// Verify the SeatDonut sibling still renders (regression guard).
+```
 
 Golden-render: capture DOM HTML for the diverging mount BEFORE the migration (current main, with cookie set) and AFTER (this PR's branch). Diff must show ONLY the wrapper element change (composition-bar -> category-bar) + the new `data-mode="diverging"` attribute; segment count, fills, share percentages, legend labels, caption_fptp must match byte-identical.
 
