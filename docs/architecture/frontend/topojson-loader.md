@@ -7,9 +7,9 @@ How `frontend/src/lib/boundaries.ts` resolves boundary partitions to a `FeatureC
 ## See also
 
 - [docs/how-to/convert-geojson-to-topojson.md](../../how-to/convert-geojson-to-topojson.md) - producer side
-- [docs/architecture/decisions/0047-topojson-as-render-encoding.md](../decisions/0047-topojson-as-render-encoding.md)
-- [docs/architecture/decisions/0030-canonical-store-shape.md](../decisions/0030-canonical-store-shape.md)
-- [docs/architecture/decisions/0031-boundary-geometry-strategy.md](../decisions/0031-boundary-geometry-strategy.md)
+- [#adr-0047-topojson-as-render-encoding](#adr-0047-topojson-as-render-encoding) - design rationale (folded receipt below)
+- [docs/architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm](../data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm)
+- [docs/architecture/data/boundaries.md#adr-0031-boundary-geometry-strategy](../data/boundaries.md#adr-0031-boundary-geometry-strategy)
 - [docs/architecture/frontend/data-loading.md](data-loading.md) - Vite middleware + GH Pages publish
 
 ## Public API
@@ -77,7 +77,7 @@ The conformance test is the upstream gap-detector. CI fails on any drift; the lo
 
 ## Design rationale
 
-This section folds in the receipt from the originating `docs/architecture/decisions/` ADR that pinned the encoding choice for this subsystem, per parent plan section 9 (keep-receipts ADR retirement) and [decision-index.md](../../reference/decision-index.md). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
+This section folds in the receipt from the originating ADR that pinned the encoding choice for this subsystem (originating ADR-0047-topojson file deleted in D-DOC3.10 closure 2026-06-05), per parent plan section 9 (keep-receipts ADR retirement) and [decision-index.md](../../reference/decision-index.md). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
 
 ### ADR-0047: topojson-as-render-encoding
 

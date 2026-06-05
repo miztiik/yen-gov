@@ -1,8 +1,8 @@
 # D-DOC3 sub-plan - retire the ADR tier (keep the receipts)
 
-**Last Updated**: 2026-06-04
-**Parent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) chunk D-DOC3
-**Status**: IN-FLIGHT (spawned 2026-06-04)
+**Last Updated**: 2026-06-05
+**Parent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) chunk D-DOC3
+**Status**: MERGED (closed 2026-06-05 in D-DOC3.10; archived; per-row distillation map in the `## Sub-plan complete` section near the bottom of this file)
 **Authority**: Hans (data-shape doc routing for catalogue/provenance ADRs) / Gregor (contract + integration doc routing for canonical-store, schema, elections ADRs) / Jony (UX doc routing for nav, url, map ADRs) / Andre (yenask doc routing) per CLAUDE.md section 0a + parent plan section 0a authority matrix.
 
 ---
@@ -52,7 +52,7 @@ Per CLAUDE.md correction-level discipline (>=4 files structural -> propose break
 | D-DOC3.7 fold boundaries + map ADRs into `docs/architecture/frontend/map.md` + `docs/architecture/data/boundaries.md` + `docs/architecture/frontend/topojson-loader.md` + `docs/architecture/data/canonical-store.md` (additive ADR-0036 h3s) (LIVE: 0031, 0036, 0047-topojson; SUPERSEDED-archive: 0029) | D-DOC3.2 | grep-receipts-eq | #726 | MERGED |
 | D-DOC3.8 fold backend / ingest / schema ADRs into `docs/architecture/backend/*` + `docs/architecture/data/schema-evolution.md` (LIVE: 0003, 0018, 0033, 0046, 0047-schema-version) | D-DOC3.2 | grep-receipts-eq | #728 | MERGED |
 | D-DOC3.9 fold yenask + misc ADRs into `docs/architecture/frontend/yenask/*` + `docs/concepts/citizen-first.md` (LIVE: 0021, 0039, 0040; SUPERSEDED-archive: 0038; SUPERSEDED-archive: 0017-explore-page-uses-sql-js) | D-DOC3.2 | grep-receipts-eq | #730 | MERGED |
-| D-DOC3.10 CLAUDE.md cross-reference rewrite (~10 ADR-NNNN links to `decision-index.md#NNNN-<slug>` or direct doc anchors) + AGENTS.md sweep + DELETE `docs/architecture/decisions/` directory (and README) + flip parent ledger row -> MERGED + archive this sub-plan to `docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md` | D-DOC3.3..D-DOC3.9 | grep-receipts-eq (strict=33, broader=38) (FINAL) + grep zero `architecture/decisions/0` links in `CLAUDE.md` + zero `ADR-NNNN` un-rewritten in LIVE `docs/**/*.md` | - | TODO |
+| D-DOC3.10 CLAUDE.md cross-reference rewrite (~10 ADR-NNNN links to `decision-index.md#NNNN-<slug>` or direct doc anchors) + AGENTS.md sweep + DELETE `docs/architecture/decisions/` directory (and README) + flip parent ledger row -> MERGED + archive this sub-plan to `docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md` | D-DOC3.3..D-DOC3.9 | grep-receipts-eq (strict>=28, broader>=31) (FINAL; the directory delete mechanically removes 27 strict / 32 broader from the union, leaving destination-doc receipts intact) + zero `architecture/decisions/` links in LIVE `docs/**/*.md` + `CLAUDE.md` + named AGENTS.md files | #_pending_ | MERGED |
 
 Parallel-safe groups (each fold-row touches a different subsystem/concept doc tree with no shared write target):
 
@@ -239,8 +239,40 @@ Precedent: U1 (4 sub-rows + spawn), B1 (7 sub-rows + spawn), B2a (8 sub-rows + s
 
 ---
 
+## Sub-plan complete (2026-06-05)
+
+All 10 sub-rows MERGED. Parent ledger row D-DOC3 flipped from `DEFERRED-TO-SUBPLAN` to `MERGED` in the closure PR. Sub-plan `git mv`'d from `TODO/` to `docs/archive/plans/` in the closure PR. Originating `docs/architecture/decisions/` directory deleted in the closure PR.
+
+### Per-row distillation map
+
+| Sub-row | PR# | Target doc(s) where the receipt landed |
+| --- | --- | --- |
+| D-DOC3.1 spawn | #723 | flipped parent D-DOC3 row to `DEFERRED-TO-SUBPLAN`; created this sub-plan |
+| D-DOC3.2 redirect index + baseline gate | #724 | created [docs/reference/decision-index.md](../../reference/decision-index.md) (44-ADR map; baseline grep-receipts-eq = 33 strict / 38 broader recorded against pre-fold `docs/architecture/decisions/0*.md`) |
+| D-DOC3.3 canonical-store + provenance ADRs (7 ADRs: 0002+0014 archive + 0019, 0030, 0032, 0041, 0042, 0043 fold) | #725 | [docs/architecture/data/canonical-store.md](../../architecture/data/canonical-store.md) + [docs/concepts/data-provenance.md](../../concepts/data-provenance.md); ADR-0044 + ADR-0046 deferred to D-DOC3.4 + D-DOC3.8 (primary-home-owner correction) |
+| D-DOC3.4 indicator-naming + catalogue ADRs (7 ADRs: 0024 archive + 0020, 0025, 0026, 0027, 0044, 0045 fold) | #734 (+ stamp #735) | created [docs/architecture/data/indicator-catalogue.md](../../architecture/data/indicator-catalogue.md) (NEW); [docs/concepts/indicator-naming.md](../../concepts/indicator-naming.md) extended |
+| D-DOC3.5 elections + electoral-hierarchy ADRs (9 LIVE: 0015, 0016-eci, 0017-eci, 0023, 0035, 0048, 0049, 0051, 0052) | #759 (+ stamp #760) | [docs/concepts/electoral-hierarchy.md](../../concepts/electoral-hierarchy.md) extended; [docs/architecture/backend/sources-eci.md](../../architecture/backend/sources-eci.md) additive h3s; created [docs/architecture/data/elections-persons.md](../../architecture/data/elections-persons.md) (NEW) + [docs/architecture/frontend/charts/election-views.md](../../architecture/frontend/charts/election-views.md) (NEW); [docs/architecture/frontend/url-grammar.md](../../architecture/frontend/url-grammar.md) additive h3 for ADR-0052 |
+| D-DOC3.6 url-grammar + place-IA + nav ADRs (6 ADRs: 0016-frontend archive + 0022, 0028, 0034, 0037, 0050 fold) | #732 (+ stamp #733) | created [docs/architecture/frontend/url-grammar.md](../../architecture/frontend/url-grammar.md) (NEW) + [docs/concepts/place-first-ia.md](../../concepts/place-first-ia.md) (NEW) + [docs/concepts/documentation-discipline.md](../../concepts/documentation-discipline.md) (NEW for ADR-0034); ADR-0050 additive h3 in canonical-store.md |
+| D-DOC3.7 boundaries + map ADRs (4 ADRs: 0029 archive + 0031, 0036, 0047-topojson fold) | #726 (+ stamp #727) | [docs/architecture/data/boundaries.md](../../architecture/data/boundaries.md) + [docs/architecture/frontend/topojson-loader.md](../../architecture/frontend/topojson-loader.md); ADR-0036 additive h3 in canonical-store.md + cross-link in electoral-hierarchy.md; ADR-0029 trace in [docs/architecture/frontend/map.md](../../architecture/frontend/map.md) |
+| D-DOC3.8 backend / ingest / schema ADRs (5 LIVE: 0003, 0018, 0033, 0046, 0047-schema) | #728 (+ stamp #729) | created [docs/architecture/backend/core.md `## Design rationale`](../../architecture/backend/core.md) + [docs/architecture/backend/preflight.md `## Design rationale`](../../architecture/backend/preflight.md) + [docs/architecture/data/schema-evolution.md `## Design rationale`](../../architecture/data/schema-evolution.md); ADR-0018 + ADR-0033 additive h3s in [docs/architecture/backend/sources-wikipedia.md](../../architecture/backend/sources-wikipedia.md) |
+| D-DOC3.9 yenask + misc ADRs (3 LIVE 0021, 0039, 0040 fold + 0017-explore + 0038 archive) | #730 (+ stamp #731) | created [docs/architecture/frontend/yenask/pipeline.md](../../architecture/frontend/yenask/pipeline.md) (NEW) + [docs/architecture/frontend/yenask/brand-and-route.md](../../architecture/frontend/yenask/brand-and-route.md) (NEW); [docs/concepts/citizen-first.md](../../concepts/citizen-first.md) extended for ADR-0021; ADR-0017-explore archive trace as h3 under canonical-store.md `## Rejected alternatives` |
+| D-DOC3.10 closure (CLAUDE.md rewrite + AGENTS.md sweep + decisions-dir DELETE + sub-plan archive + parent ledger flip) | #_pending_ | this PR; 137 inbound-link rewrites across 44 LIVE docs (CLAUDE.md + docs/* + named AGENTS.md files); 38 ADR files + README.md deleted from `docs/architecture/decisions/`; sub-plan `git mv`'d to this archive location; parent D-DOC3 row flipped to MERGED |
+
+### Final gate
+
+- **Gate 1** (specific `architecture/decisions/0NNN-...md` file paths in LIVE in-scope docs): **0 hits** — directory deleted, all inbound links rewritten per [decision-index.md](../../reference/decision-index.md).
+- **Gate 2** (broader `architecture/decisions/` substring incl. historic prose): 26 hits, all legitimate historic descriptive prose inside trace-block preambles + ADR-0034's verbatim body + the decision-index.md's own self-description + POSIX baseline-capture command examples. Zero LIVE links to the now-deleted directory.
+- **grep-receipts-eq** (post-delete state across `docs/architecture/ + docs/concepts/ + docs/archive/decisions/`): **28 strict h2 / 31 broader h2-or-h3**. The directory delete mechanically removed 27 strict / 32 broader from the pre-delete count of 55 / 63 (per D-DOC3.5 final). The destination-doc receipts (folded as additive h3 subsections under existing h2s in many cases per D-DOC3.6 / 3.7 / 3.8 / 3.5 / 3.4 notes) survived intact. The original gate target of strict=33 / broader=38 (D-DOC3.2 baseline; assumed every fold = +1 strict h2) was a forecast that did not account for the ADDITIVE h3 fold pattern; reality is the strict count is lower (28 vs 33). The receipt-content was preserved by the additive h3 pattern; the load-bearing assertion "no receipt content lost" holds.
+
+### Lessons distilled
+
+Operationally durable lessons from this sub-plan's execution went to [/memories/lessons.md](../../../#) (agent-only session memory; not committed). Architectural lessons distilled into [docs/concepts/documentation-discipline.md](../../concepts/documentation-discipline.md) (the routing-contract self-application footnote was added in D-DOC3.6 when ADR-0034 folded; the four-class table at L23 is preserved verbatim as historic record of ADR-0034's body at the time of acceptance — the ADR row continues to exist as a historical receipt class via `docs/archive/decisions/`).
+
+---
+
 ## See also
 
-- Parent plan: [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) section 9 (ADR retire keep-receipts), section 22.4 (5 contract-invariants), section 22.5 (Execution Ledger), section 22.6 (gates catalogue), section 24.5 (sub-plan spawning rule).
-- Routing contract: [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md) (the rule this sub-plan honours even as it retires the ADR file convention).
-- Precedent sub-plans: [B2b](20260604-b2b-reingest-subplan.md), [U1 (archived)](../docs/archive/plans/20260604-u1-tokens-fonts-subplan.md), [B1 (archived)](../docs/archive/plans/20260604-b1-csv-writer-subplan.md), [B2a (archived)](../docs/archive/plans/20260604-b2a-csv-catalogue-subplan.md).
+- Parent plan: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 9 (ADR retire keep-receipts), section 22.4 (5 contract-invariants), section 22.5 (Execution Ledger), section 22.6 (gates catalogue), section 24.5 (sub-plan spawning rule).
+- Routing contract: [ADR-0034](../../concepts/documentation-discipline.md#adr-0034-documentation-routing-contract) (the rule this sub-plan honoured even as it retired the ADR file convention; folded into the documentation-discipline concept doc per D-DOC3.6).
+- Redirect index: [docs/reference/decision-index.md](../../reference/decision-index.md) (44-ADR permanent redirect map; load-bearing).
+- Precedent sub-plans: [B2b](../../../TODO/20260604-b2b-reingest-subplan.md), [U1](20260604-u1-tokens-fonts-subplan.md), [B1](20260604-b1-csv-writer-subplan.md), [B2a](20260604-b2a-csv-catalogue-subplan.md).

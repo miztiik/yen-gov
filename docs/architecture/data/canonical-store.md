@@ -1178,13 +1178,13 @@ Two legacy folded-indicator shards under `datasets/indicators/in/energy/` — `s
 
 **Ingest cleanup deferred to Phase E.** `backend/yen_gov/sources/iced_state_wise/ingest.py` (lines 196–213) and `backend/yen_gov/sources/iced_power/ingest.py` (lines 164, 313) still write the shards. The validator (`tier_b_meadow_shard_contract`) will correctly fail the next ingest run if shards re-appear on disk — signal that any future FY26+ data must go through the canonical lift block, not back through the shard read path.
 
-Cross-refs: [ADR-0033](../decisions/0033-retire-wikipedia-districts-adapter.md) (the same pattern, applied to a different shard family); [`backend/yen_gov/canonical/adapters/energy/demand_supply.py`](../../../backend/yen_gov/canonical/adapters/energy/demand_supply.py) (the `_FY25_PEAK_DEMAND_ROWS` literal); [`docs/archive/plans/20260524-p1a-data-reacquisition-plan.md` §3 C4.7](../../archive/plans/20260524-p1a-data-reacquisition-plan.md) (the descope narrative).
+Cross-refs: [ADR-0033](../backend/sources-wikipedia.md#adr-0033-retire-wikipedia-districts-adapter) (the same pattern, applied to a different shard family); [`backend/yen_gov/canonical/adapters/energy/demand_supply.py`](../../../backend/yen_gov/canonical/adapters/energy/demand_supply.py) (the `_FY25_PEAK_DEMAND_ROWS` literal); [`docs/archive/plans/20260524-p1a-data-reacquisition-plan.md` §3 C4.7](../../archive/plans/20260524-p1a-data-reacquisition-plan.md) (the descope narrative).
 
 ---
 
 ## Design rationale
 
-This section consolidates the rationale (Context + Decision + key Consequences, condensed) of the ADRs that define the canonical store. Each ADR's full text is preserved in `docs/architecture/decisions/` (LIVE) or `docs/archive/decisions/` (superseded) pending D-DOC3.10 closure; the redirect map lives at [`docs/reference/decision-index.md`](../../reference/decision-index.md). Folded into this doc per [TODO/20260604-d-doc3-adr-retire-subplan.md](../../../TODO/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.3 (2026-06-04).
+This section consolidates the rationale (Context + Decision + key Consequences, condensed) of the ADRs that define the canonical store. Each ADR's full body lives EITHER as the receipts folded below + verbatim under [Rejected alternatives](#rejected-alternatives), OR in `docs/archive/decisions/` (superseded). The originating `docs/architecture/decisions/` files were deleted in D-DOC3.10 closure; the redirect map lives at [`docs/reference/decision-index.md`](../../reference/decision-index.md). Folded into this doc per [docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md](../../archive/plans/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.3 (2026-06-04).
 
 ### ADR-0019: dataset-topology-and-column-discipline
 
@@ -1284,7 +1284,7 @@ Status: accepted 2026-05-23. Authority: User approval of the DuckDB slicing plan
 
 ### ADR-0050: folder-naming-lgd-slug
 
-Status: accepted 2026-06-01. Authority: User (locked 2026-06-01, supersedes per CLAUDE.md section 0a), Gregor (contract), Hans (governance precedent on name-stability), Fowler (migration mechanics). Folded into this doc per [TODO/20260604-d-doc3-adr-retire-subplan.md](../../../TODO/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.6 (2026-06-04).
+Status: accepted 2026-06-01. Authority: User (locked 2026-06-01, supersedes per CLAUDE.md section 0a), Gregor (contract), Hans (governance precedent on name-stability), Fowler (migration mechanics). Folded into this doc per [docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md](../../archive/plans/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.6 (2026-06-04).
 
 **Context.** Every partitioned dataset under `datasets/boundaries/`, `datasets/elections/`, and `datasets/indicators/` historically used partition keys of the shape `state=in_s07`, `state=in_u05`, etc. The two-character code (`s01`-`s29` for states, `u01`-`u09` for UTs) was a yen-gov internal invention that aligned with neither ECI (three-letter `S07`/`U05`, Census2001 ordering) nor LGD (canonical 2-digit numeric `07` = Haryana issued by Ministry of Panchayati Raj). `in_s07` was neither - it bolted an `in_` prefix onto an ECI-style code, then re-used it as a folder label across boundary / election / indicator partitions. Two problems compounded: convention split (internal partition labels diverged from BOTH external authorities; every reader carried an internal translation layer); code instability (LGD numeric codes have historically shifted across census cycles - Census2001 -> Census2011 reshuffles for split states, UT reorganisations like J&K 2019, Sikkim district reorg 2021 - so any partition convention keyed on the numeric code inherits that churn). The LGD-canonical plan (`docs/archive/plans/20260601-lgd-canonical-plan.md`) made the strategic call: LGD is the canonical INTERNAL join key for every geographic entity. ADR-0050 locks the matching FOLDER convention.
 
@@ -1306,7 +1306,7 @@ Status: accepted 2026-06-01. Authority: User (locked 2026-06-01, supersedes per 
 
 ## Rejected alternatives
 
-This section preserves the rejected-alternatives receipts from the ADRs whose rationale is folded above, verbatim and append-only per [TODO/20260604-d-doc3-adr-retire-subplan.md](../../../TODO/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.3 (2026-06-04). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
+This section preserves the rejected-alternatives receipts from the ADRs whose rationale is folded above, verbatim and append-only per [docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md](../../archive/plans/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.3 (2026-06-04). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
 
 ### ADR-0019 rejected alternatives
 

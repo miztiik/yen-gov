@@ -59,7 +59,7 @@ CLI flag sugar (`--proposed-id`, `--family`, etc.) hydrates an in-memory proposa
 
 ## Design rationale
 
-This section consolidates the rationale (Context + Decision + Consequences, condensed) of the legacy `docs/architecture/decisions/` ADR that pinned the cross-cutting choice for this subsystem (the pre-flight gate contract). The originating ADR file stays in place pending [TODO/20260604-d-doc3-adr-retire-subplan.md](../../../TODO/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.10 closure; the redirect map lives at [decision-index.md](../../reference/decision-index.md). Folded into this doc per D-DOC3.8 (2026-06-04).
+This section consolidates the rationale (Context + Decision + Consequences, condensed) of the originating ADR that pinned the cross-cutting choice for this subsystem (the pre-flight gate contract); the originating ADR file under `docs/architecture/decisions/` was deleted in [docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md](../../archive/plans/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.10 closure. The redirect map lives at [decision-index.md](../../reference/decision-index.md). Folded into this doc per D-DOC3.8 (2026-06-04).
 
 ### ADR-0046: pre-flight-ingest-gate-contract
 
@@ -77,7 +77,7 @@ Status: accepted 2026-05-27. Deciders: Gregor (contract), Fowler (refactor), wit
 
 ## Rejected alternatives
 
-This section preserves the rejected-alternatives receipts from the ADR whose rationale is folded above, verbatim and append-only per [TODO/20260604-d-doc3-adr-retire-subplan.md](../../../TODO/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.8 (2026-06-04). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
+This section preserves the rejected-alternatives receipts from the ADR whose rationale is folded above, verbatim and append-only per [docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md](../../archive/plans/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.8 (2026-06-04). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
 
 ### ADR-0046 rejected alternatives
 

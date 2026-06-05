@@ -8,7 +8,7 @@ This page is the keep-receipts home for the project's documentation routing cont
 
 ## Design rationale
 
-This section folds in the receipt from the originating `docs/architecture/decisions/` ADR that pinned the documentation routing contract for this project, per parent plan section 9 (keep-receipts ADR retirement) and [decision-index.md](../reference/decision-index.md). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
+This section folds in the receipt from the originating ADR that pinned the documentation routing contract for this project (the originating ADR-0034 file was deleted in D-DOC3.10 closure 2026-06-05), per parent plan section 9 (keep-receipts ADR retirement) and [decision-index.md](../reference/decision-index.md). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
 
 ### ADR-0034: documentation-routing-contract
 

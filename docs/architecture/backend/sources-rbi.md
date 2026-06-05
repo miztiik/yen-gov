@@ -115,4 +115,4 @@ The flip side of own-tax: how dependent is each state on central devolution + gr
 
 - [docs/concepts/cross-state-comparison.md](../../concepts/cross-state-comparison.md) — why fiscal is family #1
 - [docs/architecture/frontend/indicators.md](../frontend/indicators.md) — the metadata-driven rendering contract
-- [docs/architecture/decisions/0020-indicator-artifact-as-data-contract.md](../decisions/0020-indicator-artifact-as-data-contract.md) — the v1.1 honesty fields
+- [docs/architecture/data/indicator-catalogue.md#adr-0020-indicator-artifact-as-data-contract](../data/indicator-catalogue.md#adr-0020-indicator-artifact-as-data-contract) — the v1.1 honesty fields

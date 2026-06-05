@@ -79,7 +79,7 @@ Two rules:
 
 ## Canonical column names (SQLite emitters)
 
-Per [ADR-0019](../architecture/decisions/0019-dataset-topology-and-column-discipline.md), every SQLite emitter uses these exact column names whenever the underlying concept is present in a row. State and event are encoded in the **file path** (per ADR-0014); they appear as columns only in cross-state aggregates, where the literal is injected at query time.
+Per [ADR-0019](../architecture/data/canonical-store.md#adr-0019-dataset-topology-and-column-discipline), every SQLite emitter uses these exact column names whenever the underlying concept is present in a row. State and event are encoded in the **file path** (per ADR-0014); they appear as columns only in cross-state aggregates, where the literal is injected at query time.
 
 | Column                | Type      | Concept                                            | Source row in §"At a glance" above |
 | --------------------- | --------- | -------------------------------------------------- | ---------------------------------- |
@@ -97,5 +97,5 @@ When the LGD code is not yet known for a district, fall back to `district_id` (`
 - [`docs/architecture/data-model.md`](../architecture/data-model.md) — entities the IDs key into.
 - [`docs/reference/schemas.md`](schemas.md) — schemas that enforce the patterns above.
 - [`docs/reference/lgd-opendata.md`](lgd-opendata.md) — LGD source catalogue (the upstream that issues `district_lgd_code`).
-- [ADR-0019: dataset topology and column discipline](../architecture/decisions/0019-dataset-topology-and-column-discipline.md) — why these column names are locked.
+- [ADR-0019: dataset topology and column discipline](../architecture/data/canonical-store.md#adr-0019-dataset-topology-and-column-discipline) — why these column names are locked.
 - `CLAUDE.md` §3 (identifier convention paragraph).

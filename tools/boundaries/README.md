@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-05-22
 
-Builds the boundary tree at `datasets/boundaries/in/` consumed by the frontend [map](../../docs/architecture/frontend/map.md), plus the parquet ledger at `datasets/boundaries/boundary_layers.parquet` that carries provenance + simplification metadata + dropped-feature counts (T.0d, 2026-05-22 — see [ADR-0031 Amendment](../../docs/architecture/decisions/0031-boundary-geometry-strategy.md)). The pipeline downloads upstream GeoJSON / SHP / 7z-archived GeoJSONL, simplifies via `coord_precision` rounding (and for PMTiles outputs, [mapshaper](https://github.com/mbloch/mapshaper) + [tippecanoe](https://github.com/felt/tippecanoe)), and emits to Hive-partitioned paths.
+Builds the boundary tree at `datasets/boundaries/in/` consumed by the frontend [map](../../docs/architecture/frontend/map.md), plus the parquet ledger at `datasets/boundaries/boundary_layers.parquet` that carries provenance + simplification metadata + dropped-feature counts (T.0d, 2026-05-22 — see [ADR-0031 Amendment](../../docs/architecture/data/boundaries.md#adr-0031-boundary-geometry-strategy)). The pipeline downloads upstream GeoJSON / SHP / 7z-archived GeoJSONL, simplifies via `coord_precision` rounding (and for PMTiles outputs, [mapshaper](https://github.com/mbloch/mapshaper) + [tippecanoe](https://github.com/felt/tippecanoe)), and emits to Hive-partitioned paths.
 
 This tool is **local-only** by design (see [Why local-only](#why-local-only)). Run it from a Linux/macOS shell (or WSL2 on Windows) when boundaries need refreshing — typically once per delimitation cycle — then commit the regenerated `datasets/boundaries/in/` (and the regenerated `boundary_layers.parquet`) through a normal PR.
 
@@ -135,4 +135,4 @@ Native Windows is not supported (tippecanoe has no maintained Windows build). Us
 - [Boundary-data philosophy](../../docs/concepts/boundary-data-philosophy.md) -- the "why" behind every source choice (polygons vs topographic raster, GADM rejection, TopoJSON adoption status, DIGIPIN deferral, HTL kept on purpose)
 - [Boundary-data sources catalogue](../../docs/reference/boundary-data-sources.md) -- live inventory + per-level coverage + license rows
 - CLAUDE.md §3 (datasets is a contract surface), §4 (tools self-contained), §12 (provenance)
-- [ADR-0003: no fetch cache](../../docs/architecture/decisions/0003-no-fetch-cache.md) — why raw downloads land under `.runtime/raw/`, not under `datasets/`
+- [ADR-0003: no fetch cache](../../docs/architecture/backend/core.md#adr-0003-no-fetch-cache) — why raw downloads land under `.runtime/raw/`, not under `datasets/`

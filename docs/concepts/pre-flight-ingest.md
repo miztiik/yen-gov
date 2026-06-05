@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-05-27
 
-> ONE command to run before any new ingest. Replaces six previously-manual checks with one batched gate that emits a typed report. Defined by [ADR-0046](../architecture/decisions/0046-pre-flight-ingest-gate-contract.md).
+> ONE command to run before any new ingest. Replaces six previously-manual checks with one batched gate that emits a typed report. Defined by [ADR-0046](../architecture/backend/preflight.md#adr-0046-pre-flight-ingest-gate-contract).
 
 ## When to run it
 
@@ -72,7 +72,7 @@ Drop the proposal next to the handover-doc as `TODO/<date>-<source>-ingest/propo
 
 ## See also
 
-- [ADR-0046](../architecture/decisions/0046-pre-flight-ingest-gate-contract.md) — the contract
+- [ADR-0046](../architecture/backend/preflight.md#adr-0046-pre-flight-ingest-gate-contract) — the contract
 - [docs/architecture/backend/preflight.md](../architecture/backend/preflight.md) — module layout
 - [docs/agents/ingest-checklist.md](../agents/ingest-checklist.md) — the checklist with literal commands
 - [docs/concepts/ingest-fetch-enrich-separation.md](ingest-fetch-enrich-separation.md) — the layered pipeline this gate fronts

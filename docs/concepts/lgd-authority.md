@@ -36,13 +36,13 @@ ECI is canonical for what it issues - elections. LGD is canonical for what IT is
 
 ## How LGD looks in yen-gov data
 
-- **Folder partitions** (per [ADR-0050](../architecture/decisions/0050-folder-naming-lgd-slug.md)): `state=<lgd-name-slug>`, e.g. `datasets/boundaries/in/ac/state=haryana/all.geojson`.
+- **Folder partitions** (per [ADR-0050](../architecture/data/canonical-store.md#adr-0050-folder-naming-lgd-slug)): `state=<lgd-name-slug>`, e.g. `datasets/boundaries/in/ac/state=haryana/all.geojson`.
 - **Row columns**: every observation row carries an `lgd_state_id` / `lgd_district_id` / `lgd_ac_id` as the join attribute. The display-only `state_code` (ECI form) survives for citizen readability where it matters (URL slugs, election results pages).
 - **Taxonomy authority**: `datasets/taxonomy/lgd_states.json` (37 entries) + `datasets/taxonomy/lgd_districts.json` (~780 entries) + `datasets/taxonomy/lgd_acs.json` (~4123 entries) hold the master register snapshot. Every join in yen-gov resolves through one of these three files.
 
 ## How LGD looks to a citizen
 
-A citizen never sees an LGD id. URLs use ECI ballot numbers + name slugs (per [ADR-0048](../architecture/decisions/0048-elections-drill-ia-and-tile-cartogram.md) and [ADR-0049](../architecture/decisions/0049-canonical-ac-join-key.md)):
+A citizen never sees an LGD id. URLs use ECI ballot numbers + name slugs (per [ADR-0048](../architecture/frontend/charts/election-views.md#adr-0048-elections-drill-ia-and-tile-cartogram) and [ADR-0049](electoral-hierarchy.md#adr-0049-canonical-ac-join-key)):
 
 ```
 /s/haryana/ac/42-rohtak           <-- citizen-facing URL (eci_no + name slug)
@@ -75,8 +75,8 @@ If you (an LLM agent) are about to mint a new identity (a new state / district /
 
 ## See also
 
-- [ADR-0049](../architecture/decisions/0049-canonical-ac-join-key.md) - lgd_ac_id as canonical internal AC join key
-- [ADR-0050](../architecture/decisions/0050-folder-naming-lgd-slug.md) - folder convention `state=<lgd-name-slug>`
+- [ADR-0049](electoral-hierarchy.md#adr-0049-canonical-ac-join-key) - lgd_ac_id as canonical internal AC join key
+- [ADR-0050](../architecture/data/canonical-store.md#adr-0050-folder-naming-lgd-slug) - folder convention `state=<lgd-name-slug>`
 - [docs/archive/plans/20260601-lgd-canonical-plan.md](../../docs/archive/plans/20260601-lgd-canonical-plan.md) - parent strategic plan
 - [docs/archive/plans/20260601-lgd-execution-handover.md](../../docs/archive/plans/20260601-lgd-execution-handover.md) - per-row execution split
 - [docs/concepts/admin-level-sourcing.md](admin-level-sourcing.md) - LGD-golden doctrine context

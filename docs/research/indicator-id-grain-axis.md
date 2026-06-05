@@ -1,12 +1,12 @@
 # Indicator-id grain axis — Path A vs Path B
 
 **Last Updated**: 2026-05-26
-**Status**: RESOLVED-Path-B-rip-and-replace (see [ADR-0044](../architecture/decisions/0044-grain-over-entity.md), 2026-05-26)
+**Status**: RESOLVED-Path-B-rip-and-replace (see [ADR-0044](../concepts/indicator-naming.md#adr-0044-grain-over-entity), 2026-05-26)
 **Subject**: should `indicator_id` encode entity-grain as a prefix (`state-`, `district-`, `ac-`), or should one `indicator_id` carry rows at multiple grains discriminated by the row's `entity_kind`?
 
-> **Resolution (2026-05-26)** — Path B is adopted via [ADR-0044](../architecture/decisions/0044-grain-over-entity.md), rip-and-replace per user mandate. No expand–migrate–contract; one-shot DuckDB CTAS migration per family under `tools/migrate/path_b_<family>.py`. Tier-B `tier_b_indicator_id_no_grain_prefix` rejects new ids with grain prefixes (dark in PR-B1, enforced in PR-B9 of [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md)). This note is preserved as the costed comparison that informed the decision.
+> **Resolution (2026-05-26)** — Path B is adopted via [ADR-0044](../concepts/indicator-naming.md#adr-0044-grain-over-entity), rip-and-replace per user mandate. No expand–migrate–contract; one-shot DuckDB CTAS migration per family under `tools/migrate/path_b_<family>.py`. Tier-B `tier_b_indicator_id_no_grain_prefix` rejects new ids with grain prefixes (dark in PR-B1, enforced in PR-B9 of [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md)). This note is preserved as the costed comparison that informed the decision.
 
-> **Routing note** — this is a research note (input), not a decision (ADR). Per [ADR-0034](../architecture/decisions/0034-documentation-routing-contract.md), data-shape decisions need an ADR with Hans + Max sign-off (per CLAUDE.md §0a authority table). This note captures Jony + Fowler subagent verdicts gathered 2026-05-25 (B.04 of the livestock NDLM 9-PR sprint) so that future Hans + Max can decide from a costed comparison rather than re-discovering the trade-offs.
+> **Routing note** — this is a research note (input), not a decision (ADR). Per [ADR-0034](../concepts/documentation-discipline.md#adr-0034-documentation-routing-contract), data-shape decisions need an ADR with Hans + Max sign-off (per CLAUDE.md §0a authority table). This note captures Jony + Fowler subagent verdicts gathered 2026-05-25 (B.04 of the livestock NDLM 9-PR sprint) so that future Hans + Max can decide from a costed comparison rather than re-discovering the trade-offs.
 
 ## 1. Question
 
@@ -55,7 +55,7 @@ Both id strings begin with an entity-grain prefix (`state-` / `district-`). The 
 Key findings:
 
 - **Citizen visibility evidence**: indicator-id appears on exactly **2 surfaces** — [`DataCompleteness.svelte:172-173`](../../frontend/src/routes/DataCompleteness.svelte) (small, dim, monospace; power-user honesty page) and the `/compare?i=<id>` query-string (no path-slug usage). Everywhere else, the citizen reads `meta.title`, never `meta.id`.
-- **OWID alignment finding**: "yen-gov has already taken one named OWID divergence on geography ([ADR-0028](../architecture/decisions/0028-url-scheme-place-first-flat-indicator-slug.md) — geography goes in URL path, not query) because the audience case is 'my place first.' Stacking a second divergence ('entity ALSO goes in indicator-id') earns its keep only if a citizen-facing reason exists. None does."
+- **OWID alignment finding**: "yen-gov has already taken one named OWID divergence on geography ([ADR-0028](../architecture/frontend/url-grammar.md#adr-0028-url-scheme-place-first-flat-indicator-slug) — geography goes in URL path, not query) because the audience case is 'my place first.' Stacking a second divergence ('entity ALSO goes in indicator-id') earns its keep only if a citizen-facing reason exists. None does."
 - **Refusal**: if Path A continues, the existing sibling-pair name asymmetry (`state-pashu-aadhaar-count-cattle` shipped per-species in B.03, while the plan reserves `state-pashu-aadhaar-animals-tagged-count` per-aadhaar-count) MUST be repaired — asymmetric Path A forfeits its only argument.
 
 ### 3.2 Fowler (Engineering) — 2026-05-25
@@ -110,9 +110,9 @@ Rationale (synthesis of both verdicts):
 - [CLAUDE.md](../../CLAUDE.md) §0a (authority table — data-shape = Hans + Max), §6 (correction levels), §10 (anti-patterns)
 - [docs/concepts/indicator-naming.md](../concepts/indicator-naming.md) §2.2 + §8 anti-pattern #2
 - [docs/concepts/owid-alignment.md](../concepts/owid-alignment.md) (table row 2: indicator id = internal namespace, not citizen surface)
-- [docs/architecture/decisions/0028-url-scheme-place-first-flat-indicator-slug.md](../architecture/decisions/0028-url-scheme-place-first-flat-indicator-slug.md) (existing named OWID divergence on geography)
-- [docs/architecture/decisions/0034-documentation-routing-contract.md](../architecture/decisions/0034-documentation-routing-contract.md) (research note vs ADR routing)
-- [docs/architecture/decisions/0043-auto-rollup-at-canonical-write-time.md](../architecture/decisions/0043-auto-rollup-at-canonical-write-time.md) (write-time multi-grain auto-rollup that triggered this question)
+- [docs/architecture/frontend/url-grammar.md#adr-0028-url-scheme-place-first-flat-indicator-slug](../architecture/frontend/url-grammar.md#adr-0028-url-scheme-place-first-flat-indicator-slug) (existing named OWID divergence on geography)
+- [docs/concepts/documentation-discipline.md#adr-0034-documentation-routing-contract](../concepts/documentation-discipline.md#adr-0034-documentation-routing-contract) (research note vs ADR routing)
+- [docs/architecture/data/canonical-store.md#adr-0043-auto-rollup-at-canonical-write-time](../architecture/data/canonical-store.md#adr-0043-auto-rollup-at-canonical-write-time) (write-time multi-grain auto-rollup that triggered this question)
 - [datasets/schemas/indicator-catalogue.schema.json](../../datasets/schemas/indicator-catalogue.schema.json) v1.1 (`id_aliases[]` + `deprecated_in` migration mechanism)
 - PRs #281, #284, #287 (the three sprint PRs that landed the first state + district sibling pair)
 - Source: Jony + Fowler subagent verdicts gathered 2026-05-25 during B.04 of the livestock NDLM 9-PR sprint

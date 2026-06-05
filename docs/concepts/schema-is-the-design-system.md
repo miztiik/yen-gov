@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-05-27
 
-This is a permanent guardrail for yen-gov. It captures the UI/UX standing position formalised during the [IA reset](../../TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md) (2026-05-11) and made structural by [ADR-0022](../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md).
+This is a permanent guardrail for yen-gov. It captures the UI/UX standing position formalised during the [IA reset](../../TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md) (2026-05-11) and made structural by [ADR-0022](place-first-ia.md#adr-0022-place-first-ia-with-topic-catalogue).
 
 ## Companion doctrine: elections are one indicator family among many
 
@@ -12,9 +12,9 @@ yen-gov is not an elections site that happens to also show fiscal data. It is a 
 
 This affects the schema-is-the-design-system rule directly: the closed renderer set must serve welfare indicators *first* and elections second. Election-only renderers (`PartyBar`, `SeatDonut`, `ParliamentArc`, `TileCartogram` in election mode, etc.) remain a closed set in their own right — fully capable, but not the renderers a cold visitor sees first. If a feature request would make an election-only renderer appear on the home page or as the lead surface anywhere, it is rejected on doctrinal grounds, regardless of how clean the implementation is.
 
-**Equal-seats cartogram carve-out (2026-05-31, [ADR-0048](../architecture/decisions/0048-elections-drill-ia-and-tile-cartogram.md)).** The generic `TileCartogram` primitive is reusable across indicator families in principle, but in v1 it is fenced to election mounts. Equal-sizing welfare or denominator indicators (population, area, budget) — where entities differ wildly in magnitude — distorts the citizen's read and is vetoed by Hans + Max. A future welfare-cartogram would need its own ADR and a fresh equal-sizing-distortion sign-off.
+**Equal-seats cartogram carve-out (2026-05-31, [ADR-0048](../architecture/frontend/charts/election-views.md#adr-0048-elections-drill-ia-and-tile-cartogram)).** The generic `TileCartogram` primitive is reusable across indicator families in principle, but in v1 it is fenced to election mounts. Equal-sizing welfare or denominator indicators (population, area, budget) — where entities differ wildly in magnitude — distorts the citizen's read and is vetoed by Hans + Max. A future welfare-cartogram would need its own ADR and a fresh equal-sizing-distortion sign-off.
 
-See [ADR-0022](../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md) §Doctrine for the full statement.
+See [ADR-0022](place-first-ia.md#adr-0022-place-first-ia-with-topic-catalogue) §Doctrine for the full statement.
 
 ## The rule
 
@@ -26,7 +26,7 @@ If a chart needs custom code, the metadata is incomplete — extend the schema, 
 
 > **A topic page MUST have at most ONE artifact ref per `(canonical_indicator_id, entity_kind)` tuple.**
 
-Added 2026-05-26 per [ADR-0044](../architecture/decisions/0044-grain-over-entity.md) + [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md) §C3. Facets (species, fuel, sector, basis, kind) live INSIDE the card via a facet picker, not as separate cards. The `/t/agriculture` page that shipped 18 stacked species cards is the cautionary tale — one Pashu Aadhaar measure became 11 species × 2 grains = 22 catalogue rows × 18 surface cards. The collapse target (PR-C2) is 1 cattle card with a species picker + (after grain sub-pages from PR-C1) a grain sub-page link.
+Added 2026-05-26 per [ADR-0044](indicator-naming.md#adr-0044-grain-over-entity) + [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md) §C3. Facets (species, fuel, sector, basis, kind) live INSIDE the card via a facet picker, not as separate cards. The `/t/agriculture` page that shipped 18 stacked species cards is the cautionary tale — one Pashu Aadhaar measure became 11 species × 2 grains = 22 catalogue rows × 18 surface cards. The collapse target (PR-C2) is 1 cattle card with a species picker + (after grain sub-pages from PR-C1) a grain sub-page link.
 
 Enforced by [frontend/src/contracts/topic-card-uniqueness.test.ts](../../frontend/src/contracts/topic-card-uniqueness.test.ts) (live as of PR #411): for each topic, no two artifact refs share `(canonical_indicator_id, entity_kind)`. Violations fail CI.
 
@@ -40,7 +40,7 @@ When adding or editing a topic page (`datasets/taxonomy/topics.json`):
 - PR #411 (`/t/agriculture`: 16 -> 7 cards) is the canonical worked example. Look at its diff for the shape of a compliant `topics.json` block.
 - Run `bun run test -- topic-card-uniqueness` locally before push; the contract test prints the offending `(topic, canonical_indicator_id, entity_kind)` triple on failure.
 
-Companion rule: render-shape fields (`chart_type`, `default_mode`, `renderer_rules`, `facet_labels`, `dimension`) do NOT live on the canonical or topic catalogue — they live in the frontend-owned grapher catalogue at `datasets/grapher/` per [ADR-0045](../architecture/decisions/0045-grapher-catalogue-split.md). The schema-is-the-design-system rule is preserved; "schema" now means the (canonical + grapher) pair, not canonical alone.
+Companion rule: render-shape fields (`chart_type`, `default_mode`, `renderer_rules`, `facet_labels`, `dimension`) do NOT live on the canonical or topic catalogue — they live in the frontend-owned grapher catalogue at `datasets/grapher/` per [ADR-0045](../architecture/data/indicator-catalogue.md#adr-0045-grapher-catalogue-split). The schema-is-the-design-system rule is preserved; "schema" now means the (canonical + grapher) pair, not canonical alone.
 
 ## Why
 
@@ -48,7 +48,7 @@ yen-gov's roadmap calls for 30+ indicators across 8+ topics, maintained by one h
 
 The opposite world is well-known: a civic-data site where Health has a facility finder, Fiscal has a stacked bar, Energy has a sankey, Demographics has a population pyramid — and each of those is its own micro-product with its own bugs, its own tests, its own designer-time. Five topics in, you have five products and zero compounding.
 
-The contract that prevents this is the indicator schema ([ADR-0020](../architecture/decisions/0020-indicator-artifact-as-data-contract.md)) and the topic catalogue ([ADR-0022](../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md)). Together they declare *what* the data means; the closed renderer set decides *how* it looks. Citizens get consistency; the maintainer gets velocity; honesty caveats (`comparability`, `attribution_geography`, `methodology_vintage`, list-badge, peer-set filter, Union-list banner) propagate structurally instead of being remembered per page.
+The contract that prevents this is the indicator schema ([ADR-0020](../architecture/data/indicator-catalogue.md#adr-0020-indicator-artifact-as-data-contract)) and the topic catalogue ([ADR-0022](place-first-ia.md#adr-0022-place-first-ia-with-topic-catalogue)). Together they declare *what* the data means; the closed renderer set decides *how* it looks. Citizens get consistency; the maintainer gets velocity; honesty caveats (`comparability`, `attribution_geography`, `methodology_vintage`, list-badge, peer-set filter, Union-list banner) propagate structurally instead of being remembered per page.
 
 ## The closed renderer set
 
@@ -121,7 +121,7 @@ This rule is part of the design-system contract. A renderer that special-cases o
 
 ## See also
 
-- [ADR-0020](../architecture/decisions/0020-indicator-artifact-as-data-contract.md) — the indicator artifact as the generic data contract.
-- [ADR-0022](../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md) — the IA spine + topic-catalogue contract that anchors this guardrail.
+- [ADR-0020](../architecture/data/indicator-catalogue.md#adr-0020-indicator-artifact-as-data-contract) — the indicator artifact as the generic data contract.
+- [ADR-0022](place-first-ia.md#adr-0022-place-first-ia-with-topic-catalogue) — the IA spine + topic-catalogue contract that anchors this guardrail.
 - [docs/architecture/frontend/indicators.md](../architecture/frontend/indicators.md) — current state of the renderer set.
 - [docs/concepts/cross-state-comparison.md](cross-state-comparison.md) — comparison primitives (ranked table first, no composite indices).

@@ -84,7 +84,7 @@ union_*  (when added)
 
 ## See also
 
-- [ADR-0025 — Rename `national_*` fiscal indicators to fiscal-actor prefixes](../architecture/decisions/0025-rename-national-to-fiscal-actor-prefixes.md) — the decision and its rejected alternatives.
+- [ADR-0025 — Rename `national_*` fiscal indicators to fiscal-actor prefixes](indicator-naming.md#adr-0025-rename-national-to-fiscal-actor-prefixes) — the decision and its rejected alternatives.
 - [docs/architecture/backend/sources-rbi-appendix-national.md](../architecture/backend/sources-rbi-appendix-national.md) — `centre_transfers_to_states_*` adapter.
 - [docs/architecture/backend/sources-rbi-appendix-deficits.md](../architecture/backend/sources-rbi-appendix-deficits.md) — `states_combined_*_deficit` adapter.
 - [TODO/SOCIO-ECONOMIC-EXPANSION.md](../../TODO/SOCIO-ECONOMIC-EXPANSION.md) §Open gap — when `union_*_deficit` ships and what to caveat in the meantime.

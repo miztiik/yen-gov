@@ -43,7 +43,7 @@ The Citizen step is intentionally repeated. The opening Citizen pass is the *bri
 
 ## Design rationale
 
-This section folds in the receipt from the originating `docs/architecture/decisions/` ADR that pinned the no-implementation-disclosure rule for this concept, per parent plan section 9 (keep-receipts ADR retirement) and [`../reference/decision-index.md`](../reference/decision-index.md). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
+This section folds in the receipt from the originating ADR that pinned the no-implementation-disclosure rule for this concept (`docs/citizen-first.md#adr-0021-no-implementation-disclosure-on-public-pages` deleted in D-DOC3.10 closure), per parent plan section 9 (keep-receipts ADR retirement) and [`../reference/decision-index.md`](../reference/decision-index.md). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
 
 ### ADR-0021: no-implementation-disclosure-on-public-pages
 

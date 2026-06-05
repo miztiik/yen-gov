@@ -218,7 +218,7 @@ Docs-only PRs are a code smell — they signal a previous PR shipped without its
 
 ### 7.6 Doc-Class Routing Contract
 
-Within the Diataxis tiers, **architectural** documentation splits further into four typed classes. Each class has one audience, one mutability rule, one allowed content type, and one forbidden content type. The routing rule is enforced at PR review time, not by tooling. Full rationale and rejected alternatives: [ADR-0034 — Documentation routing contract](../architecture/decisions/0034-documentation-routing-contract.md).
+Within the Diataxis tiers, **architectural** documentation splits further into four typed classes. Each class has one audience, one mutability rule, one allowed content type, and one forbidden content type. The routing rule is enforced at PR review time, not by tooling. Full rationale and rejected alternatives: [ADR-0034 — Documentation routing contract](../concepts/documentation-discipline.md#adr-0034-documentation-routing-contract).
 
 | Class | Path pattern | Audience | Mutability | Contains | Forbidden |
 | --- | --- | --- | --- | --- | --- |

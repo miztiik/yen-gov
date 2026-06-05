@@ -18,7 +18,7 @@ For the per-row column list, FK contracts, and coverage rollup mechanics, read [
 
 ## Design rationale
 
-This section consolidates the rationale (Context + Decision + key Consequences, condensed) of the ADRs that define the indicator catalogue. Each ADR's full text is preserved in `docs/architecture/decisions/` (LIVE) or `docs/archive/decisions/` (superseded) pending D-DOC3.10 closure; the redirect map lives at [`docs/reference/decision-index.md`](../../reference/decision-index.md). Folded into this doc per [TODO/20260604-d-doc3-adr-retire-subplan.md](../../../TODO/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.4 (2026-06-04).
+This section consolidates the rationale (Context + Decision + key Consequences, condensed) of the ADRs that define the indicator catalogue. Each ADR's full body lives EITHER as the receipts folded below + verbatim under [Rejected alternatives](#rejected-alternatives), OR in `docs/archive/decisions/` (superseded). The originating `docs/architecture/decisions/` files were deleted in D-DOC3.10 closure; the redirect map lives at [`docs/reference/decision-index.md`](../../reference/decision-index.md). Folded into this doc per [docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md](../../archive/plans/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.4 (2026-06-04).
 
 ### ADR-0020: indicator-artifact-as-data-contract
 
@@ -90,7 +90,7 @@ Permanent guardrails (shipped in PR-Z1): Guardrail #2 - `indicator-catalogue.sch
 
 ## Rejected alternatives
 
-This section preserves the rejected-alternatives receipts from the ADRs whose rationale is folded above, verbatim and append-only per [TODO/20260604-d-doc3-adr-retire-subplan.md](../../../TODO/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.4 (2026-06-04). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
+This section preserves the rejected-alternatives receipts from the ADRs whose rationale is folded above, verbatim and append-only per [docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md](../../archive/plans/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.4 (2026-06-04). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
 
 ### ADR-0020 rejected alternatives
 
@@ -128,5 +128,5 @@ What superseded ADR-0024 itself (the WHY of the archive move): PR 7b (2026-05-25
 - [docs/concepts/data-provenance.md](../../concepts/data-provenance.md) - `source_id` FK contract for every observation row including catalogue-listed indicators.
 - [docs/reference/decision-index.md](../../reference/decision-index.md) - the redirect index that pins every historical `ADR-NNNN` link to its new home.
 - [datasets/schemas/indicator-catalogue.schema.json](../../../datasets/schemas/indicator-catalogue.schema.json) - the catalogue schema itself.
-- [datasets/schemas/topic-catalogue.schema.json](../../../datasets/schemas/topic-catalogue.schema.json) - the topic catalogue schema (paired with this catalogue per [ADR-0022](../../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md) - to be folded in D-DOC3.6).
+- [datasets/schemas/topic-catalogue.schema.json](../../../datasets/schemas/topic-catalogue.schema.json) - the topic catalogue schema (paired with this catalogue per [ADR-0022](../../concepts/place-first-ia.md#adr-0022-place-first-ia-with-topic-catalogue) - to be folded in D-DOC3.6).
 - [datasets/schemas/grapher-indicator-render.schema.json](../../../datasets/schemas/grapher-indicator-render.schema.json) + [datasets/schemas/grapher-topic-render.schema.json](../../../datasets/schemas/grapher-topic-render.schema.json) - the grapher catalogue schemas per ADR-0045.

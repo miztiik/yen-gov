@@ -8,7 +8,7 @@ This page is the keep-receipts home for the yenask lab's brand-and-route ADR per
 
 ## Design rationale
 
-This section folds in the receipt from the originating `docs/architecture/decisions/` ADR that pinned the brand-and-route standard for this subsystem, per parent plan section 9 (keep-receipts ADR retirement) and [decision-index.md](../../../reference/decision-index.md). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
+This section folds in the receipt from the originating ADR that pinned the brand-and-route standard for this subsystem (`docs/brand-and-route.md#adr-0040-yenask-brand-and-lab-route` deleted in D-DOC3.10 closure), per parent plan section 9 (keep-receipts ADR retirement) and [decision-index.md](../../../reference/decision-index.md). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
 
 ### ADR-0040: yenask-brand-and-lab-route
 

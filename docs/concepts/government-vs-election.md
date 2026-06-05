@@ -28,7 +28,7 @@ The naive model says: an election produces a government, so government is downst
 
 1. **President's Rule.** J&K had no elected government from 2018 to 2024. There was no "current election" — just six years of central administration under Article 356, which is itself the government during that window. A site that displays "the current election" for J&K either lies or shows a 2014 result that is causally disconnected from who actually governed in 2020.
 2. **Mid-term churn.** The government that polls produced is not always the government that holds office at any given mid-cycle moment. Maharashtra 2019: the post-poll alliance collapsed, BJP-led briefly, then MVA, then Eknath Shinde's split. Every one of those is a distinct row in `office_holdings.json`; the election was one event, the governments were several.
-3. **State asymmetry.** Some states haven't polled in five years; others polled last month. A spine that asks "which election" before showing "which state" assumes a national synchrony that doesn't exist (see [ADR-0023](../architecture/decisions/0023-election-event-identity-per-place.md)).
+3. **State asymmetry.** Some states haven't polled in five years; others polled last month. A spine that asks "which election" before showing "which state" assumes a national synchrony that doesn't exist (see [ADR-0023](electoral-hierarchy.md#adr-0023-election-event-identity-per-place)).
 
 The correct model: *government is the resource a citizen is asking about*; *election is one kind of provenance for it*. They are sibling concepts joined at the term boundary, not parent and child.
 
@@ -64,8 +64,8 @@ When you add a new state's data:
 
 ## See also
 
-- [ADR-0022](../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md) — place-first IA spine; elections-are-one-of-many doctrine.
-- [ADR-0023](../architecture/decisions/0023-election-event-identity-per-place.md) — the structural decision this doc supports.
+- [ADR-0022](place-first-ia.md#adr-0022-place-first-ia-with-topic-catalogue) — place-first IA spine; elections-are-one-of-many doctrine.
+- [ADR-0023](electoral-hierarchy.md#adr-0023-election-event-identity-per-place) — the structural decision this doc supports.
 - `datasets/schemas/election-events.schema.json` v1.0 — per-state election inventory contract.
 - [canonical-store.md](../architecture/data/canonical-store.md) — canonical Parquet table shape.
 - [governments.md](../architecture/data/governments.md) — governments family authoring and compile contract.

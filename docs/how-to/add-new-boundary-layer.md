@@ -12,7 +12,7 @@ question that recurs whenever a 2nd source enters an established level.
 For the upstream-pick decision tree (LGD vs BharatMaps vs Bhuvan vs
 LivingAtlas), see [`docs/concepts/admin-level-sourcing.md`](../concepts/admin-level-sourcing.md).
 For the architectural decision (one-source-per-level + per-state hive
-partition), see [ADR-0031](../architecture/decisions/0031-boundary-geometry-strategy.md).
+partition), see [ADR-0031](../architecture/data/boundaries.md#adr-0031-boundary-geometry-strategy).
 
 ## When to fork a NEW orchestrator vs augment the existing one
 
@@ -188,6 +188,6 @@ note.
 
 - [`docs/concepts/admin-level-sourcing.md`](../concepts/admin-level-sourcing.md) -- upstream-pick rules + 3-convention rule
 - [`docs/concepts/boundary-data-philosophy.md`](../concepts/boundary-data-philosophy.md) -- WHY polygons over rasters, LGD-golden doctrine
-- [ADR-0031](../architecture/decisions/0031-boundary-geometry-strategy.md) -- architectural decision (one-source-per-level)
+- [ADR-0031](../architecture/data/boundaries.md#adr-0031-boundary-geometry-strategy) -- architectural decision (one-source-per-level)
 - [`tools/boundaries/README.md`](../../tools/boundaries/README.md) -- pipeline ops + per-orchestrator usage
 - [`docs/how-to/digitize-ac-from-pdf.md`](digitize-ac-from-pdf.md) -- T3 PDF fallback workflow for delim-AC layers

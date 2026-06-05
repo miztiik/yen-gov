@@ -8,7 +8,7 @@ in [docs/reference/boundary-data-sources.md](../reference/boundary-data-sources.
 the operational pipeline lives in
 [tools/boundaries/README.md](../../tools/boundaries/README.md); the
 architectural decisions are recorded in
-[ADR-0031](../architecture/decisions/0031-boundary-geometry-strategy.md).
+[ADR-0031](../architecture/data/boundaries.md#adr-0031-boundary-geometry-strategy).
 This doc explains the recurring reasoning -- the questions an agent
 keeps asking ("can we use GADM?", "what about the topo maps?", "is
 DIGIPIN on the roadmap?", "why are 20 states still on HTL?") -- once,
@@ -219,7 +219,7 @@ status is "kept on HTL on purpose", not "pending TODO".
   breaks).
 - [docs/architecture/frontend/map.md](../architecture/frontend/map.md)
   -- how the frontend consumes the boundary layers via MapLibre.
-- [docs/architecture/decisions/0031-boundary-geometry-strategy.md](../architecture/decisions/0031-boundary-geometry-strategy.md)
+- [docs/architecture/data/boundaries.md#adr-0031-boundary-geometry-strategy](../architecture/data/boundaries.md#adr-0031-boundary-geometry-strategy)
   -- the ADR establishing boundary geometry as a sibling family
   (GeoJSON + PMTiles) outside the canonical Parquet store, plus the
   T.0d amendment introducing `boundary_layers.parquet`.

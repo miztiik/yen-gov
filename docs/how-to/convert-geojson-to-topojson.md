@@ -4,14 +4,14 @@
 
 Runbook for [tools/topojson/convert_layer.py](../../tools/topojson/convert_layer.py), the deterministic Mapshaper wrapper that ships every `.topojson` sibling under `datasets/boundaries/in/`.
 
-Distilled from [docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md](../../docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md) rows P2.1 + P4.x. See [ADR-0047](../architecture/decisions/0047-topojson-as-render-encoding.md) for why this encoding exists.
+Distilled from [docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md](../../docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md) rows P2.1 + P4.x. See [ADR-0047](../architecture/frontend/topojson-loader.md#adr-0047-topojson-as-render-encoding) for why this encoding exists.
 
 ## See also
 
 - [docs/architecture/frontend/topojson-loader.md](../architecture/frontend/topojson-loader.md) - what consumes the output
 - [tools/topojson/README.md](../../tools/topojson/README.md) - install + version pin reference
-- [docs/architecture/decisions/0047-topojson-as-render-encoding.md](../architecture/decisions/0047-topojson-as-render-encoding.md)
-- [docs/architecture/decisions/0031-boundary-geometry-strategy.md](../architecture/decisions/0031-boundary-geometry-strategy.md)
+- [docs/architecture/frontend/topojson-loader.md#adr-0047-topojson-as-render-encoding](../architecture/frontend/topojson-loader.md#adr-0047-topojson-as-render-encoding)
+- [docs/architecture/data/boundaries.md#adr-0031-boundary-geometry-strategy](../architecture/data/boundaries.md#adr-0031-boundary-geometry-strategy)
 
 ## Prerequisites
 

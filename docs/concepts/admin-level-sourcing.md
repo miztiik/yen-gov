@@ -10,7 +10,7 @@ BharatMaps vs Bhuvan choice from first principles. For the WHY of
 polygon choropleths over topo rasters and the LGD-golden discipline
 itself, see [`boundary-data-philosophy.md`](boundary-data-philosophy.md).
 For the architectural decision (one-source-per-level + parallel
-orchestrators), see [ADR-0031](../architecture/decisions/0031-boundary-geometry-strategy.md).
+orchestrators), see [ADR-0031](../architecture/data/boundaries.md#adr-0031-boundary-geometry-strategy).
 
 ## The lineage chain (one diagram fits all levels)
 
@@ -215,7 +215,7 @@ citizen indicator changes the calculus.
 ## See also
 
 - [`boundary-data-philosophy.md`](boundary-data-philosophy.md) -- the WHY
-- [ADR-0031 boundary geometry strategy](../architecture/decisions/0031-boundary-geometry-strategy.md) -- the architectural decision
+- [ADR-0031 boundary geometry strategy](../architecture/data/boundaries.md#adr-0031-boundary-geometry-strategy) -- the architectural decision
 - [`docs/how-to/add-new-boundary-layer.md`](../how-to/add-new-boundary-layer.md) -- the orchestrator authoring pattern
 - [`docs/reference/boundary-data-sources.md`](../reference/boundary-data-sources.md) -- the per-level coverage + licence table
 - [`tools/boundaries/README.md`](../../tools/boundaries/README.md) -- pipeline operations

@@ -77,5 +77,5 @@ defaults to `config/topojson.json` at the repo root.
   quantization + simplification overrides.
 - [datasets/schemas/topojson-config.schema.json](../../datasets/schemas/topojson-config.schema.json) -
   schema for the config file (per CLAUDE.md section 11).
-- [docs/architecture/decisions/0047-topojson-as-render-encoding.md](../../docs/architecture/decisions/0047-topojson-as-render-encoding.md) -
-  ADR for the encoding decision.
+- [docs/architecture/frontend/topojson-loader.md#adr-0047-topojson-as-render-encoding](../../docs/architecture/frontend/topojson-loader.md#adr-0047-topojson-as-render-encoding) -
+  ADR for the encoding decision (folded into the topojson-loader subsystem doc per D-DOC3.7; the originating ADR file was deleted in D-DOC3.10).

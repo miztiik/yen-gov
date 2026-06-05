@@ -8,7 +8,7 @@ ASCII only: use plain keyboard characters; write "-", "->", ">=", "section", and
 ## What lives here
 
 YENASK is a dev-only browser lab mounted at `/lab/yenask` (route moved
-from `/dev/yenask` per [ADR-0040](../../../../docs/architecture/decisions/0040-yenask-brand-and-lab-route.md)).
+from `/dev/yenask` per [ADR-0040](../../../../docs/architecture/frontend/yenask/brand-and-route.md#adr-0040-yenask-brand-and-lab-route)).
 It turns a citizen governance question into a validated `InsightIntent`,
 then runs DuckDB-WASM against the canonical store to produce an
 `AnswerViewModel`. (Canonical store is MIGRATING from Parquet to
