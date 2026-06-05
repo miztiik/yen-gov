@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-tamil-nadu-3928,tamil-nadu,2013,YERCAUD,210158,209974,99.91,SAROJA P,,142771,67.99,MARAN V.,,64655,78116,37.2,src-1b7bc1c9d39a
