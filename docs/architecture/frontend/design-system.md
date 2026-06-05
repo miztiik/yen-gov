@@ -1,8 +1,8 @@
 # Design system - tokens, fonts, Devanagari shaping, ADDITIVE rule
 
-**Last Updated**: 2026-06-04
+**Last Updated**: 2026-06-05
 
-The yen-gov design system distilled out of U1 (PRs #714, #716, #718, plan section 21.7 + 23.5). It is one CSS-token layer + a Tailwind mirror + three self-hosted variable-font subsets + a body cutover + a Devanagari shaping gate, governed by ONE rule (additive-not-override) so component migration can happen progressively without ever leaving the app half-broken.
+The yen-gov design system distilled out of U1 (PRs #714, #716, #718, plan section 21.7 + 23.5) and extended by U2 (PRs #739, #742, #745, plan section 21.8). It is one CSS-token layer + a Tailwind mirror + three self-hosted variable-font subsets + a body cutover + a Devanagari shaping gate + a place-first breadcrumb spine, governed by ONE rule (additive-not-override) so component migration can happen progressively without ever leaving the app half-broken.
 
 The colour system documented in [colours.md](colours.md) is layered ON TOP of these tokens (party-colour anchors + indicator ramps come from OkLCh and resolve via the `--accent` / `--pos` / `--caution` / `--neg` semantic colour tokens here). Read this file first for the chrome surface; read colours.md next for the data surface.
 
@@ -31,10 +31,14 @@ The five token families, each declared once in `app-tokens.css` on `:root` and m
 | | `--line` | `border-line` | 1px hairline |
 | | `--surface` | `bg-surface` | card surface |
 | | `--surface-sunken` | `bg-surface-sunken` | gutter / page background |
+| | `--app-bar-bg` | `bg-app-bar-bg` | mobile glass app bar surface (white at 80% alpha; alpha BAKED IN, never compounded with Tailwind's `/<opacity>`) |
 | | `--accent` | `text-accent` / `bg-accent` | chakra indigo brand accent (NOT saffron / green) |
 | Colour - data direction | `--pos` | `text-pos` / `bg-pos` | "good" status |
 | | `--caution` | `text-caution` / `bg-caution` | "caution" status |
 | | `--neg` | `text-neg` / `bg-neg` | "bad" status |
+| Colour - brand | `--brand-saffron` | `text-brand-saffron` / `bg-brand-saffron` | LeftRail wordmark (flag-derived saffron, WCAG-AA cousin of #FF9933) |
+| | `--brand-green` | `text-brand-green` / `bg-brand-green` | LeftRail wordmark (flag-derived green, WCAG-AA cousin of #138808) |
+| | `--brand-chakra` | `text-brand-chakra` / `bg-brand-chakra` | LeftRail wordmark (chakra navy) |
 | Type - family | `--font-sans` | `font-yen-sans` | Inter then Noto Sans Devanagari then system fallbacks |
 | | `--font-display` | `font-yen-display` | Outfit -> `--font-sans` |
 | | `--font-deva` | `font-yen-deva` | "Noto Sans Devanagari" -> `--font-sans` |
@@ -116,7 +120,7 @@ The same recipe applies to any future Indic-script subset (Tamil, Telugu, Bengal
 
 [frontend/src/contracts/app-tokens.test.ts](../../../frontend/src/contracts/app-tokens.test.ts) runs in vitest and asserts three invariants:
 
-1. The core token set is declared in `app-tokens.css` (colour 9 + type-family 4 + type-scale 8 + tabular-feature 1 + radius 4 + elevation 3 + motion 5 = 34 names).
+1. The core token set is declared in `app-tokens.css` (colour 13 [9 chrome + glass + 3 brand] + type-family 4 + type-scale 8 + tabular-feature 1 + radius 4 + elevation 3 + motion 5 = 38 names).
 2. Every `var(--...)` reference in `tailwind.config.js theme.extend` resolves to a `--var` that exists in `app-tokens.css` (no dangling references).
 3. Every non-exempt `--var` declared in `app-tokens.css` has at least one Tailwind mirror referencing it.
 
@@ -132,17 +136,24 @@ Per `/memories/lessons.md` the test uses RELATIVE imports (`node:fs` / `node:pat
 
 | Chunk | What migrates | Status |
 | --- | --- | --- |
-| U2 | LeftRail brand hex, breadcrumb chrome, drawer surfaces, glass app bar | TODO |
+| U2 | LeftRail brand hex, breadcrumb chrome, drawer surfaces, glass app bar, district URL node | MERGED #739 + #742 + #745 |
 | U3 | icon set under `frontend/public/icons/` + LICENCES.md | MERGED #736 |
 | U4 | chart switcher chrome, axis colours | TODO |
 | U5 | skeleton / loading states | TODO |
 
 Each chunk replaces per-component literal hex / px / ms values with the matching `var(--token)` (or the matching Tailwind utility that resolves through one). The drift contract test does NOT block migrations - it blocks SILENT drift at the token layer.
 
+### U2 - GeoBreadcrumb + glass app bar + district URL node (PRs #739 / #742 / #745)
+
+U2 lifted the place-first primary-nav surface onto the token layer in three chunks. **U2a (#739)** added the `url.district(stateCode, districtSlug)` builder in [frontend/src/lib/url.ts](../../../frontend/src/lib/url.ts), registered `/s/:state/d/:district` (and reserved `/sd/:subdistrict` -> `NotFound`) in [frontend/src/main.ts](../../../frontend/src/main.ts), and shipped a minimal [frontend/src/routes/District.svelte](../../../frontend/src/routes/District.svelte) landing so the breadcrumb has somewhere to ascend TO; the slug is opaque to the builder (caller supplies the already-slugified district name) and the URL grammar contract from ADR-0048 / ADR-0050 holds (kebab-case slug, never uppercase ECI, never Hive partition form). **U2b (#742)** shipped [frontend/src/lib/GeoBreadcrumb.svelte](../../../frontend/src/lib/GeoBreadcrumb.svelte): a sticky glass primary-nav spine (`bg-white/80 backdrop-blur border-b border-line`, `sticky top-12 lg:top-0 z-20`) that derives `India > <state> > <district-or-ac>` from the route's `path` + `params` via the pure `computeCrumbs()` helper (no DOM, no fetch, trivially testable). Each ascend crumb is an `<a href={url.X()}>`; the leaf is a `<span aria-current="page">`. Mounted at the top of all 5 place-first routes (Home / StateOverview / StateTopic / Constituency / District). The trailing `v` sibling-jump popover (mentioned in the sub-plan scope) was deferred per the stop-and-surface trigger - the popover needs a data fetch the route does not already do, and shipping a half-coverage menu hurts citizen trust more than waiting (Citizen verdict). **U2c (#745)** re-clustered the LeftRail per parent section 21.8's same-side fix (mobile: brand + `[=]` LEFT, search top-right; drawer slides from the LEFT with `var(--ease-spring)` + `var(--dur)`), gave the mobile app bar a glass surface (`bg-app-bar-bg backdrop-blur border-b border-line` - the `--app-bar-bg` token bakes in 80% alpha so the ballot motif reads faintly through), lifted the three flag-derived hex literals (`#d97706` / `#15803d` / `#000080`) out of LeftRail inline styles onto `--brand-saffron` / `--brand-green` / `--brand-chakra` tokens, flipped the wordmark `font-family` onto `var(--font-display)` (Outfit from U1.2), and added a `build <sha>` footer line via `import.meta.env.VITE_BUILD_SHA` (injected at build time by [frontend/vite.config.ts](../../../frontend/vite.config.ts) from `git rev-parse --short HEAD`, falls back to `dev`). The ballot-motif data-URL stroke in [frontend/src/app.css](../../../frontend/src/app.css) stayed a literal hex (CSS variables do not resolve inside `url(data:...)`) but now carries an explicit `--surface-sunken` semantic comment so a future surface-ramp re-tune updates both in lockstep. U2 closure is in PR #747; the sub-plan lives at [docs/archive/plans/20260605-u2-breadcrumb-drawer-district-subplan.md](../../archive/plans/20260605-u2-breadcrumb-drawer-district-subplan.md).
+
+Every U2 sub-row honoured the ADDITIVE rule: no Tailwind default was redefined, no existing component was migrated outside LeftRail, no existing URL changed. The four new tokens (`--brand-saffron` / `--brand-green` / `--brand-chakra` / `--app-bar-bg`) are reachable by name from any later component without having to grep LeftRail. The drift contract caught the token-count bump in CI before merge (9 -> 13 colour, 34 -> 38 total).
+
 ## See also
 
 - [colours.md](colours.md) - OkLCh party-colour resolver + indicator sequential ramps; layers on top of the colour tokens here.
 - [overview.md](overview.md) - personas, IA, visualization catalog, stack.
-- [docs/archive/plans/20260604-u1-tokens-fonts-subplan.md](../../archive/plans/20260604-u1-tokens-fonts-subplan.md) - the sub-plan that shipped this surface (PRs #714, #716, #718).
-- [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) sections 21.7 and 23.5 - the design-spec source.
+- [docs/archive/plans/20260604-u1-tokens-fonts-subplan.md](../../archive/plans/20260604-u1-tokens-fonts-subplan.md) - the U1 sub-plan that shipped the token layer + fonts (PRs #714, #716, #718, #720).
+- [docs/archive/plans/20260605-u2-breadcrumb-drawer-district-subplan.md](../../archive/plans/20260605-u2-breadcrumb-drawer-district-subplan.md) - the U2 sub-plan that shipped the per-component migration onto the tokens (PRs #739, #742, #745).
+- [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) sections 21.7, 21.8, 23.5 - the design-spec source.
 - [CLAUDE.md](../../../CLAUDE.md) section 13 (UI verification) + Holy Law #1 (static-first) + Holy Law #9 (provenance, applied to the font licence ledger).
