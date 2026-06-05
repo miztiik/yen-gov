@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-nagaland-1446,nagaland,2019,AONGLENDEN,12482,10997,88.1,SHARINGAIN LONGKUMER,,8607,78.27,ALEM JONGSHI,,2362,6245,56.79,src-1b7bc1c9d39a

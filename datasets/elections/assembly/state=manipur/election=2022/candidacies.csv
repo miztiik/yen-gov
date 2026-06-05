@@ -1,0 +1,266 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-manipur-1506,manipur,2022,1,KHUNDRAKPAM,Thokchom Lokeshwar Singh,,12211,49.02,1,won,U,55,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1506,manipur,2022,1,KHUNDRAKPAM,Thangjam Mohendro Singh,,11996,48.16,2,lost,U,64,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1506,manipur,2022,1,KHUNDRAKPAM,Elangbam Sovid Singh,,497,2,3,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1506,manipur,2022,1,KHUNDRAKPAM,Thangjam Shyam Singh,,40,0.16,5,forfeit,U,60,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1503,manipur,2022,2,HEINGANG,NONGTHOMBAM BIREN SINGH,,24814,78.54,1,won,U,61,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1503,manipur,2022,2,HEINGANG,PANGEIJAM SARATCHANDRA SINGH,,6543,20.71,2,lost,U,57,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1507,manipur,2022,3,KHURAI,LEISHANGTHEM SUSINDRO MEITEI,,11131,33.62,1,won,U,38,12th Pass,"MLA, Party Worker",incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1507,manipur,2022,3,KHURAI,LAITONJAM JAYANANDA SINGH,,8894,26.86,2,lost,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1507,manipur,2022,3,KHURAI,KHAGOKPAM KHAMBA SINGH,,6792,20.51,3,lost,U,64,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1507,manipur,2022,3,KHURAI,TOIJAM LOKENDRO SINGH,,2922,8.83,4,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1507,manipur,2022,3,KHURAI,KHURAIJAM RATANKUMAR SINGH,,2461,7.43,5,forfeit,U,67,Post Graduate,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1507,manipur,2022,3,KHURAI,HEISNAM SUBHAS SINGH,,385,1.16,6,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1507,manipur,2022,3,KHURAI,R.K. AMUSANA SINGH,,356,1.08,7,forfeit,U,57,Graduate Professional,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1509,manipur,2022,4,KSHETRIGAO,Sheikh Noorul Hassan,,13118,38.47,1,won,U,36,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1509,manipur,2022,4,KSHETRIGAO,Nahakpam Indrajit Singh,,12376,36.29,2,lost,U,45,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1509,manipur,2022,4,KSHETRIGAO,Wahengbam Rojit Singh @ Bullet,,5437,15.94,3,forfeit,U,41,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1509,manipur,2022,4,KSHETRIGAO,Mohammed Amin Shah,,2832,8.3,4,forfeit,U,42,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1509,manipur,2022,4,KSHETRIGAO,Punnam Rani Wangkhem,,99,0.29,6,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1526,manipur,2022,5,THONGJU,Thongam Biswajit Singh,,15338,51.98,1,won,U,46,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1526,manipur,2022,5,THONGJU,Seram Neken Singh,,8649,29.31,2,lost,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1526,manipur,2022,5,THONGJU,Sanglakpam Preshyojit Sharma,,4849,16.43,3,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1504,manipur,2022,6,KEIRAO,Lourembam Rameshwor Meetei,,17335,61.68,1,won,U,42,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1504,manipur,2022,6,KEIRAO,Md. Nasiruddin Khan,,9126,32.47,2,lost,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1504,manipur,2022,6,KEIRAO,M.I. Khan,,983,3.5,3,forfeit,U,58,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1504,manipur,2022,6,KEIRAO,Thongram Tony Meitei,,249,0.89,4,forfeit,U,49,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1504,manipur,2022,6,KEIRAO,Toijam Debananda Singh,,202,0.72,5,forfeit,U,59,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1504,manipur,2022,6,KEIRAO,Yumnam Shanta Meetei,,111,0.39,6,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1501,manipur,2022,7,ANDRO,Thounaojam Shyamkumar,,16739,50.08,1,won,U,51,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1501,manipur,2022,7,ANDRO,Lourembam Sanjoy Singh,,15282,45.72,2,lost,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1501,manipur,2022,7,ANDRO,Asheibam Bele Singh,,894,2.67,3,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1501,manipur,2022,7,ANDRO,Keisham Ningthemjao Singh,,388,1.16,4,forfeit,U,59,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1511,manipur,2022,8,LAMLAI,Khongbantabam Ibomcha,,10105,35.25,1,won,U,63,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1511,manipur,2022,8,LAMLAI,Kshetrimayum Biren Singh,,9984,34.83,2,lost,U,60,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1511,manipur,2022,8,LAMLAI,Achoibam Deben Singh,,7049,24.59,3,lost,U,41,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1511,manipur,2022,8,LAMLAI,Mongjam Poireihenba Meetei,,957,3.34,4,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1511,manipur,2022,8,LAMLAI,Sapam Kangleipal Meitei,,458,1.6,5,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1525,manipur,2022,9,THANGMEIBAND,Khumukcham Joykisan Singh,,13629,56.08,1,won,U,57,Graduate,"MLA, Party Worker",incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1525,manipur,2022,9,THANGMEIBAND,Jotin Waikhom,,9856,40.56,2,lost,U,57,12th Pass,Trader,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1525,manipur,2022,9,THANGMEIBAND,Hijam Nutanchandra Singh,,457,1.88,3,forfeit,U,55,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1528,manipur,2022,10,URIPOK,KHWAIRAKPAM RAGHUMANI SINGH,,8335,36.17,1,won,U,59,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1528,manipur,2022,10,URIPOK,YUMNAM JOYKUMAR SINGH,,7426,32.23,2,lost,U,68,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1528,manipur,2022,10,URIPOK,KHOMBONGMAYUM SURESH SINGH,,5472,23.75,3,lost,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1528,manipur,2022,10,URIPOK,NUNGLEPAM MAHANANDA SINGH,,1540,6.68,4,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1521,manipur,2022,11,SAGOLBAND,Rajkumar Imo Singh,,11054,54.6,1,won,U,45,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1521,manipur,2022,11,SAGOLBAND,Dr. Khwairakpam Loken Singh,,8398,41.48,2,lost,U,59,Doctorate,Ex MLA,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1521,manipur,2022,11,SAGOLBAND,Moirangthem Momo Singh,,564,2.79,3,forfeit,U,47,Others,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1505,manipur,2022,12,KEISHAMTHONG,SAPAM NISHIKANT SINGH,,8874,35,1,won,U,57,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1505,manipur,2022,12,KEISHAMTHONG,Maheshwar Thounaojam,,8687,34.27,2,lost,U,29,Graduate Professional,Actor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1505,manipur,2022,12,KEISHAMTHONG,LANGPOKLAKPAM JAYANTA KUMAR SINGH,,5760,22.72,3,lost,U,59,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1505,manipur,2022,12,KEISHAMTHONG,ELANGBAM SAMUEL JOHNSON,,1816,7.16,4,forfeit,U,47,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1505,manipur,2022,12,KEISHAMTHONG,ARIBAM PRAMODINI DEVI,,73,0.29,6,forfeit,U,77,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1523,manipur,2022,13,SINGJAMEI,Yumnam Khemchand Singh,,8709,45.8,1,won,U,58,10th Pass,"MLA, Party Worker",incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1523,manipur,2022,13,SINGJAMEI,Oinam Romen Singh,,6414,33.73,2,lost,U,51,Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1523,manipur,2022,13,SINGJAMEI,Ngangbam Robert Singh,,2164,11.38,3,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1523,manipur,2022,13,SINGJAMEI,Irengbam Hemochandra Singh,,1600,8.41,4,forfeit,U,57,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1532,manipur,2022,14,YAISKUL,Thokchom Satyabrata Singh,,9724,40.25,1,won,U,47,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1532,manipur,2022,14,YAISKUL,Huidrom Vikramjit Singh,,9092,37.64,2,lost,U,57,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1532,manipur,2022,14,YAISKUL,Thounaojam Brinda,,4574,18.93,3,lost,U,43,Graduate Professional,Unspecified,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1532,manipur,2022,14,YAISKUL,Ningombam Helendro Singh,,526,2.18,4,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1532,manipur,2022,14,YAISKUL,Rajkumar Suraj Singh,,122,0.51,5,forfeit,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1529,manipur,2022,15,WANGKHEI,Thangjam Arunkumar,,11593,35.71,1,won,U,54,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1529,manipur,2022,15,WANGKHEI,Okram Henry,,10840,33.39,2,lost,U,37,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1529,manipur,2022,15,WANGKHEI,Yumkham Erabot Singh,,9275,28.57,3,lost,U,82,Post Graduate,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1529,manipur,2022,15,WANGKHEI,Rajkumar Priyobarta Singh,,416,1.28,4,forfeit,U,47,Graduate,Trader,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1522,manipur,2022,16,SEKMAI,Heikham Dingo Singh,,10010,36.8,1,won,U,43,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1522,manipur,2022,16,SEKMAI,Ayangbam Oken Singh,,6677,24.55,2,lost,U,51,Graduate,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1522,manipur,2022,16,SEKMAI,Khwairakpam Devendro Singh,,5966,21.93,3,lost,U,58,Post Graduate,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1522,manipur,2022,16,SEKMAI,Ningthoujam Popilal Singh,,2007,7.38,4,forfeit,U,26,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1522,manipur,2022,16,SEKMAI,Ningthoujam Biren Singh,,1595,5.86,5,forfeit,U,59,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1522,manipur,2022,16,SEKMAI,Khaidem Ranjit Singh,,471,1.73,6,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1522,manipur,2022,16,SEKMAI,Khwairakpam Robin Singh,,186,0.68,8,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1522,manipur,2022,16,SEKMAI,Maharabam Anita Devi,,99,0.36,9,forfeit,U,49,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1512,manipur,2022,17,LAMSANG,Sorokhaibam Rajen Singh,,15185,47.8,1,won,U,56,Graduate,"MLA, Minister",incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1512,manipur,2022,17,LAMSANG,Pukhrambam Sumati Devi,,14785,46.54,2,lost,U,63,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1512,manipur,2022,17,LAMSANG,Arambam Karamjit Singh,,733,2.31,3,forfeit,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1512,manipur,2022,17,LAMSANG,Khundrakpam Kanba Meitei,,616,1.94,4,forfeit,U,46,10th Pass,Contractor,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1512,manipur,2022,17,LAMSANG,Likmabam Manibabu Singh,,241,0.76,5,forfeit,U,60,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1508,manipur,2022,18,KONTHOUJAM,Dr. Sapam Ranjan Singh,,13432,47.3,1,won,U,49,Post Graduate,Doctor,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1508,manipur,2022,18,KONTHOUJAM,Konthoujam Sharat Singh,,13038,45.91,2,lost,U,58,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1508,manipur,2022,18,KONTHOUJAM,Laishram Nando Singh,,895,3.15,3,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1508,manipur,2022,18,KONTHOUJAM,Nongmaithem Herojit Singh,,808,2.85,4,forfeit,U,43,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1508,manipur,2022,18,KONTHOUJAM,Khoirom Binarani Devi,,75,0.26,6,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1520,manipur,2022,19,PATSOI,Sapam Kunjakeswor (Keba) Singh,,12186,34.98,1,won,U,63,Graduate,Ex MLA,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1520,manipur,2022,19,PATSOI,Akoijam Mirabai Devi,,11499,33.01,2,lost,U,57,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1520,manipur,2022,19,PATSOI,R.K. Rameshwar Singh,,10741,30.83,3,lost,U,52,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1520,manipur,2022,19,PATSOI,Wakambam Ibomcha Singh,,125,0.36,5,forfeit,U,54,Graduate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1513,manipur,2022,20,LANGTHABAL,Karam Shyam,,10815,41.17,1,won,U,59,Graduate Professional,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1513,manipur,2022,20,LANGTHABAL,Okram Joy Singh,,8762,33.36,2,lost,U,80,Graduate Professional,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1513,manipur,2022,20,LANGTHABAL,Karam Nabakishor Singh,,5949,22.65,3,lost,U,59,Graduate Professional,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1513,manipur,2022,20,LANGTHABAL,Hijam Somarendro Singh,,504,1.92,4,forfeit,U,57,Graduate Professional,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1518,manipur,2022,21,NAORIYA PAKHANGLAKPA,Sagolshem Kebi Devi,,11058,33.55,1,won,U,32,10th Pass,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1518,manipur,2022,21,NAORIYA PAKHANGLAKPA,Soibam Subhaschandra Singh,,10527,31.93,2,lost,U,55,Others,"Ex MLA, Party Worker",incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1518,manipur,2022,21,NAORIYA PAKHANGLAKPA,Soraisham Manaoton Singh,,9444,28.65,3,lost,U,53,Post Graduate,School Teacher,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1518,manipur,2022,21,NAORIYA PAKHANGLAKPA,Konthoujam Manoranjan Singh,,1721,5.22,4,forfeit,U,66,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1531,manipur,2022,22,WANGOI,KHURAIJAM LOKEN SINGH,,15606,55.29,1,won,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1531,manipur,2022,22,WANGOI,Oinam Lukhoi Singh,,12340,43.72,2,lost,U,46,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1531,manipur,2022,22,WANGOI,Salam Joy Singh,,156,0.55,3,forfeit,U,48,Graduate,Ex MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1515,manipur,2022,23,MAYANG IMPHAL,Kongkham Robindro Singh,,14642,47.73,1,won,U,33,Post Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1515,manipur,2022,23,MAYANG IMPHAL,Dr. Khumujam Ratankumar Singh,,8513,27.75,2,lost,U,58,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1515,manipur,2022,23,MAYANG IMPHAL,Urikhimbam Ramesh Singh,,7374,24.04,3,lost,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1517,manipur,2022,24,NAMBOL,THOUNAOJAM BASANTA KUMAR SINGH,,16885,54.76,1,won,U,57,Post Graduate,Ex Police,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1517,manipur,2022,24,NAMBOL,NAMEIRAKPAM LOKEN SINGH,,13825,44.84,2,lost,U,53,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1519,manipur,2022,25,OINAM,Irengbam Nalini Devi,,10808,40.57,1,won,U,61,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1519,manipur,2022,25,OINAM,Laishram Radhakishore Singh,,10366,38.91,2,lost,U,65,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1519,manipur,2022,25,OINAM,Thokchom Ithoibi Devi,,3289,12.35,3,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1519,manipur,2022,25,OINAM,Laitonjam Brojen Singh,,970,3.64,4,forfeit,U,52,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1519,manipur,2022,25,OINAM,Thingbaijam Swarankumar Singh,,527,1.98,5,forfeit,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1519,manipur,2022,25,OINAM,Ashem Babu Singh,,408,1.53,6,forfeit,U,49,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1519,manipur,2022,25,OINAM,Ngangom Shivakumar Singh,,145,0.54,7,forfeit,U,27,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1502,manipur,2022,26,BISHNUPUR,Konthoujam Govindas Singh,,13611,46.05,1,won,U,56,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1502,manipur,2022,26,BISHNUPUR,Oinam Nabakishore Singh,,12202,41.28,2,lost,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1502,manipur,2022,26,BISHNUPUR,Ningthoujam Joykumar Singh,,3395,11.49,3,forfeit,U,65,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1516,manipur,2022,27,MOIRANG,Thongam Shanti Singh,,14349,39.75,1,won,U,61,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1516,manipur,2022,27,MOIRANG,Mairembam Prithviraj Singh,,12118,33.57,2,lost,U,41,Post Graduate,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1516,manipur,2022,27,MOIRANG,Pukhrem Sharatchandra Singh,,9358,25.93,3,lost,U,71,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1524,manipur,2022,28,THANGA,Tongbram Robindro Singh,,13095,61.96,1,won,U,49,12th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1524,manipur,2022,28,THANGA,Birla Haobijam,,7844,37.11,2,lost,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1510,manipur,2022,29,KUMBI,Sanasam Premchandra Singh,,8513,32.63,1,won,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1510,manipur,2022,29,KUMBI,Ahanthem Shanjoy Singh,,8141,31.21,2,lost,U,46,Graduate,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1510,manipur,2022,29,KUMBI,Ningthoujam Mangi Singh,,7787,29.85,3,lost,U,71,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1510,manipur,2022,29,KUMBI,Dr. Khangembam Romesh Singh,,1169,4.48,4,forfeit,U,45,Doctorate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1510,manipur,2022,29,KUMBI,Naorem Sorojini Devi,,330,1.26,5,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1514,manipur,2022,30,LILONG,Mohd Abdul Nasir,,16886,49.71,1,won,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1514,manipur,2022,30,LILONG,Y. Antas Khan,,16316,48.03,2,lost,U,34,12th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1514,manipur,2022,30,LILONG,Syed Anwar Hussain,,445,1.31,3,forfeit,U,52,Graduate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1514,manipur,2022,30,LILONG,Abdul Manan,,162,0.48,4,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1514,manipur,2022,30,LILONG,Md Irshad Hussain,,20,0.06,6,forfeit,U,28,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1527,manipur,2022,31,THOUBAL,Okram Ibobi Singh,,15085,51,1,won,U,73,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1527,manipur,2022,31,THOUBAL,Leitanthem Basanta Singh,,12542,42.4,2,lost,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1527,manipur,2022,31,THOUBAL,Konsam Michael Singh,,1622,5.48,3,forfeit,U,67,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1527,manipur,2022,31,THOUBAL,Irom Chaoba Singh,,145,0.49,5,forfeit,U,62,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1530,manipur,2022,32,WANGKHEM,Keisham Meghachandra Singh,,8889,29.36,1,won,U,48,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1530,manipur,2022,32,WANGKHEM,Yumnam Nabachandra Singh,,7597,25.09,2,lost,U,47,Graduate,Trader,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1530,manipur,2022,32,WANGKHEM,Prof. (Dr.) Nimai Chand Luwang,,7100,23.45,3,lost,U,74,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1530,manipur,2022,32,WANGKHEM,Kharibam Jiban Singh,,3474,11.47,4,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1530,manipur,2022,32,WANGKHEM,Kangabam Jadu @ Jadumani Singh,,2891,9.55,5,forfeit,U,52,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1530,manipur,2022,32,WANGKHEM,Oinam Haridas Singh,,82,0.27,7,forfeit,U,58,Graduate,Activist,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1530,manipur,2022,32,WANGKHEM,Md Abdul Halim,,74,0.24,8,forfeit,U,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1530,manipur,2022,32,WANGKHEM,Laishram Domen Singh,,34,0.11,9,forfeit,U,37,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1536,manipur,2022,33,HEIROK,Thokchom Radheshyam Singh,,13589,42.8,1,won,U,57,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1536,manipur,2022,33,HEIROK,Moirangthem Okendro,,13186,41.53,2,lost,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1536,manipur,2022,33,HEIROK,Ningthoujam Diten Singh,,4766,15.01,3,forfeit,U,53,Others,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1536,manipur,2022,33,HEIROK,Moirangthem Totomsana Nongshaba,,86,0.27,5,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1560,manipur,2022,34,WANGJING TENTHA,Paonam Brojen Singh,,15765,51.69,1,won,U,56,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1560,manipur,2022,34,WANGJING TENTHA,Moirangthem Hemanta Singh,,13852,45.42,2,lost,U,60,Graduate Professional,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1560,manipur,2022,34,WANGJING TENTHA,Usham Manglem,,723,2.37,3,forfeit,U,26,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1543,manipur,2022,35,KHANGABOK,Surjakumar Okram,,17435,49.76,1,won,U,34,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1543,manipur,2022,35,KHANGABOK,Khundrakpam Menjor Mangang,,9632,27.49,2,lost,U,57,12th Pass,Retired Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1543,manipur,2022,35,KHANGABOK,Thokchom Jadumani Singh,,7555,21.56,3,lost,U,57,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1559,manipur,2022,36,WABGAI,Dr.USHAM DEBEN SINGH,,9138,31.13,1,won,U,53,Doctorate,Ex MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1559,manipur,2022,36,WABGAI,MD.FAJUR RAHIM,,9088,30.96,2,lost,U,51,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1559,manipur,2022,36,WABGAI,MAYENGBAM RANJIT SINGH,,5873,20.01,3,lost,U,47,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1559,manipur,2022,36,WABGAI,MD. SIKANDER,,3601,12.27,4,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1559,manipur,2022,36,WABGAI,SAKIR AHMED,,1501,5.11,5,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1540,manipur,2022,37,KAKCHING,MAYANGLAMBAM RAMESHWAR SINGH,,8546,31.49,1,won,U,53,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1540,manipur,2022,37,KAKCHING,Yengkhom Surchandra Singh,,7341,27.05,2,lost,U,70,Post Graduate,Ex MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1540,manipur,2022,37,KAKCHING,KSHETRIMAYUM KENNEDY SINGH,,5873,21.64,3,lost,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1540,manipur,2022,37,KAKCHING,Naorem Nabachandra Singh,,2451,9.03,4,forfeit,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1540,manipur,2022,37,KAKCHING,YENGKHOM NILACHANDRA SINGH,,2009,7.4,5,forfeit,U,61,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1540,manipur,2022,37,KAKCHING,YENGKHOM ROMA DEVI,,676,2.49,6,forfeit,U,51,Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1538,manipur,2022,38,HIYANGLAM,DR. YUMNAM RADHESHYAM SINGH,,8613,32.8,1,won,U,67,Graduate Professional,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1538,manipur,2022,38,HIYANGLAM,DR. HUIDROM JITEN SINGH,,6584,25.07,2,lost,U,50,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1538,manipur,2022,38,HIYANGLAM,ELANGBAM DWIJAMANI SINGH,,6559,24.97,3,lost,U,62,Post Graduate,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1538,manipur,2022,38,HIYANGLAM,MAIBAM DHANABIR SINGH,,4223,16.08,4,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1538,manipur,2022,38,HIYANGLAM,NONGMAITHEM SANJAY SINGH,,134,0.51,6,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1551,manipur,2022,39,SUGNU,KANGUJAM RANJIT SINGH,,12673,50.63,1,won,U,60,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1551,manipur,2022,39,SUGNU,MAYANGLAMBAM BINOD,,11657,46.57,2,lost,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1551,manipur,2022,39,SUGNU,KAKYENPAIBAM MUKTASANA SINGH,,555,2.22,3,forfeit,U,42,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1539,manipur,2022,40,JIRIBAM,MD. ACHAB UDDIN,,12313,46.21,1,won,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1539,manipur,2022,40,JIRIBAM,NAMEIRAKPAM BUDHACHANDRA SINGH,,11897,44.65,2,lost,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1539,manipur,2022,40,JIRIBAM,MAKAKMAYUM ABBAS KHAN,,1113,4.18,3,forfeit,U,28,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1539,manipur,2022,40,JIRIBAM,BADRUR RAHMAN,,746,2.8,4,forfeit,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1533,manipur,2022,41,CHANDEL,SS. Olish,,37066,79.06,1,won,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1533,manipur,2022,41,CHANDEL,Langhu Paulhring Anal,,9725,20.74,2,lost,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1555,manipur,2022,42,TENGNOUPAL,LETPAO HAOKIP,,21663,51.7,1,won,U,45,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1555,manipur,2022,42,TENGNOUPAL,D. Korungthang,,15252,36.4,2,lost,U,60,Graduate,"Ex MLA, Party Worker",incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1555,manipur,2022,42,TENGNOUPAL,Wairok Morung Makunga,,4099,9.78,3,forfeit,U,62,Graduate,Ex MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1555,manipur,2022,42,TENGNOUPAL,Tantanga Kohai Moshilpha,,777,1.85,4,forfeit,U,54,Graduate Professional,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1555,manipur,2022,42,TENGNOUPAL,Kh. David Maring,,52,0.12,5,forfeit,U,56,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1555,manipur,2022,42,TENGNOUPAL,Jamkholun Haokip,,27,0.06,7,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1546,manipur,2022,43,PHUNGYAR,LEISHIYO KEISHING,,11642,37.75,1,won,U,47,Post Graduate,"MLA, Party Worker",incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1546,manipur,2022,43,PHUNGYAR,AWUNG SHIMRAY HOPINGSON,,10863,35.23,2,lost,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1546,manipur,2022,43,PHUNGYAR,VICTOR KEISHING,,7453,24.17,3,lost,U,59,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1546,manipur,2022,43,PHUNGYAR,WUNGNAOSHANG KASAR,,693,2.25,4,forfeit,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1546,manipur,2022,43,PHUNGYAR,NINGHOR JAJO,,154,0.5,5,forfeit,U,60,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1558,manipur,2022,44,UKHRUL,RAM MUIVAH,,15503,38.69,1,won,U,61,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1558,manipur,2022,44,UKHRUL,ALFRED KANNGAM S. ARTHUR,,14561,36.34,2,lost,U,48,12th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1558,manipur,2022,44,UKHRUL,SOMATAI SHAIZA,,9961,24.86,3,lost,U,47,12th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1534,manipur,2022,45,CHINGAI,KHASHIM VASHUM,,12837,31.39,1,won,U,58,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1534,manipur,2022,45,CHINGAI,NINGAM CHAMROY,,10501,25.68,2,lost,U,64,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1534,manipur,2022,45,CHINGAI,PRESHOW MK SHIMRAY,,9349,22.86,3,lost,U,56,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1534,manipur,2022,45,CHINGAI,SWORD VASHUM,,8150,19.93,4,lost,U,73,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1548,manipur,2022,46,SAIKUL,Kimneo Haokip Hangshing,,6710,25.38,1,won,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1548,manipur,2022,46,SAIKUL,Kenn Raikhan,,5461,20.66,2,lost,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1548,manipur,2022,46,SAIKUL,Chungkhokai Doungel,,5107,19.32,3,lost,U,81,Graduate,Ex Minister,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1548,manipur,2022,46,SAIKUL,Ch. Ajang Khongsai,,4486,16.97,4,lost,U,59,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1548,manipur,2022,46,SAIKUL,Yamthong Haokip,,2667,10.09,5,forfeit,U,59,5th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1548,manipur,2022,46,SAIKUL,Lhingkim Haokip,,935,3.54,6,forfeit,U,50,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1548,manipur,2022,46,SAIKUL,Seikholal Haokip,,645,2.44,7,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1548,manipur,2022,46,SAIKUL,Jamchinlen Lunkim,,322,1.22,8,forfeit,U,62,Graduate Professional,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1542,manipur,2022,47,KARONG,J Kumo Sha,,17191,34.83,1,won,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1542,manipur,2022,47,KARONG,R Yuh Jonathan Tao,,13649,27.65,2,lost,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1542,manipur,2022,47,KARONG,Khoho Siile Anthony,,10483,21.24,3,lost,U,52,Post Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1542,manipur,2022,47,KARONG,D. D. Thaisii,,5891,11.93,4,forfeit,U,60,Post Graduate,Ex MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1542,manipur,2022,47,KARONG,Thaiba Sanii,,2102,4.26,5,forfeit,U,46,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1544,manipur,2022,48,MAO,Losii Dikho,,29591,58.05,1,won,U,55,Graduate,Ex MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1544,manipur,2022,48,MAO,Woba Joram,,21078,41.35,2,lost,U,59,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1544,manipur,2022,48,MAO,Sanii Alexander Maikho,,279,0.55,3,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1552,manipur,2022,49,TADUBI,N. Kayisii,,21601,47.81,1,won,U,56,12th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1552,manipur,2022,49,TADUBI,M. Francis Ngajokpa,,21052,46.6,2,lost,U,58,Graduate,Ex MLA,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1552,manipur,2022,49,TADUBI,Robert Tailu Maram,,2277,5.04,3,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1552,manipur,2022,49,TADUBI,O. Lohrii,,191,0.42,4,forfeit,U,69,Post Graduate,"Ex MLA, Party Worker",crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1541,manipur,2022,50,KANGPOKPI,Nemcha Kipgen,,14412,57.37,1,won,U,56,Others,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1541,manipur,2022,50,KANGPOKPI,Soshim Gurung,,9016,35.89,2,lost,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1541,manipur,2022,50,KANGPOKPI,Ngamkhohen Kipgen,,1376,5.48,3,forfeit,U,77,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1549,manipur,2022,51,SAITU,Haokholet Kipgen,,12456,31.52,1,won,U,67,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1549,manipur,2022,51,SAITU,Ngamthang Haokip,,9762,24.71,2,lost,U,69,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1549,manipur,2022,51,SAITU,Lamtinthang Haokip,,7133,18.05,3,lost,U,39,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1549,manipur,2022,51,SAITU,K Lhouvum,,6978,17.66,4,lost,U,59,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1549,manipur,2022,51,SAITU,Th. Sanglou Maram,,2924,7.4,5,forfeit,U,60,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1549,manipur,2022,51,SAITU,L Johny Gangmei,,164,0.42,6,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1553,manipur,2022,52,TAMEI,Awangbow Newmai,,19643,50.83,1,won,U,54,Post Graduate,"MLA, Party Worker",incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1553,manipur,2022,52,TAMEI,Z. Kikhonbou Newmai,,17945,46.44,2,lost,U,55,Post Graduate,Ex MLA,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1553,manipur,2022,52,TAMEI,Wilubou Newmai,,627,1.62,3,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1553,manipur,2022,52,TAMEI,GN. Kumuiteung (Dr. Aku),,397,1.03,4,forfeit,U,48,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1554,manipur,2022,53,TAMENGLONG,Janghemlung Panmei,,10456,34.11,1,won,U,45,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1554,manipur,2022,53,TAMENGLONG,Huri Golmei,,9147,29.84,2,lost,U,63,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1554,manipur,2022,53,TAMENGLONG,Samuel Jendai,,6447,21.03,3,lost,U,62,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1554,manipur,2022,53,TAMENGLONG,Khangthuanang Panmei,,4481,14.62,4,forfeit,U,60,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1545,manipur,2022,54,NUNGBA,Dinganglung Gangmei,,14464,57.39,1,won,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1545,manipur,2022,54,NUNGBA,Gaikhangam,,10678,42.37,2,lost,U,71,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1557,manipur,2022,55,TIPAIMUKH,Ngursanglur Sanate,,6267,49.24,1,won,U,47,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1557,manipur,2022,55,TIPAIMUKH,Chalton Lien Amo,,5018,39.42,2,lost,U,66,Graduate Professional,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1557,manipur,2022,55,TIPAIMUKH,Thangthatling Sinate,,1315,10.33,3,forfeit,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1556,manipur,2022,56,THANLON,Vungzagin Valte,,4863,36.45,1,won,U,57,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1556,manipur,2022,56,THANLON,Khanthang Tonsing,,4112,30.82,2,lost,U,53,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1556,manipur,2022,56,THANLON,Langkhanpau Guite,,2789,20.91,3,lost,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1556,manipur,2022,56,THANLON,Thangkhosei Guite,,797,5.97,4,forfeit,U,60,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1556,manipur,2022,56,THANLON,Lalhlunsang Sungte,,658,4.93,5,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1556,manipur,2022,56,THANLON,Thangkhangin,,71,0.53,6,forfeit,U,66,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1537,manipur,2022,57,HENGLEP,Letzamang Haokip,,13897,50.36,1,won,U,47,Post Graduate,Qualified Professional,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1537,manipur,2022,57,HENGLEP,T. Manga Vaiphei,,6049,21.92,2,lost,U,64,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1537,manipur,2022,57,HENGLEP,Nehminthang Haokip,,3824,13.86,3,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1537,manipur,2022,57,HENGLEP,T. Thangzalam Haokip,,2605,9.44,4,forfeit,U,67,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1537,manipur,2022,57,HENGLEP,Genneikhup,,1097,3.98,5,forfeit,U,58,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1537,manipur,2022,57,HENGLEP,Sehpu Haokip,,84,0.3,6,forfeit,U,64,Graduate,Ex MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1535,manipur,2022,58,CHURACHANDPUR,L.M. KHAUTE,,18231,38.24,1,won,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1535,manipur,2022,58,CHURACHANDPUR,V HANGKHANLIAN,,17607,36.93,2,lost,U,60,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1535,manipur,2022,58,CHURACHANDPUR,H. MANGCHINKHUP PAITE,,8482,17.79,3,lost,U,56,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1535,manipur,2022,58,CHURACHANDPUR,JAMES KHUMA HAUZEL,,2244,4.71,4,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1535,manipur,2022,58,CHURACHANDPUR,Th. THANGZALIAN,,515,1.08,5,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1535,manipur,2022,58,CHURACHANDPUR,Dr. JAINSON HAOKIP D.D.,,248,0.52,6,forfeit,U,74,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1535,manipur,2022,58,CHURACHANDPUR,H.LIANCHINTHANG,,170,0.36,8,forfeit,U,60,12th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1547,manipur,2022,59,SAIKOT,Paolienlal Haokip,,18457,35.1,1,won,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1547,manipur,2022,59,SAIKOT,Khaipao Haokip,,12586,23.93,2,lost,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1547,manipur,2022,59,SAIKOT,T. N Haokip,,10250,19.49,3,lost,U,71,Graduate,"MLA, Party Worker",incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1547,manipur,2022,59,SAIKOT,Karong Onkholer,,5169,9.83,4,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1547,manipur,2022,59,SAIKOT,George T. Haokip,,4796,9.12,5,forfeit,U,41,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1547,manipur,2022,59,SAIKOT,JOSHUA THIEK,,837,1.59,6,forfeit,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1547,manipur,2022,59,SAIKOT,JOHN H PULAMTE,,231,0.44,7,forfeit,U,52,Doctorate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1547,manipur,2022,59,SAIKOT,JOHN MK THANG,,78,0.15,9,forfeit,U,51,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1550,manipur,2022,60,SINGHAT,Chinlunthang,,12098,51.19,1,won,U,46,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1550,manipur,2022,60,SINGHAT,Ginsuanhau Zou,,10179,43.07,2,lost,U,62,5th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1550,manipur,2022,60,SINGHAT,T. Hangkhanpau,,1031,4.36,3,forfeit,U,58,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1550,manipur,2022,60,SINGHAT,Tuankhan Kiamlo Hangzo,,267,1.13,4,forfeit,U,61,Graduate,Accountant,challenger,src-1b7bc1c9d39a

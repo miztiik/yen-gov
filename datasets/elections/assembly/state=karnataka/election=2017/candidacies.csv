@@ -1,0 +1,19 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-karnataka-3530,karnataka,2017,214,NANJANGUD,Kalale.N.Keshavamur Thy,,86212,55.75,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3530,karnataka,2017,214,NANJANGUD,V.Srivinasa Prasad,,64878,41.95,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3530,karnataka,2017,214,NANJANGUD,M.Pradeep Kumar,,703,0.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3530,karnataka,2017,214,NANJANGUD,H.P.Sheshanna,,678,0.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3530,karnataka,2017,214,NANJANGUD,Subbaiah,,626,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3530,karnataka,2017,214,NANJANGUD,R.Prasanna Goluru,,383,0.25,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3530,karnataka,2017,214,NANJANGUD,B.S. Mahadevaswamy,,274,0.18,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3530,karnataka,2017,214,NANJANGUD,D.K.Tulasappa,,268,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3530,karnataka,2017,214,NANJANGUD,Ananda G,,254,0.16,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3530,karnataka,2017,214,NANJANGUD,D.Eshwar Swabhimaani,,198,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3530,karnataka,2017,214,NANJANGUD,Gurulingaiah,,176,0.11,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3526,karnataka,2017,224,GUNDLUPET,M.C.Mohan Kuimari Uruf Geetha,,90260,52.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3526,karnataka,2017,224,GUNDLUPET,C.S. Niranjan Kumar,,79383,45.79,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3526,karnataka,2017,224,GUNDLUPET,Shivaraju.M,,1512,0.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3526,karnataka,2017,224,GUNDLUPET,Kasomashekara,,901,0.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3526,karnataka,2017,224,GUNDLUPET,M.Honnuraiah,,503,0.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3526,karnataka,2017,224,GUNDLUPET,M.Shivaramu,,470,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3526,karnataka,2017,224,GUNDLUPET,Mahadeva Prasad.B,,330,0.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a

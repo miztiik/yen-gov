@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-karnataka-3501,karnataka,2014,BELLARY,173111,136858,79.06,N.Y.Gopalakrishna,,83906,61.31,Obalesh,,50802,33104,24.19,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3542,karnataka,2014,CHIKKODI-SADALGA,187308,159929,85.38,G.P.Hukkeri,,94636,59.17,K.M.Mallikarjun,,62816,31820,19.89,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3648,karnataka,2014,SHIKARIPURA,172735,138289,80.06,B.Y.Raghavendra,,71547,51.74,H.S.Shanthavirappa Gowda,,65117,6430,4.65,src-1b7bc1c9d39a

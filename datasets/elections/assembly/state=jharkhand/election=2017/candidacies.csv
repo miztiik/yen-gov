@@ -1,0 +1,11 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Simon Marandi,,65551,47.28,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Hemlal Murmu,,52651,37.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Kistu Soren,,9208,6.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Jyotish Baski,,2190,1.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Jantu Soren,,2033,1.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Shivcharan Malto,,1893,1.37,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Dr. Shrilal Kisku,,1652,1.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Harishchand Hansda,,1634,1.18,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Gupin Hembrom,,983,0.71,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Gayalal Dehri,,848,0.61,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a

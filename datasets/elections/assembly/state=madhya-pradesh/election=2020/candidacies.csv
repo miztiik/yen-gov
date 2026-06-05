@@ -1,0 +1,384 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-madhya-pradesh-2604,madhya-pradesh,2020,4,JAURA,SUBEDAR SINGH RAJOUDHA,,67599,38.95,1,won,M,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2604,madhya-pradesh,2020,4,JAURA,PANKAJ UPADHYAY,,54121,31.19,2,lost,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2604,madhya-pradesh,2020,4,JAURA,SONERAM KUSHWAH,,48285,27.82,3,lost,M,58,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2604,madhya-pradesh,2020,4,JAURA,NOTA,,718,0.41,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2604,madhya-pradesh,2020,4,JAURA,SANJAY,,533,0.31,5,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2604,madhya-pradesh,2020,4,JAURA,VINAY BHAIYA,,505,0.29,6,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2604,madhya-pradesh,2020,4,JAURA,RAMESHWAR SHAKY (RAMESH),,421,0.24,7,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2604,madhya-pradesh,2020,4,JAURA,ARJUN SiNGH SiKARWAR,,375,0.22,8,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2604,madhya-pradesh,2020,4,JAURA,RAJVEER DHAKAR,,233,0.13,9,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2604,madhya-pradesh,2020,4,JAURA,RAJNI SHAKYA,,150,0.09,10,forfeit,F,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2604,madhya-pradesh,2020,4,JAURA,M.P.SINGH,,134,0.08,11,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2604,madhya-pradesh,2020,4,JAURA,DHEER SINGH ATAL,,128,0.07,12,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2604,madhya-pradesh,2020,4,JAURA,MUNBABAR KHAN,,116,0.07,13,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2604,madhya-pradesh,2020,4,JAURA,MUNSHILAL,,88,0.05,14,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2604,madhya-pradesh,2020,4,JAURA,DHARMENDRA SINGH SOLANKI,,76,0.04,15,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2604,madhya-pradesh,2020,4,JAURA,AVDESH KUMAR,,58,0.03,16,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2608,madhya-pradesh,2020,5,SUMAOLI,AJAB SINGH KUSHWAH,,86909,51.65,1,won,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2608,madhya-pradesh,2020,5,SUMAOLI,ADAL SINGH KANSANA,,75962,45.15,2,lost,M,60,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2608,madhya-pradesh,2020,5,SUMAOLI,RAHUL DANDOTIYA ALIUS SONU,,3468,2.06,3,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2608,madhya-pradesh,2020,5,SUMAOLI,NOTA,,726,0.43,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2608,madhya-pradesh,2020,5,SUMAOLI,MAMTA,,411,0.24,5,forfeit,F,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2608,madhya-pradesh,2020,5,SUMAOLI,SATENDRASINGH,,324,0.19,6,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2608,madhya-pradesh,2020,5,SUMAOLI,RANAJEETA SiNGH,,125,0.07,7,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2608,madhya-pradesh,2020,5,SUMAOLI,SUNIL KUSHWAH,,123,0.07,8,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2608,madhya-pradesh,2020,5,SUMAOLI,SHATRUGHAN Singh FOJi,,109,0.06,9,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2608,madhya-pradesh,2020,5,SUMAOLI,CHARAN SINGH KUSHWAH,,93,0.06,10,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2605,madhya-pradesh,2020,6,MORENA,RAKESH MAVAI,,53301,35.67,1,won,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2605,madhya-pradesh,2020,6,MORENA,RAGHURAJ SINGH KANSANA,,47550,31.82,2,lost,M,53,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2605,madhya-pradesh,2020,6,MORENA,RAMPRAKASH RAJORIYA,,43084,28.83,3,lost,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2605,madhya-pradesh,2020,6,MORENA,RAJEEV SHARMA,,945,0.63,4,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2605,madhya-pradesh,2020,6,MORENA,NOTA,,844,0.56,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2605,madhya-pradesh,2020,6,MORENA,HUKAM CHAND BANSAL urf HUKKA,,690,0.46,6,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2605,madhya-pradesh,2020,6,MORENA,DHARMENDRA SIKARWAR   ( GUDDU),,600,0.4,7,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2605,madhya-pradesh,2020,6,MORENA,SHASHANK DANDOTIYA,,407,0.27,8,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2605,madhya-pradesh,2020,6,MORENA,KULDEEP SHARMA,,406,0.27,9,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2605,madhya-pradesh,2020,6,MORENA,SHOBHARAM KUSHWAH,,327,0.22,10,forfeit,M,72,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2605,madhya-pradesh,2020,6,MORENA,MANOJ KUMAR SEMIL,,313,0.21,11,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2605,madhya-pradesh,2020,6,MORENA,RAMSUNDAR SHRIWAS,,309,0.21,12,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2605,madhya-pradesh,2020,6,MORENA,RAJESH KUSHWAH,,302,0.2,13,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2605,madhya-pradesh,2020,6,MORENA,MANISH SHARMA,,139,0.09,14,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2605,madhya-pradesh,2020,6,MORENA,GAURAV DIXIT,,122,0.08,15,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2605,madhya-pradesh,2020,6,MORENA,DHARMENDRA SINGH,,110,0.07,16,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2603,madhya-pradesh,2020,7,DIMANI,Ravindra Singh Tomar Bhidosa,,72445,54.74,1,won,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2603,madhya-pradesh,2020,7,DIMANI,Girraj Dandotiya,,45978,34.74,2,lost,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2603,madhya-pradesh,2020,7,DIMANI,RAJENDRA SINGH KANSANA(RANDHA),,10337,7.81,3,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2603,madhya-pradesh,2020,7,DIMANI,NOTA,,846,0.64,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2603,madhya-pradesh,2020,7,DIMANI,ANAR SINGH TOMAR (BABA),,770,0.58,5,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2603,madhya-pradesh,2020,7,DIMANI,SAURAV VYAS,,497,0.38,6,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2603,madhya-pradesh,2020,7,DIMANI,Ravindra Singh Tomar,,314,0.24,7,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2603,madhya-pradesh,2020,7,DIMANI,SARITA DEVI,,309,0.23,8,forfeit,F,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2603,madhya-pradesh,2020,7,DIMANI,Rajshree Sharma,,230,0.17,9,forfeit,F,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2603,madhya-pradesh,2020,7,DIMANI,JAYANT SINGH TOMAR,,173,0.13,10,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2603,madhya-pradesh,2020,7,DIMANI,GIRRAJ PRASAD,,166,0.13,11,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2603,madhya-pradesh,2020,7,DIMANI,MAHENDRA SINGH TOMAR 'DESH PREMI',,101,0.08,12,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2603,madhya-pradesh,2020,7,DIMANI,KISHORI LAL,,86,0.06,13,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2603,madhya-pradesh,2020,7,DIMANI,DHIRENDRA KUMAR SHARMA,,82,0.06,14,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2602,madhya-pradesh,2020,8,AMBAH,Kamlesh Jatav,,51588,42.17,1,won,M,41,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2602,madhya-pradesh,2020,8,AMBAH,SATYAPRAKASH SAKHAWAR,,37696,30.82,2,lost,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2602,madhya-pradesh,2020,8,AMBAH,ABHINAV CHHARI (MONTY CHHARI),,19246,15.73,3,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2602,madhya-pradesh,2020,8,AMBAH,BHANUPRATAP SINGH SAKHAWAR,,8029,6.56,4,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2602,madhya-pradesh,2020,8,AMBAH,AMAR,,1725,1.41,5,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2602,madhya-pradesh,2020,8,AMBAH,NOTA,,839,0.69,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2602,madhya-pradesh,2020,8,AMBAH,PATIRAM KORI,,791,0.65,7,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2602,madhya-pradesh,2020,8,AMBAH,PRAMOD KUMAR KORi,,680,0.56,8,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2602,madhya-pradesh,2020,8,AMBAH,RAHUL KUMAR,,336,0.27,9,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2602,madhya-pradesh,2020,8,AMBAH,VINOD KUMAR,,311,0.25,10,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2602,madhya-pradesh,2020,8,AMBAH,Dr. BACHARAM KAUSHAL,,230,0.19,11,forfeit,M,72,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2602,madhya-pradesh,2020,8,AMBAH,SATISH KHATIK,,204,0.17,12,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2602,madhya-pradesh,2020,8,AMBAH,RAKESH NAT NAGAR,,200,0.16,13,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2602,madhya-pradesh,2020,8,AMBAH,BANSI LAL JATAV,,172,0.14,14,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2602,madhya-pradesh,2020,8,AMBAH,MATADeen,,143,0.12,15,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2602,madhya-pradesh,2020,8,AMBAH,BHOOPENDRA SINGH INDOLIYA,,130,0.11,16,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,O.P.S. BHADORIA,,73599,45.15,1,won,M,51,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,HEMANT SATYADEV KATARE,,61563,37.77,2,lost,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,YOGESH MEGHSINGH NARWARIYA,,22305,13.68,3,forfeit,M,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,AJAB SINGH KUSHWAHA,,733,0.45,4,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,Ashok Singh Barua,,647,0.4,5,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,Prashant Kumar,,327,0.2,6,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,ASHOK TRIPATHI,,320,0.2,7,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,ASHIK KHAN,,285,0.17,8,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,RAHUL SINGH,,259,0.16,9,forfeit,M,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,RAJESH KUMAR,,241,0.15,10,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,ARVIND PRAHLAD SINGH,,215,0.13,11,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,ABHILAKH SINGH BAGHEL,,212,0.13,12,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,OMHARI NARWARIYA,,203,0.12,13,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,NOTA,,179,0.11,14,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,RAJENDRA SINGH,,135,0.08,15,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,JASMANT SINGH BAGHEL,,134,0.08,16,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,MAHESH SINGH,,131,0.08,17,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,VISHWANATH SINGH,,122,0.07,18,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,Bhanupratap Singh Gurjar,,115,0.07,19,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,Upendra Singh,,100,0.06,20,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,PURAN LAL,,98,0.06,21,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,RAMHANSH,,86,0.05,22,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,Rakesh Sagar,,82,0.05,23,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,PRAKASH SINGH KUSHWAHA URF SURYAVANSHI (MAMA),,79,0.05,24,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,SHAILENDRA SINGH BHADORIA,,78,0.05,25,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,DEEPAK SINGH KUSHWAH ADVOCATE,,77,0.05,26,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,SHYAMVEER SINGH,,77,0.05,27,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,DHANIRAM KUSHWAHA,,71,0.04,28,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,ACHHENDRA SINGH,,71,0.04,29,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,KAPTAN SINGH,,66,0.04,30,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,BRAJESH KUMAR,,65,0.04,31,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,DHARMENDRA SINGH,,55,0.03,32,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,PRADEEP SINGH,,52,0.03,33,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,RAMESH,,50,0.03,34,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,MADHO PRASAD TYAGI,,47,0.03,35,forfeit,M,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,RAMESH KUMAR,,41,0.03,36,forfeit,M,71,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,SHAILENDRA SINGH,,39,0.02,37,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,SUNIL KANKAR,,26,0.02,38,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2481,madhya-pradesh,2020,12,MEHGAON,SANJAY SINGH,,21,0.01,39,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2020,13,GOHAD,MEVARAM JATAV,,63643,51.57,1,won,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2020,13,GOHAD,RANVIR JATAV,,51744,41.93,2,lost,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2020,13,GOHAD,Yashwant Patwari,,3614,2.93,3,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2020,13,GOHAD,NOTA,,991,0.8,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2020,13,GOHAD,Hariom Nagar,,631,0.51,5,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2020,13,GOHAD,Baijnath Mahor,,599,0.49,6,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2020,13,GOHAD,VEERENDRA,,463,0.38,7,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2020,13,GOHAD,SULTAN JATAV,,279,0.23,8,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2020,13,GOHAD,SUNIL KUMAR SARAL,,243,0.2,9,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2020,13,GOHAD,Vijaya Singh,,242,0.2,10,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2020,13,GOHAD,LaL Singh,,212,0.17,11,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2020,13,GOHAD,DINESH MUNNA KHATIK,,201,0.16,12,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2020,13,GOHAD,PRYAG SINGH,,165,0.13,13,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2020,13,GOHAD,Matadeen Jatav,,162,0.13,14,forfeit,M,74,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2020,13,GOHAD,BHAGVAN DAS KHATiK,,110,0.09,15,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2479,madhya-pradesh,2020,13,GOHAD,BRAJ KISHOR,,109,0.09,16,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2532,madhya-pradesh,2020,15,GWALIOR,PRADHUMAN SINGH TOMAR,,96027,58.35,1,won,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2532,madhya-pradesh,2020,15,GWALIOR,SUNIL SHARMA,,62904,38.23,2,lost,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2532,madhya-pradesh,2020,15,GWALIOR,HARPAL MANJHI,,2562,1.56,3,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2532,madhya-pradesh,2020,15,GWALIOR,NOTA,,1700,1.03,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2532,madhya-pradesh,2020,15,GWALIOR,SUNIL SHARMA,,421,0.26,5,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2532,madhya-pradesh,2020,15,GWALIOR,ROSHAN BEG,,338,0.21,6,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2532,madhya-pradesh,2020,15,GWALIOR,ANIL KUMAR,,199,0.12,7,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2532,madhya-pradesh,2020,15,GWALIOR,JITENDRA TRIPATHI,,139,0.08,8,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2532,madhya-pradesh,2020,15,GWALIOR,CHINA BEGAM,,136,0.08,9,forfeit,F,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2532,madhya-pradesh,2020,15,GWALIOR,DEVENDRA SINGH TOMAR,,133,0.08,10,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2533,madhya-pradesh,2020,16,GWALIOR EAST,DR. SATISH SIKARWAR,,75342,49.69,1,won,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2533,madhya-pradesh,2020,16,GWALIOR EAST,MUNNALAL GOYAL (MUNNA BHAIYA),,66787,44.05,2,lost,M,63,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2533,madhya-pradesh,2020,16,GWALIOR EAST,MAHESH BAGHEL,,5672,3.74,3,forfeit,M,36,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2533,madhya-pradesh,2020,16,GWALIOR EAST,NOTA,,1785,1.18,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2533,madhya-pradesh,2020,16,GWALIOR EAST,SUNIL  SHARMA,,674,0.44,5,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2533,madhya-pradesh,2020,16,GWALIOR EAST,KESHKALI JATAV,,347,0.23,6,forfeit,F,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2533,madhya-pradesh,2020,16,GWALIOR EAST,MEENAKSHI JAIN,,235,0.15,7,forfeit,F,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2533,madhya-pradesh,2020,16,GWALIOR EAST,MAHENDRA KUMAR BAGHEL,,192,0.13,8,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2533,madhya-pradesh,2020,16,GWALIOR EAST,MUKESH,,175,0.12,9,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2533,madhya-pradesh,2020,16,GWALIOR EAST,HEMANT RAMPURE,,129,0.09,10,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2533,madhya-pradesh,2020,16,GWALIOR EAST,NARESH KUMAR SINGH,,111,0.07,11,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2533,madhya-pradesh,2020,16,GWALIOR EAST,BALMUKUND NAMDEV,,99,0.07,12,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2533,madhya-pradesh,2020,16,GWALIOR EAST,JAVED KHAN,,83,0.05,13,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2531,madhya-pradesh,2020,19,DABARA,SURESH RAJE,,75689,49.48,1,won,M,59,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2531,madhya-pradesh,2020,19,DABARA,IMARTI DEVI,,68056,44.49,2,lost,F,45,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2531,madhya-pradesh,2020,19,DABARA,SANTOSH GAUR,,4883,3.19,3,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2531,madhya-pradesh,2020,19,DABARA,NOTA,,1690,1.1,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2531,madhya-pradesh,2020,19,DABARA,HARCHARNLAL RAJORIA,,707,0.46,5,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2531,madhya-pradesh,2020,19,DABARA,MITHUN KORI,,514,0.34,6,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2531,madhya-pradesh,2020,19,DABARA,LAL KRISHN ENGINEER,,286,0.19,7,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2531,madhya-pradesh,2020,19,DABARA,RAJENDRASINGH,,216,0.14,8,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2531,madhya-pradesh,2020,19,DABARA,AVATAR SINGH,,208,0.14,9,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2531,madhya-pradesh,2020,19,DABARA,RAKESH SINGH PARIHAR,,171,0.11,10,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2531,madhya-pradesh,2020,19,DABARA,PRITI JATAV,,169,0.11,11,forfeit,F,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2531,madhya-pradesh,2020,19,DABARA,R.D. MANDELIA,,136,0.09,12,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2531,madhya-pradesh,2020,19,DABARA,DHARMENDRA SINGH,,95,0.06,13,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2531,madhya-pradesh,2020,19,DABARA,JASWANT SINGH,,82,0.05,14,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2531,madhya-pradesh,2020,19,DABARA,ANIL AGRAIYA,,76,0.05,15,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2476,madhya-pradesh,2020,21,BHANDER,RAKSHA SANTRAM SARONIYA,,57043,45.25,1,won,F,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2476,madhya-pradesh,2020,21,BHANDER,PHOOL SINGH BARAIYA,,56882,45.12,2,lost,M,58,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2476,madhya-pradesh,2020,21,BHANDER,MAHENDRA BODDH,,7055,5.6,3,forfeit,M,66,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2476,madhya-pradesh,2020,21,BHANDER,NOTA,,1619,1.28,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2476,madhya-pradesh,2020,21,BHANDER,ASHOK PAWAR (BANSHKAR),,783,0.62,5,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2476,madhya-pradesh,2020,21,BHANDER,SWDESH KUMAR,,744,0.59,6,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2476,madhya-pradesh,2020,21,BHANDER,RAGHUVEER RAVI BANSHKAR,,715,0.57,7,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2476,madhya-pradesh,2020,21,BHANDER,MOHAR SINGH,,360,0.29,8,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2476,madhya-pradesh,2020,21,BHANDER,JAGANNATH PRASAD,,179,0.14,9,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2476,madhya-pradesh,2020,21,BHANDER,RAMDAYAL PRABHAKAR,,174,0.14,10,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2476,madhya-pradesh,2020,21,BHANDER,CHANDRASEKHAR,,156,0.12,11,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2476,madhya-pradesh,2020,21,BHANDER,CHANDRABHAN SINGH,,148,0.12,12,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2476,madhya-pradesh,2020,21,BHANDER,UDAL SINGH THAKUR (KHANGAR),,111,0.09,13,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2476,madhya-pradesh,2020,21,BHANDER,UTTAM SINGH,,99,0.08,14,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2536,madhya-pradesh,2020,23,KARERA,PRAGILAL JATAV,,95728,53.49,1,won,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2536,madhya-pradesh,2020,23,KARERA,JASMANT JATAV CHHITRI,,65087,36.37,2,lost,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2536,madhya-pradesh,2020,23,KARERA,DINESH PARIHAR,,7023,3.92,3,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2536,madhya-pradesh,2020,23,KARERA,RAJKUMARI PRAJAPATI,,3177,1.78,4,forfeit,F,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2536,madhya-pradesh,2020,23,KARERA,RAJENDRA PRASAD,,2547,1.42,5,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2536,madhya-pradesh,2020,23,KARERA,NOTA,,1813,1.01,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2536,madhya-pradesh,2020,23,KARERA,Raja Bhaiya Prajapati,,942,0.53,7,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2536,madhya-pradesh,2020,23,KARERA,BALRAM JATAV,,533,0.3,8,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2536,madhya-pradesh,2020,23,KARERA,GANGARAM PAMAR,,525,0.29,9,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2536,madhya-pradesh,2020,23,KARERA,SIRNAM,,384,0.21,10,forfeit,M,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2536,madhya-pradesh,2020,23,KARERA,Narayan Prasad Banshkar,,367,0.21,11,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2536,madhya-pradesh,2020,23,KARERA,GULAB SINGH AHIRWAR,,315,0.18,12,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2536,madhya-pradesh,2020,23,KARERA,MAHESH KHATIK (SEJWAR),,283,0.16,13,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2536,madhya-pradesh,2020,23,KARERA,UDAY SINGH JATAV,,254,0.14,14,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2537,madhya-pradesh,2020,24,POHARI,SURESH DHAKAD RATHKHEDA,,66344,39.22,1,won,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2537,madhya-pradesh,2020,24,POHARI,KAILASH KUSHWAH,,43848,25.92,2,lost,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2537,madhya-pradesh,2020,24,POHARI,HARI VALLABH SHUKLA,,42638,25.21,3,lost,M,72,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2537,madhya-pradesh,2020,24,POHARI,PARAM SINGH RAWAT,,8079,4.78,4,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2537,madhya-pradesh,2020,24,POHARI,NOTA,,1783,1.05,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2537,madhya-pradesh,2020,24,POHARI,UMMED SINGH ADIWASHI,,1543,0.91,6,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2537,madhya-pradesh,2020,24,POHARI,VAIBHAV,,1112,0.66,7,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2537,madhya-pradesh,2020,24,POHARI,SATYENDRA DHAKAD,,1061,0.63,8,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2537,madhya-pradesh,2020,24,POHARI,RADHE DHAKAR,,776,0.46,9,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2537,madhya-pradesh,2020,24,POHARI,VINOD DHAKAD,,532,0.31,10,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2537,madhya-pradesh,2020,24,POHARI,ER. GIRRAJ SINGH DULHARA,,385,0.23,11,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2537,madhya-pradesh,2020,24,POHARI,TOFIK MOHAMMAD,,376,0.22,12,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2537,madhya-pradesh,2020,24,POHARI,VINOD SHAKYA,,347,0.21,13,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2537,madhya-pradesh,2020,24,POHARI,KAILASH PARIHAR,,323,0.19,14,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2523,madhya-pradesh,2020,28,BAMORI,MAHENDRA SINGH SISODIA (SANJU BHAIYA),,101124,62,1,won,M,58,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2523,madhya-pradesh,2020,28,BAMORI,KANHAIYALAL RAMESHWAR AGRAWAL,,47971,29.41,2,lost,M,72,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2523,madhya-pradesh,2020,28,BAMORI,RAMESH DAWAR,,5391,3.31,3,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2523,madhya-pradesh,2020,28,BAMORI,NOTA,,2058,1.26,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2523,madhya-pradesh,2020,28,BAMORI,MANOHAR MIROTA (ADV.),,1983,1.22,5,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2523,madhya-pradesh,2020,28,BAMORI,RAVINDRA KUMAR SHRIVASTAVA,,1433,0.88,6,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2523,madhya-pradesh,2020,28,BAMORI,HEMANT SINGH KUSHWAH,,775,0.48,7,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2523,madhya-pradesh,2020,28,BAMORI,GIRRAJ JAT,,604,0.37,8,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2523,madhya-pradesh,2020,28,BAMORI,SHISHUPAL SINGH YADAV,,519,0.32,9,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2523,madhya-pradesh,2020,28,BAMORI,AMIT KHARE NAGWANSHI,,477,0.29,10,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2523,madhya-pradesh,2020,28,BAMORI,KISHAN PRAJAPATI,,333,0.2,11,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2523,madhya-pradesh,2020,28,BAMORI,RAMNATH BAGHEL,,236,0.14,12,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2523,madhya-pradesh,2020,28,BAMORI,JASVANT SINGH YADAV,,206,0.13,13,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2522,madhya-pradesh,2020,32,ASHOK NAGAR,JAJPAL SINGH 'JAJJI',,78479,52.52,1,won,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2522,madhya-pradesh,2020,32,ASHOK NAGAR,ASHA DOHARE,,63849,42.73,2,lost,F,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2522,madhya-pradesh,2020,32,ASHOK NAGAR,STROMBLIN T.R. BHANDARI,,3373,2.26,3,forfeit,F,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2522,madhya-pradesh,2020,32,ASHOK NAGAR,NOTA,,1482,0.99,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2522,madhya-pradesh,2020,32,ASHOK NAGAR,MANOJ KUMAR BHAIYAJI,,926,0.62,5,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2522,madhya-pradesh,2020,32,ASHOK NAGAR,BUNDELSINGH,,423,0.28,6,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2522,madhya-pradesh,2020,32,ASHOK NAGAR,RAMESH SENDO SUNDARLAL KHATEEK,,368,0.25,7,forfeit,M,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2522,madhya-pradesh,2020,32,ASHOK NAGAR,KOMAL PRASAD SHAKYA 'SHADOURA',,257,0.17,8,forfeit,M,70,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2522,madhya-pradesh,2020,32,ASHOK NAGAR,Kishna Ahirwar Badagoan,,154,0.1,9,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2522,madhya-pradesh,2020,32,ASHOK NAGAR,ALOK,,124,0.08,10,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2527,madhya-pradesh,2020,34,MUNGAOLI,BRAJENDRA SINGH YADAV,,83153,55.2,1,won,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2527,madhya-pradesh,2020,34,MUNGAOLI,KANHAIRAM LODHI,,61684,40.95,2,lost,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2527,madhya-pradesh,2020,34,MUNGAOLI,DR.VIRENDRA SHARMA BHORAKHATI,,2474,1.64,3,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2527,madhya-pradesh,2020,34,MUNGAOLI,NOTA,,1330,0.88,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2527,madhya-pradesh,2020,34,MUNGAOLI,SHREYANS JAIN,,779,0.52,5,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2527,madhya-pradesh,2020,34,MUNGAOLI,SAVITRI LODHI,,268,0.18,6,forfeit,F,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2527,madhya-pradesh,2020,34,MUNGAOLI,JITENDRA SINGH,,176,0.12,7,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2527,madhya-pradesh,2020,34,MUNGAOLI,DEVENDRA SINGH LODHI(BELAI),,169,0.11,8,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2527,madhya-pradesh,2020,34,MUNGAOLI,SHATRUDHAN LODHI,,136,0.09,9,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2527,madhya-pradesh,2020,34,MUNGAOLI,BHARAT SINGH YADAV,,124,0.08,10,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2527,madhya-pradesh,2020,34,MUNGAOLI,BHAN SINGH SEHRIYA,,117,0.08,11,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2527,madhya-pradesh,2020,34,MUNGAOLI,BALRAM,,80,0.05,12,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2527,madhya-pradesh,2020,34,MUNGAOLI,OMPRAKASH Rtd. SDM,,80,0.05,13,forfeit,M,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2527,madhya-pradesh,2020,34,MUNGAOLI,GENDRAJ SINGH,,69,0.05,14,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2641,madhya-pradesh,2020,37,SURKHI,GOVIND SINGH RAJPOOT,,93294,61.11,1,won,M,59,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2641,madhya-pradesh,2020,37,SURKHI,PARUL SAHU KESHRI,,52303,34.26,2,lost,F,39,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2641,madhya-pradesh,2020,37,SURKHI,GOPAL PRASAD AHIRWAR,,1585,1.04,3,forfeit,M,75,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2641,madhya-pradesh,2020,37,SURKHI,SAIFUDDIN,,1171,0.77,4,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2641,madhya-pradesh,2020,37,SURKHI,SIDDIK HASAN,,877,0.57,5,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2641,madhya-pradesh,2020,37,SURKHI,NOTA,,844,0.55,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2641,madhya-pradesh,2020,37,SURKHI,ALEEM MANSOOREE,,758,0.5,7,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2641,madhya-pradesh,2020,37,SURKHI,SHIVRAJ SINGH PATEL (SOMLA),,400,0.26,8,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2641,madhya-pradesh,2020,37,SURKHI,MukesH  Kumar Ahirwar,,262,0.17,9,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2641,madhya-pradesh,2020,37,SURKHI,Thakur Tulsiram Singh DauSaab,,262,0.17,10,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2641,madhya-pradesh,2020,37,SURKHI,SHISHUPAL YADAV,,237,0.16,11,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2641,madhya-pradesh,2020,37,SURKHI,GOVIND SINGH,,187,0.12,12,forfeit,M,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2641,madhya-pradesh,2020,37,SURKHI,JAMAL QURESHI,,132,0.09,13,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2641,madhya-pradesh,2020,37,SURKHI,PURUSHOTTAM AHIRWAR,,123,0.08,14,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2641,madhya-pradesh,2020,37,SURKHI,TULSIRAM PAL,,123,0.08,15,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2641,madhya-pradesh,2020,37,SURKHI,DHARMENDRA RAJPUT,,113,0.07,16,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,KUNWAR PRADYUMNA SINGH LODHI,,67532,45.14,1,won,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,RAM SIYA BHARTI,,49965,33.4,2,lost,F,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,Akhanad Dada Akhanad Pratap Singh Yadav,,20502,13.7,3,forfeit,M,76,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,Ad. RAJENDRA JAIN 'GHUWARA',,1656,1.11,4,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,BHAGWAN DAS YADAV,,1347,0.9,5,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,MANISH KUMAR JAIN,,1344,0.9,6,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,MUNA RAKWAR,,1338,0.89,7,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,Ram Het,,956,0.64,8,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,GIYAN SINGH,,746,0.5,9,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,PUSHPENDRA SINGH THAKUR,,702,0.47,10,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,RAMDAYAL KUSHWAHA,,625,0.42,11,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,NOTA,,518,0.35,12,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,Dharmendra Kumar,,384,0.26,13,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,TAJ MOHAMMAD KADRI,,333,0.22,14,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,DAYAVATI YADAV,,324,0.22,15,forfeit,F,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,Digvijay Singh Rajpoot Lodhi,,318,0.21,16,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,RAJESH YADAV,,316,0.21,17,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,ASHOK ASATI,,261,0.17,18,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,DAYARAM YADAV,,222,0.15,19,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2503,madhya-pradesh,2020,53,MALHARA,SAMRAT SINGH,,215,0.14,20,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2649,madhya-pradesh,2020,87,ANUPPUR,Bisahu Lal Singh,,75600,59.92,1,won,M,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2649,madhya-pradesh,2020,87,ANUPPUR,VISHVNATH SINGH,,40736,32.29,2,lost,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2649,madhya-pradesh,2020,87,ANUPPUR,NOTA,,2447,1.94,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2649,madhya-pradesh,2020,87,ANUPPUR,SUSHIL SINGH PARASTE,,1731,1.37,4,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2649,madhya-pradesh,2020,87,ANUPPUR,Com. SAMAR SHAH SINGH,,1577,1.25,5,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2649,madhya-pradesh,2020,87,ANUPPUR,OM PRAKASH ROUTEL,,1059,0.84,6,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2649,madhya-pradesh,2020,87,ANUPPUR,LALMAN PANIKA,,806,0.64,7,forfeit,M,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2649,madhya-pradesh,2020,87,ANUPPUR,Advocate Deepa Singh,,698,0.55,8,forfeit,F,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2649,madhya-pradesh,2020,87,ANUPPUR,PAPPU SINGH GOND,,488,0.39,9,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2649,madhya-pradesh,2020,87,ANUPPUR,GUNJAAN,,301,0.24,10,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2649,madhya-pradesh,2020,87,ANUPPUR,ANITA PANIKA,,244,0.19,11,forfeit,F,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2649,madhya-pradesh,2020,87,ANUPPUR,Chandrawati Kol,,237,0.19,12,forfeit,F,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2649,madhya-pradesh,2020,87,ANUPPUR,Jai Prakash Panika,,235,0.19,13,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2686,madhya-pradesh,2020,142,SANCHI (SC),DR. PRABHURAM CHOUDHARY,,116577,65.98,1,won,M,62,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2686,madhya-pradesh,2020,142,SANCHI (SC),MADANLAL CHOUDHARY,,52768,29.87,2,lost,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2686,madhya-pradesh,2020,142,SANCHI (SC),ENGINEER POORAN SINGH AHIRWAR,,1587,0.9,3,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2686,madhya-pradesh,2020,142,SANCHI (SC),BHURI BAI (VIDHYA),,1271,0.72,4,forfeit,F,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2686,madhya-pradesh,2020,142,SANCHI (SC),NOTA,,966,0.55,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2686,madhya-pradesh,2020,142,SANCHI (SC),MADANLAL CHOUDHARY,,827,0.47,6,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2686,madhya-pradesh,2020,142,SANCHI (SC),KANCHCHEDI LAL AHIRWAR,,775,0.44,7,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2686,madhya-pradesh,2020,142,SANCHI (SC),PRABHU RAM CHOUDHARY,,384,0.22,8,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2686,madhya-pradesh,2020,142,SANCHI (SC),POORAN LAL,,260,0.15,9,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2686,madhya-pradesh,2020,142,SANCHI (SC),RAMESH KUMAR PASI,,259,0.15,10,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2686,madhya-pradesh,2020,142,SANCHI (SC),KAMAL BHAIYA,,232,0.13,11,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2686,madhya-pradesh,2020,142,SANCHI (SC),Dr. DHARMENDRA AHIRWAR,,200,0.11,12,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2686,madhya-pradesh,2020,142,SANCHI (SC),HARINARAYAN BEDI (BEDIA),,164,0.09,13,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2686,madhya-pradesh,2020,142,SANCHI (SC),DINESH BHAIYA,,147,0.08,14,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2686,madhya-pradesh,2020,142,SANCHI (SC),MALKHAN,,134,0.08,15,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2686,madhya-pradesh,2020,142,SANCHI (SC),MUNSHILAL SILAVAT,,126,0.07,16,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2610,madhya-pradesh,2020,161,BIAORA,AMLYAHAT-RAMCHANDRA DANGI,,95397,51.44,1,won,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2610,madhya-pradesh,2020,161,BIAORA,NARAYANSINGH PANWAR,,83295,44.91,2,lost,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2610,madhya-pradesh,2020,161,BIAORA,GOPAL SINGH BHILALA,,2237,1.21,3,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2610,madhya-pradesh,2020,161,BIAORA,MUKESH KUMAR DANGI,,1398,0.75,4,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2610,madhya-pradesh,2020,161,BIAORA,NOTA,,1179,0.64,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2610,madhya-pradesh,2020,161,BIAORA,NARAYAN SINGH,,659,0.36,6,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2610,madhya-pradesh,2020,161,BIAORA,MUKESH JATAV,,586,0.32,7,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2610,madhya-pradesh,2020,161,BIAORA,JAGDISH KUSHWAH,,364,0.2,8,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2610,madhya-pradesh,2020,161,BIAORA,Ex. Armyman Dr.Susheel Kumar Prasad,,344,0.19,9,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2506,madhya-pradesh,2020,166,AGAR,VIPIN WANKHEDE,,88716,48.63,1,won,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2506,madhya-pradesh,2020,166,AGAR,MANOJ MANOHAR UTWAL (BANTEE),,86718,47.53,2,lost,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2506,madhya-pradesh,2020,166,AGAR,MANOJ JHARBADE,,1762,0.97,3,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2506,madhya-pradesh,2020,166,AGAR,ADVOCATE GAJENDRA KUMAR BANJARIYA,,1415,0.78,4,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2506,madhya-pradesh,2020,166,AGAR,NOTA,,1279,0.7,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2506,madhya-pradesh,2020,166,AGAR,G.D. JARWAL,,1059,0.58,6,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2506,madhya-pradesh,2020,166,AGAR,MUKESH KUMAR PAGARIYA,,642,0.35,7,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2506,madhya-pradesh,2020,166,AGAR,RAJESH GOYAL (MALVIYA),,435,0.24,8,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2506,madhya-pradesh,2020,166,AGAR,DR. JAGDISH MALVIYA,,423,0.23,9,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2509,madhya-pradesh,2020,172,HATPIPLIYA,MANOJ NARAYANSINGH CHOUDHARI,,84405,52.51,1,won,M,44,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2509,madhya-pradesh,2020,172,HATPIPLIYA,KU. RAJVIR SINGH RAJENDRA SINGH BAGHEL,,70501,43.86,2,lost,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2509,madhya-pradesh,2020,172,HATPIPLIYA,RAJESH NAGAR,,1896,1.18,3,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2509,madhya-pradesh,2020,172,HATPIPLIYA,NOTA,,1225,0.76,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2509,madhya-pradesh,2020,172,HATPIPLIYA,UMESH CHOUDHARY (GOSEWAK),,938,0.58,5,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2509,madhya-pradesh,2020,172,HATPIPLIYA,SURAJ SINGH,,491,0.31,6,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2509,madhya-pradesh,2020,172,HATPIPLIYA,SADIK SHAIKH,,361,0.22,7,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2509,madhya-pradesh,2020,172,HATPIPLIYA,AJAY SINGH SENDHAV (UDANASIR),,314,0.2,8,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2509,madhya-pradesh,2020,172,HATPIPLIYA,KAMAL PRATAP SINGH SENDHAV,,179,0.11,9,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2509,madhya-pradesh,2020,172,HATPIPLIYA,VIKRAM KUMAR KATAILIHA,,169,0.11,10,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2509,madhya-pradesh,2020,172,HATPIPLIYA,RAN CHHOD S/O CHUNNILAL,,149,0.09,11,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2509,madhya-pradesh,2020,172,HATPIPLIYA,NARENDRA GUPTA,,110,0.07,12,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2575,madhya-pradesh,2020,175,MANDHATA,NARAYAN PATEL,,80394,53.33,1,won,M,63,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2575,madhya-pradesh,2020,175,MANDHATA,Uttampal Rajnarayan Singh Purni,,58265,38.65,2,lost,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2575,madhya-pradesh,2020,175,MANDHATA,RAO JITENDRA SINGH  RAO SHAILENDRA SINGH,,6583,4.37,3,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2575,madhya-pradesh,2020,175,MANDHATA,NOTA,,1652,1.1,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2575,madhya-pradesh,2020,175,MANDHATA,JITENDRA VASANDE,,1561,1.04,5,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2575,madhya-pradesh,2020,175,MANDHATA,AKRAM KHAN,,1067,0.71,6,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2575,madhya-pradesh,2020,175,MANDHATA,SHEKH JAKIR (SIPAHI),,425,0.28,7,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2575,madhya-pradesh,2020,175,MANDHATA,ANARSHiNGH AADiWASHi,,417,0.28,8,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2575,madhya-pradesh,2020,175,MANDHATA,GAJRAJ SINGH,,384,0.25,9,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2576,madhya-pradesh,2020,179,NEPANAGAR,SUMITRADEVI KASDEKAR,,98881,53.7,1,won,F,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2576,madhya-pradesh,2020,179,NEPANAGAR,RAMKISHAN PATEL,,72541,39.4,2,lost,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2576,madhya-pradesh,2020,179,NEPANAGAR,BHALSING S/O VERSING,,3051,1.66,3,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2576,madhya-pradesh,2020,179,NEPANAGAR,SANJAY (Sanju Bhaiya),,2756,1.5,4,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2576,madhya-pradesh,2020,179,NEPANAGAR,NOTA,,2736,1.49,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2576,madhya-pradesh,2020,179,NEPANAGAR,DEVIDAS BANDEKAR (Ajju Bhaiya),,2603,1.41,6,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2576,madhya-pradesh,2020,179,NEPANAGAR,RAJKUMAR (Raj Bhaiya),,1567,0.85,7,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2514,madhya-pradesh,2020,202,BADNAWAR,RAJVARDHAN SINGH-SHREE PREMSINGH DATTIGAON,,99137,57.9,1,won,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2514,madhya-pradesh,2020,202,BADNAWAR,KAMALSING PATEL,,67004,39.13,2,lost,M,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2514,madhya-pradesh,2020,202,BADNAWAR,NOTA,,2785,1.63,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2514,madhya-pradesh,2020,202,BADNAWAR,OMPARAKASH MALVIY,,2295,1.34,4,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2553,madhya-pradesh,2020,211,SANWER,TULSIRAM  SILAWAT,,129676,61.01,1,won,M,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2553,madhya-pradesh,2020,211,SANWER,PREMCHAND GUDDU,,76412,35.95,2,lost,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2553,madhya-pradesh,2020,211,SANWER,ViKRAM SiNGH - GEHLOT,,2135,1,3,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2553,madhya-pradesh,2020,211,SANWER,NOTA,,1984,0.93,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2553,madhya-pradesh,2020,211,SANWER,SHRAVAN DEVDA,,564,0.27,5,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2553,madhya-pradesh,2020,211,SANWER,RAJESH MALVIyA,,318,0.15,6,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2553,madhya-pradesh,2020,211,SANWER,DEVKARAN CHOUHAN,,257,0.12,7,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2553,madhya-pradesh,2020,211,SANWER,PREMCHAND (GUDDU) WASiWAL,,221,0.1,8,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2553,madhya-pradesh,2020,211,SANWER,MAHENDRA TICKLIYA,,210,0.1,9,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2553,madhya-pradesh,2020,211,SANWER,SHAILeSH THAgELE,,191,0.09,10,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2553,madhya-pradesh,2020,211,SANWER,SUBHASH CHOUHAN,,162,0.08,11,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2553,madhya-pradesh,2020,211,SANWER,DEEPAK MATHOLIYA,,155,0.07,12,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2553,madhya-pradesh,2020,211,SANWER,NiRMAL CHOUHAN,,141,0.07,13,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2553,madhya-pradesh,2020,211,SANWER,SANTOSH. RATNAKAR,,136,0.06,14,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2601,madhya-pradesh,2020,226,SUWASRA,Dung Hardeepsingh,,117955,54.45,1,won,M,52,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2601,madhya-pradesh,2020,226,SUWASRA,BHAI RAKESH PATIDAR,,88515,40.86,2,lost,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2601,madhya-pradesh,2020,226,SUWASRA,CHOUHAN SHANKARLAL,,2233,1.03,3,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2601,madhya-pradesh,2020,226,SUWASRA,SANDIP RAJGURU,,2051,0.95,4,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2601,madhya-pradesh,2020,226,SUWASRA,NOTA,,1769,0.82,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2601,madhya-pradesh,2020,226,SUWASRA,SARDAR SINGH SISODIYA,,1548,0.71,6,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2601,madhya-pradesh,2020,226,SUWASRA,Shekh Afsar Bangali,,1317,0.61,7,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2601,madhya-pradesh,2020,226,SUWASRA,SHAKEEL MANSURI,,430,0.2,8,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2601,madhya-pradesh,2020,226,SUWASRA,HARDIL MURALIDHAR,,414,0.19,9,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2601,madhya-pradesh,2020,226,SUWASRA,HARISH SHARMA,,402,0.19,10,forfeit,M,27,,,challenger,src-1b7bc1c9d39a

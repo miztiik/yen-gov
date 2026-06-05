@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-karnataka-3511,karnataka,2021,BASAVAKALYAN,239782,147432,61.49,SHARANU SALAGAR,,71012,48.17,MALA B NARAYANRAO,,50383,20629,14,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3524,karnataka,2021,SINDGI,234584,163782,69.82,BHUSANUR RAMESH BALAPPA,,93865,57.31,ASHOK. MALLAPPA. MANAGULI,,62680,31185,19.04,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3599,karnataka,2021,HANGAL,204564,171726,83.95,MANE SHRINIVAS,,87490,50.95,SHIVARAJ SHARANAPPA SAJJANAR,,80117,7373,4.3,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3617,karnataka,2021,MASKI,206429,145663,70.56,BASANAGOUDA TURUVIHAL,,86337,59.27,PRATAP GOUDA PATIL,,55731,30606,21.01,src-1b7bc1c9d39a

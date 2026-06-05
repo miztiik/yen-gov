@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-madhya-pradesh-2470,madhya-pradesh,2016,GHODADONGRI,205683,159122,77.36,Mangal Singh Dhurve ''E'',,82304,51.72,Pratap Singh Uike,,69122,13182,8.28,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2576,madhya-pradesh,2016,NEPANAGAR,214383,162047,75.59,Manju Rajendra DaduE,,99626,61.48,Antersing Devising Barde,,57428,42198,26.04,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2644,madhya-pradesh,2016,MAIHAR,210948,160636,76.15,Narayan Tripathi,,82658,51.46,Manish Patel,,54377,28281,17.61,src-1b7bc1c9d39a

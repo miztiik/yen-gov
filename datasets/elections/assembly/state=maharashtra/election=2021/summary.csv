@@ -1,0 +1,3 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-maharashtra-3046,maharashtra,2021,DEGLUR,298540,190860,63.93,Antapurkar Jitesh Raosaheb,,108840,57.03,Sabne Subhash Pirajirao,,66907,41933,21.97,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3137,maharashtra,2021,PANDHARPUR,340889,227306,66.68,Autade Samadhan Mahadev,,109450,48.15,Bhalke Bhagirath Bharat,,105717,3733,1.64,src-1b7bc1c9d39a

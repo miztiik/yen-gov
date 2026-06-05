@@ -1,0 +1,3 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-nagaland-1477,nagaland,2020,PUNGRO KIPHIRE,27013,27460,101.65,T Yangseo Sangtam,,8747,31.85,S. Kiusumew Yimchunger,,7220,1527,5.56,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1482,nagaland,2020,SOUTHERN ANGAMI-I,13588,11611,85.45,MEDO YHOKHA.,,4773,41.11,SEYIEVILIE PETER ZASHUMO.,,4175,598,5.15,src-1b7bc1c9d39a

@@ -1,0 +1,13 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-madhya-pradesh-2508,madhya-pradesh,2015,171,DEWAS,Gayatri Raje Puar,,89385,59.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2508,madhya-pradesh,2015,171,DEWAS,Jai Prakash Shastri,,58580,39.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2508,madhya-pradesh,2015,171,DEWAS,Sunny Singh Kanwar,,760,0.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2508,madhya-pradesh,2015,171,DEWAS,Haji Hatam Bhai(Darbar),,635,0.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Chander Singh Sisodia(E),,81449,52.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Subhash Kumar Sojatia,,68504,44.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Abdul Rashid,,1416,0.92,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Shyam Lal Malviya,,852,0.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Devi Lal Dhakad,,652,0.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Mehmood,,509,0.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Prahalad Singh Chauhan,,275,0.18,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Balaram Hatela,,268,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
