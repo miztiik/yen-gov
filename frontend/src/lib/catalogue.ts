@@ -70,8 +70,20 @@ export interface CatalogueArtifact {
   scope?: ArtifactScope;
   /** Per-artifact override of the topic-level peer_set_default (catalogue v1.1). */
   peer_set_default?: PeerSet;
-  /** Renderer hint mirrored from the indicator's chart_type (catalogue v1.2). */
+  /**
+   * DEPRECATED renderer hint (catalogue v1.2). Reader still accepts it
+   * (per ADR-0047 reader-before-writer); new writes use `chart_types`.
+   * `topic-dispatch.ts` prefers `chart_types[0]` when both are present.
+   */
   chart_type?: "choropleth" | "ranked" | "stacked-trend";
+  /**
+   * Ordered list of feasible chart types for this artifact, sourced from
+   * the grapher catalogue overlay (`datasets/grapher/topic_render.json`
+   * v1.1). `chart_types[0]` is the on-load default; subsequent entries are
+   * additional switcher segments. Carries the deprecated `stacked-trend`
+   * literal until F2a / F2b consolidate the renderer set.
+   */
+  chart_types?: string[];
   /** Categorical dimension for stacked-trend mnemonic colours (catalogue v1.2). */
   dimension?: string;
 }

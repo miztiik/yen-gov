@@ -3,12 +3,17 @@
   "$id": "./grapher-indicator-render.schema.json",
   "title": "Grapher indicator render catalogue (frontend-owned)",
   "description": "Per-indicator render hints, owned by the frontend per ADR-0045. One row per indicator_id; rows are optional (absence == frontend defaults). DELIBERATELY SEPARATE from indicator-catalogue.schema.json (canonical data shape) to keep visualization out of storage. Hand-authored seed; future PRs may add admin tooling.",
-  "x-version": "1.0",
+  "x-version": "1.1",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-26",
-      "description": "Initial grapher indicator render catalogue per ADR-0045 (grapher catalogue split). Carries chart_type, default_mode, renderer_rules[], facet_labels{} — the four render-coupled fields that previously lived in indicator-catalogue.schema.json and the legacy per-shard indicator.schema.json. Seeded from current canonical + legacy values; PR-A3b migrates readers; PR-A3c strips the fields from the canonical schemas."
+      "description": "Initial grapher indicator render catalogue per ADR-0045 (grapher catalogue split). Carries chart_type, default_mode, renderer_rules[], facet_labels{} - the four render-coupled fields that previously lived in indicator-catalogue.schema.json and the legacy per-shard indicator.schema.json. Seeded from current canonical + legacy values; PR-A3b migrates readers; PR-A3c strips the fields from the canonical schemas."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-06-05",
+      "description": "U4 (chart-type switcher seam). Additive: (a) new optional `chart_types` array carrying the ordered list of feasible chart types for the indicator; reader prefers `chart_types[0]` over the singular `chart_type` (ADR-0047 reader-before-writer); (b) widen both `chart_type` (singular, deprecated alias) and `chart_types[]` enum to the full 12-member ChartType set documented in docs/reference/chart-index.md section 1, plus the deprecated `stacked-trend` literal retained for back-compat reading. New JSON authored in this PR uses `chart_types`; legacy singular survives until F2a/F2b consolidate the renderer set."
     }
   ],
   "type": "object",
@@ -32,8 +37,46 @@
           },
           "chart_type": {
             "type": ["string", "null"],
-            "enum": ["stacked-trend", "ranked", "choropleth", null],
-            "description": "Default chart primitive. Absent == frontend default."
+            "enum": [
+              "choropleth",
+              "choropleth-symbol",
+              "matrix",
+              "ranked",
+              "stacked",
+              "diverging",
+              "line",
+              "scatter",
+              "dumbbell-dot",
+              "dumbbell-arrow",
+              "treemap",
+              "circle-pack",
+              "stacked-trend",
+              null
+            ],
+            "description": "DEPRECATED in v1.1 (use `chart_types`). Singular default-chart hint retained for back-compat reading. When both `chart_type` and `chart_types` are present, readers prefer `chart_types[0]`. Enum widened in v1.1 to the full 12-member ChartType set (docs/reference/chart-index.md section 1) + the deprecated `stacked-trend` literal."
+          },
+          "chart_types": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "enum": [
+                "choropleth",
+                "choropleth-symbol",
+                "matrix",
+                "ranked",
+                "stacked",
+                "diverging",
+                "line",
+                "scatter",
+                "dumbbell-dot",
+                "dumbbell-arrow",
+                "treemap",
+                "circle-pack",
+                "stacked-trend"
+              ]
+            },
+            "description": "Ordered list of feasible chart types for this indicator. `chart_types[0]` is the on-load default the switcher pre-selects; the rest are the additional segments offered when feasibleAt() intersects with this list. Added in v1.1 per plan section 16.3a + 21.9 (U4)."
           },
           "default_mode": {
             "type": ["string", "null"],

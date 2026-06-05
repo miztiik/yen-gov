@@ -12,6 +12,12 @@
 //     before any new dispatch case is added. C3 (the behavioural step)
 //     extends `RenderKind` without re-touching TopicLanding's branch shape.
 //
+// U4 (2026-06-05): the grapher catalogue now carries `chart_types[]`
+// (plural) alongside the DEPRECATED `chart_type` (singular). This module
+// reads `chart_types?.[0] ?? chart_type` so new writes (plural) win when
+// both are present, and legacy writes (singular) keep working until F2a /
+// F2b consolidate the renderer set (ADR-0047 reader-before-writer).
+//
 // What this module is NOT:
 //   - Not a generic UI router. The catalogue is small and closed; an enum
 //     of render kinds is honest about that.
@@ -36,8 +42,14 @@ export type RenderKind = "stacked-trend" | "trio";
  * Decide which render kind a catalogue artifact maps to.
  *
  * Pure: same inputs always produce the same output. No I/O, no DOM.
+ *
+ * Precedence (U4 reader-before-writer):
+ *   1. `chart_types[0]` (plural; what new writes carry)
+ *   2. `chart_type`     (singular; deprecated, kept readable per ADR-0047)
+ *   3. fall through to `trio`
  */
 export function renderKindForArtifact(artifact: CatalogueArtifact): RenderKind {
-  if (artifact.chart_type === "stacked-trend") return "stacked-trend";
+  const chartType = artifact.chart_types?.[0] ?? artifact.chart_type;
+  if (chartType === "stacked-trend") return "stacked-trend";
   return "trio";
 }

@@ -8,6 +8,11 @@
 // legacy canonical fields kept as a transitional fallback until A3c
 // physically deletes them from `topic-catalogue.schema.json` v2.0.
 //
+// U4 (2026-06-05): the grapher topic catalogue gained a `chart_types`
+// array alongside the deprecated `chart_type` singular. This overlay
+// threads BOTH fields through to the catalogue artifact so downstream
+// readers (topic-dispatch.ts) can prefer `chart_types[0]`.
+//
 // Strategy: overlay at the FETCH SEAM. `fetchTopicCatalogue()` calls
 // `applyGrapherOverlay()` before returning, so every downstream reader
 // (TopicLanding.svelte, topic-dispatch.ts, StackedTrendArtifact.svelte)
@@ -34,9 +39,10 @@ function indexGrapherTopics(
 
 /**
  * Return a NEW topic catalogue with each indicator-kind artifact's
- * `chart_type` / `dimension` sourced from the grapher catalogue when
- * present. The legacy canonical value is the fallback (and is identical
- * to the grapher value when both exist, per parity test). Pure: no I/O.
+ * `chart_type` / `chart_types` / `dimension` sourced from the grapher
+ * catalogue when present. The legacy canonical value is the fallback (and
+ * is identical to the grapher value when both exist, per parity test).
+ * Pure: no I/O.
  */
 export function applyGrapherOverlay(
   topicCat: TopicCatalogue,
@@ -58,6 +64,7 @@ export function applyGrapherOverlay(
             | "ranked"
             | "stacked-trend"
             | undefined,
+          chart_types: g.chart_types ?? a.chart_types,
           dimension: g.dimension ?? a.dimension,
         };
       }),
