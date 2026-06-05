@@ -144,6 +144,28 @@ describe("canonical URL grammar", () => {
     ).toBe("/compare?i=state-gsdp-current-inr-crore&states=S22%2CS07&peer=south");
   });
 
+  // U5b - per-indicator documentation route (`/docs/indicator/:topic/:id`).
+  // Builder mirrors the 2-segment catalogue key form (`<topic>/<id>`) without
+  // URL-encoding the separating slash; the router pattern declares the same
+  // 2-segment shape so a builder regression here would silently 404.
+  it("indicatorDoc is /docs/indicator/<topic>/<id>", () => {
+    expect(url.indicatorDoc("fiscal/outstanding_debt_pct_gsdp")).toBe(
+      "/docs/indicator/fiscal/outstanding_debt_pct_gsdp",
+    );
+  });
+
+  it("indicatorDoc preserves the catalogue-key slash (NOT URL-encoded)", () => {
+    const u = url.indicatorDoc("environment/state_pm25_annual_mean_ug_m3");
+    expect(u).toContain("/docs/indicator/environment/state_pm25_annual_mean_ug_m3");
+    expect(u).not.toContain("%2F");
+  });
+
+  it("indicatorDoc always starts with the /docs/indicator/ prefix", () => {
+    expect(url.indicatorDoc("livestock-owner-reg-count")).toMatch(
+      /^\/docs\/indicator\/[a-z0-9_/-]+$/,
+    );
+  });
+
   // Negative assertions — these shapes are explicitly NOT canonical and
   // must never appear in any builder's output. (Audit found zero
   // occurrences on main; this test locks that invariant.)
