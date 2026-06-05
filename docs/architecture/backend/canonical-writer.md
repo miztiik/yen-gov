@@ -76,6 +76,21 @@ Each emitter is paired with `backend/tests/test_seed_<name>_csv.py` covering: de
 
 Each emitter targets a CSV under `datasets/data/`; the legacy parquet sibling under `datasets/taxonomy/` survives until grandparent chunk X1b deletes it. During the B2a -> X1a -> X1b window both formats coexist; new readers MUST consume the CSV, never the parquet.
 
+## Elections datapoint reingest (B2b.5, PRs #762-772)
+
+Sub-plan [TODO/20260604-b2b5-elections-reingest-subplan.md](../../../TODO/20260604-b2b5-elections-reingest-subplan.md) delivered the elections clean-start: an LGD-spine reset (PR-stages 0a-0e) plus the two Tier-R result axes (assembly + parliament). The spine is sourced from a committed LGD parsed snapshot under `datasets/reference/lgd/`; the results are re-parsed from the local TCPD compilations in `datasets/ephemeral/` (never the surviving parquet). Per-row emit map:
+
+| Source (ephemeral, INPUT-only) | Emitter | Writes | Key shape |
+| --- | --- | --- | --- |
+| `All_Stateof_India_*.csv` (LGD) | `seed/state_codes_csv.py` (0b) | `entities/state_codes.csv` | `lgd_state_id` PK; `iso_3166_2` seeded; `eci_st_code` DROPPED; census as two dated LABEL columns |
+| LGD snapshot `constituencies.csv` | `seed/electoral_csv_from_snapshot.py` (0c-2) | `entities/electoral.csv` | `IN-{AC,PC}-2008-<state-slug>-<lgd_code>`; `eci_no` folded DIRECT from the PRI ECI-code column |
+| LGD snapshot `constituency_district_membership.csv` | `seed/electoral_district_membership_csv.py` (0c-2) | `entities/electoral_district_membership.csv` | `(electoral_id, lgd_district_id)`; `is_primary` = plurality district |
+| `datasets/taxonomy/parties.json` | `seed/party_csv.py` (0c-3 rename) | `entities/parties.csv` | `party_id` PK (renamed from `party.csv`) |
+| `All_States_AE.csv` (TCPD assembly) | `reingest/assembly_results.py` (5.2 pilot + 5.3 fan-out) | `elections/assembly/state=<slug>/election=<yr>/{candidacies,summary}.csv` | candidate-grain; `entity_id` binds AC on `(state, eci_no)`; `summary == recompute(candidacies)` |
+| `All_States_GE.csv` (TCPD parliament) | `reingest/parliament_results.py` (5.4) | `elections/parliament/election=<yr>/{candidacies,summary}.csv` | country-wide; MANDATORY `state` column (pc_no restarts per state); PC bind |
+
+Binding doctrine (shared by both result axes): only the in-force 2008 delimitation (TCPD `DelimID` 4) is emitted, because its `Constituency_No` numbering is the one bound to `electoral.csv`; NOTA is excluded from candidacies (a ballot option, not a candidate, but its votes stay in the AC/PC-level turnout); `party_id` is null at v1 (the TCPD-internal `Party_ID` has no crosswalk into `parties.csv`); an unbindable constituency (state-reorganisation artefact or the small LGD-spine gap, e.g. Delhi which has no `electoral.csv` constituencies) is SKIPPED and surfaced in a per-stage coverage receipt under `datasets/_ops/`, never fabricated. The summary's `winner_share_pct` + runner-up + margin columns are nullable to admit an uncontested (single-candidate, unopposed) seat. `recompute_summary_row` is shared (imported by the parliament emitter) so the parity oracle `summary == recompute(candidacies)` holds identically on both axes. Each TCPD endpoint mints ONE `source_id` via `derive_source_id` (scalar per producer+endpoint+snapshot per ADR-0042 / OWID one-origin-per-snapshot), not one per year. Coverage reconciliation of the new CSV tree (`coverage.py`) is deferred to the F1 reader-flip (it is assembly/AC + legacy-parquet today); see [coverage.md](coverage.md).
+
 ## Test surfaces
 
 | Test | What it pins |
