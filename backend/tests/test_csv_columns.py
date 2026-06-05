@@ -61,7 +61,7 @@ def test_shipped_columns_validates_against_schema_of_schemas(contract):
             "datasets/data/entities/electoral_lgd_xwalk.csv",
             ("electoral_id", "lgd_district_id", "delim_year"),
         ),
-        ("datasets/data/entities/party.csv", ("party_id",)),
+        ("datasets/data/entities/parties.csv", ("party_id",)),
         ("datasets/data/entities/source.csv", ("source_id",)),
         ("datasets/data/datapoints/geo/*.csv", ("entity_id", "time")),
         ("datasets/data/datapoints/electoral/*.csv", ("entity_id", "time")),

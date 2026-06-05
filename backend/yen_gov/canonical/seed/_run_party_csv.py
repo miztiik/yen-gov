@@ -1,4 +1,4 @@
-"""One-off driver to emit datasets/data/entities/party.csv from
+"""One-off driver to emit datasets/data/entities/parties.csv from
 datasets/taxonomy/parties.json. Run from repo root.
 """
 from pathlib import Path
@@ -10,7 +10,7 @@ from yen_gov.canonical.seed.party_csv import FILE_CLASS, emit
 def main() -> None:
     repo_root = Path(__file__).resolve().parents[4]
     parties_json = repo_root / "datasets" / "taxonomy" / "parties.json"
-    out = repo_root / "datasets" / "data" / "entities" / "party.csv"
+    out = repo_root / "datasets" / "data" / "entities" / "parties.csv"
     emit(parties_json=parties_json, out_path=out)
     validate_csv(path=out, file_class=FILE_CLASS, repo_root=repo_root)
     rows = out.read_text(encoding="utf-8").splitlines()

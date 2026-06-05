@@ -1,4 +1,4 @@
-"""Tests for B2a.8 entities/party.csv emitter (sub-plan)."""
+"""Tests for B2a.8 entities/parties.csv emitter (sub-plan)."""
 
 from __future__ import annotations
 
@@ -33,7 +33,7 @@ def _party(**overrides) -> dict:
 
 def test_emit_minimal_row(tmp_path):
     src = _stage(tmp_path / "parties.json", [_party()])
-    out = tmp_path / "datasets" / "data" / "entities" / "party.csv"
+    out = tmp_path / "datasets" / "data" / "entities" / "parties.csv"
     emit(parties_json=src, out_path=out)
     lines = out.read_text(encoding="utf-8").splitlines()
     assert lines[0] == "party_id,short,full,eci_codes,brand_colour,symbol_asset,wikipedia"
@@ -56,7 +56,7 @@ def test_emit_nullable_fields_blank_when_absent(tmp_path):
             }
         ],
     )
-    out = tmp_path / "party.csv"
+    out = tmp_path / "parties.csv"
     emit(parties_json=src, out_path=out)
     body = out.read_text(encoding="utf-8").splitlines()[1]
     # eci_codes, brand_colour, symbol_asset, wikipedia all blank
@@ -68,7 +68,7 @@ def test_emit_pipe_joins_multiple_eci_codes(tmp_path):
         tmp_path / "parties.json",
         [_party(eci_codes=["83", "545"])],
     )
-    out = tmp_path / "party.csv"
+    out = tmp_path / "parties.csv"
     emit(parties_json=src, out_path=out)
     body = out.read_text(encoding="utf-8")
     assert "83|545" in body
@@ -82,7 +82,7 @@ def test_emit_sorts_by_party_id(tmp_path):
             _party(party_id="parties.IN.AAA", short_name="A", full_name="A"),
         ],
     )
-    out = tmp_path / "party.csv"
+    out = tmp_path / "parties.csv"
     emit(parties_json=src, out_path=out)
     lines = out.read_text(encoding="utf-8").splitlines()
     assert lines[1].startswith("parties.IN.AAA,")
@@ -154,6 +154,6 @@ def test_emitted_csv_passes_validator(tmp_path):
         ],
     )
     repo_root = tmp_path
-    out = repo_root / "datasets" / "data" / "entities" / "party.csv"
+    out = repo_root / "datasets" / "data" / "entities" / "parties.csv"
     emit(parties_json=src, out_path=out)
     validate_csv(path=out, file_class=FILE_CLASS, repo_root=repo_root)

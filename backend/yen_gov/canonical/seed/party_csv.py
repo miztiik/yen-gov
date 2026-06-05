@@ -1,7 +1,7 @@
-"""B2a.8 entities/party.csv emitter.
+"""B2a.8 entities/parties.csv emitter.
 
 Lift ``datasets/taxonomy/parties.json`` to
-``datasets/data/entities/party.csv`` per the parent plan section 20.3 +
+``datasets/data/entities/parties.csv`` per the parent plan section 20.3 +
 sub-plan B2a.8: ``party_id`` is the sole canonical key; ``eci_codes`` is a
 descriptive multi-value attribute (pipe-delimited), not a join key.
 
@@ -33,7 +33,7 @@ from typing import Any
 from yen_gov.canonical.csv_writer import write_csv
 
 
-FILE_CLASS = "datasets/data/entities/party.csv"
+FILE_CLASS = "datasets/data/entities/parties.csv"
 
 
 def _read_parties(path: Path) -> list[dict[str, Any]]:
