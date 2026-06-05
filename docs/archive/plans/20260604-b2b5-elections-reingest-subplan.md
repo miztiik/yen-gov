@@ -1,8 +1,8 @@
 # B2b.5 sub-sub-plan - elections-from-local-TCPD per-election CSV reingest
 
 **Last Updated**: 2026-06-04
-**Parent**: [TODO/20260604-b2b-reingest-subplan.md](20260604-b2b-reingest-subplan.md) row B2b.5
-**Grandparent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) chunk B2b
+**Parent**: [TODO/20260604-b2b-reingest-subplan.md](../../../TODO/20260604-b2b-reingest-subplan.md) row B2b.5
+**Grandparent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) chunk B2b
 **Status**: UNBLOCKED 2026-06-05 (user-ratified resolution in section 0b; LGD-native PK kept, `eci_no` folded as a column, clean-start rip-and-replace). NEW prerequisite row B2b.5.0 (clean-start re-emit) added; B2b.5.2..B2b.5.5 flip from `BLOCKED-NEEDS-SIGNOFF` to `TODO (blocks on B2b.5.0)`. B2b.5.1 MERGED (#711); B2b.5.Z TODO. Resolution + signed scope-change ledger in section 0b.
 **Authority**: Hans + Max (per-election shape, identity, candidacy vs summary columns) / Gregor (FK contract, per-election self-containment, parity gate, parliament `state` mandatory column per 23.4) per CLAUDE.md section 0a
 
@@ -44,7 +44,7 @@ The candidacies file class declares `entity_id` as non-nullable FK to `entities/
 
 Recommendation (NOT a decision): D. The EciToAcid migration plan already owns this problem; B2b.5 should wait on it rather than re-litigate the LGD-numbering choice inside the elections sub-sub-plan. The agent will NOT autonomously pick a path - this requires Hans + Max sign-off (CLAUDE.md section 0a).
 
-### Scope-change ledger (per [docs/how-to/handle-scope-change.md](../docs/how-to/handle-scope-change.md))
+### Scope-change ledger (per [docs/how-to/handle-scope-change.md](../../how-to/handle-scope-change.md))
 
 | Verbatim user instruction | Proposed change | Reason | `signoff:` |
 | --- | --- | --- | --- |
@@ -108,7 +108,7 @@ The user challenged the `eci_st_code` requirement; a web-research pass + Hans co
 4. **Reset framing replaces "distrusted derivations" (supersedes 0c.2).** We cannot attribute the identity mess produced by historically mixing LGD codes with a Wikipedia-derived ECI crosswalk - so make NO quality/blame claim. Re-baseline to a single dated LGD snapshot as the authority of record, carry every prior value forward ONLY as a validity-scoped source-stamped alias, and discard anything that does not reconcile. The keep-useful-else-discard decision is evidenced by the section-0c.3 diff receipt, not by in-the-moment judgment.
 5. **XLS or HTML, operator's choice.** LGD publishes both; XLS (`openpyxl`, cells read as strings) is in fact cleaner to parse than HTML (no presentation chrome, no leading-zero coercion risk). The committed parsed CSV under `datasets/reference/lgd/` is the source of truth either way; the gitignored ephemeral file stays throwaway.
 
-### Round-8 scope-change ledger (per [docs/how-to/handle-scope-change.md](../docs/how-to/handle-scope-change.md))
+### Round-8 scope-change ledger (per [docs/how-to/handle-scope-change.md](../../how-to/handle-scope-change.md))
 
 | Verbatim user instruction | Change | Reason | signoff: |
 | --- | --- | --- | --- |
@@ -116,7 +116,7 @@ The user challenged the `eci_st_code` requirement; a web-research pass + Hans co
 
 ### Round-8 residual forks - RESOLVED (2026-06-05, user)
 - **R1 RESOLVED -> FULL DROP.** The user directs: fully decommission `eci_st_code` (the STATE/UT code) - it is NOT in the spine and NOT even an alias row; no `eci_st_code` `alias_kind` is emitted into `state_aliases.csv`. The mandatory decommission sweep (below) confirms no in-repo consumer needs it. If a future ECI-numbered EXTERNAL dataset ever requires it, it is re-introduced THEN - via a new scope-change ledger row - as a validity-scoped alias, never pre-emptively. (Rationale: it fails all four issuing-authority tests - not published by ECI, self-joined from Wikipedia in-repo, absent from the result files, renumbers on reorganization - so carrying it even as a dormant alias would re-seed the exact identity confusion round-8 removes.)
-- **R2 RESOLVED -> Round-8 chose a long-format `entities/state_aliases.csv`; Round-8c SUPERSEDES that to inline alias COLUMNS (see Round-8c section below).** Rationale recap: census codes ship from LGD as two dated columns (`census_2001_code` + `census_2011_code`) which already encode "when it was, when it is not", and name synonyms ride one pipe `aliases` column that generalises to every grain - so no separate alias table is needed at v1. A generic `entity_aliases.csv` (all grains, one table, with validity + `source_id`) is deferred until a real validity+source query appears. OWID-faithful + simpler. (The micro-call on whether the deferred generic table is ever needed sits with Hans + Max per [docs/concepts/owid-alignment.md](../docs/concepts/owid-alignment.md).)
+- **R2 RESOLVED -> Round-8 chose a long-format `entities/state_aliases.csv`; Round-8c SUPERSEDES that to inline alias COLUMNS (see Round-8c section below).** Rationale recap: census codes ship from LGD as two dated columns (`census_2001_code` + `census_2011_code`) which already encode "when it was, when it is not", and name synonyms ride one pipe `aliases` column that generalises to every grain - so no separate alias table is needed at v1. A generic `entity_aliases.csv` (all grains, one table, with validity + `source_id`) is deferred until a real validity+source query appears. OWID-faithful + simpler. (The micro-call on whether the deferred generic table is ever needed sits with Hans + Max per [docs/concepts/owid-alignment.md](../../concepts/owid-alignment.md).)
 
 ### eci_st_code vs eci_no - the disambiguation the executing agent MUST honour
 - **DECOMMISSIONED: `eci_st_code`** - the `S22`/`U08` STATE/UT code. Dropped from the spine, no alias, swept out everywhere (below). It is NOT in the result files.
@@ -185,7 +185,7 @@ Routing manifest (current ephemeral snapshot, NON-EXHAUSTIVE - extend as files a
 
 Reaffirm (round-8d): Tier E is OPTIONAL and delta-loaded - the core elections delivery is COMPLETE with Tier S + Tier R alone; Tier E adds breadth later, one independent dataset at a time, never as a blocker or prerequisite.
 
-### Round-8c scope-change ledger (per [docs/how-to/handle-scope-change.md](../docs/how-to/handle-scope-change.md))
+### Round-8c scope-change ledger (per [docs/how-to/handle-scope-change.md](../../how-to/handle-scope-change.md))
 
 | Verbatim user instruction | Change | Reason | signoff: |
 | --- | --- | --- | --- |
@@ -268,7 +268,7 @@ Out of scope (other rows / chunks):
 | 0c-2 | regenerate `electoral.csv` (+`eci_no` folded DIRECT from the PRI super-file's ECI-code column, +`aliases`) + `electoral_district_membership.csv` (renamed from `electoral_lgd_xwalk.csv`; `is_primary`/`lgd_snapshot`/`source_id`, 4315 edges) + LGD `source.csv` row (`derive_source_id`) + diff-receipt under `datasets/_ops/` (verdict minor-membership-shift, overlap 0.98) | fk-validator + eci-bind-coverage + diff-receipt | #765 | MERGED |
 | 0c-3 | rename `party.csv` -> `parties.csv`: entity file_class + 7 election/holder FK targets in `columns.json` + emitter `FILE_CLASS` + the two `_run_*` drivers + `governments_term_shape` resolver docstrings + `csv-column-contract.md` / `canonical-writer.md` spec rows. Byte-identical regen (620 rows). | fk-validator | #766 | MERGED |
 | 0e | ECI + census decommission sweep + receipt under `datasets/_ops/`. **Audit ran; receipt `eci-census-decommission-sweep-2026-06-05.md` emitted** classifying every hit. Spine compliant (`state_codes.csv` has no `eci_st_code`; census is label-only; `eci_no` retained). Gate-closing repoint RE-SCOPED to a coordinated cross-subsystem lift (forward-pointed) - see scope note below. | eci-census-decommission-sweep (receipt emitted; repo-wide zero re-scoped) | _pending_ | RECEIPT-EMITTED / REPOINT-DEFERRED |
-| 0d-del | DELETE `ac_crosswalk.*` + old `electoral_lgd_xwalk.csv` + synthetic-id refs LAST | full validator green + grep no live reader | - | TODO |
+| 0d-del | DELETE `ac_crosswalk.*` + old `electoral_lgd_xwalk.csv` + synthetic-id refs LAST. **Audit ran (Explore subagent); receipt `legacy-deletion-disposition-2026-06-05.md` emitted.** The plan delete-list is STALE: 4 of 5 targets are LIVE tested entities owned by OTHER chunks (`ac_crosswalk.csv`=B2b.4.6, `electoral_lgd_xwalk.csv`=B2a.7 - NOT renamed to membership; 0c-2 made a NEW membership file + left xwalk, `lgd_acs`/`lgd_pcs.json`=taxonomy/X1b), and the legacy `electoral_csv.py` is entangled with a live B2a.7 test. DELETE NOTHING; forward-pointed - see scope note below. | full validator green + grep no live reader (precondition NOT met - targets live) | _pending_ | RECEIPT-EMITTED / DELETE-DEFERRED |
 
 > Section 0c exceeded one reviewable PR (section 24.5: 4 emitters + 3 columns.json changes + diff-receipt + parties rename), so it shipped as three staged sub-PRs 0c-1 / 0c-2 / 0c-3, each its own reviewable diff regenerated from the committed 0a snapshot.
 
@@ -276,11 +276,13 @@ Out of scope (other rows / chunks):
 
 > Round-8d on-disk reality folded into 0a: the PRI super-file (`Parliment_..._Pri_*.xlsx`) landed for ALL 35 states/UTs, NOT A&N-only. Each per-AC-village row carries the AC LGD code + AC ECI Code + PC LGD/ECI codes + District code, so the `eci_no` bind is a DIRECT JOIN off the PRI export (not the name-match the round-8d text feared); `entity_id` stays LGD-native; AC<->district membership + plurality `is_primary` come straight off the village rows. A&N has no PRI file (no district breakdown) and therefore no AC rows - expected.
 
-| B2b.5.2 assembly per-state pilot: emit `assembly/state=tamil-nadu/election=<yr>/{candidacies,summary}.csv` for ALL TN years held in `state=tamil-nadu/election_results.parquet` + `elections_candidacies.parquet` (TN-scoped slice); cross-format-parity + parity-oracle-CSV (winner+margin invariants only) on this slice | B2b.5.0 | cross-format-parity + parity-oracle-CSV | _pending_ | IN-FLIGHT (emitter `reingest/assembly_results.py` + driver + 13 tests; emitted 8 TN years 2011-2021, 10962 candidacies + 723 summary; source re-parses `All_States_AE.csv` not the parquet - plan "re-parse local TCPD CSV" option; DelimID-4/2008 scope; party_id null v1; see PR body) |
-| B2b.5.3 assembly fan-out: replay the B2b.5.2 emitter across the remaining 35 `state=<slug>/` directories; one PR per parallel-safe wave (~6-10 states per wave by file-size; orchestrator picks wave membership; each wave is ITSELF a sub-sub-sub-row that may spawn its own plan if a wave exceeds one PR's reviewable surface) | B2b.5.2 | cross-format-parity per state | - | TODO (blocks on B2b.5.2; resolved section 0b) |
-| B2b.5.4 parliament: emit `parliament/election=<year>/{candidacies,summary}.csv` for every LS cycle held in `elections_candidacies.parquet` (1957..2024, ~18 cycles; PC rows discriminated by `entity_id` prefix). MANDATORY `state` column on the parliament file per plan section 23.4. EL7 `coverage.py` disposition resolved in this PR's body | B2b.5.0 | cross-format-parity + parity-oracle-CSV | _pending_ | IN-FLIGHT (emitter `reingest/parliament_results.py` reusing assembly helpers + driver + 9 tests; emitted 11 LS cycles 2009-2021, 19336 candidacies + 1319 summary; mandatory `state` column populated on every row; PC-bind; EL7 = coverage.py SCOPE-FENCED to assembly, parliament reconcile deferred to F1 reader-flip, evidenced by `datasets/_ops/parliament-coverage-2026-06-05.md`; source re-parses `All_States_GE.csv` not the parquet) |
+> **0d-del scope note (2026-06-05, autonomous decision).** A grep audit + Explore subagent (recorded in `datasets/_ops/legacy-deletion-disposition-2026-06-05.md`) found the plan's 0d-del delete-list is STALE on the current `main`. Of the 5 targets: `ac_crosswalk.csv` is a LIVE B2b.4.6 canonical entity (`eci_no -> lgd_ac_id` per delim from `ac_crosswalk.parquet`, +3 hard-fail tests, columns.json line ~320 EXPLICITLY distinguishes it from the xwalk - it is NOT the synthetic `state_code*1000+eci_no` crosswalk the plan meant); `electoral_lgd_xwalk.csv` is a LIVE B2a.7 entity (253-row boundary-decay receipt, +16 tests) that 0c-2 did NOT rename (0c-2 made a NEW `electoral_district_membership.csv` and left xwalk in place - a distinct concept per columns.json line ~89); `lgd_acs.json`/`lgd_pcs.json` are LIVE taxonomy oracles read by 2 emitters + `test_lgd_taxonomy.py` from disk (X1b territory, kept as cross-check per round-8 doctrine); the legacy `electoral_csv.py` is superseded but still imported by the LIVE B2a.7 test `test_seed_electoral_lgd_xwalk_csv.py`. Deleting any target now hard-fails live tests + a parity gate. Per the same step-4 doctrine as 0e, this stage emits the disposition receipt + forward-points each retirement to its owning chunk (B2a.6/B2a.7/B2b.4.6/X1b); it deletes nothing. **The B2b.5 deliverable - spine + assembly (30 states) + parliament - is complete without these deletions; 0d-del was a tidy-up, not a delivery gate.**
+
+| B2b.5.2 assembly per-state pilot: emit `assembly/state=tamil-nadu/election=<yr>/{candidacies,summary}.csv` for ALL TN years held in `state=tamil-nadu/election_results.parquet` + `elections_candidacies.parquet` (TN-scoped slice); cross-format-parity + parity-oracle-CSV (winner+margin invariants only) on this slice | B2b.5.0 | cross-format-parity + parity-oracle-CSV | #768 | MERGED (emitter `reingest/assembly_results.py` + driver + 13 tests; 8 TN years 2011-2021, 10962 candidacies + 723 summary; re-parses `All_States_AE.csv`; DelimID-4/2008; party_id null v1) |
+| B2b.5.3 assembly fan-out: replay the B2b.5.2 emitter across the remaining `state=<slug>/` directories; one PR per parallel-safe wave | B2b.5.2 | cross-format-parity per state | #769 #770 #771 | MERGED (3 waves: 30 states total, 474 CSVs, ~116k candidacies + ~11k summary; wave-1 added nullable-uncontested schema + nan->null; Delhi DEFERRED - no spine ACs; coverage receipt `assembly-fanout-coverage-2026-06-05.md`) |
+| B2b.5.4 parliament: emit `parliament/election=<year>/{candidacies,summary}.csv` for every LS cycle. MANDATORY `state` column per plan section 23.4. EL7 `coverage.py` disposition resolved in this PR's body | B2b.5.0 | cross-format-parity + parity-oracle-CSV | #772 | MERGED (emitter `reingest/parliament_results.py` reusing assembly helpers + driver + 9 tests; 11 LS cycles 2009-2021, 19336 candidacies + 1319 summary; mandatory `state` on every row; PC-bind; EL7 = coverage.py SCOPE-FENCED to assembly, parliament reconcile -> F1 reader-flip, receipt `parliament-coverage-2026-06-05.md`) |
 | B2b.5.5 source ledger backfill (only if B2b.5.2 / B2b.5.3 / B2b.5.4 surface any TCPD release vintage absent from `entities/source.csv`): append rows via `derive_source_id`; SAME-PR with the emit row that surfaced the gap (do NOT defer; per B2a.1 precedent). DONE inline: B2b.5.2 minted the TCPD-AE source (`src-1b7bc1c9d39a`); B2b.5.4 minted the TCPD-GE source (`src-31c65dbec869`). | (folded inline into the emit row that triggers it) | fk-validator | inline | MERGED-INLINE |
-| B2b.5.Z close sub-sub-plan: flip parent B2b.5 row to MERGED + stamp closure PR + distil per-row emit map into [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md) "Datapoint reingest" section "Elections" subsection + archive this file to `docs/archive/plans/` | B2b.5.1..B2b.5.4 | docs-review | - | TODO |
+| B2b.5.Z close sub-sub-plan: flip parent B2b.5 row to MERGED + stamp closure PR + distil per-row emit map into [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) "Datapoint reingest" section "Elections" subsection + archive this file to `docs/archive/plans/` | B2b.5.1..B2b.5.4 | docs-review | _pending_ | IN-FLIGHT (canonical-writer.md "Elections datapoint reingest" subsection added with per-row emit map; 0d-del + 0e disposition receipts emitted; parent B2b.5 ledger flip + subplan archive ride this closure PR) |
 
 Parallel-safe groups:
 
@@ -309,10 +311,10 @@ The parent B2b sub-plan's Execution Ledger row B2b.5 is `DEFERRED-TO-SUBPLAN -> 
 
 ## See also
 
-- Parent sub-plan: [TODO/20260604-b2b-reingest-subplan.md](20260604-b2b-reingest-subplan.md) row B2b.5.
-- Grandparent plan: [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) (sections 21.3, 21.4, 21.6, 22.4, 22.5, 22.6, 23.1, 23.3, 23.4, 23.7, 24.5).
-- B2b.4 sub-sub-plan precedent (taxonomy datapoint reingest): [TODO/20260604-b2b4-taxonomy-subplan.md](20260604-b2b4-taxonomy-subplan.md).
-- B2a sub-plan precedent: [docs/archive/plans/20260604-b2a-csv-catalogue-subplan.md](../docs/archive/plans/20260604-b2a-csv-catalogue-subplan.md).
-- B1 sub-plan precedent: [docs/archive/plans/20260604-b1-csv-writer-subplan.md](../docs/archive/plans/20260604-b1-csv-writer-subplan.md).
-- Canonical writer doc: [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md).
+- Parent sub-plan: [TODO/20260604-b2b-reingest-subplan.md](../../../TODO/20260604-b2b-reingest-subplan.md) row B2b.5.
+- Grandparent plan: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) (sections 21.3, 21.4, 21.6, 22.4, 22.5, 22.6, 23.1, 23.3, 23.4, 23.7, 24.5).
+- B2b.4 sub-sub-plan precedent (taxonomy datapoint reingest): [TODO/20260604-b2b4-taxonomy-subplan.md](../../../TODO/20260604-b2b4-taxonomy-subplan.md).
+- B2a sub-plan precedent: [docs/archive/plans/20260604-b2a-csv-catalogue-subplan.md](../../archive/plans/20260604-b2a-csv-catalogue-subplan.md).
+- B1 sub-plan precedent: [docs/archive/plans/20260604-b1-csv-writer-subplan.md](../../archive/plans/20260604-b1-csv-writer-subplan.md).
+- Canonical writer doc: [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md).
 - Sub-plan spawning rule: grandparent section 24.5.
