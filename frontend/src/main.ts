@@ -29,6 +29,7 @@ import DataCompleteness from "./routes/DataCompleteness.svelte";
 import DuckDbHarness from "./routes/DuckDbHarness.svelte";
 import DevChartsSandbox from "./routes/DevChartsSandbox.svelte";
 import Yenask from "./routes/Yenask.svelte";
+import IndicatorDoc from "./routes/IndicatorDoc.svelte";
 import NotFound from "./routes/NotFound.svelte";
 
 // Mount the persistent shell once. The router replaces the contents of
@@ -152,6 +153,19 @@ startRouter({
     // route order is not load-bearing. Removal = git rm of
     // routes/Yenask.svelte + lib/yenask/ + this entry.
     { pattern: "/lab/yenask", component: Yenask },
+    // Per-indicator documentation page (U5b, parent plan section 20.12
+    // IndicatorDoc bullet). 4-segment pattern with the literal `/docs/`
+    // + literal `indicator/` + 2 catalogue-key segments
+    // (`<topic>/<id>`), so order is not load-bearing - distinct from
+    // every other route by both the `/docs/` literal and the segment
+    // count. The two route params recombine into the canonical
+    // 2-segment artifact id (`fiscal/outstanding_debt_pct_gsdp`) that
+    // `indicatorPathForArtifact` keys against.
+    {
+      pattern: "/docs/indicator/:topic/:id",
+      component: IndicatorDoc,
+      parse: ({ topic, id }) => ({ indicator_id: `${topic}/${id}` }),
+    },
   ],
   notFound: { pattern: "*", component: NotFound },
 });

@@ -199,6 +199,26 @@ export const url = {
   dataCompleteness(): string {
     return withBase("/data-completeness");
   },
+  /**
+   * Per-indicator documentation page - `/docs/indicator/<topic>/<id>`. (U5b,
+   * parent plan section 20.12 IndicatorDoc bullet.)
+   *
+   * The `indicatorId` is the catalogue's natural 2-segment form, e.g.
+   * `fiscal/outstanding_debt_pct_gsdp` - same key shape `indicatorPathForArtifact`
+   * uses to address the JSON artifact under `/indicators/in/`. The slash inside
+   * `indicatorId` is preserved (NOT URL-encoded): both segments are kebab/snake
+   * slug characters and the router pattern `/docs/indicator/:topic/:id` matches
+   * the 2-segment form directly, so encoding would route citizens through a
+   * non-canonical shape.
+   *
+   * This is the link target a future per-renderer migration step (NOT in U5b's
+   * scope) will hang off each `ChartShell` title's `(i)` glyph - see parent
+   * section 21.8. The route is reachable by direct URL today; the in-chart `(i)`
+   * link lands renderer-by-renderer after U5d.
+   */
+  indicatorDoc(indicatorId: string): string {
+    return withBase(`/docs/indicator/${indicatorId}`);
+  },
   /** Legal-style framing — `/disclaimer`. */
   disclaimer(): string {
     return withBase("/disclaimer");
