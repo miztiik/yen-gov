@@ -108,12 +108,29 @@ def test_receipt_records_sha256_and_counts(tmp_path):
     assert out_rows["constituency_district_membership.csv"] == 3
 
 
-def test_leading_zero_census_codes_preserved(tmp_path):
-    """District census code "000"/"547" survive (no integer coercion of register codes)."""
+def test_census_zero_sentinel_normalised_to_empty(tmp_path):
+    """LGD census ``000`` (entity did not exist at that census) -> empty cell.
+
+    District 747 (Dr. B.R. Ambedkar Konaseema, carved 2022) has census ``000``
+    in the source for both years -> empty in the snapshot, so a naive
+    ``JOIN ON census_code`` cannot match it. A genuine 2011 code (Krishna,
+    ``547``) is preserved verbatim.
+    """
     out = _build(tmp_path)
     text = (out / "districts.csv").read_text(encoding="utf-8")
-    assert "28,Andhra Pradesh,747,Dr. B.R. Ambedkar Konaseema,000,000" in text
+    assert "28,Andhra Pradesh,747,Dr. B.R. Ambedkar Konaseema,,\n" in text
     assert "28,Andhra Pradesh,510,Krishna,16,547" in text
+
+
+def test_leading_zero_census_code_preserved(tmp_path):
+    """A genuine leading-zero census code survives (no integer coercion).
+
+    Sub-district Allavaram carries census ``04940`` -> the leading zero must
+    survive the string-CSV read (an ``int`` coercion would drop it).
+    """
+    out = _build(tmp_path)
+    text = (out / "subdistricts.csv").read_text(encoding="utf-8")
+    assert "04940,04940" in text
 
 
 def test_non_ascii_state_name_round_trips(tmp_path):

@@ -32,6 +32,6 @@ lgd_state_code,state_name,state_name_local,census_2001_code,census_2011_code,kin
 33,Tamil Nadu,தமிழ்நாடு,33,33,state
 34,Puducherry,PUDUCHERRY,34,34,ut
 35,Andaman And Nicobar Islands,ANDAMAN AND NICOBAR ISLANDS,35,35,ut
-36,Telangana,తెలంగాణ,0,0,state
-37,Ladakh,Ladakh,0,0,ut
-38,The Dadra And Nagar Haveli And Daman And Diu,THE DADRA AND NAGAR HAVELI AND DAMAN AND DIU,0,0,ut
+36,Telangana,తెలంగాణ,,,state
+37,Ladakh,Ladakh,,,ut
+38,The Dadra And Nagar Haveli And Daman And Diu,THE DADRA AND NAGAR HAVELI AND DAMAN AND DIU,,,ut

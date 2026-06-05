@@ -13,12 +13,12 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 1,Jammu And Kashmir,14,Udhampur,10,19
 1,Jammu And Kashmir,620,Kishtwar,9,18
 1,Jammu And Kashmir,621,Ramban,9,17
-1,Jammu And Kashmir,622,Kulgam,0,15
-1,Jammu And Kashmir,623,Bandipora,0,9
-1,Jammu And Kashmir,624,Samba,0,22
-1,Jammu And Kashmir,625,Shopian,0,13
-1,Jammu And Kashmir,626,Ganderbal,0,11
-1,Jammu And Kashmir,627,Reasi,0,20
+1,Jammu And Kashmir,622,Kulgam,,15
+1,Jammu And Kashmir,623,Bandipora,,9
+1,Jammu And Kashmir,624,Samba,,22
+1,Jammu And Kashmir,625,Shopian,,13
+1,Jammu And Kashmir,626,Ganderbal,,11
+1,Jammu And Kashmir,627,Reasi,,20
 2,Himachal Pradesh,15,Bilaspur,8,30
 2,Himachal Pradesh,16,Chamba,1,23
 2,Himachal Pradesh,17,Hamirpur,6,28
@@ -48,12 +48,12 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 3,Punjab,41,Patiala,17,48
 3,Punjab,42,Rupnagar,7,51
 3,Punjab,43,Sangrur,16,53
-3,Punjab,605,Barnala,0,54
-3,Punjab,608,S.A.S Nagar,0,52
-3,Punjab,609,Tarn Taran,0,50
-3,Punjab,651,Fazilka,0,0
-3,Punjab,662,Pathankot,0,0
-3,Punjab,737,Malerkotla,0,0
+3,Punjab,605,Barnala,,54
+3,Punjab,608,S.A.S Nagar,,52
+3,Punjab,609,Tarn Taran,,50
+3,Punjab,651,Fazilka,,
+3,Punjab,662,Pathankot,,
+3,Punjab,737,Malerkotla,,
 4,Chandigarh,44,Chandigarh,1,55
 5,Uttarakhand,45,Almora,9,64
 5,Uttarakhand,46,Bageshwar,8,63
@@ -87,10 +87,10 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 6,Haryana,74,Sirsa,11,79
 6,Haryana,75,Sonipat,8,76
 6,Haryana,76,Yamunanagar,3,71
-6,Haryana,604,Nuh,0,87
-6,Haryana,619,Palwal,0,89
-6,Haryana,701,Charkhi Dadri,0,0
-6,Haryana,792,Hansi,0,0
+6,Haryana,604,Nuh,,87
+6,Haryana,619,Palwal,,89
+6,Haryana,701,Charkhi Dadri,,
+6,Haryana,792,Hansi,,
 7,Delhi,77,Central,6,95
 7,Delhi,78,East,4,93
 7,Delhi,79,New Delhi,5,94
@@ -100,10 +100,10 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 7,Delhi,83,South,9,98
 7,Delhi,84,South West,8,97
 7,Delhi,85,West,7,96
-7,Delhi,670,South East,0,0
-7,Delhi,794,Outer North,0,0
-7,Delhi,795,Old Delhi,0,0
-7,Delhi,796,Central North,0,0
+7,Delhi,670,South East,,
+7,Delhi,794,Outer North,,
+7,Delhi,795,Old Delhi,,
+7,Delhi,796,Central North,,
 8,Rajasthan,86,Ajmer,21,119
 8,Rajasthan,87,Alwar,6,104
 8,Rajasthan,88,Banswara,28,125
@@ -136,15 +136,15 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 8,Rajasthan,115,Sirohi,19,117
 8,Rajasthan,116,Tonk,22,120
 8,Rajasthan,117,Udaipur,26,130
-8,Rajasthan,629,Pratapgarh,0,131
-8,Rajasthan,767,Deeg,0,0
-8,Rajasthan,768,Didwana-Kuchaman,0,0
-8,Rajasthan,770,Khairthal-Tijara,0,0
-8,Rajasthan,772,Phalodi,0,0
-8,Rajasthan,774,Beawar,0,0
-8,Rajasthan,775,Balotra,0,0
-8,Rajasthan,777,Salumbar,0,0
-8,Rajasthan,782,Kotputli-Behror,0,0
+8,Rajasthan,629,Pratapgarh,,131
+8,Rajasthan,767,Deeg,,
+8,Rajasthan,768,Didwana-Kuchaman,,
+8,Rajasthan,770,Khairthal-Tijara,,
+8,Rajasthan,772,Phalodi,,
+8,Rajasthan,774,Beawar,,
+8,Rajasthan,775,Balotra,,
+8,Rajasthan,777,Salumbar,,
+8,Rajasthan,782,Kotputli-Behror,,
 9,Uttar Pradesh,118,Agra,15,146
 9,Uttar Pradesh,119,Aligarh,12,143
 9,Uttar Pradesh,120,Prayagraj,45,175
@@ -215,11 +215,11 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 9,Uttar Pradesh,185,Sultanpur,49,179
 9,Uttar Pradesh,186,Unnao,26,156
 9,Uttar Pradesh,187,Varanasi,67,197
-9,Uttar Pradesh,633,Kasganj,0,202
-9,Uttar Pradesh,640,Amethi,0,0
-9,Uttar Pradesh,659,Sambhal,0,0
-9,Uttar Pradesh,660,Shamli,0,0
-9,Uttar Pradesh,661,Hapur,0,0
+9,Uttar Pradesh,633,Kasganj,,202
+9,Uttar Pradesh,640,Amethi,,
+9,Uttar Pradesh,659,Sambhal,,
+9,Uttar Pradesh,660,Shamli,,
+9,Uttar Pradesh,661,Hapur,,
 10,Bihar,188,Araria,7,209
 10,Bihar,189,Aurangabad,34,235
 10,Bihar,190,Banka,23,225
@@ -262,8 +262,8 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 11,Sikkim,226,Mangan,1,241
 11,Sikkim,227,Namchi,3,243
 11,Sikkim,228,Gyalshing,2,242
-11,Sikkim,741,Pakyong,0,0
-11,Sikkim,742,Soreng,0,0
+11,Sikkim,741,Pakyong,,
+11,Sikkim,742,Soreng,,
 12,Arunachal Pradesh,229,Changlang,12,253
 12,Arunachal Pradesh,230,Dibang Valley,10,257
 12,Arunachal Pradesh,231,East Kameng,3,247
@@ -279,18 +279,18 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 12,Arunachal Pradesh,241,Upper Subansiri,6,249
 12,Arunachal Pradesh,242,West Kameng,2,246
 12,Arunachal Pradesh,243,West Siang,7,250
-12,Arunachal Pradesh,628,Anjaw,0,260
-12,Arunachal Pradesh,666,Longding,0,0
-12,Arunachal Pradesh,677,Kra Daadi,0,0
-12,Arunachal Pradesh,678,Namsai,0,0
-12,Arunachal Pradesh,679,Siang,0,0
-12,Arunachal Pradesh,718,Kamle,0,0
-12,Arunachal Pradesh,719,Lower Siang,0,0
-12,Arunachal Pradesh,723,Pakke Kessang,0,0
-12,Arunachal Pradesh,724,Leparada,0,0
-12,Arunachal Pradesh,725,Shi Yomi,0,0
-12,Arunachal Pradesh,786,Keyi Panyor,0,0
-12,Arunachal Pradesh,787,Bichom,0,0
+12,Arunachal Pradesh,628,Anjaw,,260
+12,Arunachal Pradesh,666,Longding,,
+12,Arunachal Pradesh,677,Kra Daadi,,
+12,Arunachal Pradesh,678,Namsai,,
+12,Arunachal Pradesh,679,Siang,,
+12,Arunachal Pradesh,718,Kamle,,
+12,Arunachal Pradesh,719,Lower Siang,,
+12,Arunachal Pradesh,723,Pakke Kessang,,
+12,Arunachal Pradesh,724,Leparada,,
+12,Arunachal Pradesh,725,Shi Yomi,,
+12,Arunachal Pradesh,786,Keyi Panyor,,
+12,Arunachal Pradesh,787,Bichom,,
 13,Nagaland,244,Dimapur,6,265
 13,Nagaland,245,Kohima,7,270
 13,Nagaland,246,Mokokchung,3,262
@@ -302,12 +302,12 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 13,Nagaland,613,Peren,7,271
 13,Nagaland,614,Kiphire,2,269
 13,Nagaland,615,Longleng,2,268
-13,Nagaland,736,Noklak,0,0
-13,Nagaland,757,Tseminyu,0,0
-13,Nagaland,758,Chumoukedima,0,0
-13,Nagaland,764,Niuland,0,0
-13,Nagaland,765,Shamator,0,0
-13,Nagaland,788,Meluri,0,0
+13,Nagaland,736,Noklak,,
+13,Nagaland,757,Tseminyu,,
+13,Nagaland,758,Chumoukedima,,
+13,Nagaland,764,Niuland,,
+13,Nagaland,765,Shamator,,
+13,Nagaland,788,Meluri,,
 14,Manipur,252,Bishnupur,4,275
 14,Manipur,253,Chandel,9,280
 14,Manipur,254,Churachandpur,3,274
@@ -317,13 +317,13 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 14,Manipur,258,Tamenglong,2,273
 14,Manipur,259,Thoubal,5,276
 14,Manipur,260,Ukhrul,8,279
-14,Manipur,711,Kakching,0,0
-14,Manipur,712,Kangpokpi,0,0
-14,Manipur,713,Jiribam,0,0
-14,Manipur,714,Noney,0,0
-14,Manipur,715,Pherzawl,0,0
-14,Manipur,716,Tengnoupal,0,0
-14,Manipur,717,Kamjong,0,0
+14,Manipur,711,Kakching,,
+14,Manipur,712,Kangpokpi,,
+14,Manipur,713,Jiribam,,
+14,Manipur,714,Noney,,
+14,Manipur,715,Pherzawl,,
+14,Manipur,716,Tengnoupal,,
+14,Manipur,717,Kamjong,,
 15,Mizoram,261,Aizawl,3,283
 15,Mizoram,262,Champhai,4,284
 15,Mizoram,263,Kolasib,2,282
@@ -332,17 +332,17 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 15,Mizoram,266,Mamit,1,281
 15,Mizoram,267,Siaha,8,288
 15,Mizoram,268,Serchhip,5,285
-15,Mizoram,726,Hnahthial,0,0
-15,Mizoram,727,Saitual,0,0
-15,Mizoram,728,Khawzawl,0,0
+15,Mizoram,726,Hnahthial,,
+15,Mizoram,727,Saitual,,
+15,Mizoram,728,Khawzawl,,
 16,Tripura,269,Dhalai,3,291
 16,Tripura,270,North Tripura,4,292
 16,Tripura,271,South Tripura,2,290
 16,Tripura,272,West Tripura,1,289
-16,Tripura,652,Khowai,0,0
-16,Tripura,653,Sepahijala,0,0
-16,Tripura,654,Gomati,0,0
-16,Tripura,655,Unakoti,0,0
+16,Tripura,652,Khowai,,
+16,Tripura,653,Sepahijala,,
+16,Tripura,654,Gomati,,
+16,Tripura,655,Unakoti,,
 17,Meghalaya,273,East Garo Hills,2,294
 17,Meghalaya,274,East Khasi Hills,6,298
 17,Meghalaya,275,West Jaintia Hills,7,299
@@ -350,11 +350,11 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 17,Meghalaya,277,South Garo Hills,3,295
 17,Meghalaya,278,West Garo Hills,1,293
 17,Meghalaya,279,West Khasi Hills,4,296
-17,Meghalaya,656,North Garo Hills,0,0
-17,Meghalaya,657,East Jaintia Hills,0,0
-17,Meghalaya,658,South West Khasi Hills,0,0
-17,Meghalaya,663,South West Garo Hills,0,0
-17,Meghalaya,740,Eastern West Khasi Hills,0,0
+17,Meghalaya,656,North Garo Hills,,
+17,Meghalaya,657,East Jaintia Hills,,
+17,Meghalaya,658,South West Khasi Hills,,
+17,Meghalaya,663,South West Garo Hills,,
+17,Meghalaya,740,Eastern West Khasi Hills,,
 18,Assam,280,Barpeta,5,303
 18,Assam,281,Bongaigaon,4,319
 18,Assam,282,Cachar,21,316
@@ -378,18 +378,18 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 18,Assam,300,Sivasagar,16,311
 18,Assam,301,Sonitpur,11,306
 18,Assam,302,Tinsukia,14,309
-18,Assam,612,Chirang,0,320
-18,Assam,616,Baksa,0,324
-18,Assam,617,Udalguri,0,326
-18,Assam,618,Kamrup Metro,0,322
-18,Assam,705,Biswanath,0,0
-18,Assam,706,Majuli,0,0
-18,Assam,707,South Salmara Mancachar,0,0
-18,Assam,708,Charaideo,0,0
-18,Assam,709,Hojai,0,0
-18,Assam,710,West Karbi Anglong,0,0
-18,Assam,739,Bajali,0,0
-18,Assam,756,Tamulpur,0,0
+18,Assam,612,Chirang,,320
+18,Assam,616,Baksa,,324
+18,Assam,617,Udalguri,,326
+18,Assam,618,Kamrup Metro,,322
+18,Assam,705,Biswanath,,
+18,Assam,706,Majuli,,
+18,Assam,707,South Salmara Mancachar,,
+18,Assam,708,Charaideo,,
+18,Assam,709,Hojai,,
+18,Assam,710,West Karbi Anglong,,
+18,Assam,739,Bajali,,
+18,Assam,756,Tamulpur,,
 19,West Bengal,303,North 24 Parganas,11,337
 19,West Bengal,304,South 24 Parganas,18,343
 19,West Bengal,305,Bankura,13,339
@@ -409,10 +409,10 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 19,West Bengal,319,Murshidabad,7,333
 19,West Bengal,320,Nadia,10,336
 19,West Bengal,321,Purulia,14,340
-19,West Bengal,664,Alipurduar,0,0
-19,West Bengal,702,Kalimpong,0,0
-19,West Bengal,703,Jhargram,0,0
-19,West Bengal,704,Paschim Bardhaman,0,0
+19,West Bengal,664,Alipurduar,,
+19,West Bengal,702,Kalimpong,,
+19,West Bengal,703,Jhargram,,
+19,West Bengal,704,Paschim Bardhaman,,
 20,Jharkhand,322,Bokaro,13,355
 20,Jharkhand,323,Chatra,3,347
 20,Jharkhand,324,Deoghar,7,350
@@ -484,22 +484,22 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 22,Chhattisgarh,388,Rajnandgaon,9,408
 22,Chhattisgarh,389,Surguja,2,401
 22,Chhattisgarh,636,Bijapur,16,417
-22,Chhattisgarh,637,Narayanpur,0,415
-22,Chhattisgarh,642,Sukma,0,0
-22,Chhattisgarh,643,Kondagaon,0,0
-22,Chhattisgarh,644,Balodabazar-Bhatapara,0,0
-22,Chhattisgarh,645,Gariyaband,0,0
-22,Chhattisgarh,646,Balod,0,0
-22,Chhattisgarh,647,Mungeli,0,0
-22,Chhattisgarh,648,Surajpur,0,0
-22,Chhattisgarh,649,Balrampur-Ramanujganj,0,0
-22,Chhattisgarh,650,Bemetara,0,0
-22,Chhattisgarh,734,Gaurela-Pendra-Marwahi,0,0
-22,Chhattisgarh,759,Khairagarh-Chhuikhadan-Gandai,0,0
-22,Chhattisgarh,760,Manendragarh-Chirmiri-Bharatpur(M C B),0,0
-22,Chhattisgarh,761,Mohla-Manpur-Ambagarh Chouki,0,0
-22,Chhattisgarh,762,Sakti,0,0
-22,Chhattisgarh,763,Sarangarh-Bilaigarh,0,0
+22,Chhattisgarh,637,Narayanpur,,415
+22,Chhattisgarh,642,Sukma,,
+22,Chhattisgarh,643,Kondagaon,,
+22,Chhattisgarh,644,Balodabazar-Bhatapara,,
+22,Chhattisgarh,645,Gariyaband,,
+22,Chhattisgarh,646,Balod,,
+22,Chhattisgarh,647,Mungeli,,
+22,Chhattisgarh,648,Surajpur,,
+22,Chhattisgarh,649,Balrampur-Ramanujganj,,
+22,Chhattisgarh,650,Bemetara,,
+22,Chhattisgarh,734,Gaurela-Pendra-Marwahi,,
+22,Chhattisgarh,759,Khairagarh-Chhuikhadan-Gandai,,
+22,Chhattisgarh,760,Manendragarh-Chirmiri-Bharatpur(M C B),,
+22,Chhattisgarh,761,Mohla-Manpur-Ambagarh Chouki,,
+22,Chhattisgarh,762,Sakti,,
+22,Chhattisgarh,763,Sarangarh-Bilaigarh,,
 23,Madhya Pradesh,390,Anuppur,16,461
 23,Madhya Pradesh,391,Ashoknagar,46,459
 23,Madhya Pradesh,392,Balaghat,45,457
@@ -548,13 +548,13 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 23,Madhya Pradesh,435,Ujjain,21,435
 23,Madhya Pradesh,436,Umaria,15,431
 23,Madhya Pradesh,437,Vidisha,31,443
-23,Madhya Pradesh,638,Singrauli,0,463
+23,Madhya Pradesh,638,Singrauli,,463
 23,Madhya Pradesh,639,Alirajpur,24,465
-23,Madhya Pradesh,667,Agar-Malwa,0,0
-23,Madhya Pradesh,722,Niwari,0,0
-23,Madhya Pradesh,766,MAUGANJ,0,0
-23,Madhya Pradesh,784,Maihar,0,0
-23,Madhya Pradesh,785,Pandhurna,0,0
+23,Madhya Pradesh,667,Agar-Malwa,,
+23,Madhya Pradesh,722,Niwari,,
+23,Madhya Pradesh,766,MAUGANJ,,
+23,Madhya Pradesh,784,Maihar,,
+23,Madhya Pradesh,785,Pandhurna,,
 24,Gujarat,438,Ahmedabad,7,474
 24,Gujarat,439,Amreli,13,480
 24,Gujarat,440,Anand,15,482
@@ -580,15 +580,15 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 24,Gujarat,460,Surendranagar,8,475
 24,Gujarat,461,Vadodara,19,486
 24,Gujarat,462,Valsad,25,491
-24,Gujarat,641,Tapi,0,493
-24,Gujarat,668,Chhotaudepur,0,0
-24,Gujarat,669,Mahisagar,0,0
-24,Gujarat,672,Arvalli,0,0
-24,Gujarat,673,Morbi,0,0
-24,Gujarat,674,Devbhumi Dwarka,0,0
-24,Gujarat,675,Gir Somnath,0,0
-24,Gujarat,676,Botad,0,0
-24,Gujarat,789,Vav-Tharad,0,0
+24,Gujarat,641,Tapi,,493
+24,Gujarat,668,Chhotaudepur,,
+24,Gujarat,669,Mahisagar,,
+24,Gujarat,672,Arvalli,,
+24,Gujarat,673,Morbi,,
+24,Gujarat,674,Devbhumi Dwarka,,
+24,Gujarat,675,Gir Somnath,,
+24,Gujarat,676,Botad,,
+24,Gujarat,789,Vav-Tharad,,
 27,Maharashtra,466,Ahilyanagar,26,522
 27,Maharashtra,467,Akola,5,501
 27,Maharashtra,468,Amravati,7,503
@@ -624,7 +624,7 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 27,Maharashtra,498,Wardha,8,504
 27,Maharashtra,499,Washim,6,502
 27,Maharashtra,500,Yavatmal,14,510
-27,Maharashtra,665,Palghar,0,0
+27,Maharashtra,665,Palghar,,
 28,Andhra Pradesh,502,Ananthapuramu,22,553
 28,Andhra Pradesh,503,Chittoor,23,554
 28,Andhra Pradesh,504,Y.S.R. Kadapa,20,551
@@ -638,21 +638,21 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 28,Andhra Pradesh,520,Visakhapatnam,13,544
 28,Andhra Pradesh,521,Vizianagaram,12,543
 28,Andhra Pradesh,523,West Godavari,15,546
-28,Andhra Pradesh,743,Parvathipuram Manyam,0,0
-28,Andhra Pradesh,744,Anakapalli,0,0
-28,Andhra Pradesh,745,Alluri Sitharama Raju,0,0
-28,Andhra Pradesh,746,Kakinada,0,0
-28,Andhra Pradesh,747,Dr. B.R. Ambedkar Konaseema,0,0
-28,Andhra Pradesh,748,Eluru,0,0
-28,Andhra Pradesh,749,Ntr,0,0
-28,Andhra Pradesh,750,Bapatla,0,0
-28,Andhra Pradesh,751,Palnadu,0,0
-28,Andhra Pradesh,752,Tirupati,0,0
-28,Andhra Pradesh,753,Annamayya,0,0
-28,Andhra Pradesh,754,Sri Sathya Sai,0,0
-28,Andhra Pradesh,755,Nandyal,0,0
-28,Andhra Pradesh,790,Markapuram,0,0
-28,Andhra Pradesh,791,Polavaram,0,0
+28,Andhra Pradesh,743,Parvathipuram Manyam,,
+28,Andhra Pradesh,744,Anakapalli,,
+28,Andhra Pradesh,745,Alluri Sitharama Raju,,
+28,Andhra Pradesh,746,Kakinada,,
+28,Andhra Pradesh,747,Dr. B.R. Ambedkar Konaseema,,
+28,Andhra Pradesh,748,Eluru,,
+28,Andhra Pradesh,749,Ntr,,
+28,Andhra Pradesh,750,Bapatla,,
+28,Andhra Pradesh,751,Palnadu,,
+28,Andhra Pradesh,752,Tirupati,,
+28,Andhra Pradesh,753,Annamayya,,
+28,Andhra Pradesh,754,Sri Sathya Sai,,
+28,Andhra Pradesh,755,Nandyal,,
+28,Andhra Pradesh,790,Markapuram,,
+28,Andhra Pradesh,791,Polavaram,,
 29,Karnataka,524,Bagalkote,2,556
 29,Karnataka,525,Bengaluru Urban,20,572
 29,Karnataka,526,Bengaluru Rural,21,583
@@ -683,10 +683,10 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 29,Karnataka,630,Chikkaballapura,19,582
 29,Karnataka,631,Bengaluru South,21,584
 29,Karnataka,635,Yadgir,4,580
-29,Karnataka,738,Vijayanagara,0,0
+29,Karnataka,738,Vijayanagara,,
 30,Goa,551,North Goa,1,585
 30,Goa,552,South Goa,2,586
-30,Goa,793,Kushavati,0,0
+30,Goa,793,Kushavati,,
 31,Lakshadweep,553,Lakshadweep District,1,587
 32,Kerala,554,Alappuzha,11,598
 32,Kerala,555,Ernakulam,8,595
@@ -733,18 +733,18 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 33,Tamil Nadu,596,Viluppuram,7,607
 33,Tamil Nadu,597,Virudhunagar,26,625
 33,Tamil Nadu,610,Ariyalur,17,616
-33,Tamil Nadu,634,Tiruppur,0,633
-33,Tamil Nadu,729,Kallakurichi,0,0
-33,Tamil Nadu,730,Chengalpattu,0,0
-33,Tamil Nadu,731,Ranipet,0,0
-33,Tamil Nadu,732,Tirupathur,0,0
-33,Tamil Nadu,733,Tenkasi,0,0
-33,Tamil Nadu,735,Mayiladuthurai,0,0
+33,Tamil Nadu,634,Tiruppur,,633
+33,Tamil Nadu,729,Kallakurichi,,
+33,Tamil Nadu,730,Chengalpattu,,
+33,Tamil Nadu,731,Ranipet,,
+33,Tamil Nadu,732,Tirupathur,,
+33,Tamil Nadu,733,Tenkasi,,
+33,Tamil Nadu,735,Mayiladuthurai,,
 34,Puducherry,598,Karaikal,4,637
 34,Puducherry,600,Puducherry,2,635
 35,Andaman And Nicobar Islands,602,South Andamans,1,640
 35,Andaman And Nicobar Islands,603,Nicobars,2,638
-35,Andaman And Nicobar Islands,632,North And Middle Andaman,0,639
+35,Andaman And Nicobar Islands,632,North And Middle Andaman,,639
 36,Telangana,501,Adilabad,1,532
 36,Telangana,507,Hyderabad,5,536
 36,Telangana,508,Karimnagar,3,534
@@ -755,29 +755,29 @@ lgd_state_code,state_name,lgd_district_code,district_name,census_2001_code,censu
 36,Telangana,516,Nizamabad,2,533
 36,Telangana,518,Ranga Reddy,6,537
 36,Telangana,522,Warangal,9,540
-36,Telangana,680,Nirmal,0,0
-36,Telangana,681,Jagitial,0,0
-36,Telangana,682,Peddapalli,0,0
-36,Telangana,683,Rajanna Sircilla,0,0
-36,Telangana,684,Mancherial,0,0
-36,Telangana,685,Kamareddy,0,0
-36,Telangana,686,Hanumakonda,0,0
-36,Telangana,687,Jayashankar Bhupalapally,0,0
-36,Telangana,688,Mahabubabad,0,0
-36,Telangana,689,Jangoan,0,0
-36,Telangana,690,Bhadradri Kothagudem,0,0
-36,Telangana,691,Sangareddy,0,0
-36,Telangana,692,Siddipet,0,0
-36,Telangana,693,Wanaparthy,0,0
-36,Telangana,694,Nagarkurnool,0,0
-36,Telangana,695,Jogulamba Gadwal,0,0
-36,Telangana,696,Suryapet,0,0
-36,Telangana,697,Yadadri Bhuvanagiri,0,0
-36,Telangana,698,Vikarabad,0,0
-36,Telangana,699,Kumuram Bheem Asifabad,0,0
-36,Telangana,700,Medchal Malkajgiri,0,0
-36,Telangana,720,Mulugu,0,0
-36,Telangana,721,Narayanpet,0,0
+36,Telangana,680,Nirmal,,
+36,Telangana,681,Jagitial,,
+36,Telangana,682,Peddapalli,,
+36,Telangana,683,Rajanna Sircilla,,
+36,Telangana,684,Mancherial,,
+36,Telangana,685,Kamareddy,,
+36,Telangana,686,Hanumakonda,,
+36,Telangana,687,Jayashankar Bhupalapally,,
+36,Telangana,688,Mahabubabad,,
+36,Telangana,689,Jangoan,,
+36,Telangana,690,Bhadradri Kothagudem,,
+36,Telangana,691,Sangareddy,,
+36,Telangana,692,Siddipet,,
+36,Telangana,693,Wanaparthy,,
+36,Telangana,694,Nagarkurnool,,
+36,Telangana,695,Jogulamba Gadwal,,
+36,Telangana,696,Suryapet,,
+36,Telangana,697,Yadadri Bhuvanagiri,,
+36,Telangana,698,Vikarabad,,
+36,Telangana,699,Kumuram Bheem Asifabad,,
+36,Telangana,700,Medchal Malkajgiri,,
+36,Telangana,720,Mulugu,,
+36,Telangana,721,Narayanpet,,
 37,Ladakh,6,Kargil,8,4
 37,Ladakh,9,Leh Ladakh,7,3
 38,The Dadra And Nagar Haveli And Daman And Diu,463,Daman,2,495
