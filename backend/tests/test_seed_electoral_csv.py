@@ -72,12 +72,14 @@ def test_emit_minimal_pc_and_ac(tmp_path):
     out = tmp_path / "datasets" / "data" / "entities" / "electoral.csv"
     emit(lgd_states_json=s, lgd_acs_json=a, lgd_pcs_json=p, out_path=out)
     lines = out.read_text(encoding="utf-8").splitlines()
-    assert lines[0] == "entity_id,name,entity_kind,delim_year,state,parent,reservation"
+    assert lines[0] == "entity_id,name,entity_kind,delim_year,state,parent,eci_no,aliases,reservation"
     # 1 PC + 1 AC = 2 rows
     assert len(lines) == 3
     body = "\n".join(lines[1:])
-    assert "IN-AC-2008-tamil-nadu-4000,Mylapore,ac,2008,tamil-nadu,IN-PC-2008-tamil-nadu-500," in body
-    assert "IN-PC-2008-tamil-nadu-500,Chennai South,pc,2008,tamil-nadu,tamil-nadu," in body
+    # The legacy taxonomy emitter leaves eci_no + aliases empty (filled only by
+    # the B2b.5.0c snapshot emitter); it is retired in 0d-del.
+    assert "IN-AC-2008-tamil-nadu-4000,Mylapore,ac,2008,tamil-nadu,IN-PC-2008-tamil-nadu-500,,," in body
+    assert "IN-PC-2008-tamil-nadu-500,Chennai South,pc,2008,tamil-nadu,tamil-nadu,,," in body
 
 
 def test_emit_disambiguates_ac_slug_collision_within_state(tmp_path):

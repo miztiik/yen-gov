@@ -142,6 +142,8 @@ def emit(
                 "delim_year": delim_year,
                 "state": state_slug,
                 "parent": state_slug,
+                "eci_no": None,
+                "aliases": None,
                 "reservation": None,
             }
         )
@@ -185,6 +187,8 @@ def emit(
                 "delim_year": delim_year,
                 "state": state_slug,
                 "parent": parent_pc_id,
+                "eci_no": None,
+                "aliases": None,
                 "reservation": None,
             }
         )
