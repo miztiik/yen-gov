@@ -264,20 +264,10 @@ def _extend_electoral_csv(gap_fill_rows: list[dict[str, str]]) -> int:
     existing_ids = {r["entity_id"] for r in existing}
     new_rows = [r for r in gap_fill_rows if r["entity_id"] not in existing_ids]
     merged = existing + new_rows
-    # Sort by (state, entity_kind, delim_year, eci_no_num, entity_id)
-    # to keep the canonical author order stable + grouped by state.
-    def sort_key(r: dict[str, str]) -> tuple:
-        eci_raw = r.get("eci_no") or ""
-        eci_num = int(eci_raw) if eci_raw.strip() else 0
-        return (
-            r.get("state", ""),
-            r.get("entity_kind", ""),
-            r.get("delim_year", ""),
-            eci_num,
-            r["entity_id"],
-        )
-
-    merged.sort(key=sort_key)
+    # Sort by entity_id (the PK) per parent plan section 22.4 invariant 5
+    # which the csv_validator enforces: every CSV is sorted ascending by PK
+    # on first write so byte-identical re-emits land deterministically.
+    merged.sort(key=lambda r: r["entity_id"])
     _write_csv_rows(ELECTORAL_CSV, fieldnames, merged)
     return len(new_rows)
 
