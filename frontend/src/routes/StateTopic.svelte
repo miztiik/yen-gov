@@ -51,6 +51,7 @@
   import UnionListBanner from "../lib/UnionListBanner.svelte";
   import { states } from "../lib/states.svelte";
   import { url } from "../lib/url";
+  import GeoBreadcrumb from "../lib/GeoBreadcrumb.svelte";
   import {
     fetchElectionEvents,
     defaultEventForState,
@@ -121,6 +122,8 @@
   const catalogue_loading = $derived(catalogue === null && load_error === null);
 </script>
 
+<GeoBreadcrumb />
+
 <section class="p-4 sm:p-6 space-y-6 max-w-6xl">
   {#if load_error}
     <div class="rounded border border-rose-200 bg-rose-50 p-4 text-sm text-rose-900">
@@ -154,17 +157,6 @@
     </div>
   {:else}
     <header class="space-y-2">
-      <nav aria-label="Breadcrumb" class="text-xs text-slate-500">
-        <ol class="flex items-center gap-1 list-none p-0 m-0">
-          <li>
-            <a href={url.state(state_code)} class="hover:text-sky-700 hover:underline"
-              >{state_name}</a
-            >
-          </li>
-          <li aria-hidden="true" class="text-slate-400">›</li>
-          <li class="text-slate-700" aria-current="page">{topic.title}</li>
-        </ol>
-      </nav>
       <div class="flex items-baseline gap-3 flex-wrap">
         <h1 class="text-2xl font-semibold flex items-center gap-2">
           <TopicIcon name={topic.icon} cls="w-6 h-6 text-slate-500 shrink-0" />

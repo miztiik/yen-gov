@@ -8,6 +8,7 @@
   import IndicatorChoropleth from "../lib/IndicatorChoropleth.svelte";
   import { loadStates, type StateRow } from "../lib/view-models/states";
   import { url } from "../lib/url";
+  import GeoBreadcrumb from "../lib/GeoBreadcrumb.svelte";
   import {
     defaultHomeTheme,
     homeThemeOptions,
@@ -150,6 +151,8 @@
       : (states ?? []).filter(s => !fallback_codes.has(s.eci_code)),
   );
 </script>
+
+<GeoBreadcrumb />
 
 <main class="max-w-screen-2xl mx-auto p-6 space-y-6">
   <header class="space-y-1">

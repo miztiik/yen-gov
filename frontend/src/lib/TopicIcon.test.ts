@@ -85,12 +85,14 @@ describe("TopicIcon helpers", () => {
       // identity glyphs (bar-chart, check, compass, flag, flask, info,
       // settings, shield) for the state-hub topic chips, Constituency,
       // Party, Compare, CompareIndicator, Psephlab, Explore, About,
-      // Disclaimer, Settings, DataCompleteness routes.
+      // Disclaimer, Settings, DataCompleteness routes. U2b (2026-06-05)
+      // added `chevron-right` for the GeoBreadcrumb separator glyph.
       expect(names).toEqual([
         "activity",
         "bar-chart",
         "car",
         "check",
+        "chevron-right",
         "cloud",
         "compass",
         "flag",
