@@ -3,7 +3,9 @@
 // This module is the single-source-of-truth for which catalogue artifacts
 // have already been migrated from the legacy per-shard JSON loader
 // (`/data/indicators/in/<topic>/<id>.json`) to a DuckDB-WASM query against
-// the canonical Parquet store (`/data/<family>/<table>.parquet`).
+// the canonical long-format CSV store under `/data/datapoints/<class>/`
+// (MIGRATING from Hive-partitioned Parquet at `/data/<family>/<table>.parquet`
+// per the platform-reset plan chunks F1 / X1a).
 //
 // Doctrine
 // --------
@@ -55,8 +57,10 @@
 // Adding a new entry
 // ------------------
 // 1. Verify the canonical fact-table carries the indicator: query
-//    `read_parquet('datasets/<family>/<table>.parquet')` with the
-//    `indicator_id` filter; assert non-zero rows.
+//    `read_csv('datasets/data/datapoints/<class>/<variable_id>.csv', columns={...})`
+//    with the `indicator_id` filter; assert non-zero rows. (MIGRATING
+//    from `read_parquet('datasets/<family>/<table>.parquet')` per plan
+//    chunks F1 / X1a; both shapes coexist during the cutover.)
 // 2. Verify the manifest entry exists for `<family>.<table>`.
 // 3. Hand-author the IndicatorMeta block. Cite the canonical
 //    taxonomy/indicators.parquet row as the citizen-facing label
@@ -74,7 +78,14 @@ import type { IndicatorMeta } from "../indicators";
 interface CanonicalIndicatorDescriptorBase {
   /** Legacy catalogue artifact id (e.g. `energy/state_peak_electricity_demand_mw`). */
   legacy_artifact_id: string;
-  /** Manifest table id (e.g. `energy.energy_demand_supply`). */
+  /** Manifest table id (e.g. `energy.energy_demand_supply`). The field
+   *  stays named `table_id` rather than flipping to `csv_path` because it
+   *  is a key into `manifest.json` (format-agnostic) - the manifest
+   *  resolves the key to a concrete file list at read time, and the file
+   *  list itself flips from Parquet to long-format CSV at chunk X1a per
+   *  the platform-reset plan. Renaming the field here would cascade
+   *  through every descriptor + the adapter + tests for zero behaviour
+   *  change. */
   table_id: string;
   /** Static IndicatorMeta block — what the citizen sees as the card header.
    *  Source: `datasets/taxonomy/indicators.parquet` row for the descriptor's

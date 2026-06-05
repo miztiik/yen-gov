@@ -21,6 +21,27 @@
   //     `show_direct_end_label === true`.
   //   - Optional ChartShell wrap via `wrap_in_shell` + `chart_title`.
   //   - CLAUDE.md §0: no aria/role.
+  //
+  // F3 reference-line extension (parent plan section 20.11, Max + Hans):
+  //   - Optional `reference_series` prop: a pre-built TimeSeriesSeriesVM
+  //     drawn as thin GREY DASHED (1.25 px stroke, 4 4 dash) with NO
+  //     end-of-line label, NO StatusGlyph, NO fill. The citizen reads
+  //     it as recessive context, never as a foreground series. The
+  //     caller hand-builds the series (typically population-weighted
+  //     national OR median-of-states per indicator class) and labels
+  //     it explicitly ("national median" / "national rate"). Per the
+  //     plan: a stored derived datapoint on `entity_id=IN,
+  //     entity_kind=country` with its own reserved `source_id`.
+  //   - Optional `indicator_direction` prop: when present AND
+  //     `reference_series` is present, render a `StatusGlyph` next to
+  //     the last visible point of each non-reference series. The glyph
+  //     verdict respects the indicator's direction (`higher_is_better`
+  //     / `lower_is_better` / `neutral`) via `computeStatusVerdict`.
+  //     `neutral` direction yields a hollow-circle glyph (no colour);
+  //     this is the HARD GATE keeping yen-gov from colouring an
+  //     ambiguous reading.
+  //   - F3 is additive: when neither prop is provided, the renderer
+  //     is byte-identical to the pre-F3 path.
 
   import type { Snippet } from "svelte";
   import type {
@@ -33,6 +54,9 @@
     TimeSeriesPointVM,
   } from "./time-view-models";
   import ChartShell from "./ChartShell.svelte";
+  import StatusGlyph from "./status-glyph/StatusGlyph.svelte";
+  import { computeStatusVerdict } from "./status-glyph/helpers";
+  import type { Direction } from "../indicators";
 
   interface Props {
     view_model: TimeSeriesLineViewModel<T>;
@@ -48,6 +72,28 @@
     padding?: { top: number; right: number; bottom: number; left: number };
     /** Optional palette; cycles when a series has no `series_colour`. */
     palette?: readonly string[];
+    /**
+     * Optional reference series rendered as thin GREY DASHED behind the
+     * main series. Built by the caller from a stored derived datapoint
+     * on `entity_id=IN, entity_kind=country` (pop-weighted national OR
+     * median-of-states, per indicator class — plan section 20.11).
+     * The series carries no end label and no StatusGlyph.
+     *
+     * Typed as `TimeSeriesSeriesVM<unknown>` rather than `<T>` because
+     * the renderer only consumes the `points[]` axis + series id/label;
+     * it never reaches into `source_rows[]`. This lets callers pass a
+     * reference series built from a DIFFERENT row shape (e.g. an
+     * `entity_id=IN` derived series whose row shape carries only
+     * `{period, value}`) without forcing the generic to match.
+     */
+    reference_series?: TimeSeriesSeriesVM<unknown> | null;
+    /**
+     * Indicator direction (higher_is_better / lower_is_better / neutral).
+     * Required for StatusGlyph rendering; omitting it suppresses the
+     * glyph even when `reference_series` is provided. `neutral` yields
+     * a hollow-circle glyph (no colour).
+     */
+    indicator_direction?: Direction;
     toolbar?: Snippet;
   }
 
@@ -70,6 +116,8 @@
       "rgb(124 58 237)",  // violet-600
       "rgb(15 118 110)",  // teal-700
     ],
+    reference_series = null,
+    indicator_direction,
     toolbar,
   }: Props = $props();
 
@@ -160,6 +208,64 @@
   function axisIndex(period_id: string): number {
     return view_model.period_axis.findIndex(p => p.period_id === period_id);
   }
+
+  /**
+   * Look up the reference series' value at the given period_id. Returns
+   * `null` if `reference_series` is absent, the period is missing from
+   * the reference, or the reference value at that period is itself
+   * missing. The caller uses this to compute the StatusGlyph verdict
+   * at the latest visible point of each non-reference series.
+   */
+  function referenceValueAt(period_id: string): number | null {
+    if (!reference_series) return null;
+    for (const p of reference_series.points) {
+      if (p.period_id !== period_id) continue;
+      if (p.is_missing || p.value === null) return null;
+      return p.value;
+    }
+    return null;
+  }
+
+  /**
+   * Compute segments for the reference series. Mirrors `segmentsFor`
+   * but operates on the `TimeSeriesSeriesVM<unknown>` shape so the
+   * caller can pass a reference series built from a different row
+   * shape than the main view-model.
+   */
+  function segmentsForReference(
+    ref: TimeSeriesSeriesVM<unknown>,
+  ): { kind: "solid" | "dashed"; path: string }[] {
+    const axis_index_of: Record<string, number> = {};
+    view_model.period_axis.forEach((p, i) => {
+      axis_index_of[p.period_id] = i;
+    });
+
+    const out: { kind: "solid" | "dashed"; path: string }[] = [];
+    let current: { x: number; y: number }[] = [];
+    const segments: { points: { x: number; y: number }[] }[] = [];
+
+    for (const pt of ref.points) {
+      if (pt.is_missing || pt.value === null) {
+        if (current.length > 0) {
+          segments.push({ points: current });
+          current = [];
+        }
+        continue;
+      }
+      const ix = axis_index_of[pt.period_id];
+      if (ix === undefined) continue;
+      current.push({ x: xFor(ix), y: yFor(pt.value) });
+    }
+    if (current.length > 0) segments.push({ points: current });
+
+    for (const seg of segments) {
+      const path = seg.points
+        .map((p, j) => (j === 0 ? `M ${p.x.toFixed(2)} ${p.y.toFixed(2)}` : `L ${p.x.toFixed(2)} ${p.y.toFixed(2)}`))
+        .join(" ");
+      out.push({ kind: "solid", path });
+    }
+    return out;
+  }
 </script>
 
 {#snippet body()}
@@ -170,6 +276,27 @@
       preserveAspectRatio="none"
       data-period-count={period_count}
     >
+      {#if reference_series}
+        {@const ref_segs = segmentsForReference(reference_series)}
+        <g
+          class="tsl__series tsl__series--reference"
+          data-series-id={reference_series.series_id}
+          data-reference="true"
+        >
+          {#each ref_segs as seg, seg_index (seg_index)}
+            <path
+              d={seg.path}
+              fill="none"
+              stroke="rgb(148 163 184)"
+              stroke-width="1.25"
+              stroke-dasharray="4 4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          {/each}
+        </g>
+      {/if}
+
       {#each view_model.series as series, series_index (series.series_id)}
         {@const col = colourFor(series_index, series.series_colour)}
         {@const segs = segmentsFor(series)}
@@ -204,6 +331,13 @@
               dy="0.32em"
               fill={col}
             >{series.series_label} {format_value(tip.value)}</text>
+          {/if}
+          {#if tip && reference_series && indicator_direction && tip.value !== null}
+            {@const ref_value = referenceValueAt(tip.period_id)}
+            {@const verdict = computeStatusVerdict(tip.value, ref_value, indicator_direction)}
+            {@const gx = xFor(axisIndex(tip.period_id)) - 12}
+            {@const gy = yFor(tip.value)}
+            <StatusGlyph {verdict} cx={gx} cy={gy} size_px={10} />
           {/if}
         </g>
       {/each}

@@ -25,8 +25,9 @@
   //
   // CLAUDE.md §0: no aria/role; visible affordances only.
 
-  import HorizontalGroupedBar from "../lib/charts/HorizontalGroupedBar.svelte";
-  import OrderedCategoryBar from "../lib/charts/OrderedCategoryBar.svelte";
+  import HorizontalGroupedBar from "../lib/charts/CategoryBar.svelte";
+  import OrderedCategoryBar from "../lib/charts/CategoryBar.svelte";
+  import CategoryBarDiverging from "../lib/charts/CategoryBar.svelte";
   import DumbbellRange from "../lib/charts/DumbbellRange.svelte";
   import TimeSeriesLine from "../lib/charts/TimeSeriesLine.svelte";
   import FacetPanelGrid from "../lib/charts/FacetPanelGrid.svelte";
@@ -170,6 +171,32 @@
     policy: "value_desc",
     suppress_breaks: false,
   });
+
+  // F3 reference-line demo (plan section 20.11) — synthetic
+  // "national median GSDP per capita" series. In production this is
+  // built from a stored derived datapoint on entity_id=IN with its own
+  // reserved source_id; here we hand-author the median across the
+  // three demo states per year so the TimeSeriesLine renderer
+  // exercises its `reference_series` + StatusGlyph branches.
+  const tsl_reference_vm = buildTimeSeriesLineViewModel({
+    rows: [
+      { year: "2018", median: 152000 },
+      { year: "2019", median: 164000 },
+      { year: "2020", median: 159000 },
+      { year: "2021", median: 178000 },
+      { year: "2022", median: 200000 },
+      { year: "2023", median: 222000 },
+    ],
+    toPoint: (r: { year: string; median: number }) => ({
+      series_id: "IN-median",
+      series_label: "National median",
+      period_id: r.year,
+      period_label: r.year,
+      value: r.median,
+    }),
+    policy: "value_desc",
+  });
+  const tsl_reference_series = tsl_reference_vm.series[0] ?? null;
 
   // ─── fixture 5 — facet panel grid (capacity per fuel × state) ───
   const fpg_vm = buildFacetPanelGridViewModel({
@@ -349,8 +376,12 @@
       One row per state, three grouped bars per row (Coal / Hydro /
       Renewable). Pinned row = Tamil Nadu (amber accent). Sort policy
       <code>value_desc</code> aggregated by sum.
+      <br />Now rendered through <code>CategoryBar mode="stacked"</code>
+      (F2a.3+F2a.4 consolidation; the orphan
+      <code>HorizontalGroupedBar.svelte</code> retired).
     </p>
     <HorizontalGroupedBar
+      mode="stacked"
       view_model={hgb_vm}
       chart_title="Installed capacity by fuel (synthetic)"
       chart_subtitle="One bar group per fuel; row = state."
@@ -364,12 +395,49 @@
       Categories rendered in axis order (poorest → richest). The
       renderer never re-sorts; the builder enforces
       <code>axis_order</code> only.
+      <br />Now rendered through <code>CategoryBar mode="ranked"</code>
+      (F2a.1+F2a.2 consolidation; the orphan
+      <code>OrderedCategoryBar.svelte</code> retired).
     </p>
     <OrderedCategoryBar
+      mode="ranked"
       view_model={ocb_vm}
       chart_title="Electricity access by wealth quintile (synthetic)"
       chart_subtitle="Axis-ordered; no value-sort permitted."
       format_value={fmtPct}
+    />
+  </section>
+
+  <section class="space-y-3" data-sandbox-section="diverging-bar">
+    <h2 class="text-lg font-semibold">CategoryBar mode="diverging"</h2>
+    <p class="text-sm text-slate-600">
+      Single-entity, single-period 100%-stacked composition bar.
+      Synthetic fuel-mix model so reviewers can see segments + legend +
+      caption render through <code>CategoryBar mode="diverging"</code>
+      (F2a.5.1; lifted byte-identical from the now-retired
+      <code>lib/CompositionBar.svelte</code> body). F2a.5.2 retired
+      the standalone renderer; the StateOverview production mount now
+      uses this primitive.
+    </p>
+    <CategoryBarDiverging
+      mode="diverging"
+      view_model={{
+        schema_version: "1.0",
+        label: "Tamil Nadu fuel mix (synthetic)",
+        subtitle: "FY 2024-25 installed capacity",
+        total_value: 41000,
+        total_unit: "MW",
+        dimension: "fuel_type",
+        segments: [
+          { id: "coal", label: "Coal", value: 17000, fill: "#475569", swatch_role: "fuel-type", is_tail: false },
+          { id: "renewable", label: "Renewable", value: 14500, fill: "#16a34a", swatch_role: "fuel-type", is_tail: false },
+          { id: "gas", label: "Gas", value: 5200, fill: "#0284c7", swatch_role: "fuel-type", is_tail: false },
+          { id: "hydro", label: "Hydro", value: 2500, fill: "#7c3aed", swatch_role: "fuel-type", is_tail: false },
+          { id: "nuclear", label: "Nuclear", value: 1800, fill: "#dc2626", swatch_role: "fuel-type", is_tail: true },
+        ],
+        honesty_banners: [],
+        caption_fptp: null,
+      }}
     />
   </section>
 
@@ -399,6 +467,26 @@
       view_model={tsl_vm}
       chart_title="GSDP per capita over time (synthetic)"
       chart_subtitle="Pinned series is rendered thicker."
+      format_value={fmtInr}
+    />
+  </section>
+
+  <section class="space-y-3" data-sandbox-section="tsl-reference">
+    <h2 class="text-lg font-semibold">TimeSeriesLine — with national reference (F3)</h2>
+    <p class="text-sm text-slate-600">
+      Same three state series, plus a thin grey dashed "national
+      median" reference line and a direction-coloured
+      <code>StatusGlyph</code> at each state's latest point. Under
+      <code>higher_is_better</code>: Karnataka (above) and Tamil Nadu
+      (above) get a green up-triangle; Bihar (below) gets a red
+      down-triangle. Per plan section 20.11.
+    </p>
+    <TimeSeriesLine
+      view_model={tsl_vm}
+      reference_series={tsl_reference_series}
+      indicator_direction="higher_is_better"
+      chart_title="GSDP per capita vs national median (synthetic)"
+      chart_subtitle="Grey dashed = median across the three demo states; glyphs at latest point."
       format_value={fmtInr}
     />
   </section>
