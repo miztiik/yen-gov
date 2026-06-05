@@ -1,0 +1,20 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-uttarakhand-305,uttarakhand,2014,23,DOIWALA,Hira Singh Bisht,,35980,52.49,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2014,23,DOIWALA,Trivender Singh Rawat,,29468,42.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2014,23,DOIWALA,Furkan,,1508,2.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2014,23,DOIWALA,William Akbhar Chand,,363,0.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2014,23,DOIWALA,Rishi Kumar,,348,0.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2014,23,DOIWALA,Dharmender Kumar Pal,,237,0.35,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2014,23,DOIWALA,Som Datt,,207,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2014,23,DOIWALA,Raju Maurya,,123,0.18,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2014,23,DOIWALA,Sajid Ali,,118,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2014,23,DOIWALA,Sardar Khan Pappu,,95,0.14,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2014,23,DOIWALA,Khalik Ahmad,,65,0.09,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2014,23,DOIWALA,Liyakat,,38,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-277,uttarakhand,2014,42,DHARCHULA,Harish Chandra Singh Rawat,,31214,74.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-277,uttarakhand,2014,42,DHARCHULA,Bishnu Dutt Joshi,,10610,25.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-287,uttarakhand,2014,51,SOMESHWAR,Rekha Arya,,23241,61.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-287,uttarakhand,2014,51,SOMESHWAR,Mohan Ram Arya,,13196,34.71,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-287,uttarakhand,2014,51,SOMESHWAR,Pream Ram Arya,,814,2.14,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-287,uttarakhand,2014,51,SOMESHWAR,Parveen Kumar,,411,1.08,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-287,uttarakhand,2014,51,SOMESHWAR,Puran Kumar,,351,0.92,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

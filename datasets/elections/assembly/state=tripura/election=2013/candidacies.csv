@@ -1,0 +1,250 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-tripura-1656,tripura,2013,1,SIMNA,PRANAB DEBBARMA,,17063,54.36,1,won,U,45,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1656,tripura,2013,1,SIMNA,RABINDRA DEBBARMA,,13244,42.19,2,lost,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1656,tripura,2013,1,SIMNA,SUBODH DEBBARMA,,632,2.01,3,forfeit,U,68,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1656,tripura,2013,1,SIMNA,HIRAMUNI DEBBARMA,,450,1.43,4,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1649,tripura,2013,2,MOHANPUR,RATAN LAL NATH,,19143,49.12,1,won,U,62,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1649,tripura,2013,2,MOHANPUR,SUBHAS CHANDRA DEBNATH,,18368,47.13,2,lost,U,61,Post Graduate,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1649,tripura,2013,2,MOHANPUR,MANGALIA DEBBARMA,,640,1.64,3,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1649,tripura,2013,2,MOHANPUR,BHUPESH DEBNATH,,417,1.07,4,forfeit,U,40,Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1649,tripura,2013,2,MOHANPUR,DHIRENDRA DEBNATH,,403,1.03,5,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1634,tripura,2013,3,BAMUTIA,HARICHARAN SARKAR,,19744,52.35,1,won,U,63,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1634,tripura,2013,3,BAMUTIA,PRAKASH CHANDRA DAS,,16994,45.06,2,lost,U,54,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1634,tripura,2013,3,BAMUTIA,BIKRAM BAIRAGI,,493,1.31,3,forfeit,U,27,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1634,tripura,2013,3,BAMUTIA,BIMAL CHANDRA DAS,,481,1.28,4,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1636,tripura,2013,4,BARJALA,JITENDRA SARKAR,,17728,49.25,1,won,U,67,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1636,tripura,2013,4,BARJALA,JITENDRA DAS,,17467,48.52,2,lost,U,64,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1636,tripura,2013,4,BARJALA,SAMIR BISWAS,,511,1.42,3,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1636,tripura,2013,4,BARJALA,RAHUL DAS,,291,0.81,4,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1645,tripura,2013,5,KHAYERPUR,PABITRA KAR,,20972,50.72,1,won,U,62,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1645,tripura,2013,5,KHAYERPUR,BAPTU CHAKRABORTY,,19675,47.59,2,lost,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1645,tripura,2013,5,KHAYERPUR,NILIMA GHOSH,,698,1.69,3,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1631,tripura,2013,6,AGARTALA,SUDIP ROY BARMAN,,22160,52.29,1,won,U,47,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1631,tripura,2013,6,AGARTALA,SANKAR PRASAD DATTA,,19398,45.77,2,lost,U,55,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1631,tripura,2013,6,AGARTALA,SUSHIL ROY,,823,1.94,3,forfeit,U,66,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1654,tripura,2013,7,RAMNAGAR,RATAN DAS,,18060,49.19,1,won,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1654,tripura,2013,7,RAMNAGAR,SURAJIT DATTA,,17995,49.02,2,lost,U,61,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1654,tripura,2013,7,RAMNAGAR,BIDYUT GHOSH,,657,1.79,3,forfeit,U,44,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1660,tripura,2013,8,TOWN BORDOWALI,ASISH KUMAR SAHA,,22474,57.45,1,won,U,53,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1660,tripura,2013,8,TOWN BORDOWALI,SHYAMAL ROY,,15414,39.41,2,lost,U,61,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1660,tripura,2013,8,TOWN BORDOWALI,MANOJ KANTI DEBROY,,498,1.27,3,forfeit,U,53,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1660,tripura,2013,8,TOWN BORDOWALI,SUJIT PAUL,,354,0.91,4,forfeit,U,41,Graduate Professional,Private Company,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1660,tripura,2013,8,TOWN BORDOWALI,DEBAJIT ROY,,206,0.53,5,forfeit,U,27,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1660,tripura,2013,8,TOWN BORDOWALI,SHIBANI BHAUMIK,,170,0.43,6,forfeit,U,53,10th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1635,tripura,2013,9,BANAMALIPUR,GOPAL CHANDRA ROY,,19464,57.28,1,won,U,64,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1635,tripura,2013,9,BANAMALIPUR,YUDHISTHIR DAS,,13702,40.32,2,lost,U,59,Graduate Professional,Medical Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1635,tripura,2013,9,BANAMALIPUR,GITA ROY,,441,1.3,3,forfeit,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1635,tripura,2013,9,BANAMALIPUR,DULAL CHANDRA TALAPATRA,,194,0.57,4,forfeit,U,65,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1635,tripura,2013,9,BANAMALIPUR,SUBRATA CHAKRABORTY,,180,0.53,5,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1646,tripura,2013,10,MAJLISHPUR,MANIK DEY,,21304,52.43,1,won,U,60,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1646,tripura,2013,10,MAJLISHPUR,BIBEKANANDA CHOUDHURI,,18375,45.22,2,lost,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1646,tripura,2013,10,MAJLISHPUR,BALARAM DEBBARMA,,520,1.28,3,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1646,tripura,2013,10,MAJLISHPUR,DHANANJOY BHOWMIK,,434,1.07,4,forfeit,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1647,tripura,2013,11,MANDAIBAZAR,MONORANJAN DEBBARMA,,19275,50.35,1,won,U,53,8th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1647,tripura,2013,11,MANDAIBAZAR,JAGADISH DEBBARMA,,17450,45.58,2,lost,U,57,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1647,tripura,2013,11,MANDAIBAZAR,BASINDRA DEBBARMA,,910,2.38,3,forfeit,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1647,tripura,2013,11,MANDAIBAZAR,PADMA KUMAR DEBBARMA,,649,1.7,4,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1659,tripura,2013,12,TAKARJALA,NIRANJAN DEBBARMA,,17315,49.87,1,won,U,72,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1659,tripura,2013,12,TAKARJALA,RAJESHWAR DEBBARMA,,16108,46.4,2,lost,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1659,tripura,2013,12,TAKARJALA,BRAJALAL DEBBARMA,,690,1.99,3,forfeit,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1659,tripura,2013,12,TAKARJALA,GANESH KALAI,,605,1.74,4,forfeit,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1651,tripura,2013,13,PRATAPGARH,ANIL SARKAR,,23977,51.38,1,won,U,71,Post Graduate,Activist,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1651,tripura,2013,13,PRATAPGARH,RANJIT KUMAR DAS,,21845,46.81,2,lost,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1651,tripura,2013,13,PRATAPGARH,BIPLAB CHANDRA SARKAR,,846,1.81,3,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1632,tripura,2013,14,BADHARGHAT,DILIP SARKAR,,24309,49.29,1,won,U,53,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1632,tripura,2013,14,BADHARGHAT,SAMAR DAS,,23666,47.98,2,lost,U,27,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1632,tripura,2013,14,BADHARGHAT,BIDYUT DAS,,529,1.07,3,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1632,tripura,2013,14,BADHARGHAT,SUBAL SARKAR,,510,1.03,4,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1632,tripura,2013,14,BADHARGHAT,ASIT DAS,,308,0.62,5,forfeit,U,30,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1644,tripura,2013,15,KAMALASAGAR,NARAYAN CHANDRA CHOWDHURI,,19808,56.13,1,won,U,58,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1644,tripura,2013,15,KAMALASAGAR,DIPAK KUMAR ROY,,14393,40.79,2,lost,U,64,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1644,tripura,2013,15,KAMALASAGAR,SUJIT SARKAR,,371,1.05,3,forfeit,U,52,8th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1644,tripura,2013,15,KAMALASAGAR,TULSI BANIK,,367,1.04,4,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1644,tripura,2013,15,KAMALASAGAR,SHUBHENDU SARKAR,,349,0.99,5,forfeit,U,30,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1638,tripura,2013,16,BISHALGARH,BHANULAL SAHA,,20987,51.02,1,won,U,65,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1638,tripura,2013,16,BISHALGARH,SAMIR RANJAN BARMAN,,19263,46.83,2,lost,U,69,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1638,tripura,2013,16,BISHALGARH,RAM NARAYAN ROY,,386,0.94,3,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1638,tripura,2013,16,BISHALGARH,JIBAN KUMAR BHOWMIK,,313,0.76,4,forfeit,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1638,tripura,2013,16,BISHALGARH,ASHIT RANJAN DEB,,188,0.46,5,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1642,tripura,2013,17,GOLAGHATI,KESHAB DEBBARMA,,19181,55.55,1,won,U,42,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1642,tripura,2013,17,GOLAGHATI,MANAB DEBBARMA,,14648,42.42,2,lost,U,32,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1642,tripura,2013,17,GOLAGHATI,BUDHU KUMAR DEBBARMA,,703,2.04,3,forfeit,U,57,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1658,tripura,2013,18,SURYAMANINAGAR,RAJ KUMAR CHAUDHURI,,21613,50.47,1,won,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1658,tripura,2013,18,SURYAMANINAGAR,AVIJIT DEB,,19979,46.66,2,lost,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1658,tripura,2013,18,SURYAMANINAGAR,TAPAS MAJUMDER,,575,1.34,3,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1658,tripura,2013,18,SURYAMANINAGAR,NEPAL CHANDRA DAS,,382,0.89,4,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1658,tripura,2013,18,SURYAMANINAGAR,BABUL BANIK,,271,0.63,5,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1640,tripura,2013,19,CHARILAM,RAMENDRA NARAYAN DEBBARMA,,16479,50.94,1,won,U,63,Graduate Professional,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1640,tripura,2013,19,CHARILAM,HIMANI DEBBARMA,,15138,46.79,2,lost,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1640,tripura,2013,19,CHARILAM,RAMMOHAN DEBBARMA,,733,2.27,3,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1639,tripura,2013,20,BOXANAGAR,SAHID CHOUDHURI,,17100,53.21,1,won,U,54,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1639,tripura,2013,20,BOXANAGAR,BILLAL MIA,,14579,45.36,2,lost,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1639,tripura,2013,20,BOXANAGAR,MANTU SARKAR,,460,1.43,3,forfeit,U,58,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1650,tripura,2013,21,NALCHAR,TAPAN CHANDRA DAS,,21969,59.96,1,won,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1650,tripura,2013,21,NALCHAR,UTTAM DAS,,13862,37.83,2,lost,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1650,tripura,2013,21,NALCHAR,PARIMAL BARMAN,,541,1.48,3,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1650,tripura,2013,21,NALCHAR,CHANDAN DAS,,270,0.74,4,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1657,tripura,2013,22,SONAMURA,SHYAMAL CHAKRABORTY,,18043,52.21,1,won,U,57,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1657,tripura,2013,22,SONAMURA,SUBAL BHOWMIK,,16517,47.79,2,lost,U,52,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1641,tripura,2013,23,DHANPUR,MANIK SARKAR,,21286,57.1,1,won,U,64,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1641,tripura,2013,23,DHANPUR,SHAH ALAM,,15269,40.96,2,lost,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1641,tripura,2013,23,DHANPUR,ABUL KALAM,,721,1.93,3,forfeit,U,36,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1627,tripura,2013,24,RAMCHANDRAGHAT,PADMA KUMAR DEBBARMA,,19504,59.15,1,won,U,47,10th Pass,Activist,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1627,tripura,2013,24,RAMCHANDRAGHAT,ANIMESH DEBBARMA,,11613,35.22,2,lost,U,43,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1627,tripura,2013,24,RAMCHANDRAGHAT,ANANTA DEBBARMA,,1016,3.08,3,forfeit,U,63,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1627,tripura,2013,24,RAMCHANDRAGHAT,SHIB CHANDRA DEBBARMA,,842,2.55,4,forfeit,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1620,tripura,2013,25,KHOWAI,SAMIR DEBSARKAR,,22692,60.82,1,won,U,64,Graduate,Activist,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1620,tripura,2013,25,KHOWAI,DIPAK MAJUMDER,,13859,37.15,2,lost,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1620,tripura,2013,25,KHOWAI,RUPESH KUMAR DEB,,310,0.83,3,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1620,tripura,2013,25,KHOWAI,PRAMOD RANJAN DAS,,232,0.62,4,forfeit,U,55,8th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1620,tripura,2013,25,KHOWAI,UTTAM KUMAR GHOSH,,216,0.58,5,forfeit,U,38,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1604,tripura,2013,26,ASHARAMBARI,AGHORE DEBBARMA,,17826,59.55,1,won,U,62,Graduate,Activist,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1604,tripura,2013,26,ASHARAMBARI,AMIYA KUMAR DEBBARMA,,10609,35.44,2,lost,U,57,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1604,tripura,2013,26,ASHARAMBARI,DHANABHAKTI JAMATIA,,815,2.72,3,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1604,tripura,2013,26,ASHARAMBARI,DINESH DEBBARMA,,684,2.29,4,forfeit,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1615,tripura,2013,27,KALYANPUR-PRAMODENAGAR,MANINDRA CHANDRA DAS,,19755,53.78,1,won,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1615,tripura,2013,27,KALYANPUR-PRAMODENAGAR,KAJAL CHANDRA DAS,,15975,43.49,2,lost,U,54,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1615,tripura,2013,27,KALYANPUR-PRAMODENAGAR,BIPLAB ROY,,609,1.66,3,forfeit,U,36,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1615,tripura,2013,27,KALYANPUR-PRAMODENAGAR,KHOKAN CHANDRA PAL,,395,1.08,4,forfeit,U,48,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1630,tripura,2013,28,TELIAMURA,GOURI DAS,,18357,50.2,1,won,U,47,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1630,tripura,2013,28,TELIAMURA,GOURISANKAR ROY,,17044,46.61,2,lost,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1630,tripura,2013,28,TELIAMURA,PATAL KANYA JAMATIA,,422,1.15,3,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1630,tripura,2013,28,TELIAMURA,GOPAL SARKAR,,386,1.06,4,forfeit,U,59,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1630,tripura,2013,28,TELIAMURA,BISWAJIT DEBROY,,362,0.99,5,forfeit,U,40,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1621,tripura,2013,29,KRISHNAPUR,KHAGENDRA JAMATIA,,17125,58.32,1,won,U,59,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1621,tripura,2013,29,KRISHNAPUR,SABDA KUMAR JAMATIA,,11083,37.74,2,lost,U,54,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1621,tripura,2013,29,KRISHNAPUR,SUNADHAN DEBBARMA,,606,2.06,3,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1621,tripura,2013,29,KRISHNAPUR,MANIA DEBBARMA,,549,1.87,4,forfeit,U,68,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1633,tripura,2013,30,BAGMA,NARESH CHANDRA JAMATIA,,23600,53.49,1,won,U,52,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1633,tripura,2013,30,BAGMA,JYOTISH JAMATIA,,19525,44.25,2,lost,U,35,Others,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1633,tripura,2013,30,BAGMA,SUBODH JAMATIA,,995,2.26,3,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1652,tripura,2013,31,RADHAKISHOREPUR,PRANAJIT SINGHA ROY,,20140,50.23,1,won,U,52,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1652,tripura,2013,31,RADHAKISHOREPUR,JOY GOBINDA DEB ROY,,19303,48.15,2,lost,U,59,Graduate,School Teacher,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1652,tripura,2013,31,RADHAKISHOREPUR,LOKMAN HUSEN,,260,0.65,3,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1652,tripura,2013,31,RADHAKISHOREPUR,SWAPAN ADHIKARI,,239,0.6,4,forfeit,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1652,tripura,2013,31,RADHAKISHOREPUR,BIBHU LAL DEY,,151,0.38,5,forfeit,U,57,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1648,tripura,2013,32,MATARBARI,MADHAB CHANDRA SAHA,,22178,50.09,1,won,U,63,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1648,tripura,2013,32,MATARBARI,BIPLAB KUMAR GHOSH,,20868,47.13,2,lost,U,63,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1648,tripura,2013,32,MATARBARI,MADHUSUDHAN BHATTACHARJEE,,477,1.08,3,forfeit,U,54,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1648,tripura,2013,32,MATARBARI,GOPAL ROY,,414,0.93,4,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1648,tripura,2013,32,MATARBARI,AGHORE DEBBARMA,,343,0.77,5,forfeit,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1643,tripura,2013,33,KAKRABAN-SALGARAH,RATAN BHOWMIK,,24947,57.07,1,won,U,52,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1643,tripura,2013,33,KAKRABAN-SALGARAH,RAJIB SAMADDAR,,17757,40.62,2,lost,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1643,tripura,2013,33,KAKRABAN-SALGARAH,RABINDRA KUMAR DAS,,603,1.38,3,forfeit,U,67,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1643,tripura,2013,33,KAKRABAN-SALGARAH,UTTAM DAS,,406,0.93,4,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1653,tripura,2013,34,RAJNAGAR,SUDHAN DAS,,23942,63.61,1,won,U,52,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1653,tripura,2013,34,RAJNAGAR,MANIK CHANDRA DAS,,12545,33.33,2,lost,U,30,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1653,tripura,2013,34,RAJNAGAR,JAGADISH DAS,,675,1.79,3,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1653,tripura,2013,34,RAJNAGAR,SAKHIL DAS,,478,1.27,4,forfeit,U,33,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1637,tripura,2013,35,BELONIA,BASUDEV MAJUMDER,,20585,55.6,1,won,U,62,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1637,tripura,2013,35,BELONIA,AMAL MALLIK,,15761,42.57,2,lost,U,61,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1637,tripura,2013,35,BELONIA,GOURI SANKAR NANDI,,352,0.95,3,forfeit,U,63,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1637,tripura,2013,35,BELONIA,BABUL CHANDRA PAUL,,324,0.88,4,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1655,tripura,2013,36,SANTIRBAZAR,MANINDRA REANG,,20798,52.87,1,won,U,65,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1655,tripura,2013,36,SANTIRBAZAR,GOURI SANKAR REANG,,17042,43.32,2,lost,U,66,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1655,tripura,2013,36,SANTIRBAZAR,RANA KISHORE REANG,,888,2.26,3,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1655,tripura,2013,36,SANTIRBAZAR,PARIKSHIT DEBBARMA,,613,1.56,4,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1610,tripura,2013,37,HRISHYAMUKH,BADAL CHOUDHURY,,25009,65.42,1,won,U,62,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1610,tripura,2013,37,HRISHYAMUKH,SUSANKAR BHOWMIK,,12580,32.91,2,lost,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1610,tripura,2013,37,HRISHYAMUKH,SUDARSHAN MAJUMDER,,639,1.67,3,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1611,tripura,2013,38,JOLAIBARI,JASHABIR TRIPURA,,24295,61.9,1,won,U,54,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1611,tripura,2013,38,JOLAIBARI,BRAJENDRA MOG CHAUDHURI,,14952,38.1,2,lost,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1622,tripura,2013,39,MANU,JITENDRA CHAUDHURY,,21320,58.07,1,won,U,55,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1622,tripura,2013,39,MANU,CHANDI CHARAN TRIPURA,,14424,39.29,2,lost,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1622,tripura,2013,39,MANU,THAIU MOG,,971,2.64,3,forfeit,U,37,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1628,tripura,2013,40,SABROOM,RITA KAR (MAJUMDER),,21404,55.87,1,won,U,46,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1628,tripura,2013,40,SABROOM,PREMTOSH NATH,,16197,42.28,2,lost,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1628,tripura,2013,40,SABROOM,BHALU RANI DEY,,712,1.86,3,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1603,tripura,2013,41,AMPINAGAR,DANIEL JAMATIA,,15714,52.69,1,won,U,51,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1603,tripura,2013,41,AMPINAGAR,NAGENDRA JAMATIA,,12930,43.36,2,lost,U,63,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1603,tripura,2013,41,AMPINAGAR,PATAL KANYA JAMATIA,,426,1.43,3,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1603,tripura,2013,41,AMPINAGAR,SUBIR KUMAR JAMATIA,,420,1.41,4,forfeit,U,51,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1603,tripura,2013,41,AMPINAGAR,MANARAM REANG,,333,1.12,5,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1601,tripura,2013,42,AMARPUR,MANORANJAN ACHARJEE,,19075,54.72,1,won,U,53,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1601,tripura,2013,42,AMARPUR,NIRANJAN BARMAN,,15053,43.18,2,lost,U,59,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1601,tripura,2013,42,AMARPUR,MAHI BHUSAN CHAKRABORTY,,410,1.18,3,forfeit,U,45,10th Pass,Priest,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1601,tripura,2013,42,AMARPUR,BIJOY DAS,,321,0.92,4,forfeit,U,57,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1618,tripura,2013,43,KARBOOK,PRIYAMANI DEBBARMA,,15526,53.4,1,won,U,40,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1618,tripura,2013,43,KARBOOK,DHARJAROY TRIPURA,,12091,41.59,2,lost,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1618,tripura,2013,43,KARBOOK,MITU CHAKMA,,351,1.21,3,forfeit,U,26,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1618,tripura,2013,43,KARBOOK,CHARENDRA REANG,,348,1.2,4,forfeit,U,26,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1618,tripura,2013,43,KARBOOK,SUBAL DEBBARMA,,290,1,5,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1618,tripura,2013,43,KARBOOK,SATIRAM REANG,,288,0.99,6,forfeit,U,26,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1618,tripura,2013,43,KARBOOK,FALGUNI TRIPURA,,179,0.62,7,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1626,tripura,2013,44,RAIMA VALLEY,LALIT MOHAN TRIPURA,,18527,51.99,1,won,U,54,5th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1626,tripura,2013,44,RAIMA VALLEY,NAKSHATRA JAMATIA,,15651,43.92,2,lost,U,36,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1626,tripura,2013,44,RAIMA VALLEY,BUGERAI REANG,,798,2.24,3,forfeit,U,50,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1626,tripura,2013,44,RAIMA VALLEY,RAJENDRA REANG,,662,1.86,4,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1616,tripura,2013,45,KAMALPUR,BIJOY LAKSHMI SINGHA,,19204,51.15,1,won,U,53,8th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1616,tripura,2013,45,KAMALPUR,MANOJ KANTI DEB,,17690,47.12,2,lost,U,42,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1616,tripura,2013,45,KAMALPUR,AHINDRA KUMAR BHATTACHARJEE,,652,1.74,3,forfeit,U,60,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1629,tripura,2013,46,SURMA,SUDHIR DAS,,18648,50.51,1,won,U,63,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1629,tripura,2013,46,SURMA,SUKHA RANJAN DAS,,16786,45.47,2,lost,U,57,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1629,tripura,2013,46,SURMA,ANADI SARKAR,,415,1.12,3,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1629,tripura,2013,46,SURMA,SUSHIL MALAKAR,,394,1.07,4,forfeit,U,62,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1629,tripura,2013,46,SURMA,BIDHU CHANDAR DAS,,236,0.64,5,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1629,tripura,2013,46,SURMA,LUKESH SABDAKAR,,231,0.63,6,forfeit,U,36,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1629,tripura,2013,46,SURMA,ATUL DAS,,209,0.57,7,forfeit,U,61,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1602,tripura,2013,47,AMBASSA,LALIT KUMAR DEBBARMA,,18755,49.11,1,won,U,65,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1602,tripura,2013,47,AMBASSA,BIJOY KUMAR HRANGKHAWL,,17701,46.35,2,lost,U,66,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1602,tripura,2013,47,AMBASSA,PRADIP DEBBARMA,,655,1.72,3,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1602,tripura,2013,47,AMBASSA,BIMAL DEBBARMA,,598,1.57,4,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1602,tripura,2013,47,AMBASSA,KRISHAN KUMAR DEBBARMA,,481,1.26,5,forfeit,U,72,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1619,tripura,2013,48,KARAMCHHARA,DIBA CHANDRA HRANGKHAWL,,15411,49.77,1,won,U,57,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1619,tripura,2013,48,KARAMCHHARA,GAJENDRA TRIPURA,,14039,45.34,2,lost,U,64,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1619,tripura,2013,48,KARAMCHHARA,CHIRANJOY REANG,,488,1.58,3,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1619,tripura,2013,48,KARAMCHHARA,PADMA BIKASH TRIPURA,,446,1.44,4,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1619,tripura,2013,48,KARAMCHHARA,KALPA MOHAN TRIPURA,,226,0.73,5,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1619,tripura,2013,48,KARAMCHHARA,SAIMON DARLONG,,208,0.67,6,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1619,tripura,2013,48,KARAMCHHARA,KHANNA MARAK,,145,0.47,7,forfeit,U,42,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1607,tripura,2013,49,CHHAWMANU,NIRAJOY TRIPURA,,15870,50.8,1,won,U,85,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1607,tripura,2013,49,CHHAWMANU,ZAIDAMI TRIPURA,,14375,46.01,2,lost,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1607,tripura,2013,49,CHHAWMANU,AMAL BASU CHAKMA,,996,3.19,3,forfeit,U,31,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1623,tripura,2013,50,PABIACHHARA,SAMIRAN MALAKAR,,18504,49.81,1,won,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1623,tripura,2013,50,PABIACHHARA,SATYABAN DAS,,17254,46.44,2,lost,U,47,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1623,tripura,2013,50,PABIACHHARA,BHAGABAN DAS,,543,1.46,3,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1623,tripura,2013,50,PABIACHHARA,BILAS BINDU MALAKAR,,446,1.2,4,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1623,tripura,2013,50,PABIACHHARA,PRANESH DAS,,405,1.09,5,forfeit,U,37,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1609,tripura,2013,51,FATIKROY,TUNUBALA MALAKAR,,17899,51.18,1,won,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1609,tripura,2013,51,FATIKROY,JUGAL MALAKAR,,16034,45.84,2,lost,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1609,tripura,2013,51,FATIKROY,SAJAL DAS,,467,1.34,3,forfeit,U,31,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1609,tripura,2013,51,FATIKROY,SUBRATA MALAKAR,,380,1.09,4,forfeit,U,29,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1609,tripura,2013,51,FATIKROY,BISHNUPADA ROY,,196,0.56,5,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1606,tripura,2013,52,CHANDIPUR,TAPAN CHAKRABARTI,,21009,58.43,1,won,U,60,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1606,tripura,2013,52,CHANDIPUR,NIRMALENDU DEB,,13380,37.21,2,lost,U,58,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1606,tripura,2013,52,CHANDIPUR,RANJAN SINHA,,643,1.79,3,forfeit,U,54,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1606,tripura,2013,52,CHANDIPUR,RUDRA KANTA SINHA,,533,1.48,4,forfeit,U,43,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1606,tripura,2013,52,CHANDIPUR,CHIRANJIB BHATTACHARJEE,,391,1.09,5,forfeit,U,58,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1614,tripura,2013,53,KAILASAHAR,BIRAJIT SINHA,,18857,49.55,1,won,U,61,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1614,tripura,2013,53,KAILASAHAR,MOBOSHAR ALI,,18372,48.28,2,lost,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1614,tripura,2013,53,KAILASAHAR,DURGA CHARAN DEB,,412,1.08,3,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1614,tripura,2013,53,KAILASAHAR,MD TAYBUR RAHMAN,,251,0.66,4,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1614,tripura,2013,53,KAILASAHAR,AMAL SINHA,,162,0.43,5,forfeit,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1613,tripura,2013,54,KADAMTALA - KURTI,FAYZUR ROHAMAN,,14514,42.64,1,won,U,58,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1613,tripura,2013,54,KADAMTALA - KURTI,ABDUL MATIN CHAUDHURY,,12585,36.98,2,lost,U,57,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1613,tripura,2013,54,KADAMTALA - KURTI,ARIJIT NATH,,6070,17.83,3,lost,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1613,tripura,2013,54,KADAMTALA - KURTI,ABDUL KAYUM,,487,1.43,4,forfeit,U,46,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1613,tripura,2013,54,KADAMTALA - KURTI,FAZLUR RAHAMAN,,379,1.11,5,forfeit,U,60,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1605,tripura,2013,55,BAGBASSA,BIJITA NATH,,17991,51.26,1,won,U,45,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1605,tripura,2013,55,BAGBASSA,JYOTIRMOY NATH,,15059,42.91,2,lost,U,63,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1605,tripura,2013,55,BAGBASSA,RONAJOY KUMAR DEB,,1479,4.21,3,forfeit,U,74,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1605,tripura,2013,55,BAGBASSA,SUBIRJIT SINHA,,566,1.61,4,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1608,tripura,2013,56,DHARMANAGAR,BISWABANDHU SEN,,17991,50.99,1,won,U,59,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1608,tripura,2013,56,DHARMANAGAR,AMITABHA DATTA,,16147,45.77,2,lost,U,53,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1608,tripura,2013,56,DHARMANAGAR,JAHAR CHAKRABARTI,,692,1.96,3,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1608,tripura,2013,56,DHARMANAGAR,PRATYUSH NAG,,183,0.52,4,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1608,tripura,2013,56,DHARMANAGAR,BIBHASH RANJAN DAS,,159,0.45,5,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1608,tripura,2013,56,DHARMANAGAR,SANJOY CHAUDHURY,,109,0.31,6,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1612,tripura,2013,57,JUBARAJNAGAR,RAMENDRA CHANDRA DEBNATH,,18602,53.19,1,won,U,59,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1612,tripura,2013,57,JUBARAJNAGAR,RANADHIR NATH,,15724,44.96,2,lost,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1612,tripura,2013,57,JUBARAJNAGAR,PIJUSH NATH,,648,1.85,3,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1624,tripura,2013,58,PANISAGAR,SUBODH DAS,,15196,51.45,1,won,U,64,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1624,tripura,2013,58,PANISAGAR,RADHIKA RANJAN DAS,,13285,44.98,2,lost,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1624,tripura,2013,58,PANISAGAR,SURANJAN KUMAR DAS,,618,2.09,3,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1624,tripura,2013,58,PANISAGAR,NARAYAN MALAKAR,,435,1.47,4,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1625,tripura,2013,59,PENCHARTHAL,ARUN KUMAR CHAKMA,,16601,50.46,1,won,U,65,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1625,tripura,2013,59,PENCHARTHAL,PURNITA CHAKMA,,15584,47.36,2,lost,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1625,tripura,2013,59,PENCHARTHAL,KRISHNA CHAKMA,,717,2.18,3,forfeit,U,52,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1617,tripura,2013,60,KANCHANPUR,RAJENDRA REANG,,17186,50.13,1,won,U,50,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1617,tripura,2013,60,KANCHANPUR,DRAO KUMAR REANG,,16105,46.98,2,lost,U,73,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1617,tripura,2013,60,KANCHANPUR,UPENDRA REANG,,992,2.89,3,forfeit,U,85,5th Pass,,challenger,src-1b7bc1c9d39a

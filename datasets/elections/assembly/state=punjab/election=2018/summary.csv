@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-punjab-236,punjab,2018,SHAHKOT,172814,132385,76.61,Hardev Singh Ladi,,82747,62.5,Naib Singh Kohar,,43945,38802,29.31,src-1b7bc1c9d39a

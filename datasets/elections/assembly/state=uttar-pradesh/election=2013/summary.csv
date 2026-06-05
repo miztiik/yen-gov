@@ -1,0 +1,3 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-uttar-pradesh-1062,uttar-pradesh,2013,BHATPAR RANI,302692,162283,53.61,Ashutosh Upadhyay,,73100,45.04,Sabhakunwar,,38998,34102,21.01,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-797,uttar-pradesh,2013,HANDIA,319563,157249,49.21,P.S. Singh (R.S) (E),,81655,51.93,Dr. Pankay Tripathi,,54838,26817,17.06,src-1b7bc1c9d39a

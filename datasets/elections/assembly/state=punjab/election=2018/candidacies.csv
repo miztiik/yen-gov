@@ -1,0 +1,14 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-punjab-236,punjab,2018,32,SHAHKOT,Hardev Singh Ladi,,82747,62.5,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-236,punjab,2018,32,SHAHKOT,Naib Singh Kohar,,43945,33.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-236,punjab,2018,32,SHAHKOT,Rattan Singh,,1900,1.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-236,punjab,2018,32,SHAHKOT,NOTA,,1268,0.96,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-236,punjab,2018,32,SHAHKOT,Sulakhan Singh,,937,0.71,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-punjab-236,punjab,2018,32,SHAHKOT,Satnam Singh Malsian,,505,0.38,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-236,punjab,2018,32,SHAHKOT,Rajesh Kumar,,391,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-236,punjab,2018,32,SHAHKOT,Malkeet Singh,,218,0.16,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-236,punjab,2018,32,SHAHKOT,Manohar Lal,,132,0.1,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-236,punjab,2018,32,SHAHKOT,Paramjot,,118,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-236,punjab,2018,32,SHAHKOT,Naib Singh Kohar,,81,0.06,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-236,punjab,2018,32,SHAHKOT,Kashmir Singh,,76,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-236,punjab,2018,32,SHAHKOT,Satpal Singh,,67,0.05,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a

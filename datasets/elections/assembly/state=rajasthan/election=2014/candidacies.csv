@@ -1,0 +1,17 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Sharwan Kumar,,70527,43.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Dr. Digamber Singh,,67257,41.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Neeta Yadav,,20979,12.89,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Urmila Meghwal,,1111,0.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Ramchandra Kulhari,,832,0.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Surendar,,681,0.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Subhash Khandwa,,607,0.37,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Anita,,369,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Ishwar Singh,,333,0.2,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-543,rajasthan,2014,75,WEIR,Bhajan Lal Jatay,,77305,59.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-543,rajasthan,2014,75,WEIR,Ganga Ram Koli,,52197,39.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-543,rajasthan,2014,75,WEIR,Amar Chand,,1192,0.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-510,rajasthan,2014,102,NASIRABAD,Ramnarayan,,66648,49.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-510,rajasthan,2014,102,NASIRABAD,Sarita Devi Gena,,66262,49.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-510,rajasthan,2014,102,NASIRABAD,Idarish Mohammad Pathan,,1469,1.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-510,rajasthan,2014,102,NASIRABAD,Vijay Singh Rawat,,792,0.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
