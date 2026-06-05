@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-06-05
 **Parent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) chunk U2
-**Status**: IN-FLIGHT (spawned _pending_)
+**Status**: IN-FLIGHT (spawned #738)
 **Authority**: Jony (visual + same-side fix + breadcrumb craft) / Gregor (URL grammar contract + new route node) / Citizen (tap-to-ascend comprehension) per CLAUDE.md section 0a
 
 ---
