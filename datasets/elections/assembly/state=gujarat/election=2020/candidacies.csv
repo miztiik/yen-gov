@@ -1,0 +1,90 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-gujarat-2780,gujarat,2020,1,ABDASA,JADEJA PRADHYUMANSINH MAHIPATSINH,,71848,49.3,1,won,M,56,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2780,gujarat,2020,1,ABDASA,DR. SHANTILAL SENGHANI,,35070,24.06,2,lost,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2780,gujarat,2020,1,ABDASA,PADYAR HANIF JAKAB,,26463,18.16,3,lost,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2780,gujarat,2020,1,ABDASA,AKUB ACHARBHAI MUTVA,,4983,3.42,4,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2780,gujarat,2020,1,ABDASA,NOTA,,2960,2.03,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2780,gujarat,2020,1,ABDASA,RAMNIK SHANTILAL GARVA,,1591,1.09,6,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2780,gujarat,2020,1,ABDASA,IBRAHIM JAFAR HALEPOTRA,,1239,0.85,7,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2780,gujarat,2020,1,ABDASA,BRAHMKSHATRIY BHAGVATIBEN KHETSINHBHAI,,691,0.47,8,forfeit,F,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2780,gujarat,2020,1,ABDASA,MAHESHWARI RAMJI ASHABHAI,,375,0.26,9,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2780,gujarat,2020,1,ABDASA,AMRUTLAL LADHABHAI PATEL,,287,0.2,10,forfeit,M,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2780,gujarat,2020,1,ABDASA,MEGHVAL BHIMAJIBHAI BHIKHABHAI,,229,0.16,11,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2854,gujarat,2020,61,LIMBDI,KIRITSINH JITUBHA RANA,,88928,55.91,1,won,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2854,gujarat,2020,61,LIMBDI,KHACHAR CHETANBHAI  RAMKUBHAI,,56878,35.76,2,lost,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2854,gujarat,2020,61,LIMBDI,GABU NAGJIBHAI MOHANBHAI,,4145,2.61,3,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2854,gujarat,2020,61,LIMBDI,NOTA,,3647,2.29,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2854,gujarat,2020,61,LIMBDI,SOLANKI BHIMJIBHAI BALUBHAI,,1133,0.71,5,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2854,gujarat,2020,61,LIMBDI,METALIYA TEJABHAI NARSHIBHAI,,785,0.49,6,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2854,gujarat,2020,61,LIMBDI,SHAILESHBHAI UKABHAI PARMAR,,751,0.47,7,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2854,gujarat,2020,61,LIMBDI,PARMAR DILIPBHAI MOHANBHAI,,671,0.42,8,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2854,gujarat,2020,61,LIMBDI,PARMAR JAYANTIBHAI ARJANBHAI,,507,0.32,9,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2854,gujarat,2020,61,LIMBDI,VELANI LAKHAMANBHAI CHATURBHAI,,432,0.27,10,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2854,gujarat,2020,61,LIMBDI,RUPABHAI LAGHARBHAI RATHOD,,286,0.18,11,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2854,gujarat,2020,61,LIMBDI,VADHER HARSHADKUMAR MOHANLAL,,237,0.15,12,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2854,gujarat,2020,61,LIMBDI,GOYAL RAJESHBHAI THAKRSHIBHAI,,234,0.15,13,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2854,gujarat,2020,61,LIMBDI,PANCHALA MAVJIBHAI VITTHALBHAI,,221,0.14,14,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2854,gujarat,2020,61,LIMBDI,MAKWANA DALPATBHAI LAGHARBHAI,,197,0.12,15,forfeit,M,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2785,gujarat,2020,65,MORVI,BRIJESH MERJA,,64711,45.14,1,won,M,62,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2785,gujarat,2020,65,MORVI,JAYANTILAL JERAJBHAI PATEL,,60062,41.9,2,lost,M,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2785,gujarat,2020,65,MORVI,PARMAR VASANTLAL DAMJIBHAI,,6649,4.64,3,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2785,gujarat,2020,65,MORVI,MOVAR NIJAMBHAI GAFURBHAI,,3162,2.21,4,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2785,gujarat,2020,65,MORVI,NOTA,,2886,2.01,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2785,gujarat,2020,65,MORVI,BLOCH ISMAIL YARMAHMADBHAI,,2107,1.47,6,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2785,gujarat,2020,65,MORVI,SIRAJ AMIRALI POPATIYA,,1236,0.86,7,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2785,gujarat,2020,65,MORVI,BHATTI HUSHENBHAI BHCHUBHAI,,870,0.61,8,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2785,gujarat,2020,65,MORVI,BHIMANI JYOTSANABEN SAVJIBHAI,,539,0.38,9,forfeit,F,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2785,gujarat,2020,65,MORVI,MAKWANA PARASOTAM VALJI,,513,0.36,10,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2785,gujarat,2020,65,MORVI,KASAM HAJIBHAI SUMRA,,259,0.18,11,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2785,gujarat,2020,65,MORVI,JADAV GIRISHBHAI GOVINDBHAI,,191,0.13,12,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2785,gujarat,2020,65,MORVI,JEDA ABDULBHAI HAJIBHAI,,167,0.12,13,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2704,gujarat,2020,94,DHARI,KAKADIYA J. V.,,49974,49.89,1,won,M,56,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2704,gujarat,2020,94,DHARI,SURESH MANUBHAI KOTADIYA,,32765,32.71,2,lost,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2704,gujarat,2020,94,DHARI,THUMAR PIYUSHKUMAR BABUBHAI,,7885,7.87,3,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2704,gujarat,2020,94,DHARI,BHUPATBHAI CHHAGANBHAI UNAVA,,3159,3.15,4,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2704,gujarat,2020,94,DHARI,NOTA,,2362,2.36,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2704,gujarat,2020,94,DHARI,MADHAD RAMJIBHAI BHIKHABHAI,,1213,1.21,6,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2704,gujarat,2020,94,DHARI,AGHERA KANUBHAI SAVASHIBHAI,,799,0.8,7,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2704,gujarat,2020,94,DHARI,BAVKUBHAI AMRUBHAI VALA,,643,0.64,8,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2704,gujarat,2020,94,DHARI,PRAVINBHAI GEDIYA,,450,0.45,9,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2704,gujarat,2020,94,DHARI,KAPILBHAI KALUBHAI VEGADA,,409,0.41,10,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2704,gujarat,2020,94,DHARI,MAHETA NANALAL KALIDAS,,301,0.3,11,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2704,gujarat,2020,94,DHARI,IMRANBHAI VALIBHAI PARMAR,,212,0.21,12,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2742,gujarat,2020,106,GADHADA,ATMARAM MAKANBHAI PARMAR,,71912,56.08,1,won,M,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2742,gujarat,2020,106,GADHADA,MOHANBHAI SHANKARBHAI SOLANKI,,48617,37.92,2,lost,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2742,gujarat,2020,106,GADHADA,NOTA,,3119,2.43,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2742,gujarat,2020,106,GADHADA,PARMAR VINUBHAI ANANDBHAI,,1086,0.85,4,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2742,gujarat,2020,106,GADHADA,HARILAL RAMJIBHAI PARMAR,,949,0.74,5,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2742,gujarat,2020,106,GADHADA,RANVA SHANTILAL MAGANBHAI,,578,0.45,6,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2742,gujarat,2020,106,GADHADA,SOLANKI CHETANKUMAR HIRALAL,,463,0.36,7,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2742,gujarat,2020,106,GADHADA,PARMAR VIJAYBHAI VIRABHAI,,324,0.25,8,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2742,gujarat,2020,106,GADHADA,MANHAR K. RATHOD,,272,0.21,9,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2742,gujarat,2020,106,GADHADA,PARMAR DINESHBHAI JIVRAJBHAI,,264,0.21,10,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2742,gujarat,2020,106,GADHADA,CHAUHAN HARESHKUMAR CHHAGANBHAI,,263,0.21,11,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2742,gujarat,2020,106,GADHADA,PARMAR RAMESHCHANDRA NANJIBHAI,,197,0.15,12,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2742,gujarat,2020,106,GADHADA,BERADIYA BHAGIRATH RAJUBHAI,,179,0.14,13,forfeit,M,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2736,gujarat,2020,147,KARJAN,AKSHAYKUMAR ISWARBHAI PATEL,,76958,53.62,1,won,M,51,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2736,gujarat,2020,147,KARJAN,JADEJA KIRITSINH DOLUBHA,,60533,42.18,2,lost,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2736,gujarat,2020,147,KARJAN,NOTA,,2299,1.6,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2736,gujarat,2020,147,KARJAN,VANKAR NARESHBHAI ISHWARBHAI,,941,0.66,4,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2736,gujarat,2020,147,KARJAN,VASAVA RAMANBHAI CHIMANBHAI,,860,0.6,5,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2736,gujarat,2020,147,KARJAN,MAHENDRA AMBALAL VASAVA,,633,0.44,6,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2736,gujarat,2020,147,KARJAN,PATEL DINESHBHAI GOPALBHAI,,559,0.39,7,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2736,gujarat,2020,147,KARJAN,MAYUR ROHIT JOSHI,,352,0.25,8,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2736,gujarat,2020,147,KARJAN,ARIFHUSEIN GULAMHUSEIN SAIYAD,,203,0.14,9,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2736,gujarat,2020,147,KARJAN,PARMAR DEVYANIBEN LAXMANBHAI,,185,0.13,10,forfeit,F,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2864,gujarat,2020,173,DANGS,PATEL VIJAYBHAI RAMESHBHAI,,94006,69.58,1,won,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2864,gujarat,2020,173,DANGS,SURYAKANTBHAI RATANBHAI GAVIT,,33911,25.1,2,lost,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2864,gujarat,2020,173,DANGS,NOTA,,2939,2.18,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2864,gujarat,2020,173,DANGS,GAMIT BAPUBHAI JANYABHAI,,1234,0.91,4,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2864,gujarat,2020,173,DANGS,VADEKAR MUKESHBHAI JAMNADAS,,928,0.69,5,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2864,gujarat,2020,173,DANGS,MANUBHAI MOHANBHAI BHOYE,,542,0.4,6,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2864,gujarat,2020,173,DANGS,PATEL CHIRAGKUMAR BHARATBHAI,,428,0.32,7,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2864,gujarat,2020,173,DANGS,YOGESHBHAI SONIRAVBHAI BHOYE,,400,0.3,8,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2864,gujarat,2020,173,DANGS,GAMIT JITENDRABHAI HIRUBHAI,,396,0.29,9,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2864,gujarat,2020,173,DANGS,DINESHBHAI DHAKLUBHAI HADAL,,314,0.23,10,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2866,gujarat,2020,181,KAPRADA,Jitubhai Harjibhai Chaudhari,,112941,59,1,won,M,56,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2866,gujarat,2020,181,KAPRADA,Babubhai Jivlabhai Patel Alias(Varatha),,65875,34.42,2,lost,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2866,gujarat,2020,181,KAPRADA,Patel Prakashbhai Shankarbhai,,5301,2.77,3,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2866,gujarat,2020,181,KAPRADA,NOTA,,4520,2.36,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2866,gujarat,2020,181,KAPRADA,Jayendrabhai Laxmanbhai Ganvit,,2776,1.45,5,forfeit,M,40,,,challenger,src-1b7bc1c9d39a

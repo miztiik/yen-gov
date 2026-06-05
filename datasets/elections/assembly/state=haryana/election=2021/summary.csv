@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-haryana-417,haryana,2021,ELLENABAD,186416,151734,81.4,Abhay Singh Chautala,,65992,43.49,Gobind Kanda,,59253,6739,4.44,src-1b7bc1c9d39a

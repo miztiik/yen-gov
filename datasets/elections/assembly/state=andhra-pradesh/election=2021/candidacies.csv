@@ -1,0 +1,17 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,DASARI SUDHA,,112211,76.25,1,won,F,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,PANATHALA SURESH,,21678,14.73,2,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,KAMALAMMA. P.M.,,6235,4.24,3,forfeit,F,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,NOTA,,3650,2.48,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,T. HARI PRASAD,,668,0.45,5,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,BURAGA RATNAM,,409,0.28,6,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,O. OBULESU,,405,0.28,7,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,RAJESH JELLI,,338,0.23,8,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,DOCTOR GODA RAMESH KUMAR,,327,0.22,9,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,PALLE. NAGARAJU,,308,0.21,10,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,KOTAPATI NARASIMHULU,,171,0.12,11,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,SEELI PEDDA CHENNAIAH,,168,0.11,12,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,SANGATI MANOHAR,,165,0.11,13,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,SINGAMALA VENKATESHWARLU,,158,0.11,14,forfeit,M,65,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,D. CHINNA,,145,0.1,15,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,SAGILI SUDHARSHANAM,,127,0.09,16,forfeit,M,56,,,challenger,src-1b7bc1c9d39a

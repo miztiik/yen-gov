@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-himachal-pradesh-103,himachal-pradesh,2014,37,SUJANPUR,Narinder Thakur,,22993,49.78,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-103,himachal-pradesh,2014,37,SUJANPUR,Anita Kumari Rana,,22455,48.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-103,himachal-pradesh,2014,37,SUJANPUR,Parveen Thakur,,387,0.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-103,himachal-pradesh,2014,37,SUJANPUR,Subhash Chand,,352,0.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

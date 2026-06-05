@@ -1,0 +1,6 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-gujarat-2812,gujarat,2013,MORVA HADAF,120680,111968,92.78,S.N. Manharsinh,,64842,57.91,K.B. Vechatbhai,,47126,17716,15.82,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2822,gujarat,2013,DHORAJI,164045,80751,49.22,P.M. Makadiya,,44751,55.42,H.G. Patil (K.P),,33254,11497,14.24,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2824,gujarat,2013,JETPUR,169988,106806,62.83,R.J. Vithalbhai,,78216,73.23,P.J. Gandubhai,,25310,52906,49.53,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2848,gujarat,2013,SURAT WEST,133445,107599,80.63,Modi Purnesh Kumar Ishwarlal,,86061,79.98,Patel Dalpatbhai Laxman Bhai,,19769,66292,61.61,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2854,gujarat,2013,LIMBDI,158200,143616,90.78,K.J. Rana,,81159,56.51,K.S. Somabhai,,56372,24787,17.26,src-1b7bc1c9d39a

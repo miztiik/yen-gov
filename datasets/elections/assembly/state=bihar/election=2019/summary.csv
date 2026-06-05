@@ -1,0 +1,8 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-bihar-1128,bihar,2019,BELHAR,303170,150192,49.54,Ramdeo Yadav,,76350,50.83,Laldhari Yadav,,57119,19231,12.8,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1143,bihar,2019,NATHNAGAR,316736,149945,47.34,Lakshmikant Mandal,,55981,37.33,Rabiya Khatun,,50850,5131,3.42,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1193,bihar,2019,DEHRI,289230,143556,49.63,Satyanarayan Singh,,72097,50.22,Mohammad Firoz Husain,,38104,33993,23.68,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1210,bihar,2019,SIMRI BAKHTIARPUR,322730,168423,52.19,ZAFAR ALAM,,71441,42.42,Dr. ARUN KUMAR,,55936,15505,9.21,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1214,bihar,2019,KISHANGANJ,284264,169969,59.79,QAMRUL HODA,,70469,41.46,SWEETY SINGH,,60265,10204,6,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1257,bihar,2019,NAWADA,341275,164922,48.33,Kaushal Yadav,,53880,32.67,Shrawan Kumar,,42754,11126,6.75,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1322,bihar,2019,DARAUNDHA,317219,140433,44.27,Karnjeet Singh Alias Vyas Singh,,51223,36.48,Ajay Kumar Singh,,23944,27279,19.43,src-1b7bc1c9d39a

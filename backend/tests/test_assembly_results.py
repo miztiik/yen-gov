@@ -272,3 +272,40 @@ def test_emit_is_deterministic(tmp_path):
     e2 = _emit(tmp_path / "again", rows, [1, 2])
     second = e2[2021]["candidacies"].read_text(encoding="utf-8")
     assert first == second
+
+
+# --- uncontested seat (B2b.5.3): single candidate, nan share -----------------
+
+
+def test_uncontested_seat_emits_null_runnerup_and_margin(tmp_path):
+    # TCPD shape for an unopposed return: winner votes=0, share=nan, + a NOTA row.
+    rows = [
+        _ae_row(Constituency_No=1, Position=1, Candidate="Unopposed", Party="BJP",
+                Votes=0, Vote_Share_Percentage="nan", Valid_Votes=0,
+                Turnout_Percentage=0),
+        _ae_row(Constituency_No=1, Position=2, Candidate="NOTA", Party="NOTA",
+                Votes=0, Vote_Share_Percentage="nan"),
+    ]
+    emitted = _emit(tmp_path, rows, [1])
+    validate_csv(path=emitted[2021]["summary"], file_class=ASSEMBLY_SUMMARY_FC, repo_root=tmp_path)
+    validate_csv(path=emitted[2021]["candidacies"], file_class=ASSEMBLY_CANDIDACIES_FC, repo_root=tmp_path)
+    summ = _read(emitted[2021]["summary"])[0]
+    assert summ["winner_candidate"] == "Unopposed"
+    assert summ["runnerup_candidate"] == ""      # null -> empty cell
+    assert summ["runnerup_votes"] == ""
+    assert summ["margin_votes"] == ""
+    assert summ["margin_pct"] == ""
+    assert summ["winner_share_pct"] == ""        # nan share -> null
+
+
+def test_nan_vote_share_becomes_null_not_literal_nan(tmp_path):
+    rows = [
+        _ae_row(Constituency_No=1, Position=1, Candidate="W", Party="DMK",
+                Votes=100, Vote_Share_Percentage="nan"),
+        _ae_row(Constituency_No=1, Position=2, Candidate="R", Party="ADMK",
+                Votes=80, Vote_Share_Percentage=40.0),
+    ]
+    emitted = _emit(tmp_path, rows, [1])
+    cand = {r["candidate_name"]: r for r in _read(emitted[2021]["candidacies"])}
+    assert cand["W"]["vote_share_pct"] == ""     # nan -> empty, never the string "nan"
+    assert float(cand["R"]["vote_share_pct"]) == 40.0

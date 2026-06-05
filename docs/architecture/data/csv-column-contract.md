@@ -198,12 +198,12 @@ Derived projection of `candidacies.csv` (plan section 23.4). The parity oracle (
 | `winner_candidate` | string | no | |
 | `winner_party_id` | string | yes | fk -> entities/parties.csv.party_id |
 | `winner_votes` | integer | no | argmax votes ex-NOTA (plan section 23.4) |
-| `winner_share_pct` | number | no | derived |
-| `runnerup_candidate` | string | no | |
+| `winner_share_pct` | number | yes | derived; null for an unopposed return (TCPD records a non-numeric share) |
+| `runnerup_candidate` | string | yes | null when the seat is uncontested (single candidate) |
 | `runnerup_party_id` | string | yes | fk -> entities/parties.csv.party_id |
-| `runnerup_votes` | integer | no | |
-| `margin_votes` | integer | no | derived: `winner_votes - runnerup_votes` |
-| `margin_pct` | number | no | derived (F7) |
+| `runnerup_votes` | integer | yes | null when uncontested |
+| `margin_votes` | integer | yes | derived: `winner_votes - runnerup_votes`; null when uncontested |
+| `margin_pct` | number | yes | derived (F7); null when uncontested or either share is non-numeric |
 | `source_id` | string | no | fk -> entities/source.csv.source_id |
 
 #### `datasets/elections/parliament/election=<year>/candidacies.csv`

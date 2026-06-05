@@ -1,0 +1,21 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-bihar-1292,bihar,2021,78,KUSHESHWAR ASTHAN,AMAN BHUSHAN HAJARI,,59887,45.46,1,won,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1292,bihar,2021,78,KUSHESHWAR ASTHAN,GANESH BHARTI,,47192,35.83,2,lost,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1292,bihar,2021,78,KUSHESHWAR ASTHAN,ANJU DEVI,,5623,4.27,3,forfeit,F,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1292,bihar,2021,78,KUSHESHWAR ASTHAN,ATIREK KUMAR,,5603,4.25,4,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1292,bihar,2021,78,KUSHESHWAR ASTHAN,JIBACHH KUMAR HAJARI,,3200,2.43,5,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1292,bihar,2021,78,KUSHESHWAR ASTHAN,NOTA,,2899,2.2,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1292,bihar,2021,78,KUSHESHWAR ASTHAN,SACHCHIDANAND PASWAN,,2596,1.97,7,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1292,bihar,2021,78,KUSHESHWAR ASTHAN,YOGI CHAUPAL,,2211,1.68,8,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1292,bihar,2021,78,KUSHESHWAR ASTHAN,RAM BAHADUR AZAD,,1789,1.36,9,forfeit,M,76,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1292,bihar,2021,78,KUSHESHWAR ASTHAN,NOTA,,726,0.55,10,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1186,bihar,2021,164,TARAPUR,RAJEEV KUMAR SINGH,,79090,46.62,1,won,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1186,bihar,2021,164,TARAPUR,ARUN KUMAR,,75238,44.35,2,lost,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1186,bihar,2021,164,TARAPUR,KUMAR CHANDAN,,5364,3.16,3,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1186,bihar,2021,164,TARAPUR,RAJESH KUMAR MISHRA,,3590,2.12,4,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1186,bihar,2021,164,TARAPUR,NOTA,,2569,1.51,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1186,bihar,2021,164,TARAPUR,DIPAK KUMAR,,1431,0.84,6,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1186,bihar,2021,164,TARAPUR,BASHISHTHA NARAYAN,,834,0.49,7,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1186,bihar,2021,164,TARAPUR,SHIV GANDHI,,624,0.37,8,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1186,bihar,2021,164,TARAPUR,ANSHU KUMARI,,613,0.36,9,forfeit,F,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1186,bihar,2021,164,TARAPUR,UPENDRA SAHANI,,310,0.18,10,forfeit,M,49,,,challenger,src-1b7bc1c9d39a

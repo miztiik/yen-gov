@@ -1,0 +1,1209 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2008,1,KARNAH,KAFIL UR REHMAN,,4110,19.15,1,won,U,53,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2008,1,KARNAH,AB REHMAN BHADANA,,2962,13.8,2,forfeit,U,66,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2008,1,KARNAH,JAVID AHMAD MIRCHAL,,2911,13.57,3,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2008,1,KARNAH,ALI ASGAR KHAN,,2642,12.31,4,forfeit,U,69,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2008,1,KARNAH,RAJA MANZOOR AHMAD KHAN,,2616,12.19,5,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2008,1,KARNAH,SYED YASIN SHAH,,2245,10.46,6,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2008,1,KARNAH,MOHD ABASS,,1708,7.96,7,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2008,1,KARNAH,MOHD NASEEM,,770,3.59,8,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2008,1,KARNAH,ZIYAFAT LONE,,484,2.26,9,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2008,1,KARNAH,SHAHNAZ AHMAD,,295,1.37,10,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2008,1,KARNAH,TAJA PARVEEN,,226,1.05,11,forfeit,U,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2008,1,KARNAH,JEHANGIR KHAN,,182,0.85,12,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2008,1,KARNAH,LAL DIN PLOUT,,174,0.81,13,forfeit,U,45,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2008,1,KARNAH,SAIYDA BAGUM,,133,0.62,14,forfeit,U,38,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2008,2,KUPWARA,MIR SAIFULLAH,,16696,30.07,1,won,U,48,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2008,2,KUPWARA,FAYAZ AHMAD MIR,,11514,20.74,2,lost,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2008,2,KUPWARA,SHABNAM GANI LONE,,11050,19.9,3,lost,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2008,2,KUPWARA,ABDUL MAJEED KHAN,,2673,4.81,4,forfeit,U,58,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2008,2,KUPWARA,ABDUL AHAD MIR,,2495,4.49,5,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2008,2,KUPWARA,ABDUL MAJEED SHEIKH,,2237,4.03,6,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2008,2,KUPWARA,CHOWDRY SALAM - UD -DIN,,2046,3.68,7,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2008,2,KUPWARA,SONAULLA BHAT,,814,1.47,8,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2008,2,KUPWARA,NAZIR AHMAD KHAN,,759,1.37,9,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2008,2,KUPWARA,ABDUL REHMAN LONE,,697,1.26,10,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2008,2,KUPWARA,MANZOOR AHMAD MIR,,640,1.15,11,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2008,2,KUPWARA,MOHD MAQBOOL MIR,,612,1.1,12,forfeit,U,68,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2008,2,KUPWARA,GULZAR AHMAD LONE,,591,1.06,13,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2008,2,KUPWARA,BASHIR AHMAD AWAN,,575,1.04,14,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2008,2,KUPWARA,MOHD SADIQ MALIK,,504,0.91,15,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2008,2,KUPWARA,MOHD ISMAIL ZARGAR,,474,0.85,16,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2008,2,KUPWARA,SARDAR KHAN,,463,0.83,17,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2008,2,KUPWARA,SAMER RAINA,,375,0.68,18,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2008,2,KUPWARA,SYED MOHD RAFIQ SHAH,,310,0.56,19,forfeit,U,36,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2008,3,LOLAB,ABDUL HAQ KHAN,,23337,40.67,1,won,U,55,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2008,3,LOLAB,QAISAR JAMSHEED LONE,,17990,31.35,2,lost,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2008,3,LOLAB,FAROOQ AHMAD MIR,,4417,7.7,3,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2008,3,LOLAB,ABDUL REHMAN WANI,,4087,7.12,4,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2008,3,LOLAB,MOHD MAQBOOL SHAH,,3265,5.69,5,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2008,3,LOLAB,MAHA WALI KHAN,,1566,2.73,6,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2008,3,LOLAB,BARKAT ALI KHAN,,1195,2.08,7,forfeit,U,55,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2008,3,LOLAB,MUNEER AHMAD KHAN,,602,1.05,8,forfeit,U,35,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2008,3,LOLAB,ABDUL AZIZ NAIK,,477,0.83,9,forfeit,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2008,3,LOLAB,MANZOOR AHMAD GANIE,,446,0.78,10,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2008,4,HANDWARA,CHOWDARY MOHD RAMZAN,,27907,48.38,1,won,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2008,4,HANDWARA,GH MOHI-UD-DIN SOFI,,16317,28.29,2,lost,U,58,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2008,4,HANDWARA,MOHD YASEEN BHAT,,4825,8.37,3,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2008,4,HANDWARA,GH MOHD MIR,,3471,6.02,4,forfeit,U,57,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2008,4,HANDWARA,MOHD SHAFI DAR,,1562,2.71,5,forfeit,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2008,4,HANDWARA,PAWAN KUMAR,,883,1.53,6,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2008,4,HANDWARA,GH NABI SHAH,,731,1.27,7,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2008,4,HANDWARA,MOHD ABDULLAH CHATWAL,,550,0.95,8,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2008,4,HANDWARA,HANIFA BAGUM,,437,0.76,9,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2008,4,HANDWARA,MOHD AKBAR LONE,,308,0.53,10,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2008,4,HANDWARA,ANATULLAH LOHAR,,269,0.47,11,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2008,4,HANDWARA,SAJAD AHMAD TANTARY,,219,0.38,12,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2008,4,HANDWARA,SHAFIQA BAGUM,,199,0.35,13,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2008,5,LANGATE,AB RASHID SHEIKH,,7964,21.86,1,won,U,43,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2008,5,LANGATE,MOHD SULTAN PANDITHPORI,,7754,21.29,2,lost,U,70,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2008,5,LANGATE,SHARIF-UD-DIN SHARIQ,,5266,14.46,3,forfeit,U,73,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2008,5,LANGATE,MOHD ABDULLAH ADVOCATE,,4188,11.5,4,forfeit,U,51,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2008,5,LANGATE,MOHD AMIN KHAN,,3497,9.6,5,forfeit,U,64,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2008,5,LANGATE,AB AHAD WANI,,1513,4.15,6,forfeit,U,63,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2008,5,LANGATE,BASHIR AHMAD WANI,,1408,3.87,7,forfeit,U,48,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2008,5,LANGATE,SYED MOHD HANEEF,,949,2.61,8,forfeit,U,61,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2008,5,LANGATE,AB LATEIF MIR,,905,2.48,9,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2008,5,LANGATE,JAVID IQBAL MIR,,804,2.21,10,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2008,5,LANGATE,GH MOHIUDIN,,578,1.59,11,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2008,5,LANGATE,SHADI LAL KANTH,,572,1.57,12,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2008,5,LANGATE,GH MUSTAFA,,443,1.22,13,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2008,5,LANGATE,AB AHAD TANTARY,,361,0.99,14,forfeit,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2008,5,LANGATE,JAVID AHMAD,,227,0.62,15,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-31,jammu-and-kashmir,2008,6,URI,TAJ MOHI-UD-DIN,,24036,44.54,1,won,U,60,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-31,jammu-and-kashmir,2008,6,URI,MOHAMMAD SHAFI,,22157,41.06,2,lost,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-31,jammu-and-kashmir,2008,6,URI,SHABIR AHMAD MANGRAL,,1550,2.87,3,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-31,jammu-and-kashmir,2008,6,URI,MOHAMMAD MUSHAB KHAN,,1177,2.18,4,forfeit,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-31,jammu-and-kashmir,2008,6,URI,SYED SHOWKAT HUSSAIN,,1033,1.91,5,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-31,jammu-and-kashmir,2008,6,URI,SAJID NASEER KHAN,,1020,1.89,6,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-31,jammu-and-kashmir,2008,6,URI,NOOR-UL-AMIN MALIK,,874,1.62,7,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-31,jammu-and-kashmir,2008,6,URI,HALIMA BANO,,655,1.21,8,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-31,jammu-and-kashmir,2008,6,URI,MOHAMMAD ALTAF MIR,,545,1.01,9,forfeit,U,24,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-31,jammu-and-kashmir,2008,6,URI,ABDUL QAYOOM KHAN,,276,0.51,10,forfeit,U,25,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-31,jammu-and-kashmir,2008,6,URI,NASEER AHMAD SHEIKH,,274,0.51,11,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-31,jammu-and-kashmir,2008,6,URI,MOHAMMAD AKBAR KHAN,,244,0.45,12,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-31,jammu-and-kashmir,2008,6,URI,ZAFAR ULLAH MIR,,123,0.23,13,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-27,jammu-and-kashmir,2008,7,RAFIABAD,JAVAID AHMAD DAR,,13198,35.89,1,won,U,31,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-27,jammu-and-kashmir,2008,7,RAFIABAD,MOHAMMAD DILAWAR MIR,,12982,35.3,2,lost,U,63,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-27,jammu-and-kashmir,2008,7,RAFIABAD,ABDUL GANI VAKIL,,7513,20.43,3,lost,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-27,jammu-and-kashmir,2008,7,RAFIABAD,HARBAJAN SINGH,,840,2.28,4,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-27,jammu-and-kashmir,2008,7,RAFIABAD,GHULAM AHMAD DAR,,671,1.82,5,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-27,jammu-and-kashmir,2008,7,RAFIABAD,FAROOQ AHMAD YATOO,,461,1.25,6,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-27,jammu-and-kashmir,2008,7,RAFIABAD,SONA ULLAH LONE,,438,1.19,7,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-27,jammu-and-kashmir,2008,7,RAFIABAD,ABDUL KHALIQ SHEIKH,,389,1.06,8,forfeit,U,70,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-27,jammu-and-kashmir,2008,7,RAFIABAD,GHULAM NABI PARRAY,,280,0.76,9,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,MOHD ASHRAF GANIE,,4368,24.24,1,won,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,ABDUL RASHID DAR,,3304,18.34,2,lost,U,55,8th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,AB KHALIQ BHAT,,2357,13.08,3,forfeit,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,GH RASOOL KAR,,1555,8.63,4,forfeit,U,88,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,KIFAYAT HUSSAIN MIR,,922,5.12,5,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,NAZIR AHMAD NAIKOO,,840,4.66,6,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,GH MOHD MIR,,563,3.12,7,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,GH RASOOL SHAH,,551,3.06,8,forfeit,U,65,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,MOHD ABDULLAH DAR,,527,2.93,9,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,GH NABI LONE,,422,2.34,10,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,KHAZIR MOHD GANIE,,421,2.34,11,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,FEROOZ AHMAD MALIK,,344,1.91,12,forfeit,U,29,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,GH AHMAD LONE,,269,1.49,13,forfeit,U,68,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,MOHD ISMAIL ZARGAR,,216,1.2,14,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,VIJAY CHICKEN KOUL,,215,1.19,15,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,MOHD LATIEF MIRCHAL,,207,1.15,16,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,SHABIR AHMAD PEER,,147,0.82,17,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,FAROOQ AHMAD WANI,,143,0.79,18,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,GH RASOOL DAR,,135,0.75,19,forfeit,U,50,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,ROSHAN LAL PANDITH,,130,0.72,20,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,ABDUL RASHID LONE,,108,0.6,21,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,MOHD MAQBOOL WAR,,94,0.52,22,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,GH NABI DAR,,92,0.51,23,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2008,8,SOPORE,ASHFAQ YOUSUF BHAT,,87,0.48,24,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-20,jammu-and-kashmir,2008,9,GUREZ,NAZIR AHMAD KHAN,,5817,51.06,1,won,U,35,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-20,jammu-and-kashmir,2008,9,GUREZ,FAQEER AHMAD KHAN,,5085,44.64,2,lost,U,48,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-20,jammu-and-kashmir,2008,9,GUREZ,NAZIR AHMAD BHAT,,170,1.49,3,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-20,jammu-and-kashmir,2008,9,GUREZ,MOHD. IQBAL LONE,,132,1.16,4,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-20,jammu-and-kashmir,2008,9,GUREZ,RIYAZ AHMED WANI,,114,1,5,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-20,jammu-and-kashmir,2008,9,GUREZ,ABDUL AZIZ WANI,,74,0.65,6,forfeit,U,50,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2008,10,BANDIPORA,NIZAMUDDIN BHAT,,13051,26.1,1,won,U,60,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2008,10,BANDIPORA,USMAN ABDUL MAJID,,12231,24.46,2,lost,U,48,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2008,10,BANDIPORA,MOHAMMAD ABDULLAH WANI,,5356,10.71,3,forfeit,U,50,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2008,10,BANDIPORA,MOHD. ISMAIL BHAT,,3907,7.81,4,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2008,10,BANDIPORA,GH. RASOOL MIR,,3559,7.12,5,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2008,10,BANDIPORA,HABIB ULLAH BHAT,,1533,3.07,6,forfeit,U,70,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2008,10,BANDIPORA,MOHD. IQBAL JAN,,1524,3.05,7,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2008,10,BANDIPORA,MOHD. QASIM MIR,,1296,2.59,8,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2008,10,BANDIPORA,MOHD. ANWAR WANI,,991,1.98,9,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2008,10,BANDIPORA,HABIB ULLAH PAHLOO,,883,1.77,10,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2008,10,BANDIPORA,NOOR MOHAMMAD SHEERGOJRI,,869,1.74,11,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2008,10,BANDIPORA,IFTIKHAR AHMED PEERZADA,,815,1.63,12,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2008,10,BANDIPORA,SHAMAS-UD-DIN KHAN TRUK,,775,1.55,13,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2008,10,BANDIPORA,GH. MOHI DIN BHAT,,770,1.54,14,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2008,10,BANDIPORA,BASHIR AHMED KHAN,,701,1.4,15,forfeit,U,34,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2008,10,BANDIPORA,GOUSIA BASHIR,,633,1.27,16,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2008,10,BANDIPORA,ABDUL REHMAN THIKRIYA,,554,1.11,17,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2008,10,BANDIPORA,MANZOOR AHMED KHAN,,305,0.61,18,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2008,10,BANDIPORA,REYAZ AHMED WANI,,244,0.49,19,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,MOHD. AKBAR LONE,,20108,39.74,1,won,U,63,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,ABID HUSSAIN ANSARI,,7951,15.71,2,forfeit,U,62,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,IMTIAZ AHMED PARRAY,,6472,12.79,3,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,YASIR RESHI,,5985,11.83,4,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,GHULAM HASSAN DAR,,3218,6.36,5,forfeit,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,MOHD. ASLAM FAFOO,,929,1.84,6,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,ABDUL MAJID LONE,,838,1.66,7,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,MOHD. MAQBOOL MALLA,,534,1.06,8,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,ABDUL AZIZ HURRA,,528,1.04,9,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,SYED ABBAS,,493,0.97,10,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,ZAHOOR AHMED MIR,,465,0.92,11,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,MOHD. AKBAR DAR,,400,0.79,12,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,MOHD. ASHRAF RESHI,,379,0.75,13,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,SHABIIR AHMED MIR,,374,0.74,14,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,MOHD. YOUSUF RATHER,,314,0.62,15,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,GHULAM MOHD. MIR,,305,0.6,16,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,MOHD. ASHRAF SHEIKH,,289,0.57,17,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,MUSHTAQ AHMED GANIE,,280,0.55,18,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,AFROZ AHMED MALIK,,254,0.5,19,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,ZULFIKAR ALI MALLA,,199,0.39,20,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,ALI MOHD. KAWA,,182,0.36,21,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2008,11,SONAWARI,GHULAM AHMED LONE,,98,0.19,22,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2008,12,SANGRAMA,SYED BASHARAT AHMAD,,7812,28.09,1,won,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2008,12,SANGRAMA,SHOAIB NABI LONE,,6482,23.31,2,lost,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2008,12,SANGRAMA,GHULAM QADIR BHAT,,3962,14.25,3,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2008,12,SANGRAMA,IRFAN HAFIZ LONE,,2441,8.78,4,forfeit,U,26,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2008,12,SANGRAMA,MOHD MUZAFFAR PARRAY,,1563,5.62,5,forfeit,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2008,12,SANGRAMA,MOHD MAQBOOL DAR,,1032,3.71,6,forfeit,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2008,12,SANGRAMA,SHEIKH MUSHTAQ AHMAD,,1031,3.71,7,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2008,12,SANGRAMA,SYED FIDA HUSSAIN,,454,1.63,8,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2008,12,SANGRAMA,NISSAR AHMAD SHAH,,408,1.47,9,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2008,12,SANGRAMA,ABDUL HAMID DAR,,396,1.42,10,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2008,12,SANGRAMA,MOHD YAQOOB MALIK,,356,1.28,11,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2008,12,SANGRAMA,NASEER AHMAD BUCHH,,340,1.22,12,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2008,12,SANGRAMA,MUSHTAQ AHMAD GANIE,,328,1.18,13,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2008,12,SANGRAMA,GHULAM MOHAMMAD SHAH,,270,0.97,14,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2008,12,SANGRAMA,SHIRAZ AHMAD AZHARI,,246,0.88,15,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2008,12,SANGRAMA,WALI MOHAMMAD WANI,,213,0.77,16,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2008,12,SANGRAMA,SONAULLAH BAIG,,181,0.65,17,forfeit,U,60,8th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2008,12,SANGRAMA,JAVAID AHMAD MALIK,,166,0.6,18,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2008,12,SANGRAMA,NASEER AHMAD SHEIKH,,128,0.46,19,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2008,13,BARAMULLA,MUZAFFAR HUSSAIN BAIG,,13019,53.46,1,won,U,64,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2008,13,BARAMULLA,NAZIR HUSSAIN KHAN,,7621,31.29,2,lost,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2008,13,BARAMULLA,MUSHTAQ AHMAD MIR,,1367,5.61,3,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2008,13,BARAMULLA,HARMEET SINGH,,927,3.81,4,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2008,13,BARAMULLA,MUSHTAQ AHMAD PARRAY,,404,1.66,5,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2008,13,BARAMULLA,GHULAM MOHIUDDIN AKHOON,,226,0.93,6,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2008,13,BARAMULLA,RAJA BEGUM,,168,0.69,7,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2008,13,BARAMULLA,GHULAM MOHAMMAD MATTOO,,167,0.69,8,forfeit,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2008,13,BARAMULLA,GHULAM DIN SHAH,,166,0.68,9,forfeit,U,70,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2008,13,BARAMULLA,GHULAM HASSAN PATHAN,,118,0.48,10,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2008,13,BARAMULLA,SABOOR AHMAD KHAN,,95,0.39,11,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2008,13,BARAMULLA,SHAKEELA BANO,,77,0.32,12,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2008,14,GULMARG,GH HASSAN MIR,,18253,36.81,1,won,U,58,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2008,14,GULMARG,SHEIKH MUSHTAFA KAMAL,,11812,23.82,2,lost,U,65,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2008,14,GULMARG,GH MOHI UD DIN SHEIKH,,8854,17.85,3,lost,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2008,14,GULMARG,MOHD MAQBOOL MALIK,,1974,3.98,4,forfeit,U,36,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2008,14,GULMARG,ABDUL AHAD MALIK,,1322,2.67,5,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2008,14,GULMARG,IRSHADA AKHTAR,,1219,2.46,6,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2008,14,GULMARG,MOHD SHAFI BHAT,,1037,2.09,7,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2008,14,GULMARG,NAZIR AHMAD MIR,,998,2.01,8,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2008,14,GULMARG,ABDUL HAMID MALIK,,819,1.65,9,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2008,14,GULMARG,SYED NOOR UL AMIN,,766,1.54,10,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2008,14,GULMARG,GH RASOOL MALIK,,749,1.51,11,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2008,14,GULMARG,TEJ KIRSHAN DHAR,,556,1.12,12,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2008,14,GULMARG,SHAFIQ AHMAD JOGAL NAZ,,455,0.92,13,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2008,14,GULMARG,MOHD AKRAM MIR,,406,0.82,14,forfeit,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2008,14,GULMARG,BASHIR AHMAD SHAH,,372,0.75,15,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2008,15,PATTAN,IFTIKHAR HUSSAIN ANSARI,,20703,51.14,1,won,U,67,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2008,15,PATTAN,ABDUL RASHID SHAHEEN,,9432,23.3,2,lost,U,55,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2008,15,PATTAN,ABDUL AHAD YATOO,,5152,12.73,3,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2008,15,PATTAN,MANZOOR AHMAD GANAI,,1047,2.59,4,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2008,15,PATTAN,AB HAMID WANI,,682,1.68,5,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2008,15,PATTAN,ABDUL RASHID NAJAR,,563,1.39,6,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2008,15,PATTAN,ASHIQ HUSSAIN LONE,,517,1.28,7,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2008,15,PATTAN,MOHAMMAD AKBAR RATHER,,449,1.11,8,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2008,15,PATTAN,GHULAM MOHAMMAD BHAT,,440,1.09,9,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2008,15,PATTAN,RAFIQA BANO,,420,1.04,10,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2008,15,PATTAN,GHULAM AHMAD MALLA,,410,1.01,11,forfeit,U,45,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2008,15,PATTAN,MOHAMMAD QAZIM DAR,,351,0.87,12,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2008,15,PATTAN,MOHAMMAD ASHRAF PANDIT,,316,0.78,13,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2008,16,KANGAN,ALTAF AHMAD,,19210,54.98,1,won,U,48,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2008,16,KANGAN,BASHIR AHMAD MIR,,11495,32.9,2,lost,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2008,16,KANGAN,NAZIR AHMAD RAINA,,869,2.49,3,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2008,16,KANGAN,GHULAM AHMAD RATHER,,721,2.06,4,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2008,16,KANGAN,RAFIQ AHMAD,,607,1.74,5,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2008,16,KANGAN,MOHAMMAD SULTAN LONE,,563,1.61,6,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2008,16,KANGAN,SHABIR AHMAD MIR,,440,1.26,7,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2008,16,KANGAN,GH MUSTAFA KASANA,,429,1.23,8,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2008,16,KANGAN,AB RASHID GANIE,,315,0.9,9,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2008,16,KANGAN,MOHD AMIN SOFI,,290,0.83,10,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2008,17,GANDERBAL,OMAR ABDULLAH,,16519,41.49,1,won,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2008,17,GANDERBAL,QAZI MOHAMMAD AFZAL,,8304,20.85,2,lost,U,65,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2008,17,GANDERBAL,SHEIKH ISHFAQ AHMAD,,8077,20.28,3,lost,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2008,17,GANDERBAL,FAROOQ AHMAD DAR,,2622,6.58,4,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2008,17,GANDERBAL,BASHIR AHMED BHAT,,759,1.91,5,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2008,17,GANDERBAL,GH HASSAN DAR,,737,1.85,6,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2008,17,GANDERBAL,NISSAR AHMAD BHAT,,726,1.82,7,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2008,17,GANDERBAL,NAZIR AHMAD LONE,,678,1.7,8,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2008,17,GANDERBAL,AB RASHID SHEIKH,,551,1.38,9,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2008,17,GANDERBAL,FAROOQ AHMAD,,375,0.94,10,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2008,17,GANDERBAL,ALI MOHAMMAD BABA,,374,0.94,11,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2008,17,GANDERBAL,SYED ALI MOHAMMAD SHAH,,96,0.24,12,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2008,20,EIDGAH,MUBARAK AHMAD GUL,,4457,35.97,1,won,U,58,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2008,20,EIDGAH,ASIFA TARIQ QARA,,2778,22.42,2,lost,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2008,20,EIDGAH,ALI MOHAMMAD WANI,,1916,15.46,3,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2008,20,EIDGAH,GHULAM NABI BHAT,,862,6.96,4,forfeit,U,26,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2008,20,EIDGAH,BAKSHI MOHAMMAD ASHRAF,,576,4.65,5,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2008,20,EIDGAH,GHULAM MOHAMMAD WANI,,565,4.56,6,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2008,20,EIDGAH,ABDUL GANI KHAN,,330,2.66,7,forfeit,U,58,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2008,20,EIDGAH,AASIF SIDIQ RONGA,,257,2.07,8,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2008,20,EIDGAH,TAUSEEF AHMAD SHAH (BUCHH),,225,1.82,9,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2008,20,EIDGAH,MEHRAJ-UD-DIN BHAT,,138,1.11,10,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2008,20,EIDGAH,MUFTI NAZEEM-UD-DIN,,84,0.68,11,forfeit,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2008,20,EIDGAH,NAZIR AHMAD WANI,,75,0.61,12,forfeit,U,52,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2008,20,EIDGAH,IMTIYAZ AHMAD BHAT,,73,0.59,13,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2008,20,EIDGAH,JABEENA JAN,,54,0.44,14,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,SHAMEEMA FIRDOUS,,2374,41.14,1,won,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,HIRA LAL CHATTA,,672,11.65,2,forfeit,U,65,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,SANJAY SARAF,,493,8.54,3,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,ABDUL HAMEED BHAT,,344,5.96,4,forfeit,U,57,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,BILAL AHMED PARRA,,292,5.06,5,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,RAMAN MATTOO,,280,4.85,6,forfeit,U,47,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,RAMESH LAL TRISAL,,250,4.33,7,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,MOTI LAL KOUL,,211,3.66,8,forfeit,U,73,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,BHARAT RAINA,,179,3.1,9,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,REYAZ AHMED CHANNA,,152,2.63,10,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,SUNIL KUMAR DUTT,,109,1.89,11,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,AFTAB AHMED LAWAY,,82,1.42,12,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,SHUBAN JI,,77,1.33,13,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,MOHD. SADIQ GUJAR,,77,1.33,14,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,RATTAN LAL BHAN,,52,0.9,15,forfeit,U,58,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,JAYANT KUMAR SHAKDAR,,31,0.54,16,forfeit,U,59,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,SAIRA SAMEER,,31,0.54,17,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,RIYAZ AHMED SHAH,,19,0.33,18,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,MAHARAJ KRISHEN KOUL,,18,0.31,19,forfeit,U,64,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,NANA JI WATTAL,,15,0.26,20,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2008,22,HABBA KADAL,PEER FAROOQ AHMED,,12,0.21,21,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,FAROOQ ABDULLAH,,7018,28.23,1,won,U,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,SHEIKH GHULAM QADIR PARDESI,,6924,27.86,2,lost,U,70,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,KHEM LATA WAKHLOO,,4301,17.3,3,lost,U,67,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,BASHIR AHMAD KATHOO,,894,3.6,4,forfeit,U,48,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,SYED MOHD. SHAH,,743,2.99,5,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,MERAJUDDIN GANAI,,712,2.86,6,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,RAFI UD DIN AHMED,,530,2.13,7,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,GHULAM HUSSAIN BHAT,,480,1.93,8,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,GHULAM MOHD. RESHI,,423,1.7,9,forfeit,U,70,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,ABDUL GHAFFAR MIR,,296,1.19,10,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,GHULAM MOHD. BAWAN,,277,1.11,11,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,WAJAHAT HUSSAIN JAN,,257,1.03,12,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,SYED MAQSOOD SHAH,,232,0.93,13,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,GHULAM MOHIUDDIN BHAT ALIAS SALEEM,,211,0.85,14,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,GOWHAR AHMED MALIK,,210,0.84,15,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,ABDUL RASHID LONE,,209,0.84,16,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,MOHD. SHAFI MIR,,168,0.68,17,forfeit,U,55,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,SANJAY KACHROO,,165,0.66,18,forfeit,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,ABDUL RASHID WANI,,155,0.62,19,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,FAROOQ AHMED DAR,,143,0.58,20,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,AMIN DAR,,107,0.43,21,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,SYED IRSHAD HUSSAIN,,88,0.35,22,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,NAZIR AHMED GANAI,,87,0.35,23,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,MADHUSUDAN LAL BHAT,,86,0.35,24,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,ABDUL REHMAN KHAN,,82,0.33,25,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2008,24,SONAWAR,MOHD. HUSSAIN BHAT,,58,0.23,26,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2008,25,BATMALOO,MOHAMAD IRFAN SHAH,,9447,44.83,1,won,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2008,25,BATMALOO,TARIQ HAMEED KARRA,,6738,31.97,2,lost,U,54,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2008,25,BATMALOO,ABDUL HAMID RATHER,,1561,7.41,3,forfeit,U,48,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2008,25,BATMALOO,AFTAB JEELANI WANI,,733,3.48,4,forfeit,U,25,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2008,25,BATMALOO,MUJEEB AHMAD SIDIQI,,504,2.39,5,forfeit,U,31,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2008,25,BATMALOO,MOHMAD YOUSUF BEIGH,,248,1.18,6,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2008,25,BATMALOO,MOHMAD YUSSOUF RESHI,,232,1.1,7,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2008,25,BATMALOO,JAVID AHMAD ASHAI,,230,1.09,8,forfeit,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2008,25,BATMALOO,MOHMAD ASHRAF BEIGH,,226,1.07,9,forfeit,U,28,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2008,25,BATMALOO,ISHTIYAQ AHMAD QADRI,,188,0.89,10,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2008,25,BATMALOO,PEER SHABIR AHMAD,,183,0.87,11,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2008,25,BATMALOO,GULZAR AHMAD KHUROO,,177,0.84,12,forfeit,U,43,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2008,25,BATMALOO,AB RASHID BHAT,,156,0.74,13,forfeit,U,60,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2008,25,BATMALOO,ASHOK KUMAR BHAT,,155,0.74,14,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2008,25,BATMALOO,MOHAMMAD IDREES BHAT,,128,0.61,15,forfeit,U,31,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2008,25,BATMALOO,SHAMEEMA BEGUM,,93,0.44,16,forfeit,U,58,8th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2008,25,BATMALOO,MOHAMMAD YOUSUF NAIKOO,,37,0.18,17,forfeit,U,51,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2008,25,BATMALOO,TANVEER HASAN GANAI,,37,0.18,18,forfeit,U,25,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2008,26,CHADOORA,JAVAID MUSTAFFA MIR,,16278,41.36,1,won,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2008,26,CHADOORA,ALI MOHAMMAD DAR,,13338,33.89,2,lost,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2008,26,CHADOORA,BASHIR AHMAD MATOO,,3066,7.79,3,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2008,26,CHADOORA,GHULAM NABI MIR,,2515,6.39,4,forfeit,U,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2008,26,CHADOORA,GHULAM NABI GANIE,,849,2.16,5,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2008,26,CHADOORA,GHULAM MOHAMAD HAJAM,,578,1.47,6,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2008,26,CHADOORA,BASHIR AHMAD MIR,,563,1.43,7,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2008,26,CHADOORA,ABDUL KHALIQ BHAT,,302,0.77,8,forfeit,U,30,8th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2008,26,CHADOORA,MOHAMMAD LATIEF THOKAR,,296,0.75,9,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2008,26,CHADOORA,MOHAMMAD SHAFI BHAT,,292,0.74,10,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2008,26,CHADOORA,AB RASHID GANAI,,275,0.7,11,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2008,26,CHADOORA,GHULAM MOHAMMAD PAUL,,235,0.6,12,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2008,26,CHADOORA,GHULAM MOHAMMAD MALLA,,235,0.6,13,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2008,26,CHADOORA,TASDUQ HUSSAIN BHAT,,121,0.31,14,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2008,26,CHADOORA,MOHAMMAD ABDULLAH DAR,,114,0.29,15,forfeit,U,55,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2008,26,CHADOORA,FIRDOUS AHMAD DAR,,106,0.27,16,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2008,26,CHADOORA,AB RASHID DAR,,100,0.25,17,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2008,26,CHADOORA,MOHMAD IQBAL PARRAY,,91,0.23,18,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2008,27,BUDGAM,AGA SYED RUHULLAH,,19652,40.15,1,won,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2008,27,BUDGAM,MOHAMMAD KAMAL MALIK,,9692,19.8,2,lost,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2008,27,BUDGAM,AGA SYED MEHMOOD,,8383,17.13,3,lost,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2008,27,BUDGAM,HAKIM MOHAMMAD YASEEN,,5952,12.16,4,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2008,27,BUDGAM,MIR FAYAZ RAHAT,,1315,2.69,5,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2008,27,BUDGAM,MOHAMMAD ASHRAF AZAD HAJAM,,1051,2.15,6,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2008,27,BUDGAM,NAZIR AHMAD WANI,,528,1.08,7,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2008,27,BUDGAM,GHULAM NABI GANAI,,382,0.78,8,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2008,27,BUDGAM,MANZOOR AHMAD BADOO,,382,0.78,9,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2008,27,BUDGAM,BASHIR AHMAD NAJAR,,366,0.75,10,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2008,27,BUDGAM,MOHAMMAD ASHRAF AHANGER,,353,0.72,11,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2008,27,BUDGAM,SYED MUJTABA,,277,0.57,12,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2008,27,BUDGAM,ABDUL AHAD SHEIKH,,222,0.45,13,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2008,27,BUDGAM,MOHAMMAD IBRAHIM KHAN,,215,0.44,14,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2008,27,BUDGAM,GHULAM MOHI UD DIN MIR,,116,0.24,15,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2008,27,BUDGAM,AB GANI NASEEM,,56,0.11,16,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2008,28,BEERWAH,SHAFI AHMAD WANI,,11720,24.42,1,won,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2008,28,BEERWAH,AB MAJID MATOO,,11556,24.08,2,lost,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2008,28,BEERWAH,NAZIR AHMAD KHAN,,9958,20.75,3,lost,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2008,28,BEERWAH,SONAULLAH DAR,,4182,8.71,4,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2008,28,BEERWAH,AGA SYED MEHMOOD MOSVI,,3190,6.65,5,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2008,28,BEERWAH,BASHIR AHMAD BEIGH,,1015,2.11,6,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2008,28,BEERWAH,MOHMMAD SARFARAZ MATOO,,968,2.02,7,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2008,28,BEERWAH,SYED PARVEEZ HILAL,,946,1.97,8,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2008,28,BEERWAH,MOHAMMAD ASHRAF LONE,,837,1.74,9,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2008,28,BEERWAH,SYED BASHIR KAUSER,,783,1.63,10,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2008,28,BEERWAH,ABDUL AHAD WANI,,558,1.16,11,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2008,28,BEERWAH,ALI MOHAMMAD DAR,,487,1.01,12,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2008,28,BEERWAH,BASHIR AHMAD DAR,,458,0.95,13,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2008,28,BEERWAH,AB RASHID QURASHI,,423,0.88,14,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2008,28,BEERWAH,REYAZ AHMAD MIR,,421,0.88,15,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2008,28,BEERWAH,AISHA PARVEEN,,271,0.56,16,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2008,28,BEERWAH,BILAL AHMAD KHAN LODHI,,222,0.46,17,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-67,jammu-and-kashmir,2008,29,KHAN SAHIB,HAKEEM MOHAMMAD YASIN,,22616,41.94,1,won,U,60,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-67,jammu-and-kashmir,2008,29,KHAN SAHIB,SAIF UD DIN BHAT,,14221,26.37,2,lost,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-67,jammu-and-kashmir,2008,29,KHAN SAHIB,TARIQ MOHI UD DIN,,10658,19.76,3,lost,U,53,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-67,jammu-and-kashmir,2008,29,KHAN SAHIB,NAZIR AHMAD MALLA,,1976,3.66,4,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-67,jammu-and-kashmir,2008,29,KHAN SAHIB,ABDUL GANI NASEEM,,952,1.77,5,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-67,jammu-and-kashmir,2008,29,KHAN SAHIB,BASHIR AHMAD KHAN,,826,1.53,6,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-67,jammu-and-kashmir,2008,29,KHAN SAHIB,MOHAMAD ASHRAF KHAN,,657,1.22,7,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-67,jammu-and-kashmir,2008,29,KHAN SAHIB,ALI MOHMAD MIR,,649,1.2,8,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-67,jammu-and-kashmir,2008,29,KHAN SAHIB,ABDUL RAHMAN PARRAY,,525,0.97,9,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-67,jammu-and-kashmir,2008,29,KHAN SAHIB,PARVEENA AKTHER BHAT,,446,0.83,10,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-67,jammu-and-kashmir,2008,29,KHAN SAHIB,GHULAM MOHAMMAD DAR,,404,0.75,11,forfeit,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-61,jammu-and-kashmir,2008,30,CHRAR,ABDUL RAHIM RATHER,,24579,48.3,1,won,U,53,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-61,jammu-and-kashmir,2008,30,CHRAR,GHULAM NABI LONE,,18204,35.78,2,lost,U,54,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-61,jammu-and-kashmir,2008,30,CHRAR,NAZIR AHMAD YATOO,,3232,6.35,3,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-61,jammu-and-kashmir,2008,30,CHRAR,MOHAMMAD MAQBOOL MALLA,,2036,4,4,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-61,jammu-and-kashmir,2008,30,CHRAR,AB RASHID PARRA,,781,1.53,5,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-61,jammu-and-kashmir,2008,30,CHRAR,AFTAB AHMAD MIR,,683,1.34,6,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-61,jammu-and-kashmir,2008,30,CHRAR,BASHIR AHMAD DAR,,630,1.24,7,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-61,jammu-and-kashmir,2008,30,CHRAR,FEROOZ AHMAD BHAT,,508,1,8,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-61,jammu-and-kashmir,2008,30,CHRAR,BASHIR AHMAD BANI,,230,0.45,9,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,MUSHTAQ AHMAD SHAH,,10393,28.47,1,won,U,53,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,MOHD ASHRAF BHAT,,6586,18.04,2,lost,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,GH. MOHD MIR,,3733,10.22,3,forfeit,U,57,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,SURINDER SINGH,,3158,8.65,4,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,ABDUL RASHID SHEIKH,,2997,8.21,5,forfeit,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,NAZIR AHMAD BADANA,,1369,3.75,6,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,GH. NABI BHAT,,1229,3.37,7,forfeit,U,53,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,GH MOHI UDIN SHAH,,1070,2.93,8,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,GULAM HASSAN RESHI,,809,2.22,9,forfeit,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,JAVAID AHMAD LONE,,764,2.09,10,forfeit,U,36,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,MOHAMMAD AYOUB BAND,,686,1.88,11,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,ABDUL GANI LONE,,624,1.71,12,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,BASHIR AHMAD JAN,,617,1.69,13,forfeit,U,61,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,KHEM SINGH,,410,1.12,14,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,SHABIR AHMAD SHAH,,340,0.93,15,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,JAWAHIR LAL PANDIT,,338,0.93,16,forfeit,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,FAROOQ AHMAD MOHAND,,333,0.91,17,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,BASHIR MOHD SADIQ,,329,0.9,18,forfeit,U,60,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,MOHAMMAD SHAFI BHAT,,290,0.79,19,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,SURJEET SINGH,,232,0.64,20,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2008,31,TRAL,KRISHAN SINGH,,203,0.56,21,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-10,jammu-and-kashmir,2008,32,PAMPORE,ZAHOOR AHMAD,,11117,36.84,1,won,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-10,jammu-and-kashmir,2008,32,PAMPORE,MOHD ANWAR BHAT,,5969,19.78,2,lost,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-10,jammu-and-kashmir,2008,32,PAMPORE,GH. NABI MIR,,3686,12.21,3,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-10,jammu-and-kashmir,2008,32,PAMPORE,GH NABI BHAT,,2871,9.51,4,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-10,jammu-and-kashmir,2008,32,PAMPORE,ASSAD ULLAH MIR,,2019,6.69,5,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-10,jammu-and-kashmir,2008,32,PAMPORE,AB AHAD YATOO,,984,3.26,6,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-10,jammu-and-kashmir,2008,32,PAMPORE,MOHD ALTAF DAR,,674,2.23,7,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-10,jammu-and-kashmir,2008,32,PAMPORE,MOHAMMAD RAMZAN DAR,,547,1.81,8,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-10,jammu-and-kashmir,2008,32,PAMPORE,BASHIR AHMAD WANI,,536,1.78,9,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-10,jammu-and-kashmir,2008,32,PAMPORE,MOHD HUSSAIN BHAT,,423,1.4,10,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-10,jammu-and-kashmir,2008,32,PAMPORE,GOWHAR AHMAD RESHI,,360,1.19,11,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-10,jammu-and-kashmir,2008,32,PAMPORE,GH MOHAMMAD YATOO,,327,1.08,12,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-10,jammu-and-kashmir,2008,32,PAMPORE,MOHD YOUSUF DAR,,289,0.96,13,forfeit,U,32,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-10,jammu-and-kashmir,2008,32,PAMPORE,FAYAZ AHMAD MAGRAY,,274,0.91,14,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-10,jammu-and-kashmir,2008,32,PAMPORE,ABDUL ROUF RENZOO,,102,0.34,15,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2008,33,PULWAMA,MOHD KHALIL BANDH,,10639,36.45,1,won,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2008,33,PULWAMA,SONAULLAH DAR,,4003,13.71,2,forfeit,U,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2008,33,PULWAMA,GH. NABI WANI,,3246,11.12,3,forfeit,U,54,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2008,33,PULWAMA,MOHAMMAD MAQBOOL BAHT,,3202,10.97,4,forfeit,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2008,33,PULWAMA,BASHIR AHMAD NENGROO,,2318,7.94,5,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2008,33,PULWAMA,ABDUL QAYOOM MIR,,1643,5.63,6,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2008,33,PULWAMA,JAVAID ABDULLAH MIR,,849,2.91,7,forfeit,U,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2008,33,PULWAMA,MOHAMMAD IBRAHIM DAR,,511,1.75,8,forfeit,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2008,33,PULWAMA,IMTIYAZ AHMAD MIR,,442,1.51,9,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2008,33,PULWAMA,GH. MOHAMMAD BHAT,,330,1.13,10,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2008,33,PULWAMA,GULZAR AHMAD NENGROO,,307,1.05,11,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2008,33,PULWAMA,GH. MOHAMMAD RESHI,,301,1.03,12,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2008,33,PULWAMA,AB REHMAN THOKER,,292,1,13,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2008,33,PULWAMA,MOHANNAD AYOUB THOKER,,261,0.89,14,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2008,33,PULWAMA,RIYAZ AHMAD MIR,,240,0.82,15,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2008,33,PULWAMA,ABDUL GANI SHAH,,223,0.76,16,forfeit,U,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2008,33,PULWAMA,SYED MASOOD AHMAD,,186,0.64,17,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2008,33,PULWAMA,SUHAIL AHMAD MIR,,113,0.39,18,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2008,33,PULWAMA,SANJAY KOUL,,82,0.28,19,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-12,jammu-and-kashmir,2008,34,RAJPORA,SYED BASHIR AHMAD SHAH,,10177,25.12,1,won,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-12,jammu-and-kashmir,2008,34,RAJPORA,GULAM MOHI-UD-DIN MIR,,9230,22.79,2,lost,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-12,jammu-and-kashmir,2008,34,RAJPORA,GH NABI WANI,,7222,17.83,3,lost,U,39,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-12,jammu-and-kashmir,2008,34,RAJPORA,ABDUL GANI DAR,,4371,10.79,4,forfeit,U,55,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-12,jammu-and-kashmir,2008,34,RAJPORA,FAROOQ JAN PARA,,1300,3.21,5,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-12,jammu-and-kashmir,2008,34,RAJPORA,SAJAD AHMAD DAR,,1186,2.93,6,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-12,jammu-and-kashmir,2008,34,RAJPORA,FAYAZ AHMAD DAR,,1070,2.64,7,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-12,jammu-and-kashmir,2008,34,RAJPORA,MIR GULAM NABI PATEL,,975,2.41,8,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-12,jammu-and-kashmir,2008,34,RAJPORA,MOHD RAMZAN KHANDAY,,890,2.2,9,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-12,jammu-and-kashmir,2008,34,RAJPORA,SHAMIM AHMAD SHIEKH,,853,2.11,10,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-12,jammu-and-kashmir,2008,34,RAJPORA,IRSHAD AHMAD WAGAY,,840,2.07,11,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-12,jammu-and-kashmir,2008,34,RAJPORA,GULAM NABI ITOO,,692,1.71,12,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-12,jammu-and-kashmir,2008,34,RAJPORA,GHULAM MOHI-UD-DIN SHAH,,509,1.26,13,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-12,jammu-and-kashmir,2008,34,RAJPORA,GULAM NABI KHANDAY,,391,0.97,14,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-12,jammu-and-kashmir,2008,34,RAJPORA,ABDUL SALAM WANI,,272,0.67,15,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-12,jammu-and-kashmir,2008,34,RAJPORA,MOHAMMAD MAQBOOL WAGAY,,198,0.49,16,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-12,jammu-and-kashmir,2008,34,RAJPORA,SYED ABID AHMAD SHAH,,191,0.47,17,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-12,jammu-and-kashmir,2008,34,RAJPORA,SANJAY KOUL,,141,0.35,18,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2008,35,WACHI,MEHBOOBA MUFTI,,12810,37.96,1,won,U,48,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2008,35,WACHI,SHOWKAT HUSSAIN GANIE,,4474,13.26,2,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2008,35,WACHI,NAZIR AHMAD SHAH,,2512,7.44,3,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2008,35,WACHI,MOHAMMAD KHALIL NAIK,,2366,7.01,4,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2008,35,WACHI,MUZAFFER AHMAD WAGAY,,1490,4.41,5,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2008,35,WACHI,ABDUL QAYOOM SHAH,,1358,4.02,6,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2008,35,WACHI,GH. HASSAN WANI,,1296,3.84,7,forfeit,U,40,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2008,35,WACHI,AISHA NISHAT,,1130,3.35,8,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2008,35,WACHI,KUL BUSHAN KAW,,1123,3.33,9,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2008,35,WACHI,BASHIR AHMAD,,917,2.72,10,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2008,35,WACHI,MOHD. MUTAFFA MALIK,,831,2.46,11,forfeit,U,53,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2008,35,WACHI,AUTAR KRISHAN PANDITA,,671,1.99,12,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2008,35,WACHI,ABDUL RASHID DAR,,582,1.72,13,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2008,35,WACHI,MANZOOR AHMAD NAIK,,557,1.65,14,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2008,35,WACHI,GHULAM HASSAN MIR,,428,1.27,15,forfeit,U,53,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2008,35,WACHI,MOHD. AMIN GANIE,,408,1.21,16,forfeit,U,47,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2008,35,WACHI,SAYEED AHMAD WANI,,345,1.02,17,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2008,35,WACHI,MOHD AYOUB BHAT,,235,0.7,18,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2008,35,WACHI,DAWARK NATH RAINA,,216,0.64,19,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,ABDUL RAZAQ WAGAY,,8006,21.23,1,won,U,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,MOHD. SHAFI,,5208,13.81,2,forfeit,U,57,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,SHABIR AHMAD KULLEY,,4929,13.07,3,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,SHEIKH MOHD RAFI,,4001,10.61,4,forfeit,U,47,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,MIR HUSSAIN,,2748,7.29,5,forfeit,U,60,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,GULAM MOHAMAD SHEIKH,,1930,5.12,6,forfeit,U,61,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,MOHD ABDULLAH WANI,,1652,4.38,7,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,GH NABI SHAH,,1612,4.28,8,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,GULZAR AHMAD BHAT,,1253,3.32,9,forfeit,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,ABDUL WAHEED RATHER,,1034,2.74,10,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,GULAM HASSAN KHAN,,1001,2.65,11,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,REYAZ AHMAD KHAN RAJPUT MANHAS,,969,2.57,12,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,MOHD ALYAS KUMAR,,748,1.98,13,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,MOHD YOUSUF BHAT,,596,1.58,14,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,ZAFAR MAHMOOD QURESHI,,525,1.39,15,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,IMTIYAZ AHMAD MALIK,,369,0.98,16,forfeit,U,33,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,ISHTIYAQ AHMAD PASWAL,,353,0.94,17,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,GULSHANA PARVEEN,,299,0.79,18,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,SYED MOHD AYUB,,234,0.62,19,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,MOHD YOUSUF GORSE,,145,0.38,20,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2008,36,SHOPIAN,SYED ATHAR SYED,,92,0.24,21,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-8,jammu-and-kashmir,2008,37,NOORABAD,SAKINA ITOO,,16240,35.23,1,won,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-8,jammu-and-kashmir,2008,37,NOORABAD,ABDUL AZIZ ZAGAR,,11722,25.43,2,lost,U,82,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-8,jammu-and-kashmir,2008,37,NOORABAD,ABDUL MAJEED PADDER,,11156,24.2,3,lost,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-8,jammu-and-kashmir,2008,37,NOORABAD,GULZAR AHMAD DAR,,3043,6.6,4,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-8,jammu-and-kashmir,2008,37,NOORABAD,BASHIR AHMAD MALIK,,956,2.07,5,forfeit,U,65,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-8,jammu-and-kashmir,2008,37,NOORABAD,ABDUL RASHID BHAT,,606,1.31,6,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-8,jammu-and-kashmir,2008,37,NOORABAD,ARSHID HUSSAIN BABA,,502,1.09,7,forfeit,U,30,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-8,jammu-and-kashmir,2008,37,NOORABAD,MANZOOR AHMAD DAR,,429,0.93,8,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-8,jammu-and-kashmir,2008,37,NOORABAD,SYED GOWHER RASHID ANDRABI,,370,0.8,9,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-8,jammu-and-kashmir,2008,37,NOORABAD,ABDUL MAJEED PARRAY,,323,0.7,10,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-8,jammu-and-kashmir,2008,37,NOORABAD,RIYAZ AHMAD NAIK,,227,0.49,11,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-8,jammu-and-kashmir,2008,37,NOORABAD,MOHAMMAD RAFIQ KUTTEY,,211,0.46,12,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-8,jammu-and-kashmir,2008,37,NOORABAD,MUSHTAQ AHMAD MALIK,,182,0.39,13,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-8,jammu-and-kashmir,2008,37,NOORABAD,CHOWDHARY GHULAM HUSSAIN MOHNIAN,,65,0.14,14,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-8,jammu-and-kashmir,2008,37,NOORABAD,RAYEES AHMAD ANDRABI,,60,0.13,15,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-7,jammu-and-kashmir,2008,38,KULGAM,MOHMAD YOUSUF RATHER,,17175,34.24,1,won,U,60,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-7,jammu-and-kashmir,2008,38,KULGAM,NAZIR AHMAD LAWAY,,16939,33.77,2,lost,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-7,jammu-and-kashmir,2008,38,KULGAM,SAFDER ALI KHAN,,5792,11.55,3,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-7,jammu-and-kashmir,2008,38,KULGAM,MOHMAD AYOUB DAR,,2116,4.22,4,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-7,jammu-and-kashmir,2008,38,KULGAM,PEER NIZAM UD DIN,,1344,2.68,5,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-7,jammu-and-kashmir,2008,38,KULGAM,MOHMAD YOUSUF LONE,,975,1.94,6,forfeit,U,65,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-7,jammu-and-kashmir,2008,38,KULGAM,RASHIDA AKBAR,,829,1.65,7,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-7,jammu-and-kashmir,2008,38,KULGAM,MANZOOR AHMAD PARRAY,,812,1.62,8,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-7,jammu-and-kashmir,2008,38,KULGAM,ABDUL RASHID LONE,,660,1.32,9,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-7,jammu-and-kashmir,2008,38,KULGAM,RAKESH PARDESI,,632,1.26,10,forfeit,U,41,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-7,jammu-and-kashmir,2008,38,KULGAM,MOHMAD YOUSUF BHAT,,587,1.17,11,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-7,jammu-and-kashmir,2008,38,KULGAM,BASHIR AHMAD RESHI,,432,0.86,12,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-7,jammu-and-kashmir,2008,38,KULGAM,REYAZ AHMAD SHAH,,431,0.86,13,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-7,jammu-and-kashmir,2008,38,KULGAM,RAFIQA AKHTER,,344,0.69,14,forfeit,U,26,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-7,jammu-and-kashmir,2008,38,KULGAM,MOHMAD MAQBOOL TELI,,343,0.68,15,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-7,jammu-and-kashmir,2008,38,KULGAM,MOHMAD AHSAN MIR,,281,0.56,16,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-7,jammu-and-kashmir,2008,38,KULGAM,ROSHAN LAL PANDITA,,242,0.48,17,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-7,jammu-and-kashmir,2008,38,KULGAM,HAMIDULLAH MIR,,229,0.46,18,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-5,jammu-and-kashmir,2008,39,HOM SHALI BUGH,ABDUL GAFFAR SOFI,,12249,33.74,1,won,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-5,jammu-and-kashmir,2008,39,HOM SHALI BUGH,ABDUL MAJEED,,7439,20.49,2,lost,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-5,jammu-and-kashmir,2008,39,HOM SHALI BUGH,ANAYATULLAH RATHER,,5223,14.38,3,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-5,jammu-and-kashmir,2008,39,HOM SHALI BUGH,MOHAMMAD AMIN DAR,,3782,10.42,4,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-5,jammu-and-kashmir,2008,39,HOM SHALI BUGH,ABDUL REHMAN MALLA,,3730,10.27,5,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-5,jammu-and-kashmir,2008,39,HOM SHALI BUGH,GULAM NABI DAR,,1219,3.36,6,forfeit,U,60,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-5,jammu-and-kashmir,2008,39,HOM SHALI BUGH,MANZOOR AHMED WANI,,644,1.77,7,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-5,jammu-and-kashmir,2008,39,HOM SHALI BUGH,NAZIR AHMED LONE,,521,1.43,8,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-5,jammu-and-kashmir,2008,39,HOM SHALI BUGH,GHULAM MOHAMMAD ITOO,,447,1.23,9,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-5,jammu-and-kashmir,2008,39,HOM SHALI BUGH,MOHAMMAD AYUB SHIEKH,,367,1.01,10,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-5,jammu-and-kashmir,2008,39,HOM SHALI BUGH,GHULAM RASOOL DAR,,315,0.87,11,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-5,jammu-and-kashmir,2008,39,HOM SHALI BUGH,MOHAMMAD RAMZAN BHAT,,245,0.67,12,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-5,jammu-and-kashmir,2008,39,HOM SHALI BUGH,GULZAR AHMAD WANI,,128,0.35,13,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,MUFTI MOHAMMAD SAYEED,,12439,39.49,1,won,U,71,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,MIRZA MEHBOOB BEIGH,,7548,23.96,2,lost,U,58,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,LIYAQAT ALI KHAN,,1895,6.02,3,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,HILAL AHMAD SHAH,,1683,5.34,4,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,MANZOOR AHMAD GANAI,,1537,4.88,5,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,IFTIKAR HUSSAIN MISGAR,,1530,4.86,6,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,GHULAM AHMAD THOOKRO,,928,2.95,7,forfeit,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,ROOP KRISHAN RAINA,,530,1.68,8,forfeit,U,60,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,SAJAD HUSSAIN MALIK,,529,1.68,9,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,GULZAR AHMAD MIR,,396,1.26,10,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,NAZIR AHMAD KHAN,,333,1.06,11,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,GHULAM RASOOL WANI,,304,0.97,12,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,ASHAQ HUSSAIN DAR,,303,0.96,13,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,TARIQ AHMAD MIR,,293,0.93,14,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,MUJIEB-UR-RAHMAN,,282,0.9,15,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,SYED BILAL AHMAD,,200,0.63,16,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,BASHIR AHMAD PAHALWAN,,197,0.63,17,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,NARESH KOUL,,184,0.58,18,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,BILAL AHMAD MIR,,157,0.5,19,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,RAFIQ AHMAD GANIE,,67,0.21,20,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,SYED GHULAM NABI SHAH,,66,0.21,21,forfeit,U,71,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,JAWAHARA BEGUM,,51,0.16,22,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2008,40,ANANTNAG,SHOWKAT HUSSAIN WANI,,47,0.15,23,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,MOHAMMAD SARTAJ MADNI,,14175,26.79,1,won,U,52,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,PEERZADA GHULAM AHMAD SHAH,,10174,19.23,2,lost,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,MOHAMMAD RAFIQ KHAN,,7778,14.7,3,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,MOHAMMAD AMIN BHAT,,5450,10.3,4,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,MOHAMMAD YAQUB GANAI,,4941,9.34,5,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,MOHAMMAD RAFIQ WANI,,2169,4.1,6,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,MOHAMMAD MANZOOR HUSSAIN PARRAY,,1761,3.33,7,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,FAYAZ AHMAD BHAT,,1268,2.4,8,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,MOHAMMAD RAFIQ BHAT,,1093,2.07,9,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,ABDUL REHMAN TANTRAY,,991,1.87,10,forfeit,U,61,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,VIJAY KUMAR KAUL,,620,1.17,11,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,MOHAMMAD JAMAL NAJAR,,526,0.99,12,forfeit,U,65,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,ALI MOHAMMAD SHEIKH,,389,0.74,13,forfeit,U,83,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,ASIF JEELANI,,335,0.63,14,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,GHULAM MOHAMMAD MANTOO,,302,0.57,15,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,SHEELA BHAT,,257,0.49,16,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,KHURSHID AHMAD MALIK,,237,0.45,17,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,ABDUL GANI GANIE,,189,0.36,18,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,MOHAMMAD YOUSUF MALIK,,162,0.31,19,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2008,41,DEVSAR,TRIBHAWAN KRISHAN KAUL,,97,0.18,20,forfeit,U,57,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,GHULAM AHMAD MIR,,15870,36.19,1,won,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,SYED FAROOQ AHMAD ANDRABI,,9952,22.69,2,lost,U,43,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,MOHD. AKBAR GANIE,,7674,17.5,3,lost,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,SYED MANZOOR AHMAD,,2504,5.71,4,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,ZAFFFAR-ULLAH KHAN,,1473,3.36,5,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,AKHTER HUSSAIN GOJAR,,1198,2.73,6,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,GH. NABI MALIK,,820,1.87,7,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,JAVAID AHMAD KHAN,,766,1.75,8,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,AB. MAJEED NAIK,,689,1.57,9,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,GUL MOHAMMAD MIR,,679,1.55,10,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,FAROOQ AHMAD WANI,,352,0.8,11,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,GH. NABI PADDER,,307,0.7,12,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,AB. GANI ZARGAR,,269,0.61,13,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,NISAR AHMAD SINGH,,256,0.58,14,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,AB. RASHID RATHER,,244,0.56,15,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,MOHD. HUSSAIN BAKSHI,,227,0.52,16,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,BASHIR AHMAD SHEIKH,,191,0.44,17,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,PEERZADA ABDUL HAMID,,190,0.43,18,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,ASHOK KUMAR RAINA,,103,0.23,19,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2008,42,DOORU,NISAR AHMAD KHAN,,91,0.21,20,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,PEERZADA MOHD. SYED,,13384,26.75,1,won,U,55,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,GULAM NABI BHAT,,12114,24.21,2,lost,U,58,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,SEHAR IQBAL,,9223,18.43,3,lost,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,ABDUL SALAM RESHI,,5858,11.71,4,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,ABDUL RAHIM RATHER,,2714,5.42,5,forfeit,U,49,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,GHULAM RASOOL MALIK,,1352,2.7,6,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,BASHIR AHMAD AHANGER,,978,1.95,7,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,MOHD. SALEEM GANIE,,814,1.63,8,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,MOHD. SHAFI NAIKOO,,633,1.27,9,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,KANYA LAL PANDITA,,610,1.22,10,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,FAYAZ AHMAD SHEIKH,,422,0.84,11,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,MANZOOR AHMAD RATHER,,407,0.81,12,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,SYED AEJAZ QADRI,,316,0.63,13,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,ALI MOHD. PAMPORI,,303,0.61,14,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,IRSHAD HUSSAIN BHAT,,267,0.53,15,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,ALI MOHD. WANI,,238,0.48,16,forfeit,U,28,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,PRINCE AHMAD SHEIKH,,181,0.36,17,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,MOHD. MUSHTAQ DAR,,120,0.24,18,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,MOHD. YOUSUF CHIRAG,,76,0.15,19,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2008,43,KOKERNAG,MOHD. YOUSUF GANIE,,20,0.04,20,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2008,44,SHANGUS,PEERZADA MANSOOR HUSSAIN,,13853,27.99,1,won,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2008,44,SHANGUS,GULZAR AHMAD WANI,,12423,25.1,2,lost,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2008,44,SHANGUS,ABDUL RASHID DAR,,7144,14.43,3,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2008,44,SHANGUS,MOHD. SYED KHAN,,4217,8.52,4,forfeit,U,45,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2008,44,SHANGUS,IMTIYAZ AHMAD RATHER,,3456,6.98,5,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2008,44,SHANGUS,ABDUL MAJEED MIR,,2645,5.34,6,forfeit,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2008,44,SHANGUS,MUSHTAQ AHMAD BHAT,,756,1.53,7,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2008,44,SHANGUS,ABDUL HAMID RESHI,,672,1.36,8,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2008,44,SHANGUS,MOHD. AMIN,,647,1.31,9,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2008,44,SHANGUS,MOHD. IQBAL MIR,,640,1.29,10,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2008,44,SHANGUS,PEERZADA WAJAHAT HUSSAIN,,597,1.21,11,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2008,44,SHANGUS,ABDUL GANI BHAT,,587,1.19,12,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2008,44,SHANGUS,CHOWDARY ABDUL HAMID CHAHRA,,552,1.12,13,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2008,44,SHANGUS,PEER MOHD. SHAFI,,402,0.81,14,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2008,44,SHANGUS,SWEETI KOUL,,378,0.76,15,forfeit,U,43,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2008,44,SHANGUS,NISAR AHMAD KHAN,,317,0.64,16,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2008,44,SHANGUS,POPINDER SINGH,,209,0.42,17,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-2,jammu-and-kashmir,2008,45,BIJBEHARA,ABDUL REHMAN BHAT,,23320,49.88,1,won,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-2,jammu-and-kashmir,2008,45,BIJBEHARA,BASHIR AHMAD SHAH,,13046,27.9,2,lost,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-2,jammu-and-kashmir,2008,45,BIJBEHARA,GHULAM QADIR TAK,,4612,9.86,3,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-2,jammu-and-kashmir,2008,45,BIJBEHARA,ABDUL GANI BHAT,,1553,3.32,4,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-2,jammu-and-kashmir,2008,45,BIJBEHARA,GULZAR AHMAD MIR,,1189,2.54,5,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-2,jammu-and-kashmir,2008,45,BIJBEHARA,MUSHTAQ AHMAD SHEIKH,,703,1.5,6,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-2,jammu-and-kashmir,2008,45,BIJBEHARA,FAYAZ AHMAD GANIE,,599,1.28,7,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-2,jammu-and-kashmir,2008,45,BIJBEHARA,ISHFAQ AHMAD DAR,,567,1.21,8,forfeit,U,33,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-2,jammu-and-kashmir,2008,45,BIJBEHARA,BASHIR AHMAD LONE,,393,0.84,9,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-2,jammu-and-kashmir,2008,45,BIJBEHARA,HAJIRA,,330,0.71,10,forfeit,U,40,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-2,jammu-and-kashmir,2008,45,BIJBEHARA,TANVEER HASSAN GANIE,,259,0.55,11,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-2,jammu-and-kashmir,2008,45,BIJBEHARA,AJAZ AHMAD THAKROO,,181,0.39,12,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-9,jammu-and-kashmir,2008,46,PAHALGAM,RAFI AHMAD MIR,,24316,49.29,1,won,U,53,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-9,jammu-and-kashmir,2008,46,PAHALGAM,ALTAF AHMAD WANI,,13394,27.15,2,lost,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-9,jammu-and-kashmir,2008,46,PAHALGAM,IRFAN AHMAD BHAT,,3861,7.83,3,forfeit,U,30,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-9,jammu-and-kashmir,2008,46,PAHALGAM,MOHAMMAD YOUSUF SOFI,,2702,5.48,4,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-9,jammu-and-kashmir,2008,46,PAHALGAM,MAJID ASHRAF MIR,,1093,2.22,5,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-9,jammu-and-kashmir,2008,46,PAHALGAM,ABDUL GANI BHAT,,778,1.58,6,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-9,jammu-and-kashmir,2008,46,PAHALGAM,SHABIR AHMAD PADDER,,759,1.54,7,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-9,jammu-and-kashmir,2008,46,PAHALGAM,KHADIM HUSSAIN MIRZA,,699,1.42,8,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-9,jammu-and-kashmir,2008,46,PAHALGAM,GHULAM DOYEE,,517,1.05,9,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-9,jammu-and-kashmir,2008,46,PAHALGAM,MOHAMMAD KHALIL BHAT,,468,0.95,10,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-9,jammu-and-kashmir,2008,46,PAHALGAM,FAYAZ AHMAD WANI,,438,0.89,11,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-9,jammu-and-kashmir,2008,46,PAHALGAM,SHABIR AHMAD SHAH,,309,0.63,12,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-83,jammu-and-kashmir,2008,51,KISHTWAR,SAJJAD AHMAD KICHLOO,,19248,37.48,1,won,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-83,jammu-and-kashmir,2008,51,KISHTWAR,SUNIL KUMAR,,16783,32.68,2,lost,U,31,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-83,jammu-and-kashmir,2008,51,KISHTWAR,SYED ASGAR ALI,,10403,20.26,3,lost,U,54,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-83,jammu-and-kashmir,2008,51,KISHTWAR,THAKUR JUGAL BHANDARI,,1621,3.16,4,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-83,jammu-and-kashmir,2008,51,KISHTWAR,SIDDHARTH METHA,,883,1.72,5,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-83,jammu-and-kashmir,2008,51,KISHTWAR,MOHAMMAD ASHRAF GIRI,,689,1.34,6,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-83,jammu-and-kashmir,2008,51,KISHTWAR,GURNAM SINGH,,473,0.92,7,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-83,jammu-and-kashmir,2008,51,KISHTWAR,RAM SINGH CHAUHAN,,379,0.74,8,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-83,jammu-and-kashmir,2008,51,KISHTWAR,RAVINDER KUMAR,,279,0.54,9,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-83,jammu-and-kashmir,2008,51,KISHTWAR,ANIL KUMAR,,274,0.53,10,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-83,jammu-and-kashmir,2008,51,KISHTWAR,KHURSHID AHMED,,181,0.35,11,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-83,jammu-and-kashmir,2008,51,KISHTWAR,HUKAM CHAND,,81,0.16,12,forfeit,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-83,jammu-and-kashmir,2008,51,KISHTWAR,JASWANT SINGH,,62,0.12,13,forfeit,U,25,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-81,jammu-and-kashmir,2008,52,INDERWAL,GHULAM MOHD SAROORI,,22684,42.67,1,won,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-81,jammu-and-kashmir,2008,52,INDERWAL,SHAKTI RAJ,,12269,23.08,2,lost,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-81,jammu-and-kashmir,2008,52,INDERWAL,ABDUL KARIM,,9002,16.93,3,lost,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-81,jammu-and-kashmir,2008,52,INDERWAL,JAVED AHMAD ZARGAR,,4100,7.71,4,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-81,jammu-and-kashmir,2008,52,INDERWAL,GH MOHD KOHLI,,991,1.86,5,forfeit,U,68,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-81,jammu-and-kashmir,2008,52,INDERWAL,ABDUL REHMAN WANI,,688,1.29,6,forfeit,U,63,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-81,jammu-and-kashmir,2008,52,INDERWAL,MANSOOR AHMED MATTOO,,648,1.22,7,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-81,jammu-and-kashmir,2008,52,INDERWAL,GHULAM MOHI UD DIN GIRI,,611,1.15,8,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-81,jammu-and-kashmir,2008,52,INDERWAL,PARVEZ IQBAL TAK,,540,1.02,9,forfeit,U,28,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-81,jammu-and-kashmir,2008,52,INDERWAL,MOHD ASLAM,,224,0.42,10,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-81,jammu-and-kashmir,2008,52,INDERWAL,AJAZ AHMED LONE,,211,0.4,11,forfeit,U,31,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-81,jammu-and-kashmir,2008,52,INDERWAL,REHAMTULLAH,,211,0.4,12,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-81,jammu-and-kashmir,2008,52,INDERWAL,KULDEEP KUMAR RAO,,189,0.36,13,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-81,jammu-and-kashmir,2008,52,INDERWAL,REYAZ AHMAD ZARGAR,,187,0.35,14,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-81,jammu-and-kashmir,2008,52,INDERWAL,NOOR AHMED CHOWDHARY,,180,0.34,15,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-81,jammu-and-kashmir,2008,52,INDERWAL,JABER SINGH,,175,0.33,16,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-81,jammu-and-kashmir,2008,52,INDERWAL,IMTIYAZ AHMAD,,172,0.32,17,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-81,jammu-and-kashmir,2008,52,INDERWAL,NUSRAT BANOO,,75,0.14,18,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,ABDUL MAJID WANI,,23254,44.55,1,won,U,50,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,KHALID NAJIB SUHARWARDY,,16102,30.85,2,lost,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,ISHTIAQ AHMED WANI,,2756,5.28,3,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,MOHD ALI SHOKEEN,,2322,4.45,4,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,GHULAM QADIR WANI,,2142,4.1,5,forfeit,U,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,ATTAUALLAH KHAN,,1310,2.51,6,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,CHUNI LAL THAKUR,,903,1.73,7,forfeit,U,64,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,ANAYATULLAH LONE,,786,1.51,8,forfeit,U,63,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,VIMAL SINGH MANHAS,,403,0.77,9,forfeit,U,26,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,RIAZ AHMED ZARGAR,,343,0.66,10,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,MUSHTAQ AHMED,,264,0.51,11,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,FAROOQ AHMED DAR,,262,0.5,12,forfeit,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,SHERIAZ AHMED,,241,0.46,13,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,RAJINDER SINGH,,239,0.46,14,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,MOHAMMAD YOUSUF RATHER,,197,0.38,15,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,SURINDER KUMAR,,151,0.29,16,forfeit,U,25,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,SAT PAL SHARMA,,144,0.28,17,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,CHUNI LAL,,141,0.27,18,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,MOHD ASHRAF,,132,0.25,19,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-77,jammu-and-kashmir,2008,53,DODA,MAHATAM SINGH,,104,0.2,20,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2008,54,BHADERWAH,GHULAM NABI AZAD,,38238,62.86,1,won,U,60,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2008,54,BHADERWAH,DAYA KRISHAN,,8802,14.47,2,forfeit,U,80,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2008,54,BHADERWAH,MOHAMMAD ASLAM GONI,,6687,10.99,3,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2008,54,BHADERWAH,SHEIKH MUJIB ALI,,2807,4.61,4,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2008,54,BHADERWAH,SOHAN LAL,,921,1.51,5,forfeit,U,71,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2008,54,BHADERWAH,MOHD SHAFI SHEIKH,,898,1.48,6,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2008,54,BHADERWAH,ABDUL HAFIZ WANI,,570,0.94,7,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2008,54,BHADERWAH,MOHD MUDASER NAWAZ ZARGAR,,459,0.75,8,forfeit,U,25,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2008,54,BHADERWAH,FAROOQ AHMED AHANGER,,413,0.68,9,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2008,54,BHADERWAH,BADRI NATH SHIPI,,382,0.63,10,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2008,54,BHADERWAH,RAJINDER KUMAR PARIHAR,,284,0.47,11,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2008,54,BHADERWAH,MOHD IQBAL,,267,0.44,12,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2008,54,BHADERWAH,PARVEIZ AHMED ZARGAR,,107,0.18,13,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-85,jammu-and-kashmir,2008,55,RAMBAN,ASHOK KUMAR,,21779,43.47,1,won,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-85,jammu-and-kashmir,2008,55,RAMBAN,BALI BHAGAT,,11460,22.88,2,lost,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-85,jammu-and-kashmir,2008,55,RAMBAN,CHAMAN LAL,,11395,22.75,3,lost,U,35,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-85,jammu-and-kashmir,2008,55,RAMBAN,NEELAM KUMAR,,1203,2.4,4,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-85,jammu-and-kashmir,2008,55,RAMBAN,SHAKEEL SINGH,,851,1.7,5,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-85,jammu-and-kashmir,2008,55,RAMBAN,AMRIT BARSHA,,783,1.56,6,forfeit,U,47,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-85,jammu-and-kashmir,2008,55,RAMBAN,BODH RAJ,,493,0.98,7,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-85,jammu-and-kashmir,2008,55,RAMBAN,BABU RAM,,423,0.84,8,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-85,jammu-and-kashmir,2008,55,RAMBAN,AMIT KUMAR,,388,0.77,9,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-85,jammu-and-kashmir,2008,55,RAMBAN,KAKA RAM,,379,0.76,10,forfeit,U,48,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-85,jammu-and-kashmir,2008,55,RAMBAN,PHOOL SINGH,,342,0.68,11,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-85,jammu-and-kashmir,2008,55,RAMBAN,HUKAM CHAND,,330,0.66,12,forfeit,U,46,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-85,jammu-and-kashmir,2008,55,RAMBAN,SURAM CHAND,,271,0.54,13,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,VIKAR RASOOL,,8287,17.38,1,won,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,SHOWKAT JAVED,,5254,11.02,2,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,MOLVI ABDUL RASHID,,4960,10.4,3,forfeit,U,76,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,SAJAD SHAHEEN,,4558,9.56,4,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,IMTIYAZ AHMED,,3763,7.89,5,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,RAJIV,,3383,7.09,6,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,MOHD FAROOQ MIR,,2741,5.75,7,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,OM PARKASH,,2612,5.48,8,forfeit,U,50,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,MOHD SALEEM BHAT,,2160,4.53,9,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,BAHAR AHMED RONYAL,,2130,4.47,10,forfeit,U,34,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,FAROOQ AHMED MIR,,1584,3.32,11,forfeit,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,MUSHTAQ AHMED SOHAIL,,794,1.67,12,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,MOHD SALEEM,,777,1.63,13,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,IRSHAD AHMED,,767,1.61,14,forfeit,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,SEWA SINGH,,654,1.37,15,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,AJAZ AHMED,,558,1.17,16,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,BASHIR AHMED NAYAK,,471,0.99,17,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,GH RASOOL TANTRAY,,425,0.89,18,forfeit,U,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,MOHD ANWAR,,385,0.81,19,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,MOHD AFZAL MALIK,,311,0.65,20,forfeit,U,60,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,ATTA MOHD KATOCH,,304,0.64,21,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,ABDUL HAMID KHAN,,295,0.62,22,forfeit,U,52,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,SALEEMA BEGUM,,276,0.58,23,forfeit,U,36,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-72,jammu-and-kashmir,2008,56,BANIHAL,MOHD RAFIQ DAING,,234,0.49,24,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-79,jammu-and-kashmir,2008,57,GULAB GARH,ABDUL GANI MALIK,,14268,31.28,1,won,U,50,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-79,jammu-and-kashmir,2008,57,GULAB GARH,MUMTAZ AHMED,,11020,24.16,2,lost,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-79,jammu-and-kashmir,2008,57,GULAB GARH,MUMTAZ KOUSER,,5193,11.39,3,forfeit,U,29,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-79,jammu-and-kashmir,2008,57,GULAB GARH,PREM SINGH,,4892,10.73,4,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-79,jammu-and-kashmir,2008,57,GULAB GARH,SHAFIQ-UR-REHMAN,,3280,7.19,5,forfeit,U,30,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-79,jammu-and-kashmir,2008,57,GULAB GARH,MOHD ISRAIL,,2252,4.94,6,forfeit,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-79,jammu-and-kashmir,2008,57,GULAB GARH,PUSHMINDER SINGH,,1424,3.12,7,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-79,jammu-and-kashmir,2008,57,GULAB GARH,MOHD AYUB,,735,1.61,8,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-79,jammu-and-kashmir,2008,57,GULAB GARH,GULAM JALANI,,696,1.53,9,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-79,jammu-and-kashmir,2008,57,GULAB GARH,AMAR SINGH,,583,1.28,10,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-79,jammu-and-kashmir,2008,57,GULAB GARH,ABDUL GANI QAZI,,521,1.14,11,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-79,jammu-and-kashmir,2008,57,GULAB GARH,ABDUL RASHID NAG,,260,0.57,12,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-79,jammu-and-kashmir,2008,57,GULAB GARH,ABDUL RASHID BALI,,256,0.56,13,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-79,jammu-and-kashmir,2008,57,GULAB GARH,BASHIR AHMED,,229,0.5,14,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-86,jammu-and-kashmir,2008,58,REASI,BALDEV RAJ,,26031,37.01,1,won,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-86,jammu-and-kashmir,2008,58,REASI,JUGAL KISHORE,,19369,27.54,2,lost,U,50,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-86,jammu-and-kashmir,2008,58,REASI,JAGJEEVAN LAL,,15653,22.25,3,lost,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-86,jammu-and-kashmir,2008,58,REASI,BHUPINDER SINGH,,2788,3.96,4,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-86,jammu-and-kashmir,2008,58,REASI,SARDHARI LAL DUBEY,,1503,2.14,5,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-86,jammu-and-kashmir,2008,58,REASI,MEENAKSHI SHARMA,,710,1.01,6,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-86,jammu-and-kashmir,2008,58,REASI,VIJAY KUMAR SHARMA,,693,0.99,7,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-86,jammu-and-kashmir,2008,58,REASI,AJAY SINGH,,565,0.8,8,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-86,jammu-and-kashmir,2008,58,REASI,MAKHAN LAL,,526,0.75,9,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-86,jammu-and-kashmir,2008,58,REASI,PRITAM SINGH,,489,0.7,10,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-86,jammu-and-kashmir,2008,58,REASI,BANSI LAL,,486,0.69,11,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-86,jammu-and-kashmir,2008,58,REASI,DIPENDER KUMAR,,442,0.63,12,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-86,jammu-and-kashmir,2008,58,REASI,TRILOK CHAND,,332,0.47,13,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-86,jammu-and-kashmir,2008,58,REASI,PAWAN DEV SINGH,,316,0.45,14,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-86,jammu-and-kashmir,2008,58,REASI,KULDEEP KUMAR,,229,0.33,15,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-86,jammu-and-kashmir,2008,58,REASI,SURINDER KUMAR SHARMA,,204,0.29,16,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-78,jammu-and-kashmir,2008,59,GOOL ARNAS,AJAZ AHMED KHAN,,15594,37.05,1,won,U,39,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-78,jammu-and-kashmir,2008,59,GOOL ARNAS,GULAM QADIR MUGHAL,,12142,28.85,2,lost,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-78,jammu-and-kashmir,2008,59,GOOL ARNAS,KABLA SINGH,,8204,19.49,3,lost,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-78,jammu-and-kashmir,2008,59,GOOL ARNAS,SHAMSHAD BANO,,2937,6.98,4,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-78,jammu-and-kashmir,2008,59,GOOL ARNAS,FAQIR MOHD,,1137,2.7,5,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-78,jammu-and-kashmir,2008,59,GOOL ARNAS,MADAN LAL,,773,1.84,6,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-78,jammu-and-kashmir,2008,59,GOOL ARNAS,MOHD SULTAN MALIK,,657,1.56,7,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-78,jammu-and-kashmir,2008,59,GOOL ARNAS,SHAKEEL AHMED,,386,0.92,8,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-78,jammu-and-kashmir,2008,59,GOOL ARNAS,ABDUL MAJID,,256,0.61,9,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-87,jammu-and-kashmir,2008,60,UDHAMPUR,BALWANT SINGH MANKOTIA,,25259,35.49,1,won,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-87,jammu-and-kashmir,2008,60,UDHAMPUR,PAWAN KUMAR GUPTA,,22494,31.61,2,lost,U,50,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-87,jammu-and-kashmir,2008,60,UDHAMPUR,BRIJ MOHAN,,10617,14.92,3,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-87,jammu-and-kashmir,2008,60,UDHAMPUR,DHANI RAM ATRI,,6571,9.23,4,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-87,jammu-and-kashmir,2008,60,UDHAMPUR,SUNIL VERMA,,2895,4.07,5,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-87,jammu-and-kashmir,2008,60,UDHAMPUR,MOHAN LAL,,411,0.58,6,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-87,jammu-and-kashmir,2008,60,UDHAMPUR,SUKHDEV SHARMA,,394,0.55,7,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-87,jammu-and-kashmir,2008,60,UDHAMPUR,ROMAL SINGH,,375,0.53,8,forfeit,U,59,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-87,jammu-and-kashmir,2008,60,UDHAMPUR,RAJINDER KUMAR,,343,0.48,9,forfeit,U,52,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-87,jammu-and-kashmir,2008,60,UDHAMPUR,AJAY MAHAJAN,,332,0.47,10,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-87,jammu-and-kashmir,2008,60,UDHAMPUR,KEWAL KUMAR,,299,0.42,11,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-87,jammu-and-kashmir,2008,60,UDHAMPUR,SHOKET ALI,,247,0.35,12,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-87,jammu-and-kashmir,2008,60,UDHAMPUR,SURINDER SINGH,,241,0.34,13,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-87,jammu-and-kashmir,2008,60,UDHAMPUR,ANIL KHAJURIA,,198,0.28,14,forfeit,U,27,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-87,jammu-and-kashmir,2008,60,UDHAMPUR,YOGESHWAR KUMAR GUPTA,,146,0.21,15,forfeit,U,59,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-87,jammu-and-kashmir,2008,60,UDHAMPUR,KRISHAN DASS BAROTRA,,116,0.16,16,forfeit,U,68,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-87,jammu-and-kashmir,2008,60,UDHAMPUR,HEM RAJ BALOTRA,,115,0.16,17,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-87,jammu-and-kashmir,2008,60,UDHAMPUR,AMAR CHAND,,111,0.16,18,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-76,jammu-and-kashmir,2008,61,CHENANI,KRISHAN CHANDER,,16276,35.47,1,won,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-76,jammu-and-kashmir,2008,61,CHENANI,DINA NATH,,9838,21.44,2,lost,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-76,jammu-and-kashmir,2008,61,CHENANI,FAQIR NATH,,9131,19.9,3,lost,U,53,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-76,jammu-and-kashmir,2008,61,CHENANI,LAL CHAND,,5325,11.61,4,forfeit,U,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-76,jammu-and-kashmir,2008,61,CHENANI,SANSAR CHAND,,1705,3.72,5,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-76,jammu-and-kashmir,2008,61,CHENANI,KAPOOR CHAND,,1086,2.37,6,forfeit,U,60,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-76,jammu-and-kashmir,2008,61,CHENANI,KRISHAN LAL,,810,1.77,7,forfeit,U,54,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-76,jammu-and-kashmir,2008,61,CHENANI,RAMESH CHANDER,,625,1.36,8,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-76,jammu-and-kashmir,2008,61,CHENANI,BODH RAJ,,371,0.81,9,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-76,jammu-and-kashmir,2008,61,CHENANI,TULSI DASS,,287,0.63,10,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-76,jammu-and-kashmir,2008,61,CHENANI,SANJEET KUMAR,,215,0.47,11,forfeit,U,32,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-76,jammu-and-kashmir,2008,61,CHENANI,JIA LAL,,212,0.46,12,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-84,jammu-and-kashmir,2008,62,RAM NAGAR,HARSH DEV SINGH,,30609,47.18,1,won,U,50,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-84,jammu-and-kashmir,2008,62,RAM NAGAR,VINOD KHAJURIA,,18463,28.46,2,lost,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-84,jammu-and-kashmir,2008,62,RAM NAGAR,RANBIR SINGH PATHANIA,,9285,14.31,3,forfeit,U,29,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-84,jammu-and-kashmir,2008,62,RAM NAGAR,THAKAR DASS,,1491,2.3,4,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-84,jammu-and-kashmir,2008,62,RAM NAGAR,MANSA RAM,,1002,1.54,5,forfeit,U,61,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-84,jammu-and-kashmir,2008,62,RAM NAGAR,SURAM CHAND KHAJURIA,,886,1.37,6,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-84,jammu-and-kashmir,2008,62,RAM NAGAR,RAKESH CHAND,,828,1.28,7,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-84,jammu-and-kashmir,2008,62,RAM NAGAR,MOHINDER SINGH,,676,1.04,8,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-84,jammu-and-kashmir,2008,62,RAM NAGAR,SURAM CHAND,,532,0.82,9,forfeit,U,36,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-84,jammu-and-kashmir,2008,62,RAM NAGAR,JAGDISH SINGH,,441,0.68,10,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-84,jammu-and-kashmir,2008,62,RAM NAGAR,SURAT SINGH SUMBERIA,,336,0.52,11,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-84,jammu-and-kashmir,2008,62,RAM NAGAR,SANJU KUMAR,,322,0.5,12,forfeit,U,36,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-71,jammu-and-kashmir,2008,63,BANI,LAL CHAND,,11041,39.57,1,won,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-71,jammu-and-kashmir,2008,63,BANI,GHULAM HYDER MALIK,,8792,31.51,2,lost,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-71,jammu-and-kashmir,2008,63,BANI,PREM SAGAR,,4510,16.16,3,forfeit,U,60,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-71,jammu-and-kashmir,2008,63,BANI,NOOR MOHD AFZAL,,880,3.15,4,forfeit,U,27,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-71,jammu-and-kashmir,2008,63,BANI,ALI MOHAMMAD LONE,,633,2.27,5,forfeit,U,60,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-71,jammu-and-kashmir,2008,63,BANI,RAJ KUMAR,,599,2.15,6,forfeit,U,29,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-71,jammu-and-kashmir,2008,63,BANI,RAKESH SINGH THAKUR,,523,1.87,7,forfeit,U,27,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-71,jammu-and-kashmir,2008,63,BANI,KARANDEV SINGH,,356,1.28,8,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-71,jammu-and-kashmir,2008,63,BANI,ANAYAT PERVAZ,,276,0.99,9,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-71,jammu-and-kashmir,2008,63,BANI,TARA CHAND,,238,0.85,10,forfeit,U,55,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-71,jammu-and-kashmir,2008,63,BANI,DEEP KUMAR,,55,0.2,11,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-73,jammu-and-kashmir,2008,64,BASOHLI,JAGDISH RAJ SAPOLIA,,16651,35.25,1,won,U,62,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-73,jammu-and-kashmir,2008,64,BASOHLI,DAVINDER SINGH,,13770,29.15,2,lost,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-73,jammu-and-kashmir,2008,64,BASOHLI,KANTA ANDOTRA,,13678,28.96,3,lost,U,47,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-73,jammu-and-kashmir,2008,64,BASOHLI,KARPAL SINGH,,969,2.05,4,forfeit,U,43,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-73,jammu-and-kashmir,2008,64,BASOHLI,ROMESH CHANDER,,692,1.47,5,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-73,jammu-and-kashmir,2008,64,BASOHLI,VINOD KUMAR,,625,1.32,6,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-73,jammu-and-kashmir,2008,64,BASOHLI,ANGRAZO RAM,,350,0.74,7,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-73,jammu-and-kashmir,2008,64,BASOHLI,SURAJ SINGH,,316,0.67,8,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-73,jammu-and-kashmir,2008,64,BASOHLI,ROMESH KUMAR,,184,0.39,9,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,CHARANJIT SINGH,,19123,25.82,1,won,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,SOM RAJ,,16761,22.63,2,lost,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,JATINDER SINGH ALIAS BABU SINGH,,10887,14.7,3,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,SAIN DASS,,7913,10.68,4,forfeit,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,LAL SINGH,,6053,8.17,5,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,NARESH KUMAR,,3752,5.07,6,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,RAVINDER SINGH SLATHIA,,2126,2.87,7,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,RAVINDER SINGH PATHANIA,,1734,2.34,8,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,RAKESH KUMAR,,990,1.34,9,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,SUSHIL KUMAR,,985,1.33,10,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,KULBHUSHAN KUMAR,,668,0.9,11,forfeit,U,54,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,KAMALJEET SINGH,,493,0.67,12,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,GURVINDER SINGH,,472,0.64,13,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,SURINDER SINGH,,403,0.54,14,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,MOHD GULZAR,,396,0.53,15,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,BODH RAJ,,352,0.48,16,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,MOHINDER SINGH,,320,0.43,17,forfeit,U,57,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,SAGAR CHAND,,253,0.34,18,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,VISHAL SALGOTRA,,202,0.27,19,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2008,65,KATHUA,VIKAS SHARMA,,187,0.25,20,forfeit,U,28,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-75,jammu-and-kashmir,2008,66,BILLAWAR,MANOHAR LAL SHARMA,,22262,35.78,1,won,U,42,Doctorate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-75,jammu-and-kashmir,2008,66,BILLAWAR,SATISH SHARMA,,13879,22.31,2,lost,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-75,jammu-and-kashmir,2008,66,BILLAWAR,SANJEEV KHAJURIA,,9398,15.11,3,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-75,jammu-and-kashmir,2008,66,BILLAWAR,BALBIR SINGH,,6387,10.27,4,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-75,jammu-and-kashmir,2008,66,BILLAWAR,PANKAJ DOGRA,,3834,6.16,5,forfeit,U,40,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-75,jammu-and-kashmir,2008,66,BILLAWAR,KARTAR SINGH,,1871,3.01,6,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-75,jammu-and-kashmir,2008,66,BILLAWAR,HARI CHAND JALMERIA,,1575,2.53,7,forfeit,U,53,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-75,jammu-and-kashmir,2008,66,BILLAWAR,ASHOK KUMAR JASROTIA,,601,0.97,8,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-75,jammu-and-kashmir,2008,66,BILLAWAR,SUNIL SINGH,,583,0.94,9,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-75,jammu-and-kashmir,2008,66,BILLAWAR,SUBASH CHANDER,,567,0.91,10,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-75,jammu-and-kashmir,2008,66,BILLAWAR,JATINDER MALHOTRA,,312,0.5,11,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-75,jammu-and-kashmir,2008,66,BILLAWAR,AKHTER ALI,,284,0.46,12,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-75,jammu-and-kashmir,2008,66,BILLAWAR,RANJEET SINGH,,270,0.43,13,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-75,jammu-and-kashmir,2008,66,BILLAWAR,UTTAM CHAND,,198,0.32,14,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-75,jammu-and-kashmir,2008,66,BILLAWAR,PARSHOTAM CHAND,,194,0.31,15,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-80,jammu-and-kashmir,2008,67,HIRA NAGAR,DURGA DASS,,19730,30.5,1,won,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-80,jammu-and-kashmir,2008,67,HIRA NAGAR,PREM LAL,,16993,26.27,2,lost,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-80,jammu-and-kashmir,2008,67,HIRA NAGAR,GIRDHARI LAL,,14113,21.82,3,lost,U,68,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-80,jammu-and-kashmir,2008,67,HIRA NAGAR,DHARAM PAUL,,3670,5.67,4,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-80,jammu-and-kashmir,2008,67,HIRA NAGAR,TARA CHAND,,2745,4.24,5,forfeit,U,60,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-80,jammu-and-kashmir,2008,67,HIRA NAGAR,RANO DEVI,,2131,3.29,6,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-80,jammu-and-kashmir,2008,67,HIRA NAGAR,BANSI LAL KANDLEY,,1613,2.49,7,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-80,jammu-and-kashmir,2008,67,HIRA NAGAR,ASHOK KUMAR,,1562,2.41,8,forfeit,U,39,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-80,jammu-and-kashmir,2008,67,HIRA NAGAR,RATTAN LAL,,952,1.47,9,forfeit,U,59,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-80,jammu-and-kashmir,2008,67,HIRA NAGAR,CHANDU RAM,,637,0.98,10,forfeit,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-80,jammu-and-kashmir,2008,67,HIRA NAGAR,RATTAN CHAND,,534,0.83,11,forfeit,U,68,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-48,jammu-and-kashmir,2008,68,SAMBA(SC),YASH PAUL KUNDAL,,14631,27.15,1,won,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-48,jammu-and-kashmir,2008,68,SAMBA(SC),SATWANT KOUR,,12642,23.45,2,lost,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-48,jammu-and-kashmir,2008,68,SAMBA(SC),SUASH CHANDER,,10714,19.88,3,lost,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-48,jammu-and-kashmir,2008,68,SAMBA(SC),SOM NATH,,6647,12.33,4,forfeit,U,48,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-48,jammu-and-kashmir,2008,68,SAMBA(SC),SOM NATH,,6361,11.8,5,forfeit,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-48,jammu-and-kashmir,2008,68,SAMBA(SC),KARTAR CHAND,,1235,2.29,6,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-48,jammu-and-kashmir,2008,68,SAMBA(SC),ANITA DEVI,,536,0.99,7,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-48,jammu-and-kashmir,2008,68,SAMBA(SC),VIJAY KUMAR ATRI,,288,0.53,8,forfeit,U,56,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-48,jammu-and-kashmir,2008,68,SAMBA(SC),MULKH RAJ,,276,0.51,9,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-48,jammu-and-kashmir,2008,68,SAMBA(SC),MAHESHWAR RAJ,,246,0.46,10,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-48,jammu-and-kashmir,2008,68,SAMBA(SC),ANIL KUMAR,,178,0.33,11,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-48,jammu-and-kashmir,2008,68,SAMBA(SC),CHAJJU RAM,,145,0.27,12,forfeit,U,65,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-51,jammu-and-kashmir,2008,69,VIJAY PUR,SURJIT SINGH,,21090,27.21,1,won,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-51,jammu-and-kashmir,2008,69,VIJAY PUR,CHANDER PARKASH,,19878,25.64,2,lost,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-51,jammu-and-kashmir,2008,69,VIJAY PUR,MANJIT SINGH,,12536,16.17,3,forfeit,U,44,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-51,jammu-and-kashmir,2008,69,VIJAY PUR,RAJESH KUMAR PARGOTRA,,11051,14.26,4,forfeit,U,36,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-51,jammu-and-kashmir,2008,69,VIJAY PUR,SAT PAUL,,6091,7.86,5,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-51,jammu-and-kashmir,2008,69,VIJAY PUR,HARI SINGH,,1383,1.78,6,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-51,jammu-and-kashmir,2008,69,VIJAY PUR,JARNAIL SINGH,,1066,1.38,7,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-51,jammu-and-kashmir,2008,69,VIJAY PUR,TARA CHAND SHARMA,,882,1.14,8,forfeit,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-51,jammu-and-kashmir,2008,69,VIJAY PUR,RAJINDER SINGH JAMWAL,,586,0.76,9,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-51,jammu-and-kashmir,2008,69,VIJAY PUR,SUDARSHAN KUMAR,,529,0.68,10,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-51,jammu-and-kashmir,2008,69,VIJAY PUR,MILAP SINGH,,511,0.66,11,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-51,jammu-and-kashmir,2008,69,VIJAY PUR,DIGVIJAY SINGH,,431,0.56,12,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-51,jammu-and-kashmir,2008,69,VIJAY PUR,MOHAN SINGH SALATHIA,,380,0.49,13,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-51,jammu-and-kashmir,2008,69,VIJAY PUR,SADIQ HUSSAIN,,218,0.28,14,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-51,jammu-and-kashmir,2008,69,VIJAY PUR,BAHADUR SINGH CHOWDHARY,,216,0.28,15,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-51,jammu-and-kashmir,2008,69,VIJAY PUR,BALWAN SINGH,,210,0.27,16,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-51,jammu-and-kashmir,2008,69,VIJAY PUR,RAJ SINGH,,191,0.25,17,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-51,jammu-and-kashmir,2008,69,VIJAY PUR,MOHINDER SINGH,,150,0.19,18,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-51,jammu-and-kashmir,2008,69,VIJAY PUR,HARBHAJAN SINGH,,116,0.15,19,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,JUGAL KISHORE,,11141,22.76,1,won,U,45,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,M.K AJAT SHATRU,,9521,19.45,2,lost,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,SHIV DEV SINGH,,7817,15.97,3,forfeit,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,NAJIBULLAH,,4030,8.23,4,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,ABDUL HAMID,,2769,5.66,5,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,BALBIR SINGH MANHAS,,2633,5.38,6,forfeit,U,55,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,MOHAMMAD RASHID,,2460,5.02,7,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,RASHPAL SINGH,,2287,4.67,8,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,VARINDER KUMAR,,795,1.62,9,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,KULDEEP RAJ,,688,1.41,10,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,ABDUL MAJID,,627,1.28,11,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,GAFOOR AHMED,,613,1.25,12,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,SOBAT ALI,,450,0.92,13,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,PUSHPA DEVI,,427,0.87,14,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,SUBASH CHANDER,,383,0.78,15,forfeit,U,35,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,RAJINDER SINGH,,368,0.75,16,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,AMIR-UD-DIN KASANA,,333,0.68,17,forfeit,U,58,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,BALVINDER SINGH,,313,0.64,18,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,BAKHTAWAR MALIK,,291,0.59,19,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,VIJAY KUMAR ABROL,,290,0.59,20,forfeit,U,60,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,KULBIR SINGH,,177,0.36,21,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,MUMTAZ BEGUM SALARIA,,162,0.33,22,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,GULAM ALI,,161,0.33,23,forfeit,U,31,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,MOHOMMAD HUSSAIN HAJI,,118,0.24,24,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2008,70,NAGROTA,BALBIR SINGH,,104,0.21,25,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2008,71,GANDHI NAGAR,RAMAN BHALLA,,33486,36.34,1,won,U,46,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2008,71,GANDHI NAGAR,NIRMAL SINGH,,31223,33.89,2,lost,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2008,71,GANDHI NAGAR,TRILOCHAN SINGH WAZIR,,18935,20.55,3,lost,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2008,71,GANDHI NAGAR,SHAMSHER SINGH,,4319,4.69,4,forfeit,U,51,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2008,71,GANDHI NAGAR,ASHOK KUMAR BASOTRA,,646,0.7,5,forfeit,U,40,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2008,71,GANDHI NAGAR,SURJEET KOUR,,585,0.63,6,forfeit,U,56,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2008,71,GANDHI NAGAR,JASWANT SINGH,,409,0.44,7,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2008,71,GANDHI NAGAR,R.D VERMA,,378,0.41,8,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2008,71,GANDHI NAGAR,GURDEEP SINGH PANDEY,,347,0.38,9,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2008,71,GANDHI NAGAR,DEPUTY NATH SHARMA,,322,0.35,10,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2008,71,GANDHI NAGAR,JOGINDER SINGH,,283,0.31,11,forfeit,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2008,71,GANDHI NAGAR,SHIVA SAMBYAL,,272,0.3,12,forfeit,U,25,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2008,71,GANDHI NAGAR,JAGJEET SINGH,,263,0.29,13,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2008,71,GANDHI NAGAR,SHAKTI GUPTA,,261,0.28,14,forfeit,U,61,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2008,71,GANDHI NAGAR,ANIL GOUR,,183,0.2,15,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2008,71,GANDHI NAGAR,GHULAM QADIR DING,,133,0.14,16,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2008,71,GANDHI NAGAR,BANSI LAL BHAT,,93,0.1,17,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,ASHWANI KUMAR SHARMA,,14078,22.46,1,won,U,47,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,KAMAL VERMA,,13589,21.68,2,lost,U,47,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,GULCHAIN SINGH CHARAK,,8212,13.1,3,forfeit,U,66,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,YASH PAL,,5306,8.47,4,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,SHILPI VERMA,,5255,8.38,5,forfeit,U,30,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,ROMESH KUMAR GUPTA,,3751,5.98,6,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,ASHOK KUMAR DUBEY,,2207,3.52,7,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,CHATTAR SINGH,,1855,2.96,8,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,ROMESH CHANDER,,1169,1.87,9,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,GURBACAHAN KUMARI RANA,,1072,1.71,10,forfeit,U,62,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,YASH PAL SHARMA,,979,1.56,11,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,VIKAS DUTTA,,781,1.25,12,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,ROMESH LAL KHAJURIA,,758,1.21,13,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,MEHAR SINGH,,397,0.63,14,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,BINDER MOHAN,,383,0.61,15,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,BANARASI DASS,,353,0.56,16,forfeit,U,76,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,RAJ MOHANI SHARMA,,341,0.54,17,forfeit,U,56,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,KARTAR CHAN VERMA,,333,0.53,18,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,SUDESH PURI,,300,0.48,19,forfeit,U,42,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,MANOHAR LAL,,278,0.44,20,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,DAVINDER SINGH MANHAS,,268,0.43,21,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,SWARN SINGH,,219,0.35,22,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,AJMEER SINGH,,191,0.3,23,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,SWARN SINGH,,184,0.29,24,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,JATINDER PAL SINGH,,162,0.26,25,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,MANGAL DASS,,127,0.2,26,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2008,74,BISHNAH,BANSI LAL TIDYAL,,126,0.2,27,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-47,jammu-and-kashmir,2008,75,RANBIR SINGH PURA,GHARU RAM BHAGAT,,15902,28.95,1,won,U,53,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-47,jammu-and-kashmir,2008,75,RANBIR SINGH PURA,SUMAN LATA BHAGAT,,14272,25.98,2,lost,U,57,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-47,jammu-and-kashmir,2008,75,RANBIR SINGH PURA,ROMESH LAL MOTTAN,,11929,21.72,3,lost,U,51,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-47,jammu-and-kashmir,2008,75,RANBIR SINGH PURA,KARAN KUMAR BHAGAT,,5104,9.29,4,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-47,jammu-and-kashmir,2008,75,RANBIR SINGH PURA,AJAIB SINGH MOTAN,,4585,8.35,5,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-47,jammu-and-kashmir,2008,75,RANBIR SINGH PURA,SHAM LAL,,793,1.44,6,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-47,jammu-and-kashmir,2008,75,RANBIR SINGH PURA,BISHAMBER DASS GORKA,,650,1.18,7,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-47,jammu-and-kashmir,2008,75,RANBIR SINGH PURA,VICKY KUMAR DOGRA,,518,0.94,8,forfeit,U,28,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-47,jammu-and-kashmir,2008,75,RANBIR SINGH PURA,SURJEET KUMAR BHAGAT,,332,0.6,9,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-47,jammu-and-kashmir,2008,75,RANBIR SINGH PURA,GURDEEP SINGH,,283,0.52,10,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-47,jammu-and-kashmir,2008,75,RANBIR SINGH PURA,MOHINDER SINGH,,282,0.51,11,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-47,jammu-and-kashmir,2008,75,RANBIR SINGH PURA,JANAK RAJ,,139,0.25,12,forfeit,U,53,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-47,jammu-and-kashmir,2008,75,RANBIR SINGH PURA,TILAK RAJ,,110,0.2,13,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-47,jammu-and-kashmir,2008,75,RANBIR SINGH PURA,JATINDER KUMAR BHAGAT,,33,0.06,14,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-49,jammu-and-kashmir,2008,76,SUCHET GARH,SHAM LAL CHOUDHARY,,17995,39.39,1,won,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-49,jammu-and-kashmir,2008,76,SUCHET GARH,TARANJEET SINGH,,10403,22.77,2,lost,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-49,jammu-and-kashmir,2008,76,SUCHET GARH,GARU RAM CHOUDHARY,,6545,14.33,3,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-49,jammu-and-kashmir,2008,76,SUCHET GARH,TARLOK SINGH BAJWA,,6357,13.92,4,forfeit,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-49,jammu-and-kashmir,2008,76,SUCHET GARH,MOHAN SINGH,,1154,2.53,5,forfeit,U,54,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-49,jammu-and-kashmir,2008,76,SUCHET GARH,ASHOK KUMAR,,504,1.1,6,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-49,jammu-and-kashmir,2008,76,SUCHET GARH,KUNDAN LAL SHARMA,,373,0.82,7,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-49,jammu-and-kashmir,2008,76,SUCHET GARH,MAKHAN SINGH,,318,0.7,8,forfeit,U,66,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-49,jammu-and-kashmir,2008,76,SUCHET GARH,GIRDHARI LAL,,306,0.67,9,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-49,jammu-and-kashmir,2008,76,SUCHET GARH,HARI SINGH,,294,0.64,10,forfeit,U,54,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-49,jammu-and-kashmir,2008,76,SUCHET GARH,SATISH GUPTA,,242,0.53,11,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-49,jammu-and-kashmir,2008,76,SUCHET GARH,KRISHAN LAL,,234,0.51,12,forfeit,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-49,jammu-and-kashmir,2008,76,SUCHET GARH,DARSHAN SINGH,,224,0.49,13,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-49,jammu-and-kashmir,2008,76,SUCHET GARH,SHIV RATTAN SINGH,,185,0.4,14,forfeit,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-49,jammu-and-kashmir,2008,76,SUCHET GARH,HARJEET KUMAR,,182,0.4,15,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-49,jammu-and-kashmir,2008,76,SUCHET GARH,RAJ SINGH,,114,0.25,16,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-49,jammu-and-kashmir,2008,76,SUCHET GARH,RAKESH KUMAR,,102,0.22,17,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-49,jammu-and-kashmir,2008,76,SUCHET GARH,KASTURI SINGH,,87,0.19,18,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-49,jammu-and-kashmir,2008,76,SUCHET GARH,ANIL SHARMA,,63,0.14,19,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2008,77,MARH,SUKH NANDAN KUMAR,,18368,35.04,1,won,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2008,77,MARH,AJAY KUMAR SADHOTRA,,11787,22.49,2,lost,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2008,77,MARH,BALWAN SINGH,,9207,17.56,3,lost,U,53,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2008,77,MARH,JAGJIT SINGH,,5592,10.67,4,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2008,77,MARH,SURAM SINGH,,2863,5.46,5,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2008,77,MARH,DHARAM PAL SHARMA,,993,1.89,6,forfeit,U,74,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2008,77,MARH,ANAN SHARMA,,950,1.81,7,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2008,77,MARH,VIJAY KUMAR SHARMA,,735,1.4,8,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2008,77,MARH,KARAN SINGH,,549,1.05,9,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2008,77,MARH,NEELAM DEVI,,346,0.66,10,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2008,77,MARH,SURJEET SINGH CHIB,,247,0.47,11,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2008,77,MARH,ANITA KUMARI,,244,0.47,12,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2008,77,MARH,VIJAY KUMAR,,238,0.45,13,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2008,77,MARH,PARSHOTAM SINGH,,187,0.36,14,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2008,77,MARH,SURJEET SINGH,,111,0.21,15,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-45,jammu-and-kashmir,2008,78,RAIPUR DOMANA,BHARAT BHUSHAN,,28685,47.78,1,won,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-45,jammu-and-kashmir,2008,78,RAIPUR DOMANA,MULA RAM,,16416,27.34,2,lost,U,55,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-45,jammu-and-kashmir,2008,78,RAIPUR DOMANA,SAT PAUL,,6333,10.55,3,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-45,jammu-and-kashmir,2008,78,RAIPUR DOMANA,BADRI NATH,,5070,8.44,4,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-45,jammu-and-kashmir,2008,78,RAIPUR DOMANA,BODH RAJ,,1023,1.7,5,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-45,jammu-and-kashmir,2008,78,RAIPUR DOMANA,NEELAM DEVI,,880,1.47,6,forfeit,U,35,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-45,jammu-and-kashmir,2008,78,RAIPUR DOMANA,DEWAKAR BHAGAT,,445,0.74,7,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-45,jammu-and-kashmir,2008,78,RAIPUR DOMANA,PURAN CHAND,,399,0.66,8,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-45,jammu-and-kashmir,2008,78,RAIPUR DOMANA,GULAB CHAND BHAGAT,,340,0.57,9,forfeit,U,62,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-45,jammu-and-kashmir,2008,78,RAIPUR DOMANA,SURESH KUMAR,,290,0.48,10,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-45,jammu-and-kashmir,2008,78,RAIPUR DOMANA,BISHAMBER DASS,,155,0.26,11,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,SHAM LAL SHARMA,,31600,47.97,1,won,U,49,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,GOVIND RAM SHARMA,,17716,26.89,2,lost,U,78,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,VIJAY KUMAR,,6668,10.12,3,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,RAM SAROOP,,4802,7.29,4,forfeit,U,58,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,KULDEEP SHARMA,,1088,1.65,5,forfeit,U,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,HARBANS KUMAR SHARMA,,633,0.96,6,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,SANTOSH KUMAR SHARMA,,490,0.74,7,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,PREM SINGH,,335,0.51,8,forfeit,U,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,AJIT RAJ,,315,0.48,9,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,M.S JAMWAL,,312,0.47,10,forfeit,U,65,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,RAJESH KUMAR SHARMA,,286,0.43,11,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,RAMAN KUMAR MISHRA,,266,0.4,12,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,MAKHAN LAL,,238,0.36,13,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,JAGDISH RAJ,,230,0.35,14,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,PRABHU DAYAL SINGH,,168,0.26,15,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,PARSHOTAM LAL,,157,0.24,16,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,TEJ RAM,,155,0.24,17,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,ASHOK KUMAR SHARMA,,138,0.21,18,forfeit,U,30,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,NANAK CHAND,,119,0.18,19,forfeit,U,70,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,BIKRAM SINGH,,91,0.14,20,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2008,79,AKHNOOR,ANGREZU RAM SHARMA,,65,0.1,21,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-34,jammu-and-kashmir,2008,80,CHHAMB,TARA CHAND,,25335,48.59,1,won,U,45,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-34,jammu-and-kashmir,2008,80,CHHAMB,CHAMAN LAL,,22940,44,2,lost,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-34,jammu-and-kashmir,2008,80,CHHAMB,MOHAN LAL,,2321,4.45,3,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-34,jammu-and-kashmir,2008,80,CHHAMB,JANAK RAJ,,645,1.24,4,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-34,jammu-and-kashmir,2008,80,CHHAMB,GANGA DUTT,,488,0.94,5,forfeit,U,71,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-34,jammu-and-kashmir,2008,80,CHHAMB,BODH RAJ,,260,0.5,6,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-34,jammu-and-kashmir,2008,80,CHHAMB,BIRU MAL,,151,0.29,7,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-43,jammu-and-kashmir,2008,81,NOWSHERA,RADHAY SHAM SHARMA,,16511,26.47,1,won,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-43,jammu-and-kashmir,2008,81,NOWSHERA,ROMESH CHANDER SHARMA,,12691,20.35,2,lost,U,54,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-43,jammu-and-kashmir,2008,81,NOWSHERA,SURINDER KUMAR CHOUDHARY,,12186,19.54,3,lost,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-43,jammu-and-kashmir,2008,81,NOWSHERA,VISHWINDER DEV,,11701,18.76,4,lost,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-43,jammu-and-kashmir,2008,81,NOWSHERA,SHAMSHER SINGH,,3109,4.99,5,forfeit,U,61,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-43,jammu-and-kashmir,2008,81,NOWSHERA,AJEET SINGH,,1970,3.16,6,forfeit,U,59,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-43,jammu-and-kashmir,2008,81,NOWSHERA,ARSHAD MEHMOOD,,1896,3.04,7,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-43,jammu-and-kashmir,2008,81,NOWSHERA,SOM RAJ,,844,1.35,8,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-43,jammu-and-kashmir,2008,81,NOWSHERA,MOHD ZAMAN,,690,1.11,9,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-43,jammu-and-kashmir,2008,81,NOWSHERA,LOK NATH,,401,0.64,10,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-43,jammu-and-kashmir,2008,81,NOWSHERA,RAJINDER SHARMA,,366,0.59,11,forfeit,U,27,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2008,82,DARHAL,ZULFKAR ALI,,19399,28.55,1,won,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2008,82,DARHAL,MOHD IQBAL,,14858,21.87,2,lost,U,62,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2008,82,DARHAL,LIAQAT ALI,,14510,21.35,3,lost,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2008,82,DARHAL,PURAN SINGH,,12506,18.4,4,lost,U,65,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2008,82,DARHAL,MASOOD AHMED CHOWDHARY,,1753,2.58,5,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2008,82,DARHAL,ABDUL HAMID,,1532,2.25,6,forfeit,U,60,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2008,82,DARHAL,MOHD FAROOQ,,1140,1.68,7,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2008,82,DARHAL,DEV RAJ SHARMA,,1072,1.58,8,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2008,82,DARHAL,SHERAZ BEGUM MIRZA,,390,0.57,9,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2008,82,DARHAL,MOHD SHABIR,,300,0.44,10,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2008,82,DARHAL,ALLAH DAD,,276,0.41,11,forfeit,U,63,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2008,82,DARHAL,MUSHTAQ HUSSAIN,,216,0.32,12,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,SHABBIR AHMED KHAN,,10013,13.63,1,won,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,TASADIQ HUSSAIN,,9680,13.18,2,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,CHAUDHARI TALIB HUSSAIN,,8763,11.93,3,forfeit,U,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,VIBODH GUPTA,,8712,11.86,4,forfeit,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,MOHD. ASLAM KHAN,,7706,10.49,5,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,QAMAR HUSSAIN,,7035,9.58,6,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,MOHD. SHARIEF TARIQ,,5299,7.21,7,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,SHAHZAD KHAN,,4524,6.16,8,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,ABDUL SALAM MIR,,3201,4.36,9,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,MOHD. MOBIN,,1939,2.64,10,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,HAJI ALAM DIN BHATTI,,1268,1.73,11,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,NAZIR AHMED,,949,1.29,12,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,MOHD. ARIF,,852,1.16,13,forfeit,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,RANDHIR KUMAR SHARMA,,470,0.64,14,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,KHADAM HUSSAIN,,433,0.59,15,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,MUSHTAQ AHMED,,431,0.59,16,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,QARI ZAHEER ABBAS BHATTI,,354,0.48,17,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,HAJI MOHD. TAJ KHAN,,338,0.46,18,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,MOHD. NISSAR BHAT,,335,0.46,19,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,MOHD. SHABIR,,325,0.44,20,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,MOHD. YOUNIS,,325,0.44,21,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,RAJESH KUMAR SHARMA,,273,0.37,22,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2008,83,RAJOURI,RAMESH CHANDER,,244,0.33,23,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-39,jammu-and-kashmir,2008,84,KALA KOTE,RACHHPAL SINGH,,25314,45.62,1,won,U,57,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-39,jammu-and-kashmir,2008,84,KALA KOTE,ASHOK KUMAR SHARMA,,13894,25.04,2,lost,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-39,jammu-and-kashmir,2008,84,KALA KOTE,ABDUL KHALIQ,,7742,13.95,3,forfeit,U,51,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-39,jammu-and-kashmir,2008,84,KALA KOTE,RAJ KUMAR,,3851,6.94,4,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-39,jammu-and-kashmir,2008,84,KALA KOTE,BHARAT BUSHAN VAID,,1423,2.56,5,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-39,jammu-and-kashmir,2008,84,KALA KOTE,ABDUL GHANI KOHLI,,1017,1.83,6,forfeit,U,65,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-39,jammu-and-kashmir,2008,84,KALA KOTE,MOHINDER KOUR,,484,0.87,7,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-39,jammu-and-kashmir,2008,84,KALA KOTE,KHALIQ HUSSAIN,,421,0.76,8,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-39,jammu-and-kashmir,2008,84,KALA KOTE,RAM PARKASH SHARMA,,338,0.61,9,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-39,jammu-and-kashmir,2008,84,KALA KOTE,ASHWANI KUMAR SHARMA,,315,0.57,10,forfeit,U,35,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-39,jammu-and-kashmir,2008,84,KALA KOTE,MOHD SHAFIQ,,275,0.5,11,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-39,jammu-and-kashmir,2008,84,KALA KOTE,MATOO KHAN,,225,0.41,12,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-39,jammu-and-kashmir,2008,84,KALA KOTE,GHULAM RABBANI,,195,0.35,13,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-50,jammu-and-kashmir,2008,85,SURANKOTE,MOHD. ASLAM,,28102,44.22,1,won,U,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-50,jammu-and-kashmir,2008,85,SURANKOTE,MUSHTAQ AHMED SHAH BUKHARI,,26051,40.99,2,lost,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-50,jammu-and-kashmir,2008,85,SURANKOTE,MUMTAZ HUSSAIN SHAH,,6585,10.36,3,forfeit,U,62,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-50,jammu-and-kashmir,2008,85,SURANKOTE,MANZOOR AHMED,,737,1.16,4,forfeit,U,30,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-50,jammu-and-kashmir,2008,85,SURANKOTE,MOHD. SADIQ QURESHI,,518,0.82,5,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-50,jammu-and-kashmir,2008,85,SURANKOTE,MOHD. SHAREEF SHAD,,409,0.64,6,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-50,jammu-and-kashmir,2008,85,SURANKOTE,KALU KHAN HAMDARD,,385,0.61,7,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-50,jammu-and-kashmir,2008,85,SURANKOTE,ASHFAQ AHMED RANA,,332,0.52,8,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-50,jammu-and-kashmir,2008,85,SURANKOTE,ABDUL AZIZ BHAT,,222,0.35,9,forfeit,U,66,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-50,jammu-and-kashmir,2008,85,SURANKOTE,JAVAID AHMED,,124,0.2,10,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-50,jammu-and-kashmir,2008,85,SURANKOTE,JAMEEL HUSSAIN SHAH,,88,0.14,11,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2008,86,MENDHAR,SARDAR RAFIQ HUSSAIN KHAN,,29036,47.63,1,won,U,66,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2008,86,MENDHAR,JAVID AHMED RANA,,28294,46.42,2,lost,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2008,86,MENDHAR,MAJID AHMED KHAN,,1559,2.56,3,forfeit,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2008,86,MENDHAR,MUGHAL HUSSAIN KHAN,,438,0.72,4,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2008,86,MENDHAR,SHAMIM AHMED,,374,0.61,5,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2008,86,MENDHAR,MOHD. ALYAS KHAN,,321,0.53,6,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2008,86,MENDHAR,MUMTAZ AHMED KHAN,,271,0.44,7,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2008,86,MENDHAR,MOHD. TARIQ KHAN,,229,0.38,8,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2008,86,MENDHAR,ABDUL RAZAQ KHATANA,,153,0.25,9,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2008,86,MENDHAR,SHOKET ALI,,137,0.22,10,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2008,86,MENDHAR,MOHD. SHAFEEQ KHAN,,83,0.14,11,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2008,86,MENDHAR,ABDUL GHANI,,63,0.1,12,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2008,87,POONCH HAVELI,AJAZ AHMED JAN,,28297,39.62,1,won,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2008,87,POONCH HAVELI,CH. BASHIR AHMED NAAZ,,18364,25.71,2,lost,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2008,87,POONCH HAVELI,IMTIAZ ALI BANDEY,,11950,16.73,3,lost,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2008,87,POONCH HAVELI,PARDEEP SHARMA,,6980,9.77,4,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2008,87,POONCH HAVELI,MOHD. YOUNIS,,1448,2.03,5,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2008,87,POONCH HAVELI,GURSAGAR SINGH,,897,1.26,6,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2008,87,POONCH HAVELI,ASHFAQ AHMED,,694,0.97,7,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2008,87,POONCH HAVELI,MAQBOOL AHMAD,,693,0.97,8,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2008,87,POONCH HAVELI,RAJA MOHD. ABBAS KHAN,,651,0.91,9,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2008,87,POONCH HAVELI,KHADAM HUSSAIN,,554,0.78,10,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2008,87,POONCH HAVELI,TABBASUM BANO,,336,0.47,11,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2008,87,POONCH HAVELI,MOHD. RASHID,,314,0.44,12,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2008,87,POONCH HAVELI,SARITA SHARMA,,237,0.33,13,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a

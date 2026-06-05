@@ -1,0 +1,10 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-gujarat-2829,gujarat,2018,72,JASDAN,Bavaliya Kunvarji Bhai Mohan Bhai 'E',,90268,54.6,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2829,gujarat,2018,72,JASDAN,Avshar Bhai kanji Bhai Nakiya,,70283,42.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2829,gujarat,2018,72,JASDAN,NOTA,,2146,1.3,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2829,gujarat,2018,72,JASDAN,Mankoliya Bharat Bhai Jesa Bhai,,993,0.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2829,gujarat,2018,72,JASDAN,Dhapa Dharmshi Bhai Ramji Bhai,,755,0.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2829,gujarat,2018,72,JASDAN,Madhu Nirupaben Natavarlal,,331,0.2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2829,gujarat,2018,72,JASDAN,Dr. Patel Dinesh Bhai Shana Bhai,,213,0.13,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2829,gujarat,2018,72,JASDAN,Bhensjaliya Muizesh Bhai Mohan Bhai,,198,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2829,gujarat,2018,72,JASDAN,Chitroda Nathalal Punja Bhai,,144,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a

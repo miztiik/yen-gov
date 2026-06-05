@@ -1,0 +1,25 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-assam-1792,assam,2019,1,RATABARI,BIJOY MALAKAR,,68455,59.15,1,won,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1792,assam,2019,1,RATABARI,KESHAB PRASAD RAJAK,,44454,38.41,2,lost,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1792,assam,2019,1,RATABARI,NOTA,,1217,1.05,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1792,assam,2019,1,RATABARI,BIRENDRA RABIDAS,,944,0.82,4,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1792,assam,2019,1,RATABARI,PARIKSHIT ROY,,660,0.57,5,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1733,assam,2019,44,JANIA,Rafiqul Islam,,81780,54.35,1,won,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1733,assam,2019,44,JANIA,SHAMSUL HOQUE,,46639,30.99,2,lost,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1733,assam,2019,44,JANIA,TOWFIQUR RAHMAN,,15360,10.21,3,forfeit,M,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1733,assam,2019,44,JANIA,RUSTOM ALI,,2572,1.71,4,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1733,assam,2019,44,JANIA,RAFIKUL ISLAM,,1008,0.67,5,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1733,assam,2019,44,JANIA,CHAND MAHMUD,,910,0.6,6,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1733,assam,2019,44,JANIA,NOTA,,648,0.43,7,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1733,assam,2019,44,JANIA,ABDUL JALIL TALUKDAR,,643,0.43,8,forfeit,M,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1733,assam,2019,44,JANIA,SUBHASH SUTRADHAR,,568,0.38,9,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1733,assam,2019,44,JANIA,FARUK KHAN,,349,0.23,10,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1844,assam,2019,74,RANGAPARA,RAJEN BORTHAKUR,,78301,66.32,1,won,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1844,assam,2019,74,RANGAPARA,KARTIK KURMI,,28702,24.31,2,lost,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1844,assam,2019,74,RANGAPARA,ROYAL SORENG,,5901,5,3,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1844,assam,2019,74,RANGAPARA,NOTA,,2136,1.81,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1844,assam,2019,74,RANGAPARA,ARUP KUMAR CHOWDHURY,,2022,1.71,5,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1844,assam,2019,74,RANGAPARA,SANJIT RAJBANSHI,,997,0.84,6,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1771,assam,2019,106,SONARI,Nabanita Handique,,66698,54.58,1,won,F,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1771,assam,2019,106,SONARI,Sushil Kumar Suri,,51268,41.95,2,lost,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1771,assam,2019,106,SONARI,NOTA,,4241,3.47,3,lost,U,,,,challenger,src-1b7bc1c9d39a
