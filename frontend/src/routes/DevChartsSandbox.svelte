@@ -171,6 +171,32 @@
     suppress_breaks: false,
   });
 
+  // F3 reference-line demo (plan section 20.11) — synthetic
+  // "national median GSDP per capita" series. In production this is
+  // built from a stored derived datapoint on entity_id=IN with its own
+  // reserved source_id; here we hand-author the median across the
+  // three demo states per year so the TimeSeriesLine renderer
+  // exercises its `reference_series` + StatusGlyph branches.
+  const tsl_reference_vm = buildTimeSeriesLineViewModel({
+    rows: [
+      { year: "2018", median: 152000 },
+      { year: "2019", median: 164000 },
+      { year: "2020", median: 159000 },
+      { year: "2021", median: 178000 },
+      { year: "2022", median: 200000 },
+      { year: "2023", median: 222000 },
+    ],
+    toPoint: (r: { year: string; median: number }) => ({
+      series_id: "IN-median",
+      series_label: "National median",
+      period_id: r.year,
+      period_label: r.year,
+      value: r.median,
+    }),
+    policy: "value_desc",
+  });
+  const tsl_reference_series = tsl_reference_vm.series[0] ?? null;
+
   // ─── fixture 5 — facet panel grid (capacity per fuel × state) ───
   const fpg_vm = buildFacetPanelGridViewModel({
     rows: capacity_rows,
@@ -399,6 +425,26 @@
       view_model={tsl_vm}
       chart_title="GSDP per capita over time (synthetic)"
       chart_subtitle="Pinned series is rendered thicker."
+      format_value={fmtInr}
+    />
+  </section>
+
+  <section class="space-y-3" data-sandbox-section="tsl-reference">
+    <h2 class="text-lg font-semibold">TimeSeriesLine — with national reference (F3)</h2>
+    <p class="text-sm text-slate-600">
+      Same three state series, plus a thin grey dashed "national
+      median" reference line and a direction-coloured
+      <code>StatusGlyph</code> at each state's latest point. Under
+      <code>higher_is_better</code>: Karnataka (above) and Tamil Nadu
+      (above) get a green up-triangle; Bihar (below) gets a red
+      down-triangle. Per plan section 20.11.
+    </p>
+    <TimeSeriesLine
+      view_model={tsl_vm}
+      reference_series={tsl_reference_series}
+      indicator_direction="higher_is_better"
+      chart_title="GSDP per capita vs national median (synthetic)"
+      chart_subtitle="Grey dashed = median across the three demo states; glyphs at latest point."
       format_value={fmtInr}
     />
   </section>
