@@ -39,6 +39,8 @@
   import SegmentedControl from "../lib/SegmentedControl.svelte";
   import GeoChoropleth from "../lib/charts/GeoChoropleth.svelte";
   import type { GeoChoroplethRow } from "../lib/charts/geo-choropleth-helpers";
+  import Matrix from "../lib/charts/Matrix.svelte";
+  import type { MatrixRow } from "../lib/charts/matrix-helpers";
   import {
     feasibleAt,
     intersectWithCatalogue,
@@ -244,6 +246,47 @@
     { entity_key: 35, value: 0.04 }, // Andaman & Nicobar (island; tests the F4 fix path)
     { entity_key: 31, value: 0.02 }, // Lakshadweep    (island; tests the F4 fix path)
   ];
+
+  // --- fixture 8 - F2b.4 Matrix - entity x time heatmap (synthetic) ---
+  // Synthetic 5-state x 6-year matrix of an illustrative per-capita
+  // indicator. The matrix shares the binnedSequential color scale
+  // with GeoChoropleth (parent plan section 14.5 doctrine #5: "Shared
+  // ColorScale + Legend primitive serves both <Choropleth> and
+  // <Matrix>"). Hover any cell to see the value-tick caret move on
+  // the legend bar (Jony C2 + C3 + C5 primitives all wired through).
+  // Numbers MUST NOT be cited.
+  const f2b4_matrix_rows: MatrixRow[] = (() => {
+    const states = ["KA", "TN", "MH", "GJ", "UP"];
+    const years = [2019, 2020, 2021, 2022, 2023, 2024];
+    const out: MatrixRow[] = [];
+    // Synthetic but plausible-looking growth/decline pattern per state.
+    const seed: Record<string, number[]> = {
+      KA: [42, 45, 41, 48, 52, 56],
+      TN: [50, 51, 48, 53, 58, 61],
+      MH: [55, 58, 52, 60, 65, 68],
+      GJ: [60, 62, 56, 64, 70, 74],
+      UP: [25, 26, 22, 28, 31, 34],
+    };
+    for (const s of states) {
+      for (let i = 0; i < years.length; i += 1) {
+        out.push({ entity_id: s, time: years[i], value: seed[s][i] });
+      }
+    }
+    // Inject one missing cell to exercise the hatch fall-through.
+    out.push({ entity_id: "MH", time: 2025, value: null });
+    return out;
+  })();
+  const f2b4_state_label = (id: string): string => {
+    const map: Record<string, string> = {
+      KA: "Karnataka",
+      TN: "Tamil Nadu",
+      MH: "Maharashtra",
+      GJ: "Gujarat",
+      UP: "Uttar Pradesh",
+    };
+    return map[id] ?? id;
+  };
+  const f2b4_time_label = (t: string): string => t;
 
   // ─── fixture 6 — TileCartogram (equal-area hex; synthetic 5×5 patch) ───
   // A small synthetic AC layout + winners so the renderer↔builder contract
@@ -661,6 +704,46 @@
       source_vintage="2026-06-06 (illustrative)"
       width={640}
       height={520}
+    />
+  </section>
+
+  <!-- F2b.4 Matrix (entity x time heatmap) demo (parent plan section
+       15.1 row 3; shares ColorScale + Legend with GeoChoropleth via
+       color-scale.ts per parent section 14.5 doctrine #5). One cell
+       is deliberately set to null to exercise the hatch fall-through. -->
+  <section class="space-y-3" data-testid="f2b4-section">
+    <h2 class="text-lg font-semibold">F2b.4 - Matrix (entity x time heatmap)</h2>
+    <p class="text-sm text-slate-600">
+      Renderer #3 from <a class="underline" href="../docs/reference/chart-index.md">chart-index.md section 1</a>.
+      Pivots <code>(entity, time, value)</code> rows into a 2D grid;
+      shares the binned color scale with GeoChoropleth. Hover any
+      cell to see the ChoroplethLegend value-tick caret move along
+      the bar (Jony's bank-branch chart observation; parent 14.3 C2).
+      The MH 2025 cell is deliberately empty to exercise the C4
+      diagonal-stripe hatch fall-through (same visual idiom
+      GeoChoropleth uses for no-data regions).
+    </p>
+    <p class="text-xs text-slate-500">
+      Fixture data is illustrative; numbers MUST NOT be cited. The
+      shared ColorScale is the strangler-fig contract: F2b.4 Matrix
+      and F2b.3 GeoChoropleth paint the same domain in the same
+      palette, so a citizen can read across the two renderers without
+      a perceptual reset.
+    </p>
+    <Matrix
+      rows={f2b4_matrix_rows}
+      entity_label={f2b4_state_label}
+      time_label={f2b4_time_label}
+      direction="higher_is_better"
+      bins={5}
+      format_tick=".2s"
+      title="Synthetic per-capita indicator across states (illustrative)"
+      source_owner="Synthetic sandbox fixture"
+      source_vintage="2026-06-06 (illustrative)"
+      cell_height={26}
+      cell_min_width={48}
+      label_width={140}
+      width={640}
     />
   </section>
 </section>
