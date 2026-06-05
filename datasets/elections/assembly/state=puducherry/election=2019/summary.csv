@@ -1,2 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
 IN-AC-2008-puducherry-4116,puducherry,2019,THATTANCHAVADY,29754,22985,77.25,K. VENKATESAN,,10906,47.45,P. NEDOUNZEJIANE,,9367,1539,6.7,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci10,puducherry,2019,KAMARAJ NAGAR,34998,24310,69.46,A. Johnkumar,,14782,60.81,Bouvanesvarane,,7612,7170,29.5,src-1b7bc1c9d39a

@@ -1,2 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
 IN-AC-2008-west-bengal-1923,west-bengal,2018,NOAPARA,246881,190091,77,Sunil Singh 'E',,101729,53.52,Sandip Banerjee,,38711,63018,33.16,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-eci155,west-bengal,2018,MAHESHTALA,248855,180997,72.73,Dulal Chandra Das'E',,104818,57.91,Sujit Kumar Ghosh,,42053,62765,34.68,src-1b7bc1c9d39a

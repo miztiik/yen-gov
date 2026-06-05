@@ -1,0 +1,14 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,Mannuru Suguma,,126152,86.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,Sridevi .R,,9628,6.64,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,K. Balarubramanyam,,3819,2.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,Pothi Reddy Venkata Reddy,,3156,2.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,Asadi Venkatadri,,491,0.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,Manohar Reddy Dasari,,456,0.31,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,Katari Kesavulu Chetty,,303,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,Guru Govinda Yadav,,247,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,N.S. Achari,,228,0.16,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,Davids Vagdev,,186,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,L.Lakkappa,,180,0.12,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,A.Raveendra,,121,0.08,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,K.S . Reddy,,97,0.07,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a

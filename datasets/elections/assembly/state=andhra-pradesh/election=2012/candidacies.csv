@@ -1,4 +1,62 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-andhra-pradesh-eci7,andhra-pradesh,2012,7,ADILABAD,Jogu Ramanna,,59452,49.34,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci7,andhra-pradesh,2012,7,ADILABAD,C. Ram Chandra Reddy,,28056,23.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci7,andhra-pradesh,2012,7,ADILABAD,Payila Shanker,,24288,20.16,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci7,andhra-pradesh,2012,7,ADILABAD,Ayyub,,3961,3.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci7,andhra-pradesh,2012,7,ADILABAD,Lanka Raghavulu,,2423,2.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci7,andhra-pradesh,2012,7,ADILABAD,P. Vishal,,2322,1.93,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci16,andhra-pradesh,2012,16,KAMAREDDY,Gampa Goverdhan,,75699,55.23,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci16,andhra-pradesh,2012,16,KAMAREDDY,Adla Raja Reddy,,31234,22.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci16,andhra-pradesh,2012,16,KAMAREDDY,Venu Gopal Rao N.,,17839,13.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci16,andhra-pradesh,2012,16,KAMAREDDY,Sathaiah,,6759,4.93,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci16,andhra-pradesh,2012,16,KAMAREDDY,Ramulu Boyini,,1853,1.35,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci16,andhra-pradesh,2012,16,KAMAREDDY,Kodidyaka Mahender Goud,,1172,0.86,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci16,andhra-pradesh,2012,16,KAMAREDDY,Rajanarsaiah Tokala,,1044,0.76,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci16,andhra-pradesh,2012,16,KAMAREDDY,Kairamkonda Yadagiri,,748,0.55,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci16,andhra-pradesh,2012,16,KAMAREDDY,Pagidi Sridhar,,703,0.51,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci74,andhra-pradesh,2012,74,MAHABUBNAGAR,Yennam Srinivas Reddy,,39385,31.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci74,andhra-pradesh,2012,74,MAHABUBNAGAR,Ibrahim Syed,,37506,30.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci74,andhra-pradesh,2012,74,MAHABUBNAGAR,S.Muthyala Prakash,,25333,20.27,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci74,andhra-pradesh,2012,74,MAHABUBNAGAR,P. Chandra Shekar,,17518,14.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci74,andhra-pradesh,2012,74,MAHABUBNAGAR,Sajida Begum,,1239,0.99,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci74,andhra-pradesh,2012,74,MAHABUBNAGAR,Gonela Mahender Mudiraj,,861,0.69,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci74,andhra-pradesh,2012,74,MAHABUBNAGAR,Bekkari Sreenivas Reddy,,772,0.62,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci74,andhra-pradesh,2012,74,MAHABUBNAGAR,Jagadeesh Chand,,461,0.37,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci74,andhra-pradesh,2012,74,MAHABUBNAGAR,Mohd.Ghouse Moinuddin,,455,0.36,9,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci74,andhra-pradesh,2012,74,MAHABUBNAGAR,Nisar Ahmed Baig,,449,0.36,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci74,andhra-pradesh,2012,74,MAHABUBNAGAR,D.Timappi,,403,0.32,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci74,andhra-pradesh,2012,74,MAHABUBNAGAR,S.R. Premaah,,373,0.3,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci74,andhra-pradesh,2012,74,MAHABUBNAGAR,Abdul Kareemkhaja MD.,,230,0.18,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci85,andhra-pradesh,2012,85,KOLLAPUR,Jupally Krishna Rao,,58107,38.47,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci85,andhra-pradesh,2012,85,KOLLAPUR,Mamillapally Vishnuvardhab Reddy,,43083,28.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci85,andhra-pradesh,2012,85,KOLLAPUR,Chintapally Jagadeeswar Rao,,35287,23.36,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci85,andhra-pradesh,2012,85,KOLLAPUR,Gaganam Mannem,,7197,4.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci85,andhra-pradesh,2012,85,KOLLAPUR,Md. Jabbar,,3905,2.59,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci85,andhra-pradesh,2012,85,KOLLAPUR,M.Shiva Shekar,,1586,1.05,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci85,andhra-pradesh,2012,85,KOLLAPUR,Jeropati Kurumurthy,,711,0.47,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci85,andhra-pradesh,2012,85,KOLLAPUR,Rangineni Devender Rao,,614,0.41,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci85,andhra-pradesh,2012,85,KOLLAPUR,Rangineni Ramakrishna Rao,,540,0.36,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci99,andhra-pradesh,2012,99,GHANPUR (STATION) (SC),Rajaiah Thatikinda,,81279,47.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci99,andhra-pradesh,2012,99,GHANPUR (STATION) (SC),Kadiyam Srihari,,48641,28.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci99,andhra-pradesh,2012,99,GHANPUR (STATION) (SC),Rajarapu Pratap,,28965,17.05,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci99,andhra-pradesh,2012,99,GHANPUR (STATION) (SC),Baskula Tagokeprasad,,6234,3.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci99,andhra-pradesh,2012,99,GHANPUR (STATION) (SC),Ilishan Daida,,4788,2.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci104,andhra-pradesh,2012,104,PARKAL,M. Bikshpathi,,51936,33.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci104,andhra-pradesh,2012,104,PARKAL,S. Konda,,50374,32.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci104,andhra-pradesh,2012,104,PARKAL,C.D. Reddy,,30850,19.63,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci104,andhra-pradesh,2012,104,PARKAL,P.V.C. Reddy,,9160,5.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci104,andhra-pradesh,2012,104,PARKAL,S.S. Rao,,5099,3.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci104,andhra-pradesh,2012,104,PARKAL,Gali Ravi,,3384,2.15,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci104,andhra-pradesh,2012,104,PARKAL,M. Shaboddin,,1080,0.69,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci104,andhra-pradesh,2012,104,PARKAL,B. Munjala,,966,0.61,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci104,andhra-pradesh,2012,104,PARKAL,S.Srinu,,805,0.51,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci104,andhra-pradesh,2012,104,PARKAL,M. Gattaiah,,707,0.45,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci104,andhra-pradesh,2012,104,PARKAL,A. B. Reddy,,697,0.44,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci104,andhra-pradesh,2012,104,PARKAL,N. Rayabarapu,,561,0.36,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci104,andhra-pradesh,2012,104,PARKAL,K. Sujatha,,486,0.31,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci104,andhra-pradesh,2012,104,PARKAL,B. K. Naik,,459,0.29,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci104,andhra-pradesh,2012,104,PARKAL,O. Shankar,,330,0.21,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci104,andhra-pradesh,2012,104,PARKAL,A.B. Reddy,,273,0.17,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2012,127,NARASANNAPETA,D.K. Das,,54454,38.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2012,127,NARASANNAPETA,D. Ramadas,,47142,33.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2012,127,NARASANNAPETA,S. S. Babo,,32401,23.18,3,lost,U,,,,challenger,src-1b7bc1c9d39a

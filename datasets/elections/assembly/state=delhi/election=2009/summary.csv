@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-delhi-eci33,delhi,2009,DWARKA,133515,65418,49,Parduymn Rajput,,35891,54.86,Tilotma Chod.,,24526,11365,17.37,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci54,delhi,2009,OKHLA,209643,80719,38.5,Asif Md. Khan,,23394,28.98,Braham Singh,,18387,5007,6.2,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci64,delhi,2009,ROHTAS NAGAR,161333,100671,62.4,Vipin Sharma,,57848,57.46,Divy Jayaswal,,34299,23549,23.39,src-1b7bc1c9d39a

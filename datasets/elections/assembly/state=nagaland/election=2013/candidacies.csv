@@ -1,4 +1,8 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-nagaland-eci1,nagaland,2013,1,DIMAPUR-I,TOVIHOTO AYEMI,,6952,42.95,1,won,U,34,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci1,nagaland,2013,1,DIMAPUR-I,K.L. CHISHI,,5114,31.59,2,lost,U,69,Graduate Professional,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci1,nagaland,2013,1,DIMAPUR-I,PUKHAVI YEPTHOMI,,3673,22.69,3,lost,U,50,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci1,nagaland,2013,1,DIMAPUR-I,H. SUNEP PHOM,,449,2.77,4,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1453,nagaland,2013,2,DIMAPUR-II,S.I JAMIR,,14151,37.91,1,won,U,74,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1453,nagaland,2013,2,DIMAPUR-II,SAVI LIEGISE,,12536,33.58,2,lost,U,50,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1453,nagaland,2013,2,DIMAPUR-II,LIPOK,,10641,28.51,3,lost,U,54,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -23,6 +27,8 @@ IN-AC-2008-nagaland-1498,nagaland,2013,8,WESTERN ANGAMI,ASU KEYHO,,4969,36.79,2,
 IN-AC-2008-nagaland-1498,nagaland,2013,8,WESTERN ANGAMI,HUZO MERU,,2569,19.02,3,lost,U,60,Post Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1459,nagaland,2013,9,KOHIMA TOWN,DR. NEIKIESALIE NICKY KIRE,,15506,63.81,1,won,U,60,Graduate Professional,MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1459,nagaland,2013,9,KOHIMA TOWN,DR. ER. VIKUOTUOLIE ANGAMI,,8795,36.19,2,lost,U,59,Doctorate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci10,nagaland,2013,10,NORTHERN ANGAMI-I,KHRIEHU LIEZIETSU,,8232,57.55,1,won,U,47,12th Pass,Unspecified,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci10,nagaland,2013,10,NORTHERN ANGAMI-I,PRASIELIE PIENYU,,6072,42.45,2,lost,U,48,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1471,nagaland,2013,11,NORTHERN ANGAMI-II,NEIPHIU RIO,,15305,85.32,1,won,U,62,Graduate,MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1471,nagaland,2013,11,NORTHERN ANGAMI-II,KEVISE SOGOTSU,,2634,14.68,2,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1492,nagaland,2013,12,TSEMINYU,ER. LEVI RENGMA,,9212,37.62,1,won,U,54,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
@@ -69,6 +75,9 @@ IN-AC-2008-nagaland-1467,nagaland,2013,25,MONGOYA,MERENTOSHI R.JAMIR,,8808,68.1,
 IN-AC-2008-nagaland-1467,nagaland,2013,25,MONGOYA,DR. NGANGSHI K.AO,,4125,31.9,2,lost,U,71,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1446,nagaland,2013,26,AONGLENDEN,IMTIKUMZUK,,5604,54.74,1,won,U,45,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1446,nagaland,2013,26,AONGLENDEN,TOSHIPOKBA,,4633,45.26,2,lost,U,56,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci27,nagaland,2013,27,MOKOKCHUNG TOWN,C.APOK JAMIR,,2229,44.67,1,won,U,50,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci27,nagaland,2013,27,MOKOKCHUNG TOWN,ROSEMTONG,,2182,43.73,2,lost,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci27,nagaland,2013,27,MOKOKCHUNG TOWN,DR. YANGERLA,,579,11.6,3,forfeit,U,56,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1460,nagaland,2013,28,KORIDANG,IMKONG L.IMCHEN,,11869,65.57,1,won,U,63,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1460,nagaland,2013,28,KORIDANG,T. CHALUKUMBA AO,,6134,33.89,2,lost,U,53,Graduate,Ex Civil Service,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1460,nagaland,2013,28,KORIDANG,MOATEMJEN,,98,0.54,3,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
@@ -154,6 +163,10 @@ IN-AC-2008-nagaland-1461,nagaland,2013,52,LONGKHIM CHARE,L.T. SANGTAM,,5565,27.8
 IN-AC-2008-nagaland-1461,nagaland,2013,52,LONGKHIM CHARE,R.S. SANGTAM,,1326,6.64,4,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1494,nagaland,2013,53,TUENSANG SADAR-I,TOYANG CHANGKONG CHANG,,9534,56.76,1,won,U,33,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1494,nagaland,2013,53,TUENSANG SADAR-I,L.ELAM CHANG,,7262,43.24,2,lost,U,44,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci54,nagaland,2013,54,TUENSANG SADAR-II,KEJONG CHANG,,5268,29.51,1,won,U,77,Illiterate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci54,nagaland,2013,54,TUENSANG SADAR-II,I.N.MONGBA,,4699,26.33,2,lost,U,54,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci54,nagaland,2013,54,TUENSANG SADAR-II,RHAKILA,,4193,23.49,3,lost,U,75,8th Pass,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci54,nagaland,2013,54,TUENSANG SADAR-II,N.KAIMANG CHANG,,3689,20.67,4,lost,U,61,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1491,nagaland,2013,55,TOBU,NAIBA,,10118,56.21,1,won,U,48,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1491,nagaland,2013,55,TOBU,BONGKHAO,,7881,43.79,2,lost,U,36,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1468,nagaland,2013,56,NOKLAK,P.LONGON,,9168,60.99,1,won,U,52,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
