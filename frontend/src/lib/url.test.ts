@@ -92,6 +92,14 @@ describe("canonical URL grammar", () => {
     expect(url.state("S22")).toMatch(/^\/s\/[a-z0-9-]+$/);
   });
 
+  it("district is /s/<state>/d/<slug>", () => {
+    expect(url.district("S22", "coimbatore")).toMatch(/^\/s\/[a-z0-9-]+\/d\/coimbatore$/);
+  });
+
+  it("district passes through an LGD state slug as the state segment", () => {
+    expect(url.district("tamil-nadu", "coimbatore")).toBe("/s/tamil-nadu/d/coimbatore");
+  });
+
   it("ac is /s/<state>/ac/<eci_no-name-slug>", () => {
     expect(url.ac("S22", 167, "Mylapore")).toMatch(/^\/s\/[a-z0-9-]+\/ac\/167-mylapore$/);
   });
@@ -141,6 +149,7 @@ describe("canonical URL grammar", () => {
   // occurrences on main; this test locks that invariant.)
   it.each([
     ["url.state", url.state("S22")],
+    ["url.district", url.district("S22", "coimbatore")],
     ["url.ac", url.ac("S22", 167, "Mylapore")],
     ["url.acByNo", url.acByNo("S22", 167)],
     ["url.party", url.party("S22", "DMK", "DMK")],
@@ -155,6 +164,7 @@ describe("canonical URL grammar", () => {
 
   it.each([
     ["url.state", url.state("S22")],
+    ["url.district", url.district("S22", "coimbatore")],
     ["url.ac", url.ac("S22", 167, "Mylapore")],
     ["url.stateTopic", url.stateTopic("S22", "energy")],
   ])("%s never emits the Hive partition form (in_s<NN>) — that's a data-layer concern", (_label, u) => {
@@ -168,6 +178,7 @@ describe("canonical URL grammar", () => {
     ["url.topics", url.topics()],
     ["url.topic", url.topic("energy")],
     ["url.state", url.state("S22")],
+    ["url.district", url.district("S22", "coimbatore")],
     ["url.ac", url.ac("S22", 167, "Mylapore")],
     ["url.acByNo", url.acByNo("S22", 167)],
     ["url.party", url.party("S22", "DMK", "DMK")],

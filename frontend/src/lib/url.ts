@@ -80,6 +80,32 @@ export const url = {
   state(stateCode: string): string {
     return withBase(`/s/${states.slug(stateCode) || stateCode.toLowerCase()}`);
   },
+  /**
+   * Per-state per-district landing - `/s/<state-slug>/d/<district-slug>`.
+   *
+   * The `stateCode` accepts either an ECI code (`S22`) OR an LGD state slug
+   * (`tamil-nadu`); both resolve to the same `/s/<slug>` prefix via
+   * `states.slug()` with a lower-case-passthrough fallback (mirrors
+   * `url.state` / `url.ac` per ADR-0048 / ADR-0050).
+   *
+   * The `districtSlug` is OPAQUE to the builder: callers supply the
+   * already-slugified district name derived from the LGD district
+   * `display_name` via `slug.ts:slugify()` at the data-layer boundary
+   * (mirrors how `acSlug()` is the boundary for AC slugs in `url.ac`).
+   * No reverse-resolver lives here; the District route resolves
+   * `district_slug -> LGD district id` via `loadAllDistrictEntities()` at
+   * render time.
+   *
+   * Geo stays in the PATH never the querystring (parent plan section 20.8
+   * + 23.5). U2 sub-plan adds this node so `GeoBreadcrumb` (U2b) has a
+   * District crumb to ascend TO. The reserved `/sd/:subdistrict` shape
+   * mentioned in 23.5 is intentionally NOT minted here yet (no
+   * `url.subdistrict()` builder ships in U2).
+   */
+  district(stateCode: string, districtSlug: string): string {
+    const slug = states.slug(stateCode) || stateCode.toLowerCase();
+    return withBase(`/s/${slug}/d/${districtSlug}`);
+  },
   ac(stateCode: string, eci_no: number, name: string, event?: string | null): string {
     const slug = states.slug(stateCode) || stateCode.toLowerCase();
     const acSeg = acSlug(eci_no, name);
