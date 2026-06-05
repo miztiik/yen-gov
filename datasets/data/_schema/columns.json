@@ -63,7 +63,7 @@
       ]
     },
     "datasets/data/entities/electoral.csv": {
-      "notes": "ECI AC and PC entities per delimitation cycle. Electoral and LGD entities meet only via electoral_lgd_xwalk.csv (F3). Spec: csv-column-contract.md section 3.2.",
+      "notes": "ECI AC and PC entities per delimitation cycle. LGD-native PK (no arithmetic surrogate id). eci_no is the natural ECI ballot serial folded from the PRI super-file (round-7); the candidacies bind resolves through (state, delim_year, eci_no). Electoral and LGD-district entities meet only via electoral_district_membership.csv (F3). Spec: TODO/20260604-b2b5-elections-reingest-subplan.md section 0c.",
       "columns": [
         { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true },
         { "name": "name", "dtype": "string", "nullable": false },
@@ -71,7 +71,19 @@
         { "name": "delim_year", "dtype": "integer", "nullable": false },
         { "name": "state", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/geo.csv.entity_id" },
         { "name": "parent", "dtype": "string", "nullable": true },
+        { "name": "eci_no", "dtype": "integer", "nullable": true },
+        { "name": "aliases", "dtype": "string", "nullable": true },
         { "name": "reservation", "dtype": "string", "nullable": true, "enum": ["GEN", "SC", "ST"] }
+      ]
+    },
+    "datasets/data/entities/electoral_district_membership.csv": {
+      "notes": "AC <-> LGD-district 1:many membership (round-7 rename of electoral_lgd_xwalk.csv). LGD-canonical (an AC can span districts per the LGD Constituency Coverage report), NOT a geometry artifact. is_primary = the plurality district. Composite PK: (electoral_id, lgd_district_id). Spec: TODO/20260604-b2b5-elections-reingest-subplan.md section 0c.",
+      "columns": [
+        { "name": "electoral_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/electoral.csv.entity_id" },
+        { "name": "lgd_district_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
+        { "name": "is_primary", "dtype": "boolean", "nullable": false },
+        { "name": "lgd_snapshot", "dtype": "string", "nullable": false },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
       ]
     },
     "datasets/data/entities/electoral_lgd_xwalk.csv": {
