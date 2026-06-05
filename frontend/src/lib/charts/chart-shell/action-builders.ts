@@ -21,8 +21,10 @@
 // Doctrine ties:
 //
 //   - R-08 BBA. These helpers do NOT touch existing renderers. The
-//     adopter (CompositionBar mount in `StateOverview.svelte` PR-32)
-//     opts in by passing the returned spec into the `actions` prop.
+//     adopter (composition-bar A/B mount in `StateOverview.svelte`
+//     PR-32 - originally `CompositionBar.svelte`, retired in F2a.5.2
+//     so the mount now renders `CategoryBar mode="diverging"`) opts
+//     in by passing the returned spec into the `actions` prop.
 //
 //   - R-24 zero fetch telemetry. Clipboard / CSV / SVG blob handlers
 //     write to the citizen's machine; no upstream calls, no

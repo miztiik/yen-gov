@@ -414,10 +414,10 @@
       Single-entity, single-period 100%-stacked composition bar.
       Synthetic fuel-mix model so reviewers can see segments + legend +
       caption render through <code>CategoryBar mode="diverging"</code>
-      (F2a.5.1; lifted byte-identical from
-      <code>lib/CompositionBar.svelte</code> body). Production
-      migration of the StateOverview mount + retirement of the legacy
-      <code>CompositionBar.svelte</code> ship in F2a.5.2.
+      (F2a.5.1; lifted byte-identical from the now-retired
+      <code>lib/CompositionBar.svelte</code> body). F2a.5.2 retired
+      the standalone renderer; the StateOverview production mount now
+      uses this primitive.
     </p>
     <CategoryBarDiverging
       mode="diverging"

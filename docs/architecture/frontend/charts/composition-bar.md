@@ -1,13 +1,15 @@
 # CompositionBar (Phase 3.6)
 
-**Last Updated**: 2026-05-25
+**Last Updated**: 2026-06-05
 
-Horizontal 100%-stacked-bar primitive for single-entity composition (party seats in one state, fuel mix in one state, budget heads in one FY). Shipped as a three-PR split per R-16: primitive → adapter → mount.
+Horizontal 100%-stacked-bar primitive for single-entity composition (party seats in one state, fuel mix in one state, budget heads in one FY). Shipped as a three-PR split per R-16: primitive -> adapter -> mount.
+
+> **F2a.5 migration (2026-06-05)**: the standalone `CompositionBar.svelte` renderer was retired. The diverging composition body now lives inside [`CategoryBar.svelte`](../../../../frontend/src/lib/charts/CategoryBar.svelte) as `mode="diverging"`, consuming the same `CompositionBarModel` view-model. The `composition-bar/` adapter package (types + helpers + adapter + experiment-definition) is unchanged and is the stable contract surface. Deeper rewrite of this doc lands in F2a.5.3.
 
 ## What it is
 
-- [`frontend/src/lib/CompositionBar.svelte`](../../../../frontend/src/lib/CompositionBar.svelte) — horizontal stacked-bar renderer; takes pre-coloured segments and a verdict caption.
-- [`frontend/src/lib/charts/composition-bar/types.ts`](../../../../frontend/src/lib/charts/composition-bar/types.ts) — `CompositionBarModel`, `CompositionBarSegment` (zod contract with `is_tail` flag for collapsed tail segment).
+- [`frontend/src/lib/charts/CategoryBar.svelte`](../../../../frontend/src/lib/charts/CategoryBar.svelte) `mode="diverging"` - horizontal stacked-bar renderer (post-F2a.5.2); takes pre-coloured segments and a verdict caption. Lifted byte-identical from the retired `lib/CompositionBar.svelte` body in F2a.5.1.
+- [`frontend/src/lib/charts/composition-bar/types.ts`](../../../../frontend/src/lib/charts/composition-bar/types.ts) - `CompositionBarModel`, `CompositionBarSegment` (zod contract with `is_tail` flag for collapsed tail segment).
 - [`frontend/src/lib/charts/composition-bar/helpers.ts`](../../../../frontend/src/lib/charts/composition-bar/helpers.ts) — pure helpers: `totalSegmentValue`, `shareOfTotalPct`, `projectSegments` (tiny-segment lift), `formatSegmentReadout`, `segmentsSumMatchesTotal`.
 - Fixture: Gujarat 2022 (BJP 156/182 = 85.7%, party-dominant; exercises tail handling).
 - A/B experiment: mounted on state-hub behind a GrowthBook flag (Phase 3.6 (c)).
