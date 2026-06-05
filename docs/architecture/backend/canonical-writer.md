@@ -76,6 +76,22 @@ Each emitter is paired with `backend/tests/test_seed_<name>_csv.py` covering: de
 
 Each emitter targets a CSV under `datasets/data/`; the legacy parquet sibling under `datasets/taxonomy/` survives until grandparent chunk X1b deletes it. During the B2a -> X1a -> X1b window both formats coexist; new readers MUST consume the CSV, never the parquet.
 
+## Taxonomy datapoint reingest (B2b.4, PRs #698-#708 + DROP #774)
+
+Sub-plan [docs/archive/plans/20260604-b2b4-taxonomy-subplan.md](../../archive/plans/20260604-b2b4-taxonomy-subplan.md) delivered six emitters lifting the datapoint-shape parquets B2a left behind (election_events, facet_axes, state_tiers, indicator_topic_tags, methodology_breaks, ac_crosswalk) into long-format CSV siblings under `datasets/data/`. The seventh planned row (`entities/person.csv` from `persons.parquet`) was DROPPED per converged Fowler+Hans persona-debate verdict (PR #774): the audit-only parquet has zero frontend consumers, biographic `dim_persons` cols migrate inline via B2b.5.x candidacies, and the cross-format-parity gate is N/A for an unconsumed parquet. Per-row emit map:
+
+| Source parquet | Emitter | Writes | PR | Notes |
+| --- | --- | --- | --- | --- |
+| `taxonomy/methodology_breaks.parquet` | `reingest/methodology_breaks.py` | `datasets/data/methodology_breaks.csv` | #698 | 5 rows; F6 reference; verbatim project (PK `methodology_version + at_year + at_period_seq`) |
+| `taxonomy/facet-axes.parquet` | `reingest/facet_axes.py` | `datasets/data/facet_axes.csv` | #700 | 127 rows; reference; filename loses hyphen per plan 21.6 |
+| `taxonomy/state_tiers.parquet` | `reingest/state_tiers.py` | `datasets/data/state_tiers.csv` | #702 | 104 rows; ECI `state_code` -> LGD state_entity_id re-key; FK -> `entities/geo.csv` |
+| `taxonomy/election_events.parquet` | `reingest/election_events.py` | `datasets/data/election_events.csv` | #704 | 339 rows; ECI `state_code` -> LGD re-key as state_tiers |
+| `taxonomy/indicator_topic_tags.parquet` | `reingest/indicator_topic_tags.py` | `datasets/data/indicator_topic_tags.csv` | #706 | 45 rows; M:N; FK `topic_id` -> `topics.csv`; FK `artifact_id` -> `variables.csv` when `artifact_kind='indicator'` |
+| `taxonomy/ac_crosswalk.parquet` | `reingest/ac_crosswalk.py` | `datasets/data/entities/ac_crosswalk.csv` | #708 | 4113 rows; ECI no -> LGD AC id mapping; FK `state_entity_id` + `source_id` |
+| `taxonomy/persons.parquet` | DROPPED via PR #774 | n/a | #774 | Audit-only registry (7 cols: `person_id, display_name, source_id, confidence_tier, evidence_note_md, cluster_id, merged_candidacy_count`); zero frontend consumers verified via grep; biographic `dim_persons` cols (`sex, age, education, profession`) live on a SEPARATE parquet under `datasets/elections/dim_persons.parquet` and migrate INLINE to per-election `candidacies.csv` via B2b.5.x #768-#772; cross-format-parity N/A for unconsumed parquet; X1b deletion-safety statement = this audit trail + sub-plan section 0 + grep receipt |
+
+Binding doctrine (shared by all six emitted CSVs): each emitter projects the parquet verbatim where possible; the only re-keys are `state_code` (ECI S/U code) -> LGD `state_entity_id` (for state_tiers, election_events, ac_crosswalk via `lgd_states.json`); `source_id` rows already exist in `entities/source.csv` for rows that carry it (lifted by B2a); no `datetime.now` in content columns. Each parity gate `backend/tests/test_csv_parquet_parity.py::test_<name>` reads BOTH real on-disk parquet + new CSV, asserts identical row count + typed per-cell equality, skips cleanly if either absent (Holy Law #7). The DROP of persons.parquet is recorded in section 0 of the archived sub-plan with the converged Fowler+Hans verdict and a Scope-change ledger row carrying user-kickoff signoff.
+
 ## Elections datapoint reingest (B2b.5, PRs #762-772)
 
 Sub-plan [TODO/20260604-b2b5-elections-reingest-subplan.md](../../../TODO/20260604-b2b5-elections-reingest-subplan.md) delivered the elections clean-start: an LGD-spine reset (PR-stages 0a-0e) plus the two Tier-R result axes (assembly + parliament). The spine is sourced from a committed LGD parsed snapshot under `datasets/reference/lgd/`; the results are re-parsed from the local TCPD compilations in `datasets/ephemeral/` (never the surviving parquet). Per-row emit map:

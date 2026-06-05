@@ -313,7 +313,7 @@ The parent B2b sub-plan's Execution Ledger row B2b.5 is `DEFERRED-TO-SUBPLAN -> 
 
 - Parent sub-plan: [TODO/20260604-b2b-reingest-subplan.md](../../../TODO/20260604-b2b-reingest-subplan.md) row B2b.5.
 - Grandparent plan: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) (sections 21.3, 21.4, 21.6, 22.4, 22.5, 22.6, 23.1, 23.3, 23.4, 23.7, 24.5).
-- B2b.4 sub-sub-plan precedent (taxonomy datapoint reingest): [TODO/20260604-b2b4-taxonomy-subplan.md](../../../TODO/20260604-b2b4-taxonomy-subplan.md).
+- B2b.4 sub-sub-plan precedent (taxonomy datapoint reingest): [docs/archive/plans/20260604-b2b4-taxonomy-subplan.md](20260604-b2b4-taxonomy-subplan.md).
 - B2a sub-plan precedent: [docs/archive/plans/20260604-b2a-csv-catalogue-subplan.md](../../archive/plans/20260604-b2a-csv-catalogue-subplan.md).
 - B1 sub-plan precedent: [docs/archive/plans/20260604-b1-csv-writer-subplan.md](../../archive/plans/20260604-b1-csv-writer-subplan.md).
 - Canonical writer doc: [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md).
