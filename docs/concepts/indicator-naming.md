@@ -8,9 +8,9 @@ Two ingests are about to fire in parallel — ICED NO2/SO2/PM10 ([TODO/20260515-
 
 This doc is the convention. It is binding for new ids; existing ids that violate it are listed in §8 and are being ripped per [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md). The current schema accepts both legacy folded JSON artifact ids and canonical indicator ids during the migration window; this doc locks what humans should put inside each surface.
 
-**2026-05-26 update** — [ADR-0044](../architecture/decisions/0044-grain-over-entity.md) retires the `<entity_prefix>` axis (`state_` / `district_` / `national_`). The grain rides on the observation row's `entity_id`; the catalogue declares `entity_kinds`. §2.2 was rewritten and §2.4 was deleted in the same commit as the ADR landed. §8 anti-pattern #2 was promoted from "style drift" to "MUST NOT mint." See ADR-0044 for the identity test that replaces §2.4's default-geography test.
+**2026-05-26 update** — [ADR-0044](indicator-naming.md#adr-0044-grain-over-entity) retires the `<entity_prefix>` axis (`state_` / `district_` / `national_`). The grain rides on the observation row's `entity_id`; the catalogue declares `entity_kinds`. §2.2 was rewritten and §2.4 was deleted in the same commit as the ADR landed. §8 anti-pattern #2 was promoted from "style drift" to "MUST NOT mint." See ADR-0044 for the identity test that replaces §2.4's default-geography test.
 
-Per [ADR-0022](../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md): topic membership lives on `datasets/taxonomy/topics.json`, NOT on the indicator artifact. This doc does not re-open that decision. It only RECOMMENDS that the `<scope>` segment of the id match a catalogue topic-id, as a navigation aid for grep — a soft convention, not a schema-enforced field.
+Per [ADR-0022](place-first-ia.md#adr-0022-place-first-ia-with-topic-catalogue): topic membership lives on `datasets/taxonomy/topics.json`, NOT on the indicator artifact. This doc does not re-open that decision. It only RECOMMENDS that the `<scope>` segment of the id match a catalogue topic-id, as a navigation aid for grep — a soft convention, not a schema-enforced field.
 
 **Schema v1.5 (2026-05-15) is the binding floor for new artifacts.** New ingests MUST author against v1.5 (Hans's 4-level `comparability` ladder, the `denominator` object form, `revision_tier_by_period`, `excludes`, `renderer_rules`). The 4 dissents this doc surfaced in its v1 draft are pinned in §9.
 
@@ -40,7 +40,7 @@ Do not mix the grammars. `energy/peak-electricity-demand-mw` is neither a legacy
 <scope>/<noun>_<aggregate?>_<unit?>_<facet?>
 ```
 
-**Per [ADR-0044](../architecture/decisions/0044-grain-over-entity.md) the `<entity_prefix>` segment is DELETED, not made optional.** The grain (country / state / district / subdistrict / village) lives on the observation row's `entity_id` and is declared on the catalogue row's `entity_kinds: array<enum>` + `default_entity_kind: enum` fields. The renderer dispatches the chart shape from the row, not from the id slug.
+**Per [ADR-0044](indicator-naming.md#adr-0044-grain-over-entity) the `<entity_prefix>` segment is DELETED, not made optional.** The grain (country / state / district / subdistrict / village) lives on the observation row's `entity_id` and is declared on the catalogue row's `entity_kinds: array<enum>` + `default_entity_kind: enum` fields. The renderer dispatches the chart shape from the row, not from the id slug.
 
 - **`<scope>`** — exactly one segment. By convention, MUST be a topic-id from `datasets/taxonomy/topics.json` (`fiscal`, `energy`, `environment`, `health`, `economy`, `prices`, `demography`, `transport`, `elections`, `human_development`, …). The catalogue is the source of truth for the legal set; this doc deliberately does not enumerate them. Adding a new scope means adding a topic to the catalogue first.
 - **NO `<entity_prefix>`.** Ids that start with `state-` / `district-` / `national-` are rejected by Tier-B `tier_b_indicator_id_no_grain_prefix` (added dark in PR-B1, enforced in PR-B9 of the grain-rip plan). Fact-grain prefixes (`ac-`, `candidate-`, `party-`) are NOT entity-grain prefixes and stay — they encode the observation-row grain, not the entity grain.
@@ -81,7 +81,7 @@ Unit suffix is **mandatory** when the same noun could plausibly be expressed in 
 
 ### 2.4 Entity grain — RETIRED by ADR-0044
 
-This section formerly mandated a leading `state_` / `district_` / `national_` segment. **It is deleted.** Per [ADR-0044](../architecture/decisions/0044-grain-over-entity.md), entity grain rides on the observation row's `entity_id`; the catalogue row carries `entity_kinds: array<enum["country","state","district","ac"]>` + `default_entity_kind: enum`. One id per `(concept, unit, normalisation)`; rows discriminate grain.
+This section formerly mandated a leading `state_` / `district_` / `national_` segment. **It is deleted.** Per [ADR-0044](indicator-naming.md#adr-0044-grain-over-entity), entity grain rides on the observation row's `entity_id`; the catalogue row carries `entity_kinds: array<enum["country","state","district","ac"]>` + `default_entity_kind: enum`. One id per `(concept, unit, normalisation)`; rows discriminate grain.
 
 Canonical indicator ids follow the `<measure>-<unit>-<facet>` kebab rule from ADR-0044. Topic membership and entity grain are not encoded in the id; topic membership lives in `datasets/taxonomy/indicator_topic_tags.parquet`, and grain rides on observation rows.
 
@@ -107,7 +107,7 @@ Max (Indicator Scout, channelling Roser/Ritchie) reads every id as a candidate f
 
 1. **Refuse leaderboard-trap nouns.** An id like `state_environment_quality_index` collapses many incommensurate things into one number for a leaderboard — Max refuses it. `state_pm25_annual_mean_ug_m3` is honest because the noun is one measurable thing with one unit; the comparability flag tells the renderer not to rank.
 2. **Same id across decades; document the break, don't rename.** Rosling's instinct: if the noun is the same noun (PM2.5 mean), the id is the same id, even if the monitor count tripled in 2018. Rename ONLY when the noun itself changed (`crude_birth_rate` → `age_adjusted_birth_rate` is a new id; `birth_rate` measured by SRS in 2010 vs SRS in 2024 is the same id with a `series_break` if the frame changed).
-3. **Source authority does NOT belong in the id.** `rbi_outstanding_debt_pct_gsdp` is wrong (the upstream changes; the fact does not). `fiscal/state_outstanding_debt_pct_gsdp` is right. Provenance lives in the `sources` array (§9 of CLAUDE.md / [archived ADR-0002](../archive/decisions/0002-provenance-as-sources-list.md), superseded by [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md) + [ADR-0032](../architecture/decisions/0032-sources-citation-ledger.md)). The id is the citizen's noun, not the bureaucracy's catalogue number.
+3. **Source authority does NOT belong in the id.** `rbi_outstanding_debt_pct_gsdp` is wrong (the upstream changes; the fact does not). `fiscal/state_outstanding_debt_pct_gsdp` is right. Provenance lives in the `sources` array (§9 of CLAUDE.md / [archived ADR-0002](../archive/decisions/0002-provenance-as-sources-list.md), superseded by [ADR-0030](../architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm) + [ADR-0032](data-provenance.md#adr-0032-sources-citation-ledger)). The id is the citizen's noun, not the bureaucracy's catalogue number.
 4. **Long-arc series get one id.** When an indicator is meant to live across a 30-year window (debt-to-GSDP, birth rate), the id should be writable in 1995 and still be the same in 2025. Methodology vintage is what changes; the id is the through-line.
 
 ## 5. `indicator.title` and `indicator.description` — citizen-readable copy rules
@@ -181,7 +181,7 @@ If no alias mechanism exists in the catalogue today, that's a TODO — flag it o
 These ids exist on disk and ship today. Listing them honestly so future agents know the convention is aspirational, not retroactive:
 
 1. **`energy/installed_mw_by_state`** ([datasets/indicators/in/energy/installed_mw_by_state.json](../../datasets/indicators/in/energy/installed_mw_by_state.json)) — entity-prefix at the END (`_by_state`), unit (`mw`) buried in the middle, no aggregate verb. Per §2.2 should be `energy/state_installed_capacity_mw`.
-2. **`state-` / `district-` / `national-` / `india_` ENTITY-GRAIN PREFIXES — MUST NOT MINT NEW.** Per [ADR-0044](../architecture/decisions/0044-grain-over-entity.md), entity grain rides on the observation row, not the id slug. Existing ids that lead with these prefixes are being ripped per [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md) Phase B (PR-B2 through PR-B8). New ids that re-introduce grain prefixes are rejected by Tier-B `tier_b_indicator_id_no_grain_prefix`. The old `india_*` vs `national_*` collision is moot post-rip — both shapes disappear.
+2. **`state-` / `district-` / `national-` / `india_` ENTITY-GRAIN PREFIXES — MUST NOT MINT NEW.** Per [ADR-0044](indicator-naming.md#adr-0044-grain-over-entity), entity grain rides on the observation row, not the id slug. Existing ids that lead with these prefixes are being ripped per [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md) Phase B (PR-B2 through PR-B8). New ids that re-introduce grain prefixes are rejected by Tier-B `tier_b_indicator_id_no_grain_prefix`. The old `india_*` vs `national_*` collision is moot post-rip — both shapes disappear.
 3. **`economy/india_iip_index_2011_12`** — encodes methodology base year (`2011_12`) in the id. Per §3 rule 3, vintage belongs in `methodology_vintage`, not the id. Same problem in `economy/national_gva_by_industry_constant_2011_12_inr_crore` (and these also bust the §2.5 length budget at 60+ chars).
 4. **`fiscal/states_combined_gross_fiscal_deficit`** (and siblings: `..._revenue_deficit`, `..._primary_deficit`, `..._primary_revenue_deficit`, plus `fiscal/union_*` peers) — no unit suffix. Values are `₹ crore`; per §2.3 the id should say so (`..._inr_crore`).
 5. **`fiscal/net_transfers_from_centre` AND `fiscal/centre_transfers_to_states_net`** — two ids for what looks like the same concept, named in opposite directions, neither carrying a unit suffix. One should be the alias of the other (or one should be retired) per §7. Today they're both live in the catalogue.
@@ -258,7 +258,7 @@ The schema validates the slug shape (`^[a-z][a-z0-9_]*$`) but does NOT enumerate
 
 ## Design rationale
 
-This section consolidates the rationale (Context + Decision + key Consequences, condensed) of the ADRs that define the indicator-naming convention. Each ADR's full text is preserved in `docs/architecture/decisions/` (LIVE) or `docs/archive/decisions/` (superseded) pending D-DOC3.10 closure; the redirect map lives at [`docs/reference/decision-index.md`](../reference/decision-index.md). Folded into this doc per [TODO/20260604-d-doc3-adr-retire-subplan.md](../../TODO/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.4 (2026-06-04).
+This section consolidates the rationale (Context + Decision + key Consequences, condensed) of the ADRs that define the indicator-naming convention. Each ADR's full body lives EITHER as the receipts folded below + verbatim under [Rejected alternatives](#rejected-alternatives), OR in `docs/archive/decisions/` (superseded). The originating `docs/architecture/decisions/` files were deleted in D-DOC3.10 closure; the redirect map lives at [`docs/reference/decision-index.md`](../reference/decision-index.md). Folded into this doc per [docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md](../archive/plans/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.4 (2026-06-04).
 
 ### ADR-0025: rename-national-to-fiscal-actor-prefixes
 
@@ -272,7 +272,7 @@ Status: accepted 2026-05-14. Authority: User decision + Fowler (Engineering) + H
 
 ### ADR-0027: cadence-as-separate-field-from-time-grain
 
-Status: accepted 2026-05-17 (superseded by [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md) on the placement seam - cadence now lives on the indicator catalogue row alongside `default_period_seq_for_cadence`; `period_seq:int` is the machine sort key and `period_label` is the citizen-visible string verbatim). Authority: User + Fowler (Engineering) + Gregor (Architect) + Max (Indicator Scout). Schema impact: `datasets/schemas/indicator.schema.json` v4.0 -> v4.1 (additive; new optional `indicator.cadence` field).
+Status: accepted 2026-05-17 (superseded by [ADR-0030](../architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm) on the placement seam - cadence now lives on the indicator catalogue row alongside `default_period_seq_for_cadence`; `period_seq:int` is the machine sort key and `period_label` is the citizen-visible string verbatim). Authority: User + Fowler (Engineering) + Gregor (Architect) + Max (Indicator Scout). Schema impact: `datasets/schemas/indicator.schema.json` v4.0 -> v4.1 (additive; new optional `indicator.cadence` field).
 
 **Context.** Phase #1 of the coverage-temporal-range plan added a pure `derive_temporal_range(indicator)` function that returns the observed min/max time, observed period count, and a `gap_count_within_range` (expected periods at the declared cadence minus observed periods). A spike across all 110 production artifacts surfaced eight artifacts with non-zero `gap_count_within_range`. Five of the eight (Census-population x 2, UNFCCC GHG x 2, CEA capacity-pipeline) had a `gap_count_within_range` value that was actually NOISE from the function's perspective: their `time_grain=year` (or `fiscal_year`) declared an annual cadence the publisher never promised. Census is decennial; UNFCCC NATCOM/BUR is ad-hoc; CEA capacity-pipeline mixes historic + forward projections (fundamentally ad-hoc). The function was honest; the artifact was lying about cadence.
 
@@ -308,7 +308,7 @@ Permanent guardrails (shipped alongside this ADR; each enforced by a Tier-B chec
 
 ## Rejected alternatives
 
-This section preserves the rejected-alternatives receipts from the ADRs whose rationale is folded above, verbatim and append-only per [TODO/20260604-d-doc3-adr-retire-subplan.md](../../TODO/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.4 (2026-06-04). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
+This section preserves the rejected-alternatives receipts from the ADRs whose rationale is folded above, verbatim and append-only per [docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md](../archive/plans/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.4 (2026-06-04). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
 
 ### ADR-0025 rejected alternatives
 
@@ -331,7 +331,7 @@ This section preserves the rejected-alternatives receipts from the ADRs whose ra
 ## See also
 
 - [`../../CLAUDE.md`](../../CLAUDE.md) — Holy Laws #4, #6; §11 schema versioning.
-- [`../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md`](../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md) — topic membership lives on the catalogue, not the artifact.
-- [`../archive/decisions/0002-provenance-as-sources-list.md`](../archive/decisions/0002-provenance-as-sources-list.md) — why source authority does not belong in the id (superseded by [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md) + [ADR-0032](../architecture/decisions/0032-sources-citation-ledger.md)).
+- [`place-first-ia.md#adr-0022-place-first-ia-with-topic-catalogue`](place-first-ia.md#adr-0022-place-first-ia-with-topic-catalogue) — topic membership lives on the catalogue, not the artifact.
+- [`../archive/decisions/0002-provenance-as-sources-list.md`](../archive/decisions/0002-provenance-as-sources-list.md) — why source authority does not belong in the id (superseded by [ADR-0030](../architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm) + [ADR-0032](data-provenance.md#adr-0032-sources-citation-ledger)).
 - [`../../datasets/schemas/indicator.schema.json`](../../datasets/schemas/indicator.schema.json) — the regex and field shapes this doc decorates.
 - [`../../datasets/taxonomy/topics.json`](../../datasets/taxonomy/topics.json) — the source of truth for the legal `<scope>` set.

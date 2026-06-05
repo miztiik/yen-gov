@@ -49,7 +49,7 @@ The CSV is **long-format**, one row per candidate, because:
 - `df.pivot` is one line in pandas; collapsing long → wide is cheap, the inverse is lossy.
 - It matches Lokniti's convention. Wide-with-top-N-as-columns is friendlier for spreadsheets but pre-decides what "top-N" means at emit time.
 
-The SQLite tier was retired in PR-R.3 (TODO row `1.8e`, 2026-05-19). Researchers who want SQL get it through DuckDB-WASM in the browser (or any DuckDB client locally) against the canonical Parquet store — strictly better than the per-state SQLite shards because it spans every event and state in one connection. See [`docs/architecture/data/canonical-store.md`](../architecture/data/canonical-store.md) and [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md).
+The SQLite tier was retired in PR-R.3 (TODO row `1.8e`, 2026-05-19). Researchers who want SQL get it through DuckDB-WASM in the browser (or any DuckDB client locally) against the canonical Parquet store — strictly better than the per-state SQLite shards because it spans every event and state in one connection. See [`docs/architecture/data/canonical-store.md`](../architecture/data/canonical-store.md) and [ADR-0030](../architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm).
 
 ## Shapes we deliberately reject
 
@@ -77,6 +77,6 @@ GitHub Pages serves whatever the repo commits; git handles 25k small files comfo
 
 - [data-provenance.md](data-provenance.md) — `sources[]` policy, applies to every shape.
 - [`docs/architecture/backend/emit-csv.md`](../architecture/backend/emit-csv.md) — CSV emitter design.
-- [`docs/architecture/data/canonical-store.md`](../architecture/data/canonical-store.md) + [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md) — the Parquet + DuckDB-WASM path that replaced the per-state SQLite shards.
-- [ADR-0019](../architecture/decisions/0019-dataset-topology-and-column-discipline.md) — column naming.
+- [`docs/architecture/data/canonical-store.md`](../architecture/data/canonical-store.md) + [ADR-0030](../architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm) — the Parquet + DuckDB-WASM path that replaced the per-state SQLite shards.
+- [ADR-0019](../architecture/data/canonical-store.md#adr-0019-dataset-topology-and-column-discipline) — column naming.
 - CLAUDE.md §11–§12 — schema versioning and provenance.

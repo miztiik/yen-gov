@@ -108,7 +108,7 @@ Pure helpers belong in vitest (`*.test.ts` colocated with the source). End-to-en
 
 ## 4. Cross-cutting query — extending `/explore`
 
-The Explore route runs ad-hoc SQL against the canonical Parquet store via the shared DuckDB-WASM singleton (see [`docs/architecture/frontend/data-loading.md`](../architecture/frontend/data-loading.md), [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md)). To add a new prebuilt query:
+The Explore route runs ad-hoc SQL against the canonical Parquet store via the shared DuckDB-WASM singleton (see [`docs/architecture/frontend/data-loading.md`](../architecture/frontend/data-loading.md), [ADR-0030](../architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm)). To add a new prebuilt query:
 
 1. Add the SQL + a one-line label under `frontend/src/lib/explore/`.
 2. The Explore route picks it up automatically.

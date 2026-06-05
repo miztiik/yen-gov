@@ -20,14 +20,14 @@ This pattern is itself OWID-style — they have a small set of public principles
 
 | Domain | OWID-canonical | yen-gov default |
 |---|---|---|
-| **Indicator URL slug** | Flat single segment (`/grapher/co2-emissions-per-capita`), not topic-hierarchy path | Flat single segment (`installed-capacity`) per [ADR-0028](../architecture/decisions/0028-url-scheme-place-first-flat-indicator-slug.md). |
-| **Indicator id (producer-side)** | `<topic>/<leaf>` or flat — internal namespace, not citizen surface; one id per measure, grain dispatched at render time | **ALIGNS** with OWID after [ADR-0044](../architecture/decisions/0044-grain-over-entity.md) (2026-05-26): `<family>/<measure>-<unit>-<facet>` (`energy/installed-capacity-coal-mw`), one id spans `country` / `state` / `district` rows via `entity_kinds[]` on the catalogue row. Prior divergence (`state-`, `district-`, `national-` grain prefixes encoded into the id, ~77 sibling pairs across the corpus) RETIRED. |
+| **Indicator URL slug** | Flat single segment (`/grapher/co2-emissions-per-capita`), not topic-hierarchy path | Flat single segment (`installed-capacity`) per [ADR-0028](../architecture/frontend/url-grammar.md#adr-0028-url-scheme-place-first-flat-indicator-slug). |
+| **Indicator id (producer-side)** | `<topic>/<leaf>` or flat — internal namespace, not citizen surface; one id per measure, grain dispatched at render time | **ALIGNS** with OWID after [ADR-0044](indicator-naming.md#adr-0044-grain-over-entity) (2026-05-26): `<family>/<measure>-<unit>-<facet>` (`energy/installed-capacity-coal-mw`), one id spans `country` / `state` / `district` rows via `entity_kinds[]` on the catalogue row. Prior divergence (`state-`, `district-`, `national-` grain prefixes encoded into the id, ~77 sibling pairs across the corpus) RETIRED. |
 | **URL routing mode** | Path-routed with SPA fallback (`/404.html → /index.html` on GitHub Pages or equivalent) | Path-routed per ADR-0028 (supersedes hash-routing ADR-0016). |
 | **Topic-in-URL** | No. Topics live in IA (topic hubs, faceted search), not URL spine. URL stability beats taxonomy expressiveness. | No. ADR-0028. |
 | **Vintage in URL** | No. Vintage is a UI control with sane default; `?` param only for citation. | No. ADR-0028. |
 | **Indicator catalogue** | Single registry, every indicator carries provenance, methodology, comparability flags | `datasets/reference/in/indicators-completeness.json` + per-indicator artifact carrying `methodology`, `series_breaks`, `comparability` (folded model per ADR-0026). |
 | **Provenance** | Every chart cites its source; no anonymous data | Every artifact carries `sources[]` per CLAUDE.md §12. |
-| **Schema versioning** | Additive when possible, breaking with migration | `x-version` major.minor with `x-changelog` per CLAUDE.md section 11; writer-strict / reader-compatible rollout per [ADR-0047](../architecture/decisions/0047-schema-version-compatibility-contract.md). |
+| **Schema versioning** | Additive when possible, breaking with migration | `x-version` major.minor with `x-changelog` per CLAUDE.md section 11; writer-strict / reader-compatible rollout per [ADR-0047](../architecture/data/schema-evolution.md#adr-0047-schema-version-compatibility-contract). |
 | **Granularity of an indicator** | One concept per chart; mixed units never share a Y-axis | One concept per artifact; composite-with-mixed-units uses `rows[].facet` + `rows[].unit` override per ADR-0026 / Phase 4 of the ICED plan. |
 | **Methodology breaks** | Surfaced as chart annotations + banner | `series_breaks[]` on the artifact; rendered as banner chrome. |
 
@@ -36,7 +36,7 @@ This pattern is itself OWID-style — they have a small set of public principles
 These are the places yen-gov **does not** match OWID, each with a written rationale:
 
 1. **Geography in the URL path, not in `?country=`** (ADR-0028).
-   OWID's primary audience is global researchers comparing many countries on one chart; their canonical URL is the chart, with countries as a query-string projection. yen-gov's primary audience is Indian citizens looking at "my place" first; the canonical URL is the place, with the indicator as a path leaf. Place-first IA is documented in [ADR-0022](../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md) and the [citizen-first doctrine](citizen-first.md).
+   OWID's primary audience is global researchers comparing many countries on one chart; their canonical URL is the chart, with countries as a query-string projection. yen-gov's primary audience is Indian citizens looking at "my place" first; the canonical URL is the place, with the indicator as a path leaf. Place-first IA is documented in [ADR-0022](place-first-ia.md#adr-0022-place-first-ia-with-topic-catalogue) and the [citizen-first doctrine](citizen-first.md).
 
 2. **Static repo of typed JSON artifacts, not a Postgres-backed grapher engine** (CLAUDE.md Holy Law #1, ADR-0026).
    OWID runs a backend that serves chart data on demand. yen-gov has no production backend; everything ships in the bundle. Trade-off: yen-gov is smaller in scale and can afford full pre-emit; OWID at 10k indicators cannot.
@@ -70,9 +70,9 @@ When an agent debate (Gregor / Fowler / Jony / Hans / Max) is split:
 
 ## See also
 
-- [ADR-0028 — URL scheme](../architecture/decisions/0028-url-scheme-place-first-flat-indicator-slug.md) — first concrete application of this doctrine.
-- [ADR-0022 — place-first IA](../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md) — names the divergence on geography-in-URL.
-- [ADR-0047 - schema-version compatibility](../architecture/decisions/0047-schema-version-compatibility-contract.md) - schema-evolution policy aligned with OWID-style additive metadata and explicit migrations.
+- [ADR-0028 — URL scheme](../architecture/frontend/url-grammar.md#adr-0028-url-scheme-place-first-flat-indicator-slug) — first concrete application of this doctrine.
+- [ADR-0022 — place-first IA](place-first-ia.md#adr-0022-place-first-ia-with-topic-catalogue) — names the divergence on geography-in-URL.
+- [ADR-0047 - schema-version compatibility](../architecture/data/schema-evolution.md#adr-0047-schema-version-compatibility-contract) - schema-evolution policy aligned with OWID-style additive metadata and explicit migrations.
 - [schema evolution](../architecture/data/schema-evolution.md) - living policy for reader compatibility and no mechanical restamps.
 - [citizen-first doctrine](citizen-first.md) — the audience choice that drives the place-first divergence.
 - [folded-indicator concept](folded-indicator.md) — names the divergence on Indian publisher vocabulary.

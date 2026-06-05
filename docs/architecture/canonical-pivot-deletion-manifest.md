@@ -283,7 +283,7 @@ The following concepts are RETIRED as doctrine. Any future commit reintroducing 
 | `admin/AGENTS.md` — canonical pivot invariant | UPDATED — done |
 | `frontend/src/AGENTS.md` — runtime DuckDB-WASM read path | UPDATED — done |
 
-Phase 0.12 doc cleanups remaining (from THE PLAN §4 Outstanding doc cleanups): `docs/architecture/decisions/0003-no-fetch-cache.md` re-check; `docs/concepts/data-flow.md` update for adapter→writer batch envelope (D20); `docs/architecture/frontend/data-loading.md` rewrite for DuckDB-WASM + view-model + failure-state + manifest; `docs/architecture/frontend/deployment.md` Range/MIME verify; `docs/architecture/backend/schemas.md`, `core.md`, `pipeline.md` updates; `docs/architecture/admin/overview.md` Phase 5 + interim stance note; `docs/how-to/force-recollect.md` rewrite under UPSERT semantics; README one-paragraph update.
+Phase 0.12 doc cleanups remaining (from THE PLAN §4 Outstanding doc cleanups): `docs/architecture/backend/core.md#adr-0003-no-fetch-cache` re-check (originally `docs/backend/core.md#adr-0003-no-fetch-cache` before D-DOC3.10 deleted the ADR tier); `docs/concepts/data-flow.md` update for adapter→writer batch envelope (D20); `docs/architecture/frontend/data-loading.md` rewrite for DuckDB-WASM + view-model + failure-state + manifest; `docs/architecture/frontend/deployment.md` Range/MIME verify; `docs/architecture/backend/schemas.md`, `core.md`, `pipeline.md` updates; `docs/architecture/admin/overview.md` Phase 5 + interim stance note; `docs/how-to/force-recollect.md` rewrite under UPSERT semantics; README one-paragraph update.
 
 ---
 

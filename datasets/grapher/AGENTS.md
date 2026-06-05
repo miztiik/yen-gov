@@ -6,7 +6,7 @@
 
 This directory holds the **grapher catalogue**: per-indicator and per-(topic, indicator) render hints that were previously inlined into canonical data schemas (`indicator-catalogue.schema.json`, `topic-catalogue.schema.json`, legacy `indicator.schema.json`).
 
-Per [ADR-0045](../../docs/architecture/decisions/0045-grapher-catalogue-split.md) and [docs/concepts/schema-is-the-design-system.md](../../docs/concepts/schema-is-the-design-system.md), visualization choice is a frontend concern and MUST NOT live on the canonical data shape. The grapher catalogue is the dedicated home for `chart_type`, `default_mode`, `renderer_rules[]`, `facet_labels{}`, and per-topic `dimension`.
+Per [ADR-0045](../../docs/architecture/data/indicator-catalogue.md#adr-0045-grapher-catalogue-split) and [docs/concepts/schema-is-the-design-system.md](../../docs/concepts/schema-is-the-design-system.md), visualization choice is a frontend concern and MUST NOT live on the canonical data shape. The grapher catalogue is the dedicated home for `chart_type`, `default_mode`, `renderer_rules[]`, `facet_labels{}`, and per-topic `dimension`.
 
 ## Files
 
@@ -22,6 +22,6 @@ Per [ADR-0045](../../docs/architecture/decisions/0045-grapher-catalogue-split.md
 
 ## Cross-references
 
-- [ADR-0044](../../docs/architecture/decisions/0044-grain-over-entity.md) — grain-over-entity (sister rip)
-- [ADR-0045](../../docs/architecture/decisions/0045-grapher-catalogue-split.md) — why this directory exists
+- [ADR-0044](../../docs/concepts/indicator-naming.md#adr-0044-grain-over-entity) — grain-over-entity (sister rip)
+- [ADR-0045](../../docs/architecture/data/indicator-catalogue.md#adr-0045-grapher-catalogue-split) — why this directory exists
 - [CLAUDE.md §10](../../CLAUDE.md) — anti-patterns forbidding render fields on canonical schemas

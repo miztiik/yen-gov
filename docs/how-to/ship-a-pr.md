@@ -213,4 +213,4 @@ For the next session:
 - [distill-a-plan.md](distill-a-plan.md) — what to do with the lessons a PR produced
 - [release.md](release.md) — what happens after merge from the CI / Pages perspective
 - [run-the-pipeline.md](run-the-pipeline.md) — what runs locally before any PR that touches `datasets/`
-- [ADR-0034](../architecture/decisions/0034-documentation-routing-contract.md) — which doc class owns which kind of statement
+- [ADR-0034](../concepts/documentation-discipline.md#adr-0034-documentation-routing-contract) — which doc class owns which kind of statement

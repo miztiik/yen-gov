@@ -6,7 +6,7 @@
 
 This is the operational face of [`the schema is the design system`](../concepts/schema-is-the-design-system.md): a citizen picks an indicator, the picker in `ChartShell`'s toolbar offers exactly the renderers `indicator.chart_types[]` declares INTERSECT `feasibleAt(dataShape, grain, timeCardinality, geometryAvailable)`. This document is the human-readable CONTRACT; [`feasibleAt()`](../../frontend/src/lib/grapher/feasibleAt.ts) (landed in plan chunk U4) is the machine implementation. A drift gate at [frontend/src/lib/grapher/chart-index.drift.test.ts](../../frontend/src/lib/grapher/chart-index.drift.test.ts) asserts the three artifacts (the `ChartType` union, the rows in this doc, the matrix `feasibleAt()` implements) stay 1:1.
 
-The base set per plan section 15.1 is **eight renderers** plus one optional `Radar`. Election-only renderers (`PartyBar`, `SeatDonut`, `ParliamentArc`, `TileCartogram` in election mode, etc.) stay fenced to election mounts per [ADR-0048](../architecture/decisions/0048-elections-drill-ia-and-tile-cartogram.md) and are NOT in this base set.
+The base set per plan section 15.1 is **eight renderers** plus one optional `Radar`. Election-only renderers (`PartyBar`, `SeatDonut`, `ParliamentArc`, `TileCartogram` in election mode, etc.) stay fenced to election mounts per [ADR-0048](../architecture/frontend/charts/election-views.md#adr-0048-elections-drill-ia-and-tile-cartogram) and are NOT in this base set.
 
 ## 1. The base set - one row per renderer (mode)
 
@@ -99,7 +99,7 @@ A PR that adds a renderer to either side without the other will fail the gate. T
 1. Confirm the >= 2-indicator rule (plan section 15.4): name the two indicators that need the new renderer, and confirm that neither of the two reference galleries (revisual.co + Data-Analytics) maps the underlying archetype onto an existing base-set member. A single indicator's wish for a novel form is not enough.
 2. Add a row to section 1 (renderer name + Machine id + Lucide thumb id + long-format CSV shape + use-when + feasibility rule).
 3. Add the encoding to every applicable section-2 matrix row (and ensure `CategoryBar{ranked}` stays present as the guaranteed fallback).
-4. Widen the `ChartType` union at [frontend/src/lib/grapher/catalogue.ts](../../frontend/src/lib/grapher/catalogue.ts), accepting any retired literal as a deprecated alias (reader-before-writer per [ADR-0047](../architecture/decisions/0047-schema-version-compatibility-contract.md)).
+4. Widen the `ChartType` union at [frontend/src/lib/grapher/catalogue.ts](../../frontend/src/lib/grapher/catalogue.ts), accepting any retired literal as a deprecated alias (reader-before-writer per [ADR-0047](../architecture/data/schema-evolution.md#adr-0047-schema-version-compatibility-contract)).
 5. Extend [`feasibleAt()`](../../frontend/src/lib/grapher/feasibleAt.ts) with the new branch.
 6. Ship the Svelte component AND the icon SVG at [frontend/public/icons/](../../frontend/public/icons/) (the icon's filename stem MUST match the Thumb id in section 1).
 7. The drift gate MUST stay green: 1:1 across the three artifacts.
@@ -111,8 +111,8 @@ Removal is the inverse and goes through the same gate.
 - [docs/concepts/schema-is-the-design-system.md](../concepts/schema-is-the-design-system.md) - the doctrine ("no page renders a single indicator with code another indicator could not reuse")
 - [docs/concepts/citizen-first.md](../concepts/citizen-first.md) - the reductionism that drives the closed renderer set
 - [docs/concepts/owid-alignment.md](../concepts/owid-alignment.md) - one indicator = one long-format series, the shape the matrix consumes
-- [docs/architecture/decisions/0045-grapher-catalogue-split.md](../architecture/decisions/0045-grapher-catalogue-split.md) - render hints live in `datasets/grapher/`, not on the canonical catalogues
-- [docs/architecture/decisions/0048-elections-drill-ia-and-tile-cartogram.md](../architecture/decisions/0048-elections-drill-ia-and-tile-cartogram.md) - why election-only renderers stay fenced
+- [docs/architecture/data/indicator-catalogue.md#adr-0045-grapher-catalogue-split](../architecture/data/indicator-catalogue.md#adr-0045-grapher-catalogue-split) - render hints live in `datasets/grapher/`, not on the canonical catalogues
+- [docs/architecture/frontend/charts/election-views.md#adr-0048-elections-drill-ia-and-tile-cartogram](../architecture/frontend/charts/election-views.md#adr-0048-elections-drill-ia-and-tile-cartogram) - why election-only renderers stay fenced
 - [TODO/20260603-data-and-charting-platform-reset-plan.md](../../TODO/20260603-data-and-charting-platform-reset-plan.md) - the binding rip plan; sections 15.1 (renderer set), 15.4 (galleries), 16.2 (grain feasibility), 20.9 (this doc's commission), 21.9 (rational chart-viz / matrix), 23.5 (guaranteed-fallback rule)
 - [frontend/src/lib/grapher/catalogue.ts](../../frontend/src/lib/grapher/catalogue.ts) - the `ChartType` union, half of the drift contract
 - [frontend/src/lib/grapher/feasibleAt.ts](../../frontend/src/lib/grapher/feasibleAt.ts) - the pure-function source of truth implementing section 2's matrix

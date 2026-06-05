@@ -1,7 +1,7 @@
 # Folded indicator
 
 **Last Updated**: 2026-05-17
-**Status**: ⚠️ **OBSOLETE under [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md)**. Superseded by [canonical store (Parquet + DuckDB-WASM)](../architecture/data/canonical-store.md). This document describes the pre-pivot per-shard JSON model that lives in `datasets/_old/` read-only during the pivot; deleted at end of Phase 1. Do not use as guidance for new writers. Retained only so agents can interpret legacy artifacts.
+**Status**: ⚠️ **OBSOLETE under [ADR-0030](../architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm)**. Superseded by [canonical store (Parquet + DuckDB-WASM)](../architecture/data/canonical-store.md). This document describes the pre-pivot per-shard JSON model that lives in `datasets/_old/` read-only during the pivot; deleted at end of Phase 1. Do not use as guidance for new writers. Retained only so agents can interpret legacy artifacts.
 
 ---
 
@@ -16,7 +16,7 @@ sections that used to be implicit, scattered, or sidecar:
 - `series_spec` — `{description}` only since v4.0. A one-sentence
   editorial summary of what the series IS. The pre-v4 fields
   (`expected_geographies`, `expected_periods`,
-  `expected_periods_inference`) were lifted out per [ADR-0026](../architecture/decisions/0026-lift-collection-inventory-out-of-indicator-artifact.md).
+  `expected_periods_inference`) were lifted out per [ADR-0026](../architecture/data/indicator-catalogue.md#adr-0026-lift-collection-inventory-out-of-indicator-artifact).
 - `methodology` — `definition`, `publisher`,
   `publisher_methodology_url`, `documentation_status`,
   `methodology_breaks`, `known_caveats`, `notes`,
@@ -35,7 +35,7 @@ Schema: [`datasets/schemas/indicator.schema.json`](../../datasets/schemas/indica
 
 Three surfaces that used to live inside the artifact now live
 beside it. The split is documented in
-[ADR-0026](../architecture/decisions/0026-lift-collection-inventory-out-of-indicator-artifact.md);
+[ADR-0026](../architecture/data/indicator-catalogue.md#adr-0026-lift-collection-inventory-out-of-indicator-artifact);
 [collection-inventory](collection-inventory.md) covers the day-to-day
 shape.
 
@@ -93,7 +93,7 @@ here; we update when the publisher does. Empty cells stay empty. See
 > **`series_spec`.** Since v4.0 a one-key object — `{description}` —
 > giving a citizen-readable summary of what the series IS. The
 > publisher-promise fields (`expected_*`) were lifted out; see
-> [ADR-0026](../architecture/decisions/0026-lift-collection-inventory-out-of-indicator-artifact.md)
+> [ADR-0026](../architecture/data/indicator-catalogue.md#adr-0026-lift-collection-inventory-out-of-indicator-artifact)
 > for rationale.
 >
 > **`fetched_at`.** Wall-clock time at which yen-gov last successfully
@@ -132,7 +132,7 @@ here; we update when the publisher does. Empty cells stay empty. See
 - [data-provenance](data-provenance.md) — `sources[]` rules.
 - [How-to: force re-collection](../how-to/force-recollect.md) — `rm`
   is the only force mechanism.
-- ADR-0003 [no fetch cache](../architecture/decisions/0003-no-fetch-cache.md)
+- ADR-0003 [no fetch cache](../architecture/backend/core.md#adr-0003-no-fetch-cache)
   — clarifies relationship to the folded model.
-- ADR-0026 [lift collection-inventory out of indicator artifact](../architecture/decisions/0026-lift-collection-inventory-out-of-indicator-artifact.md)
+- ADR-0026 [lift collection-inventory out of indicator artifact](../architecture/data/indicator-catalogue.md#adr-0026-lift-collection-inventory-out-of-indicator-artifact)
   — full rationale for the v3.0 → v4.0 split.

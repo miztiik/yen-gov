@@ -87,7 +87,7 @@ Never invent IDs when an issuing authority publishes one. ISO 3166 for countries
 
 ## Data provenance (rules only - see `CLAUDE.md section 12` and [`docs/concepts/data-provenance.md`](../concepts/data-provenance.md))
 
-Per [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md), `datasets/taxonomy/sources.parquet` is the single sources table for the whole repo. It adopts OWID `origin.*` fields (`url_main`, `url_download`, `producer`, `citation_full`, `date_accessed`, `license`, `vintage`) plus yen-gov extensions (`source_id` PK, `content_hash`, `first_fetched_at` immutable + citizen-facing, `last_seen_at` mutable telemetry, `confidence_tier`, `is_issuing_authority`). Every observation row carries a `source_id` FK to one row in this table. No per-shard sources array. No embedded URL on the observation row.
+Per [ADR-0030](../architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm), `datasets/taxonomy/sources.parquet` is the single sources table for the whole repo. It adopts OWID `origin.*` fields (`url_main`, `url_download`, `producer`, `citation_full`, `date_accessed`, `license`, `vintage`) plus yen-gov extensions (`source_id` PK, `content_hash`, `first_fetched_at` immutable + citizen-facing, `last_seen_at` mutable telemetry, `confidence_tier`, `is_issuing_authority`). Every observation row carries a `source_id` FK to one row in this table. No per-shard sources array. No embedded URL on the observation row.
 
 ## UI verification (for `frontend/` or `admin/` runtime changes)
 

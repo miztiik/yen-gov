@@ -20,7 +20,8 @@ Do NOT use this guide for:
 - Adding a new column / facet to an EXISTING canonical adapter -- edit
   the adapter directly; no new family folder needed.
 - Schema work (bumping `datasets/schemas/*.schema.json` versions) --
-  that is ADR-grade; see [docs/architecture/decisions/](../architecture/decisions/).
+  that is ADR-grade; see [docs/reference/decision-index.md](../reference/decision-index.md)
+  for the full ADR redirect map (the legacy `docs/architecture/decisions/` tier was retired in D-DOC3.10 closure 2026-06-05; rationale + rejected alternatives live as `## Design rationale` + `## Rejected alternatives` sections inside subsystem and concept docs).
 
 ## 2. Prerequisites
 
@@ -52,7 +53,7 @@ python -m yen_gov pre-flight-ingest `
 ```
 
 Decision tree on `verdict` (see [docs/concepts/pre-flight-ingest.md](../concepts/pre-flight-ingest.md)
-and [ADR-0046](../architecture/decisions/0046-pre-flight-ingest-gate-contract.md)
+and [ADR-0046](../architecture/backend/preflight.md#adr-0046-pre-flight-ingest-gate-contract)
 for exit-code semantics):
 
 - `mint_new` -- proceed; create new `indicator_id`.
@@ -221,7 +222,7 @@ python -m yen_gov validate --root .
 - [docs/concepts/ingest-fetch-enrich-separation.md](../concepts/ingest-fetch-enrich-separation.md)
 - [docs/agents/ingest-checklist.md](../agents/ingest-checklist.md)
 - [docs/concepts/pre-flight-ingest.md](../concepts/pre-flight-ingest.md)
-- [docs/architecture/decisions/0046-pre-flight-ingest-gate-contract.md](../architecture/decisions/0046-pre-flight-ingest-gate-contract.md)
+- [docs/architecture/backend/preflight.md#adr-0046-pre-flight-ingest-gate-contract](../architecture/backend/preflight.md#adr-0046-pre-flight-ingest-gate-contract)
 - [docs/architecture/backend/preflight.md](../architecture/backend/preflight.md)
 - [docs/architecture/backend/overview.md](../architecture/backend/overview.md)
 - [docs/architecture/backend/pipeline.md](../architecture/backend/pipeline.md)

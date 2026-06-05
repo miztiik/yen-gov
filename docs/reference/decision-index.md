@@ -1,12 +1,12 @@
 # Decision Index
 
 **Last Updated**: 2026-06-04
-**Status**: Active redirect contract; load-bearing per [TODO/20260604-d-doc3-adr-retire-subplan.md](../../TODO/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.2 and parent plan [TODO/20260603-data-and-charting-platform-reset-plan.md](../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 9 (ADR retire keep-receipts).
-**Mandate**: every historical `ADR-NNNN` reference pins here; numbers NEVER reused; this index is the permanent redirect for any inbound link to the retiring `docs/architecture/decisions/` tier.
+**Status**: Active redirect contract; load-bearing per [docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md](../archive/plans/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.2 and parent plan [TODO/20260603-data-and-charting-platform-reset-plan.md](../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 9 (ADR retire keep-receipts).
+**Mandate**: every historical `ADR-NNNN` reference pins here; numbers NEVER reused; this index is the permanent redirect for any inbound link to the now-deleted `docs/architecture/decisions/` tier (deleted 2026-06-05 per D-DOC3.10 closure).
 
 ## Why this exists
 
-By 2026-06-03 the repo carried 44 numbered ADR files under `docs/architecture/decisions/`. Per parent plan section 9 (Hans-finalised) and [ADR-0034](../architecture/decisions/0034-documentation-routing-contract.md)'s own routing rule, the ADR tier retires: each LIVE ADR folds into its subsystem or concept doc as two append-only sections (`## Design rationale` + `## Rejected alternatives`), and each SUPERSEDED-or-REJECTED ADR moves verbatim to `docs/archive/decisions/`. This file is the permanent redirect table that lets any historical `ADR-NNNN` citation resolve to its new home without breaking the link chain.
+By 2026-06-03 the repo carried 44 numbered ADR files under `docs/architecture/decisions/`. Per parent plan section 9 (Hans-finalised) and [ADR-0034](../concepts/documentation-discipline.md#adr-0034-documentation-routing-contract)'s own routing rule, the ADR tier retires: each LIVE ADR folds into its subsystem or concept doc as two append-only sections (`## Design rationale` + `## Rejected alternatives`), and each SUPERSEDED-or-REJECTED ADR moves verbatim to `docs/archive/decisions/`. This file is the permanent redirect table that lets any historical `ADR-NNNN` citation resolve to its new home without breaking the link chain.
 
 The receipts (rejected alternatives) move WITH the body; nothing is deleted. The migration's safety net is the `grep-receipts-eq` gate (baseline recorded below). Per CLAUDE.md section 5 "agent memory is derived, not authoritative" - this file is the authoritative routing contract; agent memory self-corrects.
 
@@ -23,14 +23,14 @@ ARCHIVED ADRs (7 files): body moves verbatim under `docs/archive/decisions/NNNN-
 
 ## Migration gate baseline (grep-receipts-eq)
 
-Recorded 2026-06-04, before any fold-row landed, against `docs/architecture/decisions/0*.md` (44 files):
+Recorded 2026-06-04, before any fold-row landed, against the then-44 ADR files under `docs/architecture/decisions/` (directory subsequently deleted in D-DOC3.10 closure 2026-06-05; baselines below preserve the pre-fold methodology + counts as historic record):
 
 | Pattern | Count | Notes |
 | --- | --- | --- |
 | `^## (Rejected alternatives\|Alternatives considered)` (case-sensitive, no end-anchor; matches the strict sub-plan invocation) | **33** | h2 only, exact phrasing prefix; baseline that anchors a strict gate |
 | `^#{2,3}\s*(Rejected alternatives\|Alternatives considered)` (case-insensitive; h2 or h3) | **38** | catches h3 (0023, 0043), case variants (0032, 0041, 0042 "Rejected Alternatives"), and extended phrasings ("Alternatives considered (rejected)", "Alternatives considered (and rejected)") |
 
-The load-bearing assertion at every intermediate fold-row PR AND at D-DOC3.10 closure is that **both numbers stay equal pre- and post-migration** across the union `docs/architecture/ + docs/concepts/ + docs/archive/decisions/` (with `docs/architecture/decisions/` deleted at D-DOC3.10). Each fold-row PR cites the running count using the same patterns above to prove no receipt block was lost.
+The load-bearing assertion at every intermediate fold-row PR is that **both numbers stay equal pre- and post-migration** across the union `docs/architecture/ + docs/concepts/ + docs/archive/decisions/`. At D-DOC3.10 closure the originating `docs/architecture/decisions/` directory was deleted; the destination-doc receipts (folded as additive h3 subsections under existing h2s in many cases, per the D-DOC3.6 / 3.7 / 3.8 / 3.5 / 3.4 notes) survived intact. Post-delete state on 2026-06-05: 28 strict h2 / 31 broader h2-or-h3 across the post-delete union. Each fold-row PR cited the running count using the same patterns above to prove no receipt block was lost.
 
 The parent plan section 22.6 names this gate as `grep-receipts-eq`; the sub-plan body asserted 36 on 2026-06-04 - that number was wrong (filesystem-counted truth supersedes plan-doc memory per `/memories/lessons.md`). The strict count is 33 and the broader count is 38; the 36-vs-truth correction is recorded here.
 
@@ -122,7 +122,7 @@ Each archived ADR's body moves verbatim to `docs/archive/decisions/`. A one-line
 
 ## See also
 
-- Sub-plan: [TODO/20260604-d-doc3-adr-retire-subplan.md](../../TODO/20260604-d-doc3-adr-retire-subplan.md) - the 10-row execution ledger that consumes this index.
+- Sub-plan: [docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md](../archive/plans/20260604-d-doc3-adr-retire-subplan.md) - the 10-row execution ledger that consumes this index.
 - Parent plan: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 9, section 22.5, section 22.6, section 24.5.
-- Routing contract that this index honours even as it retires the ADR file convention: [ADR-0034](../architecture/decisions/0034-documentation-routing-contract.md).
+- Routing contract that this index honours even as it retires the ADR file convention: [ADR-0034](../concepts/documentation-discipline.md#adr-0034-documentation-routing-contract).
 - Doc class catalogue: [docs/reference/documentation-structure.md](documentation-structure.md) section 7 (the four-class routing standard).

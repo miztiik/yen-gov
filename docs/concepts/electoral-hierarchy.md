@@ -70,7 +70,7 @@ This split keeps reference data stable across elections and makes result-time da
 
 ## Design rationale
 
-This section folds in the receipts from the originating `docs/architecture/decisions/` ADRs that pinned the electoral-hierarchy model, per [parent plan section 9](../../TODO/20260603-data-and-charting-platform-reset-plan.md) (keep-receipts ADR retirement) and [decision-index.md](../reference/decision-index.md). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
+This section folds in the receipts from the originating ADRs that pinned the electoral-hierarchy model (`docs/architecture/decisions/` originating files deleted in D-DOC3.10 closure), per [parent plan section 9](../../TODO/20260603-data-and-charting-platform-reset-plan.md) (keep-receipts ADR retirement) and [decision-index.md](../reference/decision-index.md). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
 
 ### ADR-0015: constituency-hierarchy-fields
 

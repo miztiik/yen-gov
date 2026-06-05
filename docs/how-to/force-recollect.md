@@ -5,7 +5,7 @@
 
 There is no force-refetch flag in `processing.json`, no CLI option,
 and no admin button. By design — see [collection-inventory](../concepts/collection-inventory.md)
-and [ADR-0003](../architecture/decisions/0003-no-fetch-cache.md).
+and [ADR-0003](../architecture/backend/core.md#adr-0003-no-fetch-cache).
 `rm` IS the force mechanism.
 
 ## Recipe
@@ -52,4 +52,4 @@ planner clears it after a successful re-collect.
 
 - [collection-inventory](../concepts/collection-inventory.md)
 - [folded-indicator](../concepts/folded-indicator.md)
-- [ADR-0003 — No fetch cache](../architecture/decisions/0003-no-fetch-cache.md)
+- [ADR-0003 — No fetch cache](../architecture/backend/core.md#adr-0003-no-fetch-cache)

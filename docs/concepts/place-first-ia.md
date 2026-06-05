@@ -8,7 +8,7 @@ This page is the keep-receipts home for the project's spine-level information-ar
 
 ## Design rationale
 
-This section folds in the receipt from the originating `docs/architecture/decisions/` ADR that pinned the IA spine for this project, per parent plan section 9 (keep-receipts ADR retirement) and [decision-index.md](../reference/decision-index.md). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
+This section folds in the receipt from the originating ADR that pinned the IA spine for this project (`docs/place-first-ia.md#adr-0022-place-first-ia-with-topic-catalogue` deleted in D-DOC3.10 closure), per parent plan section 9 (keep-receipts ADR retirement) and [decision-index.md](../reference/decision-index.md). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
 
 ### ADR-0022: place-first-ia-with-topic-catalogue
 

@@ -1,7 +1,7 @@
 # Collection inventory
 
 **Last Updated**: 2026-05-17
-**Status**: ⚠️ **OBSOLETE under [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md)**. Superseded by [canonical store (Parquet + DuckDB-WASM)](../architecture/data/canonical-store.md). Under the canonical pivot, "what we have collected" is a `SELECT DISTINCT entity_id, year FROM <family>` query against the canonical Parquet — no separate inventory file. Operator state (frozen / refetch_requested / unavailable) becomes an `operator_state.parquet` table keyed by `indicator_id`. The opaque `{key, label, frequency}` period-token rule is **withdrawn**: under OWID, time is `year:int` and `period_label` is the verbatim publisher string on every observation row. Retained only so agents can interpret legacy `datasets/_old/reference/in/indicators-*.json` artifacts.
+**Status**: ⚠️ **OBSOLETE under [ADR-0030](../architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm)**. Superseded by [canonical store (Parquet + DuckDB-WASM)](../architecture/data/canonical-store.md). Under the canonical pivot, "what we have collected" is a `SELECT DISTINCT entity_id, year FROM <family>` query against the canonical Parquet — no separate inventory file. Operator state (frozen / refetch_requested / unavailable) becomes an `operator_state.parquet` table keyed by `indicator_id`. The opaque `{key, label, frequency}` period-token rule is **withdrawn**: under OWID, time is `year:int` and `period_label` is the verbatim publisher string on every observation row. Retained only so agents can interpret legacy `datasets/_old/reference/in/indicators-*.json` artifacts.
 
 ---
 
@@ -43,7 +43,7 @@ daily-driver emitter is
 
 ## Why two files, not one block
 
-See [ADR-0026](../architecture/decisions/0026-lift-collection-inventory-out-of-indicator-artifact.md)
+See [ADR-0026](../architecture/data/indicator-catalogue.md#adr-0026-lift-collection-inventory-out-of-indicator-artifact)
 for the full rationale. Briefly: keeping a derived block AND operator
 flags AND publisher-promise fields all inside the artifact merged three
 incompatible lifecycles (per-fetch / per-collect-run / hand-authored)
@@ -83,7 +83,7 @@ makes sense; the citizen-facing completeness story is told entirely
 from **what we have observed** plus the operator's **structured
 unavailability claims**, never from a speculative expected universe.
 
-See [ADR-0026](../architecture/decisions/0026-lift-collection-inventory-out-of-indicator-artifact.md)
+See [ADR-0026](../architecture/data/indicator-catalogue.md#adr-0026-lift-collection-inventory-out-of-indicator-artifact)
 for why the publisher-promise tier was the wrong altitude.
 
 ## Adapter writes citizen-readable labels
@@ -99,7 +99,7 @@ cannot enforce this; review must.
 
 There is no force-refetch flag. To re-collect an indicator from
 scratch, the operator deletes the relevant `.runtime/raw/` files (per
-[ADR-0003](../architecture/decisions/0003-no-fetch-cache.md)) and
+[ADR-0003](../architecture/backend/core.md#adr-0003-no-fetch-cache)) and
 re-runs the collector. See [How-to: force re-collection](../how-to/force-recollect.md).
 
 `refetch_requested` is **triage status**, not a second force mechanism.
@@ -113,5 +113,5 @@ flag is also signal.
 - [folded-indicator](folded-indicator.md)
 - [data-provenance](data-provenance.md)
 - [How-to: force re-collection](../how-to/force-recollect.md)
-- ADR-0003 [no fetch cache](../architecture/decisions/0003-no-fetch-cache.md)
-- ADR-0026 [lift collection-inventory out of indicator artifact](../architecture/decisions/0026-lift-collection-inventory-out-of-indicator-artifact.md)
+- ADR-0003 [no fetch cache](../architecture/backend/core.md#adr-0003-no-fetch-cache)
+- ADR-0026 [lift collection-inventory out of indicator artifact](../architecture/data/indicator-catalogue.md#adr-0026-lift-collection-inventory-out-of-indicator-artifact)

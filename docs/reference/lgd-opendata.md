@@ -51,7 +51,7 @@ Grouped by yen-gov decision verdict. The **Verdict** column is binding: do not i
 | Component                  | Use                                                                                                                                                  | Verdict                                |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
 | `states`                   | LGD numeric code ↔ canonical English state name. Bridge table for joining LGD entities to our ECI `S22`/`U05`-style codes (match by name).           | **Adopt.** Required to backfill anything else. |
-| `districts`                | LGD numeric district code + state code + canonical district name + Census 2001/2011 codes.                                                          | **Adopted.** District identity lives on `datasets/taxonomy/entities.json` (`entity_type='district'` rows) with `lgd_code` as the join key per [ADR-0015](../architecture/decisions/0015-constituency-hierarchy-fields.md). |
+| `districts`                | LGD numeric district code + state code + canonical district name + Census 2001/2011 codes.                                                          | **Adopted.** District identity lives on `datasets/taxonomy/entities.json` (`entity_type='district'` rows) with `lgd_code` as the join key per [ADR-0015](../concepts/electoral-hierarchy.md#adr-0015-constituency-hierarchy-fields). |
 | `assembly_constituencies`  | LGD AC code + name + state. The CSV-side counterpart to the `LGD_Assembly_Constituencies` geometry release used in the [AC consolidation plan](../../TODO/20260524-boundary-coverage-expansion-plan.md#phase-d--ac-consolidation-onto-ramseraph). Lets us cross-check our ECI `acN`-prefixed IDs against the LGD-issued ones during per-state parity verification. | **Adopt alongside geometry consolidation (Phase D of the plan).** Until the first AC swap promotes, *catalogue only* — ECI's own AC codes already join HTL boundaries cleanly. |
 | `parliament_constituencies`| LGD PC code + name + state. Same role as ACs but at the national level (Members of Parliament).                                                       | **Adopt when a national-election cycle enters scope.** Currently *catalogue only.*  |
 | `subdistricts`             | LGD sub-district (tehsil/taluk/mandal) numeric code under each district.                                                                            | **Adopted countrywide in [Phase B of the plan](../../TODO/20260524-boundary-coverage-expansion-plan.md#phase-b--sub-district-national-lift).** |
@@ -97,7 +97,7 @@ These are bureaucratic-org charts: which department exists at the centre/state, 
 
 ## How yen-gov uses it
 
-Today: district identity lives on `datasets/taxonomy/entities.json` (`entity_type='district'` rows) with `lgd_code` populated as the LGD-issued canonical key per [ADR-0015](../architecture/decisions/0015-constituency-hierarchy-fields.md) and [ADR-0033](../architecture/decisions/0033-retire-wikipedia-districts-adapter.md). The legacy per-state `districts.json` files + `district.schema.json` that originally seeded these rows were retired in T.0c-iii Phase D.3.
+Today: district identity lives on `datasets/taxonomy/entities.json` (`entity_type='district'` rows) with `lgd_code` populated as the LGD-issued canonical key per [ADR-0015](../concepts/electoral-hierarchy.md#adr-0015-constituency-hierarchy-fields) and [ADR-0033](../architecture/backend/sources-wikipedia.md#adr-0033-retire-wikipedia-districts-adapter). The legacy per-state `districts.json` files + `district.schema.json` that originally seeded these rows were retired in T.0c-iii Phase D.3.
 
 Planned (next implementation pass, tracked under `tools/lgd/`):
 
@@ -126,6 +126,6 @@ Other components' schemas are not yet recon'd in this doc; consult <https://rams
 
 - [boundary-data-sources.md](boundary-data-sources.md) — geometry side (`ramSeraph/indian_admin_boundaries`, datameet, HTL, etc.)
 - [identifiers.md](identifiers.md) — the canonical id table this source backfills
-- [ADR-0015](../architecture/decisions/0015-constituency-hierarchy-fields.md) — why `lgd_code` is the preferred district id
+- [ADR-0015](../concepts/electoral-hierarchy.md#adr-0015-constituency-hierarchy-fields) — why `lgd_code` is the preferred district id
 - [data-sources.md](data-sources.md) — election-results sources (sister catalogue)
 - CLAUDE.md §11 (schema versioning), §12 (provenance), §5 (docs discipline)

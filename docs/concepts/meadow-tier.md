@@ -28,13 +28,13 @@ The meadow tier existed in yen-gov from day one — under the misleading path `d
 2. **Phase-C blast-radius trap** — `git rm` of a "legacy" shard silently broke canonical adapter input; only signal was the next lift emitting an empty Parquet.
 3. **Naming imprecision** — "legacy folded-indicator shard" is project-specific archaeology; "meadow" is OWID's exact name for the role.
 
-Per [ADR-0041](../architecture/decisions/0041-meadow-tier.md) the layer is renamed in-place to its OWID identity.
+Per [ADR-0041](../architecture/data/canonical-store.md#adr-0041-meadow-tier) the layer is renamed in-place to its OWID identity.
 
 ## Meadow contract (one paragraph per guarantee)
 
 1. **Schema-valid**: typed JSON conforming to an existing per-family schema under `datasets/schemas/`. No new schemas; meadow reuses what the legacy shards already validated against.
 2. **Deterministic**: identical upstream bytes → identical meadow file bytes on re-run. No `datetime.now()` in content (CLAUDE.md §10 anti-pattern).
-3. **FK-bearing**: every observation row carries a `source_id` FK to `datasets/taxonomy/sources.parquet` per CLAUDE.md §12 + [ADR-0032](../architecture/decisions/0032-sources-citation-ledger.md).
+3. **FK-bearing**: every observation row carries a `source_id` FK to `datasets/taxonomy/sources.parquet` per CLAUDE.md §12 + [ADR-0032](data-provenance.md#adr-0032-sources-citation-ledger).
 4. **Vintage-anchored**: the `<vintage>` segment in the path MUST match the `vintage` field of the citation-ledger row that the row's `source_id` resolves to. (Tier-B check, lands in PR 7c-4.)
 5. **Backend-internal**: frontend MUST NOT `fetch()` meadow paths. Enforced by `_meadow/` underscore-prefix (CLAUDE.md §2 "private" convention) + CLAUDE.md §4 layer rule + Tier-B validator + Phase B allowlist routing all citizen reads to canonical Parquet.
 
@@ -64,12 +64,12 @@ datasets/fiscal/_meadow/rbi/2024-25/state_budget_outstanding_debt_pct_gsdp.json
 | Question | Meadow | Canonical |
 | --- | --- | --- |
 | Row count | ~thousand-row per file typical | Family-wide (1k–500k rows) |
-| Row shape | publisher-native (preserves fuel sub-categories, table layout) | long-format observation row per [ADR-0030 D5/D17](../architecture/decisions/0030-canonical-store-duckdb-wasm.md) |
+| Row shape | publisher-native (preserves fuel sub-categories, table layout) | long-format observation row per [ADR-0030 D5/D17](../architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm) |
 | Time axis | publisher vintage (`2024-25`, `2011`, `march-2024`) | `year:int` + `period_label:text` (CLAUDE.md §0a OWID rule) |
 | Identity | per-source path + filename | `(entity_id, year, period_label, indicator_id)` |
 | Methodology splices | not yet applied (RBI Table 140 ↔ 142 rows present separately) | applied via canonical adapter + recorded in `methodology_breaks.parquet` |
 | Reader | backend canonical adapter only | DuckDB-WASM in browser |
-| FK closure | `source_id` only | `source_id` + `entity_id` + `indicator_id` (writer-enforced per [ADR-0030 D22](../architecture/decisions/0030-canonical-store-duckdb-wasm.md)) |
+| FK closure | `source_id` only | `source_id` + `entity_id` + `indicator_id` (writer-enforced per [ADR-0030 D22](../architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm)) |
 
 ## "No frontend fetch" rule
 
@@ -79,7 +79,7 @@ The result: any frontend code that bypasses the allowlist by hand-crafting a `fe
 
 ## Migration sequence (energy family)
 
-Per [ADR-0041](../architecture/decisions/0041-meadow-tier.md):
+Per [ADR-0041](../architecture/data/canonical-store.md#adr-0041-meadow-tier):
 
 | PR | Adapter | Shards | Notes |
 | :-: | --- | :-: | --- |
@@ -102,9 +102,9 @@ git ls-tree origin/main -- datasets/indicators/in/
 
 ## See also
 
-- [ADR-0041 — Meadow tier: parsed publisher rows as canonical input](../architecture/decisions/0041-meadow-tier.md) — rationale + 5 rejected alternatives + non-negotiables
-- [ADR-0030 — Canonical long-format store on Hive-partitioned Parquet read by DuckDB-WASM](../architecture/decisions/0030-canonical-store-duckdb-wasm.md) — canonical-tier contract
-- [ADR-0032 — Sources citation ledger](../architecture/decisions/0032-sources-citation-ledger.md) — `source_id` FK closure
+- [ADR-0041 — Meadow tier: parsed publisher rows as canonical input](../architecture/data/canonical-store.md#adr-0041-meadow-tier) — rationale + 5 rejected alternatives + non-negotiables
+- [ADR-0030 — Canonical long-format store on Hive-partitioned Parquet read by DuckDB-WASM](../architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm) — canonical-tier contract
+- [ADR-0032 — Sources citation ledger](data-provenance.md#adr-0032-sources-citation-ledger) — `source_id` FK closure
 - [`docs/architecture/data/canonical-store.md` §2b.5](../architecture/data/canonical-store.md) — per-family directory invariant (includes `_meadow/`)
 - [`docs/concepts/data-provenance.md`](data-provenance.md) — provenance vocabulary that meadow rows participate in
 - [`docs/concepts/owid-alignment.md`](owid-alignment.md) — broader OWID precedent (the five-tier pipeline is one piece)

@@ -557,7 +557,7 @@ Per CLAUDE.md §15:
 
 ## Related docs
 
-- [`docs/architecture/decisions/0020-indicator-artifact-as-data-contract.md`](../../decisions/0020-indicator-artifact-as-data-contract.md) — upstream contract.
+- [`docs/architecture/data/indicator-catalogue.md#adr-0020-indicator-artifact-as-data-contract`](../../data/indicator-catalogue.md#adr-0020-indicator-artifact-as-data-contract) — upstream contract.
 - [`docs/archive/decisions/0024-backend-aggregator-for-facetted-indicators.md`](../../../archive/decisions/0024-backend-aggregator-for-facetted-indicators.md) — option-A vs option-B for energy (archived 2026-06-04, superseded by PR 7b; rationale folded into [docs/architecture/data/indicator-catalogue.md](../../data/indicator-catalogue.md#adr-0024-rejected-alternatives)).
 - [`docs/architecture/frontend/indicators.md`](../indicators.md) — sibling renderer family.
 - [`docs/architecture/frontend/colours.md`](../colours.md) — colour module (will be updated).

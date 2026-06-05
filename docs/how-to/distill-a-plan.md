@@ -6,7 +6,7 @@ The procedure for lifting durable findings out of a `TODO/<date>-<slug>.md` plan
 
 Note the name-clash: [distill.md](distill.md) is a separate runbook for distilling a citizen question into a shipped answer (the 7-persona handoff). This doc is about plan-doc distillation only.
 
-This doc exists because plan-docs were silently accumulating findings that the next agent had to rediscover. The fix is mechanical, not editorial: every closed row is examined for distillation candidates, each candidate is routed per [ADR-0034](../architecture/decisions/0034-documentation-routing-contract.md), and the plan-doc is left as a thin audit ledger pointing at its distilled outputs.
+This doc exists because plan-docs were silently accumulating findings that the next agent had to rediscover. The fix is mechanical, not editorial: every closed row is examined for distillation candidates, each candidate is routed per [ADR-0034](../concepts/documentation-discipline.md#adr-0034-documentation-routing-contract), and the plan-doc is left as a thin audit ledger pointing at its distilled outputs.
 
 ## When to run
 
@@ -20,15 +20,15 @@ Do NOT run for in-flight rows. Distillation only happens after the finding has s
 
 - One closed plan-doc row + its `CLOSED` narrative sub-section (per the [ship-a-pr.md](ship-a-pr.md) 2-commit-then-squash stamp pattern).
 - The merged commit SHA on `main` (for cross-reference).
-- Read access to [ADR-0034](../architecture/decisions/0034-documentation-routing-contract.md) — the doc-class routing contract.
+- Read access to [ADR-0034](../concepts/documentation-discipline.md#adr-0034-documentation-routing-contract) — the doc-class routing contract.
 
 ## The routing decision
 
-For each finding in the closed row's narrative, ask the questions in [ADR-0034](../architecture/decisions/0034-documentation-routing-contract.md) §Decision rule order and route to ONE home:
+For each finding in the closed row's narrative, ask the questions in [ADR-0034](../concepts/documentation-discipline.md#adr-0034-documentation-routing-contract) §Decision rule order and route to ONE home:
 
 | Finding shape | Destination | Example |
 | --- | --- | --- |
-| Decision with credible rejected alternatives + non-trivial reversal cost + cross-cuts subsystems | **New ADR** under `docs/architecture/decisions/NNNN-<slug>.md` | "Why is the canonical Parquet partition Hive-style?" → [ADR-0030](../architecture/decisions/0030-canonical-long-format-pivot.md) |
+| Decision with credible rejected alternatives + non-trivial reversal cost + cross-cuts subsystems | **Fold rationale into the relevant subsystem or concept doc** as new `## Design rationale` + `## Rejected alternatives` sections; cite via [docs/reference/decision-index.md](../reference/decision-index.md) | "Why is the canonical Parquet partition Hive-style?" → [ADR-0030](../architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm) (folded receipt in canonical-store.md) |
 | Current shape / layout / contract of one subsystem | **Subsystem doc** under `docs/architecture/<area>/<slug>.md` | "How does the frontend join geojson to election results?" → [docs/architecture/frontend/map.md](../architecture/frontend/map.md) |
 | Vocabulary term used in multiple subsystems | **Concept doc** under `docs/concepts/<slug>.md` | "What is the meadow tier?" → [docs/concepts/meadow-tier.md](../concepts/meadow-tier.md) |
 | Operator runbook / step-by-step procedure | **How-to doc** under `docs/how-to/<verb>-<slug>.md` | "How do I ship a PR?" → [ship-a-pr.md](ship-a-pr.md) |
@@ -57,7 +57,7 @@ If a finding fits two destinations, pick the more durable one (ADR > subsystem >
 
 - In-flight TODO bullets the row resolved.
 - Speculative scope-expansion sketches that did not ship.
-- Stacked "previous header" status blocks (forbidden by [ADR-0034](../architecture/decisions/0034-documentation-routing-contract.md) §single-snapshot-header).
+- Stacked "previous header" status blocks (forbidden by [ADR-0034](../concepts/documentation-discipline.md#adr-0034-documentation-routing-contract) §single-snapshot-header).
 
 ## The mechanics
 
@@ -110,7 +110,7 @@ Do NOT delete the plan-doc. It is the durable record of what was tried, in what 
 
 ## See also
 
-- [ADR-0034](../architecture/decisions/0034-documentation-routing-contract.md) — the four-class doc routing contract
+- [ADR-0034](../concepts/documentation-discipline.md#adr-0034-documentation-routing-contract) — the four-class doc routing contract
 - [ship-a-pr.md](ship-a-pr.md) — the PR lifecycle whose `CLOSED` sub-sections are this runbook's input
 - [CLAUDE.md](../../CLAUDE.md) §5 (Documentation Discipline) — the rules every distilled doc must honour
 - [docs/reference/documentation-structure.md](../reference/documentation-structure.md) — the Diataxis tier definitions

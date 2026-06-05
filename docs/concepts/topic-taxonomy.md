@@ -5,8 +5,8 @@
 > **See also**:
 >
 > - [Canonical store §2a](../architecture/data/canonical-store.md) — naming convention for families and roles
-> - [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md) — D26 (facet-explode) and D29 (catalogue columns) including `topic_tags[]`
-> - [ADR-0034](../architecture/decisions/0034-documentation-routing-contract.md) — doc-class routing rule under which this concept doc exists
+> - [ADR-0030](../architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm) — D26 (facet-explode) and D29 (catalogue columns) including `topic_tags[]`
+> - [ADR-0034](documentation-discipline.md#adr-0034-documentation-routing-contract) — doc-class routing rule under which this concept doc exists
 > - [OWID alignment](owid-alignment.md) — the "One Rule" for socio-economic modelling
 > - [Indicator naming](indicator-naming.md) — citizen URL slug rules (no topic prefix)
 

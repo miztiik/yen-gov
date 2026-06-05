@@ -12,7 +12,7 @@ The yen-gov pipeline has two operator-facing CLI commands. Both live in `backend
 
 ## `yen-gov reference <state>` — one-shot Wikipedia scrape
 
-Populates the per-state constituency reference (AC list with reservation status) under `datasets/reference/in/states/<state>/`. (Districts are NOT re-emitted; district identity lives on `datasets/taxonomy/entities.json` since T.0c-iii Phase A — see [ADR-0033](../architecture/decisions/0033-retire-wikipedia-districts-adapter.md).)
+Populates the per-state constituency reference (AC list with reservation status) under `datasets/reference/in/states/<state>/`. (Districts are NOT re-emitted; district identity lives on `datasets/taxonomy/entities.json` since T.0c-iii Phase A — see [ADR-0033](../architecture/backend/sources-wikipedia.md#adr-0033-retire-wikipedia-districts-adapter).)
 
 ```sh
 python -m yen_gov reference S22
@@ -34,7 +34,7 @@ python -m yen_gov run AcGenMay2026 S22
 # → datasets/elections/AcGenMay2026/S22/results/1.json … 234.json
 ```
 
-Each constituency is fetched and emitted in order; a single AC failure aborts the run with the underlying `ValueError` (per [pipeline fail-loud policy](../architecture/backend/pipeline.md#fail-loud-whole-run)). Bytes for every URL are persisted under `.runtime/raw/eci/...` for offline debugging (per [ADR-0003](../architecture/decisions/0003-no-fetch-cache.md)) — but the orchestrator does not consult them on rerun.
+Each constituency is fetched and emitted in order; a single AC failure aborts the run with the underlying `ValueError` (per [pipeline fail-loud policy](../architecture/backend/pipeline.md#fail-loud-whole-run)). Bytes for every URL are persisted under `.runtime/raw/eci/...` for offline debugging (per [ADR-0003](../architecture/backend/core.md#adr-0003-no-fetch-cache)) — but the orchestrator does not consult them on rerun.
 
 The composer's reconciler (`reconcile_winners_against_partywise`) cross-checks per-AC winners against the partywise seat counts; a mismatch raises before any artifact is written. This catches both ECI page corruption and parser drift.
 

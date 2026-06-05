@@ -75,7 +75,7 @@ Acknowledged costs:
 - The two-step pattern is more boilerplate than a one-call `fetch_and_parse`. Worth it because the pipeline reuses `to_*` with cached HTML during reprocessing.
 - Party-name resolution is a runtime concern, not a parser concern — `party_short` may temporarily equal the full name during single-page testing. The pipeline always passes a lookup in production runs.
 
-The following h3 subsections fold in the source-authority + current-year-scope rationale from the originating `docs/architecture/decisions/` ADRs per [parent plan section 9](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) (keep-receipts ADR retirement) and [decision-index.md](../../reference/decision-index.md). The verbatim rejected alternatives live under [Alternatives considered](#alternatives-considered) below as additional h3 subsections.
+The following h3 subsections fold in the source-authority + current-year-scope rationale from the originating ADRs (`docs/architecture/decisions/` files deleted in D-DOC3.10 closure) per [parent plan section 9](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) (keep-receipts ADR retirement) and [decision-index.md](../../reference/decision-index.md). The verbatim rejected alternatives live under [Alternatives considered](#alternatives-considered) below as additional h3 subsections.
 
 ### ADR-0016: eci-statistical-reports-canonical
 

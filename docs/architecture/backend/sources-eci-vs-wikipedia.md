@@ -100,7 +100,7 @@ S22, S25, U07) are `provisional` too — district mappings exist for them
 on `datasets/taxonomy/entities.json` (post-Phase-A) but the AC
 `district_id` is a Wikipedia slug (`legacy_id`), not an LGD code.
 Promoting them to `complete` is gated on the LGD migration
-([ADR-0015](architecture/decisions/0015-data-model-rules.md) districts);
+([ADR-0015](../../concepts/electoral-hierarchy.md#adr-0015-constituency-hierarchy-fields) districts);
 no immediate work needed.
 
 ## Coverage as of 2026-05-11

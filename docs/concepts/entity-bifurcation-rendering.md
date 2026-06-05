@@ -1,8 +1,8 @@
 # Entity-bifurcation rendering — how reorganised states show up to the citizen
 
 **Last Updated**: 2026-05-22
-**Doc class**: concept per [ADR-0034](../architecture/decisions/0034-documentation-routing-contract.md) — one vocabulary term, defined once.
-**Cites**: [ADR-0028](../architecture/decisions/0028-url-scheme-place-first-flat-indicator-slug.md) (URL grammar), [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md) D23 (entity validity columns), [canonical-store.md](../architecture/data/canonical-store.md), [indicator-naming.md §2.4](indicator-naming.md), [schema-is-the-design-system.md](schema-is-the-design-system.md) (closed renderer set), [colours.md](../architecture/frontend/colours.md) (OkLCh treatment vocabulary), [Phase 2 P.1 Energy plan §3 Q-e + §3.1 #2](../archive/plans/20260522-phase-2-p1-energy-pivot.md).
+**Doc class**: concept per [ADR-0034](documentation-discipline.md#adr-0034-documentation-routing-contract) — one vocabulary term, defined once.
+**Cites**: [ADR-0028](../architecture/frontend/url-grammar.md#adr-0028-url-scheme-place-first-flat-indicator-slug) (URL grammar), [ADR-0030](../architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm) D23 (entity validity columns), [canonical-store.md](../architecture/data/canonical-store.md), [indicator-naming.md §2.4](indicator-naming.md), [schema-is-the-design-system.md](schema-is-the-design-system.md) (closed renderer set), [colours.md](../architecture/frontend/colours.md) (OkLCh treatment vocabulary), [Phase 2 P.1 Energy plan §3 Q-e + §3.1 #2](../archive/plans/20260522-phase-2-p1-energy-pivot.md).
 **Cited from**: [Phase 2 P.1 Energy plan §3.1 follow-up #2](../archive/plans/20260522-phase-2-p1-energy-pivot.md) (hard-blocker for any P.1.A indicator that crosses 2014/2019 entity splits).
 **See also**: [data-provenance.md](data-provenance.md), [long-coverage-indicators.md](long-coverage-indicators.md), [owid-alignment.md](owid-alignment.md).
 
@@ -43,7 +43,7 @@ Why: the reorganisations were statutory acts by Parliament (Andhra Pradesh Reorg
 
 ## §3. The six surfaces
 
-Each surface below locks one rendering rule. Rules consume `entity_valid_from / entity_valid_to / parent_entity_id` on `dim_entities` (per [ADR-0030 D23](../architecture/decisions/0030-canonical-store-duckdb-wasm.md)); the residual-id case additionally consumes `LINEAGE_MAP`.
+Each surface below locks one rendering rule. Rules consume `entity_valid_from / entity_valid_to / parent_entity_id` on `dim_entities` (per [ADR-0030 D23](../architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm)); the residual-id case additionally consumes `LINEAGE_MAP`.
 
 ### §3.1 TimeSeriesLine
 
@@ -150,7 +150,7 @@ Locked banner copy (placeholder voice — Hans owns the final voice pass per Q-4
 
 ## §5. What the entity model already gives you
 
-The renderer is a **reader** of the entity model, not a re-implementer of it. The columns and rules below already exist on disk and in [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md):
+The renderer is a **reader** of the entity model, not a re-implementer of it. The columns and rules below already exist on disk and in [ADR-0030](../architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm):
 
 - `dim_entities.entity_valid_from` (int year) — when the entity began. Used by §3.1 / §3.2 / §3.4 to start successor lines and grey successor polygons.
 - `dim_entities.entity_valid_to` (int year, nullable) — when the entity ended. NULL = current. Used to identify retired predecessors and to bound their charts.
