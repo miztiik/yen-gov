@@ -26,7 +26,7 @@
   // CLAUDE.md §0: no aria/role; visible affordances only.
 
   import HorizontalGroupedBar from "../lib/charts/HorizontalGroupedBar.svelte";
-  import OrderedCategoryBar from "../lib/charts/OrderedCategoryBar.svelte";
+  import OrderedCategoryBar from "../lib/charts/CategoryBar.svelte";
   import DumbbellRange from "../lib/charts/DumbbellRange.svelte";
   import TimeSeriesLine from "../lib/charts/TimeSeriesLine.svelte";
   import FacetPanelGrid from "../lib/charts/FacetPanelGrid.svelte";
@@ -390,8 +390,12 @@
       Categories rendered in axis order (poorest → richest). The
       renderer never re-sorts; the builder enforces
       <code>axis_order</code> only.
+      <br />Now rendered through <code>CategoryBar mode="ranked"</code>
+      (F2a.1+F2a.2 consolidation; the orphan
+      <code>OrderedCategoryBar.svelte</code> retired).
     </p>
     <OrderedCategoryBar
+      mode="ranked"
       view_model={ocb_vm}
       chart_title="Electricity access by wealth quintile (synthetic)"
       chart_subtitle="Axis-ordered; no value-sort permitted."
