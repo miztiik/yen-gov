@@ -71,11 +71,11 @@ describe("isCompatibleSchemaVersion", () => {
   });
 
   it("accepts current non-observation table schemas listed for the canonical-manifest-reader surface", () => {
-    expect(isCompatibleSchemaVersion("source.schema.json", "3.0")).toBe(true);
+    expect(isCompatibleSchemaVersion("dim-party-alliances.schema.json", "1.0")).toBe(true);
   });
 
   it("rejects unsupported old non-observation table versions", () => {
-    expect(isCompatibleSchemaVersion("source.schema.json", "1.0")).toBe(false);
+    expect(isCompatibleSchemaVersion("dim-party-alliances.schema.json", "0.9")).toBe(false);
   });
 });
 
