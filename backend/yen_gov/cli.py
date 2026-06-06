@@ -300,9 +300,12 @@ def emit_taxonomy(
             ``datasets/governments/governments_office_holdings.parquet`` --
             office identities (read from entities.parquet office_bearer rows)
             plus tenure holdings from the consolidated
-            ``datasets/taxonomy/office_holdings.json``. Legacy CM rows UPSERT
-            Wikipedia "List of CMs" citations; national-office rows cite
-            explicit official ``citation_groups``.
+            ``datasets/taxonomy/office_holdings.json``. Legacy CM rows
+            stamp Wikipedia "List of CMs" citations; national-office rows
+            cite explicit official ``citation_groups``. The citation
+            source rows themselves live in
+            ``datasets/data/entities/source.csv`` (B2a/source_csv path);
+            this step only emits the FK source_id, not the source row.
     - ``datasets/taxonomy/indicators.parquet`` -- the canonical
       indicator catalogue from ``indicators.json`` (P.1.A C3, 2026-05-22).
 
@@ -312,6 +315,11 @@ def emit_taxonomy(
     removed because the matching parquets were retired in X1b (#814).
     The CSV replacements live under ``datasets/data/`` and are emitted
     by the canonical CSV writer / B2a seed emitters, not here.
+
+    Post-B3-pt2 (2026-06-06): step 6 (office_holdings) no longer takes a
+    ``sources.parquet`` argument; the Wikipedia "List of CMs" + per-
+    citation-group source rows live in ``datasets/data/entities/source.csv``
+    seeded once via B2a/source_csv, not per emit-taxonomy run.
     """
     from yen_gov.canonical.entities_seed import (
         compile_to_parquet as _compile_entities,
@@ -369,15 +377,17 @@ def emit_taxonomy(
             f"{prefix}: wrote {rows} rows to datasets/taxonomy/entities.parquet"
         )
 
-        # 6) office_holdings -> dim_offices + holdings; upserts sources.
-        #    Post-v1.1, legacy CM rows use office_citations while new
-        #    national-office rows use official citation_groups. Step 5 must
+        # 6) office_holdings -> dim_offices + holdings.
+        #    Post-B3-pt2 (2026-06-06): the Wikipedia "List of CMs" + per-
+        #    office citation_groups rows live in
+        #    ``datasets/data/entities/source.csv`` (B2a/source_csv path),
+        #    not in the now-retired taxonomy/sources.parquet. The seed
+        #    no longer takes a sources_parquet arg. Step 5 must still
         #    run before step 6 so entities.parquet is fresh.
         office_holdings_json = taxonomy_dir / "office_holdings.json"
         office_count, holdings_count = _compile_office_holdings(
             office_holdings_json,
             taxonomy_dir / "entities.parquet",
-            taxonomy_dir / "sources.parquet",
             governments_dir / "dim_offices.parquet",
             governments_dir / "governments_office_holdings.parquet",
         )

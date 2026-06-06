@@ -193,18 +193,18 @@ def test_emits_offices_and_holdings_with_presidents_rule_null(tmp_path):
             },
         ],
     )
-    sources_parquet = tmp_path / "sources.parquet"
     dim_offices = tmp_path / "dim_offices.parquet"
     holdings = tmp_path / "holdings.parquet"
     office_count, holdings_count = compile_to_parquet(
         holdings_json,
         entities_parquet,
-        sources_parquet,
         dim_offices,
         holdings,
     )
     assert office_count == 1
     assert holdings_count == 2
+    # Post-B3-pt2: sources.parquet sibling is NOT emitted.
+    assert not (tmp_path / "sources.parquet").exists()
     # office row
     offices = _rows(dim_offices)
     assert offices[0][0] == "IN-S22-CM"
@@ -226,75 +226,15 @@ def test_emits_offices_and_holdings_with_presidents_rule_null(tmp_path):
     assert elected[5] is None  # tenure_status remains optional for legacy CM rows
     assert elected[6] == "m-k-stalin"  # person_slug
     assert elected[7] == "M. K. Stalin"
-    # source FK
-    assert pr[-1] == elected[-1]  # both cite same wiki source per office
-    # sources.parquet upserted with the wiki citation
-    sources = _rows(sources_parquet)
-    assert len(sources) == 1
-    src = sources[0]
-    assert src[1] == "Wikipedia"
-    assert src[2] == "List of Chief Ministers of Tamil Nadu"
-    assert src[5] == "silver"  # confidence_tier
-    assert src[6] is False  # is_issuing_authority
-    assert src[7] == "transcribed"  # verification_method
-    assert src[8] == "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Tamil_Nadu"
-
-
-def test_upsert_preserves_existing_sources(tmp_path):
-    """If sources.parquet already has unrelated rows, they're preserved
-    on UPSERT -- the seed only adds/replaces its own Wikipedia rows.
-    """
-    entities_parquet = _write_entities_parquet(tmp_path)
-    holdings_json = _write_office_holdings(
-        tmp_path,
-        holdings=[
-            {
-                "office_id": "IN-S22-CM",
-                "start_date": "2021-05-07",
-                "regime": "elected",
-                "person_name": "M. K. Stalin",
-                "party_eci_code": "582",
-            },
-        ],
+    # source FK: both holdings cite the same wiki source per office.
+    assert pr[-1] == elected[-1]
+    # The derived source_id matches the Wikipedia CM citation triple.
+    expected_wiki_sid = derive_source_id(
+        "Wikipedia",
+        "List of Chief Ministers of Tamil Nadu",
+        "operator-snapshot-2026-05",
     )
-    sources_parquet = tmp_path / "sources.parquet"
-    con = duckdb.connect()
-    try:
-        con.execute(
-            """
-            CREATE TABLE s (
-                source_id VARCHAR NOT NULL, producer VARCHAR NOT NULL,
-                title VARCHAR NOT NULL, vintage VARCHAR NOT NULL,
-                license VARCHAR NOT NULL, confidence_tier VARCHAR NOT NULL,
-                is_issuing_authority BOOLEAN NOT NULL,
-                verification_method VARCHAR NOT NULL,
-                url_main VARCHAR, citation_full VARCHAR, notes VARCHAR
-            )
-            """
-        )
-        con.execute(
-            """INSERT INTO s VALUES
-            ('src-existingone', 'Election Commission of India',
-             'ECI Statistical Report S22', 'AcGenMay2021',
-             'OGL-IN-1.0', 'gold', TRUE, 'live-fetch',
-             'https://example.com', NULL, NULL)"""
-        )
-        con.execute(
-            f"COPY s TO '{sources_parquet.as_posix()}' (FORMAT PARQUET)"
-        )
-    finally:
-        con.close()
-    compile_to_parquet(
-        holdings_json,
-        entities_parquet,
-        sources_parquet,
-        tmp_path / "dim_offices.parquet",
-        tmp_path / "holdings.parquet",
-    )
-    sources = _rows(sources_parquet)
-    assert len(sources) == 2
-    sids = {r[0] for r in sources}
-    assert "src-existingone" in sids
+    assert elected[-1] == expected_wiki_sid
 
 
 def test_compile_is_deterministic(tmp_path):
@@ -312,17 +252,14 @@ def test_compile_is_deterministic(tmp_path):
             },
         ],
     )
-    s1 = tmp_path / "s1.parquet"
-    s2 = tmp_path / "s2.parquet"
     o1 = tmp_path / "o1.parquet"
     o2 = tmp_path / "o2.parquet"
     h1 = tmp_path / "h1.parquet"
     h2 = tmp_path / "h2.parquet"
-    compile_to_parquet(holdings_json, entities_parquet, s1, o1, h1)
-    compile_to_parquet(holdings_json, entities_parquet, s2, o2, h2)
+    compile_to_parquet(holdings_json, entities_parquet, o1, h1)
+    compile_to_parquet(holdings_json, entities_parquet, o2, h2)
     assert o1.read_bytes() == o2.read_bytes()
     assert h1.read_bytes() == h2.read_bytes()
-    assert s1.read_bytes() == s2.read_bytes()
 
 
 def test_schema_version_constants():
@@ -353,7 +290,6 @@ def test_missing_office_bearer_raises(tmp_path):
         compile_to_parquet(
             holdings_json,
             entities_parquet,
-            tmp_path / "sources.parquet",
             tmp_path / "dim_offices.parquet",
             tmp_path / "holdings.parquet",
         )
@@ -387,7 +323,6 @@ def test_holding_without_citation_raises(tmp_path):
         compile_to_parquet(
             holdings_json,
             entities_parquet,
-            tmp_path / "sources.parquet",
             tmp_path / "dim_offices.parquet",
             tmp_path / "holdings.parquet",
         )
@@ -417,14 +352,12 @@ def test_non_cm_office_uses_official_citation_group(tmp_path):
             }
         ],
     )
-    sources_parquet = tmp_path / "sources.parquet"
     dim_offices = tmp_path / "dim_offices.parquet"
     holdings = tmp_path / "holdings.parquet"
 
     office_count, holdings_count = compile_to_parquet(
         holdings_json,
         entities_parquet,
-        sources_parquet,
         dim_offices,
         holdings,
     )
@@ -441,11 +374,10 @@ def test_non_cm_office_uses_official_citation_group(tmp_path):
     assert hold[5] == "substantive"
     assert hold[6] == "smt-droupadi-murmu"
     assert hold[-1] == expected_source_id
-    source = _rows(sources_parquet)[0]
-    assert source[0] == expected_source_id
-    assert source[1] == "President's Secretariat"
-    assert source[5] == "gold"
-    assert source[6] is True
+    # Post-B3-pt2: no sources.parquet sibling. The citation row
+    # (President's Secretariat / Profile / ...) lives in source.csv
+    # seeded via B2a; here we only assert the derived source_id FK.
+    assert not (tmp_path / "sources.parquet").exists()
 
 
 def test_missing_referenced_citation_group_raises(tmp_path):
@@ -475,7 +407,6 @@ def test_missing_referenced_citation_group_raises(tmp_path):
         compile_to_parquet(
             holdings_json,
             entities_parquet,
-            tmp_path / "sources.parquet",
             tmp_path / "dim_offices.parquet",
             tmp_path / "holdings.parquet",
         )
@@ -485,9 +416,10 @@ def test_legacy_office_citations_and_citation_groups_coexist(tmp_path):
     entities_parquet = _write_entities_parquet(
         tmp_path, include_national_offices=True
     )
+    pres_group = _official_president_group()
     holdings_json = _write_office_holdings(
         tmp_path,
-        citation_groups={"president-profile": _official_president_group()},
+        citation_groups={"president-profile": pres_group},
         holdings=[
             {
                 "office_id": "IN-S22-CM",
@@ -510,27 +442,43 @@ def test_legacy_office_citations_and_citation_groups_coexist(tmp_path):
             },
         ],
     )
+    holdings = tmp_path / "holdings.parquet"
     compile_to_parquet(
         holdings_json,
         entities_parquet,
-        tmp_path / "sources.parquet",
         tmp_path / "dim_offices.parquet",
-        tmp_path / "holdings.parquet",
+        holdings,
     )
-    sources = _rows(tmp_path / "sources.parquet")
-    assert {row[1] for row in sources} == {"Wikipedia", "President's Secretariat"}
+    # Post-B3-pt2: the seed no longer emits sources.parquet, so the
+    # legacy/group coexistence assertion shifts from "both producers
+    # appear in the sources sibling" to "each holding gets the
+    # correct derived source_id FK".
+    wiki_sid = derive_source_id(
+        "Wikipedia",
+        "List of Chief Ministers of Tamil Nadu",
+        "operator-snapshot-2026-05",
+    )
+    pres_sid = derive_source_id(
+        pres_group["producer"], pres_group["title"], pres_group["vintage"]
+    )
+    hold_rows = _rows(holdings)
+    by_office = {row[0]: row[-1] for row in hold_rows}
+    assert by_office["IN-S22-CM"] == wiki_sid
+    assert by_office["IN-PRES"] == pres_sid
 
 
 def test_official_president_vp_rows_do_not_use_tcpd_or_wikipedia(tmp_path):
     entities_parquet = _write_entities_parquet(
         tmp_path, include_national_offices=True
     )
+    pres_group = _official_president_group()
+    vp_group = _official_vp_group()
     holdings_json = _write_office_holdings(
         tmp_path,
         office_citations={},
         citation_groups={
-            "president-profile": _official_president_group(),
-            "vp-former-list": _official_vp_group(),
+            "president-profile": pres_group,
+            "vp-former-list": vp_group,
         },
         holdings=[
             {
@@ -559,28 +507,40 @@ def test_official_president_vp_rows_do_not_use_tcpd_or_wikipedia(tmp_path):
             },
         ],
     )
+    holdings_path = tmp_path / "holdings.parquet"
     compile_to_parquet(
         holdings_json,
         entities_parquet,
-        tmp_path / "sources.parquet",
         tmp_path / "dim_offices.parquet",
-        tmp_path / "holdings.parquet",
+        holdings_path,
     )
-    con = duckdb.connect()
-    try:
-        rows = con.execute(
-            f"""
-            SELECT h.office_id, s.producer
-            FROM read_parquet('{(tmp_path / "holdings.parquet").as_posix()}') h
-            JOIN read_parquet('{(tmp_path / "sources.parquet").as_posix()}') s
-              USING (source_id)
-            ORDER BY h.office_id
-            """
-        ).fetchall()
-    finally:
-        con.close()
-    assert rows == [
-        ("IN-PRES", "President's Secretariat"),
-        ("IN-VPRES", "Vice President Office, Government of India"),
-    ]
-    assert not ({producer for _, producer in rows} & {"Wikipedia", "TCPD"})
+    # Post-B3-pt2: the source.parquet sibling is gone; we assert FK
+    # source_id closure by computing the expected source_ids and
+    # checking each holding's FK column points at the matching
+    # official citation-group source, not at any Wikipedia / TCPD
+    # derived source_id.
+    pres_sid = derive_source_id(
+        pres_group["producer"], pres_group["title"], pres_group["vintage"]
+    )
+    vp_sid = derive_source_id(
+        vp_group["producer"], vp_group["title"], vp_group["vintage"]
+    )
+    # Per-state Wikipedia CM citation triple does NOT show up here.
+    # IN-S22 is not in the entities fixture, but we can still assert
+    # a few canonical Wikipedia/TCPD triples are NOT the source_id.
+    forbidden = {
+        derive_source_id(
+            "Wikipedia",
+            "List of Chief Ministers of Tamil Nadu",
+            "operator-snapshot-2026-05",
+        ),
+        derive_source_id(
+            "TCPD",
+            "office-bearers",
+            "operator-snapshot-2026-05",
+        ),
+    }
+    by_office = {row[0]: row[-1] for row in _rows(holdings_path)}
+    assert by_office["IN-PRES"] == pres_sid
+    assert by_office["IN-VPRES"] == vp_sid
+    assert set(by_office.values()).isdisjoint(forbidden)

@@ -7,8 +7,18 @@ the writer of:
     identity present in the authored holdings.
 - ``datasets/governments/governments_office_holdings.parquet`` -- one
     row per office tenure or vacancy/regime interval.
-- Side effect: UPSERT citation rows into ``datasets/data/entities/source.csv``
-    so every holdings row's ``source_id`` resolves to a real ledger entry.
+
+Post-B3-pt2 (2026-06-06): the legacy side-effect of UPSERTing the
+office citation rows into ``datasets/taxonomy/sources.parquet`` was
+removed. X1b retired ``sources.parquet`` (PR #814); the citation ledger
+is now ``datasets/data/entities/source.csv`` and the 31 Wikipedia "List
+of Chief Ministers of <state>" rows + the per-office citation-group rows
+referenced by ``office_holdings.json`` are seeded there once via the
+B2a/source_csv path. The in-process FK gate inside ``compile_to_parquet``
+(every holding row must resolve to either an ``office_citations`` URL
+or a ``citation_groups`` entry) still catches a missing citation row
+before any bytes hit disk; cross-format FK closure against source.csv
+is enforced downstream by the B1 fk-validator gate.
 
 G.1.c role (2026-05-22, consolidation): the 31 per-state cm_terms.json
 files were retired in favour of one consolidated
@@ -65,10 +75,12 @@ TODO/20260522-g1-cm-terms-retirement-handover.md §G.1.c):
        When DCM / Gov / PM land, the per-role template + this map
        handles them. Schema-evolve later if needed.
     5. Have this seed OVERWRITE ``sources.parquet`` rather than upsert.
-       Would wipe the 55+ existing ECI envelope-derived source rows
-       on every re-run. The canonical singleton-ledger contract
-       requires accumulation, not replacement. Unchanged from
-       cm_terms_seed.py rejected #4.
+       Moot post-B3-pt2 (2026-06-06) -- this seed no longer writes
+       to ``sources.parquet`` at all. The citation rows live in
+       ``datasets/data/entities/source.csv`` seeded once via the
+       B2a/source_csv path; the canonical singleton-ledger contract
+       still requires accumulation (B2a uses CSV-row UPSERT keyed on
+       source_id, not overwrite).
     6. Materialise one office row per regime (separate office_id for
        "elected-CM" vs "presidents_rule-Governor"). The OFFICE is the
        CM seat in both cases; the regime difference is captured on the
@@ -268,22 +280,6 @@ def _state_display_from_label(label: str, role: str = "CM") -> str:
     return label[len(prefix):]
 
 
-def _source_row_from_group(source_id: str, group: _CitationGroup) -> tuple:
-    return (
-        source_id,
-        group.producer,
-        group.title,
-        group.vintage,
-        group.license,
-        group.confidence_tier,
-        group.is_issuing_authority,
-        group.verification_method,
-        group.url_main,
-        group.citation_full,
-        group.notes,
-    )
-
-
 # ----------------------------------------------------------------------
 # Compile
 # ----------------------------------------------------------------------
@@ -292,12 +288,10 @@ def _source_row_from_group(source_id: str, group: _CitationGroup) -> tuple:
 def compile_to_parquet(
     office_holdings_json: Path,
     entities_parquet: Path,
-    sources_parquet: Path,
     dim_offices_out: Path,
     holdings_out: Path,
 ) -> tuple[int, int]:
-    """Read the consolidated holdings file, emit dim_offices + holdings,
-    UPSERT sources.
+    """Read the consolidated holdings file, emit dim_offices + holdings.
 
     Args:
         office_holdings_json: path to ``datasets/taxonomy/office_holdings.json``.
@@ -307,15 +301,23 @@ def compile_to_parquet(
             office IDENTITY (the 31 dim_offices rows for CM today) is
             read from ``WHERE entity_type='office_bearer' AND
             entity_code='CM'``. Unchanged from G.1.b.
-        sources_parquet: path to ``datasets/data/entities/source.csv``;
-            opened, augmented with 1 Wikipedia citation per office,
-            written back. Idempotent across re-runs.
         dim_offices_out: output path for ``dim_offices.parquet``.
         holdings_out: output path for
             ``governments_office_holdings.parquet``.
 
     Returns:
         ``(office_count, holdings_count)`` for orchestrator logging.
+
+    Post-B3-pt2 (2026-06-06): the ``sources_parquet`` arg was removed.
+    The Wikipedia "List of Chief Ministers of <state>" citation rows
+    (31 today) and the per-office ``citation_groups`` rows live in
+    ``datasets/data/entities/source.csv`` seeded once via the
+    B2a/source_csv path; this seed no longer UPSERTs them. The
+    in-process FK gate inside this function (every holdings row must
+    resolve to either an ``office_citations`` URL or a
+    ``citation_groups`` entry) still catches a missing citation row
+    before any bytes hit disk; cross-format FK closure against
+    source.csv is enforced downstream by the B1 fk-validator gate.
     """
     office_identities = _load_office_bearer_identities(Path(entities_parquet))
 
@@ -324,12 +326,16 @@ def compile_to_parquet(
         raw.pop(k, None)
     file = _OfficeHoldingsFile.model_validate(raw)
 
-    # Per-office legacy citation rows -- one row per CM office_id present in
-    # office_citations. New non-CM rows use citation_groups instead.
-    new_sources: dict[str, tuple] = {}  # source_id -> source row tuple
+    # Per-office legacy citation rows -- one source_id per CM office_id
+    # present in office_citations. New non-CM rows use citation_groups
+    # instead. The source rows themselves live in source.csv (B2a era);
+    # this loop only derives the deterministic source_id for FK closure.
+    # The ``citation.url_main`` field is validated for non-emptiness by
+    # the Pydantic ``_OfficeCitation`` model at load time; this seeder
+    # no longer reads it because the source.csv row carries the URL.
     office_source_ids: dict[str, str] = {}  # office_id -> source_id
 
-    for office_id, citation in sorted(file.office_citations.items()):
+    for office_id, _citation in sorted(file.office_citations.items()):
         identity = office_identities.get(office_id)
         if identity is None:
             raise ValueError(
@@ -348,27 +354,13 @@ def compile_to_parquet(
                 f"for non-CM office holdings."
             )
         vintage = "operator-snapshot-2026-05"  # Wikipedia pages have no publisher vintage; per ADR-0042 use operator-snapshot anchor
-        source_id = derive_source_id(producer, title, vintage)
-        new_sources[source_id] = (
-            source_id,
-            producer,
-            title,
-            vintage,
-            "CC-BY-4.0",
-            "silver",
-            False,  # is_issuing_authority
-            "transcribed",
-            citation.url_main,
-            None,  # citation_full
-            None,  # notes
-        )
-        office_source_ids[office_id] = source_id
+        office_source_ids[office_id] = derive_source_id(producer, title, vintage)
 
     citation_group_source_ids: dict[str, str] = {}
     for group_id, group in sorted(file.citation_groups.items()):
-        source_id = derive_source_id(group.producer, group.title, group.vintage)
-        citation_group_source_ids[group_id] = source_id
-        new_sources[source_id] = _source_row_from_group(source_id, group)
+        citation_group_source_ids[group_id] = derive_source_id(
+            group.producer, group.title, group.vintage
+        )
 
     # Holdings rows -- look up source_id by office_id.
     holding_rows: list[tuple] = []
@@ -494,50 +486,6 @@ def compile_to_parquet(
             COPY (
                 SELECT * FROM holdings ORDER BY office_id, start_date
             ) TO '{Path(holdings_out).as_posix()}' (FORMAT PARQUET)
-            """
-        )
-
-        # ----- sources upsert ------------------------------------------
-        # Read existing rows, drop any whose source_id we're about to
-        # write (idempotency -- re-running yields byte-identical output),
-        # union with new rows, sort, write back.
-        existing_path = Path(sources_parquet)
-        existing_path.parent.mkdir(parents=True, exist_ok=True)
-        con.execute(
-            """
-            CREATE TABLE sources (
-                source_id VARCHAR NOT NULL,
-                producer VARCHAR NOT NULL,
-                title VARCHAR NOT NULL,
-                vintage VARCHAR NOT NULL,
-                license VARCHAR NOT NULL,
-                confidence_tier VARCHAR NOT NULL,
-                is_issuing_authority BOOLEAN NOT NULL,
-                verification_method VARCHAR NOT NULL,
-                url_main VARCHAR,
-                citation_full VARCHAR,
-                notes VARCHAR
-            )
-            """
-        )
-        if existing_path.is_file():
-            con.execute(
-                f"INSERT INTO sources SELECT * FROM read_parquet('{existing_path.as_posix()}')"
-            )
-        # UPSERT -- delete any rows with source_ids we're about to write,
-        # then insert the new versions. Keeps re-runs byte-identical.
-        if new_sources:
-            sid_list = ",".join(f"'{sid}'" for sid in sorted(new_sources))
-            con.execute(f"DELETE FROM sources WHERE source_id IN ({sid_list})")
-            con.executemany(
-                "INSERT INTO sources VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                [new_sources[sid] for sid in sorted(new_sources)],
-            )
-        con.execute(
-            f"""
-            COPY (
-                SELECT * FROM sources ORDER BY source_id
-            ) TO '{existing_path.as_posix()}' (FORMAT PARQUET)
             """
         )
     finally:
