@@ -47,10 +47,45 @@
     },
     {
       "surface": "canonical-manifest-reader",
+      "schema": "dim-acs.schema.json",
+      "accepted_versions": ["1.0", "1.1"],
+      "validation": "current_schema",
+      "rationale": "Row G2 makes runtime table registration fail loud on unsupported schema versions; dim_acs v1.1 is additive (nullable lgd_ac_id, ADR-0049) and current-schema validation remains valid for v1.0 rows."
+    },
+    {
+      "surface": "canonical-manifest-reader",
+      "schema": "dim-parties.schema.json",
+      "accepted_versions": ["1.0", "1.1"],
+      "validation": "current_schema",
+      "rationale": "Row G2 makes runtime table registration fail loud on unsupported schema versions; dim_parties v1.1 is additive (5 nullable mirror cols for brand_colour / wikipedia_url / election_symbol per PR-SYM-6b) and current-schema validation remains valid for v1.0 rows."
+    },
+    {
+      "surface": "canonical-manifest-reader",
+      "schema": "dim-pcs.schema.json",
+      "accepted_versions": ["1.0"],
+      "validation": "current_schema",
+      "rationale": "Lok Sabha PC dimension table (UK-style elections plan, Lane A). Runtime table registration fails loud on unsupported schema versions; current dim_pcs tables use v1.0."
+    },
+    {
+      "surface": "canonical-manifest-reader",
       "schema": "dim-party-alliances.schema.json",
       "accepted_versions": ["1.0"],
       "validation": "current_schema",
       "rationale": "Row G2 makes runtime table registration fail loud on unsupported schema versions; current dim_party_alliances tables use v1.0."
+    },
+    {
+      "surface": "canonical-manifest-reader",
+      "schema": "dim-persons.schema.json",
+      "accepted_versions": ["2.0"],
+      "validation": "current_schema",
+      "rationale": "Row G2 makes runtime table registration fail loud on unsupported schema versions; current dim_persons tables use v2.0."
+    },
+    {
+      "surface": "canonical-manifest-reader",
+      "schema": "elections-candidacies.schema.json",
+      "accepted_versions": ["1.1", "1.2"],
+      "validation": "current_schema",
+      "rationale": "Row G2 makes runtime table registration fail loud on unsupported schema versions; elections_candidacies v1.2 (EGC-B2) is additive + relaxing — optional pc_id FK, nullable ac_id, widened candidacy_key pattern for Lok Sabha (PC) candidacies — so current-schema validation remains valid for v1.1 AC rows."
     },
     {
       "surface": "canonical-manifest-reader",
@@ -72,6 +107,20 @@
       "accepted_versions": ["1.0"],
       "validation": "current_schema",
       "rationale": "Row G2 makes runtime table registration fail loud on unsupported schema versions; current taxonomy.methodology_breaks uses v1.0."
+    },
+    {
+      "surface": "canonical-manifest-reader",
+      "schema": "persons.schema.json",
+      "accepted_versions": ["1.0"],
+      "validation": "current_schema",
+      "rationale": "Row G2 makes runtime table registration fail loud on unsupported schema versions; current taxonomy.persons uses v1.0."
+    },
+    {
+      "surface": "canonical-manifest-reader",
+      "schema": "source.schema.json",
+      "accepted_versions": ["3.0"],
+      "validation": "current_schema",
+      "rationale": "Row G2 makes runtime table registration fail loud on unsupported schema versions; current taxonomy.sources uses v3.0."
     },
     {
       "surface": "json-corpus",
