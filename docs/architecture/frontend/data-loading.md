@@ -1,6 +1,6 @@
 # Frontend Data Loading
 
-**Last Updated**: 2026-05-30
+**Last Updated**: 2026-06-06
 
 How the frontend bundle reads `datasets/` artifacts. Covers the dev-time Vite middleware, the production CI staging step, and the `/explore` page's in-browser SQL via DuckDB-WASM.
 
@@ -389,6 +389,44 @@ The canonical observations now carry three new `ac-*` indicators:
 **Why this matters (real data).** Re-emitting AcGenMay2026 produces these field-size buckets across 823 ACs: 9 ACs with 2 contestants, 21 with 3, 45 with 4, 55 with exactly 5; *764 with 6 or more — including one AC with 79 contestants*. The pre-PR heading silently hid the tail on 87% of ACs (6208 / 7168 in the full corpus). The fix is one line of HTML and one new view-model field; it removes a Hans-factfulness violation that had been present since Phase 1.3a.
 
 **Test stance.** Extends the existing `constituency.test.ts` happy-path fixture with the three new `ac-*` rows + an `others` + `candidates_total` assertion. No new test file, no new Playwright spec — the change is a fixture extension, not a new contract.
+
+## CSV loader seam (F1.1 - F1.3, distilled 2026-06-06)
+
+The frontend's path from `read_parquet(...)` to `read_csv(columns=...)` shipped as four PRs under sub-plan [docs/archive/plans/20260605-f1-csv-loaders-and-oracle-rewrite-subplan.md](../../archive/plans/20260605-f1-csv-loaders-and-oracle-rewrite-subplan.md). The seam is now stable; X1a will atomically retire the surviving Parquet readers (`dim_parties`, `taxonomy.sources`, `dim_party_alliances`).
+
+### Backend parity oracle reading CSV (F1.1, PR #791)
+
+`backend/tests/test_canonical_parity_oracle.py` reads the per-(state, year) `candidacies.csv` instead of the four legacy Parquets and asserts per-AC FPTP winner + party_short + votes against `backend/tests/fixtures/canonical_winners_2026_05_19.json` byte-exact. See [Parity oracle](../backend/canonical-writer.md#parity-oracle-f11---2026-06-06-distilled-in-f14) on `canonical-writer.md` for the per-slice glob shape, the floor 34 -> 35 raise from the Path A mash, and the 6 residue slices in `_KNOWN_ABSENT_SLICES`.
+
+### Frontend loader seam (F1.2, PR #778)
+
+[`frontend/src/lib/duckdb.ts`](../../../frontend/src/lib/duckdb.ts) renamed `queryParquet<T>(sql)` -> `queryCsv<T>(sql, columns)` plus an internal `registerCsvFile(url)` helper that DuckDB-WASM's `read_csv(...)` consumes. The old `queryParquet` symbol survives as a deprecation re-export so the view-models still on Parquet (`dim_parties`, `taxonomy.sources`) keep compiling until X1a flips them. The doctrine block on [`frontend/src/lib/canonical/indicator-allowlist.ts`](../../../frontend/src/lib/canonical/indicator-allowlist.ts) was scrubbed of `<family>/<table>.parquet` references in the same PR.
+
+The two typed-read helpers that every CSV-flipped view-model imports:
+
+- [`frontend/src/lib/canonical/csv-columns.ts`](../../../frontend/src/lib/canonical/csv-columns.ts) - async `csvColumnsClause(fileClass)` fetches `datasets/data/_schema/columns.json` once and builds the typed DuckDB `columns={...}` SQL fragment per file class. No hand-typed column lists; this is the reader side of the writer/reader/drift-test triangle below.
+- [`frontend/src/lib/canonical/election-csv-paths.ts`](../../../frontend/src/lib/canonical/election-csv-paths.ts) - derives `datasets/elections/{assembly,parliament}/state=*/election=*/{candidacies,summary}.csv` paths from `(state_code, event_id)`; exports `eventYear(eventId)` so the trailing 4-digit year (`AcGenApr2016` -> 2016) resolves uniformly.
+
+### Frontend view-model SQL flip (F1.3a PR #803 + F1.3b PR #806)
+
+Six view-model files moved from `read_parquet(...)` joining `dim_persons` + `dim_acs` + `elections_candidacies` + `election_results` to `read_csv(columns=...)` against per-(state, year) candidacies + `entities/electoral.csv`. F1.3a landed the three assembly-side view-models; F1.3b landed the three remaining (plus 29 `LsGenApr2019` event-pointer rows in `datasets/data/election_events.csv` to unblock the national-elections smoke):
+
+| PR | View-model files flipped |
+| --- | --- |
+| F1.3a #803 | [`view-models/constituency.ts`](../../../frontend/src/lib/view-models/constituency.ts), [`view-models/state-overview.ts`](../../../frontend/src/lib/view-models/state-overview.ts), [`psephlab/canonical-loaders.ts`](../../../frontend/src/lib/psephlab/canonical-loaders.ts) |
+| F1.3b #806 | [`view-models/national-elections.ts`](../../../frontend/src/lib/view-models/national-elections.ts), [`yenask/concepts.ts`](../../../frontend/src/lib/yenask/concepts.ts), [`explore/duckdb-views.ts`](../../../frontend/src/lib/explore/duckdb-views.ts) |
+
+Biographic columns (`sex, age, education, profession`) now ride INLINE on `candidacies.csv` per parent plan section 21.3; the `dim_persons` JOIN that pre-F1 view-models carried is gone from these six callers. `dim_parties` + `taxonomy.sources` + `dim_party_alliances` stay on Parquet through F1 and flip in X1a. One known regression: `winner_age` reads null on National PC tooltips (the `dim_persons.age` JOIN retired) - recovery deferred to X1a or a follow-up via candidacies.csv JOIN on `(entity_id, candidate_name=winner_candidate)`.
+
+### CSV column contract
+
+The single authoritative home for every file's column schema (name + dtype + nullability + sort key) is `datasets/data/_schema/columns.json`, per parent plan section 21.2. The writer/reader/drift-test triangle that pins the seam:
+
+- **Writer** (`yen_gov.canonical.csv_writer.write_csv`) - rejects undeclared columns + wrong dtypes at emit time.
+- **Reader** (`csvColumnsClause(fileClass)` above) - issues a typed `read_csv(columns={...})` per file class; never `read_csv_auto`.
+- **Drift gate** (`backend/tests/test_canonical_parity_oracle.py` + the per-file-class writer + validator tests) - asserts every emitted CSV's header matches its file class declaration and that the frontend codegen's typed-read column map agrees row-for-row with the writer's contract.
+
+See [Canonical CSV writer](../backend/canonical-writer.md) for the writer side of this triangle.
 
 ## See also
 
