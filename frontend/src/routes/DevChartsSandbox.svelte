@@ -862,4 +862,44 @@
       height={400}
     />
   </section>
+
+  <!-- F2b.7 GeoChoropleth{symbol} demo (parent plan section 15.1
+       row 2; mode extension to F2b.3). Same fixture as F2b.3 but
+       drawn as a centroid-positioned dot cartogram with sqrt-area
+       radii (HONESTY: a 4x value reads as 2x radius, not 4x). A
+       faint base outline still draws so the citizen sees geography
+       context. Lakshadweep + A&N get the minimum glyph size;
+       Maharashtra (largest value) gets the maximum. -->
+  <section class="space-y-3" data-testid="f2b7-section">
+    <h2 class="text-lg font-semibold">F2b.7 - GeoChoropleth{`{`}symbol{`}`} (icon-cartogram extension)</h2>
+    <p class="text-sm text-slate-600">
+      Renderer #2 from <a class="underline" href="../docs/reference/chart-index.md">chart-index.md section 1</a>:
+      the mode extension that turns GeoChoropleth into a dot
+      cartogram. Centroid via d3-geo.geoCentroid(); glyph area via
+      the shared sqrtAreaScale() helper from F2b.2. Same prop API
+      as F2b.3 - the only new prop is <code>mode="symbol"</code> -
+      so a caller can swap idioms by flipping ONE prop value.
+    </p>
+    <p class="text-xs text-slate-500">
+      Fixture data is illustrative; numbers MUST NOT be cited. The
+      island UTs render as the smallest visible glyphs (sqrt scale
+      maps near-zero values to <code>symbol_min_radius_px</code>).
+    </p>
+    <GeoChoropleth
+      topojson_path="/boundaries/in/states/all.topojson"
+      feature_key="State_LGD"
+      rows={f2b3_state_rows}
+      direction="higher_is_better"
+      format_tick=".2s"
+      format_value={(v) => fmtGw(v)}
+      title="Installed capacity by state - symbol-mode dot cartogram (synthetic)"
+      source_owner="Synthetic sandbox fixture"
+      source_vintage="2026-06-06 (illustrative)"
+      mode="symbol"
+      symbol_min_radius_px={6}
+      symbol_max_radius_px={40}
+      width={640}
+      height={520}
+    />
+  </section>
 </section>

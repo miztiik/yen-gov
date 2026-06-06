@@ -34,6 +34,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import {
+    geoCentroid,
     geoMercator,
     geoPath,
     type GeoPermissibleObjects,
@@ -52,6 +53,7 @@
   import { type Direction } from "../indicators";
   import {
     binnedSequential,
+    sqrtAreaScale,
     type BinnedSequentialScale,
   } from "./color-scale";
   import ChoroplethLegend from "./ChoroplethLegend.svelte";
@@ -62,6 +64,15 @@
     rowsByFeatureKey,
     type GeoChoroplethRow,
   } from "./geo-choropleth-helpers";
+
+  /** Renderer mode discriminator (F2b.7 extension to F2b.3).
+   *   - "fill" (default): chloropleth - polygons filled by colour scale.
+   *   - "symbol":         icon-cartogram - one centroid-positioned glyph
+   *                       per region, area-sized via sqrt(value). Base
+   *                       outline still renders behind glyphs (faint)
+   *                       so the citizen sees geography context.
+   */
+  export type GeoChoroplethMode = "fill" | "symbol";
 
   interface Props {
     /** DATA_BASE-relative topojson path, e.g.
@@ -100,6 +111,13 @@
     width?: number;
     /** SVG height in px. */
     height?: number;
+    /** Renderer mode. Default "fill" preserves F2b.3 byte-identical
+     *  behaviour for callers that don't supply the prop. */
+    mode?: GeoChoroplethMode;
+    /** Symbol mode: minimum glyph radius in px. Default 6. */
+    symbol_min_radius_px?: number;
+    /** Symbol mode: maximum glyph radius in px. Default 36. */
+    symbol_max_radius_px?: number;
   }
 
   const {
@@ -118,6 +136,9 @@
     source_url = null,
     width = 640,
     height = 480,
+    mode = "fill",
+    symbol_min_radius_px = 6,
+    symbol_max_radius_px = 36,
   }: Props = $props();
 
   let collection = $state<FeatureCollection<Geometry, GeoJsonProperties> | null>(null);
@@ -217,6 +238,55 @@
     return { projection, path };
   });
 
+  // Symbol-mode sqrt-area scale (F2b.7). Sized by sqrt(value) per
+  // parent §15.1 HONESTY rule (a 4x value reads as 2x glyph radius,
+  // not 4x). Built on F2b.2's sqrtAreaScale helper.
+  const symbol_size_scale = $derived.by(() => {
+    return sqrtAreaScale({
+      max_value: Math.max(0, resolved_domain.max),
+      range_min_px: symbol_min_radius_px,
+      range_max_px: symbol_max_radius_px,
+    });
+  });
+
+  // Symbol-mode centroids: project each feature's geoCentroid via
+  // the same projection the fill mode uses, so glyph positions stay
+  // exactly on top of the feature they represent. Returns null until
+  // the topojson loads (the renderer falls through to "Loading...").
+  const symbol_features = $derived.by(() => {
+    if (mode !== "symbol" || !collection || !projection_path) return null;
+    const items: Array<{
+      key: string;
+      cx: number;
+      cy: number;
+      r: number;
+      fill: string;
+      raw_value: number | null;
+    }> = [];
+    for (const f of collection.features) {
+      const key = f.properties?.[feature_key];
+      if (key == null) continue;
+      const value = value_by_key.get(String(key)) ?? null;
+      // Project the geoCentroid via the SAME projection so glyphs
+      // sit exactly on top of the polygon they represent.
+      const [lng, lat] = geoCentroid(f);
+      if (!Number.isFinite(lng) || !Number.isFinite(lat)) continue;
+      const projected = projection_path.projection([lng, lat]);
+      if (!projected || !Number.isFinite(projected[0]) || !Number.isFinite(projected[1])) {
+        continue;
+      }
+      items.push({
+        key: String(key),
+        cx: projected[0],
+        cy: projected[1],
+        r: symbol_size_scale(value),
+        fill: value == null ? "#cbd5e1" : scale.colorForValue(value),
+        raw_value: value,
+      });
+    }
+    return items;
+  });
+
   // Resolve fill for a feature: lookup the row by feature_key, then
   // colorForValue. Null/missing rows fall through to the hatch (via
   // a special return value). The hatch is rendered as a fill
@@ -286,7 +356,7 @@
 <div
   class="geo-choropleth"
   data-component="geo-choropleth"
-  data-mode="fill"
+  data-mode={mode}
   style="width: {width}px;"
 >
   <div class="geo-choropleth__title">{title}</div>
@@ -322,19 +392,62 @@
             <rect width="2" height="6" fill="#d8d8d8" />
           </pattern>
         </defs>
-        {#each collection.features as f}
-          <path
-            d={projection_path.path(f) ?? ""}
-            fill={fillForFeature(f)}
-            stroke="var(--line)"
-            stroke-width="0.5"
-            class="geo-choropleth__feature"
-            data-feature-key={f.properties?.[feature_key] ?? ""}
-            onmouseenter={(e) => onFeatureMouseEnter(f, e)}
-            onmousemove={onFeatureMouseMove}
-            onmouseleave={onFeatureMouseLeave}
-          />
-        {/each}
+        {#if mode === "fill"}
+          {#each collection.features as f}
+            <path
+              d={projection_path.path(f) ?? ""}
+              fill={fillForFeature(f)}
+              stroke="var(--line)"
+              stroke-width="0.5"
+              class="geo-choropleth__feature"
+              data-feature-key={f.properties?.[feature_key] ?? ""}
+              onmouseenter={(e) => onFeatureMouseEnter(f, e)}
+              onmousemove={onFeatureMouseMove}
+              onmouseleave={onFeatureMouseLeave}
+            />
+          {/each}
+        {:else}
+          <!-- Symbol mode (F2b.7): faint base outline so the citizen
+               sees geography context, then one centroid-positioned
+               glyph per region sized by sqrt(value). Per parent §15.1
+               "Missing glyph falls back to a plain sized dot" - this
+               first symbol-mode implementation uses a plain <circle>
+               for every region (the future hook for per-region SVG
+               icons reads from the closed party-symbols allowlist;
+               same fallback shape). -->
+          {#each collection.features as f}
+            <path
+              d={projection_path.path(f) ?? ""}
+              fill="var(--surface-sunken, #f1f5f9)"
+              stroke="var(--line)"
+              stroke-width="0.5"
+              class="geo-choropleth__base-outline"
+              pointer-events="none"
+            />
+          {/each}
+          {#if symbol_features}
+            {#each symbol_features as s (s.key)}
+              <circle
+                cx={s.cx}
+                cy={s.cy}
+                r={s.r}
+                fill={s.fill}
+                stroke="var(--ink)"
+                stroke-width="0.75"
+                fill-opacity={s.raw_value == null ? 0.4 : 0.85}
+                class="geo-choropleth__symbol"
+                data-feature-key={s.key}
+                onmouseenter={(e) => {
+                  hover_feature_key = s.key;
+                  hover_x = e.offsetX + 10;
+                  hover_y = e.offsetY + 10;
+                }}
+                onmousemove={onFeatureMouseMove}
+                onmouseleave={onFeatureMouseLeave}
+              />
+            {/each}
+          {/if}
+        {/if}
       </svg>
 
       {#if hover_payload}
@@ -403,6 +516,18 @@
   .geo-choropleth__feature:hover {
     stroke-width: 1.5;
     stroke: var(--ink);
+  }
+  .geo-choropleth__base-outline {
+    /* Symbol mode: faint outline behind glyphs gives geography
+       context without competing with the data layer. */
+    opacity: 0.4;
+  }
+  .geo-choropleth__symbol {
+    cursor: pointer;
+    transition: stroke-width 120ms ease-out;
+  }
+  .geo-choropleth__symbol:hover {
+    stroke-width: 1.5;
   }
   .geo-choropleth__loading,
   .geo-choropleth__error {
