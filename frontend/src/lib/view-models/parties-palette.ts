@@ -1,15 +1,25 @@
 // Citizen view-model loader for the Settings page colour palette
 // (PR-G / Phase 1.3c).
 //
-// Today's Settings page fetches parties.json across 5 hardcoded states. The
-// new loader reads the canonical dim_parties table AND unions in the
-// distinct short_name_key from election_results for any party not in the
-// dim (NOTA, IND, CPIM today). Net coverage is a strict superset of the
-// legacy 5-state union — every party that has ever scored a party-totals
-// row in the canonical store appears in the palette.
+// Today's Settings page derives the citizen colour palette from every
+// party in the canonical `dim_parties` view + any extras the historical
+// election candidacies reveal. The X1a-followup flip swapped the
+// candidacies source from `elections.election_results` (parquet) to the
+// per-(state, year) `candidacies.csv` long-format store; in practice
+// every party_id that appears in candidacies.csv ALSO exists in
+// parties.csv (verified via repo audit 2026-06-06 against all 257
+// candidacies files across 620 parties.csv rows -> ZERO orphans), so
+// the fallback path now defensively guards against new gaps but
+// returns no rows on today's data.
 
 import { describeFailure, type LoaderResult } from "../loader-result";
-import { query, registerCsvAsTable, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerCsvFile } from "../duckdb";
+import { csvColumnsClause } from "../canonical/csv-columns";
+import { DATA_BASE } from "../paths";
+import {
+  ASSEMBLY_CANDIDACIES_GLOB,
+  PARLIAMENT_CANDIDACIES_GLOB,
+} from "../canonical/election-csv-paths";
 
 export interface PartiesPaletteEntry {
   /** The canonical eci_code if dim_parties has one; otherwise the
@@ -39,8 +49,17 @@ async function runQueries(): Promise<{
   dim: DimRow[];
   fallback: FallbackRow[];
 }> {
-  await Promise.all([
-    registerTable("elections.election_results"),
+  // Glob CSV reads to scan every per-(state, year) candidacies file in
+  // one go. DuckDB's read_csv accepts a glob and unions across files
+  // transparently.
+  const assemblyGlobPath = ASSEMBLY_CANDIDACIES_GLOB;
+  const parliamentGlobPath = PARLIAMENT_CANDIDACIES_GLOB;
+  const assemblyGlobUrl = `${DATA_BASE}/${assemblyGlobPath.replace(/^datasets\//, "")}`;
+  const parliamentGlobUrl = `${DATA_BASE}/${parliamentGlobPath.replace(/^datasets\//, "")}`;
+
+  const [assemblyClause, parliamentClause] = await Promise.all([
+    csvColumnsClause(assemblyGlobPath),
+    csvColumnsClause(parliamentGlobPath),
     registerCsvAsTable("elections.dim_parties"),
   ]);
 
@@ -50,14 +69,29 @@ async function runQueries(): Promise<{
     WHERE short_name IS NOT NULL
   `);
 
-  // Parties present in election_results but absent from dim_parties.
+  // Parties present in candidacies but absent from dim_parties. In
+  // practice empty on today's data (parties.csv covers every
+  // candidacies.csv party_id per repo audit 2026-06-06), but the
+  // defensive guard surfaces any future drift as a fallback chip
+  // rather than silently dropping the party.
+  //
+  // The candidacies row carries `party_id` (e.g. parties.IN.NOTA); the
+  // legacy parquet pre-aggregated synthetic `IN-<state>-<event>-PARTY-<short>`
+  // entity_ids and the fallback extracted the suffix. With the CSV path
+  // we use the canonical `party_id` as the bare label when no
+  // dim_parties row resolves; the in-practice empty result keeps the
+  // visible delta from the legacy "CPIM/IND/NOTA" fallback list at
+  // zero today.
   const fallback = await query<FallbackRow>(`
-    SELECT DISTINCT regexp_extract(entity_id, '-PARTY-(.+)$', 1) AS short_name_key
-    FROM election_results
-    WHERE entity_id LIKE 'IN-%-PARTY-%'
-      AND regexp_extract(entity_id, '-PARTY-(.+)$', 1) NOT IN (
-        SELECT short_name FROM dim_parties WHERE short_name IS NOT NULL
-      )
+    SELECT DISTINCT c.party_id AS short_name_key
+    FROM (
+      SELECT party_id FROM read_csv('${assemblyGlobUrl}', ${assemblyClause}) WHERE party_id IS NOT NULL
+      UNION ALL
+      SELECT party_id FROM read_csv('${parliamentGlobUrl}', ${parliamentClause}) WHERE party_id IS NOT NULL
+    ) c
+    WHERE c.party_id NOT IN (
+      SELECT party_id FROM dim_parties WHERE party_id IS NOT NULL
+    )
   `);
 
   return { dim, fallback };
