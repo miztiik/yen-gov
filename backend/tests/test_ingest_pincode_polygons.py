@@ -18,8 +18,6 @@ Coverage:
     geometry with coordinates rounded to COORD_PRECISION_DIGITS.
   - boundary_layers.parquet rows pass the schema invariant
     (original = retained + unkeyed) and carry the right source_id FK.
-  - sources.parquet UPSERT carries the canonical citation triple +
-    preserves any pre-existing unrelated rows.
   - byte-determinism: re-running against byte-identical input yields
     byte-identical shards + ledger.
 """
@@ -393,35 +391,6 @@ def test_boundary_layers_rows_pass_denominator_invariant(tmp_path: Path) -> None
         assert sid == PINCODE_POLYGONS_SOURCE_ID, layer_id
 
 
-def test_sources_parquet_carries_pincode_polygon_citation(tmp_path: Path) -> None:
-    kmz, directory, entities, root = _build_standard_fixtures(tmp_path)
-    _run_ingest(kmz, directory, entities, root)
-
-    sources = root / "taxonomy" / "sources.parquet"
-    con = duckdb.connect(":memory:")
-    try:
-        row = con.execute(
-            f"""
-            SELECT producer, title, vintage, license, confidence_tier,
-                   is_issuing_authority, verification_method
-            FROM read_parquet('{sources.as_posix()}')
-            WHERE source_id = ?
-            """,
-            [PINCODE_POLYGONS_SOURCE_ID],
-        ).fetchone()
-    finally:
-        con.close()
-    assert row == (
-        "Department of Posts, Government of India",
-        "All India Pincode Boundaries (KMZ)",
-        "2025",
-        "OGL-IN-1.0",
-        "gold",
-        True,
-        "transcribed",
-    )
-
-
 def test_pincode_polygons_source_id_resolves_via_nickname() -> None:
     """The ingest constant must exactly match the nickname-derived
     source_id from the BOUNDARY_SOURCES seed. A drift here means
@@ -448,15 +417,12 @@ def test_reingest_is_byte_identical(tmp_path: Path) -> None:
         (root / "boundaries" / "in" / "postal").rglob("all.geojson")
     )
     ledger = root / "boundaries" / "boundary_layers.parquet"
-    sources = root / "taxonomy" / "sources.parquet"
 
     hashes_before = {p.relative_to(root).as_posix(): _sha256(p) for p in shards}
     ledger_before = _sha256(ledger)
-    sources_before = _sha256(sources)
 
     _run_ingest(kmz, directory, entities, root)
 
     hashes_after = {p.relative_to(root).as_posix(): _sha256(p) for p in shards}
     assert hashes_before == hashes_after, "shard bytes drifted across re-runs"
     assert _sha256(ledger) == ledger_before, "boundary_layers.parquet bytes drifted"
-    assert _sha256(sources) == sources_before, "sources.parquet bytes drifted"

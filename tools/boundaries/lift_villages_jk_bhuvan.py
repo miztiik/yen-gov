@@ -370,14 +370,14 @@ def main(argv: list[str] | None = None) -> int:
         datasets_root,
     )
 
-    layer_count, source_count = compile_to_parquet(
+    layer_count = compile_to_parquet(
         rows,
         datasets_root,
         merge_with_existing=True,
     )
     print(
         f"  boundary_layers.parquet: {layer_count} rows total "
-        f"({len(rows)} J&K village rows this lift) | "
+        f"({len(rows)} J&K village rows this lift)",
         f"sources.parquet: {source_count} rows",
         flush=True,
     )

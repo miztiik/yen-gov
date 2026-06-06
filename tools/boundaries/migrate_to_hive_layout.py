@@ -359,12 +359,11 @@ def main(argv: list[str] | None = None) -> int:
         _git_mv(src, dst, repo_root=repo_root)
         print(f"  mv {src.relative_to(repo_root).as_posix()} -> {dst.relative_to(repo_root).as_posix()}")
 
-    print("\ncompiling boundary_layers.parquet + UPSERTing taxonomy/sources.parquet...")
-    n_layers, n_sources = compile_to_parquet(rows, datasets_root)
-    print(f"  wrote {n_layers} boundary layers; {n_sources} boundary sources upserted")
+    print("\ncompiling boundary_layers.parquet...")
+    n_layers = compile_to_parquet(rows, datasets_root)
+    print(f"  wrote {n_layers} boundary layers")
     print(f"\noutputs:")
     print(f"  datasets/boundaries/boundary_layers.parquet  ({(datasets_root / 'boundaries' / 'boundary_layers.parquet').stat().st_size} bytes)")
-    print(f"  datasets/data/entities/source.csv           ({(datasets_root / 'taxonomy' / 'sources.parquet').stat().st_size} bytes)")
     return 0
 
 

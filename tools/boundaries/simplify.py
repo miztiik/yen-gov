@@ -402,12 +402,12 @@ def main(argv: list[str] | None = None) -> int:
     if not args.dry_run and not args.skip_parquet:
         print()
         print("Re-emitting boundary_layers.parquet …")
-        n_layers, n_sources = compile_to_parquet(
+        n_layers = compile_to_parquet(
             updated_rows,
             args.datasets_root.resolve(),
             merge_with_existing=False,
         )
-        print(f"  wrote {n_layers} layer rows / {n_sources} source rows")
+        print(f"  wrote {n_layers} layer rows")
 
     print()
     if breaches:
