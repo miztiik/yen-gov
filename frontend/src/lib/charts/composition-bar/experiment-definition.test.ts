@@ -120,10 +120,12 @@ describe("R-28 manifest discipline — adapter uses manifest registration", () =
   });
 });
 
-describe("R-28 manifest registration — table_ids exist", () => {
+describe("R-28 manifest registration - table_ids (X1b PARTIAL retired)", () => {
   // Independent of the adapter source: assert the table_ids the
-  // adapter registers actually exist in `datasets/manifest.json`.
-  // If a curator removes one, this test fails before production does.
+  // adapter registers actually exist in `datasets/manifest.json`,
+  // EXCEPT for the X1b-retired ones (PR #814, 2026-06-06) which
+  // have moved to the registerCsvAsTable seam in lib/duckdb.ts +
+  // a deprecations[] row in manifest.json.
   const manifestPath = resolve(
     __dirname,
     "..",
@@ -136,16 +138,29 @@ describe("R-28 manifest registration — table_ids exist", () => {
   );
   const manifest = JSON.parse(readFileSync(manifestPath, "utf-8"));
   const ids: string[] = manifest.tables.map((t: { table_id: string }) => t.table_id);
+  const deprecations: Array<{ old_path: string; new_path: string }> =
+    manifest.deprecations ?? [];
 
   it("manifest registers elections.election_results", () => {
     expect(ids).toContain("elections.election_results");
   });
 
-  it("manifest registers elections.dim_parties", () => {
-    expect(ids).toContain("elections.dim_parties");
+  it("manifest does NOT register elections.dim_parties (X1b retired)", () => {
+    // The parquet was retired in X1b 2026-06-06 + the CSV at
+    // data/entities/parties.csv is the new home. Frontend reaches
+    // it via the registerCsvAsTable('elections.dim_parties') seam in
+    // lib/duckdb.ts (X1a #809) which projects the parquet column
+    // shape from the CSV.
+    expect(ids).not.toContain("elections.dim_parties");
+    const dep = deprecations.find((d) => d.old_path === "elections/dim_parties.parquet");
+    expect(dep, "manifest deprecations[] MUST carry the redirect").toBeDefined();
+    expect(dep?.new_path).toBe("data/entities/parties.csv");
   });
 
-  it("manifest registers taxonomy.sources", () => {
-    expect(ids).toContain("taxonomy.sources");
+  it("manifest does NOT register taxonomy.sources (X1b retired)", () => {
+    expect(ids).not.toContain("taxonomy.sources");
+    const dep = deprecations.find((d) => d.old_path === "taxonomy/sources.parquet");
+    expect(dep, "manifest deprecations[] MUST carry the redirect").toBeDefined();
+    expect(dep?.new_path).toBe("data/entities/source.csv");
   });
 });
