@@ -9,11 +9,12 @@ operational performance and renewable purchase obligation (RPO) compliance:
 - ``/energy/electricity/distribution/rpo``
   -- per-state, per-FY RPO targets and compliance (solar, non-solar, total).
 
-Both were discovered/confirmed by the 2026-05-15 ICED full-triage sweep
-(see ``.runtime/iced_recon/full_triage_20260515073024.md``) and reconned
-directly via ``tools/iced_discom_recon.py``.
+The legacy network-fetch + folded-indicator-JSON orchestrator
+(``ingest_iced_discom`` + ``IngestSummary``) was retired in B4-pt2.1
+per parent plan section 21.4. The B1.4.7 canonical CSV emission stays
+under ``.ingest`` (exercised by ``backend/tests/test_iced_discom_csv_repoint.py``).
 """
 
-from .ingest import IngestSummary, ingest_iced_discom
+from .ingest import IndicatorEmitResult
 
-__all__ = ["IngestSummary", "ingest_iced_discom"]
+__all__ = ["IndicatorEmitResult"]

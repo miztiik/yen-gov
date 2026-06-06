@@ -1,23 +1,19 @@
-"""Orchestrator for the ICED GHG sub-sector adapter.
+"""Indicator metadata + canonical CSV emission for the ICED GHG sub-sector indicator.
 
-Fetches the GHG energy-full endpoint (one HTTP call, one cached
-response) and emits a single sub-sector drill-down indicator under
-``datasets/indicators/in/environment/``.
+The legacy network-fetch + folded-indicator-JSON path (``ingest_iced_ghg``)
+was retired in B4-pt2.1 per parent plan section 21.4 ("network-fetch code is
+deleted; ingest reads local TCPD / source CSV"). What remains is the
+indicator metadata + the B1.4.1 canonical CSV emission exercised by
+``backend/tests/test_iced_ghg_csv_repoint.py``.
 """
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime
 from pathlib import Path
 from typing import Any
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
-from yen_gov.core.io import Source, write_artifact
-from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
-from yen_gov.sources.iced_common import IcedClient
-
-from .parsers import parse_ghg_subsector
 
 # B1.4.1 - canonical CSV citation triple for the GHG sub-sector indicator.
 # Producer / title / vintage match the ICED-family convention established in
@@ -44,12 +40,6 @@ class IndicatorEmitResult:
     row_count: int
     time_min: str
     time_max: str
-
-
-@dataclass(frozen=True)
-class IngestSummary:
-    fetched_at: datetime
-    results: tuple[IndicatorEmitResult, ...]
 
 
 LICENSE_ICED = {
@@ -111,47 +101,6 @@ def _indicator_subsector() -> dict[str, Any]:
             }
         ],
     }
-
-
-def _emit(
-    *,
-    repo_root: Path,
-    schema_for_validation: dict,
-    schema_id_str: str,
-    schema_version_str: str,
-    indicator_meta: dict[str, Any],
-    rows: list[dict[str, Any]],
-    sources: list[Source],
-    coverage_temporal: str,
-    out_rel: str,
-) -> IndicatorEmitResult:
-    payload = {
-        "coverage": {
-            "spatial": "India (national)",
-            "temporal": coverage_temporal,
-            "admin_level": None,
-        },
-        "license": LICENSE_ICED,
-        "indicator": indicator_meta,
-        "rows": rows,
-    }
-    artifact_path = repo_root / out_rel
-    write_artifact(
-        path=artifact_path,
-        schema_id=schema_id_str,
-        schema_version=schema_version_str,
-        payload=payload,
-        sources=sources,
-        schema_for_validation=schema_for_validation,
-    )
-    times = [r["time"] for r in rows]
-    return IndicatorEmitResult(
-        indicator_id=indicator_meta["id"],
-        artifact_path=artifact_path,
-        row_count=len(rows),
-        time_min=min(times) if times else "",
-        time_max=max(times) if times else "",
-    )
 
 
 def _slug_segment(text: str) -> str:
@@ -219,49 +168,3 @@ def emit_csv_variables(
         )
         written.append(path)
     return tuple(written)
-
-
-def ingest_iced_ghg(
-    *, repo_root: Path, client: IcedClient | None = None
-) -> IngestSummary:
-    if client is None:
-        client = IcedClient(host=API_HOST, polite_delay=0.5)
-    schema_for_validation = schema_doc("indicator.schema.json")
-    schema_id_str = schema_id("indicator.schema.json")
-    schema_version_str = schema_version("indicator.schema.json")
-
-    response = client.get(GHG_PATH)
-    rows = parse_ghg_subsector(response.decrypted)
-    sources = [Source(url=response.url, fetched_at=response.fetched_at)]
-    times = sorted({r["time"] for r in rows})
-    coverage = f"{times[0]}..{times[-1]}" if times else "unknown"
-
-    result = _emit(
-        repo_root=repo_root,
-        schema_for_validation=schema_for_validation,
-        schema_id_str=schema_id_str,
-        schema_version_str=schema_version_str,
-        indicator_meta=_indicator_subsector(),
-        rows=rows,
-        sources=sources,
-        coverage_temporal=coverage,
-        out_rel="datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json",
-    )
-
-    # B1.4.1 - canonical long-format CSV emission ALONGSIDE the legacy
-    # meadow/indicator JSON write. Existing JSON output stays in place
-    # (instead-of deletion is deferred to B3 per parent plan §23.1 and
-    # sub-plan per-family point 6). Reader flip is X1a; until then both
-    # stores live on disk side-by-side.
-    csv_source_id = derive_source_id(
-        _CSV_SOURCE_PRODUCER, _CSV_SOURCE_TITLE, _CSV_SOURCE_VINTAGE
-    )
-    by_variable = build_csv_variables(rows, source_id=csv_source_id)
-    emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
-
-    # PR-A5a-tail: derive orchestrator fetched_at from upstream per-fetch
-    # timestamp instead of wall-clock datetime.now().
-    return IngestSummary(
-        fetched_at=response.fetched_at,
-        results=(result,),
-    )

@@ -1,29 +1,19 @@
-"""Orchestrator for the ICED power-sector adapter.
+"""Indicator metadata + canonical CSV emission for the ICED power-sector family.
 
-Fetches each upstream once (some live on the bare host, some under
-``/v1``; a couple are AES-encrypted, two are JSON-direct), routes each
-response through the matching pure parser in :mod:`.parsers`, and emits
-four schema-conformant indicator artifacts under
-``datasets/indicators/in/energy/``.
+The legacy network-fetch + folded-indicator-JSON path (``ingest_iced_power``)
+was retired in B4-pt2.1 per parent plan section 21.4 ("network-fetch code is
+deleted; ingest reads local TCPD / source CSV"). What remains is the
+indicator metadata + the B1.4.5 canonical CSV emission exercised by
+``backend/tests/test_iced_power_csv_repoint.py``.
 """
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime
 from pathlib import Path
 from typing import Any
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
-from yen_gov.core.io import Source, write_artifact
-from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
-from yen_gov.sources.iced_common import IcedClient
-
-from .parsers import (
-    parse_capacity_metatable,
-    parse_power_statistics,
-    parse_retired_capacity,
-)
 
 
 # ---------------------------------------------------------------------------
@@ -78,12 +68,6 @@ class IndicatorEmitResult:
     time_min: str
     time_max: str
     skipped_unmapped: int
-
-
-@dataclass(frozen=True)
-class IngestSummary:
-    fetched_at: datetime
-    results: tuple[IndicatorEmitResult, ...]
 
 
 # ---------------------------------------------------------------------------
@@ -459,121 +443,3 @@ def _emit_csv_for(
 # Orchestrator
 # ---------------------------------------------------------------------------
 
-
-def ingest_iced_power(
-    *,
-    repo_root: Path,
-    client_v0: IcedClient | None = None,
-    client_v1: IcedClient | None = None,
-) -> IngestSummary:
-    """Fetch + emit all four energy indicator artifacts."""
-    if client_v0 is None:
-        client_v0 = IcedClient(host=API_HOST, runtime_root=repo_root)
-    if client_v1 is None:
-        client_v1 = IcedClient(host=API_HOST_V1, runtime_root=repo_root)
-
-    builds = _all_builds()
-    out_root = repo_root / "datasets" / "indicators" / "in" / "energy"
-    # Per ADR-0041, energy indicators promoted to meadow tier write to
-    # `datasets/<family>/_meadow/<source>/<vintage>/<file>.json`. The set
-    # grows PR-by-PR until C4.7 finalisation; then the legacy branch dies.
-    meadow_promoted: dict[str, Path] = {
-        "state_electricity_generation_by_source_gwh": (
-            repo_root / "datasets" / "energy" / "_meadow" / "iced" / "2024-25"
-            / "state_electricity_generation_by_source_gwh.json"
-        ),
-        # PR 7c-4 (installed_capacity family, iced_power side):
-        "state_installed_capacity_by_source_mw": (
-            repo_root / "datasets" / "energy" / "_meadow" / "iced" / "2024-25"
-            / "state_installed_capacity_by_source_mw.json"
-        ),
-    }
-
-    # PR-A5a-tail: derive orchestrator fetched_at from upstream per-fetch
-    # timestamps instead of wall-clock datetime.now().
-    fetched_at_overall: datetime | None = None
-    results: list[IndicatorEmitResult] = []
-
-    # Cache responses keyed by (host, path) so powerStatistics is only
-    # fetched once even though two indicators consume it.
-    cache: dict[tuple[str, str], Any] = {}
-    cache_fetched_at: dict[tuple[str, str], datetime] = {}
-
-    for b in builds:
-        client = client_v1 if b.api_host == API_HOST_V1 else client_v0
-        key = (b.api_host, b.api_path)
-        if key not in cache:
-            resp = client.get(b.api_path, decrypt=b.decrypt)
-            cache[key] = resp.decrypted
-            cache_fetched_at[key] = resp.fetched_at
-            if fetched_at_overall is None or resp.fetched_at > fetched_at_overall:
-                fetched_at_overall = resp.fetched_at
-        decrypted = cache[key]
-        fetched_at = cache_fetched_at[key]
-
-        rows = b.extract(decrypted)
-        if not rows:
-            raise RuntimeError(
-                f"indicator {b.indicator['id']!r}: parser returned 0 rows; "
-                f"check {b.api_host}{b.api_path} response shape."
-            )
-
-        coverage = {
-            "spatial": b.coverage_spatial,
-            "temporal": _temporal_span(rows),
-            "admin_level": b.coverage_admin_level,
-        }
-
-        payload = {
-            "license": LICENSE_ICED,
-            "coverage": coverage,
-            "indicator": b.indicator,
-            "rows": rows,
-        }
-
-        sources = [
-            Source(url=f"{b.api_host}{b.api_path}", fetched_at=fetched_at),
-        ]
-
-        out_path = meadow_promoted.get(b.out_leaf) or (out_root / f"{b.out_leaf}.json")
-        out_path.parent.mkdir(parents=True, exist_ok=True)
-        write_artifact(
-            path=out_path,
-            schema_id=schema_id("indicator.schema.json"),
-            schema_version=schema_version("indicator.schema.json"),
-            payload=payload,
-            sources=sources,
-            schema_for_validation=schema_doc("indicator.schema.json"),
-        )
-
-        # B1.4.5 - canonical CSV emission alongside legacy artifact.
-        _emit_csv_for(
-            repo_root=repo_root,
-            parsed_rows=rows,
-            title=b.csv_source_title,
-            variable_prefix=b.csv_variable_prefix,
-        )
-
-        results.append(
-            IndicatorEmitResult(
-                indicator_id=b.indicator["id"],
-                artifact_path=out_path,
-                row_count=len(rows),
-                time_min=min(r["time"] for r in rows),
-                time_max=max(r["time"] for r in rows),
-                skipped_unmapped=0,
-            )
-        )
-
-    if fetched_at_overall is None:
-        raise RuntimeError("ingest_iced_power: no builds executed; cannot derive fetched_at.")
-    return IngestSummary(fetched_at=fetched_at_overall, results=tuple(results))
-
-
-def _temporal_span(rows: list[dict[str, Any]]) -> str:
-    times = sorted({r["time"] for r in rows})
-    if not times:
-        return "(empty)"
-    if times[0] == times[-1]:
-        return times[0]
-    return f"{times[0]}..{times[-1]}"

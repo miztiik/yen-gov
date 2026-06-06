@@ -1,24 +1,21 @@
-"""Fetch, aggregate, and write state-year PM2.5 mean from NAMP markers.
+"""Indicator metadata + CSV emission for the NAMP markers (PM2.5/NO2/SO2/PM10).
 
-Today's surface: the PM2.5 indicator. NO2/SO2/PM10 follow as mechanical
-derivations once the loop is proven (same fetch, same parser called
-with a different ``pollutant`` argument, same writer).
-
-Network boundary: :class:`yen_gov.sources.iced_common.IcedClient`.
-Pure aggregation logic lives in :mod:`.markers_parsers` so this module
-stays small.
+The legacy network-fetch + folded-indicator-JSON path (``ingest_pm25`` /
+``ingest_no2`` / ``ingest_so2`` / ``ingest_pm10``) was retired in B4-pt2.1
+per parent plan section 21.4 ("network-fetch code is deleted; ingest reads
+local TCPD / source CSV"). What remains is the indicator metadata, the
+``_build_*_payload`` helpers exercised by
+``backend/tests/test_sources_iced_air_quality_markers.py`` + operator
+reingest tooling (``tools/iced_aq_emit_from_fixture.py``), and the B1.4.9
+canonical CSV emission exercised by
+``backend/tests/test_iced_air_quality_csv_repoint.py``.
 """
 from __future__ import annotations
 
-from dataclasses import dataclass
-from datetime import datetime, timezone
 from pathlib import Path
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
-from yen_gov.core.io import Source, write_artifact
-from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
-from yen_gov.sources.iced_common import IcedClient, ICEDShapeError
 
 from .markers_parsers import (
     COVID_GAP_YEAR,
@@ -27,7 +24,6 @@ from .markers_parsers import (
     PM25_FIELD,
     SO2_FIELD,
     StateYearMean,
-    aggregate_state_year_mean,
     emit_indicator_rows,
 )
 
@@ -177,85 +173,6 @@ PM25_INDICATOR_NOTES = (
 )
 
 
-@dataclass(frozen=True)
-class MarkersIngestResult:
-    """One-line result summary for the CLI / admin pipeline panel."""
-
-    indicator_id: str
-    artifact_path: Path
-    pollutant: str
-    state_year_row_count: int
-    year_min: int
-    year_max: int
-    fetched_at: datetime
-
-
-def ingest_pm25(
-    *,
-    repo_root: Path,
-    refresh: bool = False,
-) -> MarkersIngestResult:
-    """Fetch markers, aggregate PM2.5 to state-year, write artifact.
-
-    Args:
-        repo_root: workspace root.
-        refresh: if True, bypass the on-disk cache and re-fetch.
-    """
-    runtime_root = repo_root / ".runtime"
-    client = IcedClient(host="https://icedapi.niti.gov.in", runtime_root=runtime_root)
-    response = client.get(MARKERS_API_PATH)
-    fetched_at = response.fetched_at
-
-    parsed_all = aggregate_state_year_mean(response.decrypted, pollutant=PM25_FIELD)
-    parsed = [r for r in parsed_all if r.year >= PM25_SERIES_START_YEAR]
-    if not parsed:
-        raise ICEDShapeError(
-            "PM2.5 aggregation returned zero state-year rows after "
-            f"trimming to >= {PM25_SERIES_START_YEAR} — refusing to ship "
-            "empty artifact."
-        )
-
-    payload = _build_pm25_payload(parsed=parsed)
-
-    indicator_schema = schema_doc("indicator.schema.json")
-    out_path = (
-        repo_root
-        / "datasets"
-        / "indicators"
-        / "in"
-        / "environment"
-        / "state_pm25_annual_mean_ug_m3.json"
-    )
-    write_artifact(
-        path=out_path,
-        schema_id=schema_id("indicator.schema.json"),
-        schema_version=schema_version("indicator.schema.json"),
-        payload=payload,
-        sources=[
-            Source(url=MARKERS_API_URL, fetched_at=fetched_at),
-            Source(url=CPCB_NAMP_URL, fetched_at=fetched_at),
-        ],
-        schema_for_validation=indicator_schema,
-    )
-    # B1.4.9: canonical CSV emission ALONGSIDE legacy meadow JSON.
-    _emit_csv_for(
-        repo_root=repo_root,
-        indicator_id=PM25_INDICATOR_ID,
-        payload_rows=payload["rows"],
-    )
-
-    years = [r.year for r in parsed]
-    return MarkersIngestResult(
-        indicator_id=PM25_INDICATOR_ID,
-        artifact_path=out_path,
-        pollutant=PM25_FIELD,
-        state_year_row_count=len(parsed),
-        year_min=min(years),
-        year_max=max(years),
-        fetched_at=fetched_at,
-    )
-
-
 def _build_pm25_payload(*, parsed: list[StateYearMean]) -> dict:
     """Compose the schema-required payload (everything except $schema/sources)."""
     rows = emit_indicator_rows(parsed)
@@ -372,72 +289,6 @@ NO2_INDICATOR_EXCLUDES = [
 ]
 
 
-def ingest_no2(
-    *,
-    repo_root: Path,
-    refresh: bool = False,
-) -> MarkersIngestResult:
-    """Fetch markers, aggregate NO2 to state-year, write artifact.
-
-    Args:
-        repo_root: workspace root.
-        refresh: if True, bypass the on-disk cache and re-fetch.
-    """
-    runtime_root = repo_root / ".runtime"
-    client = IcedClient(host="https://icedapi.niti.gov.in", runtime_root=runtime_root)
-    response = client.get(MARKERS_API_PATH)
-    fetched_at = response.fetched_at
-
-    parsed_all = aggregate_state_year_mean(response.decrypted, pollutant=NO2_FIELD)
-    parsed = [r for r in parsed_all if r.year >= NO2_SERIES_START_YEAR]
-    if not parsed:
-        raise ICEDShapeError(
-            "NO2 aggregation returned zero state-year rows after "
-            f"trimming to >= {NO2_SERIES_START_YEAR} — refusing to ship "
-            "empty artifact."
-        )
-
-    payload = _build_no2_payload(parsed=parsed)
-
-    indicator_schema = schema_doc("indicator.schema.json")
-    out_path = (
-        repo_root
-        / "datasets"
-        / "indicators"
-        / "in"
-        / "environment"
-        / "state_no2_annual_mean_ug_m3.json"
-    )
-    write_artifact(
-        path=out_path,
-        schema_id=schema_id("indicator.schema.json"),
-        schema_version=schema_version("indicator.schema.json"),
-        payload=payload,
-        sources=[
-            Source(url=MARKERS_API_URL, fetched_at=fetched_at),
-            Source(url=CPCB_NAMP_URL, fetched_at=fetched_at),
-        ],
-        schema_for_validation=indicator_schema,
-    )
-    # B1.4.9: canonical CSV emission ALONGSIDE legacy meadow JSON.
-    _emit_csv_for(
-        repo_root=repo_root,
-        indicator_id=NO2_INDICATOR_ID,
-        payload_rows=payload["rows"],
-    )
-
-    years = [r.year for r in parsed]
-    return MarkersIngestResult(
-        indicator_id=NO2_INDICATOR_ID,
-        artifact_path=out_path,
-        pollutant=NO2_FIELD,
-        state_year_row_count=len(parsed),
-        year_min=min(years),
-        year_max=max(years),
-        fetched_at=fetched_at,
-    )
-
-
 def _build_no2_payload(*, parsed: list[StateYearMean]) -> dict:
     """Compose the schema-required payload (everything except $schema/sources)."""
     rows = emit_indicator_rows(parsed)
@@ -542,67 +393,6 @@ SO2_INDICATOR_EXCLUDES = [
 ]
 
 
-def ingest_so2(
-    *,
-    repo_root: Path,
-    refresh: bool = False,
-) -> MarkersIngestResult:
-    """Fetch markers, aggregate SO2 to state-year, write artifact."""
-    runtime_root = repo_root / ".runtime"
-    client = IcedClient(host="https://icedapi.niti.gov.in", runtime_root=runtime_root)
-    response = client.get(MARKERS_API_PATH)
-    fetched_at = response.fetched_at
-
-    parsed_all = aggregate_state_year_mean(response.decrypted, pollutant=SO2_FIELD)
-    parsed = [r for r in parsed_all if r.year >= SO2_SERIES_START_YEAR]
-    if not parsed:
-        raise ICEDShapeError(
-            "SO2 aggregation returned zero state-year rows after "
-            f"trimming to >= {SO2_SERIES_START_YEAR} — refusing to ship "
-            "empty artifact."
-        )
-
-    payload = _build_so2_payload(parsed=parsed)
-
-    indicator_schema = schema_doc("indicator.schema.json")
-    out_path = (
-        repo_root
-        / "datasets"
-        / "indicators"
-        / "in"
-        / "environment"
-        / "state_so2_annual_mean_ug_m3.json"
-    )
-    write_artifact(
-        path=out_path,
-        schema_id=schema_id("indicator.schema.json"),
-        schema_version=schema_version("indicator.schema.json"),
-        payload=payload,
-        sources=[
-            Source(url=MARKERS_API_URL, fetched_at=fetched_at),
-            Source(url=CPCB_NAMP_URL, fetched_at=fetched_at),
-        ],
-        schema_for_validation=indicator_schema,
-    )
-    # B1.4.9: canonical CSV emission ALONGSIDE legacy meadow JSON.
-    _emit_csv_for(
-        repo_root=repo_root,
-        indicator_id=SO2_INDICATOR_ID,
-        payload_rows=payload["rows"],
-    )
-
-    years = [r.year for r in parsed]
-    return MarkersIngestResult(
-        indicator_id=SO2_INDICATOR_ID,
-        artifact_path=out_path,
-        pollutant=SO2_FIELD,
-        state_year_row_count=len(parsed),
-        year_min=min(years),
-        year_max=max(years),
-        fetched_at=fetched_at,
-    )
-
-
 def _build_so2_payload(*, parsed: list[StateYearMean]) -> dict:
     """Compose the schema-required payload (everything except $schema/sources)."""
     rows = emit_indicator_rows(parsed)
@@ -704,67 +494,6 @@ PM10_INDICATOR_EXCLUDES = [
     "Sub-2.5 µm fraction is counted in PM10 here AND separately in the "
     "state_pm25_annual_mean_ug_m3 indicator — do not sum PM10 and PM2.5",
 ]
-
-
-def ingest_pm10(
-    *,
-    repo_root: Path,
-    refresh: bool = False,
-) -> MarkersIngestResult:
-    """Fetch markers, aggregate PM10 to state-year, write artifact."""
-    runtime_root = repo_root / ".runtime"
-    client = IcedClient(host="https://icedapi.niti.gov.in", runtime_root=runtime_root)
-    response = client.get(MARKERS_API_PATH)
-    fetched_at = response.fetched_at
-
-    parsed_all = aggregate_state_year_mean(response.decrypted, pollutant=PM10_FIELD)
-    parsed = [r for r in parsed_all if r.year >= PM10_SERIES_START_YEAR]
-    if not parsed:
-        raise ICEDShapeError(
-            "PM10 aggregation returned zero state-year rows after "
-            f"trimming to >= {PM10_SERIES_START_YEAR} — refusing to ship "
-            "empty artifact."
-        )
-
-    payload = _build_pm10_payload(parsed=parsed)
-
-    indicator_schema = schema_doc("indicator.schema.json")
-    out_path = (
-        repo_root
-        / "datasets"
-        / "indicators"
-        / "in"
-        / "environment"
-        / "state_pm10_annual_mean_ug_m3.json"
-    )
-    write_artifact(
-        path=out_path,
-        schema_id=schema_id("indicator.schema.json"),
-        schema_version=schema_version("indicator.schema.json"),
-        payload=payload,
-        sources=[
-            Source(url=MARKERS_API_URL, fetched_at=fetched_at),
-            Source(url=CPCB_NAMP_URL, fetched_at=fetched_at),
-        ],
-        schema_for_validation=indicator_schema,
-    )
-    # B1.4.9: canonical CSV emission ALONGSIDE legacy meadow JSON.
-    _emit_csv_for(
-        repo_root=repo_root,
-        indicator_id=PM10_INDICATOR_ID,
-        payload_rows=payload["rows"],
-    )
-
-    years = [r.year for r in parsed]
-    return MarkersIngestResult(
-        indicator_id=PM10_INDICATOR_ID,
-        artifact_path=out_path,
-        pollutant=PM10_FIELD,
-        state_year_row_count=len(parsed),
-        year_min=min(years),
-        year_max=max(years),
-        fetched_at=fetched_at,
-    )
 
 
 def _build_pm10_payload(*, parsed: list[StateYearMean]) -> dict:
