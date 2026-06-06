@@ -53,6 +53,11 @@
     loadStateSilhouette,
     type StateSilhouetteFeature,
   } from "../state-silhouette";
+  import MapHighlightLegend, {
+    DEFAULT_HIGHLIGHT_STATE,
+    type HighlightState,
+    type LegendParty,
+  } from "../charts/MapHighlightLegend.svelte";
 
   interface Props {
     /** ECI state code (e.g. "S13"). */
@@ -247,6 +252,59 @@
     buildAcOpacities(rows ?? [], filters.mode, filters),
   );
 
+  // --- E4 shared highlight axis (parent plan section 25.5) -----------
+  // ONE legend (`MapHighlightLegend`) drives BOTH StateAcMap + TileCartogram.
+  // State lives here so the two arms cannot drift; the legend is rendered
+  // ONCE above the geo/hex view toggle and the three knobs are threaded
+  // down as props.
+  //
+  // PR-B8 coexistence: when the parent (StateElection) holds `filters` at
+  // PR-B8 defaults (no party multi-select, margin band = all, colour-by =
+  // winner) the E4 path drives the visuals through cellTreatment inside
+  // StateAcMap / TileCartogram. When the parent's filter rail goes
+  // non-default, we KEEP passing `fills_override` / `opacities_override`
+  // and StateAcMap's PR-B8-precedence path (already in place pre-E4) wins
+  // - so the existing filter rail UX is preserved as a follow-up
+  // deprecation rather than a v1 break.
+  let highlight_state = $state<HighlightState>({ ...DEFAULT_HIGHLIGHT_STATE });
+
+  function onHighlightChange(next: HighlightState): void {
+    highlight_state = next;
+  }
+
+  const filters_at_pr_b8_defaults = $derived(
+    filters.mode === DEFAULT_ELECTION_FILTERS.mode &&
+      filters.margin === DEFAULT_ELECTION_FILTERS.margin &&
+      filters.parties.length === 0,
+  );
+
+  // Pass overrides only when PR-B8 is active. At PR-B8 defaults, leave
+  // them undefined so the E4 path (cellTreatment) drives the visuals.
+  const fills_override_to_pass = $derived<Record<number, string> | undefined>(
+    filters_at_pr_b8_defaults ? undefined : fills_override,
+  );
+  const opacities_override_to_pass = $derived<Record<number, number> | undefined>(
+    filters_at_pr_b8_defaults ? undefined : opacities_override,
+  );
+
+  /** Distinct winning parties for the legend's tap-to-select pills,
+   *  built off the same `palette_bundle` so swatch / pill / map agree
+   *  by `party_id`. Stable order: insertion order of `idByKey` which
+   *  follows the winners array's natural order (first appearance). */
+  const legend_parties = $derived.by<LegendParty[]>(() => {
+    const { idByKey, labelByPid, rowMap } = palette_bundle;
+    const seen = new Map<string, LegendParty>();
+    for (const pid of idByKey.values()) {
+      if (seen.has(pid)) continue;
+      seen.set(pid, {
+        party_id: pid,
+        party_short: labelByPid.get(pid) ?? pid,
+        row: rowMap.get(pid) ?? null,
+      });
+    }
+    return [...seen.values()];
+  });
+
   const raw_tile_rows = $derived<TileRow[]>(
     layout == null ? [] : buildTileRows(layout, hex_winners),
   );
@@ -254,6 +312,11 @@
   const tile_rows = $derived<TileRow[]>(
     raw_tile_rows.map((t) => {
       const eci_no = Number(t.unit_id.split("-").pop());
+      // At PR-B8 defaults we let TileCartogram apply cellTreatment
+      // itself (via the E4 props below). When PR-B8 is non-default
+      // we re-skin with the PR-B8 fills/opacities, same as the geo
+      // arm.
+      if (filters_at_pr_b8_defaults) return t;
       const fill = fills_override[eci_no];
       const opacity = opacities_override[eci_no];
       return {
@@ -307,6 +370,28 @@
 </script>
 
 <div class="space-y-3">
+  <!--
+    E4 (parent plan section 25.5): ONE shared highlight legend drives
+    BOTH arms (StateAcMap + TileCartogram). Rendered ONCE here, ABOVE
+    the view toggle, so the citizen flips MODE / picks PARTY / changes
+    MARGIN once and both visualisations stay in lock-step. The
+    `legend-drift` contract gate is satisfied by THIS being the only
+    `MapHighlightLegend` instance ElectionMap renders + the absence of
+    any per-map bespoke control inside StateAcMap or TileCartogram.
+
+    Hidden when results are pending (no winning parties = nothing to
+    pick from); the geo / hex arms still render their pending styling
+    in that window.
+  -->
+  {#if legend_parties.length > 0}
+    <MapHighlightLegend
+      state={highlight_state}
+      parties={legend_parties}
+      on_change={onHighlightChange}
+      testid="election-map-highlight-legend"
+    />
+  {/if}
+
   <div class="flex items-center justify-between gap-3">
     <p class="text-xs text-slate-500">
       {view === "hex" ? "Each tile = one seat" : "Seats sized by geography"}
@@ -350,8 +435,11 @@
         {rows}
         {event}
         {height}
-        fillsOverride={fills_override}
-        opacitiesOverride={opacities_override}
+        fillsOverride={fills_override_to_pass}
+        opacitiesOverride={opacities_override_to_pass}
+        highlight_mode={highlight_state.mode}
+        selected_party_id={highlight_state.selected_party_id}
+        min_margin={highlight_state.min_margin}
       />
     </div>
   {:else}
@@ -378,6 +466,9 @@
           {height}
           onSelect={onSelectUnit}
           state_silhouette_feature={silhouette_feature}
+          highlight_mode={highlight_state.mode}
+          selected_party_id={highlight_state.selected_party_id}
+          min_margin={highlight_state.min_margin}
         />
       {/if}
     </div>

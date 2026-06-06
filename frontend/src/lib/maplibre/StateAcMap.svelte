@@ -28,6 +28,13 @@
     loadStateSilhouette,
     type StateSilhouetteFeature,
   } from "../state-silhouette";
+  import {
+    DEFAULT_HIGHLIGHT_STATE,
+    NEUTRAL_HEX_FALLBACK,
+    cellTreatment,
+    type HighlightMode,
+    type MinMargin,
+  } from "../charts/map-highlight-utils";
 
   interface Props {
     state: string;
@@ -53,6 +60,27 @@
      */
     fillsOverride?: Record<number, string>;
     opacitiesOverride?: Record<number, number>;
+    /**
+     * E4 (parent plan section 25.5): the shared map-highlight axis.
+     * Both StateAcMap and TileCartogram read the same `MapHighlightLegend`
+     * up-stream; the legend's `{ mode, selected_party_id, min_margin }`
+     * state is threaded here as 3 props. Defaults preserve the existing
+     * margin-ramp behaviour (cellTreatment in `margin` mode reproduces
+     * today's `0.35 + clamp(|margin|,0,30)/30 * 0.6` formula). When
+     * `highlight_mode` is `"party_won"`, fills + opacities are
+     * recomputed via cellTreatment: the selected party's wins paint at
+     * full opacity in their party colour; non-matching cells recede to
+     * `var(--party-neutral)` (E2 #800 token) at low opacity.
+     *
+     * The PR-B8 `fillsOverride` / `opacitiesOverride` path still wins
+     * when set, so existing consumers (PR-B8 filter rail) keep their
+     * current behaviour and the legend-driven path activates only when
+     * the parent has rendered MapHighlightLegend AND chosen to stop
+     * passing the overrides.
+     */
+    highlight_mode?: HighlightMode;
+    selected_party_id?: string | null;
+    min_margin?: MinMargin;
   }
   let {
     state: state_code,
@@ -62,6 +90,9 @@
     event = null,
     fillsOverride,
     opacitiesOverride,
+    highlight_mode = DEFAULT_HIGHLIGHT_STATE.mode,
+    selected_party_id = DEFAULT_HIGHLIGHT_STATE.selected_party_id,
+    min_margin = DEFAULT_HIGHLIGHT_STATE.min_margin,
   }: Props = $props();
 
   interface Row {
@@ -137,6 +168,24 @@
       .catch(() => { if (state_code === sc) silhouette_feature = null; });
   });
 
+  // E4 (parent plan section 25.5): the resolved `--party-neutral`
+  // token value, used as the recede fill in party_won mode via
+  // `cellTreatment`. Read once from `:root` (where app-tokens.css
+  // defines it). Falls back to the literal in SSR / test stubs.
+  let neutral_hex = $state<string>(NEUTRAL_HEX_FALLBACK);
+  $effect(() => {
+    if (typeof document === "undefined") return;
+    if (typeof getComputedStyle === "undefined") return;
+    try {
+      const v = getComputedStyle(document.documentElement)
+        .getPropertyValue("--party-neutral")
+        .trim();
+      neutral_hex = v || NEUTRAL_HEX_FALLBACK;
+    } catch {
+      neutral_hex = NEUTRAL_HEX_FALLBACK;
+    }
+  });
+
   // MapChoropleth wants a FeatureCollection (matching its maplibre
   // GeoJSON source contract). Wrap the single feature here so the
   // boundary always reads as "one state" even when other consumers
@@ -193,7 +242,22 @@
     if (fillsOverride) return fillsOverride;
     const out: Record<number, string> = {};
     for (const r of rows ?? []) {
-      out[r.eci_no] = party_colors.get(r.eci_no) ?? "#94a3b8";
+      const winner_hex = party_colors.get(r.eci_no) ?? "#94a3b8";
+      // E4 (parent plan section 25.5): when the shared legend is in
+      // `party_won` mode, swap fill to `--party-neutral` for cells the
+      // selected party did NOT win (or won by less than the stepped
+      // `min_margin`). In `margin` mode (default) cellTreatment
+      // returns the winner colour unchanged so the existing visual
+      // contract is byte-identical.
+      out[r.eci_no] = cellTreatment({
+        mode: highlight_mode,
+        selected_party_id,
+        min_margin,
+        winner_party_id: r.party_id,
+        margin_pct: r.margin_pct,
+        winner_party_hex: winner_hex,
+        neutral_hex,
+      }).fill;
     }
     return out;
   });
@@ -203,6 +267,13 @@
   // When `highlight_eci_no` is set, every AC except the highlighted one is
   // multiplied by ~0.18 so the focused seat reads first; the highlighted
   // seat is forced to full opacity so it never washes out.
+  //
+  // E4 (parent plan section 25.5): when the shared legend is in
+  // `party_won` mode, cellTreatment swaps the margin-ramp opacity for
+  // either FULL (1.0) for matching cells or RECEDE_OPACITY (~0.18) for
+  // non-matching cells. The `highlight_eci_no` focus dimming still
+  // multiplies on top so the per-AC drill-down keeps working in either
+  // mode.
   const opacities = $derived.by(() => {
     // The override path still honours `highlight_eci_no` so the per-AC
     // drill-down keeps its focus-dimming even when the filter rail supplies
@@ -212,7 +283,18 @@
     for (const r of rows ?? []) {
       const base =
         opacitiesOverride?.[r.eci_no] ??
-        0.35 + (Math.max(0, Math.min(30, r.margin_pct ?? 0)) / 30) * 0.6;
+        cellTreatment({
+          mode: highlight_mode,
+          selected_party_id,
+          min_margin,
+          winner_party_id: r.party_id,
+          margin_pct: r.margin_pct,
+          // The fill input is only consulted by cellTreatment when the
+          // cell matches in party_won mode; passing the winner hex here
+          // is correct and cheap (avoids a second resolver call).
+          winner_party_hex: party_colors.get(r.eci_no) ?? "#94a3b8",
+          neutral_hex,
+        }).opacity;
       if (highlight_eci_no === undefined) {
         out[r.eci_no] = base;
       } else if (r.eci_no === highlight_eci_no) {
