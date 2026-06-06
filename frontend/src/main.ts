@@ -26,7 +26,6 @@ import StateElection from "./routes/StateElection.svelte";
 import District from "./routes/District.svelte";
 import NationalElectionsAtlas from "./routes/NationalElectionsAtlas.svelte";
 import DataCompleteness from "./routes/DataCompleteness.svelte";
-import DuckDbHarness from "./routes/DuckDbHarness.svelte";
 import DevChartsSandbox from "./routes/DevChartsSandbox.svelte";
 import Yenask from "./routes/Yenask.svelte";
 import IndicatorDoc from "./routes/IndicatorDoc.svelte";
@@ -137,9 +136,6 @@ startRouter({
     { pattern: "/t/:topic", component: TopicLanding },
     // Citizen transparency surface (folded-indicator PR commit 10).
     { pattern: "/data-completeness", component: DataCompleteness },
-    // Phase 0.11 — DuckDB-WASM failure-state UX harness. Not a citizen
-    // route; driven by frontend/e2e/duckdb-harness.spec.ts.
-    { pattern: "/dev/duckdb-harness", component: DuckDbHarness },
     // Phase 6 (charting modernisation plan) — dev sandbox that mounts
     // every Phase 1.6 / 3.5 generic renderer against synthetic fixture
     // data. Not citizen-discoverable; not linked from the left rail.
