@@ -477,23 +477,6 @@
       "row_count_total": 8055
     },
     {
-      "table_id": "elections.dim_parties",
-      "family": "elections",
-      "table_name": "dim_parties",
-      "kind": "dim",
-      "format": "parquet",
-      "schema_version": "1.1",
-      "partition_columns": [],
-      "files": [
-        {
-          "path": "elections/dim_parties.parquet",
-          "size_bytes": 21289,
-          "row_count": 620
-        }
-      ],
-      "row_count_total": 620
-    },
-    {
       "table_id": "elections.dim_party_alliances",
       "family": "elections",
       "table_name": "dim_party_alliances",
@@ -511,40 +494,6 @@
       "row_count_total": 10
     },
     {
-      "table_id": "elections.dim_pcs",
-      "family": "elections",
-      "table_name": "dim_pcs",
-      "kind": "dim",
-      "format": "parquet",
-      "schema_version": "1.0",
-      "partition_columns": [],
-      "files": [
-        {
-          "path": "elections/dim_pcs.parquet",
-          "size_bytes": 16058,
-          "row_count": 1116
-        }
-      ],
-      "row_count_total": 1116
-    },
-    {
-      "table_id": "elections.dim_persons",
-      "family": "elections",
-      "table_name": "dim_persons",
-      "kind": "dim",
-      "format": "parquet",
-      "schema_version": "2.0",
-      "partition_columns": [],
-      "files": [
-        {
-          "path": "elections/dim_persons.parquet",
-          "size_bytes": 13317270,
-          "row_count": 430630
-        }
-      ],
-      "row_count_total": 430630
-    },
-    {
       "table_id": "elections.elections_candidacies",
       "family": "elections",
       "table_name": "elections_candidacies",
@@ -560,23 +509,6 @@
         }
       ],
       "row_count_total": 430627
-    },
-    {
-      "table_id": "taxonomy.ac_crosswalk",
-      "family": "taxonomy",
-      "table_name": "ac_crosswalk",
-      "kind": "taxonomy",
-      "format": "parquet",
-      "schema_version": "1.0",
-      "partition_columns": [],
-      "files": [
-        {
-          "path": "taxonomy/ac_crosswalk.parquet",
-          "size_bytes": 75879,
-          "row_count": 4113
-        }
-      ],
-      "row_count_total": 4113
     },
     {
       "table_id": "taxonomy.entities",
@@ -611,57 +543,6 @@
         }
       ],
       "row_count_total": 162
-    },
-    {
-      "table_id": "taxonomy.methodology_breaks",
-      "family": "taxonomy",
-      "table_name": "methodology_breaks",
-      "kind": "taxonomy",
-      "format": "parquet",
-      "schema_version": "1.0",
-      "partition_columns": [],
-      "files": [
-        {
-          "path": "taxonomy/methodology_breaks.parquet",
-          "size_bytes": 5236,
-          "row_count": 5
-        }
-      ],
-      "row_count_total": 5
-    },
-    {
-      "table_id": "taxonomy.persons",
-      "family": "taxonomy",
-      "table_name": "persons",
-      "kind": "taxonomy",
-      "format": "parquet",
-      "schema_version": "1.0",
-      "partition_columns": [],
-      "files": [
-        {
-          "path": "taxonomy/persons.parquet",
-          "size_bytes": 12812691,
-          "row_count": 430630
-        }
-      ],
-      "row_count_total": 430630
-    },
-    {
-      "table_id": "taxonomy.sources",
-      "family": "taxonomy",
-      "table_name": "sources",
-      "kind": "taxonomy",
-      "format": "parquet",
-      "schema_version": "3.0",
-      "partition_columns": [],
-      "files": [
-        {
-          "path": "taxonomy/sources.parquet",
-          "size_bytes": 27384,
-          "row_count": 418
-        }
-      ],
-      "row_count_total": 418
     }
   ],
   "deprecations": [
@@ -674,6 +555,41 @@
       "old_path": "elections/dim_candidates.parquet",
       "new_path": "elections/dim_persons.parquet",
       "deprecated_at": "2026-05-23"
+    },
+    {
+      "old_path": "elections/dim_parties.parquet",
+      "new_path": "data/entities/parties.csv",
+      "deprecated_at": "2026-06-06"
+    },
+    {
+      "old_path": "elections/dim_pcs.parquet",
+      "new_path": "data/entities/electoral.csv",
+      "deprecated_at": "2026-06-06"
+    },
+    {
+      "old_path": "elections/dim_persons.parquet",
+      "new_path": "(retired; bio columns folded into elections/{assembly,parliament}/.../candidacies.csv)",
+      "deprecated_at": "2026-06-06"
+    },
+    {
+      "old_path": "taxonomy/ac_crosswalk.parquet",
+      "new_path": "data/entities/ac_crosswalk.csv",
+      "deprecated_at": "2026-06-06"
+    },
+    {
+      "old_path": "taxonomy/persons.parquet",
+      "new_path": "(retired with dim_persons.parquet)",
+      "deprecated_at": "2026-06-06"
+    },
+    {
+      "old_path": "taxonomy/sources.parquet",
+      "new_path": "data/entities/source.csv",
+      "deprecated_at": "2026-06-06"
+    },
+    {
+      "old_path": "taxonomy/methodology_breaks.parquet",
+      "new_path": "data/methodology_breaks.csv",
+      "deprecated_at": "2026-06-06"
     }
   ]
 }
