@@ -31,7 +31,7 @@ from pathlib import Path
 # finance + demand/supply lift: 2 ICED distribution endpoints + 3 RBI
 # Handbook tables 138 / 139 / 141). DO NOT re-derive these in the
 # adapter — the citation ledger is the source of truth, and the writer's
-# FK gate verifies each appears in ``datasets/taxonomy/sources.parquet``
+# FK gate verifies each appears in ``datasets/data/entities/source.csv``
 # before observation rows touch disk. If a future PR changes the source
 # triple (`producer | title | vintage`) for any of these, the hash will
 # rotate and BOTH the catalogue + this constant must update together.
@@ -297,7 +297,7 @@ def load_meadow(
             ``"rbi"``, ``"cea"``, ...).
         vintage: source's own period label (publisher-native), matches
             the ``vintage`` field of the citation-ledger row in
-            ``datasets/taxonomy/sources.parquet`` (Tier-B check lands
+            ``datasets/data/entities/source.csv`` (Tier-B check lands
             in PR 7c-4).
         file: descriptor with ``.json`` suffix (e.g.
             ``"state_electricity_generation_mu.json"``).

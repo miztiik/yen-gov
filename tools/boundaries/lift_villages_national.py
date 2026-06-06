@@ -44,7 +44,7 @@ Outputs:
     datasets/boundaries/boundary_layers.parquet
         (new per-(state,district) rows added; existing 38 TN rows
         replaced by same-PK new rows; all other layers preserved)
-    datasets/taxonomy/sources.parquet
+    datasets/data/entities/source.csv
         (UPSERTed by compile_to_parquet; ramSeraph row unchanged from
         prior runs)
 

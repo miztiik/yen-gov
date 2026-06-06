@@ -142,7 +142,8 @@ def main() -> None:
             "Chandigarh=4, DNHDD=38, Lakshadweep=31, Ladakh=37) correctly "
             "have 0 ACs. Total in this snapshot: 3918 ACs; expected ~4123. "
             "ECI ac_no is NOT carried here (LGD report has no ECI mapping); "
-            "the ECI -> LGD AC join lives in datasets/taxonomy/ac_crosswalk.parquet "
+            "the ECI -> LGD AC join lives in datasets/data/entities/ac_crosswalk.csv "
+            "post-X1b (#814; was taxonomy/ac_crosswalk.parquet pre-X1b) "
             "per ADR-0049. Builder: tools/migrate/build_lgd_acs_pcs.py."
         ),
         "sources": [

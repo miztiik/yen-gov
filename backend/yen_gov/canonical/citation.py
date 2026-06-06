@@ -113,7 +113,7 @@ def lookup_source_id(
 ) -> str:
     """Data-driven counterpart to :func:`derive_source_id` (PR-A6).
 
-    Reads ``sources_path`` (a ``datasets/taxonomy/sources.parquet``-shaped
+    Reads ``sources_path`` (a ``datasets/data/entities/source.csv``-shaped
     parquet) and returns the ``source_id`` of the row whose
     ``(producer, title, vintage)`` triple matches the arguments exactly.
 
