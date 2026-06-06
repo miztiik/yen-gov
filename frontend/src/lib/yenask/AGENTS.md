@@ -1,6 +1,6 @@
 # `frontend/src/lib/yenask/` - YENASK lab internals
 
-**Last Updated**: 2026-05-26
+**Last Updated**: 2026-06-06
 **Plan-doc**: [`TODO/20260518-browser-governance-insight-assistant-plan.md`](../../../../TODO/20260518-browser-governance-insight-assistant-plan.md)
 
 ASCII only: use plain keyboard characters; write "-", "->", ">=", "section", and "INR" instead of fancy symbols.
@@ -13,10 +13,13 @@ It turns a citizen governance question into a validated `InsightIntent`,
 then runs DuckDB-WASM against the canonical store to produce an
 `AnswerViewModel`. (Canonical store: X1a flipped `dim_parties` +
 `taxonomy.sources` onto long-format CSV under `datasets/data/` via the
-`registerCsvAsTable` seam in `lib/duckdb.ts`; dim_acs +
-elections_candidacies parquets are STILL READ from the parquet store at
-startup by `semantic-catalogue.ts` and retire via B3. See the
-[platform-reset plan](../../../../TODO/20260603-data-and-charting-platform-reset-plan.md).)
+`registerCsvAsTable` seam in `lib/duckdb.ts`. YA cutover 2026-06-06
+retired the last two parquet reads in semantic-catalogue startup
+(`dim_acs` + `elections_candidacies`) - state enumeration moved to
+inline `read_csv('data/entities/electoral.csv', ...)` and
+election-period enumeration to `fetchElectionEvents()` reading
+`taxonomy/election_events.json`. See the
+[platform-reset plan](../../../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 22.5 YA row.)
 
 The CITIZEN-FACING brand is **Yen-Ask** (logo + page title only). All
 MODULE identifiers stay as `yenask` (directory name, route slug, LS key,
@@ -31,10 +34,10 @@ placement).
 | `contracts/insight-intent.ts` | Zod schema for what the model is allowed to output. Discriminated by `version: "insight.intent.v0"`. | 1 |
 | `contracts/answer-viewmodel.ts` | Zod schema for what the renderer is allowed to display. `source_strip` is REQUIRED non-empty. | 1 |
 | `types.ts` | Shared TS types not covered by Zod (DuckDBPlan, AnswerRow, etc.) | 1 |
-| `semantic-catalogue.ts` | Derived at startup from `datasets/manifest.json` + the canonical CSV taxonomy (X1a flipped `dim_parties` + `taxonomy.sources` via `registerCsvAsTable`; `dim_acs` + `elections_candidacies` parquet reads remain pending B3). MUST NOT scan fact tables (section 17 D-04). | 1 |
+| `semantic-catalogue.ts` | Derived at startup from `datasets/manifest.json` + the canonical CSV taxonomy + the hand-curated `taxonomy/election_events.json` catalogue. YA cutover 2026-06-06: state enumeration via inline `read_csv('data/entities/electoral.csv', ...)`; election-period enumeration via `fetchElectionEvents()`. MUST NOT scan fact tables (section 17 D-04). | 1 |
 | `concepts.ts` | Hand-authored citizen-question -> query-template mapping. | 1 |
 | `compile-intent.ts` | PURE: `(intent, catalogue) -> DuckDBPlan`. No I/O. Joins the canonical source citation table (`datasets/data/entities/source.csv` via X1a `registerCsvAsTable('taxonomy.sources')`) to enforce Holy Law #9. | 1 |
-| `execute-plan.ts` | IMPURE: `(plan) -> Promise<AnswerViewModel>`. Calls `query()` from `../duckdb`. | 1 |
+| `execute-plan.ts` | IMPURE: `(plan) -> Promise<AnswerViewModel>`. Calls `query()` from `../duckdb`. YA cutover 2026-06-06: `coerceSourceRow` fills sentinels for the 4 X1a-NULL'd source fields (`license` / `confidence_tier` / `is_issuing_authority` / `verification_method`) so the downstream Zod parser accepts the post-X1a 5-field `source.csv` shape. | 1 |
 | `extract-intent.ts` | `extractIntent(question, catalogue, adapter, opts?)`. Slice E.2: optional `opts.embed: EmbedFn` wires the retrieval seam - top-K narrowing + Gregor D-32 substring fallback when top-1 cosine < `COSINE_THRESHOLD` (0.6). Also exports `substringFallback(question, k)` for deterministic fallback ranking. `ExtractAttempt` carries `embed_ms: number \| null`; `ExtractDiagnostics` carries `top_concepts? \| concept_selection? \| selected_concept_ids?`. Behaviour is unchanged when `opts.embed` is omitted (back-compat). | 2, extended in 3 (E.2) |
 | `fixtures/canned-intents.ts` | The four PR-1 canned intents (party_totals, closest_contests, constituency_result, turnout_extremes). | 1 |
 | `fixtures/intent-eval.json` | 20 labelled citizen-style questions (5 per concept) - Slice E.2 regression alarm (Andre + Hamel + Fowler eval-as-contract lock; ADR-0039 + plan-doc D-32). Vitest `catalogue-embed.test.ts` asserts `substringFallback` top-1 accuracy >=90% (5pp tolerance under the 95% baseline measured 2026-05-24). | 3 (E.1) |

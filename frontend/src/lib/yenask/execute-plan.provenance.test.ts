@@ -14,16 +14,18 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 vi.mock("../duckdb", () => ({
   query: vi.fn(),
   registerCsvFile: vi.fn().mockResolvedValue(undefined),
+  registerCsvAsTable: vi.fn().mockResolvedValue("view"),
   registerSlice: vi.fn().mockResolvedValue("view"),
   registerTable: vi.fn().mockResolvedValue("view"),
 }));
 
-import { query, registerCsvFile, registerSlice, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerCsvFile, registerSlice, registerTable } from "../duckdb";
 import { executePlan } from "./execute-plan";
 import type { DuckDBPlan } from "./types";
 
 const queryMock = vi.mocked(query);
 const registerCsvMock = vi.mocked(registerCsvFile);
+const registerCsvAsTableMock = vi.mocked(registerCsvAsTable);
 const registerSliceMock = vi.mocked(registerSlice);
 const registerTableMock = vi.mocked(registerTable);
 
@@ -85,6 +87,7 @@ describe("executePlan — D-06 provenance discipline", () => {
   beforeEach(() => {
     queryMock.mockReset();
     registerCsvMock.mockReset().mockResolvedValue(undefined);
+    registerCsvAsTableMock.mockReset().mockResolvedValue("view");
     registerSliceMock.mockReset().mockResolvedValue("view");
     registerTableMock.mockReset().mockResolvedValue("view");
   });
@@ -142,9 +145,12 @@ describe("executePlan — D-06 provenance discipline", () => {
       { state: "tamil-nadu" },
       { viewName: "election_results" },
     );
-    expect(registerTableMock).toHaveBeenCalledWith(
+    // X1a: taxonomy.sources dispatches through registerCsvAsTable (not
+    // registerTable) per the executor's CSV_AS_TABLE_IDS dispatch set.
+    expect(registerCsvAsTableMock).toHaveBeenCalledWith("taxonomy.sources");
+    expect(registerTableMock).not.toHaveBeenCalledWith(
       "taxonomy.sources",
-      { viewName: "sources" },
+      expect.anything(),
     );
   });
 
@@ -191,5 +197,105 @@ describe("executePlan — D-06 provenance discipline", () => {
       .mockResolvedValueOnce([{ ...FAKE_SOURCE_ROW, producer: "" }]);
 
     await expect(executePlan(PLAN)).rejects.toThrow();
+  });
+
+  // -------------------------------------------------------------------
+  // YA cutover (2026-06-06) - sentinel coercion at the coerceSourceRow
+  // boundary for X1a-NULL'd source fields per O3 doctrine. The
+  // `registerCsvAsTable("taxonomy.sources")` view projects 4 of the 6
+  // strict-enum Zod fields as NULL (because the 5-field source.csv
+  // contract dropped them). coerceSourceRow fills the safest enum
+  // variant at the boundary so the Zod parse accepts the row.
+  // -------------------------------------------------------------------
+
+  it("coerces NULL license to 'unknown-public' sentinel (X1a 5-field source.csv)", async () => {
+    const nullLicenseRow = { ...FAKE_SOURCE_ROW, license: null };
+    queryMock
+      .mockResolvedValueOnce([FAKE_MAIN_ROW])
+      .mockResolvedValueOnce([nullLicenseRow]);
+
+    const vm = await executePlan(PLAN);
+    expect(vm.source_strip[0]!.license).toBe("unknown-public");
+  });
+
+  it("coerces NULL confidence_tier to 'bronze' sentinel (X1a 5-field source.csv)", async () => {
+    const nullTierRow = { ...FAKE_SOURCE_ROW, confidence_tier: null };
+    queryMock
+      .mockResolvedValueOnce([FAKE_MAIN_ROW])
+      .mockResolvedValueOnce([nullTierRow]);
+
+    const vm = await executePlan(PLAN);
+    expect(vm.source_strip[0]!.confidence_tier).toBe("bronze");
+  });
+
+  it("coerces NULL is_issuing_authority to false sentinel (X1a 5-field source.csv)", async () => {
+    const nullAuthorityRow = { ...FAKE_SOURCE_ROW, is_issuing_authority: null };
+    queryMock
+      .mockResolvedValueOnce([FAKE_MAIN_ROW])
+      .mockResolvedValueOnce([nullAuthorityRow]);
+
+    const vm = await executePlan(PLAN);
+    expect(vm.source_strip[0]!.is_issuing_authority).toBe(false);
+  });
+
+  it("coerces NULL verification_method to 'editorial' sentinel (X1a 5-field source.csv)", async () => {
+    const nullMethodRow = { ...FAKE_SOURCE_ROW, verification_method: null };
+    queryMock
+      .mockResolvedValueOnce([FAKE_MAIN_ROW])
+      .mockResolvedValueOnce([nullMethodRow]);
+
+    const vm = await executePlan(PLAN);
+    expect(vm.source_strip[0]!.verification_method).toBe("editorial");
+  });
+
+  it("coerces ALL X1a-NULL'd source fields in one pass (the realistic post-cutover row shape)", async () => {
+    // The shape the CSV-as-table view actually returns post-X1a: only
+    // source_id + producer + title + vintage + url_main carry data;
+    // license / confidence_tier / is_issuing_authority /
+    // verification_method / citation_full / notes all NULL.
+    const x1aRealisticRow = {
+      source_id: "src-x1a01234567",
+      producer: "Election Commission of India",
+      title: "TN Assembly results CSV",
+      vintage: "May 2026",
+      license: null,
+      confidence_tier: null,
+      is_issuing_authority: null,
+      verification_method: null,
+      url_main: "https://results.eci.gov.in/AcGenMay2026/",
+      citation_full: null,
+      notes: null,
+    };
+    queryMock
+      .mockResolvedValueOnce([FAKE_MAIN_ROW])
+      .mockResolvedValueOnce([x1aRealisticRow]);
+
+    const vm = await executePlan(PLAN);
+    expect(vm.provenance_status).toBe("joined");
+    expect(vm.source_strip).toHaveLength(1);
+    const row = vm.source_strip[0]!;
+    expect(row.source_id).toBe("src-x1a01234567");
+    expect(row.producer).toBe("Election Commission of India");
+    expect(row.license).toBe("unknown-public");
+    expect(row.confidence_tier).toBe("bronze");
+    expect(row.is_issuing_authority).toBe(false);
+    expect(row.verification_method).toBe("editorial");
+    expect(row.citation_full).toBeNull();
+    expect(row.notes).toBeNull();
+  });
+
+  it("preserves non-null source fields when the executor does see a fully-populated row", async () => {
+    // Pre-X1a-shaped fully-populated rows (e.g. from the
+    // synthesised unattested fallback or from a future restore path)
+    // still flow through coerceSourceRow without sentinel-overwrite.
+    queryMock
+      .mockResolvedValueOnce([FAKE_MAIN_ROW])
+      .mockResolvedValueOnce([FAKE_SOURCE_ROW]);
+
+    const vm = await executePlan(PLAN);
+    expect(vm.source_strip[0]!.license).toBe("OGL-IN-1.0");
+    expect(vm.source_strip[0]!.confidence_tier).toBe("gold");
+    expect(vm.source_strip[0]!.is_issuing_authority).toBe(true);
+    expect(vm.source_strip[0]!.verification_method).toBe("live-fetch");
   });
 });
