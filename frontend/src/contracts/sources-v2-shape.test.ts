@@ -61,33 +61,38 @@ const sourcesEntry: ManifestTable | undefined = manifest.tables.find(
   (t) => t.table_id === "taxonomy.sources",
 );
 
-describe("sources-v2 — manifest registration (R-28)", () => {
-  it("taxonomy.sources is registered as a manifest table", () => {
+const sourcesDeprecation: { old_path: string; new_path: string; deprecated_at: string } | undefined =
+  (manifest as unknown as { deprecations?: Array<{ old_path: string; new_path: string; deprecated_at: string }> })
+    .deprecations
+    ?.find((d) => d.old_path === "taxonomy/sources.parquet");
+
+describe("sources-v2 - manifest registration (R-28; X1b PARTIAL retired)", () => {
+  // X1b (PR #814, 2026-06-06) retired taxonomy/sources.parquet from disk
+  // and pruned its manifest entry. The current contract is:
+  //   - taxonomy.sources MUST NOT be a manifest table (sourcesEntry =
+  //     undefined; assertable here so a future agent that re-emits the
+  //     parquet fails loud).
+  //   - The deprecations[] array MUST carry a row pointing
+  //     `taxonomy/sources.parquet` at the CSV replacement
+  //     `data/entities/source.csv` so archived embeds get a useful
+  //     console warning (warnIfLegacyPath in lib/duckdb.ts).
+  //   - Frontend consumption is via the `registerCsvAsTable('taxonomy.sources')`
+  //     seam in lib/duckdb.ts (X1a #809) which projects the parquet
+  //     column shape from the new CSV file.
+  it("taxonomy.sources is NOT a manifest table post-X1b", () => {
     expect(
       sourcesEntry,
-      "taxonomy.sources must appear in datasets/manifest.json so consumers can resolve the parquet via table_id (R-28). NEVER hardcode /data/taxonomy/sources.parquet at any call site.",
+      "taxonomy.sources was retired in X1b on 2026-06-06; re-registering it would re-introduce a deleted parquet. Consumers must use registerCsvAsTable('taxonomy.sources') (lib/duckdb.ts) which projects the parquet column shape from data/entities/source.csv.",
+    ).toBeUndefined();
+  });
+
+  it("manifest deprecations[] carries the taxonomy/sources.parquet -> CSV redirect", () => {
+    expect(
+      sourcesDeprecation,
+      "manifest.json deprecations[] MUST carry a row mapping taxonomy/sources.parquet -> data/entities/source.csv so warnIfLegacyPath in lib/duckdb.ts can surface a useful console warning for archived embeds.",
     ).toBeDefined();
-  });
-
-  it("registered at the current source schema version", () => {
-    // ADR-0032 P.0e originally registered the ledger at v2.0; ADR-0042
-    // bumped to v3.0 to add `vintage: minLength: 1` (no field changes).
-    expect(sourcesEntry?.schema_version).toBe(sourcesSchema["x-version"]);
-  });
-
-  it("registered as parquet format", () => {
-    expect(sourcesEntry?.format).toBe("parquet");
-  });
-
-  it("registered as kind=taxonomy under family=taxonomy", () => {
-    expect(sourcesEntry?.kind).toBe("taxonomy");
-    expect(sourcesEntry?.family).toBe("taxonomy");
-  });
-
-  it("on-disk parquet path is taxonomy/sources.parquet", () => {
-    // The path is for the manifest resolver; consumers must still go
-    // through the table_id, not hardcode this path.
-    expect(sourcesEntry?.files?.[0]?.path).toBe("taxonomy/sources.parquet");
+    expect(sourcesDeprecation?.new_path).toBe("data/entities/source.csv");
+    expect(sourcesDeprecation?.deprecated_at).toBe("2026-06-06");
   });
 });
 

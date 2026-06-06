@@ -534,7 +534,7 @@
     },
     {
       "old_path": "elections/dim_persons.parquet",
-      "new_path": "(retired; bio columns folded into elections/{assembly,parliament}/.../candidacies.csv)",
+      "new_path": "elections/assembly/candidacies.csv",
       "deprecated_at": "2026-06-06"
     },
     {
@@ -544,7 +544,7 @@
     },
     {
       "old_path": "taxonomy/persons.parquet",
-      "new_path": "(retired with dim_persons.parquet)",
+      "new_path": "elections/assembly/candidacies.csv",
       "deprecated_at": "2026-06-06"
     },
     {
@@ -564,7 +564,7 @@
     },
     {
       "old_path": "elections/elections_candidacies.parquet",
-      "new_path": "elections/{assembly,parliament}/state=*/election=*/candidacies.csv",
+      "new_path": "elections/assembly/candidacies.csv",
       "deprecated_at": "2026-06-06"
     }
   ]
