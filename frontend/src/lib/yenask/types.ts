@@ -92,6 +92,19 @@ export interface DuckDBTableRegistration {
   readonly view_name: string;
 }
 
+/**
+ * F1.3b: a long-format CSV URL the executor must register with
+ * DuckDB-WASM (via `registerCsvFile`) before running the SQL strings.
+ * The URL is spliced INLINE into the `main_sql` / `provenance_sql`
+ * `read_csv('<url>', columns={...})` calls by the compiler; the
+ * executor only registers the URL so DuckDB-WASM streams it over HTTP
+ * Range when the query runs. No SQL view name is created (the URL
+ * itself is the view).
+ */
+export interface DuckDBCsvRegistration {
+  readonly url: string;
+}
+
 export interface DuckDBPlan {
   /**
    * The originating intent's concept_id. Carried on the plan so the
@@ -103,6 +116,12 @@ export interface DuckDBPlan {
   readonly slice_registrations: readonly DuckDBSliceRegistration[];
   /** Full-table views to register (e.g. taxonomy.sources). */
   readonly table_registrations: readonly DuckDBTableRegistration[];
+  /**
+   * F1.3b CSV URLs to register with DuckDB-WASM before the SQL runs.
+   * Empty array when the concept reads only Parquet (legacy plans pre-
+   * F1.3b, and any future plan that touches only dim_* parquets).
+   */
+  readonly csv_registrations: readonly DuckDBCsvRegistration[];
   /** Main SELECT — must reference the views registered above. */
   readonly main_sql: string;
   /**

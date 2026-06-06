@@ -8,7 +8,8 @@
   // PR-2: multi-turn CHAT surface backed by the same pipeline as PR-1.
   //   user types question
   //     → extractIntent(question, catalogue, adapter)   (model)
-  //     → compileIntent(intent, catalogue)              (pure)
+  //     → compileIntent(intent, catalogue)              (async per
+  //       F1.3b: awaits columns.json typed-read clause)
   //     → executePlan(plan)                             (DuckDB-WASM)
   //     → append assistant turn to conversation log
   //
@@ -344,7 +345,7 @@
     }
 
     try {
-      const plan = compileIntent(intent, catalogue);
+      const plan = await compileIntent(intent, catalogue);
       const answer = await executePlan(plan);
       replaceLastTurn({
         id: newId(),

@@ -1,33 +1,51 @@
-// Hand-authored concept → query-template registry.
+// Hand-authored concept -> query-template registry (F1.3b CSV cutover).
 //
 // Each entry maps a `ConceptId` (the closed enum in
 // `contracts/insight-intent.ts`) to:
 //   - the required filter fields the compiler will demand
-//   - a SQL builder that returns the main query
+//   - an ASYNC SQL builder that returns the main + provenance query
 //   - an AnswerViewHints object describing the rendered table
 //
-// Per plan-doc §17 D-04: this file is HAND-AUTHORED and bounded. Adding a
-// new concept is an explicit, reviewable PR change here + an enum addition
-// in `contracts/insight-intent.ts`. No automation, no LLM-generated SQL.
+// Per plan-doc §17 D-04: this file is HAND-AUTHORED and bounded. Adding
+// a new concept is an explicit, reviewable PR change here + an enum
+// addition in `contracts/insight-intent.ts`. No automation, no
+// LLM-generated SQL.
 //
-// All four PR-1 concepts read from `election_results` (the fact table)
-// at compile/execute time. The catalogue is the WRITE-time discipline
-// (D-04); reading the fact table at compile time IS the entire point of
-// YENASK.
+// F1.3b: the 4 templates now read the per-(state, year) long-format
+// CSV files via DuckDB-WASM `read_csv(<url>, columns={...})` instead of
+// the legacy `election_results` / `dim_acs` / `elections_candidacies` /
+// `dim_persons` Parquet pivot. `dim_parties` + `taxonomy.sources` stay
+// on Parquet until X1a (the atomic reader flip).
+//
+// Critical per-row contract (F1 sub-plan section 22.4 #4): every
+// `read_csv(...)` call carries an explicit `columns={...}` map derived
+// from `datasets/data/_schema/columns.json` via `csvColumnsClause`. No
+// hand-typed column lists. `build(...)` is ASYNC to await the
+// columns-map fetch (cached per session by `lib/canonical/csv-columns.ts`).
+//
+// What the 4 concepts read after F1.3b:
+//   - party_totals:        candidacies.csv + electoral.csv + dim_parties (PQ)
+//   - closest_contests:    summary.csv + electoral.csv
+//   - constituency_result: candidacies.csv + electoral.csv + dim_parties (PQ)
+//   - turnout_extremes:    summary.csv + electoral.csv
+// Every provenance SQL JOINs the relevant CSV `source_id` column ->
+// taxonomy.sources (PQ).
 
 import type { InsightIntent } from "./contracts/insight-intent";
 import type { ConceptId } from "./contracts/insight-intent";
-import type { AnswerViewHints, DuckDBPlan, ColumnFormat } from "./types";
-import { ECI_TO_LGD_SLUG } from "../maplibre/sources";
-
-// Reverse lookup: state_partition_id (LGD slug, e.g. "tamil-nadu") -> ECI st_code
-// (e.g. "S22"). Used by every concept that builds entity_id prefixes like
-// "IN-S22-AC-...". The InsightIntent CDM emits LGD slugs since the M3 rename;
-// the canonical entity_id grammar still uses ECI codes, so concepts.ts is the
-// translation seam.
-const SLUG_TO_ECI: Readonly<Record<string, string>> = Object.fromEntries(
-  Object.entries(ECI_TO_LGD_SLUG).map(([code, slug]) => [slug, code]),
-);
+import type {
+  AnswerViewHints,
+  DuckDBPlan,
+  ColumnFormat,
+} from "./types";
+import { DATA_BASE } from "../paths";
+import { csvColumnsClause } from "../canonical/csv-columns";
+import {
+  assemblyCandidaciesPath,
+  assemblySummaryPath,
+  electoralEntitiesPath,
+  eventYear,
+} from "../canonical/election-csv-paths";
 
 // ---------- SQL helpers ----------------------------------------------------
 
@@ -43,32 +61,120 @@ interface ResolvedFilters {
   limit: number;
 }
 
+/**
+ * Per-call CSV path bundle. Computed once per build, then spliced into
+ * the main + provenance SQL strings. Carries the registration URLs the
+ * executor will pass to `registerCsvFile`.
+ */
+interface CsvBundle {
+  candPath: string;
+  sumPath: string;
+  electoralPath: string;
+  candUrl: string;
+  sumUrl: string;
+  electoralUrl: string;
+  candClause: string;
+  sumClause: string;
+  electoralClause: string;
+}
+
+async function buildCsvBundle(
+  state_partition_id: string,
+  period_label: string,
+): Promise<CsvBundle> {
+  // The InsightIntent CDM emits LGD slugs as state_partition_id. The
+  // per-(state, year) path helpers take the ECI state code in their
+  // public signature; pass the slug directly because
+  // `electionStatePartition(slug)` falls through to `slug.toLowerCase()`
+  // when the slug is already in LGD form (the slug IS the partition).
+  const candPath = assemblyCandidaciesPath(
+    state_partition_id,
+    period_label,
+  );
+  const sumPath = assemblySummaryPath(state_partition_id, period_label);
+  const electoralPath = electoralEntitiesPath();
+  const candUrl = `${DATA_BASE}/${candPath.replace(/^datasets\//, "")}`;
+  const sumUrl = `${DATA_BASE}/${sumPath.replace(/^datasets\//, "")}`;
+  const electoralUrl = `${DATA_BASE}/${electoralPath.replace(/^datasets\//, "")}`;
+  const [candClause, sumClause, electoralClause] = await Promise.all([
+    csvColumnsClause(candPath),
+    csvColumnsClause(sumPath),
+    csvColumnsClause(electoralPath),
+  ]);
+  return {
+    candPath,
+    sumPath,
+    electoralPath,
+    candUrl,
+    sumUrl,
+    electoralUrl,
+    candClause,
+    sumClause,
+    electoralClause,
+  };
+}
+
 // ---------- Concept handlers ----------------------------------------------
 
 interface ConceptHandler {
   readonly required_filters: readonly (keyof InsightIntent["filters"])[];
   readonly default_limit: number;
-  build(intent: InsightIntent): DuckDBPlan;
+  build(intent: InsightIntent): Promise<DuckDBPlan>;
 }
 
 const PARTY_TOTALS: ConceptHandler = {
   required_filters: ["state_partition_id", "period_label"],
   default_limit: 10,
-  build(intent) {
+  async build(intent) {
     const f = requireFilters(intent, PARTY_TOTALS, 10);
-    const evt = sqlString(f.period_label);
-    const stateUpper = SLUG_TO_ECI[f.state_partition_id] ?? f.state_partition_id.toUpperCase();
-    const partyPrefix = sqlString(`IN-${stateUpper}-${f.period_label}-PARTY-`);
+    // Touch eventYear so a malformed period_label fails loud here, not
+    // inside the embedded read_csv path; the value itself is implicit
+    // in the assemblyCandidaciesPath builder.
+    eventYear(f.period_label);
+    const bundle = await buildCsvBundle(
+      f.state_partition_id,
+      f.period_label,
+    );
+    const stateLit = sqlString(f.state_partition_id);
+
+    // Per-party aggregation from candidacies.csv: SUM(votes) per
+    // party_short, COUNT(distinct ac where position=1) per party_short,
+    // vote-share % via cross-join to the state-total votes.
+    //
+    // party_short fallback chain mirrors psephlab/canonical-loaders.ts
+    // (F1.3a): prefer dim_parties.short_name, fall back to substring
+    // of canonical party_id (after the `parties.IN.` prefix), fall
+    // back to 'IND'. NOTA collapses to its own party_short bucket.
     const mainSql = `
+      WITH state_total AS (
+        SELECT SUM(ec.votes) AS total
+        FROM read_csv('${bundle.candUrl}', ${bundle.candClause}) ec
+        JOIN read_csv('${bundle.electoralUrl}', ${bundle.electoralClause}) e
+          ON e.entity_id = ec.entity_id
+         AND e.entity_kind = 'ac'
+        WHERE e.state = ${stateLit}
+      )
       SELECT
-        regexp_extract(o.entity_id, '-PARTY-(.+)$', 1)                                       AS party_short,
-        CAST(MAX(CASE WHEN o.indicator_id = 'party-seats-won'      THEN o.value_numeric END) AS INTEGER) AS seats_won,
-        CAST(MAX(CASE WHEN o.indicator_id = 'party-votes-polled'   THEN o.value_numeric END) AS BIGINT)  AS votes,
-             MAX(CASE WHEN o.indicator_id = 'party-vote-share-pct' THEN o.value_numeric END)             AS vote_share_pct
-      FROM election_results o
-      WHERE o.entity_id LIKE ${partyPrefix} || '%'
-        AND o.period_label = ${evt}
-        AND o.indicator_id IN ('party-seats-won', 'party-votes-polled', 'party-vote-share-pct')
+        CASE
+          WHEN UPPER(ec.candidate_name) = 'NOTA' THEN 'NOTA'
+          ELSE COALESCE(
+            dp.short_name,
+            CASE WHEN ec.party_id LIKE 'parties.IN.%'
+                 THEN substring(ec.party_id, length('parties.IN.') + 1)
+                 ELSE ec.party_id END,
+            'IND'
+          )
+        END                                                                                                  AS party_short,
+        CAST(SUM(CASE WHEN ec.position = 1 AND UPPER(ec.candidate_name) <> 'NOTA' THEN 1 ELSE 0 END) AS INTEGER) AS seats_won,
+        CAST(SUM(ec.votes) AS BIGINT)                                                                         AS votes,
+        ROUND(SUM(ec.votes) * 100.0 / NULLIF(MAX(st.total), 0), 2)                                            AS vote_share_pct
+      FROM read_csv('${bundle.candUrl}', ${bundle.candClause}) ec
+      JOIN read_csv('${bundle.electoralUrl}', ${bundle.electoralClause}) e
+        ON e.entity_id = ec.entity_id
+       AND e.entity_kind = 'ac'
+      LEFT JOIN dim_parties dp ON dp.party_id = ec.party_id
+      CROSS JOIN state_total st
+      WHERE e.state = ${stateLit}
       GROUP BY 1
       HAVING seats_won IS NOT NULL
       ORDER BY seats_won DESC NULLS LAST, votes DESC NULLS LAST
@@ -79,11 +185,12 @@ const PARTY_TOTALS: ConceptHandler = {
         s.source_id, s.producer, s.title, s.vintage, s.license,
         s.confidence_tier, s.is_issuing_authority, s.verification_method,
         s.url_main, s.citation_full, s.notes
-      FROM election_results o
-      JOIN sources s ON s.source_id = o.source_id
-      WHERE o.entity_id LIKE ${partyPrefix} || '%'
-        AND o.period_label = ${evt}
-        AND o.indicator_id IN ('party-seats-won', 'party-votes-polled', 'party-vote-share-pct')
+      FROM read_csv('${bundle.candUrl}', ${bundle.candClause}) ec
+      JOIN read_csv('${bundle.electoralUrl}', ${bundle.electoralClause}) e
+        ON e.entity_id = ec.entity_id
+       AND e.entity_kind = 'ac'
+      JOIN sources s ON s.source_id = ec.source_id
+      WHERE e.state = ${stateLit}
       ORDER BY s.source_id
     `;
     const hints: AnswerViewHints = {
@@ -104,11 +211,14 @@ const PARTY_TOTALS: ConceptHandler = {
     };
     return {
       concept_id: intent.concept_id,
-      slice_registrations: [
-        { table_id: "elections.election_results", partition_filter: { state: f.state_partition_id }, view_name: "election_results" },
-      ],
+      slice_registrations: [],
       table_registrations: [
+        { table_id: "elections.dim_parties", view_name: "dim_parties" },
         { table_id: "taxonomy.sources", view_name: "sources" },
+      ],
+      csv_registrations: [
+        { url: bundle.candUrl },
+        { url: bundle.electoralUrl },
       ],
       main_sql: mainSql.trim(),
       provenance_sql: provenanceSql.trim(),
@@ -120,49 +230,46 @@ const PARTY_TOTALS: ConceptHandler = {
 const CLOSEST_CONTESTS: ConceptHandler = {
   required_filters: ["state_partition_id", "period_label"],
   default_limit: 10,
-  build(intent) {
+  async build(intent) {
     const f = requireFilters(intent, CLOSEST_CONTESTS, 10);
-    const evt = sqlString(f.period_label);
-    const stateUpper = SLUG_TO_ECI[f.state_partition_id] ?? f.state_partition_id.toUpperCase();
-    const acPrefix = sqlString(`IN-${stateUpper}-`);
+    eventYear(f.period_label);
+    const bundle = await buildCsvBundle(
+      f.state_partition_id,
+      f.period_label,
+    );
+    const stateLit = sqlString(f.state_partition_id);
 
-    // Per-AC winner vs runner-up vote-share gap. Reads ac-margin-pp
-    // directly when published; otherwise computes from
-    // candidate-vote-share-pct rank 1 vs rank 2 via candidacies.
-    // For PR-1 we lean on `ac-margin-pp` when present (canonical
-    // indicator emitted by the elections fold). Falls back to NULL
-    // when missing — the row simply ranks lower.
+    // Per-AC margin (winner share - runner-up share, expressed as %
+    // points). summary.csv carries `margin_pct` published per-AC; no
+    // candidate-level computation needed. Filter out NULLs to keep
+    // the ORDER BY meaningful.
     const mainSql = `
       SELECT
-        da.eci_no       AS ac_no,
-        da.name         AS ac_name,
-        MAX(CASE WHEN o.indicator_id = 'ac-margin-pp' THEN o.value_numeric END) AS margin_pp,
-        CAST(MAX(CASE WHEN o.indicator_id = 'ac-votes-polled' THEN o.value_numeric END) AS BIGINT) AS votes_polled
-      FROM dim_acs da
-      JOIN election_results o
-        ON o.entity_id = da.ac_id
-       AND o.period_label = ${evt}
-       AND o.indicator_id IN ('ac-margin-pp', 'ac-votes-polled')
-      WHERE da.state_code = ${sqlString(stateUpper)}
-        AND da.ac_id LIKE ${acPrefix} || '%'
-      GROUP BY da.eci_no, da.name
-      HAVING margin_pp IS NOT NULL
-      ORDER BY margin_pp ASC
+        e.eci_no                        AS ac_no,
+        e.name                          AS ac_name,
+        s.margin_pct                    AS margin_pp,
+        CAST(s.votes_polled AS BIGINT)  AS votes_polled
+      FROM read_csv('${bundle.sumUrl}', ${bundle.sumClause}) s
+      JOIN read_csv('${bundle.electoralUrl}', ${bundle.electoralClause}) e
+        ON e.entity_id = s.entity_id
+       AND e.entity_kind = 'ac'
+      WHERE e.state = ${stateLit}
+        AND s.margin_pct IS NOT NULL
+      ORDER BY s.margin_pct ASC
       LIMIT ${f.limit}
     `;
     const provenanceSql = `
       SELECT DISTINCT
-        s.source_id, s.producer, s.title, s.vintage, s.license,
-        s.confidence_tier, s.is_issuing_authority, s.verification_method,
-        s.url_main, s.citation_full, s.notes
-      FROM dim_acs da
-      JOIN election_results o
-        ON o.entity_id = da.ac_id
-       AND o.period_label = ${evt}
-       AND o.indicator_id = 'ac-margin-pp'
-      JOIN sources s ON s.source_id = o.source_id
-      WHERE da.state_code = ${sqlString(stateUpper)}
-      ORDER BY s.source_id
+        s2.source_id, s2.producer, s2.title, s2.vintage, s2.license,
+        s2.confidence_tier, s2.is_issuing_authority, s2.verification_method,
+        s2.url_main, s2.citation_full, s2.notes
+      FROM read_csv('${bundle.sumUrl}', ${bundle.sumClause}) s
+      JOIN read_csv('${bundle.electoralUrl}', ${bundle.electoralClause}) e
+        ON e.entity_id = s.entity_id
+       AND e.entity_kind = 'ac'
+      JOIN sources s2 ON s2.source_id = s.source_id
+      WHERE e.state = ${stateLit}
+      ORDER BY s2.source_id
     `;
     const hints: AnswerViewHints = {
       question: intent.question,
@@ -182,12 +289,13 @@ const CLOSEST_CONTESTS: ConceptHandler = {
     };
     return {
       concept_id: intent.concept_id,
-      slice_registrations: [
-        { table_id: "elections.election_results", partition_filter: { state: f.state_partition_id }, view_name: "election_results" },
-      ],
+      slice_registrations: [],
       table_registrations: [
-        { table_id: "elections.dim_acs", view_name: "dim_acs" },
         { table_id: "taxonomy.sources", view_name: "sources" },
+      ],
+      csv_registrations: [
+        { url: bundle.sumUrl },
+        { url: bundle.electoralUrl },
       ],
       main_sql: mainSql.trim(),
       provenance_sql: provenanceSql.trim(),
@@ -199,48 +307,50 @@ const CLOSEST_CONTESTS: ConceptHandler = {
 const CONSTITUENCY_RESULT: ConceptHandler = {
   required_filters: ["state_partition_id", "period_label", "ac_no"],
   default_limit: 7,
-  build(intent) {
+  async build(intent) {
     const f = requireFilters(intent, CONSTITUENCY_RESULT, 7);
     if (f.ac_no == null) {
       throw new Error(
         "compile: constituency_result requires filters.ac_no",
       );
     }
-    const evt = sqlString(f.period_label);
-    const stateUpper = SLUG_TO_ECI[f.state_partition_id] ?? f.state_partition_id.toUpperCase();
+    eventYear(f.period_label);
+    const bundle = await buildCsvBundle(
+      f.state_partition_id,
+      f.period_label,
+    );
+    const stateLit = sqlString(f.state_partition_id);
 
-    // Top-5 candidates by vote share for the named AC + NOTA row.
-    // Mirrors the explore/duckdb-views.ts candidate pattern.
+    // Top-N contestants by vote share for the named AC. NOTA filtered
+    // out to match the legacy elections_candidacies parquet contract
+    // (which did not carry NOTA rows); explore/duckdb-views surfaces
+    // NOTA inline because that is the legacy preset contract for the
+    // Explore page, but the yenask constituency_result template stays
+    // contestants-only.
+    //
+    // party_short fallback chain mirrors PARTY_TOTALS.
     const mainSql = `
-      WITH cand_obs AS (
-        SELECT
-          o.entity_id AS candidate_id,
-          MAX(CASE WHEN o.indicator_id = 'candidate-votes-polled'   THEN o.value_numeric END) AS votes,
-          MAX(CASE WHEN o.indicator_id = 'candidate-vote-share-pct' THEN o.value_numeric END) AS vote_share_pct
-        FROM election_results o
-        WHERE o.period_label = ${evt}
-          AND o.indicator_id IN ('candidate-votes-polled', 'candidate-vote-share-pct')
-        GROUP BY o.entity_id
-      )
       SELECT
-        ec.rank                                                              AS rank,
-        p.display_name                                                       AS candidate_name,
-        CASE
-          WHEN ec.party_id = 'parties.IN.UNK'
-            THEN COALESCE(ec.party_short_raw, dp.short_name, 'UNK')
-          ELSE dp.short_name
-        END                                                                  AS party_short,
-        CAST(co.votes AS BIGINT)                                             AS votes,
-        co.vote_share_pct                                                    AS vote_share_pct
-      FROM elections_candidacies ec
-      JOIN dim_persons p ON p.person_id = ec.person_id
-      JOIN dim_acs da    ON da.ac_id = ec.ac_id
+        ec.position                                                          AS rank,
+        ec.candidate_name                                                    AS candidate_name,
+        COALESCE(
+          dp.short_name,
+          CASE WHEN ec.party_id LIKE 'parties.IN.%'
+               THEN substring(ec.party_id, length('parties.IN.') + 1)
+               ELSE ec.party_id END,
+          'IND'
+        )                                                                    AS party_short,
+        CAST(ec.votes AS BIGINT)                                             AS votes,
+        ec.vote_share_pct                                                    AS vote_share_pct
+      FROM read_csv('${bundle.candUrl}', ${bundle.candClause}) ec
+      JOIN read_csv('${bundle.electoralUrl}', ${bundle.electoralClause}) e
+        ON e.entity_id = ec.entity_id
+       AND e.entity_kind = 'ac'
       LEFT JOIN dim_parties dp ON dp.party_id = ec.party_id
-      LEFT JOIN cand_obs co    ON co.candidate_id = ec.candidacy_key
-      WHERE ec.election_id = ${evt}
-        AND da.state_code = ${sqlString(stateUpper)}
-        AND da.eci_no = ${f.ac_no}
-      ORDER BY co.vote_share_pct DESC NULLS LAST
+      WHERE e.state = ${stateLit}
+        AND e.eci_no = ${f.ac_no}
+        AND UPPER(ec.candidate_name) <> 'NOTA'
+      ORDER BY ec.vote_share_pct DESC NULLS LAST
       LIMIT ${f.limit}
     `;
     const provenanceSql = `
@@ -248,15 +358,13 @@ const CONSTITUENCY_RESULT: ConceptHandler = {
         s.source_id, s.producer, s.title, s.vintage, s.license,
         s.confidence_tier, s.is_issuing_authority, s.verification_method,
         s.url_main, s.citation_full, s.notes
-      FROM elections_candidacies ec
-      JOIN dim_acs da ON da.ac_id = ec.ac_id
-      JOIN election_results o
-        ON o.entity_id = ec.candidacy_key
-       AND o.period_label = ${evt}
-       AND o.indicator_id IN ('candidate-votes-polled', 'candidate-vote-share-pct')
-      JOIN sources s ON s.source_id = o.source_id
-      WHERE da.state_code = ${sqlString(stateUpper)}
-        AND da.eci_no = ${f.ac_no}
+      FROM read_csv('${bundle.candUrl}', ${bundle.candClause}) ec
+      JOIN read_csv('${bundle.electoralUrl}', ${bundle.electoralClause}) e
+        ON e.entity_id = ec.entity_id
+       AND e.entity_kind = 'ac'
+      JOIN sources s ON s.source_id = ec.source_id
+      WHERE e.state = ${stateLit}
+        AND e.eci_no = ${f.ac_no}
       ORDER BY s.source_id
     `;
     const hints: AnswerViewHints = {
@@ -279,15 +387,14 @@ const CONSTITUENCY_RESULT: ConceptHandler = {
     };
     return {
       concept_id: intent.concept_id,
-      slice_registrations: [
-        { table_id: "elections.election_results", partition_filter: { state: f.state_partition_id }, view_name: "election_results" },
-      ],
+      slice_registrations: [],
       table_registrations: [
-        { table_id: "elections.dim_acs", view_name: "dim_acs" },
         { table_id: "elections.dim_parties", view_name: "dim_parties" },
-        { table_id: "elections.dim_persons", view_name: "dim_persons" },
-        { table_id: "elections.elections_candidacies", view_name: "elections_candidacies" },
         { table_id: "taxonomy.sources", view_name: "sources" },
+      ],
+      csv_registrations: [
+        { url: bundle.candUrl },
+        { url: bundle.electoralUrl },
       ],
       main_sql: mainSql.trim(),
       provenance_sql: provenanceSql.trim(),
@@ -299,28 +406,29 @@ const CONSTITUENCY_RESULT: ConceptHandler = {
 const TURNOUT_EXTREMES: ConceptHandler = {
   required_filters: ["state_partition_id", "period_label"],
   default_limit: 10,
-  build(intent) {
+  async build(intent) {
     const f = requireFilters(intent, TURNOUT_EXTREMES, 10);
-    const evt = sqlString(f.period_label);
-    const stateUpper = SLUG_TO_ECI[f.state_partition_id] ?? f.state_partition_id.toUpperCase();
+    eventYear(f.period_label);
+    const bundle = await buildCsvBundle(
+      f.state_partition_id,
+      f.period_label,
+    );
+    const stateLit = sqlString(f.state_partition_id);
 
-    // Per-AC turnout — one row per AC; the result table interleaves the
-    // top-N (highest) and bottom-N (lowest) into a single ordered table
-    // for the renderer. `band` distinguishes them.
+    // Per-AC turnout from summary.csv; interleave top-N + bottom-N
+    // into a single ordered table the renderer renders as two bands.
     const mainSql = `
       WITH ranked AS (
         SELECT
-          da.eci_no AS ac_no,
-          da.name   AS ac_name,
-          MAX(CASE WHEN o.indicator_id = 'ac-turnout-pct' THEN o.value_numeric END) AS turnout_pct
-        FROM dim_acs da
-        JOIN election_results o
-          ON o.entity_id = da.ac_id
-         AND o.period_label = ${evt}
-         AND o.indicator_id = 'ac-turnout-pct'
-        WHERE da.state_code = ${sqlString(stateUpper)}
-        GROUP BY da.eci_no, da.name
-        HAVING turnout_pct IS NOT NULL
+          e.eci_no       AS ac_no,
+          e.name         AS ac_name,
+          s.turnout_pct  AS turnout_pct
+        FROM read_csv('${bundle.sumUrl}', ${bundle.sumClause}) s
+        JOIN read_csv('${bundle.electoralUrl}', ${bundle.electoralClause}) e
+          ON e.entity_id = s.entity_id
+         AND e.entity_kind = 'ac'
+        WHERE e.state = ${stateLit}
+          AND s.turnout_pct IS NOT NULL
       ),
       highest AS (SELECT 'highest' AS band, ac_no, ac_name, turnout_pct FROM ranked ORDER BY turnout_pct DESC LIMIT ${f.limit}),
       lowest  AS (SELECT 'lowest'  AS band, ac_no, ac_name, turnout_pct FROM ranked ORDER BY turnout_pct ASC  LIMIT ${f.limit})
@@ -331,17 +439,16 @@ const TURNOUT_EXTREMES: ConceptHandler = {
     `;
     const provenanceSql = `
       SELECT DISTINCT
-        s.source_id, s.producer, s.title, s.vintage, s.license,
-        s.confidence_tier, s.is_issuing_authority, s.verification_method,
-        s.url_main, s.citation_full, s.notes
-      FROM dim_acs da
-      JOIN election_results o
-        ON o.entity_id = da.ac_id
-       AND o.period_label = ${evt}
-       AND o.indicator_id = 'ac-turnout-pct'
-      JOIN sources s ON s.source_id = o.source_id
-      WHERE da.state_code = ${sqlString(stateUpper)}
-      ORDER BY s.source_id
+        s2.source_id, s2.producer, s2.title, s2.vintage, s2.license,
+        s2.confidence_tier, s2.is_issuing_authority, s2.verification_method,
+        s2.url_main, s2.citation_full, s2.notes
+      FROM read_csv('${bundle.sumUrl}', ${bundle.sumClause}) s
+      JOIN read_csv('${bundle.electoralUrl}', ${bundle.electoralClause}) e
+        ON e.entity_id = s.entity_id
+       AND e.entity_kind = 'ac'
+      JOIN sources s2 ON s2.source_id = s.source_id
+      WHERE e.state = ${stateLit}
+      ORDER BY s2.source_id
     `;
     const hints: AnswerViewHints = {
       question: intent.question,
@@ -361,12 +468,13 @@ const TURNOUT_EXTREMES: ConceptHandler = {
     };
     return {
       concept_id: intent.concept_id,
-      slice_registrations: [
-        { table_id: "elections.election_results", partition_filter: { state: f.state_partition_id }, view_name: "election_results" },
-      ],
+      slice_registrations: [],
       table_registrations: [
-        { table_id: "elections.dim_acs", view_name: "dim_acs" },
         { table_id: "taxonomy.sources", view_name: "sources" },
+      ],
+      csv_registrations: [
+        { url: bundle.sumUrl },
+        { url: bundle.electoralUrl },
       ],
       main_sql: mainSql.trim(),
       provenance_sql: provenanceSql.trim(),
