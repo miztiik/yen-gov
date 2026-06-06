@@ -61,17 +61,15 @@ const MANIFEST_URL = `${DATA_BASE}/manifest.json`;
 let manifestPromise: Promise<Manifest> | null = null;
 
 const ROW_SCHEMA_BY_TABLE_ID: Readonly<Record<string, string>> = Object.freeze({
-  "elections.dim_acs": "dim-acs.schema.json",
-  "elections.dim_parties": "dim-parties.schema.json",
-  "elections.dim_pcs": "dim-pcs.schema.json",
+  // Post-B3 (2026-06-06): X1b (#814) retired elections.dim_acs +
+  // elections.dim_parties + elections.dim_pcs + elections.dim_persons +
+  // elections.elections_candidacies + taxonomy.persons + taxonomy.sources
+  // parquets; their row-schema files were deleted in B3 too. Only the
+  // surviving dim_party_alliances row schema remains; entities + indicators
+  // taxonomy parquets carry their own row schemas.
   "elections.dim_party_alliances": "dim-party-alliances.schema.json",
-  "elections.dim_persons": "dim-persons.schema.json",
-  "elections.elections_candidacies": "elections-candidacies.schema.json",
   "taxonomy.entities": "entity.schema.json",
   "taxonomy.indicators": "indicator-catalogue.schema.json",
-  "taxonomy.methodology_breaks": "methodology-break.schema.json",
-  "taxonomy.persons": "persons.schema.json",
-  "taxonomy.sources": "source.schema.json",
 });
 
 function assertSupportedSchemaVersion(schemaFile: string, version: string, subject: string): void {
