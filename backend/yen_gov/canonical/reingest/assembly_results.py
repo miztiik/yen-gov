@@ -31,13 +31,17 @@ section 0 + the B2b.5.2 row):
 - **One file per distinct election year.** Each ``Year`` is its own self-contained
   election directory (general elections carry the full slate; by-elections carry
   the contested subset). Cross-year reads glob ``election=*`` at read time.
-- **party_id is null at v1.** The TCPD compilation keys parties on a TCPD-internal
-  ``Party_ID`` that has no crosswalk into ``entities/parties.csv`` (whose key is the
-  ``parties.IN.*`` slug; ``eci_codes`` is a different ECI numbering). Rather than
-  fabricate an FK (Holy Law #9), ``party_id`` is left null (the column + the summary
-  party columns are nullable). A TCPD-party -> canonical-party crosswalk is a
-  separate enrichment task; the citizen still gets candidate, votes, position,
-  result, winner, margin and turnout.
+- **party_id resolution at v1.1 (F1.3a, 2026-06-06).** The B2b.5.x v1 writer left
+  ``party_id`` null because TCPD's internal ``Party_ID`` does not crosswalk into
+  ``entities/parties.csv``. F1.3a closes the gap with a *shortcode* lookup:
+  ``parties.csv.short`` (case-insensitive) -> ``parties.csv.party_id``. This
+  resolves ~95% of votes-weighted rows (every major recognised party) without
+  fabricating an FK (Holy Law #9). Long-tail shorts absent from ``parties.csv``
+  stay null - the column + the summary party columns remain nullable, and the
+  citizen UI degrades to "IND" / blank for those rows. The crosswalk lives at
+  the writer boundary (one lookup per emit, not per row) so a future enrichment
+  to ``parties.csv`` is picked up by a simple re-emit. NOTA rows are filtered
+  out before this resolution runs so NOTA never collides with the lookup.
 
 No network, no parquet, no ``urls.py`` / ``core.http`` import (a reference would be
 a B4-blocking regression). The pure helpers (``build_candidacy_rows``,
@@ -65,6 +69,7 @@ __all__ = [
     "DELIM_ID_2008",
     "NOTA_PARTY_TOKEN",
     "build_candidacy_rows",
+    "party_lookup_from_parties_csv",
     "recompute_summary_row",
     "emit_state_assembly",
 ]
@@ -101,6 +106,30 @@ def _electoral_eci_to_entity(
         if not raw:
             continue
         out[int(raw)] = row["entity_id"]
+    return out
+
+
+def party_lookup_from_parties_csv(parties_csv: Path) -> dict[str, str]:
+    """Build a TCPD-shortcode -> canonical party_id map (F1.3a v1.1).
+
+    Reads ``datasets/data/entities/parties.csv`` and returns
+    ``{upper(short): party_id}``. The TCPD ``Party`` field is the same
+    shortcode shape (DMK, AIADMK, BJP, ...), so a case-insensitive direct
+    lookup resolves every party in the canonical taxonomy without any
+    intermediate adapter. Long-tail shorts absent from ``parties.csv``
+    return None from the resulting dict.get() (caller writes null).
+
+    Pure I/O of one small CSV (~620 rows); called once per emit, not per row.
+    """
+    out: dict[str, str] = {}
+    if not parties_csv.exists():
+        return out
+    with parties_csv.open(encoding="utf-8", newline="") as fh:
+        for row in csv.DictReader(fh):
+            short = (row.get("short") or "").strip().upper()
+            pid = (row.get("party_id") or "").strip()
+            if short and pid:
+                out[short] = pid
     return out
 
 
@@ -184,6 +213,7 @@ def build_candidacy_rows(
     state_slug: str,
     election_year: int,
     source_id: str,
+    party_lookup: dict[str, str] | None = None,
 ) -> tuple[list[dict[str, Any]], set[int]]:
     """Build the candidacies rows for one (state, year) from source rows.
 
@@ -194,6 +224,12 @@ def build_candidacy_rows(
         state_slug: LGD state slug (mirrored into the ``state`` column + path).
         election_year: the four-digit ``Year``.
         source_id: provenance stamp for every emitted row.
+        party_lookup: optional ``upper(short) -> party_id`` map (F1.3a v1.1).
+            When provided, the TCPD ``Party`` shortcode is upper-cased and
+            looked up; matches yield the canonical ``parties.IN.*`` id; misses
+            stay null. When ``None`` (back-compat for tests + the v1 writer),
+            every ``party_id`` is null. Built via
+            :func:`party_lookup_from_parties_csv` at the driver layer.
 
     Returns:
         ``(rows, unbound_eci_nos)`` - the candidacy dicts (NOTA excluded, sorted
@@ -201,10 +237,12 @@ def build_candidacy_rows(
         the set of ``Constituency_No`` values that did not resolve to an electoral
         entity (skipped; surfaced for the coverage note).
     """
+    lookup = party_lookup or {}
     rows: list[dict[str, Any]] = []
     unbound: set[int] = set()
     for src in source_rows:
-        if (src.get("Party") or "").strip().upper() == NOTA_PARTY_TOKEN:
+        raw_party = (src.get("Party") or "").strip()
+        if raw_party.upper() == NOTA_PARTY_TOKEN:
             continue  # NOTA is a ballot option, not a candidate.
         eci_no = _int_or_none(src.get("Constituency_No"))
         if eci_no is None:
@@ -222,7 +260,7 @@ def build_candidacy_rows(
                 "constituency_no": eci_no,
                 "constituency_name": _text_or_none(src.get("Constituency_Name")) or "",
                 "candidate_name": _text_or_none(src.get("Candidate")) or "",
-                "party_id": None,  # no TCPD->parties crosswalk at v1 (see module docstring)
+                "party_id": lookup.get(raw_party.upper()) if raw_party else None,
                 "votes": _int_or_none(src.get("Votes")) or 0,
                 "vote_share_pct": _float_or_none(src.get("Vote_Share_Percentage")),
                 "position": position if position is not None else 0,
@@ -308,6 +346,7 @@ def emit_state_assembly(
     state_slug: str,
     source_id: str,
     delim_id: str = DELIM_ID_2008,
+    parties_csv: Path | None = None,
 ) -> dict[int, dict[str, Any]]:
     """Emit candidacies + summary CSVs for every election year of one state.
 
@@ -320,6 +359,13 @@ def emit_state_assembly(
         state_slug: the LGD state slug (e.g. ``"tamil-nadu"``).
         source_id: provenance stamp (resolvable in ``entities/source.csv``).
         delim_id: TCPD ``DelimID`` to emit (default the in-force 2008 cycle).
+        parties_csv: optional path to ``datasets/data/entities/parties.csv``
+            for the F1.3a v1.1 party-id resolution. When provided, the TCPD
+            ``Party`` shortcode is resolved via
+            :func:`party_lookup_from_parties_csv` and the resolved
+            ``parties.IN.*`` id is written to every candidacy + summary row.
+            When ``None`` (back-compat for tests + the v1 writer), every
+            ``party_id`` is null.
 
     Returns:
         ``{year: {"candidacies": Path, "summary": Path, "n_candidacies": int,
@@ -331,6 +377,9 @@ def emit_state_assembly(
         raise FileNotFoundError(electoral_csv)
 
     eci_to_entity = _electoral_eci_to_entity(_read_csv_rows(electoral_csv), state_slug)
+    party_lookup = (
+        party_lookup_from_parties_csv(parties_csv) if parties_csv is not None else {}
+    )
 
     state_rows = [
         r
@@ -354,6 +403,7 @@ def emit_state_assembly(
             state_slug=state_slug,
             election_year=year,
             source_id=source_id,
+            party_lookup=party_lookup,
         )
         if not candidacy_rows:
             continue  # every constituency this year was unbindable; nothing to emit.

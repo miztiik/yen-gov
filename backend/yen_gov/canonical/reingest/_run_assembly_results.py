@@ -89,6 +89,7 @@ def main() -> None:
         state_name_tcpd=STATE_NAME_TCPD,
         state_slug=STATE_SLUG,
         source_id=source_id,
+        parties_csv=entities / "parties.csv",
     )
 
     for year, info in sorted(emitted.items()):

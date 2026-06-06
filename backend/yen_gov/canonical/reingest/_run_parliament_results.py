@@ -103,6 +103,7 @@ def main() -> None:
         electoral_csv=entities / "electoral.csv",
         out_root=repo_root,
         source_id=source_id,
+        parties_csv=entities / "parties.csv",
     )
 
     for info in emitted.values():
