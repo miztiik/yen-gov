@@ -1,8 +1,14 @@
+> **Plan complete 2026-06-06**. F1 CSV-loaders + parity-oracle rewrite shipped as PRs #791 (F1.1 backend oracle) + #778 (F1.2 frontend seam) + #803 (F1.3a 3 view-models) + #806 (F1.3b 3 view-models) + #808 (F1.4 closure). Durable artifacts distilled into:
+> - [docs/architecture/frontend/data-loading.md](../../architecture/frontend/data-loading.md) section "CSV loader seam"
+> - [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) section "Parity oracle"
+>
+> This sub-plan is now a read-only execution audit ledger; further edits are forbidden.
+
 # F1 sub-plan - CSV loaders + parity-oracle rewrite
 
-**Last Updated**: 2026-06-05
-**Parent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) chunk F1
-**Status**: IN-FLIGHT (spawned 2026-06-05 after B2b.6 closure #776 unblocked F1)
+**Last Updated**: 2026-06-06
+**Parent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) chunk F1
+**Status**: COMPLETE (archived 2026-06-06 in F1.4 closure PR; per-row distillation map in `## Plan complete (2026-06-06)` near the bottom of this file)
 **Authority**: Gregor (reader contract, query surface, FK seam) / Fowler (writer-side cutover sequence, test tier) per CLAUDE.md section 0a
 
 ---
@@ -14,7 +20,7 @@ Parent chunk F1 reads as one row in the parent Execution Ledger (22.5) - "CSV lo
 1. **Backend parity oracle rewrite.** `backend/tests/test_canonical_parity_oracle.py` reads four Parquet files (`election_results.parquet`, `elections_candidacies.parquet`, `dim_persons.parquet`, `dim_acs.parquet`) under `datasets/elections/` and asserts per-AC FPTP winner + margin against the frozen `canonical_winners_2026_05_19.json` fixture. The same fixture is the post-X1a oracle, so the test must re-target the NEW long-format CSV under `datasets/elections/assembly/state=<slug>/election=<yr>/{candidacies,summary}.csv` (per plan 21.3, already shipped by B2b.5.x).
 2. **Frontend loader seam.** `frontend/src/lib/canonical/duckdb.ts` exposes `queryParquet<T>(sql)` and its caller-template uses `read_parquet('datasets/<family>/<table>.parquet')`. Per plan 21.5, the function name + caller-template must flip to `queryCsv(sql)` issuing `read_csv('datasets/data/<...>.csv', columns=...)` against the new long-format files. `indicator-allowlist.ts` carries doctrine references to `<family>/<table>.parquet` that need rewording to `datasets/data/datapoints/<class>/<variable_id>.csv`.
 3. **Frontend view-model SQL flip.** Six call sites in `frontend/src/lib/{view-models,psephlab,explore,yenask}/*.ts` issue `read_parquet(...)` SQL joining `dim_persons`, `dim_acs`, `elections_candidacies`, `election_results`. These must flip to `read_csv(columns=...)` over the per-(state,year) candidacies + entities/electoral.csv layout per 21.3. Biographic cols (`sex, age, education, profession`) move from the `dim_persons` JOIN (about to be deleted) to inline columns on `candidacies.csv` per 21.3.
-4. **Closure.** Distil the seam shape into [docs/architecture/frontend/data-loading.md](../docs/architecture/frontend/data-loading.md) + [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md) "Parity oracle" section; flip parent ledger F1 row to MERGED; archive this sub-plan to `docs/archive/plans/`.
+4. **Closure.** Distil the seam shape into [docs/architecture/frontend/data-loading.md](../../architecture/frontend/data-loading.md) + [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) "Parity oracle" section; flip parent ledger F1 row to MERGED; archive this sub-plan to `docs/archive/plans/`.
 
 Per CLAUDE.md correction-level discipline (>=4 files structural -> propose breakdown first) and parent plan section 24.5, the right shape is a thin parent row + this sub-plan. Same pattern as U1 / U2 / U5 / B1 / B2a / B2b / B2b.4 / B2b.5 / D-DOC3.
 
@@ -41,7 +47,7 @@ Out of scope (deliberately deferred to other chunks):
 | F1.3 frontend view-model SQL flip (6 callers: `view-models/constituency.ts`, `psephlab/canonical-loaders.ts`, `view-models/state-overview.ts`, `view-models/national-elections.ts`, `yenask/concepts.ts`, `explore/duckdb-views.ts`) | F1.2 | per-view-model vitest + §13 in-browser smoke on 3 routes (StateOverview, National, Constituency) | #777 spawn -> MERGED via F1.3a #803 + F1.3b #806 | MERGED (split into F1.3a (assembly-side: state-overview + constituency + psephlab/canonical-loaders) + F1.3b (national-elections + yenask + explore + 29 LsGenApr2019 event-pointer rows to unblock the national-elections smoke); F1.3a + F1.3b together flip all 6 callers off the 4 legacy parquets (`election_results`, `elections_candidacies`, `dim_persons`, `dim_acs`/`dim_pcs`) onto per-(state, year) `read_csv(columns={...})`. dim_parties + taxonomy.sources stay on parquet until X1a. Closing-the-loop (F1.4) follows in a separate PR.) |
 | F1.3a frontend view-model SQL flip - assembly-side 3 view-models (`view-models/constituency.ts`, `view-models/state-overview.ts`, `psephlab/canonical-loaders.ts`) + new typed-read helpers (`canonical/csv-columns.ts`, `canonical/election-csv-paths.ts`) | F1.2 | per-view-model vitest + §13 in-browser smoke on 2 assembly routes (StateOverview /s/tamil-nadu + Constituency /s/tamil-nadu/ac/<X>) | #803 | MERGED (Path A: party_id resolved at the writer via `party_lookup_from_parties_csv` -> 80.7% assembly + 82.4% parliament rows carry `parties.IN.*`; long-tail stays null per Holy Law #9. 3 view-models flipped to per-(state,year) CSV with typed `read_csv(columns={...})`; dim_parties + dim_party_alliances + taxonomy.sources stay on parquet for X1a. 9 + 8 + 10 vitest cases. 2/2 Playwright smoke (§13). Surviving parquet consumers on the smoke routes - election-seats-trend, parties-palette, composition-bar/adapter-elections-seats, india-leading-parties - belong to F1.3b + X1a per scope split.) |
 | F1.3b frontend view-model SQL flip - national + yenask + explore (`view-models/national-elections.ts`, `yenask/concepts.ts`, `explore/duckdb-views.ts`); blocks on parliament/2024 CSV backfill OR a 2019 LS event id added to election_events.csv | F1.3a | per-view-model vitest + §13 in-browser smoke on national-elections + /ask + /explore routes | #806 | MERGED (Resolution option 2: 29 `LsGenApr2019` event-pointer rows added to `datasets/data/election_events.csv` mirroring the parallel rows in `taxonomy/election_events.json` -> `election_events.parquet` for parity (the per-state 2019 PC data was already on disk from PR #803 Path A backfill). 3 view-models flipped: `national-elections.ts` now reads `parliament/election=*/summary.csv` JOIN `electoral.csv` JOIN `dim_parties` (parquet, kept), reconstructs ECI-form `unit_id` + `join_key` in TS from the LGD-slug state + delim_year + eci_no so the tile-cartogram + INDIA_PC GeoJSON joins stay in their ECI grammar; `yenask/concepts.ts` 4 SQL templates rewritten to `read_csv(...)` against per-(state, year) assembly CSV + `electoral.csv` (template names + concept_id enum + view_hints column shapes unchanged per ADR-0038/0039 LLM RAG contract); `explore/duckdb-views.ts` 4 CREATE OR REPLACE VIEW statements rewritten to source `constituencies` + `candidates` + `party_totals` from CSV (the `parties` view stays on `dim_parties` parquet). Yenask infrastructure: `ConceptHandler.build` is now async (awaits `csvColumnsClause(path)`); `compileIntent` returns `Promise<DuckDBPlan>`; `DuckDBPlan` gains `csv_registrations` consumed by `execute-plan.ts`; canned-intent fixtures re-target AcGenMay2026 -> AcGenApr2021 (deepest TN partition with on-disk CSV). Known regression vs pre-F1.3b: `winner_age` returns null on National PC tooltips (no more `dim_persons.age` JOIN) - recovery deferred to X1a or a follow-up via candidacies.csv JOIN on (entity_id, candidate_name=winner_candidate). 9 + 11 + 7 vitest cases (new); 3/3 Playwright smoke cases pass; full vitest 154 files / 8076 passed / 21 skipped; backend pytest 1993 passed (with the standing 3 DuckDB-Windows-segfault deselects) - the test_csv_parquet_parity::test_election_events that broke when only the CSV was edited is now green after the triple-sync.) |
-| F1.4 close sub-plan (flip parent F1 row to MERGED; distil seam shape into [docs/architecture/frontend/data-loading.md](../docs/architecture/frontend/data-loading.md) + [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md) "Parity oracle" section; archive this sub-plan to `docs/archive/plans/`) | F1.1, F1.2, F1.3a, F1.3b | docs-review | - | TODO |
+| F1.4 close sub-plan (flip parent F1 row to MERGED; distil seam shape into [docs/architecture/frontend/data-loading.md](../../architecture/frontend/data-loading.md) + [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) "Parity oracle" section; archive this sub-plan to `docs/archive/plans/`) | F1.1, F1.2, F1.3a, F1.3b | docs-review | - | TODO |
 
 Parallel-safe groups:
 
@@ -209,10 +215,10 @@ Helpers introduced in F1.3a (additive; consumed by F1.3b without further edit):
 
 ### F1.4 closure
 
-- Extend [docs/architecture/frontend/data-loading.md](../docs/architecture/frontend/data-loading.md) with a "CSV loader seam" section listing the four surfaces lifted in F1.1..F1.3 and the new `queryCsv` API.
-- Extend [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md) "Parity oracle" section with the new CSV-shape SQL + fixture invariants.
+- Extend [docs/architecture/frontend/data-loading.md](../../architecture/frontend/data-loading.md) with a "CSV loader seam" section listing the four surfaces lifted in F1.1..F1.3 and the new `queryCsv` API.
+- Extend [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) "Parity oracle" section with the new CSV-shape SQL + fixture invariants.
 - Flip the parent F1 ledger row to MERGED in this same PR and stamp the closure PR number.
-- Archive this sub-plan to `docs/archive/plans/20260605-f1-csv-loaders-and-oracle-rewrite-subplan.md` with a "Plan complete" block per [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md).
+- Archive this sub-plan to `docs/archive/plans/20260605-f1-csv-loaders-and-oracle-rewrite-subplan.md` with a "Plan complete" block per [docs/how-to/distill-a-plan.md](../../how-to/distill-a-plan.md).
 - Confirm: X1a (reader flip) may now proceed because both the backend oracle AND the frontend canonical/+view-model layer read CSV; the legacy Parquet readers SURVIVE in-tree (as the `queryParquet` deprecation alias) so X1a's dual-read-parity gate has both formats to compare.
 
 ## Contract invariants (inherited from parent 21.5 / 22.4)
@@ -226,12 +232,26 @@ Helpers introduced in F1.3a (additive; consumed by F1.3b without further edit):
 
 The parent Execution Ledger row F1 is `DEFERRED-TO-SUBPLAN -> TODO/20260605-f1-csv-loaders-and-oracle-rewrite-subplan.md` in the SAME PR that lands this sub-plan. Sub-row status updates land inside each F1.x PR per 24.3.
 
+## Plan complete (2026-06-06)
+
+Per-row distillation map. Every closed row in this sub-plan is back-pointed to its durable home in `docs/`; this file remains as the audit ledger.
+
+| Sub-row | PR# | Distilled into |
+| --- | --- | --- |
+| F1.1 backend parity-oracle rewrite (Path A backfill) | #791 | [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) section "Parity oracle (F1.1 - 2026-06-06, distilled in F1.4)" |
+| F1.2 frontend loader seam (`queryCsv` rename + helpers) | #778 | [docs/architecture/frontend/data-loading.md](../../architecture/frontend/data-loading.md) section "CSV loader seam" - Frontend loader seam |
+| F1.3a frontend view-model SQL flip (assembly-side 3) | #803 (stamp #804) | [docs/architecture/frontend/data-loading.md](../../architecture/frontend/data-loading.md) section "CSV loader seam" - Frontend view-model SQL flip |
+| F1.3b frontend view-model SQL flip (national + yenask + explore) | #806 (stamp #807) | [docs/architecture/frontend/data-loading.md](../../architecture/frontend/data-loading.md) section "CSV loader seam" - Frontend view-model SQL flip |
+| F1.4 closure (this PR) | #808 | parent ledger F1 row flipped to MERGED; this sub-plan archived; seam shape distilled to both subsystem docs |
+
+Agent-only execution lessons recorded in `/memories/session/f1-3a-shipping.md`, `f1-3b-shipping.md` (F1.3 split rationale; canned-intent fixture re-target AcGenMay2026 -> AcGenApr2021; election_events triple-sync to preserve `test_csv_parquet_parity`). Per [docs/how-to/distill-a-plan.md](../../how-to/distill-a-plan.md), session memory is the right home for these (agent execution craft, not project knowledge).
+
 ## See also
 
-- Parent plan: [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) (sections 21.5 build-list, 22.6 gates, 23.2 column home, 23.4 elections wide model, 24.5 sub-plan spawning).
-- B2b parent sub-plan (closure): [docs/archive/plans/20260604-b2b-reingest-subplan.md](../docs/archive/plans/20260604-b2b-reingest-subplan.md) - elections CSV layout was shipped here.
-- B2b.5 elections sub-sub-plan (closure): [docs/archive/plans/20260604-b2b5-elections-reingest-subplan.md](../docs/archive/plans/20260604-b2b5-elections-reingest-subplan.md) - per-election candidacies.csv shape.
+- Parent plan: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) (sections 21.5 build-list, 22.6 gates, 23.2 column home, 23.4 elections wide model, 24.5 sub-plan spawning).
+- B2b parent sub-plan (closure): [docs/archive/plans/20260604-b2b-reingest-subplan.md](20260604-b2b-reingest-subplan.md) - elections CSV layout was shipped here.
+- B2b.5 elections sub-sub-plan (closure): [docs/archive/plans/20260604-b2b5-elections-reingest-subplan.md](20260604-b2b5-elections-reingest-subplan.md) - per-election candidacies.csv shape.
 - Phase B strangler precedent: PR #171 (allowlist + indicator-from-canonical adapter) - the loader seam pattern this sub-plan generalises.
-- Canonical writer doc: [docs/architecture/backend/canonical-writer.md](../docs/architecture/backend/canonical-writer.md).
-- Frontend data-loading doc: [docs/architecture/frontend/data-loading.md](../docs/architecture/frontend/data-loading.md).
+- Canonical writer doc: [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md).
+- Frontend data-loading doc: [docs/architecture/frontend/data-loading.md](../../architecture/frontend/data-loading.md).
 - Sub-plan spawning rule: parent section 24.5.
