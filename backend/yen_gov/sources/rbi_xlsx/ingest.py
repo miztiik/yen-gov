@@ -1,36 +1,22 @@
-"""Orchestrator for the RBI ingest of State Finances Statement workbooks.
+"""Indicator metadata + canonical CSV emission for the RBI State Finances family.
 
-Network + filesystem boundary. For each indicator spec passed in:
-  1. Resolve a workbook URL via :mod:`.urls` (registry → env override
-     → local cache fallback).
-  2. Fetch the XLSX bytes.
-  3. Run the pure parser (:mod:`.parsers`) for that single indicator.
-  4. Write a ``datasets/indicators/in/<scope>/<leaf>.json`` artifact
-     conforming to ``datasets/schemas/indicator.schema.json``, where
-     ``<scope>`` is the first path segment of the indicator id
-     (``fiscal``, ``health``, …). The orchestrator is therefore
-     scope-agnostic — adding a non-fiscal indicator that lives in a
-     Statement workbook of this shape only needs a new spec + meta +
-     URL pin + CLI command, no parser/orchestrator edits.
-
-See ``docs/architecture/backend/sources-rbi.md`` for the per-indicator
-honesty fields each artifact materialises.
+The legacy network-fetch + folded-indicator-JSON path (``ingest`` /
+``_resolve_source`` / ``_build_indicator_payload`` /
+``IndicatorIngestResult`` / ``IngestResult`` / ``WorkbookBytes``) was
+retired in B4-pt2.1 per parent plan section 21.4 ("network-fetch code is
+deleted; ingest reads local TCPD / source CSV"). What remains is the
+``IndicatorMeta`` catalogue and the B1.5.4 canonical CSV emission
+exercised by ``backend/tests/test_rbi_xlsx_csv_repoint.py``.
 """
 from __future__ import annotations
 
-import json
-import os
-import re
-from collections.abc import Mapping, Sequence
+from collections.abc import Mapping
 from dataclasses import dataclass
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
-from yen_gov.core.http import Fetcher, FetchResult
-from yen_gov.core.io import Source, write_artifact
 
 from .parsers import (
     SHIPPED_SPECS,
@@ -38,7 +24,6 @@ from .parsers import (
     ParsedIndicator,
     parse_workbook,
 )
-from .urls import LISTING_PAGE, RBI_AUTHORITY_URL, latest_url
 
 
 RBI_SOURCE_NAME = "rbi"
