@@ -1,9 +1,16 @@
-// PURE compiler: InsightIntent + SemanticCatalogue -> DuckDBPlan.
+// Compiler: InsightIntent + SemanticCatalogue -> DuckDBPlan.
 //
-// Per plan-doc §17 D-05: this module has NO I/O. It does NOT import from
-// `../duckdb`. It produces a `DuckDBPlan` value the executor consumes.
-// Vitest tests this module without booting WASM by asserting the produced
-// SQL strings + view registrations against snapshots.
+// Per plan-doc §17 D-05 the compiler is pure with respect to DuckDB
+// state - it does NOT import from `../duckdb`. It produces a
+// `DuckDBPlan` value the executor consumes.
+//
+// F1.3b: `compileIntent` is now async because per-concept builders need
+// to await `csvColumnsClause(path)` to embed the typed `columns={...}`
+// fragment into the `read_csv(<url>, columns={...})` SQL. The fetched
+// `datasets/data/_schema/columns.json` is cached per session by
+// `lib/canonical/csv-columns.ts`, so the second call is a Map lookup.
+// Vitest tests this module without booting WASM by mocking
+// `csvColumnsClause` so the runtime fetch never happens.
 //
 // The compiler enforces THREE invariants:
 //   1. The intent's `concept_id` is in the closed enum (already enforced
@@ -19,17 +26,17 @@ import type { DuckDBPlan, SemanticCatalogue } from "./types";
 import { CONCEPT_REGISTRY } from "./concepts";
 
 /**
- * Pure: compile an InsightIntent into a DuckDBPlan against the given
+ * Async: compile an InsightIntent into a DuckDBPlan against the given
  * catalogue. Throws when the intent references catalogue values that
  * don't exist (e.g. an unknown state_partition_id).
  *
  * Throwing is the safe behaviour: the caller (UI) renders the error in
  * the citizen-visible failure surface rather than silently mis-answering.
  */
-export function compileIntent(
+export async function compileIntent(
   intent: InsightIntent,
   catalogue: SemanticCatalogue,
-): DuckDBPlan {
+): Promise<DuckDBPlan> {
   validateAgainstCatalogue(intent, catalogue);
   const handler = CONCEPT_REGISTRY[intent.concept_id];
   // Zod ensures concept_id is enum-bounded, so handler MUST exist; this

@@ -12,7 +12,7 @@
 // operation; it indicates a data-corruption regression and the citizen
 // needs to know.
 
-import { query, registerSlice, registerTable } from "../duckdb";
+import { query, registerCsvFile, registerSlice, registerTable } from "../duckdb";
 import { parseAnswerViewModel } from "./contracts/answer-viewmodel";
 import type {
   AnswerRow,
@@ -33,7 +33,12 @@ import type { SourceV2Row } from "../source-list-v2";
  */
 export async function executePlan(plan: DuckDBPlan): Promise<AnswerViewModel> {
   // Register all views the plan needs. Idempotent in `lib/duckdb.ts`.
+  // F1.3b: csv_registrations register URLs with DuckDB-WASM so the
+  // `read_csv('<url>', columns={...})` calls embedded in the SQL
+  // strings can HTTP-Range fetch them; no view name is created (the
+  // URL itself is the SQL handle).
   await Promise.all([
+    ...plan.csv_registrations.map(r => registerCsvFile(r.url)),
     ...plan.slice_registrations.map(s =>
       registerSlice(s.table_id, s.partition_filter, { viewName: s.view_name }),
     ),

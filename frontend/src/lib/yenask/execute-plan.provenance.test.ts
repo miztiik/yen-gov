@@ -13,15 +13,17 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("../duckdb", () => ({
   query: vi.fn(),
+  registerCsvFile: vi.fn().mockResolvedValue(undefined),
   registerSlice: vi.fn().mockResolvedValue("view"),
   registerTable: vi.fn().mockResolvedValue("view"),
 }));
 
-import { query, registerSlice, registerTable } from "../duckdb";
+import { query, registerCsvFile, registerSlice, registerTable } from "../duckdb";
 import { executePlan } from "./execute-plan";
 import type { DuckDBPlan } from "./types";
 
 const queryMock = vi.mocked(query);
+const registerCsvMock = vi.mocked(registerCsvFile);
 const registerSliceMock = vi.mocked(registerSlice);
 const registerTableMock = vi.mocked(registerTable);
 
@@ -37,6 +39,7 @@ const PLAN: DuckDBPlan = {
   table_registrations: [
     { table_id: "taxonomy.sources", view_name: "sources" },
   ],
+  csv_registrations: [],
   main_sql: "SELECT party_short, seats_won, votes, vote_share_pct FROM v",
   provenance_sql: "SELECT * FROM sources",
   view_hints: {
@@ -81,6 +84,7 @@ const FAKE_SOURCE_ROW = {
 describe("executePlan — D-06 provenance discipline", () => {
   beforeEach(() => {
     queryMock.mockReset();
+    registerCsvMock.mockReset().mockResolvedValue(undefined);
     registerSliceMock.mockReset().mockResolvedValue("view");
     registerTableMock.mockReset().mockResolvedValue("view");
   });
@@ -142,6 +146,26 @@ describe("executePlan — D-06 provenance discipline", () => {
       "taxonomy.sources",
       { viewName: "sources" },
     );
+  });
+
+  it("registers F1.3b csv_registrations URLs via registerCsvFile", async () => {
+    queryMock
+      .mockResolvedValueOnce([FAKE_MAIN_ROW])
+      .mockResolvedValueOnce([FAKE_SOURCE_ROW]);
+
+    const PLAN_WITH_CSV: DuckDBPlan = {
+      ...PLAN,
+      csv_registrations: [
+        { url: "/data/elections/assembly/state=tamil-nadu/election=2026/candidacies.csv" },
+        { url: "/data/data/entities/electoral.csv" },
+      ],
+    };
+    await executePlan(PLAN_WITH_CSV);
+    const csvUrls = registerCsvMock.mock.calls.map(c => c[0]).sort();
+    expect(csvUrls).toEqual([
+      "/data/data/entities/electoral.csv",
+      "/data/elections/assembly/state=tamil-nadu/election=2026/candidacies.csv",
+    ]);
   });
 
   it("coerces bigint values to JS numbers in answer rows", async () => {
