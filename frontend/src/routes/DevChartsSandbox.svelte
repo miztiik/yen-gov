@@ -45,6 +45,7 @@
   import type { TreemapRow } from "../lib/charts/treemap-helpers";
   import CirclePack from "../lib/charts/CirclePack.svelte";
   import type { CirclePackRow, CirclePackMode } from "../lib/charts/circle-pack-helpers";
+  import PartyPill from "../lib/party-pill/PartyPill.svelte";
   import {
     feasibleAt,
     intersectWithCatalogue,
@@ -901,5 +902,95 @@
       width={640}
       height={520}
     />
+  </section>
+
+  <!-- E2 PartyPill demo (parent plan section 25.3). One schema-driven
+       component covering all four treatment tiers: anchor (full bleed),
+       brand (paper-neutral body + coloured ring), fallback (swatch +
+       label), neutral (the --party-neutral token for null/unmapped).
+       Replaces ad-hoc inline pills in RacesBoard / MarginHistogram /
+       legends in a follow-up strangler-fig chunk (this PR ships the
+       primitive sandbox-only; no production routes touched). -->
+  <section class="space-y-3" data-testid="e2-section">
+    <h2 class="text-lg font-semibold">E2 - PartyPill (all four treatment tiers)</h2>
+    <p class="text-sm text-slate-600">
+      Single component, 4 treatments driven by the 3-tier party-colour
+      resolver. Anchor tier = full-bleed (BJP/INC/DMK/AIADMK). Brand
+      tier = paper-neutral body with coloured ring (forbidden as full
+      chrome fill per resolver doctrine). Fallback tier = paper-neutral
+      body + small swatch chip (never a bare swatch). Neutral tier =
+      the new <code>--party-neutral</code> + <code>--party-neutral-text</code>
+      tokens for null/unmapped party ids ("Unknown party" affordance,
+      NOT an algorithmic hash colour).
+    </p>
+    <p class="text-xs text-slate-500">
+      Sizes: <code>sm</code> (legend chips, 11px), <code>md</code>
+      (default, 13px), <code>lg</code> (15px primary mentions). All
+      sizes have 44px minimum height when interactive
+      (per U4 touch-target rule).
+    </p>
+    <div class="flex flex-col gap-3" data-testid="e2-anchor-row">
+      <span class="text-xs text-slate-500">Anchor tier (full-bleed):</span>
+      <div class="flex gap-2 flex-wrap items-center">
+        <PartyPill party_id="parties.IN.BJP" party_short="BJP" />
+        <PartyPill party_id="parties.IN.INC" party_short="INC" />
+        <PartyPill party_id="parties.IN.DMK" party_short="DMK" />
+        <PartyPill party_id="parties.IN.AIADMK" party_short="AIADMK" />
+        <PartyPill party_id="parties.IN.AITC" party_short="AITC" />
+        <PartyPill party_id="parties.IN.NOTA" party_short="NOTA" />
+        <PartyPill party_id="parties.IN.IND" party_short="IND" />
+      </div>
+    </div>
+    <div class="flex flex-col gap-3" data-testid="e2-fallback-row">
+      <span class="text-xs text-slate-500">Fallback tier (swatch + label):</span>
+      <div class="flex gap-2 flex-wrap items-center">
+        <PartyPill party_id="parties.IN.NEWPARTY1" party_short="NEW1" />
+        <PartyPill party_id="parties.IN.NEWPARTY2" party_short="NEW2" />
+        <PartyPill party_id="parties.IN.UNKNOWN42" party_short="U42" />
+      </div>
+    </div>
+    <div class="flex flex-col gap-3" data-testid="e2-brand-row">
+      <span class="text-xs text-slate-500">Brand tier (ring; synthetic high-confidence brand colour):</span>
+      <div class="flex gap-2 flex-wrap items-center">
+        <PartyPill
+          party_id="parties.IN.BRAND1"
+          party_short="BR1"
+          row={{ party_id: "parties.IN.BRAND1", brand_colour: { hex: "#a21caf", confidence: "high" } }}
+        />
+        <PartyPill
+          party_id="parties.IN.BRAND2"
+          party_short="BR2"
+          row={{ party_id: "parties.IN.BRAND2", brand_colour: { hex: "#0891b2", confidence: "medium" } }}
+        />
+      </div>
+    </div>
+    <div class="flex flex-col gap-3" data-testid="e2-neutral-row">
+      <span class="text-xs text-slate-500">
+        Neutral tier (<code>--party-neutral</code> token; null/empty id):
+      </span>
+      <div class="flex gap-2 flex-wrap items-center">
+        <PartyPill party_id={null} party_short="Unaffiliated" />
+        <PartyPill party_id="" party_short="Independent" />
+        <PartyPill party_id={null} />
+      </div>
+    </div>
+    <div class="flex flex-col gap-3" data-testid="e2-sizes-row">
+      <span class="text-xs text-slate-500">Sizes (anchor BJP):</span>
+      <div class="flex gap-2 flex-wrap items-center">
+        <PartyPill party_id="parties.IN.BJP" party_short="BJP" size="sm" />
+        <PartyPill party_id="parties.IN.BJP" party_short="BJP" size="md" />
+        <PartyPill party_id="parties.IN.BJP" party_short="BJP" size="lg" />
+      </div>
+    </div>
+    <div class="flex flex-col gap-3" data-testid="e2-muted-row">
+      <span class="text-xs text-slate-500">
+        Muted state (parent §25.5 recede rule when a party is NOT the selection):
+      </span>
+      <div class="flex gap-2 flex-wrap items-center">
+        <PartyPill party_id="parties.IN.BJP" party_short="BJP" />
+        <PartyPill party_id="parties.IN.INC" party_short="INC" muted={true} />
+        <PartyPill party_id="parties.IN.DMK" party_short="DMK" muted={true} />
+      </div>
+    </div>
   </section>
 </section>
