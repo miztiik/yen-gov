@@ -1,19 +1,26 @@
 // Unit tests for the IndiaMap leading-parties view-model loader
-// (PR-G / Phase 1.3c). Mocks `query` / `registerTable` at the `../duckdb`
-// boundary per Holy Law #7 carve-out (established by PR-E).
+// (PR-G / Phase 1.3c). Mocks `query` / `registerTable` / `registerCsvAsTable`
+// at the `../duckdb` boundary per Holy Law #7 carve-out (established by
+// PR-E). The `registerCsvAsTable` entry was added by X1a (PR #809) when
+// dim_parties flipped from parquet to CSV; E5 corrects the test mock that
+// stayed stuck on the pre-flip shape.
 
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("../duckdb", () => ({
   registerTable: vi.fn(async () => "noop"),
+  registerCsvAsTable: vi.fn(async (id: string) =>
+    id === "elections.dim_parties" ? "dim_parties" : "sources",
+  ),
   query: vi.fn(),
 }));
 
-import { query, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerTable } from "../duckdb";
 import { loadIndiaLeadingParties } from "./india-leading-parties";
 
 const mockedQuery = vi.mocked(query);
 const mockedRegister = vi.mocked(registerTable);
+const mockedRegisterCsvAsTable = vi.mocked(registerCsvAsTable);
 
 const partyRows = [
   {
@@ -57,7 +64,11 @@ const partyRows = [
 beforeEach(() => {
   mockedQuery.mockReset();
   mockedRegister.mockReset();
+  mockedRegisterCsvAsTable.mockReset();
   mockedRegister.mockResolvedValue("noop");
+  mockedRegisterCsvAsTable.mockImplementation(async (id) =>
+    id === "elections.dim_parties" ? "dim_parties" : "sources",
+  );
 });
 
 describe("loadIndiaLeadingParties — happy path", () => {
@@ -79,14 +90,17 @@ describe("loadIndiaLeadingParties — happy path", () => {
     expect(res.data.per_state.S11.party_totals[0].party_eci_code).toBeNull();
   });
 
-  it("registers observations + dim_parties before querying", async () => {
+  it("registers observations + dim_parties (CSV via X1a) before querying", async () => {
     mockedQuery.mockResolvedValueOnce(partyRows);
     await loadIndiaLeadingParties({ S22: "AcGenMay2026" });
+    // election_results stays on parquet (X1b residual).
     const registered = mockedRegister.mock.calls.map((c) => c[0]).sort();
-    expect(registered).toEqual([
-      "elections.dim_parties",
-      "elections.election_results",
-    ]);
+    expect(registered).toEqual(["elections.election_results"]);
+    // dim_parties flipped to CSV-as-table in X1a (PR #809).
+    const csvAsTableIds = mockedRegisterCsvAsTable.mock.calls
+      .map((c) => c[0])
+      .sort();
+    expect(csvAsTableIds).toEqual(["elections.dim_parties"]);
   });
 
   it("states with no observed rows are absent from per_state (not error)", async () => {

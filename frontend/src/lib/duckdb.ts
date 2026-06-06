@@ -416,12 +416,21 @@ const CSV_AS_TABLE_SPECS: Readonly<Record<CsvAsTableId, CsvAsTableSpec>> = Objec
   "elections.dim_parties": {
     viewName: "dim_parties",
     csvRel: "data/entities/parties.csv",
+    // `full` and `short` are DuckDB reserved words (`full` for FULL OUTER
+    // JOIN; `short` overlaps the SHORTINT type ID). The X1a flip
+    // (PR #809) authored these columns unquoted and DuckDB-WASM rejected
+    // the view with `Parser Error: syntax error at or near "AS"`, which
+    // broke every dim_parties consumer (StateOverview, Psephlab, Compare,
+    // Constituency). Fixed in E5 (PR for plan section 25.6a) by quoting
+    // both identifiers. The seats-invariant gate (plan section 22.6)
+    // would otherwise be trivially false because the view returns zero
+    // rows -> sum(seats_won)=0 != total_seats=234.
     selectSql: (url: string): string => `
       SELECT
         party_id                     AS party_id,
         eci_codes                    AS eci_code,
-        short                        AS short_name,
-        full                         AS full_name,
+        "short"                      AS short_name,
+        "full"                       AS full_name,
         NULL::VARCHAR                AS recognition,
         NULL::VARCHAR                AS source_id,
         brand_colour                 AS brand_colour_hex,

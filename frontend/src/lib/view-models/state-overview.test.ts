@@ -184,10 +184,19 @@ beforeEach(() => {
   mockedClause.mockResolvedValue("columns={MOCKED}");
 });
 
+// E5 (plan section 25.6a): runQueries now issues a SEPARATE
+// `acCountSql` between partySql and stateScopeSql to source total_seats
+// from COUNT(DISTINCT entity_id) over summary.csv (the canonical
+// winners table). Tests inject `acCountRows` after partyRows so the
+// SQL-query mock order tracks the runtime order, and the magic value
+// equals sum(partyRows[].seats_won) so the invariant assertion passes.
+const acCountRows = [{ ac_count: 133 + 66 + 2 }];
+
 describe("loadStateOverview - happy path", () => {
   it("assembles StateOverviewViewModel from CSV rows", async () => {
     mockedQuery
       .mockResolvedValueOnce(partyRows)        // party aggregation
+      .mockResolvedValueOnce(acCountRows)      // E5: COUNT(DISTINCT entity_id)
       .mockResolvedValueOnce(stateScopeRows)   // state totals
       .mockResolvedValueOnce(sourceIdRows)     // source id discovery
       .mockResolvedValueOnce(sourceRows)       // taxonomy.sources rows
@@ -283,6 +292,7 @@ describe("loadStateOverview - happy path", () => {
     ];
     mockedQuery
       .mockResolvedValueOnce(rowsNoOtherWins)
+      .mockResolvedValueOnce([{ ac_count: 133 + 66 }]) // E5: matches sum after OTHER dropped
       .mockResolvedValueOnce(stateScopeRows)
       .mockResolvedValueOnce(sourceIdRows)
       .mockResolvedValueOnce(sourceRows)
@@ -299,6 +309,7 @@ describe("loadStateOverview - happy path", () => {
   it("registers the 3 CSV URLs + dim_parties (via CSV-as-table) + dim_party_alliances (parquet) + sources (via CSV-as-table)", async () => {
     mockedQuery
       .mockResolvedValueOnce(partyRows)
+      .mockResolvedValueOnce(acCountRows)
       .mockResolvedValueOnce(stateScopeRows)
       .mockResolvedValueOnce(sourceIdRows)
       .mockResolvedValueOnce(sourceRows)
@@ -347,6 +358,7 @@ describe("loadStateOverview - happy path", () => {
   it("issues read_csv SQL against candidacies + summary + electoral (no read_parquet)", async () => {
     mockedQuery
       .mockResolvedValueOnce(partyRows)
+      .mockResolvedValueOnce(acCountRows)
       .mockResolvedValueOnce(stateScopeRows)
       .mockResolvedValueOnce(sourceIdRows)
       .mockResolvedValueOnce(sourceRows)
@@ -366,29 +378,37 @@ describe("loadStateOverview - happy path", () => {
     expect(sqls[0]).not.toContain("dim_acs");
     expect(sqls[0]).not.toContain("dim_persons");
 
-    // State scope SQL: SUM over summary.csv.
+    // E5: distinct-AC count SQL over summary.csv (sources total_seats
+    // for the invariant assertion).
+    expect(sqls[1]).toContain("COUNT(DISTINCT entity_id)");
     expect(sqls[1]).toContain("read_csv(");
     expect(sqls[1]).toContain(
       "/elections/assembly/state=tamil-nadu/election=2021/summary.csv",
     );
-    expect(sqls[1]).not.toContain("read_parquet(");
 
-    // Source-id discovery SQL: UNION ALL across candidacies + summary.
+    // State scope SQL: SUM over summary.csv.
     expect(sqls[2]).toContain("read_csv(");
-    expect(sqls[2]).toContain("UNION ALL");
+    expect(sqls[2]).toContain(
+      "/elections/assembly/state=tamil-nadu/election=2021/summary.csv",
+    );
     expect(sqls[2]).not.toContain("read_parquet(");
 
+    // Source-id discovery SQL: UNION ALL across candidacies + summary.
+    expect(sqls[3]).toContain("read_csv(");
+    expect(sqls[3]).toContain("UNION ALL");
+    expect(sqls[3]).not.toContain("read_parquet(");
+
     // taxonomy.sources still parquet (deferred to X1a).
-    expect(sqls[3]).toContain("FROM sources");
+    expect(sqls[4]).toContain("FROM sources");
 
     // AC winners SQL: read_csv on summary + electoral + candidacies; JOIN
     // dim_parties (parquet table, no read_parquet literal).
-    expect(sqls[4]).toContain("read_csv(");
-    expect(sqls[4]).toContain("/data/entities/electoral.csv");
-    expect(sqls[4]).toContain("dim_parties dp");
-    expect(sqls[4]).not.toContain("dim_acs");
-    expect(sqls[4]).not.toContain("dim_persons");
-    expect(sqls[4]).not.toContain("election_results");
+    expect(sqls[5]).toContain("read_csv(");
+    expect(sqls[5]).toContain("/data/entities/electoral.csv");
+    expect(sqls[5]).toContain("dim_parties dp");
+    expect(sqls[5]).not.toContain("dim_acs");
+    expect(sqls[5]).not.toContain("dim_persons");
+    expect(sqls[5]).not.toContain("election_results");
   });
 });
 
@@ -432,6 +452,7 @@ describe("loadStateOverview - failed arm", () => {
 
     mockedQuery
       .mockResolvedValueOnce(partyRows)
+      .mockResolvedValueOnce(acCountRows)
       .mockResolvedValueOnce(stateScopeRows)
       .mockResolvedValueOnce(sourceIdRows)
       .mockResolvedValueOnce(sourceRows)

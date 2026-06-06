@@ -32,7 +32,7 @@
 //    until the Hans+Max+Gregor panel locks the canonical metadata
 //    contract for these fields.
 
-import { query, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerTable } from "../duckdb";
 import {
   fetchIndicator,
   type EntityKind,

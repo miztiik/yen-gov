@@ -189,7 +189,7 @@ describe("loadActuals - happy path", () => {
     expect(Object.isFrozen(t.acs)).toBe(true);
   });
 
-  it("registers the 3 CSV URLs + dim_parties before querying (no parquet for the 4 dropped tables)", async () => {
+  it("registers the 3 CSV URLs + dim_parties (via CSV-as-table; X1a) before querying (no parquet for the 4 dropped tables)", async () => {
     mockedQuery
       .mockResolvedValueOnce(constituencyRows)
       .mockResolvedValueOnce(candidateRows);
@@ -208,15 +208,26 @@ describe("loadActuals - happy path", () => {
     );
     expect(allUrls).toContain("/data/entities/electoral.csv");
 
-    // Parquet tables that stay registered (deferred to X1a):
+    // X1a (PR #809) flipped dim_parties from parquet to CSV via
+    // `registerCsvAsTable`. The pre-X1a `registerTable` is no longer
+    // invoked by this loader. E5 (plan section 25.6a) corrects the
+    // stale assertion left behind by the X1a PR.
+    const csvAsTableIds = mockedRegisterCsvAsTable.mock.calls
+      .map((c) => c[0])
+      .sort();
+    expect(csvAsTableIds).toEqual(["elections.dim_parties"]);
+
+    // No surviving parquet `registerTable` calls in this loader after X1a.
     const parquetTables = mockedRegister.mock.calls.map((c) => c[0]).sort();
-    expect(parquetTables).toEqual(["elections.dim_parties"]);
+    expect(parquetTables).toEqual([]);
 
     // ZERO requests for the F1.3a-decommissioned tables.
     expect(parquetTables).not.toContain("elections.dim_acs");
     expect(parquetTables).not.toContain("elections.dim_persons");
     expect(parquetTables).not.toContain("elections.elections_candidacies");
     expect(parquetTables).not.toContain("elections.election_results");
+    // X1a-flipped: NEVER routed through registerTable here.
+    expect(parquetTables).not.toContain("elections.dim_parties");
   });
 });
 

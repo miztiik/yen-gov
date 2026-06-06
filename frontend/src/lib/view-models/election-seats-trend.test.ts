@@ -1,30 +1,38 @@
 // Unit tests for the ElectionSeatsTrend view-model loader (PR-G / Phase 1.3c).
 //
-// Mocks `query` / `registerSlice` / `registerTable` at the `../duckdb` boundary per Holy Law #7
-// carve-out (established by PR-E, validated by PR-F). The actual Parquet
-// round-trip is asserted by the Playwright golden-path spec against TN.
+// Mocks `query` / `registerSlice` / `registerTable` / `registerCsvAsTable`
+// at the `../duckdb` boundary per Holy Law #7 carve-out (established by
+// PR-E, validated by PR-F). The `registerCsvAsTable` entry was added by
+// X1a (PR #809) when dim_parties + taxonomy.sources flipped from parquet
+// to CSV; E5 corrects the test mock that stayed stuck on the pre-flip
+// shape. The actual Parquet round-trip is asserted by the Playwright
+// golden-path spec against TN.
 //
 // Coverage:
-//   - happy path: 2 events × 2 parties, rows assemble + sources flow through.
+//   - happy path: 2 events x 2 parties, rows assemble + sources flow through.
 //   - registerTable: all three canonical tables registered once.
-//   - empty event_ids → partial (no SQL fired).
-//   - query returns zero rows → partial / not_published.
-//   - failed: thrown error → citizen copy + callable retry.
+//   - empty event_ids -> partial (no SQL fired).
+//   - query returns zero rows -> partial / not_published.
+//   - failed: thrown error -> citizen copy + callable retry.
 
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("../duckdb", () => ({
   registerSlice: vi.fn(async () => "noop"),
   registerTable: vi.fn(async () => "noop"),
+  registerCsvAsTable: vi.fn(async (id: string) =>
+    id === "elections.dim_parties" ? "dim_parties" : "sources",
+  ),
   query: vi.fn(),
 }));
 
-import { query, registerSlice, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerSlice, registerTable } from "../duckdb";
 import { loadElectionSeatsTrend } from "./election-seats-trend";
 
 const mockedQuery = vi.mocked(query);
 const mockedRegister = vi.mocked(registerTable);
 const mockedRegisterSlice = vi.mocked(registerSlice);
+const mockedRegisterCsvAsTable = vi.mocked(registerCsvAsTable);
 
 const partyRows = [
   {
@@ -105,8 +113,12 @@ beforeEach(() => {
   mockedQuery.mockReset();
   mockedRegister.mockReset();
   mockedRegisterSlice.mockReset();
+  mockedRegisterCsvAsTable.mockReset();
   mockedRegister.mockResolvedValue("noop");
   mockedRegisterSlice.mockResolvedValue("noop");
+  mockedRegisterCsvAsTable.mockImplementation(async (id) =>
+    id === "elections.dim_parties" ? "dim_parties" : "sources",
+  );
 });
 
 describe("loadElectionSeatsTrend — happy path", () => {
@@ -162,8 +174,14 @@ describe("loadElectionSeatsTrend — happy path", () => {
       "elections.election_results",
       { state: "tamil-nadu" },
     );
+    // dim_parties + taxonomy.sources flipped to CSV via X1a (PR #809).
+    // No surviving `registerTable` calls in this loader after X1a.
     const registered = mockedRegister.mock.calls.map((c) => c[0]).sort();
-    expect(registered).toEqual([
+    expect(registered).toEqual([]);
+    const csvAsTableIds = mockedRegisterCsvAsTable.mock.calls
+      .map((c) => c[0])
+      .sort();
+    expect(csvAsTableIds).toEqual([
       "elections.dim_parties",
       "taxonomy.sources",
     ]);
@@ -180,6 +198,7 @@ describe("loadElectionSeatsTrend — partial arms", () => {
     expect(res.data.sources_v2).toEqual([]);
     expect(mockedQuery).not.toHaveBeenCalled();
     expect(mockedRegister).not.toHaveBeenCalled();
+    expect(mockedRegisterCsvAsTable).not.toHaveBeenCalled();
     expect(mockedRegisterSlice).not.toHaveBeenCalled();
   });
 

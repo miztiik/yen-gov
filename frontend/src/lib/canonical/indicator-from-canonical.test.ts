@@ -15,6 +15,9 @@ import indicatorSchema from "../../../../datasets/schemas/indicator.schema.json"
 vi.mock("../duckdb", () => ({
   registerTable: vi.fn(async () => "noop"),
   registerSlice: vi.fn(async () => "noop"),
+  registerCsvAsTable: vi.fn(async (id: string) =>
+    id === "elections.dim_parties" ? "dim_parties" : "sources",
+  ),
   query: vi.fn(),
 }));
 
@@ -31,7 +34,7 @@ vi.mock("../indicators", async () => {
   };
 });
 
-import { query, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerTable } from "../duckdb";
 import { fetchIndicator } from "../indicators";
 import { FORBIDDEN_SOURCE_FIELDS } from "../source-list-v2";
 import {
@@ -57,6 +60,7 @@ import {
 
 const mockedQuery = vi.mocked(query);
 const mockedRegister = vi.mocked(registerTable);
+const mockedRegisterCsvAsTable = vi.mocked(registerCsvAsTable);
 const mockedFetch = vi.mocked(fetchIndicator);
 
 const ajv = new Ajv2020({ strict: false, allErrors: true, allowUnionTypes: true });
@@ -1665,9 +1669,14 @@ describe("loadIndicatorFromCanonical — DuckDB-WASM round-trip (loader)", () =>
     await expect(loadIndicatorFromCanonical(PEAK_DEMAND_DESCRIPTOR)).rejects.toThrow(
       /current indicator schema requires at least one row/,
     );
-    const registered = mockedRegister.mock.calls.map((c) => c[0]);
-    expect(registered).toContain("energy.energy_demand_supply");
-    expect(registered).toContain("taxonomy.sources");
+    // The descriptor.table_id (e.g. 'energy.energy_demand_supply') still
+    // goes through `registerTable`. After X1a (PR #809) `taxonomy.sources`
+    // is the CSV-as-table view; E5 corrects the assertion that expected
+    // the legacy parquet `registerTable` call.
+    const parquetTables = mockedRegister.mock.calls.map((c) => c[0]);
+    expect(parquetTables).toContain("energy.energy_demand_supply");
+    const csvAsTableIds = mockedRegisterCsvAsTable.mock.calls.map((c) => c[0]);
+    expect(csvAsTableIds).toContain("taxonomy.sources");
   });
 
   it("queries the fact-table view (last segment of table_id) filtered by indicator_id", async () => {
