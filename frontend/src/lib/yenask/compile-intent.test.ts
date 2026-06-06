@@ -187,8 +187,10 @@ describe("compileIntent", () => {
       );
       expect(plan.provenance_sql.length).toBeGreaterThan(0);
       expect(plan.provenance_sql).toMatch(/sources/);
-      // taxonomy.sources stays on Parquet (deferred to X1a); every
-      // concept registers it via table_registrations.
+      // taxonomy.sources flipped to CSV at the executor seam in X1a
+      // (`registerCsvAsTable` projects source.csv as the legacy `sources`
+      // view shape). Every concept still advertises the table_id in
+      // table_registrations - the dispatch happens in execute-plan.ts.
       const tableIds = plan.table_registrations.map(t => t.table_id);
       expect(tableIds).toContain("taxonomy.sources");
     }

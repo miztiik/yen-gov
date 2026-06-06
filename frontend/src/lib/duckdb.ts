@@ -361,6 +361,143 @@ export async function registerCsvFile(url: string): Promise<void> {
 }
 
 // -----------------------------------------------------------------------------
+// CSV-as-table seam (X1a reader flip)
+// -----------------------------------------------------------------------------
+//
+// X1a flips the two legacy taxonomy parquets F1.3a/b explicitly DEFERRED
+// to this chunk (`elections.dim_parties` + `taxonomy.sources`) onto the
+// canonical CSV store under `datasets/data/entities/`. The signature mirrors
+// `registerTable` (idempotent per session, returns the DuckDB view name)
+// so view-models swap `registerTable("elections.dim_parties")` ->
+// `registerCsvAsTable("elections.dim_parties")` one-line; the JOIN syntax
+// in the surrounding SQL is unchanged.
+//
+// Why a SELECT-aliased view rather than letting view-models call
+// `read_csv` inline (the F1.3a pattern for candidacies + summary):
+//   - 13 call sites JOIN `dim_parties dp ON dp.party_id = ...` /
+//     `JOIN sources s` and reference legacy column names
+//     (`dp.short_name`, `dp.brand_colour_hex`, `s.producer`,
+//     `s.url_main`). Renaming each SQL string is a much bigger blast
+//     radius than keeping the legacy column names visible at the JOIN
+//     surface; the view is the rename point.
+//
+// Retired-by-rip columns (per parent plan section 20.3 / O3 — parties.csv
+// is exactly `{party_id, short, full, eci_codes, brand_colour,
+// symbol_asset, wikipedia}`; source.csv is exactly `{source_id, owner,
+// title, vintage, url}`) project as `NULL::<dtype>` so view-models with
+// the existing nullable fallback chains (e.g. `r.brand_colour_confidence
+// === "high" || ... || null`) degrade gracefully. The 3 retired party
+// columns and 6 retired source columns surface NULL everywhere; the
+// PR body documents the resulting UX deltas (recognition badge gone;
+// confidence-tier indicator gone; license + verification_method chip
+// gone). Those losses are the binding new truth post-rip.
+//
+// Lifecycle: B3 (the parquet-writer + reader cleanup) eventually deletes
+// `registerTable` / `registerSlice` whole. At that point this seam is
+// the only path. The legacy table_id strings (`"elections.dim_parties"`,
+// `"taxonomy.sources"`) survive as a stable contract for the dispatch
+// keys; B3 can rename them then if the citizen-trust grammar wants the
+// `elections.` / `taxonomy.` namespace gone.
+
+export type CsvAsTableId = "elections.dim_parties" | "taxonomy.sources";
+
+interface CsvAsTableSpec {
+  /** DuckDB view name the view-model SQL JOINs against. */
+  readonly viewName: string;
+  /** Repo-relative CSV path (sliced into the URL via DATA_BASE). */
+  readonly csvRel: string;
+  /** Build the `SELECT ... FROM read_csv(<url>, columns={...})` body that
+   *  becomes the view definition. Returns SQL fragment WITHOUT the
+   *  `CREATE OR REPLACE VIEW ... AS` prefix (the caller adds that). */
+  selectSql(url: string): string;
+}
+
+const CSV_AS_TABLE_SPECS: Readonly<Record<CsvAsTableId, CsvAsTableSpec>> = Object.freeze({
+  "elections.dim_parties": {
+    viewName: "dim_parties",
+    csvRel: "data/entities/parties.csv",
+    selectSql: (url: string): string => `
+      SELECT
+        party_id                     AS party_id,
+        eci_codes                    AS eci_code,
+        short                        AS short_name,
+        full                         AS full_name,
+        NULL::VARCHAR                AS recognition,
+        NULL::VARCHAR                AS source_id,
+        brand_colour                 AS brand_colour_hex,
+        NULL::VARCHAR                AS brand_colour_confidence,
+        wikipedia                    AS wikipedia_url,
+        symbol_asset                 AS election_symbol_asset_path,
+        NULL::VARCHAR                AS election_symbol_render_mode
+      FROM read_csv('${url}', columns={
+        'party_id': 'VARCHAR', 'short': 'VARCHAR', 'full': 'VARCHAR',
+        'eci_codes': 'VARCHAR', 'brand_colour': 'VARCHAR',
+        'symbol_asset': 'VARCHAR', 'wikipedia': 'VARCHAR'
+      }, header=true)
+    `,
+  },
+  "taxonomy.sources": {
+    viewName: "sources",
+    csvRel: "data/entities/source.csv",
+    selectSql: (url: string): string => `
+      SELECT
+        source_id                    AS source_id,
+        owner                        AS producer,
+        title                        AS title,
+        vintage                      AS vintage,
+        NULL::VARCHAR                AS license,
+        NULL::VARCHAR                AS confidence_tier,
+        NULL::BOOLEAN                AS is_issuing_authority,
+        NULL::VARCHAR                AS verification_method,
+        url                          AS url_main,
+        NULL::VARCHAR                AS citation_full,
+        NULL::VARCHAR                AS notes
+      FROM read_csv('${url}', columns={
+        'source_id': 'VARCHAR', 'owner': 'VARCHAR', 'title': 'VARCHAR',
+        'vintage': 'VARCHAR', 'url': 'VARCHAR'
+      }, header=true)
+    `,
+  },
+});
+
+/**
+ * X1a CSV-as-table seam. Registers `data/entities/parties.csv` or
+ * `data/entities/source.csv` and creates a DuckDB view named `dim_parties`
+ * / `sources` with the legacy parquet column shape so view-model SQL
+ * keeps JOINing against the same column names without any string rewrite.
+ *
+ * Idempotent per session via the shared `registeredViews` map (same as
+ * `registerTable` / `registerSlice`). Returns the view name the caller
+ * would have gotten from `registerTable`.
+ */
+export async function registerCsvAsTable(table_id: CsvAsTableId): Promise<string> {
+  const spec = CSV_AS_TABLE_SPECS[table_id];
+  const url = `${DATA_BASE}/${spec.csvRel}`;
+  const key = `csv-as-table::${table_id}::${url}`;
+  if (registeredViews.get(spec.viewName) === key) return spec.viewName;
+
+  const [db, conn] = await Promise.all([
+    dbPromise ?? (dbPromise = bootDB()),
+    getConnection(),
+  ]);
+
+  // Register the CSV URL with DuckDB so the embedded `read_csv(<url>, ...)`
+  // call inside the view body reaches it via HTTP-Range. Mirrors
+  // `registerCsvFile` (same cache set + protocol) so a later
+  // `registerCsvFile(<same url>)` call is a no-op.
+  if (!registeredCsvUrls.has(url)) {
+    await db.registerFileURL(url, url, duckdb.DuckDBDataProtocol.HTTP, false);
+    registeredCsvUrls.add(url);
+  }
+
+  await conn.query(
+    `CREATE OR REPLACE VIEW "${spec.viewName}" AS ${spec.selectSql(url)}`,
+  );
+  registeredViews.set(spec.viewName, key);
+  return spec.viewName;
+}
+
+// -----------------------------------------------------------------------------
 // Thin query helper
 // -----------------------------------------------------------------------------
 

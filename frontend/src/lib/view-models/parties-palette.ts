@@ -9,7 +9,7 @@
 // row in the canonical store appears in the palette.
 
 import { describeFailure, type LoaderResult } from "../loader-result";
-import { query, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerTable } from "../duckdb";
 
 export interface PartiesPaletteEntry {
   /** The canonical eci_code if dim_parties has one; otherwise the
@@ -41,7 +41,7 @@ async function runQueries(): Promise<{
 }> {
   await Promise.all([
     registerTable("elections.election_results"),
-    registerTable("elections.dim_parties"),
+    registerCsvAsTable("elections.dim_parties"),
   ]);
 
   const dim = await query<DimRow>(`

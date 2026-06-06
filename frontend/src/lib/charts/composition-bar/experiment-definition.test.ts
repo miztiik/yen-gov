@@ -94,19 +94,20 @@ describe("R-28 manifest discipline — adapter uses manifest registration", () =
     expect(src).toMatch(/registerSlice\("elections\.election_results"/);
   });
 
-  it("calls registerTable for elections.dim_parties", () => {
-    expect(src).toMatch(/registerTable\("elections\.dim_parties"\)/);
+  it("calls registerCsvAsTable for elections.dim_parties (X1a flip)", () => {
+    expect(src).toMatch(/registerCsvAsTable\("elections\.dim_parties"\)/);
   });
 
-  it("calls registerTable for taxonomy.sources", () => {
-    expect(src).toMatch(/registerTable\("taxonomy\.sources"\)/);
+  it("calls registerCsvAsTable for taxonomy.sources (X1a flip)", () => {
+    expect(src).toMatch(/registerCsvAsTable\("taxonomy\.sources"\)/);
   });
 
   it("does not embed a hardcoded /data/elections/ parquet path literal", () => {
     // Anything matching `"/data/elections/...parquet"` or
     // `'/data/elections/...parquet'` is the R-28 violation we are
-    // guarding against. The adapter MUST go through registerTable so
-    // the manifest is the single source of truth for parquet paths.
+    // guarding against. The adapter MUST go through registerSlice /
+    // registerCsvAsTable so the manifest / X1a CSV-as-table seam is
+    // the single source of truth for paths.
     expect(src).not.toMatch(/['"]\/data\/elections\/[^'"]*\.parquet['"]/);
   });
 

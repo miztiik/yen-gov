@@ -13,6 +13,9 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("../duckdb", () => ({
   registerCsvFile: vi.fn(async () => undefined),
+  registerCsvAsTable: vi.fn(async (id: string) =>
+    id === "elections.dim_parties" ? "dim_parties" : "sources",
+  ),
   registerTable: vi.fn(async () => "noop"),
   query: vi.fn(),
 }));
@@ -21,12 +24,13 @@ vi.mock("../canonical/csv-columns", () => ({
   csvColumnsClause: vi.fn(async () => "columns={MOCKED}"),
 }));
 
-import { query, registerCsvFile, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerCsvFile, registerTable } from "../duckdb";
 import { csvColumnsClause } from "../canonical/csv-columns";
 import { __resetForTests, loadActuals } from "./canonical-loaders";
 
 const mockedQuery = vi.mocked(query);
 const mockedRegisterCsv = vi.mocked(registerCsvFile);
+const mockedRegisterCsvAsTable = vi.mocked(registerCsvAsTable);
 const mockedRegister = vi.mocked(registerTable);
 const mockedClause = vi.mocked(csvColumnsClause);
 
@@ -95,9 +99,13 @@ const candidateRows = [
 beforeEach(() => {
   mockedQuery.mockReset();
   mockedRegisterCsv.mockReset();
+  mockedRegisterCsvAsTable.mockReset();
   mockedRegister.mockReset();
   mockedClause.mockReset();
   mockedRegisterCsv.mockResolvedValue(undefined);
+  mockedRegisterCsvAsTable.mockImplementation(async (id) =>
+    id === "elections.dim_parties" ? "dim_parties" : "sources",
+  );
   mockedRegister.mockResolvedValue("noop");
   mockedClause.mockResolvedValue("columns={MOCKED}");
   __resetForTests();

@@ -1,16 +1,17 @@
 // Unit tests for the Data Explorer per-(event, state) DuckDB views
-// (F1.3b CSV cutover).
+// (F1.3b CSV cutover + X1a dim_parties flip).
 //
 // Per CLAUDE.md section 15 + parent plan section 22.4 #4: we mock
 // `getConnection` / `registerCsvFile` / `registerTable` /
-// `csvColumnsClause` (the explicit carve-out from Holy Law #7) and
-// pin:
+// `registerCsvAsTable` / `csvColumnsClause` (the explicit carve-out
+// from Holy Law #7) and pin:
 //   - the 4 CREATE OR REPLACE VIEW statements still emit (parties,
 //     constituencies, candidates, party_totals).
 //   - each view's SQL references read_csv (NOT read_parquet) against
 //     the per-(state, year) CSV paths.
-//   - the registration shape: 3 CSV URLs + dim_parties parquet; ZERO
-//     dim_acs / dim_persons / election_results / elections_candidacies.
+//   - the registration shape: 3 CSV URLs + dim_parties via
+//     registerCsvAsTable (X1a); ZERO dim_acs / dim_persons /
+//     election_results / elections_candidacies.
 //   - identity grammar is preserved (column names ac_eci_no / rank /
 //     name / party_short / votes / is_winner / is_nota / vote_share_pct
 //     / seats_won) so documented presets keep working.
@@ -20,6 +21,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 vi.mock("../duckdb", () => ({
   getConnection: vi.fn(),
   registerCsvFile: vi.fn(async () => undefined),
+  registerCsvAsTable: vi.fn(async () => "dim_parties"),
   registerTable: vi.fn(async () => "noop"),
 }));
 
@@ -29,6 +31,7 @@ vi.mock("../canonical/csv-columns", () => ({
 
 import {
   getConnection,
+  registerCsvAsTable,
   registerCsvFile,
   registerTable,
 } from "../duckdb";
@@ -37,6 +40,7 @@ import { buildExploreViews } from "./duckdb-views";
 
 const mockedGetConnection = vi.mocked(getConnection);
 const mockedRegisterCsv = vi.mocked(registerCsvFile);
+const mockedRegisterCsvAsTable = vi.mocked(registerCsvAsTable);
 const mockedRegister = vi.mocked(registerTable);
 const mockedClause = vi.mocked(csvColumnsClause);
 
@@ -45,10 +49,12 @@ const mockQuery = vi.fn<(sql: string) => Promise<unknown>>(async () => undefined
 beforeEach(() => {
   mockedGetConnection.mockReset();
   mockedRegisterCsv.mockReset();
+  mockedRegisterCsvAsTable.mockReset();
   mockedRegister.mockReset();
   mockedClause.mockReset();
   mockQuery.mockReset();
   mockedRegisterCsv.mockResolvedValue(undefined);
+  mockedRegisterCsvAsTable.mockResolvedValue("dim_parties");
   mockedRegister.mockResolvedValue("noop");
   mockedClause.mockResolvedValue("columns={MOCKED}");
   mockQuery.mockResolvedValue(undefined);
@@ -70,7 +76,7 @@ describe("buildExploreViews", () => {
     expect(sqls[3]).toMatch(/CREATE OR REPLACE VIEW party_totals\b/);
   });
 
-  it("registers 3 CSV URLs + dim_parties; drops all 4 F1.3b parquets", async () => {
+  it("registers 3 CSV URLs + dim_parties (CSV-as-table, X1a); drops all 4 F1.3b parquets", async () => {
     await buildExploreViews("AcGenApr2021", "S22");
 
     expect(mockedRegisterCsv).toHaveBeenCalledTimes(3);
@@ -84,13 +90,22 @@ describe("buildExploreViews", () => {
     );
     expect(allUrls).toContain("/data/entities/electoral.csv");
 
+    // X1a CSV-as-table: dim_parties flipped from parquet to CSV-backed view.
+    const csvAsTableIds = mockedRegisterCsvAsTable.mock.calls
+      .map((c) => c[0])
+      .sort();
+    expect(csvAsTableIds).toEqual(["elections.dim_parties"]);
+
+    // ZERO parquet `registerTable` calls remain on this surface.
     const parquetTables = mockedRegister.mock.calls.map((c) => c[0]).sort();
-    expect(parquetTables).toEqual(["elections.dim_parties"]);
+    expect(parquetTables).toEqual([]);
 
     expect(parquetTables).not.toContain("elections.election_results");
     expect(parquetTables).not.toContain("elections.dim_acs");
     expect(parquetTables).not.toContain("elections.dim_persons");
     expect(parquetTables).not.toContain("elections.elections_candidacies");
+    // X1a flipped: dim_parties is NO LONGER on the parquet path.
+    expect(parquetTables).not.toContain("elections.dim_parties");
   });
 
   it("preserves the documented preset column shapes per view", async () => {

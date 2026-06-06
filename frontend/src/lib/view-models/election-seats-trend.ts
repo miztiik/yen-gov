@@ -7,9 +7,9 @@
 // and untouched.
 //
 // What is JOINed:
-//   elections.election_results  — numeric facts (party-* indicators only)
-//   elections.dim_parties   — party labels (short_name, eci_code)
-//   taxonomy.sources        — provenance for the union across events
+//   elections.election_results  - numeric facts (party-* indicators only)
+//   elections.dim_parties   - party labels (short_name, eci_code) [CSV via registerCsvAsTable; X1a]
+//   taxonomy.sources        - provenance for the union across events [CSV via registerCsvAsTable; X1a]
 //
 // LoaderResult arms mirror PR-F:
 //   ok       — at least one event yielded party rows.
@@ -17,7 +17,7 @@
 //   failed   — DuckDB-WASM / fetch / SQL error.
 
 import { describeFailure, type LoaderResult } from "../loader-result";
-import { query, registerSlice, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerSlice } from "../duckdb";
 import { electionStatePartition } from "../election-partitions";
 import type { PartyTotals, SourceRef } from "../data";
 import type { StackedTrendV2Source } from "../charts/stacked-trend-v2";
@@ -90,8 +90,8 @@ async function runQueries(
 ): Promise<{ parties: PartyRow[]; sources: SourceJoinRow[] }> {
   await Promise.all([
     registerSlice("elections.election_results", { state: electionStatePartition(state_code) }),
-    registerTable("elections.dim_parties"),
-    registerTable("taxonomy.sources"),
+    registerCsvAsTable("elections.dim_parties"),
+    registerCsvAsTable("taxonomy.sources"),
   ]);
 
   const partyPrefix = sqlString(`IN-${state_code}-`);
