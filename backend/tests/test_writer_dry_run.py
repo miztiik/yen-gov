@@ -93,9 +93,14 @@ def test_dry_run_against_empty_root_touches_no_files(
     tmp_path: Path, caplog
 ) -> None:
     """Dry-run against a tmp datasets root that has only the entities
-    fixture: writer must NOT create observations.parquet, sources.parquet,
-    facet-axes.parquet, or manifest.json. The log must report at least one
-    NEW line (the planned observations parquet)."""
+    fixture: writer must NOT create observations.parquet or manifest.json.
+    The log must report at least one NEW line (the planned observations
+    parquet).
+
+    Post-B3 (2026-06-06): sources.parquet + facet-axes.parquet emit paths
+    were removed; the dry-run now only inspects observations + dim parquets
+    + manifest.
+    """
     _seed_taxonomy(tmp_path)
     before = _snapshot_tree(tmp_path)
     caplog.set_level(logging.INFO, logger="yen_gov.canonical.writer")
@@ -105,14 +110,10 @@ def test_dry_run_against_empty_root_touches_no_files(
     after = _snapshot_tree(tmp_path)
     assert before == after, "dry-run must not create or modify any files"
     assert result.observation_rows_written == 1
-    assert result.source_rows_written == 1
     log_text = "\n".join(rec.getMessage() for rec in caplog.records)
     assert "dry-run:" in log_text
-    # At least one structured per-file line. The exact set depends on which
-    # planned writes hit `_atomic_emit_or_dryrun`; we assert presence of the
-    # observations and sources targets.
+    # At least one structured per-file line: the observations parquet target.
     assert "test/observations.parquet" in log_text or "test\\observations.parquet" in log_text
-    assert "taxonomy/sources.parquet" in log_text or "taxonomy\\sources.parquet" in log_text
 
 
 def test_dry_run_after_real_write_reports_unchanged(
