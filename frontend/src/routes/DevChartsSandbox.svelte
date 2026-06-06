@@ -46,6 +46,11 @@
   import CirclePack from "../lib/charts/CirclePack.svelte";
   import type { CirclePackRow, CirclePackMode } from "../lib/charts/circle-pack-helpers";
   import PartyPill from "../lib/party-pill/PartyPill.svelte";
+  import MapHighlightLegend, {
+    DEFAULT_HIGHLIGHT_STATE,
+    type HighlightState,
+    type LegendParty,
+  } from "../lib/charts/MapHighlightLegend.svelte";
   import {
     feasibleAt,
     intersectWithCatalogue,
@@ -390,6 +395,22 @@
     })),
   );
 
+  // --- fixture 6b - E4 highlight modes + margin sub-filter (25.5) --
+  // Reuses the same synthetic 5x5 AC patch above. Demonstrates the
+  // ONE shared MapHighlightLegend driving the SAME TileCartogram
+  // through both modes; the live citizen surface
+  // (`/s/<state>/elections/<event>`) also pipes the same legend into
+  // StateAcMap (maplibre) - the e2e smoke at
+  // `frontend/e2e/e4-highlight-modes.spec.ts` covers both arms.
+  let mh_state = $state<HighlightState>({ ...DEFAULT_HIGHLIGHT_STATE });
+  const mh_legend_parties = $derived<LegendParty[]>(
+    _tc_parties.map((p) => ({
+      party_id: `parties.IN.${p.key}`,
+      party_short: p.short,
+      row: null,
+    })),
+  );
+
   // ─── U4 — chart-type switcher seam (in-memory; NO URL persistence) ─
   // Demonstrates the SegmentedControl wired into ChartShell's toolbar
   // slot. The switcher offers the intersection of `feasibleAt(...)`
@@ -646,6 +667,48 @@
         legend={tc_legend}
         onSelect={(id) => (tc_selected = tc_selected === id ? null : id)}
       />
+    </ChartShell>
+  </section>
+
+  <section class="space-y-3" data-sandbox-section="map-highlight-legend">
+    <h2 class="text-lg font-semibold">MapHighlightLegend (E4, 25.5)</h2>
+    <p class="text-sm text-slate-600">
+      ONE legend drives both <code>StateAcMap</code> + <code>TileCartogram</code>
+      via the shared <code>cellTreatment</code> helper. The legend
+      below threads its <code>{`{ mode, selected_party_id, min_margin }`}</code>
+      state into the same synthetic AC patch as the section above.
+      Flip <strong>Party wins</strong>, tap a party pill, then slide
+      <strong>Margin &ge;</strong> to recede narrower wins. The
+      <code>--party-neutral</code> token (E2 #800) renders non-matching
+      tiles as a calm grey + hairline border; the existing margin-ramp
+      behaviour is byte-identical to before E4 in <strong>Margin ramp</strong>
+      mode (cellTreatment uses the same formula). The live
+      citizen surface at <code>/s/&lt;state&gt;/elections/&lt;event&gt;</code>
+      pipes the SAME legend into the maplibre <code>StateAcMap</code>;
+      section 13 browser smoke at
+      <code>e2e/e4-highlight-modes.spec.ts</code> covers both arms.
+    </p>
+    <ChartShell
+      title="Synthetic AC tile cartogram - E4 highlight axis"
+      subtitle="ONE MapHighlightLegend, two encoding modes."
+      time_label="Assembly election 2023"
+    >
+      <div class="space-y-3">
+        <MapHighlightLegend
+          state={mh_state}
+          parties={mh_legend_parties}
+          on_change={(next) => (mh_state = next)}
+          testid="sandbox-highlight-legend"
+        />
+        <TileCartogram
+          tiles={tc_rows}
+          height="360px"
+          legend={tc_legend}
+          highlight_mode={mh_state.mode}
+          selected_party_id={mh_state.selected_party_id}
+          min_margin={mh_state.min_margin}
+        />
+      </div>
     </ChartShell>
   </section>
 

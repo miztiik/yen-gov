@@ -92,6 +92,24 @@ export interface TileRow {
   selected: boolean;
   /** True when no winner joined this tile (e.g. results pending / unopposed). */
   pending: boolean;
+  /**
+   * E4 (parent plan section 25.5): the winner's canonical
+   * `parties.IN.<SLUG>` id, threaded so the presentational
+   * `<TileCartogram>` can apply the shared `cellTreatment` per tile
+   * when the highlight mode is `"party_won"`. Null on pending tiles
+   * (no winner). Optional so older fixtures / call-sites that have not
+   * been re-built compile and just lose the recede effect; the existing
+   * `fill` / `opacity` keep them rendering identically to v3.
+   */
+  winner_party_id?: string | null;
+  /**
+   * E4 (parent plan section 25.5): the winner's signed margin of
+   * victory in pp, threaded so `<TileCartogram>` can run the stepped
+   * `min_margin` filter without re-joining the upstream winners. Null
+   * on pending tiles. Optional for the same back-compat reason as
+   * `winner_party_id`.
+   */
+  margin_pct?: number | null;
 }
 
 const NEUTRAL_FILL = "#e2e8f0"; // slate-200 — "results pending" / no winner.
@@ -243,6 +261,8 @@ export function buildTileRows(
           `<div class="text-slate-500">Results pending</div>`,
         selected: t.unit_id === selected,
         pending: true,
+        winner_party_id: null,
+        margin_pct: null,
       };
     }
     const pid = pidByUnit.get(t.unit_id) ?? partyIdFor(w);
@@ -262,6 +282,8 @@ export function buildTileRows(
         `<div class="text-slate-500">Margin: ${marginLabel}</div>`,
       selected: t.unit_id === selected,
       pending: false,
+      winner_party_id: pid,
+      margin_pct: w.margin_pct,
     };
   });
 }
