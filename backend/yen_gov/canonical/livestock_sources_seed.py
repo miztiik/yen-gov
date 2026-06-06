@@ -1,4 +1,4 @@
-"""Seed the 5 livestock citation rows into ``taxonomy/sources.parquet``.
+"""Citation-row identity anchor for the 5 livestock (NDLM) sources.
 
 P.2 Livestock (NDLM): 5 distinct upstream endpoints on the Bharat
 Pashudhan portal published by the Department of Animal Husbandry &
@@ -16,26 +16,24 @@ The portal exposes the same endpoint contract for both calendar-year
 (CY) and financial-year (FY) basis selections via a single ``period``
 discriminator on the request payload, so the citation is one row per
 endpoint (not per period-basis); the CY/FY duality is carried at the
-observation row via ``period_label`` per CLAUDE.md §12 + the canonical
-long-format pivot plan.
+observation row via ``period_label`` per CLAUDE.md section 12.
 
-Each gets a citation row in the sources ledger so every emitted
-observation in P.2 can FK to a real ``source_id`` per Holy Law #9 +
-ADR-0032.
-
-Pattern mirrors ``energy_sources_seed`` (P.1.A C3): INSERT-OR-REPLACE
-keyed on ``source_id`` so multiple subsystems can upsert their rows
-into the same in-memory ``sources`` table before the final COPY to
-parquet.
+Post-B3 (2026-06-06): this module is now CITATION-IDENTITY-ANCHOR only.
+The X1b retirement of ``datasets/taxonomy/sources.parquet`` removed the
+parquet-UPSERT side; the citation rows themselves move to
+``datasets/data/entities/source.csv`` via B2a's seed/source_csv emit
+path. The ``LIVESTOCK_NICKNAME_TO_PRODUCER_TITLE`` +
+``LIVESTOCK_SOURCE_ID_BY_NICKNAME`` constants stay because the
+livestock adapter at ``adapters/livestock/_shared.source_id_for`` reads
+the (producer, title) IDENTITY pair to derive the per-(nickname,
+vintage) source_id at adapter time.
 
 ``derive_source_id(producer, title, vintage)`` is the only way to
-compute ``source_id`` -- NEVER hand-author (CLAUDE.md \u00a710 +
+compute ``source_id`` -- NEVER hand-author (CLAUDE.md section 10 +
 ADR-0032). If a triple is edited here, every downstream FK goes
 dangling and the catalogue compile fails closed.
 
-P.2 Phase 0 seed (2026-05-25, this PR).
-
-DAHD authority + vintage decisions (Hans + Max pin, plan-doc \u00a72):
+DAHD authority + vintage decisions (Hans + Max pin):
 
 - DAHD is the issuing authority for each of these series (the Bharat
   Pashudhan portal is the official data product of the Department).
@@ -45,17 +43,12 @@ DAHD authority + vintage decisions (Hans + Max pin, plan-doc \u00a72):
   needed; the snapshot lives in ``.runtime/raw/ndlm/`` per how-to).
 - License: ``OGL-IN-1.0`` (Open Government Licence India -- default
   for all DAHD data products per the portal's footer).
-- Vintage: ``"2024-25"`` (the FY24-25 ingest is the first scheduled
-  vintage per the umbrella plan -- subsequent vintages will upsert
-  ADDITIONAL rows here under the same nicknames; the (producer, title,
-  vintage) hash discriminates).
+- Vintage: ``"2024-25"`` was the first scheduled vintage; subsequent
+  vintages use ``source_id_for(nickname, vintage)`` to derive new
+  citation triples without re-baking constants here.
 """
 
 from __future__ import annotations
-
-from pathlib import Path
-
-import duckdb
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.envelope import SourceRow
@@ -65,8 +58,6 @@ __all__ = [
     "LIVESTOCK_SOURCE_ID_BY_NICKNAME",
     "LIVESTOCK_SOURCES",
     "SOURCE_NICKNAMES",
-    "upsert_livestock_sources",
-    "upsert_livestock_sources_to_parquet",
 ]
 
 
@@ -230,96 +221,3 @@ LIVESTOCK_NICKNAME_TO_PRODUCER_TITLE: dict[str, tuple[str, str]] = {
     nickname: (_TRIPLES[nickname][0], _TRIPLES[nickname][1])
     for nickname in SOURCE_NICKNAMES
 }
-
-
-def upsert_livestock_sources(con: duckdb.DuckDBPyConnection) -> int:
-    """Idempotent INSERT-OR-REPLACE of the 5 livestock citation rows
-    into the in-memory ``sources`` DuckDB table.
-
-    Caller is responsible for creating the ``sources`` table first and
-    for emitting the table back to ``taxonomy/sources.parquet`` after.
-    Returns the number of rows upserted (always 5 today: Owner Reg +
-    Pashu Aadhaar + NADCP + Breeding + NAIP IV).
-    """
-    upserted = 0
-    for row in LIVESTOCK_SOURCES:
-        con.execute(
-            """
-            INSERT OR REPLACE INTO sources (
-                source_id, producer, title, vintage,
-                license, confidence_tier, is_issuing_authority,
-                verification_method, url_main, citation_full, notes
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """,
-            [
-                row.source_id,
-                row.producer,
-                row.title,
-                row.vintage,
-                row.license,
-                row.confidence_tier,
-                row.is_issuing_authority,
-                row.verification_method,
-                row.url_main,
-                row.citation_full,
-                row.notes,
-            ],
-        )
-        upserted += 1
-    return upserted
-
-
-# DDL identical to energy_sources_seed.py's ``sources`` shape (mirrors
-# source.schema.json). PRIMARY KEY on source_id makes INSERT OR REPLACE
-# work cleanly across re-runs.
-_SOURCES_DDL = """
-CREATE TABLE sources (
-    source_id VARCHAR PRIMARY KEY,
-    producer VARCHAR NOT NULL,
-    title VARCHAR NOT NULL,
-    vintage VARCHAR NOT NULL,
-    license VARCHAR NOT NULL,
-    confidence_tier VARCHAR NOT NULL,
-    is_issuing_authority BOOLEAN NOT NULL,
-    verification_method VARCHAR NOT NULL,
-    url_main VARCHAR,
-    citation_full VARCHAR,
-    notes VARCHAR
-)
-"""
-
-
-def upsert_livestock_sources_to_parquet(sources_parquet: Path) -> int:
-    """Read-modify-write wrapper around :func:`upsert_livestock_sources`.
-
-    Opens an in-memory DuckDB, loads the existing
-    ``taxonomy/sources.parquet`` (if any), upserts the 5 livestock
-    citation rows, writes the parquet back. Used by the
-    ``emit-taxonomy`` orchestrator after energy_sources_seed has
-    already written its 12 rows.
-
-    Returns the number of rows upserted (always 5 today). Idempotent --
-    re-running yields byte-identical output.
-    """
-    sources_parquet = Path(sources_parquet)
-    sources_parquet.parent.mkdir(parents=True, exist_ok=True)
-
-    con = duckdb.connect(":memory:")
-    try:
-        con.execute(_SOURCES_DDL)
-        if sources_parquet.is_file():
-            con.execute(
-                f"INSERT INTO sources SELECT * FROM read_parquet('{sources_parquet.as_posix()}')"
-            )
-        n = upsert_livestock_sources(con)
-        con.execute(
-            f"""
-            COPY (
-                SELECT * FROM sources ORDER BY source_id
-            ) TO '{sources_parquet.as_posix()}' (FORMAT PARQUET)
-            """
-        )
-    finally:
-        con.close()
-
-    return n

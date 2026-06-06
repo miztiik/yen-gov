@@ -291,16 +291,7 @@ def emit_taxonomy(
     Regenerates the canonical hand-authored taxonomy parquets read by
     the static frontend via DuckDB-WASM:
 
-    - ``datasets/taxonomy/facet-axes.parquet`` — facet axes (§8.3 seed)
-    - ``datasets/taxonomy/state_tiers.parquet`` — state-tier groupings
-      from ``datasets/taxonomy/state_tiers.json`` (T.0a-ii)
-    - ``datasets/taxonomy/topics.parquet`` +
-      ``datasets/taxonomy/indicator_topic_tags.parquet`` — topic
-      catalogue + M:N artifact tags from ``topics.json`` (T.0a-ii)
-    - ``datasets/taxonomy/election_events.parquet`` — pure-reference
-      election events (kind, polled_on, default flag) from
-      ``election_events.json`` (T.0a-ii)
-    - ``datasets/taxonomy/entities.parquet`` — country/state/UT rows
+    - ``datasets/taxonomy/entities.parquet`` -- country/state/UT rows
       plus hand-authored district rows projected from
       ``datasets/taxonomy/entities.json`` (T.0a-ii Phase A folded the 145
       hand-authored districts in; the per-state ``districts.json`` files
@@ -314,36 +305,14 @@ def emit_taxonomy(
             explicit official ``citation_groups``.
     - ``datasets/taxonomy/indicators.parquet`` -- the canonical
       indicator catalogue from ``indicators.json`` (P.1.A C3, 2026-05-22).
-    - ``datasets/taxonomy/methodology_breaks.parquet`` -- the
-      versioned methodology-break ledger from
-      ``methodology_breaks.json`` (P.1.A C3, 2026-05-22).
-    - ``datasets/taxonomy/sources.parquet`` -- (further UPSERTed) with
-      the 6 P.1.A energy citation rows (CEA Monthly IC + 3 ICED APIs +
-      2 RBI Handbook table-142 series) after office_holdings has
-      written the wiki rows, then with the 5 P.2 livestock citation
-      rows (NDLM Owner Reg + Pashu Aadhaar + NADCP + Breeding +
-      NAIP IV) after the energy upsert. Idempotent across re-runs.
-        - ``datasets/taxonomy/persons.parquet`` -- ADR-0035 S.1 person
-            registry compiled from ``person_aliases.json`` and dim_persons
-            self-alias rows.
 
-    The facet-axes emit also runs automatically inside every canonical
-    ``write_batch`` call as a belt-and-suspenders refresh; the other
-    seeds run only here. Refs: TODO row 1.8d-ii §G step 3 + Phase 0
-    closeout plan §0e.10.
+    Post-B3 (2026-06-06): the dead taxonomy seed steps for
+    facet-axes / state_tiers / topics / indicator_topic_tags /
+    election_events / methodology_breaks / sources / persons were
+    removed because the matching parquets were retired in X1b (#814).
+    The CSV replacements live under ``datasets/data/`` and are emitted
+    by the canonical CSV writer / B2a seed emitters, not here.
     """
-    from yen_gov.canonical.facet_axes_seed import (
-        compile_to_parquet as _compile_facet_axes,
-    )
-    from yen_gov.canonical.state_tiers_seed import (
-        compile_to_parquet as _compile_state_tiers,
-    )
-    from yen_gov.canonical.topics_seed import (
-        compile_to_parquet as _compile_topics,
-    )
-    from yen_gov.canonical.election_events_seed import (
-        compile_to_parquet as _compile_election_events,
-    )
     from yen_gov.canonical.entities_seed import (
         compile_to_parquet as _compile_entities,
     )
@@ -353,18 +322,6 @@ def emit_taxonomy(
     from yen_gov.canonical.indicators_seed import (
         compile_to_parquet as _compile_indicators,
     )
-    from yen_gov.canonical.methodology_breaks_seed import (
-        compile_to_parquet as _compile_methodology_breaks,
-    )
-    from yen_gov.canonical.persons_seed import (
-        compile_to_parquet as _compile_persons,
-    )
-    from yen_gov.canonical.energy_sources_seed import (
-        upsert_energy_sources_to_parquet as _upsert_energy_sources,
-    )
-    from yen_gov.canonical.livestock_sources_seed import (
-        upsert_livestock_sources_to_parquet as _upsert_livestock_sources,
-    )
     from yen_gov.canonical.writer import _regenerate_manifest
 
     real_taxonomy_dir = root / "datasets" / "taxonomy"
@@ -373,14 +330,10 @@ def emit_taxonomy(
     real_governments_dir.mkdir(parents=True, exist_ok=True)
 
     # PR-A2: dry-run mirrors taxonomy/ + governments/ into a tempdir so every
-    # seed compile (and the UPSERT-style ``office_holdings`` / ``energy_sources``
-    # / ``livestock_sources`` chains that read-modify-write sources.parquet)
-    # runs end-to-end without touching the real on-disk parquets. After the
-    # pipeline finishes we byte-compare each generated tempfile against the
-    # real on-disk target and log an UNCHANGED|CHANGED|NEW line per file.
-    # ``person_aliases.json`` (hand-authored input) and ``dim_persons.parquet``
-    # (read-only input from elections/) stay at their real paths since the
-    # pipeline never writes them.
+    # seed compile runs end-to-end without touching the real on-disk
+    # parquets. After the pipeline finishes we byte-compare each
+    # generated tempfile against the real on-disk target and log an
+    # UNCHANGED|CHANGED|NEW line per file.
     if dry_run:
         import shutil as _shutil
         import tempfile as _tempfile
@@ -406,40 +359,6 @@ def emit_taxonomy(
 
     try:
         prefix = "emit-taxonomy [dry-run]" if dry_run else "emit-taxonomy"
-
-        # 1) facet-axes (pre-existing)
-        rows = _compile_facet_axes(taxonomy_dir / "facet-axes.parquet")
-        typer.echo(f"{prefix}: wrote {rows} rows to datasets/taxonomy/facet-axes.parquet")
-
-        # 2) state_tiers
-        rows = _compile_state_tiers(
-            taxonomy_dir / "state_tiers.json",
-            taxonomy_dir / "state_tiers.parquet",
-        )
-        typer.echo(f"{prefix}: wrote {rows} rows to datasets/taxonomy/state_tiers.parquet")
-
-        # 3) topics + indicator_topic_tags
-        topics_rows, tags_rows = _compile_topics(
-            taxonomy_dir / "topics.json",
-            taxonomy_dir / "topics.parquet",
-            taxonomy_dir / "indicator_topic_tags.parquet",
-        )
-        typer.echo(
-            f"{prefix}: wrote {topics_rows} rows to datasets/taxonomy/topics.parquet"
-        )
-        typer.echo(
-            f"{prefix}: wrote {tags_rows} rows to "
-            f"datasets/taxonomy/indicator_topic_tags.parquet"
-        )
-
-        # 4) election_events
-        rows = _compile_election_events(
-            taxonomy_dir / "election_events.json",
-            taxonomy_dir / "election_events.parquet",
-        )
-        typer.echo(
-            f"{prefix}: wrote {rows} rows to datasets/taxonomy/election_events.parquet"
-        )
 
         # 5) entities (entities.json is the sole input post-Phase B)
         rows = _compile_entities(
@@ -480,47 +399,6 @@ def emit_taxonomy(
             f"{prefix}: wrote {rows} rows to datasets/taxonomy/indicators.parquet"
         )
 
-        # 8) methodology_breaks (P.1.A C3)
-        rows = _compile_methodology_breaks(
-            taxonomy_dir / "methodology_breaks.json",
-            taxonomy_dir / "methodology_breaks.parquet",
-        )
-        typer.echo(
-            f"{prefix}: wrote {rows} rows to "
-            f"datasets/taxonomy/methodology_breaks.parquet"
-        )
-
-        # 9) energy sources UPSERT (P.1.A C3) -- must run AFTER step 6 so
-        #    the wiki citation rows are already on disk; we read-modify-
-        #    write the same sources.parquet to add the 6 energy citation
-        #    rows (1 CEA + 3 ICED + 2 RBI). Idempotent.
-        n_energy = _upsert_energy_sources(taxonomy_dir / "sources.parquet")
-        typer.echo(
-            f"{prefix}: upserted {n_energy} energy citation rows into "
-            f"datasets/taxonomy/sources.parquet"
-        )
-
-        # 9b) livestock sources UPSERT (P.2 Phase 0, 2026-05-25) -- 5 NDLM
-        #    citation rows (Owner Reg + Pashu Aadhaar + NADCP + Breeding +
-        #    NAIP IV). Same read-modify-write pattern as step 9. The
-        #    observation parquets that FK to these rows land in PR 3+.
-        n_livestock = _upsert_livestock_sources(taxonomy_dir / "sources.parquet")
-        typer.echo(
-            f"{prefix}: upserted {n_livestock} livestock citation rows into "
-            f"datasets/taxonomy/sources.parquet"
-        )
-
-        # 10) persons registry (S.1 / ADR-0035): compile hand-authored merge
-        # overlay plus dim_persons self-alias rows. The dim_persons input
-        # is read-only from datasets/elections/ regardless of dry-run mode.
-        rows = _compile_persons(
-            person_aliases_json=taxonomy_dir / "person_aliases.json",
-            dim_persons_parquet=root / "datasets" / "elections" / "dim_persons.parquet",
-            persons_out=taxonomy_dir / "persons.parquet",
-        )
-        typer.echo(
-            f"{prefix}: wrote {rows} rows to datasets/taxonomy/persons.parquet"
-        )
         _regenerate_manifest(root / "datasets", dry_run=dry_run)
 
         if dry_run:
@@ -557,29 +435,6 @@ def _compare_dryrun_file(tmp_file: Path, real_file: Path) -> None:
     typer.echo(
         f"emit-taxonomy [dry-run]: {status} {real_file.as_posix()} "
         f"({len(old_bytes)} -> {len(new_bytes)} bytes)"
-    )
-
-@app.command("s1-persons-fork")
-def s1_persons_fork(
-    root: Path = typer.Option(
-        Path.cwd(),
-        "--root",
-        "-r",
-        help="Repo root (defaults to current directory). Migrates dim_candidates to S.1 person tables.",
-        file_okay=False,
-        dir_okay=True,
-        exists=True,
-    ),
-) -> None:
-    """Run the ADR-0035 S.1 one-shot migration on the current corpus."""
-    from yen_gov.canonical.persons_fork import migrate_dim_candidates_to_persons
-
-    result = migrate_dim_candidates_to_persons(root / "datasets")
-    typer.echo(
-        "s1-persons-fork: wrote "
-        f"{result.persons} dim_persons rows, "
-        f"{result.candidacies} elections_candidacies rows, "
-        f"{result.persons_taxonomy} taxonomy persons rows"
     )
 
 
@@ -2102,83 +1957,6 @@ def ingest_iced_state_wise(
         typer.echo(f"    fys covered:  {r.fy_count}")
         typer.echo(f"    rows written: {r.row_count}")
         typer.echo(f"    artifact:     {r.artifact_path.relative_to(root).as_posix()}")
-
-
-@app.command("ingest-people-panel")
-def ingest_people_panel(
-    root: Path = typer.Option(
-        Path.cwd(), "--root", "-r",
-        help="Repo root (defaults to current directory).",
-        file_okay=False, dir_okay=True, exists=True,
-    ),
-    input_csv: Path = typer.Option(
-        ..., "--input", "-i",
-        help="Panel CSV path (e.g. datasets/ephemeral/Tamil_Nadu_AE.csv).",
-        exists=True, dir_okay=False,
-    ),
-    election: str = typer.Option(
-        ..., "--election",
-        help="ECI election event id (e.g. AcGenApr2021).",
-    ),
-    state: str = typer.Option(
-        ..., "--state",
-        help="ECI state code (e.g. S22).",
-    ),
-    year: int = typer.Option(
-        ..., "--year",
-        help="Election year (used to filter the panel CSV).",
-    ),
-    source_input: str = typer.Option(
-        ..., "--source-input",
-        help="Stable identifier for this CSV input (e.g. tn_ae_panel_1971_2021).",
-    ),
-    source_url: str = typer.Option(
-        ..., "--source-url",
-        help="ECI Statistical Report URL this data originates from.",
-    ),
-    force: bool = typer.Option(
-        False, "--force",
-        help="Re-ingest even if the inventory already records this triple.",
-    ),
-) -> None:
-    """Ingest a panel CSV into the canonical person/candidacy tables.
-
-    PR-S.2 (canonical pivot 1.8f) replaced the per-person JSON sidecar
-    emit (datasets/people/<event>/<ac>/<slug>.json) with an UPSERT of the
-    biographic columns (sex/age/education/profession/constituency_type)
-    onto dim_persons + elections_candidacies. Source authority is ECI; the CSV is a
-    frozen input the operator obtains once. Vote totals are compared
-    against the canonical election_results.parquet; discrepancy
-    thresholds in config/elections.json decide halt vs warn. On success,
-    an entry is upserted in datasets/elections/_inventory.json as the
-    'done and tested' marker.
-    """
-    from yen_gov.pipeline.people_ingest import IngestHalted, run_people_ingest
-
-    try:
-        result = run_people_ingest(
-            repo_root=root,
-            csv_path=input_csv,
-            election_id=election,
-            state=state,
-            year=year,
-            source_input=source_input,
-            source_url=source_url,
-            force=force,
-        )
-    except IngestHalted as exc:
-        typer.echo(f"ingest-people-panel: HALTED — {exc}", err=True)
-        raise typer.Exit(code=2) from exc
-
-    typer.echo(f"ingest-people-panel: OK")
-    typer.echo(f"  bios upserted:  {result.bios_upserted}")
-    typer.echo(f"  inventory:      {result.inventory_path.relative_to(root).as_posix()}")
-    if result.report_path != Path():
-        typer.echo(f"  discrepancy:    {result.report_path.relative_to(root).as_posix()}")
-    typer.echo(
-        f"  ACs total/mismatch: {result.report.acs_total}/{result.report.acs_with_mismatch} "
-        f"({result.report.coverage_pct:.2f}%); mean delta {result.report.mean_delta_pp:.3f}pp"
-    )
 
 
 @app.command("canonical-backfill-eci")

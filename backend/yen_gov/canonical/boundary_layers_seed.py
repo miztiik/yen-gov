@@ -14,7 +14,7 @@ Outputs:
 - Side effect: UPSERT every row in ``BOUNDARY_SOURCES`` (8 today,
   post-C.4.a adds ``ramseraph_bhuvan_jk_villages`` for the J&K
   Census-2011 village cadastre) into
-  ``datasets/taxonomy/sources.parquet`` so every boundary row's
+  ``datasets/data/entities/source.csv`` so every boundary row's
   ``source_id`` resolves to a real ledger entry.
 
 T.0d role (2026-05-22, fused atomic): consolidates 115 sidecar files

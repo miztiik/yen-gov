@@ -43,7 +43,7 @@ Outputs:
         (one per state/UT that has any retained blocks)
     datasets/boundaries/boundary_layers.parquet
         (new per-state rows added; all other rows preserved)
-    datasets/taxonomy/sources.parquet
+    datasets/data/entities/source.csv
         (UPSERTed by compile_to_parquet; ramSeraph row unchanged from
         prior runs — same producer/title/vintage as the subdistricts
         + districts + states entries)

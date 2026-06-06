@@ -7,7 +7,7 @@ the writer of:
     identity present in the authored holdings.
 - ``datasets/governments/governments_office_holdings.parquet`` -- one
     row per office tenure or vacancy/regime interval.
-- Side effect: UPSERT citation rows into ``datasets/taxonomy/sources.parquet``
+- Side effect: UPSERT citation rows into ``datasets/data/entities/source.csv``
     so every holdings row's ``source_id`` resolves to a real ledger entry.
 
 G.1.c role (2026-05-22, consolidation): the 31 per-state cm_terms.json
@@ -307,7 +307,7 @@ def compile_to_parquet(
             office IDENTITY (the 31 dim_offices rows for CM today) is
             read from ``WHERE entity_type='office_bearer' AND
             entity_code='CM'``. Unchanged from G.1.b.
-        sources_parquet: path to ``datasets/taxonomy/sources.parquet``;
+        sources_parquet: path to ``datasets/data/entities/source.csv``;
             opened, augmented with 1 Wikipedia citation per office,
             written back. Idempotent across re-runs.
         dim_offices_out: output path for ``dim_offices.parquet``.

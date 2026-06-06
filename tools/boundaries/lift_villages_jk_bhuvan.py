@@ -56,7 +56,7 @@ Outputs:
     datasets/boundaries/boundary_layers.parquet
         (+14 per-(state, district-slug) rows added; all other layers
         preserved via merge_with_existing=True)
-    datasets/taxonomy/sources.parquet
+    datasets/data/entities/source.csv
         (UPSERTed by compile_to_parquet; new
         ``ramseraph_bhuvan_jk_villages`` source row added)
 

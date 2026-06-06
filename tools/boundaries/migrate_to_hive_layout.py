@@ -364,7 +364,7 @@ def main(argv: list[str] | None = None) -> int:
     print(f"  wrote {n_layers} boundary layers; {n_sources} boundary sources upserted")
     print(f"\noutputs:")
     print(f"  datasets/boundaries/boundary_layers.parquet  ({(datasets_root / 'boundaries' / 'boundary_layers.parquet').stat().st_size} bytes)")
-    print(f"  datasets/taxonomy/sources.parquet           ({(datasets_root / 'taxonomy' / 'sources.parquet').stat().st_size} bytes)")
+    print(f"  datasets/data/entities/source.csv           ({(datasets_root / 'taxonomy' / 'sources.parquet').stat().st_size} bytes)")
     return 0
 
 

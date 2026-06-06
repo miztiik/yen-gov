@@ -39,7 +39,7 @@ from yen_gov.canonical.livestock_sources_seed import (
 # new code uses ``source_id_for(nickname, vintage)`` so the source_id
 # rotates per snapshot window without a hand-typed constant table.
 # The writer's FK gate verifies closure against
-# ``datasets/taxonomy/sources.parquet`` before any bytes touch disk.
+# ``datasets/data/entities/source.csv`` before any bytes touch disk.
 SOURCE_IDS: dict[str, str] = dict(LIVESTOCK_SOURCE_ID_BY_NICKNAME)
 
 
@@ -67,7 +67,7 @@ def source_id_for(
 
     Per ADR-0042 (vintage = operator snapshot window for live-fetch
     sources without a publisher edition tag), vintage MUST match an
-    existing citation row in ``datasets/taxonomy/sources.parquet`` or
+    existing citation row in ``datasets/data/entities/source.csv`` or
     the writer's FK gate will reject the batch.
 
     Per ADR-0041 nn4, vintage MUST also match the meadow dir name the
@@ -198,7 +198,7 @@ def load_meadow(repo_root: Path, source: str, vintage: str, file: str) -> dict:
         source: short producer identifier, snake_case (e.g. ``"ndlm"``).
         vintage: source's own period label, matches the ``vintage`` field
             of the citation-ledger row in
-            ``datasets/taxonomy/sources.parquet``.
+            ``datasets/data/entities/source.csv``.
         file: descriptor with ``.json`` suffix (e.g.
             ``"district-pashu-aadhaar-count-cattle.json"``).
     """

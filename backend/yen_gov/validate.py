@@ -829,17 +829,19 @@ def tier_b_meadow_vintage_matches_source_id(root: Path) -> list[Failure]:
     if not meadow_files:
         return failures
 
-    sources_parquet = root / "datasets" / "taxonomy" / "sources.parquet"
-    if not sources_parquet.exists():
+    sources_csv = root / "datasets" / "data" / "entities" / "source.csv"
+    if not sources_csv.exists():
         for meadow_file, _, _ in meadow_files:
             failures.append(
                 Failure(
                     _posix(meadow_file, root),
                     "B",
-                    "meadow file present but datasets/taxonomy/sources.parquet "
+                    "meadow file present but datasets/data/entities/source.csv "
                     "is missing; run `python -m yen_gov emit-taxonomy --root .` "
                     "to regenerate the citation ledger so meadow paths can be "
-                    "validated against it (ADR-0041 §nn4, ADR-0042).",
+                    "validated against it (ADR-0041 §nn4, ADR-0042). "
+                    "Post-B3 (2026-06-06): the legacy sources.parquet was "
+                    "retired in X1b (#814); the new SoT is source.csv.",
                 )
             )
         return failures
@@ -852,7 +854,10 @@ def tier_b_meadow_vintage_matches_source_id(root: Path) -> list[Failure]:
             (row[0], row[1])
             for row in con.execute(
                 f"SELECT DISTINCT producer, vintage "
-                f"FROM read_parquet('{sources_parquet.as_posix()}')"
+                f"FROM read_csv('{sources_csv.as_posix()}', "
+                f"columns={{'source_id':'VARCHAR','producer':'VARCHAR','title':'VARCHAR',"
+                f"'vintage':'VARCHAR','license':'VARCHAR','url_main':'VARCHAR'}}, "
+                f"header=true, delim=',')"
             ).fetchall()
         }
     finally:
@@ -883,15 +888,16 @@ def tier_b_meadow_vintage_matches_source_id(root: Path) -> list[Failure]:
                     "B",
                     f"meadow path declares producer={producer!r} "
                     f"vintage={vintage_seg!r} but no row in "
-                    f"datasets/taxonomy/sources.parquet matches that "
+                    f"datasets/data/entities/source.csv matches that "
                     f"(producer, vintage) pair. Per ADR-0041 §nn4 the meadow "
                     f"path vintage MUST equal a source vintage (ADR-0042 "
                     f"source schema v3.0 enforces vintage:minLength:1). "
                     f"Either (a) rotate the meadow file to a vintage segment "
                     f"that matches an existing citation row, or (b) add the "
                     f"citation row to the appropriate seed (e.g. "
-                    f"backend/yen_gov/canonical/energy_sources_seed.py) and "
-                    f"re-run `python -m yen_gov emit-taxonomy --root .`.",
+                    f"backend/yen_gov/canonical/livestock_sources_seed.py) "
+                    f"and re-emit source.csv via B2a's seed/source_csv "
+                    f"pipeline.",
                 )
             )
 
@@ -1057,8 +1063,10 @@ def tier_b_no_hand_typed_source_id(root: Path) -> list[Failure]:
     forthcoming ``source_registry.resolve(nickname)`` seam (PR-A6); raw
     ``src-<hex>`` literals or ``SOURCE_IDS = {...}`` hash-tables inside
     ``backend/yen_gov/sources/**/*.py`` are forbidden. The only legit
-    homes for the hex literals are ``datasets/taxonomy/sources.parquet``
-    (the citation ledger itself) and ``datasets/taxonomy/source_nicknames.json``
+    homes for the hex literals are ``datasets/data/entities/source.csv``
+    (the citation ledger itself post-X1b #814; previously
+    ``datasets/taxonomy/sources.parquet``) and
+    ``datasets/taxonomy/source_nicknames.json``
     (the nickname -> source_id resolver table). Copy-pasting a hash into
     an adapter silently couples the adapter to a snapshot of the ledger
     and bypasses the resolver.
@@ -1105,7 +1113,7 @@ def tier_b_no_hand_typed_source_id(root: Path) -> list[Failure]:
                         "B",
                         f"{rel}:{line_no}: forbidden hand-typed source_id "
                         f"literal {snippet}. Per guardrail #6 the only "
-                        f"legit homes are datasets/taxonomy/sources.parquet "
+                        f"legit homes are datasets/data/entities/source.csv "
                         f"and datasets/taxonomy/source_nicknames.json; "
                         f"adapters MUST resolve via source_registry.resolve("
                         f"nickname). See "

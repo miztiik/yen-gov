@@ -739,31 +739,33 @@ def test_no_new_sub_fuel_shards_constants_exported(tmp_path: Path):
 import duckdb  # noqa: E402 -- only needed by the meadow-vintage tests below
 
 
+def _write_sources_csv(
+    tmp_path: Path, pairs: list[tuple[str, str]]
+) -> Path:
+    """Write a minimal `datasets/data/entities/source.csv` containing
+    one row per (producer, vintage) pair. Post-B3 (2026-06-06): the
+    legacy taxonomy/sources.parquet retired in X1b (#814); the
+    citation ledger now lives at source.csv.
+    """
+    out = tmp_path / "datasets" / "data" / "entities" / "source.csv"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    lines = ["source_id,producer,title,vintage,license,url_main"]
+    for i, (producer, vintage) in enumerate(pairs):
+        lines.append(
+            f"src-stub-{i:04d},{producer},Title Stub,{vintage},unknown-public,"
+        )
+    out.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return out
+
+
 def _write_sources_parquet(
     tmp_path: Path, pairs: list[tuple[str, str]]
 ) -> Path:
-    """Write a minimal `datasets/taxonomy/sources.parquet` containing
-    one row per (producer, vintage) pair. Only the 4 columns the rule
-    reads (`source_id`, `producer`, `vintage` + a stub for the rest)
-    are populated."""
-    out = tmp_path / "datasets" / "taxonomy" / "sources.parquet"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    con = duckdb.connect(":memory:")
-    try:
-        con.execute(
-            "CREATE TABLE sources(source_id VARCHAR, producer VARCHAR, vintage VARCHAR)"
-        )
-        for i, (producer, vintage) in enumerate(pairs):
-            con.execute(
-                "INSERT INTO sources VALUES (?, ?, ?)",
-                [f"src-stub-{i:04d}", producer, vintage],
-            )
-        con.execute(
-            f"COPY (SELECT * FROM sources) TO '{out.as_posix()}' (FORMAT PARQUET)"
-        )
-    finally:
-        con.close()
-    return out
+    """Back-compat shim: writes BOTH legacy sources.parquet (no-op for
+    post-B3 validator) AND the new source.csv (which the validator
+    reads). Callers can keep their old fixture API.
+    """
+    return _write_sources_csv(tmp_path, pairs)
 
 
 def _write_meadow_file(tmp_path: Path, rel: str) -> Path:
@@ -862,8 +864,12 @@ def test_meadow_vintage_check_skips_schema_files(tmp_path: Path):
 
 
 def test_meadow_vintage_check_reports_missing_sources_parquet(tmp_path: Path):
-    """If meadow files exist but sources.parquet is absent, every
-    meadow file is reported (the operator must run emit-taxonomy)."""
+    """If meadow files exist but source.csv is absent, every meadow file
+    is reported (the operator must run emit-taxonomy / source-csv seed).
+
+    Post-B3 (2026-06-06): the failure message now points at source.csv
+    (sources.parquet was retired in X1b #814).
+    """
     _write_meadow_file(
         tmp_path,
         "datasets/energy/_meadow/cea/2026-03/installed_capacity_coal_mw.json",
@@ -876,7 +882,7 @@ def test_meadow_vintage_check_reports_missing_sources_parquet(tmp_path: Path):
     assert len(fails) == 2, f"expected two failures, got: {fails}"
     for f in fails:
         assert f.tier == "B"
-        assert "sources.parquet" in f.message
+        assert "source.csv" in f.message
         assert "emit-taxonomy" in f.message
 
 

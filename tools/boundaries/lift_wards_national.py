@@ -56,7 +56,7 @@ Outputs:
         features; estimated ~4,500-5,000 shards nationally)
     datasets/boundaries/boundary_layers.parquet
         (new per-(state, ulb) rows added; all other layers preserved)
-    datasets/taxonomy/sources.parquet
+    datasets/data/entities/source.csv
         (UPSERTed by compile_to_parquet; ramSeraph row unchanged from
         prior runs)
 

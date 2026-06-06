@@ -57,7 +57,7 @@ SPECIES: list[tuple[int, str, str, str]] = [
     (12, "mule", "Mule", "mules"),
 ]
 
-# Seeded citation vintage - the source row in datasets/taxonomy/sources.parquet
+# Seeded citation vintage - the source row in datasets/data/entities/source.csv
 # for ndlm_pashu_aadhaar has vintage="2024-25". The meadow-path vintage segment
 # must match this string per ADR-0041 nn4 + ADR-0042.
 # Operator-tunable knob: when a future PR rotates the snapshot window
@@ -99,7 +99,7 @@ def _meadow_dir(snapshot_window: str) -> Path:
     Lifted out of a module-level constant so the snapshot can rotate
     via --meadow-snapshot at run time without code edits. Each
     snapshot window is one operator-snapshot per ADR-0042 and FKs to
-    one citation row in datasets/taxonomy/sources.parquet.
+    one citation row in datasets/data/entities/source.csv.
     """
     return MEADOW_ROOT / snapshot_window
 
@@ -313,7 +313,7 @@ def main() -> int:
             "Operator snapshot window per ADR-0042 (the vintage "
             "segment of the meadow output path). Must match the "
             "vintage of the seeded citation row in "
-            "datasets/taxonomy/sources.parquet (ndlm_pashu_aadhaar, "
+            "datasets/data/entities/source.csv (ndlm_pashu_aadhaar, "
             "currently 'src-7e5d4aac4995' at vintage='2024-25'). "
             "Override only when re-snapshotting in tandem with a "
             "new source seed row."

@@ -52,14 +52,14 @@ const SAMPLE_MANIFEST: Manifest = {
       row_count_total: 31_900,
     },
     {
-      table_id: "taxonomy.sources",
-      family: "taxonomy",
-      table_name: "sources",
-      kind: "taxonomy",
+      table_id: "elections.dim_party_alliances",
+      family: "elections",
+      table_name: "dim_party_alliances",
+      kind: "dim",
       format: "parquet",
-      schema_version: "3.0",
+      schema_version: "1.0",
       partition_columns: [],
-      files: [{ path: "taxonomy/sources.parquet", size_bytes: 12_345, row_count: 84 }],
+      files: [{ path: "elections/dim_party_alliances.parquet", size_bytes: 12_345, row_count: 84 }],
       row_count_total: 84,
     },
   ],
@@ -128,10 +128,10 @@ describe("manifest helpers", () => {
   });
 
   it("tableFromManifest accepts current non-observation table versions", () => {
-    const table = tableFromManifest(SAMPLE_MANIFEST, "taxonomy.sources");
+    const table = tableFromManifest(SAMPLE_MANIFEST, "elections.dim_party_alliances");
 
-    expect(table.schema_version).toBe("3.0");
-    expect(rowSchemaFileForTable(table)).toBe("source.schema.json");
+    expect(table.schema_version).toBe("1.0");
+    expect(rowSchemaFileForTable(table)).toBe("dim-party-alliances.schema.json");
   });
 
   it("tableFromManifest rejects unsupported table versions", () => {
@@ -192,9 +192,9 @@ describe("manifest helpers", () => {
   });
 
   it("filesForSlice throws for unpartitioned tables unless fallback is explicit", () => {
-    const t = tableFromManifest(SAMPLE_MANIFEST, "taxonomy.sources");
+    const t = tableFromManifest(SAMPLE_MANIFEST, "elections.dim_party_alliances");
     expect(() => filesForSlice(t, { state: "tamil-nadu" })).toThrow(
-      /table taxonomy\.sources is unpartitioned/,
+      /table elections\.dim_party_alliances is unpartitioned/,
     );
     expect(filesForSlice(t, { state: "tamil-nadu" }, { allowFullTableFallback: true })).toEqual(
       t.files,

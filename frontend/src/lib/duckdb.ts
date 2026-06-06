@@ -61,6 +61,12 @@ const MANIFEST_URL = `${DATA_BASE}/manifest.json`;
 let manifestPromise: Promise<Manifest> | null = null;
 
 const ROW_SCHEMA_BY_TABLE_ID: Readonly<Record<string, string>> = Object.freeze({
+  // Post-B3 (2026-06-06): the parquet table_ids below are retired in X1b (#814)
+  // (production manifest no longer carries them). Entries kept as inert
+  // mock-fixture compatibility shims: the schema files were deleted in B3
+  // but vitest mock manifests still spell these table_ids. The map only
+  // fires when the manifest actually carries the table_id, so live readers
+  // never hit these mappings post-X1b.
   "elections.dim_acs": "dim-acs.schema.json",
   "elections.dim_parties": "dim-parties.schema.json",
   "elections.dim_pcs": "dim-pcs.schema.json",

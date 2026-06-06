@@ -16,7 +16,7 @@ in ``.runtime/raw/ndlm/`` and may lift in a follow-up PR.
 Source provenance: all 10 species indicators FK to
 ``src-7e5d4aac4995`` (ndlm_pashu_aadhaar) seeded by PR #276
 (livestock_sources_seed.py). The writer's FK gate verifies closure
-against ``datasets/taxonomy/sources.parquet`` before any bytes touch
+against ``datasets/data/entities/source.csv`` before any bytes touch
 disk.
 
 Hans+Max (data shape) + Gregor (contract) authorities apply per
