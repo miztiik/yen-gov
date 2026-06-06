@@ -43,6 +43,8 @@
   import type { MatrixRow } from "../lib/charts/matrix-helpers";
   import Treemap from "../lib/charts/Treemap.svelte";
   import type { TreemapRow } from "../lib/charts/treemap-helpers";
+  import CirclePack from "../lib/charts/CirclePack.svelte";
+  import type { CirclePackRow, CirclePackMode } from "../lib/charts/circle-pack-helpers";
   import {
     feasibleAt,
     intersectWithCatalogue,
@@ -316,6 +318,23 @@
   const f2b5_color_for_tile = (t: { parent_id: string | null }): string => {
     if (t.parent_id == null) return "#94a3b8";
     return f2b5_region_color[t.parent_id] ?? "#94a3b8";
+  };
+
+  // --- fixture 10 - F2b.6 CirclePack (modes pack + bubble) ---
+  // Same 9-state breakdown as the Treemap fixture so the citizen can
+  // pick the visual idiom they find easier to read. Mode switcher
+  // demonstrates the discriminated-union pattern in action.
+  const f2b6_cp_rows: CirclePackRow[] = f2b5_treemap_rows.map(r => ({
+    id: r.id,
+    label: r.label,
+    value: r.value,
+    parent_id: r.parent_id ?? null,
+  }));
+  let f2b6_mode = $state<CirclePackMode>("pack");
+  const f2b6_modes: CirclePackMode[] = ["pack", "bubble"];
+  const f2b6_color_for_circle = (c: { parent_id: string | null }): string => {
+    if (c.parent_id == null) return "#0e7490"; // bubble mode default
+    return f2b5_region_color[c.parent_id] ?? "#94a3b8";
   };
 
   // ─── fixture 6 — TileCartogram (equal-area hex; synthetic 5×5 patch) ───
@@ -800,6 +819,43 @@
       color_for_tile={f2b5_color_for_tile}
       format_value={(v) => `${v.toFixed(0)} cr`}
       title="Synthetic revenue by state, grouped by region (illustrative)"
+      source_owner="Synthetic sandbox fixture"
+      source_vintage="2026-06-06 (illustrative)"
+      width={640}
+      height={400}
+    />
+  </section>
+
+  <!-- F2b.6 CirclePack demo (parent plan section 15.1 row 8). Two
+       modes via the SegmentedControl from U4: pack = hierarchical
+       padding=2 (precise compare); bubble = flat padding=8
+       (clustered-magnitude vibe). Same fixture as Treemap so the
+       citizen can swap idioms without losing the underlying values. -->
+  <section class="space-y-3" data-testid="f2b6-section">
+    <h2 class="text-lg font-semibold">F2b.6 - CirclePack (clustered-magnitude)</h2>
+    <p class="text-sm text-slate-600">
+      Renderer #8 from <a class="underline" href="../docs/reference/chart-index.md">chart-index.md section 1</a>.
+      d3-hierarchy pack() layout; AREA is value-proportional (HONESTY).
+      Mode discriminator demonstrates the F2a discriminated-union
+      pattern in a new renderer: <code>pack</code> respects parent_id
+      grouping with tight padding; <code>bubble</code> ignores parent
+      grouping with wider padding for a cluster-blob vibe.
+    </p>
+    <SegmentedControl
+      options={f2b6_modes.map((m) => ({ value: m, label: m }))}
+      value={f2b6_mode}
+      onChange={(next) => (f2b6_mode = next)}
+      testid="f2b6-mode-switcher"
+    />
+    <p class="text-xs text-slate-500">
+      Fixture data is illustrative; numbers MUST NOT be cited.
+    </p>
+    <CirclePack
+      rows={f2b6_cp_rows}
+      mode={f2b6_mode}
+      color_for_circle={f2b6_color_for_circle}
+      format_value={(v) => `${v.toFixed(0)} cr`}
+      title="Synthetic revenue by state - mode={f2b6_mode}"
       source_owner="Synthetic sandbox fixture"
       source_vintage="2026-06-06 (illustrative)"
       width={640}
