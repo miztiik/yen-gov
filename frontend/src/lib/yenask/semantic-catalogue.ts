@@ -1,23 +1,42 @@
-// Semantic catalogue loader — derives the lab's vocabulary from the
-// canonical manifest + taxonomy/dim Parquets at startup.
+// Semantic catalogue loader - derives the lab's vocabulary from the
+// canonical CSV taxonomy + the hand-curated election-events catalogue.
 //
-// Per plan-doc §17 D-04: this module MUST NOT scan any fact table. The
-// allowlist (`CATALOGUE_QUERY_ALLOWLIST`) is exported so the no-fact-scan
-// vitest can assert every SQL string starts with a regex match against it.
-// Adding a new source for the catalogue = update the allowlist + ship a
-// new test case.
+// Per plan-doc section 17 D-04: this module MUST NOT scan any fact
+// table. The allowlist (`CATALOGUE_QUERY_ALLOWLIST`) is exported so the
+// no-fact-scan vitest can assert every SQL string starts with a regex
+// match against it. Adding a new source for the catalogue = update the
+// allowlist + ship a new test case.
+//
+// YA cutover (2026-06-06) per parent plan section 22.5 YA row + Andre
+// deviation: the previous startup queries SQL_DISTINCT_STATES + SQL_-
+// ELECTION_PERIODS scanned `dim_acs` + `elections_candidacies` parquet.
+// They are replaced by:
+//   - inline `read_csv('datasets/data/entities/electoral.csv',
+//     columns={...}) WHERE entity_kind='ac'` for state enumeration.
+//   - `fetchElectionEvents()` (the existing
+//     `frontend/src/lib/election-events.ts` helper reading
+//     `datasets/taxonomy/election_events.json`) for election-period
+//     enumeration. This is the citizen-trusted hand-curated catalogue
+//     of which elections happened where; sourcing election periods from
+//     the catalogue rather than from a fact-table aggregate honours
+//     D-04 (the catalogue IS the catalogue; no fact-scan) more cleanly
+//     than the literal "UNION ALL of N candidacies.csv URLs"
+//     interpretation in the plan-doc.
 //
 // The catalogue is built once per page load (cached via module-level
 // promise). Subsequent loads short-circuit.
 
+import { csvColumnsClause } from "../canonical/csv-columns";
+import { fetchElectionEvents } from "../election-events";
 import {
   loadManifest,
   query,
   registerCsvAsTable,
-  registerTable,
+  registerCsvFile,
   type Manifest,
 } from "../duckdb";
 import { ECI_TO_LGD_SLUG } from "../maplibre/sources";
+import { DATA_BASE } from "../paths";
 import type {
   CatalogueElectionPeriod,
   CatalogueParty,
@@ -32,13 +51,19 @@ import type {
  * no-fact-scan test to fail if the catalogue ever tries to scan a fact
  * table. Add new entries only with a paired vitest case proving the new
  * query stays inside the catalogue contract (per D-04).
+ *
+ * YA cutover (2026-06-06): `dim_acs` + `elections_candidacies` removed -
+ * state + election-period enumeration moved to CSV (`electoral.csv`) +
+ * the `fetchElectionEvents()` JSON helper respectively, neither of which
+ * is a SQL-allowlisted view (the JSON helper bypasses SQL entirely; the
+ * inline `read_csv(...)` on `electoral.csv` reads a citizen-trusted
+ * entity table, not a fact table). The remaining 3 entries cover the
+ * SQL surface only.
  */
 export const CATALOGUE_QUERY_ALLOWLIST: readonly string[] = Object.freeze([
   "sources",
-  "dim_acs",
   "dim_parties",
-  "elections_candidacies",
-  "entities",
+  "electoral",
 ]);
 
 let cached: Promise<SemanticCatalogue> | null = null;
@@ -67,44 +92,73 @@ export function __resetCatalogueForTests(): void {
 async function buildCatalogue(): Promise<SemanticCatalogue> {
   const manifest = await loadManifest();
 
-  // Register the 4 dim/taxonomy views the catalogue queries reference.
-  // election_results is INTENTIONALLY not registered here — D-04.
-  // dim_parties + taxonomy.sources flipped to CSV (X1a) via
-  // registerCsvAsTable; dim_acs + elections_candidacies stay on parquet
-  // until B3 retires the parquet readers / their own CSV-flip ships.
+  // Register the 2 X1a-flipped CSV-as-table views the catalogue queries
+  // reference. election_results is INTENTIONALLY not registered here
+  // (D-04). dim_acs + elections_candidacies parquet reads RETIRED in
+  // the YA cutover - state + election-period enumeration now come from
+  // electoral.csv (inline read_csv) + fetchElectionEvents() respectively.
+  const electoralCsvRel = "data/entities/electoral.csv";
+  const electoralCsvUrl = `${DATA_BASE}/${electoralCsvRel}`;
   await Promise.all([
     registerCsvAsTable("taxonomy.sources"),
-    registerTable("elections.dim_acs"),
     registerCsvAsTable("elections.dim_parties"),
-    registerTable("elections.elections_candidacies"),
+    registerCsvFile(electoralCsvUrl),
   ]);
 
   const tables = manifestToCatalogueTables(manifest);
-  const [sources, parties, electionPeriods] = await Promise.all([
+
+  // electoral.csv has 4113 rows (ac + pc); the catalogue surface is
+  // assembly states, so filter to entity_kind='ac' and take DISTINCT
+  // state slug. Typed via csvColumnsClause so the F1.3a contract
+  // (every read_csv carries an explicit columns={...} map) is honoured.
+  const electoralColumns = await csvColumnsClause(
+    `datasets/${electoralCsvRel}`,
+  );
+  const sqlDistinctStates = `
+    SELECT DISTINCT state AS state_slug
+    FROM read_csv('${electoralCsvUrl}', ${electoralColumns})
+    WHERE entity_kind = 'ac'
+    ORDER BY state_slug
+  `;
+
+  const [sources, parties, stateSlugRows, electionEvents] = await Promise.all([
     query<CatalogueSourceRow>(SQL_SOURCES),
     query<CatalogueParty>(SQL_PARTIES),
-    query<CatalogueElectionPeriodRow>(SQL_ELECTION_PERIODS),
+    query<{ state_slug: string }>(sqlDistinctStates),
+    fetchElectionEvents(),
   ]);
 
-  // States derived from dim_acs DISTINCT state_code — only states with
-  // election data appear here. Display name is fetched from
-  // taxonomy/entities.json via `lib/states.svelte` lazily; for the
-  // catalogue we keep the eci_code raw and let the renderer humanise.
-  const stateCodes = await query<{ state_code: string }>(SQL_DISTINCT_STATES);
-  const states: CatalogueState[] = stateCodes.map(r => ({
-    partition_id: ECI_TO_LGD_SLUG[r.state_code] ?? r.state_code.toLowerCase(),
-    eci_code: r.state_code,
-    display_name: r.state_code, // renderer enriches via states.svelte
+  // Invert ECI_TO_LGD_SLUG once so each state slug can resolve back to
+  // its ECI code (S22, U05, ...). States missing from the mapping fall
+  // back to the slug itself uppercased (defensive; today every slug in
+  // electoral.csv has an ECI mapping).
+  const slugToEci = invertEciSlugMap(ECI_TO_LGD_SLUG);
+  const states: CatalogueState[] = stateSlugRows.map(r => ({
+    partition_id: r.state_slug,
+    eci_code: slugToEci[r.state_slug] ?? r.state_slug.toUpperCase(),
+    display_name: r.state_slug, // renderer enriches via states.svelte
   }));
+
+  // Flatten the per-state election-events catalogue into per-period
+  // entries the lab compiler can address. The slug stays in sync with
+  // electoral.csv via ECI_TO_LGD_SLUG so a catalogue period and its
+  // matching state share the same partition_id.
+  const electionPeriods: CatalogueElectionPeriod[] = [];
+  for (const [eciCode, rows] of Object.entries(electionEvents.states)) {
+    const slug = ECI_TO_LGD_SLUG[eciCode] ?? eciCode.toLowerCase();
+    for (const row of rows) {
+      electionPeriods.push({
+        period_label: row.event_id,
+        display_name: row.display,
+        state_partition_id: slug,
+      });
+    }
+  }
 
   return {
     tables,
     states,
-    election_periods: electionPeriods.map(r => ({
-      period_label: String(r.period_label),
-      display_name: String(r.period_label),
-      state_partition_id: ECI_TO_LGD_SLUG[String(r.state_code)] ?? String(r.state_code).toLowerCase(),
-    })),
+    election_periods: electionPeriods,
     parties: parties.map(p => ({
       short_code: String(p.short_code),
       display_name: String(p.display_name ?? p.short_code),
@@ -126,16 +180,13 @@ interface CatalogueSourceRow {
   vintage: string | null;
 }
 
-interface CatalogueElectionPeriodRow {
-  period_label: string;
-  state_code: string;
-}
-
 // ---------- SQL composition ------------------------------------------------
 //
-// Every query below references ONLY tables in CATALOGUE_QUERY_ALLOWLIST.
-// The no-fact-scan vitest spies on `query()` and asserts the SQL strings
-// honour that boundary.
+// Every SQL query below references ONLY tables in
+// CATALOGUE_QUERY_ALLOWLIST. The no-fact-scan vitest spies on `query()`
+// and asserts the SQL strings honour that boundary. fetchElectionEvents
+// is not a SQL surface (it fetches taxonomy/election_events.json over
+// plain HTTP) and so is exempt from the allowlist.
 
 const SQL_SOURCES = `
   SELECT source_id, producer, title, vintage
@@ -152,21 +203,15 @@ const SQL_PARTIES = `
   ORDER BY short_name
 `;
 
-const SQL_ELECTION_PERIODS = `
-  SELECT DISTINCT
-    election_id  AS period_label,
-    da.state_code
-  FROM elections_candidacies ec
-  JOIN dim_acs da ON da.ac_id = ec.ac_id
-  ORDER BY period_label, da.state_code
-`;
-
-const SQL_DISTINCT_STATES = `
-  SELECT DISTINCT state_code
-  FROM dim_acs
-  WHERE state_code IS NOT NULL
-  ORDER BY state_code
-`;
+function invertEciSlugMap(
+  map: Readonly<Record<string, string>>,
+): Readonly<Record<string, string>> {
+  const inverted: Record<string, string> = {};
+  for (const [eci, slug] of Object.entries(map)) {
+    inverted[slug] = eci;
+  }
+  return Object.freeze(inverted);
+}
 
 function manifestToCatalogueTables(m: Manifest): CatalogueTable[] {
   return m.tables.map(t => ({

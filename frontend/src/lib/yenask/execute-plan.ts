@@ -78,9 +78,14 @@ export async function executePlan(plan: DuckDBPlan): Promise<AnswerViewModel> {
   ]);
 
   // Two queries in parallel — they share the same registered views.
+  // The provenance query is typed as RawSourceRow because X1a's
+  // CSV-as-table view projects 4 columns as NULL (license /
+  // confidence_tier / is_issuing_authority / verification_method per
+  // O3 5-field source.csv shape); coerceSourceRow fills sentinels at
+  // the boundary so the downstream Zod schema accepts the row.
   const [mainRows, sourceRows] = await Promise.all([
     query<Record<string, unknown>>(plan.main_sql),
-    query<SourceV2Row>(plan.provenance_sql),
+    query<RawSourceRow>(plan.provenance_sql),
   ]);
 
   const rows: AnswerRow[] = mainRows.map(coerceAnswerRow);
@@ -137,18 +142,70 @@ function coerceAnswerRow(row: Record<string, unknown>): AnswerRow {
   return out;
 }
 
-function coerceSourceRow(row: SourceV2Row): SourceRow {
-  // SourceV2Row and SourceRow are structurally identical; this is a
-  // typed re-export. Any drift fails the Zod parse downstream.
+/**
+ * The raw shape the X1a `registerCsvAsTable("taxonomy.sources")` seam
+ * actually returns. The 5-field `data/entities/source.csv` (per parent
+ * plan section 20.3 / O3 doctrine) only carries `{source_id, owner,
+ * title, vintage, url}`; the projected view aliases `owner -> producer`
+ * and `url -> url_main` and surfaces the 4 retired fields as `NULL`
+ * (license / confidence_tier / is_issuing_authority /
+ * verification_method) plus 2 more nullable VARCHARs (citation_full /
+ * notes). This widening type acknowledges that runtime reality without
+ * pretending the TS contract has been retro-fitted onto every adapter.
+ *
+ * Holy Law #9 is preserved: every row STILL carries a source_id FK and
+ * still surfaces producer/title/vintage. The dropped fields are
+ * citizen-readable provenance richness, not the citation identity
+ * itself (citation identity = `(producer, title, vintage)` per
+ * docs/concepts/data-provenance.md).
+ */
+interface RawSourceRow {
+  readonly source_id: string;
+  readonly producer: string;
+  readonly title: string;
+  readonly vintage: string;
+  readonly license: SourceV2Row["license"] | null;
+  readonly confidence_tier: SourceV2Row["confidence_tier"] | null;
+  readonly is_issuing_authority: boolean | null;
+  readonly verification_method: SourceV2Row["verification_method"] | null;
+  readonly url_main: string | null;
+  readonly citation_full: string | null;
+  readonly notes: string | null;
+}
+
+function coerceSourceRow(row: SourceV2Row | RawSourceRow): SourceRow {
+  // X1a sentinel coercion (YA cutover 2026-06-06): the 5-field
+  // source.csv shape (O3 doctrine binding) drops 4 of the 6 enum/bool
+  // fields the Zod `SourceRowSchema` requires non-null. Fill the
+  // safest enum variant at the boundary so the downstream Zod parse
+  // accepts the row.
+  //
+  // Sentinel choices:
+  //   - license -> "unknown-public" (the explicit "we know it's a
+  //     public source but cannot pin a licence" variant; OWID-grade
+  //     honesty preferred over a falsely-confident default).
+  //   - confidence_tier -> "bronze" (lowest tier; signals "no
+  //     confidence claim attached to this row").
+  //   - is_issuing_authority -> false (we did not verify the producer
+  //     is the official issuing authority; default conservative).
+  //   - verification_method -> "editorial" (we did not record how the
+  //     row was verified; "editorial" is the catch-all for
+  //     unattested-method rows per source-list-v2/types.ts).
+  //
+  // These match the values `synthesiseUnattestedSource()` in types.ts
+  // already uses for the empty-provenance synthesised row, so the
+  // citizen-visible rendering of an X1a-NULL source and a fully-
+  // synthesised unattested source are similar (and both clearly
+  // distinguishable from a gold-tier official-issuing-authority row).
   return {
     source_id: row.source_id,
     producer: row.producer,
     title: row.title,
     vintage: row.vintage,
-    license: row.license,
-    confidence_tier: row.confidence_tier,
-    is_issuing_authority: row.is_issuing_authority,
-    verification_method: row.verification_method,
+    license: row.license ?? "unknown-public",
+    confidence_tier: row.confidence_tier ?? "bronze",
+    is_issuing_authority: row.is_issuing_authority ?? false,
+    verification_method: row.verification_method ?? "editorial",
     url_main: row.url_main,
     citation_full: row.citation_full,
     notes: row.notes,
