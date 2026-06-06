@@ -12,7 +12,14 @@
 // operation; it indicates a data-corruption regression and the citizen
 // needs to know.
 
-import { query, registerCsvFile, registerSlice, registerTable } from "../duckdb";
+import {
+  query,
+  registerCsvAsTable,
+  registerCsvFile,
+  registerSlice,
+  registerTable,
+  type CsvAsTableId,
+} from "../duckdb";
 import { parseAnswerViewModel } from "./contracts/answer-viewmodel";
 import type {
   AnswerRow,
@@ -22,6 +29,19 @@ import type {
 import type { DuckDBPlan } from "./types";
 import { synthesiseUnattestedSource } from "./types";
 import type { SourceV2Row } from "../source-list-v2";
+
+/** X1a CSV-as-table dispatch set. The two table_ids the F1.3b yenask
+ *  concept templates already advertise on their `table_registrations`
+ *  are flipped to the CSV-backed view; everything else (e.g. dim_acs)
+ *  stays on the parquet path until B3 retires `registerTable` entirely. */
+const CSV_AS_TABLE_IDS: ReadonlySet<CsvAsTableId> = new Set([
+  "elections.dim_parties",
+  "taxonomy.sources",
+]);
+
+function isCsvAsTableId(table_id: string): table_id is CsvAsTableId {
+  return (CSV_AS_TABLE_IDS as ReadonlySet<string>).has(table_id);
+}
 
 /**
  * Execute a DuckDBPlan and return a citizen-renderable AnswerViewModel.
@@ -37,13 +57,23 @@ export async function executePlan(plan: DuckDBPlan): Promise<AnswerViewModel> {
   // `read_csv('<url>', columns={...})` calls embedded in the SQL
   // strings can HTTP-Range fetch them; no view name is created (the
   // URL itself is the SQL handle).
+  //
+  // X1a: route `elections.dim_parties` + `taxonomy.sources` table_ids
+  // to `registerCsvAsTable` (which projects the legacy parquet column
+  // shape from parties.csv + source.csv); other table_ids stay on
+  // parquet via `registerTable` until B3 deletes the parquet path
+  // entirely. The 4 concept SQL strings in `concepts.ts` are
+  // UNCHANGED \u2014 they JOIN `dim_parties` / `sources` by view name and
+  // the seam ensures the view name resolves to the CSV-backed body.
   await Promise.all([
     ...plan.csv_registrations.map(r => registerCsvFile(r.url)),
     ...plan.slice_registrations.map(s =>
       registerSlice(s.table_id, s.partition_filter, { viewName: s.view_name }),
     ),
     ...plan.table_registrations.map(t =>
-      registerTable(t.table_id, { viewName: t.view_name }),
+      isCsvAsTableId(t.table_id)
+        ? registerCsvAsTable(t.table_id)
+        : registerTable(t.table_id, { viewName: t.view_name }),
     ),
   ]);
 

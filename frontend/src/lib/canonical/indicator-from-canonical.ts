@@ -308,7 +308,7 @@ async function loadSingleFromCanonical(
 ): Promise<IndicatorArtifact> {
   await Promise.all([
     registerTable(descriptor.table_id),
-    registerTable("taxonomy.sources"),
+    registerCsvAsTable("taxonomy.sources"),
   ]);
 
   const viewName = descriptor.table_id.split(".").pop()!;
@@ -358,7 +358,7 @@ async function loadFacetMultiplexedFromCanonical(
 ): Promise<IndicatorArtifact> {
   await Promise.all([
     registerTable(descriptor.table_id),
-    registerTable("taxonomy.sources"),
+    registerCsvAsTable("taxonomy.sources"),
   ]);
 
   const viewName = descriptor.table_id.split(".").pop()!;

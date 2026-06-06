@@ -13,6 +13,7 @@
 import {
   loadManifest,
   query,
+  registerCsvAsTable,
   registerTable,
   type Manifest,
 } from "../duckdb";
@@ -68,10 +69,13 @@ async function buildCatalogue(): Promise<SemanticCatalogue> {
 
   // Register the 4 dim/taxonomy views the catalogue queries reference.
   // election_results is INTENTIONALLY not registered here — D-04.
+  // dim_parties + taxonomy.sources flipped to CSV (X1a) via
+  // registerCsvAsTable; dim_acs + elections_candidacies stay on parquet
+  // until B3 retires the parquet readers / their own CSV-flip ships.
   await Promise.all([
-    registerTable("taxonomy.sources"),
+    registerCsvAsTable("taxonomy.sources"),
     registerTable("elections.dim_acs"),
-    registerTable("elections.dim_parties"),
+    registerCsvAsTable("elections.dim_parties"),
     registerTable("elections.elections_candidacies"),
   ]);
 

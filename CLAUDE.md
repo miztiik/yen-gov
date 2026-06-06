@@ -51,7 +51,7 @@ Non-negotiable contract for any human or AI agent working in this repo. Derived 
 6. **No hardcoding.** Tunable knobs live in `config/`; reference data and generated artifacts live in `datasets/`. Both are schema-validated.
 7. **No mocks unless asked.** Real implementations and real fixtures. Mocks only on explicit user request or for genuinely untestable external boundaries.
 8. **Open source first.** Prefer mature OSS over custom builds.
-9. **Provenance is mandatory.** Every observation row carries `source_id` FK to `datasets/data/entities/source.csv` (MIGRATING from `datasets/taxonomy/sources.parquet` per plan chunks B2a/X1a). See section 12.
+9. **Provenance is mandatory.** Every observation row carries `source_id` FK to `datasets/data/entities/source.csv`. See section 12.
 10. **Tests ship with the feature.** Behaviour-changing commit lands with tests at the appropriate tier (section 15). Full suite green at merge.
 
 ## 2. Path Rules
@@ -177,7 +177,7 @@ Commit messages describe the change. **No AI co-author / attribution tags.**
 - Propose `write_text_if_changed`-style byte-compare helpers at write seams. Fix non-determinism upstream of the write seam.
 - Re-litigate the sources-table design (domain-as-identity, drop-the-table, add-`content_hash`-back, require-`citation_full`). See [ADR-0032](docs/concepts/data-provenance.md#adr-0032-rejected-alternatives) Rejected A/B/C/D.
 - Walk the real on-disk corpus from a `pytest` test or live HTTP smoke test. That is Tier-B (section 11), local-only via `python -m yen_gov validate --root .`. Inject root via env var, use `tmp_path` fixtures in tests. See [docs/architecture/backend/validator.md](docs/architecture/backend/validator.md).
-- Emit JSON projections of canonical data for the citizen frontend. Frontend reads long-format CSV via DuckDB-WASM `read_csv(columns=...)` only (MIGRATING from Parquet per plan chunks F1/X1a).
+- Emit JSON projections of canonical data for the citizen frontend. Frontend reads long-format CSV via DuckDB-WASM `read_csv(columns=...)` for the X1a-flipped surfaces (dim_parties via `data/entities/parties.csv`; sources via `data/entities/source.csv`; election candidacies/summary via per-(state,year) CSV); residual parquet reads (`election_results`, `dim_acs`, `elections_candidacies`, `dim_party_alliances`, `dim_persons`-via-allowlist, `boundary_layers`, `entities`, `ac_crosswalk`, `indicators`) retire by B3/X1b.
 - Run CI that processes `datasets/**`. Publish is plain static-file copy; CI gates are lint, type-check, pytest, frontend build, Playwright only.
 - Use broad / lossy / history-rewriting git commands (section 8).
 - Let `TODO/`, chat logs, `AGENTS.md`, or `/memories/` become the source of truth for architecture.
@@ -222,7 +222,7 @@ The reader compatibility contract lives in `datasets/schema-compatibility.json`.
 
 ## 12. Data Provenance
 
-Every observation row in every long-format CSV family under `datasets/data/` (and every `datasets/elections/**` row) carries a `source_id` FK to one row in `datasets/data/entities/source.csv` (MIGRATING from per-Parquet-family + `datasets/taxonomy/sources.parquet` per plan chunks B2a/X1a). Provenance is a **citation ledger**, one row per `(producer, title, vintage)` triple, not per fetch event. Adopts OWID `origin.*` fields verbatim plus four yen-gov extensions for confidence + verifiability.
+Every observation row in every long-format CSV family under `datasets/data/` (and every `datasets/elections/**` row) carries a `source_id` FK to one row in `datasets/data/entities/source.csv`. Provenance is a **citation ledger**, one row per `(producer, title, vintage)` triple, not per fetch event. Adopts OWID `origin.*` fields verbatim plus four yen-gov extensions for confidence + verifiability.
 
 Schema (11 columns, 8 required + 3 optional): [docs/architecture/data/canonical-store.md section 5](docs/architecture/data/canonical-store.md). Rationale + rejected designs: [ADR-0032](docs/concepts/data-provenance.md#adr-0032-sources-citation-ledger). v3.0 `vintage` sharpening (publisher edition vs operator snapshot window): [ADR-0042](docs/concepts/data-provenance.md#adr-0042-sources-schema-v3-vintage-as-period-anchor). Concept: [docs/concepts/data-provenance.md](docs/concepts/data-provenance.md).
 

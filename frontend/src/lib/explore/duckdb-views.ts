@@ -14,11 +14,11 @@
 // the view DDL itself.
 //
 // Source tables (one of three):
-//   - parties:        elections.dim_parties (PARQUET; X1a flips this away later)
+//   - parties:        elections.dim_parties (CSV via registerCsvAsTable; X1a reader flip)
 //   - constituencies: datasets/elections/assembly/state=*/election=*/summary.csv
 //                     JOIN datasets/data/entities/electoral.csv (CSV)
 //   - candidates:     datasets/elections/assembly/state=*/election=*/candidacies.csv
-//                     JOIN electoral.csv + dim_parties (CSV + PARQUET)
+//                     JOIN electoral.csv + dim_parties (CSV)
 //                     NOTA rows already live INLINE in candidacies.csv
 //                     (writer at backend/yen_gov/canonical/reingest/
 //                     assembly_results.py does NOT filter NOTA per the
@@ -45,8 +45,8 @@
 
 import {
   getConnection,
+  registerCsvAsTable,
   registerCsvFile,
-  registerTable,
 } from "../duckdb";
 import { DATA_BASE } from "../paths";
 import { csvColumnsClause } from "../canonical/csv-columns";
@@ -77,11 +77,13 @@ export async function buildExploreViews(
   const sumUrl = `${DATA_BASE}/${sumPath.replace(/^datasets\//, "")}`;
   const electoralUrl = `${DATA_BASE}/${electoralPath.replace(/^datasets\//, "")}`;
 
-  // Typed-read clauses + registrations in parallel. dim_parties stays
-  // on Parquet; X1a flips it when the Hive-partitioned dim Parquets
-  // retire. ZERO registrations of election_results / dim_acs /
-  // dim_persons / elections_candidacies - the per-(state, year) CSV
-  // files cover every observation Explore presets reach for.
+  // Typed-read clauses + registrations in parallel. dim_parties flipped
+  // to CSV via registerCsvAsTable in X1a (parties.csv); the seam projects
+  // the legacy parquet column shape (eci_code, short_name, full_name,
+  // recognition) so the `parties` view below is unchanged. ZERO
+  // registrations of election_results / dim_acs / dim_persons /
+  // elections_candidacies - the per-(state, year) CSV files cover
+  // every observation Explore presets reach for.
   const [candClause, sumClause, electoralClause] = await Promise.all([
     csvColumnsClause(candPath),
     csvColumnsClause(sumPath),
@@ -89,7 +91,7 @@ export async function buildExploreViews(
     registerCsvFile(candUrl),
     registerCsvFile(sumUrl),
     registerCsvFile(electoralUrl),
-    registerTable("elections.dim_parties"),
+    registerCsvAsTable("elections.dim_parties"),
   ]);
 
   const slug = electionStatePartition(state_code);

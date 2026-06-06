@@ -11,7 +11,7 @@
 //   datasets/elections/assembly/state=*/election=*/candidacies.csv (per-candidacy)
 //   datasets/elections/assembly/state=*/election=*/summary.csv     (per-AC)
 //   datasets/data/entities/electoral.csv                           (AC entity_id + eci_no + name)
-//   elections.dim_parties  (PARQUET; X1a flips this later)
+//   elections.dim_parties  (CSV via registerCsvAsTable; X1a reader flip)
 //
 // Critical per-row contract (F1 sub-plan section 22.4 #4): every
 // `read_csv(...)` carries an explicit `columns={...}` map derived from
@@ -30,7 +30,7 @@
 //   for what-if simulations; X1a restores precision via a candidacies
 //   schema extension.
 
-import { query, registerCsvFile, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerCsvFile } from "../duckdb";
 import { DATA_BASE } from "../paths";
 import { csvColumnsClause } from "../canonical/csv-columns";
 import {
@@ -210,7 +210,7 @@ export function loadActuals(event: string, state: string): Promise<Tallies> {
       registerCsvFile(candUrl),
       registerCsvFile(sumUrl),
       registerCsvFile(electoralUrl),
-      registerTable("elections.dim_parties"),
+      registerCsvAsTable("elections.dim_parties"),
     ]);
 
     // candidacies + summary carry the LGD state slug as their `state`

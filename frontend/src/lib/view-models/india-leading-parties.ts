@@ -16,7 +16,7 @@
 // the bulk query → failed arm.
 
 import { describeFailure, type LoaderResult } from "../loader-result";
-import { query, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerTable } from "../duckdb";
 import type { PartyTotals } from "../data";
 
 export interface IndiaLeadingPartiesEntry {
@@ -58,7 +58,7 @@ async function runQueries(
 ): Promise<PartyRow[]> {
   await Promise.all([
     registerTable("elections.election_results"),
-    registerTable("elections.dim_parties"),
+    registerCsvAsTable("elections.dim_parties"),
   ]);
 
   // (state, event) pairs → an OR-list of LIKE prefixes. Each prefix is

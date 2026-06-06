@@ -1,8 +1,10 @@
-// Unit tests for the Constituency view-model loader (F1.3a CSV cutover).
+// Unit tests for the Constituency view-model loader (F1.3a CSV cutover
+// + X1a dim_parties/sources flip).
 //
 // Per CLAUDE.md section 15 + parent plan section 22.4 #4: the loader's
 // contract IS the SQL boundary. We mock `query` / `registerCsvFile` /
-// `registerTable` (the explicit carve-out from Holy Law #7) and pin:
+// `registerTable` / `registerCsvAsTable` (the explicit carve-out from
+// Holy Law #7) and pin:
 //   - happy path        - given JOINed rows + a summary row, the loader
 //                         assembles the ConstituencyResult shape
 //                         Constituency.svelte already renders.
@@ -21,6 +23,9 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("../duckdb", () => ({
   registerCsvFile: vi.fn(async () => undefined),
+  registerCsvAsTable: vi.fn(async (id: string) =>
+    id === "elections.dim_parties" ? "dim_parties" : "sources",
+  ),
   registerTable: vi.fn(async () => "noop"),
   query: vi.fn(),
 }));
@@ -29,12 +34,13 @@ vi.mock("../canonical/csv-columns", () => ({
   csvColumnsClause: vi.fn(async () => "columns={MOCKED}"),
 }));
 
-import { query, registerCsvFile, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerCsvFile, registerTable } from "../duckdb";
 import { csvColumnsClause } from "../canonical/csv-columns";
 import { loadConstituencyResult } from "./constituency";
 
 const mockedQuery = vi.mocked(query);
 const mockedRegisterCsv = vi.mocked(registerCsvFile);
+const mockedRegisterCsvAsTable = vi.mocked(registerCsvAsTable);
 const mockedRegister = vi.mocked(registerTable);
 const mockedClause = vi.mocked(csvColumnsClause);
 
@@ -129,9 +135,13 @@ const sourceRows = [{ url_main: "https://eci.gov.in/example.xlsx" }];
 beforeEach(() => {
   mockedQuery.mockReset();
   mockedRegisterCsv.mockReset();
+  mockedRegisterCsvAsTable.mockReset();
   mockedRegister.mockReset();
   mockedClause.mockReset();
   mockedRegisterCsv.mockResolvedValue(undefined);
+  mockedRegisterCsvAsTable.mockImplementation(async (id) =>
+    id === "elections.dim_parties" ? "dim_parties" : "sources",
+  );
   mockedRegister.mockResolvedValue("noop");
   mockedClause.mockResolvedValue("columns={MOCKED}");
 });
@@ -271,18 +281,28 @@ describe("loadConstituencyResult - happy path", () => {
     );
     expect(allUrls).toContain("/data/entities/electoral.csv");
 
-    // Parquet tables that stay registered (deferred to X1a):
-    const parquetTables = mockedRegister.mock.calls.map((c) => c[0]).sort();
-    expect(parquetTables).toEqual([
+    // X1a CSV-as-table registrations: dim_parties + sources flipped
+    // to CSV-backed views.
+    const csvAsTableIds = mockedRegisterCsvAsTable.mock.calls
+      .map((c) => c[0])
+      .sort();
+    expect(csvAsTableIds).toEqual([
       "elections.dim_parties",
       "taxonomy.sources",
     ]);
+
+    // ZERO parquet `registerTable` calls remain on this surface.
+    const parquetTables = mockedRegister.mock.calls.map((c) => c[0]).sort();
+    expect(parquetTables).toEqual([]);
 
     // ZERO requests for the F1.3a-decommissioned tables.
     expect(parquetTables).not.toContain("elections.elections_candidacies");
     expect(parquetTables).not.toContain("elections.dim_persons");
     expect(parquetTables).not.toContain("elections.dim_acs");
     expect(parquetTables).not.toContain("elections.election_results");
+    // X1a flipped: dim_parties + sources are NO LONGER on the parquet path.
+    expect(parquetTables).not.toContain("elections.dim_parties");
+    expect(parquetTables).not.toContain("taxonomy.sources");
   });
 
   it("issues read_csv SQL against candidacies.csv (no read_parquet)", async () => {

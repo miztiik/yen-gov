@@ -1,18 +1,21 @@
-// Unit tests for the StateOverview view-model loader (F1.3a CSV cutover).
+// Unit tests for the StateOverview view-model loader (F1.3a CSV cutover
+// + X1a dim_parties/sources flip).
 //
 // Per CLAUDE.md section 15 + parent plan section 22.4 #4: the loader's
 // contract IS the SQL boundary. We mock `query` / `registerCsvFile` /
-// `registerTable` (the explicit carve-out from Holy Law #7) + the
-// `csvColumnsClause` helper from `../canonical/csv-columns` so the
-// runtime fetch of columns.json never happens. Coverage:
+// `registerTable` / `registerCsvAsTable` (the explicit carve-out from
+// Holy Law #7) + the `csvColumnsClause` helper from `../canonical/csv-columns`
+// so the runtime fetch of columns.json never happens. Coverage:
 //   - happy path        — assembles StateOverviewViewModel from CSV
 //                          rows: party aggregation + state totals +
 //                          sources + per-AC winners (DMK/AIADMK fixture).
-//   - csv registration  — the 3 CSV URLs + dim_parties +
-//                          dim_party_alliances + sources are registered;
-//                          NONE of the F1.3a-decommissioned tables are
-//                          (dim_acs / elections_candidacies / dim_persons
-//                          / election_results).
+//   - csv registration  — the 3 CSV URLs + dim_parties (via
+//                          registerCsvAsTable, X1a) + dim_party_alliances
+//                          (still parquet, no CSV equivalent yet) +
+//                          sources (via registerCsvAsTable, X1a) are
+//                          registered; NONE of the F1.3a-decommissioned
+//                          tables are (dim_acs / elections_candidacies
+//                          / dim_persons / election_results).
 //   - SQL composition   — every read_csv call uses the typed columns
 //                          clause; ZERO read_parquet on the legacy
 //                          tables; per-(state, year) URL substituted.
@@ -23,6 +26,9 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("../duckdb", () => ({
   registerCsvFile: vi.fn(async () => undefined),
+  registerCsvAsTable: vi.fn(async (id: string) =>
+    id === "elections.dim_parties" ? "dim_parties" : "sources",
+  ),
   registerTable: vi.fn(async () => "noop"),
   query: vi.fn(),
 }));
@@ -31,12 +37,13 @@ vi.mock("../canonical/csv-columns", () => ({
   csvColumnsClause: vi.fn(async () => "columns={MOCKED}"),
 }));
 
-import { query, registerCsvFile, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerCsvFile, registerTable } from "../duckdb";
 import { csvColumnsClause } from "../canonical/csv-columns";
 import { loadStateOverview } from "./state-overview";
 
 const mockedQuery = vi.mocked(query);
 const mockedRegisterCsv = vi.mocked(registerCsvFile);
+const mockedRegisterCsvAsTable = vi.mocked(registerCsvAsTable);
 const mockedRegister = vi.mocked(registerTable);
 const mockedClause = vi.mocked(csvColumnsClause);
 
@@ -166,9 +173,13 @@ const acWinnerRows = [
 beforeEach(() => {
   mockedQuery.mockReset();
   mockedRegisterCsv.mockReset();
+  mockedRegisterCsvAsTable.mockReset();
   mockedRegister.mockReset();
   mockedClause.mockReset();
   mockedRegisterCsv.mockResolvedValue(undefined);
+  mockedRegisterCsvAsTable.mockImplementation(async (id) =>
+    id === "elections.dim_parties" ? "dim_parties" : "sources",
+  );
   mockedRegister.mockResolvedValue("noop");
   mockedClause.mockResolvedValue("columns={MOCKED}");
 });
@@ -285,7 +296,7 @@ describe("loadStateOverview - happy path", () => {
     ]);
   });
 
-  it("registers the 3 CSV URLs + dim_parties + dim_party_alliances + sources", async () => {
+  it("registers the 3 CSV URLs + dim_parties (via CSV-as-table) + dim_party_alliances (parquet) + sources (via CSV-as-table)", async () => {
     mockedQuery
       .mockResolvedValueOnce(partyRows)
       .mockResolvedValueOnce(stateScopeRows)
@@ -307,12 +318,20 @@ describe("loadStateOverview - happy path", () => {
     );
     expect(allUrls).toContain("/data/entities/electoral.csv");
 
-    // Parquet tables that stay registered (deferred to X1a):
+    // X1a CSV-as-table registrations: dim_parties + sources flipped
+    // from parquet to CSV-backed views.
+    const csvAsTableIds = mockedRegisterCsvAsTable.mock.calls
+      .map((c) => c[0])
+      .sort();
+    expect(csvAsTableIds).toEqual([
+      "elections.dim_parties",
+      "taxonomy.sources",
+    ]);
+
+    // Parquet tables that stay registered (alliance CSV not emitted yet):
     const parquetTables = mockedRegister.mock.calls.map((c) => c[0]).sort();
     expect(parquetTables).toEqual([
-      "elections.dim_parties",
       "elections.dim_party_alliances",
-      "taxonomy.sources",
     ]);
 
     // ZERO requests for the F1.3a-decommissioned tables.
@@ -320,6 +339,9 @@ describe("loadStateOverview - happy path", () => {
     expect(parquetTables).not.toContain("elections.dim_persons");
     expect(parquetTables).not.toContain("elections.elections_candidacies");
     expect(parquetTables).not.toContain("elections.election_results");
+    // X1a flipped: dim_parties + sources are NO LONGER on the parquet path.
+    expect(parquetTables).not.toContain("elections.dim_parties");
+    expect(parquetTables).not.toContain("taxonomy.sources");
   });
 
   it("issues read_csv SQL against candidacies + summary + electoral (no read_parquet)", async () => {

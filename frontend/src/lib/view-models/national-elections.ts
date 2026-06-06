@@ -7,7 +7,7 @@
 // What is JOINed:
 //   datasets/elections/parliament/election=*/summary.csv (one row per PC)
 //   datasets/data/entities/electoral.csv                 (PC name + state + eci_no + delim_year lookup)
-//   elections.dim_parties  (PARQUET; X1a flips this away later)
+//   elections.dim_parties  (CSV via registerCsvAsTable; X1a reader flip)
 //
 // Critical per-row contract (F1 sub-plan section 22.4 #4): every
 // `read_csv(...)` call carries an explicit `columns={...}` map derived
@@ -43,7 +43,7 @@
 //     F1.3a same-regression note in `view-models/constituency.ts`).
 
 import { describeFailure, type LoaderResult } from "../loader-result";
-import { query, registerCsvFile, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerCsvFile } from "../duckdb";
 import { DATA_BASE } from "../paths";
 import { csvColumnsClause } from "../canonical/csv-columns";
 import {
@@ -123,14 +123,15 @@ async function runQuery(event: string): Promise<PcWinnerRow[]> {
   const electoralUrl = `${DATA_BASE}/${electoralPath.replace(/^datasets\//, "")}`;
 
   // Typed-read clauses + view registrations in parallel. dim_parties
-  // stays on Parquet; X1a flips it when the Hive-partitioned dim
-  // Parquets retire.
+  // flipped to CSV via registerCsvAsTable in X1a (parties.csv); the
+  // seam projects the legacy column shape so the LEFT JOIN below is
+  // unchanged.
   const [sumClause, electoralClause] = await Promise.all([
     csvColumnsClause(sumPath),
     csvColumnsClause(electoralPath),
     registerCsvFile(sumUrl),
     registerCsvFile(electoralUrl),
-    registerTable("elections.dim_parties"),
+    registerCsvAsTable("elections.dim_parties"),
   ]);
 
   // One row per PC. LEFT JOIN dim_parties so an UNK winner_party_id

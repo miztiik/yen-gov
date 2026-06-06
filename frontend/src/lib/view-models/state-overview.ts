@@ -11,9 +11,9 @@
 //   datasets/elections/assembly/state=*/election=*/candidacies.csv (per-candidacy)
 //   datasets/elections/assembly/state=*/election=*/summary.csv     (per-AC summary)
 //   datasets/data/entities/electoral.csv                           (AC entity + name + eci_no)
-//   elections.dim_parties           — party identity + brand (PARQUET; X1a flips later)
-//   elections.dim_party_alliances   — per-event alliance (PARQUET; X1a flips later)
-//   taxonomy.sources                — provenance ledger v2.0 (PARQUET; X1a flips later)
+//   elections.dim_parties           - party identity + brand (CSV via registerCsvAsTable; X1a)
+//   elections.dim_party_alliances   - per-event alliance (PARQUET; B2b emits alliance_membership.csv later)
+//   taxonomy.sources                - provenance ledger 5-field (CSV via registerCsvAsTable; X1a)
 //
 // Critical per-row contract (F1 sub-plan section 22.4 #4): every
 // `read_csv(...)` carries an explicit `columns={...}` map derived from
@@ -33,7 +33,7 @@ import {
   describeFailure,
   type LoaderResult,
 } from "../loader-result";
-import { query, registerCsvFile, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerCsvFile, registerTable } from "../duckdb";
 import { DATA_BASE } from "../paths";
 import { csvColumnsClause } from "../canonical/csv-columns";
 import {
@@ -179,9 +179,11 @@ async function runQueries(
   // Typed-read clauses + URL registrations + parquet table registrations
   // in parallel. Per F1 sub-plan section 22.4 #4: read_csv MUST carry
   // `columns={...}` derived from columns.json (never `read_csv_auto`).
-  // dim_parties + dim_party_alliances + taxonomy.sources stay on
-  // Parquet; X1a flips them when the Hive-partitioned per-(state,year)
-  // Parquet datasets retire.
+  // dim_parties + taxonomy.sources flipped to CSV in X1a via
+  // `registerCsvAsTable` (parties.csv / source.csv); dim_party_alliances
+  // STAYS on Parquet until B2b emits `entities/alliance_membership.csv`
+  // (no CSV equivalent today; per plan section 20.4 the intended shape
+  // is `{alliance_id, party_id, term_start, term_end, source_id}`).
   const [candClause, sumClause, electoralClause] = await Promise.all([
     csvColumnsClause(candPath),
     csvColumnsClause(sumPath),
@@ -189,9 +191,9 @@ async function runQueries(
     registerCsvFile(candUrl),
     registerCsvFile(sumUrl),
     registerCsvFile(electoralUrl),
-    registerTable("elections.dim_parties"),
+    registerCsvAsTable("elections.dim_parties"),
     registerTable("elections.dim_party_alliances"),
-    registerTable("taxonomy.sources"),
+    registerCsvAsTable("taxonomy.sources"),
   ]);
 
   const evt = sqlString(event);
@@ -269,7 +271,8 @@ async function runQueries(
   const stateScope = stateScopeRows[0] ?? null;
 
   // Source rows: every source_id that appears in candidacies + summary
-  // for this (state, year) -> taxonomy.sources (parquet, still).
+  // for this (state, year) -> taxonomy.sources (CSV via registerCsvAsTable
+  // / X1a; 5-field shape per plan O3 - the rich v2 fields surface NULL).
   const sourceIdRows = await query<{ source_id: string }>(`
     SELECT DISTINCT source_id FROM (
       SELECT source_id FROM read_csv('${candUrl}', ${candClause}) WHERE source_id IS NOT NULL
@@ -527,7 +530,7 @@ export async function loadStateAcWinners(
       registerCsvFile(candUrl),
       registerCsvFile(sumUrl),
       registerCsvFile(electoralUrl),
-      registerTable("elections.dim_parties"),
+      registerCsvAsTable("elections.dim_parties"),
     ]);
     const sql = `
       SELECT

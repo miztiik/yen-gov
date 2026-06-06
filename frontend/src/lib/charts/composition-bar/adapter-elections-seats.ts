@@ -56,7 +56,7 @@
 //     misframe it.
 
 import { describeFailure, type LoaderResult } from "../../loader-result";
-import { query, registerSlice, registerTable } from "../../duckdb";
+import { query, registerCsvAsTable, registerSlice } from "../../duckdb";
 import { electionStatePartition } from "../../election-partitions";
 import { getPartyColor, type PartyRowForResolver } from "../../colors/resolver";
 import type { SourceV2Row } from "../../source-list-v2/types";
@@ -179,8 +179,8 @@ async function runQueries(
 ): Promise<CompositionBarLoadedRows> {
   await Promise.all([
     registerSlice("elections.election_results", { state: electionStatePartition(state_code) }),
-    registerTable("elections.dim_parties"),
-    registerTable("taxonomy.sources"),
+    registerCsvAsTable("elections.dim_parties"),
+    registerCsvAsTable("taxonomy.sources"),
   ]);
 
   const partyPrefix = sqlString(`IN-${state_code}-`);

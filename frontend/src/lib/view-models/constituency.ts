@@ -13,8 +13,8 @@
 //   datasets/elections/assembly/state=*/election=*/candidacies.csv (per-candidacy row)
 //   datasets/elections/assembly/state=*/election=*/summary.csv     (per-AC row)
 //   datasets/data/entities/electoral.csv                           (AC name + eci_no lookup)
-//   elections.dim_parties  (PARQUET; X1a flips this away later)
-//   taxonomy.sources       (PARQUET; X1a flips this away later)
+//   datasets/data/entities/parties.csv  (CSV; X1a flipped via registerCsvAsTable)
+//   datasets/data/entities/source.csv   (CSV; X1a flipped via registerCsvAsTable)
 //
 // Critical per-row contract (F1 sub-plan section 22.4 #4): every
 // `read_csv(...)` carries an explicit `columns={...}` map derived from
@@ -33,7 +33,7 @@ import {
   describeFailure,
   type LoaderResult,
 } from "../loader-result";
-import { query, registerCsvFile, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerCsvFile } from "../duckdb";
 import { electionStatePartition } from "../election-partitions";
 import { DATA_BASE } from "../paths";
 import { csvColumnsClause } from "../canonical/csv-columns";
@@ -168,8 +168,9 @@ async function runQueries(
   // Typed-read clauses + view registrations in parallel. Per F1
   // sub-plan section 22.4 #4: read_csv MUST carry `columns={...}`
   // derived from columns.json (never `read_csv_auto`). dim_parties +
-  // taxonomy.sources stay on Parquet; X1a flips them when the
-  // Hive-partitioned per-(state,year) Parquet datasets retire.
+  // taxonomy.sources flipped to CSV in X1a via `registerCsvAsTable`
+  // (parties.csv / source.csv) - the seam projects the legacy parquet
+  // column shape so the LEFT JOIN syntax below is unchanged.
   const [candClause, sumClause, electoralClause] = await Promise.all([
     csvColumnsClause(candPath),
     csvColumnsClause(sumPath),
@@ -177,8 +178,8 @@ async function runQueries(
     registerCsvFile(candUrl),
     registerCsvFile(sumUrl),
     registerCsvFile(electoralUrl),
-    registerTable("elections.dim_parties"),
-    registerTable("taxonomy.sources"),
+    registerCsvAsTable("elections.dim_parties"),
+    registerCsvAsTable("taxonomy.sources"),
   ]);
 
   const slugLit = sqlString(slug);
@@ -252,11 +253,15 @@ async function runQueries(
   const summary = summaryRows[0] ?? null;
 
   // Query 3: rich v2.0 citation rows for every source_id this contest
-  // touched (candidacies + summary). taxonomy.sources stays on
-  // Parquet until X1a; the `url_main` column is the only field the
-  // legacy v1 SourceList renders, so we keep the existing url-only
-  // projection for back-compat. The full v2 ledger picker lives on
-  // state-overview for now.
+  // touched (candidacies + summary). X1a flipped `sources` to the
+  // CSV-backed view (source.csv carries the binding 5-field shape per
+  // plan O3); the `url_main` column is the only field the legacy v1
+  // SourceList renders, so the existing url-only projection works
+  // unchanged. The retired v2 fields (license / confidence_tier /
+  // verification_method / citation_full / notes) are NULL via the
+  // view; state-overview's sources_v2 surface degrades to the 5-field
+  // shape automatically.
+
   const sourceIds = new Set<string>();
   for (const r of candidates) {
     if (r.source_id) sourceIds.add(r.source_id);
