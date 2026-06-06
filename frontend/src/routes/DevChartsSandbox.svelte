@@ -637,6 +637,7 @@
     <ChartShell
       title="Synthetic AC tile cartogram"
       subtitle="Illustrative only — not a real result."
+      time_label="Assembly election 2023"
     >
       <TileCartogram
         tiles={tc_rows}
