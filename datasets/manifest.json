@@ -460,23 +460,6 @@
       "row_count_total": 7392
     },
     {
-      "table_id": "elections.dim_acs",
-      "family": "elections",
-      "table_name": "dim_acs",
-      "kind": "dim",
-      "format": "parquet",
-      "schema_version": "1.1",
-      "partition_columns": [],
-      "files": [
-        {
-          "path": "elections/dim_acs.parquet",
-          "size_bytes": 116430,
-          "row_count": 8055
-        }
-      ],
-      "row_count_total": 8055
-    },
-    {
       "table_id": "elections.dim_party_alliances",
       "family": "elections",
       "table_name": "dim_party_alliances",
@@ -492,23 +475,6 @@
         }
       ],
       "row_count_total": 10
-    },
-    {
-      "table_id": "elections.elections_candidacies",
-      "family": "elections",
-      "table_name": "elections_candidacies",
-      "kind": "other",
-      "format": "parquet",
-      "schema_version": "1.2",
-      "partition_columns": [],
-      "files": [
-        {
-          "path": "elections/elections_candidacies.parquet",
-          "size_bytes": 15619057,
-          "row_count": 430627
-        }
-      ],
-      "row_count_total": 430627
     },
     {
       "table_id": "taxonomy.entities",
@@ -589,6 +555,16 @@
     {
       "old_path": "taxonomy/methodology_breaks.parquet",
       "new_path": "data/methodology_breaks.csv",
+      "deprecated_at": "2026-06-06"
+    },
+    {
+      "old_path": "elections/dim_acs.parquet",
+      "new_path": "data/entities/electoral.csv",
+      "deprecated_at": "2026-06-06"
+    },
+    {
+      "old_path": "elections/elections_candidacies.parquet",
+      "new_path": "elections/{assembly,parliament}/state=*/election=*/candidacies.csv",
       "deprecated_at": "2026-06-06"
     }
   ]

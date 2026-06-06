@@ -56,6 +56,9 @@ const BANNED_PARQUET_SUBSTRINGS = [
   "state_tiers.parquet",
   "facet-axes.parquet",
   "indicator_topic_tags.parquet",
+  // X1b post-YA-apply (semantic-catalogue.ts flipped to CSV in PR #813)
+  "dim_acs.parquet",
+  "elections_candidacies.parquet",
 ] as const;
 
 interface RequestAudit {
@@ -66,13 +69,10 @@ interface RequestAudit {
   surviorParquet: string[];
 }
 
-// Still on parquet by scope; retire via YA-apply (semantic-catalogue)
-// + B3 (writer + dead-schemas) + later partial-X1b passes.
+// Still on parquet by scope; retire via B3 + a later partial-X1b pass.
 const SURVIVING_PARQUET_SUBSTRINGS = [
   "election_results",
   "dim_party_alliances",
-  "dim_acs",
-  "elections_candidacies",
   "boundary_layers",
   "entities.parquet",
   "indicators.parquet",

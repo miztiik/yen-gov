@@ -6,7 +6,7 @@ Canonical backend rationale lives in `docs/architecture/backend/`; this file is 
 
 ASCII only: use plain keyboard characters; write "-", "->", ">=", "section", and "INR" instead of fancy symbols.
 
-> **MIGRATING (2026-06-04).** Per the [CLAUDE.md](../../CLAUDE.md) doctrine-in-migration banner + [the platform-reset plan](../../TODO/20260603-data-and-charting-platform-reset-plan.md), the canonical store is moving from Hive-partitioned Parquet to long-format CSV under `datasets/data/`, read via DuckDB-WASM `read_csv(columns=...)`; provenance FK now targets `datasets/data/entities/source.csv`. Parquet references below are MIGRATING until the rip lands (writers B3, fetch B4, reader-flip X1a / X1a-followup, Parquet-delete X1b - X1b retired the 12 zero-reader parquets on 2026-06-06: `elections/dim_parties` + `elections/dim_pcs` + `elections/dim_persons` + `taxonomy/ac_crosswalk` + `taxonomy/persons` + `taxonomy/sources` + 6 small taxonomy orphans `election_events` / `facet-axes` / `indicator_topic_tags` / `methodology_breaks` / `state_tiers` / `topics`; the WRITERS that still emit these tables retire in B3 not X1b). Do NOT add a new Parquet writer or a network fetcher.
+> **MIGRATING (2026-06-04).** Per the [CLAUDE.md](../../CLAUDE.md) doctrine-in-migration banner + [the platform-reset plan](../../TODO/20260603-data-and-charting-platform-reset-plan.md), the canonical store is moving from Hive-partitioned Parquet to long-format CSV under `datasets/data/`, read via DuckDB-WASM `read_csv(columns=...)`; provenance FK now targets `datasets/data/entities/source.csv`. Parquet references below are MIGRATING until the rip lands (writers B3, fetch B4, reader-flip X1a / X1a-followup / YA-apply, Parquet-delete X1b - X1b retired 14 zero-reader parquets on 2026-06-06: `elections/dim_parties` + `elections/dim_pcs` + `elections/dim_persons` + `elections/dim_acs` + `elections/elections_candidacies` + `taxonomy/ac_crosswalk` + `taxonomy/persons` + `taxonomy/sources` + 6 small taxonomy orphans `election_events` / `facet-axes` / `indicator_topic_tags` / `methodology_breaks` / `state_tiers` / `topics`; the WRITERS that still emit these tables retire in B3 not X1b). Do NOT add a new Parquet writer or a network fetcher.
 
 ## Canonical Docs
 
@@ -17,7 +17,7 @@ ASCII only: use plain keyboard characters; write "-", "->", ">=", "section", and
 - [ECI source adapter](../../docs/architecture/backend/sources-eci.md)
 - [Data provenance](../../docs/concepts/data-provenance.md)
 - [Dataset shapes](../../docs/concepts/dataset-shapes.md)
-- [Canonical store (long-format CSV + DuckDB-WASM)](../../docs/architecture/data/canonical-store.md) - current model (B2b MERGED; X1b PARTIAL on 2026-06-06; residual Parquet survivors: `election_results` + `dim_party_alliances` + `dim_acs` + `elections_candidacies` + `entities` + `indicators` + `boundary_layers`)
+- [Canonical store (long-format CSV + DuckDB-WASM)](../../docs/architecture/data/canonical-store.md) - current model (B2b MERGED; X1b PARTIAL on 2026-06-06; residual Parquet survivors: `election_results` + `dim_party_alliances` + `entities` + `indicators` + `boundary_layers`)
 - [Governments data family](../../docs/architecture/data/governments.md) - office-holdings authoring + Parquet contract
 - [Folded indicator](../../docs/concepts/folded-indicator.md) - **obsolete under ADR-0030**, retained as historical reference
 - [Collection inventory](../../docs/concepts/collection-inventory.md) - **obsolete under ADR-0030**
