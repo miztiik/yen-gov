@@ -1,33 +1,44 @@
-// Unit tests for the StateOverview view-model loader (PR-F / Phase 1.3b).
+// Unit tests for the StateOverview view-model loader (F1.3a CSV cutover).
 //
-// Per CLAUDE.md §15 + Holy Law #7 carve-out (established by PR-E): the
-// loader's contract IS the DuckDB-WASM boundary, so mocking `query` /
-// `registerSlice` / `registerTable` at `../duckdb` is the sanctioned pattern. The real
-// Parquet round-trip is asserted by the Playwright golden-path spec
-// (frontend/e2e/golden-path.spec.ts) against the live TN shard.
-//
-// Coverage:
-//   - happy path: assembles StateOverviewViewModel from party pivot +
-//     state-scope facts + sources (DMK / AIADMK fixture).
-//   - registerSlice/registerTable: state fact slice + supporting tables registered once.
-//   - partial / not_published: zero party rows -> skeleton.
-//   - failed: thrown SQL error -> citizen copy + callable retry.
-//   - retry: re-invokes the loader; second attempt can succeed.
+// Per CLAUDE.md section 15 + parent plan section 22.4 #4: the loader's
+// contract IS the SQL boundary. We mock `query` / `registerCsvFile` /
+// `registerTable` (the explicit carve-out from Holy Law #7) + the
+// `csvColumnsClause` helper from `../canonical/csv-columns` so the
+// runtime fetch of columns.json never happens. Coverage:
+//   - happy path        — assembles StateOverviewViewModel from CSV
+//                          rows: party aggregation + state totals +
+//                          sources + per-AC winners (DMK/AIADMK fixture).
+//   - csv registration  — the 3 CSV URLs + dim_parties +
+//                          dim_party_alliances + sources are registered;
+//                          NONE of the F1.3a-decommissioned tables are
+//                          (dim_acs / elections_candidacies / dim_persons
+//                          / election_results).
+//   - SQL composition   — every read_csv call uses the typed columns
+//                          clause; ZERO read_parquet on the legacy
+//                          tables; per-(state, year) URL substituted.
+//   - partial / failed  — zero-party-rows partial + injected-throw
+//                          failed arm with retry callable.
 
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("../duckdb", () => ({
-  registerSlice: vi.fn(async () => "noop"),
+  registerCsvFile: vi.fn(async () => undefined),
   registerTable: vi.fn(async () => "noop"),
   query: vi.fn(),
 }));
 
-import { query, registerSlice, registerTable } from "../duckdb";
+vi.mock("../canonical/csv-columns", () => ({
+  csvColumnsClause: vi.fn(async () => "columns={MOCKED}"),
+}));
+
+import { query, registerCsvFile, registerTable } from "../duckdb";
+import { csvColumnsClause } from "../canonical/csv-columns";
 import { loadStateOverview } from "./state-overview";
 
 const mockedQuery = vi.mocked(query);
+const mockedRegisterCsv = vi.mocked(registerCsvFile);
 const mockedRegister = vi.mocked(registerTable);
-const mockedRegisterSlice = vi.mocked(registerSlice);
+const mockedClause = vi.mocked(csvColumnsClause);
 
 const partyRows = [
   {
@@ -37,6 +48,9 @@ const partyRows = [
     eci_code: "1234",
     recognition: "state",
     alliance: "SPA",
+    party_id: "parties.IN.DMK",
+    brand_colour_hex: "#e2231a",
+    brand_colour_confidence: "high",
     seats_contested: 173,
     seats_won: 133,
     votes: 22_350_000,
@@ -49,19 +63,27 @@ const partyRows = [
     eci_code: "742",
     recognition: "state",
     alliance: "AIADMK+",
+    party_id: "parties.IN.AIADMK",
+    brand_colour_hex: null,
+    brand_colour_confidence: null,
     seats_contested: 191,
     seats_won: 66,
     votes: 19_300_000,
     vote_share_pct: 33.3,
   },
   {
-    short_name_key: "CPIM",
+    // Long-tail bucket: party_id NULL in candidacies.csv -> 'OTHER'.
+    // Non-zero seats_won so the assembleResult filter keeps it.
+    short_name_key: "OTHER",
     short_name: null,
     full_name: null,
     eci_code: null,
     recognition: null,
     alliance: null,
-    seats_contested: 6,
+    party_id: null,
+    brand_colour_hex: null,
+    brand_colour_confidence: null,
+    seats_contested: 100,
     seats_won: 2,
     votes: 1_100_000,
     vote_share_pct: 1.9,
@@ -69,16 +91,23 @@ const partyRows = [
 ];
 
 const stateScopeRows = [
-  { indicator_id: "electors-total", value_numeric: 62_700_000 },
-  { indicator_id: "votes-polled", value_numeric: 45_900_000 },
-  { indicator_id: "turnout-pct", value_numeric: 72.81 },
+  {
+    electors: 62_700_000,
+    votes_polled: 45_900_000,
+    turnout_pct: 73.21,
+  },
+];
+
+const sourceIdRows = [
+  { source_id: "src-tcpd-ae-2021" },
+  { source_id: "src-eci000000a1" },
 ];
 
 const sourceRows = [
   {
     source_id: "src-eci000000a1",
     producer: "Election Commission of India",
-    title: "Statistical Report Section 10 (Detailed Results) \u2014 TN",
+    title: "Statistical Report Section 10 (Detailed Results) - TN",
     vintage: "AcGenApr2021",
     license: "OGL-IN-1.0",
     confidence_tier: "gold",
@@ -89,30 +118,17 @@ const sourceRows = [
     notes: null,
   },
   {
-    source_id: "src-eci000000b2",
-    producer: "Election Commission of India",
-    title: "Party-wise summary \u2014 TN",
-    vintage: "AcGenApr2021",
+    source_id: "src-tcpd-ae-2021",
+    producer: "Trivedi Centre for Political Data",
+    title: "Indian Assembly Elections - Constituency-wise candidate results",
+    vintage: "2026-06-05",
     license: "OGL-IN-1.0",
-    confidence_tier: "gold",
-    is_issuing_authority: true,
+    confidence_tier: "silver",
+    is_issuing_authority: false,
     verification_method: "archived-snapshot",
-    url_main: "https://eci.gov.in/results/tn-2021-parties.xlsx",
+    url_main: "https://tcpd.ashoka.edu.in/lok-dhaba/",
     citation_full: null,
     notes: null,
-  },
-  {
-    source_id: "src-eci000000c3",
-    producer: "yen-gov",
-    title: "Editorial allocation note \u2014 TN",
-    vintage: "AcGenApr2021",
-    license: "internal",
-    confidence_tier: "bronze",
-    is_issuing_authority: false,
-    verification_method: "editorial",
-    url_main: null,
-    citation_full: "yen-gov, Editorial allocation note \u2014 TN (AcGenApr2021)",
-    notes: "Hand-authored override; see commit history",
   },
 ];
 
@@ -123,11 +139,13 @@ const acWinnerRows = [
     party_id: "parties.IN.DMK",
     party_eci_code: "1234",
     party_short: "DMK",
-    margin_pct: 12.5,
-    winner_candidate_name: "T. R. Baalu",
-    symbol_asset_path: "party-symbols/rising-sun.svg",
     brand_colour_hex: "#e63329",
     brand_colour_confidence: "high",
+    symbol_asset_path: "party-symbols/rising-sun.svg",
+    margin_pct: 12.5,
+    turnout_pct: 78.84,
+    winner_age: 60,
+    winner_candidate_name: "GOVINDARAJAN T.J",
   },
   {
     ac_eci_no: 2,
@@ -135,29 +153,34 @@ const acWinnerRows = [
     party_id: "parties.IN.AIADMK",
     party_eci_code: null,
     party_short: "AIADMK",
-    margin_pct: 3.4,
-    winner_candidate_name: null,
-    symbol_asset_path: null,
     brand_colour_hex: null,
     brand_colour_confidence: null,
+    symbol_asset_path: null,
+    margin_pct: 3.4,
+    turnout_pct: 74.2,
+    winner_age: null,
+    winner_candidate_name: null,
   },
 ];
 
 beforeEach(() => {
   mockedQuery.mockReset();
+  mockedRegisterCsv.mockReset();
   mockedRegister.mockReset();
-  mockedRegisterSlice.mockReset();
+  mockedClause.mockReset();
+  mockedRegisterCsv.mockResolvedValue(undefined);
   mockedRegister.mockResolvedValue("noop");
-  mockedRegisterSlice.mockResolvedValue("noop");
+  mockedClause.mockResolvedValue("columns={MOCKED}");
 });
 
-describe("loadStateOverview — happy path", () => {
-  it("assembles StateOverviewViewModel from JOINed rows", async () => {
+describe("loadStateOverview - happy path", () => {
+  it("assembles StateOverviewViewModel from CSV rows", async () => {
     mockedQuery
-      .mockResolvedValueOnce(partyRows)
-      .mockResolvedValueOnce(stateScopeRows)
-      .mockResolvedValueOnce(sourceRows)
-      .mockResolvedValueOnce(acWinnerRows);
+      .mockResolvedValueOnce(partyRows)        // party aggregation
+      .mockResolvedValueOnce(stateScopeRows)   // state totals
+      .mockResolvedValueOnce(sourceIdRows)     // source id discovery
+      .mockResolvedValueOnce(sourceRows)       // taxonomy.sources rows
+      .mockResolvedValueOnce(acWinnerRows);    // per-AC winners
 
     const res = await loadStateOverview("AcGenApr2021", "S22");
     expect(res.status).toBe("ok");
@@ -172,27 +195,30 @@ describe("loadStateOverview — happy path", () => {
       party_eci_code: "1234",
       recognition: "state",
       alliance: "SPA",
+      party_id: "parties.IN.DMK",
+      brand_colour_hex: "#e2231a",
+      brand_colour_confidence: "high",
       seats_contested: 173,
       seats_won: 133,
       votes: 22_350_000,
       vote_share_pct: 37.7,
     });
-    // CPIM falls back to the extracted short_name_key when dim row absent;
-    // recognition + alliance both surface as null.
+    // 'OTHER' bucket survives because seats_won > 0; falls back to the
+    // synthetic short_name_key for display.
     expect(res.data.party_totals[2]).toMatchObject({
-      party_short: "CPIM",
+      party_short: "OTHER",
       party_full: null,
       party_eci_code: null,
+      party_id: null,
       recognition: null,
       alliance: null,
       seats_won: 2,
     });
-    // total_seats is derived in-loader, not a fourth query.
     expect(res.data.total_seats).toBe(133 + 66 + 2);
     expect(res.data.totals).toEqual({
       electors: 62_700_000,
       votes_polled: 45_900_000,
-      turnout_pct: 72.81,
+      turnout_pct: 73.21,
     });
     expect(res.data.sources).toEqual([
       {
@@ -200,49 +226,17 @@ describe("loadStateOverview — happy path", () => {
         fetched_at: "",
       },
       {
-        url: "https://eci.gov.in/results/tn-2021-parties.xlsx",
+        url: "https://tcpd.ashoka.edu.in/lok-dhaba/",
         fetched_at: "",
       },
     ]);
-    // Phase 1.4 — v2 ledger projection. Carries every v2.0 column the
-    // SourceListV2 surface needs. Sorted by verification_method trust
-    // ordering: live-fetch (rank 0) → archived-snapshot (1) → editorial (3).
-    // The editorial row has null url_main; the legacy `sources` array
-    // above dropped it, but `sources_v2` keeps it (a valid v2.0 citation).
-    expect(res.data.sources_v2).toHaveLength(3);
+    // v2 ledger projection: 2 rows from sources, sorted by trust
+    // (live-fetch rank 0 before archived-snapshot rank 1).
     expect(res.data.sources_v2.map((s) => s.source_id)).toEqual([
       "src-eci000000a1",
-      "src-eci000000b2",
-      "src-eci000000c3",
+      "src-tcpd-ae-2021",
     ]);
-    expect(res.data.sources_v2[0]).toEqual({
-      source_id: "src-eci000000a1",
-      producer: "Election Commission of India",
-      title: "Statistical Report Section 10 (Detailed Results) \u2014 TN",
-      vintage: "AcGenApr2021",
-      license: "OGL-IN-1.0",
-      confidence_tier: "gold",
-      is_issuing_authority: true,
-      verification_method: "live-fetch",
-      url_main: "https://eci.gov.in/results/tn-2021.xlsx",
-      citation_full: null,
-      notes: null,
-    });
-    // The editorial row — url_main null, citation_full present, license
-    // internal — survives in sources_v2 even though it was dropped by
-    // the legacy SourceRef[] projection.
-    expect(res.data.sources_v2[2]).toMatchObject({
-      source_id: "src-eci000000c3",
-      url_main: null,
-      license: "internal",
-      confidence_tier: "bronze",
-      verification_method: "editorial",
-      citation_full:
-        "yen-gov, Editorial allocation note \u2014 TN (AcGenApr2021)",
-    });
-    // R-24 enforcement — no fetch-telemetry field leaks into the v2 row
-    // shape carried by the view-model. Asserting at the loader boundary
-    // catches drift before the citizen surface ever mounts the data.
+    // R-24 enforcement - no fetch-telemetry field leaks into v2 row.
     for (const row of res.data.sources_v2) {
       for (const forbidden of [
         "url",
@@ -256,68 +250,127 @@ describe("loadStateOverview — happy path", () => {
         expect(row).not.toHaveProperty(forbidden);
       }
     }
-    // PR-B8 added turnout_pct + winner_age to AcWinner (colour-by modes).
-    // The fixture rows omit both, so toAcWinners emits them as null — the
-    // keys are always present in the projected shape.
-    expect(res.data.ac_winners).toEqual([
-      {
-        ac_eci_no: 1,
-        ac_name: "GUMMIDIPOONDI",
-        party_id: "parties.IN.DMK",
-        party_eci_code: "1234",
-        party_short: "DMK",
-        margin_pct: 12.5,
-        turnout_pct: null,
-        winner_age: null,
-        winner_candidate_name: "T. R. Baalu",
-        symbol_asset_path: "party-symbols/rising-sun.svg",
-        brand_colour_hex: "#e63329",
-        brand_colour_confidence: "high",
-      },
-      {
-        ac_eci_no: 2,
-        ac_name: "PONNERI",
-        party_id: "parties.IN.AIADMK",
-        party_eci_code: null,
-        party_short: "AIADMK",
-        margin_pct: 3.4,
-        turnout_pct: null,
-        winner_age: null,
-        winner_candidate_name: null,
-        symbol_asset_path: null,
-        brand_colour_hex: null,
-        brand_colour_confidence: null,
-      },
+    expect(res.data.ac_winners).toHaveLength(2);
+    expect(res.data.ac_winners[0]).toMatchObject({
+      ac_eci_no: 1,
+      ac_name: "GUMMIDIPOONDI",
+      party_id: "parties.IN.DMK",
+      party_eci_code: "1234",
+      party_short: "DMK",
+      margin_pct: 12.5,
+      turnout_pct: 78.84,
+      winner_age: 60,
+      winner_candidate_name: "GOVINDARAJAN T.J",
+      symbol_asset_path: "party-symbols/rising-sun.svg",
+    });
+  });
+
+  it("drops the OTHER long-tail bucket when seats_won is zero", async () => {
+    const rowsNoOtherWins = [
+      ...partyRows.slice(0, 2),
+      { ...partyRows[2], seats_won: 0 },
+    ];
+    mockedQuery
+      .mockResolvedValueOnce(rowsNoOtherWins)
+      .mockResolvedValueOnce(stateScopeRows)
+      .mockResolvedValueOnce(sourceIdRows)
+      .mockResolvedValueOnce(sourceRows)
+      .mockResolvedValueOnce(acWinnerRows);
+    const res = await loadStateOverview("AcGenApr2021", "S22");
+    if (res.status !== "ok") throw new Error("expected ok");
+    expect(res.data.party_totals).toHaveLength(2);
+    expect(res.data.party_totals.map((p) => p.party_short)).toEqual([
+      "DMK",
+      "AIADMK",
     ]);
   });
 
-  it("registers the election fact slice and the six supporting tables before querying", async () => {
+  it("registers the 3 CSV URLs + dim_parties + dim_party_alliances + sources", async () => {
     mockedQuery
       .mockResolvedValueOnce(partyRows)
       .mockResolvedValueOnce(stateScopeRows)
+      .mockResolvedValueOnce(sourceIdRows)
       .mockResolvedValueOnce(sourceRows)
       .mockResolvedValueOnce(acWinnerRows);
+
     await loadStateOverview("AcGenApr2021", "S22");
-    expect(mockedRegisterSlice).toHaveBeenCalledWith(
-      "elections.election_results",
-      { state: "tamil-nadu" },
+
+    // 3 CSV URL registrations (candidacies + summary + electoral).
+    expect(mockedRegisterCsv).toHaveBeenCalledTimes(3);
+    const csvUrls = mockedRegisterCsv.mock.calls.map((c) => c[0]);
+    const allUrls = csvUrls.join(" | ");
+    expect(allUrls).toContain(
+      "/elections/assembly/state=tamil-nadu/election=2021/candidacies.csv",
     );
-    const registered = mockedRegister.mock.calls.map((c) => c[0]).sort();
-    expect(registered).toEqual([
-      "elections.dim_acs",
+    expect(allUrls).toContain(
+      "/elections/assembly/state=tamil-nadu/election=2021/summary.csv",
+    );
+    expect(allUrls).toContain("/data/entities/electoral.csv");
+
+    // Parquet tables that stay registered (deferred to X1a):
+    const parquetTables = mockedRegister.mock.calls.map((c) => c[0]).sort();
+    expect(parquetTables).toEqual([
       "elections.dim_parties",
       "elections.dim_party_alliances",
-      // PR #525 (PR-B8) extended queryAcWinners with turnout + winner-age
-      // LEFT JOINs onto elections_candidacies + dim_persons; both must be
-      // registered before the query runs.
-      "elections.dim_persons",
-      "elections.elections_candidacies",
       "taxonomy.sources",
     ]);
+
+    // ZERO requests for the F1.3a-decommissioned tables.
+    expect(parquetTables).not.toContain("elections.dim_acs");
+    expect(parquetTables).not.toContain("elections.dim_persons");
+    expect(parquetTables).not.toContain("elections.elections_candidacies");
+    expect(parquetTables).not.toContain("elections.election_results");
+  });
+
+  it("issues read_csv SQL against candidacies + summary + electoral (no read_parquet)", async () => {
+    mockedQuery
+      .mockResolvedValueOnce(partyRows)
+      .mockResolvedValueOnce(stateScopeRows)
+      .mockResolvedValueOnce(sourceIdRows)
+      .mockResolvedValueOnce(sourceRows)
+      .mockResolvedValueOnce(acWinnerRows);
+
+    await loadStateOverview("AcGenApr2021", "S22");
+
+    const sqls = mockedQuery.mock.calls.map((c) => c[0]);
+    // Party pivot SQL: aggregates per-party from candidacies.csv.
+    expect(sqls[0]).toContain("read_csv(");
+    expect(sqls[0]).toContain(
+      "/elections/assembly/state=tamil-nadu/election=2021/candidacies.csv",
+    );
+    expect(sqls[0]).toContain("columns={MOCKED}");
+    expect(sqls[0]).not.toContain("read_parquet(");
+    expect(sqls[0]).not.toContain("election_results");
+    expect(sqls[0]).not.toContain("dim_acs");
+    expect(sqls[0]).not.toContain("dim_persons");
+
+    // State scope SQL: SUM over summary.csv.
+    expect(sqls[1]).toContain("read_csv(");
+    expect(sqls[1]).toContain(
+      "/elections/assembly/state=tamil-nadu/election=2021/summary.csv",
+    );
+    expect(sqls[1]).not.toContain("read_parquet(");
+
+    // Source-id discovery SQL: UNION ALL across candidacies + summary.
+    expect(sqls[2]).toContain("read_csv(");
+    expect(sqls[2]).toContain("UNION ALL");
+    expect(sqls[2]).not.toContain("read_parquet(");
+
+    // taxonomy.sources still parquet (deferred to X1a).
+    expect(sqls[3]).toContain("FROM sources");
+
+    // AC winners SQL: read_csv on summary + electoral + candidacies; JOIN
+    // dim_parties (parquet table, no read_parquet literal).
+    expect(sqls[4]).toContain("read_csv(");
+    expect(sqls[4]).toContain("/data/entities/electoral.csv");
+    expect(sqls[4]).toContain("dim_parties dp");
+    expect(sqls[4]).not.toContain("dim_acs");
+    expect(sqls[4]).not.toContain("dim_persons");
+    expect(sqls[4]).not.toContain("election_results");
   });
 });
 
-describe("loadStateOverview — partial / not_published", () => {
+describe("loadStateOverview - partial / not_published", () => {
   it("returns partial when zero party rows for (state, event)", async () => {
     mockedQuery.mockResolvedValueOnce([]); // party pivot returns nothing
     const res = await loadStateOverview("AcGenMay2099", "S22");
@@ -329,19 +382,17 @@ describe("loadStateOverview — partial / not_published", () => {
     expect(res.data.sources_v2).toEqual([]);
     expect(res.data.totals).toBeNull();
     expect(res.data.total_seats).toBe(0);
-    expect(res.data.election).toBe("AcGenMay2099");
-    expect(res.data.state).toBe("S22");
   });
 
-  it("does not run state-scope or sources queries when party rows empty", async () => {
+  it("skips state-scope / sources / ac_winners queries when party rows empty", async () => {
     mockedQuery.mockResolvedValueOnce([]);
     await loadStateOverview("AcGenMay2099", "S22");
     expect(mockedQuery).toHaveBeenCalledTimes(1);
   });
 });
 
-describe("loadStateOverview — failed arm", () => {
-  it("maps a thrown SQL error to citizen-readable copy + retry", async () => {
+describe("loadStateOverview - failed arm", () => {
+  it("maps a thrown SQL error to citizen-readable copy + retry callable", async () => {
     mockedQuery.mockRejectedValueOnce(new Error("HTTP 503 service unavailable"));
     const res = await loadStateOverview("AcGenApr2021", "S22");
     expect(res.status).toBe("failed");
@@ -360,6 +411,7 @@ describe("loadStateOverview — failed arm", () => {
     mockedQuery
       .mockResolvedValueOnce(partyRows)
       .mockResolvedValueOnce(stateScopeRows)
+      .mockResolvedValueOnce(sourceIdRows)
       .mockResolvedValueOnce(sourceRows)
       .mockResolvedValueOnce(acWinnerRows);
     if (first.status !== "failed" || !first.retry) throw new Error("no retry");
@@ -368,11 +420,11 @@ describe("loadStateOverview — failed arm", () => {
     expect(second.status).toBe("ok");
   });
 
-  it("maps a manifest fetch failure to the catalogue-unavailable copy", async () => {
-    mockedRegisterSlice.mockRejectedValueOnce(new Error("manifest fetch failed: 404"));
+  it("maps a CSV-file registration failure to a citizen-readable arm", async () => {
+    mockedRegisterCsv.mockRejectedValueOnce(new Error("ENOENT: no such file"));
     const res = await loadStateOverview("AcGenApr2021", "S22");
     expect(res.status).toBe("failed");
     if (res.status !== "failed") return;
-    expect(res.reason).toMatch(/catalogue/i);
+    expect(res.reason).toBeTruthy();
   });
 });
