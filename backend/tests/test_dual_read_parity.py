@@ -326,3 +326,162 @@ def test_datapoint_sample_parity(
         f"{indicator_id} value-sum parity: parquet={parquet_sum} csv={csv_sum} "
         f"(rel diff {rel_diff:.3e})"
     )
+
+
+# -----------------------------------------------------------------------------
+# Assertion 4 (X1a-followup): per-family row counts + key-domain parity for
+#                              ac_crosswalk (the X1a-followup-flipped surface)
+# -----------------------------------------------------------------------------
+
+
+def test_ac_crosswalk_row_count_match() -> None:
+    """X1a-followup parity assertion #1 (parent plan 22.6).
+
+    The ac-crosswalk view-model now reads ``ac_crosswalk.csv`` inline
+    (state_entity_id = slug form, e.g. ``tamil-nadu``). The parquet
+    half stays on disk for X1b deletion; both formats MUST agree on
+    row count for the rip-loop duration.
+    """
+    parquet = REPO_ROOT / "datasets" / "taxonomy" / "ac_crosswalk.parquet"
+    csv = REPO_ROOT / "datasets" / "data" / "entities" / "ac_crosswalk.csv"
+    if not _exists(parquet, csv):
+        pytest.skip("ac_crosswalk parquet or CSV absent")
+
+    parquet_count = duckdb.sql(
+        f"SELECT COUNT(*) FROM read_parquet('{parquet.as_posix()}')",
+    ).fetchone()[0]
+    csv_count = duckdb.sql(
+        f"SELECT COUNT(*) FROM read_csv('{csv.as_posix()}', header=true)",
+    ).fetchone()[0]
+
+    assert parquet_count == csv_count, (
+        f"ac_crosswalk row-count parity: parquet={parquet_count} "
+        f"csv={csv_count}"
+    )
+
+
+def test_ac_crosswalk_per_state_eci_no_overlap() -> None:
+    """X1a-followup parity assertion #2: the per-state set of
+    ``(eci_no, lgd_ac_id)`` pairs MUST be identical between parquet
+    (``state_code`` in ECI form like ``S22``) and CSV
+    (``state_entity_id`` in slug form like ``tamil-nadu``).
+
+    Tests TN (S22 / tamil-nadu) as the canonical anchor - the same
+    state every other oracle file uses for cross-state smoke. The
+    re-key is the only known shape difference between the two
+    formats; the citizen-facing payload (eci_no -> lgd_ac_id map) is
+    the contract that ac-crosswalk.ts depends on.
+    """
+    parquet = REPO_ROOT / "datasets" / "taxonomy" / "ac_crosswalk.parquet"
+    csv = REPO_ROOT / "datasets" / "data" / "entities" / "ac_crosswalk.csv"
+    if not _exists(parquet, csv):
+        pytest.skip("ac_crosswalk parquet or CSV absent")
+
+    parquet_pairs = {
+        (int(eci_no), int(lgd_ac_id))
+        for eci_no, lgd_ac_id in duckdb.sql(
+            f"""
+            SELECT eci_no, lgd_ac_id
+            FROM read_parquet('{parquet.as_posix()}')
+            WHERE state_code = 'S22'
+              AND eci_no IS NOT NULL
+              AND lgd_ac_id IS NOT NULL
+            """,
+        ).fetchall()
+    }
+    csv_pairs = {
+        (int(eci_no), int(lgd_ac_id))
+        for eci_no, lgd_ac_id in duckdb.sql(
+            f"""
+            SELECT eci_no, lgd_ac_id
+            FROM read_csv('{csv.as_posix()}', header=true)
+            WHERE state_entity_id = 'tamil-nadu'
+              AND eci_no IS NOT NULL
+              AND lgd_ac_id IS NOT NULL
+            """,
+        ).fetchall()
+    }
+    only_parquet = parquet_pairs - csv_pairs
+    only_csv = csv_pairs - parquet_pairs
+    assert not only_parquet and not only_csv, (
+        f"ac_crosswalk S22/tamil-nadu (eci_no, lgd_ac_id) divergence: "
+        f"only-parquet={sorted(only_parquet)[:5]} (total {len(only_parquet)}) | "
+        f"only-csv={sorted(only_csv)[:5]} (total {len(only_csv)})"
+    )
+
+
+# -----------------------------------------------------------------------------
+# Assertion 5 (X1a-followup): per-constituency summary.csv vs
+#                              election_results.parquet existence parity
+#                              for a sampled assembly cohort
+# -----------------------------------------------------------------------------
+
+
+def test_summary_csv_per_ac_existence_tn_2016() -> None:
+    """X1a-followup parity assertion #3 (parent plan 22.6).
+
+    Tamil Nadu 2016 assembly summary.csv is the deepest non-2021
+    cohort with both formats; assert per-AC count parity. The
+    parquet entity_id (``IN-S22-AC-2008-<eci_no>``) is shaped
+    differently from the CSV entity_id
+    (``IN-AC-2008-tamil-nadu-<lgd_ac_id>``); the binding parity is
+    the count of ACs in the cohort (TN 2016 = 234 ACs). Each
+    summary.csv row also MUST carry a non-null entity_id (FK to
+    electoral.csv) so the per-AC binding survives the re-key.
+
+    Why TN 2016 in addition to TN 2021 (assertion #1): catches
+    parity drift introduced by any future B2b summary rewrite that
+    fixes one election year but breaks an older one.
+    """
+    parquet = (
+        REPO_ROOT
+        / "datasets"
+        / "elections"
+        / "state=tamil-nadu"
+        / "election_results.parquet"
+    )
+    summary_csv = (
+        REPO_ROOT
+        / "datasets"
+        / "elections"
+        / "assembly"
+        / "state=tamil-nadu"
+        / "election=2016"
+        / "summary.csv"
+    )
+    if not _exists(parquet, summary_csv):
+        pytest.skip(
+            "TN 2016 parquet or CSV summary absent; "
+            "dual-read-parity not runnable on this machine",
+        )
+
+    parquet_count = duckdb.sql(
+        f"""
+        SELECT COUNT(DISTINCT entity_id)
+        FROM read_parquet('{parquet.as_posix()}')
+        WHERE period_label = 'AcGenMay2016'
+          AND indicator_id = 'ac-winner-candidate-id'
+        """,
+    ).fetchone()[0]
+    if parquet_count == 0:
+        pytest.skip("AcGenMay2016 ac-winner-candidate-id rows absent in parquet")
+
+    csv_rows = duckdb.sql(
+        f"""
+        SELECT entity_id
+        FROM read_csv('{summary_csv.as_posix()}', header=true)
+        """,
+    ).fetchall()
+    assert csv_rows, "TN 2016 summary.csv has zero rows"
+
+    assert len(csv_rows) == parquet_count, (
+        f"TN 2016 per-AC count parity: parquet={parquet_count} "
+        f"csv={len(csv_rows)}"
+    )
+
+    # Every row MUST advertise a non-null entity_id (FK to electoral.csv)
+    # so the per-AC binding survives the re-key.
+    null_entities = [row for row, in csv_rows if not row]
+    assert not null_entities, (
+        f"TN 2016 summary.csv has {len(null_entities)} rows with null entity_id"
+    )
