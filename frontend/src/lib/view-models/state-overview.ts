@@ -46,6 +46,10 @@ import {
   verificationMethodRank,
   type SourceV2Row,
 } from "../source-list-v2";
+import {
+  assertSeatTallyInvariant,
+  type SeatTallyParty,
+} from "../charts/count-seats";
 
 export interface AcWinner {
   ac_eci_no: number;
@@ -164,6 +168,7 @@ async function runQueries(
   state_code: string,
 ): Promise<{
   parties: PartyRow[];
+  acCount: number;
   stateScope: StateScopeRow | null;
   sources: SourceJoinRow[];
   acWinners: AcWinnerRow[];
@@ -250,8 +255,24 @@ async function runQueries(
   const parties = await query<PartyRow>(partySql);
 
   if (parties.length === 0) {
-    return { parties, stateScope: null, sources: [], acWinners: [] };
+    return { parties, acCount: 0, stateScope: null, sources: [], acWinners: [] };
   }
+
+  // E5 (plan section 25.6a): source `total_seats` from a SEPARATE COUNT
+  // over summary.csv (one row per AC, the canonical winners table) so the
+  // seats-invariant assertion downstream is meaningful. If we summed
+  // `party_totals.seats_won` here, the assertion would be trivially true
+  // (sum == sum). Sourcing `total_seats` independently means a future bug
+  // in EITHER feed (party-side fan-out, or summary-side row loss) trips
+  // the assertion at the view-model boundary.
+  const acCountSql = `
+    SELECT COUNT(DISTINCT entity_id) AS ac_count
+    FROM read_csv('${sumUrl}', ${sumClause})
+  `;
+  const acCountRows = await query<{ ac_count: number | string | bigint | null }>(
+    acCountSql,
+  );
+  const acCount = Number(acCountRows[0]?.ac_count ?? 0);
 
   // State-scope totals: SUM electors / votes_polled across summary.csv
   // (one row per AC) + weighted-average turnout. summary.electors /
@@ -336,7 +357,7 @@ async function runQueries(
   `;
   const acWinners = await query<AcWinnerRow>(acWinnersSql);
 
-  return { parties, stateScope, sources, acWinners };
+  return { parties, acCount, stateScope, sources, acWinners };
 }
 
 function toAcWinners(rows: AcWinnerRow[]): AcWinner[] {
@@ -368,6 +389,7 @@ function assembleResult(
   state_code: string,
   rows: {
     parties: PartyRow[];
+    acCount: number;
     stateScope: StateScopeRow | null;
     sources: SourceJoinRow[];
     acWinners: AcWinnerRow[];
@@ -408,7 +430,30 @@ function assembleResult(
       vote_share_pct: num(r.vote_share_pct),
     }));
 
-  const total_seats = party_totals.reduce((s, p) => s + p.seats_won, 0);
+  // E5 (plan section 25.6a): `total_seats` is the COUNT(DISTINCT entity_id)
+  // over summary.csv (canonical winners table; one row per AC), NOT the
+  // sum of `party_totals.seats_won`. The two paths MUST agree -
+  // assertSeatTallyInvariant below catches any future drift (alliance JOIN
+  // fan-out, summary-row loss, etc.) at the view-model boundary.
+  const total_seats = rows.acCount;
+
+  // Contract gate: sum(seats_won across parties INCLUDING the 'OTHER'
+  // bucket if it has wins) MUST equal total_seats. We construct the
+  // SeatTally with `short_name_key` as the synthetic party_id (always
+  // non-null; 'OTHER' for the unattributed bucket) so the assertion
+  // receives a coalesced tally even when the dim_parties JOIN missed.
+  // Per plan section 25.6a: "fail-fast, fix the join, never silently
+  // halve". Pinned by the seats-invariant-test gate (section 22.6).
+  const tally_parties: SeatTallyParty[] = rows.parties
+    .filter((r) => num(r.seats_won) > 0)
+    .map((r) => ({
+      party_id: r.party_id ?? r.short_name_key,
+      seats_won: num(r.seats_won),
+    }));
+  assertSeatTallyInvariant(
+    { total_seats, parties: tally_parties },
+    `state-overview:${state_code}:${event}`,
+  );
 
   const sources: SourceRef[] = rows.sources
     .filter((s) => !!s.url_main)

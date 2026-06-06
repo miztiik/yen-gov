@@ -8,6 +8,7 @@
 // D'Hondt, Sainte-Laguë) are sketched in psephlab.md for v2+.
 
 import type { AcOutcome, CountingRule, PartyResult, SeatAllocation, Tallies } from "../types";
+import { assertSeatTallyInvariant } from "../../charts/count-seats";
 
 function tally_winner(candidates: { votes: number; name: string }[]):
   | { idx: number; runner_up_idx: number | null }
@@ -123,6 +124,24 @@ export const fptp: CountingRule = {
         b.seats_won - a.seats_won ||
         b.votes - a.votes ||
         a.party_short.localeCompare(b.party_short),
+    );
+
+    // E5 contract gate (plan section 25.6a): sum(seats_won across parties)
+    // MUST equal by_ac.length (the FPTP definition: one seat per AC). Any
+    // future regression (e.g. a mutation that double-attributes a winner
+    // to two parties) trips here fail-fast at the engine boundary, before
+    // ParliamentArc / SeatDonut / RacesBoard ever see the tally. NOTA-only
+    // ACs surface as a non-NOTA highest fallback above, so they DO count
+    // toward both sides of the equality.
+    assertSeatTallyInvariant(
+      {
+        total_seats: by_ac.length,
+        parties: by_party.map((p) => ({
+          party_id: p.party_id,
+          seats_won: p.seats_won,
+        })),
+      },
+      "psephlab:fptp",
     );
 
     return { by_party, by_ac, total_votes };
