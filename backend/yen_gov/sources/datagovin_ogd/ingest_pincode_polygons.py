@@ -35,10 +35,11 @@ Pipeline (one read-through of the KMZ):
 6. Per-state GeoJSON write — sorted by pincode for byte-determinism,
    compact JSON (``separators=(",", ":")``), ``ensure_ascii=False`` so
    Indic office names round-trip without escape noise.
-7. ``compile_to_parquet(..., merge_with_existing=True)`` — UPSERTs the
-   per-state + unkeyed layer rows into ``boundary_layers.parquet`` and
-   the single Department-of-Posts citation row into
-   ``sources.parquet``. Other adapters' rows are preserved.
+7. ``compile_to_parquet(..., merge_with_existing=True)`` -- UPSERTs the
+   per-state + unkeyed layer rows into ``boundary_layers.parquet``.
+   Other adapters' rows are preserved. The Department-of-Posts citation
+   row lives in ``datasets/data/entities/source.csv`` (seeded once via
+   the B2a/source_csv path, not per ingest).
 
 Determinism: a re-run against the byte-identical KMZ produces
 byte-identical GeoJSON shards AND a byte-identical

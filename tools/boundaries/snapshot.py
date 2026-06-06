@@ -1194,14 +1194,13 @@ def main(argv: list[str] | None = None) -> int:
         all_rows.extend(snapshot_one(e, datasets_root, raw_root))
 
     print(f"\nemitted {len(all_rows)} layer rows", flush=True)
-    n_layers, n_sources = compile_to_parquet(
+    n_layers = compile_to_parquet(
         all_rows,
         datasets_root,
         merge_with_existing=args.preserve_existing,
     )
     print(
-        f"compiled to parquet: {n_layers} boundary_layers; "
-        f"sources upserted (total now {n_sources})",
+        f"compiled to parquet: {n_layers} boundary_layers",
         flush=True,
     )
 

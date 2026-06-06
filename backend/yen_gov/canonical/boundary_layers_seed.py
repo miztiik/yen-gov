@@ -10,12 +10,20 @@ Outputs:
 
 - ``datasets/boundaries/boundary_layers.parquet`` -- one row per boundary
   geometry shard on disk (15 columns; see ``boundary-layers.schema.json``
-  v1.0). FK ``source_id`` resolves to ``taxonomy/sources.parquet``.
-- Side effect: UPSERT every row in ``BOUNDARY_SOURCES`` (8 today,
-  post-C.4.a adds ``ramseraph_bhuvan_jk_villages`` for the J&K
-  Census-2011 village cadastre) into
-  ``datasets/data/entities/source.csv`` so every boundary row's
-  ``source_id`` resolves to a real ledger entry.
+  v1.0). FK ``source_id`` resolves to ``datasets/data/entities/source.csv``.
+
+Post-B3-pt2 (2026-06-06): the legacy side-effect of UPSERTing the 8
+boundary source rows into ``datasets/taxonomy/sources.parquet`` was
+removed. X1b retired ``sources.parquet`` (PR #814); the citation ledger
+is now ``datasets/data/entities/source.csv`` and the 8 boundary triples
+are seeded there once via the B2a/source_csv path. ``BOUNDARY_SOURCES``
++ ``BOUNDARY_SOURCE_ID_BY_NICKNAME`` + ``BOUNDARY_SOURCE_ID_BY_TRIPLE``
+stay because callers (snapshot.py, lift_*.py, ingest_pincode_polygons.py)
+look up source_id by nickname/triple and stamp it on every
+BoundaryLayerRow; the in-process FK gate in ``compile_to_parquet``
+(every row's source_id is in ``BOUNDARY_SOURCES``) still catches typos
+before any bytes hit disk. Cross-format FK closure against source.csv
+is enforced by the B1 fk-validator gate at the CSV write seam.
 
 T.0d role (2026-05-22, fused atomic): consolidates 115 sidecar files
 (73 ``.sources.json`` deprecated §12 v1.x + 39 ``.metadata.json`` + 2
@@ -395,59 +403,16 @@ BOUNDARY_SOURCE_ID_BY_TRIPLE: dict[tuple[str, str, str], str] = {
 
 
 # ----------------------------------------------------------------------
-# Upsert boundary sources into taxonomy/sources.parquet
-# ----------------------------------------------------------------------
-
-
-def upsert_boundary_sources(con: duckdb.DuckDBPyConnection) -> int:
-    """Idempotent INSERT-OR-REPLACE of every BOUNDARY_SOURCES row into the
-    in-memory ``sources`` DuckDB table.
-
-    Mirrors the office_holdings_seed pattern. Caller is responsible for
-    creating the ``sources`` table first (the canonical writer's
-    ``_load_existing_sources`` step) and for emitting the table back to
-    ``taxonomy/sources.parquet`` via ``_emit_sources`` afterwards.
-
-    Returns the number of rows upserted (= ``len(BOUNDARY_SOURCES)``,
-    7 today); the count is returned for orchestrator logging parity
-    with office_holdings_seed.compile_to_parquet.
-    """
-    upserted = 0
-    for row in BOUNDARY_SOURCES:
-        con.execute(
-            """
-            INSERT OR REPLACE INTO sources (
-                source_id, producer, title, vintage,
-                license, confidence_tier, is_issuing_authority,
-                verification_method, url_main, citation_full, notes
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """,
-            [
-                row.source_id,
-                row.producer,
-                row.title,
-                row.vintage,
-                row.license,
-                row.confidence_tier,
-                row.is_issuing_authority,
-                row.verification_method,
-                row.url_main,
-                row.citation_full,
-                row.notes,
-            ],
-        )
-        upserted += 1
-    return upserted
-
-
-# ----------------------------------------------------------------------
 # Compile to parquet (canonical emission seam)
 # ----------------------------------------------------------------------
 
 
 # DuckDB DDL mirrors the JSON Schema additionalProperties:false shape.
 # 18 columns -- 10 NOT NULL + 8 nullable. PK on layer_id; FK on source_id
-# is enforced at compile time by an EXISTS lookup against sources.parquet.
+# is enforced in-process via the BOUNDARY_SOURCES set (post-B3-pt2:
+# parquet-level EXISTS lookup against sources.parquet is gone; cross-CSV
+# closure is enforced downstream by the B1 fk-validator gate on
+# datasets/data/entities/source.csv).
 # 18th column `delimitation_vintage` added in schema v1.1 (2026-05-24,
 # PC layer ingest).
 _BOUNDARY_LAYERS_DDL = """
@@ -594,20 +559,18 @@ def compile_to_parquet(
     datasets_root: Path,
     *,
     merge_with_existing: bool = False,
-) -> tuple[int, int]:
-    """Emit boundary_layers.parquet + UPSERT taxonomy/sources.parquet.
+) -> int:
+    """Emit ``datasets/boundaries/boundary_layers.parquet``.
 
     Args:
         layer_rows: BoundaryLayerRow instances, one per boundary geometry
             shard on disk. Caller builds the list (snapshot.py during a
             fetch run; migrate_to_hive_layout.py during initial migration).
-            Empty list is permitted (writes a 0-row parquet + UPSERTs the 7
-            boundary sources, which is itself a valid contract surface --
-            consumers should not assume the file always has rows).
+            Empty list is permitted (writes a 0-row parquet, which is
+            itself a valid contract surface -- consumers should not
+            assume the file always has rows).
         datasets_root: path to ``datasets/``. The function writes:
             * ``boundaries/boundary_layers.parquet``
-            * ``taxonomy/sources.parquet`` (UPSERT of the 7 boundary
-              citation rows + preservation of all other adapter sources).
         merge_with_existing: when True, rows already present in the
             on-disk ``boundary_layers.parquet`` whose ``layer_id`` is NOT
             in ``layer_rows`` are preserved and re-emitted. Rows in
@@ -618,9 +581,19 @@ def compile_to_parquet(
             other 7 URLs).
 
     Returns:
-        ``(layer_count, source_count)`` for orchestrator logging.
-        ``layer_count`` reflects the final on-disk row count (i.e.
-        includes preserved rows when ``merge_with_existing=True``).
+        ``layer_count`` -- final on-disk row count (i.e. includes preserved
+        rows when ``merge_with_existing=True``). For orchestrator logging.
+
+    Post-B3-pt2 (2026-06-06): the sibling UPSERT into
+    ``datasets/taxonomy/sources.parquet`` was removed because X1b
+    (PR #814) retired that file. Boundary source citation rows live in
+    ``datasets/data/entities/source.csv``; the 8
+    ``(producer, title, vintage)`` triples are seeded there once via
+    the B2a/source_csv path, not per boundary-layers emit. The in-process
+    FK gate below still rejects a BoundaryLayerRow whose source_id is
+    not in ``BOUNDARY_SOURCES`` so typos still fail before any bytes
+    hit disk; cross-format FK closure against source.csv is enforced
+    by the B1 fk-validator gate at the CSV write seam.
 
     Invariants enforced at compile time:
         * Denominator transparency: every row's
@@ -630,8 +603,7 @@ def compile_to_parquet(
           gate: shrinking the dataset silently is the bug
           ``unkeyed_count`` exists to prevent).
         * FK integrity: every row's ``source_id`` MUST appear in
-          ``BOUNDARY_SOURCES`` (or be a previously-upserted source from
-          another adapter). Violation raises ValueError.
+          ``BOUNDARY_SOURCES``. Violation raises ValueError.
         * PK uniqueness: duplicate ``layer_id`` raises ValueError.
         * Sort stability: rows are sorted by ``layer_id`` before COPY so
           re-emitting a byte-identical input yields a byte-identical
@@ -671,11 +643,10 @@ def compile_to_parquet(
             )
 
     # ----- FK pre-check ----------------------------------------------
-    # Every layer's source_id must be one of the BOUNDARY_SOURCES rows or
-    # an existing source from another adapter. Pre-check against the
-    # known-boundary set first (cheap); the writer's downstream
-    # parquet-level FK check (across the union with existing sources)
-    # catches the rare cross-adapter case.
+    # Every layer's source_id must be one of the BOUNDARY_SOURCES rows.
+    # Adding a new boundary source requires extending SOURCE_NICKNAMES +
+    # BOUNDARY_SOURCES in the same commit AND seeding the matching row
+    # into datasets/data/entities/source.csv via the B2a/source_csv path.
     boundary_source_ids = {row.source_id for row in BOUNDARY_SOURCES}
     for row in rows:
         if row.source_id not in boundary_source_ids:
@@ -689,14 +660,10 @@ def compile_to_parquet(
     rows.sort(key=lambda r: r.layer_id)
 
     boundary_layers_out = datasets_root / "boundaries" / "boundary_layers.parquet"
-    sources_out = datasets_root / "taxonomy" / "sources.parquet"
-
     boundary_layers_out.parent.mkdir(parents=True, exist_ok=True)
-    sources_out.parent.mkdir(parents=True, exist_ok=True)
 
     con = duckdb.connect(":memory:")
     try:
-        # ----- boundary_layers -----------------------------------------
         con.execute(_BOUNDARY_LAYERS_DDL)
         if rows:
             con.executemany(
@@ -710,41 +677,10 @@ def compile_to_parquet(
             ) TO '{boundary_layers_out.as_posix()}' (FORMAT PARQUET)
             """
         )
-
-        # ----- sources UPSERT ------------------------------------------
-        con.execute(
-            """
-            CREATE TABLE sources (
-                source_id VARCHAR PRIMARY KEY,
-                producer VARCHAR NOT NULL,
-                title VARCHAR NOT NULL,
-                vintage VARCHAR NOT NULL,
-                license VARCHAR NOT NULL,
-                confidence_tier VARCHAR NOT NULL,
-                is_issuing_authority BOOLEAN NOT NULL,
-                verification_method VARCHAR NOT NULL,
-                url_main VARCHAR,
-                citation_full VARCHAR,
-                notes VARCHAR
-            )
-            """
-        )
-        if sources_out.is_file():
-            con.execute(
-                f"INSERT INTO sources SELECT * FROM read_parquet('{sources_out.as_posix()}')"
-            )
-        n_upserted = upsert_boundary_sources(con)
-        con.execute(
-            f"""
-            COPY (
-                SELECT * FROM sources ORDER BY source_id
-            ) TO '{sources_out.as_posix()}' (FORMAT PARQUET)
-            """
-        )
     finally:
         con.close()
 
-    return len(rows), n_upserted
+    return len(rows)
 
 
 __all__ = [
@@ -760,5 +696,4 @@ __all__ = [
     "SOURCE_NICKNAMES",
     "SimplificationAlgorithm",
     "compile_to_parquet",
-    "upsert_boundary_sources",
 ]
