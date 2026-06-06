@@ -14,16 +14,18 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 vi.mock("../duckdb", () => ({
   query: vi.fn(),
   registerCsvFile: vi.fn().mockResolvedValue(undefined),
+  registerCsvAsTable: vi.fn().mockResolvedValue("view"),
   registerSlice: vi.fn().mockResolvedValue("view"),
   registerTable: vi.fn().mockResolvedValue("view"),
 }));
 
-import { query, registerCsvFile, registerSlice, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerCsvFile, registerSlice, registerTable } from "../duckdb";
 import { executePlan } from "./execute-plan";
 import type { DuckDBPlan } from "./types";
 
 const queryMock = vi.mocked(query);
 const registerCsvMock = vi.mocked(registerCsvFile);
+const registerCsvAsTableMock = vi.mocked(registerCsvAsTable);
 const registerSliceMock = vi.mocked(registerSlice);
 const registerTableMock = vi.mocked(registerTable);
 
@@ -85,6 +87,7 @@ describe("executePlan — D-06 provenance discipline", () => {
   beforeEach(() => {
     queryMock.mockReset();
     registerCsvMock.mockReset().mockResolvedValue(undefined);
+    registerCsvAsTableMock.mockReset().mockResolvedValue("view");
     registerSliceMock.mockReset().mockResolvedValue("view");
     registerTableMock.mockReset().mockResolvedValue("view");
   });
@@ -142,9 +145,12 @@ describe("executePlan — D-06 provenance discipline", () => {
       { state: "tamil-nadu" },
       { viewName: "election_results" },
     );
-    expect(registerTableMock).toHaveBeenCalledWith(
+    // X1a: taxonomy.sources dispatches through registerCsvAsTable (not
+    // registerTable) per the executor's CSV_AS_TABLE_IDS dispatch set.
+    expect(registerCsvAsTableMock).toHaveBeenCalledWith("taxonomy.sources");
+    expect(registerTableMock).not.toHaveBeenCalledWith(
       "taxonomy.sources",
-      { viewName: "sources" },
+      expect.anything(),
     );
   });
 
