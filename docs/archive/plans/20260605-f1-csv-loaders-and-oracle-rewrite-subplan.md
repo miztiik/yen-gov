@@ -1,4 +1,4 @@
-> **Plan complete 2026-06-06**. F1 CSV-loaders + parity-oracle rewrite shipped as PRs #791 (F1.1 backend oracle) + #778 (F1.2 frontend seam) + #803 (F1.3a 3 view-models) + #806 (F1.3b 3 view-models) + #??? (F1.4 closure). Durable artifacts distilled into:
+> **Plan complete 2026-06-06**. F1 CSV-loaders + parity-oracle rewrite shipped as PRs #791 (F1.1 backend oracle) + #778 (F1.2 frontend seam) + #803 (F1.3a 3 view-models) + #806 (F1.3b 3 view-models) + #808 (F1.4 closure). Durable artifacts distilled into:
 > - [docs/architecture/frontend/data-loading.md](../../architecture/frontend/data-loading.md) section "CSV loader seam"
 > - [docs/architecture/backend/canonical-writer.md](../../architecture/backend/canonical-writer.md) section "Parity oracle"
 >
@@ -242,7 +242,7 @@ Per-row distillation map. Every closed row in this sub-plan is back-pointed to i
 | F1.2 frontend loader seam (`queryCsv` rename + helpers) | #778 | [docs/architecture/frontend/data-loading.md](../../architecture/frontend/data-loading.md) section "CSV loader seam" - Frontend loader seam |
 | F1.3a frontend view-model SQL flip (assembly-side 3) | #803 (stamp #804) | [docs/architecture/frontend/data-loading.md](../../architecture/frontend/data-loading.md) section "CSV loader seam" - Frontend view-model SQL flip |
 | F1.3b frontend view-model SQL flip (national + yenask + explore) | #806 (stamp #807) | [docs/architecture/frontend/data-loading.md](../../architecture/frontend/data-loading.md) section "CSV loader seam" - Frontend view-model SQL flip |
-| F1.4 closure (this PR) | #??? | parent ledger F1 row flipped to MERGED; this sub-plan archived; seam shape distilled to both subsystem docs |
+| F1.4 closure (this PR) | #808 | parent ledger F1 row flipped to MERGED; this sub-plan archived; seam shape distilled to both subsystem docs |
 
 Agent-only execution lessons recorded in `/memories/session/f1-3a-shipping.md`, `f1-3b-shipping.md` (F1.3 split rationale; canned-intent fixture re-target AcGenMay2026 -> AcGenApr2021; election_events triple-sync to preserve `test_csv_parquet_parity`). Per [docs/how-to/distill-a-plan.md](../../how-to/distill-a-plan.md), session memory is the right home for these (agent execution craft, not project knowledge).
 
