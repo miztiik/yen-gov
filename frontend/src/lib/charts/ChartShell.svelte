@@ -143,6 +143,22 @@
      *  loading-layout (e.g. multiple skeleton bands stacked to mimic
      *  the chart's final shape). */
     loading_slot?: Snippet;
+    /** E1 (parent plan section 25.2): mandatory time label for any
+     *  view whose data has a `time` axis OR fixed election vintage.
+     *  Renders in the header IMMEDIATELY UNDER the title and ABOVE
+     *  the source line / honesty banners. Use tabular-numeral token.
+     *
+     *  Snapshot example: "Assembly election 2023".
+     *  Series example:  "1977 - 2024" (or brushed extent when a
+     *  TimeControl is active).
+     *
+     *  Renderers MUST supply this for election views; null/undefined
+     *  skips the slot (genuinely timeless views like boundary-only
+     *  layers, which must say so explicitly in the title or
+     *  subtitle). The slot is rendered as a SIBLING below the
+     *  subtitle and ABOVE the honesty chip strip - chrome, not
+     *  tooltip, not legend footnote. */
+    time_label?: string | null;
   }
 
   const {
@@ -159,6 +175,7 @@
     empty_message = null,
     source_line,
     loading_slot,
+    time_label = null,
   }: Props = $props();
 
   // Closed-enum filter + canonical sort. The renderer never sees an
@@ -194,6 +211,14 @@
     </div>
     {#if subtitle}
       <p class="chart-shell__subtitle">{subtitle}</p>
+    {/if}
+    {#if time_label}
+      <p
+        class="chart-shell__time-label"
+        data-slot="time-label"
+      >
+        {time_label}
+      </p>
     {/if}
     {#if honesty_banners.length > 0}
       <ul
@@ -312,6 +337,17 @@
     margin: 0;
     font-size: 0.75rem;
     color: rgb(100 116 139); /* slate-500 */
+  }
+  .chart-shell__time-label {
+    /* E1 mandatory time chrome (parent plan section 25.2). Tabular-
+       numeral so digits align across snapshots and ranges. Sits
+       between subtitle and honesty chips; chrome, not legend. */
+    margin: 0;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--ink, rgb(15 23 42));
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.01em;
   }
   .chart-shell__honesty {
     list-style: none;
