@@ -391,3 +391,35 @@ The Playwright spec asserts the `yenask-computation` testid is visible and conta
 - Holy Law #9 (provenance is mandatory): [`docs/concepts/data-provenance.md`](../../concepts/data-provenance.md)
 - Production frontend overview: [overview.md](overview.md)
 - Sibling lab pattern (Psephlab): [psephlab.md](psephlab.md)
+
+## YA cutover (2026-06-06)
+
+The YA chunk per parent plan [`TODO/20260603-data-and-charting-platform-reset-plan.md`](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 22.5 retires the last two parquet reads in the lab's startup catalogue (`elections.dim_acs` + `elections.elections_candidacies`) and brings the executor's source-row coercer in line with the post-X1a 5-field `data/entities/source.csv` shape.
+
+**State enumeration** moved from `SELECT DISTINCT state_code FROM dim_acs` to an inline `read_csv('datasets/data/entities/electoral.csv', columns={...}) WHERE entity_kind='ac'` (typed via `csvColumnsClause`). Slug-form `state` (e.g. `tamil-nadu`) is read directly and inverted through `ECI_TO_LGD_SLUG` to recover the `eci_code` field on `CatalogueState`.
+
+**Election-period enumeration** moved from a JOIN of `dim_acs` + `elections_candidacies` to the existing `fetchElectionEvents()` helper at [`frontend/src/lib/election-events.ts`](../../../frontend/src/lib/election-events.ts) reading `datasets/taxonomy/election_events.json`. This is **Andre's deviation** from the literal plan-doc spec ("UNION ALL of N candidacies.csv URLs"), orchestrator-approved per [CLAUDE.md section 0a](../../../CLAUDE.md) authority assignment. Rationale: `election_events.json` is the 297-row hand-curated authoritative catalogue of which elections happened where (covering 37 states/UTs back to 1971 in the Tamil Nadu case). Sourcing election periods from the catalogue rather than reconstructing them from a fact-table aggregate honours D-04 (the catalogue IS the catalogue; no fact-scan) more cleanly than the literal interpretation, with zero new URL-enumeration burden and the same constraint surface for the LLM. Backed by the existing `test_election_events_catalogue_matches_backend_registry` parity oracle.
+
+**Catalogue allowlist** (`CATALOGUE_QUERY_ALLOWLIST` in [`semantic-catalogue.ts`](../../../frontend/src/lib/yenask/semantic-catalogue.ts)) shrinks from 5 to 3 entries: `sources`, `dim_parties`, `electoral`. The retired entries (`dim_acs`, `elections_candidacies`) join the `FORBIDDEN_TABLES` set in `semantic-catalogue.no-fact-scan.test.ts` so any future re-introduction red-fires.
+
+**Source-row sentinel coercion**. The X1a `registerCsvAsTable("taxonomy.sources")` seam projects 4 of the 6 Zod-strict source fields as `NULL` (`license`, `confidence_tier`, `is_issuing_authority`, `verification_method`) because the binding `data/entities/source.csv` shape is exactly `{source_id, owner, title, vintage, url}` per the parent plan section 20.3 / O3 doctrine. The `coerceSourceRow` boundary in [`execute-plan.ts`](../../../frontend/src/lib/yenask/execute-plan.ts) now fills sentinels at the boundary:
+
+| Field | Sentinel | Why |
+| --- | --- | --- |
+| `license` | `"unknown-public"` | The explicit "we know it's a public source but cannot pin a licence" variant; OWID-grade honesty preferred over a falsely-confident default. |
+| `confidence_tier` | `"bronze"` | Lowest tier; signals "no confidence claim attached to this row". |
+| `is_issuing_authority` | `false` | We did not verify the producer is the official issuing authority; default conservative. |
+| `verification_method` | `"editorial"` | We did not record how the row was verified; "editorial" is the catch-all for unattested-method rows. |
+
+These match the values `synthesiseUnattestedSource()` uses for the empty-provenance fallback, so an X1a-NULL source and a fully-synthesised unattested source render similarly (both clearly distinguishable from a gold-tier official-issuing-authority row).
+
+**Architectural locks preserved** per Andre's prior consult:
+
+1. `device: "wasm"` pin on q4f16 SmolLM2 — unchanged.
+2. Per-turn extraction stateless (D-18) — unchanged.
+3. `source_strip` Zod `min(1)` (Holy Law #9; D-06) — unchanged; the sentinel coercer satisfies the schema without weakening it.
+4. Provenance JOIN constructed in TypeScript, not generated — unchanged.
+5. [ADR-0038](../../archive/decisions/0038-yenask-two-stage-llm-pipeline-rejected.md) two-LLM rejection — unchanged; still in force.
+
+**Slice E (ADR-0039) impact = zero**. `CONCEPT_CATALOGUE` in [`catalogue-embed.ts`](../../../frontend/src/lib/yenask/catalogue-embed.ts) is a hand-authored 4-entry array; the embedding INPUT is independent of any parquet/CSV row count. No model registry change. No retrieval-pipeline change. No second LLM.
+
