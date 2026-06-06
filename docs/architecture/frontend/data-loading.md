@@ -488,14 +488,6 @@ Renderers MUST handle all four arms. Per D17, the `failed` arm renders plain-lan
 
 ### The harness
 
-A dev-only Svelte page at `/dev/duckdb-harness` ([`frontend/src/routes/DuckDbHarness.svelte`](../../../frontend/src/routes/DuckDbHarness.svelte)) drives the DuckDB-WASM loader through three paths so the contract can be asserted in a real browser:
-
-1. **Real query** — boots DuckDB-WASM, registers `elections.election_results`, runs `SELECT COUNT(*)`. Proves the wasm + Arrow + HTTP `read_parquet` round-trip works end-to-end.
-2. **Forced manifest 404** — overrides `fetch` for `/data/manifest.json` to return 404. Asserts the catalogue-unavailable copy + Retry button.
-3. **Forced unknown table** — asks for a `table_id` not in the manifest. Asserts the dataset-not-available copy + Retry button.
-
-Playwright assertions live in [`frontend/e2e/duckdb-harness.spec.ts`](../../../frontend/e2e/duckdb-harness.spec.ts) and run on both `chromium` and `mobile-pixel-5` projects. The spec also asserts the failure copy does NOT contain stacky markers (`at `, `.js:`, `file://`, `Error:`) — that's the line the citizen-facing contract draws.
-
-The harness is **not** a citizen route — it lives under `/dev/` and is not linked from any other page. It exists purely to make the contract testable and to give the team a quick "is wasm working?" sanity check.
+Retired in X1a-followup (2026-06-06). The `/dev/duckdb-harness` Svelte page + `frontend/e2e/duckdb-harness.spec.ts` Playwright spec previously drove the DuckDB-WASM loader through three paths (real query, forced manifest 404, forced unknown table) so the catalogue-unavailable + dataset-not-available copy could be asserted in a real browser. Removed because the route was a sandbox over the legacy `registerTable` / `registerSlice` Parquet seam that X1b is about to delete whole; the LoaderResult contract above is exercised end-to-end by the per-feature smoke specs (`frontend/e2e/x1a-reader-flip-smoke.spec.ts`, `frontend/e2e/yenask.spec.ts`, `frontend/e2e/golden-path.spec.ts`).
 
 

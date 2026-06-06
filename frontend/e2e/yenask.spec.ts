@@ -14,8 +14,8 @@
 //
 // Per CLAUDE.md §15 + #13 this proves the lab actually exercises the
 // canonical long-format CSV end-to-end inside the browser. The
-// pageerror trap follows the duckdb-harness pattern: zero runtime
-// errors permitted.
+// pageerror trap is the standard zero-runtime-error guarantee.
+//
 
 import { test, expect } from "@playwright/test";
 import { attachPageErrorTrap } from "./_helpers";

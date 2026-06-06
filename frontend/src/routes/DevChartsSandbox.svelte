@@ -13,9 +13,9 @@
   //      first runtime exercise here.
   //
   // Doctrine:
-  //   - Dev-only route at /dev/charts-sandbox (mirrors
-  //     /dev/duckdb-harness — not citizen-discoverable; not linked
-  //     from the left rail).
+  //   - Dev-only route at /dev/charts-sandbox; not citizen-discoverable;
+  //     not linked from the left rail.
+  //
   //   - Fixture data is realistic-shaped but synthetic. Numbers are
   //     illustrative; this page MUST NOT be cited.
   //   - No new library dependency. The plan's Phase 6 specifically
@@ -505,8 +505,7 @@
       reviewers can sanity-check the renderer ↔ builder contract at
       runtime. <strong>Numbers on this page are illustrative only — do
       not cite.</strong> This route is not linked from the citizen UI
-      and ships behind the same /dev/* convention as
-      <code class="text-xs">/dev/duckdb-harness</code>.
+      and ships under the dev-only /dev/* convention.
     </p>
   </header>
 
