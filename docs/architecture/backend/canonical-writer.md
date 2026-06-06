@@ -1,6 +1,6 @@
 # Canonical CSV writer + validator (`yen_gov.canonical.csv_writer` + `csv_validator`)
 
-**Last Updated**: 2026-06-04
+**Last Updated**: 2026-06-06
 
 The canonical CSV writer is the sole entry point that persists observation rows into the long-format CSV store under `datasets/data/` (and `datasets/elections/**`). It is the write seam referenced by Holy Law #2 ("backend is the only writer to `datasets/`") and the contract surface every re-pointed ingest (B1.4-B1.6 waves) funnels through, replacing the historical `core/io.write_artifact` meadow-tier path.
 
@@ -106,6 +106,34 @@ Sub-plan [TODO/20260604-b2b5-elections-reingest-subplan.md](../../../TODO/202606
 | `All_States_GE.csv` (TCPD parliament) | `reingest/parliament_results.py` (5.4) | `elections/parliament/election=<yr>/{candidacies,summary}.csv` | country-wide; MANDATORY `state` column (pc_no restarts per state); PC bind |
 
 Binding doctrine (shared by both result axes): only the in-force 2008 delimitation (TCPD `DelimID` 4) is emitted, because its `Constituency_No` numbering is the one bound to `electoral.csv`; NOTA is excluded from candidacies (a ballot option, not a candidate, but its votes stay in the AC/PC-level turnout); `party_id` is null at v1 (the TCPD-internal `Party_ID` has no crosswalk into `parties.csv`); an unbindable constituency (state-reorganisation artefact or the small LGD-spine gap, e.g. Delhi which has no `electoral.csv` constituencies) is SKIPPED and surfaced in a per-stage coverage receipt under `datasets/_ops/`, never fabricated. The summary's `winner_share_pct` + runner-up + margin columns are nullable to admit an uncontested (single-candidate, unopposed) seat. `recompute_summary_row` is shared (imported by the parliament emitter) so the parity oracle `summary == recompute(candidacies)` holds identically on both axes. Each TCPD endpoint mints ONE `source_id` via `derive_source_id` (scalar per producer+endpoint+snapshot per ADR-0042 / OWID one-origin-per-snapshot), not one per year. Coverage reconciliation of the new CSV tree (`coverage.py`) is deferred to the F1 reader-flip (it is assembly/AC + legacy-parquet today); see [coverage.md](coverage.md).
+
+## Parity oracle (F1.1 - 2026-06-06, distilled in F1.4)
+
+`backend/tests/test_canonical_parity_oracle.py` is the post-CSV-cutover gate that pins per-AC FPTP winner against the frozen ground truth in `backend/tests/fixtures/canonical_winners_2026_05_19.json`. F1.1 (PR #791) flipped the SQL from a 4-way `read_parquet(...)` JOIN (`election_results.parquet` x `elections_candidacies.parquet` x `dim_persons.parquet` x `dim_acs.parquet`) to a per-(state, year) scan against:
+
+```text
+datasets/elections/assembly/state=<lgd-slug>/election=<yyyy>/candidacies.csv
+```
+
+The reader is a typed `read_csv(columns={...})` matching the `candidacies.csv` header shipped by B2b.5.x (17 columns including `entity_id`, `state`, `election_year`, `constituency_no`, `candidate_name`, `party_id`, `votes`, `vote_share_pct`, `position`, `result`, biographics, `candidate_type`, `source_id`). Sub-plan: [docs/archive/plans/20260605-f1-csv-loaders-and-oracle-rewrite-subplan.md](../../archive/plans/20260605-f1-csv-loaders-and-oracle-rewrite-subplan.md).
+
+### Path A backfill (mash from TCPD + parquet + LGD-spine)
+
+The user verdict on the fixture-vs-CSV drift surfaced by the initial rewrite was **A: backfill**, not relax the assertion. `tools/elections/backfill_from_legacy.py` extends `datasets/data/entities/electoral.csv` with synthetic gap-fill rows (entity_id pattern `IN-AC-2008-<state-slug>-eci<N>`; name lifted from `dim_acs.parquet`; reservation lifted from TCPD `Constituency_Type`) and then re-runs `assembly_results.emit_state_assembly()` per affected state. The previously-unbindable ACs bind via the now-complete electoral.csv FK lookup and ship as full candidacies + summary rows. The mashed CSV is the canonical source of truth from PR #791 onward; the fixture was re-anchored on TCPD-derived winners and re-keyed from `<event_id>/<eci_state_code>` (e.g. `AcGenApr2016/S03`) to `<event_id>/<lgd_state_slug>` (`AcGenApr2016/assam`) so the 22-entry ECI st_code map dropped out of the test entirely.
+
+### Fixture invariants
+
+- **Fixture key shape**: `<event_id>/<lgd_state_slug>` (e.g. `AcGenApr2016/assam`); winners is `{ac_eci_no: {name, party_short, votes}}`.
+- **Per-AC assertion**: ZERO tolerance. Max-votes candidate's `candidate_name` + `votes` + derived `party_short` must match the fixture byte-exact. NOTA is excluded by construction because `candidacies.csv` carries only registered candidates (NOTA totals live in `summary.csv`).
+- **Floor 34 -> 35** (`MIN_SLICES_FOR_NON_SKIP`): the post-Path-A corpus has 35 of the 41 fixture slices on disk; the floor rose from 34 once the Delhi 2020 slice was recovered via the LGD-spine extension.
+- **6 residue slices** in `_KNOWN_ABSENT_SLICES`: 5 AcGenMay2026/* (assam, kerala, tamil-nadu, west-bengal, puducherry - TCPD AE compilation vintage 2026-06-05 does not yet carry the 2026 assembly cycle) + 1 AcGenNov2023/rajasthan (TCPD AE compilation stops at 2021 for Rajasthan). These are documented genuine upstream gaps, not regressions.
+
+### Gates
+
+- `test_oracle_non_skip_gate` (per parent plan section 22.6 `oracle-non-skip`): hard FAILS if the per-slice run-set drops below 35. This is the false-green guard for the post-X1b world - a blanket `skipif csv absent` skip would mask a real deletion regression.
+- 35 `test_per_ac_fptp_winner_matches_fixture[<event_id>-<state_slug>]` parametrize cases: one per on-disk slice; together with the gate this is 36/36 pass byte-exact.
+
+Holy Law #7: the oracle reads the REAL on-disk CSV + a checked-in real-data fixture - no mocks. The Path A backfill tool (`tools/elections/backfill_from_legacy.py`) is committed for provenance + reproducibility per the `tools/` convention.
 
 ## Test surfaces
 
