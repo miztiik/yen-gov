@@ -27,20 +27,35 @@
 // What this does NOT assert
 // -------------------------
 // "Zero parquet requests of ANY kind" is intentionally NOT enforced.
-// The X1a-LEFTOVER consumers (election_results, dim_party_alliances,
-// dim_acs, elections_candidacies, dim_persons-via-allowlist,
-// boundary_layers, entities, ac_crosswalk, indicators) are still on
-// parquet by scope; they retire via B3/X1b. The PR body documents
-// these as expected residual reads.
+// X1a-LEFTOVER consumers still on parquet are listed under
+// SURVIVING_PARQUET_SUBSTRINGS below. X1b (this PR's preceding chunk)
+// deleted the 12 SAFE-TO-DELETE parquets from disk; their substrings
+// were moved into BANNED_PARQUET_SUBSTRINGS so the smoke fails loud if
+// any caller still emits a fetch for them.
 
 import { test, expect } from "@playwright/test";
 import { attachPageErrorTrap } from "./_helpers";
 
 let trap: { getErrors: () => string[] };
 
+// X1a + X1b deleted these parquets from disk; any request is a bug.
 const BANNED_PARQUET_SUBSTRINGS = [
+  // X1a-flipped
   "dim_parties.parquet",
   "taxonomy/sources.parquet",
+  // X1a-followup #811
+  "ac_crosswalk.parquet",
+  // X1b orphan deletes (F1.3b dropped JOIN; no surviving reader)
+  "dim_persons.parquet",
+  "dim_pcs.parquet",
+  "taxonomy/persons.parquet",
+  // X1b small taxonomy orphans (CSV at datasets/data/<name>.csv)
+  "election_events.parquet",
+  "methodology_breaks.parquet",
+  "topics.parquet",
+  "state_tiers.parquet",
+  "facet-axes.parquet",
+  "indicator_topic_tags.parquet",
 ] as const;
 
 interface RequestAudit {
@@ -51,15 +66,16 @@ interface RequestAudit {
   surviorParquet: string[];
 }
 
+// Still on parquet by scope; retire via YA-apply (semantic-catalogue)
+// + B3 (writer + dead-schemas) + later partial-X1b passes.
 const SURVIVING_PARQUET_SUBSTRINGS = [
   "election_results",
   "dim_party_alliances",
   "dim_acs",
   "elections_candidacies",
-  "dim_persons",
-  "dim_pcs",
   "boundary_layers",
-  "ac_crosswalk",
+  "entities.parquet",
+  "indicators.parquet",
 ] as const;
 
 function attachRequestAudit(page: import("@playwright/test").Page): RequestAudit {
