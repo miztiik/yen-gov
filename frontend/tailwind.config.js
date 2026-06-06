@@ -32,6 +32,17 @@ export default {
         "brand-green": "var(--brand-green)",
         "brand-chakra": "var(--brand-chakra)",
         "app-bar-bg": "var(--app-bar-bg)",
+        // E2 #800 + E3 (parent plan section 25.3, 25.4): neutral party
+        // token used for the unmapped-party pill, the recede treatment
+        // on the AC choropleth/cartogram, and the calm state-silhouette
+        // stroke. Mirror declared here so the app-tokens drift contract
+        // (frontend/src/contracts/app-tokens.test.ts) sees a Tailwind
+        // reference and the token can be reached as `bg-party-neutral`
+        // / `text-party-neutral-text` in markup if a citizen view ever
+        // wants it; today every consumer uses var(--party-neutral)
+        // directly (SVG stroke, Svelte style:background, etc.).
+        "party-neutral": "var(--party-neutral)",
+        "party-neutral-text": "var(--party-neutral-text)",
       },
       fontFamily: {
         "yen-sans": ["var(--font-sans)"],

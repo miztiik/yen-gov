@@ -49,6 +49,10 @@
     buildAcOpacities,
     type PartyFill,
   } from "./election-map-coloring";
+  import {
+    loadStateSilhouette,
+    type StateSilhouetteFeature,
+  } from "../state-silhouette";
 
   interface Props {
     /** ECI state code (e.g. "S13"). */
@@ -111,6 +115,22 @@
         });
       })
       .catch(() => (has_equal_seats = false));
+  });
+
+  // Parent plan section 25.4 (E3): single-state hex cartogram silhouette.
+  // Loaded the same way `StateAcMap` does (shared canonical state-boundary
+  // corpus via `loadStateSilhouette`), so both arms render off the same
+  // FeatureCollection without two separate fetches - the in-memory cache
+  // inside `state-silhouette.ts` collapses both into one decode. Stays
+  // null on the brief load window and on any state not represented in
+  // the boundary corpus; TileCartogram skips the layer in that case.
+  let silhouette_feature = $state<StateSilhouetteFeature | null>(null);
+  $effect(() => {
+    const sc = state_code;
+    silhouette_feature = null;
+    loadStateSilhouette(sc)
+      .then((f) => { if (state_code === sc) silhouette_feature = f; })
+      .catch(() => { if (state_code === sc) silhouette_feature = null; });
   });
 
   let layout = $state<TileLayoutRow[] | null>(null);
@@ -357,6 +377,7 @@
           {legend}
           {height}
           onSelect={onSelectUnit}
+          state_silhouette_feature={silhouette_feature}
         />
       {/if}
     </div>

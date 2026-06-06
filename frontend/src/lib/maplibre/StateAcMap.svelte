@@ -24,6 +24,10 @@
   import type { AcWinner } from "../view-models/state-overview";
   import { loadAcLgdLookup } from "../view-models/ac-crosswalk";
   import { mirrorLgdKeys } from "../elections/election-map-coloring";
+  import {
+    loadStateSilhouette,
+    type StateSilhouetteFeature,
+  } from "../state-silhouette";
 
   interface Props {
     state: string;
@@ -115,6 +119,36 @@
       .then((m) => { if (state_code === sc) lgd_lookup = m; })
       .catch(() => { if (state_code === sc) lgd_lookup = null; });
   });
+
+  // Parent plan section 25.4 (E3): load the active state's silhouette
+  // feature so MapChoropleth can stroke the state boundary above the
+  // AC fills. Uses the shared canonical state-boundary corpus
+  // (`boundaries/in/states/all.topojson`) via `loadStateSilhouette` -
+  // see that module for the no-new-fetch doctrine receipt. Null until
+  // the load resolves; null on a missing-crosswalk-row state. The
+  // choropleth renders normally during the load window; the silhouette
+  // appears once the feature is available.
+  let silhouette_feature = $state<StateSilhouetteFeature | null>(null);
+  $effect(() => {
+    const sc = state_code;
+    silhouette_feature = null;
+    loadStateSilhouette(sc)
+      .then((f) => { if (state_code === sc) silhouette_feature = f; })
+      .catch(() => { if (state_code === sc) silhouette_feature = null; });
+  });
+
+  // MapChoropleth wants a FeatureCollection (matching its maplibre
+  // GeoJSON source contract). Wrap the single feature here so the
+  // boundary always reads as "one state" even when other consumers
+  // (future cross-state surfaces) want to pass multiple features.
+  const outline_collection = $derived<GeoJSON.FeatureCollection | null>(
+    silhouette_feature
+      ? {
+          type: "FeatureCollection",
+          features: [silhouette_feature],
+        }
+      : null,
+  );
 
   // Dual-key the fills/opacities so the choropleth resolves identically
   // whether maplibre matches a polygon on lgd_ac_id (covered) or ac_no
@@ -295,6 +329,7 @@
     {height}
     canonical_join={canonical_join}
     highlight_key={highlight_lgd}
+    outline_features={outline_collection}
     tap_to_pin
     onSelect={on_select}
   />

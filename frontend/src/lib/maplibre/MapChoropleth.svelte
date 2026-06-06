@@ -134,6 +134,24 @@
      * non-AC layers (state names, PC) keep the single-property join.
      */
     canonical_join?: boolean;
+    /**
+     * Parent plan section 25.4 (E3): optional non-interactive outline drawn
+     * ABOVE the choropleth fills so the citizen instantly recognises which
+     * state the per-state map is showing. Caller passes a FeatureCollection
+     * containing the single state polygon (see `loadStateSilhouette` for the
+     * canonical source - reuses `boundaries/in/states/all.topojson`, no new
+     * fetch). When `null` / `undefined`, the layer is not added; existing
+     * choropleths (IndiaMap, drill-downs) keep their current chrome with
+     * zero behaviour change.
+     *
+     * Stroke = `var(--party-neutral)` (E2 #800 token, slate-300), width
+     * 1.5px, no fill, no hover/click handlers (`pointer-events` is moot on
+     * a maplibre vector layer with no `mousemove`/`click` binding, but the
+     * layer is also positioned ABOVE the highlight layers so it visually
+     * sits on top - per Jony verdict the silhouette must read as the
+     * dominant edge while internal AC borders stay hairline).
+     */
+    outline_features?: GeoJSON.FeatureCollection | null;
     onSelect?: (sel: FeatureSelection) => void;
     onHover?: (sel: FeatureSelection | null) => void;
   }
@@ -155,6 +173,7 @@
     pinch_to_drill = false,
     tap_to_pin = false,
     canonical_join = false,
+    outline_features = null,
     onSelect,
     onHover,
   }: Props = $props();
@@ -195,6 +214,13 @@
   // the halo, dark strokes on dark choropleth fills are hard to spot).
   const HIGHLIGHT_HALO_LAYER_ID = "yen-highlight-halo";
   const SOURCE_ID = "yen-src";
+  // Parent plan section 25.4 (E3): non-interactive state silhouette.
+  // Added only when `outline_features` is supplied; absent on
+  // national / drill-down maps. The line layer is drawn AFTER the
+  // fills + internal-border line layer so the calm-slate stroke sits
+  // on top visually.
+  const OUTLINE_SOURCE_ID = "yen-outline-src";
+  const OUTLINE_LAYER_ID = "yen-outline-line";
 
   // Build a maplibre `match` expression from the fills map. Numeric keys
   // (AC_NO) and string keys (state names) both work because `match` does
@@ -308,6 +334,68 @@
     }
   }
 
+  // Parent plan section 25.4 (E3): non-interactive state silhouette.
+  // Idempotent: every call to `applyOutline` either
+  //   (a) removes the outline source + layer if `outline_features` is
+  //       null (e.g. the caller cleared the prop), OR
+  //   (b) creates / updates them with the supplied FeatureCollection.
+  // No event bindings (no `mousemove` / `click` on OUTLINE_LAYER_ID)
+  // keeps the layer visually-only; click-through hits the fill layer
+  // underneath, which is what we want for the citizen's drill-in
+  // gestures.
+  //
+  // Reads the resolved `--party-neutral` CSS token at update-time so
+  // the stroke colour follows the running theme (the token lives in
+  // `frontend/src/app-tokens.css` per E2 #800).
+  function applyOutline(): void {
+    if (!map) return;
+    const hasSource = !!map.getSource(OUTLINE_SOURCE_ID);
+    if (!outline_features || outline_features.features.length === 0) {
+      if (map.getLayer(OUTLINE_LAYER_ID)) map.removeLayer(OUTLINE_LAYER_ID);
+      if (hasSource) map.removeSource(OUTLINE_SOURCE_ID);
+      return;
+    }
+    if (hasSource) {
+      map.getSource(OUTLINE_SOURCE_ID).setData(outline_features);
+    } else {
+      map.addSource(OUTLINE_SOURCE_ID, {
+        type: "geojson",
+        data: outline_features,
+      });
+    }
+    if (!map.getLayer(OUTLINE_LAYER_ID)) {
+      const stroke = readPartyNeutral();
+      map.addLayer({
+        id: OUTLINE_LAYER_ID,
+        type: "line",
+        source: OUTLINE_SOURCE_ID,
+        paint: {
+          "line-color": stroke,
+          "line-width": 1.5,
+          "line-opacity": 0.95,
+        },
+        layout: {
+          "line-cap": "round",
+          "line-join": "round",
+        },
+      });
+    } else {
+      map.setPaintProperty(OUTLINE_LAYER_ID, "line-color", readPartyNeutral());
+    }
+  }
+
+  function readPartyNeutral(): string {
+    if (typeof getComputedStyle === "undefined" || !container) {
+      return "#cbd5e1"; // slate-300 fallback (matches the token literal)
+    }
+    try {
+      const v = getComputedStyle(container).getPropertyValue("--party-neutral").trim();
+      return v || "#cbd5e1";
+    } catch {
+      return "#cbd5e1";
+    }
+  }
+
   // Recompute paint expressions on any prop change. Cheap — just a few
   // setPaintProperty calls, no source reload.
   $effect(() => {
@@ -317,6 +405,15 @@
     void hatch_unmapped;
     void canonical_join;
     repaint();
+  });
+
+  // Parent plan section 25.4 (E3): keep the outline layer in sync with
+  // the `outline_features` prop. Decoupled from `repaint()` because the
+  // payload is geometry not paint - `setData` / addLayer is correct,
+  // setPaintProperty is not.
+  $effect(() => {
+    void outline_features;
+    applyOutline();
   });
 
   // Pending-overlay projected pixel position. Re-projects on map move /
@@ -557,6 +654,11 @@
             const h = diagonalHatch();
             map.addImage(HATCH_IMAGE_ID, { width: h.width, height: h.height, data: h.data });
           }
+          // Parent plan section 25.4 (E3): add the state silhouette
+          // source + layer on load if the caller already supplied
+          // `outline_features` at mount. The reactive `$effect`
+          // handles every subsequent change.
+          applyOutline();
           // Keep the pending-overlay pixel coords pinned to the source
           // lng/lat as the user pans / zooms / the map animates a fit
           // (Phase 4 d2). `move` covers pan + zoom; `render` is the

@@ -13,6 +13,18 @@
   //
   // CLAUDE.md §0: no aria/role; visible affordances only. Hexes are real
   // <polygon> with pointer + keyboard-free click handlers.
+  //
+  // Parent plan section 25.4 (E3): optional faint state silhouette layer
+  // drawn BEHIND the hex grid for single-state cartograms (ElectionMap),
+  // so the citizen instantly recognises which state the tile board
+  // represents. Source = the SAME canonical `boundaries/in/states/all.topojson`
+  // the choropleth surface loads via `loadStateSilhouette` - one shared
+  // boundary corpus, no new fetch. The national cartogram
+  // (NationalElectionsAtlas) does not pass a silhouette feature; the
+  // layer is skipped.
+
+  import { geoMercator, geoPath, type GeoPermissibleObjects } from "d3-geo";
+  import type { Feature, Geometry, GeoJsonProperties } from "geojson";
 
   import type { TileRow } from "../view-models/election-tile-layout";
 
@@ -30,6 +42,17 @@
     legend?: LegendEntry[];
     onSelect?: (unit_id: string) => void;
     onHover?: (unit_id: string | null) => void;
+    /**
+     * Parent plan section 25.4 (E3): optional state silhouette feature.
+     * When supplied (single-state cartograms only), the renderer
+     * projects this feature via `d3-geo geoMercator().fitSize` onto
+     * the SAME viewBox the hex grid uses, then renders a slate-200
+     * `<path>` at 0.25 opacity UNDER the hexes so the citizen reads
+     * the rough state shape as a containing envelope. National
+     * cartograms (e.g. `NationalElectionsAtlas`) leave this null and
+     * the layer is skipped (back-compat).
+     */
+    state_silhouette_feature?: Feature<Geometry, GeoJsonProperties> | null;
   }
 
   let {
@@ -39,6 +62,7 @@
     legend = [],
     onSelect,
     onHover,
+    state_silhouette_feature = null,
   }: Props = $props();
 
   // Hex geometry (pointy-top, odd-r offset). `S` = centre-to-corner radius.
@@ -89,6 +113,29 @@
     return `0 0 ${w.toFixed(1)} ${h.toFixed(1)}`;
   });
 
+  // Parent plan section 25.4 (E3): the silhouette path. Projected via
+  // `geoMercator().fitSize` so the feature fills the same SVG viewBox
+  // the hex grid uses; the hexes float on top of the rough state
+  // envelope. Cartograms are by definition area-preserving, so this
+  // is "decor" - the silhouette is not pixel-aligned to any hex.
+  const silhouette_path = $derived.by(() => {
+    if (!state_silhouette_feature) return null;
+    const cols = bounds.maxQ - bounds.minQ + 1;
+    const rows = bounds.maxR - bounds.minR + 1;
+    const w = PAD * 2 + cols * HEX_W + HEX_W / 2;
+    const h = PAD * 2 + (rows - 1) * ROW_H + 2 * S;
+    try {
+      const projection = geoMercator().fitSize(
+        [w, h],
+        state_silhouette_feature as GeoPermissibleObjects,
+      );
+      const path = geoPath(projection);
+      return path(state_silhouette_feature) ?? null;
+    } catch {
+      return null;
+    }
+  });
+
   const rendered = $derived(
     tiles.map((t) => {
       const { cx, cy } = center(t.q, t.r);
@@ -126,6 +173,21 @@
     onmousemove={onMove}
     onmouseleave={onLeave}
   >
+    {#if silhouette_path}
+      <!--
+        Parent plan section 25.4 (E3) state silhouette: slate-200 fill
+        at ~0.25 opacity, no stroke, non-interactive. Rendered BEFORE
+        the hex grid so the grid paints on top.
+      -->
+      <path
+        d={silhouette_path}
+        fill="#e2e8f0"
+        fill-opacity="0.25"
+        stroke="none"
+        pointer-events="none"
+        data-layer="state-silhouette"
+      ></path>
+    {/if}
     {#each rendered as r (r.tile.unit_id)}
       <!-- svelte-ignore a11y_click_events_have_key_events -->
       <!-- svelte-ignore a11y_no_static_element_interactions -->
