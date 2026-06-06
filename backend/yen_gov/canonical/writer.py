@@ -59,12 +59,6 @@ from yen_gov.canonical.envelope import (
     ReplacementSemantics,
     SourceRow,
 )
-from yen_gov.canonical.facet_axes_seed import (
-    compile_to_parquet as _compile_facet_axes_to_parquet,
-)
-from yen_gov.canonical.persons_seed import (
-    compile_to_parquet as _compile_persons_to_parquet,
-)
 from yen_gov.core.schema_registry import schema_id, schema_version
 
 log = logging.getLogger(__name__)
@@ -291,10 +285,8 @@ class WriterError(Exception):
 class WriteResult:
     family: str
     observations_path: Path
-    sources_path: Path
     manifest_path: Path
     observation_rows_written: int
-    source_rows_written: int
     dim_rows_written: dict[str, int] = field(default_factory=dict)
     warnings: list[str] = field(default_factory=list)
 
@@ -335,44 +327,29 @@ def write_batch(
     warnings = _validate_fks(envelope, datasets_root)
 
     family_dir = datasets_root / envelope.target_family
-    taxonomy_dir = datasets_root / "taxonomy"
     family_dir.mkdir(parents=True, exist_ok=True)
-    taxonomy_dir.mkdir(parents=True, exist_ok=True)
 
     observations_path = family_dir / f"{_fact_table_stem(envelope.target_family, envelope.target_table_stem)}.parquet"
-    sources_path = taxonomy_dir / "sources.parquet"
 
     con = duckdb.connect(":memory:")
     try:
-        _load_existing(con, observations_path, sources_path, envelope.target_family)
+        _load_existing(con, observations_path, envelope.target_family)
         _apply_envelope(con, envelope)
         obs_written = _emit_observations(
             con, observations_path, envelope.target_family, dry_run=dry_run
         )
-        src_written = _emit_sources(con, sources_path, dry_run=dry_run)
     finally:
         con.close()
 
-    # Refresh the hand-authored taxonomy parquet (facet-axes seed). This is
-    # cheap (~60 rows, single file) and runs on every write_batch so the
-    # on-disk parquet can never drift from the Python literal source of
-    # truth. Primary trigger is the operator CLI ``emit-taxonomy`` command;
-    # this call is belt-and-suspenders. See TODO row 1.8d-ii §G step 2.
-    _emit_facet_axes(taxonomy_dir, dry_run=dry_run)
-
     dim_written = _write_dimensions(envelope, family_dir, dry_run=dry_run)
-    if envelope.target_family == "elections":
-        _emit_persons_taxonomy(datasets_root, dry_run=dry_run)
 
     manifest_path = _regenerate_manifest(datasets_root, dry_run=dry_run)
 
     return WriteResult(
         family=envelope.target_family,
         observations_path=observations_path,
-        sources_path=sources_path,
         manifest_path=manifest_path,
         observation_rows_written=obs_written,
-        source_rows_written=src_written,
         dim_rows_written=dim_written,
         warnings=warnings,
     )
@@ -396,20 +373,28 @@ def _validate_observation_values(rows: list[ObservationRow]) -> None:
 
 def _validate_fks(envelope: BatchEnvelope, datasets_root: Path) -> list[str]:
     """D22 FK gate. Returns warning strings for any FK side that is not yet
-    seeded (Phase 0.9 transitional). Hard-fails on dangling source_id."""
+    seeded. Hard-fails on dangling source_id.
+
+    Post-B3 (2026-06-06): the legacy ``datasets/taxonomy/sources.parquet``
+    citation ledger was retired in X1b (#814). The canonical citation
+    ledger now lives at ``datasets/data/entities/source.csv``. The
+    parquet writer no longer reads either source; envelope.source_rows
+    is the only place this guard can see, so callers MUST hand a
+    superset of the source_ids referenced by observation_rows. The CSV
+    writer (B1) and the read-time `fk-validator` gate enforce closure
+    against ``source.csv`` per Holy Law #9 / ADR-0032.
+    """
     warnings: list[str] = []
 
-    # source_id: union of envelope source_rows + existing sources.parquet.
+    # source_id: envelope source_rows is the sole authority post-B3.
     envelope_source_ids = {s.source_id for s in envelope.source_rows}
-    existing_source_ids = _read_existing_source_ids(datasets_root)
-    known_source_ids = envelope_source_ids | existing_source_ids
     dangling_sources = {
-        r.source_id for r in envelope.observation_rows if r.source_id not in known_source_ids
+        r.source_id for r in envelope.observation_rows if r.source_id not in envelope_source_ids
     }
     if dangling_sources:
         raise WriterError(
             f"dangling source_id FKs: {sorted(dangling_sources)[:5]} "
-            f"(total {len(dangling_sources)}); add to envelope.source_rows or seed first"
+            f"(total {len(dangling_sources)}); add to envelope.source_rows"
         )
 
     # entity_id / indicator_id: load from taxonomy JSON if present.
@@ -475,20 +460,6 @@ def _is_derived_entity_id(entity_id: str) -> bool:
     return any(p.match(entity_id) for p in _DERIVED_ENTITY_PATTERNS)
 
 
-def _read_existing_source_ids(datasets_root: Path) -> set[str]:
-    p = datasets_root / "taxonomy" / "sources.parquet"
-    if not p.is_file():
-        return set()
-    con = duckdb.connect(":memory:")
-    try:
-        rows = con.execute(
-            f"SELECT source_id FROM read_parquet('{p.as_posix()}')"
-        ).fetchall()
-        return {r[0] for r in rows}
-    finally:
-        con.close()
-
-
 # ---------------------------------------------------------------------------
 # DuckDB load / upsert / emit
 # ---------------------------------------------------------------------------
@@ -514,30 +485,13 @@ CREATE TABLE observations (
 )
 """
 
-_SRC_DDL = """
-CREATE TABLE sources (
-    source_id            VARCHAR NOT NULL,
-    producer             VARCHAR NOT NULL,
-    title                VARCHAR NOT NULL,
-    vintage              VARCHAR NOT NULL,
-    license              VARCHAR NOT NULL,
-    confidence_tier      VARCHAR NOT NULL,
-    is_issuing_authority BOOLEAN NOT NULL,
-    verification_method  VARCHAR NOT NULL,
-    url_main             VARCHAR,
-    citation_full        VARCHAR,
-    notes                VARCHAR
-)
-"""
-
 
 def _load_existing(
     con: duckdb.DuckDBPyConnection,
     observations_path: Path,
-    sources_path: Path,
     family: str | None = None,
 ) -> None:
-    """Load existing observations + sources into in-memory DuckDB tables.
+    """Load existing observations into the in-memory DuckDB table.
 
     ``observations_path`` is the legacy monolith location
     (``datasets/<family>/<stem>.parquet``). For families registered in
@@ -547,9 +501,12 @@ def _load_existing(
     existing row before re-emitting. Both shapes can coexist transiently
     during a one-shot repartition migration; the monolith is removed by
     ``_emit_observations`` once the partitioned write succeeds.
+
+    Post-B3 (2026-06-06): the legacy taxonomy/sources.parquet citation
+    ledger was retired in X1b (#814). The writer no longer touches it;
+    source.csv at ``datasets/data/entities/source.csv`` is the new SoT.
     """
     con.execute(_OBS_DDL)
-    con.execute(_SRC_DDL)
 
     partition_cols = _partition_cols(family or "")
     family_dir = observations_path.parent
@@ -578,25 +535,6 @@ def _load_existing(
         con.execute(
             f"INSERT INTO observations SELECT * FROM read_parquet('{observations_path.as_posix()}')"
         )
-    if sources_path.is_file():
-        # INSERT BY NAME keeps the writer resilient to additive sources
-        # schema bumps AND to the v1.0->v2.0 pivot (ADR-0032, P.0e): when
-        # the on-disk Parquet still carries v1.0 columns (url, content_hash,
-        # url_download, date_accessed, first_fetched_at, last_seen_at) and
-        # the DDL is v2.0 (citation ledger), columns absent from EITHER
-        # side are silently NULL. The first canonical-eci-backfill regen
-        # after the pivot rewrites every row in citation-ledger shape and
-        # the legacy columns disappear from disk for good.
-        try:
-            con.execute(
-                "INSERT INTO sources BY NAME "
-                f"SELECT * FROM read_parquet('{sources_path.as_posix()}')"
-            )
-        except duckdb.Error:
-            # Hard fallback for parquet shapes that DuckDB cannot reconcile
-            # by name (unlikely under v2.0 — included as belt-and-braces
-            # so a partially-migrated corpus never blocks ingest).
-            pass
 
 
 def _apply_envelope(con: duckdb.DuckDBPyConnection, envelope: BatchEnvelope) -> None:
@@ -604,28 +542,6 @@ def _apply_envelope(con: duckdb.DuckDBPyConnection, envelope: BatchEnvelope) -> 
     # a staging table. DuckDB's CSV bulk reader handles 180k rows in <1s;
     # executemany on the same data takes >10 min (PK or no PK). The temp CSV
     # is the only bulk-insert path that scales without pandas/pyarrow deps.
-
-    if envelope.source_rows:
-        # Citation-ledger shape (ADR-0032): 11 columns matching _SRC_DDL.
-        src_tuples = [
-            (
-                s.source_id, s.producer, s.title, s.vintage, s.license,
-                s.confidence_tier, s.is_issuing_authority, s.verification_method,
-                s.url_main, s.citation_full, s.notes,
-            )
-            for s in envelope.source_rows
-        ]
-        envelope_src_ids = [s.source_id for s in envelope.source_rows]
-        placeholders = ", ".join(["?"] * len(envelope_src_ids))
-        con.execute(
-            f"DELETE FROM sources WHERE source_id IN ({placeholders})",
-            envelope_src_ids,
-        )
-        # Sources are few (<200 across the corpus today); executemany is fine.
-        con.executemany(
-            "INSERT INTO sources VALUES (?,?,?,?,?,?,?,?,?,?,?)",
-            src_tuples,
-        )
 
     if envelope.replacement_semantics is ReplacementSemantics.replace_partition:
         indicator_ids = sorted({r.indicator_id for r in envelope.observation_rows})
@@ -796,163 +712,19 @@ def _emit_observations(
     return total_rows
 
 
-def _emit_sources(
-    con: duckdb.DuckDBPyConnection,
-    out_path: Path,
-    *,
-    dry_run: bool = False,
-) -> int:
-    return _emit_table(
-        con=con,
-        select_sql="SELECT * FROM sources ORDER BY source_id",
-        out_path=out_path,
-        table_id="taxonomy.sources",
-        row_schema_file="source.schema.json",
-        sort_cols=["source_id"],
-        dry_run=dry_run,
-    )
-
-
-def _emit_facet_axes(taxonomy_dir: Path, *, dry_run: bool = False) -> int:
-    """Compile the hand-authored ``FACET_AXES`` literal to parquet.
-
-    Delegates to ``facet_axes_seed.compile_to_parquet`` which is the canonical
-    Python-compiles-to-parquet seam (TODO row 1.8d-ii). Does NOT go through
-    ``_emit_table`` because the seed has no DuckDB-resident table to project
-    from and no row-schema file (its schema IS the Pydantic model in the
-    seed module). Returns the number of denormalized ``(axis_id, value_id)``
-    rows written so callers can log it.
-
-    ``dry_run`` (PR-A2): compile to a tempfile under the system tempdir,
-    byte-compare to the real ``taxonomy_dir/facet-axes.parquet`` (if any),
-    log UNCHANGED/CHANGED, discard the tempfile. Target untouched.
-    """
-    out_path = taxonomy_dir / "facet-axes.parquet"
-    if not dry_run:
-        return _compile_facet_axes_to_parquet(out_path)
-    return _seed_compile_dry_run(
-        out_path, lambda p: _compile_facet_axes_to_parquet(p)
-    )
-
-
-def _emit_persons_taxonomy(datasets_root: Path, *, dry_run: bool = False) -> int:
-    taxonomy_dir = datasets_root / "taxonomy"
-    persons_out = taxonomy_dir / "persons.parquet"
-    person_aliases_json = taxonomy_dir / "person_aliases.json"
-    dim_persons_parquet = datasets_root / "elections" / "dim_persons.parquet"
-    if not dry_run:
-        return _compile_persons_to_parquet(
-            person_aliases_json=person_aliases_json,
-            dim_persons_parquet=dim_persons_parquet,
-            persons_out=persons_out,
-        )
-    return _seed_compile_dry_run(
-        persons_out,
-        lambda p: _compile_persons_to_parquet(
-            person_aliases_json=person_aliases_json,
-            dim_persons_parquet=dim_persons_parquet,
-            persons_out=p,
-        ),
-    )
-
-
-def _seed_compile_dry_run(out_path: Path, compile_fn) -> int:
-    """Run a taxonomy seed compile against a tempfile, byte-compare to the
-    real on-disk target, log a summary, then unlink the tempfile.
-
-    Used by ``_emit_facet_axes`` and ``_emit_persons_taxonomy`` so seed
-    modules can stay pure write-to-given-path without each needing its own
-    ``dry_run`` parameter. The CLI ``emit-taxonomy --dry-run`` mirrors this
-    pattern at the seed-call boundary for the other 8+ seed compilers.
-    """
-    import tempfile as _tempfile
-
-    fd, tmp_name = _tempfile.mkstemp(suffix=".parquet", prefix="ygov_seed_dryrun_")
-    os.close(fd)
-    tmp = Path(tmp_name)
-    try:
-        rows = compile_fn(tmp)
-        _atomic_emit_or_dryrun(tmp, out_path, out_path.stem, int(rows), dry_run=True)
-        return int(rows)
-    finally:
-        # _atomic_emit_or_dryrun already unlinks; guard against double-unlink.
-        if tmp.exists():
-            try:
-                tmp.unlink()
-            except OSError:
-                pass
-
-
 # ---------------------------------------------------------------------------
 # Dimension tables (Phase 1.2b)
 # ---------------------------------------------------------------------------
+#
+# Post-B3 (2026-06-06): dim_persons / dim_acs / dim_pcs / dim_parties +
+# elections_candidacies parquets were retired in X1b (#814) and their
+# write paths deleted here. The sole surviving dim spec is
+# dim_party_alliances (no CSV emit yet, will retire in a future X1b
+# follow-up); the writer keeps that one DIM_SPEC + a single
+# party_alliance entry in _write_dimensions.
 
 # (table_stem, pk_col, schema_file, sort_cols, ddl)
 _DIM_SPECS: dict[str, dict] = {
-    "person": {
-        "stem": "dim_persons",
-        "pk": "person_id",
-        "schema_file": "dim-persons.schema.json",
-        "sort_cols": ["person_id"],
-        "columns": [
-            ("person_id", "VARCHAR NOT NULL"),
-            ("display_name", "VARCHAR"),
-            ("source_id", "VARCHAR NOT NULL"),
-            ("sex", "VARCHAR"),
-            ("age", "INTEGER"),
-            ("education", "VARCHAR"),
-            ("profession", "VARCHAR"),
-        ],
-    },
-    "ac": {
-        "stem": "dim_acs",
-        "pk": "ac_id",
-        "schema_file": "dim-acs.schema.json",
-        "sort_cols": ["ac_id"],
-        "columns": [
-            ("ac_id", "VARCHAR NOT NULL"),
-            ("state_code", "VARCHAR NOT NULL"),
-            ("delim_year", "INTEGER NOT NULL"),
-            ("eci_no", "INTEGER NOT NULL"),
-            ("name", "VARCHAR"),
-            ("source_id", "VARCHAR NOT NULL"),
-            ("lgd_ac_id", "INTEGER"),  # nullable; ADR-0049 internal join key
-        ],
-    },
-    "pc": {
-        "stem": "dim_pcs",
-        "pk": "pc_id",
-        "schema_file": "dim-pcs.schema.json",
-        "sort_cols": ["pc_id"],
-        "columns": [
-            ("pc_id", "VARCHAR NOT NULL"),
-            ("state_code", "VARCHAR NOT NULL"),
-            ("delim_year", "INTEGER NOT NULL"),
-            ("pc_no", "INTEGER NOT NULL"),
-            ("name", "VARCHAR"),
-            ("source_id", "VARCHAR NOT NULL"),
-        ],
-    },
-    "party": {
-        "stem": "dim_parties",
-        "pk": "party_id",
-        "schema_file": "dim-parties.schema.json",
-        "sort_cols": ["party_id"],
-        "columns": [
-            ("party_id", "VARCHAR NOT NULL"),
-            ("eci_code", "VARCHAR"),
-            ("short_name", "VARCHAR NOT NULL"),
-            ("full_name", "VARCHAR NOT NULL"),
-            ("recognition", "VARCHAR"),
-            ("source_id", "VARCHAR NOT NULL"),
-            # PR-SYM-6b additive mirror columns from taxonomy/parties.json
-            ("brand_colour_hex", "VARCHAR"),
-            ("brand_colour_confidence", "VARCHAR"),
-            ("wikipedia_url", "VARCHAR"),
-            ("election_symbol_asset_path", "VARCHAR"),
-            ("election_symbol_render_mode", "VARCHAR"),
-        ],
-    },
     "party_alliance": {
         "stem": "dim_party_alliances",
         # Composite PK: (party_id, period_label). _upsert_dim accepts pk as
@@ -971,72 +743,31 @@ _DIM_SPECS: dict[str, dict] = {
 }
 
 
-_FAMILY_WIDE_TABLE_SPECS: dict[tuple[str, str], dict] = {
-    ("elections", "candidacy"): {
-        "stem": "elections_candidacies",
-        "pk": "candidacy_key",
-        "schema_file": "elections-candidacies.schema.json",
-        "sort_cols": ["election_id", "ac_id", "pc_id", "rank", "candidacy_key"],
-        "columns": [
-            ("candidacy_key", "VARCHAR NOT NULL"),
-            ("person_id", "VARCHAR NOT NULL"),
-            ("ac_id", "VARCHAR"),
-            ("pc_id", "VARCHAR"),
-            ("election_id", "VARCHAR NOT NULL"),
-            ("ballot_serial", "INTEGER NOT NULL"),
-            ("party_id", "VARCHAR NOT NULL"),
-            ("rank", "INTEGER NOT NULL"),
-            ("votes_polled", "DOUBLE"),
-            ("vote_share_pct", "DOUBLE"),
-            ("won", "BOOLEAN NOT NULL"),
-            ("source_id", "VARCHAR NOT NULL"),
-            ("party_short_raw", "VARCHAR"),
-            ("constituency_type", "VARCHAR"),
-            ("party_type", "VARCHAR"),
-        ],
-    },
-}
-
-
 def _write_dimensions(
     envelope: BatchEnvelope,
     family_dir: Path,
     *,
     dry_run: bool = False,
 ) -> dict[str, int]:
-    """Emit dim_*.parquet siblings for each non-empty dim list.
+    """Emit dim_party_alliances.parquet for non-empty alliance lists.
 
-    UPSERT semantics on PK: existing file is loaded into DuckDB, envelope rows
-    overwrite matching PKs, the merged table is COPYed back out sorted by PK.
-    Empty list -> existing file untouched.
+    UPSERT semantics on composite PK: existing file is loaded into DuckDB,
+    envelope rows overwrite matching PKs, the merged table is COPYed back
+    out sorted by PK. Empty list -> existing file untouched.
+
+    Post-B3: dim_persons / dim_acs / dim_pcs / dim_parties + candidacies
+    paths were removed because the matching parquets were retired in X1b
+    (#814). The envelope still carries those row-list fields for the
+    legacy ECI adapters (B4 retires the adapters + the unused fields).
     """
     written: dict[str, int] = {}
     dim_payloads = {
-        "person": [r.model_dump() for r in envelope.person_dim_rows],
-        "ac": [r.model_dump() for r in envelope.ac_dim_rows],
-        "pc": [r.model_dump() for r in envelope.pc_dim_rows],
-        "party": [r.model_dump() for r in envelope.party_dim_rows],
         "party_alliance": [r.model_dump() for r in envelope.party_alliance_dim_rows],
     }
     for kind, rows in dim_payloads.items():
         if not rows:
             continue
         spec = _DIM_SPECS[kind]
-        out_path = family_dir / f"{spec['stem']}.parquet"
-        written[spec["stem"]] = _upsert_dim(
-            out_path=out_path,
-            rows=rows,
-            spec=spec,
-            table_id=f"{envelope.target_family}.{spec['stem']}",
-            dry_run=dry_run,
-        )
-    wide_payloads = {
-        "candidacy": [r.model_dump() for r in envelope.candidacy_rows],
-    }
-    for kind, rows in wide_payloads.items():
-        if not rows:
-            continue
-        spec = _FAMILY_WIDE_TABLE_SPECS[(envelope.target_family, kind)]
         out_path = family_dir / f"{spec['stem']}.parquet"
         written[spec["stem"]] = _upsert_dim(
             out_path=out_path,
@@ -1335,7 +1066,7 @@ def _regenerate_manifest(datasets_root: Path, *, dry_run: bool = False) -> Path:
         family = parquet_path.parent.name
         if family in {"taxonomy", "boundaries", "_old", "ephemeral", "schemas"}:
             continue
-        stem = parquet_path.stem  # e.g. "dim_persons"
+        stem = parquet_path.stem  # e.g. "dim_party_alliances"
         schema_file = _dim_schema_file(stem)
         if schema_file is None:
             continue
@@ -1347,18 +1078,10 @@ def _regenerate_manifest(datasets_root: Path, *, dry_run: bool = False) -> Path:
             row_schema_file=schema_file,
         ))
 
-    # Other family-local wide tables (non-observation facts).
-    for (family, _kind), spec in sorted(_FAMILY_WIDE_TABLE_SPECS.items()):
-        parquet_path = datasets_root / family / f"{spec['stem']}.parquet"
-        if not parquet_path.is_file():
-            continue
-        tables.append(_describe_parquet_table(
-            datasets_root=datasets_root,
-            parquet_path=parquet_path,
-            table_id=f"{family}.{spec['stem']}",
-            family=family,
-            row_schema_file=spec["schema_file"],
-        ))
+    # Post-B3 (2026-06-06): the family-local wide-table loop was removed
+    # because its only entry (`(elections, candidacy)` -> elections_candidacies)
+    # retired in X1b (#814). When a future X1b follow-up introduces a new
+    # family-local wide table, re-add the loop with the surviving entries.
 
     taxonomy_dir = datasets_root / "taxonomy"
     for parquet_path in sorted(taxonomy_dir.glob("*.parquet")):
@@ -1509,33 +1232,27 @@ def _classify_kind(parquet_path: Path, family: str) -> str:
 
 
 def _taxonomy_schema_file(stem: str) -> str | None:
-    # ``facet-axes`` deliberately NOT mapped here: its parquet is produced by
-    # ``facet_axes_seed.compile_to_parquet`` from a Python literal, not from
-    # adapter envelope rows, so it carries no row-schema FK in the manifest
-    # registry. The Pydantic models in ``facet_axes_seed.py`` are the
-    # contract. ``_regenerate_manifest`` already skips parquets where this
-    # mapping returns None, so the entry stays absent until Phase 2 Energy
-    # introduces the first downstream consumer that wants a manifest entry.
-    # See TODO row 1.8d-ii §G step 10.
+    # Post-B3 (2026-06-06): the per-stem mapping was narrowed to the
+    # surviving taxonomy parquets only. The X1b-retired stems (sources,
+    # persons, methodology_breaks, ac_crosswalk + facet-axes which was
+    # never mapped) drop out because their schemas die in this same PR.
+    # ``_regenerate_manifest`` already skips parquets where this mapping
+    # returns None. See TODO row 1.8d-ii §G step 10.
     mapping = {
-        "sources": "source.schema.json",
         "entities": "entity.schema.json",
         "indicators": "indicator-catalogue.schema.json",
-        "persons": "persons.schema.json",
         "operator_state": "operator-state.schema.json",
         "caveats": "caveat.schema.json",
-        "methodology_breaks": "methodology-break.schema.json",
-        "ac_crosswalk": "ac-crosswalk.schema.json",
     }
     return mapping.get(stem)
 
 
 def _dim_schema_file(stem: str) -> str | None:
+    # Post-B3 (2026-06-06): dim_persons / dim_acs / dim_pcs / dim_parties
+    # retired in X1b (#814); their schemas die in this same PR. Only
+    # dim_party_alliances survives until a future X1b follow-up adds
+    # its CSV emit.
     mapping = {
-        "dim_persons": "dim-persons.schema.json",
-        "dim_acs": "dim-acs.schema.json",
-        "dim_pcs": "dim-pcs.schema.json",
-        "dim_parties": "dim-parties.schema.json",
         "dim_party_alliances": "dim-party-alliances.schema.json",
     }
     return mapping.get(stem)

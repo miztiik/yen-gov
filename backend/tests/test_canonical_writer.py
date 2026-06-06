@@ -308,22 +308,6 @@ def test_parquet_kv_metadata_carries_writer_contract_keys(tmp_path: Path) -> Non
     ]
 
 
-def test_sources_parquet_kv_metadata(tmp_path: Path) -> None:
-    _seed_taxonomy(tmp_path)
-    result = write_batch(_envelope([_obs()]), tmp_path)
-    con = duckdb.connect(":memory:")
-    kv_raw = con.execute(
-        f"SELECT key, value FROM parquet_kv_metadata('{result.sources_path.as_posix()}')"
-    ).fetchall()
-    kv = {(k.decode() if isinstance(k, bytes) else k):
-          (v.decode() if isinstance(v, bytes) else v)
-          for k, v in kv_raw}
-    assert kv.get("table_id") == "taxonomy.sources"
-    # v3.0 per ADR-0042 (vintage as strongest period anchor available;
-    # minLength: 1). Identity contract (3-arg hash) unchanged from v2.0.
-    assert kv.get("schema_version") == schema_version("source.schema.json")
-
-
 # ---------------------------------------------------------------------------
 # Manifest regeneration (§12.3)
 # ---------------------------------------------------------------------------
@@ -338,7 +322,9 @@ def test_manifest_regenerates_with_correct_table_entries(tmp_path: Path) -> None
     assert manifest["manifest_version"] == "1.0"
     table_ids = {t["table_id"] for t in manifest["tables"]}
     assert "test.observations" in table_ids
-    assert "taxonomy.sources" in table_ids
+    # Post-B3 (2026-06-06): taxonomy.sources retired in X1b (#814);
+    # the manifest no longer emits an entry for it.
+    assert "taxonomy.sources" not in table_ids
 
     test_table = next(t for t in manifest["tables"] if t["table_id"] == "test.observations")
     assert test_table["family"] == "test"
@@ -386,14 +372,26 @@ def test_manifest_carries_known_deprecations(tmp_path: Path) -> None:
 def test_manifest_kind_for_taxonomy_table(tmp_path: Path) -> None:
     """taxonomy/*.parquet entries carry kind="taxonomy" regardless of stem —
     the family wins (canonical-store.md §2a: taxonomy exception, flat names).
+
+    Post-B3 (2026-06-06): use the surviving taxonomy/entities.parquet as
+    the witness because taxonomy/sources.parquet was retired in X1b
+    (#814). entities.parquet still exists on disk (entities_seed.py
+    survives) and the seeded fixture corpus carries it via the test
+    helper's pre-seeded entities.json.
     """
     _seed_taxonomy(tmp_path)
+    # Manually compile entities.parquet so the manifest can pick it up.
+    from yen_gov.canonical.entities_seed import compile_to_parquet as _compile_entities
+    _compile_entities(
+        tmp_path / "taxonomy" / "entities.json",
+        tmp_path / "taxonomy" / "entities.parquet",
+    )
     write_batch(_envelope([_obs()]), tmp_path)
     manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
-    sources_table = next(t for t in manifest["tables"] if t["table_id"] == "taxonomy.sources")
-    assert sources_table["family"] == "taxonomy"
-    assert sources_table["table_name"] == "sources"
-    assert sources_table["kind"] == "taxonomy"
+    entities_table = next(t for t in manifest["tables"] if t["table_id"] == "taxonomy.entities")
+    assert entities_table["family"] == "taxonomy"
+    assert entities_table["table_name"] == "entities"
+    assert entities_table["kind"] == "taxonomy"
 
 
 def test_elections_family_uses_election_results_stem(tmp_path: Path) -> None:
@@ -449,88 +447,21 @@ def test_manifest_path_is_posix_no_backslashes(tmp_path: Path) -> None:
         for f in table["files"]:
             assert "\\" not in f["path"], f"backslash in manifest path: {f['path']}"
 
-
 # ---------------------------------------------------------------------------
 # Dimension tables (Phase 1.2b)
 # ---------------------------------------------------------------------------
+#
+# Post-B3 (2026-06-06): dim_persons / dim_acs / dim_pcs / dim_parties +
+# elections_candidacies parquets retired in X1b (#814); the writer paths
+# for them were deleted alongside this test refactor. Only the
+# dim_party_alliances dim survives (CSV emit still TBD per a future X1b
+# follow-up). The Pydantic row models (PartyDimRow, AcDimRow, PcDimRow,
+# PersonDimRow, CandidacyRow) stay on envelope.py because the legacy
+# ECI adapters in canonical/adapters/eci* import them; B4 retires the
+# adapters + the unused models.
 
 
-from yen_gov.canonical.envelope import (
-    AcDimRow,
-    CandidacyRow,
-    PartyAllianceDimRow,
-    PartyDimRow,
-    PersonDimRow,
-)
-
-
-def _person_dim(pid: str = "1111111111111111", name: str = "A. Alpha") -> PersonDimRow:
-    return PersonDimRow(
-        person_id=pid,
-        display_name=name,
-        source_id="src-test00000001",
-    )
-
-
-def _candidacy(
-    key: str = "IN-S22-AC-2008-167-AcGenApr2021-C01",
-    person_id: str = "1111111111111111",
-    party_id: str = "parties.IN.DMK",
-    rank: int = 1,
-) -> CandidacyRow:
-    return CandidacyRow(
-        candidacy_key=key,
-        person_id=person_id,
-        ac_id="IN-S22-AC-2008-167",
-        election_id="AcGenApr2021",
-        ballot_serial=rank,
-        party_id=party_id,
-        rank=rank,
-        votes_polled=42.0,
-        vote_share_pct=50.0,
-        won=rank == 1,
-        source_id="src-test00000001",
-    )
-
-
-def _ac_dim() -> AcDimRow:
-    return AcDimRow(
-        ac_id="IN-S22-AC-2008-167",
-        state_code="S22",
-        delim_year=2008,
-        eci_no=167,
-        name="Mylapore",
-        source_id="src-test00000001",
-    )
-
-
-def test_candidacy_row_accepts_large_historical_ballot_serial():
-    row = CandidacyRow(
-        candidacy_key="IN-S10-AC-1976-197-AcGenMay1985-C301",
-        person_id="1111111111111111",
-        ac_id="IN-S10-AC-1976-197",
-        election_id="AcGenMay1985",
-        ballot_serial=301,
-        party_id="parties.IN.IND",
-        rank=301,
-        votes_polled=1.0,
-        vote_share_pct=0.0,
-        won=False,
-        source_id="src-test00000001",
-    )
-
-    assert row.candidacy_key.endswith("-C301")
-
-
-def _party_dim() -> PartyDimRow:
-    return PartyDimRow(
-        party_id="parties.IN.DMK",
-        eci_code="1234",
-        short_name="DMK",
-        full_name="Dravida Munnetra Kazhagam",
-        recognition="state",
-        source_id="src-test00000001",
-    )
+from yen_gov.canonical.envelope import PartyAllianceDimRow
 
 
 def _party_alliance_dim(period: str = "AcGenApr2021", alliance: str | None = "UPA") -> PartyAllianceDimRow:
@@ -543,37 +474,22 @@ def _party_alliance_dim(period: str = "AcGenApr2021", alliance: str | None = "UP
     )
 
 
-def _dim_envelope(family: str = "elections") -> BatchEnvelope:
+def _alliance_envelope(family: str = "elections") -> BatchEnvelope:
     return BatchEnvelope(
         target_family=family,
         source_rows=[_src()],
         observation_rows=[_obs(entity_id="IN-S22-AC-2008-167-AcGenApr2021-C01",
                                indicator_id="candidate-votes-polled",
                                year=2021, period_label="AcGenApr2021")],
-        person_dim_rows=[_person_dim()],
-        candidacy_rows=[_candidacy()],
-        ac_dim_rows=[_ac_dim()],
-        party_dim_rows=[_party_dim()],
         party_alliance_dim_rows=[_party_alliance_dim()],
     )
-
-
-def test_dimension_parquets_emit_under_family_dir(tmp_path: Path) -> None:
-    _seed_taxonomy(tmp_path)
-    write_batch(_dim_envelope(), tmp_path)
-    family_dir = tmp_path / "elections"
-    assert (family_dir / "dim_persons.parquet").is_file()
-    assert (family_dir / "elections_candidacies.parquet").is_file()
-    assert (family_dir / "dim_acs.parquet").is_file()
-    assert (family_dir / "dim_parties.parquet").is_file()
-    assert (family_dir / "dim_party_alliances.parquet").is_file()
 
 
 def test_dim_party_alliances_composite_pk_upserts(tmp_path: Path) -> None:
     """Composite PK (party_id, period_label): two events for the same party
     coexist, and re-emitting the same key overwrites in place."""
     _seed_taxonomy(tmp_path)
-    env = _dim_envelope()
+    env = _alliance_envelope()
     env = env.model_copy(update={
         "party_alliance_dim_rows": [
             _party_alliance_dim(period="AcGenApr2021", alliance="UPA"),
@@ -611,231 +527,14 @@ def test_dim_party_alliances_composite_pk_upserts(tmp_path: Path) -> None:
     ]
 
 
-def test_candidacy_person_join_reconstructs_observation_entity(tmp_path: Path) -> None:
-    """The S.1 JOIN keeps candidate observations connected to person identity.
-
-    With Phase 0 closeout partitioning, the elections fact-table now lives
-    at ``state=<val>/election_results.parquet``; the JOIN reads it via a
-    Hive glob (DuckDB stitches partitions transparently)."""
+def test_dim_party_alliances_appear_in_manifest(tmp_path: Path) -> None:
     _seed_taxonomy(tmp_path)
-    write_batch(_dim_envelope(), tmp_path)
-    con = duckdb.connect(":memory:")
-    rows = con.execute(
-        f"""
-        SELECT c.display_name, o.value_numeric
-        FROM read_parquet('{(tmp_path / "elections" / "state=*" / "election_results.parquet").as_posix()}') o
-                JOIN read_parquet('{(tmp_path / "elections" / "elections_candidacies.parquet").as_posix()}') ec
-                    ON ec.candidacy_key = o.entity_id
-                JOIN read_parquet('{(tmp_path / "elections" / "dim_persons.parquet").as_posix()}') c
-                    ON c.person_id = ec.person_id
-        WHERE o.indicator_id = 'candidate-votes-polled'
-        """
-    ).fetchall()
-    assert rows == [("A. Alpha", 42.0)]
-
-
-def test_dim_upsert_overwrites_pk_on_rerun(tmp_path: Path) -> None:
-    _seed_taxonomy(tmp_path)
-    write_batch(_dim_envelope(), tmp_path)
-
-    updated = _person_dim(name="A. Alpha (corrected)")
-    env2 = BatchEnvelope(
-        target_family="elections",
-        source_rows=[_src()],
-        observation_rows=[_obs(entity_id="IN-S22-AC-2008-167-AcGenApr2021-C01",
-                               indicator_id="candidate-votes-polled",
-                               year=2021, period_label="AcGenApr2021")],
-        person_dim_rows=[updated],
-    )
-    write_batch(env2, tmp_path)
-
-    con = duckdb.connect(":memory:")
-    [(name,)] = con.execute(
-        f"SELECT display_name FROM read_parquet('"
-        f"{(tmp_path / 'elections' / 'dim_persons.parquet').as_posix()}')"
-    ).fetchall()
-    assert name == "A. Alpha (corrected)"
-
-
-def test_empty_dim_lists_do_not_touch_existing_dim_files(tmp_path: Path) -> None:
-    _seed_taxonomy(tmp_path)
-    write_batch(_dim_envelope(), tmp_path)
-    dim_path = tmp_path / "elections" / "dim_persons.parquet"
-    bytes_before = dim_path.read_bytes()
-
-    env2 = BatchEnvelope(
-        target_family="elections",
-        source_rows=[_src()],
-        observation_rows=[_obs(entity_id="IN-S22-AC-2008-167-AcGenApr2021-C01",
-                               indicator_id="candidate-votes-polled",
-                               year=2021, period_label="AcGenApr2021")],
-    )
-    write_batch(env2, tmp_path)
-    assert dim_path.read_bytes() == bytes_before
-
-
-def test_candidacies_party_short_raw_roundtrips(tmp_path: Path) -> None:
-    """S.1 keeps party_short_raw on the candidacy row for UI fallback."""
-    _seed_taxonomy(tmp_path)
-    unk_cand = _candidacy(
-        key="IN-S22-AC-2008-167-AcGenApr2021-C02",
-        person_id="2222222222222222",
-        party_id="parties.IN.UNK",
-        rank=2,
-    ).model_copy(update={"party_short_raw": "FRINGE"})
-    env = BatchEnvelope(
-        target_family="elections",
-        source_rows=[_src()],
-        observation_rows=[_obs(entity_id="IN-S22-AC-2008-167-AcGenApr2021-C02",
-                               indicator_id="candidate-votes-polled",
-                               year=2021, period_label="AcGenApr2021")],
-        person_dim_rows=[_person_dim(pid="2222222222222222", name="X. Unknown")],
-        candidacy_rows=[unk_cand],
-    )
-    write_batch(env, tmp_path)
-
-    con = duckdb.connect(":memory:")
-    rows = con.execute(
-        f"SELECT candidacy_key, party_id, party_short_raw FROM read_parquet('"
-        f"{(tmp_path / 'elections' / 'elections_candidacies.parquet').as_posix()}') "
-        f"ORDER BY candidacy_key"
-    ).fetchall()
-    assert rows == [
-        ("IN-S22-AC-2008-167-AcGenApr2021-C02", "parties.IN.UNK", "FRINGE"),
-    ]
-
-
-def test_candidacies_upsert_by_name_fills_legacy_rows_with_null(tmp_path: Path) -> None:
-    """INSERT BY NAME keeps nullable candidacy columns safe across bumps."""
-    _seed_taxonomy(tmp_path)
-    legacy = _candidacy(key="IN-S22-AC-2008-167-AcGenApr2021-C01", rank=1)
-    env1 = BatchEnvelope(
-        target_family="elections",
-        source_rows=[_src()],
-        observation_rows=[_obs(entity_id="IN-S22-AC-2008-167-AcGenApr2021-C01",
-                               indicator_id="candidate-votes-polled",
-                               year=2021, period_label="AcGenApr2021")],
-        person_dim_rows=[_person_dim()],
-        candidacy_rows=[legacy],
-    )
-    write_batch(env1, tmp_path)
-
-    new = _candidacy(
-        key="IN-S22-AC-2008-167-AcGenApr2021-C03",
-        person_id="3333333333333333",
-        party_id="parties.IN.UNK",
-        rank=3,
-    ).model_copy(update={"party_short_raw": "UPNEW"})
-    env2 = BatchEnvelope(
-        target_family="elections",
-        source_rows=[_src()],
-        observation_rows=[_obs(entity_id="IN-S22-AC-2008-167-AcGenApr2021-C03",
-                               indicator_id="candidate-votes-polled",
-                               year=2021, period_label="AcGenApr2021")],
-        person_dim_rows=[_person_dim(pid="3333333333333333", name="Y. Newcomer")],
-        candidacy_rows=[new],
-    )
-    write_batch(env2, tmp_path)
-
-    con = duckdb.connect(":memory:")
-    rows = con.execute(
-        f"SELECT candidacy_key, party_short_raw FROM read_parquet('"
-        f"{(tmp_path / 'elections' / 'elections_candidacies.parquet').as_posix()}') "
-        f"ORDER BY candidacy_key"
-    ).fetchall()
-    assert rows == [
-        ("IN-S22-AC-2008-167-AcGenApr2021-C01", None),
-        ("IN-S22-AC-2008-167-AcGenApr2021-C03", "UPNEW"),
-    ]
-
-
-def test_dim_tables_appear_in_manifest(tmp_path: Path) -> None:
-    _seed_taxonomy(tmp_path)
-    write_batch(_dim_envelope(), tmp_path)
-    manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
+    write_batch(_alliance_envelope(), tmp_path)
+    manifest = __import__("json").loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
     table_ids = {t["table_id"] for t in manifest["tables"]}
-    assert {"elections.dim_persons", "elections.elections_candidacies",
-            "elections.dim_acs", "elections.dim_parties",
-            "elections.dim_party_alliances", "taxonomy.persons"}.issubset(table_ids)
-    cand = next(t for t in manifest["tables"]
-            if t["table_id"] == "elections.dim_persons")
-    assert cand["format"] == "parquet"
-    assert cand["schema_version"] == schema_version("dim-persons.schema.json")
-    assert cand["table_name"] == "dim_persons"
-    assert cand["kind"] == "dim"
-    assert cand["row_count_total"] == 1
-
-
-def test_dim_persons_bio_fields_roundtrip(tmp_path: Path) -> None:
-    """S.1 person-level bio fields round-trip on dim_persons."""
-    _seed_taxonomy(tmp_path)
-    with_bio = PersonDimRow(
-        person_id="1111111111111111",
-        display_name="A. Alpha",
-        source_id="src-test00000001",
-        sex="Female",
-        age=42,
-        education="Graduate Professional",
-        profession="Liberal Profession or Professional",
-    )
-    env = BatchEnvelope(
-        target_family="elections",
-        source_rows=[_src()],
-        observation_rows=[_obs(entity_id="IN-S22-AC-2008-167-AcGenApr2021-C01",
-                               indicator_id="candidate-votes-polled",
-                               year=2021, period_label="AcGenApr2021")],
-        person_dim_rows=[with_bio],
-        candidacy_rows=[_candidacy()],
-    )
-    write_batch(env, tmp_path)
-
-    con = duckdb.connect(":memory:")
-    rows = con.execute(
-        f"SELECT person_id, sex, age, education, profession "
-        f"FROM read_parquet('"
-        f"{(tmp_path / 'elections' / 'dim_persons.parquet').as_posix()}') "
-        f"ORDER BY person_id"
-    ).fetchall()
-    assert rows == [
-        (
-            "1111111111111111",
-            "Female",
-            42,
-            "Graduate Professional",
-            "Liberal Profession or Professional",
-        ),
-    ]
-
-
-def test_dim_persons_bio_fields_nullable_and_age_bounds(tmp_path: Path) -> None:
-    """Bio columns are nullable; age has explicit 18-120 bounds
-    (Art. 173(b) constitutional minimum). A row that omits every bio field
-    round-trips with NULLs in every bio column; an out-of-range age raises
-    at Pydantic validation time."""
-    _seed_taxonomy(tmp_path)
-    write_batch(_dim_envelope(), tmp_path)
-    con = duckdb.connect(":memory:")
-    rows = con.execute(
-        f"SELECT sex, age, education, profession "
-        f"FROM read_parquet('"
-        f"{(tmp_path / 'elections' / 'dim_persons.parquet').as_posix()}') "
-        f"ORDER BY person_id"
-    ).fetchall()
-    assert rows == [(None, None, None, None)]
-
-    # Age bounds: 17 rejected (below constitutional minimum), 121 rejected.
-    import pytest as _pytest
-    with _pytest.raises(Exception):
-        PersonDimRow(
-            person_id="9999999999999999",
-            display_name="Q. Underage",
-            source_id="src-test00000001",
-            age=17,
-        )
-    with _pytest.raises(Exception):
-        PersonDimRow(
-            person_id="aaaaaaaaaaaaaaaa",
-            display_name="R. Overage",
-            source_id="src-test00000001",
-            age=121,
-        )
+    assert "elections.dim_party_alliances" in table_ids
+    row = next(t for t in manifest["tables"] if t["table_id"] == "elections.dim_party_alliances")
+    assert row["format"] == "parquet"
+    assert row["table_name"] == "dim_party_alliances"
+    assert row["kind"] == "dim"
+    assert row["row_count_total"] == 1
