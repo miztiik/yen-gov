@@ -1,27 +1,19 @@
-"""Orchestrator for the ICED macro adapter.
+"""Indicator metadata + canonical CSV emission for the ICED macro family.
 
-Fetches three endpoints and emits three indicator artifacts under
-``datasets/indicators/in/economy/``.
+The legacy network-fetch + folded-indicator-JSON path (``ingest_iced_macro``)
+was retired in B4-pt2.1 per parent plan section 21.4 ("network-fetch code is
+deleted; ingest reads local TCPD / source CSV"). What remains is the
+indicator metadata + the B1.4.2 canonical CSV emission exercised by
+``backend/tests/test_iced_macro_csv_repoint.py``.
 """
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime
 from pathlib import Path
 from typing import Any
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
-from yen_gov.core.io import Source, write_artifact
-from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
-from yen_gov.sources.iced_common import IcedClient
-
-from .parsers import (
-    parse_balance_trendline,
-    parse_gdp_trend,
-    parse_gva_trend_national_constant,
-    parse_industrial_production,
-)
 
 # B1.4.2 - canonical CSV citation triples + variable_id prefixes per indicator.
 # All four iced_macro indicators are NITI Aayog ICED endpoints (same producer
@@ -65,12 +57,6 @@ class IndicatorEmitResult:
     time_min: str
     time_max: str
     skipped_unmapped: int = 0
-
-
-@dataclass(frozen=True)
-class IngestSummary:
-    fetched_at: datetime
-    results: tuple[IndicatorEmitResult, ...]
 
 
 LICENSE_ICED = {
@@ -369,137 +355,3 @@ def _emit_csv_for(
         parsed_rows, source_id=source_id, variable_prefix=variable_prefix
     )
     return emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
-
-
-def _emit(
-    *,
-    repo_root: Path,
-    schema_for_validation: dict,
-    schema_id_str: str,
-    schema_version_str: str,
-    indicator_meta: dict[str, Any],
-    rows: list[dict[str, Any]],
-    sources: list[Source],
-    out_rel: str,
-    spatial: str,
-    skipped_unmapped: int = 0,
-) -> IndicatorEmitResult:
-    times = sorted({r["time"] for r in rows})
-    coverage_temporal = f"{times[0]}..{times[-1]}" if times else "unknown"
-    payload = {
-        "coverage": {
-            "spatial": spatial,
-            "temporal": coverage_temporal,
-            "admin_level": None if indicator_meta["entity_kind"] == "country" else "state",
-        },
-        "license": LICENSE_ICED,
-        "indicator": indicator_meta,
-        "rows": rows,
-    }
-    artifact_path = repo_root / out_rel
-    write_artifact(
-        path=artifact_path,
-        schema_id=schema_id_str,
-        schema_version=schema_version_str,
-        payload=payload,
-        sources=sources,
-        schema_for_validation=schema_for_validation,
-    )
-    return IndicatorEmitResult(
-        indicator_id=indicator_meta["id"],
-        artifact_path=artifact_path,
-        row_count=len(rows),
-        time_min=times[0] if times else "",
-        time_max=times[-1] if times else "",
-        skipped_unmapped=skipped_unmapped,
-    )
-
-
-def ingest_iced_macro(*, repo_root: Path, client: IcedClient | None = None) -> IngestSummary:
-    if client is None:
-        client = IcedClient(host=API_HOST, polite_delay=0.5)
-    schema_for_validation = schema_doc("indicator.schema.json")
-    sid = schema_id("indicator.schema.json")
-    sver = schema_version("indicator.schema.json")
-
-    results: list[IndicatorEmitResult] = []
-
-    # GDP (PR-B6-row9: country + state rows in one cross-grain shard)
-    gdp_resp = client.get("/economy-demography/key-economic-indicators/gdp-trend")
-    gdp_src = [Source(url=gdp_resp.url, fetched_at=gdp_resp.fetched_at)]
-    gdp_parsed = parse_gdp_trend(gdp_resp.decrypted)
-    gdp_rows = list(gdp_parsed.national) + list(gdp_parsed.state)
-    results.append(_emit(
-        repo_root=repo_root, schema_for_validation=schema_for_validation,
-        schema_id_str=sid, schema_version_str=sver,
-        indicator_meta=_indicator_gdp(),
-        rows=gdp_rows,
-        sources=gdp_src, out_rel="datasets/indicators/in/economy/gdp_inr_crore.json",
-        spatial="India (national + states + UTs)",
-        skipped_unmapped=gdp_parsed.skipped_unmapped,
-    ))
-    _emit_csv_for(
-        repo_root=repo_root, parsed_rows=gdp_rows,
-        title=_CSV_SOURCE_TITLE_GDP, variable_prefix=_CSV_VARIABLE_PREFIX_GDP,
-    )
-
-    # IIP
-    iip_resp = client.get("/economy-demography/key-economic-indicators/industrial-production")
-    iip_rows = parse_industrial_production(iip_resp.decrypted)
-    results.append(_emit(
-        repo_root=repo_root, schema_for_validation=schema_for_validation,
-        schema_id_str=sid, schema_version_str=sver,
-        indicator_meta=_indicator_iip(), rows=iip_rows,
-        sources=[Source(url=iip_resp.url, fetched_at=iip_resp.fetched_at)],
-        out_rel="datasets/indicators/in/economy/iip_index.json",
-        spatial="India (national)",
-    ))
-    _emit_csv_for(
-        repo_root=repo_root, parsed_rows=iip_rows,
-        title=_CSV_SOURCE_TITLE_IIP, variable_prefix=_CSV_VARIABLE_PREFIX_IIP,
-    )
-
-    # GVA national constant
-    gva_resp = client.get("/economy-demography/key-economic-indicators/gva-trend")
-    gva_rows = parse_gva_trend_national_constant(gva_resp.decrypted)
-    results.append(_emit(
-        repo_root=repo_root, schema_for_validation=schema_for_validation,
-        schema_id_str=sid, schema_version_str=sver,
-        indicator_meta=_indicator_gva_constant(), rows=gva_rows,
-        sources=[Source(url=gva_resp.url, fetched_at=gva_resp.fetched_at)],
-        out_rel="datasets/indicators/in/economy/gva_by_industry_constant_inr_crore.json",
-        spatial="India (national)",
-    ))
-    _emit_csv_for(
-        repo_root=repo_root, parsed_rows=gva_rows,
-        title=_CSV_SOURCE_TITLE_GVA, variable_prefix=_CSV_VARIABLE_PREFIX_GVA,
-    )
-
-    # External-sector balance (BoP)
-    bop_resp = client.get("/economy-demography/key-economic-indicators/balance-trendline")
-    bop_rows = parse_balance_trendline(bop_resp.decrypted)
-    results.append(_emit(
-        repo_root=repo_root, schema_for_validation=schema_for_validation,
-        schema_id_str=sid, schema_version_str=sver,
-        indicator_meta=_indicator_india_external_balance(), rows=bop_rows,
-        sources=[Source(url=bop_resp.url, fetched_at=bop_resp.fetched_at)],
-        out_rel="datasets/indicators/in/economy/india_external_balance_inr_crore.json",
-        spatial="India (national)",
-    ))
-    _emit_csv_for(
-        repo_root=repo_root, parsed_rows=bop_rows,
-        title=_CSV_SOURCE_TITLE_BOP, variable_prefix=_CSV_VARIABLE_PREFIX_BOP,
-    )
-
-    # PR-A5a: derive orchestrator fetched_at from upstream per-fetch timestamps
-    # instead of wall-clock datetime.now(). Deterministic given deterministic
-    # upstream IcedClient (out-of-lane follow-up to harden iced_common/client.py).
-    return IngestSummary(
-        fetched_at=max(
-            gdp_resp.fetched_at,
-            iip_resp.fetched_at,
-            gva_resp.fetched_at,
-            bop_resp.fetched_at,
-        ),
-        results=tuple(results),
-    )

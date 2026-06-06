@@ -1,47 +1,20 @@
-"""ICED socio-economic adapter — fetch + emit two indicator artifacts.
+"""Indicator metadata + canonical CSV emission for the ICED socio-economic family.
 
-Per Hans (Governance) triage 2026-05-14:
-
-* ``economy/state_per_capita_consumption_inr``             — Priority 3
-* ``environment/india_ghg_emissions_mtco2e_by_sector``     — Priority 6
-
-The sex-faceted population shard (Hans Priority 5 —
-``demography/state_population_by_sex_count``) was retired in PR-D4
-— Census 2011 was the last completed enumeration and the 2021 round
-was postponed; six decennial points was a position not a trajectory and
-no canonical successor is planned.
-
-The HDI indicator (Hans Priority 2 — ``human_development/state_hdi``) was
-retired in PR-D3 — ICED publishes only two snapshot years (2011-12 and
-2017-18) which is a position not a trajectory; no canonical successor is
-planned (UNDP NHDR re-onboard deferred indefinitely).
-
-The constant-price per-capita NSDP indicator (Hans Priority 1) was retired
-in PR-B6-row8 — the canonical source for that fact is now the RBI Handbook
-spliced shard ``economy/per_capita_nsdp_constant_inr`` (longer history,
-multi-base splice). The current-price NSDP indicator (Hans Priority 4)
-ships separately as ``economy/per_capita_nsdp_current_inr`` from the
-state-wise-deep-dive adapter; we do not re-emit it here.
-
-This module is the orchestrator only — fetching via
-:class:`IcedClient`, calling pure parsers from :mod:`.parsers`, building
-schema-conformant payloads, and writing through the shared
-``write_artifact`` chokepoint. No fetching or schema work in
-``parsers.py``; no parsing or HTTP in this file.
+The legacy network-fetch + folded-indicator-JSON path (``ingest_iced_socio``)
+was retired in B4-pt2.1 per parent plan section 21.4 ("network-fetch code is
+deleted; ingest reads local TCPD / source CSV"). What remains is the
+indicator metadata + the B1.4.6 canonical CSV emission exercised by
+``backend/tests/test_iced_socio_csv_repoint.py``.
 """
 from __future__ import annotations
 
 import json
 from dataclasses import dataclass
-from datetime import datetime
 from pathlib import Path
 from typing import Any, Callable
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
-from yen_gov.core.io import Source, write_artifact
-from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
-from yen_gov.sources.iced_common import IcedClient
 
 from .parsers import (
     parse_ghg_economy_wide,
@@ -88,12 +61,6 @@ class IndicatorEmitResult:
     time_min: str
     time_max: str
     skipped_unmapped: int
-
-
-@dataclass(frozen=True)
-class IngestSummary:
-    fetched_at: datetime
-    results: tuple[IndicatorEmitResult, ...]
 
 
 # ---------------------------------------------------------------------------
@@ -347,97 +314,3 @@ def _emit_csv_for(
     return emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
 
 
-# ---------------------------------------------------------------------------
-# Orchestrator
-# ---------------------------------------------------------------------------
-
-
-def ingest_iced_socio(
-    *,
-    repo_root: Path,
-    client: IcedClient | None = None,
-) -> IngestSummary:
-    """Fetch all five socio-economic ICED endpoints and emit indicator artifacts.
-
-    Args:
-        repo_root: parent of ``datasets/`` and ``.runtime/``.
-        client: pre-built :class:`IcedClient`. Defaults to a fresh one
-            rooted at ``repo_root``.
-    """
-    if client is None:
-        client = IcedClient(runtime_root=repo_root)
-
-    builds = _all_builds()
-    out_root = repo_root / "datasets" / "indicators" / "in"
-
-    fetched_at_overall: datetime | None = None
-    results: list[IndicatorEmitResult] = []
-
-    for b in builds:
-        resp = client.get(b.api_path)
-        # PR-A5a: track max upstream fetched_at instead of wall-clock now().
-        if fetched_at_overall is None or resp.fetched_at > fetched_at_overall:
-            fetched_at_overall = resp.fetched_at
-        rows = b.builder(resp.decrypted)
-        if not rows:
-            raise RuntimeError(
-                f"indicator {b.indicator['id']!r}: parser returned 0 rows; "
-                f"check {b.api_path} response shape."
-            )
-
-        coverage = {
-            "spatial": b.coverage_spatial,
-            "temporal": _temporal_span(rows),
-            "admin_level": b.coverage_admin_level,
-        }
-
-        payload = {
-            "license": LICENSE_ICED,
-            "coverage": coverage,
-            "indicator": b.indicator,
-            "rows": rows,
-        }
-
-        sources = [Source(url=f"{API_HOST}{b.api_path}", fetched_at=resp.fetched_at)]
-
-        out_path = out_root / b.out_topic / f"{b.out_leaf}.json"
-        write_artifact(
-            path=out_path,
-            schema_id=schema_id("indicator.schema.json"),
-            schema_version=schema_version("indicator.schema.json"),
-            payload=payload,
-            sources=sources,
-            schema_for_validation=schema_doc("indicator.schema.json"),
-        )
-
-        # B1.4.6 - canonical CSV emission alongside legacy artifact.
-        _emit_csv_for(
-            repo_root=repo_root,
-            parsed_rows=rows,
-            title=b.csv_source_title,
-            variable_prefix=b.csv_variable_prefix,
-        )
-
-        results.append(
-            IndicatorEmitResult(
-                indicator_id=b.indicator["id"],
-                artifact_path=out_path,
-                row_count=len(rows),
-                time_min=min(r["time"] for r in rows),
-                time_max=max(r["time"] for r in rows),
-                skipped_unmapped=0,
-            )
-        )
-
-    if fetched_at_overall is None:
-        raise RuntimeError("ingest_iced_socio: no builds executed; cannot derive fetched_at.")
-    return IngestSummary(fetched_at=fetched_at_overall, results=tuple(results))
-
-
-def _temporal_span(rows: list[dict[str, Any]]) -> str:
-    times = sorted({r["time"] for r in rows})
-    if not times:
-        return "(empty)"
-    if times[0] == times[-1]:
-        return times[0]
-    return f"{times[0]}..{times[-1]}"

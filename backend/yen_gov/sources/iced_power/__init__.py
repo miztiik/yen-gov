@@ -6,37 +6,15 @@ ICED publishes. Together with the existing CEA single-month snapshot
 they fill yen-gov's biggest gap on the energy side: per-state per-fuel
 capacity *over time*.
 
-Indicators emitted (all four all-states where the upstream supports it):
-
-* ``energy/state_installed_capacity_by_source_mw``
-  — per-state per-source capacity, FY2015-16 → FY2025-26, faceted by source.
-* ``energy/state_electricity_generation_by_source_gwh``
-  — per-state per-source actual generation (snapshot, FY2025-26).
-* ``energy/state_peak_electricity_demand_mw``
-  — per-state peak electricity demand (snapshot, FY2025-26).
-* ``energy/india_thermal_capacity_retired_mw``
-  — national thermal capacity retired by year × fuel source, FY2005-06 →.
-
-(The national capacity-pipeline indicator ``india_capacity_pipeline_gw``
-was retired in PR-A of the energy-residue triage, 2026-05-25 — its
-under-construction GW series was citizen-distant and the source feed is
-not reliably retrievable; the energy-pipeline narrative moves to the
-canonical retired-capacity + installed-capacity series.)
-
-The orchestrator at :mod:`.ingest` does the network and persistence.
-Pure parsers in :mod:`.parsers` consume already-decrypted (or already-
-JSON-parsed) ICED responses and return canonical row dicts.
+The legacy network-fetch + folded-indicator-JSON orchestrator
+(``ingest_iced_power`` + ``IngestSummary``) was retired in B4-pt2.1 per
+parent plan section 21.4. The B1.4.5 canonical CSV emission stays under
+``.ingest`` (exercised by ``backend/tests/test_iced_power_csv_repoint.py``).
 """
 from __future__ import annotations
 
-from .ingest import (
-    IndicatorEmitResult,
-    IngestSummary,
-    ingest_iced_power,
-)
+from .ingest import IndicatorEmitResult
 
 __all__ = [
     "IndicatorEmitResult",
-    "IngestSummary",
-    "ingest_iced_power",
 ]

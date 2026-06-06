@@ -12,11 +12,12 @@ consumption and power-procurement mix:
   -- per-state share (%) of electricity purchased by source
   (coal, hydro, solar, wind, nuclear, gas, etc.).
 
-All three were confirmed by the 2026-05-15 ICED full-triage sweep
-(see ``.runtime/iced_recon/full_triage_20260515073024.md``) and reconned
-directly via ``tools/iced_fuel_recon.py``.
+The legacy network-fetch + folded-indicator-JSON orchestrator
+(``ingest_iced_fuel`` + ``IngestSummary``) was retired in B4-pt2.1 per
+parent plan section 21.4. The B1.4.3 canonical CSV emission stays under
+``.ingest`` (exercised by ``backend/tests/test_iced_fuel_csv_repoint.py``).
 """
 
-from .ingest import IngestSummary, ingest_iced_fuel
+from .ingest import IndicatorEmitResult
 
-__all__ = ["IngestSummary", "ingest_iced_fuel"]
+__all__ = ["IndicatorEmitResult"]

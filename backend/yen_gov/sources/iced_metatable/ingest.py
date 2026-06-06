@@ -1,35 +1,19 @@
-"""Orchestrator for the ICED v1 ``*-metatable-data`` triplet.
+"""Indicator metadata + canonical CSV emission for the ICED v1 metatable family.
 
-Fetches three v1 endpoints (plain JSON, ``decrypt=False``) and emits three
-indicator artifacts:
-
-- ``energy/state_electricity_generation_by_source_gwh``  — UPGRADES the
-  prior single-FY snapshot to an 11-year (FY16–FY26) per-fuel series.
-- ``energy/state_plant_load_factor_pct``                — NEW.
-- ``environment/state_power_sector_co2_emissions_mtco2`` — NEW (aggregated
-  from the plant-unit-level upstream).
+The legacy network-fetch + folded-indicator-JSON path (``ingest_iced_metatable``)
+was retired in B4-pt2.1 per parent plan section 21.4 ("network-fetch code is
+deleted; ingest reads local TCPD / source CSV"). What remains is the
+indicator metadata + the B1.4.4 canonical CSV emission exercised by
+``backend/tests/test_iced_metatable_csv_repoint.py``.
 """
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime
 from pathlib import Path
 from typing import Any
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
-from yen_gov.core.io import Source, write_artifact
-from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
-from yen_gov.sources.iced_common import IcedClient
-
-from .parsers import (
-    parse_co_emission_metatable,
-    parse_gen_metatable,
-    parse_plf_metatable,
-)
-
-
-API_HOST_V1 = "https://icedapi.niti.gov.in/v1"
 
 # B1.4.4 - canonical CSV citation triples + variable_id prefixes per indicator.
 # All three iced_metatable indicators are NITI Aayog ICED v1 endpoints
@@ -80,12 +64,6 @@ class IndicatorEmitResult:
     time_min: str
     time_max: str
     skipped_unmapped: int = 0
-
-
-@dataclass(frozen=True)
-class IngestSummary:
-    fetched_at: datetime
-    results: tuple[IndicatorEmitResult, ...]
 
 
 # ---------------------------------------------------------------------------
@@ -215,57 +193,6 @@ def _indicator_state_co2_power() -> dict[str, Any]:
 
 
 # ---------------------------------------------------------------------------
-# Emit helper (mirrors iced_macro)
-# ---------------------------------------------------------------------------
-
-
-def _emit(
-    *,
-    repo_root: Path,
-    schema_for_validation: dict,
-    schema_id_str: str,
-    schema_version_str: str,
-    indicator_meta: dict[str, Any],
-    rows: list[dict[str, Any]],
-    sources: list[Source],
-    out_rel: str,
-    spatial: str,
-    skipped_unmapped: int = 0,
-) -> IndicatorEmitResult:
-    times = sorted({r["time"] for r in rows})
-    coverage_temporal = (
-        f"{times[0]}..{times[-1]}" if len(times) > 1 else (times[0] if times else "unknown")
-    )
-    payload = {
-        "coverage": {
-            "spatial": spatial,
-            "temporal": coverage_temporal,
-            "admin_level": "state",
-        },
-        "license": LICENSE_ICED,
-        "indicator": indicator_meta,
-        "rows": rows,
-    }
-    artifact_path = repo_root / out_rel
-    write_artifact(
-        path=artifact_path,
-        schema_id=schema_id_str,
-        schema_version=schema_version_str,
-        payload=payload,
-        sources=sources,
-        schema_for_validation=schema_for_validation,
-    )
-    return IndicatorEmitResult(
-        indicator_id=indicator_meta["id"],
-        artifact_path=artifact_path,
-        row_count=len(rows),
-        time_min=times[0] if times else "",
-        time_max=times[-1] if times else "",
-        skipped_unmapped=skipped_unmapped,
-    )
-
-
-# ---------------------------------------------------------------------------
 # Canonical CSV emission helpers (B1.4.4)
 # ---------------------------------------------------------------------------
 
@@ -373,74 +300,3 @@ def _emit_csv_for(
         parsed_rows, source_id=source_id, variable_prefix=variable_prefix
     )
     return emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
-
-
-# ---------------------------------------------------------------------------
-# Orchestrator
-# ---------------------------------------------------------------------------
-
-
-def ingest_iced_metatable(*, repo_root: Path, client: IcedClient | None = None) -> IngestSummary:
-    if client is None:
-        client = IcedClient(host=API_HOST_V1, polite_delay=0.5)
-    schema_for_validation = schema_doc("indicator.schema.json")
-    sid = schema_id("indicator.schema.json")
-    sver = schema_version("indicator.schema.json")
-
-    results: list[IndicatorEmitResult] = []
-
-    # Generation (replaces prior single-FY snapshot)
-    gen_resp = client.get("/gen-metatable-data", decrypt=False)
-    gen_rows, gen_skipped = parse_gen_metatable(gen_resp.decrypted)
-    results.append(_emit(
-        repo_root=repo_root, schema_for_validation=schema_for_validation,
-        schema_id_str=sid, schema_version_str=sver,
-        indicator_meta=_indicator_state_generation_by_source(), rows=gen_rows,
-        sources=[Source(url=gen_resp.url, fetched_at=gen_resp.fetched_at)],
-        out_rel="datasets/indicators/in/energy/state_electricity_generation_by_source_gwh.json",
-        spatial="India (states + UTs)", skipped_unmapped=gen_skipped,
-    ))
-    _emit_csv_for(
-        repo_root=repo_root, parsed_rows=gen_rows,
-        title=_CSV_SOURCE_TITLE_GEN, variable_prefix=_CSV_VARIABLE_PREFIX_GEN,
-    )
-
-    # PLF
-    plf_resp = client.get("/plf-metatable-data", decrypt=False)
-    plf_rows, plf_skipped = parse_plf_metatable(plf_resp.decrypted)
-    results.append(_emit(
-        repo_root=repo_root, schema_for_validation=schema_for_validation,
-        schema_id_str=sid, schema_version_str=sver,
-        indicator_meta=_indicator_state_plf(), rows=plf_rows,
-        sources=[Source(url=plf_resp.url, fetched_at=plf_resp.fetched_at)],
-        out_rel="datasets/indicators/in/energy/state_plant_load_factor_pct.json",
-        spatial="India (states + UTs)", skipped_unmapped=plf_skipped,
-    ))
-    _emit_csv_for(
-        repo_root=repo_root, parsed_rows=plf_rows,
-        title=_CSV_SOURCE_TITLE_PLF, variable_prefix=_CSV_VARIABLE_PREFIX_PLF,
-    )
-
-    # CO2 (aggregated from plant-unit-level upstream)
-    co2_resp = client.get("/co-emission-metatable-data", decrypt=False)
-    co2_rows, co2_skipped = parse_co_emission_metatable(co2_resp.decrypted)
-    results.append(_emit(
-        repo_root=repo_root, schema_for_validation=schema_for_validation,
-        schema_id_str=sid, schema_version_str=sver,
-        indicator_meta=_indicator_state_co2_power(), rows=co2_rows,
-        sources=[Source(url=co2_resp.url, fetched_at=co2_resp.fetched_at)],
-        out_rel="datasets/indicators/in/environment/state_power_sector_co2_emissions_mtco2.json",
-        spatial="India (states + UTs, fossil-fired plants only)",
-        skipped_unmapped=co2_skipped,
-    ))
-    _emit_csv_for(
-        repo_root=repo_root, parsed_rows=co2_rows,
-        title=_CSV_SOURCE_TITLE_CO2, variable_prefix=_CSV_VARIABLE_PREFIX_CO2,
-    )
-
-    # PR-A5a-tail: derive orchestrator fetched_at from upstream per-fetch
-    # timestamps instead of wall-clock datetime.now().
-    return IngestSummary(
-        fetched_at=max(gen_resp.fetched_at, plf_resp.fetched_at, co2_resp.fetched_at),
-        results=tuple(results),
-    )

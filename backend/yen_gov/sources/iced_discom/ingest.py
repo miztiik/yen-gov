@@ -1,35 +1,26 @@
-"""Orchestrator for the ICED v0 DISCOM endpoint family.
+"""Indicator metadata + canonical CSV emission for the ICED v0 DISCOM family.
 
-Fetches two v0 AES-encrypted endpoints and emits four indicator artifacts:
+The legacy network-fetch + folded-indicator-JSON path (``ingest_iced_discom``)
+was retired in B4-pt2.1 per parent plan section 21.4 ("network-fetch code is
+deleted; ingest reads local TCPD / source CSV"). What remains is the
+indicator metadata + the B1.4.7 canonical CSV emission exercised by
+``backend/tests/test_iced_discom_csv_repoint.py``.
+
+Four indicators were emitted by the retired path:
 
 - ``energy/state_distribution_td_loss_pct``               (T&D loss, %)
 - ``energy/state_distribution_billing_efficiency_pct``    (billing eff, %)
 - ``energy/state_distribution_collection_efficiency_pct`` (collection eff, %)
 - ``energy/state_rpo_compliance_pct``                     (RPO compliance, %)
-
-The 4th opperf category (``aggregate-technical-and-commercial-loss``) is
-intentionally NOT emitted as a new artifact because a state-level ATC
-artifact already exists at ``energy/state_atc_losses_pct.json`` (sourced
-from the ICED ``state-wise-deep-dive`` page) and includes an all-India
-aggregate row that the opperf endpoint does not.
 """
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime
 from pathlib import Path
 from typing import Any
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
-from yen_gov.core.io import Source, write_artifact
-from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
-from yen_gov.sources.iced_common import IcedClient
-
-from .parsers import parse_opperf_states, parse_rpo
-
-
-API_HOST_V0 = "https://icedapi.niti.gov.in"
 
 
 # ---------------------------------------------------------------------------
@@ -84,12 +75,6 @@ class IndicatorEmitResult:
     time_min: str
     time_max: str
     skipped_unmapped: int = 0
-
-
-@dataclass(frozen=True)
-class IngestSummary:
-    fetched_at: datetime
-    results: tuple[IndicatorEmitResult, ...]
 
 
 # ---------------------------------------------------------------------------
@@ -351,145 +336,3 @@ def _emit_csv_for(
         parsed_rows, source_id=source_id, variable_prefix=variable_prefix
     )
     return emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
-
-
-# ---------------------------------------------------------------------------
-# Emit helper
-# ---------------------------------------------------------------------------
-
-
-def _emit(
-    *,
-    repo_root: Path,
-    schema_for_validation: dict,
-    schema_id_str: str,
-    schema_version_str: str,
-    indicator_meta: dict[str, Any],
-    rows: list[dict[str, Any]],
-    sources: list[Source],
-    out_rel: str,
-    spatial: str,
-    skipped_unmapped: int = 0,
-) -> IndicatorEmitResult:
-    times = sorted({r["time"] for r in rows})
-    coverage_temporal = (
-        f"{times[0]}..{times[-1]}" if len(times) > 1 else (times[0] if times else "unknown")
-    )
-    payload = {
-        "coverage": {
-            "spatial": spatial,
-            "temporal": coverage_temporal,
-            "admin_level": "state",
-        },
-        "license": LICENSE_ICED,
-        "indicator": indicator_meta,
-        "rows": rows,
-    }
-    artifact_path = repo_root / out_rel
-    write_artifact(
-        path=artifact_path,
-        schema_id=schema_id_str,
-        schema_version=schema_version_str,
-        payload=payload,
-        sources=sources,
-        schema_for_validation=schema_for_validation,
-    )
-    return IndicatorEmitResult(
-        indicator_id=indicator_meta["id"],
-        artifact_path=artifact_path,
-        row_count=len(rows),
-        time_min=times[0] if times else "",
-        time_max=times[-1] if times else "",
-        skipped_unmapped=skipped_unmapped,
-    )
-
-
-# ---------------------------------------------------------------------------
-# Orchestrator
-# ---------------------------------------------------------------------------
-
-
-def ingest_iced_discom(*, repo_root: Path, client: IcedClient | None = None) -> IngestSummary:
-    if client is None:
-        client = IcedClient(host=API_HOST_V0, polite_delay=0.5)
-    schema_for_validation = schema_doc("indicator.schema.json")
-    sid = schema_id("indicator.schema.json")
-    sver = schema_version("indicator.schema.json")
-
-    results: list[IndicatorEmitResult] = []
-
-    # Operational performance — split into 3 indicator artifacts.
-    op_resp = client.get("/energy/electricity/distribution/operationalPerformanceStates")
-    by_cat, op_skipped = parse_opperf_states(op_resp.decrypted)
-    op_sources = [Source(url=op_resp.url, fetched_at=op_resp.fetched_at)]
-
-    results.append(_emit(
-        repo_root=repo_root, schema_for_validation=schema_for_validation,
-        schema_id_str=sid, schema_version_str=sver,
-        indicator_meta=_indicator_td_loss(),
-        rows=by_cat["transmission-and-distribution-loss"],
-        sources=op_sources,
-        out_rel="datasets/energy/_meadow/iced/2024-25/state_distribution_td_loss_pct.json",
-        spatial="India (states + UTs)", skipped_unmapped=op_skipped,
-    ))
-    _emit_csv_for(
-        repo_root=repo_root,
-        parsed_rows=by_cat["transmission-and-distribution-loss"],
-        title=_CSV_SOURCE_TITLE_TD_LOSS,
-        variable_prefix=_CSV_VARIABLE_PREFIX_TD_LOSS,
-    )
-    results.append(_emit(
-        repo_root=repo_root, schema_for_validation=schema_for_validation,
-        schema_id_str=sid, schema_version_str=sver,
-        indicator_meta=_indicator_billing_efficiency(),
-        rows=by_cat["billing-efficiency"],
-        sources=op_sources,
-        out_rel="datasets/energy/_meadow/iced/2024-25/state_distribution_billing_efficiency_pct.json",
-        spatial="India (states + UTs)",
-    ))
-    _emit_csv_for(
-        repo_root=repo_root,
-        parsed_rows=by_cat["billing-efficiency"],
-        title=_CSV_SOURCE_TITLE_BILLING,
-        variable_prefix=_CSV_VARIABLE_PREFIX_BILLING,
-    )
-    results.append(_emit(
-        repo_root=repo_root, schema_for_validation=schema_for_validation,
-        schema_id_str=sid, schema_version_str=sver,
-        indicator_meta=_indicator_collection_efficiency(),
-        rows=by_cat["collection-efficiency"],
-        sources=op_sources,
-        out_rel="datasets/energy/_meadow/iced/2024-25/state_distribution_collection_efficiency_pct.json",
-        spatial="India (states + UTs)",
-    ))
-    _emit_csv_for(
-        repo_root=repo_root,
-        parsed_rows=by_cat["collection-efficiency"],
-        title=_CSV_SOURCE_TITLE_COLLECTION,
-        variable_prefix=_CSV_VARIABLE_PREFIX_COLLECTION,
-    )
-
-    # RPO compliance.
-    rpo_resp = client.get("/energy/electricity/distribution/rpo")
-    rpo_rows, rpo_skipped = parse_rpo(rpo_resp.decrypted)
-    results.append(_emit(
-        repo_root=repo_root, schema_for_validation=schema_for_validation,
-        schema_id_str=sid, schema_version_str=sver,
-        indicator_meta=_indicator_rpo_compliance(), rows=rpo_rows,
-        sources=[Source(url=rpo_resp.url, fetched_at=rpo_resp.fetched_at)],
-        out_rel="datasets/energy/_meadow/iced/2024-25/state_rpo_compliance_pct.json",
-        spatial="India (states + UTs)", skipped_unmapped=rpo_skipped,
-    ))
-    _emit_csv_for(
-        repo_root=repo_root,
-        parsed_rows=rpo_rows,
-        title=_CSV_SOURCE_TITLE_RPO,
-        variable_prefix=_CSV_VARIABLE_PREFIX_RPO,
-    )
-
-    # PR-A5a-tail: derive orchestrator fetched_at from upstream per-fetch
-    # timestamps instead of wall-clock datetime.now().
-    return IngestSummary(
-        fetched_at=max(op_resp.fetched_at, rpo_resp.fetched_at),
-        results=tuple(results),
-    )

@@ -1,7 +1,12 @@
-"""Orchestrator for the ICED v0 fuel + power-purchase endpoint family.
+"""Indicator metadata + canonical CSV emission for the ICED v0 fuel family.
 
-Fetches three v0 AES-encrypted endpoints and emits three indicator
-artifacts:
+The legacy network-fetch + folded-indicator-JSON path (``ingest_iced_fuel``)
+was retired in B4-pt2.1 per parent plan section 21.4 ("network-fetch code is
+deleted; ingest reads local TCPD / source CSV"). What remains is the
+indicator metadata + the B1.4.3 canonical CSV emission exercised by
+``backend/tests/test_iced_fuel_csv_repoint.py``.
+
+Three indicators were emitted by the retired path:
 
 - ``energy/state_coal_consumption_mt``         (state coal consumption, Mt)
 - ``energy/state_oil_product_consumption_kt``  (state oil-product, kt; faceted)
@@ -10,24 +15,11 @@ artifacts:
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime
 from pathlib import Path
 from typing import Any
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
-from yen_gov.core.io import Source, write_artifact
-from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
-from yen_gov.sources.iced_common import IcedClient
-
-from .parsers import (
-    parse_coal_consumption_state,
-    parse_oil_consumption_state,
-    parse_ppa_share,
-)
-
-
-API_HOST_V0 = "https://icedapi.niti.gov.in"
 
 # B1.4.3 - canonical CSV citation triples + variable_id prefixes per indicator.
 # All three iced_fuel indicators are NITI Aayog ICED v0 endpoints (same
@@ -77,12 +69,6 @@ class IndicatorEmitResult:
     time_min: str
     time_max: str
     skipped_unmapped: int = 0
-
-
-@dataclass(frozen=True)
-class IngestSummary:
-    fetched_at: datetime
-    results: tuple[IndicatorEmitResult, ...]
 
 
 # ---------------------------------------------------------------------------
@@ -219,52 +205,6 @@ def _indicator_ppa_share() -> dict[str, Any]:
 # ---------------------------------------------------------------------------
 
 
-def _emit(
-    *,
-    repo_root: Path,
-    schema_for_validation: dict,
-    schema_id_str: str,
-    schema_version_str: str,
-    indicator_meta: dict[str, Any],
-    rows: list[dict[str, Any]],
-    sources: list[Source],
-    out_rel: str,
-    spatial: str,
-    skipped_unmapped: int = 0,
-) -> IndicatorEmitResult:
-    times = sorted({r["time"] for r in rows})
-    coverage_temporal = (
-        f"{times[0]}..{times[-1]}" if len(times) > 1 else (times[0] if times else "unknown")
-    )
-    payload = {
-        "coverage": {
-            "spatial": spatial,
-            "temporal": coverage_temporal,
-            "admin_level": "state",
-        },
-        "license": LICENSE_ICED,
-        "indicator": indicator_meta,
-        "rows": rows,
-    }
-    artifact_path = repo_root / out_rel
-    write_artifact(
-        path=artifact_path,
-        schema_id=schema_id_str,
-        schema_version=schema_version_str,
-        payload=payload,
-        sources=sources,
-        schema_for_validation=schema_for_validation,
-    )
-    return IndicatorEmitResult(
-        indicator_id=indicator_meta["id"],
-        artifact_path=artifact_path,
-        row_count=len(rows),
-        time_min=times[0] if times else "",
-        time_max=times[-1] if times else "",
-        skipped_unmapped=skipped_unmapped,
-    )
-
-
 # ---------------------------------------------------------------------------
 # Canonical CSV emission helpers (B1.4.3)
 # ---------------------------------------------------------------------------
@@ -371,71 +311,3 @@ def _emit_csv_for(
         parsed_rows, source_id=source_id, variable_prefix=variable_prefix
     )
     return emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
-
-
-# ---------------------------------------------------------------------------
-# Orchestrator
-# ---------------------------------------------------------------------------
-
-
-def ingest_iced_fuel(*, repo_root: Path, client: IcedClient | None = None) -> IngestSummary:
-    if client is None:
-        client = IcedClient(host=API_HOST_V0, polite_delay=0.5)
-    schema_for_validation = schema_doc("indicator.schema.json")
-    sid = schema_id("indicator.schema.json")
-    sver = schema_version("indicator.schema.json")
-
-    results: list[IndicatorEmitResult] = []
-
-    coal_resp = client.get("/energy/fuel-sources/coal/consumption-domestic-state")
-    coal_rows, coal_skipped = parse_coal_consumption_state(coal_resp.decrypted)
-    results.append(_emit(
-        repo_root=repo_root, schema_for_validation=schema_for_validation,
-        schema_id_str=sid, schema_version_str=sver,
-        indicator_meta=_indicator_coal_consumption(), rows=coal_rows,
-        sources=[Source(url=coal_resp.url, fetched_at=coal_resp.fetched_at)],
-        out_rel="datasets/indicators/in/energy/state_coal_consumption_mt.json",
-        spatial="India (states + UTs, coal-consuming states only)",
-        skipped_unmapped=coal_skipped,
-    ))
-    _emit_csv_for(
-        repo_root=repo_root, parsed_rows=coal_rows,
-        title=_CSV_SOURCE_TITLE_COAL, variable_prefix=_CSV_VARIABLE_PREFIX_COAL,
-    )
-
-    oil_resp = client.get("/energy/fuel-sources/oil/consumptionStateProductTrend")
-    oil_rows, oil_skipped = parse_oil_consumption_state(oil_resp.decrypted)
-    results.append(_emit(
-        repo_root=repo_root, schema_for_validation=schema_for_validation,
-        schema_id_str=sid, schema_version_str=sver,
-        indicator_meta=_indicator_oil_consumption(), rows=oil_rows,
-        sources=[Source(url=oil_resp.url, fetched_at=oil_resp.fetched_at)],
-        out_rel="datasets/indicators/in/energy/state_oil_product_consumption_kt.json",
-        spatial="India (states + UTs)", skipped_unmapped=oil_skipped,
-    ))
-    _emit_csv_for(
-        repo_root=repo_root, parsed_rows=oil_rows,
-        title=_CSV_SOURCE_TITLE_OIL, variable_prefix=_CSV_VARIABLE_PREFIX_OIL,
-    )
-
-    ppa_resp = client.get("/statelevel-power-purchase-quantum-and-cost")
-    ppa_rows, ppa_skipped = parse_ppa_share(ppa_resp.decrypted)
-    results.append(_emit(
-        repo_root=repo_root, schema_for_validation=schema_for_validation,
-        schema_id_str=sid, schema_version_str=sver,
-        indicator_meta=_indicator_ppa_share(), rows=ppa_rows,
-        sources=[Source(url=ppa_resp.url, fetched_at=ppa_resp.fetched_at)],
-        out_rel="datasets/indicators/in/energy/state_power_purchase_share_pct.json",
-        spatial="India (states + UTs)", skipped_unmapped=ppa_skipped,
-    ))
-    _emit_csv_for(
-        repo_root=repo_root, parsed_rows=ppa_rows,
-        title=_CSV_SOURCE_TITLE_PPA, variable_prefix=_CSV_VARIABLE_PREFIX_PPA,
-    )
-
-    # PR-A5a-tail: derive orchestrator fetched_at from upstream per-fetch
-    # timestamps instead of wall-clock datetime.now().
-    return IngestSummary(
-        fetched_at=max(coal_resp.fetched_at, oil_resp.fetched_at, ppa_resp.fetched_at),
-        results=tuple(results),
-    )
