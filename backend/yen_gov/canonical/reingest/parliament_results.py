@@ -48,6 +48,7 @@ from yen_gov.canonical.reingest.assembly_results import (
     _result,
     _sex,
     _text_or_none,
+    party_lookup_from_parties_csv,
     recompute_summary_row,
 )
 from yen_gov.canonical.reingest.elections import (
@@ -92,6 +93,7 @@ def build_parliament_year(
     source_rows: list[dict[str, str]],
     pc_eci_to_entity: dict[tuple[str, int], str],
     source_id: str,
+    party_lookup: dict[str, str] | None = None,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]], set[tuple[str, int]]]:
     """Build (candidacies, summary, unbound) for ONE LS cycle (all states).
 
@@ -100,7 +102,11 @@ def build_parliament_year(
     ``(state, constituency_no, position, candidate_name)``), the recomputed
     summary rows (one per PC), and the set of ``(state_slug, pc_no)`` that did
     not resolve to a PC entity (skipped; surfaced for the coverage note).
+
+    ``party_lookup`` is the optional ``upper(short) -> party_id`` map from
+    :func:`assembly_results.party_lookup_from_parties_csv` (F1.3a v1.1).
     """
+    lookup = party_lookup or {}
     # Re-poll supersede is per (state, constituency) - prefix the key with state.
     final_rows = _latest_poll_only(
         [
@@ -115,7 +121,8 @@ def build_parliament_year(
     candidacies: list[dict[str, Any]] = []
     unbound: set[tuple[str, int]] = set()
     for src in final_rows:
-        if (src.get("Party") or "").strip().upper() == NOTA_PARTY_TOKEN:
+        raw_party = (src.get("Party") or "").strip()
+        if raw_party.upper() == NOTA_PARTY_TOKEN:
             continue
         pc_no = _int_or_none(src.get("Constituency_No"))
         if pc_no is None:
@@ -134,7 +141,7 @@ def build_parliament_year(
                 "constituency_no": pc_no,
                 "constituency_name": _text_or_none(src.get("Constituency_Name")) or "",
                 "candidate_name": _text_or_none(src.get("Candidate")) or "",
-                "party_id": None,
+                "party_id": lookup.get(raw_party.upper()) if raw_party else None,
                 "votes": _int_or_none(src.get("Votes")) or 0,
                 "vote_share_pct": _float_or_none(src.get("Vote_Share_Percentage")),
                 "position": position if position is not None else 0,
@@ -192,11 +199,16 @@ def emit_parliament(
     out_root: Path,
     source_id: str,
     delim_id: str = DELIM_ID_2008,
+    parties_csv: Path | None = None,
 ) -> dict[int, dict[str, Any]]:
     """Emit candidacies + summary CSVs for every in-force LS cycle.
 
     Returns ``{year: {"candidacies": Path, "summary": Path, "n_candidacies":
     int, "n_summary": int, "states": int, "unbound": sorted list}}``.
+
+    ``parties_csv`` is the optional path to ``datasets/data/entities/parties.csv``
+    for F1.3a v1.1 party-id resolution; see
+    :func:`assembly_results.emit_state_assembly` for the same contract.
     """
     if not ge_csv.exists():
         raise FileNotFoundError(ge_csv)
@@ -204,6 +216,9 @@ def emit_parliament(
         raise FileNotFoundError(electoral_csv)
 
     pc_eci_to_entity = _pc_eci_to_entity(_read_csv_rows(electoral_csv))
+    party_lookup = (
+        party_lookup_from_parties_csv(parties_csv) if parties_csv is not None else {}
+    )
 
     delim_rows = [
         r for r in _read_csv_rows(ge_csv) if (r.get("DelimID") or "").strip() == delim_id
@@ -220,6 +235,7 @@ def emit_parliament(
             source_rows=year_rows,
             pc_eci_to_entity=pc_eci_to_entity,
             source_id=source_id,
+            party_lookup=party_lookup,
         )
         if not candidacies:
             continue

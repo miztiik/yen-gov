@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-assam-1825,assam,2014,JAMUNAMUKH,155977,119280,76.47,Abdur Rahim Ajmal,,62153,52.11,Bashir Uddin Laskar,,39194,22959,19.25,src-1b7bc1c9d39a
-IN-AC-2008-assam-1834,assam,2014,LAKHIPUR,127350,93289,73.25,Rajdeep Goala,,39159,41.98,Sanjay Kumar Thakur,,29322,9837,10.55,src-1b7bc1c9d39a
-IN-AC-2008-assam-1835,assam,2014,SILCHAR,195527,128321,65.63,Dilip Kumar Paul,,74898,58.37,A.D.Mazumder,,37457,37441,29.18,src-1b7bc1c9d39a
+IN-AC-2008-assam-1825,assam,2014,JAMUNAMUKH,155977,119280,76.47,Abdur Rahim Ajmal,parties.IN.AIUDF,62153,52.11,Bashir Uddin Laskar,parties.IN.INC,39194,22959,19.25,src-1b7bc1c9d39a
+IN-AC-2008-assam-1834,assam,2014,LAKHIPUR,127350,93289,73.25,Rajdeep Goala,parties.IN.INC,39159,41.98,Sanjay Kumar Thakur,parties.IN.BJP,29322,9837,10.55,src-1b7bc1c9d39a
+IN-AC-2008-assam-1835,assam,2014,SILCHAR,195527,128321,65.63,Dilip Kumar Paul,parties.IN.BJP,74898,58.37,A.D.Mazumder,parties.IN.INC,37457,37441,29.18,src-1b7bc1c9d39a

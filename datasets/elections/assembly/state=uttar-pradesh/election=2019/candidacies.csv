@@ -1,151 +1,151 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,KIRAT SINGH,,68300,30.41,1,won,M,52,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,NOOMAN MASOOD,,62881,28,2,lost,M,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,INDER SAIN,,57374,25.55,3,lost,M,53,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,MO. IRSHAD,,32276,14.37,4,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,KIRAT SINGH,parties.IN.BJP,68300,30.41,1,won,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,NOOMAN MASOOD,parties.IN.INC,62881,28,2,lost,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,INDER SAIN,parties.IN.SP,57374,25.55,3,lost,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,MO. IRSHAD,parties.IN.BSP,32276,14.37,4,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,NOTA,,730,0.33,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,JITENDRA KUMAR,,695,0.31,6,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,SOMPAL KASHYP,,535,0.24,7,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,JITENDRA KUMAR,parties.IN.NCP,695,0.31,6,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,SOMPAL KASHYP,parties.IN.IND,535,0.24,7,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,MOHKAM SINGH,,470,0.21,8,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,KAWAR PAL,,418,0.19,9,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,PRADEEP,,385,0.17,10,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,SAHDEV SINGH,,358,0.16,11,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,IRSHAD AHMED,,161,0.07,12,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1048,uttar-pradesh,2019,37,RAMPUR,Dr. Tazeen Fatma,,79043,49.13,1,won,F,70,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1048,uttar-pradesh,2019,37,RAMPUR,Bharat Bhushan,,71327,44.34,2,lost,M,53,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1048,uttar-pradesh,2019,37,RAMPUR,Arshad Ali Khan,,4182,2.6,3,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1048,uttar-pradesh,2019,37,RAMPUR,Zubair Masood Khan,,3441,2.14,4,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,KAWAR PAL,parties.IN.IND,418,0.19,9,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,PRADEEP,parties.IN.IND,385,0.17,10,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,SAHDEV SINGH,parties.IN.IND,358,0.16,11,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,7,GANGOH,IRSHAD AHMED,parties.IN.IND,161,0.07,12,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1048,uttar-pradesh,2019,37,RAMPUR,Dr. Tazeen Fatma,parties.IN.SP,79043,49.13,1,won,F,70,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1048,uttar-pradesh,2019,37,RAMPUR,Bharat Bhushan,parties.IN.BJP,71327,44.34,2,lost,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1048,uttar-pradesh,2019,37,RAMPUR,Arshad Ali Khan,parties.IN.INC,4182,2.6,3,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1048,uttar-pradesh,2019,37,RAMPUR,Zubair Masood Khan,parties.IN.BSP,3441,2.14,4,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1048,uttar-pradesh,2019,37,RAMPUR,NOTA,,1289,0.8,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1048,uttar-pradesh,2019,37,RAMPUR,Javed,,1089,0.68,6,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1048,uttar-pradesh,2019,37,RAMPUR,RITESH AGARWAL,,271,0.17,7,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1048,uttar-pradesh,2019,37,RAMPUR,Sheeba Khan,,239,0.15,8,forfeit,F,28,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-907,uttar-pradesh,2019,77,IGLAS,RAJKUMAR SAHYOGI,,75673,51.67,1,won,M,53,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-907,uttar-pradesh,2019,77,IGLAS,ABHAY KUMAR,,49736,33.96,2,lost,M,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-907,uttar-pradesh,2019,77,IGLAS,UMESH KUMAR,,10795,7.37,3,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1048,uttar-pradesh,2019,37,RAMPUR,Javed,parties.IN.IND,1089,0.68,6,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1048,uttar-pradesh,2019,37,RAMPUR,RITESH AGARWAL,parties.IN.IND,271,0.17,7,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1048,uttar-pradesh,2019,37,RAMPUR,Sheeba Khan,parties.IN.IND,239,0.15,8,forfeit,F,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-907,uttar-pradesh,2019,77,IGLAS,RAJKUMAR SAHYOGI,parties.IN.BJP,75673,51.67,1,won,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-907,uttar-pradesh,2019,77,IGLAS,ABHAY KUMAR,parties.IN.BSP,49736,33.96,2,lost,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-907,uttar-pradesh,2019,77,IGLAS,UMESH KUMAR,parties.IN.INC,10795,7.37,3,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-907,uttar-pradesh,2019,77,IGLAS,MUKESH KUMAR,,4796,3.27,4,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-907,uttar-pradesh,2019,77,IGLAS,HARISHA KUMAR DHANGAR,,2762,1.89,5,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-907,uttar-pradesh,2019,77,IGLAS,NOTA,,1098,0.75,6,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-907,uttar-pradesh,2019,77,IGLAS,PUSHPENDRA KUMAR,,1087,0.74,7,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-907,uttar-pradesh,2019,77,IGLAS,VIKAS ALIAS VIKAS KUMAR,,505,0.34,8,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,PURSHOTTAM KHANDELWAL,,105762,64.97,1,won,M,58,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,SURAJ SHARMA,,45731,28.09,2,lost,M,25,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,RANVIR SHARMA,,7040,4.32,3,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,PURSHOTTAM KHANDELWAL,parties.IN.BJP,105762,64.97,1,won,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,SURAJ SHARMA,parties.IN.SP,45731,28.09,2,lost,M,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,RANVIR SHARMA,parties.IN.INC,7040,4.32,3,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,DILEEP KUMAR BAGHEL,,1515,0.93,4,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,NOTA,,807,0.5,5,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,RASHID ALI CHAUDHARY,,742,0.46,6,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,ROHIT,,307,0.19,7,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,Dr. RAM BRIJ YADAV,,255,0.16,8,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,MANJU SHARMA,,191,0.12,9,forfeit,F,50,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,IDRIS,,147,0.09,10,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,ANIL KUMAR KUSHWAHA,,102,0.06,11,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,DHARMENDRA KUMAR SHARMA,,96,0.06,12,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,Dr. RAM BRIJ YADAV,parties.IN.IND,255,0.16,8,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,MANJU SHARMA,parties.IN.IND,191,0.12,9,forfeit,F,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,IDRIS,parties.IN.IND,147,0.09,10,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,ANIL KUMAR KUSHWAHA,parties.IN.IND,102,0.06,11,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,DHARMENDRA KUMAR SHARMA,parties.IN.IND,96,0.06,12,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,89,AGRA NORTH,LAXMI SWARUP MITTAL,,82,0.05,13,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-952,uttar-pradesh,2019,138,NIGHASAN,SHASHANK VERMA,,120269,53.52,1,won,M,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-952,uttar-pradesh,2019,138,NIGHASAN,MOHAMMAD KAIYUM,,68987,30.7,2,lost,M,46,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-952,uttar-pradesh,2019,138,NIGHASAN,ATAL KUMAR SHUKLA,,18402,8.19,3,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-952,uttar-pradesh,2019,138,NIGHASAN,PARAMJEET SINGH,,8053,3.58,4,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-952,uttar-pradesh,2019,138,NIGHASAN,ASHARFIPAL DHANGAR,,2531,1.13,5,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-952,uttar-pradesh,2019,138,NIGHASAN,SHASHANK VERMA,parties.IN.BJP,120269,53.52,1,won,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-952,uttar-pradesh,2019,138,NIGHASAN,MOHAMMAD KAIYUM,parties.IN.SP,68987,30.7,2,lost,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-952,uttar-pradesh,2019,138,NIGHASAN,ATAL KUMAR SHUKLA,parties.IN.INC,18402,8.19,3,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-952,uttar-pradesh,2019,138,NIGHASAN,PARAMJEET SINGH,parties.IN.IND,8053,3.58,4,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-952,uttar-pradesh,2019,138,NIGHASAN,ASHARFIPAL DHANGAR,parties.IN.SBSP,2531,1.13,5,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-952,uttar-pradesh,2019,138,NIGHASAN,AMAR SINGH CHAUHAN,,2397,1.07,6,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-952,uttar-pradesh,2019,138,NIGHASAN,NOTA,,2130,0.95,7,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-952,uttar-pradesh,2019,138,NIGHASAN,GYANENDRA SINGH MAURYA,,1950,0.87,8,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,Suresh Chandra Tiwari,,56684,51.03,1,won,M,63,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,Major Ashish Chaturvedi,,21256,19.14,2,lost,M,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,Dilpreet Singh Virk D.P.,,19445,17.51,3,lost,M,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,Arun Diwedi,,10709,9.64,4,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,Suresh Chandra Tiwari,parties.IN.BJP,56684,51.03,1,won,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,Major Ashish Chaturvedi,parties.IN.SP,21256,19.14,2,lost,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,Dilpreet Singh Virk D.P.,parties.IN.INC,19445,17.51,3,lost,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,Arun Diwedi,parties.IN.BSP,10709,9.64,4,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,NOTA,,1368,1.23,5,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,Deepak Chaurasia,,328,0.3,6,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,Vinod Kumar,,243,0.22,7,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,Vinod Kumar,parties.IN.IND,243,0.22,7,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,Satyapal Singh Satya Fauji,,179,0.16,8,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,S. N. Srivastava,,155,0.14,9,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,Shatrohan Lal Rawat,,148,0.13,10,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,Nigmendra Mishra,,147,0.13,11,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,Nigmendra Mishra,parties.IN.IND,147,0.13,11,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,Neelam Saroj,,147,0.13,12,forfeit,F,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,Anurodh Srivastava,,141,0.13,13,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,Anurodh Srivastava,parties.IN.IND,141,0.13,13,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,175,LUCKNOW CANTONMENT,Satyendar Kumar,,122,0.11,14,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2019,212,GOVIND NAGAR,SURENDRA MAITHANI,,60237,50.09,1,won,M,54,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2019,212,GOVIND NAGAR,KARISHMA THAKUR,,38993,32.43,2,lost,F,25,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2019,212,GOVIND NAGAR,SAMRAT VIKAS,,11915,9.91,3,forfeit,M,25,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2019,212,GOVIND NAGAR,DEVI PRASAD TEWARI,,5434,4.52,4,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2019,212,GOVIND NAGAR,DEVENDRA KUMAR SINGH,,1524,1.27,5,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2019,212,GOVIND NAGAR,SURENDRA MAITHANI,parties.IN.BJP,60237,50.09,1,won,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2019,212,GOVIND NAGAR,KARISHMA THAKUR,parties.IN.INC,38993,32.43,2,lost,F,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2019,212,GOVIND NAGAR,SAMRAT VIKAS,parties.IN.SP,11915,9.91,3,forfeit,M,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2019,212,GOVIND NAGAR,DEVI PRASAD TEWARI,parties.IN.BSP,5434,4.52,4,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2019,212,GOVIND NAGAR,DEVENDRA KUMAR SINGH,parties.IN.IND,1524,1.27,5,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2019,212,GOVIND NAGAR,NOTA,,1004,0.83,6,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2019,212,GOVIND NAGAR,RAKESH KUMAR TRIPATHI,,400,0.33,7,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2019,212,GOVIND NAGAR,YOGENDRA AGNIHOTRI (ADVOCATE),,315,0.26,8,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2019,212,GOVIND NAGAR,DR. V. N. PAL,,259,0.22,9,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2019,212,GOVIND NAGAR,DR. V. N. PAL,parties.IN.RSPS,259,0.22,9,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2019,212,GOVIND NAGAR,SURENDRA KATIYAR CHANDRA,,174,0.14,10,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2019,228,HAMIRPUR,Yuwraj Singh,,74409,38.55,1,won,M,62,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2019,228,HAMIRPUR,Dr. Manoj Kumar Prajapati,,56542,29.29,2,lost,M,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2019,228,HAMIRPUR,Naushad Ali,,28798,14.92,3,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2019,228,HAMIRPUR,Hardeepak Nishad,,16097,8.34,4,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2019,228,HAMIRPUR,Yuwraj Singh,parties.IN.BJP,74409,38.55,1,won,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2019,228,HAMIRPUR,Dr. Manoj Kumar Prajapati,parties.IN.SP,56542,29.29,2,lost,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2019,228,HAMIRPUR,Naushad Ali,parties.IN.BSP,28798,14.92,3,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2019,228,HAMIRPUR,Hardeepak Nishad,parties.IN.INC,16097,8.34,4,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2019,228,HAMIRPUR,Raja Bhaiya,,5201,2.69,5,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2019,228,HAMIRPUR,Jamal Alam Mansoori,,3910,2.03,6,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2019,228,HAMIRPUR,Jamal Alam Mansoori,parties.IN.CPI,3910,2.03,6,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2019,228,HAMIRPUR,Sukhapal Singh Pal,,2582,1.34,7,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2019,228,HAMIRPUR,NOTA,,2294,1.19,8,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2019,228,HAMIRPUR,Suresh Kumar Verma,,1648,0.85,9,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2019,228,HAMIRPUR,Hanuman Mishra,,1556,0.81,10,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-772,uttar-pradesh,2019,237,MANIKPUR,AANAND SHUKLA,,66310,37.43,1,won,M,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-772,uttar-pradesh,2019,237,MANIKPUR,DR NIRBHAY SINGH PATEL,,53470,30.18,2,lost,M,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-772,uttar-pradesh,2019,237,MANIKPUR,RAJNARAYAN,,38296,21.62,3,lost,M,52,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-772,uttar-pradesh,2019,237,MANIKPUR,RANJANA BARATI LAL PANDEY,,8233,4.65,4,forfeit,F,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-772,uttar-pradesh,2019,237,MANIKPUR,AANAND SHUKLA,parties.IN.BJP,66310,37.43,1,won,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-772,uttar-pradesh,2019,237,MANIKPUR,DR NIRBHAY SINGH PATEL,parties.IN.SP,53470,30.18,2,lost,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-772,uttar-pradesh,2019,237,MANIKPUR,RAJNARAYAN,parties.IN.BSP,38296,21.62,3,lost,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-772,uttar-pradesh,2019,237,MANIKPUR,RANJANA BARATI LAL PANDEY,parties.IN.INC,8233,4.65,4,forfeit,F,37,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-772,uttar-pradesh,2019,237,MANIKPUR,NOTA,,3096,1.75,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-772,uttar-pradesh,2019,237,MANIKPUR,JAGDISH SINGH,,2531,1.43,6,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-772,uttar-pradesh,2019,237,MANIKPUR,JAGDISH SINGH,parties.IN.CPI,2531,1.43,6,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-772,uttar-pradesh,2019,237,MANIKPUR,SHANTI SINGH,,1677,0.95,7,forfeit,F,62,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-772,uttar-pradesh,2019,237,MANIKPUR,BHUPENDRA KUMAR DHANGAR,,1266,0.71,8,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-772,uttar-pradesh,2019,237,MANIKPUR,SURENDRA KUMAR,,1155,0.65,9,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-772,uttar-pradesh,2019,237,MANIKPUR,SHIVBHUSHAN SINGH PATEL,,1132,0.64,10,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,248,PRATAPGARH,RAJKUMAR PAL,,52949,35.49,1,won,M,55,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,248,PRATAPGARH,BRIJESH VERMA,,23228,15.57,2,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,248,PRATAPGARH,ISRAR AHMAD,,20269,13.59,3,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,248,PRATAPGARH,NEERAJ TRIPATHI,,19715,13.22,4,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,248,PRATAPGARH,RANJEET SINGH PATEL,,19000,12.74,5,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,248,PRATAPGARH,BRIJESH VERMA,parties.IN.SP,23228,15.57,2,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,248,PRATAPGARH,ISRAR AHMAD,parties.IN.AIMIM,20269,13.59,3,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,248,PRATAPGARH,NEERAJ TRIPATHI,parties.IN.INC,19715,13.22,4,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,248,PRATAPGARH,RANJEET SINGH PATEL,parties.IN.BSP,19000,12.74,5,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,248,PRATAPGARH,HARIKESH KUMAR,,3456,2.32,6,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,248,PRATAPGARH,PRAVEEN KUMAR,,2531,1.7,7,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,248,PRATAPGARH,NIRBHAY PRATAP SINGH,,2237,1.5,8,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,248,PRATAPGARH,PRAVEEN KUMAR,parties.IN.NCP,2531,1.7,7,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,248,PRATAPGARH,NIRBHAY PRATAP SINGH,parties.IN.CPI,2237,1.5,8,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,248,PRATAPGARH,ABDUL MATEEN,,1612,1.08,9,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,248,PRATAPGARH,NOTA,,1568,1.05,10,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,248,PRATAPGARH,MOHAMMAD IRSHAD,,1440,0.97,11,forfeit,M,71,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,248,PRATAPGARH,BAJARANGI LAL,,1179,0.79,12,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-783,uttar-pradesh,2019,269,ZAIDPUR,Gaurav Kumar,,78172,35.28,1,won,M,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-783,uttar-pradesh,2019,269,ZAIDPUR,Ambrish,,74007,33.4,2,lost,M,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-783,uttar-pradesh,2019,269,ZAIDPUR,Tanuj Punia,,43983,19.85,3,lost,M,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-783,uttar-pradesh,2019,269,ZAIDPUR,Akhilesh Ku. Ambedkar,,18202,8.21,4,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,248,PRATAPGARH,BAJARANGI LAL,parties.IN.IND,1179,0.79,12,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-783,uttar-pradesh,2019,269,ZAIDPUR,Gaurav Kumar,parties.IN.SP,78172,35.28,1,won,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-783,uttar-pradesh,2019,269,ZAIDPUR,Ambrish,parties.IN.BJP,74007,33.4,2,lost,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-783,uttar-pradesh,2019,269,ZAIDPUR,Tanuj Punia,parties.IN.INC,43983,19.85,3,lost,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-783,uttar-pradesh,2019,269,ZAIDPUR,Akhilesh Ku. Ambedkar,parties.IN.BSP,18202,8.21,4,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-783,uttar-pradesh,2019,269,ZAIDPUR,Kailasnath Baildar,,3390,1.53,5,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-783,uttar-pradesh,2019,269,ZAIDPUR,NOTA,,1550,0.7,6,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-783,uttar-pradesh,2019,269,ZAIDPUR,Hari Nandan Singh,,1378,0.62,7,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-783,uttar-pradesh,2019,269,ZAIDPUR,Suresh Rawat,,904,0.41,8,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Subhash Rai,,72611,31.6,1,won,M,55,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Dr. Chhaya Verma,,71821,31.25,2,lost,F,27,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Dr. Rajesh Singh,,63405,27.59,3,lost,M,46,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Ravikant,,9040,3.93,4,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Murad Ali,,2953,1.29,5,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Sunil Mishra,,2522,1.1,6,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Subhash Rai,parties.IN.SP,72611,31.6,1,won,M,55,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Dr. Chhaya Verma,parties.IN.BSP,71821,31.25,2,lost,F,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Dr. Rajesh Singh,parties.IN.BJP,63405,27.59,3,lost,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Ravikant,parties.IN.SBSP,9040,3.93,4,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Murad Ali,parties.IN.IND,2953,1.29,5,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Sunil Mishra,parties.IN.INC,2522,1.1,6,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Rashid Umar,,1358,0.59,7,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Anil Kunwar Chauhan,,1275,0.55,8,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Anil Kunwar Chauhan,parties.IN.CPI,1275,0.55,8,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,NOTA,,1055,0.46,9,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Anirudh,,843,0.37,10,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Aruna Singh,,789,0.34,11,forfeit,F,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Jagram,,780,0.34,12,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Ashok Kumar Sen,,719,0.31,13,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Taigar Ramnihor Patel ''Ratnashah(Phaujee),,626,0.27,14,forfeit,M,68,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,SAROJ SONKAR,,89641,48.34,1,won,F,46,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,KIRAN BHARTI,,43154,23.27,2,lost,F,48,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,RAMESH CHANDRA,,31640,17.06,3,lost,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Ashok Kumar Sen,parties.IN.IND,719,0.31,13,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,280,JALALPUR,Taigar Ramnihor Patel ''Ratnashah(Phaujee),parties.IN.IND,626,0.27,14,forfeit,M,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,SAROJ SONKAR,parties.IN.BJP,89641,48.34,1,won,F,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,KIRAN BHARTI,parties.IN.SP,43154,23.27,2,lost,F,48,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,RAMESH CHANDRA,parties.IN.BSP,31640,17.06,3,lost,M,52,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,BAIJNATH,,5745,3.1,4,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,RAM DAYAL,,4762,2.57,5,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,DHANPAT PRASAD,,2445,1.32,6,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,KOYALI,,2244,1.21,7,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,KOYALI,parties.IN.CPI,2244,1.21,7,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,NOTA,,2102,1.13,8,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,MANNU DEVI,,1353,0.73,9,forfeit,F,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,DEVI PRASAD,,1017,0.55,10,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,LAL CHAND,,808,0.44,11,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,KIRAN DEVI,,514,0.28,12,forfeit,F,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,354,GHOSI,VIJAY KUMAR RAJBHAR,,68371,31.13,1,won,M,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,354,GHOSI,SUDHAKAR SINGH,,66598,30.32,2,lost,M,60,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,354,GHOSI,ABDUL QAYUM,,50775,23.12,3,lost,M,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,354,GHOSI,RAJMANGAL YADAV,,11624,5.29,4,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,354,GHOSI,NEBOOLAL,,11485,5.23,5,forfeit,M,66,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,354,GHOSI,SHEKH HISAMUDDIN,,2938,1.34,6,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,MANNU DEVI,parties.IN.INC,1353,0.73,9,forfeit,F,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,DEVI PRASAD,parties.IN.IND,1017,0.55,10,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,LAL CHAND,parties.IN.IND,808,0.44,11,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,282,BALHA,KIRAN DEVI,parties.IN.IND,514,0.28,12,forfeit,F,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,354,GHOSI,VIJAY KUMAR RAJBHAR,parties.IN.BJP,68371,31.13,1,won,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,354,GHOSI,SUDHAKAR SINGH,parties.IN.IND,66598,30.32,2,lost,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,354,GHOSI,ABDUL QAYUM,parties.IN.BSP,50775,23.12,3,lost,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,354,GHOSI,RAJMANGAL YADAV,parties.IN.INC,11624,5.29,4,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,354,GHOSI,NEBOOLAL,parties.IN.SBSP,11485,5.23,5,forfeit,M,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,354,GHOSI,SHEKH HISAMUDDIN,parties.IN.CPI,2938,1.34,6,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,354,GHOSI,FUZAIL AHMAD,,1952,0.89,7,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,354,GHOSI,NOTA,,1749,0.8,8,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,354,GHOSI,JITENDRA SINGH CHAUHAN,,1699,0.77,9,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,354,GHOSI,RAMBHAVAN,,1290,0.59,10,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,354,GHOSI,RAMBHAVAN,parties.IN.IND,1290,0.59,10,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,354,GHOSI,SARAD CHAND,,1171,0.53,11,forfeit,M,31,,,challenger,src-1b7bc1c9d39a

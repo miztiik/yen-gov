@@ -1,30 +1,30 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Saidi Reddy Shanampudi,,113095,56.34,1,won,M,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Nalamada Padmavathi Reddy,,69737,34.74,2,lost,F,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Sapavath Suman,,2697,1.34,3,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Dr. Kota. Rama Rao,,2639,1.31,4,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Chava. Kiranmaye,,1827,0.91,5,forfeit,F,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Nalamada Padmavathi Reddy,parties.IN.INC,69737,34.74,2,lost,F,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Sapavath Suman,parties.IN.IND,2697,1.34,3,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Dr. Kota. Rama Rao,parties.IN.BJP,2639,1.31,4,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Chava. Kiranmaye,parties.IN.TDP,1827,0.91,5,forfeit,F,48,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Shanthi Dasram Naik,,955,0.48,6,forfeit,F,28,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,T Pandu Goudu,,923,0.46,7,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,T Pandu Goudu,parties.IN.IND,923,0.46,7,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Ajmeera Mahesh,,917,0.46,8,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Jajula Bhaskar,,895,0.45,9,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Teenmar Mallanna,,894,0.45,10,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Deshagani Sambashiva Goud,,885,0.44,11,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Teenmar Mallanna,parties.IN.IND,894,0.45,10,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Deshagani Sambashiva Goud,parties.IN.IND,885,0.44,11,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Kiran Vangapalli,,815,0.41,12,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Medi. Ramana,,545,0.27,13,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Medi. Ramana,parties.IN.IND,545,0.27,13,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,NOTA,,506,0.25,14,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Panditi Kranthi Kumar,,426,0.21,15,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,N. Vinod Kumar,,388,0.19,16,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Chiliveru Srikanth,,377,0.19,17,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Panditi Kranthi Kumar,parties.IN.IND,426,0.21,15,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,N. Vinod Kumar,parties.IN.IND,388,0.19,16,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Chiliveru Srikanth,parties.IN.IND,377,0.19,17,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Veesam. Ramulu,,316,0.16,18,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Aludasu. Sudhakar,,295,0.15,19,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Aludasu. Sudhakar,parties.IN.IND,295,0.15,19,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Janaiah Nandipati,,247,0.12,20,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Bandaru Nagaraju,,247,0.12,21,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Maram. VenkatReddy,,185,0.09,22,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Krishna Nayak Bhukya,,176,0.09,23,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Lingidi Venkateswarlu,,162,0.08,24,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Bandaru Nagaraju,parties.IN.IND,247,0.12,21,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Maram. VenkatReddy,parties.IN.IND,185,0.09,22,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Krishna Nayak Bhukya,parties.IN.IND,176,0.09,23,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Lingidi Venkateswarlu,parties.IN.IND,162,0.08,24,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Mekala. Raghuma Reddy,,160,0.08,25,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Suman Rayirala,,158,0.08,26,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Mekala. Venkanna,,125,0.06,27,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Suman Rayirala,parties.IN.IND,158,0.08,26,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Mekala. Venkanna,parties.IN.IND,125,0.06,27,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Mamidi Sudarshan,,94,0.05,28,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3328,telangana,2019,89,HUZURNAGAR,Thagulla. Janardan Yadav,,68,0.03,29,forfeit,M,30,,,challenger,src-1b7bc1c9d39a

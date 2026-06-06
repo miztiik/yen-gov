@@ -1,429 +1,429 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-meghalaya-1678,meghalaya,2023,1,NARTIANG,SNIAWBHALANG DHAR,,16969,41.56,1,won,U,41,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1678,meghalaya,2023,1,NARTIANG,EMLANG LALOO,,14846,36.36,2,lost,U,58,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1678,meghalaya,2023,1,NARTIANG,GENEROUS PASLEIN,,7404,18.14,3,lost,U,26,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1678,meghalaya,2023,1,NARTIANG,SNIAWBHALANG DHAR,parties.IN.NPP,16969,41.56,1,won,U,41,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1678,meghalaya,2023,1,NARTIANG,EMLANG LALOO,parties.IN.INC,14846,36.36,2,lost,U,58,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1678,meghalaya,2023,1,NARTIANG,GENEROUS PASLEIN,parties.IN.IND,7404,18.14,3,lost,U,26,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1678,meghalaya,2023,1,NARTIANG,DAWAN LYNGDOH,,893,2.19,4,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1678,meghalaya,2023,1,NARTIANG,NOTA,,433,1.06,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1678,meghalaya,2023,1,NARTIANG,RIMIKI SARI,,282,0.69,6,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1664,meghalaya,2023,2,JOWAI,WAILADMIKI SHYLLA,,14079,38.35,1,won,U,31,12th Pass,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1664,meghalaya,2023,2,JOWAI,AWHAI ANDREW SHULLAI,,11412,31.08,2,lost,U,40,Graduate,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1678,meghalaya,2023,1,NARTIANG,RIMIKI SARI,parties.IN.BJP,282,0.69,6,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1664,meghalaya,2023,2,JOWAI,WAILADMIKI SHYLLA,parties.IN.NPP,14079,38.35,1,won,U,31,12th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1664,meghalaya,2023,2,JOWAI,AWHAI ANDREW SHULLAI,parties.IN.AITC,11412,31.08,2,lost,U,40,Graduate,Party Worker,crossover,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1664,meghalaya,2023,2,JOWAI,MOONLIGHT PARIAT,,10260,27.94,3,lost,U,60,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1664,meghalaya,2023,2,JOWAI,NOTA,,423,1.15,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1664,meghalaya,2023,2,JOWAI,ALLAN KEITH SUCHIANG,,326,0.89,5,forfeit,U,56,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1664,meghalaya,2023,2,JOWAI,DANIEL DANN,,216,0.59,6,forfeit,U,59,Graduate Professional,Ex Govt Employee,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1686,meghalaya,2023,3,RALIANG,COMING ONE YMBON,,13626,38.43,1,won,U,51,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1686,meghalaya,2023,3,RALIANG,LAKHON BIAM,,8289,23.37,2,lost,U,47,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1664,meghalaya,2023,2,JOWAI,ALLAN KEITH SUCHIANG,parties.IN.BJP,326,0.89,5,forfeit,U,56,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1664,meghalaya,2023,2,JOWAI,DANIEL DANN,parties.IN.INC,216,0.59,6,forfeit,U,59,Graduate Professional,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1686,meghalaya,2023,3,RALIANG,COMING ONE YMBON,parties.IN.NPP,13626,38.43,1,won,U,51,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1686,meghalaya,2023,3,RALIANG,LAKHON BIAM,parties.IN.BJP,8289,23.37,2,lost,U,47,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1686,meghalaya,2023,3,RALIANG,J TREILANG SUCHIANG,,5250,14.8,3,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1686,meghalaya,2023,3,RALIANG,RICHARD SINGH LYNGDOH,,4154,11.71,4,forfeit,U,59,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1686,meghalaya,2023,3,RALIANG,RICHARD SINGH LYNGDOH,parties.IN.INC,4154,11.71,4,forfeit,U,59,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1686,meghalaya,2023,3,RALIANG,SHEMHOK GAROD,,2513,7.09,5,forfeit,U,48,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1686,meghalaya,2023,3,RALIANG,ROBINUS SYNGKON,,1269,3.58,6,forfeit,U,58,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1686,meghalaya,2023,3,RALIANG,ROBINUS SYNGKON,parties.IN.AITC,1269,3.58,6,forfeit,U,58,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1686,meghalaya,2023,3,RALIANG,NOTA,,360,1.02,7,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1676,meghalaya,2023,4,MOWKAIAW,NUJORKI SUNGOH,,14508,39.48,1,won,U,34,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1676,meghalaya,2023,4,MOWKAIAW,HABAHUN DKHAR,,10607,28.86,2,lost,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1676,meghalaya,2023,4,MOWKAIAW,NEHEMAYAH TYNGKAN,,10290,28,3,lost,U,38,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1676,meghalaya,2023,4,MOWKAIAW,LASTING SUCHIANG,,872,2.37,4,forfeit,U,44,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1676,meghalaya,2023,4,MOWKAIAW,HABAHUN DKHAR,parties.IN.NPP,10607,28.86,2,lost,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1676,meghalaya,2023,4,MOWKAIAW,NEHEMAYAH TYNGKAN,parties.IN.INC,10290,28,3,lost,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1676,meghalaya,2023,4,MOWKAIAW,LASTING SUCHIANG,parties.IN.AITC,872,2.37,4,forfeit,U,44,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1676,meghalaya,2023,4,MOWKAIAW,NOTA,,360,0.98,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1676,meghalaya,2023,4,MOWKAIAW,CURRENTIS RABON,,110,0.3,6,forfeit,U,50,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1693,meghalaya,2023,5,SUTNGA SAIPUNG,SANTA MARY SHYLLA,,16974,39.1,1,won,U,39,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1693,meghalaya,2023,5,SUTNGA SAIPUNG,VINCENT .H. PALA,,15146,34.89,2,lost,U,54,Graduate Professional,MP,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1676,meghalaya,2023,4,MOWKAIAW,CURRENTIS RABON,parties.IN.BJP,110,0.3,6,forfeit,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1693,meghalaya,2023,5,SUTNGA SAIPUNG,SANTA MARY SHYLLA,parties.IN.NPP,16974,39.1,1,won,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1693,meghalaya,2023,5,SUTNGA SAIPUNG,VINCENT .H. PALA,parties.IN.INC,15146,34.89,2,lost,U,54,Graduate Professional,MP,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1693,meghalaya,2023,5,SUTNGA SAIPUNG,SHITLANG PALE,,10453,24.08,3,lost,U,55,12th Pass,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1693,meghalaya,2023,5,SUTNGA SAIPUNG,KRISON LANGSTANG,,424,0.98,4,forfeit,U,31,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1693,meghalaya,2023,5,SUTNGA SAIPUNG,KRISON LANGSTANG,parties.IN.BJP,424,0.98,4,forfeit,U,31,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1693,meghalaya,2023,5,SUTNGA SAIPUNG,NOTA,,416,0.96,5,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1665,meghalaya,2023,6,KHLIEHRIAT,KYRMEN SHYLLA,,23514,54.95,1,won,U,34,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1665,meghalaya,2023,6,KHLIEHRIAT,NEHLANG LYNGDOH,,17908,41.85,2,lost,U,64,5th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1665,meghalaya,2023,6,KHLIEHRIAT,NEHLANG LYNGDOH,parties.IN.NPP,17908,41.85,2,lost,U,64,5th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1665,meghalaya,2023,6,KHLIEHRIAT,DAMEWANHI L RYMBAI,,861,2.01,3,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1665,meghalaya,2023,6,KHLIEHRIAT,BHAYES CHYRMANG,,174,0.41,4,forfeit,U,51,8th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1665,meghalaya,2023,6,KHLIEHRIAT,BHAYES CHYRMANG,parties.IN.BJP,174,0.41,4,forfeit,U,51,8th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1665,meghalaya,2023,6,KHLIEHRIAT,NOTA,,115,0.27,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1665,meghalaya,2023,6,KHLIEHRIAT,JHANIKA SIANGSHAI,,114,0.27,6,forfeit,U,29,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1665,meghalaya,2023,6,KHLIEHRIAT,SUNIDA BAREH,,109,0.25,7,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1665,meghalaya,2023,6,KHLIEHRIAT,JHANIKA SIANGSHAI,parties.IN.INC,114,0.27,6,forfeit,U,29,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1665,meghalaya,2023,6,KHLIEHRIAT,SUNIDA BAREH,parties.IN.AITC,109,0.25,7,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1661,meghalaya,2023,7,AMLAREM,LAHKMEN RYMBUI,,17803,49.15,1,won,U,54,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1661,meghalaya,2023,7,AMLAREM,STEPHANSON MUKHIM,,17746,48.99,2,lost,U,45,Graduate,"Ex MLA, Party Worker",challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1661,meghalaya,2023,7,AMLAREM,STEPHANSON MUKHIM,parties.IN.NPP,17746,48.99,2,lost,U,45,Graduate,"Ex MLA, Party Worker",challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1661,meghalaya,2023,7,AMLAREM,NOTA,,328,0.91,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1661,meghalaya,2023,7,AMLAREM,ARBIANGKAM KHARSOHMAT,,138,0.38,4,forfeit,U,38,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1661,meghalaya,2023,7,AMLAREM,FIRSTBORN MANNER,,108,0.3,5,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1661,meghalaya,2023,7,AMLAREM,ALBAN K. GASHNGA,,100,0.28,6,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1667,meghalaya,2023,8,MAWHATI,CHARLES MARNGAR,,13273,37.38,1,won,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1667,meghalaya,2023,8,MAWHATI,SHEMPHANG LYNGDOH,,8029,22.61,2,lost,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1661,meghalaya,2023,7,AMLAREM,ARBIANGKAM KHARSOHMAT,parties.IN.INC,138,0.38,4,forfeit,U,38,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1661,meghalaya,2023,7,AMLAREM,FIRSTBORN MANNER,parties.IN.BJP,108,0.3,5,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1661,meghalaya,2023,7,AMLAREM,ALBAN K. GASHNGA,parties.IN.AITC,100,0.28,6,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1667,meghalaya,2023,8,MAWHATI,CHARLES MARNGAR,parties.IN.INC,13273,37.38,1,won,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1667,meghalaya,2023,8,MAWHATI,SHEMPHANG LYNGDOH,parties.IN.NPP,8029,22.61,2,lost,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1667,meghalaya,2023,8,MAWHATI,BAIAHUNLANG MAKDOH,,6556,18.46,3,lost,U,57,Graduate Professional,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1667,meghalaya,2023,8,MAWHATI,EVALYNI KHARBANI,,4590,12.93,4,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1667,meghalaya,2023,8,MAWHATI,DR. EVARIST MYRSING,,1376,3.87,5,forfeit,U,36,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1667,meghalaya,2023,8,MAWHATI,DR. SARALIN DORPHANG,,729,2.05,6,forfeit,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1667,meghalaya,2023,8,MAWHATI,DR. EVARIST MYRSING,parties.IN.BJP,1376,3.87,5,forfeit,U,36,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1667,meghalaya,2023,8,MAWHATI,DR. SARALIN DORPHANG,parties.IN.AITC,729,2.05,6,forfeit,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1667,meghalaya,2023,8,MAWHATI,ROSWEL SHADAP,,560,1.58,7,forfeit,U,46,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1667,meghalaya,2023,8,MAWHATI,OSBERT B. RYNJAH,,208,0.59,8,forfeit,U,42,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1667,meghalaya,2023,8,MAWHATI,OSBERT B. RYNJAH,parties.IN.IND,208,0.59,8,forfeit,U,42,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1667,meghalaya,2023,8,MAWHATI,NOTA,,191,0.54,9,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1680,meghalaya,2023,9,NONGPOH,MAYRALBORN SYIEM,,14940,45.44,1,won,U,42,Post Graduate,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1680,meghalaya,2023,9,NONGPOH,RONA KHYMDEIT,,8254,25.11,2,lost,U,44,Graduate Professional,Lawyer,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1680,meghalaya,2023,9,NONGPOH,MACDALYN SAWKMIE MAWLONG,,7446,22.65,3,lost,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1680,meghalaya,2023,9,NONGPOH,MARIAN MARING,,1079,3.28,4,forfeit,U,36,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1680,meghalaya,2023,9,NONGPOH,LONG SINGH BEY,,661,2.01,5,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1680,meghalaya,2023,9,NONGPOH,RONA KHYMDEIT,parties.IN.INC,8254,25.11,2,lost,U,44,Graduate Professional,Lawyer,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1680,meghalaya,2023,9,NONGPOH,MACDALYN SAWKMIE MAWLONG,parties.IN.NPP,7446,22.65,3,lost,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1680,meghalaya,2023,9,NONGPOH,MARIAN MARING,parties.IN.BJP,1079,3.28,4,forfeit,U,36,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1680,meghalaya,2023,9,NONGPOH,LONG SINGH BEY,parties.IN.AITC,661,2.01,5,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1680,meghalaya,2023,9,NONGPOH,NOTA,,300,0.91,6,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1680,meghalaya,2023,9,NONGPOH,BISMO INGTIH,,195,0.59,7,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1663,meghalaya,2023,10,JIRANG,SOSTHENES SOHTUN,,12690,36.41,1,won,U,48,12th Pass,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1663,meghalaya,2023,10,JIRANG,ADRIAN LAMBERT MYLLIEM,,11067,31.76,2,lost,U,29,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1680,meghalaya,2023,9,NONGPOH,BISMO INGTIH,parties.IN.IND,195,0.59,7,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1663,meghalaya,2023,10,JIRANG,SOSTHENES SOHTUN,parties.IN.NPP,12690,36.41,1,won,U,48,12th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1663,meghalaya,2023,10,JIRANG,ADRIAN LAMBERT MYLLIEM,parties.IN.INC,11067,31.76,2,lost,U,29,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1663,meghalaya,2023,10,JIRANG,BADHOK NONGMALIEH,,4107,11.78,3,forfeit,U,49,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1663,meghalaya,2023,10,JIRANG,SUNMOON D. MARAK,,3928,11.27,4,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1663,meghalaya,2023,10,JIRANG,RIYA SANGMA,,2075,5.95,5,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1663,meghalaya,2023,10,JIRANG,SUNMOON D. MARAK,parties.IN.AITC,3928,11.27,4,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1663,meghalaya,2023,10,JIRANG,RIYA SANGMA,parties.IN.BJP,2075,5.95,5,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1663,meghalaya,2023,10,JIRANG,NOTA,,315,0.9,6,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1663,meghalaya,2023,10,JIRANG,FORCASTER NONGRANG,,268,0.77,7,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1663,meghalaya,2023,10,JIRANG,LEE TREVOR BAREH,,226,0.65,8,forfeit,U,38,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1663,meghalaya,2023,10,JIRANG,FORCASTER NONGRANG,parties.IN.IND,268,0.77,7,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1663,meghalaya,2023,10,JIRANG,LEE TREVOR BAREH,parties.IN.IND,226,0.65,8,forfeit,U,38,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1663,meghalaya,2023,10,JIRANG,SERIMINA D. MARAK,,175,0.5,9,forfeit,U,53,12th Pass,Unspecified,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1695,meghalaya,2023,11,UMSNING,DR. CELESTINE LYNGDOH,,9907,29.31,1,won,U,51,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1695,meghalaya,2023,11,UMSNING,DR. CELESTINE LYNGDOH,parties.IN.INC,9907,29.31,1,won,U,51,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1695,meghalaya,2023,11,UMSNING,SUNSHINE MAKRI,,8743,25.86,2,lost,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1695,meghalaya,2023,11,UMSNING,JASON SAWKMIE MAWLONG,,7945,23.5,3,lost,U,33,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1695,meghalaya,2023,11,UMSNING,JASON SAWKMIE MAWLONG,parties.IN.NPP,7945,23.5,3,lost,U,33,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1695,meghalaya,2023,11,UMSNING,DR. RICKY A. J. SYNGKON,,5456,16.14,4,forfeit,U,51,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1695,meghalaya,2023,11,UMSNING,DONLANG SOHKHLET,,585,1.73,5,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1695,meghalaya,2023,11,UMSNING,PRIMSON MAKDOH,,353,1.04,6,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1695,meghalaya,2023,11,UMSNING,DURUTH MAJAW,,324,0.96,7,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1695,meghalaya,2023,11,UMSNING,GILBERT NONGRUM,,296,0.88,8,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1695,meghalaya,2023,11,UMSNING,DURUTH MAJAW,parties.IN.BJP,324,0.96,7,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1695,meghalaya,2023,11,UMSNING,GILBERT NONGRUM,parties.IN.AITC,296,0.88,8,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1695,meghalaya,2023,11,UMSNING,NOTA,,195,0.58,9,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1694,meghalaya,2023,12,UMROI,DAMANBAIT LAMARE,,14213,49.8,1,won,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1694,meghalaya,2023,12,UMROI,GEORGE B. LYNGDOH,,12527,43.89,2,lost,U,44,Graduate Professional,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1694,meghalaya,2023,12,UMROI,STANLYWISS RYMBAI,,1081,3.79,3,forfeit,U,61,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1694,meghalaya,2023,12,UMROI,SHANBOR RAMDE,,404,1.42,4,forfeit,U,54,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1694,meghalaya,2023,12,UMROI,DAMANBAIT LAMARE,parties.IN.NPP,14213,49.8,1,won,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1694,meghalaya,2023,12,UMROI,GEORGE B. LYNGDOH,parties.IN.AITC,12527,43.89,2,lost,U,44,Graduate Professional,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1694,meghalaya,2023,12,UMROI,STANLYWISS RYMBAI,parties.IN.INC,1081,3.79,3,forfeit,U,61,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1694,meghalaya,2023,12,UMROI,SHANBOR RAMDE,parties.IN.BJP,404,1.42,4,forfeit,U,54,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1694,meghalaya,2023,12,UMROI,NOTA,,197,0.69,5,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1694,meghalaya,2023,12,UMROI,BAIATEILANG LAPANG,,118,0.41,6,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1672,meghalaya,2023,13,MAWRYNGKNENG,HEAVING STONE KHARPRAN,,11424,33.09,1,won,U,60,Graduate,Ex Civil Service,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1672,meghalaya,2023,13,MAWRYNGKNENG,OSAPHI SMITHSON JYRWA,,10182,29.49,2,lost,U,51,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1672,meghalaya,2023,13,MAWRYNGKNENG,PYNIAID SING SYIEM,,9541,27.64,3,lost,U,36,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1672,meghalaya,2023,13,MAWRYNGKNENG,BANSHANLANG LAWAI,,1559,4.52,4,forfeit,U,47,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1672,meghalaya,2023,13,MAWRYNGKNENG,HIGHLANDER KHARMALKI,,968,2.8,5,forfeit,U,52,Graduate Professional,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1672,meghalaya,2023,13,MAWRYNGKNENG,ESRON MARWEIN,,433,1.25,6,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1672,meghalaya,2023,13,MAWRYNGKNENG,PYNIAID SING SYIEM,parties.IN.NPP,9541,27.64,3,lost,U,36,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1672,meghalaya,2023,13,MAWRYNGKNENG,BANSHANLANG LAWAI,parties.IN.AITC,1559,4.52,4,forfeit,U,47,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1672,meghalaya,2023,13,MAWRYNGKNENG,HIGHLANDER KHARMALKI,parties.IN.BJP,968,2.8,5,forfeit,U,52,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1672,meghalaya,2023,13,MAWRYNGKNENG,ESRON MARWEIN,parties.IN.INC,433,1.25,6,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1672,meghalaya,2023,13,MAWRYNGKNENG,NOTA,,282,0.82,7,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1672,meghalaya,2023,13,MAWRYNGKNENG,WYRAIWAN SOHTUN,,136,0.39,8,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1684,meghalaya,2023,14,PYNTHORUMKHRAH,ALEXANDER LALOO HEK,,9321,35.7,1,won,U,56,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1684,meghalaya,2023,14,PYNTHORUMKHRAH,PYNSHNGAINLANG SYIEM,,6783,25.98,2,lost,U,49,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1684,meghalaya,2023,14,PYNTHORUMKHRAH,ALEXANDER LALOO HEK,parties.IN.BJP,9321,35.7,1,won,U,56,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1684,meghalaya,2023,14,PYNTHORUMKHRAH,PYNSHNGAINLANG SYIEM,parties.IN.INC,6783,25.98,2,lost,U,49,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1684,meghalaya,2023,14,PYNTHORUMKHRAH,MAYBORN GRACE LYNGDOH,,5720,21.91,3,lost,U,30,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1684,meghalaya,2023,14,PYNTHORUMKHRAH,ROCKY HEK,,3356,12.85,4,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1684,meghalaya,2023,14,PYNTHORUMKHRAH,ROCKY HEK,parties.IN.NPP,3356,12.85,4,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1684,meghalaya,2023,14,PYNTHORUMKHRAH,NOTA,,337,1.29,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1684,meghalaya,2023,14,PYNTHORUMKHRAH,RAYMOND BASAIAWMOIT,,247,0.95,6,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1684,meghalaya,2023,14,PYNTHORUMKHRAH,SAMBORLANG DIENGDOH,,168,0.64,7,forfeit,U,39,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1684,meghalaya,2023,14,PYNTHORUMKHRAH,JUBANLANG KHARBIHKHIEW,,102,0.39,8,forfeit,U,36,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1684,meghalaya,2023,14,PYNTHORUMKHRAH,RUP PARIAT,,74,0.28,9,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1684,meghalaya,2023,14,PYNTHORUMKHRAH,RAYMOND BASAIAWMOIT,parties.IN.AITC,247,0.95,6,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1684,meghalaya,2023,14,PYNTHORUMKHRAH,SAMBORLANG DIENGDOH,parties.IN.IND,168,0.64,7,forfeit,U,39,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1684,meghalaya,2023,14,PYNTHORUMKHRAH,JUBANLANG KHARBIHKHIEW,parties.IN.IND,102,0.39,8,forfeit,U,36,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1684,meghalaya,2023,14,PYNTHORUMKHRAH,RUP PARIAT,parties.IN.IND,74,0.28,9,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1670,meghalaya,2023,15,MAWLAI,BRIGHTSTARWELL MARBANIANG,,24262,59.54,1,won,U,43,Post Graduate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1670,meghalaya,2023,15,MAWLAI,TEIBORLANG PATHAW,,8614,21.14,2,lost,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1670,meghalaya,2023,15,MAWLAI,TEIBORLANG PATHAW,parties.IN.NPP,8614,21.14,2,lost,U,45,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1670,meghalaya,2023,15,MAWLAI,PROCESS T. SAWKMIE,,5142,12.62,3,forfeit,U,59,Graduate,Ex MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1670,meghalaya,2023,15,MAWLAI,MARBUD DKHAR,,1506,3.7,4,forfeit,U,39,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1670,meghalaya,2023,15,MAWLAI,WANDONBOK JYRWA,,450,1.1,5,forfeit,U,39,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1670,meghalaya,2023,15,MAWLAI,TARCISIOUS MAWLOT,,264,0.65,6,forfeit,U,54,12th Pass,Trader,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1670,meghalaya,2023,15,MAWLAI,STEPBOURNEKUPAR RYNDEM,,255,0.63,7,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1670,meghalaya,2023,15,MAWLAI,MARBUD DKHAR,parties.IN.INC,1506,3.7,4,forfeit,U,39,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1670,meghalaya,2023,15,MAWLAI,WANDONBOK JYRWA,parties.IN.BJP,450,1.1,5,forfeit,U,39,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1670,meghalaya,2023,15,MAWLAI,TARCISIOUS MAWLOT,parties.IN.IND,264,0.65,6,forfeit,U,54,12th Pass,Trader,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1670,meghalaya,2023,15,MAWLAI,STEPBOURNEKUPAR RYNDEM,parties.IN.AITC,255,0.63,7,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1670,meghalaya,2023,15,MAWLAI,NOTA,,254,0.62,8,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-eci16,meghalaya,2023,16,EAST SHILLONG,DR. MAZEL AMPAREEN LYNGDOH,,6637,38.96,1,won,U,57,Doctorate,Ex MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-eci16,meghalaya,2023,16,EAST SHILLONG,MANUEL BADWAR,,4926,28.92,2,lost,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-eci16,meghalaya,2023,16,EAST SHILLONG,WANKITBOK POHSHNA,,2643,15.51,3,forfeit,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-eci16,meghalaya,2023,16,EAST SHILLONG,DR. MAZEL AMPAREEN LYNGDOH,parties.IN.NPP,6637,38.96,1,won,U,57,Doctorate,Ex MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-eci16,meghalaya,2023,16,EAST SHILLONG,MANUEL BADWAR,parties.IN.INC,4926,28.92,2,lost,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-eci16,meghalaya,2023,16,EAST SHILLONG,WANKITBOK POHSHNA,parties.IN.BJP,2643,15.51,3,forfeit,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-eci16,meghalaya,2023,16,EAST SHILLONG,AVNER MEDON PARIAT,,1974,11.59,4,forfeit,U,36,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-eci16,meghalaya,2023,16,EAST SHILLONG,AJOY NONGRUM,,264,1.55,5,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-eci16,meghalaya,2023,16,EAST SHILLONG,AJOY NONGRUM,parties.IN.AITC,264,1.55,5,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-eci16,meghalaya,2023,16,EAST SHILLONG,NOTA,,259,1.52,6,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-eci16,meghalaya,2023,16,EAST SHILLONG,WANPYNHUN KHARSYNTIEW,,243,1.43,7,forfeit,U,42,Graduate,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-eci16,meghalaya,2023,16,EAST SHILLONG,WANPYNHUN KHARSYNTIEW,parties.IN.IND,243,1.43,7,forfeit,U,42,Graduate,Activist,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-eci16,meghalaya,2023,16,EAST SHILLONG,ROMEO PHIRA RANI,,90,0.53,8,forfeit,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-eci17,meghalaya,2023,17,NORTH SHILLONG,ADELBERT NONGRUM,,5583,29.45,1,won,U,46,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-eci17,meghalaya,2023,17,NORTH SHILLONG,MARIAHOM KHARKRANG,,4550,24,2,lost,U,58,Graduate,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-eci17,meghalaya,2023,17,NORTH SHILLONG,MARIAHOM KHARKRANG,parties.IN.BJP,4550,24,2,lost,U,58,Graduate,Ex Civil Service,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-eci17,meghalaya,2023,17,NORTH SHILLONG,DR. AMAN WARR,,3791,20,3,lost,U,58,Graduate Professional,Ex Civil Service,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-eci17,meghalaya,2023,17,NORTH SHILLONG,RANSOM SUTNGA,,1975,10.42,4,forfeit,U,53,Graduate Professional,Ex Civil Service,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-eci17,meghalaya,2023,17,NORTH SHILLONG,J. ANTONIUS LYNGDOH,,1555,8.2,5,forfeit,U,66,Graduate,Party Worker,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-eci17,meghalaya,2023,17,NORTH SHILLONG,ELGIVA GWYNETH RYNJAH,,816,4.3,6,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-eci17,meghalaya,2023,17,NORTH SHILLONG,L. MICHAEL KHARSYNTIEW,,385,2.03,7,forfeit,U,35,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-eci17,meghalaya,2023,17,NORTH SHILLONG,RANSOM SUTNGA,parties.IN.NPP,1975,10.42,4,forfeit,U,53,Graduate Professional,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-eci17,meghalaya,2023,17,NORTH SHILLONG,J. ANTONIUS LYNGDOH,parties.IN.INC,1555,8.2,5,forfeit,U,66,Graduate,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-eci17,meghalaya,2023,17,NORTH SHILLONG,ELGIVA GWYNETH RYNJAH,parties.IN.AITC,816,4.3,6,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-eci17,meghalaya,2023,17,NORTH SHILLONG,L. MICHAEL KHARSYNTIEW,parties.IN.IND,385,2.03,7,forfeit,U,35,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-eci17,meghalaya,2023,17,NORTH SHILLONG,NOTA,,191,1.01,8,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-eci17,meghalaya,2023,17,NORTH SHILLONG,KYRSOIBOR PYRTUH,,111,0.59,9,forfeit,U,49,Graduate Professional,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-eci17,meghalaya,2023,17,NORTH SHILLONG,KYRSOIBOR PYRTUH,parties.IN.IND,111,0.59,9,forfeit,U,49,Graduate Professional,Activist,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-eci18,meghalaya,2023,18,WEST SHILLONG,PAUL LYNGDOH,,7917,42.14,1,won,U,50,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-eci18,meghalaya,2023,18,WEST SHILLONG,MOHENDRO RAPSANG,,4432,23.59,2,lost,U,58,12th Pass,Ex MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-eci18,meghalaya,2023,18,WEST SHILLONG,ERNEST MAWRIE,,3771,20.07,3,lost,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-eci18,meghalaya,2023,18,WEST SHILLONG,MOHENDRO RAPSANG,parties.IN.NPP,4432,23.59,2,lost,U,58,12th Pass,Ex MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-eci18,meghalaya,2023,18,WEST SHILLONG,ERNEST MAWRIE,parties.IN.BJP,3771,20.07,3,lost,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-eci18,meghalaya,2023,18,WEST SHILLONG,RAJA JYRWA,,1859,9.9,4,forfeit,U,33,12th Pass,Qualified Professional,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-eci18,meghalaya,2023,18,WEST SHILLONG,BETHLEEN DKHAR,,417,2.22,5,forfeit,U,50,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-eci18,meghalaya,2023,18,WEST SHILLONG,BETHLEEN DKHAR,parties.IN.INC,417,2.22,5,forfeit,U,50,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-eci18,meghalaya,2023,18,WEST SHILLONG,NOTA,,204,1.09,6,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-eci18,meghalaya,2023,18,WEST SHILLONG,IWAN MARIA,,187,1,7,forfeit,U,38,Graduate,NGO,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-eci19,meghalaya,2023,19,SOUTH SHILLONG,SANBOR SHULLAI,,14213,65.74,1,won,U,56,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-eci18,meghalaya,2023,18,WEST SHILLONG,IWAN MARIA,parties.IN.AITC,187,1,7,forfeit,U,38,Graduate,NGO,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-eci19,meghalaya,2023,19,SOUTH SHILLONG,SANBOR SHULLAI,parties.IN.BJP,14213,65.74,1,won,U,56,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-eci19,meghalaya,2023,19,SOUTH SHILLONG,DANNY LANGSTIEH,,2604,12.04,2,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-eci19,meghalaya,2023,19,SOUTH SHILLONG,ANGELA G. RANGAD,,1714,7.93,3,forfeit,U,47,Post Graduate,Activist,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-eci19,meghalaya,2023,19,SOUTH SHILLONG,IAN ANDREW LYNGDOH NONGKYNRIH,,1560,7.22,4,forfeit,U,55,Post Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-eci19,meghalaya,2023,19,SOUTH SHILLONG,VENETIA PEARL MAWLONG,,1086,5.02,5,forfeit,U,48,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-eci19,meghalaya,2023,19,SOUTH SHILLONG,ANGELA G. RANGAD,parties.IN.IND,1714,7.93,3,forfeit,U,47,Post Graduate,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-eci19,meghalaya,2023,19,SOUTH SHILLONG,IAN ANDREW LYNGDOH NONGKYNRIH,parties.IN.AITC,1560,7.22,4,forfeit,U,55,Post Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-eci19,meghalaya,2023,19,SOUTH SHILLONG,VENETIA PEARL MAWLONG,parties.IN.INC,1086,5.02,5,forfeit,U,48,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-eci19,meghalaya,2023,19,SOUTH SHILLONG,NOTA,,444,2.05,6,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1677,meghalaya,2023,20,MYLLIEM,RONNIE V. LYNGDOH,,8904,28.69,1,won,U,63,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1677,meghalaya,2023,20,MYLLIEM,RONNIE V. LYNGDOH,parties.IN.INC,8904,28.69,1,won,U,63,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1677,meghalaya,2023,20,MYLLIEM,AIBANDAPLIN F. LYNGDOH,,8866,28.56,2,lost,U,32,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1677,meghalaya,2023,20,MYLLIEM,HAMLETSON DOHLING,,8712,28.07,3,lost,U,47,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1677,meghalaya,2023,20,MYLLIEM,HAMLETSON DOHLING,parties.IN.NPP,8712,28.07,3,lost,U,47,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1677,meghalaya,2023,20,MYLLIEM,MITCHEL WANKHAR,,2619,8.44,4,forfeit,U,51,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1677,meghalaya,2023,20,MYLLIEM,PYNSHAI MANIK SYIEM,,614,1.98,5,forfeit,U,62,Graduate Professional,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1677,meghalaya,2023,20,MYLLIEM,GILBERT GUIDINGSTAR LALOO,,566,1.82,6,forfeit,U,52,Graduate,Contractor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1677,meghalaya,2023,20,MYLLIEM,SAMUEL HASHAH,,435,1.4,7,forfeit,U,36,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1677,meghalaya,2023,20,MYLLIEM,PYNSHAI MANIK SYIEM,parties.IN.IND,614,1.98,5,forfeit,U,62,Graduate Professional,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1677,meghalaya,2023,20,MYLLIEM,GILBERT GUIDINGSTAR LALOO,parties.IN.AITC,566,1.82,6,forfeit,U,52,Graduate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1677,meghalaya,2023,20,MYLLIEM,SAMUEL HASHAH,parties.IN.BJP,435,1.4,7,forfeit,U,36,12th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1677,meghalaya,2023,20,MYLLIEM,NOTA,,248,0.8,8,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1677,meghalaya,2023,20,MYLLIEM,RICHARD NONGBSAP,,75,0.24,9,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1682,meghalaya,2023,21,NONGTHYMMAI,CHARLES PYNGROPE,,7452,29.78,1,won,U,62,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1677,meghalaya,2023,20,MYLLIEM,RICHARD NONGBSAP,parties.IN.IND,75,0.24,9,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1682,meghalaya,2023,21,NONGTHYMMAI,CHARLES PYNGROPE,parties.IN.AITC,7452,29.78,1,won,U,62,Graduate,MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1682,meghalaya,2023,21,NONGTHYMMAI,JEMINO MAWTHOH,,6253,24.99,2,lost,U,58,Doctorate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1682,meghalaya,2023,21,NONGTHYMMAI,WINSTON TONY LYNGDOH,,4473,17.88,3,lost,U,45,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1682,meghalaya,2023,21,NONGTHYMMAI,DAVID KHARSATI,,3274,13.08,4,forfeit,U,54,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1682,meghalaya,2023,21,NONGTHYMMAI,JASMINE MARY LYNGDOH,,2054,8.21,5,forfeit,U,54,Doctorate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1682,meghalaya,2023,21,NONGTHYMMAI,BANIDA SHISHA KHARKONGOR,,1045,4.18,6,forfeit,U,45,Doctorate,Principal or Administrator,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1682,meghalaya,2023,21,NONGTHYMMAI,DAVID KHARSATI,parties.IN.BJP,3274,13.08,4,forfeit,U,54,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1682,meghalaya,2023,21,NONGTHYMMAI,JASMINE MARY LYNGDOH,parties.IN.NPP,2054,8.21,5,forfeit,U,54,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1682,meghalaya,2023,21,NONGTHYMMAI,BANIDA SHISHA KHARKONGOR,parties.IN.INC,1045,4.18,6,forfeit,U,45,Doctorate,Principal or Administrator,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1682,meghalaya,2023,21,NONGTHYMMAI,NOTA,,364,1.45,7,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1682,meghalaya,2023,21,NONGTHYMMAI,WANKIT KUPAR KHARUMNUID,,108,0.43,8,forfeit,U,33,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1682,meghalaya,2023,21,NONGTHYMMAI,WANKIT KUPAR KHARUMNUID,parties.IN.IND,108,0.43,8,forfeit,U,33,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1679,meghalaya,2023,22,NONGKREM,ARDENT MILLER BASAIAWMOIT,,13286,40.77,1,won,U,50,Graduate,Self-employed,crossover,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1679,meghalaya,2023,22,NONGKREM,LAMBOR MALNGIANG,,9099,27.92,2,lost,U,44,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1679,meghalaya,2023,22,NONGKREM,DASAKHIATBHA LAMARE,,7491,22.99,3,lost,U,30,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1679,meghalaya,2023,22,NONGKREM,DASAKHIATBHA LAMARE,parties.IN.NPP,7491,22.99,3,lost,U,30,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1679,meghalaya,2023,22,NONGKREM,EGENSTAR KURKALANG,,1375,4.22,4,forfeit,U,37,Graduate Professional,Lawyer,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1679,meghalaya,2023,22,NONGKREM,DAVID T. KHARKONGOR,,531,1.63,5,forfeit,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1679,meghalaya,2023,22,NONGKREM,SARDONIK NONGKHLAW,,293,0.9,6,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1679,meghalaya,2023,22,NONGKREM,DAVID T. KHARKONGOR,parties.IN.BJP,531,1.63,5,forfeit,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1679,meghalaya,2023,22,NONGKREM,SARDONIK NONGKHLAW,parties.IN.INC,293,0.9,6,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1679,meghalaya,2023,22,NONGKREM,NOTA,,196,0.6,7,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1679,meghalaya,2023,22,NONGKREM,JOANNES J.T.L. LAMARE,,176,0.54,8,forfeit,U,37,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1679,meghalaya,2023,22,NONGKREM,B. M. LANONG,,138,0.42,9,forfeit,U,74,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1679,meghalaya,2023,22,NONGKREM,JOANNES J.T.L. LAMARE,parties.IN.AITC,176,0.54,8,forfeit,U,37,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1679,meghalaya,2023,22,NONGKREM,B. M. LANONG,parties.IN.IND,138,0.42,9,forfeit,U,74,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1671,meghalaya,2023,24,MAWPHLANG,MATTHEW BEYONDSTAR KURBAH,,6690,21.4,1,won,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1671,meghalaya,2023,24,MAWPHLANG,AUSPICIOUS LYNGDOH MAWPHLANG,,6586,21.07,2,lost,U,31,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1671,meghalaya,2023,24,MAWPHLANG,DANNYSON KURBAH,,5594,17.9,3,lost,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1671,meghalaya,2023,24,MAWPHLANG,DANNYSON KURBAH,parties.IN.INC,5594,17.9,3,lost,U,42,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1671,meghalaya,2023,24,MAWPHLANG,DORISTAR MARBANIANG,,4811,15.39,4,forfeit,U,62,Graduate,Ex Civil Service,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1671,meghalaya,2023,24,MAWPHLANG,KENNEDY CORNELIUS KHYRIEM,,4733,15.14,5,forfeit,U,56,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1671,meghalaya,2023,24,MAWPHLANG,MAWKORDOR RYNJAH,,1507,4.82,6,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1671,meghalaya,2023,24,MAWPHLANG,WOSSARROI RANI,,1196,3.83,7,forfeit,U,38,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1671,meghalaya,2023,24,MAWPHLANG,KENNEDY CORNELIUS KHYRIEM,parties.IN.NPP,4733,15.14,5,forfeit,U,56,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1671,meghalaya,2023,24,MAWPHLANG,MAWKORDOR RYNJAH,parties.IN.AITC,1507,4.82,6,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1671,meghalaya,2023,24,MAWPHLANG,WOSSARROI RANI,parties.IN.BJP,1196,3.83,7,forfeit,U,38,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1671,meghalaya,2023,24,MAWPHLANG,NOTA,,142,0.45,8,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1674,meghalaya,2023,25,MAWSYNRAM,OLLAN SINGH SUIN,,10987,33.23,1,won,U,55,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1674,meghalaya,2023,25,MAWSYNRAM,HIMALAYA MUKTAN SHANGPLIANG,,10032,30.34,2,lost,U,60,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1674,meghalaya,2023,25,MAWSYNRAM,ALVIN KHYRIEM SAWKMIE,,10002,30.25,3,lost,U,32,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1674,meghalaya,2023,25,MAWSYNRAM,GOPAL STONE HYNNIEWTA,,1056,3.19,4,forfeit,U,51,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1674,meghalaya,2023,25,MAWSYNRAM,VINCENT T SANGMA,,689,2.08,5,forfeit,U,28,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1674,meghalaya,2023,25,MAWSYNRAM,HIMALAYA MUKTAN SHANGPLIANG,parties.IN.BJP,10032,30.34,2,lost,U,60,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1674,meghalaya,2023,25,MAWSYNRAM,ALVIN KHYRIEM SAWKMIE,parties.IN.NPP,10002,30.25,3,lost,U,32,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1674,meghalaya,2023,25,MAWSYNRAM,GOPAL STONE HYNNIEWTA,parties.IN.INC,1056,3.19,4,forfeit,U,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1674,meghalaya,2023,25,MAWSYNRAM,VINCENT T SANGMA,parties.IN.AITC,689,2.08,5,forfeit,U,28,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1674,meghalaya,2023,25,MAWSYNRAM,NOTA,,191,0.58,6,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1674,meghalaya,2023,25,MAWSYNRAM,STARFING JOVE LANGPEN PDAHKASIEJ,,105,0.32,7,forfeit,U,49,Graduate,Journalist or Editor,crossover,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1689,meghalaya,2023,26,SHELLA,BALAJIED KUPAR SYNREM,,13274,43.36,1,won,U,34,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1689,meghalaya,2023,26,SHELLA,GRACE MARY KHARPURI,,12840,41.94,2,lost,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1689,meghalaya,2023,26,SHELLA,ARENA HYNNIEWTA,,2670,8.72,3,forfeit,U,43,5th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1689,meghalaya,2023,26,SHELLA,PLAYNESS KHIEWTAM,,882,2.88,4,forfeit,U,60,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1689,meghalaya,2023,26,SHELLA,WELLBORN BYNNUD,,592,1.93,5,forfeit,U,46,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1689,meghalaya,2023,26,SHELLA,GRACE MARY KHARPURI,parties.IN.NPP,12840,41.94,2,lost,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1689,meghalaya,2023,26,SHELLA,ARENA HYNNIEWTA,parties.IN.BJP,2670,8.72,3,forfeit,U,43,5th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1689,meghalaya,2023,26,SHELLA,PLAYNESS KHIEWTAM,parties.IN.AITC,882,2.88,4,forfeit,U,60,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1689,meghalaya,2023,26,SHELLA,WELLBORN BYNNUD,parties.IN.INC,592,1.93,5,forfeit,U,46,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1689,meghalaya,2023,26,SHELLA,NOTA,,358,1.17,6,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1685,meghalaya,2023,27,PYNURSLA,PRESTONE TYNSONG,,13745,39.54,1,won,U,57,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1685,meghalaya,2023,27,PYNURSLA,NEHRU SUTING,,5605,16.12,2,forfeit,U,62,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1685,meghalaya,2023,27,PYNURSLA,PRESTONE TYNSONG,parties.IN.NPP,13745,39.54,1,won,U,57,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1685,meghalaya,2023,27,PYNURSLA,NEHRU SUTING,parties.IN.INC,5605,16.12,2,forfeit,U,62,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1685,meghalaya,2023,27,PYNURSLA,ANTHONY JUSTINE KONGWANG,,5377,15.47,3,forfeit,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1685,meghalaya,2023,27,PYNURSLA,DON KUPAR MASSAR,,4828,13.89,4,forfeit,U,54,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1685,meghalaya,2023,27,PYNURSLA,DON KUPAR MASSAR,parties.IN.IND,4828,13.89,4,forfeit,U,54,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1685,meghalaya,2023,27,PYNURSLA,MANBHALANG THABAH,,3482,10.02,5,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1685,meghalaya,2023,27,PYNURSLA,EDMUND KHONGNGAI,,1204,3.46,6,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1685,meghalaya,2023,27,PYNURSLA,ROWELLY KHONGSNI,,377,1.08,7,forfeit,U,39,10th Pass,Ex Military,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1685,meghalaya,2023,27,PYNURSLA,EDMUND KHONGNGAI,parties.IN.AITC,1204,3.46,6,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1685,meghalaya,2023,27,PYNURSLA,ROWELLY KHONGSNI,parties.IN.BJP,377,1.08,7,forfeit,U,39,10th Pass,Ex Military,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1685,meghalaya,2023,27,PYNURSLA,NOTA,,148,0.43,8,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1691,meghalaya,2023,28,SOHRA,GAVIN MIGUEL MYLLIEM,,11358,42.31,1,won,U,31,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1691,meghalaya,2023,28,SOHRA,TITOSSTAR WELL CHYNE,,11343,42.25,2,lost,U,55,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1691,meghalaya,2023,28,SOHRA,ALAN WEST KHARKONGOR,,1598,5.95,3,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1691,meghalaya,2023,28,SOHRA,HAROLD FIRMING KHONGSIT,,1137,4.24,4,forfeit,U,60,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1691,meghalaya,2023,28,SOHRA,ALAN WEST KHARKONGOR,parties.IN.NPP,1598,5.95,3,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1691,meghalaya,2023,28,SOHRA,HAROLD FIRMING KHONGSIT,parties.IN.AITC,1137,4.24,4,forfeit,U,60,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1691,meghalaya,2023,28,SOHRA,G.PHAIYOLIN NONGRUM,,916,3.41,5,forfeit,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1691,meghalaya,2023,28,SOHRA,LAKYNTIEW SOHKHLET,,229,0.85,6,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1691,meghalaya,2023,28,SOHRA,MICHAEL RONNIE KSHIAR,,142,0.53,7,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1691,meghalaya,2023,28,SOHRA,LAKYNTIEW SOHKHLET,parties.IN.INC,229,0.85,6,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1691,meghalaya,2023,28,SOHRA,MICHAEL RONNIE KSHIAR,parties.IN.BJP,142,0.53,7,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1691,meghalaya,2023,28,SOHRA,NOTA,,124,0.46,8,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1668,meghalaya,2023,29,MAWKYNREW,BANTEIDOR LYNGDOH,,11789,35.24,1,won,U,45,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1668,meghalaya,2023,29,MAWKYNREW,MARTLE N. MUKHIM,,7652,22.87,2,lost,U,73,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1668,meghalaya,2023,29,MAWKYNREW,KANSING LYNGSHIANG,,7360,22,3,lost,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1668,meghalaya,2023,29,MAWKYNREW,KANSING LYNGSHIANG,parties.IN.NPP,7360,22,3,lost,U,39,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1668,meghalaya,2023,29,MAWKYNREW,REMINGTON PYNGROPE,,5385,16.1,4,forfeit,U,53,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1668,meghalaya,2023,29,MAWKYNREW,PYNHUNLANG NONGRUM,,465,1.39,5,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1668,meghalaya,2023,29,MAWKYNREW,DONDOR MARBANIANG,,463,1.38,6,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1668,meghalaya,2023,29,MAWKYNREW,PYNHUNLANG NONGRUM,parties.IN.INC,465,1.39,5,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1668,meghalaya,2023,29,MAWKYNREW,DONDOR MARBANIANG,parties.IN.AITC,463,1.38,6,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1668,meghalaya,2023,29,MAWKYNREW,NOTA,,247,0.74,7,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1668,meghalaya,2023,29,MAWKYNREW,COUNSELLOR MUKHIM,,93,0.28,8,forfeit,U,28,Graduate Professional,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1668,meghalaya,2023,29,MAWKYNREW,COUNSELLOR MUKHIM,parties.IN.BJP,93,0.28,8,forfeit,U,28,Graduate Professional,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1666,meghalaya,2023,30,MAIRANG,METBAH LYNGDOH,,19066,48.54,1,won,U,53,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1666,meghalaya,2023,30,MAIRANG,BATSKHEM RYNTATHIANG,,18911,48.14,2,lost,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1666,meghalaya,2023,30,MAIRANG,BATSKHEM RYNTATHIANG,parties.IN.INC,18911,48.14,2,lost,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1666,meghalaya,2023,30,MAIRANG,SHANLANG WARJRI,,944,2.4,3,forfeit,U,37,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1666,meghalaya,2023,30,MAIRANG,MARK RINALDY SAWKMIE,,245,0.62,4,forfeit,U,26,Graduate Professional,Shop Keeper,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1666,meghalaya,2023,30,MAIRANG,MARK RINALDY SAWKMIE,parties.IN.BJP,245,0.62,4,forfeit,U,26,Graduate Professional,Shop Keeper,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1666,meghalaya,2023,30,MAIRANG,NOTA,,116,0.3,5,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1675,meghalaya,2023,31,MAWTHADRAISHAN,SHAKLIAR WARJRI,,17366,42.63,1,won,U,26,Others,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1675,meghalaya,2023,31,MAWTHADRAISHAN,BROLDING NONGSIEJ,,15013,36.85,2,lost,U,55,10th Pass,Ex MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1675,meghalaya,2023,31,MAWTHADRAISHAN,BIOLINDA L.NONGLAIT,,7658,18.8,3,lost,U,36,Post Graduate,Self-employed,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1675,meghalaya,2023,31,MAWTHADRAISHAN,BIOLINDA L.NONGLAIT,parties.IN.NPP,7658,18.8,3,lost,U,36,Post Graduate,Self-employed,crossover,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1675,meghalaya,2023,31,MAWTHADRAISHAN,NOTA,,316,0.78,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1675,meghalaya,2023,31,MAWTHADRAISHAN,FOURTEENSON LYNGKHOI,,260,0.64,5,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1675,meghalaya,2023,31,MAWTHADRAISHAN,DARIKMEN L.MARSHILLONG,,123,0.3,6,forfeit,U,33,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1681,meghalaya,2023,32,NONGSTOIN,GABRIEL WAHLANG,,13847,35.17,1,won,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1681,meghalaya,2023,32,NONGSTOIN,MACMILLAN BYRSAT,,11223,28.51,2,lost,U,49,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1675,meghalaya,2023,31,MAWTHADRAISHAN,FOURTEENSON LYNGKHOI,parties.IN.INC,260,0.64,5,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1675,meghalaya,2023,31,MAWTHADRAISHAN,DARIKMEN L.MARSHILLONG,parties.IN.BJP,123,0.3,6,forfeit,U,33,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1681,meghalaya,2023,32,NONGSTOIN,GABRIEL WAHLANG,parties.IN.INC,13847,35.17,1,won,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1681,meghalaya,2023,32,NONGSTOIN,MACMILLAN BYRSAT,parties.IN.NPP,11223,28.51,2,lost,U,49,Graduate,MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1681,meghalaya,2023,32,NONGSTOIN,POLESTAR NONGSIEJ,,7505,19.06,3,lost,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1681,meghalaya,2023,32,NONGSTOIN,BOBBY BOLDRICK KHARCHANDY,,3755,9.54,4,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1681,meghalaya,2023,32,NONGSTOIN,SANJIED KYNSAI SHANGRIT,,1390,3.53,5,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1681,meghalaya,2023,32,NONGSTOIN,MACMILLAN KHARBANI,,1091,2.77,6,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1681,meghalaya,2023,32,NONGSTOIN,DIOSSTARNESS JYNDIANG,,253,0.64,7,forfeit,U,37,Graduate,Self-employed,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1681,meghalaya,2023,32,NONGSTOIN,STAINBINEL WANNIANG,,209,0.53,8,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1681,meghalaya,2023,32,NONGSTOIN,MACMILLAN KHARBANI,parties.IN.AITC,1091,2.77,6,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1681,meghalaya,2023,32,NONGSTOIN,DIOSSTARNESS JYNDIANG,parties.IN.BJP,253,0.64,7,forfeit,U,37,Graduate,Self-employed,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1681,meghalaya,2023,32,NONGSTOIN,STAINBINEL WANNIANG,parties.IN.IND,209,0.53,8,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1681,meghalaya,2023,32,NONGSTOIN,NOTA,,95,0.24,9,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1687,meghalaya,2023,33,RAMBRAI JYRNGAM,REMINGTON GABIL MOMIN,,9057,26.6,1,won,U,51,Post Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1687,meghalaya,2023,33,RAMBRAI JYRNGAM,REMINGTON GABIL MOMIN,parties.IN.IND,9057,26.6,1,won,U,51,Post Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1687,meghalaya,2023,33,RAMBRAI JYRNGAM,K. PHLASTINGWEL PANGNIANG,,8947,26.27,2,lost,U,53,Graduate,Ex MLA,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1687,meghalaya,2023,33,RAMBRAI JYRNGAM,KIMFA SIDNEY MARBANIANG,,7272,21.36,3,lost,U,43,Graduate,Ex MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1687,meghalaya,2023,33,RAMBRAI JYRNGAM,A GOLDENSTAR NONGLONG,,5805,17.05,4,lost,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1687,meghalaya,2023,33,RAMBRAI JYRNGAM,FERNANDEZ S. DKHAR,,1554,4.56,5,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1687,meghalaya,2023,33,RAMBRAI JYRNGAM,SPASTERLIN NONGREM,,689,2.02,6,forfeit,U,43,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1687,meghalaya,2023,33,RAMBRAI JYRNGAM,FRANCIS PONDIT R. SANGMA,,373,1.1,7,forfeit,U,54,Graduate,Ex MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1687,meghalaya,2023,33,RAMBRAI JYRNGAM,KIMFA SIDNEY MARBANIANG,parties.IN.NPP,7272,21.36,3,lost,U,43,Graduate,Ex MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1687,meghalaya,2023,33,RAMBRAI JYRNGAM,A GOLDENSTAR NONGLONG,parties.IN.INC,5805,17.05,4,lost,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1687,meghalaya,2023,33,RAMBRAI JYRNGAM,FERNANDEZ S. DKHAR,parties.IN.AITC,1554,4.56,5,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1687,meghalaya,2023,33,RAMBRAI JYRNGAM,SPASTERLIN NONGREM,parties.IN.BJP,689,2.02,6,forfeit,U,43,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1687,meghalaya,2023,33,RAMBRAI JYRNGAM,FRANCIS PONDIT R. SANGMA,parties.IN.IND,373,1.1,7,forfeit,U,54,Graduate,Ex MLA,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1687,meghalaya,2023,33,RAMBRAI JYRNGAM,NOTA,,196,0.58,8,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1687,meghalaya,2023,33,RAMBRAI JYRNGAM,SILLASH M. SANGMA,,159,0.47,9,forfeit,U,56,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1687,meghalaya,2023,33,RAMBRAI JYRNGAM,SILLASH M. SANGMA,parties.IN.IND,159,0.47,9,forfeit,U,56,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1673,meghalaya,2023,34,MAWSHYNRUT,METHODIUS DKHAR,,19368,52.5,1,won,U,47,Post Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1673,meghalaya,2023,34,MAWSHYNRUT,GIGUR MYRTHONG,,14181,38.44,2,lost,U,47,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1673,meghalaya,2023,34,MAWSHYNRUT,JUSTINE G. MOMIN,,2515,6.82,3,forfeit,U,38,Post Graduate,Self-employed,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1673,meghalaya,2023,34,MAWSHYNRUT,GIGUR MYRTHONG,parties.IN.NPP,14181,38.44,2,lost,U,47,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1673,meghalaya,2023,34,MAWSHYNRUT,JUSTINE G. MOMIN,parties.IN.AITC,2515,6.82,3,forfeit,U,38,Post Graduate,Self-employed,crossover,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1673,meghalaya,2023,34,MAWSHYNRUT,NOTA,,321,0.87,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1673,meghalaya,2023,34,MAWSHYNRUT,BEEJOY KYNTER,,286,0.78,5,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1673,meghalaya,2023,34,MAWSHYNRUT,ANDREW CHARLES GARE,,220,0.6,6,forfeit,U,54,8th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1673,meghalaya,2023,34,MAWSHYNRUT,BEEJOY KYNTER,parties.IN.BJP,286,0.78,5,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1673,meghalaya,2023,34,MAWSHYNRUT,ANDREW CHARLES GARE,parties.IN.INC,220,0.6,6,forfeit,U,54,8th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1688,meghalaya,2023,35,RANIKOR,PIUS MARWEIN,,16502,50.74,1,won,U,31,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1688,meghalaya,2023,35,RANIKOR,MARTIN M. DANGGO,,10853,33.37,2,lost,U,63,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1688,meghalaya,2023,35,RANIKOR,MIGHTER MARWEIN,,3035,9.33,3,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1688,meghalaya,2023,35,RANIKOR,MARTIN M. DANGGO,parties.IN.BJP,10853,33.37,2,lost,U,63,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1688,meghalaya,2023,35,RANIKOR,MIGHTER MARWEIN,parties.IN.IND,3035,9.33,3,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1688,meghalaya,2023,35,RANIKOR,OVERLIN IMIONG,,988,3.04,4,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1688,meghalaya,2023,35,RANIKOR,VICTOREALNESS SYIEMLIEH,,494,1.52,5,forfeit,U,59,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1688,meghalaya,2023,35,RANIKOR,TENGSIM G. MOMIN,,152,0.47,6,forfeit,U,45,Literate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1688,meghalaya,2023,35,RANIKOR,KRENATH N. MARAK,,142,0.44,7,forfeit,U,52,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1688,meghalaya,2023,35,RANIKOR,VICTOREALNESS SYIEMLIEH,parties.IN.INC,494,1.52,5,forfeit,U,59,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1688,meghalaya,2023,35,RANIKOR,TENGSIM G. MOMIN,parties.IN.AITC,152,0.47,6,forfeit,U,45,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1688,meghalaya,2023,35,RANIKOR,KRENATH N. MARAK,parties.IN.IND,142,0.44,7,forfeit,U,52,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1688,meghalaya,2023,35,RANIKOR,NOTA,,128,0.39,8,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1688,meghalaya,2023,35,RANIKOR,SAVIO PHRANGSNGI DKHAR,,115,0.35,9,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1688,meghalaya,2023,35,RANIKOR,BICHITRO HAJONG,,114,0.35,10,forfeit,U,39,Graduate,Principal or Administrator,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1688,meghalaya,2023,35,RANIKOR,SAVIO PHRANGSNGI DKHAR,parties.IN.IND,115,0.35,9,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1688,meghalaya,2023,35,RANIKOR,BICHITRO HAJONG,parties.IN.IND,114,0.35,10,forfeit,U,39,Graduate,Principal or Administrator,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1669,meghalaya,2023,36,MAWKYRWAT,RENIKTON LYNGDOH TONGKHAR,,10678,31.13,1,won,U,50,Graduate,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1669,meghalaya,2023,36,MAWKYRWAT,CARNES SOHSHANG,,9406,27.42,2,lost,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1669,meghalaya,2023,36,MAWKYRWAT,CARNES SOHSHANG,parties.IN.INC,9406,27.42,2,lost,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1669,meghalaya,2023,36,MAWKYRWAT,MEDALSING LYNGDOH,,6082,17.73,3,lost,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1669,meghalaya,2023,36,MAWKYRWAT,SOUNDER STRONG CAJEE,,4579,13.35,4,forfeit,U,57,Others,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1669,meghalaya,2023,36,MAWKYRWAT,H. STALYNE DIENGDOH,,3207,9.35,5,forfeit,U,59,Graduate,Ex Civil Service,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1669,meghalaya,2023,36,MAWKYRWAT,BITY JYRWA,,151,0.44,6,forfeit,U,56,8th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1669,meghalaya,2023,36,MAWKYRWAT,SOUNDER STRONG CAJEE,parties.IN.AITC,4579,13.35,4,forfeit,U,57,Others,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1669,meghalaya,2023,36,MAWKYRWAT,H. STALYNE DIENGDOH,parties.IN.NPP,3207,9.35,5,forfeit,U,59,Graduate,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1669,meghalaya,2023,36,MAWKYRWAT,BITY JYRWA,parties.IN.BJP,151,0.44,6,forfeit,U,56,8th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1669,meghalaya,2023,36,MAWKYRWAT,NOTA,,130,0.38,7,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1669,meghalaya,2023,36,MAWKYRWAT,BANPYNSKHEMLANG WAHLANG,,67,0.2,8,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1704,meghalaya,2023,37,KHARKUTTA,RUPERT MOMIN,,17426,47.03,1,won,U,48,Post Graduate,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1704,meghalaya,2023,37,KHARKUTTA,CHERAK WATRE MOMIN,,15896,42.9,2,lost,U,44,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1704,meghalaya,2023,37,KHARKUTTA,CHIRENG PETER R. MARAK,,1746,4.71,3,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1704,meghalaya,2023,37,KHARKUTTA,ELSTONE D. MARAK,,932,2.52,4,forfeit,U,62,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1669,meghalaya,2023,36,MAWKYRWAT,BANPYNSKHEMLANG WAHLANG,parties.IN.IND,67,0.2,8,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1704,meghalaya,2023,37,KHARKUTTA,RUPERT MOMIN,parties.IN.NPP,17426,47.03,1,won,U,48,Post Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1704,meghalaya,2023,37,KHARKUTTA,CHERAK WATRE MOMIN,parties.IN.AITC,15896,42.9,2,lost,U,44,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1704,meghalaya,2023,37,KHARKUTTA,CHIRENG PETER R. MARAK,parties.IN.INC,1746,4.71,3,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1704,meghalaya,2023,37,KHARKUTTA,ELSTONE D. MARAK,parties.IN.BJP,932,2.52,4,forfeit,U,62,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1704,meghalaya,2023,37,KHARKUTTA,NOTA,,526,1.42,5,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1704,meghalaya,2023,37,KHARKUTTA,LUDERBERG CH. MOMIN,,525,1.42,6,forfeit,U,66,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1706,meghalaya,2023,38,MENDIPATHAR,MARTHON J SANGMA,,9363,37.56,1,won,U,58,Graduate,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1706,meghalaya,2023,38,MENDIPATHAR,TIMJIM K. MOMIN,,5538,22.21,2,lost,U,30,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1706,meghalaya,2023,38,MENDIPATHAR,SENGNAB MOMIN,,4132,16.57,3,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1706,meghalaya,2023,38,MENDIPATHAR,PARDINAND D. SHIRA,,3312,13.28,4,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1706,meghalaya,2023,38,MENDIPATHAR,MARTHON J SANGMA,parties.IN.NPP,9363,37.56,1,won,U,58,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1706,meghalaya,2023,38,MENDIPATHAR,TIMJIM K. MOMIN,parties.IN.INC,5538,22.21,2,lost,U,30,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1706,meghalaya,2023,38,MENDIPATHAR,SENGNAB MOMIN,parties.IN.BJP,4132,16.57,3,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1706,meghalaya,2023,38,MENDIPATHAR,PARDINAND D. SHIRA,parties.IN.AITC,3312,13.28,4,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1706,meghalaya,2023,38,MENDIPATHAR,ELBARTH MARAK,,1375,5.52,5,forfeit,U,52,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1706,meghalaya,2023,38,MENDIPATHAR,SUBROTHO G MARAK,,1017,4.08,6,forfeit,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1706,meghalaya,2023,38,MENDIPATHAR,NOTA,,194,0.78,7,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1712,meghalaya,2023,39,RESUBELPARA,TIMOTHY D. SHIRA,,10948,41.3,1,won,U,77,Graduate,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1712,meghalaya,2023,39,RESUBELPARA,RINALDO K. SANGMA,,7483,28.23,2,lost,U,31,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1712,meghalaya,2023,39,RESUBELPARA,TWEEL K. MARAK,,5064,19.1,3,lost,U,38,Graduate Professional,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1712,meghalaya,2023,39,RESUBELPARA,SUKHARAM K. SANGMA,,1957,7.38,4,forfeit,U,59,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1712,meghalaya,2023,39,RESUBELPARA,STARLINE MOMIN,,602,2.27,5,forfeit,U,64,Graduate,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1712,meghalaya,2023,39,RESUBELPARA,TIMOTHY D. SHIRA,parties.IN.NPP,10948,41.3,1,won,U,77,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1712,meghalaya,2023,39,RESUBELPARA,RINALDO K. SANGMA,parties.IN.AITC,7483,28.23,2,lost,U,31,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1712,meghalaya,2023,39,RESUBELPARA,TWEEL K. MARAK,parties.IN.INC,5064,19.1,3,lost,U,38,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1712,meghalaya,2023,39,RESUBELPARA,SUKHARAM K. SANGMA,parties.IN.BJP,1957,7.38,4,forfeit,U,59,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1712,meghalaya,2023,39,RESUBELPARA,STARLINE MOMIN,parties.IN.IND,602,2.27,5,forfeit,U,64,Graduate,Ex Civil Service,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1712,meghalaya,2023,39,RESUBELPARA,TAPOSH D. MARAK,,292,1.1,6,forfeit,U,57,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1712,meghalaya,2023,39,RESUBELPARA,NOTA,,164,0.62,7,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1699,meghalaya,2023,40,BAJENGDOBA,PONGSENG MARAK,,9900,34.23,1,won,U,38,Graduate,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1699,meghalaya,2023,40,BAJENGDOBA,BRIGADY NAPAK MARAK,,7584,26.22,2,lost,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1699,meghalaya,2023,40,BAJENGDOBA,TENGRAK R. MARAK,,7431,25.69,3,lost,U,39,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1699,meghalaya,2023,40,BAJENGDOBA,CHADAMBE TENGKAM B MARAK,,1996,6.9,4,forfeit,U,26,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1699,meghalaya,2023,40,BAJENGDOBA,ROCKY R MARAK,,744,2.57,5,forfeit,U,39,12th Pass,Qualified Professional,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1699,meghalaya,2023,40,BAJENGDOBA,HENENDRA A. SANGMA,,537,1.86,6,forfeit,U,59,10th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1699,meghalaya,2023,40,BAJENGDOBA,PONGSENG MARAK,parties.IN.NPP,9900,34.23,1,won,U,38,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1699,meghalaya,2023,40,BAJENGDOBA,BRIGADY NAPAK MARAK,parties.IN.INC,7584,26.22,2,lost,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1699,meghalaya,2023,40,BAJENGDOBA,TENGRAK R. MARAK,parties.IN.AITC,7431,25.69,3,lost,U,39,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1699,meghalaya,2023,40,BAJENGDOBA,CHADAMBE TENGKAM B MARAK,parties.IN.IND,1996,6.9,4,forfeit,U,26,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1699,meghalaya,2023,40,BAJENGDOBA,ROCKY R MARAK,parties.IN.IND,744,2.57,5,forfeit,U,39,12th Pass,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1699,meghalaya,2023,40,BAJENGDOBA,HENENDRA A. SANGMA,parties.IN.BJP,537,1.86,6,forfeit,U,59,10th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1699,meghalaya,2023,40,BAJENGDOBA,RAKMAN CH MARAK,,491,1.7,7,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1699,meghalaya,2023,40,BAJENGDOBA,NOTA,,241,0.83,8,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1717,meghalaya,2023,41,SONGSAK,DR. MUKUL SANGMA,,12689,44.51,1,won,U,57,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1717,meghalaya,2023,41,SONGSAK,NIHIM D SHIRA,,12317,43.21,2,lost,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1717,meghalaya,2023,41,SONGSAK,CHAMPION R. SANGMA,,2232,7.83,3,forfeit,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1717,meghalaya,2023,41,SONGSAK,THOMAS MARAK,,776,2.72,4,forfeit,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1717,meghalaya,2023,41,SONGSAK,DR. MUKUL SANGMA,parties.IN.AITC,12689,44.51,1,won,U,57,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1717,meghalaya,2023,41,SONGSAK,NIHIM D SHIRA,parties.IN.NPP,12317,43.21,2,lost,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1717,meghalaya,2023,41,SONGSAK,CHAMPION R. SANGMA,parties.IN.INC,2232,7.83,3,forfeit,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1717,meghalaya,2023,41,SONGSAK,THOMAS MARAK,parties.IN.BJP,776,2.72,4,forfeit,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1717,meghalaya,2023,41,SONGSAK,SARENNI MARAK,,296,1.04,5,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1717,meghalaya,2023,41,SONGSAK,NOTA,,196,0.69,6,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1714,meghalaya,2023,42,RONGJENG,JIM M SANGMA,,8836,29.32,1,won,U,46,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1714,meghalaya,2023,42,RONGJENG,WALSENG M. SANGMA,,8708,28.89,2,lost,U,41,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1714,meghalaya,2023,42,RONGJENG,SENGNAM M. MARAK,,4400,14.6,3,forfeit,U,45,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1714,meghalaya,2023,42,RONGJENG,RAPIUSH CH. SANGMA,,3302,10.96,4,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1714,meghalaya,2023,42,RONGJENG,JEBING G MOMIN,,3131,10.39,5,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1714,meghalaya,2023,42,RONGJENG,JIM M SANGMA,parties.IN.NPP,8836,29.32,1,won,U,46,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1714,meghalaya,2023,42,RONGJENG,WALSENG M. SANGMA,parties.IN.IND,8708,28.89,2,lost,U,41,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1714,meghalaya,2023,42,RONGJENG,SENGNAM M. MARAK,parties.IN.AITC,4400,14.6,3,forfeit,U,45,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1714,meghalaya,2023,42,RONGJENG,RAPIUSH CH. SANGMA,parties.IN.BJP,3302,10.96,4,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1714,meghalaya,2023,42,RONGJENG,JEBING G MOMIN,parties.IN.INC,3131,10.39,5,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1714,meghalaya,2023,42,RONGJENG,ANDREASH G. MOMIN,,1306,4.33,6,forfeit,U,59,12th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1714,meghalaya,2023,42,RONGJENG,NOTA,,456,1.51,7,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1720,meghalaya,2023,43,WILLIAM NAGAR,MARCUISE N MARAK,,10976,36.9,1,won,U,54,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1720,meghalaya,2023,43,WILLIAM NAGAR,DEBORAH C. MARAK,,7133,23.98,2,lost,U,57,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1720,meghalaya,2023,43,WILLIAM NAGAR,RUDRESWAR CH. MOMIN,,5137,17.27,3,lost,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1720,meghalaya,2023,43,WILLIAM NAGAR,ALPHONSUSH R. MARAK,,4809,16.17,4,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1720,meghalaya,2023,43,WILLIAM NAGAR,MARCUISE N MARAK,parties.IN.NPP,10976,36.9,1,won,U,54,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1720,meghalaya,2023,43,WILLIAM NAGAR,DEBORAH C. MARAK,parties.IN.INC,7133,23.98,2,lost,U,57,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1720,meghalaya,2023,43,WILLIAM NAGAR,RUDRESWAR CH. MOMIN,parties.IN.IND,5137,17.27,3,lost,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1720,meghalaya,2023,43,WILLIAM NAGAR,ALPHONSUSH R. MARAK,parties.IN.AITC,4809,16.17,4,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1720,meghalaya,2023,43,WILLIAM NAGAR,ROBINUS T SANGMA,,733,2.46,5,forfeit,U,54,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1720,meghalaya,2023,43,WILLIAM NAGAR,RAKNANG CH. MOMIN,,457,1.54,6,forfeit,U,25,12th Pass,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1720,meghalaya,2023,43,WILLIAM NAGAR,RAKNANG CH. MOMIN,parties.IN.BJP,457,1.54,6,forfeit,U,25,12th Pass,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1720,meghalaya,2023,43,WILLIAM NAGAR,NOTA,,366,1.23,7,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1720,meghalaya,2023,43,WILLIAM NAGAR,BALLENSING CH MARAK,,138,0.46,8,forfeit,U,53,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1710,meghalaya,2023,44,RAKSAMGRE,LIMISON D. SANGMA,,12184,44.06,1,won,U,56,Others,Party Worker,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1710,meghalaya,2023,44,RAKSAMGRE,BENEDIC R. MARAK,,9366,33.87,2,lost,U,38,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1710,meghalaya,2023,44,RAKSAMGRE,DR. PRABIR D. SANGMA,,4075,14.74,3,forfeit,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1710,meghalaya,2023,44,RAKSAMGRE,FREDERICK D. SANGMA,,1413,5.11,4,forfeit,U,34,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1710,meghalaya,2023,44,RAKSAMGRE,LIMISON D. SANGMA,parties.IN.NPP,12184,44.06,1,won,U,56,Others,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1710,meghalaya,2023,44,RAKSAMGRE,BENEDIC R. MARAK,parties.IN.BJP,9366,33.87,2,lost,U,38,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1710,meghalaya,2023,44,RAKSAMGRE,DR. PRABIR D. SANGMA,parties.IN.AITC,4075,14.74,3,forfeit,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1710,meghalaya,2023,44,RAKSAMGRE,FREDERICK D. SANGMA,parties.IN.INC,1413,5.11,4,forfeit,U,34,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1710,meghalaya,2023,44,RAKSAMGRE,SUSHIL GAYARY,,261,0.94,5,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1710,meghalaya,2023,44,RAKSAMGRE,NOTA,,186,0.67,6,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1710,meghalaya,2023,44,RAKSAMGRE,THOSENGCHEBA A. SANGMA,,168,0.61,7,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1719,meghalaya,2023,45,TIKRIKILA,JIMMY D. SANGMA,,13218,41.42,1,won,U,49,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1719,meghalaya,2023,45,TIKRIKILA,DR. MUKUL SANGMA,,7905,24.77,2,lost,U,57,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1719,meghalaya,2023,45,TIKRIKILA,RAHINATH BARCHUNG,,7849,24.59,3,lost,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1719,meghalaya,2023,45,TIKRIKILA,DR. KAPIN CH. BORO,,1233,3.86,4,forfeit,U,66,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1719,meghalaya,2023,45,TIKRIKILA,NOOR NONGRUM,,1098,3.44,5,forfeit,U,53,12th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1719,meghalaya,2023,45,TIKRIKILA,JIMMY D. SANGMA,parties.IN.NPP,13218,41.42,1,won,U,49,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1719,meghalaya,2023,45,TIKRIKILA,DR. MUKUL SANGMA,parties.IN.AITC,7905,24.77,2,lost,U,57,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1719,meghalaya,2023,45,TIKRIKILA,RAHINATH BARCHUNG,parties.IN.BJP,7849,24.59,3,lost,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1719,meghalaya,2023,45,TIKRIKILA,DR. KAPIN CH. BORO,parties.IN.INC,1233,3.86,4,forfeit,U,66,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1719,meghalaya,2023,45,TIKRIKILA,NOOR NONGRUM,parties.IN.IND,1098,3.44,5,forfeit,U,53,12th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1719,meghalaya,2023,45,TIKRIKILA,JULIUS T. SANGMA,,313,0.98,6,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1719,meghalaya,2023,45,TIKRIKILA,NOTA,,298,0.93,7,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1708,meghalaya,2023,46,PHULBARI,ABU TAHER MONDAL,,14969,50.64,1,won,U,56,Graduate Professional,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1708,meghalaya,2023,46,PHULBARI,S G ESMATUR MOMININ,,11729,39.68,2,lost,U,47,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1708,meghalaya,2023,46,PHULBARI,EDMUND K. SANGMA,,1856,6.28,3,forfeit,U,63,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1708,meghalaya,2023,46,PHULBARI,ABU TAHER MONDAL,parties.IN.NPP,14969,50.64,1,won,U,56,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1708,meghalaya,2023,46,PHULBARI,S G ESMATUR MOMININ,parties.IN.AITC,11729,39.68,2,lost,U,47,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1708,meghalaya,2023,46,PHULBARI,EDMUND K. SANGMA,parties.IN.BJP,1856,6.28,3,forfeit,U,63,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1708,meghalaya,2023,46,PHULBARI,ZINBAWARD N. SANGMA,,400,1.35,4,forfeit,U,37,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1708,meghalaya,2023,46,PHULBARI,SAILENDRA R. SANGMA,,318,1.08,5,forfeit,U,66,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1708,meghalaya,2023,46,PHULBARI,SAILENDRA R. SANGMA,parties.IN.INC,318,1.08,5,forfeit,U,66,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1708,meghalaya,2023,46,PHULBARI,NOTA,,219,0.74,6,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1708,meghalaya,2023,46,PHULBARI,FUL BOKSHA SHEIKH,,68,0.23,7,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1709,meghalaya,2023,47,RAJABALA,DR. MIZANUR RAHMAN KAZI,,12628,37.89,1,won,U,47,Graduate Professional,Doctor,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1709,meghalaya,2023,47,RAJABALA,MD ABDUS SALEH,,12618,37.86,2,lost,U,54,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1709,meghalaya,2023,47,RAJABALA,DR. MIZANUR RAHMAN KAZI,parties.IN.AITC,12628,37.89,1,won,U,47,Graduate Professional,Doctor,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1709,meghalaya,2023,47,RAJABALA,MD ABDUS SALEH,parties.IN.NPP,12618,37.86,2,lost,U,54,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1709,meghalaya,2023,47,RAJABALA,ASHAHEL D. SHIRA,,6870,20.62,3,lost,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1709,meghalaya,2023,47,RAJABALA,BAKUL CHANDRA HAJONG,,439,1.32,4,forfeit,U,62,12th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1709,meghalaya,2023,47,RAJABALA,NIJUM SANGMA,,419,1.26,5,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1709,meghalaya,2023,47,RAJABALA,CARLA R. SANGMA,,193,0.58,6,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1709,meghalaya,2023,47,RAJABALA,BAKUL CHANDRA HAJONG,parties.IN.BJP,439,1.32,4,forfeit,U,62,12th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1709,meghalaya,2023,47,RAJABALA,NIJUM SANGMA,parties.IN.IND,419,1.26,5,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1709,meghalaya,2023,47,RAJABALA,CARLA R. SANGMA,parties.IN.INC,193,0.58,6,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1709,meghalaya,2023,47,RAJABALA,NOTA,,158,0.47,7,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1716,meghalaya,2023,48,SELSELLA,ARBINSTONE B MARAK,,16595,49.86,1,won,U,39,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1716,meghalaya,2023,48,SELSELLA,AGASSI R. MARAK,,7854,23.6,2,lost,U,32,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1716,meghalaya,2023,48,SELSELLA,FERLIN C.A. SANGMA,,6954,20.89,3,lost,U,62,Graduate,Ex Govt Employee,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1716,meghalaya,2023,48,SELSELLA,REYNOLD M SANGMA,,1184,3.56,4,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1716,meghalaya,2023,48,SELSELLA,TENGSRANG MARAK,,206,0.62,5,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1716,meghalaya,2023,48,SELSELLA,POLLOP R MARAK,,185,0.56,6,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1716,meghalaya,2023,48,SELSELLA,ARBINSTONE B MARAK,parties.IN.NPP,16595,49.86,1,won,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1716,meghalaya,2023,48,SELSELLA,AGASSI R. MARAK,parties.IN.AITC,7854,23.6,2,lost,U,32,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1716,meghalaya,2023,48,SELSELLA,FERLIN C.A. SANGMA,parties.IN.BJP,6954,20.89,3,lost,U,62,Graduate,Ex Govt Employee,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1716,meghalaya,2023,48,SELSELLA,REYNOLD M SANGMA,parties.IN.INC,1184,3.56,4,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1716,meghalaya,2023,48,SELSELLA,TENGSRANG MARAK,parties.IN.IND,206,0.62,5,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1716,meghalaya,2023,48,SELSELLA,POLLOP R MARAK,parties.IN.IND,185,0.56,6,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1716,meghalaya,2023,48,SELSELLA,NOTA,,179,0.54,7,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1716,meghalaya,2023,48,SELSELLA,SUBHANKAR KOCH,,128,0.38,8,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1701,meghalaya,2023,49,DADENGGRE,RUPA M. MARAK,,15702,47.7,1,won,U,36,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1701,meghalaya,2023,49,DADENGGRE,JAMES PANGSANG KONGKAL SANGMA,,15684,47.64,2,lost,U,47,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1701,meghalaya,2023,49,DADENGGRE,BRAINING R. MARAK,,481,1.46,3,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1701,meghalaya,2023,49,DADENGGRE,CHESTERFIELD SANGMA,,367,1.11,4,forfeit,U,44,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1701,meghalaya,2023,49,DADENGGRE,RUPA M. MARAK,parties.IN.AITC,15702,47.7,1,won,U,36,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1701,meghalaya,2023,49,DADENGGRE,JAMES PANGSANG KONGKAL SANGMA,parties.IN.NPP,15684,47.64,2,lost,U,47,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1701,meghalaya,2023,49,DADENGGRE,BRAINING R. MARAK,parties.IN.BJP,481,1.46,3,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1701,meghalaya,2023,49,DADENGGRE,CHESTERFIELD SANGMA,parties.IN.INC,367,1.11,4,forfeit,U,44,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1701,meghalaya,2023,49,DADENGGRE,WITJENG N. SANGMA,,359,1.09,5,forfeit,U,26,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1701,meghalaya,2023,49,DADENGGRE,NOTA,,326,0.99,6,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1707,meghalaya,2023,50,NORTH TURA,THOMAS A. SANGMA,,11385,42.34,1,won,U,61,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1707,meghalaya,2023,50,NORTH TURA,ADAM KID M. SANGMA,,7500,27.89,2,lost,U,41,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1707,meghalaya,2023,50,NORTH TURA,RUPERT M. SANGMA,,4743,17.64,3,lost,U,39,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1707,meghalaya,2023,50,NORTH TURA,BILLYKID A. SANGMA,,2111,7.85,4,forfeit,U,58,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1707,meghalaya,2023,50,NORTH TURA,THOMAS A. SANGMA,parties.IN.NPP,11385,42.34,1,won,U,61,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1707,meghalaya,2023,50,NORTH TURA,ADAM KID M. SANGMA,parties.IN.BJP,7500,27.89,2,lost,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1707,meghalaya,2023,50,NORTH TURA,RUPERT M. SANGMA,parties.IN.AITC,4743,17.64,3,lost,U,39,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1707,meghalaya,2023,50,NORTH TURA,BILLYKID A. SANGMA,parties.IN.INC,2111,7.85,4,forfeit,U,58,12th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1707,meghalaya,2023,50,NORTH TURA,DR. PILNE A. SANGMA,,665,2.47,5,forfeit,U,47,Doctorate,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1707,meghalaya,2023,50,NORTH TURA,NOTA,,262,0.97,6,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1707,meghalaya,2023,50,NORTH TURA,BINA ROSALINE A. SANGMA,,224,0.83,7,forfeit,U,61,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1718,meghalaya,2023,51,SOUTH TURA,CONRAD KONGKAL SANGMA,,13342,52.04,1,won,U,44,Post Graduate,Ex MP,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1718,meghalaya,2023,51,SOUTH TURA,BERNARD N. MARAK,,8326,32.48,2,lost,U,47,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1718,meghalaya,2023,51,SOUTH TURA,RICHARD M MARAK,,2312,9.02,3,forfeit,U,37,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1718,meghalaya,2023,51,SOUTH TURA,CONRAD KONGKAL SANGMA,parties.IN.NPP,13342,52.04,1,won,U,44,Post Graduate,Ex MP,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1718,meghalaya,2023,51,SOUTH TURA,BERNARD N. MARAK,parties.IN.BJP,8326,32.48,2,lost,U,47,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1718,meghalaya,2023,51,SOUTH TURA,RICHARD M MARAK,parties.IN.AITC,2312,9.02,3,forfeit,U,37,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1718,meghalaya,2023,51,SOUTH TURA,JOHN LESLEE K. SANGMA,,776,3.03,4,forfeit,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1718,meghalaya,2023,51,SOUTH TURA,BRENZIELD CH MARAK,,572,2.23,5,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1718,meghalaya,2023,51,SOUTH TURA,BRENZIELD CH MARAK,parties.IN.INC,572,2.23,5,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1718,meghalaya,2023,51,SOUTH TURA,NOTA,,310,1.21,6,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1711,meghalaya,2023,52,RANGSAKONA,SUBIR MARAK,,13605,41.71,1,won,U,48,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1711,meghalaya,2023,52,RANGSAKONA,ZENITH .M. SANGMA,,12817,39.3,2,lost,U,51,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1711,meghalaya,2023,52,RANGSAKONA,DIPUL R. MARAK,,4571,14.01,3,forfeit,U,56,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1711,meghalaya,2023,52,RANGSAKONA,EDMUND S SANGMA,,820,2.51,4,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1711,meghalaya,2023,52,RANGSAKONA,SUBIR MARAK,parties.IN.NPP,13605,41.71,1,won,U,48,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1711,meghalaya,2023,52,RANGSAKONA,ZENITH .M. SANGMA,parties.IN.AITC,12817,39.3,2,lost,U,51,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1711,meghalaya,2023,52,RANGSAKONA,DIPUL R. MARAK,parties.IN.BJP,4571,14.01,3,forfeit,U,56,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1711,meghalaya,2023,52,RANGSAKONA,EDMUND S SANGMA,parties.IN.INC,820,2.51,4,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1711,meghalaya,2023,52,RANGSAKONA,INDRASH M. MARAK,,353,1.08,5,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1711,meghalaya,2023,52,RANGSAKONA,BIPUL CH. SANGMA,,255,0.78,6,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1711,meghalaya,2023,52,RANGSAKONA,NOTA,,195,0.6,7,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1697,meghalaya,2023,53,AMPATI,MIANI D. SHIRA,,13446,44.69,1,won,U,32,Graduate,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1697,meghalaya,2023,53,AMPATI,STEVIE M. MARAK,,11169,37.12,2,lost,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1697,meghalaya,2023,53,AMPATI,PREMANANDA KOCH,,4762,15.83,3,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1697,meghalaya,2023,53,AMPATI,UTTORA GURI SANGMA,,476,1.58,4,forfeit,U,55,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1697,meghalaya,2023,53,AMPATI,MIANI D. SHIRA,parties.IN.AITC,13446,44.69,1,won,U,32,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1697,meghalaya,2023,53,AMPATI,STEVIE M. MARAK,parties.IN.NPP,11169,37.12,2,lost,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1697,meghalaya,2023,53,AMPATI,PREMANANDA KOCH,parties.IN.BJP,4762,15.83,3,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1697,meghalaya,2023,53,AMPATI,UTTORA GURI SANGMA,parties.IN.INC,476,1.58,4,forfeit,U,55,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1697,meghalaya,2023,53,AMPATI,NOTA,,233,0.77,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1705,meghalaya,2023,54,MAHENDRAGANJ,SANJAY A. SANGMA,,13560,41.25,1,won,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1705,meghalaya,2023,54,MAHENDRAGANJ,DIKKANCHI D SHIRA,,11842,36.03,2,lost,U,57,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1705,meghalaya,2023,54,MAHENDRAGANJ,TINGKU N MARAK,,6701,20.39,3,lost,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1705,meghalaya,2023,54,MAHENDRAGANJ,SAYEEDULLAH NONGRUM,,331,1.01,4,forfeit,U,72,12th Pass,Ex Govt Employee,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1705,meghalaya,2023,54,MAHENDRAGANJ,SANJAY A. SANGMA,parties.IN.NPP,13560,41.25,1,won,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1705,meghalaya,2023,54,MAHENDRAGANJ,DIKKANCHI D SHIRA,parties.IN.AITC,11842,36.03,2,lost,U,57,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1705,meghalaya,2023,54,MAHENDRAGANJ,TINGKU N MARAK,parties.IN.BJP,6701,20.39,3,lost,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1705,meghalaya,2023,54,MAHENDRAGANJ,SAYEEDULLAH NONGRUM,parties.IN.INC,331,1.01,4,forfeit,U,72,12th Pass,Ex Govt Employee,crossover,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1705,meghalaya,2023,54,MAHENDRAGANJ,NOTA,,173,0.53,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1705,meghalaya,2023,54,MAHENDRAGANJ,ADITYA HAJONG,,163,0.5,6,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1705,meghalaya,2023,54,MAHENDRAGANJ,SERAZUL H KHARKONGOR,,100,0.3,7,forfeit,U,65,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1715,meghalaya,2023,55,SALMANPARA,IAN BOTHAM K. SANGMA,,11352,41.84,1,won,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1715,meghalaya,2023,55,SALMANPARA,WINNERSON D. SANGMA,,6114,22.54,2,lost,U,52,Graduate Professional,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1715,meghalaya,2023,55,SALMANPARA,BOSTON MARAK,,5600,20.64,3,lost,U,43,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1705,meghalaya,2023,54,MAHENDRAGANJ,ADITYA HAJONG,parties.IN.IND,163,0.5,6,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1705,meghalaya,2023,54,MAHENDRAGANJ,SERAZUL H KHARKONGOR,parties.IN.IND,100,0.3,7,forfeit,U,65,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1715,meghalaya,2023,55,SALMANPARA,IAN BOTHAM K. SANGMA,parties.IN.NPP,11352,41.84,1,won,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1715,meghalaya,2023,55,SALMANPARA,WINNERSON D. SANGMA,parties.IN.AITC,6114,22.54,2,lost,U,52,Graduate Professional,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1715,meghalaya,2023,55,SALMANPARA,BOSTON MARAK,parties.IN.BJP,5600,20.64,3,lost,U,43,Post Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1715,meghalaya,2023,55,SALMANPARA,RONALD RIKMAN SANGMA,,2766,10.19,4,forfeit,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1715,meghalaya,2023,55,SALMANPARA,SINBATH CH MARAK,,1029,3.79,5,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1715,meghalaya,2023,55,SALMANPARA,SINBATH CH MARAK,parties.IN.INC,1029,3.79,5,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1715,meghalaya,2023,55,SALMANPARA,NOTA,,270,1,6,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1703,meghalaya,2023,56,GAMBEGRE,SALENG A. SANGMA,,11252,39.57,1,won,U,44,Post Graduate,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1703,meghalaya,2023,56,GAMBEGRE,SADHIARANI M. SANGMA,,8381,29.48,2,lost,U,51,Post Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1703,meghalaya,2023,56,GAMBEGRE,RAKESH SANGMA,,7628,26.83,3,lost,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1703,meghalaya,2023,56,GAMBEGRE,SALENG A. SANGMA,parties.IN.INC,11252,39.57,1,won,U,44,Post Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1703,meghalaya,2023,56,GAMBEGRE,SADHIARANI M. SANGMA,parties.IN.AITC,8381,29.48,2,lost,U,51,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1703,meghalaya,2023,56,GAMBEGRE,RAKESH SANGMA,parties.IN.NPP,7628,26.83,3,lost,U,40,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1703,meghalaya,2023,56,GAMBEGRE,JHIM CARTER .M. SANGMA,,367,1.29,4,forfeit,U,36,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1703,meghalaya,2023,56,GAMBEGRE,DANIEL M SANGMA,,315,1.11,5,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1703,meghalaya,2023,56,GAMBEGRE,DANIEL M SANGMA,parties.IN.BJP,315,1.11,5,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1703,meghalaya,2023,56,GAMBEGRE,SAIRILL D. MARAK,,198,0.7,6,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1703,meghalaya,2023,56,GAMBEGRE,SUKBERLINE S. SANGMA,,161,0.57,7,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1703,meghalaya,2023,56,GAMBEGRE,SUKBERLINE S. SANGMA,parties.IN.IND,161,0.57,7,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1703,meghalaya,2023,56,GAMBEGRE,NOTA,,131,0.46,8,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1702,meghalaya,2023,57,DALU,BRENING A. SANGMA,,5834,30.8,1,won,U,60,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1702,meghalaya,2023,57,DALU,AKKI A SANGMA,,5307,28.02,2,lost,U,30,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1702,meghalaya,2023,57,DALU,SENGKAL A SANGMA,,3104,16.39,3,forfeit,U,46,Post Graduate,Self-employed,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1702,meghalaya,2023,57,DALU,SARBHA R. MARAK,,2069,10.92,4,forfeit,U,32,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1702,meghalaya,2023,57,DALU,PROMOD S. KOCH,,694,3.66,5,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1702,meghalaya,2023,57,DALU,BRENING A. SANGMA,parties.IN.NPP,5834,30.8,1,won,U,60,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1702,meghalaya,2023,57,DALU,AKKI A SANGMA,parties.IN.BJP,5307,28.02,2,lost,U,30,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1702,meghalaya,2023,57,DALU,SENGKAL A SANGMA,parties.IN.AITC,3104,16.39,3,forfeit,U,46,Post Graduate,Self-employed,crossover,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1702,meghalaya,2023,57,DALU,SARBHA R. MARAK,parties.IN.IND,2069,10.92,4,forfeit,U,32,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1702,meghalaya,2023,57,DALU,PROMOD S. KOCH,parties.IN.IND,694,3.66,5,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1702,meghalaya,2023,57,DALU,KENETHSON SANGMA,,635,3.35,6,forfeit,U,60,10th Pass,Ex MLA,crossover,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1702,meghalaya,2023,57,DALU,PANSENG R. MARAK,,447,2.36,7,forfeit,U,43,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1702,meghalaya,2023,57,DALU,DIRAJ D. MARAK,,355,1.87,8,forfeit,U,42,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1702,meghalaya,2023,57,DALU,ROGER BENNY A SANGMA,,333,1.76,9,forfeit,U,36,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1702,meghalaya,2023,57,DALU,DIRAJ D. MARAK,parties.IN.IND,355,1.87,8,forfeit,U,42,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1702,meghalaya,2023,57,DALU,ROGER BENNY A SANGMA,parties.IN.INC,333,1.76,9,forfeit,U,36,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1702,meghalaya,2023,57,DALU,NOTA,,162,0.86,10,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1713,meghalaya,2023,58,RONGARA SIJU,RAKKAM A. SANGMA,,11569,39.31,1,won,U,40,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1713,meghalaya,2023,58,RONGARA SIJU,ROPHUL S MARAK,,8311,28.24,2,lost,U,43,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1713,meghalaya,2023,58,RONGARA SIJU,DR RAJESH M MARAK,,7938,26.97,3,lost,U,40,Doctorate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1713,meghalaya,2023,58,RONGARA SIJU,CALIS G MOMIN,,1279,4.35,4,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1713,meghalaya,2023,58,RONGARA SIJU,RAKKAM A. SANGMA,parties.IN.NPP,11569,39.31,1,won,U,40,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1713,meghalaya,2023,58,RONGARA SIJU,ROPHUL S MARAK,parties.IN.INC,8311,28.24,2,lost,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1713,meghalaya,2023,58,RONGARA SIJU,DR RAJESH M MARAK,parties.IN.AITC,7938,26.97,3,lost,U,40,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1713,meghalaya,2023,58,RONGARA SIJU,CALIS G MOMIN,parties.IN.BJP,1279,4.35,4,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1713,meghalaya,2023,58,RONGARA SIJU,TESENG A SANGMA,,197,0.67,5,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1713,meghalaya,2023,58,RONGARA SIJU,NOTA,,137,0.47,6,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1700,meghalaya,2023,59,CHOKPOT,SENGCHIM N. SANGMA,,9503,33.33,1,won,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1700,meghalaya,2023,59,CHOKPOT,SENGCHIM N. SANGMA,parties.IN.NPP,9503,33.33,1,won,U,38,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1700,meghalaya,2023,59,CHOKPOT,NIKMAN CH. MARAK,,9150,32.09,2,lost,U,31,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1700,meghalaya,2023,59,CHOKPOT,LAZARUS M SANGMA,,5615,19.69,3,lost,U,44,Graduate,Self-employed,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1700,meghalaya,2023,59,CHOKPOT,KARAK R. SANGMA,,3293,11.55,4,forfeit,U,28,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1700,meghalaya,2023,59,CHOKPOT,NOVEMBIRTH CH. MARAK,,618,2.17,5,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1700,meghalaya,2023,59,CHOKPOT,LAZARUS M SANGMA,parties.IN.AITC,5615,19.69,3,lost,U,44,Graduate,Self-employed,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1700,meghalaya,2023,59,CHOKPOT,KARAK R. SANGMA,parties.IN.INC,3293,11.55,4,forfeit,U,28,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1700,meghalaya,2023,59,CHOKPOT,NOVEMBIRTH CH. MARAK,parties.IN.BJP,618,2.17,5,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1700,meghalaya,2023,59,CHOKPOT,NOTA,,331,1.16,6,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1698,meghalaya,2023,60,BAGHMARA,KARTUSH R. MARAK,,9013,30.9,1,won,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1698,meghalaya,2023,60,BAGHMARA,SAMUEL M SANGMA,,6788,23.27,2,lost,U,56,12th Pass,Ex MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1698,meghalaya,2023,60,BAGHMARA,SATTO R. MARAK,,5493,18.83,3,lost,U,45,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1698,meghalaya,2023,60,BAGHMARA,NATHAWAL S. MARAK,,4658,15.97,4,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1698,meghalaya,2023,60,BAGHMARA,DR. SALJAGRINGRANG R. MARAK,,2759,9.46,5,forfeit,U,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1698,meghalaya,2023,60,BAGHMARA,ALPHONSE CH. SANGMA,,257,0.88,6,forfeit,U,52,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1698,meghalaya,2023,60,BAGHMARA,KARTUSH R. MARAK,parties.IN.IND,9013,30.9,1,won,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1698,meghalaya,2023,60,BAGHMARA,SAMUEL M SANGMA,parties.IN.BJP,6788,23.27,2,lost,U,56,12th Pass,Ex MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1698,meghalaya,2023,60,BAGHMARA,SATTO R. MARAK,parties.IN.NPP,5493,18.83,3,lost,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1698,meghalaya,2023,60,BAGHMARA,NATHAWAL S. MARAK,parties.IN.IND,4658,15.97,4,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1698,meghalaya,2023,60,BAGHMARA,DR. SALJAGRINGRANG R. MARAK,parties.IN.AITC,2759,9.46,5,forfeit,U,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1698,meghalaya,2023,60,BAGHMARA,ALPHONSE CH. SANGMA,parties.IN.INC,257,0.88,6,forfeit,U,52,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-meghalaya-1698,meghalaya,2023,60,BAGHMARA,NOTA,,205,0.7,7,lost,U,,,,challenger,src-1b7bc1c9d39a

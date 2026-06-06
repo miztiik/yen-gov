@@ -1,2 +1,2 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-maharashtra-2913,maharashtra,2010,BHIWANDI EAST,222958,95087,42.65,Rupesh Laxman Mhatre,,35376,37.2,Farhan Abu Asim Azmi,,33700,1676,1.76,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2913,maharashtra,2010,BHIWANDI EAST,222958,95087,42.65,Rupesh Laxman Mhatre,parties.IN.SHS,35376,37.2,Farhan Abu Asim Azmi,parties.IN.SP,33700,1676,1.76,src-1b7bc1c9d39a

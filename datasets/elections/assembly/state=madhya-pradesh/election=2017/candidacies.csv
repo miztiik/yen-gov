@@ -1,12 +1,12 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-madhya-pradesh-2475,madhya-pradesh,2017,9,ATER,Hemant  Katare,,59228,48.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2475,madhya-pradesh,2017,9,ATER,Arvind Singh Bhadoria,,58371,47.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2475,madhya-pradesh,2017,9,ATER,Hemant  Katare,parties.IN.INC,59228,48.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2475,madhya-pradesh,2017,9,ATER,Arvind Singh Bhadoria,parties.IN.BJP,58371,47.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2475,madhya-pradesh,2017,9,ATER,Puran Singh Nagar(Fauji),,1029,0.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2475,madhya-pradesh,2017,9,ATER,Mithlesh Chaubey,,832,0.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2475,madhya-pradesh,2017,9,ATER,Angad Singh Kushwah,,705,0.57,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2475,madhya-pradesh,2017,9,ATER,Dr. Ramkumar Tripathi(Seethi),,544,0.44,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2475,madhya-pradesh,2017,9,ATER,Pushpa Bhadoria,,518,0.42,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2475,madhya-pradesh,2017,9,ATER,Dinesh Singh Bhadoria,,384,0.31,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2475,madhya-pradesh,2017,9,ATER,Dinesh Singh Bhadoria,parties.IN.SP,384,0.31,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2475,madhya-pradesh,2017,9,ATER,Om Prakash Dubey,,188,0.15,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2475,madhya-pradesh,2017,9,ATER,Chatur Singh Narwaria,,180,0.15,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2475,madhya-pradesh,2017,9,ATER,Kaushlendra Singh,,179,0.15,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -20,8 +20,8 @@ IN-AC-2008-madhya-pradesh-2475,madhya-pradesh,2017,9,ATER,Haribhan Singh Bhadori
 IN-AC-2008-madhya-pradesh-2475,madhya-pradesh,2017,9,ATER,Anil Goyal,,76,0.06,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2475,madhya-pradesh,2017,9,ATER,Harendra Singh Bhadoria,,76,0.06,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2475,madhya-pradesh,2017,9,ATER,Abhilakh Singh Yadav (Fauji),,70,0.06,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2650,madhya-pradesh,2017,89,BANDHAVGARH,Shiv Narayan Singh,,74356,56.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2650,madhya-pradesh,2017,89,BANDHAVGARH,Savitri Singh,,48880,37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2650,madhya-pradesh,2017,89,BANDHAVGARH,Lakhan Singh Badkare,,5444,4.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2650,madhya-pradesh,2017,89,BANDHAVGARH,Shiv Narayan Singh,parties.IN.BJP,74356,56.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2650,madhya-pradesh,2017,89,BANDHAVGARH,Savitri Singh,parties.IN.INC,48880,37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2650,madhya-pradesh,2017,89,BANDHAVGARH,Lakhan Singh Badkare,parties.IN.GGP,5444,4.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2650,madhya-pradesh,2017,89,BANDHAVGARH,Behan Keshkali Kol,,2157,1.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2650,madhya-pradesh,2017,89,BANDHAVGARH,Vijay Singh,,1273,0.96,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

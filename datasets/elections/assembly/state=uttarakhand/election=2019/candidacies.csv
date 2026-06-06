@@ -1,5 +1,5 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-uttarakhand-284,uttarakhand,2019,44,PITHORAGARH,Chandra Pant,,26086,51.57,1,won,F,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-284,uttarakhand,2019,44,PITHORAGARH,Anju Lunthi,,22819,45.11,2,lost,F,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-284,uttarakhand,2019,44,PITHORAGARH,Chandra Pant,parties.IN.BJP,26086,51.57,1,won,F,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-284,uttarakhand,2019,44,PITHORAGARH,Anju Lunthi,parties.IN.INC,22819,45.11,2,lost,F,29,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-284,uttarakhand,2019,44,PITHORAGARH,NOTA,,844,1.67,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-284,uttarakhand,2019,44,PITHORAGARH,Manoj Kumar Bhatt,,835,1.65,4,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-284,uttarakhand,2019,44,PITHORAGARH,Manoj Kumar Bhatt,parties.IN.SP,835,1.65,4,forfeit,M,48,,,challenger,src-1b7bc1c9d39a

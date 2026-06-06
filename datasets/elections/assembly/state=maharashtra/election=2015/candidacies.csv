@@ -1,25 +1,25 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-maharashtra-3047,maharashtra,2015,91,MUKHED,T.G Rathod,,100319,64,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3047,maharashtra,2015,91,MUKHED,P.M.V.Betmogarekar,,53071,33.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3047,maharashtra,2015,91,MUKHED,A.Hafijsahab,,1145,0.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3047,maharashtra,2015,91,MUKHED,A.T.Sirse,,962,0.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3047,maharashtra,2015,91,MUKHED,V.G.Gaikwad,,511,0.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3047,maharashtra,2015,91,MUKHED,V.B.K.Akhargekar,,483,0.31,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3047,maharashtra,2015,91,MUKHED,A.S.A.Shaikh Sir,,263,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2901,maharashtra,2015,231,ASHTI,Urmila Devi,,82159,49.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2901,maharashtra,2015,231,ASHTI,Akhil Rajpoot,,41210,24.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2901,maharashtra,2015,231,ASHTI,Ram Jeevan,,36513,22.07,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3047,maharashtra,2015,91,MUKHED,T.G Rathod,parties.IN.BJP,100319,64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3047,maharashtra,2015,91,MUKHED,P.M.V.Betmogarekar,parties.IN.INC,53071,33.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3047,maharashtra,2015,91,MUKHED,A.Hafijsahab,parties.IN.IUML,1145,0.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3047,maharashtra,2015,91,MUKHED,A.T.Sirse,parties.IN.IND,962,0.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3047,maharashtra,2015,91,MUKHED,V.G.Gaikwad,parties.IN.IND,511,0.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3047,maharashtra,2015,91,MUKHED,V.B.K.Akhargekar,parties.IN.RPI_D,483,0.31,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3047,maharashtra,2015,91,MUKHED,A.S.A.Shaikh Sir,parties.IN.IND,263,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2901,maharashtra,2015,231,ASHTI,Urmila Devi,parties.IN.SP,82159,49.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2901,maharashtra,2015,231,ASHTI,Akhil Rajpoot,parties.IN.BJP,41210,24.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2901,maharashtra,2015,231,ASHTI,Ram Jeevan,parties.IN.IND,36513,22.07,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2901,maharashtra,2015,231,ASHTI,Ramesh Chandra Singh,,1536,0.93,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2901,maharashtra,2015,231,ASHTI,Kuldip Kumar,,1392,0.84,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2901,maharashtra,2015,231,ASHTI,Ramkumar,,1295,0.78,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2901,maharashtra,2015,231,ASHTI,Manoj Kumar,,771,0.47,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2901,maharashtra,2015,231,ASHTI,Devndra Singh,,546,0.33,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3116,maharashtra,2015,287,TASGAON - KAVATHE MAHANKAL,Suman R.R.(Aba) Patil,,131236,85.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3116,maharashtra,2015,287,TASGAON - KAVATHE MAHANKAL,Adv.Swapnil Diliprao Patil,,18273,11.91,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3116,maharashtra,2015,287,TASGAON - KAVATHE MAHANKAL,Prashant Dnyaneshwar Gangavane,,1062,0.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3116,maharashtra,2015,287,TASGAON - KAVATHE MAHANKAL,Satish Bhupal Sanadi,,657,0.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3116,maharashtra,2015,287,TASGAON - KAVATHE MAHANKAL,Dr.Anandrao Dnyanu Pawar(Maji Sainik),,610,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3116,maharashtra,2015,287,TASGAON - KAVATHE MAHANKAL,Ashtekar Subhash Vasant,,608,0.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3116,maharashtra,2015,287,TASGAON - KAVATHE MAHANKAL,Alankruta Abhijeet Awade. Bhich Chukale,,444,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3116,maharashtra,2015,287,TASGAON - KAVATHE MAHANKAL,Dhnanjay Shivaji Desai,,369,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3116,maharashtra,2015,287,TASGAON - KAVATHE MAHANKAL,Vijay Shanker Patil,,193,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2901,maharashtra,2015,231,ASHTI,Kuldip Kumar,parties.IN.IND,1392,0.84,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2901,maharashtra,2015,231,ASHTI,Ramkumar,parties.IN.IND,1295,0.78,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2901,maharashtra,2015,231,ASHTI,Manoj Kumar,parties.IN.IND,771,0.47,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2901,maharashtra,2015,231,ASHTI,Devndra Singh,parties.IN.IND,546,0.33,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3116,maharashtra,2015,287,TASGAON - KAVATHE MAHANKAL,Suman R.R.(Aba) Patil,parties.IN.NCP,131236,85.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3116,maharashtra,2015,287,TASGAON - KAVATHE MAHANKAL,Adv.Swapnil Diliprao Patil,parties.IN.IND,18273,11.91,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3116,maharashtra,2015,287,TASGAON - KAVATHE MAHANKAL,Prashant Dnyaneshwar Gangavane,parties.IN.IND,1062,0.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3116,maharashtra,2015,287,TASGAON - KAVATHE MAHANKAL,Satish Bhupal Sanadi,parties.IN.IND,657,0.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3116,maharashtra,2015,287,TASGAON - KAVATHE MAHANKAL,Dr.Anandrao Dnyanu Pawar(Maji Sainik),parties.IN.IND,610,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3116,maharashtra,2015,287,TASGAON - KAVATHE MAHANKAL,Ashtekar Subhash Vasant,parties.IN.IND,608,0.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3116,maharashtra,2015,287,TASGAON - KAVATHE MAHANKAL,Alankruta Abhijeet Awade. Bhich Chukale,parties.IN.IND,444,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3116,maharashtra,2015,287,TASGAON - KAVATHE MAHANKAL,Dhnanjay Shivaji Desai,parties.IN.IND,369,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3116,maharashtra,2015,287,TASGAON - KAVATHE MAHANKAL,Vijay Shanker Patil,parties.IN.IND,193,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a

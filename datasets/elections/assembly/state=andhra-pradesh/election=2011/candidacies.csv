@@ -1,32 +1,32 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-andhra-pradesh-eci14,andhra-pradesh,2011,14,BANSWADA,P.S.R. (Pocharam),,83245,67.75,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci14,andhra-pradesh,2011,14,BANSWADA,S.G. Sangem,,33356,27.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci14,andhra-pradesh,2011,14,BANSWADA,S.K. Venigalla,,2840,2.31,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci14,andhra-pradesh,2011,14,BANSWADA,Bhaskar Jajula,,1313,1.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci14,andhra-pradesh,2011,14,BANSWADA,S.G. Sangem,parties.IN.INC,33356,27.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci14,andhra-pradesh,2011,14,BANSWADA,S.K. Venigalla,parties.IN.IND,2840,2.31,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci14,andhra-pradesh,2011,14,BANSWADA,Bhaskar Jajula,parties.IN.IND,1313,1.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-andhra-pradesh-eci14,andhra-pradesh,2011,14,BANSWADA,Giridhar R.,,1273,1.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci14,andhra-pradesh,2011,14,BANSWADA,K. Chandraiah,,844,0.69,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,Y.S.Vijayamma,,110098,70.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,V Reddy,,28725,18.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,R N R Mareddy,,11239,7.15,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci14,andhra-pradesh,2011,14,BANSWADA,K. Chandraiah,parties.IN.IND,844,0.69,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,Y.S.Vijayamma,parties.IN.YSRCP,110098,70.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,V Reddy,parties.IN.INC,28725,18.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,R N R Mareddy,parties.IN.TDP,11239,7.15,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,V P Valllepu,,1830,1.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,K D Reddy,,519,0.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,N V E Reddy,,485,0.31,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,S R Devi Reddy,,439,0.28,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,P. R.  Reddy,,362,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,A R Reddy,,330,0.21,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,T R Reddy,,315,0.2,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,D.Krishna,,267,0.17,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,P P Reddy,,253,0.16,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,A.V N Reddy,,220,0.14,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,V R Gaddam,,204,0.13,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,S N R Chapidi,,201,0.13,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,B P K Reddy,,200,0.13,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,O.V  Lakshmi,,198,0.13,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,J M Reddy C,,197,0.13,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,K S C Reddy,,168,0.11,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,K D Reddy,parties.IN.RSP,519,0.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,N V E Reddy,parties.IN.IND,485,0.31,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,S R Devi Reddy,parties.IN.IND,439,0.28,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,P. R.  Reddy,parties.IN.IND,362,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,A R Reddy,parties.IN.SAP,330,0.21,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,T R Reddy,parties.IN.AIFB,315,0.2,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,D.Krishna,parties.IN.IND,267,0.17,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,P P Reddy,parties.IN.IND,253,0.16,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,A.V N Reddy,parties.IN.IND,220,0.14,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,V R Gaddam,parties.IN.IND,204,0.13,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,S N R Chapidi,parties.IN.IND,201,0.13,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,B P K Reddy,parties.IN.IND,200,0.13,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,O.V  Lakshmi,parties.IN.IND,198,0.13,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,J M Reddy C,parties.IN.IND,197,0.13,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,K S C Reddy,parties.IN.IND,168,0.11,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,K Anjan Eyelu,,166,0.11,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,K Basha Shaik,,158,0.1,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,V L Nagella,,149,0.09,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,G.V. K Reddy,,139,0.09,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,C S Reddy G,,130,0.08,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,V Pasupula,,100,0.06,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,K Basha Shaik,parties.IN.IND,158,0.1,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,V L Nagella,parties.IN.IND,149,0.09,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,G.V. K Reddy,parties.IN.IND,139,0.09,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,C S Reddy G,parties.IN.IND,130,0.08,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3256,andhra-pradesh,2011,248,PULIVENDLA,V Pasupula,parties.IN.IND,100,0.06,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a

@@ -309,3 +309,159 @@ def test_nan_vote_share_becomes_null_not_literal_nan(tmp_path):
     cand = {r["candidate_name"]: r for r in _read(emitted[2021]["candidacies"])}
     assert cand["W"]["vote_share_pct"] == ""     # nan -> empty, never the string "nan"
     assert float(cand["R"]["vote_share_pct"]) == 40.0
+
+
+# --- F1.3a v1.1: party_lookup_from_parties_csv + parties_csv kwarg ---------
+
+
+def test_party_lookup_from_parties_csv_round_trip(tmp_path):
+    """``party_lookup_from_parties_csv`` returns ``{upper(short): party_id}``."""
+    parties = tmp_path / "parties.csv"
+    parties.write_text(
+        "party_id,short,full,eci_codes,brand_colour,symbol_asset,wikipedia\n"
+        "parties.IN.BJP,BJP,Bharatiya Janata Party,,,,\n"
+        "parties.IN.INC,INC,Indian National Congress,,,,\n"
+        "parties.IN.DMK,DMK,Dravida Munnetra Kazhagam,,,,\n",
+        encoding="utf-8",
+    )
+
+    lookup = assembly_results.party_lookup_from_parties_csv(parties)
+    assert lookup == {
+        "BJP": "parties.IN.BJP",
+        "INC": "parties.IN.INC",
+        "DMK": "parties.IN.DMK",
+    }
+
+
+def test_party_lookup_from_parties_csv_uppercases_key(tmp_path):
+    """Lookup keys are upper-cased so case-mismatched TCPD shorts still hit."""
+    parties = tmp_path / "parties.csv"
+    parties.write_text(
+        "party_id,short,full,eci_codes,brand_colour,symbol_asset,wikipedia\n"
+        "parties.IN.AIADMK,aiadmk,All India Anna DMK,,,,\n"
+        "parties.IN.MIXED,mIxEd,Mixed-case Party,,,,\n",
+        encoding="utf-8",
+    )
+
+    lookup = assembly_results.party_lookup_from_parties_csv(parties)
+    assert lookup["AIADMK"] == "parties.IN.AIADMK"
+    assert lookup["MIXED"] == "parties.IN.MIXED"
+
+
+def test_party_lookup_skips_rows_missing_short_or_party_id(tmp_path):
+    parties = tmp_path / "parties.csv"
+    parties.write_text(
+        "party_id,short,full,eci_codes,brand_colour,symbol_asset,wikipedia\n"
+        "parties.IN.OK,OK,OK Party,,,,\n"
+        ",NOID,No party_id row,,,,\n"
+        "parties.IN.NOSHORT,,No short row,,,,\n",
+        encoding="utf-8",
+    )
+
+    lookup = assembly_results.party_lookup_from_parties_csv(parties)
+    assert lookup == {"OK": "parties.IN.OK"}
+
+
+def test_party_lookup_missing_file_returns_empty(tmp_path):
+    missing = tmp_path / "does-not-exist.csv"
+    assert assembly_results.party_lookup_from_parties_csv(missing) == {}
+
+
+def _emit_with_parties(
+    root: Path,
+    ae_rows: list[dict[str, str]],
+    eci_nos: list[int],
+    parties_csv: Path,
+):
+    ae = _write_ae(root / "datasets" / "ephemeral" / "All_States_AE.csv", ae_rows)
+    electoral = _stage_catalogue(root, eci_nos)
+    return assembly_results.emit_state_assembly(
+        ae_csv=ae,
+        electoral_csv=electoral,
+        out_root=root,
+        state_name_tcpd="Tamil_Nadu",
+        state_slug="tamil-nadu",
+        source_id=SOURCE_ID,
+        parties_csv=parties_csv,
+    )
+
+
+def test_emit_with_parties_csv_populates_party_id(tmp_path):
+    """``parties_csv=`` kwarg resolves TCPD ``Party`` shortcode to ``parties.IN.*``."""
+    parties = tmp_path / "parties.csv"
+    parties.write_text(
+        "party_id,short,full,eci_codes,brand_colour,symbol_asset,wikipedia\n"
+        "parties.IN.DMK,DMK,Dravida Munnetra Kazhagam,,,,\n"
+        "parties.IN.ADMK,ADMK,All India Anna DMK,,,,\n"
+        "parties.IN.BJP,BJP,Bharatiya Janata Party,,,,\n",
+        encoding="utf-8",
+    )
+    emitted = _emit_with_parties(tmp_path, _three_way(1), [1], parties)
+    cand = {r["candidate_name"]: r for r in _read(emitted[2021]["candidacies"])}
+    assert cand["Winner"]["party_id"] == "parties.IN.DMK"
+    assert cand["Runner"]["party_id"] == "parties.IN.ADMK"
+    assert cand["Third"]["party_id"] == "parties.IN.BJP"
+
+    summ = _read(emitted[2021]["summary"])[0]
+    assert summ["winner_party_id"] == "parties.IN.DMK"
+    assert summ["runnerup_party_id"] == "parties.IN.ADMK"
+
+
+def test_emit_with_parties_csv_leaves_long_tail_shorts_null(tmp_path):
+    """Shorts absent from ``parties.csv`` stay null (Holy Law #9: no fabrication)."""
+    parties = tmp_path / "parties.csv"
+    parties.write_text(
+        "party_id,short,full,eci_codes,brand_colour,symbol_asset,wikipedia\n"
+        "parties.IN.DMK,DMK,Dravida Munnetra Kazhagam,,,,\n",
+        encoding="utf-8",
+    )
+    emitted = _emit_with_parties(tmp_path, _three_way(1), [1], parties)
+    cand = {r["candidate_name"]: r for r in _read(emitted[2021]["candidacies"])}
+    assert cand["Winner"]["party_id"] == "parties.IN.DMK"
+    assert cand["Runner"]["party_id"] == ""  # ADMK not in parties.csv
+    assert cand["Third"]["party_id"] == ""   # BJP not in parties.csv
+
+    summ = _read(emitted[2021]["summary"])[0]
+    assert summ["winner_party_id"] == "parties.IN.DMK"
+    assert summ["runnerup_party_id"] == ""  # runnerup ADMK unresolved
+
+
+def test_emit_without_parties_csv_keeps_v1_null_party_id(tmp_path):
+    """Back-compat: ``parties_csv=None`` (default) keeps the v1 null contract."""
+    emitted = _emit(tmp_path, _three_way(1), [1])  # _emit() omits parties_csv
+    cand = _read(emitted[2021]["candidacies"])
+    assert all(r["party_id"] == "" for r in cand)
+    summ = _read(emitted[2021]["summary"])[0]
+    assert summ["winner_party_id"] == ""
+    assert summ["runnerup_party_id"] == ""
+
+
+def test_party_lookup_threading_into_build_candidacy_rows():
+    """``build_candidacy_rows`` accepts ``party_lookup=`` and resolves at row build time."""
+    src_rows = [
+        {"Constituency_No": "1", "Position": "1", "Candidate": "Winner",
+         "Party": "DMK", "Votes": "100", "Vote_Share_Percentage": "55.5",
+         "Sex": "MALE", "Age": "50", "Deposit_Lost": "no",
+         "Constituency_Name": "AC1", "Incumbent": "FALSE", "Turncoat": "FALSE",
+         "MyNeta_education": "", "TCPD_Prof_Main_Desc": ""},
+        {"Constituency_No": "1", "Position": "2", "Candidate": "Other",
+         "Party": "LONGTAIL_PARTY", "Votes": "80", "Vote_Share_Percentage": "44.5",
+         "Sex": "FEMALE", "Age": "45", "Deposit_Lost": "no",
+         "Constituency_Name": "AC1", "Incumbent": "FALSE", "Turncoat": "FALSE",
+         "MyNeta_education": "", "TCPD_Prof_Main_Desc": ""},
+    ]
+    eci_to_entity = {1: "IN-AC-2008-tamil-nadu-1001"}
+    lookup = {"DMK": "parties.IN.DMK"}  # LONGTAIL_PARTY absent
+
+    rows, unbound = assembly_results.build_candidacy_rows(
+        source_rows=src_rows,
+        eci_to_entity=eci_to_entity,
+        state_slug="tamil-nadu",
+        election_year=2021,
+        source_id=SOURCE_ID,
+        party_lookup=lookup,
+    )
+    by_name = {r["candidate_name"]: r for r in rows}
+    assert by_name["Winner"]["party_id"] == "parties.IN.DMK"
+    assert by_name["Other"]["party_id"] is None  # long-tail stays null
+    assert unbound == set()

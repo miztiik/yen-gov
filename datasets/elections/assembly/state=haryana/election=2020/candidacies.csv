@@ -1,16 +1,16 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-haryana-425,haryana,2020,33,BARODA,INDU RAJ,,60636,49.26,1,won,M,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-425,haryana,2020,33,BARODA,YOGESHWAR DUTT,,50070,40.68,2,lost,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2020,33,BARODA,INDU RAJ,parties.IN.INC,60636,49.26,1,won,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2020,33,BARODA,YOGESHWAR DUTT,parties.IN.BJP,50070,40.68,2,lost,M,37,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2020,33,BARODA,RAJKUMAR SAINI,,5611,4.56,3,forfeit,M,67,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-425,haryana,2020,33,BARODA,JOGINDER SINGH MALIK,,5003,4.06,4,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2020,33,BARODA,JOGINDER SINGH MALIK,parties.IN.INLD,5003,4.06,4,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2020,33,BARODA,NOTA,,529,0.43,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-425,haryana,2020,33,BARODA,SANT DHARAMVEER CHOTIVALA,,328,0.27,6,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2020,33,BARODA,SANT DHARAMVEER CHOTIVALA,parties.IN.IND,328,0.27,6,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2020,33,BARODA,INDER SINGH,,288,0.23,7,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-425,haryana,2020,33,BARODA,SHAKTI SINGH HOODA,,158,0.13,8,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-425,haryana,2020,33,BARODA,SAROJ BALA,,153,0.12,9,forfeit,F,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2020,33,BARODA,SHAKTI SINGH HOODA,parties.IN.IND,158,0.13,8,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2020,33,BARODA,SAROJ BALA,parties.IN.IND,153,0.12,9,forfeit,F,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2020,33,BARODA,SUMIT CHAUDHARY,,92,0.07,10,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-425,haryana,2020,33,BARODA,RAMPHAL SHARMA,,73,0.06,11,forfeit,M,71,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-425,haryana,2020,33,BARODA,PARVEEN KUMAR,,48,0.04,12,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-425,haryana,2020,33,BARODA,KAMALJEET,,46,0.04,13,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2020,33,BARODA,RAMPHAL SHARMA,parties.IN.IND,73,0.06,11,forfeit,M,71,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2020,33,BARODA,PARVEEN KUMAR,parties.IN.IND,48,0.04,12,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2020,33,BARODA,KAMALJEET,parties.IN.IND,46,0.04,13,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2020,33,BARODA,SONU CHOPRA,,32,0.03,14,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-425,haryana,2020,33,BARODA,GULSHAN,,27,0.02,15,forfeit,M,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2020,33,BARODA,GULSHAN,parties.IN.IND,27,0.02,15,forfeit,M,25,,,challenger,src-1b7bc1c9d39a

@@ -1,30 +1,30 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,J.P.B. Patel,,52404,31.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,K.M. Singh,,28636,17.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,J.P.B. Patel,parties.IN.JMM,52404,31.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,K.M. Singh,parties.IN.INC,28636,17.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,M. Jaiswal,,23433,13.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,C.N.B. Patel,,23098,13.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,Khiru Mahto,,10596,6.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,Razi Ahmad,,3711,2.22,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,B. Patel,,3521,2.1,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,M. Manjhi,,3180,1.9,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,P.K. Singh,,2911,1.74,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,Mahmood Alam,,2228,1.33,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,D.K. Mahto,,1907,1.14,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,B.P. Mahto,,1390,0.83,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,S.K. Kushwaha,,1383,0.83,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,Mirtunjay Singh,,1347,0.8,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,Ramautar Mahto,,1338,0.8,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,Geeta Devi,,1256,0.75,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,Imteyaz Alam,,1243,0.74,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,D.K. Das,,934,0.56,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,R.R. Kushwaha,,910,0.54,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,R.J. Mahto,,741,0.44,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,Saroj Devi,,689,0.41,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,Khiru Mahto,parties.IN.JDU,10596,6.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,Razi Ahmad,parties.IN.IND,3711,2.22,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,B. Patel,parties.IN.RJD,3521,2.1,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,M. Manjhi,parties.IN.CPI,3180,1.9,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,P.K. Singh,parties.IN.IND,2911,1.74,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,Mahmood Alam,parties.IN.IND,2228,1.33,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,D.K. Mahto,parties.IN.IND,1907,1.14,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,B.P. Mahto,parties.IN.IND,1390,0.83,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,S.K. Kushwaha,parties.IN.LJSP,1383,0.83,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,Mirtunjay Singh,parties.IN.IND,1347,0.8,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,Ramautar Mahto,parties.IN.IND,1338,0.8,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,Geeta Devi,parties.IN.IND,1256,0.75,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,Imteyaz Alam,parties.IN.IND,1243,0.74,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,D.K. Das,parties.IN.IJP,934,0.56,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,R.R. Kushwaha,parties.IN.IND,910,0.54,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,R.J. Mahto,parties.IN.SP,741,0.44,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,Saroj Devi,parties.IN.NCP,689,0.41,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2173,jharkhand,2011,24,MANDHU,K.C. Manjhi,,648,0.39,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2181,jharkhand,2011,57,KHARASAWAN,Arjun Munda,,61801,55.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2181,jharkhand,2011,57,KHARASAWAN,Arjun Munda,parties.IN.BJP,61801,55.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2181,jharkhand,2011,57,KHARASAWAN,Dashrath Gagrai,,44355,39.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2181,jharkhand,2011,57,KHARASAWAN,Hari Orawn,,1843,1.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2181,jharkhand,2011,57,KHARASAWAN,Hari Orawn,parties.IN.IND,1843,1.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2181,jharkhand,2011,57,KHARASAWAN,Bahadur Oraon,,1177,1.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2181,jharkhand,2011,57,KHARASAWAN,K. Ram Kurli,,1057,0.95,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2181,jharkhand,2011,57,KHARASAWAN,M. S. Hembram,,849,0.76,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2181,jharkhand,2011,57,KHARASAWAN,M. S. Jamuda,,589,0.53,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2181,jharkhand,2011,57,KHARASAWAN,K. Ram Kurli,parties.IN.IND,1057,0.95,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2181,jharkhand,2011,57,KHARASAWAN,M. S. Hembram,parties.IN.IND,849,0.76,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2181,jharkhand,2011,57,KHARASAWAN,M. S. Jamuda,parties.IN.IND,589,0.53,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a

@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-madhya-pradesh-2499,madhya-pradesh,2021,DAMOH,239808,143124,59.68,AJAY KUMAR TANDON,,74832,52.28,RAHUL SINGH,,57735,17097,11.94,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2620,madhya-pradesh,2021,JOBAT,275214,146944,53.39,SULOCHANA RAWAT,,68949,46.92,MAHESH RAWAT ''PATEL'',,62845,6104,4.15,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2671,madhya-pradesh,2021,PRITHVIPUR,198542,155628,78.39,DOCTOR SHISHUPAL YADAV,,82673,53.12,NITENDRA SINGH RATHORE,,66986,15687,10.08,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2499,madhya-pradesh,2021,DAMOH,239808,143124,59.68,AJAY KUMAR TANDON,parties.IN.INC,74832,52.28,RAHUL SINGH,parties.IN.BJP,57735,17097,11.94,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2620,madhya-pradesh,2021,JOBAT,275214,146944,53.39,SULOCHANA RAWAT,parties.IN.BJP,68949,46.92,MAHESH RAWAT ''PATEL'',parties.IN.INC,62845,6104,4.15,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2671,madhya-pradesh,2021,PRITHVIPUR,198542,155628,78.39,DOCTOR SHISHUPAL YADAV,parties.IN.BJP,82673,53.12,NITENDRA SINGH RATHORE,parties.IN.INC,66986,15687,10.08,src-1b7bc1c9d39a

@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-maharashtra-2979,maharashtra,2013,CHANDGAD,267039,184573,69.12,D.K.S.K. Rao,,93486,50.65,G.R. Shamarao,,68639,24847,13.46,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3158,maharashtra,2013,YAVATMAL,316167,117521,37.17,D.P. Nandini Nilesh (E),,62509,53.19,M.M. Yerawar,,47278,15231,12.96,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2979,maharashtra,2013,CHANDGAD,267039,184573,69.12,D.K.S.K. Rao,parties.IN.NCP,93486,50.65,G.R. Shamarao,parties.IN.SP,68639,24847,13.46,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3158,maharashtra,2013,YAVATMAL,316167,117521,37.17,D.P. Nandini Nilesh (E),parties.IN.INC,62509,53.19,M.M. Yerawar,parties.IN.BJP,47278,15231,12.96,src-1b7bc1c9d39a

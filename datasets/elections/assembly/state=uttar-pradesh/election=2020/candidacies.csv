@@ -1,96 +1,96 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,SANGEETA CHAUHAN,,86692,41.72,1,won,F,61,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,JAVED ABBAS,,71615,34.46,2,lost,M,52,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,FURKAN,,38399,18.48,3,lost,M,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,KAMLESH SINGH,,4532,2.18,4,forfeit,F,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,SANGEETA CHAUHAN,parties.IN.BJP,86692,41.72,1,won,F,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,JAVED ABBAS,parties.IN.SP,71615,34.46,2,lost,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,FURKAN,parties.IN.BSP,38399,18.48,3,lost,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,KAMLESH SINGH,parties.IN.INC,4532,2.18,4,forfeit,F,66,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,NOTA,,764,0.37,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,AFROJ ALAM,,723,0.35,6,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,JAHAN ARA,,707,0.34,7,forfeit,F,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,HASHMAT ALI,,694,0.33,8,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,SHER SINGH,,684,0.33,9,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,AFROJ ALAM,parties.IN.IND,723,0.35,6,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,JAHAN ARA,parties.IN.IND,707,0.34,7,forfeit,F,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,HASHMAT ALI,parties.IN.NCP,694,0.33,8,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,SHER SINGH,parties.IN.IND,684,0.33,9,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,AKRAM,,652,0.31,10,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,AJIT KUAMR,,613,0.29,11,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,AWANISH,,610,0.29,12,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,AJIT KUAMR,parties.IN.IND,613,0.29,11,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,AWANISH,parties.IN.IND,610,0.29,12,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,DHARAMPAL,,461,0.22,13,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,AMARJEET KOHLI,,452,0.22,14,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-738,uttar-pradesh,2020,40,NAUGAWAN SADAT,HARSVARUP,,216,0.1,15,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,USHA SIROHI,,88645,43.81,1,won,F,68,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,MOHAMMAD YUNUS,,66943,33.08,2,lost,M,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,MD. YAMEEN,,13530,6.69,3,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,SUSHIL CHAUDHARY,,10319,5.1,4,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,PRAVEEN KUMAR SINGH,,7286,3.6,5,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,DILSHAD AHMAD,,4757,2.35,6,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,USHA SIROHI,parties.IN.BJP,88645,43.81,1,won,F,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,MOHAMMAD YUNUS,parties.IN.BSP,66943,33.08,2,lost,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,MD. YAMEEN,parties.IN.ASPKR,13530,6.69,3,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,SUSHIL CHAUDHARY,parties.IN.INC,10319,5.1,4,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,PRAVEEN KUMAR SINGH,parties.IN.RLD,7286,3.6,5,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,DILSHAD AHMAD,parties.IN.AIMIM,4757,2.35,6,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,PRITHVIRAJ SINGH,,2944,1.45,7,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,URMILA DEVI,,1898,0.94,8,forfeit,F,53,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,NOTA,,979,0.48,9,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,GITA RANI SHARMA,,803,0.4,10,forfeit,F,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,RAHUL KUMAR,,776,0.38,11,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,SUMEN,,732,0.36,12,forfeit,F,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,YOGENDRA SHANKAR SHARMA,,730,0.36,13,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,GITA RANI SHARMA,parties.IN.IND,803,0.4,10,forfeit,F,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,RAHUL KUMAR,parties.IN.IND,776,0.38,11,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,SUMEN,parties.IN.IND,732,0.36,12,forfeit,F,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,YOGENDRA SHANKAR SHARMA,parties.IN.NCP,730,0.36,13,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,DHARMENDRA KUMAR,,536,0.26,14,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,ASHISH KUMAR,,395,0.2,15,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,RAHUL URF RAHUL BHATI,,319,0.16,16,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,MO. YUNUS,,283,0.14,17,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,MO. YUNUS,parties.IN.IND,283,0.14,17,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,MAHMOOD HASAN,,279,0.14,18,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,SANJEEV,,198,0.1,19,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-864,uttar-pradesh,2020,95,TUNDLA,PREMPAL SINGH DHANGAR,,72950,40.24,1,won,M,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-864,uttar-pradesh,2020,95,TUNDLA,MAHARAJ SINGH DHANGAR,,55267,30.49,2,lost,M,52,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-864,uttar-pradesh,2020,95,TUNDLA,SANJEEV KUMAR CHAK,,41010,22.62,3,lost,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-805,uttar-pradesh,2020,65,BULANDSHAHR,SANJEEV,parties.IN.IND,198,0.1,19,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-864,uttar-pradesh,2020,95,TUNDLA,PREMPAL SINGH DHANGAR,parties.IN.BJP,72950,40.24,1,won,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-864,uttar-pradesh,2020,95,TUNDLA,MAHARAJ SINGH DHANGAR,parties.IN.SP,55267,30.49,2,lost,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-864,uttar-pradesh,2020,95,TUNDLA,SANJEEV KUMAR CHAK,parties.IN.BSP,41010,22.62,3,lost,M,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-864,uttar-pradesh,2020,95,TUNDLA,ASHOK KUMAR,,4953,2.73,4,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-864,uttar-pradesh,2020,95,TUNDLA,MITHILESH MAJHAWAR,,2181,1.2,5,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-864,uttar-pradesh,2020,95,TUNDLA,MITHILESH MAJHAWAR,parties.IN.IND,2181,1.2,5,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-864,uttar-pradesh,2020,95,TUNDLA,NOTA,,1617,0.89,6,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-864,uttar-pradesh,2020,95,TUNDLA,SATISH KUMAR,,916,0.51,7,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-864,uttar-pradesh,2020,95,TUNDLA,SACHIN KUMAR MYCOL DEN,,878,0.48,8,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-864,uttar-pradesh,2020,95,TUNDLA,SACHIN KUMAR MYCOL DEN,parties.IN.IND,878,0.48,8,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-864,uttar-pradesh,2020,95,TUNDLA,BHAGWAN SINGH,,548,0.3,9,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-864,uttar-pradesh,2020,95,TUNDLA,DHARMVEER,,507,0.28,10,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-864,uttar-pradesh,2020,95,TUNDLA,BHUPENDRA KUMAR DHANGAR,,440,0.24,11,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1096,uttar-pradesh,2020,162,BANGARMAU,Shrikant Katiyar,,71381,40.98,1,won,M,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1096,uttar-pradesh,2020,162,BANGARMAU,Arti Bajpai,,39983,22.96,2,lost,F,53,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1096,uttar-pradesh,2020,162,BANGARMAU,Suresh Kumar Pal,,35322,20.28,3,lost,M,59,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1096,uttar-pradesh,2020,162,BANGARMAU,Mahesh Prasad,,19062,10.94,4,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1096,uttar-pradesh,2020,162,BANGARMAU,Shrikant Katiyar,parties.IN.BJP,71381,40.98,1,won,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1096,uttar-pradesh,2020,162,BANGARMAU,Arti Bajpai,parties.IN.INC,39983,22.96,2,lost,F,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1096,uttar-pradesh,2020,162,BANGARMAU,Suresh Kumar Pal,parties.IN.SP,35322,20.28,3,lost,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1096,uttar-pradesh,2020,162,BANGARMAU,Mahesh Prasad,parties.IN.BSP,19062,10.94,4,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1096,uttar-pradesh,2020,162,BANGARMAU,Umar Khan,,2202,1.26,5,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1096,uttar-pradesh,2020,162,BANGARMAU,NOTA,,1438,0.83,6,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1096,uttar-pradesh,2020,162,BANGARMAU,Ram Prakash Singh Pal,,1178,0.68,7,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1096,uttar-pradesh,2020,162,BANGARMAU,Mahendra Kumar,,1118,0.64,8,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1096,uttar-pradesh,2020,162,BANGARMAU,Mahendra Kumar,parties.IN.IND,1118,0.64,8,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1096,uttar-pradesh,2020,162,BANGARMAU,Ram Karan  Kashyap Machhwara,,933,0.54,9,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1096,uttar-pradesh,2020,162,BANGARMAU,Mohd. Sabban,,864,0.5,10,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1096,uttar-pradesh,2020,162,BANGARMAU,Mohd. Sabban,parties.IN.IND,864,0.5,10,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1096,uttar-pradesh,2020,162,BANGARMAU,Ashutosh Kumar Pandey,,690,0.4,11,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-711,uttar-pradesh,2020,218,GHATAMPUR,UPENDRA NATH PASWAN,,60405,38.36,1,won,M,40,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-711,uttar-pradesh,2020,218,GHATAMPUR,Dr. KRIPA SHANKAR,,36585,23.23,2,lost,M,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-711,uttar-pradesh,2020,218,GHATAMPUR,KULDEEP SANKHWAR,,33955,21.56,3,lost,M,50,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-711,uttar-pradesh,2020,218,GHATAMPUR,INDRA JEET KORI,,22735,14.44,4,forfeit,M,80,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-711,uttar-pradesh,2020,218,GHATAMPUR,UPENDRA NATH PASWAN,parties.IN.BJP,60405,38.36,1,won,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-711,uttar-pradesh,2020,218,GHATAMPUR,Dr. KRIPA SHANKAR,parties.IN.INC,36585,23.23,2,lost,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-711,uttar-pradesh,2020,218,GHATAMPUR,KULDEEP SANKHWAR,parties.IN.BSP,33955,21.56,3,lost,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-711,uttar-pradesh,2020,218,GHATAMPUR,INDRA JEET KORI,parties.IN.SP,22735,14.44,4,forfeit,M,80,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-711,uttar-pradesh,2020,218,GHATAMPUR,NOTA,,1555,0.99,5,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-711,uttar-pradesh,2020,218,GHATAMPUR,VIPIN KUMAR BHARTIYA,,1202,0.76,6,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-711,uttar-pradesh,2020,218,GHATAMPUR,ASHOK PASWAN ADVOCATE,,1039,0.66,7,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,DR. SATYAPRAKASH MANI TRIPATHI URF GUDDU BABU,,68732,40.42,1,won,M,57,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,BARAHAMASHANKAR TRIPATHI,,48643,28.6,2,lost,M,68,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,ABHAY NATH TRIPATHI,,22069,12.98,3,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,AJAY PRATAP SINGH URF PINTU SINGH,,19299,11.35,4,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,MUKUND BHASKAR,,3692,2.17,5,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,DR. SATYAPRAKASH MANI TRIPATHI URF GUDDU BABU,parties.IN.BJP,68732,40.42,1,won,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,BARAHAMASHANKAR TRIPATHI,parties.IN.SP,48643,28.6,2,lost,M,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,ABHAY NATH TRIPATHI,parties.IN.BSP,22069,12.98,3,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,AJAY PRATAP SINGH URF PINTU SINGH,parties.IN.IND,19299,11.35,4,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,MUKUND BHASKAR,parties.IN.INC,3692,2.17,5,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,NOTA,,1420,0.83,6,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,OMPRAKASH CHAURASIA,,1093,0.64,7,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,RAJU,,1071,0.63,8,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,PT. UMESH MANI TRIPATHI,,894,0.53,9,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,ATIULLAH,,775,0.46,10,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,RAJAN YADAV URF ARTHI BABA MBA,,685,0.4,11,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,ASHOK YADAVE,,540,0.32,12,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,ATIULLAH,parties.IN.IND,775,0.46,10,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,RAJAN YADAV URF ARTHI BABA MBA,parties.IN.IND,685,0.4,11,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,ASHOK YADAVE,parties.IN.NCP,540,0.32,12,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,RISHIKESH,,466,0.27,13,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,SUDHAKAR,,383,0.23,14,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,SUDHAKAR,parties.IN.IND,383,0.23,14,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-814,uttar-pradesh,2020,337,DEORIA,MUNIB,,301,0.18,15,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,LUCKY YADAV,,73468,35.45,1,won,M,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,DHANANJAYA SINGH,,68836,33.22,2,lost,M,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,MANOJ KUMAR SINGH,,28840,13.92,3,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,JAI PRAKASH DUBEY,,25180,12.15,4,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,RAKESH MISHRA MANGLA GURU,,2871,1.39,5,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,KRIPA SHANKAR C. PANDEY,,1400,0.68,6,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,SARFRAZ,,1362,0.66,7,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,LUCKY YADAV,parties.IN.SP,73468,35.45,1,won,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,DHANANJAYA SINGH,parties.IN.IND,68836,33.22,2,lost,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,MANOJ KUMAR SINGH,parties.IN.BJP,28840,13.92,3,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,JAI PRAKASH DUBEY,parties.IN.BSP,25180,12.15,4,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,RAKESH MISHRA MANGLA GURU,parties.IN.INC,2871,1.39,5,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,KRIPA SHANKAR C. PANDEY,parties.IN.IND,1400,0.68,6,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,SARFRAZ,parties.IN.IND,1362,0.66,7,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,NOTA,,982,0.47,8,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,VIJAY KUMAR,,687,0.33,9,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,DR. SHALINI MOHAN SAHAY,,662,0.32,10,forfeit,F,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,DR. SHALINI MOHAN SAHAY,parties.IN.IND,662,0.32,10,forfeit,F,44,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,SHOBH NATH KEVAT,,658,0.32,11,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,SATISH CHANDRA UPADHYAY,,657,0.32,12,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,SATISH CHANDRA UPADHYAY,parties.IN.NCP,657,0.32,12,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,AJAY KUMAR SHARMA,,529,0.26,13,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,BRIJESH PASI,,416,0.2,14,forfeit,M,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,BRIJESH PASI,parties.IN.RSPS,416,0.2,14,forfeit,M,25,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,BHART RAM,,266,0.13,15,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,MUNSILAL,,237,0.11,16,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-917,uttar-pradesh,2020,367,MALHANI,JAI SINGH YADAV,,188,0.09,17,forfeit,M,53,,,challenger,src-1b7bc1c9d39a

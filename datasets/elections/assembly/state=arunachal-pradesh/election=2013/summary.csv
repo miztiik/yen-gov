@@ -1,2 +1,2 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-arunachal-pradesh-1387,arunachal-pradesh,2013,DAMBUK,10672,0,0,Smt. Gum Tayeng,,0,,,,,,,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1387,arunachal-pradesh,2013,DAMBUK,10672,0,0,Smt. Gum Tayeng,parties.IN.INC,0,,,,,,,src-1b7bc1c9d39a

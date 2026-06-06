@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2021,MANDI,1299756,752071,57.86,PRATIBHA SINGH,,369565,49.14,BRIG. KHUSHAL CHAND THAKUR,,362075,7490,1,src-31c65dbec869
-IN-PC-2008-karnataka-468,karnataka,2021,BELGAUM,1813567,1022247,56.37,ANGADI MANGAL SURESH,,440327,43.07,SATISH LAXMANARAO JARKIHOLI,,435087,5240,0.51,src-31c65dbec869
-IN-PC-2008-kerala-498,kerala,2021,MALAPPURAM,1438951,1099805,76.43,Abdussamad Samadani,,538438,48.96,V.P. Sanu,,423746,114692,10.43,src-31c65dbec869
+IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2021,MANDI,1299756,752071,57.86,PRATIBHA SINGH,parties.IN.INC,369565,49.14,BRIG. KHUSHAL CHAND THAKUR,parties.IN.BJP,362075,7490,1,src-31c65dbec869
+IN-PC-2008-karnataka-468,karnataka,2021,BELGAUM,1813567,1022247,56.37,ANGADI MANGAL SURESH,parties.IN.BJP,440327,43.07,SATISH LAXMANARAO JARKIHOLI,parties.IN.INC,435087,5240,0.51,src-31c65dbec869
+IN-PC-2008-kerala-498,kerala,2021,MALAPPURAM,1438951,1099805,76.43,Abdussamad Samadani,parties.IN.IUML,538438,48.96,V.P. Sanu,,423746,114692,10.43,src-31c65dbec869

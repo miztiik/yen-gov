@@ -142,6 +142,7 @@ def main() -> None:
             state_name_tcpd=tcpd_name,
             state_slug=slug,
             source_id=source_id,
+            parties_csv=entities / "parties.csv",
         )
         for info in emitted.values():
             validate_csv(

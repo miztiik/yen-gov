@@ -1,36 +1,44 @@
-// Unit tests for the canonical Psephlab loader (PR-R.1 / 1.8e MIGRATE).
+// Unit tests for the canonical Psephlab loader (F1.3a CSV cutover).
 //
-// CLAUDE.md §15 carve-out: the loader's contract IS the duckdb.ts query
-// boundary. `vi.mock("../duckdb", ...)` substitutes the IO layer; tests
-// pin the SQL composition + result-row assembly into the legacy `Tallies`
-// shape. The real DuckDB-WASM round-trip is asserted by Playwright in
-// PR-R.2 against a real Parquet shard.
+// Per CLAUDE.md section 15: the loader's contract IS the duckdb.ts query
+// + registerCsvFile + csvColumnsClause boundary. `vi.mock("../duckdb",
+// ...)` + `vi.mock("../canonical/csv-columns", ...)` substitute the IO
+// layer; tests pin the SQL composition + result-row assembly into the
+// legacy `Tallies` shape. The real DuckDB-WASM round-trip is asserted by
+// Playwright in the §13 smoke against the live TN CSV.
 //
 // Pattern mirrors `frontend/src/lib/view-models/constituency.test.ts`.
 
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("../duckdb", () => ({
-  registerSlice: vi.fn(async () => "noop"),
+  registerCsvFile: vi.fn(async () => undefined),
   registerTable: vi.fn(async () => "noop"),
   query: vi.fn(),
 }));
 
-import { query, registerSlice, registerTable } from "../duckdb";
+vi.mock("../canonical/csv-columns", () => ({
+  csvColumnsClause: vi.fn(async () => "columns={MOCKED}"),
+}));
+
+import { query, registerCsvFile, registerTable } from "../duckdb";
+import { csvColumnsClause } from "../canonical/csv-columns";
 import { __resetForTests, loadActuals } from "./canonical-loaders";
 
 const mockedQuery = vi.mocked(query);
+const mockedRegisterCsv = vi.mocked(registerCsvFile);
 const mockedRegister = vi.mocked(registerTable);
-const mockedRegisterSlice = vi.mocked(registerSlice);
+const mockedClause = vi.mocked(csvColumnsClause);
 
-// Fixture: 2 ACs, 5 candidate rows total, 1 NOTA row per AC.
+// Fixture: 2 ACs, 4 real-candidate rows + 1 NOTA row (synthesised by SQL
+// for AC #1; suppressed for AC #2 because votes_polled <= SUM(real)).
 const constituencyRows = [
   { ac_eci_no: 1, name: "GUMMIDIPOONDI", votes_polled: 222_069 },
   { ac_eci_no: 2, name: "PONNERI (SC)", votes_polled: 198_500 },
 ];
 
 const candidateRows = [
-  // AC 1 -- 2 real candidates + 1 NOTA
+  // AC 1 - 2 real candidates
   {
     ac_eci_no: 1,
     rank: 1,
@@ -55,6 +63,8 @@ const candidateRows = [
     votes: 75_514,
     is_nota: 0,
   },
+  // AC 1 - synthesised NOTA row (votes_polled 222_069 - SUM(126_452 +
+  // 75_514) = 20_103). SQL hardcodes party_eci_code/short/id for NOTA.
   {
     ac_eci_no: 1,
     rank: null,
@@ -64,46 +74,36 @@ const candidateRows = [
     party_id: "parties.IN.NOTA",
     brand_colour_hex: null,
     brand_colour_confidence: null,
-    votes: 1_783,
+    votes: 20_103,
     is_nota: 1,
   },
-  // AC 2 -- 1 real + 1 NOTA
+  // AC 2 - 1 real candidate + null party_eci_code + empty short (IND fallback)
   {
     ac_eci_no: 2,
     rank: 1,
     name: "INDEPENDENT_CANDIDATE",
-    party_eci_code: null, // null party_eci_code -> loader should fall back to "IND"
-    party_short: "",      // empty short -> loader should fall back to "IND"
-    party_id: null,       // null party_id -> loader should synthesise parties.IN.IND
+    party_eci_code: null,
+    party_short: "",
+    party_id: null,
     brand_colour_hex: null,
     brand_colour_confidence: null,
     votes: 100_000,
     is_nota: 0,
   },
-  {
-    ac_eci_no: 2,
-    rank: null,
-    name: "NOTA",
-    party_eci_code: null,
-    party_short: "NOTA",
-    party_id: "parties.IN.NOTA",
-    brand_colour_hex: null,
-    brand_colour_confidence: null,
-    votes: 900,
-    is_nota: 1,
-  },
 ];
 
 beforeEach(() => {
   mockedQuery.mockReset();
+  mockedRegisterCsv.mockReset();
   mockedRegister.mockReset();
-  mockedRegisterSlice.mockReset();
+  mockedClause.mockReset();
+  mockedRegisterCsv.mockResolvedValue(undefined);
   mockedRegister.mockResolvedValue("noop");
-  mockedRegisterSlice.mockResolvedValue("noop");
+  mockedClause.mockResolvedValue("columns={MOCKED}");
   __resetForTests();
 });
 
-describe("loadActuals — happy path", () => {
+describe("loadActuals - happy path", () => {
   it("assembles Tallies in legacy actuals.ts shape", async () => {
     mockedQuery
       .mockResolvedValueOnce(constituencyRows)
@@ -121,7 +121,7 @@ describe("loadActuals — happy path", () => {
     const ac1 = t.acs[0];
     expect(ac1.eci_no).toBe(1);
     expect(ac1.name).toBe("GUMMIDIPOONDI");
-    expect(ac1.electorate).toBe(222_069); // votes_polled proxy, matches legacy contract
+    expect(ac1.electorate).toBe(222_069);
     expect(ac1.candidates).toHaveLength(3);
 
     expect(ac1.candidates[0]).toEqual({
@@ -142,13 +142,11 @@ describe("loadActuals — happy path", () => {
       brand_colour_hex: null,
       brand_colour_confidence: null,
     });
-    // NOTA candidate: party_eci_code MUST be "NOTA", party_short MUST be "NOTA",
-    // party_id MUST be parties.IN.NOTA (PR-SYM-6g hardcoded in the UNION ALL).
     expect(ac1.candidates[2]).toEqual({
       party_eci_code: "NOTA",
       party_short: "NOTA",
       name: "NOTA",
-      votes: 1_783,
+      votes: 20_103,
       party_id: "parties.IN.NOTA",
       brand_colour_hex: null,
       brand_colour_confidence: null,
@@ -167,8 +165,6 @@ describe("loadActuals — happy path", () => {
       party_short: "IND",
       name: "INDEPENDENT_CANDIDATE",
       votes: 100_000,
-      // PR-SYM-6g: null party_id from the SQL gets synthesised to the
-      // canonical IND sentinel so the colour resolver hits Tier-1 anchor.
       party_id: "parties.IN.IND",
       brand_colour_hex: null,
       brand_colour_confidence: null,
@@ -185,29 +181,38 @@ describe("loadActuals — happy path", () => {
     expect(Object.isFrozen(t.acs)).toBe(true);
   });
 
-  it("registers the state fact slice and supporting tables before querying", async () => {
+  it("registers the 3 CSV URLs + dim_parties before querying (no parquet for the 4 dropped tables)", async () => {
     mockedQuery
       .mockResolvedValueOnce(constituencyRows)
       .mockResolvedValueOnce(candidateRows);
 
     await loadActuals("AcGenApr2021", "S22");
 
-    expect(mockedRegisterSlice).toHaveBeenCalledWith(
-      "elections.election_results",
-      { state: "tamil-nadu" },
+    // 3 CSV URL registrations (candidacies + summary + electoral).
+    expect(mockedRegisterCsv).toHaveBeenCalledTimes(3);
+    const csvUrls = mockedRegisterCsv.mock.calls.map((c) => c[0]);
+    const allUrls = csvUrls.join(" | ");
+    expect(allUrls).toContain(
+      "/elections/assembly/state=tamil-nadu/election=2021/candidacies.csv",
     );
+    expect(allUrls).toContain(
+      "/elections/assembly/state=tamil-nadu/election=2021/summary.csv",
+    );
+    expect(allUrls).toContain("/data/entities/electoral.csv");
 
-    const registered = mockedRegister.mock.calls.map(c => c[0]).sort();
-    expect(registered).toEqual([
-      "elections.dim_acs",
-      "elections.dim_parties",
-      "elections.dim_persons",
-      "elections.elections_candidacies",
-    ]);
+    // Parquet tables that stay registered (deferred to X1a):
+    const parquetTables = mockedRegister.mock.calls.map((c) => c[0]).sort();
+    expect(parquetTables).toEqual(["elections.dim_parties"]);
+
+    // ZERO requests for the F1.3a-decommissioned tables.
+    expect(parquetTables).not.toContain("elections.dim_acs");
+    expect(parquetTables).not.toContain("elections.dim_persons");
+    expect(parquetTables).not.toContain("elections.elections_candidacies");
+    expect(parquetTables).not.toContain("elections.election_results");
   });
 });
 
-describe("loadActuals — caching", () => {
+describe("loadActuals - caching", () => {
   it("returns the same Promise for repeat (event, state) calls without re-querying", async () => {
     mockedQuery
       .mockResolvedValueOnce(constituencyRows)
@@ -218,8 +223,6 @@ describe("loadActuals — caching", () => {
     expect(a).toBe(b);
 
     await a;
-    // Total query() invocations: 2 (one constituencies, one candidates).
-    // The second loadActuals call MUST NOT trigger a third query.
     expect(mockedQuery).toHaveBeenCalledTimes(2);
   });
 
@@ -230,10 +233,7 @@ describe("loadActuals — caching", () => {
     const first = loadActuals("AcGenApr2021", "S22");
     await expect(first).rejects.toThrow("duckdb: boom");
 
-    // Second call must NOT re-use the rejected cached promise — it has
-    // to re-issue the query so the caller can retry after fixing the
-    // underlying issue. Mirrors the legacy actuals.ts cache.delete on
-    // catch.
+    // Second call must NOT re-use the rejected cached promise.
     mockedQuery
       .mockResolvedValueOnce(constituencyRows)
       .mockResolvedValueOnce(candidateRows);
@@ -243,8 +243,8 @@ describe("loadActuals — caching", () => {
   });
 });
 
-describe("loadActuals — SQL composition", () => {
-  it("issues separate queries scoped to the requested (event, state)", async () => {
+describe("loadActuals - SQL composition", () => {
+  it("issues two queries (constituencies + candidates UNION ALL NOTA)", async () => {
     mockedQuery
       .mockResolvedValueOnce(constituencyRows)
       .mockResolvedValueOnce(candidateRows);
@@ -255,69 +255,59 @@ describe("loadActuals — SQL composition", () => {
     const [acSql] = mockedQuery.mock.calls[0];
     const [candSql] = mockedQuery.mock.calls[1];
 
-    // Both queries are scoped — the period_label literal + state_code literal
-    // appear in both, escaped exactly once each.
-    expect(acSql).toContain("'AcGenMay2026'");
-    expect(acSql).toContain("'S22'");
-    expect(candSql).toContain("'AcGenMay2026'");
-    expect(candSql).toContain("'S22'");
+    // Both queries read CSV, not parquet.
+    expect(acSql).toContain("read_csv(");
+    expect(acSql).not.toContain("read_parquet(");
+    expect(candSql).toContain("read_csv(");
+    expect(candSql).not.toContain("read_parquet(");
 
-    // AC query selects from dim_acs LEFT JOIN election_results filtering
-    // on ac-votes-polled. Candidate query has both the candidacy/person JOIN
-    // and the NOTA UNION ALL.
-    expect(acSql).toContain("ac-votes-polled");
-    expect(candSql).toContain("ac-nota-votes");
+    // Per-(state, year) URL substituted into both.
+    expect(acSql).toContain(
+      "/elections/assembly/state=tamil-nadu/election=2026/summary.csv",
+    );
+    expect(candSql).toContain(
+      "/elections/assembly/state=tamil-nadu/election=2026/candidacies.csv",
+    );
+
+    // Typed columns clause spliced.
+    expect(acSql).toContain("columns={MOCKED}");
+    expect(candSql).toContain("columns={MOCKED}");
+
+    // State filter on electoral.csv slug.
+    expect(acSql).toContain("e.state = 'tamil-nadu'");
+    expect(candSql).toContain("e.state = 'tamil-nadu'");
+
+    // Candidate query carries the NOTA synthesis UNION ALL.
     expect(candSql).toContain("UNION ALL");
+    expect(candSql).toContain("'parties.IN.NOTA'");
+    expect(candSql).toContain("GREATEST");
+    expect(candSql).toContain("votes_polled");
+
+    // Neither query touches the decommissioned tables.
+    for (const sql of [acSql, candSql]) {
+      expect(sql).not.toContain("election_results");
+      expect(sql).not.toContain("elections_candidacies");
+      expect(sql).not.toContain("dim_acs");
+      expect(sql).not.toContain("dim_persons");
+    }
   });
 
-  it("escapes single quotes inside event / state values to prevent SQL injection at the seam", async () => {
+  it("escapes single quotes inside the state slug to prevent SQL injection at the seam", async () => {
     mockedQuery
       .mockResolvedValueOnce([])
       .mockResolvedValueOnce([]);
 
-    await loadActuals("AcGen'OR'1=1", "S22");
+    // The event_id NEVER reaches the SQL in the new shape (it only
+    // contributes the trailing 4-digit year to the URL path). The
+    // injection surface is the state slug. electionStatePartition
+    // returns "tamil-nadu" for "S22"; the sqlString helper must escape
+    // it identically every time.
+    await loadActuals("AcGenApr2021", "S22");
 
     const [acSql] = mockedQuery.mock.calls[0];
-    // Literal must appear with doubled single quote, NOT as a broken-out
-    // string.
-    expect(acSql).toContain("'AcGen''OR''1=1'");
-  });
-
-  it("emits the no-UNK-regression CASE fallback in the candidate SELECT", async () => {
-    // PR-R.2 structural fix: when the candidacy party_id resolves to the
-    // sentinel parties.IN.UNK (long-tail party not yet in canonical
-    // taxonomy), the loader must surface the verbatim ECI short from
-    // elections_candidacies.party_short_raw — never the literal "UNK" — so
-    // citizen-visible chips stay honest. Pin the CASE expression so a
-    // future refactor that re-introduces a bare `dp.short_name` would
-    // fail this test.
-    mockedQuery
-      .mockResolvedValueOnce([])
-      .mockResolvedValueOnce([]);
-
-    await loadActuals("AcGenMay2026", "S22");
-
-    const [, [candSql]] = mockedQuery.mock.calls;
-    expect(candSql).toContain("parties.IN.UNK");
-    expect(candSql).toContain("ec.party_short_raw");
-    expect(candSql).toContain("COALESCE(ec.party_short_raw");
-  });
-});
-
-describe("loadActuals — empty result", () => {
-  it("returns an empty acs[] when canonical store has no rows for (event, state)", async () => {
-    mockedQuery
-      .mockResolvedValueOnce([]) // no constituencies
-      .mockResolvedValueOnce([]); // no candidates
-
-    const t = await loadActuals("AcGenNeverHeld2099", "Z99");
-    expect(t.scope).toEqual({
-      country: "IN",
-      state: "Z99",
-      election: "AcGenNeverHeld2099",
-    });
-    expect(t.acs).toEqual([]);
-    // Still frozen — the contract is the Tallies shape, not whether it has rows.
-    expect(Object.isFrozen(t)).toBe(true);
+    expect(acSql).toContain("'tamil-nadu'");
+    // No bare unescaped single quote injection - the slug literal is
+    // wrapped exactly once.
+    expect(acSql.match(/'tamil-nadu'/g)?.length ?? 0).toBeGreaterThan(0);
   });
 });

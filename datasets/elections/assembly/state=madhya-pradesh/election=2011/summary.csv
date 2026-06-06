@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,JABERA,163354,123502,75.6,D S L D Bhaiya,,53846,43.6,T R Soloman,,42108,11738,9.51,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,SONKATCH,163211,135648,83.11,R P C Verma,,74356,54.82,Arjun Verma,,54899,19457,14.35,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2519,madhya-pradesh,2011,KUKSHI,148462,112263,75.62,K M Singh,,60294,53.71,Nisha Singhar,,44178,16116,14.36,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,JABERA,163354,123502,75.6,D S L D Bhaiya,parties.IN.BJP,53846,43.6,T R Soloman,parties.IN.INC,42108,11738,9.51,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,SONKATCH,163211,135648,83.11,R P C Verma,parties.IN.BJP,74356,54.82,Arjun Verma,parties.IN.INC,54899,19457,14.35,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2519,madhya-pradesh,2011,KUKSHI,148462,112263,75.62,K M Singh,parties.IN.BJP,60294,53.71,Nisha Singhar,parties.IN.INC,44178,16116,14.36,src-1b7bc1c9d39a

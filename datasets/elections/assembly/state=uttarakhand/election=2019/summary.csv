@@ -1,2 +1,2 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-uttarakhand-284,uttarakhand,2019,PITHORAGARH,105711,50584,47.85,Chandra Pant,,26086,51.57,Anju Lunthi,,22819,3267,6.46,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-284,uttarakhand,2019,PITHORAGARH,105711,50584,47.85,Chandra Pant,parties.IN.BJP,26086,51.57,Anju Lunthi,parties.IN.INC,22819,3267,6.46,src-1b7bc1c9d39a

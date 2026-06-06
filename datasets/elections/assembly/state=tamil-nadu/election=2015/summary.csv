@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,DR. RADHAKRISHNAN NAGAR,195179,179044,91.73,Jayalalithaa (E),,160432,89.6,Mahendran . C,,9710,150722,84.18,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4045,tamil-nadu,2015,SRIRANGAM,221158,219254,99.14,Valarmathi S,,151561,69.13,Anand N,,55045,96516,44.02,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,DR. RADHAKRISHNAN NAGAR,195179,179044,91.73,Jayalalithaa (E),,160432,89.6,Mahendran . C,parties.IN.CPI,9710,150722,84.18,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4045,tamil-nadu,2015,SRIRANGAM,221158,219254,99.14,Valarmathi S,,151561,69.13,Anand N,parties.IN.DMK,55045,96516,44.02,src-1b7bc1c9d39a

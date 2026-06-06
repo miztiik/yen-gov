@@ -1,18 +1,18 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-odisha-2230,odisha,2020,38,BALASORE,Swarup Kumar Das,,84097,51.8,1,won,M,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2230,odisha,2020,38,BALASORE,Manas Kumar Dutta,,70746,43.58,2,lost,M,29,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2230,odisha,2020,38,BALASORE,Mamata Kundu,,4983,3.07,3,forfeit,F,47,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2230,odisha,2020,38,BALASORE,Benudhar Barik,,1255,0.77,4,forfeit,M,80,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2020,38,BALASORE,Swarup Kumar Das,parties.IN.BJD,84097,51.8,1,won,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2020,38,BALASORE,Manas Kumar Dutta,parties.IN.BJP,70746,43.58,2,lost,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2020,38,BALASORE,Mamata Kundu,parties.IN.INC,4983,3.07,3,forfeit,F,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2020,38,BALASORE,Benudhar Barik,parties.IN.IND,1255,0.77,4,forfeit,M,80,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-odisha-2230,odisha,2020,38,BALASORE,NOTA,,700,0.43,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2230,odisha,2020,38,BALASORE,Bhagyauddit Daspattanayak,,312,0.19,6,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2230,odisha,2020,38,BALASORE,Md Numan Khan,,246,0.15,7,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2291,odisha,2020,102,TIRTOL,Bijaya Shankar Das,,88310,52.91,1,won,M,27,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2291,odisha,2020,102,TIRTOL,Rajkishore Behera,,46607,27.92,2,lost,M,58,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2291,odisha,2020,102,TIRTOL,Himanshu Bhusan Mallick,,28778,17.24,3,lost,M,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2291,odisha,2020,102,TIRTOL,Bijay Kumar Bhoi,,1109,0.66,4,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2020,38,BALASORE,Bhagyauddit Daspattanayak,parties.IN.IND,312,0.19,6,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2230,odisha,2020,38,BALASORE,Md Numan Khan,parties.IN.IND,246,0.15,7,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2291,odisha,2020,102,TIRTOL,Bijaya Shankar Das,parties.IN.BJD,88310,52.91,1,won,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2291,odisha,2020,102,TIRTOL,Rajkishore Behera,parties.IN.BJP,46607,27.92,2,lost,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2291,odisha,2020,102,TIRTOL,Himanshu Bhusan Mallick,parties.IN.INC,28778,17.24,3,lost,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2291,odisha,2020,102,TIRTOL,Bijay Kumar Bhoi,parties.IN.CPI,1109,0.66,4,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-odisha-2291,odisha,2020,102,TIRTOL,NOTA,,786,0.47,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2291,odisha,2020,102,TIRTOL,Arjuna Charan Behera,,529,0.32,6,forfeit,M,61,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2291,odisha,2020,102,TIRTOL,Sachitra Mallick,,214,0.13,7,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2291,odisha,2020,102,TIRTOL,Ramesh Chandra Mallick,,210,0.13,8,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2291,odisha,2020,102,TIRTOL,Rabindra Nath Sethy,,195,0.12,9,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2291,odisha,2020,102,TIRTOL,Golap Manjari Bhoi,,183,0.11,10,forfeit,F,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2291,odisha,2020,102,TIRTOL,Arjuna Charan Behera,parties.IN.IND,529,0.32,6,forfeit,M,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2291,odisha,2020,102,TIRTOL,Sachitra Mallick,parties.IN.IND,214,0.13,7,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2291,odisha,2020,102,TIRTOL,Ramesh Chandra Mallick,parties.IN.IND,210,0.13,8,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2291,odisha,2020,102,TIRTOL,Rabindra Nath Sethy,parties.IN.IND,195,0.12,9,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2291,odisha,2020,102,TIRTOL,Golap Manjari Bhoi,parties.IN.IND,183,0.11,10,forfeit,F,42,,,challenger,src-1b7bc1c9d39a

@@ -1,34 +1,34 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,K. Thondaiman,,101998,71.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,J. Hussain. N.,,30500,21.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Srinivasan n.,,4495,3.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,J. Hussain. N.,parties.IN.DMDK,30500,21.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Srinivasan n.,parties.IN.IJK,4495,3.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Arivalagan,,1370,0.96,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Muthukumar R.,,1361,0.95,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Padmarajan dr.K.,,896,0.63,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,J. Hussaine A.,,593,0.41,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,N.M.Peermohamed U.,,366,0.26,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Muthukumar R.,parties.IN.IND,1361,0.95,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Padmarajan dr.K.,parties.IN.IND,896,0.63,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,J. Hussaine A.,parties.IN.IND,593,0.41,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,N.M.Peermohamed U.,parties.IN.IND,366,0.26,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Vijayan M.,,253,0.18,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,J. Hussain S.,,209,0.15,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Sengol S.A.,,200,0.14,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Sekar M.,,173,0.12,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,J. Hussain M.,,164,0.11,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,S. Kumar M.,,145,0.1,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,S. Rengasamy A.,,123,0.09,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Karthick P.,,115,0.08,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Chellapandian P,,105,0.07,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Karthick R.,,97,0.07,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Saraswathi K.,,95,0.07,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Saminathan K.,,79,0.06,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,J. Hussain S.,parties.IN.IND,209,0.15,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Sengol S.A.,parties.IN.IND,200,0.14,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Sekar M.,parties.IN.IND,173,0.12,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,J. Hussain M.,parties.IN.IND,164,0.11,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,S. Kumar M.,parties.IN.IND,145,0.1,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,S. Rengasamy A.,parties.IN.IND,123,0.09,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Karthick P.,parties.IN.IND,115,0.08,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Chellapandian P,parties.IN.IND,105,0.07,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Karthick R.,parties.IN.IND,97,0.07,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Saraswathi K.,parties.IN.IND,95,0.07,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4044,tamil-nadu,2012,180,PUDUKKOTTAI,Saminathan K.,parties.IN.IND,79,0.06,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,Muthu Selvi .S,,94977,59.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,V.J.Surya Kumar,,26220,16.41,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,S.T. Kumar T.Dr.,,20678,12.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,M. Kumar K.,,12144,7.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,"Murugan, L.",,1633,1.02,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,"Perumal, S.",,1324,0.83,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,Velladurai . P.,,1115,0.7,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,"Sankar, G.",,377,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,V.J.Surya Kumar,parties.IN.DMK,26220,16.41,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,S.T. Kumar T.Dr.,parties.IN.MDMK,20678,12.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,M. Kumar K.,parties.IN.DMDK,12144,7.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,"Murugan, L.",parties.IN.BJP,1633,1.02,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,"Perumal, S.",parties.IN.IND,1324,0.83,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,Velladurai . P.,parties.IN.IND,1115,0.7,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,"Sankar, G.",parties.IN.IND,377,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,"Ganesan, S.",,355,0.22,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,"Udayar, P.",,300,0.19,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,"N. Rao, K.S.",,277,0.17,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,"Arumugam, S",,220,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,"Ayyanu, M.",,152,0.1,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,"Udayar, P.",parties.IN.IND,300,0.19,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,"N. Rao, K.S.",parties.IN.SP,277,0.17,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,"Arumugam, S",parties.IN.IND,220,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4021,tamil-nadu,2012,219,SANKARANKOVIL,"Ayyanu, M.",parties.IN.IND,152,0.1,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a

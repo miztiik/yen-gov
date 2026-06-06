@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-nagaland-1469,nagaland,2021,NOKSEN,11788,1,0.01,H. CHUBA CHANG,,1,,NOTA,,0,1,,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1481,nagaland,2021,SHAMATOR CHESSORE,17496,1,0.01,S. KEOSHU YIMCHUNGER,,1,,NOTA,,0,1,,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1469,nagaland,2021,NOKSEN,11788,1,0.01,H. CHUBA CHANG,parties.IN.NDPP,1,,NOTA,,0,1,,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1481,nagaland,2021,SHAMATOR CHESSORE,17496,1,0.01,S. KEOSHU YIMCHUNGER,parties.IN.NDPP,1,,NOTA,,0,1,,src-1b7bc1c9d39a

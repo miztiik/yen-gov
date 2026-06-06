@@ -1,9 +1,9 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-west-bengal-1850,west-bengal,2014,KUMARGRAM,205554,188660,91.78,Manoj Kumar Oraon,,65634,34.79,Joachim Baxla,,62967,2667,1.41,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-1908,west-bengal,2014,GALSI,204589,190572,93.15,Gaur Chandra Mandah,,77799,40.82,Nanadalal Pandit,,69336,8463,4.44,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-1925,west-bengal,2014,BASIRHAT DAKSHIN,213441,189691,88.87,Samik Bhattacharya,,71002,37.43,Dipendu Biswas (Mithu),,69416,1586,0.84,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-1941,west-bengal,2014,KATULPUR,190151,187855,98.79,Shyamal Santra,,98878,52.64,Kaibartya Sital,,58521,40357,21.49,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2012,west-bengal,2014,MAYNAGURI,198615,191736,96.54,A.D. Adhikary,,99185,51.73,Dinabandhu .(Paltu),,67395,31790,16.58,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2113,west-bengal,2014,CHAKDAHA,192318,184430,95.9,Kar Ratna Ghosh,,90787,49.23,Biswanath Gupta,,53022,37765,20.48,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2119,west-bengal,2014,SANTIPUR,190634,184780,96.93,Ajoy Dey,,71973,38.95,Anup Kumar Ghosh,,51838,20135,10.9,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-eci162,west-bengal,2014,CHOWRANGEE,203052,95479,47.02,Nayna Bandyopadhyay,,38328,40.14,Ritesh Tiwari,,23984,14344,15.02,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1850,west-bengal,2014,KUMARGRAM,205554,188660,91.78,Manoj Kumar Oraon,parties.IN.RSP,65634,34.79,Joachim Baxla,parties.IN.AITC,62967,2667,1.41,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1908,west-bengal,2014,GALSI,204589,190572,93.15,Gaur Chandra Mandah,parties.IN.AITC,77799,40.82,Nanadalal Pandit,parties.IN.AIFB,69336,8463,4.44,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1925,west-bengal,2014,BASIRHAT DAKSHIN,213441,189691,88.87,Samik Bhattacharya,parties.IN.BJP,71002,37.43,Dipendu Biswas (Mithu),parties.IN.AITC,69416,1586,0.84,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1941,west-bengal,2014,KATULPUR,190151,187855,98.79,Shyamal Santra,parties.IN.AITC,98878,52.64,Kaibartya Sital,,58521,40357,21.49,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2012,west-bengal,2014,MAYNAGURI,198615,191736,96.54,A.D. Adhikary,parties.IN.AITC,99185,51.73,Dinabandhu .(Paltu),parties.IN.RSP,67395,31790,16.58,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2113,west-bengal,2014,CHAKDAHA,192318,184430,95.9,Kar Ratna Ghosh,parties.IN.AITC,90787,49.23,Biswanath Gupta,,53022,37765,20.48,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2119,west-bengal,2014,SANTIPUR,190634,184780,96.93,Ajoy Dey,parties.IN.AITC,71973,38.95,Anup Kumar Ghosh,,51838,20135,10.9,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-eci162,west-bengal,2014,CHOWRANGEE,203052,95479,47.02,Nayna Bandyopadhyay,parties.IN.AITC,38328,40.14,Ritesh Tiwari,parties.IN.BJP,23984,14344,15.02,src-1b7bc1c9d39a

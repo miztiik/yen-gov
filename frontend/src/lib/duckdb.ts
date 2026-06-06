@@ -331,6 +331,36 @@ async function registerFilesAsView(
 }
 
 // -----------------------------------------------------------------------------
+// CSV file URL registration (F1.3a typed-read seam)
+// -----------------------------------------------------------------------------
+
+const registeredCsvUrls = new Set<string>();
+
+/**
+ * Register a CSV file URL with DuckDB-WASM so subsequent `read_csv(<url>,
+ * columns={...})` SQL can fetch it via HTTP. Idempotent per session.
+ *
+ * Unlike `registerTable` / `registerSlice` (which wrap a Parquet view
+ * named via the manifest contract), this helper does not create a named
+ * SQL view. View-models splice the URL directly into their `read_csv(...)`
+ * call so they can pair it with a typed `columns={...}` clause built from
+ * `frontend/src/lib/canonical/csv-columns.ts:csvColumnsClause`.
+ *
+ * Manifest contract is unchanged: the F1 cutover keeps the Parquet
+ * manifest in place (the manifest only describes the Parquet store).
+ * Long-format CSV files are addressed by deterministic per-(state, year)
+ * paths derived from `canonical/election-csv-paths.ts`, NOT by manifest
+ * lookup. X1a (the atomic reader flip) is when the manifest goes away
+ * entirely and the typed-read seam becomes the only path.
+ */
+export async function registerCsvFile(url: string): Promise<void> {
+  if (registeredCsvUrls.has(url)) return;
+  const db = await (dbPromise ?? (dbPromise = bootDB()));
+  await db.registerFileURL(url, url, duckdb.DuckDBDataProtocol.HTTP, false);
+  registeredCsvUrls.add(url);
+}
+
+// -----------------------------------------------------------------------------
 // Thin query helper
 // -----------------------------------------------------------------------------
 
@@ -355,5 +385,6 @@ export function __resetForTests(): void {
   dbPromise = null;
   connPromise = null;
   registeredViews.clear();
+  registeredCsvUrls.clear();
   warnedLegacyMarkers.clear();
 }

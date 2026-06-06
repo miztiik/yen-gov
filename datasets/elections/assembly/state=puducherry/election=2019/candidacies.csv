@@ -1,20 +1,20 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,K. VENKATESAN,,10906,47.45,1,won,M,48,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,P. NEDOUNZEJIANE,,9367,40.75,2,lost,M,55,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,B. COWRI,,1084,4.72,3,forfeit,F,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,K. VENKATESAN,parties.IN.DMK,10906,47.45,1,won,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,P. NEDOUNZEJIANE,parties.IN.AINRC,9367,40.75,2,lost,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,B. COWRI,parties.IN.NTK,1084,4.72,3,forfeit,F,35,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,NOTA,,653,2.84,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,DR.KA.Thamizhamallan,,269,1.17,5,forfeit,M,69,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,N. MURUGASAMY,,237,1.03,6,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,DR.KA.Thamizhamallan,parties.IN.IND,269,1.17,5,forfeit,M,69,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,N. MURUGASAMY,parties.IN.IND,237,1.03,6,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,K. RAVISANKAR,,203,0.88,7,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,S. SRIDHAR,,195,0.85,8,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,E. MANNATHAN,,71,0.31,9,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci10,puducherry,2019,10,KAMARAJ NAGAR,A. Johnkumar,,14782,60.81,1,won,M,54,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci10,puducherry,2019,10,KAMARAJ NAGAR,Bouvanesvarane,,7612,31.31,2,lost,M,56,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci10,puducherry,2019,10,KAMARAJ NAGAR,M. Praveena,,620,2.55,3,forfeit,F,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2019,9,THATTANCHAVADY,E. MANNATHAN,parties.IN.IND,71,0.31,9,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci10,puducherry,2019,10,KAMARAJ NAGAR,A. Johnkumar,parties.IN.INC,14782,60.81,1,won,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci10,puducherry,2019,10,KAMARAJ NAGAR,Bouvanesvarane,parties.IN.AINRC,7612,31.31,2,lost,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci10,puducherry,2019,10,KAMARAJ NAGAR,M. Praveena,parties.IN.NTK,620,2.55,3,forfeit,F,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-eci10,puducherry,2019,10,KAMARAJ NAGAR,NOTA,,426,1.75,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci10,puducherry,2019,10,KAMARAJ NAGAR,C. Vetrriselvame,,343,1.41,5,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci10,puducherry,2019,10,KAMARAJ NAGAR,S. Lenindurai @ Kalimuthu,,294,1.21,6,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci10,puducherry,2019,10,KAMARAJ NAGAR,C. Vetrriselvame,parties.IN.IND,343,1.41,5,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci10,puducherry,2019,10,KAMARAJ NAGAR,S. Lenindurai @ Kalimuthu,parties.IN.SUCI,294,1.21,6,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-eci10,puducherry,2019,10,KAMARAJ NAGAR,S. Govindaraj,,121,0.5,7,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-eci10,puducherry,2019,10,KAMARAJ NAGAR,R. Barthassarady,,61,0.25,8,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci10,puducherry,2019,10,KAMARAJ NAGAR,Sagayaraj,,37,0.15,9,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci10,puducherry,2019,10,KAMARAJ NAGAR,S. Sougoumarane,,14,0.06,10,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci10,puducherry,2019,10,KAMARAJ NAGAR,Sagayaraj,parties.IN.IND,37,0.15,9,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci10,puducherry,2019,10,KAMARAJ NAGAR,S. Sougoumarane,parties.IN.IND,14,0.06,10,forfeit,M,53,,,challenger,src-1b7bc1c9d39a

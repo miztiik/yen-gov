@@ -1,18 +1,18 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-tripura-1636,tripura,2016,4,BARJALA,Jhumu Sarkar 'E',,15769,44.84,1,won,U,,Post Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1636,tripura,2016,4,BARJALA,Sistamohan Das,,12395,35.25,2,lost,U,,12th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1636,tripura,2016,4,BARJALA,Prakash Chandra Das,,5692,16.19,3,forfeit,U,,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1636,tripura,2016,4,BARJALA,Rajendra Kumar Das,,1063,3.02,4,forfeit,U,,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1636,tripura,2016,4,BARJALA,Sistamohan Das,parties.IN.BJP,12395,35.25,2,lost,U,,12th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1636,tripura,2016,4,BARJALA,Prakash Chandra Das,parties.IN.AITC,5692,16.19,3,forfeit,U,,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1636,tripura,2016,4,BARJALA,Rajendra Kumar Das,parties.IN.INC,1063,3.02,4,forfeit,U,,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tripura-1636,tripura,2016,4,BARJALA,Bimal Das,,245,0.7,5,forfeit,U,,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tripura-1620,tripura,2016,25,KHOWAI,Biswajit Datta,,24810,66.92,1,won,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1620,tripura,2016,25,KHOWAI,Manoj Das,,8716,23.51,2,lost,U,,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1620,tripura,2016,25,KHOWAI,Tapan Pal,,2528,6.82,3,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1620,tripura,2016,25,KHOWAI,Pranab Biswas,,696,1.88,4,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1620,tripura,2016,25,KHOWAI,Manoj Das,parties.IN.AITC,8716,23.51,2,lost,U,,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1620,tripura,2016,25,KHOWAI,Tapan Pal,parties.IN.BJP,2528,6.82,3,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1620,tripura,2016,25,KHOWAI,Pranab Biswas,parties.IN.INC,696,1.88,4,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tripura-1620,tripura,2016,25,KHOWAI,Goutam Deb,,326,0.88,5,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tripura-1601,tripura,2016,42,AMARPUR,Parimal Debnath,,20355,60.8,1,won,U,,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1601,tripura,2016,42,AMARPUR,Ranjit Das,,9758,29.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1601,tripura,2016,42,AMARPUR,Pabitra Mohan Jamatia,,1623,4.85,3,forfeit,U,,5th Pass,Ex Military,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1601,tripura,2016,42,AMARPUR,Chanchal Dey,,1231,3.68,4,forfeit,U,,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1601,tripura,2016,42,AMARPUR,Ranajoy Jamatia,,216,0.65,5,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1601,tripura,2016,42,AMARPUR,Ranjit Das,parties.IN.BJP,9758,29.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1601,tripura,2016,42,AMARPUR,Pabitra Mohan Jamatia,parties.IN.IPFT,1623,4.85,3,forfeit,U,,5th Pass,Ex Military,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1601,tripura,2016,42,AMARPUR,Chanchal Dey,parties.IN.INC,1231,3.68,4,forfeit,U,,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1601,tripura,2016,42,AMARPUR,Ranajoy Jamatia,parties.IN.IND,216,0.65,5,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tripura-1601,tripura,2016,42,AMARPUR,Bijoydas,,149,0.45,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1601,tripura,2016,42,AMARPUR,Namshatra Jamatia,,146,0.44,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1601,tripura,2016,42,AMARPUR,Namshatra Jamatia,parties.IN.INPT,146,0.44,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a

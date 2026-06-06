@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-meghalaya-1689,meghalaya,2019,SHELLA,29790,25199,84.59,BALAJIED KUPAR SYNREM,,12002,47.63,GRACE MARY KHARPURI,,5781,6221,24.69,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1716,meghalaya,2019,SELSELLA,31624,29010,91.73,FERLIN C. A. SANGMA,,15857,54.66,JUNE ELIANA R. MARAK,,11461,4396,15.15,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1689,meghalaya,2019,SHELLA,29790,25199,84.59,BALAJIED KUPAR SYNREM,,12002,47.63,GRACE MARY KHARPURI,parties.IN.IND,5781,6221,24.69,src-1b7bc1c9d39a
+IN-AC-2008-meghalaya-1716,meghalaya,2019,SELSELLA,31624,29010,91.73,FERLIN C. A. SANGMA,parties.IN.NPP,15857,54.66,JUNE ELIANA R. MARAK,parties.IN.INC,11461,4396,15.15,src-1b7bc1c9d39a

@@ -1,13 +1,13 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-PC-2008-bihar-190,bihar,2018,ARARIA,1737471,1036194,59.64,Sarfaraz Alam,,509334,49.15,Pradeep Kumar Singh,,447546,61788,5.96,src-31c65dbec869
+IN-PC-2008-bihar-190,bihar,2018,ARARIA,1737471,1036194,59.64,Sarfaraz Alam,parties.IN.RJD,509334,49.15,Pradeep Kumar Singh,parties.IN.BJP,447546,61788,5.96,src-31c65dbec869
 IN-PC-2008-karnataka-462,karnataka,2018,BELLORY,1713675,1047393,61.12,V.S. Ugrappa,,628365,59.99,J. Shantha,,385204,243161,23.21,src-31c65dbec869
 IN-PC-2008-karnataka-473,karnataka,2018,SHIMOGA,1646294,1071053,65.06,B.Y. Raghavendra 'E',,543306,50.73,S. Madhubangarappa,,491158,52148,4.87,src-31c65dbec869
-IN-PC-2008-maharashtra-368,maharashtra,2018,BHANDARA - GONDIYA,1759877,948650,53.9,Kukade Madhukrao Yashwantrao,,442213,46.61,Hemant [Tanubhau] Patle,,394116,48097,5.07,src-31c65dbec869
-IN-PC-2008-maharashtra-395,maharashtra,2018,PALGHAR,1731292,886869,51.23,Gavit Rajendra Dhedya E,,272782,30.76,Shrinivas Chintaman Vanag,,243210,29572,3.34,src-31c65dbec869
-IN-PC-2008-nagaland-195,nagaland,2018,NAGALAND,1197436,1018655,85.07,Tokheho,,594205,58.33,C. Apol Jamir,,420459,173746,17.05,src-31c65dbec869
-IN-PC-2008-rajasthan-48,rajasthan,2018,ALWAR,1827936,1127832,61.7,Dr.Karan Singh Yadav,,642416,56.96,Dr. Jaswant Singh Yadav,,445920,196496,17.42,src-31c65dbec869
-IN-PC-2008-rajasthan-70,rajasthan,2018,AJMER,1842992,1207542,65.52,Raghu Sharma,,611514,50.64,Ramswaroop Lamba,,527100,84414,6.99,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-100,uttar-pradesh,2018,GORAKHPUR,1952551,934320,47.85,Pravin Kumar Nishad,,456589,48.87,Upendra Dutt Shukla,,434788,21801,2.33,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,PHULPUR,1966410,730456,37.15,Nagendra Pratap Singh Patel,,342922,46.95,Kaushalendra Singh Patel,,283462,59460,8.14,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-78,uttar-pradesh,2018,KAIRANA,1612989,910682,56.46,Tabassum Begum €,,467881,51.38,Mriganka Singh,,426648,41233,4.53,src-31c65dbec869
-IN-PC-2008-west-bengal-256,west-bengal,2018,ULUBERIA,1578032,1258235,79.73,Sajda Ahmed,,767556,61,Anupam Mallik,,293046,474510,37.71,src-31c65dbec869
+IN-PC-2008-maharashtra-368,maharashtra,2018,BHANDARA - GONDIYA,1759877,948650,53.9,Kukade Madhukrao Yashwantrao,parties.IN.NCP,442213,46.61,Hemant [Tanubhau] Patle,parties.IN.BJP,394116,48097,5.07,src-31c65dbec869
+IN-PC-2008-maharashtra-395,maharashtra,2018,PALGHAR,1731292,886869,51.23,Gavit Rajendra Dhedya E,parties.IN.BJP,272782,30.76,Shrinivas Chintaman Vanag,,243210,29572,3.34,src-31c65dbec869
+IN-PC-2008-nagaland-195,nagaland,2018,NAGALAND,1197436,1018655,85.07,Tokheho,parties.IN.NDPP,594205,58.33,C. Apol Jamir,,420459,173746,17.05,src-31c65dbec869
+IN-PC-2008-rajasthan-48,rajasthan,2018,ALWAR,1827936,1127832,61.7,Dr.Karan Singh Yadav,parties.IN.INC,642416,56.96,Dr. Jaswant Singh Yadav,parties.IN.BJP,445920,196496,17.42,src-31c65dbec869
+IN-PC-2008-rajasthan-70,rajasthan,2018,AJMER,1842992,1207542,65.52,Raghu Sharma,parties.IN.INC,611514,50.64,Ramswaroop Lamba,parties.IN.BJP,527100,84414,6.99,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-100,uttar-pradesh,2018,GORAKHPUR,1952551,934320,47.85,Pravin Kumar Nishad,parties.IN.SP,456589,48.87,Upendra Dutt Shukla,parties.IN.BJP,434788,21801,2.33,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,PHULPUR,1966410,730456,37.15,Nagendra Pratap Singh Patel,parties.IN.SP,342922,46.95,Kaushalendra Singh Patel,parties.IN.BJP,283462,59460,8.14,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-78,uttar-pradesh,2018,KAIRANA,1612989,910682,56.46,Tabassum Begum €,parties.IN.RLD,467881,51.38,Mriganka Singh,parties.IN.BJP,426648,41233,4.53,src-31c65dbec869
+IN-PC-2008-west-bengal-256,west-bengal,2018,ULUBERIA,1578032,1258235,79.73,Sajda Ahmed,parties.IN.AITC,767556,61,Anupam Mallik,parties.IN.BJP,293046,474510,37.71,src-31c65dbec869

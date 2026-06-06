@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-jharkhand-2162,jharkhand,2018,GOMIYA,267433,174000,65.06,Babita Devi,,60552,34.8,Lambodar Mahto,,59211,1341,0.77,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2183,jharkhand,2018,KOLEBIRA,188829,118949,62.99,Naman Bixal Kongari,,40355,33.93,Basant Soreng,,30690,9665,8.13,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2215,jharkhand,2018,SILLI,194497,147517,75.85,Seema Devi,,77129,52.28,Sudesh Kumar Mahto,,63619,13510,9.15,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2162,jharkhand,2018,GOMIYA,267433,174000,65.06,Babita Devi,parties.IN.JMM,60552,34.8,Lambodar Mahto,parties.IN.AJSUP,59211,1341,0.77,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2183,jharkhand,2018,KOLEBIRA,188829,118949,62.99,Naman Bixal Kongari,parties.IN.INC,40355,33.93,Basant Soreng,parties.IN.BJP,30690,9665,8.13,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2215,jharkhand,2018,SILLI,194497,147517,75.85,Seema Devi,parties.IN.JMM,77129,52.28,Sudesh Kumar Mahto,,63619,13510,9.15,src-1b7bc1c9d39a

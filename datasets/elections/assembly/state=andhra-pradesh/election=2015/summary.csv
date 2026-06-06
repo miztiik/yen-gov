@@ -1,2 +1,2 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,TIRUPATI,195946,145064,74.03,Mannuru Suguma,,126152,86.96,Sridevi .R,,9628,116524,80.32,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,TIRUPATI,195946,145064,74.03,Mannuru Suguma,,126152,86.96,Sridevi .R,parties.IN.INC,9628,116524,80.32,src-1b7bc1c9d39a

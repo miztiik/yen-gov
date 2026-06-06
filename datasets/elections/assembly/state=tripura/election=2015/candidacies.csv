@@ -1,10 +1,10 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-tripura-1651,tripura,2015,13,PRATAPGARH,Ramu Das(E),,27555,62.85,1,won,U,,Post Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1651,tripura,2015,13,PRATAPGARH,Mousumi Das,,10229,23.33,2,lost,U,,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1651,tripura,2015,13,PRATAPGARH,Ranjit Kumar Das,,5187,11.83,3,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1651,tripura,2015,13,PRATAPGARH,Anil Chandra Das,,520,1.19,4,forfeit,U,,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1651,tripura,2015,13,PRATAPGARH,Biplab Chandra Sarkar,,349,0.8,5,forfeit,U,,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1651,tripura,2015,13,PRATAPGARH,Ramu Das(E),parties.IN.CPI,27555,62.85,1,won,U,,Post Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1651,tripura,2015,13,PRATAPGARH,Mousumi Das,parties.IN.BJP,10229,23.33,2,lost,U,,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1651,tripura,2015,13,PRATAPGARH,Ranjit Kumar Das,parties.IN.INC,5187,11.83,3,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1651,tripura,2015,13,PRATAPGARH,Anil Chandra Das,parties.IN.IND,520,1.19,4,forfeit,U,,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1651,tripura,2015,13,PRATAPGARH,Biplab Chandra Sarkar,parties.IN.IND,349,0.8,5,forfeit,U,,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tripura-1629,tripura,2015,46,SURMA,Anjan Das,,23275,68.25,1,won,U,,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1629,tripura,2015,46,SURMA,Ashis Das,,7966,23.36,2,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1629,tripura,2015,46,SURMA,Nagendra Chandra Biswas,,2528,7.41,3,forfeit,U,,Post Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1629,tripura,2015,46,SURMA,Sushil Malakar,,332,0.97,4,forfeit,U,,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1629,tripura,2015,46,SURMA,Ashis Das,parties.IN.BJP,7966,23.36,2,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1629,tripura,2015,46,SURMA,Nagendra Chandra Biswas,parties.IN.INC,2528,7.41,3,forfeit,U,,Post Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1629,tripura,2015,46,SURMA,Sushil Malakar,parties.IN.IND,332,0.97,4,forfeit,U,,5th Pass,,challenger,src-1b7bc1c9d39a

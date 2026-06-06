@@ -1,2 +1,2 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-tripura-1622,tripura,2014,MANU,38329,33657,87.81,Pravat Chowdhury,,21759,64.65,Mailafru Mog,,5788,15971,47.45,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1622,tripura,2014,MANU,38329,33657,87.81,Pravat Chowdhury,,21759,64.65,Mailafru Mog,parties.IN.INC,5788,15971,47.45,src-1b7bc1c9d39a

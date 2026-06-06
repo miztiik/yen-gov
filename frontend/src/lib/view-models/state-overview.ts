@@ -1,60 +1,52 @@
-// Citizen view-model loader for the StateOverview route (PR-F / Phase 1.3b).
+// Citizen view-model loader for the StateOverview route (F1.3a CSV cutover).
 //
-// Reads the canonical Parquet store via DuckDB-WASM (see lib/duckdb.ts) and
-// assembles a state-hub view-model — party totals + state totals + sources —
-// to replace the per-shard `result.summary.json` projection for the
-// StateOverview surface. PR-G (Phase 1.3c) routes Party.svelte's summary side
-// here, plus migrated ElectionSeatsTrend, IndiaMap, and Settings onto their
-// own dedicated view-model loaders; `fetchResultSummary` was deleted.
-// PR-H (Phase 1.3d) extends the party JOIN with `dim_party_alliances` so
-// `PartyTotals` carries `recognition` (from dim_parties) and per-event
-// `alliance` (from dim_party_alliances). Party.svelte now derives party_meta
-// from this single loader and `fetchParties` is gone.
-// PR-I (Phase 1.4) adds `ac_winners[]` to the view-model — per-AC winning
-// party + margin assembled from `ac-winner-party-id` + `ac-margin-pct`
-// observations joined to `dim_acs` + `dim_parties`. StateOverview's per-AC
-// badges and `MarginHistogram` now consume this slice; both surfaces drop
-// their `results.sqlite` queries.
+// Reads the per-(state, year) long-format CSV layout via DuckDB-WASM
+// (see lib/duckdb.ts + lib/canonical/election-csv-paths.ts) and
+// assembles a state-hub view-model — party totals + state totals +
+// per-AC winners + sources — to replace the legacy parquet JOIN that
+// fanned out from `election_results.parquet` + `dim_acs.parquet` +
+// `elections_candidacies.parquet` + `dim_persons.parquet`.
 //
 // What is JOINed:
-//   elections.election_results     — numeric facts (party-* + state-* indicators)
-//   elections.dim_parties          — party identity (short_name, full_name, eci_code, recognition)
-//   elections.dim_party_alliances  — per-event alliance (LEFT JOIN on (party_id, period_label))
-//   taxonomy.sources               — provenance URLs (citation-ledger v2.0)
+//   datasets/elections/assembly/state=*/election=*/candidacies.csv (per-candidacy)
+//   datasets/elections/assembly/state=*/election=*/summary.csv     (per-AC summary)
+//   datasets/data/entities/electoral.csv                           (AC entity + name + eci_no)
+//   elections.dim_parties           — party identity + brand (PARQUET; X1a flips later)
+//   elections.dim_party_alliances   — per-event alliance (PARQUET; X1a flips later)
+//   taxonomy.sources                — provenance ledger v2.0 (PARQUET; X1a flips later)
 //
-// Party JOIN key: entity_id is `IN-<state>-<event>-PARTY-<short_name>`, so
-// `regexp_extract(entity_id, '-PARTY-(.+)$', 1) = dim_parties.short_name`.
-// LEFT JOIN so parties without a dim row still render with their extracted
-// short_name (a recognised gap in the current dim_parties seed). The alliance
-// LEFT JOIN then keys on dim_parties.party_id; parties without a dim row OR
-// without an alliance_history entry for the event surface alliance=NULL.
+// Critical per-row contract (F1 sub-plan section 22.4 #4): every
+// `read_csv(...)` carries an explicit `columns={...}` map derived from
+// `datasets/data/_schema/columns.json` via `csvColumnsClause`. No
+// hand-typed column lists.
 //
-// LoaderResult arms (mirror PR-E / constituency.ts):
-//   ok       — JOIN produced 1+ party rows; full StateOverviewViewModel.
-//   partial  — zero party rows for (state, event) — the cohort is not yet
-//              ingested into the canonical store. Returns a skeleton +
-//              reason="not_published" so the route can render an empty-state.
-//   failed   — DuckDB-WASM / fetch / SQL error; `describeFailure` maps to
-//              citizen-readable copy + a retry callable.
+// Known regressions vs the pre-F1.3a parquet world (documented for X1a):
+// - long-tail rows where `party_id IS NULL` in candidacies.csv (the
+//   ~20% TCPD shortcodes not in `parties.csv`) collapse into one
+//   pseudo-row keyed `"OTHER"`. The legacy parquet aggregator picked
+//   up the literal short via the `IN-<state>-<event>-PARTY-<short>`
+//   entity pattern; the new CSV carries no `party_short_raw` column,
+//   so we cannot reconstruct the per-party label. The OTHER bucket is
+//   suppressed when zero such rows exist.
 
 import {
   describeFailure,
   type LoaderResult,
 } from "../loader-result";
-import { query, registerSlice, registerTable } from "../duckdb";
-import { electionStatePartition } from "../election-partitions";
+import { query, registerCsvFile, registerTable } from "../duckdb";
+import { DATA_BASE } from "../paths";
+import { csvColumnsClause } from "../canonical/csv-columns";
+import {
+  assemblyCandidaciesPath,
+  assemblySummaryPath,
+  electoralEntitiesPath,
+} from "../canonical/election-csv-paths";
 import type { PartyTotals, SourceRef } from "../data";
 import {
   verificationMethodRank,
   type SourceV2Row,
 } from "../source-list-v2";
 
-// View-model shape. Distinct from the legacy `ResultSummary` (which other
-// routes still consume): `body` is elided — StateOverview never reads it.
-// `party_totals` reuses the legacy `PartyTotals` shape so PartyBar /
-// SeatDonut / the party directory render with zero prop changes. PR-I adds
-// `ac_winners[]` so the per-AC winning party + margin can flow through one
-// loader; StateAcMap still has its own getDb path (Phase 1.5).
 export interface AcWinner {
   ac_eci_no: number;
   ac_name: string;
@@ -70,8 +62,8 @@ export interface AcWinner {
   // (dense ~2004+, null for older events). Coverage is gated downstream.
   turnout_pct?: number | null;
   winner_age?: number | null;
-  /** Winning candidate's display name (dim_persons.display_name). Null when
-   *  the affidavit/candidacy join missed or upstream omitted the name. */
+  /** Winning candidate's display name (summary.csv `winner_candidate`).
+   *  Null when summary did not emit a winner name. */
   winner_candidate_name?: string | null;
   /** Winning party's election-symbol asset path, root-relative
    *  (e.g. "party-symbols/rising-sun.svg"), from
@@ -104,10 +96,7 @@ export interface StateOverviewViewModel {
    *  citizen-facing citation identity + trust signals. Includes rows with
    *  null `url_main` (archived-snapshot / transcribed / editorial) which
    *  the legacy `sources` array drops by design. Consumed by the v2
-   *  `SourceListV2.svelte` render surface (Phase 1.4 of the chart-plan).
-   *  R-24: NO fetch-telemetry fields are carried here. R-28: the JOIN
-   *  resolves `taxonomy.sources` via `registerTable`, never a hardcoded
-   *  literal path. */
+   *  `SourceListV2.svelte` render surface. */
   sources_v2: SourceV2Row[];
 }
 
@@ -122,9 +111,6 @@ interface PartyRow {
   eci_code: string | null;
   recognition: string | null;
   alliance: string | null;
-  // PR-SYM-6f1: project dim_parties.party_id + brand_colour_* through to
-  // PartyTotals so SeatDonut (and follow-up consumers) can call
-  // getPartyColor(party_id, row) off the existing dim_parties LEFT JOIN.
   party_id: string | null;
   brand_colour_hex: string | null;
   brand_colour_confidence: string | null;
@@ -135,8 +121,9 @@ interface PartyRow {
 }
 
 interface StateScopeRow {
-  indicator_id: string;
-  value_numeric: number | null;
+  electors: number | null;
+  votes_polled: number | null;
+  turnout_pct: number | null;
 }
 
 interface SourceJoinRow {
@@ -177,183 +164,176 @@ async function runQueries(
   state_code: string,
 ): Promise<{
   parties: PartyRow[];
-  stateScope: StateScopeRow[];
+  stateScope: StateScopeRow | null;
   sources: SourceJoinRow[];
   acWinners: AcWinnerRow[];
 }> {
-  await Promise.all([
-    registerSlice("elections.election_results", { state: electionStatePartition(state_code) }),
+  const candPath = assemblyCandidaciesPath(state_code, event);
+  const sumPath = assemblySummaryPath(state_code, event);
+  const electoralPath = electoralEntitiesPath();
+
+  const candUrl = `${DATA_BASE}/${candPath.replace(/^datasets\//, "")}`;
+  const sumUrl = `${DATA_BASE}/${sumPath.replace(/^datasets\//, "")}`;
+  const electoralUrl = `${DATA_BASE}/${electoralPath.replace(/^datasets\//, "")}`;
+
+  // Typed-read clauses + URL registrations + parquet table registrations
+  // in parallel. Per F1 sub-plan section 22.4 #4: read_csv MUST carry
+  // `columns={...}` derived from columns.json (never `read_csv_auto`).
+  // dim_parties + dim_party_alliances + taxonomy.sources stay on
+  // Parquet; X1a flips them when the Hive-partitioned per-(state,year)
+  // Parquet datasets retire.
+  const [candClause, sumClause, electoralClause] = await Promise.all([
+    csvColumnsClause(candPath),
+    csvColumnsClause(sumPath),
+    csvColumnsClause(electoralPath),
+    registerCsvFile(candUrl),
+    registerCsvFile(sumUrl),
+    registerCsvFile(electoralUrl),
     registerTable("elections.dim_parties"),
     registerTable("elections.dim_party_alliances"),
-    registerTable("elections.dim_acs"),
-    // PR #525 (PR-B8) extended queryAcWinners with turnout + winner-age,
-    // which LEFT JOIN elections_candidacies + dim_persons. runQueries calls
-    // queryAcWinners, so it must register those two tables too — otherwise
-    // DuckDB throws "table does not exist", loadStateOverview returns
-    // `failed`, and the whole summary-gated block (map, donut, seats-by-party,
-    // seat-composition trend) silently disappears. loadStateAcWinners already
-    // registers them; this keeps the two queryAcWinners callers in sync.
-    registerTable("elections.elections_candidacies"),
-    registerTable("elections.dim_persons"),
     registerTable("taxonomy.sources"),
   ]);
 
   const evt = sqlString(event);
-  const sc = sqlString(state_code);
-  const partyPrefix = sqlString(`IN-${state_code}-${event}-PARTY-`);
-  const statePrefix = sqlString(`IN-${state_code}-`);
-  const stateEntity = sqlString(`IN-${state_code}-${event}`);
 
-  // Pivot the four party-* indicators with MAX(CASE WHEN ...). LEFT JOIN to
-  // dim_parties on the extracted short_name so unmatched parties still
-  // render (e.g. dim_parties currently has no row for CPIM).
+  // Party pivot from per-candidacy CSV. Aggregate seats_contested
+  // (distinct entity_id per party), seats_won (position=1), and votes
+  // (SUM) per resolved party_id. The long-tail (party_id NULL) rows
+  // collapse into one synthetic 'OTHER' row, suppressed downstream
+  // when its seats_won is zero. LEFT JOIN dim_parties for the brand
+  // identity + recognition + alliance overlay.
   const partySql = `
+    WITH per_party AS (
+      SELECT
+        COALESCE(party_id, 'OTHER')                    AS resolved_party_id,
+        COUNT(DISTINCT entity_id)                      AS seats_contested,
+        SUM(CASE WHEN position = 1 THEN 1 ELSE 0 END)  AS seats_won,
+        SUM(votes)                                     AS votes
+      FROM read_csv('${candUrl}', ${candClause})
+      GROUP BY 1
+    ),
+    state_total AS (
+      SELECT SUM(votes) AS total_votes
+      FROM read_csv('${candUrl}', ${candClause})
+    )
     SELECT
-      regexp_extract(o.entity_id, '-PARTY-(.+)$', 1) AS short_name_key,
-      dp.short_name              AS short_name,
-      dp.full_name               AS full_name,
-      dp.eci_code                AS eci_code,
-      dp.recognition             AS recognition,
-      dpa.alliance               AS alliance,
-      dp.party_id                AS party_id,
-      dp.brand_colour_hex        AS brand_colour_hex,
-      dp.brand_colour_confidence AS brand_colour_confidence,
-      MAX(CASE WHEN o.indicator_id = 'party-contested-acs'  THEN o.value_numeric END) AS seats_contested,
-      MAX(CASE WHEN o.indicator_id = 'party-seats-won'      THEN o.value_numeric END) AS seats_won,
-      MAX(CASE WHEN o.indicator_id = 'party-votes-polled'   THEN o.value_numeric END) AS votes,
-      MAX(CASE WHEN o.indicator_id = 'party-vote-share-pct' THEN o.value_numeric END) AS vote_share_pct
-    FROM election_results o
+      CASE
+        WHEN p.resolved_party_id LIKE 'parties.IN.%'
+          THEN substring(p.resolved_party_id, length('parties.IN.') + 1)
+        ELSE p.resolved_party_id
+      END                                  AS short_name_key,
+      dp.short_name                        AS short_name,
+      dp.full_name                         AS full_name,
+      dp.eci_code                          AS eci_code,
+      dp.recognition                       AS recognition,
+      dpa.alliance                         AS alliance,
+      dp.party_id                          AS party_id,
+      dp.brand_colour_hex                  AS brand_colour_hex,
+      dp.brand_colour_confidence           AS brand_colour_confidence,
+      p.seats_contested                    AS seats_contested,
+      p.seats_won                          AS seats_won,
+      p.votes                              AS votes,
+      CASE WHEN st.total_votes > 0
+           THEN (p.votes * 100.0 / st.total_votes)
+           ELSE NULL END                   AS vote_share_pct
+    FROM per_party p
+    CROSS JOIN state_total st
     LEFT JOIN dim_parties dp
-      ON dp.short_name = regexp_extract(o.entity_id, '-PARTY-(.+)$', 1)
+      ON dp.party_id = p.resolved_party_id
     LEFT JOIN dim_party_alliances dpa
       ON dpa.party_id = dp.party_id
       AND dpa.period_label = ${evt}
-    WHERE o.entity_id LIKE ${partyPrefix} || '%'
-      AND o.period_label = ${evt}
-      AND o.indicator_id IN (
-        'party-contested-acs',
-        'party-seats-won',
-        'party-votes-polled',
-        'party-vote-share-pct'
-      )
-    GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9
+    ORDER BY p.seats_won DESC, p.votes DESC
   `;
   const parties = await query<PartyRow>(partySql);
 
   if (parties.length === 0) {
-    return { parties, stateScope: [], sources: [], acWinners: [] };
+    return { parties, stateScope: null, sources: [], acWinners: [] };
   }
 
-  const stateScope = await query<StateScopeRow>(`
-    SELECT indicator_id, value_numeric
-    FROM election_results
-    WHERE entity_id = ${stateEntity}
-      AND period_label = ${evt}
-      AND indicator_id IN (
-        'electors-total',
-        'votes-polled',
-        'turnout-pct'
-      )
-  `);
+  // State-scope totals: SUM electors / votes_polled across summary.csv
+  // (one row per AC) + weighted-average turnout. summary.electors /
+  // votes_polled may be NULL for ACs where the source had no
+  // electorate-level fact (rare). Use SUM() with implicit NULL
+  // skipping so partial coverage still surfaces a state total.
+  const stateScopeSql = `
+    SELECT
+      SUM(electors)                                AS electors,
+      SUM(votes_polled)                            AS votes_polled,
+      CASE WHEN SUM(electors) > 0
+           THEN SUM(votes_polled) * 100.0 / SUM(electors)
+           ELSE NULL END                           AS turnout_pct
+    FROM read_csv('${sumUrl}', ${sumClause})
+  `;
+  const stateScopeRows = await query<StateScopeRow>(stateScopeSql);
+  const stateScope = stateScopeRows[0] ?? null;
 
-  // Pull the FULL v2.0 ledger row, not just url_main — so the v2 footer
-  // surface (SourceListV2.svelte) can read producer / title / vintage /
-  // license / confidence_tier / verification_method / etc. without a
-  // second round-trip. The `WHERE s.url_main IS NOT NULL` filter that v1
-  // carried is intentionally DROPPED — v2.0 rows with null url_main
-  // (archived-snapshot / transcribed / editorial per ADR-0032) are valid
-  // citations that the v2 surface renders fully. The legacy `sources:
-  // SourceRef[]` assembly downstream still filters by url_main truthiness
-  // so the v1 surface keeps its existing semantics.
-  const sources = await query<SourceJoinRow>(`
-    SELECT DISTINCT
-      s.source_id,
-      s.producer,
-      s.title,
-      s.vintage,
-      s.license,
-      s.confidence_tier,
-      s.is_issuing_authority,
-      s.verification_method,
-      s.url_main,
-      s.citation_full,
-      s.notes
-    FROM election_results o
-    JOIN sources s ON s.source_id = o.source_id
-    WHERE o.period_label = ${evt}
-      AND o.entity_id LIKE ${statePrefix} || '%'
-    ORDER BY s.source_id
+  // Source rows: every source_id that appears in candidacies + summary
+  // for this (state, year) -> taxonomy.sources (parquet, still).
+  const sourceIdRows = await query<{ source_id: string }>(`
+    SELECT DISTINCT source_id FROM (
+      SELECT source_id FROM read_csv('${candUrl}', ${candClause}) WHERE source_id IS NOT NULL
+      UNION ALL
+      SELECT source_id FROM read_csv('${sumUrl}', ${sumClause}) WHERE source_id IS NOT NULL
+    )
   `);
+  const sourceIds = Array.from(new Set(sourceIdRows.map((r) => r.source_id)));
 
-  const acWinners = await queryAcWinners(evt, sc);
+  let sources: SourceJoinRow[] = [];
+  if (sourceIds.length > 0) {
+    const idList = sourceIds.map(sqlString).join(", ");
+    sources = await query<SourceJoinRow>(`
+      SELECT
+        s.source_id,
+        s.producer,
+        s.title,
+        s.vintage,
+        s.license,
+        s.confidence_tier,
+        s.is_issuing_authority,
+        s.verification_method,
+        s.url_main,
+        s.citation_full,
+        s.notes
+      FROM sources s
+      WHERE s.source_id IN (${idList})
+      ORDER BY s.source_id
+    `);
+  }
+
+  // AC winners: one row per AC from summary.csv joined to electoral.csv
+  // for eci_no + name. winner_age comes from candidacies.csv via
+  // (entity_id, candidate_name=winner_candidate, position=1). LEFT
+  // JOIN dim_parties for brand identity columns the renderer surfaces.
+  // turnout_pct lives on summary.csv directly (no parquet round-trip).
+  const acWinnersSql = `
+    SELECT
+      e.eci_no                              AS ac_eci_no,
+      e.name                                AS ac_name,
+      s.winner_party_id                     AS party_id,
+      dp.eci_code                           AS party_eci_code,
+      dp.short_name                         AS party_short,
+      dp.brand_colour_hex                   AS brand_colour_hex,
+      dp.brand_colour_confidence            AS brand_colour_confidence,
+      dp.election_symbol_asset_path         AS symbol_asset_path,
+      s.margin_pct                          AS margin_pct,
+      s.turnout_pct                         AS turnout_pct,
+      ec.age                                AS winner_age,
+      s.winner_candidate                    AS winner_candidate_name
+    FROM read_csv('${sumUrl}', ${sumClause}) s
+    JOIN read_csv('${electoralUrl}', ${electoralClause}) e
+      ON e.entity_id = s.entity_id
+     AND e.entity_kind = 'ac'
+    LEFT JOIN read_csv('${candUrl}', ${candClause}) ec
+      ON ec.entity_id = s.entity_id
+     AND ec.candidate_name = s.winner_candidate
+     AND ec.position = 1
+    LEFT JOIN dim_parties dp ON dp.party_id = s.winner_party_id
+    ORDER BY e.eci_no
+  `;
+  const acWinners = await query<AcWinnerRow>(acWinnersSql);
 
   return { parties, stateScope, sources, acWinners };
-}
-
-// Per-AC winners + margin. AC observations use entity_id pattern
-// `IN-<state>-AC-<delim_year>-<eci_no>` (no event in the id; period_label
-// distinguishes events). `ac-winner-party-id` carries the winning party_id
-// in value_text; `ac-margin-pct` carries the margin in value_numeric. We
-// pivot via two CTEs and join to dim_acs (for eci_no + name) and
-// dim_parties (for the citizen-visible short_name + eci_code).
-//
-// Extracted so `loadStateAcWinners` can reuse it for the Constituency route's
-// state-map context without paying for the party/scope/sources queries
-// `loadStateOverview` also runs.
-async function queryAcWinners(
-  evtLiteral: string,
-  stateLiteral: string,
-): Promise<AcWinnerRow[]> {
-  return query<AcWinnerRow>(`
-    WITH winner AS (
-      SELECT entity_id AS ac_id, value_text AS party_id
-      FROM election_results
-      WHERE indicator_id = 'ac-winner-party-id'
-        AND period_label = ${evtLiteral}
-        AND entity_id LIKE 'IN-' || ${stateLiteral} || '-AC-%'
-    ),
-    margin AS (
-      SELECT entity_id AS ac_id, value_numeric AS margin_pct
-      FROM election_results
-      WHERE indicator_id = 'ac-margin-pct'
-        AND period_label = ${evtLiteral}
-        AND entity_id LIKE 'IN-' || ${stateLiteral} || '-AC-%'
-    ),
-    turnout AS (
-      SELECT entity_id AS ac_id, value_numeric AS turnout_pct
-      FROM election_results
-      WHERE indicator_id = 'ac-turnout-pct'
-        AND period_label = ${evtLiteral}
-        AND entity_id LIKE 'IN-' || ${stateLiteral} || '-AC-%'
-    ),
-    winner_cand AS (
-      SELECT entity_id AS ac_id, value_text AS candidacy_key
-      FROM election_results
-      WHERE indicator_id = 'ac-winner-candidate-id'
-        AND period_label = ${evtLiteral}
-        AND entity_id LIKE 'IN-' || ${stateLiteral} || '-AC-%'
-    )
-    SELECT da.eci_no                  AS ac_eci_no,
-           da.name                    AS ac_name,
-           w.party_id                 AS party_id,
-           dp.eci_code                AS party_eci_code,
-           dp.short_name              AS party_short,
-           dp.brand_colour_hex        AS brand_colour_hex,
-           dp.brand_colour_confidence AS brand_colour_confidence,
-           dp.election_symbol_asset_path AS symbol_asset_path,
-           m.margin_pct               AS margin_pct,
-           t.turnout_pct              AS turnout_pct,
-           per.age                    AS winner_age,
-           per.display_name           AS winner_candidate_name
-    FROM winner w
-    JOIN margin m ON m.ac_id = w.ac_id
-    JOIN dim_acs da ON da.ac_id = w.ac_id
-    LEFT JOIN dim_parties dp ON dp.party_id = w.party_id
-    LEFT JOIN turnout t ON t.ac_id = w.ac_id
-    LEFT JOIN winner_cand wc ON wc.ac_id = w.ac_id
-    LEFT JOIN elections_candidacies ec ON ec.candidacy_key = wc.candidacy_key
-    LEFT JOIN dim_persons per ON per.person_id = ec.person_id
-  `);
 }
 
 function toAcWinners(rows: AcWinnerRow[]): AcWinner[] {
@@ -385,42 +365,45 @@ function assembleResult(
   state_code: string,
   rows: {
     parties: PartyRow[];
-    stateScope: StateScopeRow[];
+    stateScope: StateScopeRow | null;
     sources: SourceJoinRow[];
     acWinners: AcWinnerRow[];
   },
 ): StateOverviewViewModel {
-  const scopeMap = new Map<string, StateScopeRow>();
-  for (const r of rows.stateScope) scopeMap.set(r.indicator_id, r);
-  const scopeNum = (id: string): number | undefined =>
-    numOrUndef(scopeMap.get(id)?.value_numeric);
-
   // PartyTotals carries `party_eci_code: string | null` — dim_parties.eci_code
-  // is currently null for every row in the canonical seed (a known gap), so
-  // most parties surface with null here. PartyBar handles null gracefully.
-  const party_totals: PartyTotals[] = rows.parties.map((r) => ({
-    party_eci_code: r.eci_code ?? null,
-    party_short: r.short_name ?? r.short_name_key,
-    party_full: r.full_name ?? null,
-    recognition: r.recognition ?? null,
-    alliance: r.alliance ?? null,
-    // PR-SYM-6f1: additive brand-identity fields from dim_parties. Null
-    // when the LEFT JOIN missed (party not yet in canonical seed) so
-    // SeatDonut's getPartyColor call falls through to the algorithmic tier.
-    party_id: r.party_id ?? null,
-    brand_colour_hex: r.brand_colour_hex ?? null,
-    brand_colour_confidence:
-      r.brand_colour_confidence === "high" ||
-      r.brand_colour_confidence === "medium" ||
-      r.brand_colour_confidence === "low"
-        ? r.brand_colour_confidence
-        : null,
-    seats_contested:
-      r.seats_contested == null ? null : Number(r.seats_contested),
-    seats_won: num(r.seats_won),
-    votes: num(r.votes),
-    vote_share_pct: num(r.vote_share_pct),
-  }));
+  // is currently null for many rows in the canonical seed, so most parties
+  // surface with null here. PartyBar handles null gracefully.
+  // Filter the synthetic 'OTHER' bucket out when its seats_won is zero
+  // (no contribution to the donut / bar) — keep it when it actually has
+  // wins.
+  const party_totals: PartyTotals[] = rows.parties
+    .filter(
+      (r) => r.short_name_key !== "OTHER" || num(r.seats_won) > 0,
+    )
+    .map((r) => ({
+      party_eci_code: r.eci_code ?? null,
+      party_short: r.short_name ?? r.short_name_key,
+      party_full: r.full_name ?? null,
+      recognition: r.recognition ?? null,
+      alliance: r.alliance ?? null,
+      // Additive brand-identity fields from dim_parties. Null when the
+      // LEFT JOIN missed (party not yet in canonical seed) so
+      // SeatDonut's getPartyColor call falls through to the algorithmic
+      // tier.
+      party_id: r.party_id ?? null,
+      brand_colour_hex: r.brand_colour_hex ?? null,
+      brand_colour_confidence:
+        r.brand_colour_confidence === "high" ||
+        r.brand_colour_confidence === "medium" ||
+        r.brand_colour_confidence === "low"
+          ? r.brand_colour_confidence
+          : null,
+      seats_contested:
+        r.seats_contested == null ? null : Number(r.seats_contested),
+      seats_won: num(r.seats_won),
+      votes: num(r.votes),
+      vote_share_pct: num(r.vote_share_pct),
+    }));
 
   const total_seats = party_totals.reduce((s, p) => s + p.seats_won, 0);
 
@@ -436,9 +419,7 @@ function assembleResult(
   // The full v2.0 ledger projection. Same JOIN, no url_main filter, sorted
   // by trust ordering so the citizen sees the strongest evidence first
   // (live-fetch > archived-snapshot > transcribed > editorial). Stable
-  // secondary sort on source_id to keep snapshots reproducible. The
-  // upstream SQL already does DISTINCT + ORDER BY s.source_id; we only
-  // re-sort here for trust ordering.
+  // secondary sort on source_id to keep snapshots reproducible.
   const sources_v2: SourceV2Row[] = [...rows.sources]
     .sort((a, b) => {
       const r = verificationMethodRank(a.verification_method) - verificationMethodRank(b.verification_method);
@@ -452,11 +433,13 @@ function assembleResult(
     election: event,
     state: state_code,
     total_seats,
-    totals: {
-      electors: scopeNum("electors-total"),
-      votes_polled: scopeNum("votes-polled"),
-      turnout_pct: scopeNum("turnout-pct"),
-    },
+    totals: rows.stateScope
+      ? {
+          electors: numOrUndef(rows.stateScope.electors),
+          votes_polled: numOrUndef(rows.stateScope.votes_polled),
+          turnout_pct: numOrUndef(rows.stateScope.turnout_pct),
+        }
+      : null,
     party_totals,
     ac_winners,
     sources,
@@ -526,21 +509,52 @@ export async function loadStateOverview(
 // Standalone lean loader — returns only the per-AC winners slice. Used by
 // the Constituency route to populate its state-map context without paying
 // for the party / state-scope / sources queries `loadStateOverview` runs.
-// The StateOverview route still uses `loadStateOverview` (it needs the
-// full view-model) and passes `summary.ac_winners` to its child charts.
 export async function loadStateAcWinners(
   event: string,
   state_code: string,
 ): Promise<LoaderResult<AcWinner[]>> {
   try {
-    await Promise.all([
-      registerSlice("elections.election_results", { state: electionStatePartition(state_code) }),
+    const candPath = assemblyCandidaciesPath(state_code, event);
+    const sumPath = assemblySummaryPath(state_code, event);
+    const electoralPath = electoralEntitiesPath();
+    const candUrl = `${DATA_BASE}/${candPath.replace(/^datasets\//, "")}`;
+    const sumUrl = `${DATA_BASE}/${sumPath.replace(/^datasets\//, "")}`;
+    const electoralUrl = `${DATA_BASE}/${electoralPath.replace(/^datasets\//, "")}`;
+    const [candClause, sumClause, electoralClause] = await Promise.all([
+      csvColumnsClause(candPath),
+      csvColumnsClause(sumPath),
+      csvColumnsClause(electoralPath),
+      registerCsvFile(candUrl),
+      registerCsvFile(sumUrl),
+      registerCsvFile(electoralUrl),
       registerTable("elections.dim_parties"),
-      registerTable("elections.dim_acs"),
-      registerTable("elections.elections_candidacies"),
-      registerTable("elections.dim_persons"),
     ]);
-    const rows = await queryAcWinners(sqlString(event), sqlString(state_code));
+    const sql = `
+      SELECT
+        e.eci_no                              AS ac_eci_no,
+        e.name                                AS ac_name,
+        s.winner_party_id                     AS party_id,
+        dp.eci_code                           AS party_eci_code,
+        dp.short_name                         AS party_short,
+        dp.brand_colour_hex                   AS brand_colour_hex,
+        dp.brand_colour_confidence            AS brand_colour_confidence,
+        dp.election_symbol_asset_path         AS symbol_asset_path,
+        s.margin_pct                          AS margin_pct,
+        s.turnout_pct                         AS turnout_pct,
+        ec.age                                AS winner_age,
+        s.winner_candidate                    AS winner_candidate_name
+      FROM read_csv('${sumUrl}', ${sumClause}) s
+      JOIN read_csv('${electoralUrl}', ${electoralClause}) e
+        ON e.entity_id = s.entity_id
+       AND e.entity_kind = 'ac'
+      LEFT JOIN read_csv('${candUrl}', ${candClause}) ec
+        ON ec.entity_id = s.entity_id
+       AND ec.candidate_name = s.winner_candidate
+       AND ec.position = 1
+      LEFT JOIN dim_parties dp ON dp.party_id = s.winner_party_id
+      ORDER BY e.eci_no
+    `;
+    const rows = await query<AcWinnerRow>(sql);
     const winners = toAcWinners(rows);
     if (winners.length === 0) {
       return { status: "partial", data: [], reason: "not_published" };
