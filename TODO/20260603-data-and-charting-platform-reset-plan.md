@@ -1074,8 +1074,8 @@ Election-experience chunks (section 25; ride after the renderer consolidation; a
 
 | Chunk | Blocks on | Parallel-OK with | Gate | PR# | Status |
 | --- | --- | --- | --- | --- | --- |
-| E1 ChartShell time_label slot (25.2) | F2a | E2 | build+visual | _pending_ | IN-FLIGHT |
-| E2 PartyPill + --party-neutral token (25.3) | U1, F2a | E1 | build+visual | - | TODO |
+| E1 ChartShell time_label slot (25.2) | F2a | E2 | build+visual | #799 | MERGED |
+| E2 PartyPill + --party-neutral token (25.3) | U1, F2a | E1 | build+visual | _pending_ | IN-FLIGHT |
 | E3 state silhouette on StateAcMap+TileCartogram (25.4) | F2b | E2 | island-render-smoke+visual | - | TODO |
 | E4 two highlight modes + margin sub-filter (25.5) | E3 | - | visual+legend-drift | - | TODO |
 | E5 ParliamentArc seats invariant fix + countSeats seam (25.6a/6b-seam) | X1b | E1 | seats-invariant-test | - | TODO |

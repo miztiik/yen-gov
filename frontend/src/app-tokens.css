@@ -50,6 +50,19 @@
   --neg: #b91c1c;
 
   /*
+   * E2 PartyPill neutral (parent plan §25.3): the SINGLE source of
+   * "unmapped party" colour across pills, choropleth/hex unmapped
+   * cells, arcs, and any future surface that needs to render an
+   * unknown / null / receded party state. Calm slate so it does
+   * NOT compete with the saturated anchor / brand colours but stays
+   * legible against `--surface` (WCAG AA at 14px text on white).
+   * --party-neutral-text is the paired ink for pill bodies.
+   * Ties to 25.5 recede (non-matching cells in PARTY-WON mode).
+   */
+  --party-neutral: #cbd5e1;        /* slate-300 */
+  --party-neutral-text: #475569;    /* slate-600 */
+
+  /*
    * Brand tones (LeftRail wordmark + flag-derived motifs; U2c of
    * TODO/20260605-u2-breadcrumb-drawer-district-subplan.md).
    *
