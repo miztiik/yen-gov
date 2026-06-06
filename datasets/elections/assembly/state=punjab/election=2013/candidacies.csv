@@ -1,21 +1,21 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Rabiul Alam Chowdhury,,66876,39.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Sirajul Islam Mondal,,55154,32.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Humayun Kabir,,40911,23.91,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Arabinda Biswas,,3720,2.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Humayun Kabir,,1295,0.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Setkh Nur Mohammad,,1182,0.69,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Sirajul Islam Mondal,,602,0.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Jiaur Rahaman,,533,0.31,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Kazi Rabiul Islam,,447,0.26,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Sirajul Sk.,,390,0.23,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-189,punjab,2013,73,MOGA,Joginder Pal Jain,,69269,53.16,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-punjab-189,punjab,2013,73,MOGA,Sathi Vijay Kumar,,50420,38.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Rabiul Alam Chowdhury,parties.IN.INC,66876,39.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Sirajul Islam Mondal,parties.IN.RSP,55154,32.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Humayun Kabir,parties.IN.AITC,40911,23.91,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Arabinda Biswas,parties.IN.BJP,3720,2.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Humayun Kabir,parties.IN.IND,1295,0.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Setkh Nur Mohammad,parties.IN.IND,1182,0.69,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Sirajul Islam Mondal,parties.IN.IND,602,0.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Jiaur Rahaman,parties.IN.IUML,533,0.31,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Kazi Rabiul Islam,parties.IN.IND,447,0.26,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-249,punjab,2013,70,JAGRAON,Sirajul Sk.,parties.IN.IND,390,0.23,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-189,punjab,2013,73,MOGA,Joginder Pal Jain,parties.IN.SAD,69269,53.16,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-punjab-189,punjab,2013,73,MOGA,Sathi Vijay Kumar,parties.IN.INC,50420,38.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-punjab-189,punjab,2013,73,MOGA,Dr.Ravinder Singh Dhaliwal,,7401,5.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-punjab-189,punjab,2013,73,MOGA,Birinderpal Singh,,822,0.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-189,punjab,2013,73,MOGA,Rajinder Singh,,786,0.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-189,punjab,2013,73,MOGA,Rajinder Singh,parties.IN.IND,786,0.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-punjab-189,punjab,2013,73,MOGA,Gurmeet Singh Ranghreta,,459,0.35,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-189,punjab,2013,73,MOGA,Chhinder Singh,,403,0.31,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-189,punjab,2013,73,MOGA,Hardev Singh,,304,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-189,punjab,2013,73,MOGA,Chhinder Singh,parties.IN.IND,403,0.31,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-189,punjab,2013,73,MOGA,Hardev Singh,parties.IN.IND,304,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-punjab-189,punjab,2013,73,MOGA,Jaswant Singh Bedi,,221,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-189,punjab,2013,73,MOGA,Shri Ram Denwyal,,215,0.17,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-189,punjab,2013,73,MOGA,Shri Ram Denwyal,parties.IN.IND,215,0.17,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a

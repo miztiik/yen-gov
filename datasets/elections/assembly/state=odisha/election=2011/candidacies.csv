@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-odisha-2347,odisha,2011,73,UMARKOTE,Subash Gond,,54713,45.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2347,odisha,2011,73,UMARKOTE,Dharmu Gond,,33652,27.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2347,odisha,2011,73,UMARKOTE,Jatindranath Gond,,32877,27.12,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2347,odisha,2011,73,UMARKOTE,Subash Gond,parties.IN.BJD,54713,45.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2347,odisha,2011,73,UMARKOTE,Dharmu Gond,parties.IN.BJP,33652,27.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2347,odisha,2011,73,UMARKOTE,Jatindranath Gond,parties.IN.INC,32877,27.12,3,lost,U,,,,challenger,src-1b7bc1c9d39a

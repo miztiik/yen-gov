@@ -1,2 +1,2 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-odisha-2239,odisha,2018,BIJEPUR,221159,181716,82.17,Rita Sahu,,102871,56.61,Ashok Kumar Panigrahy,,60939,41932,23.07,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2018,BIJEPUR,221159,181716,82.17,Rita Sahu,parties.IN.BJD,102871,56.61,Ashok Kumar Panigrahy,parties.IN.BJP,60939,41932,23.07,src-1b7bc1c9d39a

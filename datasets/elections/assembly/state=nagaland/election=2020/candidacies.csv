@@ -1,11 +1,11 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-nagaland-1482,nagaland,2020,14,SOUTHERN ANGAMI-I,MEDO YHOKHA.,,4773,41.11,1,won,M,43,Post Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1482,nagaland,2020,14,SOUTHERN ANGAMI-I,SEYIEVILIE PETER ZASHUMO.,,4175,35.96,2,lost,M,42,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1482,nagaland,2020,14,SOUTHERN ANGAMI-I,KIKOVI KIRHA.,,2575,22.18,3,lost,M,51,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1482,nagaland,2020,14,SOUTHERN ANGAMI-I,MEDO YHOKHA.,parties.IN.NDPP,4773,41.11,1,won,M,43,Post Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1482,nagaland,2020,14,SOUTHERN ANGAMI-I,SEYIEVILIE PETER ZASHUMO.,parties.IN.IND,4175,35.96,2,lost,M,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1482,nagaland,2020,14,SOUTHERN ANGAMI-I,KIKOVI KIRHA.,parties.IN.NPF,2575,22.18,3,lost,M,51,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1482,nagaland,2020,14,SOUTHERN ANGAMI-I,NOTA,,88,0.76,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1477,nagaland,2020,60,PUNGRO KIPHIRE,T Yangseo Sangtam,,8747,31.85,1,won,M,39,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1477,nagaland,2020,60,PUNGRO KIPHIRE,S. Kiusumew Yimchunger,,7220,26.29,2,lost,M,60,8th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1477,nagaland,2020,60,PUNGRO KIPHIRE,Lirimong Sangtam,,5664,20.63,3,lost,M,39,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1477,nagaland,2020,60,PUNGRO KIPHIRE,K. Shellumthong Yimchunger,,5388,19.62,4,lost,M,54,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1477,nagaland,2020,60,PUNGRO KIPHIRE,Khaseo Anar,,347,1.26,5,forfeit,M,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1477,nagaland,2020,60,PUNGRO KIPHIRE,T Yangseo Sangtam,parties.IN.IND,8747,31.85,1,won,M,39,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1477,nagaland,2020,60,PUNGRO KIPHIRE,S. Kiusumew Yimchunger,parties.IN.IND,7220,26.29,2,lost,M,60,8th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1477,nagaland,2020,60,PUNGRO KIPHIRE,Lirimong Sangtam,parties.IN.BJP,5664,20.63,3,lost,M,39,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1477,nagaland,2020,60,PUNGRO KIPHIRE,K. Shellumthong Yimchunger,parties.IN.IND,5388,19.62,4,lost,M,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1477,nagaland,2020,60,PUNGRO KIPHIRE,Khaseo Anar,parties.IN.INC,347,1.26,5,forfeit,M,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-1477,nagaland,2020,60,PUNGRO KIPHIRE,NOTA,,94,0.34,6,lost,U,,,,challenger,src-1b7bc1c9d39a

@@ -1,7 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-uttarakhand-303,uttarakhand,2015,28,BHAGWANPUR,Mamta Rakesh,,59205,71.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-303,uttarakhand,2015,28,BHAGWANPUR,Rajpal Singh,,22296,26.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-303,uttarakhand,2015,28,BHAGWANPUR,Pritam Singh,,269,0.32,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-303,uttarakhand,2015,28,BHAGWANPUR,Darshana Devi Rathor,,221,0.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-303,uttarakhand,2015,28,BHAGWANPUR,Gurmel,,211,0.25,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-303,uttarakhand,2015,28,BHAGWANPUR,Deepak Surya,,139,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-303,uttarakhand,2015,28,BHAGWANPUR,Mamta Rakesh,parties.IN.INC,59205,71.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-303,uttarakhand,2015,28,BHAGWANPUR,Rajpal Singh,parties.IN.BJP,22296,26.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-303,uttarakhand,2015,28,BHAGWANPUR,Pritam Singh,parties.IN.IND,269,0.32,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-303,uttarakhand,2015,28,BHAGWANPUR,Darshana Devi Rathor,parties.IN.IND,221,0.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-303,uttarakhand,2015,28,BHAGWANPUR,Gurmel,parties.IN.IND,211,0.25,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-303,uttarakhand,2015,28,BHAGWANPUR,Deepak Surya,parties.IN.IND,139,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a

@@ -1,2 +1,2 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-uttar-pradesh-1024,uttar-pradesh,2018,NOORPUR,306492,188883,61.63,Naimul Hasan,,94875,50.23,Avnish Singh,,89213,5662,3,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1024,uttar-pradesh,2018,NOORPUR,306492,188883,61.63,Naimul Hasan,parties.IN.SP,94875,50.23,Avnish Singh,parties.IN.BJP,89213,5662,3,src-1b7bc1c9d39a

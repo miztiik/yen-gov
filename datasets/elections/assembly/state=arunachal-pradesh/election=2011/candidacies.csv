@@ -1,2 +1,2 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-arunachal-pradesh-1425,arunachal-pradesh,2011,3,MUKTO,Pema Khandu,,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1425,arunachal-pradesh,2011,3,MUKTO,Pema Khandu,parties.IN.INC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a

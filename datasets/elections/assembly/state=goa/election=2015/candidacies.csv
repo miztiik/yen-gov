@@ -1,5 +1,5 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-goa-3684,goa,2015,11,PANAJI,S. Sripadkuncalienkar,,9989,64.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3684,goa,2015,11,PANAJI,F. Surendra,,4621,30.06,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-goa-3684,goa,2015,11,PANAJI,S.G. Kelekar,,624,4.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3684,goa,2015,11,PANAJI,S. Vaigankar,,140,0.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3684,goa,2015,11,PANAJI,S. Sripadkuncalienkar,parties.IN.BJP,9989,64.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3684,goa,2015,11,PANAJI,F. Surendra,parties.IN.INC,4621,30.06,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-goa-3684,goa,2015,11,PANAJI,S.G. Kelekar,parties.IN.IND,624,4.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3684,goa,2015,11,PANAJI,S. Vaigankar,parties.IN.IND,140,0.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

@@ -1,27 +1,27 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-tripura-1631,tripura,2022,6,AGARTALA,Sudip Roy Barman,,17431,43.46,1,won,M,58,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1631,tripura,2022,6,AGARTALA,Ashok Sinha,,14268,35.57,2,lost,M,67,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1631,tripura,2022,6,AGARTALA,Sudip Roy Barman,parties.IN.INC,17431,43.46,1,won,M,58,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1631,tripura,2022,6,AGARTALA,Ashok Sinha,parties.IN.BJP,14268,35.57,2,lost,M,67,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tripura-1631,tripura,2022,6,AGARTALA,Krishna Majumder,,6808,16.97,3,lost,F,51,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1631,tripura,2022,6,AGARTALA,Panna Deb,,842,2.1,4,forfeit,F,47,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1631,tripura,2022,6,AGARTALA,Panna Deb,parties.IN.AITC,842,2.1,4,forfeit,F,47,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tripura-1631,tripura,2022,6,AGARTALA,NOTA,,411,1.02,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1631,tripura,2022,6,AGARTALA,Brajalal Debnath,,189,0.47,6,forfeit,M,75,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1631,tripura,2022,6,AGARTALA,Malin Debbarma,,162,0.4,7,forfeit,M,62,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1660,tripura,2022,8,TOWN BORDOWALI,Manik Saha,,17181,51.63,1,won,M,69,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1660,tripura,2022,8,TOWN BORDOWALI,Asish Kumar Saha,,11077,33.29,2,lost,M,63,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1660,tripura,2022,8,TOWN BORDOWALI,Raghunath Sarkar,,3376,10.15,3,forfeit,M,64,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1660,tripura,2022,8,TOWN BORDOWALI,Sanhita Bhattacharya (Banerjee),,986,2.96,4,forfeit,F,52,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1631,tripura,2022,6,AGARTALA,Brajalal Debnath,parties.IN.IND,189,0.47,6,forfeit,M,75,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1631,tripura,2022,6,AGARTALA,Malin Debbarma,parties.IN.SUCI,162,0.4,7,forfeit,M,62,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1660,tripura,2022,8,TOWN BORDOWALI,Manik Saha,parties.IN.BJP,17181,51.63,1,won,M,69,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1660,tripura,2022,8,TOWN BORDOWALI,Asish Kumar Saha,parties.IN.INC,11077,33.29,2,lost,M,63,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1660,tripura,2022,8,TOWN BORDOWALI,Raghunath Sarkar,parties.IN.AIFB,3376,10.15,3,forfeit,M,64,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1660,tripura,2022,8,TOWN BORDOWALI,Sanhita Bhattacharya (Banerjee),parties.IN.AITC,986,2.96,4,forfeit,F,52,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tripura-1660,tripura,2022,8,TOWN BORDOWALI,NOTA,,360,1.08,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1660,tripura,2022,8,TOWN BORDOWALI,Ramkrishna Debnath,,165,0.5,6,forfeit,M,52,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1660,tripura,2022,8,TOWN BORDOWALI,Smt. Shibani Bhowmik,,132,0.4,7,forfeit,F,62,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1629,tripura,2022,46,SURMA,SWAPNA DAS (PAUL),,16677,42.34,1,won,F,47,12th Pass,Household,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1629,tripura,2022,46,SURMA,BABURAM SATNAMI,,12094,30.7,2,lost,M,46,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1660,tripura,2022,8,TOWN BORDOWALI,Ramkrishna Debnath,parties.IN.IND,165,0.5,6,forfeit,M,52,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1660,tripura,2022,8,TOWN BORDOWALI,Smt. Shibani Bhowmik,parties.IN.SUCI,132,0.4,7,forfeit,F,62,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1629,tripura,2022,46,SURMA,SWAPNA DAS (PAUL),parties.IN.BJP,16677,42.34,1,won,F,47,12th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1629,tripura,2022,46,SURMA,BABURAM SATNAMI,parties.IN.IND,12094,30.7,2,lost,M,46,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tripura-1629,tripura,2022,46,SURMA,ANJAN DAS,,8415,21.36,3,lost,M,49,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1629,tripura,2022,46,SURMA,ARJUN NAMASUDRA,,1341,3.4,4,forfeit,M,34,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1629,tripura,2022,46,SURMA,PRANESH DAS,,469,1.19,5,forfeit,M,47,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1629,tripura,2022,46,SURMA,ARJUN NAMASUDRA,parties.IN.AITC,1341,3.4,4,forfeit,M,34,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1629,tripura,2022,46,SURMA,PRANESH DAS,parties.IN.IND,469,1.19,5,forfeit,M,47,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tripura-1629,tripura,2022,46,SURMA,NOTA,,393,1,6,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1612,tripura,2022,57,JUBARAJNAGAR,MALINA DEBNATH,,18769,51.83,1,won,F,47,Post Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1612,tripura,2022,57,JUBARAJNAGAR,MALINA DEBNATH,parties.IN.BJP,18769,51.83,1,won,F,47,Post Graduate,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tripura-1612,tripura,2022,57,JUBARAJNAGAR,SAILENDRA CHANDRA NATH,,14197,39.2,2,lost,M,56,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1612,tripura,2022,57,JUBARAJNAGAR,SUSMITA DEBNATH,,1440,3.98,3,forfeit,F,33,Graduate,Household,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1612,tripura,2022,57,JUBARAJNAGAR,MRINAL KANTI DEBNATH,,1080,2.98,4,forfeit,M,37,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1612,tripura,2022,57,JUBARAJNAGAR,SUSMITA DEBNATH,parties.IN.INC,1440,3.98,3,forfeit,F,33,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1612,tripura,2022,57,JUBARAJNAGAR,MRINAL KANTI DEBNATH,parties.IN.AITC,1080,2.98,4,forfeit,M,37,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tripura-1612,tripura,2022,57,JUBARAJNAGAR,NOTA,,394,1.09,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1612,tripura,2022,57,JUBARAJNAGAR,BIJOY DEBNATH,,335,0.93,6,forfeit,M,67,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1612,tripura,2022,57,JUBARAJNAGAR,BIJOY DEBNATH,parties.IN.IND,335,0.93,6,forfeit,M,67,12th Pass,,challenger,src-1b7bc1c9d39a

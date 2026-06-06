@@ -1,2 +1,2 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-odisha-2347,odisha,2011,UMARKOTE,155606,121242,77.92,Subash Gond,,54713,45.13,Dharmu Gond,,33652,21061,17.37,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2347,odisha,2011,UMARKOTE,155606,121242,77.92,Subash Gond,parties.IN.BJD,54713,45.13,Dharmu Gond,parties.IN.BJP,33652,21061,17.37,src-1b7bc1c9d39a

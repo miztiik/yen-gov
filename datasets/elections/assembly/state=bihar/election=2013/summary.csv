@@ -1,2 +1,2 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-bihar-1291,bihar,2013,KALYANPUR(SC),251194,128881,51.31,Manju Kumari 'E',,59325,46.03,Rekha Devi,,42893,16432,12.75,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1291,bihar,2013,KALYANPUR(SC),251194,128881,51.31,Manju Kumari 'E',,59325,46.03,Rekha Devi,parties.IN.LJSP,42893,16432,12.75,src-1b7bc1c9d39a

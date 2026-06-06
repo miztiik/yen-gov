@@ -1,13 +1,13 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-mizoram-1598,mizoram,2021,4,TUIRIAL,K.LALDAWNGLIANA,,5820,39.89,1,won,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-mizoram-1598,mizoram,2021,4,TUIRIAL,K.LALDAWNGLIANA,parties.IN.MNF,5820,39.89,1,won,M,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1598,mizoram,2021,4,TUIRIAL,LALTLANMAWIA,,4536,31.09,2,lost,M,46,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1598,mizoram,2021,4,TUIRIAL,CHALROSANGA RALTE,,3927,26.92,3,lost,M,47,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1598,mizoram,2021,4,TUIRIAL,K.LALDINTHARA,,246,1.69,4,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-mizoram-1598,mizoram,2021,4,TUIRIAL,CHALROSANGA RALTE,parties.IN.INC,3927,26.92,3,lost,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-mizoram-1598,mizoram,2021,4,TUIRIAL,K.LALDINTHARA,parties.IN.BJP,246,1.69,4,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1598,mizoram,2021,4,TUIRIAL,NOTA,,61,0.42,5,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1590,mizoram,2021,26,SERCHHIP,LALDUHOMA,,8269,49.95,1,won,M,71,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1590,mizoram,2021,26,SERCHHIP,VANLALZAWMA,,5319,32.13,2,lost,M,65,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1590,mizoram,2021,26,SERCHHIP,P.C. LALTLANSANGA,,2604,15.73,3,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1590,mizoram,2021,26,SERCHHIP,LALHRIATRENGA CHHANGTE,,250,1.51,4,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1590,mizoram,2021,26,SERCHHIP,RAMHLUN-EDENA,,43,0.26,5,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-mizoram-1590,mizoram,2021,26,SERCHHIP,VANLALZAWMA,parties.IN.MNF,5319,32.13,2,lost,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-mizoram-1590,mizoram,2021,26,SERCHHIP,P.C. LALTLANSANGA,parties.IN.INC,2604,15.73,3,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-mizoram-1590,mizoram,2021,26,SERCHHIP,LALHRIATRENGA CHHANGTE,parties.IN.BJP,250,1.51,4,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-mizoram-1590,mizoram,2021,26,SERCHHIP,RAMHLUN-EDENA,parties.IN.IND,43,0.26,5,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1590,mizoram,2021,26,SERCHHIP,VANLALRUATA,,38,0.23,6,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1590,mizoram,2021,26,SERCHHIP,NOTA,,32,0.19,7,lost,U,,,,challenger,src-1b7bc1c9d39a

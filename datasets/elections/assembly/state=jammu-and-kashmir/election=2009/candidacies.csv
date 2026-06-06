@@ -1,12 +1,12 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2009,24,SONAWAR,Md.Yasin Shah,,9306,47.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2009,24,SONAWAR,Md. Ashraf Mir,,9256,47.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2009,24,SONAWAR,Md.Yasin Shah,parties.IN.JKNC,9306,47.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2009,24,SONAWAR,Md. Ashraf Mir,parties.IN.JKPDP,9256,47.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2009,24,SONAWAR,Md. Ahmad shah,,1115,5.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2009,54,BHADERWAH,Md.  Sharief Niaz,,21966,41.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2009,54,BHADERWAH,Daleep Singh,,19219,36.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2009,54,BHADERWAH,Md.  Sharief Niaz,parties.IN.INC,21966,41.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2009,54,BHADERWAH,Daleep Singh,parties.IN.BJP,19219,36.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2009,54,BHADERWAH,Sheikh Mujib Ali,,7146,13.43,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2009,54,BHADERWAH,Md.Shafi Sheikh,,2396,4.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2009,54,BHADERWAH,Sanjay Kumar,,1226,2.3,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2009,54,BHADERWAH,Md.Shafi Sheikh,parties.IN.IND,2396,4.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2009,54,BHADERWAH,Sanjay Kumar,parties.IN.BSP,1226,2.3,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2009,54,BHADERWAH,MD.Iqbal,,603,1.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2009,54,BHADERWAH,Kuldeep K. Rao,,405,0.76,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2009,54,BHADERWAH,Om Prakash Kotwal,,239,0.45,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2009,54,BHADERWAH,Kuldeep K. Rao,parties.IN.IND,405,0.76,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-74,jammu-and-kashmir,2009,54,BHADERWAH,Om Prakash Kotwal,parties.IN.IND,239,0.45,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a

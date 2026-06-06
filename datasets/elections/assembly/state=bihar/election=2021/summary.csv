@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-bihar-1186,bihar,2021,TARAPUR,328699,169663,51.62,RAJEEV KUMAR SINGH,,79090,46.62,ARUN KUMAR,,75238,3852,2.27,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1292,bihar,2021,KUSHESHWAR ASTHAN,257262,131726,51.2,AMAN BHUSHAN HAJARI,,59887,45.46,GANESH BHARTI,,47192,12695,9.63,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1186,bihar,2021,TARAPUR,328699,169663,51.62,RAJEEV KUMAR SINGH,parties.IN.JDU,79090,46.62,ARUN KUMAR,parties.IN.RJD,75238,3852,2.27,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1292,bihar,2021,KUSHESHWAR ASTHAN,257262,131726,51.2,AMAN BHUSHAN HAJARI,parties.IN.JDU,59887,45.46,GANESH BHARTI,parties.IN.RJD,47192,12695,9.63,src-1b7bc1c9d39a

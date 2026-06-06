@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-manipur-1514,manipur,2020,LILONG,33506,31429,93.8,Y. Antas Khan,,17106,54.43,Mohd. Abdul Nasir,,14028,3078,9.8,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1531,manipur,2020,WANGOI,28561,27350,95.76,Oinam Lukhoi Singh,,10960,40.07,Khuraijam Loken Singh,,10703,257,0.94,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1549,manipur,2020,SAITU,40257,36958,91.81,NGAMTHANG HAOKIP,,24549,66.42,LAMTINTHANG HAOKIP,,12292,12257,33.16,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1550,manipur,2020,SINGHAT,26163,0,0,GINSUANHAU,,0,,NOTA,,0,0,,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1560,manipur,2020,WANGJING TENTHA,31472,29619,94.11,Paonam Brojen Singh,,15321,51.73,Moirangthem Hemanta Singh,,13808,1513,5.11,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1514,manipur,2020,LILONG,33506,31429,93.8,Y. Antas Khan,parties.IN.IND,17106,54.43,Mohd. Abdul Nasir,parties.IN.IND,14028,3078,9.8,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1531,manipur,2020,WANGOI,28561,27350,95.76,Oinam Lukhoi Singh,parties.IN.BJP,10960,40.07,Khuraijam Loken Singh,parties.IN.NPP,10703,257,0.94,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1549,manipur,2020,SAITU,40257,36958,91.81,NGAMTHANG HAOKIP,parties.IN.BJP,24549,66.42,LAMTINTHANG HAOKIP,parties.IN.INC,12292,12257,33.16,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1550,manipur,2020,SINGHAT,26163,0,0,GINSUANHAU,parties.IN.BJP,0,,NOTA,,0,0,,src-1b7bc1c9d39a
+IN-AC-2008-manipur-1560,manipur,2020,WANGJING TENTHA,31472,29619,94.11,Paonam Brojen Singh,parties.IN.BJP,15321,51.73,Moirangthem Hemanta Singh,parties.IN.INC,13808,1513,5.11,src-1b7bc1c9d39a

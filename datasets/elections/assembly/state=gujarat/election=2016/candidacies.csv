@@ -1,33 +1,33 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-gujarat-2777,gujarat,2016,91,TALALA,Govind Bhai Varjang Bhai Parmar,,63899,50.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2777,gujarat,2016,91,TALALA,Bhag van Bhai Dhana Bhai Barad,,61458,48.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2777,gujarat,2016,91,TALALA,Bagas Bhai Dolat Bhai Chotiyara,,706,0.55,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2777,gujarat,2016,91,TALALA,Hasam Bhai Juma Bhai Musagara,,694,0.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2777,gujarat,2016,91,TALALA,Ram Ji Bhai Manand Bhai Parmar,,613,0.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2777,gujarat,2016,91,TALALA,Hanifaben Ibrahim Majgul,,252,0.2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Zankhana HiteshKumar Patel (Rajabbhai),,90089,60.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Dhansukhbhai Bhagvati Prasad Rajput,,46651,31.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Malek Ibrahim Ismail,,2027,1.37,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Yadav Bansubhai Jugurbhai,,2008,1.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Mansuri Mohamad Harun Gulam Mohamad,,1209,0.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Masalewala Salimbhai Abdulla,,803,0.54,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Pathan Ajaharkhan Rasukhan (Chhote Pathan),,769,0.52,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Mahendra Ravanbhai Patil,,442,0.3,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Arun Sheshram Pathak (Gabbar),,419,0.28,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Brahmakshatriya Bhagvatiben Khetsing Bhai,,364,0.25,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Sanjay Kevalchand Jain,,327,0.22,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Mirza Akhtarbeg Altabag,,324,0.22,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Shaikh Suraiyabibi Arif,,271,0.18,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Shaikh Mo.Aarif Abdul Latif,,257,0.17,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Shaikh Aminabi Harun,,237,0.16,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Iqbal Ahemad Hajeerais Kureshi,,221,0.15,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Nagori Ibrahim Yakubbhai,,203,0.14,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Saikh Firoz Yasin,,173,0.12,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Patel Rajulal Manilal,,170,0.12,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Najir Hanif Godil,,148,0.1,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Iraki Mo. Mister Abdul Jabbar,,133,0.09,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Kureshi Faruk Bashir,,132,0.09,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Ansari Jiaull Hakk Menuddin,,112,0.08,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Khan Rafik Kudaratkha,,106,0.07,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Ismal Babubhai Patel,,99,0.07,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Khan Suleman Ishak Khan,,91,0.06,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2777,gujarat,2016,91,TALALA,Govind Bhai Varjang Bhai Parmar,parties.IN.BJP,63899,50.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2777,gujarat,2016,91,TALALA,Bhag van Bhai Dhana Bhai Barad,parties.IN.INC,61458,48.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2777,gujarat,2016,91,TALALA,Bagas Bhai Dolat Bhai Chotiyara,parties.IN.IND,706,0.55,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2777,gujarat,2016,91,TALALA,Hasam Bhai Juma Bhai Musagara,parties.IN.IND,694,0.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2777,gujarat,2016,91,TALALA,Ram Ji Bhai Manand Bhai Parmar,parties.IN.IND,613,0.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2777,gujarat,2016,91,TALALA,Hanifaben Ibrahim Majgul,parties.IN.IND,252,0.2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Zankhana HiteshKumar Patel (Rajabbhai),parties.IN.BJP,90089,60.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Dhansukhbhai Bhagvati Prasad Rajput,parties.IN.INC,46651,31.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Malek Ibrahim Ismail,parties.IN.IND,2027,1.37,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Yadav Bansubhai Jugurbhai,parties.IN.IND,2008,1.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Mansuri Mohamad Harun Gulam Mohamad,parties.IN.IND,1209,0.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Masalewala Salimbhai Abdulla,parties.IN.IND,803,0.54,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Pathan Ajaharkhan Rasukhan (Chhote Pathan),parties.IN.IND,769,0.52,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Mahendra Ravanbhai Patil,parties.IN.IND,442,0.3,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Arun Sheshram Pathak (Gabbar),parties.IN.IND,419,0.28,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Brahmakshatriya Bhagvatiben Khetsing Bhai,parties.IN.IND,364,0.25,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Sanjay Kevalchand Jain,parties.IN.IND,327,0.22,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Mirza Akhtarbeg Altabag,parties.IN.IND,324,0.22,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Shaikh Suraiyabibi Arif,parties.IN.IND,271,0.18,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Shaikh Mo.Aarif Abdul Latif,parties.IN.IND,257,0.17,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Shaikh Aminabi Harun,parties.IN.IND,237,0.16,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Iqbal Ahemad Hajeerais Kureshi,parties.IN.IND,221,0.15,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Nagori Ibrahim Yakubbhai,parties.IN.IND,203,0.14,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Saikh Firoz Yasin,parties.IN.IND,173,0.12,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Patel Rajulal Manilal,parties.IN.IND,170,0.12,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Najir Hanif Godil,parties.IN.IND,148,0.1,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Iraki Mo. Mister Abdul Jabbar,parties.IN.IND,133,0.09,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Kureshi Faruk Bashir,parties.IN.IND,132,0.09,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Ansari Jiaull Hakk Menuddin,parties.IN.IND,112,0.08,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Khan Rafik Kudaratkha,parties.IN.IND,106,0.07,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Ismal Babubhai Patel,parties.IN.IND,99,0.07,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2801,gujarat,2016,168,CHORASI,Khan Suleman Ishak Khan,parties.IN.IND,91,0.06,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a

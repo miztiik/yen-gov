@@ -1,74 +1,74 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,EATALA RAJENDER,,107022,51.96,1,won,M,57,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,EATALA RAJENDER,parties.IN.BJP,107022,51.96,1,won,M,57,,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,GELLU SRINIVAS YADAV,,83167,40.38,2,lost,M,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,BALMOOR VENKAT NARSING RAO,,3014,1.46,3,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,KANTE SAYANNA,,1942,0.94,4,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,BALMOOR VENKAT NARSING RAO,parties.IN.INC,3014,1.46,3,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,KANTE SAYANNA,parties.IN.IND,1942,0.94,4,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,SILIVERU SRIKANTH,,1921,0.93,5,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,NOTA,,1036,0.5,6,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,KOTA. SHYAM KUMAR,,967,0.47,7,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,GUGULOTHU THIRUPATHI,,964,0.47,8,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,VURUMALLA VISHWAM,,726,0.35,9,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,PALLE PRASHANTH,,694,0.34,10,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,GANJI YUGANDHER,,659,0.32,11,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,KOTA. SHYAM KUMAR,parties.IN.IND,967,0.47,7,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,GUGULOTHU THIRUPATHI,parties.IN.IND,964,0.47,8,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,VURUMALLA VISHWAM,parties.IN.IND,726,0.35,9,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,PALLE PRASHANTH,parties.IN.IND,694,0.34,10,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,GANJI YUGANDHER,parties.IN.IND,659,0.32,11,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,LINGIDI VENKATESWARLU,,582,0.28,12,forfeit,M,64,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,C.V. SUBBA REDDY,,488,0.24,13,forfeit,M,68,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,VIKRAM REDDY VEMULAA,,392,0.19,14,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,ADLA JOGI REDDY,,278,0.13,15,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,MYAKAMALLA RATNAYYA,,270,0.13,16,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,KUMMARI PRAVEEN,,246,0.12,17,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,C.V. SUBBA REDDY,parties.IN.IND,488,0.24,13,forfeit,M,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,VIKRAM REDDY VEMULAA,parties.IN.IND,392,0.19,14,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,ADLA JOGI REDDY,parties.IN.IND,278,0.13,15,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,MYAKAMALLA RATNAYYA,parties.IN.IND,270,0.13,16,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,KUMMARI PRAVEEN,parties.IN.IND,246,0.12,17,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,KARRA RAJIREDDY,,235,0.11,18,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,RAVULA SUNIL,,187,0.09,19,forfeit,M,25,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,MOUTAM. SAMPATH,,142,0.07,20,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,UPPU RAVINDER,,137,0.07,21,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,RAVULA SUNIL,parties.IN.IND,187,0.09,19,forfeit,M,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,MOUTAM. SAMPATH,parties.IN.IND,142,0.07,20,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,UPPU RAVINDER,parties.IN.IND,137,0.07,21,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,KANNAM SURESH KUMAR,,136,0.07,22,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,RAMESH BABU SHANIGARAPU,,133,0.06,23,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,RAMESH BABU SHANIGARAPU,parties.IN.IND,133,0.06,23,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,ALI MANSOOR MOHAMMED,,123,0.06,24,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,DEVUNOORI SRINIVASU,,122,0.06,25,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,CHALIKA CHANDRA SEKHAR,,83,0.04,26,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,LINGAMPELLI SRINIVAS REDDY,,80,0.04,27,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,CHALIKA CHANDRA SEKHAR,parties.IN.IND,83,0.04,26,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,LINGAMPELLI SRINIVAS REDDY,parties.IN.IND,80,0.04,27,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,KESHETTI VIJAY KUMAR,,77,0.04,28,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,CHILUKA ANAND,,61,0.03,29,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,PIDISHETTI RAJU,,45,0.02,30,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,BUTTEMGARI MADHAVA REDDY,,36,0.02,31,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,CHILUKA ANAND,parties.IN.IND,61,0.03,29,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,PIDISHETTI RAJU,parties.IN.IND,45,0.02,30,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3266,telangana,2021,31,HUZURABAD,BUTTEMGARI MADHAVA REDDY,parties.IN.IND,36,0.02,31,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,NOMULA BHAGATH,,89804,47.05,1,won,M,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,KUNDURU JANAREDDY,,70932,37.16,2,lost,M,74,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,Dr. PANUGOTHU RAVI,,7676,4.02,3,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,THALARI RAMBABU,,2980,1.56,4,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,KUNDURU JANAREDDY,parties.IN.INC,70932,37.16,2,lost,M,74,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,Dr. PANUGOTHU RAVI,parties.IN.BJP,7676,4.02,3,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,THALARI RAMBABU,parties.IN.IND,2980,1.56,4,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,JANAIAH NANDIPATI,,2708,1.42,5,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,ARUN KUMAR MUVVA,,1714,0.9,6,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,BHARATH KUMAR. CHINALA.,,1320,0.69,7,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,REVU CHINNA DHANA RAJU,,1284,0.67,8,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,YADLA. SOMAIAH,,1214,0.64,9,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,GADE. SAIDI REDDY,,1182,0.62,10,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,ARUN KUMAR MUVVA,parties.IN.TDP,1714,0.9,6,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,BHARATH KUMAR. CHINALA.,parties.IN.IND,1320,0.69,7,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,REVU CHINNA DHANA RAJU,parties.IN.IND,1284,0.67,8,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,YADLA. SOMAIAH,parties.IN.IND,1214,0.64,9,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,GADE. SAIDI REDDY,parties.IN.IND,1182,0.62,10,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,POOSA SRINIVAS,,1029,0.54,11,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,ADEPU NAGARJUNA,,1028,0.54,12,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,MAHANKALI. UMAMAHESHWARI,,971,0.51,13,forfeit,F,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,SHYAM,,772,0.4,14,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,BODDU. VENKANNA YADAV,,747,0.39,15,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,BODDU. VENKANNA YADAV,parties.IN.IND,747,0.39,15,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,KASAIAH POTHUGANTI,,639,0.33,16,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,NOTA,,499,0.26,17,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,ANDE. RAVI KUMAR.,,433,0.23,18,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,PIDAMARTHI RAVINDRA,,379,0.2,19,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,LOGGARI RAMESH.,,300,0.16,20,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,MARRI NEHEMIAH,,295,0.15,21,forfeit,M,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,ANDE. RAVI KUMAR.,parties.IN.IND,433,0.23,18,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,PIDAMARTHI RAVINDRA,parties.IN.IND,379,0.2,19,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,LOGGARI RAMESH.,parties.IN.IND,300,0.16,20,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,MARRI NEHEMIAH,parties.IN.IND,295,0.15,21,forfeit,M,66,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,VADLAPALLY RAMAKRISHNA REDDY,,278,0.15,22,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,NOORJAHAN BEGUM,,275,0.14,23,forfeit,F,40,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,KANTE SAYANNA.,,243,0.13,24,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,KOTI BABU. KONDURI,,227,0.12,25,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,CH. SAIDAIAH,,223,0.12,26,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,KANTE SAYANNA.,parties.IN.IND,243,0.13,24,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,KOTI BABU. KONDURI,parties.IN.IND,227,0.12,25,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,CH. SAIDAIAH,parties.IN.IND,223,0.12,26,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,KANDELA SHANKARAIAH,,217,0.11,27,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,PODILA VENKATA RAMANA,,206,0.11,28,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,GUNDE. RAMESH CHANDRA,,178,0.09,29,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,R L RAO,,158,0.08,30,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,SAPAVAT SUMAN,,135,0.07,31,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,POLISHETTY. VENKATESHWARLU,,127,0.07,32,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,TAGULLA NARESH.,,107,0.06,33,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,CHITTIPROLU. SURENDER,,98,0.05,34,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,GOUTI MALLESH,,94,0.05,35,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,PANUGOTU LALASINGH,,73,0.04,36,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,VANGURI MAHENDAR BABU,,59,0.03,37,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,CHANTHAMALLA SAIDAMMA,,59,0.03,38,forfeit,F,29,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,JANAGAM PANDU GOUD,,58,0.03,39,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,SRIKANTH SILIVERU,,55,0.03,40,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,JOURNALIST VIKRAM REDDY VEMULAA,,51,0.03,41,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,"SK, NAHEEM, PASHA",,34,0.02,42,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,GUNDE. RAMESH CHANDRA,parties.IN.IND,178,0.09,29,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,R L RAO,parties.IN.IND,158,0.08,30,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,SAPAVAT SUMAN,parties.IN.IND,135,0.07,31,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,POLISHETTY. VENKATESHWARLU,parties.IN.IND,127,0.07,32,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,TAGULLA NARESH.,parties.IN.IND,107,0.06,33,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,CHITTIPROLU. SURENDER,parties.IN.IND,98,0.05,34,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,GOUTI MALLESH,parties.IN.IND,94,0.05,35,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,PANUGOTU LALASINGH,parties.IN.IND,73,0.04,36,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,VANGURI MAHENDAR BABU,parties.IN.IND,59,0.03,37,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,CHANTHAMALLA SAIDAMMA,parties.IN.IND,59,0.03,38,forfeit,F,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,JANAGAM PANDU GOUD,parties.IN.IND,58,0.03,39,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,SRIKANTH SILIVERU,parties.IN.IND,55,0.03,40,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,JOURNALIST VIKRAM REDDY VEMULAA,parties.IN.IND,51,0.03,41,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3331,telangana,2021,87,NAGARJUNA SAGAR,"SK, NAHEEM, PASHA",parties.IN.IND,34,0.02,42,forfeit,M,37,,,challenger,src-1b7bc1c9d39a

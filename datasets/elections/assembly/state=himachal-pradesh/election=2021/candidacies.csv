@@ -1,16 +1,16 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2021,8,FATEHPUR,Bhawani Singh Pathania,,24449,42.82,1,won,M,47,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2021,8,FATEHPUR,Baldev Thakur,,18660,32.68,2,lost,M,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2021,8,FATEHPUR,Dr. Rajan Sushant,,12927,22.64,3,lost,M,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2021,8,FATEHPUR,Bhawani Singh Pathania,parties.IN.INC,24449,42.82,1,won,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2021,8,FATEHPUR,Baldev Thakur,parties.IN.BJP,18660,32.68,2,lost,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2021,8,FATEHPUR,Dr. Rajan Sushant,parties.IN.IND,12927,22.64,3,lost,M,66,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2021,8,FATEHPUR,NOTA,,389,0.68,4,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2021,8,FATEHPUR,Pankaj Kumar Darshi,,375,0.66,5,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2021,8,FATEHPUR,Dr. Ashok Kumar Somal,,295,0.52,6,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2021,50,ARKI,SANJAY,,30798,50.86,1,won,M,56,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2021,50,ARKI,RATTAN SINGH PAL,,27579,45.55,2,lost,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2021,8,FATEHPUR,Dr. Ashok Kumar Somal,parties.IN.IND,295,0.52,6,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2021,50,ARKI,SANJAY,parties.IN.INC,30798,50.86,1,won,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2021,50,ARKI,RATTAN SINGH PAL,parties.IN.BJP,27579,45.55,2,lost,M,53,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2021,50,ARKI,NOTA,,1626,2.69,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2021,50,ARKI,JEET RAM,,547,0.9,4,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2021,65,JUBBAL-KOTKHAI,ROHIT THAKUR,,29955,52.92,1,won,M,47,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2021,65,JUBBAL-KOTKHAI,CHETAN SINGH BRAGTA,,23662,41.8,2,lost,M,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2021,65,JUBBAL-KOTKHAI,NEELAM SERAIK,,2644,4.67,3,forfeit,F,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2021,50,ARKI,JEET RAM,parties.IN.IND,547,0.9,4,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2021,65,JUBBAL-KOTKHAI,ROHIT THAKUR,parties.IN.INC,29955,52.92,1,won,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2021,65,JUBBAL-KOTKHAI,CHETAN SINGH BRAGTA,parties.IN.IND,23662,41.8,2,lost,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2021,65,JUBBAL-KOTKHAI,NEELAM SERAIK,parties.IN.BJP,2644,4.67,3,forfeit,F,52,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2021,65,JUBBAL-KOTKHAI,NOTA,,176,0.31,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2021,65,JUBBAL-KOTKHAI,SUMAN KADAM,,170,0.3,5,forfeit,F,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2021,65,JUBBAL-KOTKHAI,SUMAN KADAM,parties.IN.IND,170,0.3,5,forfeit,F,33,,,challenger,src-1b7bc1c9d39a

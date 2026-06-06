@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-tripura-1601,tripura,2016,AMARPUR,36588,33478,91.5,Parimal Debnath,,20355,60.8,Ranjit Das,,9758,10597,31.65,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1620,tripura,2016,KHOWAI,38860,37076,95.41,Biswajit Datta,,24810,66.92,Manoj Das,,8716,16094,43.41,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1636,tripura,2016,BARJALA,38061,35164,92.39,Jhumu Sarkar 'E',,15769,44.84,Sistamohan Das,,12395,3374,9.59,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1601,tripura,2016,AMARPUR,36588,33478,91.5,Parimal Debnath,,20355,60.8,Ranjit Das,parties.IN.BJP,9758,10597,31.65,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1620,tripura,2016,KHOWAI,38860,37076,95.41,Biswajit Datta,,24810,66.92,Manoj Das,parties.IN.AITC,8716,16094,43.41,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1636,tripura,2016,BARJALA,38061,35164,92.39,Jhumu Sarkar 'E',,15769,44.84,Sistamohan Das,parties.IN.BJP,12395,3374,9.59,src-1b7bc1c9d39a

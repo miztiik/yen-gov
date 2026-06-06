@@ -1,8 +1,8 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-uttar-pradesh-978,uttar-pradesh,2015,315,PHARENDA,Vinod,,64878,37.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-978,uttar-pradesh,2015,315,PHARENDA,Virendra Chaudhary,,55647,32.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-978,uttar-pradesh,2015,315,PHARENDA,Bajrang Bahadur Singh,,41247,24.03,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-978,uttar-pradesh,2015,315,PHARENDA,Vijay,,5720,3.33,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-978,uttar-pradesh,2015,315,PHARENDA,Kishun,,1960,1.14,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-978,uttar-pradesh,2015,315,PHARENDA,Lalji,,1213,0.71,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-978,uttar-pradesh,2015,315,PHARENDA,Shivakumari,,976,0.57,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-978,uttar-pradesh,2015,315,PHARENDA,Vinod,parties.IN.SP,64878,37.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-978,uttar-pradesh,2015,315,PHARENDA,Virendra Chaudhary,parties.IN.INC,55647,32.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-978,uttar-pradesh,2015,315,PHARENDA,Bajrang Bahadur Singh,parties.IN.BJP,41247,24.03,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-978,uttar-pradesh,2015,315,PHARENDA,Vijay,parties.IN.IND,5720,3.33,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-978,uttar-pradesh,2015,315,PHARENDA,Kishun,parties.IN.IND,1960,1.14,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-978,uttar-pradesh,2015,315,PHARENDA,Lalji,parties.IN.IND,1213,0.71,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-978,uttar-pradesh,2015,315,PHARENDA,Shivakumari,parties.IN.IND,976,0.57,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a

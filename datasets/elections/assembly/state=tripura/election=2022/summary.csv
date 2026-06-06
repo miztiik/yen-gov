@@ -1,5 +1,5 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-tripura-1612,tripura,2022,JUBARAJNAGAR,43533,36215,83.19,MALINA DEBNATH,,18769,51.83,SAILENDRA CHANDRA NATH,,14197,4572,12.63,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1629,tripura,2022,SURMA,47601,39389,82.75,SWAPNA DAS (PAUL),,16677,42.34,BABURAM SATNAMI,,12094,4583,11.64,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1631,tripura,2022,AGARTALA,51913,40111,77.27,Sudip Roy Barman,,17431,43.46,Ashok Sinha,,14268,3163,7.89,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1660,tripura,2022,TOWN BORDOWALI,46658,33277,71.32,Manik Saha,,17181,51.63,Asish Kumar Saha,,11077,6104,18.34,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1612,tripura,2022,JUBARAJNAGAR,43533,36215,83.19,MALINA DEBNATH,parties.IN.BJP,18769,51.83,SAILENDRA CHANDRA NATH,,14197,4572,12.63,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1629,tripura,2022,SURMA,47601,39389,82.75,SWAPNA DAS (PAUL),parties.IN.BJP,16677,42.34,BABURAM SATNAMI,parties.IN.IND,12094,4583,11.64,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1631,tripura,2022,AGARTALA,51913,40111,77.27,Sudip Roy Barman,parties.IN.INC,17431,43.46,Ashok Sinha,parties.IN.BJP,14268,3163,7.89,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1660,tripura,2022,TOWN BORDOWALI,46658,33277,71.32,Manik Saha,parties.IN.BJP,17181,51.63,Asish Kumar Saha,parties.IN.INC,11077,6104,18.34,src-1b7bc1c9d39a

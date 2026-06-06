@@ -1,2 +1,2 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,BHATGAON,176963,132251,74.73,R.R. Tripathi,,74098,56.03,U.S.Singhdeo ( U.S.Baba),,39236,34862,26.36,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,BHATGAON,176963,132251,74.73,R.R. Tripathi,parties.IN.BJP,74098,56.03,U.S.Singhdeo ( U.S.Baba),parties.IN.INC,39236,34862,26.36,src-1b7bc1c9d39a

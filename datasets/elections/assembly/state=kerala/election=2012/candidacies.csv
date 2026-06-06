@@ -1,36 +1,36 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,Janardhan Reddy Nala M,,71001,50.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,Kuchakulla Damoder Reddy,,43676,31.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,Marri Hanardhan Reddy,,18608,13.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,B. Swamy,,2369,1.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,Chandrashekar Bandi,,1710,1.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,Nagulaibh Kavali,,963,0.69,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,S. Sudhakar,,619,0.44,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,Adula Janardhan Reddy,,519,0.37,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,Nagan Goverdhan Reddy,,463,0.33,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,Chukka Keshavolu,,323,0.23,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,Kandilkonda Bala Rao,,217,0.15,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,Janardhan Reddy Nala M,parties.IN.IND,71001,50.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,Kuchakulla Damoder Reddy,parties.IN.INC,43676,31.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,Marri Hanardhan Reddy,parties.IN.TDP,18608,13.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,B. Swamy,parties.IN.IND,2369,1.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,Chandrashekar Bandi,parties.IN.IND,1710,1.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,Nagulaibh Kavali,parties.IN.IND,963,0.69,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,S. Sudhakar,parties.IN.IND,619,0.44,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,Adula Janardhan Reddy,parties.IN.IND,519,0.37,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,Nagan Goverdhan Reddy,parties.IN.IND,463,0.33,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,Chukka Keshavolu,parties.IN.IND,323,0.23,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2012,81,THRIPUNITHURA,Kandilkonda Bala Rao,parties.IN.IND,217,0.15,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3784,kerala,2012,85,PIRAVOM,Adv. Anoop Jacob,,82756,52.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3784,kerala,2012,85,PIRAVOM,M.J.Jacob,,70686,44.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3784,kerala,2012,85,PIRAVOM,Adv. K.R.Rajagopal,,3241,2.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3784,kerala,2012,85,PIRAVOM,Adv. K.R.Rajagopal,parties.IN.BJP,3241,2.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3784,kerala,2012,85,PIRAVOM,Varghese P.Cheriyan,,437,0.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3784,kerala,2012,85,PIRAVOM,Bindu Haridas,,430,0.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3784,kerala,2012,85,PIRAVOM,Arundhathy,,281,0.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3784,kerala,2012,85,PIRAVOM,K.G.Krishnankutty,,192,0.12,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3784,kerala,2012,85,PIRAVOM,Bindu Haridas,parties.IN.IND,430,0.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3784,kerala,2012,85,PIRAVOM,Arundhathy,parties.IN.IND,281,0.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3784,kerala,2012,85,PIRAVOM,K.G.Krishnankutty,parties.IN.IND,192,0.12,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3784,kerala,2012,85,PIRAVOM,Dr. Akkavila Salim,,142,0.09,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3784,kerala,2012,85,PIRAVOM,N.T.Suresh Kumar,,96,0.06,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,R. Selvaraj,,52528,39.96,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,R. Selvaraj,parties.IN.INC,52528,39.96,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,F. Lawrance,,46194,35.14,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,O. Rajagopal,,30507,23.21,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,Selvaraj,,551,0.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,T. Selvaraj,,414,0.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,Adv. S. M. Karani,,350,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,T.R.Thnkarajan,,294,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,Sathyaseelan,,200,0.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,E.V. Philip,,88,0.07,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,J.Lawrence,,71,0.05,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,T. Lawrence,,68,0.05,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,K.G. Mohanan,,54,0.04,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,Lila Sundaresan,,51,0.04,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,J. Wilson,,36,0.03,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,J.R.L. Rose,,36,0.03,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,O. Rajagopal,parties.IN.BJP,30507,23.21,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,Selvaraj,parties.IN.IND,551,0.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,T. Selvaraj,parties.IN.IND,414,0.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,Adv. S. M. Karani,parties.IN.IND,350,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,T.R.Thnkarajan,parties.IN.RPIA,294,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,Sathyaseelan,parties.IN.IND,200,0.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,E.V. Philip,parties.IN.SP_I,88,0.07,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,J.Lawrence,parties.IN.IND,71,0.05,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,T. Lawrence,parties.IN.IND,68,0.05,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,K.G. Mohanan,parties.IN.IND,54,0.04,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,Lila Sundaresan,parties.IN.IND,51,0.04,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,J. Wilson,parties.IN.IND,36,0.03,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3832,kerala,2012,140,NEYYATTINKARA,J.R.L. Rose,parties.IN.IND,36,0.03,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a

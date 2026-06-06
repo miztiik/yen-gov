@@ -1,179 +1,179 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-karnataka-3541,karnataka,2019,3,ATHANI,MAHESH  IRANAGOUD KUMATALLI,,99203,59.83,1,won,M,58,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3541,karnataka,2019,3,ATHANI,GAJANAN BHALACHANDRA MANGASULI,,59214,35.71,2,lost,M,50,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3541,karnataka,2019,3,ATHANI,SHRISHAIL TUKKAPPA HALLADAMAL,,1892,1.14,3,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3541,karnataka,2019,3,ATHANI,RAJU PARASHURAM DAWARI,,1577,0.95,4,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3541,karnataka,2019,3,ATHANI,MAHESH  IRANAGOUD KUMATALLI,parties.IN.BJP,99203,59.83,1,won,M,58,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3541,karnataka,2019,3,ATHANI,GAJANAN BHALACHANDRA MANGASULI,parties.IN.INC,59214,35.71,2,lost,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3541,karnataka,2019,3,ATHANI,SHRISHAIL TUKKAPPA HALLADAMAL,parties.IN.IND,1892,1.14,3,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3541,karnataka,2019,3,ATHANI,RAJU PARASHURAM DAWARI,parties.IN.IND,1577,0.95,4,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3541,karnataka,2019,3,ATHANI,NOTA,,1532,0.92,5,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3541,karnataka,2019,3,ATHANI,DR.NAGANATH V YADGIR,,878,0.53,6,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3541,karnataka,2019,3,ATHANI,IMRAN  MUKTAR AHMED PATEL,,783,0.47,7,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3541,karnataka,2019,3,ATHANI,IMRAN  MUKTAR AHMED PATEL,parties.IN.IND,783,0.47,7,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3541,karnataka,2019,3,ATHANI,VINAYAK  PARAYYA MATHAPATI,,400,0.24,8,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3541,karnataka,2019,3,ATHANI,RAVI  SHIVAPPA PADASALAGI (SAVADI),,317,0.19,9,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3544,karnataka,2019,4,KAGWAD,SHRIMANT BALASAHEB PATIL,,76952,54.18,1,won,M,64,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3544,karnataka,2019,4,KAGWAD,BHARAMGOUDA ALAGOUDA KAGE,,58395,41.11,2,lost,M,61,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3544,karnataka,2019,4,KAGWAD,SHRI SHRISHAIL PARASAPPA TUGASHETTI (SHETTAR),,2448,1.72,3,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3541,karnataka,2019,3,ATHANI,RAVI  SHIVAPPA PADASALAGI (SAVADI),parties.IN.IND,317,0.19,9,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3544,karnataka,2019,4,KAGWAD,SHRIMANT BALASAHEB PATIL,parties.IN.BJP,76952,54.18,1,won,M,64,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3544,karnataka,2019,4,KAGWAD,BHARAMGOUDA ALAGOUDA KAGE,parties.IN.INC,58395,41.11,2,lost,M,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3544,karnataka,2019,4,KAGWAD,SHRI SHRISHAIL PARASAPPA TUGASHETTI (SHETTAR),parties.IN.JDS,2448,1.72,3,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3544,karnataka,2019,4,KAGWAD,NOTA,,1238,0.87,4,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3544,karnataka,2019,4,KAGWAD,VIVEK JAYENDRA SHETTI,,1099,0.77,5,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3544,karnataka,2019,4,KAGWAD,SANDEEP GOPAL KAMBLE,,636,0.45,6,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3544,karnataka,2019,4,KAGWAD,DEEPAK JAGANATH BURLI,,437,0.31,7,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3544,karnataka,2019,4,KAGWAD,MURAGEPPA NINGAPPA DEVARADDI,,304,0.21,8,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3544,karnataka,2019,4,KAGWAD,SANDEEP GOPAL KAMBLE,parties.IN.IND,636,0.45,6,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3544,karnataka,2019,4,KAGWAD,DEEPAK JAGANATH BURLI,parties.IN.IND,437,0.31,7,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3544,karnataka,2019,4,KAGWAD,MURAGEPPA NINGAPPA DEVARADDI,parties.IN.IND,304,0.21,8,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3544,karnataka,2019,4,KAGWAD,A. SACHINKUMAR,,272,0.19,9,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3544,karnataka,2019,4,KAGWAD,ARCHANA GANAPATI MOLEKAR,,249,0.18,10,forfeit,F,29,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,JARKIHOLI RAMESH LAXMANRAO,,87450,48.97,1,won,M,59,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,LAKHAN LAXMANARAO JARAKIHOLI,,58444,32.73,2,lost,M,48,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,ASHOK NINGAYYASWAMI PUJARI,,27948,15.65,3,forfeit,M,61,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,SANJAY IRAPPA KURBETT,,1420,0.8,4,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3544,karnataka,2019,4,KAGWAD,ARCHANA GANAPATI MOLEKAR,parties.IN.IND,249,0.18,10,forfeit,F,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,JARKIHOLI RAMESH LAXMANRAO,parties.IN.BJP,87450,48.97,1,won,M,59,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,LAKHAN LAXMANARAO JARAKIHOLI,parties.IN.INC,58444,32.73,2,lost,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,ASHOK NINGAYYASWAMI PUJARI,parties.IN.JDS,27948,15.65,3,forfeit,M,61,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,SANJAY IRAPPA KURBETT,parties.IN.IND,1420,0.8,4,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,NOTA,,1153,0.65,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,SATISH ASHOK PUJARI,,664,0.37,6,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,SRI VENKATESHWAR MAHA SWAMIJI (KATAKADHOND.D.G),,647,0.36,7,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,RAMAPPA MALLAPPA KURABET,,263,0.15,8,forfeit,M,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,SATISH ASHOK PUJARI,parties.IN.IND,664,0.37,6,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,SRI VENKATESHWAR MAHA SWAMIJI (KATAKADHOND.D.G),parties.IN.HINDUSTAN_JANTA_PARTY,647,0.36,7,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,RAMAPPA MALLAPPA KURABET,parties.IN.IND,263,0.15,8,forfeit,M,68,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,SANTOSH NANDUR,,179,0.1,9,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,BHAGOJI PRAKASH MAHADEV,,168,0.09,10,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,GURUPUTRA KEMPANNA KULLUR,,114,0.06,11,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,ASHOK PANDAPPA HANAJI,,112,0.06,12,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,Dr. AVINASH UMESH JADHAV,,69109,50.29,1,won,M,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,SUBHASH V RATHOD,,61079,44.45,2,lost,M,54,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,GOUTAM BOMNALLI,,1873,1.36,3,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,HANUMANTHA RAMA NAIK. M. B.,,1268,0.92,4,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,SHAMRAO GANGARAM,,794,0.58,5,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,SHAMRAO MALLESHAPPA HEROOR. K,,676,0.49,6,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,SHRIVENKATESWAR MAHA SWAMIJI (KATAKADHOND Dee.G),,583,0.42,7,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,BHAGOJI PRAKASH MAHADEV,parties.IN.IND,168,0.09,10,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,GURUPUTRA KEMPANNA KULLUR,parties.IN.IND,114,0.06,11,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3498,karnataka,2019,9,GOKAK,ASHOK PANDAPPA HANAJI,parties.IN.IND,112,0.06,12,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,Dr. AVINASH UMESH JADHAV,parties.IN.BJP,69109,50.29,1,won,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,SUBHASH V RATHOD,parties.IN.INC,61079,44.45,2,lost,M,54,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,GOUTAM BOMNALLI,parties.IN.BSP,1873,1.36,3,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,HANUMANTHA RAMA NAIK. M. B.,parties.IN.IND,1268,0.92,4,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,SHAMRAO GANGARAM,parties.IN.IND,794,0.58,5,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,SHAMRAO MALLESHAPPA HEROOR. K,parties.IN.IND,676,0.49,6,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,SHRIVENKATESWAR MAHA SWAMIJI (KATAKADHOND Dee.G),parties.IN.HINDUSTAN_JANTA_PARTY,583,0.42,7,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,NOTA,,416,0.3,8,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,VIJAY JADHAV,,256,0.19,9,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,K. DEEPA. G. MALGE,,255,0.19,10,forfeit,F,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,BHOVI VISHWESHWARAYYA,,193,0.14,11,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,Dr. MALLIKARJUN. N. GAJRE,,192,0.14,12,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,SHAMARAO CHANDRAPPA DEGALMADI,,190,0.14,13,forfeit,M,70,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,K. DEEPA. G. MALGE,parties.IN.IND,255,0.19,10,forfeit,F,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,BHOVI VISHWESHWARAYYA,parties.IN.IND,193,0.14,11,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,Dr. MALLIKARJUN. N. GAJRE,parties.IN.IND,192,0.14,12,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,SHAMARAO CHANDRAPPA DEGALMADI,parties.IN.IND,190,0.14,13,forfeit,M,70,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,MARUTHI GANJAGIRI,,189,0.14,14,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,RAMESH BHIMSINGH CHAVAN,,126,0.09,15,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,DODDAMANI NAGENDRAPPA,,76,0.06,16,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,PRAVEENKUMAR. D. BELLUNDAGI,,75,0.05,17,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,BHAGYA SANTOSH TALWAR,,61,0.04,18,forfeit,F,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3578,karnataka,2019,70,KUNDGOL,KUSUMAVATI CHANNABASAPPA SHIVALLI,,77640,49.74,1,won,F,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3578,karnataka,2019,70,KUNDGOL,CHIKKANAGOUDRA SIDDANGOUDA ISHWARAGOUDA,,76039,48.71,2,lost,M,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,RAMESH BHIMSINGH CHAVAN,parties.IN.IND,126,0.09,15,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,DODDAMANI NAGENDRAPPA,parties.IN.IND,76,0.06,16,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,PRAVEENKUMAR. D. BELLUNDAGI,parties.IN.IND,75,0.05,17,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3515,karnataka,2019,42,CHINCHOLI,BHAGYA SANTOSH TALWAR,parties.IN.IND,61,0.04,18,forfeit,F,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3578,karnataka,2019,70,KUNDGOL,KUSUMAVATI CHANNABASAPPA SHIVALLI,parties.IN.INC,77640,49.74,1,won,F,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3578,karnataka,2019,70,KUNDGOL,CHIKKANAGOUDRA SIDDANGOUDA ISHWARAGOUDA,parties.IN.BJP,76039,48.71,2,lost,M,66,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3578,karnataka,2019,70,KUNDGOL,NOTA,,939,0.6,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3578,karnataka,2019,70,KUNDGOL,BHANDIWAD ISHWARAPPA SHETTEPPA,,496,0.32,4,forfeit,M,67,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3578,karnataka,2019,70,KUNDGOL,SOMANNA CHANABASAPPA METI,,460,0.29,5,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3578,karnataka,2019,70,KUNDGOL,SIDDAPPA SATYAPPA GODI,,158,0.1,6,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3578,karnataka,2019,70,KUNDGOL,TULASAPPA KARIYAPPA DASAR,,145,0.09,7,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3578,karnataka,2019,70,KUNDGOL,GONI SHAILA SURESH,,138,0.09,8,forfeit,F,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3578,karnataka,2019,70,KUNDGOL,RAJU ANANTSA NAIKWADI,,91,0.06,9,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3676,karnataka,2019,81,YELLAPUR,ARABAIL HEBBAR SHIVARAM,,80442,60.22,1,won,M,62,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3676,karnataka,2019,81,YELLAPUR,BHIMANNA NAIK,,49034,36.71,2,lost,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3578,karnataka,2019,70,KUNDGOL,BHANDIWAD ISHWARAPPA SHETTEPPA,parties.IN.IND,496,0.32,4,forfeit,M,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3578,karnataka,2019,70,KUNDGOL,SOMANNA CHANABASAPPA METI,parties.IN.IND,460,0.29,5,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3578,karnataka,2019,70,KUNDGOL,SIDDAPPA SATYAPPA GODI,parties.IN.IND,158,0.1,6,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3578,karnataka,2019,70,KUNDGOL,TULASAPPA KARIYAPPA DASAR,parties.IN.IND,145,0.09,7,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3578,karnataka,2019,70,KUNDGOL,GONI SHAILA SURESH,parties.IN.IND,138,0.09,8,forfeit,F,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3578,karnataka,2019,70,KUNDGOL,RAJU ANANTSA NAIKWADI,parties.IN.IND,91,0.06,9,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3676,karnataka,2019,81,YELLAPUR,ARABAIL HEBBAR SHIVARAM,parties.IN.BJP,80442,60.22,1,won,M,62,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3676,karnataka,2019,81,YELLAPUR,BHIMANNA NAIK,parties.IN.INC,49034,36.71,2,lost,M,59,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3676,karnataka,2019,81,YELLAPUR,NOTA,,1444,1.08,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3676,karnataka,2019,81,YELLAPUR,A. CHAITRA,,1235,0.92,4,forfeit,F,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3676,karnataka,2019,81,YELLAPUR,A. CHAITRA,parties.IN.JDS,1235,0.92,4,forfeit,F,30,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3676,karnataka,2019,81,YELLAPUR,JAITHUNABI JIGALUR,,433,0.32,5,forfeit,F,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3676,karnataka,2019,81,YELLAPUR,CHIDANAND HANUMANTHAPPA HARIJAN,,413,0.31,6,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3676,karnataka,2019,81,YELLAPUR,MAHESH HEGDE,,301,0.23,7,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3676,karnataka,2019,81,YELLAPUR,CHIDANAND HANUMANTHAPPA HARIJAN,parties.IN.IND,413,0.31,6,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3676,karnataka,2019,81,YELLAPUR,MAHESH HEGDE,parties.IN.IND,301,0.23,7,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3676,karnataka,2019,81,YELLAPUR,SUNIL PAWAR,,281,0.21,8,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3601,karnataka,2019,86,HIREKERUR,B.C. PATIL,,85562,58.99,1,won,M,64,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3601,karnataka,2019,86,HIREKERUR,BANNIKOD BASAPPA HANUMANTAPPA,,56495,38.95,2,lost,M,70,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3601,karnataka,2019,86,HIREKERUR,B.C. PATIL,parties.IN.BJP,85562,58.99,1,won,M,64,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3601,karnataka,2019,86,HIREKERUR,BANNIKOD BASAPPA HANUMANTAPPA,parties.IN.INC,56495,38.95,2,lost,M,70,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3601,karnataka,2019,86,HIREKERUR,NOTA,,789,0.54,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3601,karnataka,2019,86,HIREKERUR,DEVENDRAPPA,,597,0.41,4,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3601,karnataka,2019,86,HIREKERUR,PUJAR SIDDAPPA KALLAPPA,,472,0.33,5,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3601,karnataka,2019,86,HIREKERUR,RUDRAYYA ANDANAYYA SALIMATH,,356,0.25,6,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3601,karnataka,2019,86,HIREKERUR,UJANEPPA J KODIHALLI,,275,0.19,7,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3601,karnataka,2019,86,HIREKERUR,PUJAR SIDDAPPA KALLAPPA,parties.IN.IND,472,0.33,5,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3601,karnataka,2019,86,HIREKERUR,RUDRAYYA ANDANAYYA SALIMATH,parties.IN.IND,356,0.25,6,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3601,karnataka,2019,86,HIREKERUR,UJANEPPA J KODIHALLI,parties.IN.IND,275,0.19,7,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3601,karnataka,2019,86,HIREKERUR,MANJUNATH G S,,193,0.13,8,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3601,karnataka,2019,86,HIREKERUR,HARISH S INGALAGONDI,,185,0.13,9,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3601,karnataka,2019,86,HIREKERUR,RAJASHEKHAR K. DUDIHALLI,,133,0.09,10,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3602,karnataka,2019,87,RANIBENNUR,ARUNKUMAR GUTHTHUR (M M P),,95438,55.52,1,won,M,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3602,karnataka,2019,87,RANIBENNUR,K B KOLIWAD,,72216,42.01,2,lost,M,75,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3601,karnataka,2019,86,HIREKERUR,RAJASHEKHAR K. DUDIHALLI,parties.IN.IND,133,0.09,10,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3602,karnataka,2019,87,RANIBENNUR,ARUNKUMAR GUTHTHUR (M M P),parties.IN.BJP,95438,55.52,1,won,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3602,karnataka,2019,87,RANIBENNUR,K B KOLIWAD,parties.IN.INC,72216,42.01,2,lost,M,75,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3602,karnataka,2019,87,RANIBENNUR,NOTA,,1608,0.94,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3602,karnataka,2019,87,RANIBENNUR,MALLIKARJUNAPPA RUDRAPPA HALAGERI,,979,0.57,4,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3602,karnataka,2019,87,RANIBENNUR,SHIVAYOGISWAMI.G.MAHANUBHAVIMATH,,624,0.36,5,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3602,karnataka,2019,87,RANIBENNUR,MALLIKARJUNAPPA RUDRAPPA HALAGERI,parties.IN.JDS,979,0.57,4,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3602,karnataka,2019,87,RANIBENNUR,SHIVAYOGISWAMI.G.MAHANUBHAVIMATH,parties.IN.IND,624,0.36,5,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3602,karnataka,2019,87,RANIBENNUR,I H PATIL,,349,0.2,6,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3602,karnataka,2019,87,RANIBENNUR,GOUTAM SHIVAPPA KAMBALI,,324,0.19,7,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3602,karnataka,2019,87,RANIBENNUR,PAVANAKUMAR.M,,165,0.1,8,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3602,karnataka,2019,87,RANIBENNUR,Dr. G M KALLESHWARAPPA,,104,0.06,9,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3602,karnataka,2019,87,RANIBENNUR,PAVANAKUMAR.M,parties.IN.IND,165,0.1,8,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3602,karnataka,2019,87,RANIBENNUR,Dr. G M KALLESHWARAPPA,parties.IN.IND,104,0.06,9,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3602,karnataka,2019,87,RANIBENNUR,NAGAPPA NILAPPA SAUNSHI,,104,0.06,10,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,ANAND SINGH,,85477,55.42,1,won,M,53,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,V.Y. GHORPADE,,55352,35.89,2,lost,M,69,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,KAVIRAJU URS,,3955,2.56,3,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,N.M. NABI,,3885,2.52,4,forfeit,M,72,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,ANAND SINGH,parties.IN.BJP,85477,55.42,1,won,M,53,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,V.Y. GHORPADE,parties.IN.INC,55352,35.89,2,lost,M,69,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,KAVIRAJU URS,parties.IN.IND,3955,2.56,3,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,N.M. NABI,parties.IN.JDS,3885,2.52,4,forfeit,M,72,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,NOTA,,1821,1.18,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,KICHIDI KOTRESH,,793,0.51,6,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,DEVARKONDI MARKANDAPPA NEAKAR,,655,0.42,7,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,KICHIDI KOTRESH,parties.IN.IND,793,0.51,6,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,DEVARKONDI MARKANDAPPA NEAKAR,parties.IN.IND,655,0.42,7,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,PA.YA.Ganesh,,433,0.28,8,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,MAMATHA,,431,0.28,9,forfeit,F,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,MAMATHA,parties.IN.NCP,431,0.28,9,forfeit,F,34,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,MAHESH LAMBANI,,430,0.28,10,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,C.M. MANJUNATHA SWAMI,,307,0.2,11,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,ALI HONNUR,,303,0.2,12,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,CONDUCTOR PAMPAPATHI,,262,0.17,13,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,K. UMESH,,134,0.09,14,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3534,karnataka,2019,141,CHIKKABALLAPUR,DR.  K.SUDHAKAR,,84389,48.53,1,won,M,46,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3534,karnataka,2019,141,CHIKKABALLAPUR,M. ANJANAPPA,,49588,28.52,2,lost,M,63,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3534,karnataka,2019,141,CHIKKABALLAPUR,N. RADHAKRISHNA,,35869,20.63,3,lost,M,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3534,karnataka,2019,141,CHIKKABALLAPUR,D.R.NARAYANA SWAMY,,1319,0.76,4,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,C.M. MANJUNATHA SWAMI,parties.IN.IND,307,0.2,11,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,ALI HONNUR,parties.IN.IND,303,0.2,12,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,CONDUCTOR PAMPAPATHI,parties.IN.IND,262,0.17,13,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3508,karnataka,2019,90,VIJAYANAGARA,K. UMESH,parties.IN.IND,134,0.09,14,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3534,karnataka,2019,141,CHIKKABALLAPUR,DR.  K.SUDHAKAR,parties.IN.BJP,84389,48.53,1,won,M,46,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3534,karnataka,2019,141,CHIKKABALLAPUR,M. ANJANAPPA,parties.IN.INC,49588,28.52,2,lost,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3534,karnataka,2019,141,CHIKKABALLAPUR,N. RADHAKRISHNA,parties.IN.JDS,35869,20.63,3,lost,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3534,karnataka,2019,141,CHIKKABALLAPUR,D.R.NARAYANA SWAMY,parties.IN.BSP,1319,0.76,4,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3534,karnataka,2019,141,CHIKKABALLAPUR,NOTA,,973,0.56,5,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3534,karnataka,2019,141,CHIKKABALLAPUR,PHANIRAJ . S.V,,619,0.36,6,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3534,karnataka,2019,141,CHIKKABALLAPUR,DR. M.M. BASHA NANDI,,533,0.31,7,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3534,karnataka,2019,141,CHIKKABALLAPUR,SYED ASIF,,244,0.14,8,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3534,karnataka,2019,141,CHIKKABALLAPUR,DILSHAD BEGUM,,175,0.1,9,forfeit,F,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3534,karnataka,2019,141,CHIKKABALLAPUR,ARIKERE MUNIRAJU. D.,,166,0.1,10,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,B.A.BASAVARAJA,,139879,61.43,1,won,M,55,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,M.NARAYANASWAMY,,76436,33.57,2,lost,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3534,karnataka,2019,141,CHIKKABALLAPUR,DR. M.M. BASHA NANDI,parties.IN.IND,533,0.31,7,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3534,karnataka,2019,141,CHIKKABALLAPUR,SYED ASIF,parties.IN.IND,244,0.14,8,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3534,karnataka,2019,141,CHIKKABALLAPUR,DILSHAD BEGUM,parties.IN.IND,175,0.1,9,forfeit,F,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3534,karnataka,2019,141,CHIKKABALLAPUR,ARIKERE MUNIRAJU. D.,parties.IN.IND,166,0.1,10,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,B.A.BASAVARAJA,parties.IN.BJP,139879,61.43,1,won,M,55,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,M.NARAYANASWAMY,parties.IN.INC,76436,33.57,2,lost,M,59,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,NOTA,,5184,2.28,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,C.KRISHNAMURTHY,,2048,0.9,4,forfeit,M,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,C.KRISHNAMURTHY,parties.IN.JDS,2048,0.9,4,forfeit,M,67,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,SANTHOSH.M,,1620,0.71,5,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,STANLEY PRASANNA. J,,627,0.28,6,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,STANLEY PRASANNA. J,parties.IN.IND,627,0.28,6,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,KEMPARAJU.N,,420,0.18,7,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,VENUGOPALA,,309,0.14,8,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,KRISHNAMURTHY V,,242,0.11,9,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,SURYAKANTH SUBRAMANYAM,,241,0.11,10,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,CHALUVALI RAJANNA,,209,0.09,11,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,KRISHNAMURTHY V,parties.IN.IND,242,0.11,9,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,SURYAKANTH SUBRAMANYAM,parties.IN.IND,241,0.11,10,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,CHALUVALI RAJANNA,parties.IN.IND,209,0.09,11,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,JAGADEESHA KAGEPURA,,208,0.09,12,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,L.RAMA KRISHNA,,198,0.09,13,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,T.K.DASAR GOWDA,,81,0.04,14,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,S. T. SOMASHEKAR,,144722,50.86,1,won,M,62,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,T.N. JAVARAYI GOWDA,,117023,41.13,2,lost,M,61,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,P. NAGARAJ,,15714,5.52,3,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,L.RAMA KRISHNA,parties.IN.IND,198,0.09,13,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3472,karnataka,2019,151,K.R.PURA,T.K.DASAR GOWDA,parties.IN.IND,81,0.04,14,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,S. T. SOMASHEKAR,parties.IN.BJP,144722,50.86,1,won,M,62,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,T.N. JAVARAYI GOWDA,parties.IN.JDS,117023,41.13,2,lost,M,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,P. NAGARAJ,parties.IN.INC,15714,5.52,3,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,NOTA,,2812,0.99,4,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,MANJUNATHA.  M,,1915,0.67,5,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,Krishnaiah,,621,0.22,6,forfeit,M,46,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,SARVAMANGALA. G,,526,0.18,7,forfeit,F,29,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,HANUMANTHA. M (KOTE),,360,0.13,8,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,SHAMBHULINGEGOWDA (GANDIVADHI),,239,0.08,9,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,SRIVENKATESWAR MAHA SWAMIJI (KATAKADHOND. D. G),,192,0.07,10,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,VENUGOPAL. G,,172,0.06,11,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,BEERESH. N,,121,0.04,12,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,SARVAMANGALA. G,parties.IN.IND,526,0.18,7,forfeit,F,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,HANUMANTHA. M (KOTE),parties.IN.IND,360,0.13,8,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,SHAMBHULINGEGOWDA (GANDIVADHI),parties.IN.IND,239,0.08,9,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,SRIVENKATESWAR MAHA SWAMIJI (KATAKADHOND. D. G),parties.IN.HINDUSTAN_JANTA_PARTY,192,0.07,10,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,VENUGOPAL. G,parties.IN.IND,172,0.06,11,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,BEERESH. N,parties.IN.IND,121,0.04,12,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3476,karnataka,2019,153,YESHVANTHAPURA,C.R. NAGARAJU,,118,0.04,13,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,K. GOPALAIAH,,85889,58.65,1,won,M,59,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,M. SHIVARAJU,,31503,21.51,2,lost,M,44,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,DR. GIRISH K. NASHI,,23516,16.06,3,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,K. GOPALAIAH,parties.IN.BJP,85889,58.65,1,won,M,59,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,M. SHIVARAJU,parties.IN.INC,31503,21.51,2,lost,M,44,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,DR. GIRISH K. NASHI,parties.IN.JDS,23516,16.06,3,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,NOTA,,2035,1.39,4,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,ASHA RANI .V,,1771,1.21,5,forfeit,F,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,VATAL NAGARAJ,,832,0.57,6,forfeit,M,70,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,M. SHANKAR,,300,0.2,7,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,VENKATESH .V,,166,0.11,8,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,M. SHANKAR,parties.IN.IND,300,0.2,7,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,VENKATESH .V,parties.IN.IND,166,0.11,8,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,GIRISH GOWDA,,116,0.08,9,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,ASHWATHA,,102,0.07,10,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,VIJAYA BHASKAR.M,,81,0.06,11,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,ASHWATHA,parties.IN.IND,102,0.07,10,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,VIJAYA BHASKAR.M,parties.IN.IND,81,0.06,11,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,N. NARAYANA SWAMY NAVAKOTI,,78,0.05,12,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,R. MURALI KUMAR,,66,0.05,13,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,RIZWAN ARSHAD,,49890,53.56,1,won,M,40,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,M. SARAVANA,,36369,39.04,2,lost,M,54,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,ABDUL HANNAN,,3141,3.37,3,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,TANVEER AHMED ULLAH,,1098,1.18,4,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3473,karnataka,2019,156,MAHALAKSHMI LAYOUT,R. MURALI KUMAR,parties.IN.IND,66,0.05,13,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,RIZWAN ARSHAD,parties.IN.INC,49890,53.56,1,won,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,M. SARAVANA,parties.IN.BJP,36369,39.04,2,lost,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,ABDUL HANNAN,parties.IN.SDPI,3141,3.37,3,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,TANVEER AHMED ULLAH,parties.IN.JDS,1098,1.18,4,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,NOTA,,986,1.06,5,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,VATAL NAGARAJ,,255,0.27,6,forfeit,M,70,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,ROBERT CLIVE,,223,0.24,7,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,SHANAWAZ AHMED,,196,0.21,8,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,ROBERT CLIVE,parties.IN.IND,223,0.24,7,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,SHANAWAZ AHMED,parties.IN.IND,196,0.21,8,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,DR. ABDUL SUBHAN,,162,0.17,9,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,A. K. VENKATESHWARALU,,133,0.14,10,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,SYED ASIF BUKHARI,,127,0.14,11,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,M. ISHITIYAKK AHMED,,87,0.09,12,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,A. K. VENKATESHWARALU,parties.IN.IND,133,0.14,10,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,SYED ASIF BUKHARI,parties.IN.IND,127,0.14,11,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,M. ISHITIYAKK AHMED,parties.IN.IND,87,0.09,12,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,KAUSHIK REDDY,,86,0.09,13,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,MOHAMMED HANIF,,84,0.09,14,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,MOHAMMED HANIF,parties.IN.IND,84,0.09,14,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,DR JOHN BASCO PHILIPS,,80,0.09,15,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,AMBROSE D'MELLO,,76,0.08,16,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,AMBROSE D'MELLO,parties.IN.IND,76,0.08,16,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,B. KRISHNA PRASAD,,60,0.06,17,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,IMRAN,,46,0.05,18,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,IMRAN,parties.IN.IND,46,0.05,18,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,SUHAIL SAIT,,31,0.03,19,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3468,karnataka,2019,162,SHIVAJINAGAR,MUKTHAR ALI KHAN,,19,0.02,20,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3622,karnataka,2019,192,KRISHNARAJPET,NARAYAN GOWDA,,66094,39.41,1,won,M,56,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3622,karnataka,2019,192,KRISHNARAJPET,B. L. DEVARAJ,,56363,33.61,2,lost,M,68,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3622,karnataka,2019,192,KRISHNARAJPET,K. B. CHANDRASHEKARA,,41665,24.85,3,lost,M,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3622,karnataka,2019,192,KRISHNARAJPET,NARAYAN GOWDA,parties.IN.BJP,66094,39.41,1,won,M,56,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3622,karnataka,2019,192,KRISHNARAJPET,B. L. DEVARAJ,parties.IN.JDS,56363,33.61,2,lost,M,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3622,karnataka,2019,192,KRISHNARAJPET,K. B. CHANDRASHEKARA,parties.IN.INC,41665,24.85,3,lost,M,67,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3622,karnataka,2019,192,KRISHNARAJPET,CHANDRE GOWDA  H.M.,,1020,0.61,4,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3622,karnataka,2019,192,KRISHNARAJPET,H.D.REVANNA,,942,0.56,5,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3622,karnataka,2019,192,KRISHNARAJPET,NOTA,,748,0.45,6,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3622,karnataka,2019,192,KRISHNARAJPET,DEVEGOWDA,,525,0.31,7,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3622,karnataka,2019,192,KRISHNARAJPET,DEVEGOWDA,parties.IN.IND,525,0.31,7,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3622,karnataka,2019,192,KRISHNARAJPET,KEREMEGALAKOPPALU SHANKAREGOWDA,,341,0.2,8,forfeit,M,37,,,challenger,src-1b7bc1c9d39a

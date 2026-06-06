@@ -1,2 +1,2 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-odisha-2271,odisha,2012,ATHAGARH,174301,132977,76.29,R. P. Swain,,87604,65.88,S. Mohapatra,,40214,47390,35.64,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2271,odisha,2012,ATHAGARH,174301,132977,76.29,R. P. Swain,,87604,65.88,S. Mohapatra,parties.IN.INC,40214,47390,35.64,src-1b7bc1c9d39a

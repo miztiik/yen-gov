@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2016,40,ANANTNAG,Mehbooba Mufti (E),,17701,63.01,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2016,40,ANANTNAG,Hilal Ahmad Shah,,5616,19.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2016,40,ANANTNAG,Hilal Ahmad Shah,parties.IN.INC,5616,19.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2016,40,ANANTNAG,Iftikhar Hussain  Misger,,2811,10.01,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2016,40,ANANTNAG,Mujieb-UR-Rehman,,642,2.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2016,40,ANANTNAG,Manzoor Ahmad Khan,,541,1.93,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

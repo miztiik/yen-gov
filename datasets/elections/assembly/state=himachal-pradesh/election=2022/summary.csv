@@ -1,69 +1,69 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-himachal-pradesh-100,himachal-pradesh,2022,KUTLEHAR,86934,66808,76.85,Davinder Kumar,,36636,54.84,VIRENDER KANWAR,,29057,7579,11.35,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-101,himachal-pradesh,2022,NADAUN,94931,71039,74.83,SUKHVINDER SINGH,,36142,50.88,VIJAY KUMAR,,32779,3363,4.74,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-102,himachal-pradesh,2022,SRI NAINA DEVIJI,75176,62254,82.81,RANDHIR SHARMA,,29403,47.23,RAM LAL THAKUR,,29232,171,0.27,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-103,himachal-pradesh,2022,SUJANPUR,75396,55597,73.74,RAJINDER SINGH,,27679,49.79,RANJIT SINGH RANA,,27280,399,0.72,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-104,himachal-pradesh,2022,UNA,87136,67877,77.9,Satpal Singh Satti,,33974,50.05,Satpal Singh Raizada,,32238,1736,2.56,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-105,himachal-pradesh,2022,BAIJNATH,91352,58301,63.82,Kishori Lal,,29338,50.32,Mulkh Raj,,25892,3446,5.91,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-106,himachal-pradesh,2022,BHATTIYAT,81594,59424,72.83,KULDEEP SINGH PATHANIA,,25989,43.73,BIKRAM SINGH,,24422,1567,2.63,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-107,himachal-pradesh,2022,CHAMBA,84616,61528,72.71,Neeraj Nayar,,32783,53.28,Neelam Nayyar,,25001,7782,12.65,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-108,himachal-pradesh,2022,CHURAH,78823,62327,79.07,Hans Raj,,32095,51.49,Yashwant Singh,,29453,2642,4.23,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-109,himachal-pradesh,2022,DALHOUSIE,75714,58246,76.93,DHAVINDER SINGH,,33488,57.49,ASHA KUMARI,,23570,9918,17.02,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-110,himachal-pradesh,2022,DHARAMSHALA,83829,60010,71.59,SUDHIR SHARMA,,27323,45.53,RAKESH KUMAR,,24038,3285,5.47,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2022,FATEHPUR,90203,64133,71.1,BHAWANI SINGH PATHANIA,,33238,51.83,RAKESH PATHANIA,,25884,7354,11.47,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-112,himachal-pradesh,2022,INDORA,93244,67618,72.52,MALENDER RAJAN,,30797,45.55,REETA DEVI,,28547,2250,3.33,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-113,himachal-pradesh,2022,JAISINGHPUR,85180,55637,65.32,Yadvinder Goma,,28058,50.43,Ravinder Kumar Dhiman,,25362,2696,4.85,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-114,himachal-pradesh,2022,JAWALAMUKHI,80141,59872,74.71,SANJAY RATTAN,,27827,46.48,RAVINDER SINGH,,21423,6404,10.7,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-115,himachal-pradesh,2022,JAWALI,101845,74669,73.32,CHANDER KUMAR,,38243,51.22,SANJAY GULERIA,,35212,3031,4.06,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-116,himachal-pradesh,2022,KANGRA,83547,63339,75.81,Pawan Kumar Kajal,,35239,55.64,Surinder Kumar,,15405,19834,31.32,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-117,himachal-pradesh,2022,NAGROTA,90962,70275,77.26,R.S. BALI,,42079,59.88,ARUN KUMAR,,26187,15892,22.62,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-118,himachal-pradesh,2022,NURPUR,93717,70664,75.4,RANBIR SINGH,,44132,62.45,AJAY MAHAJAN,,25380,18752,26.53,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-119,himachal-pradesh,2022,PALAMPUR,78449,57476,73.27,Ashish Butail,,30874,53.72,Trilok Kapoor,,25546,5328,9.27,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-120,himachal-pradesh,2022,SHAHPUR,89978,66088,73.45,KEWAL SINGH,,36603,55.39,SARVEEN,,24360,12243,18.53,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-121,himachal-pradesh,2022,SULLAH,106976,75845,70.9,VIPIN SINGH PARMAR,,36670,48.35,JAGJIWAN PAUL,,29558,7112,9.38,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-122,himachal-pradesh,2022,ANNI,88955,67468,75.85,LOKENDER KUMAR,,24133,35.77,PARAS RAM,,17355,6778,10.05,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-123,himachal-pradesh,2022,BALH,81597,64726,79.32,INDER SINGH,,31792,49.12,PRAKASH CHAUDHARY,,30485,1307,2.02,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-124,himachal-pradesh,2022,BANJAR,75592,61908,81.9,SURENDER SHOURIE,,25038,40.44,KHIMI RAM,,20704,4334,7,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-125,himachal-pradesh,2022,BHARMOUR,79000,56509,71.53,Dr. Janak Raj,,30336,53.68,Thakur Singh Bharmouri,,25164,5172,9.15,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-126,himachal-pradesh,2022,DARANG,91525,73490,80.3,Puran Chand,,36572,49.76,Kaul Singh,,35954,618,0.84,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-127,himachal-pradesh,2022,JOGINDERNAGAR,101046,70563,69.83,Prakash Prem Kumar,,33782,47.87,Thakur Surender Pal,,29443,4339,6.14,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-128,himachal-pradesh,2022,KARSOG,76609,60169,78.54,DEEP RAJ,,34512,57.36,MAHESH RAJ,,23978,10534,17.51,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-129,himachal-pradesh,2022,KINNAUR,60289,44085,73.12,Jagat Singh Negi,,20696,46.95,Surat Negi,,13732,6964,15.8,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-130,himachal-pradesh,2022,KULLU,92050,71165,77.31,SUNDER SINGH THAKUR,,30286,42.56,NAROTAM SINGH,,26183,4103,5.77,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-131,himachal-pradesh,2022,LAHAUL & SPITI,25496,18801,73.74,RAVI THAKUR,,9948,52.91,DR.RAM LAL MARKANDA,,8332,1616,8.59,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-132,himachal-pradesh,2022,MANALI,74903,60437,80.69,Bhuvneshwar Gaur,,29892,49.46,Govind Singh Thakur,,26935,2957,4.89,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-133,himachal-pradesh,2022,MANDI,78113,58650,75.08,ANIL SHARMA,,31303,53.37,CHAMPA THAKUR,,21297,10006,17.06,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-134,himachal-pradesh,2022,NACHAN,88483,71559,80.87,VINOD KUMAR,,33200,46.4,NARESH KUMAR,,24244,8956,12.52,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-135,himachal-pradesh,2022,RAMPUR,77215,57871,74.95,NAND LAL,,28397,49.07,KAUL SINGH,,27830,567,0.98,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-136,himachal-pradesh,2022,SARKAGHAT,92207,63761,69.15,DALIP THAKUR,,27346,42.89,PAWAN KUMAR,,25539,1807,2.84,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-137,himachal-pradesh,2022,SERAJ,84315,70752,83.91,JAI RAM THAKUR,,53562,75.7,CHET RAM,,15379,38183,53.96,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-138,himachal-pradesh,2022,SUNDERNAGAR,83690,66651,79.64,Rakesh Kumar,,29432,44.16,Sohan Lal,,21307,8125,12.19,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2022,ARKI,95788,73536,76.77,Sanjay,,30897,42.02,Rajender,,26075,4822,6.56,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-140,himachal-pradesh,2022,CHOPAL,81782,62227,76.09,Sh. Balbir Singh Verma,,25873,41.58,Sh. Rajneesh Kimta,,20840,5033,8.09,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-141,himachal-pradesh,2022,DOON,71948,61744,85.82,RAM KUMAR,,32038,51.89,PARAMJEET SINGH PAMMI,,25227,6811,11.03,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2022,JUBBAL-KOTKHAI,73362,59627,81.28,ROHIT THAKUR,,31393,52.65,CHETAN SINGH BRAGTA,,26324,5069,8.5,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-143,himachal-pradesh,2022,KASAULI,68932,54125,78.52,VINOD SULTANPURI,,28200,52.1,RAJIV SAIZAL,,21432,6768,12.5,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-144,himachal-pradesh,2022,KASUMPTI,67017,46470,69.34,Anirudh Singh,,25759,55.43,Suresh Bhardwaj,,17104,8655,18.62,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-145,himachal-pradesh,2022,NAHAN,85818,70475,82.12,Ajay Solanki,,35291,50.08,Dr. Rajeev Bindal,,33652,1639,2.33,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-146,himachal-pradesh,2022,NALAGARH,91955,75101,81.67,K. L. THAKUR,,33427,44.51,HARDEEP SINGH BAWA,,20163,13264,17.66,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-147,himachal-pradesh,2022,PACHHAD,77181,61450,79.62,Reena,,21215,34.52,Dayal Pyari,,17358,3857,6.27,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-148,himachal-pradesh,2022,PAONTA SAHIB,85540,66075,77.24,Sukh Ram,,31008,46.93,Kirnesh Jung,,22412,8596,13.01,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-149,himachal-pradesh,2022,ROHRU,75253,55454,73.69,Mohan Lal Brakta,,34327,61.9,Shashi Bala,,14988,19339,34.87,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-150,himachal-pradesh,2022,SHILLAI,76343,65271,85.5,Harshwardhan Chauhan,,32093,49.17,Baldev Singh,,31711,382,0.59,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-151,himachal-pradesh,2022,SHIMLA,48608,30778,63.32,HARISH JANARTHA,,15803,51.35,SANJAY SOOD,,12766,3037,9.87,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-152,himachal-pradesh,2022,SHIMLA RURAL,78294,58597,74.84,Vikramaditya Singh,,35269,60.19,Ravi Kumar Mehta,,21409,13860,23.65,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-153,himachal-pradesh,2022,SOLAN,86333,58385,67.63,DHANI RAM SHANDIL,,30089,51.54,RAJESH KASHYAP,,26231,3858,6.61,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-154,himachal-pradesh,2022,SRI RENUKAJI,74365,59687,80.26,Vinay Kumar,,28642,47.99,Narain Singh,,27782,860,1.44,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-155,himachal-pradesh,2022,THEOG,86236,65980,76.51,KULDEEP SINGH RATHORE,,19447,29.47,AJAY SHYAM,,14178,5269,7.98,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-88,himachal-pradesh,2022,BARSAR,87505,62907,71.89,INDER DUTT LAKHANPAL,,30293,48.16,MAYA SHARMA,,16501,13792,21.93,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-89,himachal-pradesh,2022,BHORANJ,82738,57417,69.4,SURESH KUMAR,,24779,43.16,DR. ANIL DHIMAN,,24719,60,0.11,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-90,himachal-pradesh,2022,BILASPUR,83903,64877,77.32,TRILOK JAMWAL,,30988,47.76,BUMBER THAKUR,,30712,276,0.42,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-91,himachal-pradesh,2022,CHINTPURNI,84013,62072,73.88,SUDARSHAN SINGH BABLOO,,32712,52.7,BALBIR SINGH,,27854,4858,7.83,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-92,himachal-pradesh,2022,DEHRA,85263,60575,71.04,HOSHYAR SINGH,,22997,37.96,DR. RAJESH SHARMA,,19120,3877,6.4,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-93,himachal-pradesh,2022,DHARAMPUR,82732,59857,72.35,CHANDER SHEKHAR,,31063,51.9,RAJAT THAKUR,,28037,3026,5.06,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-94,himachal-pradesh,2022,GAGRET,84517,66665,78.88,Chaitanya Sharma,,40767,61.15,Rajesh Thakur,,25082,15685,23.53,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-95,himachal-pradesh,2022,GHUMARWIN,90144,68092,75.54,RAJESH DHARMANI,,35378,51.96,RAJINDER GARG,,29767,5611,8.24,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-96,himachal-pradesh,2022,HAMIRPUR,76646,55039,71.81,ASHISH SHARMA,,25916,47.09,PUSHPINDER VERMA,,13017,12899,23.44,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-97,himachal-pradesh,2022,HAROLI,88951,69858,78.54,MUKESH AGNIHOTRI,,38652,55.33,RAM KUMAR,,29504,9148,13.1,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-98,himachal-pradesh,2022,JASWAN-PRAGPUR,79856,59201,74.13,BIKRAM SINGH,,22658,38.27,SURINDER SINGH MANKOTIA,,20869,1789,3.02,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-99,himachal-pradesh,2022,JHANDUTA,80977,60501,74.71,JEET RAM KATWAL,,28268,46.72,VIVEK KUMAR,,22469,5799,9.58,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-100,himachal-pradesh,2022,KUTLEHAR,86934,66808,76.85,Davinder Kumar,parties.IN.INC,36636,54.84,VIRENDER KANWAR,parties.IN.BJP,29057,7579,11.35,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-101,himachal-pradesh,2022,NADAUN,94931,71039,74.83,SUKHVINDER SINGH,parties.IN.INC,36142,50.88,VIJAY KUMAR,parties.IN.BJP,32779,3363,4.74,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-102,himachal-pradesh,2022,SRI NAINA DEVIJI,75176,62254,82.81,RANDHIR SHARMA,parties.IN.BJP,29403,47.23,RAM LAL THAKUR,parties.IN.INC,29232,171,0.27,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-103,himachal-pradesh,2022,SUJANPUR,75396,55597,73.74,RAJINDER SINGH,parties.IN.INC,27679,49.79,RANJIT SINGH RANA,parties.IN.BJP,27280,399,0.72,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-104,himachal-pradesh,2022,UNA,87136,67877,77.9,Satpal Singh Satti,parties.IN.BJP,33974,50.05,Satpal Singh Raizada,parties.IN.INC,32238,1736,2.56,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-105,himachal-pradesh,2022,BAIJNATH,91352,58301,63.82,Kishori Lal,parties.IN.INC,29338,50.32,Mulkh Raj,parties.IN.BJP,25892,3446,5.91,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-106,himachal-pradesh,2022,BHATTIYAT,81594,59424,72.83,KULDEEP SINGH PATHANIA,parties.IN.INC,25989,43.73,BIKRAM SINGH,parties.IN.BJP,24422,1567,2.63,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-107,himachal-pradesh,2022,CHAMBA,84616,61528,72.71,Neeraj Nayar,parties.IN.INC,32783,53.28,Neelam Nayyar,parties.IN.BJP,25001,7782,12.65,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-108,himachal-pradesh,2022,CHURAH,78823,62327,79.07,Hans Raj,parties.IN.BJP,32095,51.49,Yashwant Singh,parties.IN.INC,29453,2642,4.23,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-109,himachal-pradesh,2022,DALHOUSIE,75714,58246,76.93,DHAVINDER SINGH,parties.IN.BJP,33488,57.49,ASHA KUMARI,parties.IN.INC,23570,9918,17.02,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-110,himachal-pradesh,2022,DHARAMSHALA,83829,60010,71.59,SUDHIR SHARMA,parties.IN.INC,27323,45.53,RAKESH KUMAR,parties.IN.BJP,24038,3285,5.47,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2022,FATEHPUR,90203,64133,71.1,BHAWANI SINGH PATHANIA,parties.IN.INC,33238,51.83,RAKESH PATHANIA,parties.IN.BJP,25884,7354,11.47,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-112,himachal-pradesh,2022,INDORA,93244,67618,72.52,MALENDER RAJAN,parties.IN.INC,30797,45.55,REETA DEVI,parties.IN.BJP,28547,2250,3.33,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-113,himachal-pradesh,2022,JAISINGHPUR,85180,55637,65.32,Yadvinder Goma,parties.IN.INC,28058,50.43,Ravinder Kumar Dhiman,parties.IN.BJP,25362,2696,4.85,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-114,himachal-pradesh,2022,JAWALAMUKHI,80141,59872,74.71,SANJAY RATTAN,parties.IN.INC,27827,46.48,RAVINDER SINGH,parties.IN.BJP,21423,6404,10.7,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-115,himachal-pradesh,2022,JAWALI,101845,74669,73.32,CHANDER KUMAR,parties.IN.INC,38243,51.22,SANJAY GULERIA,parties.IN.BJP,35212,3031,4.06,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-116,himachal-pradesh,2022,KANGRA,83547,63339,75.81,Pawan Kumar Kajal,parties.IN.BJP,35239,55.64,Surinder Kumar,parties.IN.INC,15405,19834,31.32,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-117,himachal-pradesh,2022,NAGROTA,90962,70275,77.26,R.S. BALI,parties.IN.INC,42079,59.88,ARUN KUMAR,parties.IN.BJP,26187,15892,22.62,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-118,himachal-pradesh,2022,NURPUR,93717,70664,75.4,RANBIR SINGH,parties.IN.BJP,44132,62.45,AJAY MAHAJAN,parties.IN.INC,25380,18752,26.53,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-119,himachal-pradesh,2022,PALAMPUR,78449,57476,73.27,Ashish Butail,parties.IN.INC,30874,53.72,Trilok Kapoor,parties.IN.BJP,25546,5328,9.27,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-120,himachal-pradesh,2022,SHAHPUR,89978,66088,73.45,KEWAL SINGH,parties.IN.INC,36603,55.39,SARVEEN,parties.IN.BJP,24360,12243,18.53,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-121,himachal-pradesh,2022,SULLAH,106976,75845,70.9,VIPIN SINGH PARMAR,parties.IN.BJP,36670,48.35,JAGJIWAN PAUL,parties.IN.IND,29558,7112,9.38,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-122,himachal-pradesh,2022,ANNI,88955,67468,75.85,LOKENDER KUMAR,parties.IN.BJP,24133,35.77,PARAS RAM,parties.IN.IND,17355,6778,10.05,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-123,himachal-pradesh,2022,BALH,81597,64726,79.32,INDER SINGH,parties.IN.BJP,31792,49.12,PRAKASH CHAUDHARY,parties.IN.INC,30485,1307,2.02,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-124,himachal-pradesh,2022,BANJAR,75592,61908,81.9,SURENDER SHOURIE,parties.IN.BJP,25038,40.44,KHIMI RAM,parties.IN.INC,20704,4334,7,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-125,himachal-pradesh,2022,BHARMOUR,79000,56509,71.53,Dr. Janak Raj,parties.IN.BJP,30336,53.68,Thakur Singh Bharmouri,parties.IN.INC,25164,5172,9.15,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-126,himachal-pradesh,2022,DARANG,91525,73490,80.3,Puran Chand,parties.IN.BJP,36572,49.76,Kaul Singh,parties.IN.INC,35954,618,0.84,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-127,himachal-pradesh,2022,JOGINDERNAGAR,101046,70563,69.83,Prakash Prem Kumar,parties.IN.BJP,33782,47.87,Thakur Surender Pal,parties.IN.INC,29443,4339,6.14,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-128,himachal-pradesh,2022,KARSOG,76609,60169,78.54,DEEP RAJ,parties.IN.BJP,34512,57.36,MAHESH RAJ,parties.IN.INC,23978,10534,17.51,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-129,himachal-pradesh,2022,KINNAUR,60289,44085,73.12,Jagat Singh Negi,parties.IN.INC,20696,46.95,Surat Negi,parties.IN.BJP,13732,6964,15.8,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-130,himachal-pradesh,2022,KULLU,92050,71165,77.31,SUNDER SINGH THAKUR,parties.IN.INC,30286,42.56,NAROTAM SINGH,parties.IN.BJP,26183,4103,5.77,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-131,himachal-pradesh,2022,LAHAUL & SPITI,25496,18801,73.74,RAVI THAKUR,parties.IN.INC,9948,52.91,DR.RAM LAL MARKANDA,parties.IN.BJP,8332,1616,8.59,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-132,himachal-pradesh,2022,MANALI,74903,60437,80.69,Bhuvneshwar Gaur,parties.IN.INC,29892,49.46,Govind Singh Thakur,parties.IN.BJP,26935,2957,4.89,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-133,himachal-pradesh,2022,MANDI,78113,58650,75.08,ANIL SHARMA,parties.IN.BJP,31303,53.37,CHAMPA THAKUR,parties.IN.INC,21297,10006,17.06,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-134,himachal-pradesh,2022,NACHAN,88483,71559,80.87,VINOD KUMAR,parties.IN.BJP,33200,46.4,NARESH KUMAR,parties.IN.INC,24244,8956,12.52,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-135,himachal-pradesh,2022,RAMPUR,77215,57871,74.95,NAND LAL,parties.IN.INC,28397,49.07,KAUL SINGH,parties.IN.BJP,27830,567,0.98,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-136,himachal-pradesh,2022,SARKAGHAT,92207,63761,69.15,DALIP THAKUR,parties.IN.BJP,27346,42.89,PAWAN KUMAR,parties.IN.INC,25539,1807,2.84,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-137,himachal-pradesh,2022,SERAJ,84315,70752,83.91,JAI RAM THAKUR,parties.IN.BJP,53562,75.7,CHET RAM,parties.IN.INC,15379,38183,53.96,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-138,himachal-pradesh,2022,SUNDERNAGAR,83690,66651,79.64,Rakesh Kumar,parties.IN.BJP,29432,44.16,Sohan Lal,parties.IN.INC,21307,8125,12.19,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2022,ARKI,95788,73536,76.77,Sanjay,parties.IN.INC,30897,42.02,Rajender,parties.IN.IND,26075,4822,6.56,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-140,himachal-pradesh,2022,CHOPAL,81782,62227,76.09,Sh. Balbir Singh Verma,parties.IN.BJP,25873,41.58,Sh. Rajneesh Kimta,parties.IN.INC,20840,5033,8.09,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-141,himachal-pradesh,2022,DOON,71948,61744,85.82,RAM KUMAR,parties.IN.INC,32038,51.89,PARAMJEET SINGH PAMMI,parties.IN.BJP,25227,6811,11.03,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2022,JUBBAL-KOTKHAI,73362,59627,81.28,ROHIT THAKUR,parties.IN.INC,31393,52.65,CHETAN SINGH BRAGTA,parties.IN.BJP,26324,5069,8.5,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-143,himachal-pradesh,2022,KASAULI,68932,54125,78.52,VINOD SULTANPURI,parties.IN.INC,28200,52.1,RAJIV SAIZAL,parties.IN.BJP,21432,6768,12.5,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-144,himachal-pradesh,2022,KASUMPTI,67017,46470,69.34,Anirudh Singh,parties.IN.INC,25759,55.43,Suresh Bhardwaj,parties.IN.BJP,17104,8655,18.62,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-145,himachal-pradesh,2022,NAHAN,85818,70475,82.12,Ajay Solanki,parties.IN.INC,35291,50.08,Dr. Rajeev Bindal,parties.IN.BJP,33652,1639,2.33,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-146,himachal-pradesh,2022,NALAGARH,91955,75101,81.67,K. L. THAKUR,parties.IN.IND,33427,44.51,HARDEEP SINGH BAWA,parties.IN.INC,20163,13264,17.66,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-147,himachal-pradesh,2022,PACHHAD,77181,61450,79.62,Reena,parties.IN.BJP,21215,34.52,Dayal Pyari,parties.IN.INC,17358,3857,6.27,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-148,himachal-pradesh,2022,PAONTA SAHIB,85540,66075,77.24,Sukh Ram,parties.IN.BJP,31008,46.93,Kirnesh Jung,parties.IN.INC,22412,8596,13.01,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-149,himachal-pradesh,2022,ROHRU,75253,55454,73.69,Mohan Lal Brakta,parties.IN.INC,34327,61.9,Shashi Bala,parties.IN.BJP,14988,19339,34.87,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-150,himachal-pradesh,2022,SHILLAI,76343,65271,85.5,Harshwardhan Chauhan,parties.IN.INC,32093,49.17,Baldev Singh,parties.IN.BJP,31711,382,0.59,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-151,himachal-pradesh,2022,SHIMLA,48608,30778,63.32,HARISH JANARTHA,parties.IN.INC,15803,51.35,SANJAY SOOD,parties.IN.BJP,12766,3037,9.87,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-152,himachal-pradesh,2022,SHIMLA RURAL,78294,58597,74.84,Vikramaditya Singh,parties.IN.INC,35269,60.19,Ravi Kumar Mehta,parties.IN.BJP,21409,13860,23.65,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-153,himachal-pradesh,2022,SOLAN,86333,58385,67.63,DHANI RAM SHANDIL,parties.IN.INC,30089,51.54,RAJESH KASHYAP,parties.IN.BJP,26231,3858,6.61,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-154,himachal-pradesh,2022,SRI RENUKAJI,74365,59687,80.26,Vinay Kumar,parties.IN.INC,28642,47.99,Narain Singh,parties.IN.BJP,27782,860,1.44,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-155,himachal-pradesh,2022,THEOG,86236,65980,76.51,KULDEEP SINGH RATHORE,parties.IN.INC,19447,29.47,AJAY SHYAM,parties.IN.BJP,14178,5269,7.98,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-88,himachal-pradesh,2022,BARSAR,87505,62907,71.89,INDER DUTT LAKHANPAL,parties.IN.INC,30293,48.16,MAYA SHARMA,parties.IN.BJP,16501,13792,21.93,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-89,himachal-pradesh,2022,BHORANJ,82738,57417,69.4,SURESH KUMAR,parties.IN.INC,24779,43.16,DR. ANIL DHIMAN,parties.IN.BJP,24719,60,0.11,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-90,himachal-pradesh,2022,BILASPUR,83903,64877,77.32,TRILOK JAMWAL,parties.IN.BJP,30988,47.76,BUMBER THAKUR,parties.IN.INC,30712,276,0.42,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-91,himachal-pradesh,2022,CHINTPURNI,84013,62072,73.88,SUDARSHAN SINGH BABLOO,parties.IN.INC,32712,52.7,BALBIR SINGH,parties.IN.BJP,27854,4858,7.83,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-92,himachal-pradesh,2022,DEHRA,85263,60575,71.04,HOSHYAR SINGH,parties.IN.IND,22997,37.96,DR. RAJESH SHARMA,parties.IN.INC,19120,3877,6.4,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-93,himachal-pradesh,2022,DHARAMPUR,82732,59857,72.35,CHANDER SHEKHAR,parties.IN.INC,31063,51.9,RAJAT THAKUR,parties.IN.BJP,28037,3026,5.06,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-94,himachal-pradesh,2022,GAGRET,84517,66665,78.88,Chaitanya Sharma,parties.IN.INC,40767,61.15,Rajesh Thakur,parties.IN.BJP,25082,15685,23.53,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-95,himachal-pradesh,2022,GHUMARWIN,90144,68092,75.54,RAJESH DHARMANI,parties.IN.INC,35378,51.96,RAJINDER GARG,parties.IN.BJP,29767,5611,8.24,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-96,himachal-pradesh,2022,HAMIRPUR,76646,55039,71.81,ASHISH SHARMA,parties.IN.IND,25916,47.09,PUSHPINDER VERMA,parties.IN.INC,13017,12899,23.44,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-97,himachal-pradesh,2022,HAROLI,88951,69858,78.54,MUKESH AGNIHOTRI,parties.IN.INC,38652,55.33,RAM KUMAR,parties.IN.BJP,29504,9148,13.1,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-98,himachal-pradesh,2022,JASWAN-PRAGPUR,79856,59201,74.13,BIKRAM SINGH,parties.IN.BJP,22658,38.27,SURINDER SINGH MANKOTIA,parties.IN.INC,20869,1789,3.02,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-99,himachal-pradesh,2022,JHANDUTA,80977,60501,74.71,JEET RAM KATWAL,parties.IN.BJP,28268,46.72,VIVEK KUMAR,parties.IN.INC,22469,5799,9.58,src-1b7bc1c9d39a

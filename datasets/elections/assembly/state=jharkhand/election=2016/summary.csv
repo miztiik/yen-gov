@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-jharkhand-2144,jharkhand,2016,PANKI,240584,154257,64.12,Devendra Kumar Singh,,56343,36.53,Kushwaha Shashi Bhushan Mehta,,52785,3558,2.31,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2165,jharkhand,2016,GODDA,270793,160385,59.23,Amit Kumar Mandal 'E',,83987,52.37,Sanjay Prasad Yadav,,49436,34551,21.55,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2144,jharkhand,2016,PANKI,240584,154257,64.12,Devendra Kumar Singh,parties.IN.INC,56343,36.53,Kushwaha Shashi Bhushan Mehta,parties.IN.JMM,52785,3558,2.31,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2165,jharkhand,2016,GODDA,270793,160385,59.23,Amit Kumar Mandal 'E',parties.IN.BJP,83987,52.37,Sanjay Prasad Yadav,parties.IN.RJD,49436,34551,21.55,src-1b7bc1c9d39a

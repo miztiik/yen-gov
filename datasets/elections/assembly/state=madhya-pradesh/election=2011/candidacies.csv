@@ -1,36 +1,36 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,D S L D Bhaiya,,53846,43.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,T R Soloman,,42108,34.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,A S R Bhaiya,,10577,8.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,Hariram Thakur,,2985,2.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,Sangeeta Merkam,,2598,2.1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,S Yadav,,2561,2.07,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,S. Lal Ahirwar,,1645,1.33,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,S Ahirwar,,1475,1.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,D S L D Bhaiya,parties.IN.BJP,53846,43.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,T R Soloman,parties.IN.INC,42108,34.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,A S R Bhaiya,parties.IN.IND,10577,8.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,Hariram Thakur,parties.IN.GGP,2985,2.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,Sangeeta Merkam,parties.IN.IND,2598,2.1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,S Yadav,parties.IN.IND,2561,2.07,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,S. Lal Ahirwar,parties.IN.IND,1645,1.33,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,S Ahirwar,parties.IN.IND,1475,1.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,Bhagwan Singh,,1006,0.81,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,V  Dubey,,849,0.69,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,R P Aadiwasi,,757,0.61,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,Hariram,,553,0.45,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,Laxman Singh,,467,0.38,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,Dashrath Bhaiya,,456,0.37,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,D.S.D.B. Chet Singh,,382,0.31,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,DSDB Pancha,,338,0.27,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,V  Dubey,parties.IN.IND,849,0.69,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,R P Aadiwasi,parties.IN.IND,757,0.61,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,Hariram,parties.IN.IND,553,0.45,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,Laxman Singh,parties.IN.IND,467,0.38,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,Dashrath Bhaiya,parties.IN.IND,456,0.37,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,D.S.D.B. Chet Singh,parties.IN.IND,382,0.31,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,DSDB Pancha,parties.IN.IND,338,0.27,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,H Pappu Bhaiya,,311,0.25,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,K Ahirwar,,306,0.25,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,K Ahirwar,parties.IN.IND,306,0.25,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2502,madhya-pradesh,2011,56,JABERA,R Kumar Buddh,,282,0.23,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,R P C Verma,,74356,54.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,Arjun Verma,,54899,40.47,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,V.L. Jogchand,,1802,1.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,M S (Pahalwan),,1331,0.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,A S Verma,,1168,0.86,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,R M Verma,,1083,0.8,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,R G Verma,,368,0.27,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,Bahadur Singh,,249,0.18,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,Ashok Malviya,,210,0.15,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,B Malviya,,182,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2519,madhya-pradesh,2011,198,KUKSHI,K M Singh,,60294,53.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2519,madhya-pradesh,2011,198,KUKSHI,Nisha Singhar,,44178,39.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2519,madhya-pradesh,2011,198,KUKSHI,Ramlal,,3211,2.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2519,madhya-pradesh,2011,198,KUKSHI,Bhagwan Singh,,2298,2.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,R P C Verma,parties.IN.BJP,74356,54.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,Arjun Verma,parties.IN.INC,54899,40.47,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,V.L. Jogchand,parties.IN.IND,1802,1.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,M S (Pahalwan),parties.IN.IND,1331,0.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,A S Verma,parties.IN.IND,1168,0.86,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,R M Verma,parties.IN.IND,1083,0.8,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,R G Verma,parties.IN.IND,368,0.27,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,Bahadur Singh,parties.IN.IND,249,0.18,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,Ashok Malviya,parties.IN.IND,210,0.15,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2513,madhya-pradesh,2011,170,SONKATCH,B Malviya,parties.IN.IND,182,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2519,madhya-pradesh,2011,198,KUKSHI,K M Singh,parties.IN.BJP,60294,53.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2519,madhya-pradesh,2011,198,KUKSHI,Nisha Singhar,parties.IN.INC,44178,39.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2519,madhya-pradesh,2011,198,KUKSHI,Ramlal,parties.IN.IND,3211,2.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2519,madhya-pradesh,2011,198,KUKSHI,Bhagwan Singh,parties.IN.IND,2298,2.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2519,madhya-pradesh,2011,198,KUKSHI,Ajay Singh,,1531,1.36,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2519,madhya-pradesh,2011,198,KUKSHI,J Singh Baghel,,751,0.67,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2519,madhya-pradesh,2011,198,KUKSHI,J Singh Baghel,parties.IN.GGP,751,0.67,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a

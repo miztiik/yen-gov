@@ -1,34 +1,34 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Antapurkar Jitesh Raosaheb,,108840,57.03,1,won,M,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Sabne Subhash Pirajirao,,66907,35.06,2,lost,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Antapurkar Jitesh Raosaheb,parties.IN.INC,108840,57.03,1,won,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Sabne Subhash Pirajirao,parties.IN.BJP,66907,35.06,2,lost,M,51,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Uttam Ramrao Ingole,,11348,5.95,3,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,NOTA,,1103,0.58,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Waghmare Vimal Baburao,,496,0.26,5,forfeit,F,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Comrade Prof.Sadashiv Rajaram Bhuyare,,486,0.25,6,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Kerurkar Vivek Pundlikrao,,467,0.24,7,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Bhagwan Govindrao Kandhare,,274,0.14,8,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Maroti Laxman Sonkamble,,243,0.13,9,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Waghmare Vimal Baburao,parties.IN.IND,496,0.26,5,forfeit,F,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Comrade Prof.Sadashiv Rajaram Bhuyare,parties.IN.IND,486,0.25,6,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Kerurkar Vivek Pundlikrao,parties.IN.JDS,467,0.24,7,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Bhagwan Govindrao Kandhare,parties.IN.IND,274,0.14,8,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Maroti Laxman Sonkamble,parties.IN.IND,243,0.13,9,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,D. D.Waghmare,,215,0.11,10,forfeit,M,60,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Gajbhare Sahebrao Bhiwa,,183,0.1,11,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Gajbhare Sahebrao Bhiwa,parties.IN.IND,183,0.1,11,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Prof. Parmeshwar Shivdas Waghmare,,155,0.08,12,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Arun Kondibarao Dapkekar,,143,0.07,13,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Autade Samadhan Mahadev,,109450,48.15,1,won,M,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Bhalke Bhagirath Bharat,,105717,46.51,2,lost,M,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Autade Sidheshwar Baban,,2955,1.3,3,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Godase Shaila Dhananjay,,1607,0.71,4,forfeit,F,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Arun Kondibarao Dapkekar,parties.IN.IND,143,0.07,13,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Autade Samadhan Mahadev,parties.IN.BJP,109450,48.15,1,won,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Bhalke Bhagirath Bharat,parties.IN.NCP,105717,46.51,2,lost,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Autade Sidheshwar Baban,parties.IN.IND,2955,1.3,3,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Godase Shaila Dhananjay,parties.IN.BVA,1607,0.71,4,forfeit,F,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Birappa Madhukar Mote,,1196,0.53,5,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Sachin Arun Shinde,,1027,0.45,6,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Sudarshan Pandurang Masure,,849,0.37,7,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Sunil Suresh Gore,,768,0.34,8,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Mane Santosh Mahadeo,,729,0.32,9,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Sachin Arun Shinde,parties.IN.SWP,1027,0.45,6,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Sudarshan Pandurang Masure,parties.IN.IND,849,0.37,7,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Sunil Suresh Gore,parties.IN.IND,768,0.34,8,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Mane Santosh Mahadeo,parties.IN.IND,729,0.32,9,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,NOTA,,599,0.26,10,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Sandip Janardan Kharat,,500,0.22,11,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Sandip Janardan Kharat,parties.IN.IND,500,0.22,11,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Aware Siddheshwar Bharat,,469,0.21,12,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Birudev Sukhdev Papare,,412,0.18,13,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Birudev Sukhdev Papare,parties.IN.IND,412,0.18,13,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Mane Sanjay Nagnath,,272,0.12,14,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Nagesh Prakash Pawar,,206,0.09,15,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Abhijeet Wamanrao Bichukale,,137,0.06,16,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Nagesh Prakash Pawar,parties.IN.IND,206,0.09,15,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Abhijeet Wamanrao Bichukale,parties.IN.IND,137,0.06,16,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Adv. Sitaram Maruti Sonvale,,136,0.06,17,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Khandare Sudarshan Raychand,,114,0.05,18,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Kapil Shankar Koli,,94,0.04,19,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Khandare Sudarshan Raychand,parties.IN.IND,114,0.05,18,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Kapil Shankar Koli,parties.IN.IND,94,0.04,19,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Dr. Rajaram Kondiba Bhosale,,69,0.03,20,forfeit,M,43,,,challenger,src-1b7bc1c9d39a

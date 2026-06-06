@@ -1,192 +1,192 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-puducherry-4104,puducherry,2011,1,MANNADIPET,T.P.R. SELVAM,,12412,49.56,1,won,U,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4104,puducherry,2011,1,MANNADIPET,K.P.K. ARUL MURUGAN,,7696,30.73,2,lost,U,35,Graduate,MLA,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4104,puducherry,2011,1,MANNADIPET,N. RAJARAM,,4082,16.3,3,forfeit,U,72,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4104,puducherry,2011,1,MANNADIPET,D. GUNASHAKARAN,,329,1.31,4,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4104,puducherry,2011,1,MANNADIPET,M. LATCHUMANAN,,156,0.62,5,forfeit,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4104,puducherry,2011,1,MANNADIPET,PA. VADIVELAN,,152,0.61,6,forfeit,U,31,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4104,puducherry,2011,1,MANNADIPET,V. MURUGANANDHAM,,127,0.51,7,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4104,puducherry,2011,1,MANNADIPET,N.R. TANDAPANY,,91,0.36,8,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4117,puducherry,2011,2,THIRUBHUVANAI,P. ANGALANE,,13733,59.02,1,won,U,43,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4117,puducherry,2011,2,THIRUBHUVANAI,K. JAYARAJ,,8965,38.53,2,lost,U,60,Graduate,Ex Civil Service,crossover,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4117,puducherry,2011,2,THIRUBHUVANAI,M. DHANDAPANI,,241,1.04,3,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4117,puducherry,2011,2,THIRUBHUVANAI,M. SUNDARAMOORTHY,,212,0.91,4,forfeit,U,43,10th Pass,Musician or Artist,crossover,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4117,puducherry,2011,2,THIRUBHUVANAI,V.M. VELMURUGAN,,118,0.51,5,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4113,puducherry,2011,3,OUSSUDU,P. KARTHIKEYAN,,13327,58.78,1,won,U,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4113,puducherry,2011,3,OUSSUDU,A. ELUMALAI,,8169,36.03,2,lost,U,46,8th Pass,Managerial Position,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4113,puducherry,2011,3,OUSSUDU,P. SUNDARARASU PONNAS,,756,3.33,3,forfeit,U,53,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4113,puducherry,2011,3,OUSSUDU,M. PITCHEKARANE @ PITCHAIAPPAN,,224,0.99,4,forfeit,U,51,8th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4113,puducherry,2011,3,OUSSUDU,S.T. CALE,,77,0.34,5,forfeit,U,38,5th Pass,Actor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4113,puducherry,2011,3,OUSSUDU,A. SELVALATCHOUMY,,67,0.3,6,forfeit,U,34,Post Graduate,Household,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4113,puducherry,2011,3,OUSSUDU,S. SARAGANABAVA,,52,0.23,7,forfeit,U,31,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4103,puducherry,2011,4,MANGALAM,C. DJEACOUMAR,,14052,52.59,1,won,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4103,puducherry,2011,4,MANGALAM,P. ANANDABASKARAN,,11759,44.01,2,lost,U,63,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4103,puducherry,2011,4,MANGALAM,ABOOBAKKAR,,305,1.14,3,forfeit,U,25,8th Pass,Coolie,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4103,puducherry,2011,4,MANGALAM,PARANDAMANE,,177,0.66,4,forfeit,U,32,12th Pass,Managerial Position,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4103,puducherry,2011,4,MANGALAM,P. CANNANE,,171,0.64,5,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4103,puducherry,2011,4,MANGALAM,T. SIVASUBRAMANIAN,,105,0.39,6,forfeit,U,50,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4103,puducherry,2011,4,MANGALAM,P. PAVADAISAMY,,87,0.33,7,forfeit,U,40,10th Pass,Construction,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4103,puducherry,2011,4,MANGALAM,P. MURUGESAN,,43,0.16,8,forfeit,U,46,Literate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4103,puducherry,2011,4,MANGALAM,S. MANAVALADASS,,19,0.07,9,forfeit,U,31,12th Pass,"Trader, Agricultural Business",challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4119,puducherry,2011,5,VILLIANUR,A. NAMASSIVAYAM,,13105,52.03,1,won,U,41,Others,"MLA, Minister",incumbent,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4119,puducherry,2011,5,VILLIANUR,NADARAJAN .K,,11564,45.91,2,lost,U,61,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4119,puducherry,2011,5,VILLIANUR,M.S. PERUMAL,,186,0.74,3,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4119,puducherry,2011,5,VILLIANUR,SIVAKUMAR,,155,0.62,4,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4119,puducherry,2011,5,VILLIANUR,K. ATHIRIYEN,,136,0.54,5,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4119,puducherry,2011,5,VILLIANUR,KATHIRVELU,,42,0.17,6,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4114,puducherry,2011,6,OZHUKARAI,N.G. PANNIR SELVAM,,9071,37.77,1,won,U,48,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4114,puducherry,2011,6,OZHUKARAI,A.N. BALANE,,7505,31.25,2,lost,U,46,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4114,puducherry,2011,6,OZHUKARAI,A. JOHNKUMAR,,6833,28.45,3,lost,U,45,Illiterate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4114,puducherry,2011,6,OZHUKARAI,V. SANTHI,,216,0.9,4,forfeit,U,45,10th Pass,Household,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4114,puducherry,2011,6,OZHUKARAI,N. BALU,,95,0.4,5,forfeit,U,41,8th Pass,Musician or Artist,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4114,puducherry,2011,6,OZHUKARAI,V. SIVARAMAN,,90,0.37,6,forfeit,U,34,10th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4114,puducherry,2011,6,OZHUKARAI,S. SATHIYAVEL,,78,0.32,7,forfeit,U,37,Post Graduate,Film Director,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4114,puducherry,2011,6,OZHUKARAI,JOHN BOSCO,,75,0.31,8,forfeit,U,26,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4114,puducherry,2011,6,OZHUKARAI,B.A. MOUROUGAYEN,,54,0.22,9,forfeit,U,35,Graduate,NGO,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci7,puducherry,2011,7,KADIRGAMAM,N. RANGASAMY,,16323,70.02,1,won,U,61,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci7,puducherry,2011,7,KADIRGAMAM,V. PETHAPERUMAL,,6566,28.16,2,lost,U,63,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci7,puducherry,2011,7,KADIRGAMAM,B. JAYANTHIMALA,,254,1.09,3,forfeit,U,41,12th Pass,Household,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci7,puducherry,2011,7,KADIRGAMAM,B.A. MOUROUGAYEN,,170,0.73,4,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci8,puducherry,2011,8,INDIRA NAGAR,A.T. Selvane,,15053,62.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci8,puducherry,2011,8,INDIRA NAGAR,V.A. AKD.,,7007,28.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4104,puducherry,2011,1,MANNADIPET,T.P.R. SELVAM,parties.IN.AINRC,12412,49.56,1,won,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4104,puducherry,2011,1,MANNADIPET,K.P.K. ARUL MURUGAN,parties.IN.PMK,7696,30.73,2,lost,U,35,Graduate,MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4104,puducherry,2011,1,MANNADIPET,N. RAJARAM,parties.IN.IND,4082,16.3,3,forfeit,U,72,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4104,puducherry,2011,1,MANNADIPET,D. GUNASHAKARAN,parties.IN.IND,329,1.31,4,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4104,puducherry,2011,1,MANNADIPET,M. LATCHUMANAN,parties.IN.BJP,156,0.62,5,forfeit,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4104,puducherry,2011,1,MANNADIPET,PA. VADIVELAN,parties.IN.JDU,152,0.61,6,forfeit,U,31,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4104,puducherry,2011,1,MANNADIPET,V. MURUGANANDHAM,parties.IN.IND,127,0.51,7,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4104,puducherry,2011,1,MANNADIPET,N.R. TANDAPANY,parties.IN.IND,91,0.36,8,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4117,puducherry,2011,2,THIRUBHUVANAI,P. ANGALANE,parties.IN.AINRC,13733,59.02,1,won,U,43,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4117,puducherry,2011,2,THIRUBHUVANAI,K. JAYARAJ,parties.IN.INC,8965,38.53,2,lost,U,60,Graduate,Ex Civil Service,crossover,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4117,puducherry,2011,2,THIRUBHUVANAI,M. DHANDAPANI,parties.IN.IND,241,1.04,3,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4117,puducherry,2011,2,THIRUBHUVANAI,M. SUNDARAMOORTHY,parties.IN.BJP,212,0.91,4,forfeit,U,43,10th Pass,Musician or Artist,crossover,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4117,puducherry,2011,2,THIRUBHUVANAI,V.M. VELMURUGAN,parties.IN.BSP,118,0.51,5,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4113,puducherry,2011,3,OUSSUDU,P. KARTHIKEYAN,parties.IN.AINRC,13327,58.78,1,won,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4113,puducherry,2011,3,OUSSUDU,A. ELUMALAI,parties.IN.DMK,8169,36.03,2,lost,U,46,8th Pass,Managerial Position,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4113,puducherry,2011,3,OUSSUDU,P. SUNDARARASU PONNAS,parties.IN.IND,756,3.33,3,forfeit,U,53,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4113,puducherry,2011,3,OUSSUDU,M. PITCHEKARANE @ PITCHAIAPPAN,parties.IN.LJP,224,0.99,4,forfeit,U,51,8th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4113,puducherry,2011,3,OUSSUDU,S.T. CALE,parties.IN.PB,77,0.34,5,forfeit,U,38,5th Pass,Actor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4113,puducherry,2011,3,OUSSUDU,A. SELVALATCHOUMY,parties.IN.BSP,67,0.3,6,forfeit,U,34,Post Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4113,puducherry,2011,3,OUSSUDU,S. SARAGANABAVA,parties.IN.IND,52,0.23,7,forfeit,U,31,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4103,puducherry,2011,4,MANGALAM,C. DJEACOUMAR,parties.IN.INC,14052,52.59,1,won,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4103,puducherry,2011,4,MANGALAM,P. ANANDABASKARAN,parties.IN.AINRC,11759,44.01,2,lost,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4103,puducherry,2011,4,MANGALAM,ABOOBAKKAR,parties.IN.IND,305,1.14,3,forfeit,U,25,8th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4103,puducherry,2011,4,MANGALAM,PARANDAMANE,parties.IN.IND,177,0.66,4,forfeit,U,32,12th Pass,Managerial Position,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4103,puducherry,2011,4,MANGALAM,P. CANNANE,parties.IN.BJP,171,0.64,5,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4103,puducherry,2011,4,MANGALAM,T. SIVASUBRAMANIAN,parties.IN.IND,105,0.39,6,forfeit,U,50,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4103,puducherry,2011,4,MANGALAM,P. PAVADAISAMY,parties.IN.LJP,87,0.33,7,forfeit,U,40,10th Pass,Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4103,puducherry,2011,4,MANGALAM,P. MURUGESAN,parties.IN.IJK,43,0.16,8,forfeit,U,46,Literate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4103,puducherry,2011,4,MANGALAM,S. MANAVALADASS,parties.IN.JDU,19,0.07,9,forfeit,U,31,12th Pass,"Trader, Agricultural Business",challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4119,puducherry,2011,5,VILLIANUR,A. NAMASSIVAYAM,parties.IN.INC,13105,52.03,1,won,U,41,Others,"MLA, Minister",incumbent,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4119,puducherry,2011,5,VILLIANUR,NADARAJAN .K,parties.IN.AINRC,11564,45.91,2,lost,U,61,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4119,puducherry,2011,5,VILLIANUR,M.S. PERUMAL,parties.IN.BJP,186,0.74,3,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4119,puducherry,2011,5,VILLIANUR,SIVAKUMAR,parties.IN.IND,155,0.62,4,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4119,puducherry,2011,5,VILLIANUR,K. ATHIRIYEN,parties.IN.IND,136,0.54,5,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4119,puducherry,2011,5,VILLIANUR,KATHIRVELU,parties.IN.IND,42,0.17,6,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4114,puducherry,2011,6,OZHUKARAI,N.G. PANNIR SELVAM,parties.IN.AINRC,9071,37.77,1,won,U,48,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4114,puducherry,2011,6,OZHUKARAI,A.N. BALANE,parties.IN.IND,7505,31.25,2,lost,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4114,puducherry,2011,6,OZHUKARAI,A. JOHNKUMAR,parties.IN.DMK,6833,28.45,3,lost,U,45,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4114,puducherry,2011,6,OZHUKARAI,V. SANTHI,parties.IN.BJP,216,0.9,4,forfeit,U,45,10th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4114,puducherry,2011,6,OZHUKARAI,N. BALU,parties.IN.IND,95,0.4,5,forfeit,U,41,8th Pass,Musician or Artist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4114,puducherry,2011,6,OZHUKARAI,V. SIVARAMAN,parties.IN.IND,90,0.37,6,forfeit,U,34,10th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4114,puducherry,2011,6,OZHUKARAI,S. SATHIYAVEL,parties.IN.IJK,78,0.32,7,forfeit,U,37,Post Graduate,Film Director,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4114,puducherry,2011,6,OZHUKARAI,JOHN BOSCO,parties.IN.IND,75,0.31,8,forfeit,U,26,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4114,puducherry,2011,6,OZHUKARAI,B.A. MOUROUGAYEN,parties.IN.IND,54,0.22,9,forfeit,U,35,Graduate,NGO,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci7,puducherry,2011,7,KADIRGAMAM,N. RANGASAMY,parties.IN.AINRC,16323,70.02,1,won,U,61,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci7,puducherry,2011,7,KADIRGAMAM,V. PETHAPERUMAL,parties.IN.INC,6566,28.16,2,lost,U,63,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci7,puducherry,2011,7,KADIRGAMAM,B. JAYANTHIMALA,parties.IN.BJP,254,1.09,3,forfeit,U,41,12th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci7,puducherry,2011,7,KADIRGAMAM,B.A. MOUROUGAYEN,parties.IN.IND,170,0.73,4,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci8,puducherry,2011,8,INDIRA NAGAR,A.T. Selvane,parties.IN.AINRC,15053,62.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci8,puducherry,2011,8,INDIRA NAGAR,V.A. AKD.,parties.IN.INC,7007,28.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-eci8,puducherry,2011,8,INDIRA NAGAR,A.V. Baskaran,,1578,6.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci8,puducherry,2011,8,INDIRA NAGAR,D.T. Selvam,,388,1.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci8,puducherry,2011,8,INDIRA NAGAR,S.Veeraragavan,,109,0.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci8,puducherry,2011,8,INDIRA NAGAR,K.Vaithianathan,,51,0.21,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci8,puducherry,2011,8,INDIRA NAGAR,R.Shanmugam,,38,0.16,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4116,puducherry,2011,9,THATTANCHAVADY,ASHOK ANAND,,14597,67.99,1,won,U,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4116,puducherry,2011,9,THATTANCHAVADY,N. ARJUNAN,,4091,19.05,2,lost,U,65,Illiterate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4116,puducherry,2011,9,THATTANCHAVADY,A. ILANGO,,1745,8.13,3,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4116,puducherry,2011,9,THATTANCHAVADY,P. SIVANANDAME,,577,2.69,4,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4116,puducherry,2011,9,THATTANCHAVADY,E. BASTIAN,,192,0.89,5,forfeit,U,44,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4116,puducherry,2011,9,THATTANCHAVADY,MASTHANJI MOHAMED KALIMULLA,,179,0.83,6,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4116,puducherry,2011,9,THATTANCHAVADY,S. JOHN KENNADY,,89,0.41,7,forfeit,U,29,10th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci10,puducherry,2011,10,KAMARAJ NAGAR,V. VAITHILINGAM,,12570,59.01,1,won,U,60,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci10,puducherry,2011,10,KAMARAJ NAGAR,NARA. KALAINATHAN,,6541,30.7,2,lost,U,51,Post Graduate,MLA,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci10,puducherry,2011,10,KAMARAJ NAGAR,S. RAVICHANDRAN,,1009,4.74,3,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci10,puducherry,2011,10,KAMARAJ NAGAR,R. BARTHASSARADY,,356,1.67,4,forfeit,U,39,Post Graduate,Agricultural Business,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci10,puducherry,2011,10,KAMARAJ NAGAR,K. SAKTHIVELU,,328,1.54,5,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci10,puducherry,2011,10,KAMARAJ NAGAR,A. BASKARAN,,256,1.2,6,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci10,puducherry,2011,10,KAMARAJ NAGAR,M. PAVADAI @ RAJA,,104,0.49,7,forfeit,U,31,5th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci10,puducherry,2011,10,KAMARAJ NAGAR,K. SUNDAR RAAJAN,,93,0.44,8,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci10,puducherry,2011,10,KAMARAJ NAGAR,M. SELVAMANIKANDAN,,46,0.22,9,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4100,puducherry,2011,11,LAWSPET,M. VAITHIANATHAN,,10189,51.79,1,won,U,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4100,puducherry,2011,11,LAWSPET,V.P. SIVAKOLUNTHU,,4757,24.18,2,lost,U,59,8th Pass,"Real Estate or Builder or Developer or Construction, Hospitality",challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4100,puducherry,2011,11,LAWSPET,NANDHA JAYA SRIDARAN,,2230,11.34,3,forfeit,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4100,puducherry,2011,11,LAWSPET,R.V. SAMINATHAN,,1672,8.5,4,forfeit,U,42,12th Pass,Manufacturer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci8,puducherry,2011,8,INDIRA NAGAR,D.T. Selvam,parties.IN.IND,388,1.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci8,puducherry,2011,8,INDIRA NAGAR,S.Veeraragavan,parties.IN.IND,109,0.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci8,puducherry,2011,8,INDIRA NAGAR,K.Vaithianathan,parties.IN.BSP,51,0.21,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci8,puducherry,2011,8,INDIRA NAGAR,R.Shanmugam,parties.IN.IJK,38,0.16,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2011,9,THATTANCHAVADY,ASHOK ANAND,parties.IN.AINRC,14597,67.99,1,won,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2011,9,THATTANCHAVADY,N. ARJUNAN,parties.IN.IND,4091,19.05,2,lost,U,65,Illiterate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2011,9,THATTANCHAVADY,A. ILANGO,parties.IN.DMK,1745,8.13,3,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2011,9,THATTANCHAVADY,P. SIVANANDAME,parties.IN.BJP,577,2.69,4,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2011,9,THATTANCHAVADY,E. BASTIAN,parties.IN.IND,192,0.89,5,forfeit,U,44,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2011,9,THATTANCHAVADY,MASTHANJI MOHAMED KALIMULLA,parties.IN.IND,179,0.83,6,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4116,puducherry,2011,9,THATTANCHAVADY,S. JOHN KENNADY,parties.IN.BSP,89,0.41,7,forfeit,U,29,10th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci10,puducherry,2011,10,KAMARAJ NAGAR,V. VAITHILINGAM,parties.IN.INC,12570,59.01,1,won,U,60,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci10,puducherry,2011,10,KAMARAJ NAGAR,NARA. KALAINATHAN,parties.IN.CPI,6541,30.7,2,lost,U,51,Post Graduate,MLA,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci10,puducherry,2011,10,KAMARAJ NAGAR,S. RAVICHANDRAN,parties.IN.BJP,1009,4.74,3,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci10,puducherry,2011,10,KAMARAJ NAGAR,R. BARTHASSARADY,parties.IN.IND,356,1.67,4,forfeit,U,39,Post Graduate,Agricultural Business,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci10,puducherry,2011,10,KAMARAJ NAGAR,K. SAKTHIVELU,parties.IN.IND,328,1.54,5,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci10,puducherry,2011,10,KAMARAJ NAGAR,A. BASKARAN,parties.IN.IND,256,1.2,6,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci10,puducherry,2011,10,KAMARAJ NAGAR,M. PAVADAI @ RAJA,parties.IN.BSP,104,0.49,7,forfeit,U,31,5th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci10,puducherry,2011,10,KAMARAJ NAGAR,K. SUNDAR RAAJAN,parties.IN.LJP,93,0.44,8,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci10,puducherry,2011,10,KAMARAJ NAGAR,M. SELVAMANIKANDAN,parties.IN.IND,46,0.22,9,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4100,puducherry,2011,11,LAWSPET,M. VAITHIANATHAN,parties.IN.AINRC,10189,51.79,1,won,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4100,puducherry,2011,11,LAWSPET,V.P. SIVAKOLUNTHU,parties.IN.INC,4757,24.18,2,lost,U,59,8th Pass,"Real Estate or Builder or Developer or Construction, Hospitality",challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4100,puducherry,2011,11,LAWSPET,NANDHA JAYA SRIDARAN,parties.IN.IND,2230,11.34,3,forfeit,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4100,puducherry,2011,11,LAWSPET,R.V. SAMINATHAN,parties.IN.BJP,1672,8.5,4,forfeit,U,42,12th Pass,Manufacturer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-4100,puducherry,2011,11,LAWSPET,CH. BALAMOHANAN,,647,3.29,5,forfeit,U,62,Others,Ex Civil Service,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4100,puducherry,2011,11,LAWSPET,G. SATHIARAJ,,108,0.55,6,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4100,puducherry,2011,11,LAWSPET,J. POUVARAGHAVAN,,70,0.36,7,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4096,puducherry,2011,12,KALAPET,P.M.L. KALYANA SUNDARAM,,14132,62.43,1,won,U,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4096,puducherry,2011,12,KALAPET,M.O.H.F SHAHJAHAN,,7766,34.31,2,lost,U,46,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4096,puducherry,2011,12,KALAPET,L. KARUNAKARAN,,214,0.95,3,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4096,puducherry,2011,12,KALAPET,U. KALYANASUNDARAM,,197,0.87,4,forfeit,U,55,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4096,puducherry,2011,12,KALAPET,SUBRAMANIAN,,120,0.53,5,forfeit,U,28,Literate,Shop Keeper,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4096,puducherry,2011,12,KALAPET,I.M.S. BALAJI,,82,0.36,6,forfeit,U,26,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4096,puducherry,2011,12,KALAPET,SEGAR,,57,0.25,7,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4096,puducherry,2011,12,KALAPET,R. KALYANASUNDARAM,,45,0.2,8,forfeit,U,50,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4096,puducherry,2011,12,KALAPET,P. KALYANASUNDARAM,,24,0.11,9,forfeit,U,37,12th Pass,Private Company,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci13,puducherry,2011,13,MUTHIALPET,NANDHA. T. SARAVANAN,,10364,47.82,1,won,U,40,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4100,puducherry,2011,11,LAWSPET,G. SATHIARAJ,parties.IN.IND,108,0.55,6,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4100,puducherry,2011,11,LAWSPET,J. POUVARAGHAVAN,parties.IN.IND,70,0.36,7,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4096,puducherry,2011,12,KALAPET,P.M.L. KALYANA SUNDARAM,parties.IN.AINRC,14132,62.43,1,won,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4096,puducherry,2011,12,KALAPET,M.O.H.F SHAHJAHAN,parties.IN.INC,7766,34.31,2,lost,U,46,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4096,puducherry,2011,12,KALAPET,L. KARUNAKARAN,parties.IN.BJP,214,0.95,3,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4096,puducherry,2011,12,KALAPET,U. KALYANASUNDARAM,parties.IN.IND,197,0.87,4,forfeit,U,55,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4096,puducherry,2011,12,KALAPET,SUBRAMANIAN,parties.IN.IND,120,0.53,5,forfeit,U,28,Literate,Shop Keeper,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4096,puducherry,2011,12,KALAPET,I.M.S. BALAJI,parties.IN.IND,82,0.36,6,forfeit,U,26,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4096,puducherry,2011,12,KALAPET,SEGAR,parties.IN.IND,57,0.25,7,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4096,puducherry,2011,12,KALAPET,R. KALYANASUNDARAM,parties.IN.IND,45,0.2,8,forfeit,U,50,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4096,puducherry,2011,12,KALAPET,P. KALYANASUNDARAM,parties.IN.IND,24,0.11,9,forfeit,U,37,12th Pass,Private Company,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci13,puducherry,2011,13,MUTHIALPET,NANDHA. T. SARAVANAN,parties.IN.DMK,10364,47.82,1,won,U,40,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-eci13,puducherry,2011,13,MUTHIALPET,A. KASILINGAM,,7388,34.09,2,lost,U,79,8th Pass,Ex MLA,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci13,puducherry,2011,13,MUTHIALPET,A. PARAMASIVAM,,3427,15.81,3,forfeit,U,53,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci13,puducherry,2011,13,MUTHIALPET,KRISHNAKANTHAN @ BASKAR,,257,1.19,4,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci13,puducherry,2011,13,MUTHIALPET,A. PARAMASIVAM,parties.IN.IND,3427,15.81,3,forfeit,U,53,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci13,puducherry,2011,13,MUTHIALPET,KRISHNAKANTHAN @ BASKAR,parties.IN.BJP,257,1.19,4,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-eci13,puducherry,2011,13,MUTHIALPET,S. MOTHILAL,,148,0.68,5,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci13,puducherry,2011,13,MUTHIALPET,R. KUMARAN @ PAVADAISAMI,,87,0.4,6,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci14,puducherry,2011,14,RAJ BHAVAN,K. LAKSHMINARAYANAN,,11398,59.57,1,won,U,51,Graduate Professional,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci13,puducherry,2011,13,MUTHIALPET,R. KUMARAN @ PAVADAISAMI,parties.IN.IND,87,0.4,6,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci14,puducherry,2011,14,RAJ BHAVAN,K. LAKSHMINARAYANAN,parties.IN.INC,11398,59.57,1,won,U,51,Graduate Professional,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-eci14,puducherry,2011,14,RAJ BHAVAN,M. SARAVANAKUMAR,,4327,22.62,2,lost,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci14,puducherry,2011,14,RAJ BHAVAN,ANNIBAL NEHRU,,2536,13.25,3,forfeit,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci14,puducherry,2011,14,RAJ BHAVAN,S.P. LALLU,,555,2.9,4,forfeit,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci14,puducherry,2011,14,RAJ BHAVAN,I.M. SEKAR NAICKER,,227,1.19,5,forfeit,U,49,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci14,puducherry,2011,14,RAJ BHAVAN,M. ARUMAI SELVAM,,90,0.47,6,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci14,puducherry,2011,14,RAJ BHAVAN,ANNIBAL NEHRU,parties.IN.IND,2536,13.25,3,forfeit,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci14,puducherry,2011,14,RAJ BHAVAN,S.P. LALLU,parties.IN.BJP,555,2.9,4,forfeit,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci14,puducherry,2011,14,RAJ BHAVAN,I.M. SEKAR NAICKER,parties.IN.IND,227,1.19,5,forfeit,U,49,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci14,puducherry,2011,14,RAJ BHAVAN,M. ARUMAI SELVAM,parties.IN.IND,90,0.47,6,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-eci15,puducherry,2011,15,OUPALAM,A. ANBALAGAN,,9536,42.59,1,won,U,54,10th Pass,MP,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci15,puducherry,2011,15,OUPALAM,N. ANAND,,6332,28.28,2,lost,U,48,8th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci15,puducherry,2011,15,OUPALAM,ANNIBAL KENNEDY,,6122,27.35,3,lost,U,46,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci15,puducherry,2011,15,OUPALAM,MOULANA ABDUL KHADIR,,159,0.71,4,forfeit,U,51,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci15,puducherry,2011,15,OUPALAM,R. ANAND,,112,0.5,5,forfeit,U,26,Graduate,Hospitality,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci15,puducherry,2011,15,OUPALAM,IROUDHAYARAZ JULE,,50,0.22,6,forfeit,U,40,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci15,puducherry,2011,15,OUPALAM,MANIVANNAN,,47,0.21,7,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci15,puducherry,2011,15,OUPALAM,ANGAPPIN @ ROUSSEAU ANGAPPIN,,18,0.08,8,forfeit,U,51,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-eci15,puducherry,2011,15,OUPALAM,S. ANTHONI,,12,0.05,9,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4111,puducherry,2011,16,ORLEAMPETH,G. NEHRU @ KUPPUSAMY,,10986,55.26,1,won,U,47,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4111,puducherry,2011,16,ORLEAMPETH,R. SIVA,,8368,42.09,2,lost,U,43,Illiterate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4111,puducherry,2011,16,ORLEAMPETH,S. NEHRU,,247,1.24,3,forfeit,U,27,Graduate,Private Company,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4111,puducherry,2011,16,ORLEAMPETH,K. RAMALINGAM,,76,0.38,4,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4111,puducherry,2011,16,ORLEAMPETH,M. NEHRU,,59,0.3,5,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4111,puducherry,2011,16,ORLEAMPETH,N. SIVARAJ,,53,0.27,6,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4111,puducherry,2011,16,ORLEAMPETH,D. SURESH NANDHA,,52,0.26,7,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4111,puducherry,2011,16,ORLEAMPETH,K. VAITHIANATHAN,,39,0.2,8,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci15,puducherry,2011,15,OUPALAM,N. ANAND,parties.IN.IND,6332,28.28,2,lost,U,48,8th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci15,puducherry,2011,15,OUPALAM,ANNIBAL KENNEDY,parties.IN.DMK,6122,27.35,3,lost,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci15,puducherry,2011,15,OUPALAM,MOULANA ABDUL KHADIR,parties.IN.IND,159,0.71,4,forfeit,U,51,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci15,puducherry,2011,15,OUPALAM,R. ANAND,parties.IN.IND,112,0.5,5,forfeit,U,26,Graduate,Hospitality,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci15,puducherry,2011,15,OUPALAM,IROUDHAYARAZ JULE,parties.IN.BSP,50,0.22,6,forfeit,U,40,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci15,puducherry,2011,15,OUPALAM,MANIVANNAN,parties.IN.IND,47,0.21,7,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci15,puducherry,2011,15,OUPALAM,ANGAPPIN @ ROUSSEAU ANGAPPIN,parties.IN.LJP,18,0.08,8,forfeit,U,51,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-eci15,puducherry,2011,15,OUPALAM,S. ANTHONI,parties.IN.IND,12,0.05,9,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4111,puducherry,2011,16,ORLEAMPETH,G. NEHRU @ KUPPUSAMY,parties.IN.AINRC,10986,55.26,1,won,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4111,puducherry,2011,16,ORLEAMPETH,R. SIVA,parties.IN.DMK,8368,42.09,2,lost,U,43,Illiterate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4111,puducherry,2011,16,ORLEAMPETH,S. NEHRU,parties.IN.IND,247,1.24,3,forfeit,U,27,Graduate,Private Company,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4111,puducherry,2011,16,ORLEAMPETH,K. RAMALINGAM,parties.IN.IND,76,0.38,4,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4111,puducherry,2011,16,ORLEAMPETH,M. NEHRU,parties.IN.IND,59,0.3,5,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4111,puducherry,2011,16,ORLEAMPETH,N. SIVARAJ,parties.IN.IND,53,0.27,6,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4111,puducherry,2011,16,ORLEAMPETH,D. SURESH NANDHA,parties.IN.JDU,52,0.26,7,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4111,puducherry,2011,16,ORLEAMPETH,K. VAITHIANATHAN,parties.IN.BSP,39,0.2,8,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-4108,puducherry,2011,17,NELLITHOPE,OMSAKTHI SEKAR,,13301,58.51,1,won,U,50,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4108,puducherry,2011,17,NELLITHOPE,R.V.JANAKIRAMAN,,8783,38.63,2,lost,U,70,10th Pass,Transport,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4108,puducherry,2011,17,NELLITHOPE,A.VELAYUTHAM,,301,1.32,3,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4108,puducherry,2011,17,NELLITHOPE,M.CHITTY BABU,,112,0.49,4,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4108,puducherry,2011,17,NELLITHOPE,D. JANAKIRAMAN,,93,0.41,5,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4108,puducherry,2011,17,NELLITHOPE,VIJAYAN @ POORVATHANAN,,83,0.37,6,forfeit,U,63,10th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4108,puducherry,2011,17,NELLITHOPE,M.P. MANOHARAN,,61,0.27,7,forfeit,U,51,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4108,puducherry,2011,17,NELLITHOPE,R.V.JANAKIRAMAN,parties.IN.DMK,8783,38.63,2,lost,U,70,10th Pass,Transport,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4108,puducherry,2011,17,NELLITHOPE,A.VELAYUTHAM,parties.IN.BJP,301,1.32,3,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4108,puducherry,2011,17,NELLITHOPE,M.CHITTY BABU,parties.IN.IND,112,0.49,4,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4108,puducherry,2011,17,NELLITHOPE,D. JANAKIRAMAN,parties.IN.IND,93,0.41,5,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4108,puducherry,2011,17,NELLITHOPE,VIJAYAN @ POORVATHANAN,parties.IN.IND,83,0.37,6,forfeit,U,63,10th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4108,puducherry,2011,17,NELLITHOPE,M.P. MANOHARAN,parties.IN.IND,61,0.27,7,forfeit,U,51,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-4105,puducherry,2011,18,MUDALIARPET,A. BASKAR,,17016,67.15,1,won,U,40,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4105,puducherry,2011,18,MUDALIARPET,DR. M.A.S. SUBRAMANIAN,,7289,28.76,2,lost,U,64,Graduate Professional,Doctor,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4105,puducherry,2011,18,MUDALIARPET,PADMANABAN,,575,2.27,3,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4105,puducherry,2011,18,MUDALIARPET,E. JEGAN @ JEGANADHANE,,231,0.91,4,forfeit,U,31,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4105,puducherry,2011,18,MUDALIARPET,M. SUBRAMANI,,123,0.49,5,forfeit,U,49,5th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4105,puducherry,2011,18,MUDALIARPET,LENIN .K,,106,0.42,6,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4091,puducherry,2011,19,ARIANKUPPAM,V.SABAPATHY @ KOTHANDARAMAN,,13381,49.12,1,won,U,67,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4091,puducherry,2011,19,ARIANKUPPAM,T.DJEAMOURTHY,,10750,39.47,2,lost,U,52,5th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4091,puducherry,2011,19,ARIANKUPPAM,S. KUMARAVELU,,2581,9.48,3,forfeit,U,42,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4091,puducherry,2011,19,ARIANKUPPAM,G.C. CHANDRAN,,225,0.83,4,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4091,puducherry,2011,19,ARIANKUPPAM,P. NAGARADJOU,,176,0.65,5,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4091,puducherry,2011,19,ARIANKUPPAM,G.SATHIYANANDHAM,,126,0.46,6,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4105,puducherry,2011,18,MUDALIARPET,DR. M.A.S. SUBRAMANIAN,parties.IN.DMK,7289,28.76,2,lost,U,64,Graduate Professional,Doctor,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4105,puducherry,2011,18,MUDALIARPET,PADMANABAN,parties.IN.BJP,575,2.27,3,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4105,puducherry,2011,18,MUDALIARPET,E. JEGAN @ JEGANADHANE,parties.IN.IJK,231,0.91,4,forfeit,U,31,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4105,puducherry,2011,18,MUDALIARPET,M. SUBRAMANI,parties.IN.IND,123,0.49,5,forfeit,U,49,5th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4105,puducherry,2011,18,MUDALIARPET,LENIN .K,parties.IN.RSP,106,0.42,6,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4091,puducherry,2011,19,ARIANKUPPAM,V.SABAPATHY @ KOTHANDARAMAN,parties.IN.AINRC,13381,49.12,1,won,U,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4091,puducherry,2011,19,ARIANKUPPAM,T.DJEAMOURTHY,parties.IN.INC,10750,39.47,2,lost,U,52,5th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4091,puducherry,2011,19,ARIANKUPPAM,S. KUMARAVELU,parties.IN.IND,2581,9.48,3,forfeit,U,42,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4091,puducherry,2011,19,ARIANKUPPAM,G.C. CHANDRAN,parties.IN.IND,225,0.83,4,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4091,puducherry,2011,19,ARIANKUPPAM,P. NAGARADJOU,parties.IN.BJP,176,0.65,5,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4091,puducherry,2011,19,ARIANKUPPAM,G.SATHIYANANDHAM,parties.IN.IJK,126,0.46,6,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-4102,puducherry,2011,20,MANAVELY,P.PURUSHOTHAMAN,,13979,57.98,1,won,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4102,puducherry,2011,20,MANAVELY,R.K.R. ANANTHARAMAN,,9646,40.01,2,lost,U,38,Graduate Professional,Distributors,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4102,puducherry,2011,20,MANAVELY,S.KUMAR,,244,1.01,3,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4102,puducherry,2011,20,MANAVELY,J. VEERASEKARAN,,241,1,4,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4093,puducherry,2011,21,EMBALAM,P. RAJAVELU,,12933,96.31,1,won,U,49,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4093,puducherry,2011,21,EMBALAM,N. ETHIRAJAN,,351,2.61,2,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4102,puducherry,2011,20,MANAVELY,R.K.R. ANANTHARAMAN,parties.IN.PMK,9646,40.01,2,lost,U,38,Graduate Professional,Distributors,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4102,puducherry,2011,20,MANAVELY,S.KUMAR,parties.IN.IND,244,1.01,3,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4102,puducherry,2011,20,MANAVELY,J. VEERASEKARAN,parties.IN.IJK,241,1,4,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4093,puducherry,2011,21,EMBALAM,P. RAJAVELU,parties.IN.AINRC,12933,96.31,1,won,U,49,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4093,puducherry,2011,21,EMBALAM,N. ETHIRAJAN,parties.IN.IND,351,2.61,2,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-4093,puducherry,2011,21,EMBALAM,J. SACTIVELOU,,144,1.07,3,forfeit,U,42,8th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-4110,puducherry,2011,22,NETTAPAKKAM,L. PERIYASAMY,,14686,59.8,1,won,U,52,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4110,puducherry,2011,22,NETTAPAKKAM,S. MUTHUKUMARASAMY,,9219,37.54,2,lost,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4110,puducherry,2011,22,NETTAPAKKAM,A. VISWAMOHAN,,237,0.96,3,forfeit,U,34,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4110,puducherry,2011,22,NETTAPAKKAM,M. SOMASUNDARAM,,129,0.53,4,forfeit,U,52,10th Pass,Qualified Professional,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4110,puducherry,2011,22,NETTAPAKKAM,P. VIRAGANABADY,,110,0.45,5,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4110,puducherry,2011,22,NETTAPAKKAM,M. SELVAM,,93,0.38,6,forfeit,U,34,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4110,puducherry,2011,22,NETTAPAKKAM,DR. A. COUMAR,,86,0.35,7,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4092,puducherry,2011,23,BAHOUR,T. THIAGARAJAN,,12284,53.42,1,won,U,59,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4092,puducherry,2011,23,BAHOUR,R. RADHAKRISHNAN,,10229,44.49,2,lost,U,39,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4092,puducherry,2011,23,BAHOUR,B.R. SUNDARAMOORTHY,,315,1.37,3,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4092,puducherry,2011,23,BAHOUR,THANGA. VIKRAMAN,,166,0.72,4,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4107,puducherry,2011,24,NEDUNGADU,M.CHANDHRAKASU,,12474,55.05,1,won,U,62,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4107,puducherry,2011,24,NEDUNGADU,A. MARIMUTHU,,4984,22,2,lost,U,69,Graduate,Retired Teacher,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4107,puducherry,2011,24,NEDUNGADU,R. VADIVELU,,4340,19.15,3,lost,U,55,10th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4107,puducherry,2011,24,NEDUNGADU,N. RAMESH KUMAR,,330,1.46,4,forfeit,U,29,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4107,puducherry,2011,24,NEDUNGADU,SANKAR,,311,1.37,5,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4107,puducherry,2011,24,NEDUNGADU,N. RAVICHANDIRAN,,219,0.97,6,forfeit,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4118,puducherry,2011,25,THIRUNALLAR,P.R. SIVA,,11702,50.77,1,won,U,35,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4118,puducherry,2011,25,THIRUNALLAR,R. KAMALAKANNAN,,10862,47.12,2,lost,U,53,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4118,puducherry,2011,25,THIRUNALLAR,G. CHANDRASEKARAN,,198,0.86,3,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4118,puducherry,2011,25,THIRUNALLAR,M. SRINIVASAN,,174,0.75,4,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4118,puducherry,2011,25,THIRUNALLAR,V. MAHESWARI,,114,0.49,5,forfeit,U,27,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4098,puducherry,2011,26,KARAIKAL NORTH,P.R.N. THIRUMURUGAN,,12155,55.69,1,won,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4110,puducherry,2011,22,NETTAPAKKAM,S. MUTHUKUMARASAMY,parties.IN.INC,9219,37.54,2,lost,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4110,puducherry,2011,22,NETTAPAKKAM,A. VISWAMOHAN,parties.IN.BJP,237,0.96,3,forfeit,U,34,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4110,puducherry,2011,22,NETTAPAKKAM,M. SOMASUNDARAM,parties.IN.BSP,129,0.53,4,forfeit,U,52,10th Pass,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4110,puducherry,2011,22,NETTAPAKKAM,P. VIRAGANABADY,parties.IN.IND,110,0.45,5,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4110,puducherry,2011,22,NETTAPAKKAM,M. SELVAM,parties.IN.IND,93,0.38,6,forfeit,U,34,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4110,puducherry,2011,22,NETTAPAKKAM,DR. A. COUMAR,parties.IN.IND,86,0.35,7,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4092,puducherry,2011,23,BAHOUR,T. THIAGARAJAN,parties.IN.AINRC,12284,53.42,1,won,U,59,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4092,puducherry,2011,23,BAHOUR,R. RADHAKRISHNAN,parties.IN.INC,10229,44.49,2,lost,U,39,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4092,puducherry,2011,23,BAHOUR,B.R. SUNDARAMOORTHY,parties.IN.IND,315,1.37,3,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4092,puducherry,2011,23,BAHOUR,THANGA. VIKRAMAN,parties.IN.BJP,166,0.72,4,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4107,puducherry,2011,24,NEDUNGADU,M.CHANDHRAKASU,parties.IN.AINRC,12474,55.05,1,won,U,62,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4107,puducherry,2011,24,NEDUNGADU,A. MARIMUTHU,parties.IN.IND,4984,22,2,lost,U,69,Graduate,Retired Teacher,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4107,puducherry,2011,24,NEDUNGADU,R. VADIVELU,parties.IN.IND,4340,19.15,3,lost,U,55,10th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4107,puducherry,2011,24,NEDUNGADU,N. RAMESH KUMAR,parties.IN.IND,330,1.46,4,forfeit,U,29,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4107,puducherry,2011,24,NEDUNGADU,SANKAR,parties.IN.IND,311,1.37,5,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4107,puducherry,2011,24,NEDUNGADU,N. RAVICHANDIRAN,parties.IN.IND,219,0.97,6,forfeit,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4118,puducherry,2011,25,THIRUNALLAR,P.R. SIVA,parties.IN.AINRC,11702,50.77,1,won,U,35,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4118,puducherry,2011,25,THIRUNALLAR,R. KAMALAKANNAN,parties.IN.INC,10862,47.12,2,lost,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4118,puducherry,2011,25,THIRUNALLAR,G. CHANDRASEKARAN,parties.IN.IND,198,0.86,3,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4118,puducherry,2011,25,THIRUNALLAR,M. SRINIVASAN,parties.IN.IND,174,0.75,4,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4118,puducherry,2011,25,THIRUNALLAR,V. MAHESWARI,parties.IN.BSP,114,0.49,5,forfeit,U,27,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4098,puducherry,2011,26,KARAIKAL NORTH,P.R.N. THIRUMURUGAN,parties.IN.INC,12155,55.69,1,won,U,38,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-4098,puducherry,2011,26,KARAIKAL NORTH,V. OMALINGAM,,8795,40.29,2,lost,U,39,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4098,puducherry,2011,26,KARAIKAL NORTH,M. ARUL MURUGAN,,646,2.96,3,forfeit,U,45,Graduate Professional,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4098,puducherry,2011,26,KARAIKAL NORTH,M. ARUL MURUGAN,parties.IN.BJP,646,2.96,3,forfeit,U,45,Graduate Professional,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-4098,puducherry,2011,26,KARAIKAL NORTH,E. JAYABAL,,231,1.06,4,forfeit,U,53,,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4099,puducherry,2011,27,KARAIKAL SOUTH,A.M.H. NAZEEM,,8377,39.37,1,won,U,49,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4099,puducherry,2011,27,KARAIKAL SOUTH,V.K. GANAPATHY,,6801,31.96,2,lost,U,50,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4099,puducherry,2011,27,KARAIKAL SOUTH,K.A.U. ASSANA,,5966,28.04,3,lost,U,57,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4099,puducherry,2011,27,KARAIKAL SOUTH,SELVAMANI,,134,0.63,4,forfeit,U,52,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4109,puducherry,2011,28,NERAVY T.R. PATTINAM,V.M.C. SIVAKKUMAR,,8860,39.3,1,won,U,60,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4109,puducherry,2011,28,NERAVY T.R. PATTINAM,A. GEETHA,,8502,37.72,2,lost,U,38,Graduate,Panchayat Head,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4109,puducherry,2011,28,NERAVY T.R. PATTINAM,V.M.C.V. GANAPATHY,,2809,12.46,3,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4099,puducherry,2011,27,KARAIKAL SOUTH,A.M.H. NAZEEM,parties.IN.DMK,8377,39.37,1,won,U,49,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4099,puducherry,2011,27,KARAIKAL SOUTH,V.K. GANAPATHY,parties.IN.IND,6801,31.96,2,lost,U,50,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4099,puducherry,2011,27,KARAIKAL SOUTH,K.A.U. ASSANA,parties.IN.DMDK,5966,28.04,3,lost,U,57,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4099,puducherry,2011,27,KARAIKAL SOUTH,SELVAMANI,parties.IN.BSP,134,0.63,4,forfeit,U,52,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4109,puducherry,2011,28,NERAVY T.R. PATTINAM,V.M.C. SIVAKKUMAR,parties.IN.IND,8860,39.3,1,won,U,60,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4109,puducherry,2011,28,NERAVY T.R. PATTINAM,A. GEETHA,parties.IN.DMK,8502,37.72,2,lost,U,38,Graduate,Panchayat Head,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4109,puducherry,2011,28,NERAVY T.R. PATTINAM,V.M.C.V. GANAPATHY,parties.IN.IND,2809,12.46,3,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-4109,puducherry,2011,28,NERAVY T.R. PATTINAM,ER. M. SELVARAJ,,2065,9.16,4,forfeit,U,65,Graduate Professional,Panchayat Member,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4109,puducherry,2011,28,NERAVY T.R. PATTINAM,H. BADOUROUDINE,,243,1.08,5,forfeit,U,38,12th Pass,Hospitality,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4109,puducherry,2011,28,NERAVY T.R. PATTINAM,SENTAMILSELVAN,,63,0.28,6,forfeit,U,36,Literate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4101,puducherry,2011,29,MAHE,E.VALSARAJ,,13297,60.51,1,won,U,57,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4109,puducherry,2011,28,NERAVY T.R. PATTINAM,H. BADOUROUDINE,parties.IN.SDPI,243,1.08,5,forfeit,U,38,12th Pass,Hospitality,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4109,puducherry,2011,28,NERAVY T.R. PATTINAM,SENTAMILSELVAN,parties.IN.BSP,63,0.28,6,forfeit,U,36,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4101,puducherry,2011,29,MAHE,E.VALSARAJ,parties.IN.INC,13297,60.51,1,won,U,57,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-4101,puducherry,2011,29,MAHE,T.K.GANGADHARAN,,7193,32.73,2,lost,U,64,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4101,puducherry,2011,29,MAHE,RAJEENDRAN.N.K.,,1484,6.75,3,forfeit,U,62,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4120,puducherry,2011,30,YANAM,MALLADI KRISHNA RAO,,23985,80.95,1,won,U,46,12th Pass,Minister,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4101,puducherry,2011,29,MAHE,RAJEENDRAN.N.K.,parties.IN.BJP,1484,6.75,3,forfeit,U,62,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4120,puducherry,2011,30,YANAM,MALLADI KRISHNA RAO,parties.IN.INC,23985,80.95,1,won,U,46,12th Pass,Minister,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-puducherry-4120,puducherry,2011,30,YANAM,MANCHALA SATYA SAI KUMAR,,4867,16.43,2,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4120,puducherry,2011,30,YANAM,NALLA NAGA RAJU,,154,0.52,3,forfeit,U,34,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4120,puducherry,2011,30,YANAM,KALLA VENKATA RATNAM,,153,0.52,4,forfeit,U,52,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4120,puducherry,2011,30,YANAM,MELLAM SRINIVASA RAO,,134,0.45,5,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4120,puducherry,2011,30,YANAM,KAMICHETTY SRIRAMA MURTHY NAIDU,,119,0.4,6,forfeit,U,47,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4120,puducherry,2011,30,YANAM,DOMA KANNA RAO,,79,0.27,7,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4120,puducherry,2011,30,YANAM,BONDA NAGESWARA RAO,,76,0.26,8,forfeit,U,44,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4120,puducherry,2011,30,YANAM,DHULIPUDI MADHAVA VENKANNA,,32,0.11,9,forfeit,U,34,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-puducherry-4120,puducherry,2011,30,YANAM,MALLADI UDHAYALAKSHMI,,32,0.11,10,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4120,puducherry,2011,30,YANAM,NALLA NAGA RAJU,parties.IN.IND,154,0.52,3,forfeit,U,34,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4120,puducherry,2011,30,YANAM,KALLA VENKATA RATNAM,parties.IN.IND,153,0.52,4,forfeit,U,52,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4120,puducherry,2011,30,YANAM,MELLAM SRINIVASA RAO,parties.IN.IND,134,0.45,5,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4120,puducherry,2011,30,YANAM,KAMICHETTY SRIRAMA MURTHY NAIDU,parties.IN.BJP,119,0.4,6,forfeit,U,47,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4120,puducherry,2011,30,YANAM,DOMA KANNA RAO,parties.IN.IND,79,0.27,7,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4120,puducherry,2011,30,YANAM,BONDA NAGESWARA RAO,parties.IN.IND,76,0.26,8,forfeit,U,44,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4120,puducherry,2011,30,YANAM,DHULIPUDI MADHAVA VENKANNA,parties.IN.IND,32,0.11,9,forfeit,U,34,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-puducherry-4120,puducherry,2011,30,YANAM,MALLADI UDHAYALAKSHMI,parties.IN.IND,32,0.11,10,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
