@@ -280,8 +280,11 @@ def emit_taxonomy(
       ``entities/office.csv`` + ``entities/holder.csv`` +
       ``datapoints/office_holdings.csv``. No parquet survives under
       ``datasets/governments/``.
-    - ``datasets/taxonomy/indicators.parquet`` -- the canonical
-      indicator catalogue from ``indicators.json`` (P.1.A C3, 2026-05-22).
+    - **Indicators catalogue, X1a-fu2-B (2026-06-07): RETIRED.**
+      ``datasets/taxonomy/indicators.parquet`` had ZERO live frontend
+      readers; the parquet file was deleted in that PR and step 7 is gone.
+      ``datasets/taxonomy/indicators.json`` remains the hand-authored
+      catalogue SoT.
 
     Post-B3 (2026-06-06): the dead taxonomy seed steps for
     facet-axes / state_tiers / topics / indicator_topic_tags /
@@ -308,9 +311,6 @@ def emit_taxonomy(
     )
     from yen_gov.canonical.reingest.governments_term_shape import (
         emit as _emit_governments_term_shape,
-    )
-    from yen_gov.canonical.indicators_seed import (
-        compile_to_parquet as _compile_indicators,
     )
     from yen_gov.canonical.writer import _regenerate_manifest
 
@@ -394,14 +394,13 @@ def emit_taxonomy(
             f"(via tempdir; no parquet survives under datasets/governments/)"
         )
 
-        # 7) indicators catalogue (P.1.A C3)
-        rows = _compile_indicators(
-            taxonomy_dir / "indicators.json",
-            taxonomy_dir / "indicators.parquet",
-        )
-        typer.echo(
-            f"{prefix}: wrote {rows} rows to datasets/taxonomy/indicators.parquet"
-        )
+        # 7) indicators catalogue - RETIRED in X1a-fu2-B (2026-06-07).
+        # `datasets/taxonomy/indicators.parquet` had ZERO live frontend
+        # readers as of 2026-06-07 grep (the citizen path goes through
+        # `frontend/src/lib/canonical/indicator-allowlist.ts` which carries
+        # hand-authored IndicatorMeta inline). The parquet file was deleted
+        # in this PR; `datasets/taxonomy/indicators.json` remains the
+        # hand-authored SoT.
 
         _regenerate_manifest(root / "datasets", dry_run=dry_run)
 

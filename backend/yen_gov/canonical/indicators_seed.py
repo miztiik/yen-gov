@@ -1,11 +1,19 @@
 """Compile ``datasets/taxonomy/indicators.json`` to a Parquet sibling
 (``taxonomy/indicators.parquet``) for DuckDB-WASM consumption.
 
+> **X1a-fu2-B retirement marker (2026-06-07)**: the on-disk
+> ``datasets/taxonomy/indicators.parquet`` was deleted; ``cli.py
+> emit-taxonomy step 7`` no longer calls ``compile_to_parquet``. The
+> module is kept for its row-builder helpers + Pydantic models which
+> are still exercised by ``backend/tests/test_indicators_seed.py``.
+> The hand-authored ``indicators.json`` catalogue remains the SoT;
+> the citizen surface goes through ``frontend/src/lib/canonical/indicator-allowlist.ts``.
+
 The hand-authored catalogue lives in JSON (operator-friendly authoring,
-git-diff-friendly review). The parquet is the canonical wire format read
-by the static frontend via DuckDB-WASM per ADR-0030. Mirrors
-``indicator-catalogue.schema.json`` v1.1 column-for-column with two
-deliberate denormalisations:
+git-diff-friendly review). The parquet WAS the canonical wire format read
+by the static frontend via DuckDB-WASM per ADR-0030; today it has zero
+live readers. Mirrors ``indicator-catalogue.schema.json`` v1.1
+column-for-column with two deliberate denormalisations:
 
 1. ``dimension_values`` (dict[str,str]) and ``funding_split`` (struct)
    are serialised to JSON-string columns so the parquet schema stays

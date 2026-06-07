@@ -448,7 +448,7 @@ def tier_b_meadow_shard_contract(root: Path) -> list[Failure]:
     legacy folded-indicator shards retire family-by-family per
     TODO/20260517 §0e.7 P.*. New content must land directly on the
     canonical Parquet store -- `datasets/<family>/<family>_<role>.parquet`
-    + `datasets/taxonomy/indicators.parquet`. This Tier-B check makes the
+    + ``datasets/data/variables.csv``. This Tier-B check makes the
     doctrine computationally enforced rather than purely textual.
 
     The allowlist `datasets/_ops/meadow-shard-contract.txt`
@@ -502,7 +502,7 @@ def tier_b_meadow_shard_contract(root: Path) -> list[Failure]:
                 "B",
                 "forbidden new indicator shard: per CLAUDE.md §10, new content must land "
                 "on the canonical Parquet store (datasets/<family>/<family>_<role>.parquet "
-                "+ datasets/taxonomy/indicators.parquet). To retire an existing family, "
+                "+ datasets/data/variables.csv). To retire an existing family, "
                 "remove its lines from datasets/_ops/meadow-shard-contract.txt "
                 "in the same PR as the per-family P.* pivot.",
             )
