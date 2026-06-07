@@ -272,16 +272,14 @@ def emit_taxonomy(
       ``datasets/taxonomy/entities.json`` (T.0a-ii Phase A folded the 145
       hand-authored districts in; the per-state ``districts.json`` files
       that originally seeded those rows were retired in T.0c-iii Phase D.3)
-        - ``datasets/governments/dim_offices.parquet`` +
-            ``datasets/governments/governments_office_holdings.parquet`` --
-            office identities (read from entities.parquet office_bearer rows)
-            plus tenure holdings from the consolidated
-            ``datasets/taxonomy/office_holdings.json``. Legacy CM rows
-            stamp Wikipedia "List of CMs" citations; national-office rows
-            cite explicit official ``citation_groups``. The citation
-            source rows themselves live in
-            ``datasets/data/entities/source.csv`` (B2a/source_csv path);
-            this step only emits the FK source_id, not the source row.
+    - **Office holdings, B3-followup (2026-06-07): governments parquets
+      RETIRED.** Step 6 now compiles ``datasets/taxonomy/office_holdings.json``
+      to in-process row tuples (via ``office_holdings_seed`` in a tempdir
+      parquet detour) and projects them to the canonical 3-CSV term-shape
+      under ``datasets/data/`` via ``governments_term_shape.emit``:
+      ``entities/office.csv`` + ``entities/holder.csv`` +
+      ``datapoints/office_holdings.csv``. No parquet survives under
+      ``datasets/governments/``.
     - ``datasets/taxonomy/indicators.parquet`` -- the canonical
       indicator catalogue from ``indicators.json`` (P.1.A C3, 2026-05-22).
 
@@ -296,6 +294,11 @@ def emit_taxonomy(
     ``sources.parquet`` argument; the Wikipedia "List of CMs" + per-
     citation-group source rows live in ``datasets/data/entities/source.csv``
     seeded once via B2a/source_csv, not per emit-taxonomy run.
+
+    Post-B3-followup (2026-06-07): step 6 emits CSV only (no parquet
+    survives under ``datasets/governments/``); the in-process tempdir
+    parquet path is an implementation detour, not a citizen-visible
+    artifact.
     """
     from yen_gov.canonical.entities_seed import (
         compile_to_parquet as _compile_entities,
@@ -303,21 +306,27 @@ def emit_taxonomy(
     from yen_gov.canonical.office_holdings_seed import (
         compile_to_parquet as _compile_office_holdings,
     )
+    from yen_gov.canonical.reingest.governments_term_shape import (
+        emit as _emit_governments_term_shape,
+    )
     from yen_gov.canonical.indicators_seed import (
         compile_to_parquet as _compile_indicators,
     )
     from yen_gov.canonical.writer import _regenerate_manifest
 
     real_taxonomy_dir = root / "datasets" / "taxonomy"
-    real_governments_dir = root / "datasets" / "governments"
     real_taxonomy_dir.mkdir(parents=True, exist_ok=True)
-    real_governments_dir.mkdir(parents=True, exist_ok=True)
 
-    # PR-A2: dry-run mirrors taxonomy/ + governments/ into a tempdir so every
-    # seed compile runs end-to-end without touching the real on-disk
+    # PR-A2: dry-run mirrors taxonomy/ into a tempdir so every seed
+    # compile runs end-to-end without touching the real on-disk
     # parquets. After the pipeline finishes we byte-compare each
     # generated tempfile against the real on-disk target and log an
     # UNCHANGED|CHANGED|NEW line per file.
+    #
+    # B3-followup (2026-06-07): governments/ is no longer in the
+    # dry-run mirror because the parquets there retired - office
+    # holdings now emit through a per-run tempdir detour to CSV under
+    # datasets/data/ (step 6 below).
     if dry_run:
         import shutil as _shutil
         import tempfile as _tempfile
@@ -326,20 +335,14 @@ def emit_taxonomy(
         try:
             td_root = Path(_td.name)
             taxonomy_dir = td_root / "taxonomy"
-            governments_dir = td_root / "governments"
             _shutil.copytree(real_taxonomy_dir, taxonomy_dir, dirs_exist_ok=True)
-            if real_governments_dir.exists():
-                _shutil.copytree(real_governments_dir, governments_dir, dirs_exist_ok=True)
-            else:
-                governments_dir.mkdir(parents=True, exist_ok=True)
-            typer.echo("emit-taxonomy [dry-run]: mirroring taxonomy/ + governments/ to tempdir")
+            typer.echo("emit-taxonomy [dry-run]: mirroring taxonomy/ to tempdir")
         except BaseException:
             _td.cleanup()
             raise
     else:
         _td = None
         taxonomy_dir = real_taxonomy_dir
-        governments_dir = real_governments_dir
 
     try:
         prefix = "emit-taxonomy [dry-run]" if dry_run else "emit-taxonomy"
@@ -353,27 +356,42 @@ def emit_taxonomy(
             f"{prefix}: wrote {rows} rows to datasets/taxonomy/entities.parquet"
         )
 
-        # 6) office_holdings -> dim_offices + holdings.
-        #    Post-B3-pt2 (2026-06-06): the Wikipedia "List of CMs" + per-
-        #    office citation_groups rows live in
-        #    ``datasets/data/entities/source.csv`` (B2a/source_csv path),
-        #    not in the now-retired taxonomy/sources.parquet. The seed
-        #    no longer takes a sources_parquet arg. Step 5 must still
-        #    run before step 6 so entities.parquet is fresh.
+        # 6) office_holdings -> 3-CSV term-shape (post-B3-followup, 2026-06-07).
+        #    The legacy ``datasets/governments/{dim_offices,governments_office_holdings}.parquet``
+        #    pair RETIRED per umbrella plan O1 (no strangler-fig); CSV
+        #    is the survivor. We still drive the in-memory row-build
+        #    through ``office_holdings_seed.compile_to_parquet`` (because
+        #    its validation + citation logic is non-trivial and tested),
+        #    but we write the parquets into a per-run tempdir and
+        #    immediately project them onto the canonical 3-CSV shape
+        #    under ``datasets/data/`` via ``governments_term_shape.emit``.
+        #    The tempdir is cleaned up before this command exits.
+        #    Step 5 must still run before step 6 so entities.parquet is
+        #    fresh; the canonical entities/parties/geo CSVs under
+        #    ``datasets/data/`` must already exist (seeded by B2a).
         office_holdings_json = taxonomy_dir / "office_holdings.json"
-        office_count, holdings_count = _compile_office_holdings(
-            office_holdings_json,
-            taxonomy_dir / "entities.parquet",
-            governments_dir / "dim_offices.parquet",
-            governments_dir / "governments_office_holdings.parquet",
-        )
+        import tempfile as _tempfile_step6
+        with _tempfile_step6.TemporaryDirectory(prefix="ygov_office_holdings_") as _step6_tmp:
+            _step6_tmp_dir = Path(_step6_tmp)
+            office_count, holdings_count = _compile_office_holdings(
+                office_holdings_json,
+                taxonomy_dir / "entities.parquet",
+                _step6_tmp_dir / "dim_offices.parquet",
+                _step6_tmp_dir / "governments_office_holdings.parquet",
+            )
+            emitted = _emit_governments_term_shape(
+                parquet_dir=_step6_tmp_dir,
+                geo_entities_csv=root / "datasets" / "data" / "entities" / "geo.csv",
+                party_entities_csv=root / "datasets" / "data" / "entities" / "parties.csv",
+                out_data_dir=root / "datasets" / "data",
+            )
+        for file_class, path in emitted.items():
+            typer.echo(
+                f"{prefix}: wrote {path.relative_to(root).as_posix()} [{file_class}]"
+            )
         typer.echo(
-            f"{prefix}: wrote {office_count} rows to "
-            f"datasets/governments/dim_offices.parquet"
-        )
-        typer.echo(
-            f"{prefix}: wrote {holdings_count} rows to "
-            f"datasets/governments/governments_office_holdings.parquet"
+            f"{prefix}: compiled {office_count} offices + {holdings_count} holdings "
+            f"(via tempdir; no parquet survives under datasets/governments/)"
         )
 
         # 7) indicators catalogue (P.1.A C3)

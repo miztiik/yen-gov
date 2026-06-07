@@ -1,13 +1,14 @@
-"""B2b.3 governments parquet -> long-format CSV reingest (term-shape per
+"""B3-followup governments parquet -> long-format CSV reingest (term-shape per
 plan section 20.4).
 
-Transcodes the two surviving governments parquets
+Projects the two in-process governments parquets
 
     datasets/governments/dim_offices.parquet
     datasets/governments/governments_office_holdings.parquet
 
-into the term-shape triple under ``datasets/data/`` mandated by parent plan
-section 20.4 (CSV everywhere, no parquet survivor for this family):
+into the canonical term-shape triple under ``datasets/data/`` mandated by
+parent plan section 20.4 (CSV everywhere, no parquet survivor for this
+family):
 
     datasets/data/entities/office.csv
         office_id, name, office_kind, jurisdiction_entity_id, portfolio
@@ -15,6 +16,14 @@ section 20.4 (CSV everywhere, no parquet survivor for this family):
         holder_id, person_name, party_id
     datasets/data/datapoints/office_holdings.csv
         office_id, term_start, holder_id, term_end, source_id
+
+B3-followup (2026-06-07): the two source parquets are no longer
+committed under ``datasets/governments/``. The ``emit-taxonomy`` CLI
+builds them per-run inside a tempdir (via ``office_holdings_seed.compile_to_parquet``)
+and passes that tempdir as the ``parquet_dir`` arg here so the CSV
+emit chain continues unbroken. The tempdir is cleaned up after
+``emit()`` returns; no parquet survives on disk in citizen-visible
+locations.
 
 Projection rules:
 

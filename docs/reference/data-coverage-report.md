@@ -59,7 +59,7 @@ The May 2026 wave (the project's primary "live" target — TN, WB, Kerala, Assam
 
 - **Boundaries** — `datasets/boundaries/in/geojson/`: 31 per-state AC polygon files (`S__-ac.geojson`) + `india-states.geojson` + `india-districts.geojson`. Each carries a sibling `.sources.json` recording the upstream geojson author + commit.
 - **Features** — `datasets/features/in/energy/power-plants.geojson`: point layer of generating stations from `india-geodata`. Used by the energy hub map.
-- **Governments** — `datasets/taxonomy/office_holdings.json`: consolidated long-form Chief Minister tenure timelines for all 31 states plus the first official-source President / Vice President slice (v1.1, 2026-05-25). G.1.c replaced the per-state `datasets/governments/in/states/<S>/cm_terms.json` files. Compiles to `datasets/governments/governments_office_holdings.parquet` via `python -m yen_gov emit-taxonomy`. Used to label the "who governed when" overlay; constitutional-office frontend surfaces are deferred.
+- **Governments** — `datasets/taxonomy/office_holdings.json`: consolidated long-form Chief Minister tenure timelines for all 31 states plus the first official-source President / Vice President slice (v1.1, 2026-05-25). G.1.c replaced the per-state `datasets/governments/in/states/<S>/cm_terms.json` files. Compiles to the 3-CSV term-shape under `datasets/data/` (`entities/office.csv` + `entities/holder.csv` + `datapoints/office_holdings.csv`) via `python -m yen_gov emit-taxonomy`; the legacy `datasets/governments/{dim_offices,governments_office_holdings}.parquet` pair retired in B3-followup (2026-06-07). Used to label the "who governed when" overlay; constitutional-office frontend surfaces are deferred.
 
 ## 5. What's NOT loaded yet (the gaps)
 
