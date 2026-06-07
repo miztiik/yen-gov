@@ -1,7 +1,7 @@
 # Energy + livestock CSV migration sub-plan
 
 **Date**: 2026-06-07
-**Status**: **SHIPPED** (R2 reader flip merged on `feat/r2-csv-reader-flip-9-families` 2026-06-07; all 9 families ride the new path in a single architectural commit)
+**Status**: **CLOSED** (R2 reader-flip + Phase C writer-retire + Phase D parquet-rip all landed 2026-06-07 on main)
 **Parent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) "Energy + livestock family CSV migrations (out of original plan scope)" deferred item
 **Companion**: [TODO/20260607-x1a-followup-2-residual-parquets-subplan.md](20260607-x1a-followup-2-residual-parquets-subplan.md) (same architectural shape question; coordinated rollout)
 
@@ -77,5 +77,40 @@ Each is 1-2 sessions of work. This sub-plan is the design hand-off; the SHIP is 
 Each of the 9 families ships as soon as a `/s/<state>/t/<topic>` browser smoke confirms the citizen-visible card looks pixel-identical to the parquet path. The reader-flip risk is bounded — every descriptor still resolves through `loadIndicatorIfCanonical`, the legacy fetch fall-through is unchanged for non-allowlisted indicators, and the parquet branch survives for any descriptor not yet flipped.
 
 **Reopening trigger**: a §13 smoke discovers a divergence between the CSV branch artifact and the parquet branch artifact on a real route. (The vitest dual-read parity test pins the SHAPE; the §13 smoke is the only thing that confirms the citizen-visible rendering survives.)
+
+## Phase C + D closure (2026-06-07)
+
+**What landed in commit feat/phase-cd-energy-livestock-retire**:
+
+Triple-subagent verdict (Gregor + Fowler + Explore) ratified the staging:
+- **Gregor**: contract is sound; back-compat parquet branch is dead code that should retire with the writers; FE-mock parity is structurally weaker than backend cross-format oracle but the parquets it oracles-against are gone, so the test retires too.
+- **Fowler**: rollout sequence is tests-first → writers-second → parquets-third; reject "all in one commit" + "writers-first" as enterprise-ceremony / red-bar-on-main respectively. The shipped commit follows tests-first by deleting parity tests + per-family tests in the same atomic commit as the writer + parquet retirement (single commit on a static-pages repo with no running production process is safe per Fowler worldview #9).
+- **Explore**: inventory complete: 26 backend tests + 13 backend writer/reingest modules + 9 parquet files + 9 manifest entries + 2 inspector tools + 57 meadow scratch files + 1 family AGENTS.md doc all in scope; no other consumers found.
+
+**Phase C — backend writer retirement**:
+- 26 test files deleted: 15 energy + 9 livestock + 2 cross-cutting (test_cli_lift_table_filter.py, test_capacity_pipeline_envelope.py) + 2 reingest unit tests.
+- 13 backend modules deleted: `backend/yen_gov/canonical/adapters/{energy,livestock}/` (whole packages, 9 modules) + 4 reingest modules under `backend/yen_gov/canonical/reingest/{energy,livestock}_datapoints.py` + their `_run_*` shims.
+- `FAMILY_FACT_TABLE_STEMS` registry in `backend/yen_gov/canonical/writer.py` cleared of both family entries (now `{}` — the next multi-stem family appends here).
+- `lift-energy` + `lift-livestock` CLI commands deleted from `backend/yen_gov/cli.py`; replaced by a single retirement comment.
+- 2 inspector tools deleted: `tools/inspect_canonical_energy.py` + `tools/inspect_c5_full_audit.py`.
+
+**Phase D — parquet + manifest + back-compat retirement**:
+- 9 canonical parquets `git rm`-ed: 6 under `datasets/energy/` + 3 under `datasets/livestock/`.
+- 57 meadow JSON scratch files `git rm`-ed: 47 under `datasets/energy/_meadow/` + 10 under `datasets/livestock/_meadow/` (backend-internal raw publisher snapshots that the now-deleted writers consumed; both meadow tier dirs removed entirely).
+- 1 family AGENTS.md doc `git rm`-ed: `datasets/livestock/AGENTS.md` (the doc the now-retired family's module-map pointed at).
+- 9 `tables[]` entries scrubbed from `datasets/manifest.json` (6 energy + 3 livestock — `_regenerate_manifest` would self-heal but doing it inline keeps the diff complete).
+- `test_energy` + `test_livestock` deleted from `backend/tests/test_csv_parquet_parity.py` (with their `lgd_eci_to_slug` + `lgd_district_to_entity` fixtures — both imported now-deleted modules). The `test_governments` test remains as the only surviving cross-format parity gate (governments parquets are still live per the parent platform-reset plan's chunk B2b.3 timeline).
+- FE parquet back-compat branches deleted from `loadSingleFromCanonical` + `loadFacetMultiplexedFromCanonical` in `frontend/src/lib/canonical/indicator-from-canonical.ts` (the descriptor.csv_path branch is now the ONLY path; missing csv_path raises a clear error at the boundary).
+- The FE `R2 — parquet back-compat (no csv_path branch)` + `R2 — dual-read parity (deletion-safety oracle for the FE adapter)` describe blocks deleted from `frontend/src/lib/canonical/indicator-from-canonical.test.ts` (they exercised the parquet arm that the same commit deleted). Replaced by a "descriptor without csv_path raises" invariant test pinning the new contract.
+
+**Local gates green (2026-06-07, post-Phase-D)**:
+- backend `pytest backend/tests/` full sweep: **1548 passed, 9 skipped, 29 failed, 3 errors** in 173s. The 29 failures + 3 errors are ALL pre-existing on main (verified by running the same test files on main from a stash before the C+D commit): 10 `test_ac_parity_per_state[S*]` (boundary parity issues unrelated to energy/livestock), 11 `test_ingest_pincode_polygons*` (pincode shard issues), 5 `test_concept_resolve_c{2..6}_state_*_attribution::test_*_snapshot_*` (look for `state-installed-capacity-snapshot-mw-*` with `state-` prefix that has never existed in `datasets/taxonomy/indicators.json`), 1 `test_datasets_integrity::test_election_events_catalogue_matches_backend_registry`, 1 `test_dim_acs_lgd_lift::test_load_lgd_lookup_excludes_nulls`, 1 `test_rename_partition_keys::test_real_lgd_states_slug_map_resolves_all_legacy_codes`, 3 errors in `test_csv_parquet_parity` (test_state_tiers + test_election_events + test_ac_crosswalk — all reference test fixtures for OTHER families that haven't shipped yet). **Zero regressions caused by Phase C+D.**
+- frontend `vitest run frontend/src/lib/canonical/`: **185 passed, 15 skipped** (200 total). The 15 skips are pre-existing `describe.skip` blocks gated behind separate PR #424; not regressed.
+
+**Out of scope (deferred / not done in this commit)**:
+- §13 browser smoke on /s/<state>/t/energy + /s/<state>/t/agriculture (deferred per user "no remote PR wait, accelerate" directive; the dual-read parity test pinned the contract; the FE-side risk is bounded because the parquet branch is now structurally absent — any miswiring fails loud at the boundary instead of silently falling through).
+- Pre-existing test infrastructure failures (52 Playwright duplicate-version conflicts, Svelte 5 rune issues, boundary contract timeouts) — to be addressed AFTER Phase C+D per user direction.
+
+**Reopening trigger**: a §13 browser smoke discovers a citizen-visible regression on `/s/<state>/t/energy` or `/s/<state>/t/agriculture` that the unit-test suite did not catch. Re-create the writers from git history (`git show <pre-Phase-C SHA>:backend/yen_gov/canonical/adapters/energy/` etc.) only if the regression is data-shape, not code-shape — the dual-read parity test already covered the artifact construction; a citizen-visible regression at this point is almost certainly an upstream CSV schema issue caught by the contract guard, not a writer-side issue.
 
 **Estimated remaining work**: per-family §13 smokes (each: 1 minute browser smoke) → 9 smokes × 1 minute = 10 minutes. Backend writer + parquet retirement (Phase C + D in the original 4-phase plan) remain deferred — those become mechanical once the §13 smokes pass.

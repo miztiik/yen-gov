@@ -790,153 +790,17 @@ def coverage(
         typer.echo(f"\ncoverage: wrote {INVENTORY_REL}")
 
 
-@app.command("lift-energy")
-def lift_energy(
-    root: Path = typer.Option(
-        Path.cwd(),
-        "--root",
-        "-r",
-        help="Repo root (defaults to current directory).",
-        file_okay=False,
-        dir_okay=True,
-        exists=True,
-    ),
-    dry_run: bool = typer.Option(
-        False,
-        "--dry-run",
-        help=(
-            "Plan-only: validate envelopes, build parquet bytes in tempfiles, "
-            "log UNCHANGED|CHANGED per planned file, write nothing to disk."
-        ),
-    ),
-    table: list[str] = typer.Option(
-        [],
-        "--table",
-        "-t",
-        help=(
-            "PR-A4: Restrict to one or more target_table_stem values "
-            "(repeatable). Unknown stems exit non-zero. Default (no flag) "
-            "runs all 5 energy envelopes."
-        ),
-    ),
-) -> None:
-    """Lift meadow-tier energy JSON shards to canonical fact-table Parquets.
-
-    P.1.A C4 (plan-doc TODO row 0e.7 P.1). Reads meadow-tier shards under
-    ``datasets/energy/_meadow/<source>/<vintage>/*.json`` (ADR-0041) and
-    writes 4 canonical fact-table Parquets under ``datasets/energy/``:
-
-    * ``energy_installed_capacity.parquet``      — 5 CEA per-fuel national
-      rows + ICED state geographical (parent + 5 fuel children) + ICED
-      state allocated (parent only; per-fuel orphans deferred to a
-      future PR per scope-gap §0e.7.5).
-    * ``energy_generation.parquet``              — ICED publisher total +
-      per-fuel breakdown (sub-fuel collapsed to canonical 5).
-    * ``energy_demand_supply.parquet``           — RBI Table 142 peak
-      demand + peak met + ICED per-capita consumption.
-    * ``energy_distribution_performance.parquet`` — ICED ATC losses +
-      sales-MU.
-
-    The 6 energy citation rows on ``datasets/taxonomy/sources.parquet``
-    are UPSERTed by ``emit-taxonomy`` (P.1.A C3); this command requires
-    that step has already run.
-    """
-    from yen_gov.canonical.adapters.energy import build_envelopes
-    from yen_gov.canonical.writer import write_batch
-
-    datasets_root = root / "datasets"
-    if not datasets_root.is_dir():
-        raise typer.BadParameter(
-            f"datasets/ not found under {root.as_posix()!r}"
-        )
-    only = set(table) if table else None
-    total_obs = 0
-    try:
-        envs = build_envelopes(root, only=only)
-    except ValueError as exc:
-        raise typer.BadParameter(str(exc)) from exc
-    for env in envs:
-        result = write_batch(env, datasets_root, dry_run=dry_run)
-        typer.echo(
-            f"lift-energy{' [dry-run]' if dry_run else ''}: {env.target_table_stem}: "
-            f"{result.observation_rows_written} obs rows -> "
-            f"{result.observations_path.relative_to(root).as_posix()}"
-        )
-        total_obs += result.observation_rows_written
-    typer.echo(f"lift-energy{' [dry-run]' if dry_run else ''}: {total_obs} total observation rows written")
-
-
-@app.command("lift-livestock")
-def lift_livestock(
-    root: Path = typer.Option(
-        Path.cwd(),
-        "--root",
-        "-r",
-        help="Repo root (defaults to current directory).",
-        file_okay=False,
-        dir_okay=True,
-        exists=True,
-    ),
-    dry_run: bool = typer.Option(
-        False,
-        "--dry-run",
-        help=(
-            "Plan-only: validate envelopes, build parquet bytes in tempfiles, "
-            "log UNCHANGED|CHANGED per planned file, write nothing to disk."
-        ),
-    ),
-    table: list[str] = typer.Option(
-        [],
-        "--table",
-        "-t",
-        help=(
-            "PR-A4: Restrict to one or more target_table_stem values "
-            "(repeatable). Unknown stems exit non-zero. Default (no flag) "
-            "runs all livestock envelopes."
-        ),
-    ),
-) -> None:
-    """Lift NDLM meadow-tier livestock JSON shards to canonical fact-table Parquets.
-
-    Path A PR 3 (TODO/20260525-livestock-ndlm-ingest-plan.md). Reads
-    meadow-tier shards under ``datasets/livestock/_meadow/ndlm/<vintage>/*.json``
-    (ADR-0041) and writes 1 canonical fact-table Parquet:
-
-    * ``livestock_pashu_aadhaar.parquet`` - 10 per-species facet-child
-      indicators (``district-pashu-aadhaar-count-<species>``) at district
-      granularity, both CY 2024 and FY 2024-25 vintages.
-
-    The parent indicator ``district-pashu-aadhaar-count`` is
-    compute-on-read (no observation rows on disk; the value is the sum
-    of the 10 atomic-species children, per Hans' D33.8 convention).
-
-    The 5 NDLM citation rows on ``datasets/taxonomy/sources.parquet``
-    are UPSERTed by ``emit-taxonomy`` (PR #276 livestock_sources_seed.py);
-    this command requires that step has already run.
-    """
-    from yen_gov.canonical.adapters.livestock import build_envelopes
-    from yen_gov.canonical.writer import write_batch
-
-    datasets_root = root / "datasets"
-    if not datasets_root.is_dir():
-        raise typer.BadParameter(
-            f"datasets/ not found under {root.as_posix()!r}"
-        )
-    only = set(table) if table else None
-    total_obs = 0
-    try:
-        envs = build_envelopes(root, only=only)
-    except ValueError as exc:
-        raise typer.BadParameter(str(exc)) from exc
-    for env in envs:
-        result = write_batch(env, datasets_root, dry_run=dry_run)
-        typer.echo(
-            f"lift-livestock{' [dry-run]' if dry_run else ''}: {env.target_table_stem}: "
-            f"{result.observation_rows_written} obs rows -> "
-            f"{result.observations_path.relative_to(root).as_posix()}"
-        )
-        total_obs += result.observation_rows_written
-    typer.echo(f"lift-livestock{' [dry-run]' if dry_run else ''}: {total_obs} total observation rows written")
+# `lift-energy` and `lift-livestock` CLI commands retired 2026-06-07
+# (Phase C of TODO/20260607-energy-livestock-csv-migration-subplan.md).
+# The canonical store for both families is now per-indicator CSV under
+# `datasets/data/datapoints/geo/` (the FE reader was flipped in R2,
+# commit 96275ab6). The parquet writer adapters under
+# `backend/yen_gov/canonical/adapters/{energy,livestock}/` were deleted
+# in the same commit; the corresponding parquet files retired in
+# Phase D. No replacement CLI is shipped — the CSVs are the
+# source-of-truth and are emitted directly by their upstream ingesters
+# (see `datasets/data/datapoints/geo/<id>.csv` for the on-disk
+# artifacts).
 
 
 @app.command("eci-statreport-emit-local")

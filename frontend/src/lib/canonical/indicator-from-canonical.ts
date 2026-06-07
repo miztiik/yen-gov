@@ -32,7 +32,7 @@
 //    until the Hans+Max+Gregor panel locks the canonical metadata
 //    contract for these fields.
 
-import { query, registerCsvAsTable, registerCsvFile, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerCsvFile } from "../duckdb";
 import {
   fetchIndicator,
   type EntityKind,
@@ -312,54 +312,29 @@ export async function loadIndicatorFromCanonical(
 async function loadSingleFromCanonical(
   descriptor: CanonicalSingleIndicatorDescriptor,
 ): Promise<IndicatorArtifact> {
-  // R2 reader-flip (sub-plan 20260607): when the descriptor carries a
-  // `csv_path`, the canonical store is the long-format per-indicator CSV
-  // at `data/datapoints/geo/<canonical_indicator_id>.csv`. The CSV has
+  // Phase C/D (2026-06-07): the energy + livestock parquet writers were
+  // retired in the same commit that deleted the parquet files. Every
+  // production descriptor in the allowlist now carries `csv_path` and
+  // reads via the long-format per-indicator CSV at
+  // `data/datapoints/geo/<canonical_indicator_id>.csv`. The CSV has
   // shape `entity_id, time, value, source_id` (no `indicator_id` column —
   // it's encoded by the filename per csv-column-contract.md section 3.3).
   // Entity_ids are LGD-name slugs ("tamil-nadu", "andhra-pradesh/visakhapatnam");
   // translate to the legacy ECI shape ("S22", "S01-D744") via the canonical
   // entity-translation seam so downstream renderers stay unchanged.
-  if (descriptor.csv_path !== undefined) {
-    return loadSingleFromCsv(descriptor, descriptor.csv_path);
+  //
+  // A missing `csv_path` is a contract violation (the allowlist invariant
+  // test in indicator-from-canonical.test.ts pins this): fail loud at
+  // the boundary rather than silently falling back to a code path the
+  // dispatch no longer has.
+  if (descriptor.csv_path === undefined) {
+    throw new Error(
+      `canonical descriptor missing csv_path: ${descriptor.legacy_artifact_id} ` +
+        `(canonical=${descriptor.canonical_indicator_id}). The parquet back-compat ` +
+        `branch retired 2026-06-07 in Phase C/D; every descriptor must declare csv_path.`,
+    );
   }
-  // Legacy parquet path — back-compat for any descriptor not yet flipped
-  // to CSV. After every allowlist entry carries csv_path this branch
-  // becomes dead code and the X1b parquet retirement can prune it.
-  await Promise.all([
-    registerTable(descriptor.table_id),
-    registerCsvAsTable("taxonomy.sources"),
-  ]);
-
-  const viewName = descriptor.table_id.split(".").pop()!;
-  const indicatorLit = sqlString(descriptor.canonical_indicator_id);
-
-  const obsSql = `
-    SELECT entity_id, period_label, value_numeric, source_id
-    FROM ${viewName}
-    WHERE indicator_id = ${indicatorLit}
-    ORDER BY entity_id, period_label
-  `;
-  const obsRows = await query<CanonicalObsRow>(obsSql);
-
-  const distinctSourceIds = [...new Set(obsRows.map((r) => r.source_id))].filter(
-    (s): s is string => typeof s === "string" && s.length > 0,
-  );
-  let sourceRows: CanonicalSourceRow[] = [];
-  if (distinctSourceIds.length > 0) {
-    const idList = distinctSourceIds.map(sqlString).join(", ");
-    const srcSql = `
-          SELECT source_id, producer, title, vintage, license, confidence_tier,
-           is_issuing_authority, verification_method, url_main,
-           citation_full, notes
-      FROM sources
-      WHERE source_id IN (${idList})
-      ORDER BY title
-    `;
-    sourceRows = await query<CanonicalSourceRow>(srcSql);
-  }
-
-  return buildIndicatorArtifact(descriptor, obsRows, sourceRows);
+  return loadSingleFromCsv(descriptor, descriptor.csv_path);
 }
 
 /** Raw row shape returned by `read_csv` against a `data/datapoints/geo/*.csv`
@@ -471,35 +446,26 @@ async function loadSingleFromCsv(
 async function loadFacetMultiplexedFromCanonical(
   descriptor: CanonicalFacetMultiplexedDescriptor,
 ): Promise<IndicatorArtifact> {
-  // R2 reader-flip (sub-plan 20260607): when every facet child carries
-  // a `csv_path`, the canonical store is N per-indicator CSVs. Fan out
-  // via UNION ALL with a synth `'<child_id>' AS indicator_id` literal
-  // per branch so per-row facet dispatch stays unchanged.
-  const allChildrenHaveCsv = descriptor.facet_values.every(
-    (fv) => fv.csv_path !== undefined,
+  // Phase C/D (2026-06-07): every facet child in the energy + livestock
+  // allowlist now carries `csv_path`; the parquet UNION-on-fact-table
+  // back-compat branch retired in the same commit that deleted the
+  // parquet files. Fan out via UNION ALL with a synth `'<child_id>' AS
+  // indicator_id` literal per branch so per-row facet dispatch stays
+  // unchanged. A missing `csv_path` on any child is a contract violation;
+  // fail loud at the boundary.
+  const childrenMissingCsv = descriptor.facet_values.filter(
+    (fv) => fv.csv_path === undefined,
   );
-  if (allChildrenHaveCsv) {
-    return loadFacetMultiplexedFromCsv(descriptor);
+  if (childrenMissingCsv.length > 0) {
+    const ids = childrenMissingCsv.map((fv) => fv.canonical_child_id).join(", ");
+    throw new Error(
+      `facet-multiplexed descriptor ${descriptor.legacy_artifact_id} has ` +
+        `${childrenMissingCsv.length} child(ren) missing csv_path: ${ids}. ` +
+        `The parquet back-compat branch retired 2026-06-07 in Phase C/D; ` +
+        `every facet child must declare csv_path.`,
+    );
   }
-  await Promise.all([
-    registerTable(descriptor.table_id),
-    registerCsvAsTable("taxonomy.sources"),
-  ]);
-
-  const viewName = descriptor.table_id.split(".").pop()!;
-  const childIdList = descriptor.facet_values
-    .map((fv) => sqlString(fv.canonical_child_id))
-    .join(", ");
-
-  const obsSql = `
-    SELECT indicator_id, entity_id, period_label, value_numeric, source_id
-    FROM ${viewName}
-    WHERE indicator_id IN (${childIdList})
-    ORDER BY indicator_id, entity_id, period_label
-  `;
-  const obsRows = await query<CanonicalFacetObsRow>(obsSql);
-
-  return buildFacetMultiplexedArtifact(descriptor, obsRows);
+  return loadFacetMultiplexedFromCsv(descriptor);
 }
 
 async function loadFacetMultiplexedFromCsv(

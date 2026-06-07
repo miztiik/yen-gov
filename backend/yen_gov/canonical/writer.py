@@ -88,33 +88,19 @@ FAMILY_FACT_TABLE_STEM: dict[str, str] = {
 # this list). Single-stem families need not appear here; the writer
 # falls back to the default stem from ``FAMILY_FACT_TABLE_STEM``.
 #
-# Plan-doc TODO row 0e.7 P.1.A introduces the energy family with 4
-# topical slices, keeping each table in the ~150 KB-3 MB range so
-# DuckDB-WASM range queries stay selective on the static Pages host and
-# the parquet files browse cleanly in the GitHub repo. A 5th planned
-# stem (``energy_fuel_consumption``) is reserved for P.1.C; it appears
-# here pre-emptively so the contract is stable when P.1.C lifts.
+# Phase C/D (TODO/20260607-energy-livestock-csv-migration-subplan.md):
+# the ``energy`` and ``livestock`` families retired on 2026-06-07 — the
+# canonical store for those families is now per-indicator CSV under
+# ``datasets/data/datapoints/geo/`` (the FE reader was flipped in R2,
+# commit 96275ab6, and the parquet writers + readers were deleted in
+# this commit). The registry is empty for now; the next multi-stem
+# family appends here.
 #
 # Adding a family is purely additive — append one row of permitted
 # stems. Removing a stem from this list is a Holy-Law-#5 structural
 # change (any adapter or test referencing it must rename in the same
 # commit).
-FAMILY_FACT_TABLE_STEMS: dict[str, list[str]] = {
-    "energy": [
-        "energy_installed_capacity",
-        "energy_generation",
-        "energy_demand_supply",
-        "energy_distribution_performance",
-        "energy_fuel_consumption",
-        "energy_capacity_pipeline",
-    ],
-    "livestock": [
-        "livestock_pashu_aadhaar",
-        "livestock_owner_registration",
-        "livestock_nadcp_vaccination",
-        "livestock_naip_iv",
-    ],
-}
+FAMILY_FACT_TABLE_STEMS: dict[str, list[str]] = {}
 
 
 def _fact_table_stem(family: str, override: str | None = None) -> str:

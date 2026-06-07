@@ -2699,22 +2699,35 @@ describe("R2 — CSV reader path filters by entity_kind grain", () => {
   });
 });
 
-describe("R2 — parquet back-compat (no csv_path branch)", () => {
-  // Synthetic descriptor with csv_path UNDEFINED: exercises the legacy
-  // parquet path through `registerTable(table_id)`. This is the back-compat
-  // shape for any future descriptor not yet migrated to CSV. The R2 reader
-  // never deletes the parquet branch; it just bypasses it when csv_path
-  // is set.
+// Phase C/D (2026-06-07): the "R2 — parquet back-compat (no csv_path branch)"
+// describe block + the "R2 — dual-read parity (deletion-safety oracle for
+// the FE adapter)" describe block both retired in this commit. They
+// exercised the parquet reader arm in loadSingleFromCanonical and
+// loadFacetMultiplexedFromCanonical that the same commit deleted.
+// The deletion-safety they oracle-against (the energy + livestock
+// parquets) no longer exists; the artifact-builder symmetry they
+// asserted is structurally guaranteed now that the parquet branch is
+// gone (there is only one branch to test).
+//
+// A loud-fail invariant test for the new contract ("descriptor without
+// csv_path raises a clear error") is below — that's the single-branch
+// equivalent of the dual-read parity check.
 
-  const PARQUET_BACKCOMPAT_DESCRIPTOR: CanonicalIndicatorDescriptor = {
+describe("Phase C/D — descriptor without csv_path raises (no parquet back-compat)", () => {
+  // The parquet back-compat branch retired in Phase C/D; descriptors that
+  // reach the dispatch without a csv_path field must fail loud at the
+  // boundary instead of silently falling back to a code path that no
+  // longer exists.
+
+  const NO_CSV_SINGLE_DESCRIPTOR: CanonicalIndicatorDescriptor = {
     kind: "single",
-    legacy_artifact_id: "synthetic/legacy_parquet_only",
-    canonical_indicator_id: "synthetic-parquet-only-indicator",
+    legacy_artifact_id: "synthetic/missing_csv_path",
+    canonical_indicator_id: "synthetic-missing-csv-path",
     table_id: "synthetic.synthetic_fact_table",
     meta: {
-      id: "synthetic-parquet-only-indicator",
-      title: "Synthetic parquet-only indicator",
-      description: "Fixture for the back-compat branch.",
+      id: "synthetic-missing-csv-path",
+      title: "Synthetic descriptor missing csv_path",
+      description: "Fixture proving the boundary fails loud.",
       entity_kind: "state",
       time_grain: "fiscal_year",
       value_kind: "count",
@@ -2729,134 +2742,46 @@ describe("R2 — parquet back-compat (no csv_path branch)", () => {
     },
   };
 
-  it("reads via registerTable(<table_id>) + FROM <viewName> when csv_path is undefined", async () => {
-    mockedQuery
-      .mockResolvedValueOnce([
-        // Parquet-shape row: ECI entity_id + period_label string.
-        {
-          entity_id: "IN-S22",
-          period_label: "2025-04",
-          value_numeric: 42,
-          source_id: "src-parquet",
-        },
-      ])
-      .mockResolvedValueOnce([
-        {
-          source_id: "src-parquet",
-          producer: "Synthetic",
-          title: "Synthetic",
-          vintage: "FY25",
-          license: "OGL-IN-1.0",
-          confidence_tier: "gold",
-          is_issuing_authority: true,
-          verification_method: "live-fetch",
-          url_main: null,
-          citation_full: null,
-          notes: null,
-        },
-      ]);
-
-    const out = await loadIndicatorFromCanonical(PARQUET_BACKCOMPAT_DESCRIPTOR);
-    // Parquet branch DID call registerTable.
-    expect(mockedRegister).toHaveBeenCalledWith("synthetic.synthetic_fact_table");
-    // CSV branch did NOT register a CSV file URL.
-    const csvUrls = mockedRegisterCsvFile.mock.calls.map((c) => c[0]);
-    expect(csvUrls.some((u) => u.includes("synthetic-parquet-only-indicator.csv"))).toBe(false);
-    const sql = mockedQuery.mock.calls[0][0] as string;
-    expect(sql).toMatch(/FROM\s+synthetic_fact_table/);
-    expect(sql).toMatch(/indicator_id\s*=\s*'synthetic-parquet-only-indicator'/);
-    expect(out.rows[0].entity_id).toBe("S22");
-    expect(out.rows[0].time).toBe("2025-04");
+  it("loadIndicatorFromCanonical(single, no csv_path) throws with a clear message", async () => {
+    await expect(loadIndicatorFromCanonical(NO_CSV_SINGLE_DESCRIPTOR)).rejects.toThrow(
+      /missing csv_path: synthetic\/missing_csv_path/,
+    );
+    // No SQL query is issued.
+    expect(mockedQuery).not.toHaveBeenCalled();
   });
-});
 
-describe("R2 — dual-read parity (deletion-safety oracle for the FE adapter)", () => {
-  // Frontend-adapter complement to backend/tests/test_csv_parquet_parity.py.
-  //
-  // When the CSV branch is fed `(tamil-nadu, 2024, 18000, src-x)` and the
-  // parquet branch is fed `(IN-S22, "2024", 18000, src-x)` AS THE SAME
-  // DATA, both branches MUST emit IndicatorArtifacts that are byte-equal
-  // up to (a) the descriptor used (csv_path-present vs absent), and
-  // (b) the `coverage.temporal` string (CSV reads integer `time` which
-  // stringifies to "2024"; parquet reads `period_label` which is "2024-04"
-  // because that's the on-disk shape). This test pins (i) row count
-  // equality, (ii) value/source_id parity per (entity_id, time) key, and
-  // (iii) admin_level equality.
+  const NO_CSV_FACET_DESCRIPTOR: CanonicalIndicatorDescriptor = {
+    kind: "facet-multiplexed",
+    legacy_artifact_id: "synthetic/missing_csv_path_facet",
+    canonical_parent_indicator_id: "synthetic-missing-csv-path-facet",
+    table_id: "synthetic.synthetic_fact_table",
+    facet_axis_id: "synthetic_axis",
+    facet_values: [
+      { canonical_child_id: "synthetic-child-a", legacy_facet_label: "a" },
+      { canonical_child_id: "synthetic-child-b", legacy_facet_label: "b" },
+    ],
+    meta: {
+      id: "synthetic-missing-csv-path-facet",
+      title: "Synthetic facet-multiplexed missing csv_path",
+      description: "Fixture proving the boundary fails loud.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "units",
+      icon: "activity",
+      attribution_geography: "where_administered",
+      comparability: "comparable_across_states_and_time",
+      implementing_authority: "centre",
+      methodology_vintage: "synthetic fixture",
+    },
+  };
 
-  const PARITY_CSV_DESCRIPTOR = getCanonicalDescriptor(
-    "energy/state_peak_electricity_demand_mw",
-  )!;
-  const PARITY_PARQUET_BACKCOMPAT: CanonicalIndicatorDescriptor = {
-    ...PARITY_CSV_DESCRIPTOR,
-    csv_path: undefined, // force the parquet branch
-  } as CanonicalIndicatorDescriptor;
-
-  it("CSV branch + parquet branch produce identical (entity_id, value, source_id) tuples", async () => {
-    // 1. CSV branch: returns CSV-shape rows.
-    mockedQuery
-      .mockResolvedValueOnce([
-        { entity_id: "tamil-nadu", time: 2024, value: 18000, source_id: "src-a" },
-        { entity_id: "andhra-pradesh", time: 2024, value: 12000, source_id: "src-a" },
-        { entity_id: "IN", time: 2024, value: 245000, source_id: "src-a" },
-      ])
-      .mockResolvedValueOnce([
-        {
-          source_id: "src-a",
-          producer: "X",
-          title: "X",
-          vintage: "FY25",
-          license: "OGL-IN-1.0",
-          confidence_tier: "gold",
-          is_issuing_authority: true,
-          verification_method: "live-fetch",
-          url_main: null,
-          citation_full: null,
-          notes: null,
-        },
-      ]);
-    const csvOut = await loadIndicatorFromCanonical(PARITY_CSV_DESCRIPTOR);
-
-    // 2. Parquet branch: returns parquet-shape rows representing the SAME data.
-    mockedQuery
-      .mockResolvedValueOnce([
-        { entity_id: "IN-S22", period_label: "2024", value_numeric: 18000, source_id: "src-a" },
-        { entity_id: "IN-S01", period_label: "2024", value_numeric: 12000, source_id: "src-a" },
-        { entity_id: "IN", period_label: "2024", value_numeric: 245000, source_id: "src-a" },
-      ])
-      .mockResolvedValueOnce([
-        {
-          source_id: "src-a",
-          producer: "X",
-          title: "X",
-          vintage: "FY25",
-          license: "OGL-IN-1.0",
-          confidence_tier: "gold",
-          is_issuing_authority: true,
-          verification_method: "live-fetch",
-          url_main: null,
-          citation_full: null,
-          notes: null,
-        },
-      ]);
-    const parquetOut = await loadIndicatorFromCanonical(PARITY_PARQUET_BACKCOMPAT);
-
-    // 3. Per-row parity. Sort both before comparing.
-    function rowKey(r: { entity_id: string; time?: string; value: number | null }): string {
-      return `${r.entity_id}|${r.time}|${r.value}`;
-    }
-    const csvKeys = csvOut.rows.map(rowKey).sort();
-    const parquetKeys = parquetOut.rows.map(rowKey).sort();
-    expect(csvKeys).toEqual(parquetKeys);
-
-    // 4. Admin level parity.
-    expect(csvOut.coverage.admin_level).toBe(parquetOut.coverage.admin_level);
-
-    // 5. Source parity.
-    const csvSources = indicatorArtifactSourcesV2(csvOut)!.map((s) => s.source_id).sort();
-    const parquetSources = indicatorArtifactSourcesV2(parquetOut)!.map((s) => s.source_id).sort();
-    expect(csvSources).toEqual(parquetSources);
-
-    // 6. Indicator id parity (descriptor.meta block came from the same source).
-    expect(csvOut.indicator.id).toBe(parquetOut.indicator.id);
+  it("loadIndicatorFromCanonical(facet-multiplexed, child missing csv_path) throws with a clear message", async () => {
+    await expect(loadIndicatorFromCanonical(NO_CSV_FACET_DESCRIPTOR)).rejects.toThrow(
+      /missing csv_path: synthetic-child-a, synthetic-child-b/,
+    );
+    expect(mockedQuery).not.toHaveBeenCalled();
   });
 });
