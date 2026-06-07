@@ -18,8 +18,35 @@ vi.mock("../duckdb", () => ({
   registerCsvAsTable: vi.fn(async (id: string) =>
     id === "elections.dim_parties" ? "dim_parties" : "sources",
   ),
+  registerCsvFile: vi.fn(async () => undefined),
   query: vi.fn(),
 }));
+
+// R2 reader-flip (sub-plan 20260607): csv-columns + canonical-entity-translation
+// are the two new dependencies of the CSV branch. Stubbed at the test boundary
+// per CLAUDE.md §15 carve-out (loader contract IS the DuckDB-WASM seam +
+// the entity translation seam). The columns clause is the same stable string
+// across every datapoints/geo/*.csv file_class. The slug→legacy map is seeded
+// in beforeEach with the entries our test fixtures actually touch.
+vi.mock("./csv-columns", () => ({
+  csvColumnsClause: vi.fn(async () =>
+    "columns={'entity_id': 'VARCHAR', 'time': 'BIGINT', 'value': 'DOUBLE', 'source_id': 'VARCHAR'}",
+  ),
+}));
+
+vi.mock("./canonical-entity-translation", async () => {
+  const actual = await vi.importActual<
+    typeof import("./canonical-entity-translation")
+  >("./canonical-entity-translation");
+  return {
+    ...actual,
+    loadCanonicalSlugToLegacyMap: vi.fn(async () => testSlugToLegacyMap),
+  };
+});
+
+// Test fixture map seeded in beforeEach. Covers every slug the CSV-path
+// fixtures below reference; pass-through for unrecognised slugs.
+let testSlugToLegacyMap: Map<string, string> = new Map();
 
 vi.mock("../indicators", async () => {
   // Pull in the real module so we re-export every helper the production
@@ -34,7 +61,7 @@ vi.mock("../indicators", async () => {
   };
 });
 
-import { query, registerCsvAsTable, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerCsvFile, registerTable } from "../duckdb";
 import { fetchIndicator } from "../indicators";
 import { FORBIDDEN_SOURCE_FIELDS } from "../source-list-v2";
 import {
@@ -61,6 +88,7 @@ import {
 const mockedQuery = vi.mocked(query);
 const mockedRegister = vi.mocked(registerTable);
 const mockedRegisterCsvAsTable = vi.mocked(registerCsvAsTable);
+const mockedRegisterCsvFile = vi.mocked(registerCsvFile);
 const mockedFetch = vi.mocked(fetchIndicator);
 
 const ajv = new Ajv2020({ strict: false, allErrors: true, allowUnionTypes: true });
@@ -78,7 +106,27 @@ beforeEach(() => {
   mockedQuery.mockReset();
   mockedRegister.mockReset();
   mockedRegister.mockResolvedValue("noop");
+  mockedRegisterCsvFile.mockReset();
+  mockedRegisterCsvFile.mockResolvedValue(undefined);
   mockedFetch.mockReset();
+  // R2 reader-flip: seed the slug→legacy translation map with every
+  // slug the CSV-path fixtures below reference. Unrecognised slugs
+  // pass through to the renderer unchanged, which is the safe default
+  // for the legacy-shaped fixtures ("IN-S22", "IN") in the parquet
+  // back-compat branch tests.
+  testSlugToLegacyMap = new Map([
+    ["IN", "IN"],
+    ["tamil-nadu", "S22"],
+    ["andhra-pradesh", "S01"],
+    ["karnataka", "S10"],
+    ["kerala", "S11"],
+    ["maharashtra", "S13"],
+    ["delhi", "U05"],
+    ["assam", "S03"],
+    ["assam/baksa", "S03-D280"],
+    ["assam/barpeta", "S03-D281"],
+    ["delhi/central-delhi", "U05-D640"],
+  ]);
 });
 
 // Test fixture mirrors the on-disk shape of the C4.7 Phase A canonical row.
@@ -1663,33 +1711,40 @@ describe("buildIndicatorArtifact — canonical rows → legacy IndicatorArtifact
   });
 });
 
-describe("loadIndicatorFromCanonical — DuckDB-WASM round-trip (loader)", () => {
-  it("registers the fact-table and sources table before querying", async () => {
+describe("loadIndicatorFromCanonical — DuckDB-WASM round-trip (R2 CSV loader)", () => {
+  it("registers the per-indicator CSV URL + sources table before querying (csv_path branch)", async () => {
     mockedQuery.mockResolvedValue([]);
     await expect(loadIndicatorFromCanonical(PEAK_DEMAND_DESCRIPTOR)).rejects.toThrow(
       /current indicator schema requires at least one row/,
     );
-    // The descriptor.table_id (e.g. 'energy.energy_demand_supply') still
-    // goes through `registerTable`. After X1a (PR #809) `taxonomy.sources`
-    // is the CSV-as-table view; E5 corrects the assertion that expected
-    // the legacy parquet `registerTable` call.
-    const parquetTables = mockedRegister.mock.calls.map((c) => c[0]);
-    expect(parquetTables).toContain("energy.energy_demand_supply");
+    // R2 reader-flip: the descriptor now carries csv_path so the loader
+    // goes through `registerCsvFile` for the per-indicator CSV URL and
+    // `registerCsvAsTable("taxonomy.sources")` for source provenance.
+    // The legacy `registerTable(table_id)` call is bypassed (and the
+    // parquet shard is never fetched).
+    const csvUrls = mockedRegisterCsvFile.mock.calls.map((c) => c[0]);
+    expect(csvUrls.some((u) => u.includes("peak-electricity-demand-mw.csv"))).toBe(true);
     const csvAsTableIds = mockedRegisterCsvAsTable.mock.calls.map((c) => c[0]);
     expect(csvAsTableIds).toContain("taxonomy.sources");
+    // Parquet path is NOT touched on the CSV branch.
+    expect(mockedRegister).not.toHaveBeenCalled();
   });
 
-  it("queries the fact-table view (last segment of table_id) filtered by indicator_id", async () => {
+  it("queries the CSV via read_csv(<url>, columns={...}) with no indicator_id filter", async () => {
     mockedQuery.mockResolvedValue([]);
     await expect(loadIndicatorFromCanonical(PEAK_DEMAND_DESCRIPTOR)).rejects.toThrow(
       /current indicator schema requires at least one row/,
     );
     const firstSql = mockedQuery.mock.calls[0][0] as string;
-    expect(firstSql).toMatch(/FROM\s+energy_demand_supply/);
-    expect(firstSql).toMatch(/indicator_id\s*=\s*'peak-electricity-demand-mw'/);
+    // R2 contract: per-indicator CSV — indicator_id is encoded by the
+    // filename so the SQL has no WHERE clause on it.
+    expect(firstSql).toMatch(/FROM\s+read_csv\(/);
+    expect(firstSql).toMatch(/peak-electricity-demand-mw\.csv/);
+    expect(firstSql).toMatch(/columns=\{/);
+    expect(firstSql).not.toMatch(/indicator_id\s*=/);
   });
 
-  it("rejects when the fact-table has no rows for this indicator", async () => {
+  it("rejects when the CSV returns zero rows for this indicator", async () => {
     mockedQuery.mockResolvedValueOnce([]); // observation query
     await expect(loadIndicatorFromCanonical(PEAK_DEMAND_DESCRIPTOR)).rejects.toThrow(
       /current indicator schema requires at least one row/,
@@ -1698,10 +1753,11 @@ describe("loadIndicatorFromCanonical — DuckDB-WASM round-trip (loader)", () =>
     expect(mockedQuery).toHaveBeenCalledTimes(1);
   });
 
-  it("issues the sources query when observation rows reference at least one source_id", async () => {
+  it("issues the sources query when CSV observation rows reference at least one source_id", async () => {
     mockedQuery
       .mockResolvedValueOnce([
-        { entity_id: "IN-S22", period_label: "2025-04", value_numeric: 20211, source_id: "src-iced" },
+        // CSV-shape row: slug entity_id + integer time.
+        { entity_id: "tamil-nadu", time: 2025, value: 20211, source_id: "src-iced" },
       ])
       .mockResolvedValueOnce([
         {
@@ -1725,7 +1781,10 @@ describe("loadIndicatorFromCanonical — DuckDB-WASM round-trip (loader)", () =>
     expect(secondSql).toMatch(/'src-iced'/);
     expect(out.sources).toEqual([]);
     expect(indicatorArtifactSourcesV2(out)).toHaveLength(1);
+    // CSV "tamil-nadu" slug → "S22" via the translation map seam.
     expect(out.rows[0].entity_id).toBe("S22");
+    // CSV integer time stringified to match the IndicatorRow.time contract.
+    expect(out.rows[0].time).toBe("2025");
   });
 });
 
@@ -1737,10 +1796,10 @@ describe("loadIndicatorIfCanonical — single dispatch entry-point", () => {
     expect(mockedRegister).not.toHaveBeenCalled();
   });
 
-  it("returns the canonical artifact for an allowlisted id", async () => {
+  it("returns the canonical artifact for an allowlisted id (R2 CSV path)", async () => {
     mockedQuery
       .mockResolvedValueOnce([
-        { entity_id: "IN-S22", period_label: "2025-04", value_numeric: 20211, source_id: "src-iced" },
+        { entity_id: "tamil-nadu", time: 2025, value: 20211, source_id: "src-iced" },
       ])
       .mockResolvedValueOnce([
         {
@@ -1782,10 +1841,10 @@ describe("legacyArtifactIdFromPath — DATA_BASE path → catalogue artifact id"
 });
 
 describe("loadIndicator — universal entry-point (Phase B-extension)", () => {
-  it("returns the canonical artifact for an allowlisted path (no fetchIndicator call)", async () => {
+  it("returns the canonical artifact for an allowlisted path (no fetchIndicator call) — R2 CSV path", async () => {
     mockedQuery
       .mockResolvedValueOnce([
-        { entity_id: "IN-S22", period_label: "2025-04", value_numeric: 20211, source_id: "src-iced" },
+        { entity_id: "tamil-nadu", time: 2025, value: 20211, source_id: "src-iced" },
       ])
       .mockResolvedValueOnce([
         {
@@ -1968,29 +2027,30 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
     expect(labels).not.toContain("non_solar");
   });
 
-  it("[mandatory] adapter fuses 3 child rows into one artifact with hyphenated facet labels", async () => {
+  it("[mandatory] adapter fuses 3 child rows into one artifact with hyphenated facet labels (R2 CSV path)", async () => {
     mockedQuery
       .mockResolvedValueOnce([
-        // 3 children × 1 state × 1 FY
+        // 3 children × 1 state × 1 FY — CSV-shape row (slug entity_id +
+        // integer time + synth indicator_id from the UNION ALL literal).
         {
           indicator_id: "rpo-compliance-pct-solar",
-          entity_id: "IN-S22",
-          period_label: "2024-04",
-          value_numeric: 95.5,
+          entity_id: "tamil-nadu",
+          time: 2024,
+          value: 95.5,
           source_id: "src-rpo",
         },
         {
           indicator_id: "rpo-compliance-pct-non-solar",
-          entity_id: "IN-S22",
-          period_label: "2024-04",
-          value_numeric: 88.2,
+          entity_id: "tamil-nadu",
+          time: 2024,
+          value: 88.2,
           source_id: "src-rpo",
         },
         {
           indicator_id: "rpo-compliance-pct-total",
-          entity_id: "IN-S22",
-          period_label: "2024-04",
-          value_numeric: 92.1,
+          entity_id: "tamil-nadu",
+          time: 2024,
+          value: 92.1,
           source_id: "src-rpo",
         },
       ])
@@ -2018,7 +2078,7 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
     expect(result.rows.some((r) => r.facet === "non_solar")).toBe(false);
   });
 
-  it("[mandatory] issues ONE SQL with `indicator_id IN (` covering all 3 children", async () => {
+  it("[mandatory] issues ONE SQL with UNION ALL across N CSV branches with synth indicator_id literal", async () => {
     mockedQuery.mockResolvedValueOnce([]); // no observations, sources query is skipped
     await expect(loadIndicatorFromCanonical(RPO_DESCRIPTOR)).rejects.toThrow(
       /current indicator schema requires at least one row/,
@@ -2026,28 +2086,35 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
     // Exactly one query (sources skipped because no source_ids harvested):
     expect(mockedQuery).toHaveBeenCalledTimes(1);
     const sql = mockedQuery.mock.calls[0][0] as string;
-    expect(sql).toMatch(/indicator_id\s+IN\s*\(/);
-    expect(sql).toMatch(/'rpo-compliance-pct-solar'/);
-    expect(sql).toMatch(/'rpo-compliance-pct-non-solar'/);
-    expect(sql).toMatch(/'rpo-compliance-pct-total'/);
-    expect(sql).toMatch(/FROM\s+energy_distribution_performance/);
+    // R2 CSV branch: each child is a SELECT FROM read_csv(...) UNION'd
+    // with a synth `'<child_id>' AS indicator_id` literal so the per-row
+    // facet dispatch keeps working.
+    expect(sql).toMatch(/UNION ALL/);
+    expect(sql).toMatch(/'rpo-compliance-pct-solar'\s+AS\s+indicator_id/);
+    expect(sql).toMatch(/'rpo-compliance-pct-non-solar'\s+AS\s+indicator_id/);
+    expect(sql).toMatch(/'rpo-compliance-pct-total'\s+AS\s+indicator_id/);
+    expect(sql).toMatch(/rpo-compliance-pct-solar\.csv/);
+    expect(sql).toMatch(/rpo-compliance-pct-non-solar\.csv/);
+    expect(sql).toMatch(/rpo-compliance-pct-total\.csv/);
+    // No legacy parquet view name on the CSV path.
+    expect(sql).not.toMatch(/FROM\s+energy_distribution_performance\b/);
   });
 
-  it("[mandatory] aggregates sources from CHILD rows (parent has source_id=null per D29)", async () => {
+  it("[mandatory] aggregates sources from CHILD rows (parent has source_id=null per D29) on the CSV path", async () => {
     mockedQuery
       .mockResolvedValueOnce([
         {
           indicator_id: "rpo-compliance-pct-solar",
-          entity_id: "IN-S22",
-          period_label: "2024-04",
-          value_numeric: 95.5,
+          entity_id: "tamil-nadu",
+          time: 2024,
+          value: 95.5,
           source_id: "src-rpo",
         },
         {
           indicator_id: "rpo-compliance-pct-non-solar",
-          entity_id: "IN-S22",
-          period_label: "2024-04",
-          value_numeric: 88.2,
+          entity_id: "tamil-nadu",
+          time: 2024,
+          value: 88.2,
           source_id: "src-rpo",
         },
       ])
@@ -2082,30 +2149,30 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
     expect(sourcesSql).toMatch(/'src-rpo'/);
   });
 
-  it("[mandatory] derives coverage.temporal from min/max across ALL fused child rows", async () => {
+  it("[mandatory] derives coverage.temporal from min/max across ALL fused child rows (CSV path)", async () => {
     mockedQuery
       .mockResolvedValueOnce([
         // Different children cover different FYs — the parent's coverage
         // must be the UNION (min across children → max across children).
         {
           indicator_id: "rpo-compliance-pct-solar",
-          entity_id: "IN-S22",
-          period_label: "2018-04",
-          value_numeric: 70.0,
+          entity_id: "tamil-nadu",
+          time: 2018,
+          value: 70.0,
           source_id: "src-rpo",
         },
         {
           indicator_id: "rpo-compliance-pct-non-solar",
-          entity_id: "IN-S22",
-          period_label: "2020-04",
-          value_numeric: 80.0,
+          entity_id: "tamil-nadu",
+          time: 2020,
+          value: 80.0,
           source_id: "src-rpo",
         },
         {
           indicator_id: "rpo-compliance-pct-total",
-          entity_id: "IN-S22",
-          period_label: "2024-04",
-          value_numeric: 92.0,
+          entity_id: "tamil-nadu",
+          time: 2024,
+          value: 92.0,
           source_id: "src-rpo",
         },
       ])
@@ -2125,16 +2192,16 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
         },
       ]);
     const result = await loadIndicatorFromCanonical(RPO_DESCRIPTOR);
-    expect(result.coverage.temporal).toBe("2018-04 to 2024-04");
+    expect(result.coverage.temporal).toBe("2018 to 2024");
   });
 
-  it("artifact's indicator.id is the parent (NOT any child); meta block carries parent fields", async () => {
+  it("artifact's indicator.id is the parent (NOT any child); meta block carries parent fields (CSV path)", async () => {
     mockedQuery.mockResolvedValueOnce([
       {
         indicator_id: "rpo-compliance-pct-total",
-        entity_id: "IN-S22",
-        period_label: "2024-04",
-        value_numeric: 92.1,
+        entity_id: "tamil-nadu",
+        time: 2024,
+        value: 92.1,
         source_id: "",
       },
     ]);
@@ -2149,9 +2216,9 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
     mockedQuery.mockResolvedValueOnce([
       {
         indicator_id: "rpo-compliance-pct-total",
-        entity_id: "IN-S22",
-        period_label: "2024-04",
-        value_numeric: 92.1,
+        entity_id: "tamil-nadu",
+        time: 2024,
+        value: 92.1,
         source_id: "",
       },
     ]);
@@ -2462,5 +2529,334 @@ describe.skip("Phase 3.C-partial - NAIP IV (8 single descriptors across 4 metric
       expect(district.table_id).toBe(state.table_id);
       expect(district.table_id).toBe("livestock.livestock_naip_iv");
     }
+  });
+});
+
+// ============================================================================
+// R2 reader-flip (sub-plan 20260607) — CSV reader path + dual-read parity
+// ============================================================================
+//
+// New coverage:
+//   1. csv_path is wired on every energy + livestock descriptor in the
+//      allowlist (53 entries: 43 single + 10 facet-multiplexed children).
+//   2. The CSV reader path filters rows by entity_kind grain (district-grain
+//      descriptors reading a state+district CSV pick the `slug/slug` rows;
+//      state-grain descriptors pick the `slug` rows).
+//   3. Dual-read parity: when the parquet branch and the CSV branch are
+//      fed equivalent data, the emitted IndicatorArtifact is byte-identical
+//      across paths (the deletion-safety oracle the backend
+//      `test_csv_parquet_parity.py` asserts on the data side; this is the
+//      frontend-adapter complement).
+
+describe("R2 — every energy + livestock descriptor carries csv_path", () => {
+  it("every kind:single energy/livestock descriptor declares csv_path", () => {
+    const violators: string[] = [];
+    for (const d of CANONICAL_BACKED_INDICATORS) {
+      if (d.kind !== "single") continue;
+      if (!d.table_id.startsWith("energy.") && !d.table_id.startsWith("livestock.")) continue;
+      if (d.csv_path === undefined) {
+        violators.push(`${d.legacy_artifact_id} (canonical=${d.canonical_indicator_id})`);
+      }
+    }
+    expect(violators, `${violators.length} energy/livestock single descriptors missing csv_path`)
+      .toEqual([]);
+  });
+
+  it("every kind:facet-multiplexed energy/livestock child declares csv_path", () => {
+    const violators: string[] = [];
+    for (const d of CANONICAL_BACKED_INDICATORS) {
+      if (d.kind !== "facet-multiplexed") continue;
+      if (!d.table_id.startsWith("energy.") && !d.table_id.startsWith("livestock.")) continue;
+      for (const fv of d.facet_values) {
+        if (fv.csv_path === undefined) {
+          violators.push(`${d.legacy_artifact_id} -> ${fv.canonical_child_id}`);
+        }
+      }
+    }
+    expect(violators, `${violators.length} facet children missing csv_path`).toEqual([]);
+  });
+
+  it("every csv_path points to data/datapoints/geo/<id>.csv (csv-column-contract.md §3.3)", () => {
+    const paths = new Set<string>();
+    for (const d of CANONICAL_BACKED_INDICATORS) {
+      if (d.kind === "single" && d.csv_path) paths.add(d.csv_path);
+      if (d.kind === "facet-multiplexed") {
+        for (const fv of d.facet_values) {
+          if (fv.csv_path) paths.add(fv.csv_path);
+        }
+      }
+    }
+    expect(paths.size).toBeGreaterThanOrEqual(40);
+    for (const p of paths) {
+      expect(p).toMatch(/^data\/datapoints\/geo\/[a-z0-9-]+\.csv$/);
+    }
+  });
+});
+
+describe("R2 — CSV reader path filters by entity_kind grain", () => {
+  // pashu-aadhaar-count-cattle.csv carries BOTH state-grain rows
+  // (entity_id = "tamil-nadu") AND district-grain rows
+  // (entity_id = "tamil-nadu/chennai") because of the ADR-0043 auto-rollup
+  // writer. The state-grain descriptor should pick state slugs only;
+  // the district-grain descriptor should pick `slug/slug` only.
+
+  beforeEach(() => {
+    // Extend the seed map with both Assam district fixtures so the
+    // district-grain test below has a translation target.
+    testSlugToLegacyMap.set("assam/baksa", "S03-D280");
+    testSlugToLegacyMap.set("assam/barpeta", "S03-D281");
+  });
+
+  it("state-grain descriptor reads state slugs AND the national IN row (no district slugs)", async () => {
+    const stateCattle = getCanonicalDescriptor(
+      "agriculture/state_pashu_aadhaar_count_cattle",
+    )!;
+    expect(stateCattle.kind).toBe("single");
+    if (stateCattle.kind !== "single") return;
+    expect(stateCattle.csv_path).toBe("data/datapoints/geo/pashu-aadhaar-count-cattle.csv");
+    expect(stateCattle.meta.entity_kind).toBe("state");
+
+    // CSV returns a mix of national + state + district rows.
+    mockedQuery
+      .mockResolvedValueOnce([
+        { entity_id: "IN", time: 2024, value: 12000, source_id: "src-ndlm" },
+        { entity_id: "tamil-nadu", time: 2024, value: 1000, source_id: "src-ndlm" },
+        { entity_id: "tamil-nadu/chennai", time: 2024, value: 50, source_id: "src-ndlm" },
+        { entity_id: "andhra-pradesh", time: 2024, value: 2000, source_id: "src-ndlm" },
+        { entity_id: "andhra-pradesh/visakhapatnam", time: 2024, value: 100, source_id: "src-ndlm" },
+      ])
+      .mockResolvedValueOnce([
+        {
+          source_id: "src-ndlm",
+          producer: "DAHD",
+          title: "NDLM",
+          vintage: "FY25",
+          license: "OGL-IN-1.0",
+          confidence_tier: "gold",
+          is_issuing_authority: true,
+          verification_method: "live-fetch",
+          url_main: "https://bpa.dahd.gov.in/",
+          citation_full: null,
+          notes: null,
+        },
+      ]);
+
+    const out = await loadIndicatorFromCanonical(stateCattle);
+    const entities = new Set(out.rows.map((r) => r.entity_id));
+    // National + 2 state rows = 3 total. District rows dropped.
+    expect(entities.has("IN")).toBe(true);
+    expect(entities.has("S22")).toBe(true);
+    expect(entities.has("S01")).toBe(true);
+    expect(entities.size).toBe(3);
+    for (const e of entities) {
+      expect(e).not.toMatch(/-D\d+/);
+    }
+  });
+
+  it("district-grain descriptor reads ONLY rows WITH a `/` in entity_id", async () => {
+    // Add Tamil Nadu / Chennai + Andhra / Visakhapatnam to the seed
+    // map so the translation step succeeds for the fixture rows.
+    testSlugToLegacyMap.set("tamil-nadu/chennai", "S22-D635");
+    testSlugToLegacyMap.set("andhra-pradesh/visakhapatnam", "S01-D710");
+
+    const distCattle = getCanonicalDescriptor(
+      "agriculture/district_pashu_aadhaar_count_cattle",
+    )!;
+    expect(distCattle.kind).toBe("single");
+    if (distCattle.kind !== "single") return;
+    expect(distCattle.csv_path).toBe("data/datapoints/geo/pashu-aadhaar-count-cattle.csv");
+    expect(distCattle.meta.entity_kind).toBe("district");
+
+    mockedQuery
+      .mockResolvedValueOnce([
+        { entity_id: "tamil-nadu", time: 2024, value: 1000, source_id: "src-ndlm" },
+        { entity_id: "tamil-nadu/chennai", time: 2024, value: 50, source_id: "src-ndlm" },
+        { entity_id: "andhra-pradesh/visakhapatnam", time: 2024, value: 100, source_id: "src-ndlm" },
+      ])
+      .mockResolvedValueOnce([
+        {
+          source_id: "src-ndlm",
+          producer: "DAHD",
+          title: "NDLM",
+          vintage: "FY25",
+          license: "OGL-IN-1.0",
+          confidence_tier: "gold",
+          is_issuing_authority: true,
+          verification_method: "live-fetch",
+          url_main: "https://bpa.dahd.gov.in/",
+          citation_full: null,
+          notes: null,
+        },
+      ]);
+
+    const out = await loadIndicatorFromCanonical(distCattle);
+    const entities = new Set(out.rows.map((r) => r.entity_id));
+    // Only district rows survived.
+    expect(entities.has("S22-D635")).toBe(true);
+    expect(entities.has("S01-D710")).toBe(true);
+    expect(entities.has("S22")).toBe(false);
+    expect(entities.size).toBe(2);
+  });
+});
+
+describe("R2 — parquet back-compat (no csv_path branch)", () => {
+  // Synthetic descriptor with csv_path UNDEFINED: exercises the legacy
+  // parquet path through `registerTable(table_id)`. This is the back-compat
+  // shape for any future descriptor not yet migrated to CSV. The R2 reader
+  // never deletes the parquet branch; it just bypasses it when csv_path
+  // is set.
+
+  const PARQUET_BACKCOMPAT_DESCRIPTOR: CanonicalIndicatorDescriptor = {
+    kind: "single",
+    legacy_artifact_id: "synthetic/legacy_parquet_only",
+    canonical_indicator_id: "synthetic-parquet-only-indicator",
+    table_id: "synthetic.synthetic_fact_table",
+    meta: {
+      id: "synthetic-parquet-only-indicator",
+      title: "Synthetic parquet-only indicator",
+      description: "Fixture for the back-compat branch.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "count",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "units",
+      icon: "activity",
+      attribution_geography: "where_administered",
+      comparability: "comparable_across_states_and_time",
+      implementing_authority: "centre",
+      methodology_vintage: "synthetic fixture",
+    },
+  };
+
+  it("reads via registerTable(<table_id>) + FROM <viewName> when csv_path is undefined", async () => {
+    mockedQuery
+      .mockResolvedValueOnce([
+        // Parquet-shape row: ECI entity_id + period_label string.
+        {
+          entity_id: "IN-S22",
+          period_label: "2025-04",
+          value_numeric: 42,
+          source_id: "src-parquet",
+        },
+      ])
+      .mockResolvedValueOnce([
+        {
+          source_id: "src-parquet",
+          producer: "Synthetic",
+          title: "Synthetic",
+          vintage: "FY25",
+          license: "OGL-IN-1.0",
+          confidence_tier: "gold",
+          is_issuing_authority: true,
+          verification_method: "live-fetch",
+          url_main: null,
+          citation_full: null,
+          notes: null,
+        },
+      ]);
+
+    const out = await loadIndicatorFromCanonical(PARQUET_BACKCOMPAT_DESCRIPTOR);
+    // Parquet branch DID call registerTable.
+    expect(mockedRegister).toHaveBeenCalledWith("synthetic.synthetic_fact_table");
+    // CSV branch did NOT register a CSV file URL.
+    const csvUrls = mockedRegisterCsvFile.mock.calls.map((c) => c[0]);
+    expect(csvUrls.some((u) => u.includes("synthetic-parquet-only-indicator.csv"))).toBe(false);
+    const sql = mockedQuery.mock.calls[0][0] as string;
+    expect(sql).toMatch(/FROM\s+synthetic_fact_table/);
+    expect(sql).toMatch(/indicator_id\s*=\s*'synthetic-parquet-only-indicator'/);
+    expect(out.rows[0].entity_id).toBe("S22");
+    expect(out.rows[0].time).toBe("2025-04");
+  });
+});
+
+describe("R2 — dual-read parity (deletion-safety oracle for the FE adapter)", () => {
+  // Frontend-adapter complement to backend/tests/test_csv_parquet_parity.py.
+  //
+  // When the CSV branch is fed `(tamil-nadu, 2024, 18000, src-x)` and the
+  // parquet branch is fed `(IN-S22, "2024", 18000, src-x)` AS THE SAME
+  // DATA, both branches MUST emit IndicatorArtifacts that are byte-equal
+  // up to (a) the descriptor used (csv_path-present vs absent), and
+  // (b) the `coverage.temporal` string (CSV reads integer `time` which
+  // stringifies to "2024"; parquet reads `period_label` which is "2024-04"
+  // because that's the on-disk shape). This test pins (i) row count
+  // equality, (ii) value/source_id parity per (entity_id, time) key, and
+  // (iii) admin_level equality.
+
+  const PARITY_CSV_DESCRIPTOR = getCanonicalDescriptor(
+    "energy/state_peak_electricity_demand_mw",
+  )!;
+  const PARITY_PARQUET_BACKCOMPAT: CanonicalIndicatorDescriptor = {
+    ...PARITY_CSV_DESCRIPTOR,
+    csv_path: undefined, // force the parquet branch
+  } as CanonicalIndicatorDescriptor;
+
+  it("CSV branch + parquet branch produce identical (entity_id, value, source_id) tuples", async () => {
+    // 1. CSV branch: returns CSV-shape rows.
+    mockedQuery
+      .mockResolvedValueOnce([
+        { entity_id: "tamil-nadu", time: 2024, value: 18000, source_id: "src-a" },
+        { entity_id: "andhra-pradesh", time: 2024, value: 12000, source_id: "src-a" },
+        { entity_id: "IN", time: 2024, value: 245000, source_id: "src-a" },
+      ])
+      .mockResolvedValueOnce([
+        {
+          source_id: "src-a",
+          producer: "X",
+          title: "X",
+          vintage: "FY25",
+          license: "OGL-IN-1.0",
+          confidence_tier: "gold",
+          is_issuing_authority: true,
+          verification_method: "live-fetch",
+          url_main: null,
+          citation_full: null,
+          notes: null,
+        },
+      ]);
+    const csvOut = await loadIndicatorFromCanonical(PARITY_CSV_DESCRIPTOR);
+
+    // 2. Parquet branch: returns parquet-shape rows representing the SAME data.
+    mockedQuery
+      .mockResolvedValueOnce([
+        { entity_id: "IN-S22", period_label: "2024", value_numeric: 18000, source_id: "src-a" },
+        { entity_id: "IN-S01", period_label: "2024", value_numeric: 12000, source_id: "src-a" },
+        { entity_id: "IN", period_label: "2024", value_numeric: 245000, source_id: "src-a" },
+      ])
+      .mockResolvedValueOnce([
+        {
+          source_id: "src-a",
+          producer: "X",
+          title: "X",
+          vintage: "FY25",
+          license: "OGL-IN-1.0",
+          confidence_tier: "gold",
+          is_issuing_authority: true,
+          verification_method: "live-fetch",
+          url_main: null,
+          citation_full: null,
+          notes: null,
+        },
+      ]);
+    const parquetOut = await loadIndicatorFromCanonical(PARITY_PARQUET_BACKCOMPAT);
+
+    // 3. Per-row parity. Sort both before comparing.
+    function rowKey(r: { entity_id: string; time?: string; value: number | null }): string {
+      return `${r.entity_id}|${r.time}|${r.value}`;
+    }
+    const csvKeys = csvOut.rows.map(rowKey).sort();
+    const parquetKeys = parquetOut.rows.map(rowKey).sort();
+    expect(csvKeys).toEqual(parquetKeys);
+
+    // 4. Admin level parity.
+    expect(csvOut.coverage.admin_level).toBe(parquetOut.coverage.admin_level);
+
+    // 5. Source parity.
+    const csvSources = indicatorArtifactSourcesV2(csvOut)!.map((s) => s.source_id).sort();
+    const parquetSources = indicatorArtifactSourcesV2(parquetOut)!.map((s) => s.source_id).sort();
+    expect(csvSources).toEqual(parquetSources);
+
+    // 6. Indicator id parity (descriptor.meta block came from the same source).
+    expect(csvOut.indicator.id).toBe(parquetOut.indicator.id);
   });
 });

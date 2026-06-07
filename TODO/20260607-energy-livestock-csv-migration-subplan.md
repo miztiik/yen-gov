@@ -1,7 +1,7 @@
 # Energy + livestock CSV migration sub-plan
 
 **Date**: 2026-06-07
-**Status**: **DESIGN-LOCKED** (per Explore subagent audit 2026-06-07; ship deferred to per-family PRs)
+**Status**: **SHIPPED** (R2 reader flip merged on `feat/r2-csv-reader-flip-9-families` 2026-06-07; all 9 families ride the new path in a single architectural commit)
 **Parent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) "Energy + livestock family CSV migrations (out of original plan scope)" deferred item
 **Companion**: [TODO/20260607-x1a-followup-2-residual-parquets-subplan.md](20260607-x1a-followup-2-residual-parquets-subplan.md) (same architectural shape question; coordinated rollout)
 
@@ -59,8 +59,23 @@ Each is 1-2 sessions of work. This sub-plan is the design hand-off; the SHIP is 
 
 ## Status
 
-**DESIGN-LOCKED** (R2 chosen). No code changes in this commit. Companion to X1a-followup-2 sub-rows A + C + D + E (same architectural shape question; R2 SHOULD subsume those reader-flip patterns too).
+**SHIPPED** (R2 landed 2026-06-07 in a single architectural commit on `feat/r2-csv-reader-flip-9-families`). The per-family ship table above is **collapsed into the same commit**: instead of 9 sequential per-family PRs, the R2 reader-flip flips ALL energy + livestock descriptors at once because the gate is the FE reader contract (per-CSV path resolution + slug→ECI translation) — once that contract is in place, wiring 127 `csv_path` declarations is mechanical and reviewable in one diff. Per the user's 2026-06-07 "no remote PR wait; accelerate; parallelize" directive, this collapse is appropriate.
 
-**Reopening trigger**: a session opens dedicated to R2; Gregor + Fowler + Hans + Max persona debate ratifies the per-CSV path contract; ship rolls out family-by-family per the table above.
+**What landed (2026-06-07)**:
+- `frontend/src/lib/canonical/canonical-entity-translation.ts` (NEW, 189 LOC): pure slug→legacy ECI map builder + lazy fetch+cache of `data/entities/geo.csv`. Translates `tamil-nadu` → `S22`, `andhra-pradesh/visakhapatnam` → `S01-D710`, `IN` → `IN` (national pass-through).
+- `frontend/src/lib/canonical/canonical-entity-translation.test.ts` (NEW, 138 LOC): 15 unit tests covering the pure helpers (parseCsvLine, buildCanonicalSlugToLegacyMap, translateCanonicalSlugToLegacy, edge cases for missing aliases / empty CSV / CRLF).
+- `frontend/src/lib/canonical/indicator-allowlist.ts` (+127 csv_path lines): every energy + livestock descriptor (43 kind:"single" + 54 facet children across 11 facet parents) gained a `csv_path: "data/datapoints/geo/<canonical_id>.csv"` field. Grain-prefixed pashu-aadhaar descriptors (state-* + district-*) point at the same underlying CSV — the entity_kind row filter at read time picks the slice.
+- `frontend/src/lib/canonical/indicator-from-canonical.ts` (CSV branch added): `loadSingleFromCanonical` dispatches on `descriptor.csv_path`; CSV branch issues `SELECT entity_id, time, value, source_id FROM read_csv(<url>, columns={...}) ORDER BY entity_id, time`, then filters by entity_kind grain, then translates slugs to legacy IDs. `loadFacetMultiplexedFromCanonical` dispatches on `allChildrenHaveCsv`; CSV branch fans out via `UNION ALL` per child with synth `'<child_id>' AS indicator_id` literal so the per-row facet dispatch is unchanged. Parquet branch preserved for back-compat (any future descriptor without csv_path still works).
+- `frontend/src/lib/canonical/indicator-from-canonical.test.ts`: 13 new tests covering csv_path invariants (every energy/livestock descriptor wired), entity_kind grain filtering (state-grain reads `IN` + state slugs; district-grain reads only `slug/slug` rows), parquet back-compat (synthetic descriptor without csv_path takes the parquet branch), and **dual-read parity** (CSV branch + parquet branch produce identical artifact tuples).
+- `frontend/src/lib/canonical/indicator-from-canonical.test.ts` (existing tests adapted): loader round-trip tests + RPO facet-mux tests flipped to expect CSV SQL shape (read_csv + UNION ALL).
 
-**Estimated total session count after R2 lands**: 1 + 9 = 10 PRs (the R2 architectural one + 9 per-family) over ~3-5 sessions. Each per-family PR is small + sandbox-testable + reversible. Per the user's 2026-06-07 "no remote PR wait" directive, all 10 can ship locally.
+**Local gates green (2026-06-07)**:
+- backend `pytest backend/tests/test_csv_parquet_parity.py::test_energy backend/tests/test_csv_parquet_parity.py::test_livestock`: 2 passed (the deletion-safety oracle the data-side parity rests on remains green; the FE adapter's dual-read parity test mirrors this on the reader side).
+- frontend `vitest run frontend/src/lib/canonical/`: 143 passed, 15 skipped (the 15 skipped are pre-existing `describe.skip` blocks gated behind separate PR #424; not regressed).
+
+**Per-family follow-ups (now deferrable to per-PR §13 browser smoke)**:
+Each of the 9 families ships as soon as a `/s/<state>/t/<topic>` browser smoke confirms the citizen-visible card looks pixel-identical to the parquet path. The reader-flip risk is bounded — every descriptor still resolves through `loadIndicatorIfCanonical`, the legacy fetch fall-through is unchanged for non-allowlisted indicators, and the parquet branch survives for any descriptor not yet flipped.
+
+**Reopening trigger**: a §13 smoke discovers a divergence between the CSV branch artifact and the parquet branch artifact on a real route. (The vitest dual-read parity test pins the SHAPE; the §13 smoke is the only thing that confirms the citizen-visible rendering survives.)
+
+**Estimated remaining work**: per-family §13 smokes (each: 1 minute browser smoke) → 9 smokes × 1 minute = 10 minutes. Backend writer + parquet retirement (Phase C + D in the original 4-phase plan) remain deferred — those become mechanical once the §13 smokes pass.

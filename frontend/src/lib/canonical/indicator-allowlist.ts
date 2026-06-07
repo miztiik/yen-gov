@@ -98,6 +98,18 @@ interface CanonicalIndicatorDescriptorBase {
    *  segment is NOT the sum of solar + non-solar). Adapter copies these
    *  into the rebuilt artifact's `methodology.known_caveats[]`. */
   caveats?: ReadonlyArray<string>;
+  /** R2 reader-flip (sub-plan 20260607): repo-relative path under
+   *  `datasets/` that the adapter `read_csv(...)`s instead of resolving
+   *  `table_id` through the parquet manifest. Set on a per-descriptor
+   *  basis as each family migrates; when present, the CSV reader fires
+   *  and the parquet path is bypassed. When absent, the legacy parquet
+   *  path via `registerTable(table_id)` runs (back-compat for any
+   *  descriptor not yet flipped). The path shape is the canonical
+   *  long-format `data/datapoints/geo/<canonical_indicator_id>.csv`
+   *  per the csv-column-contract.md section 3.3 file class. For
+   *  facet-multiplexed descriptors this field stays absent on the
+   *  parent and is set per child in `facet_values[].csv_path`. */
+  csv_path?: string;
 }
 
 export interface CanonicalSingleIndicatorDescriptor
@@ -115,6 +127,13 @@ export interface CanonicalSingleIndicatorDescriptor
 export interface CanonicalFacetMapping {
   canonical_child_id: string;
   legacy_facet_label: string;
+  /** R2 reader-flip (sub-plan 20260607): per-child CSV path under
+   *  `datasets/` for the canonical long-format file that backs THIS
+   *  facet child. When every child of a facet-multiplexed descriptor
+   *  has a `csv_path`, the adapter fans out via N `read_csv(...)`
+   *  reads UNION-ed under a synth `indicator_id` literal column so
+   *  the existing per-row facet dispatch keeps working unchanged. */
+  csv_path?: string;
 }
 
 export interface CanonicalFacetMultiplexedDescriptor
@@ -144,6 +163,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/state_peak_electricity_demand_mw",
     canonical_indicator_id: "peak-electricity-demand-mw",
+    csv_path: "data/datapoints/geo/peak-electricity-demand-mw.csv",
     table_id: "energy.energy_demand_supply",
     meta: {
       id: "peak-electricity-demand-mw",
@@ -190,6 +210,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/state_peak_met_mw",
     canonical_indicator_id: "peak-electricity-supplied-mw",
+    csv_path: "data/datapoints/geo/peak-electricity-supplied-mw.csv",
     table_id: "energy.energy_demand_supply",
     meta: {
       id: "peak-electricity-supplied-mw",
@@ -219,6 +240,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/state_per_capita_electricity_consumption_kwh",
     canonical_indicator_id: "per-capita-electricity-consumption-kwh",
+    csv_path: "data/datapoints/geo/per-capita-electricity-consumption-kwh.csv",
     table_id: "energy.energy_demand_supply",
     meta: {
       id: "per-capita-electricity-consumption-kwh",
@@ -279,6 +301,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/state_electricity_sales_mu",
     canonical_indicator_id: "electricity-sales-mu",
+    csv_path: "data/datapoints/geo/electricity-sales-mu.csv",
     table_id: "energy.energy_distribution_performance",
     meta: {
       id: "electricity-sales-mu",
@@ -316,6 +339,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/state_atc_losses_pct",
     canonical_indicator_id: "atc-losses-pct",
+    csv_path: "data/datapoints/geo/atc-losses-pct.csv",
     table_id: "energy.energy_distribution_performance",
     meta: {
       id: "atc-losses-pct",
@@ -365,22 +389,27 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     facet_values: [
       {
         canonical_child_id: "installed-capacity-geographical-mw-coal",
+        csv_path: "data/datapoints/geo/installed-capacity-geographical-mw-coal.csv",
         legacy_facet_label: "coal",
       },
       {
         canonical_child_id: "installed-capacity-geographical-mw-gas",
+        csv_path: "data/datapoints/geo/installed-capacity-geographical-mw-gas.csv",
         legacy_facet_label: "gas",
       },
       {
         canonical_child_id: "installed-capacity-geographical-mw-hydro",
+        csv_path: "data/datapoints/geo/installed-capacity-geographical-mw-hydro.csv",
         legacy_facet_label: "hydro",
       },
       {
         canonical_child_id: "installed-capacity-geographical-mw-nuclear",
+        csv_path: "data/datapoints/geo/installed-capacity-geographical-mw-nuclear.csv",
         legacy_facet_label: "nuclear",
       },
       {
         canonical_child_id: "installed-capacity-geographical-mw-renewable",
+        csv_path: "data/datapoints/geo/installed-capacity-geographical-mw-renewable.csv",
         legacy_facet_label: "renewable",
       },
     ],
@@ -431,22 +460,27 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     facet_values: [
       {
         canonical_child_id: "electricity-generation-gwh-coal",
+        csv_path: "data/datapoints/geo/electricity-generation-gwh-coal.csv",
         legacy_facet_label: "coal",
       },
       {
         canonical_child_id: "electricity-generation-gwh-gas",
+        csv_path: "data/datapoints/geo/electricity-generation-gwh-gas.csv",
         legacy_facet_label: "gas",
       },
       {
         canonical_child_id: "electricity-generation-gwh-hydro",
+        csv_path: "data/datapoints/geo/electricity-generation-gwh-hydro.csv",
         legacy_facet_label: "hydro",
       },
       {
         canonical_child_id: "electricity-generation-gwh-nuclear",
+        csv_path: "data/datapoints/geo/electricity-generation-gwh-nuclear.csv",
         legacy_facet_label: "nuclear",
       },
       {
         canonical_child_id: "electricity-generation-gwh-renewable",
+        csv_path: "data/datapoints/geo/electricity-generation-gwh-renewable.csv",
         legacy_facet_label: "renewable",
       },
     ],
@@ -512,6 +546,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/installed_capacity_coal_mw",
     canonical_indicator_id: "installed-capacity-snapshot-mw-coal",
+    csv_path: "data/datapoints/geo/installed-capacity-snapshot-mw-coal.csv",
     table_id: "energy.energy_installed_capacity",
     meta: {
       id: "installed-capacity-snapshot-mw-coal",
@@ -538,6 +573,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/installed_capacity_gas_mw",
     canonical_indicator_id: "installed-capacity-snapshot-mw-gas",
+    csv_path: "data/datapoints/geo/installed-capacity-snapshot-mw-gas.csv",
     table_id: "energy.energy_installed_capacity",
     meta: {
       id: "installed-capacity-snapshot-mw-gas",
@@ -564,6 +600,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/installed_capacity_hydro_mw",
     canonical_indicator_id: "installed-capacity-snapshot-mw-hydro",
+    csv_path: "data/datapoints/geo/installed-capacity-snapshot-mw-hydro.csv",
     table_id: "energy.energy_installed_capacity",
     meta: {
       id: "installed-capacity-snapshot-mw-hydro",
@@ -590,6 +627,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/installed_capacity_nuclear_mw",
     canonical_indicator_id: "installed-capacity-snapshot-mw-nuclear",
+    csv_path: "data/datapoints/geo/installed-capacity-snapshot-mw-nuclear.csv",
     table_id: "energy.energy_installed_capacity",
     meta: {
       id: "installed-capacity-snapshot-mw-nuclear",
@@ -616,6 +654,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/installed_capacity_renewable_mw",
     canonical_indicator_id: "installed-capacity-snapshot-mw-renewable",
+    csv_path: "data/datapoints/geo/installed-capacity-snapshot-mw-renewable.csv",
     table_id: "energy.energy_installed_capacity",
     meta: {
       id: "installed-capacity-snapshot-mw-renewable",
@@ -642,6 +681,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/state_installed_capacity_geographical_mw",
     canonical_indicator_id: "installed-capacity-geographical-mw",
+    csv_path: "data/datapoints/geo/installed-capacity-geographical-mw.csv",
     table_id: "energy.energy_installed_capacity",
     meta: {
       id: "installed-capacity-geographical-mw",
@@ -670,6 +710,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/state_installed_capacity_with_alloc_mw",
     canonical_indicator_id: "installed-capacity-allocated-mw",
+    csv_path: "data/datapoints/geo/installed-capacity-allocated-mw.csv",
     table_id: "energy.energy_installed_capacity",
     meta: {
       id: "installed-capacity-allocated-mw",
@@ -706,6 +747,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/state_electricity_generation_mu",
     canonical_indicator_id: "electricity-generation-gwh",
+    csv_path: "data/datapoints/geo/electricity-generation-gwh.csv",
     table_id: "energy.energy_generation",
     meta: {
       id: "electricity-generation-gwh",
@@ -734,6 +776,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/state_power_requirement_mu",
     canonical_indicator_id: "electricity-requirement-mu",
+    csv_path: "data/datapoints/geo/electricity-requirement-mu.csv",
     table_id: "energy.energy_demand_supply",
     meta: {
       id: "electricity-requirement-mu",
@@ -762,6 +805,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/state_power_availability_mu",
     canonical_indicator_id: "electricity-availability-mu",
+    csv_path: "data/datapoints/geo/electricity-availability-mu.csv",
     table_id: "energy.energy_demand_supply",
     meta: {
       id: "electricity-availability-mu",
@@ -790,6 +834,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/state_per_capita_availability_kwh",
     canonical_indicator_id: "per-capita-electricity-availability-kwh",
+    csv_path: "data/datapoints/geo/per-capita-electricity-availability-kwh.csv",
     table_id: "energy.energy_demand_supply",
     meta: {
       id: "per-capita-electricity-availability-kwh",
@@ -827,6 +872,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/state_coal_consumption_mt",
     canonical_indicator_id: "coal-consumption-mt",
+    csv_path: "data/datapoints/geo/coal-consumption-mt.csv",
     table_id: "energy.energy_fuel_consumption",
     meta: {
       id: "coal-consumption-mt",
@@ -875,6 +921,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/state_rooftop_solar_capacity_mw",
     canonical_indicator_id: "rooftop-solar-capacity-mw",
+    csv_path: "data/datapoints/geo/rooftop-solar-capacity-mw.csv",
     table_id: "energy.energy_installed_capacity",
     meta: {
       id: "rooftop-solar-capacity-mw",
@@ -930,10 +977,12 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     facet_values: [
       {
         canonical_child_id: "india-thermal-capacity-retired-mw-coal",
+        csv_path: "data/datapoints/geo/india-thermal-capacity-retired-mw-coal.csv",
         legacy_facet_label: "coal",
       },
       {
         canonical_child_id: "india-thermal-capacity-retired-mw-gas",
+        csv_path: "data/datapoints/geo/india-thermal-capacity-retired-mw-gas.csv",
         legacy_facet_label: "gas",
       },
     ],
@@ -991,30 +1040,37 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     facet_values: [
       {
         canonical_child_id: "oil-product-consumption-kt-diesel-hsd",
+        csv_path: "data/datapoints/geo/oil-product-consumption-kt-diesel-hsd.csv",
         legacy_facet_label: "diesel-hsd",
       },
       {
         canonical_child_id: "oil-product-consumption-kt-petrol",
+        csv_path: "data/datapoints/geo/oil-product-consumption-kt-petrol.csv",
         legacy_facet_label: "petrol",
       },
       {
         canonical_child_id: "oil-product-consumption-kt-lpg",
+        csv_path: "data/datapoints/geo/oil-product-consumption-kt-lpg.csv",
         legacy_facet_label: "lpg",
       },
       {
         canonical_child_id: "oil-product-consumption-kt-kerosene",
+        csv_path: "data/datapoints/geo/oil-product-consumption-kt-kerosene.csv",
         legacy_facet_label: "kerosene",
       },
       {
         canonical_child_id: "oil-product-consumption-kt-naphtha",
+        csv_path: "data/datapoints/geo/oil-product-consumption-kt-naphtha.csv",
         legacy_facet_label: "naphtha",
       },
       {
         canonical_child_id: "oil-product-consumption-kt-petroleum-coke",
+        csv_path: "data/datapoints/geo/oil-product-consumption-kt-petroleum-coke.csv",
         legacy_facet_label: "petroleum-coke",
       },
       {
         canonical_child_id: "oil-product-consumption-kt-others",
+        csv_path: "data/datapoints/geo/oil-product-consumption-kt-others.csv",
         legacy_facet_label: "others",
       },
     ],
@@ -1075,26 +1131,32 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     facet_values: [
       {
         canonical_child_id: "india-primary-energy-supply-mtoe-coal",
+        csv_path: "data/datapoints/geo/india-primary-energy-supply-mtoe-coal.csv",
         legacy_facet_label: "coal",
       },
       {
         canonical_child_id: "india-primary-energy-supply-mtoe-oil",
+        csv_path: "data/datapoints/geo/india-primary-energy-supply-mtoe-oil.csv",
         legacy_facet_label: "oil",
       },
       {
         canonical_child_id: "india-primary-energy-supply-mtoe-gas",
+        csv_path: "data/datapoints/geo/india-primary-energy-supply-mtoe-gas.csv",
         legacy_facet_label: "gas",
       },
       {
         canonical_child_id: "india-primary-energy-supply-mtoe-hydro",
+        csv_path: "data/datapoints/geo/india-primary-energy-supply-mtoe-hydro.csv",
         legacy_facet_label: "hydro",
       },
       {
         canonical_child_id: "india-primary-energy-supply-mtoe-nuclear",
+        csv_path: "data/datapoints/geo/india-primary-energy-supply-mtoe-nuclear.csv",
         legacy_facet_label: "nuclear",
       },
       {
         canonical_child_id: "india-primary-energy-supply-mtoe-renewable",
+        csv_path: "data/datapoints/geo/india-primary-energy-supply-mtoe-renewable.csv",
         legacy_facet_label: "renewable",
       },
     ],
@@ -1155,34 +1217,42 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     facet_values: [
       {
         canonical_child_id: "plant-load-factor-pct-coal",
+        csv_path: "data/datapoints/geo/plant-load-factor-pct-coal.csv",
         legacy_facet_label: "coal",
       },
       {
         canonical_child_id: "plant-load-factor-pct-gas",
+        csv_path: "data/datapoints/geo/plant-load-factor-pct-gas.csv",
         legacy_facet_label: "gas",
       },
       {
         canonical_child_id: "plant-load-factor-pct-hydro",
+        csv_path: "data/datapoints/geo/plant-load-factor-pct-hydro.csv",
         legacy_facet_label: "hydro",
       },
       {
         canonical_child_id: "plant-load-factor-pct-nuclear",
+        csv_path: "data/datapoints/geo/plant-load-factor-pct-nuclear.csv",
         legacy_facet_label: "nuclear",
       },
       {
         canonical_child_id: "plant-load-factor-pct-small-hydro",
+        csv_path: "data/datapoints/geo/plant-load-factor-pct-small-hydro.csv",
         legacy_facet_label: "small_hydro",
       },
       {
         canonical_child_id: "plant-load-factor-pct-solar",
+        csv_path: "data/datapoints/geo/plant-load-factor-pct-solar.csv",
         legacy_facet_label: "solar",
       },
       {
         canonical_child_id: "plant-load-factor-pct-wind",
+        csv_path: "data/datapoints/geo/plant-load-factor-pct-wind.csv",
         legacy_facet_label: "wind",
       },
       {
         canonical_child_id: "plant-load-factor-pct-biomass",
+        csv_path: "data/datapoints/geo/plant-load-factor-pct-biomass.csv",
         legacy_facet_label: "biomass",
       },
     ],
@@ -1242,18 +1312,18 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "energy.energy_demand_supply",
     facet_axis_id: "fuel_type",
     facet_values: [
-      { canonical_child_id: "power-purchase-share-pct-coal", legacy_facet_label: "coal" },
-      { canonical_child_id: "power-purchase-share-pct-gas", legacy_facet_label: "gas" },
-      { canonical_child_id: "power-purchase-share-pct-diesel", legacy_facet_label: "diesel" },
-      { canonical_child_id: "power-purchase-share-pct-hydro", legacy_facet_label: "hydro" },
-      { canonical_child_id: "power-purchase-share-pct-nuclear", legacy_facet_label: "nuclear" },
-      { canonical_child_id: "power-purchase-share-pct-small-hydro", legacy_facet_label: "small_hydro" },
-      { canonical_child_id: "power-purchase-share-pct-solar", legacy_facet_label: "solar" },
-      { canonical_child_id: "power-purchase-share-pct-wind", legacy_facet_label: "wind" },
-      { canonical_child_id: "power-purchase-share-pct-biomass", legacy_facet_label: "biomass" },
-      { canonical_child_id: "power-purchase-share-pct-renewable-other", legacy_facet_label: "renewable_other" },
-      { canonical_child_id: "power-purchase-share-pct-hybrid-bundled", legacy_facet_label: "hybrid_bundled" },
-      { canonical_child_id: "power-purchase-share-pct-trading-other", legacy_facet_label: "trading_other" },
+      { canonical_child_id: "power-purchase-share-pct-coal", legacy_facet_label: "coal" , csv_path: "data/datapoints/geo/power-purchase-share-pct-coal.csv" },
+      { canonical_child_id: "power-purchase-share-pct-gas", legacy_facet_label: "gas" , csv_path: "data/datapoints/geo/power-purchase-share-pct-gas.csv" },
+      { canonical_child_id: "power-purchase-share-pct-diesel", legacy_facet_label: "diesel" , csv_path: "data/datapoints/geo/power-purchase-share-pct-diesel.csv" },
+      { canonical_child_id: "power-purchase-share-pct-hydro", legacy_facet_label: "hydro" , csv_path: "data/datapoints/geo/power-purchase-share-pct-hydro.csv" },
+      { canonical_child_id: "power-purchase-share-pct-nuclear", legacy_facet_label: "nuclear" , csv_path: "data/datapoints/geo/power-purchase-share-pct-nuclear.csv" },
+      { canonical_child_id: "power-purchase-share-pct-small-hydro", legacy_facet_label: "small_hydro" , csv_path: "data/datapoints/geo/power-purchase-share-pct-small-hydro.csv" },
+      { canonical_child_id: "power-purchase-share-pct-solar", legacy_facet_label: "solar" , csv_path: "data/datapoints/geo/power-purchase-share-pct-solar.csv" },
+      { canonical_child_id: "power-purchase-share-pct-wind", legacy_facet_label: "wind" , csv_path: "data/datapoints/geo/power-purchase-share-pct-wind.csv" },
+      { canonical_child_id: "power-purchase-share-pct-biomass", legacy_facet_label: "biomass" , csv_path: "data/datapoints/geo/power-purchase-share-pct-biomass.csv" },
+      { canonical_child_id: "power-purchase-share-pct-renewable-other", legacy_facet_label: "renewable_other" , csv_path: "data/datapoints/geo/power-purchase-share-pct-renewable-other.csv" },
+      { canonical_child_id: "power-purchase-share-pct-hybrid-bundled", legacy_facet_label: "hybrid_bundled" , csv_path: "data/datapoints/geo/power-purchase-share-pct-hybrid-bundled.csv" },
+      { canonical_child_id: "power-purchase-share-pct-trading-other", legacy_facet_label: "trading_other" , csv_path: "data/datapoints/geo/power-purchase-share-pct-trading-other.csv" },
     ],
     meta: {
       id: "power-purchase-share-pct",
@@ -1305,24 +1375,24 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "energy.energy_demand_supply",
     facet_axis_id: "sector_fuel_pair",
     facet_values: [
-      { canonical_child_id: "india-final-energy-consumption-mtoe-agriculture-electricity", legacy_facet_label: "agriculture-electricity" },
-      { canonical_child_id: "india-final-energy-consumption-mtoe-agriculture-gas", legacy_facet_label: "agriculture-gas" },
-      { canonical_child_id: "india-final-energy-consumption-mtoe-agriculture-oil", legacy_facet_label: "agriculture-oil" },
-      { canonical_child_id: "india-final-energy-consumption-mtoe-cgd-and-others-gas", legacy_facet_label: "cgd-and-others-gas" },
-      { canonical_child_id: "india-final-energy-consumption-mtoe-commercial-electricity", legacy_facet_label: "commercial-electricity" },
-      { canonical_child_id: "india-final-energy-consumption-mtoe-commercial-oil", legacy_facet_label: "commercial-oil" },
-      { canonical_child_id: "india-final-energy-consumption-mtoe-industry-coal", legacy_facet_label: "industry-coal" },
-      { canonical_child_id: "india-final-energy-consumption-mtoe-industry-electricity", legacy_facet_label: "industry-electricity" },
-      { canonical_child_id: "india-final-energy-consumption-mtoe-industry-gas", legacy_facet_label: "industry-gas" },
-      { canonical_child_id: "india-final-energy-consumption-mtoe-industry-oil", legacy_facet_label: "industry-oil" },
-      { canonical_child_id: "india-final-energy-consumption-mtoe-non-energy-gas", legacy_facet_label: "non-energy-gas" },
-      { canonical_child_id: "india-final-energy-consumption-mtoe-non-energy-oil", legacy_facet_label: "non-energy-oil" },
-      { canonical_child_id: "india-final-energy-consumption-mtoe-other-electricity", legacy_facet_label: "other-electricity" },
-      { canonical_child_id: "india-final-energy-consumption-mtoe-other-oil", legacy_facet_label: "other-oil" },
-      { canonical_child_id: "india-final-energy-consumption-mtoe-residential-electricity", legacy_facet_label: "residential-electricity" },
-      { canonical_child_id: "india-final-energy-consumption-mtoe-residential-oil", legacy_facet_label: "residential-oil" },
-      { canonical_child_id: "india-final-energy-consumption-mtoe-transport-electricity", legacy_facet_label: "transport-electricity" },
-      { canonical_child_id: "india-final-energy-consumption-mtoe-transport-oil", legacy_facet_label: "transport-oil" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-agriculture-electricity", legacy_facet_label: "agriculture-electricity" , csv_path: "data/datapoints/geo/india-final-energy-consumption-mtoe-agriculture-electricity.csv" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-agriculture-gas", legacy_facet_label: "agriculture-gas" , csv_path: "data/datapoints/geo/india-final-energy-consumption-mtoe-agriculture-gas.csv" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-agriculture-oil", legacy_facet_label: "agriculture-oil" , csv_path: "data/datapoints/geo/india-final-energy-consumption-mtoe-agriculture-oil.csv" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-cgd-and-others-gas", legacy_facet_label: "cgd-and-others-gas" , csv_path: "data/datapoints/geo/india-final-energy-consumption-mtoe-cgd-and-others-gas.csv" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-commercial-electricity", legacy_facet_label: "commercial-electricity" , csv_path: "data/datapoints/geo/india-final-energy-consumption-mtoe-commercial-electricity.csv" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-commercial-oil", legacy_facet_label: "commercial-oil" , csv_path: "data/datapoints/geo/india-final-energy-consumption-mtoe-commercial-oil.csv" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-industry-coal", legacy_facet_label: "industry-coal" , csv_path: "data/datapoints/geo/india-final-energy-consumption-mtoe-industry-coal.csv" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-industry-electricity", legacy_facet_label: "industry-electricity" , csv_path: "data/datapoints/geo/india-final-energy-consumption-mtoe-industry-electricity.csv" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-industry-gas", legacy_facet_label: "industry-gas" , csv_path: "data/datapoints/geo/india-final-energy-consumption-mtoe-industry-gas.csv" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-industry-oil", legacy_facet_label: "industry-oil" , csv_path: "data/datapoints/geo/india-final-energy-consumption-mtoe-industry-oil.csv" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-non-energy-gas", legacy_facet_label: "non-energy-gas" , csv_path: "data/datapoints/geo/india-final-energy-consumption-mtoe-non-energy-gas.csv" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-non-energy-oil", legacy_facet_label: "non-energy-oil" , csv_path: "data/datapoints/geo/india-final-energy-consumption-mtoe-non-energy-oil.csv" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-other-electricity", legacy_facet_label: "other-electricity" , csv_path: "data/datapoints/geo/india-final-energy-consumption-mtoe-other-electricity.csv" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-other-oil", legacy_facet_label: "other-oil" , csv_path: "data/datapoints/geo/india-final-energy-consumption-mtoe-other-oil.csv" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-residential-electricity", legacy_facet_label: "residential-electricity" , csv_path: "data/datapoints/geo/india-final-energy-consumption-mtoe-residential-electricity.csv" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-residential-oil", legacy_facet_label: "residential-oil" , csv_path: "data/datapoints/geo/india-final-energy-consumption-mtoe-residential-oil.csv" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-transport-electricity", legacy_facet_label: "transport-electricity" , csv_path: "data/datapoints/geo/india-final-energy-consumption-mtoe-transport-electricity.csv" },
+      { canonical_child_id: "india-final-energy-consumption-mtoe-transport-oil", legacy_facet_label: "transport-oil" , csv_path: "data/datapoints/geo/india-final-energy-consumption-mtoe-transport-oil.csv" },
     ],
     meta: {
       id: "india-final-energy-consumption-mtoe",
@@ -1366,6 +1436,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/state_renewable_grid_capacity_mw",
     canonical_indicator_id: "renewable-grid-capacity-mw",
+    csv_path: "data/datapoints/geo/renewable-grid-capacity-mw.csv",
     table_id: "energy.energy_installed_capacity",
     meta: {
       id: "renewable-grid-capacity-mw",
@@ -1402,6 +1473,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/state_acs_arr_gap_inr_per_kwh",
     canonical_indicator_id: "acs-arr-gap-inr-per-kwh",
+    csv_path: "data/datapoints/geo/acs-arr-gap-inr-per-kwh.csv",
     table_id: "energy.energy_distribution_performance",
     meta: {
       id: "acs-arr-gap-inr-per-kwh",
@@ -1430,6 +1502,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/state_distribution_billing_efficiency_pct",
     canonical_indicator_id: "distribution-efficiency-pct-billing",
+    csv_path: "data/datapoints/geo/distribution-efficiency-pct-billing.csv",
     table_id: "energy.energy_distribution_performance",
     meta: {
       id: "distribution-efficiency-pct-billing",
@@ -1466,6 +1539,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/state_distribution_collection_efficiency_pct",
     canonical_indicator_id: "distribution-efficiency-pct-collection",
+    csv_path: "data/datapoints/geo/distribution-efficiency-pct-collection.csv",
     table_id: "energy.energy_distribution_performance",
     meta: {
       id: "distribution-efficiency-pct-collection",
@@ -1502,6 +1576,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "energy/state_distribution_td_loss_pct",
     canonical_indicator_id: "distribution-efficiency-pct-td-loss",
+    csv_path: "data/datapoints/geo/distribution-efficiency-pct-td-loss.csv",
     table_id: "energy.energy_distribution_performance",
     meta: {
       id: "distribution-efficiency-pct-td-loss",
@@ -1553,14 +1628,17 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     facet_values: [
       {
         canonical_child_id: "rpo-compliance-pct-solar",
+        csv_path: "data/datapoints/geo/rpo-compliance-pct-solar.csv",
         legacy_facet_label: "solar",
       },
       {
         canonical_child_id: "rpo-compliance-pct-non-solar",
+        csv_path: "data/datapoints/geo/rpo-compliance-pct-non-solar.csv",
         legacy_facet_label: "non-solar",
       },
       {
         canonical_child_id: "rpo-compliance-pct-total",
+        csv_path: "data/datapoints/geo/rpo-compliance-pct-total.csv",
         legacy_facet_label: "total",
       },
     ],
@@ -1671,6 +1749,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/pashu_aadhaar_count_cattle",
     canonical_indicator_id: "pashu-aadhaar-count-cattle",
+    csv_path: "data/datapoints/geo/pashu-aadhaar-count-cattle.csv",
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "pashu-aadhaar-count-cattle",
@@ -1703,6 +1782,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/pashu_aadhaar_count_buffalo",
     canonical_indicator_id: "pashu-aadhaar-count-buffalo",
+    csv_path: "data/datapoints/geo/pashu-aadhaar-count-buffalo.csv",
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "pashu-aadhaar-count-buffalo",
@@ -1730,6 +1810,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/pashu_aadhaar_count_goat",
     canonical_indicator_id: "pashu-aadhaar-count-goat",
+    csv_path: "data/datapoints/geo/pashu-aadhaar-count-goat.csv",
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "pashu-aadhaar-count-goat",
@@ -1763,6 +1844,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/state_pashu_aadhaar_count_goat",
     canonical_indicator_id: "pashu-aadhaar-count-goat",
+    csv_path: "data/datapoints/geo/pashu-aadhaar-count-goat.csv",
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "state-pashu-aadhaar-count-goat",
@@ -1795,6 +1877,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/district_pashu_aadhaar_count_goat",
     canonical_indicator_id: "pashu-aadhaar-count-goat",
+    csv_path: "data/datapoints/geo/pashu-aadhaar-count-goat.csv",
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "district-pashu-aadhaar-count-goat",
@@ -1833,6 +1916,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/state_pashu_aadhaar_count_cattle",
     canonical_indicator_id: "state-pashu-aadhaar-count-cattle",
+    // CSV is single-file per ADR-0043 (sub-state grain source-of-truth +
+    // auto-emitted state SUM rollup share the same file); the descriptor
+    // grain is dispatched at read time via the entity_kind row filter.
+    csv_path: "data/datapoints/geo/pashu-aadhaar-count-cattle.csv",
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "state-pashu-aadhaar-count-cattle",
@@ -1865,6 +1952,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/district_pashu_aadhaar_count_cattle",
     canonical_indicator_id: "district-pashu-aadhaar-count-cattle",
+    csv_path: "data/datapoints/geo/pashu-aadhaar-count-cattle.csv",
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "district-pashu-aadhaar-count-cattle",
@@ -1904,6 +1992,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/state_pashu_aadhaar_count_buffalo",
     canonical_indicator_id: "state-pashu-aadhaar-count-buffalo",
+    csv_path: "data/datapoints/geo/pashu-aadhaar-count-buffalo.csv",
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "state-pashu-aadhaar-count-buffalo",
@@ -1936,6 +2025,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/district_pashu_aadhaar_count_buffalo",
     canonical_indicator_id: "district-pashu-aadhaar-count-buffalo",
+    csv_path: "data/datapoints/geo/pashu-aadhaar-count-buffalo.csv",
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "district-pashu-aadhaar-count-buffalo",
@@ -1968,6 +2058,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/pashu_aadhaar_count_sheep",
     canonical_indicator_id: "pashu-aadhaar-count-sheep",
+    csv_path: "data/datapoints/geo/pashu-aadhaar-count-sheep.csv",
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "pashu-aadhaar-count-sheep",
@@ -1995,6 +2086,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/pashu_aadhaar_count_pig",
     canonical_indicator_id: "pashu-aadhaar-count-pig",
+    csv_path: "data/datapoints/geo/pashu-aadhaar-count-pig.csv",
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "pashu-aadhaar-count-pig",
@@ -2022,6 +2114,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/pashu_aadhaar_count_mithun",
     canonical_indicator_id: "pashu-aadhaar-count-mithun",
+    csv_path: "data/datapoints/geo/pashu-aadhaar-count-mithun.csv",
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "pashu-aadhaar-count-mithun",
@@ -2049,6 +2142,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/pashu_aadhaar_count_yak",
     canonical_indicator_id: "pashu-aadhaar-count-yak",
+    csv_path: "data/datapoints/geo/pashu-aadhaar-count-yak.csv",
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "pashu-aadhaar-count-yak",
@@ -2076,6 +2170,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/pashu_aadhaar_count_horse",
     canonical_indicator_id: "pashu-aadhaar-count-horse",
+    csv_path: "data/datapoints/geo/pashu-aadhaar-count-horse.csv",
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "pashu-aadhaar-count-horse",
@@ -2103,6 +2198,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/pashu_aadhaar_count_donkey",
     canonical_indicator_id: "pashu-aadhaar-count-donkey",
+    csv_path: "data/datapoints/geo/pashu-aadhaar-count-donkey.csv",
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "pashu-aadhaar-count-donkey",
@@ -2130,6 +2226,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/pashu_aadhaar_count_mule",
     canonical_indicator_id: "pashu-aadhaar-count-mule",
+    csv_path: "data/datapoints/geo/pashu-aadhaar-count-mule.csv",
     table_id: "livestock.livestock_pashu_aadhaar",
     meta: {
       id: "pashu-aadhaar-count-mule",
@@ -2174,26 +2271,32 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     facet_values: [
       {
         canonical_child_id: "livestock-owner-reg-count-landless-marginal",
+        csv_path: "data/datapoints/geo/livestock-owner-reg-count-landless-marginal.csv",
         legacy_facet_label: "landless_marginal",
       },
       {
         canonical_child_id: "livestock-owner-reg-count-small",
+        csv_path: "data/datapoints/geo/livestock-owner-reg-count-small.csv",
         legacy_facet_label: "small",
       },
       {
         canonical_child_id: "livestock-owner-reg-count-semi-medium",
+        csv_path: "data/datapoints/geo/livestock-owner-reg-count-semi-medium.csv",
         legacy_facet_label: "semi_medium",
       },
       {
         canonical_child_id: "livestock-owner-reg-count-medium",
+        csv_path: "data/datapoints/geo/livestock-owner-reg-count-medium.csv",
         legacy_facet_label: "medium",
       },
       {
         canonical_child_id: "livestock-owner-reg-count-large",
+        csv_path: "data/datapoints/geo/livestock-owner-reg-count-large.csv",
         legacy_facet_label: "large",
       },
       {
         canonical_child_id: "livestock-owner-reg-count-not-specified",
+        csv_path: "data/datapoints/geo/livestock-owner-reg-count-not-specified.csv",
         legacy_facet_label: "not_specified",
       },
     ],
@@ -2237,26 +2340,32 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     facet_values: [
       {
         canonical_child_id: "livestock-owner-reg-count-landless-marginal",
+        csv_path: "data/datapoints/geo/livestock-owner-reg-count-landless-marginal.csv",
         legacy_facet_label: "landless_marginal",
       },
       {
         canonical_child_id: "livestock-owner-reg-count-small",
+        csv_path: "data/datapoints/geo/livestock-owner-reg-count-small.csv",
         legacy_facet_label: "small",
       },
       {
         canonical_child_id: "livestock-owner-reg-count-semi-medium",
+        csv_path: "data/datapoints/geo/livestock-owner-reg-count-semi-medium.csv",
         legacy_facet_label: "semi_medium",
       },
       {
         canonical_child_id: "livestock-owner-reg-count-medium",
+        csv_path: "data/datapoints/geo/livestock-owner-reg-count-medium.csv",
         legacy_facet_label: "medium",
       },
       {
         canonical_child_id: "livestock-owner-reg-count-large",
+        csv_path: "data/datapoints/geo/livestock-owner-reg-count-large.csv",
         legacy_facet_label: "large",
       },
       {
         canonical_child_id: "livestock-owner-reg-count-not-specified",
+        csv_path: "data/datapoints/geo/livestock-owner-reg-count-not-specified.csv",
         legacy_facet_label: "not_specified",
       },
     ],
@@ -2291,26 +2400,32 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     facet_values: [
       {
         canonical_child_id: "livestock-owner-reg-count-landless-marginal",
+        csv_path: "data/datapoints/geo/livestock-owner-reg-count-landless-marginal.csv",
         legacy_facet_label: "landless_marginal",
       },
       {
         canonical_child_id: "livestock-owner-reg-count-small",
+        csv_path: "data/datapoints/geo/livestock-owner-reg-count-small.csv",
         legacy_facet_label: "small",
       },
       {
         canonical_child_id: "livestock-owner-reg-count-semi-medium",
+        csv_path: "data/datapoints/geo/livestock-owner-reg-count-semi-medium.csv",
         legacy_facet_label: "semi_medium",
       },
       {
         canonical_child_id: "livestock-owner-reg-count-medium",
+        csv_path: "data/datapoints/geo/livestock-owner-reg-count-medium.csv",
         legacy_facet_label: "medium",
       },
       {
         canonical_child_id: "livestock-owner-reg-count-large",
+        csv_path: "data/datapoints/geo/livestock-owner-reg-count-large.csv",
         legacy_facet_label: "large",
       },
       {
         canonical_child_id: "livestock-owner-reg-count-not-specified",
+        csv_path: "data/datapoints/geo/livestock-owner-reg-count-not-specified.csv",
         legacy_facet_label: "not_specified",
       },
     ],
@@ -2349,6 +2464,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/livestock_naip_iv_inseminations",
     canonical_indicator_id: "livestock-naip-iv-inseminations",
+    csv_path: "data/datapoints/geo/livestock-naip-iv-inseminations.csv",
     table_id: "livestock.livestock_naip_iv",
     meta: {
       id: "livestock-naip-iv-inseminations",
@@ -2376,6 +2492,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/livestock_naip_iv_pregnancy_diagnoses",
     canonical_indicator_id: "livestock-naip-iv-pregnancy-diagnoses",
+    csv_path: "data/datapoints/geo/livestock-naip-iv-pregnancy-diagnoses.csv",
     table_id: "livestock.livestock_naip_iv",
     meta: {
       id: "livestock-naip-iv-pregnancy-diagnoses",
@@ -2403,6 +2520,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/livestock_naip_iv_calves_born",
     canonical_indicator_id: "livestock-naip-iv-calves-born",
+    csv_path: "data/datapoints/geo/livestock-naip-iv-calves-born.csv",
     table_id: "livestock.livestock_naip_iv",
     meta: {
       id: "livestock-naip-iv-calves-born",
@@ -2430,6 +2548,7 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     kind: "single",
     legacy_artifact_id: "agriculture/livestock_naip_iv_farmers_benefitted",
     canonical_indicator_id: "livestock-naip-iv-farmers-benefitted",
+    csv_path: "data/datapoints/geo/livestock-naip-iv-farmers-benefitted.csv",
     table_id: "livestock.livestock_naip_iv",
     meta: {
       id: "livestock-naip-iv-farmers-benefitted",

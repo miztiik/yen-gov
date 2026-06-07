@@ -32,7 +32,7 @@
 //    until the Hans+Max+Gregor panel locks the canonical metadata
 //    contract for these fields.
 
-import { query, registerCsvAsTable, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerCsvFile, registerTable } from "../duckdb";
 import {
   fetchIndicator,
   type EntityKind,
@@ -42,7 +42,13 @@ import {
   type IndicatorRow,
   type SeriesSpec,
 } from "../indicators";
+import { DATA_BASE } from "../paths";
 import type { SourceV2Row } from "../source-list-v2";
+import {
+  loadCanonicalSlugToLegacyMap,
+  translateCanonicalSlugToLegacy,
+} from "./canonical-entity-translation";
+import { csvColumnsClause } from "./csv-columns";
 import {
   getCanonicalDescriptor,
   isCanonicalBacked,
@@ -306,6 +312,20 @@ export async function loadIndicatorFromCanonical(
 async function loadSingleFromCanonical(
   descriptor: CanonicalSingleIndicatorDescriptor,
 ): Promise<IndicatorArtifact> {
+  // R2 reader-flip (sub-plan 20260607): when the descriptor carries a
+  // `csv_path`, the canonical store is the long-format per-indicator CSV
+  // at `data/datapoints/geo/<canonical_indicator_id>.csv`. The CSV has
+  // shape `entity_id, time, value, source_id` (no `indicator_id` column —
+  // it's encoded by the filename per csv-column-contract.md section 3.3).
+  // Entity_ids are LGD-name slugs ("tamil-nadu", "andhra-pradesh/visakhapatnam");
+  // translate to the legacy ECI shape ("S22", "S01-D744") via the canonical
+  // entity-translation seam so downstream renderers stay unchanged.
+  if (descriptor.csv_path !== undefined) {
+    return loadSingleFromCsv(descriptor, descriptor.csv_path);
+  }
+  // Legacy parquet path — back-compat for any descriptor not yet flipped
+  // to CSV. After every allowlist entry carries csv_path this branch
+  // becomes dead code and the X1b parquet retirement can prune it.
   await Promise.all([
     registerTable(descriptor.table_id),
     registerCsvAsTable("taxonomy.sources"),
@@ -342,6 +362,101 @@ async function loadSingleFromCanonical(
   return buildIndicatorArtifact(descriptor, obsRows, sourceRows);
 }
 
+/** Raw row shape returned by `read_csv` against a `data/datapoints/geo/*.csv`
+ *  file class. `time` is INTEGER per columns.json; `value` is DOUBLE. */
+interface CanonicalCsvRow {
+  entity_id: string;
+  time: number;
+  value: number | null;
+  source_id: string;
+}
+
+/** Same shape as `CanonicalCsvRow` plus the synth `indicator_id` literal
+ *  the facet-multiplexed UNION ALL injects so per-row facet dispatch
+ *  still works after the CSV flip. */
+interface CanonicalCsvFacetRow extends CanonicalCsvRow {
+  indicator_id: string;
+}
+
+/** Build the absolute URL for a `data/datapoints/geo/<id>.csv` repo path. */
+function canonicalCsvUrl(repoRelPath: string): string {
+  return `${DATA_BASE}/${repoRelPath}`;
+}
+
+/** Filter rows whose slug entity_id is admissible for the descriptor's
+ *  declared grain. A single per-indicator CSV may carry MULTIPLE grains
+ *  (e.g. `pashu-aadhaar-count-cattle.csv` ships both state slugs and
+ *  `state/district` district slugs because of the ADR-0043 auto-rollup
+ *  writer); the descriptor chooses the slice it wants.
+ *
+ *  Note: the national-aggregate row `"IN"` is admissible at BOTH country
+ *  and state grain. State-grain renderers consume it as the national
+ *  centroid value alongside the 36 state slugs. */
+function rowMatchesEntityKind(slug: string, kind: EntityKind | undefined): boolean {
+  if (kind === undefined) return true;
+  if (kind === "country") return slug === "IN";
+  if (kind === "state") return !slug.includes("/");
+  if (kind === "district") return slug.includes("/");
+  // Other grains (subdistrict / constituency / city / ward) currently
+  // have no CSV consumers in the 9 family migration; pass-through.
+  return true;
+}
+
+async function loadSingleFromCsv(
+  descriptor: CanonicalSingleIndicatorDescriptor,
+  csvRelPath: string,
+): Promise<IndicatorArtifact> {
+  const url = canonicalCsvUrl(csvRelPath);
+  const [columnsClause, slugToLegacy] = await Promise.all([
+    csvColumnsClause(`datasets/${csvRelPath}`),
+    loadCanonicalSlugToLegacyMap(),
+    registerCsvAsTable("taxonomy.sources"),
+    registerCsvFile(url),
+  ]);
+
+  const obsSql = `
+    SELECT entity_id, time, value, source_id
+    FROM read_csv('${url.replace(/'/g, "''")}', ${columnsClause}, header=true)
+    ORDER BY entity_id, time
+  `;
+  const obsRows = await query<CanonicalCsvRow>(obsSql);
+
+  const filteredRows = obsRows.filter((r) =>
+    rowMatchesEntityKind(r.entity_id, descriptor.meta.entity_kind),
+  );
+
+  // Adapt to the parquet-shaped `CanonicalObsRow` buildIndicatorArtifact
+  // consumes so the downstream construction stays unchanged. The slug →
+  // legacy ECI translation lifts the existing canonicalEntityToLegacy
+  // call: by the time buildIndicatorArtifact runs, entity_id is ALREADY
+  // legacy-shaped, so its own canonicalEntityToLegacy pass is a no-op.
+  const adapted: CanonicalObsRow[] = filteredRows.map((r) => ({
+    entity_id: translateCanonicalSlugToLegacy(slugToLegacy, r.entity_id),
+    period_label: String(r.time),
+    value_numeric: r.value,
+    source_id: r.source_id,
+  }));
+
+  const distinctSourceIds = [...new Set(adapted.map((r) => r.source_id))].filter(
+    (s): s is string => typeof s === "string" && s.length > 0,
+  );
+  let sourceRows: CanonicalSourceRow[] = [];
+  if (distinctSourceIds.length > 0) {
+    const idList = distinctSourceIds.map(sqlString).join(", ");
+    const srcSql = `
+          SELECT source_id, producer, title, vintage, license, confidence_tier,
+           is_issuing_authority, verification_method, url_main,
+           citation_full, notes
+      FROM sources
+      WHERE source_id IN (${idList})
+      ORDER BY title
+    `;
+    sourceRows = await query<CanonicalSourceRow>(srcSql);
+  }
+
+  return buildIndicatorArtifact(descriptor, adapted, sourceRows);
+}
+
 /** Facet-multiplexed adapter — fuses N canonical child indicators into a
  *  single IndicatorArtifact carrying `indicator.id =
  *  canonical_parent_indicator_id` and `rows[].facet =
@@ -356,6 +471,16 @@ async function loadSingleFromCanonical(
 async function loadFacetMultiplexedFromCanonical(
   descriptor: CanonicalFacetMultiplexedDescriptor,
 ): Promise<IndicatorArtifact> {
+  // R2 reader-flip (sub-plan 20260607): when every facet child carries
+  // a `csv_path`, the canonical store is N per-indicator CSVs. Fan out
+  // via UNION ALL with a synth `'<child_id>' AS indicator_id` literal
+  // per branch so per-row facet dispatch stays unchanged.
+  const allChildrenHaveCsv = descriptor.facet_values.every(
+    (fv) => fv.csv_path !== undefined,
+  );
+  if (allChildrenHaveCsv) {
+    return loadFacetMultiplexedFromCsv(descriptor);
+  }
   await Promise.all([
     registerTable(descriptor.table_id),
     registerCsvAsTable("taxonomy.sources"),
@@ -374,6 +499,69 @@ async function loadFacetMultiplexedFromCanonical(
   `;
   const obsRows = await query<CanonicalFacetObsRow>(obsSql);
 
+  return buildFacetMultiplexedArtifact(descriptor, obsRows);
+}
+
+async function loadFacetMultiplexedFromCsv(
+  descriptor: CanonicalFacetMultiplexedDescriptor,
+): Promise<IndicatorArtifact> {
+  const slugToLegacy = await loadCanonicalSlugToLegacyMap();
+  // Resolve column clauses + register each child CSV in parallel. All
+  // file_classes share the `datasets/data/datapoints/geo/*.csv` glob so
+  // a single columnsClause is reused across all branches.
+  const sampleChild = descriptor.facet_values[0];
+  if (!sampleChild?.csv_path) {
+    throw new Error(
+      `facet-multiplexed CSV path missing for ${descriptor.canonical_parent_indicator_id}`,
+    );
+  }
+  const columnsClause = await csvColumnsClause(`datasets/${sampleChild.csv_path}`);
+  await Promise.all([
+    registerCsvAsTable("taxonomy.sources"),
+    ...descriptor.facet_values.map((fv) =>
+      registerCsvFile(canonicalCsvUrl(fv.csv_path!)),
+    ),
+  ]);
+
+  // UNION ALL across children. Per-branch synth column carries the
+  // child indicator_id so the existing per-row facet dispatch (driven
+  // by `facetLabelByChildId.get(r.indicator_id)`) keeps working.
+  const branches = descriptor.facet_values.map((fv) => {
+    const url = canonicalCsvUrl(fv.csv_path!).replace(/'/g, "''");
+    return `
+      SELECT ${sqlString(fv.canonical_child_id)} AS indicator_id,
+             entity_id, time, value, source_id
+      FROM read_csv('${url}', ${columnsClause}, header=true)
+    `;
+  });
+  const obsSql = `${branches.join(" UNION ALL ")} ORDER BY indicator_id, entity_id, time`;
+
+  const csvRows = await query<CanonicalCsvFacetRow>(obsSql);
+
+  // Adapt CSV rows into the parquet-shaped CanonicalFacetObsRow shape,
+  // filtering each branch's rows by the descriptor's declared grain.
+  const adapted: CanonicalFacetObsRow[] = csvRows
+    .filter((r) => rowMatchesEntityKind(r.entity_id, descriptor.meta.entity_kind))
+    .map((r) => ({
+      entity_id: translateCanonicalSlugToLegacy(slugToLegacy, r.entity_id),
+      period_label: String(r.time),
+      value_numeric: r.value,
+      source_id: r.source_id,
+      indicator_id: r.indicator_id,
+    }));
+
+  return buildFacetMultiplexedArtifact(descriptor, adapted);
+}
+
+/** Shared construction step extracted so the parquet + CSV branches of
+ *  `loadFacetMultiplexedFromCanonical` build the IndicatorArtifact from
+ *  the same code path. Refactored from the inline pre-R2 body so the
+ *  per-branch readers only have to produce a uniform `CanonicalFacetObsRow[]`
+ *  before this finisher runs. */
+async function buildFacetMultiplexedArtifact(
+  descriptor: CanonicalFacetMultiplexedDescriptor,
+  obsRows: ReadonlyArray<CanonicalFacetObsRow>,
+): Promise<IndicatorArtifact> {
   // Map child indicator_id → citizen-facing facet label.
   const facetLabelByChildId = new Map(
     descriptor.facet_values.map((fv) => [fv.canonical_child_id, fv.legacy_facet_label]),
