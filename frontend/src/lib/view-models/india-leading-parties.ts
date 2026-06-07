@@ -16,7 +16,12 @@
 // the bulk query → failed arm.
 
 import { describeFailure, type LoaderResult } from "../loader-result";
-import { query, registerCsvAsTable, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerCsvFile } from "../duckdb";
+import {
+  ELECTION_RESULTS_COLUMNS_CLAUSE,
+  electionResultsCsvUrl,
+  electionResultsStateSlug,
+} from "../canonical/election-results-csv";
 import type { PartyTotals } from "../data";
 
 export interface IndiaLeadingPartiesEntry {
@@ -56,46 +61,68 @@ const num = (v: unknown): number => (v == null ? 0 : Number(v));
 async function runQueries(
   state_event_map: Record<string, string>,
 ): Promise<PartyRow[]> {
+  // X1a-fu2-D (2026-06-07): the elections.election_results parquet was
+  // retired; one CSV per state now lives under
+  // data/datapoints/electoral/. Build one UNION ALL branch per queried
+  // (state, event) pair and JOIN dim_parties once at the outer SELECT.
+  const entries = Object.entries(state_event_map);
+  if (entries.length === 0) return [];
+
+  // Register every per-state CSV the bulk query reads, plus dim_parties.
+  const urls = entries.map(([state_code]) =>
+    electionResultsCsvUrl(electionResultsStateSlug(state_code)),
+  );
   await Promise.all([
-    registerTable("elections.election_results"),
+    ...urls.map((u) => registerCsvFile(u)),
     registerCsvAsTable("elections.dim_parties"),
   ]);
 
-  // (state, event) pairs → an OR-list of LIKE prefixes. Each prefix is
-  // narrow (IN-<state>-<event>-PARTY-) so the planner can skip irrelevant
-  // row groups efficiently.
-  const clauses: string[] = [];
-  for (const [state_code, event_id] of Object.entries(state_event_map)) {
-    const prefix = sqlString(`IN-${state_code}-${event_id}-PARTY-`);
-    clauses.push(`o.entity_id LIKE ${prefix} || '%'`);
-  }
-  if (clauses.length === 0) return [];
+  const branches = entries.map(([state_code, event_id]) => {
+    const slug = electionResultsStateSlug(state_code);
+    const csvLit = sqlString(electionResultsCsvUrl(slug));
+    const stateLit = sqlString(state_code);
+    const eventLit = sqlString(event_id);
+    const partyPrefix = sqlString(`IN-${state_code}-${event_id}-PARTY-`);
+    return `
+      SELECT
+        ${stateLit}    AS state_code,
+        period_label   AS period_label,
+        entity_id      AS entity_id,
+        indicator_id   AS indicator_id,
+        value_numeric  AS value_numeric
+      FROM read_csv(${csvLit}, ${ELECTION_RESULTS_COLUMNS_CLAUSE}, header=true)
+      WHERE entity_id LIKE ${partyPrefix} || '%'
+        AND period_label = ${eventLit}
+        AND indicator_id IN (
+          'party-contested-acs',
+          'party-seats-won',
+          'party-votes-polled',
+          'party-vote-share-pct'
+        )
+    `;
+  });
 
   const sql = `
+    WITH per_state AS (
+      ${branches.join(" UNION ALL ")}
+    )
     SELECT
-      regexp_extract(o.entity_id, 'IN-([SU][0-9]+)-', 1)          AS state_code,
-      o.period_label                                              AS period_label,
-      regexp_extract(o.entity_id, '-PARTY-(.+)$', 1)              AS short_name_key,
-      dp.short_name                                               AS short_name,
-      dp.full_name                                                AS full_name,
-      dp.eci_code                                                 AS eci_code,
-      dp.party_id                                                 AS party_id,
-      dp.brand_colour_hex                                         AS brand_colour_hex,
-      dp.brand_colour_confidence                                  AS brand_colour_confidence,
-      MAX(CASE WHEN o.indicator_id = 'party-contested-acs'  THEN o.value_numeric END) AS seats_contested,
-      MAX(CASE WHEN o.indicator_id = 'party-seats-won'      THEN o.value_numeric END) AS seats_won,
-      MAX(CASE WHEN o.indicator_id = 'party-votes-polled'   THEN o.value_numeric END) AS votes,
-      MAX(CASE WHEN o.indicator_id = 'party-vote-share-pct' THEN o.value_numeric END) AS vote_share_pct
-    FROM election_results o
+      ps.state_code                                              AS state_code,
+      ps.period_label                                            AS period_label,
+      regexp_extract(ps.entity_id, '-PARTY-(.+)$', 1)            AS short_name_key,
+      dp.short_name                                              AS short_name,
+      dp.full_name                                               AS full_name,
+      dp.eci_code                                                AS eci_code,
+      dp.party_id                                                AS party_id,
+      dp.brand_colour_hex                                        AS brand_colour_hex,
+      dp.brand_colour_confidence                                 AS brand_colour_confidence,
+      MAX(CASE WHEN ps.indicator_id = 'party-contested-acs'  THEN ps.value_numeric END) AS seats_contested,
+      MAX(CASE WHEN ps.indicator_id = 'party-seats-won'      THEN ps.value_numeric END) AS seats_won,
+      MAX(CASE WHEN ps.indicator_id = 'party-votes-polled'   THEN ps.value_numeric END) AS votes,
+      MAX(CASE WHEN ps.indicator_id = 'party-vote-share-pct' THEN ps.value_numeric END) AS vote_share_pct
+    FROM per_state ps
     LEFT JOIN dim_parties dp
-      ON dp.short_name = regexp_extract(o.entity_id, '-PARTY-(.+)$', 1)
-    WHERE (${clauses.join(" OR ")})
-      AND o.indicator_id IN (
-        'party-contested-acs',
-        'party-seats-won',
-        'party-votes-polled',
-        'party-vote-share-pct'
-      )
+      ON dp.short_name = regexp_extract(ps.entity_id, '-PARTY-(.+)$', 1)
     GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9
   `;
   return query<PartyRow>(sql);

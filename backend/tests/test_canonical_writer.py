@@ -394,47 +394,6 @@ def test_manifest_kind_for_taxonomy_table(tmp_path: Path) -> None:
     assert entities_table["kind"] == "taxonomy"
 
 
-def test_elections_family_uses_election_results_stem(tmp_path: Path) -> None:
-    """PR-O.1 (TODO row 1.8b-i): the elections family writes its fact-table
-    to ``election_results.parquet`` (citizen-honest stem) and registers in
-    the manifest as ``elections.election_results`` with
-    ``kind="observations"``. The default ``observations`` stem is the
-    correct fallback for families NOT listed in ``FAMILY_FACT_TABLE_STEM``
-    (asserted by the ``test.observations`` table elsewhere in this file).
-
-    Phase 0 closeout (TODO §0e.10 lock B): ``elections`` is also registered
-    in ``FAMILY_FACT_PARTITION_BY = {"elections": ["state"]}``, so the
-    fact-table is emitted as one parquet per Hive partition
-    (``state=<val>/election_results.parquet``), not a single monolith.
-    The per-family stem still applies, just inside each partition dir.
-    """
-    _seed_taxonomy(tmp_path)
-    env = _envelope([_obs()])
-    env = env.model_copy(update={"target_family": "elections"})
-    result = write_batch(env, tmp_path)
-    # File-on-disk uses the per-family stem, but lives inside a Hive
-    # partition directory now. The default _obs() entity_id is "IN-S22",
-    # so the partition value is "tamil-nadu".
-    assert result.observations_path.name == "election_results.parquet"
-    partition_file = tmp_path / "elections" / "state=tamil-nadu" / "election_results.parquet"
-    assert partition_file.is_file()
-    # Monolith and legacy names both absent.
-    assert not (tmp_path / "elections" / "election_results.parquet").exists()
-    assert not (tmp_path / "elections" / "observations.parquet").exists()
-    # Manifest entry uses the per-family stem and declares partition_columns.
-    manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
-    elections_table = next(t for t in manifest["tables"]
-                           if t["table_id"] == "elections.election_results")
-    assert elections_table["family"] == "elections"
-    assert elections_table["table_name"] == "election_results"
-    assert elections_table["kind"] == "observations"
-    assert elections_table["partition_columns"] == ["state"]
-    files = elections_table["files"]
-    assert len(files) == 1
-    assert files[0]["path"] == "elections/state=tamil-nadu/election_results.parquet"
-    assert files[0]["partition_values"] == {"state": "tamil-nadu"}
-
-
 def test_manifest_path_is_posix_no_backslashes(tmp_path: Path) -> None:
     """CLAUDE.md §2: paths leaving the process are POSIX-only."""
     _seed_taxonomy(tmp_path)

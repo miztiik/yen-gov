@@ -64,7 +64,19 @@ def test_shipped_columns_validates_against_schema_of_schemas(contract):
         ("datasets/data/entities/parties.csv", ("party_id",)),
         ("datasets/data/entities/source.csv", ("source_id",)),
         ("datasets/data/datapoints/geo/*.csv", ("entity_id", "time")),
-        ("datasets/data/datapoints/electoral/*.csv", ("entity_id", "time")),
+        # X1a-fu2-D (2026-06-07): the elections/state=*/election_results.parquet
+        # shards retired to per-state long-format CSV at
+        # datasets/data/datapoints/electoral/<slug>_election_results.csv. The
+        # 9-column shape mirrors the parquet 1:1 (entity_id, year,
+        # period_label, period_seq, indicator_id, value_numeric, value_text,
+        # source_id, derivation) so synthetic state-event-party rows like
+        # IN-S22-AcGenMay2026-PARTY-DMK survive verbatim. PK is the natural
+        # parquet logical key; entity_id alone is not unique (one row per
+        # indicator_id within an (entity, event) pair).
+        (
+            "datasets/data/datapoints/electoral/*.csv",
+            ("entity_id", "period_label", "indicator_id"),
+        ),
     ],
 )
 def test_pk_columns_match_spec(contract, glob, expected_pk):

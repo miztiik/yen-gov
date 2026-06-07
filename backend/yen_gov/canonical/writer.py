@@ -76,9 +76,14 @@ SORT_COLUMNS = ["indicator_id", "entity_id", "year", "period_seq"]
 # both the URL and any ``FROM`` clause in view-model SQL). Defaulting to
 # ``"observations"`` keeps the contract additive for families that have not
 # yet earned a domain-specific name.
-FAMILY_FACT_TABLE_STEM: dict[str, str] = {
-    "elections": "election_results",
-}
+#
+# X1a-fu2-D (2026-06-07): the ``elections`` entry retired with the per-state
+# election_results.parquet rip-and-replace; the citizen artefact for that
+# family now lives at ``datasets/data/datapoints/electoral/<slug>_election_results.csv``
+# (one CSV per state, 9 columns). ``write_batch`` raises WriterError on any
+# envelope targeting ``elections`` so a future caller cannot accidentally
+# spawn a parquet at the retired path.
+FAMILY_FACT_TABLE_STEM: dict[str, str] = {}
 
 
 # Multi-stem-per-family registry. A family that needs MORE than one
@@ -148,20 +153,11 @@ def _fact_table_stems_all(family: str) -> list[str]:
 # ``files[]`` entry per partition with ``partition_values: {col: val}`` —
 # per manifest schema v1.2.
 #
-# Phase 0 closeout (TODO row 1.8-§0e.10 lock B) registers ``elections`` with
-# ``state`` partition derived from the first two hyphen-separated segments
-# of ``entity_id`` (e.g. ``IN-S22-AC-2008-167`` -> partition value
-# ``tamil-nadu``). Citizen-facing rationale: the all-states monolith reaches
-# ~14 MB at the TN-only Phase-1 slice and would scale to ~400 MB at full
-# national coverage; per-state shards keep DuckDB-WASM range queries
-# selective and the GitHub repo browsable.
-#
-# Adding a family means appending one row here (single partition column) or
-# generalising the per-column derivation logic. Today only ``state`` is
-# implemented; adding ``year`` or other axes is additive.
-FAMILY_FACT_PARTITION_BY: dict[str, list[str]] = {
-    "elections": ["state"],
-}
+# X1a-fu2-D (2026-06-07): the ``elections`` entry retired with the per-state
+# election_results.parquet rip-and-replace. No surviving family currently
+# needs Hive partitioning at the parquet layer; the registry is empty.
+# Adding a future partitioned family means appending one row here.
+FAMILY_FACT_PARTITION_BY: dict[str, list[str]] = {}
 
 
 def _partition_cols(family: str) -> list[str]:
@@ -316,6 +312,22 @@ _DEPRECATIONS: list[dict[str, str]] = [
         "new_path": "data/entities/party_alliances.csv",
         "deprecated_at": "2026-06-07",
     },
+    # X1a-fu2-D (2026-06-07) - elections/state=*/election_results.parquet
+    # (36 shards, 1.79M rows) retired in a mechanical rip-and-replace. One
+    # CSV per state under data/datapoints/electoral/<slug>_election_results.csv;
+    # 9-column SELECT * mirroring the parquet contract (entity_id, year,
+    # period_label, period_seq, indicator_id, value_numeric, value_text,
+    # source_id, derivation). The 3 frontend readers (composition-bar
+    # adapter, election-seats-trend, india-leading-parties) flipped to
+    # inline read_csv with hand-built columns={...} clauses. old_path /
+    # new_path below are the canonical-identity strings (the actual files
+    # are per-state-slug); the schema's pattern rejects `*` in deprecation
+    # paths so we cite the family-stem instead.
+    {
+        "old_path": "elections/election_results.parquet",
+        "new_path": "data/datapoints/electoral/election_results.csv",
+        "deprecated_at": "2026-06-07",
+    },
 ]
 
 
@@ -365,6 +377,15 @@ def write_batch(
     Validation + DuckDB upserts still run; only the final disk mutation is
     suppressed. The returned ``WriteResult`` reports rows that *would*
     have been written.
+
+    X1a-fu2-D (2026-06-07): the elections family no longer emits its
+    observation fact-table to parquet (the per-state election_results.parquet
+    shards retired; citizen artefact is per-state CSV at
+    data/datapoints/electoral/<slug>_election_results.csv). The dim emit
+    path (dim_party_alliances.parquet) still flows through this entry
+    point. Observation rows for elections are accepted into the in-memory
+    `observations` DuckDB table but `_emit_observations` returns 0 without
+    writing; callers see `result.observation_rows_written == 0`.
     """
     _validate_observation_values(envelope.observation_rows)
     warnings = _validate_fks(envelope, datasets_root)
@@ -684,7 +705,19 @@ def _emit_observations(
     write succeeds. Each partition file is emitted via the same
     ``_emit_table`` codepath as the monolith so KV_METADATA stamping and
     sort-by-pk ordering stay identical.
+
+    X1a-fu2-D (2026-06-07): the elections family retired its observation
+    fact-table parquet path (the 36 per-state shards under
+    ``elections/state=*/election_results.parquet``); citizen artefact is
+    per-state CSV at ``data/datapoints/electoral/<slug>_election_results.csv``.
+    This function short-circuits for ``family == "elections"`` and returns
+    0 rows written; the rest of the pipeline (dim emit + manifest regen)
+    is unaffected so the surviving ``dim_party_alliances.parquet`` emit
+    path still works.
     """
+    if family == "elections":
+        return 0
+
     table_id = f"{family}.observations"
     partition_cols = _partition_cols(family)
     if not partition_cols:

@@ -56,8 +56,12 @@
 //     misframe it.
 
 import { describeFailure, type LoaderResult } from "../../loader-result";
-import { query, registerCsvAsTable, registerSlice } from "../../duckdb";
-import { electionStatePartition } from "../../election-partitions";
+import { query, registerCsvAsTable, registerCsvFile } from "../../duckdb";
+import {
+  ELECTION_RESULTS_COLUMNS_CLAUSE,
+  electionResultsCsvUrl,
+  electionResultsStateSlug,
+} from "../../canonical/election-results-csv";
 import { getPartyColor, type PartyRowForResolver } from "../../colors/resolver";
 import type { SourceV2Row } from "../../source-list-v2/types";
 import type {
@@ -169,22 +173,30 @@ function sqlString(s: string): string {
 const num = (v: unknown): number => (v == null ? 0 : Number(v));
 
 /**
- * DuckDB-WASM SQL — JOIN election_results + dim_parties + sources for
- * one (state, event). Uses manifest registration (R-28); never a parquet
- * literal.
+ * DuckDB-WASM SQL — JOIN election_results CSV + dim_parties + sources
+ * for one (state, event). X1a-fu2-D (2026-06-07): the legacy
+ * `elections.election_results` parquet shard was retired and replaced
+ * with one CSV per state under
+ * `datasets/data/datapoints/electoral/<slug>_election_results.csv`;
+ * this loader now reads via inline `read_csv(<url>, columns={...})`
+ * keyed by the (state, event) pair. JOIN against dim_parties + sources
+ * is unchanged (both already CSV-as-table views via X1a).
  */
 async function runQueries(
   state_code: string,
   event_id: string,
 ): Promise<CompositionBarLoadedRows> {
+  const stateSlug = electionResultsStateSlug(state_code);
+  const csvUrl = electionResultsCsvUrl(stateSlug);
   await Promise.all([
-    registerSlice("elections.election_results", { state: electionStatePartition(state_code) }),
+    registerCsvFile(csvUrl),
     registerCsvAsTable("elections.dim_parties"),
     registerCsvAsTable("taxonomy.sources"),
   ]);
 
   const partyPrefix = sqlString(`IN-${state_code}-`);
   const eventLit = sqlString(event_id);
+  const csvLit = sqlString(csvUrl);
 
   const partySql = `
     SELECT
@@ -195,7 +207,7 @@ async function runQueries(
       dp.brand_colour_hex                            AS brand_colour_hex,
       dp.brand_colour_confidence                     AS brand_colour_confidence,
       o.value_numeric                                AS seats_won
-    FROM election_results o
+    FROM read_csv(${csvLit}, ${ELECTION_RESULTS_COLUMNS_CLAUSE}, header=true) o
     LEFT JOIN dim_parties dp
       ON dp.short_name = regexp_extract(o.entity_id, '-PARTY-(.+)$', 1)
     WHERE o.entity_id LIKE ${partyPrefix} || '%-PARTY-%'
@@ -231,7 +243,7 @@ async function runQueries(
       s.url_main           AS url_main,
       s.citation_full      AS citation_full,
       s.notes              AS notes
-    FROM election_results o
+    FROM read_csv(${csvLit}, ${ELECTION_RESULTS_COLUMNS_CLAUSE}, header=true) o
     JOIN sources s ON s.source_id = o.source_id
     WHERE o.period_label = ${eventLit}
       AND o.indicator_id = 'party-seats-won'

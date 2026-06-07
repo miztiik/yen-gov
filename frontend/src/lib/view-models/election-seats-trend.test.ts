@@ -18,20 +18,18 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("../duckdb", () => ({
-  registerSlice: vi.fn(async () => "noop"),
-  registerTable: vi.fn(async () => "noop"),
+  registerCsvFile: vi.fn(async () => undefined),
   registerCsvAsTable: vi.fn(async (id: string) =>
     id === "elections.dim_parties" ? "dim_parties" : "sources",
   ),
   query: vi.fn(),
 }));
 
-import { query, registerCsvAsTable, registerSlice, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerCsvFile } from "../duckdb";
 import { loadElectionSeatsTrend } from "./election-seats-trend";
 
 const mockedQuery = vi.mocked(query);
-const mockedRegister = vi.mocked(registerTable);
-const mockedRegisterSlice = vi.mocked(registerSlice);
+const mockedRegisterCsvFile = vi.mocked(registerCsvFile);
 const mockedRegisterCsvAsTable = vi.mocked(registerCsvAsTable);
 
 const partyRows = [
@@ -111,11 +109,9 @@ const sourceRows = [
 
 beforeEach(() => {
   mockedQuery.mockReset();
-  mockedRegister.mockReset();
-  mockedRegisterSlice.mockReset();
+  mockedRegisterCsvFile.mockReset();
   mockedRegisterCsvAsTable.mockReset();
-  mockedRegister.mockResolvedValue("noop");
-  mockedRegisterSlice.mockResolvedValue("noop");
+  mockedRegisterCsvFile.mockResolvedValue(undefined);
   mockedRegisterCsvAsTable.mockImplementation(async (id) =>
     id === "elections.dim_parties" ? "dim_parties" : "sources",
   );
@@ -165,19 +161,17 @@ describe("loadElectionSeatsTrend — happy path", () => {
     ]);
   });
 
-  it("registers the state fact slice and supporting tables before querying", async () => {
+  it("registers the per-state CSV and supporting tables before querying", async () => {
     mockedQuery
       .mockResolvedValueOnce(partyRows)
       .mockResolvedValueOnce(sourceRows);
     await loadElectionSeatsTrend("S22", ["AcGenMay2026"]);
-    expect(mockedRegisterSlice).toHaveBeenCalledWith(
-      "elections.election_results",
-      { state: "tamil-nadu" },
-    );
+    // X1a-fu2-D (2026-06-07): elections.election_results parquet retired;
+    // the per-state CSV at data/datapoints/electoral/<slug>_election_results.csv
+    // is now registered via registerCsvFile.
+    const csvFileUrls = mockedRegisterCsvFile.mock.calls.map((c) => c[0]);
+    expect(csvFileUrls.some((u) => u.endsWith("/data/datapoints/electoral/tamil-nadu_election_results.csv"))).toBe(true);
     // dim_parties + taxonomy.sources flipped to CSV via X1a (PR #809).
-    // No surviving `registerTable` calls in this loader after X1a.
-    const registered = mockedRegister.mock.calls.map((c) => c[0]).sort();
-    expect(registered).toEqual([]);
     const csvAsTableIds = mockedRegisterCsvAsTable.mock.calls
       .map((c) => c[0])
       .sort();
@@ -197,9 +191,8 @@ describe("loadElectionSeatsTrend — partial arms", () => {
     expect(res.data.events).toEqual([]);
     expect(res.data.sources_v2).toEqual([]);
     expect(mockedQuery).not.toHaveBeenCalled();
-    expect(mockedRegister).not.toHaveBeenCalled();
+    expect(mockedRegisterCsvFile).not.toHaveBeenCalled();
     expect(mockedRegisterCsvAsTable).not.toHaveBeenCalled();
-    expect(mockedRegisterSlice).not.toHaveBeenCalled();
   });
 
   it("returns partial when SQL returns zero party rows", async () => {
