@@ -90,8 +90,12 @@ describe("R-28 manifest discipline — adapter uses manifest registration", () =
   );
   const src = readFileSync(adapterPath, "utf-8");
 
-  it("calls registerSlice for elections.election_results", () => {
-    expect(src).toMatch(/registerSlice\("elections\.election_results"/);
+  it("calls registerCsvFile for the per-state election-results CSV (X1a-fu2-D)", () => {
+    // X1a-fu2-D (2026-06-07): the elections.election_results parquet was
+    // retired; the adapter now reads per-state CSV via registerCsvFile +
+    // inline read_csv with hand-built columns clause.
+    expect(src).toMatch(/registerCsvFile\(/);
+    expect(src).toMatch(/electionResultsCsvUrl/);
   });
 
   it("calls registerCsvAsTable for elections.dim_parties (X1a flip)", () => {
@@ -105,15 +109,15 @@ describe("R-28 manifest discipline — adapter uses manifest registration", () =
   it("does not embed a hardcoded /data/elections/ parquet path literal", () => {
     // Anything matching `"/data/elections/...parquet"` or
     // `'/data/elections/...parquet'` is the R-28 violation we are
-    // guarding against. The adapter MUST go through registerSlice /
-    // registerCsvAsTable so the manifest / X1a CSV-as-table seam is
-    // the single source of truth for paths.
+    // guarding against. The adapter MUST go through registerCsvFile /
+    // registerCsvAsTable so the canonical CSV store is the single source
+    // of truth for paths.
     expect(src).not.toMatch(/['"]\/data\/elections\/[^'"]*\.parquet['"]/);
   });
 
   it("does not embed a hardcoded relative election parquet literal", () => {
     // `"elections/.../election_results.parquet"` would also bypass
-    // the manifest — guard against that too.
+    // the canonical seam — guard against that too.
     expect(src).not.toMatch(
       /['"]elections\/[^'"]*election_results\.parquet['"]/,
     );
@@ -123,9 +127,10 @@ describe("R-28 manifest discipline — adapter uses manifest registration", () =
 describe("R-28 manifest registration - table_ids (X1b PARTIAL retired)", () => {
   // Independent of the adapter source: assert the table_ids the
   // adapter registers actually exist in `datasets/manifest.json`,
-  // EXCEPT for the X1b-retired ones (PR #814, 2026-06-06) which
-  // have moved to the registerCsvAsTable seam in lib/duckdb.ts +
-  // a deprecations[] row in manifest.json.
+  // EXCEPT for the X1b-retired ones (PR #814, 2026-06-06) and the
+  // X1a-fu2-D-retired elections.election_results (2026-06-07) which
+  // have all moved to the registerCsvAsTable / registerCsvFile seams
+  // in lib/duckdb.ts + deprecations[] rows in manifest.json.
   const manifestPath = resolve(
     __dirname,
     "..",
@@ -141,8 +146,17 @@ describe("R-28 manifest registration - table_ids (X1b PARTIAL retired)", () => {
   const deprecations: Array<{ old_path: string; new_path: string }> =
     manifest.deprecations ?? [];
 
-  it("manifest registers elections.election_results", () => {
-    expect(ids).toContain("elections.election_results");
+  it("manifest does NOT register elections.election_results (X1a-fu2-D retired)", () => {
+    // The 36 per-state parquet shards were retired in X1a-fu2-D
+    // 2026-06-07; one CSV per state under
+    // data/datapoints/electoral/<slug>_election_results.csv is the new
+    // home. The 3 frontend readers (composition-bar adapter,
+    // election-seats-trend, india-leading-parties) flipped to inline
+    // read_csv against the per-state CSV.
+    expect(ids).not.toContain("elections.election_results");
+    const dep = deprecations.find((d) => d.old_path === "elections/election_results.parquet");
+    expect(dep, "manifest deprecations[] MUST carry the redirect").toBeDefined();
+    expect(dep?.new_path).toBe("data/datapoints/electoral/election_results.csv");
   });
 
   it("manifest does NOT register elections.dim_parties (X1b retired)", () => {

@@ -17,8 +17,12 @@
 //   failed   — DuckDB-WASM / fetch / SQL error.
 
 import { describeFailure, type LoaderResult } from "../loader-result";
-import { query, registerCsvAsTable, registerSlice } from "../duckdb";
-import { electionStatePartition } from "../election-partitions";
+import { query, registerCsvAsTable, registerCsvFile } from "../duckdb";
+import {
+  ELECTION_RESULTS_COLUMNS_CLAUSE,
+  electionResultsCsvUrl,
+  electionResultsStateSlug,
+} from "../canonical/election-results-csv";
 import type { PartyTotals, SourceRef } from "../data";
 import type { StackedTrendV2Source } from "../charts/stacked-trend-v2";
 
@@ -88,14 +92,17 @@ async function runQueries(
   state_code: string,
   event_ids: string[],
 ): Promise<{ parties: PartyRow[]; sources: SourceJoinRow[] }> {
+  const stateSlug = electionResultsStateSlug(state_code);
+  const csvUrl = electionResultsCsvUrl(stateSlug);
   await Promise.all([
-    registerSlice("elections.election_results", { state: electionStatePartition(state_code) }),
+    registerCsvFile(csvUrl),
     registerCsvAsTable("elections.dim_parties"),
     registerCsvAsTable("taxonomy.sources"),
   ]);
 
   const partyPrefix = sqlString(`IN-${state_code}-`);
   const eventList = event_ids.map(sqlString).join(", ");
+  const csvLit = sqlString(csvUrl);
 
   const partySql = `
     SELECT
@@ -111,7 +118,7 @@ async function runQueries(
       MAX(CASE WHEN o.indicator_id = 'party-seats-won'      THEN o.value_numeric END) AS seats_won,
       MAX(CASE WHEN o.indicator_id = 'party-votes-polled'   THEN o.value_numeric END) AS votes,
       MAX(CASE WHEN o.indicator_id = 'party-vote-share-pct' THEN o.value_numeric END) AS vote_share_pct
-    FROM election_results o
+    FROM read_csv(${csvLit}, ${ELECTION_RESULTS_COLUMNS_CLAUSE}, header=true) o
     LEFT JOIN dim_parties dp
       ON dp.short_name = regexp_extract(o.entity_id, '-PARTY-(.+)$', 1)
     WHERE o.entity_id LIKE ${partyPrefix} || '%-PARTY-%'
@@ -139,7 +146,7 @@ async function runQueries(
       s.url_main           AS url_main,
       s.citation_full      AS citation_full,
       s.notes              AS notes
-    FROM election_results o
+    FROM read_csv(${csvLit}, ${ELECTION_RESULTS_COLUMNS_CLAUSE}, header=true) o
     JOIN sources s ON s.source_id = o.source_id
     WHERE o.period_label IN (${eventList})
       AND o.entity_id LIKE ${partyPrefix} || '%'

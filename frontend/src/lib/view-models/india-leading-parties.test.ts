@@ -8,18 +8,18 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("../duckdb", () => ({
-  registerTable: vi.fn(async () => "noop"),
+  registerCsvFile: vi.fn(async () => undefined),
   registerCsvAsTable: vi.fn(async (id: string) =>
     id === "elections.dim_parties" ? "dim_parties" : "sources",
   ),
   query: vi.fn(),
 }));
 
-import { query, registerCsvAsTable, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerCsvFile } from "../duckdb";
 import { loadIndiaLeadingParties } from "./india-leading-parties";
 
 const mockedQuery = vi.mocked(query);
-const mockedRegister = vi.mocked(registerTable);
+const mockedRegisterCsvFile = vi.mocked(registerCsvFile);
 const mockedRegisterCsvAsTable = vi.mocked(registerCsvAsTable);
 
 const partyRows = [
@@ -63,9 +63,9 @@ const partyRows = [
 
 beforeEach(() => {
   mockedQuery.mockReset();
-  mockedRegister.mockReset();
+  mockedRegisterCsvFile.mockReset();
   mockedRegisterCsvAsTable.mockReset();
-  mockedRegister.mockResolvedValue("noop");
+  mockedRegisterCsvFile.mockResolvedValue(undefined);
   mockedRegisterCsvAsTable.mockImplementation(async (id) =>
     id === "elections.dim_parties" ? "dim_parties" : "sources",
   );
@@ -90,12 +90,13 @@ describe("loadIndiaLeadingParties — happy path", () => {
     expect(res.data.per_state.S11.party_totals[0].party_eci_code).toBeNull();
   });
 
-  it("registers observations + dim_parties (CSV via X1a) before querying", async () => {
+  it("registers per-state CSVs + dim_parties (CSV via X1a) before querying", async () => {
     mockedQuery.mockResolvedValueOnce(partyRows);
     await loadIndiaLeadingParties({ S22: "AcGenMay2026" });
-    // election_results stays on parquet (X1b residual).
-    const registered = mockedRegister.mock.calls.map((c) => c[0]).sort();
-    expect(registered).toEqual(["elections.election_results"]);
+    // X1a-fu2-D (2026-06-07): elections.election_results parquet retired;
+    // per-state CSV is registered via registerCsvFile.
+    const csvFileUrls = mockedRegisterCsvFile.mock.calls.map((c) => c[0]);
+    expect(csvFileUrls.some((u) => u.endsWith("/data/datapoints/electoral/tamil-nadu_election_results.csv"))).toBe(true);
     // dim_parties flipped to CSV-as-table in X1a (PR #809).
     const csvAsTableIds = mockedRegisterCsvAsTable.mock.calls
       .map((c) => c[0])
