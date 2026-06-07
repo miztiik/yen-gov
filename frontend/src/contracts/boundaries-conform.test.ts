@@ -129,18 +129,19 @@ describe("boundaries-conform — legacy sidecars are gone (T.0d)", () => {
       const survivors = globSync(pattern, { cwd: boundaryFamilyRoot, absolute: false });
       expect(
         survivors,
-        `legacy sidecar pattern ${pattern} reappeared under datasets/boundaries/ — provenance + simplification + inventory now live in boundary_layers.parquet (ADR-0031 Amendment 2026-05-22)`,
+        `legacy sidecar pattern ${pattern} reappeared under datasets/boundaries/ — provenance + simplification + inventory now live in data/entities/boundary_layer.csv (X1a-fu2-E rip, 2026-06-07; ADR-0031 Amendment 2026-05-22)`,
       ).toEqual([]);
     });
   }
 });
 
-describe("boundaries-conform — parquet ledger is on disk", () => {
+describe("boundaries-conform — csv ledger is on disk", () => {
   // The single source of truth for shard inventory. Per-row schema is
-  // enforced by backend pytest; we only assert the file is present so the
-  // DuckDB-WASM consumers in the SPA can register the view.
-  it("datasets/boundaries/boundary_layers.parquet exists", () => {
-    const path = resolve(repoRoot, "datasets", "boundaries", "boundary_layers.parquet");
+  // enforced by backend pytest; we only assert the file is present so
+  // future DuckDB-WASM consumers (or any reader that wants to query the
+  // inventory) can register the view via the canonical CSV reader seam.
+  it("datasets/data/entities/boundary_layer.csv exists", () => {
+    const path = resolve(repoRoot, "datasets", "data", "entities", "boundary_layer.csv");
     expect(existsSync(path)).toBe(true);
   });
 });

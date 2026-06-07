@@ -100,7 +100,7 @@ from snapshot import (  # noqa: E402
 from yen_gov.canonical.boundary_layers_seed import (  # noqa: E402
     BOUNDARY_SOURCE_ID_BY_NICKNAME,
     BoundaryLayerRow,
-    compile_to_parquet,
+    compile_to_csv,
 )
 
 # ---------------------------------------------------------------------
@@ -370,13 +370,13 @@ def main(argv: list[str] | None = None) -> int:
         datasets_root,
     )
 
-    layer_count = compile_to_parquet(
+    layer_count = compile_to_csv(
         rows,
         datasets_root,
         merge_with_existing=True,
     )
     print(
-        f"  boundary_layers.parquet: {layer_count} rows total "
+        f"  boundary_layer.csv: {layer_count} rows total "
         f"({len(rows)} J&K village rows this lift)",
         f"sources.parquet: {source_count} rows",
         flush=True,

@@ -2,7 +2,7 @@
 // IS the fetch boundary - Holy Law #7 carve-out). Post-T.0d (ADR-0031
 // Amendment) URLs use the Hive layout under `boundaries/in/<kind>/...`
 // and the per-state villages-index manifest is gone (replaced by
-// `boundaries/boundary_layers.parquet` queryable via DuckDB-WASM).
+// `data/entities/boundary_layer.csv`, the X1a-fu2-E CSV-form ledger).
 // Missing village shards now resolve to null via the 404-as-null branch.
 //
 // Post-P2.3 (docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md) the

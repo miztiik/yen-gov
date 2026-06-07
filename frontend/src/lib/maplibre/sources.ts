@@ -7,7 +7,7 @@
 //   2. Local GeoJSON snapshot under datasets/boundaries/in/<kind>/... in
 //      the Hive partition layout (per ADR-0031 Amendment 2026-05-22 —
 //      T.0d boundaries consolidation). Produced by tools/boundaries/
-//      snapshot.py + emitted via the boundary_layers.parquet ledger.
+//      snapshot.py + emitted via the boundary_layer.csv ledger.
 //      Loads in a single same-origin request, no public network hop
 //      required.
 //   3. Direct upstream GeoJSON URL (raw.githubusercontent.com or similar).
@@ -482,7 +482,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
 // release (7,146 blocks total nationally; 670 features dropped without a
 // state_lgd attribution). Lift pipeline: tools/boundaries/
 // lift_blocks_national.py -> emits per-state Hive-partitioned GeoJSON
-// FeatureCollections + upserts boundary_layers.parquet rows.
+// FeatureCollections + upserts boundary_layer.csv rows.
 //
 // Per A.3, no per-entry attribution field (single citizen footer link
 // via boundaryFooterHtml(); per-source explanation lives at
@@ -497,7 +497,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
 // coord_precision=2 (~1.1 km) before SKIP, landing the shard at
 // ~2.2 MB / 822 features. The fallback is uniform script behaviour
 // (NOT per-state config), recorded in
-// datasets/boundaries/boundary_layers.parquet as
+// datasets/data/entities/boundary_layer.csv as
 // simplification_tolerance_deg per row.
 export const BLOCK_BOUNDARY: Record<string, BoundaryEntry> = {
   S01: {
@@ -685,7 +685,7 @@ export const BLOCK_BOUNDARY: Record<string, BoundaryEntry> = {
   // and the join_property remains the LGD id regardless of vertex
   // count, so no renderer-side special-case is needed. The actual
   // precision used per shard is recorded in
-  // datasets/boundaries/boundary_layers.parquet
+  // datasets/data/entities/boundary_layer.csv
   // (simplification_tolerance_deg: 0.01 for S24, 0.001 elsewhere).
   S24: {
     id: "S24-block",

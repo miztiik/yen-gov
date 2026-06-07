@@ -16,7 +16,7 @@ Coverage:
   - GeoJSON shard shape: FeatureCollection sorted by pincode, each
     feature carries the 6 fixed property keys + Polygon/MultiPolygon
     geometry with coordinates rounded to COORD_PRECISION_DIGITS.
-  - boundary_layers.parquet rows pass the schema invariant
+  - boundary_layer.csv rows pass the schema invariant
     (original = retained + unkeyed) and carry the right source_id FK.
   - byte-determinism: re-running against byte-identical input yields
     byte-identical shards + ledger.
@@ -28,6 +28,7 @@ import hashlib
 import io
 import json
 import zipfile
+import csv as _csv
 from pathlib import Path
 
 import duckdb
@@ -311,23 +312,22 @@ def test_unkeyed_shard_is_empty_featurecollection_with_pincode_list_in_ledger(
     assert fc == {"type": "FeatureCollection", "features": []}
 
     # Ledger row carries the pincode list in unkeyed_keys_json.
-    ledger = root / "boundaries" / "boundary_layers.parquet"
-    con = duckdb.connect(":memory:")
-    try:
-        row = con.execute(
-            f"""
-            SELECT original_feature_count, retained_feature_count,
-                   unkeyed_count, unkeyed_keys_json
-            FROM read_parquet('{ledger.as_posix()}')
-            WHERE layer_id = 'boundaries.in.postal.scope=unkeyed'
-            """
-        ).fetchone()
-    finally:
-        con.close()
-    assert row is not None
-    original, retained, unkeyed, keys_json = row
-    assert (original, retained, unkeyed) == (1, 0, 1)
-    assert json.loads(keys_json) == ["999999"]
+    ledger = root / "data" / "entities" / "boundary_layer.csv"
+    with ledger.open(encoding="utf-8", newline="") as fh:
+        rows = list(_csv.DictReader(fh))
+    matches = [
+        r
+        for r in rows
+        if r["layer_id"] == "boundaries.in.postal.scope=unkeyed"
+    ]
+    assert len(matches) == 1
+    row = matches[0]
+    assert (
+        int(row["original_feature_count"]),
+        int(row["retained_feature_count"]),
+        int(row["unkeyed_count"]),
+    ) == (1, 0, 1)
+    assert json.loads(row["unkeyed_keys_json"]) == ["999999"]
 
 
 def test_no_synthetic_row_when_every_pincode_keys(tmp_path: Path) -> None:
@@ -364,26 +364,27 @@ def test_null_statename_in_directory_routes_to_unkeyed(tmp_path: Path) -> None:
 
 
 def test_boundary_layers_rows_pass_denominator_invariant(tmp_path: Path) -> None:
-    """compile_to_parquet raises on original != retained + unkeyed.
+    """compile_to_csv raises on original != retained + unkeyed.
     A successful ingest therefore proves the invariant held for every
-    emitted row — but read back from parquet and double-check anyway.
+    emitted row — but read back from CSV and double-check anyway.
     """
     kmz, directory, entities, root = _build_standard_fixtures(tmp_path)
     _run_ingest(kmz, directory, entities, root)
 
-    ledger = root / "boundaries" / "boundary_layers.parquet"
-    con = duckdb.connect(":memory:")
-    try:
-        rows = con.execute(
-            f"""
-            SELECT layer_id, original_feature_count,
-                   retained_feature_count, unkeyed_count, source_id
-            FROM read_parquet('{ledger.as_posix()}')
-            WHERE layer_id LIKE 'boundaries.in.postal.%'
-            """
-        ).fetchall()
-    finally:
-        con.close()
+    ledger = root / "data" / "entities" / "boundary_layer.csv"
+    with ledger.open(encoding="utf-8", newline="") as fh:
+        all_rows = list(_csv.DictReader(fh))
+    rows = [
+        (
+            r["layer_id"],
+            int(r["original_feature_count"]),
+            int(r["retained_feature_count"]),
+            int(r["unkeyed_count"]),
+            r["source_id"],
+        )
+        for r in all_rows
+        if r["layer_id"].startswith("boundaries.in.postal.")
+    ]
 
     assert len(rows) == 5
     for layer_id, original, retained, unkeyed, sid in rows:
@@ -416,7 +417,7 @@ def test_reingest_is_byte_identical(tmp_path: Path) -> None:
     shards = sorted(
         (root / "boundaries" / "in" / "postal").rglob("all.geojson")
     )
-    ledger = root / "boundaries" / "boundary_layers.parquet"
+    ledger = root / "data" / "entities" / "boundary_layer.csv"
 
     hashes_before = {p.relative_to(root).as_posix(): _sha256(p) for p in shards}
     ledger_before = _sha256(ledger)
@@ -425,4 +426,4 @@ def test_reingest_is_byte_identical(tmp_path: Path) -> None:
 
     hashes_after = {p.relative_to(root).as_posix(): _sha256(p) for p in shards}
     assert hashes_before == hashes_after, "shard bytes drifted across re-runs"
-    assert _sha256(ledger) == ledger_before, "boundary_layers.parquet bytes drifted"
+    assert _sha256(ledger) == ledger_before, "boundary_layer.csv bytes drifted"

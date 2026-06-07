@@ -73,7 +73,6 @@ interface RequestAudit {
 const SURVIVING_PARQUET_SUBSTRINGS = [
   "election_results",
   "dim_party_alliances",
-  "boundary_layers",
   "entities.parquet",
   "indicators.parquet",
 ] as const;

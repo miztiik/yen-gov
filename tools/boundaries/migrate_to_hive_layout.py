@@ -24,7 +24,7 @@ disk. With ``--apply``:
      against the 5 BOUNDARY_SOURCES;
    * build ``BoundaryLayerRow``.
 2. Run ``git mv`` to relocate each geometry file into its Hive path.
-3. Call ``boundary_layers_seed.compile_to_parquet(rows, datasets_root)``
+3. Call ``boundary_layers_seed.compile_to_csv(rows, datasets_root)``
    to emit ``boundaries/boundary_layers.parquet`` + UPSERT the 5
    boundary citation rows into ``taxonomy/sources.parquet``.
 4. Print a summary table (layer_id → old path → new path → size).
@@ -32,7 +32,7 @@ disk. With ``--apply``:
 Sidecar deletion is OUT of scope here — chunk 3 follows up with
 ``git rm`` on the 115 sidecars + 3 retired schemas in the same fused
 commit (CLAUDE.md §15). Failing here leaves git in a clean state
-(``git mv`` failures abort BEFORE compile_to_parquet runs).
+(``git mv`` failures abort BEFORE compile_to_csv runs).
 
 This file lives under ``tools/`` per CLAUDE.md §3: tools are
 self-contained, never imported by backend runtime modules.
@@ -56,7 +56,7 @@ sys.path.insert(0, str(_REPO_ROOT / "backend"))
 from yen_gov.canonical.boundary_layers_seed import (  # noqa: E402
     BOUNDARY_SOURCE_ID_BY_NICKNAME,
     BoundaryLayerRow,
-    compile_to_parquet,
+    compile_to_csv,
 )
 from yen_gov.canonical.citation import derive_source_id  # noqa: E402
 
@@ -359,11 +359,12 @@ def main(argv: list[str] | None = None) -> int:
         _git_mv(src, dst, repo_root=repo_root)
         print(f"  mv {src.relative_to(repo_root).as_posix()} -> {dst.relative_to(repo_root).as_posix()}")
 
-    print("\ncompiling boundary_layers.parquet...")
-    n_layers = compile_to_parquet(rows, datasets_root)
+    print("\ncompiling boundary_layer.csv...")
+    n_layers = compile_to_csv(rows, datasets_root)
+    csv_path = datasets_root / 'data' / 'entities' / 'boundary_layer.csv'
     print(f"  wrote {n_layers} boundary layers")
     print(f"\noutputs:")
-    print(f"  datasets/boundaries/boundary_layers.parquet  ({(datasets_root / 'boundaries' / 'boundary_layers.parquet').stat().st_size} bytes)")
+    print(f"  datasets/data/entities/boundary_layer.csv  ({csv_path.stat().st_size} bytes)")
     return 0
 
 

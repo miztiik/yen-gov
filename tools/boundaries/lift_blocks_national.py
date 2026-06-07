@@ -104,7 +104,7 @@ from snapshot import (  # noqa: E402
 from yen_gov.canonical.boundary_layers_seed import (  # noqa: E402
     BOUNDARY_SOURCE_ID_BY_NICKNAME,
     BoundaryLayerRow,
-    compile_to_parquet,
+    compile_to_csv,
 )
 from yen_gov.canonical.state_lgd_resolver import (  # noqa: E402
     load_state_lgd_to_eci_map,
@@ -414,13 +414,13 @@ def main(argv: list[str] | None = None) -> int:
     if deleted:
         print(f"  removed {deleted} stale shard(s) not in the lift output", flush=True)
 
-    layer_count = compile_to_parquet(
+    layer_count = compile_to_csv(
         rows,
         datasets_root,
         merge_with_existing=True,
     )
     print(
-        f"  boundary_layers.parquet: {layer_count} rows total "
+        f"  boundary_layer.csv: {layer_count} rows total "
         f"({len(rows)} block rows this lift)",
         flush=True,
     )

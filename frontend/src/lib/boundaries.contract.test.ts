@@ -1,9 +1,10 @@
 // Contract tier (CLAUDE.md §15): the loader's *consumer* contract over the
 // shipped boundary files. Post-T.0d (ADR-0031 Amendment 2026-05-22) the
 // per-shard sidecar files are gone — provenance now lives once in
-// `datasets/boundaries/boundary_layers.parquet` (FK to
-// `datasets/taxonomy/sources.parquet`), and the per-state villages-index
-// manifest was retired in favour of the parquet ledger. The two consumer
+// `datasets/data/entities/boundary_layer.csv` (X1a-fu2-E rip 2026-06-07;
+// pre-rip a parquet under datasets/boundaries/; FK to
+// `datasets/data/entities/source.csv`), and the per-state villages-index
+// manifest was retired in favour of the CSV ledger. The two consumer
 // invariants left for this tier:
 //
 //   1. Every shard the loader can resolve via `boundaryRelPath` exists on

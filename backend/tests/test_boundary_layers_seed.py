@@ -11,13 +11,20 @@ Covers two surfaces:
   ``SourceRow`` seeds (8 today; identity anchor for callers via
   ``BOUNDARY_SOURCES`` / ``BOUNDARY_SOURCE_ID_BY_NICKNAME`` /
   ``BOUNDARY_SOURCE_ID_BY_TRIPLE``).
-* ``compile_to_parquet`` -- happy-path round-trip,
+* ``compile_to_csv`` -- happy-path round-trip,
   denominator-mismatch reject, FK reject, PK reject,
   byte-stable re-emit, empty-input behaviour, PC layer
   delimitation_vintage round-trip.
 
-Post-B3-pt2 (2026-06-06): the sources.parquet UPSERT side of
-``compile_to_parquet`` was removed (X1b retired the parquet); the
+X1a-fu2-E (2026-06-07): the writer was renamed ``compile_to_parquet``
+-> ``compile_to_csv`` and now emits to
+``datasets/data/entities/boundary_layer.csv`` via the canonical
+``yen_gov.canonical.csv_writer.write_csv`` seam (the parquet at
+``datasets/boundaries/boundary_layers.parquet`` was retired in the
+same PR). Tests below assert the CSV output shape.
+
+Post-B3-pt2 (2026-06-06): the sources.parquet UPSERT side of the
+writer was removed (X1b retired the parquet); the
 ``upsert_boundary_sources`` helper was deleted in the same commit
 along with the 3 fixture-backed UPSERT tests. The 8 boundary citation
 rows now live in ``datasets/data/entities/source.csv`` seeded once via
@@ -26,6 +33,8 @@ B1 fk-validator gate, not by this module.
 """
 
 from __future__ import annotations
+
+import csv as _csv
 
 import pytest
 from pydantic import ValidationError
@@ -36,7 +45,7 @@ from yen_gov.canonical.boundary_layers_seed import (
     BOUNDARY_SOURCES,
     SOURCE_NICKNAMES,
     BoundaryLayerRow,
-    compile_to_parquet,
+    compile_to_csv,
 )
 from yen_gov.canonical.citation import derive_source_id
 
@@ -277,7 +286,7 @@ def test_schema_version_matches_registry():
 
 
 # ---------------------------------------------------------------------------
-# compile_to_parquet — canonical emission seam (Chunk 2 contract)
+# compile_to_csv — canonical emission seam (X1a-fu2-E rip)
 # ---------------------------------------------------------------------------
 
 
@@ -301,39 +310,43 @@ def _layer_row(layer_id: str, source_id: str, **overrides) -> BoundaryLayerRow:
     return BoundaryLayerRow(**base)
 
 
-def test_compile_to_parquet_emits_boundary_layers_parquet(tmp_path):
-    """Happy path: writes boundary_layers.parquet under boundaries/.
+def _read_csv_rows(csv_path):
+    with csv_path.open(encoding="utf-8", newline="") as fh:
+        return list(_csv.DictReader(fh))
+
+
+def test_compile_to_csv_emits_boundary_layer_csv(tmp_path):
+    """Happy path: writes boundary_layer.csv under data/entities/.
     Returns layer_count for orchestrator logging.
 
-    Post-B3-pt2 (2026-06-06): no sources.parquet sibling is emitted.
-    The 8 boundary citation rows live in
-    ``datasets/data/entities/source.csv`` seeded once via the
+    X1a-fu2-E (2026-06-07): the writer emits the canonical long-format
+    CSV at ``datasets/data/entities/boundary_layer.csv`` (was a parquet
+    under ``datasets/boundaries/`` pre-rip). No sources.parquet sibling
+    is emitted (X1b retired that file); the 8 boundary citation rows
+    live in ``datasets/data/entities/source.csv`` seeded once via the
     B2a/source_csv path.
     """
-    from yen_gov.canonical.boundary_layers_seed import (
-        BOUNDARY_SOURCE_ID_BY_NICKNAME,
-        compile_to_parquet,
-    )
-
     datameet_src = BOUNDARY_SOURCE_ID_BY_NICKNAME["datameet"]
     rows = [
         _layer_row("boundaries.in.states", datameet_src),
     ]
-    n_layers = compile_to_parquet(rows, tmp_path)
+    n_layers = compile_to_csv(rows, tmp_path)
     assert n_layers == 1
-    assert (tmp_path / "boundaries" / "boundary_layers.parquet").is_file()
-    # The retired sibling MUST NOT come back.
+    csv_path = tmp_path / "data" / "entities" / "boundary_layer.csv"
+    assert csv_path.is_file()
+    # The retired siblings MUST NOT come back.
+    assert not (tmp_path / "boundaries" / "boundary_layers.parquet").exists()
     assert not (tmp_path / "taxonomy" / "sources.parquet").exists()
+    # Header + 1 data row.
+    out = _read_csv_rows(csv_path)
+    assert len(out) == 1
+    assert out[0]["layer_id"] == "boundaries.in.states"
+    assert out[0]["source_id"] == datameet_src
 
 
-def test_compile_to_parquet_denominator_violation_rejects(tmp_path):
+def test_compile_to_csv_denominator_violation_rejects(tmp_path):
     """Citizen-trust gate: if original != retained + unkeyed for any row,
-    raise ValueError BEFORE any parquet bytes hit disk."""
-    from yen_gov.canonical.boundary_layers_seed import (
-        BOUNDARY_SOURCE_ID_BY_NICKNAME,
-        compile_to_parquet,
-    )
-
+    raise ValueError BEFORE any CSV bytes hit disk."""
     datameet_src = BOUNDARY_SOURCE_ID_BY_NICKNAME["datameet"]
     bad = _layer_row(
         "boundaries.in.states",
@@ -343,80 +356,61 @@ def test_compile_to_parquet_denominator_violation_rejects(tmp_path):
         unkeyed_count=10,  # 80 + 10 = 90, not 100 → bug
     )
     with pytest.raises(ValueError, match="denominator-transparency"):
-        compile_to_parquet([bad], tmp_path)
+        compile_to_csv([bad], tmp_path)
     # No bytes written on rejection
-    assert not (tmp_path / "boundaries" / "boundary_layers.parquet").exists()
+    assert not (tmp_path / "data" / "entities" / "boundary_layer.csv").exists()
 
 
-def test_compile_to_parquet_duplicate_layer_id_rejects(tmp_path):
+def test_compile_to_csv_duplicate_layer_id_rejects(tmp_path):
     """PK uniqueness invariant: duplicate layer_id raises before emit."""
-    from yen_gov.canonical.boundary_layers_seed import (
-        BOUNDARY_SOURCE_ID_BY_NICKNAME,
-        compile_to_parquet,
-    )
-
     src = BOUNDARY_SOURCE_ID_BY_NICKNAME["datameet"]
     rows = [
         _layer_row("boundaries.in.states", src),
         _layer_row("boundaries.in.states", src),  # duplicate
     ]
     with pytest.raises(ValueError, match="duplicate layer_id"):
-        compile_to_parquet(rows, tmp_path)
+        compile_to_csv(rows, tmp_path)
 
 
-def test_compile_to_parquet_unknown_source_id_rejects(tmp_path):
+def test_compile_to_csv_unknown_source_id_rejects(tmp_path):
     """FK pre-check: a layer pointing at a non-boundary source_id must
     be rejected (catches typos + accidental cross-adapter
     misattribution)."""
-    from yen_gov.canonical.boundary_layers_seed import compile_to_parquet
-
     fake_src = "src-deadbeef0000"
     row = _layer_row("boundaries.in.states", fake_src)
     with pytest.raises(ValueError, match=r"not one of the \d+ BOUNDARY_SOURCES"):
-        compile_to_parquet([row], tmp_path)
+        compile_to_csv([row], tmp_path)
 
 
-def test_compile_to_parquet_is_byte_stable(tmp_path):
-    """Sort-stable emission: same input → byte-identical parquet."""
-    from yen_gov.canonical.boundary_layers_seed import (
-        BOUNDARY_SOURCE_ID_BY_NICKNAME,
-        compile_to_parquet,
-    )
-
+def test_compile_to_csv_is_byte_stable(tmp_path):
+    """Sort-stable emission: same input → byte-identical CSV."""
     htl_src = BOUNDARY_SOURCE_ID_BY_NICKNAME["htl"]
     rows = [
         _layer_row(f"boundaries.in.ac.state={code}", htl_src, level="ac")
         for code in ("in_s22", "in_s11", "in_s06")  # deliberately unsorted
     ]
-    compile_to_parquet(rows, tmp_path)
-    first = (tmp_path / "boundaries" / "boundary_layers.parquet").read_bytes()
-    compile_to_parquet(rows, tmp_path)
-    second = (tmp_path / "boundaries" / "boundary_layers.parquet").read_bytes()
-    assert first == second, "compile_to_parquet must be byte-stable across re-runs"
+    csv_path = tmp_path / "data" / "entities" / "boundary_layer.csv"
+    compile_to_csv(rows, tmp_path)
+    first = csv_path.read_bytes()
+    compile_to_csv(rows, tmp_path)
+    second = csv_path.read_bytes()
+    assert first == second, "compile_to_csv must be byte-stable across re-runs"
 
 
-def test_compile_to_parquet_empty_input_writes_zero_row_table(tmp_path):
-    """Edge case: empty layer_rows list writes an empty boundary_layers.parquet.
-    Tooling that emits incrementally may pass [] for a stage and that must
-    not crash. Post-B3-pt2: no sources.parquet sibling is emitted.
+def test_compile_to_csv_empty_input_writes_header_only(tmp_path):
+    """Edge case: empty layer_rows list writes a header-only
+    boundary_layer.csv. Tooling that emits incrementally may pass [] for
+    a stage and that must not crash. Post-B3-pt2: no sources.parquet
+    sibling is emitted.
     """
-    from yen_gov.canonical.boundary_layers_seed import compile_to_parquet
-
-    n_layers = compile_to_parquet([], tmp_path)
+    n_layers = compile_to_csv([], tmp_path)
     assert n_layers == 0
-    assert (tmp_path / "boundaries" / "boundary_layers.parquet").is_file()
+    csv_path = tmp_path / "data" / "entities" / "boundary_layer.csv"
+    assert csv_path.is_file()
     assert not (tmp_path / "taxonomy" / "sources.parquet").exists()
-    # Round-trip read confirms zero rows
-    import duckdb
-
-    con = duckdb.connect()
-    try:
-        [(count,)] = con.execute(
-            f"SELECT COUNT(*) FROM read_parquet('{(tmp_path / 'boundaries' / 'boundary_layers.parquet').as_posix()}')"
-        ).fetchall()
-    finally:
-        con.close()
-    assert count == 0
+    # Round-trip read confirms zero rows (header-only).
+    out = _read_csv_rows(csv_path)
+    assert out == []
 
 
 # ---------------------------------------------------------------------------
@@ -463,10 +457,8 @@ def test_shijithpk_pc_2024_v2_field_profile():
 
 
 def test_pc_layer_row_delim_partition_via_compile(tmp_path):
-    """End-to-end: write + read parquet, confirm delimitation_vintage
+    """End-to-end: write + read CSV, confirm delimitation_vintage
     column round-trips for the PC row."""
-    import duckdb
-
     pc_src = BOUNDARY_SOURCE_ID_BY_NICKNAME["shijithpk_pc_2024"]
     row = BoundaryLayerRow(
         layer_id="boundaries.in.pc.delim=2024",
@@ -481,19 +473,16 @@ def test_pc_layer_row_delim_partition_via_compile(tmp_path):
         source_id=pc_src,
         delimitation_vintage="2024",
     )
-    n_layers = compile_to_parquet([row], tmp_path)
+    n_layers = compile_to_csv([row], tmp_path)
     assert n_layers == 1
 
-    con = duckdb.connect()
-    try:
-        result = con.execute(
-            f"SELECT layer_id, level, delimitation_vintage FROM read_parquet("
-            f"'{(tmp_path / 'boundaries' / 'boundary_layers.parquet').as_posix()}'"
-            f") WHERE level='pc'"
-        ).fetchall()
-    finally:
-        con.close()
-    assert result == [("boundaries.in.pc.delim=2024", "pc", "2024")]
+    csv_path = tmp_path / "data" / "entities" / "boundary_layer.csv"
+    out = _read_csv_rows(csv_path)
+    pc_rows = [r for r in out if r["level"] == "pc"]
+    assert len(pc_rows) == 1
+    assert pc_rows[0]["layer_id"] == "boundaries.in.pc.delim=2024"
+    assert pc_rows[0]["level"] == "pc"
+    assert pc_rows[0]["delimitation_vintage"] == "2024"
 
 
 def test_delim_vintage_pattern_enforced():

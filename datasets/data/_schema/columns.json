@@ -128,6 +128,29 @@
         { "name": "url", "dtype": "string", "nullable": true }
       ]
     },
+    "datasets/data/entities/boundary_layer.csv": {
+      "notes": "Boundary-shard inventory ledger (one row per geometry shard on disk). 18-column 1:1 transcode of the retired datasets/boundaries/boundary_layers.parquet (X1a-fu2-E, 2026-06-07). source_id FKs into entities/source.csv; the 8 boundary citation triples are seeded by the B2a/source_csv path. simplification_tolerance_deg is the only floating-point column (degrees of arc); all counts are integer (size_bytes was BIGINT in parquet, encoded as integer here since the CSV column contract has no bigint dtype). Producer: backend/yen_gov/canonical/boundary_layers_seed.py::compile_to_csv (REPLACE writer; merge-with-existing handled at the caller layer via _read_existing_boundary_layers helper). Spec: ADR-0031 Amendment 2026-05-22.",
+      "columns": [
+        { "name": "layer_id", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "level", "dtype": "string", "nullable": false },
+        { "name": "entity_state", "dtype": "string", "nullable": true },
+        { "name": "entity_district", "dtype": "string", "nullable": true },
+        { "name": "entity_city", "dtype": "string", "nullable": true },
+        { "name": "partition_path", "dtype": "string", "nullable": false },
+        { "name": "format", "dtype": "string", "nullable": false },
+        { "name": "crs", "dtype": "string", "nullable": false },
+        { "name": "simplification_algorithm", "dtype": "string", "nullable": true },
+        { "name": "simplification_tolerance_deg", "dtype": "number", "nullable": true },
+        { "name": "original_feature_count", "dtype": "integer", "nullable": false },
+        { "name": "retained_feature_count", "dtype": "integer", "nullable": false },
+        { "name": "unkeyed_count", "dtype": "integer", "nullable": false },
+        { "name": "unkeyed_keys_json", "dtype": "string", "nullable": true },
+        { "name": "size_bytes", "dtype": "integer", "nullable": false },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" },
+        { "name": "notes", "dtype": "string", "nullable": true },
+        { "name": "delimitation_vintage", "dtype": "string", "nullable": true }
+      ]
+    },
     "datasets/data/entities/office.csv": {
       "notes": "Office register per plan section 20.4 (one row per office). Sourced from datasets/governments/dim_offices.parquet by B2b.3 reingest. jurisdiction_entity_id FKs into geo.csv (state or country grain). office_kind is open-ended (cm|pm|president|vice_president|cabinet_minister|...); enum NOT closed at v1 to admit future cabinet/PM rows without a schema bump.",
       "columns": [

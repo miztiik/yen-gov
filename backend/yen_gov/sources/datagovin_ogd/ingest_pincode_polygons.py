@@ -101,7 +101,7 @@ import duckdb
 from yen_gov.canonical.boundary_layers_seed import (
     BOUNDARY_SOURCE_ID_BY_NICKNAME,
     BoundaryLayerRow,
-    compile_to_parquet,
+    compile_to_csv,
 )
 from yen_gov.sources.datagovin_ogd.pincode_polygons import (
     ParsedPincodePolygons,
@@ -603,7 +603,7 @@ def ingest_pincode_polygons(
         layer_rows.append(_build_unkeyed_layer_row(unkeyed_pincodes, unkeyed_size))
 
     # ----- ledger emit via canonical writer ------------------------
-    compile_to_parquet(layer_rows, datasets_root, merge_with_existing=True)
+    compile_to_csv(layer_rows, datasets_root, merge_with_existing=True)
 
     return IngestResult(
         parsed=parsed,

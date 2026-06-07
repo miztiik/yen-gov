@@ -29,11 +29,11 @@
 // The per-district village split is the contract that lets a single
 // district click pull ~10–600 KB instead of the full TN villages bundle
 // (~200 MB raw, ~50 MB at coord_precision=4). Which shards exist is
-// now sourced from `datasets/boundaries/boundary_layers.parquet`
-// (queryable via DuckDB-WASM) — the per-state `villages-index.json`
-// manifest was retired in T.0d (replaced by the parquet ledger;
-// ADR-0031 Amendment). Missing-shard handling: 404-as-null (a one-time
-// HTTP probe per missing district, browser-cached). The previous index
+// now sourced from `datasets/data/entities/boundary_layer.csv`
+// (X1a-fu2-E 2026-06-07; was a parquet under datasets/boundaries/ pre-rip)
+// — the per-state `villages-index.json` manifest was retired in T.0d
+// (replaced by the ledger; ADR-0031 Amendment). Missing-shard handling:
+// 404-as-null (a one-time HTTP probe per missing district, browser-cached). The previous index
 // manifest was a premature optimisation: it cost a separate JSON fetch
 // AND a class of state-sync bugs (manifest says X exists but file
 // doesn't, or vice versa). The parquet ledger is the single source of

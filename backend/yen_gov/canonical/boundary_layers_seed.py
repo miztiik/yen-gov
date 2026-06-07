@@ -1,16 +1,22 @@
-"""Compile boundary geometry inventory to ``datasets/boundaries/boundary_layers.parquet``.
+"""Compile boundary geometry inventory to ``datasets/data/entities/boundary_layer.csv``.
 
-§8.3 Python-compiles-to-Parquet seam. Replaces the four sidecar writers in
-``tools/boundaries/snapshot.py`` (``_write_sources_sidecar``,
-``_write_unkeyed_sidecar``, ``_write_simplification_metadata_sidecar``,
-``emit_index_manifest``) with a single canonical control table on a
-Hive-partitioned discovery path (T.0d §1).
+X1a-fu2-E (2026-06-07) mechanical rip: the legacy
+``datasets/boundaries/boundary_layers.parquet`` was transcoded 1:1 (4014
+rows, 18 cols, SELECT *) to the canonical long-format CSV at
+``datasets/data/entities/boundary_layer.csv`` and the parquet was
+retired in the same PR. The CSV writer is REPLACE not UPSERT - every
+``compile_to_csv`` call overwrites the CSV from the current ingest's
+full row set. Callers that previously composed a partial-rebuild via
+``merge_with_existing=True`` now load the existing CSV via the
+``_read_existing_boundary_layers`` helper, merge their new rows in,
+and pass the full set back to ``compile_to_csv``. Caller signatures
+are unchanged (mechanical rename only).
 
 Outputs:
 
-- ``datasets/boundaries/boundary_layers.parquet`` -- one row per boundary
-  geometry shard on disk (15 columns; see ``boundary-layers.schema.json``
-  v1.0). FK ``source_id`` resolves to ``datasets/data/entities/source.csv``.
+- ``datasets/data/entities/boundary_layer.csv`` -- one row per boundary
+  geometry shard on disk (18 columns; see ``columns.json`` file class).
+  FK ``source_id`` resolves to ``datasets/data/entities/source.csv``.
 
 Post-B3-pt2 (2026-06-06): the legacy side-effect of UPSERTing the 8
 boundary source rows into ``datasets/taxonomy/sources.parquet`` was
@@ -20,22 +26,22 @@ are seeded there once via the B2a/source_csv path. ``BOUNDARY_SOURCES``
 + ``BOUNDARY_SOURCE_ID_BY_NICKNAME`` + ``BOUNDARY_SOURCE_ID_BY_TRIPLE``
 stay because callers (snapshot.py, lift_*.py, ingest_pincode_polygons.py)
 look up source_id by nickname/triple and stamp it on every
-BoundaryLayerRow; the in-process FK gate in ``compile_to_parquet``
+BoundaryLayerRow; the in-process FK gate in ``compile_to_csv``
 (every row's source_id is in ``BOUNDARY_SOURCES``) still catches typos
 before any bytes hit disk. Cross-format FK closure against source.csv
 is enforced by the B1 fk-validator gate at the CSV write seam.
 
 T.0d role (2026-05-22, fused atomic): consolidates 115 sidecar files
-(73 ``.sources.json`` deprecated §12 v1.x + 39 ``.metadata.json`` + 2
-``.unkeyed.json`` + 1 ``S22-villages-index.json``) into one queryable
-control table. Per ADR-0032 §12 v2.0: provenance is a TABLE keyed on
-``(producer, title, vintage)``, not a per-shard array smeared with
+(73 ``.sources.json`` deprecated section 12 v1.x + 39 ``.metadata.json``
++ 2 ``.unkeyed.json`` + 1 ``S22-villages-index.json``) into one queryable
+control table. Per ADR-0032 section 12 v2.0: provenance is a TABLE keyed
+on ``(producer, title, vintage)``, not a per-shard array smeared with
 fetch timestamps. Per ADR-0031 amendment: directory layout switches
 from flat ``boundaries/in/geojson/*`` to Hive-partitioned
 ``boundaries/in/<level>/state=<S>/...`` matching the elections grammar.
 
 Postal sources seeded 2026-05-25 (Phase A.2 of
-TODO/20260524-boundary-coverage-expansion-plan.md) — the
+TODO/20260524-boundary-coverage-expansion-plan.md) - the
 ``datagovin_post_pincode_polygons_2025`` nickname covers the all-India
 pincode KMZ published by the Department of Posts via data.gov.in
 (Open Government Data Licence India 1.0). Pre-A.2 the postal subtree
@@ -56,7 +62,7 @@ Rejected designs (do NOT re-propose; full archive in
 ``docs/architecture/decisions/0031-boundary-geometry-strategy.md``
 Amendment 2026-05-22):
     B9.  Keep per-file ``.sources.json`` sidecars, rewrite contents to
-         §12 v2.0 shape (source_id + remove fetched_at). Smallest
+         section 12 v2.0 shape (source_id + remove fetched_at). Smallest
          change, but still leaves 73+ sidecars to maintain at 1000+
          file scale; doesn't address cardinality explosion; doesn't
          give the renderer queryable columns. FK-to-Parquet is
@@ -73,17 +79,24 @@ Amendment 2026-05-22):
 
 from __future__ import annotations
 
+import csv as _csv
 from pathlib import Path
 from typing import Literal
 
-import duckdb
 from pydantic import BaseModel, ConfigDict, Field
 
 from yen_gov.canonical.citation import derive_source_id
+from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.canonical.envelope import SourceRow
 from yen_gov.core.schema_registry import schema_id, schema_version
 
-# Schema metadata sourced via core.schema_registry (CLAUDE.md §11 — code
+# File-class key used by the canonical CSV writer (datasets/data/_schema/columns.json).
+BOUNDARY_LAYER_FILE_CLASS = "datasets/data/entities/boundary_layer.csv"
+# Path relative to ``datasets_root`` used by ``compile_to_csv`` +
+# ``_read_existing_boundary_layers``.
+_BOUNDARY_LAYER_REL_PATH = Path("data") / "entities" / "boundary_layer.csv"
+
+# Schema metadata sourced via core.schema_registry (CLAUDE.md section 11 - code
 # never hand-types schema-version literals).
 BOUNDARY_LAYERS_SCHEMA_FILENAME = "boundary-layers.schema.json"
 BOUNDARY_LAYERS_ROW_SCHEMA_VERSION = schema_version(BOUNDARY_LAYERS_SCHEMA_FILENAME)
@@ -403,177 +416,104 @@ BOUNDARY_SOURCE_ID_BY_TRIPLE: dict[tuple[str, str, str], str] = {
 
 
 # ----------------------------------------------------------------------
-# Compile to parquet (canonical emission seam)
+# Compile to CSV (canonical emission seam)
 # ----------------------------------------------------------------------
 
 
-# DuckDB DDL mirrors the JSON Schema additionalProperties:false shape.
-# 18 columns -- 10 NOT NULL + 8 nullable. PK on layer_id; FK on source_id
-# is enforced in-process via the BOUNDARY_SOURCES set (post-B3-pt2:
-# parquet-level EXISTS lookup against sources.parquet is gone; cross-CSV
-# closure is enforced downstream by the B1 fk-validator gate on
-# datasets/data/entities/source.csv).
-# 18th column `delimitation_vintage` added in schema v1.1 (2026-05-24,
-# PC layer ingest).
-_BOUNDARY_LAYERS_DDL = """
-CREATE TABLE boundary_layers (
-    layer_id VARCHAR NOT NULL,
-    level VARCHAR NOT NULL,
-    entity_state VARCHAR,
-    entity_district VARCHAR,
-    entity_city VARCHAR,
-    partition_path VARCHAR NOT NULL,
-    format VARCHAR NOT NULL,
-    crs VARCHAR NOT NULL,
-    simplification_algorithm VARCHAR,
-    simplification_tolerance_deg DOUBLE,
-    original_feature_count INTEGER NOT NULL,
-    retained_feature_count INTEGER NOT NULL,
-    unkeyed_count INTEGER NOT NULL,
-    unkeyed_keys_json VARCHAR,
-    size_bytes BIGINT NOT NULL,
-    source_id VARCHAR NOT NULL,
-    notes VARCHAR,
-    delimitation_vintage VARCHAR
-)
-"""
-
-
-def _row_to_tuple(row: BoundaryLayerRow) -> tuple:
-    """Project a BoundaryLayerRow to the column order in _BOUNDARY_LAYERS_DDL.
-
-    Order must match the DDL exactly so that `INSERT INTO boundary_layers
-    VALUES (?...)` aligns. Changing the DDL is a schema bump.
+def _row_to_dict(row: BoundaryLayerRow) -> dict:
+    """Project a BoundaryLayerRow to the dict shape consumed by
+    ``yen_gov.canonical.csv_writer.write_csv``. The CSV writer enforces
+    column-set + dtype against ``BOUNDARY_LAYER_FILE_CLASS`` in
+    ``columns.json``; the dict here MUST carry every declared column
+    (nullable values are ``None`` and emit as the empty CSV field).
     """
-    return (
-        row.layer_id,
-        row.level,
-        row.entity_state,
-        row.entity_district,
-        row.entity_city,
-        row.partition_path,
-        row.format,
-        row.crs,
-        row.simplification_algorithm,
-        row.simplification_tolerance_deg,
-        row.original_feature_count,
-        row.retained_feature_count,
-        row.unkeyed_count,
-        row.unkeyed_keys_json,
-        row.size_bytes,
-        row.source_id,
-        row.notes,
-        row.delimitation_vintage,
-    )
-
-
-# Column projection used by the merge path. Pre-v1.1 parquets lack
-# `delimitation_vintage`; we project NULL for that column so they
-# rehydrate cleanly. Keeping the literal SQL alongside the DDL keeps
-# the schema bump and the back-compat read in one place.
-_BOUNDARY_LAYERS_SELECT_COLS = [
-    "layer_id",
-    "level",
-    "entity_state",
-    "entity_district",
-    "entity_city",
-    "partition_path",
-    "format",
-    "crs",
-    "simplification_algorithm",
-    "simplification_tolerance_deg",
-    "original_feature_count",
-    "retained_feature_count",
-    "unkeyed_count",
-    "unkeyed_keys_json",
-    "size_bytes",
-    "source_id",
-    "notes",
-    "delimitation_vintage",
-]
+    return {
+        "layer_id": row.layer_id,
+        "level": row.level,
+        "entity_state": row.entity_state,
+        "entity_district": row.entity_district,
+        "entity_city": row.entity_city,
+        "partition_path": row.partition_path,
+        "format": row.format,
+        "crs": row.crs,
+        "simplification_algorithm": row.simplification_algorithm,
+        "simplification_tolerance_deg": row.simplification_tolerance_deg,
+        "original_feature_count": row.original_feature_count,
+        "retained_feature_count": row.retained_feature_count,
+        "unkeyed_count": row.unkeyed_count,
+        "unkeyed_keys_json": row.unkeyed_keys_json,
+        "size_bytes": row.size_bytes,
+        "source_id": row.source_id,
+        "notes": row.notes,
+        "delimitation_vintage": row.delimitation_vintage,
+    }
 
 
 def _read_existing_boundary_layers(datasets_root: Path) -> list[BoundaryLayerRow]:
-    """Rehydrate the on-disk boundary_layers.parquet into BoundaryLayerRow
-    objects so a merge-mode emit can preserve rows the current run did
-    not touch. Returns [] when the parquet does not exist (initial
-    bootstrap) so callers can use ``merge_with_existing=True``
+    """Rehydrate the on-disk ``boundary_layer.csv`` into BoundaryLayerRow
+    objects so a ``merge_with_existing=True`` emit can preserve rows the
+    current run did not touch. Returns ``[]`` when the CSV does not exist
+    (initial bootstrap) so callers can use ``merge_with_existing=True``
     unconditionally without an explicit existence guard.
 
-    Back-compat: pre-v1.1 parquets have no ``delimitation_vintage``
-    column. We DESCRIBE the on-disk schema once and substitute
-    ``NULL AS delimitation_vintage`` when the column is absent. The
-    rehydrated BoundaryLayerRow defaults to None, which the v1.1
-    Pydantic shape accepts and which the v1.1 DDL stores as NULL.
-    The first merge-mode emit after the bump re-stamps the parquet
-    with the new column for every preserved row.
+    Parses with the stdlib ``csv`` module (no duckdb hop). Empty field on
+    a nullable column resolves to ``None``; the integer + float columns
+    are coerced from their string CSV form. The 18-column shape matches
+    the file-class entry in ``datasets/data/_schema/columns.json``.
     """
-    parquet_path = datasets_root / "boundaries" / "boundary_layers.parquet"
-    if not parquet_path.is_file():
+    csv_path = datasets_root / _BOUNDARY_LAYER_REL_PATH
+    if not csv_path.is_file():
         return []
-    con = duckdb.connect()
-    try:
-        on_disk_cols = {
-            r[0]
-            for r in con.execute(
-                f"DESCRIBE SELECT * FROM read_parquet('{parquet_path.as_posix()}')"
-            ).fetchall()
-        }
-        select_clauses = [
-            col if col in on_disk_cols else f"NULL AS {col}"
-            for col in _BOUNDARY_LAYERS_SELECT_COLS
-        ]
-        select_sql = ", ".join(select_clauses)
-        raw_rows = con.execute(
-            f"SELECT {select_sql} FROM read_parquet('{parquet_path.as_posix()}')"
-        ).fetchall()
-    finally:
-        con.close()
-    return [
-        BoundaryLayerRow(
-            layer_id=r[0],
-            level=r[1],
-            entity_state=r[2],
-            entity_district=r[3],
-            entity_city=r[4],
-            partition_path=r[5],
-            format=r[6],
-            crs=r[7],
-            simplification_algorithm=r[8],
-            simplification_tolerance_deg=r[9],
-            original_feature_count=r[10],
-            retained_feature_count=r[11],
-            unkeyed_count=r[12],
-            unkeyed_keys_json=r[13],
-            size_bytes=r[14],
-            source_id=r[15],
-            notes=r[16],
-            delimitation_vintage=r[17],
-        )
-        for r in raw_rows
-    ]
+    rows: list[BoundaryLayerRow] = []
+    with csv_path.open(encoding="utf-8", newline="") as fh:
+        reader = _csv.DictReader(fh)
+        for raw in reader:
+            sim_tol_raw = raw.get("simplification_tolerance_deg") or ""
+            rows.append(
+                BoundaryLayerRow(
+                    layer_id=raw["layer_id"],
+                    level=raw["level"],
+                    entity_state=raw.get("entity_state") or None,
+                    entity_district=raw.get("entity_district") or None,
+                    entity_city=raw.get("entity_city") or None,
+                    partition_path=raw["partition_path"],
+                    format=raw["format"],
+                    crs=raw["crs"],
+                    simplification_algorithm=raw.get("simplification_algorithm") or None,
+                    simplification_tolerance_deg=float(sim_tol_raw) if sim_tol_raw else None,
+                    original_feature_count=int(raw["original_feature_count"]),
+                    retained_feature_count=int(raw["retained_feature_count"]),
+                    unkeyed_count=int(raw["unkeyed_count"]),
+                    unkeyed_keys_json=raw.get("unkeyed_keys_json") or None,
+                    size_bytes=int(raw["size_bytes"]),
+                    source_id=raw["source_id"],
+                    notes=raw.get("notes") or None,
+                    delimitation_vintage=raw.get("delimitation_vintage") or None,
+                )
+            )
+    return rows
 
 
-def compile_to_parquet(
+def compile_to_csv(
     layer_rows: list[BoundaryLayerRow] | tuple[BoundaryLayerRow, ...],
     datasets_root: Path,
     *,
     merge_with_existing: bool = False,
 ) -> int:
-    """Emit ``datasets/boundaries/boundary_layers.parquet``.
+    """Emit ``datasets/data/entities/boundary_layer.csv``.
 
     Args:
         layer_rows: BoundaryLayerRow instances, one per boundary geometry
             shard on disk. Caller builds the list (snapshot.py during a
             fetch run; migrate_to_hive_layout.py during initial migration).
-            Empty list is permitted (writes a 0-row parquet, which is
+            Empty list is permitted (writes a header-only file, which is
             itself a valid contract surface -- consumers should not
             assume the file always has rows).
         datasets_root: path to ``datasets/``. The function writes:
-            * ``boundaries/boundary_layers.parquet``
+            * ``data/entities/boundary_layer.csv``
         merge_with_existing: when True, rows already present in the
-            on-disk ``boundary_layers.parquet`` whose ``layer_id`` is NOT
-            in ``layer_rows`` are preserved and re-emitted. Rows in
+            on-disk ``boundary_layer.csv`` whose ``layer_id`` is NOT in
+            ``layer_rows`` are preserved and re-emitted. Rows in
             ``layer_rows`` take precedence on PK conflict. Default False
             preserves the original "snapshot.py rebuilds everything in
             one shot" semantics; the flag exists so the tool can be used
@@ -583,6 +523,14 @@ def compile_to_parquet(
     Returns:
         ``layer_count`` -- final on-disk row count (i.e. includes preserved
         rows when ``merge_with_existing=True``). For orchestrator logging.
+
+    X1a-fu2-E (2026-06-07): the legacy
+    ``datasets/boundaries/boundary_layers.parquet`` emit was retired
+    in favour of the canonical CSV at
+    ``datasets/data/entities/boundary_layer.csv``. The writer is REPLACE
+    not UPSERT - merge semantics are composed by the helper
+    ``_read_existing_boundary_layers`` + the
+    ``merge_with_existing=True`` branch below.
 
     Post-B3-pt2 (2026-06-06): the sibling UPSERT into
     ``datasets/taxonomy/sources.parquet`` was removed because X1b
@@ -599,22 +547,20 @@ def compile_to_parquet(
         * Denominator transparency: every row's
           ``original_feature_count`` MUST equal
           ``retained_feature_count + unkeyed_count``. Violation raises
-          ValueError before any parquet bytes hit disk (citizen-trust
+          ValueError before any CSV bytes hit disk (citizen-trust
           gate: shrinking the dataset silently is the bug
           ``unkeyed_count`` exists to prevent).
         * FK integrity: every row's ``source_id`` MUST appear in
           ``BOUNDARY_SOURCES``. Violation raises ValueError.
         * PK uniqueness: duplicate ``layer_id`` raises ValueError.
-        * Sort stability: rows are sorted by ``layer_id`` before COPY so
-          re-emitting a byte-identical input yields a byte-identical
-          parquet (canonical-writer property; CLAUDE.md \u00a710 carve-out
-          for control-plane is not invoked here -- this is citizen-facing
-          data).
+        * Sort stability: rows are sorted by ``layer_id`` by the CSV
+          writer's PK-sort path so re-emitting a byte-identical input
+          yields a byte-identical CSV (canonical-writer property).
     """
     datasets_root = Path(datasets_root)
     new_rows = list(layer_rows)
 
-    # ----- merge with existing parquet (opt-in) ----------------------
+    # ----- merge with existing CSV (opt-in) --------------------------
     if merge_with_existing:
         new_layer_ids = {row.layer_id for row in new_rows}
         preserved = [
@@ -657,28 +603,13 @@ def compile_to_parquet(
                 "+ BOUNDARY_SOURCES in the same commit."
             )
 
-    rows.sort(key=lambda r: r.layer_id)
-
-    boundary_layers_out = datasets_root / "boundaries" / "boundary_layers.parquet"
-    boundary_layers_out.parent.mkdir(parents=True, exist_ok=True)
-
-    con = duckdb.connect(":memory:")
-    try:
-        con.execute(_BOUNDARY_LAYERS_DDL)
-        if rows:
-            con.executemany(
-                "INSERT INTO boundary_layers VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                [_row_to_tuple(r) for r in rows],
-            )
-        con.execute(
-            f"""
-            COPY (
-                SELECT * FROM boundary_layers ORDER BY layer_id
-            ) TO '{boundary_layers_out.as_posix()}' (FORMAT PARQUET)
-            """
-        )
-    finally:
-        con.close()
+    # ----- emit via canonical CSV writer -----------------------------
+    out_path = datasets_root / _BOUNDARY_LAYER_REL_PATH
+    write_csv(
+        path=out_path,
+        file_class=BOUNDARY_LAYER_FILE_CLASS,
+        rows=[_row_to_dict(r) for r in rows],
+    )
 
     return len(rows)
 
@@ -687,6 +618,7 @@ __all__ = [
     "BOUNDARY_LAYERS_ROW_SCHEMA_ID",
     "BOUNDARY_LAYERS_ROW_SCHEMA_VERSION",
     "BOUNDARY_LAYERS_SCHEMA_FILENAME",
+    "BOUNDARY_LAYER_FILE_CLASS",
     "BOUNDARY_SOURCES",
     "BOUNDARY_SOURCE_ID_BY_NICKNAME",
     "BOUNDARY_SOURCE_ID_BY_TRIPLE",
@@ -695,5 +627,5 @@ __all__ = [
     "Level",
     "SOURCE_NICKNAMES",
     "SimplificationAlgorithm",
-    "compile_to_parquet",
+    "compile_to_csv",
 ]

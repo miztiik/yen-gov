@@ -76,7 +76,7 @@ sys.path.insert(0, str(_REPO_ROOT / "backend"))
 from yen_gov.canonical.boundary_layers_seed import (  # noqa: E402
     BoundaryLayerRow,
     _read_existing_boundary_layers,
-    compile_to_parquet,
+    compile_to_csv,
 )
 
 
@@ -254,7 +254,7 @@ def simplify_all(
     """Simplify every GeoJSON shard registered in boundary_layers.parquet.
 
     Returns ``(results, updated_rows)`` where ``updated_rows`` is the full
-    set of rows ready to feed back to ``compile_to_parquet`` (modified
+    set of rows ready to feed back to ``compile_to_csv`` (modified
     rows reflect the new size + simplification fields; non-modified rows
     are echoed verbatim so the parquet stays whole).
     """
@@ -401,8 +401,8 @@ def main(argv: list[str] | None = None) -> int:
 
     if not args.dry_run and not args.skip_parquet:
         print()
-        print("Re-emitting boundary_layers.parquet …")
-        n_layers = compile_to_parquet(
+        print("Re-emitting boundary_layer.csv ...")
+        n_layers = compile_to_csv(
             updated_rows,
             args.datasets_root.resolve(),
             merge_with_existing=False,

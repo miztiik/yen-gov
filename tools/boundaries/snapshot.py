@@ -74,7 +74,7 @@ from yen_gov.canonical.boundary_layers_seed import (  # noqa: E402
     BOUNDARY_SOURCE_ID_BY_NICKNAME,
     BOUNDARY_SOURCE_ID_BY_TRIPLE,
     BoundaryLayerRow,
-    compile_to_parquet,
+    compile_to_csv,
 )
 
 from _paths import KIND_TO_LEVEL, derive_hive  # noqa: E402
@@ -1194,13 +1194,13 @@ def main(argv: list[str] | None = None) -> int:
         all_rows.extend(snapshot_one(e, datasets_root, raw_root))
 
     print(f"\nemitted {len(all_rows)} layer rows", flush=True)
-    n_layers = compile_to_parquet(
+    n_layers = compile_to_csv(
         all_rows,
         datasets_root,
         merge_with_existing=args.preserve_existing,
     )
     print(
-        f"compiled to parquet: {n_layers} boundary_layers",
+        f"compiled to csv: {n_layers} boundary_layers",
         flush=True,
     )
 

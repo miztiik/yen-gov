@@ -64,8 +64,8 @@ LEGACY_INDICATOR_SHARDS_ALLOWLIST = Path("datasets/_ops/meadow-shard-contract.tx
 # `*.geojson` carried sibling `*.sources.json` / `*.metadata.json` /
 # `*.unkeyed.json` and per-state `*-index.json` manifests. Provenance,
 # simplification metadata, and shard inventory now live in
-# `datasets/boundaries/boundary_layers.parquet` (FK to
-# `datasets/taxonomy/sources.parquet`). New sidecars are forbidden; the
+# `datasets/data/entities/boundary_layer.csv` (FK to
+# `datasets/data/entities/source.csv`). New sidecars are forbidden; the
 # allowlist exists only to permit short-lived temporary overrides during
 # a follow-up PR (none today — file ships empty). The Tier-B check
 # `tier_b_legacy_boundary_sidecars` enforces the doctrine.
@@ -538,7 +538,7 @@ def _is_legacy_boundary_sidecar(p: Path) -> bool:
         return True
     # Per-state villages-index manifests: e.g. `S22-villages-index.json`.
     # Match the `<eci>-villages-index.json` family without false-positiving
-    # the `boundary_layers.parquet` ledger or future contract surfaces.
+    # the `boundary_layer.csv` ledger or future contract surfaces.
     if name.endswith("-index.json"):
         return True
     return False
@@ -551,8 +551,11 @@ def tier_b_legacy_boundary_sidecars(root: Path) -> list[Failure]:
     per-shard sidecar files (`*.sources.json`, `*.metadata.json`,
     `*.unkeyed.json`) and the per-state villages-index manifests
     (`<eci>-villages-index.json`) were retired in favour of a single
-    parquet ledger at `datasets/boundaries/boundary_layers.parquet` (with
-    `source_id` FK to `datasets/taxonomy/sources.parquet`).
+    canonical ledger at `datasets/data/entities/boundary_layer.csv` (with
+    `source_id` FK to `datasets/data/entities/source.csv`). The X1a-fu2-E
+    rip (2026-06-07) replaced the prior parquet form of the ledger
+    (`datasets/boundaries/boundary_layers.parquet`) with the long-format
+    CSV per the platform-reset plan.
 
     Two symmetric failure modes (mirroring
     `tier_b_meadow_shard_contract`):
@@ -602,7 +605,7 @@ def tier_b_legacy_boundary_sidecars(root: Path) -> list[Failure]:
                 "B",
                 "forbidden legacy boundary sidecar: per ADR-0031 Amendment "
                 "2026-05-22 (T.0d), provenance + simplification metadata + "
-                "shard inventory live in datasets/boundaries/boundary_layers.parquet. "
+                "shard inventory live in datasets/data/entities/boundary_layer.csv. "
                 "Delete the sidecar (the normal case), or add the path to "
                 "datasets/_ops/legacy-boundary-sidecars.txt for a short-lived "
                 "override and explain in the PR body.",
