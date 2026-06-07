@@ -5,19 +5,17 @@ The model is the in-memory typed contract; the schema is the on-disk contract.
 Both are kept in lock-step: any schema bump (CLAUDE.md §11) also updates the
 model in the same commit.
 
-Models do NOT stamp the artifact-level reserved fields ($schema,
-$schema_version, sources). Those are stamped by core.io.write_artifact, which
-remains the single chokepoint for emitting files. To bridge the two, every
-top-level model exposes:
-
-  - .sources_payload() -> list[core.io.Source]
-  - .body_payload()    -> dict (no $schema / $schema_version / sources)
-
-Adapters build a model, then hand both to write_artifact.
+Under B4-pt3 the legacy ``core.io.write_artifact`` chokepoint retired (no
+strangler-fig per umbrella plan O1; every legacy folded-indicator JSON path
+was deleted). Top-level models retain ``.body_payload()`` for body-only dict
+export and ``.sources_payload()`` for the JSON-ready provenance list - both
+used by the few surviving disk-reading helpers (e.g.
+``test_canonical_eci_backfill`` materialises legacy JSON shards to feed the
+``canonical-backfill-eci`` operator command's disk reader).
 
 Source-of-truth precedence: if a constraint exists in the schema (pattern,
 minimum, enum) it is also expressed here. The schema validator (Tier B) is the
-final arbiter — but mirroring the constraints catches errors at construction
+final arbiter - but mirroring the constraints catches errors at construction
 time rather than at write time.
 """
 
@@ -29,8 +27,6 @@ from typing import Annotated, Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from yen_gov.core.schema_registry import schema_id, schema_version
-
-from yen_gov.core.io import Source as _IoSource
 
 
 # --- shared building blocks -------------------------------------------------
@@ -65,8 +61,13 @@ class SourceRef(_Strict):
             raise ValueError("fetched_at must be timezone-aware (use UTC)")
         return v.astimezone(timezone.utc)
 
-    def to_io_source(self) -> _IoSource:
-        return _IoSource(url=self.url, fetched_at=self.fetched_at)
+    def to_dict(self) -> dict[str, str]:
+        """Return JSON-ready {url, fetched_at} dict (Z-suffix RFC 3339)."""
+        utc = self.fetched_at.astimezone(timezone.utc).replace(tzinfo=None)
+        return {
+            "url": self.url,
+            "fetched_at": utc.isoformat(timespec="seconds") + "Z",
+        }
 
 
 # --- top-level helper -------------------------------------------------------
@@ -84,15 +85,21 @@ class _Artifact(_Strict):
     _schema_id: str = ""
     _schema_version: str = ""
 
-    def sources_payload(self) -> list[_IoSource]:
-        return [s.to_io_source() for s in self.sources]
+    def sources_payload(self) -> list[dict[str, str]]:
+        """Return JSON-ready list of provenance dicts.
+
+        B4-pt3 simplification: this used to return ``list[core.io.Source]``
+        for the retired ``core.io.write_artifact`` chokepoint; now it
+        returns the JSON-ready ``{url, fetched_at}`` dicts directly.
+        """
+        return [s.to_dict() for s in self.sources]
 
     def body_payload(self) -> dict[str, Any]:
-        # Strip reserved fields ($schema/$schema_version/sources) — io.write_artifact stamps
-        # those. exclude_none turns absent Optional fields into omitted keys (rather than
-        # explicit nulls), which matches every schema's optional-non-required fields. The
+        # Strip reserved fields ($schema/$schema_version/sources) so callers
+        # can re-stamp them around the body if they need to write JSON. The
         # only field that is BOTH required AND nullable across schemas is
-        # ConstituencyResult.others; that model overrides body_payload to keep it.
+        # ConstituencyResult.others; that model overrides body_payload to
+        # keep it.
         return self.model_dump(mode="json", exclude={"sources"}, exclude_none=True)
 
 

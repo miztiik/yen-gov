@@ -1,13 +1,13 @@
 """Adapter for RBI HBS-IE state SDP tables.
 
 No network. Reads the cached HBS-IE 2024-25 state SDP workbooks from
-``.runtime/raw/rbi/handbook_economy_2024_25/`` and writes the legacy folded
-indicator artifacts under ``datasets/indicators/in/economy/`` through the
-backend artifact writer.
+``.runtime/raw/rbi/handbook_economy_2024_25/`` and writes the canonical
+long-format CSV variables under ``datasets/data/datapoints/geo/``.
 
-This replaces the retired ``tools/rbi_hbs_ingest_state_gdp.py`` script. The
-adapter keeps the source-specific workbook walker here while reusing the shared
-RBI primitives for state-name mapping, value coercion, and fiscal-year parsing.
+Replaces the retired ``tools/rbi_hbs_ingest_state_gdp.py`` script. Under
+B4-pt3 the legacy folded-indicator JSON write path was retired (per umbrella
+plan O1 - no strangler-fig); CSV is the only canonical artifact this adapter
+emits today.
 """
 from __future__ import annotations
 
@@ -21,18 +21,13 @@ import openpyxl
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
-from yen_gov.core.io import Source, write_artifact
-from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
 from yen_gov.sources.rbi_hbs import (
     ALL_INDIA_NAMES,
     HBS_IE_LANDING,
-    LICENSE_RBI,
     NAME_TO_ECI,
     coerce_value,
     fy_label_to_time,
 )
-
-INDICATOR_SCHEMA_FILE = "indicator.schema.json"
 
 CACHE_RELDIR = Path(".runtime/raw/rbi/handbook_economy_2024_25")
 
@@ -44,46 +39,6 @@ SNAPSHOT_URLS: dict[str, str] = {
 }
 
 BASE_PRIORITY = ("2011-12", "2004-05", "1999-2000", "1993-94")
-
-SERIES_BREAKS_NSDP: list[dict[str, str]] = [
-    {
-        "at_time": "1999-04",
-        "kind": "rebase",
-        "note": "MoSPI rebase: 1993-94 -> 1999-2000 base.",
-    },
-    {
-        "at_time": "2004-04",
-        "kind": "rebase",
-        "note": "MoSPI rebase: 1999-2000 -> 2004-05 base.",
-    },
-    {
-        "at_time": "2011-04",
-        "kind": "definition_change",
-        "note": (
-            "MoSPI rebase to 2011-12 base and switched headline aggregate "
-            "from NSDP at factor cost to NSDP at basic prices. Growth rates "
-            "spanning 2010-11 -> 2011-12 are not strictly comparable."
-        ),
-    },
-    {
-        "at_time": "2014-04",
-        "kind": "coverage_change",
-        "note": (
-            "Telangana carved out of Andhra Pradesh on 2 June 2014. RBI "
-            "back-projects S29 to 2011-12 by carving from undivided AP; "
-            "pre-2014-15 S29 values are MoSPI back-estimates."
-        ),
-    },
-    {
-        "at_time": "2019-04",
-        "kind": "coverage_change",
-        "note": (
-            "J&K reorganisation in August 2019: U08 series from 2019-20 "
-            "onwards covers the UT of Jammu and Kashmir only; Ladakh is not "
-            "separately reported in this RBI table."
-        ),
-    },
-]
 
 
 class RBIHBSIEStateSDPCacheMissing(RuntimeError):
@@ -100,14 +55,7 @@ class TableSpec:
 @dataclass(frozen=True)
 class IndicatorSpec:
     indicator_id: str
-    title: str
     table: TableSpec
-    value_kind: str
-    unit: str
-    short_unit: str | None
-    description: str
-    notes: str
-    denominator: dict[str, str] | None = None
 
 
 @dataclass(frozen=True)
@@ -119,12 +67,13 @@ class WorkbookData:
 
 @dataclass(frozen=True)
 class IndicatorIngestResult:
-    indicator_id: str
-    artifact_path: Path
+    """Per-CSV emit receipt. ``variable_id`` is the kebab-case CSV filename stem."""
+    variable_id: str
+    csv_path: Path
     row_count: int
     entity_count: int
-    period_start: str
-    period_end: str
+    period_start: int
+    period_end: int
 
 
 @dataclass(frozen=True)
@@ -156,55 +105,11 @@ TABLE_T10 = TableSpec(
 PER_CAPITA_SPECS: tuple[IndicatorSpec, ...] = (
     IndicatorSpec(
         indicator_id="economy/per_capita_nsdp_current_inr",
-        title="Per-capita NSDP (current prices, by state)",
         table=TABLE_T09,
-        value_kind="currency",
-        unit="INR",
-        short_unit="INR",
-        description=(
-            "Per-capita Net State Domestic Product at current prices, spliced "
-            "across MoSPI's 1999-2000, 2004-05, and 2011-12 base years. "
-            "The most recent base is kept for overlapping years; each row's "
-            "vintage records which base produced the value."
-        ),
-        notes=(
-            "Source: RBI Handbook of Statistics on Indian Economy 2024-25 "
-            "edition, Table 9. RBI's per-capita series begins in 2000-01. "
-            "All-India per-capita NNI is included as the national reference "
-            "line when the workbook publishes it."
-        ),
-        denominator={
-            "what": "state mid-year population (MoSPI / RGI)",
-            "price_basis": "current",
-            "source_artifact": "demography/state_population_lakhs",
-            "note": "Per-capita = NSDP divided by state mid-year population estimate",
-        },
     ),
     IndicatorSpec(
         indicator_id="economy/per_capita_nsdp_constant_inr",
-        title="Per-capita NSDP (constant prices, spliced)",
         table=TABLE_T10,
-        value_kind="currency",
-        unit="INR",
-        short_unit="INR",
-        description=(
-            "Real per-capita NSDP, spliced across MoSPI's 1999-2000, "
-            "2004-05, and 2011-12 base years. The most recent base is kept "
-            "for overlapping years; each row's vintage records the chosen "
-            "base year."
-        ),
-        notes=(
-            "Source: RBI Handbook of Statistics on Indian Economy 2024-25 "
-            "edition, Table 10. Pre-2011-12 figures are real per-capita "
-            "NSDP at factor cost; 2011-12 onwards are at basic prices. "
-            "Cross-base growth rates are not strictly comparable."
-        ),
-        denominator={
-            "what": "state mid-year population (MoSPI / RGI)",
-            "price_basis": "constant",
-            "source_artifact": "demography/state_population_lakhs",
-            "note": "Per-capita = real NSDP divided by state mid-year population estimate",
-        },
     ),
 )
 
@@ -422,146 +327,26 @@ def _resolve_workbook(*, repo_root: Path, table: TableSpec) -> WorkbookData:
     )
 
 
-def _coverage(rows: list[dict[str, Any]]) -> tuple[str, str, int]:
-    times = sorted({str(row["time"]) for row in rows})
+def _coverage_csv(rows: list[dict[str, Any]]) -> tuple[int, int, int]:
+    """Return (period_start, period_end, entity_count) over CSV-shape rows.
+
+    ``rows`` here are the canonical 4-column CSV rows after
+    ``build_csv_rows`` projection (``time`` is int FY-start year).
+    """
+    times = sorted({int(row["time"]) for row in rows})
     entities = sorted({str(row["entity_id"]) for row in rows})
     if not times:
         raise ValueError("cannot build coverage for empty row set")
     return times[0], times[-1], len(entities)
 
 
-def _common_indicator_fields() -> dict[str, Any]:
-    return {
-        "entity_kind": "state",
-        "time_grain": "fiscal_year",
-        "direction": "higher_is_better",
-        "scale_hint": "linear",
-        "icon": "trending-up",
-        "attribution_geography": "where_resident",
-        "comparability": "comparable_with_normalisation",
-        "implementing_authority": "state",
-        "methodology_vintage": (
-            "MoSPI multi-base spliced (1993-94 / 1999-2000 / 2004-05 / "
-            "2011-12); RBI Handbook 2024-25 edition"
-        ),
-        "series_breaks": SERIES_BREAKS_NSDP,
-    }
-
-
-def _source_entries(workbooks: list[WorkbookData]) -> list[Source]:
-    sources = [Source(url=workbook.url, fetched_at=workbook.fetched_at) for workbook in workbooks]
-    latest = max(workbook.fetched_at for workbook in workbooks)
-    sources.append(Source(url=HBS_IE_LANDING, fetched_at=latest))
-    return sources
-
-
-def _write_indicator(
-    *,
-    repo_root: Path,
-    indicator_id: str,
-    payload: dict[str, Any],
-    sources: list[Source],
-    indicator_schema: dict[str, Any],
-) -> IndicatorIngestResult:
-    out_dir = repo_root / "datasets" / "indicators" / "in" / "economy"
-    leaf = indicator_id.split("/")[-1] + ".json"
-    path = out_dir / leaf
-    written = write_artifact(
-        path=path,
-        schema_id=schema_id(INDICATOR_SCHEMA_FILE),
-        schema_version=schema_version(INDICATOR_SCHEMA_FILE),
-        payload=payload,
-        sources=sources,
-        schema_for_validation=indicator_schema,
-    )
-    start, end, entity_count = _coverage(payload["rows"])
-    return IndicatorIngestResult(
-        indicator_id=indicator_id,
-        artifact_path=written,
-        row_count=len(payload["rows"]),
-        entity_count=entity_count,
-        period_start=start,
-        period_end=end,
-    )
-
-
-def _build_per_capita_payload(
-    *,
-    spec: IndicatorSpec,
-    rows: list[dict[str, Any]],
-) -> dict[str, Any]:
-    start, end, entity_count = _coverage(rows)
-    indicator = {
-        "id": spec.indicator_id,
-        "title": spec.title,
-        "description": spec.description,
-        "value_kind": spec.value_kind,
-        "unit": spec.unit,
-        "notes": spec.notes,
-        **_common_indicator_fields(),
-    }
-    if spec.short_unit is not None:
-        indicator["short_unit"] = spec.short_unit
-    if spec.denominator is not None:
-        indicator["denominator"] = spec.denominator
-    return {
-        "license": LICENSE_RBI,
-        "coverage": {
-            "spatial": f"India (states + UTs); {entity_count} entities",
-            "temporal": f"{start}..{end}",
-            "admin_level": "state",
-        },
-        "indicator": indicator,
-        "rows": rows,
-    }
-
-
-def _build_nsdp_payload(
-    *,
-    current_rows: list[dict[str, Any]],
-    constant_rows: list[dict[str, Any]],
-) -> dict[str, Any]:
-    rows: list[dict[str, Any]] = []
-    for facet, source_rows in (("current", current_rows), ("constant", constant_rows)):
-        for row in source_rows:
-            rows.append({**row, "facet": facet})
-    rows.sort(key=lambda row: (row["entity_id"], row["time"], row["facet"]))
-    start, end, entity_count = _coverage(rows)
-    return {
-        "license": LICENSE_RBI,
-        "coverage": {
-            "spatial": f"India (states + UTs); {entity_count} entities",
-            "temporal": f"{start}..{end}",
-            "admin_level": "state",
-        },
-        "indicator": {
-            "id": "economy/nsdp_inr_crore",
-            "title": "Net State Domestic Product (INR crore, current and constant prices)",
-            "description": (
-                "Net State Domestic Product of each state and union territory "
-                "in INR crore, faceted by price basis. Use current prices for "
-                "tax-base sizing and constant prices for state-level real "
-                "growth analysis."
-            ),
-            "value_kind": "currency",
-            "unit": "INR (crore)",
-            "short_unit": "INR cr",
-            "notes": (
-                "Source: RBI Handbook of Statistics on Indian Economy 2024-25 "
-                "edition, Tables 5 and 6. Pre-2011-12 figures are NSDP at "
-                "factor cost; 2011-12 onwards are at basic prices. Cross-base "
-                "growth rates are not strictly comparable."
-            ),
-            **_common_indicator_fields(),
-        },
-        "rows": rows,
-    }
-
-
 def ingest(*, repo_root: Path) -> IngestResult:
-    """Read cached workbooks and write the three state SDP artifacts."""
-    indicator_schema = schema_doc(INDICATOR_SCHEMA_FILE)
+    """Read cached workbooks and write canonical CSV variables.
 
+    Returns one IndicatorIngestResult per emitted CSV variable (4 today:
+    nsdp current + nsdp constant + per-capita current + per-capita
+    constant).
+    """
     current_workbook = _resolve_workbook(repo_root=repo_root, table=TABLE_T05)
     constant_workbook = _resolve_workbook(repo_root=repo_root, table=TABLE_T06)
     current_rows = collapse_to_long(parse_workbook(current_workbook.content))
@@ -569,62 +354,58 @@ def ingest(*, repo_root: Path) -> IngestResult:
     if not current_rows or not constant_rows:
         raise ValueError("empty rows for economy/nsdp_inr_crore")
 
-    results = [
-        _write_indicator(
-            repo_root=repo_root,
-            indicator_id="economy/nsdp_inr_crore",
-            payload=_build_nsdp_payload(
-                current_rows=current_rows,
-                constant_rows=constant_rows,
-            ),
-            sources=_source_entries([current_workbook, constant_workbook]),
-            indicator_schema=indicator_schema,
-        )
-    ]
+    results: list[IndicatorIngestResult] = []
 
-    # B1.5.5 - canonical long-format CSV emission ALONGSIDE the legacy
-    # meadow/indicator JSON write. Existing JSON output stays in place;
-    # instead-of deletion is deferred to B3 per parent plan section
-    # 23.1 and sub-plan section B1.5.1..5 point 6. NSDP splits into two
-    # per-price-basis variables (point 7) because the writer does not
-    # yet support facet columns.
-    emit_csv_variable(
-        repo_root=repo_root,
-        variable_id=_VARIABLE_ID_NSDP_CURRENT,
-        rows=build_csv_rows(current_rows, source_id=_csv_source_id_for_table("T05")),
-    )
-    emit_csv_variable(
-        repo_root=repo_root,
-        variable_id=_VARIABLE_ID_NSDP_CONSTANT,
-        rows=build_csv_rows(constant_rows, source_id=_csv_source_id_for_table("T06")),
-    )
+    # NSDP splits into two per-price-basis variables because the writer
+    # does not yet support facet columns (sub-plan B1.5.1..5 point 7).
+    for variable_id, parser_rows, table_key in (
+        (_VARIABLE_ID_NSDP_CURRENT, current_rows, "T05"),
+        (_VARIABLE_ID_NSDP_CONSTANT, constant_rows, "T06"),
+    ):
+        csv_rows = build_csv_rows(
+            parser_rows, source_id=_csv_source_id_for_table(table_key)
+        )
+        csv_path = emit_csv_variable(
+            repo_root=repo_root, variable_id=variable_id, rows=csv_rows
+        )
+        start, end, entity_count = _coverage_csv(csv_rows)
+        results.append(
+            IndicatorIngestResult(
+                variable_id=variable_id,
+                csv_path=csv_path,
+                row_count=len(csv_rows),
+                entity_count=entity_count,
+                period_start=start,
+                period_end=end,
+            )
+        )
 
     for spec in PER_CAPITA_SPECS:
         workbook = _resolve_workbook(repo_root=repo_root, table=spec.table)
         rows = collapse_to_long(parse_workbook(workbook.content))
         if not rows:
             raise ValueError(f"empty rows for {spec.indicator_id}")
-        results.append(
-            _write_indicator(
-                repo_root=repo_root,
-                indicator_id=spec.indicator_id,
-                payload=_build_per_capita_payload(spec=spec, rows=rows),
-                sources=_source_entries([workbook]),
-                indicator_schema=indicator_schema,
-            )
-        )
-        # B1.5.5 - per-capita variable alongside the legacy JSON.
         variable_id = (
             _VARIABLE_ID_PER_CAPITA_CURRENT
             if spec.table.table_key == "T09"
             else _VARIABLE_ID_PER_CAPITA_CONSTANT
         )
-        emit_csv_variable(
-            repo_root=repo_root,
-            variable_id=variable_id,
-            rows=build_csv_rows(
-                rows, source_id=_csv_source_id_for_table(spec.table.table_key)
-            ),
+        csv_rows = build_csv_rows(
+            rows, source_id=_csv_source_id_for_table(spec.table.table_key)
+        )
+        csv_path = emit_csv_variable(
+            repo_root=repo_root, variable_id=variable_id, rows=csv_rows
+        )
+        start, end, entity_count = _coverage_csv(csv_rows)
+        results.append(
+            IndicatorIngestResult(
+                variable_id=variable_id,
+                csv_path=csv_path,
+                row_count=len(csv_rows),
+                entity_count=entity_count,
+                period_start=start,
+                period_end=end,
+            )
         )
 
     return IngestResult(indicators=tuple(results))

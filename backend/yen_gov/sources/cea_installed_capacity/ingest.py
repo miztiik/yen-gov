@@ -16,7 +16,6 @@ environment.
 
 from __future__ import annotations
 
-import json
 import os
 import re
 from dataclasses import dataclass
@@ -26,7 +25,6 @@ from typing import Any
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
-from yen_gov.core.io import Source, write_artifact
 
 from .parsers import (
     SHIPPED_COLUMNS,
@@ -303,61 +301,17 @@ def _missing_cache_recipe(cache_dir: Path) -> str:
     )
 
 
-def _build_payload(
-    *,
-    column: FuelColumn,
-    rows: list[ParsedRow],
-    snapshot_period: str,
-    workbook_fetched_at: datetime,
-    state_count: int,
-) -> dict[str, Any]:
-    meta = INDICATOR_META[column.indicator_id]
-    return {
-        "license": {
-            "id": "GoI-Open",
-            "name": "Government of India open publication",
-            "url": "https://data.gov.in/government-open-data-license-india",
-            "redistributable": True,
-        },
-        "coverage": {
-            "spatial": f"{state_count} states/UTs (all CEA-reported per-state entities)",
-            "temporal": snapshot_period,
-            "admin_level": "state",
-        },
-        "indicator": {
-            "id": column.indicator_id,
-            "title": meta.title,
-            "description": meta.description,
-            "entity_kind": "state",
-            "time_grain": "month",
-            "value_kind": "raw",
-            "direction": "neutral",
-            "scale_hint": "linear",
-            "unit": "MW",
-            "icon": meta.icon,
-            "attribution_geography": "where_produced",
-            # Capacity is comparable across states only AFTER you
-            # normalise by population or load — a fair comparison.
-            "comparability": "comparable_with_normalisation",
-            "implementing_authority": "joint",
-            "methodology_vintage": (
-                f"CEA Monthly Executive Summary, IC sheet, snapshot "
-                f"{snapshot_period}; cached file mtime "
-                f"{workbook_fetched_at.isoformat(timespec='seconds').replace('+00:00', 'Z')}"
-            ),
-            "notes": meta.notes,
-        },
-        "rows": [
-            {"entity_id": r.entity_id, "time": r.time, "value": r.value}
-            for r in rows
-        ],
-    }
+def _build_payload(*args: Any, **kwargs: Any) -> dict[str, Any]:  # pragma: no cover
+    raise RuntimeError(
+        "_build_payload retired in B4-pt3; this adapter only emits canonical CSV now"
+    )
 
 
 @dataclass(frozen=True)
 class IndicatorIngestResult:
+    """Per-CSV emit receipt."""
     indicator_id: str
-    artifact_path: Path
+    csv_path: Path
     workbook_fetched_at: datetime
     snapshot_period: str
     row_count: int
@@ -445,15 +399,16 @@ def emit_csv_variables(
     return tuple(written)
 
 
-def ingest(*, repo_root: Path, schema_dir: Path) -> IngestResult:
-    """Read cached workbook, parse all fuel columns, write artifacts."""
-    indicator_schema_path = schema_dir / "indicator.schema.json"
-    indicator_schema = json.loads(indicator_schema_path.read_text(encoding="utf-8"))
+def ingest(*, repo_root: Path, schema_dir: Path | None = None) -> IngestResult:
+    """Read cached workbook, parse all fuel columns, emit canonical CSV variables.
 
-    out_dir = repo_root / "datasets" / "indicators" / "in" / "energy"
-    out_dir.mkdir(parents=True, exist_ok=True)
+    Under B4-pt3 (no strangler-fig per umbrella plan O1), only the
+    canonical long-format CSV under ``datasets/data/datapoints/geo/``
+    is emitted. ``schema_dir`` is accepted for back-compat but unused.
+    """
+    del schema_dir  # back-compat shim
 
-    content, mtime, url = _resolve_workbook(repo_root=repo_root)
+    content, mtime, _url = _resolve_workbook(repo_root=repo_root)
     parsed: ParsedWorkbook = parse_workbook(content)
 
     # B1.6.1 - one citation-ledger source_id shared across all seven
@@ -466,39 +421,21 @@ def ingest(*, repo_root: Path, schema_dir: Path) -> IngestResult:
     results: list[IndicatorIngestResult] = []
     for column in SHIPPED_COLUMNS:
         rows = parsed.rows_by_indicator[column.indicator_id]
-        payload = _build_payload(
-            column=column,
-            rows=rows,
-            snapshot_period=parsed.snapshot_period,
-            workbook_fetched_at=mtime,
-            state_count=parsed.state_count,
-        )
-        leaf = column.indicator_id.split("/")[-1] + ".json"
-        path = out_dir / leaf
-        write_artifact(
-            path=path,
-            schema_id=indicator_schema["$id"],
-            schema_version=indicator_schema["x-version"],
-            payload=payload,
-            sources=[Source(url=url, fetched_at=mtime)],
-            schema_for_validation=indicator_schema,
-        )
-
-        # B1.6.1 - canonical long-format CSV emission ALONGSIDE the
-        # legacy meadow/indicator JSON write. Existing JSON output stays
-        # in place; instead-of deletion is deferred to B3 per parent
-        # plan section 23.1 and sub-plan section B1.6.1..7 point 6.
         by_variable = build_csv_variables(
             column, rows,
             snapshot_period=parsed.snapshot_period,
             source_id=csv_source_id,
         )
-        emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+        emitted = emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+        csv_path = emitted[0] if emitted else (
+            repo_root / _CSV_OUT_REL_DIR
+            / f"{_INDICATOR_TO_VARIABLE_ID[column.indicator_id]}.csv"
+        )
 
         results.append(
             IndicatorIngestResult(
                 indicator_id=column.indicator_id,
-                artifact_path=path,
+                csv_path=csv_path,
                 workbook_fetched_at=mtime,
                 snapshot_period=parsed.snapshot_period,
                 row_count=len(rows),

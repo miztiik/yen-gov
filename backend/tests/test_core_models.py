@@ -1,8 +1,14 @@
 """Tests for core.models — Pydantic v2 mirrors of datasets/schemas/.
 
-Each top-level model is round-tripped through core.io.write_artifact +
-the real schema file to confirm the model produces a payload that the schema
-validator accepts. This is the contract: model in, validated artifact out.
+Each top-level model is round-tripped through schema validation to
+confirm the model produces a payload that the schema validator accepts.
+This is the contract: model in, validated dict out.
+
+B4-pt3 (no strangler-fig per umbrella plan O1): the legacy
+``core.io.write_artifact`` chokepoint retired. ``_round_trip`` now
+stamps {$schema, $schema_version, sources} in-memory and runs the
+``Draft202012Validator`` directly - byte-identical contract, no disk
+side-effects.
 """
 
 from __future__ import annotations
@@ -12,9 +18,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import pytest
+from jsonschema import Draft202012Validator
 from pydantic import ValidationError
 
-from yen_gov.core.io import write_artifact
 from yen_gov.core.models import (
     AllianceDistribution,
     CandidateResult,
@@ -46,17 +52,29 @@ def _load_schema(name: str) -> dict:
 
 
 def _round_trip(tmp_path: Path, model, schema_name: str) -> dict:
+    """Stamp + validate a model in-memory against the named schema.
+
+    ``tmp_path`` is unused (kept for back-compat with existing test
+    signatures); pre-B4-pt3 this wrote to disk via the retired
+    ``core.io.write_artifact``. The validation contract is unchanged:
+    schema version must match the schema's x-version and the
+    document must pass Draft 2020-12 validation.
+    """
+    del tmp_path
     schema = _load_schema(schema_name)
-    target = tmp_path / "out.json"
-    write_artifact(
-        path=target,
-        schema_id=model._schema_id,
-        schema_version=model._schema_version,
-        payload=model.body_payload(),
-        sources=model.sources_payload(),
-        schema_for_validation=schema,
-    )
-    return json.loads(target.read_text(encoding="utf-8"))
+    if schema.get("x-version") != model._schema_version:
+        raise ValueError(
+            f"schema_version {model._schema_version!r} does not match "
+            f"schema x-version {schema.get('x-version')!r}"
+        )
+    document: dict = {
+        "$schema": model._schema_id,
+        "$schema_version": model._schema_version,
+        "sources": model.sources_payload(),
+        **model.body_payload(),
+    }
+    Draft202012Validator(schema).validate(document)
+    return document
 
 
 # --- SourceRef --------------------------------------------------------------

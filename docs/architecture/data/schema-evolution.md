@@ -33,7 +33,7 @@ Out of scope:
 | Surface | Responsibility |
 | --- | --- |
 | JSON Schema `x-version` + `x-changelog` | Names the current contract and records schema evolution. |
-| Backend writers, including `core.io.write_artifact` | Emit current schema metadata only. |
+| Backend writers, including `canonical.csv_writer.write_csv` (post-B4-pt3) | Emit current schema metadata only. |
 | Backend Tier B validator | Validates corpus artifacts against current or explicitly compatible contracts by consuming `datasets/schema-compatibility.json` for `json-corpus`. |
 | Frontend JSON corpus contract | Defends the static corpus the frontend consumes by using the same `json-corpus` compatibility contract as backend Tier B. |
 | Canonical manifest reader | Checks manifest/table versions before registering Parquet files. |
@@ -189,7 +189,7 @@ Status: accepted 2026-05-30. Deciders: Gregor (contract), Fowler (rollout), Hans
 7. Schema-only changes must not churn `source_id`, source vintage, row counts, methodology-break rows, or observation values.
 8. Future implementation work must converge backend and frontend on one machine-readable compatibility contract. Temporary Python or TypeScript mirrors are acceptable only with drift tests and a removal path.
 
-The operational rules (writers strict, readers compatible by contract, reader-before-producer, fail loud, no mechanical restamp) plus the supporting contract surfaces (`x-version`, `core.io.write_artifact`, backend Tier B, frontend JSON corpus contract, canonical manifest reader, `datasets/schema-compatibility.json`, `datasets/schema-evolution.json`, retained historical schemas under `datasets/schemas/archive/...`) are formalised above in [Policy Summary](#policy-summary) + [Contract Surfaces](#contract-surfaces) + [Compatibility Registry](#compatibility-registry).
+The operational rules (writers strict, readers compatible by contract, reader-before-producer, fail loud, no mechanical restamp) plus the supporting contract surfaces (`x-version`, `canonical.csv_writer.write_csv` (post-B4-pt3, the retired predecessor was `core.io.write_artifact`), backend Tier B, frontend JSON corpus contract, canonical manifest reader, `datasets/schema-compatibility.json`, `datasets/schema-evolution.json`, retained historical schemas under `datasets/schemas/archive/...`) are formalised above in [Policy Summary](#policy-summary) + [Contract Surfaces](#contract-surfaces) + [Compatibility Registry](#compatibility-registry).
 
 **Consequences.** Additive metadata can be introduced without pretending that every historical artifact was newly produced. Researchers must not infer a factual revision from `$schema_version` alone - release metadata must distinguish "schema changed, values did not" from real data revisions (this is the `datasets/schema-evolution.json` ledger's job, separate from `datasets/migration-ledger.csv`). The current strict validator remains valid until compatibility rows implement the contract (a reader that has not implemented compatibility must reject non-current versions). Old-major acceptance is deliberately hard - it is a translator or retained-schema problem, not a tolerant-reader guess. The compatibility registry row in the schema-version plan becomes the single Canonical Data Model for supported versions across backend and frontend.
 

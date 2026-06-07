@@ -176,12 +176,12 @@ def test_disk_wrapper_matches_in_memory(tmp_path: Path, party_lookup_in) -> None
     results_dir = tmp_path / "results"
     results_dir.mkdir()
     for cr in constituencies:
-        # body_payload() excludes `sources` (the writer normally stamps them
+        # body_payload() excludes `sources` (writers normally stamp them
         # back at write time). _load_constituency_result calls model_validate
         # on the full dict so the on-disk JSON must carry both — replicate
         # the writer's envelope by merging sources_payload() in.
         payload = cr.body_payload()
-        payload["sources"] = [s.to_dict() for s in cr.sources_payload()]
+        payload["sources"] = cr.sources_payload()
         (results_dir / f"{cr.eci_no}.json").write_text(
             json.dumps(payload, ensure_ascii=False), encoding="utf-8",
         )

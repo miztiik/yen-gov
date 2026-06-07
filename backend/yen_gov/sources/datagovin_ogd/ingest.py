@@ -17,7 +17,6 @@ indicator → resource mapping and the gross-vs-net methodology note.
 """
 from __future__ import annotations
 
-import json
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -25,7 +24,6 @@ from typing import Any
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
-from yen_gov.core.io import Source, write_artifact
 
 from .parsers import (
     SHIPPED_SPECS,
@@ -193,78 +191,17 @@ def _resolve_csv(*, indicator_id: str, repo_root: Path) -> CachedCsv:
 # ---------------------------------------------------------------------------
 
 
-def _coverage_temporal(parsed: ParsedIndicator) -> str:
+def _coverage_temporal(parsed: ParsedIndicator) -> str:  # pragma: no cover
     times = sorted({r.time for r in parsed.rows})
     if not times:
         return "unknown"
     return f"{times[0]}..{times[-1]}"
 
 
-def _build_payload(
-    *,
-    spec: IndicatorSpec,
-    parsed: ParsedIndicator,
-    cached: CachedCsv,
-) -> dict[str, Any]:
-    meta = INDICATOR_META[spec.indicator_id]
-
-    rows = [
-        {"entity_id": r.entity_id, "time": r.time, "value": r.value}
-        for r in parsed.rows
-    ]
-
-    notes_parts = [meta.notes]
-    if parsed.unmatched_states:
-        notes_parts.append(
-            "Labels not mapped to ECI codes (excluded from this artifact): "
-            + ", ".join(sorted(set(parsed.unmatched_states)))
-        )
-
-    payload: dict[str, Any] = {
-        "license": {
-            "id": "GoI-OpenData",
-            "name": "Government of India Open Data License",
-            "url": "https://www.data.gov.in/government-open-data-license-india",
-            "redistributable": True,
-        },
-        "coverage": {
-            "spatial": "India (states + Delhi + Puducherry)",
-            "temporal": _coverage_temporal(parsed),
-            "admin_level": "state",
-        },
-        "indicator": {
-            "id": spec.indicator_id,
-            "title": meta.title,
-            "description": meta.description,
-            "entity_kind": "state",
-            "time_grain": "fiscal_year",
-            "value_kind": meta.value_kind,
-            "direction": meta.direction,
-            "scale_hint": "linear",
-            "unit": meta.unit,
-            "icon": meta.icon,
-            "attribution_geography": meta.attribution_geography,
-            "comparability": meta.comparability,
-            "funding_split": {
-                "centre_pct": 100 - meta.funding_split_state_pct,
-                "state_pct": meta.funding_split_state_pct,
-                "source": "definition (transfers from Centre)",
-            },
-            "implementing_authority": "centre",
-            "methodology_vintage": (
-                f"Rajya Sabha Session 260 Q1323 (Aug 2023) via "
-                f"data.gov.in OGD CSV; cached file mtime "
-                f"{cached.fetched_at.isoformat(timespec='seconds').replace('+00:00', 'Z')}"
-            ),
-            "notes": " ".join(notes_parts).strip(),
-        },
-        "rows": rows,
-    }
-
-    if meta.series_breaks:
-        payload["indicator"]["series_breaks"] = list(meta.series_breaks)
-
-    return payload
+def _build_payload(*args: Any, **kwargs: Any) -> dict[str, Any]:  # pragma: no cover
+    raise RuntimeError(
+        "_build_payload retired in B4-pt3; this adapter only emits canonical CSV now"
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -274,8 +211,9 @@ def _build_payload(
 
 @dataclass(frozen=True)
 class IndicatorIngestResult:
+    """Per-CSV emit receipt."""
     indicator_id: str
-    artifact_path: Path
+    csv_path: Path
     csv_cache_path: Path
     fetched_at: datetime
     record_count: int
@@ -341,45 +279,20 @@ def emit_csv_variables(
     return tuple(written)
 
 
-def ingest(*, repo_root: Path, schema_dir: Path) -> IngestResult:
-    """Read each cached CSV → write its artifact. Idempotent."""
-    indicator_schema_path = schema_dir / "indicator.schema.json"
-    indicator_schema = json.loads(indicator_schema_path.read_text(encoding="utf-8"))
+def ingest(*, repo_root: Path, schema_dir: Path | None = None) -> IngestResult:
+    """Read each cached CSV and emit its canonical long-format CSV. Idempotent.
 
-    out_dir = repo_root / "datasets" / "indicators" / "in" / "fiscal"
-    out_dir.mkdir(parents=True, exist_ok=True)
+    Under B4-pt3 (no strangler-fig per umbrella plan O1), only the
+    canonical long-format CSV under ``datasets/data/datapoints/geo/``
+    is emitted. ``schema_dir`` is accepted for back-compat but unused.
+    """
+    del schema_dir  # back-compat shim
 
     results: list[IndicatorIngestResult] = []
     for spec in SHIPPED_SPECS:
         cached = _resolve_csv(indicator_id=spec.indicator_id, repo_root=repo_root)
         parsed = parse_csv(cached.content, spec)
 
-        payload = _build_payload(spec=spec, parsed=parsed, cached=cached)
-
-        leaf = spec.indicator_id.split("/")[-1] + ".json"
-        path = out_dir / leaf
-        write_artifact(
-            path=path,
-            schema_id=indicator_schema["$id"],
-            schema_version=indicator_schema["x-version"],
-            payload=payload,
-            sources=[
-                # Portal page — canonical attribution; readers can
-                # reproduce the download by visiting this URL.
-                Source(url=cached.meta.portal_page_url, fetched_at=cached.fetched_at),
-                # Upstream authority page — the body that produced the
-                # underlying answer (Rajya Sabha question, ministry note).
-                Source(url=cached.meta.authority_page_url, fetched_at=cached.fetched_at),
-                # OGD platform itself (license, terms).
-                Source(url=OGD_AUTHORITY_URL, fetched_at=cached.fetched_at),
-            ],
-            schema_for_validation=indicator_schema,
-        )
-
-        # B1.6.2 - canonical long-format CSV emission ALONGSIDE the
-        # legacy indicator JSON write. Existing JSON output stays in
-        # place; instead-of deletion is deferred to B3 per parent plan
-        # section 23.1 and sub-plan section B1.6.1..7 point 6.
         csv_meta = _INDICATOR_TO_CSV[spec.indicator_id]
         csv_source_id = derive_source_id(
             csv_meta["producer"], csv_meta["title"], csv_meta["vintage"],
@@ -387,12 +300,15 @@ def ingest(*, repo_root: Path, schema_dir: Path) -> IngestResult:
         by_variable = build_csv_variables(
             spec, parsed, source_id=csv_source_id,
         )
-        emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+        emitted = emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+        csv_path = emitted[0] if emitted else (
+            repo_root / _CSV_OUT_REL_DIR / f"{csv_meta['variable_id']}.csv"
+        )
 
         results.append(
             IndicatorIngestResult(
                 indicator_id=spec.indicator_id,
-                artifact_path=path,
+                csv_path=csv_path,
                 csv_cache_path=_cache_path(repo_root, spec.indicator_id),
                 fetched_at=cached.fetched_at,
                 record_count=parsed.record_count,

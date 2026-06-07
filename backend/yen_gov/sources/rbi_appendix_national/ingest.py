@@ -15,7 +15,6 @@ re-runnable in CI without re-fetching RBI's CDN.
 """
 from __future__ import annotations
 
-import json
 import os
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -24,7 +23,6 @@ from typing import Any
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.csv_writer import write_csv
-from yen_gov.core.io import Source, write_artifact
 
 from .parsers import (
     SHIPPED_SPECS,
@@ -259,72 +257,24 @@ def _resolve_workbook(
     return path.read_bytes(), mtime, LISTING_PAGE
 
 
-def _coverage_temporal(parsed: ParsedIndicator) -> str:
+def _coverage_temporal(parsed: ParsedIndicator) -> str:  # pragma: no cover
     times = sorted({r.time for r in parsed.rows})
     if not times:
         return "unknown"
     return f"{times[0]}..{times[-1]}"
 
 
-def _build_payload(
-    *,
-    spec: AppendixSpec,
-    parsed: ParsedIndicator,
-    workbook_fetched_at: datetime,
-) -> dict[str, Any]:
-    meta = INDICATOR_META[spec.indicator_id]
-
-    rows = [
-        {"entity_id": r.entity_id, "time": r.time, "value": r.value}
-        for r in parsed.rows
-    ]
-
-    return {
-        "license": {
-            "id": "GoI-Open",
-            "name": "Government of India open publication",
-            "url": "https://data.gov.in/government-open-data-license-india",
-            "redistributable": True,
-        },
-        "coverage": {
-            "spatial": "India (national aggregate)",
-            "temporal": _coverage_temporal(parsed),
-            "admin_level": "national",
-        },
-        "indicator": {
-            "id": spec.indicator_id,
-            "title": meta.title,
-            "description": meta.description,
-            "entity_kind": "country",
-            "time_grain": "fiscal_year",
-            "value_kind": meta.value_kind,
-            "direction": meta.direction,
-            "scale_hint": "linear",
-            "unit": meta.unit,
-            "icon": meta.icon,
-            "attribution_geography": meta.attribution_geography,
-            "comparability": meta.comparability,
-            "funding_split": {
-                "centre_pct": 100 - meta.funding_split_state_pct,
-                "state_pct": meta.funding_split_state_pct,
-                "source": "definition (own vs centrally-transferred)",
-            },
-            "implementing_authority": "centre",
-            "methodology_vintage": (
-                f"RBI State Finances: A Study of Budgets, Appendix Table 2; "
-                f"cached file mtime "
-                f"{workbook_fetched_at.isoformat(timespec='seconds').replace('+00:00', 'Z')}"
-            ),
-            "notes": meta.notes,
-        },
-        "rows": rows,
-    }
+def _build_payload(*args: Any, **kwargs: Any) -> dict[str, Any]:  # pragma: no cover
+    raise RuntimeError(
+        "_build_payload retired in B4-pt3; this adapter only emits canonical CSV now"
+    )
 
 
 @dataclass(frozen=True)
 class IndicatorIngestResult:
+    """Per-CSV emit receipt."""
     indicator_id: str
-    artifact_path: Path
+    csv_path: Path
     workbook_fetched_at: datetime
     sheet_count: int
     period_count: int
@@ -417,13 +367,14 @@ def emit_csv_variables(
     return tuple(written)
 
 
-def ingest(*, repo_root: Path, schema_dir: Path) -> IngestResult:
-    """Read cached workbook, parse all shipped specs, write artifacts."""
-    indicator_schema_path = schema_dir / "indicator.schema.json"
-    indicator_schema = json.loads(indicator_schema_path.read_text(encoding="utf-8"))
+def ingest(*, repo_root: Path, schema_dir: Path | None = None) -> IngestResult:
+    """Read cached workbook, parse all shipped specs, emit canonical CSV variables.
 
-    out_dir = repo_root / "datasets" / "indicators" / "in" / "fiscal"
-    out_dir.mkdir(parents=True, exist_ok=True)
+    Under B4-pt3 (no strangler-fig per umbrella plan O1), only the
+    canonical long-format CSV under ``datasets/data/datapoints/geo/``
+    is emitted. ``schema_dir`` is accepted for back-compat but unused.
+    """
+    del schema_dir  # back-compat shim
 
     # B1.5.1 - one citation-ledger source_id shared across all four
     # SHIPPED_SPECS (same Appendix Table 2 publication / edition).
@@ -433,36 +384,22 @@ def ingest(*, repo_root: Path, schema_dir: Path) -> IngestResult:
 
     results: list[IndicatorIngestResult] = []
     for spec in SHIPPED_SPECS:
-        content, mtime, url = _resolve_workbook(
+        content, mtime, _url = _resolve_workbook(
             repo_root=repo_root, indicator_id=spec.indicator_id
         )
         parsed = parse_workbook(content, spec)
-        payload = _build_payload(
-            spec=spec, parsed=parsed, workbook_fetched_at=mtime
-        )
 
-        leaf = spec.indicator_id.split("/")[-1] + ".json"
-        path = out_dir / leaf
-        write_artifact(
-            path=path,
-            schema_id=indicator_schema["$id"],
-            schema_version=indicator_schema["x-version"],
-            payload=payload,
-            sources=[Source(url=url, fetched_at=mtime)],
-            schema_for_validation=indicator_schema,
-        )
-
-        # B1.5.1 - canonical long-format CSV emission ALONGSIDE the
-        # legacy meadow/indicator JSON write. Existing JSON output stays
-        # in place; instead-of deletion is deferred to B3 per parent
-        # plan section 23.1 and sub-plan §B1.5.1..5 point 6.
         by_variable = build_csv_variables(spec, parsed, source_id=csv_source_id)
-        emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+        emitted = emit_csv_variables(repo_root=repo_root, by_variable=by_variable)
+        csv_path = emitted[0] if emitted else (
+            repo_root / _CSV_OUT_REL_DIR
+            / f"{_INDICATOR_TO_VARIABLE_ID[spec.indicator_id]}.csv"
+        )
 
         results.append(
             IndicatorIngestResult(
                 indicator_id=spec.indicator_id,
-                artifact_path=path,
+                csv_path=csv_path,
                 workbook_fetched_at=mtime,
                 sheet_count=parsed.sheet_count,
                 period_count=parsed.period_count,

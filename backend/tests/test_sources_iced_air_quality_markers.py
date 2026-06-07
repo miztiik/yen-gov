@@ -237,54 +237,16 @@ def test_no2_delhi_2019_in_plausible_range(markers: dict) -> None:
     assert 50 <= v <= 90, f"Delhi 2019 NO2 = {v}, outside plausible 50-90 range"
 
 
-def test_ingest_no2_emits_artifact(tmp_path, markers: dict) -> None:
-    """End-to-end: building the NO2 payload from the captured fixture
-    produces a dict that validates against indicator.schema.json v1.5
-    when stamped via write_artifact."""
-    from datetime import datetime, timezone
-    from yen_gov.core.io import Source, write_artifact
-    from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
-    from yen_gov.sources.iced_air_quality.markers_ingest import (
-        CPCB_NAMP_URL,
-        MARKERS_API_URL,
-        NO2_INDICATOR_ID,
-        NO2_SERIES_START_YEAR,
-        _build_no2_payload,
-    )
-
-    parsed = [
-        r for r in aggregate_state_year_mean(markers, pollutant=NO2_FIELD)
-        if r.year >= NO2_SERIES_START_YEAR
-    ]
-    payload = _build_no2_payload(parsed=parsed)
-    assert payload["indicator"]["id"] == NO2_INDICATOR_ID
-    assert payload["indicator"]["comparability"] == "directional_only"
-    assert "renderer_rules" not in payload["indicator"], (
-        "renderer_rules ripped from shard per ADR-0045; render hints live in grapher catalogue"
-    )
-    assert payload["indicator"]["excludes"], "NO2 excludes[] must not be empty"
-    assert "series_breaks" not in payload["indicator"], (
-        "NO2 has 2020 data in this snapshot — series_breaks should not "
-        "be declared for NO2"
-    )
-
-    out = tmp_path / "state_no2_annual_mean_ug_m3.json"
-    fetched_at = datetime(2026, 5, 15, 14, 44, 39, tzinfo=timezone.utc)
-    write_artifact(
-        path=out,
-        schema_id=schema_id("indicator.schema.json"),
-        schema_version=schema_version("indicator.schema.json"),
-        payload=payload,
-        sources=[
-            Source(url=MARKERS_API_URL, fetched_at=fetched_at),
-            Source(url=CPCB_NAMP_URL, fetched_at=fetched_at),
-        ],
-        schema_for_validation=schema_doc("indicator.schema.json"),
-    )
-    body = json.loads(out.read_text(encoding="utf-8"))
-    assert body["$schema_version"] == schema_version("indicator.schema.json")
-    assert len(body["sources"]) == 2
-    assert body["rows"], "NO2 artifact rows[] must not be empty"
+def test_ingest_no2_emits_artifact_RETIRED() -> None:
+    """B4-pt3 retirement marker: the legacy folded-indicator JSON write
+    path retired alongside ``core.io.write_artifact`` per umbrella plan
+    O1 (no strangler-fig). ``markers_ingest._build_no2_payload`` is
+    dead production code; only the CSV emit path under
+    ``datasets/data/datapoints/geo/`` survives. This stub exists only
+    so a future grep for the old test name finds the retirement notice.
+    """
+    import pytest
+    pytest.skip("retired in B4-pt3; CSV emit path covered by test_iced_air_quality_csv_repoint.py")
 
 
 # ---------------------------------------------------------------------------
@@ -326,54 +288,10 @@ def test_so2_delhi_2019_in_plausible_range(markers: dict) -> None:
     assert 1 <= v <= 15, f"Delhi 2019 SO2 = {v}, outside plausible 1-15 range"
 
 
-def test_ingest_so2_emits_artifact(tmp_path, markers: dict) -> None:
-    """End-to-end: building the SO2 payload from the captured fixture
-    produces a dict that validates against indicator.schema.json v1.5
-    when stamped via write_artifact."""
-    from datetime import datetime, timezone
-    from yen_gov.core.io import Source, write_artifact
-    from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
-    from yen_gov.sources.iced_air_quality.markers_ingest import (
-        CPCB_NAMP_URL,
-        MARKERS_API_URL,
-        SO2_INDICATOR_ID,
-        SO2_SERIES_START_YEAR,
-        _build_so2_payload,
-    )
-
-    parsed = [
-        r for r in aggregate_state_year_mean(markers, pollutant=SO2_FIELD)
-        if r.year >= SO2_SERIES_START_YEAR
-    ]
-    payload = _build_so2_payload(parsed=parsed)
-    assert payload["indicator"]["id"] == SO2_INDICATOR_ID
-    assert payload["indicator"]["comparability"] == "directional_only"
-    assert "renderer_rules" not in payload["indicator"], (
-        "renderer_rules ripped from shard per ADR-0045; render hints live in grapher catalogue"
-    )
-    assert payload["indicator"]["excludes"], "SO2 excludes[] must not be empty"
-    assert "series_breaks" not in payload["indicator"], (
-        "SO2 has 2020 data in this snapshot — series_breaks should not "
-        "be declared for SO2"
-    )
-
-    out = tmp_path / "state_so2_annual_mean_ug_m3.json"
-    fetched_at = datetime(2026, 5, 15, 14, 44, 39, tzinfo=timezone.utc)
-    write_artifact(
-        path=out,
-        schema_id=schema_id("indicator.schema.json"),
-        schema_version=schema_version("indicator.schema.json"),
-        payload=payload,
-        sources=[
-            Source(url=MARKERS_API_URL, fetched_at=fetched_at),
-            Source(url=CPCB_NAMP_URL, fetched_at=fetched_at),
-        ],
-        schema_for_validation=schema_doc("indicator.schema.json"),
-    )
-    body = json.loads(out.read_text(encoding="utf-8"))
-    assert body["$schema_version"] == schema_version("indicator.schema.json")
-    assert len(body["sources"]) == 2
-    assert body["rows"], "SO2 artifact rows[] must not be empty"
+def test_ingest_so2_emits_artifact_RETIRED() -> None:
+    """B4-pt3 retirement marker (see test_ingest_no2_emits_artifact_RETIRED)."""
+    import pytest
+    pytest.skip("retired in B4-pt3; CSV emit path covered by test_iced_air_quality_csv_repoint.py")
 
 
 # ---------------------------------------------------------------------------
@@ -415,51 +333,7 @@ def test_pm10_delhi_2019_in_plausible_range(markers: dict) -> None:
     assert 150 <= v <= 250, f"Delhi 2019 PM10 = {v}, outside plausible 150-250 range"
 
 
-def test_ingest_pm10_emits_artifact(tmp_path, markers: dict) -> None:
-    """End-to-end: building the PM10 payload from the captured fixture
-    produces a dict that validates against indicator.schema.json v1.5
-    when stamped via write_artifact."""
-    from datetime import datetime, timezone
-    from yen_gov.core.io import Source, write_artifact
-    from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
-    from yen_gov.sources.iced_air_quality.markers_ingest import (
-        CPCB_NAMP_URL,
-        MARKERS_API_URL,
-        PM10_INDICATOR_ID,
-        PM10_SERIES_START_YEAR,
-        _build_pm10_payload,
-    )
-
-    parsed = [
-        r for r in aggregate_state_year_mean(markers, pollutant=PM10_FIELD)
-        if r.year >= PM10_SERIES_START_YEAR
-    ]
-    payload = _build_pm10_payload(parsed=parsed)
-    assert payload["indicator"]["id"] == PM10_INDICATOR_ID
-    assert payload["indicator"]["comparability"] == "directional_only"
-    assert "renderer_rules" not in payload["indicator"], (
-        "renderer_rules ripped from shard per ADR-0045; render hints live in grapher catalogue"
-    )
-    assert payload["indicator"]["excludes"], "PM10 excludes[] must not be empty"
-    assert "series_breaks" not in payload["indicator"], (
-        "PM10 has 2020 data in this snapshot — series_breaks should "
-        "not be declared for PM10"
-    )
-
-    out = tmp_path / "state_pm10_annual_mean_ug_m3.json"
-    fetched_at = datetime(2026, 5, 15, 14, 44, 39, tzinfo=timezone.utc)
-    write_artifact(
-        path=out,
-        schema_id=schema_id("indicator.schema.json"),
-        schema_version=schema_version("indicator.schema.json"),
-        payload=payload,
-        sources=[
-            Source(url=MARKERS_API_URL, fetched_at=fetched_at),
-            Source(url=CPCB_NAMP_URL, fetched_at=fetched_at),
-        ],
-        schema_for_validation=schema_doc("indicator.schema.json"),
-    )
-    body = json.loads(out.read_text(encoding="utf-8"))
-    assert body["$schema_version"] == schema_version("indicator.schema.json")
-    assert len(body["sources"]) == 2
-    assert body["rows"], "PM10 artifact rows[] must not be empty"
+def test_ingest_pm10_emits_artifact_RETIRED() -> None:
+    """B4-pt3 retirement marker (see test_ingest_no2_emits_artifact_RETIRED)."""
+    import pytest
+    pytest.skip("retired in B4-pt3; CSV emit path covered by test_iced_air_quality_csv_repoint.py")
