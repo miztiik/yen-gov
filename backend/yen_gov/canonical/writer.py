@@ -273,6 +273,63 @@ _DEPRECATIONS: list[dict[str, str]] = [
         "new_path": "elections/dim_persons.parquet",
         "deprecated_at": "2026-05-23",
     },
+    # X1b parquet-delete (2026-06-06, PR #814) - 9 reader-flipped parquets
+    # whose deprecation rows previously lived only as hand-edits in
+    # datasets/manifest.json and would have been clobbered by the next
+    # _regenerate_manifest run. Lifted into the source list during
+    # X1a-fu2-C (2026-06-07) so the manifest is idempotent again.
+    {
+        "old_path": "elections/dim_parties.parquet",
+        "new_path": "data/entities/parties.csv",
+        "deprecated_at": "2026-06-06",
+    },
+    {
+        "old_path": "elections/dim_pcs.parquet",
+        "new_path": "data/entities/electoral.csv",
+        "deprecated_at": "2026-06-06",
+    },
+    {
+        "old_path": "elections/dim_persons.parquet",
+        "new_path": "elections/assembly/candidacies.csv",
+        "deprecated_at": "2026-06-06",
+    },
+    {
+        "old_path": "taxonomy/ac_crosswalk.parquet",
+        "new_path": "data/entities/ac_crosswalk.csv",
+        "deprecated_at": "2026-06-06",
+    },
+    {
+        "old_path": "taxonomy/persons.parquet",
+        "new_path": "elections/assembly/candidacies.csv",
+        "deprecated_at": "2026-06-06",
+    },
+    {
+        "old_path": "taxonomy/sources.parquet",
+        "new_path": "data/entities/source.csv",
+        "deprecated_at": "2026-06-06",
+    },
+    {
+        "old_path": "taxonomy/methodology_breaks.parquet",
+        "new_path": "data/methodology_breaks.csv",
+        "deprecated_at": "2026-06-06",
+    },
+    {
+        "old_path": "elections/dim_acs.parquet",
+        "new_path": "data/entities/electoral.csv",
+        "deprecated_at": "2026-06-06",
+    },
+    {
+        "old_path": "elections/elections_candidacies.parquet",
+        "new_path": "elections/assembly/candidacies.csv",
+        "deprecated_at": "2026-06-06",
+    },
+    # X1a-fu2-C (2026-06-07) - dim_party_alliances parquet retired in the
+    # same PR; CSV transcoded via canonical/party_alliances_csv.py.
+    {
+        "old_path": "elections/dim_party_alliances.parquet",
+        "new_path": "data/entities/party_alliances.csv",
+        "deprecated_at": "2026-06-07",
+    },
 ]
 
 

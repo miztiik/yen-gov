@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.3",
   "manifest_version": "1.0",
-  "generated_at": "2026-06-03T06:12:33Z",
+  "generated_at": "2026-06-07T03:14:15Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -460,23 +460,6 @@
       "row_count_total": 7392
     },
     {
-      "table_id": "elections.dim_party_alliances",
-      "family": "elections",
-      "table_name": "dim_party_alliances",
-      "kind": "dim",
-      "format": "parquet",
-      "schema_version": "1.0",
-      "partition_columns": [],
-      "files": [
-        {
-          "path": "elections/dim_party_alliances.parquet",
-          "size_bytes": 1362,
-          "row_count": 10
-        }
-      ],
-      "row_count_total": 10
-    },
-    {
       "table_id": "taxonomy.entities",
       "family": "taxonomy",
       "table_name": "entities",
@@ -492,23 +475,6 @@
         }
       ],
       "row_count_total": 857
-    },
-    {
-      "table_id": "taxonomy.indicators",
-      "family": "taxonomy",
-      "table_name": "indicators",
-      "kind": "taxonomy",
-      "format": "parquet",
-      "schema_version": "2.5",
-      "partition_columns": [],
-      "files": [
-        {
-          "path": "taxonomy/indicators.parquet",
-          "size_bytes": 44699,
-          "row_count": 162
-        }
-      ],
-      "row_count_total": 162
     }
   ],
   "deprecations": [
@@ -566,6 +532,11 @@
       "old_path": "elections/elections_candidacies.parquet",
       "new_path": "elections/assembly/candidacies.csv",
       "deprecated_at": "2026-06-06"
+    },
+    {
+      "old_path": "elections/dim_party_alliances.parquet",
+      "new_path": "data/entities/party_alliances.csv",
+      "deprecated_at": "2026-06-07"
     }
   ]
 }

@@ -309,6 +309,9 @@ def emit_taxonomy(
     from yen_gov.canonical.office_holdings_seed import (
         compile_to_parquet as _compile_office_holdings,
     )
+    from yen_gov.canonical.party_alliances_csv import (
+        emit as _emit_party_alliances_csv,
+    )
     from yen_gov.canonical.reingest.governments_term_shape import (
         emit as _emit_governments_term_shape,
     )
@@ -401,6 +404,40 @@ def emit_taxonomy(
         # hand-authored IndicatorMeta inline). The parquet file was deleted
         # in this PR; `datasets/taxonomy/indicators.json` remains the
         # hand-authored SoT.
+
+        # 8) party_alliances -> CSV transcode (X1a-fu2-C, 2026-06-07).
+        # Projects ``datasets/elections/dim_party_alliances.parquet`` 1:1
+        # to the canonical long-format CSV at
+        # ``datasets/data/entities/party_alliances.csv`` so the frontend
+        # state-overview view-model can read alliances via inline
+        # ``read_csv(columns=...)``. The parquet is retired in the same
+        # PR; once it is gone this step becomes a silent skip (the
+        # committed CSV is then the source of truth). See
+        # ``canonical/party_alliances_csv.py`` module docstring for the
+        # full lifecycle + the writer-survival note (legacy ECI ingest
+        # adapters still produce ``party_alliance_dim_rows`` envelopes
+        # that the parquet writer in ``canonical/writer.py`` would
+        # re-emit until B4 retires them).
+        alliances_parquet = (
+            root / "datasets" / "elections" / "dim_party_alliances.parquet"
+        )
+        alliances_csv = (
+            root / "datasets" / "data" / "entities" / "party_alliances.csv"
+        )
+        emitted_alliances = _emit_party_alliances_csv(
+            parquet_path=alliances_parquet,
+            out_csv_path=alliances_csv,
+        )
+        if emitted_alliances is not None:
+            typer.echo(
+                f"{prefix}: wrote {emitted_alliances.relative_to(root).as_posix()} "
+                "[datasets/data/entities/party_alliances.csv]"
+            )
+        else:
+            typer.echo(
+                f"{prefix}: skipped party_alliances.csv (parquet retired; "
+                "committed CSV is authoritative)"
+            )
 
         _regenerate_manifest(root / "datasets", dry_run=dry_run)
 

@@ -108,6 +108,16 @@
         { "name": "wikipedia", "dtype": "string", "nullable": true }
       ]
     },
+    "datasets/data/entities/party_alliances.csv": {
+      "notes": "Per-event party alliance memberships (composite PK: party_id + period_label). One row per (party, election event) pair where an alliance was declared; alliance null = party contested unallied. Sourced from datasets/elections/dim_party_alliances.parquet during the X1a-fu2-C transcode (2026-06-07); the parquet retired in the same PR and the CSV is now the source of truth. Frontend JOIN: state-overview view-model reads via inline read_csv(...) keyed on (party_id, period_label).",
+      "columns": [
+        { "name": "party_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/parties.csv.party_id" },
+        { "name": "short_name", "dtype": "string", "nullable": true },
+        { "name": "period_label", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "alliance", "dtype": "string", "nullable": true },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
+      ]
+    },
     "datasets/data/entities/source.csv": {
       "notes": "Provenance ledger (citation grain, one row per producer/title/vintage). Exactly five columns per plan section 7 (O3). source_id is derived (B2a builder), never hand-authored (CLAUDE.md Holy Law #9, section 12). Spec: csv-column-contract.md section 3.2.",
       "columns": [

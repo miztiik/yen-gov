@@ -11,8 +11,8 @@
 //   datasets/elections/assembly/state=*/election=*/candidacies.csv (per-candidacy)
 //   datasets/elections/assembly/state=*/election=*/summary.csv     (per-AC summary)
 //   datasets/data/entities/electoral.csv                           (AC entity + name + eci_no)
+//   datasets/data/entities/party_alliances.csv                     (per-event alliance; X1a-fu2-C inline read_csv)
 //   elections.dim_parties           - party identity + brand (CSV via registerCsvAsTable; X1a)
-//   elections.dim_party_alliances   - per-event alliance (PARQUET; B2b emits alliance_membership.csv later)
 //   taxonomy.sources                - provenance ledger 5-field (CSV via registerCsvAsTable; X1a)
 //
 // Critical per-row contract (F1 sub-plan section 22.4 #4): every
@@ -33,7 +33,7 @@ import {
   describeFailure,
   type LoaderResult,
 } from "../loader-result";
-import { query, registerCsvAsTable, registerCsvFile, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerCsvFile } from "../duckdb";
 import { DATA_BASE } from "../paths";
 import { csvColumnsClause } from "../canonical/csv-columns";
 import {
@@ -176,28 +176,31 @@ async function runQueries(
   const candPath = assemblyCandidaciesPath(state_code, event);
   const sumPath = assemblySummaryPath(state_code, event);
   const electoralPath = electoralEntitiesPath();
+  const partyAlliancesPath = "datasets/data/entities/party_alliances.csv";
 
   const candUrl = `${DATA_BASE}/${candPath.replace(/^datasets\//, "")}`;
   const sumUrl = `${DATA_BASE}/${sumPath.replace(/^datasets\//, "")}`;
   const electoralUrl = `${DATA_BASE}/${electoralPath.replace(/^datasets\//, "")}`;
+  const partyAlliancesUrl = `${DATA_BASE}/${partyAlliancesPath.replace(/^datasets\//, "")}`;
 
   // Typed-read clauses + URL registrations + parquet table registrations
   // in parallel. Per F1 sub-plan section 22.4 #4: read_csv MUST carry
   // `columns={...}` derived from columns.json (never `read_csv_auto`).
   // dim_parties + taxonomy.sources flipped to CSV in X1a via
-  // `registerCsvAsTable` (parties.csv / source.csv); dim_party_alliances
-  // STAYS on Parquet until B2b emits `entities/alliance_membership.csv`
-  // (no CSV equivalent today; per plan section 20.4 the intended shape
-  // is `{alliance_id, party_id, term_start, term_end, source_id}`).
-  const [candClause, sumClause, electoralClause] = await Promise.all([
+  // `registerCsvAsTable` (parties.csv / source.csv). dim_party_alliances
+  // flipped to inline `read_csv(party_alliances.csv, columns=...)` in
+  // X1a-fu2-C (parquet retired); same JOIN keys on (party_id,
+  // period_label) - the only swap is the source of dpa rows.
+  const [candClause, sumClause, electoralClause, partyAlliancesClause] = await Promise.all([
     csvColumnsClause(candPath),
     csvColumnsClause(sumPath),
     csvColumnsClause(electoralPath),
+    csvColumnsClause(partyAlliancesPath),
     registerCsvFile(candUrl),
     registerCsvFile(sumUrl),
     registerCsvFile(electoralUrl),
+    registerCsvFile(partyAlliancesUrl),
     registerCsvAsTable("elections.dim_parties"),
-    registerTable("elections.dim_party_alliances"),
     registerCsvAsTable("taxonomy.sources"),
   ]);
 
@@ -247,7 +250,7 @@ async function runQueries(
     CROSS JOIN state_total st
     LEFT JOIN dim_parties dp
       ON dp.party_id = p.resolved_party_id
-    LEFT JOIN dim_party_alliances dpa
+    LEFT JOIN read_csv('${partyAlliancesUrl}', ${partyAlliancesClause}) dpa
       ON dpa.party_id = dp.party_id
       AND dpa.period_label = ${evt}
     ORDER BY p.seats_won DESC, p.votes DESC

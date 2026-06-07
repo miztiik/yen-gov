@@ -1,21 +1,23 @@
 // Unit tests for the StateOverview view-model loader (F1.3a CSV cutover
-// + X1a dim_parties/sources flip).
+// + X1a dim_parties/sources flip + X1a-fu2-C dim_party_alliances flip).
 //
 // Per CLAUDE.md section 15 + parent plan section 22.4 #4: the loader's
 // contract IS the SQL boundary. We mock `query` / `registerCsvFile` /
-// `registerTable` / `registerCsvAsTable` (the explicit carve-out from
+// `registerCsvAsTable` (the explicit carve-out from
 // Holy Law #7) + the `csvColumnsClause` helper from `../canonical/csv-columns`
 // so the runtime fetch of columns.json never happens. Coverage:
 //   - happy path        — assembles StateOverviewViewModel from CSV
 //                          rows: party aggregation + state totals +
 //                          sources + per-AC winners (DMK/AIADMK fixture).
-//   - csv registration  — the 3 CSV URLs + dim_parties (via
-//                          registerCsvAsTable, X1a) + dim_party_alliances
-//                          (still parquet, no CSV equivalent yet) +
-//                          sources (via registerCsvAsTable, X1a) are
-//                          registered; NONE of the F1.3a-decommissioned
-//                          tables are (dim_acs / elections_candidacies
-//                          / dim_persons / election_results).
+//   - csv registration  — the 4 CSV URLs (candidacies + summary +
+//                          electoral + party_alliances) + dim_parties
+//                          (via registerCsvAsTable, X1a) + sources
+//                          (via registerCsvAsTable, X1a) are registered;
+//                          ZERO registerTable calls survive (X1a-fu2-C
+//                          retired dim_party_alliances parquet); NONE
+//                          of the F1.3a-decommissioned tables are
+//                          (dim_acs / elections_candidacies /
+//                          dim_persons / election_results).
 //   - SQL composition   — every read_csv call uses the typed columns
 //                          clause; ZERO read_parquet on the legacy
 //                          tables; per-(state, year) URL substituted.
@@ -29,7 +31,6 @@ vi.mock("../duckdb", () => ({
   registerCsvAsTable: vi.fn(async (id: string) =>
     id === "elections.dim_parties" ? "dim_parties" : "sources",
   ),
-  registerTable: vi.fn(async () => "noop"),
   query: vi.fn(),
 }));
 
@@ -37,14 +38,13 @@ vi.mock("../canonical/csv-columns", () => ({
   csvColumnsClause: vi.fn(async () => "columns={MOCKED}"),
 }));
 
-import { query, registerCsvAsTable, registerCsvFile, registerTable } from "../duckdb";
+import { query, registerCsvAsTable, registerCsvFile } from "../duckdb";
 import { csvColumnsClause } from "../canonical/csv-columns";
 import { loadStateOverview } from "./state-overview";
 
 const mockedQuery = vi.mocked(query);
 const mockedRegisterCsv = vi.mocked(registerCsvFile);
 const mockedRegisterCsvAsTable = vi.mocked(registerCsvAsTable);
-const mockedRegister = vi.mocked(registerTable);
 const mockedClause = vi.mocked(csvColumnsClause);
 
 const partyRows = [
@@ -174,13 +174,11 @@ beforeEach(() => {
   mockedQuery.mockReset();
   mockedRegisterCsv.mockReset();
   mockedRegisterCsvAsTable.mockReset();
-  mockedRegister.mockReset();
   mockedClause.mockReset();
   mockedRegisterCsv.mockResolvedValue(undefined);
   mockedRegisterCsvAsTable.mockImplementation(async (id) =>
     id === "elections.dim_parties" ? "dim_parties" : "sources",
   );
-  mockedRegister.mockResolvedValue("noop");
   mockedClause.mockResolvedValue("columns={MOCKED}");
 });
 
@@ -306,7 +304,7 @@ describe("loadStateOverview - happy path", () => {
     ]);
   });
 
-  it("registers the 3 CSV URLs + dim_parties (via CSV-as-table) + dim_party_alliances (parquet) + sources (via CSV-as-table)", async () => {
+  it("registers the 4 CSV URLs + dim_parties (via CSV-as-table) + sources (via CSV-as-table); zero registerTable survives", async () => {
     mockedQuery
       .mockResolvedValueOnce(partyRows)
       .mockResolvedValueOnce(acCountRows)
@@ -317,8 +315,9 @@ describe("loadStateOverview - happy path", () => {
 
     await loadStateOverview("AcGenApr2021", "S22");
 
-    // 3 CSV URL registrations (candidacies + summary + electoral).
-    expect(mockedRegisterCsv).toHaveBeenCalledTimes(3);
+    // 4 CSV URL registrations (candidacies + summary + electoral +
+    // party_alliances). X1a-fu2-C added party_alliances.csv.
+    expect(mockedRegisterCsv).toHaveBeenCalledTimes(4);
     const csvUrls = mockedRegisterCsv.mock.calls.map((c) => c[0]);
     const allUrls = csvUrls.join(" | ");
     expect(allUrls).toContain(
@@ -328,6 +327,7 @@ describe("loadStateOverview - happy path", () => {
       "/elections/assembly/state=tamil-nadu/election=2021/summary.csv",
     );
     expect(allUrls).toContain("/data/entities/electoral.csv");
+    expect(allUrls).toContain("/data/entities/party_alliances.csv");
 
     // X1a CSV-as-table registrations: dim_parties + sources flipped
     // from parquet to CSV-backed views.
@@ -338,21 +338,6 @@ describe("loadStateOverview - happy path", () => {
       "elections.dim_parties",
       "taxonomy.sources",
     ]);
-
-    // Parquet tables that stay registered (alliance CSV not emitted yet):
-    const parquetTables = mockedRegister.mock.calls.map((c) => c[0]).sort();
-    expect(parquetTables).toEqual([
-      "elections.dim_party_alliances",
-    ]);
-
-    // ZERO requests for the F1.3a-decommissioned tables.
-    expect(parquetTables).not.toContain("elections.dim_acs");
-    expect(parquetTables).not.toContain("elections.dim_persons");
-    expect(parquetTables).not.toContain("elections.elections_candidacies");
-    expect(parquetTables).not.toContain("elections.election_results");
-    // X1a flipped: dim_parties + sources are NO LONGER on the parquet path.
-    expect(parquetTables).not.toContain("elections.dim_parties");
-    expect(parquetTables).not.toContain("taxonomy.sources");
   });
 
   it("issues read_csv SQL against candidacies + summary + electoral (no read_parquet)", async () => {
@@ -367,16 +352,23 @@ describe("loadStateOverview - happy path", () => {
     await loadStateOverview("AcGenApr2021", "S22");
 
     const sqls = mockedQuery.mock.calls.map((c) => c[0]);
-    // Party pivot SQL: aggregates per-party from candidacies.csv.
+    // Party pivot SQL: aggregates per-party from candidacies.csv + JOINs
+    // alliance via inline `read_csv(party_alliances.csv, columns=...)`
+    // (X1a-fu2-C; was `LEFT JOIN dim_party_alliances dpa` on parquet).
     expect(sqls[0]).toContain("read_csv(");
     expect(sqls[0]).toContain(
       "/elections/assembly/state=tamil-nadu/election=2021/candidacies.csv",
     );
     expect(sqls[0]).toContain("columns={MOCKED}");
+    expect(sqls[0]).toContain("/data/entities/party_alliances.csv");
     expect(sqls[0]).not.toContain("read_parquet(");
     expect(sqls[0]).not.toContain("election_results");
     expect(sqls[0]).not.toContain("dim_acs");
     expect(sqls[0]).not.toContain("dim_persons");
+    // X1a-fu2-C: the bare `dim_party_alliances` table name no longer
+    // appears as a JOIN target; the alliance source is now an inline
+    // `read_csv(party_alliances.csv, ...)` aliased to `dpa`.
+    expect(sqls[0]).not.toMatch(/JOIN\s+dim_party_alliances/);
 
     // E5: distinct-AC count SQL over summary.csv (sources total_seats
     // for the invariant assertion).
@@ -398,11 +390,12 @@ describe("loadStateOverview - happy path", () => {
     expect(sqls[3]).toContain("UNION ALL");
     expect(sqls[3]).not.toContain("read_parquet(");
 
-    // taxonomy.sources still parquet (deferred to X1a).
+    // taxonomy.sources now CSV-backed via `registerCsvAsTable` view named
+    // `sources` (X1a flip; the SQL still spells `FROM sources`).
     expect(sqls[4]).toContain("FROM sources");
 
     // AC winners SQL: read_csv on summary + electoral + candidacies; JOIN
-    // dim_parties (parquet table, no read_parquet literal).
+    // dim_parties (CSV-as-table view, no read_parquet literal).
     expect(sqls[5]).toContain("read_csv(");
     expect(sqls[5]).toContain("/data/entities/electoral.csv");
     expect(sqls[5]).toContain("dim_parties dp");
