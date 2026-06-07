@@ -267,11 +267,18 @@ def emit_taxonomy(
     Regenerates the canonical hand-authored taxonomy parquets read by
     the static frontend via DuckDB-WASM:
 
-    - ``datasets/taxonomy/entities.parquet`` -- country/state/UT rows
-      plus hand-authored district rows projected from
-      ``datasets/taxonomy/entities.json`` (T.0a-ii Phase A folded the 145
-      hand-authored districts in; the per-state ``districts.json`` files
-      that originally seeded those rows were retired in T.0c-iii Phase D.3)
+    - **Entities, X1a-fu2-A (2026-06-07): RETIRED.**
+      ``datasets/taxonomy/entities.parquet`` had its frontend readers
+      flipped to ``datasets/data/entities/geo.csv`` (loadStates via
+      DuckDB-WASM ``read_csv(columns=...)``) and to the hand-authored
+      ``datasets/taxonomy/entities.json`` SoT (loadDistricts +
+      loadAllDistrictEntities, which need ``legacy_id`` /
+      ``parent_entity_id`` shapes that geo.csv does not carry). Step 5
+      still drives the in-memory row-build through
+      ``entities_seed.compile_to_parquet`` because step 6's office-bearer
+      reader is a DuckDB SQL query against the parquet, but the file is
+      written into a per-run tempdir; no parquet survives under
+      ``datasets/taxonomy/``.
     - **Office holdings, B3-followup (2026-06-07): governments parquets
       RETIRED.** Step 6 now compiles ``datasets/taxonomy/office_holdings.json``
       to in-process row tuples (via ``office_holdings_seed`` in a tempdir
@@ -350,44 +357,60 @@ def emit_taxonomy(
     try:
         prefix = "emit-taxonomy [dry-run]" if dry_run else "emit-taxonomy"
 
-        # 5) entities (entities.json is the sole input post-Phase B)
-        rows = _compile_entities(
-            taxonomy_dir / "entities.json",
-            taxonomy_dir / "entities.parquet",
-        )
-        typer.echo(
-            f"{prefix}: wrote {rows} rows to datasets/taxonomy/entities.parquet"
-        )
-
-        # 6) office_holdings -> 3-CSV term-shape (post-B3-followup, 2026-06-07).
-        #    The legacy ``datasets/governments/{dim_offices,governments_office_holdings}.parquet``
-        #    pair RETIRED per umbrella plan O1 (no strangler-fig); CSV
-        #    is the survivor. We still drive the in-memory row-build
-        #    through ``office_holdings_seed.compile_to_parquet`` (because
-        #    its validation + citation logic is non-trivial and tested),
-        #    but we write the parquets into a per-run tempdir and
-        #    immediately project them onto the canonical 3-CSV shape
-        #    under ``datasets/data/`` via ``governments_term_shape.emit``.
-        #    The tempdir is cleaned up before this command exits.
-        #    Step 5 must still run before step 6 so entities.parquet is
-        #    fresh; the canonical entities/parties/geo CSVs under
-        #    ``datasets/data/`` must already exist (seeded by B2a).
+        # 5+6) entities + office_holdings -> 3-CSV term-shape
+        # (post-X1a-fu2-A, 2026-06-07).
+        #
+        # ``datasets/taxonomy/entities.parquet`` RETIRED per X1a-fu2-A
+        # sub-row A: the frontend reader-flipped to
+        # ``datasets/data/entities/geo.csv`` via DuckDB-WASM
+        # ``read_csv(columns=...)`` (loadStates) and to the hand-authored
+        # ``datasets/taxonomy/entities.json`` SoT (loadDistricts, which
+        # needs the Wikipedia 3-letter ``legacy_id`` column that geo.csv
+        # does not carry). We still drive the in-memory row-build through
+        # ``entities_seed.compile_to_parquet`` (because step 6's office
+        # bearer reader is a DuckDB SQL query against the parquet) but
+        # write it into a per-run tempdir; the tempdir lives through
+        # step 6 so the office_holdings reader still resolves and is
+        # cleaned up before this command exits. Same in-process tempdir
+        # detour pattern as step 6 (B3-followup, 2026-06-07).
+        #
+        # Step 6: ``datasets/governments/{dim_offices,governments_office_holdings}.parquet``
+        # pair RETIRED per umbrella plan O1 (no strangler-fig); CSV is
+        # the survivor. We still drive the in-memory row-build through
+        # ``office_holdings_seed.compile_to_parquet`` (because its
+        # validation + citation logic is non-trivial and tested), but
+        # we write the parquets into a per-run tempdir and immediately
+        # project them onto the canonical 3-CSV shape under
+        # ``datasets/data/`` via ``governments_term_shape.emit``.
+        # The canonical entities/parties/geo CSVs under
+        # ``datasets/data/`` must already exist (seeded by B2a).
         office_holdings_json = taxonomy_dir / "office_holdings.json"
-        import tempfile as _tempfile_step6
-        with _tempfile_step6.TemporaryDirectory(prefix="ygov_office_holdings_") as _step6_tmp:
-            _step6_tmp_dir = Path(_step6_tmp)
-            office_count, holdings_count = _compile_office_holdings(
-                office_holdings_json,
-                taxonomy_dir / "entities.parquet",
-                _step6_tmp_dir / "dim_offices.parquet",
-                _step6_tmp_dir / "governments_office_holdings.parquet",
+        import tempfile as _tempfile_step5_6
+        with _tempfile_step5_6.TemporaryDirectory(prefix="ygov_entities_") as _step5_tmp:
+            _step5_tmp_dir = Path(_step5_tmp)
+            entities_parquet = _step5_tmp_dir / "entities.parquet"
+            rows = _compile_entities(
+                taxonomy_dir / "entities.json",
+                entities_parquet,
             )
-            emitted = _emit_governments_term_shape(
-                parquet_dir=_step6_tmp_dir,
-                geo_entities_csv=root / "datasets" / "data" / "entities" / "geo.csv",
-                party_entities_csv=root / "datasets" / "data" / "entities" / "parties.csv",
-                out_data_dir=root / "datasets" / "data",
+            typer.echo(
+                f"{prefix}: compiled {rows} entity rows "
+                f"(via tempdir; no parquet survives under datasets/taxonomy/)"
             )
+            with _tempfile_step5_6.TemporaryDirectory(prefix="ygov_office_holdings_") as _step6_tmp:
+                _step6_tmp_dir = Path(_step6_tmp)
+                office_count, holdings_count = _compile_office_holdings(
+                    office_holdings_json,
+                    entities_parquet,
+                    _step6_tmp_dir / "dim_offices.parquet",
+                    _step6_tmp_dir / "governments_office_holdings.parquet",
+                )
+                emitted = _emit_governments_term_shape(
+                    parquet_dir=_step6_tmp_dir,
+                    geo_entities_csv=root / "datasets" / "data" / "entities" / "geo.csv",
+                    party_entities_csv=root / "datasets" / "data" / "entities" / "parties.csv",
+                    out_data_dir=root / "datasets" / "data",
+                )
         for file_class, path in emitted.items():
             typer.echo(
                 f"{prefix}: wrote {path.relative_to(root).as_posix()} [{file_class}]"

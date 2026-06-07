@@ -67,13 +67,19 @@ const ROW_SCHEMA_BY_TABLE_ID: Readonly<Record<string, string>> = Object.freeze({
   // but vitest mock manifests still spell these table_ids. The map only
   // fires when the manifest actually carries the table_id, so live readers
   // never hit these mappings post-X1b.
+  //
+  // X1a-fu2-A (2026-06-07): `"taxonomy.entities"` dropped because zero
+  // live readers reference it - loadStates flipped to
+  // `datasets/data/entities/geo.csv` via `registerCsvFile` +
+  // `read_csv(columns=...)`; loadDistricts + loadAllDistrictEntities
+  // flipped to `datasets/taxonomy/entities.json` (the hand-authored SoT)
+  // for the legacy_id + IN-<eci>-D<lgd> shape preservation.
   "elections.dim_acs": "dim-acs.schema.json",
   "elections.dim_parties": "dim-parties.schema.json",
   "elections.dim_pcs": "dim-pcs.schema.json",
   "elections.dim_party_alliances": "dim-party-alliances.schema.json",
   "elections.dim_persons": "dim-persons.schema.json",
   "elections.elections_candidacies": "elections-candidacies.schema.json",
-  "taxonomy.entities": "entity.schema.json",
   "taxonomy.indicators": "indicator-catalogue.schema.json",
   "taxonomy.methodology_breaks": "methodology-break.schema.json",
   "taxonomy.persons": "persons.schema.json",

@@ -1,18 +1,26 @@
-// Unit tests for the states view-model loader (T.0e — STATE_NAME_TO_ECI
-// retirement; D.0 — boundary_join_key projection + lgdCodeToEci helper).
-// Mirrors the pattern established by districts.test.ts: mock `query` +
-// `registerTable` at `../duckdb`, assert SQL shape, returned shape, and
-// null-row filtering. The real Parquet round-trip is asserted by the
-// Playwright golden-path spec.
+// Unit tests for the states view-model loader.
+// X1a-fu2-A (2026-06-07): the loader flipped from
+// `registerTable("taxonomy.entities")` (parquet) to
+// `read_csv('datasets/data/entities/geo.csv', columns=...)` via the typed
+// CSV seam. Mocks `query` + `registerCsvFile` + `csvColumnsClause` per the
+// pattern established by `view-models/ac-crosswalk.ts` (X1a-followup).
+// `RawStateRow` shape unchanged - the SQL projection still emits
+// {entity_id, eci_code, display_name, lgd_code, iso_3166_2} columns
+// even though the underlying read source is geo.csv.
 
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("../duckdb", () => ({
-  registerTable: vi.fn(async () => "noop"),
+  registerCsvFile: vi.fn(async () => undefined),
   query: vi.fn(),
 }));
 
-import { query, registerTable } from "../duckdb";
+vi.mock("../canonical/csv-columns", () => ({
+  csvColumnsClause: vi.fn(async () => "columns={'entity_id': 'VARCHAR'}"),
+}));
+
+import { query, registerCsvFile } from "../duckdb";
+import { csvColumnsClause } from "../canonical/csv-columns";
 import {
   loadStates,
   eciFromStateName,
@@ -21,8 +29,11 @@ import {
 } from "./states";
 
 const mockedQuery = vi.mocked(query);
-const mockedRegister = vi.mocked(registerTable);
+const mockedRegister = vi.mocked(registerCsvFile);
+const mockedClause = vi.mocked(csvColumnsClause);
 
+// Shape returned by the geo.csv SQL projection. The aliases extraction
+// happens in DuckDB, so the loader sees the already-projected row.
 const sampleRows = [
   {
     entity_id: "IN-S22",
@@ -41,39 +52,44 @@ const sampleRows = [
   {
     entity_id: "IN-U05",
     eci_code: "U05",
-    display_name: "NCT of Delhi",
-    lgd_code: "07",
+    display_name: "Delhi",
+    lgd_code: "7",
     iso_3166_2: "IN-DL",
   },
   {
     entity_id: "IN-U01",
     eci_code: "U01",
-    display_name: "Andaman and Nicobar Islands",
+    display_name: "Andaman & Nicobar",
     lgd_code: "35",
     iso_3166_2: "IN-AN",
   },
   {
     entity_id: "IN-U08",
     eci_code: "U08",
-    display_name: "Jammu and Kashmir (UT)",
-    lgd_code: "01",
+    display_name: "Jammu & Kashmir",
+    lgd_code: "1",
     iso_3166_2: "IN-JK",
   },
 ];
 
-describe("loadStates (taxonomy.entities)", () => {
+describe("loadStates (geo.csv via read_csv)", () => {
   beforeEach(() => {
     mockedQuery.mockReset();
     mockedRegister.mockReset();
-    mockedRegister.mockResolvedValue("noop");
+    mockedClause.mockReset();
+    mockedRegister.mockResolvedValue(undefined);
+    mockedClause.mockResolvedValue("columns={'entity_id': 'VARCHAR'}");
     __resetForTests();
   });
 
-  it("registers taxonomy.entities and returns one row per state/UT", async () => {
+  it("registers the geo.csv URL and returns one row per state/UT", async () => {
     mockedQuery.mockResolvedValueOnce(sampleRows);
     const out = await loadStates();
 
-    expect(mockedRegister).toHaveBeenCalledWith("taxonomy.entities");
+    expect(mockedRegister).toHaveBeenCalledTimes(1);
+    const registeredUrl = mockedRegister.mock.calls[0][0] as string;
+    expect(registeredUrl).toContain("data/entities/geo.csv");
+    expect(mockedClause).toHaveBeenCalledWith("datasets/data/entities/geo.csv");
     expect(out).toHaveLength(5);
     expect(out[0]).toMatchObject({
       entity_id: "IN-S22",
@@ -94,32 +110,34 @@ describe("loadStates (taxonomy.entities)", () => {
     }
   });
 
-  it("SQL filters to currently-valid states + UTs only", async () => {
+  it("SQL reads geo.csv filtered to entity_kind='state' (geo.csv folds UT into state)", async () => {
     mockedQuery.mockResolvedValueOnce([]);
     await loadStates();
     const sql = mockedQuery.mock.calls[0][0] as string;
 
-    expect(sql).toMatch(/FROM\s+entities/);
-    expect(sql).toMatch(/entity_type\s+IN\s*\(\s*'state',\s*'ut'\s*\)/);
-    expect(sql).toMatch(/entity_valid_to\s+IS\s+NULL/);
-    expect(sql).toMatch(/ORDER BY entity_code/);
+    expect(sql).toMatch(/FROM\s+read_csv\(/);
+    expect(sql).toContain("data/entities/geo.csv");
+    expect(sql).toMatch(/entity_kind\s*=\s*'state'/);
+    // The geo.csv aliases column carries the ECI / LGD / ISO codes;
+    // assert each regex extraction is present in the projection.
+    expect(sql).toMatch(/regexp_extract\(aliases,\s*'\(\[SU\]\[0-9\]\+\)'/);
+    expect(sql).toMatch(/regexp_extract\(aliases,\s*'lgd:\(\[0-9\]\+\)'/);
+    expect(sql).toMatch(/regexp_extract\(aliases,\s*'\(IN-\[A-Z\]\{2,3\}\)'/);
+    expect(sql).toMatch(/ORDER BY eci_code/);
   });
 
-  it("applies the three boundary_join_name overrides as citizen-display shortforms", async () => {
+  it("boundary_join_name equals display_name post-X1a-fu2-A (geo.csv publishes shortform directly)", async () => {
     mockedQuery.mockResolvedValueOnce(sampleRows);
     const out = await loadStates();
 
-    const byEci = new Map(out.map((s) => [s.eci_code, s]));
-    // boundary_join_name is the SHORTFORM for citizen-display surfaces
-    // (tooltips, breadcrumbs, ranked lists, legends) post-D.0. The three
-    // overrides shorten the legal/display name to something readable in
-    // a 200-px tooltip pill or a breadcrumb chip.
-    expect(byEci.get("U05")?.boundary_join_name).toBe("Delhi");
-    expect(byEci.get("U01")?.boundary_join_name).toBe("Andaman & Nicobar");
-    expect(byEci.get("U08")?.boundary_join_name).toBe("Jammu & Kashmir");
-    // Names without an override pass through unchanged.
-    expect(byEci.get("S22")?.boundary_join_name).toBe("Tamil Nadu");
-    expect(byEci.get("S11")?.boundary_join_name).toBe("Kerala");
+    // The pre-flip BOUNDARY_NAME_OVERRIDES table is retired because
+    // geo.csv `name` column already carries the citizen-display shortform
+    // ("Delhi" not "NCT of Delhi", "Andaman & Nicobar" not "Andaman and
+    // Nicobar Islands", "Jammu & Kashmir" not "Jammu and Kashmir (UT)").
+    // boundary_join_name therefore equals display_name on every row.
+    for (const row of out) {
+      expect(row.boundary_join_name).toBe(row.display_name);
+    }
   });
 
   it("drops rows where lgd_code is null (post-D.0 LGD-keyed join requires it)", async () => {
@@ -190,7 +208,9 @@ describe("eciFromStateName", () => {
   beforeEach(() => {
     mockedQuery.mockReset();
     mockedRegister.mockReset();
-    mockedRegister.mockResolvedValue("noop");
+    mockedClause.mockReset();
+    mockedRegister.mockResolvedValue(undefined);
+    mockedClause.mockResolvedValue("columns={'entity_id': 'VARCHAR'}");
     __resetForTests();
     mockedQuery.mockResolvedValue(sampleRows);
   });
@@ -200,7 +220,12 @@ describe("eciFromStateName", () => {
     expect(await eciFromStateName("Kerala")).toBe("S11");
   });
 
-  it("resolves the three overridden boundary shortforms", async () => {
+  it("resolves the shortform UT names that geo.csv publishes directly", async () => {
+    // geo.csv `name` column carries the shortform verbatim - so the
+    // legal long forms ("NCT of Delhi" / "Andaman and Nicobar Islands"
+    // / "Jammu and Kashmir (UT)") that the pre-X1a-fu2-A parquet
+    // exposed no longer resolve here. The citizen-facing shortforms
+    // remain the canonical name.
     expect(await eciFromStateName("Delhi")).toBe("U05");
     expect(await eciFromStateName("Andaman & Nicobar")).toBe("U01");
     expect(await eciFromStateName("Jammu & Kashmir")).toBe("U08");
@@ -208,15 +233,6 @@ describe("eciFromStateName", () => {
 
   it("returns null for an unknown name", async () => {
     expect(await eciFromStateName("Atlantis")).toBeNull();
-  });
-
-  it("resolves BOTH the shortform and the display_name post-D.0", async () => {
-    // Post-D.0 the helper matches against EITHER boundary_join_name
-    // ("Delhi") OR display_name ("NCT of Delhi") so callers that hand-
-    // type either form get the same answer. This is a back-compat
-    // widening relative to the pre-D.0 strict ST_NM lookup.
-    expect(await eciFromStateName("Delhi")).toBe("U05");
-    expect(await eciFromStateName("NCT of Delhi")).toBe("U05");
   });
 
   it.each([null, undefined, ""])("returns null for %s", async (input) => {
@@ -228,7 +244,9 @@ describe("lgdCodeToEci", () => {
   beforeEach(() => {
     mockedQuery.mockReset();
     mockedRegister.mockReset();
-    mockedRegister.mockResolvedValue("noop");
+    mockedClause.mockReset();
+    mockedRegister.mockResolvedValue(undefined);
+    mockedClause.mockResolvedValue("columns={'entity_id': 'VARCHAR'}");
     __resetForTests();
     mockedQuery.mockResolvedValue(sampleRows);
   });
@@ -238,7 +256,10 @@ describe("lgdCodeToEci", () => {
     expect(await lgdCodeToEci(32)).toBe("S11");
   });
 
-  it("resolves a zero-padded VARCHAR LGD code (taxonomy storage shape)", async () => {
+  it("resolves a zero-padded VARCHAR LGD code (back-compat with padded callers)", async () => {
+    // geo.csv does not zero-pad lgd codes any more (Delhi is "7" not
+    // "07"), but `lgdCodeToEci` parseInt-normalises both sides so a
+    // zero-padded caller still resolves.
     expect(await lgdCodeToEci("07")).toBe("U05");
     expect(await lgdCodeToEci("35")).toBe("U01");
     expect(await lgdCodeToEci("01")).toBe("U08");
@@ -261,3 +282,4 @@ describe("lgdCodeToEci", () => {
     expect(await lgdCodeToEci("999")).toBeNull();
   });
 });
+
