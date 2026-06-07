@@ -1,7 +1,7 @@
 # X1a-followup-2: residual parquet readers - scoping + handover
 
 **Date**: 2026-06-07
-**Status**: SCOPED-NOT-SHIPPED (this PR documents the work; subsequent PRs ship per-row)
+**Status**: **ALL 5 SUB-ROWS SHIPPED LOCAL** (2026-06-07; main at `769cb121` on `origin/main`). See Closure section at bottom for per-sub-row commit SHAs + final on-disk state.
 **Parent**: [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) Execution ledger row `X1a-followup elections residuals` STOP-AND-SURFACE
 **Sibling**: [TODO/20260606-handover-prompt-data-charting-reset.md](20260606-handover-prompt-data-charting-reset.md)
 
@@ -124,10 +124,21 @@ Per umbrella plan section 22.3 + 22.6:
 
 ## Status
 
-- **Sub-row X1a-fu2-A** entities reader flip: **READY** (CSV exists, just needs reader rewrite + test mock update).
-- **Sub-row X1a-fu2-B** indicators quiet retirement: **READY** (zero readers; drop emit + delete file + audit doctrine).
-- **Sub-row X1a-fu2-C** dim_party_alliances: **READY-WITH-WRITE** (needs CSV writer authored first).
-- **Sub-row X1a-fu2-D** election_results: **NEEDS-DECISION** (option (i) vs (ii)) + ship.
-- **Sub-row X1a-fu2-E** boundary_layers: **READY-WITH-WRITE** + reader-flip + test rewrite.
+- **Sub-row X1a-fu2-A** entities reader flip: **SHIPPED LOCAL** at commit `6c8ac439` (2026-06-07). `taxonomy/entities.parquet` retired; readers flipped to `data/entities/geo.csv` + `data/entities/electoral.csv`; scope fences added for residual sub-rows.
+- **Sub-row X1a-fu2-B** indicators quiet retirement: **SHIPPED LOCAL** at commit `d7831aba` (2026-06-07, part of the deferred-5 stack pre-X1a-fu2-A/C/D/E). `taxonomy/indicators.parquet` retired; zero-reader confirmed; cli.py emit-taxonomy step pruned.
+- **Sub-row X1a-fu2-C** dim_party_alliances: **SHIPPED LOCAL** at commit `42adcf33` (2026-06-07). `elections/dim_party_alliances.parquet` retired; CSV authored at `data/entities/party_alliances.csv`; reader in `view-models/state-overview.ts` flipped; writer.py `_DEPRECATIONS` lifted from 2 to 12 entries to fix manifest.json regeneration regression (Holy Law #5 structural fix).
+- **Sub-row X1a-fu2-D** election_results: **SHIPPED LOCAL + PUSHED** at commit `bfa9aef2` (merge `769cb121` on `origin/main`, 2026-06-07). Per user's "mechanical rip and replace, break temporarily, fix by end of PR" directive: 36 `datasets/elections/state=*/election_results.parquet` ripped to per-state CSV at `datasets/data/datapoints/electoral/<slug>_election_results.csv` (9 cols, 1,794,886 rows total, ~177MB) via one-shot `tools/rip_election_results_to_csv.py`; 3 readers flipped inline (`adapter-elections-seats.ts`, `election-seats-trend.ts`, `india-leading-parties.ts`) via new `election-results-csv.ts` columns-clause module; `writer.py::_emit_observations` short-circuit-guarded for `family == "elections"`; `backend/tests/test_canonical_writer_partition.py` deleted whole (8 tests, all asserted retired elections shard emit). Option (ii) was BYPASSED — direct per-state CSV transcode chosen as the most mechanical structural fix.
+- **Sub-row X1a-fu2-E** boundary_layers: **SHIPPED LOCAL** at commit `9a380d71` (transitively in `769cb121` on `origin/main`, 2026-06-07). `datasets/boundaries/boundary_layers.parquet` ripped to `datasets/data/entities/boundary_layer.csv` (4014 rows, 18 cols, 806KB) via `canonical/boundary_layers_seed.compile_to_csv()` (renamed from `compile_to_parquet`); 9 callers flipped; `backend/tests/test_boundary_layers_seed.py` + `backend/tests/test_ingest_pincode_polygons.py` mechanically rewritten in place to assert CSV via `csv.DictReader`; 4 frontend tests re-targeted at the new CSV.
 
-Next session: pick A or B first (cheapest); spawn subagent per sub-row; user signoff before D unless option (ii) confirmed cheap enough.
+## Closure (2026-06-07)
+
+All 5 sub-rows shipped. Final state on `origin/main` at `769cb121`:
+
+- **Worktrees + branches**: all cleaned. Only `main` branch + master worktree remain.
+- **Parquets retired** (37 total): 36 `datasets/elections/state=*/election_results.parquet` + 1 `datasets/boundaries/boundary_layers.parquet` + 1 `datasets/elections/dim_party_alliances.parquet` + 1 `datasets/taxonomy/entities.parquet` + 1 `datasets/taxonomy/indicators.parquet`. (The 9 energy + livestock parquets retired separately under X1b-pt2 commit `8ea74f24`.)
+- **CSVs emitted**: `datasets/data/datapoints/electoral/<slug>_election_results.csv` (36 files), `datasets/data/entities/boundary_layer.csv`, `datasets/data/entities/party_alliances.csv`.
+- **Test gates**: backend pytest 1538 pass / 30 fail / 9 skip / 3 errors (vs. pre-rip baseline of 40 fail — net 10-test improvement from mechanically rewritten boundary_layers + pincode_polygons assertions matching CSV shape). Frontend vitest + svelte-check + build all green.
+- **Intentionally deleted tests**: `backend/tests/test_canonical_writer_partition.py` (8 tests, X1a-fu2-D — all asserted retired elections shard emit).
+- **Doctrine sync**: grandparent plan [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) Execution ledger updated with the X1a-fu2 batch row.
+
+Residual parquets in flight after this batch: ZERO from the original X1a-fu2 enumeration. The CLAUDE.md section-3 "residual 5" enumeration is fully resolved.
