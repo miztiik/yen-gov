@@ -9,19 +9,8 @@ from pathlib import Path
 
 import typer
 
-from yen_gov.core.io import write_artifact
-from yen_gov.core.models import PartyEntry, PartiesSnapshot, ProcessingConfig, SourceRef
-from yen_gov.pipeline.compose import (
-    compose_result_summary_from_section_10,
-    eci_code_by_short_from_partywise,
-    load_eci_party_registry,
-    parties_snapshot_from_section3,
-    reconcile_winners_against_partywise,
-)
-from yen_gov.sources.eci.categories import category_id_for
+from yen_gov.core.models import ProcessingConfig
 from yen_gov.sources.eci.events import event_info_for
-from yen_gov.sources.eci.partywise import parse_partywise
-from yen_gov.sources.eci.section3 import parse_section3_parties
 from yen_gov.sources.eci.statistical_report_detailed import (
     parse_detailed_results,
     to_constituency_results,
@@ -957,14 +946,10 @@ def eci_statreport_emit_local(
     cfg = ProcessingConfig.model_validate(config_doc)
 
     # --- Parse + emit ---------------------------------------------------------
-    schema_dir = root / "datasets" / "schemas"
-    cr_schema = json.loads(
-        (schema_dir / "result.constituency.schema.json").read_text(encoding="utf-8")
-    )
-    summary_schema = json.loads(
-        (schema_dir / "result.summary.schema.json").read_text(encoding="utf-8")
-    )
-
+    # Per O1 doctrine + B4-pt3 (no strangler-fig - git is the backup), the
+    # legacy per-event JSON shards (results/<ac>.json, result.summary.json,
+    # parties.json) are no longer emitted from this command. The
+    # researcher-facing per-state CSV bundle survives as the only output.
     raw = parse_detailed_results(file.read_bytes())
     typer.echo(f"parsed:      {len(raw.sections)} AC sections")
 
@@ -979,136 +964,16 @@ def eci_statreport_emit_local(
         party_eci_codes=None,
     )
     output_dir = root / "datasets" / "elections" / event / state
-    results_dir = output_dir / "results"
-    results_dir.mkdir(parents=True, exist_ok=True)
-    for cr in results:
-        write_artifact(
-            path=results_dir / f"{cr.eci_no}.json",
-            schema_id=cr._schema_id,
-            schema_version=cr._schema_version,
-            payload=cr.body_payload(),
-            sources=cr.sources_payload(),
-            schema_for_validation=cr_schema,
-        )
-
-    summary = compose_result_summary_from_section_10(
-        raw, election=event, state=state, sources=[], party_eci_codes=None,
-    )
-    summary_path = output_dir / "result.summary.json"
-    write_artifact(
-        path=summary_path,
-        schema_id=summary._schema_id,
-        schema_version=summary._schema_version,
-        payload=summary.body_payload(),
-        sources=summary.sources_payload(),
-        schema_for_validation=summary_schema,
-    )
-
-    # parties.json: hand-import path has no Section 3 (the operator only
-    # downloaded the Section 10 XLSX). Fall back to the same registry-
-    # resolve idea used by the archived /api/ path, but treat the *unique
-    # set of party_shorts present in Section 10 candidates* as the "which
-    # parties participated\" claim. Independents and NOTA are excluded.
-    # See docs/architecture/backend/sources-eci.md §\"When parties.json
-    # gets emitted (and when it doesn't)\" for the wider doctrine.
-    parties_schema = json.loads(
-        (schema_dir / "party.schema.json").read_text(encoding="utf-8")
-    )
-    parties_path = output_dir / "parties.json"
-    section_10_shorts: list[str] = sorted({
-        c.party_short
-        for sec in raw.sections
-        for c in sec.candidates
-        if not c.is_nota and not c.is_independent
-    })
-    registry = load_eci_party_registry(root / "datasets" / "elections")
-    # A short is "resolvable" only when the registry knows it AND has a
-    # non-null numeric eci_code for it. Master-registry entries with
-    # eci_code=None (party exists in ECI's recognised list but has never
-    # appeared in a partywise URL we have ingested) cannot be written into
-    # parties.json — PartyEntry schema-requires a string eci_code.
-    candidate_shorts = [
-        s for s in section_10_shorts
-        if s in registry and registry[s].eci_code is not None
-    ]
-    # Dedupe by eci_code: two different shorts in Section 10 can resolve
-    # via the master registry's aliases[] to the same canonical eci_code
-    # (e.g. ADMK + AIADMK both -> 0136). PartyEntry.eci_code is UNIQUE in
-    # party.schema.json, so we keep only the first short per eci_code.
-    seen_codes: set[str] = set()
-    resolved: list[str] = []
-    collapsed: list[tuple[str, str]] = []  # (dropped_short, kept_short)
-    for s in candidate_shorts:
-        code = registry[s].eci_code
-        if code in seen_codes:
-            kept = next(
-                k for k in resolved if registry[k].eci_code == code
-            )
-            collapsed.append((s, kept))
-            continue
-        seen_codes.add(code)
-        resolved.append(s)
-    unresolved = [s for s in section_10_shorts if s not in resolved
-                  and not any(d == s for d, _ in collapsed)]
-    snapshot: PartiesSnapshot | None = None
-    if resolved:
-        # Aggregated artifact per ADR-0002: sources is the union of every
-        # registry source-URL that contributed a resolved short. The local-
-        # emit path itself was hand-authored (no upstream URL of its own),
-        # so the only sources cited are the live cohorts whose published
-        # eci_code we are reusing. fetched_at on each SourceRef is a fixed
-        # registry-snapshot timestamp — the hand-import has no per-URL
-        # fetch event of its own to cite.
-        contributing_urls: set[str] = set()
-        for s in resolved:
-            contributing_urls.update(registry[s].source_urls)
-        snapshot = PartiesSnapshot(
-            sources=[
-                SourceRef(url=url, fetched_at="2026-05-13T00:00:00Z")
-                for url in sorted(contributing_urls)
-            ],
-            election=event,
-            parties=[
-                PartyEntry(
-                    eci_code=registry[s].eci_code,
-                    short_name=s,
-                    full_name=registry[s].full_name,
-                )
-                for s in resolved
-            ],
-        )
-        write_artifact(
-            path=parties_path,
-            schema_id=snapshot._schema_id,
-            schema_version=snapshot._schema_version,
-            payload=snapshot.body_payload(),
-            sources=snapshot.sources_payload(),
-            schema_for_validation=parties_schema,
-        )
-        typer.echo(
-            f"parties.json: {len(resolved)} parties "
-            + (f"({len(unresolved)} dropped \u2014 absent from registry: "
-               f"{', '.join(unresolved[:10])}"
-               + ("\u2026" if len(unresolved) > 10 else "")
-               + ")" if unresolved else "")
-        )
-    else:
-        typer.echo(
-            f"parties.json: SKIPPED (zero of {len(section_10_shorts)} "
-            "Section-10 party_shorts resolved against registry)"
-        )
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     skipped = len(raw.sections) - len(results)
     typer.echo(
-        f"emit:        OK \u2014 {len(results)} ACs into {results_dir}"
+        f"emit:        OK \u2014 {len(results)} ACs"
         + (f" (skipped {skipped} countermanded)" if skipped else "")
     )
-    typer.echo(f"summary:     {summary_path}")
 
-    # CSV bundle parity with the live emit path (researcher-facing). The
-    # in-memory path (PR-O.3a — TODO 1.8b-writers-a) emits directly from
-    # the local objects instead of round-tripping through the JSON shards
-    # we just wrote.
+    # CSV bundle (researcher-facing) - the only artifact this command
+    # writes since B4-pt3 retired the legacy folded-JSON emit chokepoint.
     from yen_gov.emit.csv_bundle import emit_state_csv_from_data
     constituency_dicts = [cr.body_payload() for cr in results]
     csv_path = emit_state_csv_from_data(

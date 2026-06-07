@@ -45,8 +45,6 @@ from yen_gov.canonical.envelope import (
     SourceRow,
 )
 from yen_gov.canonical.writer import WriteResult, write_batch
-from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
-from yen_gov.core.io import write_artifact
 from yen_gov.sources.eci.events import event_id_for as registered_event_id_for
 
 MONTH_ABBR = {
@@ -74,7 +72,6 @@ POLL_DATE_OVERRIDES = {
     ("S22", 2021): "2021-04-06",
 }
 
-INVENTORY_SCHEMA_FILE = "elections-inventory.schema.json"
 INVENTORY_PATH_REL = ("datasets", "elections", "_inventory.json")
 REPORTS_DIR_REL = (".runtime", "reports")
 SOURCE_INPUT_ID = "eci_ae_panel"
@@ -773,13 +770,14 @@ def upsert_inventory_entries(*, repo_root: Path, events: Iterable[str], state_co
             },
         })
     filtered.sort(key=lambda r: (r["state"], r["election_id"], r["source_input"]))
-    write_artifact(
-        path=path,
-        schema_id=schema_id(INVENTORY_SCHEMA_FILE),
-        schema_version=schema_version(INVENTORY_SCHEMA_FILE),
-        payload={"ingested": filtered},
-        sources=[],
-        schema_for_validation=schema_doc(INVENTORY_SCHEMA_FILE),
+    # Direct write (mirror eci_ls.py _upsert_inventory pattern). Schema
+    # validation of `_inventory.json` is enforced by Tier-B not at write
+    # time. The previous routing through core.io.write_artifact retired
+    # in B4-pt3 alongside the folded-indicator writer.
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps({"ingested": filtered}, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
     )
     return path
 
