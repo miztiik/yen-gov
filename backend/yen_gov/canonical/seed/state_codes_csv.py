@@ -1,6 +1,6 @@
 """B2b.5.0b entities/state_codes.csv emitter.
 
-Joins the committed LGD parsed snapshot (``datasets/reference/lgd/states.csv``,
+Joins the committed LGD parsed snapshot (``datasets/data/entities/lgd/states.csv``,
 the LGD-authority register from B2b.5.0a) with the committed ISO transcription
 seed (``datasets/data/entities/state_iso_seed.csv``) to emit the LGD-spine
 state/UT identity table ``datasets/data/entities/state_codes.csv``.
@@ -8,6 +8,9 @@ state/UT identity table ``datasets/data/entities/state_codes.csv``.
 G8 (2026-06-08): the ISO seed moved out of ``datasets/reference/`` into
 ``datasets/data/entities/`` as part of the mechanical ``datasets/reference/``
 reshape (plan-doc section 9 + section 21.2). The seed shape is unchanged.
+G8-finish (2026-06-08): the LGD parsed snapshot also moved from
+``datasets/reference/lgd/`` into ``datasets/data/entities/lgd/`` as part of
+the full ``datasets/reference/`` tier retirement.
 
 Per sub-plan section 0c.4 / round-8c:
 

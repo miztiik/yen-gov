@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Parse the throwaway LGD exports in ``datasets/ephemeral/`` into committed,
-deterministic parsed-snapshot CSVs under ``datasets/reference/lgd/``.
+deterministic parsed-snapshot CSVs under ``datasets/data/entities/lgd/``.
 
 This is PR-stage 0a of sub-plan
 ``TODO/20260604-b2b5-elections-reingest-subplan.md`` (chunk B2b.5.0). It is the
@@ -8,15 +8,22 @@ FIRST filter in the committed seam the plan section 0c.1 mandates::
 
     datasets/ephemeral/*.csv|*.xlsx   (gitignored, throwaway, SOURCE-only)
         -> tools/lgd/parse_lgd_export.py        (THIS file)
-        -> datasets/reference/lgd/<table>.csv    (committed snapshot = source of truth)
-           + parse-receipt.json                  (sha256 of raw bytes + row counts + vintage)
+        -> datasets/data/entities/lgd/<table>.csv    (committed snapshot = source of truth)
+           + datasets/_ops/lgd-parse-receipt.json    (sha256 + row counts + vintage)
         -> backend canonical seed (0b / 0c)
         -> datasets/data/entities/*.csv          (columns.json-governed)
 
 Reproducibility contract (plan 0c.1): a fresh checkout + this committed builder
 regenerates the snapshot CSVs byte-for-byte from the same ephemeral inputs; the
-per-file sha256 in ``parse-receipt.json`` ties the committed snapshot to the
-(uncommitted) raw bytes, so byte-exact re-download is NOT required.
+per-file sha256 in ``datasets/_ops/lgd-parse-receipt.json`` ties the committed
+snapshot to the (uncommitted) raw bytes, so byte-exact re-download is NOT
+required.
+
+Layout (G8-finish, 2026-06-08, plan section 9): the snapshot tables live
+under ``datasets/data/entities/lgd/`` (citizen-tier reference, alongside
+``entities/state_codes.csv`` etc.) and the parse receipt under
+``datasets/_ops/`` (operator-tier, not citizen-facing) - retiring the
+old ``datasets/reference/`` tier.
 
 Five snapshot tables are emitted:
 
@@ -501,18 +508,25 @@ def build_snapshot(
     out_dir: Path,
     *,
     sources: dict[str, Any] | None = None,
+    receipt_path: Path | None = None,
 ) -> dict[str, Any]:
     """Parse the ephemeral exports and write the five snapshot CSVs + receipt.
 
     Args:
         ephemeral: directory holding the throwaway LGD exports (used to discover
             sources when ``sources`` is not given).
-        out_dir: committed snapshot output directory.
+        out_dir: committed snapshot CSV output directory
+            (default production location: ``datasets/data/entities/lgd``).
         sources: optional explicit ``{states, districts, subdistricts, pri}`` map
             (the golden test passes fixture paths whose names do not match the
             production globs).
+        receipt_path: path the parse receipt JSON is written to. When not given,
+            falls back to ``out_dir / OUT_RECEIPT`` for backward compatibility
+            with the golden-fixture tests that point ``out_dir`` at a tmp dir.
+            Production runs pass ``datasets/_ops/lgd-parse-receipt.json`` per
+            plan-doc section 9 (operator state lives under ``_ops/``).
 
-    Returns the receipt dict (also written to ``out_dir/parse-receipt.json``).
+    Returns the receipt dict (also written to ``receipt_path``).
     """
     if sources is None:
         sources = discover_sources(ephemeral)
@@ -564,7 +578,7 @@ def build_snapshot(
     n_mem = _write_csv(out_dir / OUT_MEMBERSHIP, MEMBERSHIP_COLS, mem_rows)
 
     receipt: dict[str, Any] = {
-        "$schema": "./lgd-parse-receipt.schema.json",
+        "$schema": "../schemas/lgd-parse-receipt.schema.json",
         "$schema_version": "1.0",
         "snapshot_vintage": SNAPSHOT_VINTAGE,
         "parser": "tools/lgd/parse_lgd_export.py",
@@ -583,7 +597,12 @@ def build_snapshot(
         ],
         "unmatched_district_codes_by_state": all_unmatched,
     }
-    (out_dir / OUT_RECEIPT).write_text(
+    if receipt_path is None:
+        # Backwards-compat for the golden-fixture tests: drop the receipt
+        # next to the CSVs when no explicit location was given.
+        receipt_path = out_dir / OUT_RECEIPT
+    receipt_path.parent.mkdir(parents=True, exist_ok=True)
+    receipt_path.write_text(
         json.dumps(receipt, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
         encoding="utf-8",
         newline="",
@@ -598,11 +617,15 @@ def main(argv: list[str] | None = None) -> int:
         help="Directory holding the throwaway LGD exports (default: datasets/ephemeral).",
     )
     parser.add_argument(
-        "--out", type=Path, default=Path("datasets/reference/lgd"),
-        help="Committed snapshot output directory (default: datasets/reference/lgd).",
+        "--out", type=Path, default=Path("datasets/data/entities/lgd"),
+        help="Committed snapshot CSV output directory (default: datasets/data/entities/lgd).",
+    )
+    parser.add_argument(
+        "--receipt", type=Path, default=Path("datasets/_ops/lgd-parse-receipt.json"),
+        help="Parse-receipt JSON output path (default: datasets/_ops/lgd-parse-receipt.json).",
     )
     args = parser.parse_args(argv)
-    receipt = build_snapshot(args.ephemeral, args.out)
+    receipt = build_snapshot(args.ephemeral, args.out, receipt_path=args.receipt)
     n = {o["file"]: o["rows"] for o in receipt["outputs"]}
     print(f"wrote snapshot to {args.out} (vintage {receipt['snapshot_vintage']}):")
     for fname, rows in n.items():

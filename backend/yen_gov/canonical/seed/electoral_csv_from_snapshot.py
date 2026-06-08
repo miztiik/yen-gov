@@ -1,11 +1,13 @@
 """B2b.5.0c entities/electoral.csv emitter (clean-start from the LGD snapshot).
 
 Regenerates ``datasets/data/entities/electoral.csv`` from the committed LGD
-parsed snapshot ``datasets/reference/lgd/constituencies.csv`` (B2b.5.0a), which
-is sourced from the freshly-downloaded PRI super-file and carries, per
-constituency, the LGD register code AND the ECI ballot serial (``eci_code``) AND
-the parent PC. This SUPERSEDES the prior ``electoral_csv.py`` emitter that read
-the distrusted ``datasets/taxonomy/lgd_acs.json`` / ``lgd_pcs.json`` registers.
+parsed snapshot ``datasets/data/entities/lgd/constituencies.csv`` (B2b.5.0a;
+relocated from ``datasets/reference/lgd/`` to ``datasets/data/entities/lgd/`` by
+G8-finish 2026-06-08, plan section 9), which is sourced from the freshly-
+downloaded PRI super-file and carries, per constituency, the LGD register code
+AND the ECI ballot serial (``eci_code``) AND the parent PC. This SUPERSEDES the
+prior ``electoral_csv.py`` emitter that read the distrusted
+``datasets/taxonomy/lgd_acs.json`` / ``lgd_pcs.json`` registers.
 
 Round-7 / round-8 binding decisions realised here:
 

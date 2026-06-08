@@ -94,7 +94,7 @@ Binding doctrine (shared by all six emitted CSVs): each emitter projects the par
 
 ## Elections datapoint reingest (B2b.5, PRs #762-772)
 
-Sub-plan [TODO/20260604-b2b5-elections-reingest-subplan.md](../../../TODO/20260604-b2b5-elections-reingest-subplan.md) delivered the elections clean-start: an LGD-spine reset (PR-stages 0a-0e) plus the two Tier-R result axes (assembly + parliament). The spine is sourced from a committed LGD parsed snapshot under `datasets/reference/lgd/`; the results are re-parsed from the local TCPD compilations in `datasets/ephemeral/` (never the surviving parquet). Per-row emit map:
+Sub-plan [TODO/20260604-b2b5-elections-reingest-subplan.md](../../../TODO/20260604-b2b5-elections-reingest-subplan.md) delivered the elections clean-start: an LGD-spine reset (PR-stages 0a-0e) plus the two Tier-R result axes (assembly + parliament). The spine is sourced from a committed LGD parsed snapshot under `datasets/data/entities/lgd/` (relocated from `datasets/reference/lgd/` by G8-finish 2026-06-08, plan section 9); the results are re-parsed from the local TCPD compilations in `datasets/ephemeral/` (never the surviving parquet). Per-row emit map:
 
 | Source (ephemeral, INPUT-only) | Emitter | Writes | Key shape |
 | --- | --- | --- | --- |
