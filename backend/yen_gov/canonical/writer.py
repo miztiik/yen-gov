@@ -346,6 +346,47 @@ _DEPRECATIONS: list[dict[str, str]] = [
         "new_path": "data/entities/pincode.csv",
         "deprecated_at": "2026-06-08",
     },
+    # G8-finish (2026-06-08) - the six surviving members of the
+    # ``datasets/reference/lgd/`` parsed-snapshot family relocate as part
+    # of the FULL ``datasets/reference/`` tier retirement (plan-doc
+    # section 9 ``reference/`` row + section 21.2 one-format CSV mandate).
+    # The five CSV snapshot masters move into the canonical entities tier
+    # at ``datasets/data/entities/lgd/``; the JSON parse-receipt becomes
+    # operator state under ``datasets/_ops/``. Sole writer
+    # (``tools/lgd/parse_lgd_export.py``) + the 3 backend canonical seeds
+    # (``state_codes_csv.py``, ``electoral_csv_from_snapshot.py``,
+    # ``electoral_district_membership_csv.py``) + 2 runners are repointed
+    # in the same commit.
+    {
+        "old_path": "reference/lgd/states.csv",
+        "new_path": "data/entities/lgd/states.csv",
+        "deprecated_at": "2026-06-08",
+    },
+    {
+        "old_path": "reference/lgd/districts.csv",
+        "new_path": "data/entities/lgd/districts.csv",
+        "deprecated_at": "2026-06-08",
+    },
+    {
+        "old_path": "reference/lgd/subdistricts.csv",
+        "new_path": "data/entities/lgd/subdistricts.csv",
+        "deprecated_at": "2026-06-08",
+    },
+    {
+        "old_path": "reference/lgd/constituencies.csv",
+        "new_path": "data/entities/lgd/constituencies.csv",
+        "deprecated_at": "2026-06-08",
+    },
+    {
+        "old_path": "reference/lgd/constituency_district_membership.csv",
+        "new_path": "data/entities/lgd/constituency_district_membership.csv",
+        "deprecated_at": "2026-06-08",
+    },
+    {
+        "old_path": "reference/lgd/parse-receipt.json",
+        "new_path": "_ops/lgd-parse-receipt.json",
+        "deprecated_at": "2026-06-08",
+    },
 ]
 
 

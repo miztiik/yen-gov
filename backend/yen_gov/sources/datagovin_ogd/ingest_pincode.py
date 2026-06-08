@@ -4,32 +4,17 @@ Reads the operator-staged ``datasets/ephemeral/all_india_pincode_directory_2025.
 runs it through :func:`parse_pincode_directory`, and emits two artifacts:
 
 1. ``datasets/data/entities/pincode.csv`` — the canonical pincode reference
-   table (G8 2026-06-08: was ``datasets/reference/in/pincodes/pincode-directory.parquet``;
-   moved + transcoded to CSV per plan-doc section 9 reference/ reshape
-   + section 21.2 one-format CSV mandate).
+   table. Written directly via :mod:`csv` (no parquet, no DuckDB) per
+   plan-doc section 9 ``datasets/reference/`` reshape + section 21.2
+   one-format-CSV mandate. G8 (2026-06-08) moved the on-disk file to
+   this path; the G8-finish PR (2026-06-08) replaced the legacy
+   ``COPY ... TO ... (FORMAT PARQUET)`` writer body with a direct CSV
+   emit, closing the prior MIGRATING marker.
 
 2. UPSERT of one citation row into
    ``datasets/taxonomy/sources.parquet`` — the v2.0 sources ledger entry
    per ADR-0032 (``(producer, title, vintage)`` triple ->
    :func:`derive_source_id`).
-
-MIGRATING (G8-followup): the ``DEFAULT_OUTPUT_REL`` constant below was
-updated to the new CSV path, but the writer body still emits via DuckDB
-``COPY ... TO ... (FORMAT PARQUET)``. The canonical on-disk file
-``datasets/data/entities/pincode.csv`` was transcoded from the legacy
-parquet in this same PR; the writer rewrite (parquet emit -> direct CSV
-emit) is queued as a G8-followup so its 9 parquet-shaped tests can be
-rewritten in one bundle. Operators MUST NOT re-run this ingest until
-the followup lands (a re-run would overwrite the canonical CSV with
-parquet bytes); the captcha-fetched input is byte-stable for the 2025
-vintage anyway, so a near-term re-run is not needed.
-
-Bulk-insert strategy: ``executemany`` against a 165k-row corpus takes
-minutes (per-row IPC dominates). We write the parsed rows back out
-through :mod:`csv` to a sibling temp CSV — deterministic byte ordering
-because we sort first — and let DuckDB's multi-threaded ``read_csv``
-ingest it in seconds before the COPY to parquet. The intermediate CSV
-is removed at the end; the determinism guarantee is unchanged.
 
 Source identity (ADR-0032 citation ledger):
     producer = "Department of Posts, Government of India"
@@ -41,10 +26,11 @@ Source identity (ADR-0032 citation ledger):
     method   = "transcribed"     (operator captcha-fetch, NOT live-fetch)
 
 Idempotency: a re-run against byte-identical input yields a
-byte-identical output parquet AND a byte-identical sources.parquet
-(modulo other adapters' rows in the latter). The sort key + DuckDB
-writer settle ordering deterministically; the citation triple is
-constant.
+byte-identical output CSV AND a byte-identical sources.parquet
+(modulo other adapters' rows in the latter). The Python sort on
+``(pincode, officename)`` plus the ``newline=""`` + ``lineterminator="\n"``
++ ``csv.QUOTE_MINIMAL`` writer settings settle ordering and quoting
+deterministically across platforms; the citation triple is constant.
 
 Invocation::
 
@@ -58,7 +44,6 @@ explicit paths.
 from __future__ import annotations
 
 import csv
-import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -111,11 +96,9 @@ DEFAULT_INPUT_REL = Path("datasets/ephemeral/all_india_pincode_directory_2025.cs
 
 # Canonical output: CSV under data/entities/, the canonical reference home
 # (G8 2026-06-08: was datasets/reference/in/pincodes/pincode-directory.parquet;
-# moved + transcoded per plan-doc section 9 + section 21.2). MIGRATING:
-# the writer body still emits (FORMAT PARQUET) at this path - the
-# G8-followup that flips the writer to direct CSV emission is queued.
-# Operators MUST NOT re-run this ingest until that followup lands; the
-# committed CSV at this path is authoritative.
+# moved + transcoded per plan-doc section 9 + section 21.2. The writer body
+# was rewritten in the G8-finish PR (2026-06-08) to emit CSV directly via
+# the :mod:`csv` module — no DuckDB COPY, no intermediate parquet.)
 DEFAULT_OUTPUT_REL = Path("datasets/data/entities/pincode.csv")
 
 # Sources ledger lives at the standard taxonomy path; this PR upserts
@@ -283,43 +266,35 @@ PINCODE_OUTPUT_COLUMNS: tuple[str, ...] = (
 )
 
 
-# Explicit per-column types so DuckDB's ``read_csv`` doesn't reinterpret
-# pincode strings ("004411") as integers and lose the leading zero.
-# This dict is fed into the SQL ``columns={...}`` argument verbatim.
-_READ_CSV_COLUMN_TYPES: dict[str, str] = {
-    "pincode": "VARCHAR",
-    "officename": "VARCHAR",
-    "officetype": "VARCHAR",
-    "delivery": "VARCHAR",
-    "divisionname": "VARCHAR",
-    "regionname": "VARCHAR",
-    "circlename": "VARCHAR",
-    "district": "VARCHAR",
-    "statename": "VARCHAR",
-    "latitude": "DOUBLE",
-    "longitude": "DOUBLE",
-    "source_id": "VARCHAR",
-}
-
-
 @dataclass(frozen=True)
 class IngestResult:
     """Summary of one pincode-ingest run."""
 
     parsed: ParsedPincodeDirectory
-    output_parquet: Path
+    output_csv: Path
     sources_parquet: Path
     source_id: str
-    row_count: int  # rows actually written to the output parquet
+    row_count: int  # rows actually written to the output CSV
 
 
-def _write_intermediate_csv(rows, dest: Path) -> None:
-    """Write parsed rows to a deterministic CSV in :data:`PINCODE_OUTPUT_COLUMNS`
-    order. None / "" are written as empty cells (DuckDB reads them as NULL).
+def _write_pincode_csv(rows, dest: Path) -> None:
+    """Write sorted parsed rows directly to ``dest`` as the canonical
+    deterministic CSV in :data:`PINCODE_OUTPUT_COLUMNS` order.
 
-    Uses ``newline=""`` + ``lineterminator="\\n"`` so Windows doesn't
-    inject ``\\r\\n`` and break byte-equivalence with a Linux re-run.
-    Quoting is ``csv.QUOTE_MINIMAL`` (DuckDB's default-friendly setting).
+    Determinism contract (the byte-stable shape consumers can rely on):
+
+    - Column order matches :data:`PINCODE_OUTPUT_COLUMNS` exactly.
+    - ``newline=""`` + ``lineterminator="\\n"`` so Windows does not
+      inject ``\\r\\n`` and break byte-equivalence with a Linux re-run.
+    - ``csv.QUOTE_MINIMAL`` so only cells containing the delimiter / a
+      quote / a newline are quoted; matches DuckDB's default-friendly
+      setting (which was the source of the prior committed bytes).
+    - ``latitude`` / ``longitude`` are emitted via ``repr(float)`` so
+      the full DOUBLE precision survives the round-trip; missing values
+      become empty cells.
+    - Optional textual fields (``officetype``, ``delivery``,
+      ``district``, ``statename``) write the empty string when None,
+      again to match the prior DuckDB COPY output.
     """
     with dest.open("w", encoding="utf-8", newline="") as fp:
         w = csv.writer(fp, lineterminator="\n", quoting=csv.QUOTE_MINIMAL)
@@ -346,25 +321,26 @@ def _write_intermediate_csv(rows, dest: Path) -> None:
 def ingest_pincode_directory(
     *,
     input_csv: Path,
-    output_parquet: Path,
+    output_csv: Path,
     sources_parquet: Path,
 ) -> IngestResult:
-    """Parse CSV, emit canonical parquet (sorted), UPSERT citation row.
+    """Parse the operator-staged CSV, emit the canonical pincode CSV
+    (sorted), and UPSERT the citation row into the sources ledger.
 
     Idempotent: re-running against byte-identical ``input_csv`` yields
-    byte-identical bytes at ``output_parquet`` and ``sources_parquet``
+    byte-identical bytes at ``output_csv`` and ``sources_parquet``
     (modulo other adapters' rows in the latter). The sort key is
     ``(pincode, officename)``; the citation triple is module-level
     constant.
 
-    Bulk-insert strategy: write the parsed rows to an intermediate CSV
-    (deterministic, sorted) and let DuckDB's multi-threaded
-    ``read_csv`` bulk-load + COPY to parquet. ``executemany`` at 165k
-    rows would dominate wall-time with per-row IPC; CSV-COPY finishes
-    in ~5s on the same corpus.
+    Writer strategy: pure :mod:`csv` write — no parquet, no DuckDB.
+    Python's stdlib CSV writer at 165k rows finishes in well under a
+    second; the prior intermediate-CSV-then-DuckDB-COPY-to-parquet
+    detour existed only to materialise the parquet output, which plan
+    section 21.2 retired.
     """
     input_csv = Path(input_csv)
-    output_parquet = Path(output_parquet)
+    output_csv = Path(output_csv)
     sources_parquet = Path(sources_parquet)
 
     if not input_csv.is_file():
@@ -377,50 +353,23 @@ def ingest_pincode_directory(
     raw = input_csv.read_bytes()
     parsed = parse_pincode_directory(raw)
 
-    # Sort for byte-deterministic parquet output. (pincode, officename)
-    # is a stable composite key: pincode partitions the table 9-way by
+    # Sort for byte-deterministic CSV output. (pincode, officename) is a
+    # stable composite key: pincode partitions the table 9-way by
     # leading digit (geographic regions); officename disambiguates the
     # multi-PO pincodes (a single pincode can serve many post offices,
     # esp. metropolitan ones).
     sorted_rows = sorted(parsed.rows, key=lambda r: (r.pincode, r.officename))
 
-    output_parquet.parent.mkdir(parents=True, exist_ok=True)
+    output_csv.parent.mkdir(parents=True, exist_ok=True)
+    _write_pincode_csv(sorted_rows, output_csv)
 
-    # Round-trip through an intermediate CSV so DuckDB's multi-threaded
-    # read_csv can bulk-ingest. The CSV is deterministic (sorted rows,
-    # fixed column order, LF line endings) so re-runs produce
-    # byte-identical input to DuckDB and therefore byte-identical
-    # parquet output.
-    with tempfile.TemporaryDirectory() as tmp:
-        intermediate = Path(tmp) / "pincodes.csv"
-        _write_intermediate_csv(sorted_rows, intermediate)
-
-        cols_sql = ", ".join(f"'{name}': '{ty}'" for name, ty in _READ_CSV_COLUMN_TYPES.items())
-        con = duckdb.connect(":memory:")
-        try:
-            con.execute(
-                f"""
-                COPY (
-                    SELECT * FROM read_csv(
-                        '{intermediate.as_posix()}',
-                        header = true,
-                        columns = {{{cols_sql}}},
-                        nullstr = ''
-                    )
-                    ORDER BY pincode, officename
-                ) TO '{output_parquet.as_posix()}' (FORMAT PARQUET)
-                """
-            )
-        finally:
-            con.close()
-
-    # Side-effect the citation row. Done AFTER the parquet emit so a
-    # crash during emit doesn't leave a citation pointing at no data.
+    # Side-effect the citation row. Done AFTER the CSV emit so a crash
+    # during emit does not leave a citation pointing at no data.
     upsert_pincode_source_to_parquet(sources_parquet)
 
     return IngestResult(
         parsed=parsed,
-        output_parquet=output_parquet,
+        output_csv=output_csv,
         sources_parquet=sources_parquet,
         source_id=PINCODE_SOURCE_ID,
         row_count=len(sorted_rows),
@@ -452,12 +401,12 @@ def _resolve_repo_root() -> Path:
 def main() -> None:
     repo_root = _resolve_repo_root()
     input_csv = repo_root / DEFAULT_INPUT_REL
-    output_parquet = repo_root / DEFAULT_OUTPUT_REL
+    output_csv = repo_root / DEFAULT_OUTPUT_REL
     sources_parquet = repo_root / DEFAULT_SOURCES_REL
 
     result = ingest_pincode_directory(
         input_csv=input_csv,
-        output_parquet=output_parquet,
+        output_csv=output_csv,
         sources_parquet=sources_parquet,
     )
     print(
@@ -465,7 +414,7 @@ def main() -> None:
         f"(skipped {result.parsed.invalid_pincode_count} invalid pincodes, "
         f"{result.parsed.invalid_coordinate_count} invalid coord cells); "
         f"wrote {result.row_count} rows to "
-        f"{result.output_parquet.relative_to(repo_root).as_posix()}; "
+        f"{result.output_csv.relative_to(repo_root).as_posix()}; "
         f"upserted source_id={result.source_id} into "
         f"{result.sources_parquet.relative_to(repo_root).as_posix()}"
     )

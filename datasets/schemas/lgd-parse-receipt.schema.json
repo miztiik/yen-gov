@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "./lgd-parse-receipt.schema.json",
   "title": "LGD parsed-snapshot parse receipt",
-  "description": "Reproducibility receipt for the committed LGD parsed snapshot under datasets/reference/lgd/. Carries a sha256 of each throwaway ephemeral source (plan B2b.5.0a), the snapshot vintage, output row counts, and any unmatched district codes. Ties the committed snapshot CSVs to the uncommitted raw bytes so a byte-exact re-download is not required.",
+  "description": "Reproducibility receipt for the committed LGD parsed snapshot. Carries a sha256 of each throwaway ephemeral source (plan B2b.5.0a), the snapshot vintage, output row counts, and any unmatched district codes. Ties the committed snapshot CSVs to the uncommitted raw bytes so a byte-exact re-download is not required. As of G8-finish (2026-06-08, plan section 9 reference/ retire), the snapshot CSVs live at datasets/data/entities/lgd/ and the receipt itself at datasets/_ops/lgd-parse-receipt.json (operator state, not citizen-facing).",
   "x-version": "1.0",
   "x-changelog": [
     {

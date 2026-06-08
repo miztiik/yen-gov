@@ -53,7 +53,7 @@ def _ensure_source_row(source_csv: Path, source_id: str) -> None:
 
 def main() -> None:
     repo_root = Path(__file__).resolve().parents[4]
-    snapshot = repo_root / "datasets" / "reference" / "lgd"
+    snapshot = repo_root / "datasets" / "data" / "entities" / "lgd"
     entities = repo_root / "datasets" / "data" / "entities"
     source_csv = entities / "source.csv"
 

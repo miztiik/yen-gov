@@ -1,8 +1,11 @@
 """B2b.5.0c entities/electoral_district_membership.csv emitter (clean-start).
 
 Emits the AC <-> LGD-district 1:many membership table from the committed LGD
-parsed snapshot ``datasets/reference/lgd/constituency_district_membership.csv``
-(B2b.5.0a), which is sourced from the PRI super-file's per-AC village rows. This
+parsed snapshot
+``datasets/data/entities/lgd/constituency_district_membership.csv``
+(B2b.5.0a; relocated from ``datasets/reference/lgd/`` to
+``datasets/data/entities/lgd/`` by G8-finish 2026-06-08, plan section 9),
+which is sourced from the PRI super-file's per-AC village rows. This
 SUPERSEDES + RENAMES the prior ``electoral_lgd_xwalk.csv`` (round-7): the
 relation is LGD-canonical (an AC can span districts per the LGD Constituency
 Coverage report), not a geometry artifact.

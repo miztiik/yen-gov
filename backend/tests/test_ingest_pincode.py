@@ -4,21 +4,29 @@ CLAUDE.md §10 anti-pattern: NO real-corpus walks from pytest. All tests
 use ``tmp_path`` fixtures with hand-built CSVs.
 
 Coverage:
-  - smoke: ingest writes parquet + sources.parquet with expected
-    row count and source_id.
+  - smoke: ingest writes the canonical CSV + sources.parquet with the
+    expected row count and source_id.
   - idempotency: re-running against byte-identical input yields
-    byte-identical parquet (the determinism guarantee).
-  - sort ordering: rows in the emitted parquet are ordered by
+    byte-identical CSV bytes (the determinism guarantee).
+  - sort ordering: rows in the emitted CSV are ordered by
     (pincode, officename) regardless of input order.
   - sources row UPSERT: the citation row carries the right
     producer/title/vintage/source_id triple and FK-resolves.
   - sources idempotency: re-running over a pre-existing sources
     parquet leaves the row count unchanged (UPSERT, not INSERT).
   - missing input file: raises a descriptive ``FileNotFoundError``.
+
+G8-finish (2026-06-08): the writer body was rewritten parquet -> direct
+CSV emit per plan-doc section 21.2; the 9 assertions in this module that
+previously decoded the output via ``read_parquet`` now decode it via
+``read_csv_auto`` / :mod:`csv`. The sources.parquet ledger remains a
+separate ADR-0032 scope: those assertions still use ``read_parquet``
+until the source-table migration (post-X1b) flips them.
 """
 
 from __future__ import annotations
 
+import csv
 import hashlib
 from pathlib import Path
 
@@ -71,15 +79,15 @@ _CSV_BODY = _fixture_csv(
 # ---------------------------------------------------------------------------
 
 
-def test_ingest_writes_parquet_and_sources_row(tmp_path: Path) -> None:
+def test_ingest_writes_csv_and_sources_row(tmp_path: Path) -> None:
     csv_in = tmp_path / "in" / "pincodes.csv"
-    out_parquet = tmp_path / "out" / "pincode-directory.parquet"
+    out_csv = tmp_path / "out" / "pincode.csv"
     sources_parquet = tmp_path / "tax" / "sources.parquet"
     _write_csv(csv_in, _CSV_BODY)
 
     result = ingest_pincode_directory(
         input_csv=csv_in,
-        output_parquet=out_parquet,
+        output_csv=out_csv,
         sources_parquet=sources_parquet,
     )
 
@@ -87,94 +95,76 @@ def test_ingest_writes_parquet_and_sources_row(tmp_path: Path) -> None:
     assert result.parsed.record_count == 3
     assert result.parsed.invalid_pincode_count == 0
     assert result.source_id == PINCODE_SOURCE_ID
-    assert out_parquet.is_file()
+    assert out_csv.is_file()
     assert sources_parquet.is_file()
 
 
-def test_emitted_parquet_columns_match_canonical_order(tmp_path: Path) -> None:
+def test_emitted_csv_columns_match_canonical_order(tmp_path: Path) -> None:
     csv_in = tmp_path / "in.csv"
-    out_parquet = tmp_path / "out.parquet"
+    out_csv = tmp_path / "out.csv"
     sources_parquet = tmp_path / "sources.parquet"
     _write_csv(csv_in, _CSV_BODY)
 
     ingest_pincode_directory(
         input_csv=csv_in,
-        output_parquet=out_parquet,
+        output_csv=out_csv,
         sources_parquet=sources_parquet,
     )
 
-    con = duckdb.connect(":memory:")
-    try:
-        cols = [
-            r[0]
-            for r in con.execute(
-                f"SELECT column_name FROM (DESCRIBE SELECT * FROM "
-                f"read_parquet('{out_parquet.as_posix()}'))"
-            ).fetchall()
-        ]
-    finally:
-        con.close()
-
-    assert tuple(cols) == PINCODE_OUTPUT_COLUMNS
+    # First line of the CSV is the header; split on the standard ',' so the
+    # assertion is independent of any DuckDB type-detection behaviour.
+    with out_csv.open(encoding="utf-8", newline="") as fp:
+        header = next(csv.reader(fp))
+    assert tuple(header) == PINCODE_OUTPUT_COLUMNS
 
 
 def test_rows_sorted_by_pincode_then_officename(tmp_path: Path) -> None:
     csv_in = tmp_path / "in.csv"
-    out_parquet = tmp_path / "out.parquet"
+    out_csv = tmp_path / "out.csv"
     sources_parquet = tmp_path / "sources.parquet"
     _write_csv(csv_in, _CSV_BODY)
 
     ingest_pincode_directory(
         input_csv=csv_in,
-        output_parquet=out_parquet,
+        output_csv=out_csv,
         sources_parquet=sources_parquet,
     )
 
-    con = duckdb.connect(":memory:")
-    try:
-        rows = con.execute(
-            f"SELECT pincode, officename FROM "
-            f"read_parquet('{out_parquet.as_posix()}')"
-        ).fetchall()
-    finally:
-        con.close()
+    with out_csv.open(encoding="utf-8", newline="") as fp:
+        rows = list(csv.DictReader(fp))
 
     # Expected order is by pincode ascending.
-    assert [r[0] for r in rows] == ["504273", "560038", "600017"]
+    assert [r["pincode"] for r in rows] == ["504273", "560038", "600017"]
 
 
 def test_source_id_fk_present_on_every_row(tmp_path: Path) -> None:
     csv_in = tmp_path / "in.csv"
-    out_parquet = tmp_path / "out.parquet"
+    out_csv = tmp_path / "out.csv"
     sources_parquet = tmp_path / "sources.parquet"
     _write_csv(csv_in, _CSV_BODY)
 
     ingest_pincode_directory(
         input_csv=csv_in,
-        output_parquet=out_parquet,
+        output_csv=out_csv,
         sources_parquet=sources_parquet,
     )
 
-    con = duckdb.connect(":memory:")
-    try:
-        distinct = con.execute(
-            f"SELECT DISTINCT source_id FROM read_parquet('{out_parquet.as_posix()}')"
-        ).fetchall()
-    finally:
-        con.close()
+    with out_csv.open(encoding="utf-8", newline="") as fp:
+        rows = list(csv.DictReader(fp))
 
-    assert distinct == [(PINCODE_SOURCE_ID,)]
+    distinct = {r["source_id"] for r in rows}
+    assert distinct == {PINCODE_SOURCE_ID}
 
 
 def test_sources_row_carries_correct_citation_triple(tmp_path: Path) -> None:
     csv_in = tmp_path / "in.csv"
-    out_parquet = tmp_path / "out.parquet"
+    out_csv = tmp_path / "out.csv"
     sources_parquet = tmp_path / "sources.parquet"
     _write_csv(csv_in, _CSV_BODY)
 
     ingest_pincode_directory(
         input_csv=csv_in,
-        output_parquet=out_parquet,
+        output_csv=out_csv,
         sources_parquet=sources_parquet,
     )
 
@@ -209,34 +199,34 @@ def test_sources_row_carries_correct_citation_triple(tmp_path: Path) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_reingest_produces_byte_identical_parquet(tmp_path: Path) -> None:
+def test_reingest_produces_byte_identical_csv(tmp_path: Path) -> None:
     """Re-running ingest against the same input yields byte-identical
     output bytes — required for the citation-ledger invariant
     (Holy Law #10) that re-runs against byte-identical upstream
     leave observation bytes unchanged.
     """
     csv_in = tmp_path / "in.csv"
-    out_parquet = tmp_path / "out.parquet"
+    out_csv = tmp_path / "out.csv"
     sources_parquet = tmp_path / "sources.parquet"
     _write_csv(csv_in, _CSV_BODY)
 
     ingest_pincode_directory(
         input_csv=csv_in,
-        output_parquet=out_parquet,
+        output_csv=out_csv,
         sources_parquet=sources_parquet,
     )
-    sha1 = _sha256(out_parquet)
+    sha1 = _sha256(out_csv)
     src_sha1 = _sha256(sources_parquet)
 
     ingest_pincode_directory(
         input_csv=csv_in,
-        output_parquet=out_parquet,
+        output_csv=out_csv,
         sources_parquet=sources_parquet,
     )
-    sha2 = _sha256(out_parquet)
+    sha2 = _sha256(out_csv)
     src_sha2 = _sha256(sources_parquet)
 
-    assert sha1 == sha2, "pincode-directory.parquet bytes drifted across re-runs"
+    assert sha1 == sha2, "pincode.csv bytes drifted across re-runs"
     assert src_sha1 == src_sha2, "sources.parquet bytes drifted across re-runs"
 
 
@@ -335,18 +325,18 @@ def test_re_upsert_does_not_duplicate_pincode_row(tmp_path: Path) -> None:
 
 def test_missing_input_file_raises_descriptive(tmp_path: Path) -> None:
     missing = tmp_path / "does-not-exist.csv"
-    out_parquet = tmp_path / "out.parquet"
+    out_csv = tmp_path / "out.csv"
     sources_parquet = tmp_path / "sources.parquet"
 
     with pytest.raises(FileNotFoundError, match="pincode directory input"):
         ingest_pincode_directory(
             input_csv=missing,
-            output_parquet=out_parquet,
+            output_csv=out_csv,
             sources_parquet=sources_parquet,
         )
 
-    # No parquet should have been written.
-    assert not out_parquet.exists()
+    # No CSV should have been written.
+    assert not out_csv.exists()
     assert not sources_parquet.exists()
 
 

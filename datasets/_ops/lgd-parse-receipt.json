@@ -1,5 +1,5 @@
 {
-  "$schema": "./lgd-parse-receipt.schema.json",
+  "$schema": "../schemas/lgd-parse-receipt.schema.json",
   "$schema_version": "1.0",
   "outputs": [
     {
