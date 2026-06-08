@@ -75,7 +75,7 @@ const RAW_CANNED_INTENTS: ReadonlyArray<{
         ac_no: 167,
       },
       reasoning:
-        "Read the per-AC result row for ac_no 167 in the named period; surface top-5 per config/processing.json.",
+        "Read the per-AC result row for ac_no 167 in the named period; surface top-5 (the project-wide presentation default, inlined as _TOP_N_DEFAULT in backend/yen_gov/cli.py since G9 2026-06-08).",
     }),
   },
   {

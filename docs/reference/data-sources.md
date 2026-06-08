@@ -33,7 +33,7 @@ https://www.eci.gov.in/statistical-report/{body}/{year}/{category_id}
 | `{year}` | Year the election concluded | `2026` |
 | `{category_id}` | Cleartext ECI catalogue id; same integer used by `/eci-backend/public/api/election-result?category_id=<id>` | `26` for Tamil Nadu 2026 |
 
-The `category_id` is not the yen-gov state code (`S22`) and is not a general state-display-code table. The canonical pin store is [`config/eci-pins.json`](../../config/eci-pins.json), validated by [`eci_pins.schema.json`](../../datasets/schemas/eci_pins.schema.json) and loaded by [`backend/yen_gov/sources/eci/categories.py`](../../backend/yen_gov/sources/eci/categories.py). Detailed mechanics live in [backend/sources-eci.md](../architecture/backend/sources-eci.md#url-grammar--statistical-reports).
+The `category_id` is not the yen-gov state code (`S22`) and is not a general state-display-code table. Historical context: pins lived in `config/eci-pins.json` (loaded by `backend/yen_gov/sources/eci/categories.py`); both were retired in G9 (2026-06-08) as orphan code after the network-fetch CLIs that consumed them (`eci-statreport` + `eci-statreport-emit`) retired in B4-pt2.2 (#826). The surviving operator path is `python -m yen_gov eci-statreport-emit-local <xlsx-path>`, which reads no pin file. Detailed mechanics live in [backend/sources-eci.md](../architecture/backend/sources-eci.md#url-grammar--statistical-reports).
 
 **Known URL families**:
 

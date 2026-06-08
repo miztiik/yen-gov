@@ -66,7 +66,7 @@ datasets/            # Schemas, reference data, generated artifacts
   reference/         #   Slowly-changing reference data (states, parties, topic catalogue)
   indicators/        #   Generated indicator artifacts (fiscal, energy, economy, ...)
   elections/         #   Per-event/per-state election outputs
-config/              # Tunable knobs (e.g. processing.json)
+config/              # Tunable knobs (after G9 2026-06-08: just topojson.json)
 backend/             # Python pipeline + tests + FastAPI dev admin
   yen_gov/           #   Package: validate.py, cli.py, adapters, ...
   tests/             #   pytest

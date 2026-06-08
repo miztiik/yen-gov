@@ -91,15 +91,16 @@ def compose_result_summary(
     The partywise snapshot is the spine: it determines which parties get a
     `party_totals` row and what their `seats_won` is. Vote totals come from
     walking every candidate (including those collapsed into `others` via
-    `OthersBucket`? — no: OthersBucket loses per-party identity, so this
+    `OthersBucket`? - no: OthersBucket loses per-party identity, so this
     composer only sees parties present in the kept top-N candidates plus IND).
 
-    Trade-off: when `processing.results.collapse_others` is true, the votes
-    bucketed into `others` are excluded from per-party totals. This is
-    documented; a downstream consumer that wants exact party-level vote
-    totals must run the pipeline with `top_n_candidates` ≥ the field size.
-    Either way, `totals.votes_polled` is the true sum from each constituency,
-    so vote shares are computed against the unfiltered denominator.
+    Trade-off: when the caller passes ``collapse_others=True`` to the
+    upstream mapper, votes bucketed into `others` are excluded from per-party
+    totals. This is documented; a downstream consumer that wants exact
+    party-level vote totals must run the pipeline with ``top_n`` >= the
+    field size. Either way, `totals.votes_polled` is the true sum from each
+    constituency, so vote shares are computed against the unfiltered
+    denominator.
     """
     if not constituencies:
         raise ValueError("compose_result_summary needs at least one ConstituencyResult")

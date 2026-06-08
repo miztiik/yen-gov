@@ -77,7 +77,7 @@ datasets/reference/in/states/S22/constituencies.json
 
 A `result.constituency.json` carries:
 
-- The full **top-N** candidates list (configurable via `config/processing.json`, default 5).
+- The full **top-N** candidates list (top-N = 5 since PR-K 2026-05-18, inlined as `_TOP_N_DEFAULT` in [backend/yen_gov/cli.py](../../backend/yen_gov/cli.py) since G9 2026-06-08).
 - **NOTA** broken out separately — never counted as a candidate.
 - An **`others`** bucket that collapses everyone below top-N (count, total votes, share). Null if no collapsing happened.
 - The `top_n_cutoff` value used at emit time, so consumers can reproduce the breakdown.

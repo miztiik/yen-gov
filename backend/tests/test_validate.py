@@ -62,26 +62,68 @@ def test_load_schemas_reports_malformed_json(tmp_path: Path):
 
 
 def _seed_repo(tmp_path: Path) -> Path:
-    """Copy real schemas into a tmp 'repo' so Tier B can resolve them."""
+    """Copy real schemas into a tmp 'repo' so Tier B can resolve them.
+
+    Also drops a synthetic ``g9-test-fixture.schema.json`` (3-version
+    changelog v1.0 -> v1.1 -> v1.2) used by the tier_b schema-version
+    compatibility tests below. The fixture replaced ``processing.schema.json``
+    in G9 (2026-06-08) when config/processing.json + processing.schema.json
+    were retired; the validator behaviour under test is independent of the
+    real schema, so a synthetic fixture isolates the test from production
+    schema evolution and avoids re-targeting tests every time another
+    schema's version history shifts.
+    """
     schemas_dir = tmp_path / "datasets/schemas"
     schemas_dir.mkdir(parents=True)
     for src in (REPO / "datasets/schemas").glob("*.schema.json"):
         (schemas_dir / src.name).write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
+    (schemas_dir / "g9-test-fixture.schema.json").write_text(
+        json.dumps(_G9_TEST_SCHEMA), encoding="utf-8"
+    )
     return schemas_dir
 
 
-def _processing_config(version: str, *, include_results: bool = True) -> dict:
-    body = {
-        "$schema": "https://yen-gov.github.io/schemas/processing.schema.json",
+# G9 (2026-06-08) synthetic schema for tier_b schema-version-compatibility
+# tests. 3-version changelog so the "old additive minor", "old major" and
+# "future version" branches can each be exercised. The required `payload`
+# field exercises the missing-field branch. Decoupled from any real
+# production schema so the tests survive schema evolution.
+_G9_TEST_FIXTURE_URL = "https://yen-gov.github.io/schemas/g9-test-fixture.schema.json"
+_G9_TEST_FIXTURE_CURRENT = "1.2"
+_G9_TEST_SCHEMA: dict = {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "./g9-test-fixture.schema.json",
+    "title": "G9 test fixture schema",
+    "description": (
+        "Synthetic schema for the tier_b schema-version-compatibility "
+        "test battery; never written by production code."
+    ),
+    "x-version": _G9_TEST_FIXTURE_CURRENT,
+    "x-changelog": [
+        {"version": "1.0", "date": "2026-06-08", "description": "Initial test fixture."},
+        {"version": "1.1", "date": "2026-06-08", "description": "Additive minor for old-minor branch."},
+        {"version": _G9_TEST_FIXTURE_CURRENT, "date": "2026-06-08", "description": "Current; required payload field added."},
+    ],
+    "type": "object",
+    "required": ["$schema", "$schema_version", "sources", "payload"],
+    "additionalProperties": False,
+    "properties": {
+        "$schema": {"type": "string", "format": "uri"},
+        "$schema_version": {"type": "string", "pattern": "^\\d+\\.\\d+$"},
+        "sources": {"type": "array", "maxItems": 0},
+        "payload": {"type": "object", "additionalProperties": True},
+    },
+}
+
+
+def _g9_config(version: str, *, include_payload: bool = True) -> dict:
+    body: dict = {
+        "$schema": _G9_TEST_FIXTURE_URL,
         "$schema_version": version,
         "sources": [],
-        "fetch": {
-            "concurrency": 1, "retry_attempts": 0,
-            "timeout_seconds": 1.0, "user_agent": "x",
-        },
     }
-    if include_results:
-        body["results"] = {"top_n_candidates": 1, "collapse_others": False}
+    if include_payload:
+        body["payload"] = {"k": 1}
     return body
 
 
@@ -104,13 +146,13 @@ def _write_schema_compatibility(tmp_path: Path, overrides: list[dict]) -> None:
     }), encoding="utf-8")
 
 
-def _processing_override(accepted_versions: list[str]) -> dict:
+def _g9_override(accepted_versions: list[str]) -> dict:
     return {
         "surface": "json-corpus",
-        "schema": "processing.schema.json",
+        "schema": "g9-test-fixture.schema.json",
         "accepted_versions": accepted_versions,
         "validation": "current_schema",
-        "rationale": "Test fixture override for additive processing schema minors validated by the current schema.",
+        "rationale": "Test fixture override for additive g9 schema minors validated by the current schema.",
     }
 
 
@@ -118,16 +160,9 @@ def test_tier_b_rejects_wrong_schema_version(tmp_path: Path):
     schemas_dir = _seed_repo(tmp_path)
     cfg = tmp_path / "config"
     cfg.mkdir()
-    (cfg / "processing.json").write_text(json.dumps({
-        "$schema": "https://yen-gov.github.io/schemas/processing.schema.json",
-        "$schema_version": "9.9",
-        "sources": [],
-        "fetch": {
-            "concurrency": 1, "retry_attempts": 0,
-            "timeout_seconds": 1.0, "user_agent": "x",
-        },
-        "results": {"top_n_candidates": 1, "collapse_others": False},
-    }), encoding="utf-8")
+    (cfg / "g9-test-fixture.json").write_text(
+        json.dumps(_g9_config("9.9")), encoding="utf-8"
+    )
     schemas, _ = load_schemas(schemas_dir)
     fails = tier_b(schemas, tmp_path)
     assert any("$schema_version" in f.message for f in fails), fails
@@ -135,61 +170,61 @@ def test_tier_b_rejects_wrong_schema_version(tmp_path: Path):
 
 def test_tier_b_accepts_supported_old_additive_minor_from_json_corpus_registry(tmp_path: Path):
     schemas_dir = _seed_repo(tmp_path)
-    _write_schema_compatibility(tmp_path, [_processing_override(["3.0", "3.1"])])
+    _write_schema_compatibility(tmp_path, [_g9_override(["1.1", _G9_TEST_FIXTURE_CURRENT])])
     cfg = tmp_path / "config"
     cfg.mkdir()
-    (cfg / "processing.json").write_text(
-        json.dumps(_processing_config("3.0")), encoding="utf-8"
+    (cfg / "g9-test-fixture.json").write_text(
+        json.dumps(_g9_config("1.1")), encoding="utf-8"
     )
     schemas, _ = load_schemas(schemas_dir)
     fails = tier_b(schemas, tmp_path)
-    assert not [f for f in fails if f.file == "config/processing.json"], fails
+    assert not [f for f in fails if f.file == "config/g9-test-fixture.json"], fails
 
 
 def test_tier_b_rejects_future_version_even_if_registry_lists_it(tmp_path: Path):
     schemas_dir = _seed_repo(tmp_path)
-    _write_schema_compatibility(tmp_path, [_processing_override(["3.1", "3.9"])])
+    _write_schema_compatibility(tmp_path, [_g9_override([_G9_TEST_FIXTURE_CURRENT, "1.9"])])
     cfg = tmp_path / "config"
     cfg.mkdir()
-    (cfg / "processing.json").write_text(
-        json.dumps(_processing_config("3.9")), encoding="utf-8"
+    (cfg / "g9-test-fixture.json").write_text(
+        json.dumps(_g9_config("1.9")), encoding="utf-8"
     )
     schemas, _ = load_schemas(schemas_dir)
     fails = tier_b(schemas, tmp_path)
     assert any(
-        f.file == "config/processing.json" and "$schema_version '3.9' is not accepted" in f.message
+        f.file == "config/g9-test-fixture.json" and "$schema_version '1.9' is not accepted" in f.message
         for f in fails
     ), fails
 
 
 def test_tier_b_rejects_old_major_even_if_registry_lists_it(tmp_path: Path):
     schemas_dir = _seed_repo(tmp_path)
-    _write_schema_compatibility(tmp_path, [_processing_override(["2.0", "3.1"])])
+    _write_schema_compatibility(tmp_path, [_g9_override(["0.9", _G9_TEST_FIXTURE_CURRENT])])
     cfg = tmp_path / "config"
     cfg.mkdir()
-    (cfg / "processing.json").write_text(
-        json.dumps(_processing_config("2.0")), encoding="utf-8"
+    (cfg / "g9-test-fixture.json").write_text(
+        json.dumps(_g9_config("0.9")), encoding="utf-8"
     )
     schemas, _ = load_schemas(schemas_dir)
     fails = tier_b(schemas, tmp_path)
     assert any(
-        f.file == "config/processing.json" and "$schema_version '2.0' is not accepted" in f.message
+        f.file == "config/g9-test-fixture.json" and "$schema_version '0.9' is not accepted" in f.message
         for f in fails
     ), fails
 
 
 def test_tier_b_rejects_supported_old_minor_with_current_schema_shape_error(tmp_path: Path):
     schemas_dir = _seed_repo(tmp_path)
-    _write_schema_compatibility(tmp_path, [_processing_override(["3.0", "3.1"])])
+    _write_schema_compatibility(tmp_path, [_g9_override(["1.1", _G9_TEST_FIXTURE_CURRENT])])
     cfg = tmp_path / "config"
     cfg.mkdir()
-    (cfg / "processing.json").write_text(
-        json.dumps(_processing_config("3.0", include_results=False)), encoding="utf-8"
+    (cfg / "g9-test-fixture.json").write_text(
+        json.dumps(_g9_config("1.1", include_payload=False)), encoding="utf-8"
     )
     schemas, _ = load_schemas(schemas_dir)
     fails = tier_b(schemas, tmp_path)
     assert any(
-        f.file == "config/processing.json" and "'results'" in f.message
+        f.file == "config/g9-test-fixture.json" and "'payload'" in f.message
         for f in fails
     ), fails
 
@@ -198,27 +233,22 @@ def test_tier_b_rejects_missing_required_field(tmp_path: Path):
     schemas_dir = _seed_repo(tmp_path)
     cfg = tmp_path / "config"
     cfg.mkdir()
-    (cfg / "processing.json").write_text(json.dumps({
-        "$schema": "https://yen-gov.github.io/schemas/processing.schema.json",
-        "$schema_version": schema_version("processing.schema.json"),
-        "sources": [],
-        "fetch": {
-            "concurrency": 1, "retry_attempts": 0,
-            "timeout_seconds": 1.0, "user_agent": "x",
-        },
-    }), encoding="utf-8")
+    (cfg / "g9-test-fixture.json").write_text(
+        json.dumps(_g9_config(_G9_TEST_FIXTURE_CURRENT, include_payload=False)),
+        encoding="utf-8",
+    )
     schemas, _ = load_schemas(schemas_dir)
     fails = tier_b(schemas, tmp_path)
-    assert any("'results'" in f.message for f in fails), fails
+    assert any("'payload'" in f.message for f in fails), fails
 
 
 def test_tier_b_rejects_unknown_schema(tmp_path: Path):
     schemas_dir = _seed_repo(tmp_path)
     cfg = tmp_path / "config"
     cfg.mkdir()
-    (cfg / "processing.json").write_text(json.dumps({
+    (cfg / "g9-test-fixture.json").write_text(json.dumps({
         "$schema": "https://example.com/nope.schema.json",
-        "$schema_version": "3.0",
+        "$schema_version": "1.0",
     }), encoding="utf-8")
     schemas, _ = load_schemas(schemas_dir)
     fails = tier_b(schemas, tmp_path)
